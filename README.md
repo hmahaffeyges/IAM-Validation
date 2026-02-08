@@ -68,20 +68,44 @@ IAM-Validation/
 ├── results/
 │   └── *.npz
 └── README.md
-📚 Citation
+## 📄 Published Preprints
 
-BibTeX
-@article{mahaffey2026iam,
+**Latest Version (February 2026):**
+- **OSF Preprints**: [DOI: 10.17605/OSF.IO/KCZD9](https://doi.org/10.17605/OSF.IO/KCZD9)
+- **Direct Link**: [https://osf.io/kczd9](https://osf.io/kczd9)
+
+**Original Version (December 2025):**
+- **viXra**: [2512.0029](https://vixra.org/abs/2512.0029)
+## 📚 How to Cite
+
+```bibtex
+@misc{mahaffey2026iam,
   author = {Mahaffey, Heath W.},
-  title = {Holographic Black-Hole Cosmology},
+  title = {Holographic Black-Hole Cosmology: Resolving the Hubble Tension via Information-Driven Expansion},
   year = {2026},
-  url = {https://github.com/hmahaffeyges/IAM-Validation}
+  publisher = {OSF Preprints},
+  doi = {10.17605/OSF.IO/KCZD9},
+  url = {https://doi.org/10.17605/OSF.IO/KCZD9},
+  note = {Original version: viXra:2512.0029 (2024)}
 }
 📧 Contact
 
 Heath W. Mahaffey
 📧 hmaffeyges@gmail.com
 🔗 @hmahaffeyges
+
+🔄 Revision History
+
+v2.0 (February 2026) - Current Version
+
+Refined statistical methodology (χ² replacing AIC)
+Updated with DESI DR2 data
+Added reproducible validation code
+Enhanced significance: Δχ² = 59.58 (5.7σ)
+
+v1.0 (December 2025) - viXra:2512.0029
+
+Initial IAM framework
 
 📄 License
 
