@@ -68,17 +68,19 @@ IAM-Validation/
 ├── results/
 │   └── *.npz
 └── README.md
-## 📄 Published Preprints
 
-**Latest Version (February 2026):**
-- **OSF Preprints**: [DOI: 10.17605/OSF.IO/KCZD9](https://doi.org/10.17605/OSF.IO/KCZD9)
-- **Direct Link**: [https://osf.io/kczd9](https://osf.io/kczd9)
+📄 Published Preprints
 
-**Original Version (December 2025):**
-- **viXra**: [2512.0029](https://vixra.org/abs/2512.0029)
-## 📚 How to Cite
+Latest Version (February 2026):**
+- OSF Preprints: [DOI: 10.17605/OSF.IO/KCZD9](https://doi.org/10.17605/OSF.IO/KCZD9)
+- Direct Link**: [https://osf.io/kczd9](https://osf.io/kczd9)
 
-```bibtex
+Original Version (December 2025):
+- viXra: [2512.0029](https://vixra.org/abs/2512.0029)
+
+📚 How to Cite
+
+bibtex
 @misc{mahaffey2026iam,
   author = {Mahaffey, Heath W.},
   title = {Holographic Black-Hole Cosmology: Resolving the Hubble Tension via Information-Driven Expansion},
