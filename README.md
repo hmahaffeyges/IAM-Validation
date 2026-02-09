@@ -184,7 +184,7 @@ v2.0 (February 2026) - Current Version
 Refined statistical methodology (χ² replacing AIC)
 Updated with DESI DR2 data
 Added reproducible validation code
-Enhanced significance: Δχ² = 59.58 (5.7σ)
+Enhanced significance: Δχ² = 32.09 (5.7σ)
 
 v1.0 (December 2025) - viXra:2512.0029
 
