@@ -45,6 +45,77 @@ Test 3: Combined Fit
 χ²_IAM = 11.50
 Significance: 5.7σ
 Status: ✅ PASS
+
+Quick Validation (60 seconds)
+
+Run the complete validation suite with one command:
+
+```bash
+./run_tests.sh
+```
+
+Or run the test directly:
+
+```bash
+python tests/test_03_final.py
+```
+
+### What the Test Does
+
+The validation test compares IAM and ΛCDM across:
+
+1. **H₀ predictions** - Tests against SH0ES and JWST measurements
+2. **Growth rate (fσ₈)** - Tests against DESI measurements
+3. **Combined statistical fit** - Overall model comparison
+
+**Expected output:**
+- ✅ All tests pass
+- Δχ² ≈ 30-60 (depending on datasets included)
+- Statistical significance: >5σ
+- Runtime: <60 seconds
+
+### Test Results
+
+After running, you should see:
+
+```
+✅ IAM FITS SIGNIFICANTLY BETTER
+   Δχ² = +32.09
+   Statistical significance: 5.7σ
+   → STRONG EVIDENCE for IAM over ΛCDM
+```
+
+Results are saved to `results/validation_results.npz` for further analysis.
+
+### Testing Robustness
+
+To test IAM's robustness yourself:
+
+**Modify parameters:**
+Edit `tests/test_03_final.py` and change values in the parameters section:
+```python
+beta = 0.18  # Try different values
+growth_tax = 0.045  # Try different values
+```
+
+**Test on data subsets:**
+Comment out specific datasets in the test file to see how IAM performs on different combinations.
+
+**Compare to your own models:**
+Import the IAM implementation and compare to your preferred cosmological model:
+```python
+from src.iam_cosmology import solve_growth_iam, compute_fsigma8_iam
+# Use alongside your ΛCDM or alternative model
+```
+
+ We Welcome Critical Testing
+
+If you find issues or have questions:
+- Open a GitHub issue
+- Email: hmaffeyges@gmail.com
+
+We actively encourage attempts to falsify these results. Rigorous scrutiny strengthens science.
+
 🔬 What is IAM?
 
 The Informational Actualization Model links cosmic expansion to information encoding on the apparent horizon.
