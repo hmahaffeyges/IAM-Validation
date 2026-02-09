@@ -26,7 +26,17 @@ git clone https://github.com/hmahaffeyges/IAM-Validation.git
 cd IAM-Validation
 pip install numpy scipy matplotlib astropy
 python tests/test_03_final.py
-Runtime: < 1 minute
+
+## Running Validation Tests
+
+### ⚡ Ultra-Fast Validation (<2 seconds)
+
+Unlike traditional cosmology codes that require minutes to hours, IAM's validation runs in **under 2 seconds** on standard hardware. This enables rapid iteration, extensive parameter exploration, and real-time model testing.
+
+Run the complete validation suite with one command:
+
+```bash
+./run_tests.sh
 
 📊 Test Results
 
