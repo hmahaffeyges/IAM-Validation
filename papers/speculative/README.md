@@ -84,7 +84,7 @@ This speculative work builds on the core IAM cosmology framework:
 Main cosmology paper: ../cosmology/
 Validation code: ../../tests/
 Core IAM implementation: ../../src/
-The cosmological IAM has strong statistical evidence (Δχ² = 59.58, 5.7σ). This speculative extension explores what might follow if that framework is correct at a fundamental level.
+The cosmological IAM has strong statistical evidence (Δχ² = 32.09, 5.7σ). This speculative extension explores what might follow if that framework is correct at a fundamental level.
 
 Disclaimer
 

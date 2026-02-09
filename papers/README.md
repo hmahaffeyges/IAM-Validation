@@ -12,7 +12,7 @@ This directory contains research papers related to the Informational Actualizati
 ### [`/cosmology/`](cosmology/)
 Core cosmological framework resolving the Hubble tension.
 
-**Status**: Strong statistical evidence (Δχ² = 59.58, 5.7σ)
+**Status**: Strong statistical evidence (Δχ² = 32.09, 5.7σ)
 - Published: OSF Preprints (DOI: 10.17605/OSF.IO/KCZD9)
 - Preliminary version: viXra:2512.0029 (December 2025)
 - Under review: arXiv endorsement requested (February 2026)
