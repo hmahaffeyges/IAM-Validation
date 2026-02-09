@@ -2,3 +2,17 @@
 .DS_Store
 IAM_Manuscript_2-26.pdf
 tests/archive/
+data/pantheon_repo/
+data/*.zip
+tests/pantheon_plus.zip
+.DS_Store
+# Large data files
+data/pantheon_repo/
+*.zip
+
+# OS files
+.DS_Store
+**/.DS_Store
+
+# Empty/error files
+data/pantheon_plus/*.dat
