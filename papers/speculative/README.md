@@ -1,52 +1,96 @@
-# IAM Research Papers
+# IAM Beyond Cosmology: Speculative Framework
 
-[![OSF Preprint](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
-[![viXra](https://img.shields.io/badge/viXra-2512.0029-orange)](https://vixra.org/abs/2512.0029)
-[![Papers](https://img.shields.io/badge/Papers-2-green)](papers/)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+## Overview
 
-This directory contains research papers related to the Informational Actualization Model (IAM).
+This directory contains a speculative exploration of the Informational Actualization Model (IAM) beyond its original cosmological application. While IAM was developed to resolve the Hubble tension, this paper explores potential implications across quantum computing, thermodynamics, and foundational physics.
 
-## Structure
+## Status
 
-### [`/cosmology/`](cosmology/)
-Core cosmological framework resolving the Hubble tension.
+⚠️ **Speculative / Exploratory**
 
-**Status**: Strong statistical evidence (Δχ² = 59.58, 5.7σ)
-- Published: OSF Preprints (DOI: 10.17605/OSF.IO/KCZD9)
-- Preliminary version: viXra:2512.0029 (December 2025)
-- Under review: arXiv endorsement requested (February 2026)
+This work is **not** peer-reviewed and represents theoretical exploration rather than established science. It serves as:
+- A timestamp for future reference
+- An invitation for collaboration
+- A demonstration of human-AI collaborative research methodology
+- A record of cross-domain pattern recognition
 
-### [`/speculative/`](speculative/)
-Speculative extensions exploring implications beyond cosmology.
+## Files
 
-**Status**: Exploratory / not peer-reviewed
-- Quantum computing limits
-- Thermodynamic applications
-- Foundational physics implications
-- Developed via human-AI collaboration
+- **`IAM_Beyond_Cosmology.tex`** - LaTeX source code
+- **`IAM_Beyond_Cosmology.pdf`** - Compiled paper
+- **`README.md`** - This file
 
-## Timeline
+## Key Claims (To Be Tested)
 
-| Date | Milestone |
-|------|-----------|
-| Dec 2025 | Preliminary cosmology framework (viXra:2512.0029) |
-| Feb 2026 | Refined cosmology analysis (OSF DOI) |
-| Feb 2026 | Speculative extensions paper |
-| Feb 2026 | arXiv endorsement requested (Lloyd Knox, UC Davis) |
-| TBD | arXiv publication |
-| TBD | Journal submission (Universe or PRD) |
-| TBD | Experimental tests of quantum predictions |
+If IAM cosmology is validated, the same actualization principle may imply:
+
+### Quantum Computing
+- Fundamental limits on quantum reversibility
+- Decoherence as intrinsic actualization (not just environmental noise)
+- Upper bounds on practical quantum computer size
+- New paradigm: actualization-based computing
+
+### Thermodynamics
+- Actualization-driven heat engines
+- Information batteries exploiting unactualized states
+- Resolution of Maxwell's demon paradox
+
+### Foundational Physics
+- Measurement problem = actualization process
+- Arrow of time = cumulative actualization
+- Unification of quantum mechanics, thermodynamics, and cosmology
+
+## Development Timeline
+
+- **December 2025**: IAM cosmology framework (viXra:2512.0029)
+- **February 2026**: Refined cosmological analysis (OSF DOI: 10.17605/OSF.IO/KCZD9)
+- **February 2026**: This speculative extension developed via human-AI collaboration
+- **Future**: Experimental validation (or falsification) of predictions
+
+## Methodology: Human-AI Collaboration
+
+This paper was developed through collaborative partnership between:
+- **Human (Heath Mahaffey)**: Cross-domain pattern recognition, philosophical grounding, strategic vision
+- **AI (Claude, Anthropic)**: Rapid synthesis, mathematical formalization, articulation assistance
+
+This represents a new model for exploratory theoretical research.
 
 ## Citation
 
-For the core cosmological IAM:
+If you reference this work:
+
 ```bibtex
-@article{Mahaffey2026IAM,
+@article{Mahaffey2026Speculative,
   author = {Heath W. Mahaffey},
-  title = {Holographic Black-Hole Cosmology: An Informational Resolution of the Hubble Tension},
+  title = {Beyond Cosmology: Implications of the Informational Actualization Model Across Physical Scales},
   year = {2026},
-  publisher = {OSF Preprints},
-  doi = {10.17605/OSF.IO/KCZD9},
-  url = {https://osf.io/kczd9}
+  month = {February},
+  note = {Speculative framework. Available at \url{https://github.com/hmahaffeyges/IAM-Validation/tree/main/papers/speculative}},
+  collaboration = {Developed with AI assistance (Claude, Anthropic)}
 }
+Call for Collaboration
+
+The author welcomes collaboration in:
+
+Experimental testing of quantum computing predictions
+Development of actualization computing architectures
+Prototype thermodynamic actualization engines
+Theoretical formalization and extension
+Contact: hmaffeyges@gmail.com
+Relationship to Main IAM Project
+
+This speculative work builds on the core IAM cosmology framework:
+
+Main cosmology paper: ../cosmology/
+Validation code: ../../tests/
+Core IAM implementation: ../../src/
+The cosmological IAM has strong statistical evidence (Δχ² = 59.58, 5.7σ). This speculative extension explores what might follow if that framework is correct at a fundamental level.
+
+Disclaimer
+
+This is exploratory theoretical work. Predictions should be tested experimentally before being accepted. The author invites critical engagement, experimental validation, and collaborative refinement.
+
+Science advances through bold speculation and rigorous testing. This paper provides the speculation; the scientific community will provide the testing.
+
+"The stone the builders rejected has become the cornerstone." - Psalm 118:22
+
