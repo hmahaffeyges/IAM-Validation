@@ -111,14 +111,7 @@ growth_tax = 0.045  # Try different values
 **Test on data subsets:**
 Comment out specific datasets in the test file to see how IAM performs on different combinations.
 
-**Compare to your own models:**
-Import the IAM implementation and compare to your preferred cosmological model:
-```python
-from src.iam_cosmology import solve_growth_iam, compute_fsigma8_iam
-# Use alongside your ΛCDM or alternative model
-```
-
- We Welcome Critical Testing
+We Welcome Critical Testing
 
 If you find issues or have questions:
 - Open a GitHub issue
