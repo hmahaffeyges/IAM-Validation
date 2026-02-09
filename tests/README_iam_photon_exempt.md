@@ -119,6 +119,53 @@ Hubble parameter H(z) at z=0.5-0.7: up by 2–4%
 SUCCESS! PHOTON-EXEMPT IAM WITH ORIGINAL PHYSICS WORKS!
 ```
 
+## 📊 Reproducibility Diagnostic: Partial Path Integral of Angular Diameter Distance
+
+**Purpose:**  
+This test pinpoints which cosmic epochs contribute most to differences in angular diameter distance ($d_A$) between IAM and ΛCDM. It is essential for:
+- Explaining why the CMB acoustic scale ($\theta_s$) can diverge from Planck predictions,
+- Validating new IAM, activation, or tax formulas,
+- Reproducibility and clarity for collaborators, reviewers, or AI assistants.
+
+**How It Works:**  
+- Integrates the angular diameter distance in segments from $z=0$ to $z=1090$
+- Compares each segment between IAM and ΛCDM
+- Quantifies the segment and cumulative difference
+
+**Script:**  
+`tests/test_26_dA_path_breakdown.py`
+
+**Usage:**  
+```bash
+python tests/test_26_dA_path_breakdown.py
+```
+
+**Sample Output:**
+```
+ z_low  z_high    Δd_A(%)   Cumulative(%)
+-----------------------------------------
+   0.0     0.1     -7.25      -7.25
+   0.1     0.5     -4.66      -5.39
+   0.5     1.0     -1.87      -4.19
+   ... 
+ 100.0  1090.0      0.00      -2.72
+```
+
+**Interpretation:**  
+- Large segment differences at low-z (z < 1) indicate IAM’s effect is concentrated in late cosmic history.
+- Negligible difference at high-z means early universe physics (CMB era) is unchanged.
+- *Always rerun this diagnostic script after changing E_activation, β, thresholds, or IAM tax formulas!*
+
+**Best Practice:**  
+- Include this table in all result supplements/manuscripts for transparency.
+- Reference it in the main README, reproducibility, and "Lessons Learned" sections.
+
+**Useful for:**  
+- Reviewing/debugging cosmological models,
+- Explaining to collaborators or AI why CMB shifts arise from late-time H(z) modification,
+- Documenting where and how a new activation or theory solves cosmology tensions.
+
+---
 ---
 
 ## Next Steps
