@@ -90,6 +90,11 @@ IAM:  χ² = 723.17 (χ²/dof = 0.457)
 ✅ IAM agrees (τ_act → 0.023 ≈ 0)
 ```
 
+## Special Tests and Scenarios
+
+- [Photon-Exempt IAM: CMB-Compatible Scenario](tests/README_iam_photon_exempt.md)  
+  Outlines the key fix for CMB compatibility and how to partition model predictions.
+
 **Conclusion:** IAM's effect is in **growth rates** (structure formation), NOT distance-redshift relations.
 
 ---
