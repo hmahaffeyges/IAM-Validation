@@ -222,10 +222,10 @@ else:
     print(f"\n⚠️  ΛCDM fits better (Δχ² = {delta_chi2:.2f})")
 
 print(f"\nComparison to manuscript:")
-print(f"  Manuscript: χ²_ΛCDM = 72.01, χ²_IAM = 12.43, Δχ² = 59.58")
+print(f"  Manuscript: χ²_ΛCDM = 43.59, χ²_IAM = 11.50, Δχ² = 32.09")
 print(f"  Our result: χ²_ΛCDM = {chi2_lcdm_total:.2f}, χ²_IAM = {chi2_iam_total:.2f}, Δχ² = {delta_chi2:.2f}")
 
-if abs(delta_chi2 - 59.58) < 20:
+if abs(delta_chi2 - 32.09) < 20:
     print(f"\n✅ CONSISTENT WITH MANUSCRIPT (within expected uncertainty)")
 else:
     print(f"\n⚠️  Different from manuscript (likely due to data/covariance differences)")

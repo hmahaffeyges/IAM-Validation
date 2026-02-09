@@ -157,7 +157,7 @@ Latest Version (February 2026):**
 - Direct Link**: [https://osf.io/kczd9](https://osf.io/kczd9)
 
 Original Version (December 2025):
-- viXra: [2512.0029](https://vixra.org/abs/2512.0029)
+- viXra: [2512.0029](https://ai.vixra.org/abs/2512.0029)
 
 📚 How to Cite
 

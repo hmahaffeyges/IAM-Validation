@@ -1,7 +1,7 @@
 # IAM Research Papers
 
 [![OSF Preprint](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
-[![viXra](https://img.shields.io/badge/viXra-2512.0029-orange)](https://vixra.org/abs/2512.0029)
+[![viXra](https://img.shields.io/badge/viXra-2512.0029-orange)](https://ai.vixra.org/abs/2512.0029)
 [![Papers](https://img.shields.io/badge/Papers-2-green)](papers/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
