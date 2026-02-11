@@ -1,0 +1,73 @@
+======================================================================
+TEST 27: CMB LENSING - FULLY CORRECTED
+======================================================================
+
+Hubble functions:
+  H_LCDM(a=1) = 67.40 km/s/Mpc
+  H_IAM(a=1)  = 73.22 km/s/Mpc
+
+Computing comoving distances to CMB (z=1090)...
+  LCDM: chi = 13864.17 Mpc
+  IAM:  chi = 13724.46 Mpc
+  Difference = -1.008%
+
+======================================================================
+ACOUSTIC SCALE (correct formula: r_s / chi)
+======================================================================
+
+  r_s (comoving) = 144.43 Mpc
+  LCDM: theta_s = 0.01041750 rad
+  IAM:  theta_s = 0.01052355 rad
+  Planck obs:   = 0.01041100 rad
+
+  LCDM: +0.062% (2.1 sigma)
+  IAM:  +1.081% (36.3 sigma)
+
+Solving growth equations...
+
+======================================================================
+GROWTH FACTOR (unnormalized - physical amplitude)
+======================================================================
+
+     z     D_LCDM      D_IAM      Ratio  Suppression
+----------------------------------------------------
+   0.0   0.581073   0.568712   0.978728        2.13%
+   0.3   0.495593   0.489832   0.988376        1.16%
+   0.5   0.446868   0.443451   0.992353        0.76%
+   1.0   0.352698   0.351724   0.997240        0.28%
+   2.0   0.242604   0.242491   0.999533        0.05%
+
+======================================================================
+LENSING CONVERGENCE ESTIMATE
+======================================================================
+
+  Lensing integral (LCDM): 3.810860e+02
+  Lensing integral (IAM):  3.777596e+02
+  Ratio kappa_IAM/kappa_LCDM = 0.991271
+  Lensing suppression = 0.873%
+
+Lensing integrand by redshift bin:
+  z=0-1: LCDM 47.6%, IAM 47.3%
+  z=1-3: LCDM 38.4%, IAM 38.7%
+  z=3-10: LCDM 12.9%, IAM 13.1%
+
+======================================================================
+FINAL ASSESSMENT
+======================================================================
+
+chi change (IAM vs LCDM):         -1.008%
+theta_s change (IAM vs LCDM):     +1.018%
+Lensing suppression:              +0.873%
+
+LCDM theta_s discrepancy:  +0.062% (2.1 sigma)
+IAM theta_s discrepancy:   +1.081% (36.3 sigma)
+
+theta_s shift due to IAM:  1.019%
+Lensing compensation:      0.873%
+
+RESULT: LENSING PARTIALLY COMPENSATES (>50%)
+        Dual-sector parameterization completes the picture
+
+======================================================================
+Test complete.
+======================================================================
