@@ -12,16 +12,18 @@
 
 ## 🎯 Core Results
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| **β_m** | 0.157 ± 0.029 | Matter-sector coupling (68% CL) |
-| **β_γ** | < 0.004 | Photon-sector coupling (95% CL) |
-| **β_γ/β_m** | < 0.022 | Empirical sector ratio (95% CL) |
-| **H₀(photon)** | 67.4 km/s/Mpc | CMB measurement (Planck) |
-| **H₀(matter)** | 72.5 ± 0.9 km/s/Mpc | Local measurement (SH0ES) |
-| **Δχ²** | 31.25 (5.6σ) | Improvement over ΛCDM |
+| Parameter | Value | Method | Description |
+|-----------|-------|--------|-------------|
+| **β_m** | 0.164 ± 0.029 | MCMC (68% CL) | Matter-sector coupling |
+| **β_γ** | < 1.4 × 10⁻⁶ | MCMC (95% CL) | Photon-sector coupling |
+| **β_γ/β_m** | < 8.5 × 10⁻⁶ | MCMC (95% CL) | Empirical sector ratio |
+| **H₀(photon)** | 67.4 km/s/Mpc | Planck CMB | Photon-sector measurement |
+| **H₀(matter)** | 72.7 ± 1.0 km/s/Mpc | IAM prediction | Matter-sector prediction |
+| **Δχ²** | 31.25 (5.6σ) | vs. ΛCDM | Statistical improvement |
+| **ΔAIC** | 27.2 | Model selection | No overfitting |
+| **ΔBIC** | 26.6 | Model selection | Strong preference |
 
-**The Hubble tension is resolved:** Planck (photon sector) and SH0ES (matter sector) both measure correctly—they probe different expansion rates with empirically constrained ratio.
+**The Hubble tension is resolved:** Planck (photon sector, β_γ < 10⁻⁵) and SH0ES (matter sector, β_m = 0.164) both measure correctly—they probe different expansion rates. Photons couple at least **100,000× more weakly** than matter to late-time expansion.
 
 ---
 
@@ -32,8 +34,10 @@
 ```bash
 git clone https://github.com/hmahaffeyges/IAM-Validation.git
 cd IAM-Validation
-pip install numpy scipy matplotlib
+pip install numpy scipy matplotlib corner
 ```
+
+**Note:** The `corner` package (for MCMC plots) will auto-install if missing.
 
 ### Run Validation
 
@@ -41,35 +45,49 @@ pip install numpy scipy matplotlib
 python iam_validation.py
 ```
 
-**Expected runtime:** < 5 minutes on standard laptop
+**Expected runtime:** ~1 minute on standard laptop (generates 9 figures)
 
 **Expected output:**
 ```
-======================================================================
-IAM VALIDATION - Profile Likelihood Analysis
-======================================================================
+════════════════════════════════════════════════════════════════════════════════
+  INFORMATIONAL ACTUALIZATION MODEL (IAM)
+  Complete Validation Presentation
+════════════════════════════════════════════════════════════════════════════════
 
-[1/4] Computing LCDM baseline...
-  LCDM: chi^2_total = 41.63
+[1/6] Checking Python environment...
+✓ Python 3.x.x detected
+✓ numpy installed
+✓ scipy installed
+✓ matplotlib installed
+✓ corner installed
 
-[2/4] Scanning beta_m parameter space...
-  Scan complete!
+[2/6] Cosmological Parameters and Observational Data
+...
 
-[3/4] Analyzing likelihood...
-  Best-fit parameter:
-    beta_m = 0.157
-    chi^2_min = 10.38
-    Delta chi^2 = 31.25
-    Significance = 5.6 sigma
+[5/6] Validated Test Results
 
-[4/4] Computing physical predictions...
-  H0(matter) = 72.5 km/s/Mpc
-  Growth suppression = 1.36%
-  sigma_8(IAM) = 0.800
+TEST 1: ΛCDM Baseline
+  χ²_total = 41.63
 
-======================================================================
-VALIDATION COMPLETE!
-======================================================================
+TEST 2: IAM Dual-Sector Model
+  β_m = 0.164 (MCMC median)
+  χ²_total = 10.38
+  Δχ² = 31.25 (5.6σ)
+
+TEST 7: Model Selection Criteria
+  ΔAIC = 27.25 → 'Decisive' evidence for IAM
+  ΔBIC = 26.64 → 'Very strong' evidence for IAM
+
+TEST 8: Full Bayesian MCMC Analysis
+  β_m = 0.164 +0.029/-0.028 (68% CL)
+  β_γ < 1.40e-06 (95% CL)
+  β_γ/β_m < 8.50e-06 (95% CL)
+
+TEST 9: Pantheon+ Supernovae Distance Validation
+  ✓ IAM maintains distance consistency
+
+[6/6] Generating Publication-Quality Figures
+✓ All 9 figures generated successfully!
 ```
 
 ---
@@ -78,8 +96,8 @@ VALIDATION COMPLETE!
 
 ### ✅ Resolves Hubble Tension
 
-- **Planck CMB:** H₀ = 67.4 km/s/Mpc (photon sector, β_γ ≈ 0)
-- **SH0ES Distance Ladder:** H₀ = 73.04 km/s/Mpc (matter sector, β_m = 0.157)
+- **Planck CMB:** H₀ = 67.4 km/s/Mpc (photon sector, β_γ < 10⁻⁵)
+- **SH0ES Distance Ladder:** H₀ = 73.04 km/s/Mpc (matter sector, β_m = 0.164)
 - **Both correct:** Different sectors, not conflicting measurements
 
 ### ✅ Addresses S₈ Tension
@@ -91,12 +109,18 @@ VALIDATION COMPLETE!
 ### ✅ Passes CMB Consistency
 
 - **CMB lensing:** 85% geometric compensation
-- **Acoustic scale:** β_γ ≈ 0 maintains θ_s precision
+- **Acoustic scale:** β_γ < 10⁻⁵ maintains θ_s precision
 - **Early universe:** No modifications before z ~ 1
+
+### ✅ No Overfitting
+
+- **AIC penalty:** ΔAIC = 27.2 >> 10 (decisive preference)
+- **BIC penalty:** ΔBIC = 26.6 >> 10 (very strong preference)
+- **Relative likelihood:** ΛCDM is 827,000× less likely than IAM
 
 ### ✅ Makes Testable Predictions
 
-- **CMB-S4:** Will constrain β_γ < 0.001 (10× tighter)
+- **CMB-S4:** Will constrain β_γ < 10⁻⁴ (100× tighter)
 - **Euclid:** S₈ = 0.78 ± 0.01
 - **DESI Year 5:** β_m to ±1% precision
 
@@ -111,12 +135,13 @@ VALIDATION COMPLETE!
    - Theoretical foundation and phenomenological implementation
    - Statistical validation and testable predictions
 
-2. **[Test Validation Compendium](docs/IAM_Test_Validation_Compendium.pdf)** (~25 pages)
-   - Six independent validation tests with detailed results
-   - Eight publication-quality figures
+2. **[Test Validation Compendium](docs/IAM_Test_Validation_Compendium.pdf)** (~30 pages)
+   - Nine independent validation tests with detailed results
+   - Nine publication-quality figures
    - Complete chi-squared analysis
+   - MCMC posterior analysis
 
-3. **[Supplementary Methods](docs/Supplementary_Methods_Reproducibility_Guide.pdf)** (~18 pages)
+3. **[Supplementary Methods](docs/Supplementary_Methods_Reproducibility_Guide.pdf)** (~20 pages)
    - Complete Python implementation
    - Data sources and citations
    - Step-by-step reproducibility instructions
@@ -136,12 +161,12 @@ VALIDATION COMPLETE!
 
 **Matter sector** (BAO, growth, distance ladder):
 ```
-H²_m(a) = H₀²[Ωₘa⁻³ + Ωᵣa⁻⁴ + Ω_Λ + β_m·E(a)]
+H²_m(a) = H₀²[Ω_m·a⁻³ + Ω_r·a⁻⁴ + Ω_Λ + β_m·E(a)]
 ```
 
 **Photon sector** (CMB, photon propagation):
 ```
-H²_γ(a) = H₀²[Ωₘa⁻³ + Ωᵣa⁻⁴ + Ω_Λ + β_γ·E(a)]
+H²_γ(a) = H₀²[Ω_m·a⁻³ + Ω_r·a⁻⁴ + Ω_Λ + β_γ·E(a)]
 ```
 
 **Activation function:**
@@ -154,7 +179,7 @@ E(a) = exp(1 - 1/a)
 The β term enters the denominator, diluting effective matter density:
 
 ```
-Ωₘ(a) = [Ωₘ·a⁻³] / [Ωₘ·a⁻³ + Ωᵣ·a⁻⁴ + Ω_Λ + β·E(a)]
+Ω_m(a) = [Ω_m·a⁻³] / [Ω_m·a⁻³ + Ω_r·a⁻⁴ + Ω_Λ + β·E(a)]
 ```
 
 This naturally suppresses structure growth without additional parameters.
@@ -166,7 +191,7 @@ This naturally suppresses structure growth without additional parameters.
 ```
 IAM-Validation/
 ├── README.md                          # This file
-├── iam_validation.py                  # Main validation script
+├── iam_validation.py                  # Main validation script (9 tests, 9 figures)
 ├── data/
 │   ├── desi_bao_data.txt             # DESI DR2 growth rates
 │   ├── h0_measurements.txt            # Planck, SH0ES, JWST
@@ -179,7 +204,8 @@ IAM-Validation/
 │   ├── figure5_beta_m_profile.pdf     # Matter-sector likelihood
 │   ├── figure6_h0_ladder.pdf          # Complete H₀ ladder
 │   ├── figure7_chi2_breakdown.pdf     # Statistical analysis
-│   └── figure8_summary.pdf            # Physical quantities
+│   ├── figure8_summary.pdf            # Physical quantities
+│   └── figure9_mcmc_corner.pdf        # MCMC parameter constraints ⭐ NEW
 ├── docs/
 │   ├── IAM_Manuscript.pdf             # Main paper
 │   ├── IAM_Test_Validation_Compendium.pdf  # Detailed tests
@@ -216,15 +242,15 @@ IAM-Validation/
 
 ## 🎓 Key Findings
 
-### 1. Empirical Sector Separation
+### 1. Empirical Sector Separation (MCMC Result)
 
-The ratio β_γ/β_m < 0.022 (95% CL) is **data-driven**, not theoretically imposed:
+The ratio β_γ/β_m < 8.5 × 10⁻⁶ (95% CL) is **data-driven**, not theoretically imposed:
 
 - Photon-sector constraint from CMB acoustic scale precision
 - Matter-sector constraint from BAO and H₀ measurements
-- Independent analyses converge on sector separation
+- Full Bayesian MCMC analysis confirms sector separation
 
-**This transforms "photon exemption" from assumption to empirical discovery.**
+**This transforms "photon exemption" from assumption to empirical discovery: photons couple at least 100,000× more weakly than matter.**
 
 ### 2. Growth Suppression Mechanism
 
@@ -243,15 +269,32 @@ Modified growth naturally compensates geometric effects:
 - Geometric shift from modified H(z): +1.02%
 - Lensing reduction from growth suppression: -0.87%
 - **85% compensation** without tuning
-- Remaining 15% resolved by β_γ ≈ 0
+- Remaining 15% resolved by β_γ < 10⁻⁵
 
-### 4. Statistical Significance
+### 4. Statistical Significance & Model Selection
 
 Combined fit to all datasets:
 
 - χ²(ΛCDM) = 41.63 → poor fit (χ²/dof = 4.16)
 - χ²(IAM) = 10.38 → excellent fit (χ²/dof = 1.15)
 - **Δχ² = 31.25 (5.6σ improvement)**
+
+Model selection criteria (addressing overfitting):
+
+- **ΔAIC = 27.2** → "Decisive" evidence for IAM (Burnham & Anderson)
+- **ΔBIC = 26.6** → "Very strong" evidence for IAM (Kass & Raftery)
+- **Relative likelihood:** ΛCDM is 827,000× less likely
+
+**Even with penalties for 2 additional parameters, IAM is strongly preferred.**
+
+### 5. Distance Consistency (Pantheon+ SNe)
+
+Independent validation with supernovae:
+
+- IAM maintains consistency with geometric distance measurements
+- Primary IAM impact is on **GROWTH**, not **GEOMETRY**
+- Effect on distances subdominant to Ω_Λ
+- Full Pantheon+ dataset confirms distance consistency
 
 ---
 
@@ -270,7 +313,7 @@ Combined fit to all datasets:
 
 | Experiment | Prediction | Timeline |
 |------------|------------|----------|
-| **CMB-S4** | β_γ < 0.0001 or detect nonzero coupling | 2030+ |
+| **CMB-S4** | β_γ < 10⁻⁴ or detect nonzero coupling | 2030+ |
 | **Euclid + Rubin** | BAO at z > 2 tests early-time behavior | 2030+ |
 | **GW Standard Sirens** | H₀(matter) consistent with distance ladder | 2030+ |
 
@@ -297,8 +340,9 @@ If you use this code or results in published research, please cite:
 
 ### ✅ What IAM Claims
 
-- Empirical evidence for sector-dependent expansion: β_γ/β_m < 0.022
+- Empirical evidence for sector-dependent expansion: β_γ/β_m < 10⁻⁵ (MCMC)
 - 5.6σ statistical improvement over ΛCDM (Δχ² = 31.25)
+- No evidence of overfitting (ΔAIC = 27.2, ΔBIC = 26.6)
 - Simultaneous resolution of H₀ tension and partial resolution of S₈ tension
 - Testable predictions for upcoming surveys (CMB-S4, Euclid, DESI Year 5)
 - Natural growth suppression mechanism from Ω_m dilution
@@ -319,11 +363,17 @@ If you use this code or results in published research, please cite:
 
 This repository presents the final validated framework. Complete development history, including exploratory tests and deprecated approaches, is available in the [`development/`](development/) directory. See [`development/README_development.md`](development/README_development.md) for scientific evolution and key breakthroughs.
 
+**Validation Timeline:**
+- **Tests 1-26:** Early exploration (growth mechanisms, various parameterizations)
+- **Tests 27-29:** Dual-sector discovery (breakthrough: empirical sector separation)
+- **Test 30:** Final synthesis (consolidated validation)
+- **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
+
 **Main validation consolidated into `iam_validation.py` for clarity and reproducibility.**
 
 ---
 
-## 📧 Contact
+## 🔧 Contact
 
 **Heath W. Mahaffey**  
 Independent Researcher  
@@ -346,13 +396,13 @@ See [LICENSE](LICENSE) for full details.
 
 ## 🙏 Acknowledgments
 
-The author thanks the Planck, DESI, SH0ES, and JWST collaborations for publicly available data. Grateful to the open-source communities of NumPy, SciPy, and Matplotlib. This work benefited from discussions facilitated by Claude (Anthropic) regarding statistical methodology, growth calculations, and reproducibility best practices.
+The author thanks the Planck, DESI, SH0ES, and JWST collaborations for publicly available data. Grateful to the open-source communities of NumPy, SciPy, Matplotlib, and corner. This work benefited from discussions facilitated by Claude (Anthropic) regarding statistical methodology, MCMC implementation, growth calculations, and reproducibility best practices.
 
 ---
 
 **Last Updated:** February 11, 2026  
 **Status:** 5.6σ preference for dual-sector cosmology over ΛCDM  
-**Key Result:** The Hubble tension reflects measurements of two distinct expansion rates—photons (CMB, β_γ ≈ 0) and matter (BAO/distance ladder, β_m = 0.157). Both Planck and SH0ES are correct; they measure different sectors with empirically constrained ratio β_γ/β_m < 0.022 (95% CL).
+**Key Result:** The Hubble tension reflects measurements of two distinct expansion rates—photons (CMB, β_γ < 10⁻⁵) and matter (BAO/distance ladder, β_m = 0.164). Both Planck and SH0ES are correct; they measure different sectors with empirically constrained ratio β_γ/β_m < 10⁻⁵ (95% CL, MCMC). Photons couple at least **100,000× more weakly** than matter to late-time expansion.
 
 ---
 
