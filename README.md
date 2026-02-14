@@ -154,8 +154,8 @@ All 9 figures generated successfully!
 **Derivation Verification (`iam_derivation_tests.py`) -- Expected output:**
 ```
 ==============================================================================
-*' IAM DERIVATION VERIFICATION SUITE *'
-*' 10 Tests -- From Jacobson to Zero-Parameter Cosmology *'
+' IAM DERIVATION VERIFICATION SUITE '
+' 10 Tests -- From Jacobson to Zero-Parameter Cosmology '
 ==============================================================================
 
  [PASS] Test 1: Jacobson: Standard entropy ' Friedmann equation
