@@ -271,7 +271,7 @@ all distance and expansion rate predictions.
    - Complete chi-squared analysis
    - MCMC posterior analysis
 
-5. **[Supplementary Methods](docs/Supplementary_Methods_Reproducibility_Guide.pdf)** (~20 pages)
+5. **[Supplementary Methods](docs/Supplementary_Methods_Reproducibility_Guide.pdf)** (~24 pages)
    - Complete Python implementation
    - Data sources and citations
    - Step-by-step reproducibility instructions
