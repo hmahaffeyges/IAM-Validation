@@ -285,7 +285,7 @@ all distance and expansion rate predictions.
    - Numerical verification: Pearson r > 0.99, coefficients within 1-8% of target
    - Elevates IAM from phenomenological fit to physically motivated cosmological framework
 
-7. **[Variational Derivation](docs/Variational_Derivation_of_IAM.pdf)** (~14 pages)
+7. **[Variational Derivation](docs/Variational_Derivation_of_IAM.pdf)** (~17 pages)
    - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
    - Step-by-step walkthrough of Jacobson's thermodynamic derivation of Einstein's equation
    - Cai-Kim extension to FRW apparent horizon producing Friedmann equations
