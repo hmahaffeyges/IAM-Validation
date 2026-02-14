@@ -247,7 +247,7 @@ all distance and expansion rate predictions.
 
 ### Primary Documents
 
-1. **[Main Manuscript](docs/IAM_Manuscript.pdf)** (RevTeX, ~15 pages)
+1. **[Main Manuscript](docs/IAM_Manuscript.pdf)** (RevTeX, ~8 pages)
    - Full holographic motivation (Bekenstein-Hawking entropy, holographic principle)
    - Theoretical foundation and phenomenological implementation
    - Statistical validation and testable predictions
