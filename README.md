@@ -154,8 +154,8 @@ All 9 figures generated successfully!
 **Derivation Verification (`iam_derivation_tests.py`) -- Expected output:**
 ```
 ==============================================================================
-' IAM DERIVATION VERIFICATION SUITE '
-' 10 Tests -- From Jacobson to Zero-Parameter Cosmology '
+ IAM DERIVATION VERIFICATION SUITE 
+ 10 Tests -- From Jacobson to Zero-Parameter Cosmology 
 ==============================================================================
 
  [PASS] Test 1: Jacobson: Standard entropy ' Friedmann equation
@@ -216,7 +216,7 @@ All 9 figures generated successfully!
 
 ### Primary Documents
 
-1. **[Main Manuscript](docs/IAM_Manuscript.pdf)** (RevTeX, ~15 pages)
+1. **[Main Manuscript](docs/IAM_Manuscript.pdf)** (RevTeX, ~8 pages)
  - Full holographic motivation (Bekenstein-Hawking entropy, holographic principle)
  - Theoretical foundation and phenomenological implementation
  - Statistical validation and testable predictions
@@ -246,7 +246,7 @@ All 9 figures generated successfully!
  - Step-by-step reproducibility instructions
  - Troubleshooting guide
 
-6. **[Holographic Derivation](docs/Holographic_Derivation_of_IAM.pdf)** (~10 pages)
+6. **[Holographic Derivation](docs/Holographic_Derivation_of_IAM.pdf)** (~12 pages)
  - First-principles derivation of the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics
  - Bekenstein-Hawking entropy + Gibbons-Hawking temperature + Landauer's principle
  - Key result: the 1/a in the exponent arises from information surface density on the cosmic horizon
@@ -254,7 +254,7 @@ All 9 figures generated successfully!
  - Numerical verification: Pearson r > 0.99, coefficients within 1-8% of target
  - Elevates IAM from phenomenological fit to physically motivated cosmological framework
 
-7. **[Variational Derivation](docs/Variational_Derivation_of_IAM.pdf)** (~14 pages)
+7. **[Variational Derivation](docs/Variational_Derivation_of_IAM.pdf)** (~18 pages)
  - Formal derivation chain: Jacobson (1995) ' Cai-Kim (2005) ' IAM (2026)
  - Step-by-step walkthrough of Jacobson's thermodynamic derivation of Einstein's equation
  - Cai-Kim extension to FRW apparent horizon producing Friedmann equations
