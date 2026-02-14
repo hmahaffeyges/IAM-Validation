@@ -1,0 +1,2 @@
+beta_gamma=0.000, beta_m=0.180
+beta_gamma=0.000, beta_m=0.180
