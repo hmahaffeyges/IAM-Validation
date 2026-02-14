@@ -1,0 +1,145 @@
+# ============================================================
+# IAM Full Planck MCMC via MGCAMB + Cobaya
+# ============================================================
+# Two runs:
+#   Run A: Fix mu0 at IAM predicted value (zero extra parameters)
+#   Run B: Float mu0 (one extra parameter, let Planck choose)
+#
+# Uses pure_MG mode (MG_flag=1, pure_MG_flag=2) which is
+# verified to work correctly with MGCAMB 1.5.2
+# ============================================================
+
+# --- Theory ---
+theory:
+  camb:
+    path: /Users/hmahaffeyges/IAM-Validation/MGCAMB
+    extra_args:
+      # MG parameters
+      MG_flag: 1
+      pure_MG_flag: 2
+      musigma_par: 1
+      GRtrans: 0.001
+      sigma0: 0.0
+      # Accuracy
+      lens_potential_accuracy: 1
+      NonLinear: NonLinear_none
+      lmax: 2500
+
+# --- Likelihoods ---
+# Using native Python likelihoods (no clik dependency)
+likelihood:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+  planck_2018_highl_plik.TTTEEE_lite_native:
+  planck_2018_lensing.CMBMarged:
+
+# --- Parameters ---
+params:
+  # Standard cosmological parameters (float)
+  ombh2:
+    prior:
+      min: 0.020
+      max: 0.025
+    ref:
+      dist: norm
+      loc: 0.02242
+      scale: 0.00014
+    proposal: 0.00014
+    latex: \Omega_b h^2
+  omch2:
+    prior:
+      min: 0.10
+      max: 0.14
+    ref:
+      dist: norm
+      loc: 0.11933
+      scale: 0.00091
+    proposal: 0.00091
+    latex: \Omega_c h^2
+  H0:
+    prior:
+      min: 60
+      max: 80
+    ref:
+      dist: norm
+      loc: 67.4
+      scale: 0.5
+    proposal: 0.5
+    latex: H_0
+  tau:
+    prior:
+      min: 0.01
+      max: 0.12
+    ref:
+      dist: norm
+      loc: 0.0544
+      scale: 0.0073
+    proposal: 0.0073
+    latex: \tau_\mathrm{reio}
+  logA:
+    prior:
+      min: 2.6
+      max: 3.5
+    ref:
+      dist: norm
+      loc: 3.044
+      scale: 0.014
+    proposal: 0.014
+    latex: \log(10^{10} A_s)
+    drop: true
+  As:
+    value: "lambda logA: 1e-10*np.exp(logA)"
+    latex: A_s
+  ns:
+    prior:
+      min: 0.92
+      max: 1.00
+    ref:
+      dist: norm
+      loc: 0.9649
+      scale: 0.0042
+    proposal: 0.0042
+    latex: n_s
+
+  # ============================================================
+  # IAM parameter: mu0
+  # ============================================================
+  # RUN A: Fix at predicted value (uncomment this, comment Run B)
+  mu0:
+    value: -0.134950
+    latex: \mu_0
+
+  # RUN B: Float mu0 (uncomment this, comment Run A)
+  # mu0:
+  #   prior:
+  #     min: -0.5
+  #     max: 0.2
+  #   ref:
+  #     dist: norm
+  #     loc: -0.135
+  #     scale: 0.05
+  #   proposal: 0.05
+  #   latex: \mu_0
+
+  # Derived parameters
+  sigma8:
+    latex: \sigma_8
+  omegal:
+    latex: \Omega_\Lambda
+  s8omegamp5:
+    derived: "lambda sigma8, omch2, ombh2, H0: sigma8*(((omch2+ombh2)/(H0/100)**2)/0.3)**0.5"
+    latex: S_8
+
+# --- Sampler ---
+sampler:
+  mcmc:
+    burn_in: 300
+    max_tries: 10000
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.15
+
+# --- Output ---
+output: iam_planck_chains/iam_fixed_mu0
+
+# --- Packages path ---
+packages_path: /Users/hmahaffeyges/IAM-Validation/cobaya_packages
