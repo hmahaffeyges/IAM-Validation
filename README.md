@@ -1,6 +1,6 @@
 # IAM: Dual-Sector Cosmology from Structure-Driven Expansion
 
-**TL;DR:** A zero-parameter cosmological model (IAM) addresses the Hubble tension by deriving that matter and photons experience different late-time expansion rates. Every element is derived from first principles: the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, the coupling B_m = Omega_m/2 from the virial theorem, and the perturbation predictions mu < 1, Sigma = 1 from delta-phi = 0. Fixing B_m at its predicted value gives Delta-chi2 = 31.2 improvement over LCDM (5.6 sigma) with zero additional free parameters. Full Planck MCMC (3 chains via MGCAMB + Cobaya) confirms perturbation-level compatibility with the most constraining dataset in cosmology. Two scripts verify the analytical results: `iam_validation.py` (9 observational tests) and `iam_derivation_tests.py` (10 derivation tests), both runnable in under 2 minutes.
+**TL;DR:** A zero-parameter cosmological model (IAM) addresses the Hubble tension by deriving that matter and photons experience different late-time expansion rates. Every element is derived from first principles: the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, the coupling B_m = Omega_m/2 from the virial theorem, and the perturbation predictions mu < 1, Sigma = 1 from delta-phi = 0. Fixing B_m at its predicted value gives Delta-chi2 = 31.2 improvement over LCDM (5.6 sigma) with zero additional free parameters. Full Planck MCMC (3 chains via MGCAMB + Cobaya) confirms perturbation-level compatibility with the most constraining dataset in cosmology. **All MCMC chain data (3 Planck runs), 7/7 Boltzmann diagnostic tests, YAML configs, and GetDist extraction scripts are publicly available in [`mgcamb_validation/`](mgcamb_validation/) for independent verification.** Two scripts verify the analytical results: `iam_validation.py` (9 observational tests) and `iam_derivation_tests.py` (10 derivation tests), both runnable in under 2 minutes.
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,7 +8,7 @@
 
 **Dual-Sector Cosmology from Structure-Driven Expansion: The Informational Actualization Model (IAM)**
 
-**Key Finding:** 5.6 sigma empirical evidence for dual-sector cosmology addressing the Hubble tension. Zero free parameters -- coupling constant, activation function, and perturbation predictions all derived from first principles. Compatible with full Planck MCMC via MGCAMB Boltzmann solver (7/7 tests passed, 3 Planck chains converged).
+**Key Finding:** 5.6 sigma empirical evidence for dual-sector cosmology addressing the Hubble tension. Zero free parameters -- coupling constant, activation function, and perturbation predictions all derived from first principles. Compatible with full Planck MCMC via MGCAMB Boltzmann solver (7/7 tests passed, 3 Planck chains converged). Full chain data and reproducibility package: [`mgcamb_validation/`](mgcamb_validation/).
 
 ---
 
@@ -332,7 +332,7 @@ Sigma(a) = 1 (standard photon deflection)
 | 1.0 | 0.982 | Near-GR |
 | 3.0 | 0.9998 | Recovers LambdaCDM |
 
-**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed) and tested against Planck via full MCMC (3 chains, Delta-chi2 = +1.43 vs LCDM, statistically indistinguishable). The signature uniquely distinguishes IAM from generic modified gravity theories and is directly testable by Euclid at 3.4 sigma. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for complete results.
+**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed) and tested against Planck via full MCMC (3 chains, Delta-chi2 = +1.43 vs LCDM, statistically indistinguishable). The signature uniquely distinguishes IAM from generic modified gravity theories and is directly testable by Euclid at 3.4 sigma. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for complete results and [`mgcamb_validation/chains/`](mgcamb_validation/chains/) for raw MCMC chain data.
 
 ---
 
@@ -439,10 +439,13 @@ Three independent tests using Pantheon+ data demonstrate that Type Ia supernovae
 
 IAM's mu < 1, Sigma = 1 prediction has been validated at the perturbation level through the MGCAMB modified Einstein-Boltzmann solver (v1.5.2; Wang et al. 2023) and three independent Planck MCMC chains via Cobaya. All results are documented in the **[IAM--CAMB Technical Note: Planck Level-1 Validation](docs/IAM_CAMB_Technical_Note.pdf)**.
 
-- Location: docs/IAM_CAMB_Technical_Note.pdf
-- Background figure: camb_iam_background.pdf
-- YAML configs: Provided in document (Section 7) for full reproducibility
-- Code: camb_iam_background.py (background validation), iam_camb_validation.py (MGCAMB diagnostics)
+**Full reproducibility package:** [`mgcamb_validation/`](mgcamb_validation/)
+
+- **[Raw MCMC chains](mgcamb_validation/chains/)** -- complete chain data for all 3 runs (Runs A/B/C), independently verifiable via GetDist
+- **[Cobaya YAML configs](mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 3 chains from scratch
+- **[GetDist extraction scripts](mgcamb_validation/getdist_scripts/)** -- reproduce every posterior table and Delta-chi2 comparison in the Technical Note
+- **[Forecast analyses](mgcamb_validation/forecasts/)** -- Fisher forecast, ISW prediction, binned mu(z) reconstruction, transition zone analysis
+- **[7/7 Boltzmann diagnostic scripts](mgcamb_validation/)** -- MGCAMB validation code, 6-panel figure, reproducibility log
 
 **MGCAMB Diagnostic Results (7/7 tests PASSED):**
 
@@ -552,7 +555,7 @@ This repository presents the final validated framework. Complete development his
 - **Test 30:** Final synthesis (consolidated validation)
 - **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
 - **MGCAMB:** Full Boltzmann validation via modified Einstein-Boltzmann solver (7/7 tests passed)
-- **Planck MCMC:** 3 independent chains (IAM fixed, mu_0 floating, LCDM baseline) -- IAM compatible with Planck (Delta-chi2 = +1.43)
+- **Planck MCMC:** 3 independent chains (IAM fixed, mu_0 floating, LCDM baseline) -- IAM compatible with Planck (Delta-chi2 = +1.43). Raw chain data: [`mgcamb_validation/chains/`](mgcamb_validation/chains/)
 
 **Main validation consolidated into `iam_validation.py` for clarity and reproducibility.**
 
