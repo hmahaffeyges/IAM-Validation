@@ -1,33 +1,49 @@
-# IAM: Dual-Sector Cosmology from Structure-Driven Expansion
+# IAM – Perturbation-Level mu-Sigma Validation via MGCAMB
 
-**TL;DR:** A zero-parameter cosmological model (IAM) addresses the Hubble tension by deriving that matter and photons experience different late-time expansion rates. Every element is derived from first principles: the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, the coupling B_m = Omega_m/2 from the virial theorem, and the perturbation predictions mu < 1, Sigma = 1 from delta-phi = 0. Fixing B_m at its predicted value gives Delta-chi2 = 31.2 improvement over LCDM (5.6 sigma) with zero additional free parameters. Full Planck MCMC (3 chains via MGCAMB + Cobaya) confirms perturbation-level compatibility with the most constraining dataset in cosmology. **All MCMC chain data (3 Planck runs), 7/7 Boltzmann diagnostic tests, YAML configs, and GetDist extraction scripts are publicly available in [`mgcamb_validation/`](mgcamb_validation/) for independent verification.** Two scripts verify the analytical results: `iam_validation.py` (9 observational tests) and `iam_derivation_tests.py` (10 derivation tests), both runnable in under 2 minutes.
+This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM using the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing) through MGCAMB v1.5.2 + Cobaya.
+
+**Level-1 validation scope:**
+- Background expansion: standard LCDM (unmodified)
+- Perturbation modification: mu(a) = H^2_LCDM / (H^2_LCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
+- Sigma(a) = 1 exactly (lensing unmodified)
+- No perturbation quantity feeds back into H(z)
+- Coupling derived from virial theorem: beta_m = Omega_m/2 = 0.1575, yielding mu_0 = -0.13495
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-**Dual-Sector Cosmology from Structure-Driven Expansion: The Informational Actualization Model (IAM)**
+---
 
-**Key Finding:** 5.6 sigma empirical evidence for dual-sector cosmology addressing the Hubble tension. Zero free parameters -- coupling constant, activation function, and perturbation predictions all derived from first principles. Compatible with full Planck MCMC via MGCAMB Boltzmann solver (7/7 tests passed, 3 Planck chains converged). Full chain data and reproducibility package: [`mgcamb_validation/`](mgcamb_validation/).
+## Planck MCMC Results (3 Independent Chains)
+
+| Run | Description | mu_0 | sigma_8 | H0 [km/s/Mpc] | Best chi2 |
+|-----|-------------|------|---------|---------------|-----------|
+| **C: LCDM baseline** | Standard model | 0 (fixed) | 0.8139 +/- 0.006 | 67.19 +/- 0.54 | 983.14 |
+| **A: IAM fixed** | mu_0 = -0.135 (derived) | -0.135 (fixed) | 0.8014 +/- 0.006 | 67.06 +/- 0.51 | 984.57 |
+| **B: IAM floating** | mu_0 free | 0.006 +/- 0.156 | 0.8146 +/- 0.016 | 67.16 +/- 0.51 | 981.24 |
+
+**Result:** The perturbation-level modification is statistically indistinguishable from LCDM at Planck precision (Delta-chi2 = +1.43 fixed; -1.90 floating, neutral after AIC). Planck alone mildly prefers GR (mu_0 ~ 0), though with insufficient precision to exclude IAM's predicted mu_0 = -0.135 (0.9 sigma from posterior mean).
+
+**MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
+
+**Full reproducibility** -- chains, YAML configs, GetDist scripts, forecast analyses: [`mgcamb_validation/`](mgcamb_validation/)
 
 ---
 
-## Core Results
+## Broader Context: IAM Dual-Sector Framework
 
-| Parameter | Value | Method | Description |
-|-----------|-------|--------|-------------|
-| **B_m** | 0.1575 | **Derived** (Omega_m/2) | Matter-sector coupling (virial theorem) |
-| **B_gamma** | < 1.4 x 10^-6 | MCMC (95% CL) | Photon-sector coupling |
-| **B_gamma/B_m** | < 8.5 x 10^-6 | MCMC (95% CL) | Empirical sector ratio |
-| **H0(photon)** | 67.4 km/s/Mpc | Planck CMB | Photon-sector measurement |
-| **H0(matter)** | 72.51 km/s/Mpc | IAM **prediction** | Matter-sector (0.51 sigma from SH0ES) |
-| **Delta-chi2** | 31.2 (5.6 sigma) | vs. LCDM (H0+growth) | Statistical improvement (limited dataset) |
-| **Delta-AIC** | 31.2 | Model selection (H0+growth) | **Zero** additional parameters |
-| **Delta-BIC** | 31.2 | Model selection (H0+growth) | Strong preference on H0+growth data |
-| **mu(z=0)** | 0.864 | **Derived** (perturbation theory) | Growth suppression parameter |
-| **Sigma(z)** | 1.000 | **Derived** (delta-phi = 0) | Lensing unmodified |
+The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.51 km/s/Mpc alongside H0(photon) = 67.4 km/s/Mpc, addressing the Hubble tension.
 
-**IAM's interpretation of the Hubble tension:** Planck (photon sector, B_gamma < 10^-5) and SH0ES (matter sector, B_m = 0.157) both measure correctly -- they probe different expansion rates. Photons couple at least **100,000x more weakly** than matter to late-time expansion.
+On a limited H0 + growth rate dataset (10 measurements), IAM shows strong model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This strong preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** The background-level prediction (Level 2/3) remains to be implemented and tested.
+
+| Parameter | Value | Source |
+|-----------|-------|--------|
+| **mu(z=0)** | 0.864 | Derived (perturbation theory) |
+| **Sigma(z)** | 1.000 | Derived (delta-phi = 0) |
+| **beta_m** | 0.1575 | Derived (Omega_m/2, virial theorem) |
+| **H0(matter)** | 72.51 km/s/Mpc | IAM prediction (0.51 sigma from SH0ES) |
+| **H0(photon)** | 67.4 km/s/Mpc | Planck CMB |
 
 ---
 
