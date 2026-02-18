@@ -545,6 +545,71 @@ Likelihoods: planck_2018_lowl.TT + lowl.EE + highl_plik.TTTEEE_lite_native + len
 
 ---
 
+## Multi-Probe Dual-Sector Consistency Test
+
+The MCMC chains above (Runs A–L) test IAM's perturbation-level μ–Σ signature through the full Boltzmann solver with the actual Planck likelihood. The following supplementary analysis tests the **full dual-sector mechanism** — including the background H₀ split, matter density dilution, and explicit sector assignment of observables — against a broader compilation of published data.
+
+**Important distinction:** This is a phenomenological consistency test using a lightweight growth ODE and Hu & Sugiyama fitting formulae, not a full Boltzmann MCMC. It does not replace the Planck likelihood analysis but extends it to probes the MCMC chains do not cover (local H₀ measurements, cosmic chronometers, weak lensing S₈, multi-survey BAO). All Planck 2018 parameters are held fixed; the only model input is β = Ω_m/2. Zero free parameters are fitted to the data.
+
+**Script:** [`mgcamb_validation/iam_dual_sector_combined.py`](mgcamb_validation/iam_dual_sector_combined.py)
+**Figure:** [`mgcamb_validation/iam_dual_sector_combined.pdf`](mgcamb_validation/iam_dual_sector_combined.pdf) (9-panel diagnostic figure)
+
+### Framework
+
+Observables are assigned to sectors based on their physical measurement process:
+- **Photon sector** (H_γ = H_ΛCDM): CMB distance priors, BAO angular positions, SNe Ia luminosity distances — all measured via photon propagation
+- **Matter sector** (H_m = H_ΛCDM × √(1 + β·E(a))): Local H₀ via distance ladders (Cepheids, TRGB, time-delay lensing), galaxy growth rates (RSD f·σ₈), cosmic chronometer aging rates
+
+Growth is governed by:
+
+D'' + [2 + d(ln H)/d(ln a)] D' − (3/2) μ(a) Ω_m(a) D = 0
+
+where μ(a) = H²_ΛCDM / (H²_ΛCDM + β·E(a)) gives μ(z = 0) = 0.864, recovering GR at high redshift.
+
+### Datasets (65 data points across 6 χ² probes + 1 consistency check)
+
+| Probe | N | Key References | Sector |
+|-------|---|----------------|--------|
+| H₀ measurements | 7 | Planck VI (2020); Riess+ (2022); Freedman+ (2025); Wong+ (2020); Birrer+ (2020); Anand+ (2022) | Photon (Planck), Matter (all local) |
+| f·σ₈ growth rates | 7 | Beutler+ (2012); Alam+ (2017, 2021); de Mattia+ (2021); Hou+ (2021) | Matter |
+| BAO (DM/rd, DH/rd, DV/rd) | 12 | Ross+ (2015); Alam+ (2017); Bautista+ (2021); du Mas des Bourboux+ (2020) | Photon |
+| Cosmic chronometers H(z) | 32 | Moresco+ (2022) compilation; 9 original papers (Simon+ 2005 through Tomasetti+ 2023) | Matter |
+| Weak lensing S₈ | 4 | DES Y3 (Abbott+ 2022); KiDS-1000 (Asgari+ 2021); HSC Y3 (Li+ 2023); Planck (2020) | Matter |
+| CMB distance priors | 3 | Planck VI (2020), Table 1; Hu & Sugiyama (1996) fitting formulae | Photon |
+| Pantheon+ SNe Ia | 20 bins | Brout+ (2022); Scolnic+ (2022) — photon-sector consistency check, identical to ΛCDM by construction | Photon |
+
+### Results
+
+| Probe | χ²(ΛCDM) | χ²(IAM) | Δχ² | Notes |
+|-------|----------|---------|-----|-------|
+| **H₀** | 74.0 | 4.7 | **+69.4** | Primary discriminator: sector split resolves Hubble tension |
+| **f·σ₈** | 6.5 | 7.4 | −0.8 | IAM slightly worse (combined model suppresses growth marginally below ΛCDM) |
+| **BAO** | 15.6 | 15.6 | 0.0 | Identical (photon sector unmodified) |
+| **Cosmic chronometers** | 14.5 | 15.0 | −0.5 | Indistinguishable at current CC precision (uncertainties 5–30%) |
+| **S₈** | 25.6 | 13.9 | **+11.7** | σ₈ suppression (0.811 → 0.790) moves prediction toward WL data |
+| **CMB priors** | 370 | 370 | 0.0 | Fitting-formula residuals dominate; full MGCAMB confirms < 0.17% CMB residuals |
+| **Combined** | **507** | **427** | **+79.8** | 0 additional free parameters |
+
+Combined Δχ² = 79.8 (equivalent to 8.9σ, 0 additional free parameters). The improvement is driven by the H₀ sector split (+69.4) and S₈ suppression (+11.7). All other probes are consistent within uncertainties.
+
+### S₈ Tension
+
+IAM addresses the S₈ tension through two mechanisms:
+1. **Growth suppression** (μ < 1 at late times): σ₈ reduced from 0.811 to 0.790, giving S₈ = 0.810 at Planck Ω_m
+2. **Matter density dilution** (sector split): physical Ω_m reduced from 0.315 to 0.272, giving S₈ = 0.753
+
+The physical-Ω_m prediction S₈ = 0.753 is consistent with KiDS-1000 (0.759 ± 0.021, 0.3σ), DES Y3 (0.776 ± 0.017, 1.4σ), and HSC Y3 (0.776 ± 0.032, 0.7σ). However, comparison at physical Ω_m requires reanalysis of survey likelihoods under modified cosmology. The conservative apples-to-apples comparison at Planck Ω_m (S₈ = 0.810) is used for the combined χ².
+
+### Caveats
+
+- **Simplified physics:** Growth ODE and fitting formulae, not full Boltzmann solver. The MCMC chains (Runs A–L) provide the rigorous Planck-level validation.
+- **No covariance matrices:** Data points treated as independent. Correlated BAO bins and the full Pantheon+ covariance are handled in the MCMC analysis.
+- **CMB χ² dominated by fitting formulae:** The large CMB χ² ≈ 370 reflects Hu & Sugiyama approximation error (~0.1% in θ_MC), not physical tension. It cancels identically in Δχ².
+- **Sector assignment of cosmic chronometers:** CC measures galaxy aging (matter-sector process) via spectral features (photon observations). The assignment follows from which physical process determines the observable (aging rate), analogous to local H₀ measurements.
+- **H₀ Δχ² is model-dependent:** The 69-point improvement assumes the sector split is physical. Under single-sector ΛCDM, this is simply the Hubble tension restated. The test evaluates whether the dual-sector prediction is consistent with observations, not whether the sector split is proven.
+
+---
+
 ## Testable Predictions
 
 ### Near-Term (< 5 years)
