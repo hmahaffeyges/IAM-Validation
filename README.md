@@ -1,4 +1,4 @@
-# IAM – Perturbation-Level mu-Sigma Validation via MGCAMB
+# IAM – Perturbation-Level μ–Σ Validation via MGCAMB
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM using the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing) through MGCAMB v1.5.2 + Cobaya.
 
