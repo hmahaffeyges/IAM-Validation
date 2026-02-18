@@ -1,3 +1,0 @@
-name = DESY5
-data_file = DESY5/DES-SN5YR_HD.csv
-mag_covmat_file = DESY5/covsys_000.txt
