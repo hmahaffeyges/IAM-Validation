@@ -1,4 +1,4 @@
-# IAM – Perturbation-Level μ–Σ Validation via MGCAMB
+# IAM – Perturbation-Level μ–Σ  Validation via MGCAMB
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM using the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing) through MGCAMB v1.5.2 + Cobaya.
 
@@ -75,7 +75,7 @@ pip install numpy scipy matplotlib corner
 # Run observational validation (9 tests, ~1 min, generates 9 figures)
 python iam_validation.py
 
-# Run derivation verification (10 tests, ~30 sec)
+# Run derivation verification (15 tests, ~30 sec)
 python iam_derivation_tests.py
 ```
 
@@ -181,21 +181,29 @@ All 9 figures generated successfully!
 ```
 ==============================================================================
 *' IAM DERIVATION VERIFICATION SUITE *'
-*' 10 Tests -- From Jacobson to Zero-Parameter Cosmology *'
+*' 15 Tests -- From Jacobson to Zero-Parameter Cosmology + Robustness *'
 ==============================================================================
 
+ DERIVATION CHAIN (Tests 1-10):
  [PASS] Test 1: Jacobson: Standard entropy ' Friedmann equation
  [PASS] Test 2: Cai-Kim: First law on apparent horizon ' Friedmann
  [PASS] Test 3: Modified entropy ' IAM Friedmann equation
- [PASS] Test 4: Information surface density ' exp(1 - 1/a)
- [PASS] Test 5: Sheth-Tormen at sigma*=1.2 ' beta 1.009
+ [PASS] Test 4: Cumulative decoherence integral ' exp(alpha - beta/a)
+ [PASS] Test 5: Sheth-Tormen collapse rate ' 1/a coefficient
  [PASS] Test 6: Virial theorem ' beta_m = Omega_m/2
  [PASS] Test 7: Collapsed fraction ' Virial theorem confirmed
  [PASS] Test 8: Perturbation theory: mu < 1, Sigma = 1
  [PASS] Test 9: Fixed beta_m = Omega_m/2: "chi^2 = 31.2 (5.6sigma)
  [PASS] Test 10: Equation of state: w_info = -1 - 1/(3a)
 
- Tests passed: 10/10
+ ROBUSTNESS (Tests 11-15):
+ [PASS] Test 11: Continuity equation: rho_dot + 3H(1+w)rho = 0
+ [PASS] Test 12: MGCAMB approximation: max error 4.29 pp
+ [PASS] Test 13: Sensitivity: mu_0 spread = 0.00000 over c in [0.8, 1.2]
+ [PASS] Test 14: Sensitivity: coupling constant beta_m variation
+ [PASS] Test 15: Reparametrization: IAM != w0waCDM
+
+ Tests passed: 15/15
  beta_m = Omega_m/2 = 0.1575 (predicted) vs 0.157 (MCMC): 0.3% agreement
  H(matter) = 72.51 km/s/Mpc (0.51sigma from SH0ES)
  "chi^2 = 31.2 for ZERO additional parameters
@@ -219,7 +227,7 @@ IAM-Validation/
 ├── docs/                                      # Technical documentation (PDFs)
 ├── tests/                                     # Phenomenological validation scripts
 │   ├── iam_validation.py                      # 9 observational tests (~1 min)
-│   └── iam_derivation_tests.py                # 10 derivation verification tests (~30 sec)
+│   └── iam_derivation_tests.py                # 15 derivation + robustness tests (~30 sec)
 ├── figures/                                   # Publication-quality figures
 ├── results/                                   # Output data files
 └── data/                                      # Observational datasets
