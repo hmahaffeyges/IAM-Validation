@@ -1,0 +1,40 @@
+[build-system]
+requires = ["flit_core>=3.4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "clipy-like"
+authors = [
+{name = "K. Benabed", email = "benabed@iap.fr"},
+{name = "L. Balkenhol", email = "lennart.balkenhol@iap.fr"},
+]
+
+readme = "README.md"
+license = {file = "./LICENSE"}
+
+dynamic = ["version", "description"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+requires-python = ">=3.9"
+
+dependencies = [
+"numpy >= 1.23.5",
+"astropy >= 2.0"
+]
+
+[project.optional-dependencies]
+
+[tool.flit.module]
+name = "clipy"
+
+[project.scripts]
+clipy_print = "clipy.tools.clipy_print:main"
+clipy_example_py = "clipy.tools.clipy_example_py:main"
+clipy_change_data = "clipy.tools.clipy_change_data:main"
+
+[project.urls]
+Source = "https://github.com/benabed/clipy"
