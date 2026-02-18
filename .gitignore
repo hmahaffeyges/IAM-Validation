@@ -1,4 +1,66 @@
+# ==============================================================================
+# IAM-Validation .gitignore
+# ==============================================================================
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Cobaya packages (large external data, not part of IAM)
 cobaya_packages/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+
+# ==============================================================================
+# Root-level files that belong in subdirectories
+# These were accidentally committed to root and should live in their proper homes:
+#   - PDFs → docs/
+#   - Python scripts → tests/ or mgcamb_validation/
+#   - YAML configs → mgcamb_validation/yaml_configs/
+#   - Figures → figures/
+# ==============================================================================
+
+# Root-level PDFs (canonical copies live in docs/)
+/Dual_Sector_Validation_Paper.pdf
+/Holographic_Derivation_of_IAM.pdf
+/IAM_CAMB_Technical_Note.pdf
+/IAM_Manuscript.pdf
+/IAM_Test_Validation_Compendium.pdf
+/Supplementary_Methods_Reproducibiity_Guide.pdf
+/Variational_Derivation_of_IAM.pdf
+
+# Root-level scripts (canonical copies live in mgcamb_validation/ or tests/)
+/iam_camb_full_boltzmann.py
+/iam_mu_sigma.py
+/iam_planck_mcmc.yaml
+/math_verification.py
+/mgcamb_reproducibility_package.py
+/mgcamb_results_table.py
+/plot_mgcamb_validation.py
+/params_MG_IAM.ini
+/mgcamb_validation_table.tex
+
+# Root-level figures and logs (canonical copies live in figures/)
+/iam_mgcamb_reproducibility_log.txt
+/iam_mgcamb_validation_6panel.pdf
+/iam_mgcamb_validation_6panel.png
+/iam_mgcamb_validation_6panel1.png
+
+# ==============================================================================
+# Duplicate/working directories that shouldn't be in the repo
+# (Canonical locations: docs/, tests/, mgcamb_validation/)
+# ==============================================================================
+CAMB Validation IAM Dual Sector/
+Holographic Derivation/
+IAM LaTex docs /
+IAM_Python_Test_Validation_Suite/
+Python code /
+Variational Derivaion/
+files-5/
+
+# MGCAMB submodule (if not needed in repo)
+# MGCAMB/
