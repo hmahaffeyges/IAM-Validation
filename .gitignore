@@ -1,0 +1,9 @@
+# OS files
+.DS_Store
+
+# Cobaya packages (large data files, not part of IAM)
+cobaya_packages/
+
+# Python
+__pycache__/
+*.pyc
