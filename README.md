@@ -70,9 +70,9 @@ All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0
 
 ## Broader Context: IAM Dual-Sector Framework
 
-The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.51 km/s/Mpc alongside H0(photon) = 67.4 km/s/Mpc, addressing the Hubble tension.
+The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.51 km/s/Mpc alongside H0(photon) = 67.4 km/s/Mpc, which if confirmed would reduce the discrepancy between CMB and local distance-ladder measurements.
 
-On a limited H0 + growth rate dataset (10 measurements), IAM shows strong model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This strong preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** The background-level prediction (Level 2/3) remains to be implemented and tested.
+On a limited H0 + growth rate dataset (10 measurements), IAM shows large model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** The background-level prediction (Level 2/3) remains to be implemented and tested.
 
 | Parameter | Value | Source |
 |-----------|-------|--------|
@@ -148,13 +148,13 @@ EXAMPLE: How chi2 is computed for H0 measurements
 
 TEST 1: LCDM Baseline (Standard Cosmology)
  chi2_total = 38.28
- LCDM fails to resolve Hubble tension
+ LCDM: single-sector model
 
 TEST 2: IAM Dual-Sector Model
  B_m = 0.157 (MCMC median)
  chi2_total = 8.27
  Delta-chi2 = 30.01 (5.5 sigma)
- IAM resolves Hubble tension with high significance
+ IAM dual-sector model: Delta-chi2 = 30.01 on H0 + growth dataset
 
 TEST 3: Confidence Intervals (Profile Likelihood)
  68% CL (1 sigma): B_m = 0.157 +/- 0.029
@@ -164,32 +164,31 @@ TEST 4: Photon-Sector Constraint (MCMC)
  Profile likelihood: B_gamma < 0.004 (95% CL)
  MCMC constraint: B_gamma < 1.40e-06 (95% CL)
  Sector ratio: B_gamma/B_m < 8.50e-06 (95% CL)
- Photons couple at least 100,000x more weakly than matter
 
 TEST 5: Physical Predictions
  H0(photon/CMB) = 67.4 km/s/Mpc
  H0(matter/local) = 72.5 +/- 1.0 km/s/Mpc
  Growth suppression = 1.36%
  sigma8(IAM) = 0.800
- All predictions consistent with observations
+ Predictions within current observational uncertainties
 
 TEST 6: CMB Lensing Consistency
  Growth suppression (1.36%) --> weaker lensing
  Reduced lensing compensates ~85% of geometric theta_s shift
- Natural compensation maintains CMB consistency
+ Partial compensation is consistent with CMB constraints
 
 TEST 7: Model Selection Criteria (Overfitting Check)
  Delta-AIC = 26.01 --> 'Decisive' evidence for IAM
  Delta-BIC = 25.40 --> 'Very strong' evidence for IAM
- Relative likelihood: LCDM is 444,000x less likely
- No evidence of overfitting despite 2 additional parameters
+ Relative likelihood: Bayes factor ~ 4.4 x 10^5
+ Model selection favors IAM after AIC/BIC penalties for 2 additional parameters
 
 TEST 8: Full Bayesian MCMC Analysis
  B_m = 0.157 +0.029/-0.029 (68% CL)
  B_gamma < 1.40e-06 (95% upper limit)
  B_gamma/B_m < 8.50e-06 (95% upper limit)
  H0(matter) = 72.5 +/- 1.0 km/s/Mpc
- Well-behaved Gaussian posteriors with no degeneracies
+ Gaussian posteriors, no multimodality
 
 TEST 9: Pantheon+ Supernovae Distance Validation
  Both models show similar fit quality to SNe data
@@ -234,7 +233,7 @@ All 9 figures generated successfully!
  beta_m = Omega_m/2 = 0.1575 (predicted) vs 0.157 (MCMC): 0.3% agreement
  H(matter) = 72.51 km/s/Mpc (0.51sigma from SH0ES)
  "chi^2 = 31.2 for ZERO additional parameters
- LambdaCDM is 6,038,848x less likely than IAM
+ Bayes factor ~ 6 x 10^6 (H0 + growth dataset only)
 ```
 
 ---
@@ -266,17 +265,17 @@ IAM-Validation/
 
 ## What IAM Does
 
-### Addresses Hubble Tension
+### Hubble Tension
 
 - **Planck CMB:** H0 = 67.4 km/s/Mpc (photon sector, B_gamma < 10^-5)
 - **SH0ES Distance Ladder:** H0 = 73.04 km/s/Mpc (matter sector, B_m = 0.157)
-- **Both correct:** Different sectors, not conflicting measurements
+- **Interpretation:** Different sectors yield different expansion rates
 
-### Addresses S8 Tension
+### S8 Tension
 
 - **Growth suppression:** 1.36% at z=0 from Omega_m dilution
 - **Effective sigma8:** 0.800 (intermediate between Planck 0.811 and DES/KiDS ~0.77)
-- **Natural mechanism:** No ad-hoc parameters
+- **Mechanism:** Follows from mu < 1 without additional parameters
 
 ### Passes CMB Consistency
 
@@ -284,17 +283,17 @@ IAM-Validation/
 - **CMB lensing:** 85% geometric compensation
 - **Acoustic scale:** B_gamma < 10^-5 maintains theta_s precision
 - **Early universe:** No modifications before z ~ 1
-- **sigma_8 shift:** 0.8139 (LCDM) --> 0.8014 (IAM), direction favored by weak lensing surveys
+- **sigma_8 shift:** 0.8139 (LCDM) --> 0.8014 (IAM), in the direction reported by weak lensing surveys
 
-### No Overfitting (H0 + Growth Rate Dataset)
+### Model Selection (H0 + Growth Rate Dataset)
 
-- **AIC penalty:** Delta-AIC = 26.0 >> 10 (decisive preference)
-- **BIC penalty:** Delta-BIC = 25.4 >> 10 (very strong preference)
-- **Relative likelihood:** LCDM is 444,000x less likely than IAM
+- **AIC penalty:** Delta-AIC = 26.0 (Burnham & Anderson classification: decisive)
+- **BIC penalty:** Delta-BIC = 25.4 (Kass & Raftery classification: very strong)
+- **Relative likelihood:** Bayes factor ~ 4.4 x 10^5
 
-*Note: These model selection statistics apply to the H0 + f*sigma_8 dataset (10 measurements). Under full Planck likelihood, IAM and LCDM are statistically indistinguishable (Delta-chi2 = +1.43). See Section 7 for Planck MCMC results.*
+*Note: These model selection statistics apply to the H0 + f*sigma_8 dataset (10 measurements) only. Under the full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable (Delta-chi2 = +1.43). See Section 7 for Planck MCMC results.*
 
-### Makes Testable Predictions
+### Predictions for Upcoming Surveys
 
 - **CMB-S4:** Will constrain B_gamma < 10^-4 (100x tighter)
 - **Euclid:** S8 = 0.78 +/- 0.01
@@ -307,9 +306,9 @@ IAM-Validation/
 ### Primary Documents
 
 1. **[Main Manuscript](docs/IAM_Manuscript.pdf)** (RevTeX, ~15 pages)
- - Full holographic motivation (Bekenstein-Hawking entropy, holographic principle)
+ - Holographic motivation (Bekenstein-Hawking entropy, holographic principle)
  - Theoretical foundation and phenomenological implementation
- - Statistical validation and testable predictions
+ - Statistical validation and predictions
 
 2. **[Dual-Sector Validation Paper](docs/Dual_Sector_Validation_Paper.pdf)** (RevTeX, ~22 pages)
  - Empirical validation of sector separation using Pantheon+ Type Ia supernovae
@@ -389,7 +388,7 @@ The B term enters the denominator, diluting effective matter density:
 Omega_m(a) = [Omega_m * a^-3] / [Omega_m * a^-3 + Omega_r * a^-4 + Omega_Lambda + B * E(a)]
 ```
 
-This naturally suppresses structure growth without additional parameters.
+This suppresses structure growth without additional free parameters.
 
 ### Modified Gravity Mapping: mu--Sigma Parametrization
 
@@ -407,7 +406,7 @@ Sigma(a) = 1 (standard photon deflection)
 | 1.0 | 0.982 | Near-GR |
 | 3.0 | 0.9998 | Recovers LambdaCDM |
 
-**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed) and tested against Planck via full MCMC (6 chains across 2 dataset combinations, Delta-chi2 = +1.43 and +1.34 vs LCDM, statistically indistinguishable). The signature uniquely distinguishes IAM from generic modified gravity theories and is directly testable by Euclid at 3.4 sigma. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for complete results and [`mgcamb_validation/chains/`](mgcamb_validation/chains/) for raw MCMC chain data.
+**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed) and tested against Planck via full MCMC (12 chains across 4 dataset combinations, Delta-chi2 = +1.43 to +2.32 vs LCDM, all below exclusion threshold). The signature is directly testable by Euclid at projected 3.4 sigma sensitivity. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for complete results and [`mgcamb_validation/chains/`](mgcamb_validation/chains/) for raw MCMC chain data.
 
 ---
 
@@ -451,50 +450,50 @@ Sigma(a) = 1 (standard photon deflection)
 
 ### 1. Empirical Sector Separation (MCMC Result)
 
-The ratio B_gamma/B_m < 8.5 x 10^-6 (95% CL) is **data-driven**, not theoretically imposed:
+The ratio B_gamma/B_m < 8.5 x 10^-6 (95% CL) is constrained by data, not imposed theoretically:
 
 - Photon-sector constraint from CMB acoustic scale precision
 - Matter-sector constraint from BAO and H0 measurements
 - Full Bayesian MCMC analysis confirms sector separation
 
-**This transforms "photon exemption" from assumption to empirical discovery: photons couple at least 100,000x more weakly than matter.**
+This places an upper bound on photon-sector coupling at least five orders of magnitude below the matter-sector value.
 
 ### 2. Growth Suppression Mechanism
 
-Growth suppression emerges naturally from Omega_m dilution:
+Growth suppression follows from Omega_m dilution:
 
-- B in denominator --> reduced effective Omega_m(a)
-- Weaker gravity --> suppressed structure formation
-- 1.36% suppression at z=0 --> sigma8 = 0.800
+- B in denominator reduces effective Omega_m(a)
+- Reduced gravitational source term suppresses structure formation
+- 1.36% suppression at z=0 yields sigma8 = 0.800
 
-**No ad-hoc "growth tax" parameter required.**
+No additional parameter is required beyond the derived coupling.
 
 ### 3. CMB Lensing Consistency
 
-Modified growth naturally compensates geometric effects:
+Modified growth partially compensates geometric effects:
 
 - Geometric shift from modified H(z): +1.02%
 - Lensing reduction from growth suppression: -0.87%
-- **85% compensation** without tuning
-- Remaining 15% resolved by B_gamma < 10^-5
+- Approximate 85% compensation
+- Remaining 15% accommodated by B_gamma < 10^-5
 
 ### 4. Statistical Significance & Model Selection (H0 + Growth Rate Dataset)
 
 Combined fit to H0 + f*sigma_8 datasets (10 measurements):
 
-- chi2(LCDM) = 38.28 --> poor fit (chi2/dof = 3.83)
-- chi2(IAM) = 8.27 --> excellent fit (chi2/dof = 1.03)
-- **Delta-chi2 = 30.01 (5.5 sigma improvement)**
+- chi2(LCDM) = 38.28 (chi2/dof = 3.83)
+- chi2(IAM) = 8.27 (chi2/dof = 1.03)
+- **Delta-chi2 = 30.01 (5.5 sigma)**
 
-Model selection criteria (addressing overfitting):
+Model selection criteria (accounting for additional parameters):
 
-- **Delta-AIC = 26.0** --> "Decisive" evidence for IAM (Burnham & Anderson)
-- **Delta-BIC = 25.4** --> "Very strong" evidence for IAM (Kass & Raftery)
-- **Relative likelihood:** LCDM is 444,000x less likely
+- **Delta-AIC = 26.0** (Burnham & Anderson classification: decisive)
+- **Delta-BIC = 25.4** (Kass & Raftery classification: very strong)
+- **Bayes factor:** ~ 4.4 x 10^5
 
-**Even with penalties for 2 additional parameters, IAM is strongly preferred on these datasets.**
+IAM is preferred on this dataset after accounting for the 2 additional parameters.
 
-*Note: Under full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable (Delta-chi2 = +1.43). The strong preference above reflects IAM's ability to simultaneously fit the discrepant H0 measurements that LCDM cannot. See Section 7 for Planck MCMC results.*
+*Note: Under the full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable (Delta-chi2 = +1.43). The preference above reflects IAM's ability to simultaneously accommodate the discrepant H0 measurements. See Section 7 for Planck MCMC results.*
 
 ### 5. Distance Consistency (Pantheon+ SNe)
 
@@ -515,7 +514,7 @@ Mahaffey, H. W. (2026). "Dual-Sector Expansion: Type Ia Supernovae Validate Matt
 - Dataset: Pantheon+SH0ES (1588 Type Ia supernovae, 0.01 < z < 2.26)
 - Complete reproducible code provided in paper appendices
 
-Three independent tests using Pantheon+ data demonstrate that Type Ia supernovae reject photon-sector expansion (H0 = 67.4 km/s/Mpc, Test A: B --> -0.30 boundary), accept matter-sector normalization (H0 = 73.04 km/s/Mpc, Test B: B ~ 0), and maintain LCDM geometric consistency (Test C: confirms matter preference). These results validate that dual-sector separation emerges from data, not theoretical assumption, confirming IAM's prediction that structure formation couples differently to expansion than photon propagation.
+Three independent tests using Pantheon+ data show that Type Ia supernovae are inconsistent with photon-sector expansion (H0 = 67.4 km/s/Mpc, Test A: B reaches -0.30 boundary), consistent with matter-sector normalization (H0 = 73.04 km/s/Mpc, Test B: B ~ 0), and prefer the matter-sector H0 (Test C). These results are consistent with IAM's prediction that structure formation couples differently to expansion than photon propagation.
 
 </details>
 
@@ -572,7 +571,7 @@ Likelihoods: planck_2018_lowl.TT + lowl.EE + highl_plik.TTTEEE_lite_native + len
 - All Delta-chi2 values below 3.84 (95% CL threshold for 0 additional parameters)
 - IAM's predicted mu_0 = -0.135 is **within 0.8--1.3 sigma** of all floating mu_0 posteriors
 - **sigma_8 shifted down** by -0.013 +/- 0.001 across all four dataset combinations (universal -1.6% suppression)
-- sigma_8 shift direction favored by weak lensing surveys (KiDS, DES, HSC)
+- sigma_8 shift is in the direction reported by weak lensing surveys (KiDS, DES, HSC)
 - BAO and Pantheon+ photon-sector observables unaffected, confirming Sigma = 1
 - All 12 runs converged with R-1 < 0.01; acceptance rates 50-77%
 - All standard parameters stable across all twelve runs (no pathology)
@@ -618,7 +617,7 @@ where μ(a) = H²_ΛCDM / (H²_ΛCDM + β·E(a)) gives μ(z = 0) = 0.864, recove
 
 | Probe | χ²(ΛCDM) | χ²(IAM) | Δχ² | Notes |
 |-------|----------|---------|-----|-------|
-| **H₀** | 74.0 | 4.7 | **+69.4** | Primary discriminator: sector split resolves Hubble tension |
+| **H₀** | 74.0 | 4.7 | **+69.4** | Dominant contribution: sector split accommodates discrepant H₀ measurements |
 | **f·σ₈** | 6.5 | 7.4 | −0.8 | IAM slightly worse (combined model suppresses growth marginally below ΛCDM) |
 | **BAO** | 15.6 | 15.6 | 0.0 | Identical (photon sector unmodified) |
 | **Cosmic chronometers** | 14.5 | 15.0 | −0.5 | Indistinguishable at current CC precision (uncertainties 5–30%) |
@@ -626,11 +625,11 @@ where μ(a) = H²_ΛCDM / (H²_ΛCDM + β·E(a)) gives μ(z = 0) = 0.864, recove
 | **CMB priors** | 370 | 370 | 0.0 | Fitting-formula residuals dominate; full MGCAMB confirms < 0.17% CMB residuals |
 | **Combined** | **507** | **427** | **+79.8** | 0 additional free parameters |
 
-Combined Δχ² = 79.8 (equivalent to 8.9σ, 0 additional free parameters). The improvement is driven by the H₀ sector split (+69.4) and S₈ suppression (+11.7). All other probes are consistent within uncertainties.
+Combined Δχ² = 79.8 (equivalent to 8.9σ, 0 additional free parameters). The improvement is dominated by the H₀ sector split (+69.4) and S₈ suppression (+11.7). All other probes are consistent within uncertainties. See caveats below regarding the limitations of this simplified analysis.
 
 ### S₈ Tension
 
-IAM addresses the S₈ tension through two mechanisms:
+IAM produces a shift in S₈ through two mechanisms:
 1. **Growth suppression** (μ < 1 at late times): σ₈ reduced from 0.811 to 0.790, giving S₈ = 0.810 at Planck Ω_m
 2. **Matter density dilution** (sector split): physical Ω_m reduced from 0.315 to 0.272, giving S₈ = 0.753
 
@@ -652,12 +651,12 @@ The physical-Ω_m prediction S₈ = 0.753 is consistent with KiDS-1000 (0.759 ±
 
 | Experiment | IAM Prediction | Distinguishes From |
 |------------|---------------|-------------------|
-| **Euclid (mu-Sigma)** | mu < 1 with Sigma = 1 (unique signature) | f(R): mu > 1; Horndeski: both modified |
+| **Euclid (mu-Sigma)** | mu < 1 with Sigma = 1 | f(R): mu > 1; Horndeski: both modified |
 | **DESI Year 5** | Distance-growth tension in w0-wa fits | All w0-wa models (consistent dist+growth) |
 | **DESI Year 5** | No real phantom crossing (w always <= -1) | w0-wa best fit (apparent crossing at z~0.5) |
 | **Euclid** | Scale-independent mu and Sigma (no k-dependence) | f(R), DGP (scale-dependent growth) |
 | **Euclid** | B_m/Omega_m = 1/2 constant for any Omega_m | Ad-hoc models (ratio would vary) |
-| **Simons Observatory** | B_gamma < 0.001 (10x tighter) | Photon exemption falsifiable |
+| **Simons Observatory** | B_gamma < 0.001 (10x tighter) | Constrains photon-sector coupling |
 
 ### Long-Term (> 5 years)
 
@@ -690,12 +689,12 @@ If you use this code or results in published research, please cite:
 
 ### What IAM Claims
 
-- Empirical evidence for sector-dependent expansion: B_gamma/B_m < 10^-5 (MCMC)
-- 5.5 sigma statistical improvement over LCDM (Delta-chi2 = 30.01)
-- No evidence of overfitting (Delta-AIC = 26.0, Delta-BIC = 25.4)
-- Simultaneous compatibility with H0 measurements from both sectors and partial shift of sigma_8 toward weak lensing values
-- Testable predictions for upcoming surveys (CMB-S4, Euclid, DESI Year 5)
-- Natural growth suppression mechanism from Omega_m dilution
+- Empirical constraint on sector-dependent expansion: B_gamma/B_m < 10^-5 (MCMC)
+- 5.5 sigma improvement over LCDM on the limited H0 + growth rate dataset (Delta-chi2 = 30.01)
+- No evidence of overfitting on that dataset (Delta-AIC = 26.0, Delta-BIC = 25.4)
+- Compatibility with Planck 2018 full likelihood across four dataset combinations (Delta-chi2 = +1.43 to +2.32)
+- Predictions for Euclid, DESI Year 5, and CMB-S4
+- Growth suppression mechanism from Omega_m dilution (mu < 1, Sigma = 1)
 
 ### What IAM Does NOT Claim
 
@@ -705,17 +704,17 @@ If you use this code or results in published research, please cite:
 - Uniqueness (other parameterizations may fit similarly)
 - Explanation of early-universe physics or inflation
 
-**IAM is a physically motivated late-time framework** grounded in horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle, quantum decoherence). Its activation function E(a) = exp(1 - 1/a) is derived from the ratio of structure formation rate to cosmic horizon area. Its value lies in providing empirically testable predictions that unify multiple cosmological tensions.
+IAM is a late-time phenomenological framework motivated by horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle, quantum decoherence). Its activation function E(a) = exp(1 - 1/a) is derived from the ratio of structure formation rate to cosmic horizon area. Its coupling constant beta_m = Omega_m/2 is derived from the virial theorem. The framework generates specific predictions testable by current and upcoming surveys.
 
 ---
 
 ## Development History
 
-This repository presents the final validated framework. Complete development history, including exploratory tests and deprecated approaches, is available in the [`development/`](development/) directory. See [`development/README_development.md`](development/README_development.md) for scientific evolution and key breakthroughs.
+This repository presents the final validated framework. Complete development history, including exploratory tests and deprecated approaches, is available in the [`development/`](development/) directory. See [`development/README_development.md`](development/README_development.md) for details.
 
 **Validation Timeline:**
 - **Tests 1-26:** Early exploration (growth mechanisms, various parameterizations)
-- **Tests 27-29:** Dual-sector discovery (breakthrough: empirical sector separation)
+- **Tests 27-29:** Dual-sector identification (empirical sector separation)
 - **Test 30:** Final synthesis (consolidated validation)
 - **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
 - **MGCAMB:** Full Boltzmann validation via modified Einstein-Boltzmann solver (7/7 tests passed)
@@ -755,10 +754,6 @@ The author thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborati
 
 **Last Updated:** February 19, 2026 
 **Status:** MGCAMB 7/7 Boltzmann tests passed; Planck MCMC compatible (12 chains across 4 datasets, Delta-chi2 = +1.43 to +2.32 vs LCDM, all statistically indistinguishable); Level 2 background-modified CAMB chains in progress; zero free parameters -- all derived from first principles 
-**Key Result:** IAM's mu < 1, Sigma = 1 signature survives full Planck + growth-rate + BAO + Pantheon+ likelihood. sigma_8 shifts from 0.813 to 0.800 under IAM (direction favored by weak lensing), universally stable across all 4 dataset combinations (-0.013 +/- 0.001). mu_0 = -0.135 lies 0.8--1.3 sigma from all floating posterior peaks. Uniquely testable by Euclid (3.4 sigma) and DESI Year 5.
+**Key Result:** IAM's mu < 1, Sigma = 1 signature is compatible with the full Planck + growth-rate + BAO + Pantheon+ likelihood. sigma_8 shifts from 0.813 to 0.800 under IAM, in the direction reported by weak lensing surveys, stable across all 4 dataset combinations (-0.013 +/- 0.001). mu_0 = -0.135 lies 0.8--1.3 sigma from all floating posterior peaks. Projected to be testable by Euclid (3.4 sigma) and DESI Year 5.
 
 ---
-
-<p align="center">
- <i>"The universe actualizes its potential through structure formation, and geometry responds."</i>
-</p>
