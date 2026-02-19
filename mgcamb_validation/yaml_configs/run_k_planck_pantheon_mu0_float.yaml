@@ -1,0 +1,75 @@
+# ==============================================================================
+# Run K: mu0 Floating + Planck + Pantheon+ (SNe distances)
+# Lets Planck + SNe distances jointly choose the preferred mu0.
+# At Level 1, Pantheon+ adds distance constraints but no growth information,
+# so the mu0 posterior should remain similar to Planck-only (Run B).
+# ==============================================================================
+
+theory:
+  camb:
+    path: null
+    extra_args:
+      MG_flag: 1
+      pure_MG_flag: 2
+      musigma_par: 1
+      GRtrans: 0.001
+      sigma0: 0.0
+      lens_potential_accuracy: 1
+      NonLinear: NonLinear_none
+      lmax: 2500
+
+likelihood:
+  # Planck 2018
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+  planck_2018_highl_plik.TTTEEE_lite:
+  planck_2018_lensing.native:
+  # Pantheon+ (without SH0ES calibration)
+  sn.pantheonplus:
+
+params:
+  ombh2:
+    prior: {min: 0.020, max: 0.025}
+    ref: {dist: norm, loc: 0.02242, scale: 0.00014}
+    proposal: 0.00014
+  omch2:
+    prior: {min: 0.10, max: 0.14}
+    ref: {dist: norm, loc: 0.11933, scale: 0.00091}
+    proposal: 0.00091
+  H0:
+    prior: {min: 60, max: 80}
+    ref: {dist: norm, loc: 67.4, scale: 0.5}
+    proposal: 0.5
+  tau:
+    prior: {min: 0.01, max: 0.12}
+    ref: {dist: norm, loc: 0.0544, scale: 0.0073}
+    proposal: 0.0073
+  logA:
+    prior: {min: 2.6, max: 3.5}
+    ref: {dist: norm, loc: 3.044, scale: 0.014}
+    proposal: 0.014
+    drop: true
+  As:
+    value: "lambda logA: 1e-10*np.exp(logA)"
+  ns:
+    prior: {min: 0.92, max: 1.00}
+    ref: {dist: norm, loc: 0.9649, scale: 0.0042}
+    proposal: 0.0042
+  mu0:
+    prior: {min: -0.5, max: 0.2}
+    ref: {dist: norm, loc: -0.135, scale: 0.05}
+    proposal: 0.05
+  sigma8: {latex: \sigma_8}
+  omegal: {latex: \Omega_\Lambda}
+  s8omegamp5:
+    derived: "lambda sigma8, omch2, ombh2, H0:
+      sigma8*(((omch2+ombh2)/(H0/100)**2)/0.3)**0.5"
+
+sampler:
+  mcmc:
+    burn_in: 300
+    max_tries: 10000
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.15
+
+output: iam_planck_chains/planck_pantheon_mu0_float
