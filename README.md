@@ -13,6 +13,8 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702043-blue)](https://doi.org/10.5281/zenodo.18702043)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![CAMB](https://img.shields.io/badge/CAMB-v1.5.8-green)](https://github.com/cmbant/CAMB)
+[![MGCAMB](https://img.shields.io/badge/MGCAMB-v1.5.2-green)](https://github.com/sfu-cosmo/MGCAMB)
 
 ---
 
