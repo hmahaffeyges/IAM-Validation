@@ -15,7 +15,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 
 ---
 
-## Planck MCMC Results (6 Independent Chains)
+## Planck MCMC Results (12 Independent Chains)
 
 ### Planck Only (Runs A / B / C)
 
@@ -34,6 +34,33 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 | **E: IAM floating** | mu_0 free + RSD | 0.033 +/- 0.125 | 0.8160 +/- 0.013 | 67.54 +/- 0.40 | 992.55 |
 
 **Result:** IAM is statistically indistinguishable from LCDM across both dataset combinations. Planck only: Delta-chi2 = +1.43 (fixed), -1.90 (floating). Planck + RSD: Delta-chi2 = +1.34 (fixed), -1.31 (floating). IAM's predicted mu_0 = -0.135 lies 1.3 sigma from the Planck + RSD posterior peak (mu_0 = 0.033 +/- 0.125). The sigma_8 shift from ~0.813 to ~0.800 under IAM is stable across both datasets.
+
+### Planck + BAO (Runs G / H / I)
+
+| Run | Description | mu_0 | sigma_8 | H0 [km/s/Mpc] | Best chi2 |
+|-----|-------------|------|---------|---------------|-----------|
+| **I: LCDM baseline** | Standard model + BAO | 0 (fixed) | 0.8115 +/- 0.006 | 67.56 +/- 0.45 | 1017.71 |
+| **G: IAM fixed** | mu_0 = -0.135 + BAO | -0.135 (fixed) | 0.7981 +/- 0.006 | 67.51 +/- 0.43 | 1020.03 |
+| **H: IAM floating** | mu_0 free + BAO | +0.002 +/- 0.158 | 0.8117 +/- 0.016 | 67.56 +/- 0.46 | 1017.90 |
+
+### Planck + Pantheon+ (Runs J / K / L)
+
+| Run | Description | mu_0 | sigma_8 | H0 [km/s/Mpc] | Best chi2 |
+|-----|-------------|------|---------|---------------|-----------|
+| **L: LCDM baseline** | Standard model + Pantheon+ | 0 (fixed) | 0.8129 +/- 0.006 | 67.11 +/- 0.51 | 2416.00 |
+| **J: IAM fixed** | mu_0 = -0.135 + Pantheon+ | -0.135 (fixed) | 0.8000 +/- 0.006 | 67.03 +/- 0.52 | 2417.58 |
+| **K: IAM floating** | mu_0 free + Pantheon+ | -0.005 +/- 0.162 | 0.8124 +/- 0.017 | 67.06 +/- 0.52 | 2415.40 |
+
+### Delta-chi2 Summary (All 4 Dataset Combinations)
+
+| Dataset | Delta-chi2 (IAM fixed vs LCDM) | sigma_8 (LCDM) | sigma_8 (IAM) | sigma_8 shift |
+|---------|-------------------------------|----------------|---------------|---------------|
+| Planck only | +1.43 | 0.8139 | 0.8014 | -0.0125 (-1.5%) |
+| Planck + RSD | +1.34 | 0.8131 | 0.8001 | -0.0130 (-1.6%) |
+| Planck + BAO | +2.32 | 0.8115 | 0.7981 | -0.0134 (-1.7%) |
+| Planck + Pantheon+ | +1.58 | 0.8129 | 0.8000 | -0.0129 (-1.6%) |
+
+All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0.013 +/- 0.001 is stable across all four dataset combinations, confirming that the suppression is driven by the mu_0 = -0.135 prediction, not by any particular dataset. BAO and Pantheon+ photon-sector observables are unaffected by the modification, as predicted by Sigma = 1.
 
 **MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
 
@@ -220,7 +247,7 @@ IAM-Validation/
 ├── mgcamb_validation/                         # *** PRIMARY VALIDATION DIRECTORY ***
 │   ├── README.md                              # Detailed MGCAMB documentation
 │   ├── iam_mu_sigma.py                        # 7/7 Boltzmann diagnostic tests (reproduces 6-panel figure)
-│   ├── chains/                                # Raw MCMC chain files (Runs A–F; G–L in progress)
+│   ├── chains/                                # Raw MCMC chain files (Runs A–L complete)
 │   ├── yaml_configs/                          # Exact Cobaya YAML files for all runs
 │   ├── getdist_scripts/                       # Posterior extraction & three-way comparison
 │   └── forecasts/                             # Euclid/DESI prediction scripts
@@ -253,7 +280,7 @@ IAM-Validation/
 
 ### Passes CMB Consistency
 
-- **Planck MCMC:** 6 independent chains converged cleanly (Delta-chi2 = +1.43 and +1.34 vs LCDM across 2 datasets)
+- **Planck MCMC:** 12 independent chains converged cleanly across 4 dataset combinations (Delta-chi2 = +1.43 to +2.32 vs LCDM, all below exclusion threshold)
 - **CMB lensing:** 85% geometric compensation
 - **Acoustic scale:** B_gamma < 10^-5 maintains theta_s precision
 - **Early universe:** No modifications before z ~ 1
@@ -496,12 +523,12 @@ Three independent tests using Pantheon+ data demonstrate that Type Ia supernovae
 
 ### 7. MGCAMB Boltzmann Validation & Planck Level-1 MCMC (in IAM--CAMB Technical Note)
 
-IAM's mu < 1, Sigma = 1 prediction has been validated at the perturbation level through the MGCAMB modified Einstein-Boltzmann solver (v1.5.2; Wang et al. 2023) and six independent Planck MCMC chains via Cobaya. All results are documented in the **[IAM--CAMB Technical Note: Planck Level-1 Validation](docs/IAM_CAMB_Technical_Note.pdf)**.
+IAM's mu < 1, Sigma = 1 prediction has been validated at the perturbation level through the MGCAMB modified Einstein-Boltzmann solver (v1.5.2; Wang et al. 2023) and twelve independent Planck MCMC chains via Cobaya across four dataset combinations. All results are documented in the **[IAM--CAMB Technical Note: Planck Level-1 Validation](docs/IAM_CAMB_Technical_Note.pdf)**.
 
 **Full reproducibility package:** [`mgcamb_validation/`](mgcamb_validation/)
 
-- **[Raw MCMC chains](mgcamb_validation/chains/)** -- complete chain data for all 6 runs (Runs A/B/C: Planck only; Runs D/E/F: Planck + RSD), independently verifiable via GetDist
-- **[Cobaya YAML configs](mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 6 chains from scratch
+- **[Raw MCMC chains](mgcamb_validation/chains/)** -- complete chain data for all 12 runs (Runs A/B/C: Planck only; Runs D/E/F: Planck + RSD; Runs G/H/I: Planck + BAO; Runs J/K/L: Planck + Pantheon+), independently verifiable via GetDist
+- **[Cobaya YAML configs](mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 12 chains from scratch
 - **[GetDist extraction scripts](mgcamb_validation/getdist_scripts/)** -- reproduce every posterior table and Delta-chi2 comparison in the Technical Note
 - **[Forecast analyses](mgcamb_validation/forecasts/)** -- Fisher forecast, ISW prediction, binned mu(z) reconstruction, transition zone analysis
 - **[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
@@ -518,30 +545,39 @@ IAM's mu < 1, Sigma = 1 prediction has been validated at the perturbation level 
 | P(k) scale-independence | std(ratio) < 1% | 0.53% | PASS |
 | f*sigma_8 fit quality | chi2 <= LCDM + 4 | 4.42 vs 4.85 | PASS |
 
-**Planck MCMC Results (6 chains, full Planck 2018 likelihood +/- RSD):**
+**Planck MCMC Results (12 chains, full Planck 2018 likelihood +/- RSD/BAO/Pantheon+):**
 
-Likelihoods: planck_2018_lowl.TT + lowl.EE + highl_plik.TTTEEE_lite_native + lensing.CMBMarged (+/- SDSS DR12/DR16 f*sigma_8)
+Likelihoods: planck_2018_lowl.TT + lowl.EE + highl_plik.TTTEEE_lite_native + lensing.CMBMarged (+/- SDSS DR12/DR16 f*sigma_8, BAO, Pantheon+)
 
 | Run | Dataset | mu_0 | sigma_8 | H0 [km/s/Mpc] | Best chi2 | Extra params |
 |-----|---------|------|---------|---------------|-----------|--------------|
 | **A: IAM fixed** | Planck | -0.135 (fixed) | 0.8014 +/- 0.006 | 67.06 +/- 0.51 | 984.57 | 0 |
 | **B: mu_0 floating** | Planck | 0.006 +/- 0.156 | 0.8146 +/- 0.016 | 67.16 +/- 0.51 | 981.24 | 1 |
 | **C: LCDM baseline** | Planck | 0 (fixed) | 0.8139 +/- 0.006 | 67.19 +/- 0.54 | 983.14 | 0 |
-| **D: IAM fixed** | Planck + RSD | -0.135 (fixed) | 0.8001 +/- 0.006 | 67.47 +/- 0.42 | 995.20 | 0 |
-| **E: mu_0 floating** | Planck + RSD | 0.033 +/- 0.125 | 0.8160 +/- 0.013 | 67.54 +/- 0.40 | 992.55 | 1 |
-| **F: LCDM baseline** | Planck + RSD | 0 (fixed) | 0.8131 +/- 0.006 | 67.50 +/- 0.41 | 993.86 | 0 |
+| **D: IAM fixed** | Planck + RSD | -0.135 (fixed) | 0.8001 +/- 0.006 | 67.07 +/- 0.51 | 991.21 | 0 |
+| **E: mu_0 floating** | Planck + RSD | +0.024 +/- 0.123 | 0.8147 +/- 0.013 | 67.10 +/- 0.52 | 989.87 | 1 |
+| **F: LCDM baseline** | Planck + RSD | 0 (fixed) | 0.8131 +/- 0.006 | 67.18 +/- 0.53 | 989.87 | 0 |
+| **G: IAM fixed** | Planck + BAO | -0.135 (fixed) | 0.7981 +/- 0.006 | 67.51 +/- 0.43 | 1020.03 | 0 |
+| **H: mu_0 floating** | Planck + BAO | +0.002 +/- 0.158 | 0.8117 +/- 0.016 | 67.56 +/- 0.46 | 1017.90 | 1 |
+| **I: LCDM baseline** | Planck + BAO | 0 (fixed) | 0.8115 +/- 0.006 | 67.56 +/- 0.45 | 1017.71 | 0 |
+| **J: IAM fixed** | Planck + Pantheon+ | -0.135 (fixed) | 0.8000 +/- 0.006 | 67.03 +/- 0.52 | 2417.58 | 0 |
+| **K: mu_0 floating** | Planck + Pantheon+ | -0.005 +/- 0.162 | 0.8124 +/- 0.017 | 67.06 +/- 0.52 | 2415.40 | 1 |
+| **L: LCDM baseline** | Planck + Pantheon+ | 0 (fixed) | 0.8129 +/- 0.006 | 67.11 +/- 0.51 | 2416.00 | 0 |
 
 **Key results:**
 - **Planck only:** Delta-chi2 = +1.43 between IAM fixed and LCDM (statistically indistinguishable)
-- **Planck + RSD:** Delta-chi2 = +1.34 between IAM fixed and LCDM (stable across datasets)
-- IAM's predicted mu_0 = -0.135 is **within 1.3 sigma** of Run E posterior mean (compatible but not confirmed at current precision)
-- **sigma_8 shifted down** from ~0.813 to ~0.800 in both Run A and Run D, direction favored by weak lensing surveys, stable across datasets
-- RSD data tighten sigma(mu_0) from 0.156 (Planck only) to 0.125 (Planck + RSD), a 20% improvement
-- All standard parameters stable across all six runs (no pathology)
-- Acceptance rates 70-77% with smooth convergence (no multimodality)
-- Planck cannot distinguish IAM from LCDM at current precision -- expected for any late-time modification since CMB formed at z = 1089
+- **Planck + RSD:** Delta-chi2 = +1.34 (stable across datasets)
+- **Planck + BAO:** Delta-chi2 = +2.32 (maximum penalty, still well below 3.84 threshold)
+- **Planck + Pantheon+:** Delta-chi2 = +1.58 (consistent)
+- All Delta-chi2 values below 3.84 (95% CL threshold for 0 additional parameters)
+- IAM's predicted mu_0 = -0.135 is **within 0.8--1.3 sigma** of all floating mu_0 posteriors
+- **sigma_8 shifted down** by -0.013 +/- 0.001 across all four dataset combinations (universal -1.6% suppression)
+- sigma_8 shift direction favored by weak lensing surveys (KiDS, DES, HSC)
+- BAO and Pantheon+ photon-sector observables unaffected, confirming Sigma = 1
+- All 12 runs converged with R-1 < 0.01; acceptance rates 50-77%
+- All standard parameters stable across all twelve runs (no pathology)
 
-**Interpretation:** The present analysis evaluates Planck (+/- RSD) likelihood. IAM remains statistically indistinguishable from LCDM under the full Planck 2018 likelihood across both dataset combinations, demonstrating internal consistency at current precision. The modification operates at z < 2 where Planck has limited sensitivity (only ISW and lensing). Joint likelihood with BAO and Pantheon+ is in progress (Runs G-L). The definitive detection tests are Euclid (sigma(mu_0) ~ 0.04, yielding 3.4 sigma) and DESI Year 5 growth rates.
+**Interpretation:** IAM remains statistically indistinguishable from LCDM under the full Planck 2018 likelihood across all four dataset combinations (Planck only, +RSD, +BAO, +Pantheon+), demonstrating internal consistency at current precision. The sigma_8 shift of -0.013 is universal and stable, confirming it is driven by the mu_0 = -0.135 prediction rather than any particular dataset. BAO and supernova observables are unaffected, as predicted by Sigma = 1. The definitive detection tests are Euclid (sigma(mu_0) ~ 0.04, yielding 3.4 sigma) and DESI Year 5 growth rates. Level 2 validation (background-modified CAMB with dual-sector Friedmann equation) is in progress.
 
 ---
 
@@ -683,7 +719,8 @@ This repository presents the final validated framework. Complete development his
 - **Test 30:** Final synthesis (consolidated validation)
 - **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
 - **MGCAMB:** Full Boltzmann validation via modified Einstein-Boltzmann solver (7/7 tests passed)
-- **Planck MCMC:** 6 independent chains across 2 dataset combinations (Planck only: Runs A/B/C; Planck + RSD: Runs D/E/F) -- IAM compatible with Planck (Delta-chi2 = +1.43 and +1.34). Additional datasets (BAO, Pantheon+: Runs G-L) in progress. Raw chain data: [`mgcamb_validation/chains/`](mgcamb_validation/chains/)
+- **Planck MCMC:** 12 independent chains across 4 dataset combinations (Planck only: Runs A/B/C; Planck + RSD: Runs D/E/F; Planck + BAO: Runs G/H/I; Planck + Pantheon+: Runs J/K/L) -- IAM compatible with Planck across all datasets (Delta-chi2 = +1.43 to +2.32, all below exclusion threshold). Raw chain data: [`mgcamb_validation/chains/`](mgcamb_validation/chains/)
+- **Level 2:** Background-modified CAMB (dual-sector Friedmann equation via modified equations.f90) -- quicktest passed (sigma_8 = 0.801), full chains in progress
 
 **Main validation consolidated into `iam_validation.py` for clarity and reproducibility.**
 
@@ -716,9 +753,9 @@ The author thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborati
 
 ---
 
-**Last Updated:** February 18, 2026 
-**Status:** MGCAMB 7/7 Boltzmann tests passed; Planck MCMC compatible (6 chains across 2 datasets, Delta-chi2 = +1.43 and +1.34 vs LCDM, statistically indistinguishable); zero free parameters -- all derived from first principles 
-**Key Result:** IAM's mu < 1, Sigma = 1 signature survives full Planck + growth-rate likelihood. sigma_8 shifts from 0.813 to 0.800 under IAM (direction favored by weak lensing), stable across datasets. mu_0 = -0.135 lies 1.3 sigma from posterior peak. Uniquely testable by Euclid (3.4 sigma) and DESI Year 5.
+**Last Updated:** February 19, 2026 
+**Status:** MGCAMB 7/7 Boltzmann tests passed; Planck MCMC compatible (12 chains across 4 datasets, Delta-chi2 = +1.43 to +2.32 vs LCDM, all statistically indistinguishable); Level 2 background-modified CAMB chains in progress; zero free parameters -- all derived from first principles 
+**Key Result:** IAM's mu < 1, Sigma = 1 signature survives full Planck + growth-rate + BAO + Pantheon+ likelihood. sigma_8 shifts from 0.813 to 0.800 under IAM (direction favored by weak lensing), universally stable across all 4 dataset combinations (-0.013 +/- 0.001). mu_0 = -0.135 lies 0.8--1.3 sigma from all floating posterior peaks. Uniquely testable by Euclid (3.4 sigma) and DESI Year 5.
 
 ---
 
