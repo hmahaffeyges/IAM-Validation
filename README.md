@@ -10,6 +10,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 - Coupling derived from virial theorem: beta_m = Omega_m/2 = 0.1575, yielding mu_0 = -0.13495
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702043-blue)](https://doi.org/10.5281/zenodo.18702043)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
