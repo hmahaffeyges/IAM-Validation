@@ -1,14 +1,16 @@
 # MGCAMB Validation — Planck Level-1 (Perturbation Sector)
 
-**3 Planck MCMC chains + 7/7 Boltzmann diagnostic tests — zero free parameters**
+**12 Planck MCMC chains + 7/7 Boltzmann diagnostic tests — zero free parameters**
 
 Complete MGCAMB (v1.5.2) Planck Level-1 validation of the IAM µ–Σ prediction (µ₀ = −0.13495, Σ = 1) via Cobaya.
 
-> **Important:** This validates the perturbation-level µ–Σ mapping only (Level 1). The full IAM prediction requires background modification (Levels 2/3), which remains to be implemented.
+> **Important:** This validates the perturbation-level µ–Σ mapping only (Level 1). The full IAM prediction requires background modification (Levels 2/3), which is currently in progress.
 
 ---
 
-## Planck Level-1 MCMC Results (Runs A / B / C)
+## Planck Level-1 MCMC Results (12 Chains, 4 Dataset Combinations)
+
+### Planck Only (Runs A / B / C)
 
 Three independent chains using full Planck 2018 likelihood (lowl.TT + lowl.EE + highl_plik.TTTEEE_lite_native + lensing.CMBMarged):
 
@@ -18,7 +20,7 @@ Three independent chains using full Planck 2018 likelihood (lowl.TT + lowl.EE + 
 | **B: µ₀ floating** | 0.006 ± 0.156 | 0.8146 ± 0.016 | 67.16 ± 0.51 | 981.24 | 1 |
 | **C: ΛCDM baseline** | 0 (fixed) | 0.8139 ± 0.006 | 67.19 ± 0.54 | 983.14 | 0 |
 
-### Three-Way Δχ² Comparison
+### Three-Way Δχ² Comparison (Planck Only)
 
 - **Δχ²(A vs C) = +1.43** — statistically indistinguishable at Planck precision
 - **Δχ²(B vs C) = −1.90** — neutral after AIC penalty for one extra parameter
@@ -70,6 +72,55 @@ Convergence: R−1 = 0.010, 77–80% acceptance rate.
 
 ---
 
+### Planck + RSD (Runs D / E / F)
+
+Adds SDSS DR12/DR16 redshift-space distortion measurements of f·σ₈(z) at seven redshifts, providing direct constraints on growth-rate suppression.
+
+| Run | µ₀ | σ₈ | H₀ [km/s/Mpc] | Best χ² | Extra params |
+|-----|----|----|---------------|---------|--------------|
+| **D: IAM fixed** | −0.135 (fixed) | 0.8001 ± 0.006 | 67.07 ± 0.51 | 991.21 | 0 |
+| **E: µ₀ floating** | +0.024 ± 0.123 | 0.8147 ± 0.013 | 67.10 ± 0.52 | 989.87 | 1 |
+| **F: ΛCDM baseline** | 0 (fixed) | 0.8131 ± 0.006 | 67.18 ± 0.53 | 989.87 | 0 |
+
+Δχ²(D vs F) = +1.34. RSD data tighten σ(µ₀) from 0.156 to 0.123 (20% improvement). IAM's µ₀ = −0.135 lies 1.3σ from Run E posterior.
+
+### Planck + BAO (Runs G / H / I)
+
+BAO angular positions are photon-sector observables (Σ = 1), predicted identical to ΛCDM.
+
+| Run | µ₀ | σ₈ | H₀ [km/s/Mpc] | Best χ² | Extra params |
+|-----|----|----|---------------|---------|--------------|
+| **G: IAM fixed** | −0.135 (fixed) | 0.7981 ± 0.006 | 67.51 ± 0.43 | 1020.03 | 0 |
+| **H: µ₀ floating** | +0.002 ± 0.158 | 0.8117 ± 0.016 | 67.56 ± 0.46 | 1017.90 | 1 |
+| **I: ΛCDM baseline** | 0 (fixed) | 0.8115 ± 0.006 | 67.56 ± 0.45 | 1017.71 | 0 |
+
+Δχ²(G vs I) = +2.32 — the largest penalty but still well below 3.84 threshold.
+
+### Planck + Pantheon+ (Runs J / K / L)
+
+Supernova luminosity distances are photon-sector observables (Σ = 1), predicted identical to ΛCDM.
+
+| Run | µ₀ | σ₈ | H₀ [km/s/Mpc] | Best χ² | Extra params |
+|-----|----|----|---------------|---------|--------------|
+| **J: IAM fixed** | −0.135 (fixed) | 0.8000 ± 0.006 | 67.03 ± 0.52 | 2417.58 | 0 |
+| **K: µ₀ floating** | −0.005 ± 0.162 | 0.8124 ± 0.017 | 67.06 ± 0.52 | 2415.40 | 1 |
+| **L: ΛCDM baseline** | 0 (fixed) | 0.8129 ± 0.006 | 67.11 ± 0.51 | 2416.00 | 0 |
+
+Δχ²(J vs L) = +1.58. Higher absolute χ² reflects Pantheon+'s 1701 data points.
+
+### Δχ² Summary (All 4 Dataset Combinations)
+
+| Dataset | Δχ² (IAM fixed vs ΛCDM) | σ₈ (ΛCDM) | σ₈ (IAM) | Shift |
+|---------|--------------------------|-----------|----------|-------|
+| Planck only | +1.43 | 0.8139 | 0.8014 | −0.0125 (−1.5%) |
+| Planck + RSD | +1.34 | 0.8131 | 0.8001 | −0.0130 (−1.6%) |
+| Planck + BAO | +2.32 | 0.8115 | 0.7981 | −0.0134 (−1.7%) |
+| Planck + Pantheon+ | +1.58 | 0.8129 | 0.8000 | −0.0129 (−1.6%) |
+
+All Δχ² values below 3.84 (95% CL threshold). The σ₈ shift of −0.013 ± 0.001 is universal across all four datasets. All 12 runs converged with R−1 < 0.01.
+
+---
+
 ## MGCAMB Boltzmann Diagnostic Results (7/7 PASSED)
 
 MGCAMB computed the full Boltzmann evolution with µ₀ = −0.135, Σ = 1 using Planck 2018 best-fit parameters (H₀ = 67.36, Ω_b h² = 0.02237, Ω_c h² = 0.1200, τ = 0.0544, ln(10¹⁰A_s) = 3.044, n_s = 0.9649).
@@ -106,17 +157,33 @@ sigma0 = 0.0         # Sigma = 1 exactly
 ```
 mgcamb_validation/
 ├── README.md                          # This file
-├── chains/                            # Raw MCMC chain outputs (Runs A/B/C)
-│   └── README.md                      # Chain file inventory & verification
-├── yaml_configs/                      # Exact Cobaya YAML files
+├── chains/                            # Raw MCMC chain outputs (Runs A–L, 12 chains)
+│   ├── iam_fixed_mu0.*                # Run A: Planck, IAM fixed
+│   ├── iam_float_mu0.*                # Run B: Planck, µ₀ floating
+│   ├── lcdm_baseline.*                # Run C: Planck, ΛCDM
+│   ├── planck_rsd_iam_fixed.*         # Run D: Planck+RSD, IAM fixed
+│   ├── planck_rsd_mu0_float.*         # Run E: Planck+RSD, µ₀ floating
+│   ├── planck_rsd_lcdm_baseline.*     # Run F: Planck+RSD, ΛCDM
+│   ├── planck_bao_iam_fixed.*         # Run G: Planck+BAO, IAM fixed
+│   ├── planck_bao_mu0_float.*         # Run H: Planck+BAO, µ₀ floating
+│   ├── planck_bao_lcdm_baseline.*     # Run I: Planck+BAO, ΛCDM
+│   ├── planck_pantheon_iam_fixed.*    # Run J: Planck+Pantheon+, IAM fixed
+│   ├── planck_pantheon_mu0_float.*    # Run K: Planck+Pantheon+, µ₀ floating
+│   └── planck_pantheon_lcdm_baseline.* # Run L: Planck+Pantheon+, ΛCDM
+├── yaml_configs/                      # Exact Cobaya YAML files (12 configs)
 │   ├── run_a_iam_fixed.yaml
 │   ├── run_b_mu0_float.yaml
-│   └── run_c_lcdm_baseline.yaml
+│   ├── run_c_lcdm_baseline.yaml
+│   ├── run_d_planck_rsd_iam_fixed.yaml
+│   ├── run_e_planck_rsd_mu0_float.yaml
+│   ├── run_f_planck_rsd_lcdm_baseline.yaml
+│   ├── run_g_planck_bao_iam_fixed.yaml
+│   ├── run_h_planck_bao_mu0_float.yaml
+│   ├── run_i_planck_bao_lcdm_baseline.yaml
+│   ├── run_j_planck_pantheon_iam_fixed.yaml
+│   ├── run_k_planck_pantheon_mu0_float.yaml
+│   └── run_l_planck_pantheon_lcdm_baseline.yaml
 ├── getdist_scripts/                   # Posterior extraction & comparison
-│   ├── extract_run_a.py               # Reproduces Table 5 of Technical Note
-│   ├── extract_run_b.py               # Reproduces Table 6 & Section 9
-│   ├── extract_run_c.py               # Reproduces Table 7
-│   └── three_way_comparison.py        # Reproduces Table 8 (Delta-chi2)
 ├── forecasts/                         # Section 10 of Technical Note
 │   ├── README.md
 │   ├── iam_fisher_forecast.py
@@ -157,9 +224,10 @@ pip install cobaya
 cobaya-install planck_2018_lowl.TT planck_2018_lowl.EE \
   planck_2018_highl_plik.TTTEEE_lite_native planck_2018_lensing.CMBMarged
 
-cobaya-run yaml_configs/run_a_iam_fixed.yaml       # ~3-4 hours
-cobaya-run yaml_configs/run_b_mu0_float.yaml       # ~3-4 hours
-cobaya-run yaml_configs/run_c_lcdm_baseline.yaml   # ~3-4 hours
+# Run all 12 chains (~3-4 hours each)
+for yaml in yaml_configs/run_*.yaml; do
+    cobaya-run "$yaml"
+done
 ```
 
 ### Run MGCAMB diagnostic tests
