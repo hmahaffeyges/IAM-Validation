@@ -1,4 +1,5 @@
-# IAM – Derived μ < 1, Σ = 1 Prediction: Planck MCMC Compatibility with σ₈ Suppression Toward Weak Lensing Values
+# IAM – μ < 1, Σ = 1 (0 Free Parameters = ΛCDM) Perturbation & Background Levels Tested Against Planck 2018 (MGCAMB/CAMB)
+12 converged MCMC chains via MGCAMB (Level 1) + 3 chains via modified CAMB (Level 2, in progress) | Δχ² = +0.02 vs ΛCDM | σ₈: 0.811 → 0.800 | Consistent with KiDS, DES, HSC weak lensing values
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation and background implementation).
 
