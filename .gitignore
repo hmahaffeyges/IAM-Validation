@@ -64,3 +64,9 @@ files-5/
 
 # MGCAMB submodule (if not needed in repo)
 # MGCAMB/
+
+# Level 2 working directories and files (not for repo)
+packages/
+level2/
+repo/
+/analyze_runs_GL.py
