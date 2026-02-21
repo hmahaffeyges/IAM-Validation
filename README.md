@@ -141,17 +141,35 @@ All standard cosmological parameters are consistent between IAM and LCDM (all sh
 
 The sigma_8 suppression is confirmed as real growth physics (Possibility A): logA shift = 0.06 sigma, Omega_m shift = 0.04 sigma -- both far below the 0.3 sigma threshold, ruling out parameter rebalancing.
 
-**Run D (IAM + RSD) -- Apples-to-Apples Breakdown:**
+**Run D (IAM + RSD) vs Run C (LCDM baseline) -- Apples-to-Apples:**
 
-Run D includes an RSD likelihood (7 f*sigma_8 data points) not present in the LCDM baseline chain (Run C). Direct comparison of raw chi2 is misleading. The apples-to-apples comparison computes LCDM's RSD chi2 from Run C posterior parameters via CAMB. See [`camb_validation/getdist_scripts/rsd_apples_to_apples.py`](camb_validation/getdist_scripts/rsd_apples_to_apples.py).
+Run D includes an RSD likelihood (7 f*sigma_8 data points) not present in the LCDM baseline chain (Run C). Direct comparison of raw chi2 is misleading (raw Delta-chi2 = +5.56 includes the RSD likelihood score that LCDM was never evaluated against). The apples-to-apples comparison computes LCDM's RSD chi2 from Run C posterior parameters via CAMB. See [`camb_validation/getdist_scripts/rsd_apples_to_apples.py`](camb_validation/getdist_scripts/rsd_apples_to_apples.py).
 
-| Component | IAM chi2 | LCDM chi2 | Delta-chi2 |
-|-----------|---------|----------|-----------|
-| CMB | 10984.93 | 10985.08 | -0.16 |
-| RSD (7 points) | 6.42 | 4.27 | +2.15 |
-| **Total (apples-to-apples)** | | | **+2.00** |
+| Parameter | Run D (IAM + RSD) | Run C (LCDM baseline) | Shift |
+|-----------|-------------------|----------------------|-------|
+| H0 | 67.189 +/- 0.460 | 67.188 +/- 0.465 | +0.00 sigma |
+| sigma_8 | 0.7995 +/- 0.006 | 0.8087 +/- 0.006 | -1.10 sigma |
+| ombh2 | 0.02218 +/- 0.00013 | 0.02218 +/- 0.00013 | -0.00 sigma |
+| omch2 | 0.11988 +/- 0.00105 | 0.11989 +/- 0.00105 | -0.01 sigma |
+| tau | 0.0538 +/- 0.0073 | 0.0532 +/- 0.0074 | +0.06 sigma |
+| ns | 0.9631 +/- 0.0040 | 0.9630 +/- 0.0040 | +0.02 sigma |
+| logA | 3.0406 +/- 0.0145 | 3.0393 +/- 0.0146 | +0.06 sigma |
+| Omega_m | 0.3162 +/- 0.0064 | 0.3162 +/- 0.0065 | +0.00 sigma |
+| S8 | 0.821 +/- 0.011 | 0.830 +/- 0.011 | -0.60 sigma |
 
-Run D parameters: sigma_8 = 0.7995 +/- 0.006, H0 = 67.189 +/- 0.460. All standard parameters shift by less than 0.06 sigma. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD penalty of +2.15 is driven primarily by the z = 0.850 outlier (both models struggle with this point; LCDM pull = 1.56 sigma). The apples-to-apples total of +2.00 is consistent with Level 1 results (Planck+RSD Delta-chi2 = +1.34).
+| Likelihood | Run D (IAM + RSD) | Run C (LCDM) | Delta-chi2 |
+|-----------|-------------------|-------------|-----------|
+| planck_2018_lowl.TT | 23.43 | 23.56 | -0.13 |
+| planck_2018_lowl.EE | 396.91 | 396.85 | +0.06 |
+| planck_NPIPE_highl_CamSpec.TTTEEE | 10555.06 | 10555.22 | -0.16 |
+| planck_2018_lensing.CMBMarged | 9.52 | 9.45 | +0.07 |
+| **CMB subtotal** | **10984.93** | **10985.08** | **-0.16** |
+| RSD (7 f*sigma_8 points) | 6.42 | 4.27 | +2.15 |
+| **Total (apples-to-apples)** | **10991.34** | **10989.35** | **+2.00** |
+
+Note: LCDM RSD chi2 = 4.27 was computed from Run C posterior parameters via CAMB (not from a separate MCMC chain). This is mathematically defensible because LCDM predictions do not depend on which likelihoods were in the chain. Cross-validated by Level 1 results: Level 1 Planck+RSD Delta-chi2 = +1.34, Level 2a apples-to-apples = +2.00.
+
+All standard cosmological parameters are consistent between Run D and Run C (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, matching Run A. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD penalty of +2.15 is driven primarily by the z = 0.850 outlier (f*sigma_8 = 0.315 +/- 0.095; both models struggle with this point; LCDM pull = 1.56 sigma). The sigma_8 suppression is confirmed as real growth physics: logA shift = 0.06 sigma, Omega_m shift = 0.00 sigma -- both far below the 0.3 sigma threshold (Possibility A confirmed, consistent with Run A).
 
 **Success criteria (all met):**
 1. sigma_8 ~ 0.800: **0.7998** (Run A), **0.7995** (Run D) -- suppressed from LCDM's 0.8087
