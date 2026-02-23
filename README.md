@@ -1,5 +1,5 @@
 # IAM -- mu < 1, Sigma = 1 (0 Free Parameters Beyond LCDM) Dual-Sector Perturbation Validation Against Planck 2018 (MGCAMB/CAMB)
-15 converged MCMC chains (12 Level 1 via MGCAMB + 3 Level 2 via modified CAMB) | Delta-chi2 = +0.46 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
+15 converged MCMC chains (12 Level 1 via MGCAMB + 3 Level 2 via modified CAMB) | Delta-chi2 = +0.54 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
@@ -8,7 +8,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 - Sigma(a) = 1 exactly (lensing unmodified)
 - Coupling derived from virial theorem: beta_m = Omega_m/2 = 0.1575, yielding mu_0 = -0.13495
 
-The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.46 (best-fit) relative to LCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.06 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard LCDM are introduced.
+The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.06 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard LCDM are introduced.
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702043-blue)](https://doi.org/10.5281/zenodo.18702043)
@@ -24,7 +24,7 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 | Level | What It Tests | Tool | Chains | Status | Key Result |
 |-------|--------------|------|--------|--------|------------|
 | **Level 1** | mu-Sigma perturbations, LCDM background | MGCAMB | 12 | **Complete** | Delta-chi2 = +1.34 to +2.32 vs LCDM; sigma_8 = 0.800 |
-| **Level 2** | Dual-sector perturbations, LCDM background | CAMB (modified) | 3 | **Complete** | Delta-chi2 = +0.46 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
+| **Level 2** | Dual-sector perturbations, LCDM background | CAMB (modified) | 3 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
 
 **Full reproducibility** -- Level 1 (MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 (modified CAMB): [`camb_validation/`](camb_validation/).
 
@@ -140,7 +140,7 @@ Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly mo
 | planck_2018_lensing.CMBMarged | 9.52 | 9.45 |
 | **Delta-chi2 (IAM - LCDM)** | **-0.01** | **baseline** |
 
-All standard cosmological parameters are consistent between IAM and LCDM (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, a 1.1 sigma downward shift in the direction reported by weak lensing surveys (KiDS, DES, HSC). S8 shifts from 0.830 to 0.822. Delta-chi2 = -0.01 (posterior mean) and +0.46 (best-fit), indicating that the dual-sector modification incurs no statistically significant penalty relative to LCDM under the Planck likelihood.
+All standard cosmological parameters are consistent between IAM and LCDM (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, a 1.1 sigma downward shift in the direction reported by weak lensing surveys (KiDS, DES, HSC). S8 shifts from 0.830 to 0.822. Delta-chi2 = -0.01 (posterior mean) and +0.54 (best-fit), indicating that the dual-sector modification incurs no statistically significant penalty relative to LCDM under the Planck likelihood.
 
 The sigma_8 suppression is confirmed as real growth physics (Possibility A): logA shift = 0.06 sigma, Omega_m shift = 0.04 sigma -- both far below the 0.3 sigma threshold, ruling out parameter rebalancing.
 
@@ -167,17 +167,17 @@ Run D includes an RSD likelihood (7 f*sigma_8 data points) not present in the Le
 | planck_NPIPE_highl_CamSpec.TTTEEE | 10555.06 | 10555.22 | -0.16 |
 | planck_2018_lensing.CMBMarged | 9.52 | 9.45 | +0.07 |
 | **CMB subtotal** | **10984.93** | **10985.08** | **-0.16** |
-| RSD (7 f*sigma_8 points) | 6.42 | 4.27 | +2.15 |
-| **Total (apples-to-apples)** | **10991.34** | **10989.35** | **+2.00** |
+| RSD (7 f*sigma_8 points) | 6.42 | 3.34 | +3.08 |
+| **Total (apples-to-apples)** | **10991.34** | **10988.42** | **+2.92** |
 
-Note: LCDM CMB chi2 values are from Run C (Planck-only chain). LCDM RSD chi2 = 4.27 is computed from Run C posterior parameters via CAMB. This is mathematically defensible (LCDM predictions do not depend on which likelihoods were in the chain) and is cross-validated by Level 1 Run F, where LCDM was actually run against Planck+RSD and produced Delta-chi2 = +1.34 vs IAM.
+Note: LCDM CMB chi2 values are from Run C (Planck-only chain). LCDM RSD chi2 = 3.34 is computed from Run C posterior parameters via CAMB. This is mathematically defensible (LCDM predictions do not depend on which likelihoods were in the chain) and is cross-validated by Level 1 Run F, where LCDM was actually run against Planck+RSD and produced Delta-chi2 = +1.34 vs IAM.
 
-All standard cosmological parameters are consistent between Run D and Run C (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, matching Run A. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD penalty of +2.15 is driven primarily by the z = 0.850 outlier (f*sigma_8 = 0.315 +/- 0.095; both models struggle with this point; LCDM pull = 1.56 sigma). The sigma_8 suppression is confirmed as real growth physics: logA shift = 0.06 sigma, Omega_m shift = 0.00 sigma -- both far below the 0.3 sigma threshold (Possibility A confirmed, consistent with Run A).
+All standard cosmological parameters are consistent between Run D and Run C (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, matching Run A. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD penalty of +3.08 is driven primarily by the z = 0.850 outlier (f*sigma_8 = 0.315 +/- 0.095; both models struggle with this point; LCDM pull = 1.40 sigma). The sigma_8 suppression is confirmed as real growth physics: logA shift = 0.06 sigma, Omega_m shift = 0.00 sigma -- both far below the 0.3 sigma threshold (Possibility A confirmed, consistent with Run A).
 
 **Success criteria (all met):**
 1. sigma_8 ~ 0.800: **0.7998** (Run A), **0.7995** (Run D) -- suppressed from LCDM's 0.8087
 2. Standard parameters stable: all shifts < 0.06 sigma relative to LCDM
-3. Delta-chi2 < 5 vs LCDM baseline: **+0.46** best-fit (Planck), **-0.01** posterior mean (Planck), **+2.00** (Planck+RSD apples-to-apples)
+3. Delta-chi2 < 5 vs LCDM baseline: **+0.54** best-fit (Planck), **-0.01** posterior mean (Planck), **+2.92** (Planck+RSD apples-to-apples)
 4. Clean convergence (R-1 < 0.01, no multimodality): confirmed for all 3 chains
 5. Real growth physics confirmed: logA and Omega_m shifts < 0.3 sigma (Possibility A)
 
@@ -198,7 +198,7 @@ where H0 = 67.161 +/- 0.467 km/s/Mpc is the Level 2 Run A posterior mean, beta_m
 | sigma_8 | 0.7998 | 0.811 +/- 0.006 (Planck LCDM) | Suppressed toward WL |
 | mu_0 | -0.136 | 0.033 +/- 0.125 (Planck+RSD) | 1.3 sigma |
 | Sigma_0 | 0 (exact) | Constrained | Exact |
-| Delta-chi2 (best-fit) | +0.46 | < 3.84 (95% CL threshold) | Pass |
+| Delta-chi2 (best-fit) | +0.54 | < 3.84 (95% CL threshold) | Pass |
 | Free parameters | 0 | -- | Zero |
 
 **Expansion rate by redshift:**
@@ -226,7 +226,7 @@ The sector split vanishes at high redshift (E(a) approaches 0 as a approaches 0)
 | Best chi2 | 10970.69 | 10971.14 | 10978.53 |
 | Samples | 115584 | 81088 | 53312 |
 
-Delta-chi2 (best-fit, Planck): IAM - LCDM = +0.46
+Delta-chi2 (best-fit, Planck): IAM - LCDM = +0.54
 
 ### Note on Background Modification
 
@@ -260,9 +260,9 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 
 ## Broader Context: IAM Dual-Sector Framework
 
-The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.26 km/s/Mpc alongside H0(photon) = 67.16 km/s/Mpc, reducing the discrepancy between CMB and local distance-ladder measurements to within 1 sigma on both sides. Level 2 validation (dual-sector perturbation mechanism via modified CAMB Fortran) confirms this framework survives the full Planck likelihood (Delta-chi2 = +0.46 best-fit, sigma_8 = 0.800).
+The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.26 km/s/Mpc alongside H0(photon) = 67.16 km/s/Mpc, reducing the discrepancy between CMB and local distance-ladder measurements to within 1 sigma on both sides. Level 2 validation (dual-sector perturbation mechanism via modified CAMB Fortran) confirms this framework survives the full Planck likelihood (Delta-chi2 = +0.54 best-fit, sigma_8 = 0.800).
 
-On a limited H0 + growth rate dataset (10 measurements), IAM shows large model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** Level 2 validation is complete (Delta-chi2 = +0.46 best-fit under Planck). The dual-sector perturbation mechanism yields H0(photon) = 67.16 km/s/Mpc and H0(matter) = 72.26 km/s/Mpc, both within 1 sigma of their respective observational values.
+On a limited H0 + growth rate dataset (10 measurements), IAM shows large model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** Level 2 validation is complete (Delta-chi2 = +0.54 best-fit under Planck). The dual-sector perturbation mechanism yields H0(photon) = 67.16 km/s/Mpc and H0(matter) = 72.26 km/s/Mpc, both within 1 sigma of their respective observational values.
 
 | Parameter | Value | Source |
 |-----------|-------|--------|
@@ -572,7 +572,7 @@ IAM-Validation/
 ### Passes CMB Consistency
 
 - **Planck MCMC (Level 1):** 12 independent chains converged cleanly across 4 dataset combinations (Delta-chi2 = +1.43 to +2.32 vs LCDM, all below exclusion threshold)
-- **Planck MCMC (Level 2):** 3 chains via modified CAMB Fortran (Delta-chi2 = +0.46 best-fit Planck, +2.00 Planck+RSD apples-to-apples); sigma_8 suppression confirmed as real growth physics
+- **Planck MCMC (Level 2):** 3 chains via modified CAMB Fortran (Delta-chi2 = +0.54 best-fit Planck, +2.92 Planck+RSD apples-to-apples); sigma_8 suppression confirmed as real growth physics
 - **CMB lensing:** 85% geometric compensation
 - **Acoustic scale:** B_gamma < 10^-5 maintains theta_s precision
 - **Early universe:** No modifications before z ~ 1
@@ -584,7 +584,7 @@ IAM-Validation/
 - **BIC penalty:** Delta-BIC = 25.4 (Kass & Raftery classification: very strong)
 - **Relative likelihood:** Bayes factor ~ 4.4 x 10^5
 
-*Note: These model selection statistics apply to the H0 + f*sigma_8 dataset (10 measurements) only. Under the full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable: Level 1 Delta-chi2 = +1.43, Level 2 Delta-chi2 = +0.46 best-fit. See Level 1 and Level 2 sections above for Planck MCMC results.*
+*Note: These model selection statistics apply to the H0 + f*sigma_8 dataset (10 measurements) only. Under the full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable: Level 1 Delta-chi2 = +1.43, Level 2 Delta-chi2 = +0.54 best-fit. See Level 1 and Level 2 sections above for Planck MCMC results.*
 
 ### Predictions for Upcoming Surveys
 
@@ -706,7 +706,7 @@ Sigma(a) = 1 (standard photon deflection)
 | 1.0 | 0.982 | Near-GR |
 | 3.0 | 0.9998 | Recovers LambdaCDM |
 
-**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed, Level 1: [`mgcamb_validation/`](mgcamb_validation/)) and through direct Fortran modification of CAMB (Level 2: Delta-chi2 = +0.46 best-fit Planck, +2.00 Planck+RSD apples-to-apples, [`camb_validation/`](camb_validation/)). Tested against Planck via full MCMC across 15 chains total (12 Level 1 + 3 Level 2). The signature is directly testable by Euclid at projected 3.4 sigma sensitivity. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for Level 1 results.
+**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed, Level 1: [`mgcamb_validation/`](mgcamb_validation/)) and through direct Fortran modification of CAMB (Level 2: Delta-chi2 = +0.54 best-fit Planck, +2.92 Planck+RSD apples-to-apples, [`camb_validation/`](camb_validation/)). Tested against Planck via full MCMC across 15 chains total (12 Level 1 + 3 Level 2). The signature is directly testable by Euclid at projected 3.4 sigma sensitivity. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for Level 1 results.
 
 </details>
 
@@ -793,7 +793,7 @@ Model selection criteria (accounting for additional parameters):
 
 IAM is preferred on this dataset after accounting for the 2 additional parameters.
 
-*Note: Under the full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable (Level 1 Delta-chi2 = +1.43; Level 2 Delta-chi2 = +0.46 best-fit). The preference above reflects IAM's ability to simultaneously accommodate the discrepant H0 measurements. See Level 1 and Level 2 sections above for Planck MCMC results.*
+*Note: Under the full Planck 2018 likelihood, IAM and LCDM are statistically indistinguishable (Level 1 Delta-chi2 = +1.43; Level 2 Delta-chi2 = +0.54 best-fit). The preference above reflects IAM's ability to simultaneously accommodate the discrepant H0 measurements. See Level 1 and Level 2 sections above for Planck MCMC results.*
 
 ### 5. Distance Consistency (Pantheon+ SNe)
 
@@ -844,7 +844,7 @@ If you use this code or results in published research, please cite:
 - Empirical constraint on sector-dependent expansion: B_gamma/B_m < 10^-5 (MCMC)
 - 5.5 sigma improvement over LCDM on the limited H0 + growth rate dataset (Delta-chi2 = 30.01)
 - No evidence of overfitting on that dataset (Delta-AIC = 26.0, Delta-BIC = 25.4)
-- Compatibility with Planck 2018 full likelihood: Level 1 across four dataset combinations (Delta-chi2 = +1.43 to +2.32); Level 2 dual-sector perturbation validation (Delta-chi2 = +0.46 best-fit Planck, +2.00 Planck+RSD apples-to-apples)
+- Compatibility with Planck 2018 full likelihood: Level 1 across four dataset combinations (Delta-chi2 = +1.43 to +2.32); Level 2 dual-sector perturbation validation (Delta-chi2 = +0.54 best-fit Planck, +2.92 Planck+RSD apples-to-apples)
 - sigma_8 suppression from 0.809 to 0.800 confirmed as real growth physics (not parameter rebalancing)
 - Predictions for Euclid, DESI Year 5, and CMB-S4
 - Growth suppression mechanism from mu < 1, Sigma = 1 (dual-sector perturbations)
@@ -857,7 +857,7 @@ If you use this code or results in published research, please cite:
 - Uniqueness (other parameterizations may fit similarly)
 - Explanation of early-universe physics or inflation
 
-IAM is a late-time phenomenological framework motivated by horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle, quantum decoherence). Its activation function E(a) = exp(1 - 1/a) is derived from the ratio of structure formation rate to cosmic horizon area. Its coupling constant beta_m = Omega_m/2 is derived from the virial theorem. The framework generates specific predictions testable by current and upcoming surveys. Level 2 validation confirms the dual-sector perturbation mechanism survives the full Planck likelihood with no statistically significant penalty (Delta-chi2 = +0.46 best-fit).
+IAM is a late-time phenomenological framework motivated by horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle, quantum decoherence). Its activation function E(a) = exp(1 - 1/a) is derived from the ratio of structure formation rate to cosmic horizon area. Its coupling constant beta_m = Omega_m/2 is derived from the virial theorem. The framework generates specific predictions testable by current and upcoming surveys. Level 2 validation confirms the dual-sector perturbation mechanism survives the full Planck likelihood with no statistically significant penalty (Delta-chi2 = +0.54 best-fit).
 
 ---
 
@@ -872,7 +872,7 @@ This repository presents the final validated framework. Complete development his
 - **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
 - **MGCAMB:** Full Boltzmann validation via modified Einstein-Boltzmann solver (7/7 tests passed)
 - **Planck MCMC (Level 1):** 12 independent chains across 4 dataset combinations (Planck only: Runs A/B/C; Planck + RSD: Runs D/E/F; Planck + BAO: Runs G/H/I; Planck + Pantheon+: Runs J/K/L) -- IAM compatible with Planck across all datasets (Delta-chi2 = +1.43 to +2.32, all below exclusion threshold). Raw chain data: [`mgcamb_validation/chains/`](mgcamb_validation/chains/)
-- **Level 2:** Dual-sector perturbation split via modified CAMB equations.f90 -- Delta-chi2 = +0.46 best-fit vs LCDM (Planck), +2.00 apples-to-apples (Planck+RSD), sigma_8 = 0.800, H0(matter) = 72.26 (all 3 chains converged: Runs A, C, D). Raw chain data: [`camb_validation/chains/`](camb_validation/chains/)
+- **Level 2:** Dual-sector perturbation split via modified CAMB equations.f90 -- Delta-chi2 = +0.54 best-fit vs LCDM (Planck), +2.92 apples-to-apples (Planck+RSD), sigma_8 = 0.800, H0(matter) = 72.26 (all 3 chains converged: Runs A, C, D). Raw chain data: [`camb_validation/chains/`](camb_validation/chains/)
 
 **Main validation consolidated into `iam_validation.py` for clarity and reproducibility.**
 
@@ -905,8 +905,8 @@ The author thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborati
 
 ---
 
-**Last Updated:** February 22, 2026
-**Status:** Level 1 complete (12 chains, 4 datasets, Delta-chi2 = +1.34 to +2.32 vs LCDM); Level 2 complete (3 chains, dual-sector perturbations, Delta-chi2 = +0.46 best-fit Planck, sigma_8 = 0.800, H0(matter) = 72.26); MGCAMB 7/7 Boltzmann tests passed; 15 total converged chains; zero free parameters -- all derived from first principles
-**Key Result:** Level 2 dual-sector perturbation validation yields Delta-chi2 = +0.46 (best-fit) relative to LCDM under the full Planck likelihood. All standard parameters shift by < 0.06 sigma. sigma_8 shifts from 0.8087 to 0.7998, consistent with the direction reported by weak lensing surveys. The matter-sector expansion rate yields H0(matter) = 72.26 km/s/Mpc (0.75 sigma from SH0ES) alongside H0(photon) = 67.16 km/s/Mpc (0.37 sigma from Planck), placing both Hubble tension endpoints within 1 sigma. sigma_8 suppression confirmed as real growth physics (logA shift 0.06 sigma, Omega_m shift 0.04 sigma). Level 1 perturbation-level validation (12 chains, 4 dataset combinations) yields Delta-chi2 = +1.34 to +2.32, all below the 95% CL exclusion threshold. Projected to be testable by Euclid (sigma(mu_0) ~ 0.04) and DESI Year 5.
+**Last Updated:** February 23, 2026
+**Status:** Level 1 complete (12 chains, 4 datasets, Delta-chi2 = +1.34 to +2.32 vs LCDM); Level 2 complete (3 chains, dual-sector perturbations, Delta-chi2 = +0.54 best-fit Planck, sigma_8 = 0.800, H0(matter) = 72.26); MGCAMB 7/7 Boltzmann tests passed; 15 total converged chains; zero free parameters -- all derived from first principles
+**Key Result:** Level 2 dual-sector perturbation validation yields Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. All standard parameters shift by < 0.06 sigma. sigma_8 shifts from 0.8087 to 0.7998, consistent with the direction reported by weak lensing surveys. The matter-sector expansion rate yields H0(matter) = 72.26 km/s/Mpc (0.75 sigma from SH0ES) alongside H0(photon) = 67.16 km/s/Mpc (0.37 sigma from Planck), placing both Hubble tension endpoints within 1 sigma. sigma_8 suppression confirmed as real growth physics (logA shift 0.06 sigma, Omega_m shift 0.04 sigma). Level 1 perturbation-level validation (12 chains, 4 dataset combinations) yields Delta-chi2 = +1.34 to +2.32, all below the 95% CL exclusion threshold. Projected to be testable by Euclid (sigma(mu_0) ~ 0.04) and DESI Year 5.
 
 ---
