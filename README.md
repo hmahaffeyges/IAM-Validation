@@ -8,7 +8,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 - Sigma(a) = 1 exactly (lensing unmodified)
 - Coupling derived from virial theorem: beta_m = Omega_m/2 = 0.1575, yielding mu_0 = -0.13495
 
-The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.06 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard LCDM are introduced.
+The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard LCDM are introduced.
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702043-blue)](https://doi.org/10.5281/zenodo.18702043)
@@ -121,15 +121,15 @@ Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly mo
 
 | Parameter | Run A (IAM dual-sector) | Run C (LCDM baseline) | Shift |
 |-----------|------------------------|----------------------|-------|
-| H0 | 67.161 +/- 0.467 | 67.188 +/- 0.465 | -0.04 sigma |
-| sigma_8 | 0.7998 +/- 0.006 | 0.8087 +/- 0.006 | -1.08 sigma |
-| ombh2 | 0.02217 +/- 0.00013 | 0.02218 +/- 0.00013 | -0.05 sigma |
-| omch2 | 0.11994 +/- 0.00105 | 0.11989 +/- 0.00105 | +0.04 sigma |
-| tau | 0.0537 +/- 0.0073 | 0.0532 +/- 0.0074 | +0.05 sigma |
-| ns | 0.9630 +/- 0.0040 | 0.9630 +/- 0.0040 | -0.00 sigma |
-| logA | 3.0407 +/- 0.0145 | 3.0393 +/- 0.0146 | +0.06 sigma |
-| Omega_m | 0.3166 +/- 0.0065 | 0.3162 +/- 0.0065 | +0.04 sigma |
-| S8 | 0.822 +/- 0.011 | 0.830 +/- 0.011 | -0.55 sigma |
+| H0 | 67.161 +/- 0.467 | 67.188 +/- 0.465 | -0.06 sigma |
+| sigma_8 | 0.7998 +/- 0.0058 | 0.8087 +/- 0.0059 | -1.51 sigma |
+| ombh2 | 0.02217 +/- 0.00013 | 0.02218 +/- 0.00013 | -0.08 sigma |
+| omch2 | 0.11994 +/- 0.00105 | 0.11989 +/- 0.00105 | +0.05 sigma |
+| tau | 0.0537 +/- 0.0073 | 0.0532 +/- 0.0074 | +0.07 sigma |
+| ns | 0.9630 +/- 0.0040 | 0.9630 +/- 0.0040 | +0.00 sigma |
+| logA | 3.0407 +/- 0.0145 | 3.0393 +/- 0.0146 | +0.10 sigma |
+| Omega_m | 0.3166 +/- 0.0065 | 0.3162 +/- 0.0065 | +0.06 sigma |
+| S8 | 0.822 +/- 0.011 | 0.830 +/- 0.011 | -0.73 sigma |
 
 | Likelihood | Run A (IAM) | Run C (LCDM) |
 |-----------|------------|-------------|
@@ -140,9 +140,9 @@ Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly mo
 | planck_2018_lensing.CMBMarged | 9.52 | 9.45 |
 | **Delta-chi2 (IAM - LCDM)** | **-0.01** | **baseline** |
 
-All standard cosmological parameters are consistent between IAM and LCDM (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, a 1.1 sigma downward shift in the direction reported by weak lensing surveys (KiDS, DES, HSC). S8 shifts from 0.830 to 0.822. Delta-chi2 = -0.01 (posterior mean) and +0.54 (best-fit), indicating that the dual-sector modification incurs no statistically significant penalty relative to LCDM under the Planck likelihood.
+All standard cosmological parameters are consistent between IAM and LCDM (all shifts < 0.1 sigma). sigma_8 shifts from 0.809 to 0.800, a 1.5 sigma downward shift in the direction reported by weak lensing surveys (KiDS, DES, HSC). S8 shifts from 0.830 to 0.822. Delta-chi2 = -0.01 (posterior mean) and +0.54 (best-fit), indicating that the dual-sector modification incurs no statistically significant penalty relative to LCDM under the Planck likelihood.
 
-The sigma_8 suppression is confirmed as real growth physics (Possibility A): logA shift = 0.06 sigma, Omega_m shift = 0.04 sigma -- both far below the 0.3 sigma threshold, ruling out parameter rebalancing.
+The sigma_8 suppression is confirmed as real growth physics (Possibility A): logA shift = 0.10 sigma, Omega_m shift = 0.06 sigma -- both far below the 0.3 sigma threshold, ruling out parameter rebalancing.
 
 **Run D (IAM + RSD) -- Apples-to-Apples Comparison:**
 
@@ -151,14 +151,14 @@ Run D includes an RSD likelihood (7 f*sigma_8 data points) not present in the Le
 | Parameter | Run D (IAM + RSD) | Run C (LCDM baseline) | Shift |
 |-----------|-------------------|----------------------|-------|
 | H0 | 67.189 +/- 0.460 | 67.188 +/- 0.465 | +0.00 sigma |
-| sigma_8 | 0.7995 +/- 0.006 | 0.8087 +/- 0.006 | -1.10 sigma |
-| ombh2 | 0.02218 +/- 0.00013 | 0.02218 +/- 0.00013 | -0.00 sigma |
+| sigma_8 | 0.7995 +/- 0.0058 | 0.8087 +/- 0.0059 | -1.56 sigma |
+| ombh2 | 0.02218 +/- 0.00013 | 0.02218 +/- 0.00013 | +0.00 sigma |
 | omch2 | 0.11988 +/- 0.00105 | 0.11989 +/- 0.00105 | -0.01 sigma |
-| tau | 0.0538 +/- 0.0073 | 0.0532 +/- 0.0074 | +0.06 sigma |
+| tau | 0.0538 +/- 0.0073 | 0.0532 +/- 0.0074 | +0.08 sigma |
 | ns | 0.9631 +/- 0.0040 | 0.9630 +/- 0.0040 | +0.02 sigma |
-| logA | 3.0406 +/- 0.0145 | 3.0393 +/- 0.0146 | +0.06 sigma |
+| logA | 3.0406 +/- 0.0145 | 3.0393 +/- 0.0146 | +0.09 sigma |
 | Omega_m | 0.3162 +/- 0.0064 | 0.3162 +/- 0.0065 | +0.00 sigma |
-| S8 | 0.821 +/- 0.011 | 0.830 +/- 0.011 | -0.60 sigma |
+| S8 | 0.821 +/- 0.011 | 0.830 +/- 0.011 | -0.82 sigma |
 
 | Likelihood | Run D (IAM) | LCDM (apples-to-apples) | Delta-chi2 |
 |-----------|------------|------------------------|-----------|
@@ -172,11 +172,11 @@ Run D includes an RSD likelihood (7 f*sigma_8 data points) not present in the Le
 
 Note: LCDM CMB chi2 values are from Run C (Planck-only chain). LCDM RSD chi2 = 3.34 is computed from Run C posterior parameters via CAMB. This is mathematically defensible (LCDM predictions do not depend on which likelihoods were in the chain) and is cross-validated by Level 1 Run F, where LCDM was actually run against Planck+RSD and produced Delta-chi2 = +1.34 vs IAM.
 
-All standard cosmological parameters are consistent between Run D and Run C (all shifts < 0.06 sigma). sigma_8 shifts from 0.809 to 0.800, matching Run A. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD penalty of +3.08 is driven primarily by the z = 0.850 outlier (f*sigma_8 = 0.315 +/- 0.095; both models struggle with this point; LCDM pull = 1.40 sigma). The sigma_8 suppression is confirmed as real growth physics: logA shift = 0.06 sigma, Omega_m shift = 0.00 sigma -- both far below the 0.3 sigma threshold (Possibility A confirmed, consistent with Run A).
+All standard cosmological parameters are consistent between Run D and Run C (all shifts < 0.1 sigma). sigma_8 shifts from 0.809 to 0.800, matching Run A. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD penalty of +3.08 is driven primarily by the z = 0.850 outlier (f*sigma_8 = 0.315 +/- 0.095; both models struggle with this point; LCDM pull = 1.40 sigma). The sigma_8 suppression is confirmed as real growth physics: logA shift = 0.09 sigma, Omega_m shift = 0.00 sigma -- both far below the 0.3 sigma threshold (Possibility A confirmed, consistent with Run A).
 
 **Success criteria (all met):**
 1. sigma_8 ~ 0.800: **0.7998** (Run A), **0.7995** (Run D) -- suppressed from LCDM's 0.8087
-2. Standard parameters stable: all shifts < 0.06 sigma relative to LCDM
+2. Standard parameters stable: all shifts < 0.1 sigma relative to LCDM
 3. Delta-chi2 < 5 vs LCDM baseline: **+0.54** best-fit (Planck), **-0.01** posterior mean (Planck), **+2.92** (Planck+RSD apples-to-apples)
 4. Clean convergence (R-1 < 0.01, no multimodality): confirmed for all 3 chains
 5. Real growth physics confirmed: logA and Omega_m shifts < 0.3 sigma (Possibility A)
@@ -223,7 +223,7 @@ The sector split vanishes at high redshift (E(a) approaches 0 as a approaches 0)
 | sigma_8 | 0.8087 +/- 0.0059 | 0.7998 +/- 0.0058 | 0.7995 +/- 0.0058 |
 | Omega_m | 0.3162 +/- 0.0065 | 0.3166 +/- 0.0065 | 0.3162 +/- 0.0064 |
 | S8 (sigma_8 * sqrt(Omega_m/0.3)) | 0.4547 +/- 0.0062 | 0.4500 +/- 0.0061 | 0.4496 +/- 0.0060 |
-| Best chi2 | 10970.69 | 10971.14 | 10978.53 |
+| Best chi2 | 10972.07 | 10972.61 | 10979.43 |
 | Samples | 115584 | 81088 | 53312 |
 
 Delta-chi2 (best-fit, Planck): IAM - LCDM = +0.54
@@ -905,8 +905,8 @@ The author thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborati
 
 ---
 
-**Last Updated:** February 23, 2026
+**Last Updated:** February 22, 2026
 **Status:** Level 1 complete (12 chains, 4 datasets, Delta-chi2 = +1.34 to +2.32 vs LCDM); Level 2 complete (3 chains, dual-sector perturbations, Delta-chi2 = +0.54 best-fit Planck, sigma_8 = 0.800, H0(matter) = 72.26); MGCAMB 7/7 Boltzmann tests passed; 15 total converged chains; zero free parameters -- all derived from first principles
-**Key Result:** Level 2 dual-sector perturbation validation yields Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. All standard parameters shift by < 0.06 sigma. sigma_8 shifts from 0.8087 to 0.7998, consistent with the direction reported by weak lensing surveys. The matter-sector expansion rate yields H0(matter) = 72.26 km/s/Mpc (0.75 sigma from SH0ES) alongside H0(photon) = 67.16 km/s/Mpc (0.37 sigma from Planck), placing both Hubble tension endpoints within 1 sigma. sigma_8 suppression confirmed as real growth physics (logA shift 0.06 sigma, Omega_m shift 0.04 sigma). Level 1 perturbation-level validation (12 chains, 4 dataset combinations) yields Delta-chi2 = +1.34 to +2.32, all below the 95% CL exclusion threshold. Projected to be testable by Euclid (sigma(mu_0) ~ 0.04) and DESI Year 5.
+**Key Result:** Level 2 dual-sector perturbation validation yields Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. All standard parameters shift by < 0.1 sigma. sigma_8 shifts from 0.8087 to 0.7998, consistent with the direction reported by weak lensing surveys. The matter-sector expansion rate yields H0(matter) = 72.26 km/s/Mpc (0.75 sigma from SH0ES) alongside H0(photon) = 67.16 km/s/Mpc (0.37 sigma from Planck), placing both Hubble tension endpoints within 1 sigma. sigma_8 suppression confirmed as real growth physics (logA shift 0.10 sigma, Omega_m shift 0.06 sigma). Level 1 perturbation-level validation (12 chains, 4 dataset combinations) yields Delta-chi2 = +1.34 to +2.32, all below the 95% CL exclusion threshold. Projected to be testable by Euclid (sigma(mu_0) ~ 0.04) and DESI Year 5.
 
 ---
