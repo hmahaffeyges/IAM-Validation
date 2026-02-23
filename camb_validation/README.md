@@ -13,7 +13,7 @@ This directory contains the Level 2 validation of IAM using vanilla CAMB v1.5.8 
 
 | Phase | What It Tests | Chains | Status | Key Result |
 |-------|--------------|--------|--------|------------|
-| **Level 2a** | Dual-sector perturbations, LCDM background | 3 | **COMPLETE** | Delta-chi2 = -0.01 (Planck); +2.00 apples-to-apples (Planck+RSD) |
+| **Level 2a** | Dual-sector perturbations, LCDM background | 3 | **COMPLETE** | Delta-chi2 = -0.01 (Planck); +2.92 apples-to-apples (Planck+RSD) |
 | **Level 2b** | Modified dtauda background | 4 | **In progress** | -- |
 | **Level 2c** | Modified background + late-universe data | 4-6 | Pending | -- |
 
@@ -76,10 +76,10 @@ All standard cosmological parameters shift by less than 0.06 sigma. sigma_8 shif
 | Component | IAM chi2 | LCDM chi2 | Delta-chi2 |
 |-----------|---------|----------|-----------|
 | CMB | 10984.93 | 10985.08 | -0.16 |
-| RSD (7 points) | 6.42 | 4.27 | +2.15 |
-| **Total (apples-to-apples)** | | | **+2.00** |
+| RSD (7 points) | 6.42 | 3.34 | +3.08 |
+| **Total (apples-to-apples)** | | | **+2.92** |
 
-Run D parameters: sigma_8 = 0.7995 +/- 0.006, H0 = 67.189 +/- 0.460. All standard parameters shift by less than 0.06 sigma relative to Run C. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD component shows Delta-chi2 = +2.15, driven primarily by the z = 0.850 outlier point (LCDM pull = 1.56 sigma) which both models struggle with.
+Run D parameters: sigma_8 = 0.7995 +/- 0.006, H0 = 67.189 +/- 0.460. All standard parameters shift by less than 0.06 sigma relative to Run C. The CMB component slightly prefers IAM (Delta-chi2 = -0.16). The RSD component shows Delta-chi2 = +3.08, driven primarily by the z = 0.850 outlier point (LCDM pull = 1.40 sigma) which both models struggle with.
 
 **Companion script:** `getdist_scripts/rsd_apples_to_apples.py` computes the correct apples-to-apples comparison for any chain pair with mismatched likelihoods.
 
@@ -142,5 +142,5 @@ To reproduce Level 2a results:
 
 ---
 
-*Last updated: February 20, 2026*
+*Last updated: February 23, 2026*
 *Status: Level 2a COMPLETE (3 chains, all passed). Level 2b in progress (4 chains, background modification).*
