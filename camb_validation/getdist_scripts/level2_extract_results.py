@@ -3,6 +3,16 @@
 IAM Level 2 Results Extraction Script
 Usage: python3 level2_extract_results.py [chain_dir]
 Default chain_dir: ~/CAMB_IAM_L2/chains
+
+Note on shift convention: This script reports parameter shifts in units of
+the combined error sqrt(sigma_IAM^2 + sigma_LCDM^2), which is the more
+conservative and statistically rigorous measure. The accompanying paper and
+README report shifts in units of the LCDM baseline error only (sigma_LCDM),
+following the standard cosmology convention for comparing a modified model
+to a reference baseline. The two conventions differ by a factor of ~sqrt(2)
+when error bars are comparable. For example, the sigma_8 shift is reported
+as -1.07 sigma (combined error, this script) vs -1.51 sigma (baseline error,
+paper/README). Both are correct; the difference is purely conventional.
 """
 import argparse, glob, os, sys
 import numpy as np
@@ -96,6 +106,7 @@ def print_comparison(iam_results, lcdm_results, iam_r1, lcdm_r1, iam_acc, lcdm_a
             iam = iam_results[p]
             lcdm = lcdm_results[p]
             shift = iam['mean'] - lcdm['mean']
+            # Combined error convention (conservative); paper uses lcdm['err'] only
             combined_err = np.sqrt(iam['err']**2 + lcdm['err']**2)
             n_sigma = shift / combined_err if combined_err > 0 else 0
             iam_str = f"{iam['mean']:.5f} +/- {iam['err']:.5f}"
