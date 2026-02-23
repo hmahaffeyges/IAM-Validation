@@ -611,7 +611,7 @@ IAM-Validation/
  - Complete Python code in appendices (< 2 min reproducibility)
  - Companion paper to main IAM manuscript
 
-3. **[IAM--CAMB Technical Note: Planck Level-1 Validation](docs/IAM_CAMB_Technical_Note.pdf)** (~23 pages)
+3. **[IAM--CAMB Technical Note: Full Planck Validation](docs/IAM_CAMB_Technical_Note.pdf)** (~23 pages)
  - mu--Sigma modified gravity mapping: mu(a) < 1, Sigma(a) = 1
  - Python-level CAMB validation with comprehensive 8-panel figure
  - Fortran-level implementation: what was done, what was learned
