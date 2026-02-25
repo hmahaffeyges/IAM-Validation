@@ -1,5 +1,5 @@
-# IAM -- mu < 1, Sigma = 1 (0 Free Parameters Beyond LCDM) Dual-Sector Perturbation Validation Against Planck 2018 (MGCAMB/CAMB)
-15 converged MCMC chains (12 Level 1 via MGCAMB + 3 Level 2 via modified CAMB) | Delta-chi2 = +0.54 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
+# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) (O Free Parameters Beyond LCDM)
+17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | Delta-chi2 = +0.54 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
@@ -251,6 +251,7 @@ The sector split vanishes at high redshift (E(a) approaches 0 as a approaches 0)
 
 Delta-chi2 (best-fit, Planck): IAM - LCDM = +0.54
 
+### Dual-Sector Perturbations, Modified Background -- COMPLETE (2 chains converged)
 ### Note on Background Modification
 
 Two exploratory runs were conducted with the IAM term added to the background expansion equation (modifying CAMB's `dtauda` function). These runs confirmed the mathematical consistency of the dual-sector implementation but produced H0 ~ 61.5 km/s/Mpc at the background level, as the single-sector background modification shifts the global expansion rate rather than producing a sector-dependent split. This result confirms that the dual-sector mechanism operates at the perturbation level: the standard LCDM expansion equation correctly describes the global background, while the matter-sector enhancement enters through `adotoa_matter` in the perturbation equations. The background modification chains are archived in `camb_validation/chains/` for reproducibility.
