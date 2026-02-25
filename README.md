@@ -106,6 +106,8 @@ All four Level 1 floating-parameter runs return mu_0 values consistent with the 
 
 Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly modifying the CAMB Fortran source code (`equations.f90`) to implement the dual-sector mechanism: CDM and baryons experience a modified effective expansion rate (adotoa_matter) while photon equations remain standard. Level 2 uses vanilla CAMB v1.5.8 (not MGCAMB).
 
+**Level 2 preprint:** [Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with μ < 1, Σ = 1 and the Sector-Dependent Hubble Parameter](docs/Paper2_Dual-Sector_Cosmology_and_Hubble_Tension.pdf) -- Modified CAMB Fortran validation (3 chains, Δχ² = +0.54, σ₈ = 0.800, H₀(matter) = 72.26)
+
 **Full Level 2 reproducibility package:** [`camb_validation/`](camb_validation/)
 
 - **[Modified Fortran source](camb_validation/equations_iam_level2.f90)** -- equations.f90 with 3 surgical IAM modifications
