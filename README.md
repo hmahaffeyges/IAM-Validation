@@ -1,4 +1,4 @@
-# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) (O Free Parameters Beyond LCDM)
+# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) O Free Parameters Beyond LCDM
 17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | Delta-chi2 = +0.54 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
