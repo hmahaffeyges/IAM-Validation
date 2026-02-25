@@ -34,6 +34,8 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 
 **Scope:** Background expansion is standard LCDM (unmodified). Only perturbation equations modified via mu < 1, Sigma = 1 through MGCAMB's built-in mu-Sigma parametrization (MGCAMB v1.5.2 + Cobaya). No perturbation quantity feeds back into H(z).
 
+**Level 1 preprint:** [Late-Time Growth Suppression in the μ–Σ Framework: Confrontation with Planck and Large-Scale Structure](docs/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf) -- MGCAMB perturbation-level analysis (12 chains, 4 dataset combinations)
+
 ### Planck Only (Runs A / B / C)
 
 | Run | Description | mu_0 | sigma_8 | H0 [km/s/Mpc] | Best chi2 |
