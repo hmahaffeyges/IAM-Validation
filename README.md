@@ -1,9 +1,9 @@
-# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) O Free Parameters Beyond LCDM
+# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) 0 Free Parameters Beyond LCDM
 17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | Delta-chi2 = +0.54 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
-****Informational Actualization Model**:** [Technical Clarification Guide](docs/IAM_Technical_Clarifications_Guide.pdf)
+**Informational Actualization Model:** [Dual-Sector Cosmology: µ<1, Σ=1](docs/IAM_Technical_Clarifications_Guide.pdf)
 
 **Core predictions (all derived, zero free parameters):**
 - Perturbation modification: mu(a) = H^2_LCDM / (H^2_LCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
@@ -26,7 +26,7 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 | Level | What It Tests | Tool | Chains | Status | Key Result |
 |-------|--------------|------|--------|--------|------------|
 | **Level 1** | mu-Sigma perturbations, LCDM background | MGCAMB | 12 | **Complete** | Delta-chi2 = +1.34 to +2.32 vs LCDM; sigma_8 = 0.800 |
-| **Level 2** | Dual-sector perturbations, LCDM background | CAMB (modified) | 3 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
+| **Level 2** | Dual-sector perturbations, LCDM background | CAMB (modified) | 5 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
 
 **Full reproducibility** -- Level 1 (MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 (modified CAMB): [`camb_validation/`](camb_validation/).
 
@@ -929,8 +929,8 @@ The author thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborati
 
 ---
 
-**Last Updated:** February 22, 2026
-**Status:** Level 1 complete (12 chains, 4 datasets, Delta-chi2 = +1.34 to +2.32 vs LCDM); Level 2 complete (3 chains, dual-sector perturbations, Delta-chi2 = +0.54 best-fit Planck, sigma_8 = 0.800, H0(matter) = 72.26); MGCAMB 7/7 Boltzmann tests passed; 15 total converged chains; zero free parameters -- all derived from first principles
+**Last Updated:** February 25, 2026
+**Status:** Level 1 complete (12 chains, 4 datasets, Delta-chi2 = +1.34 to +2.32 vs LCDM); Level 2 complete (5 chains: 3 dual-sector perturbations, 2 background modification diagnostics, Delta-chi2 = +0.54 best-fit Planck, sigma_8 = 0.800, H0(matter) = 72.26); MGCAMB 7/7 Boltzmann tests passed; 17 total converged chains; zero free parameters -- all derived from first principles
 **Key Result:** Level 2 dual-sector perturbation validation yields Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. All standard parameters shift by < 0.1 sigma. sigma_8 shifts from 0.8087 to 0.7998, consistent with the direction reported by weak lensing surveys. The matter-sector expansion rate yields H0(matter) = 72.26 km/s/Mpc (0.75 sigma from SH0ES) alongside H0(photon) = 67.16 km/s/Mpc (0.37 sigma from Planck), placing both Hubble tension endpoints within 1 sigma. sigma_8 suppression confirmed as real growth physics (logA shift 0.10 sigma, Omega_m shift 0.06 sigma). Level 1 perturbation-level validation (12 chains, 4 dataset combinations) yields Delta-chi2 = +1.34 to +2.32, all below the 95% CL exclusion threshold. Projected to be testable by Euclid (sigma(mu_0) ~ 0.04) and DESI Year 5.
 
 ---
