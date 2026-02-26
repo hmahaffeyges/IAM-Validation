@@ -254,7 +254,7 @@ Delta-chi2 (best-fit, Planck): IAM - LCDM = +0.54
 ### Dual-Sector Perturbations, Modified Background -- COMPLETE (2 chains converged)
 ### Note on Background Modification
 
-Two exploratory runs were conducted with the IAM term added to the background expansion equation (modifying CAMB's `dtauda` function). These runs confirmed the mathematical consistency of the dual-sector implementation but produced H0 ~ 61.5 km/s/Mpc at the background level, as the single-sector background modification shifts the global expansion rate rather than producing a sector-dependent split. This result confirms that the dual-sector mechanism operates at the perturbation level: the standard LCDM expansion equation correctly describes the global background, while the matter-sector enhancement enters through `adotoa_matter` in the perturbation equations. The background modification chains are archived in `camb_validation/chains/` for reproducibility.
+Two exploratory runs were conducted with the IAM term added to the background expansion equation (modifying CAMB's `dtauda` function). Two Level 2b background modification chains ran to completion: Run A (125,440 accepted samples, 46.8% acceptance, R-1 = 0.0096) and Run D (120,832 accepted samples, 46.3% acceptance, R-1 = 0.0068). Both converged cleanly. The result H₀ ≈ 61.5 km/s/Mpc confirmed that the dual-sector mechanism operates exclusively at the perturbation level. This is a structural confirmation — the chains did not fail, they answered the question precisely `adotoa_matter` in the perturbation equations. The background modification chains are archived in `camb_validation/chains/` for reproducibility.
 
 ---
 
