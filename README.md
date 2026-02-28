@@ -13,7 +13,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard LCDM are introduced.
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18750795-blue)](https://doi.org/10.5281/zenodo.18750795)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18809173-blue)](https://doi.org/10.5281/zenodo.18809173)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![CAMB](https://img.shields.io/badge/CAMB-v1.5.8-green)](https://github.com/cmbant/CAMB)
