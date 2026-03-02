@@ -41,7 +41,7 @@
 The Koide relation for charged leptons,
 $Q \equiv \frac{m_e+m_\mu+m_\tau}{\left(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau}\right)^2}=\frac{2}{3}$,
 has held at the $10^{-5}$ level for decades and lacks an accepted Standard Model derivation.
-This note reformulates a compact argument: \emph{if} (i) charged-fermion mass encodings on a holographic screen reduce, in the lowest-energy sector, to a single Fourier mode on a $U(1)$ charge orbit $S^1\subset S^2$ and (ii) the IAM ``virial partition'' identifies the event-like and configuration-like contributions of that encoding with the kinetic and potential halves in the virial theorem for a $1/r$ interaction, then two statements follow with no further parameter fitting:
+This note develops a compact conditional argument: \emph{if} (i) charged-fermion mass encodings on a holographic screen reduce, in the lowest-energy sector, to a single Fourier mode on a $U(1)$ charge orbit $S^1\subset S^2$ and (ii) the IAM ``virial partition'' identifies the event-like and configuration-like contributions of that encoding with the kinetic and potential halves in the virial theorem for a $1/r$ interaction, then two statements follow with no further parameter fitting:
 (1) the number of admissible equally spaced phase states with positive mass is uniquely $n=3$; and
 (2) for $n=3$ the Koide ratio is an exact algebraic identity.
 The paper is written to be referee-facing: all nonstandard inputs are isolated as explicit assumptions, the logical dependence is made fully transparent, and the scope and failure modes are spelled out.
@@ -155,6 +155,12 @@ The constant piece $x$ and modulation piece $y$ correspond to two additive contr
 
 Assumption~\ref{ass:virialmap} is the only place where IAM-specific physics enters the Koide argument; it is the same $1/2$ partition emphasized in the IAM coupling $\beta_m=\Omega_m/2$ literature (Ref.~\cite{virial_paper}) and in the cosmology-focused virial-efficiency compilation (see Ref.~\cite{virial_eff_paper}).
 
+The physical motivation for this identification is the following.
+In IAM, the virial $1/2$ partition is not a free choice: it is a mathematical consequence of the $1/r$ potential, verified analytically for both Coulomb and gravitational interactions and confirmed computationally from atomic scales ($10^{-11}$\,m) to the cosmic horizon ($10^{26}$\,m) in Ref.~\cite{virial_paper}.
+IAM interprets the two halves of this partition as physically distinct information channels: the kinetic half counts irreversible decoherence events (temporal encoding), while the potential half counts the configuration bits stored in spatial structure.
+Assumption~\ref{ass:virialmap} applies this same partition to the boundary encoding amplitudes: $x^2$ plays the role of the configuration-like (constant offset) contribution and $y^2/2$ plays the role of the event-like (modulation) contribution, with their ratio fixed by the same $1/r$ universality.
+This remains an assumption --- the mapping from gravitational virial physics to holographic encoding amplitudes is not derived here from first principles --- but it is grounded in a partition that holds without exception across every physical scale at which it has been tested.
+
 \section{Phase states and mass positivity}
 \label{sec:positivity}
 
@@ -182,8 +188,11 @@ Then the only nontrivial integer $n\ge 2$ such that $x+y\cos\varphi_k>0$ for all
 \begin{proof}
 For $n=2$, $\{\varphi_k\}=\{0,\pi\}$, hence $\sqrt{m_1}=x-y=x(1-\sqrt{2})<0$; excluded.
 
-For $n\ge 4$, the set of phases includes either $\varphi=\pi$ (if $n$ is even) or a phase arbitrarily close to $\pi$ (if $n$ is odd and large).
-In all cases, $\min_k \cos\varphi_k \le -1/\sqrt{2}$ for $n\ge 4$.
+For $n\ge 4$ we show $\min_k\cos\varphi_k \le -1/\sqrt{2}$ by considering two sub-cases.
+\emph{$n$ even:} the phase $\varphi_{n/2}=\pi$ is always present, so $\min_k\cos\varphi_k = -1 < -1/\sqrt{2}$.
+\emph{$n$ odd, $n\ge 5$:} the phase nearest $\pi$ is $\varphi_{(n-1)/2}=\pi(n-1)/n$.
+Since $(n-1)/n \ge 4/5$ for all $n\ge 5$, we have $\varphi_{(n-1)/2}\ge 4\pi/5$, and $\cos(4\pi/5)=-\tfrac{1}{4}(1+\sqrt{5})\approx -0.809 < -1/\sqrt{2}\approx -0.707$.
+The cosine is monotonically decreasing on $[0,\pi]$, so $\cos\varphi_{(n-1)/2}\le\cos(4\pi/5)<-1/\sqrt{2}$ for all odd $n\ge 5$.
 Therefore
 \[
 \min_k \sqrt{m_k} = x + y\,\min_k\cos\varphi_k \le x + y\left(-\frac{1}{\sqrt{2}}\right)=x-\frac{y}{\sqrt{2}}=x-x=0,
@@ -234,7 +243,7 @@ Q = \frac{3x^2+\frac{3}{2}y^2}{(3x)^2}
 Using PDG~2022 values (as quoted in the draft), one finds a charged-lepton Koide ratio within $\sim 10^{-5}$ of $2/3$ (Table~\ref{tab:pdg}).
 \begin{table}[h]
 \centering
-\caption{Charged lepton masses and Koide ratio (PDG~2022 values as used in the draft).}
+\caption{Charged lepton masses and Koide ratio (PDG~2022 values~\cite{pdg2022}).}
 \label{tab:pdg}
 \begin{tabular}{@{}lll@{}}
 \toprule
@@ -270,8 +279,8 @@ A key empirical discriminator is whether the same $Z_3$ phase structure appears 
 \section{Relation to earlier geometric observations}
 \label{sec:relation}
 
-Foot and others emphasized geometric and phase-vector interpretations of Koide-like relations.
-Brannen presented a phase form with $\{0,2\pi/3,4\pi/3\}$ phases.
+Foot and others emphasized geometric and phase-vector interpretations of Koide-like relations~\cite{foot1994}.
+Brannen presented a phase form with $\{0,2\pi/3,4\pi/3\}$ phases~\cite{brannen2006}.
 The present note differs only in \emph{logical packaging}: the $Z_3$ phase structure is here tied to a positivity constraint plus a fixed amplitude ratio $y/x=\sqrt{2}$, rather than adopted as an ansatz to fit masses.
 
 \section{Conclusions}
@@ -296,7 +305,7 @@ Instead it clarifies the minimal role played here: only the existence of a one-p
 \section{On ``entropy functionals'' and what can and cannot be made rigorous here}
 \label{app:functional}
 
-The draft requested an ``explicit entropy functional whose extremization yields both $y/x=\sqrt{2}$ and $n=3$''.
+A natural question is whether an explicit entropy functional whose extremization yields both $y/x=\sqrt{2}$ and $n=3$ can be constructed.
 A fully first-principles construction would require a microscopic model for boundary microstates and their energy/entropy accounting.
 That is beyond the scope of a short Koide note.
 
@@ -308,20 +317,11 @@ What \emph{can} be made mathematically sharp is the following separation:
 
 A referee-proof presentation therefore separates these layers cleanly (as we did above), rather than presenting the model layer as a completed derivation.
 
-\section{Testing a Weyl-squared ``gravitational entropy'' route to $\beta_m=\Omega_m/2$ (outline)}
+\section{A possible route to deriving $y/x=\sqrt{2}$ from first principles}
 \label{app:weyl}
 
-One possible route to a covariant entropy functional that vanishes on exact FRW is to use invariants built from the Weyl tensor, since FRW is conformally flat ($C_{abcd}=0$).
-A toy ``gravitational entropy density'' is sometimes taken to scale like $C_{abcd}C^{abcd}$.
-In IAM language, such a term would be sourced only by inhomogeneities and would therefore naturally live in the \emph{perturbation} sector (aligning with the IAM sector split).
-
-However, showing that such a functional yields an \emph{exact} $1/2$ partition at cosmological scales is nontrivial.
-The virial half-partition is an exact theorem for $1/r$ bound dynamics; Weyl-invariant integrals are not obviously constrained to produce the same universal factor without additional assumptions about averaging, coarse-graining, and the mapping between curvature invariants and information/entropy.
-A controlled test would require:
-(i) specifying the coarse-graining procedure on a spacelike hypersurface;
-(ii) evaluating the functional on a statistical ensemble of collisionless halos;
-and (iii) comparing the resulting effective contribution to a quantity proportional to $\Omega_m$.
-This appendix records the idea as a research direction, not as an established derivation.
+One candidate approach would use a Weyl-squared gravitational entropy functional, which vanishes on exact FRW (since FRW is conformally flat, $C_{abcd}=0$) and is sourced only by perturbations, naturally aligning with the IAM perturbation-sector split.
+A controlled derivation would require specifying a coarse-graining procedure on a spacelike hypersurface and evaluating the functional on a statistical ensemble of virialized halos; this is reserved for future work.
 
 \bibliographystyle{unsrt}
 \begin{thebibliography}{99}
@@ -343,6 +343,16 @@ H.~W. Mahaffey, \emph{Virial Efficiency and Effective Nonlinear Exponent in the 
 
 \bibitem{electron_mass}
 H.~W. Mahaffey, \emph{Electron Rest Mass from Holographic Horizon Thermodynamics}, GitHub preprint (2026).
+
+\bibitem{foot1994}
+R.~Foot, ``A note on Koide's lepton mass relation,'' arXiv:hep-ph/9402242 (1994).
+
+\bibitem{brannen2006}
+C.~Brannen, ``The lepton masses,'' preprint (2006),
+\url{http://brannenworks.com/MASSES2.pdf}.
+
+\bibitem{pdg2022}
+Particle Data Group, R.~L.~Workman et al., Prog.\ Theor.\ Exp.\ Phys.\ \textbf{2022}, 083C01 (2022).
 
 \end{thebibliography}
 
