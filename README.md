@@ -3,7 +3,9 @@
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
-**Technical Clarifications Guide:** [Dual-Sector Cosmology: µ<1, Σ=1](docs/IAM_Technical_Clarifications_Guide.pdf)
+**Dual-Sector Cosmology: µ<1, Σ=1:** [IAM Technical Clarifications Guide](docs/IAM_Technical_Clarifications_Guide.pdf)
+
+**Master summary / single entry point:** [IAM: Master Consolidated Summary (status, validations, full document map)](docs/IAM_Master_Consolidated_Summary.pdf)
 
 **Core predictions (all derived, zero free parameters):**
 - Perturbation modification: mu(a) = H^2_LCDM / (H^2_LCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
