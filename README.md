@@ -1,20 +1,20 @@
-# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) 0 Free Parameters Beyond LCDM
+# (IAM) µ<1  Σ = 1 Cosmology: Validation Against Planck 2018 (MGCAMB/CAMB) 0 Free Parameters Beyond ΛCDM
 Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai and Kim showed in 2005 that the Friedmann equations follow from the same thermodynamic argument applied to the FRW apparent horizon. Both derivations assume the entropy functional contains only geometric terms. IAM asks what happens when that assumption is incomplete — specifically, when gravitational structure formation is acknowledged as the dominant source of irreversible classical information production in the universe. That information carries a thermodynamic cost (Landauer's principle, experimentally verified), and the holographic principle requires it to be encoded on the cosmic horizon. Nothing is added to GR. Its own thermodynamic logic is simply followed one step further than Jacobson and Cai-Kim did. The result falls out causally: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling derived from the virial theorem and an activation function derived from horizon thermodynamics. Zero free parameters beyond ΛCDM. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
 
 17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | Delta-chi2 = +0.54 best-fit vs LCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
 
-This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of LCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
+This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of ΛCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
 **Dual-Sector Cosmology: µ<1, Σ=1:** [IAM Technical Clarifications Guide](docs/IAM_Technical_Clarifications_Guide.pdf)
 
 **Master summary / single entry point:** [IAM: Master Consolidated Summary (status, validations, full document map)](docs/IAM_Master_Consolidated_Summary.pdf)
 
 **Core predictions (all derived, zero free parameters):**
-- Perturbation modification: mu(a) = H^2_LCDM / (H^2_LCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
+- Perturbation modification: mu(a) = H^2_ΛCDM / (H^2_ΛCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
 - Sigma(a) = 1 exactly (lensing unmodified)
 - Coupling derived from virial theorem: beta_m = Omega_m/2 = 0.1575, yielding mu_0 = -0.13495
 
-The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to LCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard LCDM are introduced.
+The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (LCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to ΛCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard ΛCDM are introduced.
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18809173-blue)](https://doi.org/10.5281/zenodo.18809173)
@@ -29,8 +29,8 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 
 | Level | What It Tests | Tool | Chains | Status | Key Result |
 |-------|--------------|------|--------|--------|------------|
-| **Level 1** | mu-Sigma perturbations, LCDM background | MGCAMB | 12 | **Complete** | Delta-chi2 = +1.34 to +2.32 vs LCDM; sigma_8 = 0.800 |
-| **Level 2** | Dual-sector perturbations, LCDM background | CAMB (modified) | 5 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
+| **Level 1** | mu-Sigma perturbations, ΛCDM background | MGCAMB | 12 | **Complete** | Delta-chi2 = +1.34 to +2.32 vs ΛCDM; sigma_8 = 0.800 |
+| **Level 2** | Dual-sector perturbations, ΛCDM background | CAMB (modified) | 5 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
 
 **Full reproducibility** -- Level 1 (MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 (modified CAMB): [`camb_validation/`](camb_validation/).
 
@@ -38,7 +38,7 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 
 ## Level 1: Perturbation-Level Planck MCMC via MGCAMB (12 Independent Chains) — COMPLETE
 
-**Scope:** Background expansion is standard LCDM (unmodified). Only perturbation equations modified via mu < 1, Sigma = 1 through MGCAMB's built-in mu-Sigma parametrization (MGCAMB v1.5.2 + Cobaya). No perturbation quantity feeds back into H(z).
+**Scope:** Background expansion is standard ΛCDM (unmodified). Only perturbation equations modified via mu < 1, Sigma = 1 through MGCAMB's built-in mu-Sigma parametrization (MGCAMB v1.5.2 + Cobaya). No perturbation quantity feeds back into H(z).
 
 **Level 1 preprint:** [Late-Time Growth Suppression in the μ–Σ Framework: Confrontation with Planck and Large-Scale Structure](docs/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf) -- MGCAMB perturbation-level analysis (12 chains, 4 dataset combinations)
 
