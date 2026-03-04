@@ -7,7 +7,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 
 **Dual-Sector Cosmology: µ<1, Σ=1:** [IAM Technical Clarifications Guide](docs/IAM_Technical_Clarifications_Guide.pdf)
 
-**Primary reference document** [IAM Master Preprint](docs/IAM_Master_Preprint.pdf)
+**Primary Reference Document (IAM):**[IAM Master Preprint](docs/IAM_Master_Preprint.pdf)
 - Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
 - Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
 - Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
