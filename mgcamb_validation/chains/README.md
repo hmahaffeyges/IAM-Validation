@@ -72,7 +72,7 @@ All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0
 
 The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.51 km/s/Mpc alongside H0(photon) = 67.4 km/s/Mpc, addressing the Hubble tension.
 
-On a limited H0 + growth rate dataset (10 measurements), IAM shows strong model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This strong preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** The background-level prediction (Level 2/3) remains to be implemented and tested.
+On a limited H0 + growth rate dataset (10 measurements), IAM shows strong model-selection preference (Delta-chi2 ~ 30, Delta-AIC = 26.0). **This strong preference refers to the limited H0 + growth dataset only and does not apply under the full Planck likelihood, where IAM and LCDM are statistically indistinguishable.** 
 
 | Parameter | Value | Source |
 |-----------|-------|--------|
@@ -577,7 +577,7 @@ Likelihoods: planck_2018_lowl.TT + lowl.EE + highl_plik.TTTEEE_lite_native + len
 - All 12 runs converged with R-1 < 0.01; acceptance rates 50-77%
 - All standard parameters stable across all twelve runs (no pathology)
 
-**Interpretation:** IAM remains statistically indistinguishable from LCDM under the full Planck 2018 likelihood across all four dataset combinations (Planck only, +RSD, +BAO, +Pantheon+), demonstrating internal consistency at current precision. The sigma_8 shift of -0.013 is universal and stable, confirming it is driven by the mu_0 = -0.135 prediction rather than any particular dataset. BAO and supernova observables are unaffected, as predicted by Sigma = 1. The definitive detection tests are Euclid (sigma(mu_0) ~ 0.04, yielding 3.4 sigma) and DESI Year 5 growth rates. Level 2 validation (background-modified CAMB with dual-sector Friedmann equation) is in progress.
+**Interpretation:** IAM remains statistically indistinguishable from LCDM under the full Planck 2018 likelihood across all four dataset combinations (Planck only, +RSD, +BAO, +Pantheon+), demonstrating internal consistency at current precision. The sigma_8 shift of -0.013 is universal and stable, confirming it is driven by the mu_0 = -0.135 prediction rather than any particular dataset. BAO and supernova observables are unaffected, as predicted by Sigma = 1. The definitive detection tests are Euclid (sigma(mu_0) ~ 0.04, yielding 3.4 sigma) and DESI Year 5 growth rates. 
 
 ---
 
@@ -699,7 +699,6 @@ If you use this code or results in published research, please cite:
 
 ### What IAM Does NOT Claim
 
-- Complete fundamental derivation from quantum gravity (the holographic derivation is physically motivated but aspects remain to be formalized)
 - Modification of Einstein's equations or gauge structure
 - That information is a new physical field or substance
 - Uniqueness (other parameterizations may fit similarly)
