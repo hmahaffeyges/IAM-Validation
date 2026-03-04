@@ -7,8 +7,21 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 
 **Dual-Sector Cosmology: µ<1, Σ=1:** [IAM Technical Clarifications Guide](docs/IAM_Technical_Clarifications_Guide.pdf)
 
-**Master summary / single entry point:** [IAM: Master Consolidated Summary (status, validations, full document map)](docs/IAM_Master_Consolidated_Summary.pdf)
-
+**Primary reference document** [IAM Master Preprint](docs/IAM_Master_Preprint.pdf)
+- Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
+- Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
+- Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
+- Coupling constant βm = Ωm/2 derived from virial theorem, confirmed by 6 independent N-body studies to 1%
+- Activation function E(a) = exp(1−1/a) derived from horizon thermodynamics, recovered to 1% by Sheth-Tormen
+- Full validation: 17 converged MCMC chains (R−1 < 0.01), ∆χ² = +0.54 vs ΛCDM under full Planck 2018 CamSpec TTTEEE likelihood
+- Dual-sector H0 split: H0(photon) = 67.16, H0(matter) = 72.26 km s⁻¹ Mpc⁻¹, both derived from single posterior
+- σ8 suppression 0.809 → 0.800; 2025 joint analysis (KiDS-Legacy + DES Y3 + DESI DR1) finds σ8 = 0.802 ± 0.020 (0.1σ from IAM prediction)
+- ISW-galaxy cross-correlation prediction: ~10-30% enhancement over ΛCDM, opposite sign to f(R)
+- Tomographic µ(z) reconstruction forecast with Euclid sensitivity analysis
+- Falsifiable predictions for Euclid (3.4σ projected detection), DESI Year 5, and CMB-S4
+- M-σ relation derived from first principles: MBH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
+- All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
+     
 **Core predictions (all derived, zero free parameters):**
 - Perturbation modification: mu(a) = H^2_ΛCDM / (H^2_ΛCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
 - Sigma(a) = 1 exactly (lensing unmodified)
