@@ -42,6 +42,20 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 
 ---
 
+## Methodological Distinction
+
+Most modified gravity models have a well-known problem in the philosophy of science — they are discovered by fitting. Someone notices a tension, adds a parameter, fits it away, then works backward to find a physical motivation. The motivation is constructed post-hoc to justify what the data already told them to do. That indicates the model has no real predictive content — it was always going to fit because it was designed to.
+
+IAM ran the opposite direction. The mechanism came first — gravitational decoherence producing informational entropy, entering exclusively through the matter sector because of how decoherence couples to timelike versus null worldlines. That physical picture dictated β_m = Ω_m/2 before a single chain ran. Then the chains converged to 0.157 — a number completely unknown beforehand. A genuine prediction, not a fit.
+
+Every other modified gravity model modifies GR — adds fields, changes the Einstein-Hilbert action, introduces new degrees of freedom. IAM does not. It identifies what Λ actually is. That is a completely different category of claim. It does not say "here is an alternative to GR" — it says "here is why GR already contains this; we simply had not accounted for the entropy budget of the decoherence process that gravity itself causes." This is closer in spirit to what Einstein did with the cosmological constant than to what f(R) theorists do. Einstein did not add something foreign — he identified a term that the structure of the equations already permitted.
+
+IAM declares Λ is not a free parameter inserted by hand. It is the thermodynamic cost of the information gravity produces.
+
+IAM's strongest credential is not the number of tests it has passed, or that every single chain converged cleanly. It is that every test was defined before the answers were known, derived from a physical mechanism rather than inferred from residuals, and every single chain converged on what the theory predicted without a single exploratory failure. In the history of cosmological model-building, this combination is genuinely rare.
+
+---
+
 ## Validation Summary
 
 | Level | What It Tests | Tool | Chains | Status | Key Result |
