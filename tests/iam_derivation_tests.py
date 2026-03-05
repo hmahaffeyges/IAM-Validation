@@ -95,9 +95,17 @@ def E2_LCDM(a):
     """ΛCDM squared Hubble parameter (normalized)"""
     return Om0*a**(-3) + Om_r*a**(-4) + Om_L
 
-def E2_IAM(a, beta):
-    """IAM squared Hubble parameter (normalized)"""
+def H2_matter_sector(a, beta):
+    """IAM matter-sector effective expansion rate (perturbation-level only).
+    This is NOT the background Friedmann equation.
+    The background remains standard ΛCDM: E2_LCDM(a).
+    This quantity enters only as Hubble friction in the matter perturbation ODE
+    and as the denominator of the mu-Sigma mapping.
+    """
     return E2_LCDM(a) + beta*E_activation(a)
+
+# Alias kept for any direct use below — all uses are perturbation-level
+E2_IAM = H2_matter_sector
 
 # ============================================================================
 # TEST 1: JACOBSON (1995) — STANDARD ENTROPY → FRIEDMANN
@@ -216,26 +224,30 @@ report(2, "Cai-Kim: First law on apparent horizon → Friedmann", cai_kim_ok,
 # TEST 3: MODIFIED ENTROPY → IAM FRIEDMANN
 # ============================================================================
 print("═"*78)
-print("TEST 3: Modified Entropy → IAM Friedmann Equation")
+print("TEST 3: Modified Entropy → Matter-Sector Effective Expansion Rate")
 print("═"*78)
 print()
 print("  Adding informational entropy S_info to the horizon entropy:")
 print("  S_total = S_BH + S_info")
-print("  The first law dE = T·dS_total gives the modified Friedmann eq:")
-print("  H² = (8πG/3)ρ + Λ/3 + β·E(a)·H₀²")
+print("  The modified first law -dE = T·d(S_geo + S_info) yields an")
+print("  additional term in the MATTER-SECTOR perturbation equations only.")
+print("  H²_matter(a) = H²_ΛCDM(a) + β·E(a)·H₀²")
+print("  NOTE: The background Friedmann equation remains standard ΛCDM.")
+print("  This term enters only as Hubble friction in the matter growth ODE,")
+print("  and in the μ-Σ mapping. It is NOT applied to the global background.")
 print()
 
-# The modified Friedmann equation:
-# H²(a) = H₀² [Ωm a⁻³ + Ωr a⁻⁴ + ΩΛ + β·exp(1-1/a)]
+# The matter-sector effective expansion rate (perturbation-level only):
+# H²_matter(a) = H₀² [Ωm a⁻³ + Ωr a⁻⁴ + ΩΛ + β·exp(1-1/a)]
 #
-# Verify: E²_IAM(a=1) = 1 + β (not 1, because β adds energy)
-# The normalization is: H₀²(IAM) = H₀²(CMB) × (1 + β) for matter sector
+# Verify: H²_matter(a=1) = 1 + β
+# This gives H₀(matter) = H₀(CMB) × √(1 + β) — the matter-sector Hubble rate
 
 beta_derived = Om0 / 2  # = 0.1575
 
-E2_iam_today = E2_IAM(1.0, beta_derived)
-E2_expected = 1.0 + beta_derived
-mod_friedmann_ok = abs(E2_iam_today - E2_expected) < 1e-10
+H2_matter_today = H2_matter_sector(1.0, beta_derived)
+H2_matter_expected = 1.0 + beta_derived
+mod_friedmann_ok = abs(H2_matter_today - H2_matter_expected) < 1e-10
 
 # Verify E(a→0) → 0 (no modification at early times)
 E_early = E_activation(0.01)
@@ -247,10 +259,12 @@ today_ok = abs(E_today - 1.0) < 1e-10
 
 mod_friedmann_ok = mod_friedmann_ok and early_ok and today_ok
 
-report(3, "Modified entropy → IAM Friedmann equation", mod_friedmann_ok,
-       f"E²_IAM(a=1) = {E2_iam_today:.6f} = 1 + β = {E2_expected:.6f}\n"
+report(3, "Modified entropy → matter-sector effective expansion rate", mod_friedmann_ok,
+       f"H²_matter(a=1) = {H2_matter_today:.6f} = 1 + β = {H2_matter_expected:.6f}\n"
+       f"H₀(matter) = H₀(CMB) × √(1+β) = {H0_CMB * np.sqrt(H2_matter_today):.2f} km/s/Mpc\n"
        f"E(a=0.01) = {E_early:.2e} → 0 (early universe unmodified)\n"
-       f"E(a=1) = {E_today:.6f} = 1 (full activation today)")
+       f"E(a=1) = {E_today:.6f} = 1 (full activation today)\n"
+       f"Background Friedmann equation: E²_ΛCDM(a=1) = {E2_LCDM(1.0):.10f} (unchanged)")
 
 # ============================================================================
 # TEST 4: ACTIVATION FUNCTION — FIRST-PRINCIPLES DERIVATION
@@ -540,25 +554,30 @@ print("═"*78)
 print("TEST 8: Perturbation Theory — μ(a) < 1, Σ(a) = 1")
 print("═"*78)
 print()
-print("  δφ = 0 (horizon quantity) → standard GR perturbations on")
-print("  IAM background → μ = E²_ΛCDM/E²_IAM < 1, Σ = 1.")
+print("  δφ = 0 (horizon quantity, unperturbed at first order) →")
+print("  standard GR perturbation equations on the ΛCDM background,")
+print("  but with matter-sector Hubble friction H_matter(a) > H_ΛCDM(a).")
+print("  μ-Σ MAPPING: μ = H²_ΛCDM / H²_matter < 1, Σ = 1.")
+print("  (Background geometry is unchanged; only matter growth is suppressed.)")
 print()
 
 beta = Om0/2
 
-# μ(a) = E²_ΛCDM(a) / E²_IAM(a)
+# μ(a) = E²_ΛCDM(a) / H²_matter(a)  — the μ-Σ framework mapping
+# This is a ratio of ΛCDM background to matter-sector perturbation friction.
+# It is NOT a ratio of two different background Friedmann equations.
 z_test = [0, 0.5, 1.0, 2.0]
 mu_values = []
 for z in z_test:
     a = 1.0/(1+z)
-    mu = E2_LCDM(a) / E2_IAM(a, beta)
+    mu = E2_LCDM(a) / H2_matter_sector(a, beta)
     mu_values.append(mu)
 
 # All μ should be < 1
 all_mu_less_1 = all(mu < 1.0 for mu in mu_values[:-1])  # except at very high z
 
-# μ should approach 1 at high z
-mu_high_z = E2_LCDM(1/(1+10)) / E2_IAM(1/(1+10), beta)
+# μ should approach 1 at high z (E(a)→0, so H²_matter→H²_ΛCDM)
+mu_high_z = E2_LCDM(1/(1+10)) / H2_matter_sector(1/(1+10), beta)
 mu_approaches_1 = abs(mu_high_z - 1.0) < 0.001
 
 # Σ = 1 exactly (no anisotropic stress from δφ = 0)
@@ -569,8 +588,9 @@ perturbation_ok = all_mu_less_1 and mu_approaches_1
 mu_str = ", ".join([f"μ(z={z})={mu:.4f}" for z, mu in zip(z_test, mu_values)])
 report(8, "Perturbation theory: μ < 1, Σ = 1", perturbation_ok,
        f"{mu_str}\n"
-       f"μ(z=10) = {mu_high_z:.6f} → 1 at high z\n"
-       f"Σ = {sigma_value:.1f} exactly (δφ = 0, no anisotropic stress)")
+       f"μ(z=10) = {mu_high_z:.6f} → 1 at high z (E(a)→0 recovers ΛCDM)\n"
+       f"Σ = {sigma_value:.1f} exactly (δφ = 0, no anisotropic stress)\n"
+       f"Background E²_ΛCDM unchanged — suppression is Hubble friction only")
 
 # ============================================================================
 # TEST 9: FIXED β_m = Ω_m/2 VALIDATION
@@ -601,9 +621,17 @@ desi_data = np.array([
 ])
 
 def Omega_m_eff(a, beta_val):
-    return Om0*a**(-3) / E2_IAM(a, beta_val)
+    """Effective matter density parameter in the IAM matter-sector growth ODE.
+    Denominator is H²_matter (perturbation friction), NOT the ΛCDM background.
+    The ΛCDM background E²_ΛCDM(a) is unchanged.
+    """
+    return Om0*a**(-3) / H2_matter_sector(a, beta_val)
 
 def solve_growth_beta(beta_val):
+    """Solve the IAM matter growth ODE.
+    The Hubble friction term uses H²_matter = H²_ΛCDM + β·E(a),
+    the matter-sector perturbation-level expansion rate (NOT the background).
+    """
     def ode(lna, y):
         D, Dp = y
         a = np.exp(lna)
@@ -777,9 +805,10 @@ print("═"*78)
 print("TEST 12: MGCAMB pure_MG Parametrization Accuracy")
 print("═"*78)
 print()
-print("  The exact IAM prediction μ(a) = E²_ΛCDM/E²_IAM differs from")
+print("  The exact IAM μ(a) = E²_ΛCDM / H²_matter(a) differs from")
 print("  the MGCAMB parametrization μ = 1 + μ₀·Ω_DE(a). Quantify the")
 print("  approximation error at all redshifts.")
+print("  (Both use the ΛCDM background; the ratio reflects perturbation friction.)")
 print()
 
 beta_12 = Om0 / 2
@@ -791,7 +820,8 @@ errors_12 = []
 
 for z in z_range:
     a = 1.0 / (1.0 + z)
-    mu_exact = E2_LCDM(a) / E2_IAM(a, beta_12)
+    # Exact IAM μ: ratio of ΛCDM background to matter-sector perturbation friction
+    mu_exact = E2_LCDM(a) / H2_matter_sector(a, beta_12)
     ODE_a = Om_L / E2_LCDM(a)
     mu_mgcamb = 1.0 + mu0_12 * ODE_a
     if mu_exact > 0:
@@ -810,7 +840,7 @@ z_samples = [0, 0.3, 0.5, 1.0, 2.0]
 sample_str = ""
 for z_s in z_samples:
     a_s = 1.0/(1.0+z_s)
-    mu_ex = E2_LCDM(a_s) / E2_IAM(a_s, beta_12)
+    mu_ex = E2_LCDM(a_s) / H2_matter_sector(a_s, beta_12)
     ODE_s = Om_L / E2_LCDM(a_s)
     mu_mg = 1.0 + mu0_12 * ODE_s
     sample_str += f"z={z_s}: exact={mu_ex:.4f}, MGCAMB={mu_mg:.4f}, Δ={abs(mu_ex-mu_mg)*100:.2f}pp\n"
@@ -841,16 +871,13 @@ print("  ───────────────────  ────
 mu0_results = []
 for c in c_values:
     # Modified activation: E(a) = exp(c(1-1/a))
-    E_mod_today = np.exp(c * (1 - 1.0/1.0))  # = exp(0) = 1
     beta_mod = beta_12  # coupling stays Ω_m/2
-    E2_mod = E2_LCDM(1.0) + beta_mod * np.exp(c * 0)  # = 1 + beta
+    # H₀(matter) = H₀(CMB) × √(H²_matter(a=1)) — matter-sector perturbation rate
     mu0_mod = -beta_mod / (1.0 + beta_mod * np.exp(c * 0))
-    
-    # Actually need E(a) at various a for H₀ and σ₈
-    # H₀(matter) = H₀(CMB) × sqrt(E²_IAM(a=1)) where E²_IAM uses modified E
     H0_mod = H0_CMB * np.sqrt(1 + beta_mod * np.exp(c * 0))
     
     # For σ₈ shift, need growth suppression from modified Hubble friction
+    # E2_mod_func is the matter-sector perturbation friction (NOT background)
     def E2_mod_func(a):
         return E2_LCDM(a) + beta_mod * np.exp(c * (1.0 - 1.0/a))
     
@@ -908,14 +935,15 @@ for bt in beta_test_values:
     H0_bt = H0_CMB * np.sqrt(1.0 + bt)
     tension_bt = abs(73.04 - H0_bt) / 1.04
     
-    def E2_bt(a):
+    def H2_matter_bt(a):
+        # Matter-sector perturbation friction for this beta value (NOT background)
         return E2_LCDM(a) + bt * E_activation(a)
     
     def solve_growth_bt():
         def ode(lna, y):
             D, Dp = y
             a = np.exp(lna)
-            Om_a = Om0*a**(-3) / E2_bt(a)
+            Om_a = Om0*a**(-3) / H2_matter_bt(a)
             Q = 2 - 1.5*Om_a
             return [Dp, -Q*Dp + 1.5*Om_a*D]
         lna = np.linspace(np.log(0.001), 0, 2000)
@@ -952,13 +980,14 @@ print("  Test by computing H(z) for IAM and best-fit w₀wₐ, then show")
 print("  they differ in μ(z) and growth predictions.")
 print()
 
-# IAM H²(a) = Ωm a⁻³ + ΩΛ + β E(a)
+# IAM matter-sector expansion rate: H²_matter(a) = H²_ΛCDM(a) + β·E(a)
+# This is the perturbation-level friction term seen by matter.
 # w₀wₐCDM H²(a) = Ωm a⁻³ + Ω_DE × a^(-3(1+w0+wa)) × exp(-3wa(1-a))
-# with w0, wa fitted to match IAM distances
+# Question: can w₀wₐ mimic this matter-sector history AND match μ(z)?
 
-# Step 1: Fit w0, wa to IAM H(z) over 0 < z < 2
+# Step 1: Fit w0, wa to matter-sector H(z) over 0 < z < 2
 z_fit_15 = np.linspace(0.01, 2.0, 200)
-H2_iam_fit = np.array([E2_IAM(1.0/(1+z), beta_12) for z in z_fit_15])
+H2_iam_fit = np.array([H2_matter_sector(1.0/(1+z), beta_12) for z in z_fit_15])
 
 def H2_w0wa(z, w0, wa):
     a = 1.0 / (1.0 + z)
@@ -974,21 +1003,21 @@ w0_fit_15, wa_fit_15 = popt
 
 # Step 2: Compare μ(z) — IAM has μ < 1, w₀wₐ has μ = 1
 # This is the key distinction: w₀wₐCDM has NO sector split
-print(f"  Best-fit w₀wₐ to IAM distances: w₀ = {w0_fit_15:.4f}, wₐ = {wa_fit_15:.4f}")
+print(f"  Best-fit w₀wₐ to IAM matter-sector H(z): w₀ = {w0_fit_15:.4f}, wₐ = {wa_fit_15:.4f}")
 print()
-print("  z     H_IAM/H₀   H_w0wa/H₀   ΔH(%)   μ_IAM    μ_w0wa")
-print("  ────  ─────────  ──────────  ──────  ───────  ────────")
+print("  z     H_matter/H₀  H_w0wa/H₀   ΔH(%)   μ_IAM    μ_w0wa")
+print("  ────  ───────────  ──────────  ──────  ───────  ────────")
 
 max_H_diff = 0
 for z_s in [0, 0.3, 0.5, 1.0, 1.5, 2.0]:
     a_s = 1.0/(1+z_s)
-    H_iam = np.sqrt(E2_IAM(a_s, beta_12))
+    H_matter = np.sqrt(H2_matter_sector(a_s, beta_12))
     H_w0wa = np.sqrt(H2_w0wa(z_s, w0_fit_15, wa_fit_15))
-    H_diff = abs(H_iam - H_w0wa)/H_iam * 100
+    H_diff = abs(H_matter - H_w0wa)/H_matter * 100
     max_H_diff = max(max_H_diff, H_diff)
-    mu_iam_s = E2_LCDM(a_s) / E2_IAM(a_s, beta_12)
-    mu_w0wa_s = 1.0  # w₀wₐCDM has no modified growth
-    print(f"  {z_s:.1f}   {H_iam:9.4f}  {H_w0wa:10.4f}  {H_diff:6.2f}  {mu_iam_s:7.4f}  {mu_w0wa_s:8.4f}")
+    mu_iam_s = E2_LCDM(a_s) / H2_matter_sector(a_s, beta_12)
+    mu_w0wa_s = 1.0  # w₀wₐCDM has no sector split, μ=1
+    print(f"  {z_s:.1f}   {H_matter:11.4f}  {H_w0wa:10.4f}  {H_diff:6.2f}  {mu_iam_s:7.4f}  {mu_w0wa_s:8.4f}")
 
 # IAM and w₀wₐ can match distances but NOT growth
 # The distinguishing observable is f×σ₈(z)
@@ -996,9 +1025,9 @@ for z_s in [0, 0.3, 0.5, 1.0, 1.5, 2.0]:
 # The z=0 mismatch is expected because IAM modifies H₀ by sqrt(1+β)
 # The distinguishing observable is f×σ₈(z)
 # Compute max difference excluding z=0 (normalization difference)
-errors_high_z = [e for z_s, _, _, e in [(0.3, 0, 0, abs(np.sqrt(E2_IAM(1/(1+0.3), beta_12)) - np.sqrt(H2_w0wa(0.3, w0_fit_15, wa_fit_15)))/np.sqrt(E2_IAM(1/(1+0.3), beta_12))*100),
-                                         (0.5, 0, 0, abs(np.sqrt(E2_IAM(1/(1+0.5), beta_12)) - np.sqrt(H2_w0wa(0.5, w0_fit_15, wa_fit_15)))/np.sqrt(E2_IAM(1/(1+0.5), beta_12))*100),
-                                         (1.0, 0, 0, abs(np.sqrt(E2_IAM(1/(1+1.0), beta_12)) - np.sqrt(H2_w0wa(1.0, w0_fit_15, wa_fit_15)))/np.sqrt(E2_IAM(1/(1+1.0), beta_12))*100)]]
+errors_high_z = [e for z_s, _, _, e in [(0.3, 0, 0, abs(np.sqrt(H2_matter_sector(1/(1+0.3), beta_12)) - np.sqrt(H2_w0wa(0.3, w0_fit_15, wa_fit_15)))/np.sqrt(H2_matter_sector(1/(1+0.3), beta_12))*100),
+                                         (0.5, 0, 0, abs(np.sqrt(H2_matter_sector(1/(1+0.5), beta_12)) - np.sqrt(H2_w0wa(0.5, w0_fit_15, wa_fit_15)))/np.sqrt(H2_matter_sector(1/(1+0.5), beta_12))*100),
+                                         (1.0, 0, 0, abs(np.sqrt(H2_matter_sector(1/(1+1.0), beta_12)) - np.sqrt(H2_w0wa(1.0, w0_fit_15, wa_fit_15)))/np.sqrt(H2_matter_sector(1/(1+1.0), beta_12))*100)]]
 reparam_ok = True  # This test always passes — its purpose is informational
 
 print()
@@ -1023,9 +1052,10 @@ print(f"║  Runtime: {elapsed:.1f} seconds                                     
 print("╠" + "═"*78 + "╣")
 print("║                                                                              ║")
 print("║  DERIVATION CHAIN (verified, Tests 1-10):                                    ║")
-print("║    Jacobson (1995) → Cai-Kim (2005) → Modified Entropy →                     ║")
+print("║    Jacobson (1995) → Cai-Kim (2005) → Modified entropy (S_info) →           ║")
 print("║    Cumulative integral → Sheth-Tormen → β_m = Ω_m/2 →                        ║")
-print("║    δφ = 0 → μ < 1, Σ = 1 → Δχ² = 31.2 (5.6σ, 0 free params)               ║")
+print("║    δφ=0 → perturbation friction H²_matter → μ<1, Σ=1 (background=ΛCDM)     ║")
+print("║    Δχ² = 31.2 (5.6σ, 0 free params)                                         ║")
 print("║                                                                              ║")
 print("║  ROBUSTNESS (verified, Tests 11-15):                                         ║")
 print("║    Continuity ✓  MGCAMB approx ✓  Exponent sensitivity ✓                    ║")
