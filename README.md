@@ -29,6 +29,8 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 
 The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (ΛCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to ΛCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.135 follows from these inputs without additional fitting. No free parameters beyond standard ΛCDM are introduced.
 
+**Complete Test Ledger (IAM):**[IAM Validation Scorecard](docs/IAM_Official_Score_Card.pdf)
+
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18809173-blue)](https://doi.org/10.5281/zenodo.18809173)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -49,7 +51,7 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 
 ---
 
-## Level 1: Perturbation-Level Planck MCMC via MGCAMB (12 Independent Chains) — COMPLETE
+## LEVEL 1: Perturbation-Level Planck MCMC via MGCAMB (12 Independent Chains) — COMPLETE
 
 **Scope:** Background expansion is standard ΛCDM (unmodified). Only perturbation equations modified via mu < 1, Sigma = 1 through MGCAMB's built-in mu-Sigma parametrization (MGCAMB v1.5.2 + Cobaya). No perturbation quantity feeds back into H(z).
 
@@ -121,7 +123,7 @@ All four Level 1 floating-parameter runs return mu_0 values consistent with the 
 
 ---
 
-## Level 2: Dual-Sector Perturbation Validation via Modified CAMB -- COMPLETE
+## LEVEL 2: Dual-Sector Perturbation Validation: MCMC via Modified CAMB (3 CHAINS & 2 CHAINS) -- COMPLETE
 
 Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly modifying the CAMB Fortran source code (`equations.f90`) to implement the dual-sector mechanism: CDM and baryons experience a modified effective expansion rate (adotoa_matter) while photon equations remain standard. Level 2 uses vanilla CAMB v1.5.8 (not MGCAMB).
 
