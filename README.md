@@ -34,7 +34,7 @@ The dual-sector perturbation modification produces a shift in sigma_8 from 0.808
 
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18809173-blue)](https://doi.org/10.5281/zenodo.18809173)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![CAMB](https://img.shields.io/badge/CAMB-v1.5.8-green)](https://github.com/cmbant/CAMB)
