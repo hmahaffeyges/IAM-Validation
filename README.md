@@ -73,6 +73,15 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 
 **Level 1 preprint:** [Late-Time Growth Suppression in the μ–Σ Framework: Confrontation with Planck and Large-Scale Structure](docs/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf) -- MGCAMB perturbation-level analysis (12 chains, 4 dataset combinations)
 
+**Full Level 1 reproducibility package:** [`mgcamb_validation/`](mgcamb_validation/)
+
+- **[Raw MCMC chains](mgcamb_validation/chains/)** -- complete chain data for all 12 runs (Runs A/B/C: Planck only; Runs D/E/F: Planck + RSD; Runs G/H/I: Planck + BAO; Runs J/K/L: Planck + Pantheon+), independently verifiable via GetDist
+- **[Cobaya YAML configs](mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 12 chains from scratch
+- **[GetDist extraction scripts](mgcamb_validation/getdist_scripts/)** -- reproduce every posterior table and Delta-chi2 comparison in the Technical Note
+- **[Forecast analyses](mgcamb_validation/forecasts/)** -- Fisher forecast, ISW prediction, binned mu(z) reconstruction, transition zone analysis
+
+**Level 1 Interpretation:** IAM remains statistically indistinguishable from ΛCDM under the full Planck 2018 likelihood across all four dataset combinations (Planck only, +RSD, +BAO, +Pantheon+), demonstrating internal consistency at current precision. The sigma_8 shift of -0.013 is universal and stable, confirming it is driven by the mu_0 = -0.135 prediction rather than any particular dataset. BAO and supernova observables are unaffected, as predicted by Sigma = 1. The definitive detection tests are Euclid (sigma(mu_0) ~ 0.04, yielding 3.4 sigma) and DESI Year 5 growth rates.
+
 ### Planck Only (Runs A / B / C)
 
 | Run | Description | mu_0 | sigma_8 | H0 [km/s/Mpc] | Best chi2 |
@@ -305,15 +314,7 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 | P(k) scale-independence | std(ratio) < 1% | 0.53% | PASS |
 | f*sigma_8 fit quality | chi2 <= ΛCDM + 4 | 4.42 vs 4.85 | PASS |
 
-**Full Level 1 reproducibility package:** [`mgcamb_validation/`](mgcamb_validation/)
-
-- **[Raw MCMC chains](mgcamb_validation/chains/)** -- complete chain data for all 12 runs (Runs A/B/C: Planck only; Runs D/E/F: Planck + RSD; Runs G/H/I: Planck + BAO; Runs J/K/L: Planck + Pantheon+), independently verifiable via GetDist
-- **[Cobaya YAML configs](mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 12 chains from scratch
-- **[GetDist extraction scripts](mgcamb_validation/getdist_scripts/)** -- reproduce every posterior table and Delta-chi2 comparison in the Technical Note
-- **[Forecast analyses](mgcamb_validation/forecasts/)** -- Fisher forecast, ISW prediction, binned mu(z) reconstruction, transition zone analysis
-- **[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
-
-**Level 1 Interpretation:** IAM remains statistically indistinguishable from ΛCDM under the full Planck 2018 likelihood across all four dataset combinations (Planck only, +RSD, +BAO, +Pantheon+), demonstrating internal consistency at current precision. The sigma_8 shift of -0.013 is universal and stable, confirming it is driven by the mu_0 = -0.135 prediction rather than any particular dataset. BAO and supernova observables are unaffected, as predicted by Sigma = 1. The definitive detection tests are Euclid (sigma(mu_0) ~ 0.04, yielding 3.4 sigma) and DESI Year 5 growth rates.
+**[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
 
 ---
 
