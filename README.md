@@ -22,7 +22,7 @@ This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modific
 - Falsifiable predictions for Euclid (3.4σ projected detection), DESI Year 5, and CMB-S4
 - M-σ relation derived from first principles: MBH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
 - All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
-     
+
 **Core predictions (all derived, zero free parameters):**
 - Perturbation modification: mu(a) = H^2_ΛCDM / (H^2_ΛCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
 - Sigma(a) = 1 exactly (lensing unmodified)
@@ -62,6 +62,8 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 |-------|--------------|------|--------|--------|------------|
 | **Level 1** | mu-Sigma perturbations, ΛCDM background | MGCAMB | 12 | **Complete** | Delta-chi2 = +1.34 to +2.32 vs ΛCDM; sigma_8 = 0.800 |
 | **Level 2** | Dual-sector perturbations, ΛCDM background | CAMB (modified) | 5 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
+
+**MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
 
 **Full reproducibility** -- Level 1 (MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 (modified CAMB): [`camb_validation/`](camb_validation/).
 
@@ -127,7 +129,23 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 
 All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0.013 +/- 0.001 is stable across all four dataset combinations, confirming that the suppression is driven by the mu_0 = -0.135 prediction, not by any particular dataset. BAO and Pantheon+ photon-sector observables are unaffected by the modification, as predicted by Sigma = 1.
 
-**MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
+---
+
+## MGCAMB Boltzmann Validation (Level 1) — 7/7 Tests PASSED
+
+| Test | Criterion | Result | Status |
+|------|-----------|--------|--------|
+| sigma_8 | In [0.79, 0.82] | 0.7954 | PASS |
+| CMB TT (ell > 30) | < 1% residual | 0.17% | PASS |
+| CMB TT ISW (ell < 30) | < cosmic variance | 3.6% (CV ~ 63%) | PASS |
+| CMB lensing | < 5% change | +0.30% | PASS |
+| Sigma = 1 | Exact | sigma_0 = 0 | PASS |
+| P(k) scale-independence | std(ratio) < 1% | 0.53% | PASS |
+| f*sigma_8 fit quality | chi2 <= ΛCDM + 4 | 4.42 vs 4.85 | PASS |
+
+**[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
+
+---
 
 ### Independent Data Confirmation of the Virial Coupling
 
@@ -302,19 +320,122 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 
 ---
 
-## MGCAMB Boltzmann Validation (Level 1) — 7/7 Tests PASSED
+## Documentation
 
-| Test | Criterion | Result | Status |
-|------|-----------|--------|--------|
-| sigma_8 | In [0.79, 0.82] | 0.7954 | PASS |
-| CMB TT (ell > 30) | < 1% residual | 0.17% | PASS |
-| CMB TT ISW (ell < 30) | < cosmic variance | 3.6% (CV ~ 63%) | PASS |
-| CMB lensing | < 5% change | +0.30% | PASS |
-| Sigma = 1 | Exact | sigma_0 = 0 | PASS |
-| P(k) scale-independence | std(ratio) < 1% | 0.53% | PASS |
-| f*sigma_8 fit quality | chi2 <= ΛCDM + 4 | 4.42 vs 4.85 | PASS |
+### Primary Documents
 
-**[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
+1. **[IAM Master Preprint](docs/IAM_Master_Preprint.pdf)** (LaTeX, 24 pages) — *Primary reference document*
+   - Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
+   - Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
+   - Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
+   - Coupling constant βm = Ωm/2 derived from virial theorem, confirmed by 6 independent N-body studies to 1%
+   - Activation function E(a) = exp(1−1/a) derived from horizon thermodynamics, recovered to 1% by Sheth-Tormen
+   - Full validation: 17 converged MCMC chains (R−1 < 0.01), ∆χ² = +0.54 vs ΛCDM under full Planck 2018 CamSpec TTTEEE likelihood
+   - Dual-sector H0 split: H0(photon) = 67.16, H0(matter) = 72.26 km s⁻¹ Mpc⁻¹, both derived from single posterior
+   - σ8 suppression 0.809 → 0.800; 2025 joint analysis (KiDS-Legacy + DES Y3 + DESI DR1) finds σ8 = 0.802 ± 0.020 (0.1σ from IAM prediction)
+   - ISW-galaxy cross-correlation prediction: ~10-30% enhancement over ΛCDM, opposite sign to f(R)
+   - Tomographic µ(z) reconstruction forecast with Euclid sensitivity analysis
+   - Falsifiable predictions for Euclid (3.4σ projected detection), DESI Year 5, and CMB-S4
+   - M-σ relation derived from first principles: MBH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
+   - All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
+
+2. **[Dual-Sector Validation Paper](docs/Dual_Sector_Validation_Paper.pdf)** (RevTeX, ~22 pages)
+ - Empirical validation of sector separation using Pantheon+ Type Ia supernovae
+ - Three independent tests (Planck prior, SH0ES prior, no prior)
+ - Complete Python code in appendices (< 2 min reproducibility)
+ - Companion paper to main IAM manuscript
+
+3. **[IAM--CAMB Technical Note: Full Planck Validation](docs/IAM_CAMB_Technical_Note.pdf)** (~23 pages)
+ - mu--Sigma modified gravity mapping: mu(a) < 1, Sigma(a) = 1
+ - Python-level CAMB validation with comprehensive 8-panel figure
+ - Fortran-level implementation: what was done, what was learned
+ - **MGCAMB Boltzmann validation: 7/7 diagnostic tests passed** (sigma_8, CMB TT, lensing, P(k), f*sigma_8, Sigma = 1, scale independence)
+ - **Planck Level-1 MCMC analysis** (perturbation sector, 3 independent chains via Cobaya + MGCAMB) with complete YAML files
+ - **Run B mu_0 posterior analysis** (MAP ~ 0, sigma = 0.156, IAM at 0.9 sigma, asymmetric 68% CI)
+ - **Forecasting and observational prospects** (Fisher forecast, ISW-galaxy cross-correlation, binned mu(z) reconstruction, transition zone analysis)
+ - CAMB background validation figure (6-panel)
+ - Falsifiable predictions for Euclid, DESI Year 5, CMB-S4
+
+4. **[Test Validation Compendium](docs/IAM_Test_Validation_Compendium.pdf)** (~30 pages)
+ - Nine independent validation tests with detailed results
+ - Nine publication-quality figures
+ - Complete chi-squared analysis
+ - MCMC posterior analysis
+
+5. **[Supplementary Methods](docs/Supplementary_Methods_Reproducibility_Guide.pdf)** (~20 pages)
+ - Complete Python implementation
+ - Data sources and citations
+ - Step-by-step reproducibility instructions
+ - Troubleshooting guide
+
+6. **[IAM Theory Paper](docs/IAM_Theory_Paper.pdf)** (~25 pages)
+ - Merges and supersedes the former Holographic Derivation and Variational Derivation documents
+ - First-principles derivation of E(a) = exp(1 - 1/a) from horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle)
+ - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
+ - S_total = S_geometric + S_informational → dual-sector perturbation modification
+ - Constrained scalar field action with equation of state w_info(a) = -1 - 1/(3a) (mildly phantom, consistent with DESI 2024)
+ - Gravitational decoherence as the mechanism for sector separation: timelike worldlines decohere (mu < 1), null worldlines do not (Sigma = 1)
+ - **Coupling constant derived:** beta_m = Omega_m/2 from virial theorem, matching MCMC to 0.3%
+ - **Zero free parameters** beyond standard LambdaCDM
+ - Perturbation theory: mu(a) < 1, Sigma(a) = 1 derived from causal structure of spacetime
+
+**Observational Predictions and Cluster Tests:**
+
+**[IAM Lensing and Dynamics Paper](docs/IAM_Lensing_Dynamics_Paper.pdf)**
+- Derives the cluster discriminator M_lens/M_dyn = 1/μ_eff(z) for the Σ_eff = 1 case
+- Redshift-dependent ratio approaches unity at high z — qualitatively distinct from constant hydrostatic bias
+- Clean falsification signature testable with current and upcoming cluster surveys
+
+**[3-Way Mass Discrepancy in Galaxy Clusters](docs/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)**
+- SZ/X-ray/lensing mass ordering tests and internal consistency relations
+- Separates IAM from pure hydrostatic bias explanations via three-way ordering: M_lens > M_SZ ≈ M_hydro
+- Both matter-sector estimators (SZ, hydrostatic) suppressed identically; lensing mass unaffected
+
+**[IAM Survey Predictions Paper](docs/IAM_Survey_Predictions_Paper.pdf)**
+- Forecast and falsification roadmap for Euclid-class datasets
+- Pre-registers IAM's near-term decision points: Euclid σ(μ₀) ~ 0.04, DESI Year 5, CMB-S4
+- Conservative falsification criterion: μ₀ constrained to > −0.05 at 95% CL excludes IAM baseline
+
+**Coupling Motivation and Nonlinear Closure:**
+
+**[Virial Efficiency and Effective Nonlinear Exponent](docs/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)**
+- N-body literature consistency closure for the virial coupling derivation
+- Shows required virial efficiency and effective nonlinear exponent are consistent with published simulation analyses
+- Strengthens the "derived parameter" narrative for β_m = Ω_m/2
+
+**[Virial Partition Across Wide Domains](docs/Virial_Partitian_Across_Wide_Domains.pdf)**
+- Cross-domain partition argument motivating β_m = Ω_m/2 as a mathematical property of 1/r potentials
+- Demonstrates the equal energy partition holds across gravitational systems from stellar to cosmological scales
+
+**[IAM M-σ Paper](docs/IAM_M_Sigma_Paper.pdf)**
+- Connects IAM logic to M-σ style scaling; bridge between cosmological and astrophysical structure scaling
+- M_BH = 2.00×10⁸ (σ/200)⁴ M☉ derived from first principles, matching observations to 2%
+
+**Extension Tracks (conditional; separate from cosmology validation):**
+
+**[IAM Black Hole Thermodynamics](docs/IAM_BH_Thermodynamics.pdf)**
+- Black hole thermodynamic extension of the horizon-encoding logic
+- Clarifies what "encoding" means at BH horizons and its relationship to the cosmological IAM mechanism
+
+**[IAM Black Hole Information Paradox](docs/IAM_Black_Hole_Information_Paradox.pdf)**
+- Applies IAM information bookkeeping to the black hole information paradox
+- Extension track; kept separate from the cosmology validation core
+
+**[Gravitational Decoherence at the Quantum Level](docs/Gravitational_Decoherence_Quantum_Level.pdf)**
+- Proposes lab-scale decoherence tests bridging the horizon-encoding logic to measurable decoherence rates
+- Specific experimental proposals; extension track with testable predictions at quantum scales
+
+**[IAM and the Quantum Measurement Problem](docs/IAM_Measurement_Problem_Quantum.pdf)**
+- Frames the quantum measurement problem in IAM language
+- Explicitly separated from the cosmology validation; extension track only
+
+**[Electron Rest Mass from IAM](docs/Electron_Rest_Mass_from__IAM.pdf)**
+- Derives an electron mass relation under stated boundary/encoding assumptions
+- Known factor gap documented as an open problem; kept segregated from cosmology validation
+
+**[w(z) and the Far Future](docs/wz_far_future.pdf)**
+- Asymptotic behavior and far-future extrapolation under IAM activation logic
+- No Big Rip under the baseline model; optional appendix to the core framework
 
 ---
 
@@ -653,76 +774,6 @@ IAM-Validation/
 - **DESI Year 5:** B_m to +/-1% precision
 
 </details>
-
----
-
-## Documentation
-
-### Primary Documents
-
-1. **[IAM Master Preprint](docs/IAM_Master_Preprint.pdf)** (LaTeX, 24 pages) — *Primary reference document*
-   - Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
-   - Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
-   - Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
-   - Coupling constant βm = Ωm/2 derived from virial theorem, confirmed by 6 independent N-body studies to 1%
-   - Activation function E(a) = exp(1−1/a) derived from horizon thermodynamics, recovered to 1% by Sheth-Tormen
-   - Full validation: 17 converged MCMC chains (R−1 < 0.01), ∆χ² = +0.54 vs ΛCDM under full Planck 2018 CamSpec TTTEEE likelihood
-   - Dual-sector H0 split: H0(photon) = 67.16, H0(matter) = 72.26 km s⁻¹ Mpc⁻¹, both derived from single posterior
-   - σ8 suppression 0.809 → 0.800; 2025 joint analysis (KiDS-Legacy + DES Y3 + DESI DR1) finds σ8 = 0.802 ± 0.020 (0.1σ from IAM prediction)
-   - ISW-galaxy cross-correlation prediction: ~10-30% enhancement over ΛCDM, opposite sign to f(R)
-   - Tomographic µ(z) reconstruction forecast with Euclid sensitivity analysis
-   - Falsifiable predictions for Euclid (3.4σ projected detection), DESI Year 5, and CMB-S4
-   - M-σ relation derived from first principles: MBH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
-   - All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
-
-2. **[Dual-Sector Validation Paper](docs/Dual_Sector_Validation_Paper.pdf)** (RevTeX, ~22 pages)
- - Empirical validation of sector separation using Pantheon+ Type Ia supernovae
- - Three independent tests (Planck prior, SH0ES prior, no prior)
- - Complete Python code in appendices (< 2 min reproducibility)
- - Companion paper to main IAM manuscript
-
-3. **[IAM--CAMB Technical Note: Full Planck Validation](docs/IAM_CAMB_Technical_Note.pdf)** (~23 pages)
- - mu--Sigma modified gravity mapping: mu(a) < 1, Sigma(a) = 1
- - Python-level CAMB validation with comprehensive 8-panel figure
- - Fortran-level implementation: what was done, what was learned
- - **MGCAMB Boltzmann validation: 7/7 diagnostic tests passed** (sigma_8, CMB TT, lensing, P(k), f*sigma_8, Sigma = 1, scale independence)
- - **Planck Level-1 MCMC analysis** (perturbation sector, 3 independent chains via Cobaya + MGCAMB) with complete YAML files
- - **Run B mu_0 posterior analysis** (MAP ~ 0, sigma = 0.156, IAM at 0.9 sigma, asymmetric 68% CI)
- - **Forecasting and observational prospects** (Fisher forecast, ISW-galaxy cross-correlation, binned mu(z) reconstruction, transition zone analysis)
- - CAMB background validation figure (6-panel)
- - Falsifiable predictions for Euclid, DESI Year 5, CMB-S4
- - *Note: Validates perturbation-level mu-Sigma mapping only (Level 1). Level 2 (dual-sector perturbation via modified CAMB) is complete.*
-
-4. **[Test Validation Compendium](docs/IAM_Test_Validation_Compendium.pdf)** (~30 pages)
- - Nine independent validation tests with detailed results
- - Nine publication-quality figures
- - Complete chi-squared analysis
- - MCMC posterior analysis
-
-5. **[Supplementary Methods](docs/Supplementary_Methods_Reproducibility_Guide.pdf)** (~20 pages)
- - Complete Python implementation
- - Data sources and citations
- - Step-by-step reproducibility instructions
- - Troubleshooting guide
-
-6. **[IAM Theory Paper](docs/IAM_Theory_Paper.pdf)** (~25 pages)
- - Merges and supersedes the former Holographic Derivation and Variational Derivation documents
- - First-principles derivation of E(a) = exp(1 - 1/a) from horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle)
- - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
- - S_total = S_geometric + S_informational → dual-sector perturbation modification
- - Constrained scalar field action with equation of state w_info(a) = -1 - 1/(3a) (mildly phantom, consistent with DESI 2024)
- - Gravitational decoherence as the mechanism for sector separation: timelike worldlines decohere (mu < 1), null worldlines do not (Sigma = 1)
- - **Coupling constant derived:** beta_m = Omega_m/2 from virial theorem, matching MCMC to 0.3%
- - **Zero free parameters** beyond standard LambdaCDM
- - Perturbation theory: mu(a) < 1, Sigma(a) = 1 derived from causal structure of spacetime
-
-### Quick Reference
-
-- **Theory Summary:** See Section II-III of Main Manuscript
-- **Statistical Results:** See Test Validation Compendium
-- **mu--Sigma Mapping, MGCAMB Validation & Planck Level-1 MCMC:** See IAM--CAMB Technical Note
-- **Theoretical Derivation:** See IAM Theory Paper (horizon thermodynamics + gravitational decoherence)
-- **Code Details:** See Supplementary Methods
 
 ---
 
