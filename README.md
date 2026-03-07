@@ -69,6 +69,9 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 
 ---
 
+<details>
+<summary><strong>LEVEL 1: Perturbation-Level Planck MCMC via MGCAMB (12 Independent Chains) — COMPLETE</strong></summary>
+
 ## LEVEL 1: Perturbation-Level Planck MCMC via MGCAMB (12 Independent Chains) — COMPLETE
 
 **Scope:** Background expansion is standard ΛCDM (unmodified). Only perturbation equations modified via mu < 1, Sigma = 1 through MGCAMB's built-in mu-Sigma parametrization (MGCAMB v1.5.2 + Cobaya). No perturbation quantity feeds back into H(z).
@@ -131,6 +134,13 @@ All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0
 
 ---
 
+</details>
+
+---
+
+<details>
+<summary><strong>MGCAMB Boltzmann Validation (Level 1) — 7/7 Tests PASSED</strong></summary>
+
 ## MGCAMB Boltzmann Validation (Level 1) — 7/7 Tests PASSED
 
 | Test | Criterion | Result | Status |
@@ -144,6 +154,8 @@ All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0
 | f*sigma_8 fit quality | chi2 <= ΛCDM + 4 | 4.42 vs 4.85 | PASS |
 
 **[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
+
+</details>
 
 ---
 
@@ -165,6 +177,9 @@ The virial theorem predicts beta_m = Omega_m/2. The Planck data, through the Lev
 All four Level 1 floating-parameter runs return mu_0 values consistent with the IAM prediction at < 1.3 sigma. The current constraint precision (sigma(mu_0) ~ 0.13-0.16) is too wide to distinguish IAM from GR. Euclid (projected sigma(mu_0) ~ 0.04) will provide the decisive test: 3.4 sigma detection significance if mu_0 = -0.135.
 
 ---
+
+<details>
+<summary><strong>LEVEL 2: Dual-Sector Perturbation Validation: MCMC via Modified CAMB (3 CHAINS & 2 CHAINS) — COMPLETE</strong></summary>
 
 ## LEVEL 2: Dual-Sector Perturbation Validation: MCMC via Modified CAMB (3 CHAINS & 2 CHAINS) -- COMPLETE
 
@@ -318,7 +333,12 @@ Delta-chi2 (best-fit, Planck): IAM - ΛCDM = +0.54
 
 Two exploratory runs were conducted with the IAM term added to the background expansion equation (modifying CAMB's `dtauda` function). Two Level 2b background modification chains ran to completion: Run A (125,440 accepted samples, 46.8% acceptance, R-1 = 0.0096) and Run D (120,832 accepted samples, 46.3% acceptance, R-1 = 0.0068). Both converged cleanly. The result H₀ ≈ 61.5 km/s/Mpc confirmed that the dual-sector mechanism operates exclusively at the perturbation level. This is a structural confirmation — the chains did not fail, they answered the question precisely `adotoa_matter` in the perturbation equations. The background modification chains are archived in `camb_validation/chains/` for reproducibility.
 
+</details>
+
 ---
+
+<details>
+<summary><strong>Documentation</strong></summary>
 
 ## Documentation
 
@@ -378,6 +398,8 @@ Two exploratory runs were conducted with the IAM term added to the background ex
  - **Coupling constant derived:** beta_m = Omega_m/2 from virial theorem, matching MCMC to 0.3%
  - **Zero free parameters** beyond standard LambdaCDM
  - Perturbation theory: mu(a) < 1, Sigma(a) = 1 derived from causal structure of spacetime
+ - **Second-order perturbation theory:** F2 bispectrum kernel shape identical to ΛCDM (friction-only modification); bispectrum amplitude suppressed 1.3% at z=0, enhanced at z>0.3 with crossover at z≈0.2 — testable with Euclid galaxy bispectrum
+ - **CMB TT power spectrum:** IAM vs ΛCDM residual <0.13% at ℓ>30 (MGCAMB 7/7 criterion); Δχ²=+0.75 from posterior mean chains — photon sector unmodified, as predicted by Σ=1
 
 **Observational Predictions and Cluster Tests:**
 
@@ -436,6 +458,8 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 **[w(z) and the Far Future](docs/wz_far_future.pdf)**
 - Asymptotic behavior and far-future extrapolation under IAM activation logic
 - No Big Rip under the baseline model; optional appendix to the core framework
+
+</details>
 
 ---
 
