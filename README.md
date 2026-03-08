@@ -984,6 +984,21 @@ Three independent tests using Pantheon+ data show that Type Ia supernovae are in
 
 ---
 
+## Citation
+If you use this code or results in published research, please cite:
+```bibtex
+@misc{Mahaffey2026,
+  author    = {Mahaffey, Heath W.},
+  title     = {Dual-Sector Cosmology from Structure-Driven Expansion:
+               The Informational Actualization Model},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.18702042},
+  url       = {https://doi.org/10.5281/zenodo.18702042}
+}
+```
+---
+
 ## What IAM Claims vs. Does NOT Claim
 
 ### What IAM Claims
