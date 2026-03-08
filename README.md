@@ -349,7 +349,7 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 
 ### Primary Documents
 
-1. **[IAM Master Preprint](docs/IAM_Master_Preprint.pdf)** (LaTeX, 24 pages) — *Primary reference document*
+1. **[IAM Master Preprint](docs/IAM_Master_Preprint.pdf)** (LaTeX, 25 pages) — *Primary reference document*
    - Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
    - Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
    - Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
@@ -393,7 +393,7 @@ Two exploratory runs were conducted with the IAM term added to the background ex
  - Step-by-step reproducibility instructions
  - Troubleshooting guide
 
-6. **[IAM Theory Paper](docs/IAM_Theory_Paper.pdf)** (~25 pages)
+6. **[IAM Theory Paper](docs/IAM_Theory_Paper.pdf)** (~33 pages)
  - Merges and supersedes the former Holographic Derivation and Variational Derivation documents
  - First-principles derivation of E(a) = exp(1 - 1/a) from horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle)
  - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
