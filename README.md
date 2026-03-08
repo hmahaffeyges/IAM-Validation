@@ -984,23 +984,6 @@ Three independent tests using Pantheon+ data show that Type Ia supernovae are in
 
 ---
 
-## Citation
-
-If you use this code or results in published research, please cite:
-
-```bibtex
-@article{Mahaffey2026,
- author = {Mahaffey, Heath W.},
- title = {Constraints on Late-Time f*sigma_8 Suppression from mu < 1, Sigma = 1: 
- Planck 2018 and Large-Scale Structure},
- journal = {Universe},
- year = {2026},
- note = {Submitted (manuscript ID: universe-4189350). Code: \url{https://github.com/hmahaffeyges/IAM-Validation}}
-}
-```
-
----
-
 ## What IAM Claims vs. Does NOT Claim
 
 ### What IAM Claims
