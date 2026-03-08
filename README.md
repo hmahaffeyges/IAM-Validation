@@ -460,6 +460,10 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 - Derives an electron mass relation under stated boundary/encoding assumptions
 - Known factor gap documented as an open problem; kept segregated from cosmology validation
 
+**[Dark Energy or Sector Tension? IAM Confrontation with DESI Full-Shape Growth Rates and Joint Weak Lensing](docs/Dark_Energy_or_Sector_Tension.pdf)**
+- Tests whether the DESI DR1/DR2 phantom crossing ($w_0 > -1$, $w_a < 0$, $z_{\rm cross} \approx 0.33$--$0.43$) is a sector-assignment artifact predicted by IAM rather than evidence for dynamical dark energy
+- Confronts IAM $f\sigma_8(z)$ predictions against DESI DR1 full-shape measurements at six redshift bins ($0.295 \leq z_{\rm eff} \leq 1.491$); IAM $\sigma_8 = 0.7998$ consistent with 2025 joint lensing result $\sigma_8 = 0.802 \pm 0.020$ at $0.1\sigma$
+
 **[w(z) and the Far Future](docs/wz_far_future.pdf)**
 - Asymptotic behavior and far-future extrapolation under IAM activation logic
 - No Big Rip under the baseline model; optional appendix to the core framework
