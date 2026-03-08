@@ -159,6 +159,9 @@ All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0
 
 ---
 
+<details>
+<summary><strong>Independent Data Confirmation of the Virial Coupling</strong></summary>
+
 ### Independent Data Confirmation of the Virial Coupling
 
 The coupling constant beta_m = Omega_m/2 is derived from the virial theorem -- it is not fitted to data. However, the Level 1 floating-parameter chains (Runs B, E, H, K) and the Level 2 posterior provide independent data-driven checks of this derivation:
@@ -175,6 +178,8 @@ The coupling constant beta_m = Omega_m/2 is derived from the virial theorem -- i
 The virial theorem predicts beta_m = Omega_m/2. The Planck data, through the Level 2 posterior on Omega_m, independently returns beta_m = 0.1583 +/- 0.0032 -- a 0.2 sigma agreement with the virial prediction. This is not a fit; the coupling was hardcoded before the chains were run. The CMB data confirmed the virial partition without being asked to.
 
 All four Level 1 floating-parameter runs return mu_0 values consistent with the IAM prediction at < 1.3 sigma. The current constraint precision (sigma(mu_0) ~ 0.13-0.16) is too wide to distinguish IAM from GR. Euclid (projected sigma(mu_0) ~ 0.04) will provide the decisive test: 3.4 sigma detection significance if mu_0 = -0.135.
+
+</details>
 
 ---
 
@@ -463,6 +468,9 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 
 ---
 
+<details>
+<summary><strong>Broader Context: IAM Dual-Sector Framework</strong></summary>
+
 ## Broader Context: IAM Dual-Sector Framework
 
 The mu-Sigma modification tested above is derived from the Informational Actualization Model (IAM), a dual-sector cosmological framework where matter and photons experience different late-time expansion rates. The full framework predicts H0(matter) = 72.26 km/s/Mpc alongside H0(photon) = 67.16 km/s/Mpc, reducing the discrepancy between CMB and local distance-ladder measurements to within 1 sigma on both sides. Level 2 validation (dual-sector perturbation mechanism via modified CAMB Fortran) confirms this framework survives the full Planck likelihood (Delta-chi2 = +0.54 best-fit, sigma_8 = 0.800).
@@ -477,7 +485,12 @@ On a limited H0 + growth rate dataset (10 measurements), IAM shows large model-s
 | **H0(matter)** | 72.26 km/s/Mpc | Level 2 dual-sector: H0 * sqrt(1 + beta_m) (0.75 sigma from SH0ES) |
 | **H0(photon)** | 67.4 km/s/Mpc | Planck CMB |
 
+</details>
+
 ---
+
+<details>
+<summary><strong>Multi-Probe Dual-Sector Consistency Test</strong></summary>
 
 ## Multi-Probe Dual-Sector Consistency Test
 
@@ -541,6 +554,8 @@ The physical-Ω_m prediction S₈ = 0.753 is consistent with KiDS-1000 (0.759 ±
 - **CMB χ² dominated by fitting formulae:** The large CMB χ² ≈ 370 reflects Hu & Sugiyama approximation error (~0.1% in θ_MC), not physical tension. It cancels identically in Δχ².
 - **Sector assignment of cosmic chronometers:** CC measures galaxy aging (matter-sector process) via spectral features (photon observations). The assignment follows from which physical process determines the observable (aging rate), analogous to local H₀ measurements.
 - **H₀ Δχ² is model-dependent:** The 69-point improvement assumes the sector split is physical. Under single-sector ΛCDM, this is simply the Hubble tension restated. The test evaluates whether the dual-sector prediction is consistent with observations, not whether the sector split is proven.
+
+</details>
 
 ---
 
@@ -699,7 +714,7 @@ All 9 figures generated successfully!
  DERIVATION CHAIN (Tests 1-10):
  [PASS] Test 1: Jacobson: Standard entropy ' Friedmann equation
  [PASS] Test 2: Cai-Kim: First law on apparent horizon ' Friedmann
- [PASS] Test 3: Modified entropy ' IAM Friedmann equation
+ [PASS] Test 3: Modified entropy ' matter-sector effective expansion rate
  [PASS] Test 4: Cumulative decoherence integral ' exp(alpha - beta/a)
  [PASS] Test 5: Sheth-Tormen collapse rate ' 1/a coefficient
  [PASS] Test 6: Virial theorem ' beta_m = Omega_m/2
