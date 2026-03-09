@@ -192,6 +192,8 @@ Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly mo
 
 **Level 2 preprint:** [Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with μ < 1, Σ = 1 and the Sector-Dependent Hubble Parameter](docs/Paper2_Dual-Sector_Cosmology_and_Hubble_Tension.pdf) -- Modified CAMB Fortran validation (3 chains, Δχ² = +0.54, σ₈ = 0.800, H₀(matter) = 72.26)
 
+**Dual-Sector Explanatory Note:** [On the Dual-Sector Structure of IAM](docs/IAM_Dual_Sector_Note.pdf) -- Why the sector split is already in Einstein's field equations; the null geodesic / proper time argument; four empirical lines of evidence
+
 **Full Level 2 reproducibility package:** [`camb_validation/`](camb_validation/)
 
 - **[Modified Fortran source](camb_validation/equations_iam_level2.f90)** -- equations.f90 with 3 surgical IAM modifications
