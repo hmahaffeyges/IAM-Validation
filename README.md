@@ -6,7 +6,7 @@ Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai 
 
 This repository implements and tests a late-time mu(a) < 1, Sigma(a) = 1 modification of ΛCDM against the full Planck 2018 likelihood (TT, TE, EE, low-ell + lensing). Level 1 validation uses MGCAMB v1.5.2 + Cobaya (mu-Sigma parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
-**Dual-Sector Cosmology: µ<1, Σ=1:** [IAM Technical Quick Guide](docs/IAM_Technical_Clarifications_Guide.pdf)
+**IAM Overview Companion:** [IAM Technical Companion: Quick Overview](docs/IAM_Overview_Companion.pdf)
 
 **Primary Reference Document (IAM):** [IAM Master Preprint](docs/IAM_Master_Preprint.pdf)
 - Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
