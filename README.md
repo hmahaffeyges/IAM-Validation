@@ -11,27 +11,7 @@ This repository contains the derivation, implementation, and validation of IAM a
 
 **IAM Overview Companion:** [IAM Technical Companion: Quick Overview](docs/papers/IAM_Overview_Companion.pdf)
 
-**Primary Reference Document (IAM):** [IAM Master Preprint](docs/papers/IAM_Master_Preprint.pdf)
-- Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
-- Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
-- Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
-- Coupling constant βm = Ωm/2 derived from virial theorem, confirmed by 6 independent N-body studies to 1%
-- Activation function E(a) = exp(1−1/a) derived from horizon thermodynamics, recovered to 1% by Sheth-Tormen
-- Full validation: 17 converged MCMC chains (R−1 < 0.01), ∆χ² = +0.54 vs ΛCDM under full Planck 2018 CamSpec TTTEEE likelihood
-- Dual-sector H0 split: H0(photon) = 67.16, H0(matter) = 72.26 km s⁻¹ Mpc⁻¹, both derived from single posterior
-- σ8 suppression 0.809 → 0.800; 2025 joint analysis (KiDS-Legacy + DES Y3 + DESI DR1) finds σ8 = 0.802 ± 0.020 (0.1σ from IAM prediction)
-- ISW-galaxy cross-correlation prediction: ~10-30% enhancement over ΛCDM, opposite sign to f(R)
-- Tomographic µ(z) reconstruction forecast with Euclid sensitivity analysis
-- Falsifiable predictions for Euclid (3.4σ projected detection), DESI Year 5, and CMB-S4
-- M-σ relation derived from first principles: MBH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
-- All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
-
-**Core predictions (all derived, zero free parameters):**
-- Perturbation modification: mu(a) = H^2_ΛCDM / (H^2_ΛCDM + beta * E(a)), with E(a) = exp(1 - 1/a)
-- Sigma(a) = 1 exactly (lensing unmodified)
-- Coupling derived from virial theorem: beta_m = Omega_m/2 = 0.1575, yielding mu_0 = -0.13495
-
-The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (ΛCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to ΛCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.136 follows from these inputs without additional fitting. No free parameters beyond standard ΛCDM are introduced.
+**Full paper library, derivations, and results:** [docs/README.md](docs/README.md)
 
 **Complete Test Ledger (IAM):** [IAM Validation Scorecard](docs/papers/IAM_Official_Score_Card.pdf)
 
