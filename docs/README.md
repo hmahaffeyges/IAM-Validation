@@ -587,6 +587,23 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 *IAM's thermodynamic chain connects to foundational questions in quantum mechanics. The same mechanism that drives cosmological structure formation dissolves the measurement problem.*
 
 <details>
+<summary><strong>Non-Locality Paper</strong> — Non-Locality and the Boundary of Reality: Quantum Potential, Irreversible Actualization, and the Thermodynamic Origin of Classical Existence</summary>
+
+[📄 Non_Locality_and_the_Boundary_of_Reality.pdf](papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
+
+- **States IAM's Law explicitly for the first time:** every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the cosmic horizon — classical existence is continuously purchased, one decoherence event at a time
+- "Particle" is a post-actualization concept — applying the word to a pre-measurement quantum system is a category error that has generated a century of apparent paradoxes
+- Non-locality is not a mystery to explain — it is the expected behavior of potential: potential has no position, no trajectory, no classical identity
+- Bell's theorem is exactly what IAM predicts, for a derived reason: there are no hidden variables because there is no classical particle to have hidden variables until actualization occurs
+- The n=5/2 bridge connects the quantum boundary to the cosmological scale from two independent directions simultaneously
+- Top quark entanglement (LHC/CMS 2024) addressed and shown fully consistent with IAM — gravitational decoherence timescale vs particle decay timescale are distinct mechanisms
+- Temporal entanglement identified as an open direction
+- Euclid DR1 (October 2026) framed as precision measurement of the mechanism's magnitude, not a falsification test — the Planck 2018 chains have already established the mechanism operates
+- Jacobson and Peebles credited explicitly: Peebles identified the quantum-to-classical derivation as the foundational gap requiring closure
+
+</details>
+
+<details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
 [📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
@@ -742,5 +759,5 @@ These papers are archived and superseded. Not part of the active corpus.
 ---
 
 *Last updated: March 2026*
-*36 active papers · 2 retired · all papers in docs/papers/ · organized by category in this README*
+*37 active papers · 2 retired · all papers in docs/papers/ · organized by category in this README*
 *All predictions timestamped in repository commit history*
