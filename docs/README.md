@@ -600,6 +600,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 - Temporal entanglement identified as an open direction
 - Euclid DR1 (October 2026) framed as precision measurement of the mechanism's magnitude, not a falsification test — the Planck 2018 chains have already established the mechanism operates
 - Jacobson and Peebles credited explicitly: Peebles identified the quantum-to-classical derivation as the foundational gap requiring closure
+- **Quantitative comparison table:** IAM vs Penrose--Diósi across three systems (trapped ions, superconducting qubits, nanosphere at 10 mK) — τ_IAM ≈ 560 μs for a 10⁻¹² kg nanosphere at 10 mK, distinguishable from Penrose--Diósi by profile shape (ramp vs exponential) and T² vs T⁰ temperature scaling
 
 </details>
 
