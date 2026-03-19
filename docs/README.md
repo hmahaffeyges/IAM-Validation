@@ -196,7 +196,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 [📄 IAM_Survey_Predictions_Paper.pdf](cosmological_model/IAM_Survey_Predictions_Paper.pdf)
 
 - Four quantitative forecasts derived without fitting
-- Euclid optimistic configuration: 3.4σ detection of µ₀ = −0.135; combined Euclid + DESI Year 5: 5.4σ
+- Euclid optimistic configuration: 3.4σ detection of µ₀ = −0.136; combined Euclid + DESI Year 5: 5.4σ
 - ISW-galaxy cross-correlation: A_ISW = 1.134 relative to ΛCDM, arising from faster gravitational potential decay under µ < 1 — this enhancement has the **opposite sign to f(R) gravity** (A_ISW < 1), providing a sign-based discriminant independent of amplitude precision
 - Tomographic µ(z) reconstruction in 10 redshift bins: β_m recovered to 55% precision (β_m = 0.1617 ± 0.0867 vs true 0.1575, bias +2.7%)
 - Transition zone 0.06 ≲ z ≲ 1.12 where 10%–90% of the total gravity modification occurs
