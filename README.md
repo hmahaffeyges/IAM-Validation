@@ -929,7 +929,7 @@ See [LICENSE](LICENSE) for full details.
 
 The thermodynamic framework of T. Jacobson (1995) is the foundation upon which this work is built — his derivation of the Einstein equations as an equation of state established that gravity is thermodynamic; IAM is the completion of that derivation when the entropy budget is made explicit. A personal response from Professor P.J.E. Peebles identified the quantum-to-classical derivation as the foundational gap requiring closure before the cosmological framework could be trusted — that identification directly motivated the bridge from quantum decoherence physics to the cosmic ledger.
 
-The author also thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborations for publicly available data. The CAMB team (Lewis, Challinor) for the Boltzmann solver (v1.5.8). The MGCAMB team (Wang, Mirpoorian, Pogosian, Silvestri, Zhao) for the modified gravity extension. The Cobaya team (Torrado, Lewis) for the MCMC sampling framework. Grateful to the open-source communities of NumPy, SciPy, Matplotlib, GetDist, and corner. This work benefited from discussions facilitated by Claude (Anthropic) regarding statistical methodology, MCMC implementation, Boltzmann solver configuration, and reproducibility best practices.
+The author also thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collaborations for publicly available data. The CAMB team (Lewis, Challinor) for the Boltzmann solver (v1.5.8). The MGCAMB team (Wang, Mirpoorian, Pogosian, Silvestri, Zhao) for the modified gravity extension. The Cobaya team (Torrado, Lewis) for the MCMC sampling framework. Grateful to the open-source communities of NumPy, SciPy, Matplotlib, GetDist, and corner.
 
 ---
 
