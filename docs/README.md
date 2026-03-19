@@ -19,6 +19,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 ## Categories
 
+- [START HERE: Derivations](#start-here-derivations)
 - [I. Cosmological Model](#i-cosmological-model)
 - [II. Thermodynamic Identity & Virial Theorem](#ii-thermodynamic-identity--virial-theorem)
 - [III. Cosmological Constant](#iii-cosmological-constant)
@@ -28,6 +29,47 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 - [VII. Quantum Foundations](#vii-quantum-foundations)
 - [VIII. Particle Physics](#viii-particle-physics)
 - [IX. Structure Formation](#ix-structure-formation)
+
+---
+
+## START HERE: Derivations
+
+*If you want to understand what IAM is and where it comes from, these are the only two papers you need. One derives the framework. The other derives the thermodynamic identity that underpins the coupling constant. Together they are the complete logical foundation of IAM — everything else in this library is a consequence, application, or validation.*
+
+*Other papers in this library contain derivations — the Koide paper derives a lepton mass relation, the electron mass paper derives the electron rest mass — but those are derivations within the framework applying it to specific problems. These two are derivations of the framework itself.*
+
+<details>
+<summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
+
+[📄 IAM_Theory_Paper.pdf](derivations/IAM_Theory_Paper.pdf)
+
+- **The derivation of IAM from first principles**
+- Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
+- S_total = S_geometric + S_informational — identifies the missing entropy source in the Jacobson–Cai-Kim functional
+- Derives µ(a) < 1 for matter, Σ(a) = 1 for photons — the sector split follows causally from the metric signature: decoherence requires nonzero proper time; photons propagate on null worldlines and are unaffected
+- **Coupling constant β_m = Ω_m/2 derived from the virial theorem — not fitted**
+- **Activation function E(a) = exp(1 − 1/a) derived from horizon thermodynamics**
+- **n = 5/2 arrives from two independent directions:** top-down, E(a) requires the decoherence rate to scale as D(a)^(5/2) to produce the 1/a exponent; bottom-up, six independent N-body groups measure n_eff = 3.22 ± 0.44, with n = 5/2 at the lower bound of the matter-domination limit
+- Predicts µ₀ = −0.136 with zero free parameters beyond ΛCDM
+- See also the full entry in [Category I](#i-cosmological-model) for all observational consequences
+
+</details>
+
+<details>
+<summary><strong>Thermodynamic Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
+
+[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](derivations/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+
+- **The derivation of what K physically is — unanswered for 154 years since Clausius**
+- Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
+- Derived from the first law, second law, Landauer's principle, and the equilibrium condition of the 1/r potential — no additional assumptions
+- The virial temperature cancels exactly, making the identity scale-invariant
+- This is the thermodynamic foundation of β_m = Ω_m/2 — it explains physically why exactly half the gravitational energy crosses into actuality at each virialization event
+- Verified across 37 orders of magnitude from hydrogen atoms (10⁻¹⁰ m) to the cosmological coupling constant (10²⁶ m)
+- The virial theorem is the mechanical expression of this thermodynamic identity — the thermodynamic content was always there, unrecognized
+- See also the full entry in [Category II](#ii-thermodynamic-identity--virial-theorem)
+
+</details>
 
 ---
 
@@ -647,5 +689,5 @@ These papers are archived and superseded. Not part of the active corpus.
 ---
 
 *Last updated: March 2026*
-*36 active papers · 2 retired · 9 categories*
+*36 active papers · 2 retired · 9 categories + 1 derivations folder*
 *All predictions timestamped in repository commit history*
