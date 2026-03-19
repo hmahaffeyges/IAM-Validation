@@ -40,12 +40,20 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 [📄 IAM_Theory_Paper.pdf](cosmological_model/IAM_Theory_Paper.pdf)
 
-- Derives µ(a) < 1 for matter, Σ(a) = 1 for photons from the Jacobson–Cai-Kim entropy functional with an informational source term
-- Coupling constant β_m = Ω_m/2 derived from the virial theorem — not fitted
-- Activation function E(a) = exp(1 − 1/a) derived from horizon thermodynamics
+- **Root paper — every other paper in this library builds on this derivation**
+- Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
+- S_total = S_geometric + S_informational → dual-sector perturbation modification
+- Derives µ(a) < 1 for matter, Σ(a) = 1 for photons from first principles — the sector split follows causally from the metric signature: decoherence requires nonzero proper time; photons propagate on null worldlines and are unaffected
+- **Coupling constant β_m = Ω_m/2 derived from the virial theorem — not fitted.** Confirmed by 6 independent N-body studies to 1% and by Planck 2018 MCMC posterior at 0.2σ
+- **Activation function E(a) = exp(1 − 1/a) derived from horizon thermodynamics** (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle) — recovered to 1% by Sheth-Tormen
+- **n = 5/2 arrives from two independent directions:** top-down, E(a) requires the decoherence rate to scale as D(a)^(5/2) to produce the 1/a exponent; bottom-up, six independent N-body groups measure n_eff = 3.22 ± 0.44, with n = 5/2 at the lower bound of the matter-domination limit
 - Predicts µ₀ = −0.136 with zero free parameters beyond ΛCDM
-- The sector split follows causally from the metric signature: decoherence requires nonzero proper time; photons propagate on null worldlines and are unaffected
-- Root paper — every other paper in this library builds on this derivation
+- Constrained scalar field action with equation of state w_info(a) = −1 − 1/(3a) — mildly phantom, consistent with DESI DR2
+- Second-order perturbation theory: F2 bispectrum kernel shape identical to ΛCDM; bispectrum amplitude suppressed 1.3% at z=0, testable with Euclid galaxy bispectrum
+- CMB TT power spectrum: IAM vs ΛCDM residual < 0.13% at ℓ > 30 — photon sector unmodified, as predicted by Σ = 1
+- M–σ relation derived from first principles: M_BH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
+- Full validation: 17 converged MCMC chains (R−1 < 0.01), Δχ² = +0.54 vs ΛCDM under full Planck 2018 likelihood
+- All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
 
 </details>
 
@@ -131,9 +139,11 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 [📄 IAM_CAMB_Technical_Note.pdf](cosmological_model/IAM_CAMB_Technical_Note.pdf)
 
 - Complete Boltzmann solver validation: 7/7 MGCAMB diagnostic tests passed
-- CMB TT residuals < 0.17%; lensing shift 0.3% consistent with Σ = 1
-- Documents three MCMC runs: µ₀ fixed, µ₀ floating, ΛCDM baseline
+- CMB TT residuals < 0.17%; lensing shift +0.30% consistent with Σ = 1; σ₈ suppressed from 0.812 to 0.795; P(k) scale-independence confirmed (std < 0.53%); f·σ₈ fit quality: χ² = 4.42 vs ΛCDM 4.85
+- Documents three MCMC runs: µ₀ fixed at −0.135 (Run A: σ₈ = 0.8014, H₀ = 67.06, χ² = 984.57), µ₀ floating (Run B: µ₀ = 0.006 ± 0.156, IAM prediction within 0.9σ, χ² = 981.24), ΛCDM baseline (Run C: χ² = 983.14)
 - Δχ² = +1.43 between IAM fixed and ΛCDM — statistically indistinguishable
+- Run B µ₀ posterior: MAP ≈ 0, σ = 0.156, IAM prediction at 0.9σ; asymmetric 68% CI
+- Forecasting: Fisher forecast, ISW-galaxy cross-correlation (A_ISW = 1.134, opposite sign to f(R)), binned µ(z) reconstruction in 10 redshift bins, transition zone analysis
 - Euclid projected: σ(µ₀) ≈ 0.04 → 3.4σ detection of IAM's µ₀ = −0.136
 
 </details>
@@ -145,9 +155,10 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 - Four quantitative forecasts derived without fitting
 - Euclid optimistic configuration: 3.4σ detection of µ₀ = −0.135; combined Euclid + DESI Year 5: 5.4σ
-- ISW-galaxy cross-correlation: A_ISW = 1.134 relative to ΛCDM — opposite sign to f(R) gravity
-- Tomographic µ(z) reconstruction in 10 redshift bins
+- ISW-galaxy cross-correlation: A_ISW = 1.134 relative to ΛCDM, arising from faster gravitational potential decay under µ < 1 — this enhancement has the **opposite sign to f(R) gravity** (A_ISW < 1), providing a sign-based discriminant independent of amplitude precision
+- Tomographic µ(z) reconstruction in 10 redshift bins: β_m recovered to 55% precision (β_m = 0.1617 ± 0.0867 vs true 0.1575, bias +2.7%)
 - Transition zone 0.06 ≲ z ≲ 1.12 where 10%–90% of the total gravity modification occurs
+- **Conservative falsification criterion:** µ₀ constrained to > −0.05 at 95% CL excludes IAM baseline
 
 </details>
 
@@ -180,8 +191,14 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 [📄 IAM_Master_Preprint.pdf](cosmological_model/IAM_Master_Preprint.pdf)
 
 - Consolidated reference document combining the complete thermodynamic derivation chain with all validation results
-- Jacobson (1995) → Cai-Kim (2005) → IAM derivation chain made explicit
-- All key predictions, MCMC results, and falsification criteria in one document
+- Complete derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
+- Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
+- Dual-sector H₀ split: H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc, both derived from single MCMC posterior
+- σ₈ suppression 0.809 → 0.800; 2025 joint analysis (KiDS-Legacy + DES Y3 + DESI DR1) finds σ₈ = 0.802 ± 0.020 (0.1σ from IAM prediction)
+- ISW-galaxy cross-correlation prediction: ~10–30% enhancement over ΛCDM, opposite sign to f(R)
+- Tomographic µ(z) reconstruction forecast with Euclid sensitivity analysis
+- Falsifiable predictions for Euclid (3.4σ projected detection), DESI Year 5, and CMB-S4
+- All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
 
 </details>
 
@@ -245,8 +262,11 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 [📄 Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf](thermodynamic_identity_virial_theorem/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
 
 - Shows that independent N-body confirmation of IAM's two key derived quantities already exists in the published literature — IAM did not need to run new simulations
+- **The n = 5/2 quantum-to-cosmological bridge** — arrived at from two completely independent directions:
+  - **Top-down:** E(a) = exp(1−1/a) requires the decoherence rate to scale as D(a)^n with n = 5/2 to produce the 1/a dependence (derived analytically in matter domination)
+  - **Bottom-up:** six independent N-body simulation groups measure n_eff = 3.22 ± 0.44; the matter-domination value n = 5/2 sits at the lower bound, full ΛCDM history shifts it to 3.0–4.0 as expected
+  - Two routes — one asking what the cosmological activation function requires, the other asking what quantum decoherence at structure formation scales produces — return the same number
 - **Virial efficiency:** six independent N-body simulation studies spanning 25 years (Bryan & Norman 1998 through Klypin et al. 2016) measure mass-weighted virial efficiency ⟨η_vir⟩ = 0.815 ± 0.025; IAM predicts 0.81
-- **Effective nonlinear exponent:** the analytical matter-domination prediction n = 5/2 is confirmed by the published literature at n_eff = 3.22 ± 0.44 — n = 5/2 at the lower bound, full ΛCDM history shifts it to 3.0–4.0 as expected
 - The product Ω_m × f_coll × ⟨η_vir⟩ = 0.315 × 0.62 × 0.815 ≈ 0.159 agrees with IAM-derived β_m = 0.1575 to within 1%
 - All cited measurements were made by independent groups under standard ΛCDM assumptions — not by the IAM author
 
@@ -454,11 +474,11 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 [📄 IAM_Lensing_Dynamics_Paper.pdf](black_holes/IAM_Lensing_Dynamics_Paper.pdf)
 
-- Analyzes gravitational lensing in the IAM dual-sector framework
-- Σ = 1 exactly at linear order: weak lensing observables are affected only indirectly through the suppressed matter growth
-- The linearized Einstein equations for metric potentials remain unmodified
-- No anisotropic stress, no new perturbative degrees of freedom
-- Predicts a redshift-dependent lensing-dynamics mass discrepancy — a direct observational test
+- Derives the cluster discriminator M_lens/M_dyn = 1/µ_eff(z) for the Σ_eff = 1 case
+- Redshift-dependent ratio approaches unity at high z — qualitatively distinct from constant hydrostatic bias
+- Clean falsification signature testable with current and upcoming cluster surveys
+- The linearized Einstein equations for metric potentials remain unmodified — no anisotropic stress, no new perturbative degrees of freedom
+- Weak lensing observables affected only indirectly through suppressed matter growth, not through photon propagation
 
 </details>
 
@@ -467,10 +487,11 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 [📄 3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf](black_holes/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
 
-- Examines merging galaxy cluster systems (e.g. Bullet Cluster analogues) within the IAM dual-sector framework
+- SZ/X-ray/lensing mass ordering tests and internal consistency relations
+- Separates IAM from pure hydrostatic bias explanations via three-way ordering: M_lens > M_SZ ≈ M_hydro
+- Both matter-sector estimators (SZ, hydrostatic) suppressed identically by µ < 1; lensing mass unaffected (Σ = 1)
 - Because Σ = 1, the Weyl potential and light geodesics are unmodified — lensing peaks follow collisionless matter dynamics as in ΛCDM
-- The spatial offset between lensing peaks and baryonic gas is expected to behave identically to ΛCDM
-- The three-way mass discrepancy (X-ray, lensing, dynamical) provides a specific test of µ < 1, Σ = 1
+- The spatial offset between lensing peaks and baryonic gas (e.g. Bullet Cluster analogues) expected to behave identically to ΛCDM
 
 </details>
 
@@ -514,6 +535,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 - Formulated in the language of open quantum systems — no objective collapse dynamics, no non-unitary modifications to the Schrödinger equation
 - Gravitational interactions treated as an environment that suppresses off-diagonal elements of the reduced density matrix through entanglement and coarse-graining
 - Examines the scaling of the decoherence rate and its thermodynamic interpretation
+- Proposes lab-scale decoherence tests bridging the horizon-encoding logic to measurable decoherence rates — specific experimental proposals with testable predictions at quantum scales
 - Confirms consistency with energy conservation, covariance, and experimental constraints
 
 </details>
