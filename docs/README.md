@@ -266,6 +266,18 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 </details>
 
 <details>
+<summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
+
+[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](thermodynamic_identity_virial_theorem/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+
+- Also in [Category VII: Quantum Foundations](#vii-quantum-foundations)
+- Connects the thermodynamic identity to the quantum mechanical language of decoherence: the cosmic horizon is the ultimate environment accumulating the Landauer costs of 13.8 billion years of decoherence events
+- Extends Zurek's quantum Darwinism from local to cosmic scales — the same process K = E_Landauer describes thermodynamically, this paper describes in the quantum Darwinism framework
+- Classical structure emerges because only the decoherent branch survives encoding — the redundant record is the cosmic horizon itself
+
+</details>
+
+<details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
 [📄 IAM_Theory_Paper.pdf](thermodynamic_identity_virial_theorem/IAM_Theory_Paper.pdf)
@@ -483,6 +495,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 [📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](quantum_foundations/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 
+- Also in [Category II: Thermodynamic Identity & Virial Theorem](#ii-thermodynamic-identity--virial-theorem)
 - Extends Zurek's quantum Darwinism from local to cosmic scales — the cosmic horizon is the ultimate redundant record of all decoherence events
 - **Contains the full two-direction derivation of n = 5/2 — the quantum-to-cosmological bridge**
 - **Bottom-up:** from quantum decoherence physics — the Diósi-Penrose gravitational decoherence timescale (~10⁻⁷⁰ s for a Milky Way halo) is instantaneous on cosmological timescales; the rate-limiting step is the virialization rate; integrating over the Press-Schechter mass function with peak height scaling ν ∝ D(a)⁻¹/² yields Ï ∝ ρ_m · D(a)^(5/2) · f(a) · H(a) with n = 5/2 derived from quantum Darwinism applied to gravitational structure formation
