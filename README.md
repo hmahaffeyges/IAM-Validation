@@ -345,7 +345,7 @@ Two exploratory runs were conducted with the IAM term added to the background ex
 
 ---
 
-**Full paper library (36 papers, 9 categories + derivations folder, collapsible sections with descriptions):** [docs/README.md](docs/README.md)
+**Full paper library (collapsible sections with descriptions):** [docs/README.md](docs/README.md)
 
 ---
 
