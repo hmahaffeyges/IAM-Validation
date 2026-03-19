@@ -240,15 +240,15 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 </details>
 
 <details>
-<summary><strong>n = 5/2 Bridge Paper</strong> — Virial Efficiency and Effective Nonlinear Exponent in IAM: Published N-body Confirmation of β_m = Ω_m/2</summary>
+<summary><strong>n = 5/2 N-body Confirmation Paper</strong> — Virial Efficiency and Effective Nonlinear Exponent in IAM: Published N-body Confirmation of β_m = Ω_m/2</summary>
 
 [📄 Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf](thermodynamic_identity_virial_theorem/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
 
-- The n = 5/2 exponent arrives from two completely independent directions — the quantum-to-cosmological bridge
-- **Top-down:** E(a) = exp(1−1/a) requires the decoherence rate to scale as D(a)^n with n = 5/2 to produce the 1/a dependence (derived analytically in matter domination)
-- **Bottom-up:** six independent N-body simulation groups measure n_eff = 3.22 ± 0.44; the matter-domination value n = 5/2 sits at the lower bound, full ΛCDM history shifts it to 3.0–4.0 as expected
-- Two routes — one from cosmological activation function, one from quantum decoherence physics — return the same number
-- Virial efficiency η_vir = 0.815 ± 0.025 measured across 6 independent N-body studies; IAM predicts 0.81
+- Shows that independent N-body confirmation of IAM's two key derived quantities already exists in the published literature — IAM did not need to run new simulations
+- **Virial efficiency:** six independent N-body simulation studies spanning 25 years (Bryan & Norman 1998 through Klypin et al. 2016) measure mass-weighted virial efficiency ⟨η_vir⟩ = 0.815 ± 0.025; IAM predicts 0.81
+- **Effective nonlinear exponent:** the analytical matter-domination prediction n = 5/2 is confirmed by the published literature at n_eff = 3.22 ± 0.44 — n = 5/2 at the lower bound, full ΛCDM history shifts it to 3.0–4.0 as expected
+- The product Ω_m × f_coll × ⟨η_vir⟩ = 0.315 × 0.62 × 0.815 ≈ 0.159 agrees with IAM-derived β_m = 0.1575 to within 1%
+- All cited measurements were made by independent groups under standard ΛCDM assumptions — not by the IAM author
 
 </details>
 
@@ -483,12 +483,12 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 [📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](quantum_foundations/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 
-- Extends Zurek's quantum Darwinism from local to cosmic scales
-- Asks: what is the ultimate environment at cosmic scales? What is the accumulated result of 13.8 billion years of quantum Darwinism events over gravitational structure formation?
-- The cosmic horizon functions as the environment that selects pointer states
+- Extends Zurek's quantum Darwinism from local to cosmic scales — the cosmic horizon is the ultimate redundant record of all decoherence events
+- **Contains the full two-direction derivation of n = 5/2 — the quantum-to-cosmological bridge**
+- **Bottom-up:** from quantum decoherence physics — the Diósi-Penrose gravitational decoherence timescale (~10⁻⁷⁰ s for a Milky Way halo) is instantaneous on cosmological timescales; the rate-limiting step is the virialization rate; integrating over the Press-Schechter mass function with peak height scaling ν ∝ D(a)⁻¹/² yields Ï ∝ ρ_m · D(a)^(5/2) · f(a) · H(a) with n = 5/2 derived from quantum Darwinism applied to gravitational structure formation
+- **Top-down:** from the horizon entropy functional — requiring the cumulative informational entropy to produce E(a) = exp(1−1/a) forces n − 9/2 = −1, therefore n = 5/2, independently
+- Both directions yield n = 5/2. Their convergence is a derivation connecting quantum Darwinism to cosmological observables simultaneously — not a coincidence
 - Classical structure emerges because only the decoherent branch survives encoding on the horizon
-- The cosmological horizon is the ultimate redundant record
-- Derives cosmological observational consequences of this identification
 
 </details>
 
