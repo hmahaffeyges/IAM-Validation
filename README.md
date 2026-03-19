@@ -609,26 +609,31 @@ All 9 figures generated successfully!
 ```
 IAM-Validation/
 ├── README.md                                  # This file
+├── PAPERS.pdf                                 # Results inventory with equations and summary table
 ├── mgcamb_validation/                         # *** LEVEL 1 VALIDATION (MGCAMB v1.5.2) ***
 │   ├── README.md                              # Detailed MGCAMB documentation
 │   ├── iam_mu_sigma.py                        # 7/7 Boltzmann diagnostic tests (reproduces 6-panel figure)
+│   ├── iam_dual_sector_combined.py            # 9-panel dual-sector diagnostic figure
 │   ├── chains/                                # Raw MCMC chain files (Runs A–L, 12 chains)
 │   ├── yaml_configs/                          # Exact Cobaya YAML files for all Level 1 runs
 │   ├── getdist_scripts/                       # Posterior extraction & three-way comparison
 │   └── forecasts/                             # Euclid/DESI prediction scripts
 ├── camb_validation/                           # *** LEVEL 2 VALIDATION (vanilla CAMB v1.5.8, modified Fortran) ***
-│   ├── README.md                              # Level 2 documentation and Fortran modification details
 │   ├── equations_iam_level2.f90               # Modified equations.f90 (3 surgical changes)
-│   ├── chains/                                # Raw MCMC chain files (L2 Runs A, C, D)
+│   ├── chains/                                # Raw MCMC chain files (L2 Runs A, C, D + L2b background runs)
 │   ├── yaml_configs/                          # Exact Cobaya YAML files for all Level 2 runs
 │   └── getdist_scripts/                       # Posterior extraction & Level 2 comparison scripts
-├── docs/                                      # Technical documentation (PDFs)
-├── tests/                                     # Phenomenological validation scripts
-│   ├── iam_validation.py                      # 9 observational tests (~1 min)
-│   └── iam_derivation_tests.py                # 15 derivation + robustness tests (~30 sec)
-├── figures/                                   # Publication-quality figures
+├── docs/                                      # Paper library
+│   ├── README.md                              # Full paper library — IAM's Law, all categories, all links
+│   ├── papers/                                # All active papers (PDFs)
+│   ├── Retired(V1)IAM_Manuscript.pdf          # Retired
+│   └── Retired_IAM_Technical_Clarifications_Guide.pdf  # Retired
+├── tests/                                     # Validation and derivation test scripts (133 files)
+├── figures/                                   # Timestamped prediction figures and publication figures (53 files)
 ├── results/                                   # Output data files
-└── data/                                      # Observational datasets
+├── code/                                      # Supplementary code (Koide paper scripts)
+├── development/                               # Archived development documents and early manuscripts
+└── data/                                      # Observational datasets (Pantheon+, BAO)
 ```
 
 **For referees:** Level 1 results (mu-Sigma perturbation validation via MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 results (dual-sector perturbation validation via modified CAMB): [`camb_validation/`](camb_validation/).
