@@ -7,9 +7,9 @@ Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai 
 
 This repository contains the derivation, implementation, and validation of IAM against the full Planck 2018 likelihood. IAM is not a modified gravity model — it is the completion of Jacobson's 1995 thermodynamic derivation of GR, extended to account for the information produced by gravitational decoherence. The µ(a) < 1, Σ(a) = 1 signature is a consequence of the derivation, not its starting point. Level 1 validation uses MGCAMB v1.5.2 + Cobaya (µ-Σ parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
-**IAM Overview Companion:** [IAM Technical Companion: Quick Overview](docs/cosmological_model/IAM_Overview_Companion.pdf)
+**IAM Overview Companion:** [IAM Technical Companion: Quick Overview](docs/papers/IAM_Overview_Companion.pdf)
 
-**Primary Reference Document (IAM):** [IAM Master Preprint](docs/cosmological_model/IAM_Master_Preprint.pdf)
+**Primary Reference Document (IAM):** [IAM Master Preprint](docs/papers/IAM_Master_Preprint.pdf)
 - Complete thermodynamic derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
 - Physical mechanism: gravitational decoherence → Landauer cost → holographic encoding → dual-sector coupling
 - Derives µ(a) < 1, Σ(a) = 1 with zero free parameters beyond ΛCDM
@@ -31,7 +31,7 @@ This repository contains the derivation, implementation, and validation of IAM a
 
 The dual-sector perturbation modification produces a shift in sigma_8 from 0.8087 (ΛCDM) to 0.7998 (IAM) at Delta-chi2 = +0.54 (best-fit) relative to ΛCDM under the full Planck likelihood. The direction of the sigma_8 shift is consistent with values reported by KiDS-1000 (S8 = 0.759 +/- 0.021), DES Y3 (S8 = 0.776 +/- 0.017), and HSC Y3 (S8 = 0.776 +/- 0.032). All remaining cosmological parameters shift by less than 0.1 sigma. The coupling constant beta_m = Omega_m/2 is derived from the virial theorem, the activation function E(a) = exp(1 - 1/a) from horizon thermodynamics, and the perturbation prediction mu_0 = -0.136 follows from these inputs without additional fitting. No free parameters beyond standard ΛCDM are introduced.
 
-**Complete Test Ledger (IAM):** [IAM Validation Scorecard](docs/cosmological_model/IAM_Official_Score_Card.pdf)
+**Complete Test Ledger (IAM):** [IAM Validation Scorecard](docs/papers/IAM_Official_Score_Card.pdf)
 
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
@@ -77,7 +77,7 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 
 **Scope:** Background expansion is standard ΛCDM (unmodified). Only perturbation equations modified via mu < 1, Sigma = 1 through MGCAMB's built-in mu-Sigma parametrization (MGCAMB v1.5.2 + Cobaya). No perturbation quantity feeds back into H(z).
 
-**Level 1 preprint:** [Late-Time Growth Suppression in the μ–Σ Framework: Confrontation with Planck and Large-Scale Structure](docs/cosmological_model/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf) -- MGCAMB perturbation-level analysis (12 chains, 4 dataset combinations)
+**Level 1 preprint:** [Late-Time Growth Suppression in the μ–Σ Framework: Confrontation with Planck and Large-Scale Structure](docs/papers/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf) -- MGCAMB perturbation-level analysis (12 chains, 4 dataset combinations)
 
 **Full Level 1 reproducibility package:** [`mgcamb_validation/`](mgcamb_validation/)
 
@@ -191,9 +191,9 @@ All four Level 1 floating-parameter runs return mu_0 values consistent with the 
 
 Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly modifying the CAMB Fortran source code (`equations.f90`) to implement the dual-sector mechanism: CDM and baryons experience a modified effective expansion rate (adotoa_matter) while photon equations remain standard. Level 2 uses vanilla CAMB v1.5.8 (not MGCAMB).
 
-**Level 2 preprint:** [Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with μ < 1, Σ = 1 and the Sector-Dependent Hubble Parameter](docs/cosmological_model/Dual_Sector_Perturbation_Cosmology_CAMB.pdf) -- Modified CAMB Fortran validation (3 chains, Δχ² = +0.54, σ₈ = 0.800, H₀(matter) = 72.26)
+**Level 2 preprint:** [Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with μ < 1, Σ = 1 and the Sector-Dependent Hubble Parameter](docs/papers/Dual_Sector_Perturbation_Cosmology_CAMB.pdf) -- Modified CAMB Fortran validation (3 chains, Δχ² = +0.54, σ₈ = 0.800, H₀(matter) = 72.26)
 
-**Dual-Sector Explanatory Note:** [On the Dual-Sector Structure of IAM](docs/cosmological_model/IAM_Dual_Sector_Note.pdf) -- Why the sector split is already in Einstein's field equations; the null geodesic / proper time argument; four empirical lines of evidence
+**Dual-Sector Explanatory Note:** [On the Dual-Sector Structure of IAM](docs/papers/IAM_Dual_Sector_Note.pdf) -- Why the sector split is already in Einstein's field equations; the null geodesic / proper time argument; four empirical lines of evidence
 
 **Full Level 2 reproducibility package:** [`camb_validation/`](camb_validation/)
 
@@ -747,7 +747,7 @@ Sigma(a) = 1 (standard photon deflection)
 | 1.0 | 0.982 | Near-GR |
 | 3.0 | 0.9998 | Recovers LambdaCDM |
 
-**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed, Level 1: [`mgcamb_validation/`](mgcamb_validation/)) and through direct Fortran modification of CAMB (Level 2: Delta-chi2 = +0.54 best-fit Planck, +2.92 Planck+RSD apples-to-apples, [`camb_validation/`](camb_validation/)). Tested against Planck via full MCMC across 15 chains total (12 Level 1 + 3 Level 2). The signature is directly testable by Euclid at projected 3.4 sigma sensitivity. See the [IAM--CAMB Technical Note](docs/cosmological_model/IAM_CAMB_Technical_Note.pdf) for Level 1 results.
+**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed, Level 1: [`mgcamb_validation/`](mgcamb_validation/)) and through direct Fortran modification of CAMB (Level 2: Delta-chi2 = +0.54 best-fit Planck, +2.92 Planck+RSD apples-to-apples, [`camb_validation/`](camb_validation/)). Tested against Planck via full MCMC across 15 chains total (12 Level 1 + 3 Level 2). The signature is directly testable by Euclid at projected 3.4 sigma sensitivity. See the [IAM--CAMB Technical Note](docs/papers/IAM_CAMB_Technical_Note.pdf) for Level 1 results.
 
 </details>
 
@@ -851,7 +851,7 @@ Extended empirical validation of dual-sector expansion using Type Ia supernovae 
 
 Mahaffey, H. W. (2026). "Dual-Sector Expansion: Type Ia Supernovae Validate Matter-Sector H0 Normalization with ΛCDM Geometric Consistency"
 
-- Location: docs/cosmological_model/Dual_Sector_Validation_Paper.pdf
+- Location: docs/papers/Dual_Sector_Validation_Paper.pdf
 - Dataset: Pantheon+SH0ES (1588 Type Ia supernovae, 0.01 < z < 2.26)
 - Complete reproducible code provided in paper appendices
 
