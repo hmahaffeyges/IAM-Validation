@@ -12,7 +12,13 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 > **IAM's Law:** Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the cosmic horizon. Classical existence is continuously purchased, one decoherence event at a time.
 >
 > **Two root discoveries are the consequences of this law applied at two different scales:**
+>
 > 1. **Local scale** — The thermodynamic identity *K = Q = TΔS = E_Landauer* governing the virial theorem: IAM's law operating at each virialization event, verified across 37 orders of magnitude from hydrogen atoms to the cosmological coupling constant
+>    - **IAM's Law** is the mechanism: every crossing pays the Landauer cost
+>    - **Aristotelian Principle** is the equilibrium it produces: bound systems settle into the balance between potential and actual that their force law dictates
+>    - **Virial theorem** is the mathematical form of that equilibrium for 1/r potentials: 2K = |V|
+>    - **Thermodynamic identity** is the physical meaning of K: it is the Landauer cost of actualization
+>
 > 2. **Global scale** — The informational addition to the Jacobson–Cai-Kim entropy functional: IAM's law accumulated across 13.8 billion years of decoherence events, producing E(a) = exp(1−1/a), µ(a) < 1, Σ(a) = 1, and the cosmological consequences confirmed by 17 converged MCMC chains
 >
 > Everything else in this library is a consequence applied consistently.
