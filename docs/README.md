@@ -439,6 +439,9 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 - The arrow of time and the persistence of classical structure share a common physical mechanism: the irreversible partition of gravitational binding energy into geometric and informational channels
 - The geometric half deposits into spacetime curvature; the informational half (Landauer cost of quantum-to-classical transition) writes to an available encoding surface
 - At galactic scales and above, a local black hole horizon serves as the mandatory encoding vault — where no vault can form, the virial partition cannot close and the structure disperses
+- **England connection:** the virial partition closure condition is a specific gravitational instantiation of England's dissipation-driven adaptation principle — a halo endures if and only if it can route its informational Landauer cost to a local encoding surface; where it cannot, the structure disperses. This is England's principle with a derived gravitational mechanism and a falsifiable threshold attached
+- **Rovelli connection:** the derived duration variable E(a) engages Rovelli's thermal time hypothesis directly — duration here is not statistical but physically carried by accumulated irreversible Landauer transactions on the cosmic horizon, with a specific beginning (electroweak transition), asymptotic limit (e), and observable cosmological consequences
+- Predicts minimum velocity dispersion σ_crit ≈ 4 km/s below which dark matter halos do not virialize — consistent with observed absence of satellite galaxies below this threshold
 - Connects the dark sector identification to the quantum foundations of IAM
 
 </details>
