@@ -41,7 +41,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](derivations/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - **The derivation of IAM from first principles**
 - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
@@ -58,7 +58,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Thermodynamic Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
 
-[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](derivations/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](papers/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
 
 - **The derivation of what K physically is — unanswered for 154 years since Clausius**
 - Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
@@ -80,7 +80,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](cosmological_model/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - **Root paper — every other paper in this library builds on this derivation**
 - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
@@ -102,7 +102,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Level 1 Paper</strong> — Constraints on Late-Time fσ₈ Suppression from µ < 1, Σ = 1: Confrontation with Planck and Large-Scale Structure</summary>
 
-[📄 Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf](cosmological_model/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf)
+[📄 Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf](papers/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf)
 
 - Level 1 validation via MGCAMB v1.5.2 + Cobaya — 12 independent MCMC chains across 4 dataset combinations
 - σ₈ suppressed from 0.813 to 0.800 without degrading the CMB fit
@@ -116,7 +116,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Level 2 Paper</strong> — Dual-Sector Perturbation Cosmology: IAM–CAMB Implementation</summary>
 
-[📄 Dual_Sector_Perturbation_Cosmology_CAMB.pdf](cosmological_model/Dual_Sector_Perturbation_Cosmology_CAMB.pdf)
+[📄 Dual_Sector_Perturbation_Cosmology_CAMB.pdf](papers/Dual_Sector_Perturbation_Cosmology_CAMB.pdf)
 
 - Level 2 validation via direct Fortran modification of CAMB v1.5.8 equations.f90
 - Sector-dependent expansion rate: matter sector sees H²_ΛCDM + β_m·E(a); photon sector sees standard H²_ΛCDM
@@ -130,7 +130,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Dual-Sector Validation Paper</strong> — Type Ia Supernovae Validate Matter-Sector H₀ Normalization</summary>
 
-[📄 Dual_Sector_Validation_Paper.pdf](cosmological_model/Dual_Sector_Validation_Paper.pdf)
+[📄 Dual_Sector_Validation_Paper.pdf](papers/Dual_Sector_Validation_Paper.pdf)
 
 - Tests the dual-sector framework against the complete Pantheon+ dataset (1,588 SNe Ia)
 - Supernovae reject the photon-sector expansion rate (H₀ = 67.4) and accept the matter-sector normalization (H₀ = 73.04)
@@ -143,7 +143,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Phantom Crossing Paper</strong> — Dark Energy or Sector Tension? IAM Confrontation with DESI Full-Shape Growth Rates and Joint Weak Lensing</summary>
 
-[📄 Dark_Energy_or_Sector_Tension.pdf](cosmological_model/Dark_Energy_or_Sector_Tension.pdf)
+[📄 Dark_Energy_or_Sector_Tension.pdf](papers/Dark_Energy_or_Sector_Tension.pdf)
 
 - Tests whether DESI's reported phantom crossing of w(z) is a sector-assignment artifact rather than new dark energy physics
 - When a single-fluid w₀wₐCDM fitter ingests ΛCDM-consistent BAO distances alongside suppressed matter growth, it is forced to infer w_eff ≠ −1
@@ -156,7 +156,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>S₈ Trend Paper</strong> — The Redshift-Dependent S₈ Trend in the Context of IAM</summary>
 
-[📄 The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf](cosmological_model/The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf)
+[📄 The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf](papers/The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf)
 
 - Response to Adil, Akarsu, Ó Colgáin et al. (2023) who documented S₈ increasing systematically with redshift from ~3σ below Planck/ΛCDM at z < 0.5 to consistent at z > 1
 - IAM predicts this exact redshift dependence as a direct consequence of E(a) = exp(1 − 1/a), which is maximum today and vanishes at high z
@@ -167,7 +167,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Dual-Sector Note</strong> — On the Dual-Sector Structure of IAM</summary>
 
-[📄 IAM_Dual_Sector_Note.pdf](cosmological_model/IAM_Dual_Sector_Note.pdf)
+[📄 IAM_Dual_Sector_Note.pdf](papers/IAM_Dual_Sector_Note.pdf)
 
 - Technical note explaining the physical origin of the sector split
 - Why timelike worldlines (matter) and null worldlines (photons) couple differently to the informational term
@@ -178,7 +178,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>CAMB Technical Note</strong> — IAM–CAMB Technical Note</summary>
 
-[📄 IAM_CAMB_Technical_Note.pdf](cosmological_model/IAM_CAMB_Technical_Note.pdf)
+[📄 IAM_CAMB_Technical_Note.pdf](papers/IAM_CAMB_Technical_Note.pdf)
 
 - Complete Boltzmann solver validation: 7/7 MGCAMB diagnostic tests passed
 - CMB TT residuals < 0.17%; lensing shift +0.30% consistent with Σ = 1; σ₈ suppressed from 0.812 to 0.795; P(k) scale-independence confirmed (std < 0.53%); f·σ₈ fit quality: χ² = 4.42 vs ΛCDM 4.85
@@ -193,7 +193,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Survey Predictions Paper</strong> — Falsifiable Predictions of the Informational Actualization Model</summary>
 
-[📄 IAM_Survey_Predictions_Paper.pdf](cosmological_model/IAM_Survey_Predictions_Paper.pdf)
+[📄 IAM_Survey_Predictions_Paper.pdf](papers/IAM_Survey_Predictions_Paper.pdf)
 
 - Four quantitative forecasts derived without fitting
 - Euclid optimistic configuration: 3.4σ detection of µ₀ = −0.136; combined Euclid + DESI Year 5: 5.4σ
@@ -207,7 +207,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Test Validation Compendium</strong> — Complete Test Validation Compendium</summary>
 
-[📄 IAM_Test_Validation_Compendium.pdf](cosmological_model/IAM_Test_Validation_Compendium.pdf)
+[📄 IAM_Test_Validation_Compendium.pdf](papers/IAM_Test_Validation_Compendium.pdf)
 
 - Complete empirical validation across nine independent tests
 - Dual-sector H₀ resolution: photon sector 67.4, matter sector 72.5 ± 1.0 km/s/Mpc
@@ -219,7 +219,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Supplementary Methods</strong> — Supplementary Methods & Reproducibility Guide</summary>
 
-[📄 Supplementary_Methods_Reproducibility_Guide.pdf](cosmological_model/Supplementary_Methods_Reproducibility_Guide.pdf)
+[📄 Supplementary_Methods_Reproducibility_Guide.pdf](papers/Supplementary_Methods_Reproducibility_Guide.pdf)
 
 - Complete code, data sources, and step-by-step instructions to reproduce all IAM validation results
 - All code executes in under 2 minutes on standard hardware
@@ -230,7 +230,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Master Preprint</strong> — IAM Master Consolidated Preprint</summary>
 
-[📄 IAM_Master_Preprint.pdf](cosmological_model/IAM_Master_Preprint.pdf)
+[📄 IAM_Master_Preprint.pdf](papers/IAM_Master_Preprint.pdf)
 
 - Consolidated reference document combining the complete thermodynamic derivation chain with all validation results
 - Complete derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM
@@ -247,7 +247,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Overview Companion</strong> — IAM Technical Companion: Quick Overview</summary>
 
-[📄 IAM_Overview_Companion.pdf](cosmological_model/IAM_Overview_Companion.pdf)
+[📄 IAM_Overview_Companion.pdf](papers/IAM_Overview_Companion.pdf)
 
 - Accessible entry point for readers new to IAM
 - Summarizes the physical mechanism, key predictions, and validation results concisely
@@ -258,7 +258,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Official Score Card</strong> — IAM Official Score Card</summary>
 
-[📄 IAM_Official_Score_Card.pdf](cosmological_model/IAM_Official_Score_Card.pdf)
+[📄 IAM_Official_Score_Card.pdf](papers/IAM_Official_Score_Card.pdf)
 
 - Running ledger of every prediction, test, and result
 - Tracks status of each observable: confirmed, consistent, predicted, pending
@@ -275,7 +275,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Core Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
 
-[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](thermodynamic_identity_virial_theorem/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](papers/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
 
 - Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
 - Derived from the first law, second law, Landauer's principle, and the equilibrium condition of the 1/r potential — no additional assumptions
@@ -288,7 +288,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>37 Orders Paper</strong> — The Virial Partition Across Wide Range of Physical Scales: Cross-Domain Validation of IAM</summary>
 
-[📄 Virial_Partitian_Across_Wide_Domains.pdf](thermodynamic_identity_virial_theorem/Virial_Partitian_Across_Wide_Domains.pdf)
+[📄 Virial_Partitian_Across_Wide_Domains.pdf](papers/Virial_Partitian_Across_Wide_Domains.pdf)
 
 - Demonstrates that β_m = Ω_m/2 is not a numerological coincidence but a mathematical necessity
 - Verified computationally for 20 atoms (H through Xe) and 10 molecules at machine precision
@@ -301,7 +301,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>n = 5/2 N-body Confirmation Paper</strong> — Virial Efficiency and Effective Nonlinear Exponent in IAM: Published N-body Confirmation of β_m = Ω_m/2</summary>
 
-[📄 Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf](thermodynamic_identity_virial_theorem/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
+[📄 Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf](papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
 
 - Shows that independent N-body confirmation of IAM's two key derived quantities already exists in the published literature — IAM did not need to run new simulations
 - **The n = 5/2 quantum-to-cosmological bridge** — arrived at from two completely independent directions:
@@ -317,7 +317,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Entropic Gravity Note</strong> — A Note on Entropic Gravity and the Thermodynamic-Gravity Conjecture</summary>
 
-[📄 A_Note_on_Entropic_Gravity__Saridakis_.pdf](thermodynamic_identity_virial_theorem/A_Note_on_Entropic_Gravity__Saridakis_.pdf)
+[📄 A_Note_on_Entropic_Gravity__Saridakis_.pdf](papers/A_Note_on_Entropic_Gravity__Saridakis_.pdf)
 
 - Positions IAM relative to the entropic gravity and modified entropy programs (Barrow, Tsallis, Saridakis)
 - Two roads from the Jacobson–Cai-Kim starting point: Road 1 modifies the entropy functional (Barrow/Tsallis); Road 2 identifies the entropy source (IAM)
@@ -330,7 +330,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
 
-[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](thermodynamic_identity_virial_theorem/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 
 - Also in [Category VII: Quantum Foundations](#vii-quantum-foundations)
 - Connects the thermodynamic identity to the quantum mechanical language of decoherence: the cosmic horizon is the ultimate environment accumulating the Landauer costs of 13.8 billion years of decoherence events
@@ -342,7 +342,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](thermodynamic_identity_virial_theorem/The_Boundary_Between_Potential_and_Actual.pdf)
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the virial partition as the universal quantum-classical connector across 37 orders of magnitude; the 1/2 partition as the mechanism by which quantum superpositions become classical structure at every scale from hydrogen to galaxies
@@ -352,7 +352,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](thermodynamic_identity_virial_theorem/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: derivation of β_m = Ω_m/2 from the virial theorem; derivation of E(a) from horizon thermodynamics; the n = 5/2 analytical prediction
@@ -368,7 +368,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Cosmological Constant Paper</strong> — The Cosmological Constant as Actualized Vacuum Energy</summary>
 
-[📄 The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf](cosmological_constant/The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf)
+[📄 The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf](papers/The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf)
 
 - Proposes that the 10¹²² discrepancy arises from a category error: ρ_vac and Λ_obs are not the same kind of quantity
 - ρ_vac = total Planck-scale potential (pure potency, not yet actualized); Λ_obs = accumulated Landauer cost of baryonic decoherence (accumulated actual)
@@ -383,7 +383,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](cosmological_constant/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the holographic encoding framework that connects Landauer costs to horizon thermodynamics
@@ -399,7 +399,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Two Faces of Time</strong> — The Two Faces of Time: The Distinction Between Coordinate Time, Proper Time, and Duration</summary>
 
-[📄 The_Two_Faces_of_Time.pdf](time_and_duration/The_Two_Faces_of_Time.pdf)
+[📄 The_Two_Faces_of_Time.pdf](papers/The_Two_Faces_of_Time.pdf)
 
 - Distinguishes three quantities routinely conflated: (i) coordinate time — a redundant label, no preferred direction; (ii) proper time τ — geometric path length, reversible in principle; (iii) duration — measured by E(a), thermodynamic, irreversible
 - Duration has a beginning: the electroweak transition at t = 10⁻¹² s
@@ -412,7 +412,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Higgs Duration Paper</strong> — The Higgs Boson and the Origin of Duration</summary>
 
-[📄 The_Higgs_Boson_and_the_Origin_of_Duration.pdf](time_and_duration/The_Higgs_Boson_and_the_Origin_of_Duration.pdf)
+[📄 The_Higgs_Boson_and_the_Origin_of_Duration.pdf](papers/The_Higgs_Boson_and_the_Origin_of_Duration.pdf)
 
 - The four fundamental forces are not a homogeneous set: gravity, EM, and the strong force are forces of virial equilibrium; the weak force is the force of transition
 - The weak force cannot satisfy virial equilibrium because violating equilibrium is its structural function
@@ -425,7 +425,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](time_and_duration/The_Boundary_Between_Potential_and_Actual.pdf)
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the derived arrow of time from irreversible Landauer transactions; E(a) as the accumulated ledger of decoherence events; the distinction between coordinate time, proper time, and duration; engagement with Rovelli's thermal time program
@@ -441,7 +441,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Virial Partners Paper</strong> — Dark Matter and Dark Energy as Virial Partners</summary>
 
-[📄 Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf](dark_sector/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
+[📄 Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf](papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
 
 - Dark matter = geometric potential half of the virial partition; dark energy = kinetic informational half
 - These are two expressions of 2K + V = 0 at cosmological scales — not two independent phenomena
@@ -454,7 +454,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](dark_sector/The_Boundary_Between_Potential_and_Actual.pdf)
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - The arrow of time and the persistence of classical structure share a common physical mechanism: the irreversible partition of gravitational binding energy into geometric and informational channels
 - The geometric half deposits into spacetime curvature; the informational half (Landauer cost of quantum-to-classical transition) writes to an available encoding surface
@@ -469,7 +469,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Far Future Paper</strong> — Dark Energy Evolution and the Far Future of an IAM Universe</summary>
 
-[📄 wz_far_future.pdf](dark_sector/wz_far_future.pdf)
+[📄 wz_far_future.pdf](papers/wz_far_future.pdf)
 
 - Derives the IAM equation of state for the informational dark energy sector from horizon thermodynamics: w_info = −1 − 1/(3a), zero free parameters
 - Always mildly phantom (w < −1) but asymptotes toward −1 as a → ∞ — no Big Rip
@@ -483,7 +483,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](dark_sector/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the virial theorem derivation of β_m = Ω_m/2 and its physical interpretation as a partition of gravitational energy
@@ -499,7 +499,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](black_holes/The_Boundary_Between_Potential_and_Actual.pdf)
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the black hole as mandatory local encoding vault; the saturation condition for BH formation; the minimum velocity dispersion σ_crit ≈ 4 km/s derived from first principles
@@ -509,7 +509,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>BH Thermodynamics Paper</strong> — Black Hole Horizons as Thermodynamic Encoding Surfaces</summary>
 
-[📄 IAM_BH_Thermodynamics.pdf](black_holes/IAM_BH_Thermodynamics.pdf)
+[📄 IAM_BH_Thermodynamics.pdf](papers/IAM_BH_Thermodynamics.pdf)
 
 - Shows the informational contribution can be incorporated consistently within the standard Bekenstein–Hawking framework without modifying the Einstein equations or altering the geometric entropy formula
 - Derives the universal Landauer identity for black holes: E_Landauer = (ln2/2) × M_BH × c² — mass-independent
@@ -521,7 +521,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Information Paradox Paper</strong> — The Cessation of Projection: Why Matter Does Not Enter a Black Hole and What This Means for the Information Paradox</summary>
 
-[📄 IAM_Black_Hole_Information_Paradox.pdf](black_holes/IAM_Black_Hole_Information_Paradox.pdf)
+[📄 IAM_Black_Hole_Information_Paradox.pdf](papers/IAM_Black_Hole_Information_Paradox.pdf)
 
 - Central claim: matter does not enter a black hole — the projection ceases
 - In IAM, a particle exists as a stable decoherence loop registered on the cosmic holographic boundary
@@ -534,7 +534,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>M–σ Paper</strong> — The M–σ Relation from Gravitational Decoherence Thermodynamics</summary>
 
-[📄 IAM_M_Sigma_Paper.pdf](black_holes/IAM_M_Sigma_Paper.pdf)
+[📄 IAM_M_Sigma_Paper.pdf](papers/IAM_M_Sigma_Paper.pdf)
 
 - Derives M_BH = 2.00 × 10⁸ × (σ/200 km/s)⁴ M☉ from first principles — not fitted
 - Matches observations to 2%
@@ -547,7 +547,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Lensing Dynamics Paper</strong> — Lensing-Dynamics Mass Discrepancy as a Redshift-Dependent Test of IAM</summary>
 
-[📄 IAM_Lensing_Dynamics_Paper.pdf](black_holes/IAM_Lensing_Dynamics_Paper.pdf)
+[📄 IAM_Lensing_Dynamics_Paper.pdf](papers/IAM_Lensing_Dynamics_Paper.pdf)
 
 - Derives the cluster discriminator M_lens/M_dyn = 1/µ_eff(z) for the Σ_eff = 1 case
 - Redshift-dependent ratio approaches unity at high z — qualitatively distinct from constant hydrostatic bias
@@ -560,7 +560,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Three-Way Cluster Paper</strong> — Three-Way Mass Discrepancy in Galaxy Clusters as a Test of µ < 1, Σ = 1</summary>
 
-[📄 3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf](black_holes/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
+[📄 3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf](papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
 
 - SZ/X-ray/lensing mass ordering tests and internal consistency relations
 - Separates IAM from pure hydrostatic bias explanations via three-way ordering: M_lens > M_SZ ≈ M_hydro
@@ -573,7 +573,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](black_holes/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the two-horizon framework; the Landauer cost derivation; the BH as mandatory encoding surface
@@ -589,7 +589,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](quantum_foundations/The_Boundary_Between_Potential_and_Actual.pdf)
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: England's dissipation-driven adaptation as the general thermodynamic principle of which virial partition closure is a gravitational instance; Rovelli's thermal time program and the derived duration variable E(a)
@@ -599,7 +599,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
 
-[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](quantum_foundations/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 
 - Also in [Category II: Thermodynamic Identity & Virial Theorem](#ii-thermodynamic-identity--virial-theorem)
 - Extends Zurek's quantum Darwinism from local to cosmic scales — the cosmic horizon is the ultimate redundant record of all decoherence events
@@ -614,7 +614,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Gravitational Decoherence Paper</strong> — Gravitational Decoherence from Dual-Sector Thermodynamics</summary>
 
-[📄 Gravitational_Decoherence_Quantum_Level.pdf](quantum_foundations/Gravitational_Decoherence_Quantum_Level.pdf)
+[📄 Gravitational_Decoherence_Quantum_Level.pdf](papers/Gravitational_Decoherence_Quantum_Level.pdf)
 
 - Investigates gravitationally induced decoherence within a semiclassical framework motivated by IAM
 - Formulated in the language of open quantum systems — no objective collapse dynamics, no non-unitary modifications to the Schrödinger equation
@@ -628,7 +628,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Measurement Problem Paper</strong> — The Measurement Problem Dissolved</summary>
 
-[📄 IAM_Measurement_Problem_Quantum.pdf](quantum_foundations/IAM_Measurement_Problem_Quantum.pdf)
+[📄 IAM_Measurement_Problem_Quantum.pdf](papers/IAM_Measurement_Problem_Quantum.pdf)
 
 - A measurement is any irreversible thermodynamic interaction between a quantum system and matter that dissipates energy Q ≥ k_B·T·ln2 (the Landauer threshold)
 - The photon sector (Σ = 1) is immune to gravitational decoherence; the matter sector is not — this is the physical basis of wave-particle duality
@@ -640,7 +640,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](quantum_foundations/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the decoherence mechanism; the Landauer cost; the connection between quantum-to-classical transition and cosmological observables
@@ -656,7 +656,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Electron Mass Paper</strong> — Electron Rest Mass from Holographic Horizon Thermodynamics</summary>
 
-[📄 Electron_Rest_Mass_from__IAM.pdf](particle_physics/Electron_Rest_Mass_from__IAM.pdf)
+[📄 Electron_Rest_Mass_from__IAM.pdf](papers/Electron_Rest_Mass_from__IAM.pdf)
 
 - Treats particle rest mass as a thermodynamic consistency condition relating holographic boundary encoding to Landauer information cost
 - Three assumptions stated explicitly: (i) fundamental particle saturates the Bekenstein bound on its Compton surface; (ii) gravitational scale invariance enforces a virial partition of boundary amplitudes; (iii) rest energy equals the maintenance cost of the encoding loop
@@ -669,7 +669,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Koide Paper</strong> — Three Charged Lepton Generations and the Koide Ratio from Holographic Boundary Encoding</summary>
 
-[📄 Koide_ratio_from_holographic_boundary.pdf](particle_physics/Koide_ratio_from_holographic_boundary.pdf)
+[📄 Koide_ratio_from_holographic_boundary.pdf](papers/Koide_ratio_from_holographic_boundary.pdf)
 
 - The Koide relation Q = (m_e + m_µ + m_τ)/(√m_e + √m_µ + √m_τ)² = 2/3 holds at the 10⁻⁵ level and lacks an accepted Standard Model derivation
 - Develops a conditional argument via the virial theorem route — physical motivation not previously taken
@@ -682,7 +682,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Baryon Asymmetry Paper</strong> — Matter-Antimatter Asymmetry and the Information Writing Constraint</summary>
 
-[📄 Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf](particle_physics/Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf)
+[📄 Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf](papers/Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf)
 
 - The baryon asymmetry η ≈ 6 × 10⁻¹⁰ is conventionally a free parameter — explained qualitatively by the Sakharov conditions but not derived
 - Within IAM, where Λ accumulates as the Landauer cost of baryonic decoherence, asks whether η is a self-consistency condition of the universe's information writing constraint
@@ -700,7 +700,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](structure_formation/The_Boundary_Between_Potential_and_Actual.pdf)
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the minimum velocity dispersion σ_crit ≈ 4 km/s below which halos cannot close their virial partition and do not form galaxies; the two-mechanism account of the missing satellites problem
@@ -710,7 +710,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>Missing Satellites Paper</strong> — Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms</summary>
 
-[📄 Missing_Satellites.pdf](structure_formation/Missing_Satellites.pdf)
+[📄 Missing_Satellites.pdf](papers/Missing_Satellites.pdf)
 
 - The missing satellites problem: ΛCDM predicts ~500 dark matter subhalos around the Milky Way; ~60 are observed
 - IAM provides two distinct mechanisms from one physical condition without free parameters
@@ -723,7 +723,7 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](structure_formation/IAM_Theory_Paper.pdf)
+[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the activation function E(a) and its role in structure formation; the saturation condition
@@ -742,5 +742,5 @@ These papers are archived and superseded. Not part of the active corpus.
 ---
 
 *Last updated: March 2026*
-*36 active papers · 2 retired · 9 categories + 1 derivations folder*
+*36 active papers · 2 retired · all papers in docs/papers/ · organized by category in this README*
 *All predictions timestamped in repository commit history*
