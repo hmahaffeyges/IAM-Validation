@@ -2,7 +2,7 @@
 
 **Informational Actualization Model — Complete Paper Inventory**
 
-All 36 active papers organized by category. Each paper is linked directly.
+All active papers organized by category. Each paper is linked directly.
 The IAM Theory Paper appears in every category it spans — it is the root of all of them.
 
 **Full results inventory with equations and summary table:** [PAPERS.pdf](../PAPERS.pdf)
@@ -759,5 +759,5 @@ These papers are archived and superseded. Not part of the active corpus.
 ---
 
 *Last updated: March 2026*
-*37 active papers · 2 retired · all papers in docs/papers/ · organized by category in this README*
+*All papers in docs/papers/ · organized by category in this README*
 *All predictions timestamped in repository commit history*
