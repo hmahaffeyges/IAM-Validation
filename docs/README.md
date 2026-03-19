@@ -340,6 +340,16 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 </details>
 
 <details>
+<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](thermodynamic_identity_virial_theorem/The_Boundary_Between_Potential_and_Actual.pdf)
+
+- Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
+- Relevant here for: the virial partition as the universal quantum-classical connector across 37 orders of magnitude; the 1/2 partition as the mechanism by which quantum superpositions become classical structure at every scale from hydrogen to galaxies
+
+</details>
+
+<details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
 [📄 IAM_Theory_Paper.pdf](thermodynamic_identity_virial_theorem/IAM_Theory_Paper.pdf)
@@ -412,6 +422,16 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 </details>
 
+<details>
+<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](time_and_duration/The_Boundary_Between_Potential_and_Actual.pdf)
+
+- Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
+- Relevant here for: the derived arrow of time from irreversible Landauer transactions; E(a) as the accumulated ledger of decoherence events; the distinction between coordinate time, proper time, and duration; engagement with Rovelli's thermal time program
+
+</details>
+
 ---
 
 ## V. Dark Sector Identification
@@ -475,6 +495,16 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 ## VI. Black Holes
 
 *Black holes in IAM are not just mass concentrations. They are mandatory local encoding surfaces — and the M–σ relation, unexplained for 25 years, follows directly.*
+
+<details>
+<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](black_holes/The_Boundary_Between_Potential_and_Actual.pdf)
+
+- Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
+- Relevant here for: the black hole as mandatory local encoding vault; the saturation condition for BH formation; the minimum velocity dispersion σ_crit ≈ 4 km/s derived from first principles
+
+</details>
 
 <details>
 <summary><strong>BH Thermodynamics Paper</strong> — Black Hole Horizons as Thermodynamic Encoding Surfaces</summary>
@@ -555,6 +585,16 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 ## VII. Quantum Foundations
 
 *IAM's thermodynamic chain connects to foundational questions in quantum mechanics. The same mechanism that drives cosmological structure formation dissolves the measurement problem.*
+
+<details>
+<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](quantum_foundations/The_Boundary_Between_Potential_and_Actual.pdf)
+
+- Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
+- Relevant here for: England's dissipation-driven adaptation as the general thermodynamic principle of which virial partition closure is a gravitational instance; Rovelli's thermal time program and the derived duration variable E(a)
+
+</details>
 
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
@@ -656,6 +696,16 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 ## IX. Structure Formation
 
 *Predictions made and timestamped in the GitHub repository. Not fits to existing data — derived from the same mechanism that produces all other IAM results.*
+
+<details>
+<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+
+[📄 The_Boundary_Between_Potential_and_Actual.pdf](structure_formation/The_Boundary_Between_Potential_and_Actual.pdf)
+
+- Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
+- Relevant here for: the minimum velocity dispersion σ_crit ≈ 4 km/s below which halos cannot close their virial partition and do not form galaxies; the two-mechanism account of the missing satellites problem
+
+</details>
 
 <details>
 <summary><strong>Missing Satellites Paper</strong> — Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms</summary>
