@@ -9,11 +9,13 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 ---
 
-> **Two root discoveries underlie everything here:**
-> 1. The thermodynamic identity *K = Q = TΔS = E_Landauer* governing the virial theorem
-> 2. The informational addition to the Jacobson–Cai-Kim entropy functional
+> **IAM's Law:** Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the cosmic horizon. Classical existence is continuously purchased, one decoherence event at a time.
 >
-> Everything else is a consequence applied consistently.
+> **Two root discoveries are the consequences of this law applied at two different scales:**
+> 1. **Local scale** — The thermodynamic identity *K = Q = TΔS = E_Landauer* governing the virial theorem: IAM's law operating at each virialization event, verified across 37 orders of magnitude from hydrogen atoms to the cosmological coupling constant
+> 2. **Global scale** — The informational addition to the Jacobson–Cai-Kim entropy functional: IAM's law accumulated across 13.8 billion years of decoherence events, producing E(a) = exp(1−1/a), µ(a) < 1, Σ(a) = 1, and the cosmological consequences confirmed by 17 converged MCMC chains
+>
+> Everything else in this library is a consequence applied consistently.
 
 ---
 
