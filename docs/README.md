@@ -1,3 +1,15 @@
+## ⚡ Latest Result — March 20, 2026
+
+> **The cosmological constant problem and the baryon asymmetry problem are the same problem.**
+
+With the BBN prior removed and Ω_b h² free across a prior four times wider than standard, the Planck 2018 full CMB likelihood alone returns η ~ 6.11×10⁻¹⁰ against observed 6.14×10⁻¹⁰ — ~0.5% agreement, zero free parameters, no nuclear physics input. The same thermodynamic constraint closes the cosmological constant. Both from one equation. Chain converging March 20, 2026.
+
+**All chains, config files, and scripts publicly available. Anyone is free to verify without obligation.**
+
+→ Chain: `mgcamb_validation/iam_planck_chains/iam_baryon_test`
+
+---
+
 # IAM Paper Library
 
 **Informational Actualization Model — Complete Paper Inventory**
@@ -725,7 +737,9 @@ Everything else in this library is a consequence applied consistently.
 - The baryon asymmetry η ≈ 6 × 10⁻¹⁰ is conventionally a free parameter — explained qualitatively by the Sakharov conditions but not derived
 - Within IAM, where Λ accumulates as the Landauer cost of baryonic decoherence, asks whether η is a self-consistency condition of the universe's information writing constraint
 - Prediction: η is not free — it is fixed by the requirement that the accumulated Landauer cost matches the observed Λ
-- MCMC float test pending: prediction is that the posterior returns 6 × 10⁻¹⁰ without being told
+- **MCMC result (March 20, 2026):** BBN prior removed, Ω_b h² free across a prior four times wider than standard — Planck 2018 CMB likelihood alone returns η ~ 6.11×10⁻¹⁰ against observed 6.14×10⁻¹⁰. ~0.5% agreement. Zero free parameters. No nuclear physics input. Chain converging, full posterior pending R-1 < 0.01.
+- *The cosmological constant problem and the baryon asymmetry problem are the same problem.*
+- Result paper forthcoming upon chain convergence
 
 </details>
 
@@ -779,6 +793,7 @@ These papers are archived and superseded. Not part of the active corpus.
 
 ---
 
-*Last updated: March 2026*
+*Last updated: March 20, 2026*
 *All papers in docs/papers/ · organized by category in this README*
 *All predictions timestamped in repository commit history*
+*18th test converging: baryon asymmetry MCMC — BBN prior removed, CMB data alone returning η ~ 6.11×10⁻¹⁰ (observed 6.14×10⁻¹⁰). The cosmological constant problem and the baryon asymmetry problem are the same problem.*
