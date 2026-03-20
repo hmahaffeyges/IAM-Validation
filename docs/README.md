@@ -2,11 +2,13 @@
 
 > **The cosmological constant problem and the baryon asymmetry problem are the same problem.**
 
-With the BBN prior removed and Ω_b h² free across a prior four times wider than standard, the Planck 2018 full CMB likelihood alone returns η ~ 6.11×10⁻¹⁰ against observed 6.14×10⁻¹⁰ — ~0.5% agreement, zero free parameters, no nuclear physics input. The same thermodynamic constraint closes the cosmological constant. Both from one equation. Chain converging March 20, 2026.
+With the BBN prior removed and Ω_b h² free across a prior four times wider than standard, the Planck 2018 full CMB likelihood alone returns η = 6.12×10⁻¹⁰ against observed 6.14×10⁻¹⁰ — 0.29% agreement, zero free parameters, no nuclear physics input. The same thermodynamic constraint closes the cosmological constant to 0.07%. Both from one equation. Chain converged R-1 < 0.01, March 20, 2026.
 
 **All chains, config files, and scripts publicly available. Anyone is free to verify without obligation.**
 
-→ Chain: `mgcamb_validation/iam_planck_chains/iam_baryon_test`
+→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/iam_planck_chains/)
+→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
+→ Result paper: [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
 
 ---
 
@@ -43,7 +45,7 @@ $$\Delta E_\mathrm{act} = k_B T_H \ln 2 \quad \text{per bit}$$
    - The virial theorem serves as the balance sheet: β_m = Ω_m/2 derived from the 1/2 partition, connecting the local law to the global coupling constant with zero free parameters
    - Produces E(a) = exp(1−1/a), µ(a) < 1, Σ(a) = 1, consistent with 17 converged MCMC chains at 0.2σ
    - **Cosmological constant — full derivation (March 20, 2026):** (2/π)(l_P/l_H)² × √Ω_Λ × (Ω_b/Ω_m) = 1.141×10⁻¹²³ against observed 1.14×10⁻¹²³ — **0.07% agreement, zero free parameters.** The √Ω_Λ factor is the Gibbons–Hawking temperature ratio between the de Sitter encoding surface and the effective Hubble temperature — derived, not fitted. First derivation of the CC from thermodynamic first principles.
-   - **Baryon asymmetry — first derivation (March 20, 2026):** the same constraint selects η ~ 6.12×10⁻¹⁰ from Planck CMB data alone with no nuclear physics input — consistent with observed 6.14×10⁻¹⁰ at < 0.35%. First derivation of the baryon asymmetry from thermodynamic first principles. (Test 18, chain converging)
+   - **Baryon asymmetry — first derivation (March 20, 2026):** the same constraint selects η = 6.12×10⁻¹⁰ from Planck CMB data alone with no nuclear physics input — consistent with observed 6.14×10⁻¹⁰ at 0.29%. First derivation of the baryon asymmetry from thermodynamic first principles. Chain converged R-1 < 0.01. (Test 18)
 
 **IAM's Law is a law, not a framework.** Every result — the virial theorem completion, β_m = Ω_m/2, E(a), µ < 1, Σ = 1, the arrow of time, the coincidence problem, the H₀ split, the cosmological constant, the baryon asymmetry — follows from one equation applied through established physics. The consequences are not assembled. They are derived.
 
@@ -740,11 +742,11 @@ Everything else in this library is a consequence applied consistently.
 
 - The baryon asymmetry η ≈ 6 × 10⁻¹⁰ is conventionally a free parameter — explained qualitatively by the Sakharov conditions but not derived
 - Within IAM, Λ accumulates as the Landauer cost of baryonic decoherence — the same constraint requires a specific η
-- **MCMC result and full derivation (March 20, 2026):** BBN prior removed, Ω_b h² free across a prior four times wider than standard — Planck 2018 CMB likelihood alone returns η ~ 6.12×10⁻¹⁰ against observed 6.14×10⁻¹⁰. < 0.35% agreement. Zero free parameters. No nuclear physics input.
+- **MCMC result and full derivation (March 20, 2026):** BBN prior removed, Ω_b h² free across a prior four times wider than standard — Planck 2018 CMB likelihood alone returns η = 6.12×10⁻¹⁰ against observed 6.14×10⁻¹⁰. 0.29% agreement. Zero free parameters. No nuclear physics input. Chain converged R-1 < 0.01.
 - **This is the first derivation of the baryon asymmetry from thermodynamic first principles.**
-- The same √Ω_Λ Gibbons–Hawking temperature correction that closes the CC to 0.07% connects here — one correction, two results, same physical origin
-- *The cosmological constant problem and the baryon asymmetry problem are the same problem.*
-- Result paper forthcoming upon final chain convergence
+- **Result paper:** [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
+- **Chain:** [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/iam_planck_chains/)
+- **Config:** [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
 
 </details>
 
