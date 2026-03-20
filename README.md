@@ -10,11 +10,11 @@
 
 With the BBN prior removed and Ω_b h² free across a prior four times wider than standard, the Planck 2018 full CMB likelihood alone returns:
 
-**η_IAM = 6.12 × 10⁻¹⁰ &nbsp;|&nbsp; η_observed = 6.14 × 10⁻¹⁰ &nbsp;|&nbsp; 0.29% agreement &nbsp;|&nbsp; zero free parameters &nbsp;|&nbsp; no nuclear physics input**
+**η_IAM = (6.115 ± 0.037) × 10⁻¹⁰ &nbsp;|&nbsp; η_observed = 6.137 × 10⁻¹⁰ &nbsp;|&nbsp; 0.36% agreement &nbsp;|&nbsp; zero free parameters &nbsp;|&nbsp; no nuclear physics input**
 
 The same thermodynamic constraint — IAM's Law applied to the cosmic information budget — that selects η also closes the cosmological constant calculation. The baryon asymmetry and the cosmological constant are not two independent unsolved problems. They are two expressions of the same information writing constraint. IAM's Law selects both from one equation.
 
-This is the 18th independent test. All 18 run on personal hardware by an independent researcher without institutional affiliation. Chain converging — central value stable since first samples.
+This is the 18th independent test. All 18 run on personal hardware by an independent researcher without institutional affiliation. Chain converged — R-1 = 0.009273, 22,400 accepted steps.
 
 **All chains, config files, modified Boltzmann code, and analysis scripts are publicly available. Anyone is free to verify without obligation and without notifying the author. If after reviewing the evidence anyone wishes to make contact, the author welcomes that at any time.**
 
@@ -38,7 +38,7 @@ Adding this missing term to the Jacobson–Cai-Kim entropy functional completes 
 
 IAM's Law is not a framework. It is a law — one equation from which every result in this repository follows as a derived consequence through established physics. The virial theorem is its local expression, completing 154 years of mechanical results with their thermodynamic meaning. The cosmological model is its global expression, confirmed by 17 converged MCMC chains. The same law operates from the quantum boundary of a single decoherence event to the cosmic horizon — 37 orders of magnitude, one equation, zero free parameters.
 
-17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | 0 Free Parameters Beyond ΛCDM | Delta-chi2 = +0.54 best-fit vs ΛCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values | **Test 18 converged (R-1 < 0.01): η_IAM = 6.12×10⁻¹⁰ (observed 6.14×10⁻¹⁰, 0.29%, BBN prior off)**
+17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | 0 Free Parameters Beyond ΛCDM | Delta-chi2 = +0.54 best-fit vs ΛCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values | **Test 18 converged (R-1 = 0.009273, 22,400 steps): η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off)**
 
 This repository contains the derivation, implementation, and validation of IAM against the full Planck 2018 likelihood. IAM is not a modified gravity model — it is the completion of Jacobson's 1995 thermodynamic derivation of GR, extended to account for the information produced by gravitational decoherence. The µ(a) < 1, Σ(a) = 1 signature is a consequence of the derivation, not its starting point. Level 1 validation uses MGCAMB v1.5.2 + Cobaya (µ-Σ parametrization). Level 2 validation uses direct Fortran modification of CAMB v1.5.8 + Cobaya (dual-sector perturbation implementation).
 
@@ -78,7 +78,7 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 |-------|--------------|------|--------|--------|------------|
 | **Level 1** | mu-Sigma perturbations, ΛCDM background | MGCAMB | 12 | **Complete** | Delta-chi2 = +1.34 to +2.32 vs ΛCDM; sigma_8 = 0.800 |
 | **Level 2** | Dual-sector perturbations, ΛCDM background | CAMB (modified) | 5 | **Complete** | Delta-chi2 = +0.54 (best-fit, Planck); sigma_8 = 0.800; H0(matter) = 72.26 |
-| **Baryon test** | BBN prior removed, Ω_b h² free | MGCAMB | 1 | **Converged (R-1 < 0.01)** | η = 6.12×10⁻¹⁰ (observed 6.14×10⁻¹⁰, 0.29%, zero free parameters) |
+| **Baryon test** | BBN prior removed, Ω_b h² free | MGCAMB | 1 | **Converged (R-1 = 0.009273)** | η = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, zero free parameters) |
 
 **MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
 
@@ -968,7 +968,7 @@ The author also thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collab
 ---
 
 **Last Updated:** March 20, 2026
-**Status:** 18 independent tests (17 converged MCMC chains + baryon asymmetry chain 18 converging) | Δχ² = +0.54 best-fit vs ΛCDM | σ₈ = 0.800 | H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc | η_IAM ~ 6.11×10⁻¹⁰ (observed 6.14×10⁻¹⁰, BBN prior off, zero free parameters) | Zero free parameters — all derived from first principles | 36 active papers across 9 categories | GRF Essay submitted February 2026 | Euclid DR1 decisive test October 2026
-**March 20 session:** Baryon asymmetry MCMC chain launched with BBN prior removed — Planck CMB likelihood alone returning η ~ 6.11×10⁻¹⁰ against observed 6.14×10⁻¹⁰, chain converging. The cosmological constant problem and the baryon asymmetry problem are the same problem.
+**Status:** 18 independent tests (17 converged MCMC chains + baryon asymmetry chain converged R-1 = 0.009273) | Δχ² = +0.54 best-fit vs ΛCDM | σ₈ = 0.800 | H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc | η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off, zero free parameters) | Zero free parameters — all derived from first principles | 36 active papers across 9 categories | GRF Essay submitted February 2026 | Euclid DR1 decisive test October 2026
+**March 20 session:** Baryon asymmetry MCMC chain converged (R-1 = 0.009273, 22,400 steps) — Planck CMB likelihood alone returned η = (6.115 ± 0.037)×10⁻¹⁰ against observed 6.137×10⁻¹⁰, 0.36% agreement, no nuclear physics input. The cosmological constant problem and the baryon asymmetry problem are the same problem.
 
 ---
