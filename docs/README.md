@@ -7,7 +7,9 @@ With the BBN prior removed and Ω_b h² free across a prior four times wider tha
 **All chains, config files, and scripts publicly available. Anyone is free to verify without obligation.**
 
 → Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/iam_planck_chains/)
+
 → Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
+
 → Result paper: [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
 
 ---
