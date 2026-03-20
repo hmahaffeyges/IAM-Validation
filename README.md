@@ -1,15 +1,15 @@
 # Informational Actualization Model (IAM)
 ## GR's Own Thermodynamic Derivation, Completed
 ### Zero Free Parameters Beyond ΛCDM &nbsp;|&nbsp; 17 Converged MCMC Chains &nbsp;|&nbsp; µ(a) < 1, Σ(a) = 1
-Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai and Kim showed in 2005 that the Friedmann equations follow from the same thermodynamic argument applied to the FRW apparent horizon. Both derivations assume the entropy functional contains only geometric terms. IAM identifies the missing term: the accumulated Landauer cost of every irreversible quantum-to-classical transition in the bulk, encoded on the cosmic horizon. Adding it completes Jacobson's derivation. The result falls out causally: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling derived from the virial theorem and an activation function derived from horizon thermodynamics. Zero free parameters beyond ΛCDM. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
+Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai and Kim showed in 2005 that the Friedmann equations follow from the same thermodynamic argument applied to the FRW apparent horizon. Both derivations assume the entropy functional contains only geometric terms. IAM identifies the missing term — and the missing term is a law.
 
-The single physical law underlying everything here is **IAM's Law:**
+**IAM's Law:** Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the nearest encoding surface. Classical existence is continuously purchased, one decoherence event at a time.
 
-> Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the nearest encoding surface. Classical existence is continuously purchased, one decoherence event at a time.
->
-> ∆E_act = k_B T_H ln2 per bit
+$$\Delta E_\mathrm{act} = k_B T_H \ln 2 \quad \text{per bit}$$
 
-IAM's Law is not a framework. It is a law — one equation from which every result in this repository follows as a derived consequence through established physics, with zero additional free parameters. The virial theorem is its local expression. The cosmological model is its global expression. The same law operates from the quantum boundary of a single decoherence event to the cosmic horizon — 37 orders of magnitude, one equation.
+Adding this missing term to the Jacobson–Cai-Kim entropy functional completes GR's own thermodynamic derivation. The cosmological consequences fall out causally with zero free parameters: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling constant β_m = Ω_m/2 derived from the virial theorem and an activation function E(a) = exp(1−1/a) derived from horizon thermodynamics. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
+
+IAM's Law is not a framework. It is a law — one equation from which every result in this repository follows as a derived consequence through established physics. The virial theorem is its local expression, completing 154 years of mechanical results with their thermodynamic meaning. The cosmological model is its global expression, confirmed by 17 converged MCMC chains. The same law operates from the quantum boundary of a single decoherence event to the cosmic horizon — 37 orders of magnitude, one equation, zero free parameters.
 
 17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | 0 Free Parameters Beyond ΛCDM | Delta-chi2 = +0.54 best-fit vs ΛCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values
 
