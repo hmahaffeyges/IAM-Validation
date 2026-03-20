@@ -9,27 +9,31 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 ---
 
-> **IAM's Law:** Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the nearest encoding surface. Classical existence is continuously purchased, one decoherence event at a time.
->
-> ∆E_act = k_B T_H ln2 per bit
->
-> **[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](papers/IAM_Law.pdf)** — the root paper. States and derives IAM's Law, its two expressions at two scales, the three-tier assumption and failure-mode structure, and the derivational architecture from which every result in this library follows.
->
-> **IAM's Law has two expressions at two scales. Every result in this library is a consequence of one or both:**
->
-> 1. **Local expression** — IAM's Law applied to 1/r bound systems:
->    - **The virial theorem derived** (not assumed): the equilibrium condition 2K + V = 0 follows from Euler's theorem for homogeneous functions of degree −1 as the mathematical condition defining stable bound equilibrium under a 1/r potential
->    - **The virial theorem completed**: K is not merely mechanical kinetic energy — it is the Landauer cost of the system's transition from unbound potential to bound actuality: *K = Q = TΔS = E_Landauer*. The 1/2 partition is the unique ratio at which mechanical and thermodynamic equilibrium are simultaneously satisfied for 1/r. Verified across 37 orders of magnitude.
->    - The virial theorem has two faces: the mechanical face (Clausius, 1870: 2K = |V|) and the thermodynamic face (this work: K = E_Landauer). One coin.
->
-> 2. **Global expression** — IAM's Law integrated across cosmological time:
->    - The missing term in the Jacobson–Cai-Kim entropy functional: the accumulated Landauer cost of 13.8 billion years of decoherence events, encoded on the cosmic horizon — the term Einstein's GR and Jacobson's 1995 derivation both lacked
->    - The virial theorem serves as the balance sheet: β_m = Ω_m/2 derived from the 1/2 partition, connecting the local law to the global coupling constant with zero free parameters
->    - Produces E(a) = exp(1−1/a), µ(a) < 1, Σ(a) = 1, confirmed by 17 converged MCMC chains at 0.2σ
->
-> **IAM's Law is a law, not a framework.** Every result — the virial theorem completion, β_m = Ω_m/2, E(a), µ < 1, Σ = 1, the arrow of time, black holes as mandatory encoding surfaces, the coincidence problem, the H₀ split — follows from one equation applied through established physics. The consequences are not assembled. They are derived.
->
-> Everything else in this library is a consequence applied consistently.
+## IAM's Law
+
+> *Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the nearest encoding surface. Classical existence is continuously purchased, one decoherence event at a time.*
+
+$$\Delta E_\mathrm{act} = k_B T_H \ln 2 \quad \text{per bit}$$
+
+**[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](papers/IAM_Law.pdf)** — the root paper. States and derives IAM's Law, its two expressions at two scales, the three-tier assumption and failure-mode structure, and the derivational architecture from which every result in this library follows.
+
+---
+
+**IAM's Law has two expressions at two scales. Every result in this library is a consequence of one or both:**
+
+1. **Local expression** — IAM's Law applied to 1/r bound systems:
+   - **The virial theorem derived** (not assumed): the equilibrium condition 2K + V = 0 follows from Euler's theorem for homogeneous functions of degree −1 as the mathematical condition defining stable bound equilibrium under a 1/r potential
+   - **The virial theorem completed**: K is not merely mechanical kinetic energy — it is the Landauer cost of the system's transition from unbound potential to bound actuality: *K = Q = TΔS = E_Landauer*. The 1/2 partition is the unique ratio at which mechanical and thermodynamic equilibrium are simultaneously satisfied for 1/r. Verified across 37 orders of magnitude.
+   - The virial theorem has two faces: the mechanical face (Clausius, 1870: 2K = |V|) and the thermodynamic face (this work: K = E_Landauer). One coin.
+
+2. **Global expression** — IAM's Law integrated across cosmological time:
+   - The missing term in the Jacobson–Cai-Kim entropy functional: the accumulated Landauer cost of 13.8 billion years of decoherence events, encoded on the cosmic horizon — the term Einstein's GR and Jacobson's 1995 derivation both lacked
+   - The virial theorem serves as the balance sheet: β_m = Ω_m/2 derived from the 1/2 partition, connecting the local law to the global coupling constant with zero free parameters
+   - Produces E(a) = exp(1−1/a), µ(a) < 1, Σ(a) = 1, consistent with 17 converged MCMC chains at 0.2σ
+
+**IAM's Law is a law, not a framework.** Every result — the virial theorem completion, β_m = Ω_m/2, E(a), µ < 1, Σ = 1, the arrow of time, the coincidence problem, the H₀ split — follows from one equation applied through established physics. The consequences are not assembled. They are derived.
+
+Everything else in this library is a consequence applied consistently.
 
 ---
 
