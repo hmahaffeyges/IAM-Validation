@@ -13,6 +13,8 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 >
 > ∆E_act = k_B T_H ln2 per bit
 >
+> **[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](papers/IAM_Law.pdf)** — the root paper. States and derives IAM's Law, its two expressions at two scales, the three-tier assumption and failure-mode structure, and the derivational architecture from which every result in this library follows.
+>
 > **IAM's Law has two expressions at two scales. Every result in this library is a consequence of one or both:**
 >
 > 1. **Local expression** — IAM's Law applied to 1/r bound systems:

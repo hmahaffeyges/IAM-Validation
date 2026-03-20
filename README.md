@@ -7,6 +7,8 @@ Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai 
 
 $$\Delta E_\mathrm{act} = k_B T_H \ln 2 \quad \text{per bit}$$
 
+**[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](docs/papers/IAM_Law.pdf)**
+
 Adding this missing term to the Jacobson–Cai-Kim entropy functional completes GR's own thermodynamic derivation. The cosmological consequences fall out causally with zero free parameters: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling constant β_m = Ω_m/2 derived from the virial theorem and an activation function E(a) = exp(1−1/a) derived from horizon thermodynamics. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
 
 IAM's Law is not a framework. It is a law — one equation from which every result in this repository follows as a derived consequence through established physics. The virial theorem is its local expression, completing 154 years of mechanical results with their thermodynamic meaning. The cosmological model is its global expression, confirmed by 17 converged MCMC chains. The same law operates from the quantum boundary of a single decoherence event to the cosmic horizon — 37 orders of magnitude, one equation, zero free parameters.
