@@ -968,7 +968,7 @@ The author also thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collab
 ---
 
 **Last Updated:** March 20, 2026
-**Status:** 18 independent tests (17 converged MCMC chains + baryon asymmetry chain converged R-1 = 0.009273) | Δχ² = +0.54 best-fit vs ΛCDM | σ₈ = 0.800 | H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc | η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off, zero free parameters) | Zero free parameters — all derived from first principles | 39 active papers across 9 categories | GRF Essay submitted February 2026 | Euclid DR1 decisive test October 2026
+**Status:** 18 independent tests (17 converged MCMC chains + baryon asymmetry chain converged R-1 = 0.009273) | Δχ² = +0.54 best-fit vs ΛCDM | σ₈ = 0.800 | H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc | η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off, zero free parameters) | Zero free parameters — all derived from first principles | papers across 9 categories | GRF Essay submitted February 2026 | Euclid DR1 decisive test October 2026
 **March 20 session:** Baryon asymmetry MCMC chain converged (R-1 = 0.009273, 22,400 steps) — Planck CMB likelihood alone returned η = (6.115 ± 0.037)×10⁻¹⁰ against observed 6.137×10⁻¹⁰, 0.36% agreement, no nuclear physics input. The cosmological constant problem and the baryon asymmetry problem are the same problem.
 
 ---
