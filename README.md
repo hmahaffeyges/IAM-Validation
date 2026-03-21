@@ -28,15 +28,7 @@ This is the 18th independent test. All 18 run on personal hardware by an indepen
 
 Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai and Kim showed in 2005 that the Friedmann equations follow from the same thermodynamic argument applied to the FRW apparent horizon. Both derivations assume the entropy functional contains only geometric terms. IAM identifies the missing term — and the missing term is a law.
 
-**IAM's Law:** Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the nearest encoding surface. Classical existence is continuously purchased, one decoherence event at a time.
-
-$$\Delta E_\mathrm{act} = k_B T_H \ln 2 \quad \text{per bit}$$
-
-**[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](docs/papers/IAM_Law.pdf)**
-
-Adding this missing term to the Jacobson–Cai-Kim entropy functional completes GR's own thermodynamic derivation. The cosmological consequences fall out causally with zero free parameters: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling constant β_m = Ω_m/2 derived from the virial theorem and an activation function E(a) = exp(1−1/a) derived from horizon thermodynamics. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
-
-IAM's Law is not a framework. It is a law — one equation from which every result in this repository follows as a derived consequence through established physics. The virial theorem is its local expression, completing 154 years of mechanical results with their thermodynamic meaning. The cosmological model is its global expression, confirmed by 17 converged MCMC chains. The same law operates from the quantum boundary of a single decoherence event to the cosmic horizon — 37 orders of magnitude, one equation, zero free parameters.
+IAM identifies the missing term in the Jacobson–Cai-Kim entropy functional — an informational entropy contribution from gravitational decoherence that accumulates as structure forms. Adding this term completes GR's own thermodynamic derivation. The cosmological consequences fall out causally with zero free parameters: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling constant β_m = Ω_m/2 derived from the virial theorem and an activation function E(a) = exp(1−1/a) derived from horizon thermodynamics. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
 
 17 converged MCMC chains (12 Level 1 via MGCAMB + 5 Level 2 via modified CAMB) | 0 Free Parameters Beyond ΛCDM | Delta-chi2 = +0.54 best-fit vs ΛCDM (Planck) | sigma_8: 0.809 -> 0.800 | H0(photon) = 67.16, H0(matter) = 72.26 km/s/Mpc | Both within 1 sigma of observed values | **Test 18 converged (R-1 = 0.009273, 22,400 steps): η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off)**
 
@@ -226,7 +218,7 @@ Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly mo
 
 **mu_0 derivation:** mu(a) = H^2_ΛCDM(a) / [H^2_ΛCDM(a) + beta_m * E(a)]. At a = 1: mu(1) = 1 / (1 + 0.15765) = 0.8638, giving mu_0 = mu - 1 = -0.1362. The value -0.13495 used in some analyses reflects a slightly different Omega_m input; both fall within the posterior uncertainty.
 
-**Zero free parameters:** beta_m is derived from Omega_m via the virial theorem. E(a) = exp(1 - 1/a) is derived from horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle). mu_0 follows from these two inputs. No parameters were fitted to data beyond standard ΛCDM.
+**Zero free parameters:** beta_m is derived from Omega_m via the virial theorem. E(a) = exp(1 - 1/a) is derived from horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature). mu_0 follows from these two inputs. No parameters were fitted to data beyond standard ΛCDM.
 
 **Implementation:** Three surgical modifications to `equations.f90`:
 1. Module-level IAM parameters (beta_m = 0.15765, dual-sector toggle)
@@ -917,7 +909,7 @@ If you use this code or results in published research, please cite:
 - Uniqueness (other parameterizations may fit similarly)
 - Explanation of early-universe physics or inflation
 
-IAM is a late-time phenomenological framework motivated by horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, Landauer's principle, quantum decoherence). Its activation function E(a) = exp(1 - 1/a) is derived from the ratio of structure formation rate to cosmic horizon area. Its coupling constant beta_m = Omega_m/2 is derived from the virial theorem. The framework generates specific predictions testable by current and upcoming surveys. Level 2 validation confirms the dual-sector perturbation mechanism survives the full Planck likelihood with no statistically significant penalty (Delta-chi2 = +0.54 best-fit).
+IAM is a late-time phenomenological framework motivated by horizon thermodynamics (Bekenstein-Hawking entropy, Gibbons-Hawking temperature, irreversible information production from gravitational decoherence). Its activation function E(a) = exp(1 - 1/a) is derived from the ratio of structure formation rate to cosmic horizon area. Its coupling constant beta_m = Omega_m/2 is derived from the virial theorem. The framework generates specific predictions testable by current and upcoming surveys. Level 2 validation confirms the dual-sector perturbation mechanism survives the full Planck likelihood with no statistically significant penalty (Delta-chi2 = +0.54 best-fit).
 
 ---
 

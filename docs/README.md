@@ -25,13 +25,11 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 ---
 
-## IAM's Law
+## IAM's Foundational Framework
 
-> *Every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the nearest encoding surface. Classical existence is continuously purchased, one decoherence event at a time.*
+IAM identifies the missing informational entropy term in the Jacobson–Cai-Kim entropy functional — the thermodynamic cost of irreversible information production from gravitational decoherence. This term, absent from both Einstein's GR and Jacobson's 1995 derivation, is the root from which every result in this library follows.
 
-$$\Delta E_\mathrm{act} = k_B T_H \ln 2 \quad \text{per bit}$$
-
-**[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](papers/IAM_Law.pdf)** — the root paper. States and derives IAM's Law, its two expressions at two scales, the three-tier assumption and failure-mode structure, and the derivational architecture from which every result in this library follows.
+**[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](papers/IAM_Law.pdf)** — the root paper. States and derives IAM's foundational result, its two expressions at two scales, the three-tier assumption and failure-mode structure, and the derivational architecture from which every result in this library follows.
 
 ---
 
@@ -631,7 +629,7 @@ Everything else in this library is a consequence applied consistently.
 
 [📄 Non_Locality_and_the_Boundary_of_Reality.pdf](papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
 
-- **States IAM's Law explicitly for the first time:** every irreversible crossing from potential to actual pays a thermodynamic cost of k_B T_H ln2 per bit to the cosmic horizon — classical existence is continuously purchased, one decoherence event at a time
+- **States IAM's foundational result explicitly for the first time:** the thermodynamic cost of irreversible information production from gravitational decoherence, paid to the cosmic horizon — classical existence is continuously purchased, one decoherence event at a time
 - "Particle" is a post-actualization concept — applying the word to a pre-measurement quantum system is a category error that has generated a century of apparent paradoxes
 - Non-locality is not a mystery to explain — it is the expected behavior of potential: potential has no position, no trajectory, no classical identity
 - Bell's theorem is exactly what IAM predicts, for a derived reason: there are no hidden variables because there is no classical particle to have hidden variables until actualization occurs
