@@ -319,7 +319,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>n = 5/2 N-body Confirmation Paper</strong> — Virial Efficiency and Effective Nonlinear Exponent in IAM: Published N-body Confirmation of β_m = Ω_m/2</summary>
 
-[📄 Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf](papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Shows that independent N-body confirmation of IAM's two key derived quantities already exists in the published literature — IAM did not need to run new simulations
 - **The n = 5/2 quantum-to-cosmological bridge** — arrived at from two completely independent directions:
@@ -360,7 +360,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the virial partition as the universal quantum-classical connector across 37 orders of magnitude; the 1/2 partition as the mechanism by which quantum superpositions become classical structure at every scale from hydrogen to galaxies
@@ -445,7 +445,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the derived arrow of time from irreversible Landauer transactions; E(a) as the accumulated ledger of decoherence events; the distinction between coordinate time, proper time, and duration; engagement with Rovelli's thermal time program
@@ -461,7 +461,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Virial Partners Paper</strong> — Dark Matter and Dark Energy as Virial Partners</summary>
 
-[📄 Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf](papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Dark matter = geometric potential half of the virial partition; dark energy = kinetic informational half
 - These are two expressions of 2K + V = 0 at cosmological scales — not two independent phenomena
@@ -474,7 +474,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - The arrow of time and the persistence of classical structure share a common physical mechanism: the irreversible partition of gravitational binding energy into geometric and informational channels
 - The geometric half deposits into spacetime curvature; the informational half (Landauer cost of quantum-to-classical transition) writes to an available encoding surface
@@ -519,7 +519,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the black hole as mandatory local encoding vault; the saturation condition for BH formation; the minimum velocity dispersion σ_crit ≈ 4 km/s derived from first principles
@@ -609,7 +609,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Non-Locality Paper</strong> — Non-Locality and the Boundary of Reality: Quantum Potential, Irreversible Actualization, and the Thermodynamic Origin of Classical Existence</summary>
 
-[📄 Non_Locality_and_the_Boundary_of_Reality.pdf](papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - **States IAM's foundational result explicitly for the first time:** the thermodynamic cost of irreversible information production from gravitational decoherence, paid to the cosmic horizon — classical existence is continuously purchased, one decoherence event at a time
 - "Particle" is a post-actualization concept — applying the word to a pre-measurement quantum system is a category error that has generated a century of apparent paradoxes
@@ -627,7 +627,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: England's dissipation-driven adaptation as the general thermodynamic principle of which virial partition closure is a gravitational instance; Rovelli's thermal time program and the derived duration variable E(a)
@@ -741,7 +741,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-[📄 The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the minimum velocity dispersion σ_crit ≈ 4 km/s below which halos cannot close their virial partition and do not form galaxies; the two-mechanism account of the missing satellites problem
