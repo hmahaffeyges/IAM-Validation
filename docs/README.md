@@ -29,7 +29,7 @@ The complete derivation chain is available on request. Contact heath@iamperforma
 
 IAM identifies the missing informational entropy term in the Jacobson–Cai-Kim entropy functional — the thermodynamic cost of irreversible information production from gravitational decoherence on timelike worldlines. This term, absent from both Einstein's GR and Jacobson's 1995 derivation, is the root from which every result in this library follows.
 
-The foundational result — the thermodynamic cost of each irreversible quantum-to-classical transition, its derivation from the first law, second law, and Landauer's principle, and its connection to the virial theorem — is described in the Theory Paper and the Thermodynamic Identity Paper listed below. These two papers together constitute the complete logical foundation of IAM.
+The foundational result — the thermodynamic cost of each irreversible quantum-to-classical transition, its derivation from the first law, second law, and Landauer's principle, and its connection to the virial theorem — underlies every result in this library. The complete derivation is available on request. Contact heath@iamperformance.net.
 
 **Every result in this library follows from one physical identification applied consistently through established physics.** The consequences are not assembled. They are derived.
 
@@ -52,7 +52,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 
 ## START HERE: Derivations
 
-*If you want to understand what IAM is and where it comes from, the Thermodynamic Identity Paper is the starting point — it derives what K physically is, establishes the 1/2 partition across 37 orders of magnitude, and provides the physical foundation for β_m = Ω_m/2. The complete derivation of the full framework, including the Jacobson–Cai-Kim chain, is available on request.*
+*If you want to understand what IAM is and where it comes from, start with the IAM Overview Companion and the IAM Master Preprint — both linked in Category I. The complete derivation chain, including the thermodynamic identity and Jacobson–Cai-Kim completion, is available on request.*
 
 *Contact heath@iamperformance.net for the full derivation.*
 
@@ -76,7 +76,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Thermodynamic Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
 
-[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](papers/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - **The derivation of what K physically is — unanswered for 154 years since Clausius**
 - Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
@@ -293,7 +293,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Core Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
 
-[📄 Thermodynamic_Identity_Governing_Virial_Theorem.pdf](papers/Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
 - Derived from the first law, second law, Landauer's principle, and the equilibrium condition of the 1/r potential — no additional assumptions
@@ -306,7 +306,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>37 Orders Paper</strong> — The Virial Partition Across Wide Range of Physical Scales: Cross-Domain Validation of IAM</summary>
 
-[📄 Virial_Partition_Across_Wide_Domains.pdf](papers/Virial_Partition_Across_Wide_Domains.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Demonstrates that β_m = Ω_m/2 is not a numerological coincidence but a mathematical necessity
 - Verified computationally for 20 atoms (H through Xe) and 10 molecules at machine precision
@@ -348,7 +348,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
 
-[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category VII: Quantum Foundations](#vii-quantum-foundations)
 - Connects the thermodynamic identity to the quantum mechanical language of decoherence: the cosmic horizon is the ultimate environment accumulating the Landauer costs of 13.8 billion years of decoherence events
@@ -637,7 +637,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
 
-[📄 Quantum_Darwinism_at_Cosmological_Scales.pdf](papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+*[Available on request — contact heath@iamperformance.net]*
 
 - Also in [Category II: Thermodynamic Identity & Virial Theorem](#ii-thermodynamic-identity--virial-theorem)
 - Extends Zurek's quantum Darwinism from local to cosmic scales — the cosmic horizon is the ultimate redundant record of all decoherence events
