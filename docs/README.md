@@ -27,29 +27,11 @@ The IAM Theory Paper appears in every category it spans — it is the root of al
 
 ## IAM's Foundational Framework
 
-IAM identifies the missing informational entropy term in the Jacobson–Cai-Kim entropy functional — the thermodynamic cost of irreversible information production from gravitational decoherence. This term, absent from both Einstein's GR and Jacobson's 1995 derivation, is the root from which every result in this library follows.
+IAM identifies the missing informational entropy term in the Jacobson–Cai-Kim entropy functional — the thermodynamic cost of irreversible information production from gravitational decoherence on timelike worldlines. This term, absent from both Einstein's GR and Jacobson's 1995 derivation, is the root from which every result in this library follows.
 
-**[📄 IAM's Law — The Thermodynamic Cost of Classical Existence](papers/IAM_Law.pdf)** — the root paper. States and derives IAM's foundational result, its two expressions at two scales, the three-tier assumption and failure-mode structure, and the derivational architecture from which every result in this library follows.
+The foundational result — the thermodynamic cost of each irreversible quantum-to-classical transition, its derivation from the first law, second law, and Landauer's principle, and its connection to the virial theorem — is described in the Theory Paper and the Thermodynamic Identity Paper listed below. These two papers together constitute the complete logical foundation of IAM.
 
----
-
-**IAM's Law has two expressions at two scales. Every result in this library is a consequence of one or both:**
-
-1. **Local expression** — IAM's Law applied to 1/r bound systems:
-   - **The virial theorem derived** (not assumed): the equilibrium condition 2K + V = 0 follows from Euler's theorem for homogeneous functions of degree −1 as the mathematical condition defining stable bound equilibrium under a 1/r potential
-   - **The virial theorem completed**: K is not merely mechanical kinetic energy — it is the Landauer cost of the system's transition from unbound potential to bound actuality: *K = Q = TΔS = E_Landauer*. The 1/2 partition is the unique ratio at which mechanical and thermodynamic equilibrium are simultaneously satisfied for 1/r. Verified across 37 orders of magnitude.
-   - The virial theorem has two faces: the mechanical face (Clausius, 1870: 2K = |V|) and the thermodynamic face (this work: K = E_Landauer). One coin.
-
-2. **Global expression** — IAM's Law integrated across cosmological time:
-   - The missing term in the Jacobson–Cai-Kim entropy functional: the accumulated Landauer cost of 13.8 billion years of decoherence events, encoded on the cosmic horizon — the term Einstein's GR and Jacobson's 1995 derivation both lacked
-   - The virial theorem serves as the balance sheet: β_m = Ω_m/2 derived from the 1/2 partition, connecting the local law to the global coupling constant with zero free parameters
-   - Produces E(a) = exp(1−1/a), µ(a) < 1, Σ(a) = 1, consistent with 17 converged MCMC chains at 0.2σ
-   - **Cosmological constant — full derivation (March 20, 2026):** (2/π)(l_P/l_H)² × √Ω_Λ × (Ω_b/Ω_m) = 1.141×10⁻¹²³ against observed 1.14×10⁻¹²³ — **0.07% agreement, zero free parameters.** The √Ω_Λ factor is the Gibbons–Hawking temperature ratio between the de Sitter encoding surface and the effective Hubble temperature — derived, not fitted. First derivation of the CC from thermodynamic first principles.
-   - **Baryon asymmetry — first derivation (March 20, 2026):** the same constraint selects η = (6.115 ± 0.037)×10⁻¹⁰ from Planck CMB data alone with no nuclear physics input — consistent with observed 6.137×10⁻¹⁰ at 0.36%. First derivation of the baryon asymmetry from thermodynamic first principles. Chain converged R-1 = 0.009273, 22,400 steps. (Test 18)
-
-**IAM's Law is a law, not a framework.** Every result — the virial theorem completion, β_m = Ω_m/2, E(a), µ < 1, Σ = 1, the arrow of time, the coincidence problem, the H₀ split, the cosmological constant, the baryon asymmetry — follows from one equation applied through established physics. The consequences are not assembled. They are derived.
-
-Everything else in this library is a consequence applied consistently.
+**Every result in this library follows from one physical identification applied consistently through established physics.** The consequences are not assembled. They are derived.
 
 ---
 
@@ -324,7 +306,7 @@ Everything else in this library is a consequence applied consistently.
 <details>
 <summary><strong>37 Orders Paper</strong> — The Virial Partition Across Wide Range of Physical Scales: Cross-Domain Validation of IAM</summary>
 
-[📄 Virial_Partitian_Across_Wide_Domains.pdf](papers/Virial_Partitian_Across_Wide_Domains.pdf)
+[📄 Virial_Partition_Across_Wide_Domains.pdf](papers/Virial_Partition_Across_Wide_Domains.pdf)
 
 - Demonstrates that β_m = Ω_m/2 is not a numerological coincidence but a mathematical necessity
 - Verified computationally for 20 atoms (H through Xe) and 10 molecules at machine precision
