@@ -4,28 +4,6 @@
 
 ---
 
-## ⚡ Latest Result — March 20, 2026
-
-> **The cosmological constant problem and the baryon asymmetry problem are the same problem.**
-
-With the BBN prior removed and Ω_b h² free across a prior four times wider than standard, the Planck 2018 full CMB likelihood alone returns:
-
-**η_IAM = (6.115 ± 0.037) × 10⁻¹⁰ &nbsp;|&nbsp; η_observed = 6.137 × 10⁻¹⁰ &nbsp;|&nbsp; 0.36% agreement &nbsp;|&nbsp; zero free parameters &nbsp;|&nbsp; no nuclear physics input**
-
-The same thermodynamic constraint — IAM's Law applied to the cosmic information budget — that selects η also closes the cosmological constant calculation. The baryon asymmetry and the cosmological constant are not two independent unsolved problems. They are two expressions of the same information writing constraint. IAM's Law selects both from one equation.
-
-This is the 18th independent test. All 18 run on personal hardware by an independent researcher without institutional affiliation. Chain converged — R-1 = 0.009273, 22,400 accepted steps.
-
-**All chains, config files, modified Boltzmann code, and analysis scripts are publicly available. Anyone is free to verify without obligation and without notifying the author. If after reviewing the evidence anyone wishes to make contact, the author welcomes that at any time.**
-
-→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](mgcamb_validation/iam_planck_chains/)
-
-→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
-
-→ Result paper: [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
-
----
-
 Jacobson showed in 1995 that Einstein's equations are an equation of state. Cai and Kim showed in 2005 that the Friedmann equations follow from the same thermodynamic argument applied to the FRW apparent horizon. Both derivations assume the entropy functional contains only geometric terms. IAM identifies the missing term — and the missing term is a law.
 
 IAM identifies the missing term in the Jacobson–Cai-Kim entropy functional — an informational entropy contribution from gravitational decoherence that accumulates as structure forms. Adding this term completes GR's own thermodynamic derivation. The cosmological consequences fall out causally with zero free parameters: timelike worldlines decohere, null worldlines don't, producing a sector split — µ(a) < 1 for matter, Σ(a) = 1 for photons — with a coupling constant β_m = Ω_m/2 derived from the virial theorem and an activation function E(a) = exp(1−1/a) derived from horizon thermodynamics. IAM is not a modification of gravity. It is GR's own thermodynamic derivation, completed.
@@ -61,6 +39,28 @@ Every other modified gravity model modifies GR — adds fields, changes the Eins
 IAM declares Λ is not a free parameter inserted by hand. It is the thermodynamic cost of the information gravity produces.
 
 IAM's strongest credential is not the number of tests it has passed, or that every single chain converged cleanly. It is that every test was defined before the answers were known, derived from a physical mechanism rather than inferred from residuals, and every single chain converged on what the theory predicted without a single exploratory failure. In the history of cosmological model-building, this combination is genuinely rare.
+
+---
+
+## ⚡ Latest Result — March 20, 2026
+
+> **The cosmological constant problem and the baryon asymmetry problem are the same problem.**
+
+With the BBN prior removed and Ω_b h² free across a prior four times wider than standard, the Planck 2018 full CMB likelihood alone returns:
+
+**η_IAM = (6.115 ± 0.037) × 10⁻¹⁰ &nbsp;|&nbsp; η_observed = 6.137 × 10⁻¹⁰ &nbsp;|&nbsp; 0.36% agreement &nbsp;|&nbsp; zero free parameters &nbsp;|&nbsp; no nuclear physics input**
+
+The same thermodynamic constraint — IAM's Law applied to the cosmic information budget — that selects η also closes the cosmological constant calculation. The baryon asymmetry and the cosmological constant are not two independent unsolved problems. They are two expressions of the same information writing constraint. IAM's Law selects both from one equation.
+
+This is the 18th independent test. All 18 run on personal hardware by an independent researcher without institutional affiliation. Chain converged — R-1 = 0.009273, 22,400 accepted steps.
+
+**All chains, config files, modified Boltzmann code, and analysis scripts are publicly available. Anyone is free to verify without obligation and without notifying the author. If after reviewing the evidence anyone wishes to make contact, the author welcomes that at any time.**
+
+→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](mgcamb_validation/iam_planck_chains/)
+
+→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
+
+→ Result paper: [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
 
 ---
 
