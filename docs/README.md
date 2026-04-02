@@ -19,7 +19,7 @@ With the BBN prior removed and Ω_b h² free across a prior four times wider tha
 **Informational Actualization Model — Complete Paper Inventory**
 
 All active papers organized by category. Each paper is linked directly.
-The IAM Theory Paper appears in every category it spans — it is the root of all of them.
+The complete derivation chain is available on request. Contact heath@iamperformance.net.
 
 **Full results inventory with equations and summary table:** [PAPERS.pdf](../PAPERS.pdf)
 
@@ -52,14 +52,14 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 
 ## START HERE: Derivations
 
-*If you want to understand what IAM is and where it comes from, these are the only two papers you need. One derives the framework. The other derives the thermodynamic identity that underpins the coupling constant. Together they are the complete logical foundation of IAM — everything else in this library is a consequence, application, or validation.*
+*If you want to understand what IAM is and where it comes from, the Thermodynamic Identity Paper is the starting point — it derives what K physically is, establishes the 1/2 partition across 37 orders of magnitude, and provides the physical foundation for β_m = Ω_m/2. The complete derivation of the full framework, including the Jacobson–Cai-Kim chain, is available on request.*
 
-*Other papers in this library contain derivations — the Koide paper derives a lepton mass relation, the electron mass paper derives the electron rest mass — but those are derivations within the framework applying it to specific problems. These two are derivations of the framework itself.*
+*Contact heath@iamperformance.net for the full derivation.*
 
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - **The derivation of IAM from first principles**
 - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
@@ -98,7 +98,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - **Root paper — every other paper in this library builds on this derivation**
 - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
@@ -370,7 +370,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: derivation of β_m = Ω_m/2 from the virial theorem; derivation of E(a) from horizon thermodynamics; the n = 5/2 analytical prediction
@@ -403,7 +403,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the holographic encoding framework that connects Landauer costs to horizon thermodynamics
@@ -503,7 +503,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the virial theorem derivation of β_m = Ω_m/2 and its physical interpretation as a partition of gravitational energy
@@ -593,7 +593,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the two-horizon framework; the Landauer cost derivation; the BH as mandatory encoding surface
@@ -678,7 +678,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the decoherence mechanism; the Landauer cost; the connection between quantum-to-classical transition and cosmological observables
@@ -764,7 +764,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-[📄 IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
+*[Full derivation available on request — contact heath@iamperformance.net]*
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the activation function E(a) and its role in structure formation; the saturation condition
