@@ -3,7 +3,7 @@
     "gape_version": "5.0",
     "h_min_version": "G-002-posterior-April2026",
     "pipeline_version": "1.0.0",
-    "generated_utc": "2026-04-06T15:04:48.996244",
+    "generated_utc": "2026-04-07T22:51:21.514188",
     "h_min_registry": {
       "stem_pluri": 0.982166,
       "stem_adult": 0.873718,
@@ -29,20 +29,219 @@
     "mean_delta_A": 0.158924,
     "std_delta_A": 0.072057
   },
-  "gdc_availability": [],
-  "gdc_total_cases": 0,
-  "geo_catalogued": 0,
+  "gdc_availability": [
+    {
+      "project_id": "TCGA-BRCA",
+      "case_count": 1098,
+      "file_count": 70774,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-GBM",
+      "case_count": 617,
+      "file_count": 30326,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-OV",
+      "case_count": 608,
+      "file_count": 32864,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-LUAD",
+      "case_count": 585,
+      "file_count": 36224,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-UCEC",
+      "case_count": 560,
+      "file_count": 33337,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-KIRC",
+      "case_count": 537,
+      "file_count": 34535,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-HNSC",
+      "case_count": 528,
+      "file_count": 34816,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-LGG",
+      "case_count": 516,
+      "file_count": 33453,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-THCA",
+      "case_count": 507,
+      "file_count": 33411,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-LUSC",
+      "case_count": 504,
+      "file_count": 32065,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-PRAD",
+      "case_count": 500,
+      "file_count": 31915,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-SKCM",
+      "case_count": 470,
+      "file_count": 28203,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-COAD",
+      "case_count": 461,
+      "file_count": 28900,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-STAD",
+      "case_count": 443,
+      "file_count": 31088,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-BLCA",
+      "case_count": 412,
+      "file_count": 31338,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-LIHC",
+      "case_count": 377,
+      "file_count": 23930,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-CESC",
+      "case_count": 307,
+      "file_count": 19315,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-KIRP",
+      "case_count": 291,
+      "file_count": 18618,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-TGCT",
+      "case_count": 263,
+      "file_count": 12851,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-SARC",
+      "case_count": 261,
+      "file_count": 16252,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-LAML",
+      "case_count": 200,
+      "file_count": 8839,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-ESCA",
+      "case_count": 185,
+      "file_count": 11120,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-PAAD",
+      "case_count": 185,
+      "file_count": 12853,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-PCPG",
+      "case_count": 179,
+      "file_count": 11823,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-READ",
+      "case_count": 172,
+      "file_count": 10274,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-THYM",
+      "case_count": 124,
+      "file_count": 7968,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-KICH",
+      "case_count": 113,
+      "file_count": 5993,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-ACC",
+      "case_count": 92,
+      "file_count": 5789,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-MESO",
+      "case_count": 87,
+      "file_count": 5511,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-UVM",
+      "case_count": 80,
+      "file_count": 5509,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-DLBC",
+      "case_count": 58,
+      "file_count": 3141,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-UCS",
+      "case_count": 57,
+      "file_count": 3720,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    },
+    {
+      "project_id": "TCGA-CHOL",
+      "case_count": 51,
+      "file_count": 3171,
+      "queried_utc": "2026-04-07T22:50:53.742912"
+    }
+  ],
+  "gdc_total_cases": 11428,
+  "geo_catalogued": 10,
   "last_run": {
-    "id": 1,
-    "started_utc": "2026-04-06T15:04:45.684114",
-    "finished_utc": "2026-04-06T15:04:45.698051",
-    "datasets_added": 39,
-    "datasets_updated": 0,
+    "id": 2,
+    "started_utc": "2026-04-07T22:50:53.739137",
+    "finished_utc": "2026-04-07T22:51:21.505730",
+    "datasets_added": 0,
+    "datasets_updated": 39,
     "errors": 0,
     "p1_total": 28,
     "p1_confirmed": 27,
     "mean_delta_A": 0.158924,
-    "notes": "quick=True"
+    "notes": "quick=False"
   },
   "results": [
     {
@@ -78,7 +277,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "69e107894b9e1760",
       "first_seen_utc": "2026-04-06T15:04:45.687360",
-      "last_updated_utc": "2026-04-06T15:04:45.687360"
+      "last_updated_utc": "2026-04-07T22:50:53.740670"
     },
     {
       "id": "TCGA-GBM-001",
@@ -113,7 +312,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "4889183e980e837f",
       "first_seen_utc": "2026-04-06T15:04:45.687252",
-      "last_updated_utc": "2026-04-06T15:04:45.687252"
+      "last_updated_utc": "2026-04-07T22:50:53.740621"
     },
     {
       "id": "TCGA-BRCA-001",
@@ -148,7 +347,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "743d91ba16cdb449",
       "first_seen_utc": "2026-04-06T15:04:45.685080",
-      "last_updated_utc": "2026-04-06T15:04:45.685080"
+      "last_updated_utc": "2026-04-07T22:50:53.739752"
     },
     {
       "id": "TCGA-OV-001",
@@ -183,7 +382,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "edb625043c2664a1",
       "first_seen_utc": "2026-04-06T15:04:45.687704",
-      "last_updated_utc": "2026-04-06T15:04:45.687704"
+      "last_updated_utc": "2026-04-07T22:50:53.740800"
     },
     {
       "id": "TCGA-ACC-001",
@@ -218,7 +417,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "2dec9a0a5cd3852c",
       "first_seen_utc": "2026-04-06T15:04:45.689069",
-      "last_updated_utc": "2026-04-06T15:04:45.689069"
+      "last_updated_utc": "2026-04-07T22:50:53.741246"
     },
     {
       "id": "TCGA-UCEC-001",
@@ -253,7 +452,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "c21d944a98d4b78e",
       "first_seen_utc": "2026-04-06T15:04:45.688226",
-      "last_updated_utc": "2026-04-06T15:04:45.688226"
+      "last_updated_utc": "2026-04-07T22:50:53.740970"
     },
     {
       "id": "TCGA-PRAD-001",
@@ -288,7 +487,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "bc781fb4afeba357",
       "first_seen_utc": "2026-04-06T15:04:45.687465",
-      "last_updated_utc": "2026-04-06T15:04:45.687465"
+      "last_updated_utc": "2026-04-07T22:50:53.740715"
     },
     {
       "id": "TCGA-LIHC-001",
@@ -323,7 +522,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "dcd056369a8ceffc",
       "first_seen_utc": "2026-04-06T15:04:45.687573",
-      "last_updated_utc": "2026-04-06T15:04:45.687573"
+      "last_updated_utc": "2026-04-07T22:50:53.740758"
     },
     {
       "id": "TCGA-COAD-001",
@@ -358,7 +557,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "24d844ea0ecb0bb9",
       "first_seen_utc": "2026-04-06T15:04:45.686907",
-      "last_updated_utc": "2026-04-06T15:04:45.686907"
+      "last_updated_utc": "2026-04-07T22:50:53.740503"
     },
     {
       "id": "TCGA-CHOL-001",
@@ -393,7 +592,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "eb26522f392fbd30",
       "first_seen_utc": "2026-04-06T15:04:45.689452",
-      "last_updated_utc": "2026-04-06T15:04:45.689452"
+      "last_updated_utc": "2026-04-07T22:50:53.741371"
     },
     {
       "id": "TCGA-BLCA-001",
@@ -428,7 +627,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "9520f8ec35f8ab1b",
       "first_seen_utc": "2026-04-06T15:04:45.687984",
-      "last_updated_utc": "2026-04-06T15:04:45.687984"
+      "last_updated_utc": "2026-04-07T22:50:53.740881"
     },
     {
       "id": "TCGA-STAD-001",
@@ -463,7 +662,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "9f3fa333fc841538",
       "first_seen_utc": "2026-04-06T15:04:45.687879",
-      "last_updated_utc": "2026-04-06T15:04:45.687879"
+      "last_updated_utc": "2026-04-07T22:50:53.740841"
     },
     {
       "id": "TCGA-PAAD-001",
@@ -498,7 +697,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "140fc1ed371b39de",
       "first_seen_utc": "2026-04-06T15:04:45.689790",
-      "last_updated_utc": "2026-04-06T15:04:45.689790"
+      "last_updated_utc": "2026-04-07T22:50:53.741489"
     },
     {
       "id": "TCGA-CESC-001",
@@ -533,7 +732,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "f76941e4cbbafa7f",
       "first_seen_utc": "2026-04-06T15:04:45.688632",
-      "last_updated_utc": "2026-04-06T15:04:45.688632"
+      "last_updated_utc": "2026-04-07T22:50:53.741127"
     },
     {
       "id": "TCGA-LUAD-001",
@@ -568,7 +767,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "34f1ce08f25f9a62",
       "first_seen_utc": "2026-04-06T15:04:45.687118",
-      "last_updated_utc": "2026-04-06T15:04:45.687118"
+      "last_updated_utc": "2026-04-07T22:50:53.740567"
     },
     {
       "id": "TCGA-HNSC-001",
@@ -603,7 +802,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "d4bf397873bbc412",
       "first_seen_utc": "2026-04-06T15:04:45.688430",
-      "last_updated_utc": "2026-04-06T15:04:45.688430"
+      "last_updated_utc": "2026-04-07T22:50:53.741049"
     },
     {
       "id": "TCGA-UVM-001",
@@ -638,7 +837,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "8c58628f17687173",
       "first_seen_utc": "2026-04-06T15:04:45.689344",
-      "last_updated_utc": "2026-04-06T15:04:45.689344"
+      "last_updated_utc": "2026-04-07T22:50:53.741322"
     },
     {
       "id": "TCGA-MESO-001",
@@ -673,7 +872,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "b3029d9b5edb5509",
       "first_seen_utc": "2026-04-06T15:04:45.689210",
-      "last_updated_utc": "2026-04-06T15:04:45.689210"
+      "last_updated_utc": "2026-04-07T22:50:53.741284"
     },
     {
       "id": "TCGA-SKCM-001",
@@ -708,7 +907,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "8a51e219ce5eac4d",
       "first_seen_utc": "2026-04-06T15:04:45.690015",
-      "last_updated_utc": "2026-04-06T15:04:45.690015"
+      "last_updated_utc": "2026-04-07T22:50:53.741565"
     },
     {
       "id": "TCGA-KIRC-001",
@@ -743,7 +942,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "714468455f73c330",
       "first_seen_utc": "2026-04-06T15:04:45.688093",
-      "last_updated_utc": "2026-04-06T15:04:45.688093"
+      "last_updated_utc": "2026-04-07T22:50:53.740920"
     },
     {
       "id": "TCGA-KIRP-001",
@@ -778,7 +977,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "a0c3432217663f3a",
       "first_seen_utc": "2026-04-06T15:04:45.689894",
-      "last_updated_utc": "2026-04-06T15:04:45.689894"
+      "last_updated_utc": "2026-04-07T22:50:53.741527"
     },
     {
       "id": "TCGA-THCA-001",
@@ -813,7 +1012,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "4bde6ee2c8e7bb49",
       "first_seen_utc": "2026-04-06T15:04:45.688328",
-      "last_updated_utc": "2026-04-06T15:04:45.688328"
+      "last_updated_utc": "2026-04-07T22:50:53.741010"
     },
     {
       "id": "TCGA-THYM-001",
@@ -848,7 +1047,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "1136171539285a2c",
       "first_seen_utc": "2026-04-06T15:04:45.689561",
-      "last_updated_utc": "2026-04-06T15:04:45.689561"
+      "last_updated_utc": "2026-04-07T22:50:53.741409"
     },
     {
       "id": "TCGA-SARC-001",
@@ -883,7 +1082,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "0f53bee0ec5b0257",
       "first_seen_utc": "2026-04-06T15:04:45.688914",
-      "last_updated_utc": "2026-04-06T15:04:45.688914"
+      "last_updated_utc": "2026-04-07T22:50:53.741206"
     },
     {
       "id": "TCGA-PCPG-001",
@@ -918,7 +1117,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "1528969a6b252f7f",
       "first_seen_utc": "2026-04-06T15:04:45.689684",
-      "last_updated_utc": "2026-04-06T15:04:45.689684"
+      "last_updated_utc": "2026-04-07T22:50:53.741448"
     },
     {
       "id": "TCGA-DLBC-001",
@@ -953,7 +1152,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "a0cfbe5ee7450596",
       "first_seen_utc": "2026-04-06T15:04:45.688771",
-      "last_updated_utc": "2026-04-06T15:04:45.688771"
+      "last_updated_utc": "2026-04-07T22:50:53.741167"
     },
     {
       "id": "TCGA-LAML-001",
@@ -988,7 +1187,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "fbd3077dbb77f954",
       "first_seen_utc": "2026-04-06T15:04:45.688532",
-      "last_updated_utc": "2026-04-06T15:04:45.688532"
+      "last_updated_utc": "2026-04-07T22:50:53.741089"
     },
     {
       "id": "TCGA-TGCT-001",
@@ -1023,7 +1222,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "91562115ef7bafcb",
       "first_seen_utc": "2026-04-06T15:04:45.690130",
-      "last_updated_utc": "2026-04-06T15:04:45.690130"
+      "last_updated_utc": "2026-04-07T22:50:53.741604"
     },
     {
       "id": "LISTER-2009-H1ESC",
@@ -1058,7 +1257,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "a44e87aa3092719a",
       "first_seen_utc": "2026-04-06T15:04:45.690259",
-      "last_updated_utc": "2026-04-06T15:04:45.690259"
+      "last_updated_utc": "2026-04-07T22:50:53.741642"
     },
     {
       "id": "LISTER-2009-IMR90P4",
@@ -1093,7 +1292,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "6feea55afeb1b67d",
       "first_seen_utc": "2026-04-06T15:04:45.690374",
-      "last_updated_utc": "2026-04-06T15:04:45.690374"
+      "last_updated_utc": "2026-04-07T22:50:53.741681"
     },
     {
       "id": "LISTER-2013-NEURON",
@@ -1128,7 +1327,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "d28c5e86b945e06d",
       "first_seen_utc": "2026-04-06T15:04:45.690497",
-      "last_updated_utc": "2026-04-06T15:04:45.690497"
+      "last_updated_utc": "2026-04-07T22:50:53.741726"
     },
     {
       "id": "KOZLENKOV-2014-NEURON",
@@ -1163,7 +1362,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "3f10ba2eb6ee7872",
       "first_seen_utc": "2026-04-06T15:04:45.690608",
-      "last_updated_utc": "2026-04-06T15:04:45.690608"
+      "last_updated_utc": "2026-04-07T22:50:53.741772"
     },
     {
       "id": "HANNUM-2013-BLOOD-YOUNG",
@@ -1198,7 +1397,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "b1b908cccb2ffd1f",
       "first_seen_utc": "2026-04-06T15:04:45.690730",
-      "last_updated_utc": "2026-04-06T15:04:45.690730"
+      "last_updated_utc": "2026-04-07T22:50:53.741815"
     },
     {
       "id": "HANNUM-2013-BLOOD-OLD",
@@ -1233,7 +1432,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "24f553248414cf5d",
       "first_seen_utc": "2026-04-06T15:04:45.690834",
-      "last_updated_utc": "2026-04-06T15:04:45.690834"
+      "last_updated_utc": "2026-04-07T22:50:53.741864"
     },
     {
       "id": "CRUICKSHANKS-2013-SENESCENT",
@@ -1268,7 +1467,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "d351640cdf6f20d1",
       "first_seen_utc": "2026-04-06T15:04:45.690926",
-      "last_updated_utc": "2026-04-06T15:04:45.690926"
+      "last_updated_utc": "2026-04-07T22:50:53.741911"
     },
     {
       "id": "ROADMAP-E035-HSC",
@@ -1303,7 +1502,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "bc2dcdc84db368ac",
       "first_seen_utc": "2026-04-06T15:04:45.691016",
-      "last_updated_utc": "2026-04-06T15:04:45.691016"
+      "last_updated_utc": "2026-04-07T22:50:53.741945"
     },
     {
       "id": "ROADMAP-E043-CD4T",
@@ -1338,7 +1537,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "5274c0cda1dd3f97",
       "first_seen_utc": "2026-04-06T15:04:45.691133",
-      "last_updated_utc": "2026-04-06T15:04:45.691133"
+      "last_updated_utc": "2026-04-07T22:50:53.741979"
     },
     {
       "id": "ROADMAP-E066-HEP",
@@ -1373,7 +1572,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "aff2995284be099f",
       "first_seen_utc": "2026-04-06T15:04:45.691235",
-      "last_updated_utc": "2026-04-06T15:04:45.691235"
+      "last_updated_utc": "2026-04-07T22:50:53.742012"
     },
     {
       "id": "ROADMAP-E075-COLON",
@@ -1408,7 +1607,7 @@
       "pipeline_version": "1.0.0",
       "prov_hash": "fbe6898971907e3d",
       "first_seen_utc": "2026-04-06T15:04:45.691323",
-      "last_updated_utc": "2026-04-06T15:04:45.691323"
+      "last_updated_utc": "2026-04-07T22:50:53.742046"
     }
   ]
 }
