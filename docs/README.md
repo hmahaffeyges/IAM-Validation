@@ -1,4 +1,14 @@
-## ⚡ Latest Result — March 20, 2026
+## ⚡ Latest Result — April 13, 2026
+
+> **Jacobson's two assumptions about the Bekenstein–Hawking entropy are not independent — both are derived from the causal geometry of flat spacetime.**
+
+The proportionality S ∝ A follows from the irreversibility of decoherence: information produced at each quantum-to-classical transition must be encoded at the nearest 2D causal boundary because volume encoding is causally inaccessible to external observers. The coefficient η = 1/(4ℓ_P²) follows from the ratio 1/4 = 2π/8π, where 2π is the Euclidean Rindler cone angle (the unique topological period eliminating the conical singularity at the horizon) and 8π is the Einstein equation normalization (Gauss's law in 3D doubled by the Bianchi identity trace structure). Both geometric facts are independent of the entropy-area assumption. The same ratio determines the minimum horizon area per decoherence event to be 4ℓ_P², consistent with exactly one bit per 4ℓ_P². Jacobson's machine — *specify an entropy functional, derive a gravity theory* — now fully specifies its own entropy functional. The single remaining open question is why a minimum resolvable length ℓ_P = √(ħG/c³) exists at all — a quantum gravity microstructure question beyond the thermodynamic level.
+
+→ Paper: [The Geometric Origin of the Bekenstein–Hawking Entropy Coefficient](papers/iam_bekenstein_coefficient.pdf)
+
+---
+
+## ⚡ Previous Result — March 20, 2026
 
 > **The cosmological constant problem and the baryon asymmetry problem are the same problem.**
 
@@ -70,6 +80,21 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 - **n = 5/2 arrives from two independent directions:** top-down, E(a) requires the decoherence rate to scale as D(a)^(5/2) to produce the 1/a exponent; bottom-up, six independent N-body groups measure n_eff = 3.22 ± 0.44, with n = 5/2 at the lower bound of the matter-domination limit
 - Predicts µ₀ = −0.136 with zero free parameters beyond ΛCDM
 - See also the full entry in [Category I](#i-cosmological-model) for all observational consequences
+
+</details>
+
+<details>
+<summary><strong>Bekenstein–Hawking Coefficient Paper</strong> — The Geometric Origin of the Bekenstein–Hawking Entropy Coefficient</summary>
+
+[📄 iam_bekenstein_coefficient.pdf](papers/iam_bekenstein_coefficient.pdf)
+
+- **Derives both of Jacobson's assumptions from the causal geometry of flat spacetime — without assuming either**
+- **Why S ∝ A:** decoherence produces classical information irreversibly; that information must be encoded at the nearest causally accessible surface; causal boundaries are 2D; volume encoding is causally forbidden. Area scaling is a causal necessity, not a postulate
+- **Why η = 1/(4ℓ_P²):** the coefficient 1/4 = 2π/8π where 2π is the Euclidean Rindler cone angle (topological necessity — eliminates conical singularity at the horizon) and 8π is the Einstein equation normalization (Gauss's law in 3D doubled by the Bianchi identity trace structure). Neither factor assumes S ∝ A
+- **Why one bit = 4ℓ_P²:** the minimum horizon area disturbed by one Landauer cost event at Planck-scale surface gravity is 4ℓ_P², from the same 8π/2π = 4 ratio. Three statements of the same geometry
+- Jacobson's machine — *specify an entropy functional, derive a gravity theory* — now fully specifies its own entropy functional from the same causal geometry that produces the field equations
+- Single remaining open question stated precisely: why does a minimum resolvable length ℓ_P = √(ħG/c³) exist at all? This is the quantum gravity microstructure question — beyond the thermodynamic level, shared with all thermodynamic approaches to gravity
+- Self-contained — no companion paper required to follow the derivation
 
 </details>
 
@@ -539,6 +564,17 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 </details>
 
 <details>
+<summary><strong>Bekenstein–Hawking Coefficient Paper</strong> — The Geometric Origin of the Bekenstein–Hawking Entropy Coefficient</summary>
+
+[📄 iam_bekenstein_coefficient.pdf](papers/iam_bekenstein_coefficient.pdf)
+
+- Also in [START HERE: Derivations](#start-here-derivations) — see full description there
+- Relevant here for: derives η = 1/(4ℓ_P²) from the ratio 2π/8π; derives one bit = 4ℓ_P² minimum horizon area; shows the Bekenstein–Hawking entropy formula is a geometric consequence of causal structure, not an independent assumption
+- The BH Thermodynamics Paper above operates within the Bekenstein–Hawking framework — this paper derives the framework itself
+
+</details>
+
+<details>
 <summary><strong>Information Paradox Paper</strong> — The Cessation of Projection: Why Matter Does Not Enter a Black Hole and What This Means for the Information Paradox</summary>
 
 [📄 IAM_Black_Hole_Information_Paradox.pdf](papers/IAM_Black_Hole_Information_Paradox.pdf)
@@ -676,6 +712,16 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 </details>
 
 <details>
+<summary><strong>Bekenstein–Hawking Coefficient Paper</strong> — The Geometric Origin of the Bekenstein–Hawking Entropy Coefficient</summary>
+
+[📄 iam_bekenstein_coefficient.pdf](papers/iam_bekenstein_coefficient.pdf)
+
+- Also in [START HERE: Derivations](#start-here-derivations) — see full description there
+- Relevant here for: the derivation of S ∝ A from decoherence irreversibility — the causal accessibility argument connects quantum foundations directly to the holographic principle; volume encoding is causally forbidden because information inside the horizon cannot reach external observers
+
+</details>
+
+<details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
 *[Full derivation available on request — contact heath@iamperformance.net]*
@@ -782,7 +828,8 @@ These papers are archived and superseded. Not part of the active corpus.
 
 ---
 
-*Last updated: March 20, 2026*
+*Last updated: April 13, 2026*
 *All papers in docs/papers/ · organized by category in this README*
 *All predictions timestamped in repository commit history*
 *18th test converged (R-1 = 0.009273, 22,400 steps): baryon asymmetry MCMC — BBN prior removed, CMB data alone returned η = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%). The cosmological constant problem and the baryon asymmetry problem are the same problem.*
+*April 13, 2026: Bekenstein–Hawking entropy coefficient derived from causal geometry — S ∝ A from decoherence irreversibility, η = 1/(4ℓ_P²) from 2π/8π, minimum encoding area 4ℓ_P² from same ratio. Jacobson's two assumptions reduced to one derived result.*
