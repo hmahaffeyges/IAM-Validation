@@ -18,6 +18,8 @@ This repository contains the derivation, implementation, and validation of IAM a
 
 **Complete Test Ledger (IAM):** [IAM Validation Scorecard](docs/papers/IAM_Official_Score_Card.pdf)
 
+**Biological Physics — IAM applied to cellular systems:** [Biological_Physics/README.md](Biological_Physics/README.md)
+
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042)
@@ -42,7 +44,17 @@ IAM's strongest credential is not the number of tests it has passed, or that eve
 
 ---
 
-## ⚡ Latest Result — March 20, 2026
+## ⚡ Latest Result — April 13, 2026
+
+> **Jacobson's two assumptions about the Bekenstein–Hawking entropy are not independent — both are derived from the causal geometry of flat spacetime.**
+
+The proportionality S ∝ A follows from the irreversibility of decoherence: information produced at each quantum-to-classical transition must be encoded at the nearest 2D causal boundary because volume encoding is causally inaccessible to external observers. The coefficient η = 1/(4ℓ_P²) follows from 1/4 = 2π/8π, where 2π is the Euclidean Rindler cone angle and 8π is the Einstein equation normalization — both geometric facts about flat spacetime independent of the entropy-area assumption. The minimum horizon area per decoherence event is 4ℓ_P², consistent with exactly one bit per 4ℓ_P². Jacobson's machine — *specify an entropy functional, derive a gravity theory* — now fully specifies its own entropy functional. The single remaining open question is why a minimum resolvable length ℓ_P = √(ħG/c³) exists at all.
+
+→ Paper: [The Geometric Origin of the Bekenstein–Hawking Entropy Coefficient](docs/papers/iam_bekenstein_coefficient.pdf)
+
+---
+
+## Previous Result — March 20, 2026
 
 > **The cosmological constant problem and the baryon asymmetry problem are the same problem.**
 
@@ -75,6 +87,29 @@ This is the 18th independent test. All 18 run on personal hardware by an indepen
 **MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
 
 **Full reproducibility** -- Level 1 (MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 (modified CAMB): [`camb_validation/`](camb_validation/).
+
+---
+
+## Multi-Domain Evidence: IAM Beyond Cosmology
+
+IAM's Law — the thermodynamic cost of irreversible quantum-to-classical transitions — is not a cosmological model. It is a physical law that operates wherever decoherence occurs. The same principle that produces β_m = Ω_m/2 and closes the cosmological constant also sets the minimum information maintenance cost for living cells and predicts architecture-specific performance floors in semiconductor and quantum computing systems.
+
+### Biological Physics
+
+The Landauer cost of irreversible DNA methylation maintenance at physiological temperature defines architecture-class-specific entropy floors for all mammalian somatic cell types. These floors are derived from first principles with zero free parameters and validated against published TCGA cancer data.
+
+| Result | Value |
+|--------|-------|
+| Global Landauer floor H_min_global | 0.756500 (frontal cortex neuron) |
+| Cancer types confirmed (direction) | 27/28 TCGA types, n = 4,304 matched pairs |
+| Zero free parameters | No cancer data used in calibration |
+| DunedinPACE biological aging fit | t_max = 120.3 ± 7.1 yr (MCMC) |
+
+The same encoding surface saturation that produces the Dennard wall in semiconductors, the Substrate Inversion in quantum computing, and the H_min floor in cellular biology confirms that the encoding surface is physical across three completely independent domains — none of which was designed to test IAM.
+
+**→ Full Biological Physics derivations and validation:** [Biological_Physics/README.md](Biological_Physics/README.md)
+
+**→ Cell thermodynamics paper:** [Biological_Physics/papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/papers/Mahaffey_2026_cell_thermodynamics.pdf)
 
 ---
 
@@ -903,7 +938,7 @@ If you use this code or results in published research, please cite:
 
 ### What IAM Does NOT Claim
 
-- Complete fundamental derivation from quantum gravity (the holographic derivation is physically motivated but aspects remain to be formalized)
+- Complete derivation from quantum gravity microstructure — the thermodynamic level of the derivation is now complete (S ∝ A derived from causal accessibility, η = 1/(4ℓ_P²) derived from 2π/8π); the remaining open question is why a minimum resolvable length ℓ_P = √(ħG/c³) exists, which requires a UV-complete quantum gravity theory
 - Modification of Einstein's equations or gauge structure
 - That information is a new physical field or substance
 - Uniqueness (other parameterizations may fit similarly)
@@ -959,8 +994,9 @@ The author also thanks the Planck, SDSS/BOSS/eBOSS, SH0ES, DESI, and JWST collab
 
 ---
 
-**Last Updated:** March 20, 2026
-**Status:** 18 independent tests (17 converged MCMC chains + baryon asymmetry chain converged R-1 = 0.009273) | Δχ² = +0.54 best-fit vs ΛCDM | σ₈ = 0.800 | H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc | η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off, zero free parameters) | Zero free parameters — all derived from first principles | papers across 9 categories | GRF Essay submitted February 2026 | Euclid DR1 decisive test October 2026
+**Last Updated:** April 13, 2026
+**Status:** 18 independent tests (17 converged MCMC chains + baryon asymmetry chain converged R-1 = 0.009273) | Δχ² = +0.54 best-fit vs ΛCDM | σ₈ = 0.800 | H₀(photon) = 67.16, H₀(matter) = 72.26 km/s/Mpc | η_IAM = (6.115 ± 0.037)×10⁻¹⁰ (observed 6.137×10⁻¹⁰, 0.36%, BBN prior off, zero free parameters) | Zero free parameters — all derived from first principles | Papers across 9 categories | GRF Essay submitted February 2026 | Euclid DR1 October 21, 2026
 **March 20 session:** Baryon asymmetry MCMC chain converged (R-1 = 0.009273, 22,400 steps) — Planck CMB likelihood alone returned η = (6.115 ± 0.037)×10⁻¹⁰ against observed 6.137×10⁻¹⁰, 0.36% agreement, no nuclear physics input. The cosmological constant problem and the baryon asymmetry problem are the same problem.
+**April 13 session:** Bekenstein–Hawking entropy coefficient derived from causal geometry — S ∝ A from decoherence irreversibility (causal accessibility), η = 1/(4ℓ_P²) from 2π/8π (Rindler cone / Einstein normalization), minimum encoding area 4ℓ_P² from same ratio. Jacobson's two assumptions reduced to one derived result. Thermodynamic level of derivation complete.
 
 ---
