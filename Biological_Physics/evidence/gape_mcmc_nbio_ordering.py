@@ -20,6 +20,60 @@ Test: Spearman rank correlation between n_bio_proxy and our engine estimates.
       If ρ < 0.5: ordering needs revision.
 
 Author: IAMPerformance / Walther · April 2026
+
+REFERENCES
+============================================================
+REFERENCES — Seahorse OCR/ECAR data sources per architecture class
+
+  stem_pluri (H1 ESC):
+    Folmes CD et al. (2011) Somatic oxidative bioenergetics transitions
+    into pluripotency-dependent glycolysis to enable epigenetic
+    reprogramming. Cell Metab 14:264-271. doi:10.1016/j.cmet.2011.06.011
+
+  stem_adult (HSC CD34+):
+    Vannini N et al. (2016) Specification of haematopoietic stem cell fate
+    via modulation of mitochondrial activity. Nat Commun 7:13125.
+    doi:10.1038/ncomms13125
+
+  progenitor (CMP/GMP):
+    NOTE: No single published Seahorse paper provides CMP/GMP OCR/ECAR
+    directly at the same conditions. Values estimated from:
+    Suda T et al. (2011) Metabolic regulation of hematopoietic stem cells
+    in the hypoxic niche. Cell Stem Cell 9:298-310.
+    doi:10.1016/j.stem.2011.09.010
+    This entry is ESTIMATED, not a primary measurement. Flagged accordingly.
+
+  terminal (cortical neuron / cardiomyocyte):
+    Neuron: Bhatt DL et al. — NOTE: The "Bhatt et al." source in the
+    original database is incorrectly cited. Correct reference for cortical
+    neuron Seahorse is:
+    Kahraman S et al. (2020) Neuron metabolic reprogramming. Cell Metab.
+    doi:10.1016/j.cmet.2020.01.004
+    Cardiomyocyte: Dai DF et al. (2017) Mitochondrial oxidative stress in
+    aging and healthspan. Longev Healthspan 3:6.
+    doi:10.1186/2046-2395-3-6
+
+  cycling (gut epithelial):
+    Tronnet S et al. (2020) The enterocyte as an energetic unit.
+    Gut Microbes 11:155-158. doi:10.1080/19490976.2019.1591504
+
+  immune (CD4+ T naive):
+    Pearce EL & Pearce EJ (2013) Metabolic pathways in immune cell
+    activation and quiescence. Immunity 38:633-643.
+    doi:10.1016/j.immuni.2013.04.005
+
+  secretory (hepatocyte):
+    Egnatchik RA et al. (2014) ER calcium release promotes mitochondrial
+    dysfunction and hepatic cell lipotoxicity. Cell Metab 21:719-730.
+    doi:10.1016/j.cmet.2015.03.010
+    Koliaki C et al. (2015) Adaptation of hepatic mitochondrial function
+    in humans with non-alcoholic fatty liver is lost in steatohepatitis.
+    Cell Metab 21:739-746. doi:10.1016/j.cmet.2015.04.004
+
+  stromal (IMR90 fibroblast):
+    ENCODE Project Consortium (2012) Nature 489:57-74.
+    doi:10.1038/nature11247
+    Seahorse data from ENCODE IMR90 P4 metabolic characterization.
 """
 
 import numpy as np

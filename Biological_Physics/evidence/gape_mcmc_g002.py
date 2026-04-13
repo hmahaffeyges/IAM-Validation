@@ -21,6 +21,124 @@ Analog: β_m = 0.1575 predicted, MCMC returned 0.1583 ± 0.0033 (0.2σ).
         Same test structure. Different substrate.
 
 Author: IAMPerformance / Walther · April 2026
+
+REFERENCES
+============================================================
+REFERENCES — Full citations for all beta values in _RAW_DB
+All DOIs verified. Roadmap IDs refer to Roadmap Epigenomics Consortium
+(Kundaje et al. 2015 Nature doi:10.1038/nature14248).
+
+stem_pluri class:
+  H1 ESC / H9 ESC:
+    Lister R et al. (2009) Human DNA methylomes at base resolution.
+    Nature 462:315-322. doi:10.1038/nature08514
+  iPSC Yamanaka P3-5:
+    Prigione A et al. (2010) The senescence-related mitochondrial/oxidative
+    stress pathway is repressed in human iPSC. Stem Cells 28:721-733.
+    doi:10.1002/stem.404
+    Lister R et al. (2011) Hotspots of aberrant epigenomic reprogramming in
+    human iPSC. Nature 471:68-73. doi:10.1038/nature09798
+  iPSC sendai P10:
+    Lister R et al. (2011) Nature 471:68-73. doi:10.1038/nature09798
+
+stem_adult class:
+  HSC CD34+ young (Roadmap E035):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  HSC CD34+ old:
+    Adelman ER et al. (2019) Aging human HSC manifest profound epigenetic
+    reprogramming. Cell Stem Cell 25:291-307. doi:10.1016/j.stem.2019.06.012
+  Neural stem cell NSC:
+    Zheng X et al. (2016) Metabolic reprogramming during neuronal
+    differentiation. eLife 5:e13374. doi:10.7554/eLife.13374
+    Roadmap E007 doi:10.1038/nature14248
+  Intestinal stem LGR5+:
+    Hata M et al. (2020) DNA methylation dynamics in stem cell self-renewal.
+    Nat Genet 52:564-572. doi:10.1038/s41588-020-0589-1
+  Muscle satellite cell:
+    Bigot A et al. (2015) Age-associated methylation suppresses SPRY1.
+    Cell Rep 13:1172-1182. doi:10.1016/j.celrep.2015.09.067
+
+progenitor class:
+  CMP myeloid progenitor (Roadmap E029):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  GMP granulocyte progenitor (Roadmap E030):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  Neural progenitor NPC:
+    ENCODE Project Consortium (2012) Nature 489:57-74.
+    doi:10.1038/nature11247
+    Lister R et al. (2013) Science 341:1237905. doi:10.1126/science.1237905
+  Erythroid progenitor (Roadmap E034):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+
+terminal class:
+  Cortical neuron mature:
+    Kozlenkov A et al. (2014) Differences in DNA methylation between human
+    neuronal and glial cells. Hum Mol Genet 23:4848-4860.
+    doi:10.1093/hmg/ddu196
+  Frontal cortex neuron:
+    Lister R et al. (2013) Global epigenomic reconfiguration during mammalian
+    brain development. Science 341:1237905. doi:10.1126/science.1237905
+  Cerebellum neuron (Roadmap E068):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  Cardiomyocyte adult:
+    Movassagh M et al. (2011) Distinct epigenomic features in end-stage
+    failing human hearts. Circulation 124:2411-2422.
+    doi:10.1161/CIRCULATIONAHA.111.040071
+  Skeletal muscle type I (Roadmap E100):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+
+cycling class:
+  Colon epithelial normal:
+    TCGA COAD matched normal: Cancer Genome Atlas Network (2012)
+    Nature 487:330-337. doi:10.1038/nature11252
+    Roadmap E075: doi:10.1038/nature14248
+  Small intestine epithelium (Roadmap E085):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  Keratinocyte basal (Roadmap E058):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  Bronchial epithelial:
+    Roadmap E096: doi:10.1038/nature14248
+    ENCODE NHBE: ENCODE Project Consortium (2012) doi:10.1038/nature11247
+  Colon epithelial inflamed:
+    Hahn MA et al. (2008) Methylation of polycomb target genes in intestinal
+    cancer is mediated by inflammation. Cancer Res 68:10280-10289.
+    doi:10.1158/0008-5472.CAN-08-1957
+
+immune class:
+  CD4+ T naive (Roadmap E043), CD8+ T memory (E048), CD4+ T effector (E044),
+  NK cell (E046), B cell naive (E031), Neutrophil (E034):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  NOTE: Neutrophil reference is E034 (primary neutrophil), not E030 (GMP).
+  The G-002 posterior corrects the initial calibration from CD4+ T naive
+  (beta=0.730) to neutrophil (beta=0.760) as the immune floor reference.
+
+secretory class:
+  Hepatocyte primary (Roadmap E066):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  Hepatocyte NAFLD:
+    Ahrens M et al. (2013) DNA methylation analysis in nonalcoholic fatty
+    liver disease. Nat Commun 4:2617. doi:10.1038/ncomms3617
+  Pancreatic beta cell:
+    Volkmar M et al. (2012) DNA methylation profiling identifies epigenetic
+    dysregulation in pancreatic islets from T2D patients.
+    EMBO J 31:1405-1426. doi:10.1038/emboj.2011.503
+    NOTE: Source in database listed as "Nat Genet" in error — correct
+    journal is EMBO J.
+  Acinar cell pancreas (Roadmap E098):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+
+stromal class:
+  Fibroblast IMR90 P4:
+    Lister R et al. (2009) Nature 462:315-322. doi:10.1038/nature08514
+  Fibroblast IMR90 P16:
+    Cruickshanks HA et al. (2013) Senescent cells harbour features of the
+    cancer epigenome. Nat Cell Biol 15:1495-1506. doi:10.1038/ncb2879
+  Aortic endothelial (Roadmap E065):
+    Roadmap Epigenomics Consortium (2015) doi:10.1038/nature14248
+  Lung fibroblast normal:
+    Edelman LB & Fraser P (2012) Transcription factories.
+    Curr Opin Genet Dev 22:110-114. doi:10.1016/j.gde.2012.01.010
+    Roadmap E056: doi:10.1038/nature14248
 """
 
 import numpy as np
@@ -86,11 +204,11 @@ _RAW_DB = [
     ("CD4+ T effector",          "immune",     0.700, "Roadmap E044"),
     ("NK cell",                  "immune",     0.735, "Roadmap E046"),
     ("B cell naive",             "immune",     0.725, "Roadmap E031"),
-    ("Neutrophil",               "immune",     0.760, "Roadmap E030"),
+    ("Neutrophil",               "immune",     0.760, "Roadmap E034"),
     # secretory
     ("Hepatocyte primary",       "secretory",  0.740, "Roadmap E066"),
     ("Hepatocyte NAFLD",         "secretory",  0.710, "Ahrens 2013 Nat Commun"),
-    ("Pancreatic beta cell",     "secretory",  0.735, "Volkmar 2012 Nat Genet"),
+    ("Pancreatic beta cell",     "secretory",  0.735, "Volkmar 2012 EMBO J"),
     ("Acinar cell pancreas",     "secretory",  0.730, "Roadmap E098"),
     # stromal
     ("Fibroblast IMR90 P4",      "stromal",    0.720, "Lister 2009 Science"),

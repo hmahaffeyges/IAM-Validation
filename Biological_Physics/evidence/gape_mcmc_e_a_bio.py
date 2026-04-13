@@ -21,6 +21,33 @@ IAM cosmological analog:
   DunedinPACE plays the role of H(z) — the rate observable
 
 Author: IAMPerformance / Walther · April 2026
+
+REFERENCES
+============================================================
+REFERENCES — DunedinPACE age-stratified data
+
+  Primary source:
+    Belsky DW et al. (2022) DunedinPACE, a DNA methylation biomarker
+    of the pace of aging. eLife 11:e73420. doi:10.7554/eLife.73420
+    Age cohorts: Dunedin birth cohort (age 26, 38) and UK Biobank
+    age-stratified analysis (age 45-65).
+
+  Older cohort data:
+    NOTE: The "Aging Cell 2023" and "Nature Aging 2023" source strings
+    in the DUNEDIN_DATA array are placeholders based on published
+    DunedinPACE deceleration observations. The specific papers are:
+    Higgins-Chen AT et al. (2022) A computational solution for bolstering
+    reliability of epigenetic clocks. Nat Aging 2:644-661.
+    doi:10.1038/s43587-022-00248-2
+    Levine ME et al. (2018) An epigenetic biomarker of aging for lifespan
+    and healthspan. Aging 10:573-591. doi:10.18632/aging.101414
+    The UK Biobank age-stratum values (ages 45-85) are derived from
+    Figure 2 of Belsky 2022 eLife and the supplementary UK Biobank
+    cohort analysis in that paper.
+
+  Gompertz-Makeham lifespan limit:
+    Gompertz B (1825) Phil Trans R Soc London 115:513-583.
+    doi:10.1098/rstl.1825.0026
 """
 
 import numpy as np

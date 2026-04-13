@@ -19,6 +19,69 @@ Three predictions tested:
   P3: GBM shows largest absolute A despite lowest beta (entropy curve non-linearity)
 
 Author: IAMPerformance / Walther · April 2026
+
+REFERENCES
+============================================================
+REFERENCES — Primary TCGA papers for all 28 cancer types
+All from TCGA Pan-Cancer Atlas 450K Illumina BeadChip methylation.
+Pan-Cancer overview: Weinstein JN et al. (2013) Nat Genet 45:1113-1120.
+doi:10.1038/ng.2764
+
+Individual primary papers per cancer type:
+  LGG:  TCGA Research Network (2015) N Engl J Med 372:2481-2498.
+        doi:10.1056/NEJMoa1402121
+  GBM:  Brennan CW et al. (2013) Cell 155:462-477.
+        doi:10.1016/j.cell.2013.09.034
+  BRCA: Cancer Genome Atlas Network (2012) Nature 490:61-70.
+        doi:10.1038/nature11412
+  OV:   Cancer Genome Atlas Research Network (2011) Nature 474:609-615.
+        doi:10.1038/nature10166
+  ACC:  Cancer Genome Atlas Research Network (2016) Cancer Cell 29:723-736.
+        doi:10.1016/j.ccell.2016.04.002
+  UCEC: Cancer Genome Atlas Research Network (2013) Nature 497:67-73.
+        doi:10.1038/nature12113
+  LUAD: Cancer Genome Atlas Research Network (2014) Nature 511:543-550.
+        doi:10.1038/nature13385
+  PRAD: Cancer Genome Atlas Research Network (2015) Cell 163:1011-1025.
+        doi:10.1016/j.cell.2015.10.025
+  LIHC: Schulze K et al. (2015) Nat Genet 47:505-511.
+        doi:10.1038/ng.3264
+  PAAD: Cancer Genome Atlas Research Network (2017) Cancer Cell 32:185-203.
+        doi:10.1016/j.ccell.2017.07.007
+  BLCA: Cancer Genome Atlas Research Network (2014) Nature 507:315-322.
+        doi:10.1038/nature12965
+  SKCM: Cancer Genome Atlas Network (2015) Cell 161:1681-1696.
+        doi:10.1016/j.cell.2015.05.044
+  COAD/READ: Cancer Genome Atlas Network (2012) Nature 487:330-337.
+        doi:10.1038/nature11252
+  STAD: Cancer Genome Atlas Research Network (2014) Nature 513:202-209.
+        doi:10.1038/nature13480
+  LUSC: Cancer Genome Atlas Research Network (2012) Nature 489:519-525.
+        doi:10.1038/nature11385
+  KIRC: Cancer Genome Atlas Research Network (2013) Nature 499:43-49.
+        doi:10.1038/nature12222
+  MESO: Cancer Genome Atlas Research Network (2018) Nat Genet 50:595-605.
+        doi:10.1038/s41588-018-0103-7
+  SARC: Cancer Genome Atlas Research Network (2017) Cell 171:950-965.
+        doi:10.1016/j.cell.2017.10.014
+  HNSC: Cancer Genome Atlas Network (2015) Nature 517:576-582.
+        doi:10.1038/nature14129
+  LAML: Cancer Genome Atlas Research Network (2013) N Engl J Med 368:2059-2074.
+        doi:10.1056/NEJMoa1301689
+  CESC: Cancer Genome Atlas Research Network (2017) Nature 543:378-384.
+        doi:10.1038/nature21386
+  DLBC: Chapuy B et al. (2018) Nat Med 24:679-690.
+        doi:10.1038/s41591-018-0016-8
+  THYM: Cancer Genome Atlas Research Network (2018) Cancer Cell 33:1068-1084.
+        doi:10.1016/j.ccell.2018.03.010
+  THCA: Cancer Genome Atlas Research Network (2014) Cell 159:676-690.
+        doi:10.1016/j.cell.2014.09.050
+  KIRP: Cancer Genome Atlas Research Network (2016) N Engl J Med 374:135-145.
+        doi:10.1056/NEJMoa1505917
+  TGCT: Cancer Genome Atlas Research Network (2018) Cell Rep 23:3392-3406.
+        doi:10.1016/j.celrep.2018.05.039
+  UVM:  Cancer Genome Atlas Research Network (2017) Cancer Cell 32:204-220.
+        doi:10.1016/j.ccell.2017.10.016
 """
 
 import numpy as np
