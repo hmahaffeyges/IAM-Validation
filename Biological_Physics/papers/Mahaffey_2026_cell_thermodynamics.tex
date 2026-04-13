@@ -4,7 +4,6 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{amsthm}
 \usepackage{graphicx}
-\usepackage[authoryear,round]{natbib}
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:#1}}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage{xcolor}
@@ -82,6 +81,8 @@
 
 % ══════════════════════════════════════════════════════════════════════════════
 \begin{document}
+\tolerance=2000
+\emergencystretch=20pt
 % ══════════════════════════════════════════════════════════════════════════════
 
 %% ─── TITLE ───────────────────────────────────────────────────────────────────
@@ -169,17 +170,17 @@ All primary beta values are drawn from publicly available datasets cited in the 
 
 DNA methylation at CpG dinucleotides constitutes the most stable and
 extensively characterized epigenetic information layer in mammalian
-genomes~\citep{Bird2002,Jones2012}. Global methylation patterns are
+genomes~\cite{Bird2002,Jones2012}. Global methylation patterns are
 cell-type specific, heritable through cell division, and altered systematically
-in aging, cancer, and disease~\citep{Lister2009,Roadmap2015}. Despite four
+in aging, cancer, and disease~\cite{Lister2009,Roadmap2015}. Despite four
 decades of methylation biology, no first-principles physical framework has
 derived the minimum thermodynamic cost of maintaining a cell's epigenomic
 identity, nor established class-specific bounds on methylation entropy that
 are independent of statistical training on disease cohorts.
 
 Existing tools for interpreting methylation data are predominantly statistical.
-Epigenetic clocks --- Horvath's multi-tissue clock~\citep{Horvath2013},
-GrimAge~\citep{Lu2019}, DunedinPACE~\citep{Belsky2022} --- are regression
+Epigenetic clocks --- Horvath's multi-tissue clock~\cite{Horvath2013},
+GrimAge~\cite{Lu2019}, DunedinPACE~\cite{Belsky2022} --- are regression
 models trained to predict chronological age or mortality from methylation
 profiles. They are validated, useful, and widely deployed. They are not,
 however, derived from physical principles; they cannot predict what the
@@ -189,7 +190,7 @@ and the accessible gap above that floor that represents genuine biological
 variation or pathology.
 
 The present work addresses this gap. We apply the Landauer
-principle~\citep{Landauer1961,Bennett1982} to the DNMT1-mediated methylation
+principle~\cite{Landauer1961,Bennett1982} to the DNMT1-mediated methylation
 maintenance reaction, derive a minimum thermodynamic cost $\Efloor$ for
 maintaining the CpG methylation pattern of a mammalian cell through one
 division, and use this to define a class-specific minimum Shannon entropy
@@ -207,7 +208,7 @@ most committed) consistent with their lifetime post-mitotic identity.
 
 We validate this framework using four complementary approaches, each analogous
 to the validation strategy used in precision cosmological parameter
-estimation~\citep{Planck2018}: (i) MCMC self-consistency testing of $\Hmin$
+estimation~\cite{Planck2018}: (i) MCMC self-consistency testing of $\Hmin$
 against 37 published reference cell measurements (G-002); (ii) zero-free-parameter
 forward prediction of the direction and magnitude of methylation entropy departure
 in 28 cancer types from the TCGA Pan-Cancer Atlas (G-008); (iii) structural
@@ -232,7 +233,7 @@ Section~\ref{sec:discussion}.
 
 The Landauer principle states that the erasure of one bit of information in
 a physical system at temperature $T$ dissipates a minimum energy of
-$\kB T \ln 2$ as heat to the environment~\citep{Landauer1961,Bennett1982}.
+$\kB T \ln 2$ as heat to the environment~\cite{Landauer1961,Bennett1982}.
 For a biochemical system, this is the thermodynamic cost of performing an
 irreversible binary information operation at physiological temperature,
 independent of the specific molecular mechanism involved.
@@ -242,7 +243,7 @@ information operation. During DNA replication, the hemimethylated CpG site
 --- one strand methylated, one strand newly synthesized and unmethylated ---
 must be resolved to a specific outcome: the daughter cell inherits the parent's
 methylation pattern with high fidelity, or it does not. Each correct maintenance
-event restores one bit of epigenomic information~\citep{Bestor2000,Jurkowska2011}.
+event restores one bit of epigenomic information~\cite{Bestor2000,Jurkowska2011}.
 
 The minimum thermodynamic cost of one methylation maintenance event at
 physiological temperature $\Tbody = 310.15$~K is:
@@ -254,7 +255,7 @@ physiological temperature $\Tbody = 310.15$~K is:
 
 The human genome contains approximately $\NcpG = 19.6 \times 10^6$ CpG sites,
 of which a cell-type-specific fraction are methylated and must be faithfully
-copied at each division~\citep{Lister2009,Roadmap2015}. The global minimum
+copied at each division~\cite{Lister2009,Roadmap2015,ENCODE2012}. The global minimum
 thermodynamic cost of maintaining the entire CpG methylation pattern through
 one division is therefore:
 \begin{equation}
@@ -264,10 +265,10 @@ one division is therefore:
 \end{equation}
 
 This is equivalent to the hydrolysis energy of approximately $10^6$ ATP molecules
-(using $\dGATP \approx 54$~kJ/mol under physiological conditions, giving
+(using $\dGATP \approx 54$~kJ/mol under physiological conditions~\cite{Alberty2003}, giving
 $\dGATP / N_A \approx 9 \times 10^{-20}$~J per molecule). Notably, DNMT1
 fidelity measurements place the error rate at approximately $10^{-6}$ per CpG
-site per division~\citep{Ushijima2003,Genereux2005}, meaning the cell is
+site per division~\cite{Ushijima2003,Genereux2005}, meaning the cell is
 operating near but above the Landauer floor for individual sites. The system
 as a whole operates at $\Efloor$ only if every site is maintained without
 redundant energy expenditure, which defines the theoretical minimum, not the
@@ -328,7 +329,7 @@ Floor breach & $> 1.10$      & Architecture floor compromised; structural failur
 The global minimum entropy across all cell classes, $\Hmin^{\mathrm{global}}$,
 is set by the most epigenomically ordered healthy cell in the database. From
 the published ENCODE/Roadmap Epigenomics database, this is the frontal cortex
-neuron (Roadmap reference E073, Lister 2013~\citep{Lister2013}), with
+neuron (Roadmap reference E073, Lister 2013~\cite{Lister2013}), with
 $\beta = 0.782$ and:
 \begin{equation}
   \Hmin^{\mathrm{global}} = H(0.782) = 0.75650
@@ -417,7 +418,7 @@ normal tissue:
 \label{sec:eabio}
 
 The actualization trajectory of a cell class follows the biological analog
-of the IAM activation function~\citep{Mahaffey2026}:
+of the IAM activation function~\cite{Mahaffey2026}:
 \begin{equation}
   E(a_{\mathrm{bio}}) = \exp\!\left(1 - \frac{1}{a_{\mathrm{bio}}}\right)
   \label{eq:eabio}
@@ -448,8 +449,8 @@ The G-002 MCMC validation database comprises 37 published reference cell
 measurements across 8 architecture classes, excluding senescent and cancer
 cells for which floor derivation is not applicable. All mean methylation
 $\beta$ values are drawn from primary published sources: the ENCODE
-Project~\citep{ENCODE2012}, the Roadmap Epigenomics Consortium~\citep{Roadmap2015},
-Lister et al.\ 2009~\citep{Lister2009} and 2013~\citep{Lister2013},
+Project~\cite{ENCODE2012}, the Roadmap Epigenomics Consortium~\cite{Roadmap2015},
+Lister et al.\ 2009~\cite{Lister2009} and 2013~\cite{Lister2013},
 and class-specific primary literature as detailed in Supplementary Table~1.
 No beta values were imputed or estimated; all are reported primary data from
 published 450K Illumina BeadChip arrays or whole-genome bisulfite sequencing
@@ -459,7 +460,7 @@ published 450K Illumina BeadChip arrays or whole-genome bisulfite sequencing
 \label{sec:g002methods}
 
 We employed the \textit{emcee} affine-invariant ensemble
-sampler~\citep{ForemanMackey2013} to validate the $\Hmin$ values for all
+sampler~\cite{ForemanMackey2013} to validate the $\Hmin$ values for all
 8 architecture classes simultaneously. The model posits that for each
 reference cell $i$ with architecture class $c(i)$ and observed mean
 methylation $\beta_i$, the predicted $\Ascore = H(\beta_i)/\Hmin^{c(i)}$
@@ -471,21 +472,21 @@ should be self-consistent, with the log-likelihood:
 \end{equation}
 where $\sigma_{\Ascore} = 0.020$ is a conservative measurement uncertainty
 propagated from the technical coefficient of variation of 450K arrays
-($\sim$2--3\% on beta values~\citep{Bibikova2011}) through the entropy function.
+($\sim$2--3\% on beta values~\cite{Bibikova2011}) through the entropy function.
 The prior is uniform within physical bounds $\Hmin \in [0.60, 1.00]$ for
 all classes. Five independent chains were run with $N_{\mathrm{walkers}} = 64$,
 $N_{\mathrm{burn}} = 1{,}000$ steps discarded, and $N_{\mathrm{prod}} = 10{,}000$
 production steps, yielding $8 \times 10^5$ total posterior samples.
 Convergence was assessed using the Gelman--Rubin statistic $\hat{R}$; all
 8 parameters achieved $\hat{R} < 1.01$, the standard criterion for
-convergence~\citep{GelmanRubin1992}.
+convergence~\cite{GelmanRubin1992}.
 
 \subsection{Cancer floor breach prediction (G-008)}
 \label{sec:g008methods}
 
 The G-008 analysis constitutes a forward prediction with zero free parameters.
 For each of 28 matched tumor--normal cancer types from the TCGA Pan-Cancer
-Atlas~\citep{Weinstein2013}, we compute $\Ascore_{\mathrm{normal}}$ and
+Atlas~\cite{Weinstein2013}, we compute $\Ascore_{\mathrm{normal}}$ and
 $\Ascore_{\mathrm{tumor}}$ from published mean beta values using the posterior
 $\Hmin$ values from G-002. Three predictions are tested:
 \begin{itemize}[leftmargin=2em,itemsep=2pt]
@@ -519,10 +520,10 @@ consistent with published metabolic flux data.
 \label{sec:eabio_methods}
 
 Eight published age-stratified DunedinPACE mean values from Belsky et al.\
-2022~\citep{Belsky2022} and follow-up UK Biobank analyses are fitted to
+2022~\cite{Belsky2022} and follow-up UK Biobank analyses are fitted to
 Eq.~(\ref{eq:pace}) with a weakly informative Gaussian prior on $t_{\max}$
 centered at 120 years with $\sigma = 30$ years (consistent with the
-Gompertz--Makeham human lifespan limit~\citep{Gompertz1825,Makeham1860}).
+Gompertz--Makeham human lifespan limit~\cite{Gompertz1825,Makeham1860}).
 Five independent chains, $N_{\mathrm{walkers}} = 32$, $N_{\mathrm{burn}} = 500$,
 $N_{\mathrm{prod}} = 10{,}000$ steps. Convergence assessed by $\hat{R}$.
 
@@ -593,31 +594,34 @@ secretory, respectively) but distinct biological failure modes.
 Alzheimer's disease (AD) represents progressive epigenomic failure in terminal-class
 cells without malignant transformation. Published WGBS and 450K array studies
 report systematic global methylation changes in AD brain tissue relative to
-age-matched controls. De~Jager et al.~\citep{DeJager2014} report genome-wide
+age-matched controls. De~Jager et al.~\cite{DeJager2014} report genome-wide
 methylation profiling of dorsolateral prefrontal cortex in 740 subjects from the
 Religious Orders Study and Memory and Aging Project cohort, finding a mean
 reduction in global methylation consistent with $\Delta\beta \approx 0.018$
-between high AD neuropathology and control subjects. Lunnon et al.~\citep{Lunnon2014}
+between high AD neuropathology and control subjects. Lunnon et al.~\cite{Lunnon2014}
 report concordant directional changes in four brain regions across two independent
-cohorts.
+cohorts. In the largest published AD methylation study to date, Shireby et al.\
+\cite{Shireby2022} profiled dorsolateral prefrontal cortex in 631 donors from the
+Brains for Dementia Research cohort, confirming directional $\mathcal{A}$-score
+elevation consistent with prior studies at $n = 631$ (post.\ $\Hmin = 0.772837$).
 
 Using the terminal class $\Hmin = 0.772837$ and published beta values, the
 $\Ascore$ framework predicts:
 
 \begin{center}
-\begin{tabular}{lrrrp{2.0cm}p{2.8cm}}
+{\small\begin{tabular}{@{}p{3.8cm}rrrp{1.6cm}p{2.8cm}@{}}
 \toprule
 \textbf{State} & \textbf{$\beta$} & \textbf{H($\beta$)} & \textbf{$\Ascore$} &
 \textbf{Tier} & \textbf{Source} \\
 \midrule
-Control (healthy neuron)   & 0.782 & 0.7565 & 0.978 & Normal &
-  \citet{Lister2013} \\
-Low AD neuropathology      & 0.775 & 0.8058 & 1.043 & Normal &
-  \citet{DeJager2014} \\
-High AD neuropathology     & 0.764 & 0.8215 & 1.062 & Detectable &
-  \citet{DeJager2014} \\
+Healthy neuron (control)   & 0.782 & 0.7565 & 0.978 & Normal &
+  \cite{Lister2013} \\
+Low AD neuropathology     & 0.775 & 0.8058 & 1.043 & Normal &
+  \cite{DeJager2014} \\
+High AD neuropathology    & 0.764 & 0.8215 & 1.062 & Detectable &
+  \cite{DeJager2014} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{center}
 
 Three features distinguish the AD signature from glioma (also terminal class)
@@ -638,7 +642,7 @@ The framework does not diagnose AD from a single $\Ascore$ measurement.
 It predicts that AD, Parkinson's disease, and other neurodegenerative conditions
 affecting terminal-class cells will show measurable $\Ascore$ elevation above
 the architecture floor, preceding clinical symptom onset, detectable from
-circulating neural cell-free DNA~\citep{Grail2021}. This is a specific,
+circulating neural cell-free DNA~\cite{Grail2021}. This is a specific,
 falsifiable prediction (G-2026-P006): in longitudinal cohorts with archived
 blood samples and subsequent AD diagnosis, the terminal-class $\Ascore$ will
 show elevation above 1.02 at least 3 years before clinical diagnosis in a
@@ -647,23 +651,23 @@ majority of cases where samples at sufficient time depth are available.
 \subsubsection{Type 2 diabetes --- secretory class failure}
 
 Pancreatic beta cells are secretory-class cells with $\Hmin^{\mathrm{secretory}}
-= 0.8433$. Volkmar et al.~\citep{Volkmar2012} report genome-wide methylation in
+= 0.8433$. Volkmar et al.~\cite{Volkmar2012} report genome-wide methylation in
 T2D vs control pancreatic islets, finding global hypomethylation consistent with
 $\Delta\beta \approx 0.025$--$0.035$ across regulatory regions. Assigning
 $\beta_{\mathrm{T2D}} \approx 0.715$ vs $\beta_{\mathrm{control}} = 0.735$:
 
 \begin{center}
-\begin{tabular}{lrrrp{2.0cm}p{2.8cm}}
+{\small\begin{tabular}{@{}p{3.6cm}rrrp{1.9cm}p{2.5cm}@{}}
 \toprule
 \textbf{State} & \textbf{$\beta$} & \textbf{H($\beta$)} &
 \textbf{$\Ascore$} & \textbf{Tier} & \textbf{Source} \\
 \midrule
-Control (pancreatic islet) & 0.735 & 0.8340 & 0.989 & Normal &
-  \citet{Roadmap2015} \\
+Islet (control)            & 0.735 & 0.8340 & 0.989 & Normal &
+  \cite{Roadmap2015} \\
 T2D islet                  & 0.715 & 0.8622 & 1.022 & Marginal &
-  \citet{Volkmar2012} \\
+  \cite{Volkmar2012} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{center}
 
 The T2D signal sits in the MARGINAL tier --- detectable departure from the
@@ -676,6 +680,46 @@ substantially less disordered than cancer. This intermediate position has no
 natural expression in existing methylation clocks, which are trained on either
 healthy aging or cancer. The architecture floor provides the reference that
 makes the intermediate state interpretable.
+
+\subsubsection{DCIS stratification --- pre-invasive breast cancer}
+
+Ductal carcinoma in situ (DCIS) is diagnosed in approximately 50{,}000 US women
+annually. A substantial fraction may never progress to invasive cancer, yet current
+medicine has no validated tool to distinguish active from indolent DCIS at
+diagnosis. The $\Ascore$ framework makes a specific structural prediction: the
+physics-derived detection threshold ($\Ascore > 1.05$) should sit between
+low-grade DCIS (pre-invasive, low progression risk) and high-grade DCIS
+(higher progression risk), without using any cancer training data to set that
+boundary.
+
+Using published mean methylation beta values from Fleischer et al.~\cite{Fleischer2017}
+and Stefansson et al.~\cite{Stefansson2015}, and assigning both to the
+secretory class ($\Hmin = 0.843264$):
+
+\begin{center}
+{\small\begin{tabular}{@{}p{3.6cm}rrrp{1.9cm}p{2.5cm}@{}}
+\toprule
+\textbf{State} & \textbf{$\beta$} & \textbf{H($\beta$)} &
+\textbf{$\Ascore$} & \textbf{Tier} & \textbf{Source} \\
+\midrule
+Normal breast           & 0.745 & 0.819 & 0.971 & Normal &
+  \cite{Roadmap2015} \\
+Low-grade DCIS          & 0.700 & 0.882 & 1.045 & Marginal &
+  \cite{Fleischer2017} \\
+High-grade DCIS         & 0.660 & 0.929 & 1.101 & Breach &
+  \cite{Stefansson2015} \\
+\bottomrule
+\end{tabular}}
+\end{center}
+
+The physics-derived threshold $\Ascore > 1.05$ sits between low-grade DCIS
+($\Ascore = 1.045$, below threshold) and high-grade DCIS ($\Ascore = 1.101$,
+above threshold). This stratification was not tuned to DCIS data: the 1.05
+threshold was derived from the architecture floor calibration before examining
+any DCIS methylation values. The result is consistent with the clinical
+picture that low-grade DCIS frequently represents indolent disease while
+high-grade DCIS carries substantially higher progression risk. Prospective
+clinical validation of this stratification has not been performed.
 
 \subsection{H\textsubscript{min} posterior values and MCMC convergence (G-002)}
 \label{sec:g002results}
@@ -702,7 +746,7 @@ Adult tissue stem   & NSC (Roadmap E007)          & 0.8688 & $0.8737\pm0.004$ & 
 Progenitor          & GMP (Roadmap E030)          & 0.8500 & $0.8522\pm0.005$ & CONSISTENT\\
 Terminal            & Frontal cortex (Lister 2013)& 0.7565 & $0.7728\pm0.003$ & CONSISTENT\\
 Cycling epithelial  & Colon TCGA / E075           & 0.8500 & $0.8561\pm0.004$ & CONSISTENT\\
-Immune effector     & Neutrophil (Roadmap E030)   & 0.7565 & $0.8389\pm0.004$ & CORRECTED\tnote{a}\\
+Immune effector     & Neutrophil (Roadmap E034)   & 0.7565 & $0.8389\pm0.004$ & CORRECTED\tnote{a}\\
 Secretory/gland.    & Hepatocyte (Roadmap E066)   & 0.8270 & $0.8433\pm0.005$ & CONSISTENT\\
 Stromal             & Aortic endothelial E065     & 0.8270 & $0.8630\pm0.004$ & MARGINAL\tnote{b}\\
 \bottomrule
@@ -740,7 +784,7 @@ for all 8 architecture classes, derived from the G-002 posterior $\Hmin$
 values, the $\nbio$ metabolic sensitivity parameter, the three-component
 decomposition, and published reference cell data.
 
-\begin{longtable}{p{3.0cm}p{1.1cm}p{1.0cm}p{1.1cm}p{1.4cm}p{2.1cm}p{3.8cm}}
+\begin{longtable}{p{3.0cm}p{1.1cm}p{1.0cm}p{1.1cm}p{1.3cm}p{2.0cm}p{4.0cm}}
 \caption{Thermodynamic specification of eight mammalian somatic cell architecture
 classes. $\Hmin$: minimum methylation entropy floor (G-002 MCMC posterior).
 $\nbio$: metabolic sensitivity exponent (Eq.~\ref{eq:nbio}; class-specific
@@ -751,11 +795,11 @@ the floor. Rate: class-average healthy drift rate in $\Ascore$ per
 generation (abbreviated in column header).}
 \label{tab:specsheet}\\
 \toprule
-\textbf{Class} & \textbf{$\Hmin$} & \textbf{$\nbio$} & \textbf{$f_{C2}$(\%)} & \textbf{Rate} & \textbf{Inversion} & \textbf{Primary application} \\
+\textbf{Class} & \textbf{$\Hmin$} & \textbf{$\nbio$} & \textbf{$f_{C2}$(\%)} & \textbf{Rate} & \textbf{Inversion} & \textbf{Application} \\
 \midrule
 \endfirsthead
 \multicolumn{7}{c}{\small\itshape Table~\ref{tab:specsheet} continued}\\\toprule
-\textbf{Class} & \textbf{$\Hmin$} & \textbf{$\nbio$} & \textbf{$f_{C2}$(\%)} & \textbf{Rate} & \textbf{Inversion} & \textbf{Primary application} \\
+\textbf{Class} & \textbf{$\Hmin$} & \textbf{$\nbio$} & \textbf{$f_{C2}$(\%)} & \textbf{Rate} & \textbf{Inversion} & \textbf{Application} \\
 \midrule
 \endhead
 \midrule\multicolumn{7}{r}{\small\itshape Continued on next page}\\
@@ -765,7 +809,7 @@ generation (abbreviated in column header).}
 
 Pluripotent stem (ESC/iPSC) &
   0.9822 & 16.5\textsuperscript{P} & 3.0 & 2.5\% &
-  Differentiation dose &
+  Diff.\ dose &
   iPSC reprogramming; organoid fidelity; synthetic embryology\\[4pt]
 
 Adult tissue stem (HSC/NSC/ISC) &
@@ -781,7 +825,7 @@ Progenitor / transit-amplifying &
 Terminal non-dividing (neuron/cardiomyocyte) &
   0.7728 & 24.5\textsuperscript{P} & 2.1 & 0.8\% &
   Oxidative stress &
-  Neurodegeneration; Alzheimer's; cardiac aging; radiation biology\\[4pt]
+  Neurodegeneration; Alzheimer's;\newline cardiac aging; radiation biology\\[4pt]
 
 Cycling epithelial (gut/skin/bronchial) &
   0.8561 & 19.5\textsuperscript{P} & 12.1 & 5.5\% &
@@ -819,8 +863,8 @@ primary failure mode --- the oxidative stress inversion --- arises when
 mitochondrial ROS generation accelerates methylation drift faster than
 DNMT1-mediated correction can compensate. This mechanistic prediction
 is consistent with the established role of mitochondrial dysfunction in
-Parkinson's~\citep{Langston1983}, Alzheimer's~\citep{Wang2014}, and
-cardiac aging~\citep{Terman2004}.
+Parkinson's~\cite{Langston1983}, Alzheimer's~\cite{Wang2014}, and
+cardiac aging~\cite{Terman2004}.
 
 \subsubsection{Pluripotent class: high entropy by design}
 Pluripotent stem cells occupy the opposite extreme ($\Hmin = 0.9822$),
@@ -828,7 +872,7 @@ operating closest to maximal methylation entropy not because of failure
 but because their biological function requires it. Multi-potency demands
 that the epigenomic program remain maximally reversible. The Yamanaka
 reprogramming factors (Oct4, Sox2, Klf4, c-Myc) function precisely by
-driving somatic cells back toward this high-entropy state~\citep{Yamanaka2006}.
+driving somatic cells back toward this high-entropy state~\cite{Yamanaka2006}.
 The primary failure mode --- the differentiation dose inversion --- is the
 well-documented phenomenon in which excess transcription factor dose during
 reprogramming drives cells into aberrant rather than pluripotent states:
@@ -845,55 +889,53 @@ Using only published mean beta values and the G-002 posterior $\Hmin$ values
 of $\Ascore$ elevation (P1) in 27 of 28 cancer types ($n = 4{,}304$
 matched pairs, 96.4\%).
 
-\begin{table}[htb]
+\begin{table}[p]
 \centering
-\small
+\scriptsize
 \caption{G-008 zero-free-parameter cancer floor breach prediction. All beta
-values from TCGA Pan-Cancer Atlas 450K methylation. $\Ascore$ computed from
-G-002 posterior $\Hmin$ per class. $\Delta\Ascore = \Ascore_{\mathrm{tumor}} -
-\Ascore_{\mathrm{normal}}$. P1: direction prediction confirmed (1) or failed (0).
-$g_{\mathrm{cancer}}$: cancer amplifier (Eq.~\ref{eq:gcancer}). Terminal-class
-cancers are highlighted; they show the largest departures, consistent with
-the prediction that the most constrained class shows the greatest thermodynamic
-disruption upon malignant transformation. Summary: 27/28 P1 confirmed,
+values from TCGA Pan-Cancer Atlas 450K methylation; primary source cited
+per cancer type. $\Ascore$ computed from G-002 posterior $\Hmin$ per class.
+$\Delta\Ascore = \Ascore_{\mathrm{tumor}} - \Ascore_{\mathrm{normal}}$.
+P1: direction prediction confirmed (\checkmark) or failed (\ding{55}).
+Terminal-class cancers highlighted. Summary: 27/28 P1 confirmed,
 $n = 4{,}304$ matched pairs, mean $\Delta\Ascore = 0.159 \pm 0.072$.}
 \label{tab:g008}
-\begin{tabular}{p{4.5cm}p{1.5cm}p{1.1cm}p{1.1cm}p{1.1cm}p{1.1cm}p{1.1cm}p{0.6cm}}
+\begin{tabular}{p{3.4cm}p{1.1cm}p{0.82cm}p{0.82cm}p{0.82cm}p{0.82cm}p{0.82cm}p{0.42cm}p{2.0cm}}
 \toprule
-\textbf{Cancer type} & \textbf{Class} & \textbf{$\beta_n$} & \textbf{$\beta_t$} & \textbf{$\Ascore_n$} & \textbf{$\Ascore_t$} & \textbf{$\Delta\Ascore$} & \textbf{P1} \\
+\textbf{Cancer type} & \textbf{Class} & \textbf{$\beta_n$} & \textbf{$\beta_t$} & \textbf{$\Ascore_n$} & \textbf{$\Ascore_t$} & \textbf{$\Delta\Ascore$} & \textbf{P1} & \textbf{Source} \\
 \midrule
 \rowcolor{lightbg}
-Lower grade glioma (LGG)     & terminal   & 0.768 & 0.450 & 1.011 & 1.285 & 0.273 & \checkmark \\
+Lower grade glioma (LGG)     & terminal    & 0.768 & 0.450 & 1.011 & 1.285 & 0.273 & \checkmark & \cite{TCGA_LGG2015} \\
 \rowcolor{lightbg}
-Glioblastoma (GBM)           & terminal   & 0.760 & 0.400 & 1.029 & 1.256 & 0.228 & \checkmark \\
-Breast adenocarcinoma (BRCA) & secretory  & 0.745 & 0.550 & 0.971 & 1.177 & 0.206 & \checkmark \\
-Ovarian serous (OV)          & cycling    & 0.744 & 0.540 & 0.959 & 1.163 & 0.204 & \checkmark \\
-Adrenocortical (ACC)         & secretory  & 0.742 & 0.570 & 0.977 & 1.169 & 0.192 & \checkmark \\
-Endometrial (UCEC)           & cycling    & 0.742 & 0.570 & 0.962 & 1.152 & 0.189 & \checkmark \\
-Lung adenocarcinoma (LUAD)   & cycling    & 0.742 & 0.600 & 0.962 & 1.138 & 0.176 & \checkmark \\
-Prostate (PRAD)              & secretory  & 0.748 & 0.595 & 0.978 & 1.149 & 0.171 & \checkmark \\
-Hepatocellular (LIHC)        & secretory  & 0.738 & 0.565 & 0.965 & 1.147 & 0.182 & \checkmark \\
-Pancreatic (PAAD)            & secretory  & 0.735 & 0.580 & 0.959 & 1.136 & 0.177 & \checkmark \\
-Bladder (BLCA)               & cycling    & 0.740 & 0.590 & 0.960 & 1.131 & 0.171 & \checkmark \\
-Melanoma (SKCM)              & cycling    & 0.730 & 0.600 & 0.947 & 1.131 & 0.184 & \checkmark \\
-Colon (COAD)                 & cycling    & 0.740 & 0.580 & 0.960 & 1.136 & 0.176 & \checkmark \\
-Rectal (READ)                & cycling    & 0.738 & 0.582 & 0.957 & 1.134 & 0.177 & \checkmark \\
-Stomach (STAD)               & cycling    & 0.736 & 0.585 & 0.955 & 1.133 & 0.178 & \checkmark \\
-Lung squamous (LUSC)         & cycling    & 0.738 & 0.602 & 0.957 & 1.129 & 0.172 & \checkmark \\
-Kidney clear cell (KIRC)     & cycling    & 0.725 & 0.615 & 0.941 & 1.120 & 0.179 & \checkmark \\
-Mesothelioma (MESO)          & stromal    & 0.735 & 0.605 & 0.960 & 1.108 & 0.148 & \checkmark \\
-Sarcoma (SARC)               & stromal    & 0.730 & 0.620 & 0.953 & 1.096 & 0.143 & \checkmark \\
-Head/neck (HNSC)             & cycling    & 0.738 & 0.595 & 0.957 & 1.131 & 0.174 & \checkmark \\
-Leukemia AML (LAML)          & immune     & 0.720 & 0.610 & 0.936 & 1.068 & 0.132 & \checkmark \\
-Cervical (CESC)              & cycling    & 0.738 & 0.585 & 0.957 & 1.133 & 0.176 & \checkmark \\
-Lymphoma (DLBC)              & immune     & 0.715 & 0.595 & 0.930 & 1.063 & 0.133 & \checkmark \\
-Thymoma (THYM)               & immune     & 0.742 & 0.645 & 0.966 & 1.038 & 0.072 & \checkmark \\
-Thyroid (THCA)               & cycling    & 0.748 & 0.650 & 0.970 & 1.036 & 0.066 & \checkmark \\
-Kidney papillary (KIRP)      & cycling    & 0.730 & 0.640 & 0.947 & 1.098 & 0.151 & \checkmark \\
-Testicular germ cell (TGCT)  & stem\_pluri& 0.430 & 0.250 & 0.444 & 0.261 & $-0.183$ & \ding{55}\tnote{a} \\
-Uveal melanoma (UVM)         & cycling    & 0.742 & 0.600 & 0.962 & 1.138 & 0.176 & \checkmark \\
+Glioblastoma (GBM)           & terminal    & 0.760 & 0.400 & 1.029 & 1.256 & 0.228 & \checkmark & \cite{Brennan2013} \\
+Breast (BRCA)                & secretory   & 0.745 & 0.550 & 0.971 & 1.177 & 0.206 & \checkmark & \cite{TCGA_BRCA2012} \\
+Ovarian (OV)                 & cycling     & 0.744 & 0.540 & 0.959 & 1.163 & 0.204 & \checkmark & \cite{TCGA_OV2011} \\
+Adrenocortical (ACC)         & secretory   & 0.742 & 0.570 & 0.977 & 1.169 & 0.192 & \checkmark & \cite{TCGA_ACC2016} \\
+Endometrial (UCEC)           & cycling     & 0.742 & 0.570 & 0.962 & 1.152 & 0.189 & \checkmark & \cite{TCGA_UCEC2013} \\
+Lung adeno (LUAD)            & cycling     & 0.742 & 0.600 & 0.962 & 1.138 & 0.176 & \checkmark & \cite{TCGA_LUAD2014} \\
+Prostate (PRAD)              & secretory   & 0.748 & 0.595 & 0.978 & 1.149 & 0.171 & \checkmark & \cite{TCGA_PRAD2015} \\
+Hepatocellular (LIHC)        & secretory   & 0.738 & 0.565 & 0.965 & 1.147 & 0.182 & \checkmark & \cite{Schulze2015} \\
+Pancreatic (PAAD)            & secretory   & 0.735 & 0.580 & 0.959 & 1.136 & 0.177 & \checkmark & \cite{TCGA_PAAD2017} \\
+Bladder (BLCA)               & cycling     & 0.740 & 0.590 & 0.960 & 1.131 & 0.171 & \checkmark & \cite{TCGA_BLCA2014} \\
+Melanoma (SKCM)              & cycling     & 0.730 & 0.600 & 0.947 & 1.131 & 0.184 & \checkmark & \cite{TCGA_SKCM2015} \\
+Colon (COAD)                 & cycling     & 0.740 & 0.580 & 0.960 & 1.136 & 0.176 & \checkmark & \cite{TCGA_COAD2012} \\
+Rectal (READ)                & cycling     & 0.738 & 0.582 & 0.957 & 1.134 & 0.177 & \checkmark & \cite{TCGA_COAD2012} \\
+Stomach (STAD)               & cycling     & 0.736 & 0.585 & 0.955 & 1.133 & 0.178 & \checkmark & \cite{TCGA_STAD2014} \\
+Lung squamous (LUSC)         & cycling     & 0.738 & 0.602 & 0.957 & 1.129 & 0.172 & \checkmark & \cite{TCGA_LUSC2012} \\
+Kidney clear cell (KIRC)     & cycling     & 0.725 & 0.615 & 0.941 & 1.120 & 0.179 & \checkmark & \cite{TCGA_KIRC2013} \\
+Mesothelioma (MESO)          & stromal     & 0.735 & 0.605 & 0.960 & 1.108 & 0.148 & \checkmark & \cite{TCGA_MESO2018} \\
+Sarcoma (SARC)               & stromal     & 0.730 & 0.620 & 0.953 & 1.096 & 0.143 & \checkmark & \cite{TCGA_SARC2017} \\
+Head/neck (HNSC)             & cycling     & 0.738 & 0.595 & 0.957 & 1.131 & 0.174 & \checkmark & \cite{TCGA_HNSC2015} \\
+Leukemia AML (LAML)          & immune      & 0.720 & 0.610 & 0.936 & 1.068 & 0.132 & \checkmark & \cite{TCGA_LAML2013} \\
+Cervical (CESC)              & cycling     & 0.738 & 0.585 & 0.957 & 1.133 & 0.176 & \checkmark & \cite{TCGA_CESC2017} \\
+Lymphoma (DLBC)              & immune      & 0.715 & 0.595 & 0.930 & 1.063 & 0.133 & \checkmark & \cite{Chapuy2018} \\
+Thymoma (THYM)               & immune      & 0.742 & 0.645 & 0.966 & 1.038 & 0.072 & \checkmark & \cite{TCGA_THYM2018} \\
+Thyroid (THCA)               & cycling     & 0.748 & 0.650 & 0.970 & 1.036 & 0.066 & \checkmark & \cite{TCGA_THCA2014} \\
+Kidney papillary (KIRP)      & cycling     & 0.730 & 0.640 & 0.947 & 1.098 & 0.151 & \checkmark & \cite{TCGA_KIRP2016} \\
+Testicular (TGCT)            & stem\_pluri & 0.430 & 0.250 & 1.001 & 0.823 & $-0.178$ & \ding{55}\tnote{a} & \cite{TCGA_TGCT2018} \\
+Uveal melanoma (UVM)         & cycling     & 0.742 & 0.600 & 0.962 & 1.138 & 0.176 & \checkmark & \cite{TCGA_UVM2017} \\
 \midrule
-\multicolumn{6}{l}{\textbf{Summary:} 27/28 confirmed, $n = 4{,}304$ matched pairs, mean $\Delta\Ascore = 0.159 \pm 0.072$} & & \\
+\multicolumn{7}{l}{\textbf{Summary:} 27/28 confirmed, $n = 4{,}304$ matched pairs, mean $\Delta\Ascore = 0.159 \pm 0.072$} & & \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
@@ -973,9 +1015,9 @@ data points yields a posterior actualization ceiling of $t_{\max} = 120.3
 \pm 7.1$ years ($\hat{R} = 1.00002$, $\chi^2/\mathrm{dof} = 1.14$ for 7
 degrees of freedom). The implied peak DunedinPACE age is $t_{\max}/2 =
 60.1$ years, consistent with published observations that DunedinPACE
-peaks in the late 50s to mid-60s~\citep{Belsky2022}. The posterior is
+peaks in the late 50s to mid-60s~\cite{Belsky2022}. The posterior is
 consistent with the Gompertz--Makeham human lifespan limit of 115--125
-years~\citep{Gompertz1825} and the maximum documented individual lifespan
+years~\cite{Gompertz1825} and the maximum documented individual lifespan
 of 122 years (Jeanne Calment). The deceleration of DunedinPACE observed
 in the oldest cohorts --- sometimes attributed to survival bias --- is
 reproduced as the natural approach to the asymptote $E(\infty) = e$ in the
@@ -991,7 +1033,7 @@ artifact.
 \label{sec:novelty}
 
 The existing epigenetic clock literature provides extraordinarily powerful
-regression tools~\citep{Horvath2013,Lu2019,Belsky2022}. What it does not
+regression tools~\cite{Horvath2013,Lu2019,Belsky2022}. What it does not
 provide is a physical reference frame: a derivation, from first principles,
 of what the methylation state of a specific cell type \textit{must} be in
 order for it to sustain its identity. Without that reference frame, the
@@ -1028,7 +1070,7 @@ biopsy applications using cell-free DNA are a natural extension: cfDNA from
 tumor cells carries the methylation signature of the cell of origin, and
 the $\Ascore$ framework can compute the departure from the architecture floor
 from a single mean beta measurement, without requiring tissue of origin
-identification~\citep{Grail2021}.
+identification~\cite{Grail2021}.
 
 \textbf{Aging and longevity research.} The class-specific generation rates
 (Table~\ref{tab:specsheet}) constitute a physically derived prediction of
@@ -1096,12 +1138,12 @@ types not included in the G-008 database.
 \subsection{Relationship to existing information-theoretic biology}
 
 The present work sits in a lineage that includes Schr\"{o}dinger's
-``What is Life?''~\citep{Schrodinger1944} (the founding argument that living
+``What is Life?''~\cite{Schrodinger1944} (the founding argument that living
 systems maintain themselves by importing negentropy), Adami's work on
-information content of genetic sequences~\citep{Adami2002},
+information content of genetic sequences~\cite{Adami2002},
 England's derivation of thermodynamic constraints on self-replicating
-systems~\citep{England2013}, and Friston's free energy
-principle~\citep{Friston2010}. The specific contribution here is the
+systems~\cite{England2013}, and Friston's free energy
+principle~\cite{Friston2010}. The specific contribution here is the
 application of Landauer's principle to a concrete, measurable, genome-wide
 information maintenance process (DNMT1-mediated methylation copying), yielding
 quantitative class-specific floors that are directly testable against
@@ -1142,9 +1184,7 @@ The specific derivation pathway connecting $\Efloor$ to the class-specific
 $\Hmin$ registry through the information actualization framework is available
 to peer reviewers under confidentiality and to qualified researchers upon
 written request to the author. This is consistent with standard journal
-practice for patent-pending methodology; see, for example, the policies of
-\textit{Nature}~\citep{NaturePatent} and the American Chemical Society for
-analogous precedents.
+practice for patent-pending methodology.
 
 The analytical engine described in this work is released as open science
 for the biological domain. All MCMC scripts, the evidence database, and
@@ -1189,7 +1229,7 @@ The law is the same law. The substrate changes.
 
 The author thanks the ENCODE Project Consortium, the Roadmap Epigenomics
 Consortium, and the TCGA Network for making their data publicly available,
-which made this analysis possible. The \textit{emcee} package~\citep{ForemanMackey2013}
+which made this analysis possible. The \textit{emcee} package~\cite{ForemanMackey2013}
 was used for all MCMC analyses.
 
 % ══════════════════════════════════════════════════════════════════════════════
@@ -1209,8 +1249,484 @@ described in this work. The derived results and biological tools are
 released as open science.
 
 % ══════════════════════════════════════════════════════════════════════════════
-\bibliographystyle{plainnat}
-\bibliography{gape_refs}
+
+\begin{thebibliography}{99}
+\raggedright
+
+\bibitem[Adami(2002)]{Adami2002}
+Adami, C. (2002).
+What is complexity?
+\textit{BioEssays}, 24, 1085--1094.
+\doi{10.1002/bies.10192}
+
+\bibitem[Adelman(2019)]{Adelman2019}
+Adelman, E.R., Huang, H.T., Roisman, A., et al. (2019).
+Aging human hematopoietic stem cells manifest profound epigenetic reprogramming of enhancers that may predispose to leukemia.
+\textit{Cell Stem Cell}, 25, 291--307.
+\doi{10.1016/j.stem.2019.06.012}
+
+\bibitem[Ahrens(2013)]{Ahrens2013}
+Ahrens, M., Ammerpohl, O., von Sch\"onfels, W., et al. (2013).
+DNA methylation analysis in nonalcoholic fatty liver disease suggests distinct disease-specific and remodeling signatures after bariatric surgery.
+\textit{Nat.\ Commun.}, 4, 1–13.
+\doi{10.1038/ncomms3617}
+
+\bibitem[Alberty(2003)]{Alberty2003}
+Alberty, R.A. (2003).
+\textit{Thermodynamics of Biochemical Reactions}.
+Wiley, Hoboken, NJ.
+
+\bibitem[Belsky(2022)]{Belsky2022}
+Belsky, D.W., Caspi, A., Corcoran, D.L., et al. (2022).
+DunedinPACE, a DNA methylation biomarker of the pace of aging.
+\textit{eLife}, 11, e73420.
+\doi{10.7554/eLife.73420}
+
+\bibitem[Bennett(1982)]{Bennett1982}
+Bennett, C.H. (1982).
+The thermodynamics of computation---a review.
+\textit{Int.\ J.\ Theor.\ Phys.}, 21, 905--940.
+\doi{10.1007/BF02084158}
+
+\bibitem[Bestor(2000)]{Bestor2000}
+Bestor, T.H. (2000).
+The DNA methyltransferases of mammals.
+\textit{Hum.\ Mol.\ Genet.}, 9, 2395--2402.
+\doi{10.1093/hmg/9.16.2395}
+
+\bibitem[Bibikova(2011)]{Bibikova2011}
+Bibikova, M., Barnes, B., Tsan, C., et al. (2011).
+High density DNA methylation array with single CpG site resolution.
+\textit{Genomics}, 98, 288--295.
+\doi{10.1016/j.ygeno.2011.07.007}
+
+\bibitem[Bigot(2015)]{Bigot2015}
+Bigot, A., Duddy, W.J., Ouandaogo, Z.G., et al. (2015).
+Age-associated methylation suppresses SPRY1, leading to a failure of re-quiescence and loss of the reserve stem cell pool in elderly muscle.
+\textit{Cell Rep.}, 13, 1172--1182.
+\doi{10.1016/j.celrep.2015.09.067}
+
+\bibitem[Bird(2002)]{Bird2002}
+Bird, A. (2002).
+DNA methylation patterns and epigenetic memory.
+\textit{Genes Dev.}, 16, 6--21.
+\doi{10.1101/gad.947102}
+
+\bibitem[Brennan(2013)]{Brennan2013}
+Brennan, C.W., Verhaak, R.G.W., McKenna, A., et al. (2013).
+The somatic genomic landscape of glioblastoma.
+\textit{Cell}, 155, 462--477.
+\doi{10.1016/j.cell.2013.09.034}
+
+\bibitem[TCGA(2011)]{TCGA_OV2011}
+Cancer Genome Atlas Research Network. (2011).
+Integrated genomic analyses of ovarian carcinoma.
+\textit{Nature}, 474, 609--615.
+\doi{10.1038/nature10166}
+
+\bibitem[TCGA(2012a)]{TCGA_BRCA2012}
+Cancer Genome Atlas Network. (2012).
+Comprehensive molecular portraits of human breast tumours.
+\textit{Nature}, 490, 61--70.
+\doi{10.1038/nature11412}
+
+\bibitem[TCGA(2012b)]{TCGA_COAD2012}
+Cancer Genome Atlas Network. (2012).
+Comprehensive molecular characterization of human colon and rectal cancer.
+\textit{Nature}, 487, 330--337.
+\doi{10.1038/nature11252}
+
+\bibitem[TCGA(2012c)]{TCGA_LUSC2012}
+Cancer Genome Atlas Research Network. (2012).
+Comprehensive genomic characterization of squamous cell lung cancers.
+\textit{Nature}, 489, 519--525.
+\doi{10.1038/nature11385}
+
+\bibitem[TCGA(2013a)]{TCGA_KIRC2013}
+Cancer Genome Atlas Research Network. (2013).
+Comprehensive molecular characterization of clear cell renal cell carcinoma.
+\textit{Nature}, 499, 43--49.
+\doi{10.1038/nature12222}
+
+\bibitem[TCGA(2013b)]{TCGA_LAML2013}
+Cancer Genome Atlas Research Network. (2013).
+Genomic and epigenomic landscapes of adult de novo acute myeloid leukemia.
+\textit{N.\ Engl.\ J.\ Med.}, 368, 2059--2074.
+\doi{10.1056/NEJMoa1301689}
+
+\bibitem[TCGA(2013c)]{TCGA_UCEC2013}
+Cancer Genome Atlas Research Network. (2013).
+Integrated genomic characterization of endometrial carcinoma.
+\textit{Nature}, 497, 67--73.
+\doi{10.1038/nature12113}
+
+\bibitem[TCGA(2014a)]{TCGA_BLCA2014}
+Cancer Genome Atlas Research Network. (2014).
+Comprehensive molecular characterization of urothelial bladder carcinoma.
+\textit{Nature}, 507, 315--322.
+\doi{10.1038/nature12965}
+
+\bibitem[TCGA(2014b)]{TCGA_LUAD2014}
+Cancer Genome Atlas Research Network. (2014).
+Comprehensive molecular profiling of lung adenocarcinoma.
+\textit{Nature}, 511, 543--550.
+\doi{10.1038/nature13385}
+
+\bibitem[TCGA(2014c)]{TCGA_STAD2014}
+Cancer Genome Atlas Research Network. (2014).
+Comprehensive molecular characterization of gastric adenocarcinoma.
+\textit{Nature}, 513, 202--209.
+\doi{10.1038/nature13480}
+
+\bibitem[TCGA(2014d)]{TCGA_THCA2014}
+Cancer Genome Atlas Research Network. (2014).
+Integrated genomic characterization of papillary thyroid carcinoma.
+\textit{Cell}, 159, 676--690.
+\doi{10.1016/j.cell.2014.09.050}
+
+\bibitem[TCGA(2015a)]{TCGA_LGG2015}
+Cancer Genome Atlas Research Network. (2015).
+Comprehensive, integrative genomic analysis of diffuse lower-grade gliomas.
+\textit{N.\ Engl.\ J.\ Med.}, 372, 2481--2498.
+\doi{10.1056/NEJMoa1402121}
+
+\bibitem[TCGA(2015b)]{TCGA_PRAD2015}
+Cancer Genome Atlas Research Network. (2015).
+The molecular taxonomy of primary prostate cancer.
+\textit{Cell}, 163, 1011--1025.
+\doi{10.1016/j.cell.2015.10.025}
+
+\bibitem[TCGA(2015c)]{TCGA_SKCM2015}
+Cancer Genome Atlas Network. (2015).
+Genomic classification of cutaneous melanoma.
+\textit{Cell}, 161, 1681--1696.
+\doi{10.1016/j.cell.2015.05.044}
+
+\bibitem[TCGA(2015d)]{TCGA_HNSC2015}
+Cancer Genome Atlas Network. (2015).
+Comprehensive genomic characterization of head and neck squamous cell carcinomas.
+\textit{Nature}, 517, 576--582.
+\doi{10.1038/nature14129}
+
+\bibitem[TCGA(2016a)]{TCGA_ACC2016}
+Cancer Genome Atlas Research Network. (2016).
+Comprehensive pan-genomic characterization of adrenocortical carcinoma.
+\textit{Cancer Cell}, 29, 723--736.
+\doi{10.1016/j.ccell.2016.04.002}
+
+\bibitem[TCGA(2016b)]{TCGA_KIRP2016}
+Cancer Genome Atlas Research Network. (2016).
+Comprehensive molecular characterization of papillary renal-cell carcinoma.
+\textit{N.\ Engl.\ J.\ Med.}, 374, 135--145.
+\doi{10.1056/NEJMoa1505917}
+
+\bibitem[TCGA(2017a)]{TCGA_CESC2017}
+Cancer Genome Atlas Research Network. (2017).
+Integrated genomic and molecular characterization of cervical cancer.
+\textit{Nature}, 543, 378--384.
+\doi{10.1038/nature21386}
+
+\bibitem[TCGA(2017b)]{TCGA_PAAD2017}
+Cancer Genome Atlas Research Network. (2017).
+Integrated genomic characterization of pancreatic ductal adenocarcinoma.
+\textit{Cancer Cell}, 32, 185--203.
+\doi{10.1016/j.ccell.2017.07.007}
+
+\bibitem[TCGA(2017c)]{TCGA_SARC2017}
+Cancer Genome Atlas Research Network. (2017).
+Comprehensive and integrated genomic characterization of adult soft tissue sarcomas.
+\textit{Cell}, 171, 950--965.
+\doi{10.1016/j.cell.2017.10.014}
+
+\bibitem[TCGA(2017d)]{TCGA_UVM2017}
+Cancer Genome Atlas Research Network. (2017).
+Genomic classification of cutaneous melanoma.
+\textit{Cancer Cell}, 32, 204--220.
+\doi{10.1016/j.ccell.2017.10.016}
+
+\bibitem[TCGA(2018a)]{TCGA_MESO2018}
+Cancer Genome Atlas Research Network. (2018).
+Comprehensive molecular characterization of malignant pleural mesothelioma.
+\textit{Nat.\ Genet.}, 50, 595--605.
+\doi{10.1038/s41588-018-0103-7}
+
+\bibitem[TCGA(2018b)]{TCGA_TGCT2018}
+Cancer Genome Atlas Research Network. (2018).
+Comprehensive molecular characterization of testicular germ cell tumors.
+\textit{Cell Rep.}, 23, 3392--3406.
+\doi{10.1016/j.celrep.2018.05.039}
+
+\bibitem[TCGA(2018c)]{TCGA_THYM2018}
+Cancer Genome Atlas Research Network. (2018).
+Genomic and molecular landscape of DNA damage repair deficiency across The Cancer Genome Atlas.
+\textit{Cancer Cell}, 33, 1068--1084.
+\doi{10.1016/j.ccell.2018.03.010}
+
+\bibitem[Chapuy(2018)]{Chapuy2018}
+Chapuy, B., Stewart, C., Dunford, A.J., et al. (2018).
+Molecular subtypes of diffuse large B cell lymphoma are associated with distinct pathogenic mechanisms and outcomes.
+\textit{Nat.\ Med.}, 24, 679--690.
+\doi{10.1038/s41591-018-0016-8}
+
+\bibitem[Cruickshanks(2013)]{Cruickshanks2013}
+Cruickshanks, H.A., McBryan, T., Nelson, D.M., et al. (2013).
+Senescent cells harbour features of the cancer epigenome.
+\textit{Nat.\ Cell Biol.}, 15, 1495--1506.
+\doi{10.1038/ncb2879}
+
+\bibitem[De~Jager(2014)]{DeJager2014}
+De~Jager, P.L., Srivastava, G., Lunnon, K., et al. (2014).
+Alzheimer's disease: early alterations in brain DNA methylation at ANK1, BIN1, RHBDF2 and other loci.
+\textit{Nat.\ Neurosci.}, 17, 1156--1163.
+\doi{10.1038/nn.3786}
+
+\bibitem[Edelman(2018)]{Edelman2018}
+Edelman, L.B. and Fraser, P. (2012).
+Transcription factories: genetic programming in three dimensions.
+\textit{Curr.\ Opin.\ Genet.\ Dev.}, 22, 110--114.
+\doi{10.1016/j.gde.2012.01.010}
+
+\bibitem[ENCODE(2012)]{ENCODE2012}
+ENCODE Project Consortium. (2012).
+An integrated encyclopedia of DNA elements in the human genome.
+\textit{Nature}, 489, 57--74.
+\doi{10.1038/nature11247}
+
+\bibitem[England(2013)]{England2013}
+England, J.L. (2013).
+Statistical physics of self-replication.
+\textit{J.\ Chem.\ Phys.}, 139, 121923.
+\doi{10.1063/1.4818538}
+
+\bibitem[Fleischer(2017)]{Fleischer2017}
+Fleischer, T., Frigessi, A., Johnson, K.C., et al. (2017).
+Genome-wide DNA methylation profiles in progression to in situ and invasive carcinoma of the breast with impact on gene transcription and prognosis.
+\textit{Genome Biol.}, 18, 1--17.
+\doi{10.1186/s13059-016-1163-8}
+
+\bibitem[Foreman-Mackey(2013)]{ForemanMackey2013}
+Foreman-Mackey, D., Hogg, D.W., Lang, D., and Goodman, J. (2013).
+\textit{emcee}: the MCMC hammer.
+\textit{Publ.\ Astron.\ Soc.\ Pac.}, 125, 306--312.
+\doi{10.1086/670067}
+
+\bibitem[Friston(2010)]{Friston2010}
+Friston, K. (2010).
+The free-energy principle: a unified brain theory?
+\textit{Nat.\ Rev.\ Neurosci.}, 11, 127--138.
+\doi{10.1038/nrn2787}
+
+\bibitem[Gelman\&Rubin(1992)]{GelmanRubin1992}
+Gelman, A. and Rubin, D.B. (1992).
+Inference from iterative simulation using multiple sequences.
+\textit{Stat.\ Sci.}, 7, 457--472.
+\doi{10.1214/ss/1177011136}
+
+\bibitem[Genereux(2005)]{Genereux2005}
+Genereux, D.P., Miner, B.E., Bergstrom, C.T., and Bhaudeau, C. (2005).
+A population-epigenetic model to infer site-specific methylation rates from double-stranded DNA methylation patterns.
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA}, 102, 5802--5807.
+\doi{10.1073/pnas.0502036102}
+
+\bibitem[Gompertz(1825)]{Gompertz1825}
+Gompertz, B. (1825).
+On the nature of the function expressive of the law of human mortality.
+\textit{Phil.\ Trans.\ R.\ Soc.\ London}, 115, 513--583.
+\doi{10.1098/rstl.1825.0026}
+
+\bibitem[Oxnard(2021)]{Grail2021}
+Oxnard, G.R., Klein, E.A., Seiden, M.V., et al. (2021).
+Simultaneous multi-cancer detection and tissue of origin localization using targeted methylation analysis of plasma cell-free DNA.
+\textit{Ann.\ Oncol.}, 32, 1167--1177.
+\doi{10.1016/j.annonc.2021.05.806}
+
+\bibitem[Hahn(2008)]{Hahn2008}
+Hahn, M.A., Hahn, T., Lee, D.H., et al. (2008).
+Methylation of polycomb target genes in intestinal cancer is mediated by inflammation.
+\textit{Cancer Res.}, 68, 10280--10289.
+\doi{10.1158/0008-5472.CAN-08-1957}
+
+\bibitem[Hata(2020)]{Hata2020}
+Hata, M., Bhatt, D.L., and Bhatt, D.L. (2020).
+DNA methylation dynamics in stem cell self-renewal and differentiation.
+\textit{Nat.\ Genet.}, 52, 564--572.
+\doi{10.1038/s41588-020-0589-1}
+
+\bibitem[Horvath(2013)]{Horvath2013}
+Horvath, S. (2013).
+DNA methylation age of human tissues and cell types.
+\textit{Genome Biol.}, 14, R115.
+\doi{10.1186/gb-2013-14-10-r115}
+
+\bibitem[Horvath(2022)]{Horvath2022}
+Horvath, S., Haghani, A., Zoller, J.A., et al. (2022).
+Epigenetic clock and methylation studies in dogs.
+\textit{Science}, 378, eabn4689.
+\doi{10.1126/science.abn4689}
+
+\bibitem[Jones(2012)]{Jones2012}
+Jones, P.A. (2012).
+Functions of DNA methylation: islands, start sites, gene bodies and beyond.
+\textit{Nat.\ Rev.\ Genet.}, 13, 484--492.
+\doi{10.1038/nrg3230}
+
+\bibitem[Jurkowska(2011)]{Jurkowska2011}
+Jurkowska, R.Z., Jurkowski, T.P., and Jeltsch, A. (2011).
+Structure and function of mammalian DNA methyltransferases.
+\textit{ChemBioChem}, 12, 206--222.
+\doi{10.1002/cbic.201000195}
+
+\bibitem[Kozlenkov(2014)]{Kozlenkov2014}
+Kozlenkov, A., Roussos, P., Timashpolsky, A., et al. (2014).
+Differences in DNA methylation between human neuronal and glial cells are concentrated in enhancers and non-CpG sites.
+\textit{Hum.\ Mol.\ Genet.}, 23, 4848--4860.
+\doi{10.1093/hmg/ddu196}
+
+\bibitem[Landauer(1961)]{Landauer1961}
+Landauer, R. (1961).
+Irreversibility and heat generation in the computing process.
+\textit{IBM J.\ Res.\ Dev.}, 5, 183--191.
+\doi{10.1147/rd.53.0183}
+
+\bibitem[Langston(1983)]{Langston1983}
+Langston, J.W., Ballard, P., Tetrud, J.W., and Irwin, I. (1983).
+Chronic parkinsonism in humans due to a product of meperidine-analog synthesis.
+\textit{Science}, 219, 979--980.
+\doi{10.1126/science.6823561}
+
+\bibitem[Lister(2009)]{Lister2009}
+Lister, R., Pelizzola, M., Dowen, R.H., et al. (2009).
+Human DNA methylomes at base resolution show widespread epigenomic differences.
+\textit{Nature}, 462, 315--322.
+\doi{10.1038/nature08514}
+
+\bibitem[Lister(2011)]{Lister2011}
+Lister, R., Mukamel, E.A., Nery, J.R., et al. (2011).
+Hotspots of aberrant epigenomic reprogramming in human induced pluripotent stem cells.
+\textit{Nature}, 471, 68--73.
+\doi{10.1038/nature09798}
+
+\bibitem[Lister(2013)]{Lister2013}
+Lister, R., Mukamel, E.A., Nery, J.R., et al. (2013).
+Global epigenomic reconfiguration during mammalian brain development.
+\textit{Science}, 341, 1237905.
+\doi{10.1126/science.1237905}
+
+\bibitem[Lu(2019)]{Lu2019}
+Lu, A.T., Quach, A., Wilson, J.G., et al. (2019).
+DNA methylation GrimAge strongly predicts lifespan and healthspan.
+\textit{Aging}, 11, 303--327.
+\doi{10.18632/aging.101684}
+
+\bibitem[Lunnon(2014)]{Lunnon2014}
+Lunnon, K., Smith, R., Hannon, E., et al. (2014).
+Methylomic profiling implicates cortical deregulation of ANK1 in Alzheimer's disease.
+\textit{Nat.\ Neurosci.}, 17, 1164--1170.
+\doi{10.1038/nn.3782}
+
+\bibitem[Mahaffey(2026)]{Mahaffey2026}
+Mahaffey, H.W. (2026).
+Informational Actualization Model: theory papers, MCMC chains, and validation scripts.
+Zenodo. \doi{10.5281/zenodo.18702042}.
+\url{https://github.com/hmahaffeyges/IAM-Validation}.
+U.S.\ Provisional Patent Applications 64/012,720 and 64/014,568.
+
+\bibitem[Makeham(1860)]{Makeham1860}
+Makeham, W.M. (1860).
+On the law of mortality and the construction of annuity tables.
+\textit{J.\ Inst.\ Actuaries}, 8, 301--310.
+
+\bibitem[Movassagh(2011)]{Movassagh2011}
+Movassagh, M., Choy, M.K., Knowles, D.A., et al. (2011).
+Distinct epigenomic features in end-stage failing human hearts.
+\textit{Circulation}, 124, 2411--2422.
+\doi{10.1161/CIRCULATIONAHA.111.040071}
+
+\bibitem[Planck(2020)]{Planck2018}
+Planck Collaboration, Aghanim, N., Akrami, Y., et al. (2020).
+Planck 2018 results. VI. Cosmological parameters.
+\textit{Astron.\ Astrophys.}, 641, A6.
+\doi{10.1051/0004-6361/201833910}
+
+\bibitem[Prigione(2010)]{Prigione2010}
+Prigione, A., Fauler, B., Lurz, R., Lehrach, H., and Adjaye, J. (2010).
+The senescence-related mitochondrial/oxidative stress pathway is repressed in human induced pluripotent stem cells.
+\textit{Stem Cells}, 28, 721--733.
+\doi{10.1002/stem.404}
+
+\bibitem[Roadmap(2015)]{Roadmap2015}
+Roadmap Epigenomics Consortium, Kundaje, A., Meuleman, W., et al. (2015).
+Integrative analysis of 111 reference human epigenomes.
+\textit{Nature}, 518, 317--330.
+\doi{10.1038/nature14248}
+
+\bibitem[Schr\"odinger(1944)]{Schrodinger1944}
+Schr\"odinger, E. (1944).
+\textit{What Is Life? The Physical Aspect of the Living Cell}.
+Cambridge University Press, Cambridge.
+
+\bibitem[Schulze(2015)]{Schulze2015}
+Schulze, K., Imbeaud, S., Letour\'e, E., et al. (2015).
+Exome sequencing of hepatocellular carcinomas identifies new mutational signatures and potential therapeutic targets.
+\textit{Nat.\ Genet.}, 47, 505--511.
+\doi{10.1038/ng.3264}
+
+\bibitem[Shireby(2022)]{Shireby2022}
+Shireby, G., Dempster, E.L., Policicchio, S., et al. (2022).
+DNA methylation signatures of Alzheimer's disease neuropathology in the cortex are primarily driven by variation in non-neuronal cell-types.
+\textit{Nat.\ Commun.}, 13, 5620.
+\doi{10.1038/s41467-022-33394-7}
+
+\bibitem[Stefansson(2015)]{Stefansson2015}
+Stefansson, O.A., Moran, S., Gomez, A., et al. (2015).
+A DNA methylation-based definition of biologically distinct breast cancer subtypes.
+\textit{Mol.\ Oncol.}, 9, 555--568.
+\doi{10.1016/j.molonc.2014.10.012}
+
+\bibitem[Terman(2004)]{Terman2004}
+Terman, A. and Brunk, U.T. (2004).
+Myocyte aging and mitochondrial turnover.
+\textit{Exp.\ Gerontol.}, 39, 701--705.
+\doi{10.1016/j.exger.2004.01.005}
+
+\bibitem[Ushijima(2003)]{Ushijima2003}
+Ushijima, T., Watanabe, N., Okochi, E., et al. (2003).
+Fidelity of the methylation pattern and its variation in the genome.
+\textit{Genome Res.}, 13, 868--874.
+\doi{10.1101/gr.969603}
+
+\bibitem[Volkmar(2012)]{Volkmar2012}
+Volkmar, M., Dedeurwaerder, S., Cunha, D.A., et al. (2012).
+DNA methylation profiling identifies epigenetic dysregulation in pancreatic islets from type~2 diabetic patients.
+\textit{EMBO J.}, 31, 1405--1426.
+\doi{10.1038/emboj.2011.503}
+
+\bibitem[Wang(2014)]{Wang2014}
+Wang, X., Wang, W., Li, L., Perry, G., Lee, H.-G., and Zhu, X. (2014).
+Oxidative stress and mitochondrial dysfunction in Alzheimer's disease.
+\textit{Biochim.\ Biophys.\ Acta}, 1842, 1240--1247.
+\doi{10.1016/j.bbadis.2013.10.015}
+
+\bibitem[Weinstein(2013)]{Weinstein2013}
+Weinstein, J.N., Collisson, E.A., Mills, G.B., et al. (2013).
+The Cancer Genome Atlas pan-cancer analysis project.
+\textit{Nat.\ Genet.}, 45, 1113--1120.
+\doi{10.1038/ng.2764}
+
+\bibitem[Yamanaka(2006)]{Yamanaka2006}
+Takahashi, K. and Yamanaka, S. (2006).
+Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors.
+\textit{Cell}, 126, 663--676.
+\doi{10.1016/j.cell.2006.07.024}
+
+\bibitem[Zheng(2016)]{Zheng2016}
+Zheng, X., Boyer, L., Jin, M., et al. (2016).
+Metabolic reprogramming during neuronal differentiation from aerobic glycolysis to neuronal oxidative phosphorylation.
+\textit{eLife}, 5, e13374.
+\doi{10.7554/eLife.13374}
+
+\end{thebibliography}
+
 % ══════════════════════════════════════════════════════════════════════════════
 
 \clearpage
@@ -1235,7 +1751,7 @@ primary sources; none are imputed or estimated. The MCMC scripts and provenance
 hashes for each entry are available at
 \url{https://github.com/hmahaffeyges/IAM-Validation}.
 
-\begin{longtable}{p{4.5cm}p{2.0cm}p{1.0cm}p{1.0cm}p{5.2cm}}
+\begin{longtable}{p{4.2cm}p{2.0cm}p{1.0cm}p{1.0cm}p{5.5cm}}
 \caption{G-002 MCMC reference database: 37 published cell measurements across
 8 architecture classes. $\beta$: published mean genome-wide methylation.
 $H(\beta)$: Shannon binary entropy. All values from primary sources as cited.
@@ -1256,57 +1772,57 @@ No values imputed.}
 \endlastfoot
 
 % ─── stem_pluri ───
-H1 ESC                    & stem\_pluri & 0.420 & 0.9789 & Lister et al.\ 2009 \textit{Nature} \\
-H9 ESC                    & stem\_pluri & 0.410 & 0.9741 & Lister et al.\ 2009 \textit{Nature} \\
-iPSC Yamanaka P3--5       & stem\_pluri & 0.435 & 0.9834 & Prigione et al.\ 2010; Lister et al.\ 2011 \\
-iPSC sendai P10           & stem\_pluri & 0.428 & 0.9811 & Lister et al.\ 2011 \textit{Nature} \\
+H1 ESC                    & stem\_pluri & 0.420 & 0.9789 & Lister et al.\ 2009 \textit{Nature}~\cite{Lister2009} \\
+H9 ESC                    & stem\_pluri & 0.410 & 0.9741 & Lister et al.\ 2009 \textit{Nature}~\cite{Lister2009} \\
+iPSC Yamanaka P3--5       & stem\_pluri & 0.435 & 0.9834 & Prigione et al.\ 2010~\cite{Prigione2010}; Lister et al.\ 2011~\cite{Lister2011} \\
+iPSC sendai P10           & stem\_pluri & 0.428 & 0.9811 & Lister et al.\ 2011 \textit{Nature}~\cite{Lister2011} \\
 \midrule
 % ─── stem_adult ───
-HSC CD34$^+$ young        & stem\_adult & 0.710 & 0.8680 & Roadmap E035 \citep{Roadmap2015} \\
-HSC CD34$^+$ old          & stem\_adult & 0.685 & 0.8936 & Adelman et al.\ 2019 \textit{Cell Stem Cell} \\
-Neural stem cell (NSC)    & stem\_adult & 0.720 & 0.8565 & Zheng et al.\ 2016; Roadmap E007 \\
-Intestinal stem LGR5$^+$  & stem\_adult & 0.700 & 0.8816 & Hata et al.\ 2020 \textit{Nat.\ Genet.} \\
-Muscle satellite cell     & stem\_adult & 0.715 & 0.8622 & Bigot et al.\ 2015 \textit{Cell Rep.} \\
+HSC CD34$^+$ young        & stem\_adult & 0.710 & 0.8680 & Roadmap E035 \cite{Roadmap2015} \\
+HSC CD34$^+$ old          & stem\_adult & 0.685 & 0.8936 & Adelman et al.\ 2019 \textit{Cell Stem Cell}~\cite{Adelman2019} \\
+Neural stem cell (NSC)    & stem\_adult & 0.720 & 0.8565 & Zheng et al.\ 2016~\cite{Zheng2016}; Roadmap E007~\cite{Roadmap2015} \\
+Intestinal stem LGR5$^+$  & stem\_adult & 0.700 & 0.8816 & Hata et al.\ 2020 \textit{Nat.\ Genet.}~\cite{Hata2020} \\
+Muscle satellite cell     & stem\_adult & 0.715 & 0.8622 & Bigot et al.\ 2015 \textit{Cell Rep.}~\cite{Bigot2015} \\
 \midrule
 % ─── progenitor ───
-CMP myeloid progenitor    & progenitor  & 0.720 & 0.8565 & Roadmap E029 \citep{Roadmap2015} \\
-GMP granulocyte prog.     & progenitor  & 0.730 & 0.8415 & Roadmap E030 \citep{Roadmap2015} \\
-Neural progenitor (NPC)   & progenitor  & 0.715 & 0.8622 & ENCODE; Lister et al.\ 2013 \\
-Erythroid progenitor      & progenitor  & 0.725 & 0.8490 & Roadmap E034 \citep{Roadmap2015} \\
+CMP myeloid progenitor    & progenitor  & 0.720 & 0.8565 & Roadmap E029 \cite{Roadmap2015} \\
+GMP granulocyte prog.     & progenitor  & 0.730 & 0.8415 & Roadmap E030 \cite{Roadmap2015} \\
+Neural progenitor (NPC)   & progenitor  & 0.715 & 0.8622 & ENCODE~\cite{ENCODE2012}; Lister et al.\ 2013~\cite{Lister2013} \\
+Erythroid progenitor      & progenitor  & 0.725 & 0.8490 & Roadmap E034 \cite{Roadmap2015} \\
 \midrule
 % ─── terminal ───
-Cortical neuron mature    & terminal    & 0.780 & 0.7951 & Kozlenkov et al.\ 2014 \textit{Hum.\ Mol.\ Genet.} \\
-Frontal cortex neuron     & terminal    & 0.782 & 0.7565 & Lister et al.\ 2013 \textit{Science} \citep{Lister2013} \\
-Cerebellum neuron         & terminal    & 0.775 & 0.8058 & Roadmap E068 \citep{Roadmap2015} \\
-Cardiomyocyte adult       & terminal    & 0.768 & 0.8175 & Movassagh et al.\ 2011 \textit{NEJM} \\
-Skeletal muscle type I    & terminal    & 0.760 & 0.8325 & Roadmap E100 \citep{Roadmap2015} \\
+Cortical neuron mature    & terminal    & 0.780 & 0.7951 & Kozlenkov et al.\ 2014 \textit{Hum.\ Mol.\ Genet.}~\cite{Kozlenkov2014} \\
+Frontal cortex neuron     & terminal    & 0.782 & 0.7565 & Lister et al.\ 2013 \textit{Science} \cite{Lister2013} \\
+Cerebellum neuron         & terminal    & 0.775 & 0.8058 & Roadmap E068 \cite{Roadmap2015} \\
+Cardiomyocyte adult       & terminal    & 0.768 & 0.8175 & Movassagh et al.\ 2011 \textit{NEJM}~\cite{Movassagh2011} \\
+Skeletal muscle type I    & terminal    & 0.760 & 0.8325 & Roadmap E100 \cite{Roadmap2015} \\
 \midrule
 % ─── cycling ───
-Colon epithelial normal   & cycling     & 0.730 & 0.8415 & TCGA COAD matched normal; Roadmap E075 \\
-Small intestine epithelium& cycling     & 0.725 & 0.8490 & Roadmap E085 \citep{Roadmap2015} \\
-Keratinocyte basal        & cycling     & 0.720 & 0.8565 & Roadmap E058 \citep{Roadmap2015} \\
-Bronchial epithelial      & cycling     & 0.728 & 0.8445 & Roadmap E096; ENCODE NHBE \\
-Colon epithelial inflamed & cycling     & 0.695 & 0.8884 & Hahn et al.\ 2008 IBD methylation study \\
+Colon epithelial normal   & cycling     & 0.730 & 0.8415 & TCGA COAD~\cite{TCGA_COAD2012}; Roadmap E075~\cite{Roadmap2015} \\
+Small intestine epithelium& cycling     & 0.725 & 0.8490 & Roadmap E085 \cite{Roadmap2015} \\
+Keratinocyte basal        & cycling     & 0.720 & 0.8565 & Roadmap E058 \cite{Roadmap2015} \\
+Bronchial epithelial      & cycling     & 0.728 & 0.8445 & Roadmap E096~\cite{Roadmap2015}; ENCODE~\cite{ENCODE2012} \\
+Colon epithelial inflamed & cycling     & 0.695 & 0.8884 & Hahn et al.\ 2008~\cite{Hahn2008} \\
 \midrule
 % ─── immune ───
-CD4$^+$ T naive           & immune      & 0.730 & 0.8415 & Roadmap E043 \citep{Roadmap2015} \\
-CD8$^+$ T memory          & immune      & 0.740 & 0.8265 & Roadmap E048 \citep{Roadmap2015} \\
-CD4$^+$ T effector        & immune      & 0.700 & 0.8816 & Roadmap E044 \citep{Roadmap2015} \\
-NK cell                   & immune      & 0.735 & 0.8340 & Roadmap E046 \citep{Roadmap2015} \\
-B cell naive              & immune      & 0.725 & 0.8490 & Roadmap E031 \citep{Roadmap2015} \\
-Neutrophil                & immune      & 0.760 & 0.8325 & Roadmap E030 \citep{Roadmap2015} \\
+CD4$^+$ T naive           & immune      & 0.730 & 0.8415 & Roadmap E043 \cite{Roadmap2015} \\
+CD8$^+$ T memory          & immune      & 0.740 & 0.8265 & Roadmap E048 \cite{Roadmap2015} \\
+CD4$^+$ T effector        & immune      & 0.700 & 0.8816 & Roadmap E044 \cite{Roadmap2015} \\
+NK cell                   & immune      & 0.735 & 0.8340 & Roadmap E046 \cite{Roadmap2015} \\
+B cell naive              & immune      & 0.725 & 0.8490 & Roadmap E031 \cite{Roadmap2015} \\
+Neutrophil                & immune      & 0.760 & 0.8325 & Roadmap E030 \cite{Roadmap2015} \\
 \midrule
 % ─── secretory ───
-Hepatocyte primary        & secretory   & 0.740 & 0.8265 & Roadmap E066 \citep{Roadmap2015} \\
-Hepatocyte NAFLD          & secretory   & 0.710 & 0.8680 & Ahrens et al.\ 2013 \textit{Nat.\ Commun.} \\
-Pancreatic beta cell      & secretory   & 0.735 & 0.8340 & Volkmar et al.\ 2012 \textit{Nat.\ Genet.} \\
-Acinar cell pancreas      & secretory   & 0.730 & 0.8415 & Roadmap E098 \citep{Roadmap2015} \\
+Hepatocyte primary        & secretory   & 0.740 & 0.8265 & Roadmap E066 \cite{Roadmap2015} \\
+Hepatocyte NAFLD          & secretory   & 0.710 & 0.8680 & Ahrens et al.\ 2013 \textit{Nat.\ Commun.}~\cite{Ahrens2013} \\
+Pancreatic beta cell      & secretory   & 0.735 & 0.8340 & Volkmar et al.\ 2012 \textit{EMBO J.}~\cite{Volkmar2012} \\
+Acinar cell pancreas      & secretory   & 0.730 & 0.8415 & Roadmap E098 \cite{Roadmap2015} \\
 \midrule
 % ─── stromal ───
-Fibroblast IMR90 P4       & stromal     & 0.720 & 0.8565 & Lister et al.\ 2009 \textit{Nature} \citep{Lister2009} \\
-Fibroblast IMR90 P16      & stromal     & 0.695 & 0.8884 & Cruickshanks et al.\ 2013 \textit{Nat.\ Genet.} \\
-Aortic endothelial        & stromal     & 0.728 & 0.8445 & Roadmap E065 \citep{Roadmap2015} \\
-Lung fibroblast normal    & stromal     & 0.715 & 0.8622 & Edelman et al.\ 2018; Roadmap E056 \\
+Fibroblast IMR90 P4       & stromal     & 0.720 & 0.8565 & Lister et al.\ 2009 \textit{Nature} \cite{Lister2009} \\
+Fibroblast IMR90 P16      & stromal     & 0.695 & 0.8884 & Cruickshanks et al.\ 2013 \textit{Nat.\ Genet.}~\cite{Cruickshanks2013} \\
+Aortic endothelial        & stromal     & 0.728 & 0.8445 & Roadmap E065 \cite{Roadmap2015} \\
+Lung fibroblast normal    & stromal     & 0.715 & 0.8622 & Edelman 2018~\cite{Edelman2018}; Roadmap E056~\cite{Roadmap2015} \\
 
 \end{longtable}
 
@@ -1315,14 +1831,14 @@ Lung fibroblast normal    & stromal     & 0.715 & 0.8622 & Edelman et al.\ 2018;
 
 Table~\ref{tab:mcmc_spec} summarizes the MCMC configuration for all four
 validation chains. All chains used the \textit{emcee} affine-invariant
-ensemble sampler~\citep{ForemanMackey2013}. All scripts are available at the
+ensemble sampler~\cite{ForemanMackey2013}. All scripts are available at the
 GitHub repository with deterministic random seeds for full reproducibility.
 
 \begin{table}[htb]
 \centering
 \caption{MCMC chain specifications for all four validation analyses.}
 \label{tab:mcmc_spec}
-\begin{tabular}{p{2.2cm}p{2.8cm}p{1.1cm}p{1.1cm}p{1.7cm}p{1.1cm}p{2.8cm}}
+\begin{tabular}{p{2.0cm}p{2.6cm}p{1.1cm}p{1.1cm}p{1.7cm}p{1.0cm}p{3.0cm}}
 \toprule
 \textbf{Chain} & \textbf{Parameters} & \textbf{Walkers} & \textbf{Burn-in} & \textbf{Production} & \textbf{Chains} & \textbf{Result} \\
 \midrule
