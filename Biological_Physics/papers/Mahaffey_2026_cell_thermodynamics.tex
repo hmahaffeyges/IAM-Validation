@@ -94,7 +94,7 @@ A First-Principles Derivation from DNA Methylation Maintenance Information Costs
   \small Independent Researcher, Entiat, WA 98822, USA\\[2pt]
   \small \texttt{hmahaffeyges@gmail.com}\\[2pt]
   \small \url{https://github.com/hmahaffeyges/IAM-Validation}\\[1pt]
-  \small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}\\[1pt]
+  \small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.19547624}{10.5281/zenodo.19547624}\\[1pt]
   \small IAMPerformance platform: \url{https://iamperformance.net}
 }
 
@@ -153,7 +153,7 @@ cancer detection; Alzheimer's disease; biological aging
 $E(a_{\mathrm{bio}})$ MCMC validation scripts, together with the full evidence
 database (SQLite and JSON) and provenance hashes, are available at
 \url{https://github.com/hmahaffeyges/IAM-Validation}
-(Zenodo DOI: \href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}).
+(Zenodo DOI: \href{https://doi.org/10.5281/zenodo.19547624}{10.5281/zenodo.19547624}).
 Additional validation reports and cross-domain applications of the information actualization
 framework are available at \url{https://iamperformance.net}.
 Requests for access to the analytical engine should be directed to \texttt{hmahaffeyges@gmail.com}.
@@ -531,7 +531,7 @@ $N_{\mathrm{prod}} = 10{,}000$ steps. Convergence assessed by $\hat{R}$.
 All MCMC scripts (G-002, G-008, n\textsubscript{bio} ordering, E(a\textsubscript{bio}) fit),
 the full evidence database in SQLite and JSON formats, and all provenance hashes
 are available at \url{https://github.com/hmahaffeyges/IAM-Validation}
-(Zenodo DOI: 10.5281/zenodo.18702042). Every result in this paper is
+(Zenodo DOI: 10.5281/zenodo.19547624). Every result in this paper is
 reproducible by cloning the repository and running the labeled script.
 
 % ══════════════════════════════════════════════════════════════════════════════
@@ -1061,16 +1061,53 @@ rather than statistical reference.
 
 \subsection{Applications}
 
-\textbf{Cancer detection.} The G-008 result (27/28 cancer types confirmed
-with zero free parameters, $n = 4{,}304$ pairs) demonstrates that $\Ascore$
-elevation above the class floor is a robust and broadly applicable signal of
-malignant transformation. The framework provides a physics-derived detection
-threshold ($\Ascore > 1.05$) rather than a statistically trained one. Liquid
-biopsy applications using cell-free DNA are a natural extension: cfDNA from
-tumor cells carries the methylation signature of the cell of origin, and
-the $\Ascore$ framework can compute the departure from the architecture floor
-from a single mean beta measurement, without requiring tissue of origin
-identification~\cite{Grail2021}.
+\textbf{Cancer detection and clinical implementation pathway.} The G-008 result
+(27/28 cancer types confirmed with zero free parameters, $n = 4{,}304$ pairs)
+demonstrates that $\Ascore$ elevation above the class floor is a robust and
+broadly applicable signal of malignant transformation. The framework provides
+a physics-derived detection threshold ($\Ascore > 1.05$) rather than a
+statistically trained one.
+
+Liquid biopsy applications using cell-free DNA are a natural extension, but
+the input requirement must be stated precisely. Cell-free DNA in a standard
+blood draw is a mixture dominated (${\sim}70\%$) by immune and hematopoietic
+cell contributions~\cite{Snyder2016}, which dilutes any tissue-specific
+signal. Three input tiers are available, in decreasing order of specificity:
+
+\begin{enumerate}
+\item \textit{Tissue biopsy or cytology.} Direct measurement of mean beta
+from the tissue of concern provides the most precise $\Ascore$ computation.
+The G-008 validation used this input (TCGA matched tumor-normal tissue pairs).
+
+\item \textit{Architecture-class-specific cfDNA panel.} A targeted
+methylation array (e.g., 450K Illumina BeadChip) can extract the mean beta
+from CpG sites that are differentially methylated in a specific architecture
+class relative to the immune cell background. By restricting analysis to
+class-specific CpG sites — identified from the reference cell database
+(Supplementary Table~S1) — the immune dilution problem is partially
+circumvented and a tissue-class-specific mean beta is recovered from plasma.
+This is the input that would support architecture-class-specific early
+detection from a blood draw, replacing age-scheduled screening with
+physics-threshold-based triage. It requires prospective validation to
+characterize sensitivity and specificity at the pre-invasive stage.
+
+\item \textit{Bulk mean beta.} A single mean methylation beta from an
+unsorted blood draw provides directional information: it reflects the
+aggregate epigenomic state of all cfDNA contributors. At values well
+below the healthy reference range for all classes ($\beta \lesssim 0.68$
+for most classes), the signal warrants further investigation regardless
+of tissue of origin. Serial bulk measurements showing a declining trend
+over time provide temporal evidence of accumulating epigenomic departure.
+This is the least specific input but requires no specialized panel.
+\end{enumerate}
+
+The DCIS stratification result (low-grade $\Ascore = 1.045$, high-grade
+$\Ascore = 1.101$, threshold derived without cancer training data) illustrates
+the potential of tier-2 input: a secretory-class-specific cfDNA panel could
+in principle stratify DCIS grade from a blood draw, directing high-grade
+patients to treatment while sparing low-grade patients from immediate
+intervention. This is a specific, falsifiable prediction for prospective
+validation design.
 
 \textbf{Aging and longevity research.} The class-specific generation rates
 (Table~\ref{tab:specsheet}) constitute a physically derived prediction of
@@ -1190,7 +1227,7 @@ The analytical engine described in this work is released as open science
 for the biological domain. All MCMC scripts, the evidence database, and
 the analytical engine are available at
 \url{https://github.com/hmahaffeyges/IAM-Validation}
-(Zenodo DOI: \href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}).
+(Zenodo DOI: \href{https://doi.org/10.5281/zenodo.19547624}{10.5281/zenodo.19547624}).
 
 % ══════════════════════════════════════════════════════════════════════════════
 \section{Conclusion}
@@ -1534,6 +1571,12 @@ On the nature of the function expressive of the law of human mortality.
 \textit{Phil.\ Trans.\ R.\ Soc.\ London}, 115, 513--583.
 \doi{10.1098/rstl.1825.0026}
 
+\bibitem[Snyder(2016)]{Snyder2016}
+Snyder, M.W., Kircher, M., Hill, A.J., Daza, R.M., \& Shendure, J. (2016).
+Cell-free DNA comprises an \textit{in vivo} nucleosome footprint that informs its tissues-of-origin.
+\textit{Cell}, 164, 57--68.
+\doi{10.1016/j.cell.2015.11.050}
+
 \bibitem[Oxnard(2021)]{Grail2021}
 Oxnard, G.R., Klein, E.A., Seiden, M.V., et al. (2021).
 Simultaneous multi-cancer detection and tissue of origin localization using targeted methylation analysis of plasma cell-free DNA.
@@ -1627,7 +1670,7 @@ Methylomic profiling implicates cortical deregulation of ANK1 in Alzheimer's dis
 \bibitem[Mahaffey(2026)]{Mahaffey2026}
 Mahaffey, H.W. (2026).
 Informational Actualization Model: theory papers, MCMC chains, and validation scripts.
-Zenodo. \doi{10.5281/zenodo.18702042}.
+Zenodo. \doi{10.5281/zenodo.19547624}.
 \url{https://github.com/hmahaffeyges/IAM-Validation}.
 U.S.\ Provisional Patent Applications 64/012,720 and 64/014,568.
 
