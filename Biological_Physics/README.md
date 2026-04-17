@@ -164,13 +164,36 @@ All scripts in Python 3.9+ with `pip install numpy scipy`. No proprietary data. 
 - **G-003b** requires ENCODE + GEO public data (downloads automatically)
 - All scripts archived here and at [Zenodo DOI 10.5281/zenodo.18702042](https://doi.org/10.5281/zenodo.18702042)
 
+### Processed evidence matrices (one click away)
+
+- [`evidence/evidence_summary.tsv`](evidence/evidence_summary.tsv) — all per-cancer, per-substrate numbers in tab-separated format (14 KB, run your own statistics on it)
+- [`evidence/evidence_summary.json`](evidence/evidence_summary.json) — same data in structured JSON (49 KB)
+
+### MCMC chain generators (deterministic from seed — chains reproducible in ~42 seconds)
+
+- [`evidence/gape_mcmc_g002.py`](evidence/gape_mcmc_g002.py) — G-002 methylation 17-chain R-hat<1.001
+- [`evidence/gape_mcmc_g003b.py`](evidence/gape_mcmc_g003b.py) — G-003b 4-substrate, 32 posteriors
+- [`evidence/gape_mcmc_g008.py`](evidence/gape_mcmc_g008.py) — Cancer floor breach validation
+- [`evidence/gape_mcmc_e_a_bio.py`](evidence/gape_mcmc_e_a_bio.py) — Biological E(a) validation
+- [`evidence/gape_mcmc_nbio_ordering.py`](evidence/gape_mcmc_nbio_ordering.py) — Architecture class ordering
+
 Scripts live in [`validation/`](validation/) and [`evidence/`](evidence/).
 
 ---
 
-## Full Evidence Report
+## Full Evidence Report — Version-Controlled
 
-The complete HTML evidence report with expandable detail tables (VAL-003 per-cancer, VAL-007 per-cancer cfDNA, VAL-008+009 specimen matrix, VAL-012 clock comparison, full G-003b posteriors) is at [`GAPE_Evidence_Report.html`](../GAPE_Evidence_Report.html).
+The complete HTML evidence report with expandable detail tables (VAL-003 per-cancer, VAL-007 per-cancer cfDNA, VAL-008+009 specimen matrix, VAL-012 clock comparison, full G-003b posteriors, methodological caveats) is at [`GAPE_Evidence_Report.html`](GAPE_Evidence_Report.html).
+
+### How to cite the state of this report on a specific date
+
+Every commit to this repository produces an immutable URL. To cite the state of the evidence report as it stood on a specific date, use the commit hash:
+
+```
+https://github.com/hmahaffeyges/IAM-Validation/blob/<COMMIT_HASH>/Biological_Physics/GAPE_Evidence_Report.html
+```
+
+Find the commit hash for a given date by viewing the [commit history](https://github.com/hmahaffeyges/IAM-Validation/commits/main/Biological_Physics/GAPE_Evidence_Report.html). This is functionally equivalent to Zenodo versioned DOIs: the hash guarantees the exact state of the document at citation time is preserved permanently.
 
 ---
 
