@@ -54,8 +54,8 @@ Fragment size aging:
   doi:10.1038/s41467-022-32802-6
   DELFI extended cohort — healthy donor ages available
 
-H_min estimates (G-003):
-  H_min_nucl=0.456 | H_min_fuzz=0.786 | H_min_WPS=0.578 | H_min_frag=0.674
+H_min values (G-003b MCMC confirmed):
+  H_min_nucl=0.980072 | H_min_fuzz=0.819030 | H_min_WPS=0.627429 | H_min_frag=0.687936
 """
 
 import math
@@ -74,8 +74,8 @@ def A_from_params(mu, sd, H_min):
     return float(np.mean([H(v) for v in vals])) / H_min
 
 H_MIN = {
-    'nucl': 0.456, 'fuzz': 0.786,
-    'WPS':  0.578, 'frag': 0.674,
+    'nucl': 0.980072, 'fuzz': 0.819030,
+    'WPS':  0.627429, 'frag': 0.687936,
     'methyl': 0.856,
 }
 
