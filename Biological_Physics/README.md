@@ -9,6 +9,8 @@ architecture-class-specific entropy floors for all mammalian somatic cell types.
 
 **Updated: April 17, 2026 — G-003b MCMC complete. All five substrates MCMC-confirmed. 35 studies.**
 
+**Archival DOI (all versions):** [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) — frozen Zenodo snapshots of the complete biological physics validation package. Cite the version DOI listed on Zenodo for state-specific references.
+
 ---
 
 ## The Core Framework
@@ -162,7 +164,8 @@ All scripts in Python 3.9+ with `pip install numpy scipy`. No proprietary data. 
 
 - **VAL-003** requires ~180 MB download from TCGA GDC (public access, no login)
 - **G-003b** requires ENCODE + GEO public data (downloads automatically)
-- All scripts archived here and at [Zenodo DOI 10.5281/zenodo.18702042](https://doi.org/10.5281/zenodo.18702042)
+- All scripts archived here and at the Zenodo biological physics deposit: [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) (concept DOI — always latest version)
+- Cosmological IAM work deposited separately at [10.5281/zenodo.18702042](https://doi.org/10.5281/zenodo.18702042)
 
 ### Processed evidence matrices (one click away)
 
@@ -181,9 +184,13 @@ Scripts live in [`validation/`](validation/) and [`evidence/`](evidence/).
 
 ---
 
-## Full Evidence Report — Version-Controlled
+## Full Evidence Report — Three Layers of Preservation
 
-The complete HTML evidence report with expandable detail tables (VAL-003 per-cancer, VAL-007 per-cancer cfDNA, VAL-008+009 specimen matrix, VAL-012 clock comparison, full G-003b posteriors, methodological caveats) is at [`GAPE_Evidence_Report.html`](GAPE_Evidence_Report.html).
+The complete HTML evidence report with expandable detail tables (VAL-003 per-cancer, VAL-007 per-cancer cfDNA, VAL-008+009 specimen matrix, VAL-012 clock comparison, full G-003b posteriors, methodological caveats) exists at three addresses, each serving a different preservation role:
+
+1. **Live working copy:** [iamperformance.net](https://iamperformance.net) — continuously updated, public-facing, always shows the current state of the evidence.
+2. **Version-controlled snapshots:** [`GAPE_Evidence_Report.html`](GAPE_Evidence_Report.html) in this repo — every commit produces an immutable URL tied to a hash.
+3. **Archival DOI:** [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) — frozen Zenodo deposits with citable version DOIs, replicated across CERN infrastructure.
 
 ### How to cite the state of this report on a specific date
 
@@ -193,7 +200,7 @@ Every commit to this repository produces an immutable URL. To cite the state of 
 https://github.com/hmahaffeyges/IAM-Validation/blob/<COMMIT_HASH>/Biological_Physics/GAPE_Evidence_Report.html
 ```
 
-Find the commit hash for a given date by viewing the [commit history](https://github.com/hmahaffeyges/IAM-Validation/commits/main/Biological_Physics/GAPE_Evidence_Report.html). This is functionally equivalent to Zenodo versioned DOIs: the hash guarantees the exact state of the document at citation time is preserved permanently.
+Find the commit hash for a given date by viewing the [commit history](https://github.com/hmahaffeyges/IAM-Validation/commits/main/Biological_Physics/GAPE_Evidence_Report.html). For formal citation with a DOI, use the corresponding Zenodo version DOI listed on the [deposit page](https://doi.org/10.5281/zenodo.19547624) — each upload to Zenodo produces a new version DOI that permanently points to that exact state.
 
 ---
 
