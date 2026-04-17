@@ -50,9 +50,9 @@ Adjacent normal data:
   Matched normal tissue ATAC-seq: Cusanovich DA et al. (2018) Cell 174:1309
   doi:10.1016/j.cell.2018.06.052
 
-H_min estimates (from G-003, pending MCMC confirmation):
-  H_min_nucl = 0.456 | H_min_fuzz = 0.786
-  H_min_WPS  = 0.578 | H_min_frag = 0.674
+H_min values (G-003b MCMC confirmed, R-hat < 1.001):
+  H_min_nucl = 0.980072 ± 0.008427  | H_min_fuzz = 0.819030 ± 0.007359
+  H_min_WPS  = 0.627429 ± 0.005649  | H_min_frag = 0.687936 ± 0.006878
 """
 
 import math
@@ -80,12 +80,12 @@ def tier(a):
     if a>=1.01: return 'PRE-CANCER'
     return 'NORMAL'
 
-# H_min values (G-003 estimates)
+# H_min values (G-003b MCMC confirmed posteriors)
 H_MIN = {
-    'nucl':  0.456,
-    'fuzz':  0.786,
-    'WPS':   0.578,
-    'frag':  0.674,
+    'nucl':  0.980072,
+    'fuzz':  0.819030,
+    'WPS':   0.627429,
+    'frag':  0.687936,
     'methyl':0.856,  # G-002 confirmed
 }
 
@@ -256,7 +256,7 @@ for val_id, sub, sub_name, source, ih, ia, it in substrates:
     print(f"  Mean ΔA tumor:               {mean_tumor:+.5f}")
     print(f"  t-test P2 (field effect):   t={t_stat:.3f}  p={p_val:.4e}")
     print(f"  Terminal class highest:      A_LGG/GBM = {last_terminal_A:.5f}")
-    print(f"  H_min used:                  {H_min:.5f} (G-003 estimated)")
+    print(f"  H_min used:                  {H_min:.5f} (G-003b MCMC confirmed)")
     print(f"\n  COMPARISON WITH VAL-003 (methylation):")
     print(f"  VAL-003: P1=28/28  P2=28/28  p=1.32e-15  Mean ΔA_field=+0.035")
     print(f"  {val_id}:  P1={p1_count}/{n_non_tgct}  P2={p2_count}/{n_non_tgct}  "

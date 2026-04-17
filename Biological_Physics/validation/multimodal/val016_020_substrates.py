@@ -65,9 +65,9 @@ VAL-020 (convergence):
 
 GAPE H_min values (from VAL-015):
   H_min_methyl = 0.856055 [CONFIRMED]
-  H_min_nucl   = 0.469    [ESTIMATED]
-  H_min_fuzz   = 0.795    [ESTIMATED]
-  H_min_WPS    = 0.592    [ESTIMATED]
+  H_min_nucl   = 0.980072 ± 0.008427 [CONFIRMED — G-003b MCMC R-hat<1.001]
+  H_min_fuzz   = 0.819030 ± 0.007359 [CONFIRMED — G-003b MCMC R-hat<1.001]
+  H_min_WPS    = 0.627429 ± 0.005649 [CONFIRMED — G-003b MCMC R-hat<1.001]
   H_min_frag   = derived below
 """
 
@@ -115,7 +115,7 @@ print("=" * 72)
 # Source: Doebley 2022 Figure 2, Extended Data Figure 3
 # Architecture class: secretory (breast ductal)
 
-H_min_nucl = 0.469  # from VAL-015
+H_min_nucl = 0.980072  # G-003b MCMC posterior (was 0.469 pre-MCMC estimate)
 
 occ_h_brca = np.clip(np.random.normal(0.847, 0.089, N), 0.01, 0.99)
 occ_c_brca = np.clip(np.random.normal(0.682, 0.134, N), 0.01, 0.99)
@@ -161,7 +161,7 @@ print("=" * 72)
 #   NEPC (neuroendocrine, most aggressive): mean fuzz_norm = 0.612, SD = 0.131
 # Source: Esfahani 2022 Figure 2, 3
 
-H_min_fuzz = 0.795  # from VAL-015
+H_min_fuzz = 0.819030  # G-003b MCMC posterior (was 0.795 pre-MCMC estimate)
 
 # Normal prostate (secretory class)
 fuzz_h_prad = np.clip(np.random.normal(0.198, 0.062, N), 0.01, 0.99)
@@ -211,7 +211,7 @@ print("=" * 72)
 # Published Figure 5: cancer patients show depleted WPS at identity promoters
 # This is the FIRST paper to show WPS departure in cancer — predates MESA entirely
 
-H_min_WPS = 0.592  # from VAL-015
+H_min_WPS = 0.627429  # G-003b MCMC posterior (was 0.592 pre-MCMC estimate)
 
 WPS_h_snyder = np.clip(np.random.normal(0.847, 0.068, N), 0.01, 0.99)
 WPS_c_snyder = np.clip(np.random.normal(0.631, 0.118, N), 0.01, 0.99)

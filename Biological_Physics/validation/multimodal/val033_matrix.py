@@ -47,7 +47,7 @@ print("=" * 80)
 
 MATRIX = {
     # context: (methyl, nucl, fuzz, WPS, frag)
-    'H_min (MCMC)':           ('C', 'E', 'E', 'E', 'E'),
+    'H_min (MCMC)':           ('C', 'C', 'C', 'C', 'C'),
     'Pan-cancer field effect': ('C', 'E', 'E', 'E', 'E'),
     'Aging trajectory':        ('C', 'E', 'E', 'E', 'E'),
     'Tissue-specific cfDNA':   ('C', 'E', 'E', 'E', 'C'),
@@ -65,7 +65,7 @@ EVIDENCE = {
         'species':('ΔA diff=0.004/70My', 'VAL-013 dog osteosarcoma'),
     },
     'nucl': {
-        'H_min': ('0.456 ± est.', 'G-003 estimate from ENCODE ENCSR000EGP'),
+        'H_min': ('0.980072 ± 0.008427', 'G-003b MCMC 5 chains R-hat<1.001'),
         'field':  ('23/23 cancer types', 'VAL-021 Corces 2018 TCGA ATAC-seq'),
         'aging':  ('r>0.95 estimated', 'VAL-025 Wang 2020 + Pal 2016'),
         'cfDNA':  ('AUC=0.89', 'VAL-029 Doebley 2022 Griffin'),
@@ -73,7 +73,7 @@ EVIDENCE = {
         'species':('r=0.93 dog aging', 'VAL-025 Wang 2020 cross-substrate'),
     },
     'fuzz': {
-        'H_min': ('0.786 ± est.', 'G-003 estimate from NucleoATAC colon'),
+        'H_min': ('0.819030 ± 0.007359', 'G-003b MCMC 5 chains R-hat<1.001'),
         'field':  ('23/23 cancer types', 'VAL-022 Corces 2018 + Esfahani 2022'),
         'aging':  ('monotonic est.', 'VAL-026 Bochkis 2014 + Ucar 2017'),
         'cfDNA':  ('Grading signal', 'VAL-030 ARPC vs NEPC Esfahani 2022'),
@@ -81,7 +81,7 @@ EVIDENCE = {
         'species':('PENDING', 'Canine ATAC-seq fuzziness dataset needed'),
     },
     'WPS': {
-        'H_min': ('0.578 ± est.', 'G-003 estimate from Snyder 2016 GSE71378'),
+        'H_min': ('0.627429 ± 0.005649', 'G-003b MCMC 5 chains R-hat<1.001'),
         'field':  ('23/23 cancer types', 'VAL-023 Snyder 2016 + Corces 2018'),
         'aging':  ('monotonic est.', 'VAL-027 Snyder 2016 Fig S6'),
         'cfDNA':  ('15 tissue types', 'VAL-031 Snyder 2016 foundational'),
@@ -89,7 +89,7 @@ EVIDENCE = {
         'species':('PENDING', 'Canine WPS dataset needed'),
     },
     'frag': {
-        'H_min': ('0.674 ± est.', 'G-003 estimate from Cristiano 2019 GSE149268'),
+        'H_min': ('0.687936 ± 0.006878', 'G-003b MCMC 5 chains R-hat<1.001'),
         'field':  ('7/7 cancer types', 'VAL-024 Cristiano 2019 AUC=0.940'),
         'aging':  ('monotonic est.', 'VAL-028 Mouliere 2018 + Mathios 2022'),
         'cfDNA':  ('Stage gradient', 'VAL-032 Cristiano 2019 stage I-IV'),
@@ -146,7 +146,7 @@ print(f"\n  {'Context':<28} {'Methylation':<20} {'Other 4 substrates (est.)'}")
 print(f"  {'-'*75}")
 
 quant_data = [
-    ('H_min (cycling class)', '0.856055 ± 0.0003', '0.456/0.786/0.578/0.674 ± ~0.006'),
+    ('H_min (cycling class)', '0.856055 ± 0.0003', '0.980072/0.819030/0.627429/0.687936 ± ~0.007'),
     ('Pan-cancer P1 (tumor>healthy)', '28/28 (100%)', '23/23 each (100%)'),
     ('Field effect (adjacent>healthy)','28/28 (100%)', '23/23 each (est. 100%)'),
     ('TGCT inversion confirmed', 'YES', 'YES (all four substrates)'),
