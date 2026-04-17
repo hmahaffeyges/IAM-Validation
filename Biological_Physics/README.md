@@ -9,6 +9,8 @@ architecture-class-specific entropy floors for all mammalian somatic cell types.
 
 **Updated: April 17, 2026 — G-003b MCMC complete. All five substrates MCMC-confirmed. 35 studies.**
 
+**Cross-validated:** 10,000-resample non-parametric bootstrap on identical reference data agrees with G-003b MCMC posteriors at 0.168% mean relative difference (max 1.091%), 24 of 32 MCMC posterior means within bootstrap 95% CI. Calibration is method-independent. See the "Methodology: MCMC vs. bootstrap" section in the [Evidence Report](GAPE_Evidence_Report.html).
+
 **Archival DOI (all versions):** [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) — frozen Zenodo snapshots of the complete biological physics validation package. Cite the version DOI listed on Zenodo for state-specific references.
 
 ---
@@ -154,7 +156,7 @@ The findings are strong. They also have methodological considerations a rigorous
 
 - **VAL-012 D+Q — global mean proxy.** ΔA=−0.00079 computed from Lee 2024 published global-mean beta, not class-stratified raw EPIC. Definitive test requires raw Lee 2024 EPIC with class-stratified val002_v3.py. Prediction: secretory class shows largest decrease (senolytic acts preferentially on senescent secretory cells). Directional argument (GAPE alone correct; all published clocks wrong) holds on proxy and is reinforced by mechanistic explanation.
 
-- **Non-methylation aging slopes.** VAL-025–VAL-028 report slope ratios 21× to 54× methylation. Not a framework inconsistency: H(p) is maximized at p=0.5 and steep near p=0 or p=1. Nucleosome occupancy healthy reference (p≈0.89) sits farther from 0.5 than methylation (β≈0.74), giving larger ΔA per unit change. Property of the Shannon curve, not physical scaling. When normalized by each substrate's own H_min (as A-score is), all substrates report the same departure from floor.
+- **Non-methylation aging slopes.** VAL-025–VAL-028 report slope ratios 20× to 38× methylation. Not a framework inconsistency: H(p) is maximized at p=0.5 and steep near p=0 or p=1. Nucleosome occupancy healthy reference (p≈0.89) sits farther from 0.5 than methylation (β≈0.74), giving larger ΔA per unit change. Property of the Shannon curve, not physical scaling. When normalized by each substrate's own H_min (as A-score is), all substrates report the same departure from floor.
 
 ---
 
@@ -171,14 +173,16 @@ All scripts in Python 3.9+ with `pip install numpy scipy`. No proprietary data. 
 
 - [`evidence/evidence_summary.tsv`](evidence/evidence_summary.tsv) — all per-cancer, per-substrate numbers in tab-separated format (14 KB, run your own statistics on it)
 - [`evidence/evidence_summary.json`](evidence/evidence_summary.json) — same data in structured JSON (49 KB)
+- [`evidence/bootstrap_vs_mcmc_comparison.tsv`](evidence/bootstrap_vs_mcmc_comparison.tsv) — G-003b MCMC posteriors vs 10,000-resample bootstrap CIs, all 32 class-substrate pairs, machine-readable
 
-### MCMC chain generators (deterministic from seed — chains reproducible in ~42 seconds)
+### Calibration scripts (deterministic from seed — reproducible in ~42 seconds)
 
 - [`evidence/gape_mcmc_g002.py`](evidence/gape_mcmc_g002.py) — G-002 methylation 17-chain R-hat<1.001
 - [`evidence/gape_mcmc_g003b.py`](evidence/gape_mcmc_g003b.py) — G-003b 4-substrate, 32 posteriors
 - [`evidence/gape_mcmc_g008.py`](evidence/gape_mcmc_g008.py) — Cancer floor breach validation
 - [`evidence/gape_mcmc_e_a_bio.py`](evidence/gape_mcmc_e_a_bio.py) — Biological E(a) validation
 - [`evidence/gape_mcmc_nbio_ordering.py`](evidence/gape_mcmc_nbio_ordering.py) — Architecture class ordering
+- [`evidence/gape_bootstrap_comparison.py`](evidence/gape_bootstrap_comparison.py) — Non-parametric bootstrap cross-check of G-003b MCMC posteriors (10,000 resamples × 32 class-substrate pairs)
 
 Scripts live in [`validation/`](validation/) and [`evidence/`](evidence/).
 
