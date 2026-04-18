@@ -1,0 +1,116 @@
+{
+  "val_id": "VAL-041",
+  "title": "Tissue-of-Origin Deconvolution Localization",
+  "n_cases": 10,
+  "top1_localization_rate": 1.0,
+  "top2_localization_rate": 1.0,
+  "predictions": {
+    "P1": true,
+    "P2": true,
+    "P3": true,
+    "P4": true
+  },
+  "n_predictions_passed": 4,
+  "results_per_case": [
+    {
+      "diagnosis": "Colorectal",
+      "primary_tissue": "colon_epithelial",
+      "top1_tissue": "colon_epithelial",
+      "top1_dA": 0.16151197721283317,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 12,
+      "source": "Moss 2018 Fig 4a"
+    },
+    {
+      "diagnosis": "Lung (NSCLC)",
+      "primary_tissue": "lung_epithelial",
+      "top1_tissue": "lung_epithelial",
+      "top1_dA": 0.14303514241404458,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 14,
+      "source": "Moss 2018 Fig 4b"
+    },
+    {
+      "diagnosis": "Breast",
+      "primary_tissue": "breast_ductal",
+      "top1_tissue": "breast_ductal",
+      "top1_dA": 0.16208750930030524,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 10,
+      "source": "Moss 2018 Fig 4c"
+    },
+    {
+      "diagnosis": "Prostate",
+      "primary_tissue": "prostate_epithelial",
+      "top1_tissue": "prostate_epithelial",
+      "top1_dA": 0.1477235429997128,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 16,
+      "source": "Moss 2018 Fig 4d"
+    },
+    {
+      "diagnosis": "Hepatocellular",
+      "primary_tissue": "hepatocyte",
+      "top1_tissue": "hepatocyte",
+      "top1_dA": 0.17597713210505805,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 8,
+      "source": "Liu 2020 Table S3"
+    },
+    {
+      "diagnosis": "Pancreatic",
+      "primary_tissue": "pancreatic_exocrine",
+      "top1_tissue": "pancreatic_exocrine",
+      "top1_dA": 0.16388830533135113,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 9,
+      "source": "Liu 2020 Table S3"
+    },
+    {
+      "diagnosis": "Gastric",
+      "primary_tissue": "gastric_epithelial",
+      "top1_tissue": "gastric_epithelial",
+      "top1_dA": 0.15325029474062524,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 11,
+      "source": "Liu 2020 Table S3"
+    },
+    {
+      "diagnosis": "Glioma (LGG/GBM)",
+      "primary_tissue": "neuron",
+      "top1_tissue": "neuron",
+      "top1_dA": 0.30632318864238306,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 7,
+      "source": "Liu 2020 Table S3"
+    },
+    {
+      "diagnosis": "Bladder",
+      "primary_tissue": "bladder_epithelial",
+      "top1_tissue": "bladder_epithelial",
+      "top1_dA": 0.1645557230114253,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 12,
+      "source": "Moss 2018 extended"
+    },
+    {
+      "diagnosis": "Cervical",
+      "primary_tissue": "cervical_epithelial",
+      "top1_tissue": "cervical_epithelial",
+      "top1_dA": 0.16276024916927956,
+      "correct_top1": true,
+      "correct_top2": true,
+      "n_patients": 8,
+      "source": "Widschwendter 2021 derived"
+    }
+  ]
+}
