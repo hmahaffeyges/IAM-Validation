@@ -1,0 +1,71 @@
+{
+  "val_id": "VAL-043",
+  "title": "Cross-Species Cancer Architecture Replication",
+  "n_cancers": 5,
+  "mean_cross_species_diff": 0.009559642277578861,
+  "canine_aging_r": 0.9994749358604414,
+  "predictions": {
+    "P1": true,
+    "P2": true,
+    "P3": true,
+    "P4": true
+  },
+  "n_predictions_passed": 4,
+  "results": [
+    {
+      "cancer": "Canine lymphoma",
+      "class": "immune",
+      "n": 48,
+      "source": "Beck 2020 Vet Comp Oncol",
+      "dA_dog": 0.190167009497469,
+      "dA_human": 0.19398931539223907,
+      "diff": 0.0038223058947700617,
+      "same_direction": true,
+      "close": true
+    },
+    {
+      "cancer": "Canine mammary carcinoma",
+      "class": "secretory",
+      "n": 52,
+      "source": "Pal 2016 Cancer Res",
+      "dA_dog": 0.17677032841603912,
+      "dA_human": 0.19013635162453968,
+      "diff": 0.013366023208500555,
+      "same_direction": true,
+      "close": true
+    },
+    {
+      "cancer": "Canine osteosarcoma",
+      "class": "stromal",
+      "n": 38,
+      "source": "Scott 2011 Cancer Res estimated",
+      "dA_dog": 0.14351228502873925,
+      "dA_human": 0.1359367914099322,
+      "diff": 0.00757549361880705,
+      "same_direction": true,
+      "close": true
+    },
+    {
+      "cancer": "Canine bladder TCC",
+      "class": "cycling",
+      "n": 44,
+      "source": "Decker 2015 PLoS Genet",
+      "dA_dog": 0.1684905904216294,
+      "dA_human": 0.18987220307491948,
+      "diff": 0.021381612653290083,
+      "same_direction": true,
+      "close": true
+    },
+    {
+      "cancer": "Canine melanoma",
+      "class": "cycling",
+      "n": 31,
+      "source": "Hendricks 2018 Cell Reports",
+      "dA_dog": 0.14730983463151492,
+      "dA_human": 0.14565705861898837,
+      "diff": 0.0016527760125265578,
+      "same_direction": true,
+      "close": true
+    }
+  ]
+}
