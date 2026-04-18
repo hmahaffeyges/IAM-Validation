@@ -1,0 +1,285 @@
+{
+  "val_id": "VAL-042",
+  "title": "Monotonic Pre-Cancer Progression Across 5 Transitions",
+  "n_progressions": 5,
+  "predictions": {
+    "P1": true,
+    "P2": true,
+    "P3": true,
+    "P4": true
+  },
+  "n_predictions_passed": 4,
+  "results": [
+    {
+      "name": "A. Cervical (VAL-009 replicated)",
+      "class": "cycling",
+      "source": "Widschwendter 2021 Cell Rep Med",
+      "stages": [
+        {
+          "stage": "Healthy HPV-",
+          "b": 0.7421,
+          "n": 312,
+          "A": 0.9620420192792338,
+          "tier": "NORMAL",
+          "dA": 0.0
+        },
+        {
+          "stage": "HPV+ no CIN",
+          "b": 0.738,
+          "n": 287,
+          "A": 0.9692711657390036,
+          "tier": "NORMAL",
+          "dA": 0.007229146459769797
+        },
+        {
+          "stage": "CIN1",
+          "b": 0.7283,
+          "n": 287,
+          "A": 0.9857935136216304,
+          "tier": "NORMAL",
+          "dA": 0.02375149434239654
+        },
+        {
+          "stage": "CIN2",
+          "b": 0.7098,
+          "n": 341,
+          "A": 1.0150976975168906,
+          "tier": "MARGINAL",
+          "dA": 0.05305567823765678
+        },
+        {
+          "stage": "CIN3",
+          "b": 0.6842,
+          "n": 298,
+          "A": 1.0510487062090514,
+          "tier": "DETECTABLE",
+          "dA": 0.08900668692981761
+        },
+        {
+          "stage": "Invasive cervical",
+          "b": 0.6412,
+          "n": 89,
+          "A": 1.1000258028249612,
+          "tier": "FLOOR_BREACH",
+          "dA": 0.13798378354572738
+        }
+      ],
+      "monotonic": true,
+      "reach_breach": true,
+      "has_marginal": true,
+      "n_tier_boundaries": 3
+    },
+    {
+      "name": "B. Barrett's esophagus \u2192 EAC",
+      "class": "cycling",
+      "source": "Jammula 2020 Gastroenterology",
+      "stages": [
+        {
+          "stage": "Healthy esophageal",
+          "b": 0.74,
+          "n": 45,
+          "A": 0.9657631489712902,
+          "tier": "NORMAL",
+          "dA": 0.0
+        },
+        {
+          "stage": "Non-dysplastic Barrett's",
+          "b": 0.728,
+          "n": 82,
+          "A": 0.9862916445524454,
+          "tier": "NORMAL",
+          "dA": 0.020528495581155215
+        },
+        {
+          "stage": "Low-grade dysplasia",
+          "b": 0.708,
+          "n": 55,
+          "A": 1.0177976695543627,
+          "tier": "MARGINAL",
+          "dA": 0.05203452058307245
+        },
+        {
+          "stage": "High-grade dysplasia",
+          "b": 0.675,
+          "n": 38,
+          "A": 1.062707562634604,
+          "tier": "DETECTABLE",
+          "dA": 0.09694441366331386
+        },
+        {
+          "stage": "Esophageal adenocarcinoma",
+          "b": 0.612,
+          "n": 62,
+          "A": 1.1255079897501663,
+          "tier": "FLOOR_BREACH",
+          "dA": 0.15974484077887607
+        }
+      ],
+      "monotonic": true,
+      "reach_breach": true,
+      "has_marginal": true,
+      "n_tier_boundaries": 3
+    },
+    {
+      "name": "C. Prostate PIN \u2192 metastatic",
+      "class": "secretory",
+      "source": "Jer\u00f3nimo 2008 Clin Cancer Res + Aryee 2013 Sci Transl Med",
+      "stages": [
+        {
+          "stage": "Healthy prostate",
+          "b": 0.743,
+          "n": 40,
+          "A": 0.975003680839077,
+          "tier": "NORMAL",
+          "dA": 0.0
+        },
+        {
+          "stage": "LGPIN",
+          "b": 0.73,
+          "n": 35,
+          "A": 0.9978661916175429,
+          "tier": "NORMAL",
+          "dA": 0.022862510778465905
+        },
+        {
+          "stage": "HGPIN",
+          "b": 0.712,
+          "n": 42,
+          "A": 1.0271085702681793,
+          "tier": "MARGINAL",
+          "dA": 0.0521048894291023
+        },
+        {
+          "stage": "Gleason 3+3",
+          "b": 0.685,
+          "n": 58,
+          "A": 1.0659307607632844,
+          "tier": "DETECTABLE",
+          "dA": 0.09092707992420745
+        },
+        {
+          "stage": "Gleason 4+3 or higher",
+          "b": 0.645,
+          "n": 68,
+          "A": 1.1128832519858118,
+          "tier": "FLOOR_BREACH",
+          "dA": 0.13787957114673488
+        },
+        {
+          "stage": "Metastatic castrate-resistant",
+          "b": 0.595,
+          "n": 45,
+          "A": 1.1547989353728194,
+          "tier": "FLOOR_BREACH",
+          "dA": 0.17979525453374245
+        }
+      ],
+      "monotonic": true,
+      "reach_breach": true,
+      "has_marginal": true,
+      "n_tier_boundaries": 3
+    },
+    {
+      "name": "D. Colon adenoma \u2192 CRC",
+      "class": "cycling",
+      "source": "Luo 2014 Gastroenterology",
+      "stages": [
+        {
+          "stage": "Healthy colon",
+          "b": 0.741,
+          "n": 50,
+          "A": 0.9639960125373331,
+          "tier": "NORMAL",
+          "dA": 0.0
+        },
+        {
+          "stage": "Hyperplastic polyp",
+          "b": 0.729,
+          "n": 38,
+          "A": 0.984628226341591,
+          "tier": "NORMAL",
+          "dA": 0.020632213804257837
+        },
+        {
+          "stage": "Tubular adenoma",
+          "b": 0.705,
+          "n": 62,
+          "A": 1.0222389762010993,
+          "tier": "MARGINAL",
+          "dA": 0.058242963663766134
+        },
+        {
+          "stage": "Advanced adenoma (HGD)",
+          "b": 0.661,
+          "n": 48,
+          "A": 1.0792046744686756,
+          "tier": "URGENT",
+          "dA": 0.1152086619313425
+        },
+        {
+          "stage": "Invasive CRC",
+          "b": 0.585,
+          "n": 75,
+          "A": 1.143678227227759,
+          "tier": "FLOOR_BREACH",
+          "dA": 0.1796822146904259
+        }
+      ],
+      "monotonic": true,
+      "reach_breach": true,
+      "has_marginal": true,
+      "n_tier_boundaries": 3
+    },
+    {
+      "name": "E. CHIP \u2192 MDS \u2192 AML",
+      "class": "stem_adult",
+      "source": "Yoshizato 2020 Blood + Jaiswal 2014 NEJM",
+      "stages": [
+        {
+          "stage": "Healthy HSC",
+          "b": 0.734,
+          "n": 45,
+          "A": 0.9564483588890837,
+          "tier": "NORMAL",
+          "dA": 0.0
+        },
+        {
+          "stage": "CHIP low-VAF",
+          "b": 0.718,
+          "n": 78,
+          "A": 0.982195238052411,
+          "tier": "NORMAL",
+          "dA": 0.025746879163327296
+        },
+        {
+          "stage": "CHIP high-VAF",
+          "b": 0.695,
+          "n": 52,
+          "A": 1.0155648118445617,
+          "tier": "MARGINAL",
+          "dA": 0.05911645295547796
+        },
+        {
+          "stage": "MDS",
+          "b": 0.658,
+          "n": 48,
+          "A": 1.0606622748453405,
+          "tier": "DETECTABLE",
+          "dA": 0.10421391595625673
+        },
+        {
+          "stage": "AML (TCGA)",
+          "b": 0.625,
+          "n": 200,
+          "A": 1.0923822136260957,
+          "tier": "URGENT",
+          "dA": 0.13593385473701192
+        }
+      ],
+      "monotonic": true,
+      "reach_breach": false,
+      "has_marginal": true,
+      "n_tier_boundaries": 3
+    }
+  ]
+}
