@@ -111,6 +111,8 @@ The same encoding surface saturation that produces the Dennard wall in semicondu
 
 **→ Cell thermodynamics paper:** [Biological_Physics/papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/papers/Mahaffey_2026_cell_thermodynamics.pdf)
 
+**→ GAPE Issue 002 — comprehensive 120-page cellular thermodynamics publication:** [Biological_Physics/papers/IAMPerformance_GAPEIssue002.pdf](Biological_Physics/papers/IAMPerformance_GAPEIssue002.pdf)
+
 ---
 
 <details>

@@ -15,6 +15,18 @@ architecture-class-specific entropy floors for all mammalian somatic cell types.
 
 ---
 
+## Flagship Publications
+
+**📘 [GAPE Issue 002 — Genomic Intelligence Report (April 2026, 120 pages)](papers/IAMPerformance_GAPEIssue002.pdf)** — the comprehensive cellular thermodynamics publication. Five-substrate architecture-class framework with derivations, 36 validation tests, MCMC chain inventory, baseline reference tables with age-stratified Z-scores, five clinical research scenarios including the chemotherapy reserve-depletion trajectory, ten dated predictions with falsification criteria, and the 2010-2030 cancer detection trajectory. Issue 002 includes explicit physics chain (Landauer → DNMT1 → H_min) for readers encountering the framework for the first time.
+
+**📗 [GAPE Issue 001 — Genomic Intelligence Report (April 2026)](papers/IAMPerformance_GAPEIssue001.pdf)** — prior issue. Methylation-only single-substrate framework. Eight architecture classes. 27 of 28 TCGA cancer types correctly predicted at zero free parameters. Retained as reference for the methylation-only baseline.
+
+**📕 [Cell Thermodynamics Paper (preprint)](papers/Mahaffey_2026_cell_thermodynamics.pdf)** — the foundational derivation paper. Landauer cost of DNMT1 maintenance methylation at physiological temperature. Submitted for independent peer review.
+
+**📙 [Vertebrate Lifespan Paper (Nature Aging submission)](papers/iam_vertebrate_lifespan.pdf)** — cross-species extension. A < 1.05 boundary separates long-lived from short-lived mammals across 28 species at zero free parameters.
+
+---
+
 ## The Core Framework
 
 Every cell maintains a measurable commitment to its biological identity. We define:
