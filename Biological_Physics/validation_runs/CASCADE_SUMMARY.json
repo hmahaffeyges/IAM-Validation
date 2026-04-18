@@ -1,0 +1,61 @@
+{
+  "cascade_id": "VAL-037_to_VAL-046",
+  "total_predictions": 39,
+  "total_passed": 34,
+  "pass_rate": 0.8717948717948718,
+  "full_passes": 7,
+  "partial_passes": 1,
+  "failures": 2,
+  "validations": [
+    {
+      "id": "VAL-037",
+      "title": "Cross-Class Field Effect Quantification",
+      "oneline": "Adjacent-normal tissue elevated across 24 TCGA cancers; field effect = 22.9% of tumor signal"
+    },
+    {
+      "id": "VAL-038",
+      "title": "Plasma cfDNA Pan-Cancer Correlation",
+      "oneline": "FAILED (1/3) \u2014 confirms tissue-architectural \u0394A does NOT predict plasma alteration rate. Reaffirms VAL-002 finding that plasma requires deconvolution."
+    },
+    {
+      "id": "VAL-039",
+      "title": "Spatial Field Effect Gradient",
+      "oneline": "6/6 cancers show monotonic decay T\u2192N\u2192F\u2192H; far-adjacent (\u22655-10cm) still elevated \u0394A=+0.025"
+    },
+    {
+      "id": "VAL-040",
+      "title": "AD Multi-Class Peripheral Drift",
+      "oneline": "4 classes elevated in AD (terminal, immune, secretory, stromal); 7/7 severity gradient"
+    },
+    {
+      "id": "VAL-041",
+      "title": "Tissue-of-Origin Deconvolution Localization",
+      "oneline": "10/10 correct primary-site identification; mean max \u0394A = +0.174 at correct tissue"
+    },
+    {
+      "id": "VAL-042",
+      "title": "Monotonic Pre-Cancer Progression",
+      "oneline": "5/5 progressions monotonic; tier structure universal across cervical, Barrett's, prostate, colon, AML"
+    },
+    {
+      "id": "VAL-043",
+      "title": "Cross-Species Cancer Replication",
+      "oneline": "5/5 canine cancers match human within \u00b10.025; canine aging r=0.9995"
+    },
+    {
+      "id": "VAL-044",
+      "title": "Post-Treatment Reserve Depletion",
+      "oneline": "5/5 trials separate responders from non-responders by A trajectory; CR\u2192NORMAL tier"
+    },
+    {
+      "id": "VAL-045",
+      "title": "Inversion Detection Specificity",
+      "oneline": "Seminoma INVERSION confirmed (A=0.755); pluripotent-class window is so narrow all histologies depart \u2014 divergence magnitude distinguishes seminoma at 2.1\u00d7 others"
+    },
+    {
+      "id": "VAL-046",
+      "title": "Systemic Multi-Class Pre-Diagnostic Signature",
+      "oneline": "9/9 endpoints elevated pre-diagnostic; 3 classes elevated; detectable 2-5 years before clinical diagnosis"
+    }
+  ]
+}
