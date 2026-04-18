@@ -1,0 +1,278 @@
+{
+  "val_id": "VAL-039",
+  "title": "Spatial Field Effect Gradient",
+  "n_cancer_types": 6,
+  "predictions": {
+    "P1": true,
+    "P2": true,
+    "P3": true,
+    "P4": true
+  },
+  "n_predictions_passed": 4,
+  "results_per_cancer": [
+    {
+      "cancer": "Lung adenocarcinoma",
+      "class": "cycling",
+      "source": "Kadota 2014 AJRCMB",
+      "tiers": [
+        {
+          "label": "tumor",
+          "beta": 0.618,
+          "n": 44,
+          "A": 1.1207718208614255,
+          "dA": 0.15150065512242183,
+          "tier": "T"
+        },
+        {
+          "label": "near_2cm",
+          "beta": 0.706,
+          "n": 44,
+          "A": 1.020766665402039,
+          "dA": 0.05149549966303546,
+          "tier": "N"
+        },
+        {
+          "label": "far_5cm",
+          "beta": 0.728,
+          "n": 44,
+          "A": 0.9862916445524454,
+          "dA": 0.01702047881344182,
+          "tier": "F"
+        },
+        {
+          "label": "healthy",
+          "beta": 0.738,
+          "n": 20,
+          "A": 0.9692711657390036,
+          "dA": 0.0,
+          "tier": "H"
+        }
+      ],
+      "monotonic": true,
+      "near_far_gap": 0.03447502084959364,
+      "far_healthy_gap": 0.01702047881344182,
+      "sharp_drop_ratio": 0.6600971816166475,
+      "is_sharp": false
+    },
+    {
+      "cancer": "Breast cancer",
+      "class": "secretory",
+      "source": "Teschendorff 2016 Genome Med",
+      "tiers": [
+        {
+          "label": "tumor",
+          "beta": 0.581,
+          "n": 58,
+          "A": 1.1633192803369141,
+          "dA": 0.19013635162453968,
+          "tier": "T"
+        },
+        {
+          "label": "near_2cm",
+          "beta": 0.712,
+          "n": 58,
+          "A": 1.0271085702681793,
+          "dA": 0.053925641555804815,
+          "tier": "N"
+        },
+        {
+          "label": "far_5cm",
+          "beta": 0.735,
+          "n": 40,
+          "A": 0.9892490321663786,
+          "dA": 0.016066103454004166,
+          "tier": "F"
+        },
+        {
+          "label": "healthy",
+          "beta": 0.744,
+          "n": 45,
+          "A": 0.9731829287123744,
+          "dA": 0.0,
+          "tier": "H"
+        }
+      ],
+      "monotonic": true,
+      "near_far_gap": 0.03785953810180065,
+      "far_healthy_gap": 0.016066103454004166,
+      "sharp_drop_ratio": 0.7163843678756852,
+      "is_sharp": false
+    },
+    {
+      "cancer": "Colon adenocarcinoma",
+      "class": "cycling",
+      "source": "Shen 2005 Cancer Res",
+      "tiers": [
+        {
+          "label": "tumor",
+          "beta": 0.585,
+          "n": 30,
+          "A": 1.143678227227759,
+          "dA": 0.1796822146904259,
+          "tier": "T"
+        },
+        {
+          "label": "near_1cm",
+          "beta": 0.698,
+          "n": 30,
+          "A": 1.0323191401155019,
+          "dA": 0.06832312757816872,
+          "tier": "N"
+        },
+        {
+          "label": "far_10cm",
+          "beta": 0.724,
+          "n": 30,
+          "A": 0.992860403061803,
+          "dA": 0.028864390524469874,
+          "tier": "F"
+        },
+        {
+          "label": "healthy",
+          "beta": 0.741,
+          "n": 25,
+          "A": 0.9639960125373331,
+          "dA": 0.0,
+          "tier": "H"
+        }
+      ],
+      "monotonic": true,
+      "near_far_gap": 0.039458737053698845,
+      "far_healthy_gap": 0.028864390524469874,
+      "sharp_drop_ratio": 0.6197557577087833,
+      "is_sharp": false
+    },
+    {
+      "cancer": "Prostate cancer (index)",
+      "class": "secretory",
+      "source": "Damaschke 2017 Cancer Epi Biomarkers",
+      "tiers": [
+        {
+          "label": "tumor",
+          "beta": 0.635,
+          "n": 50,
+          "A": 1.1227272238387898,
+          "dA": 0.1477235429997128,
+          "tier": "T"
+        },
+        {
+          "label": "ipsilateral",
+          "beta": 0.708,
+          "n": 50,
+          "A": 1.0332360731756127,
+          "dA": 0.058232392336535765,
+          "tier": "N"
+        },
+        {
+          "label": "contralateral",
+          "beta": 0.728,
+          "n": 50,
+          "A": 1.001252150900956,
+          "dA": 0.026248470061879026,
+          "tier": "F"
+        },
+        {
+          "label": "healthy",
+          "beta": 0.743,
+          "n": 20,
+          "A": 0.975003680839077,
+          "dA": 0.0,
+          "tier": "H"
+        }
+      ],
+      "monotonic": true,
+      "near_far_gap": 0.03198392227465674,
+      "far_healthy_gap": 0.026248470061879026,
+      "sharp_drop_ratio": 0.6058015455488434,
+      "is_sharp": false
+    },
+    {
+      "cancer": "HCC (hepatocellular)",
+      "class": "secretory",
+      "source": "Villanueva 2015 Hepatology",
+      "tiers": [
+        {
+          "label": "tumor",
+          "beta": 0.598,
+          "n": 56,
+          "A": 1.1527926054446662,
+          "dA": 0.17597713210505805,
+          "tier": "T"
+        },
+        {
+          "label": "cirrhotic_adj",
+          "beta": 0.68,
+          "n": 56,
+          "A": 1.0724772523486046,
+          "dA": 0.09566177900899642,
+          "tier": "N"
+        },
+        {
+          "label": "noncirrhotic_adj",
+          "beta": 0.717,
+          "n": 35,
+          "A": 1.0192613316842634,
+          "dA": 0.042445858344655196,
+          "tier": "F"
+        },
+        {
+          "label": "healthy",
+          "beta": 0.742,
+          "n": 20,
+          "A": 0.9768154733396082,
+          "dA": 0.0,
+          "tier": "H"
+        }
+      ],
+      "monotonic": true,
+      "near_far_gap": 0.05321592066434122,
+      "far_healthy_gap": 0.042445858344655196,
+      "sharp_drop_ratio": 0.4563965336593479,
+      "is_sharp": false
+    },
+    {
+      "cancer": "Gastric (IM field)",
+      "class": "cycling",
+      "source": "Kang 2008 Am J Pathol",
+      "tiers": [
+        {
+          "label": "tumor",
+          "beta": 0.594,
+          "n": 48,
+          "A": 1.138188953430855,
+          "dA": 0.1706674273100547,
+          "tier": "T"
+        },
+        {
+          "label": "IM_adj",
+          "beta": 0.7,
+          "n": 48,
+          "A": 1.0294792965763797,
+          "dA": 0.061957770455579486,
+          "tier": "N"
+        },
+        {
+          "label": "non-IM",
+          "beta": 0.726,
+          "n": 40,
+          "A": 0.9895929679120943,
+          "dA": 0.022071441791294055,
+          "tier": "F"
+        },
+        {
+          "label": "healthy",
+          "beta": 0.739,
+          "n": 25,
+          "A": 0.9675215261208002,
+          "dA": 0.0,
+          "tier": "H"
+        }
+      ],
+      "monotonic": true,
+      "near_far_gap": 0.03988632866428543,
+      "far_healthy_gap": 0.022071441791294055,
+      "sharp_drop_ratio": 0.6369678067331521,
+      "is_sharp": false
+    }
+  ]
+}
