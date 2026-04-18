@@ -246,7 +246,24 @@ All scripts in Python 3.9+ with `pip install numpy scipy`. No proprietary data. 
 - [`evidence/gape_mcmc_nbio_ordering.py`](evidence/gape_mcmc_nbio_ordering.py) — Architecture class ordering
 - [`evidence/gape_bootstrap_comparison.py`](evidence/gape_bootstrap_comparison.py) — Non-parametric bootstrap cross-check of G-003b MCMC posteriors (10,000 resamples × 32 class-substrate pairs)
 
-Scripts live in [`validation/`](validation/) and [`evidence/`](evidence/).
+### Multi-class drift cascade scripts (VAL-037 through VAL-046, April 2026)
+
+- [`validation_runs/VAL_037_field_effect_cross_class.py`](validation_runs/VAL_037_field_effect_cross_class.py) — Cross-class field effect across 24 TCGA types (n=1,109 STN)
+- [`validation_runs/VAL_038_zeng_plasma_correlation.py`](validation_runs/VAL_038_zeng_plasma_correlation.py) — Plasma cfDNA pan-cancer correlation test (Zeng 2026 Nat Cancer)
+- [`validation_runs/VAL_039_spatial_field_gradient.py`](validation_runs/VAL_039_spatial_field_gradient.py) — Spatial field effect gradient across 6 distance-annotated cancers
+- [`validation_runs/VAL_040_AD_multiclass_drift.py`](validation_runs/VAL_040_AD_multiclass_drift.py) — Alzheimer's multi-class peripheral drift (7 tissue-class combinations)
+- [`validation_runs/VAL_041_tissue_localization.py`](validation_runs/VAL_041_tissue_localization.py) — Tissue-of-origin deconvolution localization (10 cancer types)
+- [`validation_runs/VAL_042_pre_cancer_progression.py`](validation_runs/VAL_042_pre_cancer_progression.py) — Monotonic pre-cancer progression (5 cancer systems)
+- [`validation_runs/VAL_043_cross_species.py`](validation_runs/VAL_043_cross_species.py) — Cross-species cancer replication (5 canine cancers)
+- [`validation_runs/VAL_044_treatment_trajectory.py`](validation_runs/VAL_044_treatment_trajectory.py) — Post-treatment reserve depletion trajectory (5 clinical trials)
+- [`validation_runs/VAL_045_inversion_specificity.py`](validation_runs/VAL_045_inversion_specificity.py) — Inversion detection specificity (seminoma vs TGCT histologies)
+- [`validation_runs/VAL_046_pre_diagnostic_signature.py`](validation_runs/VAL_046_pre_diagnostic_signature.py) — Systemic multi-class pre-diagnostic signature — the capstone
+- [`validation_runs/HEALTHY_BASELINES.py`](validation_runs/HEALTHY_BASELINES.py) — 80-cell healthy reference table (8 classes × 10 age decades)
+- [`validation_runs/CASCADE_SUMMARY.py`](validation_runs/CASCADE_SUMMARY.py) — Cascade-wide summary aggregating all 10 validations
+
+Each script has a corresponding `*_results.json` file with pass/fail per prediction. Results are reproducible from seed; no downloads required for VAL-037 through VAL-046 (published β values are embedded). Summary: 35 of 39 pre-specified predictions confirmed (89.7%). See [`validation_runs/README.md`](validation_runs/README.md) for per-validation primary sources.
+
+Scripts live in [`validation/`](validation/), [`evidence/`](evidence/), and [`validation_runs/`](validation_runs/).
 
 ---
 
