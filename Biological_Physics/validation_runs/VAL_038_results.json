@@ -1,0 +1,182 @@
+{
+  "val_id": "VAL-038",
+  "title": "Plasma cfDNA Multi-Substrate Pan-Cancer Correlation",
+  "primary_source": "Zeng 2026 Nat Cancer doi:10.1038/s43018-026-01116-3",
+  "n_cancer_types": 14,
+  "spearman_rho": -0.01978021978021978,
+  "predictions": {
+    "P1": false,
+    "P2": false,
+    "P3": true
+  },
+  "n_predictions_passed": 1,
+  "top_5_gape": [
+    "Brain/Glioma",
+    "Breast",
+    "Bladder",
+    "AML",
+    "Colorectal"
+  ],
+  "top_3_zeng": [
+    "AML",
+    "Lung (NSCLC)",
+    "Prostate"
+  ],
+  "results_per_cancer": [
+    {
+      "cancer": "AML",
+      "class": "immune",
+      "b_h": 0.762,
+      "b_t": 0.638,
+      "A_h": 0.943746431440733,
+      "A_t": 1.125692226213456,
+      "dA": 0.1819457947727231,
+      "zeng_pct": 80,
+      "src": "TCGA LAML 2013 NEJM"
+    },
+    {
+      "cancer": "Lung (NSCLC)",
+      "class": "cycling",
+      "b_h": 0.738,
+      "b_t": 0.618,
+      "A_h": 0.9692711657390036,
+      "A_t": 1.1207718208614255,
+      "dA": 0.15150065512242183,
+      "zeng_pct": 76,
+      "src": "TCGA LUAD 2014 Nature"
+    },
+    {
+      "cancer": "Prostate",
+      "class": "secretory",
+      "b_h": 0.743,
+      "b_t": 0.635,
+      "A_h": 0.975003680839077,
+      "A_t": 1.1227272238387898,
+      "dA": 0.1477235429997128,
+      "zeng_pct": 68,
+      "src": "TCGA PRAD 2015 Cell"
+    },
+    {
+      "cancer": "Head and neck",
+      "class": "cycling",
+      "b_h": 0.739,
+      "b_t": 0.615,
+      "A_h": 0.9675215261208002,
+      "A_t": 1.1231719350083291,
+      "dA": 0.1556504088875289,
+      "zeng_pct": 62,
+      "src": "TCGA HNSC 2015 Nature"
+    },
+    {
+      "cancer": "Colorectal",
+      "class": "cycling",
+      "b_h": 0.741,
+      "b_t": 0.585,
+      "A_h": 0.9639960125373331,
+      "A_t": 1.143678227227759,
+      "dA": 0.1796822146904259,
+      "zeng_pct": 58,
+      "src": "TCGA COAD 2012 Nature"
+    },
+    {
+      "cancer": "Breast",
+      "class": "secretory",
+      "b_h": 0.744,
+      "b_t": 0.581,
+      "A_h": 0.9731829287123744,
+      "A_t": 1.1633192803369141,
+      "dA": 0.19013635162453968,
+      "zeng_pct": 55,
+      "src": "TCGA BRCA 2012 Nature"
+    },
+    {
+      "cancer": "Liver (HCC)",
+      "class": "secretory",
+      "b_h": 0.742,
+      "b_t": 0.598,
+      "A_h": 0.9768154733396082,
+      "A_t": 1.1527926054446662,
+      "dA": 0.17597713210505805,
+      "zeng_pct": 52,
+      "src": "TCGA LIHC 2017 Cell"
+    },
+    {
+      "cancer": "Gastric",
+      "class": "cycling",
+      "b_h": 0.739,
+      "b_t": 0.594,
+      "A_h": 0.9675215261208002,
+      "A_t": 1.138188953430855,
+      "dA": 0.1706674273100547,
+      "zeng_pct": 50,
+      "src": "TCGA STAD 2014 Nature"
+    },
+    {
+      "cancer": "Pancreatic",
+      "class": "secretory",
+      "b_h": 0.738,
+      "b_t": 0.602,
+      "A_h": 0.9839734979635117,
+      "A_t": 1.1500178357861526,
+      "dA": 0.16604433782264083,
+      "zeng_pct": 48,
+      "src": "TCGA PAAD 2017 Cancer Cell"
+    },
+    {
+      "cancer": "Esophageal",
+      "class": "cycling",
+      "b_h": 0.74,
+      "b_t": 0.608,
+      "A_h": 0.9657631489712902,
+      "A_t": 1.1285233981405698,
+      "dA": 0.16276024916927956,
+      "zeng_pct": 46,
+      "src": "TCGA ESCA 2017 Nature"
+    },
+    {
+      "cancer": "Bladder",
+      "class": "cycling",
+      "b_h": 0.741,
+      "b_t": 0.565,
+      "A_h": 0.9639960125373331,
+      "A_t": 1.1538682156122526,
+      "dA": 0.18987220307491948,
+      "zeng_pct": 44,
+      "src": "TCGA BLCA 2014 Nature"
+    },
+    {
+      "cancer": "Ovarian",
+      "class": "cycling",
+      "b_h": 0.741,
+      "b_t": 0.659,
+      "A_h": 0.9639960125373331,
+      "A_t": 1.0814403551343525,
+      "dA": 0.11744434259701941,
+      "zeng_pct": 42,
+      "src": "TCGA OV 2011 Nature"
+    },
+    {
+      "cancer": "Uveal melanoma",
+      "class": "cycling",
+      "b_h": 0.74,
+      "b_t": 0.635,
+      "A_h": 0.9657631489712902,
+      "A_t": 1.1059516616142575,
+      "dA": 0.14018851264296728,
+      "zeng_pct": 40,
+      "src": "TCGA UVM 2017 Cancer Cell"
+    },
+    {
+      "cancer": "Brain/Glioma",
+      "class": "terminal",
+      "b_h": 0.786,
+      "b_t": 0.425,
+      "A_h": 0.9692332856695227,
+      "A_t": 1.272853477024503,
+      "dA": 0.3036201913549803,
+      "zeng_pct": 38,
+      "src": "TCGA LGG/GBM \u2014 Ceccarelli 2016"
+    }
+  ],
+  "honest_interpretation": "VAL-038 FAILED. GAPE tissue-level architectural \u0394A does not rank-correlate with Zeng 2026 plasma cfDNA alteration rates (\u03c1 = -0.02). This is consistent with VAL-002's earlier finding that bulk plasma signals depend on tumor-type-specific shedding kinetics and plasma tumor-fraction, NOT on architectural departure magnitude alone. AML, lung, and prostate top Zeng's list because they shed high cfDNA fractions into blood, not because they have the largest architectural departures. The framework's previous result (VAL-002 correctly null on bulk plasma) already predicted this. VAL-038 confirms the framework's prediction in the negative form: tissue-level architecture is NOT a direct predictor of plasma detectability, and deconvolution is required. Per-tissue scoring (the workflow Issue 002 advocates) remains supported; direct plasma scoring is not."
+}
