@@ -1,0 +1,79 @@
+{
+  "val_id": "VAL-044",
+  "title": "Post-Treatment Reserve Depletion Trajectory",
+  "n_trials": 5,
+  "predictions": {
+    "P1": true,
+    "P2": true,
+    "P3": true,
+    "P4": true
+  },
+  "n_predictions_passed": 4,
+  "results": [
+    {
+      "trial": "GBM Stupp (TMZ+RT)",
+      "class": "terminal",
+      "source": "Ceccarelli 2016 Cell + Fan 2021 J Neurooncol",
+      "responder_final_A": 1.1068968107895074,
+      "responder_dA": -0.1659566662349956,
+      "nonresponder_final_A": 1.2396430582727012,
+      "nonresponder_dA": -0.030293416085609204,
+      "responder_decline": true,
+      "nonresp_persist": false,
+      "separable": true,
+      "CR_approach_normal": false
+    },
+    {
+      "trial": "CRC FOLFOX adjuvant",
+      "class": "cycling",
+      "source": "Parikh 2019 Nat Med + Reinert 2019 JAMA Oncol",
+      "responder_final_A": 0.9744678739809347,
+      "responder_dA": -0.1674432517047031,
+      "nonresponder_final_A": 1.1538682156122526,
+      "nonresponder_dA": 0.01316993249046261,
+      "responder_decline": true,
+      "nonresp_persist": true,
+      "separable": true,
+      "CR_approach_normal": true
+    },
+    {
+      "trial": "BRCA adjuvant chemotherapy",
+      "class": "secretory",
+      "source": "Stover 2018 JCO",
+      "responder_final_A": 0.9839734979635117,
+      "responder_dA": -0.17934578237340237,
+      "nonresponder_final_A": 1.1610260426265786,
+      "nonresponder_dA": -0.0039393567528123175,
+      "responder_decline": true,
+      "nonresp_persist": true,
+      "separable": true,
+      "CR_approach_normal": true
+    },
+    {
+      "trial": "AML 7+3 induction",
+      "class": "stem_adult",
+      "source": "Ley 2010 NEJM + Ding 2012 Nature",
+      "responder_final_A": 0.963084926953749,
+      "responder_dA": -0.12929728667234663,
+      "nonresponder_final_A": 1.117638035107236,
+      "nonresponder_dA": 0.021126320542239396,
+      "responder_decline": true,
+      "nonresp_persist": true,
+      "separable": true,
+      "CR_approach_normal": false
+    },
+    {
+      "trial": "Melanoma anti-PD-1",
+      "class": "cycling",
+      "source": "Cabel 2018 Ann Oncol",
+      "responder_final_A": 0.9744678739809347,
+      "responder_dA": -0.1314837876333228,
+      "nonresponder_final_A": 1.1375441641462585,
+      "nonresponder_dA": 0.027017278972915726,
+      "responder_decline": true,
+      "nonresp_persist": true,
+      "separable": true,
+      "CR_approach_normal": true
+    }
+  ]
+}
