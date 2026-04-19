@@ -70,3 +70,7 @@ packages/
 level2/
 repo/
 /analyze_runs_GL.py
+
+# NEVER commit the private constants file
+_gape_constants_private.py
+**/_gape_constants_private.py

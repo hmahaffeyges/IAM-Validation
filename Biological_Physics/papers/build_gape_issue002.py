@@ -79,212 +79,32 @@ W, H = letter
 PW = W - 1.0 * inch
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# SECTION 2: PHYSICS CONSTANTS — unchanged from Issue 001
+# SECTION 2: RUNTIME CONSTANTS (ACCESS RESTRICTED)
 # ═══════════════════════════════════════════════════════════════════════════════
-k_B       = 1.380649e-23
-ln2       = math.log(2)
-R_gas     = 8.314462
-T_body_K  = 310.15
-DELTA_G_ATP = 54000.0
-n_bio     = DELTA_G_ATP / (R_gas * T_body_K)   # 20.9417
-
-N_CpG_sites   = 19.6e6
-E_landauer    = k_B * T_body_K * ln2
-E_floor_total = N_CpG_sites * E_landauer
-
-H_MIN_GLOBAL = 0.756500   # frontal cortex neuron (Lister 2013)
-
-def H_ent(b):
-    """Shannon binary entropy of a Bernoulli(b) value."""
-    if b <= 0 or b >= 1: return 0.0
-    return -b * math.log2(b) - (1.0 - b) * math.log2(1.0 - b)
-
+# All numeric calibration constants, per-class floor values, substrate registry,
+# thermodynamic derivations, and helper functions live in a private module that
+# is NOT part of this public distribution. The public build script imports those
+# symbols at runtime so the PDF still renders correctly for the author, while
+# the numeric recipe remains off the public surface.
+#
+# The calibration constants are covered under US Provisional Patents 64/012,720
+# and 64/014,568. Technical access under NDA — contact hmahaffeyges@gmail.com.
 # ═══════════════════════════════════════════════════════════════════════════════
-# SECTION 3: FIVE-SUBSTRATE FRAMEWORK — the new core of Issue 002
-# ═══════════════════════════════════════════════════════════════════════════════
-#
-# Each substrate: one raw lab measurement → normalized to [0,1] → Shannon entropy
-#                → divided by substrate-specific, class-specific H_min → A-score
-#
-# All five A-scores have identical output units (dimensionless floor ratio).
-# Combined A computed as AUC-weighted average when multiple substrates available.
-# Formula: A_combined = Σ(AUC_i × A_i) / Σ(AUC_i)
-#
-# H_min per substrate, per class, from G-002 (methylation) + G-003b (substrates 2-5)
-# Today's bootstrap cross-validation: 0.168% mean diff, 24/32 within 95% CI
+from _gape_constants_private import (
+    k_B, ln2, R_gas, T_body_K, DELTA_G_ATP, n_bio,
+    N_CpG_sites, E_landauer, E_floor_total,
+    H_MIN_GLOBAL, ALPHA_TEMP,
+    H_ent,
+    SUBSTRATES, SUB_ORDER,
+    H_MIN_TABLE, H_MIN_SIGMA_METHYL, H_MIN_CI_OTHER,
+    H_min_for, A_score_sub, A_combined,
+    is_saturated, A_combined_active,
+    H_min_at_T,
+)
 
-# Substrate metadata — label, primary source, AUC weight, transformation type
-SUBSTRATES = {
-    'methyl': {
-        'name':      'Methylation',
-        'full':      'DNA methylation (β-value)',
-        'lab':       'CpG methylation fraction from array or bisulfite sequencing',
-        'raw_units': 'β ∈ [0,1], fraction methylated',
-        'transform': 'Direct: β → H(β) — no normalization required',
-        'auc':       0.8663,
-        'source':    'MESA 2024 (Li et al., Genome Med); G-002 MCMC (Mahaffey 2026)',
-        'validated': '14/28 TCGA cycling cancers, 6/6 secretory, all 8 classes',
-    },
-    'nucl': {
-        'name':      'Nucleosome Occupancy',
-        'full':      'Nucleosome occupancy fraction at architecture-class loci',
-        'lab':       'ATAC-seq accessibility or Griffin cfDNA nucleosome profile',
-        'raw_units': 'occupancy ∈ [0,1]',
-        'transform': 'Direct: occupancy → H(occupancy)',
-        'auc':       0.852,
-        'source':    'Doebley 2022 Nat Commun; Corces 2018 Science',
-        'validated': 'Breast cancer (AUC 0.89-0.96 ER status); MESA substrate 2',
-    },
-    'fuzz': {
-        'name':      'Nucleosome Fuzziness',
-        'full':      'Nucleosome positioning fuzziness (normalized)',
-        'lab':       'NucleoATAC fuzziness score / 73 bp (nucleosome footprint)',
-        'raw_units': 'fuzziness_normalized ∈ [0,1]',
-        'transform': 'Normalize raw fuzziness score to [0,1] via NucleoATAC pipeline',
-        'auc':       0.779,
-        'source':    'Esfahani 2022 Cancer Discovery; MESA substrate 3',
-        'validated': 'Colorectal (AUC 0.78-0.86); prostate phenotype discrimination',
-    },
-    'wps': {
-        'name':      'Windowed Protection Score',
-        'full':      'WPS at architecture-class identity promoters',
-        'lab':       'Snyder WPS from cfDNA WGS, 120 bp window',
-        'raw_units': 'WPS_normalized ∈ [0,1] after sigmoid/rank transform',
-        'transform': 'Sigmoid normalization of signed WPS to bounded [0,1]',
-        'auc':       0.761,
-        'source':    'Snyder 2016 Cell (foundational); MESA substrate 4',
-        'validated': '15/15 tissue types in healthy donors; field effect 22/22',
-    },
-    'frag': {
-        'name':      'Fragment Size (DELFI)',
-        'full':      'Short-fragment fraction from cfDNA WGS',
-        'lab':       'DELFI short/long ratio, 100-150 bp vs 151-220 bp',
-        'raw_units': 'p_short ∈ [0,1]',
-        'transform': 'Direct: short-fraction → H(p_short)',
-        'auc':       0.940,
-        'source':    'Cristiano 2019 Nature; Mathios 2022 Nat Commun',
-        'validated': '7/7 cancer types (AUC 0.940, n=208); 2-year pre-diagnostic window',
-    },
-}
-
-SUB_ORDER = ['methyl', 'nucl', 'fuzz', 'wps', 'frag']
-
-# ─── PER-CLASS H_MIN PER SUBSTRATE ───────────────────────────────────────────
-# Methylation: G-002 MCMC posteriors (17 chains, R-hat < 1.001, 800,000 samples)
-# Other 4: G-003b MCMC (5 chains × 32 walkers) + today's bootstrap cross-validation
-#
-# Bootstrap 95% CIs available in evidence report; methylation σ values from G-002 paper
-
-H_MIN_TABLE = {
-    #              methyl     nucl      fuzz      wps       frag
-    # Methylation: G-002 MCMC (17 chains, R-hat<1.001, published Issue 001)
-    # Other four substrates: G-003b MCMC (5 chains × 32 walkers, 800k samples,
-    # R-hat<1.001) — canonical posteriors from Evidence Report
-    # Terminal class uses G-003b posteriors directly; other classes use G-003b
-    # posteriors from the same MCMC run
-    'cycling':    (0.856055, 0.980072, 0.819030, 0.627429, 0.687936),
-    'secretory':  (0.843264, 0.982560, 0.847947, 0.634534, 0.697718),
-    'immune':     (0.838889, 0.989930, 0.830377, 0.589644, 0.711534),
-    'terminal':   (0.772837, 0.992027, 0.736973, 0.958909, 0.624938),
-    'stromal':    (0.862950, 0.985667, 0.832386, 0.612686, 0.724691),
-    'stem_pluri': (0.982166, 0.799818, 0.962920, 0.905004, 0.973583),
-    'stem_adult': (0.873718, 0.960866, 0.980754, 0.988964, 0.841327),
-    'progenitor': (0.852216, 0.972790, 0.961900, 0.988046, 0.808978),
-}
-
-# Methylation σ from G-002 MCMC (published Issue 001)
-H_MIN_SIGMA_METHYL = {
-    'cycling':    0.000800, 'secretory':  0.000600, 'immune':     0.001200,
-    'terminal':   0.001100, 'stromal':    0.001400, 'stem_pluri': 0.001800,
-    'stem_adult': 0.001600, 'progenitor': 0.001700,
-}
-
-# Bootstrap 95% CI half-widths per substrate (from today's VAL-033 cross-validation)
-# Representative values — actual per-class CIs in evidence report Table 4
-H_MIN_CI_OTHER = {
-    'nucl':  0.008427,
-    'fuzz':  0.007359,
-    'wps':   0.005649,
-    'frag':  0.006878,
-}
-
-def H_min_for(cls, sub):
-    """Retrieve H_min for a given class and substrate."""
-    return H_MIN_TABLE[cls][SUB_ORDER.index(sub)]
-
-def A_score_sub(value, cls, sub):
-    """Compute A-score for a given raw [0,1] value, class, and substrate."""
-    hm = H_min_for(cls, sub)
-    if hm <= 0: return 0.0
-    return H_ent(value) / hm
-
-def A_combined(sub_values, cls):
-    """
-    Compute combined A-score as AUC-weighted mean.
-    sub_values: dict like {'methyl': 0.685, 'nucl': 0.490, ...}
-    Returns: (A_combined, per_substrate_breakdown, n_substrates)
-    """
-    avail = []
-    for sub, val in sub_values.items():
-        if val is None or not (0.01 < val < 0.99):
-            continue
-        A_i = A_score_sub(val, cls, sub)
-        w_i = SUBSTRATES[sub]['auc']
-        avail.append({'sub': sub, 'val': val, 'A': A_i, 'w': w_i,
-                      'H': H_ent(val), 'Hmin': H_min_for(cls, sub)})
-    if not avail:
-        return None, [], 0
-    w_sum  = sum(s['w'] for s in avail)
-    wA_sum = sum(s['w'] * s['A'] for s in avail)
-    A_c    = wA_sum / w_sum
-    for s in avail:
-        s['w_pct'] = s['w'] / w_sum * 100
-    return A_c, avail, len(avail)
-
-def is_saturated(A, cls, sub, margin=0.005):
-    """
-    A substrate is saturated if its A-score is within 'margin' of the ceiling.
-    The ceiling is 1/H_min (maximum achievable A when β=0.5, H=1.0).
-    Returns True if the measurement has hit its physical wall and can no longer
-    contribute information to progression tracking.
-    """
-    if A is None: return False
-    hm = H_min_for(cls, sub)
-    ceiling = 1.0 / hm
-    return A >= ceiling - margin
-
-def A_combined_active(sub_values, cls):
-    """
-    Combined A-score EXCLUDING saturated substrates.
-    When a substrate saturates, it stops contributing information — its value
-    is capped at the ceiling regardless of actual disease severity. Including
-    saturated substrates in the combined average biases the result downward
-    and masks continued progression. This function returns the AUC-weighted
-    mean over only the NON-saturated substrates.
-
-    For monitoring and end-of-life projections, A_combined_active tracks real
-    progression; A_combined (all 5) matches legacy comparisons.
-
-    Returns: (A_active, saturated_list, active_list, n_active)
-    """
-    all_subs = []
-    for sub, val in sub_values.items():
-        if val is None or not (0.01 < val < 0.99):
-            continue
-        A_i = A_score_sub(val, cls, sub)
-        w_i = SUBSTRATES[sub]['auc']
-        sat = is_saturated(A_i, cls, sub)
-        all_subs.append({'sub': sub, 'val': val, 'A': A_i, 'w': w_i, 'sat': sat})
-    active = [s for s in all_subs if not s['sat']]
-    saturated = [s for s in all_subs if s['sat']]
-    if not active:
-        return None, saturated, [], 0
-    w_sum = sum(s['w'] for s in active)
-    wA_sum = sum(s['w'] * s['A'] for s in active)
-    return wA_sum / w_sum, saturated, active, len(active)
 
 def tier_label(A):
-    """GAPE four-tier classification."""
+    """GAPE four-tier classification — tier thresholds are public, constants are not."""
     if A is None:    return ('N/A',          '#6B7280')
     if A < 1.01:     return ('NORMAL',       '#34D399')
     if A < 1.05:     return ('MARGINAL',     '#86EFAC')
@@ -292,25 +112,13 @@ def tier_label(A):
     if A < 1.10:     return ('URGENT',       '#FB923C')
     return                  ('FLOOR BREACH', '#F87171')
 
+
 def tier_color(A):
     return colors.HexColor(tier_label(A)[1])
 
+
 def tier_short(A):
     return tier_label(A)[0]
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# SECTION 4: BODY TEMPERATURE SCALING — Vertebrate Lifespan Paper (Nature Aging)
-# ═══════════════════════════════════════════════════════════════════════════════
-# Correlation r = -0.90 across 43 mammals (Pearson, p = 1.6× 10<sup>-16</sup>)
-# Perfect separation: long-lived (>20 yr, A < 1.05) vs short-lived (<20 yr, A > 1.05)
-# Temperature scaling: H_min(T) = H_min(37°C) × (T_body / 310.15 K)^α, α = 2.0
-
-ALPHA_TEMP = 2.0
-
-def H_min_at_T(hm_37, T_celsius):
-    """Temperature-corrected H_min via α=2.0 Landauer scaling."""
-    T_K = T_celsius + 273.15
-    return hm_37 * (T_K / T_body_K)**ALPHA_TEMP
 
 # Representative vertebrate species — used in body temp scaling tables on each card
 VERTEBRATE_TEMPS = [
@@ -526,7 +334,7 @@ class FiveSubstrateGauge(Flowable):
         # Floor label
         hm_methyl = H_min_for(self.cls, 'methyl')
         c.setFillColor(MUTED2); c.setFont('Helvetica', 6)
-        c.drawRightString(bar_x - 6, bar_y + 5, f'H_min={hm_methyl:.4f}')
+        c.drawRightString(bar_x - 6, bar_y + 5, 'class floor')
         # Substrate legend on right
         lx = bar_x + bar_w + 8; ly = bar_y + bar_h + 14
         c.setFillColor(MUTED); c.setFont('Helvetica-Bold', 6)
@@ -671,7 +479,7 @@ class SubstrateABar(Flowable):
                 # Metadata BELOW the bar (not overlapping next row)
                 c.setFillColor(MUTED); c.setFont('Helvetica', 5.5)
                 c.drawString(2, y - 2,
-                    f'input={val:.3f}  H={H_i:.4f}  H_min={hm:.4f}  ceiling={ceiling:.3f}  AUC={SUBSTRATES[sub]["auc"]:.3f}')
+                    f'AUC={SUBSTRATES[sub]["auc"]:.3f}')
                 y -= self.row_h
         # Combined A at bottom
         Ac, breakdown, n = A_combined(self.svs, self.cls)
@@ -1053,7 +861,7 @@ CARDS = [
         'short': 'Immune',
         'cfdna_pct': 70.0,
         'ref_cell': 'Normal blood leukocytes (GSE40279, Hannum 2013 healthy cohort)',
-        'mcmc_note': 'G-002 chain 3 of 17. R-hat 1.0007. Corrected H_min 0.8389 ± 0.0012 from initial calibration 0.795 (6.44σ tension resolved).',
+        'mcmc_note': 'G-002 chain 3 of 17. R-hat 1.0007. Corrected from initial neutrophil-reference calibration (6.44σ tension resolved).',
         'n_bio':     17.5,
         'gen_rate':  0.035,
         'f_C2_pct':  9.8,
@@ -1149,7 +957,7 @@ CARDS = [
                     'a_score_label': 'reference, plastic baseline',
                     'known': (
                         'A_combined ≈ 0.97 at class reference. The 6.44σ MCMC correction on this '
-                        'class\'s H_min value (initial 0.795 → posterior 0.8389) was the framework\'s '
+                        'class\'s H_min value (initial the class floor → posterior the class floor) was the framework\'s '
                         'most important calibration event. Healthy immune cells maintain a measurable '
                         'C3 gap (5-10× lower than solid-tumor classes show) that reflects programmed '
                         'plasticity, not disease.'
@@ -1281,10 +1089,10 @@ CARDS = [
             "strongest, because five physically distinct measurements all sample the same abundant "
             "cfDNA population.\n\n"
             "The immune class is also where the G-002 MCMC produced its most important correction. "
-            "The initial calibration used a neutrophil reference cell at β = 0.760, giving H_min = 0.795. "
+            "The initial calibration used a neutrophil reference cell at β = 0.760, giving the class floor. "
             "When the MCMC ran against all six published immune cell types simultaneously — CD4+ naive, "
             "CD8+ memory, CD4+ effector, NK cell, B cell naive, neutrophil — it returned a posterior "
-            "H_min of 0.8389 ± 0.0012, a 6.44σ departure from the initial estimate. The neutrophil was "
+            "the class floor ± the class floor, a 6.44σ departure from the initial estimate. The neutrophil was "
             "not the most methylated immune cell in the class distribution. Every immune cell A-score "
             "in the database was revised downward by approximately 0.055 after this correction. "
             "CD4+ naive moved from A = 1.058 (DETECT tier) to A = 1.003 (NORMAL). This correction is "
@@ -1342,7 +1150,7 @@ CARDS = [
         'section_commentary': {
             'gauge': (
                 "The immune class gauge tells a story no other class tells. The 6.44σ correction "
-                "from our initial H_min of 0.795 to the G-002 MCMC posterior of 0.8389 is visible "
+                "from our initial the class floor to the G-002 MCMC posterior of the class floor is visible "
                 "in the healthy reference clustering. If you had run this gauge six months ago with "
                 "the old floor, the healthy leukocyte A-score would have sat at approximately 1.058 — "
                 "DETECTABLE tier. Every healthy blood donor would have looked falsely elevated. "
@@ -1544,7 +1352,7 @@ CARDS = [
         'short': 'Cycling',
         'cfdna_pct': 12.0,
         'ref_cell': 'Normal colonic mucosa (TCGA COAD matched normal)',
-        'mcmc_note': 'G-002 chain 1 of 17. R-hat 1.0003. Posterior H_min 0.856055 ± 0.000800.',
+        'mcmc_note': 'G-002 chain 1 of 17. R-hat 1.0003. Posterior confirmed with tight credible interval.',
         'n_bio':     19.5,
         'gen_rate':  0.055,
         'f_C2_pct':  12.1,
@@ -1753,7 +1561,7 @@ CARDS = [
             "GAPE detects across all five substrates simultaneously. The 5.5% per generation drift "
             "rate is the highest of any class — and it is the direct thermodynamic consequence of "
             "maintaining epigenomic identity through the most division cycles per lifetime. H_min "
-            "= 0.856055 (G-002 chain 1 of 17, R-hat 1.0003, posterior ±0.000800) reflects a floor "
+            "= the class floor (G-002 chain 1 of 17, R-hat 1.0003, posterior within the G-002 credible interval) reflects a floor "
             "tight enough to define a class but loose enough to accommodate the tissue-to-tissue "
             "variation across all 14 cancer types that share it.\n\n"
             "This class is where MESA — the four-substrate cfDNA test (Li 2024 Genome Med) — was "
@@ -1843,7 +1651,7 @@ CARDS = [
                 "The healthy reference dots below should cluster tightly in NORMAL near A = 0.97. "
                 "The reference cell is normal colonic mucosa (TCGA COAD matched normal), β = 0.740, "
                 "a tissue that turns over completely every 4–7 days. Under this constant division, "
-                "the cell sits exactly at its class floor, H_min = 0.8561. The disease reference "
+                "the cell sits exactly at its class floor, the class floor. The disease reference "
                 "is COAD — colorectal cancer — showing the characteristic floor breach with ΔA "
                 "approaching 0.18. Look for the spread pattern: cycling cancers typically show "
                 "all five substrate dots clustered together in URGENT or FLOOR BREACH, because "
@@ -2042,7 +1850,7 @@ CARDS.extend([
         'short': 'Secretory',
         'cfdna_pct': 8.0,
         'ref_cell': 'Normal breast tissue (TCGA BRCA matched normal)',
-        'mcmc_note': 'G-002 chain 2 of 17. R-hat 1.0001. Posterior H_min 0.843264 ± 0.000600.',
+        'mcmc_note': 'G-002 chain 2 of 17. R-hat 1.0001. Posterior confirmed with tight credible interval.',
         'n_bio':     21.5,
         'gen_rate':  0.040,
         'f_C2_pct':  10.5,
@@ -2208,7 +2016,7 @@ CARDS.extend([
         },
         'substrate_ranking': [
             ('methyl', 'Pan-secretory cancer detection',
-             'Highest-precision H_min calibration (MCMC σ = 0.0006). Six TCGA cancers validated. '
+             'Highest-precision H_min calibration (MCMC σ = the class floor). Six TCGA cancers validated. '
              'Primary substrate for BRCA, PRAD, LIHC, PAAD detection.'),
             ('frag',   'Tumor burden and monitoring',
              'DELFI validated across secretory cancers including breast and pancreatic. '
@@ -2233,8 +2041,8 @@ CARDS.extend([
             "receptor status, HER2 amplification, beta-cell identity in the pancreas — all are "
             "downstream consequences of the upstream epigenomic state that GAPE measures across five "
             "substrates.\n\n"
-            "The H_min for secretory glandular cells (0.843264) is slightly lower than cycling "
-            "epithelial (0.856055). This reflects tighter differentiation: secretory cells have a "
+            "The H_min for secretory glandular cells (the class floor) is slightly lower than cycling "
+            "epithelial (the class floor). This reflects tighter differentiation: secretory cells have a "
             "smaller entropy range to work with, and a more precise methylation program to maintain. "
             "When a secretory cell departs from its class floor — losing the methylation that keeps "
             "it producing hormones rather than proliferating — it opens more accessible entropy than "
@@ -2287,7 +2095,7 @@ CARDS.extend([
         'section_commentary': {
             'gauge': (
                 "The gauge below captures one of the framework's most clinically consequential "
-                "class boundaries. Secretory glandular cells sit at H_min = 0.8433 — tighter than "
+                "class boundaries. Secretory glandular cells sit at the class floor — tighter than "
                 "cycling epithelium, looser than terminal neurons. They produce milk, hormones, "
                 "bile, insulin, digestive enzymes, seminal fluid. Every secretion requires precise "
                 "methylation at hormone-response elements, tissue-specific enhancers, and the "
@@ -2346,7 +2154,7 @@ CARDS.extend([
             ),
             'modality_ranking': (
                 "For secretory class cancers, methylation is the primary substrate but never "
-                "the only one. The tightest H_min MCMC posterior in the framework — σ = 0.0006 — "
+                "the only one. The tightest H_min MCMC posterior in the framework — σ = the class floor — "
                 "comes from this class, thanks to the well-characterized TCGA BRCA matched normal "
                 "dataset. Six TCGA cancers have been validated against this methylation floor: "
                 "breast, prostate, liver, pancreas, adrenal, and (at a class boundary) ovarian.",
@@ -2701,7 +2509,7 @@ CARDS.extend([
             "function, endothelial cells line blood vessels, mesothelial cells line body cavities. "
             "Their architecture class reflects an intermediate commitment state: more differentiated "
             "than progenitor cells, but retaining wound-response activation capacity that cycling "
-            "epithelium and post-mitotic neurons lack. H_min = 0.862950, the highest among "
+            "epithelium and post-mitotic neurons lack. the class floor, the highest among "
             "solid-tissue classes, reflects this wound-response readiness — a slightly more open "
             "chromatin state associated with the capacity to activate into myofibroblasts under "
             "damage signaling.\n\n"
@@ -3005,7 +2813,7 @@ CARDS.extend([
             "and immune cells, intestinal stem cells (Lgr5+) regenerate gut epithelium, epidermal and "
             "hair-follicle stem cells maintain skin, and cholangiocytes serve as the liver's stem-cell "
             "compartment for biliary regeneration. This partial commitment is encoded in H_min = "
-            "0.873718 for the methylation substrate, reflecting the slightly more open chromatin "
+            "the class floor for the methylation substrate, reflecting the slightly more open chromatin "
             "state that preserves self-renewal flexibility. But this open chromatin comes with a "
             "thermodynamic consequence that defines this card: healthy adult stem cells already sit "
             "near the maximum-entropy state for the positional substrates, leaving very little "
@@ -3232,7 +3040,7 @@ CARDS.extend([
                     'a_score_label': 'reference',
                     'known': (
                         'Common myeloid progenitor is the reference state. Progenitor-class '
-                        'H_min = 0.8522 calibrated from Roadmap E034 (erythroid progenitor) '
+                        'the class floor calibrated from Roadmap E034 (erythroid progenitor) '
                         'plus CD34+CD38- HSC-enriched references. Baseline A ≈ 0.97 across '
                         'all five substrates in healthy adults.'
                     ),
@@ -3428,7 +3236,7 @@ CARDS.extend([
                 "marrow divide at rates that approach the theoretical limit of DNMT1 maintenance "
                 "fidelity. A single CMP can produce a million granulocytes in an hour of bone "
                 "marrow activity. Every division requires faithful methylation copying across 19.6 "
-                "million CpG sites. The class floor at H_min = 0.8522 reflects the thermodynamic "
+                "million CpG sites. The class floor at the class floor reflects the thermodynamic "
                 "demand of this throughput.",
 
                 "The healthy reference dots below should cluster in NORMAL tier, but note: the "
@@ -3613,7 +3421,7 @@ CARDS.extend([
         'short': 'Terminal',
         'cfdna_pct': 0.5,
         'ref_cell': 'Frontal cortex neurons (Roadmap Epigenomics E073, Lister 2013)',
-        'mcmc_note': 'G-002 chain 4 of 17. R-hat 0.9998. Posterior H_min 0.772837 ± 0.001100.',
+        'mcmc_note': 'G-002 chain 4 of 17. R-hat 0.9998. Posterior confirmed with tight credible interval.',
         'n_bio':     24.5,
         'gen_rate':  0.008,
         'f_C2_pct':  2.1,
@@ -3640,7 +3448,7 @@ CARDS.extend([
                 'MCMC-derived H_min central estimate. The A = 1.00 line represents the architectural '
                 'commitment point, not a mathematical floor. Disease departure above A = 1.10 '
                 'crosses the architectural ceiling into the cancer range. All four conditions sit '
-                'on the same reference floor H_min = 0.7728, but show vastly different departure '
+                'on the same reference floor the class floor, but show vastly different departure '
                 'magnitudes. '
                 'Data-availability disclosure: β_nucl = 0.500 and β_wps = 0.500 for LGG and GBM '
                 'in the chart below are placeholders. Ceccarelli 2016 reports methylation only, '
@@ -3663,7 +3471,7 @@ CARDS.extend([
                 # Alzheimer's — β shift ≈10% toward disease, yields A≈1.04 per substrate
                 ('Alzheimer\'s (AD)',  {'methyl': 0.753, 'nucl': 0.566, 'fuzz': 0.763, 'wps': 0.603, 'frag': 0.789}, '#facc15'),
                 # LGG — Ceccarelli 2016 methyl β=0.450 (primary published), others tuned
-                # Note: nucl (H_min=0.992) and wps (H_min=0.959) saturate before reaching BREACH
+                # Note: nucl (the class floor) and wps (the class floor) saturate before reaching BREACH
                 ('LGG (glioma)',       {'methyl': 0.450, 'nucl': 0.500, 'fuzz': 0.336, 'wps': 0.500, 'frag': 0.232}, '#fb923c'),
                 # GBM — Ceccarelli 2016 methyl β=0.400 (primary), slightly more extreme than LGG
                 ('GBM (glioblastoma)', {'methyl': 0.400, 'nucl': 0.500, 'fuzz': 0.305, 'wps': 0.500, 'frag': 0.210}, '#ef4444'),
@@ -3855,9 +3663,9 @@ CARDS.extend([
             "establish the pattern during development, and DNMT1 maintains it with extreme fidelity "
             "over decades. A frontal cortex neuron alive today may have maintained its methylation "
             "program since before the patient was born. This maximum commitment is encoded in the "
-            "lowest H_min of any architecture class: 0.772837. Neurons have the tightest possible "
+            "lowest H_min of any architecture class: the class floor value. Neurons have the tightest possible "
             "methylation entropy floor — the smallest Shannon entropy consistent with their "
-            "functional differentiation state. The global floor reference (H_min = 0.756500, "
+            "functional differentiation state. The global floor reference (the class floor, "
             "frontal cortex neuron from Lister 2013) is within this class, making neurons the "
             "anchor of the entire GAPE framework's C1 Landauer floor.\n\n"
             "The consequence for cancer is stark. When a terminal-class cell undergoes malignant "
@@ -3873,9 +3681,9 @@ CARDS.extend([
             "specimen for this class, not plasma.\n\n"
             "A critical substrate-saturation finding emerges specifically for this class and must "
             "be stated honestly. The G-003b MCMC posteriors for terminal-class non-methylation "
-            "substrates are: nucleosome occupancy H_min = 0.9920, fuzziness H_min = 0.7370, "
-            "WPS H_min = 0.9589, fragment size H_min = 0.6249. Note that fuzziness H_min = 0.7370 "
-            "is slightly below the methylation floor (0.7728). This is not an inconsistency — each "
+            "substrates are: nucleosome occupancy the class floor, fuzziness the class floor, "
+            "WPS the class floor, fragment size the class floor. Note that fuzziness the class floor "
+            "is slightly below the methylation floor (the class floor). This is not an inconsistency — each "
             "substrate has its own independent floor because each measures a physically different "
             "quantity. Nucleosome fuzziness (positional imprecision of nucleosomes, Esfahani 2022 "
             "methodology) is a distinct physical observable from methylation fraction, and its "
@@ -3939,7 +3747,7 @@ CARDS.extend([
         'section_commentary': {
             'gauge': (
                 "The gauge below shows the terminal class at work. Neurons sit at the lowest H_min "
-                "of any architecture class — 0.7728 — because they are the most committed cells in "
+                "of any architecture class — the class floor — because they are the most committed cells in "
                 "the body. They entered their final differentiated state during development and have "
                 "maintained it through every year since. A frontal cortex neuron in a 70-year-old "
                 "patient has been running the same methylation program since before that patient was "
@@ -3980,8 +3788,8 @@ CARDS.extend([
             ),
             'three_component': (
                 "The three-component decomposition reveals the terminal class's defining feature: "
-                "C1 dominates. The universal Landauer floor (0.756500) sits just below the terminal "
-                "class H_min (0.7728), so C2 — the class-specific overhead above the universal "
+                "C1 dominates. The universal Landauer floor (the universal Landauer floor value) sits just below the terminal "
+                "class H_min (the class floor), so C2 — the class-specific overhead above the universal "
                 "floor — is the smallest of any architecture class: approximately 2.1% of the "
                 "healthy reference entropy. Terminal cells pay the bare minimum thermodynamic "
                 "cost above the universal floor required to encode neuronal identity. There is "
@@ -4022,7 +3830,7 @@ CARDS.extend([
                 "The body-temperature scaling table below extends the terminal class H_min from "
                 "human 37°C to every temperature encountered across vertebrates. In birds at 42°C, "
                 "neurons must pay a higher Landauer cost per bit of identity maintained — H_min "
-                "rises from 0.7728 to 0.7980. In reptiles at 25°C, the cost drops — H_min falls "
+                "rises from the class floor to 0.7980. In reptiles at 25°C, the cost drops — H_min falls "
                 "to 0.7142.",
 
                 "This is not just academic. It has direct implications for human clinical practice. "
@@ -4058,7 +3866,7 @@ CARDS.extend([
             ),
             'vertebrate': (
                 "Terminal class cells are the anchor of the vertebrate lifespan result. The frontal "
-                "cortex neuron is the reference cell for H_MIN_GLOBAL = 0.756500 — the lowest "
+                "cortex neuron is the reference cell for the universal Landauer floor — the lowest "
                 "methylation floor measured in any tissue of any mammal studied. This anchor "
                 "makes the terminal class uniquely suited to cross-species extension. Across "
                 "all 43 mammals in the Nature Aging submission, the methylation A-score in "
@@ -4209,7 +4017,7 @@ CARDS.extend([
                 'a multi-substrate DIVERGENCE pattern: one substrate inverting while four elevate. '
                 'A naive cancer detector looking only at combined A misses seminoma entirely. '
                 'VAL-045 (April 2026) revealed an important extension: because H_min_methyl '
-                '= 0.9822 sits very close to the Shannon ceiling of 1.000, the architectural '
+                '= the class floor sits very close to the Shannon ceiling of 1.000, the architectural '
                 'window above floor is extremely narrow. Any methylation departure from the '
                 'narrow pluripotent reference band produces A_methyl below floor regardless '
                 'of direction. All four TGCT histologies invert at the methylation level: '
@@ -4242,7 +4050,7 @@ CARDS.extend([
                     'documented below-floor disease state. Seminoma tumor β_methyl drops '
                     'toward 0.17-0.20 as the malignant germ cell reverts toward a primordial '
                     'germ cell (PGC) state, in which β approaches zero. Because pluripotent '
-                    'H_min_methyl = 0.9822 is already near maximum entropy, the inversion '
+                    'H_min_methyl = the class floor is already near maximum entropy, the inversion '
                     'produces A_methyl that FALLS below the healthy reference (A = 0.67 at '
                     'β = 0.17) rather than rising above it. A naive cancer-detection instrument '
                     'looking for combined-A elevation misses seminoma entirely. The framework\'s '
@@ -4255,7 +4063,7 @@ CARDS.extend([
                     'card now shows the INVERSION zone on the pre-breach bar — because '
                     'below-floor disease is real, documented, and class-specific. VAL-045 '
                     '(April 2026, multi-class drift cascade) extended this picture: because the '
-                    'pluripotent methylation window above floor is so narrow (H_min = 0.9822 '
+                    'pluripotent methylation window above floor is so narrow (the class floor '
                     'versus H_max = 1.000), any methylation departure from the reference band '
                     'inverts A_methyl regardless of direction. All four TGCT histologies land '
                     'in inversion territory at the methylation level. Seminoma is the extreme '
@@ -4277,7 +4085,7 @@ CARDS.extend([
                     'known': (
                         'Human embryonic stem cells (Roadmap E003) sit at the class reference '
                         'with A ≈ 0.97 across all five substrates. Pluripotent cells are '
-                        'designed for high entropy — their H_min = 0.9822 is the highest class '
+                        'designed for high entropy — their the class floor is the highest class '
                         'floor in the framework, because multi-potency requires maximum '
                         'epigenomic reversibility. The Yamanaka reprogramming factors (OCT4, '
                         'SOX2, KLF4, c-MYC) drive somatic cells back toward this high-entropy '
@@ -4427,8 +4235,8 @@ CARDS.extend([
             "optionality. Healthy hESCs and iPSCs sit very close to the maximum-entropy state across "
             "every substrate measurement — their chromatin is open, their methylation is intermediate, "
             "their nucleosome positioning is loose. This is reflected in the class's H_min values: "
-            "methylation H_min = 0.982166 (ceiling A = 1.0182, only +0.018 past the healthy reference), "
-            "fuzz H_min = 0.962920 (ceiling A = 1.0385), frag H_min = 0.973583 (ceiling A = 1.0271). "
+            "methylation the class floor (ceiling A = 1.0182, only +0.018 past the healthy reference), "
+            "fuzz the class floor (ceiling A = 1.0385), frag the class floor (ceiling A = 1.0271). "
             "Three of five substrates saturate below BREACH for this class. Only nucleosome occupancy "
             "(ceiling A = 1.2503, the deepest headroom of any substrate × class pairing in the framework) "
             "and windowed protection score (ceiling A = 1.1050) remain active past BREACH. The "
@@ -4822,8 +4630,7 @@ def render_card(story, card):
         Paragraph(f'<font color="#{col.hexval()[2:]}">■</font>  <b>#{card["order"]} · {card["name"].upper()}</b>',
                   S('CH', fontName='Helvetica-Bold', fontSize=12, textColor=WHITE, leading=14)),
         Paragraph(f'<font color="#{MUTED2.hexval()[2:]}" size="7">'
-                  f'cfDNA = {card["cfdna_pct"]:.1f}%  ·  H_min(methyl) = {hm:.4f}  ·  '
-                  f'n_bio = {card["n_bio"]}  ·  drift {card["gen_rate"]*100:.1f}%/gen</font>',
+                  f'architecture class · see NDA technical documentation for numeric parameters</font>',
                   S('CM', fontSize=7, textColor=MUTED2, leading=10)),
     ]], colWidths=[PW*0.58, PW*0.42],
     style=[('TOPPADDING',(0,0),(-1,-1),0),('BOTTOMPADDING',(0,0),(-1,-1),0),
@@ -4884,7 +4691,7 @@ def render_card(story, card):
     story.append(Paragraph(
         f'The gauge below is the central image of Issue 002. A single horizontal bar represents '
         f'the A-score axis — from A = 0.90 (below the floor) through A = 1.00 (exactly at the '
-        f'{card["short"]} class floor, H_min = {hm:.4f}) up through the clinical threshold zones: '
+        f'{card["short"]} class floor) up through the clinical threshold zones: '
         f'MARGINAL at A = 1.01, DETECTABLE at 1.05, URGENT at 1.07, and FLOOR BREACH at 1.10. '
         f'Five dots are plotted on this single axis for a healthy reference sample ({card["cancer_label_h"]}, '
         f'markers above the bar), and five more dots for a disease reference ({card["cancer_label_c"]}, '
@@ -5033,7 +4840,7 @@ def render_card(story, card):
     story.append(Paragraph('THREE-COMPONENT DECOMPOSITION (C1/C2/C3) — PER SUBSTRATE', sLabel))
     story.append(Paragraph(
         f'Every cell\'s measured entropy decomposes into three physically meaningful pieces. '
-        f'C1 is the universal Landauer floor: H_MIN_GLOBAL = 0.756500, measured in frontal '
+        f'C1 is the universal Landauer floor: the universal Landauer floor, measured in frontal '
         f'cortex neurons by Lister 2013. Every cell in every architecture class must pay at '
         f'least this thermodynamic cost to maintain any functional identity — it is the '
         f'minimum entropy consistent with being alive. C2 is the class-specific overhead: '
@@ -5121,43 +4928,36 @@ def render_card(story, card):
         sBodySm))
     story.append(Spacer(1, 3))
     story.append(Paragraph(
-        f'The table below shows what the {card["short"].lower()} class floor H_min looks like at '
-        f'seven representative body temperatures. At 37°C (human reference, highlighted row), '
-        f'H_min = {hm:.4f}. At 42°C (birds), the floor is higher because the Landauer tax is larger. '
-        f'At 32°C (naked mole rat — and no other mammal lives at this temperature for good reason), '
-        f'the floor drops because a cooler cell can maintain more entropy cheaply. The A-shift '
-        f'column shows how a fixed healthy β-value would read at each temperature: the same cell, '
-        f'transplanted into a colder body, would read slightly higher A; into a warmer body, '
-        f'slightly lower A. This is why the naked mole rat\'s remarkable longevity makes '
-        f'thermodynamic sense — lower body temperature, lower maintenance cost per bit, more '
-        f'headroom before the class floor is breached.',
+        f'The table below shows how the {card["short"].lower()} class floor shifts at '
+        f'seven representative body temperatures. At 42°C (birds), the floor is higher '
+        f'because the Landauer tax is larger. At 32°C (naked mole rat — and no other '
+        f'mammal lives at this temperature for good reason), the floor drops because a '
+        f'cooler cell can maintain more entropy cheaply. The A-shift column shows how a '
+        f'fixed healthy β-value would read at each temperature: the same cell, transplanted '
+        f'into a colder body, would read slightly higher A; into a warmer body, slightly '
+        f'lower A. This is why the naked mole rat\'s remarkable longevity makes '
+        f'thermodynamic sense — lower body temperature, lower maintenance cost per bit, '
+        f'more headroom before the class floor is breached.',
         sBodySm))
     story.append(Spacer(1, 4))
-    temp_rows = [[PH('T_body'), PH('Species example'), PH('H_min(T)'), PH('β_healthy equivalent'), PH('A-shift vs 37°C')]]
+    temp_rows = [[PH('T_body'), PH('Species example'), PH('A-shift vs 37°C')]]
     hm_37 = hm
     for t_label, t_c, species, kind in VERTEBRATE_TEMPS:
         hm_t = H_min_at_T(hm_37, t_c)
         shift = hm_37 / hm_t  # A shifts by inverse of H_min shift
-        # β that would give A=1.00 at that temperature
-        beta_eq_methyl = card['sv_healthy']['methyl']
-        A_at_t = H_ent(beta_eq_methyl) / hm_t
         if kind == 'anchor':
             highlight_style = S('TH', fontSize=7.5, textColor=LAV, fontName='Helvetica-Bold', leading=11)
             temp_rows.append([
                 Paragraph(f'<b>{t_label}</b>', highlight_style),
                 Paragraph(f'<b>{species}</b>', highlight_style),
-                Paragraph(f'<font name="Courier"><b>{hm_t:.4f}</b></font>', highlight_style),
-                Paragraph(f'<font name="Courier"><b>{beta_eq_methyl:.3f}</b></font>', highlight_style),
                 Paragraph(f'<b>A × 1.000</b> (anchor)', highlight_style),
             ])
         else:
             temp_rows.append([
                 P(t_label), P(species),
-                Paragraph(f'<font name="Courier">{hm_t:.4f}</font>', S('ct', fontSize=7, textColor=TEAL, leading=10)),
-                Paragraph(f'<font name="Courier">{beta_eq_methyl:.3f}</font>', S('bq', fontSize=7, textColor=MUTED2, leading=10)),
                 Paragraph(f'<font name="Courier">A × {shift:.3f}</font>', S('sh', fontSize=7, textColor=MUTED2, leading=10)),
             ])
-    temp_t = Table(temp_rows, colWidths=[PW*0.10, PW*0.30, PW*0.15, PW*0.18, PW*0.27], repeatRows=1)
+    temp_t = Table(temp_rows, colWidths=[PW*0.12, PW*0.50, PW*0.38], repeatRows=1)
     temp_t.setStyle(tbl_style(7))
     story.append(temp_t)
     story.append(Spacer(1, 6))
@@ -5345,31 +5145,31 @@ def render_card(story, card):
     cm_rows = [
         [PH('Metric'), PH('Value'), PH('Source')],
         [P('cfDNA contribution (plasma)'),
-         Paragraph(f'<font name="Courier">{card["cfdna_pct"]:.1f}%</font>', sCode),
+         P('<i>see NDA tech doc</i>'),
          P('<link href="https://doi.org/10.1038/s41467-018-07466-6" color="#A78BFA"><u>Moss 2018 Nat Commun</u></link> — PUBLISHED')],
         [P('H_min methylation (class)'),
-         Paragraph(f'<font name="Courier">{hm:.6f}</font>', sCode),
+         P('<i>proprietary</i>'),
          P('<link href="https://github.com/hmahaffeyges/IAM-Validation" color="#A78BFA"><u>G-002 MCMC posterior</u></link> — DERIVED')],
         [P('H_min methylation σ (MCMC)'),
-         Paragraph(f'<font name="Courier">±{H_MIN_SIGMA_METHYL[key]:.6f}</font>', sCode),
+         P('<i>tight posterior</i>'),
          P('<link href="https://github.com/hmahaffeyges/IAM-Validation" color="#A78BFA"><u>G-002 17-chain MCMC R-hat&lt;1.001</u></link> — DERIVED')],
         [P('n_bio (class-specific)'),
-         Paragraph(f'<font name="Courier">{card["n_bio"]}</font>', sCode),
+         P('<i>proprietary</i>'),
          P('PRELIMINARY — ordering confirmed (ρ=0.905, p=0.002); absolute pending G-007')],
         [P('Healthy drift rate'),
-         Paragraph(f'<font name="Courier">{card["gen_rate"]*100:.1f}% / generation</font>', sCode),
+         P('<i>proprietary</i>'),
          P('DNMT1 fidelity loss under turnover — DERIVED')],
         [P('f_C2 (architecture-locked %)'),
-         Paragraph(f'<font name="Courier">{card["f_C2_pct"]:.1f}%</font>', sCode),
+         P('<i>proprietary</i>'),
          P('C2 fraction at healthy reference — DERIVED')],
         [P('Healthy A (methylation)'),
          Paragraph(f'<font name="Courier">{Ah:.4f}</font>  ({tier_short(Ah)})',
                    S('hav', fontSize=7.5, textColor=tier_color(Ah), leading=11)),
-         P(f'β={card["sv_healthy"]["methyl"]:.3f} — DERIVED')],
+         P('Healthy reference sample — DERIVED')],
         [P('Disease A (methylation)'),
          Paragraph(f'<font name="Courier">{Ac:.4f}</font>  ({tier_short(Ac)})',
                    S('cav', fontSize=7.5, textColor=tier_color(Ac), leading=11)),
-         P(f'β={card["sv_cancer"]["methyl"]:.3f} — DERIVED')],
+         P('Disease reference sample — DERIVED')],
         [P('Healthy combined A (5 subs)'),
          Paragraph(f'<font name="Courier">{Ach_combined:.4f}</font>  ({tier_short(Ach_combined)})',
                    S('achv', fontSize=7.5, textColor=tier_color(Ach_combined), leading=11)),
@@ -5445,15 +5245,24 @@ def render_card(story, card):
 #          physics block (lines 60–290). No invented derivations.
 # ═══════════════════════════════════════════════════════════════════════════════
 def render_section_2_physics(story):
-    """Render Section 2 — Physics & Methodology.
-    
-    Subsections:
-      2.1 Architecture-Class Floor — H_min Derivation
-      2.2 The Five Substrates — Lab Measurement to A-Score
-      2.3 The Saturation Problem — Runtime and Structural
-      2.4 The Three Identified Inversions
-      2.5 Three-Component Decomposition (C1/C2/C3)
+    """Render Section 2 — Technical Framework (Access Restricted).
+
+    The full physics derivation, per-class floor values, substrate-level
+    calibration constants, and inversion mechanisms are proprietary to
+    IAMPerformance and covered under US Provisional Patents 64/012,720
+    and 64/014,568. Technical documentation is available under NDA.
     """
+    sSub2 = S('sSub2', fontName='Helvetica-Bold', fontSize=12, textColor=LAV,
+              leading=15, spaceBefore=14, spaceAfter=5)
+    sPara = S('sPara', fontSize=8.5, textColor=TEXT, leading=13, spaceAfter=6)
+    sNote = S('sNote', fontSize=8, textColor=MUTED2, leading=12, spaceAfter=4,
+              fontName='Helvetica-Oblique')
+    sKey  = S('sKey', fontName='Helvetica-Bold', fontSize=9, textColor=WHITE,
+              leading=12, spaceBefore=6, spaceAfter=3)
+    sContact = S('sContact', fontName='Helvetica-Bold', fontSize=10,
+                 textColor=LAV, leading=14, spaceBefore=12, spaceAfter=4,
+                 alignment=TA_CENTER)
+
     # ── SECTION 2 OPENER ────────────────────────────────────────────────────
     story.append(PageBreak())
     story.append(FillRect(PW, 0.80 * inch, colors.HexColor('#0a081a'), r=5))
@@ -5462,851 +5271,101 @@ def render_section_2_physics(story):
     story.append(Paragraph('SECTION 2',
         S('S2L', fontName='Helvetica-Bold', fontSize=9, textColor=LAV, leading=12,
           spaceBefore=0, spaceAfter=0)))
-    story.append(Paragraph('PHYSICS &amp; METHODOLOGY',
+    story.append(Paragraph('TECHNICAL FRAMEWORK',
         S('S2T', fontName='Helvetica-Bold', fontSize=22, textColor=WHITE, leading=26,
           spaceBefore=0, spaceAfter=0)))
+    story.append(Paragraph('Access Restricted',
+        S('S2Tr', fontName='Helvetica-Oblique', fontSize=11, textColor=MUTED2,
+          leading=14, spaceBefore=2, spaceAfter=0)))
+    story.append(Spacer(1, 18))
+
+    # ── Framework overview (what the reader gets to know) ─────────────────
+    story.append(Paragraph('Framework Overview', sSub2))
+    story.append(Paragraph(
+        'GAPE derives each architecture class\'s thermodynamic floor from the '
+        'Landauer cost of irreversible information events in biological tissue '
+        'at body temperature. For every cell architecture class, the framework '
+        'establishes a class-specific minimum Shannon entropy that a healthy cell '
+        'must maintain to preserve its cellular identity. Departure from that '
+        'floor is quantified as a dimensionless A-score. The A-score is the '
+        'single quantity returned by the engine for each substrate; when multiple '
+        'substrates are available the combined score is an AUC-weighted mean.',
+        sPara))
+    story.append(Paragraph(
+        'The framework spans five independent physical measurement windows — '
+        'DNA methylation, nucleosome occupancy, nucleosome fuzziness, windowed '
+        'protection score, and fragment size — and eight cell architecture '
+        'classes that together cover the full somatic cell population. Each '
+        'class has its own substrate-specific floor established by posterior '
+        'inference from published primary data. The MCMC machinery, the '
+        'calibration chains, and the per-class floor values are proprietary.',
+        sPara))
+
+    # ── What is NOT in this public document ───────────────────────────────
     story.append(Spacer(1, 10))
+    story.append(Paragraph('What this public document does NOT contain', sSub2))
     story.append(Paragraph(
-        'The architecture-class framework presented in the cards rests on five specific '
-        'physics claims. This section lays them out explicitly: the derivation of the '
-        'class-specific thermodynamic floor H_min from the Landauer cost of DNA methylation '
-        'maintenance; the transformation of each of the five independent substrate measurements '
-        'into a common dimensionless A-score; the two distinct senses in which substrates '
-        'can saturate and the decision rule for computing A_active; the three identified '
-        'inversions (Differentiation Dose, Niche Depletion, Seminoma Hypomethylation); '
-        'and the three-component decomposition of cellular entropy (C1 universal Landauer '
-        'floor, C2 architecture-locked overhead, C3 accessible gap) that separates what '
-        'physics fixes from what biology can change. Every number is either a published '
-        'primary measurement or a derivation with zero fitted parameters.',
-        S('S2D', fontSize=8.5, textColor=TEXT, leading=13, spaceBefore=8, spaceAfter=10)))
-    story.append(Spacer(1, 8))
-
-    # Section style shortcuts
-    sSub2 = S('sSub2', fontName='Helvetica-Bold', fontSize=12, textColor=LAV,
-              leading=15, spaceBefore=14, spaceAfter=5)
-    sSubH = S('sSubH', fontName='Helvetica-Bold', fontSize=9, textColor=WHITE,
-              leading=12, spaceBefore=6, spaceAfter=3)
-    sPara = S('sPara', fontSize=8.5, textColor=TEXT, leading=13, spaceAfter=6)
-    sEq   = S('sEq', fontName='Courier', fontSize=9, textColor=GREEN2, leading=13,
-              spaceBefore=4, spaceAfter=4, leftIndent=16)
-    sProv = S('sProv', fontSize=7, textColor=MUTED2, leading=10, spaceAfter=4,
-              leftIndent=16, fontName='Helvetica-Oblique')
-
-    # ─────────────────────────────────────────────────────────────────────
-    # 2.1 — H_MIN DERIVATION
-    # ─────────────────────────────────────────────────────────────────────
-    story.append(Paragraph('2.1  The Architecture-Class Floor — H_min Derivation', sSub2))
-    story.append(Paragraph(
-        'The central quantity in GAPE is H_min, the minimum Shannon entropy that a healthy '
-        'cell of a given architecture class must maintain to preserve its cellular identity. '
-        'H_min is derived, not fitted. The derivation follows four steps, each tied to a '
-        'published primary source or a physical constant.',
+        'The items below are part of the proprietary calibration layer and are '
+        'not published in this public issue. They are available to qualified '
+        'partners under a mutual non-disclosure agreement.',
         sPara))
+    story.append(Paragraph('&#8226;  The explicit thermodynamic derivation from k_B T ln 2 to the class floor.', sPara))
+    story.append(Paragraph('&#8226;  The per-class, per-substrate floor values used throughout Issue 002.', sPara))
+    story.append(Paragraph('&#8226;  The MCMC posterior distributions, credible intervals, and R-hat diagnostics.', sPara))
+    story.append(Paragraph('&#8226;  The bootstrap cross-validation method and per-class confidence intervals.', sPara))
+    story.append(Paragraph('&#8226;  The saturation-regime definitions and the A_active computation.', sPara))
+    story.append(Paragraph('&#8226;  The three identified inversion mechanisms and their numeric thresholds.', sPara))
+    story.append(Paragraph('&#8226;  The three-component decomposition (universal floor, architecture overhead, accessible gap).', sPara))
+    story.append(Paragraph('&#8226;  The cross-species body temperature scaling exponent and its derivation.', sPara))
 
-    story.append(Paragraph('Step 1 — The Landauer cost per bit at body temperature.', sSubH))
-    story.append(Paragraph(
-        'Landauer (1961) established that the irreversible erasure of one bit of information '
-        'dissipates a minimum energy of k_B &#215; T &#215; ln(2). At human body temperature '
-        '(T = 310.15 K, 37&#176;C) this evaluates to:',
-        sPara))
-    story.append(Paragraph('E_Landauer = k_B &#215; T &#215; ln(2) = 2.97 &#215; 10^-21 J per bit', sEq))
-    story.append(Paragraph(
-        'This is a physical constant. It depends only on temperature and cannot be reduced '
-        'by any biological or engineering intervention. Source: Landauer 1961 IBM J Res Dev.',
-        sProv))
-
-    story.append(Paragraph('Step 2 — The human CpG methylation load.', sSubH))
-    story.append(Paragraph(
-        'The human reference genome (UCSC hg38) contains approximately 19.6 million CpG '
-        'dinucleotide sites. DNMT1 is the maintenance methyltransferase that propagates '
-        'the methylation pattern of each parent strand to the daughter strand during DNA '
-        'replication. Each CpG site is either methylated (1) or unmethylated (0) on the '
-        'daughter strand, making every DNMT1 decision a one-bit information event. '
-        'Across 19.6 million sites:',
-        sPara))
-    story.append(Paragraph('E_floor = N_CpG &#215; E_Landauer = 19.6&#215;10^6 &#215; 2.97&#215;10^-21 J = 5.82 &#215; 10^-14 J/division', sEq))
-    story.append(Paragraph(
-        'Equivalent to approximately one million ATP molecules per cell division, or '
-        'about 0.003% of a typical cell\'s per-division energy budget. This is the '
-        'thermodynamic floor for maintaining the methylation pattern through one cell '
-        'division, without which cellular identity cannot be propagated.  Source: human '
-        'genome hg38 (UCSC), Landauer 1961, with DNMT1 kinetics from Jeltsch 2006 Chembiochem.',
-        sProv))
-
-    story.append(Paragraph('Step 3 — From energy floor to entropy floor.', sSubH))
-    story.append(Paragraph(
-        'The Shannon entropy of a methylation landscape with mean fraction &#946; is:',
-        sPara))
-    story.append(Paragraph('H(&#946;) = -&#946; &#215; log2(&#946;) - (1-&#946;) &#215; log2(1-&#946;)', sEq))
-    story.append(Paragraph(
-        'The lowest H value consistent with a healthy cell of a given architecture class is '
-        'H_min(class). For the most committed cell type in the human body — the frontal '
-        'cortex neuron (Lister 2013 Science, Roadmap Epigenomics E073) — the observed '
-        'mean &#946; is 0.790, giving H_min_global = H(0.790) = 0.7565. This is the '
-        'global Landauer entropy anchor — the smallest H observed in any healthy '
-        'post-mitotic cell in any published dataset.',
-        sPara))
-    story.append(Paragraph(
-        'Source: Lister et al. 2013 Science doi:10.1126/science.1237905; Roadmap '
-        'Epigenomics Consortium 2015 Nature doi:10.1038/nature14248.',
-        sProv))
-
-    # ─── 2.1a — THE PHYSICAL CHAIN FROM LANDAUER TO H_MIN ──────────────────
+    # ── What this document DOES provide ───────────────────────────────────
     story.append(Spacer(1, 10))
-    story.append(Paragraph('2.1a  From Landauer to H_min — The Physical Chain', sSub2))
+    story.append(Paragraph('What this public document does provide', sSub2))
     story.append(Paragraph(
-        'At this point in the derivation, a reader encountering this framework for the '
-        'first time may reasonably ask: <i>why does H_min exist at all? Why is it class-'
-        'specific? How does a bit-erasure energy bound, which sounds like it should set '
-        'an upper limit, produce a lower bound on entropy?</i> The answers are not '
-        'obvious, and the chain connecting them has been implicit rather than stated. '
-        'This subsection lays out the seven steps explicitly. Each step is individually '
-        'published biology or physics; the novelty is in assembling them into the chain.',
+        'Everything required to assess whether the framework is real. Each of '
+        'the remaining sections stands on its own:',
+        sPara))
+    story.append(Paragraph('&#8226;  Section 3 — every validation test run to date, with results, provenance, and falsification criteria.', sPara))
+    story.append(Paragraph('&#8226;  Section 4 — eight architecture-class cards with clinical relevance, published disease anchors, and scenario interpretation.', sPara))
+    story.append(Paragraph('&#8226;  Section 5 — clinical scenarios walked end-to-end, from lab input to actionable recommendation.', sPara))
+    story.append(Paragraph('&#8226;  Section 6 — four priority dated predictions with explicit timelines and falsification endpoints.', sPara))
+    story.append(Paragraph('&#8226;  Section 7 — the cancer detection trajectory 2010&#8211;2030 and where GAPE sits in it.', sPara))
+    story.append(Paragraph('&#8226;  Section 8 — the VAL-047 replication study design and interim results.', sPara))
+
+    # ── Intellectual property posture ─────────────────────────────────────
+    story.append(Spacer(1, 12))
+    story.append(Paragraph('Intellectual Property', sSub2))
+    story.append(Paragraph(
+        'The GAPE framework is covered under US Provisional Patent Application '
+        '64/012,720 (filed March 21, 2026) and US Provisional Patent Application '
+        '64/014,568 (filed March 23, 2026). The public disclosures in this '
+        'document are consistent with the scope of those filings. The numeric '
+        'calibration layer, derivation pathway, and engineering implementation '
+        'are explicitly excluded from public disclosure.',
         sPara))
 
-    chain_steps = [
-        ('1. Cellular identity IS methylation information.',
-         'What kind of cell a cell is — neuron versus hepatocyte versus stem cell — is '
-         'encoded in large part by its genome-wide CpG methylation pattern. This is '
-         'not a metaphor. Transplanting a neuron\'s nucleus into a cytoplasm does not '
-         'produce a neuron without the methylation pattern. The pattern is the identity. '
-         'Source: Jones 2012 Nat Rev Genet (review of methylation and cell identity); '
-         'Lister 2009 Nature (cell-type-specific methylomes).'),
-        ('2. Maintaining identity through cell division requires information erasure.',
-         'Every time a cell divides, each of its 19.6 million CpG sites is copied '
-         'to the daughter strand. If the parent strand is methylated, the daughter must '
-         'be methylated; if unmethylated, unmethylated. DNMT1 is the enzyme that reads '
-         'the parent and writes the daughter. This is literally information copying, and '
-         'copying with correction involves erasing incorrect writes. Source: Jeltsch 2006 '
-         'Chembiochem (DNMT1 mechanism); Bestor 2000 Hum Mol Genet (maintenance '
-         'methylation kinetics).'),
-        ('3. Each erasure costs Landauer energy.',
-         'Landauer (1961) established that erasing one bit of information dissipates a '
-         'minimum of k_B &#215; T &#215; ln(2) joules as heat. This is a thermodynamic '
-         'lower bound derived from the second law. At 37&#176;C this evaluates to '
-         '2.97 &#215; 10^-21 J per bit — computed in Step 1 of Section 2.1. The floor '
-         'is physical, not engineering.',),
-        ('4. The cell has a finite energy budget per division.',
-         'A typical mammalian cell generates approximately 10^9 ATP molecules per '
-         'division (Lynch 2015 PNAS). Each ATP hydrolysis releases about 54 kJ/mol, or '
-         '~9 &#215; 10^-20 J per molecule. The total energy budget per division is '
-         'therefore ~9 &#215; 10^-11 J. The methylation maintenance cost (Step 2 of '
-         'Section 2.1, ~10^6 ATP equivalents, ~5.8 &#215; 10^-14 J) is about 0.06% of '
-         'this budget — small but non-negligible. The cell cannot exceed its budget '
-         'without failing. Source: Lynch 2015 PNAS doi:10.1073/pnas.1514974112 '
-         '(cellular energetics).'),
-        ('5. A more ordered methylation pattern requires more bits to specify.',
-         'Here is where the entropy-floor direction becomes clear. A pattern where all '
-         '19.6M CpG sites are identically methylated (&#946; = 1.0, H = 0) can be specified '
-         'by one bit: "all on." A pattern where each site carries independent information '
-         '(&#946; = 0.5, H = 1.0) requires 19.6 million bits — one per site. Most healthy '
-         'cells lie between these extremes, with specification cost scaling as N &#215; '
-         'H(&#946;). <b>Lower H means higher specification cost.</b> This is the key '
-         'inversion that confuses readers: entropy goes UP with disorder, but the '
-         'information cost of maintaining a specific ordered pattern goes UP as the '
-         'pattern becomes more ordered (because more bits must be written correctly).',
-         ),
-        ('6. DNMT1 has a finite error rate; specification beyond that rate is unsustainable.',
-         'DNMT1 maintenance methylation has an error rate of approximately 1 per 10^5 '
-         'to 10^6 CpG sites per division (Ushijima 2003 Genome Res; Riggs 1975 Cytogenet '
-         'Cell Genet). This caps the density of information DNMT1 can reliably sustain. '
-         'If the methylation pattern requires higher information density than DNMT1 can '
-         'maintain, the pattern drifts each generation and the cell identity degrades. '
-         'The floor H_min is the <b>entropy level at which the information-specification '
-         'cost matches DNMT1\'s sustainable fidelity</b>. Below H_min, specification '
-         'exceeds kinetic reach and identity cannot propagate. Above H_min, specification '
-         'is within reach and identity is maintained.'),
-        ('7. Different cell classes carry different H_min values.',
-         'A post-mitotic neuron maintains a highly specified methylation pattern — it '
-         'has to, because it must hold the same identity for decades. Its H_min is '
-         'low (0.7728 methylation substrate, the lowest in the framework). A pluripotent '
-         'stem cell maintains a loosely specified pattern — it must remain uncommitted, '
-         'keeping many chromatin regions available for future lineage choices. Its H_min '
-         'is high (0.9822, close to maximum entropy). The ordering of H_min across '
-         'classes reflects the biological ordering of commitment. This is why H_min is '
-         'class-specific rather than universal.'),
-    ]
-    for title, body in chain_steps:
-        story.append(Paragraph(title, sSubH))
-        story.append(Paragraph(body, sPara))
-
+    # ── Contact for technical access ──────────────────────────────────────
+    story.append(Spacer(1, 16))
+    story.append(HRFlowable(width='100%', thickness=0.5, color=MUTED, spaceAfter=8))
+    story.append(Paragraph('Technical Access &#8212; NDA Required', sContact))
     story.append(Paragraph(
-        'The seven-step chain is the physics of the framework. Every individual step is '
-        'published mainstream biology or physics. The contribution of GAPE is the '
-        'assembly: connecting Landauer\'s bit-erasure bound to DNMT1 kinetics to '
-        'methylation-as-identity to the class-specific entropy floor. Once the chain is '
-        'assembled, H_min becomes calculable — not fitted — for any architecture class '
-        'whose reference biology is published.',
+        'Qualified research partners, clinical collaborators, and acquirers '
+        'interested in the full technical framework may request access under '
+        'NDA. Priorities: veterinary oncology partners, dense-breast imaging '
+        'centers, DCIS surveillance cohorts, Alzheimer\'s longitudinal cohorts, '
+        'and commercial licensees for QAPE and SCAPE domains.',
         sPara))
-    story.append(Paragraph(
-        'Closely related prior frameworks: Jacobson 1995 Phys Rev Lett derived Einstein\'s '
-        'equations from an entropy balance across local causal horizons — the same '
-        'Landauer-era idea applied to gravity rather than biology. The IAM framework from '
-        'which GAPE descends uses that same thermodynamic-gravity connection structurally, '
-        'but GAPE itself does not require the reader to adopt any position on cosmology. '
-        'Steps 1-7 above stand on published cell biology and information theory alone.',
-        sProv))
-
-    story.append(Paragraph('Step 4 — Class-specific floors from reference cells.', sSubH))
-    story.append(Paragraph(
-        'Each of the eight architecture classes has its own H_min determined by the most '
-        'committed healthy reference cell of that class, as published in primary sources '
-        'and confirmed by the G-002 MCMC validation (5 chains, R-hat &lt; 1.001, 8&#215;10^5 '
-        'posterior samples). For the methylation substrate specifically:',
-        sPara))
-
-    # Table: H_min by class for methylation (the original substrate)
-    hmin_rows = [[PH('Class'), PH('Reference Cell'), PH('&#946;_ref'), PH('H_min (methyl)'), PH('Source')]]
-    hmin_data = [
-        ('terminal',   'Frontal cortex neuron',    '0.790', '0.7728', 'Lister 2013 Science'),
-        ('secretory',  'Hepatocyte (primary)',     '0.740', '0.8433', 'Roadmap E066'),
-        ('immune',     'Neutrophil',                '0.715', '0.8389', 'Roadmap E030'),
-        ('cycling',    'Colon epithelial (normal)','0.730', '0.8561', 'Roadmap E075, TCGA'),
-        ('progenitor', 'GMP granulocyte progenitor','0.720','0.8522', 'Roadmap E030'),
-        ('stromal',    'Aortic endothelial',       '0.721', '0.8630', 'Roadmap E065'),
-        ('stem_adult', 'Neural stem cell',          '0.702', '0.8737', 'Zheng 2016, Roadmap E007'),
-        ('stem_pluri', 'hESC H1',                   '0.435', '0.9822', 'Lister 2011, Roadmap E003'),
-    ]
-    for cls, ref, b_ref, hm, src in hmin_data:
-        hmin_rows.append([P(cls), P(ref), P(b_ref), P(hm), P(src)])
-    hmin_tbl = Table(hmin_rows, colWidths=[PW*0.14, PW*0.28, PW*0.09, PW*0.13, PW*0.36],
-                     repeatRows=1)
-    hmin_tbl.setStyle(tbl_style(7))
-    story.append(Spacer(1, 4))
-    story.append(hmin_tbl)
     story.append(Spacer(1, 4))
     story.append(Paragraph(
-        'The floor ordering is physically predicted: cells that must remain multipotent '
-        'operate at higher entropy by design (stem_pluri H_min = 0.9822, closest to maximum '
-        'entropy), while cells that must maintain a fixed post-mitotic identity for decades '
-        'operate at the lowest entropy consistent with that identity (terminal H_min = 0.7728). '
-        'The framework is consistent — more commitment means a lower floor, because a '
-        'more-committed cell has less room for methylation entropy before identity is lost.',
-        sPara))
-
-    # ─── 2.1b — WHY CELLS CAN READ BELOW H_MIN ON THE GAUGE ────────────────
-    story.append(Spacer(1, 10))
-    story.append(Paragraph('2.1b  Reading the Gauge — Why Cells Can Display Below H_min', sSub2))
-    story.append(Paragraph(
-        'Every class card\'s five-substrate fidelity gauge displays an axis from A = 0.60 '
-        'on the left through A = 1.15+ on the right. The left portion of the axis is a '
-        'purple INVERSION zone ending at A &#8776; 0.95, followed by a narrow green NORMAL '
-        'zone centered at A = 0.97-1.00, followed by the standard ascending disease zones '
-        '(MARGINAL, DETECT, URGENT, BREACH). A reader looking at a healthy reference sample '
-        'plotted at A &#8776; 0.97 may reasonably ask: <i>if H_min is the minimum entropy '
-        'consistent with healthy identity, how can any cell read below A = 1.00?</i> The '
-        'answer is specific and important.',
-        sPara))
-
-    story.append(Paragraph('The NORMAL zone — healthy cells operate at A &#8776; 0.95-1.00.', sSubH))
-    story.append(Paragraph(
-        'H_min is a <b>posterior central estimate</b> from MCMC fitting against multiple '
-        'healthy reference datasets (G-002 for methylation: 17 chains, R-hat &lt; 1.001, '
-        '8&#215;10^5 posterior samples across five independent primary sources per class). '
-        'Any individual healthy cell has a measured H(&#946;) that varies around the '
-        'MCMC-derived H_min central estimate with biological noise of approximately &#177; 2%. '
-        'The A-score formula is unfloored: A = H(&#946;) / H_min, with no clamping. A healthy '
-        'cell whose measured H(&#946;) happens to fall 2% below the MCMC central estimate '
-        'produces A = 0.98; one whose measurement is 3% below produces A = 0.97. This is '
-        'normal biological variation. The A = 1.00 line on the gauge represents the '
-        '<b>architectural commitment point</b> — the thermodynamic reference value — not a '
-        'mathematical floor that no healthy cell can read below.',
-        sPara))
-
-    story.append(Paragraph('The INVERSION zone — A between approximately 0.60 and 0.95.', sSubH))
-    story.append(Paragraph(
-        'Disease states exist in which a cell\'s measured methylation entropy legitimately '
-        'drops well below the healthy class reference. The canonical documented case is '
-        'seminoma: testicular germ cell tumor where &#946;_methyl drops toward 0.17-0.20 '
-        'as the malignant germ cell reverts toward a primordial germ cell (PGC) state. '
-        'Because the Pluripotent class H_min_methyl is already high (0.9822), and H(&#946;) '
-        'for small &#946; is low (H(0.17) = 0.66), the ratio A_methyl = H(0.17)/0.9822 '
-        'falls to <b>0.67</b> — clearly in the INVERSION zone on the gauge.',
-        sPara))
-
-    story.append(Paragraph(
-        'This is not a violation of thermodynamics. H_min is the minimum entropy consistent '
-        'with <b>maintaining healthy class identity</b>. A seminoma cell reading A = 0.67 '
-        'has <b>lost its healthy class identity</b> — its methylation pattern has reverted '
-        'toward an earlier developmental state (PGC). The cell is no longer a healthy '
-        'pluripotent stem cell; it is a disease state whose thermodynamic signature differs '
-        'from both the healthy class reference and from standard hyperentropy cancer. The '
-        'framework reads this legitimately — a cell that has abandoned its commitment '
-        'architecture is not bound by that architecture\'s H_min. The entropy floor applies '
-        'to cells that are still attempting to maintain class identity. Cells that have '
-        'abandoned it can read below the floor.',
-        sPara))
-
-    story.append(Paragraph('Three directions of departure on one axis.', sSubH))
-    story.append(Paragraph(
-        'The gauge now shows the full physical picture rather than the ascending-only slice '
-        'it displayed in Issue 001. On the same axis, a clinician can see:',
-        sPara))
-    story.append(Paragraph(
-        '&#8226; <b>Healthy</b> (A &#8776; 0.95-1.00) — cell at class reference, five '
-        'substrates cluster tightly<br/>'
-        '&#8226; <b>Standard cancer elevation</b> (A &gt; 1.00, rising through MARGINAL, '
-        'DETECT, URGENT, BREACH) — hyperentropy, &#946; drifts toward 0.5<br/>'
-        '&#8226; <b>Inversion</b> (A &lt; 0.95) — cellular identity loss with &#946; '
-        'drifting toward 0 or toward 1, documented in seminoma (methyl), senescent '
-        'fibroblasts (stromal class), aged HSCs (stem_adult class), and predicted for '
-        'HIV/AIDS (immune class)',
-        sPara))
-    story.append(Paragraph(
-        'Section 2.3 addresses substrate-level saturation (why some substrates cannot '
-        'read past BREACH even in severe disease). Section 2.4 names and documents the '
-        'three specific inversions already identified. Section 2.6 addresses what '
-        'happens to the post-breach trajectory past A = 1.10. Together these four '
-        'subsections describe the full axis the gauge now displays.',
-        sPara))
-    story.append(Paragraph(
-        'Clinical implication. Before Phase B, the gauge compressed the healthy zone '
-        'into most of the visual real estate and treated ascending disease as the only '
-        'direction of interest. After Phase B, the gauge reflects the framework\'s actual '
-        'physics: healthy is a narrow committed band, and disease can depart in either '
-        'direction. A naive detector scanning only for A-score elevation misses every '
-        'inversion-category cancer (seminoma alone is ~60% of testicular germ cell '
-        'tumors, ~5,000 new US diagnoses annually). The gauge now shows what the '
-        'framework has always modeled.',
-        sPara))
-
-    # ─────────────────────────────────────────────────────────────────────
-    # 2.2 — THE FIVE SUBSTRATES
-    # ─────────────────────────────────────────────────────────────────────
-    story.append(Spacer(1, 14))
-    story.append(Paragraph('2.2  The Five Substrates — Lab Measurement to A-Score', sSub2))
-    story.append(Paragraph(
-        'Every cell carries five independent physical readouts of its epigenomic state, '
-        'each measuring the same underlying quantity — departure of cellular identity '
-        'entropy from the architecture-specific floor — through a different physical window. '
-        'All five land in the same dimensionless A-score after substrate-specific '
-        'transformation, so that five independent readings of a single sample can be '
-        'compared directly. The transformation pipeline is the same for every substrate:',
-        sPara))
-    story.append(Paragraph(
-        'value -&gt; H(value) -&gt; H(value) / H_min(class, substrate) -&gt; A-score',
-        sEq))
-    story.append(Paragraph(
-        'Each substrate has its own class-specific and substrate-specific H_min floor '
-        '(G-003b MCMC posterior), so forty independent H_min values are calibrated in '
-        'total (8 classes &#215; 5 substrates). All H_min values are derived from published '
-        'healthy reference measurements and validated by MCMC — no fitted parameters, '
-        'no cancer data used in calibration.',
-        sPara))
-
-    # Table: five substrates with H_min (cycling class as example), source, AUC
-    sub_rows = [[PH('#'), PH('Substrate'), PH('Physical Measurement'),
-                 PH('H_min (cycling ref)'), PH('AUC'), PH('Primary Source')]]
-    sub_data = [
-        ('1', 'Methylation (&#946;)',     'Mean CpG methylation fraction from 450K/EPIC array or WGBS',
-         '0.8561', '0.866', 'Lister 2013; Roadmap 2015; TCGA 2014'),
-        ('2', 'Nucleosome occupancy', 'Mean occupancy at architecture loci from ATAC-seq or MESA',
-         '0.9801', '0.852', 'Doebley 2022 Griffin; Corces 2018'),
-        ('3', 'Nucleosome fuzziness', 'Positional precision of nucleosomes (NucleoATAC)',
-         '0.8190', '0.779', 'Esfahani 2022; Corces 2018'),
-        ('4', 'WPS (Windowed Protection)', 'Promoter nucleosome protection from cfDNA WGS',
-         '0.6274', '0.761', 'Snyder 2016 Cell'),
-        ('5', 'Fragment size (DELFI)',    'Short-fragment fraction (100-150bp/total) from cfDNA WGS',
-         '0.6879', '0.940', 'Cristiano 2019 Nature; Mathios 2022'),
-    ]
-    for row in sub_data:
-        sub_rows.append([P(c) for c in row])
-    sub_tbl = Table(sub_rows, colWidths=[PW*0.04, PW*0.18, PW*0.32, PW*0.12, PW*0.07, PW*0.27],
-                    repeatRows=1)
-    sub_tbl.setStyle(tbl_style(7))
-    story.append(Spacer(1, 4))
-    story.append(sub_tbl)
-    story.append(Spacer(1, 4))
-    story.append(Paragraph(
-        'When you combine them, you are not combining five different signals. You are '
-        'reducing the measurement noise on the same signal. The inter-substrate correlation '
-        'is r = 0.54 (Li 2024 MESA test), confirming sufficient independence for noise '
-        'reduction but not full independence. The theoretical detection ceiling from '
-        'combining all five is AUC = 1.000. The current MESA test (4 substrates, bulk '
-        'plasma) achieves AUC = 0.931. The gap is bulk blood dilution, not a limit of '
-        'the framework.',
-        sPara))
-
-    # A-score worked example
-    story.append(Paragraph('Worked example — a single β measurement through the pipeline:', sSubH))
-    story.append(Paragraph(
-        'Consider a patient cfDNA sample with methylation &#946; = 0.685 from a colon '
-        'tissue biopsy (cycling class):',
-        sPara))
-    story.append(Paragraph(
-        'Step 1:  H(0.685) = -0.685&#215;log2(0.685) - 0.315&#215;log2(0.315) = 0.8991<br/>'
-        'Step 2:  H_min(cycling, methyl) = 0.8561<br/>'
-        'Step 3:  A_methyl = 0.8991 / 0.8561 = 1.0502<br/>'
-        'Tier:    DETECTABLE (A in [1.05, 1.07)) — the cell has opened a 5% accessible '
-        'entropy gap above its architecture floor',
-        sEq))
-    story.append(Paragraph(
-        'Source: All formulas from Mahaffey 2026 cell thermodynamics paper, equations '
-        '(3)-(7). Computation reproducible from published &#946; and published H_min.',
-        sProv))
-
-    # ─── 2.2a — WHY FIVE SUBSTRATES ARE COMMENSURABLE ──────────────────────
-    story.append(Spacer(1, 10))
-    story.append(Paragraph('2.2a  Why Five Substrates Land on the Same Scale', sSub2))
-    story.append(Paragraph(
-        'A reader encountering Section 2.2 for the first time may reasonably ask: '
-        '<i>methylation is a chemical modification of CpG dinucleotides. Nucleosome '
-        'occupancy is a geometric property of chromatin. Fragment size distribution is '
-        'a biophysical property of nuclease cutting. Why should these be combined on a '
-        'single numerical scale at all?</i> The question is fair. The answer is that all '
-        'five substrates are different physical windows onto the same underlying '
-        'quantity: the information content of cellular identity.',
-        sPara))
-
-    story.append(Paragraph(
-        'Recall from Section 2.1a step 1 that cellular identity is an information '
-        'pattern — what kind of cell a cell is, is specified by its genome-wide regulatory '
-        'state. That regulatory state has multiple physical manifestations:',
-        sPara))
-
-    manifest_data = [
-        ('Methylation:', 'which CpG sites are methylated (5-methylcytosine presence/absence) '
-         '— directly specifies transcriptional accessibility of regulatory regions.'),
-        ('Nucleosome occupancy:', 'which genomic positions are wrapped in histones versus '
-         'exposed — the physical mechanism by which methylation decisions are '
-         'translated into transcription factor accessibility.'),
-        ('Nucleosome fuzziness:', 'how precisely positioned the nucleosomes are relative '
-         'to their reference locations — measures how tightly the regulatory state is '
-         'locked versus how much positional drift is present.'),
-        ('Windowed Protection Score (WPS):', 'the fraction of reads whose endpoints fall '
-         'within a nucleosome-protected window — measures the same nucleosome positioning '
-         'as occupancy, through the complementary physical lens of cfDNA cutting patterns.'),
-        ('Fragment size (DELFI):', 'the distribution of cfDNA fragment lengths — reflects '
-         'the nuclease-accessibility of the chromatin and the nucleosome spacing, which '
-         'reflect the regulatory state that methylation encodes.'),
-    ]
-    for label, body in manifest_data:
-        story.append(Paragraph(f'<b>{label}</b> {body}',
-            S('m', fontSize=8.5, textColor=TEXT, leading=12, spaceAfter=4, leftIndent=12)))
-
-    story.append(Paragraph(
-        'All five quantities are causally linked: methylation decisions drive nucleosome '
-        'positioning, nucleosome positioning drives cutting accessibility, cutting '
-        'accessibility drives fragment size distribution, and WPS is a re-expression of '
-        'the same positioning information. Each substrate reports the underlying '
-        'regulatory state through its own physical measurement. The inter-substrate '
-        'correlation r = 0.54 documented by the MESA test (Li 2024) confirms they are '
-        'correlated (same underlying quantity) but not fully redundant (independent '
-        'measurement noise). This is the signature of five physical windows onto one '
-        'underlying information object — not five independent biological signals.',
-        sPara))
-
-    story.append(Paragraph(
-        'The A-score normalization is what makes them commensurable. Each substrate has '
-        'its own class-specific H_min (the floor derived from the Landauer-kinetics chain '
-        'applied to that specific physical measurement). Dividing the observed H(value) '
-        'by H_min produces a dimensionless ratio whose meaning is the same across all '
-        'substrates: "how far above the architecture floor is this substrate reading?" '
-        'A = 1.05 on methylation and A = 1.05 on fragment size carry the same '
-        'information — both say that this cell has opened a 5% accessible entropy gap '
-        'above its class floor, measured through different physical windows.',
-        sPara))
-
-    story.append(Paragraph(
-        'This is why five-substrate combination provides noise reduction rather than '
-        'signal compounding. All five point at the same underlying disease or aging '
-        'state; the variance in their individual readings is measurement noise plus '
-        'substrate-specific biology. Averaging them (weighted by their individual AUC '
-        'contributions) reduces the noise as &#8730;5 while preserving the signal. The '
-        'theoretical detection ceiling AUC = 1.000 from the combined assay reflects this '
-        'noise-reduction limit under the inter-substrate correlation structure published '
-        'in MESA. A single-substrate assay has a lower ceiling because its readings carry '
-        'more noise relative to the same signal.',
-        sPara))
-
-    story.append(Paragraph(
-        'Source: Li et al. 2024 Genome Medicine doi:10.1186/s13073-023-01280-6 (MESA '
-        'test, inter-substrate correlation); Corces et al. 2018 Science doi:10.1126/'
-        'science.aav1898 (TCGA ATAC-seq, nucleosome occupancy substrate); Snyder et al. '
-        '2016 Cell doi:10.1016/j.cell.2015.11.050 (WPS from cfDNA); Cristiano et al. 2019 '
-        'Nature doi:10.1038/s41586-019-1272-6 (DELFI fragment size substrate); Jones 2012 '
-        'Nat Rev Genet doi:10.1038/nrg3230 (methylation-regulation coupling review).',
-        sProv))
-
-    # ─────────────────────────────────────────────────────────────────────
-    # 2.3 — THE SATURATION PROBLEM
-    # ─────────────────────────────────────────────────────────────────────
-    story.append(PageBreak())
-    story.append(Paragraph('2.3  The Saturation Problem — Runtime and Structural', sSub2))
-    story.append(Paragraph(
-        'Each substrate has a physical ceiling on its A-score. The ceiling is reached '
-        'when the raw &#946; value equals 0.5 (equal probability of methylated and '
-        'unmethylated, equivalently maximum binary entropy H = 1.0). At that point the '
-        'A-score equals 1 / H_min — the theoretical maximum. No &#946; value can produce '
-        'a higher A-score, no matter how severe the underlying biology.',
-        sPara))
-    story.append(Paragraph('A_ceiling(class, substrate) = 1 / H_min(class, substrate)', sEq))
-    story.append(Paragraph(
-        'Two distinct failure modes arise from this ceiling, and the framework handles them '
-        'separately. The distinction matters clinically because the two modes mean different '
-        'things for interpreting a single sample versus interpreting a class.',
-        sPara))
-
-    story.append(Paragraph('Runtime saturation (sample-specific).', sSubH))
-    story.append(Paragraph(
-        'For a specific sample, a substrate is flagged as saturated when its A-score is '
-        'within 0.005 of the class-and-substrate physical ceiling. A saturated substrate '
-        'has lost its ability to carry further progression information for that sample — '
-        'its &#946; has maxed out at 0.5 and no further disease severity can move it higher. '
-        'Including saturated substrates in the combined A-score biases the average downward '
-        'and masks continuing progression in the other substrates. The framework computes '
-        'a second combined score, A_active, that is the AUC-weighted mean over only the '
-        '<b>non-saturated</b> substrates for that specific sample:',
-        sPara))
-    story.append(Paragraph(
-        'A_active = sum(AUC_i &#215; A_i) / sum(AUC_i)  for i in non-saturated substrates', sEq))
-    story.append(Paragraph(
-        'For serial monitoring, chemotherapy response trajectories, and end-of-life reserve '
-        'projections, <b>A_active is the right number to watch</b>. A_combined (all 5) is '
-        'retained for comparison against legacy single-score analyses.',
-        sPara))
-
-    story.append(Paragraph('Structural saturation (class-level).', sSubH))
-    story.append(Paragraph(
-        'Some architecture classes have substrates whose physical ceilings are themselves '
-        'below the clinical BREACH threshold (A = 1.10). This is a property of the class, '
-        'not of any individual sample. For these class-substrate pairings, no disease '
-        'biology can ever drive the A-score above 1.10 on that substrate — the substrate '
-        'saturates structurally before reaching clinical-severity thresholds. Combined-score '
-        'detection for these classes must rely on the substrates whose ceilings exceed BREACH.',
-        sPara))
-
-    # Table: structural saturation pattern per class
-    sat_rows = [[PH('Class'), PH('Ceiling Below BREACH'),
-                 PH('Active Past BREACH'), PH('Detection Strategy')]]
-    sat_data = [
-        ('terminal',    'nucl, wps',       'methyl, fuzz, frag',
-         'Methyl + fragment dominant; nucl/wps for corroboration'),
-        ('secretory',   'nucl',            'methyl, fuzz, wps, frag',
-         'Standard four-substrate elevation signature'),
-        ('immune',      'nucl',            'methyl, fuzz, wps, frag',
-         'Blood-predominant fragment + methyl signal'),
-        ('cycling',     'nucl',            'methyl, fuzz, wps, frag',
-         'Dominant TCGA pattern — all 4 active substrates rise together'),
-        ('progenitor',  'nucl, fuzz, wps', 'methyl, frag',
-         'Two-substrate detection (methyl + frag)'),
-        ('stromal',     'nucl',            'methyl, fuzz, wps, frag',
-         'Standard four-substrate elevation'),
-        ('stem_adult',  'nucl, fuzz, wps', 'methyl, frag',
-         'Two-substrate; methyl + frag are the only severity metrics'),
-        ('stem_pluri',  'methyl, fuzz, frag', 'nucl, wps',
-         'INVERSION — methyl drops (seminoma) while nucl elevates; divergence signal'),
-    ]
-    for row in sat_data:
-        sat_rows.append([P(c) for c in row])
-    sat_tbl = Table(sat_rows, colWidths=[PW*0.14, PW*0.22, PW*0.22, PW*0.42], repeatRows=1)
-    sat_tbl.setStyle(tbl_style(7))
-    story.append(Spacer(1, 4))
-    story.append(sat_tbl)
-    story.append(Spacer(1, 4))
-    story.append(Paragraph(
-        'The Pluripotent class is the most structurally unusual: three of its five ceilings '
-        'sit below BREACH (methyl 1.018, fuzz 1.039, frag 1.027), so the A_combined score '
-        'for a Pluripotent-class cancer like seminoma does not elevate past 1.05 even in '
-        'frank malignancy. Instead, the discrimination signal is a <b>multi-substrate '
-        'divergence pattern</b> — A_methyl drops below healthy toward the PGC state while '
-        'A_nucl elevates past 1.05. This is discussed in Section 2.4 as the Seminoma '
-        'Hypomethylation inversion.',
-        sPara))
-
-    # ─────────────────────────────────────────────────────────────────────
-    # 2.4 — THE THREE IDENTIFIED INVERSIONS
-    # ─────────────────────────────────────────────────────────────────────
-    story.append(PageBreak())
-    story.append(Paragraph('2.4  The Three Identified Inversions', sSub2))
-    story.append(Paragraph(
-        'The framework has identified three specific classes of inversion — signals where '
-        'the A-score moves in the opposite direction from the standard cancer elevation. '
-        'Each is a zero-free-parameter structural prediction. Each is confirmed in published '
-        'primary data. Each has a specific falsification criterion.',
-        sPara))
-    story.append(Paragraph(
-        'Every class card\'s pre-breach fidelity gauge shows an INVERSION zone on the left '
-        '(A < 0.95). This zone is visible on all eight cards — not just the classes where '
-        'inversions are currently documented — because clinical responsibility requires '
-        'that readers understand below-floor disease is physically possible for any class '
-        'even when no documented case exists yet. Three inversions are documented below. '
-        'Non-documented inversions remain open predictions awaiting prospective cohort data.',
-        sPara))
-
-    # INVERSION 1
-    story.append(Paragraph('1.  The Seminoma Hypomethylation Inversion (Pluripotent class)', sSubH))
-    story.append(Paragraph(
-        'Seminomas — the most common TGCT histology (approximately 60% of testicular germ '
-        'cell tumors) — are globally hypomethylated rather than hypermethylated. The tumor '
-        'methylation &#946; drops toward 0.17-0.20 as the malignant germ cell reverts '
-        'toward a primordial germ cell (PGC) state, in which &#946; approaches zero. '
-        'Because the Pluripotent H_min_methyl = 0.9822 is already near maximum entropy, '
-        'the inversion produces A_methyl that FALLS below the healthy reference (A = 0.67) '
-        'rather than rising above it. A naive cancer-detection instrument looking for '
-        'A_combined elevation misses seminoma entirely. The framework\'s discrimination '
-        'signal is a multi-substrate divergence pattern: A_methyl drops to the 0.65-0.70 '
-        'range while A_nucl, A_wps, A_fuzz, A_frag simultaneously elevate toward 1.01-1.10. '
-        'Confirmed in Shen 2018 TCGA TGCT (n=137) and Killian 2016 Genome Research (n=130 '
-        'pure-histology samples with PGC comparison). Prediction G-2026-P005.',
-        sPara))
-
-    # INVERSION 2
-    story.append(Paragraph('2.  The Differentiation Dose Inversion (Pluripotent research applications)', sSubH))
-    story.append(Paragraph(
-        'In induced pluripotent stem cell (iPSC) reprogramming protocols, excess Yamanaka '
-        'factor dose produces aberrant rather than successfully reprogrammed colonies. '
-        'Standard reprogramming quality control is histological and behavioral — whether '
-        'the colony expresses pluripotency markers, whether it forms teratomas, whether it '
-        'differentiates correctly on cue. The framework predicts that successful reprogramming '
-        'produces A-scores at or very near 1.00 across all five substrates — the colony sits '
-        'at its architecture floor. Aberrant colonies show A below 0.95 (over-differentiation, '
-        'partial commitment to a lineage) or A above 1.05 (under-differentiation, epigenomic '
-        'noise persisting from the parental cell state). This is a research-grade inversion: '
-        'the pharmacologic dose-response curve for Yamanaka factors is not monotone — more '
-        'is not better past the optimal window. Prediction G-2026-P016.',
-        sPara))
-
-    # INVERSION 3
-    story.append(Paragraph('3.  The Niche Depletion Inversion (Adult Tissue Stem class)', sSubH))
-    story.append(Paragraph(
-        'Hematopoietic stem cells (HSCs) in aged bone marrow show a different failure mode '
-        'from most cancers. Rather than accumulating excess entropy uniformly (standard '
-        'cancer cycling class pattern), the HSC pool undergoes clonal depletion: a few '
-        'dominant clones expand while rare clones vanish. The population-level signature is '
-        'methyl-frag co-saturation — both substrates hitting their physical ceilings '
-        'simultaneously — which does not occur in any other class under aging or disease. '
-        'The inversion arises because clonal expansion monetizes replication fidelity '
-        'differently than uniform entropy drift does. Adelman 2019 Cancer Discovery HSC-'
-        'enriched aging methylation (n=5-7 per age group) shows this signature cleanly. '
-        'The clinical consequence is that serial monitoring for HSC-origin AML or MDS '
-        'must watch for methyl + frag co-saturation as the transformation marker, not '
-        'for combined A-score elevation. Prediction G-2026-P013.',
-        sPara))
-
-    story.append(Paragraph(
-        'Each of these three inversions is the framework saying something specific about the '
-        'biology that the data then confirms. No inversion is accommodated post-hoc. Each was '
-        'predicted from the H_min floor structure of its class before the validation data '
-        'was examined. This pattern is central to the framework\'s empirical traction: '
-        'the inversions are where the physics most obviously disagrees with the naive '
-        '"cancer = high A-score" heuristic, and the physics wins every time.',
-        sPara))
-
-    # ─────────────────────────────────────────────────────────────────────
-    # 2.5 — THREE-COMPONENT DECOMPOSITION
-    # ─────────────────────────────────────────────────────────────────────
-    story.append(PageBreak())
-    story.append(Paragraph('2.5  The Three-Component Decomposition (C1 / C2 / C3)', sSub2))
-    story.append(Paragraph(
-        'Every cell\'s measured methylation entropy H(&#946;) decomposes into three '
-        'physically distinct pieces — C1, C2, and C3 — with separable biological meaning. '
-        'The decomposition is additive by construction: C1 + C2 + C3 = H(&#946;) always, '
-        'and each fraction f_C1, f_C2, f_C3 sums to 1.',
-        sPara))
-
-    story.append(Paragraph(
-        'f_C1 = H_min_global / H(&#946;)<br/>'
-        'f_C2 = (H_min(class) - H_min_global) / H(&#946;)<br/>'
-        'f_C3 = max(0, H(&#946;) - H_min(class)) / H(&#946;)',
-        sEq))
-
-    story.append(Paragraph('C1 — Universal Landauer cost.', sSubH))
-    story.append(Paragraph(
-        'The entropy fraction attributable to the irreducible Landauer floor H_min_global = '
-        '0.7565, the lowest H observed in any healthy cell (frontal cortex neuron, Lister 2013). '
-        'This component is identical for every mammalian cell at 37&#176;C and cannot be '
-        'reduced by any intervention. It is the Mahaffey Number anchor — what physics '
-        'requires of any classical informational system at this temperature and genome size.',
-        sPara))
-
-    story.append(Paragraph('C2 — Architecture-locked overhead.', sSubH))
-    story.append(Paragraph(
-        'The additional entropy required to maintain the specific architecture class identity — '
-        'H_min(class) - H_min_global. For the Pluripotent class, C2 = 0.9822 - 0.7565 = '
-        '0.2257, a large architecture overhead because pluripotent cells must maintain '
-        'developmental optionality (open chromatin, permissive methylation). For the '
-        'Terminal class, C2 = 0.7728 - 0.7565 = 0.0163, a tiny overhead because terminal '
-        'cells are maximally committed. C2 is accessible only by changing the cell\'s '
-        'class — reprogramming, transdifferentiation, terminal dedifferentiation. Medicine '
-        'cannot reduce C2 without changing what kind of cell it is addressing.',
-        sPara))
-
-    story.append(Paragraph('C3 — Accessible gap.', sSubH))
-    story.append(Paragraph(
-        'The entropy in excess of the architecture floor — H(&#946;) - H_min(class). '
-        'In healthy tissue, f_C3 is near zero (&lt; 0.3% across TCGA matched normals). '
-        'In cancer, f_C3 rises to 8-15% for solid tumors and above 20% for glioblastoma. '
-        'C3 is the component on which every therapeutic intervention operates: chemotherapy, '
-        'radiation, immunotherapy, senolytics, rapamycin, caloric restriction, Yamanaka '
-        'partial reprogramming — all of these target C3. A patient undergoing chemotherapy '
-        'with declining f_C3 over serial samples is responding. A patient with f_C3 stuck '
-        'at ceiling is not. This is the clinical quantity that matters.',
-        sPara))
-
-    # Decomposition worked example
-    story.append(Paragraph('Worked example — cycling class cancer progression through C3:', sSubH))
-    decomp_example = [
-        [PH('Cell State'),      PH('&#946;'),   PH('H(&#946;)'), PH('f_C1'), PH('f_C2'),
-         PH('f_C3'),            PH('A-score'), PH('Tier')],
-        [P('Healthy colon (cycling ref)'),    P('0.740'), P('0.8267'), P('91.5%'),
-         P('8.2%'),   P('~0%'),   P('0.966'),  P('NORMAL')],
-        [P('Adenoma (pre-malignant)'),        P('0.685'), P('0.8991'), P('84.1%'),
-         P('8.4%'),   P('4.8%'),  P('1.050'),  P('DETECTABLE')],
-        [P('Early COAD (stage I)'),           P('0.640'), P('0.9427'), P('80.2%'),
-         P('8.5%'),   P('9.2%'),  P('1.101'),  P('BREACH')],
-        [P('Late COAD (stage IV)'),           P('0.580'), P('0.9815'), P('77.1%'),
-         P('8.2%'),   P('12.8%'), P('1.146'),  P('BREACH')],
-    ]
-    dec_tbl = Table(decomp_example,
-                    colWidths=[PW*0.26, PW*0.07, PW*0.10, PW*0.09, PW*0.09,
-                               PW*0.09, PW*0.11, PW*0.13],
-                    repeatRows=1)
-    dec_tbl.setStyle(tbl_style(7))
-    story.append(Spacer(1, 4))
-    story.append(dec_tbl)
-    story.append(Spacer(1, 4))
-    story.append(Paragraph(
-        'Cancer is the phase transition where f_C3 goes from ~0% to 13% within the same '
-        'architecture class. f_C1 and f_C2 remain nearly constant — the cell is still a '
-        'cycling epithelial cell — but the accessible entropy gap opens up. Source: '
-        'Mahaffey 2026 cell thermodynamics paper, Section 3.3; validated across 28 TCGA '
-        'cancer types (G-008, 27/28 confirmed at zero free parameters, n=4,304 matched '
-        'tumor-normal pairs).',
-        sProv))
-
-    story.append(Paragraph(
-        'The three-component decomposition is not just bookkeeping. It tells a clinician '
-        'what can be changed and what cannot: f_C1 is physics, f_C2 is cellular identity, '
-        'f_C3 is therapy. When a patient\'s f_C3 drops under treatment, the therapy is '
-        'working on the component that is actually accessible. When a patient\'s f_C3 '
-        'stays pinned at ceiling despite treatment, the architecture class has lost its '
-        'reserve — and for a dying patient, that information determines whether further '
-        'treatment is likely to recover function or whether the honest answer is that '
-        'the remaining accessible entropy gap has closed.',
-        sPara))
-
-    # ─────────────────────────────────────────────────────────────────────
-    # 2.6 — POST-BREACH ZONE PHYSICS
-    # ─────────────────────────────────────────────────────────────────────
-    story.append(PageBreak())
-    story.append(Paragraph('2.6  Post-Breach Zone Physics — After the Ceiling Is Crossed', sSub2))
-    story.append(Paragraph(
-        'The pre-breach bar on every class card answers the question "where is this patient '
-        'relative to healthy?" Once A crosses the architectural ceiling at 1.10, a different '
-        'instrument is needed: one that answers "what is happening to this patient\'s cells '
-        'now, and which therapeutic windows are still open?" Section 2.6 defines the post-'
-        'breach zone physics that every class card\'s Post-Breach Trajectory subsection '
-        'operates on. The concept applies identically across all eight architecture classes; '
-        'what differs between classes is which substrates carry signal through which zones.',
-        sPara))
-
-    story.append(Paragraph(
-        'Four post-breach zones are separated by three structural boundaries. All zones sit '
-        'to the right of A = 1.10 on the pre-breach bar. The boundary A-values are qualitative '
-        'placeholders pending prospective validation against survival-stratified cohorts; they '
-        'are used here as framework scaffolding, not as diagnostic tiers.',
-        sPara))
-
-    story.append(Paragraph('The Warburg boundary (A ≈ 1.15).', sSubH))
-    story.append(Paragraph(
-        'The Warburg transition — the metabolic shift from oxidative phosphorylation to '
-        'aerobic glycolysis in malignant cells — documents across 27 of 28 TCGA cancer types '
-        'in the G-008 validation. Below this boundary (metabolic-window zone), the glycolytic '
-        'program has not yet locked in and metabolic interventions can still push the cell '
-        'back toward oxidative phosphorylation: dichloroacetate (DCA), 2-deoxyglucose (2-DG), '
-        'dietary ketosis, mitochondrial cofactor availability. Above this boundary (structural-'
-        'only zone), glycolytic commitment is structural — metabolic intervention alone cannot '
-        'restore oxidative metabolism, and adding glucose starts to accelerate rather than '
-        'restrain disease. This is where structural interventions (DNMT inhibitors, HDAC '
-        'inhibitors, synthetic lethality approaches, reprogramming) become the primary lever.',
-        sPara))
-
-    story.append(Paragraph('The glucose inversion (A ≈ 1.25).', sSubH))
-    story.append(Paragraph(
-        'Past the glucose inversion point, the metabolic lever has fully inverted: adding '
-        'glucose to the cell\'s environment measurably accelerates tumor progression rather '
-        'than supporting cellular function. Standard supportive care — total parenteral '
-        'nutrition with glucose, glucose-containing IV maintenance fluids, high-sugar dietary '
-        'support — becomes counterproductive. This is clinically documented in experience '
-        'with TPN and high-glucose supportive care in end-stage cancer patients. Framework '
-        'use: for patients in this zone, metabolic restriction (low-glycemic nutrition, '
-        'medical ketosis) shifts from optional supportive measure to necessary component of '
-        'standard care.',
-        sPara))
-
-    story.append(Paragraph('The point of no return (A ≈ 1.40+).', sSubH))
-    story.append(Paragraph(
-        'Past this boundary, the cell\'s epigenomic reserve (f_C3 headroom) is depleted. No '
-        'structural intervention currently available can recover cellular function — '
-        'differentiation therapy, DNMT inhibitors, synthetic lethality approaches, and '
-        'immune checkpoint combinations all operate on residual reserve. Once reserve closes, '
-        'they cannot reach the cell. The framework\'s honest use here is prognostic rather '
-        'than therapeutic: A in this zone tells the clinician and the family what the cellular '
-        'thermodynamics say about trajectory. Comfort care, symptom management, and family-'
-        'centered planning become the appropriate clinical frame.',
-        sPara))
-
-    story.append(Paragraph('The four therapeutic zones.', sSubH))
-    zones_rows = [
-        [PH('Zone'), PH('A range'), PH('What\'s still open'), PH('What has closed')],
-        [Paragraph('<b>Metabolic window</b>', S('z1', fontSize=8, leading=10)),
-         Paragraph('1.10 to ~1.15', S('z2', fontSize=8, leading=10, alignment=TA_CENTER)),
-         Paragraph('Metabolic intervention (DCA, 2-DG, ketosis), structural intervention, all combinations',
-                   S('z3', fontSize=8, leading=10)),
-         Paragraph('Full architectural restoration without intervention',
-                   S('z4', fontSize=8, leading=10))],
-        [Paragraph('<b>Structural only</b>', S('z5', fontSize=8, leading=10)),
-         Paragraph('~1.15 to ~1.25', S('z6', fontSize=8, leading=10, alignment=TA_CENTER)),
-         Paragraph('Structural intervention (DNMTi, HDACi, synthetic lethality, checkpoint + metabolic)',
-                   S('z7', fontSize=8, leading=10)),
-         Paragraph('Metabolic intervention alone (glucose becomes neutral, then harmful past Warburg)',
-                   S('z8', fontSize=8, leading=10))],
-        [Paragraph('<b>Palliative range</b>', S('z9', fontSize=8, leading=10)),
-         Paragraph('~1.25 to ~1.40', S('z10', fontSize=8, leading=10, alignment=TA_CENTER)),
-         Paragraph('Aggressive combination therapy; palliative intent; clinical trial eligibility',
-                   S('z11', fontSize=8, leading=10)),
-         Paragraph('Glucose supportive care (accelerates disease), single-agent therapy',
-                   S('z12', fontSize=8, leading=10))],
-        [Paragraph('<b>End of life</b>',
-                   S('z13', fontSize=8, leading=10, textColor=colors.HexColor('#993C1D'))),
-         Paragraph('~1.40+', S('z14', fontSize=8, leading=10, alignment=TA_CENTER,
-                                textColor=colors.HexColor('#993C1D'))),
-         Paragraph('Comfort care, symptom management, family-centered planning',
-                   S('z15', fontSize=8, leading=10, textColor=colors.HexColor('#993C1D'))),
-         Paragraph('Cellular reserve for therapeutic response — f_C3 headroom depleted',
-                   S('z16', fontSize=8, leading=10, textColor=colors.HexColor('#993C1D')))],
-    ]
-    zones_tbl = Table(zones_rows, colWidths=[PW*0.18, PW*0.15, PW*0.37, PW*0.30])
-    zones_tbl.setStyle(tbl_style(7.5))
-    story.append(Spacer(1, 4))
-    story.append(zones_tbl)
+        '<b>Heath W. Mahaffey</b>  &#8212;  Independent Researcher, Entiat, Washington<br/>'
+        'Research &amp; GAPE collaboration: <font color="#C4B5FD">hmahaffeyges@gmail.com</font><br/>'
+        'Commercial (QAPE / SCAPE / licensing): <font color="#C4B5FD">heath@iamperformance.net</font><br/>'
+        'All commercial inquiries through legal counsel.',
+        sNote))
     story.append(Spacer(1, 6))
-
     story.append(Paragraph(
-        'Each class card\'s Post-Breach Trajectory subsection applies these four zones to the '
-        'specific cancers, non-cancer conditions, and predicted trajectories documented for '
-        'that class. The substrate availability differs by class — some classes have two '
-        'substrates reporting through all four zones while others have four — but the zone '
-        'structure itself is universal. This is the framework\'s most clinically actionable '
-        'prediction: post-breach A-score trajectories should correspond to the therapeutic '
-        'windows documented here, and 20+ prospective validation predictions (G-2026-P023 '
-        'through G-2026-P040) operationalize that test against specific cohorts.',
-        sPara))
-
-    story.append(Paragraph(
-        'Honest limitations. The numerical A-value anchors for Warburg, glucose inversion, '
-        'and point of no return are qualitative placeholders. The framework has not yet '
-        'tested them against longitudinal post-diagnosis data at the A-score level. What '
-        'is structural (directional ordering of zones, substrate saturation patterns, the '
-        'existence of a metabolic-to-structural transition and a glucose-inversion transition) '
-        'is framework-level derived. What is numerical (where exactly each boundary sits for '
-        'each cancer type) awaits validation. These tests could not be run before IAM '
-        'because the framework did not exist to generate them; the predictions filed in '
-        'each card\'s Post-Breach Trajectory subsection define the specific cohorts, '
-        'endpoints, and falsification criteria.',
-        sPara))
-
+        'Patents Pending: US Provisional Applications 64/012,720 &amp; 64/014,568',
+        sNote))
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SECTION 9C: SECTION 3 — RESEARCH EVIDENCE
@@ -6407,7 +5466,7 @@ def render_section_3_evidence(story):
             ('VAL-028', 'Canine fragment size (modeled)', 'Prediction filed', 'VAL-036'),
             ('VAL-029', 'TGCT inversion (Pluripotent class)', 'Zero-param confirmed', 'G-008'),
             ('VAL-030', 'Adjacent-normal consistency across substrates', '+20.2% all 4 subs', 'G-003b'),
-            ('VAL-031', 'Bootstrap cross-validation (40 class×substrate pairs)', '24/32 within 95% CI', 'G-003b'),
+            ('VAL-031', 'Bootstrap cross-validation (all class×substrate pairs)', '24/32 within 95% CI', 'G-003b'),
             ('VAL-032', 'Cross-substrate correlation structure', 'r=0.54 inter-substrate', 'G-003b'),
             ('VAL-033', 'MESA test vs GAPE 5-substrate theoretical ceiling', 'AUC 0.931 vs 1.000', 'G-003b'),
         ]),
@@ -6443,7 +5502,7 @@ def render_section_3_evidence(story):
         'G-002 established the methylation H_min values for eight architecture classes '
         '(the only substrate available in Issue 001). G-003b extended to the four additional '
         'substrates (nucleosome occupancy, fuzziness, WPS, fragment size), producing the '
-        'full 8×5 = 40 H_min grid used throughout Issue 002. Both runs used emcee sampler, '
+        'complete class-by-substrate H_min grid used throughout Issue 002. Both runs used emcee sampler, '
         'published healthy reference data only, and released chains as raw HDF5 files in the '
         'repository for independent verification.',
         sPara))
@@ -6477,7 +5536,7 @@ def render_section_3_evidence(story):
         'verify H_min for the immune class methylation substrate pulls '
         '/chains/g002_methyl_immune.h5, loads it with emcee or h5py, computes the posterior '
         'median and credible interval, and compares against the value cited in Section 2.1 '
-        '(H_min = 0.8389). The immune-class correction from 0.795 to 0.8389 — a 6.44σ shift '
+        '(the class floor). The immune-class correction from the class floor to the class floor — a 6.44σ shift '
         'from the original Issue 001 value — is documented in the G-002 chain. Transparency '
         'includes showing where prior values were wrong.',
         sPara))
@@ -6487,7 +5546,7 @@ def render_section_3_evidence(story):
     # ─────────────────────────────────────────────────────────────────────
     story.append(Paragraph('3.3  Bootstrap Cross-Validations', sSub3))
     story.append(Paragraph(
-        'For each of the 40 class×substrate H_min values, a leave-one-reference-out bootstrap '
+        'For each of the all class×substrate H_min values, a leave-one-reference-out bootstrap '
         'was executed to confirm the posterior is not driven by any single reference dataset. '
         'The results: mean absolute difference between full-data posterior and leave-one-out '
         'posterior is 0.168%. 24 of 32 leave-one-out intervals fall within the full-data '
@@ -6745,7 +5804,7 @@ def render_section_4_baselines(story):
         'due to normal aging — not because they are diseased.',
         sPara))
 
-    # Compute the baseline grid
+    # Compute the baseline grid (drift constants proprietary)
     DRIFT = {
         'terminal':0.011,'secretory':0.014,'immune':0.018,'progenitor':0.045,
         'cycling':0.022,'stromal':0.014,'stem_adult':0.030,'stem_pluri':0.025,
@@ -6763,62 +5822,55 @@ def render_section_4_baselines(story):
         gens = yrs / 10 * GEN_PER_DECADE[cls]
         return 0.970 * (1 + DRIFT[cls]) ** gens
 
-    def tier_cell(A):
-        """Return (paragraph, bg color) for baseline cell."""
-        if A < 1.01:
-            return (P(f'{A:.4f}'), None)
-        if A < 1.05:
-            return (P(f'{A:.4f}'), colors.HexColor('#3a2a0a'))  # dim amber
-        if A < 1.07:
-            return (P(f'{A:.4f}'), colors.HexColor('#3a1a08'))  # dim orange-red
-        return (P(f'{A:.4f}'), colors.HexColor('#3a0808'))  # dim red
-
-    # Build table with per-cell backgrounds
-    base_rows = [['Class'] + [f'Age {d}' for d in decades]]
-    for cls in classes_order:
-        row = [cls]
-        for d in decades:
-            A = baseline_A(cls, d)
-            row.append(f'{A:.4f}')
-        base_rows.append(row)
-
-    # Build style with per-cell coloring
-    base_style = [
+    # Replace numeric decade-by-decade table with ordered tier summary
+    story.append(Paragraph(
+        'At age 30, every class sits comfortably in the NORMAL tier (A &lt; 1.01). '
+        'From 30 through 80, each class drifts upward at a class-specific rate. '
+        'The qualitative ordering — which is itself a testable prediction against '
+        'age-matched cohorts — is:',
+        sPara))
+    drift_summary_rows = [[PH('Class'), PH('Drift pace'), PH('Tier reached by age 80 (framework prediction)')]]
+    # Order by endpoint A (age 80, descending)
+    endpoints = [(cls, baseline_A(cls, 80)) for cls in classes_order]
+    endpoints.sort(key=lambda x: -x[1])
+    tier_label_for = lambda A: ('FLOOR BREACH' if A>=1.10 else
+                                 'URGENT' if A>=1.07 else
+                                 'DETECTABLE' if A>=1.05 else
+                                 'MARGINAL' if A>=1.01 else 'NORMAL')
+    for cls, A80 in endpoints:
+        # qualitative drift pace
+        pace = ('fastest drift'  if DRIFT[cls] >= 0.04 else
+                'fast drift'     if DRIFT[cls] >= 0.02 else
+                'moderate drift' if DRIFT[cls] >= 0.013 else
+                'slow drift')
+        tier = tier_label_for(A80)
+        tier_color = ('#ff9090' if A80>=1.07 else
+                      '#ffb070' if A80>=1.05 else
+                      '#e0d070' if A80>=1.01 else '#ede9fe')
+        drift_summary_rows.append([
+            P(cls),
+            P(pace),
+            Paragraph(f'<font color="{tier_color}"><b>{tier}</b></font>',
+                      S('ts', fontSize=8, leading=11)),
+        ])
+    drift_t = Table(drift_summary_rows, colWidths=[PW*0.22, PW*0.30, PW*0.48], repeatRows=1)
+    drift_t.setStyle([
         ('BACKGROUND', (0,0), (-1,0), SURF2),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [SURF, colors.HexColor('#0a0a18')]),
         ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
         ('FONTSIZE', (0,0), (-1,-1), 8),
         ('TEXTCOLOR', (0,0), (-1,0), AMBER),
         ('TEXTCOLOR', (0,1), (-1,-1), TEXT),
-        ('FONTNAME', (1,1), (-1,-1), 'Courier'),
-        ('ALIGN', (1,1), (-1,-1), 'CENTER'),
+        ('GRID', (0,0), (-1,-1), 0.3, BORDER),
         ('TOPPADDING', (0,0), (-1,-1), 4),
         ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 4),
-        ('RIGHTPADDING', (0,0), (-1,-1), 4),
-        ('GRID', (0,0), (-1,-1), 0.3, BORDER),
+        ('LEFTPADDING', (0,0), (-1,-1), 6),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-    ]
-    # Apply per-cell tier backgrounds
-    for r, cls in enumerate(classes_order, 1):
-        for c, d in enumerate(decades, 1):
-            A = baseline_A(cls, d)
-            if A >= 1.07:
-                base_style.append(('BACKGROUND', (c, r), (c, r), colors.HexColor('#3a0808')))
-                base_style.append(('TEXTCOLOR', (c, r), (c, r), colors.HexColor('#ff9090')))
-            elif A >= 1.05:
-                base_style.append(('BACKGROUND', (c, r), (c, r), colors.HexColor('#3a1a08')))
-                base_style.append(('TEXTCOLOR', (c, r), (c, r), colors.HexColor('#ffb070')))
-            elif A >= 1.01:
-                base_style.append(('BACKGROUND', (c, r), (c, r), colors.HexColor('#2a2208')))
-                base_style.append(('TEXTCOLOR', (c, r), (c, r), colors.HexColor('#e0d070')))
-
-    base_t = Table(base_rows, colWidths=[PW*0.14] + [PW*(0.86/6)] * 6, repeatRows=1)
-    base_t.setStyle(TableStyle(base_style))
-    story.append(base_t)
+    ])
+    story.append(drift_t)
     story.append(Spacer(1, 4))
 
-    # Legend
+    # Legend (still useful for the tier framework)
     legend_rows = [[
         Paragraph('<font color="#ede9fe">NORMAL (A &lt; 1.01)</font>',
                   S('lg1', fontSize=7, leading=9)),
@@ -7271,24 +6323,15 @@ def render_section_5_scenarios(story):
         sPara))
 
     story.append(Paragraph('Expected trajectory — all eight architecture classes:', sSubH))
-    aging_rows = [[PH('Age'), PH('terminal'), PH('secretory'), PH('immune'),
-                   PH('progenitor'), PH('cycling'), PH('stromal'),
-                   PH('stem_adult'), PH('stem_pluri')]]
-    aging_data = [
-        ('35',  '0.970', '0.972', '0.977', '0.987', '0.978', '0.971', '0.974', '0.976'),
-        ('45',  '0.971', '0.976', '0.989', '1.002', '0.987', '0.972', '0.979', '0.982'),
-        ('55',  '0.971', '0.980', '1.003', '1.041', '0.999', '0.973', '0.985', '0.988'),
-        ('65',  '0.972', '0.984', '1.017', '1.078', '1.017', '0.975', '0.992', '1.005'),
-        ('75',  '0.972', '0.988', '1.031', '1.117', '1.035', '0.976', '1.001', '1.021'),
-        ('80',  '0.973', '0.990', '1.042', '1.157', '1.058', '0.977', '1.014', '1.032'),
-    ]
-    for row in aging_data:
-        aging_rows.append([P(c) for c in row])
-    aging_t = Table(aging_rows,
-                    colWidths=[PW*0.06] + [PW*(0.94/8)]*8,
-                    repeatRows=1)
-    aging_t.setStyle(tbl_style(7))
-    story.append(aging_t)
+    story.append(Paragraph(
+        'The age-stratified A-score trajectory for each of the eight architecture classes '
+        'is tracked from age 35 through 80. Terminal and stromal classes barely move — '
+        'neurons and fibroblasts divide rarely and accumulate methylation entropy slowly. '
+        'Progenitor climbs most steeply — crossing MARGINAL by age 45, DETECTABLE by age 55, '
+        'URGENT by age 70 — solely from the accumulated drift of transit-amplifying cell '
+        'division. The full numeric reference trajectory is part of the proprietary '
+        'calibration layer and is available under NDA.',
+        sPara))
     story.append(Spacer(1, 6))
 
     story.append(Paragraph(
@@ -7525,7 +6568,7 @@ def render_section_6_predictions(story):
     story.append(Paragraph('Physics basis:', sFld))
     story.append(Paragraph(
         'Seminomas arise from PGC-like precursors that are globally hypomethylated. The '
-        'Pluripotent H_min_methyl = 0.9822 sits near maximum entropy already, so a '
+        'Pluripotent H_min_methyl = the class floor sits near maximum entropy already, so a '
         'further β-toward-zero trajectory drives H(β) DOWN, producing A_methyl below the '
         'healthy reference. Meanwhile the four non-methylation substrates respond to tumor '
         'burden the way any cancer does — A elevates. The net result is the characteristic '
@@ -8680,53 +7723,32 @@ def render_cascade_section(story):
         sBody))
     story.append(Spacer(1, 8))
 
-    # Healthy baseline table — 8 classes × 10 age decades
-    baseline_data = {
-        '0-9':   [0.9383, 0.9506, 0.9062, 0.9077, 0.9438, 0.9375, 0.9557, 0.8292],
-        '10-19': [0.9458, 0.9583, 0.9212, 0.9210, 0.9510, 0.9428, 0.9611, 0.8308],
-        '20-29': [0.9514, 0.9639, 0.9316, 0.9393, 0.9563, 0.9462, 0.9666, 0.8324],
-        '30-39': [0.9568, 0.9695, 0.9397, 0.9520, 0.9615, 0.9497, 0.9701, 0.8340],
-        '40-49': [0.9604, 0.9732, 0.9477, 0.9619, 0.9667, 0.9531, 0.9736, 0.8340],
-        '50-59': [0.9640, 0.9768, 0.9556, 0.9692, 0.9734, 0.9564, 0.9789, 0.8356],
-        '60-69': [0.9693, 0.9822, 0.9652, 0.9789, 0.9784, 0.9614, 0.9840, 0.8356],
-        '70-79': [0.9762, 0.9892, 0.9764, 0.9930, 0.9849, 0.9664, 0.9907, 0.8356],
-        '80-89': [0.9830, 0.9962, 0.9873, 1.0067, 0.9913, 0.9728, 0.9973, 0.8371],
-        '90+':   [0.9912, 1.0046, 0.9996, 1.0244, 0.9991, 0.9791, 1.0038, 0.8371],
-    }
-    cls_labels = ['cycling', 'secretory', 'immune', 'terminal', 'stromal', 'stem_adult', 'progenitor', 'stem_pluri']
-
-    baseline_rows = [[PH('Age'), *[PH(c) for c in cls_labels]]]
-    for age, vals in baseline_data.items():
-        row = [Paragraph(f'<b>{age}</b>', S('age', fontSize=8, textColor=LAV_M, fontName='Helvetica-Bold', alignment=TA_CENTER, leading=10))]
-        for v in vals:
-            # Highlight cells that cross MARGINAL threshold (A ≥ 1.01)
-            if v >= 1.01:
-                row.append(Paragraph(f'<font color="#34d399"><b>{v:.4f}</b></font>',
-                    S('cv', fontSize=8, alignment=TA_CENTER, leading=10, fontName='Courier')))
-            else:
-                row.append(Paragraph(f'<font name="Courier">{v:.4f}</font>',
-                    S('cv', fontSize=8, alignment=TA_CENTER, leading=10)))
-        baseline_rows.append(row)
-
-    baseline_t = Table(baseline_rows, colWidths=[PW*0.09] + [PW*0.114]*8, repeatRows=1)
-    baseline_t.setStyle(tbl_style(7.5))
-    story.append(baseline_t)
+    # Healthy baseline table — 8 classes × 10 age decades (values proprietary)
+    story.append(Paragraph(
+        'The full age-stratified healthy baseline — 8 architecture classes × 10 age '
+        'decades (80 reference A-scores, plus per-decade β means, standard deviations, '
+        'sample counts, and percentile distributions) — is part of the proprietary '
+        'calibration layer. The pattern confirmed by VAL-006 (aging trajectory '
+        'r = 0.9999 against Roadmap Epigenomics E-series reference cells): healthy '
+        'baseline A-score rises monotonically with age in every somatic class. '
+        'Terminal class crosses the MARGINAL threshold (A ≥ 1.01) first in normal '
+        'aging, in the 80-89 decade; secretory, progenitor, and immune follow at '
+        '90+. Below that age range, a crossing of MARGINAL is pathology; at or above, '
+        'the crossing must be interpreted against the age-matched reference. The '
+        'pluripotent class is deliberately different — its class floor sits so close '
+        'to the Shannon ceiling that A &lt; 1 is the expected range in healthy '
+        'pluripotent cells, and aging drift is minimal because pluripotent cells '
+        'are maintained in a stable state rather than aging like differentiated '
+        'somatic cells.',
+        sBody))
     story.append(Spacer(1, 8))
 
     story.append(Paragraph(
-        '<b>Reading this table.</b> Healthy-baseline A-score rises monotonically with age '
-        'in every somatic class — consistent with VAL-006 aging trajectory r = 0.9999. '
-        'Cells shown in green cross the MARGINAL threshold (A ≥ 1.01) as part of normal '
-        'aging: terminal class crosses first (age 80-89, cortical neurons), followed by '
-        'secretory, progenitor, and immune at age 90+. Below the green cells, crossing '
-        'MARGINAL is pathology; at or above, the crossing must be interpreted against the '
-        'age-matched reference. The pluripotent class (rightmost column) is deliberately '
-        'different: H_min = 0.9822 sits so close to the Shannon ceiling of 1.000 that '
-        'A &lt; 1 is the expected range in healthy pluripotent cells, and aging drift is '
-        'minimal because pluripotent cells are maintained in a stable state rather than '
-        'aging like differentiated somatic cells. Full per-age β_mean, β_sd, n_samples, '
-        'and percentile distributions (p10/p25/p50/p75/p90) are available in the companion '
-        'JSON reference (HEALTHY_BASELINES.json on GitHub).',
+        '<b>Access to the full reference table:</b> qualified research partners and '
+        'clinical collaborators may request the complete age-stratified healthy '
+        'baseline (per-age β_mean, β_sd, n_samples, and percentile distributions '
+        'p10/p25/p50/p75/p90 for all 8 classes) under NDA. Contact: '
+        'hmahaffeyges@gmail.com.',
         sBody))
     story.append(Spacer(1, 10))
 
@@ -8786,8 +7808,8 @@ def build():
     story.append(HRFlowable(width='100%', thickness=1, color=LAV, spaceAfter=5))
     story.append(Paragraph(
         '<b>Issue 002  ·  April 2026</b>  ·  '
-        'The Physics of Cellular Fidelity Across Five Independent Measurement Windows — '
-        'Eight Architecture Classes, Forty H_min Values, One Unified Framework',
+        'Cellular Fidelity Across Five Independent Measurement Windows — '
+        'Eight Architecture Classes, One Unified Framework',
         S('HL', fontName='Helvetica-Bold', fontSize=10, textColor=TEXT, leading=14)))
     story.append(Spacer(1, 0.10*inch))
 
@@ -8815,7 +7837,7 @@ def build():
         'seven of eight classes. For terminal class, two substrates (nucl and WPS) saturate '
         'below BREACH. For stem_pluri the pattern inverts entirely, consistent with the '
         'TGCT prediction. The document includes a framework-wide Dennard-style saturation '
-        'wall chart showing where each of the 40 class × substrate combinations reaches '
+        'wall chart showing where each of the all class-by-substrate combinations reaches '
         'its physical ceiling.<br/><br/>'
 
         '<b>Third, the legacy combined A-score undercounts severity when substrates '
@@ -8879,8 +7901,8 @@ def build():
     story.append(Spacer(1, 0.10*inch))
 
     # Architecture classes summary table on cover
-    story.append(Paragraph('GAPE ARCHITECTURE CLASSES (ordered by H_min — lowest floor first)', sSect))
-    cls_rows = [[PH('#'), PH('Class'), PH('H_min methyl'), PH('cfDNA %'), PH('Drift/gen'), PH('Primary failure mode')]]
+    story.append(Paragraph('GAPE ARCHITECTURE CLASSES — eight classes covering the somatic cell population', sSect))
+    cls_rows = [[PH('#'), PH('Class'), PH('Primary failure mode')]]
     for card in sorted(CARDS, key=lambda c: c['order']):
         cls_rows.append([
             Paragraph(f'<b>{card["order"]}</b>',
@@ -8889,12 +7911,9 @@ def build():
             Paragraph(f'<b>{card["short"]}</b>',
                       S('sn', fontSize=8, textColor=CLS_COLS[card['key']],
                         fontName='Helvetica-Bold', leading=11)),
-            Paragraph(f'<font name="Courier">{H_min_for(card["key"], "methyl"):.4f}</font>', sCode),
-            Paragraph(f'<font name="Courier">{card["cfdna_pct"]:.1f}%</font>', sCode),
-            Paragraph(f'<font name="Courier">{card["gen_rate"]*100:.1f}%</font>', sCode),
             P(card['inversion']),
         ])
-    cls_t = Table(cls_rows, colWidths=[PW*0.05, PW*0.17, PW*0.10, PW*0.14, PW*0.10, PW*0.44], repeatRows=1)
+    cls_t = Table(cls_rows, colWidths=[PW*0.06, PW*0.22, PW*0.72], repeatRows=1)
     cls_t.setStyle(tbl_style(7.5))
     story.append(cls_t)
     story.append(Spacer(1, 0.08*inch))
@@ -9102,14 +8121,14 @@ def build():
         ('Saturation Wall Chart (Dennard-style) — masking magnitude', '12'),
         ('', ''),
         ('ARCHITECTURE CLASS CARDS — ordered by H_min (lowest floor first)', ''),
-        ('  #1  Terminal / Post-Mitotic (H_min=0.7728, AD vs glioma, post-breach)', '16'),
-        ('  #2  Secretory Glandular (H_min=0.8433, BRCA, PAAD, PRAD, post-breach)', '26'),
-        ('  #3  Immune & Hematopoietic (H_min=0.8389, 70% cfDNA, HIV/AIDS predicted)', '36'),
-        ('  #4  Progenitor / Transit-Amplifying (H_min=0.8522, MDS, A_active teaching)', '46'),
-        ('  #5  Cycling Epithelial (H_min=0.8561, 14 TCGA cancers, post-breach)', '55'),
-        ('  #6  Stromal & Connective Tissue (H_min=0.8629, mesothelioma, senescent inv.)', '66'),
-        ('  #7  Adult Tissue Stem (H_min=0.8737, HSC aging / Niche Depletion inv.)', '76'),
-        ('  #8  Pluripotent Stem (H_min=0.9822, TGCT / Seminoma Hypomethylation inv.)', '86'),
+        ('  #1  Terminal / Post-Mitotic (the class floor, AD vs glioma, post-breach)', '16'),
+        ('  #2  Secretory Glandular (the class floor, BRCA, PAAD, PRAD, post-breach)', '26'),
+        ('  #3  Immune & Hematopoietic (the class floor, 70% cfDNA, HIV/AIDS predicted)', '36'),
+        ('  #4  Progenitor / Transit-Amplifying (the class floor, MDS, A_active teaching)', '46'),
+        ('  #5  Cycling Epithelial (the class floor, 14 TCGA cancers, post-breach)', '55'),
+        ('  #6  Stromal & Connective Tissue (the class floor, mesothelioma, senescent inv.)', '66'),
+        ('  #7  Adult Tissue Stem (the class floor, HSC aging / Niche Depletion inv.)', '76'),
+        ('  #8  Pluripotent Stem (the class floor, TGCT / Seminoma Hypomethylation inv.)', '86'),
         ('', ''),
         ('SECTION 2 — Physics & Methodology', '97'),
         ('  2.1 Architecture-Class Floor — H_min Derivation', '97'),
@@ -9456,7 +8475,7 @@ def build():
         'The chart below is the direct analog of Dennard scaling walls from semiconductor physics, '
         'applied to cfDNA substrate measurements. Dennard charts show the frequency wall, power '
         'wall, and cost wall — the physical ceilings beyond which a technology stops improving. '
-        'This chart shows the <b>saturation wall</b> for each of the 40 class × substrate '
+        'This chart shows the <b>saturation wall</b> for each of the all class-by-substrate '
         'combinations. Each bar extends from A=0.90 up to that combination\'s ceiling '
         '(1/H_min). The solid right edge of each bar IS the wall — beyond that point the '
         'substrate cannot physically resolve further severity. Bars colored red end before '
@@ -9813,7 +8832,7 @@ def build():
         ('Reference Cell Methylation (Per-Class H_min)', [
             ('Lister et al. 2009 Nature — hESC H1 (stem_pluri reference)',
              'https://doi.org/10.1038/nature08514'),
-            ('Lister et al. 2013 Science — frontal cortex neuron (terminal, global floor 0.756500)',
+            ('Lister et al. 2013 Science — frontal cortex neuron (terminal, global floor)',
              'https://doi.org/10.1126/science.1237905'),
             ('Kozlenkov et al. 2014 Hum Mol Genet — cortical neuron mature',
              'https://doi.org/10.1093/hmg/ddu063'),
@@ -10202,7 +9221,7 @@ def build():
              'trajectories and reserve-depletion signals.'),
             ('C1, C2, C3',
              'Three-component decomposition of Shannon entropy. C1 = universal Landauer '
-             'floor (0.756500, neuron reference). C2 = class-specific architecture '
+             'floor (neuron reference). C2 = class-specific architecture '
              'overhead above C1. C3 = accessible gap above H_min = max(0, H − H_min). '
              'Healthy cells: C3 ≈ 0. Cancer: C3 = 8-15%.'),
             ('f_C3',
@@ -10219,7 +9238,7 @@ def build():
              'of DNMT1 maintenance across 19.6M CpG sites per cell division. Calibrated '
              'via MCMC posteriors (G-002 methyl, G-003b four other substrates).'),
             ('H_MIN_GLOBAL',
-             'The lowest H_min across all classes: 0.756500, from frontal cortex '
+             'The lowest H_min across all classes: the universal Landauer floor value, from frontal cortex '
              'neuron (Lister 2013). Anchors the global C1 Landauer floor.'),
             ('Landauer cost',
              'Thermodynamic minimum energy to erase one bit of information: '
@@ -10330,7 +9349,7 @@ def build():
              'Confidence interval derived by resampling. For H_min posteriors, '
              'leave-one-reference-out bootstrap confirms no single dataset drives '
              'the result. Mean |Δ| between full-data and leave-one-out posteriors: '
-             '0.168% across 40 class×substrate H_min values (VAL-031).'),
+             '0.168% across all class×substrate H_min values (VAL-031).'),
             ('MCMC',
              'Markov Chain Monte Carlo. Statistical method for sampling from posterior '
              'distributions. G-002 (methylation H_min): 17 chains, R-hat < 1.001, '
@@ -10584,7 +9603,7 @@ def build():
              'future-cancer participants show mean ΔA = +0.014 above matched controls, '
              'detectable 2-5 years pre-diagnosis, across ≥2 architecture classes.'),
             ('Class-universal inversion (pluripotent)',
-             'VAL-045 refinement: because H_min_methyl = 0.9822 sits very close to the '
+             'VAL-045 refinement: because H_min_methyl = the class floor sits very close to the '
              'Shannon ceiling (1.000), the pluripotent methylation window above floor '
              'is too narrow to accommodate upward departure. All TGCT histologies land '
              'in A_methyl inversion territory; seminoma is the extreme case (divergence '
@@ -10714,27 +9733,27 @@ def build():
     # Class Index
     story.append(Paragraph('Architecture Classes — Full Publication Coverage', sGlossCat))
     class_idx = [
-        [PH('Class'), PH('Card'), PH('H_min (methyl)'), PH('Physics Refs'),
+        [PH('Class'), PH('Card'), PH('Physics Refs'),
          PH('Scenarios'), PH('Predictions')],
-        [P('terminal'), P('p.22-29'), P('0.7728'), P('§2.1, §2.3'),
+        [P('terminal'), P('p.22-29'), P('§2, §2.3'),
          P('§5.3'), P('—')],
-        [P('secretory'), P('p.30-36'), P('0.8433'), P('§2.1'),
+        [P('secretory'), P('p.30-36'), P('§2'),
          P('§5.5'), P('—')],
-        [P('immune'), P('p.37-42'), P('0.8389'), P('§2.1, §4'),
+        [P('immune'), P('p.37-42'), P('§2, §4'),
          P('§5.3, §5.5'), P('—')],
-        [P('cycling'), P('p.43-49'), P('0.8561'), P('§2.1, §2.5 (worked)'),
+        [P('cycling'), P('p.43-49'), P('§2, §2.5 (worked)'),
          P('§5.3, §5.4'), P('P021')],
-        [P('progenitor'), P('p.50-56'), P('0.8522'), P('§2.1, §4'),
+        [P('progenitor'), P('p.50-56'), P('§2, §4'),
          P('§5.3'), P('—')],
-        [P('stromal'), P('p.57-63'), P('0.8630'), P('§2.1'),
+        [P('stromal'), P('p.57-63'), P('§2'),
          P('§5.3'), P('P018')],
-        [P('stem_adult'), P('p.64-70'), P('0.8737'), P('§2.1, §2.4 inversion'),
+        [P('stem_adult'), P('p.64-70'), P('§2, §2.4 inversion'),
          P('—'), P('P013, P015, P019')],
-        [P('stem_pluri'), P('p.71-79'), P('0.9822'), P('§2.1, §2.3 struct sat, §2.4 inv'),
+        [P('stem_pluri'), P('p.71-79'), P('§2, §2.3 struct sat, §2.4 inv'),
          P('§5.1'), P('P005, P016, P017, P020')],
     ]
     class_t = Table(class_idx,
-                    colWidths=[PW*0.12, PW*0.10, PW*0.12, PW*0.25, PW*0.16, PW*0.25],
+                    colWidths=[PW*0.14, PW*0.12, PW*0.30, PW*0.18, PW*0.26],
                     repeatRows=1)
     class_t.setStyle(tbl_style(7))
     story.append(class_t)
@@ -11034,14 +10053,12 @@ class GlobalClassRanking(Flowable):
         c.drawString(4, y_top + 2, 'CLASS')
         c.drawString(name_w + 10, y_top + 2, 'cfDNA%')
         c.drawString(bar_x, y_top + 2, 'CONTRIBUTION BAR')
-        c.drawString(hmin_x, y_top + 2, 'H_min(methyl)')
-        c.drawString(hmin_x + 95, y_top + 2, 'N cancers')
+        c.drawString(hmin_x, y_top + 2, 'N cancers')
         y = y_top - 14
         for card in self.cards:
             key = card['key']
             col = CLS_COLS[key]
             pct = card['cfdna_pct']
-            hm = H_min_for(key, 'methyl')
             n_cancers = len(CLASS_CANCERS.get(key, []))
             # Class dot + name
             c.setFillColor(col); c.circle(8, y + 7, 4, fill=1, stroke=0)
@@ -11054,12 +10071,9 @@ class GlobalClassRanking(Flowable):
             c.setFillColor(SURF2); c.roundRect(bar_x, y, bar_w, bar_h, 2, fill=1, stroke=0)
             frac = pct / max_pct
             c.setFillColor(col); c.roundRect(bar_x, y, frac * bar_w, bar_h, 2, fill=1, stroke=0)
-            # H_min
-            c.setFillColor(TEAL); c.setFont('Courier', 7.5)
-            c.drawString(hmin_x, y + 5, f'{hm:.4f}')
             # N cancers
             c.setFillColor(MUTED2); c.setFont('Helvetica', 7)
-            c.drawString(hmin_x + 95, y + 5, str(n_cancers) if n_cancers else '—')
+            c.drawString(hmin_x, y + 5, str(n_cancers) if n_cancers else '—')
             y -= self.row_h
 
 
