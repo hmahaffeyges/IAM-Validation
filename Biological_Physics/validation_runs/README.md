@@ -35,10 +35,19 @@ Each implements pre-specified predictions with explicit pass/fail outputs.
 ## Files
 
 - `VAL_037` through `VAL_046` — cascade validation scripts + JSON results
+- `VAL_047_*` — external validation on real per-patient 450K β values (GSE51057, GSE51032, GSE69914) — first individual-sample-level validation
 - `HEALTHY_BASELINES.py` — 80-cell healthy reference (8 classes × 10 age decades)
 - `HEALTHY_BASELINES.json` — clinical-ready JSON for demo integration
 - `CASCADE_SUMMARY.py` — aggregates all cascade results
 - `CASCADE_SUMMARY.json` — summary JSON
+
+## VAL-047 script inventory
+
+- `VAL_047_real_analysis.py` — first-pass: bulk immune mean β on GSE51057 (null result, Cohen's d=0.08, confirms Xu 2019 KS p=0.5 finding)
+- `VAL_047_extended_v2.py` — architectural variance, multi-class signature, directional drift, top-N CV analyses
+- `VAL_047_options_1_2.py` — headline script: Xu-2019 6-CpG directional score + time-to-dx stratification. CV Cohen's d = +0.605 ± 0.190 on breast pre-dx.
+- `VAL_047_replication.py` — GSE51032 replication (n=845): breast CV d = +0.379, colorectal CV d = +0.835
+- `VAL_047_option3.py` — GSE69914 tissue-level validation: monotonic healthy → adjacent → tumor, AUC 0.70
 
 ## Primary sources (by validation)
 
@@ -51,5 +60,6 @@ Each implements pre-specified predictions with explicit pass/fail outputs.
 - **VAL-044**: Ceccarelli 2016 + Parikh 2019 + Stover 2018 + Ley 2010 + Cabel 2018
 - **VAL-045**: Shen 2018 + Killian 2016 + TCGA TGCT 2018
 - **VAL-046**: Kresovich 2019 + Hillary 2020 + Horvath 2014 + Hou 2012 + Horvath 2015
+- **VAL-047**: Xu 2020 JNCI (doi:10.1093/jnci/djz065) + Kresovich 2022 Mol Onc (doi:10.1002/1878-0261.13087) + Teschendorff 2016 Nat Commun (doi:10.1038/ncomms10478) + Demetriou 2013 (GSE51057 primary) + Zhao 2020 BMC Cancer (doi:10.1186/s12885-020-07194-5)
 
-Full citation list is in the GAPE_Evidence_Report.html references [22]-[53].
+Full citation list is in the GAPE_Evidence_Report.html references [22]-[58].
