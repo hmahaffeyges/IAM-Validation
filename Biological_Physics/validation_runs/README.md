@@ -1,7 +1,8 @@
 # GAPE Validation Runs — Multi-Class Drift Cascade
 
-This directory contains VAL-037 through VAL-046 validation scripts, JSON results,
-and the 80-cell healthy baseline reference.
+This directory contains VAL-037 through VAL-047 validation scripts and their JSON results.
+The 80-cell healthy baseline reference is part of the proprietary calibration layer
+(available under NDA — email hmahaffeyges@gmail.com).
 
 ## Cascade Summary (April 18, 2026)
 
@@ -36,8 +37,6 @@ Each implements pre-specified predictions with explicit pass/fail outputs.
 
 - `VAL_037` through `VAL_046` — cascade validation scripts + JSON results
 - `VAL_047_*` — external validation on real per-patient 450K β values (GSE51057, GSE51032, GSE69914) — first individual-sample-level validation
-- `HEALTHY_BASELINES.py` — 80-cell healthy reference (8 classes × 10 age decades)
-- `HEALTHY_BASELINES.json` — clinical-ready JSON for demo integration
 - `CASCADE_SUMMARY.py` — aggregates all cascade results
 - `CASCADE_SUMMARY.json` — summary JSON
 
@@ -62,4 +61,4 @@ Each implements pre-specified predictions with explicit pass/fail outputs.
 - **VAL-046**: Kresovich 2019 + Hillary 2020 + Horvath 2014 + Hou 2012 + Horvath 2015
 - **VAL-047**: Xu 2020 JNCI (doi:10.1093/jnci/djz065) + Kresovich 2022 Mol Onc (doi:10.1002/1878-0261.13087) + Teschendorff 2016 Nat Commun (doi:10.1038/ncomms10478) + Demetriou 2013 (GSE51057 primary) + Zhao 2020 BMC Cancer (doi:10.1186/s12885-020-07194-5)
 
-Full citation list is in the GAPE_Evidence_Report.html references [22]-[58].
+Full citation list available under NDA — email hmahaffeyges@gmail.com for access.

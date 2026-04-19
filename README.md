@@ -100,7 +100,7 @@ The Landauer cost of irreversible DNA methylation maintenance at physiological t
 
 | Result | Value |
 |--------|-------|
-| Global Landauer floor H_min_global | 0.756500 (frontal cortex neuron) |
+| Universal Landauer floor | frontal cortex neuron reference &mdash; value proprietary |
 | Cancer types confirmed (direction) | 27/28 TCGA types, n = 4,304 matched pairs |
 | Zero free parameters | No cancer data used in calibration |
 | DunedinPACE biological aging fit | t_max = 120.3 ± 7.1 yr (MCMC) |

@@ -13,10 +13,7 @@ METADATA = json.loads(Path('/home/claude/geo_analysis/GSE51057_metadata.json').r
 CLASS_INFO = json.loads(Path('/home/claude/geo_analysis/all_cpgs.json').read_text())
 CLASS_CPGS = CLASS_INFO['by_class']
 
-H_MIN = {
-    'cycling': 0.856055, 'secretory': 0.843264, 'immune': 0.838889,
-    'terminal': 0.772837, 'stromal': 0.862950,
-}
+
 def H(b):
     if b is None or (isinstance(b, float) and math.isnan(b)):
         return None

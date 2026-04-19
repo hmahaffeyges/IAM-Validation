@@ -6,6 +6,19 @@
 import math, numpy as np
 from scipy import stats
 import matplotlib
+
+# ─── Calibration layer (access restricted) ──────────────────────────────
+# Per-class and per-substrate H_min floor values are proprietary — covered under
+# US Provisional Patents 64/012,720 and 64/014,568. For NDA access to the
+# calibration module (_gape_calibration_private.py), contact hmahaffeyges@gmail.com.
+try:
+    from _gape_calibration_private import H_MIN_METHYL, H_MIN_TABLE
+except ImportError:
+    raise RuntimeError(
+        "Calibration layer not available. "
+        "See https://github.com/hmahaffeyges/IAM-Validation for access instructions."
+    )
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -16,7 +29,6 @@ def H(b):
     if b <= 0 or b >= 1: return 0.0
     return -b * math.log2(b) - (1 - b) * math.log2(1 - b)
 
-H_MIN_IMM = 0.838889   # G-002 MCMC posterior, immune class
 T_HUMAN   = 310.15     # K
 
 def A(beta): return H(beta) / H_MIN_IMM

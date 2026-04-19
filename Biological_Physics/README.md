@@ -9,7 +9,7 @@ architecture-class-specific entropy floors for all mammalian somatic cell types.
 
 **Updated: April 18, 2026 — Multi-class systemic drift cascade complete (VAL-037 through VAL-046). 45 studies. 35/39 cascade predictions confirmed (89.7%). Healthy baseline reference tables added (80 cells).**
 
-**Cross-validated:** 10,000-resample non-parametric bootstrap on identical reference data agrees with G-003b MCMC posteriors at 0.168% mean relative difference (max 1.091%), 24 of 32 MCMC posterior means within bootstrap 95% CI. Calibration is method-independent. See the "Methodology: MCMC vs. bootstrap" section in the [Evidence Report](GAPE_Evidence_Report.html).
+**Cross-validated:** 10,000-resample non-parametric bootstrap on identical reference data agrees with G-003b MCMC posteriors at 0.168% mean relative difference (max 1.091%), 24 of 32 MCMC posterior means within bootstrap 95% CI. Calibration is method-independent. Methodology documentation available under NDA.
 
 **Archival DOI (all versions):** [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) — frozen Zenodo snapshots of the complete biological physics validation package. Cite the version DOI listed on Zenodo for state-specific references.
 
@@ -41,16 +41,15 @@ A = H(substrate) / H_min(class)
 
 This formula applies identically across **five independent physical substrates**, all now MCMC-confirmed:
 
-| Substrate | What it measures | H_min (cycling class) | Status |
-|-----------|-----------------|----------------------|--------|
-| DNA methylation (β) | CpG commitment tags | 0.856055 ± 0.000312 | **CONFIRMED — G-002 MCMC (17 chains, R-hat < 1.001)** |
-| Nucleosome occupancy | DNA spool positioning probability | 0.980072 ± 0.008427 | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
-| Nucleosome fuzziness | Positional precision across cells | 0.819030 ± 0.007359 | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
-| Windowed protection score | Promoter nucleosome protection | 0.627429 ± 0.005649 | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
-| Fragment size entropy | cfDNA fragment length distribution | 0.687936 ± 0.006878 | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
+| Substrate | What it measures | Status |
+|-----------|-----------------|--------|
+| DNA methylation (β) | CpG commitment tags | **CONFIRMED — G-002 MCMC (17 chains, R-hat < 1.001)** |
+| Nucleosome occupancy | DNA spool positioning probability | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
+| Nucleosome fuzziness | Positional precision across cells | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
+| Windowed protection score | Promoter nucleosome protection | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
+| Fragment size entropy | cfDNA fragment length distribution | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
 
-Full G-003b posterior table (all 8 architecture classes × 4 substrates = 32 posteriors) is in the
-[Evidence Report](../GAPE_Evidence_Report.html) and in the "G-003b Full Posteriors" section below.
+The per-class, per-substrate H_min values are part of the proprietary calibration layer — covered under US Provisional Patents 64/012,720 and 64/014,568. Technical access for qualified research partners, clinical collaborators, and acquirers available under NDA (see contact below).
 
 ---
 
@@ -60,8 +59,8 @@ Full G-003b posterior table (all 8 architecture classes × 4 substrates = 32 pos
 
 | Study | Description | Result | Data Source |
 |-------|-------------|--------|-------------|
-| G-002 | H_min for 8 architecture classes (methylation) | **17 chains · R-hat < 1.001 · 800,000 samples. H_min_cycling = 0.856055 ± 0.000312** | [NIH Roadmap Epigenomics](https://www.ncbi.nlm.nih.gov/geo/roadmap/epigenomics/) |
-| G-003b | H_min for 4 additional substrates | **5 chains × 32 walkers × 5,500 steps · R-hat < 1.001 · 42.1s runtime · 32 posteriors** | [ENCODE](https://www.encodeproject.org/) · [GEO:GSE71378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE71378) · [GEO:GSE149268](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149268) |
+| G-002 | H_min for 8 architecture classes (methylation) | **17 chains · R-hat < 1.001 · 800,000 samples · 8 class floors converged · values proprietary** | [NIH Roadmap Epigenomics](https://www.ncbi.nlm.nih.gov/geo/roadmap/epigenomics/) |
+| G-003b | H_min for 4 additional substrates | **5 chains × 32 walkers × 5,500 steps · R-hat < 1.001 · 42.1s runtime · 32 posteriors converged · values proprietary** | [ENCODE](https://www.encodeproject.org/) · [GEO:GSE71378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE71378) · [GEO:GSE149268](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149268) |
 
 ### Methylation Studies — VAL-001 through VAL-013
 
@@ -131,22 +130,9 @@ The preceding 33 validations established the framework at the tissue level: per-
 
 Companion to the cascade: per-age-decade expected healthy A-score for every architecture class. A patient A-score above the age-matched p90 is above 90% of the healthy population at that age; combined with the tier thresholds (MARGINAL ≥ 1.01, DETECTABLE ≥ 1.05, URGENT ≥ 1.07, FLOOR BREACH ≥ 1.10), this provides a two-axis clinical readout (age-percentile × tier).
 
-| Age | cycling | secretory | immune | terminal | stromal | stem_adult | progenitor | stem_pluri |
-|-----|---------|-----------|--------|----------|---------|------------|------------|------------|
-| 0-9   | 0.9383 | 0.9506 | 0.9062 | 0.9077 | 0.9438 | 0.9375 | 0.9557 | 0.8292 |
-| 10-19 | 0.9458 | 0.9583 | 0.9212 | 0.9210 | 0.9510 | 0.9428 | 0.9611 | 0.8308 |
-| 20-29 | 0.9514 | 0.9639 | 0.9316 | 0.9393 | 0.9563 | 0.9462 | 0.9666 | 0.8324 |
-| 30-39 | 0.9568 | 0.9695 | 0.9397 | 0.9520 | 0.9615 | 0.9497 | 0.9701 | 0.8340 |
-| 40-49 | 0.9604 | 0.9732 | 0.9477 | 0.9619 | 0.9667 | 0.9531 | 0.9736 | 0.8340 |
-| 50-59 | 0.9640 | 0.9768 | 0.9556 | 0.9692 | 0.9734 | 0.9564 | 0.9789 | 0.8356 |
-| 60-69 | 0.9693 | 0.9822 | 0.9652 | 0.9789 | 0.9784 | 0.9614 | 0.9840 | 0.8356 |
-| 70-79 | 0.9762 | 0.9892 | 0.9764 | 0.9930 | 0.9849 | 0.9664 | 0.9907 | 0.8356 |
-| 80-89 | 0.9830 | 0.9962 | 0.9873 | **1.0067** | 0.9913 | 0.9728 | 0.9973 | 0.8371 |
-| 90+   | 0.9912 | **1.0046** | 0.9996 | **1.0244** | 0.9991 | 0.9791 | **1.0038** | 0.8371 |
+The full 80-cell reference table — per-age β_mean, β_sd, n_samples, and percentile distributions (p10/p25/p50/p75/p90) for all 8 classes across 10 age decades — is part of the proprietary calibration layer. The qualitative pattern: healthy-baseline A-score rises monotonically with age in every somatic class; only terminal class crosses the MARGINAL threshold (A ≥ 1.01) within typical lifespan, in the 80-89 decade; secretory, progenitor, and immune classes follow at 90+.
 
-Cells in **bold** cross the MARGINAL threshold (A ≥ 1.01) as part of healthy aging. Only terminal class crosses within typical lifespan (age 80-89). Full per-age β_mean, β_sd, n_samples, and percentile distributions in [`validation_runs/HEALTHY_BASELINES.json`](validation_runs/HEALTHY_BASELINES.json).
-
-Sources: [Hannum 2013](https://doi.org/10.1016/j.molcel.2012.10.016), [Horvath 2013](https://doi.org/10.1186/gb-2013-14-10-r115), [Roadmap 2015](https://doi.org/10.1038/nature14248), [Moss 2018](https://doi.org/10.1038/s41467-018-07466-6), [Lister 2013](https://doi.org/10.1126/science.1237905), [Alisch 2012](https://doi.org/10.1101/gr.125187.111).
+Sources (population data, public): [Hannum 2013](https://doi.org/10.1016/j.molcel.2012.10.016), [Horvath 2013](https://doi.org/10.1186/gb-2013-14-10-r115), [Roadmap 2015](https://doi.org/10.1038/nature14248), [Moss 2018](https://doi.org/10.1038/s41467-018-07466-6), [Lister 2013](https://doi.org/10.1126/science.1237905), [Alisch 2012](https://doi.org/10.1101/gr.125187.111). Access to the compiled reference table available under NDA — contact below.
 
 ---
 
@@ -156,7 +142,7 @@ Sources: [Hannum 2013](https://doi.org/10.1016/j.molcel.2012.10.016), [Horvath 2
 
 2. **H_min is species-independent.** VAL-013 found a 0.004 A-score difference across 70 million years of human-canine divergence. VAL-025–VAL-028 showed all five substrates in 104 Labradors follow the same aging curves.
 
-3. **Brain tumors produce the largest signal.** LGG ΔA = 0.273 (largest of 28 TCGA types). GBM ΔA = 0.228 (second). Reason: neurons start from the lowest-entropy baseline (H_min = 0.773), so departure is largest.
+3. **Brain tumors produce the largest signal.** LGG ΔA = 0.273 (largest of 28 TCGA types). GBM ΔA = 0.228 (second). Reason: neurons start from the lowest-entropy baseline (terminal class has the tightest floor of any architecture class), so departure is largest.
 
 4. **The pre-cancer window A=1.01–1.05 is substrate-independent.** Confirmed in methylation (VAL-009), fuzziness (VAL-030), WPS (VAL-031), fragment size (VAL-032). Geometric property of the Shannon curve, not a methylation artifact.
 
@@ -183,22 +169,13 @@ Sources: [Hannum 2013](https://doi.org/10.1016/j.molcel.2012.10.016), [Horvath 2
 
 ---
 
-## G-003b Full Posteriors — 8 Classes × 4 Substrates
+## G-003b MCMC — 8 Classes × 4 Substrates
 
-Reference cell counts: nucleosome occupancy n=29, fuzziness n=28, WPS n=21, fragment size n=18. Total runtime: 42.1s on Apple M-series. All chains: R-hat < 1.001, 5 chains × 32 walkers × 5,500 production steps, 800,000 posterior samples per substrate.
+Reference cell counts: nucleosome occupancy n=29, fuzziness n=28, WPS n=21, fragment size n=18. Total runtime: 42.1s on Apple M-series. All chains: R-hat < 1.001, 5 chains × 32 walkers × 5,500 production steps, 800,000 posterior samples per substrate. All 32 class-by-substrate posteriors converged cleanly.
 
-| Class | Nucl. occupancy | Nucl. fuzziness | WPS | Fragment size |
-|-------|-----------------|-----------------|-----|---------------|
-| stem_pluri | 0.799818 ± 0.009230 | 0.962920 ± 0.011135 | 0.905004 ± 0.012671 | 0.973583 ± 0.015681 |
-| stem_adult | 0.960866 ± 0.011131 | 0.980754 ± 0.009944 | 0.988964 ± 0.008174 | 0.841327 ± 0.011784 |
-| progenitor | 0.972790 ± 0.011009 | 0.961900 ± 0.011166 | 0.988046 ± 0.008611 | 0.808978 ± 0.016338 |
-| terminal | 0.992027 ± 0.005948 | 0.736973 ± 0.007371 | 0.958909 ± 0.011203 | 0.624938 ± 0.007288 |
-| **cycling** | **0.980072 ± 0.008427** | **0.819030 ± 0.007359** | **0.627429 ± 0.005649** | **0.687936 ± 0.006878** |
-| immune | 0.989930 ± 0.006463 | 0.830377 ± 0.008299 | 0.589644 ± 0.006792 | 0.711534 ± 0.007067 |
-| secretory | 0.982560 ± 0.009638 | 0.847947 ± 0.009769 | 0.634534 ± 0.008996 | 0.697718 ± 0.009890 |
-| stromal | 0.985667 ± 0.008815 | 0.832386 ± 0.009645 | 0.612686 ± 0.008810 | 0.724691 ± 0.014423 |
+The numeric posterior table (32 floor values with bootstrap 95% CIs for all 8 architecture classes across the 4 non-methylation substrates) is part of the proprietary calibration layer — covered under US Provisional Patents 64/012,720 and 64/014,568. Bootstrap cross-validation (10,000 resamples × 32 class-substrate pairs) confirms the posteriors at 0.168% mean relative difference, 24 of 32 within bootstrap 95% CI — calibration is method-independent.
 
-Reproduce: [`evidence/gape_mcmc_g003b.py`](evidence/gape_mcmc_g003b.py)
+Access to the full posterior table and bootstrap comparison available under NDA — contact below.
 
 ---
 
@@ -231,59 +208,46 @@ All scripts in Python 3.9+ with `pip install numpy scipy`. No proprietary data. 
 - All scripts archived here and at the Zenodo biological physics deposit: [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) (concept DOI — always latest version)
 - Cosmological IAM work deposited separately at [10.5281/zenodo.18702042](https://doi.org/10.5281/zenodo.18702042)
 
-### Processed evidence matrices (one click away)
+### Processed evidence matrices
 
-- [`evidence/evidence_summary.tsv`](evidence/evidence_summary.tsv) — all per-cancer, per-substrate numbers in tab-separated format (14 KB, run your own statistics on it)
-- [`evidence/evidence_summary.json`](evidence/evidence_summary.json) — same data in structured JSON (49 KB)
-- [`evidence/bootstrap_vs_mcmc_comparison.tsv`](evidence/bootstrap_vs_mcmc_comparison.tsv) — G-003b MCMC posteriors vs 10,000-resample bootstrap CIs, all 32 class-substrate pairs, machine-readable
+The per-cancer, per-substrate result matrices underlying the VAL-XXX studies were previously provided as TSV/JSON in this directory. These files have been moved to the proprietary calibration layer. The underlying primary sources are all cited in the VAL-XXX table above and are directly accessible from TCGA, GEO, ENCODE, and the cited journal papers.
 
-### Calibration scripts (deterministic from seed — reproducible in ~42 seconds)
+### Calibration scripts
 
-- [`evidence/gape_mcmc_g002.py`](evidence/gape_mcmc_g002.py) — G-002 methylation 17-chain R-hat<1.001
-- [`evidence/gape_mcmc_g003b.py`](evidence/gape_mcmc_g003b.py) — G-003b 4-substrate, 32 posteriors
-- [`evidence/gape_mcmc_g008.py`](evidence/gape_mcmc_g008.py) — Cancer floor breach validation
-- [`evidence/gape_mcmc_e_a_bio.py`](evidence/gape_mcmc_e_a_bio.py) — Biological E(a) validation
-- [`evidence/gape_mcmc_nbio_ordering.py`](evidence/gape_mcmc_nbio_ordering.py) — Architecture class ordering
-- [`evidence/gape_bootstrap_comparison.py`](evidence/gape_bootstrap_comparison.py) — Non-parametric bootstrap cross-check of G-003b MCMC posteriors (10,000 resamples × 32 class-substrate pairs)
+The MCMC generator scripts that reproduce the class floor posteriors (G-002 methylation 17-chain, G-003b 4-substrate, G-008 cancer floor breach, biological E(a), architecture class ordering) and the non-parametric bootstrap cross-check are part of the proprietary calibration layer — covered under US Provisional Patents 64/012,720 and 64/014,568. The methods used are standard: `emcee` sampling on published reference data, with Shannon binary entropy as the statistic. Qualified research partners can request access under NDA.
 
 ### Multi-class drift cascade scripts (VAL-037 through VAL-046, April 2026)
 
-- [`validation_runs/VAL_037_field_effect_cross_class.py`](validation_runs/VAL_037_field_effect_cross_class.py) — Cross-class field effect across 24 TCGA types (n=1,109 STN)
-- [`validation_runs/VAL_038_zeng_plasma_correlation.py`](validation_runs/VAL_038_zeng_plasma_correlation.py) — Plasma cfDNA pan-cancer correlation test (Zeng 2026 Nat Cancer)
-- [`validation_runs/VAL_039_spatial_field_gradient.py`](validation_runs/VAL_039_spatial_field_gradient.py) — Spatial field effect gradient across 6 distance-annotated cancers
-- [`validation_runs/VAL_040_AD_multiclass_drift.py`](validation_runs/VAL_040_AD_multiclass_drift.py) — Alzheimer's multi-class peripheral drift (7 tissue-class combinations)
-- [`validation_runs/VAL_041_tissue_localization.py`](validation_runs/VAL_041_tissue_localization.py) — Tissue-of-origin deconvolution localization (10 cancer types)
-- [`validation_runs/VAL_042_pre_cancer_progression.py`](validation_runs/VAL_042_pre_cancer_progression.py) — Monotonic pre-cancer progression (5 cancer systems)
-- [`validation_runs/VAL_043_cross_species.py`](validation_runs/VAL_043_cross_species.py) — Cross-species cancer replication (5 canine cancers)
-- [`validation_runs/VAL_044_treatment_trajectory.py`](validation_runs/VAL_044_treatment_trajectory.py) — Post-treatment reserve depletion trajectory (5 clinical trials)
-- [`validation_runs/VAL_045_inversion_specificity.py`](validation_runs/VAL_045_inversion_specificity.py) — Inversion detection specificity (seminoma vs TGCT histologies)
-- [`validation_runs/VAL_046_pre_diagnostic_signature.py`](validation_runs/VAL_046_pre_diagnostic_signature.py) — Systemic multi-class pre-diagnostic signature — the capstone
-- [`validation_runs/HEALTHY_BASELINES.py`](validation_runs/HEALTHY_BASELINES.py) — 80-cell healthy reference table (8 classes × 10 age decades)
-- [`validation_runs/CASCADE_SUMMARY.py`](validation_runs/CASCADE_SUMMARY.py) — Cascade-wide summary aggregating all 10 validations
+The 10 cascade validation scripts and the healthy baseline reference table generator are part of the proprietary calibration layer. Each validation has a corresponding pass/fail record per prediction. Summary: 35 of 39 pre-specified predictions confirmed (89.7%). The VAL-XXX study descriptions, primary data sources, and result summaries in the table above are independently verifiable against the cited journal papers and public repositories.
 
-Each script has a corresponding `*_results.json` file with pass/fail per prediction. Results are reproducible from seed; no downloads required for VAL-037 through VAL-046 (published β values are embedded). Summary: 35 of 39 pre-specified predictions confirmed (89.7%). See [`validation_runs/README.md`](validation_runs/README.md) for per-validation primary sources.
-
-Scripts live in [`validation/`](validation/), [`evidence/`](evidence/), and [`validation_runs/`](validation_runs/).
+For access to the cascade scripts, the baseline reference table, or the per-validation result JSONs under NDA, contact below.
 
 ---
 
-## Full Evidence Report — Three Layers of Preservation
+## Technical Access — Evidence Report and Calibration Layer
 
-The complete HTML evidence report with expandable detail tables (VAL-003 per-cancer, VAL-007 per-cancer cfDNA, VAL-008+009 specimen matrix, VAL-012 clock comparison, full G-003b posteriors, methodological caveats) exists at three addresses, each serving a different preservation role:
+The detailed HTML evidence report (per-cancer tables, substrate-specific validation, MCMC chain inventory, methodological caveats, full G-003b posteriors, reproducibility code) is not publicly distributed. Research partners, clinical collaborators, journal reviewers, and acquirers interested in the complete evidence package can request access under NDA.
 
-1. **Live working copy:** [iamperformance.net](https://iamperformance.net) — continuously updated, public-facing, always shows the current state of the evidence.
-2. **Version-controlled snapshots:** [`GAPE_Evidence_Report.html`](GAPE_Evidence_Report.html) in this repo — every commit produces an immutable URL tied to a hash.
-3. **Archival DOI:** [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) — frozen Zenodo deposits with citable version DOIs, replicated across CERN infrastructure.
+**Priorities for technical access:**
+- Veterinary oncology partners running prospective validation
+- Dense-breast imaging centers and DCIS surveillance cohorts
+- Alzheimer's longitudinal cohorts
+- Commercial licensees (QAPE, SCAPE, or GAPE instruments)
+- Journal referees for submitted manuscripts
 
-### How to cite the state of this report on a specific date
+**Contact:**
+- Research collaboration: [hmahaffeyges@gmail.com](mailto:hmahaffeyges@gmail.com)
+- Commercial / licensing: [heath@iamperformance.net](mailto:heath@iamperformance.net)
+- All commercial inquiries through legal counsel.
 
-Every commit to this repository produces an immutable URL. To cite the state of the evidence report as it stood on a specific date, use the commit hash:
+**Intellectual Property**
 
-```
-https://github.com/hmahaffeyges/IAM-Validation/blob/<COMMIT_HASH>/Biological_Physics/GAPE_Evidence_Report.html
-```
+The GAPE framework, the class-specific H_min floor values, the architecture-class taxonomy, the substrate-specific calibration, the age-stratified healthy baseline reference tables, and the associated clinical applications are covered under:
 
-Find the commit hash for a given date by viewing the [commit history](https://github.com/hmahaffeyges/IAM-Validation/commits/main/Biological_Physics/GAPE_Evidence_Report.html). For formal citation with a DOI, use the corresponding Zenodo version DOI listed on the [deposit page](https://doi.org/10.5281/zenodo.19547624) — each upload to Zenodo produces a new version DOI that permanently points to that exact state.
+- US Provisional Patent Application **64/012,720** (filed March 21, 2026)
+- US Provisional Patent Application **64/014,568** (filed March 23, 2026)
+
+The public disclosures in this repository — the VAL-XXX study descriptions, primary data citations, physics of the framework, A-score formula, and tier thresholds — are consistent with the scope of those filings. The numeric calibration layer, derivation pathway to the per-class floor values, and engineering implementation are not publicly disclosed.
 
 ---
 

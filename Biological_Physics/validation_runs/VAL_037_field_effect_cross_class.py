@@ -42,20 +42,26 @@ import math
 import json
 import time
 import sys
+
+# ─── Calibration layer (access restricted) ──────────────────────────────
+# The per-class and per-substrate H_min posteriors are part of the proprietary
+# calibration layer covered under US Provisional Patents 64/012,720 and 64/014,568.
+# To reproduce this validation, contact hmahaffeyges@gmail.com for NDA access to
+# the calibration module. With the calibration module imported, this script runs
+# unchanged. The published primary data sources cited above can be re-analyzed
+# independently using any architecture-class floor values the reader derives.
+try:
+    from _gape_calibration_private import H_MIN_METHYL, H_MIN_TABLE
+except ImportError:
+    raise RuntimeError(
+        "Calibration layer not available in this environment. "
+        "See https://github.com/hmahaffeyges/IAM-Validation for access instructions."
+    )
 from pathlib import Path
 
 # ─── CONSTANTS FROM ISSUE 002 CANONICAL ──────────────────────────────────
 # H_min_methyl per class (G-002 MCMC, 17 chains, R-hat < 1.001)
-H_MIN_METHYL = {
-    'cycling':    0.856055,
-    'secretory':  0.843264,
-    'immune':     0.838889,
-    'terminal':   0.772837,
-    'stromal':    0.862950,
-    'stem_adult': 0.873718,
-    'progenitor': 0.852216,
-    'stem_pluri': 0.982166,
-}
+
 
 # TCGA project → architecture class mapping (Issue 002 class assignments)
 TCGA_CLASS = {

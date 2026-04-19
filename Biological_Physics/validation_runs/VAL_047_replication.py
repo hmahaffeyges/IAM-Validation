@@ -13,11 +13,23 @@ D. Age-matched detection performance at realistic thresholds
 import json, math, statistics, random
 from pathlib import Path
 
+# ─── Calibration layer (access restricted) ──────────────────────────────
+# Per-class H_min values are proprietary — covered under US Provisional Patents
+# 64/012,720 and 64/014,568. For NDA access, contact hmahaffeyges@gmail.com.
+try:
+    from _gape_calibration_private import (
+        H_MIN_IMMUNE, H_MIN_SECRETORY, H_MIN_CYCLING, H_MIN_TERMINAL,
+        H_MIN_STROMAL, H_MIN_PROGENITOR, H_MIN_STEM_ADULT, H_MIN_STEM_PLURI,
+    )
+except ImportError:
+    raise RuntimeError(
+        "Calibration layer not available. "
+        "See https://github.com/hmahaffeyges/IAM-Validation for access instructions."
+    )
+
+
 SAMPLES = json.load(open('/home/claude/geo_analysis/gse51032/GSE51032_meta.json'))
 
-H_MIN_IMMUNE = 0.838889
-H_MIN_SECRETORY = 0.843264
-H_MIN_CYCLING = 0.856055
 
 def H(b):
     if b is None: return None

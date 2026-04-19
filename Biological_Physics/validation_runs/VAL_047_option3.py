@@ -22,10 +22,23 @@ Three comparisons:
 import json, math, statistics
 from pathlib import Path
 
+# ─── Calibration layer (access restricted) ──────────────────────────────
+# Per-class H_min values are proprietary — covered under US Provisional Patents
+# 64/012,720 and 64/014,568. For NDA access, contact hmahaffeyges@gmail.com.
+try:
+    from _gape_calibration_private import (
+        H_MIN_IMMUNE, H_MIN_SECRETORY, H_MIN_CYCLING, H_MIN_TERMINAL,
+        H_MIN_STROMAL, H_MIN_PROGENITOR, H_MIN_STEM_ADULT, H_MIN_STEM_PLURI,
+    )
+except ImportError:
+    raise RuntimeError(
+        "Calibration layer not available. "
+        "See https://github.com/hmahaffeyges/IAM-Validation for access instructions."
+    )
+
+
 SAMPLES = json.loads(Path('/home/claude/geo_analysis/tcga_brca/GSE69914_metadata.json').read_text())
 
-H_MIN_IMMUNE = 0.838889
-H_MIN_SECRETORY = 0.843264
 
 def H(b):
     if b is None or (isinstance(b,float) and math.isnan(b)): return None

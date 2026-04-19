@@ -40,11 +40,22 @@ PRIMARY SOURCES:
 
 import math, json
 
-H_MIN = {
-    'cycling': 0.856055, 'secretory': 0.843264, 'immune': 0.838889,
-    'terminal': 0.772837, 'stromal': 0.862950, 'stem_adult': 0.873718,
-    'progenitor': 0.852216, 'stem_pluri': 0.982166,
-}
+# ─── Calibration layer (access restricted) ──────────────────────────────
+# The per-class and per-substrate H_min posteriors are part of the proprietary
+# calibration layer covered under US Provisional Patents 64/012,720 and 64/014,568.
+# To reproduce this validation, contact hmahaffeyges@gmail.com for NDA access to
+# the calibration module. With the calibration module imported, this script runs
+# unchanged. The published primary data sources cited above can be re-analyzed
+# independently using any architecture-class floor values the reader derives.
+try:
+    from _gape_calibration_private import H_MIN_METHYL, H_MIN_TABLE
+except ImportError:
+    raise RuntimeError(
+        "Calibration layer not available in this environment. "
+        "See https://github.com/hmahaffeyges/IAM-Validation for access instructions."
+    )
+
+
 def H(b):
     if b<=0 or b>=1: return 0.0
     return -b*math.log2(b)-(1-b)*math.log2(1-b)
