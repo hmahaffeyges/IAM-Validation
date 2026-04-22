@@ -2,7 +2,7 @@
   "manifest_version": "v1.2",
   "manifest_date": "2026-04-22",
   "description": "Cross-population validation manifest for the EDEAR immune-class (Xu-538) and secretory-class (19-CpG) A-score tests, plus the T15 NHANES blinded-cohort framework-premise test. Records every script, every result JSON, every public cohort reference, and every SHA-256 hash needed for bit-identical reproduction of the numbers reported in the EDEAR Breast/Colorectal Evidence Report v1.1 and the GAPE Evidence Report VAL-049 section.",
-  "author": "Heath W. Mahaffey <heath@iamperformance.net>",
+  "author": "Heath W. Mahaffey <hmahaffeyges@gmail.com>",
   "github": "https://github.com/hmahaffeyges/IAM-Validation",
   "zenodo_doi": "10.5281/zenodo.19547624",
   "calibration_constants": {

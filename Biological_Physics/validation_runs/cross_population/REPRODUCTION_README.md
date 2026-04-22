@@ -1,7 +1,7 @@
 # EDEAR / GAPE Cross-Population Validation — Reproduction Bundle
 
 **Session date:** 2026-04-22
-**Bundle owner:** Heath W. Mahaffey (heath@iamperformance.net)
+**Bundle owner:** Heath W. Mahaffey (hmahaffeyges@gmail.com)
 **Repository:** https://github.com/hmahaffeyges/IAM-Validation
 
 This bundle contains everything needed to reproduce the cross-population results
@@ -214,7 +214,7 @@ classifier internals are proprietary.
 
 ## Contact
 
-heath@iamperformance.net
+hmahaffeyges@gmail.com
 
 If you find an error in any script or any number, please email rather than
 publishing a correction. We correct errors as soon as we are aware of
