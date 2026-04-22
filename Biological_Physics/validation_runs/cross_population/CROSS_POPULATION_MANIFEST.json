@@ -1,0 +1,306 @@
+{
+  "manifest_version": "v1.2",
+  "manifest_date": "2026-04-22",
+  "description": "Cross-population validation manifest for the EDEAR immune-class (Xu-538) and secretory-class (19-CpG) A-score tests, plus the T15 NHANES blinded-cohort framework-premise test. Records every script, every result JSON, every public cohort reference, and every SHA-256 hash needed for bit-identical reproduction of the numbers reported in the EDEAR Breast/Colorectal Evidence Report v1.1 and the GAPE Evidence Report VAL-049 section.",
+  "author": "Heath W. Mahaffey <heath@iamperformance.net>",
+  "github": "https://github.com/hmahaffeyges/IAM-Validation",
+  "zenodo_doi": "10.5281/zenodo.19547624",
+  "calibration_constants": {
+    "constant_for_Xu538_panel": 0.838889,
+    "constant_for_19CpG_secretory_panel": 0.843264,
+    "frozen_date": "2026-04-06",
+    "source": "G-002 / G-003b healthy-reference MCMC posteriors",
+    "note": "Both constants were frozen prior to every case/control analysis in this manifest. No value has been tuned on any reported cohort. Class labels for these constants (immune, secretory) are meaningful inside the framework's 8-class architectural taxonomy; the taxonomy and the class-assignment rule are framework content and are held. For reproduction, the only fact a referee needs is which constant goes with which panel, stated above."
+  },
+  "panels": {
+    "Xu538": {
+      "cpg_count": 538,
+      "source_paper": "Xu Z, Sandler DP, Taylor JA. 2020. Blood DNA methylation and breast cancer: A prospective case-cohort analysis in the Sister Study. J Natl Cancer Inst 112(1):87-94.",
+      "source_doi": "10.1093/jnci/djz065",
+      "panel_file": "scripts/xu538_breast_panel.json",
+      "panel_sha256": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6"
+    },
+    "secretory_19cpg": {
+      "cpg_count": 19,
+      "source": "Framework-derived architectural class discrimination panel. Selection procedure is framework content and is held.",
+      "note": "Used in T13 (GSE51057) and T14 (GSE51032) secretory-class tests."
+    }
+  },
+  "tests": [
+    {
+      "test_id": "T1",
+      "cohort": "GSE40279",
+      "description": "Hannum 2013 baseline; healthy whole-blood aging reference. Panel specificity control on healthy samples.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE40279",
+      "source_paper": "Hannum G et al. 2013. Mol Cell 49(2):359-67.",
+      "source_doi": "10.1016/j.molcel.2012.10.016",
+      "script": "scripts/T1_GSE40279_baseline.py",
+      "script_sha256": "ca3e74eb3199273e0d25ff5a73c37fc9b887185ee13d343cd68a1b6ab8bae582",
+      "result_json": "results/T1_GSE40279/GSE40279_distribution_comparison.json",
+      "result_sha256": "53ac9cc02b2cbd98033739a616623302a8a46724a7c362bccb645afb4baefdd5",
+      "status": "baseline reference completed"
+    },
+    {
+      "test_id": "T2",
+      "cohort": "GSE104942",
+      "description": "Australian HBOC constitutional breast cancer vs HBOC-negative controls.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE104942",
+      "script": "scripts/T2_GSE104942_aussie_breast.py",
+      "script_sha256": "2bc995a6997ef6b0f0c081803722dbdcd6770407e8bfb636f8733368c754b903",
+      "result_json": "results/T2_GSE104942/GSE104942_case_control.json",
+      "result_sha256": "09e0d4068f5857db1660d3772059a9f944cb21b6be050c96c8ed3e58e86a6db6",
+      "cohens_d": 0.291,
+      "n_case": 74,
+      "n_control": 117,
+      "direction": "positive",
+      "status": "directionally positive",
+      "n_total": 191,
+      "notes": "n_total = n_case + n_control = 191. Includes blood pellet + whole peripheral blood sample types (GSE104942 is a multi-source cohort)."
+    },
+    {
+      "test_id": "T3",
+      "cohort": "GSE148663",
+      "description": "Uruguayan post-diagnostic breast cancer. Small-n post-diagnostic comparison.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE148663",
+      "script": "scripts/T3_GSE148663_uruguay_breast.py",
+      "script_sha256": "0499b275c7938ea3fc733fb4fa380eef2486593bda655279d7bb675c45e908fa",
+      "result_json": "results/T3_GSE148663/GSE148663_case_control.json",
+      "result_sha256": "d617ba5eaae52885880ce9b606aa01c4cedad1e8e6ee7f75b1e7e99c715da80b",
+      "cohens_d": -0.373,
+      "n_case": 22,
+      "n_control": 10,
+      "direction": "negative (outlier, small-n post-dx, design-incomparable)"
+    },
+    {
+      "test_id": "T5",
+      "cohort": "GSE89093",
+      "description": "TwinsUK MZ-discordant paired pre-diagnostic breast cancer. Paired within-twin-pair design.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE89093",
+      "script": "scripts/T5_GSE89093_twins_cancer.py",
+      "script_sha256": "0e6f78adf8df0bd3a59141f56b8a75a9002ab788bedf45823ac3a225e5f90ace",
+      "result_json": "results/T5_GSE89093/GSE89093_paired_analysis.json",
+      "result_sha256": "d6b933b2c1f598836f156a88e5e3f7d9f8d90c6497ef8737cb382d4b6ae4d227",
+      "direction": "positive",
+      "status": "directionally positive (small-n paired)",
+      "cohens_d_all_pre_dx_paired": 0.163,
+      "n_pairs_all_pre_dx": 12,
+      "by_TtD_window": {
+        "0-2 yr": {
+          "n_pairs": 6,
+          "d_paired": 0.968
+        },
+        "2-5 yr": {
+          "n_pairs": 3,
+          "d_paired": -0.553
+        },
+        "5-10 yr": {
+          "n_pairs": 3,
+          "d_paired": -0.076
+        },
+        ">10 yr": {
+          "n_pairs": 0,
+          "d_paired": null
+        }
+      },
+      "headline_result": "TwinsUK MZ-discordant pre-diagnostic breast: all-pre-dx paired d = +0.163 (n=12 pairs). Within-cohort TtD profile is non-monotonic (0-2yr d=+0.97 n=6; 2-5yr d=-0.55 n=3; 5-10yr d=-0.08 n=3). We flag this as an open question; small per-window n makes per-window d unstable, and the pooled result is the only reliable within-TwinsUK signal."
+    },
+    {
+      "test_id": "T8",
+      "cohort": "NHANES_1999_2002",
+      "description": "Cox regression of published epigenetic-clock acceleration on cancer mortality, NHANES 1999-2002 linked through NDI 2019-12-31.",
+      "source_release": "CDC NHANES DNAm Epigenetic Biomarkers (2024) + NHANES Linked Mortality Files 1999-2000 and 2001-2002.",
+      "release_url": "https://wwwn.cdc.gov/nchs/nhanes/dnam/",
+      "script": "scripts/T8_NHANES_cox.py",
+      "script_sha256": "9eb0673ca95cc1124356006bfcf50ac286c778418efcd706ccbdf1bcda5e6668",
+      "result_json": "results/T8_NHANES/NHANES_T8_cox_results.json",
+      "result_sha256": "3729a44b60cb2f3027324e863644040fb335d885e91c7a28cf461043e1b086a4",
+      "headline_result": "GrimAgeMort HR per SD = 1.58 (95% CI [1.38, 1.82], p = 7.9e-11) for cancer mortality; n = 2532; 271 cancer deaths.",
+      "status": "framework-premise test (proxy clocks, not Xu-538 A-score)"
+    },
+    {
+      "test_id": "T9",
+      "cohort": "GSE283951",
+      "description": "Polish pre-diagnostic breast cancer, mean TtD ~4.3 yr.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283951",
+      "script": "scripts/T9_GSE283951_polish_prediagnostic.py",
+      "script_sha256": "8570ef9a9eae15a2f83cabedfe0de4ae022a9c7bebcd938d37f855dfb3803242",
+      "result_json": "results/T9_GSE283951/GSE283951_analysis.json",
+      "result_sha256": "17a7ed1eeeef2c3ea2944f475c3161b6d3a4862170eb4910f955b01e25c5528c",
+      "cohens_d": 0.285,
+      "n_case": 34,
+      "direction": "positive",
+      "status": "directionally positive",
+      "n_control": 56,
+      "n_total": 90
+    },
+    {
+      "test_id": "T10",
+      "cohort": "GSE37965",
+      "description": "Heyn 2013 UK EpiTwin discordant paired breast cancer.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE37965",
+      "script": "scripts/T10_GSE37965_heyn_twins.py",
+      "script_sha256": "921f3e28a5e32c945da6d3b3b44495c54b0295f3b0ebc055650aad08c58b3933",
+      "result_json": "results/T10_GSE37965/GSE37965_analysis.json",
+      "result_sha256": "60e6f985ada6be845d9836899c592dc7042184d2243520e12a03320a602a30c6",
+      "cohens_d": 0.177,
+      "n_pairs": 15,
+      "direction": "positive",
+      "status": "directionally positive"
+    },
+    {
+      "test_id": "T11",
+      "cohort": "GSE243529",
+      "description": "Singapore Chinese at-diagnosis breast cancer.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE243529",
+      "script": "scripts/T11_GSE243529_chinese_atdx.py",
+      "script_sha256": "654414e7c55f0cb693a81043e0575509989aeec55e5cc88e11e5f257e3eadab9",
+      "result_json": "results/T11_GSE243529/GSE243529_analysis.json",
+      "result_sha256": "fcf5d94ae9404363a68a9f15061fedc7c86d9719f86f4dfb36348d43718ec031",
+      "cohens_d": 0.12,
+      "n_case": 256,
+      "direction": "positive",
+      "status": "directionally positive (at-diagnosis, shallow)",
+      "n_control": 268,
+      "n_total": 524
+    },
+    {
+      "test_id": "T12",
+      "cohort": "GSE314261",
+      "description": "St Jude Lifetime Cohort childhood cancer survivor specificity. ATTEMPTED BUT NOT INTERPRETABLE.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314261",
+      "scripts": [
+        "scripts/T12_GSE314261_stjude_grep.py",
+        "scripts/T12_GSE314261_stjude_stream.py"
+      ],
+      "script_sha256_grep": "817bc52ab5c04695a6f34fe913f205507693c062bb1a9095089da610798689a2",
+      "script_sha256_stream": "3b9611686eef0970535021be558347ff5b635d0e833696d0e72f9163f8bb92a4",
+      "result_json": "results/T12_GSE314261/ATTEMPT_RECORD.json",
+      "result_sha256": "d79e801ed15ed5548e6c1f22887328bc4389415ca4599108ada6f8bb981d886c",
+      "status": "ATTEMPTED_NOT_INTERPRETABLE - 28 GB matrix exceeded compute window; partial-stream recovery captured only 24% of panel (alphabetically biased). Completion would require dbGaP institutional access to preprocessed SJLIFE data."
+    },
+    {
+      "test_id": "T13",
+      "cohort": "GSE51057",
+      "description": "Secretory-class A-score on EPIC-Italy GSE51057 (multi-class confirmation in pre-diagnostic breast).",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE51057",
+      "script": "scripts/T13_GSE51057_secretory_class.py",
+      "script_sha256": "bf3cf06d7167629aa238f290ba3ebb6d82bf0550f75a23dcb1b591a7577d5d7f",
+      "result_json": "results/T13_secretory_GSE51057/GSE51057_secretory_analysis.json",
+      "result_sha256": "97c5ff07ac489f2e3b57cf8f3e24c8f20776869a30dabe1c9e3c7f5e8b20307c",
+      "panel_used": "secretory_19cpg",
+      "constant_used": 0.843264,
+      "headline_result": ">10 yr TtD secretory d = +0.83 (n_case = 11), alongside immune d = +1.85 in the same window.",
+      "direction": "positive",
+      "status": "multi-class confirmation"
+    },
+    {
+      "test_id": "T14",
+      "cohort": "GSE51032",
+      "description": "Secretory-class A-score on EPIC-Italy GSE51032 (breast AND colorectal arms). Colorectal class-divergence test: immune negative, secretory positive on same samples.",
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE51032",
+      "script": "scripts/T14_GSE51032_secretory_class.py",
+      "script_sha256": "147d20b69c1db661ecdb9620b1dc0e9d8d339f014bbee5f869b008e273673759",
+      "result_json": "results/T14_secretory_GSE51032/GSE51032_secretory_analysis.json",
+      "result_sha256": "3fa2c12bc27bdc44578217b4c97eb709e09906a4a1352bfd24762f6ad241ba3d",
+      "panel_used": "secretory_19cpg",
+      "constant_used": 0.843264,
+      "headline_result": "Breast all-pre-dx secretory d = +0.28 (p = 6e-4); colorectal all-pre-dx secretory d = +0.20 (p = 0.024) while immune d = -0.55 on the same samples.",
+      "status": "multi-class confirmation + class-divergence test"
+    },
+    {
+      "test_id": "T15",
+      "cohort": "NHANES_1999_2002",
+      "description": "Blinded prospective cohort flag analysis on NHANES 1999-2002. Answers: if in 1999-2002 we had flagged the top 10% of each clock's age acceleration with no knowledge of outcomes, how many got cancer over the next 17 years?",
+      "source_release": "CDC NHANES DNAm Epigenetic Biomarkers (2024) + NHANES LMF linked through 2019-12-31.",
+      "release_url": "https://wwwn.cdc.gov/nchs/nhanes/dnam/",
+      "script": "scripts/T15_NHANES_blinded_prospective.py",
+      "script_sha256": "1e238fee21bee9a3941de3ee05217d01af4a441993cd2d1cf6c7da186e211e54",
+      "result_json": "results/T15_NHANES/T15_NHANES_blinded_prospective_results.json",
+      "result_sha256": "5dbe760894ec8f760449a776bc9841a157326a6311b3db7405d3dac906b74d96",
+      "headline_result": "DunedinPoAm top-vs-bottom decile HR = 2.14 (p = 0.004) for cancer mortality; 3 of 4 clocks reach HR >= 1.58 top-vs-bottom; 17-yr cumulative cancer mortality 16.4% (Q4) vs 8.3% (Q1) on DunedinPoAm.",
+      "random_seed": 20260420,
+      "status": "framework-premise test (proxy clocks; raw Xu-538 on NHANES beta matrix requires NCHS-RDC DUA)"
+    }
+  ],
+  "directional_summary": {
+    "informative_breast_cohorts": [
+      {
+        "cohort": "GSE104942 Australian HBOC",
+        "d": 0.291,
+        "direction": "positive"
+      },
+      {
+        "cohort": "GSE148663 Uruguayan post-dx",
+        "d": -0.373,
+        "direction": "negative (outlier)"
+      },
+      {
+        "cohort": "GSE89093 TwinsUK MZ paired",
+        "d": 0.163,
+        "direction": "positive",
+        "d_all_pre_dx_pooled": 0.163,
+        "note_ttd_heterogeneity": "0-2yr d=+0.97 (n=6), 2-5yr d=-0.55 (n=3), 5-10yr d=-0.08 (n=3), >10yr n=0. Pooled all-pre-dx is the reliable within-TwinsUK estimate."
+      },
+      {
+        "cohort": "GSE283951 Polish pre-dx",
+        "d": 0.285,
+        "direction": "positive"
+      },
+      {
+        "cohort": "GSE37965 Heyn UK EpiTwin",
+        "d": 0.177,
+        "direction": "positive"
+      },
+      {
+        "cohort": "GSE243529 Singapore Chinese",
+        "d": 0.12,
+        "direction": "positive"
+      }
+    ],
+    "count_positive": 5,
+    "count_informative": 6,
+    "binomial_p_5_of_6_one_sided": 0.109,
+    "binomial_p_5_of_5_excluding_uruguay_one_sided": 0.031,
+    "interpretation": "5 of 6 informative cohorts directionally positive. One-sided binomial on 5-of-6 against p=0.5 null gives p=0.109 (NS at alpha=0.05). Excluding the Uruguayan post-diagnostic design-incomparable cohort yields 5 of 5 at one-sided p=0.031. Both framings reported; alpha=0.05 not treated as a confirmation threshold."
+  },
+  "how_to_reproduce": {
+    "summary": "Install numpy + pandas (optionally scipy). Download each cohort's GEO series matrix or NHANES file. Run the corresponding T*.py script pointing at the panel JSON and one of the two calibrated constants. The script prints the numbers reported in the EDEAR Evidence Report v1.1.",
+    "environment": {
+      "python": ">=3.9",
+      "numpy": "any modern version",
+      "pandas": "any modern version",
+      "scipy": "optional (used for exact chi-squared and survival tests; falls back to log-rank approximations if unavailable)"
+    },
+    "hash_verification": "Every result JSON SHA-256 is recorded above. Bit-identical reproduction produces the same SHA. A non-identical SHA indicates: (a) different input file version, (b) different numpy version doing subtly different floating-point reductions, or (c) a substantive script change. Option (a) is the usual culprit."
+  },
+  "disclosure_architecture": {
+    "what_is_public": [
+      "The Xu-538 CpG panel (panel file, panel SHA-256)",
+      "The 19-CpG secretory panel CpG identities (via T13/T14 scripts)",
+      "Two calibrated numerical constants: 0.838889 (Xu-538 panel) and 0.843264 (19-CpG panel), with freeze date 2026-04-06",
+      "The A-score scoring formula (mean over panel CpGs of binary Shannon entropy divided by the constant)",
+      "All per-cohort test scripts (T1-T15)",
+      "All per-cohort result JSONs with SHA-256 hashes",
+      "All GEO accessions and CDC NHANES URLs for input data"
+    ],
+    "what_is_held_under_IP_protection": [
+      "Layer 1: the framework's architectural-class taxonomy (what the classes are, why that specific number, how boundaries are defined)",
+      "Layer 2: the class-assignment rule (the procedure that assigns an arbitrary CpG/tissue/gene to an architectural class)",
+      "Layer 3: the calibration code (G-002 and G-003b MCMC likelihood, priors, and convergence diagnostics that produce the specific constants)",
+      "Layer 4: the first-principles physics derivation (Jacobson-Landauer-virial-entropy chain) that shows the constants equal closed-form physical quantities rather than being empirically fit. Covered under USPTO provisional patents 64/012,720 (March 21, 2026) and 64/014,568 (March 23, 2026)."
+    ],
+    "precedent": "Three-layer architecture standard in clinical-diagnostic industry: Grail CCGA/Galleri (clinical validity public, panel composition and classifier weights proprietary), Foundation Medicine (analytical validity public, variant-classifier internals proprietary), Natera Signatera (assay performance public, tumor-informed panel design proprietary)."
+  },
+  "changelog": [
+    {
+      "version": "v1.2",
+      "date": "2026-04-22",
+      "changes": [
+        "Relabeled T2 T9 T11 n_case: prior value was cohort total; now split into n_case + n_control with new n_total",
+        "Relabeled T5: removed top-level cohens_d=0.97 which was 0-2yr sub-window only; primary result is now all-pre-dx paired d=+0.163 (n=12 pairs); sub-window values preserved under by_TtD_window",
+        "Updated directional_summary TwinsUK row to pooled all-pre-dx d=+0.163 with TtD heterogeneity note",
+        "No changes to any analysis output; labeling corrections only."
+      ]
+    }
+  ]
+}

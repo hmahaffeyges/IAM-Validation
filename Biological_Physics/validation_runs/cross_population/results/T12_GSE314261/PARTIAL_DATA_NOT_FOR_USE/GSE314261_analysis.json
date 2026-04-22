@@ -1,0 +1,173 @@
+{
+  "cohort": "GSE314261_StJude_Lifetime_Cohort_2026",
+  "test_type": "specificity (NOT BC pre-dx replication)",
+  "design": "4669 childhood cancer survivors + 342 community controls (5005 blood + 8 saliva), Illumina EPIC. Specificity test of Xu-538 adult BC panel against treatment-related late-effect biology.",
+  "caveats": "NOT a breast cancer pre-diagnostic replication. Childhood cancer survivors have undergone chemotherapy/radiation which can leave a treatment-related methylation signature. A positive result here indicates the panel is non-specific; a null result indicates BC-specificity. Either outcome does not replicate the EPIC-Italy d=+1.85 pre-diagnostic finding.",
+  "data_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE314nnn/GSE314261/suppl/GSE314261_SJLIFE_IlluminaEPIC_proccessed.txt.gz",
+  "streaming_pipeline": "curl | zcat | grep -Ff panel_patterns",
+  "n_samples_total": 4915,
+  "n_samples_with_A": 4915,
+  "panel": "xu538_breast",
+  "panel_n_cpgs": 538,
+  "panel_matched": 127,
+  "H_min_immune": 0.838889,
+  "random_seed": 20260420,
+  "streaming_elapsed_s": 0.0,
+  "input_sha256": {
+    "panel": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+    "metadata_csv": "8c0470ff152fa55e593b11ae4f7f1aa5945977cb5c5cc454da7ebaff0d42f221"
+  },
+  "output_sha256": {
+    "per_sample_csv": "318c5fb640672cec4f20f321c55a050c9a06371e319575e51f99f48cef5a57d3"
+  },
+  "primary_specificity_test": {
+    "n_survivors": 4567,
+    "n_controls": 339,
+    "survivors_A_mean": 0.7673558456153703,
+    "survivors_A_sd": 0.010855409702218101,
+    "controls_A_mean": 0.7691419169359679,
+    "controls_A_sd": 0.01130902769145651,
+    "delta_A": -0.0017860713205976042,
+    "cohens_d": -0.16405118214427308,
+    "p_perm": 0.0023995200959808036,
+    "CI95": [
+      -0.28444286213779657,
+      -0.057174645402888774
+    ]
+  },
+  "by_diagnostic_group": [
+    {
+      "diagnostic_group": "Acute lymphoblastic leukemia",
+      "n": 1209,
+      "A_mean": 0.7676809372425366,
+      "A_sd": 0.010851860862489345,
+      "cohens_d_vs_controls": -0.13338089369077863
+    },
+    {
+      "diagnostic_group": "Acute myeloid leukemia",
+      "n": 145,
+      "A_mean": 0.7663904667437207,
+      "A_sd": 0.009403071651649128,
+      "cohens_d_vs_controls": -0.25535531662515665
+    },
+    {
+      "diagnostic_group": "Carcinoma",
+      "n": 58,
+      "A_mean": 0.7685961482589537,
+      "A_sd": 0.012032628131194706,
+      "cohens_d_vs_controls": -0.0478061831969776
+    },
+    {
+      "diagnostic_group": "Central nervous system (CNS)",
+      "n": 572,
+      "A_mean": 0.7676533089713639,
+      "A_sd": 0.012216299698163577,
+      "cohens_d_vs_controls": -0.1252295733100279
+    },
+    {
+      "diagnostic_group": "Ewing sarcoma family of tumors",
+      "n": 116,
+      "A_mean": 0.7668740026225751,
+      "A_sd": 0.011557577595017882,
+      "cohens_d_vs_controls": -0.19941845944002173
+    },
+    {
+      "diagnostic_group": "Germ cell tumor",
+      "n": 92,
+      "A_mean": 0.7689499831455643,
+      "A_sd": 0.010514183931218356,
+      "cohens_d_vs_controls": -0.01722126466954486
+    },
+    {
+      "diagnostic_group": "Histiocytosis",
+      "n": 28,
+      "A_mean": 0.7672400185145889,
+      "A_sd": 0.011631303053573119,
+      "cohens_d_vs_controls": -0.1678168203872105
+    },
+    {
+      "diagnostic_group": "Hodgkin lymphoma",
+      "n": 779,
+      "A_mean": 0.7669618317659477,
+      "A_sd": 0.010887172311834184,
+      "cohens_d_vs_controls": -0.19789013446846968
+    },
+    {
+      "diagnostic_group": "Liver malignancies",
+      "n": 31,
+      "A_mean": 0.7685917838423931,
+      "A_sd": 0.012378202816347677,
+      "cohens_d_vs_controls": -0.048257528342726834
+    },
+    {
+      "diagnostic_group": "Melanoma",
+      "n": 32,
+      "A_mean": 0.7692186176789187,
+      "A_sd": 0.006850827070494086,
+      "cohens_d_vs_controls": 0.0069701292045672185
+    },
+    {
+      "diagnostic_group": "Neuroblastoma",
+      "n": 214,
+      "A_mean": 0.767418591483726,
+      "A_sd": 0.011019769538750073,
+      "cohens_d_vs_controls": -0.15389451769325857
+    },
+    {
+      "diagnostic_group": "Non-Hodgkin lymphoma",
+      "n": 270,
+      "A_mean": 0.7671619076507985,
+      "A_sd": 0.010414076876191641,
+      "cohens_d_vs_controls": -0.18129511298255502
+    },
+    {
+      "diagnostic_group": "Non-malignancy",
+      "n": 18,
+      "A_mean": 0.7699042238245114,
+      "A_sd": 0.01055980825952893,
+      "cohens_d_vs_controls": 0.06761465681263312
+    },
+    {
+      "diagnostic_group": "Osteosarcoma",
+      "n": 150,
+      "A_mean": 0.7679698022767546,
+      "A_sd": 0.011097883802873524,
+      "cohens_d_vs_controls": -0.10423570367376483
+    },
+    {
+      "diagnostic_group": "Other malignancy",
+      "n": 26,
+      "A_mean": 0.768755485213348,
+      "A_sd": 0.014517834582711848,
+      "cohens_d_vs_controls": -0.03343234747239693
+    },
+    {
+      "diagnostic_group": "Retinoblastoma",
+      "n": 257,
+      "A_mean": 0.7667028919573662,
+      "A_sd": 0.00926903563733204,
+      "cohens_d_vs_controls": -0.23276136938190178
+    },
+    {
+      "diagnostic_group": "Rhabdomyosarcoma",
+      "n": 142,
+      "A_mean": 0.7673957970211754,
+      "A_sd": 0.011082870709554684,
+      "cohens_d_vs_controls": -0.15530829117361342
+    },
+    {
+      "diagnostic_group": "Soft tissue sarcoma",
+      "n": 122,
+      "A_mean": 0.7658728325805819,
+      "A_sd": 0.009968903315134224,
+      "cohens_d_vs_controls": -0.2979574563901382
+    },
+    {
+      "diagnostic_group": "Wilms tumor",
+      "n": 292,
+      "A_mean": 0.7667731295883512,
+      "A_sd": 0.009799802525204186,
+      "cohens_d_vs_controls": -0.2226837405248236
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "cohort": "GSE314261_StJude_Lifetime_Cohort_2026",
+  "status": "ATTEMPTED_NOT_INTERPRETABLE",
+  "reason": "Streaming pipeline exceeds available execution window",
+  "file_size_compressed_gb": 27.6,
+  "file_size_decompressed_gb_est": 250,
+  "environment_constraints": {
+    "bash_call_timeout_s_observed": 600,
+    "pipeline_throughput_mbps_observed": "curl ~57 MB/s, zcat ~76 MB/s, grep ~75 MB/s \u2014 bottleneck is wall clock for 28 GB",
+    "background_process_killed_at_call_end": true,
+    "gzip_random_access": false
+  },
+  "partial_progress": {
+    "panel_cpgs_total": 538,
+    "panel_cpgs_captured": 127,
+    "panel_coverage_pct": 23.6,
+    "sampling_bias": "alphabetic \u2014 captured first 127 CpG IDs in lexical order, NOT random subset",
+    "header_columns_captured": 4915,
+    "header_columns_expected": 5013,
+    "header_truncated_at_pct": 98,
+    "last_header_column_truncated_to": "207262930139_R04C (should be 207262930139_R04C01)"
+  },
+  "partial_result_NOT_FOR_USE": {
+    "note": "Computed for transparency only. NOT a valid Xu-538 panel test due to (a) 24% alphabetic-biased CpG subset and (b) 98%-truncated header. Direction shown here may be entirely an artifact of the biased CpG subset.",
+    "n_survivors": 4567,
+    "n_controls": 339,
+    "restricted_panel_cohens_d": -0.164,
+    "p_perm": 0.0024,
+    "CI95": [
+      -0.284,
+      -0.057
+    ]
+  },
+  "recommendation": "Do not include in cross-population evidence. The 6-cohort directional consistency story (T2/T3/T5/T9/T10/T11) plus T8 NHANES Cox is the reportable cross-population evidence. To complete T12 properly would require either (a) a multi-hour single execution window, (b) pre-decompressed data with HTTP range support, or (c) institutional dbGaP access.",
+  "sha256_partial": {
+    "header_csv": "0ba8e863d00062cffaad2f52754abb712421d59b85638c2c3f6916402faa0ebb",
+    "panel_rows_csv": "f03f66646098c540c4c5e051af82188139d4ac38b440e0175da6ad5b0fe20cb3",
+    "sample_metadata": "8c0470ff152fa55e593b11ae4f7f1aa5945977cb5c5cc454da7ebaff0d42f221"
+  }
+}
