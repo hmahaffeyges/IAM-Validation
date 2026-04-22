@@ -1,0 +1,62 @@
+{
+  "cohort": "GSE40279_Hannum2013_US_healthy",
+  "purpose": "cross-population baseline check, not case-control",
+  "n_samples_total": 656,
+  "n_samples_valid_A": 656,
+  "panel": "xu538_breast",
+  "panel_n_cpgs": 538,
+  "panel_cpgs_in_matrix": 534,
+  "H_min_immune": 0.838889,
+  "random_seed": 20260420,
+  "age_regex": "^\\s*age\\s*(?:\\([^)]*\\))?\\s*:\\s*([0-9]+(?:\\.[0-9]+)?)\\s*$",
+  "input_sha256": {
+    "matrix_file": "1f6ef8b5ce08f9a5f1c09b047b36d1f3342757b6e8e19dce0398581bb76807eb",
+    "panel_file": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6"
+  },
+  "output_sha256": {
+    "per_sample_csv": "e4cbb8f8b02d4670cf9612fed5668a60954239a41b7c03e969cb0acd0a797d8c"
+  },
+  "A_score_distribution": {
+    "n": 656,
+    "mean": 0.4925050082153912,
+    "sd": 0.037628055733692455,
+    "median": 0.4900377093152629,
+    "p10": 0.4463641324648774,
+    "p25": 0.4652555784045437,
+    "p50": 0.4900377093152629,
+    "p75": 0.514791962645722,
+    "p90": 0.5431325867951742,
+    "min": 0.3844240664342721,
+    "max": 0.6047761197732134
+  },
+  "age_summary": {
+    "n_with_parsed_age": 656,
+    "median": 65.0,
+    "mean": 64.03506097560975,
+    "min": 19.0,
+    "max": 101.0
+  },
+  "vs_EPIC_Italy_controls": {
+    "GSE51057_controls": {
+      "EPIC_control_mean": 0.437,
+      "Hannum_mean": 0.4925050082153912,
+      "delta_mean": 0.05550500821539123,
+      "Cohens_d_approx": 1.850166940513041,
+      "approx_SD_used": 0.03,
+      "note": "approximation using shared-SD proxy; exact d requires EPIC-Italy per-sample control arrays"
+    },
+    "GSE51032_controls": {
+      "EPIC_control_mean": 0.4356,
+      "Hannum_mean": 0.4925050082153912,
+      "delta_mean": 0.05690500821539124,
+      "Cohens_d_approx": 1.896833607179708,
+      "approx_SD_used": 0.03,
+      "note": "approximation using shared-SD proxy; exact d requires EPIC-Italy per-sample control arrays"
+    }
+  },
+  "acceptance_criterion": {
+    "threshold": "|Cohen's d approx| < 0.3",
+    "max_abs_d_approx": 1.896833607179708,
+    "verdict": "FAIL"
+  }
+}

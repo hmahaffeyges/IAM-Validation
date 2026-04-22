@@ -1,0 +1,211 @@
+gsm,title,source_raw,source_class,status,age,n_cpgs_valid,A_score,raw_characteristics
+GSM2810348,Fam_1_1,blood pellet,blood pellet,unaffected,,522,0.625290254983624,status: unaffected
+GSM2810349,Fam_1_2,blood pellet,blood pellet,affected,,522,0.5881537925991234,status: affected
+GSM2810350,Fam_1_3,blood pellet,blood pellet,unaffected,,522,0.5935634116233097,status: unaffected
+GSM2810351,Fam_1_4,blood pellet,blood pellet,affected,,522,0.594226534584568,status: affected
+GSM2810352,Fam_1_5,blood pellet,blood pellet,unaffected,,522,0.5896423769123971,status: unaffected
+GSM2810353,Fam_1_6,EBV transformed lymphoblastoid,lcl,affected,,522,0.7219413022398603,status: affected
+GSM2810354,Fam_2_1,blood pellet,blood pellet,affected,,522,0.6176907604554002,status: affected
+GSM2810355,Fam_2_2,blood pellet,blood pellet,affected,,522,0.6303495741680234,status: affected
+GSM2810356,Fam_2_3,blood pellet,blood pellet,affected,,522,0.6061055807659032,status: affected
+GSM2810357,Fam_2_4,blood pellet,blood pellet,unaffected,,522,0.5608558304620604,status: unaffected
+GSM2810358,Fam_2_5,blood pellet,blood pellet,affected,,522,0.579202138975368,status: affected
+GSM2810359,Fam_2_6,blood pellet,blood pellet,affected,,522,0.5965833541276035,status: affected
+GSM2810360,Fam_3_1,EBV transformed lymphoblastoid,lcl,unaffected,,522,0.6620424723305276,status: unaffected
+GSM2810361,Fam_3_2,blood pellet,blood pellet,affected,,522,0.612576604609571,status: affected
+GSM2810362,Fam_3_3,blood pellet,blood pellet,unaffected,,522,0.5966352916276789,status: unaffected
+GSM2810363,Fam_3_4,blood pellet,blood pellet,affected,,522,0.6660220049938519,status: affected
+GSM2810364,Fam_3_5,blood pellet,blood pellet,unaffected,,522,0.6218820550983097,status: unaffected
+GSM2810365,Fam_3_6,EBV transformed lymphoblastoid,lcl,affected,,522,0.6580385535929759,status: affected
+GSM2810366,Fam_3_7,blood pellet,blood pellet,unaffected,,522,0.619432023248135,status: unaffected
+GSM2810367,Fam_3_8,EBV transformed lymphoblastoid,lcl,affected,,522,0.6470889115917965,status: affected
+GSM2810368,Fam_3_9,blood pellet,blood pellet,affected,,522,0.5957949197013154,status: affected
+GSM2810369,Fam_3_10,blood pellet,blood pellet,unaffected,,522,0.5799777092864286,status: unaffected
+GSM2810370,Fam_3_11,EBV transformed lymphoblastoid,lcl,affected,,522,0.6716145797594891,status: affected
+GSM2810371,Fam_4_1,blood pellet,blood pellet,affected,,522,0.6328015625194506,status: affected
+GSM2810372,Fam_4_2,blood pellet,blood pellet,unaffected,,522,0.6046443161940894,status: unaffected
+GSM2810373,Fam_4_3,blood pellet,blood pellet,unaffected,,522,0.6212700473920973,status: unaffected
+GSM2810374,Fam_4_4,blood pellet,blood pellet,affected,,522,0.5881591623178907,status: affected
+GSM2810375,Fam_4_5,blood pellet,blood pellet,unaffected,,522,0.5868576806232245,status: unaffected
+GSM2810376,Fam_5_1,blood pellet,blood pellet,unaffected,,522,0.6846103298475587,status: unaffected
+GSM2810377,Fam_5_2,blood pellet,blood pellet,affected,,522,0.6711316056312822,status: affected
+GSM2810378,Fam_5_3,blood pellet,blood pellet,unaffected,,522,0.6156705528131985,status: unaffected
+GSM2810379,Fam_5_4,blood pellet,blood pellet,affected,,522,0.6274875403450002,status: affected
+GSM2810380,Fam_6_1,blood pellet,blood pellet,affected,,522,0.6110406985909389,status: affected
+GSM2810381,Fam_6_2,blood pellet,blood pellet,affected,,522,0.5978697722314454,status: affected
+GSM2810382,Fam_6_3,blood pellet,blood pellet,unaffected,,522,0.5994495903972653,status: unaffected
+GSM2810383,Fam_7_1,blood pellet,blood pellet,unaffected,,522,0.6288875995015965,status: unaffected
+GSM2810384,Fam_7_2,blood pellet,blood pellet,affected,,522,0.6136809209028282,status: affected
+GSM2810385,Fam_7_3,blood pellet,blood pellet,unaffected,,522,0.6118476023827132,status: unaffected
+GSM2810386,Fam_7_4,blood pellet,blood pellet,affected,,522,0.5938387267375612,status: affected
+GSM2810387,Fam_7_5,blood pellet,blood pellet,unaffected,,522,0.6113257178834278,status: unaffected
+GSM2810388,Fam_8_1,blood pellet,blood pellet,affected,,522,0.6273748004480916,status: affected
+GSM2810389,Fam_8_2,blood pellet,blood pellet,unaffected,,522,0.632239374004012,status: unaffected
+GSM2810390,Fam_8_3,blood pellet,blood pellet,affected,,522,0.6275443646745752,status: affected
+GSM2810391,Fam_8_4,blood pellet,blood pellet,unaffected,,522,0.6105914814049448,status: unaffected
+GSM2810392,Fam_8_5,blood pellet,blood pellet,affected,,522,0.5960231671359832,status: affected
+GSM2810393,Fam_8_6,blood pellet,blood pellet,unaffected,,522,0.5943368590152828,status: unaffected
+GSM2810394,Fam_8_7,blood pellet,blood pellet,unaffected,,522,0.6128460396655798,status: unaffected
+GSM2810395,Fam_9_1,blood pellet,blood pellet,affected,,522,0.6146573952495415,status: affected
+GSM2810396,Fam_9_2,blood pellet,blood pellet,unaffected,,522,0.6014154626530799,status: unaffected
+GSM2810397,Fam_9_3,blood pellet,blood pellet,affected,,522,0.569813027097599,status: affected
+GSM2810398,Fam_9_4,blood pellet,blood pellet,unaffected,,522,0.5718993204977523,status: unaffected
+GSM2810399,Fam_9_5,blood pellet,blood pellet,affected,,522,0.6398201212216871,status: affected
+GSM2810400,Fam_9_6,blood pellet,blood pellet,unaffected,,522,0.6198294353104092,status: unaffected
+GSM2810401,Fam_9_7,blood pellet,blood pellet,affected,,522,0.6297243672489108,status: affected
+GSM2810402,Fam_9_8,blood pellet,blood pellet,unaffected,,522,0.575813212946362,status: unaffected
+GSM2810403,Fam_9_9,blood pellet,blood pellet,unaffected,,522,0.6571741157029433,status: unaffected
+GSM2810404,Fam_9_10,EBV transformed lymphoblastoid,lcl,unaffected,,522,0.5806713946596892,status: unaffected
+GSM2810405,Fam_9_11,blood pellet,blood pellet,affected,,522,0.5700228401953548,status: affected
+GSM2810406,Fam_10_1,blood pellet,blood pellet,affected,,522,0.6034346627356475,status: affected
+GSM2810407,Fam_10_2,blood pellet,blood pellet,unaffected,,522,0.5922897830605597,status: unaffected
+GSM2810408,Fam_10_3,blood pellet,blood pellet,affected,,522,0.6076699953383199,status: affected
+GSM2810409,Fam_10_4,blood pellet,blood pellet,unaffected,,522,0.5920954336810589,status: unaffected
+GSM2810410,Fam_10_5,blood pellet,blood pellet,affected,,522,0.6125871798007437,status: affected
+GSM2810411,Fam_10_6,blood pellet,blood pellet,unaffected,,522,0.5979948796802992,status: unaffected
+GSM2810412,Fam_10_7,blood pellet,blood pellet,unaffected,,522,0.5661178443643339,status: unaffected
+GSM2810413,Fam_10_8,blood pellet,blood pellet,unaffected,,522,0.6078909973105199,status: unaffected
+GSM2810414,Fam_11_1,blood pellet,blood pellet,unaffected,,522,0.586537693424451,status: unaffected
+GSM2810415,Fam_11_2,blood pellet,blood pellet,affected,,522,0.5947831585621033,status: affected
+GSM2810416,Fam_11_3,blood pellet,blood pellet,unaffected,,522,0.6040584853638242,status: unaffected
+GSM2810417,Fam_11_4,blood pellet,blood pellet,affected,,522,0.6107426171291461,status: affected
+GSM2810418,Fam_12_1,blood pellet,blood pellet,affected,,522,0.6663378278090439,status: affected
+GSM2810419,Fam_12_2,blood pellet,blood pellet,unaffected,,522,0.6218223910450739,status: unaffected
+GSM2810420,Fam_12_3,blood pellet,blood pellet,unaffected,,522,0.6473386039088296,status: unaffected
+GSM2810421,Fam_12_4,blood pellet,blood pellet,affected,,522,0.6273854282103217,status: affected
+GSM2810422,Fam_12_5,blood pellet,blood pellet,unaffected,,522,0.6502566649253537,status: unaffected
+GSM2810423,Fam_12_6,blood pellet,blood pellet,affected,,522,0.6742841169644441,status: affected
+GSM2810424,Fam_12_7,blood pellet,blood pellet,unaffected,,522,0.6045166584548669,status: unaffected
+GSM2810425,Fam_12_8,blood pellet,blood pellet,affected,,522,0.6273228317314726,status: affected
+GSM2810426,Fam_13_1,blood pellet,blood pellet,unaffected,,522,0.6204832830961767,status: unaffected
+GSM2810427,Fam_13_2,blood pellet,blood pellet,unaffected,,522,0.6257979141225947,status: unaffected
+GSM2810428,Fam_13_3,blood pellet,blood pellet,affected,,522,0.6615818939170492,status: affected
+GSM2810429,Fam_13_4,blood pellet,blood pellet,unaffected,,522,0.666006056115772,status: unaffected
+GSM2810430,Fam_13_5,blood pellet,blood pellet,affected,,522,0.6250150788255675,status: affected
+GSM2810431,Fam_13_6,blood pellet,blood pellet,unaffected,,522,0.6121111235969097,status: unaffected
+GSM2810432,Fam_13_7,blood pellet,blood pellet,affected,,522,0.6230540631918194,status: affected
+GSM2810433,Fam_13_8,blood pellet,blood pellet,unaffected,,522,0.6350792510255237,status: unaffected
+GSM2810434,Fam_13_9,blood pellet,blood pellet,affected,,522,0.652996911068629,status: affected
+GSM2810435,Fam_13_10,blood pellet,blood pellet,unaffected,,522,0.727726843189689,status: unaffected
+GSM2810436,Fam_13_11,blood pellet,blood pellet,affected,,522,0.656653241246734,status: affected
+GSM2810437,Fam_13_12,blood pellet,blood pellet,unaffected,,522,0.6134813000415636,status: unaffected
+GSM2810438,Fam_13_13,blood pellet,blood pellet,affected,,522,0.6203056239615082,status: affected
+GSM2810439,Fam_14_1,blood pellet,blood pellet,affected,,522,0.6683003603200001,status: affected
+GSM2810440,Fam_14_2,blood pellet,blood pellet,unaffected,,522,0.6457590726160723,status: unaffected
+GSM2810441,Fam_14_3,EBV transformed lymphoblastoid,lcl,unaffected,,522,0.6694639000719113,status: unaffected
+GSM2810442,Fam_14_4,blood pellet,blood pellet,unaffected,,522,0.6311827648194004,status: unaffected
+GSM2810443,Fam_14_5,EBV transformed lymphoblastoid,lcl,affected,,522,0.7575844474648784,status: affected
+GSM2810444,Fam_14_6,blood pellet,blood pellet,unaffected,,522,0.7506360250679519,status: unaffected
+GSM2810445,Fam_14_7,blood pellet,blood pellet,affected,,522,0.6228243271342908,status: affected
+GSM2810446,Fam_14_8,blood pellet,blood pellet,unaffected,,522,0.6382995394894182,status: unaffected
+GSM2810447,Fam_14_9,blood pellet,blood pellet,affected,,522,0.6210958107861901,status: affected
+GSM2810448,Fam_14_10,blood pellet,blood pellet,unaffected,,522,0.6167689097218038,status: unaffected
+GSM2810449,Fam_14_11,blood pellet,blood pellet,affected,,522,0.6396313494425552,status: affected
+GSM2810450,Fam_14_12,blood pellet,blood pellet,unaffected,,522,0.6392931565056995,status: unaffected
+GSM2810451,Fam_14_13,blood pellet,blood pellet,unaffected,,522,0.6292157963365673,status: unaffected
+GSM2810452,Fam_16_1,EBV transformed lymphoblastoid,lcl,affected,,522,0.6571780308215638,status: affected
+GSM2810453,Fam_16_2,blood pellet,blood pellet,unaffected,,522,0.6552233611137274,status: unaffected
+GSM2810454,Fam_16_3,blood pellet,blood pellet,affected,,522,0.6224961576848487,status: affected
+GSM2810455,Fam_16_4,blood pellet,blood pellet,affected,,522,0.6026815412913613,status: affected
+GSM2810456,Fam_16_5,blood pellet,blood pellet,unaffected,,522,0.6844424349951176,status: unaffected
+GSM2810457,Fam_16_6,blood pellet,blood pellet,affected,,522,0.630466148836684,status: affected
+GSM2810458,Fam_16_7,blood pellet,blood pellet,unaffected,,522,0.6278934132457638,status: unaffected
+GSM2810459,Fam_16_8,blood pellet,blood pellet,affected,,522,0.6073602303181449,status: affected
+GSM2810460,Fam_16_9,blood pellet,blood pellet,unaffected,,522,0.6045931755371111,status: unaffected
+GSM2810461,Fam_17_1,blood pellet,blood pellet,affected,,522,0.7091818092099581,status: affected
+GSM2810462,Fam_17_2,blood pellet,blood pellet,unaffected,,522,0.6699336594640796,status: unaffected
+GSM2810463,Fam_17_3,blood pellet,blood pellet,affected,,522,0.6503434748886969,status: affected
+GSM2810464,Fam_17_4,blood pellet,blood pellet,unaffected,,522,0.6348920602095951,status: unaffected
+GSM2810465,Fam_17_5,EBV transformed lymphoblastoid,lcl,affected,,522,0.6948384640741291,status: affected
+GSM2810466,Fam_17_6,blood pellet,blood pellet,unaffected,,522,0.6275505195360087,status: unaffected
+GSM2810467,Fam_18_1,blood pellet,blood pellet,unaffected,,522,0.5998443411235913,status: unaffected
+GSM2810468,Fam_18_2,blood pellet,blood pellet,unaffected,,522,0.6424074041588762,status: unaffected
+GSM2810469,Fam_18_3,blood pellet,blood pellet,affected,,522,0.6006049422607287,status: affected
+GSM2810470,Fam_18_4,blood pellet,blood pellet,unaffected,,522,0.6198588777259889,status: unaffected
+GSM2810471,Fam_20_1,blood pellet,blood pellet,unaffected,,522,0.6304796763603547,status: unaffected
+GSM2810472,Fam_18_5,blood pellet,blood pellet,unaffected,,522,0.6296384680958406,status: unaffected
+GSM2810473,Fam_19_1,blood pellet,blood pellet,affected,,522,0.6222489889115632,status: affected
+GSM2810474,Fam_19_2,blood pellet,blood pellet,unaffected,,522,0.6243789459148923,status: unaffected
+GSM2810475,Fam_19_3,blood pellet,blood pellet,affected,,522,0.6020907347754576,status: affected
+GSM2810476,Fam_19_4,blood pellet,blood pellet,unaffected,,522,0.6085603435037643,status: unaffected
+GSM2810477,Fam_19_5,blood pellet,blood pellet,affected,,522,0.66929253332109,status: affected
+GSM2810478,Fam_19_6,blood pellet,blood pellet,unaffected,,522,0.6183484845472378,status: unaffected
+GSM2810479,Fam_19_7,blood pellet,blood pellet,unaffected,,522,0.6598644150705055,status: unaffected
+GSM2810480,Fam_20_2,EBV transformed lymphoblastoid,lcl,affected,,522,0.6649709268824766,status: affected
+GSM2810481,Fam_20_3,blood pellet,blood pellet,unaffected,,522,0.6256148440682598,status: unaffected
+GSM2810482,Fam_20_4,blood pellet,blood pellet,affected,,522,0.6351848248522587,status: affected
+GSM2810483,Fam_11_5,blood pellet,blood pellet,unaffected,,522,0.6111832361771885,status: unaffected
+GSM2810484,Fam_11_6,blood pellet,blood pellet,affected,,522,0.6583735713928203,status: affected
+GSM2810485,Fam_15_1,blood pellet,blood pellet,unaffected,,522,0.6242557389544919,status: unaffected
+GSM2810486,Fam_15_2,blood pellet,blood pellet,affected,,522,0.6658724693009213,status: affected
+GSM2810487,Fam_15_3,blood pellet,blood pellet,unaffected,,522,0.6306194493294253,status: unaffected
+GSM2810491,Fam_15_4,blood pellet,blood pellet,affected,,522,0.6407830257332889,status: affected
+GSM2810492,Fam_15_5,blood pellet,blood pellet,unaffected,,522,0.6768960254838308,status: unaffected
+GSM2810493,Fam_15_6,blood pellet,blood pellet,affected,,522,0.6451236129038894,status: affected
+GSM2810494,Fam_15_7,blood pellet,blood pellet,unaffected,,522,0.6948229830300836,status: unaffected
+GSM2810495,Fam_20_5,blood pellet,blood pellet,unaffected,,522,0.6753268543773103,status: unaffected
+GSM2810496,Fam_20_6,blood pellet,blood pellet,affected,,522,0.6500559760258807,status: affected
+GSM2810497,Fam_18_6,blood pellet,blood pellet,affected,,522,0.6269665341801325,status: affected
+GSM2810498,Fam_21_1,buffy coat,buffy,affected,,522,0.6110698224054236,status: affected
+GSM2810499,Fam_21_2,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6073226341817133,status: unaffected
+GSM2810500,Fam_21_3,whole peripheral blood,whole peripheral blood,affected,,522,0.600454079785015,status: affected
+GSM2810501,Fam_21_4,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6228257891983212,status: unaffected
+GSM2810502,Fam_21_5,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6325564856162673,status: unaffected
+GSM2810503,Fam_21_6,whole peripheral blood,whole peripheral blood,affected,,522,0.6524828650926923,status: affected
+GSM2810504,Fam_21_7,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5791921796887995,status: unaffected
+GSM2810505,Fam_21_8,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5997320852610516,status: unaffected
+GSM2810506,Fam_21_9,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6035326335852971,status: unaffected
+GSM2810507,Fam_21_10,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6190989052648022,status: unaffected
+GSM2810508,Fam_21_11,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5532207322651677,status: unaffected
+GSM2810509,Fam_21_12,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6166366914068241,status: unaffected
+GSM2810510,Fam_21_13,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5526940241191094,status: unaffected
+GSM2810511,Fam_21_14,whole peripheral blood,whole peripheral blood,affected,,522,0.605086971689148,status: affected
+GSM2810512,Fam_21_15,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5650563951340217,status: unaffected
+GSM2810513,Fam_21_16,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5659140724522804,status: unaffected
+GSM2810514,Fam_21_17,non lymphocyte blood fraction,non_lymph,affected,,522,0.5769573142858858,status: affected
+GSM2810515,Fam_21_18,whole peripheral blood,whole peripheral blood,affected,,522,0.5650262132959922,status: affected
+GSM2810516,Fam_21_19,whole peripheral blood,whole peripheral blood,unaffected,,522,0.600893781388784,status: unaffected
+GSM2810517,Fam_21_20,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5609341258705823,status: unaffected
+GSM2810518,Fam_21_21,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5574156695454024,status: unaffected
+GSM2810519,Fam_21_22,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5694848795551023,status: unaffected
+GSM2810520,Fam_22_1,whole peripheral blood,whole peripheral blood,affected,,522,0.626690882120642,status: affected
+GSM2810521,Fam_22_2,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6305362598052973,status: unaffected
+GSM2810522,Fam_22_3,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6242321676682395,status: unaffected
+GSM2810523,Fam_22_4,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6032412362060668,status: unaffected
+GSM2810524,Fam_22_5,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6167392640796047,status: unaffected
+GSM2810525,Fam_22_6,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5754445642242191,status: unaffected
+GSM2810526,Fam_22_7,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5543838909640008,status: unaffected
+GSM2810527,Fam_22_8,whole peripheral blood,whole peripheral blood,affected,,522,0.5939178676776754,status: affected
+GSM2810528,Fam_22_9,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6226029751620504,status: unaffected
+GSM2810529,Fam_22_10,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5940993793140005,status: unaffected
+GSM2810530,Fam_22_11,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5701385924190686,status: unaffected
+GSM2810531,Fam_22_12,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5707061405687391,status: unaffected
+GSM2810532,Fam_23_1,non lymphocyte blood fraction,non_lymph,affected,,522,0.6102650364632375,status: affected
+GSM2810533,Fam_23_2,non lymphocyte blood fraction,non_lymph,unaffected,,522,0.5907549873949945,status: unaffected
+GSM2810534,Fam_23_3,non lymphocyte blood fraction,non_lymph,unaffected,,522,0.6659326695550213,status: unaffected
+GSM2810535,Fam_23_4,whole peripheral blood,whole peripheral blood,affected,,522,0.5932157752749966,status: affected
+GSM2810536,Fam_23_5,whole peripheral blood,whole peripheral blood,affected,,522,0.6297441453377731,status: affected
+GSM2810537,Fam_22_13,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5918100100488178,status: unaffected
+GSM2810538,Fam_22_14,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5557748776969981,status: unaffected
+GSM2810539,Fam_22_15,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5732185125745897,status: unaffected
+GSM2810540,Fam_22_16,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5876406511180539,status: unaffected
+GSM2810541,Fam_22_17,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6168702429434445,status: unaffected
+GSM2810542,Fam_24_1,EBV transformed lymphoblastoid,lcl,affected,,522,0.6911064766255112,status: affected
+GSM2810543,Fam_24_2,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6328970961414996,status: unaffected
+GSM2810544,Fam_24_3,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6099699474401739,status: unaffected
+GSM2810545,Fam_24_4,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6310397214239414,status: unaffected
+GSM2810546,Fam_24_5,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6201246472722035,status: unaffected
+GSM2810547,Fam_24_6,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5805523204432381,status: unaffected
+GSM2810548,Fam_24_7,whole peripheral blood,whole peripheral blood,affected,,522,0.6326861159303486,status: affected
+GSM2810549,Fam_24_8,whole peripheral blood,whole peripheral blood,affected,,522,0.604756324562539,status: affected
+GSM2810550,Fam_24_9,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6001494704504212,status: unaffected
+GSM2810551,Fam_24_10,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5945181663394181,status: unaffected
+GSM2810552,Fam_24_11,whole peripheral blood,whole peripheral blood,affected,,522,0.6019027503607357,status: affected
+GSM2810553,Fam_24_12,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6019934370008303,status: unaffected
+GSM2810554,Fam_24_13,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5902514283079386,status: unaffected
+GSM2810555,Fam_25_1,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5932893101732243,status: unaffected
+GSM2810556,Fam_25_2,whole peripheral blood,whole peripheral blood,affected,,522,0.614187006549185,status: affected
+GSM2810557,Fam_25_3,EBV transformed lymphoblastoid,lcl,affected,,522,0.6632347858325136,status: affected
+GSM2810558,Fam_25_4,whole peripheral blood,whole peripheral blood,unaffected,,522,0.5783041376985043,status: unaffected
+GSM2810559,Fam_25_5,whole peripheral blood,whole peripheral blood,unaffected,,522,0.6073695206284673,status: unaffected
+GSM2810560,Fam_25_6,non lymphocyte blood fraction,non_lymph,unaffected,,522,0.6197235870820572,status: unaffected

@@ -1,0 +1,31 @@
+gsm,title,gender,tissue,twin_pair,disease_status,status,A_score,n_cpgs_used
+GSM931079,Twin_Pair_1_healthy,Female,Whole blood,Pair_1,healthy sample,control,0.5409205320583567,538
+GSM931080,Twin_Pair_2_healthy,Female,Whole blood,Pair_2,healthy sample,control,0.5447506888872324,535
+GSM931081,Twin_Pair_3_affected,Female,Whole blood,Pair_3,breast cancer sample,case,0.5514988632890692,538
+GSM931082,Twin_Pair_1_affected,Female,Whole blood,Pair_1,breast cancer sample,case,0.5534734363782126,537
+GSM931083,Twin_Pair_4_affected,Female,Whole blood,Pair_4,breast cancer sample,case,0.5439850220210652,538
+GSM931084,Twin_Pair_4_healthy,Female,Whole blood,Pair_4,healthy sample,control,0.5534570627495149,538
+GSM931085,Twin_Pair_5_healthy,Female,Whole blood,Pair_5,healthy sample,control,0.5445734134297141,538
+GSM931086,Twin_Pair_6_affected,Female,Whole blood,Pair_6,breast cancer sample,case,0.5927492319621177,537
+GSM931087,Twin_Pair_6_healthy,Female,Whole blood,Pair_6,healthy sample,control,0.5404352214552361,538
+GSM931088,Twin_Pair_7_affected,Female,Whole blood,Pair_7,breast cancer sample,case,0.5382709601598245,537
+GSM931089,Twin_Pair_8_affected,Female,Whole blood,Pair_8,breast cancer sample,case,0.5645536504670109,538
+GSM931090,Twin_Pair_8_healthy,Female,Whole blood,Pair_8,healthy sample,control,0.5456134845459676,537
+GSM931091,Twin_Pair_9_healthy,Female,Whole blood,Pair_9,healthy sample,control,0.5568464954548019,538
+GSM931092,Twin_Pair_9_affected,Female,Whole blood,Pair_9,breast cancer sample,case,0.5502240643327251,538
+GSM931093,Twin_Pair_3_healthy,Female,Whole blood,Pair_3,healthy sample,control,0.5402632024072929,538
+GSM931094,Twin_Pair_10_healthy,Female,Whole blood,Pair_10,healthy sample,control,0.5783374416641465,538
+GSM931095,Twin_Pair_10_affected,Female,Whole blood,Pair_10,breast cancer sample,case,0.5362795561199056,538
+GSM931096,Twin_Pair_11_healthy,Female,Whole blood,Pair_11,healthy sample,control,0.5050788975088042,537
+GSM931097,Twin_Pair_11_affected,Female,Whole blood,Pair_11,breast cancer sample,case,0.5506621984180801,537
+GSM931098,Twin_Pair_12_affected,Female,Whole blood,Pair_12,breast cancer sample,case,0.5139229936160946,538
+GSM931099,Twin_Pair_12_healthy,Female,Whole blood,Pair_12,healthy sample,control,0.5932081805159811,537
+GSM931100,Twin_Pair_13_healthy,Female,Whole blood,Pair_13,healthy sample,control,0.5267438063279243,538
+GSM931101,Twin_Pair_13_affected,Female,Whole blood,Pair_13,breast cancer sample,case,0.533836041101667,538
+GSM931102,Twin_Pair_14_healthy,Female,Whole blood,Pair_14,healthy sample,control,0.5197839801001426,538
+GSM931103,Twin_Pair_15_healthy,Female,Whole blood,Pair_15,healthy sample,control,0.5239427688568379,538
+GSM931104,Twin_Pair_15_affected,Female,Whole blood,Pair_15,breast cancer sample,case,0.5672634930833067,537
+GSM931105,Twin_Pair_14_affected,Female,Whole blood,Pair_14,breast cancer sample,case,0.5452806573330757,537
+GSM931106,Twin_Pair_5_affected,Female,Whole blood,Pair_5,breast cancer sample,case,0.558408926187265,537
+GSM931107,Twin_Pair_7_healthy,Female,Whole blood,Pair_7,healthy sample,control,0.5326226735067383,538
+GSM931108,Twin_Pair_2_affected,Female,Whole blood,Pair_2,breast cancer sample,case,0.5357473762766577,538

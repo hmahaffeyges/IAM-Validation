@@ -1,0 +1,248 @@
+{
+  "cohort": "NHANES_1999_2002_DNMEPI_publicuse",
+  "note": "Public-use epigenetic biomarker file \u00d7 Linked Mortality File (2019). Xu-538 panel A-score NOT computable here because per-CpG \u03b2 values are not in the public release.",
+  "n_with_dnam_and_elig": 2532,
+  "n_all_cause_deaths": 1361,
+  "n_cancer_deaths": 271,
+  "follow_up_years": {
+    "median": 17.083333333333332,
+    "max": 20.75
+  },
+  "input_sha256": {
+    "dnmepi": "583e0660eafac5b4b2600a18bc4ca6e8a342fd1e87a78c1b03063b14223d956f",
+    "DEMO_A": "a17bd1ebfd6007b8dc93f16259cb090678eb6c467a39363b7e932bba15febf89",
+    "DEMO_B": "6458dc2307cee244ab6ba26f70ec78c7b842ffc68e668bc43f0ab6b9737937d9",
+    "LMF_A": "562bd367107add0b2b40fed36a062d8b194fca31e11aab897a0efad4bebc8b26",
+    "LMF_B": "2788c8c8a02995ea5686882b5fe65b4b9cd415016031525f8a3c1a3646c47f1b"
+  },
+  "cox_results": [
+    {
+      "clock": "PhenoAge",
+      "outcome": "all-cause",
+      "n": 2532,
+      "n_events": 1361,
+      "HR_per_SD": 1.2487108988187643,
+      "CI95_HR_lo": 1.1795981731266236,
+      "CI95_HR_hi": 1.321872943136023,
+      "p_value": 2.0778359801765555e-14,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "PhenoAge",
+      "outcome": "cancer",
+      "n": 2532,
+      "n_events": 271,
+      "HR_per_SD": 1.2042728143411827,
+      "CI95_HR_lo": 1.0589624338274428,
+      "CI95_HR_hi": 1.3695226242535,
+      "p_value": 0.004608528919361162,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "GrimAgeMort",
+      "outcome": "all-cause",
+      "n": 2532,
+      "n_events": 1361,
+      "HR_per_SD": 1.5987896694709522,
+      "CI95_HR_lo": 1.499222049965301,
+      "CI95_HR_hi": 1.7049698590453612,
+      "p_value": 2.0881516398405333e-46,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "GrimAgeMort",
+      "outcome": "cancer",
+      "n": 2532,
+      "n_events": 271,
+      "HR_per_SD": 1.5817718918564592,
+      "CI95_HR_lo": 1.3775911755204049,
+      "CI95_HR_hi": 1.8162154072466346,
+      "p_value": 7.889140668667528e-11,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "GrimAge2Mort",
+      "outcome": "all-cause",
+      "n": 2532,
+      "n_events": 1361,
+      "HR_per_SD": 1.6471731345414793,
+      "CI95_HR_lo": 1.5429794221754956,
+      "CI95_HR_hi": 1.7584027992607991,
+      "p_value": 1.1743260833240956e-50,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "GrimAge2Mort",
+      "outcome": "cancer",
+      "n": 2532,
+      "n_events": 271,
+      "HR_per_SD": 1.5977037282353774,
+      "CI95_HR_lo": 1.3876685126730195,
+      "CI95_HR_hi": 1.8395295273365586,
+      "p_value": 7.222580630848908e-11,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "HannumAge",
+      "outcome": "all-cause",
+      "n": 2532,
+      "n_events": 1361,
+      "HR_per_SD": 1.1531834735773587,
+      "CI95_HR_lo": 1.086895216074611,
+      "CI95_HR_hi": 1.223514561536772,
+      "p_value": 2.3747363211661957e-06,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "HannumAge",
+      "outcome": "cancer",
+      "n": 2532,
+      "n_events": 271,
+      "HR_per_SD": 1.192733387649819,
+      "CI95_HR_lo": 1.0428153268536462,
+      "CI95_HR_hi": 1.3642040900059287,
+      "p_value": 0.01012023224702558,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "HorvathAge",
+      "outcome": "all-cause",
+      "n": 2532,
+      "n_events": 1361,
+      "HR_per_SD": 1.1522518515756812,
+      "CI95_HR_lo": 1.0840424998618028,
+      "CI95_HR_hi": 1.2247530236396111,
+      "p_value": 5.316042559472139e-06,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "HorvathAge",
+      "outcome": "cancer",
+      "n": 2532,
+      "n_events": 271,
+      "HR_per_SD": 1.2816174073345425,
+      "CI95_HR_lo": 1.1167908242587574,
+      "CI95_HR_hi": 1.4707706609902642,
+      "p_value": 0.0004114796051674832,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "DunedinPoAm",
+      "outcome": "all-cause",
+      "n": 2532,
+      "n_events": 1361,
+      "HR_per_SD": 1.3305930528180674,
+      "CI95_HR_lo": 1.2604316824650916,
+      "CI95_HR_hi": 1.4046599247212581,
+      "p_value": 4.929766011896873e-25,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "DunedinPoAm",
+      "outcome": "cancer",
+      "n": 2532,
+      "n_events": 271,
+      "HR_per_SD": 1.2391984633339026,
+      "CI95_HR_lo": 1.0981092600976636,
+      "CI95_HR_hi": 1.3984153374615302,
+      "p_value": 0.0005061024566584546,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "PhenoAge",
+      "outcome": "all-cause",
+      "analysis": "top_vs_bottom_decile_age_accel",
+      "n": 508,
+      "n_events": 307,
+      "HR_top_vs_bot": 2.303938948251019,
+      "CI95_HR_lo": 1.8036495867031737,
+      "CI95_HR_hi": 2.9429966421418703,
+      "p_value": 2.355847471056804e-11,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "PhenoAge",
+      "outcome": "cancer",
+      "analysis": "top_vs_bottom_decile_age_accel",
+      "n": 508,
+      "n_events": 60,
+      "HR_top_vs_bot": 2.087258894673006,
+      "CI95_HR_lo": 1.202976880515857,
+      "CI95_HR_hi": 3.621557291710689,
+      "p_value": 0.008864104396348427,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "GrimAgeMort",
+      "outcome": "all-cause",
+      "analysis": "top_vs_bottom_decile_age_accel",
+      "n": 508,
+      "n_events": 324,
+      "HR_top_vs_bot": 4.533173819494895,
+      "CI95_HR_lo": 3.035128370158078,
+      "CI95_HR_hi": 6.770608149494397,
+      "p_value": 1.5330336520697043e-13,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    },
+    {
+      "clock": "GrimAgeMort",
+      "outcome": "cancer",
+      "analysis": "top_vs_bottom_decile_age_accel",
+      "n": 508,
+      "n_events": 51,
+      "HR_top_vs_bot": 7.3946384221703,
+      "CI95_HR_lo": 2.622988782813232,
+      "CI95_HR_hi": 20.84670653299197,
+      "p_value": 0.00015461765937958098,
+      "covariates": [
+        "age_years",
+        "sex"
+      ]
+    }
+  ]
+}

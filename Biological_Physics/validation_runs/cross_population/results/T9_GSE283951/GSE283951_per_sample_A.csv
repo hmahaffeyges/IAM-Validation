@@ -1,0 +1,91 @@
+sample_name,gsm,title,subject_status,age,as_level,sex,tissue,status,A_score,n_cpgs_used
+Sample_1,GSM8674695,Sample_1_Polish women with BC,Polish women with BC,74.0,1.44,F,Peripheral Blood,case,0.3901666909738224,454
+Sample_2,GSM8674696,Sample_2_Polish women with BC,Polish women with BC,74.0,1.35,F,Peripheral Blood,case,0.41626774693891316,454
+Sample_3,GSM8674697,Sample_3_Polish women with BC,Polish women with BC,63.0,0.84,F,Peripheral Blood,case,0.37913617084793283,454
+Sample_4,GSM8674698,Sample_4_Polish women with BC,Polish women with BC,65.0,0.71,F,Peripheral Blood,case,0.4477259895053388,454
+Sample_5,GSM8674699,Sample_5_Polish women with BC,Polish women with BC,42.0,1.92,F,Peripheral Blood,case,0.45036410227395673,454
+Sample_6,GSM8674700,Sample_6_Polish women with BC,Polish women with BC,42.0,0.65,F,Peripheral Blood,case,0.41826285583803496,454
+Sample_7,GSM8674701,Sample_7_Polish women with BC,Polish women with BC,77.0,0.73,F,Peripheral Blood,case,0.3939940693660061,454
+Sample_8,GSM8674702,Sample_8_Polish women with BC,Polish women with BC,50.0,1.36,F,Peripheral Blood,case,0.3637467462360307,454
+Sample_9,GSM8674703,Sample_9_Polish women with BC,Polish women with BC,67.0,0.84,F,Peripheral Blood,case,0.39609568410108226,454
+Sample_10,GSM8674704,Sample_10_Polish women with BC,Polish women with BC,48.0,1.02,F,Peripheral Blood,case,0.36303325297163963,454
+Sample_11,GSM8674705,Sample_11_Polish women with BC,Polish women with BC,35.0,1.04,F,Peripheral Blood,case,0.3934673481452149,454
+Sample_12,GSM8674706,Sample_12_Polish women with BC,Polish women with BC,63.0,2.35,F,Peripheral Blood,case,0.5661604292663563,454
+Sample_13,GSM8674707,Sample_13_Polish women with BC,Polish women with BC,44.0,1.5,F,Peripheral Blood,case,0.41164038969953937,454
+Sample_14,GSM8674708,Sample_14_Polish women with BC,Polish women with BC,52.0,1.4,F,Peripheral Blood,case,0.44826071278050655,454
+Sample_15,GSM8674709,Sample_15_Polish women with BC,Polish women with BC,43.0,1.4,F,Peripheral Blood,case,0.4248730640702091,454
+Sample_16,GSM8674710,Sample_16_Polish women with BC,Polish women with BC,50.0,1.36,F,Peripheral Blood,case,0.44643470465013996,454
+Sample_17,GSM8674711,Sample_17_Polish women with BC,Polish women with BC,61.0,1.31,F,Peripheral Blood,case,0.4428272556185092,454
+Sample_18,GSM8674712,Sample_18_Polish women with BC,Polish women with BC,49.0,1.24,F,Peripheral Blood,case,0.4408632535295396,454
+Sample_19,GSM8674713,Sample_19_Polish women with BC,Polish women with BC,61.0,1.21,F,Peripheral Blood,case,0.4855954692400649,454
+Sample_20,GSM8674714,Sample_20_Polish women with BC,Polish women with BC,50.0,1.1,F,Peripheral Blood,case,0.46563199064410055,454
+Sample_21,GSM8674715,Sample_21_Polish women with BC,Polish women with BC,52.0,1.09,F,Peripheral Blood,case,0.47306242938045395,454
+Sample_22,GSM8674716,Sample_22_Polish women with BC,Polish women with BC,44.0,0.65,F,Peripheral Blood,case,0.4590050538277497,454
+Sample_23,GSM8674717,Sample_23_Polish women with BC,Polish women with BC,54.0,1.07,F,Peripheral Blood,case,0.5336136259967276,454
+Sample_24,GSM8674718,Sample_24_Polish women with BC,Polish women with BC,41.0,1.02,F,Peripheral Blood,case,0.5211881791121027,454
+Sample_25,GSM8674719,Sample_25_Polish women with BC,Polish women with BC,59.0,1.0,F,Peripheral Blood,case,0.4665755353187978,454
+Sample_26,GSM8674720,Sample_26_Polish women with BC,Polish women with BC,49.0,1.0,F,Peripheral Blood,case,0.4870319434647272,454
+Sample_27,GSM8674721,Sample_27_Polish women with BC,Polish women with BC,62.0,4.31,F,Peripheral Blood,case,0.508923449403341,454
+Sample_28,GSM8674722,Sample_28_Polish women with BC,Polish women with BC,55.0,2.03,F,Peripheral Blood,case,0.515114492895328,454
+Sample_29,GSM8674723,Sample_29_Polish women with BC,Polish women with BC,60.0,1.89,F,Peripheral Blood,case,0.4356463679102097,454
+Sample_30,GSM8674724,Sample_30_Polish women with BC,Polish women with BC,43.0,1.88,F,Peripheral Blood,case,0.45309075593444004,454
+Sample_31,GSM8674725,Sample_31_Polish women with BC,Polish women with BC,63.0,1.77,F,Peripheral Blood,case,0.46828186513664743,454
+Sample_32,GSM8674726,Sample_32_Polish women with BC,Polish women with BC,49.0,1.71,F,Peripheral Blood,case,0.5244393715875061,454
+Sample_33,GSM8674727,Sample_33_Polish women with BC,Polish women with BC,58.0,1.63,F,Peripheral Blood,case,0.5140981081674681,454
+Sample_34,GSM8674728,Sample_34_Polish women with BC,Polish women with BC,69.0,1.5,F,Peripheral Blood,case,0.4744648555794413,454
+Sample_35,GSM8674729,Sample_35_Healthy Polish women,Healthy Polish women,46.0,0.42,F,Peripheral Blood,control,0.4490163997807477,454
+Sample_36,GSM8674730,Sample_36_Healthy Polish women,Healthy Polish women,45.0,0.6,F,Peripheral Blood,control,0.46739342017312663,454
+Sample_37,GSM8674731,Sample_37_Healthy Polish women,Healthy Polish women,51.0,0.49,F,Peripheral Blood,control,0.6627639611470587,454
+Sample_38,GSM8674732,Sample_38_Healthy Polish women,Healthy Polish women,60.0,0.54,F,Peripheral Blood,control,0.5383182235503526,454
+Sample_39,GSM8674733,Sample_39_Healthy Polish women,Healthy Polish women,48.0,0.52,F,Peripheral Blood,control,0.440269655125272,454
+Sample_40,GSM8674734,Sample_40_Healthy Polish women,Healthy Polish women,61.0,0.53,F,Peripheral Blood,control,0.5141551027034481,454
+Sample_41,GSM8674735,Sample_41_Healthy Polish women,Healthy Polish women,52.0,0.5,F,Peripheral Blood,control,0.5435744491579836,454
+Sample_42,GSM8674736,Sample_42_Healthy Polish women,Healthy Polish women,43.0,0.35,F,Peripheral Blood,control,0.4989014778601855,454
+Sample_43,GSM8674737,Sample_43_Healthy Polish women,Healthy Polish women,53.0,0.6,F,Peripheral Blood,control,0.6562673867907681,454
+Sample_44,GSM8674738,Sample_44_Healthy Polish women,Healthy Polish women,40.0,0.34,F,Peripheral Blood,control,0.4757406565639341,454
+Sample_45,GSM8674739,Sample_45_Healthy Polish women,Healthy Polish women,59.0,0.57,F,Peripheral Blood,control,0.5224816720320079,454
+Sample_46,GSM8674740,Sample_46_Healthy Polish women,Healthy Polish women,49.0,0.45,F,Peripheral Blood,control,0.49831096110343764,454
+Sample_47,GSM8674741,Sample_47_Healthy Polish women,Healthy Polish women,62.0,0.57,F,Peripheral Blood,control,0.47532483529639047,454
+Sample_48,GSM8674742,Sample_48_Healthy Polish women,Healthy Polish women,54.0,0.53,F,Peripheral Blood,control,0.5333027033532377,454
+Sample_49,GSM8674743,Sample_49_Healthy Polish women,Healthy Polish women,60.0,0.22,F,Peripheral Blood,control,0.5773407364551801,454
+Sample_50,GSM8674744,Sample_50_Healthy Polish women,Healthy Polish women,47.0,0.52,F,Peripheral Blood,control,0.5054459349696546,454
+Sample_51,GSM8674745,Sample_51_Healthy Polish women,Healthy Polish women,66.0,0.28,F,Peripheral Blood,control,0.5112041068342158,454
+Sample_52,GSM8674746,Sample_52_Healthy Polish women,Healthy Polish women,49.0,0.51,F,Peripheral Blood,control,0.46016206443647784,454
+Sample_53,GSM8674747,Sample_53_Healthy Polish women,Healthy Polish women,58.0,0.53,F,Peripheral Blood,control,0.5037463462038778,454
+Sample_54,GSM8674748,Sample_54_Healthy Polish women,Healthy Polish women,55.0,5.77,F,Peripheral Blood,control,0.3852393687246906,454
+Sample_55,GSM8674749,Sample_55_Healthy Polish women,Healthy Polish women,52.0,2.12,F,Peripheral Blood,control,0.3664475500808044,454
+Sample_56,GSM8674750,Sample_56_Healthy Polish women,Healthy Polish women,58.0,3.37,F,Peripheral Blood,control,0.4022893776526664,454
+Sample_57,GSM8674751,Sample_57_Healthy Polish women,Healthy Polish women,49.0,4.29,F,Peripheral Blood,control,0.41055635262567747,454
+Sample_58,GSM8674752,Sample_58_Healthy Polish women,Healthy Polish women,58.0,1.87,F,Peripheral Blood,control,0.3646963683667517,454
+Sample_59,GSM8674753,Sample_59_Healthy Polish women,Healthy Polish women,52.0,2.82,F,Peripheral Blood,control,0.5093062357442466,454
+Sample_60,GSM8674754,Sample_60_Healthy Polish women,Healthy Polish women,41.0,3.76,F,Peripheral Blood,control,0.3693281354194767,454
+Sample_61,GSM8674755,Sample_61_Healthy Polish women,Healthy Polish women,62.0,3.87,F,Peripheral Blood,control,0.3879890414034843,454
+Sample_62,GSM8674756,Sample_62_Healthy Polish women,Healthy Polish women,43.0,4.06,F,Peripheral Blood,control,0.3899940712439551,454
+Sample_63,GSM8674757,Sample_63_Healthy Polish women,Healthy Polish women,60.0,1.88,F,Peripheral Blood,control,0.3704424033201328,454
+Sample_64,GSM8674758,Sample_64_Healthy Polish women,Healthy Polish women,60.0,2.44,F,Peripheral Blood,control,0.39548730947100347,454
+Sample_65,GSM8674759,Sample_65_Healthy Polish women,Healthy Polish women,44.0,1.62,F,Peripheral Blood,control,0.4140267635565419,454
+Sample_66,GSM8674760,Sample_66_Healthy Polish women,Healthy Polish women,43.0,5.68,F,Peripheral Blood,control,0.3778843953653313,454
+Sample_67,GSM8674761,Sample_67_Healthy Polish women,Healthy Polish women,53.0,2.74,F,Peripheral Blood,control,0.3734875792157128,454
+Sample_68,GSM8674762,Sample_68_Healthy Polish women,Healthy Polish women,69.0,3.82,F,Peripheral Blood,control,0.36166139292186494,454
+Sample_69,GSM8674763,Sample_69_Healthy Polish women,Healthy Polish women,44.0,2.61,F,Peripheral Blood,control,0.3603028675835057,454
+Sample_70,GSM8674764,Sample_70_Healthy Polish women,Healthy Polish women,50.0,2.03,F,Peripheral Blood,control,0.37558079750867535,454
+Sample_71,GSM8674765,Sample_71_Healthy Polish women,Healthy Polish women,49.0,3.62,F,Peripheral Blood,control,0.35837259083494494,454
+Sample_72,GSM8674766,Sample_72_Healthy Polish women,Healthy Polish women,47.0,3.9,F,Peripheral Blood,control,0.3588700324215769,454
+Sample_73,GSM8674767,Sample_73_Healthy Polish women,Healthy Polish women,62.0,2.7,F,Peripheral Blood,control,0.41034590974938573,454
+Sample_74,GSM8674768,Sample_74_Healthy Polish women,Healthy Polish women,63.0,2.49,F,Peripheral Blood,control,0.35752793005518824,454
+Sample_75,GSM8674769,Sample_75_Healthy Polish women,Healthy Polish women,64.0,3.49,F,Peripheral Blood,control,0.39907615766550447,454
+Sample_76,GSM8674770,Sample_76_Healthy Polish women,Healthy Polish women,59.0,2.69,F,Peripheral Blood,control,0.3628685062370586,454
+Sample_77,GSM8674771,Sample_77_Healthy Polish women,Healthy Polish women,40.0,3.19,F,Peripheral Blood,control,0.4243176607431537,454
+Sample_78,GSM8674772,Sample_78_Healthy Polish women,Healthy Polish women,45.0,3.08,F,Peripheral Blood,control,0.4311372311660062,454
+Sample_79,GSM8674773,Sample_79_Healthy Polish women,Healthy Polish women,40.0,2.96,F,Peripheral Blood,control,0.38135394710511117,454
+Sample_80,GSM8674774,Sample_80_Healthy Polish women,Healthy Polish women,43.0,2.12,F,Peripheral Blood,control,0.40206649114519016,454
+Sample_81,GSM8674775,Sample_81_Healthy Polish women,Healthy Polish women,65.0,2.43,F,Peripheral Blood,control,0.3878219435416664,454
+Sample_82,GSM8674776,Sample_82_Healthy Polish women,Healthy Polish women,51.0,1.93,F,Peripheral Blood,control,0.478576354142436,454
+Sample_83,GSM8674777,Sample_83_Healthy Polish women,Healthy Polish women,51.0,1.89,F,Peripheral Blood,control,0.36448785707067644,454
+Sample_84,GSM8674778,Sample_84_Healthy Polish women,Healthy Polish women,48.0,1.75,F,Peripheral Blood,control,0.397677406835156,454
+Sample_85,GSM8674779,Sample_85_Healthy Polish women,Healthy Polish women,50.0,2.23,F,Peripheral Blood,control,0.37337636740569,454
+Sample_86,GSM8674780,Sample_86_Healthy Polish women,Healthy Polish women,48.0,1.99,F,Peripheral Blood,control,0.382342670154793,454
+Sample_87,GSM8674781,Sample_87_Healthy Polish women,Healthy Polish women,63.0,2.23,F,Peripheral Blood,control,0.3923520035517593,454
+Sample_88,GSM8674782,Sample_88_Healthy Polish women,Healthy Polish women,60.0,2.26,F,Peripheral Blood,control,0.40738502168952134,454
+Sample_89,GSM8674783,Sample_89_Healthy Polish women,Healthy Polish women,52.0,2.06,F,Peripheral Blood,control,0.3661211547649407,454
+Sample_90,GSM8674784,Sample_90_Healthy Polish women,Healthy Polish women,58.0,2.79,F,Peripheral Blood,control,0.38092701522740713,454
