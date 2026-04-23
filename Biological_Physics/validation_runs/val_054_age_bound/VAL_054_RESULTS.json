@@ -1,0 +1,1516 @@
+{
+  "val_id": "VAL-054",
+  "parent": "VAL-051",
+  "n_holdout_scored": 148,
+  "group_counts": {
+    "AD": 33,
+    "MCI": 20,
+    "HC": 95
+  },
+  "cellular_age_summary": {
+    "HC": {
+      "n": 95,
+      "mean": 95,
+      "median": 95
+    },
+    "MCI": {
+      "n": 20,
+      "mean": 95,
+      "median": 95.0
+    },
+    "AD": {
+      "n": 33,
+      "mean": 95,
+      "median": 95
+    }
+  },
+  "cohens_d_cellular_age_AD_vs_HC": 0.0,
+  "regression_full_cellage": {
+    "R_squared": 0.0,
+    "slope_per_year": 0,
+    "residual_d_AD_vs_HC": 0.6237103499989237
+  },
+  "decision": "NON-TEST \u2014 panel \u03b2_mean saturates baseline interpolator at oldest decade",
+  "per_sample": [
+    {
+      "gsm": "GSM4649388",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.615736408688262,
+      "beta_full": 0.5131983792383532,
+      "beta_rulea": 0.5155974311465117,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649389",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.9861373178995027,
+      "beta_full": 0.4978983176160903,
+      "beta_rulea": 0.46650033554517195,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649404",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 1.1666256161901423,
+      "beta_full": 0.4566154702357364,
+      "beta_rulea": 0.45537697630711343,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649414",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.6007838060129901,
+      "beta_full": 0.5000132224584493,
+      "beta_rulea": 0.4693510872516536,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649417",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.18323442472019819,
+      "beta_full": 0.5186327760270852,
+      "beta_rulea": 0.4878855563997347,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649418",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.04801192616370952,
+      "beta_full": 0.5037938592733017,
+      "beta_rulea": 0.5542513466864883,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649422",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": 0.5441044495489661,
+      "beta_full": 0.49359386588404913,
+      "beta_rulea": 0.4632925456579537,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649434",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 1.0296892446105648,
+      "beta_full": 0.49452968180241463,
+      "beta_rulea": 0.4585037272620741,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649446",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.11393790503774671,
+      "beta_full": 0.5365458806889253,
+      "beta_rulea": 0.5135055490508502,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649447",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.3657884705022111,
+      "beta_full": 0.4891650139374981,
+      "beta_rulea": 0.5176295212302461,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649450",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": 1.400419537540882,
+      "beta_full": 0.5309929806058324,
+      "beta_rulea": 0.4794132021364393,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649454",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.586320460768665,
+      "beta_full": 0.5528090080082884,
+      "beta_rulea": 0.5255886968643722,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649456",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.39798154303663574,
+      "beta_full": 0.5112733440131295,
+      "beta_rulea": 0.4855645956842082,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649461",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": 0.04032631830203131,
+      "beta_full": 0.4982960555008085,
+      "beta_rulea": 0.5149907685191034,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649476",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.34529773780026213,
+      "beta_full": 0.5143127683479449,
+      "beta_rulea": 0.5212314930282325,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649477",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.14097329128850375,
+      "beta_full": 0.5400426108388378,
+      "beta_rulea": 0.5457326404638297,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649485",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.03516740560963997,
+      "beta_full": 0.5337226098070452,
+      "beta_rulea": 0.5088165051132413,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649490",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.32838312835144595,
+      "beta_full": 0.5096763066550694,
+      "beta_rulea": 0.5005705884502142,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649491",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.47841902185950597,
+      "beta_full": 0.5370799472859787,
+      "beta_rulea": 0.486115018183983,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649493",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.10619932220236177,
+      "beta_full": 0.5008285012805528,
+      "beta_rulea": 0.47602178217863944,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649499",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.0035794455833129163,
+      "beta_full": 0.47418461153216707,
+      "beta_rulea": 0.5012793170683576,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649507",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.7494293921164432,
+      "beta_full": 0.5344450177072138,
+      "beta_rulea": 0.5350952921348762,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649508",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.820101683891247,
+      "beta_full": 0.5160159465375869,
+      "beta_rulea": 0.4617775277336359,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649509",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.7326010766829185,
+      "beta_full": 0.5273493407918404,
+      "beta_rulea": 0.5344964619760486,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649510",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.41801225890141597,
+      "beta_full": 0.524726264598814,
+      "beta_rulea": 0.5018316082030503,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649522",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": -0.2847265247209098,
+      "beta_full": 0.5552653382873917,
+      "beta_rulea": 0.5471230581938532,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649528",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.610953077669525,
+      "beta_full": 0.5195560981707696,
+      "beta_rulea": 0.5201552959300643,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649533",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.3317525948729146,
+      "beta_full": 0.5682093673329611,
+      "beta_rulea": 0.5296691153127326,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649534",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.4887547391333421,
+      "beta_full": 0.5401814256682889,
+      "beta_rulea": 0.5329503959795419,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649537",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.29074375482481357,
+      "beta_full": 0.4715369650066728,
+      "beta_rulea": 0.5057619437978376,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649540",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.7205993720927025,
+      "beta_full": 0.5332949179587185,
+      "beta_rulea": 0.5439714494139413,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649541",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.590591228293982,
+      "beta_full": 0.5549057775056465,
+      "beta_rulea": 0.5132087529282615,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649543",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 1.0009156222637416,
+      "beta_full": 0.518639784594362,
+      "beta_rulea": 0.4742486492634065,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649550",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.5547769802036411,
+      "beta_full": 0.5102308505717588,
+      "beta_rulea": 0.5003855977211817,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649551",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.28041243080613365,
+      "beta_full": 0.5487951226136796,
+      "beta_rulea": 0.521967168834907,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649557",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": -0.8883596170410079,
+      "beta_full": 0.5510660589563294,
+      "beta_rulea": 0.532589629214938,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649559",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": 0.1748048287157767,
+      "beta_full": 0.549137270200186,
+      "beta_rulea": 0.59110088642064,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649564",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.7081187925873976,
+      "beta_full": 0.49733880549632453,
+      "beta_rulea": 0.4719458550623619,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649565",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.39821159285800595,
+      "beta_full": 0.5309144707296758,
+      "beta_rulea": 0.502308212606696,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649576",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.3312049855603537,
+      "beta_full": 0.48354789131726217,
+      "beta_rulea": 0.46014752541407544,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649577",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.006610147195740605,
+      "beta_full": 0.5152666988530148,
+      "beta_rulea": 0.506700358087504,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649590",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.86417422754126,
+      "beta_full": 0.5559918590375919,
+      "beta_rulea": 0.5149878357289401,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649591",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.488434794554838,
+      "beta_full": 0.5332610202775285,
+      "beta_rulea": 0.48438357045010355,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649593",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 1.7441240239825984,
+      "beta_full": 0.46383117052346434,
+      "beta_rulea": 0.44768718605036345,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649602",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.2604030159294044,
+      "beta_full": 0.48698888152628617,
+      "beta_rulea": 0.48675020591991425,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649603",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": -0.07598860418537719,
+      "beta_full": 0.5380543699873905,
+      "beta_rulea": 0.514301928740877,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649604",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.6027767209497702,
+      "beta_full": 0.5354799891574056,
+      "beta_rulea": 0.5323441179214979,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649606",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.022400573174690956,
+      "beta_full": 0.517921820967563,
+      "beta_rulea": 0.5015946264990564,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649614",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.45061883446146095,
+      "beta_full": 0.5545673672325138,
+      "beta_rulea": 0.516461054919656,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649615",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.18487542330334902,
+      "beta_full": 0.49947706584320684,
+      "beta_rulea": 0.5005425915823201,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649619",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.42414241892457305,
+      "beta_full": 0.534156713300082,
+      "beta_rulea": 0.5585763705457975,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649621",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.4432057339508267,
+      "beta_full": 0.5272765455860737,
+      "beta_rulea": 0.482784154586676,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649626",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.2721154608688129,
+      "beta_full": 0.49300362060011893,
+      "beta_rulea": 0.4751542394980604,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649635",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.5146796830721748,
+      "beta_full": 0.48086115784088107,
+      "beta_rulea": 0.45390823389009954,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649642",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.28712018832331465,
+      "beta_full": 0.5095210367595863,
+      "beta_rulea": 0.4975109587873873,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649647",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 1.9538367708024285,
+      "beta_full": 0.4931203162589745,
+      "beta_rulea": 0.44163188181865387,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649660",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -1.2535834135546815,
+      "beta_full": 0.5447868973249697,
+      "beta_rulea": 0.574422962536236,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649662",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.27132126684965513,
+      "beta_full": 0.5127989502645462,
+      "beta_rulea": 0.47347286664312055,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649673",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -1.5534995727564078,
+      "beta_full": 0.6010455877688083,
+      "beta_rulea": 0.570731349031635,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649679",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.9049789986295412,
+      "beta_full": 0.5379168606454882,
+      "beta_rulea": 0.5280866360722748,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649684",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.8070748979776009,
+      "beta_full": 0.4956169584615819,
+      "beta_rulea": 0.5182948502589352,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649686",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.44322702478944,
+      "beta_full": 0.526867748075079,
+      "beta_rulea": 0.5125056751841218,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649688",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 1.4408943932598661,
+      "beta_full": 0.4802782209495438,
+      "beta_rulea": 0.46593906165584026,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649693",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": -0.30782245033220673,
+      "beta_full": 0.5423315266628836,
+      "beta_rulea": 0.504386498431549,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649695",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.9863844424849352,
+      "beta_full": 0.5417390754136914,
+      "beta_rulea": 0.527180009327307,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649700",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.1883964109192032,
+      "beta_full": 0.5309637526918949,
+      "beta_rulea": 0.4970856936916954,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649706",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": -0.5415124317046388,
+      "beta_full": 0.5507451749777448,
+      "beta_rulea": 0.5258003411921702,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649718",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.5416732955834108,
+      "beta_full": 0.5201988055952103,
+      "beta_rulea": 0.4371280830435627,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649720",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.308746845990825,
+      "beta_full": 0.5078291675076364,
+      "beta_rulea": 0.4857169375737019,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649725",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": 0.7013398057907302,
+      "beta_full": 0.49719849119403453,
+      "beta_rulea": 0.49286076858410255,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649729",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.23360482969598678,
+      "beta_full": 0.488618810553623,
+      "beta_rulea": 0.48383209552195117,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649731",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.7048164878063901,
+      "beta_full": 0.4986701791515206,
+      "beta_rulea": 0.4412155213100169,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649734",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": -0.12625284534795003,
+      "beta_full": 0.5141912428136767,
+      "beta_rulea": 0.5178874795679594,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649735",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 1.2241862984861658,
+      "beta_full": 0.5039599365663188,
+      "beta_rulea": 0.47529670684863456,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649737",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.5580028349185723,
+      "beta_full": 0.5087644475704767,
+      "beta_rulea": 0.48781997612110556,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649744",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": -0.08119326696936578,
+      "beta_full": 0.5093651578403098,
+      "beta_rulea": 0.49671080314758015,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649748",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": -0.2683316313917926,
+      "beta_full": 0.5558905354205546,
+      "beta_rulea": 0.5265536468213958,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649751",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.9914201926257531,
+      "beta_full": 0.5246976191732657,
+      "beta_rulea": 0.5231788170654017,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649752",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": -0.47411258141434093,
+      "beta_full": 0.4919441008934807,
+      "beta_rulea": 0.5158685421522787,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649753",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.2272956853424322,
+      "beta_full": 0.5335931729966317,
+      "beta_rulea": 0.5152721168254392,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649759",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.11750054658681201,
+      "beta_full": 0.4976344261111658,
+      "beta_rulea": 0.48563599935132934,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649765",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.4963960457575111,
+      "beta_full": 0.5602550114193066,
+      "beta_rulea": 0.5051893246191704,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649767",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.09245178392328475,
+      "beta_full": 0.5425962801802536,
+      "beta_rulea": 0.5193606599944007,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649782",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.26893505880104823,
+      "beta_full": 0.512614037417677,
+      "beta_rulea": 0.49739336389181826,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649794",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.878660104141015,
+      "beta_full": 0.48935771862725286,
+      "beta_rulea": 0.46672633311187284,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649805",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.3203028570103326,
+      "beta_full": 0.5196313211717359,
+      "beta_rulea": 0.5076081298305158,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649823",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.8035364579958456,
+      "beta_full": 0.5476262411371127,
+      "beta_rulea": 0.5032517779014868,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649827",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.3553683808863362,
+      "beta_full": 0.522917190143986,
+      "beta_rulea": 0.5157332629265257,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649830",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 1.0762329055466553,
+      "beta_full": 0.5215963117119621,
+      "beta_rulea": 0.4616532952131263,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649839",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.4477246929169946,
+      "beta_full": 0.48960839280402485,
+      "beta_rulea": 0.430598587098084,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649845",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.7816042244497973,
+      "beta_full": 0.49609276306445527,
+      "beta_rulea": 0.49715283549706696,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649854",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.241368859035707,
+      "beta_full": 0.47016379392836555,
+      "beta_rulea": 0.5268119446912294,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649865",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.7491998024444084,
+      "beta_full": 0.5231849410320379,
+      "beta_rulea": 0.4894130857098604,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649874",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.46954227012497823,
+      "beta_full": 0.496151673010649,
+      "beta_rulea": 0.5084108769219925,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649875",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.3562227650498963,
+      "beta_full": 0.5355706779310418,
+      "beta_rulea": 0.5203993553140508,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649878",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": -0.3586192198094413,
+      "beta_full": 0.5424980646375844,
+      "beta_rulea": 0.50205494919451,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649883",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.057994808338877844,
+      "beta_full": 0.5157919756914481,
+      "beta_rulea": 0.5136193968584669,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649888",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.04175080547926556,
+      "beta_full": 0.5343386557554848,
+      "beta_rulea": 0.5143663415511639,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649889",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.5963536144533067,
+      "beta_full": 0.52234355082144,
+      "beta_rulea": 0.5198976728151671,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649894",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 2.075851845626294,
+      "beta_full": 0.4683079576004762,
+      "beta_rulea": 0.43481989477541816,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649898",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": 0.6300200327610729,
+      "beta_full": 0.5104620057262871,
+      "beta_rulea": 0.4597420956103945,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649914",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 1.2044131169633592,
+      "beta_full": 0.4803063761735259,
+      "beta_rulea": 0.45663699171823613,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649918",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.09481088312473888,
+      "beta_full": 0.5446417112587708,
+      "beta_rulea": 0.4931021554922563,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649924",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.5676437740223166,
+      "beta_full": 0.5190197580758209,
+      "beta_rulea": 0.45080547656802866,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649927",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": 0.16413499127432502,
+      "beta_full": 0.5305835198785098,
+      "beta_rulea": 0.5278093767211055,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649928",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.9671636542712465,
+      "beta_full": 0.506047532789956,
+      "beta_rulea": 0.48725826380138304,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649934",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": -0.752747219081957,
+      "beta_full": 0.5320530878135128,
+      "beta_rulea": 0.5157102106018239,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649935",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.41338816971054165,
+      "beta_full": 0.496467396404472,
+      "beta_rulea": 0.4804860622088336,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649945",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.03727582538819309,
+      "beta_full": 0.5133152540267991,
+      "beta_rulea": 0.501244814447065,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649952",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 1.0569286604949746,
+      "beta_full": 0.5054206277203672,
+      "beta_rulea": 0.4654785523174724,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649954",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": -0.30221541036183125,
+      "beta_full": 0.5523276029854152,
+      "beta_rulea": 0.5192752350290856,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649958",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.2478973430247727,
+      "beta_full": 0.5135459333588993,
+      "beta_rulea": 0.4895921415101853,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649967",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.8148360148219821,
+      "beta_full": 0.5249424422383967,
+      "beta_rulea": 0.4953879769476622,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649971",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.49797260553237954,
+      "beta_full": 0.5000601344234786,
+      "beta_rulea": 0.459875671123088,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649974",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.22559748793606155,
+      "beta_full": 0.49707956620068106,
+      "beta_rulea": 0.49390321917466856,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649975",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.048014596323302614,
+      "beta_full": 0.5388010582908968,
+      "beta_rulea": 0.5057927068575866,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649977",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.22018805433428595,
+      "beta_full": 0.5225553732863967,
+      "beta_rulea": 0.5234665735155409,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649980",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.6642687223082001,
+      "beta_full": 0.4868809188670499,
+      "beta_rulea": 0.5091115597999087,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649981",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.30295420792516226,
+      "beta_full": 0.5255153492712284,
+      "beta_rulea": 0.5056206393727687,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649985",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.9789520535851162,
+      "beta_full": 0.5075362379692195,
+      "beta_rulea": 0.4973849308130435,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649987",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.14744767979496004,
+      "beta_full": 0.5329100018995716,
+      "beta_rulea": 0.5400034810699166,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649992",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.2793422223529325,
+      "beta_full": 0.5355437638673656,
+      "beta_rulea": 0.49859347990821695,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649995",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.28176565111317636,
+      "beta_full": 0.4682954848262209,
+      "beta_rulea": 0.49068905837946114,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649996",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": 0.8758471727223941,
+      "beta_full": 0.5346654688116156,
+      "beta_rulea": 0.4672540347128121,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4649999",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.1267966707500412,
+      "beta_full": 0.5382686739608212,
+      "beta_rulea": 0.5214345507788899,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650006",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.24724087074995657,
+      "beta_full": 0.5290668238821755,
+      "beta_rulea": 0.5150314825002825,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650007",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.09758257893585871,
+      "beta_full": 0.561159789046763,
+      "beta_rulea": 0.5238865845736946,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650008",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.989290962973234,
+      "beta_full": 0.5200916262636819,
+      "beta_rulea": 0.5518844415256766,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650011",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": -0.027251666085286817,
+      "beta_full": 0.5342014184049917,
+      "beta_rulea": 0.4761403838267743,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650016",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": -0.582446889180863,
+      "beta_full": 0.5348710874317919,
+      "beta_rulea": 0.4935683074273117,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650020",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.6029027763270912,
+      "beta_full": 0.4682292064125546,
+      "beta_rulea": 0.47826725279721716,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650021",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": -0.3273035088348716,
+      "beta_full": 0.5317865052925828,
+      "beta_rulea": 0.5013606322687297,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650028",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.30358413779536386,
+      "beta_full": 0.504346318013579,
+      "beta_rulea": 0.49531642998610625,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650030",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -0.30340281389266094,
+      "beta_full": 0.4880085461597732,
+      "beta_rulea": 0.5125647500529549,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650045",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": -0.9608988259308733,
+      "beta_full": 0.4904627405380103,
+      "beta_rulea": 0.5067723280035284,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650057",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": 0.28414762927768034,
+      "beta_full": 0.5158651485009478,
+      "beta_rulea": 0.49392495509632317,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650073",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 0.38535507623849596,
+      "beta_full": 0.5059591102812513,
+      "beta_rulea": 0.4859844560288642,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650075",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": 0.2157328947456386,
+      "beta_full": 0.5280981581413733,
+      "beta_rulea": 0.5045352882519721,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650078",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": -1.3992054561333622,
+      "beta_full": 0.5491416624272589,
+      "beta_rulea": 0.5511388556315936,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650079",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": 0.332414112296488,
+      "beta_full": 0.4783065823549975,
+      "beta_rulea": 0.48095092862987104,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650084",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": 0.5756896026967568,
+      "beta_full": 0.4942316002231217,
+      "beta_rulea": 0.5256695120246155,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650088",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir": 0.2660093667957805,
+      "beta_full": 0.471072349404509,
+      "beta_rulea": 0.4971985717439413,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650091",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir": -0.6941182540465733,
+      "beta_full": 0.5345949644690311,
+      "beta_rulea": 0.5249828093034915,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650094",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir": -0.1362308565698795,
+      "beta_full": 0.5396489100648704,
+      "beta_rulea": 0.5462277925525915,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650099",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir": -0.928616584713961,
+      "beta_full": 0.5436557028472282,
+      "beta_rulea": 0.5325602205514283,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650100",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": 0.13109896633150553,
+      "beta_full": 0.5445174050794128,
+      "beta_rulea": 0.5169055077237795,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650106",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir": 1.320363050644865,
+      "beta_full": 0.5266890840845295,
+      "beta_rulea": 0.46612662436276275,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    },
+    {
+      "gsm": "GSM4650111",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir": 0.5175949866411821,
+      "beta_full": 0.4958112084572916,
+      "beta_rulea": 0.4501526432005093,
+      "cell_age_fullpanel": 95,
+      "cell_age_rulea": 95
+    }
+  ]
+}
