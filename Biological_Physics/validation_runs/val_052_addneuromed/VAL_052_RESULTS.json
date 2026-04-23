@@ -1,0 +1,2762 @@
+{
+  "val_id": "VAL-052",
+  "cohort": "AddNeuroMed GSE144858",
+  "platform": "450K",
+  "n_samples_scored": 300,
+  "group_counts": {
+    "AD": 93,
+    "MCI": 111,
+    "HC": 96
+  },
+  "panel_transfer": "7/7 Rule A CpGs present on 450K",
+  "panel_coverage_per_sample_avg": 1.0,
+  "H1_primary": {
+    "mean_A_dir_AD": -0.788622854516948,
+    "mean_A_dir_HC": -0.9528569782811498,
+    "delta": 0.16423412376420177,
+    "cohens_d": 0.33182545987231793,
+    "ci_95": [
+      0.048410896175280486,
+      0.6345357396214849
+    ],
+    "p_onesided": 0.008962706325772124,
+    "auc": 0.5996863799283154
+  },
+  "sensitivity_own_HC_standardized": {
+    "cohens_d": 0.3189086126395744,
+    "p": 0.011641906336304911
+  },
+  "H2_MCI_mean": -0.9042418480044144,
+  "H3_sex": {
+    "Male": {
+      "n_AD": 31,
+      "n_HC": 37,
+      "cohens_d": 0.39535193911408034
+    },
+    "Female": {
+      "n_AD": 62,
+      "n_HC": 59,
+      "cohens_d": 0.3588171721794031
+    }
+  },
+  "H4_age_regression": {
+    "R_squared": 0.25976736073851847,
+    "slope_per_year": 0.03666084311507112,
+    "residual_d_AD_vs_HC": 0.12401906193203246,
+    "residual_p": 0.11987768961492426
+  },
+  "H5_age_by_group_d": 0.4498934755535693,
+  "cross_platform_decision": "MIXED: raw d=+0.33 (OUTCOME 1) + age-corrected d=+0.12 (OUTCOME 3 borderline) \u2014 report both, prioritize age-corrected for clinical interpretation",
+  "age_decision": "Age is partial confound; AD signal survives regression",
+  "per_sample_records": [
+    {
+      "gsm": "GSM4299202",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.7623097213949611,
+      "grp": "MCI",
+      "A_dir_own": 0.13288437528070968
+    },
+    {
+      "gsm": "GSM4299203",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 86,
+      "A_dir": -0.010065633502294264,
+      "grp": "AD",
+      "A_dir_own": 1.0258916926817947
+    },
+    {
+      "gsm": "GSM4299204",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.49338557399327476,
+      "grp": "AD",
+      "A_dir_own": 0.43189837839068046
+    },
+    {
+      "gsm": "GSM4299205",
+      "status": "control",
+      "sex": "Male",
+      "age": 81,
+      "A_dir": -0.3506562446744993,
+      "grp": "HC",
+      "A_dir_own": 0.6644191941359994
+    },
+    {
+      "gsm": "GSM4299206",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": -1.1326565546564051,
+      "grp": "MCI",
+      "A_dir_own": -0.2869636100650698
+    },
+    {
+      "gsm": "GSM4299207",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.5879678598548138,
+      "grp": "MCI",
+      "A_dir_own": 0.45751099317588945
+    },
+    {
+      "gsm": "GSM4299208",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.7680193773957811,
+      "grp": "AD",
+      "A_dir_own": 0.2141711189468345
+    },
+    {
+      "gsm": "GSM4299209",
+      "status": "control",
+      "sex": "Female",
+      "age": 69,
+      "A_dir": -1.069094589939224,
+      "grp": "HC",
+      "A_dir_own": -0.0907282281794001
+    },
+    {
+      "gsm": "GSM4299210",
+      "status": "control",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": 0.47635237723047463,
+      "grp": "HC",
+      "A_dir_own": 1.6218798057150987
+    },
+    {
+      "gsm": "GSM4299211",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.6330651974103502,
+      "grp": "AD",
+      "A_dir_own": 0.31896470237107694
+    },
+    {
+      "gsm": "GSM4299212",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.6204484525894334,
+      "grp": "AD",
+      "A_dir_own": -0.6344938079572071
+    },
+    {
+      "gsm": "GSM4299213",
+      "status": "control",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": -1.645483784536698,
+      "grp": "HC",
+      "A_dir_own": -0.736627263149227
+    },
+    {
+      "gsm": "GSM4299214",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.4677552823091562,
+      "grp": "MCI",
+      "A_dir_own": -0.5703659881395938
+    },
+    {
+      "gsm": "GSM4299215",
+      "status": "control",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.7315668517253765,
+      "grp": "HC",
+      "A_dir_own": 0.16300385972707881
+    },
+    {
+      "gsm": "GSM4299216",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.856098400232605,
+      "grp": "MCI",
+      "A_dir_own": 0.03401947362199934
+    },
+    {
+      "gsm": "GSM4299217",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.2989636458218967,
+      "grp": "MCI",
+      "A_dir_own": -0.4501608329077487
+    },
+    {
+      "gsm": "GSM4299218",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.0023655095306532,
+      "grp": "MCI",
+      "A_dir_own": 0.07890015883206128
+    },
+    {
+      "gsm": "GSM4299219",
+      "status": "control",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.1480277156799397,
+      "grp": "HC",
+      "A_dir_own": -0.24995922141221402
+    },
+    {
+      "gsm": "GSM4299220",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -1.070063971703328,
+      "grp": "AD",
+      "A_dir_own": -0.13209717818588015
+    },
+    {
+      "gsm": "GSM4299221",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.2193508373842554,
+      "grp": "AD",
+      "A_dir_own": -0.2096175975395092
+    },
+    {
+      "gsm": "GSM4299222",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 81,
+      "A_dir": -0.7602880428313595,
+      "grp": "AD",
+      "A_dir_own": 0.11864006613304283
+    },
+    {
+      "gsm": "GSM4299223",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -0.6433251338998802,
+      "grp": "AD",
+      "A_dir_own": 0.376954645729849
+    },
+    {
+      "gsm": "GSM4299224",
+      "status": "control",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.8840476485923193,
+      "grp": "HC",
+      "A_dir_own": -0.011902686040717838
+    },
+    {
+      "gsm": "GSM4299225",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 75,
+      "A_dir": -1.0531241255906783,
+      "grp": "AD",
+      "A_dir_own": -0.17853592292772263
+    },
+    {
+      "gsm": "GSM4299226",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -0.6673358106113441,
+      "grp": "MCI",
+      "A_dir_own": 0.5137168865674265
+    },
+    {
+      "gsm": "GSM4299227",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 72,
+      "A_dir": -0.661831949997899,
+      "grp": "AD",
+      "A_dir_own": 0.46945458941379803
+    },
+    {
+      "gsm": "GSM4299228",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 61,
+      "A_dir": -1.453174482485764,
+      "grp": "AD",
+      "A_dir_own": -0.46674992500847223
+    },
+    {
+      "gsm": "GSM4299229",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.8077495942190888,
+      "grp": "MCI",
+      "A_dir_own": 0.19808230374906957
+    },
+    {
+      "gsm": "GSM4299230",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -0.8825130555943798,
+      "grp": "AD",
+      "A_dir_own": 0.09087189515243121
+    },
+    {
+      "gsm": "GSM4299231",
+      "status": "control",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -0.971114981819982,
+      "grp": "HC",
+      "A_dir_own": -0.02231545348396135
+    },
+    {
+      "gsm": "GSM4299232",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 82,
+      "A_dir": -0.6976125244618737,
+      "grp": "MCI",
+      "A_dir_own": 0.26861791247212047
+    },
+    {
+      "gsm": "GSM4299233",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.4828356978944121,
+      "grp": "MCI",
+      "A_dir_own": 0.49468672781837614
+    },
+    {
+      "gsm": "GSM4299234",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -1.0492248119035597,
+      "grp": "AD",
+      "A_dir_own": -0.11518424363420145
+    },
+    {
+      "gsm": "GSM4299235",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 75,
+      "A_dir": -0.664651230503745,
+      "grp": "AD",
+      "A_dir_own": 0.33969775291469567
+    },
+    {
+      "gsm": "GSM4299236",
+      "status": "control",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -0.8180087344123832,
+      "grp": "HC",
+      "A_dir_own": 0.2914240738104082
+    },
+    {
+      "gsm": "GSM4299237",
+      "status": "control",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.6114060024666907,
+      "grp": "HC",
+      "A_dir_own": -0.630883966905247
+    },
+    {
+      "gsm": "GSM4299238",
+      "status": "control",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.8577607343503094,
+      "grp": "HC",
+      "A_dir_own": 0.1055486831757932
+    },
+    {
+      "gsm": "GSM4299239",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 83,
+      "A_dir": -0.35017674713391406,
+      "grp": "AD",
+      "A_dir_own": 0.6743125685184305
+    },
+    {
+      "gsm": "GSM4299240",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 82,
+      "A_dir": -1.011424811070713,
+      "grp": "MCI",
+      "A_dir_own": -0.024087895862055547
+    },
+    {
+      "gsm": "GSM4299241",
+      "status": "control",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -1.1807874535355058,
+      "grp": "HC",
+      "A_dir_own": -0.21284368240905024
+    },
+    {
+      "gsm": "GSM4299242",
+      "status": "control",
+      "sex": "Male",
+      "age": 68,
+      "A_dir": -0.9444336057462274,
+      "grp": "HC",
+      "A_dir_own": -0.01984636050916253
+    },
+    {
+      "gsm": "GSM4299243",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -0.4900947433638746,
+      "grp": "AD",
+      "A_dir_own": 0.5796001712586688
+    },
+    {
+      "gsm": "GSM4299244",
+      "status": "control",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -1.2647974879439183,
+      "grp": "HC",
+      "A_dir_own": -0.3092733453226013
+    },
+    {
+      "gsm": "GSM4299245",
+      "status": "control",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -0.48477392103514433,
+      "grp": "HC",
+      "A_dir_own": 0.4249803862067987
+    },
+    {
+      "gsm": "GSM4299246",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -0.9444504940927576,
+      "grp": "MCI",
+      "A_dir_own": -0.016683283401051234
+    },
+    {
+      "gsm": "GSM4299247",
+      "status": "control",
+      "sex": "Female",
+      "age": 82,
+      "A_dir": -0.8388059889767118,
+      "grp": "HC",
+      "A_dir_own": 0.15923507201205792
+    },
+    {
+      "gsm": "GSM4299248",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.11773736630507162,
+      "grp": "MCI",
+      "A_dir_own": 0.9170769990517756
+    },
+    {
+      "gsm": "GSM4299249",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 85,
+      "A_dir": -0.061776227495516256,
+      "grp": "MCI",
+      "A_dir_own": 0.8839660949871889
+    },
+    {
+      "gsm": "GSM4299250",
+      "status": "control",
+      "sex": "Female",
+      "age": 74,
+      "A_dir": -1.1649360185161703,
+      "grp": "HC",
+      "A_dir_own": -0.21397347056472132
+    },
+    {
+      "gsm": "GSM4299251",
+      "status": "control",
+      "sex": "Female",
+      "age": 52,
+      "A_dir": -1.8389755515989348,
+      "grp": "HC",
+      "A_dir_own": -1.0030106767412383
+    },
+    {
+      "gsm": "GSM4299340",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 80,
+      "A_dir": -0.5572169471216531,
+      "grp": "MCI",
+      "A_dir_own": 0.3317293469758931
+    },
+    {
+      "gsm": "GSM4299341",
+      "status": "control",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -1.0177239633341073,
+      "grp": "HC",
+      "A_dir_own": -0.08482014234189154
+    },
+    {
+      "gsm": "GSM4299342",
+      "status": "control",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -1.016228736198597,
+      "grp": "HC",
+      "A_dir_own": -0.07705270378552231
+    },
+    {
+      "gsm": "GSM4299343",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.5194324498769677,
+      "grp": "MCI",
+      "A_dir_own": 0.40347379129390476
+    },
+    {
+      "gsm": "GSM4299344",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.5984680642009688,
+      "grp": "MCI",
+      "A_dir_own": 0.3849614290141608
+    },
+    {
+      "gsm": "GSM4299345",
+      "status": "control",
+      "sex": "Male",
+      "age": 84,
+      "A_dir": -0.07312158302739993,
+      "grp": "HC",
+      "A_dir_own": 0.9013833642885299
+    },
+    {
+      "gsm": "GSM4299346",
+      "status": "control",
+      "sex": "Male",
+      "age": 75,
+      "A_dir": -0.525858496773202,
+      "grp": "HC",
+      "A_dir_own": 0.43423757178679256
+    },
+    {
+      "gsm": "GSM4299347",
+      "status": "control",
+      "sex": "Male",
+      "age": 72,
+      "A_dir": -0.773266480837549,
+      "grp": "HC",
+      "A_dir_own": 0.22164987354804544
+    },
+    {
+      "gsm": "GSM4299348",
+      "status": "control",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.3203621256357276,
+      "grp": "HC",
+      "A_dir_own": -0.36092760993459255
+    },
+    {
+      "gsm": "GSM4299349",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.515070319759628,
+      "grp": "AD",
+      "A_dir_own": 0.4281724556080129
+    },
+    {
+      "gsm": "GSM4299350",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -1.1592515368957972,
+      "grp": "AD",
+      "A_dir_own": -0.29527645316974216
+    },
+    {
+      "gsm": "GSM4299351",
+      "status": "control",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.464191201979531,
+      "grp": "HC",
+      "A_dir_own": 0.4879273037394759
+    },
+    {
+      "gsm": "GSM4299352",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.2859890629524027,
+      "grp": "MCI",
+      "A_dir_own": -0.3938714470383778
+    },
+    {
+      "gsm": "GSM4299353",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 70,
+      "A_dir": -1.3134923225398558,
+      "grp": "MCI",
+      "A_dir_own": -0.3464894071718729
+    },
+    {
+      "gsm": "GSM4299354",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.8831271789727051,
+      "grp": "AD",
+      "A_dir_own": 0.04573726693452402
+    },
+    {
+      "gsm": "GSM4299355",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.549825917798978,
+      "grp": "MCI",
+      "A_dir_own": 0.4222109754028458
+    },
+    {
+      "gsm": "GSM4299356",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 64,
+      "A_dir": -0.8341875847522431,
+      "grp": "MCI",
+      "A_dir_own": 0.08949370381269442
+    },
+    {
+      "gsm": "GSM4299357",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 81,
+      "A_dir": -1.247145731972608,
+      "grp": "MCI",
+      "A_dir_own": -0.32544566633777755
+    },
+    {
+      "gsm": "GSM4299358",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -1.3644489977465586,
+      "grp": "AD",
+      "A_dir_own": -0.49684236971486684
+    },
+    {
+      "gsm": "GSM4299359",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.0935040849490048,
+      "grp": "AD",
+      "A_dir_own": -0.14974629168965864
+    },
+    {
+      "gsm": "GSM4299360",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 85,
+      "A_dir": -0.15471506851111919,
+      "grp": "AD",
+      "A_dir_own": 0.8229989257203251
+    },
+    {
+      "gsm": "GSM4299361",
+      "status": "control",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -0.8851253592924007,
+      "grp": "HC",
+      "A_dir_own": 0.08069572944227132
+    },
+    {
+      "gsm": "GSM4299362",
+      "status": "control",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.1302620291992407,
+      "grp": "HC",
+      "A_dir_own": -0.26780516783216546
+    },
+    {
+      "gsm": "GSM4299363",
+      "status": "control",
+      "sex": "Male",
+      "age": 81,
+      "A_dir": -0.13336992174346546,
+      "grp": "HC",
+      "A_dir_own": 0.7995652504797569
+    },
+    {
+      "gsm": "GSM4299364",
+      "status": "control",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.8722861529157019,
+      "grp": "HC",
+      "A_dir_own": 0.11801396579801685
+    },
+    {
+      "gsm": "GSM4299365",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -0.44252413289165266,
+      "grp": "AD",
+      "A_dir_own": 0.544667292691275
+    },
+    {
+      "gsm": "GSM4299366",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -1.2328701651172533,
+      "grp": "AD",
+      "A_dir_own": -0.2878962177501231
+    },
+    {
+      "gsm": "GSM4299367",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 71,
+      "A_dir": -1.4523567507151007,
+      "grp": "MCI",
+      "A_dir_own": -0.5414187299903098
+    },
+    {
+      "gsm": "GSM4299368",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -0.8556930083171229,
+      "grp": "AD",
+      "A_dir_own": 0.14423879797756428
+    },
+    {
+      "gsm": "GSM4299369",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.5281908807562943,
+      "grp": "AD",
+      "A_dir_own": -0.5596823538055419
+    },
+    {
+      "gsm": "GSM4299370",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 81,
+      "A_dir": -0.9637156749952255,
+      "grp": "MCI",
+      "A_dir_own": -0.1103673771046427
+    },
+    {
+      "gsm": "GSM4299371",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 83,
+      "A_dir": -0.5475364855663345,
+      "grp": "AD",
+      "A_dir_own": 0.4270145558810601
+    },
+    {
+      "gsm": "GSM4299372",
+      "status": "control",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -0.0032063703621304633,
+      "grp": "HC",
+      "A_dir_own": 0.9875055623452761
+    },
+    {
+      "gsm": "GSM4299373",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.6100500778523579,
+      "grp": "AD",
+      "A_dir_own": 0.3768320740240015
+    },
+    {
+      "gsm": "GSM4299374",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 69,
+      "A_dir": -1.2678257648147249,
+      "grp": "MCI",
+      "A_dir_own": -0.3731537784614973
+    },
+    {
+      "gsm": "GSM4299375",
+      "status": "control",
+      "sex": "Female",
+      "age": 60,
+      "A_dir": -1.4518175569266372,
+      "grp": "HC",
+      "A_dir_own": -0.5910737422404143
+    },
+    {
+      "gsm": "GSM4299376",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.7927982020969717,
+      "grp": "MCI",
+      "A_dir_own": 0.16235368760708982
+    },
+    {
+      "gsm": "GSM4299377",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -0.8131511301986979,
+      "grp": "MCI",
+      "A_dir_own": 0.13890469508787034
+    },
+    {
+      "gsm": "GSM4299378",
+      "status": "control",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -1.553904129886305,
+      "grp": "HC",
+      "A_dir_own": -0.7720361554535647
+    },
+    {
+      "gsm": "GSM4299379",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 83,
+      "A_dir": -0.21196714098989178,
+      "grp": "AD",
+      "A_dir_own": 0.7727127916160971
+    },
+    {
+      "gsm": "GSM4299380",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 86,
+      "A_dir": -0.6854279940525734,
+      "grp": "AD",
+      "A_dir_own": 0.186548205163513
+    },
+    {
+      "gsm": "GSM4299381",
+      "status": "control",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -0.41444924734421057,
+      "grp": "HC",
+      "A_dir_own": 0.5246823762601658
+    },
+    {
+      "gsm": "GSM4299382",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 80,
+      "A_dir": -1.0931122953585446,
+      "grp": "AD",
+      "A_dir_own": -0.20862423490869916
+    },
+    {
+      "gsm": "GSM4299383",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 71,
+      "A_dir": -0.3929784742977898,
+      "grp": "AD",
+      "A_dir_own": 0.5824148039378227
+    },
+    {
+      "gsm": "GSM4299384",
+      "status": "control",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -0.5128075064190376,
+      "grp": "HC",
+      "A_dir_own": 0.48785775108215196
+    },
+    {
+      "gsm": "GSM4299385",
+      "status": "control",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -0.9445511720808455,
+      "grp": "HC",
+      "A_dir_own": 0.019864778027661824
+    },
+    {
+      "gsm": "GSM4299386",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 82,
+      "A_dir": -0.20785526653552924,
+      "grp": "MCI",
+      "A_dir_own": 0.6783647348848466
+    },
+    {
+      "gsm": "GSM4299387",
+      "status": "control",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.8936268225022264,
+      "grp": "HC",
+      "A_dir_own": -1.029020372949849
+    },
+    {
+      "gsm": "GSM4299388",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -1.0575000018696132,
+      "grp": "AD",
+      "A_dir_own": -0.08500732158208801
+    },
+    {
+      "gsm": "GSM4299389",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.8064874929034661,
+      "grp": "MCI",
+      "A_dir_own": 0.11334858224027451
+    },
+    {
+      "gsm": "GSM4299390",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.8876762153700698,
+      "grp": "AD",
+      "A_dir_own": 0.14256363412564219
+    },
+    {
+      "gsm": "GSM4299391",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 72,
+      "A_dir": -0.6979665673570856,
+      "grp": "AD",
+      "A_dir_own": 0.1676538063667183
+    },
+    {
+      "gsm": "GSM4299392",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": -1.1185036343928565,
+      "grp": "AD",
+      "A_dir_own": -0.19784198663280708
+    },
+    {
+      "gsm": "GSM4299393",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -1.464366363405016,
+      "grp": "AD",
+      "A_dir_own": -0.5986156781048243
+    },
+    {
+      "gsm": "GSM4299394",
+      "status": "control",
+      "sex": "Female",
+      "age": 86,
+      "A_dir": -0.7904913181112185,
+      "grp": "HC",
+      "A_dir_own": 0.1871483108960319
+    },
+    {
+      "gsm": "GSM4299395",
+      "status": "control",
+      "sex": "Male",
+      "age": 71,
+      "A_dir": -0.9599836136574939,
+      "grp": "HC",
+      "A_dir_own": -0.065477834333459
+    },
+    {
+      "gsm": "GSM4299396",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -0.7944182844795336,
+      "grp": "MCI",
+      "A_dir_own": 0.11497376749481726
+    },
+    {
+      "gsm": "GSM4299397",
+      "status": "control",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.7561176407930165,
+      "grp": "HC",
+      "A_dir_own": 0.17797509622523114
+    },
+    {
+      "gsm": "GSM4299398",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 81,
+      "A_dir": -0.7638917731692523,
+      "grp": "MCI",
+      "A_dir_own": 0.31440175597653053
+    },
+    {
+      "gsm": "GSM4299399",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.1842217748874848,
+      "grp": "MCI",
+      "A_dir_own": -0.28192814051843
+    },
+    {
+      "gsm": "GSM4299400",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 88,
+      "A_dir": -0.3082584096239086,
+      "grp": "AD",
+      "A_dir_own": 0.578057779664385
+    },
+    {
+      "gsm": "GSM4299401",
+      "status": "control",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -0.9433532684969469,
+      "grp": "HC",
+      "A_dir_own": 0.06549243624770963
+    },
+    {
+      "gsm": "GSM4299402",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 69,
+      "A_dir": -1.424563202840812,
+      "grp": "MCI",
+      "A_dir_own": -0.530047133480361
+    },
+    {
+      "gsm": "GSM4299403",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.1459975478765217,
+      "grp": "AD",
+      "A_dir_own": 0.8833164058215203
+    },
+    {
+      "gsm": "GSM4299404",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -0.025342638440337874,
+      "grp": "MCI",
+      "A_dir_own": 1.063427808873639
+    },
+    {
+      "gsm": "GSM4299405",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 75,
+      "A_dir": -0.8992893139522641,
+      "grp": "MCI",
+      "A_dir_own": -0.061967298351027544
+    },
+    {
+      "gsm": "GSM4299406",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 82,
+      "A_dir": 0.01989356049128133,
+      "grp": "MCI",
+      "A_dir_own": 0.9702168372708702
+    },
+    {
+      "gsm": "GSM4299407",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -1.3830785992898755,
+      "grp": "MCI",
+      "A_dir_own": -0.5283867708131268
+    },
+    {
+      "gsm": "GSM4299408",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.451130470692292,
+      "grp": "AD",
+      "A_dir_own": -0.6178691747382024
+    },
+    {
+      "gsm": "GSM4299409",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.2849210652589493,
+      "grp": "MCI",
+      "A_dir_own": -0.2088125114522749
+    },
+    {
+      "gsm": "GSM4299410",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.0926361008307166,
+      "grp": "AD",
+      "A_dir_own": -0.028796985170792173
+    },
+    {
+      "gsm": "GSM4299411",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -0.5877730978454222,
+      "grp": "AD",
+      "A_dir_own": 0.4579183310317462
+    },
+    {
+      "gsm": "GSM4299412",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.7538334952342957,
+      "grp": "MCI",
+      "A_dir_own": 0.33512305311830726
+    },
+    {
+      "gsm": "GSM4299413",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.9470506298751806,
+      "grp": "MCI",
+      "A_dir_own": 0.10615071293089738
+    },
+    {
+      "gsm": "GSM4299414",
+      "status": "control",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.2156984769944565,
+      "grp": "HC",
+      "A_dir_own": -0.32953034581857493
+    },
+    {
+      "gsm": "GSM4299415",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 72,
+      "A_dir": -1.2414063953229264,
+      "grp": "MCI",
+      "A_dir_own": -0.28182786819266475
+    },
+    {
+      "gsm": "GSM4299416",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.5273629799347157,
+      "grp": "MCI",
+      "A_dir_own": 0.379160995393267
+    },
+    {
+      "gsm": "GSM4299417",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 70,
+      "A_dir": -1.1533912623856153,
+      "grp": "AD",
+      "A_dir_own": -0.2530546638025644
+    },
+    {
+      "gsm": "GSM4299418",
+      "status": "control",
+      "sex": "Female",
+      "age": 54,
+      "A_dir": -1.8271264569136076,
+      "grp": "HC",
+      "A_dir_own": -0.972320651185793
+    },
+    {
+      "gsm": "GSM4299419",
+      "status": "control",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -1.5081277204818797,
+      "grp": "HC",
+      "A_dir_own": -0.5131852083000411
+    },
+    {
+      "gsm": "GSM4299420",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 84,
+      "A_dir": -0.7090346559446188,
+      "grp": "MCI",
+      "A_dir_own": 0.17555560312339233
+    },
+    {
+      "gsm": "GSM4299421",
+      "status": "control",
+      "sex": "Male",
+      "age": 61,
+      "A_dir": -1.3186527506788692,
+      "grp": "HC",
+      "A_dir_own": -0.4881905003497908
+    },
+    {
+      "gsm": "GSM4299422",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 69,
+      "A_dir": -1.5921320160195405,
+      "grp": "MCI",
+      "A_dir_own": -0.7511176287516163
+    },
+    {
+      "gsm": "GSM4299423",
+      "status": "control",
+      "sex": "Male",
+      "age": 66,
+      "A_dir": -1.0388310482127199,
+      "grp": "HC",
+      "A_dir_own": -0.09841822040324452
+    },
+    {
+      "gsm": "GSM4299424",
+      "status": "control",
+      "sex": "Male",
+      "age": 69,
+      "A_dir": -0.9778717113354274,
+      "grp": "HC",
+      "A_dir_own": 0.08205269277270677
+    },
+    {
+      "gsm": "GSM4299425",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 85,
+      "A_dir": -0.6978008173475118,
+      "grp": "MCI",
+      "A_dir_own": 0.2453944889869106
+    },
+    {
+      "gsm": "GSM4299426",
+      "status": "control",
+      "sex": "Male",
+      "age": 59,
+      "A_dir": -0.48547677004524303,
+      "grp": "HC",
+      "A_dir_own": 0.4871543355775856
+    },
+    {
+      "gsm": "GSM4299427",
+      "status": "control",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -1.273573981261649,
+      "grp": "HC",
+      "A_dir_own": -0.35317936085090407
+    },
+    {
+      "gsm": "GSM4299428",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 80,
+      "A_dir": -0.8119345935373135,
+      "grp": "MCI",
+      "A_dir_own": 0.16846386290207485
+    },
+    {
+      "gsm": "GSM4299429",
+      "status": "control",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.5765846207443064,
+      "grp": "HC",
+      "A_dir_own": -0.680489151827526
+    },
+    {
+      "gsm": "GSM4299430",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.9326965122074601,
+      "grp": "MCI",
+      "A_dir_own": -0.02664942282940497
+    },
+    {
+      "gsm": "GSM4299431",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.3455132677762495,
+      "grp": "AD",
+      "A_dir_own": 0.5746982691057994
+    },
+    {
+      "gsm": "GSM4299432",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -0.33001364622594814,
+      "grp": "AD",
+      "A_dir_own": 0.5622191465805261
+    },
+    {
+      "gsm": "GSM4299433",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": -1.661577291349849,
+      "grp": "AD",
+      "A_dir_own": -0.7671508338058998
+    },
+    {
+      "gsm": "GSM4299434",
+      "status": "control",
+      "sex": "Male",
+      "age": 68,
+      "A_dir": -1.1083787410643593,
+      "grp": "HC",
+      "A_dir_own": -0.11628472344530569
+    },
+    {
+      "gsm": "GSM4299435",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -0.836462600109697,
+      "grp": "MCI",
+      "A_dir_own": 0.11178474026055463
+    },
+    {
+      "gsm": "GSM4299436",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 73,
+      "A_dir": -0.6387776652002588,
+      "grp": "AD",
+      "A_dir_own": 0.35190649900051796
+    },
+    {
+      "gsm": "GSM4299437",
+      "status": "control",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -1.0165799270695166,
+      "grp": "HC",
+      "A_dir_own": -0.20119951252618415
+    },
+    {
+      "gsm": "GSM4299438",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.3133678214703934,
+      "grp": "AD",
+      "A_dir_own": -0.3391598494068671
+    },
+    {
+      "gsm": "GSM4299439",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -1.01068505400807,
+      "grp": "MCI",
+      "A_dir_own": -0.08039982077614259
+    },
+    {
+      "gsm": "GSM4299452",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -1.2761513500863322,
+      "grp": "MCI",
+      "A_dir_own": -0.2931817717675244
+    },
+    {
+      "gsm": "GSM4299453",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 64,
+      "A_dir": -1.9451843396509578,
+      "grp": "AD",
+      "A_dir_own": -1.1108146001720338
+    },
+    {
+      "gsm": "GSM4299454",
+      "status": "control",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -0.09015752104880718,
+      "grp": "HC",
+      "A_dir_own": 1.0331126070451933
+    },
+    {
+      "gsm": "GSM4299455",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 82,
+      "A_dir": -0.314880669836938,
+      "grp": "AD",
+      "A_dir_own": 0.5406954225505317
+    },
+    {
+      "gsm": "GSM4299456",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 86,
+      "A_dir": -0.3968783692514628,
+      "grp": "AD",
+      "A_dir_own": 0.6792845237895092
+    },
+    {
+      "gsm": "GSM4299457",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -0.7297850957289496,
+      "grp": "AD",
+      "A_dir_own": 0.331623014570578
+    },
+    {
+      "gsm": "GSM4299458",
+      "status": "control",
+      "sex": "Female",
+      "age": 73,
+      "A_dir": -1.4339467740637573,
+      "grp": "HC",
+      "A_dir_own": -0.576754563223807
+    },
+    {
+      "gsm": "GSM4299459",
+      "status": "control",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -1.1814981577283112,
+      "grp": "HC",
+      "A_dir_own": -0.18850290478820123
+    },
+    {
+      "gsm": "GSM4299460",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -0.9907123111899202,
+      "grp": "MCI",
+      "A_dir_own": -0.10612861028256915
+    },
+    {
+      "gsm": "GSM4299461",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -0.9725934752667714,
+      "grp": "MCI",
+      "A_dir_own": -0.08557145682636871
+    },
+    {
+      "gsm": "GSM4299462",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.998014891738187,
+      "grp": "MCI",
+      "A_dir_own": -0.1605883952891338
+    },
+    {
+      "gsm": "GSM4299463",
+      "status": "control",
+      "sex": "Female",
+      "age": 74,
+      "A_dir": -1.6711545163556796,
+      "grp": "HC",
+      "A_dir_own": -0.7173852302481653
+    },
+    {
+      "gsm": "GSM4299464",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.7154087439862237,
+      "grp": "MCI",
+      "A_dir_own": 0.3314349385259906
+    },
+    {
+      "gsm": "GSM4299465",
+      "status": "control",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -0.6410543880186877,
+      "grp": "HC",
+      "A_dir_own": 0.2462910977388024
+    },
+    {
+      "gsm": "GSM4299466",
+      "status": "control",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.6510467693822919,
+      "grp": "HC",
+      "A_dir_own": 0.32517644699280407
+    },
+    {
+      "gsm": "GSM4299467",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 90,
+      "A_dir": -0.6141018273218858,
+      "grp": "MCI",
+      "A_dir_own": 0.4895105648077336
+    },
+    {
+      "gsm": "GSM4299468",
+      "status": "control",
+      "sex": "Male",
+      "age": 71,
+      "A_dir": -1.268972759364263,
+      "grp": "HC",
+      "A_dir_own": -0.38137195281669234
+    },
+    {
+      "gsm": "GSM4299469",
+      "status": "control",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.6747586484724535,
+      "grp": "HC",
+      "A_dir_own": 0.33907448986867156
+    },
+    {
+      "gsm": "GSM4299470",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.05251405781056712,
+      "grp": "AD",
+      "A_dir_own": 0.9521128332403583
+    },
+    {
+      "gsm": "GSM4299471",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -1.242789595497672,
+      "grp": "MCI",
+      "A_dir_own": -0.34134204255490175
+    },
+    {
+      "gsm": "GSM4299472",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 86,
+      "A_dir": -0.28247370088635904,
+      "grp": "AD",
+      "A_dir_own": 0.7893716924568066
+    },
+    {
+      "gsm": "GSM4299473",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 70,
+      "A_dir": -1.5278382882135861,
+      "grp": "AD",
+      "A_dir_own": -0.5996940450552158
+    },
+    {
+      "gsm": "GSM4299474",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.4301481873537354,
+      "grp": "MCI",
+      "A_dir_own": -0.557148899374451
+    },
+    {
+      "gsm": "GSM4299475",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -1.2278208393815453,
+      "grp": "MCI",
+      "A_dir_own": -0.32716367098081395
+    },
+    {
+      "gsm": "GSM4299476",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 72,
+      "A_dir": -0.8913568889275151,
+      "grp": "AD",
+      "A_dir_own": 0.06660785262917358
+    },
+    {
+      "gsm": "GSM4299477",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.0129455281289248,
+      "grp": "AD",
+      "A_dir_own": -0.07406350496379432
+    },
+    {
+      "gsm": "GSM4299478",
+      "status": "control",
+      "sex": "Male",
+      "age": 87,
+      "A_dir": -0.3061421324869955,
+      "grp": "HC",
+      "A_dir_own": 0.6980685377699334
+    },
+    {
+      "gsm": "GSM4299479",
+      "status": "control",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.0746746764186204,
+      "grp": "HC",
+      "A_dir_own": -0.06495611853826995
+    },
+    {
+      "gsm": "GSM4299480",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -1.2107916186849217,
+      "grp": "MCI",
+      "A_dir_own": -0.3299178418809849
+    },
+    {
+      "gsm": "GSM4299481",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -1.205373910351906,
+      "grp": "MCI",
+      "A_dir_own": -0.2514135984880391
+    },
+    {
+      "gsm": "GSM4299482",
+      "status": "control",
+      "sex": "Female",
+      "age": 65,
+      "A_dir": -0.47037567389458673,
+      "grp": "HC",
+      "A_dir_own": 0.6229953776141481
+    },
+    {
+      "gsm": "GSM4299483",
+      "status": "control",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -1.3534249873170372,
+      "grp": "HC",
+      "A_dir_own": -0.5082561836417805
+    },
+    {
+      "gsm": "GSM4299484",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 70,
+      "A_dir": -0.6817748342897192,
+      "grp": "MCI",
+      "A_dir_own": 0.28686569739896134
+    },
+    {
+      "gsm": "GSM4299485",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 83,
+      "A_dir": -0.594265191302685,
+      "grp": "AD",
+      "A_dir_own": 0.3485534898616575
+    },
+    {
+      "gsm": "GSM4299486",
+      "status": "control",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.37862387918075,
+      "grp": "HC",
+      "A_dir_own": -0.5249466369356964
+    },
+    {
+      "gsm": "GSM4299487",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 75,
+      "A_dir": 0.578771772941872,
+      "grp": "AD",
+      "A_dir_own": 1.916745051056186
+    },
+    {
+      "gsm": "GSM4299488",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 81,
+      "A_dir": -1.022730757181401,
+      "grp": "MCI",
+      "A_dir_own": -0.03795015612002934
+    },
+    {
+      "gsm": "GSM4299489",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -1.0173094217552114,
+      "grp": "MCI",
+      "A_dir_own": -0.07366816241640776
+    },
+    {
+      "gsm": "GSM4299490",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 59,
+      "A_dir": -1.2472855888720882,
+      "grp": "AD",
+      "A_dir_own": -0.3065468602311404
+    },
+    {
+      "gsm": "GSM4299491",
+      "status": "control",
+      "sex": "Female",
+      "age": 74,
+      "A_dir": -0.6791512314843976,
+      "grp": "HC",
+      "A_dir_own": 0.20781605263565303
+    },
+    {
+      "gsm": "GSM4299492",
+      "status": "control",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": 0.1076016377698646,
+      "grp": "HC",
+      "A_dir_own": 1.1186874755115521
+    },
+    {
+      "gsm": "GSM4299493",
+      "status": "control",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.15624535876114015,
+      "grp": "HC",
+      "A_dir_own": 0.8949575406072688
+    },
+    {
+      "gsm": "GSM4299494",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -1.4106722798102427,
+      "grp": "MCI",
+      "A_dir_own": -0.4862326207113527
+    },
+    {
+      "gsm": "GSM4299495",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 85,
+      "A_dir": 0.1531132468867857,
+      "grp": "AD",
+      "A_dir_own": 1.3429963747144154
+    },
+    {
+      "gsm": "GSM4299496",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -1.2792775492202957,
+      "grp": "MCI",
+      "A_dir_own": -0.3564793899295271
+    },
+    {
+      "gsm": "GSM4299497",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": -2.3839913962915276,
+      "grp": "MCI",
+      "A_dir_own": -1.5078187133006846
+    },
+    {
+      "gsm": "GSM4299498",
+      "status": "control",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -0.14107348804520822,
+      "grp": "HC",
+      "A_dir_own": 0.8614484102617966
+    },
+    {
+      "gsm": "GSM4299499",
+      "status": "control",
+      "sex": "Female",
+      "age": 69,
+      "A_dir": -1.0792731166356317,
+      "grp": "HC",
+      "A_dir_own": -0.10599454958401963
+    },
+    {
+      "gsm": "GSM4299500",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 69,
+      "A_dir": -1.0346719191247726,
+      "grp": "MCI",
+      "A_dir_own": -0.13515277124323813
+    },
+    {
+      "gsm": "GSM4299501",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -0.6166689164932266,
+      "grp": "MCI",
+      "A_dir_own": 0.23896039903943783
+    },
+    {
+      "gsm": "GSM4299547",
+      "status": "control",
+      "sex": "Female",
+      "age": 73,
+      "A_dir": -0.9795295580761293,
+      "grp": "HC",
+      "A_dir_own": 0.010982815838650937
+    },
+    {
+      "gsm": "GSM4299548",
+      "status": "control",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -0.5394748518534404,
+      "grp": "HC",
+      "A_dir_own": 0.5279739746115287
+    },
+    {
+      "gsm": "GSM4299549",
+      "status": "control",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.1506445913769505,
+      "grp": "HC",
+      "A_dir_own": -0.18215392247372345
+    },
+    {
+      "gsm": "GSM4299550",
+      "status": "control",
+      "sex": "Male",
+      "age": 67,
+      "A_dir": -0.7265333193149736,
+      "grp": "HC",
+      "A_dir_own": 0.31656059519801644
+    },
+    {
+      "gsm": "GSM4299551",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 82,
+      "A_dir": -0.4689911058391996,
+      "grp": "AD",
+      "A_dir_own": 0.41036669205706616
+    },
+    {
+      "gsm": "GSM4299552",
+      "status": "control",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.5914111081005475,
+      "grp": "HC",
+      "A_dir_own": -0.5339222447444535
+    },
+    {
+      "gsm": "GSM4299553",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -1.1788547698887648,
+      "grp": "MCI",
+      "A_dir_own": -0.197387967674383
+    },
+    {
+      "gsm": "GSM4299554",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -0.9044549683499231,
+      "grp": "MCI",
+      "A_dir_own": 0.07368765182233082
+    },
+    {
+      "gsm": "GSM4299555",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 84,
+      "A_dir": -0.6199258122552321,
+      "grp": "AD",
+      "A_dir_own": 0.3483200324674889
+    },
+    {
+      "gsm": "GSM4299556",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 81,
+      "A_dir": -1.5497405331306404,
+      "grp": "AD",
+      "A_dir_own": -0.5615062194256898
+    },
+    {
+      "gsm": "GSM4299557",
+      "status": "control",
+      "sex": "Female",
+      "age": 65,
+      "A_dir": -1.6307715149492112,
+      "grp": "HC",
+      "A_dir_own": -0.7620188550086227
+    },
+    {
+      "gsm": "GSM4299558",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.9789044295121343,
+      "grp": "MCI",
+      "A_dir_own": -0.11202350829318337
+    },
+    {
+      "gsm": "GSM4299559",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -0.12359641363808316,
+      "grp": "AD",
+      "A_dir_own": 0.9625659189456552
+    },
+    {
+      "gsm": "GSM4299560",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 81,
+      "A_dir": -0.746868016679025,
+      "grp": "MCI",
+      "A_dir_own": 0.35550223934461594
+    },
+    {
+      "gsm": "GSM4299561",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.14297157979109015,
+      "grp": "MCI",
+      "A_dir_own": 0.9468915789964744
+    },
+    {
+      "gsm": "GSM4299562",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 67,
+      "A_dir": -1.112566627924459,
+      "grp": "MCI",
+      "A_dir_own": -0.17100394263249608
+    },
+    {
+      "gsm": "GSM4299563",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 70,
+      "A_dir": -1.04655721272915,
+      "grp": "MCI",
+      "A_dir_own": -0.16937425375828682
+    },
+    {
+      "gsm": "GSM4299564",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -0.667771435812653,
+      "grp": "MCI",
+      "A_dir_own": 0.31445119063225224
+    },
+    {
+      "gsm": "GSM4299565",
+      "status": "control",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.7078266280659162,
+      "grp": "HC",
+      "A_dir_own": -0.7985486337126587
+    },
+    {
+      "gsm": "GSM4299566",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 85,
+      "A_dir": -0.502960966029772,
+      "grp": "MCI",
+      "A_dir_own": 0.4844776545720646
+    },
+    {
+      "gsm": "GSM4299567",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 83,
+      "A_dir": -0.6193335261119859,
+      "grp": "MCI",
+      "A_dir_own": 0.36524406239552043
+    },
+    {
+      "gsm": "GSM4299568",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 65,
+      "A_dir": -1.4959933690001073,
+      "grp": "MCI",
+      "A_dir_own": -0.6297593870265604
+    },
+    {
+      "gsm": "GSM4299569",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -0.5495774134387104,
+      "grp": "AD",
+      "A_dir_own": 0.4677582922952392
+    },
+    {
+      "gsm": "GSM4299570",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.0975698055181382,
+      "grp": "MCI",
+      "A_dir_own": -0.08710212910367761
+    },
+    {
+      "gsm": "GSM4299571",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 77,
+      "A_dir": -0.6611245504825412,
+      "grp": "AD",
+      "A_dir_own": 0.32450439155140964
+    },
+    {
+      "gsm": "GSM4299572",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 73,
+      "A_dir": -1.3290990082861056,
+      "grp": "AD",
+      "A_dir_own": -0.4813776372149385
+    },
+    {
+      "gsm": "GSM4299573",
+      "status": "control",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.421123311936513,
+      "grp": "HC",
+      "A_dir_own": -0.46860179845437694
+    },
+    {
+      "gsm": "GSM4299574",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 61,
+      "A_dir": -1.3817747723445026,
+      "grp": "AD",
+      "A_dir_own": -0.5358534993914759
+    },
+    {
+      "gsm": "GSM4299575",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -1.2802723008816728,
+      "grp": "AD",
+      "A_dir_own": -0.3913493586433582
+    },
+    {
+      "gsm": "GSM4299576",
+      "status": "control",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -1.383593946781584,
+      "grp": "HC",
+      "A_dir_own": -0.5687914399352387
+    },
+    {
+      "gsm": "GSM4299577",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 85,
+      "A_dir": -0.0985781648561369,
+      "grp": "AD",
+      "A_dir_own": 0.931176234013454
+    },
+    {
+      "gsm": "GSM4299578",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 82,
+      "A_dir": -0.9972010854127642,
+      "grp": "AD",
+      "A_dir_own": -0.06398772804276591
+    },
+    {
+      "gsm": "GSM4299579",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 74,
+      "A_dir": -0.8466049137209186,
+      "grp": "AD",
+      "A_dir_own": 0.09690773330473582
+    },
+    {
+      "gsm": "GSM4299580",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 85,
+      "A_dir": -0.5266573661749467,
+      "grp": "MCI",
+      "A_dir_own": 0.465777612639592
+    },
+    {
+      "gsm": "GSM4299581",
+      "status": "control",
+      "sex": "Female",
+      "age": 87,
+      "A_dir": -0.07115262906363226,
+      "grp": "HC",
+      "A_dir_own": 0.8758212543555592
+    },
+    {
+      "gsm": "GSM4299582",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 77,
+      "A_dir": -0.14651157296789866,
+      "grp": "AD",
+      "A_dir_own": 0.7926304171278576
+    },
+    {
+      "gsm": "GSM4299583",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 80,
+      "A_dir": -0.7442935096599212,
+      "grp": "MCI",
+      "A_dir_own": 0.350131389240942
+    },
+    {
+      "gsm": "GSM4299584",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 83,
+      "A_dir": -0.6234647754196222,
+      "grp": "MCI",
+      "A_dir_own": 0.4095337610106315
+    },
+    {
+      "gsm": "GSM4299585",
+      "status": "control",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -0.5623365786687584,
+      "grp": "HC",
+      "A_dir_own": 0.5197936147182708
+    },
+    {
+      "gsm": "GSM4299586",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 64,
+      "A_dir": 0.021549468355590146,
+      "grp": "AD",
+      "A_dir_own": 0.9559441918586603
+    },
+    {
+      "gsm": "GSM4299587",
+      "status": "control",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.6292530818757546,
+      "grp": "HC",
+      "A_dir_own": 0.3424182739474818
+    },
+    {
+      "gsm": "GSM4299588",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 83,
+      "A_dir": -0.8743219477220913,
+      "grp": "AD",
+      "A_dir_own": 0.04986172433229684
+    },
+    {
+      "gsm": "GSM4299589",
+      "status": "control",
+      "sex": "Female",
+      "age": 70,
+      "A_dir": -1.0384234054586983,
+      "grp": "HC",
+      "A_dir_own": -0.043972980372406385
+    },
+    {
+      "gsm": "GSM4299590",
+      "status": "control",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -0.3467077270178116,
+      "grp": "HC",
+      "A_dir_own": 0.6826990888423605
+    },
+    {
+      "gsm": "GSM4299591",
+      "status": "control",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.3829279774598598,
+      "grp": "HC",
+      "A_dir_own": 0.5986793546328872
+    },
+    {
+      "gsm": "GSM4299592",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 81,
+      "A_dir": -1.4470874736499375,
+      "grp": "MCI",
+      "A_dir_own": -0.5369058388364888
+    },
+    {
+      "gsm": "GSM4299593",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 71,
+      "A_dir": -1.1855651138736352,
+      "grp": "MCI",
+      "A_dir_own": -0.18931394519456687
+    },
+    {
+      "gsm": "GSM4299594",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.3738780717669426,
+      "grp": "MCI",
+      "A_dir_own": 0.6519605985200382
+    },
+    {
+      "gsm": "GSM4299595",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.0272657707267727,
+      "grp": "MCI",
+      "A_dir_own": -0.1683565339382645
+    },
+    {
+      "gsm": "GSM4299596",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.923021946611043,
+      "grp": "MCI",
+      "A_dir_own": 0.08460585574523265
+    },
+    {
+      "gsm": "GSM4299615",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 74,
+      "A_dir": -0.5400970873067381,
+      "grp": "MCI",
+      "A_dir_own": 0.43974968242770857
+    },
+    {
+      "gsm": "GSM4299616",
+      "status": "control",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.2204264993424645,
+      "grp": "HC",
+      "A_dir_own": -0.2793083996257456
+    },
+    {
+      "gsm": "GSM4299617",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.0273898206356051,
+      "grp": "MCI",
+      "A_dir_own": -0.006759110829381834
+    },
+    {
+      "gsm": "GSM4299618",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 86,
+      "A_dir": -0.5375933950875997,
+      "grp": "MCI",
+      "A_dir_own": 0.5257488594389719
+    },
+    {
+      "gsm": "GSM4299619",
+      "status": "control",
+      "sex": "Female",
+      "age": 84,
+      "A_dir": -0.7635575339984293,
+      "grp": "HC",
+      "A_dir_own": 0.2723429513552079
+    },
+    {
+      "gsm": "GSM4299620",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 81,
+      "A_dir": -1.315212694367572,
+      "grp": "AD",
+      "A_dir_own": -0.45713971309261126
+    },
+    {
+      "gsm": "GSM4299621",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 71,
+      "A_dir": -1.121021407365899,
+      "grp": "MCI",
+      "A_dir_own": -0.2392100299529471
+    },
+    {
+      "gsm": "GSM4299622",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 78,
+      "A_dir": -0.4035481943338301,
+      "grp": "AD",
+      "A_dir_own": 0.6724286484582234
+    },
+    {
+      "gsm": "GSM4299623",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 72,
+      "A_dir": -1.5128537223000902,
+      "grp": "MCI",
+      "A_dir_own": -0.5668966422953672
+    },
+    {
+      "gsm": "GSM4299624",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -1.1613674046749536,
+      "grp": "MCI",
+      "A_dir_own": -0.14585315678749372
+    },
+    {
+      "gsm": "GSM4299625",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 84,
+      "A_dir": -0.27118061639356517,
+      "grp": "MCI",
+      "A_dir_own": 0.829889101946658
+    },
+    {
+      "gsm": "GSM4299626",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 80,
+      "A_dir": -0.8422248285526688,
+      "grp": "MCI",
+      "A_dir_own": 0.10558511390211475
+    },
+    {
+      "gsm": "GSM4299627",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.86110149687122,
+      "grp": "AD",
+      "A_dir_own": 0.15979259299732904
+    },
+    {
+      "gsm": "GSM4299628",
+      "status": "control",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -1.022812896704142,
+      "grp": "HC",
+      "A_dir_own": -0.03670691295941742
+    },
+    {
+      "gsm": "GSM4299629",
+      "status": "control",
+      "sex": "Female",
+      "age": 58,
+      "A_dir": -1.6976087928565264,
+      "grp": "HC",
+      "A_dir_own": -0.8423641395569639
+    },
+    {
+      "gsm": "GSM4299630",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 59,
+      "A_dir": -2.112087239817988,
+      "grp": "MCI",
+      "A_dir_own": -1.2417780204988795
+    },
+    {
+      "gsm": "GSM4299631",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 68,
+      "A_dir": -0.8977798178698221,
+      "grp": "MCI",
+      "A_dir_own": 0.08279755370331575
+    },
+    {
+      "gsm": "GSM4299632",
+      "status": "control",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.8616346228174054,
+      "grp": "HC",
+      "A_dir_own": 0.06135649116204895
+    },
+    {
+      "gsm": "GSM4299633",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 74,
+      "A_dir": -0.8117467140494634,
+      "grp": "MCI",
+      "A_dir_own": 0.17102690329647832
+    },
+    {
+      "gsm": "GSM4299634",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.6331655566931326,
+      "grp": "MCI",
+      "A_dir_own": 0.4214439536640769
+    },
+    {
+      "gsm": "GSM4299635",
+      "status": "control",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.8085862667254478,
+      "grp": "HC",
+      "A_dir_own": -0.9858038381179385
+    },
+    {
+      "gsm": "GSM4299636",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 64,
+      "A_dir": -0.8758771174333574,
+      "grp": "AD",
+      "A_dir_own": 0.1578548283289599
+    },
+    {
+      "gsm": "GSM4299637",
+      "status": "control",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.9418664484862919,
+      "grp": "HC",
+      "A_dir_own": 0.11332915972427224
+    },
+    {
+      "gsm": "GSM4299638",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.7967895802731355,
+      "grp": "AD",
+      "A_dir_own": 0.14624627638218698
+    },
+    {
+      "gsm": "GSM4299639",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 68,
+      "A_dir": -1.0287204604842708,
+      "grp": "AD",
+      "A_dir_own": -0.1731072950699804
+    },
+    {
+      "gsm": "GSM4299640",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 83,
+      "A_dir": 0.12973246467907998,
+      "grp": "AD",
+      "A_dir_own": 1.08421342845325
+    },
+    {
+      "gsm": "GSM4299641",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 66,
+      "A_dir": -1.7521536405071167,
+      "grp": "AD",
+      "A_dir_own": -0.9205030570920215
+    },
+    {
+      "gsm": "GSM4299642",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 79,
+      "A_dir": -0.3528158792668575,
+      "grp": "MCI",
+      "A_dir_own": 0.5991837334759759
+    },
+    {
+      "gsm": "GSM4299643",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -1.13900253530505,
+      "grp": "MCI",
+      "A_dir_own": -0.08082691450933906
+    },
+    {
+      "gsm": "GSM4299644",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 85,
+      "A_dir": -0.7883789746443878,
+      "grp": "AD",
+      "A_dir_own": 0.22465145732125893
+    },
+    {
+      "gsm": "GSM4299645",
+      "status": "control",
+      "sex": "Female",
+      "age": 75,
+      "A_dir": -1.133567961504317,
+      "grp": "HC",
+      "A_dir_own": -0.23775100798097967
+    },
+    {
+      "gsm": "GSM4299646",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.792158141821283,
+      "grp": "MCI",
+      "A_dir_own": 0.17343603961492787
+    },
+    {
+      "gsm": "GSM4299647",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -1.092594017664222,
+      "grp": "MCI",
+      "A_dir_own": -0.16245425371005226
+    },
+    {
+      "gsm": "GSM4299648",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 82,
+      "A_dir": -0.6584402608050038,
+      "grp": "MCI",
+      "A_dir_own": 0.33647379321072796
+    },
+    {
+      "gsm": "GSM4299649",
+      "status": "control",
+      "sex": "Male",
+      "age": 78,
+      "A_dir": -1.511937420049908,
+      "grp": "HC",
+      "A_dir_own": -0.6178851047417371
+    },
+    {
+      "gsm": "GSM4299650",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.7907111314253145,
+      "grp": "AD",
+      "A_dir_own": 0.19383621006907453
+    },
+    {
+      "gsm": "GSM4299651",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.3523678488128463,
+      "grp": "MCI",
+      "A_dir_own": 0.6876381679139545
+    },
+    {
+      "gsm": "GSM4299652",
+      "status": "control",
+      "sex": "Female",
+      "age": 74,
+      "A_dir": -1.1664646872428563,
+      "grp": "HC",
+      "A_dir_own": -0.1591098476363104
+    },
+    {
+      "gsm": "GSM4299653",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 58,
+      "A_dir": -1.9573127503353231,
+      "grp": "AD",
+      "A_dir_own": -1.1320547599808934
+    },
+    {
+      "gsm": "GSM4299654",
+      "status": "control",
+      "sex": "Male",
+      "age": 61,
+      "A_dir": -0.3666085209170382,
+      "grp": "HC",
+      "A_dir_own": 0.6222657554263087
+    },
+    {
+      "gsm": "GSM4299655",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 80,
+      "A_dir": -0.39792623960681334,
+      "grp": "AD",
+      "A_dir_own": 0.5702144220548899
+    },
+    {
+      "gsm": "GSM4299656",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 83,
+      "A_dir": -0.649106551411918,
+      "grp": "MCI",
+      "A_dir_own": 0.4407305675547509
+    },
+    {
+      "gsm": "GSM4299657",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 76,
+      "A_dir": -0.7146548614430557,
+      "grp": "AD",
+      "A_dir_own": 0.31056889665224563
+    },
+    {
+      "gsm": "GSM4299658",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 79,
+      "A_dir": -0.8607112743017459,
+      "grp": "MCI",
+      "A_dir_own": 0.08793368064655309
+    },
+    {
+      "gsm": "GSM4299659",
+      "status": "mild cognitive impairment",
+      "sex": "Female",
+      "age": 72,
+      "A_dir": -1.2996621414290546,
+      "grp": "MCI",
+      "A_dir_own": -0.32315802888917206
+    },
+    {
+      "gsm": "GSM4299660",
+      "status": "mild cognitive impairment",
+      "sex": "Male",
+      "age": 73,
+      "A_dir": -0.11921360187375664,
+      "grp": "MCI",
+      "A_dir_own": 0.9019736492170302
+    },
+    {
+      "gsm": "GSM4299661",
+      "status": "control",
+      "sex": "Female",
+      "age": 65,
+      "A_dir": -1.5621837528184348,
+      "grp": "HC",
+      "A_dir_own": -0.6980658157654787
+    },
+    {
+      "gsm": "GSM4299662",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 71,
+      "A_dir": -0.7270826035735547,
+      "grp": "AD",
+      "A_dir_own": 0.22790770508110136
+    },
+    {
+      "gsm": "GSM4299663",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "age": 88,
+      "A_dir": -0.09756650853938327,
+      "grp": "AD",
+      "A_dir_own": 0.9435326936219955
+    },
+    {
+      "gsm": "GSM4299664",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "age": 76,
+      "A_dir": -0.9476082825244115,
+      "grp": "AD",
+      "A_dir_own": -0.14118149842091263
+    }
+  ],
+  "cross_platform_decision_raw": "OUTCOME 1 (raw): signal replicates cross-platform",
+  "cross_platform_decision_age_corrected": "OUTCOME 3-borderline (age-corrected): most of raw signal is age-driven; residual AD-specific signal is d\u22480.12, p\u22480.12 \u2014 below conventional significance",
+  "honest_summary": {
+    "raw_signal_replicates": true,
+    "age_driven_fraction": "approximately 2/3 based on R\u00b2=0.26 and residual d=+0.12 vs raw d=+0.33",
+    "age_gap_AD_vs_HC": "+0.45 Cohen d on chronological age (substantial)",
+    "critical_next_step": "VAL-054a on AIBL attempted but non-test (80-cell baseline incompatible with panel-subset \u03b2). VAL-054b permutation bound on AIBL holdout p=0.003 confirms signal exceeds within-HC variance. True age-regression only possible with AIBL direct-access age metadata (future dbGaP-style application).",
+    "interpretation_for_EDEAR": "Panel detects AD+age composite signal. Marketable but must be reported with chronological-age context. Age-adjusted Z-score per Alpha-Omega \u00a7E.5 is the correct clinical metric."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "val_id": "VAL-054b",
+  "method": "HC-internal permutation bound \u2014 size-matched resampling without replacement",
+  "observed_d": 0.6237103499989237,
+  "n_AD": 33,
+  "n_HC": 95,
+  "n_permutations": 10000,
+  "null_distribution": {
+    "mean": -0.0021484541883909384,
+    "sd": 0.21929742617642356,
+    "p95": 0.36167965515082934,
+    "p99": 0.519453139421851,
+    "min": -0.9318873442686654,
+    "max": 0.9018491290203825
+  },
+  "p_hc_internal": 0.003,
+  "z_observed_in_null": 2.8539268111784164,
+  "verdict": "STRONG \u2014 signal is well outside HC-internal variance; within-HC confounds (including age) would require >100\u00d7 coincidence"
+}

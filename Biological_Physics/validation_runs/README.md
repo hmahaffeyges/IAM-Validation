@@ -93,3 +93,29 @@ VAL-051 introduces a first-class GAPE metric: the **directional A-score** (A_dir
 - **Directional A-score** works when a disease shifts different CpGs within a class in competing directions (e.g. AD immune: 4 CpGs down + 3 up, pooled mean cancels).
 
 For each new disease, the panel selection is outcome-blind on a training split, the sign of Δβ on training assigns direction, and the scoring on holdout uses training-derived directions and standardization. VAL-050 + VAL-051 on the same cohort with the same CpGs is the definitive side-by-side demonstration: pooled entropy d=+0.08 (null) vs directional d=+0.62 (recovered).
+
+### VAL-052 — AddNeuroMed cross-platform AD replication
+Location: `val_052_addneuromed/`
+Status: Pre-registered, hash-sealed. **MIXED outcome** — raw d=+0.33 (OUTCOME 1 cross-platform replication) AND age-corrected d=+0.12 (OUTCOME 3-borderline). Age explains R²=26% of A_dir variance on AddNeuroMed. Clinical deployment requires age-adjusted Z-score (Alpha-Omega §E.5), not raw A_dir.
+
+### VAL-053 — Sex-specific AD panel selection
+Location: `val_053_sex_panels/`
+Status: Pre-registered, hash-sealed. **OUTCOME 4 — unified panel wins.** Panel-F (10 CpGs) slightly worse than unified on female holdout; Panel-M (1 CpG) under-selects and fails coverage gate. Jaccard 0.10 between F and M panels. EDEAR deploys unified panel.
+
+### VAL-054 — Age-confounding bound on AIBL
+Location: `val_054_age_bound/`
+Status: VAL-054a (cellular-age regression) honestly flagged as non-test (80-cell baseline incompatible with panel-subset β). VAL-054b (HC-internal permutation bound) **STRONG** — p=0.003 that observed AD signal exceeds any within-HC variance source collectively. Complements VAL-052 age regression on AddNeuroMed; together they establish: AD signal exceeds HC-internal noise AND has an age-tracked component that requires §E.5 adjustment.
+
+### AD Sprint — Consolidated
+
+VAL-050 through VAL-054 together establish the AD-Immune directional test for EDEAR:
+
+- **Panel:** 7 CpGs (cg16867657, cg25809905, cg22454769, cg09809672, cg26614073, cg00431549, cg02228185), unified across sexes, directional weighting
+- **Validation tier:** `cross_platform_validated` (AIBL EPIC internal holdout + AddNeuroMed 450K external)
+- **Performance:** raw AUC 0.60-0.68; age-adjusted ~0.55-0.60
+- **Primary clinical output:** age-adjusted Z-score per Alpha-Omega §E.5
+- **Secondary output:** raw A_dir to capture accelerated-aging-in-AD component
+- **Known limitations:** d ~0.12 after age adjustment; deployment is cohort screening and serial trajectory monitoring, not single-shot diagnosis
+- **Pending:** ADNI, Framingham (dbGaP-blocked); AIBL direct-access age metadata
+
+This is the template every future disease card in the Cookbook follows: panel selection + holdout recovery + cross-platform + age-confound bound + honest tier labeling.
