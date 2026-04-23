@@ -1,0 +1,1383 @@
+{
+  "val_id": "VAL-051",
+  "cohort": "AIBL GSE153712 (holdout split)",
+  "panel_ruleA_n": 7,
+  "panel_ruleB_n": 18,
+  "holdout_counts": {
+    "AD": 33,
+    "MCI": 20,
+    "HC": 95
+  },
+  "H1_primary_ruleA": {
+    "n_AD": 33,
+    "n_HC": 95,
+    "cohens_d": 0.6237103499989237,
+    "p_onesided": 0.0012617970689060617,
+    "auc": 0.6768740031897926
+  },
+  "H1_ruleB_all18": {
+    "cohens_d": 0.4637908149381144
+  },
+  "null_comparator_pooled_entropy": {
+    "cohens_d": 0.05619926781273193,
+    "p_onesided": 0.42333177101235797
+  },
+  "H3_sex": {
+    "Male": {
+      "n_AD": 14,
+      "n_HC": 40,
+      "delta": 0.30927914292649805,
+      "cohens_d": 0.511679112567001,
+      "p": 0.04119424958645342
+    },
+    "Female": {
+      "n_AD": 19,
+      "n_HC": 55,
+      "delta": 0.4690377937458244,
+      "cohens_d": 0.7053000812095093,
+      "p": 0.003428943271267059
+    }
+  },
+  "H4_bimodality": {
+    "mean_var_AD": 0.060703160748019555,
+    "mean_var_HC": 0.05688406209783058,
+    "variance_ratio": 1.067138289871437,
+    "cohens_d": 0.44922325369478794,
+    "levene_p": 0.7950828693048205
+  },
+  "decision_AIBL_arm": "OUTCOME 1 (AIBL arm) \u2014 FULL RECOVERY on AIBL holdout",
+  "per_sample_holdout": [
+    {
+      "gsm": "GSM4649446",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.11393790503774671,
+      "A_dir_B": 0.07352943705569617,
+      "A_entropy": 1.1874548721717282,
+      "within_var": 0.0731378350190277
+    },
+    {
+      "gsm": "GSM4649447",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.3657884705022111,
+      "A_dir_B": 0.24945391382405424,
+      "A_entropy": 1.1916489995300934,
+      "within_var": 0.06872748200732325
+    },
+    {
+      "gsm": "GSM4649557",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": -0.8883596170410079,
+      "A_dir_B": -0.1153392230577678,
+      "A_entropy": 1.1830677361024375,
+      "within_var": 0.04691645039384247
+    },
+    {
+      "gsm": "GSM4649564",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.7081187925873976,
+      "A_dir_B": 0.25135846355873337,
+      "A_entropy": 1.1920284634765543,
+      "within_var": 0.048754918450451254
+    },
+    {
+      "gsm": "GSM4649576",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.3312049855603537,
+      "A_dir_B": -0.0696844042771298,
+      "A_entropy": 1.1911216681252406,
+      "within_var": 0.05733167308934827
+    },
+    {
+      "gsm": "GSM4649593",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 1.7441240239825984,
+      "A_dir_B": 0.8700150121689573,
+      "A_entropy": 1.1875493412913058,
+      "within_var": 0.07234146529508091
+    },
+    {
+      "gsm": "GSM4649603",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": -0.07598860418537719,
+      "A_dir_B": 0.061859449717317244,
+      "A_entropy": 1.187067087639504,
+      "within_var": 0.06232367186835956
+    },
+    {
+      "gsm": "GSM4649635",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.5146796830721748,
+      "A_dir_B": -0.40462601638265366,
+      "A_entropy": 1.1907926280952794,
+      "within_var": 0.0656652325393957
+    },
+    {
+      "gsm": "GSM4649647",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 1.9538367708024285,
+      "A_dir_B": 1.0837873419100015,
+      "A_entropy": 1.1918900236365146,
+      "within_var": 0.07277833420631925
+    },
+    {
+      "gsm": "GSM4649731",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.7048164878063901,
+      "A_dir_B": 0.3920374956449828,
+      "A_entropy": 1.192046739678776,
+      "within_var": 0.056424752885078054
+    },
+    {
+      "gsm": "GSM4649734",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": -0.12625284534795003,
+      "A_dir_B": 0.02192485733186718,
+      "A_entropy": 1.1913600360569394,
+      "within_var": 0.06214836159117928
+    },
+    {
+      "gsm": "GSM4649735",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 1.2241862984861658,
+      "A_dir_B": 0.43594364198402286,
+      "A_entropy": 1.1919988859592503,
+      "within_var": 0.06782332270458305
+    },
+    {
+      "gsm": "GSM4649744",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": -0.08119326696936578,
+      "A_dir_B": -0.11493155941169676,
+      "A_entropy": 1.1917511359131852,
+      "within_var": 0.06598770302781272
+    },
+    {
+      "gsm": "GSM4649748",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": -0.2683316313917926,
+      "A_dir_B": -0.1347959402572746,
+      "A_entropy": 1.1812860730928725,
+      "within_var": 0.06485973631063946
+    },
+    {
+      "gsm": "GSM4649752",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": -0.47411258141434093,
+      "A_dir_B": -0.24032977301692482,
+      "A_entropy": 1.1918295951725482,
+      "within_var": 0.05590086563751534
+    },
+    {
+      "gsm": "GSM4649765",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.4963960457575111,
+      "A_dir_B": 0.5971651181767996,
+      "A_entropy": 1.1795346063877015,
+      "within_var": 0.0537442014288724
+    },
+    {
+      "gsm": "GSM4649782",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.26893505880104823,
+      "A_dir_B": 0.538205495647659,
+      "A_entropy": 1.191505485830945,
+      "within_var": 0.0649805223333205
+    },
+    {
+      "gsm": "GSM4649794",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.878660104141015,
+      "A_dir_B": 0.3352881654529649,
+      "A_entropy": 1.191663237174394,
+      "within_var": 0.04817027387568424
+    },
+    {
+      "gsm": "GSM4649823",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.8035364579958456,
+      "A_dir_B": 0.7001349587298867,
+      "A_entropy": 1.1842392205025745,
+      "within_var": 0.05672617150535683
+    },
+    {
+      "gsm": "GSM4649827",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.3553683808863362,
+      "A_dir_B": 0.4423080433303043,
+      "A_entropy": 1.1902457524251544,
+      "within_var": 0.06619796544433564
+    },
+    {
+      "gsm": "GSM4649830",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 1.0762329055466553,
+      "A_dir_B": 0.5984924404548573,
+      "A_entropy": 1.19044812049509,
+      "within_var": 0.06184462070838444
+    },
+    {
+      "gsm": "GSM4649845",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.7816042244497973,
+      "A_dir_B": 0.24094224810631715,
+      "A_entropy": 1.1920003120110334,
+      "within_var": 0.054034223021131096
+    },
+    {
+      "gsm": "GSM4649854",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.241368859035707,
+      "A_dir_B": -0.029651580304863836,
+      "A_entropy": 1.1889891291251589,
+      "within_var": 0.06520872950674846
+    },
+    {
+      "gsm": "GSM4649878",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": -0.3586192198094413,
+      "A_dir_B": -0.23997985392048685,
+      "A_entropy": 1.1858332222252372,
+      "within_var": 0.05153125191414066
+    },
+    {
+      "gsm": "GSM4649934",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": -0.752747219081957,
+      "A_dir_B": -0.5256154260914899,
+      "A_entropy": 1.188516615628265,
+      "within_var": 0.060905176034520885
+    },
+    {
+      "gsm": "GSM4649971",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.49797260553237954,
+      "A_dir_B": 0.3876825106482747,
+      "A_entropy": 1.19205280980678,
+      "within_var": 0.07054431697505914
+    },
+    {
+      "gsm": "GSM4649992",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.2793422223529325,
+      "A_dir_B": -0.11470987650685077,
+      "A_entropy": 1.1877037839505513,
+      "within_var": 0.048341278481109196
+    },
+    {
+      "gsm": "GSM4650020",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.6029027763270912,
+      "A_dir_B": -0.03493171975795386,
+      "A_entropy": 1.1885786705161223,
+      "within_var": 0.05473598186869493
+    },
+    {
+      "gsm": "GSM4650021",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": -0.3273035088348716,
+      "A_dir_B": -0.10272595310141869,
+      "A_entropy": 1.1885752311802062,
+      "within_var": 0.0558442119071502
+    },
+    {
+      "gsm": "GSM4650073",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 0.38535507623849596,
+      "A_dir_B": 0.22926742360911623,
+      "A_entropy": 1.1919306779566685,
+      "within_var": 0.06012496175892049
+    },
+    {
+      "gsm": "GSM4650075",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": 0.2157328947456386,
+      "A_dir_B": 0.11265779419444596,
+      "A_entropy": 1.1893358540512302,
+      "within_var": 0.057280899572482835
+    },
+    {
+      "gsm": "GSM4650094",
+      "status": "Alzheimer's disease",
+      "sex": "Female",
+      "A_dir_A": -0.1362308565698795,
+      "A_dir_B": -0.02580912411428199,
+      "A_entropy": 1.1866400643572752,
+      "within_var": 0.07440602565561319
+    },
+    {
+      "gsm": "GSM4650106",
+      "status": "Alzheimer's disease",
+      "sex": "Male",
+      "A_dir_A": 1.320363050644865,
+      "A_dir_B": 0.9990208470324696,
+      "A_entropy": 1.1896016501984654,
+      "within_var": 0.05746168766716404
+    },
+    {
+      "gsm": "GSM4649422",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": 0.5441044495489661,
+      "A_dir_B": 0.5150715077694665,
+      "A_entropy": 1.1919116647405814,
+      "within_var": 0.05702696104152495
+    },
+    {
+      "gsm": "GSM4649450",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": 1.400419537540882,
+      "A_dir_B": 0.5828255829779255,
+      "A_entropy": 1.1887468045405059,
+      "within_var": 0.05462884643903102
+    },
+    {
+      "gsm": "GSM4649461",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": 0.04032631830203131,
+      "A_dir_B": 0.01831045257053842,
+      "A_entropy": 1.192042835780097,
+      "within_var": 0.05759006293416331
+    },
+    {
+      "gsm": "GSM4649522",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": -0.2847265247209098,
+      "A_dir_B": 0.03054219679096574,
+      "A_entropy": 1.1815260932951839,
+      "within_var": 0.04283652871235563
+    },
+    {
+      "gsm": "GSM4649559",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": 0.1748048287157767,
+      "A_dir_B": -0.577211182865786,
+      "A_entropy": 1.1837347383599202,
+      "within_var": 0.0649307001631731
+    },
+    {
+      "gsm": "GSM4649693",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": -0.30782245033220673,
+      "A_dir_B": -0.015408717646490155,
+      "A_entropy": 1.1858819308302246,
+      "within_var": 0.04838778859978212
+    },
+    {
+      "gsm": "GSM4649706",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": -0.5415124317046388,
+      "A_dir_B": -0.06743431464664919,
+      "A_entropy": 1.1831804950806866,
+      "within_var": 0.045990828986120266
+    },
+    {
+      "gsm": "GSM4649725",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": 0.7013398057907302,
+      "A_dir_B": 0.5717258796452239,
+      "A_entropy": 1.1920258270607123,
+      "within_var": 0.06366156171562862
+    },
+    {
+      "gsm": "GSM4649898",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": 0.6300200327610729,
+      "A_dir_B": 0.4456970885836453,
+      "A_entropy": 1.191676325143974,
+      "within_var": 0.05328235144849073
+    },
+    {
+      "gsm": "GSM4649927",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": 0.16413499127432502,
+      "A_dir_B": 0.09823150877035582,
+      "A_entropy": 1.188833636003841,
+      "within_var": 0.06792445622376041
+    },
+    {
+      "gsm": "GSM4649954",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": -0.30221541036183125,
+      "A_dir_B": -0.24139731589752067,
+      "A_entropy": 1.1826174885221188,
+      "within_var": 0.05067302475334837
+    },
+    {
+      "gsm": "GSM4649996",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": 0.8758471727223941,
+      "A_dir_B": 0.644996066982567,
+      "A_entropy": 1.1879162306241626,
+      "within_var": 0.05580332494536203
+    },
+    {
+      "gsm": "GSM4650011",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": -0.027251666085286817,
+      "A_dir_B": 0.05569902592353418,
+      "A_entropy": 1.1880263246266747,
+      "within_var": 0.05005068612992687
+    },
+    {
+      "gsm": "GSM4650016",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": -0.582446889180863,
+      "A_dir_B": -0.37855753878990334,
+      "A_entropy": 1.1878669725852622,
+      "within_var": 0.04173154862335727
+    },
+    {
+      "gsm": "GSM4650045",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": -0.9608988259308733,
+      "A_dir_B": -0.7906325365831002,
+      "A_entropy": 1.191739945294923,
+      "within_var": 0.05515032653545578
+    },
+    {
+      "gsm": "GSM4650057",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": 0.28414762927768034,
+      "A_dir_B": 0.24607233781570498,
+      "A_entropy": 1.1911869352500741,
+      "within_var": 0.06286017659063683
+    },
+    {
+      "gsm": "GSM4650084",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": 0.5756896026967568,
+      "A_dir_B": 0.20099724791641183,
+      "A_entropy": 1.191938371039001,
+      "within_var": 0.055695840960372105
+    },
+    {
+      "gsm": "GSM4650091",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Female",
+      "A_dir_A": -0.6941182540465733,
+      "A_dir_B": -0.6408742736656265,
+      "A_entropy": 1.1879330533742354,
+      "within_var": 0.06782133689875074
+    },
+    {
+      "gsm": "GSM4650100",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": 0.13109896633150553,
+      "A_dir_B": 0.06874666747465132,
+      "A_entropy": 1.1852273146633963,
+      "within_var": 0.05916207849096039
+    },
+    {
+      "gsm": "GSM4650111",
+      "status": "Mild Cognitive Impairment",
+      "sex": "Male",
+      "A_dir_A": 0.5175949866411821,
+      "A_dir_B": 0.048948498293048176,
+      "A_entropy": 1.1919924715030612,
+      "within_var": 0.05408490043404357
+    },
+    {
+      "gsm": "GSM4649388",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.615736408688262,
+      "A_dir_B": -0.4291176550160734,
+      "A_entropy": 1.1914535948115565,
+      "within_var": 0.04363326752595271
+    },
+    {
+      "gsm": "GSM4649389",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.9861373178995027,
+      "A_dir_B": 0.43832027453796907,
+      "A_entropy": 1.1920376295264807,
+      "within_var": 0.07011291975468326
+    },
+    {
+      "gsm": "GSM4649404",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 1.1666256161901423,
+      "A_dir_B": 0.7211247434043228,
+      "A_entropy": 1.1855707168816787,
+      "within_var": 0.06198457897644947
+    },
+    {
+      "gsm": "GSM4649414",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.6007838060129901,
+      "A_dir_B": 0.32457135945156257,
+      "A_entropy": 1.1920528216433135,
+      "within_var": 0.06470839269136383
+    },
+    {
+      "gsm": "GSM4649417",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.18323442472019819,
+      "A_dir_B": -0.17605776316400973,
+      "A_entropy": 1.1908584059340042,
+      "within_var": 0.0657196811231736
+    },
+    {
+      "gsm": "GSM4649418",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.04801192616370952,
+      "A_dir_B": 0.1917875119563013,
+      "A_entropy": 1.1920033152415583,
+      "within_var": 0.06291466019591128
+    },
+    {
+      "gsm": "GSM4649434",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 1.0296892446105648,
+      "A_dir_B": 0.5864524169881409,
+      "A_entropy": 1.1919498941632705,
+      "within_var": 0.06796571038955564
+    },
+    {
+      "gsm": "GSM4649454",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.586320460768665,
+      "A_dir_B": 0.6755914846038613,
+      "A_entropy": 1.1824427564749207,
+      "within_var": 0.05441368261915742
+    },
+    {
+      "gsm": "GSM4649456",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.39798154303663574,
+      "A_dir_B": -0.0027771442337774905,
+      "A_entropy": 1.1916156602925483,
+      "within_var": 0.06489947004745672
+    },
+    {
+      "gsm": "GSM4649476",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.34529773780026213,
+      "A_dir_B": -0.2704626335777217,
+      "A_entropy": 1.191348118390792,
+      "within_var": 0.05683437594872354
+    },
+    {
+      "gsm": "GSM4649477",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.14097329128850375,
+      "A_dir_B": -0.05168743399531538,
+      "A_entropy": 1.1865319208762264,
+      "within_var": 0.07894905249962819
+    },
+    {
+      "gsm": "GSM4649485",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.03516740560963997,
+      "A_dir_B": -0.030124726793721593,
+      "A_entropy": 1.1881383598745099,
+      "within_var": 0.06460654832812945
+    },
+    {
+      "gsm": "GSM4649490",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.32838312835144595,
+      "A_dir_B": -0.4768464584341192,
+      "A_entropy": 1.1917307551217866,
+      "within_var": 0.05748092235016119
+    },
+    {
+      "gsm": "GSM4649491",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.47841902185950597,
+      "A_dir_B": 0.4033000158913279,
+      "A_entropy": 1.1873193806034443,
+      "within_var": 0.054921026287623305
+    },
+    {
+      "gsm": "GSM4649493",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.10619932220236177,
+      "A_dir_B": 0.05632793283278876,
+      "A_entropy": 1.1920504612956817,
+      "within_var": 0.059668470754492164
+    },
+    {
+      "gsm": "GSM4649499",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.0035794455833129163,
+      "A_dir_B": -0.3073796893040167,
+      "A_entropy": 1.1897595771151375,
+      "within_var": 0.05500537450932446
+    },
+    {
+      "gsm": "GSM4649507",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.7494293921164432,
+      "A_dir_B": -0.6182151998883948,
+      "A_entropy": 1.1879687173087652,
+      "within_var": 0.06087042651967174
+    },
+    {
+      "gsm": "GSM4649508",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.820101683891247,
+      "A_dir_B": 0.2416968993757688,
+      "A_entropy": 1.1911703937016849,
+      "within_var": 0.05921195462009485
+    },
+    {
+      "gsm": "GSM4649509",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.7326010766829185,
+      "A_dir_B": -0.38521763405828635,
+      "A_entropy": 1.1894788104629248,
+      "within_var": 0.04340898817928936
+    },
+    {
+      "gsm": "GSM4649510",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.41801225890141597,
+      "A_dir_B": -0.3342704284953124,
+      "A_entropy": 1.1899490718429846,
+      "within_var": 0.06661087483515325
+    },
+    {
+      "gsm": "GSM4649528",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.610953077669525,
+      "A_dir_B": -0.25449105812921713,
+      "A_entropy": 1.1907370666235555,
+      "within_var": 0.05440758654357383
+    },
+    {
+      "gsm": "GSM4649533",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.3317525948729146,
+      "A_dir_B": 0.3768169563923809,
+      "A_entropy": 1.1760003054936126,
+      "within_var": 0.05278246038283512
+    },
+    {
+      "gsm": "GSM4649534",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.4887547391333421,
+      "A_dir_B": -0.30709091910700037,
+      "A_entropy": 1.1864935347124825,
+      "within_var": 0.05999950033362815
+    },
+    {
+      "gsm": "GSM4649537",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.29074375482481357,
+      "A_dir_B": 0.14826841428939763,
+      "A_entropy": 1.189264793479215,
+      "within_var": 0.06494609174173752
+    },
+    {
+      "gsm": "GSM4649540",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.7205993720927025,
+      "A_dir_B": -0.09169089244913836,
+      "A_entropy": 1.1882370948211152,
+      "within_var": 0.059661076785276254
+    },
+    {
+      "gsm": "GSM4649541",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.590591228293982,
+      "A_dir_B": -0.0706094866938036,
+      "A_entropy": 1.1816628997338214,
+      "within_var": 0.04400957581266166
+    },
+    {
+      "gsm": "GSM4649543",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 1.0009156222637416,
+      "A_dir_B": 0.8149213989526032,
+      "A_entropy": 1.190857507016689,
+      "within_var": 0.0600774164698465
+    },
+    {
+      "gsm": "GSM4649550",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.5547769802036411,
+      "A_dir_B": -0.31587084939926524,
+      "A_entropy": 1.1916927796960939,
+      "within_var": 0.05399837717098524
+    },
+    {
+      "gsm": "GSM4649551",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.28041243080613365,
+      "A_dir_B": -0.21420103316875166,
+      "A_entropy": 1.1838503586639395,
+      "within_var": 0.04897958384856279
+    },
+    {
+      "gsm": "GSM4649565",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.39821159285800595,
+      "A_dir_B": -0.252545129237753,
+      "A_entropy": 1.1887635432893295,
+      "within_var": 0.05853063339522018
+    },
+    {
+      "gsm": "GSM4649577",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.006610147195740605,
+      "A_dir_B": -0.18359326241337376,
+      "A_entropy": 1.1912510374536192,
+      "within_var": 0.06519609401961862
+    },
+    {
+      "gsm": "GSM4649590",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.86417422754126,
+      "A_dir_B": -0.43454711372499233,
+      "A_entropy": 1.1812469174374876,
+      "within_var": 0.05465188503635052
+    },
+    {
+      "gsm": "GSM4649591",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.488434794554838,
+      "A_dir_B": 0.2682349466081104,
+      "A_entropy": 1.1882448662223841,
+      "within_var": 0.047912339150555594
+    },
+    {
+      "gsm": "GSM4649602",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.2604030159294044,
+      "A_dir_B": -0.1686563388667272,
+      "A_entropy": 1.1914704799647222,
+      "within_var": 0.050386023151003254
+    },
+    {
+      "gsm": "GSM4649604",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.6027767209497702,
+      "A_dir_B": -0.8189578400652101,
+      "A_entropy": 1.1877193896771534,
+      "within_var": 0.054208344495099564
+    },
+    {
+      "gsm": "GSM4649606",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.022400573174690956,
+      "A_dir_B": -0.08728248007530984,
+      "A_entropy": 1.1909478348178086,
+      "within_var": 0.04118328179414612
+    },
+    {
+      "gsm": "GSM4649614",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.45061883446146095,
+      "A_dir_B": -0.08754922827647532,
+      "A_entropy": 1.181790836443111,
+      "within_var": 0.04922056185668337
+    },
+    {
+      "gsm": "GSM4649615",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.18487542330334902,
+      "A_dir_B": -0.02291744992901104,
+      "A_entropy": 1.192051881668138,
+      "within_var": 0.055874719353562384
+    },
+    {
+      "gsm": "GSM4649619",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.42414241892457305,
+      "A_dir_B": 0.0017320195453847328,
+      "A_entropy": 1.1880368521248257,
+      "within_var": 0.061328180426789364
+    },
+    {
+      "gsm": "GSM4649621",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.4432057339508267,
+      "A_dir_B": -0.3731640577288738,
+      "A_entropy": 1.1894925014211943,
+      "within_var": 0.03829098658455897
+    },
+    {
+      "gsm": "GSM4649626",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.2721154608688129,
+      "A_dir_B": 0.03606438552357613,
+      "A_entropy": 1.1918844537175,
+      "within_var": 0.06629215058140475
+    },
+    {
+      "gsm": "GSM4649642",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.28712018832331465,
+      "A_dir_B": -0.2603424040852303,
+      "A_entropy": 1.1917410088497884,
+      "within_var": 0.05830845199879536
+    },
+    {
+      "gsm": "GSM4649660",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -1.2535834135546815,
+      "A_dir_B": -0.6323407745208047,
+      "A_entropy": 1.185144314824835,
+      "within_var": 0.05219120216467787
+    },
+    {
+      "gsm": "GSM4649662",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.27132126684965513,
+      "A_dir_B": 0.05313936460555335,
+      "A_entropy": 1.191489319317457,
+      "within_var": 0.0574411206606245
+    },
+    {
+      "gsm": "GSM4649673",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -1.5534995727564078,
+      "A_dir_B": -0.6497707031253951,
+      "A_entropy": 1.1566913834390784,
+      "within_var": 0.049341313749423014
+    },
+    {
+      "gsm": "GSM4649679",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.9049789986295412,
+      "A_dir_B": -0.5979909341873039,
+      "A_entropy": 1.1871030890095697,
+      "within_var": 0.06773000348029917
+    },
+    {
+      "gsm": "GSM4649684",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.8070748979776009,
+      "A_dir_B": -0.5417659942562146,
+      "A_entropy": 1.1919867442628207,
+      "within_var": 0.05519313660445783
+    },
+    {
+      "gsm": "GSM4649686",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.44322702478944,
+      "A_dir_B": 0.3327246804059755,
+      "A_entropy": 1.1895687068529393,
+      "within_var": 0.07093844652651711
+    },
+    {
+      "gsm": "GSM4649688",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 1.4408943932598661,
+      "A_dir_B": 1.0062836892883205,
+      "A_entropy": 1.190714671991852,
+      "within_var": 0.053814266007135306
+    },
+    {
+      "gsm": "GSM4649695",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.9863844424849352,
+      "A_dir_B": -0.45461628783401065,
+      "A_entropy": 1.186053651743401,
+      "within_var": 0.05827980724022493
+    },
+    {
+      "gsm": "GSM4649700",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.1883964109192032,
+      "A_dir_B": 0.021468478737884687,
+      "A_entropy": 1.1887530410701688,
+      "within_var": 0.05178497321969504
+    },
+    {
+      "gsm": "GSM4649718",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.5416732955834108,
+      "A_dir_B": 0.49434581808866873,
+      "A_entropy": 1.1906491374342671,
+      "within_var": 0.055242239240145895
+    },
+    {
+      "gsm": "GSM4649720",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.308746845990825,
+      "A_dir_B": 0.17941702174520963,
+      "A_entropy": 1.1918419842128765,
+      "within_var": 0.042007692880143145
+    },
+    {
+      "gsm": "GSM4649729",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.23360482969598678,
+      "A_dir_B": 0.08944922371624858,
+      "A_entropy": 1.191607255418052,
+      "within_var": 0.05544219353582235
+    },
+    {
+      "gsm": "GSM4649737",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.5580028349185723,
+      "A_dir_B": 0.3794512466888371,
+      "A_entropy": 1.1917885987865462,
+      "within_var": 0.06801930889080716
+    },
+    {
+      "gsm": "GSM4649751",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.9914201926257531,
+      "A_dir_B": -0.4946365393211931,
+      "A_entropy": 1.189953945401422,
+      "within_var": 0.05192763070628957
+    },
+    {
+      "gsm": "GSM4649753",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.2272956853424322,
+      "A_dir_B": -0.27922087660642225,
+      "A_entropy": 1.1881683744372964,
+      "within_var": 0.06031374242775453
+    },
+    {
+      "gsm": "GSM4649759",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.11750054658681201,
+      "A_dir_B": 0.2980989547324524,
+      "A_entropy": 1.192033574728597,
+      "within_var": 0.05273224675862695
+    },
+    {
+      "gsm": "GSM4649767",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.09245178392328475,
+      "A_dir_B": -0.19463909465754667,
+      "A_entropy": 1.185804406303991,
+      "within_var": 0.0523073796866698
+    },
+    {
+      "gsm": "GSM4649805",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.3203028570103326,
+      "A_dir_B": -0.0813157897282895,
+      "A_entropy": 1.1907269223766292,
+      "within_var": 0.05734434098910821
+    },
+    {
+      "gsm": "GSM4649839",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.4477246929169946,
+      "A_dir_B": 0.664770681494836,
+      "A_entropy": 1.1916813753361242,
+      "within_var": 0.039854623070659484
+    },
+    {
+      "gsm": "GSM4649865",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.7491998024444084,
+      "A_dir_B": 0.6636443116884604,
+      "A_entropy": 1.1902032650466974,
+      "within_var": 0.05884833473202341
+    },
+    {
+      "gsm": "GSM4649874",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.46954227012497823,
+      "A_dir_B": 0.3602943928941429,
+      "A_entropy": 1.1920018834978823,
+      "within_var": 0.055182044473632376
+    },
+    {
+      "gsm": "GSM4649875",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.3562227650498963,
+      "A_dir_B": -0.2591267432100379,
+      "A_entropy": 1.187697189618082,
+      "within_var": 0.055413982663865366
+    },
+    {
+      "gsm": "GSM4649883",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.057994808338877844,
+      "A_dir_B": -0.03416681399651173,
+      "A_entropy": 1.191194905397752,
+      "within_var": 0.06117830954122502
+    },
+    {
+      "gsm": "GSM4649888",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.04175080547926556,
+      "A_dir_B": 0.04171584508682101,
+      "A_entropy": 1.1879939206441859,
+      "within_var": 0.06307711782327281
+    },
+    {
+      "gsm": "GSM4649889",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.5963536144533067,
+      "A_dir_B": -0.13595078786826587,
+      "A_entropy": 1.1903351153707915,
+      "within_var": 0.06684850211194666
+    },
+    {
+      "gsm": "GSM4649894",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 2.075851845626294,
+      "A_dir_B": 1.3886876907677514,
+      "A_entropy": 1.1885958836794706,
+      "within_var": 0.08752140968309761
+    },
+    {
+      "gsm": "GSM4649914",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 1.2044131169633592,
+      "A_dir_B": 0.7119634425136715,
+      "A_entropy": 1.190718490995261,
+      "within_var": 0.07078074468059829
+    },
+    {
+      "gsm": "GSM4649918",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.09481088312473888,
+      "A_dir_B": 0.6130263728337556,
+      "A_entropy": 1.1851890926746285,
+      "within_var": 0.04684888312822172
+    },
+    {
+      "gsm": "GSM4649924",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.5676437740223166,
+      "A_dir_B": 0.3644079170539917,
+      "A_entropy": 1.1908082652276337,
+      "within_var": 0.053741065790626895
+    },
+    {
+      "gsm": "GSM4649928",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.9671636542712465,
+      "A_dir_B": 0.680118739496445,
+      "A_entropy": 1.1919270261705004,
+      "within_var": 0.045611600299736085
+    },
+    {
+      "gsm": "GSM4649935",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.41338816971054165,
+      "A_dir_B": 0.4066668362566839,
+      "A_entropy": 1.1920098989093126,
+      "within_var": 0.06427605853820398
+    },
+    {
+      "gsm": "GSM4649945",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.03727582538819309,
+      "A_dir_B": -0.1923003363247148,
+      "A_entropy": 1.1914429339595078,
+      "within_var": 0.06826322257278736
+    },
+    {
+      "gsm": "GSM4649952",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 1.0569286604949746,
+      "A_dir_B": 0.617109652052164,
+      "A_entropy": 1.191951755632991,
+      "within_var": 0.066162057482999
+    },
+    {
+      "gsm": "GSM4649958",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.2478973430247727,
+      "A_dir_B": 0.28933467255546896,
+      "A_entropy": 1.191421616354137,
+      "within_var": 0.05809074416482246
+    },
+    {
+      "gsm": "GSM4649967",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.8148360148219821,
+      "A_dir_B": -0.7262719359622338,
+      "A_entropy": 1.189912110207515,
+      "within_var": 0.05800332860884945
+    },
+    {
+      "gsm": "GSM4649974",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.22559748793606155,
+      "A_dir_B": 0.17599050929773333,
+      "A_entropy": 1.192023486491922,
+      "within_var": 0.044095423618098546
+    },
+    {
+      "gsm": "GSM4649975",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.048014596323302614,
+      "A_dir_B": -0.26115273970050196,
+      "A_entropy": 1.18686931268235,
+      "within_var": 0.04948554940405455
+    },
+    {
+      "gsm": "GSM4649977",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.22018805433428595,
+      "A_dir_B": -0.008832363245971435,
+      "A_entropy": 1.1903023812951286,
+      "within_var": 0.06448002099827102
+    },
+    {
+      "gsm": "GSM4649980",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.6642687223082001,
+      "A_dir_B": -0.6615333999000421,
+      "A_entropy": 1.1914607745251513,
+      "within_var": 0.05850555166285859
+    },
+    {
+      "gsm": "GSM4649981",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.30295420792516226,
+      "A_dir_B": -0.3146669782887628,
+      "A_entropy": 1.189812596833572,
+      "within_var": 0.03926289323937432
+    },
+    {
+      "gsm": "GSM4649985",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.9789520535851162,
+      "A_dir_B": 0.49879487951044826,
+      "A_entropy": 1.1918574667247506,
+      "within_var": 0.05491453931820258
+    },
+    {
+      "gsm": "GSM4649987",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.14744767979496004,
+      "A_dir_B": 0.4896900927658659,
+      "A_entropy": 1.188324874113859,
+      "within_var": 0.04309448223964438
+    },
+    {
+      "gsm": "GSM4649995",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.28176565111317636,
+      "A_dir_B": -0.6067490480484738,
+      "A_entropy": 1.1885931602783175,
+      "within_var": 0.053063158825900424
+    },
+    {
+      "gsm": "GSM4649999",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.1267966707500412,
+      "A_dir_B": -0.10421408249766168,
+      "A_entropy": 1.1870107198026076,
+      "within_var": 0.05581449407958921
+    },
+    {
+      "gsm": "GSM4650006",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.24724087074995657,
+      "A_dir_B": -0.004108117794394164,
+      "A_entropy": 1.189145186002663,
+      "within_var": 0.07022379151348458
+    },
+    {
+      "gsm": "GSM4650007",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.09758257893585871,
+      "A_dir_B": 0.06736186807308996,
+      "A_entropy": 1.1791548881510647,
+      "within_var": 0.05216732519422445
+    },
+    {
+      "gsm": "GSM4650008",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.989290962973234,
+      "A_dir_B": -0.6168213016283004,
+      "A_entropy": 1.1906639984388474,
+      "within_var": 0.052609983833328905
+    },
+    {
+      "gsm": "GSM4650028",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.30358413779536386,
+      "A_dir_B": -0.06443460346585612,
+      "A_entropy": 1.1919878469131417,
+      "within_var": 0.06568259441334941
+    },
+    {
+      "gsm": "GSM4650030",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -0.30340281389266094,
+      "A_dir_B": -0.38338477327972886,
+      "A_entropy": 1.191558186661545,
+      "within_var": 0.04729852553530951
+    },
+    {
+      "gsm": "GSM4650078",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": -1.3992054561333622,
+      "A_dir_B": -0.6503798069149278,
+      "A_entropy": 1.1837332488294734,
+      "within_var": 0.0554114160309519
+    },
+    {
+      "gsm": "GSM4650079",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": 0.332414112296488,
+      "A_dir_B": 0.25668389297134714,
+      "A_entropy": 1.1904336527055548,
+      "within_var": 0.04862798475221638
+    },
+    {
+      "gsm": "GSM4650088",
+      "status": "healthy control",
+      "sex": "Female",
+      "A_dir_A": 0.2660093667957805,
+      "A_dir_B": 0.1619760993198425,
+      "A_entropy": 1.1891729786646679,
+      "within_var": 0.05867207719745666
+    },
+    {
+      "gsm": "GSM4650099",
+      "status": "healthy control",
+      "sex": "Male",
+      "A_dir_A": -0.928616584713961,
+      "A_dir_B": -0.53690321857598,
+      "A_entropy": 1.1854893276360288,
+      "within_var": 0.04465731421370885
+    }
+  ]
+}

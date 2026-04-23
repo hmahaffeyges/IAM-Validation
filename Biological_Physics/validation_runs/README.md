@@ -62,3 +62,34 @@ Each implements pre-specified predictions with explicit pass/fail outputs.
 - **VAL-047**: Xu 2020 JNCI (doi:10.1093/jnci/djz065) + Kresovich 2022 Mol Onc (doi:10.1002/1878-0261.13087) + Teschendorff 2016 Nat Commun (doi:10.1038/ncomms10478) + Demetriou 2013 (GSE51057 primary) + Zhao 2020 BMC Cancer (doi:10.1186/s12885-020-07194-5)
 
 Full citation list available under NDA — email hmahaffeyges@gmail.com for access.
+
+---
+
+## April 2026 extensions — VAL-048 through VAL-051
+
+The cascade above (VAL-037 through VAL-047) was deposited in April 2026 as a single snapshot. Subsequent validations extend the framework to:
+
+### VAL-048 — Framework-derived cycling CpG panel on colorectal pre-dx
+Location: `cross_population/` (committed 2026-04-22)
+Status: Honest v1 prereg failure documented; v2 prereg with empirically-justified threshold logged as null result on 650-CpG framework-derived cycling panel against GSE51032 (n=845). The null motivated the move to directional scoring (see VAL-051).
+
+### VAL-049 — Cross-population T1–T15 series
+Location: `cross_population/CROSS_POPULATION_MANIFEST.json` (committed 2026-04-22)
+Status: 12 of 15 cohorts run; 5 of 5 informative pre-diagnostic breast cohorts directionally positive (one-sided binomial p=0.031 excluding T3 Uruguayan post-dx). T4 NOWAC, T6 Sister Study, T7 Framingham blocked on dbGaP.
+
+### VAL-050 — AIBL Alzheimer's cross-sectional
+Location: `val_050_aibl/`
+Status: Pre-registered, hash-sealed. **OUTCOME 3 — NULL** on pooled-β entropy A-score (d=+0.077, p=0.32, AUC=0.51). 7 of 18 panel CpGs individually FDR<0.05 with bidirectional pattern (4 down, 3 up in AD). Motivates directional scoring.
+
+### VAL-051 — AD-directional immune panel, holdout recovery
+Location: `val_051_ad_directional/`
+Status: Pre-registered, hash-sealed. **OUTCOME 1 — FULL RECOVERY** on sealed AIBL holdout (d=+0.624, p=0.0013, AUC=0.677). Pooled-entropy null (d=+0.056) holds on same holdout, confirming the recovery is metric-specific. Both sexes significant (Male d=+0.51, Female d=+0.71). Cross-platform replication on AddNeuroMed GSE144858 pending (VAL-052).
+
+### The Directional-Score Principle
+
+VAL-051 introduces a first-class GAPE metric: the **directional A-score** (A_dir = mean of direction × z-score across a disease-directional panel). This is complementary to, not a replacement for, the pooled-β entropy A-score.
+
+- **Entropy A-score** works when a disease shifts the entire panel uniformly (e.g. breast secretory in VAL-047 Phase 9: d=+1.85).
+- **Directional A-score** works when a disease shifts different CpGs within a class in competing directions (e.g. AD immune: 4 CpGs down + 3 up, pooled mean cancels).
+
+For each new disease, the panel selection is outcome-blind on a training split, the sign of Δβ on training assigns direction, and the scoring on holdout uses training-derived directions and standardization. VAL-050 + VAL-051 on the same cohort with the same CpGs is the definitive side-by-side demonstration: pooled entropy d=+0.08 (null) vs directional d=+0.62 (recovered).
