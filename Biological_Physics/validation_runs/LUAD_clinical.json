@@ -1,0 +1,323 @@
+[
+  {
+    "id": "9c7875ad-ab71-4d48-b2e3-e4c7a46393e9",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 20
+      }
+    ],
+    "submitter_id": "TCGA-49-6745"
+  },
+  {
+    "id": "afb91740-2668-46d7-ba01-bb26153ad1c7",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs",
+        "pack_years_smoked": 25
+      }
+    ],
+    "submitter_id": "TCGA-73-4658"
+  },
+  {
+    "id": "2483621a-4db3-41ab-aa33-b9427ea8a0af",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 40
+      }
+    ],
+    "submitter_id": "TCGA-38-4631"
+  },
+  {
+    "id": "ebcba7f2-ce13-4bae-97cd-91a6b1dcd465",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Not Reported"
+      }
+    ],
+    "submitter_id": "TCGA-50-5932"
+  },
+  {
+    "id": "889aec8e-14ba-48d9-8fe1-f2416e82b333",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1980,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs"
+      }
+    ],
+    "submitter_id": "TCGA-44-6147"
+  },
+  {
+    "id": "8b119d1c-6d21-4bbd-8a00-12da7b97d6c4",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 2001,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 40
+      }
+    ],
+    "submitter_id": "TCGA-05-5420"
+  },
+  {
+    "id": "195a5afb-b79f-44d2-9d12-884487630c2b",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 2009,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 48
+      }
+    ],
+    "submitter_id": "TCGA-73-4676"
+  },
+  {
+    "id": "0c0b610e-fe4c-406d-a5ed-5cc3b11dabf5",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1980,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs",
+        "pack_years_smoked": 15
+      }
+    ],
+    "submitter_id": "TCGA-44-6146"
+  },
+  {
+    "id": "12b79b4f-c28c-418e-a1e7-e622f33fdcc2",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1968,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs",
+        "pack_years_smoked": 15
+      }
+    ],
+    "submitter_id": "TCGA-50-5939"
+  },
+  {
+    "id": "100430c8-1446-45c8-af36-b6dbb3ddd0c1",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Not Reported"
+      }
+    ],
+    "submitter_id": "TCGA-50-5935"
+  },
+  {
+    "id": "7a0ea814-f0de-4bc4-a81a-daa000559369",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Not Reported"
+      }
+    ],
+    "submitter_id": "TCGA-50-5933"
+  },
+  {
+    "id": "09918b81-4696-4cba-a45a-5fe7407c2337",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs"
+      }
+    ],
+    "submitter_id": "TCGA-50-6592"
+  },
+  {
+    "id": "8504fd86-a70a-4cba-9ec8-25c9e60ca549",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1998,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs"
+      }
+    ],
+    "submitter_id": "TCGA-50-6594"
+  },
+  {
+    "id": "875333ab-9048-462d-aaa2-693ad127e3cc",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1991,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 10
+      }
+    ],
+    "submitter_id": "TCGA-38-4632"
+  },
+  {
+    "id": "8994c8c4-9ea0-46cb-b4a5-0055d7da5bfa",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1994,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs",
+        "pack_years_smoked": 60
+      }
+    ],
+    "submitter_id": "TCGA-44-6148"
+  },
+  {
+    "id": "368e23f0-e573-4547-bf5a-14080baf737b",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Not Reported"
+      }
+    ],
+    "submitter_id": "TCGA-50-5930"
+  },
+  {
+    "id": "42ca54fc-c1ae-41cd-bca1-7fe9810db460",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 2009,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 23
+      }
+    ],
+    "submitter_id": "TCGA-44-2656"
+  },
+  {
+    "id": "bab43415-d413-40be-a4c0-2c40a52afe6a",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 2009,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 60
+      }
+    ],
+    "submitter_id": "TCGA-44-2668"
+  },
+  {
+    "id": "12ccd581-a921-41bc-bcee-4e9be54532cc",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 40
+      }
+    ],
+    "submitter_id": "TCGA-50-5931"
+  },
+  {
+    "id": "22302e92-fdfa-462a-9249-efdaa26ee5ed",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Smoker",
+        "pack_years_smoked": 67.5
+      }
+    ],
+    "submitter_id": "TCGA-44-6144"
+  },
+  {
+    "id": "27fceec1-3298-4cdd-a4e6-8f5cf34604f0",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Smoker",
+        "pack_years_smoked": 20
+      }
+    ],
+    "submitter_id": "TCGA-44-5643"
+  },
+  {
+    "id": "9b132e4f-7e35-4cc5-8711-43ad62b906d0",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Lifelong Non-Smoker"
+      }
+    ],
+    "submitter_id": "TCGA-50-6591"
+  },
+  {
+    "id": "d721bfe0-90e3-415e-b9f3-1a270efa5fbb",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1964,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs"
+      }
+    ],
+    "submitter_id": "TCGA-49-4488"
+  },
+  {
+    "id": "5d5cc436-6e57-4d23-a164-7f5153c2e666",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 2004,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 15
+      }
+    ],
+    "submitter_id": "TCGA-44-6778"
+  },
+  {
+    "id": "6144d666-8f77-4efe-95f1-f9e5c4e5e056",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1999,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs",
+        "pack_years_smoked": 75
+      }
+    ],
+    "submitter_id": "TCGA-44-6145"
+  },
+  {
+    "id": "ddeacccf-0953-4952-8a4e-c2617f2e7bcc",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_quit_year": 1973,
+        "tobacco_smoking_status": "Current Reformed Smoker for > 15 yrs",
+        "pack_years_smoked": 5
+      }
+    ],
+    "submitter_id": "TCGA-44-5645"
+  },
+  {
+    "id": "e10568fe-0436-43f2-9f0f-48f9903868c4",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs"
+      }
+    ],
+    "submitter_id": "TCGA-50-6593"
+  },
+  {
+    "id": "ef42ae4c-a108-468e-beed-437cf3cf2962",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Not Reported"
+      }
+    ],
+    "submitter_id": "TCGA-50-5936"
+  },
+  {
+    "id": "fb79c491-7b01-42ae-8369-8364e442e31b",
+    "exposures": [
+      {
+        "cigarettes_per_day": null,
+        "tobacco_smoking_status": "Lifelong Non-Smoker"
+      }
+    ],
+    "submitter_id": "TCGA-44-2665"
+  }
+]
