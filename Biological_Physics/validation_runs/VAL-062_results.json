@@ -1,0 +1,33 @@
+{
+  "val_id": "VAL-062",
+  "supersedes": "VAL-061 (class correction: cycling not immune)",
+  "cohort": "TCGA-COAD HM450 matched tumor/normal (26 pairs inherited from VAL-061)",
+  "cohort_sha": "ce87ad9fb45a1fe652707eca353d95e873d70b009714a448e1b5e5402f37fc27",
+  "scoring_class": "cycling",
+  "H_min": 0.856055,
+  "reference_beta": 0.74,
+  "n_pairs": 26,
+  "A_tumor_mean": 0.6327768311609914,
+  "A_tumor_sd": 0.028086810560187213,
+  "A_normal_mean": 0.6122857790399522,
+  "A_normal_sd": 0.016132661310748555,
+  "delta_A_mean": 0.020491052121039244,
+  "delta_A_sd": 0.028300487791582396,
+  "delta_A_absolute": 0.02049105212103919,
+  "paired_d": 0.724052965869162,
+  "paired_d_ci_95": [
+    0.2922150074271693,
+    1.1558909243111546
+  ],
+  "paired_t": 3.691960201841587,
+  "paired_p": 0.0002225322931361795,
+  "unpaired_d": 0.894672839880047,
+  "unpaired_d_ci_95": [
+    0.3245196186856024,
+    1.4648260610744916
+  ],
+  "unpaired_t": 3.2257887989524927,
+  "unpaired_p": 0.0012562602212358165,
+  "framework_prediction_delta_A": 0.17,
+  "prereg_sha": "9b5ff04ce31e4679e32ac8690fefc0b09a0abd646e89792edf956161097b847d"
+}
