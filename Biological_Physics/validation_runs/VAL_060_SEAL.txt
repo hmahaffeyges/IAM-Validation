@@ -1,0 +1,51 @@
+VAL-060 Pre-Registration Seal
+==============================
+
+Prereg file: VAL_060_PREREG.md
+Prereg SHA-256: cd8c6de4383d87203ad8ee14db6d197635021a5e036e29f3219a613b112e8fea
+Seal timestamp: 2026-04-24 08:14:36 UTC
+
+This seal is created BEFORE:
+- Any TCGA-BRCA Methylation Beta Value file download
+- Any beta-value extraction or computation
+- Any access to sample-level methylation data
+
+This seal is created AFTER:
+- GDC API metadata query returning ONLY: file counts, sample types,
+  case/sample submitter IDs, gender, age_at_diagnosis, file sizes, file IDs.
+  NO beta values or methylation data were accessed.
+- Cohort inventory confirmed: 895 HM450 files (793 Primary Tumor + 97 Solid
+  Tissue Normal + 5 Metastatic), 91 matched tumor-normal pairs from 91 cases.
+
+Target cohort: TCGA-BRCA HM450 (The Cancer Genome Atlas, breast invasive
+  carcinoma, Illumina HumanMethylation450 platform)
+Platform: Illumina HumanMethylation450
+Specimen: fresh-frozen primary tumor tissue + matched solid tissue normal
+Project ID: TCGA-BRCA
+Access: open (NIH GDC, no dbGaP application required for Level 3 beta values)
+
+Instrument frozen:
+- Xu-538 immune panel, SHA ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6
+- H_min(immune) = 0.838889 (G-003b MCMC posterior, frozen)
+- z-standardization: within-TCGA-BRCA Solid Tissue Normal mean/SD per CpG
+
+Target tier contribution: breast-epic v2.2 tissue-arm validation entry
+  (primary validation tier of cross_platform_validated_two_cohorts preserved;
+  tissue arm added as additional evidence layer)
+
+Full pre-registration discipline per PL-001:
+- Primary unpaired + paired d with 4-outcome decision matrix locked
+- Sex stratification locked (female-only primary; n=9 male BRCA reported separately)
+- Per-CpG directional preservation check locked
+- Age regression on adjacent-normal group locked
+- 80-cell blood baseline NOT applicable (tissue data, per CCL-004)
+- Random stratified subsample for unmatched-tumor secondary analysis locked
+- HM450 platform coverage reporting locked
+
+RNG seed: 20260420 (matches all prior VAL runs in 2026-04 sprint)
+
+This is the first retroactive per-card tissue re-validation run per CCL-011.
+VAL-061 (CRC/TCGA-COAD), VAL-062 (AD/ROSMAP cortex), VAL-063 (lung/TCGA-LUAD/LUSC
+extension of VAL-056 Part 2) follow this template.
+
+Author: Heath W. Mahaffey, IAMPerformance Inter-Domain Research Institute
