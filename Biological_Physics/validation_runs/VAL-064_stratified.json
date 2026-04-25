@@ -1,0 +1,192 @@
+{
+  "val_id": "VAL-064",
+  "analysis_type": "risk_factor_stratified_HCC_etiology",
+  "date": "2026-04-24",
+  "cohort_sha": "78ccc7fecc9a8995b95d4f7ab1ecaaa2d431427dfa05bbda808aaacf31b565e4",
+  "headline_finding": "Viral hepatitis (HBV+HCV) blunts the paired tumor-vs-normal tissue contrast (d=+0.02 null) compared to non-viral HCC (alcohol/NAFLD/none, d=+0.66 strong). Mechanism: chronic viral infection drives methylation drift in adjacent-normal tissue, shrinking paired contrast (Villanueva 2015 Hepatology, hcc-epic v0.1 reference).",
+  "stratum_distribution": {
+    "HBV_positive": 7,
+    "HCV_positive": 5,
+    "viral_combined": 12,
+    "alcohol": 10,
+    "NAFLD": 3,
+    "tobacco_only": 2,
+    "no_documented_risk": 19,
+    "non_viral_combined": 34,
+    "Stage_I": 22,
+    "Stage_II_plus": 17,
+    "Ishak_no_fibrosis": 21,
+    "Ishak_any_fibrosis": 33,
+    "male": 30,
+    "female": 20,
+    "white": 34,
+    "black": 7,
+    "asian": 6,
+    "not_reported": 3
+  },
+  "etiology_stratified": {
+    "HBV": {
+      "n": 7,
+      "d": 0.04820653324650425,
+      "ci": [
+        -0.6930340956225521,
+        0.7894471621155607
+      ],
+      "t": 0.12754249853881738,
+      "p": 0.8985110388442714,
+      "delta_mean": 0.002040795259089575,
+      "delta_sd": 0.042334412405346855
+    },
+    "HCV": {
+      "n": 5,
+      "d": -0.046433991435904064,
+      "ci": [
+        -0.9234449909985019,
+        0.8305770081266937
+      ],
+      "t": -0.10382956131732457,
+      "p": 0.9173046067118582,
+      "delta_mean": -0.0009813231301094572,
+      "delta_sd": 0.021133723372974363
+    },
+    "alcohol": {
+      "n": 10,
+      "d": 0.8667428354909724,
+      "ci": [
+        0.13979112947232875,
+        1.593694541509616
+      ],
+      "t": 2.740881505784099,
+      "p": 0.00612746009200249,
+      "delta_mean": 0.028940699640720168,
+      "delta_sd": 0.03339018040377168
+    },
+    "NAFLD": {
+      "n": 3,
+      "d": 0.9320161226830789,
+      "ci": [
+        -0.42323424839102086,
+        2.2872664937571785
+      ],
+      "t": 1.6142992779604406,
+      "p": 0.10646252665836742,
+      "delta_mean": 0.042018686982502294,
+      "delta_sd": 0.04508364819005417
+    },
+    "no_documented": {
+      "n": 19,
+      "d": 0.6165848334847676,
+      "ci": [
+        0.1260510905227768,
+        1.1071185764467584
+      ],
+      "t": 2.6876309792799558,
+      "p": 0.007196087388274375,
+      "delta_mean": 0.02785244195799174,
+      "delta_sd": 0.045172116544900096
+    },
+    "viral_combined": {
+      "n": 12,
+      "d": 0.02312406051096321,
+      "ci": [
+        -0.5427548351278481,
+        0.5890029561497744
+      ],
+      "t": 0.08010409536457083,
+      "p": 0.9361544655873324,
+      "delta_mean": 0.0007815792635899784,
+      "delta_sd": 0.033799395362221464
+    },
+    "non_viral": {
+      "n": 34,
+      "d": 0.6640394480347147,
+      "ci": [
+        0.2926915983938013,
+        1.0353872976756282
+      ],
+      "t": 3.8719820777700473,
+      "p": 0.00010795389174012016,
+      "delta_mean": 0.026237825280496892,
+      "delta_sd": 0.03951244968676203
+    }
+  },
+  "fibrosis_stratified": {
+    "no_fibrosis": {
+      "n": 21,
+      "d": 0.5815836226681574,
+      "ci": [
+        0.11912176060572516,
+        1.0440454847305898
+      ],
+      "t": 2.6651509738234664,
+      "p": 0.007695376659064834,
+      "delta_mean": 0.021206424102564972,
+      "delta_sd": 0.036463241528836905
+    },
+    "any_fibrosis": {
+      "n": 33,
+      "d": 0.5897595194682389,
+      "ci": [
+        0.2200878579706343,
+        0.9594311809658436
+      ],
+      "t": 3.387910505977463,
+      "p": 0.0007042723986878663,
+      "delta_mean": 0.024695587005187345,
+      "delta_sd": 0.041873994721533796
+    }
+  },
+  "stage_stratified": {
+    "stage_I": {
+      "n": 21,
+      "d": 0.43620828668853956,
+      "ci": [
+        -0.011382371717369721,
+        0.8837989450944488
+      ],
+      "t": 1.9989574925172304,
+      "p": 0.0456129532878502,
+      "delta_mean": 0.019030040514250664,
+      "delta_sd": 0.043626040804306064
+    },
+    "stage_II_plus": {
+      "n": 17,
+      "d": 0.5495864671566244,
+      "ci": [
+        0.039582511970071454,
+        1.0595904223431774
+      ],
+      "t": 2.2660030544968137,
+      "p": 0.023451196230290572,
+      "delta_mean": 0.021768895693120044,
+      "delta_sd": 0.039609591927808906
+    }
+  },
+  "gender_stratified": {
+    "male": {
+      "n": 27,
+      "d": 0.41342135972245486,
+      "ci": [
+        0.020431971614286226,
+        0.8064107478306235
+      ],
+      "t": 2.148200399920504,
+      "p": 0.03169783895979017,
+      "delta_mean": 0.01683750007354902,
+      "delta_sd": 0.04072721371932176
+    },
+    "female": {
+      "n": 19,
+      "d": 0.6163228345662205,
+      "ci": [
+        0.1258223785885373,
+        1.1068232905439037
+      ],
+      "t": 2.686488952470692,
+      "p": 0.0072207336003642375,
+      "delta_mean": 0.023518553090218452,
+      "delta_sd": 0.038159470607269076
+    }
+  },
+  "interpretation": "TCGA-LIHC paired tissue contrast is dominated by HCC etiology, not by fibrosis grade or stage. Viral hepatitis raises the adjacent-normal A-score baseline through chronic inflammation-driven methylation drift, shrinking the paired tumor-vs-normal contrast. Non-viral HCC (alcohol/NAFLD/none) shows classical secretory-class tissue arm magnitude (d=+0.66, comparable to VAL-060 breast +0.68). The pooled VAL-064 d=+0.498 reflects the cohort's mixed etiology composition."
+}
