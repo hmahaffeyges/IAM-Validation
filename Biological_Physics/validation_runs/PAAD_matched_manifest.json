@@ -1,0 +1,128 @@
+{
+  "val_id": "VAL-066",
+  "cohort": "TCGA-PAAD HM450 matched tumor/normal",
+  "data_source": "NIH GDC public access",
+  "n_patients": 10,
+  "patients": [
+    "TCGA-FZ-5919",
+    "TCGA-FZ-5920",
+    "TCGA-FZ-5922",
+    "TCGA-FZ-5923",
+    "TCGA-FZ-5924",
+    "TCGA-FZ-5926",
+    "TCGA-HZ-A9TJ",
+    "TCGA-IB-7651",
+    "TCGA-IB-7652",
+    "TCGA-YB-A89D"
+  ],
+  "files": [
+    {
+      "patient": "TCGA-FZ-5919",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "436da18a-9f62-4f93-abd0-3bd3eeb8e0f1",
+      "file_name": "d3122536-f09f-4291-b7eb-0a8ab4e166b3.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5920",
+      "sample_type": "Primary Tumor",
+      "file_id": "656491c2-1c1b-4900-9100-ae39cc42132d",
+      "file_name": "c2ea338a-ba79-49c5-9aca-384d0459157c.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-YB-A89D",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "c08a3c57-cf28-44f6-b1f4-c00272a499fc",
+      "file_name": "3c9e7a5d-c3f0-4c59-b35d-9e0c2896274e.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5926",
+      "sample_type": "Primary Tumor",
+      "file_id": "2df24674-80bc-4b19-a806-732f0f4bb8a8",
+      "file_name": "35b514d9-acdf-4132-a690-97176e86f00a.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-IB-7652",
+      "sample_type": "Primary Tumor",
+      "file_id": "dcf743a7-bd16-45e2-b902-f31e54e8181f",
+      "file_name": "259dfafd-1965-41b9-acab-954b6bdc5f9f.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5924",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "1defe963-defc-4601-aa96-55e1b1c91a52",
+      "file_name": "0bf08059-e7df-4b4b-b1df-7ea29ac6040a.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-HZ-A9TJ",
+      "sample_type": "Metastatic",
+      "file_id": "d10d8437-40e8-4ba3-9d6f-6ca35d4c4621",
+      "file_name": "365fa9d1-5111-494d-b205-cbed97ea1900.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-HZ-A9TJ",
+      "sample_type": "Primary Tumor",
+      "file_id": "67c440ff-a78b-433c-b369-801315ceeb77",
+      "file_name": "c8e0a307-d37c-490e-b94f-0651369cdb61.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5920",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "c72b7fc0-319d-49b8-acba-73d01871ae3b",
+      "file_name": "98810f81-5422-4407-8029-43f27cb09f4a.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5922",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "ac1e97dd-2482-47de-ad4e-aca1aac6ea1c",
+      "file_name": "f2cbcaab-f9ec-4842-9111-f0a5401e13ce.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5919",
+      "sample_type": "Primary Tumor",
+      "file_id": "d99fe795-3aac-43b4-b3dd-1ebfe15e3932",
+      "file_name": "69310e80-90c6-44d9-8ab3-06ac017613a9.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-IB-7651",
+      "sample_type": "Primary Tumor",
+      "file_id": "cec4df34-b210-4453-8440-9f9534280054",
+      "file_name": "04796c95-9f77-4426-9291-188bb68effa4.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5923",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "d8102529-8581-4e1f-8719-cf48c3f236ef",
+      "file_name": "84c283bf-5c9c-406b-94d4-b267b41f08cc.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5923",
+      "sample_type": "Primary Tumor",
+      "file_id": "b607b5de-1800-44e0-9415-3d468b7828d3",
+      "file_name": "79e2d473-32fc-4736-8f56-1ed43846cc5d.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5922",
+      "sample_type": "Primary Tumor",
+      "file_id": "53cb2823-5e6d-4391-a896-d59ed5f805b0",
+      "file_name": "8f8eff8f-7cb3-42ea-9582-e006e3bcf724.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-YB-A89D",
+      "sample_type": "Primary Tumor",
+      "file_id": "ca78fcbc-893f-41cc-b5fd-867859d3479b",
+      "file_name": "b6f56367-30f8-456e-a2fd-545c03c4b907.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5926",
+      "sample_type": "Solid Tissue Normal",
+      "file_id": "ad809356-1f9a-4cbb-a8d9-6ea2d146344b",
+      "file_name": "fe02e7cb-505a-4bf9-b07f-bfaabc64c0d9.methylation_array.sesame.level3betas.txt"
+    },
+    {
+      "patient": "TCGA-FZ-5924",
+      "sample_type": "Primary Tumor",
+      "file_id": "ecdba7ec-2704-4b2d-a7a9-c7b475f902c1",
+      "file_name": "c877078a-fdca-4b79-a466-a6d299a2f87b.methylation_array.sesame.level3betas.txt"
+    }
+  ]
+}
