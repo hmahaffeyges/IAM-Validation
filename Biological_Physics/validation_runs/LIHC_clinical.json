@@ -1,0 +1,848 @@
+{
+  "patient_strata": {
+    "TCGA-BC-A10Q": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "female",
+      "age": 72,
+      "race": "white"
+    },
+    "TCGA-BC-A112": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 80,
+      "race": "white"
+    },
+    "TCGA-ES-A2HS": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "None"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 80,
+      "race": "white"
+    },
+    "TCGA-BC-A110": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "female",
+      "age": 51,
+      "race": "black or african american"
+    },
+    "TCGA-G3-A25W": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 79,
+      "race": "white"
+    },
+    "TCGA-DD-A1EC": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 20,
+      "race": "white"
+    },
+    "TCGA-DD-A1EB": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Tobacco, Smoking"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 72,
+      "race": "not reported"
+    },
+    "TCGA-DD-A39X": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 78,
+      "race": "white"
+    },
+    "TCGA-FV-A23B": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis C Infection"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage II",
+      "gender": "female",
+      "age": 70,
+      "race": "white"
+    },
+    "TCGA-BC-A10U": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 69,
+      "race": "white"
+    },
+    "TCGA-DD-A11C": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 69,
+      "race": "white"
+    },
+    "TCGA-DD-A114": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis C Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis C Virus RNA",
+          "HCV Genotype",
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "5 - Nodular Formation and Incomplete Cirrhosis",
+      "ajcc_stage": "Stage II",
+      "gender": "male",
+      "age": 42,
+      "race": "black or african american"
+    },
+    "TCGA-G3-A25X": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "1,2 - Portal Fibrosis",
+      "ajcc_stage": "Stage II",
+      "gender": "male",
+      "age": 73,
+      "race": "asian"
+    },
+    "TCGA-BC-A10R": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "female",
+      "age": 66,
+      "race": "white"
+    },
+    "TCGA-DD-A11D": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Nonalcoholic Fatty Liver Disease"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": "6 - Established Cirrhosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 57,
+      "race": "white"
+    },
+    "TCGA-DD-A1ED": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption",
+          "Tattoo"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 68,
+      "race": "white"
+    },
+    "TCGA-BD-A2L6": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "3,4 - Fibrous Septa",
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 69,
+      "race": "white"
+    },
+    "TCGA-DD-A11B": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Nonalcoholic Fatty Liver Disease"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "6 - Established Cirrhosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 73,
+      "race": "white"
+    },
+    "TCGA-DD-A1EF": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "3,4 - Fibrous Septa",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 57,
+      "race": "white"
+    },
+    "TCGA-DD-A1EL": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody",
+          "HBV DNA"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage II",
+      "gender": "male",
+      "age": 23,
+      "race": "black or african american"
+    },
+    "TCGA-DD-A3A2": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 76,
+      "race": "white"
+    },
+    "TCGA-BC-A10W": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen"
+        ]
+      ],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 50,
+      "race": "asian"
+    },
+    "TCGA-DD-A1EI": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection",
+          "Liver Cirrhosis (Liver Disease)"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV DNA"
+        ]
+      ],
+      "ishak_fibrosis": "6 - Established Cirrhosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 46,
+      "race": "asian"
+    },
+    "TCGA-BC-A10X": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage IIIA",
+      "gender": "female",
+      "age": 52,
+      "race": "white"
+    },
+    "TCGA-DD-A39Z": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption",
+          "Tobacco, NOS"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage II",
+      "gender": "female",
+      "age": 43,
+      "race": "not reported"
+    },
+    "TCGA-DD-A115": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption",
+          "Tobacco, Smoking"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage IIIA",
+      "gender": "male",
+      "age": 53,
+      "race": "white"
+    },
+    "TCGA-DD-A39W": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage III",
+      "gender": "female",
+      "age": 29,
+      "race": "white"
+    },
+    "TCGA-BC-A216": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage IIIA",
+      "gender": "female",
+      "age": 62,
+      "race": "white"
+    },
+    "TCGA-DD-A3A3": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 45,
+      "race": "asian"
+    },
+    "TCGA-DD-A1EJ": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage IIIC",
+      "gender": "female",
+      "age": 71,
+      "race": "white"
+    },
+    "TCGA-BC-A10S": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 81,
+      "race": "white"
+    },
+    "TCGA-DD-A11A": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 67,
+      "race": "black or african american"
+    },
+    "TCGA-BC-A10Y": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 76,
+      "race": "white"
+    },
+    "TCGA-DD-A1EE": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis C Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis C Virus RNA",
+          "HCV Genotype",
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "6 - Established Cirrhosis",
+      "ajcc_stage": "Stage IIIA",
+      "gender": "male",
+      "age": 73,
+      "race": "white"
+    },
+    "TCGA-DD-A119": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage IV",
+      "gender": "male",
+      "age": 40,
+      "race": "asian"
+    },
+    "TCGA-DD-A1EG": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption",
+          "Nonalcoholic Fatty Liver Disease"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen"
+        ]
+      ],
+      "ishak_fibrosis": "1,2 - Portal Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 76,
+      "race": "white"
+    },
+    "TCGA-BC-A10Z": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 62,
+      "race": "white"
+    },
+    "TCGA-DD-A118": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage II",
+      "gender": "female",
+      "age": 77,
+      "race": "white"
+    },
+    "TCGA-ES-A2HT": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis C Infection"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 54,
+      "race": "black or african american"
+    },
+    "TCGA-DD-A1E9": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "6 - Established Cirrhosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 70,
+      "race": "white"
+    },
+    "TCGA-DD-A3A1": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [
+        [
+          "Unknown"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage IIIA",
+      "gender": "male",
+      "age": 65,
+      "race": "not reported"
+    },
+    "TCGA-BC-A10T": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "1,2 - Portal Fibrosis",
+      "ajcc_stage": null,
+      "gender": "male",
+      "age": 76,
+      "race": "white"
+    },
+    "TCGA-EP-A12J": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis C Infection",
+          "Sarcoidosis"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 62,
+      "race": "black or african american"
+    },
+    "TCGA-DD-A116": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "3,4 - Fibrous Septa",
+      "ajcc_stage": "Stage IIIA",
+      "gender": "male",
+      "age": 68,
+      "race": "asian"
+    },
+    "TCGA-DD-A113": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Tobacco, Smoking"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody"
+        ]
+      ],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage II",
+      "gender": "female",
+      "age": 55,
+      "race": "white"
+    },
+    "TCGA-EP-A26S": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Alcohol Consumption"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 70,
+      "race": "white"
+    },
+    "TCGA-DD-A1EH": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Hepatitis B Infection"
+        ]
+      ],
+      "viral_hepatitis": [
+        [
+          "Hepatitis B Surface Antigen",
+          "HBV Surface Antibody",
+          "HBV Core Antibody",
+          "HBV DNA"
+        ]
+      ],
+      "ishak_fibrosis": "3,4 - Fibrous Septa",
+      "ajcc_stage": "Stage III",
+      "gender": "male",
+      "age": 23,
+      "race": "white"
+    },
+    "TCGA-FV-A2QR": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [
+        [
+          "Diabetes, Type I"
+        ]
+      ],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": null,
+      "ajcc_stage": "Stage I",
+      "gender": "male",
+      "age": 75,
+      "race": "white"
+    },
+    "TCGA-DD-A39V": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "0 - No Fibrosis",
+      "ajcc_stage": "Stage II",
+      "gender": "male",
+      "age": 77,
+      "race": "white"
+    },
+    "TCGA-BD-A3EP": {
+      "alcohol": null,
+      "smoking": null,
+      "risk_factors": [],
+      "viral_hepatitis": [],
+      "ishak_fibrosis": "1,2 - Portal Fibrosis",
+      "ajcc_stage": "Stage I",
+      "gender": "female",
+      "age": 75,
+      "race": "black or african american"
+    }
+  },
+  "n": 50
+}
