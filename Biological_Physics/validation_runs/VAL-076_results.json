@@ -1,0 +1,68 @@
+{
+  "val_id": "VAL-076",
+  "card": "cervical-epic",
+  "date": "2026-04-25",
+  "cohort": "GSE143752 El-Zein 2020 cervical EPIC 850K LBC (full CIN1/2/3 stratification)",
+  "specimen": "LBC pap smear cytology",
+  "platform": "EPIC 850K",
+  "panel": "Xu-538 immune",
+  "panel_sha": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+  "H_min": 0.838889,
+  "rng_seed": 20260425,
+  "n_qc": {
+    "Healthy": 54,
+    "CIN1": 50,
+    "CIN2": 40,
+    "CIN3": 42
+  },
+  "mean_A": {
+    "Healthy": 0.6140821568057447,
+    "CIN1": 0.6042501759801382,
+    "CIN2": 0.6025813202950139,
+    "CIN3": 0.6216793093875882
+  },
+  "sd_A": {
+    "Healthy": 0.03808186376508238,
+    "CIN1": 0.036926578950808676,
+    "CIN2": 0.03741204444270415,
+    "CIN3": 0.05377856482202457
+  },
+  "monotonic_Healthy_CIN1_CIN2_CIN3": false,
+  "primary_unpaired": {
+    "Healthy_vs_CIN1": {
+      "d": -0.26196741144882846,
+      "ci_95": [
+        -0.6482836384563035,
+        0.12434881555864663
+      ],
+      "p": 0.18194555332928597
+    },
+    "Healthy_vs_CIN2": {
+      "d": -0.3042600214879339,
+      "ci_95": [
+        -0.7154441713275366,
+        0.10692412835166876
+      ],
+      "p": 0.14470147373842623
+    },
+    "Healthy_vs_CIN3": {
+      "d": 0.16661285086664002,
+      "ci_95": [
+        -0.23732134622603357,
+        0.5705470479593135
+      ],
+      "p": 0.41803730582593923
+    },
+    "Healthy_vs_All_Lesion": {
+      "d": -0.11378469331075877,
+      "ci_95": [
+        -0.43060873395711197,
+        0.2030393473355944
+      ],
+      "p": 0.4811919161797067
+    }
+  },
+  "outcome": "O3_LBC_NULL",
+  "outcome_rationale": "d_HealthyvsAllLesion=-0.1138 CI=[-0.43060873395711197, 0.2030393473355944]; monotonic=False",
+  "first_LBC_pathway_validation_with_full_CIN_stratification": true
+}

@@ -1,0 +1,81 @@
+{
+  "val_id": "VAL-072",
+  "card": "cervical-epic",
+  "date": "2026-04-25",
+  "cohort": "TCGA-CESC HM450 matched tumor/normal",
+  "panel": "Xu-538 immune",
+  "panel_sha": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+  "H_min": 0.838889,
+  "scoring_class": "immune (Stage 1)",
+  "rng_seed": 20260425,
+  "n_patients_total": 3,
+  "n_qc_passed": 3,
+  "patients_qc_passed": [
+    "TCGA-MY-A5BF",
+    "TCGA-HM-A3JJ",
+    "TCGA-FU-A3EO"
+  ],
+  "per_patient_a_scores": {
+    "TCGA-MY-A5BF": {
+      "A_tumor": 0.5611162707409499,
+      "A_normal": 0.550475771776819,
+      "delta_A": 0.010640498964130995
+    },
+    "TCGA-HM-A3JJ": {
+      "A_tumor": 0.6296445623790636,
+      "A_normal": 0.5646971682275238,
+      "delta_A": 0.06494739415153983
+    },
+    "TCGA-FU-A3EO": {
+      "A_tumor": 0.5642420124898637,
+      "A_normal": 0.5353374422421271,
+      "delta_A": 0.028904570247736627
+    }
+  },
+  "primary_pooled": {
+    "n": 3,
+    "mean_delta": 0.034830821121135815,
+    "sd_delta": 0.027634218883205306,
+    "paired_d": 1.2604235809358897,
+    "paired_d_ci_95": [
+      -0.2553944306308973,
+      2.776241592502677
+    ],
+    "paired_t": 2.183117681238864,
+    "paired_p": 0.029027144811490047
+  },
+  "M5_per_cpg_direction": {
+    "n_cpgs_evaluated": 380,
+    "positive_pct": 47.89473684210526,
+    "negative_pct": 52.10526315789474,
+    "n_positive": 182,
+    "n_negative": 198
+  },
+  "bidirectional_decomposition_CCL_027": {
+    "positive_arm": {
+      "n": 3,
+      "paired_d": 0.6323358942723257,
+      "paired_d_ci_95": [
+        -0.607237869925419,
+        1.8719096584700705
+      ],
+      "mean_delta": 0.026887576869417746,
+      "n_cpgs": 182
+    },
+    "negative_arm": {
+      "n": 3,
+      "paired_d": 4.103976128966919,
+      "paired_d_ci_95": [
+        0.6306057856767082,
+        7.57734647225713
+      ],
+      "mean_delta": 0.058034702413749674,
+      "n_cpgs": 198
+    }
+  },
+  "outcome": "O3_TISSUE_NULL",
+  "outcome_rationale": "Paired d=+1.2604 CI=[-0.2554,+2.7762], per-CpG positive % = 47.9%",
+  "prereg_sha": "5a72e1ec4f3379f1406c747457b00a74952e27c57c598622612ddb43c35a5aaf",
+  "manifest_sha": "434c9f2b10570bfc1d92ae2ea0b83cce3218ed9b82898909d7b3f0625d0dd6d9",
+  "n_caveat": "n=3 is the entire publicly accessible TCGA-CESC matched-pair pool. Exploratory only; primary cervical-epic tissue-arm anchors are VAL-073/074/077."
+}

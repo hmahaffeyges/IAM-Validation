@@ -1,0 +1,9 @@
+VAL-082 PREREG_SEAL
+Card: heme-epic v0.1
+Arm: myeloid
+Sealed: 2026-04-25
+SHA-256 of VAL-082_prereg.md: a8c3714a510968b614a8e29090ba24a11706734941345ed5c6582dc6f86d08ec
+Locked criteria: see VAL-082_prereg.md
+RNG seed: 20260425
+Panel SHA: ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6
+H_min(immune): 0.838889

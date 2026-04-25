@@ -1,0 +1,4 @@
+VAL-081 PREREG_SEAL
+SHA-256: a86547ce6a90bdb54dc9d118ad6b6ed41135286e03507e3293c8bfe20573527b
+Sealed: 2026-04-25
+Locked criteria: see VAL-081_prereg.md

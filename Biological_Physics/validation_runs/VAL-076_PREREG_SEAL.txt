@@ -1,0 +1,4 @@
+VAL-076 PREREG_SEAL
+SHA-256: e0a949cb647bac7edfabf2a69750c54a908dd8f1ce9ff73eea63f521024355ea
+Sealed: 2026-04-25
+Locked criteria: see VAL-076_prereg.md

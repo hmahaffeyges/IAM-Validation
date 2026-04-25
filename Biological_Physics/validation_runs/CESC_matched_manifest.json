@@ -1,0 +1,39 @@
+{
+  "val_id": "VAL-072",
+  "card": "cervical-epic",
+  "manifest_date": "2026-04-25",
+  "source": "NIH GDC public access",
+  "project": "TCGA-CESC",
+  "data_type": "Methylation Beta Value",
+  "platform": "Illumina Human Methylation 450",
+  "workflow_type": "sesame Methylation Beta Estimation (Level 3)",
+  "manifest_retrieval_method": "GDC API filters endpoint, queried 2026-04-25 pre-seal",
+  "n_patients_total_cesc": 307,
+  "n_patients_with_normal_HM450": 3,
+  "n_pairs_in_manifest": 3,
+  "patients": [
+    {
+      "submitter_id": "TCGA-MY-A5BF",
+      "primary_tumor_file_id": "7383dcc9-889f-4797-bf0a-9da5ae2e811d",
+      "primary_tumor_file_size_bytes": 13127344,
+      "solid_tissue_normal_file_id": "f292b6bb-c235-420f-8e5d-0fcefaba99c5",
+      "solid_tissue_normal_file_size_bytes": 13238256
+    },
+    {
+      "submitter_id": "TCGA-HM-A3JJ",
+      "primary_tumor_file_id": "64c27b2f-9c04-469b-b6fc-69156e027c98",
+      "primary_tumor_file_size_bytes": 13127344,
+      "solid_tissue_normal_file_id": "16b792bd-d268-4b39-80d3-23ab3b980879",
+      "solid_tissue_normal_file_size_bytes": 13127344
+    },
+    {
+      "submitter_id": "TCGA-FU-A3EO",
+      "primary_tumor_file_id": "f14a3d2b-4533-4387-a593-2b956b40e82d",
+      "primary_tumor_file_size_bytes": 13127344,
+      "solid_tissue_normal_file_id": "7d44a9ef-e300-4127-8698-0f9c17fbb123",
+      "solid_tissue_normal_file_size_bytes": 13238256
+    }
+  ],
+  "cohort_completeness_note": "All 3 publicly-accessible TCGA-CESC matched HM450 tumor/normal pairs included. Per CCL-029, the entire pool is run even at n=3.",
+  "platform_caveat": "TCGA-CESC has only 3 normal-tissue HM450 samples vs 307 tumor samples. This is the smallest matched-pair pool of any Cookbook tissue-arm cohort. n=3 is exploratory only; primary cervical-epic tissue-arm anchors are VAL-073 GSE99511 (n=68) and VAL-074 GSE46306 (n=43)."
+}
