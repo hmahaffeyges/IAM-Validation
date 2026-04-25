@@ -1,0 +1,541 @@
+[
+  {
+    "gsm": "GSM1468969",
+    "title": "genomic DNA from Surgical resection GBM-1758",
+    "source": "Surgical resection GBM-1758",
+    "disease_state": "GBM",
+    "age": "37"
+  },
+  {
+    "gsm": "GSM1468970",
+    "title": "genomic DNA from Surgical resection GBM-1755",
+    "source": "Surgical resection GBM-1755",
+    "disease_state": "GBM",
+    "age": "45"
+  },
+  {
+    "gsm": "GSM1468971",
+    "title": "genomic DNA from Surgical resection GBM-1496",
+    "source": "Surgical resection GBM-1496",
+    "disease_state": "GBM",
+    "age": "49"
+  },
+  {
+    "gsm": "GSM1468972",
+    "title": "genomic DNA from Surgical resection GBM-1714",
+    "source": "Surgical resection GBM-1714",
+    "disease_state": "GBM",
+    "age": "52"
+  },
+  {
+    "gsm": "GSM1468973",
+    "title": "genomic DNA from Surgical resection GBM-1703",
+    "source": "Surgical resection GBM-1703",
+    "disease_state": "GBM",
+    "age": "48"
+  },
+  {
+    "gsm": "GSM1468974",
+    "title": "genomic DNA from Surgical resection GBM-1729",
+    "source": "Surgical resection GBM-1729",
+    "disease_state": "GBM",
+    "age": "49"
+  },
+  {
+    "gsm": "GSM1468975",
+    "title": "genomic DNA from Surgical resection GBM-1759",
+    "source": "Surgical resection GBM-1759",
+    "disease_state": "GBM",
+    "age": "53"
+  },
+  {
+    "gsm": "GSM1468976",
+    "title": "genomic DNA from Surgical resection GBM-1587",
+    "source": "Surgical resection GBM-1587",
+    "disease_state": "GBM",
+    "age": "60"
+  },
+  {
+    "gsm": "GSM1468977",
+    "title": "genomic DNA from Surgical resection GBM-1545",
+    "source": "Surgical resection GBM-1545",
+    "disease_state": "GBM",
+    "age": "58"
+  },
+  {
+    "gsm": "GSM1468978",
+    "title": "genomic DNA from Surgical resection GBM-1732",
+    "source": "Surgical resection GBM-1732",
+    "disease_state": "GBM",
+    "age": "62"
+  },
+  {
+    "gsm": "GSM1468979",
+    "title": "genomic DNA from Surgical resection GBM-1774",
+    "source": "Surgical resection GBM-1774",
+    "disease_state": "GBM",
+    "age": "64"
+  },
+  {
+    "gsm": "GSM1468980",
+    "title": "genomic DNA from Surgical resection GBM-1543",
+    "source": "Surgical resection GBM-1543",
+    "disease_state": "GBM",
+    "age": "27"
+  },
+  {
+    "gsm": "GSM1468981",
+    "title": "genomic DNA from recurrent GBM-1613, originating tumor GBM-1543",
+    "source": "recurrent GBM-1613, originating tumor GBM-1543",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1468982",
+    "title": "genomic DNA from Surgical resection GBM-1704",
+    "source": "Surgical resection GBM-1704",
+    "disease_state": "GBM",
+    "age": "48"
+  },
+  {
+    "gsm": "GSM1468983",
+    "title": "genomic DNA from Surgical resection GBM-1730",
+    "source": "Surgical resection GBM-1730",
+    "disease_state": "GBM",
+    "age": "49"
+  },
+  {
+    "gsm": "GSM1468984",
+    "title": "genomic DNA from Surgical resection GBM-1589",
+    "source": "Surgical resection GBM-1589",
+    "disease_state": "GBM",
+    "age": "48"
+  },
+  {
+    "gsm": "GSM1468985",
+    "title": "genomic DNA from Surgical resection GBM-1566",
+    "source": "Surgical resection GBM-1566",
+    "disease_state": "GBM",
+    "age": "60"
+  },
+  {
+    "gsm": "GSM1468986",
+    "title": "genomic DNA from Surgical resection GBM-1705",
+    "source": "Surgical resection GBM-1705",
+    "disease_state": "GBM",
+    "age": "53"
+  },
+  {
+    "gsm": "GSM1468987",
+    "title": "genomic DNA from Surgical resection GBM-1706",
+    "source": "Surgical resection GBM-1706",
+    "disease_state": "GBM",
+    "age": "44"
+  },
+  {
+    "gsm": "GSM1468988",
+    "title": "genomic DNA from Surgical resection GBM-1707",
+    "source": "Surgical resection GBM-1707",
+    "disease_state": "GBM",
+    "age": "61"
+  },
+  {
+    "gsm": "GSM1468989",
+    "title": "genomic DNA from Surgical resection GBM-1552",
+    "source": "Surgical resection GBM-1552",
+    "disease_state": "GBM",
+    "age": "56"
+  },
+  {
+    "gsm": "GSM1468990",
+    "title": "genomic DNA from Surgical resection GBM-1731",
+    "source": "Surgical resection GBM-1731",
+    "disease_state": "GBM",
+    "age": "54"
+  },
+  {
+    "gsm": "GSM1468991",
+    "title": "genomic DNA from Surgical resection GBM-1752",
+    "source": "Surgical resection GBM-1752",
+    "disease_state": "GBM",
+    "age": "54"
+  },
+  {
+    "gsm": "GSM1468992",
+    "title": "genomic DNA from Surgical resection GBM-1760",
+    "source": "Surgical resection GBM-1760",
+    "disease_state": "GBM",
+    "age": "63"
+  },
+  {
+    "gsm": "GSM1468993",
+    "title": "genomic DNA from Surgical resection GBM-1606",
+    "source": "Surgical resection GBM-1606",
+    "disease_state": "GBM",
+    "age": "48"
+  },
+  {
+    "gsm": "GSM1468994",
+    "title": "genomic DNA from Surgical resection GBM-1756",
+    "source": "Surgical resection GBM-1756",
+    "disease_state": "GBM",
+    "age": "56"
+  },
+  {
+    "gsm": "GSM1468995",
+    "title": "genomic DNA from Surgical resection GBM-1761",
+    "source": "Surgical resection GBM-1761",
+    "disease_state": "GBM",
+    "age": "51"
+  },
+  {
+    "gsm": "GSM1468996",
+    "title": "genomic DNA from Surgical resection GBM-1591",
+    "source": "Surgical resection GBM-1591",
+    "disease_state": "GBM",
+    "age": "44"
+  },
+  {
+    "gsm": "GSM1468997",
+    "title": "genomic DNA from Surgical resection GBM-1603",
+    "source": "Surgical resection GBM-1603",
+    "disease_state": "GBM",
+    "age": "53"
+  },
+  {
+    "gsm": "GSM1468998",
+    "title": "genomic DNA from Surgical resection GBM-1763",
+    "source": "Surgical resection GBM-1763",
+    "disease_state": "GBM",
+    "age": "62"
+  },
+  {
+    "gsm": "GSM1468999",
+    "title": "genomic DNA from Surgical resection GBM-1584",
+    "source": "Surgical resection GBM-1584",
+    "disease_state": "GBM",
+    "age": "56"
+  },
+  {
+    "gsm": "GSM1469000",
+    "title": "genomic DNA from Surgical resection GBM-1748",
+    "source": "Surgical resection GBM-1748",
+    "disease_state": "GBM",
+    "age": "59"
+  },
+  {
+    "gsm": "GSM1469001",
+    "title": "genomic DNA from Surgical resection GBM-1764",
+    "source": "Surgical resection GBM-1764",
+    "disease_state": "GBM",
+    "age": "32"
+  },
+  {
+    "gsm": "GSM1469002",
+    "title": "genomic DNA from Surgical resection GBM-1601",
+    "source": "Surgical resection GBM-1601",
+    "disease_state": "GBM",
+    "age": "55"
+  },
+  {
+    "gsm": "GSM1469003",
+    "title": "genomic DNA from Surgical resection GBM-1709",
+    "source": "Surgical resection GBM-1709",
+    "disease_state": "GBM",
+    "age": "41"
+  },
+  {
+    "gsm": "GSM1469004",
+    "title": "genomic DNA from Surgical resection GBM-1614",
+    "source": "Surgical resection GBM-1614",
+    "disease_state": "GBM",
+    "age": "49"
+  },
+  {
+    "gsm": "GSM1469005",
+    "title": "genomic DNA from Surgical resection GBM-1612",
+    "source": "Surgical resection GBM-1612",
+    "disease_state": "GBM",
+    "age": "57"
+  },
+  {
+    "gsm": "GSM1469006",
+    "title": "genomic DNA from Surgical resection GBM-1617",
+    "source": "Surgical resection GBM-1617",
+    "disease_state": "GBM",
+    "age": "63"
+  },
+  {
+    "gsm": "GSM1469007",
+    "title": "genomic DNA from Surgical resection GBM-1628",
+    "source": "Surgical resection GBM-1628",
+    "disease_state": "GBM",
+    "age": "49"
+  },
+  {
+    "gsm": "GSM1469008",
+    "title": "genomic DNA from Surgical resection GBM-1646",
+    "source": "Surgical resection GBM-1646",
+    "disease_state": "GBM",
+    "age": "63"
+  },
+  {
+    "gsm": "GSM1469009",
+    "title": "genomic DNA from Surgical resection GBM-1682",
+    "source": "Surgical resection GBM-1682",
+    "disease_state": "GBM",
+    "age": "50"
+  },
+  {
+    "gsm": "GSM1469010",
+    "title": "genomic DNA from Surgical resection GBM-1766",
+    "source": "Surgical resection GBM-1766",
+    "disease_state": "GBM",
+    "age": "57"
+  },
+  {
+    "gsm": "GSM1469011",
+    "title": "genomic DNA from Surgical resection GBM-1749",
+    "source": "Surgical resection GBM-1749",
+    "disease_state": "GBM",
+    "age": "52"
+  },
+  {
+    "gsm": "GSM1469012",
+    "title": "genomic DNA from Surgical resection GBM-1710",
+    "source": "Surgical resection GBM-1710",
+    "disease_state": "GBM",
+    "age": "43"
+  },
+  {
+    "gsm": "GSM1469013",
+    "title": "genomic DNA from Surgical resection GBM-1768",
+    "source": "Surgical resection GBM-1768",
+    "disease_state": "GBM",
+    "age": "55"
+  },
+  {
+    "gsm": "GSM1469014",
+    "title": "genomic DNA from Surgical resection GBM-1769",
+    "source": "Surgical resection GBM-1769",
+    "disease_state": "GBM",
+    "age": "52"
+  },
+  {
+    "gsm": "GSM1469015",
+    "title": "genomic DNA from Surgical resection GBM-1639",
+    "source": "Surgical resection GBM-1639",
+    "disease_state": "GBM",
+    "age": "43"
+  },
+  {
+    "gsm": "GSM1469016",
+    "title": "genomic DNA from Surgical resection GBM-1647",
+    "source": "Surgical resection GBM-1647",
+    "disease_state": "GBM",
+    "age": "44"
+  },
+  {
+    "gsm": "GSM1469017",
+    "title": "genomic DNA from recurrent GBM-1775, originating tumor GBM-1714",
+    "source": "recurrent GBM-1775, originating tumor GBM-1714",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469018",
+    "title": "genomic DNA from Surgical resection GBM-1562",
+    "source": "Surgical resection GBM-1562",
+    "disease_state": "GBM",
+    "age": "56"
+  },
+  {
+    "gsm": "GSM1469019",
+    "title": "genomic DNA from Surgical resection GBM-1621",
+    "source": "Surgical resection GBM-1621",
+    "disease_state": "GBM",
+    "age": "62"
+  },
+  {
+    "gsm": "GSM1469020",
+    "title": "genomic DNA from recurrent GBM-1622, originating tumor GBM-1621",
+    "source": "recurrent GBM-1622, originating tumor GBM-1621",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469021",
+    "title": "genomic DNA from Surgical resection GBM-1564",
+    "source": "Surgical resection GBM-1564",
+    "disease_state": "GBM",
+    "age": "45"
+  },
+  {
+    "gsm": "GSM1469022",
+    "title": "genomic DNA from Surgical resection GBM-1297",
+    "source": "Surgical resection GBM-1297",
+    "disease_state": "GBM",
+    "age": "36"
+  },
+  {
+    "gsm": "GSM1469023",
+    "title": "genomic DNA from Surgical resection GBM-1308",
+    "source": "Surgical resection GBM-1308",
+    "disease_state": "GBM",
+    "age": "45"
+  },
+  {
+    "gsm": "GSM1469024",
+    "title": "genomic DNA from Surgical resection GBM-1316",
+    "source": "Surgical resection GBM-1316",
+    "disease_state": "GBM",
+    "age": "68"
+  },
+  {
+    "gsm": "GSM1469025",
+    "title": "genomic DNA from Surgical resection GBM-1317",
+    "source": "Surgical resection GBM-1317",
+    "disease_state": "GBM",
+    "age": "26"
+  },
+  {
+    "gsm": "GSM1469026",
+    "title": "genomic DNA from Surgical resection GBM-1357",
+    "source": "Surgical resection GBM-1357",
+    "disease_state": "GBM",
+    "age": "36"
+  },
+  {
+    "gsm": "GSM1469027",
+    "title": "genomic DNA from Surgical resection GBM-1360",
+    "source": "Surgical resection GBM-1360",
+    "disease_state": "GBM",
+    "age": "65"
+  },
+  {
+    "gsm": "GSM1469028",
+    "title": "genomic DNA from Surgical resection GBM-1399",
+    "source": "Surgical resection GBM-1399",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469029",
+    "title": "genomic DNA from Surgical resection GBM-1419",
+    "source": "Surgical resection GBM-1419",
+    "disease_state": "GBM",
+    "age": "48"
+  },
+  {
+    "gsm": "GSM1469030",
+    "title": "genomic DNA from Surgical resection GBM-1437",
+    "source": "Surgical resection GBM-1437",
+    "disease_state": "GBM",
+    "age": "48"
+  },
+  {
+    "gsm": "GSM1469031",
+    "title": "genomic DNA from Surgical resection GBM-1430",
+    "source": "Surgical resection GBM-1430",
+    "disease_state": "GBM",
+    "age": "37"
+  },
+  {
+    "gsm": "GSM1469032",
+    "title": "genomic DNA from recurrent GBM-1497, originating tumor GBM-1430",
+    "source": "recurrent GBM-1497, originating tumor GBM-1430",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469033",
+    "title": "genomic DNA from Craniotomy for Epilepsy NTB-2903",
+    "source": "Lobectomy NTB-2903",
+    "disease_state": "Non-tumor brain",
+    "age": "79"
+  },
+  {
+    "gsm": "GSM1469034",
+    "title": "genomic DNA from Craniotomy for Epilepsy NTB-1076",
+    "source": "Craniotomy for Epilepsy NTB-1076",
+    "disease_state": "Non-tumor brain",
+    "age": "69"
+  },
+  {
+    "gsm": "GSM1469035",
+    "title": "genomic DNA from Craniotomy for Epilepsy NTB-1780",
+    "source": "Craniotomy for Epilepsy NTB-1780",
+    "disease_state": "Non-tumor brain",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469036",
+    "title": "genomic DNA from Craniotomy for Epilepsy NTB-2901",
+    "source": "Craniotomy for Epilepsy NTB-2901",
+    "disease_state": "Non-tumor brain",
+    "age": "34"
+  },
+  {
+    "gsm": "GSM1469037",
+    "title": "genomic DNA from Craniotomy for Epilepsy NTB-2900",
+    "source": "Craniotomy for Epilepsy NTB-2900",
+    "disease_state": "Non-tumor brain",
+    "age": "44"
+  },
+  {
+    "gsm": "GSM1469038",
+    "title": "genomic DNA from cultured glioma spheres LN-2207GS",
+    "source": "cultured glioma spheres LN-2207GS",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469039",
+    "title": "genomic DNA from cultured glioma spheres LN-2540GS",
+    "source": "cultured glioma spheres LN-2540GS",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469040",
+    "title": "genomic DNA from cultured glioma spheres LN-2669GS",
+    "source": "cultured glioma spheres LN-2669GS",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469041",
+    "title": "genomic DNA from cultured glioma spheres LN-2683GS",
+    "source": "cultured glioma spheres LN-2683GS",
+    "disease_state": "GBM",
+    "age": "NA"
+  },
+  {
+    "gsm": "GSM1469042",
+    "title": "genomic DNA from Surgical resection GBM-2207",
+    "source": "Surgical resection GBM-2207",
+    "disease_state": "GBM",
+    "age": "42"
+  },
+  {
+    "gsm": "GSM1469043",
+    "title": "genomic DNA from Surgical resection GBM-2540",
+    "source": "Surgical resection GBM-2540",
+    "disease_state": "GBM",
+    "age": "51"
+  },
+  {
+    "gsm": "GSM1469044",
+    "title": "genomic DNA from Surgical resection GBM-2669",
+    "source": "Surgical resection GBM-2669",
+    "disease_state": "GBM",
+    "age": "70"
+  },
+  {
+    "gsm": "GSM1469045",
+    "title": "genomic DNA from Surgical resection GBM-2683",
+    "source": "Surgical resection GBM-2683",
+    "disease_state": "GBM",
+    "age": "51"
+  }
+]
