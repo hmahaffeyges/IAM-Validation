@@ -1,0 +1,337 @@
+[
+  {
+    "path": "INVENTORY.json",
+    "size": 12735,
+    "sha256": "4d4f1cb888f3cfef8d8e90443a389458b984332586301df4851038c8ec5ead71"
+  },
+  {
+    "path": "README.md",
+    "size": 13994,
+    "sha256": "032ee7f110ad5a656b7fdf600aa9f3600594468a638e14514cb9edd697f59c9b"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt",
+    "size": 378052,
+    "sha256": "103aad66cc3ebc19930a1ef458e78abde46c5b63ec194a4ca6b4886c91f73b6c"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__exprefBladder_m.csv",
+    "size": 19350,
+    "sha256": "941a34440da170698fda9dc44227ba8bed8b0e98fe325f30ad96ba81e614ab2e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__mrefBladder_m.csv",
+    "size": 9859,
+    "sha256": "f73fbeab74dfbe5aec2829303757908df569bb969101180c2875a46505a3e758"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BrainRef__exprefBrain_m.csv",
+    "size": 59215,
+    "sha256": "6341fd68f520772a43f00328cbd43cbba6a7616cbfcf051cb88280b7f39bafb2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BrainRef__mrefBrain_m.csv",
+    "size": 11051,
+    "sha256": "bbc2fc0d5d75851206663d1e2c7e0ec4a7ec0102edb0e53866efb1e295ec4ba6"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BreastRef__exprefBreast_m.csv",
+    "size": 168064,
+    "sha256": "36975c96c74939da2de05cbd252bed773c1d30671bb6339cc3515bfce20e5e62"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BreastRef__mrefBreast_m.csv",
+    "size": 40949,
+    "sha256": "9f546c2deba0d7890794094afe79d3134b00fe3f8f22e01c0072eea8753bca9b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ColonRef__Colon_Expref_m.csv",
+    "size": 15812,
+    "sha256": "a5c7edbe6ee5ac38586fd4c73255d9b7c4b78a79a9821858936058b7c8b1fc13"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ColonRef__Colon_Mref_m.csv",
+    "size": 8441,
+    "sha256": "d6ac1cc8bd74eb1fadd29291999ff5b768ec56619265e2eae3f8ecaff77e5506"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/EsoRef__Eso_Expref_m.csv",
+    "size": 78389,
+    "sha256": "11f1d79cad63aa5fcc3578bf53e3ef58c6264371f89d3f34f4ed96323a2f2256"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/EsoRef__Eso_Mref_m.csv",
+    "size": 21240,
+    "sha256": "975bbf80b07f31c802045fa152fb38917158e7dc4d9f363371c9173dca26c826"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/HeartRef__exprefHeart_m.csv",
+    "size": 52217,
+    "sha256": "26dada627159b68cb333a94e570bb82b70d39626f9cebd740fa1554f1f6a4ccb"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/HeartRef__mrefHeart_m.csv",
+    "size": 18187,
+    "sha256": "a8ec58a43294b772392a015ce967df384f27f4986723a8aac29d87ec3509e77a"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/KidneyRef__Kidney_Expref_m.csv",
+    "size": 10450,
+    "sha256": "3c3df96658d45fd40e5a2bb39f15dd87f2aaa0336aba244d63876c436b6576e3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/KidneyRef__Kidney_Mref_m.csv",
+    "size": 2144,
+    "sha256": "3cff72c408426ea815f86ac097edd3fa6465ab8cd7cab757011eaf0b645d9786"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LiverRef__exprefLiver_m.csv",
+    "size": 29305,
+    "sha256": "eed814361a009697d47504bddf56eaedce599d3c80be13d897dcdda8482cf2d1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LiverRef__mrefLiver_m.csv",
+    "size": 13765,
+    "sha256": "e285bdb6c19d3a281503be14405b48412080e80552aaa4435859efb714d51b15"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LungRef__exprefLung_m.csv",
+    "size": 95857,
+    "sha256": "3dba4fc4c1e00444263c1aac5828aaa918ab07da8d058e86164770226a7a5891"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LungRef__mrefLung_m.csv",
+    "size": 31445,
+    "sha256": "c7aecba5e46d4c31ea434f71186693f3aafb0800de761975bcdd18b401d44dd7"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/MANIFEST.json",
+    "size": 11939,
+    "sha256": "90800ffa05523924a40d4cee39315f63187b3b95f18d588e70b5d65d40a58990"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/OEref__exprefOE_m.csv",
+    "size": 123964,
+    "sha256": "6289dc60bc70f47ec886900403298dfb2dbc3320724e12a460fa0dd9f876660d"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/OEref__mrefOE_m.csv",
+    "size": 34304,
+    "sha256": "c2a2e673f8b3ebd7c1bcbae60ae62571ecda77ab7a5ef06cf9333a23cfd33a67"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef9ct__exprefPancreas9ct_m.csv",
+    "size": 62255,
+    "sha256": "f2f9656e759e81c4efca53d592fe469909cd6354c3177588c24b9857c7f9f95e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef9ct__mrefPancreas9ct_m.csv",
+    "size": 21144,
+    "sha256": "e6cad884bc29b349379c40e87acf607374a5451e6f800b005cf57b429043fcea"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef__exprefPancreas_m.csv",
+    "size": 39900,
+    "sha256": "9251be6b0cc9565fed5cdc2972f91c730652a9a50946904e03eaa9bd2768a05e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef__mrefPancreas_m.csv",
+    "size": 13979,
+    "sha256": "f3997f453ebbcabef30f63406e24c9b5cc939cfb87a328131d06e885f5c22df1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ProstateRef__exprefProstate_m.csv",
+    "size": 34949,
+    "sha256": "3c465a691ce9f82f3ec1adcdd387a49844bbf88bd3a087be4417e47bf74522d3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ProstateRef__mrefProstate_m.csv",
+    "size": 12240,
+    "sha256": "706a0910a6d284b268cd8d2bc6ffa131beadab9ee2d942a18178903e682a72a3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/SkinRef__exprefSkin_m.csv",
+    "size": 39527,
+    "sha256": "258b3fe81f57f6ee6d3254a614eb9a9b06ce974813ce265e61e21466def305f1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/SkinRef__mrefSkin_m.csv",
+    "size": 13380,
+    "sha256": "d6844f4ded676ba2f4499afbd889e1919858f88aa0de265ae87a3824a79dbc79"
+  },
+  {
+    "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv",
+    "size": 1454581,
+    "sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/CVresults.Rmd",
+    "size": 1192,
+    "sha256": "4a985339b13f6b98743e77ce6fa7558d236be8656518a112a71aad9bd81fd2c0"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/LICENSE",
+    "size": 1068,
+    "sha256": "3ffc1e1acb97b2770962f16af552035439ab866c534160852c3e0cb5693f43bc"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/MNPprocessIDAT_functions.R",
+    "size": 2908,
+    "sha256": "1f04db03c2a3e16a731f1bc7f06ea10bc2d4ab74ef7374bae17ae8c8a11c4052"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/RSpectra_pca.R",
+    "size": 1400,
+    "sha256": "ae62e3cd1de9224707c36981f2d204a2a091352184ff73283cb9314bb5b3890b"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/batchadjust.R",
+    "size": 2116,
+    "sha256": "282b4e5abed1b590be36a7188ee2c43b5775dc3f1ef2a99324f714fdd6c2913e"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/calculateCVfold.R",
+    "size": 2492,
+    "sha256": "6a78241eec054e77974b291dcb49b2c8f8242ee98f6716347b126ce6f86565ec"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/makefolds.R",
+    "size": 1087,
+    "sha256": "515b8dad33d94417ef41c3f8f8df5f856850d3816a58143a8b3f1ee2e9197fe5"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/multi_brier.R",
+    "size": 496,
+    "sha256": "fb3b134cc52eaa13a4b605ba52705309aef0bf4fe5762aa14c53034ea1814ad9"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/multi_logloss.R",
+    "size": 585,
+    "sha256": "410e55f3af5657b93cea4a30ae2b0d837868671a12f7557341fcba0a4bde834a"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/train.R",
+    "size": 881,
+    "sha256": "100608ee23268a5275eef2cfe7c80c1bfa378c4a612bc2646f8d250d217a4ff6"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/README.md",
+    "size": 1900,
+    "sha256": "27cc4dad13791c47c7f50fb5808ea24287ee4ed5da2d72a8709bc8ba1a66447b"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/calibration.R",
+    "size": 3466,
+    "sha256": "c87229c1bf41b9a5d92e903b532a44e6830b07d8269ca8890f5a95a2384e260a"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/cnv_analysis.R",
+    "size": 1451,
+    "sha256": "deb50a3caec07b3595f01f3cefd6a71e5579c2a47730f6e10a4e9e71dd2546e1"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/cross_validation.R",
+    "size": 2192,
+    "sha256": "8a81517d609ee1cc58b6865a9a5808d054ac2dbc00c556195a554fc833161121"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/amb_3965probes.vh20151030.txt",
+    "size": 47580,
+    "sha256": "22cbd00130047a08c56ad52ae4f02c8a9a97c2c8203b9fa847e3c30b7252ffe6"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/epicV1B2_32260probes.vh20160325.txt",
+    "size": 354860,
+    "sha256": "f607b2d17c10352d2d2cd318c08398158e504b5ee0b9df3d5800999985902941"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/snp_7998probes.vh20151030.txt",
+    "size": 95976,
+    "sha256": "d9d3df9bb240651c015085eb1b0e38c9181ac44df8cf217c51f31484c68fb134"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/xy_11551probes.vh20151030.txt",
+    "size": 138612,
+    "sha256": "af273d5328d40acb09a1b0e750f4d4b59d87f7fb03a65be92bff7c5392c4610f"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/preprocessing.R",
+    "size": 3329,
+    "sha256": "c7705e3417d1bdc4c527ec001b7851fdee5e57c70fb446d6c5a525b2a2e5a60d"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/purity.Rmd",
+    "size": 1167,
+    "sha256": "acc55b97090d59cdbdd6f38b2ff12a272e59c951a9348d4af346468de18808d0"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/training.R",
+    "size": 2809,
+    "sha256": "1d2e5b9a73d9fd2c02a10af030c1a6c2c428bfe57e3b27d5b067f64c5cc2838f"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/tsne.R",
+    "size": 1304,
+    "sha256": "28c97be4f4240f02d1e3b7ec2bbbb401769d68df611d694b80a4d82e42b602e5"
+  },
+  {
+    "path": "stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R",
+    "size": 6551,
+    "sha256": "2e92235b6ba3f83a58f8d1ced0d2efdc6e31de6d8f8924ef90e30719ac2bb8ec"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.compTable.rda",
+    "size": 23612,
+    "sha256": "ab1ae36984a473aaa653ea0192d12da6cd60bd9254b46244c3a042b08ebf389b"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.rda",
+    "size": 1965,
+    "sha256": "a07eafddda69c7144d32eb8e21ecd356ecd501399e25af8c35b649cadcd1bd39"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450k_compTable.csv",
+    "size": 44236,
+    "sha256": "90fc4333a0514508410c9c5683be5a05d0ed89cdfa1744300166314fbaa18ff8"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450klegacy.compTable.rda",
+    "size": 18450,
+    "sha256": "a057fdc254263cc285abdde99600b43176f2afe969f6ec69168e380171c4a723"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450klegacy.rda",
+    "size": 1589,
+    "sha256": "6babee8af9cf5e8fb859f6104ff4338b32735fa1b30e5ddf6d54201d52c3f3a3"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGsCordBlood.rda",
+    "size": 2226,
+    "sha256": "efd68ef3460a3c87f1152ace3d7afd441137c0ae68838dc14ee83f322d1f4093"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs_compTable.csv",
+    "size": 57091,
+    "sha256": "0db724702ef1bb17699bd5900a60094c6ee77fef817a9e83e3ba84dff1971887"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_idol_ext/Pheno.csv",
+    "size": 91754,
+    "sha256": "db7aa709fc200d54b8ff0cb388f24d1d29d63e446993f5c2ce0a6f23598d15a0"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_idol_ext/metadata.csv",
+    "size": 867,
+    "sha256": "bc9b9a0fc2a5bd3fb0ee8cd634ab3317b4b28d89ff6ce97b85b93f2eda0b144b"
+  },
+  {
+    "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE.m.rda",
+    "size": 281435,
+    "sha256": "eeae8b6fe8d0355333c0fe0338ee4036d67cdb84e774a96bb69cbdd908ab42ba"
+  },
+  {
+    "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
+    "size": 711707,
+    "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
+  }
+]
