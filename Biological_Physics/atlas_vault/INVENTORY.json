@@ -1,13 +1,13 @@
 [
   {
-    "path": "INVENTORY.json",
-    "size": 12735,
-    "sha256": "4d4f1cb888f3cfef8d8e90443a389458b984332586301df4851038c8ec5ead71"
+    "path": "README.md",
+    "size": 14634,
+    "sha256": "d791f7c808c386fe44dbf5f832fcd77ac7c4feb2846df3dca7725a3807471c99"
   },
   {
-    "path": "README.md",
-    "size": 13994,
-    "sha256": "032ee7f110ad5a656b7fdf600aa9f3600594468a638e14514cb9edd697f59c9b"
+    "path": "commercial_web_scoring_engine_skeleton.py",
+    "size": 24727,
+    "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
   },
   {
     "path": "stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt",
@@ -278,6 +278,71 @@
     "path": "stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R",
     "size": 6551,
     "sha256": "2e92235b6ba3f83a58f8d1ced0d2efdc6e31de6d8f8924ef90e30719ac2bb8ec"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/MANIFEST.json",
+    "size": 2375,
+    "sha256": "ed5cce072226a9fd87e8d449b3d04fb048373effbebdcc7c587798590a9d42c8"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT.m.rda",
+    "size": 51336,
+    "sha256": "4a6bc14ab354242f9be49824366bbecba5ee851626880ee00a66c2c7ac47c469"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT450k.m.rda",
+    "size": 51508,
+    "sha256": "9bbf8979e3e4729c3777162ce31ca4938c8c6608b0a37f182995c7bffa84d555"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT450k_reference_matrix.csv",
+    "size": 143083,
+    "sha256": "ef79b229cacf35fc0379874fba217f3b283708a0588e99c8c97595cf33d3f502"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT_reference_matrix.csv",
+    "size": 143151,
+    "sha256": "beeef0947d3f2ed7de6654f4be74406fe96113f0195efebd8f0291789976e975"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centBloodSub.m.rda",
+    "size": 11340,
+    "sha256": "45c867691eef7b05341f352fd7bdf168b558b2874da16d5f4ad13b55d6afb96e"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centBloodSub_reference_matrix.csv",
+    "size": 17716,
+    "sha256": "b19fe9dc43af3e74d6f1d8e5614b915568c9f27d1e153e78163ab93016d4378c"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centDHSbloodDMC.m.rda",
+    "size": 7714,
+    "sha256": "a24f37e87e15789da7103d57c186ca7e102998c8a9e564e2cf89093129f16e3b"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centDHSbloodDMC_reference_matrix.csv",
+    "size": 17444,
+    "sha256": "a3415477d84fa7f154db914a3b115405692a3b9771677f402d72da2d69cd551f"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibFatIC.m.rda",
+    "size": 18209,
+    "sha256": "c9ce6282368f4c2604998753bf619ea389bb13a7b5d58341a82614af144db6b8"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibFatIC_reference_matrix.csv",
+    "size": 28695,
+    "sha256": "55e364594f77955a10480625548e0198e392f74687c697e3c5eed472ebaa7038"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibIC.m.rda",
+    "size": 20960,
+    "sha256": "5bd51e4c9d8727d1cf443dbcb7709a42190a81904c7079c604f6e83a60fd63e1"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibIC_reference_matrix.csv",
+    "size": 49424,
+    "sha256": "f1d7e668a1dc6963ffa7e3228a3484aac503dabb25990962e3994aa64b99553c"
   },
   {
     "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.compTable.rda",

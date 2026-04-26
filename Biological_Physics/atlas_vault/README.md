@@ -1,174 +1,208 @@
-# Atlas Vault — IAMPerformance / EDEAR Stage 2 + Stage 3 Reference Layer
+# Atlas Vault — IAMPerformance / EDEAR Reference Layer
 
-**Purpose.** Durable, version-controlled storage of every methylation atlas and reference matrix EDEAR uses or plans to integrate. Files in this vault are committed to GitHub under the IAM-Validation repository, which provides redundancy that scratch container filesystems do not. The internet hosting these atlases (author GitHubs, Zenodo, EGA, bioRxiv, Bioconductor) is the *primary* source — this vault is the *backup* against the original sources disappearing.
+**Purpose.** Durable, version-controlled storage of every methylation atlas and reference matrix the EDEAR scoring engine uses to compute A-scores from a customer's IDAT. This is the **canonical source** for the production scoring server. The container filesystem `/home/claude/atlases/` is scratch and disappears between sessions — this vault is the durable backup against original-source disappearance (GitHub repos deleted, bioRxiv preprints withdrawn, EGA projects archived) and the operational source for the production server.
 
-**Last updated:** 2026-04-26 PM session  
-**Total vault size:** 4.7 MB across 65 files (well within GitHub's 100 MB-per-file / 1 GB-recommended-repo limits)  
-**Maintained by:** Heath W. Mahaffey / Walther
+**Last updated:** 2026-04-26  
+**Total vault size:** 6.0 MB across 79 files  
+**Total reference matrices for scoring:** 8 distinct atlases / 42 reference matrices  
+**Maintained by:** Heath W. Mahaffey
+
+---
+
+## What this vault contains, and what calls it
+
+The EDEAR scoring engine (production server-side scoring of customer IDATs) loads every reference matrix in this vault and computes per-class A-scores under run-everything architecture. The flow is:
+
+```
+Customer IDAT (450K or 850K methylation array)
+           │
+           ▼
+┌─────────────────────────────────────────────────────────────┐
+│   EDEAR scoring engine (commercial.web.py / production)    │
+│                                                             │
+│   1. β-extraction from IDAT (sesame/minfi)                  │
+│   2. Stage 1 — pooled-entropy A-scores on disease panels   │
+│   3. Stage 2 — cell-of-origin deconvolution                │
+│      ├── Loyfer/Moss array atlas (production)              │
+│      ├── EpiSCORE 14-tissue (Queue-1)                      │
+│      ├── Caggiano CelFiE (Queue-1, WGBS-region)            │
+│      └── Sabedot GeLB classifier (Queue-1, glioma)         │
+│   4. Stage 3 — immune fraction estimation                  │
+│      ├── Salas Blood.EPIC IDOL baseline (production)       │
+│      ├── UniLIFE 19-cell lifespan (Queue-1 #1)             │
+│      └── EpiDISH companion panels (5 reference panels)     │
+│   5. Cellular age clock                                     │
+│      └── (currently Horvath/Hannum; 17-tissue Ageing       │
+│          Atlas pending acquisition for v0.3)               │
+│   6. Per-class A-scores against H_min anchors              │
+│   7. Tier classification + customer report                  │
+└─────────────────────────────────────────────────────────────┘
+           │
+           ▼
+   Customer report:
+   - Cellular age
+   - Per-cell-class A-score
+   - Per-tissue ΔA (departure from normal)
+   - Immune-class signature
+   - Tier (NORMAL / MARGINAL / DETECTABLE / URGENT / FLOOR_BREACH)
+```
+
+The H_min anchors and the framework that scores against atlas matrices (The Recipe) are NOT in this vault — they are patent-protected and live separately. This vault is the public reference layer.
+
+---
+
+## The 8 atlases / 42 reference matrices
+
+### Stage 2 — Cell-of-origin deconvolution
+
+| # | Atlas | Files | Cell types / tissues | Status | License |
+|---|---|---|---|---|---|
+| 1 | **Loyfer/Moss array atlas** | `stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv` | 25 cell types × 7,890 array CpGs | **PRODUCTION** | MIT |
+| 2 | **EpiSCORE pan-tissue** | `stage2_cell_of_origin/episcore_zhu_teschendorff_2022/` (28 CSV files) | 14 tissues × 4–10 cell types each (Bladder, Brain, Breast, Colon, Esophagus, Heart, Kidney, Liver, Lung, Olfactory Epithelium, Pancreas + 9-cell extended Pancreas, Prostate, Skin) | Queue-1 | GPL-2 |
+| 3 | **Caggiano CelFiE TIM** | `stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt` | 1,580 markers × 19 tissues (WGBS-region-based, requires region-to-CpG mapping) | Queue-1 | MIT |
+| 4 | **Sabedot GeLB** | `stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R` | EPIC glioma blood classifier (R training script, requires GSE150289 cohort to train) | Queue-1 | academic |
+| 5 | **Capper mnp_training** | `stage2_cell_of_origin/marlin_capper_training/` | Brain tumor 450K/EPIC classifier training scaffold (foundation for MARLIN leukemia matrix v0.3 build-out) | Queue-1 | custom academic |
+
+### Stage 3 — Immune fraction estimation
+
+| # | Atlas | Files | Cell types | Status | License |
+|---|---|---|---|---|---|
+| 6 | **Salas Blood.EPIC IDOL baseline** | `stage3_immune_fraction/salas_blood_epic_idol/` (5 .rda + 2 CSV) | 6 cell types (CD8T, CD4T, NK, Bcell, Mono, Neu) × 450 EPIC CpGs; 350 CpG × 6 cell type 450K legacy; cord blood reference | **PRODUCTION** | GPL-3 |
+| 7 | **Salas IDOL-Ext** | `stage3_immune_fraction/salas_idol_ext/` (Pheno + metadata + R wrapper) | 12 cell types extended panel (data via Bioconductor ExperimentHub at GSE167998) | Queue-1 (superseded by UniLIFE) | custom academic |
+| 8 | **UniLIFE Guo 2025** | `stage3_immune_fraction/unilife_guo_2025/centUniLIFE.m.rda` + `centUniLIFE_reference_matrix.csv` | 19 immune cell types × 1,906 CpGs lifespan-spanning birth → old age | Queue-1 #1 | GPL-2 |
+
+### Stage 3 — EpiDISH companion panels (alternative immune deconvolution references)
+
+| Companion | Files | Cell types |
+|---|---|---|
+| **cent12CT** | `cent12CT.m.rda` + `cent12CT_reference_matrix.csv` | 12 immune cell types × 600 CpGs (EPIC) |
+| **cent12CT450k** | `cent12CT450k.m.rda` + `cent12CT450k_reference_matrix.csv` | 12 immune cell types × 600 CpGs (450K legacy) |
+| **centBloodSub** | `centBloodSub.m.rda` + `centBloodSub_reference_matrix.csv` | 7 cell types × 188 CpGs (B, NK, CD4T, CD8T, Mono, Neutro, Eosino) |
+| **centDHSbloodDMC** | `centDHSbloodDMC.m.rda` + `centDHSbloodDMC_reference_matrix.csv` | 7 cell types × 333 CpGs (DHS-prioritized) |
+| **centEpiFibFatIC** | `centEpiFibFatIC.m.rda` + `centEpiFibFatIC_reference_matrix.csv` | 4 tissue compartments × 491 CpGs (Epi, Fib, Fat, Immune) |
+| **centEpiFibIC** | `centEpiFibIC.m.rda` + `centEpiFibIC_reference_matrix.csv` | 3 tissue compartments × 716 CpGs (Epi, Fib, Immune) |
+
+All 5 EpiDISH companion panels are at `stage3_immune_fraction/epidish_companion_panels/`.
 
 ---
 
 ## Vault discipline — operational rules
 
-1. **Every atlas EDEAR uses must live here.** Production atlases (Loyfer/Moss, Salas, UniLIFE) and Queue-1 atlases (EpiSCORE, Caggiano, Sabedot, MARLIN) are mirrored here as canonical durable copies. The container filesystem `/home/claude/atlases/` is **scratch** — it disappears between sessions. The vault is **durable** — it persists across sessions and across years.
+1. **Every atlas EDEAR uses must live here.** Production atlases (Loyfer/Moss, Salas, UniLIFE) and Queue-1 atlases (EpiSCORE, Caggiano, Sabedot, MARLIN) are mirrored here as canonical durable copies.
 
-2. **Every commit updates the INVENTORY.** `INVENTORY.json` lists every file with size and SHA-256. Any future session can verify integrity with: `sha256sum -c <(jq -r '.[] | "\(.sha256)  \(.path)"' INVENTORY.json)`.
+2. **Every commit updates the INVENTORY.** `INVENTORY.json` lists every file with size and SHA-256. Future sessions verify integrity:
+   ```
+   cd Biological_Physics/atlas_vault/
+   jq -r '.[] | "\(.sha256)  \(.path)"' INVENTORY.json | sha256sum -c -
+   ```
 
-3. **CSV formats preferred over R-data.** Where possible, atlases are stored both as their native format (`.rda` for R-pipeline compatibility) AND as CSV (for AI / Python / cross-language portability). The next instance of Walther in 6 months may not have R available — CSV doesn't care.
+3. **CSV formats preferred over R-data.** Where possible, atlases are stored both as native `.rda` (for R-pipeline compatibility) AND as CSV (for Python / cross-language portability). The next instance of Walther in 6 months may not have R available — CSV doesn't care.
 
-4. **Provenance is non-negotiable.** Every atlas directory has its own README documenting: original source URL, citation, license, download date, SHA-256 of source files, and any conversion steps performed.
+4. **Provenance non-negotiable.** Every atlas directory documents source URL, citation, license, download date, SHA-256, conversion steps.
 
-5. **Surveillance feeds the vault.** Each monthly atlas surveillance sweep ends with: (a) update GAPE Reproduction Paper §7.17, §7.18, etc. with new findings; (b) acquire any newly-surfaced atlases that are tractable; (c) commit them to this vault; (d) update INVENTORY.json.
+5. **Surveillance feeds the vault.** Each monthly atlas surveillance sweep ends with: (a) update GAPE Reproduction Paper §7.17, §7.18, etc.; (b) acquire newly-surfaced atlases that are tractable; (c) commit to vault; (d) refresh INVENTORY.json.
 
-6. **License compliance.** Every atlas in this vault was downloaded from a publicly-licensed source. Original licenses (MIT, GPL-2/3, CC-BY, CC-BY-NC, ASL-2.0) are preserved in each atlas's subdirectory. EDEAR's commercial deployment must comply with each atlas's license terms — the atlases that are CC-BY-NC require attribution-only use; atlases that are GPL require derivative works to be GPL'd. License audit happens at v0.3 build-out.
-
----
-
-## What the EDEAR pipeline runs through (per run, every IDAT)
-
-Under run-everything architecture, every IDAT scored by EDEAR is processed through every atlas in the production layer. As of 2026-04-26 PM, the production layer is:
-
-### Stage 2 — Cell-of-origin deconvolution (PRODUCTION)
-
-| Atlas | Location in vault | Cell types | Status |
-|---|---|---|---|
-| **Loyfer/Moss array atlas** | `stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv` | 25 cell types × 7,890 array CpGs | **PRODUCTION** |
-
-### Stage 3 — Immune fraction estimation (PRODUCTION)
-
-| Atlas | Location in vault | Cell types | Status |
-|---|---|---|---|
-| **Salas Blood.EPIC IDOL baseline** | `stage3_immune_fraction/salas_blood_epic_idol/` | 6 cell types × 450 EPIC CpGs (+ 350 CpG 450K legacy) | **PRODUCTION** |
-
-### Stage 2/3 Queue-1 — APPROVED for v0.3, NOT YET in production scoring
-
-These atlases are committed to the vault but the integration VAL has not landed — VAL-094 (EpiSCORE breast Stage 2), VAL-095 (UniLIFE Stage 3 head-to-head vs Salas), VAL-096 (closer-to-diagnosis windows on Loyfer) are the integration anchors.
-
-| Atlas | Location in vault | Cell types | Integration VAL |
-|---|---|---|---|
-| **UniLIFE (Guo 2025)** | `stage3_immune_fraction/unilife_guo_2025/` | 19 immune cell types × 1,906 CpGs, lifespan-spanning | VAL-095 |
-| **Salas IDOL-Ext** | `stage3_immune_fraction/salas_idol_ext/` | 12 cell types extended panel (data via ExperimentHub lazy fetch) | superseded by UniLIFE |
-| **EpiSCORE pan-tissue** | `stage2_cell_of_origin/episcore_zhu_teschendorff_2022/` | 14 tissues × 4–10 cell types (28 reference matrices total) | VAL-094 |
-| **Caggiano CelFiE** | `stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt` | 1,580 markers × 19 tissues (WGBS-region-based, **caveat**) | TBD |
-| **Sabedot GeLB** | `stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R` | EPIC glioma blood classifier (training script, requires GSE150289) | TBD |
-| **Capper mnp_training** | `stage2_cell_of_origin/marlin_capper_training/` | brain tumor 450K/EPIC classifier training code | TBD |
-
-### Stage 2/3 Queue-1 — APPROVED, NOT YET in vault (controlled access or 503 today)
-
-Acquisition pending. These will be added to the vault at the next opportunity:
-
-- **Tanaka 2025 6-cell neural cfDNA** — markers extractable from supplementary PDF without EGA access; primary nanopore data on EGA controlled access
-- **Konigsberg/Cuadrat 2023 cardiac** — relies on Loyfer 2023 EGA-controlled atlas; cardiomyocyte markers in supplementary tables
-- **Jacques 2025 17-tissue Ageing Atlas** — bioRxiv supp blocked from this container today; retry via direct browser
-- **MethAgingDB** — Zenodo 503 today; retry next session
-- **Ontology-aware Kim 2025-2026** — bioRxiv JS-gated; contact Yao lab (Rice) for code release status
-- **Cuadrat 2026 Comm Bio guidelines** — Nature 503 today; methodology paper, not a downloadable atlas
-
-### Queue-2 — longer engineering horizon
-
-- **Liu 2023 brain scMCodes** — Allen Brain Cell Atlas, 188 brain cell types (single-cell to array projection)
-- **Zhou 2025 Human Body Single-Cell Atlas** — 86,689 nuclei × 16 tissues, 206 cell subtypes
-- **223-cell-type WGBS atlas** (arXiv 2506.00146) — source verification needed
+6. **License compliance.** EDEAR's commercial deployment must comply with each atlas's license. CC-BY-NC requires attribution-only use; GPL requires derivative works to be GPL'd. License audit happens at v0.3 build-out.
 
 ---
 
-## Per-atlas inventory and provenance
+## Per-atlas provenance and citations
 
-### `stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv`
+### 1. Loyfer/Moss 2018 array atlas
 
-- **Atlas:** Loyfer/Moss 2018 + 2023 hybrid (Moss 2018 25-cell types using Loyfer 2023 marker selection methodology)
-- **Source:** GitHub `nloyfer/meth_atlas` (2018) + Loyfer et al. *Nature* 613, 355–364 (2023) [DOI 10.1038/s41586-022-05580-6]
-- **License:** MIT (per nloyfer/meth_atlas LICENSE)
+- **Source:** `nloyfer/meth_atlas` GitHub (2018) + Loyfer et al. *Nature* 613, 355–364 (2023) DOI 10.1038/s41586-022-05580-6
+- **License:** MIT
 - **Format:** CSV, 7,890 rows × 25 columns
 - **Cell types:** B-cells, CD4T, CD8T, NK, Mono, Neu, Eos, granulocytes, hepatocytes, pancreatic acinar/beta/duct, vascular endothelial, cortical neurons, lung, head & neck larynx, kidney, breast, prostate, colon epithelial, upper GI, uterus/cervix, thyroid, bladder, adipocytes, left atrium, erythrocyte progenitors
-- **Production status:** active — Stage 2 production scoring runs through this atlas every IDAT
 
-### `stage2_cell_of_origin/episcore_zhu_teschendorff_2022/`
+### 2. EpiSCORE pan-tissue atlas
 
-- **Atlas:** EpiSCORE pan-tissue methylation reference (Zhu, Teschendorff et al.)
-- **Source:** GitHub `aet21/EpiSCORE` master branch
-- **Citation:** Teschendorff AE, Zhu T, Breeze CE, Beck S. *Genome Biol* 21, 221 (2020). EPISCORE: cell type deconvolution of bulk tissue DNA methylomes from single-cell RNA-seq data.
-- **License:** GPL-2 (per EpiSCORE DESCRIPTION)
-- **Coverage:** 14 tissues — Bladder, Brain, Breast, Colon, Esophagus, Heart, Kidney, Liver, Lung, Olfactory Epithelium, Pancreas (+ extended 9-cell-type Pancreas), Prostate, Skin
-- **Format:** 28 CSV files (14 expression-derived `expref*` × 14 DNAm-derived `mref*`), MANIFEST.json catalogs all 28
+- **Source:** `aet21/EpiSCORE` GitHub master branch
+- **Citation:** Teschendorff AE, Zhu T, Breeze CE, Beck S. *Genome Biol* 21, 221 (2020)
+- **License:** GPL-2
+- **Coverage:** 14 tissues × 28 reference matrices (each tissue has both an `expref` mRNA-derived and an `mref` DNAm-derived reference)
 - **Conversion:** Original `.rda` → CSV via Python `rdata` library, 2026-04-26
-- **Production status:** Queue-1 — VAL-094 will integrate breast tissue arm
 
-### `stage3_immune_fraction/unilife_guo_2025/`
+### 3. Caggiano CelFiE 2021 TIM matrix
 
-- **Atlas:** UniLIFE (Unified Lifecourse Immune Fraction Estimator)
-- **Source:** GitHub `sjczheng/EpiDISH/data/centUniLIFE.m.rda`
-- **Citation:** Guo X, Sulaiman M, Neumann A, Zheng SC, Cecil CAM, Teschendorff AE, Heijmans BT. *Genome Med* 17:63 (2025). DOI 10.1186/s13073-025-01489-7. "Unified high-resolution immune cell fraction estimation in blood tissue from birth to old age."
+- **Source:** `christacaggiano/celfie` GitHub master branch
+- **Citation:** Caggiano C, Celona B, Garton F, et al. *Nat Commun* 12, 2717 (2021)
+- **License:** MIT
+- **Format:** Tab-separated, 1,580 markers × 19 tissues
+- **Caveat:** Markers are `chrom/start/end` genomic regions, NOT array CpG IDs. Integration requires region-to-CpG mapping per array platform.
+
+### 4. Sabedot GeLB 2021
+
+- **Citation:** Sabedot TS et al. *Neuro-Oncology* 23(9): 1494–1507 (2021)
+- **Format:** R training script (6.5 KB) + requires GSE150289 cohort data (Mendeley deposit cgrz6zztfg) to produce trained classifier
+- **License:** academic per supplementary
+
+### 5. Capper mnp_training (MARLIN building block)
+
+- **Source:** `mwsill/mnp_training` GitHub master
+- **Citation:** Capper D, Jones DTW, Sill M, Hovestadt V, et al. *Nature* 555, 469–474 (2018)
+- **Format:** R scripts (training, calibration, cross-validation, t-SNE, preprocessing) + filter probe lists
+- **License:** custom academic
+
+### 6. Salas Blood.EPIC IDOL baseline
+
+- **Source:** `immunomethylomics/FlowSorted.Blood.EPIC` GitHub master
+- **Citation:** Salas LA, Koestler DC, Butler RA, Hansen HM, Wiencke JK, Kelsey KT, Christensen BC. *Genome Biol* 19:64 (2018)
+- **License:** GPL-3
+- **Format:** 5 .rda files + 2 CSV (450 EPIC CpGs × 6 cell types: CD8T, CD4T, NK, Bcell, Mono, Neu)
+
+### 7. Salas IDOL-Ext (extended 12-cell panel)
+
+- **Source:** `immunomethylomics/FlowSorted.BloodExtended.EPIC` GitHub master
+- **Citation:** Salas LA et al. (under review at time of package release, 2021)
+- **Format:** Pheno.csv + metadata.csv + R wrapper code; data lazy-loaded from Bioconductor ExperimentHub at GSE167998
+- **License:** see SoftwareLicense PDF in source
+
+### 8. UniLIFE (Guo 2025)
+
+- **Source:** `sjczheng/EpiDISH` GitHub `data/centUniLIFE.m.rda`
+- **Citation:** Guo X, Sulaiman M, Neumann A, Zheng SC, Cecil CAM, Teschendorff AE, Heijmans BT. *Genome Med* 17:63 (2025), DOI 10.1186/s13073-025-01489-7
 - **License:** GPL-2 (EpiDISH package)
-- **Format:** Both .rda (281 KB) and CSV (712 KB); 1,906 marker CpGs × 19 immune cell types
+- **Format:** Both `.rda` (281 KB) and CSV (712 KB); 1,906 marker CpGs × 19 immune cell types
 - **Cell types:** 7 pan-lifespan (B, CD4T, CD8T, Mono, nRBC, Gran, NK) + 12 adult-specific (aCD4Tnv, aBaso, aCD4Tmem, aBmem, aBnv, aTreg, aCD8Tmem, aCD8Tnv, aEos, aNK, aNeu, aMono)
 - **Operational use:** `EpiDISH::epidish(X, cent=centUniLIFE.m, method="RPC", maxit=500)$estF`
 - **Compatibility:** 450K, EPICv1, EPICv2, WGBS
-- **Production status:** Queue-1 #1 — VAL-095 will integrate as Stage 3 alongside or replacing Salas
-
-### `stage3_immune_fraction/salas_blood_epic_idol/`
-
-- **Atlas:** Salas / IDOL Optimized CpGs for adult whole blood EPIC + 450K
-- **Source:** GitHub `immunomethylomics/FlowSorted.Blood.EPIC` master branch
-- **Citation:** Salas LA, Koestler DC, Butler RA, Hansen HM, Wiencke JK, Kelsey KT, Christensen BC. *Genome Biol* 19:64 (2018). DOI 10.1186/s13059-018-1448-7.
-- **License:** GPL-3 (Bioconductor package)
-- **Format:** 5 .rda files + 2 CSV (450 EPIC CpGs × 6 cell types: CD8T, CD4T, NK, Bcell, Mono, Neu; plus 350 CpG × 6 cell type 450K legacy; plus cord blood reference)
-- **Production status:** active — Stage 3 production baseline; will be compared against UniLIFE in VAL-095
-
-### `stage3_immune_fraction/salas_idol_ext/`
-
-- **Atlas:** Salas IDOL-Ext (extended 12-cell-type adult blood panel)
-- **Source:** GitHub `immunomethylomics/FlowSorted.BloodExtended.EPIC` master branch
-- **Citation:** Salas LA et al. (under review at time of package release, 2021); package on Bioconductor 3.13+
-- **License:** see SoftwareLicense PDF in source repo
-- **Format:** Pheno.csv + metadata.csv + R wrapper code; the actual RGChannelSet data (n=68 references, 450K + EPIC) loads lazily from Bioconductor ExperimentHub at GSE167998
-- **Production status:** Queue-1 — superseded by UniLIFE for production scoring
-
-### `stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt`
-
-- **Atlas:** CelFiE TIM matrix (Caggiano et al.)
-- **Source:** GitHub `christacaggiano/celfie` master branch
-- **Citation:** Caggiano C, Celona B, Garton F, et al. *Nat Commun* 12, 2717 (2021). DOI 10.1038/s41467-021-22901-x.
-- **License:** MIT
-- **Format:** Tab-separated, 1,580 markers × 19 tissues
-- **Marker format:** `chrom/start/end` genomic regions (NOT array CpG IDs) — **integration caveat**
-- **Coverage:** dendritic, endothelial, eosinophil, erythroblast, macrophage, monocyte, neutrophil, placenta, T-cell, adipose, brain, fibroblast, heart, hepatocyte, lung, mammary, megakaryocyte, skeletal muscle, small intestine
-- **Production status:** Queue-1 — requires region-to-CpG mapping per array platform before integration
-
-### `stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R`
-
-- **Atlas:** GeLB — EPIC-array glioma blood classifier (Sabedot et al.)
-- **Source:** GitHub `iSidneyTorresJr/GeLB` (extracted from supplementary; URL in script)
-- **Citation:** Sabedot TS et al. *Neuro-Oncology* 23(9): 1494–1507 (2021). DOI 10.1093/neuonc/noab023.
-- **License:** academic use per supplementary statement
-- **Format:** R training script (6.5 KB) — script trains classifier from GSE150289 cohort data (Mendeley deposit cgrz6zztfg)
-- **Production status:** Queue-1 — requires running the script to produce the trained classifier
-
-### `stage2_cell_of_origin/marlin_capper_training/`
-
-- **Atlas:** mnp_training — Capper et al. methylation-based brain tumor classifier (basis for MARLIN extension)
-- **Source:** GitHub `mwsill/mnp_training` master branch
-- **Citation:** Capper D, Jones DTW, Sill M, Hovestadt V, et al. *Nature* 555, 469–474 (2018). DOI 10.1038/nature26000.
-- **License:** custom academic (LICENSE in repo)
-- **Format:** R scripts (training, calibration, cross-validation, t-SNE, preprocessing) + filter probe lists (ambiguous, EPIC-V1B2, SNP, XY)
-- **Production status:** Queue-1 — leukemia-specific MARLIN matrix is v0.3 build-out; this training scaffold is the foundation
 
 ---
 
-## Disaster recovery — what to do if an original source disappears
+## Atlases NOT in vault (acquisition pending)
 
-Each atlas in this vault has been pulled from a GitHub repo, R package, or Zenodo deposit. If any of those disappears, the vault provides:
+These 8 additional atlases were identified in the 2026-04-26 surveillance sweep but were not acquired in this session due to network restrictions (bioRxiv 503, Zenodo 503) or controlled access (EGA). Each is documented with its acquisition path; they will be added to the vault on the next opportunity.
 
-1. **The actual atlas data** (in CSV and/or .rda)
-2. **The SHA-256 hash** for integrity verification
-3. **The original URL and citation** for tracing provenance
-4. **The license** for compliance auditing
+| Atlas | Why not on disk | Acquisition path |
+|---|---|---|
+| **Tanaka 2025 6-cell neural cfDNA** | EGA controlled access | Markers extractable from supplementary PDF; primary nanopore data via EGA application |
+| **Konigsberg/Cuadrat 2023 cardiac** | Relies on EGA-controlled Loyfer 2023 | Cardiomyocyte markers in supplementary tables |
+| **Jacques 2025 17-tissue Ageing Atlas** | bioRxiv supp blocked from container today | Retry via direct browser; bioRxiv DOI 10.1101/2025.07.21.665830 |
+| **MethAgingDB** | Zenodo 503 today | Zenodo DOI 10.5281/zenodo.15714493 |
+| **Ontology-aware Kim 2025-2026** | bioRxiv JS-gated; no public GitHub located | Contact Yao lab (Rice University) |
+| **Cuadrat 2026 Comm Bio guidelines** | Nature 503 today | Methodology paper, not a downloadable atlas |
+| **Liu 2023 brain scMCodes** | Allen Brain Cell Atlas, Queue-2 | Single-cell to array projection (engineering) |
+| **Zhou 2025 Body Single-Cell Atlas** | bioRxiv supp, Queue-2 | 86,689 nuclei × 16 tissues, 206 subtypes |
+| **223-cell-type WGBS atlas** | Source verification needed | arXiv 2506.00146 reference; locate primary publication |
 
-To rebuild the cookbook from the vault alone (no internet), an operator needs:
-- This `README.md` for context
+---
+
+## Disaster recovery
+
+If any original atlas source disappears, this vault provides:
+
+1. **The actual atlas data** (CSV + .rda)
+2. **SHA-256 hash** for integrity verification (in INVENTORY.json)
+3. **Original URL and citation** for tracing provenance
+4. **License** for compliance auditing
+
+To rebuild EDEAR's reference layer from the vault alone (no internet), an operator needs:
+- This README.md for context
 - The atlas CSV/rda files
+- INVENTORY.json for integrity verification
 - The card pre-registrations and source code from `Biological_Physics/validation_runs/`
-- The cookbook docs (delivered separately, not in repo, per IP discipline)
+- The H_min anchors and scoring framework (The Recipe — held separately)
 
 This is sufficient to re-run any VAL deterministically.
 
@@ -176,13 +210,14 @@ This is sufficient to re-run any VAL deterministically.
 
 ## What this vault is NOT
 
-This vault is **not** a substitute for proper backup of the cohort IDAT files (which are large, gated, and live on GEO/EGA/dbGaP). EDEAR's input data (the IDATs from each customer or each validation cohort) is held separately and is governed by separate consent and access agreements. The vault is for the *atlas / reference-matrix layer only* — the part of the pipeline that does NOT contain personal genetic information.
+This vault is **not** a substitute for IDAT files (cohort or customer methylation arrays). Those are gated separately and contain personal genetic information.
 
-The vault is **not** a substitute for the IAMPerformance H_min derivation chain, which is The Recipe and lives in the vault literally meaning the patent-protected unpublished framework. This atlas vault is the public reference layer; The Recipe is the private framework that scores against those references.
+This vault is **not** the H_min derivation chain (The Recipe), which is patent-protected and lives separately. This vault is the **public reference layer**; The Recipe is the **private framework** that scores against those references.
+
+This vault is **not** the EDEAR scoring engine itself. It is the data layer that the engine loads at startup. A reference scoring engine implementation pattern is provided alongside this vault as `commercial_web_scoring_engine_skeleton.py` for reference when building the production server.
 
 ---
 
 ## Update log
 
-- **2026-04-26 PM:** Vault created. Mirrored Loyfer/Moss (production), UniLIFE (Queue-1 #1), Salas Blood.EPIC IDOL (production baseline), Salas IDOL-Ext (metadata), EpiSCORE 14-tissue × 28 matrices (Queue-1), Caggiano CelFiE TIM (Queue-1), Sabedot GeLB R script (Queue-1), Capper mnp_training (Queue-1). Total 65 files, 4.7 MB. INVENTORY.json generated with SHA-256 per file.
-- Future updates will append here.
+- **2026-04-26:** Vault initialized. Mirrored 8 atlases / 42 reference matrices (4.7 MB → 6.0 MB after EpiDISH companion panels added). Loyfer/Moss (production), UniLIFE (Queue-1 #1), Salas Blood.EPIC IDOL (production baseline), Salas IDOL-Ext (metadata), EpiSCORE 14-tissue × 28 matrices (Queue-1), Caggiano CelFiE TIM (Queue-1), Sabedot GeLB R script (Queue-1), Capper mnp_training (Queue-1), 5 EpiDISH companion panels. Total 79 files. INVENTORY.json generated with SHA-256 per file.
