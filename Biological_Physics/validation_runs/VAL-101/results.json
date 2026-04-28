@@ -1,0 +1,599 @@
+{
+  "val_id": "VAL-101",
+  "sealed_at": "2026-04-28T19:53:19.249263+00:00",
+  "prereg_sha256": "fa366bf00316597bb65032b747029133acb5f1bbb40f6251094b563732185512",
+  "rng_seed": 20260428,
+  "cohort": {
+    "name": "TCGA-LIHC HM450 paired tumor/adjacent-normal (re-analysis of VAL-064 sealed cohort)",
+    "n_pairs_total": 50,
+    "n_pairs_qc_passed": 46
+  },
+  "loyfer_atlas_sha256_prefix": "4b97dd2a8ba7bf41...",
+  "beta_distribution_check_chk_3_1": {
+    "n_betas_sampled": 480000,
+    "fraction_extreme_lt0.05_or_gt0.95": 0.2661,
+    "fraction_middle_0.4_to_0.6": 0.0909,
+    "bimodal_raw_beta_signature": false
+  },
+  "pooled_25_tile_results": [
+    {
+      "tile": "Colon_epithelial_cells",
+      "class": "cycling",
+      "paired_d": 1.8067477900987827,
+      "ci_95": [
+        1.4860122136867786,
+        2.2668757722244726
+      ],
+      "t_stat": 12.253959708732292,
+      "p_approx": 0.0,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Head_and_neck_larynx",
+      "class": "cycling",
+      "paired_d": 1.5846600542604803,
+      "ci_95": [
+        1.253770400879177,
+        2.1168474524636305
+      ],
+      "t_stat": 10.747687399071769,
+      "p_approx": 0.0,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Hepatocytes",
+      "class": "secretory",
+      "paired_d": -1.5207685649611404,
+      "ci_95": [
+        -2.192081860125953,
+        -1.181754415703077
+      ],
+      "t_stat": -10.31435423553033,
+      "p_approx": 0.0,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Bladder",
+      "class": "cycling",
+      "paired_d": 1.0907616824138384,
+      "ci_95": [
+        0.8194976246879401,
+        1.462945897722797
+      ],
+      "t_stat": 7.397905663079538,
+      "p_approx": 1.383337888682945e-13,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Lung_cells",
+      "class": "cycling",
+      "paired_d": 0.9507234313847962,
+      "ci_95": [
+        0.6585599772812287,
+        1.3576308562954027
+      ],
+      "t_stat": 6.4481200343408425,
+      "p_approx": 1.1324607918083984e-10,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Cortical_neurons",
+      "class": "terminal",
+      "paired_d": 0.9246479435324989,
+      "ci_95": [
+        0.578218098879541,
+        1.4802945670955805
+      ],
+      "t_stat": 6.271267471255587,
+      "p_approx": 3.58120866295053e-10,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Pancreatic_beta_cells",
+      "class": "secretory",
+      "paired_d": 0.8889706776846689,
+      "ci_95": [
+        0.5628243023257415,
+        1.3454170661983131
+      ],
+      "t_stat": 6.029292481379918,
+      "p_approx": 1.6467902597128159e-09,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Pancreatic_acinar_cells",
+      "class": "secretory",
+      "paired_d": 0.693374073166958,
+      "ci_95": [
+        0.4026828352967391,
+        1.0568643744951856
+      ],
+      "t_stat": 4.702691765961953,
+      "p_approx": 2.5675387997914356e-06,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Left_atrium",
+      "class": "terminal",
+      "paired_d": -0.6658741900285969,
+      "ci_95": [
+        -1.0446442810889267,
+        -0.36714673858082864
+      ],
+      "t_stat": -4.516178484020204,
+      "p_approx": 6.296559906360244e-06,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Upper_GI",
+      "class": "cycling",
+      "paired_d": 0.4679624239567886,
+      "ci_95": [
+        0.1638007043060068,
+        0.8708777268782709
+      ],
+      "t_stat": 3.1738755789781057,
+      "p_approx": 0.0015041815493828103,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Neutrophils_EPIC",
+      "class": "immune",
+      "paired_d": -0.39833787051412434,
+      "ci_95": [
+        -0.7204842118547096,
+        -0.11249481643599077
+      ],
+      "t_stat": -2.701658882602216,
+      "p_approx": 0.006899450720150302,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Monocytes_EPIC",
+      "class": "immune",
+      "paired_d": -0.3768766265123808,
+      "ci_95": [
+        -0.7278520319695604,
+        -0.0831572249887376
+      ],
+      "t_stat": -2.5561016439340234,
+      "p_approx": 0.01058521936577117,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Pancreatic_duct_cells",
+      "class": "secretory",
+      "paired_d": -0.2806200716408885,
+      "ci_95": [
+        -0.581341547331887,
+        0.00133663682909446
+      ],
+      "t_stat": -1.9032579257567588,
+      "p_approx": 0.057006898010584006,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Uterus_cervix",
+      "class": "cycling",
+      "paired_d": 0.2739752431158239,
+      "ci_95": [
+        -0.018072490111801894,
+        0.6129899692108308
+      ],
+      "t_stat": 1.8581905060184871,
+      "p_approx": 0.06314196575645692,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Adipocytes",
+      "class": "stromal",
+      "paired_d": 0.19378150528041244,
+      "ci_95": [
+        -0.09518202939390094,
+        0.48405017714461585
+      ],
+      "t_stat": 1.3142901134384886,
+      "p_approx": 0.18874859304807412,
+      "n_pairs": 46
+    },
+    {
+      "tile": "B-cells_EPIC",
+      "class": "immune",
+      "paired_d": 0.15301777747492792,
+      "ci_95": [
+        -0.14074713684621104,
+        0.45975426858982127
+      ],
+      "t_stat": 1.037817060119394,
+      "p_approx": 0.29935523274417264,
+      "n_pairs": 46
+    },
+    {
+      "tile": "Vascular_endothelial_cells",
+      "class": "stromal",
+      "paired_d": 0.15148931966118856,
+      "ci_95": [
+        -0.13329855197388057,
+        0.45337501951673215
+      ],
+      "t_stat": 1.0274505548613273,
+      "p_approx": 0.304208356711678,
+      "n_pairs": 46
+    }
+  ],
+  "hepatocytes_tile_pooled": {
+    "tile": "Hepatocytes",
+    "class": "secretory",
+    "paired_d": -1.5207685649611404,
+    "ci_95": [
+      -2.192081860125953,
+      -1.181754415703077
+    ],
+    "t_stat": -10.31435423553033,
+    "p_approx": 0.0,
+    "n_pairs": 46
+  },
+  "hepatocytes_rank_by_abs_d": 3,
+  "stratified_hepatocytes_results": {
+    "all_viral": {
+      "n": 24,
+      "mean_delta": -0.20913266724514315,
+      "paired_d": -1.7262299605886275,
+      "ci_95": [
+        -3.0249117885670285,
+        -1.1167091720195095
+      ],
+      "t_stat": -8.456765164293707,
+      "p_approx": 0.0
+    },
+    "all_non_viral": {
+      "n": 22,
+      "mean_delta": -0.2418745081556856,
+      "paired_d": -1.3927881584082171,
+      "ci_95": [
+        -2.3014460901441987,
+        -1.0638208428692144
+      ],
+      "t_stat": -6.532755528293352,
+      "p_approx": 6.45705711121991e-11
+    },
+    "HBV+": {
+      "n": 19,
+      "mean_delta": -0.224207842091649,
+      "paired_d": -2.0360586698959264,
+      "ci_95": [
+        -3.1853787526525466,
+        -1.4993380273525885
+      ],
+      "t_stat": -8.874973985196183,
+      "p_approx": 0.0
+    },
+    "HCV+": {
+      "n": 3,
+      "mean_delta": -0.09308897275573214,
+      "note": "n=3 \u2014 descriptive-only per CHK-2.7 (threshold n<5)",
+      "paired_d_descriptive": -0.4893267430890942,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "HBV+HCV": {
+      "n": 2,
+      "mean_delta": -0.23998404793745376,
+      "note": "n=2 \u2014 descriptive-only per CHK-2.7 (threshold n<5)",
+      "paired_d_descriptive": -13.702704840826911,
+      "ci_95": [
+        null,
+        null
+      ]
+    },
+    "Alcohol+": {
+      "n": 6,
+      "mean_delta": -0.26013976832854063,
+      "paired_d": -1.6805840800158771,
+      "ci_95": [
+        -7.272541364021186,
+        -0.7738097526502123
+      ],
+      "t_stat": -4.1165734658835955,
+      "p_approx": 3.845467903729194e-05
+    },
+    "NAFLD+": {
+      "n": 1,
+      "note": "n=1 \u2014 empty or single-point"
+    },
+    "Other": {
+      "n": 5,
+      "mean_delta": -0.28459418742837805,
+      "paired_d": -1.6816872022945066,
+      "ci_95": [
+        -12.519496027343052,
+        -1.3972199403213073
+      ],
+      "t_stat": -3.760366901221957,
+      "p_approx": 0.00016966432861487135
+    },
+    "No_documented_risk": {
+      "n": 10,
+      "mean_delta": -0.22683510922930986,
+      "paired_d": -1.1409728160729737,
+      "ci_95": [
+        -6.157223878491486,
+        -0.8470817483928502
+      ],
+      "t_stat": -3.60807284712697,
+      "p_approx": 0.00030847988457338715
+    }
+  },
+  "marcus_analog_stratum_25_tile": {
+    "Monocytes_EPIC": {
+      "tile": "Monocytes_EPIC",
+      "class": "immune",
+      "paired_d": 0.05867338509299435,
+      "ci_95": [
+        -0.8644081039906615,
+        0.6342338191871837
+      ],
+      "mean_delta_A": 0.007207147663464664,
+      "n_pairs": 10
+    },
+    "B-cells_EPIC": {
+      "tile": "B-cells_EPIC",
+      "class": "immune",
+      "paired_d": 0.5528933737981524,
+      "ci_95": [
+        0.02292739622015742,
+        1.1557955145133973
+      ],
+      "mean_delta_A": 0.06389066634850896,
+      "n_pairs": 10
+    },
+    "Neutrophils_EPIC": {
+      "tile": "Neutrophils_EPIC",
+      "class": "immune",
+      "paired_d": -0.061400689891294394,
+      "ci_95": [
+        -0.7209940221743855,
+        0.7306704548858557
+      ],
+      "mean_delta_A": -0.005945533574552697,
+      "n_pairs": 10
+    },
+    "Adipocytes": {
+      "tile": "Adipocytes",
+      "class": "stromal",
+      "paired_d": 0.6066479279467724,
+      "ci_95": [
+        0.014196034618608333,
+        2.0413358327896853
+      ],
+      "mean_delta_A": 0.0454578087506239,
+      "n_pairs": 10
+    },
+    "Cortical_neurons": {
+      "tile": "Cortical_neurons",
+      "class": "terminal",
+      "paired_d": 0.8909127403517945,
+      "ci_95": [
+        0.19899594414067023,
+        3.6584740289900144
+      ],
+      "mean_delta_A": 0.08564178635673633,
+      "n_pairs": 10
+    },
+    "Hepatocytes": {
+      "tile": "Hepatocytes",
+      "class": "secretory",
+      "paired_d": -1.1409728160729737,
+      "ci_95": [
+        -6.121222024382075,
+        -0.8465949962711435
+      ],
+      "mean_delta_A": -0.22683510922930986,
+      "n_pairs": 10
+    },
+    "Lung_cells": {
+      "tile": "Lung_cells",
+      "class": "cycling",
+      "paired_d": 0.665149539627221,
+      "ci_95": [
+        0.08566404148796133,
+        1.781793559855148
+      ],
+      "mean_delta_A": 0.05474190450731722,
+      "n_pairs": 10
+    },
+    "Pancreatic_beta_cells": {
+      "tile": "Pancreatic_beta_cells",
+      "class": "secretory",
+      "paired_d": 0.679968507280333,
+      "ci_95": [
+        0.08009362514916957,
+        1.7917729787576038
+      ],
+      "mean_delta_A": 0.04929315367315222,
+      "n_pairs": 10
+    },
+    "Pancreatic_acinar_cells": {
+      "tile": "Pancreatic_acinar_cells",
+      "class": "secretory",
+      "paired_d": 1.0373478266257528,
+      "ci_95": [
+        0.3672763941793037,
+        3.8664076130919782
+      ],
+      "mean_delta_A": 0.06037035318820653,
+      "n_pairs": 10
+    },
+    "Pancreatic_duct_cells": {
+      "tile": "Pancreatic_duct_cells",
+      "class": "secretory",
+      "paired_d": -0.15805687318833045,
+      "ci_95": [
+        -0.8469393956711037,
+        0.5557510254632572
+      ],
+      "mean_delta_A": -0.018641680345484253,
+      "n_pairs": 10
+    },
+    "Vascular_endothelial_cells": {
+      "tile": "Vascular_endothelial_cells",
+      "class": "stromal",
+      "paired_d": 0.43252037948277555,
+      "ci_95": [
+        -0.15896230296937322,
+        2.0012165162810254
+      ],
+      "mean_delta_A": 0.04220721497064226,
+      "n_pairs": 10
+    },
+    "Colon_epithelial_cells": {
+      "tile": "Colon_epithelial_cells",
+      "class": "cycling",
+      "paired_d": 1.787500920174165,
+      "ci_95": [
+        1.0976012888913254,
+        3.8400949854256843
+      ],
+      "mean_delta_A": 0.09609532981994992,
+      "n_pairs": 10
+    },
+    "Left_atrium": {
+      "tile": "Left_atrium",
+      "class": "terminal",
+      "paired_d": -0.31199075354212347,
+      "ci_95": [
+        -1.0922470093204584,
+        0.32580234639264477
+      ],
+      "mean_delta_A": -0.02969788387391057,
+      "n_pairs": 10
+    },
+    "Bladder": {
+      "tile": "Bladder",
+      "class": "cycling",
+      "paired_d": 1.026593963158476,
+      "ci_95": [
+        0.6206920364506556,
+        1.8724882330444121
+      ],
+      "mean_delta_A": 0.10185229965435308,
+      "n_pairs": 10
+    },
+    "Head_and_neck_larynx": {
+      "tile": "Head_and_neck_larynx",
+      "class": "cycling",
+      "paired_d": 1.779216411855683,
+      "ci_95": [
+        1.0646522900525233,
+        4.410392645196156
+      ],
+      "mean_delta_A": 0.07745424195755413,
+      "n_pairs": 10
+    },
+    "Upper_GI": {
+      "tile": "Upper_GI",
+      "class": "cycling",
+      "paired_d": 0.36795852427084547,
+      "ci_95": [
+        -0.21964585956225058,
+        1.5313509964002974
+      ],
+      "mean_delta_A": 0.024285777609523336,
+      "n_pairs": 10
+    },
+    "Uterus_cervix": {
+      "tile": "Uterus_cervix",
+      "class": "cycling",
+      "paired_d": 0.7588708416273282,
+      "ci_95": [
+        0.12450940992702603,
+        7.413370144838819
+      ],
+      "mean_delta_A": 0.058713466382527946,
+      "n_pairs": 10
+    }
+  },
+  "marcus_analog_patient_ids": [
+    "TCGA-BC-A10Q",
+    "TCGA-BC-A10R",
+    "TCGA-BC-A10T",
+    "TCGA-BC-A10X",
+    "TCGA-BC-A216",
+    "TCGA-BD-A3EP",
+    "TCGA-DD-A39V",
+    "TCGA-DD-A3A3",
+    "TCGA-ES-A2HS",
+    "TCGA-G3-A25W"
+  ],
+  "patient_stratum_assignments": {
+    "TCGA-BC-A10Q": "No_documented_risk",
+    "TCGA-BC-A10R": "No_documented_risk",
+    "TCGA-BC-A10T": "No_documented_risk",
+    "TCGA-BC-A10U": "Alcohol+",
+    "TCGA-BC-A10W": "HBV+",
+    "TCGA-BC-A10X": "No_documented_risk",
+    "TCGA-BC-A10Y": "Alcohol+",
+    "TCGA-BC-A10Z": "Other",
+    "TCGA-BC-A110": "Alcohol+",
+    "TCGA-BC-A112": "Alcohol+",
+    "TCGA-BC-A216": "No_documented_risk",
+    "TCGA-BD-A3EP": "No_documented_risk",
+    "TCGA-DD-A113": "HBV+",
+    "TCGA-DD-A114": "HBV+HCV",
+    "TCGA-DD-A115": "HBV+",
+    "TCGA-DD-A116": "HBV+",
+    "TCGA-DD-A118": "HBV+",
+    "TCGA-DD-A119": "HBV+",
+    "TCGA-DD-A11A": "HBV+",
+    "TCGA-DD-A11B": "HBV+",
+    "TCGA-DD-A11C": "HBV+",
+    "TCGA-DD-A11D": "NAFLD+",
+    "TCGA-DD-A1E9": "HBV+",
+    "TCGA-DD-A1EB": "HBV+",
+    "TCGA-DD-A1ED": "HBV+",
+    "TCGA-DD-A1EE": "HBV+HCV",
+    "TCGA-DD-A1EF": "HBV+",
+    "TCGA-DD-A1EG": "HBV+",
+    "TCGA-DD-A1EH": "HBV+",
+    "TCGA-DD-A1EI": "HBV+",
+    "TCGA-DD-A1EJ": "HBV+",
+    "TCGA-DD-A1EL": "HBV+",
+    "TCGA-DD-A39V": "No_documented_risk",
+    "TCGA-DD-A39W": "Other",
+    "TCGA-DD-A39X": "HBV+",
+    "TCGA-DD-A39Z": "Alcohol+",
+    "TCGA-DD-A3A1": "Other",
+    "TCGA-DD-A3A2": "Other",
+    "TCGA-DD-A3A3": "No_documented_risk",
+    "TCGA-EP-A12J": "HCV+",
+    "TCGA-EP-A26S": "Alcohol+",
+    "TCGA-ES-A2HS": "No_documented_risk",
+    "TCGA-ES-A2HT": "HCV+",
+    "TCGA-FV-A23B": "HCV+",
+    "TCGA-FV-A2QR": "Other",
+    "TCGA-G3-A25W": "No_documented_risk"
+  },
+  "outcome_label": "O5_DATA_INTEGRITY_FLAG",
+  "outcome_reason": "CHK-3.1 beta distribution check failed under pre-locked threshold (extreme 26.6% < required 30%; middle 9.1% < required 10% \u2014 middle passes, extreme misses). Per CCL-032 diagnostic order, biological readouts in this results.json are descriptive supplementary documentation only and do NOT propagate to the hcc-epic card or any cookbook reference document. CCL-041 LL-CHK-3.1-PLATFORM-CALIBRATION logged as the new cookbook lesson; the TCGA HM450 platform threshold itself requires a future calibration VAL on a structurally-separate cohort.",
+  "edear_commercial_deployment_unaffected": true,
+  "runtime_seconds": 49.8,
+  "sealed_outcome_decision": {
+    "pre_locked_outcome_label": "O5_DATA_INTEGRITY_FLAG",
+    "pre_locked_outcome_reason": "CHK-3.1 beta distribution check failed: extreme 26.6%, middle 9.1%.",
+    "biological_readouts_status": "descriptive supplementary documentation only \u2014 do NOT propagate to hcc-epic card or any cookbook doc per CCL-032 diagnostic order (data integrity \u2192 biology \u2192 framework)",
+    "why_O5_stands": "CHK-3.1 threshold was sealed before \u03b2-access. It tripped. CHK-4.8 honest-revision is reserved for structurally degenerate criteria (cf VAL-097 O2_CYCLING_DISTRIBUTED), not for misspecified thresholds. The biology being clean does not justify post-hoc threshold relaxation; that is exactly the failure mode prereg discipline is designed to prevent.",
+    "CCL_041_lesson_logged": true,
+    "self_correction_VAL_102_voided": {
+      "voided_at": "2026-04-28T20:35Z",
+      "original_seal_sha256": "2b77ad9d3b69554a0658260756db0f08722e2be3fa96eb48aad9213974f4717c",
+      "reason": "VAL-102 was sealed with a TCGA HM450 platform threshold (extreme >20%) derived from the very data VAL-102 was scheduled to interpret. This is post-hoc threshold accommodation with a SHA stamp, not pre-registration. Voided before execution. Audit trail preserved at Biological_Physics/validation_runs/VAL-102/VOIDED_BEFORE_EXECUTION.md."
+    },
+    "honest_path_forward": {
+      "option_1_calibration_VAL": "Set CHK-3.1 platform threshold for TCGA HM450 sesame Level 3 using a calibration cohort structurally separated from any active hcc-epic test cohort (e.g., TCGA-KIRC adjacent-normal, TCGA-PRAD adjacent-normal). Measure bimodality distribution. Set threshold. Seal. Then run a future hcc-epic VAL on TCGA-LIHC under the pre-registered platform threshold.",
+      "option_2_CCL_040_deferral": "Process TCGA-LIHC .idat files through sesame from raw IDAT input. Verify bimodality at standard pipeline output. Re-run hcc-epic test under reprocessed betas. Same precedent as VAL-100 deferral.",
+      "both_paths_are_multi_VAL_workstreams": true
+    }
+  }
+}
