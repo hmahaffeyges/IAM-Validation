@@ -1,0 +1,14 @@
+{
+  "total_unique_cpgs": 8100,
+  "breakdown": {
+    "loyfer_25_tile_full": 6105,
+    "episcore_heart_ref_markers": 207,
+    "episcore_heart_ref_NOTE": "integer marker IDs require Illumina manifest mapping; deferred to scoring time",
+    "unilife_19cell": 1906,
+    "salas_idol_450k": 350,
+    "caggiano_celfie_NOTE": "WGBS region format (chrom/start/end), requires region-to-CpG mapping per array; deferred to scoring time",
+    "xu_538_immune_NOTE": "patent-protected panel; CHK-3.1B Stage 1 contribution evaluated at scoring time, not acquisition time"
+  },
+  "derived_from_atlas_vault_at": "2026-04-28",
+  "note_on_scoring_time_components": "EpiSCORE HeartRef + Caggiano CelFiE + Xu-538 are evaluated at scoring time, not acquisition-time CHK-3.1B (per cookbook decision: CHK-3.1B at acquisition uses cg-IDs that can be directly intersected with the input file)."
+}
