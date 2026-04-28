@@ -1,0 +1,401 @@
+{
+  "val_id": "VAL-099",
+  "sealed_at": "2026-04-28T18:37:27.152171+00:00",
+  "prereg_sha256": "8e4ee02c59774514b0fca6969d8c77ab4ca191ff729b71224e72e3af4977865f",
+  "rng_seed": 20260428,
+  "cohort": {
+    "name": "TCGA-COAD HM450 paired (re-analysis of VAL-061/VAL-062 cohort)",
+    "n_pairs_total": 26,
+    "n_pairs_qc_passed": 26
+  },
+  "pooled_cycling_class": {
+    "paired_d": 0.7240667605107153,
+    "ci_95": [
+      0.3515844349786374,
+      1.2963621041401991
+    ],
+    "t_stat": 3.6920305409880507,
+    "p_approx": 0.00022247074143377787,
+    "n_pairs": 26,
+    "val_062_anchor_d": 0.7241,
+    "drift_from_anchor": -3.323948928468656e-05,
+    "within_drift_tolerance": true
+  },
+  "run_everything_25_tile": [
+    {
+      "tile": "Bladder",
+      "class": "cycling",
+      "paired_d": 2.4418891351024206,
+      "ci_lo_95": 1.9433066148602327,
+      "ci_hi_95": 3.445161515645578,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Hepatocytes",
+      "class": "secretory",
+      "paired_d": 2.244293383102325,
+      "ci_lo_95": 1.6713011176067414,
+      "ci_hi_95": 3.2918911164555102,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Colon_epithelial_cells",
+      "class": "cycling",
+      "paired_d": -1.6027808877042364,
+      "ci_lo_95": -2.173078629037265,
+      "ci_hi_95": -1.2883270110264442,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Head_and_neck_larynx",
+      "class": "cycling",
+      "paired_d": 1.5006267449904531,
+      "ci_lo_95": 1.1597644464518346,
+      "ci_hi_95": 2.0578785189769877,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Pancreatic_beta_cells",
+      "class": "secretory",
+      "paired_d": 1.4459779532018628,
+      "ci_lo_95": 1.0835938930571545,
+      "ci_hi_95": 2.254786841077474,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Pancreatic_acinar_cells",
+      "class": "secretory",
+      "paired_d": 1.1723548356257774,
+      "ci_lo_95": 0.8319202231818982,
+      "ci_hi_95": 1.7150546077125206,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Neutrophils_EPIC",
+      "class": "immune",
+      "paired_d": 1.1093823264883023,
+      "ci_lo_95": 0.7561402760706508,
+      "ci_hi_95": 1.6654620715141182,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Cortical_neurons",
+      "class": "terminal",
+      "paired_d": 0.9962546363975816,
+      "ci_lo_95": 0.672153325462565,
+      "ci_hi_95": 1.480063496414925,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Lung_cells",
+      "class": "cycling",
+      "paired_d": 0.9143052261934608,
+      "ci_lo_95": 0.5272573569424627,
+      "ci_hi_95": 1.4934786432511313,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Pancreatic_duct_cells",
+      "class": "secretory",
+      "paired_d": 0.8893632664909557,
+      "ci_lo_95": 0.5572343182346204,
+      "ci_hi_95": 1.3903313738542005,
+      "n_pairs": 26
+    },
+    {
+      "tile": "B-cells_EPIC",
+      "class": "immune",
+      "paired_d": -0.7266048845442952,
+      "ci_lo_95": -1.2624031410378083,
+      "ci_hi_95": -0.35381712066564175,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Upper_GI",
+      "class": "cycling",
+      "paired_d": 0.6746103286270582,
+      "ci_lo_95": 0.30343338799002134,
+      "ci_hi_95": 1.1851290953290499,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Left_atrium",
+      "class": "terminal",
+      "paired_d": -0.4444634768429544,
+      "ci_lo_95": -0.9147894748424173,
+      "ci_hi_95": -0.0574535671259719,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Uterus_cervix",
+      "class": "cycling",
+      "paired_d": -0.360312584949375,
+      "ci_lo_95": -0.8840523800739987,
+      "ci_hi_95": 0.0324236841322409,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Monocytes_EPIC",
+      "class": "immune",
+      "paired_d": 0.2760637980324435,
+      "ci_lo_95": -0.10678348919868529,
+      "ci_hi_95": 0.6821006452451993,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Adipocytes",
+      "class": "stromal",
+      "paired_d": -0.1523419347653956,
+      "ci_lo_95": -0.5872684100261658,
+      "ci_hi_95": 0.23540881012403966,
+      "n_pairs": 26
+    },
+    {
+      "tile": "Vascular_endothelial_cells",
+      "class": "stromal",
+      "paired_d": -0.1379571030829912,
+      "ci_lo_95": -0.5693989406321884,
+      "ci_hi_95": 0.2488989666119421,
+      "n_pairs": 26
+    }
+  ],
+  "colon_epithelial_cells_tile": {
+    "tile": "Colon_epithelial_cells",
+    "class": "cycling",
+    "paired_d": -1.6027808877042364,
+    "ci_lo_95": -2.173078629037265,
+    "ci_hi_95": -1.2883270110264442,
+    "n_pairs": 26
+  },
+  "stratified_analysis": {
+    "by_age": {
+      "under_50": {
+        "n": 3,
+        "patients": [
+          "TCGA-A6-2685",
+          "TCGA-A6-5667",
+          "TCGA-AA-3663"
+        ],
+        "mean_delta_A": 0.035655343961531506,
+        "note": "n=3 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      },
+      "age_50_plus": {
+        "n": 21,
+        "patients": [
+          "TCGA-A6-2671",
+          "TCGA-A6-2675",
+          "TCGA-A6-2679",
+          "TCGA-A6-2680",
+          "TCGA-A6-2686",
+          "TCGA-A6-4107",
+          "TCGA-AA-3492",
+          "TCGA-AA-3495",
+          "TCGA-AA-3510",
+          "TCGA-AA-3655",
+          "TCGA-AA-3660",
+          "TCGA-AA-3697",
+          "TCGA-AA-3712",
+          "TCGA-AZ-6598",
+          "TCGA-AZ-6599",
+          "TCGA-AZ-6600",
+          "TCGA-G4-6295",
+          "TCGA-G4-6298",
+          "TCGA-G4-6311",
+          "TCGA-G4-6314",
+          "TCGA-G4-6320"
+        ],
+        "mean_delta_A": 0.015551898201093256,
+        "cycling_d": 0.5388005619256953,
+        "ci_95": [
+          0.1332869293487045,
+          1.0815437053841268
+        ],
+        "t_stat": 2.4690943595092403,
+        "p_approx": 0.01354554949632214
+      },
+      "age_NA": {
+        "n": 2,
+        "patients": [
+          "TCGA-AZ-6601",
+          "TCGA-G4-6625"
+        ],
+        "mean_delta_A": 0.049610859348791336,
+        "note": "n=2 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      }
+    },
+    "by_sex": {
+      "female": {
+        "n": 12,
+        "patients": [
+          "TCGA-A6-2679",
+          "TCGA-A6-2680",
+          "TCGA-A6-2685",
+          "TCGA-A6-2686",
+          "TCGA-A6-4107",
+          "TCGA-A6-5667",
+          "TCGA-AA-3492",
+          "TCGA-AA-3660",
+          "TCGA-AZ-6598",
+          "TCGA-G4-6295",
+          "TCGA-G4-6314",
+          "TCGA-G4-6625"
+        ],
+        "mean_delta_A": 0.029304437382366405,
+        "cycling_d": 1.1036001950644767,
+        "ci_95": [
+          0.465571428595598,
+          2.969054426860773
+        ],
+        "t_stat": 3.822983218189195,
+        "p_approx": 0.000131846756229681
+      },
+      "male": {
+        "n": 14,
+        "patients": [
+          "TCGA-A6-2671",
+          "TCGA-A6-2675",
+          "TCGA-AA-3495",
+          "TCGA-AA-3510",
+          "TCGA-AA-3655",
+          "TCGA-AA-3663",
+          "TCGA-AA-3697",
+          "TCGA-AA-3712",
+          "TCGA-AZ-6599",
+          "TCGA-AZ-6600",
+          "TCGA-AZ-6601",
+          "TCGA-G4-6298",
+          "TCGA-G4-6311",
+          "TCGA-G4-6320"
+        ],
+        "mean_delta_A": 0.012937454586909909,
+        "cycling_d": 0.45444470375081397,
+        "ci_95": [
+          -0.05039464743263454,
+          1.1025993620380297
+        ],
+        "t_stat": 1.7003763826695286,
+        "p_approx": 0.0890601512780198
+      }
+    },
+    "by_subsite": {
+      "Not Reported": {
+        "n": 1,
+        "patients": [
+          "TCGA-A6-2671"
+        ],
+        "mean_delta_A": -0.020563700661838435,
+        "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      },
+      "Sigmoid colon": {
+        "n": 3,
+        "patients": [
+          "TCGA-A6-2675",
+          "TCGA-A6-5667",
+          "TCGA-AA-3655"
+        ],
+        "mean_delta_A": -0.0014549658211107837,
+        "note": "n=3 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      },
+      "Ascending colon": {
+        "n": 8,
+        "patients": [
+          "TCGA-A6-2679",
+          "TCGA-A6-4107",
+          "TCGA-AA-3492",
+          "TCGA-AA-3495",
+          "TCGA-AA-3510",
+          "TCGA-AZ-6598",
+          "TCGA-AZ-6600",
+          "TCGA-G4-6311"
+        ],
+        "mean_delta_A": 0.009728050476152605,
+        "cycling_d": 0.38741323376391923,
+        "ci_95": [
+          -0.3292980760365959,
+          1.7237667699625696
+        ],
+        "t_stat": 1.0957700988635055,
+        "p_approx": 0.2731793969853764
+      },
+      "Hepatic flexure of colon": {
+        "n": 2,
+        "patients": [
+          "TCGA-A6-2680",
+          "TCGA-G4-6320"
+        ],
+        "mean_delta_A": 0.05377827154364595,
+        "note": "n=2 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      },
+      "Colon, NOS": {
+        "n": 5,
+        "patients": [
+          "TCGA-A6-2685",
+          "TCGA-A6-2686",
+          "TCGA-AA-3660",
+          "TCGA-AA-3697",
+          "TCGA-AZ-6601"
+        ],
+        "mean_delta_A": 0.039646259395791715,
+        "cycling_d": 1.7022170176901545,
+        "ci_95": [
+          0.964264483050339,
+          12.25164775237717
+        ],
+        "t_stat": 3.806272964012148,
+        "p_approx": 0.0001410766764242677
+      },
+      "Cecum": {
+        "n": 5,
+        "patients": [
+          "TCGA-AA-3663",
+          "TCGA-AZ-6599",
+          "TCGA-G4-6295",
+          "TCGA-G4-6298",
+          "TCGA-G4-6314"
+        ],
+        "mean_delta_A": 0.02602716055655898,
+        "cycling_d": 1.093971904285979,
+        "ci_95": [
+          0.24140934701255642,
+          5.0849576334342785
+        ],
+        "t_stat": 2.4461955434583427,
+        "p_approx": 0.014437267452962699
+      },
+      "Descending colon": {
+        "n": 1,
+        "patients": [
+          "TCGA-AA-3712"
+        ],
+        "mean_delta_A": -0.0032834053307576605,
+        "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      },
+      "Skin, NOS": {
+        "n": 1,
+        "patients": [
+          "TCGA-G4-6625"
+        ],
+        "mean_delta_A": 0.047241569602797795,
+        "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+        "cycling_d": null,
+        "ci_95": null
+      }
+    }
+  },
+  "outcome_label": "O1_AGE_STRATIFIED_DIRECTION_CONFIRMED",
+  "outcome_reason": "Pooled d=+0.7241 reproduces VAL-062 (drift -0.0000); age_50_plus d=+0.5388; under_50 direction descriptively positive (\u0394A=+0.0357, n=3)",
+  "edear_commercial_deployment_unaffected": true,
+  "runtime_seconds": 48.8
+}

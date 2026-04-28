@@ -1,0 +1,308 @@
+{
+  "GSM8648535": {
+    "gsm": "GSM8648535",
+    "title": "Buffy coat from patient without PNPs ET03911 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03911"
+  },
+  "GSM8648536": {
+    "gsm": "GSM8648536",
+    "title": "Buffy coat from patient without PNPs ET039111 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039111"
+  },
+  "GSM8648537": {
+    "gsm": "GSM8648537",
+    "title": "Buffy coat from patient without PNPs ET039112 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039112"
+  },
+  "GSM8648538": {
+    "gsm": "GSM8648538",
+    "title": "Buffy coat from patient with PNPs ET039113 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039113"
+  },
+  "GSM8648539": {
+    "gsm": "GSM8648539",
+    "title": "Buffy coat from patient without PNPs ET039114 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039114"
+  },
+  "GSM8648540": {
+    "gsm": "GSM8648540",
+    "title": "Buffy coat from patient without PNPs  ET039115 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039115"
+  },
+  "GSM8648541": {
+    "gsm": "GSM8648541",
+    "title": "Buffy coat from patient with PNPs ET039116 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039116"
+  },
+  "GSM8648542": {
+    "gsm": "GSM8648542",
+    "title": "Buffy coat from patient without PNPs ET039117 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039117"
+  },
+  "GSM8648543": {
+    "gsm": "GSM8648543",
+    "title": "Buffy coat from patient without PNPs ET039118 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039118"
+  },
+  "GSM8648544": {
+    "gsm": "GSM8648544",
+    "title": "Buffy coat from patient without PNPs ET039119 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039119"
+  },
+  "GSM8648545": {
+    "gsm": "GSM8648545",
+    "title": "Buffy coat from patient without PNPs ET03912 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03912"
+  },
+  "GSM8648546": {
+    "gsm": "GSM8648546",
+    "title": "Buffy coat from patient with PNPs ET039120 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039120"
+  },
+  "GSM8648547": {
+    "gsm": "GSM8648547",
+    "title": "Buffy coat from patient without PNPs ET039122 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039122"
+  },
+  "GSM8648548": {
+    "gsm": "GSM8648548",
+    "title": "Buffy coat from patient without PNPs ET039123 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039123"
+  },
+  "GSM8648549": {
+    "gsm": "GSM8648549",
+    "title": "Buffy coat from patient with PNPs ET039124 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039124"
+  },
+  "GSM8648550": {
+    "gsm": "GSM8648550",
+    "title": "Buffy coat from patient with PNPs ET039125 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039125"
+  },
+  "GSM8648551": {
+    "gsm": "GSM8648551",
+    "title": "Buffy coat from patient without PNPs ET039126 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039126"
+  },
+  "GSM8648552": {
+    "gsm": "GSM8648552",
+    "title": "Buffy coat from patient without PNPs ET039128 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039128"
+  },
+  "GSM8648553": {
+    "gsm": "GSM8648553",
+    "title": "Buffy coat from patient without PNPs ET039129 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039129"
+  },
+  "GSM8648554": {
+    "gsm": "GSM8648554",
+    "title": "Buffy coat from patient without PNPs ET03913 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03913"
+  },
+  "GSM8648555": {
+    "gsm": "GSM8648555",
+    "title": "Buffy coat from patient with PNPs ET039130 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039130"
+  },
+  "GSM8648556": {
+    "gsm": "GSM8648556",
+    "title": "Buffy coat from patient without PNPs ET039131 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039131"
+  },
+  "GSM8648557": {
+    "gsm": "GSM8648557",
+    "title": "Buffy coat from patient with PNPs ET039132 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039132"
+  },
+  "GSM8648558": {
+    "gsm": "GSM8648558",
+    "title": "Buffy coat from patient with PNPs ET039133 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039133"
+  },
+  "GSM8648559": {
+    "gsm": "GSM8648559",
+    "title": "Buffy coat from patient with PNPs ET039134 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039134"
+  },
+  "GSM8648560": {
+    "gsm": "GSM8648560",
+    "title": "Buffy coat from patient with PNPs ET039135 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039135"
+  },
+  "GSM8648561": {
+    "gsm": "GSM8648561",
+    "title": "Buffy coat from patient with PNPs ET039136 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039136"
+  },
+  "GSM8648562": {
+    "gsm": "GSM8648562",
+    "title": "Buffy coat from patient without PNPs ET039137 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039137"
+  },
+  "GSM8648563": {
+    "gsm": "GSM8648563",
+    "title": "Buffy coat from patient without PNPs ET039138 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039138"
+  },
+  "GSM8648564": {
+    "gsm": "GSM8648564",
+    "title": "Buffy coat from patient without PNPs ET039139 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039139"
+  },
+  "GSM8648565": {
+    "gsm": "GSM8648565",
+    "title": "Buffy coat from patient without PNPs ET03914 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03914"
+  },
+  "GSM8648566": {
+    "gsm": "GSM8648566",
+    "title": "Buffy coat from patient with PNPs ET039140 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039140"
+  },
+  "GSM8648567": {
+    "gsm": "GSM8648567",
+    "title": "Buffy coat from patient without PNPs ET039141 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039141"
+  },
+  "GSM8648568": {
+    "gsm": "GSM8648568",
+    "title": "Buffy coat from patient without PNPs ET039142 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039142"
+  },
+  "GSM8648569": {
+    "gsm": "GSM8648569",
+    "title": "Buffy coat from patient with PNPs ET039144 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039144"
+  },
+  "GSM8648570": {
+    "gsm": "GSM8648570",
+    "title": "Buffy coat from patient without PNPs ET039145 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039145"
+  },
+  "GSM8648571": {
+    "gsm": "GSM8648571",
+    "title": "Buffy coat from patient without PNPs ET039146 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039146"
+  },
+  "GSM8648572": {
+    "gsm": "GSM8648572",
+    "title": "Buffy coat from patient without PNPs ET039147 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039147"
+  },
+  "GSM8648573": {
+    "gsm": "GSM8648573",
+    "title": "Buffy coat from patient without PNPs ET039148 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039148"
+  },
+  "GSM8648574": {
+    "gsm": "GSM8648574",
+    "title": "Buffy coat from patient without PNPs ET03915 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03915"
+  },
+  "GSM8648575": {
+    "gsm": "GSM8648575",
+    "title": "Buffy coat from patient without PNPs ET039150 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039150"
+  },
+  "GSM8648576": {
+    "gsm": "GSM8648576",
+    "title": "Buffy coat from patient with PNPs ET039151 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039151"
+  },
+  "GSM8648577": {
+    "gsm": "GSM8648577",
+    "title": "Buffy coat from patient without PNPs ET039152 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039152"
+  },
+  "GSM8648578": {
+    "gsm": "GSM8648578",
+    "title": "Buffy coat from patient without PNPs ET039153 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039153"
+  },
+  "GSM8648579": {
+    "gsm": "GSM8648579",
+    "title": "Buffy coat from patient without PNPs ET039154 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039154"
+  },
+  "GSM8648580": {
+    "gsm": "GSM8648580",
+    "title": "Buffy coat from patient with PNPs ET039155 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET039155"
+  },
+  "GSM8648581": {
+    "gsm": "GSM8648581",
+    "title": "Buffy coat from patient without PNPs ET039156 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET039156"
+  },
+  "GSM8648582": {
+    "gsm": "GSM8648582",
+    "title": "Buffy coat from patient without PNPs ET03916 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03916"
+  },
+  "GSM8648583": {
+    "gsm": "GSM8648583",
+    "title": "Buffy coat from patient with PNPs ET03917 at time of colonoscopy",
+    "pnp_status": "PNP_pos",
+    "patient_et_id": "ET03917"
+  },
+  "GSM8648584": {
+    "gsm": "GSM8648584",
+    "title": "Buffy coat from patient without PNPs ET03918 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03918"
+  },
+  "GSM8648585": {
+    "gsm": "GSM8648585",
+    "title": "Buffy coat from patient without PNPs ET03919 at time of colonoscopy",
+    "pnp_status": "PNP_neg",
+    "patient_et_id": "ET03919"
+  }
+}
