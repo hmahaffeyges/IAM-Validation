@@ -1,0 +1,27 @@
+{
+  "cohort": "GSE256092",
+  "description": "Korean never-smoker LUAD tissue, EPIC, all-never-smoker stratum",
+  "platform": "GPL21145 (EPIC 850K)",
+  "n_samples": 141,
+  "access_tier": 1,
+  "series_matrix_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE256nnn/GSE256092/matrix/GSE256092_series_matrix.txt.gz",
+  "series_matrix_sha256_prefix16": "1ef8c8c6eebbe708",
+  "series_matrix_size_bytes": 7885,
+  "swan_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE256nnn/GSE256092/suppl/GSE256092_SWAN.txt.gz",
+  "swan_sha256_prefix16": "b191108e6414e418",
+  "swan_size_bytes": 1000710168,
+  "sex_distribution": {
+    "FEMALE": "125",
+    "MALE": "16"
+  },
+  "stage_distribution": {
+    "1": "55",
+    "3": "47",
+    "2": "38",
+    "4": "1"
+  },
+  "age_range": [
+    37,
+    85
+  ]
+}
