@@ -1,0 +1,182 @@
+{
+  "val_id": "VAL-110",
+  "prereg_sha256": "1041738ccc8bcdd45a4754d599a28ad80fde3a7b37b6c18b4d528f4fe0271bc8",
+  "sealed_at": "2026-04-28T22:55Z",
+  "executed_at": "2026-04-28T22:55:29.853593+00:00",
+  "cohort": "GSE84274 ascending aorta n=24 (normal 6 + dissection 12 + BAV+dilation 6)",
+  "substrate": "GenomeStudio V2011.1, HM450K",
+  "chk_31a_self_cal": {
+    "cohort_f_extreme": {
+      "mean": 0.3394761784405409,
+      "sd": 0.022074435353677608,
+      "envelope": [
+        0.29532730773318566,
+        0.38362504914789614
+      ]
+    },
+    "cohort_f_middle": {
+      "mean": 0.0737004507350773,
+      "sd": 0.007020952785264362,
+      "envelope": [
+        0.05965854516454858,
+        0.08774235630560603
+      ]
+    },
+    "qc_pass": 23,
+    "qc_fail_rate": 0.041666666666666664
+  },
+  "group_n": {
+    "normal": 6,
+    "dissection": 11,
+    "BAV_dilation": 6
+  },
+  "stage1_pair_d": {
+    "normal_VS_dissection": {
+      "d": 0.5609564834841908,
+      "n_a": 6,
+      "n_b": 11
+    },
+    "normal_VS_BAV_dilation": {
+      "d": 1.0846567104976357,
+      "n_a": 6,
+      "n_b": 6
+    },
+    "dissection_VS_BAV_dilation": {
+      "d": 0.04662486152839787,
+      "n_a": 11,
+      "n_b": 6
+    }
+  },
+  "stage2_pair_d_summary": {
+    "normal_VS_dissection": {
+      "top5": [
+        [
+          "Monocytes_EPIC",
+          1.1867184355748015
+        ],
+        [
+          "Erythrocyte_progenitors",
+          1.1807554082935765
+        ],
+        [
+          "Neutrophils_EPIC",
+          1.1138487926484533
+        ],
+        [
+          "B-cells_EPIC",
+          1.0680217124930056
+        ],
+        [
+          "NK-cells_EPIC",
+          0.9944584586801793
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.03539113486495441,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": -0.597538719825003,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.709343188545161,
+          "class": "stromal"
+        }
+      }
+    },
+    "normal_VS_BAV_dilation": {
+      "top5": [
+        [
+          "Hepatocytes",
+          -3.639670785975044
+        ],
+        [
+          "Lung_cells",
+          -3.251654415917023
+        ],
+        [
+          "Colon_epithelial_cells",
+          -2.7357086915731332
+        ],
+        [
+          "Pancreatic_acinar_cells",
+          -2.51493180227123
+        ],
+        [
+          "Pancreatic_beta_cells",
+          -2.4297006531939935
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.14347298363279876,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": -0.8117941346369549,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.8753816911007546,
+          "class": "stromal"
+        }
+      }
+    },
+    "dissection_VS_BAV_dilation": {
+      "top5": [
+        [
+          "Hepatocytes",
+          -3.1751175430438363
+        ],
+        [
+          "Lung_cells",
+          -2.6619275819067107
+        ],
+        [
+          "Pancreatic_beta_cells",
+          -1.8775078477080522
+        ],
+        [
+          "Colon_epithelial_cells",
+          -1.8024971714246294
+        ],
+        [
+          "Erythrocyte_progenitors",
+          -1.7686057577438037
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.1467949680293765,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": -0.4192920866104046,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.36783609074365714,
+          "class": "stromal"
+        }
+      }
+    }
+  },
+  "stage3_pair_d": {
+    "UniLIFE": {
+      "normal_VS_dissection": 0.5544668625296898,
+      "normal_VS_BAV_dilation": 0.5513721086450354,
+      "dissection_VS_BAV_dilation": 0.022609718809850247
+    },
+    "Salas": {
+      "normal_VS_dissection": 0.5609564834841917,
+      "normal_VS_BAV_dilation": 1.0846567104976357,
+      "dissection_VS_BAV_dilation": 0.046624861528397094
+    }
+  },
+  "outcome": "O2_AORTIC_ANY_TILE_DIFFERENTIATING",
+  "notes": {
+    "stage1_proxy": "Salas IDOL 350-CpG used as proxy for patent-protected Xu-538"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "val_id": "VAL-109",
+  "prereg_sha256": "f6450b4cf5d384d2ea27b349c101b3f167a6a549d276e670e68fb2232b45f21e",
+  "sealed_at": "2026-04-28T22:51Z",
+  "executed_at": "2026-04-28T22:53:05.819446+00:00",
+  "cohort": "GSE84395 PAH PEC n=39 (control 18 + hPAH 10 + iPAH 11)",
+  "substrate": "minfi preprocessFunnorm (functional normalization), HM450K GPL16304",
+  "chk_31a_self_cal": {
+    "cohort_f_extreme": {
+      "mean": 0.5282171588565663,
+      "sd": 0.0232888381554621,
+      "envelope": [
+        0.4816394825456421,
+        0.5747948351674905
+      ]
+    },
+    "cohort_f_middle": {
+      "mean": 0.09117997981301051,
+      "sd": 0.006271542561936958,
+      "envelope": [
+        0.0786368946891366,
+        0.10372306493688443
+      ]
+    },
+    "qc_pass": 37,
+    "qc_fail_rate": 0.05128205128205128
+  },
+  "group_n": {
+    "control": 17,
+    "hPAH": 10,
+    "iPAH": 10
+  },
+  "stage1_pair_d": {
+    "control_VS_hPAH": {
+      "d": 0.6549101617427536,
+      "n_a": 17,
+      "n_b": 10
+    },
+    "control_VS_iPAH": {
+      "d": 0.6492273633220585,
+      "n_a": 17,
+      "n_b": 10
+    },
+    "hPAH_VS_iPAH": {
+      "d": -0.09031913725350071,
+      "n_a": 10,
+      "n_b": 10
+    }
+  },
+  "stage2_pair_d_summary": {
+    "control_VS_hPAH": {
+      "top5": [
+        [
+          "Pancreatic_duct_cells",
+          1.0508921539070255
+        ],
+        [
+          "Pancreatic_acinar_cells",
+          1.0362156661949138
+        ],
+        [
+          "Lung_cells",
+          0.9131670296664446
+        ],
+        [
+          "Colon_epithelial_cells",
+          0.870789755432618
+        ],
+        [
+          "Pancreatic_beta_cells",
+          0.8638505418148961
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": 0.7922976314430683,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": 0.651584136182161,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": 0.09418412388130137,
+          "class": "stromal"
+        },
+        "Lung_cells": {
+          "d": 0.9131670296664446,
+          "class": "cycling"
+        }
+      }
+    },
+    "control_VS_iPAH": {
+      "top5": [
+        [
+          "Cortical_neurons",
+          0.5603328879900977
+        ],
+        [
+          "Vascular_endothelial_cells",
+          0.4220618633149039
+        ],
+        [
+          "Adipocytes",
+          -0.4167120993538535
+        ],
+        [
+          "Uterus_cervix",
+          0.39974118378236456
+        ],
+        [
+          "Pancreatic_acinar_cells",
+          0.3961487151163599
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": 0.4220618633149039,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": 0.3064782022856736,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.4167120993538535,
+          "class": "stromal"
+        },
+        "Lung_cells": {
+          "d": 0.3415244858930992,
+          "class": "cycling"
+        }
+      }
+    },
+    "hPAH_VS_iPAH": {
+      "top5": [
+        [
+          "Adipocytes",
+          -0.48403878571073794
+        ],
+        [
+          "Pancreatic_acinar_cells",
+          -0.4521447413828603
+        ],
+        [
+          "Hepatocytes",
+          -0.4451369172922802
+        ],
+        [
+          "Pancreatic_duct_cells",
+          -0.4062512440109135
+        ],
+        [
+          "NK-cells_EPIC",
+          -0.40219706527908783
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.35209432231988746,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": -0.3177941269532178,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.48403878571073794,
+          "class": "stromal"
+        },
+        "Lung_cells": {
+          "d": -0.3523216081754743,
+          "class": "cycling"
+        }
+      }
+    }
+  },
+  "stage3_pair_d": {
+    "UniLIFE": {
+      "control_VS_hPAH": 0.48399056598266343,
+      "control_VS_iPAH": 0.21663573736611394,
+      "hPAH_VS_iPAH": -0.28545753815617675
+    },
+    "Salas": {
+      "control_VS_hPAH": 0.6549101617427522,
+      "control_VS_iPAH": 0.64922736332206,
+      "hPAH_VS_iPAH": -0.09031913725349744
+    }
+  },
+  "outcome": "O2_PAH_VASCULAR_TILE_DIFFERENTIATING",
+  "notes": {
+    "stage1_proxy": "Salas IDOL 350-CpG used as proxy for patent-protected Xu-538"
+  }
+}

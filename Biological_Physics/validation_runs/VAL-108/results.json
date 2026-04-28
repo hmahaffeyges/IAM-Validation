@@ -1,0 +1,170 @@
+{
+  "val_id": "VAL-108",
+  "prereg_sha256": "6f40ebd9d30bb10242b245d7bde280607f1170e3c7993a8284e2852ad1f69e7a",
+  "sealed_at": "2026-04-28T22:34:33Z",
+  "executed_at": "2026-04-28T22:48:28.738495+00:00",
+  "cohort": "GSE69138 ischemic stroke discovery 404 (GenomeStudio AVG_Beta)",
+  "chk_31a_self_cal": {
+    "thresholds": {
+      "extreme_min": 0.25,
+      "middle_max": 0.13,
+      "nvalid_min": 400000
+    },
+    "qc_pass": 383,
+    "qc_fail_rate": 0.05198019801980198
+  },
+  "subtype_n": {
+    "large_artery_atherosclerosis": 125,
+    "small_vessel_disease": 134,
+    "cardioembolic": 120
+  },
+  "stage1_pair_d": {
+    "large_artery_atherosclerosis_VS_small_vessel_disease": {
+      "d": 0.032168968690658384,
+      "n_a": 125,
+      "n_b": 134
+    },
+    "large_artery_atherosclerosis_VS_cardioembolic": {
+      "d": 0.12851315652753653,
+      "n_a": 125,
+      "n_b": 120
+    },
+    "small_vessel_disease_VS_cardioembolic": {
+      "d": 0.09373748411754329,
+      "n_a": 134,
+      "n_b": 120
+    }
+  },
+  "stage2_pair_d_summary": {
+    "large_artery_atherosclerosis_VS_small_vessel_disease": {
+      "top5": [
+        [
+          "Colon_epithelial_cells",
+          -0.09205858471567062
+        ],
+        [
+          "Lung_cells",
+          -0.07284718829596545
+        ],
+        [
+          "CD4T-cells_EPIC",
+          0.07185417527630798
+        ],
+        [
+          "CD8T-cells_EPIC",
+          0.06729310846927027
+        ],
+        [
+          "Neutrophils_EPIC",
+          -0.06329260156637243
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.023368026738730563,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": -0.015025631258233873,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.042861737037145714,
+          "class": "stromal"
+        }
+      }
+    },
+    "large_artery_atherosclerosis_VS_cardioembolic": {
+      "top5": [
+        [
+          "Monocytes_EPIC",
+          0.10644231744154153
+        ],
+        [
+          "Neutrophils_EPIC",
+          0.09819765100147104
+        ],
+        [
+          "Erythrocyte_progenitors",
+          0.09676553581834685
+        ],
+        [
+          "Vascular_endothelial_cells",
+          -0.05399238636065754
+        ],
+        [
+          "CD4T-cells_EPIC",
+          -0.04121317992276674
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.05399238636065754,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": -0.012578275019678368,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": -0.037494131324363765,
+          "class": "stromal"
+        }
+      }
+    },
+    "small_vessel_disease_VS_cardioembolic": {
+      "top5": [
+        [
+          "Monocytes_EPIC",
+          0.16693903137918006
+        ],
+        [
+          "Neutrophils_EPIC",
+          0.1660424986343423
+        ],
+        [
+          "Erythrocyte_progenitors",
+          0.1370670851894868
+        ],
+        [
+          "CD4T-cells_EPIC",
+          -0.11504938657216768
+        ],
+        [
+          "Thyroid",
+          0.09946917249306095
+        ]
+      ],
+      "cardio_tiles": {
+        "Vascular_endothelial_cells": {
+          "d": -0.030086492897830663,
+          "class": "stromal"
+        },
+        "Left_atrium": {
+          "d": 0.0029623926224441035,
+          "class": "terminal"
+        },
+        "Adipocytes": {
+          "d": 0.006644518493793845,
+          "class": "stromal"
+        }
+      }
+    }
+  },
+  "stage3_pair_d": {
+    "UniLIFE": {
+      "large_artery_atherosclerosis_VS_small_vessel_disease": 0.025664942114731113,
+      "large_artery_atherosclerosis_VS_cardioembolic": 0.1508251572680398,
+      "small_vessel_disease_VS_cardioembolic": 0.1209664230843875
+    },
+    "Salas": {
+      "large_artery_atherosclerosis_VS_small_vessel_disease": 0.032168968690657586,
+      "large_artery_atherosclerosis_VS_cardioembolic": 0.12851315652753548,
+      "small_vessel_disease_VS_cardioembolic": 0.09373748411754307
+    }
+  },
+  "outcome": "O3_CARDIO_EPIC_3SUBTYPE_UNDIFFERENTIATED",
+  "notes": {
+    "stage1_proxy": "Salas IDOL 350-CpG used as proxy for patent-protected Xu-538"
+  }
+}
