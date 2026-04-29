@@ -1,0 +1,50 @@
+VAL-111 started: 2026-04-29T02:00:41.550583+00:00
+Atlas: (3727, 8)
+  CM: 1681 active CpGs
+  EC: 2844 active CpGs
+  FB: 2408 active CpGs
+  MP: 3320 active CpGs
+  SMC: 3153 active CpGs
+
+=== GSE69138 ===
+sample_ids: 589, chars_lines: 5, table_begin: 89
+Reading β matrix (atlas CpGs only)...
+  data_header[0]='ID_REF', n_sample_cols=589, n_sample_ids=589
+β matrix: (3727, 589)
+  CM: 1681 CpGs, cohort mean A = 0.4770
+  EC: 2844 CpGs, cohort mean A = 0.5025
+  FB: 2408 CpGs, cohort mean A = 0.4905
+  MP: 3320 CpGs, cohort mean A = 0.5109
+  SMC: 3153 CpGs, cohort mean A = 0.5064
+Saved: /home/claude/iam_repo/Biological_Physics/validation_runs/VAL-111/val111_GSE69138_per_sample.csv
+
+=== GSE84395 ===
+sample_ids: 39, chars_lines: 4, table_begin: 75
+Reading β matrix (atlas CpGs only)...
+  data_header[0]='ID_REF', n_sample_cols=39, n_sample_ids=39
+β matrix: (3727, 39)
+  CM: 1681 CpGs, cohort mean A = 0.4622
+  EC: 2844 CpGs, cohort mean A = 0.4956
+  FB: 2408 CpGs, cohort mean A = 0.4840
+  MP: 3320 CpGs, cohort mean A = 0.4901
+  SMC: 3153 CpGs, cohort mean A = 0.4943
+Saved: /home/claude/iam_repo/Biological_Physics/validation_runs/VAL-111/val111_GSE84395_per_sample.csv
+
+=== GSE84274 ===
+sample_ids: 24, chars_lines: 3, table_begin: 60
+Reading β matrix (atlas CpGs only)...
+  data_header[0]='ID_REF', n_sample_cols=24, n_sample_ids=24
+β matrix: (3408, 24)
+  CM: 1517 CpGs, cohort mean A = 0.4750
+  EC: 2642 CpGs, cohort mean A = 0.4942
+  FB: 2174 CpGs, cohort mean A = 0.4923
+  MP: 3059 CpGs, cohort mean A = 0.4954
+  SMC: 2869 CpGs, cohort mean A = 0.5147
+Saved: /home/claude/iam_repo/Biological_Physics/validation_runs/VAL-111/val111_GSE84274_per_sample.csv
+
+=== STRATIFIED SUMMARIES ===
+
+OUTCOME: O3_TISSUE_FLOOR_DOMINATED
+Rationale: No tile shows >=0.10 A-score range in any tissue cohort.
+Results: /home/claude/iam_repo/Biological_Physics/validation_runs/VAL-111/results.json
+VAL-111 completed: 2026-04-29T02:01:09.055176+00:00

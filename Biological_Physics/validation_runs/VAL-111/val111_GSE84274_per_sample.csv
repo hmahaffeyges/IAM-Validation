@@ -1,0 +1,25 @@
+sample,A_CM,A_EC,A_FB,A_MP,A_SMC,sample_title,char_0,char_1,char_2
+GSM2230660,0.4648716117791694,0.484657858647994,0.4829793739195033,0.48539491489179476,0.503397214306727,genomic DNA_aorta_normal_1,gender: Male,tissue: ascending aorta,disease state: normal
+GSM2230661,0.4636848876156889,0.48446299631377737,0.4836540118693652,0.48524321854004576,0.5057821471523178,genomic DNA_aorta_AD_1,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230662,0.4742955708015821,0.49420008505828916,0.491451042474701,0.4953410766309252,0.5141572437288253,genomic DNA_aorta_AD_2,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230663,0.47354279760909684,0.49123806163663897,0.4913319019369825,0.4919928457319386,0.5139400469463228,genomic DNA_aorta_AD_3,gender: Female,tissue: ascending aorta,disease state: aortic dissection
+GSM2230664,0.4971479373546473,0.5139575537702499,0.5101986269093836,0.5170986228146454,0.5317159627385848,genomic DNA_aorta_AD_4,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230665,0.5169978630520765,0.5399020697142316,0.5363848331950322,0.5462326867986269,0.5481857728459394,genomic DNA_aorta_AD_5,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230666,0.45692713997956486,0.47659202585465554,0.4738494519126034,0.4774668656283099,0.4977247220571628,genomic DNA_aorta_AD_6,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230667,0.45963273008701383,0.4779958918663891,0.4780048276297148,0.47802851295423343,0.5002829004771697,genomic DNA_aorta_normal_2,gender: Male,tissue: ascending aorta,disease state: normal
+GSM2230668,0.4915858741502967,0.5085458607210447,0.5060255518615455,0.5110932763821511,0.5265198121606831,genomic DNA_aorta_AD_7,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230669,0.472933723094265,0.4905620939500378,0.48982343075160995,0.49060858544034003,0.5133870974454514,genomic DNA_aorta_normal_3,gender: Male,tissue: ascending aorta,disease state: normal
+GSM2230670,0.4833070416704021,0.5057579417426192,0.5020528204894203,0.507168543338019,0.5257170229463227,genomic DNA_aorta_AD_8,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230671,0.4823594416242584,0.5005919782259652,0.499693062875805,0.5015515907832625,0.5220253149926803,genomic DNA_aorta_AD_9,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230672,0.4540137600290046,0.47302731346139293,0.4709439143146274,0.47344884110951296,0.495757217188916,genomic DNA_aorta_normal_4,gender: Male,tissue: ascending aorta,disease state: normal
+GSM2230673,0.46711580675741593,0.48501131013626037,0.4837656106076357,0.48509475128506047,0.5072324266650402,genomic DNA_aorta_AD_10,gender: Female,tissue: ascending aorta,disease state: aortic dissection
+GSM2230674,0.4840490393915623,0.5046995224254354,0.501919627274149,0.5059608128355672,0.5256595537535727,genomic DNA_aorta_AD_11,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230675,0.46578006049967047,0.4832710618940197,0.4809345580657774,0.4827680979754822,0.5058246382143604,genomic DNA_aorta_normal_5,gender: Male,tissue: ascending aorta,disease state: normal
+GSM2230676,0.48419057442056695,0.5036680126695685,0.5043989947681693,0.5056938015233736,0.524385087576159,genomic DNA_aorta_normal_6,gender: Male,tissue: ascending aorta,disease state: normal
+GSM2230677,0.4712712425675675,0.48886488555601815,0.48723502441812333,0.48963527611310886,0.5118926129714186,genomic DNA_aorta_AD_12,gender: Male,tissue: ascending aorta,disease state: aortic dissection
+GSM2230678,0.46434735397956495,0.4838316009133232,0.4819495587451702,0.484918533095456,0.5032722398173579,genomic DNA_aorta_BAV_1,gender: Male,tissue: ascending aorta,disease state: bicuspid aortic valve with ascending aorta dilation
+GSM2230679,0.4651737357976269,0.4844540959311128,0.4804009367764489,0.48488467314318406,0.5065643732736146,genomic DNA_aorta_BAV_2,gender: Male,tissue: ascending aorta,disease state: bicuspid aortic valve with ascending aorta dilation
+GSM2230680,0.4782559283012524,0.500073251164648,0.4973761314954002,0.5010881788483165,0.5193687192941792,genomic DNA_aorta_BAV_3,gender: Male,tissue: ascending aorta,disease state: bicuspid aortic valve with ascending aorta dilation
+GSM2230681,0.4720902426354647,0.4928783783561695,0.4913954080487581,0.49390769908728344,0.5139073237368421,genomic DNA_aorta_BAV_4,gender: Female,tissue: ascending aorta,disease state: bicuspid aortic valve with ascending aorta dilation
+GSM2230682,0.471166605824654,0.48752349764420894,0.48706446385142593,0.48768500361817585,0.5115463596650401,genomic DNA_aorta_BAV_5,gender: Male,tissue: ascending aorta,disease state: bicuspid aortic valve with ascending aorta dilation
+GSM2230683,0.4854910366651285,0.5055748562933383,0.5025704786674332,0.5064046395116051,0.523788038224817,genomic DNA_aorta_BAV_6,gender: Male,tissue: ascending aorta,disease state: bicuspid aortic valve with ascending aorta dilation
