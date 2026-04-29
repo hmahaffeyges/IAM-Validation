@@ -15,6 +15,84 @@
     "sha256": "103aad66cc3ebc19930a1ef458e78abde46c5b63ec194a4ca6b4886c91f73b6c"
   },
   {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_INVENTORY.json",
+    "size": 1687,
+    "sha256": "6ee97f2d7e94d39cde8961d919e4b7244713393eca99993e08cfa6c65997a31d",
+    "description": "Per-atlas INVENTORY companion for Caggiano TIM array-bridged atlas"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_cpg_bridged.csv",
+    "size": 90062,
+    "sha256": "42c9899ad44b0c2737591299c75f4b2e0e83196e8a76bc061c575a317e6ff848",
+    "n_unique_cpgs": 254,
+    "n_cell_type_columns": 19,
+    "cell_types": [
+      "dendritic",
+      "endothelial",
+      "eosinophil",
+      "erythroblast",
+      "macrophage",
+      "monocyte",
+      "neutrophil",
+      "placenta",
+      "tcell",
+      "adipose",
+      "brain",
+      "fibroblast",
+      "heart",
+      "hepatocyte",
+      "lung",
+      "mammary",
+      "megakaryocyte",
+      "skeletal",
+      "small_intestine"
+    ],
+    "chk_3_1c_passed": true,
+    "bridge_method": "HM450 hg19 manifest CpG-in-region intersection from Caggiano et al. 2021 WGBS regions (1,581 \u2192 254 array CpGs); multi-region CpGs averaged",
+    "source_paper": "Caggiano C, Celona B, Garton F, Mefford J, Black BL, Henderson R, Lomen-Hoerth C, Dahl A, Zaitlen N. \"Comprehensive cell type decomposition of circulating cell-free DNA with CelFiE.\" Nat Commun 2021;12:2717. doi:10.1038/s41467-021-22901-x",
+    "bridge_date": "2026-04-29",
+    "calibration_VAL": "VAL-113",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-113_caggiano/VAL-113_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.5779
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/hm450_hg19_manifest.csv",
+    "size": 14394805,
+    "sha256": "a4c987458d0128311c6b74ae2fa6db64c2ed6b5a1a789d07247af86cf116598a",
+    "description": "HM450 hg19 (cpg_id, chr, pos) manifest extracted from Bioconductor IlluminaHumanMethylation450kanno v0.6.1; 485,512 CpGs; reusable for any region-indexed WGBS atlas bridge to array CpGs",
+    "derived_from": "IlluminaHumanMethylation450kanno.ilmn12.hg19_0.6.1 (Bioconductor)"
+  },
+  {
+    "path": "stage2_cell_of_origin/cuadrat_2023/deconvR/data/HumanCellTypeMethAtlas.rda",
+    "size": 294372,
+    "sha256": "9aa70e192fadde02674b52bcf56a4fdf103b6f7cee936106521ae903e5dff99e",
+    "n_unique_cpgs": 6105,
+    "n_cell_type_columns": 25,
+    "description": "deconvR R package bundled atlas \u2014 IDENTICAL CONTENT to Moss 2018 25-cell-type base; provides verified deduplicated reference. 6,105 CpGs is the same set as our deduped layered Moss+Loyfer reference_atlas.csv after CCL-047 dedupe.",
+    "role": "redundant with stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv (deduped); kept for audit-trail and as the dedupe-verification source",
+    "note": "Cuadrat 2023 EXTENDED atlas (28-cell with 3 ENCODE bulk heart additions) is NOT distributed in this package; it must be built from raw ENCODE EPIC IDATs per the paper Methods. v0.4+ engineering task."
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_cpg_bridged.csv",
+    "size": 325170,
+    "sha256": "bf6431f66749f02a616560764af3fdd0adc70b03bca96b2a13b6221bbd847c83",
+    "n_unique_cpgs": 3727,
+    "n_cell_type_columns": 5,
+    "cell_types": [
+      "CM",
+      "EC",
+      "FB",
+      "MP",
+      "SMC"
+    ],
+    "chk_3_1c_passed": true,
+    "calibration_VAL": "VAL-112",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.4283
+  },
+  {
     "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__exprefBladder_m.csv",
     "size": 19350,
     "sha256": "941a34440da170698fda9dc44227ba8bed8b0e98fe325f30ad96ba81e614ab2e"
@@ -161,8 +239,23 @@
   },
   {
     "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv",
+    "size": 1125966,
+    "sha256": "9107929c3a140574a6b040e9d0b3645c3d4f7918e22501ba63588c7310c06177",
+    "n_unique_cpgs": 6105,
+    "n_cell_type_columns": 25,
+    "chk_3_1c_passed": true,
+    "dedupe_status": "deduped 2026-04-29 from 7890\u21926105 unique CpGs (1785 identical-value duplicates removed); see CCL-047",
+    "calibration_VAL": "VAL-112",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.6839
+  },
+  {
+    "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas_v0.2_with_duplicates.csv",
     "size": 1454581,
-    "sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1"
+    "sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1",
+    "audit_trail_role": "Preserved v0.2 layered Moss+Loyfer file with 1,785 duplicate rows; superseded by reference_atlas.csv (deduped) on 2026-04-29; retained for v0.2.x sealed VAL outcome reproducibility",
+    "note": "DO NOT USE for production scoring \u2014 biased per CCL-047. Use reference_atlas.csv (deduped) instead."
   },
   {
     "path": "stage2_cell_of_origin/marlin_capper_training/CVresults.Rmd",
