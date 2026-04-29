@@ -1,0 +1,274 @@
+{
+  "val_id": "VAL-112",
+  "phase": "C \u2014 cardio cohort re-execution under run-everything (small cohorts pass 1)",
+  "date": "2026-04-29",
+  "calibration_anchor": "/home/claude/iam_repo/Biological_Physics/validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+  "sealed_thresholds": {
+    "chk_3_1a_pass_threshold": ">= 50.5% (per VAL-106 established baseline; reused without re-derivation)",
+    "chk_3_1b_loyfer_pass_threshold": "computed below from this calibration cohort",
+    "chk_3_1b_heart_pass_threshold": "computed below from this calibration cohort",
+    "_note": "CHK-3.1B threshold = q5 (5th percentile of f_extreme on healthy cohort) \u2014 at least 95% of healthy samples must pass.",
+    "chk_3_1b_loyfer_subset_threshold_q5": 0.6839178952967719,
+    "chk_3_1b_heart_subset_threshold_q5": 0.4282657031684269
+  },
+  "atlases_run_everything": [
+    "layered_moss_loyfer_deduped",
+    "episcore_heartref_bridged"
+  ],
+  "cohorts": {
+    "GSE84395": {
+      "tissue": "pulmonary_endothelial_cells",
+      "substrate": "minfi_funnorm_HM450",
+      "n_samples": 39,
+      "group_counts": {
+        "control": 18,
+        "iPAH": 11,
+        "hPAH": 10
+      },
+      "cohen_d_per_atlas_per_tile": {
+        "control_vs_iPAH": {
+          "n_g1": 18,
+          "n_g2": 11,
+          "loyfer": {
+            "Monocytes_EPIC": 0.02094678345248584,
+            "B-cells_EPIC": -0.043107422525123916,
+            "CD4T-cells_EPIC": -0.06307137782648511,
+            "NK-cells_EPIC": -0.06041094511047939,
+            "CD8T-cells_EPIC": -0.039977736369115086,
+            "Neutrophils_EPIC": -0.026911548175701128,
+            "Erythrocyte_progenitors": 0.14725154505370053,
+            "Adipocytes": -0.463457115948642,
+            "Cortical_neurons": 0.3549991675217004,
+            "Hepatocytes": -0.2969603314928761,
+            "Lung_cells": 0.17070687468652979,
+            "Pancreatic_beta_cells": 0.14090835582307443,
+            "Pancreatic_acinar_cells": 0.1459643667430719,
+            "Pancreatic_duct_cells": 0.1485809881592179,
+            "Vascular_endothelial_cells": 0.4223117038925676,
+            "Colon_epithelial_cells": 0.23623307564216917,
+            "Left_atrium": 0.14015820703117637,
+            "Bladder": 0.08991477553138108,
+            "Breast": -0.06440557574145435,
+            "Head_and_neck_larynx": 0.04331214898792412,
+            "Kidney": -0.1729058720388738,
+            "Prostate": 0.12210190036415537,
+            "Thyroid": 0.08230408923759862,
+            "Upper_GI": 0.16766276376045716,
+            "Uterus_cervix": 0.19526109681440995
+          },
+          "heartref": {
+            "CM": -0.7967174848047218,
+            "EC": -0.2672751250647411,
+            "FB": -0.667930887841354,
+            "MP": -0.3187671372449741,
+            "SMC": -0.4594824882145713
+          }
+        },
+        "control_vs_hPAH": {
+          "n_g1": 18,
+          "n_g2": 10,
+          "loyfer": {
+            "Monocytes_EPIC": 0.47712832846930475,
+            "B-cells_EPIC": 0.4052994507044871,
+            "CD4T-cells_EPIC": 0.3913048899431963,
+            "NK-cells_EPIC": 0.42730451504636596,
+            "CD8T-cells_EPIC": 0.423570994331957,
+            "Neutrophils_EPIC": 0.4622831927181631,
+            "Erythrocyte_progenitors": 0.5969887967117298,
+            "Adipocytes": 0.12276562327584752,
+            "Cortical_neurons": 0.7441052882884989,
+            "Hepatocytes": 0.2983916110723032,
+            "Lung_cells": 0.8252673735309803,
+            "Pancreatic_beta_cells": 0.7255831483939001,
+            "Pancreatic_acinar_cells": 0.8923288040362959,
+            "Pancreatic_duct_cells": 0.9071043874444902,
+            "Vascular_endothelial_cells": 0.833314878633742,
+            "Colon_epithelial_cells": 0.7953676758615602,
+            "Left_atrium": 0.6723810730277779,
+            "Bladder": 0.6004348895744097,
+            "Breast": 0.25900432482937497,
+            "Head_and_neck_larynx": 0.5065683006051425,
+            "Kidney": 0.4100050773616201,
+            "Prostate": 0.5820350576067886,
+            "Thyroid": 0.5104000196221237,
+            "Upper_GI": 0.7582145590808053,
+            "Uterus_cervix": 0.4324178933997853
+          },
+          "heartref": {
+            "CM": -0.4146569623119454,
+            "EC": 0.594484514990308,
+            "FB": -0.34544643686146376,
+            "MP": 0.0921186755195534,
+            "SMC": -0.21890873850532902
+          }
+        },
+        "iPAH_vs_hPAH": {
+          "n_g1": 11,
+          "n_g2": 10,
+          "loyfer": {
+            "Monocytes_EPIC": 0.38192305362824763,
+            "B-cells_EPIC": 0.4029964872874981,
+            "CD4T-cells_EPIC": 0.4053792835791062,
+            "NK-cells_EPIC": 0.4281673076120053,
+            "CD8T-cells_EPIC": 0.41819320786693276,
+            "Neutrophils_EPIC": 0.4138799061131072,
+            "Erythrocyte_progenitors": 0.3218058360759611,
+            "Adipocytes": 0.5430279878701257,
+            "Cortical_neurons": 0.3504197282202756,
+            "Hepatocytes": 0.5697764776831805,
+            "Lung_cells": 0.444815369535936,
+            "Pancreatic_beta_cells": 0.43310168036294133,
+            "Pancreatic_acinar_cells": 0.5779374159907783,
+            "Pancreatic_duct_cells": 0.5467216491511094,
+            "Vascular_endothelial_cells": 0.3716128905098824,
+            "Colon_epithelial_cells": 0.36775803588094164,
+            "Left_atrium": 0.43411439498890114,
+            "Bladder": 0.4505467498323887,
+            "Breast": 0.35204625445571475,
+            "Head_and_neck_larynx": 0.3815839257038216,
+            "Kidney": 0.46974648982576445,
+            "Prostate": 0.3842790283395826,
+            "Thyroid": 0.3315087344586673,
+            "Upper_GI": 0.4551741002734579,
+            "Uterus_cervix": 0.2626331636347249
+          },
+          "heartref": {
+            "CM": 0.3195363264504192,
+            "EC": 0.62732766916948,
+            "FB": 0.38572679979730873,
+            "MP": 0.48040926044084165,
+            "SMC": 0.30757110014647054
+          }
+        }
+      },
+      "per_sample_csv": "/home/claude/iam_repo/Biological_Physics/validation_runs/VAL-112_run_everything/GSE84395_per_sample_run_everything.csv"
+    },
+    "GSE84274": {
+      "tissue": "ascending_aorta",
+      "substrate": "GenomeStudio_AVG_Beta_HM450",
+      "n_samples": 24,
+      "group_counts": {
+        "dissection": 12,
+        "normal": 6,
+        "BAV": 6
+      },
+      "cohen_d_per_atlas_per_tile": {
+        "dissection_vs_normal": {
+          "n_g1": 12,
+          "n_g2": 6,
+          "loyfer": {
+            "Monocytes_EPIC": -1.1280351205195107,
+            "B-cells_EPIC": -0.9153131789002368,
+            "CD4T-cells_EPIC": -0.810445468713777,
+            "NK-cells_EPIC": -1.002804975445077,
+            "CD8T-cells_EPIC": -0.7530488444353733,
+            "Neutrophils_EPIC": -1.0611946078411987,
+            "Erythrocyte_progenitors": -0.9867331462028897,
+            "Adipocytes": 0.546686636776239,
+            "Cortical_neurons": 0.3979319286923214,
+            "Hepatocytes": 0.15889974961813308,
+            "Lung_cells": 0.11134682836805186,
+            "Pancreatic_beta_cells": 0.33702865201724513,
+            "Pancreatic_acinar_cells": 0.3821112817601788,
+            "Pancreatic_duct_cells": 0.43817606534047765,
+            "Vascular_endothelial_cells": 0.15849363708543301,
+            "Colon_epithelial_cells": 0.12174429415040551,
+            "Left_atrium": 0.48555061250425074,
+            "Bladder": -0.3391257059221357,
+            "Breast": -0.057473755029769896,
+            "Head_and_neck_larynx": -0.20123379706715908,
+            "Kidney": 0.5297683936635444,
+            "Prostate": 0.3551377056058289,
+            "Thyroid": 0.4076669427236112,
+            "Upper_GI": -0.33929011199179054,
+            "Uterus_cervix": 0.6020056199955072
+          },
+          "heartref": {
+            "CM": 0.7528642824600809,
+            "EC": -0.430579305622142,
+            "FB": 0.5420936117963155,
+            "MP": -0.8740394061343022,
+            "SMC": -0.43576018106436765
+          }
+        },
+        "dissection_vs_BAV": {
+          "n_g1": 12,
+          "n_g2": 6,
+          "loyfer": {
+            "Monocytes_EPIC": -1.5850639438354968,
+            "B-cells_EPIC": -1.1583281074061962,
+            "CD4T-cells_EPIC": -1.2255343791289632,
+            "NK-cells_EPIC": -1.4780142201469044,
+            "CD8T-cells_EPIC": -1.0276725860313256,
+            "Neutrophils_EPIC": -1.5060133822806414,
+            "Erythrocyte_progenitors": -1.637421763893717,
+            "Adipocytes": -0.2514190420271515,
+            "Cortical_neurons": 0.08349161897239844,
+            "Hepatocytes": -0.7344493573881186,
+            "Lung_cells": -0.5307087853044808,
+            "Pancreatic_beta_cells": -0.23274788671790536,
+            "Pancreatic_acinar_cells": -0.2018450920838747,
+            "Pancreatic_duct_cells": -0.16551892904580048,
+            "Vascular_endothelial_cells": 0.05710970267805762,
+            "Colon_epithelial_cells": -0.5491687703497304,
+            "Left_atrium": 0.06764226150951225,
+            "Bladder": -0.8307836181342148,
+            "Breast": -0.16152330209651033,
+            "Head_and_neck_larynx": -0.5767000628176996,
+            "Kidney": -0.31899716004608697,
+            "Prostate": -0.09704636027739953,
+            "Thyroid": -0.2624485170691256,
+            "Upper_GI": -0.7267546387563308,
+            "Uterus_cervix": 0.18156925300802518
+          },
+          "heartref": {
+            "CM": 0.21077948427449145,
+            "EC": -0.09224858705964056,
+            "FB": 0.15124795338339628,
+            "MP": -0.45003926344857875,
+            "SMC": -0.1648955663601725
+          }
+        },
+        "normal_vs_BAV": {
+          "n_g1": 6,
+          "n_g2": 6,
+          "loyfer": {
+            "Monocytes_EPIC": -0.9896738556666541,
+            "B-cells_EPIC": -0.430735808651569,
+            "CD4T-cells_EPIC": -0.5694130743718733,
+            "NK-cells_EPIC": -0.6840528658572882,
+            "CD8T-cells_EPIC": -0.43883694545934476,
+            "Neutrophils_EPIC": -0.9598720391057632,
+            "Erythrocyte_progenitors": -1.4116214072429618,
+            "Adipocytes": -0.6508653137222654,
+            "Cortical_neurons": -0.3917883244799163,
+            "Hepatocytes": -2.8941821386412747,
+            "Lung_cells": -2.1997609592775813,
+            "Pancreatic_beta_cells": -1.9181302995144018,
+            "Pancreatic_acinar_cells": -2.1493170664216565,
+            "Pancreatic_duct_cells": -2.4458601679170195,
+            "Vascular_endothelial_cells": -0.08638767499674034,
+            "Colon_epithelial_cells": -2.9168787722396896,
+            "Left_atrium": -0.5317901086699082,
+            "Bladder": -0.3761710197531454,
+            "Breast": -0.07927209116099573,
+            "Head_and_neck_larynx": -0.3186762270344347,
+            "Kidney": -1.0866309509289007,
+            "Prostate": -0.9222925557507049,
+            "Thyroid": -1.5571977056006436,
+            "Upper_GI": -0.34083012718294575,
+            "Uterus_cervix": -0.5459747311781818
+          },
+          "heartref": {
+            "CM": -0.6027110165293853,
+            "EC": 0.31181893935958943,
+            "FB": -0.37483861879867514,
+            "MP": 0.5285011555397511,
+            "SMC": 0.2281176582854527
+          }
+        }
+      },
+      "per_sample_csv": "/home/claude/iam_repo/Biological_Physics/validation_runs/VAL-112_run_everything/GSE84274_per_sample_run_everything.csv"
+    }
+  }
+}
