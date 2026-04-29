@@ -1,0 +1,7 @@
+VAL-111 PREREG SEAL
+===================
+Sealed: 2026-04-29 (UTC)
+Atlas: EpiSCORE HeartRef
+Atlas SHA-256: bf6431f66749f02a616560764af3fdd0adc70b03bca96b2a13b6221bbd847c83
+Cohorts: GSE69138 (stroke blood), GSE84395 (PAH cultured PEC), GSE84274 (aortic tissue)
+172c6ae2a11345935c176b4a1fc57d30009ad4bac9bb9cdeeb9c8226035b78a6  /home/claude/iam_repo/Biological_Physics/validation_runs/VAL-111/prereg.md
