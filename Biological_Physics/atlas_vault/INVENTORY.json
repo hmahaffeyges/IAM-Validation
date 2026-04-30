@@ -491,5 +491,25 @@
     "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
     "size": 711707,
     "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_cpg_bridged.csv",
+    "size": 288130,
+    "sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_entrez_matrix.csv",
+    "size": 12959,
+    "sha256": "9cf0e54cb22e12986dab2e8a836cac80049dcf377231125a99cd3b6316707a8c"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
+    "size": 2545,
+    "sha256": "61958ebc9f69b83a12f5711e4305d2a1b4ddec94a7b4a78e465d904889100921"
+  },
+  {
+    "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
+    "size": 10102,
+    "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
   }
 ]

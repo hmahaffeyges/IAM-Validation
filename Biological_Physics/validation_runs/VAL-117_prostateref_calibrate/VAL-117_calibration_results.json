@@ -1,0 +1,141 @@
+{
+  "val_id": "VAL-117",
+  "val_type": "PHASE_B_CALIBRATION",
+  "card_target": "prostate-epic v0.3",
+  "atlas_target": "EpiSCORE ProstateRef CpG-bridged",
+  "atlas_sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2",
+  "atlas_n_cpgs": 2603,
+  "atlas_cell_types": [
+    "BE",
+    "EC",
+    "Fib",
+    "LE",
+    "Leu",
+    "SM"
+  ],
+  "prereg_sha": "ef72e1bd49478807ba6025c4415a2b41f50c6d0bcea03fbbc265141359a17f91",
+  "prereg_amendment_sha": "5f6600a20fadfbe2da9f76676badeed57e490b0dc53d28c0d55efd9e60592319",
+  "seal_timestamp": "2026-04-30T15:20:41Z",
+  "amendment_timestamp": "2026-04-30T15:28:21Z",
+  "rng_seed": 20260420,
+  "runtime_seconds": 226.39840531349182,
+  "cohort": {
+    "name": "TCGA-KIRC + TCGA-PRAD adjacent-normal",
+    "substrate": "TCGA HM450K sesame Level 3",
+    "n_total": 210,
+    "n_kirc": 160,
+    "n_prad": 50
+  },
+  "chk_3_1a": {
+    "pre_locked_f_extreme_min": 0.5,
+    "pre_locked_f_middle_max": 0.12,
+    "observed_f_extreme_mean": 0.5590615254662482,
+    "observed_f_extreme_sd": 0.023728297721024878,
+    "observed_f_middle_mean": 0.0736560543164709,
+    "observed_f_middle_sd": 0.007522679313490867,
+    "pass_rate": 0.9809523809523809,
+    "n_passed": 206,
+    "pass_rate_threshold": 0.9047619047619048,
+    "gate_passed": true
+  },
+  "chk_3_1b": {
+    "pre_locked_coverage_threshold": 0.8,
+    "pass_rate": 1.0,
+    "n_passed": 210,
+    "q5_coverage_threshold_observed": 0.8326930464848252,
+    "gate_passed": true
+  },
+  "chk_3_1c": {
+    "n_total_rows": 2603,
+    "n_unique_probes": 2603,
+    "n_duplicates": 0,
+    "passed": true,
+    "duplicate_probes_sample": []
+  },
+  "per_tile_healthy_floor_distributions": {
+    "BE": {
+      "mean": 0.4318891115080043,
+      "sd": 0.004996892935212914,
+      "n": 206,
+      "q2_5": 0.41917223264304304,
+      "q5": 0.42147518671919293,
+      "q50": 0.43271894879835093,
+      "q95": 0.43812492821761967,
+      "q97_5": 0.4390930903798562,
+      "min": 0.4145219623321313,
+      "max": 0.4512330750591806,
+      "within_cohort_range": 0.0367111127270493
+    },
+    "EC": {
+      "mean": 0.40303309943110066,
+      "sd": 0.010203452690944035,
+      "n": 206,
+      "q2_5": 0.3910933568609409,
+      "q5": 0.3917664858427532,
+      "q50": 0.4002661532997013,
+      "q95": 0.4241314971939637,
+      "q97_5": 0.42962558113195987,
+      "min": 0.3904532546563705,
+      "max": 0.43960224307490775,
+      "within_cohort_range": 0.049148988418537265
+    },
+    "Fib": {
+      "mean": 0.4323187520290933,
+      "sd": 0.008986195190402087,
+      "n": 206,
+      "q2_5": 0.4207935819763275,
+      "q5": 0.42193886685407095,
+      "q50": 0.4299592040713353,
+      "q95": 0.4501792612905553,
+      "q97_5": 0.4530066877960981,
+      "min": 0.41178459249248134,
+      "max": 0.4657997673189711,
+      "within_cohort_range": 0.054015174826489765
+    },
+    "LE": {
+      "mean": 0.4253867268871653,
+      "sd": 0.004071523481720468,
+      "n": 206,
+      "q2_5": 0.415530188109876,
+      "q5": 0.4190320608457136,
+      "q50": 0.4255552527746876,
+      "q95": 0.4316297501781101,
+      "q97_5": 0.43314958033810497,
+      "min": 0.40763498284101957,
+      "max": 0.43697318168548194,
+      "within_cohort_range": 0.02933819884446237
+    },
+    "Leu": {
+      "mean": 0.4557992270744071,
+      "sd": 0.009427121258737124,
+      "n": 206,
+      "q2_5": 0.4405606381481232,
+      "q5": 0.443697248442932,
+      "q50": 0.45443678369338997,
+      "q95": 0.47429964517263923,
+      "q97_5": 0.48003956884102883,
+      "min": 0.4350065790299541,
+      "max": 0.4946889042538791,
+      "within_cohort_range": 0.059682325223925026
+    },
+    "SM": {
+      "mean": 0.42900279634500826,
+      "sd": 0.008413919228221366,
+      "n": 206,
+      "q2_5": 0.418948396205078,
+      "q5": 0.41992678577077736,
+      "q50": 0.4270041347638488,
+      "q95": 0.4446936755277948,
+      "q97_5": 0.4535079236750756,
+      "min": 0.41148295572376575,
+      "max": 0.46121781927600725,
+      "within_cohort_range": 0.04973486355224149
+    }
+  },
+  "per_tile_max_within_cohort_range": 0.059682325223925026,
+  "tissue_floor_dominated_threshold": 0.02,
+  "outcome_class": "O1_PROSTATEREF_CALIBRATION_SEALED",
+  "outcome_note": "CHK-3.1A 98.1%, CHK-3.1B 100.0%, max tile range 0.0597",
+  "sealed_at": "2026-04-30T15:36:58Z",
+  "results_sha256": "19bae44967bddae154f3df4158a57eb18483924c4f42c4519d5da6b41f77687e"
+}
