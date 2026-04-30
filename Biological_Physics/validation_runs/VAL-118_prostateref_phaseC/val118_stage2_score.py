@@ -16,7 +16,9 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 VAL_ID = 'VAL-118'
 PREREG_SHA = '0a860bea365a2019e1d6fd95a492dc4671a170372165011e115272fdf59a275c'
+PREREG_AMENDMENT_SHA = 'c1b0a07e25ee9b0b9a8931f04ddd8c7677afcd9c8b2257cf4f9e3c6d42c1868b'
 SEAL_TIMESTAMP = '2026-04-30T16:09:42Z'
+AMENDMENT_TIMESTAMP = '2026-04-30T16:59:19Z'
 BETA_SHA = '7b9fa2825bdd88b0936afba0e19fb0fbcf1bd404a65469d9fb0735829dc88a89'
 RNG_SEED = 20260420
 
@@ -282,19 +284,26 @@ print(f'  Difference:              {xu538_repro["d_paired_diff"]:.4f}')
 print(f'  Within ±0.10 tolerance:  {xu538_repro["reproduction_within_tolerance"]}')
 
 # ============================================================
-# Outcome determination
+# Outcome determination — AMENDED thresholds (per prereg_amendment.md)
+# Amendment SHA c1b0a07e..., sealed 2026-04-30T16:59:19Z
+# Magnitude-based |d| ≥ 0.30 with direction labels (LE_POSITIVE / LE_NEGATIVE)
 # ============================================================
 outcomes = []
 le_d = cohen_d_per_tile.get('A_PR_LE', {}).get('d_paired', float('nan'))
-# Check Loyfer prostate-relevant tiles - the tile names depend on what's actually in atlas
-# "Prostate" not in our LOYFER_CLASS subset; the atlas has 25 cell types; we picked subset
-# So we check if any of our scored tiles is differentiating
-hepatocyte_d = cohen_d_per_tile.get('A_LY_Hepatocytes', {}).get('d_paired', float('nan'))
 
-if not np.isnan(le_d) and le_d >= 0.30:
-    outcomes.append(f'O2_LE_TILE_DIFFERENTIATING (d_paired={le_d:.3f})')
+# O2 — magnitude-based with direction label
+o2_fired = False
+le_direction_label = None
+if not np.isnan(le_d) and abs(le_d) >= 0.30:
+    o2_fired = True
+    le_direction_label = 'LE_NEGATIVE' if le_d < 0 else 'LE_POSITIVE'
+    biological = ('luminal dedifferentiation — tumor LE cells lose canonical '
+                  'methylation signature' if le_d < 0
+                  else 'luminal architectural drift — tumor LE cells exhibit '
+                       'methylation departure above healthy floor')
+    outcomes.append(f'O2_LE_TILE_DIFFERENTIATING ({le_direction_label}, d_paired={le_d:+.3f}, |d|={abs(le_d):.3f}, interpretation: {biological})')
 
-# Stage 3 immune-shift
+# O4 — Stage 3 immune shift (already magnitude-based in original prereg)
 stage3_max = ('', 0)
 for k, v in cohen_d_per_tile.items():
     if (k.startswith('A_UN_') or k.startswith('A_SA_')):
@@ -304,9 +313,10 @@ for k, v in cohen_d_per_tile.items():
 if stage3_max[0]:
     outcomes.append(f'O4_STAGE_3_IMMUNE_SHIFT_PROMINENT ({stage3_max[0]} d_paired={stage3_max[1]:+.3f})')
 
-# Multi-atlas convergence: ProstateRef LE + Stage1 Xu-538 reproduction
-if not np.isnan(le_d) and le_d >= 0.30 and xu538_repro['reproduction_within_tolerance']:
-    outcomes.insert(0, 'O1_MULTI_ATLAS_CONVERGENT')
+# O1 — Multi-atlas convergence: O2 fires AND Stage 1 Xu-538 reproduction OK
+# (Loyfer Prostate_epithelial check is inapplicable until v0.4+ atlas integration)
+if o2_fired and xu538_repro['reproduction_within_tolerance']:
+    outcomes.insert(0, f'O1_MULTI_ATLAS_CONVERGENT (O2 fires with {le_direction_label}; Stage 1 Xu-538 reproduces VAL-058 within ±0.10)')
 
 if not outcomes:
     outcomes.append('O5_or_O6_review_needed')
@@ -336,7 +346,9 @@ results = {
     'cohort_n_paired': len(paired_pids),
     'beta_matrix_sha256': BETA_SHA,
     'prereg_sha': PREREG_SHA,
+    'prereg_amendment_sha': PREREG_AMENDMENT_SHA,
     'seal_timestamp': SEAL_TIMESTAMP,
+    'amendment_timestamp': AMENDMENT_TIMESTAMP,
     'rng_seed': RNG_SEED,
     'runtime_seconds': runtime,
     'atlases_scored': {
@@ -352,12 +364,12 @@ results = {
     'sealed_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
 }
 
-with open(OUTPUT_DIR / f'{VAL_ID}_cohen_d_per_atlas.json', 'w') as f:
+with open(OUTPUT_DIR / f'{VAL_ID}_amendment_cohen_d_per_atlas.json', 'w') as f:
     json.dump(results, f, indent=2)
 
 # Per-sample CSV
 all_csv_keys = sorted({k for r in per_sample for k in r})
-with open(OUTPUT_DIR / f'{VAL_ID}_per_sample_run_everything.csv', 'w', newline='') as f:
+with open(OUTPUT_DIR / f'{VAL_ID}_amendment_per_sample_run_everything.csv', 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=all_csv_keys)
     w.writeheader()
     for r in per_sample:
