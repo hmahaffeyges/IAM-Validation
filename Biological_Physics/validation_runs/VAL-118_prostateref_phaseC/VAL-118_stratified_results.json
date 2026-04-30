@@ -1,0 +1,706 @@
+{
+  "val_id": "VAL-118",
+  "note_critical": "Gleason stratification was NOT pre-registered as a VAL-118 outcome. This stratified analysis is INFORMATIONAL ONLY per F.1.5 requirements (per-subgroup breakdowns); it does NOT establish or imply v0.3 card claims about Gleason aggressiveness. Aggressiveness card extension deferred to v0.4 per next_validation_steps.",
+  "stratification_variable": "gleason_grade_group",
+  "group_definitions": {
+    "low_GG1_GG2": "Gleason 5 or 6",
+    "intermediate_GG3": "Gleason 7",
+    "high_GG4_GG5": "Gleason 8 or 9",
+    "unspecified_or_quirk": "Gleason field NA or parsing quirk"
+  },
+  "tumor_n_per_group": {
+    "low_GG1_GG2": 25,
+    "intermediate_GG3": 72,
+    "high_GG4_GG5": 22,
+    "unspecified_or_quirk": 1
+  },
+  "comparator_normal_pool_n": 118,
+  "per_tile_per_group_d_unpaired_vs_full_normal_pool": {
+    "A_LY_Adipocytes": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.3848630793460834
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.3634262733889175
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.429482625233463
+      }
+    },
+    "A_LY_B-cells_EPIC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.195613558719402
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.136567378964574
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.3163082154687415
+      }
+    },
+    "A_LY_CD4T-cells_EPIC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.2256926587795711
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.1806213600810098
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.3342552020068186
+      }
+    },
+    "A_LY_CD8T-cells_EPIC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.1971679293648898
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.1282676905062428
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.2926248187174487
+      }
+    },
+    "A_LY_Colon_epithelial_cells": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.9749193382829237
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.8622055539315662
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.916564281541012
+      }
+    },
+    "A_LY_Cortical_neurons": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.399035368496246
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.3549995729368118
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.4677161091767472
+      }
+    },
+    "A_LY_Erythrocyte_progenitors": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.2212900426073918
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.1523485648129985
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.2939597883166272
+      }
+    },
+    "A_LY_Hepatocytes": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.1566878393242537
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.0508473434698486
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.1290008993108351
+      }
+    },
+    "A_LY_Left_atrium": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.4081551736417093
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.3576314411245192
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.438299633523353
+      }
+    },
+    "A_LY_Lung_cells": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.211204822102956
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.1516881341489007
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.229891173950486
+      }
+    },
+    "A_LY_Monocytes_EPIC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.3079127687601535
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.2647947341165102
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.4215688212278994
+      }
+    },
+    "A_LY_NK-cells_EPIC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.2766542254433628
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.2343688007186608
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.3839232294930213
+      }
+    },
+    "A_LY_Neutrophils_EPIC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.3167892468643945
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.2780981572568713
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.4294445022980202
+      }
+    },
+    "A_LY_Pancreatic_acinar_cells": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.0471242171675907
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.9371146774794372
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.9863232859667832
+      }
+    },
+    "A_LY_Pancreatic_beta_cells": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.208289896469079
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.1360711025904509
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.2381873711987967
+      }
+    },
+    "A_LY_Pancreatic_duct_cells": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.1560254543757382
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.0785702870010814
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.1786710104304003
+      }
+    },
+    "A_LY_Vascular_endothelial_cells": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.4488958760985062
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.4510951588006336
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.5067928356662028
+      }
+    },
+    "A_PR_BE": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.010888406903128506
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.678479446245195
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.6117062051429621
+      }
+    },
+    "A_PR_EC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.4790182207264893
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.9676743013366969
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 2.1875748786002314
+      }
+    },
+    "A_PR_Fib": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.2837054066261355
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.838010237983514
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 2.0526553042650533
+      }
+    },
+    "A_PR_LE": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": -0.9309364593890306
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.5710756983759151
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": -0.8567817519723093
+      }
+    },
+    "A_PR_Leu": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.8615744449816826
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.3409919346589094
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.590912282845238
+      }
+    },
+    "A_PR_SM": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 1.010627051222979
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 1.5701265712299501
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 1.634171766452313
+      }
+    },
+    "A_SA_Bcell": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.5195113877916446
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.5116911497328875
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.7174135475657659
+      }
+    },
+    "A_SA_CD4T": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.583935249872982
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.5522004591301574
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.528279934109903
+      }
+    },
+    "A_SA_CD8T": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.5352809405987591
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.46639551683499214
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.4022859404610758
+      }
+    },
+    "A_SA_Mono": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.8010354412983299
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.6413623692430592
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.757152804348137
+      }
+    },
+    "A_SA_NK": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.6186604043756576
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.5071052522695443
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.5056841473117044
+      }
+    },
+    "A_SA_Neu": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.46783763559469943
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.2803189670451856
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.4236866385287565
+      }
+    },
+    "A_UN_B": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.3445458204476466
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.06644900250638733
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.06978036895574218
+      }
+    },
+    "A_UN_CD4T": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.3156499068368712
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.025615203286745707
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.06561434334986482
+      }
+    },
+    "A_UN_CD8T": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.3415974144892173
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.0074194739866229814
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.0733720040107368
+      }
+    },
+    "A_UN_Gran": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.4462309470911219
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.09300031231161392
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.2240504850618784
+      }
+    },
+    "A_UN_Mono": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.5595299308961511
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.2093662846787617
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.3452352948827452
+      }
+    },
+    "A_UN_NK": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.37882702854619893
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.003661446472818327
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.064094858844449
+      }
+    },
+    "A_UN_aBaso": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.48361451524348475
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.12956984720314205
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.18460667030983738
+      }
+    },
+    "A_UN_aBmem": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.35436717700624837
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.0028030701360342173
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.10051812649873584
+      }
+    },
+    "A_UN_aBnv": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.3413945895813737
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.035807686199628166
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.09673569597424955
+      }
+    },
+    "A_UN_aCD4Tmem": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.343492498636477
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.06122975278666711
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.09763679848114606
+      }
+    },
+    "A_UN_aCD4Tnv": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.26177222290458746
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.08593518498990017
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.0018330555084851451
+      }
+    },
+    "A_UN_aCD8Tmem": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.37785628705278484
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.11037554483794909
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.09717965143070294
+      }
+    },
+    "A_UN_aCD8Tnv": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.3380151823200619
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.027381050647019362
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.057905866594535754
+      }
+    },
+    "A_UN_aEos": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.47200266828590937
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.14860627652759054
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.2238833527784024
+      }
+    },
+    "A_UN_aMono": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.6168262205226791
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.28868519031623435
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.408977034843591
+      }
+    },
+    "A_UN_aNK": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.35551051915599596
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": -0.01701172816214564
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.04199502125492354
+      }
+    },
+    "A_UN_aNeu": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.5887334849465425
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.2741348155821918
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.3686511449695697
+      }
+    },
+    "A_UN_aTreg": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.37200961496082235
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.12270188747499042
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.16122912488182684
+      }
+    },
+    "A_UN_nRBC": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.4647333879183287
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.1355877918484628
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.19471938887995677
+      }
+    },
+    "A_xu538_stage1": {
+      "low_GG1_GG2": {
+        "tumor_n": 25,
+        "d_unpaired_vs_full_normal_pool": 0.6108873605211321
+      },
+      "intermediate_GG3": {
+        "tumor_n": 72,
+        "d_unpaired_vs_full_normal_pool": 0.3788596115904667
+      },
+      "high_GG4_GG5": {
+        "tumor_n": 22,
+        "d_unpaired_vs_full_normal_pool": 0.33415546235878024
+      }
+    }
+  }
+}
