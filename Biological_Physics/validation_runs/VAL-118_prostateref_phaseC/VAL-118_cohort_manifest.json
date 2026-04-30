@@ -1,0 +1,1813 @@
+{
+  "val_id": "VAL-118",
+  "cohort_id": "GSE269244",
+  "cohort_paper": "Berglund/Yamoah/Kresovich et al 2024",
+  "cohort_pmid": "39162297",
+  "platform": "Illumina Methylation EPIC V1 (850K)",
+  "specimen": "FFPE prostate tissue",
+  "population": "African American men",
+  "access_tier": "Tier 1 \u2014 GEO public deposit",
+  "beta_matrix_sha256": "7b9fa2825bdd88b0936afba0e19fb0fbcf1bd404a65469d9fb0735829dc88a89",
+  "n_samples_total": 238,
+  "n_paired_patients": 118,
+  "group_counts": {
+    "tumor": 120,
+    "adjacent_normal": 118
+  },
+  "pairing_structure": {
+    "paired_patients_count": 118,
+    "paired_patient_ids": [
+      "P-1055",
+      "P-1242",
+      "P-1345",
+      "P-1374",
+      "P-1412",
+      "P-1477",
+      "P-1514",
+      "P-1635",
+      "P-1913",
+      "P-2011",
+      "P-2118",
+      "P-2516",
+      "P-2521",
+      "P-3184",
+      "P-3215",
+      "P-3245",
+      "P-3288",
+      "P-3312",
+      "P-3318",
+      "P-3380",
+      "P-3446",
+      "P-3598",
+      "P-3625",
+      "P-3725",
+      "P-3897",
+      "P-3914",
+      "P-3958",
+      "P-3988",
+      "P-4006",
+      "P-4093",
+      "P-4143",
+      "P-4241",
+      "P-4242",
+      "P-4256",
+      "P-4260",
+      "P-4353",
+      "P-4457",
+      "P-4585",
+      "P-4838",
+      "P-4841",
+      "P-4911",
+      "P-4991",
+      "P-5153",
+      "P-5167",
+      "P-5184",
+      "P-5185",
+      "P-5281",
+      "P-5321",
+      "P-5345",
+      "P-5361",
+      "P-5405",
+      "P-5659",
+      "P-5676",
+      "P-5691",
+      "P-5777",
+      "P-5787",
+      "P-5909",
+      "P-5931",
+      "P-5939",
+      "P-5945",
+      "P-5963",
+      "P-6212",
+      "P-6396",
+      "P-6669",
+      "P-6699",
+      "P-6714",
+      "P-6800",
+      "P-6807",
+      "P-6861",
+      "P-6864",
+      "P-6876",
+      "P-6893",
+      "P-6916",
+      "P-6959",
+      "P-7095",
+      "P-7221",
+      "P-7277",
+      "P-7359",
+      "P-7450",
+      "P-7492",
+      "P-7513",
+      "P-7530",
+      "P-7568",
+      "P-7580",
+      "P-7583",
+      "P-7612",
+      "P-7690",
+      "P-7695",
+      "P-7704",
+      "P-7725",
+      "P-7764",
+      "P-7920",
+      "P-7952",
+      "P-7969",
+      "P-8083",
+      "P-8137",
+      "P-8156",
+      "P-8165",
+      "P-8215",
+      "P-8269",
+      "P-8306",
+      "P-8372",
+      "P-8428",
+      "P-8464",
+      "P-8538",
+      "P-8556",
+      "P-8583",
+      "P-8757",
+      "P-8759",
+      "P-8766",
+      "P-8768",
+      "P-8771",
+      "P-8811",
+      "P-8820",
+      "P-8842",
+      "P-8876",
+      "P-8894",
+      "P-8946"
+    ],
+    "tumor_only_patient_ids": [
+      "P-1398",
+      "P-5331"
+    ],
+    "normal_only_patient_ids": []
+  },
+  "samples": [
+    {
+      "sentrix_id": "203723180045_R01C01",
+      "gsm": "GSM8309538",
+      "patient_id": "P-5281",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R02C01",
+      "gsm": "GSM8309539",
+      "patient_id": "P-5321",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R03C01",
+      "gsm": "GSM8309540",
+      "patient_id": "P-5345",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R04C01",
+      "gsm": "GSM8309541",
+      "patient_id": "P-5361",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R05C01",
+      "gsm": "GSM8309542",
+      "patient_id": "P-5405",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R06C01",
+      "gsm": "GSM8309543",
+      "patient_id": "P-5659",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R07C01",
+      "gsm": "GSM8309544",
+      "patient_id": "P-5676",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723180045_R08C01",
+      "gsm": "GSM8309545",
+      "patient_id": "P-5777",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190052_R01C01",
+      "gsm": "GSM8309546",
+      "patient_id": "P-3988",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R02C01",
+      "gsm": "GSM8309547",
+      "patient_id": "P-4093",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R03C01",
+      "gsm": "GSM8309548",
+      "patient_id": "P-4143",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R04C01",
+      "gsm": "GSM8309549",
+      "patient_id": "P-4241",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R05C01",
+      "gsm": "GSM8309550",
+      "patient_id": "P-4256",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R06C01",
+      "gsm": "GSM8309551",
+      "patient_id": "P-4585",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R07C01",
+      "gsm": "GSM8309552",
+      "patient_id": "P-5153",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190052_R08C01",
+      "gsm": "GSM8309553",
+      "patient_id": "P-5185",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R01C01",
+      "gsm": "GSM8309554",
+      "patient_id": "P-8215",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R02C01",
+      "gsm": "GSM8309555",
+      "patient_id": "P-8306",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R03C01",
+      "gsm": "GSM8309556",
+      "patient_id": "P-8428",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R04C01",
+      "gsm": "GSM8309557",
+      "patient_id": "P-8556",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R05C01",
+      "gsm": "GSM8309558",
+      "patient_id": "P-8757",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R06C01",
+      "gsm": "GSM8309559",
+      "patient_id": "P-8759",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R07C01",
+      "gsm": "GSM8309560",
+      "patient_id": "P-8768",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190062_R08C01",
+      "gsm": "GSM8309561",
+      "patient_id": "P-8820",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203723190077_R01C01",
+      "gsm": "GSM8309562",
+      "patient_id": "P-8156",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R02C01",
+      "gsm": "GSM8309563",
+      "patient_id": "P-8215",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R03C01",
+      "gsm": "GSM8309564",
+      "patient_id": "P-8306",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R04C01",
+      "gsm": "GSM8309565",
+      "patient_id": "P-8428",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R05C01",
+      "gsm": "GSM8309566",
+      "patient_id": "P-8556",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R06C01",
+      "gsm": "GSM8309567",
+      "patient_id": "P-8757",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R07C01",
+      "gsm": "GSM8309568",
+      "patient_id": "P-8759",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203723190077_R08C01",
+      "gsm": "GSM8309569",
+      "patient_id": "P-8768",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680012_R01C01",
+      "gsm": "GSM8309570",
+      "patient_id": "P-4457",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680012_R03C01",
+      "gsm": "GSM8309571",
+      "patient_id": "P-4838",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680012_R04C01",
+      "gsm": "GSM8309572",
+      "patient_id": "P-4841",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680012_R05C01",
+      "gsm": "GSM8309573",
+      "patient_id": "P-4911",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680012_R06C01",
+      "gsm": "GSM8309574",
+      "patient_id": "P-4991",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680012_R07C01",
+      "gsm": "GSM8309575",
+      "patient_id": "P-5167",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680012_R08C01",
+      "gsm": "GSM8309576",
+      "patient_id": "P-5184",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R01C01",
+      "gsm": "GSM8309577",
+      "patient_id": "P-5787",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R02C01",
+      "gsm": "GSM8309578",
+      "patient_id": "P-5909",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R03C01",
+      "gsm": "GSM8309579",
+      "patient_id": "P-5931",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R04C01",
+      "gsm": "GSM8309580",
+      "patient_id": "P-5939",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R05C01",
+      "gsm": "GSM8309581",
+      "patient_id": "P-5945",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R06C01",
+      "gsm": "GSM8309582",
+      "patient_id": "P-5963",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R07C01",
+      "gsm": "GSM8309583",
+      "patient_id": "P-8137",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680026_R08C01",
+      "gsm": "GSM8309584",
+      "patient_id": "P-8842",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R01C01",
+      "gsm": "GSM8309585",
+      "patient_id": "P-1242",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R02C01",
+      "gsm": "GSM8309586",
+      "patient_id": "P-1635",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R03C01",
+      "gsm": "GSM8309587",
+      "patient_id": "P-2521",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R04C01",
+      "gsm": "GSM8309588",
+      "patient_id": "P-3184",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R05C01",
+      "gsm": "GSM8309589",
+      "patient_id": "P-3288",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R06C01",
+      "gsm": "GSM8309590",
+      "patient_id": "P-3318",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R07C01",
+      "gsm": "GSM8309591",
+      "patient_id": "P-3625",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680027_R08C01",
+      "gsm": "GSM8309592",
+      "patient_id": "P-3914",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203726680051_R01C01",
+      "gsm": "GSM8309593",
+      "patient_id": "P-1242",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R02C01",
+      "gsm": "GSM8309594",
+      "patient_id": "P-1635",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R03C01",
+      "gsm": "GSM8309595",
+      "patient_id": "P-2521",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R04C01",
+      "gsm": "GSM8309596",
+      "patient_id": "P-3184",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R05C01",
+      "gsm": "GSM8309597",
+      "patient_id": "P-3288",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R06C01",
+      "gsm": "GSM8309598",
+      "patient_id": "P-3318",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R07C01",
+      "gsm": "GSM8309599",
+      "patient_id": "P-3625",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203726680051_R08C01",
+      "gsm": "GSM8309600",
+      "patient_id": "P-3914",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734290061_R01C01",
+      "gsm": "GSM8309601",
+      "patient_id": "P-5331",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R02C01",
+      "gsm": "GSM8309602",
+      "patient_id": "P-6396",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R03C01",
+      "gsm": "GSM8309603",
+      "patient_id": "P-6959",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R04C01",
+      "gsm": "GSM8309604",
+      "patient_id": "P-7095",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R05C01",
+      "gsm": "GSM8309605",
+      "patient_id": "P-7221",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R06C01",
+      "gsm": "GSM8309606",
+      "patient_id": "P-7492",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R07C01",
+      "gsm": "GSM8309607",
+      "patient_id": "P-7513",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734290061_R08C01",
+      "gsm": "GSM8309608",
+      "patient_id": "P-7530",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203734300131_R01C01",
+      "gsm": "GSM8309609",
+      "patient_id": "P-1055",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R02C01",
+      "gsm": "GSM8309610",
+      "patient_id": "P-1345",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R03C01",
+      "gsm": "GSM8309611",
+      "patient_id": "P-1412",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R04C01",
+      "gsm": "GSM8309612",
+      "patient_id": "P-1477",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R05C01",
+      "gsm": "GSM8309613",
+      "patient_id": "P-1514",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R06C01",
+      "gsm": "GSM8309614",
+      "patient_id": "P-1913",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R07C01",
+      "gsm": "GSM8309615",
+      "patient_id": "P-2011",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203734300131_R08C01",
+      "gsm": "GSM8309616",
+      "patient_id": "P-2118",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800004_R01C01",
+      "gsm": "GSM8309617",
+      "patient_id": "P-1055",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R02C01",
+      "gsm": "GSM8309618",
+      "patient_id": "P-1345",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R03C01",
+      "gsm": "GSM8309619",
+      "patient_id": "P-1412",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R04C01",
+      "gsm": "GSM8309620",
+      "patient_id": "P-1477",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R05C01",
+      "gsm": "GSM8309621",
+      "patient_id": "P-1514",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R06C01",
+      "gsm": "GSM8309622",
+      "patient_id": "P-1913",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R07C01",
+      "gsm": "GSM8309623",
+      "patient_id": "P-2011",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800004_R08C01",
+      "gsm": "GSM8309624",
+      "patient_id": "P-2118",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R01C01",
+      "gsm": "GSM8309625",
+      "patient_id": "P-3312",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R02C01",
+      "gsm": "GSM8309626",
+      "patient_id": "P-3380",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R03C01",
+      "gsm": "GSM8309627",
+      "patient_id": "P-3598",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R04C01",
+      "gsm": "GSM8309628",
+      "patient_id": "P-3725",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R05C01",
+      "gsm": "GSM8309629",
+      "patient_id": "P-3897",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R06C01",
+      "gsm": "GSM8309630",
+      "patient_id": "P-3958",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R07C01",
+      "gsm": "GSM8309631",
+      "patient_id": "P-4006",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800010_R08C01",
+      "gsm": "GSM8309632",
+      "patient_id": "P-4353",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R01C01",
+      "gsm": "GSM8309633",
+      "patient_id": "P-5281",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R02C01",
+      "gsm": "GSM8309634",
+      "patient_id": "P-5321",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R03C01",
+      "gsm": "GSM8309635",
+      "patient_id": "P-5345",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R04C01",
+      "gsm": "GSM8309636",
+      "patient_id": "P-5361",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R05C01",
+      "gsm": "GSM8309637",
+      "patient_id": "P-5405",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R06C01",
+      "gsm": "GSM8309638",
+      "patient_id": "P-5659",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R07C01",
+      "gsm": "GSM8309639",
+      "patient_id": "P-5676",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800014_R08C01",
+      "gsm": "GSM8309640",
+      "patient_id": "P-5777",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800038_R01C01",
+      "gsm": "GSM8309641",
+      "patient_id": "P-3312",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R02C01",
+      "gsm": "GSM8309642",
+      "patient_id": "P-3380",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R03C01",
+      "gsm": "GSM8309643",
+      "patient_id": "P-3598",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R04C01",
+      "gsm": "GSM8309644",
+      "patient_id": "P-3725",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R05C01",
+      "gsm": "GSM8309645",
+      "patient_id": "P-3897",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R06C01",
+      "gsm": "GSM8309646",
+      "patient_id": "P-3958",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R07C01",
+      "gsm": "GSM8309647",
+      "patient_id": "P-4006",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800038_R08C01",
+      "gsm": "GSM8309648",
+      "patient_id": "P-4353",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R01C01",
+      "gsm": "GSM8309649",
+      "patient_id": "P-4457",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R03C01",
+      "gsm": "GSM8309650",
+      "patient_id": "P-4838",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R04C01",
+      "gsm": "GSM8309651",
+      "patient_id": "P-4841",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R05C01",
+      "gsm": "GSM8309652",
+      "patient_id": "P-4911",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R06C01",
+      "gsm": "GSM8309653",
+      "patient_id": "P-4991",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R07C01",
+      "gsm": "GSM8309654",
+      "patient_id": "P-5167",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800043_R08C01",
+      "gsm": "GSM8309655",
+      "patient_id": "P-5184",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R01C01",
+      "gsm": "GSM8309656",
+      "patient_id": "P-5787",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R02C01",
+      "gsm": "GSM8309657",
+      "patient_id": "P-5909",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R03C01",
+      "gsm": "GSM8309658",
+      "patient_id": "P-5931",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R04C01",
+      "gsm": "GSM8309659",
+      "patient_id": "P-5939",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R05C01",
+      "gsm": "GSM8309660",
+      "patient_id": "P-5945",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R06C01",
+      "gsm": "GSM8309661",
+      "patient_id": "P-5963",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R07C01",
+      "gsm": "GSM8309662",
+      "patient_id": "P-8137",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800050_R08C01",
+      "gsm": "GSM8309663",
+      "patient_id": "P-8842",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800062_R01C01",
+      "gsm": "GSM8309664",
+      "patient_id": "P-7568",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R02C01",
+      "gsm": "GSM8309665",
+      "patient_id": "P-7580",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R03C01",
+      "gsm": "GSM8309666",
+      "patient_id": "P-7704",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R04C01",
+      "gsm": "GSM8309667",
+      "patient_id": "P-7764",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R05C01",
+      "gsm": "GSM8309668",
+      "patient_id": "P-7920",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R06C01",
+      "gsm": "GSM8309669",
+      "patient_id": "P-7952",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R07C01",
+      "gsm": "GSM8309670",
+      "patient_id": "P-7969",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800062_R08C01",
+      "gsm": "GSM8309671",
+      "patient_id": "P-8156",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800063_R01C01",
+      "gsm": "GSM8309672",
+      "patient_id": "P-8946",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "203740800063_R02C01",
+      "gsm": "GSM8309673",
+      "patient_id": "P-3988",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800063_R03C01",
+      "gsm": "GSM8309674",
+      "patient_id": "P-4093",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800063_R04C01",
+      "gsm": "GSM8309675",
+      "patient_id": "P-4143",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800063_R05C01",
+      "gsm": "GSM8309676",
+      "patient_id": "P-4241",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800063_R06C01",
+      "gsm": "GSM8309677",
+      "patient_id": "P-4256",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800063_R07C01",
+      "gsm": "GSM8309678",
+      "patient_id": "P-4585",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800063_R08C01",
+      "gsm": "GSM8309679",
+      "patient_id": "P-5153",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R01C01",
+      "gsm": "GSM8309680",
+      "patient_id": "P-5185",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R03C01",
+      "gsm": "GSM8309681",
+      "patient_id": "P-6396",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R04C01",
+      "gsm": "GSM8309682",
+      "patient_id": "P-6959",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R05C01",
+      "gsm": "GSM8309683",
+      "patient_id": "P-7095",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R06C01",
+      "gsm": "GSM8309684",
+      "patient_id": "P-7221",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R07C01",
+      "gsm": "GSM8309685",
+      "patient_id": "P-7492",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800070_R08C01",
+      "gsm": "GSM8309686",
+      "patient_id": "P-7513",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R01C01",
+      "gsm": "GSM8309687",
+      "patient_id": "P-7530",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R02C01",
+      "gsm": "GSM8309688",
+      "patient_id": "P-7568",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R03C01",
+      "gsm": "GSM8309689",
+      "patient_id": "P-7580",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R04C01",
+      "gsm": "GSM8309690",
+      "patient_id": "P-7704",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R05C01",
+      "gsm": "GSM8309691",
+      "patient_id": "P-7764",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R06C01",
+      "gsm": "GSM8309692",
+      "patient_id": "P-7920",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R07C01",
+      "gsm": "GSM8309693",
+      "patient_id": "P-7952",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800077_R08C01",
+      "gsm": "GSM8309694",
+      "patient_id": "P-7969",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800078_R01C01",
+      "gsm": "GSM8309695",
+      "patient_id": "P-8820",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "203740800078_R02C01",
+      "gsm": "GSM8309696",
+      "patient_id": "P-8946",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205707890165_R04C01",
+      "gsm": "GSM8309697",
+      "patient_id": "P-1374",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205707890165_R05C01",
+      "gsm": "GSM8309698",
+      "patient_id": "P-1374",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205707890165_R06C01",
+      "gsm": "GSM8309699",
+      "patient_id": "P-1398",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205707890165_R07C01",
+      "gsm": "GSM8309700",
+      "patient_id": "P-2516",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205707890165_R08C01",
+      "gsm": "GSM8309701",
+      "patient_id": "P-2516",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205841310123_R01C01",
+      "gsm": "GSM8309702",
+      "patient_id": "P-3215",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205841310123_R02C01",
+      "gsm": "GSM8309703",
+      "patient_id": "P-3215",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205841310123_R03C01",
+      "gsm": "GSM8309704",
+      "patient_id": "P-3245",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205841310123_R04C01",
+      "gsm": "GSM8309705",
+      "patient_id": "P-3245",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205841310123_R05C01",
+      "gsm": "GSM8309706",
+      "patient_id": "P-3446",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205841310123_R06C01",
+      "gsm": "GSM8309707",
+      "patient_id": "P-3446",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205841310123_R07C01",
+      "gsm": "GSM8309708",
+      "patient_id": "P-4242",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205841310123_R08C01",
+      "gsm": "GSM8309709",
+      "patient_id": "P-4242",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205648300172_R01C01",
+      "gsm": "GSM8309710",
+      "patient_id": "P-4260",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205648300172_R02C01",
+      "gsm": "GSM8309711",
+      "patient_id": "P-4260",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205648300172_R03C01",
+      "gsm": "GSM8309712",
+      "patient_id": "P-5691",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205648300172_R04C01",
+      "gsm": "GSM8309713",
+      "patient_id": "P-5691",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205648300172_R05C01",
+      "gsm": "GSM8309714",
+      "patient_id": "P-6212",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205648300172_R06C01",
+      "gsm": "GSM8309715",
+      "patient_id": "P-6212",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205648300172_R07C01",
+      "gsm": "GSM8309716",
+      "patient_id": "P-6669",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205648300172_R08C01",
+      "gsm": "GSM8309717",
+      "patient_id": "P-6669",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530065_R01C01",
+      "gsm": "GSM8309718",
+      "patient_id": "P-6699",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530065_R02C01",
+      "gsm": "GSM8309719",
+      "patient_id": "P-6699",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530065_R03C01",
+      "gsm": "GSM8309720",
+      "patient_id": "P-6714",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530065_R04C01",
+      "gsm": "GSM8309721",
+      "patient_id": "P-6714",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530065_R05C01",
+      "gsm": "GSM8309722",
+      "patient_id": "P-6800",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530065_R06C01",
+      "gsm": "GSM8309723",
+      "patient_id": "P-6800",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530065_R07C01",
+      "gsm": "GSM8309724",
+      "patient_id": "P-6807",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530065_R08C01",
+      "gsm": "GSM8309725",
+      "patient_id": "P-6807",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530064_R01C01",
+      "gsm": "GSM8309726",
+      "patient_id": "P-6861",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530064_R02C01",
+      "gsm": "GSM8309727",
+      "patient_id": "P-6861",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530064_R03C01",
+      "gsm": "GSM8309728",
+      "patient_id": "P-6864",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530064_R04C01",
+      "gsm": "GSM8309729",
+      "patient_id": "P-6864",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530064_R05C01",
+      "gsm": "GSM8309730",
+      "patient_id": "P-6876",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530064_R06C01",
+      "gsm": "GSM8309731",
+      "patient_id": "P-6876",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205915530064_R07C01",
+      "gsm": "GSM8309732",
+      "patient_id": "P-6893",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205915530064_R08C01",
+      "gsm": "GSM8309733",
+      "patient_id": "P-6893",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040169_R01C01",
+      "gsm": "GSM8309734",
+      "patient_id": "P-6916",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040169_R02C01",
+      "gsm": "GSM8309735",
+      "patient_id": "P-6916",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040169_R03C01",
+      "gsm": "GSM8309736",
+      "patient_id": "P-7277",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040169_R04C01",
+      "gsm": "GSM8309737",
+      "patient_id": "P-7277",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040169_R05C01",
+      "gsm": "GSM8309738",
+      "patient_id": "P-7359",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040169_R06C01",
+      "gsm": "GSM8309739",
+      "patient_id": "P-7359",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040160_R01C01",
+      "gsm": "GSM8309740",
+      "patient_id": "P-7450",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040160_R02C01",
+      "gsm": "GSM8309741",
+      "patient_id": "P-7450",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040160_R03C01",
+      "gsm": "GSM8309742",
+      "patient_id": "P-7583",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040160_R04C01",
+      "gsm": "GSM8309743",
+      "patient_id": "P-7583",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040160_R05C01",
+      "gsm": "GSM8309744",
+      "patient_id": "P-7612",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040160_R06C01",
+      "gsm": "GSM8309745",
+      "patient_id": "P-7612",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040160_R07C01",
+      "gsm": "GSM8309746",
+      "patient_id": "P-7690",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040160_R08C01",
+      "gsm": "GSM8309747",
+      "patient_id": "P-7690",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040161_R01C01",
+      "gsm": "GSM8309748",
+      "patient_id": "P-7695",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040161_R02C01",
+      "gsm": "GSM8309749",
+      "patient_id": "P-7695",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040161_R03C01",
+      "gsm": "GSM8309750",
+      "patient_id": "P-7725",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040161_R04C01",
+      "gsm": "GSM8309751",
+      "patient_id": "P-7725",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040161_R05C01",
+      "gsm": "GSM8309752",
+      "patient_id": "P-8083",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040161_R06C01",
+      "gsm": "GSM8309753",
+      "patient_id": "P-8083",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040161_R07C01",
+      "gsm": "GSM8309754",
+      "patient_id": "P-8165",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040161_R08C01",
+      "gsm": "GSM8309755",
+      "patient_id": "P-8165",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040132_R01C01",
+      "gsm": "GSM8309756",
+      "patient_id": "P-8269",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040132_R02C01",
+      "gsm": "GSM8309757",
+      "patient_id": "P-8269",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040132_R03C01",
+      "gsm": "GSM8309758",
+      "patient_id": "P-8372",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040132_R04C01",
+      "gsm": "GSM8309759",
+      "patient_id": "P-8372",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040132_R05C01",
+      "gsm": "GSM8309760",
+      "patient_id": "P-8464",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040132_R06C01",
+      "gsm": "GSM8309761",
+      "patient_id": "P-8464",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040132_R07C01",
+      "gsm": "GSM8309762",
+      "patient_id": "P-8538",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040132_R08C01",
+      "gsm": "GSM8309763",
+      "patient_id": "P-8538",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040062_R01C01",
+      "gsm": "GSM8309764",
+      "patient_id": "P-8583",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040062_R02C01",
+      "gsm": "GSM8309765",
+      "patient_id": "P-8583",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040062_R03C01",
+      "gsm": "GSM8309766",
+      "patient_id": "P-8766",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040062_R04C01",
+      "gsm": "GSM8309767",
+      "patient_id": "P-8766",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040062_R05C01",
+      "gsm": "GSM8309768",
+      "patient_id": "P-8771",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040062_R06C01",
+      "gsm": "GSM8309769",
+      "patient_id": "P-8771",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040062_R07C01",
+      "gsm": "GSM8309770",
+      "patient_id": "P-8811",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040062_R08C01",
+      "gsm": "GSM8309771",
+      "patient_id": "P-8811",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040028_R01C01",
+      "gsm": "GSM8309772",
+      "patient_id": "P-8876",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040028_R02C01",
+      "gsm": "GSM8309773",
+      "patient_id": "P-8876",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    },
+    {
+      "sentrix_id": "205767040028_R03C01",
+      "gsm": "GSM8309774",
+      "patient_id": "P-8894",
+      "sample_type": "Normal",
+      "group_assignment": "adjacent_normal"
+    },
+    {
+      "sentrix_id": "205767040028_R04C01",
+      "gsm": "GSM8309775",
+      "patient_id": "P-8894",
+      "sample_type": "Tumor",
+      "group_assignment": "tumor"
+    }
+  ]
+}
