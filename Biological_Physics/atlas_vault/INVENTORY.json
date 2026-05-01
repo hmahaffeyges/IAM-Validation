@@ -511,5 +511,25 @@
     "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
     "size": 10102,
     "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/README.md",
+    "size": 4040,
+    "sha256": "cf79f1e3f57822e209c2f83c9809afcb06ee1434f0329135326541a386a0c5ee"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/bridge_bladderref_to_array.py",
+    "size": 7773,
+    "sha256": "353ad950ed2a28274e93c1e7bd5e373daad1da4e495bbb7fb7ffa58e5eca3648"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_cpg_bridged.csv",
+    "size": 238102,
+    "sha256": "3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_entrez_matrix.csv",
+    "size": 9553,
+    "sha256": "5a4256833e2b6c8e57f10d724daaf56f72cc4905ae50209806335f3aa961d0d8"
   }
 ]
