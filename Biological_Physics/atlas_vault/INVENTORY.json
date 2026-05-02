@@ -1,13 +1,19 @@
 [
   {
     "path": "README.md",
-    "size": 14634,
-    "sha256": "d791f7c808c386fe44dbf5f832fcd77ac7c4feb2846df3dca7725a3807471c99"
+    "size": 21110,
+    "sha256": "666f1fc029be333107fe0b9dbaa504cb84ef699a2e2e6898e508d4dd7259cae4"
   },
   {
     "path": "commercial_web_scoring_engine_skeleton.py",
     "size": 24727,
     "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/README.md",
+    "size": 6639,
+    "sha256": "d61b32d405bb48a4073c0dc7128fe24b884e34a484fff3777c904c3a247a9007",
+    "description": "README for BoccellatoStomachRef_HM450 v1: HM450-platform restriction methodology, VAL-123 calibration outcome, sealed Type 2 healthy-floor thresholds."
   },
   {
     "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/boccellato_stomachref_HM450_v1.csv",
@@ -44,6 +50,55 @@
     "calibration_anchor_cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (VAL-106 substrate)"
   },
   {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/restrict_to_hm450.py",
+    "size": 4383,
+    "sha256": "1ba300343d37c392063bc38b6d59aa66c7f15c8001281a29c246b3d0cb7398d0",
+    "description": "Reproducibility-triple build script (CHK-7.6) \u2014 restricts the EPIC-source atlas to HM450-platform CpG subset. Python 3 standard library only. Pattern mirrors VAL-117 ProstateRef amendment precedent."
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_v1/README.md",
+    "size": 4466,
+    "sha256": "8b65e006d29fa2470a322e50226fc2b8a4fbe19f0e807f6010f80354fc102c5e",
+    "description": "README for BoccellatoStomachRef v1 EPIC source: provenance, construction methodology, verification gates, atlas-family-fitness diagnostic."
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_v1/boccellato_stomachref_v1.csv",
+    "size": 48715676,
+    "sha256": "fbe1dbfdeceb87a1f28c5737f0c3d8b6f86614dee5b9dfeb525741d3e4ef4d11",
+    "description": "BoccellatoStomachRef v1 (EPIC source) \u2014 gastric epithelial mucosoid reference, 18 samples (3 donors \u00d7 3 regions \u00d7 2 differentiation states), 738,115 CpGs after Boccellato 2022 SWAN+ChAMP filtering. 6 tiles: Antrum/Corpus/Fundus \u00d7 undiff/diff. All tiles secretory class (H_min=0.843264). PROVENANCE only \u2014 operational atlas is HM450-restricted derivative at boccellato_stomachref_HM450_v1/.",
+    "n_unique_cpgs": 738115,
+    "n_tile_columns": 6,
+    "tiles": [
+      "Antrum_undiff",
+      "Antrum_diff",
+      "Corpus_undiff",
+      "Corpus_diff",
+      "Fundus_undiff",
+      "Fundus_diff"
+    ],
+    "tile_class_assignment": {
+      "Antrum_undiff": "secretory",
+      "Antrum_diff": "secretory",
+      "Corpus_undiff": "secretory",
+      "Corpus_diff": "secretory",
+      "Fundus_undiff": "secretory",
+      "Fundus_diff": "secretory"
+    },
+    "h_min_secretory": 0.843264,
+    "platform": "Illumina MethylationEPIC (EPIC 850K), GPL21145",
+    "source_paper": "Fritsche K, Boccellato F et al. Clin Epigenetics 2022;14:193. DOI 10.1186/s13148-022-01406-4. PMID 36585699.",
+    "geo_accession": "GSE141660 (GPL21145 EPIC sub-platform)",
+    "license": "CC BY 4.0 (Boccellato 2022 source paper)",
+    "calibration_val": "none directly; HM450 derivative calibrated as VAL-123",
+    "role": "PROVENANCE_SOURCE for HM450-restricted derivative"
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_v1/build_boccellato_stomachref_v1.py",
+    "size": 5007,
+    "sha256": "9568a21f3b818a2cfbf32c8f4732d978df15fb67375242ed52ce367f3f682b7b",
+    "description": "Reproducibility-triple build script (CHK-7.6) \u2014 constructs the EPIC-source atlas from GSE141660 GPL21145 series matrix. Python 3 standard library only."
+  },
+  {
     "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
     "size": 10102,
     "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
@@ -52,6 +107,11 @@
     "path": "stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt",
     "size": 378052,
     "sha256": "103aad66cc3ebc19930a1ef458e78abde46c5b63ec194a4ca6b4886c91f73b6c"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/bridge_caggiano_to_array.py",
+    "size": 7568,
+    "sha256": "78addc66e37ff12a33a9879a40eb260d47b5fcaf932a66f94067e40800046b4d"
   },
   {
     "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_INVENTORY.json",
@@ -96,21 +156,16 @@
     "chk_3_1b_q5_threshold": 0.5779
   },
   {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/extract_manifest.R",
+    "size": 595,
+    "sha256": "75ce723b8916b5967bb4dfaa3e9be0b0d80a89489fe9fc461a0121ab1550d689"
+  },
+  {
     "path": "stage2_cell_of_origin/caggiano_celfie_tim/hm450_hg19_manifest.csv",
     "size": 14394805,
     "sha256": "a4c987458d0128311c6b74ae2fa6db64c2ed6b5a1a789d07247af86cf116598a",
     "description": "HM450 hg19 (cpg_id, chr, pos) manifest extracted from Bioconductor IlluminaHumanMethylation450kanno v0.6.1; 485,512 CpGs; reusable for any region-indexed WGBS atlas bridge to array CpGs",
     "derived_from": "IlluminaHumanMethylation450kanno.ilmn12.hg19_0.6.1 (Bioconductor)"
-  },
-  {
-    "path": "stage2_cell_of_origin/cuadrat_2023/deconvR/data/HumanCellTypeMethAtlas.rda",
-    "size": 294372,
-    "sha256": "9aa70e192fadde02674b52bcf56a4fdf103b6f7cee936106521ae903e5dff99e",
-    "n_unique_cpgs": 6105,
-    "n_cell_type_columns": 25,
-    "description": "deconvR R package bundled atlas \u2014 IDENTICAL CONTENT to Moss 2018 25-cell-type base; provides verified deduplicated reference. 6,105 CpGs is the same set as our deduped layered Moss+Loyfer reference_atlas.csv after CCL-047 dedupe.",
-    "role": "redundant with stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv (deduped); kept for audit-trail and as the dedupe-verification source",
-    "note": "Cuadrat 2023 EXTENDED atlas (28-cell with 3 ENCODE bulk heart additions) is NOT distributed in this package; it must be built from raw ENCODE EPIC IDATs per the paper Methods. v0.4+ engineering task."
   },
   {
     "path": "stage2_cell_of_origin/episcore_bladderref/README.md",
@@ -133,6 +188,16 @@
     "sha256": "5a4256833e2b6c8e57f10d724daaf56f72cc4905ae50209806335f3aa961d0d8"
   },
   {
+    "path": "stage2_cell_of_origin/episcore_heartref/HeartRef_source.rda",
+    "size": 21401,
+    "sha256": "b000be45678fc6f95d94a3d8a2d20eadd24e36182935bc9a38408d6b718aa7a8"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/README.md",
+    "size": 2268,
+    "sha256": "4f585a48189a124f1d87e9ab8ff874b5b49910a885a2d3fae5026a0a991512da"
+  },
+  {
     "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_cpg_bridged.csv",
     "size": 325170,
     "sha256": "bf6431f66749f02a616560764af3fdd0adc70b03bca96b2a13b6221bbd847c83",
@@ -150,6 +215,11 @@
     "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
     "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
     "chk_3_1b_q5_threshold": 0.4283
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_entrez_matrix.csv",
+    "size": 16529,
+    "sha256": "dbd94719e2ad3a92433a1d16615457d9e05d1b1f60fc65128d39d60adb091edd"
   },
   {
     "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
