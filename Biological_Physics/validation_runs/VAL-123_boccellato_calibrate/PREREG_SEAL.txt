@@ -1,0 +1,5 @@
+PREREG_SHA256=91a5f06f984ce64b747bd2800fdde28f18dbc3105008f2008730a1ee659d71d7
+SEAL_TIMESTAMP=2026-05-02T18:45:54Z
+SEAL_FILE=prereg.md
+SEAL_LOC=Biological_Physics/validation_runs/VAL-123_boccellato_calibrate/prereg.md
+SEAL_NOTE=Sealed BEFORE any β file read by val123 script. CCL-041 compliance. Atlas: BoccellatoStomachRef_HM450 v1 (HM450-restricted derivative of EPIC source). CHK-2.17 PASS at 95.56% mean coverage on 5 random VAL-106 samples (RNG seed 20260502). EPIC-version atlas first failed CHK-2.17 at 49.26%; restriction approach mirrors VAL-117 ProstateRef amendment precedent.
