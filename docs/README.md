@@ -753,7 +753,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Koide Paper</strong> — Three Charged Lepton Generations and the Koide Ratio from Holographic Boundary Encoding</summary>
 
-[📄 Koide_ratio_from_holographic_boundary.pdf](papers/Koide_ratio_from_holographic_boundary.pdf)
+[📄 Koide_ratio_from_holographic_boundary.pdf](papers/Koide_Mahaffey.pdf)
 
 - The Koide relation Q = (m_e + m_µ + m_τ)/(√m_e + √m_µ + √m_τ)² = 2/3 holds at the 10⁻⁵ level and lacks an accepted Standard Model derivation
 - Develops a conditional argument via the virial theorem route — physical motivation not previously taken
