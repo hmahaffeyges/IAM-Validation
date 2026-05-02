@@ -10,6 +10,45 @@
     "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
   },
   {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/boccellato_stomachref_HM450_v1.csv",
+    "size": 25110908,
+    "sha256": "f5a620a93aba40d0567346d156ce7ea2861f8ed38ee1bd669a4ff52b261fa390",
+    "description": "BoccellatoStomachRef_HM450 v1 \u2014 HM450-restricted derivative of EPIC-source atlas (Fritsche/Boccellato 2022 GSE141660). 380,467 CpGs intersected with HM450 platform from EPIC source 738,115 CpGs. 6 tiles: 3 gastric regions (Antrum/Corpus/Fundus) \u00d7 2 differentiation states (undiff/diff). All tiles secretory class (H_min=0.843264). Calibrated VAL-123 PASS on TCGA-KIRC+PRAD adjacent-normal n=210.",
+    "n_unique_cpgs": 380467,
+    "n_tile_columns": 6,
+    "tiles": [
+      "Antrum_undiff",
+      "Antrum_diff",
+      "Corpus_undiff",
+      "Corpus_diff",
+      "Fundus_undiff",
+      "Fundus_diff"
+    ],
+    "tile_class_assignment": {
+      "Antrum_undiff": "secretory",
+      "Antrum_diff": "secretory",
+      "Corpus_undiff": "secretory",
+      "Corpus_diff": "secretory",
+      "Fundus_undiff": "secretory",
+      "Fundus_diff": "secretory"
+    },
+    "h_min_secretory": 0.843264,
+    "platform": "HM450 (Illumina HumanMethylation450 BeadChip), restricted from EPIC 850K source",
+    "epic_source_path": "stage2_cell_of_origin/boccellato_stomachref_v1/boccellato_stomachref_v1.csv",
+    "epic_source_sha256": "fbe1dbfdeceb87a1f28c5737f0c3d8b6f86614dee5b9dfeb525741d3e4ef4d11",
+    "source_paper": "Fritsche K, Boccellato F et al. Clin Epigenetics 2022;14:193. DOI 10.1186/s13148-022-01406-4. PMID 36585699.",
+    "geo_accession": "GSE141660 (GPL21145 EPIC sub-platform; HM450 derivative built 2026-05-02)",
+    "license": "CC BY 4.0 (Boccellato 2022 source paper)",
+    "calibration_val": "VAL-123",
+    "calibration_outcome": "O1_BOCCELLATO_CALIBRATION_SEALED",
+    "calibration_anchor_cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (VAL-106 substrate)"
+  },
+  {
+    "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
+    "size": 10102,
+    "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
+  },
+  {
     "path": "stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt",
     "size": 378052,
     "sha256": "103aad66cc3ebc19930a1ef458e78abde46c5b63ec194a4ca6b4886c91f73b6c"
@@ -74,6 +113,26 @@
     "note": "Cuadrat 2023 EXTENDED atlas (28-cell with 3 ENCODE bulk heart additions) is NOT distributed in this package; it must be built from raw ENCODE EPIC IDATs per the paper Methods. v0.4+ engineering task."
   },
   {
+    "path": "stage2_cell_of_origin/episcore_bladderref/README.md",
+    "size": 4040,
+    "sha256": "cf79f1e3f57822e209c2f83c9809afcb06ee1434f0329135326541a386a0c5ee"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/bridge_bladderref_to_array.py",
+    "size": 7773,
+    "sha256": "353ad950ed2a28274e93c1e7bd5e373daad1da4e495bbb7fb7ffa58e5eca3648"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_cpg_bridged.csv",
+    "size": 238102,
+    "sha256": "3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_entrez_matrix.csv",
+    "size": 9553,
+    "sha256": "5a4256833e2b6c8e57f10d724daaf56f72cc4905ae50209806335f3aa961d0d8"
+  },
+  {
     "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_cpg_bridged.csv",
     "size": 325170,
     "sha256": "bf6431f66749f02a616560764af3fdd0adc70b03bca96b2a13b6221bbd847c83",
@@ -91,6 +150,21 @@
     "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
     "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
     "chk_3_1b_q5_threshold": 0.4283
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
+    "size": 2545,
+    "sha256": "61958ebc9f69b83a12f5711e4305d2a1b4ddec94a7b4a78e465d904889100921"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_cpg_bridged.csv",
+    "size": 288130,
+    "sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_entrez_matrix.csv",
+    "size": 12959,
+    "sha256": "9cf0e54cb22e12986dab2e8a836cac80049dcf377231125a99cd3b6316707a8c"
   },
   {
     "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__exprefBladder_m.csv",
@@ -491,45 +565,5 @@
     "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
     "size": 711707,
     "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_cpg_bridged.csv",
-    "size": 288130,
-    "sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_entrez_matrix.csv",
-    "size": 12959,
-    "sha256": "9cf0e54cb22e12986dab2e8a836cac80049dcf377231125a99cd3b6316707a8c"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
-    "size": 2545,
-    "sha256": "61958ebc9f69b83a12f5711e4305d2a1b4ddec94a7b4a78e465d904889100921"
-  },
-  {
-    "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
-    "size": 10102,
-    "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_bladderref/README.md",
-    "size": 4040,
-    "sha256": "cf79f1e3f57822e209c2f83c9809afcb06ee1434f0329135326541a386a0c5ee"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_bladderref/bridge_bladderref_to_array.py",
-    "size": 7773,
-    "sha256": "353ad950ed2a28274e93c1e7bd5e373daad1da4e495bbb7fb7ffa58e5eca3648"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_cpg_bridged.csv",
-    "size": 238102,
-    "sha256": "3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_entrez_matrix.csv",
-    "size": 9553,
-    "sha256": "5a4256833e2b6c8e57f10d724daaf56f72cc4905ae50209806335f3aa961d0d8"
   }
 ]

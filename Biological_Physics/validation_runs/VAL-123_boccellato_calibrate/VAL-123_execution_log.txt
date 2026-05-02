@@ -1,0 +1,13 @@
+VAL-123 — BoccellatoStomachRef_HM450 v1 calibration on TCGA-KIRC+PRAD n=210
+Prereg SHA: 91a5f06f984ce64b747bd2800fdde28f18dbc3105008f2008730a1ee659d71d7
+Sealed:     2026-05-02T18:45:54Z
+
+Atlas SHA verified: f5a620a93aba40d0567346d156ce7ea2861f8ed38ee1bd669a4ff52b261fa390
+CHK-3.1C dedup audit...
+  Unique probes: 380467, duplicates: 0, passed: True
+Loading HM450-restricted atlas...
+  Atlas CpGs: 380467
+Cohort: 160 KIRC + 50 PRAD = 210 total
+
+  30/210 samples processed
+  60/210 samples processed
