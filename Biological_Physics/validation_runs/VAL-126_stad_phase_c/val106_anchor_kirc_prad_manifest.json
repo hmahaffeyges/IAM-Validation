@@ -1,0 +1,1892 @@
+[
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "61bef480-c195-435b-a205-5b81aba27a66",
+    "file_name": "42c9a08b-d9de-4b68-ba33-3e000886956c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13077374,
+    "md5sum": "f543b5e32c4f12a0219588bcd84bf9ff",
+    "submitter_id": "TCGA-B0-4845",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "ea7148b4-09af-4a7e-bd24-5ffd97cc829e",
+    "file_name": "3f666c70-418b-453a-aae8-1430f6322be4.methylation_array.sesame.level3betas.txt",
+    "file_size": 12759414,
+    "md5sum": "209efb794d2fb5a7e6dfcc4ebcdf0ccf",
+    "submitter_id": "TCGA-B0-4703",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "031b1a71-aa19-4618-892a-b5d7774f4892",
+    "file_name": "1a51987f-480b-4742-8d3b-7ab171318a3a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13231151,
+    "md5sum": "0d3a34443465ba2f775ae91ff32aa81c",
+    "submitter_id": "TCGA-CZ-5452",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a6b7ded1-98e4-445e-b382-abe8ed8151d2",
+    "file_name": "ac9d2648-9fa8-4e05-b97c-91bc3cdba2c4.methylation_array.sesame.level3betas.txt",
+    "file_size": 13161819,
+    "md5sum": "e8fd2fca94ca4d67948597cf526fc351",
+    "submitter_id": "TCGA-B0-5110",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "de1aa3ec-75a5-43c1-8e74-2c84c01506fc",
+    "file_name": "76dac204-1dbc-4c6f-96a0-c2b1a56179a0.methylation_array.sesame.level3betas.txt",
+    "file_size": 13103618,
+    "md5sum": "bfaecde3d6d8ac4ae6324ebd6a29ee1d",
+    "submitter_id": "TCGA-BP-5199",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "77bbe7d1-bf2c-4e49-8e09-806fc7493023",
+    "file_name": "65c05b86-6e25-4e19-848e-f01eaa95fbc5.methylation_array.sesame.level3betas.txt",
+    "file_size": 13183969,
+    "md5sum": "ffe62d85c43ca56391235db22b2d6097",
+    "submitter_id": "TCGA-BP-5168",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b158e5a1-637a-41e6-997e-6b2f14a26571",
+    "file_name": "5d6e938c-e026-41cf-b635-e3749d85ab48.methylation_array.sesame.level3betas.txt",
+    "file_size": 13164083,
+    "md5sum": "37de4fe53dcf5f6c87840455488c1ac3",
+    "submitter_id": "TCGA-A3-3376",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "464178a8-8a22-4952-a969-ce982ce4fe13",
+    "file_name": "46638e20-8bcc-44ed-bbcb-0ad66fc7bb8a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13130125,
+    "md5sum": "2b4e676e097ed6c6f0c24de2c6ba3131",
+    "submitter_id": "TCGA-BP-4177",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1613308b-35b3-4c57-b446-188f5d870a0d",
+    "file_name": "b1233d8a-2b6b-4958-b361-459ea38a726d.methylation_array.sesame.level3betas.txt",
+    "file_size": 13220919,
+    "md5sum": "96fbad5d702ce0718b5acfe0804c2462",
+    "submitter_id": "TCGA-B0-5402",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2d2c8314-77eb-411e-baf7-aaa02b6155f7",
+    "file_name": "bf60b8e5-cdf2-432b-a6c8-31db454d234a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13059612,
+    "md5sum": "462048488216007129ceac06535ebdfb",
+    "submitter_id": "TCGA-BP-4795",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2643bd41-0567-428c-b2d2-3f7f3845e71a",
+    "file_name": "b92def7d-c1b2-4fe3-a3a2-307caba3a2b4.methylation_array.sesame.level3betas.txt",
+    "file_size": 13127335,
+    "md5sum": "1ceef0ac191ef2a6eeca3b9ea8888758",
+    "submitter_id": "TCGA-CJ-4882",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "59b85304-e7a5-4911-a9e5-3d0f92853d01",
+    "file_name": "fc70f72d-b11f-49b1-9566-3e71fe0f0049.methylation_array.sesame.level3betas.txt",
+    "file_size": 13204313,
+    "md5sum": "b8c09378e44fe4e475bab208a28dab16",
+    "submitter_id": "TCGA-CZ-5465",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "600ca28c-7380-4a50-8786-48b848c534ea",
+    "file_name": "3433e44d-46e4-4823-af1a-26003fd8aed0.methylation_array.sesame.level3betas.txt",
+    "file_size": 13144850,
+    "md5sum": "40c222f9079760eb0e17b3eea43f4408",
+    "submitter_id": "TCGA-BP-4770",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "5db86b01-68a0-464a-bc4e-0c19cbc84340",
+    "file_name": "e486a73d-f1f2-4807-bcc9-5d40bc46da23.methylation_array.sesame.level3betas.txt",
+    "file_size": 13062926,
+    "md5sum": "81a5058c77e1bb8f43b0d6c987c936cf",
+    "submitter_id": "TCGA-BP-5173",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2740c9eb-1ba2-4549-b484-d9c1ebd623dd",
+    "file_name": "7716eb7f-5837-46c6-a3aa-c1980f719fa6.methylation_array.sesame.level3betas.txt",
+    "file_size": 12986884,
+    "md5sum": "52f4e533bdf2adeabf23c16c1c677207",
+    "submitter_id": "TCGA-B0-4693",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "10e9c79e-71d3-4981-bfb2-90c818c92151",
+    "file_name": "8a2e4267-ecb8-4a91-a075-b7e17412c8e4.methylation_array.sesame.level3betas.txt",
+    "file_size": 13084653,
+    "md5sum": "c0b190ddf8f861810801ac4c1c5ed27f",
+    "submitter_id": "TCGA-B0-5106",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a2f71385-25eb-437d-911f-6ba6167aed7c",
+    "file_name": "b7bef39c-fc6c-448f-b63f-d1ea3fcab5ef.methylation_array.sesame.level3betas.txt",
+    "file_size": 13204489,
+    "md5sum": "c82a420836c309a166c27b35b41c6c25",
+    "submitter_id": "TCGA-B0-5713",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "614018da-daa7-4213-9f66-6773395a4a32",
+    "file_name": "49f8409c-2a2f-4f25-a517-652f71bd8617.methylation_array.sesame.level3betas.txt",
+    "file_size": 13197387,
+    "md5sum": "43c58ed82b0f34e7ea8cc776e10884b1",
+    "submitter_id": "TCGA-BP-5187",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1e198366-20f4-4261-ab65-2135c7d55f82",
+    "file_name": "2164e275-f5ec-4cb6-b961-cf49f1d7cc17.methylation_array.sesame.level3betas.txt",
+    "file_size": 13186897,
+    "md5sum": "e9947846b7dfda88b1ffbdc7808af3f8",
+    "submitter_id": "TCGA-CZ-5457",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b6638cb2-da4c-4076-8a3d-9741fd7a0731",
+    "file_name": "d024ddc6-6005-46a8-bfb6-434cc29c47ee.methylation_array.sesame.level3betas.txt",
+    "file_size": 13157521,
+    "md5sum": "a81976edabded8a0eb4a1ae0daa1d7ef",
+    "submitter_id": "TCGA-B0-5104",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7e097f39-2501-4224-acb9-9056af2b7164",
+    "file_name": "2b577cc9-ff24-49f7-8828-13d2f6d4485f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13114830,
+    "md5sum": "1618c0cdaffd1995693a3e54bda5693d",
+    "submitter_id": "TCGA-CJ-4913",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "744dd7a3-4f7b-48c2-8a31-c5a1fd39bbb9",
+    "file_name": "28ba7fa2-ab9b-48dc-8f5a-2fa5d69a8262.methylation_array.sesame.level3betas.txt",
+    "file_size": 13136911,
+    "md5sum": "b3b978c6404d6aed80cdfabd100ee960",
+    "submitter_id": "TCGA-CJ-4869",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d4a68add-daa0-4ec6-9058-dbccd6fdaf58",
+    "file_name": "9f063e65-c221-437f-9827-e2111774a273.methylation_array.sesame.level3betas.txt",
+    "file_size": 13169348,
+    "md5sum": "eaa871f1f6797b4826460d6a68f9d5bb",
+    "submitter_id": "TCGA-BP-4760",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7019bb78-403e-4417-9b15-2b3ce9ab9d1f",
+    "file_name": "0f6da50f-2342-462a-ae59-5fe50a0dde80.methylation_array.sesame.level3betas.txt",
+    "file_size": 13213238,
+    "md5sum": "2b73d54b15f2029fbd31ff03e5c684ba",
+    "submitter_id": "TCGA-CZ-4864",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "11b63dca-eebd-4bd9-82fd-45a48a45ee3f",
+    "file_name": "52e97b49-c2da-4546-a144-a4cfe2cff423.methylation_array.sesame.level3betas.txt",
+    "file_size": 13045598,
+    "md5sum": "3d3e15bd849313d00f4b52d13d4bfd0a",
+    "submitter_id": "TCGA-B0-5108",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c68167fb-d1d3-4bbe-948d-04a7f40bc897",
+    "file_name": "27ea97ea-1c9a-425d-864a-b47402ac0c83.methylation_array.sesame.level3betas.txt",
+    "file_size": 13086566,
+    "md5sum": "1fe02d0e124a789c3d9cad4b48f2760f",
+    "submitter_id": "TCGA-CJ-4905",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "cd79ad3e-8d83-4b7f-866a-d5919be82477",
+    "file_name": "54ec00c0-45f5-45d6-9da7-a007f2f3a469.methylation_array.sesame.level3betas.txt",
+    "file_size": 13198870,
+    "md5sum": "95f283c2391204fbd468551358226376",
+    "submitter_id": "TCGA-B0-4821",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d61cccf6-dd69-4e87-95a7-06bc11196411",
+    "file_name": "dfd5f148-4593-4359-8ad7-55608efe3198.methylation_array.sesame.level3betas.txt",
+    "file_size": 13193620,
+    "md5sum": "4365d46adec74e0239e8141197ec0837",
+    "submitter_id": "TCGA-B0-5712",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f121405f-af01-4a1b-bf4f-e56fca34c446",
+    "file_name": "ce5201b7-d615-4f8b-89a4-a3d9fd063448.methylation_array.sesame.level3betas.txt",
+    "file_size": 13151080,
+    "md5sum": "7d0889685fbfd1988d4381e7ececefe3",
+    "submitter_id": "TCGA-B0-5099",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "e34eb846-f134-4d06-ba30-d8778f4d2d64",
+    "file_name": "ce040fea-38ef-4bf1-8a60-8ff676dd51f4.methylation_array.sesame.level3betas.txt",
+    "file_size": 12910064,
+    "md5sum": "9653b17dd6e1db3f0accaf12250c45cb",
+    "submitter_id": "TCGA-B0-4822",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2691eb08-4d94-4700-bf6c-a66e19ce5ab6",
+    "file_name": "2142960b-1de6-439a-af15-eb9038fecd90.methylation_array.sesame.level3betas.txt",
+    "file_size": 13065128,
+    "md5sum": "a440c8a7e55dd47fb31e71444e10386a",
+    "submitter_id": "TCGA-BP-5174",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "eaebc7c1-4069-4917-a9e0-7c6f63f68642",
+    "file_name": "8b324835-e948-4db7-a2d5-9c00ced3a804.methylation_array.sesame.level3betas.txt",
+    "file_size": 12935107,
+    "md5sum": "6a7b1e617e8905b46ffeafc57c7f5734",
+    "submitter_id": "TCGA-B0-4696",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "02289288-7551-4056-94ea-0c4ad9275cb6",
+    "file_name": "06bd71b9-85bf-4b25-b5af-effe153814a3.methylation_array.sesame.level3betas.txt",
+    "file_size": 13162728,
+    "md5sum": "6f59f111967de5e65b2e31a7c74045f4",
+    "submitter_id": "TCGA-CJ-4918",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "79cf938b-8817-492c-b4c3-65b481bf9e4f",
+    "file_name": "1e87fc41-ee3c-4a75-ad13-a849339e721d.methylation_array.sesame.level3betas.txt",
+    "file_size": 13191552,
+    "md5sum": "6f60ff8a642de54ce43f855e03a2cef9",
+    "submitter_id": "TCGA-BP-5186",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b72f8482-c14b-4aae-be31-dd05bcf611cc",
+    "file_name": "3e0e5fdf-4f88-46d6-92d6-2e7597c47262.methylation_array.sesame.level3betas.txt",
+    "file_size": 13172181,
+    "md5sum": "24501f789ce39e6bab7719147eeb7c1d",
+    "submitter_id": "TCGA-BP-5170",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "89158820-1dc6-4fa3-92c4-a45ada0cbf03",
+    "file_name": "360d7ced-1978-415a-8916-267ad795e5fb.methylation_array.sesame.level3betas.txt",
+    "file_size": 13209882,
+    "md5sum": "b968ea81d89f813dd059ab0bcb7ff815",
+    "submitter_id": "TCGA-CZ-5461",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "4a2be9f6-996f-417a-88ac-e6c1acee237b",
+    "file_name": "2a525376-788b-42b8-bb86-133f43fb6486.methylation_array.sesame.level3betas.txt",
+    "file_size": 13004172,
+    "md5sum": "8c799e80c6e71f4e970c5ecc29f69a93",
+    "submitter_id": "TCGA-CJ-4907",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "690693eb-5549-41bd-b5e2-36db89be3171",
+    "file_name": "f7e53f89-d048-476a-93ed-072ff1afc1b0.methylation_array.sesame.level3betas.txt",
+    "file_size": 13160151,
+    "md5sum": "5f5969a625bd2b495f2f0e55615d9761",
+    "submitter_id": "TCGA-B0-5115",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "cc6d1d61-f9a4-4f7d-b768-9a4e7fa9c0d8",
+    "file_name": "88932b03-f3d2-4f05-9038-5c746bbdf688.methylation_array.sesame.level3betas.txt",
+    "file_size": 13021791,
+    "md5sum": "61e051d6f4f52758ee3d076f8cb454f0",
+    "submitter_id": "TCGA-B0-5113",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "fd6a4074-741e-46a5-9139-00453a63f37a",
+    "file_name": "5dfc6731-b699-44d5-961b-752906e952e5.methylation_array.sesame.level3betas.txt",
+    "file_size": 13129619,
+    "md5sum": "e62b09e604d65200f2dc63aba6ac4dd2",
+    "submitter_id": "TCGA-CJ-4916",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "5433ce3c-3b26-4d2c-95b4-e8b032e20a18",
+    "file_name": "aa97ba49-87f1-4775-aef5-94f4d5f08278.methylation_array.sesame.level3betas.txt",
+    "file_size": 13196194,
+    "md5sum": "8eeb753978429b0937957172d2109ba7",
+    "submitter_id": "TCGA-B0-5400",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "fad4e72d-e91c-4ba7-b05b-b9898b017453",
+    "file_name": "8da4771d-05c4-45c3-802b-d882bca21ac3.methylation_array.sesame.level3betas.txt",
+    "file_size": 13133062,
+    "md5sum": "112befc42374808efc5f2065396d6783",
+    "submitter_id": "TCGA-B0-5107",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "e7c4e0a2-7c0c-4f8c-a007-9faa693ace92",
+    "file_name": "e8aad89b-1dd5-4534-abfc-b25ba1e551b6.methylation_array.sesame.level3betas.txt",
+    "file_size": 13159546,
+    "md5sum": "680dcb88abbbc87dc06fea240fd70d7c",
+    "submitter_id": "TCGA-B0-4852",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "547b88b7-2052-43b4-ab01-ea602cc23d86",
+    "file_name": "29a0a0ff-c45f-441c-adb3-06d48d65f4c6.methylation_array.sesame.level3betas.txt",
+    "file_size": 13224898,
+    "md5sum": "d3b4360c77fdcdc0263b72d45cbd212f",
+    "submitter_id": "TCGA-CZ-5455",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "3d7d2417-5f57-4f28-bb30-4358d58f2a66",
+    "file_name": "cdcfff5d-32fa-4baa-9403-b7a90f65ae54.methylation_array.sesame.level3betas.txt",
+    "file_size": 13201199,
+    "md5sum": "f1d3d8ad910c002e1a9e7aea76d44d44",
+    "submitter_id": "TCGA-CZ-4863",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c50a0cfc-6f6f-465b-853a-17c1e587bb17",
+    "file_name": "eb5df581-15b3-4f91-a810-007265aae93d.methylation_array.sesame.level3betas.txt",
+    "file_size": 13114524,
+    "md5sum": "a6b19567f46a839e77afcb7efd45e9df",
+    "submitter_id": "TCGA-BP-5177",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "9077fd9a-4986-4ff9-80fd-c6f4d9df2e67",
+    "file_name": "93bb95e7-67b4-4a40-9c98-44c992a7512c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13084166,
+    "md5sum": "eec33916c2ec0635d243e519b43d130d",
+    "submitter_id": "TCGA-B0-4849",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2debf6cf-1611-4e6a-bbc5-b3c8a6dbeffd",
+    "file_name": "894c76f7-0261-4ca3-b65a-74c9fe091c64.methylation_array.sesame.level3betas.txt",
+    "file_size": 13124960,
+    "md5sum": "d3ca852563c0c8fc443a5e48fb1eb1c7",
+    "submitter_id": "TCGA-BP-4801",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "38bb1537-5abf-4da0-bc8a-c01a0a920347",
+    "file_name": "a00d83cf-b9d1-45fe-ac41-56622034baad.methylation_array.sesame.level3betas.txt",
+    "file_size": 13217188,
+    "md5sum": "9099658988d1ea3f8ccc8d4cdf7760c7",
+    "submitter_id": "TCGA-B0-4815",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f9eabf3c-05c1-49cc-a45c-68f1453bdc31",
+    "file_name": "abf2817b-2cf2-49cc-8cfd-80e0518a8b35.methylation_array.sesame.level3betas.txt",
+    "file_size": 13194822,
+    "md5sum": "b4d9969c69371af477b2a93df9913e00",
+    "submitter_id": "TCGA-CZ-4856",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "00521bb8-bd56-4804-aeb9-3393db6daac2",
+    "file_name": "b3ceab25-e22d-4184-bdef-d63fe58efd76.methylation_array.sesame.level3betas.txt",
+    "file_size": 13081173,
+    "md5sum": "931071b1071cde3e6688aa46fc8b653f",
+    "submitter_id": "TCGA-BP-4782",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "833517f9-1e3a-4d99-9ada-3d68686ec586",
+    "file_name": "a8cc48a1-8c74-437c-8d1e-b3853149d165.methylation_array.sesame.level3betas.txt",
+    "file_size": 13076856,
+    "md5sum": "f22f22f7af186b93340868c8287d12fc",
+    "submitter_id": "TCGA-BP-5191",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f6575318-dac4-4bbc-8794-afd9ec0d32b6",
+    "file_name": "1589891e-4919-4a16-9a55-ec705665b40b.methylation_array.sesame.level3betas.txt",
+    "file_size": 13016231,
+    "md5sum": "e073cb71957330f6e86584a90188689d",
+    "submitter_id": "TCGA-CJ-4904",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "8898dacf-0a83-4e65-9baf-614033e655a1",
+    "file_name": "6a9c9e36-577e-4ed8-940a-8b4380291c4c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13205566,
+    "md5sum": "2b7469e737a006bcb92d2f10c4ff2e88",
+    "submitter_id": "TCGA-CZ-4865",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "be79b881-4fc8-4e1d-a1f3-5f4c7cb116d6",
+    "file_name": "89705355-5d14-4419-af3d-23996f86d3af.methylation_array.sesame.level3betas.txt",
+    "file_size": 13144167,
+    "md5sum": "fbb86141c375cf24d5e19010452e3555",
+    "submitter_id": "TCGA-BP-5195",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b7ff65bd-0533-4406-9778-38597423be0a",
+    "file_name": "ee610fc2-658c-491f-a7ab-21a9f48818ca.methylation_array.sesame.level3betas.txt",
+    "file_size": 12898199,
+    "md5sum": "6e0fd93125a4a5c04d3401e0d77597b4",
+    "submitter_id": "TCGA-B0-4690",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "816877d1-3d90-4801-af28-32996cc1b9da",
+    "file_name": "a1d1db14-f4dd-42cb-8138-31c490f858da.methylation_array.sesame.level3betas.txt",
+    "file_size": 13208288,
+    "md5sum": "b5baf18f15e3d5dca3664904e6287cea",
+    "submitter_id": "TCGA-CZ-5469",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "3445b2a5-471e-43c5-9132-cf47063be591",
+    "file_name": "9ebab519-f3e4-4051-9e25-e0339eeec9b7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13219782,
+    "md5sum": "c6b78cd7d3e400e49f1f342584d47111",
+    "submitter_id": "TCGA-CZ-5454",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "add2d4f7-2f3c-4167-af65-d930154185f1",
+    "file_name": "bcfebce9-ec2e-4633-a105-e7d5aa709faf.methylation_array.sesame.level3betas.txt",
+    "file_size": 13036198,
+    "md5sum": "a54ff39505f8387f39f45d8fc4e1c054",
+    "submitter_id": "TCGA-B0-5116",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1c0ee143-357a-437a-afe0-2131b5f49db0",
+    "file_name": "263cdd7a-b588-4cf3-9ca5-ea70f0291c0e.methylation_array.sesame.level3betas.txt",
+    "file_size": 13216010,
+    "md5sum": "949f56bb9a06ba34c8ac234a2b89d977",
+    "submitter_id": "TCGA-CZ-5463",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "e8037196-a71c-4851-8733-6f1d9edbff18",
+    "file_name": "b509791b-ac70-49b4-a8e0-46b6e40920c2.methylation_array.sesame.level3betas.txt",
+    "file_size": 13215349,
+    "md5sum": "6e285e442a03169709612adab88499c2",
+    "submitter_id": "TCGA-BP-5185",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f8b98ff1-bf89-4a51-9bff-56f7bd7c18d0",
+    "file_name": "254d829f-6938-4593-9fb5-f13d9a7b7d19.methylation_array.sesame.level3betas.txt",
+    "file_size": 13193024,
+    "md5sum": "1cea190a9379bd24e57f9160085cfc0d",
+    "submitter_id": "TCGA-CZ-5456",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "db7426dc-24d3-4666-92cb-d99138a45534",
+    "file_name": "9472cea7-a98a-4cea-91b6-82a633102d70.methylation_array.sesame.level3betas.txt",
+    "file_size": 12839819,
+    "md5sum": "07d05bb41859f996ac559483eef94afb",
+    "submitter_id": "TCGA-B0-4828",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "8814a164-60d4-49e0-ac70-1fb4c325766e",
+    "file_name": "94aa9f73-726a-4532-bc45-6f1d7cfb20c7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13224526,
+    "md5sum": "5f768466b80e861928dbe434b780e315",
+    "submitter_id": "TCGA-CZ-5458",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "6c4f5c1b-ac9b-4bce-9a77-f922943ca55f",
+    "file_name": "e3b20f78-be37-4a9a-8d5a-2886a53e6013.methylation_array.sesame.level3betas.txt",
+    "file_size": 13195777,
+    "md5sum": "42387cfdf3b72f4626ad5b8ffa3f62c7",
+    "submitter_id": "TCGA-B0-4818",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "332c0ad1-54b1-4904-90df-4abe2593f38c",
+    "file_name": "1a57f444-357f-4972-a439-bc10ea44a588.methylation_array.sesame.level3betas.txt",
+    "file_size": 13085736,
+    "md5sum": "097cbd6368a2eec0f4b908297debb7fc",
+    "submitter_id": "TCGA-B0-5120",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f19bb0ae-ff0a-4602-a4a8-cd0c2a3170bf",
+    "file_name": "fdc16c24-f87e-412d-bf3d-f905500bfc03.methylation_array.sesame.level3betas.txt",
+    "file_size": 12975884,
+    "md5sum": "c2b75360f62e1900527f32dbc2dff49e",
+    "submitter_id": "TCGA-B0-4819",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "5372693a-9895-4383-9f29-0a3c66e6d960",
+    "file_name": "92b87054-701f-41d4-9aa0-8b12a71a92e5.methylation_array.sesame.level3betas.txt",
+    "file_size": 12689340,
+    "md5sum": "94f3a505e440e558cd24577a25735d3f",
+    "submitter_id": "TCGA-B0-4844",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "834b556e-c057-4cb4-be3d-85c50219413a",
+    "file_name": "5abe5128-9c05-4ee7-8ee7-b8a2a6b3c977.methylation_array.sesame.level3betas.txt",
+    "file_size": 13124284,
+    "md5sum": "6ef783f3d21406a4df318609400ab9c8",
+    "submitter_id": "TCGA-B0-4827",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f5c3e43a-c7a3-4dee-b4fe-e21e6054d690",
+    "file_name": "8ef10a3f-a9e0-4848-a4f3-c6822fc7dfae.methylation_array.sesame.level3betas.txt",
+    "file_size": 13156772,
+    "md5sum": "cca8f673ec3183e53e9ec417d8fbd3a4",
+    "submitter_id": "TCGA-CJ-4897",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "4d36affd-4d5b-4a12-9be6-e8ec7c4903a0",
+    "file_name": "cc22ea8f-afe3-4897-a16f-cd980d0b8052.methylation_array.sesame.level3betas.txt",
+    "file_size": 13150753,
+    "md5sum": "06a8852a62318a001304a53716a6a618",
+    "submitter_id": "TCGA-B0-5095",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1dae7e5d-22c4-4659-b73d-e33d2eb3b7d9",
+    "file_name": "1fffface-116c-4807-80f0-e515545b8207.methylation_array.sesame.level3betas.txt",
+    "file_size": 13189937,
+    "md5sum": "d33d14b9285e893119a5a1c2f1936d4b",
+    "submitter_id": "TCGA-BP-5192",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "4ff05800-54bb-4a46-85a1-39a8067ae0f3",
+    "file_name": "60dc45d0-2093-491c-b125-d103a96dfafb.methylation_array.sesame.level3betas.txt",
+    "file_size": 12972472,
+    "md5sum": "f0bb3e357e4def9c90b310dfdeb1df9e",
+    "submitter_id": "TCGA-B0-5092",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "64d908fe-f673-454f-ab02-2dace4469f47",
+    "file_name": "ee382b71-127d-4249-9da5-42d7f1e138bd.methylation_array.sesame.level3betas.txt",
+    "file_size": 13006979,
+    "md5sum": "9c2d5f2f5788d78ec875b9f02d107baa",
+    "submitter_id": "TCGA-B0-4846",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "ea81eb64-ed54-4518-ba0c-7f7f93e93a6f",
+    "file_name": "fe4bdaa4-0161-436a-a585-5b9b8c92196c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13195880,
+    "md5sum": "b5266f3e12ab43e82027bb09a75126c3",
+    "submitter_id": "TCGA-BP-5180",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "15357e08-c96f-47ad-9668-0c5cf4a2402d",
+    "file_name": "c81c2798-5add-4b16-8972-85595b0b2846.methylation_array.sesame.level3betas.txt",
+    "file_size": 13167747,
+    "md5sum": "a63e7f864aab5061fcdbb8ac92a64108",
+    "submitter_id": "TCGA-BP-5200",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "17912545-508c-48b7-a02e-8236c583c02c",
+    "file_name": "fdbdf933-40c3-490e-a14f-c3da65db07e0.methylation_array.sesame.level3betas.txt",
+    "file_size": 13088300,
+    "md5sum": "8d8c773b956c6c5048438b6c51803570",
+    "submitter_id": "TCGA-B0-5119",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a2cbe422-da7f-448c-9a71-977351d00f2f",
+    "file_name": "2195f71c-3b1e-45be-98ce-5b814bc498b6.methylation_array.sesame.level3betas.txt",
+    "file_size": 13207694,
+    "md5sum": "a204a9b906480861508808ed5a7009ff",
+    "submitter_id": "TCGA-B0-5710",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "83868778-b69e-4e6e-aa58-9b02a0a7751f",
+    "file_name": "d33dd04e-13cf-41c6-a593-57c00d4cdf95.methylation_array.sesame.level3betas.txt",
+    "file_size": 12755749,
+    "md5sum": "131acf5702e10db5da79e859a23f6c1f",
+    "submitter_id": "TCGA-B0-4699",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c504587f-6a42-41f0-942f-ff03c316e33a",
+    "file_name": "14cef11e-eeaf-4f48-b88a-0653cb22cacf.methylation_array.sesame.level3betas.txt",
+    "file_size": 13141144,
+    "md5sum": "91a28cd742c99a3d26652cae21bccab5",
+    "submitter_id": "TCGA-B0-5117",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "fc9c767d-181e-4c27-b766-361d6072adff",
+    "file_name": "ab414f82-9eec-4840-aa81-2918d778f81e.methylation_array.sesame.level3betas.txt",
+    "file_size": 13205968,
+    "md5sum": "75f4381aef8bafa462e881742e80d247",
+    "submitter_id": "TCGA-CZ-5467",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d727b0ab-fbd0-49e9-b11f-4aad65b3888b",
+    "file_name": "91185fbd-88c8-4269-8776-40254ab2b311.methylation_array.sesame.level3betas.txt",
+    "file_size": 13189270,
+    "md5sum": "c038c763907e657608550adb8c31f198",
+    "submitter_id": "TCGA-BP-5202",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "00bed80b-c420-419a-ae49-ac13fbb5f5ae",
+    "file_name": "6287e3d5-8950-4ff5-a241-7cf87700f989.methylation_array.sesame.level3betas.txt",
+    "file_size": 12838301,
+    "md5sum": "753298d66cfe354835156cfa373c071b",
+    "submitter_id": "TCGA-B0-4817",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c0aa8d74-9a11-4c85-827e-62ae3a204c38",
+    "file_name": "47360caa-ff35-40da-bc36-0c7b6562860d.methylation_array.sesame.level3betas.txt",
+    "file_size": 13213571,
+    "md5sum": "1a2ed00675d3d0140d6a268486003dcd",
+    "submitter_id": "TCGA-B0-4712",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1dd72e81-22e5-4a53-8bd1-3073c085a53b",
+    "file_name": "0f8d284f-14dc-47de-a842-cca63b4087d9.methylation_array.sesame.level3betas.txt",
+    "file_size": 13101695,
+    "md5sum": "9ff880e00ee9d2d11fe351c96ebc719a",
+    "submitter_id": "TCGA-BP-5201",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "0809cbf3-1d4e-4bcb-94a1-8c8cd11ae91d",
+    "file_name": "4c89c614-ded9-4986-90df-cc192aa172a7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13182475,
+    "md5sum": "9be253de61bfba0790ac3ec3592b0252",
+    "submitter_id": "TCGA-BP-4993",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f5d0bc38-0de8-40d7-a3f9-897a07ffe7e7",
+    "file_name": "74e5aa2e-f71a-4e21-b518-d6deb030a326.methylation_array.sesame.level3betas.txt",
+    "file_size": 13173816,
+    "md5sum": "2162dfc68fc776e99ecae4e1092ec786",
+    "submitter_id": "TCGA-BP-5181",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "57cc1bb8-e06b-4e21-ae03-9f2ee659c0d6",
+    "file_name": "1bf7b274-7982-4222-b807-c90b0f4bb512.methylation_array.sesame.level3betas.txt",
+    "file_size": 13002293,
+    "md5sum": "a4a68debafa83120c5f01e6cedbcacd5",
+    "submitter_id": "TCGA-B0-4841",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "6dc4f32e-e483-4c47-9ac3-ab23e535e592",
+    "file_name": "2fd861f7-5d91-4081-bb76-7e6d48abb9b7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13219848,
+    "md5sum": "72f8d0f7e4ef0692c4298ffb95a2ef92",
+    "submitter_id": "TCGA-CJ-4908",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7aae558d-0b5f-4cb8-af39-f3d3c3905e00",
+    "file_name": "01876455-5573-4b4c-85eb-d55c9c00629c.methylation_array.sesame.level3betas.txt",
+    "file_size": 12931647,
+    "md5sum": "cbd57f64192096b495acd69bf55e2892",
+    "submitter_id": "TCGA-B0-4714",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b4d2ba05-617d-47a8-8c57-da0a5dd21d45",
+    "file_name": "43b2ecc5-6ac5-4d2b-9421-1d49a65ce50f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13177647,
+    "md5sum": "e2c3e91fde12a37371bb55450627f514",
+    "submitter_id": "TCGA-B0-5109",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1849fcb3-bf39-4daa-ab36-0924de39cc41",
+    "file_name": "a5a27a81-0de8-437c-b39f-8026c875193c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13186753,
+    "md5sum": "6f11790ff42a5ba9c7fb7617061f0a8d",
+    "submitter_id": "TCGA-BP-5184",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7c712ed7-682b-4bbc-aed2-3ace13db26ad",
+    "file_name": "ba6ca28f-17c4-49ba-a957-d28865b7e654.methylation_array.sesame.level3betas.txt",
+    "file_size": 13176862,
+    "md5sum": "200c009321823b8361ea959e3baec1cd",
+    "submitter_id": "TCGA-CZ-4859",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1ca3231c-914b-4061-a641-3e3c44f63353",
+    "file_name": "6b2aa07d-e436-442d-a97a-d1c1c69c2864.methylation_array.sesame.level3betas.txt",
+    "file_size": 12843134,
+    "md5sum": "1557d0999e1901ebc2f7597a1a3a8def",
+    "submitter_id": "TCGA-B0-4813",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a8c0853a-e33b-4da9-ba9b-f0a14405f105",
+    "file_name": "5340b524-3e80-4e5c-92b2-324823366c0e.methylation_array.sesame.level3betas.txt",
+    "file_size": 13171465,
+    "md5sum": "ffc01584a3168173be4ad74c69c2ef71",
+    "submitter_id": "TCGA-B0-4945",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b56eedca-fac4-4cc4-94ef-c8ff7e93becd",
+    "file_name": "f1ee7af5-ea2d-4d72-a769-0412c599ca4a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13222067,
+    "md5sum": "b6d9dfe3edb676d805861174e298b8d2",
+    "submitter_id": "TCGA-CZ-5460",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "fc1feccb-2d91-4d95-abb2-83d109f205cb",
+    "file_name": "aeec5234-20f8-45f3-81e0-80d3198e9b6b.methylation_array.sesame.level3betas.txt",
+    "file_size": 13119078,
+    "md5sum": "266358d85268e9a96d028dfbc7dd1c8c",
+    "submitter_id": "TCGA-CJ-4903",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "3d126c1f-5185-4784-bcd3-0d9c9c6d9b20",
+    "file_name": "e5f7cbe3-b2d8-45a7-a87b-d824963ce4a2.methylation_array.sesame.level3betas.txt",
+    "file_size": 13097831,
+    "md5sum": "6b4277662d4a7ec009e9394b69dd8e25",
+    "submitter_id": "TCGA-B0-5096",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7207e30d-aa94-426c-9a5a-bcd3ea7706af",
+    "file_name": "5c155d54-637c-4138-9a72-7374ed8cce33.methylation_array.sesame.level3betas.txt",
+    "file_size": 12979337,
+    "md5sum": "069fa03e39412bb969ab4e5feb7fa8a3",
+    "submitter_id": "TCGA-B0-4824",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "6c622cd2-7f7a-4940-a5ce-9240ce47ac1c",
+    "file_name": "d0d9b39b-889c-4524-b512-68e819a79a88.methylation_array.sesame.level3betas.txt",
+    "file_size": 13183944,
+    "md5sum": "10ac79615625696e85d5107b68d0888a",
+    "submitter_id": "TCGA-BP-5010",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "3e9c6e04-5de7-45de-921d-992e45787cc4",
+    "file_name": "40b2e1be-ca7e-4833-8ce9-00d39c691943.methylation_array.sesame.level3betas.txt",
+    "file_size": 13223886,
+    "md5sum": "aa35ec1444f3040cc2c41fa86328dfe1",
+    "submitter_id": "TCGA-B0-4698",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a4d02987-b3aa-4737-8d5e-7ef78c3943a6",
+    "file_name": "b15f73c5-3a91-40d0-a587-50452e63998b.methylation_array.sesame.level3betas.txt",
+    "file_size": 13137597,
+    "md5sum": "3e44b371de11aeda5affedcc498a57b3",
+    "submitter_id": "TCGA-B0-4823",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "217e1981-b406-4a0f-921a-93fd2979ad53",
+    "file_name": "4d96e820-c934-452a-a734-c56adff2ee00.methylation_array.sesame.level3betas.txt",
+    "file_size": 13142882,
+    "md5sum": "c6682103035742df7fe282124f3db3c8",
+    "submitter_id": "TCGA-BP-5183",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d00e4717-f6b7-413f-bf8b-e85c4a33f16d",
+    "file_name": "fa929cda-4f9b-4cf7-9337-6b83209e8527.methylation_array.sesame.level3betas.txt",
+    "file_size": 13116946,
+    "md5sum": "29ef6e49de513af1df04e8f28c5bf1a6",
+    "submitter_id": "TCGA-A3-3370",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "8c95d530-d38d-440c-a6bd-1d168dc6f64d",
+    "file_name": "c5874a1e-50b2-4ffc-9144-09389ad7cd56.methylation_array.sesame.level3betas.txt",
+    "file_size": 13131514,
+    "md5sum": "4d2c3c1d13b9a94ee8224393500924df",
+    "submitter_id": "TCGA-CJ-4901",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "070f3a3a-786e-41fd-93f9-289d9bd2caac",
+    "file_name": "071a3b8d-0f84-482a-8143-6d6e5ee639da.methylation_array.sesame.level3betas.txt",
+    "file_size": 13188242,
+    "md5sum": "013a324ec0b86571bd37dc37fcbbd079",
+    "submitter_id": "TCGA-B0-5080",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "908b42e5-3ee5-4410-b0ab-86a239c9b329",
+    "file_name": "22782f80-a49a-4613-9868-9f497b7547f3.methylation_array.sesame.level3betas.txt",
+    "file_size": 13061761,
+    "md5sum": "ff101d558c9709c50be8ae5504f1b37d",
+    "submitter_id": "TCGA-B0-5097",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "ba135e8c-129c-4eaa-a402-84e365e564f6",
+    "file_name": "317bdec6-10c5-482b-bd80-0472c39b6a5b.methylation_array.sesame.level3betas.txt",
+    "file_size": 13138326,
+    "md5sum": "10046c71d8fc6325ce3b02be72b5733a",
+    "submitter_id": "TCGA-B0-4842",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "69f757e6-2f28-467a-8c18-36eef31dd238",
+    "file_name": "d5f92514-1f63-4fea-99df-026f7ee18fba.methylation_array.sesame.level3betas.txt",
+    "file_size": 13169770,
+    "md5sum": "8383c9075bb12fc3bd053ce4efa2f7ef",
+    "submitter_id": "TCGA-BP-5182",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "0be00381-403c-4a33-9e55-5a05ba9f6489",
+    "file_name": "2c0eafdb-1ccc-411c-b2a6-2a4710d58509.methylation_array.sesame.level3betas.txt",
+    "file_size": 13183482,
+    "md5sum": "199a389217929051748a0400247f9b1a",
+    "submitter_id": "TCGA-B0-4810",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "47d08e8b-4da2-4064-b03e-3a24a52cc3e9",
+    "file_name": "5d0501ff-caac-4ede-b228-73f3bff1e151.methylation_array.sesame.level3betas.txt",
+    "file_size": 13098454,
+    "md5sum": "674ff02da472f3739875891a7c183d72",
+    "submitter_id": "TCGA-B0-5098",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "efac671f-15a6-4b04-bfea-bccd7752cf0e",
+    "file_name": "5c67d796-7e65-4502-81ec-1e232b4d8b90.methylation_array.sesame.level3betas.txt",
+    "file_size": 13007655,
+    "md5sum": "279b68a96ff0c350ee619ce4d21f6bb9",
+    "submitter_id": "TCGA-A3-3357",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "974f8792-81fe-4b8c-b34d-1f8b15e14ac2",
+    "file_name": "d402ba78-ead3-4877-9a5c-727f7743c69d.methylation_array.sesame.level3betas.txt",
+    "file_size": 13205371,
+    "md5sum": "ae3da5fc393dac17e29a09d0d0c7799a",
+    "submitter_id": "TCGA-CZ-5466",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "95d29249-484b-47da-a94c-846314f97bfd",
+    "file_name": "52b56845-983a-4172-9b82-90f2bdbe7851.methylation_array.sesame.level3betas.txt",
+    "file_size": 13190421,
+    "md5sum": "3d8a911f6b4aa48cf06fd0dce2e6f0d7",
+    "submitter_id": "TCGA-B0-4811",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "6d48e377-17e0-4394-8f84-1fc5fa6e90df",
+    "file_name": "26143787-b657-4784-8494-71123b5fedb9.methylation_array.sesame.level3betas.txt",
+    "file_size": 13225204,
+    "md5sum": "71997f2d0c69fdfd1aa8d16f6e418439",
+    "submitter_id": "TCGA-CZ-5464",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f573504c-3114-4407-a2d7-ec92c36e0d78",
+    "file_name": "7fcf9d98-cf20-4113-84b2-855b8ae0b667.methylation_array.sesame.level3betas.txt",
+    "file_size": 13020074,
+    "md5sum": "44787d193dcf181ecfc18045eab9ae0e",
+    "submitter_id": "TCGA-A3-3367",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "1e990403-9be0-4448-bba9-c24a6617c930",
+    "file_name": "091d0ecc-241f-4015-9a69-e8555b433bf6.methylation_array.sesame.level3betas.txt",
+    "file_size": 12899393,
+    "md5sum": "ebdf432850245a6ae8b3d75be2ada1c1",
+    "submitter_id": "TCGA-B0-4701",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "3ffb5b1d-bf11-4a15-9724-4a08c8b42a66",
+    "file_name": "709b5ae2-d750-4955-8d78-a412d63cfb3a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13053551,
+    "md5sum": "8a18adc951ff231dcefea74d9a215d82",
+    "submitter_id": "TCGA-B0-5083",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "ddfae154-cd26-4474-865b-be773537ad8b",
+    "file_name": "f55754bb-a8dd-409a-bbaa-8d96732c0ca7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13101146,
+    "md5sum": "f7001f096e6e26934a7e10c8251fc740",
+    "submitter_id": "TCGA-B0-5121",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d2910602-83ea-4adb-9ece-40f014cba060",
+    "file_name": "9dce69bf-291e-4a08-a6d7-e488baa14584.methylation_array.sesame.level3betas.txt",
+    "file_size": 13215526,
+    "md5sum": "e439c9d0cc54b723a67d8fb6c1cb10f0",
+    "submitter_id": "TCGA-CZ-5468",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d92cb0f2-3d4f-4340-bc33-d1c37634b213",
+    "file_name": "b2b812c3-9eb5-4081-9338-4c0cd81df2b2.methylation_array.sesame.level3betas.txt",
+    "file_size": 13216906,
+    "md5sum": "43e10af37af5dd5ebb1ae7cd6d789b99",
+    "submitter_id": "TCGA-B0-5711",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2eb01485-1922-48bb-986f-f0b4b92114eb",
+    "file_name": "b3c636f1-8ef3-432c-9aca-18b2531c334c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13138950,
+    "md5sum": "380ddeb75a03cd38e04282e48d6818ca",
+    "submitter_id": "TCGA-BP-5176",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "925a5f00-bb4b-4e58-9702-3bc1304233b7",
+    "file_name": "c7140640-34e9-4896-b115-46211ee64da5.methylation_array.sesame.level3betas.txt",
+    "file_size": 12717420,
+    "md5sum": "c510853ffb8bf51b9cbf76a20de6423f",
+    "submitter_id": "TCGA-B0-4691",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "21d87dd4-fa7b-475f-9888-c14fe1687efa",
+    "file_name": "9db7fcc4-d8be-45bb-b5a4-af91dbf440af.methylation_array.sesame.level3betas.txt",
+    "file_size": 13221981,
+    "md5sum": "a9f0d6f45d024d5634707f3ba2d3256e",
+    "submitter_id": "TCGA-CZ-5451",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "0d151b73-a049-4981-8084-1e0141d83aaa",
+    "file_name": "620a5a79-9b0f-4219-93d2-50a731cc1517.methylation_array.sesame.level3betas.txt",
+    "file_size": 13176474,
+    "md5sum": "bd8bc5f3b271d9c09af1f472cc561c33",
+    "submitter_id": "TCGA-BP-5189",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "4c494564-acd1-4018-878a-777172d7b093",
+    "file_name": "14987fae-745d-40c2-8799-939a33b43a1a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13110087,
+    "md5sum": "53dbcab4a7b0ab538b90ac9556363524",
+    "submitter_id": "TCGA-BP-5178",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c6a086af-2865-4b53-bc17-46fb8dd39926",
+    "file_name": "463bf927-9713-43db-acf8-cc9924266ae6.methylation_array.sesame.level3betas.txt",
+    "file_size": 12894688,
+    "md5sum": "25adb75b6e9ccf364ba6e728432538a2",
+    "submitter_id": "TCGA-B0-4707",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "38f6f7db-65a5-4e82-a99a-c35b81f9d6db",
+    "file_name": "183cbf82-9917-43ee-8a81-b777012a75aa.methylation_array.sesame.level3betas.txt",
+    "file_size": 13204688,
+    "md5sum": "f6dc32fec3e1716e9e8337b2c7014990",
+    "submitter_id": "TCGA-CZ-4866",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "0965dc00-90d4-47ed-be5a-c258fb01d547",
+    "file_name": "d3b7ab11-afc7-4539-8919-6ea943cc2992.methylation_array.sesame.level3betas.txt",
+    "file_size": 13187694,
+    "md5sum": "6cfae9510ac816dc69c2436d933057a9",
+    "submitter_id": "TCGA-BP-5169",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "49e9c9d2-460f-44f4-8c0f-ac8e39460b69",
+    "file_name": "ce96cae9-b2c0-4338-9078-849007500597.methylation_array.sesame.level3betas.txt",
+    "file_size": 13200757,
+    "md5sum": "592d901511d342237805846037061d8e",
+    "submitter_id": "TCGA-BP-5196",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7cd83ef0-c670-49e0-9bf0-6d1acd375770",
+    "file_name": "5b3a2fde-5b9b-47e4-a0e7-6dbe2d459966.methylation_array.sesame.level3betas.txt",
+    "file_size": 13185368,
+    "md5sum": "dbfd4c45541c5f79cd3269e584177176",
+    "submitter_id": "TCGA-CZ-5470",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a2f79655-74e3-471b-802f-1b8a3b27e362",
+    "file_name": "0d954641-e9ad-41cb-b0ca-84af06d0baf5.methylation_array.sesame.level3betas.txt",
+    "file_size": 13136263,
+    "md5sum": "cfd52ccec866eaf830da590397851443",
+    "submitter_id": "TCGA-B0-5102",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "977cb0eb-0131-420d-83fd-2c1ca6fa92a8",
+    "file_name": "466eba28-7666-4350-8552-0b9bd52eb0a3.methylation_array.sesame.level3betas.txt",
+    "file_size": 13217560,
+    "md5sum": "cb0c8b23144a9a6cffc099321f9b06c8",
+    "submitter_id": "TCGA-CZ-5462",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "83ba9f02-fe1d-48a9-8539-9f528801b64b",
+    "file_name": "0cc1704a-ead0-4e23-96ef-2a458638c810.methylation_array.sesame.level3betas.txt",
+    "file_size": 13196987,
+    "md5sum": "b6494a59500296a0ded9a86da7930aae",
+    "submitter_id": "TCGA-CJ-4902",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "58a33766-7a5f-48d0-ad74-8bec19e955c7",
+    "file_name": "132c110a-f013-470b-9513-afb123d2c1e6.methylation_array.sesame.level3betas.txt",
+    "file_size": 13124925,
+    "md5sum": "7ee82513964f374e855a11aa4c3cf538",
+    "submitter_id": "TCGA-BP-5190",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "b6f4de2d-a7dc-4401-8fbd-70ad8eaee575",
+    "file_name": "e37a74e5-156c-4d80-b05d-843765219cc3.methylation_array.sesame.level3betas.txt",
+    "file_size": 13199999,
+    "md5sum": "d2dade77dff031f95b020f2636d5ab75",
+    "submitter_id": "TCGA-B0-4816",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "50999805-1b1e-4993-b1b3-84b8b9641540",
+    "file_name": "b9fa966b-40a5-4c0a-afd5-cbdc9d95dcfa.methylation_array.sesame.level3betas.txt",
+    "file_size": 13203269,
+    "md5sum": "846d4c6c9a8e6d4f6f143be915018b38",
+    "submitter_id": "TCGA-CZ-5459",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "15598482-b24a-475b-af3f-7520fe3d4f85",
+    "file_name": "69eff088-ad66-4d79-9d68-c0b2238227bd.methylation_array.sesame.level3betas.txt",
+    "file_size": 12909523,
+    "md5sum": "254518662d1a7a78088053d155e223cb",
+    "submitter_id": "TCGA-B0-4688",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d42e9432-d10b-4179-8397-37677bc87af5",
+    "file_name": "3d33e967-7b98-4f74-a8e9-388bcfcd1456.methylation_array.sesame.level3betas.txt",
+    "file_size": 12858412,
+    "md5sum": "f26120c9b3605243704fb916536b8cff",
+    "submitter_id": "TCGA-B0-4843",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "85c946ef-f724-4f80-a7c7-32818194d534",
+    "file_name": "848375a3-bc5b-4534-9d89-913cac34200c.methylation_array.sesame.level3betas.txt",
+    "file_size": 12985515,
+    "md5sum": "5408a05cd9150cf921ce1ffdd5c2c9c1",
+    "submitter_id": "TCGA-B0-4848",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "f1c9c3d9-4995-45ae-a92c-fc47658d98c0",
+    "file_name": "b5292d2d-435c-4f97-b5f6-f309eeb34576.methylation_array.sesame.level3betas.txt",
+    "file_size": 12872220,
+    "md5sum": "f331cf380277c2c597f58cba292fc859",
+    "submitter_id": "TCGA-B0-4697",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c1bf955d-8756-4196-9213-968bd6e075a2",
+    "file_name": "3d0ab5cc-6ac3-439e-8ed0-b88d946e1e9c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13018360,
+    "md5sum": "fd2f22a3b3938061a3044a7ed3fea432",
+    "submitter_id": "TCGA-B0-4694",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d33ebbe9-596f-42b6-9788-c220198a52cd",
+    "file_name": "dc22e049-1a25-4354-a83d-053db8dd7e42.methylation_array.sesame.level3betas.txt",
+    "file_size": 13212266,
+    "md5sum": "0d1488d73f56cd877b0e4eff6ad9a623",
+    "submitter_id": "TCGA-B0-4706",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "e18fcd1c-1314-41f5-b7fd-e99ae8bedff6",
+    "file_name": "814444e1-255c-4e4d-afd7-df915714b493.methylation_array.sesame.level3betas.txt",
+    "file_size": 13202851,
+    "md5sum": "21005138cb808fdf9abdaa5fb939448b",
+    "submitter_id": "TCGA-CJ-4923",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "575d7532-5d4c-4a52-bfc9-8af8b6d9db78",
+    "file_name": "5e58278a-7124-4301-aba9-ea49f4e31885.methylation_array.sesame.level3betas.txt",
+    "file_size": 13210785,
+    "md5sum": "042f98590298634cd79ec10195ccf70f",
+    "submitter_id": "TCGA-BP-5175",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "a6179622-ac22-4fbd-b405-676c7f75849a",
+    "file_name": "8d112d20-1cd4-459f-a994-e27e739ba903.methylation_array.sesame.level3betas.txt",
+    "file_size": 13159161,
+    "md5sum": "87d30d532428fb2e9ecd29a68c677f2e",
+    "submitter_id": "TCGA-A3-3373",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c28c4c32-273f-463d-91f0-f5716693dfa9",
+    "file_name": "f359e7c0-4cc6-448f-a885-c17ccc752144.methylation_array.sesame.level3betas.txt",
+    "file_size": 13211966,
+    "md5sum": "0e4f424e756bc0604d386c23658861c1",
+    "submitter_id": "TCGA-B0-4710",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "3e66d2a4-c0bd-4aca-9a5c-7e7e103855e8",
+    "file_name": "ee824ed1-fc77-47ed-8584-e18f0ef30478.methylation_array.sesame.level3betas.txt",
+    "file_size": 12958909,
+    "md5sum": "dd2cf965cf2f5f88e2138da7dc9597ec",
+    "submitter_id": "TCGA-B0-4814",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "c1fbe3c8-0fee-4ac9-b958-3465f248ba8f",
+    "file_name": "75ae4085-522b-4a9d-91bf-2c5222fec821.methylation_array.sesame.level3betas.txt",
+    "file_size": 13120981,
+    "md5sum": "077712ae02e2bad50c9384d821f2996b",
+    "submitter_id": "TCGA-A3-3385",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "e546a41d-3544-4a4c-a53f-4409e733f68d",
+    "file_name": "73e23b7b-00a8-4085-b3dc-237785b65282.methylation_array.sesame.level3betas.txt",
+    "file_size": 13185472,
+    "md5sum": "61a18bcb02caf2540c08ceefb246bd79",
+    "submitter_id": "TCGA-CZ-5453",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "be2367fa-acd3-4b9e-b0ba-9828ed155e8f",
+    "file_name": "baf195d6-bee3-4e69-8672-ec34f111dc23.methylation_array.sesame.level3betas.txt",
+    "file_size": 13156059,
+    "md5sum": "4763c30099047cad97a26a3b2ff0dadd",
+    "submitter_id": "TCGA-BP-5194",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "89f2c540-45db-4864-8f4a-fd15f478feb4",
+    "file_name": "88d25597-3dec-4b7b-9123-ee5ad8815ff4.methylation_array.sesame.level3betas.txt",
+    "file_size": 12884263,
+    "md5sum": "f221aa3dcfb27a995f459237dcc9d01c",
+    "submitter_id": "TCGA-B0-4718",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "2e89d509-fa43-4592-a400-a7d61c68c10d",
+    "file_name": "1f88b6ba-9e6f-42d3-9678-4b34cb173e2d.methylation_array.sesame.level3betas.txt",
+    "file_size": 13086834,
+    "md5sum": "567ff391d71014ab93e62b99acc50880",
+    "submitter_id": "TCGA-CJ-4920",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "d1ece134-49eb-4e3f-a2d2-d61f483a075a",
+    "file_name": "1526d172-a5bd-4a55-9179-d206559d6c14.methylation_array.sesame.level3betas.txt",
+    "file_size": 12984145,
+    "md5sum": "98efafe7f72d2b7b3efdb524c3b41d3b",
+    "submitter_id": "TCGA-B0-4847",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "7cecaaf9-0d2e-450e-9bda-14cf799b550d",
+    "file_name": "f488585c-2471-41fd-8bf4-f2c804e3e109.methylation_array.sesame.level3betas.txt",
+    "file_size": 13165263,
+    "md5sum": "12b8a12513c1b539a37efd4e34c8c01c",
+    "submitter_id": "TCGA-CZ-4853",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "84b5a8f1-0756-4b39-aa9d-7a590888bee7",
+    "file_name": "3c31adbe-6bdc-4c0a-adb8-29e7b742c26b.methylation_array.sesame.level3betas.txt",
+    "file_size": 12872329,
+    "md5sum": "ee662ee16d48786ead5f80eb852701e1",
+    "submitter_id": "TCGA-B0-4713",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "388ba7bb-f782-4f55-9f57-985fddff1990",
+    "file_name": "9aad71ef-916f-4613-9ac7-837c948432c8.methylation_array.sesame.level3betas.txt",
+    "file_size": 13123297,
+    "md5sum": "f214bc8b726ef1cd4c385e16fe4ff1da",
+    "submitter_id": "TCGA-B0-5094",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "e9164c2e-3b1f-4a2c-a50d-6d06e62d2ff5",
+    "file_name": "3a1daa68-931c-455e-b050-b2e3f62e1333.methylation_array.sesame.level3betas.txt",
+    "file_size": 13211662,
+    "md5sum": "458c628496b1b881713751b7d8285e2e",
+    "submitter_id": "TCGA-BP-5198",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "59063458-2e00-40a9-8119-484bc7c39871",
+    "file_name": "dfe0a519-263c-40fa-af40-7461d4e1dc71.methylation_array.sesame.level3betas.txt",
+    "file_size": 13143572,
+    "md5sum": "003be3bb5c3cf674129b3f2bb319181b",
+    "submitter_id": "TCGA-B0-5100",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-KIRC",
+    "file_id": "474bb6ec-3902-4954-ac06-50fcd5995e79",
+    "file_name": "603b1d11-b48a-47d2-9fa5-dfaca4f56814.methylation_array.sesame.level3betas.txt",
+    "file_size": 13078516,
+    "md5sum": "241f78dffd935a47a6808e83281269a0",
+    "submitter_id": "TCGA-CJ-4912",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "4b41cab3-d33f-4183-a6b5-225fe99bb5c4",
+    "file_name": "1afab6fb-5fa6-46c1-a9f2-e6bec31e885f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13146392,
+    "md5sum": "a79306f847db650d2ee1061f764acdcd",
+    "submitter_id": "TCGA-EJ-7123",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "eea360ad-98eb-448b-8aae-7dfb48876639",
+    "file_name": "9cb82838-b7a6-4836-8be1-4886cb34e738.methylation_array.sesame.level3betas.txt",
+    "file_size": 13202610,
+    "md5sum": "6f4d978d07ab726c130aac945ab56262",
+    "submitter_id": "TCGA-CH-5763",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "fff4651c-f47e-490d-ac3b-567541d09159",
+    "file_name": "44b439b7-ad90-4dd5-b65d-9859d1ab6a8a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13199863,
+    "md5sum": "574a6f9ce611730a1f5a5d25c756afba",
+    "submitter_id": "TCGA-CH-5772",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "4b437222-8536-489e-952e-14f12287c833",
+    "file_name": "acc5e8b1-60b2-4fb7-a917-ac050a4eb739.methylation_array.sesame.level3betas.txt",
+    "file_size": 13177450,
+    "md5sum": "d5703b2733bf460ef51394a56e7a2086",
+    "submitter_id": "TCGA-CH-5762",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "5f8a0edd-7bd8-4334-aac1-c03d53fdd189",
+    "file_name": "1f539151-0102-48f4-8e87-c35af96de757.methylation_array.sesame.level3betas.txt",
+    "file_size": 13175983,
+    "md5sum": "b6d95dfd9538eadd9b648e68c897a18b",
+    "submitter_id": "TCGA-G9-6342",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "40c3ce44-885e-49c2-9965-c7474ea3c69d",
+    "file_name": "c34f23ea-a94d-4fa8-9306-8466f46b0ab7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13202166,
+    "md5sum": "92fe1b620a000d349ef31f0c393d0568",
+    "submitter_id": "TCGA-G9-6364",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "26e35af3-e4f7-4246-870c-576145559fd9",
+    "file_name": "482b70c9-7ad5-4421-92c4-f5f37a70277f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13211986,
+    "md5sum": "17ad885f737b1e8267bae86c2f543a6a",
+    "submitter_id": "TCGA-G9-6356",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "b7227bb1-d280-4435-9780-35e930017674",
+    "file_name": "12093df2-e16b-445b-9025-3c81c54a29f0.methylation_array.sesame.level3betas.txt",
+    "file_size": 13157366,
+    "md5sum": "ffd4fccbf583f083a2327f5df4c1cfaf",
+    "submitter_id": "TCGA-EJ-7792",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "1545bc77-2e5b-484d-ad3f-86342ced753a",
+    "file_name": "0e32e6c7-0ea6-4b04-b107-7b67e13eebbe.methylation_array.sesame.level3betas.txt",
+    "file_size": 13195926,
+    "md5sum": "52140b280e0f4f8ba8cb28d3183fda3c",
+    "submitter_id": "TCGA-EJ-7785",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "95b1499f-12ca-4c6a-9e47-4293878efa7e",
+    "file_name": "f8970e9c-34e7-4b4a-ba28-778f8f30e5f7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13202154,
+    "md5sum": "b1bec39a37b8d628d87838780dcfa990",
+    "submitter_id": "TCGA-EJ-7781",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "04ab68c9-a09f-4187-97d1-0b059de0cb2d",
+    "file_name": "535d799b-a2f4-49cc-b207-4cace399fcc6.methylation_array.sesame.level3betas.txt",
+    "file_size": 13203988,
+    "md5sum": "accf351403b4500b760a0028c2fc5d45",
+    "submitter_id": "TCGA-CH-5771",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "15223c61-9875-408d-822d-1f8b4df96fed",
+    "file_name": "a8b62377-7b60-4228-bc19-f239283ce9cc.methylation_array.sesame.level3betas.txt",
+    "file_size": 13191323,
+    "md5sum": "f680789a5b5d1addc61f9ac40ccfc7ff",
+    "submitter_id": "TCGA-EJ-7784",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "02ab505a-eb78-4621-a743-d47c84a51217",
+    "file_name": "38c8e3d0-8864-4c8a-ae4a-b7ad0f975d77.methylation_array.sesame.level3betas.txt",
+    "file_size": 13195439,
+    "md5sum": "73bdafffc6ebddc5a72de73c04acb020",
+    "submitter_id": "TCGA-CH-5765",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "278521c4-6106-460a-8ccb-152aab73eef7",
+    "file_name": "ad33c002-9e0a-4376-a904-70bad5ae4456.methylation_array.sesame.level3betas.txt",
+    "file_size": 13177745,
+    "md5sum": "82e4fae0feec56f97643e7ca66584b4d",
+    "submitter_id": "TCGA-G9-6348",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "644affa8-f94c-4b3f-829e-8547f65d4b10",
+    "file_name": "335bf1f3-09e8-4aa9-aecc-b825fd2d91cf.methylation_array.sesame.level3betas.txt",
+    "file_size": 13189420,
+    "md5sum": "ac6b1bb097dc4767ce23917def01e35c",
+    "submitter_id": "TCGA-HC-7752",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "c7662579-2bfa-4e47-ab0d-586b0244a29c",
+    "file_name": "4f2a0473-9723-43ed-85f5-1dc88dff0f07.methylation_array.sesame.level3betas.txt",
+    "file_size": 13194641,
+    "md5sum": "99c0a6c1317a8ee72a80b0a01805f780",
+    "submitter_id": "TCGA-HC-7820",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "509a3af5-d70a-480c-ad5c-7d68117b6e8d",
+    "file_name": "9d6fb2e5-f86d-4673-8787-93d9055f3f4c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13199507,
+    "md5sum": "5499471c4858fc7dd8df9abe5065de37",
+    "submitter_id": "TCGA-G9-6384",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "9917b9ad-8f8c-4727-aa5a-97a76df3313c",
+    "file_name": "0863e4d3-dcb1-4ba6-bc73-b44fdc1d5f99.methylation_array.sesame.level3betas.txt",
+    "file_size": 13203302,
+    "md5sum": "d6af43502cc1ba0eb96472863b9c7abd",
+    "submitter_id": "TCGA-CH-5769",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "7d404f38-2fb7-4072-8d1c-ba83c164be86",
+    "file_name": "86a2295c-505f-4edd-9ae3-596ea9c3a73c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13216694,
+    "md5sum": "900398dfbe65b6dc98f53a191087018b",
+    "submitter_id": "TCGA-G9-6333",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "61e6a682-b323-479c-833d-2406c7de711a",
+    "file_name": "1779ccfc-9cc2-4800-8abc-272985ba31a5.methylation_array.sesame.level3betas.txt",
+    "file_size": 13184787,
+    "md5sum": "16d1acbe6399a15c5489cdb289da61cb",
+    "submitter_id": "TCGA-HC-7745",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "95c5a595-2b84-4ff0-8a35-ff33bbb1140c",
+    "file_name": "eb322ba4-1fcd-4929-b6aa-9f62b10d7422.methylation_array.sesame.level3betas.txt",
+    "file_size": 13178666,
+    "md5sum": "a1d57caacb1d53e36c573b661038d857",
+    "submitter_id": "TCGA-EJ-7317",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "622b0f86-1cd9-4520-8387-200a5b0350e9",
+    "file_name": "08ccafd9-cab4-4313-b6af-648e7fa2fbd3.methylation_array.sesame.level3betas.txt",
+    "file_size": 13216373,
+    "md5sum": "a80258a6308b00c4f4ac0a17d22a8561",
+    "submitter_id": "TCGA-G9-6365",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "881d18a1-04c5-4cbf-85fa-8ac4ad4b10d0",
+    "file_name": "668bf2e1-c784-4282-af6c-b758fa855585.methylation_array.sesame.level3betas.txt",
+    "file_size": 13182161,
+    "md5sum": "cf26083d81cd88ea8c92e419a3bb339d",
+    "submitter_id": "TCGA-HC-7737",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "b52143f4-63b5-47fc-b39b-6babc71d013b",
+    "file_name": "53f1f0dc-fb47-4369-8a8a-cf27de12acf9.methylation_array.sesame.level3betas.txt",
+    "file_size": 13206361,
+    "md5sum": "1b8beeda76d7b19bc716fc3f021f4459",
+    "submitter_id": "TCGA-CH-5761",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "17d17b85-8189-44cc-9caf-3f026755651f",
+    "file_name": "57b30527-fb84-4384-85e0-96bf99ef41f2.methylation_array.sesame.level3betas.txt",
+    "file_size": 13211031,
+    "md5sum": "2cd5ea62669ed1e1d9db688d92ee3493",
+    "submitter_id": "TCGA-CH-5767",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "a41e5fb6-629c-4362-8a0a-c40053224092",
+    "file_name": "be197f33-cd69-4b1a-a76d-9370128d0514.methylation_array.sesame.level3betas.txt",
+    "file_size": 13189939,
+    "md5sum": "fa2b989660364f0d6c43ff1f07b150ba",
+    "submitter_id": "TCGA-G9-6367",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "49da84a0-4c99-4914-a996-ccc3606f2b3a",
+    "file_name": "023dc0ac-0583-41ea-b853-2be4f92e4cc7.methylation_array.sesame.level3betas.txt",
+    "file_size": 13203121,
+    "md5sum": "1f2d7ff4a81a2db6b8dab224db7c7909",
+    "submitter_id": "TCGA-EJ-7794",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "880cdf50-d77f-4dc0-9f55-a8539b0bf4a2",
+    "file_name": "f69b3f39-830e-486d-82ff-c5bd99d39dfa.methylation_array.sesame.level3betas.txt",
+    "file_size": 13210211,
+    "md5sum": "7460d4acefee2d3d4ccc9d7fb5e93d35",
+    "submitter_id": "TCGA-G9-6363",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "5221ed5d-133b-4bb8-865b-be693b1edda3",
+    "file_name": "0ef94dee-0a4e-4ecd-a8c9-b90e6a737a6f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13196686,
+    "md5sum": "bbdfc9878c3deab17461e56c313b71e8",
+    "submitter_id": "TCGA-G9-6332",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "2a89d302-970a-4bdb-a05f-77076bdf7b0a",
+    "file_name": "4075c867-b184-468a-8746-b4fdae211da9.methylation_array.sesame.level3betas.txt",
+    "file_size": 13204100,
+    "md5sum": "da7e837d0969d8c395b8d3511908a12f",
+    "submitter_id": "TCGA-EJ-7327",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "ccc66f15-30d0-4911-84fe-140abf7bfb53",
+    "file_name": "a08fe763-6a89-47dd-a309-9bc51152a8ca.methylation_array.sesame.level3betas.txt",
+    "file_size": 13205370,
+    "md5sum": "2f2f82a24bb2c28f727783d4195f644d",
+    "submitter_id": "TCGA-HC-7211",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "9b7422cc-2caa-4042-83bd-8c4ad4a219f5",
+    "file_name": "46ccad8c-393a-4636-b97f-291c32252324.methylation_array.sesame.level3betas.txt",
+    "file_size": 13210065,
+    "md5sum": "551d36a4d13608c10f987040d3920d57",
+    "submitter_id": "TCGA-G9-6385",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "8e8937fa-fea3-4983-8c02-9554b9684793",
+    "file_name": "2df3865a-6ccb-49b6-b9bb-53ca6de0f43a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13209504,
+    "md5sum": "81f36e9cfae71bb1e4c8464134776968",
+    "submitter_id": "TCGA-CH-5764",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "583153f2-ef3a-46ec-aa17-7c4c4def0132",
+    "file_name": "33013fdf-3570-487f-b6e6-18ccd2215593.methylation_array.sesame.level3betas.txt",
+    "file_size": 13137497,
+    "md5sum": "96ebb48286a5dbeded715f57c2872b69",
+    "submitter_id": "TCGA-G9-6499",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "75d626b7-4570-4376-92c4-77f3e3b00731",
+    "file_name": "bf38a2bf-d444-4ac1-b954-507099ec8739.methylation_array.sesame.level3betas.txt",
+    "file_size": 13188609,
+    "md5sum": "6fd7ceb90402edf4203593089b862c12",
+    "submitter_id": "TCGA-EJ-7782",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "b648379e-88ae-4cd5-8670-55bfbc3e7135",
+    "file_name": "41c28c2a-b03c-4e9f-bbe0-c670828a2ced.methylation_array.sesame.level3betas.txt",
+    "file_size": 13192697,
+    "md5sum": "cd57395d3c6ca15b32b3bd6fc68ed7c5",
+    "submitter_id": "TCGA-EJ-7789",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "e773993f-6b42-4364-92f3-346730caa572",
+    "file_name": "f5b3993b-54c0-42b4-81e7-e6d311bec988.methylation_array.sesame.level3betas.txt",
+    "file_size": 13176213,
+    "md5sum": "99b3877c72bd8e2190538999095e6d03",
+    "submitter_id": "TCGA-EJ-7328",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "da4f1c80-a8d0-40c1-b037-d3f2c48ddd9d",
+    "file_name": "7cef657c-d41e-492e-a4c6-ebc125c87879.methylation_array.sesame.level3betas.txt",
+    "file_size": 13178882,
+    "md5sum": "f212af39f9052639a0cf12cb0cda4f3b",
+    "submitter_id": "TCGA-HC-7742",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "64288db6-981a-4f7a-ac87-5d1510fdfc2c",
+    "file_name": "b3ed0fd6-1352-4b7c-bc75-291bf23d1c1a.methylation_array.sesame.level3betas.txt",
+    "file_size": 13201934,
+    "md5sum": "22809facbf30800250406ce3aaed8d25",
+    "submitter_id": "TCGA-G9-6494",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "6f69c20c-8b68-4e0e-a1e2-f1b9c5b69737",
+    "file_name": "a6770391-e60c-484b-aa67-4eac3563a316.methylation_array.sesame.level3betas.txt",
+    "file_size": 13189687,
+    "md5sum": "e6283fef470ddde2470320623b2426ed",
+    "submitter_id": "TCGA-EJ-7786",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "4e48458b-3fab-4b12-aae6-f0d06e90ceae",
+    "file_name": "5cc8ec1a-f9a5-46de-88c5-72d2663b678c.methylation_array.sesame.level3betas.txt",
+    "file_size": 13170566,
+    "md5sum": "ac34cd13536ee0d672d0294bf2fa797b",
+    "submitter_id": "TCGA-CH-5766",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "fa3f8e06-20b7-4f1e-adb3-1eaf6b6ac286",
+    "file_name": "226e2e1a-306e-42c2-b180-63d4411a9e17.methylation_array.sesame.level3betas.txt",
+    "file_size": 13212788,
+    "md5sum": "48d281e8dc6ed10960bf90f255c96c66",
+    "submitter_id": "TCGA-EJ-7125",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "586dc4ff-c34e-4aa8-a6cf-8af36e52b82d",
+    "file_name": "3bcac7d8-72e0-4a3a-b435-73ddd7704e45.methylation_array.sesame.level3betas.txt",
+    "file_size": 13191888,
+    "md5sum": "8898a9a3e3e18e02203c20a077c9b6c5",
+    "submitter_id": "TCGA-EJ-7331",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "7b0fe49d-d78a-442d-8b2f-1505ed9bde67",
+    "file_name": "84d1c8ed-f3c4-4e23-9959-646094befff4.methylation_array.sesame.level3betas.txt",
+    "file_size": 13213681,
+    "md5sum": "b1b4e401d872ced5dfb1076165594de5",
+    "submitter_id": "TCGA-G9-6353",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "07f5d723-fc0c-4fde-809a-bb29c8686f78",
+    "file_name": "e6a58cb7-33c2-44f7-ae2a-e0ac7cf23f2e.methylation_array.sesame.level3betas.txt",
+    "file_size": 13173725,
+    "md5sum": "2cf45c8e1ae22bb054d1e74b6a066713",
+    "submitter_id": "TCGA-G9-6373",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "5d92afe1-f16e-4371-a31d-1b8059cb93b2",
+    "file_name": "286e2fda-7e6a-4511-bef5-681fbe70540f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13206590,
+    "md5sum": "dc4b96ca055cf26b38ececc5beef84ba",
+    "submitter_id": "TCGA-G9-6496",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "0624dabb-cca4-4dec-87ad-d57c3cbcfed7",
+    "file_name": "40414535-4b41-43f8-b068-1a90f0bedacb.methylation_array.sesame.level3betas.txt",
+    "file_size": 13192486,
+    "md5sum": "00b7d63b08a952de20a445fae414aaac",
+    "submitter_id": "TCGA-HC-7819",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "f799c7ee-12f8-4e0a-840b-4fa7bf08846c",
+    "file_name": "8d5f6c43-c787-4732-b2db-d5b96a52944e.methylation_array.sesame.level3betas.txt",
+    "file_size": 13181613,
+    "md5sum": "76a1175428b65b7e3ec40c5cff9bba6e",
+    "submitter_id": "TCGA-G9-6362",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "0d924a02-cc27-4b23-834e-f4c6faaab868",
+    "file_name": "54fbf421-eab7-4b66-99c6-a63f5de1296f.methylation_array.sesame.level3betas.txt",
+    "file_size": 13161377,
+    "md5sum": "7652d4520b5258f76f5e83eb437318c7",
+    "submitter_id": "TCGA-G9-6351",
+    "sample_type": "Solid Tissue Normal"
+  },
+  {
+    "project": "TCGA-PRAD",
+    "file_id": "945d0b3e-bb97-4ef9-97d8-f7b3eb95a99f",
+    "file_name": "cd1c05f8-6504-4b96-a9b3-66c95398a007.methylation_array.sesame.level3betas.txt",
+    "file_size": 13224095,
+    "md5sum": "74f8c0954bf35e52bdb9b84402e4c78d",
+    "submitter_id": "TCGA-CH-5768",
+    "sample_type": "Solid Tissue Normal"
+  }
+]

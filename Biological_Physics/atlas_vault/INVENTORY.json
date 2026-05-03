@@ -635,5 +635,45 @@
     "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
     "size": 711707,
     "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/README.md",
+    "size": 4831,
+    "sha256": "056f47a9aeb2b9eab5d5c19d07e2d25774a9663af98af1a680cc43b33692b6b7"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/bridge_esoref_to_array.py",
+    "size": 7221,
+    "sha256": "187b7ce5f7d7c8c07c211c424b7df67dde6d88c8b5e87d7976fa32b4c27b6f3e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_cpg_bridged.csv",
+    "size": 403406,
+    "sha256": "6e650bd78ed2ee32d98ac4508b3b4295a1cd303a0fed2d850eeb9c35f897692b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_entrez_matrix.csv",
+    "size": 20825,
+    "sha256": "6d27782d8a3fb40dc9d663ca534e2b2880b103213dfba7ca27110dca10031f0b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/README.md",
+    "size": 3888,
+    "sha256": "9ce375e8f92cb4440c33adbf706b010c60d62b1769b763e512e8a3abeaccb291"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/bridge_oeref_to_array.py",
+    "size": 6112,
+    "sha256": "c7d01eee05015eb2396bcf80cb65b9b0747121707161c83cf9ffc79f6bf54d51"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_cpg_bridged.csv",
+    "size": 798233,
+    "sha256": "8f4e34ef63247b0ca09312fedb52abf5eee9ee1e8f09e35044ddceb8bdf3f651"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_entrez_matrix.csv",
+    "size": 33170,
+    "sha256": "12d44c311a28451771a3502382553ebdb704a8cedcedfc1e4d483e51b42c59e9"
   }
 ]

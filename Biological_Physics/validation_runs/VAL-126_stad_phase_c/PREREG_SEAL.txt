@@ -1,0 +1,5 @@
+PREREG_SHA256=8f47ba2e725319e116ce4fda24e49e1c3ba2fa3936142cce9d54c45584590cd3
+SEAL_TIMESTAMP=2026-05-02T20:25:35Z
+SEAL_FILE=prereg.md
+SEAL_LOC=Biological_Physics/validation_runs/VAL-126_stad_phase_c/prereg.md
+SEAL_NOTE=Sealed BEFORE any tumor β file read. CCL-041 compliance. CHK-2.17 pre-flight COMPLETE on 7 STAD samples (5 tumor + 2 normal): BoccellatoStomachRef_HM450 PASS 93.72%, EsoRef PASS 85.79%, OEref PASS 87.34%, Loyfer 25-tile PASS 92.17%, Caggiano TIM PASS 85.60%, Salas IDOL 450K PASS ~89%, UniLIFE PASS 96.23%, Xu-538 documented-only ~80% (panel-level coverage as in VAL-118 prereg precedent; per-sample CHK-3.1B reported). Substrate baseline shift documented per VAL-118 precedent: STAD f_extreme ~0.43 vs KIRC+PRAD 0.56 — substrate-baseline-shift, not gated. Full molecular subtype (CIN/MSI/EBV+/GS/POLE) joined from cBioPortal stad_tcga_pan_can_atlas_2018, H. pylori from stad_tcga, EBV serology from stad_tcga_pub. NO DEFERRALS.
