@@ -8,6 +8,24 @@ self-contained per the v2.1 design rule:
 > production GAPE engine can run the full Stage 1 + Stage 2 + Stage 3
 > pipeline for that disease, without reading any other file.
 
+## Architectural rule (2026-05-08)
+
+**IAMAtlas is the only atlas.** External atlases (Loyfer/Moss, Salas,
+EpiSCORE, Caggiano, Boccellato, etc.) are no longer used in production.
+When new cell-type signal needs to be added to the framework, the
+underlying CpGs and donor data are folded into IAMAtlas via the same
+MCMC pipeline that built it (the way Gasparoni terminal-class data
+will be added once the chains finish). Stage 1 of the runtime pipeline
+deconvolves the customer beta vector against IAMAtlas posteriors only
+via the IAMAtlas deconvolver (`iamatlas_production_data/deconvolution/
+iamatlas_deconvolver.py`).
+
+Older card material in this directory may still mention external
+atlases by name in historical sections (validation summaries, sealed
+VAL outcomes). Those references are part of the audit trail and stay
+as-written. Forward-going scoring rules in every card are
+IAMAtlas-only.
+
 ## Card list (per Heath's authoritative 2026-05-08 catalog)
 
 | # | Card | Subdirectory | Status |
@@ -20,7 +38,7 @@ self-contained per the v2.1 design rule:
 | 6 | Colon/Rectal | `crc/` | JSON in production |
 | 7 | Gastric/Esophagus | `gastric-esophageal/` | v0.1 sealed 2026-05-02 |
 | 8 | Glioma | `glioma/` | v0.2 single_cohort_validated |
-| 9 | HCC Liver | `hcc/` | multi_modal_validated (Marcus card) |
+| 9 | HCC Liver | `hcc/` | **v0.3 multi_modal_validated — added 2026-05-08 (Marcus card)** |
 | 10 | HEME Leukemia | `heme/` | v0.1 single_cohort_validated (myeloid arm) |
 | 11 | Lung | `lung/` | v0.2 multi_modal_validated |
 | 12 | Pancreatic | `pancreatic/` | v0.1 cohort_screening_validated |

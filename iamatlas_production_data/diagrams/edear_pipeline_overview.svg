@@ -1,49 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 720" role="img">
-<title>EDEAR pipeline overview from IDAT arrival to report delivery</title>
-<desc>Six-stage pipeline. Lab IDAT enters at top, customer report exits at bottom.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 980" role="img">
+<title>EDEAR full pipeline with explicit deconvolution stage and IAMAtlas-only architecture</title>
+<desc>End-to-end EDEAR architecture. commercial.web.py is the runtime that loads IAMAtlas, the card library, and the GAPE engine at startup. Stage 1 deconvolves the customer beta vector against IAMAtlas only. No external atlases.</desc>
 <defs>
   <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
   <style>
     text { font-family: 'Helvetica Neue', Arial, sans-serif; }
-    .th { font-size: 14px; font-weight: 500; fill: #042C53; }
-    .ts { font-size: 12px; fill: #185FA5; }
-    .stage-blue { fill: #E6F1FB; stroke: #185FA5; }
-    .stage-purple { fill: #EEEDFE; stroke: #534AB7; } .th-purple { fill: #26215C; } .ts-purple { fill: #534AB7; }
-    .stage-teal { fill: #E1F5EE; stroke: #0F6E56; } .th-teal { fill: #04342C; } .ts-teal { fill: #0F6E56; }
+    .th { font-size: 14px; font-weight: 500; }
+    .ts { font-size: 12px; }
     .stage-amber { fill: #FAEEDA; stroke: #854F0B; } .th-amber { fill: #412402; } .ts-amber { fill: #854F0B; }
+    .stage-blue { fill: #E6F1FB; stroke: #185FA5; } .th-blue { fill: #042C53; } .ts-blue { fill: #185FA5; }
+    .input-purple { fill: #EEEDFE; stroke: #534AB7; } .th-purple { fill: #26215C; } .ts-purple { fill: #534AB7; }
+    .input-pink { fill: #FBEAF0; stroke: #993556; } .th-pink { fill: #4B1528; } .ts-pink { fill: #993556; }
+    .stage-teal { fill: #E1F5EE; stroke: #0F6E56; } .th-teal { fill: #04342C; } .ts-teal { fill: #0F6E56; }
     .stage-coral { fill: #FAECE7; stroke: #993C1D; } .th-coral { fill: #4A1B0C; } .ts-coral { fill: #993C1D; }
-    .stage-gray { fill: #F1EFE8; stroke: #5F5E5A; } .th-gray { fill: #2C2C2A; } .ts-gray { fill: #5F5E5A; }
     .arr { fill: none; stroke: #5F5E5A; stroke-width: 1.5; }
   </style>
 </defs>
-<rect class="stage-gray" x="240" y="20" width="200" height="44" rx="8" stroke-width="0.5"/>
-<text class="th th-gray" x="340" y="47" text-anchor="middle">IDAT arrives from lab</text>
-<line x1="340" y1="64" x2="340" y2="100" class="arr" marker-end="url(#arrow)"/>
-<rect class="stage-blue" x="160" y="100" width="360" height="88" rx="8" stroke-width="0.5"/>
-<text class="th" x="340" y="129" text-anchor="middle">Stage 0 — Input validation + QC</text>
-<text class="ts" x="340" y="153" text-anchor="middle">Format check, ≥80% HM450 coverage, bisulfite QC</text>
-<text class="ts" x="340" y="173" text-anchor="middle">Outlier detection, batch-effect flag</text>
-<line x1="340" y1="188" x2="340" y2="224" class="arr" marker-end="url(#arrow)"/>
-<rect class="stage-purple" x="160" y="224" width="360" height="88" rx="8" stroke-width="0.5"/>
-<text class="th th-purple" x="340" y="253" text-anchor="middle">Stage 1 — IAMAtlas deconvolution</text>
-<text class="ts ts-purple" x="340" y="277" text-anchor="middle">Cell composition across 8 architectural classes</text>
-<text class="ts ts-purple" x="340" y="297" text-anchor="middle">Per-class A-scores, posterior CIs from MCMC</text>
-<line x1="340" y1="312" x2="340" y2="348" class="arr" marker-end="url(#arrow)"/>
-<rect class="stage-teal" x="160" y="348" width="360" height="88" rx="8" stroke-width="0.5"/>
-<text class="th th-teal" x="340" y="377" text-anchor="middle">Stage 2 — Demographic adjustment</text>
-<text class="ts ts-teal" x="340" y="401" text-anchor="middle">Age-layer correction, sex-dimorphic CpG handling</text>
-<text class="ts ts-teal" x="340" y="421" text-anchor="middle">Cellular age residual reported separately</text>
-<line x1="340" y1="436" x2="340" y2="472" class="arr" marker-end="url(#arrow)"/>
-<rect class="stage-amber" x="160" y="472" width="360" height="108" rx="8" stroke-width="0.5"/>
-<text class="th th-amber" x="340" y="501" text-anchor="middle">Stage 3 — Floor departure detection</text>
-<text class="ts ts-amber" x="340" y="525" text-anchor="middle">Per-class A-score → 5 tiers (NORMAL → URGENT)</text>
-<text class="ts ts-amber" x="340" y="545" text-anchor="middle">Bidirectional immune check (CCL-027 protocol)</text>
-<text class="ts ts-amber" x="340" y="565" text-anchor="middle">Marcus-class flagging if no-risk patient</text>
-<line x1="340" y1="580" x2="340" y2="616" class="arr" marker-end="url(#arrow)"/>
-<rect class="stage-coral" x="160" y="616" width="360" height="44" rx="8" stroke-width="0.5"/>
-<text class="th th-coral" x="340" y="643" text-anchor="middle">Stages 4-6 — Card matching → diagnosis → report</text>
-<line x1="340" y1="660" x2="340" y2="690" class="arr" marker-end="url(#arrow)"/>
-<text class="ts" x="340" y="705" text-anchor="middle" fill="#444441">Customer report (JSON, HTML, PDF)</text>
+
+<rect class="stage-amber" x="60" y="20" width="560" height="56" rx="8" stroke-width="0.5"/>
+<text class="th th-amber" x="340" y="45" text-anchor="middle">Customer ccfDNA / tissue / urine sample</text>
+<text class="ts ts-amber" x="340" y="65" text-anchor="middle">Lab runs Illumina EPIC or 450K array — IDAT or processed beta file</text>
+<line x1="340" y1="76" x2="340" y2="106" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-blue" x="20" y="106" width="640" height="720" rx="14" stroke-width="0.5"/>
+<text class="th th-blue" x="340" y="135" text-anchor="middle">commercial.web.py — production runtime</text>
+<text class="ts ts-blue" x="340" y="153" text-anchor="middle">Loads IAMAtlas + cards + GAPE at startup; runs all stages per request</text>
+
+<rect class="input-purple" x="40" y="170" width="280" height="58" rx="6" stroke-width="0.5"/>
+<text class="th th-purple" x="180" y="195" text-anchor="middle">IAMAtlas (the only atlas)</text>
+<text class="ts ts-purple" x="180" y="215" text-anchor="middle">8 classes, MCMC posteriors per cell type</text>
+
+<rect class="input-purple" x="360" y="170" width="280" height="58" rx="6" stroke-width="0.5"/>
+<text class="th th-purple" x="500" y="195" text-anchor="middle">Card library — cards/</text>
+<text class="ts ts-purple" x="500" y="215" text-anchor="middle">14 production JSONs + READMEs</text>
+
+<rect class="input-pink" x="180" y="240" width="320" height="58" rx="6" stroke-width="0.5"/>
+<text class="th th-pink" x="340" y="265" text-anchor="middle">GAPE engine (Heath-only IP)</text>
+<text class="ts ts-pink" x="340" y="285" text-anchor="middle">H_min anchors and A-score computation</text>
+
+<rect class="stage-teal" x="40" y="318" width="600" height="44" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="345" text-anchor="middle">Stage 0 — Input validation and QC</text>
+<line x1="340" y1="362" x2="340" y2="378" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="378" width="600" height="58" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="403" text-anchor="middle">Stage 1 — IAMAtlas deconvolution</text>
+<text class="ts ts-teal" x="340" y="423" text-anchor="middle">NNLS against IAMAtlas posteriors → cell-type fractions</text>
+<line x1="340" y1="436" x2="340" y2="452" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="452" width="600" height="58" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="477" text-anchor="middle">Stage 2 — Class A-scores</text>
+<text class="ts ts-teal" x="340" y="497" text-anchor="middle">Aggregate cell-type fractions into 8 architectural-class A-scores</text>
+<line x1="340" y1="510" x2="340" y2="526" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="526" width="600" height="44" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="553" text-anchor="middle">Stage 3 — Demographic adjustment (age-layer correction, sex)</text>
+<line x1="340" y1="570" x2="340" y2="586" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="586" width="600" height="44" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="613" text-anchor="middle">Stage 4 — Floor departure detection (5 tiers, bidirectional check)</text>
+<line x1="340" y1="630" x2="340" y2="646" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="646" width="600" height="44" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="673" text-anchor="middle">Stage 5 — Card matching (filter by tissue, age, sex, CpG availability)</text>
+<line x1="340" y1="690" x2="340" y2="706" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="706" width="600" height="44" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="733" text-anchor="middle">Stage 6 — Diagnosis translation (per matched card)</text>
+<line x1="340" y1="750" x2="340" y2="766" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-teal" x="40" y="766" width="600" height="44" rx="6" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="793" text-anchor="middle">Stage 7 — Report generation (JSON, HTML, PDF)</text>
+
+<line x1="340" y1="826" x2="340" y2="856" class="arr" marker-end="url(#arrow)"/>
+
+<rect class="stage-coral" x="60" y="856" width="560" height="76" rx="8" stroke-width="0.5"/>
+<text class="th th-coral" x="340" y="881" text-anchor="middle">Customer report</text>
+<text class="ts ts-coral" x="340" y="903" text-anchor="middle">Plain-language summary up top, technical detail beneath</text>
+<text class="ts ts-coral" x="340" y="921" text-anchor="middle">Every fired card: tier, panel score, Z-score, CI, customer caveats</text>
 </svg>
