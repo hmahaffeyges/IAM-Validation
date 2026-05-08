@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b5db508a097971dcff1dbd29c919ca800c38db8a76973c3bbe4b5ab7a5178f81
-size 407
+{
+  "class": "stromal",
+  "status": "complete",
+  "n_cpg": 23916,
+  "n_ct": 17,
+  "n_atlas": 17,
+  "n_obs": 96733,
+  "n_batches": 5,
+  "batch_size": 5000,
+  "elapsed_s": 17485.262107372284,
+  "convergence": {
+    "rhat_max": 3.67,
+    "ess_min": 4.0,
+    "n_diverging": 6,
+    "n_total": 4000
+  },
+  "predictive": {
+    "pearson": 0.8966044532730468,
+    "mae": 0.20178599618804394
+  }
+}

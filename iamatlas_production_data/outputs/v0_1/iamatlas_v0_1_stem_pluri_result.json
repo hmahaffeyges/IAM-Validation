@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:54afd996c5fad58f54b92c66e23be31bc963712921e16bce624fc7a3bfe4f21a
-size 412
+{
+  "class": "stem_pluri",
+  "status": "complete",
+  "n_cpg": 482421,
+  "n_ct": 1,
+  "n_atlas": 1,
+  "n_obs": 482421,
+  "n_batches": 97,
+  "batch_size": 5000,
+  "elapsed_s": 12841.60613822937,
+  "convergence": {
+    "rhat_max": 1.01,
+    "ess_min": 501.0,
+    "n_diverging": 2,
+    "n_total": 4000
+  },
+  "predictive": {
+    "pearson": 0.9193178462586828,
+    "mae": 0.32150957547731285
+  }
+}
