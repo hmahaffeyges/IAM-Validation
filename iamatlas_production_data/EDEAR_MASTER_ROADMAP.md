@@ -360,6 +360,56 @@ The framing for the entire customer-facing product is cellular health and wellne
 
 This positioning is the constraint every step in Part 3 must respect. If a downstream design choice conflicts with wellness positioning, the design choice changes — not the positioning.
 
+### Operational details — runtime architecture, schema, and report (locked 2026-05-08)
+
+These operational details flow directly from the wellness-first positioning above and from the working session that locked the immune-card-as-narrative-lead, the per-finding minimum-information rule, and the upstream-vs-downstream split for covariates and bidirectional patterns. They are captured here so subsequent sessions can build on them without rediscovering.
+
+**The four-fields-per-finding rule.** Each card-firing in the customer report shows exactly four pieces of information: (a) the cell type or class name in plain language ("Hepatocyte" not "secretory_class.hepatocyte_subset"); (b) the score with credible interval, plotted against the age-matched normal range with a visual indicator and a plain-text range label (NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED / BELOW NORMAL); (c) a one-sentence factual flag-summary string ("Your hepatocyte score is significantly elevated compared to your age-matched baseline") with no disease names and no interpretation; (d) a link to the relevant website page. When the finding is at SIGNIFICANTLY ELEVATED on a card with sealed VAL evidence supporting that magnitude, one additional sentence fires: "We recommend you discuss this finding with your primary care provider." That sentence never appears at lower magnitudes and never on cards lacking VAL anchor data at SIGNIFICANTLY ELEVATED.
+
+**The runtime card schema (locked v1.0).** Each card JSON encodes:
+
+```
+schema_version            (string, "1.0")
+card_id                   (string)
+card_version              (string)
+card_date                 (string, ISO date)
+display_name              (string, customer-facing section header)
+architectural_class       (string, one of 8 class names)
+cell_types_of_interest    (list of strings, optional)
+validated_substrates      (list of strings, currently only "ccfDNA_plasma")
+demographic_gates         (object with age_min, age_max, sex)
+covariate_dependencies    (list of strings naming covariates this card uses)
+thresholds                (object, see threshold lookup section below)
+report_strings            (object with the four flag_summary strings per range)
+website_url               (string, link to this card's educational page)
+validation_tier_label     (string, metadata)
+```
+
+That is the entire runtime card. ~50 lines of JSON for cards without covariate dependencies; ~100 lines for cards with covariate-keyed threshold tables. No prose interpretation, no conditional caveat tables, no clinical-action matrices, no message-generation logic. The engine has one loader, one matcher, one classifier, one assembler.
+
+**Threshold lookup mechanics.** The `thresholds` block is keyed first by substrate (ccfDNA_plasma for launch, with tissue/urine reserved for future). For cards without covariate dependencies, the substrate block contains four numeric thresholds: NORMAL_max, ELEVATED_max, SIGNIFICANTLY_ELEVATED_min, BELOW_NORMAL_max — plus a boolean `VAL_anchor_supports_significant` that gates physician-referral language. For cards with covariate dependencies (e.g. lung-epic varying by smoking status, HCC varying by viral hepatitis status), the substrate block contains nested threshold tables keyed by covariate state ("current_smoker" / "former_smoker" / "never_smoker"). The engine reads the customer's covariate state from their profile and selects the matching threshold table. Cards that should fire on bidirectional patterns include an additional `bidirectional_pattern_fires_at` clause at the substrate-block level, which the engine consults against the bidirectional consistency flag from Stage 2.
+
+**Customer profile / covariate intake.** Covariates that affect interpretation (recent illness, smoking status, viral hepatitis, HRT, pregnancy, current medications, recent vaccinations) are collected at the engine level, not at the card level. Each card declares its `covariate_dependencies` list. The engine collects the union of all card-declared covariates and presents them as the customer intake form (either through the lab partner channel or directly at iamperformance.net depending on channel). Customer answers are attached to the sample as profile metadata. At runtime, the engine reads the profile and feeds the relevant covariates to each card's threshold lookup. If a customer skipped a question, the engine uses the most permissive default and the report notes that the result is uncalibrated for that covariate, with a website link explaining why answering improves accuracy. The customer profile is the engine's job; no individual card stores customer answers or owns the intake form.
+
+**Bidirectional patterns are computed upstream of cards.** Bidirectional methylation patterns (some CpGs gaining methylation while others lose it within the same panel or class — the AD-instance signature where mean β shifts approximately to zero but real signal exists in the directions) are handled at Stage 2, not at the card level. Stage 2's class A-score computation produces two outputs per class: the aggregate A-score (magnitude of departure from baseline) and a bidirectional consistency flag (boolean indicator of whether the directions of departure within the class are consistent or bidirectional). Cards that should fire on bidirectional patterns declare so via `bidirectional_pattern_fires_at`; most cards (cancers showing aggregate magnitude shifts) don't need this clause. The engine knows how to compute the consistency flag from Stage 2 output; cards just consume it.
+
+**Cellular age reported at three levels.** Other consumer methylation products (Horvath-clock derivatives, GrimAge, PhenoAge, DunedinPACE, TruDiagnostic, Elysium) report a single biological age number averaged across all tissues — convenient but loses the heterogeneity that matters most. EDEAR reports cellular age at three nested levels: (a) overall cellular age as the headline number (weighted combination across the 8 architectural classes for customer-friendly comparison to other products), (b) per-class cellular age across all 8 classes ("your immune cells are operating at age 52, your secretory cells at age 45, your terminal cells at age 47"), (c) per-cell-type cellular age where IAMAtlas posteriors have the resolution. The customer who wants a simple headline gets it; the customer who wants the detailed picture gets it too. This three-level resolution is one of the strongest competitive differentiators of the product and follows naturally from the IAMAtlas architecture — single-clock products can't resolve more because their methods don't have the per-class structure. The website page on cellular age explains all three levels and why they matter.
+
+**Card walkthrough plan (the order for Part 3 / Step D1).** The runtime cards (runtime-schema versions of the cookbook cards) get built one at a time in this order:
+
+1. **Immune card first.** It's the most interpretively-loaded card and forces the schema to be tested against the hardest case before we lock it. If the schema fits immune cleanly, the rest of the catalog is fill-in-the-template work.
+2. **HCC second.** Already drafted as a worked example in this section. Validates the schema against the simplest cancer card (single-tissue, ccfDNA-only, single-substrate, demographic-gate-light).
+3. **CRC third.** Validates against a card with cycling-class focus rather than secretory, with multi-substrate considerations now stripped down to ccfDNA-plasma-only for launch.
+4. **Breast fourth.** Validates against a card with covariate dependencies (HRT, parity) and a more complex thresholds table.
+
+After four cards, if the schema doesn't need to grow, we lock v1.0 and the remaining 13 cards become straightforward fill-in. If the schema needs revision, we revise it before continuing.
+
+For each card walkthrough, the deliverables are two artifacts: the runtime card JSON in the v1.0 schema, and an outline (not the page itself) of the corresponding website educational page. The website outline captures what the page needs to say so the work doesn't have to be rediscovered when iamperformance.net is built.
+
+The cookbook cards in `cards/hcc/` and `cards/crc/` stay where they are as audit-trail documentation. The new runtime cards are derived from them but live separately (proposed location: `cards/runtime/` alongside `cards/hcc/` and `cards/crc/`, or as `cards/<disease>/runtime.json` inside each existing card subdirectory — to be decided when the immune card walkthrough surfaces the right convention).
+
+**Watch item: Quantum Motion silicon-CMOS qubits.** Quantum Motion (London) raised $160M Series C on 2026-05-07 for silicon-transistor-based qubits — manufactured on standard 300mm CMOS lines via partnership with GlobalFoundries. World's first full-stack silicon quantum computer was unveiled in September 2025 and is now deployed at the UK National Quantum Computing Centre. Architecture suspends single electrons in transistor gaps and uses electron-spin states as qubits. If silicon-CMOS quantum computing scales the way Quantum Motion is betting (millions of qubits at $10-20M per system, vs current systems requiring multi-megawatt cryogenic infrastructure), it represents a different qubit modality than the superconducting systems QAPE was originally calibrated against. Silicon spin qubits have different decoherence characteristics, different gate operations, different temperature requirements. Future QAPE work may need to extend characterization coverage to this modality. Not a current blocker; flagged for awareness as the QAPE roadmap evolves.
+
 ### STEP D1 — Card library completion (17-card catalog)
 
 **Status as of 2026-05-08.** Card list per Heath's 2026-05-08 evening review:
@@ -715,6 +765,38 @@ That stack is sufficient for Walther to continue without re-orientation. The fra
 ---
 
 ## REVISION LOG
+
+### 2026-05-08 night (operational details captured — runtime schema, covariates, bidirectional, cellular age, walkthrough plan)
+
+Captured operational details that came out of the working session on customer-facing report mechanics and the runtime card schema. These flow directly from the wellness-first master constraint locked earlier and are the answers to questions surfaced when working through how the immune-class-as-narrative-lead actually plays out in the schema.
+
+What was added in a new "Operational details" subsection between the master-constraint section and Step D1:
+
+1. **The four-fields-per-finding rule for the report.** Cell type name, score with credible interval and range label, one-sentence factual flag-summary string, website link. Plus a conditional physician-referral sentence at SIGNIFICANTLY ELEVATED on cards with VAL anchor support — never at lower magnitudes, never on cards lacking VAL evidence.
+
+2. **The runtime card schema v1.0.** Locked at ~14 fields, ~50-100 lines per card. HCC drafted as a worked example. The schema accommodates demographic gates, covariate dependencies, and bidirectional pattern handling without bloating.
+
+3. **Threshold lookup mechanics with covariate keying.** Cards with covariate dependencies (lung-epic varies by smoking status, HCC by viral hepatitis) use nested threshold tables keyed by covariate state. Engine reads customer profile and selects matching table.
+
+4. **Customer profile / covariate intake handled at the engine level, not the card level.** Each card declares which covariates it needs; engine collects the union as the intake form; customer answers are sample metadata fed to all cards. Skipped questions default to most permissive thresholds with report-level notation that result is uncalibrated for that covariate.
+
+5. **Bidirectional patterns computed upstream of cards in Stage 2.** Stage 2 produces both an aggregate A-score and a bidirectional consistency flag per class. Cards that should fire on bidirectional patterns declare so via a `bidirectional_pattern_fires_at` clause. Most cards don't need this; AD-immune is the canonical case.
+
+6. **Cellular age reported at three levels: overall, per-class, per-cell-type.** This is one of the strongest competitive differentiators of the product. Other consumer methylation products report a single number; the IAMAtlas architecture lets us resolve all three levels.
+
+7. **The card walkthrough plan: immune first, then HCC, CRC, breast.** Validates the schema against the most interpretively complex card before locking; then validates against simpler and progressively more covariate-dependent cards. After four cards, lock the schema and fill in the remaining 13 as routine work. Each walkthrough produces two artifacts: runtime card JSON in v1.0 schema, plus an outline (not the page itself) of the corresponding website educational page.
+
+8. **Watch item: Quantum Motion silicon-CMOS qubits.** Logged with date and context — $160M Series C on 2026-05-07, world's first silicon full-stack quantum computer deployed at UK NQCC since September 2025, partnership with GlobalFoundries, electron-spin qubits in transistor gaps. If this modality scales it changes what QAPE needs to characterize. Not a current blocker; flagged for awareness.
+
+What did NOT change:
+
+- The wellness-first master constraint itself — unchanged. The operational details flow from it, they don't modify it.
+- The 17-card catalog — unchanged.
+- The IAMAtlas-only architectural rule, the GAPE engine as Heath-only IP, the deconvolution stage — unchanged.
+- The card files in `cards/hcc/` and `cards/crc/` — unchanged. They remain as cookbook documentation. Runtime cards will be derived from them when the engine is built and live separately.
+- The cookbook canonicals — unchanged.
+
+This revision is documentation-only. It captures the schema design and walkthrough plan so subsequent sessions don't have to rediscover it. The next working session is the immune card walkthrough — first card to be derived into the v1.0 runtime schema, with its corresponding website page outline.
 
 ### 2026-05-08 night (wellness positioning master-constraint locked + further refinements)
 
