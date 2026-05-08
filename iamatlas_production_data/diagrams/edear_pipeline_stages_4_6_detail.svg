@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 880" role="img">
-<title>EDEAR pipeline stages 4 through 6 detailed</title>
-<desc>Card matching, per-card scoring, diagnosis translation, and report generation. Shows the 17-card library applied in parallel against the Stage 3 flagged classes.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 800" role="img">
+<title>EDEAR pipeline stages 4 through 6 with corrected card list</title>
+<desc>Card matching, per-card scoring, diagnosis translation, report generation. Shows the actual 14-card catalog from README_MASTER_v2_7: 10 validated + bladder/gastric/esophageal sealed + cardio deferred + kidney to-build.</desc>
 <defs>
   <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -12,6 +12,7 @@
     .stage-amber { fill: #FAEEDA; stroke: #854F0B; } .th-amber { fill: #412402; } .ts-amber { fill: #854F0B; }
     .stage-purple { fill: #EEEDFE; stroke: #534AB7; } .th-purple { fill: #26215C; } .ts-purple { fill: #534AB7; }
     .card-pink { fill: #FBEAF0; stroke: #993556; } .ts-pink { fill: #4B1528; }
+    .card-gray { fill: #F1EFE8; stroke: #5F5E5A; } .ts-gray { fill: #2C2C2A; }
     .stage-teal { fill: #E1F5EE; stroke: #0F6E56; } .th-teal { fill: #04342C; } .ts-teal { fill: #0F6E56; }
     .stage-coral { fill: #FAECE7; stroke: #993C1D; } .th-coral { fill: #4A1B0C; } .ts-coral { fill: #993C1D; }
     .arr { fill: none; stroke: #5F5E5A; stroke-width: 1.5; }
@@ -24,65 +25,60 @@
 
 <rect class="stage-purple" x="60" y="110" width="560" height="100" rx="8" stroke-width="0.5"/>
 <text class="th th-purple" x="340" y="139" text-anchor="middle">Stage 4 — Card matching</text>
-<text class="ts ts-purple" x="340" y="161" text-anchor="middle">Filters 17 cards by tissue, age range, sex, CpG availability</text>
+<text class="ts ts-purple" x="340" y="161" text-anchor="middle">Filters cards by tissue, age, sex, CpG availability</text>
 <text class="ts ts-purple" x="340" y="181" text-anchor="middle">Returns subset of cards applicable to this customer</text>
 <text class="ts ts-purple" x="340" y="201" text-anchor="middle">Cards run in parallel — no sequential filter stages</text>
 <line x1="340" y1="210" x2="340" y2="244" class="arr" marker-end="url(#arrow)"/>
 
 <rect class="stage-purple" x="60" y="244" width="560" height="44" rx="8" stroke-width="0.5"/>
-<text class="th th-purple" x="340" y="271" text-anchor="middle">17-card library (each card = JSON + README + scoring rule)</text>
+<text class="th th-purple" x="340" y="271" text-anchor="middle">14-card catalog (per README_MASTER_v2_7)</text>
 
 <rect class="card-pink" x="60" y="304" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="160" y="329" text-anchor="middle">AD-immune (VAL-051)</text>
+<text class="ts ts-pink" x="160" y="329" text-anchor="middle">breast-epic</text>
 <rect class="card-pink" x="270" y="304" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="370" y="329" text-anchor="middle">Breast-secretory</text>
+<text class="ts ts-pink" x="370" y="329" text-anchor="middle">crc-epic</text>
 <rect class="card-pink" x="480" y="304" width="140" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="550" y="329" text-anchor="middle">CRC-immune-inv</text>
+<text class="ts ts-pink" x="550" y="329" text-anchor="middle">ad-immune</text>
 
 <rect class="card-pink" x="60" y="350" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="160" y="375" text-anchor="middle">CRC-secretory</text>
+<text class="ts ts-pink" x="160" y="375" text-anchor="middle">lung-epic</text>
 <rect class="card-pink" x="270" y="350" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="370" y="375" text-anchor="middle">Cervical (CIN stratified)</text>
+<text class="ts ts-pink" x="370" y="375" text-anchor="middle">prostate-epic</text>
 <rect class="card-pink" x="480" y="350" width="140" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="550" y="375" text-anchor="middle">LGG/GBM-terminal</text>
+<text class="ts ts-pink" x="550" y="375" text-anchor="middle">hcc-epic</text>
 
 <rect class="card-pink" x="60" y="396" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="160" y="421" text-anchor="middle">Parkinson's</text>
+<text class="ts ts-pink" x="160" y="421" text-anchor="middle">pancreatic-epic</text>
 <rect class="card-pink" x="270" y="396" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="370" y="421" text-anchor="middle">Prostate</text>
+<text class="ts ts-pink" x="370" y="421" text-anchor="middle">cervical-epic</text>
 <rect class="card-pink" x="480" y="396" width="140" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="550" y="421" text-anchor="middle">Pancreatic</text>
+<text class="ts ts-pink" x="550" y="421" text-anchor="middle">heme-epic</text>
 
 <rect class="card-pink" x="60" y="442" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="160" y="467" text-anchor="middle">MS</text>
+<text class="ts ts-pink" x="160" y="467" text-anchor="middle">glioma-epic</text>
 <rect class="card-pink" x="270" y="442" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="370" y="467" text-anchor="middle">Cardiac</text>
+<text class="ts ts-pink" x="370" y="467" text-anchor="middle">bladder-epic (v0.1)</text>
 <rect class="card-pink" x="480" y="442" width="140" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="550" y="467" text-anchor="middle">Aging</text>
+<text class="ts ts-pink" x="550" y="467" text-anchor="middle">gastric-epic (v0.1)</text>
 
 <rect class="card-pink" x="60" y="488" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="160" y="513" text-anchor="middle">HCC (Marcus card)</text>
-<rect class="card-pink" x="270" y="488" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="370" y="513" text-anchor="middle">Gastric (Boccellato ref)</text>
-<rect class="card-pink" x="480" y="488" width="140" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="550" y="513" text-anchor="middle">Esophageal</text>
+<text class="ts ts-pink" x="160" y="513" text-anchor="middle">esophageal-epic (v0.1)</text>
+<rect class="card-gray" x="270" y="488" width="200" height="40" rx="6" stroke-width="0.5"/>
+<text class="ts ts-gray" x="370" y="513" text-anchor="middle">cardio-epic (deferred)</text>
+<rect class="card-gray" x="480" y="488" width="140" height="40" rx="6" stroke-width="0.5"/>
+<text class="ts ts-gray" x="550" y="513" text-anchor="middle">kidney-epic (to build)</text>
 
-<rect class="card-pink" x="60" y="534" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="160" y="559" text-anchor="middle">Ovarian</text>
-<rect class="card-pink" x="270" y="534" width="200" height="40" rx="6" stroke-width="0.5"/>
-<text class="ts ts-pink" x="370" y="559" text-anchor="middle">Heme (depends MARLIN)</text>
+<line x1="340" y1="544" x2="340" y2="572" class="arr" marker-end="url(#arrow)"/>
 
-<line x1="340" y1="588" x2="340" y2="616" class="arr" marker-end="url(#arrow)"/>
+<rect class="stage-teal" x="60" y="572" width="560" height="108" rx="8" stroke-width="0.5"/>
+<text class="th th-teal" x="340" y="601" text-anchor="middle">Stage 5 — Diagnosis translation</text>
+<text class="ts ts-teal" x="340" y="625" text-anchor="middle">Per matched card: tier, panel score, age/sex Z-score, CI</text>
+<text class="ts ts-teal" x="340" y="645" text-anchor="middle">Concordance check (panel vs class A-score agreement)</text>
+<text class="ts ts-teal" x="340" y="665" text-anchor="middle">Customer-relevant caveats only (not full caveat list)</text>
+<line x1="340" y1="680" x2="340" y2="708" class="arr" marker-end="url(#arrow)"/>
 
-<rect class="stage-teal" x="60" y="616" width="560" height="108" rx="8" stroke-width="0.5"/>
-<text class="th th-teal" x="340" y="645" text-anchor="middle">Stage 5 — Diagnosis translation</text>
-<text class="ts ts-teal" x="340" y="669" text-anchor="middle">Per matched card: tier, panel score, age/sex Z-score, CI</text>
-<text class="ts ts-teal" x="340" y="689" text-anchor="middle">Concordance check (panel vs class A-score agreement)</text>
-<text class="ts ts-teal" x="340" y="709" text-anchor="middle">Customer-relevant caveats only (not full caveat list)</text>
-<line x1="340" y1="724" x2="340" y2="758" class="arr" marker-end="url(#arrow)"/>
-
-<rect class="stage-coral" x="60" y="758" width="560" height="88" rx="8" stroke-width="0.5"/>
-<text class="th th-coral" x="340" y="787" text-anchor="middle">Stage 6 — Report generation</text>
-<text class="ts ts-coral" x="340" y="811" text-anchor="middle">JSON (lab integration), HTML (web view), PDF (print)</text>
-<text class="ts ts-coral" x="340" y="831" text-anchor="middle">Plain-language summary on top, technical detail beneath</text>
+<rect class="stage-coral" x="60" y="708" width="560" height="76" rx="8" stroke-width="0.5"/>
+<text class="th th-coral" x="340" y="733" text-anchor="middle">Stage 6 — Report generation</text>
+<text class="ts ts-coral" x="340" y="757" text-anchor="middle">JSON, HTML, PDF outputs</text>
+<text class="ts ts-coral" x="340" y="777" text-anchor="middle">Plain-language summary on top, technical detail beneath</text>
 </svg>

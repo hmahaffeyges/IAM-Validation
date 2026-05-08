@@ -38,15 +38,15 @@ After Gasparoni is appended, re-run terminal only. ~2 hours wall-clock. Compare 
 | Class | Status | Elapsed | R-hat | ESS | Divergent | Pearson | MAE |
 |---|---|---|---|---|---|---|---|
 | terminal | ✓ done 2026-05-04 18:50 | 3,750s | 1.01 | 1493 | 0 | 0.799 | 0.356 |
-| stromal | ✗ FAILED CONVERGENCE | 17,485s | **3.67** | **4** | 6 | 0.897 | 0.202 |
+| stromal | ✗ FAILED CONVERGENCE — Step 6.5 re-run staged | 17,485s | **3.67** | **4** | 6 | 0.897 | 0.202 |
 | stem_pluri | ✓ done 2026-05-05 03:17 | 12,842s | 1.01 | 501 | 2 | 0.919 | 0.322 |
 | stem_adult | ✓ done 2026-05-05 06:52 | 12,910s | 1.01 | 723 | 0 | 0.904 | 0.338 |
-| secretory | 🟡 RUNNING — Batch 13/77 | ~1500s/batch | 1.010 across 1-12 | 1055-1958 | 0 | -- | -- |
-| cycling | queued | -- | -- | -- | -- | -- | -- |
+| secretory | ✓ done 2026-05-07 05:22 | 167,328s (46 hr) | 1.02 | 1023 | 0 | 0.791 | 0.338 |
+| cycling | 🟡 RUNNING (~28-30 hr remaining as of 2026-05-08) | 30 min/batch | -- | -- | -- | -- | -- |
 | progenitor | queued | -- | -- | -- | -- | -- | -- |
 | immune | queued | -- | -- | -- | -- | -- | -- |
 
-**Honest revised timeline (as of 2026-05-06 evening):** 8-10 days remaining. As of 2026-05-06, secretory is on batch ~53/77, taking ~27 min per batch. Remaining: ~11 hr secretory + ~35 hr cycling + ~50-70 hr progenitor + ~100+ hr immune. Immune is the largest class by row count (4.99M rows, 4× larger than secretory) and will dominate the back end of the timeline.
+**Honest revised timeline (as of 2026-05-08):** ~5-7 days remaining. Cycling at batch 20/77 → ~28 hr remaining; progenitor ~50 hr after cycling; immune ~100+ hr after progenitor. Immune is the largest class by row count (4.99M rows, 4× larger than secretory) and will dominate the back end of the timeline.
 
 ### 1.2 Atlas vault — what's actually feeding the production MCMC
 
@@ -116,7 +116,7 @@ The production matrix `iamatlas_mcmc_inputs.csv` (732 MB, 10,938,662 rows) draws
 | 3 | Fill anchor gaps | ✓ COMPLETE — Nazor 2012 stem_pluri, Jung 2017 stem_adult; all 8 classes anchored |
 | 4 | Scale CpG universe | ✓ COMPLETE — 483,092 unique HM450 CpGs |
 | 5 | Build MCMC input matrix | ✓ COMPLETE — 10,938,662 rows, 732 MB CSV, all 8 classes have inputs |
-| 6 | Production MCMC | 🟡 IN FLIGHT — 4 of 8 classes done, 1 failed (stromal), 1 running (secretory), 3 queued |
+| 6 | Production MCMC | 🟡 IN FLIGHT — 5 of 8 classes done (terminal, stem_pluri, stem_adult, secretory, + stromal-failed-pending-rerun), 1 running (cycling), 2 queued (progenitor, immune) |
 
 ---
 
@@ -124,17 +124,17 @@ The production matrix `iamatlas_mcmc_inputs.csv` (732 MB, 10,938,662 rows) draws
 
 ### STEP 6 (continuing) — Let the production MCMC finish
 
-**Action.** Do nothing. Do not interrupt. Let secretory → cycling → progenitor → immune complete on son's PC.
+**Action.** Do nothing. Do not interrupt. Let cycling → progenitor → immune complete on son's PC. Secretory finished 2026-05-07 cleanly (R-hat 1.02, ESS 1023).
 
 **Estimated remaining wall-clock:** 5-7 days.
 
 **Exit gate.** 8 result files exist in `iamatlas_v0_1_output/`:
 - `iamatlas_v0_1_terminal_result.json` (✓ exists)
-- `iamatlas_v0_1_stromal_result.json` (✓ exists, but failed gate)
+- `iamatlas_v0_1_stromal_result.json` (✓ exists, but failed gate — see Step 6.5)
 - `iamatlas_v0_1_stem_pluri_result.json` (✓ exists)
 - `iamatlas_v0_1_stem_adult_result.json` (✓ exists)
-- `iamatlas_v0_1_secretory_result.json` (pending)
-- `iamatlas_v0_1_cycling_result.json` (pending)
+- `iamatlas_v0_1_secretory_result.json` (✓ exists, R-hat 1.02 ESS 1023 zero divergences)
+- `iamatlas_v0_1_cycling_result.json` (pending, ~28 hr remaining)
 - `iamatlas_v0_1_progenitor_result.json` (pending)
 - `iamatlas_v0_1_immune_result.json` (pending)
 
@@ -332,36 +332,40 @@ After v1 ships, these expansions deepen the matrix without rebuilding it:
 
 This is where the IAMAtlas stops being a research artifact and becomes the engine inside a paying product. The order here matters: matrix → cards → diagnosis layer → server → demo → first customer.
 
-### STEP D1 — Card library completion (17 disease cards)
+### STEP D1 — Card library completion (14-card catalog per README_MASTER_v2_7)
 
-**Status.** 12-panel battery defined; gastric/esophageal epic card mid-sprint; HCC card with VAL-064 no-documented-risk subgroup signal documented (Marcus-analog, n=19, paired d=+0.6166, p=0.0072).
+**Status as of 2026-05-08.** Card catalog from README_MASTER_v2_7 + amendments through 2026-05-02:
 
-**Cards in scope:**
-1. AD-immune (VAL-051)
-2. Breast-secretory
-3. CRC-immune-inv
-4. CRC-secretory
-5. Cervical-secretory (CIN stratified)
-6. LGG/GBM-terminal (tissue + blood)
-7. Parkinson's
-8. Prostate
-9. Pancreatic
-10. MS
-11. Cardiac
-12. Aging
-13. HCC (Marcus card — no-documented-risk subgroup is the Marcus-analog signal)
-14. Gastric (in flight, Fritsche/Boccellato 2022 GSE141660 reference)
-15. Esophageal (combined gastric+esophageal scope decision pending)
-16. Ovarian (queued)
-17. Hematologic (heme-epic card; depends on MARLIN integration in Step 9)
+**Validated cards (10) — README_MASTER_v2_7 §"The ten validated cards":**
+1. `breast-epic/` — Breast cancer pre-diagnostic detection (VAL-047 Italian cohorts; VAL-060 TCGA-BRCA tissue arm; VAL-093/094/095/096 Stage 2/3 distributed-then-localized two-component temporal pattern)
+2. `crc-epic/` — Colorectal cancer (VAL-061/062 TCGA-COAD; three-compartment picture: blood immune negative + tumor cycling positive + tumor TIL immune positive)
+3. `ad-immune/` — Alzheimer's cross-sectional detection (VAL-051 Rule A 7-CpG directional panel; VAL-091 layered-atlas Stage 2 confirms NULL on cortical-neuron)
+4. `lung-epic/` — NSCLC multi-modal-validated (VAL-056/063 with smoking-stratified arms)
+5. `prostate-epic/` — v0.3 multi_modal_validated_plus_multi_atlas_calibrated (VAL-058/117/118 with EpiSCORE ProstateRef LE_NEGATIVE pattern)
+6. `hcc-epic/` — Hepatocellular carcinoma multi_modal_validated (VAL-059 ccfDNA + VAL-064 tissue, **Marcus signal in no-documented-risk subgroup n=19, paired d=+0.6166, p=0.0072**)
+7. `pancreatic-epic/` — PDAC cohort_screening_validated (VAL-046 Rotterdam pre-dx + VAL-069 directional 324-CpG fallback panel)
+8. `cervical-epic/` — exploratory_with_cohort_heterogeneity (VAL-073 anchor + cohort heterogeneity finding)
+9. `heme-epic/` — Hematologic malignancy (VAL-082 AML d=+3.71 — strongest single-cohort effect anywhere in the catalog; lymphoid arms framework_calibrated_pending)
+10. `glioma-epic/` — v0.2 single_cohort_validated blood + tissue (VAL-088/090 layered-atlas cortical-neuron cfDNA detection)
 
-**Per-card workflow (the canonical seven-file update — already in TESTING_CHECKLIST):**
+**Sealed v0.1 since the original ten were validated:**
+11. `bladder-epic/` — v0.1 multi_modal_validated_plus_multi_atlas_calibrated (sealed 2026-05-01: VAL-119/120/121/122 with EpiSCORE BladderRef bridge + DISC-BLADDER-001/002/003/004)
+12. `gastric-epic/` — v0.1 (sealed 2026-05-02 as part of gastric-esophageal-epic sprint: VAL-123/124/125/126 with Fritsche/Boccellato 2022 GSE141660 reference)
+13. `esophageal-epic/` — v0.1 (sealed 2026-05-02 with VAL-127/128; ESCC vs EAC discrimination -1.06 d-units, p=1.50e-11; Barrett's amplification +1.69 d-units within cohort)
+
+**Sealed but DEFERRED (not in production):**
+14. `cardio-epic/` — v0.1 sealed but DEFERRED (HeartRef collapsed at calibration per DISC-CARDIO-004; max within-cohort tile range 0.0152 below 0.02 threshold; awaits Konigsberg/Cuadrat 2023 atlas integration)
+
+**To build (from README_MASTER_v2_7 expansion table):**
+15. `kidney-epic/` — TO BUILD (added in v2.1 expansion; KIRC+KIRP validated cycling-class TCGA types in Issue 002 build; kidney_epithelial in Stage 2 output space)
+
+**Per-card workflow (the canonical seven-file update — TESTING_CHECKLIST.md and README_MASTER_v2_7 are the authoritative cookbook references):**
 1. Update TESTING_CHECKLIST.md
 2. Update EDEAR_PIPELINE_OFFICIAL_REFERENCE_v2.md
 3. Update README_MASTER_v2_X.md
 4. Update LESSONS_LEARNED.md
 5. Write/update card README
-6. Write/update card JSON (panel definitions, H_min anchors, scoring rules)
+6. Write/update card JSON (panel definitions, H_min anchors, scoring rules, full universal_reference block per CHK-5.7's 14-sub-key verification)
 7. Write/update Evidence Report HTML
 
 **Per-card external artifacts (push to GitHub):**
@@ -374,13 +378,11 @@ This is where the IAMAtlas stops being a research artifact and becomes the engin
 - Metadata
 - Biological_Physics local README
 
-**Exit gate per card.** All seven internal files updated; all eight external artifacts pushed; cross-card calibration check passes (CCL-037 LL-CROSS-COHORT-CALIBRATION: paired AND same-pipeline AND batch-corrected). Reproducibility triple complete (CHK-7.6: code + inputs + environment + expected output).
+**Exit gate per card.** All seven internal files updated; all eight external artifacts pushed; cross-card calibration check passes (CCL-037 LL-CROSS-COHORT-CALIBRATION: paired AND same-pipeline AND batch-corrected). Reproducibility triple complete (CHK-7.6: code + inputs + environment + expected output). CHK-5.7 14-sub-key universal_reference block verification. CHK-5.8 atlases_used_and_deferred block populated.
 
-**Estimated wall-clock per card:** 1-3 days depending on cohort availability and pre-existing work.
+**Estimated wall-clock per card:** 1-3 days depending on cohort availability and pre-existing work. cardio-epic resurrection is gated on Konigsberg/Cuadrat 2023 atlas acquisition. kidney-epic is the only fully-net-new card in the build queue.
 
-**Total remaining card work:** ~3-6 cards still need to reach v1 quality (gastric, esophageal, prostate, MS, ovarian, heme-epic). The other 11 are at v0.5 or better.
-
-**Exit gate (whole step).** All 17 cards have sealed prereg, complete outcome doc, evidence report HTML page, GitHub artifacts pushed, manifest tagged.
+**Exit gate (whole step).** All 14 cards either at sealed v0.1+ tier OR documented as DEFERRED with explicit unblock_dependency listed in the card's atlases_used_and_deferred block. cardio-epic stays DEFERRED until atlas-of-record (Konigsberg/Cuadrat 2023) is acquired and bridged. kidney-epic reaches sealed v0.1 before EDEAR commercial deployment.
 
 ---
 
@@ -465,7 +467,7 @@ Customer methylation file (β values)
 
 **Honest constraint.** EDEAR is NOT a clinical diagnostic. It is an early-detection signal that recommends downstream workup. The diagnosis translator must be explicit about this in every output. Regulatory positioning is **research / wellness / risk stratification tool**, not FDA-cleared diagnostic. This protects Heath, the customer, and the framework's credibility.
 
-**Exit gate.** Diagnosis translator produces complete, reviewable reports for 100% of synthetic test cases representing all 17 cards × 5 tier outcomes (85 test cases). Every output includes confidence interval, concordance check, and explicit "research tool, not diagnostic" disclaimer.
+**Exit gate.** Diagnosis translator produces complete, reviewable reports for 100% of synthetic test cases representing all production cards × 5 tier outcomes. Every output includes confidence interval, concordance check, and explicit "research tool, not diagnostic" disclaimer.
 
 ---
 
@@ -534,7 +536,7 @@ Return signed report URL with TTL
 
 Before a paying customer touches the system, run 3-5 **real** anonymized samples through the full pipeline end-to-end:
 1. Clinically-confirmed AD case (test if AD-immune card flags Tier 2 or 3)
-2. Clinically-confirmed breast cancer case (10yr+ pre-dx if available; test if breast-secretory card flags)
+2. Clinically-confirmed breast cancer case (10yr+ pre-dx if available; test if breast-epic card flags)
 3. Clinically-confirmed HCC case in no-documented-risk patient (Marcus-class)
 4. Clinically-confirmed healthy adult (negative control — should produce all Tier 0)
 5. Aging case (60+ adult with no clinical disease — should show age-related drift but no card breach)
@@ -644,6 +646,18 @@ That stack is sufficient for Walther to continue without re-orientation. The fra
 ---
 
 ## REVISION LOG
+
+### 2026-05-08 evening (post-card-list-correction session)
+
+Heath caught two errors in the morning's revision:
+
+1. **Step D1 contained a fabricated 17-card list** (AD-immune, Breast-secretory, CRC-immune-inv, CRC-secretory, Cervical-secretory, LGG/GBM-terminal, Parkinson's, Prostate, Pancreatic, MS, Cardiac, Aging, HCC, Gastric, Esophageal, Ovarian, Hematologic). That list was assembled from rough memory rather than read from README_MASTER_v2_7. Several cards in it (Parkinson's, MS, Aging, Ovarian) do not exist in the cookbook. Some named ones used wrong identifiers (Breast-secretory → actual is breast-epic; LGG/GBM-terminal → actual is glioma-epic). This was a Rule 1 no-fabrication violation. Step D1 rewritten with the actual canonical 14-card catalog from README_MASTER_v2_7 §"The ten validated cards" + 2026-05-01 v2.6 amendment (bladder-epic v0.1 sealed) + 2026-05-02 gastric-esophageal-epic v0.1 sealing + cardio-epic v0.1 DEFERRED status + kidney-epic to-build per v2.1 expansion table.
+
+2. **Multiple references claimed "secretory needs re-running"** (Step 6.85 implied, Step 6 implied via the 4-of-8-done count, exit gate language, etc.). Secretory completed cleanly 2026-05-07 at R-hat 1.02 / ESS 1023 / zero divergences. We do NOT re-run secretory. The only correct treatment for secretory is the post-MCMC label-consolidation pass in Step 6.85 (Hep + Hepatocytes + hepatocyte → hepatocyte), same as terminal needs. Production MCMC table updated to current state (5 of 8 classes done including secretory; cycling running; progenitor + immune queued). Step 6 action and exit gate updated. Timeline shortened to 5-7 days remaining (was 8-10).
+
+3. **Diagram `edear_pipeline_stages_4_6_detail.svg` regenerated** with the actual 14-card catalog. Color coding: pink for active/sealed cards, gray for cardio-epic (DEFERRED) and kidney-epic (TO BUILD).
+
+4. **Test case at Step D5 corrected** from "breast-secretory" to "breast-epic" (actual card identifier).
 
 ### 2026-05-08 (post-stromal-diagnosis + GitHub-LFS-storage session)
 
