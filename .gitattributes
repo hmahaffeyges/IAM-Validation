@@ -1,1 +1,6 @@
-iamatlas_production_data/** filter=lfs diff=lfs merge=lfs -text
+iamatlas_production_data/**/*.csv filter=lfs diff=lfs merge=lfs -text
+iamatlas_production_data/**/*.csv.gz filter=lfs diff=lfs merge=lfs -text
+iamatlas_production_data/**/*.csv.xz filter=lfs diff=lfs merge=lfs -text
+iamatlas_production_data/**/*.rda filter=lfs diff=lfs merge=lfs -text
+iamatlas_production_data/**/*.idat filter=lfs diff=lfs merge=lfs -text
+iamatlas_production_data/**/*.h5 filter=lfs diff=lfs merge=lfs -text
