@@ -332,6 +332,34 @@ After v1 ships, these expansions deepen the matrix without rebuilding it:
 
 This is where the IAMAtlas stops being a research artifact and becomes the engine inside a paying product. EDEAR is positioned as a cellular health and wellness tracking product — not a clinical diagnostic. The order here matters: matrix → cards → report layer → server → website + customer portal → first customer.
 
+### Wellness positioning — the master constraint for everything that follows (locked 2026-05-08)
+
+The framing for the entire customer-facing product is cellular health and wellness tracking. This is the single most important positioning decision in the project and it shapes every downstream choice. Locking it here so every subsequent step inherits the same orientation.
+
+**What EDEAR is.** A cellular health and wellness tracking product. Customers send a blood draw, EDEAR scores their cellular health across 8 architectural cell classes plus per-cell-type breakdowns, returns a cellular age relative to chronological age, and (with subscription) tracks the trajectory across multiple tests. The customer watches their cellular health respond in real time to lifestyle changes — weight loss, smoking cessation, exercise, stress management, dietary changes — at a resolution no smart watch or other consumer health product can match. The subscription is the product; trajectory is the value proposition.
+
+**What EDEAR is not.** A clinical diagnostic. EDEAR does not diagnose disease. EDEAR does not name specific diseases as conclusions in customer reports. EDEAR does not recommend treatment. EDEAR does not use medical-action language ("refer to specialist", "immediate clinical referral", or equivalent) anywhere in customer-facing copy.
+
+**How disease detection capability fits.** As a downstream consequence of measuring cellular architecture across all major cell classes, EDEAR is also capable of detecting methylation patterns that have been associated with various conditions in published research. When those patterns appear in a customer's results, the report flags them neutrally and points the customer to the website for educational content. The website explains what the pattern can indicate in research terms. The customer takes that information to their physician if they choose. This is mentioned in customer-facing copy, but always after the wellness lead and never as the primary positioning.
+
+**Strong-recommendation language is conservative.** "We recommend you discuss this finding with your physician" fires only on cards where (a) the customer's A-score is in the SIGNIFICANTLY ELEVATED range and (b) the card has sealed VAL evidence supporting that magnitude as worth attention. ELEVATED findings get neutral website pointers, not physician-referral language. Most customers will see clean reports with everything in normal ranges — that is the dominant case and the report should land it cleanly.
+
+**The runtime card is intentionally minimal.** Each card encodes only what the engine needs at runtime: identifier, architectural class, validated substrate (ccfDNA plasma only for launch), demographic gates, threshold ranges, website URL. No prose interpretation in the card. No conditional caveat tables. No clinical-action matrices. No message generation logic. Maybe 50-100 lines of JSON per card. Everything else lives on the website where it can be updated without touching the engine. The simpler the runtime, the fewer ways it can lie to a customer.
+
+**The website carries the substance.** Each architectural class has a page on iamperformance.net explaining what those cells do, normal ranges, what departures can indicate (with research citations, not claims), lifestyle factors that affect that class, why trajectory matters. Each disease card has a page with the same structure. Educational content can evolve as research evolves; the runtime stays stable.
+
+**The immune class still leads the interpretive narrative even in run-everything architecture.** The immune system sees everything happening anywhere in the body that's sustained enough to matter. A normal immune class with elevated organ tiles is one pattern; an elevated immune class without organ tiles is another; an elevated immune class with concordant organ tile elevation is a third. These mean different things, and the immune card's website page is what helps the customer understand which regime they're in. The runtime engine does not produce this interpretation — the website does.
+
+**On customer expectations.** A customer with an elevated immune class and no organ tile elevation receives a report saying which immune cell types are showing departure from age-matched baseline. The report does not claim this points to any specific disease. The website explains that immune system changes can precede the development of certain conditions by months to years (with research citations) but that many things drive immune signals — recent illness, vaccination, stress, allergies, autoimmune conditions, sustained inflammation. The website recommends prudent action: continue routine checkups, consider lifestyle factors, continue EDEAR testing because trajectory is the real product. No disease-specific claims to a customer based on immune-only signal — we lack the cohort comparators to make those claims honestly.
+
+**Regulatory posture follows naturally from the product framing.** Wellness positioning is the cleanest legal and regulatory posture available. EDEAR makes no medical claims about an individual customer; EDEAR provides measurements and points the customer to educational content. This places EDEAR in the same category as continuous glucose monitors for non-diabetics, methylation age clocks (Elysium, TruDiagnostic), wellness panels, fitness wearables — all of which avoid medical-device classification by leading with personal health optimization. Direct-to-consumer products that have run into trouble (early 23andMe, GRAIL Galleri's EU rollout, several startups) all led with the disease claim and added wellness framing as ancillary. Products that have stayed clean led with personal health optimization throughout.
+
+**Commercial logic follows naturally.** The TAM for "health and wellness tracking" is the entire health-conscious population — hundreds of millions of people. The TAM for "cancer screening" is much smaller and dominated by traditional screening with insurance coverage. The subscription model only works in the wellness framing — you don't subscribe to a cancer test. Customer testimonials will be about cellular age dropping after lifestyle changes, immune class tightening as stress is managed, cycling class improving as fitness improves. Cancer-caught-early stories will happen and will be real benefits, but leading with them puts EDEAR in the wrong category and invites the wrong regulatory attention.
+
+**KISS in the engine.** The engine does as little interpretation as possible. The engine measures, classifies range, matches cards, and produces structured output for the web portal to render. Every interpretive element lives on the website or in the customer's hands. The fewer interpretive decisions the engine makes per customer, the fewer ways it can produce a wrong flag or a false alarm. Complexity is moved out of the runtime and into the educational layer where it can evolve safely.
+
+This positioning is the constraint every step in Part 3 must respect. If a downstream design choice conflicts with wellness positioning, the design choice changes — not the positioning.
+
 ### STEP D1 — Card library completion (17-card catalog)
 
 **Status as of 2026-05-08.** Card list per Heath's 2026-05-08 evening review:
@@ -687,6 +715,35 @@ That stack is sufficient for Walther to continue without re-orientation. The fra
 ---
 
 ## REVISION LOG
+
+### 2026-05-08 night (wellness positioning master-constraint locked + further refinements)
+
+Following the earlier wellness-positioning revision, an additional working session refined and locked the positioning as a master constraint that every downstream design decision inherits. The key refinements:
+
+1. **Master-constraint section added at top of Part 3.** The wellness positioning is no longer just present in individual Part 3 steps — it's now the explicit master rule for the entire customer-product portion of the roadmap. The new section "Wellness positioning — the master constraint for everything that follows" makes the positioning, the rationale, and the operational consequences explicit before any Part 3 step is read. If a downstream design choice conflicts with wellness positioning, the design choice changes — not the positioning.
+
+2. **No specific disease claims for individual customers based on cohort comparators we lack.** The breast 10-year-pre-diagnostic scenario surfaced a subtle overclaim risk. VAL-047 anchored on EPIC-Italy breast at >10 years pre-diagnostic, but we do not have equivalent 10-year pre-diagnostic methylation cohorts for most other cancers. We cannot honestly tell a customer "your immune class drift looks like the breast cancer 10-year pre-diagnostic pattern" because we don't have the comparator data to claim breast specificity at long pre-diagnostic windows. What we honestly have is: immune class drift in the absence of organ-specific signal can precede disease, sometimes by years, and the trajectory matters more than any single point. This is what the report says. Disease-specific claims to individual customers based on immune-only signal are explicitly out of bounds.
+
+3. **Immune class as interpretive lead.** Even in run-everything architecture, the immune class is the right first read in the customer-facing narrative. The immune system sees everything happening anywhere in the body that's sustained enough to matter, anchors the "is anything happening at all" question, and differentiates between systemic and localized perturbations. A normal immune class with elevated organ tiles, an elevated immune class without organ tiles, and an elevated immune class with concordant organ tile elevation each mean different things — and the interpretive framing for each pattern lives on the immune card's website page, not in the runtime engine.
+
+4. **Customer covariate handling for context, not engine logic.** Recent illness, vaccination, stress, allergies, autoimmune conditions, sustained inflammation from any cause all drive immune class signals. The customer reports these at intake. The website explains how to think about an elevated immune signal in the context of any reported drivers. The engine does not branch on covariates to produce different messages — it provides the measurement and points to the website. The customer interprets their result with the website as their guide.
+
+5. **Cellular age as the headline product feature.** Many customers will engage with cellular age as the easiest-to-grasp single number. Cellular age is reported prominently. The trajectory of cellular age across re-tests is the primary commercial narrative. Lifestyle-change-to-cellular-age-shift is the customer success story EDEAR is built around.
+
+6. **The runtime card schema is locked at minimal.** Six fields per card: identifier, architectural class plus optional cell-type focus, validated substrate (ccfDNA plasma only for launch), demographic gates, threshold ranges, website URL. Approximately 50-100 lines of JSON per card. No conditional caveat tables. No message-generation logic. No clinical-action matrices. Everything beyond these six fields lives on the website.
+
+7. **Threshold-setting discipline.** Cards with sealed VAL data use card-specific thresholds derived from their own anchor cohort calibration. Cards still in build (PSP, Kidney) use generic baseline-deviation thresholds (>2 SD = ELEVATED, >3 SD = SIGNIFICANTLY ELEVATED) until card-specific thresholds are calibrated, with the website page documenting that these are baseline-deviation thresholds rather than disease-specific calibrated thresholds.
+
+8. **"Why KISS in the engine" made explicit.** The simpler the runtime, the fewer ways it can produce a wrong flag or a false alarm. Complexity is moved out of the runtime and into the educational layer where it can evolve safely. This also means the website carries the burden of being very, very good — the customer's interpretation depends on the educational content. That content is real work but it's tractable and it's the right place for the work.
+
+What did NOT change:
+
+- The 17-card catalog from Heath's authoritative list — unchanged.
+- The IAMAtlas-only architectural rule, the GAPE engine as Heath-only IP, the deconvolution stage — unchanged.
+- The card files in `cards/hcc/` and `cards/crc/` — unchanged. They remain as cookbook documentation. Runtime cards will be derived from them when the engine is built.
+- The cookbook canonicals (README_MASTER, LESSONS_LEARNED, TESTING_CHECKLIST, GAPE Evidence Report) — unchanged.
+
+This revision is documentation-only. It does not change any code, any card content, any validation result, or any sealed prereg. It locks the positioning that was already implicit in the earlier wellness-shift revision and adds the customer-experience refinements that came out of working through the breast 10-year scenario, the immune card's role, and the runtime-versus-website split.
 
 ### 2026-05-08 night (wellness-first strategic positioning shift)
 
