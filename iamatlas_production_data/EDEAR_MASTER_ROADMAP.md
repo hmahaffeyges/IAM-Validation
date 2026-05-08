@@ -332,32 +332,32 @@ After v1 ships, these expansions deepen the matrix without rebuilding it:
 
 This is where the IAMAtlas stops being a research artifact and becomes the engine inside a paying product. The order here matters: matrix → cards → diagnosis layer → server → demo → first customer.
 
-### STEP D1 — Card library completion (14-card catalog per README_MASTER_v2_7)
+### STEP D1 — Card library completion (17-card catalog)
 
-**Status as of 2026-05-08.** Card catalog from README_MASTER_v2_7 + amendments through 2026-05-02:
+**Status as of 2026-05-08.** Card list per Heath's 2026-05-08 evening review:
 
-**Validated cards (10) — README_MASTER_v2_7 §"The ten validated cards":**
-1. `breast-epic/` — Breast cancer pre-diagnostic detection (VAL-047 Italian cohorts; VAL-060 TCGA-BRCA tissue arm; VAL-093/094/095/096 Stage 2/3 distributed-then-localized two-component temporal pattern)
-2. `crc-epic/` — Colorectal cancer (VAL-061/062 TCGA-COAD; three-compartment picture: blood immune negative + tumor cycling positive + tumor TIL immune positive)
-3. `ad-immune/` — Alzheimer's cross-sectional detection (VAL-051 Rule A 7-CpG directional panel; VAL-091 layered-atlas Stage 2 confirms NULL on cortical-neuron)
-4. `lung-epic/` — NSCLC multi-modal-validated (VAL-056/063 with smoking-stratified arms)
-5. `prostate-epic/` — v0.3 multi_modal_validated_plus_multi_atlas_calibrated (VAL-058/117/118 with EpiSCORE ProstateRef LE_NEGATIVE pattern)
-6. `hcc-epic/` — Hepatocellular carcinoma multi_modal_validated (VAL-059 ccfDNA + VAL-064 tissue, **Marcus signal in no-documented-risk subgroup n=19, paired d=+0.6166, p=0.0072**)
-7. `pancreatic-epic/` — PDAC cohort_screening_validated (VAL-046 Rotterdam pre-dx + VAL-069 directional 324-CpG fallback panel)
-8. `cervical-epic/` — exploratory_with_cohort_heterogeneity (VAL-073 anchor + cohort heterogeneity finding)
-9. `heme-epic/` — Hematologic malignancy (VAL-082 AML d=+3.71 — strongest single-cohort effect anywhere in the catalog; lymphoid arms framework_calibrated_pending)
-10. `glioma-epic/` — v0.2 single_cohort_validated blood + tissue (VAL-088/090 layered-atlas cortical-neuron cfDNA detection)
+**Active cards with JSON in production (14):**
+1. AD (`ad-immune/`)
+2. Bladder (`bladder-epic/` v0.1)
+3. Breast (`breast-epic/`)
+4. Cardio (`cardio-epic/` — v0.1 sealed but DEFERRED pending Konigsberg/Cuadrat 2023 atlas integration)
+5. Cervical (`cervical-epic/`)
+6. Colon/Rectal (`crc-epic/`)
+7. Gastric/Esophagus (`gastric-epic/`, `esophageal-epic/` — both v0.1 sealed 2026-05-02)
+8. Glioma (`glioma-epic/`)
+9. HCC Liver (`hcc-epic/` — Marcus card; no-documented-risk subgroup paired d=+0.6166, p=0.0072, n=19)
+10. HEME Leukemia (`heme-epic/` — VAL-082 AML d=+3.71, strongest single-cohort effect)
+11. Lung (`lung-epic/`)
+12. Pancreatic (`pancreatic-epic/`)
+13. Prostate (`prostate-epic/` v0.3)
+14. Immune (`immune-atlas/` — not a disease per se; provides systemic-departure routing for AD-pattern, inflammaging vs autoimmune differential, and the heme-epic uniform-elevation re-route)
 
-**Sealed v0.1 since the original ten were validated:**
-11. `bladder-epic/` — v0.1 multi_modal_validated_plus_multi_atlas_calibrated (sealed 2026-05-01: VAL-119/120/121/122 with EpiSCORE BladderRef bridge + DISC-BLADDER-001/002/003/004)
-12. `gastric-epic/` — v0.1 (sealed 2026-05-02 as part of gastric-esophageal-epic sprint: VAL-123/124/125/126 with Fritsche/Boccellato 2022 GSE141660 reference)
-13. `esophageal-epic/` — v0.1 (sealed 2026-05-02 with VAL-127/128; ESCC vs EAC discrimination -1.06 d-units, p=1.50e-11; Barrett's amplification +1.69 d-units within cohort)
+**Need JSON and more work (2):**
+15. PSP — progressive supranuclear palsy. Currently surfaces as a tauopathy-specificity arm in ad-immune (VAL-057 GSE53740 PSP/CBD preserved 5/7 frozen directions). Promotion to standalone card requires a dedicated panel definition, H_min anchor, scoring rules, mandatory covariates, and atlas integration plan.
+16. Kidney — kidney_epithelial is in the Stage 2 output space and KIRC+KIRP are validated cycling-class TCGA types in the Issue 002 build. v2.1 expansion table includes kidney-epic. JSON + card README + sealed VAL pending.
 
-**Sealed but DEFERRED (not in production):**
-14. `cardio-epic/` — v0.1 sealed but DEFERRED (HeartRef collapsed at calibration per DISC-CARDIO-004; max within-cohort tile range 0.0152 below 0.02 threshold; awaits Konigsberg/Cuadrat 2023 atlas integration)
-
-**To build (from README_MASTER_v2_7 expansion table):**
-15. `kidney-epic/` — TO BUILD (added in v2.1 expansion; KIRC+KIRP validated cycling-class TCGA types in Issue 002 build; kidney_epithelial in Stage 2 output space)
+**Candidate, not yet built (1):**
+17. Schizophrenia — discussed as a candidate disease. No card exploration yet. Requires landscape survey (cohort availability, expected architectural class signal, healthy comparator availability) before a build plan can be drafted.
 
 **Per-card workflow (the canonical seven-file update — TESTING_CHECKLIST.md and README_MASTER_v2_7 are the authoritative cookbook references):**
 1. Update TESTING_CHECKLIST.md
@@ -380,9 +380,9 @@ This is where the IAMAtlas stops being a research artifact and becomes the engin
 
 **Exit gate per card.** All seven internal files updated; all eight external artifacts pushed; cross-card calibration check passes (CCL-037 LL-CROSS-COHORT-CALIBRATION: paired AND same-pipeline AND batch-corrected). Reproducibility triple complete (CHK-7.6: code + inputs + environment + expected output). CHK-5.7 14-sub-key universal_reference block verification. CHK-5.8 atlases_used_and_deferred block populated.
 
-**Estimated wall-clock per card:** 1-3 days depending on cohort availability and pre-existing work. cardio-epic resurrection is gated on Konigsberg/Cuadrat 2023 atlas acquisition. kidney-epic is the only fully-net-new card in the build queue.
+**Estimated wall-clock per card:** 1-3 days depending on cohort availability and pre-existing work. PSP and Kidney are the active build targets. Schizophrenia is gated on landscape survey.
 
-**Exit gate (whole step).** All 14 cards either at sealed v0.1+ tier OR documented as DEFERRED with explicit unblock_dependency listed in the card's atlases_used_and_deferred block. cardio-epic stays DEFERRED until atlas-of-record (Konigsberg/Cuadrat 2023) is acquired and bridged. kidney-epic reaches sealed v0.1 before EDEAR commercial deployment.
+**Exit gate (whole step).** All 16 buildable cards reach sealed v0.1+ tier. Cardio-epic stays DEFERRED until Konigsberg/Cuadrat 2023 atlas-of-record is acquired and bridged. Schizophrenia lands as a v0.1 card OR is documented as a deferred candidate with explicit unblock dependency.
 
 ---
 
@@ -646,6 +646,38 @@ That stack is sufficient for Walther to continue without re-orientation. The fra
 ---
 
 ## REVISION LOG
+
+### 2026-05-08 late evening (Heath's authoritative card list)
+
+The morning's revision corrected a fabricated 17-card list by replacing it with a 14-card catalog read from README_MASTER_v2_7. That correction was structurally right (read source docs, no fabrication) but produced a different error: it under-counted Heath's actual operational card catalog.
+
+Heath's authoritative card list as of 2026-05-08 evening:
+
+1. AD
+2. Bladder
+3. Breast
+4. Cardio
+5. Cervical
+6. Colon/Rectal
+7. Gastric/Esophagus
+8. Glioma
+9. HCC Liver
+10. HEME Leukemia
+11. Lung
+12. Pancreatic
+13. Prostate
+14. PSP — needs JSON and more work
+15. Kidney — needs JSON and more work
+16. Immune — functions as a card for systemic-departure routing (AD-pattern, inflammaging vs autoimmune differential, heme-epic uniform-elevation re-route); not a disease per se
+17. Schizophrenia — discussed as a candidate, no card exploration yet
+
+The 14 documented in README_MASTER_v2_7 + amendments (the morning's reading) are accurate but incomplete. The Immune card was previously treated as a reference document rather than a card; per Heath, it functions as a card because it routes systemic-departure signals. PSP was previously a tauopathy-specificity arm in ad-immune (VAL-057); per Heath it warrants a standalone card. Schizophrenia is on the candidate list pending landscape survey.
+
+Step D1 rewritten with all 17 cards, broken into three groups: 14 with JSON in production (cardio-epic noted as v0.1 sealed but DEFERRED), 2 needing JSON + more work (PSP, Kidney), 1 candidate (Schizophrenia).
+
+Diagram `edear_pipeline_stages_4_6_detail.svg` regenerated with all 17. Color coding: pink for the 14 with production JSONs, amber for PSP and Kidney, gray for Schizophrenia.
+
+Lesson logged for future Walther sessions: when reconciling a card list, the cookbook docs are necessary but not sufficient. Heath's working operational catalog includes cards that exist as routing constructs (Immune), cards being promoted from sub-arms (PSP), and candidates not yet documented (Schizophrenia). Always confirm the card list with Heath before committing it to a diagram or downstream document.
 
 ### 2026-05-08 evening (post-card-list-correction session)
 
