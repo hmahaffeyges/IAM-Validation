@@ -330,7 +330,7 @@ After v1 ships, these expansions deepen the matrix without rebuilding it:
 
 ## PART 3 — REMAINING STEPS FROM IAMATLAS V1 TO CUSTOMER NUMBER ONE
 
-This is where the IAMAtlas stops being a research artifact and becomes the engine inside a paying product. The order here matters: matrix → cards → diagnosis layer → server → demo → first customer.
+This is where the IAMAtlas stops being a research artifact and becomes the engine inside a paying product. EDEAR is positioned as a cellular health and wellness tracking product — not a clinical diagnostic. The order here matters: matrix → cards → report layer → server → website + customer portal → first customer.
 
 ### STEP D1 — Card library completion (17-card catalog)
 
@@ -382,13 +382,27 @@ This is where the IAMAtlas stops being a research artifact and becomes the engin
 
 **Estimated wall-clock per card:** 1-3 days depending on cohort availability and pre-existing work. PSP and Kidney are the active build targets. Schizophrenia is gated on landscape survey.
 
+**Runtime card schema (added 2026-05-08, under wellness-first positioning).** The card files currently in `cards/` (hcc-epic v0.3, crc-epic v2.4) are cookbook documentation cards — they contain validation evidence summaries, sealed VAL prereg SHAs, lessons learned, CCL terminology disambiguation, and other audit-trail material. These are valuable as documentation but are not the right shape for the runtime engine to consume.
+
+The runtime card schema (to be drafted as part of the Step D2 report builder work) is minimal. Each runtime card encodes only:
+- Card identifier and architectural class
+- Cell type(s) of interest beyond class level (when applicable)
+- Validated substrate(s) — for launch, ccfDNA plasma only
+- Demographic gates (age range, sex restriction) as Boolean rules
+- A-score threshold ranges that map values to NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED
+- The URL of the website page that explains this card to customers
+
+Everything else — disease description, mechanism summary, validation evidence, conditional caveats, lessons learned, atlas integration history — moves to either (a) the educational website page for that card, or (b) the cookbook canonicals (README_MASTER, LESSONS_LEARNED, TESTING_CHECKLIST, GAPE Evidence Report, validation_runs/).
+
+The cookbook documentation cards stay in `cards/` as historical record and as the source material from which runtime cards will be derived. The runtime cards are produced as a separate artifact when the engine is built. One per disease, ~100-200 lines of JSON each, deployment-focused.
+
 **Exit gate (whole step).** All 16 buildable cards reach sealed v0.1+ tier. Cardio-epic stays DEFERRED until Konigsberg/Cuadrat 2023 atlas-of-record is acquired and bridged. Schizophrenia lands as a v0.1 card OR is documented as a deferred candidate with explicit unblock dependency.
 
 ---
 
-### STEP D2 — The diagnosis layer (translation from A-scores to clinical recommendations)
+### STEP D2 — The report layer (translation from A-scores to customer-facing wellness report)
 
-**This is the layer that makes EDEAR a clinical product, not a research tool.** A customer doesn't want eight A-scores. They want: *what does this mean, and what do I do?*
+**Revised 2026-05-08 under wellness-first positioning.** This step previously framed EDEAR as a "clinical product, not a research tool" and described a "diagnosis translator" that produces clinical recommendations. That framing is wrong for the launch product. The corrected framing: this is the layer that translates raw A-scores into a customer-facing cellular health and wellness report. Disease findings, when they appear, are handed off to the customer with a pointer to educational content and a recommendation to discuss with their physician — not interpreted in the report itself.
 
 **Architecture (the single-pipeline KISS version — no multi-stage filters needed because the IAMAtlas does the discrimination upstream):**
 
@@ -400,80 +414,89 @@ Customer methylation file (β values)
    - Reject if <80% HM450 coverage
    - Sample-level QC: bisulfite conversion check, batch-effect flag, outlier detection
          ↓
-[Stage 1 — IAMAtlas deconvolver]
-   - Cell composition vector across all 8 architectural classes + per-cell-type
+[Stage 1 — IAMAtlas deconvolution]
+   - Per-cell-type fractions across all cell types in IAMAtlas
    - Per-class A-scores (one per architectural class)
    - Confidence intervals from MCMC posterior
          ↓
-[Stage 2 — Demographic adjustment]
+[Stage 2 — Class A-scores]
+   - Aggregate cell-type fractions into 8 architectural-class A-scores
+   - Apply GAPE engine H_min anchors per class
+   - Output A-score with credible interval per class
+         ↓
+[Stage 3 — Demographic adjustment]
    - Age adjustment via age layer (per-CpG age-slope correction)
    - Sex adjustment for sex-dimorphic CpGs
-   - Cellular age (residual after age adjustment) reported separately
+   - Cellular age (residual after age adjustment) reported separately as a headline product feature
          ↓
-[Stage 3 — Floor departure detection]
+[Stage 4 — Floor departure detection]
    - Per-class A-score → tier classification:
-     * Tier 0 NORMAL: A < 1.00
-     * Tier 1 MARGINAL: A 1.00-1.05 (at floor, within healthy range)
-     * Tier 2 DETECTABLE: A 1.05-1.10 (departure — flag)
-     * Tier 3 URGENT: A 1.10-1.20 (breach — refer)
-     * Tier 4 FLOOR_BREACH: A > 1.20 (severe — immediate referral)
-   - Bidirectional immune-class check: if immune class shows
-     simultaneous nulls (Test 1 pooled-entropy ≈ 0) AND directional
-     panel passes, flag as bidirectional cancellation pattern
-     (AD-instance signature; CCL-027 four-question protocol applies)
+     * NORMAL (within healthy range for age)
+     * ELEVATED (outside healthy range, mild)
+     * SIGNIFICANTLY ELEVATED (outside healthy range, strong)
+     * BELOW NORMAL (homogenization or suppression)
+   - Per-cell-type tier classification using same scheme
          ↓
-[Stage 4 — Card matching]
+[Stage 5 — Card matching]
    - Filter cards by: tissue applicability, age range, sex applicability,
      CpG panel availability in customer's array
-   - For each matched card, run that card's directional panel
-   - Output: card-specific A-scores, panel scores, sigma stratification
+   - For each matched card, evaluate its threshold ranges against the customer's
+     A-scores and per-cell-type fractions
+   - Output: card-level tier (NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED) and
+     the website URL for that card's educational page
          ↓
-[Stage 5 — Diagnosis translation]
-   - For each card that hit Tier 2+: clinical context paragraph,
-     panel score with CI, age/sex-matched Z-score, recommendation
-     tier, Marcus-class flag if no-documented-risk + Tier 3
-   - Concordance check: if card panel signal disagrees with class
-     A-score, flag as "single-panel signal" (could be panel-specific
-     false-positive)
-   - Plain-language summary at top, technical detail beneath
+[Stage 6 — Report assembly]
+   - Cellular health summary (8 class A-scores, plotted against age-matched normal
+     ranges, with neutral/elevated/significantly-elevated visual indicators)
+   - Cellular age vs chronological age
+   - Per-cell-type breakdown for cell types with IAMAtlas posteriors
+   - List of any cards that flagged ELEVATED or SIGNIFICANTLY ELEVATED, each with
+     a link to its educational page on iamperformance.net
+   - For SIGNIFICANTLY ELEVATED cards: a single sentence recommending the customer
+     review the finding on the website and discuss it with their physician
+   - Trajectory section (populated from re-test 2 onward) showing change since last test
          ↓
-[Stage 6 — Report generation]
+[Stage 7 — Report delivery]
    - JSON (machine-readable for lab partner integration)
    - HTML (web-portal viewing)
-   - PDF (printable, signed by customer's clinician)
+   - PDF (printable)
 ```
 
-**Why no multi-stage filter pipeline.** Earlier EDEAR designs ran sequential filters (Stage 1 red-flag → Stage 2 tissue-specific → Stage 3 immune complexity). The IAMAtlas makes that unnecessary because **deconvolution is one operation that simultaneously gives us all 8 class A-scores and all per-cell-type estimates**. The cards then run against the relevant A-scores in parallel, not sequentially. Single Bayesian deconvolution replaces three stages of filters.
+**Why no multi-stage filter pipeline.** Earlier EDEAR designs ran sequential filters (Stage 1 red-flag → Stage 2 tissue-specific → Stage 3 immune complexity). The IAMAtlas makes that unnecessary because deconvolution is one operation that simultaneously gives us all 8 class A-scores and all per-cell-type estimates. The cards then run against the relevant A-scores in parallel, not sequentially. Single Bayesian deconvolution replaces three stages of filters.
 
-**The diagnosis translator outputs (per card that matched):**
-- Card name and clinical context
-- Panel score and sigma stratification (Z-score against age/sex-matched healthy reference)
-- Floor departure status with tier
-- Confidence interval (Bayesian credible interval from MCMC posterior, not frequentist p-value)
-- Concordance check (does the panel signal agree with the class A-score? if not, flag — could be a false-positive specific to one panel)
-- Recommendation tier:
-  - **Tier 0 (no signal):** No action recommended.
-  - **Tier 1 (subclinical drift):** Repeat in 12 months. Lifestyle / preventive interventions noted.
-  - **Tier 2 (departure):** Repeat in 6 months OR clinical workup as appropriate.
-  - **Tier 3 (breach):** Refer to specialist for confirmatory diagnostic.
-  - **Tier 4 (floor breach):** Immediate clinical referral.
-- Marcus-class flagging: if HCC card or any card hits Tier 3+ in a no-documented-risk patient, flag specifically — that's the failure mode that motivated EDEAR.
+**The report's lead is cellular health and wellness, not disease findings.** The customer opens their report and sees their 8 architectural-class A-scores plotted against age-matched normal ranges. They see their cellular age relative to their chronological age. They see which cell types are tracking well and which are showing departure. This is the headline product. Disease-card flags appear further down as "items worth reviewing" with website links — not as the headline.
 
-**Card-information integration mechanics.** Each card JSON file (`card_v0_X.json`) already contains: panel CpGs, H_min anchor, scoring rule (pooled-entropy or directional Rule A), tissue applicability, age range, sex applicability, clinical context paragraph, recommended action per tier, evidence citations. The diagnosis translator just reads the card JSON, runs the scoring rule against the customer's β values, applies the tier thresholds, and assembles the output paragraph from the card's own context fields. **The cards are already structured for this** — they just need to be loaded and applied.
+**The runtime card schema is minimal.** Each card encodes:
+- Card identifier and the architectural class it monitors
+- Cell type(s) of interest (when applicable beyond the class level)
+- Validated substrate(s) — for launch, ccfDNA plasma only
+- Demographic gates (age range, sex restriction) as Boolean rules
+- Threshold ranges that map A-score values to NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED
+- The URL of the website page that explains this card to customers
 
-**Per-card caveats and complexity management.** Each card README contains: known false-positive scenarios, age-related caveats, comorbidity interactions, performance characteristics. The diagnosis translator's responsibility is NOT to summarize all of this in every report — it's to flag specific caveats that apply to *this* customer (e.g., if the customer's age is in a range with known higher false-positive rate, flag that caveat; if a comorbidity affects interpretation and the customer disclosed it in metadata, flag that). Caveats not relevant to the customer don't appear in the report.
+That is the entire runtime card. No conditional caveat tables. No message-generation logic. No clinical-action matrices. No prose. The website carries everything else.
 
-**Code.** New module `edear_diagnosis_translator.py`. Reads card JSON files + A-score output, produces structured diagnosis report. Card loading is dynamic — adding a new card = drop a new JSON + README in `cards/` directory and the translator picks it up at next server restart.
+**The website carries the substance.** Each architectural class has a page on iamperformance.net explaining what those cells do, what normal A-score ranges look like, what elevation can indicate (with research citations, not claims), what lifestyle factors are known from research to affect that class, and how trajectory matters. Each disease card has a page explaining what the card looks for, what range of A-scores have been associated with what observations in research, and how to think about a flagged result. The customer reads about their result on their terms, with content that can be updated independently of the runtime engine.
 
-**Honest constraint.** EDEAR is NOT a clinical diagnostic. It is an early-detection signal that recommends downstream workup. The diagnosis translator must be explicit about this in every output. Regulatory positioning is **research / wellness / risk stratification tool**, not FDA-cleared diagnostic. This protects Heath, the customer, and the framework's credibility.
+**What "significantly elevated" means and who decides.** Threshold-setting is itself a clinical-grade judgment that needs to be defensible. For the launch:
+- Cards with sealed VAL data (HCC, CRC, breast, lung, prostate, AD, glioma, heme, gastric, esophageal, bladder, pancreatic, cervical, immune) use card-specific thresholds derived from their own anchor cohort calibration
+- Cards still in build (PSP, Kidney) use generic baseline-deviation thresholds (>2 SD from age-matched baseline = ELEVATED, >3 SD = SIGNIFICANTLY ELEVATED) until card-specific thresholds are calibrated, with the website page documenting that these are baseline-deviation thresholds rather than disease-specific calibrated thresholds
 
-**Exit gate.** Diagnosis translator produces complete, reviewable reports for 100% of synthetic test cases representing all production cards × 5 tier outcomes. Every output includes confidence interval, concordance check, and explicit "research tool, not diagnostic" disclaimer.
+The strong-recommendation language ("we recommend you review this finding with your physician") fires only at SIGNIFICANTLY ELEVATED thresholds, not on every flag. ELEVATED findings get a neutral website pointer.
+
+**Trajectory is the core subscription value proposition.** A single EDEAR report is a baseline. The product becomes meaningful when the customer re-tests. Every subsequent report shows change since baseline and change since last test. The website explains why trajectory matters and how to interpret it. This is the genuine product, and it is what makes the subscription model work.
+
+**Code.** New module `edear_report_builder.py` (renamed from earlier "diagnosis_translator" framing). Reads card JSON files + Stage 4 output, produces structured wellness report. Card loading is dynamic — adding a new card = drop a new JSON in `cards/` and the website team adds a new educational page. Restart picks it up.
+
+**Honest constraint.** EDEAR is positioned as a wellness and cellular health tracking product. The report does not diagnose. The report does not name diseases unless a customer clicks through to the website's educational content. The report does not recommend treatment. Customers who see SIGNIFICANTLY ELEVATED findings are pointed to the website and to their own physician for any clinical interpretation. This positioning protects Heath, the customer, and the framework's credibility — and it is also accurate to what the product actually does for most customers, who will use it for tracking rather than for disease detection.
+
+**Exit gate.** Report builder produces complete, reviewable wellness reports for 100% of synthetic test cases representing the cellular-health summary baseline plus all production cards across NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED tier outcomes. Every report leads with cellular health and cellular age. Card flags appear as secondary findings with website links. The strong-recommendation language fires only at SIGNIFICANTLY ELEVATED thresholds.
 
 ---
 
 ### STEP D3 — The EDEAR server processor (production server)
 
-**This is the bones-step still pending from April 19 session.** The server consumes a methylation file from a customer (or lab partner), runs it through the full pipeline, returns the diagnosis report.
+**This is the bones-step still pending from April 19 session.** The server consumes a methylation file from a customer (or lab partner), runs it through the full pipeline, returns the wellness report.
 
 **Architecture.**
 
@@ -488,11 +511,11 @@ POST /v1/score
 [Sample-level QC] → bisulfite conversion check, batch-effect flag, outlier detection
   ↓
 [Pipeline executor]
-  ↓ - Deconvolve cell composition
+  ↓ - Deconvolve cell composition against IAMAtlas
   ↓ - Compute 8 A-scores against IAMAtlas (age-adjusted via age layer)
   ↓ - Match applicable cards (filter by tissue / age / sex)
-  ↓ - Run each matched card panel
-  ↓ - Translate to diagnosis report
+  ↓ - Run each matched card's threshold check
+  ↓ - Assemble cellular health and wellness report
   ↓
 [Report generator] → JSON + HTML + PDF outputs
   ↓
@@ -520,28 +543,46 @@ Return signed report URL with TTL
 
 ---
 
-### STEP D4 — The customer-facing product (web app + report delivery)
+### STEP D4 — The customer-facing product (web app + website + report delivery)
 
-**Two surfaces:**
-1. **Lab partner portal** — authenticated upload, batch processing, results download. Lab partners are the primary v1 channel — they generate the methylation files and EDEAR scores them.
-2. **Researcher demo / public-facing site** — `iamperformance.net` already live. Add product page with EDEAR description, sample reports (anonymized), pricing, and "request access" form (NOT direct signup — this is research-tier, not consumer).
+**Revised 2026-05-08 under wellness-first positioning.** This step previously described a "lab partner portal" as the v1 commercial wedge. That channel may still come into play later, but the customer-facing product for launch is structured around three surfaces:
 
-**The lab partner story is the v1 commercial wedge.** Labs already run methylation arrays for clinicians or research customers. EDEAR adds an interpretation layer on top of their existing infrastructure. The lab pays per sample, charges the end customer (clinic / researcher), keeps the margin. EDEAR doesn't touch the patient. Heath's three-tier lab partnership evolution (already documented in memory): L1 near-term (EPIC β-matrix for GAPE classes), L2 medium (custom capture panel), L3 year-3+ (full 5-substrate multi-assay).
+1. **Customer-facing report (PDF + HTML web view).** What the paying customer receives. Leads with cellular health and cellular age. Eight architectural-class A-scores plotted against age-matched normal ranges with neutral/elevated/significantly-elevated visual indicators. Per-cell-type breakdowns where available. Trajectory section (populated from re-test 2 onward). Card flags (when present) appear as secondary findings with website links — never as the headline. Strong-recommendation language ("review this finding with your physician") fires only at SIGNIFICANTLY ELEVATED thresholds.
 
-**Exit gate.** Lab partner can upload a real methylation file via the portal, receive a complete diagnosis report in < 5 minutes, and the report is reviewable, exportable as PDF, and includes all required disclaimers.
+2. **Educational website (`iamperformance.net`).** Carries the substance that earlier card READMEs were trying to carry inside the runtime. Each architectural class has a page explaining what those cells do, what normal A-score ranges look like, what elevation can indicate (with research citations, not claims), what lifestyle factors are known to affect that class, and how trajectory matters. Each disease card has a page with the same structure: what the card looks for, what range of A-scores have been associated with what observations in research, and how to think about a flagged result. The website carries the messaging, the educational context, the research citations, and the disclaimers. This separation lets us update content without redeploying the runtime.
+
+3. **Customer portal (subscription management + report archive + trajectory dashboard).** Customers log in to view their report archive, see their trajectory plotted across multiple tests, manage their subscription, and update their covariate intake (recent illness, medications, lifestyle changes between tests). The trajectory dashboard is where the subscription value lives — a customer who has tested four times sees their cellular health changing in real time as they pursue lifestyle goals.
+
+**The wellness positioning shapes everything about how these surfaces present EDEAR.**
+
+The website lead is cellular health and wellness tracking. The "What is EDEAR" page leads with: track your cellular health across 8 architectural cell classes with the most precise framework available. Watch your cellular age in real time. See how lifestyle changes affect your body at the cellular level before they show up anywhere else. Monitor trends across multiple tests with the subscription. The cancer detection capability is mentioned as a secondary capability further down the page: as a downstream consequence of measuring cellular architecture across all major cell classes, EDEAR is also capable of detecting methylation patterns that have been associated with various cancers and other conditions; when those patterns appear in your results we'll point them out so you can discuss them with your physician.
+
+Marketing emphasizes health journeys. Customer testimonials are about people watching their cellular age drop after lifestyle changes, about people seeing their immune class tighten as they manage stress better, about people using EDEAR as a feedback mechanism for their fitness goals. The cancer-caught-early stories will happen and will be real benefits, but leading with them puts EDEAR in the wrong category and invites the wrong regulatory attention.
+
+**Why the wellness positioning is also stronger commercially.**
+- The total addressable market for "health and wellness tracking" is the entire health-conscious population — hundreds of millions of people. The TAM for "cancer screening" is much smaller and dominated by traditional screening with insurance coverage.
+- The subscription model only makes sense in the wellness framing. Cancer screening subscribers don't make sense; wellness tracking subscribers do.
+- The customer journey works in the wellness framing. A 38-year-old getting serious about their health buys a baseline test, gets normal numbers, subscribes to track changes as they hit fitness goals. Six months later their cellular age has dropped, their immune class has tightened, their cycling class shows reduced drift. They have something concrete to share. They retain. They refer.
+- The wellness framing is also more honest. Most customers will use it for tracking, not for getting cancer diagnoses. Marketing it as a tracking product reflects what the product actually is at scale.
+
+**Lab partners may still come into play.** The earlier roadmap framed labs as the v1 commercial wedge. That remains a viable channel — labs already run methylation arrays for clinicians or research customers, and EDEAR could add an interpretation layer on top of their existing infrastructure. But it is a B2B channel parallel to the direct-to-consumer wellness channel, not a replacement for it. Both can run.
+
+**Exit gate.** Customer can receive a wellness report via the customer portal, view their cellular health summary and cellular age, click through to website pages for any flagged findings, and (after the second test) view their trajectory dashboard. Report includes wellness-positioning disclaimers, not clinical-diagnostic language. Strong-recommendation language fires only at SIGNIFICANTLY ELEVATED card thresholds.
 
 ---
 
 ### STEP D5 — Validation cases (3-5 real samples through the full pipeline before customer #1)
 
-Before a paying customer touches the system, run 3-5 **real** anonymized samples through the full pipeline end-to-end:
-1. Clinically-confirmed AD case (test if AD-immune card flags Tier 2 or 3)
-2. Clinically-confirmed breast cancer case (10yr+ pre-dx if available; test if breast-epic card flags)
-3. Clinically-confirmed HCC case in no-documented-risk patient (Marcus-class)
-4. Clinically-confirmed healthy adult (negative control — should produce all Tier 0)
-5. Aging case (60+ adult with no clinical disease — should show age-related drift but no card breach)
+**Revised 2026-05-08 under wellness positioning.** The test cases below are framed around what the wellness report should produce, not around clinical confirmation. The goal is to verify the report layer behaves correctly across the spectrum of customer scenarios.
 
-**Exit gate.** ≥4 of 5 cases produce expected output. Any unexpected output is investigated, root-caused, and either (a) explained as expected variability or (b) triggers card / matrix / pipeline fix before commercial launch.
+Before a paying customer touches the system, run 3-5 real anonymized samples through the full pipeline end-to-end:
+1. Healthy adult baseline — should produce all-NORMAL cellular health summary, cellular age within ±2 years of chronological age, no card flags.
+2. Aging case (60+ adult with no clinical disease) — should show some age-related drift in expected classes (terminal, cycling), cellular age modestly above chronological, no card flags at SIGNIFICANTLY ELEVATED.
+3. Sample from a known AD case — verify AD-immune card fires at appropriate tier, report links to AD educational page on website, strong-recommendation language fires only if SIGNIFICANTLY ELEVATED.
+4. Sample from a known breast pre-diagnostic cohort case — verify breast card behaves appropriately (immune class context plus organ tile elevation), report does not over-claim, website link is to breast educational page.
+5. Sample from a known HCC case (Marcus-class no-documented-risk if available) — verify HCC card fires at SIGNIFICANTLY ELEVATED with strong-recommendation language, report points to HCC educational page on website.
+
+**Exit gate.** ≥4 of 5 cases produce expected output. Reports lead with cellular health summary and cellular age. Card flags appear as secondary findings with website links. Strong-recommendation language fires only at SIGNIFICANTLY ELEVATED. Any unexpected output is investigated, root-caused, and either (a) explained as expected variability or (b) triggers card / matrix / pipeline fix before launch.
 
 ---
 
@@ -589,16 +630,16 @@ These are not Walther decisions. These are Heath decisions — Walther flags whe
 | G-G | Lab partner selection (which 3 to pitch) | When server is at exit gate |
 | G-H | Pricing per sample (L1 partnership terms) | At lab partner pitch stage |
 | G-I | Public release timing (Step 12) — before or after EDEAR commercial launch | Heath's call; current memory says after |
-| G-J | Regulatory positioning (research / wellness / risk-strat — confirm not making FDA claims) | Before lab partner agreement signed |
+| G-J | Regulatory positioning (wellness / health-tracking — confirm not making FDA medical-device claims). Decision was made 2026-05-08: wellness-first positioning consistently across website, report, marketing. Lead is cellular health and cellular age tracking; disease detection is mentioned only as a secondary downstream capability. | Confirmed before customer-facing copy is finalized |
 | G-K | When to bring in counsel (pre-customer-#1 vs post) | Heath's existing memory: no attorney yet, March 2027 non-prov deadline |
 
 ---
 
 ## PART 5 — WHAT THIS ROADMAP IS NOT
 
-- **Not a single-person sequential plan.** Steps 7, 8, D1-cards, D2-diagnosis-translator can run in parallel. Step 6 (MCMC) is the only blocker that must complete before validation.
+- **Not a single-person sequential plan.** Steps 7, 8, D1-cards, D2-report-builder can run in parallel. Step 6 (MCMC) is the only blocker that must complete before validation.
 - **Not a date-bound timeline.** Calendar dates depend on how long the MCMC runs, how many cards need v1 work, and how fast lab partners respond. Walther will not invent target dates.
-- **Not a regulatory plan.** EDEAR is positioned as research / wellness / risk-stratification tool, not FDA-cleared diagnostic. Regulatory expansion is a post-customer-#5 question.
+- **Not a regulatory plan.** EDEAR is positioned as a cellular health and wellness tracking product (not an FDA-regulated medical device). The product measures cellular health; disease detection is a secondary capability with findings handed off to the customer's physician via the educational website. Regulatory expansion (e.g., pursuing 510(k) clearance for specific disease-detection claims) is a post-customer-#5 question if and when it makes commercial sense.
 - **Not a fundraising plan.** EDEAR is bootstrapped. Subscription revenue (when it begins) funds refinement. No grants. No investors. No dilution.
 - **Not a public-disclosure plan.** Step 12 (researcher release) happens AFTER EDEAR commercially live + 3-5 customer cases where flags led to confirmed clinical findings. The deployment story makes adoption frictionless. No preprints. No outreach until after GRF May 15.
 
@@ -646,6 +687,34 @@ That stack is sufficient for Walther to continue without re-orientation. The fra
 ---
 
 ## REVISION LOG
+
+### 2026-05-08 night (wellness-first strategic positioning shift)
+
+The product positioning was overhauled across the roadmap from "early-detection diagnostic with wellness as a side benefit" to "cellular health and wellness tracking product with disease detection as a secondary capability." This is the most significant strategic change since the document was sealed.
+
+The trigger: Heath surfaced that the existing diagnosis-translator framing put EDEAR in an unhelpful regulatory and commercial category. The framework genuinely measures cellular health across 8 architectural classes and produces a cellular age estimate. Disease detection is downstream of that measurement, not separate from it. Most customers will use EDEAR for tracking their own health, not for getting cancer diagnoses. The marketing should reflect what the product actually does at scale.
+
+What changed in this revision:
+
+1. **Strategic positioning rule added near the top of the document.** EDEAR is positioned first and foremost as a cellular health and wellness tracking product. The subscription model is the core commercial value: tracking changes over time as customers pursue lifestyle goals. Disease detection is a real and valuable secondary capability but is not the lead.
+
+2. **Step D1 (card library) gained a runtime card schema note.** The cards currently in `cards/` (hcc-epic, crc-epic) are cookbook documentation cards — useful as audit-trail and source material but not shaped for runtime consumption. The runtime card schema is minimal: card ID, architectural class, substrate, demographic gates, threshold ranges, website URL. Everything else (disease description, validation evidence, conditional caveats, lessons learned) lives on the educational website or in the cookbook canonicals.
+
+3. **Step D2 (report layer) was rewritten end-to-end.** Renamed from "diagnosis layer" to "report layer." Pipeline restructured to 8 stages (0-7) with explicit deconvolution as Stage 1, class A-scores as Stage 2, separate report assembly as Stage 6, separate report delivery as Stage 7. The report leads with cellular health summary and cellular age. Card flags appear as secondary findings with website links. Strong-recommendation language fires only at SIGNIFICANTLY ELEVATED thresholds. The Tier 0/1/2/3/4 clinical-tier vocabulary was replaced with NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED / BELOW NORMAL — wellness-appropriate language. Marcus-class flagging removed from the report layer (the Marcus motivation stays in the cookbook documentation; the runtime does not single out specific personal-history patterns for special handling). Module renamed from `edear_diagnosis_translator.py` to `edear_report_builder.py`.
+
+4. **Step D4 (customer-facing product) was rewritten.** Three surfaces: customer-facing report (PDF + HTML), educational website (`iamperformance.net` carries the substance), customer portal (subscription management + report archive + trajectory dashboard). The website carries the messaging and educational content, the report stays minimal and measurement-focused. The earlier "lab partner portal as v1 commercial wedge" framing was demoted from primary channel to one of several possible channels — the launch is direct-to-consumer wellness, with B2B lab partnerships as a parallel option.
+
+5. **Step D5 (validation cases) was reframed.** Test cases are now framed around what the wellness report should produce, not around clinical confirmation. Reports lead with cellular health summary; card flags appear as secondary findings with website links; strong-recommendation language fires only at SIGNIFICANTLY ELEVATED.
+
+What did NOT change:
+
+- The technical pipeline architecture (Stages 0 through 7) is correct and unchanged in substance. Names of some stages refined but the math and the data flow are the same.
+- The card files in `cards/hcc/` and `cards/crc/` are unchanged. They remain as cookbook documentation. Runtime cards will be derived from them when the engine is built.
+- The IAMAtlas-only architectural rule, the GAPE engine as Heath-only IP, the deconvolution stage — all unchanged.
+- The 17-card catalog from Heath's authoritative list (2026-05-08 evening) — unchanged.
+- The cookbook canonicals (README_MASTER, LESSONS_LEARNED, TESTING_CHECKLIST, GAPE Evidence Report) — unchanged. They continue to live where they live and carry what they carry.
+
+Why this matters for what comes next: the runtime engine work in Step D2 is now substantially smaller and simpler than it would have been under the disease-diagnostic framing. Cards do not carry conditional caveat tables, message-generation logic, or per-firing-pattern clinical-action matrices. The website carries the educational content. The runtime stays small, stays testable, and stays correct. KISS at the engineering level matches KISS at the strategic level: simpler product, smaller code surface, fewer ways for things to go wrong, cleaner regulatory posture.
 
 ### 2026-05-08 late evening (Heath's authoritative card list)
 
