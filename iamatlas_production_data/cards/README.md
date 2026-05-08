@@ -35,7 +35,7 @@ IAMAtlas-only.
 | 3 | Breast | `breast/` | JSON in production |
 | 4 | Cardio | `cardio/` | v0.1 sealed but DEFERRED (Konigsberg/Cuadrat 2023 atlas pending) |
 | 5 | Cervical | `cervical/` | JSON in production |
-| 6 | Colon/Rectal | `crc/` | JSON in production |
+| 6 | Colon/Rectal | `crc/` | **v2.4 cycling_class_tissue_validated_with_rectal_subsite — added 2026-05-08** |
 | 7 | Gastric/Esophagus | `gastric-esophageal/` | v0.1 sealed 2026-05-02 |
 | 8 | Glioma | `glioma/` | v0.2 single_cohort_validated |
 | 9 | HCC Liver | `hcc/` | **v0.3 multi_modal_validated — added 2026-05-08 (Marcus card)** |
