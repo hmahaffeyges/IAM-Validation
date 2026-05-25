@@ -675,5 +675,57 @@
     "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_entrez_matrix.csv",
     "size": 33170,
     "sha256": "12d44c311a28451771a3502382553ebdb704a8cedcedfc1e4d483e51b42c59e9"
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlas.csv.xz",
+    "size": 207534592,
+    "sha256": "a11f62b08a56f30292cb1ca82a4079da037b6c2ff6aa3357697454ed6aece511",
+    "description": "IAMAtlas v0.1 - unified IAM cell-type methylation reference matrix, xz-compressed (LFS). 483,092 CpGs x 300 columns (32 class-level brightness + 266 per-cell-type + n_classes_with_data). 133 cell types across 8 architecture classes (immune=63, cycling=20, secretory=20, terminal=12, progenitor=11, stromal=5, stem_pluri=1, stem_adult=1). 450K-level CpG universe (intersection of source atlases; EPIC-only sites not covered in v0.1). Built by hierarchical Bayesian MCMC per class, merged 2026-05-25. Uncompressed ~1.15 GB.",
+    "n_unique_cpgs": 483092,
+    "n_cell_types": 133,
+    "n_columns": 300,
+    "uncompressed_size": 1209757184,
+    "platform": "HM450-level intersection (450K); EPIC-only sites not covered in v0.1",
+    "build_date": "2026-05-25",
+    "per_class_cell_counts": {
+      "immune": 63,
+      "cycling": 20,
+      "secretory": 20,
+      "terminal": 12,
+      "progenitor": 11,
+      "stromal": 5,
+      "stem_pluri": 1,
+      "stem_adult": 1
+    }
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlas_celltype_to_class.json",
+    "size": 3503,
+    "sha256": "8d82e8b20b142125c09b28de98323c6d593bfc4dfc41da13e0ec1babe5f9d8a1",
+    "description": "Maps each of the 133 IAMAtlas cell types to its architecture class. Consumed by the deconvolver for per-class aggregation."
+  },
+  {
+    "path": "IAMAtlas_v0_1/merge_iamatlas_v0_1.py",
+    "size": 7071,
+    "sha256": "d27628fafcad9f5f43cd9a9b6f0584328a1e9cb7608f73c8bb40d2c43adb10e9",
+    "description": "Merge script that builds IAMAtlas.csv from the 8 per-class MCMC outputs (brightness + per_celltype CSVs). Kept for reproducible future rebuilds after atlas/cell-type additions."
+  },
+  {
+    "path": "IAMAtlas_v0_1/README.md",
+    "size": 6871,
+    "sha256": "373e3239d74ba641efba154e2fcf420ca251a3eca0ed3f5abae30159f9af6467",
+    "description": "Full IAMAtlas v0.1 documentation: matrix shape, 8 classes and cell counts, build method, 450K-vs-EPIC coverage, stromal 5-cell history, deconvolver usage, v0.2 expansion path."
+  },
+  {
+    "path": "deconvolver/iamatlas_deconvolver.py",
+    "size": 17565,
+    "sha256": "76ac8f6477f40018d708dce225d28eb99204a91769da9212721d088afce5ccbe",
+    "description": "IAMAtlas deconvolver - constrained NNLS cell-fraction estimator with per-class aggregation. Replaces EpiDISH/CIBERSORT/NNLS-against-Loyfer. Synthetic ground-truth PASS (0.6/0.4 recovered exactly). Real-data test pending (roadmap STEP 8.5)."
+  },
+  {
+    "path": "deconvolver/README.md",
+    "size": 2644,
+    "sha256": "2816aa42d083b6e134a4e8d005430745a41b81ecf72d95ccef1346d2ff27b07a",
+    "description": "Deconvolver tool documentation: dependencies (IAMAtlas.csv + celltype_to_class.json), 3-line usage, method, validation status, input-coverage note."
   }
 ]
