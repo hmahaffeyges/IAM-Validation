@@ -1,0 +1,696 @@
+{
+  "panel_id": "Xu2020_breast_directional_RuleA",
+  "source": "Xu Z, Sandler DP, Taylor JA. JNCI 2020 doi:10.1093/jnci/djz065 PMID 30989176",
+  "date_extracted": "2026-05-04",
+  "parsed_from": "TableS2.txt (Xu 2020 Supplementary Materials)",
+  "rationale": "Per-CpG directional panel for breast pre-diagnostic detection. Mirrors VAL-051 AD Rule A structure: each CpG has a frozen \u00b11 direction taken from the Xu 2020 coef_SS sign, replicated in EPIC-Italy. Used for Universal Stage 1 caveat \u2014 pooled-entropy A_immune AND directional A_dir_breast computed every IDAT.",
+  "n_cpgs": 98,
+  "cpgs": [
+    {
+      "cpg": "cg04902899",
+      "direction": -1,
+      "coef_ss": -1.94,
+      "gene": "GNB1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg09255966",
+      "direction": 1,
+      "coef_ss": 1.3,
+      "gene": "RER1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg12578250",
+      "direction": -1,
+      "coef_ss": -1.44,
+      "gene": "PRDM16",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg23231974",
+      "direction": 1,
+      "coef_ss": 2.3,
+      "gene": "PLOD1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg25282951",
+      "direction": -1,
+      "coef_ss": -1.13,
+      "gene": "KAZN",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg03429968",
+      "direction": -1,
+      "coef_ss": -1.74,
+      "gene": "EPB41",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg03976754",
+      "direction": -1,
+      "coef_ss": -1.37,
+      "gene": "FNDC5",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg11416597",
+      "direction": -1,
+      "coef_ss": -1.27,
+      "gene": "ZNF362",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg12212217",
+      "direction": 1,
+      "coef_ss": 1.24,
+      "gene": "KIAA0319L",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg17492152",
+      "direction": -1,
+      "coef_ss": -1.15,
+      "gene": "AKIRIN1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg00162673",
+      "direction": -1,
+      "coef_ss": -1.23,
+      "gene": "RNF11",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg06826908",
+      "direction": -1,
+      "coef_ss": -1.57,
+      "gene": "OSBPL9",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg03935117",
+      "direction": 1,
+      "coef_ss": 1.5,
+      "gene": "ZYG11B",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg26883190",
+      "direction": -1,
+      "coef_ss": -1.97,
+      "gene": "NA",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg22029640",
+      "direction": -1,
+      "coef_ss": -1.19,
+      "gene": "PCSK9",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg14709234",
+      "direction": -1,
+      "coef_ss": -0.97,
+      "gene": "LOC100507634",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg04486648",
+      "direction": 1,
+      "coef_ss": 2.02,
+      "gene": "NA",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg11750112",
+      "direction": -1,
+      "coef_ss": -1.66,
+      "gene": "CACHD1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg25344239",
+      "direction": 1,
+      "coef_ss": 1.7,
+      "gene": "GNG12-AS1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg02083528",
+      "direction": -1,
+      "coef_ss": -1.44,
+      "gene": "FAM73A",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg16678153",
+      "direction": -1,
+      "coef_ss": -0.81,
+      "gene": "LPHN2",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg09664975",
+      "direction": -1,
+      "coef_ss": -0.83,
+      "gene": "PRKACB",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg23253460",
+      "direction": -1,
+      "coef_ss": -1.32,
+      "gene": "NA",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg05393424",
+      "direction": 1,
+      "coef_ss": 1.26,
+      "gene": "ZNF644",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg21584883",
+      "direction": -1,
+      "coef_ss": -0.82,
+      "gene": "TMED5",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg27229407",
+      "direction": -1,
+      "coef_ss": -1.04,
+      "gene": "COL11A1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg07470367",
+      "direction": -1,
+      "coef_ss": -1.02,
+      "gene": "NTNG1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg09136695",
+      "direction": -1,
+      "coef_ss": -1.53,
+      "gene": "CEPT1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg04126335",
+      "direction": -1,
+      "coef_ss": -1.07,
+      "gene": "ITGA10",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg26884161",
+      "direction": -1,
+      "coef_ss": -1.52,
+      "gene": "PI4KB",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg06698332",
+      "direction": -1,
+      "coef_ss": -1.58,
+      "gene": "S100A10",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg16008440",
+      "direction": -1,
+      "coef_ss": -1.49,
+      "gene": "OLFML2B",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg00152047",
+      "direction": 1,
+      "coef_ss": 1.31,
+      "gene": "ILDR2",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg02679291",
+      "direction": 1,
+      "coef_ss": 1.9,
+      "gene": "GLTSCR2",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg01139412",
+      "direction": 1,
+      "coef_ss": 1.88,
+      "gene": "FUZ",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg09374437",
+      "direction": -1,
+      "coef_ss": -1.61,
+      "gene": "ZNF766",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg08355109",
+      "direction": 1,
+      "coef_ss": 2.01,
+      "gene": "ZNF787",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg18748575",
+      "direction": 1,
+      "coef_ss": 1.96,
+      "gene": "RBCK1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg13403466",
+      "direction": -1,
+      "coef_ss": -1.8,
+      "gene": "NSFL1C",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg23032598",
+      "direction": -1,
+      "coef_ss": -1.08,
+      "gene": "BFSP1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg19115692",
+      "direction": -1,
+      "coef_ss": -1.84,
+      "gene": "NA",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg02672530",
+      "direction": -1,
+      "coef_ss": -0.64,
+      "gene": "EPB41L1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg03819338",
+      "direction": -1,
+      "coef_ss": -2.03,
+      "gene": "NA",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg02555585",
+      "direction": -1,
+      "coef_ss": -1.2,
+      "gene": "SRSF6",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg27150417",
+      "direction": -1,
+      "coef_ss": -0.84,
+      "gene": "SNX21",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg12751354",
+      "direction": -1,
+      "coef_ss": -1.07,
+      "gene": "CYP24A1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg25325053",
+      "direction": -1,
+      "coef_ss": -1.64,
+      "gene": "CDH26",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg02296167",
+      "direction": -1,
+      "coef_ss": -1.22,
+      "gene": "LIME1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg11433319",
+      "direction": -1,
+      "coef_ss": -1.28,
+      "gene": "CHODL",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg17297071",
+      "direction": -1,
+      "coef_ss": -1.18,
+      "gene": "MIR155HG",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg23508786",
+      "direction": -1,
+      "coef_ss": -1.14,
+      "gene": "IFNGR2",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg19325435",
+      "direction": -1,
+      "coef_ss": -1.58,
+      "gene": "ZNF280B",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg24062706",
+      "direction": 1,
+      "coef_ss": 1.08,
+      "gene": "OSM",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg05080787",
+      "direction": -1,
+      "coef_ss": -1.77,
+      "gene": "ZBED4",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg01162841",
+      "direction": -1,
+      "coef_ss": -1.4,
+      "gene": "SH3KBP1",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg16576300",
+      "direction": 1,
+      "coef_ss": 0.93,
+      "gene": "ZC4H2",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg23522780",
+      "direction": -1,
+      "coef_ss": -1.17,
+      "gene": "UBE2A",
+      "source_table": "S1"
+    },
+    {
+      "cpg": "cg14569423",
+      "direction": -1,
+      "coef_ss": -1.42,
+      "gene": "7.46E-07",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg23123909",
+      "direction": -1,
+      "coef_ss": -1.45,
+      "gene": "7.46E-07",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg13155823",
+      "direction": -1,
+      "coef_ss": -1.71,
+      "gene": "2.32E-06",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg07768372",
+      "direction": -1,
+      "coef_ss": -3.38,
+      "gene": "1.17E-04",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg18814252",
+      "direction": -1,
+      "coef_ss": -1.58,
+      "gene": "1.21E-04",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg10155725",
+      "direction": -1,
+      "coef_ss": -1.03,
+      "gene": "3.42E-04",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg21681962",
+      "direction": -1,
+      "coef_ss": -2.68,
+      "gene": "7.58E-04",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg07619683",
+      "direction": -1,
+      "coef_ss": -2.08,
+      "gene": "9.99E-04",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg23713965",
+      "direction": -1,
+      "coef_ss": -3.69,
+      "gene": "1.06E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg22793136",
+      "direction": 1,
+      "coef_ss": 2.03,
+      "gene": "1.74E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg07062338",
+      "direction": -1,
+      "coef_ss": -2.0,
+      "gene": "2.48E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg18941348",
+      "direction": -1,
+      "coef_ss": -1.62,
+      "gene": "2.53E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg00232952",
+      "direction": -1,
+      "coef_ss": -1.27,
+      "gene": "2.86E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg08650290",
+      "direction": -1,
+      "coef_ss": -3.39,
+      "gene": "2.89E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg19784449",
+      "direction": -1,
+      "coef_ss": -1.96,
+      "gene": "3.00E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg10206391",
+      "direction": -1,
+      "coef_ss": -1.47,
+      "gene": "3.69E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg18384060",
+      "direction": -1,
+      "coef_ss": -2.41,
+      "gene": "3.76E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg06164660",
+      "direction": -1,
+      "coef_ss": -1.58,
+      "gene": "4.01E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg04452534",
+      "direction": -1,
+      "coef_ss": -1.7,
+      "gene": "4.24E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg05141014",
+      "direction": -1,
+      "coef_ss": -4.33,
+      "gene": "4.56E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg01613401",
+      "direction": -1,
+      "coef_ss": -1.54,
+      "gene": "4.82E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg03384318",
+      "direction": -1,
+      "coef_ss": -4.46,
+      "gene": "4.83E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg26428748",
+      "direction": -1,
+      "coef_ss": -1.42,
+      "gene": "5.49E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg06434738",
+      "direction": -1,
+      "coef_ss": -1.29,
+      "gene": "5.88E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg17942666",
+      "direction": -1,
+      "coef_ss": -1.84,
+      "gene": "6.05E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg14107975",
+      "direction": 1,
+      "coef_ss": 1.73,
+      "gene": "6.40E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg11253592",
+      "direction": -1,
+      "coef_ss": -1.21,
+      "gene": "6.44E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg15330584",
+      "direction": 1,
+      "coef_ss": 2.73,
+      "gene": "6.44E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg01138673",
+      "direction": -1,
+      "coef_ss": -2.09,
+      "gene": "6.52E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg03740612",
+      "direction": -1,
+      "coef_ss": -1.27,
+      "gene": "6.92E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg14887509",
+      "direction": 1,
+      "coef_ss": 1.37,
+      "gene": "7.31E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg02716173",
+      "direction": -1,
+      "coef_ss": -3.94,
+      "gene": "7.44E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg05316006",
+      "direction": -1,
+      "coef_ss": -1.63,
+      "gene": "7.57E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg03915558",
+      "direction": -1,
+      "coef_ss": -2.99,
+      "gene": "7.63E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg22795218",
+      "direction": -1,
+      "coef_ss": -1.38,
+      "gene": "8.19E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg16596493",
+      "direction": -1,
+      "coef_ss": -2.8,
+      "gene": "8.56E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg07364676",
+      "direction": 1,
+      "coef_ss": 2.55,
+      "gene": "8.59E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg02789362",
+      "direction": -1,
+      "coef_ss": -1.61,
+      "gene": "9.07E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg23347429",
+      "direction": -1,
+      "coef_ss": -1.64,
+      "gene": "9.39E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg09933836",
+      "direction": -1,
+      "coef_ss": -1.59,
+      "gene": "9.39E-03",
+      "source_table": "S3"
+    },
+    {
+      "cpg": "cg06403317",
+      "direction": -1,
+      "coef_ss": -4.21,
+      "gene": "9.71E-03",
+      "source_table": "S3"
+    }
+  ]
+}
