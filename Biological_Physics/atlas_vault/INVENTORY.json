@@ -745,8 +745,8 @@
   },
   {
     "path": "deconvolver/README.md",
-    "size": 4724,
-    "sha256": "55b5be59483d49f25e46fc02edb0e4089953987adc3a4b7ccb40ee7159f57b49",
+    "size": 10858,
+    "sha256": "f2a15d816ea1a7c3aee3ef0ca27dc8b7be152383fd075ae8ea09ee024b8e8832",
     "description": "Walther IAM Deconvolver documentation: design rationale, usage, two-tier class/cell-type output, validation status."
   }
 ]
