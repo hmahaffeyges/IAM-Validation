@@ -717,18 +717,6 @@
     "description": "Full IAMAtlas v0.1 documentation: matrix shape, 8 classes and cell counts, build method, 450K-vs-EPIC coverage, stromal 5-cell history, deconvolver usage, v0.2 expansion path."
   },
   {
-    "path": "deconvolver/iamatlas_deconvolver.py",
-    "size": 17565,
-    "sha256": "76ac8f6477f40018d708dce225d28eb99204a91769da9212721d088afce5ccbe",
-    "description": "IAMAtlas deconvolver - constrained NNLS cell-fraction estimator with per-class aggregation. Replaces EpiDISH/CIBERSORT/NNLS-against-Loyfer. Synthetic ground-truth PASS (0.6/0.4 recovered exactly). Real-data test pending (roadmap STEP 8.5)."
-  },
-  {
-    "path": "deconvolver/README.md",
-    "size": 2644,
-    "sha256": "2816aa42d083b6e134a4e8d005430745a41b81ecf72d95ccef1346d2ff27b07a",
-    "description": "Deconvolver tool documentation: dependencies (IAMAtlas.csv + celltype_to_class.json), 3-line usage, method, validation status, input-coverage note."
-  },
-  {
     "path": "IAMAtlas_v0_1/iamatlas_v0_1_mcmc_batched_FIXED.py",
     "size": 22164,
     "sha256": "b067c922757ec3cca0e9578d4586d4619db7bb0635fa5308bb0b3a19f5315aea",
@@ -748,5 +736,17 @@
     "size": 5498,
     "sha256": "8ee423395c866f1016d8040e8d5b80b8692637bef1d58b7ebe5e2cb7667d8a42",
     "description": "READ BEFORE ANY REBUILD. Documents the swamp+ridge MCMC fix, why the 7 old-script classes are valid and were not re-run, stromal 5-cell history + 4 dropped cells, and the rebuild recipe (always use the FIXED script)."
+  },
+  {
+    "path": "deconvolver/walther_iam_deconvolver.py",
+    "size": 17777,
+    "sha256": "cb4e4db3051382f43982086e4cd4bea20fe8b5c4abd8080329a656e478df9016",
+    "description": "Walther IAM Deconvolver - cell-fraction estimator built for IAMAtlas. Two-tier: per-CLASS fractions (primary, reliable - the 8 architecture classes) + per-cell-type (secondary, indicative - within-class cells weakly separable in v0.1). Rank-based marker selection adapts to atlas's compressed between-cell variance; bounded-memory streaming (~120MB on full 1.2GB atlas). Replaces removed prototype iamatlas_deconvolver.py which used absolute thresholds that rejected all CpGs and loaded whole matrix. Validated: clean mixture recovered exactly, noisy 3-class class-level err ~0.10."
+  },
+  {
+    "path": "deconvolver/README.md",
+    "size": 4724,
+    "sha256": "55b5be59483d49f25e46fc02edb0e4089953987adc3a4b7ccb40ee7159f57b49",
+    "description": "Walther IAM Deconvolver documentation: design rationale, usage, two-tier class/cell-type output, validation status."
   }
 ]
