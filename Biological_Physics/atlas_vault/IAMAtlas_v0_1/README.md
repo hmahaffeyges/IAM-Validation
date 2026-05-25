@@ -13,6 +13,9 @@ A matrix of posterior methylation estimates: for every CpG site on the array, th
 | `IAMAtlas.csv.xz` | The atlas matrix, xz-compressed (LFS-tracked). Decompress before use. |
 | `IAMAtlas_celltype_to_class.json` | Maps each of the 133 cell types to its architecture class. The deconvolver needs this for class-level aggregation. |
 | `merge_iamatlas_v0_1.py` | The script that built `IAMAtlas.csv` from the 8 per-class MCMC outputs. Kept here so a future rebuild (after adding cell types / atlases) is reproducible. |
+| `iamatlas_v0_1_mcmc_batched_FIXED.py` | **The canonical MCMC build script. USE THIS for any rebuild.** Contains the swamp+ridge fix. See `MCMC_BUILD_LESSONS.md`. |
+| `iamatlas_v0_1_output.tar.xz` | Archive of all 8 per-class MCMC outputs (LFS) — the sealed pieces `merge_iamatlas_v0_1.py` combines. Start a rebuild from these. |
+| `MCMC_BUILD_LESSONS.md` | **READ BEFORE ANY REBUILD.** The MCMC bug, the fix, why the 7 old-script classes are valid, and the rebuild recipe. |
 | `README.md` | This file. |
 
 To decompress:

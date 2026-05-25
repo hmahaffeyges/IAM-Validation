@@ -727,5 +727,26 @@
     "size": 2644,
     "sha256": "2816aa42d083b6e134a4e8d005430745a41b81ecf72d95ccef1346d2ff27b07a",
     "description": "Deconvolver tool documentation: dependencies (IAMAtlas.csv + celltype_to_class.json), 3-line usage, method, validation status, input-coverage note."
+  },
+  {
+    "path": "IAMAtlas_v0_1/iamatlas_v0_1_mcmc_batched_FIXED.py",
+    "size": 22164,
+    "sha256": "b067c922757ec3cca0e9578d4586d4619db7bb0635fa5308bb0b3a19f5315aea",
+    "description": "CANONICAL MCMC build script (USE FOR ALL FUTURE REBUILDS). Hierarchical Bayesian per-class model with the swamp+ridge fix: parameters restricted to observed (cpg,celltype) pairs; per-pair mu_logit prior removing the sigma_class_logit/log_kappa identifiability ridge. The older iamatlas_v0_1_mcmc_batched.py lacks this fix; the 7 non-stromal v0.1 classes were built with the old script and converged only because their data overpowered the ridge (verified: fixed model reproduces old at corr 0.99996). Stromal required this fix. See MCMC_BUILD_LESSONS.md."
+  },
+  {
+    "path": "IAMAtlas_v0_1/iamatlas_v0_1_output.tar.xz",
+    "size": 273691256,
+    "sha256": "2679d91faee9571f73299a39f7a24ec3c8500302d65c802d982d7d877bb5a171",
+    "description": "Per-class MCMC output archive (LFS): all 8 classes x 3 files (brightness, per_celltype, result.json) + terminal_pre_gasparoni_backup. The sealed pieces that merge_iamatlas_v0_1.py combines into IAMAtlas.csv. Kept so a future rebuild starts from sealed outputs. Stromal here is the 5-cell FIXED version (1.44MB). Uncompressed ~1.26 GB.",
+    "n_classes": 8,
+    "contains": "brightness + per_celltype + result.json per class, + terminal pre-Gasparoni backup",
+    "uncompressed_size": 1264305724
+  },
+  {
+    "path": "IAMAtlas_v0_1/MCMC_BUILD_LESSONS.md",
+    "size": 5498,
+    "sha256": "8ee423395c866f1016d8040e8d5b80b8692637bef1d58b7ebe5e2cb7667d8a42",
+    "description": "READ BEFORE ANY REBUILD. Documents the swamp+ridge MCMC fix, why the 7 old-script classes are valid and were not re-run, stromal 5-cell history + 4 dropped cells, and the rebuild recipe (always use the FIXED script)."
   }
 ]
