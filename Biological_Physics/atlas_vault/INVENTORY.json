@@ -1,5 +1,107 @@
 [
   {
+    "path": "IAMAtlas_v0_1/IAMAtlasREBUILD.csv.xz",
+    "size": 100700052,
+    "sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+    "description": "IAMAtlas v0.1 REBUILD - unified IAM cell-type methylation reference matrix, xz-compressed (LFS). 483,092 CpGs x 264 columns (32 class-level brightness + 230 per-cell-type [115 cells x 2] + n_classes_with_data). REPLACES the retired collapsed IAMAtlas.csv.xz (sha256 a11f62b0...). Rebuilt with iamatlas_v0_1_mcmc_batched_FIXED.py to fix the per-cell-type flatness in the original build. 8 architecture classes (immune=51, cycling=19, secretory=18, terminal=9, progenitor=11, stromal=5, stem_pluri=1, stem_adult=1) - cell counts reflect post-reconciliation cleanup that resolved Salas a-prefix duplicates and lowercase thin-twin duplicates. 450K-level CpG universe. Every class distinctness-tested before acceptance. Built 2026-05-28. Uncompressed ~577 MB."
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlasREBUILD_celltype_to_class.json",
+    "size": 3080,
+    "sha256": "06f89ea339e2e30d4b1540ae13bd426aa9a77eefa9c499a935670139a22e9249",
+    "description": "Maps each of the 115 REBUILD cell types to its architecture class. Required by the deconvolver for class-level aggregation. Replaces IAMAtlas_celltype_to_class.json (which mapped 133 cells before duplicate reconciliation)."
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlasREBUILD_provenance.json",
+    "size": 1757,
+    "sha256": "91b688f173b68c6c40e1176d584e0605995784cb67cede2f03a07f0069403c66",
+    "description": "Full build metadata for the REBUILD edition: build date, pipeline steps (FIXED MCMC -> reconcile_duplicates -> merge -> compact), predecessor, the 8 classes, n_cell_types=115, n_cpgs=483092, frozen H_min values, per-class distinctness test outcomes."
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlas_FLATNESS_LESSON.md",
+    "size": 10075,
+    "sha256": "b4c302467560727fd9b70b2d567736fd142fcf1dd1ea5cbb97d221e127b991c1",
+    "description": "READ BEFORE ANY REBUILD. The flatness problem and the fix: the original v0.1 build's per-cell-type layer collapsed onto the class mean despite clean R-hat convergence; the FIXED script's per-pair logit-mean parameterization restores distinct cells; the FIXED script produces high R-hat (1.4-2.6) and low ESS (5-9) with zero divergences, which is BENIGN for the means and must not be 'fixed' down. Replaces the prior MCMC_BUILD_LESSONS.md which incorrectly stated the 7 non-stromal v0.1 classes were 'valid as-is and not re-run' - they were collapsed and HAVE been re-run."
+  },
+  {
+    "path": "IAMAtlas_v0_1/README.md",
+    "size": 14094,
+    "sha256": "992de754d9db1a8f3c30cb6960ed8b6246f1e7ee2eebb95a60205c25bdc36e60",
+    "description": "IAMAtlas v0.1 REBUILD edition documentation (May 2026). Replaces the retired collapsed-build README. Covers the REBUILD pipeline, the 8 architecture classes (115 cell types post-reconciliation), per-class distinctness verification, single-class re-run procedure, CpG universe scope, and deconvolver integration. Points to IAMAtlas_FLATNESS_LESSON.md as the load-bearing 'read before any rebuild' document."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/cycling_v0_1_REBUILD.tar.xz",
+    "size": 15951064,
+    "sha256": "74062a0dcafb4af4393d9d64cc6fa23471666f5adbf220df6d8a801d748ba203",
+    "description": "Per-class re-run archive (LFS) for class=cycling. Contains: iamatlas_v0_1_cycling_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_cycling_brightness.csv, iamatlas_v0_1_cycling_result.json, and raw/iamatlas_v0_1_cycling_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/immune_v0_1_REBUILD.tar.xz",
+    "size": 63580672,
+    "sha256": "b6c7afe63b51f6a4f86d731088227c38e7755c1ad7c9151879aeb4365b6116f7",
+    "description": "Per-class re-run archive (LFS) for class=immune. Contains: iamatlas_v0_1_immune_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_immune_brightness.csv, iamatlas_v0_1_immune_result.json, and raw/iamatlas_v0_1_immune_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/progenitor_v0_1_REBUILD.tar.xz",
+    "size": 33054132,
+    "sha256": "6d685be8ccff7e6c82a691b28b9c4d809eacc796b2924fdfa981017e1db2adca",
+    "description": "Per-class re-run archive (LFS) for class=progenitor. Contains: iamatlas_v0_1_progenitor_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_progenitor_brightness.csv, iamatlas_v0_1_progenitor_result.json, and raw/iamatlas_v0_1_progenitor_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/secretory_v0_1_REBUILD.tar.xz",
+    "size": 16113176,
+    "sha256": "9a8fc1f7b18b4511046f88f842158a0c6716bd6599e8a1d577264ea5877002db",
+    "description": "Per-class re-run archive (LFS) for class=secretory. Contains: iamatlas_v0_1_secretory_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_secretory_brightness.csv, iamatlas_v0_1_secretory_result.json, and raw/iamatlas_v0_1_secretory_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/stem_adult_v0_1_REBUILD.tar.xz",
+    "size": 9005068,
+    "sha256": "5b08e09e0a097a4389d3f776261a476859cf8d0b1489f939a754c4a70c67f59a",
+    "description": "Per-class re-run archive (LFS) for class=stem_adult. Contains: iamatlas_v0_1_stem_adult_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_stem_adult_brightness.csv, iamatlas_v0_1_stem_adult_result.json, and raw/iamatlas_v0_1_stem_adult_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/stem_pluri_v0_1_REBUILD.tar.xz",
+    "size": 9062768,
+    "sha256": "9d9d5238fb60b8a6ed40d104a64c0c354d3f9aee258ee9e812624d846893eb54",
+    "description": "Per-class re-run archive (LFS) for class=stem_pluri. Contains: iamatlas_v0_1_stem_pluri_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_stem_pluri_brightness.csv, iamatlas_v0_1_stem_pluri_result.json, and raw/iamatlas_v0_1_stem_pluri_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/stromal_v0_1_REBUILD.tar.xz",
+    "size": 792568,
+    "sha256": "8a68846561cdb47f8cab00346f73b83cd8ecd655abfab53502697f32ae9699c6",
+    "description": "Per-class re-run archive (LFS) for class=stromal. Contains: iamatlas_v0_1_stromal_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_stromal_brightness.csv, iamatlas_v0_1_stromal_result.json, and raw/iamatlas_v0_1_stromal_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/terminal_v0_1_REBUILD.tar.xz",
+    "size": 17112924,
+    "sha256": "a8550c17293c763c6af2a39f003b1ebdcd7b3fdcac8f9a20cbe765d6ef11a591",
+    "description": "Per-class re-run archive (LFS) for class=terminal. Contains: iamatlas_v0_1_terminal_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_terminal_brightness.csv, iamatlas_v0_1_terminal_result.json, and raw/iamatlas_v0_1_terminal_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/compact_atlas.py",
+    "size": 4900,
+    "sha256": "ef8bdf4debd1878a1be06d36a15367c689ae48e4003e44902a5891bd4f2407d9",
+    "description": "Stage 4 of the REBUILD pipeline. xz-compresses the merged atlas to IAMAtlasREBUILD.csv.xz (preset 9 | PRESET_EXTREME) and tarballs each class's three files (per_celltype + brightness + result.json, plus raw pre-reconciliation per_celltype under /raw/) into class_archives/<class>_v0_1_REBUILD.tar.xz. Computes SHA-256 for each archive."
+  },
+  {
+    "path": "IAMAtlas_v0_1/iamatlas_v0_1_mcmc_batched_FIXED.py",
+    "size": 22164,
+    "sha256": "b067c922757ec3cca0e9578d4586d4619db7bb0635fa5308bb0b3a19f5315aea",
+    "description": "CANONICAL MCMC build script (USE FOR ALL FUTURE REBUILDS). Hierarchical Bayesian per-class model with the swamp+ridge fix: parameters restricted to observed (cpg,celltype) pairs; per-pair mu_logit prior removing the sigma_class_logit/log_kappa identifiability ridge. The older iamatlas_v0_1_mcmc_batched.py lacks this fix; the 7 non-stromal v0.1 classes were built with the old script and converged only because their data overpowered the ridge (verified: fixed model reproduces old at corr 0.99996). Stromal required this fix. See MCMC_BUILD_LESSONS.md."
+  },
+  {
+    "path": "IAMAtlas_v0_1/merge_iamatlas_v0_1_REBUILD.py",
+    "size": 8470,
+    "sha256": "1fdf78665a4d8d7e3124665b4183fdb2e33891b441805af949d774d4ecad51ec",
+    "description": "Stage 3 of the REBUILD pipeline. Combines the 8 per-class outputs into the unified IAMAtlasREBUILD.csv. Reads the *.RECONCILED.csv files from reconcile_duplicates.py plus the original brightness.csv files. Writes IAMAtlasREBUILD.csv, IAMAtlasREBUILD_celltype_to_class.json, and IAMAtlasREBUILD_provenance.json. Replaces the older merge_iamatlas_v0_1.py."
+  },
+  {
+    "path": "IAMAtlas_v0_1/reconcile_duplicates.py",
+    "size": 9276,
+    "sha256": "a6287bcdf51443b58c9b5cbc2b72ff9fede510b0911cfa88d1cce4107f485bc9",
+    "description": "Stage 2 of the REBUILD pipeline. Resolves duplicate-named cell types surfaced by the rebuild's distinctness tests. Immune: merges 12 a-prefix Salas-naming variants (aCD8Tmem vs CD8Tmem etc.) into their plain-name twins via coverage-weighted inverse-variance pooling (corr=1.000 between pairs confirmed they are the same biological cells). Cycling/Secretory/Terminal: drops thin lowercase variants (lung/hepatocyte/mammary/brain/heart/skeletal) whose better-covered capitalized twins exist; keeps thin no-twin cells (small_intestine, neuron) at low confidence per the two-tier design. Run between MCMC and merge."
+  },
+  {
     "path": "README.md",
     "size": 21110,
     "sha256": "666f1fc029be333107fe0b9dbaa504cb84ef699a2e2e6898e508d4dd7259cae4"
@@ -8,6 +110,18 @@
     "path": "commercial_web_scoring_engine_skeleton.py",
     "size": 24727,
     "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
+  },
+  {
+    "path": "deconvolver/README.md",
+    "size": 10858,
+    "sha256": "f2a15d816ea1a7c3aee3ef0ca27dc8b7be152383fd075ae8ea09ee024b8e8832",
+    "description": "Walther IAM Deconvolver documentation: design rationale, usage, two-tier class/cell-type output, validation status."
+  },
+  {
+    "path": "deconvolver/walther_iam_deconvolver.py",
+    "size": 17777,
+    "sha256": "cb4e4db3051382f43982086e4cd4bea20fe8b5c4abd8080329a656e478df9016",
+    "description": "Walther IAM Deconvolver - cell-fraction estimator built for IAMAtlas. Two-tier: per-CLASS fractions (primary, reliable - the 8 architecture classes) + per-cell-type (secondary, indicative - within-class cells weakly separable in v0.1). Rank-based marker selection adapts to atlas's compressed between-cell variance; bounded-memory streaming (~120MB on full 1.2GB atlas). Replaces removed prototype iamatlas_deconvolver.py which used absolute thresholds that rejected all CpGs and loaded whole matrix. Validated: clean mixture recovered exactly, noisy 3-class class-level err ~0.10."
   },
   {
     "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/README.md",
@@ -188,6 +302,26 @@
     "sha256": "5a4256833e2b6c8e57f10d724daaf56f72cc4905ae50209806335f3aa961d0d8"
   },
   {
+    "path": "stage2_cell_of_origin/episcore_esoref/README.md",
+    "size": 4831,
+    "sha256": "056f47a9aeb2b9eab5d5c19d07e2d25774a9663af98af1a680cc43b33692b6b7"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/bridge_esoref_to_array.py",
+    "size": 7221,
+    "sha256": "187b7ce5f7d7c8c07c211c424b7df67dde6d88c8b5e87d7976fa32b4c27b6f3e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_cpg_bridged.csv",
+    "size": 403406,
+    "sha256": "6e650bd78ed2ee32d98ac4508b3b4295a1cd303a0fed2d850eeb9c35f897692b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_entrez_matrix.csv",
+    "size": 20825,
+    "sha256": "6d27782d8a3fb40dc9d663ca534e2b2880b103213dfba7ca27110dca10031f0b"
+  },
+  {
     "path": "stage2_cell_of_origin/episcore_heartref/HeartRef_source.rda",
     "size": 21401,
     "sha256": "b000be45678fc6f95d94a3d8a2d20eadd24e36182935bc9a38408d6b718aa7a8"
@@ -220,6 +354,26 @@
     "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_entrez_matrix.csv",
     "size": 16529,
     "sha256": "dbd94719e2ad3a92433a1d16615457d9e05d1b1f60fc65128d39d60adb091edd"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/README.md",
+    "size": 3888,
+    "sha256": "9ce375e8f92cb4440c33adbf706b010c60d62b1769b763e512e8a3abeaccb291"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/bridge_oeref_to_array.py",
+    "size": 6112,
+    "sha256": "c7d01eee05015eb2396bcf80cb65b9b0747121707161c83cf9ffc79f6bf54d51"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_cpg_bridged.csv",
+    "size": 798233,
+    "sha256": "8f4e34ef63247b0ca09312fedb52abf5eee9ee1e8f09e35044ddceb8bdf3f651"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_entrez_matrix.csv",
+    "size": 33170,
+    "sha256": "12d44c311a28451771a3502382553ebdb704a8cedcedfc1e4d483e51b42c59e9"
   },
   {
     "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
@@ -635,118 +789,5 @@
     "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
     "size": 711707,
     "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_esoref/README.md",
-    "size": 4831,
-    "sha256": "056f47a9aeb2b9eab5d5c19d07e2d25774a9663af98af1a680cc43b33692b6b7"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_esoref/bridge_esoref_to_array.py",
-    "size": 7221,
-    "sha256": "187b7ce5f7d7c8c07c211c424b7df67dde6d88c8b5e87d7976fa32b4c27b6f3e"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_cpg_bridged.csv",
-    "size": 403406,
-    "sha256": "6e650bd78ed2ee32d98ac4508b3b4295a1cd303a0fed2d850eeb9c35f897692b"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_entrez_matrix.csv",
-    "size": 20825,
-    "sha256": "6d27782d8a3fb40dc9d663ca534e2b2880b103213dfba7ca27110dca10031f0b"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_oeref/README.md",
-    "size": 3888,
-    "sha256": "9ce375e8f92cb4440c33adbf706b010c60d62b1769b763e512e8a3abeaccb291"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_oeref/bridge_oeref_to_array.py",
-    "size": 6112,
-    "sha256": "c7d01eee05015eb2396bcf80cb65b9b0747121707161c83cf9ffc79f6bf54d51"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_cpg_bridged.csv",
-    "size": 798233,
-    "sha256": "8f4e34ef63247b0ca09312fedb52abf5eee9ee1e8f09e35044ddceb8bdf3f651"
-  },
-  {
-    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_entrez_matrix.csv",
-    "size": 33170,
-    "sha256": "12d44c311a28451771a3502382553ebdb704a8cedcedfc1e4d483e51b42c59e9"
-  },
-  {
-    "path": "IAMAtlas_v0_1/IAMAtlas.csv.xz",
-    "size": 207534592,
-    "sha256": "a11f62b08a56f30292cb1ca82a4079da037b6c2ff6aa3357697454ed6aece511",
-    "description": "IAMAtlas v0.1 - unified IAM cell-type methylation reference matrix, xz-compressed (LFS). 483,092 CpGs x 300 columns (32 class-level brightness + 266 per-cell-type + n_classes_with_data). 133 cell types across 8 architecture classes (immune=63, cycling=20, secretory=20, terminal=12, progenitor=11, stromal=5, stem_pluri=1, stem_adult=1). 450K-level CpG universe (intersection of source atlases; EPIC-only sites not covered in v0.1). Built by hierarchical Bayesian MCMC per class, merged 2026-05-25. Uncompressed ~1.15 GB.",
-    "n_unique_cpgs": 483092,
-    "n_cell_types": 133,
-    "n_columns": 300,
-    "uncompressed_size": 1209757184,
-    "platform": "HM450-level intersection (450K); EPIC-only sites not covered in v0.1",
-    "build_date": "2026-05-25",
-    "per_class_cell_counts": {
-      "immune": 63,
-      "cycling": 20,
-      "secretory": 20,
-      "terminal": 12,
-      "progenitor": 11,
-      "stromal": 5,
-      "stem_pluri": 1,
-      "stem_adult": 1
-    }
-  },
-  {
-    "path": "IAMAtlas_v0_1/IAMAtlas_celltype_to_class.json",
-    "size": 3503,
-    "sha256": "8d82e8b20b142125c09b28de98323c6d593bfc4dfc41da13e0ec1babe5f9d8a1",
-    "description": "Maps each of the 133 IAMAtlas cell types to its architecture class. Consumed by the deconvolver for per-class aggregation."
-  },
-  {
-    "path": "IAMAtlas_v0_1/merge_iamatlas_v0_1.py",
-    "size": 7071,
-    "sha256": "d27628fafcad9f5f43cd9a9b6f0584328a1e9cb7608f73c8bb40d2c43adb10e9",
-    "description": "Merge script that builds IAMAtlas.csv from the 8 per-class MCMC outputs (brightness + per_celltype CSVs). Kept for reproducible future rebuilds after atlas/cell-type additions."
-  },
-  {
-    "path": "IAMAtlas_v0_1/README.md",
-    "size": 6871,
-    "sha256": "373e3239d74ba641efba154e2fcf420ca251a3eca0ed3f5abae30159f9af6467",
-    "description": "Full IAMAtlas v0.1 documentation: matrix shape, 8 classes and cell counts, build method, 450K-vs-EPIC coverage, stromal 5-cell history, deconvolver usage, v0.2 expansion path."
-  },
-  {
-    "path": "IAMAtlas_v0_1/iamatlas_v0_1_mcmc_batched_FIXED.py",
-    "size": 22164,
-    "sha256": "b067c922757ec3cca0e9578d4586d4619db7bb0635fa5308bb0b3a19f5315aea",
-    "description": "CANONICAL MCMC build script (USE FOR ALL FUTURE REBUILDS). Hierarchical Bayesian per-class model with the swamp+ridge fix: parameters restricted to observed (cpg,celltype) pairs; per-pair mu_logit prior removing the sigma_class_logit/log_kappa identifiability ridge. The older iamatlas_v0_1_mcmc_batched.py lacks this fix; the 7 non-stromal v0.1 classes were built with the old script and converged only because their data overpowered the ridge (verified: fixed model reproduces old at corr 0.99996). Stromal required this fix. See MCMC_BUILD_LESSONS.md."
-  },
-  {
-    "path": "IAMAtlas_v0_1/iamatlas_v0_1_output.tar.xz",
-    "size": 273691256,
-    "sha256": "2679d91faee9571f73299a39f7a24ec3c8500302d65c802d982d7d877bb5a171",
-    "description": "Per-class MCMC output archive (LFS): all 8 classes x 3 files (brightness, per_celltype, result.json) + terminal_pre_gasparoni_backup. The sealed pieces that merge_iamatlas_v0_1.py combines into IAMAtlas.csv. Kept so a future rebuild starts from sealed outputs. Stromal here is the 5-cell FIXED version (1.44MB). Uncompressed ~1.26 GB.",
-    "n_classes": 8,
-    "contains": "brightness + per_celltype + result.json per class, + terminal pre-Gasparoni backup",
-    "uncompressed_size": 1264305724
-  },
-  {
-    "path": "IAMAtlas_v0_1/MCMC_BUILD_LESSONS.md",
-    "size": 5498,
-    "sha256": "8ee423395c866f1016d8040e8d5b80b8692637bef1d58b7ebe5e2cb7667d8a42",
-    "description": "READ BEFORE ANY REBUILD. Documents the swamp+ridge MCMC fix, why the 7 old-script classes are valid and were not re-run, stromal 5-cell history + 4 dropped cells, and the rebuild recipe (always use the FIXED script)."
-  },
-  {
-    "path": "deconvolver/walther_iam_deconvolver.py",
-    "size": 17777,
-    "sha256": "cb4e4db3051382f43982086e4cd4bea20fe8b5c4abd8080329a656e478df9016",
-    "description": "Walther IAM Deconvolver - cell-fraction estimator built for IAMAtlas. Two-tier: per-CLASS fractions (primary, reliable - the 8 architecture classes) + per-cell-type (secondary, indicative - within-class cells weakly separable in v0.1). Rank-based marker selection adapts to atlas's compressed between-cell variance; bounded-memory streaming (~120MB on full 1.2GB atlas). Replaces removed prototype iamatlas_deconvolver.py which used absolute thresholds that rejected all CpGs and loaded whole matrix. Validated: clean mixture recovered exactly, noisy 3-class class-level err ~0.10."
-  },
-  {
-    "path": "deconvolver/README.md",
-    "size": 10858,
-    "sha256": "f2a15d816ea1a7c3aee3ef0ca27dc8b7be152383fd075ae8ea09ee024b8e8832",
-    "description": "Walther IAM Deconvolver documentation: design rationale, usage, two-tier class/cell-type output, validation status."
   }
 ]

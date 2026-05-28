@@ -3,11 +3,11 @@
 **Purpose.** Durable, version-controlled storage of every methylation atlas and reference matrix the EDEAR scoring engine uses to compute A-scores from a customer's IDAT. This is the **canonical source** for the production scoring server. The container filesystem `/home/claude/atlases/` is scratch and disappears between sessions — this vault is the durable backup against original-source disappearance (GitHub repos deleted, bioRxiv preprints withdrawn, EGA projects archived) and the operational source for the production server.
 
 **Last updated:** 2026-05-25  
-**Total vault size:** 6.0 MB across 79 files (+ IAMAtlas v0.1 compressed matrix, 207 MB via LFS)  
+**Total vault size:** 6.0 MB across 79 files (+ IAMAtlas v0.1 REBUILD compressed matrix, 96 MB via LFS, plus 8 per-class re-run archives totaling 165 MB via LFS)  
 **Total reference matrices for scoring:** 8 distinct atlases / 42 reference matrices  
 **Maintained by:** Heath W. Mahaffey
 
-> **IAMAtlas v0.1 (the unified merged matrix the EDEAR runtime and deconvolver consume) lives in [`IAMAtlas_v0_1/`](IAMAtlas_v0_1/); the deconvolver tool lives in [`deconvolver/`](deconvolver/). See those folders' README.md files for full details.**
+> **IAMAtlas v0.1 REBUILD edition (May 2026) — the unified merged matrix the EDEAR runtime and deconvolver consume — lives in [`IAMAtlas_v0_1/`](IAMAtlas_v0_1/); the deconvolver tool lives in [`deconvolver/`](deconvolver/). See those folders' README.md files for full details. The REBUILD edition replaced the original v0.1 build after the flatness problem was identified and fixed; see `IAMAtlas_v0_1/IAMAtlas_FLATNESS_LESSON.md` for the full account.**
 
 ---
 
