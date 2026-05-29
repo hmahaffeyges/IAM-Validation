@@ -155,15 +155,33 @@
   },
   {
     "path": "pipeline_runtime_matrices/card_residual_maps/README.md",
-    "size": 2336,
-    "sha256": "45816c29616a29c6abbc5300a6b0c6d359ac8b53efab18165adf7b7964d71015",
-    "description": "Inventory + methodology for the per-card disease residual maps subfolder. Documents what a Layer 3 base map is, how to compute one, and how cards consume them. Will grow with one residual map per active card as TODO 1.3 is run per-card."
+    "size": 2018,
+    "sha256": "8592db8d2bdf13dcf51cb8c4c428096baa64e5f6885cbf3a5ea58c93a770b1d5",
+    "description": "Index README for per-card disease residual maps subfolder. Each card has its own subfolder containing README + residual_map.csv (TODO 1.3) + bimodality_map.csv (TODO 1.4) + pca_projections.csv (TODO 1.5). Grows one subfolder per active card as cohort cycles complete."
   },
   {
-    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic_residual_map_v0_1.csv",
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/README.md",
+    "size": 4920,
+    "sha256": "dcf5cffda5ad377d1ac83bbc0c6ca1b4c1a727c00b16161c540b76ce15526985",
+    "description": "Card-specific evidence README for breast-epic. Documents the cohort (GSE51057+GSE51032 >10yr breast pre-dx, n=47/601), methodology, key findings, and how the breast-epic card consumes the three artifacts in this folder."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/bimodality_map.csv",
+    "size": 1594351,
+    "sha256": "491385849b8fbc633f4e28edc3a262e599dc9b48cae95f0d68cc6f4d1f538bb8",
+    "description": "TODO 1.4 \u2014 breast-epic per-CpG bimodality (Sarle BC) case vs HC. 8,199 CpGs. 821 bimodal in HC, 396 lose bimodality in cases. Distribution-shape signature orthogonal to mean-shift. 35 CpGs double-confirmed (loss-of-bimodality AND concordant residual)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/pca_projections.csv",
+    "size": 118386,
+    "sha256": "2ecd5d85a6ef110d20c72b17d8775a6513521f06600f8ce4ba15b8bf0117fec0",
+    "description": "TODO 1.5 \u2014 breast-epic 8-class PCA projections per patient. 647 patients (47 cases + 600 HC after one NaN drop) \u00d7 8 PCs. PC1 (70.7% variance) broad cellular drift d=+1.07/+0.57. PC2 (13.4%) stem_pluri vs stem_adult+immune. Cross-reference: 115-cell PCA (not saved) reveals PC2 T-cell SUPPRESSION axis d=-0.67/-0.58 replicating \u2014 immunosurveillance failure signature."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/residual_map.csv",
     "size": 544186,
     "sha256": "edd006f8b4030eb36a0e9bc31134e87f62ed1ccc3290f2170e2a7519ec3a78f7",
-    "description": "TODO 1.3 \u2014 breast-epic per-CpG residual map (Layer 3 base map). Built 2026-05-29 from the GSE51057+GSE51032 >10yr breast pre-dx cohort using the production Walther IAM Deconvolver for cell-fraction estimation and reconstructed-\u03b2 computation. 7,114 class marker CpGs scored. Per-CpG case-vs-HC Cohen's d for each cohort. 1,392 concordant CpGs (|d|>0.3 both, same sign) \u2014 1,173 hypomethylated vs 219 hypermethylated (5.4-to-1 ratio). Dominant pattern: case \u03b2 BELOW IAMAtlas-reconstructed expectation = field-effect cancerization signature at 10+ years pre-diagnosis. 1,389 new candidate CpGs not in Xu-538. Top concordant hits cg20124336 (d=-2.17/-1.89), cg16188349 (d=-1.67/-1.67). Columns: cpg, d_GSE51057, d_GSE51032, concordant_strong, mean_abs_d, in_xu538."
+    "description": "TODO 1.3 \u2014 breast-epic per-CpG residual map. 7,114 class marker CpGs. Built 2026-05-29 from production Walther IAM Deconvolver. 1,392 concordant CpGs (|d|>0.3 both cohorts, same sign), 1,173 hypomethylated vs 219 hypermethylated (5.4:1), 1,389 NEW candidates not in Xu-538. Top hits cg20124336 d=-2.17/-1.89, cg16188349 d=-1.67/-1.67."
   },
   {
     "path": "pipeline_runtime_matrices/cfdna_weight.json",
