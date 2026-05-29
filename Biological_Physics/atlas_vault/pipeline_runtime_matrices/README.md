@@ -7,12 +7,15 @@ These are the clinical interpretive context that wraps IAMAtlas's biological out
 
 ---
 
-## The 9 files in this folder
+## The 12 files in this folder
 
 | File | Pipeline stage | Purpose |
 |---|---|---|
-| `iamatlas_celltype_markers_v0_1.json` | Stage 2 | **NEW 2026-05-29.** Per-cell-type one-vs-rest marker CpGs (top-100 per cell type, 115 cell types). Consumed by `iamatlas_a_scoring.py` to compute per-cell-type A-scores in addition to the 8 class A-scores. Unlocks the sub-class signal that VAL-095/096 surfaced (e.g. Basophils d=+1.577 at >10yr breast pre-dx in GSE51057, BE breast-epithelial d=+1.281). SHA-256: `a56576cd5a7b2219d22d9a7a6efccd141a43c6d5fe4f5eb1d81e7375e1061ddc`. |
-| `iamatlas_a_scoring.py` | Stage 2 | **NEW 2026-05-29.** Scoring module with `score_per_class()` and `score_per_celltype()` functions. Returns A-score + coverage + confidence + status per class/cell type. **Sibling to the Walther IAM Deconvolver, not a replacement**: deconvolver does NNLS fractions; this module does entropy-at-markers A-scores. Different math, different CpG sets, different failure modes — kept separate for independent testability. |
+| `iamatlas_celltype_markers_v0_1.json` | Stage 2 | **NEW 2026-05-29 (TODO 1.1).** Per-cell-type one-vs-rest marker CpGs (top-100 per cell type, 115 cell types). Consumed by `iamatlas_a_scoring.py` to compute per-cell-type A-scores in addition to the 8 class A-scores. Unlocks the sub-class signal that VAL-095/096 surfaced (e.g. Basophils d=+1.577 at >10yr breast pre-dx in GSE51057, BE breast-epithelial d=+1.281). SHA-256: `a56576cd5a7b2219d22d9a7a6efccd141a43c6d5fe4f5eb1d81e7375e1061ddc`. |
+| `iamatlas_a_scoring.py` | Stage 2 | **NEW 2026-05-29 (TODO 1.1).** Scoring module with `score_per_class()` and `score_per_celltype()` functions. Returns A-score + coverage + confidence + status per class/cell type. **Sibling to the Walther IAM Deconvolver, not a replacement**: deconvolver does NNLS fractions; this module does entropy-at-markers A-scores. Different math, different CpG sets, different failure modes — kept separate for independent testability. |
+| `mahalanobis_healthy_reference_v0_1.json` | **Stage 2.5** | **NEW 2026-05-29 (TODO 1.2).** Pooled healthy-cohort centroid + Ledoit-Wolf-regularized covariance matrix in 115-cell-type A-score space. n_hc = 601 healthy controls pooled from GSE51057 + GSE51032. Loaded once at session startup. SHA-256: `fae063012ff7542a56ae4f91a494bad087d714f944911d6ff289113014a95b2b`. Validation anchor: >10yr breast pre-dx cases vs HC Cohen's d = +1.871 (GSE51057, 95% CI [+1.014, +2.856]) and +2.088 (GSE51032, 95% CI [+1.502, +2.735]). Beats Xu-538 disease-trained panel by +0.752 on GSE51032 while NOT being breast-trained — universal departure-from-healthy summary across all cards. |
+| `iamatlas_mahalanobis_scoring.py` | **Stage 2.5** | **NEW 2026-05-29 (TODO 1.2).** `MahalanobisHealthyHull` class. Load reference once at startup, call `.score(celltype_ascores_dict)` per patient. Returns `mahalanobis_distance` + `n_features_used`/`imputed` + `status` + `top10_axis_contributions` (which cell types most drive this patient's distance from healthy). Companion to `iamatlas_a_scoring.py`. |
+| `mahalanobis_per_patient_breast_predx_validation.csv` | (audit / not runtime) | **NEW 2026-05-29.** Per-patient Mahalanobis distances for the breast pre-dx validation cohort (n=648 = 47 cases + 601 HC across GSE51057+GSE51032). Columns: gsm, arm (case/hc), cohort, mahalanobis_115. Kept for audit of the validation anchor — not loaded at runtime. |
 | `age_reference_matrix.json` / `.csv` / `.py` | Stage 3 | 80-cell age × class lookup for cellular-age computation and age-matched percentile ranking — the headline product feature |
 | `tier_breakpoints.json` | Stage 4 | A-score thresholds for engine tier calls (1.05 / 1.07 / 1.10) + engine→customer language collapse |
 | `cfdna_weight.json` | Stage 4 | Healthy-blood cfDNA tissue-of-origin weights (Snyder 2016 + Moss 2018); used when substrate is plasma cfDNA to compute expected-vs-observed pan-tissue context |
@@ -40,6 +43,30 @@ The age matrix is mirrored as `.csv` for inspection and `.py` for drop-in import
 Both functions return per-result dicts with `A`, `n_markers_expected`, `n_markers_matched`, `coverage`, `confidence`, `status`. Status codes: `OK`, `INSUFFICIENT_MARKERS` (< 20 matched), `NO_MARKER_OVERLAP`. Confidence = `coverage × max(0, 1 − dispersion/0.20)` where dispersion = stdev of per-CpG A-scores. Bounded [0, 1], not a calibrated probability — recalibrate against labelled data when available.
 
 **The Walther IAM Deconvolver does not change.** Its job stays exactly what it is: NNLS fractions + diagnostics on the cell-type marker pool. The scoring module is a sibling, computing entropy-at-markers A-scores on a different CpG pool (per-cell-type one-vs-rest, not the deconvolver's between-cell-type-variance Tier 2 pool). Different math, different CpG sets, different failure modes — kept independent.
+
+### Stage 2.5 — Multi-D healthy hyper-volume (universal departure-from-healthy summary)
+
+`iamatlas_mahalanobis_scoring.py` runs Stage 2.5 using `mahalanobis_healthy_reference_v0_1.json` as the loaded reference. One number per patient:
+
+> **Mahalanobis distance** of the patient's 115-cell-type A-score vector from the pooled-HC centroid in the inverse-covariance-weighted hyper-volume.
+
+This is the multi-dimensional analog of the CMB community's joint posterior ellipsoid (banana degeneracy / hyper-volume). It gives every EDEAR report ONE headline number: "how far is this patient from the healthy reference hyper-volume on a statistically interpretable scale."
+
+The reference ellipsoid was built from n_hc = 601 pooled healthy controls (GSE51057 + GSE51032) with Ledoit-Wolf shrinkage covariance regularization (shrinkage = 0.0088, very mild — the empirical covariance was already well-conditioned at 112 features × 601 samples).
+
+**The scoring call returns a dict with:**
+- `mahalanobis_distance` — the single number (typical HC range ~6-12, typical case range ~10-20).
+- `n_features_used` / `n_features_imputed` — diagnostic for sample completeness.
+- `status` — `OK` or `PARTIAL_DATA` if more than 5 cell-type features had to be imputed.
+- `top10_axis_contributions` — which cell types most drive this patient's distance from healthy, with z-score shift, patient value, and HC centroid for each. **This is what makes the single number explainable**: a clinician reading the report sees "your Mahalanobis distance is 14.2, with the biggest contributions from basophils (+2.1 z), plasma cells (+1.8 z), and microglia (+1.6 z) — these immune compartments are most departed from healthy in your sample."
+
+**Validation anchor (2026-05-29).** Same cohorts as the rest of EDEAR v0.1 (GSE51057 + GSE51032, breast pre-dx >10yr cases vs healthy controls). Cohen's d for cases vs HC on the Mahalanobis distance:
+- GSE51057 (n=11 cases vs 177 HC): d = +1.871 (95% CI [+1.014, +2.856])
+- GSE51032 (n=36 cases vs 424 HC): d = +2.088 (95% CI [+1.502, +2.735])
+
+For comparison, the Xu-538 disease-trained immune panel on the same cohort gave d = +1.847 (GSE51057) and +1.336 (GSE51032). **The Mahalanobis distance matches Xu-538 on GSE51057 and beats it by +0.752 on GSE51032 — without being breast-trained.** Same readout applies to every card.
+
+**Stage 4 still runs the per-disease tier breakpoint logic on the per-class and per-cell-type A-scores.** Stage 2.5 is a universal headline number that supplements per-disease decisions, not a replacement for them.
 
 ### Stage 3 — Demographic adjustment + cellular age
 
