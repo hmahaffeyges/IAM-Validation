@@ -125,9 +125,9 @@
   },
   {
     "path": "pipeline_runtime_matrices/README.md",
-    "size": 10998,
-    "sha256": "3d3f2609fa0d0baacad243b2de4fc6b0f67286fd693632c2010b7342439d6d2a",
-    "description": "Inventory + how-to-use for the pipeline runtime matrices folder. Updated 2026-05-29 to add iamatlas_celltype_markers_v0_1.json and iamatlas_a_scoring.py (TODO 1.1 v0.2 sharpening extension). 9 files total. The 9 files in this folder are the lookup tables that wrap IAMAtlas biological output with clinical interpretive context: Stage 2 per-cell-type A-scores, Stage 3 cellular age, Stage 4 tier calls + cfDNA weights, Stage 6 risk/literature context."
+    "size": 15029,
+    "sha256": "4b1ca6231faf9cca4c1f4a91110650842158e47c3a25255bbe17e07d4241bf70",
+    "description": "Inventory + how-to-use for the pipeline runtime matrices folder. Updated 2026-05-29 to add Stage 2.5 Mahalanobis files (mahalanobis_healthy_reference_v0_1.json + iamatlas_mahalanobis_scoring.py + per-patient validation CSV) in addition to the earlier TODO 1.1 Stage 2 per-cell-type files. 12 files total covering Stages 2, 2.5, 3, 4, 6."
   },
   {
     "path": "pipeline_runtime_matrices/age_reference_matrix.csv",
