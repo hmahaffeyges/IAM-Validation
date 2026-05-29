@@ -184,10 +184,28 @@
     "description": "SHA-256 sidecar file for iamatlas_celltype_markers_v0_1.json."
   },
   {
+    "path": "pipeline_runtime_matrices/iamatlas_mahalanobis_scoring.py",
+    "size": 4731,
+    "sha256": "f04e8f8aba62d2717a7f832c608937d7fe449ac329b6ca61e624531f0d32fc08",
+    "description": "TODO 1.2 scoring module (2026-05-29). MahalanobisHealthyHull class. Load reference once at startup, call .score(celltype_ascores_dict) per patient. Returns mahalanobis_distance + n_features_used/imputed + status + top10_axis_contributions (which cell types most drive this patient's distance from healthy). Companion to iamatlas_a_scoring.py."
+  },
+  {
     "path": "pipeline_runtime_matrices/literature_anchors.json",
     "size": 5385,
     "sha256": "b78e7d19096192fdf844e899e1ad38b62ce3c820cb1d1580ce2011d55c22b002",
     "description": "Stage 6 report context. Published reference A-scores per class (healthy / disease / cancer cohort anchors). Used by E7 engine to position patient's reading against published cohorts in the customer report."
+  },
+  {
+    "path": "pipeline_runtime_matrices/mahalanobis_healthy_reference_v0_1.json",
+    "size": 373529,
+    "sha256": "fae063012ff7542a56ae4f91a494bad087d714f944911d6ff289113014a95b2b",
+    "description": "TODO 1.2 v0.2 sharpening output (2026-05-29). Pooled-HC Mahalanobis reference ellipsoid in 115-cell-type A-score space. LedoitWolf shrinkage 0.0088. n_hc=601 (GSE51057 + GSE51032 healthy controls). 112 features after NaN-column drop. Stores centroid + full covariance matrix + validation anchor. Validation: >10yr breast pre-dx cases vs HC Cohen's d = +1.871 (GSE51057, 95% CI [+1.014, +2.856]) and +2.088 (GSE51032, 95% CI [+1.502, +2.735]). Beats Xu-538 disease-trained panel by +0.752 on GSE51032 while NOT being breast-trained \u2014 universal departure-from-healthy summary across all cards."
+  },
+  {
+    "path": "pipeline_runtime_matrices/mahalanobis_per_patient_breast_predx_validation.csv",
+    "size": 26770,
+    "sha256": "b4de7375cb1fb415eae2bb49746d0c7c3a14647ae041331ff852506954b837cf",
+    "description": "TODO 1.2 validation data (2026-05-29). Per-patient Mahalanobis distance from pooled-HC centroid for the breast pre-dx validation cohort (GSE51057 + GSE51032, n=648 total). Columns: gsm, arm (case/hc), cohort, mahalanobis_115."
   },
   {
     "path": "pipeline_runtime_matrices/tier_breakpoints.json",
