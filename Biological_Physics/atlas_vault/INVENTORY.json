@@ -190,6 +190,24 @@
     "description": "Stage 4 runtime matrix. Tissue-of-origin shedding weights for healthy plasma cfDNA, derived from Snyder 2016 + Moss 2018. Per-class expected fractions: immune 0.70, cycling 0.12, secretory 0.08, stromal 0.04, stem_adult 0.03, progenitor 0.02, terminal 0.005, stem_pluri 0.005. Consumed when substrate is plasma cfDNA to compute the pan-tissue weighted screen (E4 engine)."
   },
   {
+    "path": "pipeline_runtime_matrices/disease_signature_matrix/README.md",
+    "size": 5709,
+    "sha256": "c44505b2dc590a72520495b38dc09972c89a63291fa257f5b86f56120e324a54",
+    "description": "Folder README for disease signature matrix. Explains how matrix + schema work together (matrix is data, schema is contract \u2014 they ship as a unit), version log, maintenance protocol, how Stage 5 consumes them, and the distinction between this matrix (global pattern-matching) and disease CARDS (per-disease scoring)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/disease_signature_matrix/disease_cell_signature_matrix_engine_schema_v1_2.md",
+    "size": 6427,
+    "sha256": "b54c38542ff6837741b7bda47fd4a28863b349e211f208927f6eb162183ecbc1",
+    "description": "Engine consumption schema v1.2 (2026-05-10, refs refreshed for v1.4 matrix). Defines column structure (8 metadata + 123 cell-type), value encoding (float / range / directional), Mahalanobis-style compute_match_magnitude() algorithm Stage 5 calls, compute_customer_tier() severity mapping, maintenance protocol. Schema bumps only on structural changes (column additions/removals/renames or value-encoding changes) \u2014 stays stable across cell-value-only matrix updates. WITHOUT this schema the CSV is unparseable."
+  },
+  {
+    "path": "pipeline_runtime_matrices/disease_signature_matrix/disease_cell_signature_matrix_v1_4.csv",
+    "size": 33852,
+    "sha256": "8600d3e7f5449722436cd2532875048b30955b3bf94ddf9f3d1bd1b58213ce32",
+    "description": "Disease \u00d7 cell signature matrix v1.4 (2026-05-29). 77 disease/condition \u00d7 phase rows \u00d7 131 cols (8 metadata + 123 cell-type). Each cell holds a signed Cohen's d (e.g. '+1.26') or a magnitude range ('+0.5/+1.0') or a directional placeholder ('\u2191\u2191'). Stage 5 pattern-matching layer: customer's per-cell-type A-score profile is matched against every row via Mahalanobis-style sign-aligned product. Top-3 candidate signatures returned per customer. v1.3\u2192v1.4 update: breast_cancer long_pre_dx row +11 new cell values (basophils, plasma_cells, microglia, skin_melanocytes, NeuMa, neurons_pooled, smooth_muscle, breast_BE TISSUE-OF-ORIGIN, endothelial_cells, CD4_T_cells, CD8_T_cells) from TODO 1.1 per-cell-type extension. evidence_anchors expanded to cite TODO 1.2 Mahalanobis d=+1.87/+2.09, TODO 1.3 residual map 1,392 concordant CpGs, TODO 1.5 PC2 T-cell suppression d=-0.67/-0.58."
+  },
+  {
     "path": "pipeline_runtime_matrices/family_history_multiplier.json",
     "size": 469,
     "sha256": "86468854acda627e9130139b36eb3ca264c0f4e7a7416c3de7a157cb7534967c",
