@@ -124,6 +124,78 @@
     "description": "Walther IAM Deconvolver - cell-fraction estimator built for IAMAtlas. Two-tier: per-CLASS fractions (primary, reliable - the 8 architecture classes) + per-cell-type (secondary, indicative - within-class cells weakly separable in v0.1). Rank-based marker selection adapts to atlas's compressed between-cell variance; bounded-memory streaming (~120MB on full 1.2GB atlas). Replaces removed prototype iamatlas_deconvolver.py which used absolute thresholds that rejected all CpGs and loaded whole matrix. Validated: clean mixture recovered exactly, noisy 3-class class-level err ~0.10."
   },
   {
+    "path": "pipeline_runtime_matrices/README.md",
+    "size": 10998,
+    "sha256": "3d3f2609fa0d0baacad243b2de4fc6b0f67286fd693632c2010b7342439d6d2a",
+    "description": "Inventory + how-to-use for the pipeline runtime matrices folder. Updated 2026-05-29 to add iamatlas_celltype_markers_v0_1.json and iamatlas_a_scoring.py (TODO 1.1 v0.2 sharpening extension). 9 files total. The 9 files in this folder are the lookup tables that wrap IAMAtlas biological output with clinical interpretive context: Stage 2 per-cell-type A-scores, Stage 3 cellular age, Stage 4 tier calls + cfDNA weights, Stage 6 risk/literature context."
+  },
+  {
+    "path": "pipeline_runtime_matrices/age_reference_matrix.csv",
+    "size": 7877,
+    "sha256": "2addfb4db77268f0230c5deb4daef0cc651fe80d2ba3d311e8b91125b6daeee2",
+    "description": "Stage 3 age reference matrix in CSV form - same content as the JSON, easier for inspection and citation."
+  },
+  {
+    "path": "pipeline_runtime_matrices/age_reference_matrix.json",
+    "size": 27182,
+    "sha256": "54232a5d1e269acbaacfa629d21d9c42fc77b5e1cf3af5289f2bd7450c5ef56a",
+    "description": "Stage 3 runtime matrix. 80 cells = 8 architecture classes x 10 decadal age bins (4-95). Each cell: (age_midpoint, A_mean, A_sd, beta_mean, beta_sd, n_samples, A_p10, A_p25, A_p50, A_p75, A_p90, source_citation). Source citations: Hannum 2013, Horvath 2013, Roadmap Epigenomics 2015, Moss 2018, Lister 2013, Alisch 2012, Adelman 2019, De Jager 2014 / Shireby 2022, Jaiswal 2014 CHIP-neg. Headline product feature: per-class cellular age computation + age-matched percentile ranking."
+  },
+  {
+    "path": "pipeline_runtime_matrices/age_reference_matrix.py",
+    "size": 11674,
+    "sha256": "8239519685171f76e6071ae2e1c61ed3700c8e14055dc6568ce936c5f6eaf5d5",
+    "description": "Stage 3 age reference matrix as Python module with age_ref_A(), age_ref_sd(), age_ref_percentiles() linear-interpolation helpers for any continuous patient age (matrix is decadal)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/cancer_prior.json",
+    "size": 500,
+    "sha256": "8ae529be32fb7d208224e34e2fcd97ce1d873bee30c86326761b2c1ece827805",
+    "description": "Stage 6 risk context. US lifetime cancer incidence per class. Provides Bayesian prior for the 'your reading combined with your risk context' framing of elevated readings in the customer report."
+  },
+  {
+    "path": "pipeline_runtime_matrices/cfdna_weight.json",
+    "size": 557,
+    "sha256": "ca632d039a2590fd4aaf26f6c9514a19981bafac90c7bdc248f3ee8298d7cd61",
+    "description": "Stage 4 runtime matrix. Tissue-of-origin shedding weights for healthy plasma cfDNA, derived from Snyder 2016 + Moss 2018. Per-class expected fractions: immune 0.70, cycling 0.12, secretory 0.08, stromal 0.04, stem_adult 0.03, progenitor 0.02, terminal 0.005, stem_pluri 0.005. Consumed when substrate is plasma cfDNA to compute the pan-tissue weighted screen (E4 engine)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/family_history_multiplier.json",
+    "size": 469,
+    "sha256": "86468854acda627e9130139b36eb3ca264c0f4e7a7416c3de7a157cb7534967c",
+    "description": "Stage 6 risk context. First-degree-relative cancer relative-risk multipliers per class. Adjusts the cancer_prior conditional on family-history intake form data. Turns 'keep watching' into 'go to a doctor' when family history is present."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_a_scoring.py",
+    "size": 7558,
+    "sha256": "bfe897d6d6b87099f5e93ee6e1be5034712d1f2cf4cc6a7159f69f703c8f4576",
+    "description": "Stage 2 scoring module (NEW 2026-05-29 \u2014 TODO 1.1 v0.2 sharpening extension). Two functions: score_per_class(beta_dict, class_markers, H_min_by_class) returns 8 class A-scores; score_per_celltype(beta_dict, celltype_markers, celltype_to_class, H_min_by_class) returns 115 cell-type A-scores. Both return per-result A-score + coverage + confidence + status (OK / INSUFFICIENT_MARKERS / NO_MARKER_OVERLAP). Sibling to the Walther IAM Deconvolver, NOT a replacement: deconvolver does NNLS fractions, this module does entropy-at-markers A-scores. Different math, different CpG sets, different failure modes - kept independent for testability."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_celltype_markers_v0_1.json",
+    "size": 237021,
+    "sha256": "a56576cd5a7b2219d22d9a7a6efccd141a43c6d5fe4f5eb1d81e7375e1061ddc",
+    "description": "Stage 2 per-cell-type marker artifact (NEW 2026-05-29 \u2014 TODO 1.1 v0.2 sharpening extension). 115 cell types x top-100 one-vs-rest marker CpGs each. Selection: |target_celltype_mean - mean(other_114_celltype_means)|, top-N. Adapted from val_093.py identify_marker_cpgs (per-Loyfer-tile) to per-IAMAtlas-cell-type. Built from IAMAtlasREBUILD (source SHA 41b7c16f...). Loaded by iamatlas_a_scoring.py at startup. Unlocks per-cell-type A-scores beyond the 8-class output: VAL-095 aTreg at >10yr breast pre-dx d=+1.26/+0.79 and VAL-096 pancreatic/kidney/erythrocyte-progenitor signals now natively in one pipeline run; new findings at sub-cellular resolution include Basophils d=+1.577 in GSE51057 and BE breast-epithelial d=+1.281 at >10yr."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_celltype_markers_v0_1.sha256",
+    "size": 102,
+    "sha256": "aa318093e5161d3141faaa82116efb0f6fc8b3e4d4fb5377876ff5b7e48be686",
+    "description": "SHA-256 sidecar file for iamatlas_celltype_markers_v0_1.json."
+  },
+  {
+    "path": "pipeline_runtime_matrices/literature_anchors.json",
+    "size": 5385,
+    "sha256": "b78e7d19096192fdf844e899e1ad38b62ce3c820cb1d1580ce2011d55c22b002",
+    "description": "Stage 6 report context. Published reference A-scores per class (healthy / disease / cancer cohort anchors). Used by E7 engine to position patient's reading against published cohorts in the customer report."
+  },
+  {
+    "path": "pipeline_runtime_matrices/tier_breakpoints.json",
+    "size": 1911,
+    "sha256": "1e98640d58b61aec94d37446ae2dd175c6d1c06f8ab4ebd49fa7815cf45d8d2f",
+    "description": "Stage 4 runtime matrix. A-score thresholds for tier calls: NORMAL (A<=1.05), MARGINAL (1.05<A<=1.07), DETECTABLE (1.07<A<=1.10), URGENT (1.10<A), FLOOR_BREACH (A above class ceiling), BELOW_NORMAL (A significantly below age-matched expectation = suppression/homogenization). Includes engine -> customer language collapse: engine tiers map to ELEVATED / SIGNIFICANTLY_ELEVATED / SUPPRESSED / NORMAL in the customer report."
+  },
+  {
     "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/README.md",
     "size": 6639,
     "sha256": "d61b32d405bb48a4073c0dc7128fe24b884e34a484fff3777c904c3a247a9007",
