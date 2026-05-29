@@ -154,6 +154,18 @@
     "description": "Stage 6 risk context. US lifetime cancer incidence per class. Provides Bayesian prior for the 'your reading combined with your risk context' framing of elevated readings in the customer report."
   },
   {
+    "path": "pipeline_runtime_matrices/card_residual_maps/README.md",
+    "size": 2336,
+    "sha256": "45816c29616a29c6abbc5300a6b0c6d359ac8b53efab18165adf7b7964d71015",
+    "description": "Inventory + methodology for the per-card disease residual maps subfolder. Documents what a Layer 3 base map is, how to compute one, and how cards consume them. Will grow with one residual map per active card as TODO 1.3 is run per-card."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic_residual_map_v0_1.csv",
+    "size": 544186,
+    "sha256": "edd006f8b4030eb36a0e9bc31134e87f62ed1ccc3290f2170e2a7519ec3a78f7",
+    "description": "TODO 1.3 \u2014 breast-epic per-CpG residual map (Layer 3 base map). Built 2026-05-29 from the GSE51057+GSE51032 >10yr breast pre-dx cohort using the production Walther IAM Deconvolver for cell-fraction estimation and reconstructed-\u03b2 computation. 7,114 class marker CpGs scored. Per-CpG case-vs-HC Cohen's d for each cohort. 1,392 concordant CpGs (|d|>0.3 both, same sign) \u2014 1,173 hypomethylated vs 219 hypermethylated (5.4-to-1 ratio). Dominant pattern: case \u03b2 BELOW IAMAtlas-reconstructed expectation = field-effect cancerization signature at 10+ years pre-diagnosis. 1,389 new candidate CpGs not in Xu-538. Top concordant hits cg20124336 (d=-2.17/-1.89), cg16188349 (d=-1.67/-1.67). Columns: cpg, d_GSE51057, d_GSE51032, concordant_strong, mean_abs_d, in_xu538."
+  },
+  {
     "path": "pipeline_runtime_matrices/cfdna_weight.json",
     "size": 557,
     "sha256": "ca632d039a2590fd4aaf26f6c9514a19981bafac90c7bdc248f3ee8298d7cd61",
