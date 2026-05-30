@@ -262,6 +262,18 @@
     "description": "Stage 4 runtime matrix. A-score thresholds for tier calls: NORMAL (A<=1.05), MARGINAL (1.05<A<=1.07), DETECTABLE (1.07<A<=1.10), URGENT (1.10<A), FLOOR_BREACH (A above class ceiling), BELOW_NORMAL (A significantly below age-matched expectation = suppression/homogenization). Includes engine -> customer language collapse: engine tiers map to ELEVATED / SIGNIFICANTLY_ELEVATED / SUPPRESSED / NORMAL in the customer report."
   },
   {
+    "path": "post_build_evidence/v1_CPG_IAMAtlas_Evidence_Report.html",
+    "size": 41075,
+    "sha256": "f5db12ea4b86c9787ab6c7e40ea64c084f4370e9209f44d1b945b659cc0bc033",
+    "description": "CPG (Cellular Performance Gauge) post-IAMAtlas-build Evidence Report v1 (2026-05-29). Reproducibility quadruple (cohort + script + sealed prereg + sealed results) mandatory for every VAL block. Family A (Section 3) = 7 foundation VALs CPG-VAL-001 through CPG-VAL-007 from the 2026-05-29 v0.2 sharpening session, full methodology + headline results + replication evidence + outcome codes. Family B (Section 4) = breast-epic template placeholders CPG-VAL-008 through CPG-VAL-014. CPG uses IAMAtlas-native tools ONLY \u2014 never external panels (Xu-538) or atlases (Loyfer/EpiSCORE/Salas/UniLIFE) in production scoring. Pre-build evidence archived in RETIRED_Evidence_Report.html."
+  },
+  {
+    "path": "post_build_evidence/v1_CPG_VAL_Inventory_Report.md",
+    "size": 16847,
+    "sha256": "bf408b6c775565b02c6cafa9f4ff75b435e38f074bd846d44c825c6a743cd2a2",
+    "description": "CPG (Cellular Performance Gauge) post-build Complete VAL Inventory v1 (2026-05-29). 6-rule reproducibility protocol at top: every VAL row must have GSE+URL+paper+script+SHA+prereg+SHA+results+SHA+per-sample+SHA+outcome+headline+code. Four families: A=foundation confirmation (7 entries, all sealed pending VAL formalization), B=per-card confirmation (breast-epic template B.1, immune-epic B.2 pending), C=exploratory enrichment (future), D=educational replication (future). Numbering CPG-VAL-001+. Pre-build VAL-001 through VAL-128 archived in RETIRED_VAL_inventory_report.md."
+  },
+  {
     "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/README.md",
     "size": 6639,
     "sha256": "d61b32d405bb48a4073c0dc7128fe24b884e34a484fff3777c904c3a247a9007",
