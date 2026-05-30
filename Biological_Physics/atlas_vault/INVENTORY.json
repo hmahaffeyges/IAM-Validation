@@ -107,6 +107,24 @@
     "sha256": "666f1fc029be333107fe0b9dbaa504cb84ef699a2e2e6898e508d4dd7259cae4"
   },
   {
+    "path": "chain_of_custody/L9_null_suite/cpg_null_runner.py",
+    "size": 31578,
+    "sha256": "680886f8c5daf8ed5876a5aa09a6d1839d4ac5d8aefafe32361e71c13f28ba14",
+    "description": "L9 unified null-test framework (Phase A1, 2026-05-30). 8 standard nulls: N1 HC-label permutation, N2 age-strata permutation, N3 sex-strata permutation, N4 cohort-split replication, N5 plate-position null, N6 injection-recovery, N7 end-to-end simulation (deferred A2), N8 look-elsewhere correction. Required for every CPG-VAL: N1, N4. Strongly recommended: N2, N6, N8. NullSuite class + CLI. Programmatic + CLI usage."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_null_results.json",
+    "size": 6566,
+    "sha256": "69cc2506af577d3246c36e6382d83a0703fccf6c0ee1f3bdac69e528ef7f40a4",
+    "description": "CPG-VAL-002 null suite run (2026-05-30). 7/7 declared nulls PASS at n_permutations=2000. N1 label perm p=0, N2 age-strata perm p=0, N3 sex-strata perm p=0, N4 cohort-split 100% concordance both cohorts, N6 injection-recovery within tolerance, N7 DEFERRED Phase A2, N8 skipped single-feature. First CPG-VAL formally null-validated."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_per_sample.csv",
+    "size": 32516,
+    "sha256": "5dc87f677d6f37c9b182217c92e607c7033a7affe97c944295e34033a6563d58",
+    "description": "CPG-VAL-002 per-sample reconstruction. 647 patients (47 cases / 600 HC after 1 NaN drop) \u00d7 {gsm, arm, cohort, age, gender, mahalanobis_distance}. Mahalanobis built from HC pooled reference centroid, Ledoit-Wolf shrinkage 0.0090, 115-cell-type feature space. d=+1.876 GSE51057, +2.097 GSE51032."
+  },
+  {
     "path": "commercial_web_scoring_engine_skeleton.py",
     "size": 24727,
     "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
