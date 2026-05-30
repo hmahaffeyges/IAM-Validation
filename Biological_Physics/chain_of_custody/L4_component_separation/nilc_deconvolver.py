@@ -269,13 +269,18 @@ class NILCDeconvolver:
             self.chromosome_windowed = False
 
     # ----------------------------------------------------------------------
-    # Core single-patient deconvolution
+    # Core single-patient deconvolution (v2 algorithm: departure-from-consensus)
     # ----------------------------------------------------------------------
     def deconvolve(self, beta_dict, patient_id=None) -> NILCResult:
         """
         Given a patient's β values at CpGs (as dict {cpg_id: β}), return per-class fractions.
 
-        Returns NILCResult with both raw (unconstrained GLS) and projected (simplex) fractions.
+        v2 ALGORITHM (Phase B2.1, 2026-05-30): departure-from-consensus reformulation.
+        Following Planck NILC's frequency-fluctuation approach, we subtract the per-CpG
+        mean across classes from both the reference matrix and the patient's β, then
+        solve GLS in departure space and reconstruct fractions via simplex projection
+        of (uniform + raw_departure_coefficients). This orthogonalizes the class columns
+        and resolves the immune/stem_adult collinearity that v1 NILC surfaced.
         """
         if not self._loaded:
             raise RuntimeError("Atlas not loaded")
@@ -297,24 +302,29 @@ class NILCDeconvolver:
                 per_class_residual={c: np.nan for c in CLASSES},
             )
 
-        X = self.X[mask]                              # (m × K)
+        X = self.X[mask]                              # (m × K) raw atlas means
         SIGMA = self.SIGMA[mask]                      # (m × K)
-        # Patient β at matched CpGs (guaranteed non-NaN by mask construction)
         beta = np.array([beta_keys_with_value[c] for c in self.cpg_ids[mask]])
 
-        # Per-CpG average variance across classes (the "common" measurement uncertainty)
-        sigma2 = (SIGMA ** 2).mean(axis=1)
-        sigma2 = np.maximum(sigma2, 1e-6)
+        # Departure-from-consensus reformulation (Phase B2.1).
+        # Consensus = per-CpG mean across classes (the methylome's per-pixel DC offset).
+        # Operating on departures orthogonalizes the class columns by construction —
+        # each row sums to zero, eliminating the bulk-correlation that made v1 NILC
+        # collinearize immune and stem_adult.
+        consensus = X.mean(axis=1)                    # (m,)
+        X_dep = X - consensus[:, None]                # (m × K), rows sum to 0
+        beta_dep = beta - consensus                   # (m,)
+
+        # Per-CpG inverse-variance weights
+        sigma2 = np.maximum((SIGMA ** 2).mean(axis=1), 1e-6)
         W = np.diag(1.0 / sigma2)
 
-        # Generalized least squares with ridge regularization for numerical stability
-        # f_raw = (X^T W X + λI)^{-1} X^T W β_obs
-        XtWX = X.T @ W @ X
+        # GLS in departure space with ridge for rank-deficiency stability
+        XtWX = X_dep.T @ W @ X_dep
         ridge = self.ridge_lambda * np.trace(XtWX) / len(CLASSES) * np.eye(len(CLASSES))
         XtWX_reg = XtWX + ridge
         try:
-            inv = np.linalg.inv(XtWX_reg)
-            f_raw = inv @ X.T @ W @ beta
+            f_dep_raw = np.linalg.inv(XtWX_reg) @ X_dep.T @ W @ beta_dep
         except np.linalg.LinAlgError:
             return NILCResult(
                 fractions={c: np.nan for c in CLASSES},
@@ -326,26 +336,26 @@ class NILCDeconvolver:
                 per_class_residual={c: np.nan for c in CLASSES},
             )
 
-        # Project to simplex (non-negative, sum to 1) using a stable algorithm
-        f_proj = self._project_simplex(f_raw)
+        # f_dep_raw is the departure of each class fraction from uniform.
+        # Add uniform baseline (1/K per class) and project to simplex.
+        f_uniform = np.full(len(CLASSES), 1.0 / len(CLASSES))
+        f_raw = f_uniform + f_dep_raw                 # unconstrained estimate
+        f_proj = self._project_simplex(f_raw)         # simplex-projected fractions
 
-        # Reconstruction residual
+        # Reconstruction residual at the original (un-departed) β values
         beta_reconstructed = X @ f_proj
         per_cpg_resid = beta - beta_reconstructed
         residual_mae = float(np.mean(np.abs(per_cpg_resid)))
 
-        # Per-class residual contribution: how much of the residual lives in CpGs
-        # most-informative for each class?
+        # Per-class residual contribution
         per_class_resid = {}
         for ki, cls in enumerate(CLASSES):
-            # Weight each CpG's residual by how strongly that CpG marks this class
-            # (use X[:, ki] / X.sum(axis=1) as the class-affinity weight)
             class_affinity = X[:, ki] / (X.sum(axis=1) + 1e-9)
             per_class_resid[cls] = float(
                 np.average(np.abs(per_cpg_resid), weights=class_affinity)
             )
 
-        # Optional chromosome-windowed fractions
+        # Optional chromosome-windowed fractions (uses raw-space algorithm)
         per_window_fracs = None
         if self.chromosome_windowed and self.chr_assign is not None:
             per_window_fracs = self._deconvolve_windowed(beta_dict, mask)
