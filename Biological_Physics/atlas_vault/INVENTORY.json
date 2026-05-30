@@ -108,15 +108,27 @@
   },
   {
     "path": "chain_of_custody/L9_null_suite/cpg_null_runner.py",
-    "size": 31578,
-    "sha256": "680886f8c5daf8ed5876a5aa09a6d1839d4ac5d8aefafe32361e71c13f28ba14",
-    "description": "L9 unified null-test framework (Phase A1, 2026-05-30). 8 standard nulls: N1 HC-label permutation, N2 age-strata permutation, N3 sex-strata permutation, N4 cohort-split replication, N5 plate-position null, N6 injection-recovery, N7 end-to-end simulation (deferred A2), N8 look-elsewhere correction. Required for every CPG-VAL: N1, N4. Strongly recommended: N2, N6, N8. NullSuite class + CLI. Programmatic + CLI usage."
+    "size": 34206,
+    "sha256": "b1dc56ea21a9a5a5a321ef2112cb3819d9c980f2c1c395da38fe7c614aaceca9",
+    "description": "L9 unified null-test framework v2 (2026-05-30). 8 standard nulls: N1 HC-label permutation, N2 age-strata permutation, N3 sex-strata permutation, N4 cohort-split replication, N5 plate-position null, N6 injection-recovery, N7 end-to-end simulation (now wired to synthetic_patient_generator.py \u2014 no longer DEFERRED), N8 look-elsewhere correction. Required for every CPG-VAL: N1, N4. Strongly recommended: N2, N6, N7, N8."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/synthetic_patient_generator.py",
+    "size": 24058,
+    "sha256": "e8bf4bb80f8d8ba33e1d1cf95ee79582e3e1fbe68b24af3209fcc08762014d49",
+    "description": "Phase A2 synthetic patient generator (2026-05-30). Methylome's FFP10/NPIPE equivalent. SyntheticCohort class generates \u03b2-matrix with known truth: per-patient cell-type fractions (Dirichlet), age, sex, batch, plate position, disease-panel CpG injection with hypomethylation-bias (5.4:1 matching CPG-VAL-003 empirical). ChainRecoveryTester reads cohort, runs simplified chain, returns recovery test (R3 Mahalanobis recovers signal). Wired into N7 of cpg_null_runner.py \u2014 N7 now performs real end-to-end sim instead of vacuous DEFERRED pass."
   },
   {
     "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_null_results.json",
     "size": 6566,
     "sha256": "69cc2506af577d3246c36e6382d83a0703fccf6c0ee1f3bdac69e528ef7f40a4",
     "description": "CPG-VAL-002 null suite run (2026-05-30). 7/7 declared nulls PASS at n_permutations=2000. N1 label perm p=0, N2 age-strata perm p=0, N3 sex-strata perm p=0, N4 cohort-split 100% concordance both cohorts, N6 injection-recovery within tolerance, N7 DEFERRED Phase A2, N8 skipped single-feature. First CPG-VAL formally null-validated."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_null_results_v2.json",
+    "size": 6418,
+    "sha256": "222e8cd0bda771a706e6d0deccd4a4151fb3c33990464868bb08d74723ddd46b",
+    "description": "CPG-VAL-002 null suite v2 (2026-05-30) with REAL N7 wired in. 7/7 PASS: N1 label perm p=0, N2 age-strata perm p=0, N3 sex-strata perm p=0, N4 cohort-split 100% concordance, N6 injection-recovery within tolerance, N7 synthetic cohort 47case/600HC at injected d=+2.0 recovers positive d through chain, N8 single-feature no correction needed."
   },
   {
     "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_per_sample.csv",
