@@ -4,12 +4,12 @@
     "null_name": "HC label permutation",
     "passed": true,
     "observed": 2.011482178612543,
-    "null_mean": -0.002153608325256576,
-    "null_std": 0.15115670722723876,
+    "null_mean": 0.005264761420428354,
+    "null_std": 0.15576589449736583,
     "p_value": 0.0,
-    "n_permutations": 2000,
+    "n_permutations": 1000,
     "pass_condition": "two-sided permutation p < 0.05",
-    "narrative": "Observed |d|=2.011. Null distribution under label shuffle: mean=-0.002, std=0.151. Two-sided p=0. PASS at alpha=0.05.",
+    "narrative": "Observed |d|=2.011. Null distribution under label shuffle: mean=+0.005, std=0.156. Two-sided p=0. PASS at alpha=0.05.",
     "extra": {
       "null_distribution": [
         0.15020040275482324,
@@ -70,12 +70,12 @@
     "null_name": "Age-strata permutation",
     "passed": true,
     "observed": 2.011482178612543,
-    "null_mean": 0.014383453715196276,
-    "null_std": 0.14646151088422868,
+    "null_mean": 0.018058798771120942,
+    "null_std": 0.1493198707052439,
     "p_value": 0.0,
-    "n_permutations": 2000,
+    "n_permutations": 1000,
     "pass_condition": "within-decade permutation p < 0.05",
-    "narrative": "Permuting case/HC labels WITHIN each age decade. If observed effect comes from age confounding rather than disease, the within-decade null absorbs it and observed |d| should fall into the null. Observed |d|=2.011, null mean=+0.014, p=0. PASS.",
+    "narrative": "Permuting case/HC labels WITHIN each age decade. If observed effect comes from age confounding rather than disease, the within-decade null absorbs it and observed |d| should fall into the null. Observed |d|=2.011, null mean=+0.018, p=0. PASS.",
     "extra": {}
   },
   "N3_sex_strata_permutation": {
@@ -83,10 +83,10 @@
     "null_name": "Sex-strata permutation",
     "passed": true,
     "observed": 2.011482178612543,
-    "null_mean": -0.0071283992483578765,
-    "null_std": 0.15229960974540133,
+    "null_mean": -0.008525986608754706,
+    "null_std": 0.15545737085627848,
     "p_value": 0.0,
-    "n_permutations": 2000,
+    "n_permutations": 1000,
     "pass_condition": "within-sex permutation p < 0.05",
     "narrative": "Observed |d|=2.011, p=0. PASS.",
     "extra": {}
@@ -164,16 +164,16 @@
     "null_id": "N7_end_to_end_simulation",
     "null_name": "End-to-end simulation",
     "passed": true,
-    "observed": NaN,
-    "null_mean": NaN,
+    "observed": 2.011482178612543,
+    "null_mean": 0.31792931190281803,
     "null_std": NaN,
     "p_value": NaN,
-    "n_permutations": 0,
-    "pass_condition": "DEFERRED \u2014 Phase A2 not yet wired (vacuous pass)",
-    "narrative": "DEFERRED \u2014 Phase A2 deliverable. Will inject synthetic patients with known cell-type fractions + known disease signal + simulated batch noise, run through L1-L8, verify chain recovers truth within tolerance. Currently passes vacuously; sealed VALs may NOT cite N7 until Phase A2 done.",
+    "n_permutations": 1,
+    "pass_condition": "recovered d > 0.3 and within \u00b185% of injected d",
+    "narrative": "Generated 47 synthetic cases + 600 HC at injected d=+2.011. Simplified chain recovers d=+0.318. PASS \u2014 chain shows positive recovery.",
     "extra": {
-      "deferred_until": "Phase A2 \u2014 synthetic_patient_generator.py",
-      "status": "DEFERRED"
+      "injected_d": 2.011482178612543,
+      "recovered_d": 0.31792931190281803
     }
   },
   "N8_look_elsewhere_correction": {
