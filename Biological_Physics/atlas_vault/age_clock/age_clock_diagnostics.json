@@ -1,0 +1,33 @@
+{
+  "n_train": 420,
+  "n_test": 180,
+  "train_age_range": [
+    34.379,
+    71.329
+  ],
+  "test_age_range": [
+    35.852,
+    71.94
+  ],
+  "mae_train": 5.918946768707483,
+  "mae_test": 5.8436674603174605,
+  "rmse_train": 7.193223853120758,
+  "rmse_test": 7.005735631819273,
+  "r2_train": 0.0,
+  "r2_test": -0.0004143122161939239,
+  "spearman_test": NaN,
+  "bias_test": -0.14256984126983663,
+  "per_class_coefficients": {
+    "stem_pluri": 0.0,
+    "stem_adult": 0.0,
+    "progenitor": 0.0,
+    "cycling": 0.0,
+    "secretory": 0.0,
+    "immune": 0.0,
+    "terminal": 0.0,
+    "stromal": 0.0
+  },
+  "intercept": 53.03203571428572,
+  "mae_gate_pass": false,
+  "cross_cohort_drift_pct": 4.63973759238952
+}
