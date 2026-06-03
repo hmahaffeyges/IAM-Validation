@@ -9,7 +9,7 @@ The matrix is a **lookup table** (77 disease/condition × phase rows × 123 cell
 
 | File | Role | Lifecycle |
 |---|---|---|
-| `disease_cell_signature_matrix_v1_5.csv` | The data. 77 rows × 131 columns (8 metadata + 123 cell-type). Each cell holds a signed Cohen's d like `+1.26` or a range like `+0.5/+1.0` or a directional `↑↑` placeholder. | Bumps on every cell-value change (v1.3 → v1.4 → v1.5 etc.). Major bump on column-structure change (v2.0). |
+| `disease_cell_signature_matrix_v1_6.csv` | The data. 80 rows × 131 columns (8 metadata + 123 cell-type). Each cell holds a signed Cohen's d like `+1.26` or a range like `+0.5/+1.0` or a directional `↑↑` placeholder. | Bumps on every cell-value change (v1.3 → v1.4 → v1.5 → v1.6 etc.). Major bump on column-structure change (v2.0). |
 | `disease_cell_signature_matrix_engine_schema_v1_2.md` | The contract. Defines column structure, value-encoding rules, the `compute_match_magnitude()` Mahalanobis-style match function Stage 5 calls, the `compute_customer_tier()` mapping, the maintenance protocol. | Bumps only on structural changes. Stays stable across cell-value-only matrix updates. |
 | `README.md` | This file. Folder orientation, version log, push policy. | Refreshed whenever a matrix or schema version lands. |
 
@@ -28,7 +28,7 @@ The schema is short (~120 lines) but load-bearing. Engine cannot consume the mat
 
 ```python
 # Per customer, per pipeline run:
-matrix = pd.read_csv('disease_cell_signature_matrix_v1_4.csv')
+matrix = pd.read_csv('disease_cell_signature_matrix_v1_6.csv')
 customer_profile = stage_2_outputs.celltype_ascores  # 115-dim dict
 
 # Score each row against the customer (per the schema's compute_match_magnitude)
@@ -49,6 +49,7 @@ Stage 5 returns a ranked list of documented signature matches plus their tiers. 
 
 | Version | Date | Change |
 |---|---|---|
+| v1.5 → v1.6 | 2026-06-02 | **STRICT ADDITIVE.** 3 new rows appended for AD-immune card v3.0 post-build VAL series (CPG-VAL-008 through CPG-VAL-014). All 77 prior rows byte-identical. New rows: (1) `alzheimers_disease, at_dx_post_build_v3_0` — clinical AD on AIBL+AddNeuroMed post-build instrument; 115-cell fan-out evidence (Eosino d=−0.43, Neutro −0.41, B-cells −0.38, L-MPP −0.39, HSC −0.33, CD4 T −0.36 from CPG-VAL-008) + Mahalanobis d=+0.20 + PC1 T-cell axis d=−0.36. (2) `frontotemporal_dementia, post_build_GIFT_2026` — GIFT cohort CPG-VAL-014 weak immune negative drift (NK-cells d=−0.37, MPP −0.37, granulocytes −0.36). (3) `psp_cbd_tauopathies, post_build_GIFT_2026` — severity BELOW_NORMAL confirmed via Mahalanobis d=−0.38 (p=2e-6); 7 Bonferroni-sig negative per-cell effects (Baso −0.69, LE −0.65, Microglia −0.63, smooth_muscle −0.61, Mela −0.59). |
 | v1.4 → v1.5 | 2026-06-02 | breast_cancer / long_pre_dx row evidence_anchors EXTENDED with CPG-VAL-NNN citation aliases: TODO 1.1 → also cited as CPG-VAL-001 (per-cell-type fan-out), TODO 1.2 → CPG-VAL-002 (Mahalanobis d=+1.871/+2.088), TODO 1.3 → CPG-VAL-003 (1,392 concordant CpGs residual map), TODO 1.5 → CPG-VAL-005 (PC2 T-cell suppression d=−0.67/−0.58). Appended CPG-VAL-007 age-axis subtraction confirmation. **No cell values changed; no prior citations removed.** All other 76 rows byte-identical to v1.4. |
 | v1.3 → v1.4 | 2026-05-29 | breast_cancer long_pre_dx row updated with TODO 1.1/1.2/1.3/1.5 findings: +11 new cell values (basophils, plasma_cells, microglia, skin_melanocytes, NeuMa, neurons_pooled, smooth_muscle, breast_BE TISSUE-OF-ORIGIN, endothelial_cells, CD4_T_cells, CD8_T_cells). evidence_anchors expanded to cite TODO 1.1 / 1.2 (Mahalanobis d=+1.871/+2.088) / 1.3 (residual map 1,392 concordant CpGs) / 1.5 (PC2 T-cell suppression d=-0.67/-0.58). |
 | v1.3 | 2026-05-10 | Initial canonical v1.3 — 77 disease/condition × phase rows × 123 cell-type columns. |
