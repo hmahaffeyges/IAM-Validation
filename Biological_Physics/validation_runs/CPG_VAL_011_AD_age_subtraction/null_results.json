@@ -1,0 +1,32 @@
+{
+  "val_id": "CPG_VAL_011",
+  "signal_col": "stem_adult_A (AddNeuroMed)",
+  "case_label": "ad",
+  "hc_label": "hc",
+  "n_case": 93,
+  "n_hc": 96,
+  "observed_d": -0.004365571893306606,
+  "n_permutations": 1000,
+  "results": {
+    "N1_hc_label_permutation": {
+      "passed": false,
+      "observed": -0.004365571893306606,
+      "null_mean": -0.0036483844198745637,
+      "null_std": 0.14764434175797433,
+      "p_value": 0.974,
+      "n_permutations": 1000,
+      "pass_condition": "two-sided permutation p < 0.05",
+      "narrative": "Observed |d|=0.004. Null distribution under label shuffle: mean=-0.004, std=0.148. Two-sided p=0.974. FAIL at alpha=0.05."
+    },
+    "N2_age_strata_permutation": {
+      "passed": false,
+      "observed": -0.004365571893306606,
+      "null_mean": 0.004569942154471648,
+      "null_std": 0.14147072775242872,
+      "p_value": 0.98,
+      "n_permutations": 1000,
+      "pass_condition": "within-decade permutation p < 0.05",
+      "narrative": "Permuting case/HC labels WITHIN each age decade. If observed effect comes from age confounding rather than disease, the within-decade null absorbs it and observed |d| should fall into the null. Observed |d|=0.004, null mean=+0.005, p=0.98. FAIL."
+    }
+  }
+}
