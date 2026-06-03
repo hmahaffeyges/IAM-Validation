@@ -51,9 +51,9 @@ Two restated foundation VALs are documented separately in `cpg_native_post_build
 - CPG-VAL-004 (bimodality direction: 1,096 gain dominates 396 loss, 2.77:1 — the restated framing)
 - CPG-VAL-006 (chr6 MHC look-elsewhere corrected p=0.103 — the restated framing)
 
-## What remains TO BUILD per v3 inventory
+## What remains DEFERRED — AD-immune is the next active series
 
-Per `post_build_evidence/v3_CPG_VAL_Inventory_Report.md` §B.1, the breast-epic Family B confirmation series **CPG-VAL-008 through CPG-VAL-014** is still pending:
+Per `post_build_evidence/v4_CPG_VAL_Inventory_Report.md` Phase 1 closure summary, the breast-epic Family B confirmation series **CPG-VAL-008 through CPG-VAL-014** is **DEFERRED behind AD-immune** as the next active VAL series (2026-06-02 decision). The breast card's foundation work is complete (CPG-VAL-001/002/003/005/007 + null suite seals + card v3.0 + matrix v1.5 row). The Family B breast series will resume after AD-immune establishes the first formally-sealed CPG-VAL-NNN/ folder under v4 inventory protocol. Slots reserved for breast Family B:
 
 - CPG-VAL-008: CPG_breast_panel_v1 definition (1,389 new + 3 retained-from-Xu538 CpGs)
 - CPG-VAL-009: CPG_breast_panel_v1 → A-score case-vs-HC on GSE51057 with held-out test
@@ -63,7 +63,7 @@ Per `post_build_evidence/v3_CPG_VAL_Inventory_Report.md` §B.1, the breast-epic 
 - CPG-VAL-013: Mahalanobis specificity test on non-breast pre-dx cohort
 - CPG-VAL-014: 35-CpG bimodality double-confirmed sub-panel test
 
-These are formal sealed-VAL packaging plus some new analyses — not blocking for AD-immune card work, which can proceed in parallel.
+These breast Family B VALs will run after the AD-immune work establishes the formal CPG-VAL-NNN/ packaging template. The pattern Heath and Walther agreed 2026-06-02: AD-immune first, then return to breast Family B, then per Phase J ordering for the remaining cards. The breast card v3.0 in this folder is stable and consumable by the orchestrator as-is — no further breast card changes are needed before AD work begins.
 
 ## Pointers
 
