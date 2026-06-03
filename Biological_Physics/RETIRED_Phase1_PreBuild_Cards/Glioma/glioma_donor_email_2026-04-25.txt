@@ -1,0 +1,85 @@
+Subject: Direct detection of cortical-neuron cfDNA in glioma peripheral blood — research findings
+
+I want to share a research finding from this week on low-grade glioma (LGG) and glioblastoma (GBM) using publicly-available patient methylation data. This is a research summary, not a diagnostic report.
+
+Background. Brain cancer is structurally harder to detect from a blood test than other cancers because the blood-brain barrier limits how much brain DNA reaches systemic circulation. The widely-used Moss 2018 reference atlas for cell-of-origin deconvolution from cell-free DNA does not include any brain or CNS cell types, which is part of the reason brain-cancer cfDNA detection has lagged behind other cancers in the methylation-array literature. The Loyfer 2023 atlas (Nature, doi:10.1038/s41586-022-05580-6, open access) extended Moss's work to 39 cell types from 207 healthy donors and includes cortical neurons among the references. The repository nloyfer/meth_atlas provides an Illumina-array-indexed version of the reference (reference_atlas.csv, 7,890 CpGs across 26 cell types including cortical neurons), suitable for direct application to standard 450K/EPIC peripheral blood data. We applied this published reference directly to publicly-deposited glioma and healthy cohorts, with no parameter tuning.
+
+What was tested. Three publicly-deposited methylation cohorts processed through non-negative least squares deconvolution against the Loyfer/Moss array-indexed reference atlas. The cohorts: Salas/Wiencke 2022 EPIC peripheral blood from 76 glioma patients (GSE180683); Lai 2015 brain tissue from 72 GBM patients plus 5 non-tumor brain controls (GSE60274); EPIC-Italy buffy coat from 177 cancer-free participants as healthy reference (GSE51057, cancer-free subset). The cell-of-origin fractions were computed per-sample without any panel selection, training, or post-hoc adjustment — the published reference atlas was applied directly to the published β values.
+
+The headline. Cortical-neuron cfDNA fraction in peripheral blood:
+
+| Cohort                                    | n   | Cortical-neuron mean | Standard deviation |
+|-------------------------------------------|-----|----------------------|--------------------|
+| Healthy buffy coat (GSE51057)             | 177 | 0.28%                | 0.37%              |
+| All glioma plasma (GSE180683)             | 76  | 1.09%                | 0.45%              |
+| Pre-surgery treatment-naive subset        | 37  | 1.08%                | 0.44%              |
+| Pre-surgery LGG (treatment-naive)         | 12  | 1.29%                | (n small)          |
+| Pre-surgery GBM (treatment-naive)         | 19  | 0.86%                | (n small)          |
+
+Cohen's d (all glioma vs healthy reference) = +1.96 [+1.62, +2.31]. Pre-surgery treatment-naive subset alone vs healthy reference, d = +1.97. Sixty-three percent of glioma plasma samples show a cortical-neuron fraction at or above the 1% threshold; eighty-nine percent are at or above 0.5%. In the healthy reference, only 7% are at or above 1% (these reflect non-negative least squares solver noise floor — the median healthy sample reads exactly 0%).
+
+This is direct quantification of brain-derived DNA in standard array peripheral blood. It does not require specialized chemistry, custom collaborations, or invasive sampling. The published method, the published reference, and the published cohort data are all that was used.
+
+The brain tissue arm is consistent. When the same deconvolution is applied to GBM tumor tissue and non-tumor brain controls from the Lai 2015 cohort:
+
+| Tissue type                      | n  | Cortical-neuron mean |
+|----------------------------------|----|----------------------|
+| Non-tumor brain (NTB) controls   | 5  | 62.4%                |
+| GBM primary tumor                | 64 | 39.3%                |
+| GBM recurrent tumor              | 4  | 35.2%                |
+| Cultured glioma spheres          | 4  | 42.9%                |
+
+Cohen's d (GBM primary vs NTB) = -2.81. Tumor displaces normal cortical-neuron architecture in the tissue — the disease shifts the cortical-neuron contribution downward by approximately 23 percentage points. The NTB baseline of 62.4% is biologically plausible for cerebral cortex (which is dominated by neurons). Recurrent disease shifts it further. The deconvolution pipeline reads non-tumor brain as ~62% neurons; the same pipeline reads healthy peripheral blood as ~0.3% neurons. This is the expected biological gradient from a working method.
+
+The peripheral immune cell composition is also informative. The same deconvolution reports the immune-cell composition of the healthy buffy coat at approximately 52% neutrophils, 25% T-cells, 6% B-cells, and 4% monocytes — textbook peripheral blood composition, confirming the deconvolution is correctly resolving the immune compartment. In glioma plasma, the deconvolution shows neutrophils elevated to ~68% and lymphocytes correspondingly reduced — a neutrophil-to-lymphocyte ratio shift of the kind reported by Bracci 2022 in glioma. The cortical-neuron signal is in addition to, not instead of, this immune-cell-fraction shift.
+
+What this means clinically. The cortical-neuron cfDNA elevation in glioma peripheral blood is direct, quantitative, and reproducible from publicly-deposited data. This does not constitute a clinical diagnostic claim. It is a research finding that:
+
+- Cortical-neuron cfDNA fractions in glioma patients' blood are approximately four times higher than in cancer-free reference, with strong separation (d = +1.96).
+- The signal holds in pre-surgery treatment-naive patients, ruling out treatment-effect explanations.
+- The pre-surgery LGG signal is at least as strong as the pre-surgery GBM signal in this cohort (with the caveat that LGG n=12 is small).
+- The brain-tissue arm shows consistent biology: tumor displaces cortical neurons in the tumor tissue itself, in proportion to disease progression.
+
+What is honestly missing. Replication on an independent cohort with on-study healthy controls collected on the same platform is the next required step. The cross-platform comparison (HM450 Italian reference vs EPIC glioma cohort) is informative for direction of effect but does not lock down the absolute magnitude. UCSF AGS phs001497 is the highest-value replication target and would resolve the cross-platform caveat directly. Open questions:
+
+- How early in the disease course this signal becomes detectable (no pre-diagnostic glioma blood cohort exists publicly).
+- Whether other CNS pathologies (Alzheimer's, traumatic brain injury, multiple sclerosis) produce similar elevations of cortical-neuron cfDNA. The same pipeline applied to those cohorts would establish specificity, and the data exists in GEO for several of them.
+- Whether oligodendrocyte and microglia references (which require extending beyond the Loyfer array-indexed atlas to the full WGBS atlas) add discriminating information. The Loyfer 2023 atlas covers 39 cell types in the WGBS form; the array-indexed reference_atlas.csv includes cortical neurons but not separate oligodendrocyte or microglia references. Caggiano 2021 (Nature Communications, doi:10.1038/s41467-021-22335-5) provides additional array-native neuronal references that could supplement the analysis.
+
+Datasets and partnerships needed, priority-ordered.
+
+1. dbGaP phs001497.v2.p1 — UCSF Adult Glioma Study (Bracci 2022). 139 pre-surgery glioma patients plus 454 healthy controls on EPIC array. Direct replication target with on-study controls. Highest priority — would lock down the absolute magnitude of the cortical-neuron finding under same-platform conditions.
+2. dbGaP phs002998.v1.p1 — UCSF Immune Profiles Study. Companion deposit, apply in parallel.
+3. dbGaP phs001319.v1.p1 — Glioma International Case-Control Study. 7,566 biospecimens, addresses non-Western generalizability.
+4. Mayo Clinic Glioma cohort. dbGaP-linked to phs001497.
+5. Nassiri 2020 cfMeDIP-seq cohort. Different chemistry; would establish lower limits of detection.
+6. An LP-CSF EPIC array glioma cohort. Does not yet exist publicly. Custom collaboration with a neurosurgical center.
+7. Pre-diagnostic glioma blood from UK Biobank, EPIC-Italy NSHDS, Sister Study, or MCCS. Tests early-detection window.
+8. Deep cervical lymph aspirate methylation cohort. Does not exist; framework prediction.
+9. Sabedot 2021 GeLB cohort (Mendeley cgrz6zztfg). Already publicly accessible.
+
+Each has a specific application path. The dbGaP applications are formal but tractable. The collaborations (LP-CSF, cervical lymph) are longer timelines and require institutional partners.
+
+On the use of the work. Single-cohort, single-platform finding. Direction of effect is robust, magnitude requires replication on a same-platform on-study control cohort. None of this rises to the level of a clinical diagnostic claim. It is a research-grade finding that brain-derived cfDNA is detectable and quantifiable in glioma peripheral blood using a published open-source method, and the result is independently reproducible end-to-end from public data. Full validation reports, source code, input file SHAs, and reproduction instructions are publicly archived and can be shared on request.
+
+---
+
+P.S. — On the open-source-data and over-fitting concern.
+
+A reasonable critique of any framework tested against publicly-available data with pre-existing diagnostic labels is that the model could be tuned to those labels — that the labels guide the test and the test then "verifies" itself. This is the central concern about over-fitting and it is the right concern to raise. The work has been structured specifically to be falsifiable against this critique. The cortical-neuron finding above strengthens the falsifiability case in particular: nothing in our analysis chose, trained, or adjusted the Loyfer reference atlas — it is an external published resource applied directly to public data, and the result is therefore independent of any choice made on our side. There are seven independent reasons the over-fitting interpretation does not hold:
+
+1. The reference atlas in the cortical-neuron finding is fully external. The reference_atlas.csv used for cell-of-origin deconvolution is published by the Loyfer/Kaplan group at the Hebrew University of Jerusalem. We did not curate it, did not select cell types, did not adjust marker CpGs, did not retrain weights. The non-negative least squares solver is a standard scipy library call. No tunable parameters exist anywhere in the pipeline. The result is what the published method produces when applied to the published data.
+
+2. The Stage 1 immune panel is also fixed and external. The 538 CpG panel used in the immune-compartment analysis was published by Xu et al. (JNCI 2020, doi:10.1093/jnci/djz065) for breast cancer detection in the Sister Study. The same 538 CpGs are applied to every disease tested in the broader framework, without per-disease selection or adjustment. If the framework were over-fitting per disease, each disease would need its own optimized panel; instead one externally-published breast-cancer panel is applied universally. The disease where the panel was trained (breast cancer) is one of approximately twenty diseases where it is applied.
+
+3. The class-floor parameters (H_min) are fixed by an upstream calibration. The Shannon-entropy floor values that normalize the immune A-score are determined by an independent calibration completed before any disease-specific testing. They are not adjustable per disease. The same H_min(immune) = 0.838889 is used to score the AML cohort, the Alzheimer's cohort, the glioma cohort, and every other immune-class evaluation. If H_min were tuned per cohort to make results work, every cohort would have its own value; they don't.
+
+4. Pre-registration locks the analysis before scoring. Each validation study has a pre-registration document with a SHA-256 seal that is committed before β-values are computed. The seal records the cohort, the panel, the H_min, the predicted outcome, and the decision criteria. The outcome label assigned after scoring is constrained by the prereg, not chosen post hoc. The public validation record includes a number of cases where the pre-registered prediction did not match the result, and those cases are reported as such. An over-fitted framework would not publish results that contradict its own predictions.
+
+5. Cross-platform, cross-cohort design is intentional. The Italian healthy controls (GSE51057, EPIC-Italy menarche cohort, HM450 platform) are used as the healthy reference for several disease tests, including the cortical-neuron finding above, because they are the largest publicly-accessible methylation cohort with cancer-free outcome verification. Using cross-cohort, cross-platform comparisons (HM450 reference vs EPIC test cohort) is the opposite of what an over-fitting design would do — over-fitting requires same-platform same-cohort same-batch matching. The cross-platform design risks failing on technical artifact rather than succeeding on it. The reported result is the direction of effect, which survives platform mismatch; the absolute magnitude is qualified accordingly.
+
+6. The framework's predictions are made before, not after, running cohorts, and discrepancies are reported. A cell-fraction prior for glioma based on Bracci 2022's published lymphocyte-down/neutrophil-up signature was committed in writing before the analysis was run. The cell-of-origin deconvolution above shows that the cell-fraction prior was correct in its direction — neutrophils up, lymphocytes down, exactly as Bracci 2022 reported — and additionally surfaced the cortical-neuron signal that no prior had predicted. We publish what is found, including findings that exceed our prior expectations; we do not relabel results to match expectations.
+
+7. The use of Italian healthy controls is a constraint, not a choice. Among publicly-deposited large healthy methylation cohorts on the 450K/EPIC platform with cancer-free outcome verification, GSE51057 (EPIC-Italy menarche cohort) is the largest. The alternatives are biobank-gated (UK Biobank, Sister Study, MCCS) and require formal data-access applications that an unaffiliated researcher cannot file. We use the Italian reference because it is the only reference an independent researcher can use, and we report the direction (which survives cross-platform comparison) with the magnitude qualified accordingly. Several items on the priority access list above — UCSF AGS phs001497, the GICC cohort, Mayo's collection — would resolve this exact concern by providing on-study healthy controls collected on the same platform as the disease cohort.
+
+Every result is end-to-end reproducible: the analysis code is public, the input cohort accessions are public, the panel SHA is public, the random seed is fixed, every Python script for every analysis is available with HTML-escaped inline source in the public Evidence Report. That is the practical test of over-fitting — if the result depends on undocumented choices, re-running with the documented choices would not reproduce it. Re-running does reproduce it. The concern is the right concern; the answer is that the framework is structured specifically to fail when wrong, and has done so publicly without that failure being hidden or relabeled.

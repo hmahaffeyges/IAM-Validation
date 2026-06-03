@@ -1,0 +1,63 @@
+{
+  "val_id": "VAL-066",
+  "cohort": "TCGA-PAAD HM450 matched tumor/normal \u2014 n=7 amended",
+  "note": "TCGA-PAAD clinical metadata is sparse. BMI, alcohol history, diabetes status not populated for any patient in this subset. Smoking status partially populated.",
+  "patients": {
+    "TCGA-FZ-5919": {
+      "age": 59,
+      "sex": "female",
+      "race": "white",
+      "smoking": "Lifelong Non-Smoker",
+      "stage": null,
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    },
+    "TCGA-FZ-5920": {
+      "age": 52,
+      "sex": "male",
+      "race": "black or african american",
+      "smoking": "Unknown",
+      "stage": "Stage IIB",
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    },
+    "TCGA-FZ-5922": {
+      "age": 81,
+      "sex": "male",
+      "race": "white",
+      "smoking": "Unknown",
+      "stage": null,
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    },
+    "TCGA-FZ-5923": {
+      "age": 71,
+      "sex": "male",
+      "race": "white",
+      "smoking": "Lifelong Non-Smoker",
+      "stage": "Stage IV",
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    },
+    "TCGA-FZ-5924": {
+      "age": 83,
+      "sex": "male",
+      "race": "white",
+      "smoking": "Lifelong Non-Smoker",
+      "stage": "Stage IIA",
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    },
+    "TCGA-FZ-5926": {
+      "age": 73,
+      "sex": "female",
+      "race": "white",
+      "smoking": "Current Reformed Smoker, Duration Not Specified",
+      "stage": "Stage III",
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    },
+    "TCGA-YB-A89D": {
+      "age": 59,
+      "sex": "male",
+      "race": "white",
+      "smoking": "Lifelong Non-Smoker",
+      "stage": "Stage IIB",
+      "diagnosis": "Infiltrating duct carcinoma, NOS"
+    }
+  }
+}

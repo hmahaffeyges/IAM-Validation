@@ -1,0 +1,10 @@
+PREREG_AMENDMENT_002_SHA256=7f4b3148949060d6f0b8c27a5b55161c06a848d9b00d1e765ddcb182b3d0ec30
+AMENDMENT_TIMESTAMP=2026-05-01T04:44:39Z
+AMENDMENT_FILE=prereg_amendment_002.md
+ORIGINAL_PREREG_SHA=eb68e4d4ca6270cdcce60269375af787537c560fabea18ee31cbaf558dea1962
+ORIGINAL_PREREG_SEAL=2026-05-01T03:48:17Z
+AMENDMENT_TYPE=CHK-3.1A tissue-class floor correction (kidney/prostate floor applied to bladder mucosa; corrected to bladder-cohort q1/q99)
+DATA_OBSERVED_BEFORE_AMENDMENT=YES (honest second-best CCL-041 path; full disclosure)
+CANONICAL_AGAINST=VAL-120_bladder_stage1_xu538/prereg_amendment_002.md
+LESSON_LOGGED=DISC-BLADDER-002 candidate (tissue-class CHK-3.1A floors)
+COOKBOOK_PROPOSAL=CHK-2.16 (tissue-class CHK-3.1A floor verification)

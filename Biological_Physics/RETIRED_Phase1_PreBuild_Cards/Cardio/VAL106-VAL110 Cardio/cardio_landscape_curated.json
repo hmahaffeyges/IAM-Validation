@@ -1,0 +1,151 @@
+[
+  {
+    "rank": 1,
+    "accession": "GSE69138",
+    "n_total": 589,
+    "breakdown": "404 IS discovery + 185 IS replication",
+    "platform": "HM450K",
+    "idat": true,
+    "substrate": "whole blood",
+    "subdomains": [
+      "Stroke (ischemic)"
+    ],
+    "subtypes": "Large-artery atherosclerosis n=132, Small-artery disease n=141, Cardio-embolic n=127",
+    "design": "prevalent stroke patients (case-only, no within-cohort healthy controls \u2014 needs external healthy reference)",
+    "pubmed": "26643952, 29515201, 36180927",
+    "date": "2015",
+    "analyst_note": "Largest stroke methylation cohort in GEO. Multi-subtype. Spanish (Soriano-T\u00e1rraga BasicMar lineage). Raw IDAT confirmed in suppfile.",
+    "pros": "Largest single cohort. Multi-subtype within-cohort (large-artery atheroscl vs small-artery vs cardio-embolic). Raw IDAT.",
+    "cons": "Case-only \u2014 no within-cohort healthy controls; would need cross-cohort healthy baseline (CHK-3.2 risk). HM450K.",
+    "CHK_3_1_concern": "IDAT path \u2192 safe with raw EPIC threshold default (extreme >30%); HM450K platform threshold TBD (needs calibration VAL per CCL-041).",
+    "recommended_VAL_design": "WITHIN-COHORT subtype contrast (large-artery vs small-artery vs cardio-embolic) \u2014 uses every patient as their own population, no external healthy needed for the primary contrast. Cross-cohort healthy from Italian buffy coat anchor for orientation only."
+  },
+  {
+    "rank": 2,
+    "accession": "GSE157131",
+    "n_total": 1218,
+    "breakdown": "GENOA cohort, African American adults",
+    "platform": "EPIC v1.0 (850K) + HM450K (some samples on legacy)",
+    "idat": false,
+    "substrate": "peripheral blood leukocytes",
+    "subdomains": [
+      "HTN (cohort with hypertension prevalence; needs phenotype file)"
+    ],
+    "subtypes": "NA \u2014 cohort-level cardiovascular phenotypes (BP, HTN status, related)",
+    "design": "population-based cohort, cross-sectional methylation",
+    "pubmed": "32917208",
+    "date": "2020",
+    "analyst_note": "GENOA = Genetic Epidemiology Network of Arteriopathy. Largest single cohort by 2x. African-American only (high HTN prevalence). Substantial cardiovascular phenotyping in linked phenotype file.",
+    "pros": "Largest cohort (n=1218). Population-based (Jackson MS). EPIC v1 + HM450K. African-American = high HTN-related cardiovascular event burden. Public Tier 1 supp.",
+    "cons": "No raw IDAT in suppfile (TXT only \u2014 likely processed betas). Single ancestry. Phenotype file separate from methylation matrix.",
+    "CHK_3_1_concern": "TXT-only suppfile = processed/normalized output likely. HIGH RISK of CCL-040-style deferral \u2014 needs verification before scoring.",
+    "recommended_VAL_design": "PROBABLY DEFER per CCL-040 unless raw IDAT can be obtained; verify supp content before locking. If raw IDAT exists in BioProject PRJNA130945 or GENOA dbGaP arm, this becomes the largest possible cohort."
+  },
+  {
+    "rank": 3,
+    "accession": "GSE203399",
+    "n_total": 121,
+    "breakdown": "59 discovery + 62 replication (HM450K + EPIC mixed)",
+    "platform": "HM450K + EPIC v1.0 (850K)",
+    "idat": true,
+    "substrate": "whole blood",
+    "subdomains": [
+      "Stroke (ischemic, post-event recovery)"
+    ],
+    "design": "post-event longitudinal: NIHSS at baseline vs discharge (\u0394NIHSS) \u2014 outcome stratified",
+    "pubmed": "35717949, 36180927",
+    "date": "2022",
+    "analyst_note": "Soriano-T\u00e1rraga 2022 \u2014 the EXOC4/MERTK paper. Post-event recovery design (good for \"what does cell do during/after stroke\"). Both HM450K and EPIC.",
+    "pros": "Raw IDAT confirmed in supp. Both platforms \u2014 direct platform-CHK-3.1 calibration opportunity. EpiDISH cell-type analysis already published in source paper.",
+    "cons": "Smaller (n=121). Post-event not pre-event.",
+    "CHK_3_1_concern": "IDAT path; mixed platform \u2014 needs separate per-platform CHK-3.1 thresholds (raw-EPIC default for EPIC arm; HM450K platform threshold still TBD).",
+    "recommended_VAL_design": "Outcome-stratified: poor outcome (mRS>2 at 3mo) vs good outcome \u2014 within-cohort case/control. Direct comparison to GSE69138 multi-subtype design. Could ALSO serve as the TCGA-HM450 calibration cohort if we go that route."
+  },
+  {
+    "rank": 4,
+    "accession": "GSE128235",
+    "n_total": 537,
+    "breakdown": "324 depressed + 209 controls",
+    "platform": "HM450K",
+    "idat": true,
+    "substrate": "whole blood",
+    "subdomains": [
+      "Mixed CVD risk-factor (depression as CVD risk factor)"
+    ],
+    "design": "prevalent psychiatric, but CHD/MI risk-factor relevant",
+    "analyst_note": "NOT primary cardiovascular \u2014 Max Planck depression cohort. Listed because depression is known CVD risk factor. SHOULD NOT be a cardio-epic primary VAL but useful as a healthy-control reference (the 209 controls).",
+    "pros": "209 healthy controls with raw IDAT, 450K. Useful as cross-cohort healthy reference per CHK-3.2.",
+    "cons": "Cases are psychiatric not cardiovascular \u2014 cannot be primary cardio-epic VAL.",
+    "recommended_VAL_design": "NOT for primary cardio-epic. Could supply healthy controls for cross-cohort calibration."
+  },
+  {
+    "rank": 5,
+    "accession": "GSE293799",
+    "n_total": 59,
+    "breakdown": "33 CHD cases + 26 healthy newborn controls",
+    "platform": "EPIC v1 + EPIC v2 mix",
+    "idat": true,
+    "substrate": "buccal swabs (Genotek OC-175)",
+    "subdomains": [
+      "Congenital Heart Disease (newborns)"
+    ],
+    "design": "prospective case-control, single-site Children's National",
+    "pubmed": "40722095",
+    "date": "2025",
+    "analyst_note": "Newborns with complex CHD requiring neonatal cardiac surgery \u2014 radically different cohort. Buccal swab not blood. PedBE epigenetic age clock used in source paper. Not adult cardiovascular.",
+    "pros": "Pre-event design (CHD detected at birth). Recent. Both EPIC versions.",
+    "cons": "Newborn population (N/A for adult cardiovascular biology). Buccal swab substrate \u2014 different from adult deployment substrate.",
+    "recommended_VAL_design": "Optional \u2014 pediatric arm with separate H_min calibration. NOT primary adult cardio-epic."
+  },
+  {
+    "rank": 6,
+    "accession": "GSE84395",
+    "n_total": 39,
+    "breakdown": "iPAH n=11 + heritable PAH n=10 + controls n=18",
+    "platform": "HM450K",
+    "idat": true,
+    "substrate": "cultured pulmonary endothelial cells (PEC)",
+    "subdomains": [
+      "Pulmonary Arterial Hypertension"
+    ],
+    "design": "prevalent case-control on cultured cells",
+    "pubmed": "28881789",
+    "date": "2016",
+    "analyst_note": "Endothelial-cell-specific methylation in PAH. Cultured PECs not whole blood \u2014 direct cell-of-origin signal.",
+    "pros": "Cell-of-origin substrate (endothelial). Raw IDAT. PAH is hypertension subtype.",
+    "cons": "Small (n=39). Cultured cells (not patient blood). Pulmonary not systemic HTN.",
+    "recommended_VAL_design": "Stage 2 cell-of-origin VAL \u2014 direct test of EpiSCORE HeartRef EC tile + Loyfer Vascular_endothelial_cells tile against actual endothelial cell methylation in disease. Sets up vascular-endothelial-disrupted reference for cardio-epic Stage 2."
+  },
+  {
+    "rank": 7,
+    "accession": "GSE84274",
+    "n_total": 24,
+    "breakdown": "6 normal aorta + 12 aortic dissection + 6 bicuspid aortic valve with aortic dilation",
+    "platform": "HM450K",
+    "idat": true,
+    "substrate": "ascending aorta tissue",
+    "subdomains": [
+      "Aortic dissection / aneurysm"
+    ],
+    "design": "prevalent case-control on aortic tissue",
+    "date": "2019",
+    "analyst_note": "Vascular tissue (ascending aorta) \u2014 direct cell-of-origin signal. Small but uniquely valuable for vascular tile validation.",
+    "pros": "Cell-of-origin substrate (aortic tissue). Raw IDAT. Multi-subtype (dissection vs BAV+dilation vs normal).",
+    "cons": "Small (n=24). HM450K (platform CHK-3.1 TBD).",
+    "recommended_VAL_design": "Stage 2 cell-of-origin VAL on aortic tissue \u2014 direct test of EpiSCORE HeartRef SMC + Caggiano endothelial markers + Loyfer Vascular_endothelial tile."
+  },
+  {
+    "rank": 8,
+    "accession": "GSE40360",
+    "n_total": 47,
+    "breakdown": "30 control + 17 MS frontal lobe white matter",
+    "platform": "HM450K",
+    "idat": false,
+    "substrate": "frontal lobe white matter",
+    "subdomains": [
+      "Reference healthy brain (NOT primary CV)"
+    ],
+    "analyst_note": "False match \u2014 multiple sclerosis brain study. Drop.",
+    "recommended_VAL_design": "EXCLUDE."
+  }
+]

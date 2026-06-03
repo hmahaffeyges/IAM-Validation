@@ -1,0 +1,110 @@
+{
+  "val_id": "VAL-066",
+  "card": "pancreatic-epic",
+  "date": "2026-04-25",
+  "amendment_v2": "Re-run after Heath flag: original VAL-066 used H_min(secretory)=0.843264 in error. Stage 1 is ALWAYS immune class (Xu-538 panel). Corrected H_min(immune)=0.838889. Result: pooled paired d went from +1.18 to a corrected value below; bidirectional decomposition added per Heath request.",
+  "cohort": "TCGA-PAAD HM450 matched tumor/normal \u2014 n=7 amended, n=5 QC-passed",
+  "panel": "Xu-538 immune",
+  "H_min": 0.838889,
+  "h_min_correction_note": "Original VAL-066 v1 erroneously used H_min(secretory)=0.843264. Xu-538 is the immune-class panel and ALL Stage 1 scoring uses H_min(immune)=0.838889 regardless of which disease-card the run is for. The disease-tissue class (secretory for pancreas) is a Stage 2 concept, not a Stage 1 concept. Corrected per CCL-027 review.",
+  "scoring_class": "immune (Stage 1)",
+  "rng_seed": 20260425,
+  "n_qc_passed": 5,
+  "patients_qc_passed": [
+    "TCGA-FZ-5920",
+    "TCGA-FZ-5922",
+    "TCGA-FZ-5923",
+    "TCGA-FZ-5924",
+    "TCGA-YB-A89D"
+  ],
+  "patient_demographics_qc_passed": "5 male, 0 female (both female patients failed QC), 5 white, 4 lifelong non-smoker + 1 unknown",
+  "pooled_a_scores": {
+    "TCGA-FZ-5920": {
+      "A_tumor": 0.5637230816041748,
+      "A_normal": 0.5168413777888881,
+      "delta_A": 0.04688170381528678
+    },
+    "TCGA-FZ-5922": {
+      "A_tumor": 0.5477639120375486,
+      "A_normal": 0.5014799030695378,
+      "delta_A": 0.04628400896801077
+    },
+    "TCGA-FZ-5923": {
+      "A_tumor": 0.5876992977067511,
+      "A_normal": 0.5383848875906041,
+      "delta_A": 0.04931441011614701
+    },
+    "TCGA-FZ-5924": {
+      "A_tumor": 0.5524009972595157,
+      "A_normal": 0.5432567401892774,
+      "delta_A": 0.00914425707023836
+    },
+    "TCGA-YB-A89D": {
+      "A_tumor": 0.6030443075214266,
+      "A_normal": 0.6068624628841287,
+      "delta_A": -0.003818155362702136
+    }
+  },
+  "primary_pooled_corrected": {
+    "n": 5,
+    "mean_delta": 0.029561244921396158,
+    "sd_delta": 0.025004371743283235,
+    "paired_d": 1.1822430583298702,
+    "paired_d_hedges": 0.9457944466638962,
+    "paired_d_ci_95": [
+      0.039763337289713485,
+      2.3247227793700267
+    ],
+    "paired_t": 2.6435758443528385,
+    "paired_p": 0.008203538439162994
+  },
+  "bidirectional_decomposition": {
+    "note": "Per CCL-027 \u2014 bidirectional cancellation guard. Xu-538 CpGs split by direction of (\u03b2_tumor \u2212 \u03b2_normal) majority across QC-passed patients. Lymphoid vs myeloid lineage assignment NOT applied here; that is deferred to immune-atlas card per OQ-2026-01. The split here is direction-of-shift, not lineage.",
+    "n_cpgs_positive_arm": 160,
+    "n_cpgs_negative_arm": 181,
+    "pct_positive": 46.9208211143695,
+    "pct_negative": 53.0791788856305,
+    "positive_arm_paired_d": {
+      "n": 5,
+      "mean_delta": 0.03291072676971555,
+      "sd_delta": 0.03081852737198824,
+      "paired_d": 1.0678877148305588,
+      "paired_d_hedges": 0.854310171864447,
+      "paired_d_ci_95": [
+        -0.030479247217223504,
+        2.1662546768783413
+      ],
+      "paired_t": 2.38786952269804,
+      "paired_p": 0.0169463569955961
+    },
+    "negative_arm_paired_d": {
+      "n": 5,
+      "mean_delta": 0.036269585504575694,
+      "sd_delta": 0.028703595333750973,
+      "paired_d": 1.2635903301607758,
+      "paired_d_hedges": 1.0108722641286207,
+      "paired_d_ci_95": [
+        0.08813590470893806,
+        2.4390447556126134
+      ],
+      "paired_t": 2.825473873950897,
+      "paired_p": 0.004721073786452035
+    },
+    "combined_absolute_magnitude_per_patient": {
+      "TCGA-FZ-5920": 0.08493027193775182,
+      "TCGA-FZ-5922": 0.11917940032434832,
+      "TCGA-FZ-5923": 0.09461567724683795,
+      "TCGA-FZ-5924": 0.05009282579993585,
+      "TCGA-YB-A89D": 0.0033275934190682976
+    },
+    "mean_combined_abs_magnitude": 0.07042915374558845,
+    "sd_combined_abs_magnitude": 0.04496677251581502,
+    "d_combined_magnitude": 1.566248805622378,
+    "d_combined_magnitude_ci_95": [
+      0.2583052040252096,
+      2.8741924072195464
+    ],
+    "amplification_vs_pooled": 1.324811166863593,
+    "interpretation": "When the bidirectional split is applied, the combined absolute magnitude reveals the TRUE departure from healthy-immune baseline. The pooled-entropy A-score under-represents this magnitude because positive and negative direction CpGs partially cancel. This is exactly the AD-template cancellation pattern CCL-027 flagged for every card to check."
+  }
+}

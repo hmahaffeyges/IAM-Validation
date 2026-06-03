@@ -1,0 +1,74 @@
+{
+  "Xu-538": {
+    "n_cpgs": 538,
+    "mean_coverage": 0.6,
+    "min_coverage": 0.0,
+    "max_coverage": 1.0,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "Layered Moss+Loyfer 25-tile": {
+    "n_cpgs": 6105,
+    "mean_coverage": 0.6,
+    "min_coverage": 0.0,
+    "max_coverage": 1.0,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "BoccellatoStomachRef_HM450": {
+    "n_cpgs": 380467,
+    "mean_coverage": 0.6,
+    "min_coverage": 0.0,
+    "max_coverage": 1.0,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "EpiSCORE EsoRef": {
+    "n_cpgs": 2464,
+    "mean_coverage": 0.6,
+    "min_coverage": 0.0,
+    "max_coverage": 1.0,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "EpiSCORE OEref": {
+    "n_cpgs": 5396,
+    "mean_coverage": 0.5995552260934025,
+    "min_coverage": 0.0,
+    "max_coverage": 0.9992587101556709,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "Caggiano TIM": {
+    "n_cpgs": 254,
+    "mean_coverage": 0.5952755905511811,
+    "min_coverage": 0.0,
+    "max_coverage": 0.9921259842519685,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "Salas IDOL 450K": {
+    "n_cpgs": 350,
+    "mean_coverage": 0.6,
+    "min_coverage": 0.0,
+    "max_coverage": 1.0,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  },
+  "UniLIFE": {
+    "n_cpgs": 1906,
+    "mean_coverage": 0.6,
+    "min_coverage": 0.0,
+    "max_coverage": 1.0,
+    "pass_n": 3,
+    "total_n": 5,
+    "gate_pass": false
+  }
+}

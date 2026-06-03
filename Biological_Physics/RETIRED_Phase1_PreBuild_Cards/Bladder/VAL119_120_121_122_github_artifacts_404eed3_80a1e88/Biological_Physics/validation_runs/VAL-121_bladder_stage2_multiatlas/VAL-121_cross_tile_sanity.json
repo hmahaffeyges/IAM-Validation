@@ -1,0 +1,147 @@
+{
+  "check_description": "Loyfer non-bladder solid-tissue tiles paired contrast on TCGA-BLCA. Bladder tumor should NOT fire POSITIVE on these tiles. Flagged if direction=POSITIVE and |d_paired|>=0.30.",
+  "flags": [
+    {
+      "tile": "Breast",
+      "d": 2.6187243748048026,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Kidney",
+      "d": 2.714694267606126,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Prostate",
+      "d": 2.449058296841712,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Thyroid",
+      "d": 2.918802027881678,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Upper_GI",
+      "d": 2.8147553073573275,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Uterus_cervix",
+      "d": 2.819313441800219,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Head_and_neck_larynx",
+      "d": 2.6045070851306087,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Colon_epithelial_cells",
+      "d": 2.3417081051111355,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Hepatocytes",
+      "d": 2.5078474021413637,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Lung_cells",
+      "d": 2.6396517455073596,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Cortical_neurons",
+      "d": 2.839027422252351,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Pancreatic_beta_cells",
+      "d": 2.8055791338887777,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Pancreatic_acinar_cells",
+      "d": 2.5049789872163535,
+      "direction": "POSITIVE"
+    },
+    {
+      "tile": "Pancreatic_duct_cells",
+      "d": 2.847919972612245,
+      "direction": "POSITIVE"
+    }
+  ],
+  "all_non_bladder_tiles": {
+    "Breast": {
+      "d_paired": 2.6187243748048026,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Kidney": {
+      "d_paired": 2.714694267606126,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Prostate": {
+      "d_paired": 2.449058296841712,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Thyroid": {
+      "d_paired": 2.918802027881678,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Upper_GI": {
+      "d_paired": 2.8147553073573275,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Uterus_cervix": {
+      "d_paired": 2.819313441800219,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Head_and_neck_larynx": {
+      "d_paired": 2.6045070851306087,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Colon_epithelial_cells": {
+      "d_paired": 2.3417081051111355,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Hepatocytes": {
+      "d_paired": 2.5078474021413637,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Lung_cells": {
+      "d_paired": 2.6396517455073596,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Cortical_neurons": {
+      "d_paired": 2.839027422252351,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Pancreatic_beta_cells": {
+      "d_paired": 2.8055791338887777,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Pancreatic_acinar_cells": {
+      "d_paired": 2.5049789872163535,
+      "direction": "POSITIVE",
+      "fires": true
+    },
+    "Pancreatic_duct_cells": {
+      "d_paired": 2.847919972612245,
+      "direction": "POSITIVE",
+      "fires": true
+    }
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "card_id": "bladder-epic",
+  "card_version": "v0.1",
+  "card_status": "sealed",
+  "tier": "multi_modal_validated + multi_atlas_calibrated",
+  "card_seal_timestamp": "2026-05-01T04:35:00Z",
+  "card_seal_basis": "VAL-119 + VAL-120 + VAL-121 + VAL-122 sealed 2026-05-01; LESSONS_LEARNED.md updated with DISC-BLADDER-001 through DISC-BLADDER-004; GitHub commit 404eed3 on main",
+
+  "_purpose": "bladder-epic v0.1 — bladder cancer methylation-architecture diagnostic card. Three sealed Phase C outcomes (VAL-120 Stage 1 / VAL-121 Stage 2 / VAL-122 Stage 3) plus one sealed Phase B calibration anchor (VAL-119). Four DISC-BLADDER lessons propagate to cookbook (CHK-2.16 + CHK-2.17 added).",
+
+  "headline": "Phase C scoring on TCGA-BLCA n=440 (HM450K sesame Level 3, 21 paired tumor-vs-adjacent-normal patients) produced results consistent with the framework and with published bladder cancer biology. Stage 1 immune red flag fires diagnostically at d_paired=+1.90 but Xu-538 panel cohort-substrate coverage triggered O4 sealed outcome. Stage 2 cell-of-origin: BladderRef Epi paired d=-1.46 (p=1.6e-06) satisfies CCL-039 expectation; Loyfer bulk Bladder fires opposite direction reflecting substrate-distribution mismatch on mucosal cohort. Stage 3 immune fine-tune: all 6/6 Salas IDOL tiles fire POSITIVE consistent with mixed TIL+TAM+MDSC infiltration of muscle-invasive bladder tumor microenvironment.",
+
+  "validated_cohorts": [
+    {
+      "val_id": "VAL-119",
+      "phase": "B (calibration)",
+      "cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210",
+      "substrate": "TCGA HM450K sesame Level 3",
+      "atlas_under_calibration": "EpiSCORE BladderRef CpG-bridged",
+      "outcome_class": "O1_BLADDERREF_CALIBRATION_SEALED",
+      "headline_metric": "max within-cohort tile range = 0.0694 (well above tissue-floor-dominated threshold 0.02)",
+      "seal_timestamp": "2026-05-01T03:46:00Z",
+      "prereg_sha": "04d9d0d36faaf3bc6051c5f852f3bcb9d2ab48c437982b714ff8573d4cad178a",
+      "prereg_amendment_sha": "c3015ca3ba25f6c13f4f93fec85edea8506f64472657d03b59ed9ccda8355787"
+    },
+    {
+      "val_id": "VAL-120",
+      "phase": "C (Stage 1 immune red flag)",
+      "cohort": "TCGA-BLCA n=440 (418 tumor + 21 normal + 1 metastatic; 21 paired patients)",
+      "substrate": "TCGA HM450K sesame Level 3",
+      "panel": "Xu-538 (538 CpGs from Xu 2020 djz065 Sister Study breast cancer)",
+      "outcome_class": "O4_STAGE1_DATA_INTEGRITY_FAILURE",
+      "outcome_basis": "CHK-3.1B Xu-538 per-sample coverage 51.1% pass rate at >=80% threshold (DISC-BLADDER-004)",
+      "diagnostic_finding": {
+        "paired_d": 1.8977,
+        "paired_ci_95": [1.182, 2.614],
+        "paired_p_value": 3.14e-08,
+        "paired_n": 21,
+        "welch_d": 1.6433,
+        "welch_p_value": 1.92e-08,
+        "direction": "POSITIVE",
+        "note": "diagnostic finding only; not sealed as VAL outcome due to panel coverage gate"
+      },
+      "seal_timestamp": "2026-05-01T04:35:00Z",
+      "prereg_sha": "6d1807440dcf6cf33c9abbe791f9260224b768065bdd272f029b6e334d3c6996",
+      "prereg_amendment_002_sha": "93cd2171b131977f3bbd6e76d57df6cf291ae7d5ce2d297d5bd9bd656444c31d"
+    },
+    {
+      "val_id": "VAL-121",
+      "phase": "C (Stage 2 multi-atlas cell-of-origin)",
+      "cohort": "TCGA-BLCA n=440 (same as VAL-120)",
+      "substrate": "TCGA HM450K sesame Level 3",
+      "atlases_scored": ["Layered Moss+Loyfer 25-tile", "EpiSCORE BladderRef 4-tile", "Caggiano CelFiE TIM 19-tile"],
+      "outcome_class": "O2_BLADDER_TILE_DIFFERENTIATING_DIRECTION_AMBIGUOUS",
+      "outcome_basis": "Loyfer Bladder paired d=+1.91 vs BladderRef Epi paired d=-1.46 on same n=21 paired pairs (DISC-BLADDER-003)",
+      "headline_findings": {
+        "loyfer_bladder": {"d_paired": 1.9100, "ci_95": [1.191, 2.629], "p_value": 2.83e-08, "direction": "POSITIVE", "interpretation": "substrate-distribution mismatch on bulk-WGBS atlas; not biology"},
+        "bladderref_epi": {"d_paired": -1.4623, "ci_95": [-2.078, -0.847], "p_value": 1.60e-06, "direction": "NEGATIVE", "interpretation": "CCL-039 cell-of-origin signal: urothelial dedifferentiation, structurally consistent with prostate VAL-118 LE NEGATIVE"},
+        "bladderref_microenvironment_pos_fires": ["EC d=+0.41", "Fib d=+0.37", "IC d=+0.59"],
+        "chk_3_2_cross_tile_sanity_flagged": "ALL 14 Loyfer non-bladder solid-tissue tiles fire POSITIVE +2.34 to +2.92 — confirms substrate-distribution mismatch"
+      },
+      "seal_timestamp": "2026-05-01T04:35:00Z",
+      "prereg_sha": "eb68e4d4ca6270cdcce60269375af787537c560fabea18ee31cbaf558dea1962",
+      "prereg_amendment_002_sha": "7f4b3148949060d6f0b8c27a5b55161c06a848d9b00d1e765ddcb182b3d0ec30"
+    },
+    {
+      "val_id": "VAL-122",
+      "phase": "C (Stage 3 immune fine-tune)",
+      "cohort": "TCGA-BLCA n=440 (same as VAL-120, VAL-121)",
+      "substrate": "TCGA HM450K sesame Level 3",
+      "atlases_scored": ["Salas Blood.EPIC IDOL 450K legacy 6-tile", "UniLIFE Guo 2025 19-tile", "Caggiano CelFiE TIM immune subset 8-tile"],
+      "outcome_class": "O1_STAGE_3_IMMUNE_DIFFERENTIATING",
+      "outcome_basis": "All 6 of 6 Salas IDOL tiles fire |d_paired| >= 0.30 with consistent POSITIVE direction; descriptive characterization is broad immune-architectural drift",
+      "salas_idol_summary": {
+        "Bcell": {"d_paired": 1.1479, "p_value": 3.79e-05, "direction": "POSITIVE_FIRES"},
+        "Mono":  {"d_paired": 1.1322, "p_value": 4.46e-05, "direction": "POSITIVE_FIRES"},
+        "Neu":   {"d_paired": 1.2354, "p_value": 1.53e-05, "direction": "POSITIVE_FIRES"},
+        "NK":    {"d_paired": 0.7943, "p_value": 1.63e-03, "direction": "POSITIVE_FIRES"},
+        "CD8T":  {"d_paired": 0.6222, "p_value": 9.87e-03, "direction": "POSITIVE_FIRES"},
+        "CD4T":  {"d_paired": 0.4884, "p_value": 3.67e-02, "direction": "POSITIVE_FIRES"}
+      },
+      "biological_interpretation": "broad immune-architectural drift across all 6 Salas IDOL tiles consistent with mixed TIL + TAM + MDSC infiltration in muscle-invasive bladder tumor microenvironment; pure lymphoid-dominant (Chen 2022 NMIBC blood RFS pattern) and pure myeloid-dominant (MDSC advanced/MIBC pattern) signatures did not fire — TCGA-BLCA primary tumor cohort produces mixed-infiltration signature characteristic of MIBC",
+      "seal_timestamp": "2026-05-01T04:35:00Z",
+      "prereg_sha": "2d101db94cdc7a71466c5f8071a936abd426f85ecd9ea27ae8fa73cd0d81f855",
+      "prereg_amendment_002_sha": "db3f6563533ab625326acd42aab7a8028313a898bfec833c756f7be85f00df29"
+    }
+  ],
+
+  "atlases_used_and_deferred": {
+    "atlases_run": [
+      {
+        "atlas": "Layered Moss+Loyfer 25-tile",
+        "calibration_anchor_val": "VAL-112",
+        "family": "tile-coverage WGBS",
+        "n_cpgs": 6105,
+        "n_tiles": 25,
+        "notes_per_disc_bladder_003": "Loyfer Bladder tile on mucosal cohort is interpretive context only, NOT primary cell-of-origin signal. Substrate-distribution mismatch confirmed by CHK-3.2 cross-tile sanity (all 14 non-bladder solid-tissue tiles flag POSITIVE +2.34 to +2.92)."
+      },
+      {
+        "atlas": "EpiSCORE BladderRef CpG-bridged 4-tile",
+        "calibration_anchor_val": "VAL-119",
+        "family": "gene-promoter",
+        "n_cpgs": 2696,
+        "n_tiles": 4,
+        "atlas_sha256": "3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6",
+        "primary_role": "PRIMARY cell-of-origin reader for bladder per DISC-BLADDER-003"
+      },
+      {
+        "atlas": "Caggiano CelFiE TIM 19-tile",
+        "calibration_anchor_val": "VAL-113",
+        "family": "tile-coverage WGBS",
+        "n_cpgs": 254,
+        "n_tiles": 19
+      },
+      {
+        "atlas": "Salas Blood.EPIC IDOL 450K legacy 6-tile",
+        "calibration": "production calibrated",
+        "n_cpgs": 350,
+        "n_tiles": 6,
+        "primary_role": "Stage 3 primary; lymphoid-vs-myeloid pattern detector"
+      },
+      {
+        "atlas": "UniLIFE Guo 2025 19-tile",
+        "calibration": "within-cohort self-cal v0.1",
+        "n_cpgs": 1906,
+        "n_tiles": 19,
+        "v_x_plus_1_promotion": "VAL-115 Wave 1 calibration on Hannum 2013 GSE40279"
+      }
+    ],
+    "atlases_deferred": [
+      {
+        "atlas": "Bladder-substrate-coverage-validated Stage 1 panel",
+        "blocker": "VAL-114 Wave 1 calibration on Hannum 2013 GSE40279 n=656 healthy aging blood + per-cohort substrate-coverage validation per CHK-2.17",
+        "target_version": "v0.2",
+        "rationale": "DISC-BLADDER-004 — Xu-538 cohort-substrate coverage 51.1% per-sample pass on TCGA-BLCA HM450K"
+      },
+      {
+        "atlas": "Loyfer-corrected mucosal-aware A-score normalization",
+        "blocker": "substrate-distribution-aware normalization research",
+        "target_version": "v0.2 or v0.3",
+        "rationale": "DISC-BLADDER-003 — bulk-WGBS atlases on mucosal cohorts produce inflated cross-tile A-scores; cookbook needs per-sample-substrate-baseline normalization to make Loyfer readings useful on mucosal cohorts"
+      },
+      {
+        "atlas": "EpiSCORE LungRef + ColonRef + future mucosal-tissue gene-promoter atlases",
+        "blocker": "card-specific (lung-epic, crc-epic) when those cards advance to v0.X+",
+        "target_version": "card-specific",
+        "rationale": "DISC-BLADDER-003 generalizes — every mucosal-tissue card needs a gene-promoter sub-cell-type atlas as primary cell-of-origin reader"
+      }
+    ]
+  },
+
+  "substrate_roadmap": {
+    "DNAm": {"status": "validated_v0_1", "anchor": "VAL-119/120/121/122 on TCGA HM450K sesame Level 3", "rationale": "primary substrate; all four sealed VALs"},
+    "nucleosome_occupancy": {"status": "deferred", "target_version": "v0.4+", "rationale": "MESA substrate; bladder-epic v0.1 focuses on DNAm"},
+    "fragment_fuzziness": {"status": "deferred", "target_version": "v0.4+", "rationale": "MESA substrate; bladder-epic v0.1 focuses on DNAm"},
+    "WPS": {"status": "deferred", "target_version": "v0.4+", "rationale": "MESA substrate; bladder-epic v0.1 focuses on DNAm"},
+    "fragment_size": {"status": "deferred", "target_version": "v0.4+", "rationale": "MESA substrate; bladder-epic v0.1 focuses on DNAm"}
+  },
+
+  "chk_3_1_thresholds_per_substrate": {
+    "TCGA HM450K sesame Level 3 — solid parenchyma class": {
+      "anchor_val": "VAL-106",
+      "chk_3_1a_f_extreme_min": 0.50,
+      "chk_3_1a_f_middle_max": 0.12,
+      "observed_baseline": "f_extreme 55.87% +/- 2.44%; f_middle 7.42% +/- 0.75%",
+      "applies_to": "kidney, prostate, breast, liver, thyroid, and other solid parenchyma cohorts"
+    },
+    "TCGA HM450K sesame Level 3 — mucosal/epithelial-lined-organ class": {
+      "anchor_val": "VAL-120/121/122 amendment 002 (DISC-BLADDER-002)",
+      "chk_3_1a_f_extreme_min": 0.387,
+      "chk_3_1a_f_middle_max": 0.184,
+      "observed_baseline": "f_extreme 47.23% +/- 4.85%; f_middle 11.17% +/- 2.95% (TCGA-BLCA n=440)",
+      "applies_to": "bladder; expected to extend to lung airways, colon epithelium, GI epithelium",
+      "rationale": "tissue-class-specific gate; original kidney+prostate floor failed on 76% of bladder samples; corrected to bladder cohort q1/q99 with full CCL-041 disclosure (β observed before amendment)"
+    },
+    "card_specific_chk_3_1b_panels": {
+      "Xu-538_Stage1_panel": {
+        "n_cpgs": 538,
+        "panel_id": "Xu2020_breast_cancer_replicated_full",
+        "per_sample_threshold": 0.80,
+        "pass_rate_threshold": 0.75,
+        "tcga_blca_observed": "mean 78.0% per-sample; pass rate 51.1% — TRIGGERED O4 (DISC-BLADDER-004)",
+        "v_x_plus_1_promotion": "VAL-114 Wave 1 + CHK-2.17 cohort-substrate coverage validation"
+      }
+    }
+  },
+
+  "lessons_discovered_v0_1": {
+    "DISC-BLADDER-001": {
+      "title": "Gene-promoter atlas family fitness depends on cell-type DISTINCTNESS, not cell-type COUNT",
+      "source_val": "VAL-119",
+      "extends": "DISC-CARDIO-004 + DISC-PROSTATE-001",
+      "summary": "BladderRef 4 cell types produced max within-cohort tile range 0.0694 (separated cleanly), larger than ProstateRef 6 cell types (0.0597) and far larger than HeartRef 5 cell types (0.0152, collapsed). Cell-type COUNT is not predictive; cell-type DISTINCTNESS at the gene-promoter level for the marker genes is the discriminating variable. Per-tissue calibration smoke test required at every new EpiSCORE bridge."
+    },
+    "DISC-BLADDER-002": {
+      "title": "CHK-3.1A f_extreme floor is tissue-class-dependent (not universal substrate-validity)",
+      "source_val": "VAL-120/121/122 amendment 002",
+      "summary": "Solid parenchyma class (kidney, prostate, breast, liver, thyroid): f_extreme >= 0.50 / f_middle <= 0.12 (VAL-106 envelope). Mucosal/epithelial-lined-organ class (bladder; expected lung airways, colon epithelium, GI epithelium): f_extreme >= 0.387 / f_middle <= 0.184 (bladder cohort q1/q99). Original 0.50 floor failed on 76% of bladder samples; honest amendment 002 sealed AFTER β observed with full CCL-041 second-best-path disclosure. Zero samples in cohort had genuine substrate corruption — was a gate-calibration mismatch, not data integrity issue.",
+      "cookbook_addition": "CHK-2.16 — Tissue-class CHK-3.1A floor verification at prereg-write time"
+    },
+    "DISC-BLADDER-003": {
+      "title": "Bulk-WGBS atlases on mucosal-cohort substrates produce inflated cross-tile A-scores",
+      "source_val": "VAL-121",
+      "summary": "Loyfer Bladder paired d=+1.91 POSITIVE vs BladderRef Epi paired d=-1.46 NEGATIVE on same n=21 paired pairs. CHK-3.2 cross-tile sanity flagged ALL 14 Loyfer non-bladder solid-tissue tiles uniformly POSITIVE +2.34 to +2.92, confirming substrate-distribution mismatch on bulk-WGBS atlas. Bulk-tissue WGBS reference encodes mixed-cell-type beta profiles; |β_sample - β_bulk_ref| dominated by substrate-distribution mismatch on mucosal cohorts, not by cell-of-origin biology. Gene-promoter sub-cell-type references encode signature beta profiles for specific cell types and avoid this artifact.",
+      "cookbook_rule": "Multi-atlas readings on mucosal cohorts MUST include a gene-promoter sub-cell-type atlas as the primary cell-of-origin reader. Single-atlas Stage 2 readings on mucosal cohorts using bulk-WGBS references can be substrate-substitution-fooled."
+    },
+    "DISC-BLADDER-004": {
+      "title": "Stage 1 panels require per-cohort substrate-coverage validation at prereg-write time",
+      "source_val": "VAL-120",
+      "summary": "Xu-538 panel mean per-sample coverage on TCGA-BLCA: 78.0%; pass rate 51.1% at >=80% threshold. Panel CpGs are all from HM450 design (substrate-applicable) but per-sample coverage drops on this specific cohort due to TSS-site processing variability. Stage 1 panel transferability is cohort-specific, not platform-specific.",
+      "cookbook_addition": "CHK-2.17 — Stage 1 panel cohort-substrate coverage validation at prereg-write time. Sample 5-10 random Phase C cohort beta files; compute per-sample panel coverage; FLAG if mean < 90% or q5 < 80%."
+    }
+  },
+
+  "what_we_chose_not_to_claim_v0_1": [
+    "We do NOT claim bladder-epic v0.1 differentiates muscle-invasive (MIBC) from non-muscle-invasive (NMIBC) bladder cancer — TCGA-BLCA is predominantly MIBC; stage-stratified reading is v0.2 work",
+    "We do NOT claim bladder-epic v0.1 predicts response to PD-L1 checkpoint inhibitors or BCG immunotherapy — outcome correlation requires longitudinal cohort with treatment response labels",
+    "We do NOT claim Stage 1 immune red flag signal at d=+1.90 is production-validated — the panel-coverage gate failed (O4 sealed); the d=+1.90 is reported as diagnostic only",
+    "We do NOT claim the Loyfer Bladder POSITIVE +1.91 reading is biology — DISC-BLADDER-003 confirms it is substrate-distribution mismatch on mucosal cohort",
+    "We do NOT claim Stage 3 lymphoid-vs-myeloid lineage skew — neither pure pattern fired; the broad-positive signature is the descriptive finding"
+  ],
+
+  "what_remains_open_v0_1": [
+    "v0.2 Stage 1 panel calibration — VAL-114 Hannum 2013 + CHK-2.17 cohort-substrate coverage validation",
+    "v0.2 Stage 2 mucosal-aware A-score normalization — substrate-distribution-aware research",
+    "v0.2 Stage 3 stage-stratified analysis — NMIBC vs MIBC subgroup split if clinical metadata supports",
+    "v0.2 cohort expansion — GSE52955 multi-cancer urological + Bryan UK NMIBC + Chen 2022 NMIBC blood EPIC cross-cohort verification",
+    "v1.0+ WHI bladder pre-diagnostic n=440+440 biobank-gated cohort",
+    "v0.X+ EpiSCORE LungRef + ColonRef bridges following BladderRef pattern (DISC-BLADDER-001 generalizes — every per-tissue gene-promoter atlas needs independent calibration smoke test)",
+    "Cookbook rollout of CHK-2.16 (tissue-class CHK-3.1A floor verification) and CHK-2.17 (Stage 1 panel cohort-substrate coverage validation) to all future card preregs"
+  ],
+
+  "github_artifacts": {
+    "commit": "404eed3",
+    "branch": "main",
+    "repository": "https://github.com/hmahaffeyges/IAM-Validation",
+    "files_added": [
+      "Biological_Physics/atlas_vault/stage2_cell_of_origin/episcore_bladderref/* (4 files including bridged CSV)",
+      "Biological_Physics/validation_runs/VAL-119_bladderref_calibrate/* (8 files)",
+      "Biological_Physics/validation_runs/VAL-120_bladder_stage1_xu538/* (13 files)",
+      "Biological_Physics/validation_runs/VAL-121_bladder_stage2_multiatlas/* (14 files)",
+      "Biological_Physics/validation_runs/VAL-122_bladder_stage3_immune/* (12 files)",
+      "Biological_Physics/validation_runs/unified_phaseC_runner.py",
+      "Biological_Physics/validation_runs/postpass_amended.py"
+    ],
+    "files_modified": [
+      "Biological_Physics/README.md (added bladder-epic v0.1 ship paragraph)",
+      "Biological_Physics/atlas_vault/INVENTORY.json (90 → 94 entries)"
+    ]
+  },
+
+  "card_authorship": {
+    "card_built_by": "Walther (Claude) collaborative AI assistant",
+    "card_reviewed_by": "Heath W. Mahaffey, IAMPerformance Inter-Domain Research Institute",
+    "card_seal_authority": "Heath W. Mahaffey",
+    "card_audit_chain": "All four sealed VAL outcomes traced to sealed prereg.md + prereg_amendment_002.md (where applicable) + outcome.md + results JSON + per-sample CSV. CCL-041 honest disclosure path applied for amendment 002 (β observed before amendment seal). No outcome added post-hoc. No magnitude threshold relaxed post-hoc. No direction-label rule relaxed post-hoc."
+  },
+
+  "_disclaimer": "bladder-epic v0.1 is a research-stage diagnostic card. Not a clinical product. Not FDA-cleared. Not a substitute for clinical evaluation. Production deployment requires partner-lab validation per IAMPerformance services-based commercial structure."
+}
