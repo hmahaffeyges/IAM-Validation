@@ -84,8 +84,10 @@ Status tags:
 
 | File | Size | Status | Purpose |
 |---|---|---|---|
-| `breast-epic_card_v2_3.json` | 56 KB | CANONICAL | Card definition: panel CpGs, H_min anchor, covariate thresholds, validation anchors, expected direction. SHA: `f4ea6d2b301dd8ed...8c0b43cc913` |
-| `breast-epic_README.md` | 36 KB | CANONICAL | Card documentation |
+| `breast-epic_card_v3_0.json` | 66 KB | **CANONICAL** | Card definition v3.0 (2026-06-02). Strict-additive bump of v2.3: same Stage 1/2/3 operational logic + same H_min anchors + same tier thresholds, plus 5 appended post-build CPG-VAL entries (001/002/003/005/007). |
+| `breast-epic_card_v2_3.json` | 56 KB | SUPERSEDED → `OLD/` | Pre-build vintage (2026-04-26). Operational logic preserved verbatim in v3.0; this file archived for audit. SHA: `f4ea6d2b301dd8ed...8c0b43cc913` |
+| `breast-epic_README.md` | 36 KB | CANONICAL | Card documentation (v2.3 operational logic — unchanged in v3.0 bump) |
+| `breast-epic_v3_0_release_notes.md` | 5 KB | CANONICAL | v3.0 bump release notes — what changed, what didn't, where v2.3 lives |
 
 **`breast_epic_residual_maps/`** — Layer-3 base maps for this card
 
