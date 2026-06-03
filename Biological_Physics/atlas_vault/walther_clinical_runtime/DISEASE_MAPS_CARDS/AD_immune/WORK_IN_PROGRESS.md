@@ -15,14 +15,14 @@
 - [x] Stage 0.5c — celltype markers v0_2 SHA matches `46ea5be1...`
 - [x] Stage 0.5d — Mahalanobis healthy reference present + Ledoit-Wolf shrinkage 0.0088 from breast precedent
 - [x] CpG union for AD extraction: 14,018 unique CpGs (Walther markers ∪ v0_2 ∪ age layer ∪ AD panels)
-- [ ] Cohort acquisition: AIBL GSE153712 (726 samples, EPIC)
+- [x] Cohort acquisition: AIBL GSE153712 (726 samples, EPIC) — 2026-06-02
 - [ ] Cohort acquisition: AddNeuroMed GSE144858 (300 samples, 450K)
 - [ ] Cohort acquisition: GSE53740 GIFT (384 samples, 450K)
-- [ ] Stage 1 reproduction: 7-CpG Rule A panel, expect AIBL d≈+0.624 on holdout
-- [ ] Stage 2 Walther deconvolution → 8-class A-scores + 115-cell A-scores
+- [x] Stage 1 reproduction: 7-CpG Rule A panel — AIBL full-cohort d=+0.615 (vs +0.624 holdout anchor) — VERIFIED 2026-06-02
+- [x] Stage 2 Walther deconvolution on AIBL — 726 samples in 142s — 2026-06-02
 - [ ] Stage 3 age-axis foreground subtraction
-- [ ] Stage 4 per-cell-type A-score fan-out
-- [ ] Stage 5 Mahalanobis hyper-volume
+- [x] Stage 4 per-cell-type A-score fan-out — AIBL — CPG-VAL-008 substantively done — 2026-06-02 (20 Bonferroni-sig cells, all negative, top: Eosino d=-0.43)
+- [x] Stage 5 Mahalanobis hyper-volume — AIBL — CPG-VAL-009 substantively done — 2026-06-02 (d=+0.20, p<0.001, modest vs breast +1.87)
 - [ ] Stage 6 cellular age per class
 - [ ] Stage 7 tier breakpoints + bidirectional flag
 - [ ] Stage 8 dual matching: AD-immune card + disease matrix alzheimers rows
