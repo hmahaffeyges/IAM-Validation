@@ -23,13 +23,13 @@ Stage 8 is where the engine stops measuring and starts interpreting. Stages 0 th
 
 The answer is **never** a diagnosis. The answer is a card-specific tier call — "the pattern matches the breast-epic long-pre-dx signature with confidence X" — which the report layer in Stage 9 then wraps in legally-permissible language. Card matching is the inflection point between the physics (which is the same for everyone) and the cards (which encode specific disease-state hypotheses against which patterns are tested).
 
-The disease signature matrix v1.4 (77 rows × 131 columns, 354 populated signature cells) is the lookup table. Every row is a disease × time-range × substrate × severity-class combination. Every column is one of 131 immune sub-cell-types and tissue-of-origin cells. Every populated cell is an expected effect size range (e.g., `+0.81/+1.26` meaning "Cohen's d expected somewhere in [+0.81, +1.26]"). The matrix is the empirical posterior of every CPG-VAL ever sealed.
+The disease signature matrix v1.5 (77 rows × 131 columns, 354 populated signature cells) is the lookup table. Every row is a disease × time-range × substrate × severity-class combination. Every column is one of 131 immune sub-cell-types and tissue-of-origin cells. Every populated cell is an expected effect size range (e.g., `+0.81/+1.26` meaning "Cohen's d expected somewhere in [+0.81, +1.26]"). The matrix is the empirical posterior of every CPG-VAL ever sealed.
 
 The chain-of-custody discipline here is strict: a card-specific tier call is a **conjunction of conditions**. Multiple per-class tiers, multiple per-cell-type departures, optional cfDNA flags, all need to satisfy the card's declared pattern at the card's declared confidence threshold. No single signal carries a card on its own. **The card never fires on one tile.** That rule is in `breast-epic_card_v2_3.json` and in every other production card by construction.
 
 ---
 
-## §65. Step 8.1 — Disease signature matrix v1.4 lookup
+## §65. Step 8.1 — Disease signature matrix v1.5 lookup
 
 > **CRITICAL — Stage 8 runs TWO parallel matching paths, NOT sequential.** Both consume the same Stage 4 + Stage 5 + Stage 7 outputs; both produce verdicts; both flow into Stage 9 report assembly. They are complementary, not redundant. (Walkthrough §4 Stage 5.)
 >
@@ -40,7 +40,7 @@ The chain-of-custody discipline here is strict: a card-specific tier call is a *
 > **Worked example of why dual matching catches what cards alone miss.** A patient with `regulatory_T_cells +1.2 + erythroid_progenitor +0.8 + pancreatic_beta_cells +1.0 + multi-organ distributed elevation` returns from Path A: NO single card fires above ELEVATED (no card uses that exact combination). From Path B: `breast_cancer / long_pre_dx` is the strongest matrix match — the >10yr distributed pre-diagnostic signature with 7 cells contributing. Without the matrix, the report says "everything looks slightly off, nothing fires" and misses the pattern. With the matrix, the report says "this combination of cellular drift most resembles the documented pattern for [X] at [phase]." Both paths report; neither overrides the other; Stage 9 surfaces both.
 
 
-**What this step does.** For each card that applies to the patient's substrate (e.g., buffy coat DNA → breast-epic, lung-epic, prostate-epic, cardio-epic, AD-immune, MS-immune, Parkinson-immune, CRC-immune-inv all apply; plasma cfDNA → adds hcc-cfdna, pancreatic-cfdna), pull the relevant disease signature rows from the v1.4 matrix and prepare them for pattern matching.
+**What this step does.** For each card that applies to the patient's substrate (e.g., buffy coat DNA → breast-epic, lung-epic, prostate-epic, cardio-epic, AD-immune, MS-immune, Parkinson-immune, CRC-immune-inv all apply; plasma cfDNA → adds hcc-cfdna, pancreatic-cfdna), pull the relevant disease signature rows from the v1.5 matrix and prepare them for pattern matching.
 
 **Inputs.**
 - Patient substrate (from Stage 0 manifest).
@@ -51,7 +51,7 @@ The chain-of-custody discipline here is strict: a card-specific tier call is a *
 
 **Files invoked.**
 - Module: `<card-matching logic inside `GAPE_WEB_v13.py`>`
-- Lookup table: `disease_cell_signature_matrix_v1_4.csv` (77 rows × 131 columns, 354 populated cells, SHA-256 hashed at load).
+- Lookup table: `disease_cell_signature_matrix_v1_5.csv` (77 rows × 131 columns, 354 populated cells, SHA-256 hashed at load).
 - Card registry: `<card registry — currently embedded in `GAPE_WEB_v13.py`>` — maps each card to the disease_id rows it pulls.
 
 **The math.** None at this step — it's a SQL-like lookup. For a card with `disease_id=breast_cancer` and substrate `whole_blood_buffy_coat`, pull all rows where `disease_id == 'breast_cancer' AND substrate == 'whole_blood_buffy_coat'`. The result for breast-epic is four rows: `long_pre_dx` (>10y), `mid_pre_dx` (5-10y), `mid_late_pre_dx` (2-5y), `near_dx` (within 2y) — each row containing the expected per-cell-type Cohen's d ranges for that phase.
@@ -62,7 +62,7 @@ The chain-of-custody discipline here is strict: a card-specific tier call is a *
 
 **How it's the same in principle.** Both are template banks. Both are declared in advance. Both are tested by overlap with measurement, not by training on the measurement.
 
-**Outputs.** A per-patient, per-card candidate-template dictionary: `{card_id: [phase_template_1, phase_template_2, ...]}`. Each phase template carries the expected per-cell-type effect-size ranges in v1.4 format.
+**Outputs.** A per-patient, per-card candidate-template dictionary: `{card_id: [phase_template_1, phase_template_2, ...]}`. Each phase template carries the expected per-cell-type effect-size ranges in v1.5 format.
 
 Stored in-memory for Stage 8.2 (residual map application). Not persisted as a separate file.
 
@@ -71,7 +71,7 @@ Stored in-memory for Stage 8.2 (residual map application). Not persisted as a se
 - If the matrix SHA-256 at load doesn't match the registered version, the engine halts and refuses to process. No silent degradation.
 
 **Failure modes.**
-- **Matrix version mismatch.** The card registry pins a specific matrix version (v1.4 SHA). A mismatch means someone updated the matrix without updating the registry. Hard halt.
+- **Matrix version mismatch.** The card registry pins a specific matrix version (v1.5 SHA). A mismatch means someone updated the matrix without updating the registry. Hard halt.
 - **Substrate-card mismatch.** A card declared for plasma cfDNA cannot match a buffy coat sample. Caught at registry lookup — the patient simply doesn't get that card. Not a failure; an absence.
 - **Empty card registry.** Indicates engine deployment misconfiguration. Hard halt.
 
@@ -152,7 +152,7 @@ A patient with a **reversed** signal (signal exists but pointing the opposite di
 **The math.** Each card's matching rule is a Boolean expression over:
 - Per-class engine tiers (e.g., `immune_tier >= DETECTABLE`)
 - Per-cell-type engine tiers (e.g., `Baso_tier >= MARGINAL AND breast_BE_tier >= MARGINAL`)
-- Per-cell-type effect-size ranges from v1.4 matrix (e.g., `Baso_A_score within [1.01, 1.58]`)
+- Per-cell-type effect-size ranges from v1.5 matrix (e.g., `Baso_A_score within [1.01, 1.58]`)
 - Residual-overlap thresholds (e.g., `breast_epic_residual_overlap > 0.10 AND CI_lower > 0`)
 - Phase-template disjunctions (e.g., `MATCHES(long_pre_dx) OR MATCHES(mid_pre_dx)`)
 
@@ -162,7 +162,7 @@ For each candidate phase template, evaluate the rule. The phase whose rule evalu
 - Stage 7 tiers: immune_engine=DETECTABLE, secretory_engine=NORMAL, stem_pluri_engine=NORMAL, stromal_engine=MARGINAL, ...
 - Per-cell-type tiers: Baso_engine=DETECTABLE (A=1.42), Plasma_engine=DETECTABLE (A=1.18), breast_BE_engine=MARGINAL (A=1.08), microglia_engine=DETECTABLE (A=1.21).
 - Step 8.2 residual-overlap: ρ=0.143, 95% CI [0.092, 0.193], p<10⁻⁵.
-- v1.4 long_pre_dx row says: Baso d∈[+1.01,+1.58], Plasma d∈[+0.81,+1.26], breast_BE d∈[+0.61,+1.28], microglia d∈[+0.71,+1.30], immune_pooled d=+1.78.
+- v1.5 long_pre_dx row says: Baso d∈[+1.01,+1.58], Plasma d∈[+0.81,+1.26], breast_BE d∈[+0.61,+1.28], microglia d∈[+0.71,+1.30], immune_pooled d=+1.78.
 - Patient's per-cell-type A-scores translated to Cohen's d via the IAMAtlas covariance: Baso d≈+1.30 (in range), Plasma d≈+0.95 (in range), breast_BE d≈+0.74 (in range), microglia d≈+1.05 (in range).
 - Boolean rule: `immune_tier >= DETECTABLE AND >=3 of (Baso, Plasma, breast_BE, microglia, NeuMa, Mela, neurons_pooled, smooth_muscle) in expected range AND residual_overlap_CI_lower > 0`.
 - Evaluation: TRUE. Card fires for long_pre_dx phase with confidence 0.092 (the CI lower bound).

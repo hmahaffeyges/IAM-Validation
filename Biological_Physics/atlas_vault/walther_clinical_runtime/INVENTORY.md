@@ -113,7 +113,8 @@ Status tags:
 
 | File | Size | Status | Purpose |
 |---|---|---|---|
-| `disease_cell_signature_matrix_v1_4.csv` | 36 KB | **CANONICAL** | 77 rows × 131 cols (8 metadata + 123 cell-type). Bumped 2026-05-29 with TODO 1.1/1.2/1.3/1.5 findings. SHA: `8600d3e7f5449722...58213ce32` |
+| `disease_cell_signature_matrix_v1_5.csv` | 33 KB | **CANONICAL** | 77 rows × 131 cols (8 metadata + 123 cell-type). Bumped 2026-06-02 from v1.4 — additive citation aliases on breast/long_pre_dx evidence_anchors (CPG-VAL-001/002/003/005/007 added alongside TODO 1.1/1.2/1.3/1.5 + pre-build VAL-046/047/049/093/094/095/096). No cell values changed. SHA: `4e75340cfa8d11f3...641bcefcc` |
+| `OLD/disease_cell_signature_matrix_v1_4.csv` | 36 KB | SUPERSEDED | Prior version (2026-05-29). |
 | `disease_cell_signature_matrix_engine_schema_v1_2.md` | 8 KB | CANONICAL | The contract — value encoding, match-magnitude function (Mahalanobis-style sign-aligned product weighted by √n), tier-mapping function |
 | `README_disease_signature_matrix_folder.md` | 8 KB | CANONICAL | Folder orientation + version log + push policy |
 | `OLD/disease_cell_signature_matrix_v1_3.csv` | 36 KB | SUPERSEDED | Prior version, archived |

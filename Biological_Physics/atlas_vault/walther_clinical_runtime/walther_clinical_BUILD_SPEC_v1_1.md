@@ -93,7 +93,7 @@ V1 ships with breast-epic only. Other cards (ad-immune, crc-immune-inv, lung-epi
 
 ### 3.2 Disease signature matrix — ALREADY CURRENT
 
-`disease_cell_signature_matrix_v1_4.csv` is the canonical version (bumped 2026-05-29 with TODO 1.1/1.2/1.3/1.5 findings). v1.3 lives in `DISEASE_MATRIX/OLD/` for archival reference. The orchestrator consumes v1.4. **No further action required for V1 build.**
+`disease_cell_signature_matrix_v1_5.csv` is the canonical version (bumped 2026-06-02 from v1.4 — citation aliases added; v1.4 bumped 2026-05-29 from v1.3 with TODO 1.1/1.2/1.3/1.5 findings; v1.3 and v1.4 both archived in `DISEASE_MATRIX/OLD/`). The orchestrator consumes v1.5. **No further action required for V1 build.**
 
 ### 3.3 All standalone runtime modules — CONFIRMED PRESENT
 
@@ -235,7 +235,7 @@ The doctor report (§8) must honestly declare which links contributed to each fi
 │   └── cfdna_weight.json                      (Stage 7 cfDNA branch — conditional)
 │
 ├── DISEASE_MATRIX/
-│   ├── disease_cell_signature_matrix_v1_4.csv (CURRENT — 77 × 131)
+│   ├── disease_cell_signature_matrix_v1_5.csv (CURRENT — 77 × 131)
 │   ├── disease_cell_signature_matrix_engine_schema_v1_2.md  (THE CONTRACT — must read)
 │   ├── README_disease_signature_matrix_folder.md
 │   └── OLD/disease_cell_signature_matrix_v1_3.csv
@@ -548,7 +548,7 @@ for card_id in available_cards:  # V1: just breast-epic
     card_verdicts[card_id] = evaluate_card(...)
 
 # ── PATH B: Disease matrix lookup ───────────────────────────────
-matrix = pd.read_csv("DISEASE_MATRIX/disease_cell_signature_matrix_v1_4.csv")
+matrix = pd.read_csv("DISEASE_MATRIX/disease_cell_signature_matrix_v1_5.csv")
 schema = load_schema("DISEASE_MATRIX/disease_cell_signature_matrix_engine_schema_v1_2.md")
 # Per the schema's compute_match_magnitude() — Mahalanobis-style sign-aligned product
 # weighted by sqrt(n), NOT raw dot product, NOT Euclidean
@@ -825,7 +825,7 @@ This document is the specification for the future build. It is NOT a directive t
 1. ~~Confirm all runtime dependencies extant~~ — **DONE** (all in `walther_clinical_runtime/`, pushed to repo)
 2. **Re-run every VAL against the new atlas** (IAMAtlas REBUILD) + Walther + NILC v2 + new runtime modules. Currently only breast-epic is at v2.3 against new atlas. Other cards (ad-immune, crc-immune-inv, lung-epic, hcc-epic, prostate-epic, heme-epic, cardio-epic, cervical-epic, glioma-epic, kidney-epic, ...) are pending.
 3. Produce 4 canonical files per re-VAL'd card: card JSON, card README, 3× residual maps (chr-annotated + bimodality + PCA projections), residual maps README. Place in `DISEASE_MAPS_CARDS/{card_name}/`.
-4. Update disease signature matrix to incorporate any new findings from the re-VALs. Current v1.4 may bump to v1.5+ as cards re-VAL.
+4. Update disease signature matrix to incorporate any new findings from the re-VALs. Current v1.5 may bump to v1.6+ as cards re-VAL.
 5. **THEN** consult this spec and build `walther_clinical.py`.
 
 Do not let this spec lure a future AI into starting the build before the upstream card re-VAL work is complete. The build is downstream of correct cards.

@@ -391,7 +391,7 @@ If an operator is looking for a path that this SOP names anywhere from §11 to �
 | Literature anchors | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/literature_anchors.json` | §71 | Per-class published anchors |
 | Cancer prior | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/cancer_prior.json` | §72 | US lifetime incidence per class |
 | Family history mult. | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/family_history_multiplier.json` | §73 | First-degree-relative RR per class |
-| Disease signature matrix v1.4 | embedded inside `GAPE_WEB_v13.py` at present writing | §65 | 77×131 card-level lookup; standalone binary export pending at `pipeline_runtime_matrices/disease_signature_matrix/` |
+| Disease signature matrix v1.5 | embedded inside `GAPE_WEB_v13.py` at present writing | §65 | 77×131 card-level lookup; standalone binary export pending at `pipeline_runtime_matrices/disease_signature_matrix/` |
 | Card residual maps | placeholder dir `pipeline_runtime_matrices/card_residual_maps/` | §66 | Currently empty; populated per card as VALs lock thresholds |
 | **L9 null runner** | `Biological_Physics/chain_of_custody/L9_null_suite/cpg_null_runner.py` | §80–§88, §91 | Unified 8-null framework (N1–N8) |
 | **Synthetic patients** | `Biological_Physics/chain_of_custody/L9_null_suite/synthetic_patient_generator.py` | §86, §87, §89 | FFP10/NPIPE analog — signal-injection harness |
@@ -411,7 +411,7 @@ The following operations described in §11–§79 are performed by the productio
 | §34 | Stage 2 output consolidation | Engine bookkeeping; no separate packager file. |
 | §40 | Stage 3 output consolidation | Same — engine bookkeeping. |
 | §46 | Stage 4 output consolidation | Same. The scoring module (`iamatlas_a_scoring.py`) is real and standalone; the consolidation is engine-internal. |
-| §65, §67–§68 | Stage 8 card matching — disease-signature lookup, multi-class rule eval, within-card covariate adjustment | All inside the engine; card registry and disease-signature matrix v1.4 are embedded constants. |
+| §65, §67–§68 | Stage 8 card matching — disease-signature lookup, multi-class rule eval, within-card covariate adjustment | All inside the engine; card registry and disease-signature matrix v1.5 are embedded constants. |
 | §66 | Residual-overlap (breast-epic) | Logic inside engine; the residual-map CSV will live at `pipeline_runtime_matrices/card_residual_maps/breast-epic/` once VAL-003 locks. |
 | §70–§76 | Stage 9 report assembly — language collapse, literature lookup, prior lookup, family history, sex adjustment, renderer, legal-boundary gate | All inside the engine. Lookup JSONs (anchors, prior, multiplier) are real files; the orchestration is engine-internal. |
 | §77–§79 | Stage 10 delivery — packaging, routing, audit capture | All inside the engine today; expected to move into the future `web.commercial.py` orchestrator. |
@@ -422,7 +422,7 @@ The following operations described in §11–§79 are performed by the productio
 | Item | What it would be | Blocked by |
 |---|---|---|
 | `web.commercial.py` orchestrator | Top-level driver that calls the modules in §97.A in sequence, replacing the engine-internal orchestration in §97.B. Working name — final naming TBD. | Open design discussion between Heath and Walther |
-| Standalone disease-signature-matrix v1.4 CSV | Binary export of the matrix currently embedded inside `GAPE_WEB_v13.py`. Placeholder dir already created at `pipeline_runtime_matrices/disease_signature_matrix/`. | Pending decision on whether to externalize before orchestrator design |
+| Standalone disease-signature-matrix v1.5 CSV | Binary export of the matrix currently embedded inside `GAPE_WEB_v13.py`. Placeholder dir already created at `pipeline_runtime_matrices/disease_signature_matrix/`. | Pending decision on whether to externalize before orchestrator design |
 | Per-card residual maps for cards other than breast-epic | Per-card CSVs at `pipeline_runtime_matrices/card_residual_maps/<card>/`. | Per-card VALs locking thresholds |
 | Sex / batch / ancestry / smoking foreground modules | Companions to `age_axis_foreground.py`; would live in `Biological_Physics/atlas_vault/components/`. | Phase B4 per Roadmap §10.2.2 |
 | Probe response function (L3) | Per-probe transfer function as a separate module; documented gap in L3 grading. | Atlas-wide probe characterization work |

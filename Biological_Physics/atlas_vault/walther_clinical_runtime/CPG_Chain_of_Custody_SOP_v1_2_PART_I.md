@@ -135,7 +135,7 @@ A reader executing this document by hand should arrive at the same readout the e
 - §64  Step 7.6 — Stage 7 output: per-class tier vector
 
 **Stage 8 — Card-level pattern matching**
-- §65  Step 8.1 — Disease signature matrix lookup (v1.4 binary)
+- §65  Step 8.1 — Disease signature matrix lookup (v1.5 binary)
 - §66  Step 8.2 — Per-card residual map application
 - §67  Step 8.3 — Multi-class pattern matching
 - §68  Step 8.4 — Card-specific covariate adjustment (smoking inside lung-epic, etc.)
@@ -248,7 +248,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 - **Stage 7 — Tier breakpoint detection.** Per-class A-scores get mapped to engine tiers (NORMAL / MARGINAL / DETECTABLE / URGENT / FLOOR_BREACH) and customer-facing labels (NORMAL / ELEVATED / SIGNIFICANTLY_ELEVATED). cfDNA branch activates when substrate is plasma. *(Thresholding on Stage 4 outputs — neither L7 nor L8. Tier breakpoints are operational rules, not likelihood evaluation or parameter inference.)*
 
-- **Stage 8 — Card-level pattern matching.** Per-class and per-cell-type readouts get matched against the disease signature matrix (v1.4 — 77 rows × 131 columns × 354 populated signature cells). The patient's pattern gets a card-specific tier call. *(Rule-based card evaluation + matrix Mahalanobis-style match — runs Path A and Path B in parallel. L7 proper Bayesian per-card likelihood and L8 MCMC posteriors per card both remain empty until Phase E.)*
+- **Stage 8 — Card-level pattern matching.** Per-class and per-cell-type readouts get matched against the disease signature matrix (v1.5 — 77 rows × 131 columns × 354 populated signature cells). The patient's pattern gets a card-specific tier call. *(Rule-based card evaluation + matrix Mahalanobis-style match — runs Path A and Path B in parallel. L7 proper Bayesian per-card likelihood and L8 MCMC posteriors per card both remain empty until Phase E.)*
 
 - **Stage 9 — Report assembly.** The Stage 6 reporting layer translates physics measurements into customer language. Literature anchors, cancer priors, family history multipliers wrap the biology in clinically meaningful context. This is the layer where we say "in studies, people with your A-score had outcome X" rather than "you have disease Y" — because the latter is medical advice we cannot legally provide. *(Legal boundary layer)*
 
