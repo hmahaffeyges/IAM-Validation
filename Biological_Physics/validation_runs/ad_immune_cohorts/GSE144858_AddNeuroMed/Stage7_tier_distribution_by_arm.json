@@ -1,0 +1,218 @@
+{
+  "ad_stem_pluri": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_stem_pluri": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_stem_pluri": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_stem_adult": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_stem_adult": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_stem_adult": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_progenitor": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_progenitor": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_progenitor": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_cycling": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_cycling": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_cycling": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_secretory": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_secretory": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_secretory": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_immune": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_immune": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_immune": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_terminal": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_terminal": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_terminal": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  },
+  "ad_stromal": {
+    "counts": {
+      "BELOW_NORMAL": 93
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 93
+  },
+  "hc_stromal": {
+    "counts": {
+      "BELOW_NORMAL": 96
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 96
+  },
+  "mci_stromal": {
+    "counts": {
+      "BELOW_NORMAL": 111
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 111
+  }
+}
