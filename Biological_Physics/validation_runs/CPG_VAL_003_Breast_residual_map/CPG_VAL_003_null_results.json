@@ -66,30 +66,38 @@
     }
   },
   "N2_age_strata_permutation": {
+    "observed": 0.5787085145220474,
+    "null_mean": -0.007201246151305757,
+    "null_std": 0.14870123860529538,
+    "p_value": 0.0,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided stratified permutation p < 0.05",
+    "passed": true,
     "null_id": "N2_age_strata_permutation",
     "null_name": "Age-strata permutation",
-    "passed": true,
-    "observed": 0.5787085145220474,
-    "null_mean": -0.029427129554844257,
-    "null_std": 0.14974709420963822,
-    "p_value": 0.0,
-    "n_permutations": 1000,
-    "pass_condition": "within-decade permutation p < 0.05",
-    "narrative": "Permuting case/HC labels WITHIN each age decade. If observed effect comes from age confounding rather than disease, the within-decade null absorbs it and observed |d| should fall into the null. Observed |d|=0.579, null mean=-0.029, p=0. PASS.",
-    "extra": {}
+    "n_strata": 4,
+    "stratification": "age_quartiles_Q1_Q2_Q3_Q4",
+    "n_samples": 647,
+    "narrative": "Observed d=+0.579. Null distribution under within-quartile label shuffle (n=647): mean=-0.007, std=0.149. Two-sided p=0.000. PASS at alpha=0.05."
   },
   "N3_sex_strata_permutation": {
-    "null_id": "N3_sex_strata_permutation",
-    "null_name": "Sex-strata permutation",
-    "passed": true,
     "observed": 0.5787085145220474,
-    "null_mean": 0.07033715833402895,
-    "null_std": 0.14975883453495106,
+    "null_mean": 0.062361590849758515,
+    "null_std": 0.14524494844417465,
     "p_value": 0.0,
     "n_permutations": 1000,
-    "pass_condition": "within-sex permutation p < 0.05",
-    "narrative": "Observed |d|=0.579, p=0. PASS.",
-    "extra": {}
+    "pass_condition": "two-sided stratified permutation p < 0.05",
+    "passed": true,
+    "null_id": "N3_sex_strata_permutation",
+    "null_name": "Sex-strata permutation",
+    "n_strata": 2,
+    "stratification": "sex_levels_['f', 'm']",
+    "n_samples": 647,
+    "sex_counts": {
+      "f": 562,
+      "m": 85
+    },
+    "narrative": "Observed d=+0.579. Null distribution under within-sex label shuffle (n=647): mean=+0.062, std=0.145. Two-sided p=0.000. PASS at alpha=0.05."
   },
   "N4_cohort_split_replication": {
     "null_id": "N4_cohort_split_replication",
