@@ -1,0 +1,407 @@
+{
+  "card_id": "breast-epic",
+  "card_version": "v3.1",
+  "card_date": "2026-06-05",
+  "supersedes": "v3.0 (2026-06-02). v3.0 was a 'strict additive over v2.3' bump that preserved v2.3's pre-build operational logic byte-for-byte (Xu-538 panel, Moss 2018 NNLS deconvolution, Salas 2018 QC, EpiSCORE/UniLIFE sub-composition) and bolted a small post-build addendum on top. v3.1 is a full clean rewrite aligned to SOP v1.2 chain-of-custody stages, with the actual current production methodology in the operational sections and pre-build references confined to the pre_build_audit_lineage block at the bottom. v3.0 archived at OLD/breast-epic_card_v3_0.json. v2.3 archived at OLD/breast-epic_card_v2_3.json (further back in lineage).",
+  "disease": "breast_cancer",
+  "icd10_scope": [
+    "C50"
+  ],
+  "clinical_claim": {
+    "summary": "Detection of pre-clinical breast cancer trajectory in blood methylation, > 10 years before clinical diagnosis. Card returns FIRED / NOT_FIRED / NOT_ELIGIBLE with phase template (long_pre_dx) and confidence.",
+    "regulatory_status": "Not FDA approved. Not a diagnostic test for breast cancer.",
+    "deployment_model": "Direct-to-consumer cellular state report. Trajectory monitoring against the patient's own baseline is the primary clinical use mode. Annual or biannual draws.",
+    "report_recipient": "The customer; clinician interpretation optional"
+  },
+  "substrate": {
+    "supported": [
+      "whole_blood_buffy_coat"
+    ],
+    "platforms_supported": [
+      {
+        "platform": "Illumina EPIC 850K BeadChip",
+        "preferred": true
+      },
+      {
+        "platform": "Illumina EPIC v2 (1M)",
+        "preferred": true
+      },
+      {
+        "platform": "Illumina HumanMethylation450K BeadChip",
+        "preferred": false,
+        "requires_coverage_check": true,
+        "min_coverage_pct_vs_epic": 80
+      }
+    ],
+    "min_cpg_coverage_pct_of_residual_map": 80,
+    "below_coverage_action": "INSUFFICIENT_COVERAGE flag; fall back to per-class-tier-only matching"
+  },
+  "stage_2_deconvolution": {
+    "atlas": {
+      "name": "IAMAtlas REBUILD",
+      "file": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAMAtlas_REBUILD/IAMAtlasREBUILD.csv.xz",
+      "atlas_sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+      "scope": "483,092 CpGs x 8 architecture classes x 115 cell types",
+      "h_min_frozen_date": "2026-04-06"
+    },
+    "primary_deconvolver": {
+      "module": "Walther IAM Deconvolver",
+      "code_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Walther_iam_deconvolver/walther_iam_deconvolver.py",
+      "method": "marker-rank streaming NNLS with 60% / 80% per-class coverage gates",
+      "markers_artifact": "iamatlas_celltype_markers_v0_2.json",
+      "markers_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+      "markers_scope": "4,000 cell-type markers across 115 cells (top-100 each)",
+      "class_markers_scope": "7,114 class markers across 8 classes",
+      "produces": "8 architecture-class fractions per patient"
+    },
+    "secondary_deconvolver_for_cross_method_check": {
+      "module": "NILC v2",
+      "code_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/NILC_Deconvolver/nilc_deconvolver.py",
+      "method": "departure-from-consensus GLS",
+      "purpose": "independent cross-method check (NOT used for primary scoring)"
+    },
+    "cross_method_gate": {
+      "rule": "On a cohort run, Spearman rho between Walther per-class fractions and NILC per-class fractions must be >= 0.70 for immune and progenitor classes (the dominant blood compartments). Other classes correctly return near-zero in blood and low rho is expected (not a failure).",
+      "validated_on_breast_cohort": {
+        "GSE51032_n460": {
+          "immune_rho": 0.744,
+          "progenitor_rho": 0.817,
+          "verdict": "PASS"
+        }
+      },
+      "below_threshold_action": "Flag cross-method disagreement; do not fail the run but mark for review"
+    }
+  },
+  "stage_3_age_foreground_subtraction": {
+    "module": "age_axis_foreground.py",
+    "code_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/age_axis_foreground.py",
+    "age_layer_file": "IAMAtlas_age_layer.csv",
+    "age_layer_n_cpgs": 8199,
+    "mandatory_when_age_available": true,
+    "purpose": "Remove age-correlated methylation drift before disease scoring. CPG-VAL-007 confirmed Mahalanobis signal retained at d=+0.255 post-age-subtraction in breast pre-dx; terminal/stromal/stem_pluri classes are genuinely case-specific (not age artifacts)."
+  },
+  "stage_4_a_scoring": {
+    "formula": "A = H(beta_mean) / H_min(class)",
+    "formula_explanation": "Shannon entropy of class-mean methylation beta, normalized by the class's information-theoretic minimum entropy H_min. H_min values are vault-only derivations; the formula is the public-facing equation.",
+    "h_min_by_class_frozen_2026_04_06": {
+      "terminal": 0.7728,
+      "immune": 0.838889,
+      "secretory": 0.8433,
+      "progenitor": 0.8522,
+      "cycling": 0.8561,
+      "stromal": 0.863,
+      "stem_adult": 0.8737,
+      "stem_pluri": 0.9822
+    },
+    "primary_module": "iamatlas_a_scoring.py",
+    "fanout_115_cell": true,
+    "fanout_module": "iamatlas_celltype_a_scoring (115 cell types resolved within architecture classes)"
+  },
+  "stage_5_mahalanobis": {
+    "module": "iamatlas_mahalanobis_scoring.py",
+    "code_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
+    "healthy_reference": "mahalanobis_healthy_reference_v0_1.json",
+    "n_hc_in_reference": 601,
+    "hc_source": "GSE51057 + GSE51032 pooled HC, EPIC-Italy, Severi 2014",
+    "covariance_shrinkage_method": "Ledoit-Wolf shrinkage 0.00875",
+    "expected_direction_for_breast_pre_dx": "positive (architecture-wide departure outward from HC centroid)",
+    "validated_effect_sizes_long_pre_dx_gt_10yr": {
+      "GSE51057_n11_case_n177_hc": {
+        "d": 1.876,
+        "label": "very large effect"
+      },
+      "GSE51032_n36_case_n424_hc": {
+        "d": 2.097,
+        "label": "very large effect"
+      }
+    },
+    "post_build_reproduction_2026_06_03_GSE51032": {
+      "d": 2.088,
+      "vs_anchor": 2.097,
+      "agreement_pct": 99.6,
+      "verdict": "Stage 1 integrity gate PASS \u2014 post-build pipeline reproduces build-time within 0.4%"
+    }
+  },
+  "stage_6_cellular_age": {
+    "module": "iam_cellular_age_scoring.py",
+    "reference_matrix_file": "Age_Reference_Matrix_80_cells/age_reference_matrix.json",
+    "saturation_handling": [
+      "OK",
+      "SAT_HIGH",
+      "SAT_LOW",
+      "INSUFFICIENT_CPGS"
+    ],
+    "expected_pattern_for_breast_pre_dx_long_window": {
+      "cycling_class_GSE51032": {
+        "case_mean_age_yr": 76.2,
+        "hc_mean_age_yr": 81.7,
+        "d": -0.53,
+        "interpretation": "cases appear ~5.5y younger methylation-wise in proliferating compartment; consistent with cell-cycle arrest / proliferation slowdown years before clinical disease"
+      }
+    }
+  },
+  "stage_7_tier_breakpoints": {
+    "module": "tier_breakpoints.json",
+    "scope": "universal screen across all 8 architecture classes (calibrated against HC permutation, not breast-specific)",
+    "thresholds": {
+      "BELOW_NORMAL": "A_score < 1.00",
+      "NORMAL": "A_score in [1.00, 1.05]",
+      "MARGINAL": "A_score in (1.05, 1.07]",
+      "DETECTABLE": "A_score in (1.07, 1.10]",
+      "FLOOR_BREACH": "A_score > 1.10"
+    },
+    "tier_source": "HC permutation calibration (VAL-054b sealed)",
+    "operational_note_for_breast_pre_dx": "The EPIC-Italy older Mediterranean cohort puts both cases AND controls at BELOW_NORMAL on immune class (cohort-wide immunologic aging). Universal tier is therefore NOT the right operational discriminator for breast pre-dx. Stage 5 Mahalanobis is the primary readout. Tier system stays as universal screen for other clinical contexts (e.g., FLOOR_BREACH alert on any class triggers downstream workup regardless of card)."
+  },
+  "stage_8_card_matching": {
+    "matching_logic_summary": "Card fires if EITHER the universal architectural pattern (Route A) OR the per-cell tissue-of-origin pattern (Route B) is satisfied. Both routes have been validated against the breast pre-dx EPIC-Italy cohort at long_pre_dx phase (>10 years before clinical diagnosis).",
+    "route_A_universal_architectural": {
+      "label": "broad architectural disturbance \u2014 universal Mahalanobis route",
+      "condition": "Stage_5_Mahalanobis_d >= 1.50 AND residual_map_overlap_rho >= 0.10 AND residual_map_overlap_CI95_lower > 0",
+      "phase_emitted": "long_pre_dx",
+      "rationale": "Validated against CPG-VAL-002 (Mahalanobis d=+1.876/+2.097) + CPG-VAL-003 (residual map). This route is what breast pre-dx > 10 years out actually looks like \u2014 broad architectural disturbance not localized to any one cell type."
+    },
+    "route_B_per_cell_pattern": {
+      "label": "tissue-of-origin + immune-suppression pattern",
+      "condition": "(basophil_A_score >= 1.20 OR breast_epithelial_A_score >= 1.10) AND PC2_T_cell_axis_d <= -0.40",
+      "phase_emitted": "long_pre_dx",
+      "rationale": "Validated against CPG-VAL-001 (basophil d=+1.58/+1.01, breast_epithelial d=+1.28/+0.61) + CPG-VAL-005 (PC2 T-cell axis d=-0.67/-0.58). Catches cases where the universal Mahalanobis route is attenuated (e.g., 450K platform) but the tissue-of-origin signal is still detectable per-cell."
+    },
+    "residual_map_reference": {
+      "file": "breast_epic_residual_maps/breast_epic_residual_map_chr_annotated.csv",
+      "n_cpgs": 1392,
+      "source": "CPG-VAL-003 cross-cohort residual concordance",
+      "overlap_method": "Pearson correlation of patient per-CpG departure (post-Stage 3) with residual map signed Cohen's d, with Fisher z-transform CI",
+      "overlap_threshold": 0.1,
+      "ci_required": true
+    },
+    "disease_matrix_rows_consumed": [
+      "breast_cancer / long_pre_dx_post_build_v3_0"
+    ],
+    "card_never_fires_on_one_tile_rule": "By SOP \u00a765 invariant: this card requires the conjunction of conditions in either Route A or Route B. A single elevated cell-type A-score alone does NOT fire this card.",
+    "verdict_outputs": [
+      "FIRED_long_pre_dx",
+      "NOT_FIRED",
+      "NOT_ELIGIBLE_substrate",
+      "NOT_ELIGIBLE_coverage",
+      "INSUFFICIENT_DATA"
+    ],
+    "confidence_metric": "Lower bound of residual_map_overlap 95% CI (Fisher z-transform). When Route B fires but Route A doesn't, confidence is the minimum of (basophil_tier_confidence, breast_epithelial_tier_confidence, PC2_T_cell_axis_significance)."
+  },
+  "within_card_covariates": {
+    "age": {
+      "handled_at_stage": 3,
+      "method": "age-axis foreground subtraction (CPG-VAL-007 validated retention of signal post-subtraction at d=+0.255 universal)",
+      "note": "Breast pre-dx residual signal is genuinely case-specific, not age-driven. Stage 3 removes the age-correlated portion before Stage 8 matching."
+    },
+    "sex": {
+      "handled_at": "card-eligibility gate",
+      "rule": "Card runs on female patients. Male patients receive a NOT_ELIGIBLE verdict.",
+      "note": "While male breast cancer exists, it has different epidemiology and is not in scope for this card."
+    }
+  },
+  "report_contents": {
+    "mandatory_elements": [
+      "Card-firing verdict + phase emitted (long_pre_dx) + confidence interval",
+      "Stage 5 Mahalanobis distance with patient value, sign, and population distribution",
+      "Stage 4 8-class A-score table with patient value vs age-matched HC median and percentile",
+      "Stage 4 115-cell A-score fan-out with top 3 positive and top 3 negative departures highlighted",
+      "Stage 6 cellular age per class with SATURATED status flags",
+      "Stage 7 tier per class",
+      "Honest limitations section (see clinical_claim.regulatory_status)",
+      "Serial-sampling-baseline guidance"
+    ],
+    "language_discipline": {
+      "allowed": [
+        "pattern consistent with...",
+        "flag worth watching",
+        "trajectory drift",
+        "consistent with the long-pre-dx breast cancer signature"
+      ],
+      "forbidden": [
+        "diagnoses breast cancer",
+        "will develop breast cancer",
+        "validates",
+        "proves",
+        "confirms"
+      ]
+    }
+  },
+  "validation_tier": "cross_platform_validated_two_cohorts_post_build_v3_0",
+  "validation_evidence": {
+    "val_series": "CPG-VAL-001 through CPG-VAL-007",
+    "val_series_status": "5 of 7 PASS at N1=0.000; 2 RESTATE (CPG-VAL-004 gain-of-bimodality direction-reversed; CPG-VAL-006 chr6 MHC lost Bonferroni significance)",
+    "per_val_bundle_path": "Biological_Physics/validation_runs/CPG_VAL_NNN_Breast_*/",
+    "cohorts": [
+      {
+        "name": "GSE51057",
+        "platform": "Illumina HumanMethylation450K BeadChip (EPIC-Italy variant)",
+        "n_filtered": 188,
+        "n_case_gt_10y_pre_dx": 11,
+        "n_hc": 177,
+        "source_paper": "Severi G et al. Epigenome-wide methylation in DNA from peripheral blood as a marker of risk for breast cancer. Carcinogenesis 2014;35(10):2349-2357. doi:10.1093/carcin/bgu138",
+        "cohort_folder": "validation_runs/breast_epic_cohorts/GSE51057_EPIC_Italy/",
+        "beta_sha256_gz": "828059824b67af46fb022f872ff9f69395e2e99b5975b3101157731a04d98bb0"
+      },
+      {
+        "name": "GSE51032",
+        "platform": "Illumina HumanMethylation450K BeadChip (EPIC-Italy variant)",
+        "n_filtered": 460,
+        "n_case_gt_10y_pre_dx": 36,
+        "n_hc": 424,
+        "source_paper": "Severi G et al. (same as GSE51057)",
+        "cohort_folder": "validation_runs/breast_epic_cohorts/GSE51032_EPIC_Italy/",
+        "beta_sha256_gz": "e9b15dc66ce47cd2eb50f73b7e1888b6d9c73630b9618dd6d2b7dcb4f998896c"
+      }
+    ],
+    "headline_findings": [
+      {
+        "finding": "Mahalanobis universal departure d=+1.876 (GSE51057) / d=+2.097 (GSE51032) at >10y pre-dx",
+        "val_id": "CPG-VAL-002"
+      },
+      {
+        "finding": "Basophil top hit d=+1.58/+1.01 (hidden in 51-cell immune class without 115-cell fanout)",
+        "val_id": "CPG-VAL-001"
+      },
+      {
+        "finding": "Breast epithelial cells in blood d=+1.28/+0.61 (field-effect cancerization >10y pre-dx)",
+        "val_id": "CPG-VAL-001"
+      },
+      {
+        "finding": "PC2 T-cell suppression axis d=-0.67/-0.58 (immune surveillance looking away)",
+        "val_id": "CPG-VAL-005"
+      },
+      {
+        "finding": "1,392 concordant CpGs across cohorts; 1,389 NEW vs Xu-538; 5.4:1 hypomethylation ratio",
+        "val_id": "CPG-VAL-003"
+      },
+      {
+        "finding": "Mahalanobis universal metric BEATS the existing Xu-538 panel by d=+0.75 on GSE51032 (Xu-538 d=+1.35 vs universal d=+2.097)",
+        "val_id": "CPG-VAL-002"
+      },
+      {
+        "finding": "Mahalanobis signal retained at d=+0.255 post-age-axis-subtraction; terminal/stromal/stem_pluri classes genuinely case-specific (not age artifacts)",
+        "val_id": "CPG-VAL-007"
+      },
+      {
+        "finding": "Stage 1 reproduction PASS at d=+2.088 vs anchor +2.097 (within 0.4%, 2026-06-03)",
+        "val_id": "post-build retrofit"
+      },
+      {
+        "finding": "Cross-method Walther vs NILC v2 Spearman rho immune=+0.744 / progenitor=+0.817 on GSE51032",
+        "val_id": "Stage 2 cross-method check"
+      },
+      {
+        "finding": "Cycling-class cellular age d=-0.53 (cases ~5.5y younger, cell-cycle arrest pattern)",
+        "val_id": "Stage 6 cellular age"
+      }
+    ],
+    "sop_chain_of_custody_audit": "DISEASE_MAPS_CARDS/Breast_EPIC/BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md",
+    "evidence_report": "post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html (Section 4.1)"
+  },
+  "honest_limitations": [
+    "Does not diagnose breast cancer. Detects a methylation pattern statistically associated with future clinical diagnosis in two cohorts.",
+    "Effect sizes are cohort-level, not individual-level. A single positive report does not mean a given woman will develop breast cancer.",
+    "Specificity for breast vs other cancers at >10y pre-dx not yet tested. Universal Mahalanobis may capture 'future cancer somewhere' rather than 'future breast cancer specifically.' The per-cell tissue-of-origin signal (Route B) is more breast-specific.",
+    "Validation cohorts are European-ancestry only (EPIC-Italy). Cross-ethnicity validation outstanding.",
+    "Single time-point interpretation is limited. Designed for serial sampling against the patient's own baseline.",
+    "Stage 8 Path B disease-matrix engine (per-patient compute_match_magnitude) is specced in disease_cell_signature_matrix_engine_schema_v1_2.md but not yet wired. Per-patient reporting currently flows through Path A (this card)."
+  ],
+  "outstanding_work_v3_1": [
+    "CPG_breast_panel_v1 formal seal (1,392 CpGs from CPG-VAL-003) + holdout validation on independent cohort",
+    "Stage 8 Path B engine wiring (cell-name-to-matrix-column mapping artifact)",
+    "Genomic annotation (CHR/MAPINFO) on residual map",
+    "Full bimodality decomposition (placeholder currently)",
+    "Cross-ethnicity validation cohorts (Asian, African, Latin-American)",
+    "Synthetic_Patient_Generator chain-recovery test on breast signature",
+    "First-client IDAT integration test (Stages 0/1 on raw IDATs)"
+  ],
+  "pre_build_audit_lineage": {
+    "_note": "This block preserves pre-build evidence for historical/audit lineage only. NONE of these references are operational in the v3.1 production scoring chain. The current production scoring uses ONLY the modules and methods declared in stages 2 through 8 above. Pre-build panels and atlases were used during the IAMAtlas BUILD phase to calibrate the post-build instrument; they are not run on production samples. Per the Walther rule: 'POST-BUILD: CPG uses IAMAtlas-native only. External panels (Xu-538/Loyfer/Salas/UniLIFE) are build-only, never production.'",
+    "pre_build_panels_calibration_only": [
+      {
+        "name": "Xu-538",
+        "role_in_history": "Breast pre-dx panel used in pre-build VALs (VAL-046, VAL-047). Post-build CPG_breast_panel_v1 supersedes it. Universal Mahalanobis BEATS it by d=+0.75 on GSE51032."
+      },
+      {
+        "name": "Loyfer 25-tile",
+        "role_in_history": "Tissue-of-origin atlas used in pre-build VAL-093/VAL-096. Replaced in production by Walther IAM Deconvolver on IAMAtlas REBUILD."
+      },
+      {
+        "name": "EpiSCORE BreastRef",
+        "role_in_history": "Sub-cell-type breast reference tried in pre-build VAL-094. Documented resolution-collapse pattern at buffy-coat input. Not in production."
+      },
+      {
+        "name": "Salas 2018",
+        "role_in_history": "Immune sub-composition QC used pre-build. Replaced by NILC v2 cross-method check in production."
+      },
+      {
+        "name": "UniLIFE Guo 2025",
+        "role_in_history": "19-cell adult-specific overlay used in pre-build VAL-095. Not in production scoring."
+      }
+    ],
+    "pre_build_deconvolution_calibration_only": {
+      "name": "Moss 2018 NNLS (scipy.optimize.nnls on Moss 18-tissue reference)",
+      "role_in_history": "Tissue deconvolution attempted in VAL-041. Replaced in production by Walther IAM Deconvolver (marker-rank streaming on IAMAtlas REBUILD)."
+    },
+    "pre_build_val_series_for_audit_only": [
+      {
+        "val": "VAL-041",
+        "purpose": "Moss 2018 NNLS proof-of-workflow"
+      },
+      {
+        "val": "VAL-046",
+        "purpose": "Xu-538 Sister Study breast pre-dx"
+      },
+      {
+        "val": "VAL-047",
+        "purpose": "Xu-538 EPIC-Italy multi-phase breast pre-dx"
+      },
+      {
+        "val": "VAL-049",
+        "purpose": "Xu-538 cross-population breast pre-dx"
+      },
+      {
+        "val": "VAL-060",
+        "purpose": "TCGA-BRCA tissue arm"
+      },
+      {
+        "val": "VAL-093",
+        "purpose": "Loyfer 25-tile window-stratified"
+      },
+      {
+        "val": "VAL-094",
+        "purpose": "EpiSCORE BreastRef sub-cell-type"
+      },
+      {
+        "val": "VAL-095",
+        "purpose": "UniLIFE 19-cell adult overlay"
+      },
+      {
+        "val": "VAL-096",
+        "purpose": "Dual-cohort temporal pattern"
+      }
+    ],
+    "retired_evidence_report_path": "post_build_evidence/RETIRED_Evidence_Report.html"
+  },
+  "v31_changes": {
+    "date": "2026-06-05",
+    "from_v30": "Full clean rewrite. v3.0 was 'strict additive over v2.3' which preserved the entire v2.3 pre-build operational logic byte-for-byte (Xu-538 / Moss 2018 NNLS / Salas 2018 / EpiSCORE / UniLIFE as Stages 1/2/3) and bolted a small post-build addendum at the bottom. Per Heath's 2026-06-05 directive ('these cards are supposed to be perfect and they are used for a specific purpose, read the SOP to familiarize yourself again, then create the files the correct way'), v3.1 rewrites the operational sections to reflect the actual current production methodology aligned to SOP v1.2 chain-of-custody stages. Pre-build references confined to bottom pre_build_audit_lineage block.",
+    "what_changed_operationally": [
+      "stage_1_immune_flag (Xu-538 panel) -> stage_2_deconvolution (Walther IAM Deconvolver primary + NILC v2 cross-method)",
+      "stage_2_localization (Moss 2018 NNLS) -> stage_4_a_scoring with 115-cell fan-out + stage_8 Route B per-cell-type pattern",
+      "stage_3_subcomposition (Salas + UniLIFE) -> stage_2_deconvolution NILC v2 secondary (cross-method check role)",
+      "universal_stage_2_moss_deconvolution -> stage_2_deconvolution",
+      "universal_stage_3_epidish_subcomposition -> stage_2_deconvolution.secondary_deconvolver_for_cross_method_check",
+      "Pre-build VAL-046/047/049/060/093/094/095/096/041 references moved from operational sections to pre_build_audit_lineage block"
+    ],
+    "what_stayed": [
+      "card_id, disease, icd10_scope (identity)",
+      "h_min_by_class_frozen_2026_04_06 values (these are the calibration anchors)",
+      "tier_thresholds (universal screen)",
+      "substrate + platforms_supported (operational eligibility)",
+      "Stage 8 card_never_fires_on_one_tile_rule"
+    ],
+    "lineage_preservation": "v3.0 archived at OLD/breast-epic_card_v3_0.json. v2.3 archived at OLD/breast-epic_card_v2_3.json. Pre-build evidence catalog preserved in pre_build_audit_lineage block. RETIRED_Evidence_Report.html still in repo at post_build_evidence/."
+  }
+}

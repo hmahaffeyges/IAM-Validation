@@ -45,7 +45,7 @@ This section is the canonical snapshot of where CPG stands after Phase 1 closure
 | Card | Family B series | Status |
 |---|---|---|
 | **breast-epic v3.0** | CPG-VAL-008 → CPG-VAL-014 (slot range RESERVED for breast Family B but currently OCCUPIED BY AD-IMMUNE per 2026-06-02 reassignment) | **DEFERRED — slot numbers reassigned to AD-immune.** Breast Family B will get a new slot range when it resumes. Foundation work for the breast card is complete (CPG-VAL-001/002/003/005/007 + null suite seals + card v3.0 + matrix v1.5 row). |
-| **AD-immune v3.0** | **CPG-VAL-008 → CPG-VAL-014** | ✅ **SUBSTANTIVELY SEALED 2026-06-03 (Phase 2 complete).** All 7 VAL folders carry per_sample.csv + null_results.json + cohort_manifest.json + PREREG.md (retrospective) + OUTCOME.md. N1 null PASSES on all 7. Cohorts: AIBL GSE153712 (n=726 EPIC), AddNeuroMed GSE144858 (n=300 450K), GSE53740 GIFT (n=384 450K). Stages 2 (Walther + NILC) / 3 (age) / 4 (A-score) / 5 (Mahalanobis) / 6 (cellular age) / 7 (tier) all exercised. Card v3.0 published. Matrix v1.6 with 3 new rows. SOP chain-of-custody audit document published. |
+| **AD-immune v3.0** | **CPG-VAL-008 → CPG-VAL-014** | ✅ **SUBSTANTIVELY SEALED 2026-06-03 (Phase 2 complete).** All 7 VAL folders carry per_sample.csv + null_results.json + cohort_manifest.json + PREREG.md (retrospective) + OUTCOME.md. N1 null PASSES on all 7. Cohorts: AIBL GSE153712 (n=726 EPIC), AddNeuroMed GSE144858 (n=300 450K), GSE53740 GIFT (n=384 450K). Stages 2 (Walther + NILC) / 3 (age) / 4 (A-score) / 5 (Mahalanobis) / 6 (cellular age) / 7 (tier) all exercised. Card v3.0 published. Matrix v1.7 with 3 new rows. SOP chain-of-custody audit document published. |
 | crc-immune-inv, lung-epic, hcc-epic, prostate-epic, heme-epic, cardio-epic, cervical-epic, glioma-epic, kidney-epic, pancreatic-epic, MS-immune, Parkinson-immune | TBD slot numbers | TO BUILD in future sprints (per Phase J ordering). |
 | hcc-cfdna, pancreatic-cfdna | TBD | TO BUILD when cfDNA substrate is unlocked. |
 
@@ -77,7 +77,7 @@ This section is the canonical snapshot of where CPG stands after Phase 1 closure
 | Stage 6 cellular age | `iam_cellular_age_scoring.py` | ✅ RAN 2026-06-03 | `Stage6_cellular_ages_per_class.csv` per cohort |
 | Stage 7 tier | `Tier_breakpoints/` | ✅ RAN 2026-06-03 | `Stage7_tier_assignments.csv` per cohort |
 | Stage 8 Path A | `DISEASE_MAPS_CARDS/` | ✅ Card v3.0 published | `DISEASE_MAPS_CARDS/AD_immune/` |
-| Stage 8 Path B | `DISEASE_MATRIX/` + `compute_match_magnitude()` | ⚠️ Matrix v1.6 populated; per-patient matching engine wiring DEFERRED to v3.1 | `DISEASE_MATRIX/disease_cell_signature_matrix_v1_6.csv` (rows live; algorithm runs pending) |
+| Stage 8 Path B | `DISEASE_MATRIX/` + `compute_match_magnitude()` | ⚠️ Matrix v1.7 populated; per-patient matching engine wiring DEFERRED to v3.1 | `DISEASE_MATRIX/disease_cell_signature_matrix_v1_7.csv` (rows live; algorithm runs pending) |
 | Stage 9 report | `Literature_anchors_*` + `Cancer_prior` + `Family_history` | N/A retrospective | (per-client report) |
 | Stage 10 delivery | engine-level | N/A retrospective | (per-client delivery) |
 | L9 audit | `CPG_Null_Runner/` | ✅ RAN N1 on all 7 VALs; N2 on VAL-011 | `null_results.json` per VAL folder |

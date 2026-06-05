@@ -2,7 +2,7 @@
 
 **Card version:** v3.0
 **Card date:** 2026-06-02 (initial v3.0) + 2026-06-03 (full SOP retrofit)
-**Card location:** `breast-epic_card_v3_0.json` (this folder)
+**Card location:** `breast-epic_card_v3_1.json` (this folder)
 **Card README (this file):** v3.0 — clean rewrite 2026-06-04 with current methodology
 **Maintained by:** IAMPerformance Inter-Domain Research Institute, Entiat WA / iamperformance.net
 
@@ -114,7 +114,7 @@ Be honest with the patient about these:
 3. **Specificity for breast is partial.** The universal Mahalanobis metric was validated against breast pre-diagnostic samples vs healthy controls. We have not tested whether other cancers' pre-diagnostic samples would also show the same universal signal. The breast-epithelial-cell tissue-of-origin signal (Finding #3) is more breast-specific, but only emerges in the per-cell-type analysis.
 4. **Validation is European-ancestry.** Both cohorts are EPIC-Italy. Cross-ethnicity validation is outstanding.
 5. **Single-time-point interpretation is limited.** The instrument is designed for serial sampling against the patient's own baseline.
-6. **The disease signature matrix v1.6 per-patient matching engine is not yet wired.** Per-patient reporting currently goes through the card-driven Stage 8 Path A, not the matrix-driven Stage 8 Path B.
+6. **The disease signature matrix v1.7 per-patient matching engine is not yet wired.** Per-patient reporting currently goes through the card-driven Stage 8 Path A, not the matrix-driven Stage 8 Path B.
 
 ---
 
@@ -159,4 +159,4 @@ For complete validation detail, see the evidence report `post_build_evidence/v5_
 
 ---
 
-*Companion documents in this card folder: `breast-epic_card_v3_0.json` (card spec), `breast-epic_v3_0_release_notes.md` (technical changelog for v3.0 bump). Companion documents in card parent folder: `BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `WORK_IN_PROGRESS.md`, `breast_epic_residual_maps/`.*
+*Companion documents in this card folder: `breast-epic_card_v3_1.json` (card spec), `breast-epic_v3_0_release_notes.md` (technical changelog for v3.0 bump). Companion documents in card parent folder: `BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `WORK_IN_PROGRESS.md`, `breast_epic_residual_maps/`.*

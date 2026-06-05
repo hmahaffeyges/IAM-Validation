@@ -2,7 +2,7 @@
 
 **Card version:** v3.0
 **Card date:** 2026-06-02 (initial v3.0) + 2026-06-03 (Phase 2 SOP completion)
-**Card location:** `ad-immune_card_v3_0.json` (this folder)
+**Card location:** `ad-immune_card_v3_1.json` (this folder)
 **Card README (this file):** v3.0 — clean rewrite 2026-06-04 with current methodology
 **Maintained by:** IAMPerformance Inter-Domain Research Institute, Entiat WA / iamperformance.net
 
@@ -133,7 +133,7 @@ Be honest with the patient about these:
 2. **No prospective primary-care validation.** All cohorts used here were research cohorts with established clinical diagnoses. Prospective primary-care validation is outstanding.
 3. **Cross-ethnicity validation is outstanding.** All three cohorts are predominantly European-ancestry.
 4. **The disease-trained panel has age confound.** R² = 0.26 with age. Production reports MUST subtract age first (handled automatically by Stage 3 + §E.5).
-5. **The disease signature matrix v1.6 per-patient matching engine is not yet wired.** Per-patient reporting currently goes through the card-driven Stage 8 Path A, not the matrix-driven Stage 8 Path B.
+5. **The disease signature matrix v1.7 per-patient matching engine is not yet wired.** Per-patient reporting currently goes through the card-driven Stage 8 Path A, not the matrix-driven Stage 8 Path B.
 
 ---
 
@@ -180,4 +180,4 @@ For the 13-item AD-specific Lessons Learned section (insights that don't fit in 
 
 ---
 
-*Companion documents in this card folder: `ad-immune_card_v3_0.json` (card spec), `ad-immune_v3_0_release_notes.md` (technical changelog + 13-item AD-specific Lessons Learned). Companion documents in card parent folder: `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `ad_immune_residual_maps/`.*
+*Companion documents in this card folder: `ad-immune_card_v3_1.json` (card spec), `ad-immune_v3_0_release_notes.md` (technical changelog + 13-item AD-specific Lessons Learned). Companion documents in card parent folder: `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `ad_immune_residual_maps/`.*

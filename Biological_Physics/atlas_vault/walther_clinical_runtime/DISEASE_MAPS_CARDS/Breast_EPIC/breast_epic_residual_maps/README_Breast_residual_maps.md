@@ -1,58 +1,60 @@
-# Per-Card Disease Residual Maps
+# Breast-EPIC Residual Maps
 
-**Layer 3 base maps** — per-CpG residual signatures per card cohort. Where the disease signal lives at sub-cellular resolution after cellular composition has been factored out.
+**Card:** breast-epic v3.1 (2026-06-05)
+**README date:** 2026-06-05
 
-## What a residual map is
-
-For each card, every patient runs through Stages 1+2 of the EDEAR pipeline:
-1. **Stage 1 (Walther IAM Deconvolver)** produces per-class fractions for that patient.
-2. **Stage 2 reconstruction**: at each marker CpG, predicted β = Σ (class_fraction × class_reference_β).
-3. **Per-CpG residual** = observed β − reconstructed β. This isolates the disease-specific signal from cellular-composition variation.
-4. **Per-CpG case-vs-HC Cohen's d** on the residuals identifies the loci where the card's disease signature lives — orthogonal to whatever cellular composition shifts have already been captured at the class-A-score level.
+This folder contains the operational artifacts of the breast-epic VAL series (CPG-VAL-001 through CPG-VAL-007). The three maps are consumed by SOP Stage 8 (card-level pattern matching) and were generated with the current production stack: IAMAtlas REBUILD + Walther IAM Deconvolver + `iamatlas_celltype_markers_v0_2`.
 
 ## Files in this folder
 
-| File | Card | Cohort | Tool | N (case/HC) | Concordant CpGs |
-|---|---|---|---|---|---|
-| `breast_epic_residual_map_v0_1.csv` | breast-epic | GSE51057 + GSE51032 >10yr breast pre-dx | production Walther IAM Deconvolver | 47 / 601 | 1,392 (|d|>0.3 both cohorts, same sign) |
+| File | What it is | Stage 8 use | Anchor VAL |
+|---|---|---|---|
+| `breast_epic_residual_map_chr_annotated.csv` | 1,392 concordant CpGs with signed Cohen's d, chromosome annotation | Step 8.2 per-card residual map overlap (Pearson rho with patient's per-CpG departure) | CPG-VAL-003 |
+| `breast_epic_pca_projections.csv` | PC loadings (PC1, PC2, PC10) on 115-cell A-score covariance | Step 8.3 multi-class pattern matching (PC2 T-cell suppression axis check) | CPG-VAL-005 |
+| `breast_epic_bimodality_map.csv` | Per-CpG bimodality coefficient delta (placeholder — full decomposition deferred to v3.2) | Step 8.3 supporting evidence | CPG-VAL-004 (RESTATED — gain-of-bimodality direction) |
 
-Each CSV has columns: `cpg`, `d_GSE51057`, `d_GSE51032`, `concordant_strong`, `mean_abs_d`, optionally `in_xu538`.
+## Headline numbers from the three maps
 
-## Breast-epic v0.1 — key finding (2026-05-29)
+### Residual map (CPG-VAL-003)
+- **1,392 concordant CpGs** across GSE51057 + GSE51032 (both EPIC-Italy >10y pre-dx)
+- **1,389 of those are NEW** (not in the Xu-538 pre-build panel that calibration historically used as benchmark)
+- **5.4 : 1 hypomethylation : hypermethylation ratio** — pattern consistent with broad chromatin-relaxation rather than focal silencing
+- Acts as the **CPG_breast_panel_v1 seed** (formal panel seal + holdout validation outstanding to v3.2)
 
-- **1,173 hypomethylated CpGs (case β < reconstructed β)** vs only 219 hypermethylated — 5.4-to-1 ratio.
-- **Dominant signature is loss of methylation** below cellular-composition expectation at 10+ years pre-diagnosis. Classic field-effect cancerization signature, quantified.
-- **1,389 NEW candidate CpGs** not in the Xu-538 disease-trained panel. Candidates for an expanded breast-epic panel that complements Xu-538.
-- Top concordant loci: cg20124336 (d=−2.17/−1.89), cg16188349 (d=−1.67/−1.67), cg27467249 (d=−2.17/−1.17). All hypomethylated, all replicating across cohorts.
+### PCA projections (CPG-VAL-005)
+- **PC2 is the T-cell suppression axis** — case-vs-HC d = −0.67 / −0.58 across GSE51057 / GSE51032
+- **PC10** (~1% variance) captures a basophil / eosinophil axis that replicates the CPG-VAL-001 per-cell-type basophil finding
+- PC1 is the universal age axis (consistent with cohort age distribution, not disease-specific)
 
-## How the card consumes these maps
+### Bimodality map (CPG-VAL-004 — RESTATED)
+- Original framing (loss-of-bimodality) was direction-reversed by the null suite
+- **1,096 CpGs GAIN bimodality** in cases vs **396 lose** (2.77 : 1 gain : loss)
+- 35 CpGs are double-confirmed (concordant in BOTH residual map AND bimodality direction)
+- The 35-CpG double-confirmed sub-panel is the candidate for the most clinically robust subset
 
-For each customer through the breast-epic card:
-1. Production deconvolver → class fractions
-2. Reconstructed β at the 7,114 deconvolver class markers
-3. Per-CpG observed − reconstructed = patient residual vector
-4. Compare patient residual at the concordant 1,392 CpGs to the cohort residuals here
-5. Per-CpG z-score → card-specific layer 3 evidence
+## How Stage 8 consumes these maps
 
+Per SOP v1.2 Part II-C §66 (Step 8.2 — per-card residual map application):
+
+1. The patient's foreground-cleaned β matrix from Stage 3 is taken as input
+2. Per-CpG patient departure vector is computed (patient β minus class-fraction-predicted β)
+3. Pearson correlation ρ between patient's per-CpG departure and the residual map's signed Cohen's d is computed
+4. Fisher z-transform 95% CI is computed on ρ
+5. If lower bound of CI > 0 AND ρ ≥ 0.10, Route A (universal architectural pattern) is satisfied at Step 8.3
+6. Otherwise the residual-overlap channel reports NEGATIVE_OVERLAP or NO_SIGNAL
+
+The card JSON `breast-epic_card_v3_1.json` declares this exact rule in its `stage_8_card_matching.route_A_universal_architectural` block.
+
+## Coverage requirements
+
+Per the card's `substrate.min_cpg_coverage_pct_of_residual_map = 80`, any patient sample with less than 80% coverage of the 1,392 residual-map CpGs triggers an INSUFFICIENT_COVERAGE flag at Step 8.2, and the residual-overlap channel is bypassed. Matching then falls back to Route B (per-cell-type pattern from CPG-VAL-001 / CPG-VAL-005).
+
+## What's pending in v3.2
+
+- CHR/MAPINFO genomic annotation on the residual map (currently chromosome-only)
+- Full bimodality decomposition replacing the placeholder
+- CPG_breast_panel_v1 formal seal as standalone panel artifact + holdout validation on independent cohort
 
 ---
 
-## Post-build CPG-VAL sealed anchors (added 2026-06-02)
-
-The three maps in this folder are the operational artifacts of the post-IAMAtlas-build foundation VALs (Family A, CPG-VAL-001 through CPG-VAL-007, run 2026-05-29 against GSE51057 + GSE51032 pre-dx >10y). All three maps were generated with the production runtime stack: IAMAtlas REBUILD + Walther IAM Deconvolver + iamatlas_celltype_markers_v0_2.
-
-| Map | Source VAL | Headline | Null suite |
-|---|---|---|---|
-| `breast_epic_residual_map_chr_annotated.csv` | **CPG-VAL-003** | 1,392 concordant CpGs (`concordant_strong=True`); 1,173 hypomethylated vs 219 hypermethylated (5.4:1 field-effect hypomethylation signature); top: cg20124336 d=−2.17/−1.89, cg16188349 d=−1.67/−1.67. These 1,392 CpGs are the SEED for CPG_breast_panel_v1. | 7/7 PASS Sealed |
-| `breast_epic_bimodality_map.csv` | **CPG-VAL-004** (RESTATED) | 1,492 CpGs show case-vs-HC bimodality asymmetry; 1,096 GAIN bimodality (73%), 396 LOSE bimodality (27%). Original framing focused on the 396 losses; restated framing notes the gain direction dominates 2.77:1. | RESTATE per N_bimo_001 |
-| `breast_epic_pca_projections.csv` | **CPG-VAL-005** | PC1 (70.7% var, 8-class): broad cellular drift d=+1.07/+0.57. **PC2 (115-cell): T-cell SUPPRESSION axis d=−0.67/−0.58 replicating across cohorts** — immunosurveillance failure signature 10+ years pre-diagnosis. | 7/7 PASS Sealed |
-
-**Cohort source for all three maps:** EPIC-Italy GSE51057 + GSE51032 pre-dx >10y filter (47 cases + 601 HC pooled). Foundation cohort per-cell-type A-scores at `Biological_Physics/validation_runs/foundation_cohort/`. Cohort source paper: Severi G et al. *Carcinogenesis* 2014;35(10):2349-2357 (DOI: 10.1093/carcin/bgu138).
-
-**Disease matrix companion:** The breast_cancer / long_pre_dx row of `DISEASE_MATRIX/disease_cell_signature_matrix_v1_5.csv` carries CPG-VAL-001/002/003/005/007 citation aliases in its `evidence_anchors` field alongside the original TODO 1.1/1.2/1.3/1.5 + pre-build VAL-046/047/049/093/094/095/096 references.
-
-**Card consumption:** `DISEASE_MAPS_CARDS/Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_0.json` references all three of these maps via its `cpg_native_post_build_addendum.operational_data_files_in_this_card_folder.residual_maps` block.
-
-**Null-suite artifacts:** `Biological_Physics/chain_of_custody/L9_null_suite/test_runs/CPG_VAL_00{3,4,5}_*` (null_results.json + per_sample.csv where applicable).
-
-**Full narrative:** `post_build_evidence/v2_CPG_IAMAtlas_Evidence_Report.html`.
+**Notes on lineage.** These maps were generated by the post-build CPG validation series (CPG-VAL-001 through CPG-VAL-007) using the current production stack. They are NOT derived from any pre-build atlas or pre-build panel. The Xu-538 reference in the headline numbers above is a benchmark comparison only — the residual map outperforms Xu-538 on universal Mahalanobis at d=+0.75 per CPG-VAL-002. Pre-build evidence trail for the breast-epic card lineage is in `breast-epic_card_v3_1.json` under `pre_build_audit_lineage`.

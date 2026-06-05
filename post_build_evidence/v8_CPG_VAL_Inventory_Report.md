@@ -75,9 +75,9 @@ The two operational cards (breast-epic + AD-immune) are not in this queue becaus
 
 ---
 
-## 4. Disease signature matrix v1.6
+## 4. Disease signature matrix v1.7
 
-**Location:** `Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/disease_cell_signature_matrix_v1_6.csv`
+**Location:** `Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/disease_cell_signature_matrix_v1_7.csv`
 
 80 rows × 131 columns (8 metadata + 123 cell-type). Each cell is a signed Cohen's d or a range. Currently includes documented signatures for both operational cards plus 76 conditions held as look-up table for the future Stage 8 Path B per-patient matching engine.
 
