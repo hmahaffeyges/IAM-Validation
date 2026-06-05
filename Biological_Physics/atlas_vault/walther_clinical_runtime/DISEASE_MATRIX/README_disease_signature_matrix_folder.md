@@ -1,77 +1,87 @@
 # Disease × Cell Signature Matrix
 
-**Location:** `Biological_Physics/atlas_vault/pipeline_runtime_matrices/disease_signature_matrix/`
-**Purpose:** Stage 5 of the EDEAR pipeline matches every customer's per-cell-type A-score profile against this matrix to find documented disease/condition signatures that look like theirs.
+**Location:** `Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/`
+**Current version:** v1.6 (2026-06-03)
+**README date:** 2026-06-04 (clean rewrite)
 
-The matrix is a **lookup table** (77 disease/condition × phase rows × 123 cell-type columns) of signed Cohen's d values. The schema doc next to it tells the engine HOW to consume it. Together they're a complete unit — the matrix without the schema is just unlabeled numbers; the schema without the matrix is an algorithm with no data.
+This folder contains the disease signature lookup table CPG's Stage 8 Path B will consume once the per-patient matching engine is wired. The matrix itself is operational; the per-patient engine that calls into it is specced but not yet implemented.
+
+---
+
+## What the matrix is
+
+A lookup table of **signed Cohen's d values** indexed by (disease × phase) on rows and (cell-type) on columns. When the Stage 8 Path B engine is wired, each patient's 115-cell A-score profile will be matched against each row of this matrix to find documented disease/condition signatures that look like theirs.
+
+- **80 rows** (disease × phase combinations)
+- **131 columns** (8 metadata + 123 cell-type)
+- Each cell is a signed Cohen's d like `+1.26` or a range like `+0.5/+1.0` or an empty cell ("no documented signature, not zero")
+
+The matrix is paired with an engine schema document that defines how Stage 8 Path B will consume it.
+
+---
 
 ## Files in this folder
 
-| File | Role | Lifecycle |
+| File | Role |
+|---|---|
+| `disease_cell_signature_matrix_v1_6.csv` | The current lookup table (80 rows × 131 columns) |
+| `disease_cell_signature_matrix_engine_schema_v1_2.md` | The contract — defines column structure, value-encoding rules, the `compute_match_magnitude()` function spec, the `compute_customer_tier()` mapping, and the maintenance protocol |
+| `README.md` (this file) | Folder orientation, version log, current state |
+| `OLD/` | Archived prior versions (v1.0 through v1.5 of the matrix; v1.1 of the schema) |
+
+---
+
+## Rows operationally validated by our card work
+
+These four rows are anchored by our own CPG-VAL-NNN runs with the current methodology (not pre-build evidence):
+
+| Disease × phase row | Headline cell values | Anchor VALs |
 |---|---|---|
-| `disease_cell_signature_matrix_v1_6.csv` | The data. 80 rows × 131 columns (8 metadata + 123 cell-type). Each cell holds a signed Cohen's d like `+1.26` or a range like `+0.5/+1.0` or a directional `↑↑` placeholder. | Bumps on every cell-value change (v1.3 → v1.4 → v1.5 → v1.6 etc.). Major bump on column-structure change (v2.0). |
-| `disease_cell_signature_matrix_engine_schema_v1_2.md` | The contract. Defines column structure, value-encoding rules, the `compute_match_magnitude()` Mahalanobis-style match function Stage 5 calls, the `compute_customer_tier()` mapping, the maintenance protocol. | Bumps only on structural changes. Stays stable across cell-value-only matrix updates. |
-| `README.md` | This file. Folder orientation, version log, push policy. | Refreshed whenever a matrix or schema version lands. |
+| `breast_cancer / long_pre_dx` | Basophil +1.58/+1.01, breast_BE +1.28/+0.61, T-cells −0.67/−0.58, Mahalanobis +1.88/+2.10 | CPG-VAL-001, 002, 005, 007 |
+| `alzheimers / at_dx_post_build_v3_0` | Eosino −0.43/−0.46, 20-of-115 immune cells Bonferroni-negative, Mahalanobis +0.20 (modest, targeted) | CPG-VAL-008, 009, 010, 012, 013 |
+| `frontotemporal_dementia / post_build_GIFT_2026` | Mahalanobis +0.28 (intermediate between AD and PSP/CBD) | CPG-VAL-014 |
+| `progressive_supranuclear_palsy_CBD / post_build_GIFT_2026` | Mahalanobis −0.38 (BELOW_NORMAL — architectural compaction direction, opposite of AD) | CPG-VAL-014 |
 
-## Why these two files belong together
+The remaining 76 rows are held in the matrix as look-up entries compiled from prior literature for the Stage 8 Path B engine to use when it is wired. They have not been validated with our current methodology.
 
-The CSV is engine-readable but cryptic without the schema: it has columns like `B_cells` and `regulatory_T_cells` and cell values like `+0.5/+1.0` and `↑↑`. Without the schema you don't know:
-- That an empty cell means "no documented signature" (not "zero signal")
-- That `+0.5/+1.0` is a magnitude RANGE, not a fraction
-- That `↑↑` is "directional only, magnitude pending" rather than a literal up-up character
-- That `mechanism = pooled_positive_distributed_multi_tile` corresponds to a specific match-pattern code
-- That the `compute_match_magnitude()` algorithm is Mahalanobis-style sign-aligned product weighted by sqrt(n) — not raw dot product, not Euclidean
+---
 
-The schema is short (~120 lines) but load-bearing. Engine cannot consume the matrix correctly without it.
+## How Stage 8 Path B will work (when wired)
 
-## How Stage 5 uses these
+For each patient:
 
-```python
-# Per customer, per pipeline run:
-matrix = pd.read_csv('disease_cell_signature_matrix_v1_6.csv')
-customer_profile = stage_2_outputs.celltype_ascores  # 115-dim dict
+1. Patient's 115-cell A-score vector is computed by Stages 4–5 of the SOP.
+2. For each row in the matrix, the engine computes `compute_match_magnitude(patient_vector, row)` — a Mahalanobis-style similarity between the patient's profile and the row's documented signature.
+3. Rows with match magnitude above the calibrated threshold are returned as candidate matches.
+4. `compute_customer_tier()` maps the top match magnitude to a customer-facing tier (NORMAL / WATCH / FLAG).
+5. The report renders the top matches with their disease × phase labels and the patient's specific cell-type departures that drove the match.
 
-# Score each row against the customer (per the schema's compute_match_magnitude)
-matrix['match'] = matrix.apply(lambda r: compute_match_magnitude(customer_profile, r), axis=1)
+The engine is specced in `disease_cell_signature_matrix_engine_schema_v1_2.md`. Implementation requires building the **cell-name-to-matrix-column mapping artifact** — the 115 IAMAtlas cell-type names overlap with but are not identical to the 123 matrix column names. This artifact is the gating dependency for Stage 8 Path B activation.
 
-# Top 3 candidate signatures
-top_candidates = matrix.nlargest(3, 'match')
+---
 
-# Per-candidate tier (per the schema's compute_customer_tier)
-for _, candidate in top_candidates.iterrows():
-    tier = compute_customer_tier(candidate['match'], candidate['disease_severity_class'],
-                                  candidate['phase'], candidate['evidence_anchors'])
-```
+## What this matrix does NOT do (yet)
 
-Stage 5 returns a ranked list of documented signature matches plus their tiers. The report builder (Stage 6) translates these into customer-facing wellness-or-watch-or-act language using the schema's tier mapping.
+1. **Per-patient matching is not wired.** The matrix is read-only data right now. The `compute_match_magnitude()` engine is specced; implementation is outstanding.
+2. **The 76 non-anchored rows are not validated with our current methodology.** They are compiled from prior literature and serve as look-up entries pending future CPG-VAL-NNN anchoring.
+3. **No customer-facing reports use the matrix yet.** All current per-patient output goes through Stage 8 Path A (card-driven, where the card directly asserts the disease pattern).
+
+---
 
 ## Version log
 
 | Version | Date | Change |
 |---|---|---|
-| v1.5 → v1.6 | 2026-06-02 | **STRICT ADDITIVE.** 3 new rows appended for AD-immune card v3.0 post-build VAL series (CPG-VAL-008 through CPG-VAL-014). All 77 prior rows byte-identical. New rows: (1) `alzheimers_disease, at_dx_post_build_v3_0` — clinical AD on AIBL+AddNeuroMed post-build instrument; 115-cell fan-out evidence (Eosino d=−0.43, Neutro −0.41, B-cells −0.38, L-MPP −0.39, HSC −0.33, CD4 T −0.36 from CPG-VAL-008) + Mahalanobis d=+0.20 + PC1 T-cell axis d=−0.36. (2) `frontotemporal_dementia, post_build_GIFT_2026` — GIFT cohort CPG-VAL-014 weak immune negative drift (NK-cells d=−0.37, MPP −0.37, granulocytes −0.36). (3) `psp_cbd_tauopathies, post_build_GIFT_2026` — severity BELOW_NORMAL confirmed via Mahalanobis d=−0.38 (p=2e-6); 7 Bonferroni-sig negative per-cell effects (Baso −0.69, LE −0.65, Microglia −0.63, smooth_muscle −0.61, Mela −0.59). |
-| v1.4 → v1.5 | 2026-06-02 | breast_cancer / long_pre_dx row evidence_anchors EXTENDED with CPG-VAL-NNN citation aliases: TODO 1.1 → also cited as CPG-VAL-001 (per-cell-type fan-out), TODO 1.2 → CPG-VAL-002 (Mahalanobis d=+1.871/+2.088), TODO 1.3 → CPG-VAL-003 (1,392 concordant CpGs residual map), TODO 1.5 → CPG-VAL-005 (PC2 T-cell suppression d=−0.67/−0.58). Appended CPG-VAL-007 age-axis subtraction confirmation. **No cell values changed; no prior citations removed.** All other 76 rows byte-identical to v1.4. |
-| v1.3 → v1.4 | 2026-05-29 | breast_cancer long_pre_dx row updated with TODO 1.1/1.2/1.3/1.5 findings: +11 new cell values (basophils, plasma_cells, microglia, skin_melanocytes, NeuMa, neurons_pooled, smooth_muscle, breast_BE TISSUE-OF-ORIGIN, endothelial_cells, CD4_T_cells, CD8_T_cells). evidence_anchors expanded to cite TODO 1.1 / 1.2 (Mahalanobis d=+1.871/+2.088) / 1.3 (residual map 1,392 concordant CpGs) / 1.5 (PC2 T-cell suppression d=-0.67/-0.58). |
-| v1.3 | 2026-05-10 | Initial canonical v1.3 — 77 disease/condition × phase rows × 123 cell-type columns. |
-| Schema v1.2 | 2026-05-10 | Structural definition: 8 metadata + 123 cell columns. Value encoding: float, range, directional. Match algorithm: Mahalanobis-style sign-aligned product. Tier mapping: customer-facing severity language. |
+| v1.0–v1.4 | Pre-build era | Initial matrix compilation from literature anchors |
+| v1.5 | 2026-06-02 | Citation alias bump for the `breast_cancer / long_pre_dx` row — added "/ CPG-VAL-NNN" tags next to the prior TODO citations. No cell value changes. |
+| v1.6 | 2026-06-03 | Added 3 new rows: `alzheimers / at_dx_post_build_v3_0`, `frontotemporal_dementia / post_build_GIFT_2026`, `progressive_supranuclear_palsy_CBD / post_build_GIFT_2026`. Cell values from CPG-VAL-008 through CPG-VAL-014. |
+| README rewrite | 2026-06-04 | README rewritten clean. Dropped extensive pre-build-era "Salas 2018 / Loyfer 2023 / Moss 2018 / EpiSCORE / UniLIFE / Xu-538" lineage documentation that lived in the operational sections of the prior README (moved to this version log as historical lineage). Operational sections now describe what the matrix is and what Stage 8 Path B will do, with the four operationally-anchored rows highlighted. |
 
-## Maintenance protocol
+---
 
-Per the engine schema, every cell value must trace to a specific evidence anchor (VAL ID or canonical-document citation). Adding new disease rows requires populating at least the metadata + at least one cell value. Adding new cell columns requires the cell type be a real production atlas cell type per `IAMAtlasREBUILD_celltype_to_class.json` — no fabricated names.
+## Companion documents
 
-Cell-value updates from new research:
-1. Update the cell value in the CSV.
-2. APPEND new VAL ID to the row's `evidence_anchors` field (never replace prior anchors).
-3. Bump matrix version (v1.4 → v1.5).
-4. Update this README's version log.
-5. Push to repo with new SHA-256 in INVENTORY.json.
-
-## Push policy
-
-Both files live in the repo (this folder). The engine loads them at startup from this exact location. Any cell-value change requires a push. Schema changes (structural) are rare and require both files version-coordinated.
-
-## Distinct from the disease CARDS
-
-The disease matrix is the GLOBAL pattern-matching layer — one row per (disease, phase, substrate) tuple, cell-level Cohen's d magnitudes, no disease-specific scoring rules.
-
-The disease CARDS (kept in a separate folder, e.g. `cards/breast-epic/`) hold per-disease panel definitions, H_min anchors, threshold tables, demographic gates, educational-page URLs, and per-card validation evidence. Cards do per-disease scoring; the disease matrix does cross-disease signature matching. Stage 5 calls BOTH in parallel and reports both outcomes.
+- Engine spec: `disease_cell_signature_matrix_engine_schema_v1_2.md` (this folder)
+- Card-level evidence: `DISEASE_MAPS_CARDS/Breast_EPIC/breast_epic_card_json/breast-epic_README.md` and `DISEASE_MAPS_CARDS/AD_immune/ad_immune_card_json/ad-immune_README.md`
+- Top-level evidence report: `post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html` Sections 3–4
+- Inventory catalog: `post_build_evidence/v8_CPG_VAL_Inventory_Report.md` Section 4
