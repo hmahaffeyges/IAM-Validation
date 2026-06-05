@@ -119,7 +119,7 @@
       "d": 2.088,
       "vs_anchor": 2.097,
       "agreement_pct": 99.6,
-      "verdict": "Stage 1 integrity gate PASS \u2014 post-build pipeline reproduces build-time within 0.4%"
+      "verdict": "Stage 1 integrity gate PASS — post-build pipeline reproduces build-time within 0.4%"
     }
   },
   "stage_6_cellular_age": {
@@ -156,10 +156,10 @@
   "stage_8_card_matching": {
     "matching_logic_summary": "Card fires if EITHER the universal architectural pattern (Route A) OR the per-cell tissue-of-origin pattern (Route B) is satisfied. Both routes have been validated against the breast pre-dx EPIC-Italy cohort at long_pre_dx phase (>10 years before clinical diagnosis).",
     "route_A_universal_architectural": {
-      "label": "broad architectural disturbance \u2014 universal Mahalanobis route",
+      "label": "broad architectural disturbance — universal Mahalanobis route",
       "condition": "Stage_5_Mahalanobis_d >= 1.50 AND residual_map_overlap_rho >= 0.10 AND residual_map_overlap_CI95_lower > 0",
       "phase_emitted": "long_pre_dx",
-      "rationale": "Validated against CPG-VAL-002 (Mahalanobis d=+1.876/+2.097) + CPG-VAL-003 (residual map). This route is what breast pre-dx > 10 years out actually looks like \u2014 broad architectural disturbance not localized to any one cell type."
+      "rationale": "Validated against CPG-VAL-002 (Mahalanobis d=+1.876/+2.097) + CPG-VAL-003 (residual map). This route is what breast pre-dx > 10 years out actually looks like — broad architectural disturbance not localized to any one cell type."
     },
     "route_B_per_cell_pattern": {
       "label": "tissue-of-origin + immune-suppression pattern",
@@ -174,13 +174,13 @@
       "overlap_method": "Pearson correlation of patient per-CpG departure (post-Stage 3) with residual map signed Cohen's d, with Fisher z-transform CI",
       "overlap_threshold": 0.1,
       "ci_required": true,
-      "chr_mapinfo_annotation": "COMPLETE \u2014 CHR + MAPINFO columns present (per Illumina EPIC manifest merge)",
-      "bimodality_decomposition": "COMPLETE \u2014 full per-CpG bimodality (bc_hc, bc_case, delta_bc, mean_beta, sd_beta, delta_var, bimodal_in_hc, lost_in_case, loss_of_bimodality, in_residual_concordant) for 8,199 CpGs in breast_epic_bimodality_map.csv"
+      "chr_mapinfo_annotation": "COMPLETE — CHR + MAPINFO columns present (per Illumina EPIC manifest merge)",
+      "bimodality_decomposition": "COMPLETE — full per-CpG bimodality (bc_hc, bc_case, delta_bc, mean_beta, sd_beta, delta_var, bimodal_in_hc, lost_in_case, loss_of_bimodality, in_residual_concordant) for 8,199 CpGs in breast_epic_bimodality_map.csv"
     },
     "disease_matrix_rows_consumed": [
       "breast_cancer / long_pre_dx_post_build_v3_0"
     ],
-    "card_never_fires_on_one_tile_rule": "By SOP \u00a765 invariant: this card requires the conjunction of conditions in either Route A or Route B. A single elevated cell-type A-score alone does NOT fire this card.",
+    "card_never_fires_on_one_tile_rule": "By SOP §65 invariant: this card requires the conjunction of conditions in either Route A or Route B. A single elevated cell-type A-score alone does NOT fire this card.",
     "verdict_outputs": [
       "FIRED_long_pre_dx",
       "NOT_FIRED",
@@ -303,9 +303,9 @@
     "l9_null_suite_status": {
       "tests_run_per_VAL": "N1, N2, N3, N4, N6, N7, N8",
       "tests_skipped": "N5 (no plate metadata in GEO)",
-      "breast_vals_001_002_003_005_007_status": "All 7 nulls PASS at p<0.05 (N1-N4 p=0.000; N6 within \u00b120% tolerance; N7 simplified; N8 single-feature skip)",
-      "breast_vals_004_006_status": "RESTATE \u2014 direction-reversed by null suite (004) and lost Bonferroni (006)",
-      "note_on_N7": "Simplified signal-level N7. Full \u03b2-matrix end-to-end via synthetic_patient_generator.py still to be run."
+      "breast_vals_001_002_003_005_007_status": "All 7 nulls PASS at p<0.05 (N1-N4 p=0.000; N6 within ±20% tolerance; N7 simplified; N8 single-feature skip)",
+      "breast_vals_004_006_status": "RESTATE — direction-reversed by null suite (004) and lost Bonferroni (006)",
+      "note_on_N7": "Simplified signal-level N7. Full β-matrix end-to-end via synthetic_patient_generator.py still to be run."
     }
   },
   "honest_limitations": [
@@ -318,11 +318,11 @@
   ],
   "outstanding_work_v3_1": [
     "CPG_breast_panel_v1 formal seal (1,392 CpGs from CPG-VAL-003) + holdout validation on independent cohort",
-    "Stage 8 Path B engine wiring \u2014 mapping artifact v0.1 EXISTS at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json (50% atlas coverage); v0.2 manual taxonomy review needed for remaining 50%; compute_match_magnitude() per-patient engine call still to be implemented",
+    "Stage 8 Path B engine wiring — mapping artifact v0.1 EXISTS at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json (50% atlas coverage); v0.2 manual taxonomy review needed for remaining 50%; compute_match_magnitude() per-patient engine call still to be implemented",
     "Cross-ethnicity validation cohorts (Asian, African, Latin-American)",
-    "Full N7 end-to-end chain-recovery test (currently simplified signal-level only; full \u03b2-matrix end-to-end via synthetic_patient_generator.py + Walther + A-scoring chain not yet run)",
+    "N7 v0.2 refinements: (1) synthetic_patient_generator.py adds optional restrict_panel_to_cpgs parameter (defaults to cell-type marker substrate) so injected signal lands where the chain measures by default; (2) within-cohort R3 uses matched arm sizes or k-fold cross-validation to remove the sample-size variance baseline (~Cohen's d of +3 observed under unequal arms); (3) ChainRecoveryTester extends from R1+R3 to the full R1–R8 suite (A-score recovery, residual-map recovery, bimodality, PCA axis recovery, chromosome isotropy, age dipole subtraction)",
     "N5 plate-position null (requires plate metadata not in GEO release)",
-    "Formal v4 PREREG protocol (PREREG sealed BEFORE rerun + sealed reproducer script) \u2014 current PREREGs are RETROSPECTIVE",
+    "Formal v4 PREREG protocol (PREREG sealed BEFORE rerun + sealed reproducer script) — current PREREGs are RETROSPECTIVE",
     "First-client IDAT integration test (Stages 0/1 untested on raw IDATs)"
   ],
   "pre_build_audit_lineage": {
@@ -417,8 +417,9 @@
       "changes": [
         "L9 null suite expanded from N1-only to N1, N2, N3, N4, N6, N7, N8 (N5 requires unavailable plate metadata). All 5 sealed breast VALs PASS all 7 declared nulls.",
         "Residual map CHR/MAPINFO annotation: COMPLETE (was outstanding in v3.1 release).",
-        "Bimodality decomposition: COMPLETE for 8,199 CpGs (was already complete in v3.1 \u2014 outstanding_work_v3_1 listing of \"placeholder currently\" was incorrect; corrected here).",
-        "Stage 8 Path B mapping artifact v0.1 STARTER built: DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json (50% atlas cell coverage; v0.2 manual taxonomy curation outstanding)."
+        "Bimodality decomposition: COMPLETE for 8,199 CpGs (was already complete in v3.1 — outstanding_work_v3_1 listing of \"placeholder currently\" was incorrect; corrected here).",
+        "Stage 8 Path B mapping artifact v0.1 STARTER built: DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json (50% atlas cell coverage; v0.2 manual taxonomy curation outstanding).",
+        "L9 N7 end-to-end chain-recovery test: full β-matrix run executed 2026-06-05 at Biological_Physics/validation_runs/L9_N7_chain_recovery_2026_06_05/. First run of the full chain (Walther → A-scoring → Mahalanobis) on synthetic patients with known truth. Chain end-to-end wiring VALIDATED. Walther class-fraction recovery VALIDATED at MAE = 0.0076–0.0093 across 8 classes × 3 conditions (well under the 0.10 threshold). Signal recovery confirmed substrate-specific: on-substrate injection (signal placed on cell-type marker CpGs) produces Cohen's d = +10.24 against within-cohort centroid, vs +5.10 for off-substrate injection — 3.5× stronger when signal lands where the chain measures. Two operational findings carry forward: (a) the production Mahalanobis healthy reference is calibrated on real n=601 HC and is not the appropriate oracle for synthetic recovery tests because synthetic patients have systematically different β distributions; (b) within-cohort R3 with unequal arm sizes (n_case=50 < n_hc=200) produces a sampling-variance baseline of Cohen's d ≈ +3 on the true-null condition, so absolute R3 criterion needs matched arms or cross-validation. N7 is a chain-level test run once per chain version; the full outcome document is at validation_runs/L9_N7_chain_recovery_2026_06_05/N7_OUTCOME.md. Per SOP v1.2 §87, N7 is run above the chain — not per VAL."
       ]
     }
   }

@@ -1,0 +1,124 @@
+
+========================================================================
+CONDITION: STRONG_SIGNAL
+  n_case=50, n_hc=200, signal_strength=2.0, seed=7
+========================================================================
+
+[Phase 1] Generating synthetic cohort (250 patients, 50,000 CpGs subset)...
+[SyntheticCohort] Atlas loaded: 22,542 CpGs × 8 classes
+[SyntheticCohort] Disease panel: 500 CpGs (436 hypomethylated, 64 hypermethylated)
+[SyntheticCohort] Generating 250 patients...
+[SyntheticCohort] Done. β matrix: (250, 22542), range [0.000, 1.000]
+[SyntheticCohort] Exported to /home/claude/IAM-Validation/Biological_Physics/validation_runs/L9_N7_chain_recovery_2026_06_05/synth_cohort_strong/generated
+             767 B  MANIFEST.json
+      30,215,508 B  beta_matrix.parquet
+          20,042 B  disease_panel_truth.json
+         968,214 B  foreground_axes_truth.npz
+          59,318 B  truth_table.csv
+   ✓ Generated in 5.5s
+
+[Phase 2] Loading chain modules...
+   Loading Walther IAM Deconvolver (atlas: IAMAtlasREBUILD.csv)...
+     ✓ 7,114 class markers, 4,000 cell-type markers
+   Loading A-scoring marker artifact (v0_2)...
+     ✓ 115 cell-types, 8 H_min classes
+   Loading Mahalanobis healthy reference...
+     ✓ 112 features in healthy hull
+   ✓ All modules loaded in 28.2s
+
+[Phase 3] Running 250 synthetic patients through chain...
+   ...25/250 patients chained (4.9s elapsed)
+   ...50/250 patients chained (8.5s elapsed)
+   ...75/250 patients chained (12.2s elapsed)
+   ...100/250 patients chained (15.9s elapsed)
+   ...125/250 patients chained (19.7s elapsed)
+   ...150/250 patients chained (23.3s elapsed)
+   ...175/250 patients chained (26.9s elapsed)
+   ...200/250 patients chained (30.4s elapsed)
+   ...225/250 patients chained (33.9s elapsed)
+   ...250/250 patients chained (37.5s elapsed)
+   ✓ Chain complete in 37.5s
+
+[Phase 4] Computing recovery tests...
+
+------------------------------------------------------------------------
+RECOVERY RESULTS — STRONG_SIGNAL
+------------------------------------------------------------------------
+  R1 Walther fraction recovery: overall MAE = 0.0076
+     ✓ PASS ({'stem_pluri': {'mean_abs_error': 0.0028387974388569674, 'max_abs_error': 0.011249453988124401, 'true_mean_frac': 0.007998220395722174, 'recovered_mean_frac': 0.0088572}, 'stem_adult': {'mean_abs_error': 0.013956887010993223, 'max_abs_error': 0.060953788902824296, 'true_mean_frac': 0.006518621842169109, 'recovered_mean_frac': 0.017256800000000003}, 'stromal': {'mean_abs_error': 0.0024809104905904626, 'max_abs_error': 0.0104415317528303, 'true_mean_frac': 0.012384140484707025, 'recovered_mean_frac': 0.0121804}, 'progenitor': {'mean_abs_error': 0.015660753438460306, 'max_abs_error': 0.0668618790690983, 'true_mean_frac': 0.0605361616413758, 'recovered_mean_frac': 0.0505284}, 'cycling': {'mean_abs_error': 0.008456390758561657, 'max_abs_error': 0.028496823017715195, 'true_mean_frac': 0.06051883720083919, 'recovered_mean_frac': 0.0570532}, 'secretory': {'mean_abs_error': 0.006742409798603493, 'max_abs_error': 0.022175437471377804, 'true_mean_frac': 0.05988170643295882, 'recovered_mean_frac': 0.062886}, 'terminal': {'mean_abs_error': 0.004578546879060861, 'max_abs_error': 0.018545178619306702, 'true_mean_frac': 0.05992760879215933, 'recovered_mean_frac': 0.0590864}, 'immune': {'mean_abs_error': 0.006188188470028448, 'max_abs_error': 0.01971141470571247, 'true_mean_frac': 0.7322347032100682, 'recovered_mean_frac': 0.7321536}})
+       stem_pluri   true=0.0080 recov=0.0089 MAE=0.0028
+       stem_adult   true=0.0065 recov=0.0173 MAE=0.0140
+       stromal      true=0.0124 recov=0.0122 MAE=0.0025
+       progenitor   true=0.0605 recov=0.0505 MAE=0.0157
+       cycling      true=0.0605 recov=0.0571 MAE=0.0085
+       secretory    true=0.0599 recov=0.0629 MAE=0.0067
+       terminal     true=0.0599 recov=0.0591 MAE=0.0046
+       immune       true=0.7322 recov=0.7322 MAE=0.0062
+  R3 Mahalanobis case-vs-HC: Cohen's d = -0.2502
+     ✗ FAIL (criterion: d ≥ 0.5 AND d/signal_strength (-0.125) ≥ 0.3)
+
+========================================================================
+CONDITION: NULL_BASELINE
+  n_case=50, n_hc=200, signal_strength=0.0, seed=8
+========================================================================
+
+[Phase 1] Generating synthetic cohort (250 patients, 50,000 CpGs subset)...
+[SyntheticCohort] Atlas loaded: 22,542 CpGs × 8 classes
+[SyntheticCohort] Disease panel: 500 CpGs (428 hypomethylated, 72 hypermethylated)
+[SyntheticCohort] Generating 250 patients...
+[SyntheticCohort] Done. β matrix: (250, 22542), range [0.000, 1.000]
+[SyntheticCohort] Exported to /home/claude/IAM-Validation/Biological_Physics/validation_runs/L9_N7_chain_recovery_2026_06_05/synth_cohort_null/generated
+             767 B  MANIFEST.json
+      30,222,883 B  beta_matrix.parquet
+          20,034 B  disease_panel_truth.json
+         968,267 B  foreground_axes_truth.npz
+          59,323 B  truth_table.csv
+   ✓ Generated in 1.7s
+
+[Phase 2] Loading chain modules...
+   Loading Walther IAM Deconvolver (atlas: IAMAtlasREBUILD.csv)...
+     ✓ 7,114 class markers, 4,000 cell-type markers
+   Loading A-scoring marker artifact (v0_2)...
+     ✓ 115 cell-types, 8 H_min classes
+   Loading Mahalanobis healthy reference...
+     ✓ 112 features in healthy hull
+   ✓ All modules loaded in 19.7s
+
+[Phase 3] Running 250 synthetic patients through chain...
+   ...25/250 patients chained (4.1s elapsed)
+   ...50/250 patients chained (7.7s elapsed)
+   ...75/250 patients chained (11.4s elapsed)
+   ...100/250 patients chained (15.3s elapsed)
+   ...125/250 patients chained (19.0s elapsed)
+   ...150/250 patients chained (22.7s elapsed)
+   ...175/250 patients chained (26.3s elapsed)
+   ...200/250 patients chained (29.9s elapsed)
+   ...225/250 patients chained (33.6s elapsed)
+   ...250/250 patients chained (37.1s elapsed)
+   ✓ Chain complete in 37.1s
+
+[Phase 4] Computing recovery tests...
+
+------------------------------------------------------------------------
+RECOVERY RESULTS — NULL_BASELINE
+------------------------------------------------------------------------
+  R1 Walther fraction recovery: overall MAE = 0.0093
+     ✓ PASS ({'stem_pluri': {'mean_abs_error': 0.0037409097949874888, 'max_abs_error': 0.0156494539881244, 'true_mean_frac': 0.007977386448031275, 'recovered_mean_frac': 0.008694399999999998}, 'stem_adult': {'mean_abs_error': 0.014197739103623881, 'max_abs_error': 0.06557232002423559, 'true_mean_frac': 0.006505746475016565, 'recovered_mean_frac': 0.015482}, 'stromal': {'mean_abs_error': 0.002843179308848319, 'max_abs_error': 0.010817291640307501, 'true_mean_frac': 0.012390597999310382, 'recovered_mean_frac': 0.0124148}, 'progenitor': {'mean_abs_error': 0.02557161681270791, 'max_abs_error': 0.0993260032747011, 'true_mean_frac': 0.06047363030976882, 'recovered_mean_frac': 0.0502164}, 'cycling': {'mean_abs_error': 0.0047097998670371805, 'max_abs_error': 0.016774060308483593, 'true_mean_frac': 0.060237370114873144, 'recovered_mean_frac': 0.0587172}, 'secretory': {'mean_abs_error': 0.00477017723185817, 'max_abs_error': 0.0169933417761279, 'true_mean_frac': 0.06006505407599312, 'recovered_mean_frac': 0.062278}, 'terminal': {'mean_abs_error': 0.006783447525875431, 'max_abs_error': 0.0238451786193067, 'true_mean_frac': 0.0596357476322332, 'recovered_mean_frac': 0.0574368}, 'immune': {'mean_abs_error': 0.011545987201830204, 'max_abs_error': 0.035935023261365995, 'true_mean_frac': 0.7327144669447732, 'recovered_mean_frac': 0.7347632}})
+       stem_pluri   true=0.0080 recov=0.0087 MAE=0.0037
+       stem_adult   true=0.0065 recov=0.0155 MAE=0.0142
+       stromal      true=0.0124 recov=0.0124 MAE=0.0028
+       progenitor   true=0.0605 recov=0.0502 MAE=0.0256
+       cycling      true=0.0602 recov=0.0587 MAE=0.0047
+       secretory    true=0.0601 recov=0.0623 MAE=0.0048
+       terminal     true=0.0596 recov=0.0574 MAE=0.0068
+       immune       true=0.7327 recov=0.7348 MAE=0.0115
+  R3 Mahalanobis case-vs-HC: Cohen's d = -0.0231
+     ✓ PASS (criterion: |d| (0.023) ≤ 0.3)
+
+========================================================================
+N7 OVERALL: ✗ FAIL
+========================================================================
+  STRONG R1: PASS
+  STRONG R3: FAIL
+  NULL   R1: PASS
+  NULL   R3: PASS

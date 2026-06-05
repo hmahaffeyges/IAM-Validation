@@ -1,0 +1,73 @@
+{
+  "condition_label": "NULL_BASELINE",
+  "n_case": 50,
+  "n_hc": 200,
+  "injected_signal_strength": 0.0,
+  "random_seed": 8,
+  "n_cpgs_subset": 50000,
+  "runtime_seconds": 58.46706461906433,
+  "R1_walther_fraction_recovery": {
+    "overall_mean_abs_error_across_classes": 0.009270357105846073,
+    "criterion": "mean(|frac_recovered \u2212 frac_true|) \u2264 0.10",
+    "PASS": true,
+    "per_class": {
+      "stem_pluri": {
+        "mean_abs_error": 0.0037409097949874888,
+        "max_abs_error": 0.0156494539881244,
+        "true_mean_frac": 0.007977386448031275,
+        "recovered_mean_frac": 0.008694399999999998
+      },
+      "stem_adult": {
+        "mean_abs_error": 0.014197739103623881,
+        "max_abs_error": 0.06557232002423559,
+        "true_mean_frac": 0.006505746475016565,
+        "recovered_mean_frac": 0.015482
+      },
+      "stromal": {
+        "mean_abs_error": 0.002843179308848319,
+        "max_abs_error": 0.010817291640307501,
+        "true_mean_frac": 0.012390597999310382,
+        "recovered_mean_frac": 0.0124148
+      },
+      "progenitor": {
+        "mean_abs_error": 0.02557161681270791,
+        "max_abs_error": 0.0993260032747011,
+        "true_mean_frac": 0.06047363030976882,
+        "recovered_mean_frac": 0.0502164
+      },
+      "cycling": {
+        "mean_abs_error": 0.0047097998670371805,
+        "max_abs_error": 0.016774060308483593,
+        "true_mean_frac": 0.060237370114873144,
+        "recovered_mean_frac": 0.0587172
+      },
+      "secretory": {
+        "mean_abs_error": 0.00477017723185817,
+        "max_abs_error": 0.0169933417761279,
+        "true_mean_frac": 0.06006505407599312,
+        "recovered_mean_frac": 0.062278
+      },
+      "terminal": {
+        "mean_abs_error": 0.006783447525875431,
+        "max_abs_error": 0.0238451786193067,
+        "true_mean_frac": 0.0596357476322332,
+        "recovered_mean_frac": 0.0574368
+      },
+      "immune": {
+        "mean_abs_error": 0.011545987201830204,
+        "max_abs_error": 0.035935023261365995,
+        "true_mean_frac": 0.7327144669447732,
+        "recovered_mean_frac": 0.7347632
+      }
+    }
+  },
+  "R3_mahalanobis_case_vs_hc": {
+    "case_mean_distance": 93.1622922754917,
+    "case_sd_distance": 2.6688283853183785,
+    "hc_mean_distance": 93.21938778667932,
+    "hc_sd_distance": 2.421465807078828,
+    "cohens_d": -0.023094062971152376,
+    "criterion": "|d| (0.023) \u2264 0.3",
+    "PASS": true
+  }
+}

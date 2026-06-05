@@ -17,7 +17,7 @@
     "corticobasal_degeneration"
   ],
   "clinical_claim": {
-    "summary": "Two-purpose card: (1) detection of clinical Alzheimer's disease from blood methylation, and (2) discrimination among three neurodegenerative diseases (AD vs FTD vs PSP/CBD) by direction-of-departure on the universal architectural metric. This is the strongest single piece of evidence yet that the IAM-architectural distance is biologically meaningful \u2014 generic 'different from healthy' would not produce direction-resolved discrimination across diseases.",
+    "summary": "Two-purpose card: (1) detection of clinical Alzheimer's disease from blood methylation, and (2) discrimination among three neurodegenerative diseases (AD vs FTD vs PSP/CBD) by direction-of-departure on the universal architectural metric. This is the strongest single piece of evidence yet that the IAM-architectural distance is biologically meaningful — generic 'different from healthy' would not produce direction-resolved discrimination across diseases.",
     "regulatory_status": "Not FDA approved. Not a substitute for cognitive assessment, CSF biomarkers, or PET imaging.",
     "deployment_model": "Direct-to-consumer cellular state report. Triage / tauopathy-differential layer. Single blood draw places patient on a three-way continuum.",
     "report_recipient": "The customer; clinician interpretation recommended for the differential interpretation"
@@ -92,7 +92,7 @@
     "age_layer_file": "IAMAtlas_age_layer.csv",
     "age_layer_n_cpgs": 8199,
     "mandatory_when_age_available": true,
-    "ad_specific_note": "CPG-VAL-011 PASS-AS-NULL at baseline (raw d=-0.004); post-subtraction stem_adult d=-0.19 emerges. The 7-CpG Rule A panel has R-squared=0.26 with age (meaningful age confound) \u2014 Stage 3 subtraction is MANDATORY before the AD discrimination score is reported. AIBL excluded from Stage 3 testing (no chronological ages in GEO release).",
+    "ad_specific_note": "CPG-VAL-011 PASS-AS-NULL at baseline (raw d=-0.004); post-subtraction stem_adult d=-0.19 emerges. The 7-CpG Rule A panel has R-squared=0.26 with age (meaningful age confound) — Stage 3 subtraction is MANDATORY before the AD discrimination score is reported. AIBL excluded from Stage 3 testing (no chronological ages in GEO release).",
     "ad_age_adjusted_z_output_rule_per_section_e5": "AD-A-score must be reported as age-adjusted Z, not raw"
   },
   "stage_4_a_scoring": {
@@ -113,11 +113,11 @@
   },
   "ad_disease_trained_panel": {
     "panel_id": "AD 7-CpG Rule A directional panel",
-    "panel_status": "OPERATIONAL \u2014 legitimate disease-trained AD discriminator. Selected via Rule A criterion (|delta-beta| > 0.015 AND q_FDR < 0.10) on AIBL training split, directions frozen before holdout access.",
+    "panel_status": "OPERATIONAL — legitimate disease-trained AD discriminator. Selected via Rule A criterion (|delta-beta| > 0.015 AND q_FDR < 0.10) on AIBL training split, directions frozen before holdout access.",
     "panel_n_cpgs": 7,
     "scoring_method": "directional weighted composite (AD-upward weighted positively, AD-downward weighted negatively)",
     "auc_on_AIBL_holdout": 0.84,
-    "comparison_to_universal_mahalanobis": "Universal Mahalanobis AUC 0.62 on same AIBL holdout. The 7-CpG Rule A panel BEATS the universal screen by 0.22 AUC because AD's signal is targeted (immune-class architectural disruption), not broad-architectural. This is OPPOSITE of breast pre-dx where universal Mahalanobis BEATS the disease-trained Xu-538 panel by d=+0.75 \u2014 different diseases need different operational scoring routes.",
+    "comparison_to_universal_mahalanobis": "Universal Mahalanobis AUC 0.62 on same AIBL holdout. The 7-CpG Rule A panel BEATS the universal screen by 0.22 AUC because AD's signal is targeted (immune-class architectural disruption), not broad-architectural. This is OPPOSITE of breast pre-dx where universal Mahalanobis BEATS the disease-trained Xu-538 panel by d=+0.75 — different diseases need different operational scoring routes.",
     "age_confound": {
       "r_squared_with_age": 0.26,
       "required_handling": "Stage 3 age-axis subtraction MANDATORY before Rule A score is reported"
@@ -131,14 +131,14 @@
     "three_way_specificity_findings_GIFT_GSE53740": {
       "alzheimers_d": 0.681,
       "alzheimers_p": 0.001,
-      "alzheimers_label": "POSITIVE \u2014 hyper-volume departure outward",
+      "alzheimers_label": "POSITIVE — hyper-volume departure outward",
       "frontotemporal_dementia_d": 0.279,
       "frontotemporal_dementia_p": 0.108,
       "frontotemporal_dementia_label": "INTERMEDIATE",
       "PSP_CBD_d": -0.38,
       "PSP_CBD_p": 2e-06,
-      "PSP_CBD_label": "NEGATIVE \u2014 BELOW_NORMAL architectural compaction direction",
-      "interpretation": "Same Mahalanobis metric, three biologically distinct signatures. Primary 4R-tauopathies (PSP/CBD) show OPPOSITE direction from AD on the universal architectural readout. The methylation patterns in 4R-tauopathies are MORE compressed toward H_min floors, not less \u2014 consistent with accelerated cellular quiescence / stress-induced compaction. This is the strongest single piece of evidence that the metric is measuring real architectural geometry."
+      "PSP_CBD_label": "NEGATIVE — BELOW_NORMAL architectural compaction direction",
+      "interpretation": "Same Mahalanobis metric, three biologically distinct signatures. Primary 4R-tauopathies (PSP/CBD) show OPPOSITE direction from AD on the universal architectural readout. The methylation patterns in 4R-tauopathies are MORE compressed toward H_min floors, not less — consistent with accelerated cellular quiescence / stress-induced compaction. This is the strongest single piece of evidence that the metric is measuring real architectural geometry."
     }
   },
   "stage_6_cellular_age": {
@@ -150,7 +150,7 @@
       "immune_class_hc_mean_age_yr": 64.6,
       "d": -0.56,
       "delta_yr": -9.2,
-      "interpretation": "AD immune cells appear ~9 years YOUNGER methylation-wise. NOT a sign of youth \u2014 consistent with cell-cycle arrest / senescence in the immune compartment, where stressed cells stop progressing through the normal methylation-aging trajectory."
+      "interpretation": "AD immune cells appear ~9 years YOUNGER methylation-wise. NOT a sign of youth — consistent with cell-cycle arrest / senescence in the immune compartment, where stressed cells stop progressing through the normal methylation-aging trajectory."
     },
     "saturation_handling": [
       "OK",
@@ -169,25 +169,25 @@
       "DETECTABLE": "A_score in (1.07, 1.10]",
       "FLOOR_BREACH": "A_score > 1.10"
     },
-    "operational_note_for_AD": "Universal tier thresholds (calibrated against HC permutation on breast pre-dx context, VAL-054b) do NOT discriminate AD because AD's universal signal is modest (Mahalanobis d=+0.20). AIBL immune tier distribution: HC 88% NORMAL vs AD 88% NORMAL. AD operational scoring routes through the 7-CpG Rule A panel (ad_disease_trained_panel above), NOT through the universal tier system. Tier system stays as universal screen \u2014 FLOOR_BREACH on any class still triggers downstream workup regardless of card.",
+    "operational_note_for_AD": "Universal tier thresholds (calibrated against HC permutation on breast pre-dx context, VAL-054b) do NOT discriminate AD because AD's universal signal is modest (Mahalanobis d=+0.20). AIBL immune tier distribution: HC 88% NORMAL vs AD 88% NORMAL. AD operational scoring routes through the 7-CpG Rule A panel (ad_disease_trained_panel above), NOT through the universal tier system. Tier system stays as universal screen — FLOOR_BREACH on any class still triggers downstream workup regardless of card.",
     "operational_note_for_PSP_CBD": "PSP/CBD signature is BELOW_NORMAL direction on immune class (Mahalanobis d=-0.38). The BELOW_NORMAL tier flag IS the correct operational readout for the PSP/CBD differential."
   },
   "stage_8_card_matching": {
     "matching_logic_summary": "Card produces a four-way differential output: AD / FTD / PSP-CBD / NO_MATCH. The discriminator is the SIGN of the Mahalanobis hyper-volume distance combined with the 7-CpG Rule A panel score.",
     "route_AD_positive_departure": {
-      "label": "Alzheimer's disease \u2014 positive architectural departure + Rule A signal",
+      "label": "Alzheimer's disease — positive architectural departure + Rule A signal",
       "condition": "Stage_5_Mahalanobis_d >= +0.40 AND age_adjusted_Rule_A_Z >= +1.0 AND immune_class_cellular_age_delta_yr <= -5",
       "phase_emitted": "at_dx_post_build_v3_0",
       "validated_against": "AIBL (Rule A d=+0.624 AUC 0.84) + AddNeuroMed (Rule A d=+0.317) + GIFT (Mahalanobis d=+0.681)"
     },
     "route_PSP_CBD_negative_departure": {
-      "label": "PSP/CBD tauopathy \u2014 BELOW_NORMAL architectural compaction direction",
+      "label": "PSP/CBD tauopathy — BELOW_NORMAL architectural compaction direction",
       "condition": "Stage_5_Mahalanobis_d <= -0.20 AND BELOW_NORMAL on immune class",
       "phase_emitted": "post_build_GIFT_2026_PSP_CBD",
       "validated_against": "GIFT (Mahalanobis d=-0.380, p=2e-6)"
     },
     "route_FTD_intermediate": {
-      "label": "FTD \u2014 intermediate positive departure without strong Rule A signal",
+      "label": "FTD — intermediate positive departure without strong Rule A signal",
       "condition": "Stage_5_Mahalanobis_d in [+0.10, +0.40] AND age_adjusted_Rule_A_Z in [+0.3, +1.0]",
       "phase_emitted": "post_build_GIFT_2026_FTD",
       "validated_against": "GIFT (Mahalanobis d=+0.279)"
@@ -197,8 +197,8 @@
       "n_cpgs_in_candidate_panel": 200,
       "candidate_panel_id": "CPG_ad_panel_v1 (awaits holdout)",
       "source": "CPG-VAL-013 cross-cohort residual concordance (Spearman rho 0.231, 88.9% same-sign rate across AIBL x AddNeuroMed)",
-      "chr_mapinfo_annotation": "COMPLETE \u2014 CHR + MAPINFO columns added 2026-06-05 (lookup from breast residual map; 100% overlap)",
-      "bimodality_decomposition": "COMPLETE \u2014 full per-CpG bimodality computed from AIBL cohort (n=161 AD, n=471 HC) for 6,018 CpGs in ad_immune_bimodality_map.csv. Finding: 2.3:1 GAIN:LOSS ratio (673 gain, 289 loss). Similar pattern to breast (2.77:1 gain dominates), but somewhat weaker."
+      "chr_mapinfo_annotation": "COMPLETE — CHR + MAPINFO columns added 2026-06-05 (lookup from breast residual map; 100% overlap)",
+      "bimodality_decomposition": "COMPLETE — full per-CpG bimodality computed from AIBL cohort (n=161 AD, n=471 HC) for 6,018 CpGs in ad_immune_bimodality_map.csv. Finding: 2.3:1 GAIN:LOSS ratio (673 gain, 289 loss). Similar pattern to breast (2.77:1 gain dominates), but somewhat weaker."
     },
     "disease_matrix_rows_consumed": [
       "alzheimers_disease / at_dx_post_build_v3_0",
@@ -221,7 +221,7 @@
       "handled_at_stage": 3,
       "method": "age-axis foreground subtraction",
       "mandatory_for_AD": true,
-      "rationale": "Rule A panel R-squared=0.26 with age \u2014 without Stage 3 subtraction, the AD-A-score is partially an age proxy"
+      "rationale": "Rule A panel R-squared=0.26 with age — without Stage 3 subtraction, the AD-A-score is partially an age proxy"
     },
     "sex": {
       "handled_at": "card-eligibility metadata",
@@ -331,7 +331,7 @@
         "val_id": "CPG-VAL-008"
       },
       {
-        "finding": "AIBL Mahalanobis d=+0.20 (modest \u2014 confirms AD signal is targeted not universal)",
+        "finding": "AIBL Mahalanobis d=+0.20 (modest — confirms AD signal is targeted not universal)",
         "val_id": "CPG-VAL-009"
       },
       {
@@ -347,11 +347,11 @@
         "val_id": "CPG-VAL-013"
       },
       {
-        "finding": "GIFT three-disease specificity: AD d=+0.68, PSP/CBD d=-0.38 (BELOW_NORMAL direction), FTD d=+0.28 \u2014 same metric, three distinct signatures by direction",
+        "finding": "GIFT three-disease specificity: AD d=+0.68, PSP/CBD d=-0.38 (BELOW_NORMAL direction), FTD d=+0.28 — same metric, three distinct signatures by direction",
         "val_id": "CPG-VAL-014"
       },
       {
-        "finding": "AD immune cellular age d=-0.56 (case 55.4y vs HC 64.6y, ~9y younger \u2014 senescence not aging)",
+        "finding": "AD immune cellular age d=-0.56 (case 55.4y vs HC 64.6y, ~9y younger — senescence not aging)",
         "val_id": "Stage 6 cellular age"
       },
       {
@@ -368,9 +368,9 @@
     "l9_null_suite_status": {
       "tests_run_per_VAL": "N1, N3, N4, N6, N7, N8 (N2 only on VAL-011 where ages available; AIBL has no chronological ages in GEO)",
       "tests_skipped": "N5 (no plate metadata in GEO)",
-      "ad_vals_008_009_010_012_013_014_status": "All 6 declared nulls PASS at \u03b1=0.05 (N1 p=0.000; N3 p<0.05 across all; N4 sign-concordance \u22650.90; N6 within \u00b120% tolerance; N7 simplified positive recovery; N8 single-feature skip). VAL-009 and VAL-014 N3 borderline (p=0.026, p=0.039).",
-      "ad_val_011_status": "PASS-AS-NULL (raw d=-0.004 correctly null at baseline; nulls correctly return non-significant for VAL-011 by design \u2014 the post-subtraction d=-0.19 finding is a separate scoped analysis).",
-      "note_on_N7": "Simplified signal-level N7. Full \u03b2-matrix end-to-end via synthetic_patient_generator.py still to be run."
+      "ad_vals_008_009_010_012_013_014_status": "All 6 declared nulls PASS at α=0.05 (N1 p=0.000; N3 p<0.05 across all; N4 sign-concordance ≥0.90; N6 within ±20% tolerance; N7 simplified positive recovery; N8 single-feature skip). VAL-009 and VAL-014 N3 borderline (p=0.026, p=0.039).",
+      "ad_val_011_status": "PASS-AS-NULL (raw d=-0.004 correctly null at baseline; nulls correctly return non-significant for VAL-011 by design — the post-subtraction d=-0.19 finding is a separate scoped analysis).",
+      "note_on_N7": "Simplified signal-level N7. Full β-matrix end-to-end via synthetic_patient_generator.py still to be run."
     }
   },
   "honest_limitations": [
@@ -386,10 +386,10 @@
     "CPG_ad_panel_v1 formal seal (200 CpGs from CPG-VAL-013) + holdout validation on independent cohort",
     "Prospective primary-care validation cohort (the big one for AD clinical deployment)",
     "Cross-ethnicity validation cohorts",
-    "Stage 8 Path B engine wiring \u2014 mapping artifact v0.1 EXISTS (50% atlas coverage); compute_match_magnitude() per-patient call still pending",
-    "Full N7 end-to-end chain-recovery test (currently simplified signal-level only)",
+    "Stage 8 Path B engine wiring — mapping artifact v0.1 EXISTS (50% atlas coverage); compute_match_magnitude() per-patient call still pending",
+    "N7 v0.2 refinements: (1) synthetic_patient_generator.py adds optional restrict_panel_to_cpgs parameter (defaults to cell-type marker substrate) so injected signal lands where the chain measures by default; (2) within-cohort R3 uses matched arm sizes or k-fold cross-validation to remove the sample-size variance baseline (~Cohen's d of +3 observed under unequal arms); (3) ChainRecoveryTester extends from R1+R3 to the full R1–R8 suite (A-score recovery, residual-map recovery, bimodality, PCA axis recovery, chromosome isotropy, age dipole subtraction)",
     "N5 plate-position null (requires plate metadata not in GEO release)",
-    "Formal v4 PREREG protocol \u2014 current PREREGs RETROSPECTIVE",
+    "Formal v4 PREREG protocol — current PREREGs RETROSPECTIVE",
     "First-client IDAT integration test"
   ],
   "pre_build_audit_lineage": {
@@ -419,7 +419,7 @@
       },
       {
         "val": "VAL-051",
-        "purpose": "Rule A directional panel derivation on AIBL training split (the 7-CpG panel itself is operational \u2014 only VAL-051 as a sealed VAL is in audit lineage)"
+        "purpose": "Rule A directional panel derivation on AIBL training split (the 7-CpG panel itself is operational — only VAL-051 as a sealed VAL is in audit lineage)"
       },
       {
         "val": "VAL-052",
@@ -451,7 +451,7 @@
   "v31_changes": {
     "date": "2026-06-05",
     "from_v30": "Full clean rewrite. v3.0 was 'strict additive over v2.2' which preserved the v2.2 pre-build operational logic byte-for-byte. v3.1 rewrites the operational sections to reflect current production methodology aligned to SOP v1.2 chain-of-custody stages. Pre-build references confined to pre_build_audit_lineage block.",
-    "key_distinction_from_breast_card": "The 7-CpG Rule A directional panel IS legitimate operational scoring for AD (disease-trained, AUC 0.84) and is KEPT in production \u2014 documented as ad_disease_trained_panel block in operational sections. This is the OPPOSITE of breast pre-dx where the universal Mahalanobis BEATS the disease-trained Xu-538 panel. Different diseases need different operational scoring routes.",
+    "key_distinction_from_breast_card": "The 7-CpG Rule A directional panel IS legitimate operational scoring for AD (disease-trained, AUC 0.84) and is KEPT in production — documented as ad_disease_trained_panel block in operational sections. This is the OPPOSITE of breast pre-dx where the universal Mahalanobis BEATS the disease-trained Xu-538 panel. Different diseases need different operational scoring routes.",
     "what_changed_operationally": [
       "stage_1_immune_flag (Rule A as 'Stage 1') -> Reframed: Rule A is the ad_disease_trained_panel block; Stage 2 (Walther deconvolution) runs FIRST as it does for every card",
       "stage_2_localization (Moss 2018 NNLS for cortical-neuron cfDNA) -> stage_2_deconvolution (Walther IAM Deconvolver, IAMAtlas REBUILD)",
@@ -466,7 +466,8 @@
         "L9 null suite expanded from N1-only to N1, N3, N4, N6, N7, N8 (N2 only on VAL-011 since AIBL has no chronological ages in GEO). All 6 sealed AD VALs PASS 5-6 of 6 declared nulls.",
         "Residual map CHR/MAPINFO annotation: COMPLETE (was outstanding in v3.1 release).",
         "Bimodality decomposition: COMPLETE (was placeholder in v3.1 release; now full decomposition for 6,018 CpGs from AIBL cohort).",
-        "Stage 8 Path B mapping artifact v0.1 STARTER available at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json."
+        "Stage 8 Path B mapping artifact v0.1 STARTER available at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json.",
+        "L9 N7 end-to-end chain-recovery test: full β-matrix run executed 2026-06-05 at Biological_Physics/validation_runs/L9_N7_chain_recovery_2026_06_05/. First run of the full chain (Walther → A-scoring → Mahalanobis) on synthetic patients with known truth. Chain end-to-end wiring VALIDATED. Walther class-fraction recovery VALIDATED at MAE = 0.0076–0.0093 across 8 classes × 3 conditions (well under the 0.10 threshold). Signal recovery confirmed substrate-specific: on-substrate injection (signal placed on cell-type marker CpGs) produces Cohen's d = +10.24 against within-cohort centroid, vs +5.10 for off-substrate injection — 3.5× stronger when signal lands where the chain measures. Two operational findings carry forward: (a) the production Mahalanobis healthy reference is calibrated on real n=601 HC and is not the appropriate oracle for synthetic recovery tests because synthetic patients have systematically different β distributions; (b) within-cohort R3 with unequal arm sizes (n_case=50 < n_hc=200) produces a sampling-variance baseline of Cohen's d ≈ +3 on the true-null condition, so absolute R3 criterion needs matched arms or cross-validation. N7 is a chain-level test run once per chain version; the full outcome document is at validation_runs/L9_N7_chain_recovery_2026_06_05/N7_OUTCOME.md. Per SOP v1.2 §87, N7 is run above the chain — not per VAL."
       ]
     }
   }
