@@ -5,28 +5,110 @@
   "hc_label": "hc",
   "n_case": 93,
   "n_hc": 96,
-  "observed_d": -0.004365571893306606,
   "n_permutations": 1000,
-  "results": {
-    "N1_hc_label_permutation": {
-      "passed": false,
-      "observed": -0.004365571893306606,
-      "null_mean": -0.0036483844198745637,
-      "null_std": 0.14764434175797433,
-      "p_value": 0.974,
-      "n_permutations": 1000,
-      "pass_condition": "two-sided permutation p < 0.05",
-      "narrative": "Observed |d|=0.004. Null distribution under label shuffle: mean=-0.004, std=0.148. Two-sided p=0.974. FAIL at alpha=0.05."
+  "observed_d": -0.004365571893306606,
+  "N1_hc_label_permutation": {
+    "passed": false,
+    "observed": -0.004365571893306606,
+    "null_mean": -0.0036483844198745637,
+    "null_std": 0.14764434175797433,
+    "p_value": 0.974,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05",
+    "narrative": "Observed |d|=0.004. Null distribution under label shuffle: mean=-0.004, std=0.148. Two-sided p=0.974. FAIL at alpha=0.05."
+  },
+  "N2_age_strata_permutation": {
+    "observed": -0.004365571893306606,
+    "null_mean": 0.0047841278565451065,
+    "null_std": 0.13837950415362402,
+    "p_value": 0.979,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided stratified permutation p < 0.05",
+    "passed": false,
+    "null_id": "N2_age_strata_permutation",
+    "null_name": "Age-strata permutation",
+    "n_strata": 4,
+    "stratification": "age_quartiles_Q1_Q2_Q3_Q4",
+    "n_samples": 189,
+    "narrative": "Observed d=-0.004. Null distribution under within-quartile label shuffle (n=189): mean=+0.005, std=0.138. Two-sided p=0.979. FAIL at alpha=0.05."
+  },
+  "N3_sex_strata_permutation": {
+    "observed": -0.004365571893306606,
+    "null_mean": 0.008725287857176993,
+    "null_std": 0.14754272934182702,
+    "p_value": 0.975,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided stratified permutation p < 0.05",
+    "passed": false,
+    "null_id": "N3_sex_strata_permutation",
+    "null_name": "Sex-strata permutation",
+    "n_strata": 2,
+    "stratification": "sex_levels_['Female', 'Male']",
+    "n_samples": 189,
+    "sex_counts": {
+      "Female": 121,
+      "Male": 68
     },
-    "N2_age_strata_permutation": {
-      "passed": false,
-      "observed": -0.004365571893306606,
-      "null_mean": 0.004569942154471648,
-      "null_std": 0.14147072775242872,
-      "p_value": 0.98,
-      "n_permutations": 1000,
-      "pass_condition": "within-decade permutation p < 0.05",
-      "narrative": "Permuting case/HC labels WITHIN each age decade. If observed effect comes from age confounding rather than disease, the within-decade null absorbs it and observed |d| should fall into the null. Observed |d|=0.004, null mean=+0.005, p=0.98. FAIL."
+    "narrative": "Observed d=-0.004. Null distribution under within-sex label shuffle (n=189): mean=+0.009, std=0.148. Two-sided p=0.975. FAIL at alpha=0.05."
+  },
+  "N4_cohort_split_replication": {
+    "null_id": "N4_cohort_split_replication",
+    "null_name": "Cohort split-half replication",
+    "passed": false,
+    "observed": -0.004365571893306606,
+    "concordance_rate": 0.0,
+    "n_replications": 50,
+    "half_d_a_mean": -0.028710983210478533,
+    "half_d_b_mean": 0.018824036689112072,
+    "null_mean": -0.0049434732606832375,
+    "null_std": 0.15286253052301024,
+    "p_value": null,
+    "pass_condition": "concordance rate >= 0.90 (both halves agree on sign in 90%+ of splits)",
+    "narrative": "Observed d=-0.004. Split-half replication (50 random splits): d_half_a mean=-0.029, d_half_b mean=+0.019. Sign concordance rate = 0.000. FAIL at concordance \u2265 0.90 threshold."
+  },
+  "N6_injection_recovery": {
+    "null_id": "N6_injection_recovery",
+    "null_name": "Injection-recovery null",
+    "passed": false,
+    "observed": -0.004365571893306606,
+    "null_mean": 0.016243348969130506,
+    "null_std": 0.5811972084873773,
+    "p_value": null,
+    "n_permutations": 200,
+    "injection_magnitude_beta_units": -4.310795658679645e-05,
+    "bias": 0.02060892086243711,
+    "tolerance_d_units": 0.0008731143786613213,
+    "pass_condition": "recovered effect within \u00b120% of injected (|\u0394| \u2264 0.001)",
+    "narrative": "Injected effect d=-0.004 into HC samples (n=200 trials). Recovered mean d=+0.016 (std=0.581). Bias = +0.021. FAIL \u2014 chain recovery within tolerance."
+  },
+  "N7_end_to_end_simulation": {
+    "null_id": "N7_end_to_end_simulation",
+    "null_name": "End-to-end simulation",
+    "passed": false,
+    "observed": -0.004365571893306606,
+    "null_mean": 0.20211481999999434,
+    "null_std": null,
+    "p_value": null,
+    "n_permutations": 1,
+    "pass_condition": "recovered d > 0.3 and within \u00b185% of injected d",
+    "narrative": "Generated 93 synthetic cases + 96 HC at injected d=-0.004. Simplified chain recovers d=+0.202. FAIL \u2014 chain shows positive recovery.",
+    "extra": {
+      "injected_d": -0.004365571893306606,
+      "recovered_d": 0.20211481999999434,
+      "NOTE": "Simplified N7 \u2014 signal-level simulation only. Full N7 (\u03b2-matrix end-to-end) requires invoking synthetic_patient_generator.py + Walther + A-scoring chain. Status matches breast VAL N7 stubs."
     }
+  },
+  "N8_look_elsewhere_correction": {
+    "null_id": "N8_look_elsewhere_correction",
+    "null_name": "Look-elsewhere correction",
+    "passed": true,
+    "observed": -0.004365571893306606,
+    "null_mean": null,
+    "null_std": null,
+    "p_value": null,
+    "n_permutations": 0,
+    "pass_condition": "n/a \u2014 pre-specified single-feature test",
+    "narrative": "SKIPPED \u2014 VAL is single-feature, no look-elsewhere correction needed",
+    "extra": {}
   }
 }

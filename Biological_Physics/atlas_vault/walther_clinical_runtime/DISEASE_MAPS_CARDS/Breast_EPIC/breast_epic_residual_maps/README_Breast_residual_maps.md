@@ -11,7 +11,7 @@ This folder contains the operational artifacts of the breast-epic VAL series (CP
 |---|---|---|---|
 | `breast_epic_residual_map_chr_annotated.csv` | 1,392 concordant CpGs with signed Cohen's d, chromosome annotation | Step 8.2 per-card residual map overlap (Pearson rho with patient's per-CpG departure) | CPG-VAL-003 |
 | `breast_epic_pca_projections.csv` | PC loadings (PC1, PC2, PC10) on 115-cell A-score covariance | Step 8.3 multi-class pattern matching (PC2 T-cell suppression axis check) | CPG-VAL-005 |
-| `breast_epic_bimodality_map.csv` | Per-CpG bimodality coefficient delta (placeholder — full decomposition deferred to v3.2) | Step 8.3 supporting evidence | CPG-VAL-004 (RESTATED — gain-of-bimodality direction) |
+| `breast_epic_bimodality_map.csv` | **NEW 2026-06-05: FULL** per-CpG bimodality decomposition (bc_hc, bc_case, delta_bc, mean/sd_beta per arm, delta_var, bimodal_in_hc, lost_in_case, loss_of_bimodality, in_residual_concordant) for 8,199 CpGs | Step 8.3 supporting evidence | CPG-VAL-004 (RESTATED — 2.77:1 gain dominates) |
 
 ## Headline numbers from the three maps
 
@@ -51,9 +51,11 @@ Per the card's `substrate.min_cpg_coverage_pct_of_residual_map = 80`, any patien
 
 ## What's pending in v3.2
 
-- CHR/MAPINFO genomic annotation on the residual map (currently chromosome-only)
-- Full bimodality decomposition replacing the placeholder
+- ~~CHR/MAPINFO genomic annotation on the residual map~~ ✅ DONE 2026-06-05 — CHR + MAPINFO columns present
+- ~~Full bimodality decomposition replacing the placeholder~~ ✅ ALREADY COMPLETE at v3.1 (8,199 CpGs with full decomposition; the outstanding-work note was erroneous)
 - CPG_breast_panel_v1 formal seal as standalone panel artifact + holdout validation on independent cohort
+- Full N7 end-to-end chain-recovery (current N7 is simplified signal-level only)
+- Stage 8 Path B mapping artifact v0.2 (manual taxonomy curation for the 50% of atlas cells unmapped in v0.1)
 
 ---
 

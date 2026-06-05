@@ -1,0 +1,586 @@
+{
+  "artifact_id": "iamatlas_115_to_matrix_v1_7_mapping",
+  "version": "v0.1",
+  "build_date": "2026-06-05",
+  "source_atlas": "IAMAtlasREBUILD",
+  "source_atlas_sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+  "source_atlas_markers_artifact": "iamatlas_celltype_markers_v0_2.json",
+  "source_matrix": "disease_cell_signature_matrix_v1_7.csv",
+  "source_matrix_n_cell_cols": 123,
+  "atlas_n_cells": 115,
+  "matrix_n_cell_cols": 123,
+  "operational_use": "Stage 8 Path B compute_match_magnitude() consumes this artifact to map the patient's 115-cell A-score vector into the 123-cell matrix-column space. Each matrix column receives a contribution from the listed atlas cells (mean for pooled categories, identity for exact matches).",
+  "sop_reference": "SOP v1.2 \u00a765 dual-matching preamble + \u00a767 multi-class pattern matching",
+  "mapping_status": {
+    "exact_match_count": 15,
+    "case_insensitive_match_count": 10,
+    "alias_match_count": 33,
+    "unmapped_atlas_cells_count": 57,
+    "unmapped_matrix_cols_count": 74,
+    "coverage_pct": 50.4
+  },
+  "exact_matches": [
+    "CMP",
+    "GMP",
+    "HSC",
+    "MEP",
+    "MPP",
+    "NeuIm",
+    "NeuMa",
+    "OPC",
+    "PBMC",
+    "erythroblast",
+    "megakaryocyte",
+    "nRBC",
+    "small_intestine",
+    "smooth_muscle",
+    "stem_pluri"
+  ],
+  "case_insensitive_matches": [
+    {
+      "atlas": "Epi_upper",
+      "matrix": "epi_upper"
+    },
+    {
+      "atlas": "Microglia",
+      "matrix": "microglia"
+    },
+    {
+      "atlas": "Thyroid",
+      "matrix": "thyroid"
+    },
+    {
+      "atlas": "Pancreatic_beta_cells",
+      "matrix": "pancreatic_beta_cells"
+    },
+    {
+      "atlas": "Glia",
+      "matrix": "glia"
+    },
+    {
+      "atlas": "Pancreatic_duct_cells",
+      "matrix": "pancreatic_duct_cells"
+    },
+    {
+      "atlas": "Left_atrium",
+      "matrix": "left_atrium"
+    },
+    {
+      "atlas": "Pancreatic_acinar_cells",
+      "matrix": "pancreatic_acinar_cells"
+    },
+    {
+      "atlas": "Cortical_neurons",
+      "matrix": "cortical_neurons"
+    },
+    {
+      "atlas": "Kera_diff",
+      "matrix": "kera_diff"
+    }
+  ],
+  "alias_matches": [
+    {
+      "atlas": "Baso",
+      "matrix_targets": [
+        "basophils"
+      ]
+    },
+    {
+      "atlas": "Eos",
+      "matrix_targets": [
+        "eosinophils"
+      ]
+    },
+    {
+      "atlas": "Eosino",
+      "matrix_targets": [
+        "eosinophils"
+      ]
+    },
+    {
+      "atlas": "Neu",
+      "matrix_targets": [
+        "neutrophils"
+      ]
+    },
+    {
+      "atlas": "NK",
+      "matrix_targets": [
+        "NK_cells"
+      ]
+    },
+    {
+      "atlas": "NK-cells_EPIC",
+      "matrix_targets": [
+        "NK_cells"
+      ]
+    },
+    {
+      "atlas": "B",
+      "matrix_targets": [
+        "B_cells",
+        "naive_B_cells"
+      ]
+    },
+    {
+      "atlas": "B-cells_EPIC",
+      "matrix_targets": [
+        "B_cells"
+      ]
+    },
+    {
+      "atlas": "Bnv",
+      "matrix_targets": [
+        "naive_B_cells"
+      ]
+    },
+    {
+      "atlas": "Bmem",
+      "matrix_targets": [
+        "memory_B_cells"
+      ]
+    },
+    {
+      "atlas": "Bcell",
+      "matrix_targets": [
+        "B_cells"
+      ]
+    },
+    {
+      "atlas": "CD19_B-cells",
+      "matrix_targets": [
+        "B_cells"
+      ]
+    },
+    {
+      "atlas": "CD4T",
+      "matrix_targets": [
+        "CD4_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD4T-cells_EPIC",
+      "matrix_targets": [
+        "CD4_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD4_T-cells",
+      "matrix_targets": [
+        "CD4_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD4Tnv",
+      "matrix_targets": [
+        "naive_CD4_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD4Tmem",
+      "matrix_targets": [
+        "memory_CD4_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD8T",
+      "matrix_targets": [
+        "CD8_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD8T-cells_EPIC",
+      "matrix_targets": [
+        "CD8_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD8_T-cells",
+      "matrix_targets": [
+        "CD8_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD8Tnv",
+      "matrix_targets": [
+        "naive_CD8_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD8Tmem",
+      "matrix_targets": [
+        "memory_CD8_T_cells"
+      ]
+    },
+    {
+      "atlas": "CD14_monocytes",
+      "matrix_targets": [
+        "monocytes"
+      ]
+    },
+    {
+      "atlas": "Mono",
+      "matrix_targets": [
+        "monocytes"
+      ]
+    },
+    {
+      "atlas": "Plasma",
+      "matrix_targets": [
+        "plasma_cells"
+      ]
+    },
+    {
+      "atlas": "Treg",
+      "matrix_targets": [
+        "regulatory_T_cells"
+      ]
+    },
+    {
+      "atlas": "Mela",
+      "matrix_targets": [
+        "skin_melanocytes"
+      ]
+    },
+    {
+      "atlas": "Basal",
+      "matrix_targets": [
+        "breast_basal_cycling"
+      ]
+    },
+    {
+      "atlas": "BE",
+      "matrix_targets": [
+        "breast_BE"
+      ]
+    },
+    {
+      "atlas": "Antrum_diff",
+      "matrix_targets": [
+        "gastric_antrum_diff"
+      ]
+    },
+    {
+      "atlas": "Antrum_undiff",
+      "matrix_targets": [
+        "gastric_antrum_undiff"
+      ]
+    },
+    {
+      "atlas": "Bladder",
+      "matrix_targets": [
+        "bladder_loyfer_bulk",
+        "bladder_epithelial"
+      ]
+    },
+    {
+      "atlas": "Breast",
+      "matrix_targets": [
+        "breast_LE",
+        "breast_BE"
+      ]
+    }
+  ],
+  "matrix_column_to_atlas_contributors": {
+    "B_cells": [
+      "B",
+      "B-cells_EPIC",
+      "Bcell",
+      "CD19_B-cells"
+    ],
+    "CD4_T_cells": [
+      "CD4T",
+      "CD4T-cells_EPIC",
+      "CD4_T-cells"
+    ],
+    "CD8_T_cells": [
+      "CD8T",
+      "CD8T-cells_EPIC",
+      "CD8_T-cells"
+    ],
+    "CMP": [
+      "CMP"
+    ],
+    "GMP": [
+      "GMP"
+    ],
+    "HSC": [
+      "HSC"
+    ],
+    "MEP": [
+      "MEP"
+    ],
+    "MPP": [
+      "MPP"
+    ],
+    "NK_cells": [
+      "NK",
+      "NK-cells_EPIC"
+    ],
+    "NeuIm": [
+      "NeuIm"
+    ],
+    "NeuMa": [
+      "NeuMa"
+    ],
+    "OPC": [
+      "OPC"
+    ],
+    "PBMC": [
+      "PBMC"
+    ],
+    "basophils": [
+      "Baso"
+    ],
+    "bladder_epithelial": [
+      "Bladder"
+    ],
+    "bladder_loyfer_bulk": [
+      "Bladder"
+    ],
+    "breast_BE": [
+      "BE",
+      "Breast"
+    ],
+    "breast_LE": [
+      "Breast"
+    ],
+    "breast_basal_cycling": [
+      "Basal"
+    ],
+    "cortical_neurons": [
+      "Cortical_neurons"
+    ],
+    "eosinophils": [
+      "Eos",
+      "Eosino"
+    ],
+    "epi_upper": [
+      "Epi_upper"
+    ],
+    "erythroblast": [
+      "erythroblast"
+    ],
+    "gastric_antrum_diff": [
+      "Antrum_diff"
+    ],
+    "gastric_antrum_undiff": [
+      "Antrum_undiff"
+    ],
+    "glia": [
+      "Glia"
+    ],
+    "kera_diff": [
+      "Kera_diff"
+    ],
+    "left_atrium": [
+      "Left_atrium"
+    ],
+    "megakaryocyte": [
+      "megakaryocyte"
+    ],
+    "memory_B_cells": [
+      "Bmem"
+    ],
+    "memory_CD4_T_cells": [
+      "CD4Tmem"
+    ],
+    "memory_CD8_T_cells": [
+      "CD8Tmem"
+    ],
+    "microglia": [
+      "Microglia"
+    ],
+    "monocytes": [
+      "CD14_monocytes",
+      "Mono"
+    ],
+    "nRBC": [
+      "nRBC"
+    ],
+    "naive_B_cells": [
+      "B",
+      "Bnv"
+    ],
+    "naive_CD4_T_cells": [
+      "CD4Tnv"
+    ],
+    "naive_CD8_T_cells": [
+      "CD8Tnv"
+    ],
+    "neutrophils": [
+      "Neu"
+    ],
+    "pancreatic_acinar_cells": [
+      "Pancreatic_acinar_cells"
+    ],
+    "pancreatic_beta_cells": [
+      "Pancreatic_beta_cells"
+    ],
+    "pancreatic_duct_cells": [
+      "Pancreatic_duct_cells"
+    ],
+    "plasma_cells": [
+      "Plasma"
+    ],
+    "regulatory_T_cells": [
+      "Treg"
+    ],
+    "skin_melanocytes": [
+      "Mela"
+    ],
+    "small_intestine": [
+      "small_intestine"
+    ],
+    "smooth_muscle": [
+      "smooth_muscle"
+    ],
+    "stem_pluri": [
+      "stem_pluri"
+    ],
+    "thyroid": [
+      "Thyroid"
+    ]
+  },
+  "unmapped_atlas_cells": [
+    "Acinar",
+    "CD56_NK-cells",
+    "CM",
+    "Chol",
+    "Colon_epithelial_cells",
+    "Corpus_diff",
+    "Corpus_undiff",
+    "Ductal",
+    "Endocrine",
+    "Eosinophils_reinius",
+    "Epi",
+    "Epi_basal",
+    "Epi_stratified",
+    "Epi_suprabasal",
+    "Erythrocyte_progenitors",
+    "Fundus_diff",
+    "Fundus_undiff",
+    "Gland",
+    "Gran",
+    "Head_and_neck_larynx",
+    "Hep",
+    "Hepatocytes",
+    "IC",
+    "Kera_undiff",
+    "Kidney",
+    "Kup",
+    "L-MPP",
+    "LE",
+    "Leu",
+    "Luminal",
+    "Lung_cells",
+    "Lym",
+    "MP",
+    "Macro",
+    "Monocytes_EPIC",
+    "Mye",
+    "Neutro",
+    "Neutrophils_EPIC",
+    "Neutrophils_reinius",
+    "Oligo",
+    "Prostate",
+    "Tcell",
+    "Upper_GI",
+    "Uterus_cervix",
+    "adipocyte",
+    "dendritic",
+    "endothelial",
+    "eosinophil",
+    "fibroblast",
+    "granulocytes",
+    "macrophage",
+    "monocyte",
+    "neuron",
+    "neutrophil",
+    "stromal_other",
+    "tcell",
+    "whole_blood"
+  ],
+  "unmapped_matrix_cols": [
+    "BMSC",
+    "HSPC_pooled",
+    "IC_immune_pooled",
+    "L_MPP",
+    "Stage1_immune_directional_panel",
+    "Stage1_immune_pooled_Xu538",
+    "adipocytes",
+    "astrocytes",
+    "brain_astrocytes",
+    "brain_pooled",
+    "breast_ductal",
+    "breast_lobular",
+    "breast_secretory_pooled",
+    "cardiac_endothelial",
+    "cardiac_fibroblasts",
+    "cardiac_smooth_muscle",
+    "cardiac_stromal_pooled",
+    "cardiomyocytes",
+    "cervix_uterine",
+    "cholangiocytes",
+    "colon_epithelial",
+    "dendritic_cells",
+    "endothelial_cells",
+    "epithelial_cycling_pooled",
+    "erythroid_progenitor",
+    "eso_basal",
+    "eso_epi_basal",
+    "eso_epi_stratified",
+    "eso_epi_suprabasal",
+    "esophageal_glandular",
+    "fibroblasts",
+    "gastric_corpus_diff",
+    "gastric_corpus_undiff",
+    "gastric_differentiated",
+    "gastric_fundus_diff",
+    "gastric_fundus_undiff",
+    "gastric_undifferentiated",
+    "granulocytes_pooled",
+    "head_neck_larynx",
+    "head_neck_larynx_secretory",
+    "hepatic_stellate",
+    "kidney_epithelial",
+    "kupffer_cells",
+    "leukocyte_pooled",
+    "liver_bile_duct",
+    "liver_hepatocytes",
+    "lung_airway",
+    "lung_epithelial",
+    "macrophages_peripheral",
+    "mammary_stromal",
+    "memory_T_cells_pooled",
+    "neurons_pooled",
+    "oligodendrocytes",
+    "oral_macrophages",
+    "osteoblasts",
+    "pancreatic_ductal_cycling",
+    "pancreatic_endocrine_pooled",
+    "pancreatic_exocrine_pooled",
+    "pancreatic_stellate",
+    "placenta",
+    "prostate_BE",
+    "prostate_EC",
+    "prostate_Fib",
+    "prostate_LE",
+    "prostate_Leu",
+    "prostate_SM",
+    "prostate_basal_cycling",
+    "pulmonary_macrophages",
+    "rectal_epithelium",
+    "salivary",
+    "skeletal_muscle",
+    "skin_keratinocytes",
+    "stromal_pooled",
+    "vascular_endothelial"
+  ],
+  "engineering_status": "v0.1 STARTER \u2014 manual curation incomplete. Provides operational baseline for Path B engine wiring but additional taxonomy work required (estimated 40+ unmapped atlas cells need manual review, ~70 matrix columns need atlas-cell-contributor lists). The unmapped lists are the explicit TODO for v0.2.",
+  "matching_protocol": {
+    "pooled_matrix_columns": "When matrix column receives contributions from multiple atlas cells (e.g., B_cells \u2190 {B, B-cells_EPIC, Bnv, Bmem, Bcell}), compute matrix-cell A-score as the mean of contributing atlas-cell A-scores.",
+    "tissue_of_origin_matrix_columns": "Tissue-of-origin matrix columns (breast_LE, breast_BE, pancreatic_beta_cells, etc.) map 1:1 to atlas cells of the same name when found, else unmapped.",
+    "compute_match_magnitude_protocol": "For each populated matrix row (disease \u00d7 phase): (1) extract expected_d vector indexed by matrix columns; (2) use this mapping artifact to translate patient 115-cell A-score vector \u2192 123-cell matrix-column-space vector; (3) compute Mahalanobis-style sign-aligned weighted product (NOT raw dot product) weighted by \u221an_contributors per matrix column; (4) return per-row match_magnitude + per-cell contribution decomposition."
+  }
+}

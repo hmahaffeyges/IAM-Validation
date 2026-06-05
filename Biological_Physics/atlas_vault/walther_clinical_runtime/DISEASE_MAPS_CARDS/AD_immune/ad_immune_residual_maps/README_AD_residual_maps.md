@@ -11,7 +11,7 @@ This folder contains the operational artifacts of the AD-immune VAL series (CPG-
 |---|---|---|---|
 | `ad_immune_residual_map_chr_annotated.csv` | Per-CpG residual d AIBL × AddNeuroMed cross-cohort | Step 8.2 per-card residual map overlap | CPG-VAL-013 |
 | `ad_immune_pca_projections.csv` | PC1, PC2, ..., PC10 loadings on 115-cell A-score covariance | Step 8.3 multi-class pattern matching (PC1 T-cell axis check) | CPG-VAL-012 |
-| `ad_immune_bimodality_map.csv` | Placeholder for v3.2 bimodality decomposition | — | — |
+| `ad_immune_bimodality_map.csv` | **NEW 2026-06-05: FULL** per-CpG bimodality decomposition for 6,018 CpGs from AIBL (n=161 AD, n=471 HC). 2.3:1 gain:loss ratio. | Step 8.3 supporting evidence | derived from CPG-VAL-013 cohort |
 
 ## Headline numbers
 
@@ -34,8 +34,15 @@ This folder contains the operational artifacts of the AD-immune VAL series (CPG-
   - Other PCs near null
 - **Note on PC rank:** PC1 is the T-cell axis in AIBL (AD cohort). In breast pre-dx GSE51057+GSE51032, PC2 is the T-cell axis. Same biology, different rank due to cohort age + cohort composition differences. The hypothesis to carry to future cards is "the T-cell axis will be a top PC" — not "PC2 will be the T-cell axis."
 
-### Bimodality map
-- Placeholder only in v3.1. Full decomposition deferred to v3.2.
+### Bimodality map (NEW 2026-06-05)
+
+- **6,018 CpGs** with full per-CpG decomposition from AIBL cohort
+- **673 CpGs GAIN bimodality** in AD cases vs HC (11.2%)
+- **289 CpGs LOSE bimodality** in AD cases vs HC (4.8%)
+- **2.3 : 1 gain : loss ratio** — similar pattern to breast pre-dx (2.77:1) but somewhat weaker
+- **241 CpGs** are cross-referenced with cross-cohort residual concordant strong (`in_residual_concordant=True`)
+- Columns: bc_hc, bc_case, delta_bc, mean_beta_hc, mean_beta_case, sd_beta_hc, sd_beta_case, delta_var, bimodal_in_hc, lost_in_case, loss_of_bimodality, in_residual_concordant
+- Bimodality coefficient computed via Sarle's formula with Pfister-Schwarz correction; threshold for "bimodal" is BC > 5/9 ≈ 0.556
 
 ## How Stage 8 consumes these maps
 
@@ -59,9 +66,12 @@ Per the card's substrate spec, 450K samples require ≥80% CpG coverage of the E
 
 ## What's pending in v3.2
 
-- CHR/MAPINFO genomic annotation columns
-- Full bimodality decomposition (currently placeholder)
+- ~~CHR/MAPINFO genomic annotation columns~~ ✅ DONE 2026-06-05 (lookup from breast residual map; 100% CpG overlap)
+- ~~Full bimodality decomposition~~ ✅ DONE 2026-06-05 (computed from AIBL cohort; see Bimodality map section above)
 - CPG_ad_panel_v1 formal seal as standalone panel artifact + holdout validation on an independent AD cohort
+- Prospective primary-care validation cohort (the big one for AD clinical deployment)
+- Full N7 end-to-end chain-recovery (current N7 is simplified signal-level only)
+- Stage 8 Path B mapping artifact v0.2
 
 ---
 

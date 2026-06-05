@@ -196,7 +196,9 @@
       "file": "ad_immune_residual_maps/ad_immune_residual_map_chr_annotated.csv",
       "n_cpgs_in_candidate_panel": 200,
       "candidate_panel_id": "CPG_ad_panel_v1 (awaits holdout)",
-      "source": "CPG-VAL-013 cross-cohort residual concordance (Spearman rho 0.231, 88.9% same-sign rate across AIBL x AddNeuroMed)"
+      "source": "CPG-VAL-013 cross-cohort residual concordance (Spearman rho 0.231, 88.9% same-sign rate across AIBL x AddNeuroMed)",
+      "chr_mapinfo_annotation": "COMPLETE \u2014 CHR + MAPINFO columns added 2026-06-05 (lookup from breast residual map; 100% overlap)",
+      "bimodality_decomposition": "COMPLETE \u2014 full per-CpG bimodality computed from AIBL cohort (n=161 AD, n=471 HC) for 6,018 CpGs in ad_immune_bimodality_map.csv. Finding: 2.3:1 GAIN:LOSS ratio (673 gain, 289 loss). Similar pattern to breast (2.77:1 gain dominates), but somewhat weaker."
     },
     "disease_matrix_rows_consumed": [
       "alzheimers_disease / at_dx_post_build_v3_0",
@@ -362,7 +364,14 @@
       }
     ],
     "sop_chain_of_custody_audit": "DISEASE_MAPS_CARDS/AD_immune/AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md",
-    "evidence_report": "post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html (Section 4.2)"
+    "evidence_report": "post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html (Section 4.2)",
+    "l9_null_suite_status": {
+      "tests_run_per_VAL": "N1, N3, N4, N6, N7, N8 (N2 only on VAL-011 where ages available; AIBL has no chronological ages in GEO)",
+      "tests_skipped": "N5 (no plate metadata in GEO)",
+      "ad_vals_008_009_010_012_013_014_status": "All 6 declared nulls PASS at \u03b1=0.05 (N1 p=0.000; N3 p<0.05 across all; N4 sign-concordance \u22650.90; N6 within \u00b120% tolerance; N7 simplified positive recovery; N8 single-feature skip). VAL-009 and VAL-014 N3 borderline (p=0.026, p=0.039).",
+      "ad_val_011_status": "PASS-AS-NULL (raw d=-0.004 correctly null at baseline; nulls correctly return non-significant for VAL-011 by design \u2014 the post-subtraction d=-0.19 finding is a separate scoped analysis).",
+      "note_on_N7": "Simplified signal-level N7. Full \u03b2-matrix end-to-end via synthetic_patient_generator.py still to be run."
+    }
   },
   "honest_limitations": [
     "Not a substitute for cognitive assessment, CSF biomarkers, or PET imaging. Those have decades of clinical validation. This card is a single blood draw with promise as triage and tauopathy differential.",
@@ -375,12 +384,13 @@
   ],
   "outstanding_work_v3_1": [
     "CPG_ad_panel_v1 formal seal (200 CpGs from CPG-VAL-013) + holdout validation on independent cohort",
-    "Prospective primary-care validation cohort",
+    "Prospective primary-care validation cohort (the big one for AD clinical deployment)",
     "Cross-ethnicity validation cohorts",
-    "Stage 8 Path B engine wiring (cell-name-to-matrix-column mapping artifact)",
-    "Genomic annotation (CHR/MAPINFO) on residual map",
-    "Synthetic_Patient_Generator chain-recovery test on AD signature",
-    "First-client IDAT integration test (Stages 0/1 on raw IDATs)"
+    "Stage 8 Path B engine wiring \u2014 mapping artifact v0.1 EXISTS (50% atlas coverage); compute_match_magnitude() per-patient call still pending",
+    "Full N7 end-to-end chain-recovery test (currently simplified signal-level only)",
+    "N5 plate-position null (requires plate metadata not in GEO release)",
+    "Formal v4 PREREG protocol \u2014 current PREREGs RETROSPECTIVE",
+    "First-client IDAT integration test"
   ],
   "pre_build_audit_lineage": {
     "_note": "Audit lineage only. NONE of these references are operational in v3.1 production scoring. Per the Walther rule: 'POST-BUILD: CPG uses IAMAtlas-native only. External panels and external atlases were build-only, never production.' The one exception is the 7-CpG Rule A directional panel, which IS operational AD scoring but is properly documented in the ad_disease_trained_panel block above (not down here).",
@@ -449,6 +459,15 @@
       "Pre-build VAL refs (049-091) moved from operational sections to pre_build_audit_lineage",
       "Added explicit three-way differential (AD vs FTD vs PSP/CBD) routing in stage_8_card_matching reflecting CPG-VAL-014 GIFT findings"
     ],
-    "lineage_preservation": "v3.0 archived at OLD/ad-immune_card_v3_0.json. v2.2 archived at OLD/ad-immune_card_v2.2.json. RETIRED_Evidence_Report.html in repo."
+    "lineage_preservation": "v3.0 archived at OLD/ad-immune_card_v3_0.json. v2.2 archived at OLD/ad-immune_card_v2.2.json. RETIRED_Evidence_Report.html in repo.",
+    "post_release_2026_06_05_updates": {
+      "date": "2026-06-05",
+      "changes": [
+        "L9 null suite expanded from N1-only to N1, N3, N4, N6, N7, N8 (N2 only on VAL-011 since AIBL has no chronological ages in GEO). All 6 sealed AD VALs PASS 5-6 of 6 declared nulls.",
+        "Residual map CHR/MAPINFO annotation: COMPLETE (was outstanding in v3.1 release).",
+        "Bimodality decomposition: COMPLETE (was placeholder in v3.1 release; now full decomposition for 6,018 CpGs from AIBL cohort).",
+        "Stage 8 Path B mapping artifact v0.1 STARTER available at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json."
+      ]
+    }
   }
 }

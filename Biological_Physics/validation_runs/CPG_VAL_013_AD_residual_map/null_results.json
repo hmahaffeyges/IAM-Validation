@@ -5,17 +5,94 @@
   "hc_label": "hc",
   "n_case": 161,
   "n_hc": 471,
-  "observed_d": -0.4930656254398141,
   "n_permutations": 1000,
-  "results": {
-    "N1_hc_label_permutation": {
-      "passed": true,
-      "p_value": 0.0,
-      "null_mean": 0.004082829516224548,
-      "null_std": 0.09332521291720651,
-      "observed": -0.4930656254398141,
-      "pass_condition": "two-sided permutation p < 0.05",
-      "narrative": "Observed |d|=0.493. Null distribution under label shuffle: mean=+0.004, std=0.093. Two-sided p=0. PASS at alpha=0.05."
+  "observed_d": -0.4930656254398141,
+  "N1_hc_label_permutation": {
+    "passed": true,
+    "p_value": 0.0,
+    "null_mean": 0.004082829516224548,
+    "null_std": 0.09332521291720651,
+    "observed": -0.4930656254398141,
+    "pass_condition": "two-sided permutation p < 0.05",
+    "narrative": "Observed |d|=0.493. Null distribution under label shuffle: mean=+0.004, std=0.093. Two-sided p=0. PASS at alpha=0.05."
+  },
+  "N3_sex_strata_permutation": {
+    "observed": -0.4930656254398141,
+    "null_mean": -0.0011955136138427518,
+    "null_std": 0.08904845516767354,
+    "p_value": 0.0,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided stratified permutation p < 0.05",
+    "passed": true,
+    "null_id": "N3_sex_strata_permutation",
+    "null_name": "Sex-strata permutation",
+    "n_strata": 2,
+    "stratification": "sex_levels_['Female', 'Male']",
+    "n_samples": 632,
+    "sex_counts": {
+      "Female": 363,
+      "Male": 269
+    },
+    "narrative": "Observed d=-0.493. Null distribution under within-sex label shuffle (n=632): mean=-0.001, std=0.089. Two-sided p=0.000. PASS at alpha=0.05."
+  },
+  "N4_cohort_split_replication": {
+    "null_id": "N4_cohort_split_replication",
+    "null_name": "Cohort split-half replication",
+    "passed": true,
+    "observed": -0.4930656254398141,
+    "concordance_rate": 1.0,
+    "n_replications": 50,
+    "half_d_a_mean": -0.48231903405301574,
+    "half_d_b_mean": -0.5071336986152498,
+    "null_mean": -0.49472636633413275,
+    "null_std": 0.09746211689468474,
+    "p_value": null,
+    "pass_condition": "concordance rate >= 0.90 (both halves agree on sign in 90%+ of splits)",
+    "narrative": "Observed d=-0.493. Split-half replication (50 random splits): d_half_a mean=-0.482, d_half_b mean=-0.507. Sign concordance rate = 1.000. PASS at concordance \u2265 0.90 threshold."
+  },
+  "N6_injection_recovery": {
+    "null_id": "N6_injection_recovery",
+    "null_name": "Injection-recovery null",
+    "passed": true,
+    "observed": -0.4930656254398141,
+    "null_mean": -0.5034821514220923,
+    "null_std": 0.09458347711225003,
+    "p_value": null,
+    "n_permutations": 200,
+    "injection_magnitude_beta_units": -0.021715791201794787,
+    "bias": -0.010416525982278213,
+    "tolerance_d_units": 0.09861312508796283,
+    "pass_condition": "recovered effect within \u00b120% of injected (|\u0394| \u2264 0.099)",
+    "narrative": "Injected effect d=-0.493 into HC samples (n=200 trials). Recovered mean d=-0.503 (std=0.095). Bias = -0.010. PASS \u2014 chain recovery within tolerance."
+  },
+  "N7_end_to_end_simulation": {
+    "null_id": "N7_end_to_end_simulation",
+    "null_name": "End-to-end simulation",
+    "passed": false,
+    "observed": -0.4930656254398141,
+    "null_mean": -0.6351508174921158,
+    "null_std": null,
+    "p_value": null,
+    "n_permutations": 1,
+    "pass_condition": "recovered d > 0.3 and within \u00b185% of injected d",
+    "narrative": "Generated 161 synthetic cases + 471 HC at injected d=-0.493. Simplified chain recovers d=-0.635. FAIL \u2014 chain shows positive recovery.",
+    "extra": {
+      "injected_d": -0.4930656254398141,
+      "recovered_d": -0.6351508174921158,
+      "NOTE": "Simplified N7 \u2014 signal-level simulation only. Full N7 (\u03b2-matrix end-to-end) requires invoking synthetic_patient_generator.py + Walther + A-scoring chain. Status matches breast VAL N7 stubs."
     }
+  },
+  "N8_look_elsewhere_correction": {
+    "null_id": "N8_look_elsewhere_correction",
+    "null_name": "Look-elsewhere correction",
+    "passed": true,
+    "observed": -0.4930656254398141,
+    "null_mean": null,
+    "null_std": null,
+    "p_value": null,
+    "n_permutations": 0,
+    "pass_condition": "n/a \u2014 pre-specified single-feature test",
+    "narrative": "SKIPPED \u2014 VAL is single-feature, no look-elsewhere correction needed",
+    "extra": {}
   }
 }

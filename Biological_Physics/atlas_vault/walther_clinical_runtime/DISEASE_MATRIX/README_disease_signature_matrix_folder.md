@@ -27,6 +27,7 @@ The matrix is paired with an engine schema document that defines how Stage 8 Pat
 |---|---|
 | `disease_cell_signature_matrix_v1_7.csv` | The current lookup table (81 rows × 131 columns) |
 | `disease_cell_signature_matrix_engine_schema_v1_2.md` | The contract — defines column structure, value-encoding rules, the `compute_match_magnitude()` function spec, the `compute_customer_tier()` mapping, and the maintenance protocol |
+| `iamatlas_115_to_matrix_v1_7_mapping.json` | **NEW 2026-06-05.** Stage 8 Path B mapping artifact v0.1 — maps the 115 IAMAtlas cell-type names to the 123 matrix cell-type columns. 58 atlas cells mapped (50.4% coverage); 49 matrix columns with at least one atlas contributor (39.8% coverage). v0.1 is a STARTER — v0.2 manual taxonomy curation outstanding for remaining unmapped cells. |
 | `README.md` (this file) | Folder orientation, version log, current state |
 | `OLD/` | Archived prior versions (v1.0 through v1.6 of the matrix; v1.1 of the schema) |
 
@@ -65,8 +66,8 @@ Stage 8 Path A (card-driven) is currently the operational path for per-patient r
 
 ## What this matrix does NOT do (yet)
 
-1. **Per-patient matching is not wired.** The matrix is read-only data right now. The `compute_match_magnitude()` engine is specced; implementation is outstanding.
-2. **The 77 pre-build rows are not validated with current methodology.** They serve as look-up entries pending future CPG-VAL-NNN anchoring.
+1. **Per-patient matching is not wired.** The matrix is read-only data right now. The `compute_match_magnitude()` engine is specced. **NEW 2026-06-05:** The cell-name-to-matrix-column mapping artifact v0.1 starter is now available at `iamatlas_115_to_matrix_v1_7_mapping.json` (50% atlas coverage). v0.2 manual taxonomy curation + engine implementation outstanding.
+2. **The 76 pre-build rows are not validated with current methodology.** They serve as look-up entries pending future CPG-VAL-NNN anchoring.
 3. **No customer-facing reports use the matrix yet.** All current per-patient output goes through Stage 8 Path A (card-driven, where the card directly asserts the disease pattern).
 
 ---

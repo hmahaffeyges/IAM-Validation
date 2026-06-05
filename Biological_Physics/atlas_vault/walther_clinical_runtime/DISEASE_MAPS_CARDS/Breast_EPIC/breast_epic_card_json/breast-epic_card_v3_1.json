@@ -173,7 +173,9 @@
       "source": "CPG-VAL-003 cross-cohort residual concordance",
       "overlap_method": "Pearson correlation of patient per-CpG departure (post-Stage 3) with residual map signed Cohen's d, with Fisher z-transform CI",
       "overlap_threshold": 0.1,
-      "ci_required": true
+      "ci_required": true,
+      "chr_mapinfo_annotation": "COMPLETE \u2014 CHR + MAPINFO columns present (per Illumina EPIC manifest merge)",
+      "bimodality_decomposition": "COMPLETE \u2014 full per-CpG bimodality (bc_hc, bc_case, delta_bc, mean_beta, sd_beta, delta_var, bimodal_in_hc, lost_in_case, loss_of_bimodality, in_residual_concordant) for 8,199 CpGs in breast_epic_bimodality_map.csv"
     },
     "disease_matrix_rows_consumed": [
       "breast_cancer / long_pre_dx_post_build_v3_0"
@@ -297,7 +299,14 @@
       }
     ],
     "sop_chain_of_custody_audit": "DISEASE_MAPS_CARDS/Breast_EPIC/BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md",
-    "evidence_report": "post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html (Section 4.1)"
+    "evidence_report": "post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html (Section 4.1)",
+    "l9_null_suite_status": {
+      "tests_run_per_VAL": "N1, N2, N3, N4, N6, N7, N8",
+      "tests_skipped": "N5 (no plate metadata in GEO)",
+      "breast_vals_001_002_003_005_007_status": "All 7 nulls PASS at p<0.05 (N1-N4 p=0.000; N6 within \u00b120% tolerance; N7 simplified; N8 single-feature skip)",
+      "breast_vals_004_006_status": "RESTATE \u2014 direction-reversed by null suite (004) and lost Bonferroni (006)",
+      "note_on_N7": "Simplified signal-level N7. Full \u03b2-matrix end-to-end via synthetic_patient_generator.py still to be run."
+    }
   },
   "honest_limitations": [
     "Does not diagnose breast cancer. Detects a methylation pattern statistically associated with future clinical diagnosis in two cohorts.",
@@ -309,12 +318,12 @@
   ],
   "outstanding_work_v3_1": [
     "CPG_breast_panel_v1 formal seal (1,392 CpGs from CPG-VAL-003) + holdout validation on independent cohort",
-    "Stage 8 Path B engine wiring (cell-name-to-matrix-column mapping artifact)",
-    "Genomic annotation (CHR/MAPINFO) on residual map",
-    "Full bimodality decomposition (placeholder currently)",
+    "Stage 8 Path B engine wiring \u2014 mapping artifact v0.1 EXISTS at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json (50% atlas coverage); v0.2 manual taxonomy review needed for remaining 50%; compute_match_magnitude() per-patient engine call still to be implemented",
     "Cross-ethnicity validation cohorts (Asian, African, Latin-American)",
-    "Synthetic_Patient_Generator chain-recovery test on breast signature",
-    "First-client IDAT integration test (Stages 0/1 on raw IDATs)"
+    "Full N7 end-to-end chain-recovery test (currently simplified signal-level only; full \u03b2-matrix end-to-end via synthetic_patient_generator.py + Walther + A-scoring chain not yet run)",
+    "N5 plate-position null (requires plate metadata not in GEO release)",
+    "Formal v4 PREREG protocol (PREREG sealed BEFORE rerun + sealed reproducer script) \u2014 current PREREGs are RETROSPECTIVE",
+    "First-client IDAT integration test (Stages 0/1 untested on raw IDATs)"
   ],
   "pre_build_audit_lineage": {
     "_note": "This block preserves pre-build evidence for historical/audit lineage only. NONE of these references are operational in the v3.1 production scoring chain. The current production scoring uses ONLY the modules and methods declared in stages 2 through 8 above. Pre-build panels and atlases were used during the IAMAtlas BUILD phase to calibrate the post-build instrument; they are not run on production samples. Per the Walther rule: 'POST-BUILD: CPG uses IAMAtlas-native only. External panels (Xu-538/Loyfer/Salas/UniLIFE) are build-only, never production.'",
@@ -402,6 +411,15 @@
       "substrate + platforms_supported (operational eligibility)",
       "Stage 8 card_never_fires_on_one_tile_rule"
     ],
-    "lineage_preservation": "v3.0 archived at OLD/breast-epic_card_v3_0.json. v2.3 archived at OLD/breast-epic_card_v2_3.json. Pre-build evidence catalog preserved in pre_build_audit_lineage block. RETIRED_Evidence_Report.html still in repo at post_build_evidence/."
+    "lineage_preservation": "v3.0 archived at OLD/breast-epic_card_v3_0.json. v2.3 archived at OLD/breast-epic_card_v2_3.json. Pre-build evidence catalog preserved in pre_build_audit_lineage block. RETIRED_Evidence_Report.html still in repo at post_build_evidence/.",
+    "post_release_2026_06_05_updates": {
+      "date": "2026-06-05",
+      "changes": [
+        "L9 null suite expanded from N1-only to N1, N2, N3, N4, N6, N7, N8 (N5 requires unavailable plate metadata). All 5 sealed breast VALs PASS all 7 declared nulls.",
+        "Residual map CHR/MAPINFO annotation: COMPLETE (was outstanding in v3.1 release).",
+        "Bimodality decomposition: COMPLETE for 8,199 CpGs (was already complete in v3.1 \u2014 outstanding_work_v3_1 listing of \"placeholder currently\" was incorrect; corrected here).",
+        "Stage 8 Path B mapping artifact v0.1 STARTER built: DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json (50% atlas cell coverage; v0.2 manual taxonomy curation outstanding)."
+      ]
+    }
   }
 }
