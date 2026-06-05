@@ -136,7 +136,7 @@ For complete validation detail, see the evidence report `post_build_evidence/v5_
 
 ---
 
-## Outstanding follow-up work (carry-forward to v3.1)
+## Outstanding follow-up work (carry-forward to v3.2)
 
 1. CPG_breast_panel_v1 (1,392 concordant CpGs seeded from CPG-VAL-003, 1,389 of which are not in Xu-538) — formal seal + holdout validation on an independent cohort
 2. CHR/MAPINFO genomic annotation on residual map
@@ -156,7 +156,8 @@ For complete validation detail, see the evidence report `post_build_evidence/v5_
 | v3.0 | 2026-06-02 | Strict additive bump from v2.3. New card uses CPG_breast_panel_v1 seed (1,392 concordant CpGs from CPG-VAL-003) instead of Xu-538. Pre-build VAL evidence retained as audit lineage. |
 | v3.0 + retrofit | 2026-06-03 | Both cohorts re-streamed from GEO with SHA-256 tracking. Arm parser bug fixed (was labeling all samples HC). All SOP stages re-run on both cohorts. Per-VAL bundles created. Stage 1 reproduction PASS. |
 | **v3.0 + README rewrite** | **2026-06-04** | **README rewritten clean** with current methodology focus and plain-language clinical findings sections. Dropped extensive pre-build-era Xu-538 + Moss 2018 + Salas 2018 references in the operational sections (preserved as historical lineage in this version log). v2.3 README archived at `OLD/breast-epic_README_v2_3.md`. |
+| **v3.1** | **2026-06-05** | **Full clean rewrite of card JSON aligned to SOP v1.2 chain-of-custody stages.** v3.0 was a 'strict additive over v2.3' bump that preserved the v2.3 pre-build operational logic (Xu-538 / Moss 2018 NNLS / Salas 2018) byte-for-byte with a small post-build addendum bolted on. v3.1 rewrites the operational sections to use only the current production methodology (Walther IAM Deconvolver / NILC v2 / IAMAtlas REBUILD / 8-class A-scoring / 115-cell fan-out / Mahalanobis hyper-volume / cellular age / tier breakpoints). Pre-build references confined to a `pre_build_audit_lineage` block at the bottom of the card JSON. Card v3.1 is 406 lines vs v3.0's 1,012 lines. v3.0 card archived at `OLD/breast-epic_card_v3_0.json`. |
 
 ---
 
-*Companion documents in this card folder: `breast-epic_card_v3_1.json` (card spec), `breast-epic_v3_0_release_notes.md` (technical changelog for v3.0 bump). Companion documents in card parent folder: `BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `WORK_IN_PROGRESS.md`, `breast_epic_residual_maps/`.*
+*Companion documents in this card folder: `breast-epic_card_v3_1.json` (card spec), `breast-epic_v3_1_release_notes.md` (technical changelog for v3.1 rewrite). `breast-epic_v3_0_release_notes.md` (v3.0 historical release notes). Companion documents in card parent folder: `BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `WORK_IN_PROGRESS.md`, `breast_epic_residual_maps/`.*

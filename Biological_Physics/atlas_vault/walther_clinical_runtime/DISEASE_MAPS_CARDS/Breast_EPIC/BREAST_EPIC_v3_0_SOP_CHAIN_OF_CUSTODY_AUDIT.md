@@ -1,5 +1,8 @@
 # Breast-EPIC Card v3.0 — SOP Chain-of-Custody Audit
 
+> **Applicability note (added 2026-06-05):** This SOP chain-of-custody audit was authored for card v3.0 but **also fully applies to card v3.1**. v3.1 is a clean rewrite of the card JSON framing — it did NOT change the underlying SOP chain-of-custody, the computation, the cohorts, the effect sizes, or the L9 null suite results. Every CPG-VAL referenced in this audit still runs through the same L1-L9 chain in v3.1. The only thing that changed between v3.0 and v3.1 is how the card describes itself (operational sections now use current methodology names instead of pre-build framing). This audit's findings remain valid.
+
+
 **Date:** 2026-06-03
 **Purpose:** Retrospective audit + retrofit of the Breast Family A VALs (CPG-VAL-001 through CPG-VAL-007) to the same chain-of-custody completeness as the AD-immune Family B VALs (CPG-VAL-008 through CPG-VAL-014). Heath's 2026-06-03 directive: "go back and finish the breast properly following our new testing checklist and get it to the same standard."
 

@@ -1,5 +1,8 @@
 # AD-immune Card v3.0 — SOP Chain-of-Custody Audit
 
+> **Applicability note (added 2026-06-05):** This SOP chain-of-custody audit was authored for card v3.0 but **also fully applies to card v3.1**. v3.1 is a clean rewrite of the card JSON framing — it did NOT change the underlying SOP chain-of-custody, the computation, the cohorts, the effect sizes, or the L9 null suite results. Every CPG-VAL referenced in this audit still runs through the same L1-L9 chain in v3.1. The only thing that changed between v3.0 and v3.1 is how the card describes itself (operational sections now use current methodology names instead of pre-build framing). This audit's findings remain valid.
+
+
 **Date:** 2026-06-03
 **Purpose:** Honest accounting of which SOP v1.2 stages were utilized in the AD-immune Phase 2 work, where each output lives, and what was deferred.
 **Reason:** Heath's directive 2026-06-03 — "Did you confirm every part of the chain of custody in the SOP was utilized if possible? We want to use all of the parts of the running pipeline to make sure we get the most accurate and informative data possible, but also to work out any bugs that could arise when we are testing the future IDAT/EPIC files from our first clients."

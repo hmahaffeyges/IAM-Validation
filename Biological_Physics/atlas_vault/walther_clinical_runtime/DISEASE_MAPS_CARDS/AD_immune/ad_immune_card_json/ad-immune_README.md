@@ -157,7 +157,7 @@ For the 13-item AD-specific Lessons Learned section (insights that don't fit in 
 
 ---
 
-## Outstanding follow-up work (carry-forward to v3.1)
+## Outstanding follow-up work (carry-forward to v3.2)
 
 1. CPG_ad_panel_v1 (200-CpG candidate panel from CPG-VAL-013) — formal seal + holdout validation on an independent cohort
 2. Prospective primary-care cohort validation
@@ -177,7 +177,8 @@ For the 13-item AD-specific Lessons Learned section (insights that don't fit in 
 | v3.0 | 2026-06-02 | Strict additive bump from v2.2. Three cohorts (AIBL + AddNeuroMed + GSE53740 GIFT) added. CPG_ad_panel_v1 candidate seeded (200 CpGs from CPG-VAL-013). Card uses the current Walther / Mahalanobis / NILC v2 / cellular age methodology. |
 | v3.0 + Phase 2 SOP completion | 2026-06-03 | All 7 VAL bundles formalized at `validation_runs/CPG_VAL_NNN_AD_*/`. Three cohort folders fully populated. SOP chain-of-custody audit document published. 13-item Lessons Learned section added to release notes. |
 | **v3.0 + README rewrite** | **2026-06-04** | **README rewritten clean** with current methodology focus and plain-language clinical findings sections. v2.2 README archived at `OLD/ad-immune_README_v2_2.md`. |
+| **v3.1** | **2026-06-05** | **Full clean rewrite of card JSON aligned to SOP v1.2 chain-of-custody stages.** v3.0 was a 'strict additive over v2.2' bump that preserved the v2.2 pre-build operational logic (Moss 2018 NNLS / Salas 2018 / Loyfer/Moss array atlas as Stages 1/2/3) byte-for-byte with a post-build addendum bolted on. v3.1 rewrites operational sections to use only current production methodology. **Important distinction from breast-epic v3.1: the 7-CpG Rule A directional panel IS legitimate operational AD scoring** (disease-trained, AUC 0.84 vs universal Mahalanobis AUC 0.62 on AIBL holdout — OPPOSITE of breast pre-dx where universal beats disease-trained). Rule A documented as `ad_disease_trained_panel` block in operational sections, NOT confined to audit lineage. Stage 8 matching has three routes (AD / PSP-CBD / FTD) reflecting CPG-VAL-014 GIFT three-way specificity findings. Card v3.1 is 453 lines vs v3.0's 751 lines. v3.0 card archived at `OLD/ad-immune_card_v3_0.json`. |
 
 ---
 
-*Companion documents in this card folder: `ad-immune_card_v3_1.json` (card spec), `ad-immune_v3_0_release_notes.md` (technical changelog + 13-item AD-specific Lessons Learned). Companion documents in card parent folder: `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `ad_immune_residual_maps/`.*
+*Companion documents in this card folder: `ad-immune_card_v3_1.json` (card spec), `ad-immune_v3_1_release_notes.md` (technical changelog for v3.1 rewrite). `ad-immune_v3_0_release_notes.md` (v3.0 historical release notes + 13-item AD-specific Lessons Learned). Companion documents in card parent folder: `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `ad_immune_residual_maps/`.*

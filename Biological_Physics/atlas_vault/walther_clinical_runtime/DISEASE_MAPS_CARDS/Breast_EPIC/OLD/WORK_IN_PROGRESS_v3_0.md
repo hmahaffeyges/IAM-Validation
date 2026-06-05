@@ -1,10 +1,10 @@
-# Breast-EPIC Card v3.1 — Work Status
+# Breast-EPIC Card v3.0 — Work in Progress
 
-**Last updated:** 2026-06-05 (v3.1 clean rewrite)
+**Last updated:** 2026-06-03
 
-## Status: v3.1 RELEASED — Card JSON rewritten clean to SOP v1.2 chain-of-custody alignment
+## Status: SUBSTANTIVELY COMPLETE + RETROFIT TO STANDARD
 
-The breast-epic card and its 7 VALs (CPG-VAL-001 through CPG-VAL-007) have been brought up to full SOP v1.2 chain-of-custody completeness. v3.1 (2026-06-05) is a clean rewrite of the card JSON itself — removing the 'strict additive over v2.3' framing that preserved pre-build operational logic byte-for-byte, and replacing it with operational sections built directly on the current production methodology (Walther IAM Deconvolver / NILC v2 / IAMAtlas REBUILD / 8-class A-scoring / 115-cell fan-out / Mahalanobis hyper-volume / cellular age / tier breakpoints). Pre-build references confined to a `pre_build_audit_lineage` block at the bottom of the card JSON.
+The breast-epic v3.0 card and its 7 Family A VALs (CPG-VAL-001 through CPG-VAL-007) have been brought up to the same chain-of-custody completeness as the AD-immune Family B VALs.
 
 ## Completed (2026-06-03 retrofit commit)
 
@@ -24,21 +24,7 @@ The breast-epic card and its 7 VALs (CPG-VAL-001 through CPG-VAL-007) have been 
 - [x] Residual maps (chr_annotated, pca_projections, bimodality, README — from prior commit)
 - [x] Disease matrix v1.5 row populated (from prior commit)
 
-
-## v3.1 release (2026-06-05)
-
-- [x] Card JSON v3.0 → v3.1 clean rewrite (1,012 → 406 lines)
-- [x] Pre-build operational sections (Xu-538 Stage 1, Moss 2018 NNLS Stage 2, Salas 2018 Stage 3) replaced with current methodology
-- [x] Pre-build references confined to `pre_build_audit_lineage` block
-- [x] Stage 8 matching rules made explicit (Route A universal Mahalanobis architectural; Route B per-cell tissue-of-origin)
-- [x] Card field structure aligned to SOP v1.2 stage numbers (stage_2_deconvolution / stage_3 / stage_4 / stage_5 / stage_6 / stage_7 / stage_8_card_matching)
-- [x] Disease matrix v1.6 → v1.7 with strict additive `breast_cancer / long_pre_dx_post_build_v3_0` row (mirroring AD v1.6 pattern; original row 1 retained as audit lineage)
-- [x] Residual map README rewritten with Stage 8 §66 consumption pattern documentation
-- [x] v3.0 card archived at `OLD/breast-epic_card_v3_0.json`
-- [x] v1.6 matrix archived at `DISEASE_MATRIX/OLD/disease_cell_signature_matrix_v1_6.csv`
-- [x] Cross-references v1.6 → v1.7 synced across evidence report + inventory reports + README
-
-## Outstanding (carry-forward to v3.2)
+## Outstanding (carry to v3.1)
 
 - [ ] GSE51057 Stage 1 anchor reproduction computation (Mahalanobis d vs +1.876 anchor) — pending one tool call
 - [ ] Stage 8 Path B engine wiring (cell-name-to-matrix-column mapping artifact)
