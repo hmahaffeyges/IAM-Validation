@@ -530,46 +530,70 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 
 ---
 
-## §59. Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json`)
+## §59. Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json v1.2`)
 
-**What this step does.** For each architectural class, maps the patient's A-score to an engine tier using the breakpoints in `tier_breakpoints.json`. The breakpoints are pre-specified (1.05 / 1.07 / 1.10) and frozen.
+**What this step does.** For each architectural class, maps the patient's A-score to an engine tier using the 6-tier physics-derived breakpoints in `tier_breakpoints.json v1.2`. The breakpoints are universal (same across all classes); per-class structural ceilings (1/H_min) cap the highest reachable tier per class.
 
-**Inputs.** Per-class A from Stage 4 (§46) + `tier_breakpoints.json`.
+**Inputs.** Per-class A from Stage 4 (§46) + per-class A 95% CI propagated from MCMC posteriors + patient intake covariates (for the override modes) + `tier_breakpoints.json v1.2` + (optional) Stage 4.5 directional composite from §46.5 if FLAG_BIDIRECTIONAL is set.
 
-**Atlas reference.** Indirect (breakpoints derived from IAMAtlas HC distribution).
+**Atlas reference.** Indirect: structural ceiling per class is `1 / H_min(class)` from the frozen MCMC posteriors (G-003b freeze 2026-04-06). Tier breakpoints (1.07 Warburg + 1.10 breach) are physics-defined inflection points, not statistical percentiles.
 
-**Files invoked.** `tier_breakpoints.json` (sha-pinned in repo). Card scoring module consumes the JSON via a small helper.
+**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Tier_breakpoints/tier_breakpoints.json` (v1.2). Engine consumes the JSON via a small helper. v0 4-tier statistical-percentile predecessor archived in `Tier_breakpoints/OLD/tier_breakpoints_v0_4tier_statistical.json`.
 
-**The math.** Per class `c`:
+**The math.** Per class `c`, using the 6-tier system v1.2:
 
-| Engine tier | Condition |
-|---|---|
-| BELOW_NORMAL | A[c] significantly below age-matched expectation (percentile < 10 at Stage 6) |
-| NORMAL | A[c] ≤ 1.05 |
-| MARGINAL | 1.05 < A[c] ≤ 1.07 |
-| DETECTABLE | 1.07 < A[c] ≤ 1.10 |
-| URGENT | 1.10 < A[c] ≤ class_ceiling[c] |
-| FLOOR_BREACH | A[c] > class_ceiling[c] |
+| Engine tier | Condition | Customer label | Physics meaning |
+|---|---|---|---|
+| SUPPRESSED | A[c] < 0.95 | Suppressed | Below baseline — context-dependent (treatment/transplant/immunosuppression) |
+| NORMAL | 0.95 ≤ A[c] < 1.04 | Normal | Within healthy sampling variance |
+| ELEVATED | 1.04 ≤ A[c] < 1.07 | Elevated | Recoverable drift; intervention window |
+| WARBURG_TRANSITION | 1.07 ≤ A[c] < 1.10 | Warburg Transition | **1.07 Warburg line** — intervention character changes from "add fuel" to "restrict and rebuild" |
+| SIGNIFICANTLY_ELEVATED | 1.10 ≤ A[c] < 1.12 | Significantly Elevated | Structural-fidelity breach territory; trajectory direction is primary read |
+| BREACH | A[c] ≥ 1.10 sustained OR A[c] ≥ 1.12 single-timepoint | Breach | **1.10 architectural-fidelity breach line** — prompt for clinical workup; NOT a diagnosis |
 
-`class_ceiling[c]` is the upper-bound breakpoint per class, also in `tier_breakpoints.json`. Above this, the patient is flagged as having departed beyond expected range.
+Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.json v1.2): if a class's `1/H_min` is below 1.10, the BREACH tier is structurally unreachable for that class. stem_pluri (ceiling 1.0181) is structurally blind for BREACH; SIGNIFICANTLY_ELEVATED is the practical ceiling. Runtime saturation margin: 0.005 below the ceiling, engine emits SATURATED flag.
 
-**CMB equivalent.** **Significance tier of a cosmological measurement** (3σ / 5σ thresholds for "evidence" / "discovery" / "ruled out"). Planck's parameter inference produces continuous posteriors; the tier breakpoints turn them into actionable categories.
+**Override modes (v1.2):** Per the patient intake covariates routed at BUILD_SPEC v1.2 §4.5, the standard 6-tier output is replaced with mode-specific interpretation when triggered:
+- **EXPECTED_SUPPRESSION** (current_immunosuppression / transplant_status) — SUPPRESSED reading interpreted as therapeutically expected
+- **TRAJECTORY_WATCH** (autoimmune / chronic inflammatory / HIV+ treated) — ELEVATED floor shifted upward to 1.10; trajectory is primary
+- **TREATMENT_RESPONSE** (current_cancer_in_treatment) — trajectory framing across treatment timepoints
+- **CONTEXT_PREGNANCY** / **POSTPARTUM** — physiological immune shift framing
+- **CONTEXT_HRT_BASELINE** — HRT-stratified baseline (CPG-VAL-018)
+- **CONTEXT_WEIGHT_LOSS_INTERVENTION** (GLP-1 / bariatric) — expected anti-inflammatory trajectory (CPG-VAL-021)
 
-**How the methylome differs in implementation.** Tier breakpoints are A-score thresholds rather than σ-departures from a null. The cosmology analog is identical: pre-specified breakpoints turn a continuous measurement into a tiered decision.
+**Smoking-bin interim mitigation (v1.2; retires when `IAMAtlas_smoking_layer.csv` fit at v1.3):** ELEVATED floor shifted by smoking_bin: current=1.10 / former_0_5y=1.08 / former_5_15y=1.07 / former_15plus_y=1.05 / never=1.04.
 
-**How it's the same in principle.** Continuous → discrete via pre-specified thresholds. The thresholds are framework-internal constants; the operation is framework-agnostic.
+**Bidirectional pattern handoff (v1.2):** When Stage 4.5 (§46.5) sets `FLAG_BIDIRECTIONAL = True` for a class, this step uses the directional composite (signed) rather than the pooled A-score to drive tier reporting. Mapping per `bidirectional_pattern_handoff.directional_composite_tier_mapping`:
+- |a_dir| < 0.40 → NORMAL
+- 0.40 ≤ |a_dir| < 0.80 → ELEVATED
+- 0.80 ≤ |a_dir| < 1.20 → WARBURG_TRANSITION
+- 1.20 ≤ |a_dir| < 1.60 → SIGNIFICANTLY_ELEVATED
+- |a_dir| ≥ 1.60 → BREACH-ANALOG
 
-**Outputs.** Per-patient per-class engine tier (8 values from the enum above).
+**Tier confidence propagation (v1.2):** Tier confidence is the probability of A falling in each tier under the MCMC-propagated posterior distribution. When |P(primary_tier) − P(second_max_tier)| < 0.20, engine emits BORDERLINE_TIER flag and customer report says "your reading straddles the {tier_A}/{tier_B} boundary."
 
-**Decision points.** None — pure mapping.
+**CMB equivalent.** Significance tier of a cosmological measurement (3σ / 5σ thresholds), but with physics-defined inflection points rather than statistical percentiles. The 1.07 Warburg line is analogous to a phase-transition threshold in cosmology — the same intervention has different effects above and below the line.
 
-**Failure modes.** None at this step (downstream may flag if multiple FLOOR_BREACH or URGENT tiers fire).
+**How the methylome differs in implementation.** The 1.07 Warburg line + 1.10 breach line are framework-internal physics inflection points, not statistical percentiles relative to a null. The 6-tier system also propagates CI-based tier confidence forward (BORDERLINE_TIER) and supports covariate-conditional override modes — neither has a direct CMB analog.
 
-**Canonical cross-references.** Recipe §7 (tier specification).
+**How it's the same in principle.** Continuous → discrete via pre-specified thresholds + forward propagation of measurement uncertainty into the tier confidence.
 
-**CPG Plate references.** None.
+**Outputs.** Per-patient per-class:
+- Primary engine tier (one of 6)
+- Customer-facing label (matching engine label v1.2)
+- BORDERLINE_TIER flag (when tier-boundary straddler detected)
+- Override mode in effect (when covariate-triggered)
+- Customer paragraph (rendered from tier × override-mode lookup)
 
-**Chain-link assignment.** L8 (parameter inference — discrete tier readout).
+**Decision points.** Override modes activate via covariate-trigger lookup; bidirectional handoff activates when Stage 4.5 set FLAG_BIDIRECTIONAL; smoking-bin floor-shift activates pre-Stage-3-foreground-fit.
+
+**Failure modes.** None at this step (pure mapping). Downstream Stage 8 evaluates multi-class breach + override-mode compatibility.
+
+**Canonical cross-references.** BUILD_SPEC v1.2 §5 Stage 7 + §3.4 (tier_breakpoints v1.2 schema). Recipe §7 (tier specification).
+
+**CPG Plate references.** None directly.
+
+**Chain-link assignment.** L8 (parameter inference — discrete tier readout with forward CI propagation).
 
 ---
 

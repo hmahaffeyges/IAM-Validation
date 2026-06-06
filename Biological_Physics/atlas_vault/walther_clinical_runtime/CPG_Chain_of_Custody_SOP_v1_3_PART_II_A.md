@@ -1188,34 +1188,38 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 
 **What this step does.** Removes the per-CpG sex-specific methylation component. Methylation patterns differ systematically between males and females at many autosomal CpGs (not just chrX/chrY). For multi-sex cohorts, subtracting this foreground prevents sex from contaminating the disease signal.
 
-**Inputs.** β_corrected from §35 + patient's declared sex (from manifest, validated at §18).
+**Inputs.** β_corrected from §35 + patient's declared sex_at_birth (from intake questionnaire q06 / manifest, validated at §18).
 
-**Atlas reference.** **Currently not implemented at production grade** — the Roadmap Phase B4 (sex foreground module) is pending. The SOP declares this step as future work.
+**Atlas reference.** `IAMAtlas_sex_layer.csv` — per-CpG (α, ψ_male, R², n_samples, is_chr_x, is_chr_y, x_inactivation_flag). Built once via `SexAxisForeground.fit()` on the n_hc=601 HC cohort with sex-at-birth metadata; cached as a frozen runtime artifact. **Module BUILT (v1.2); layer CSV pending v1.3 fit on n_hc=601.**
 
-**Files invoked.** *Future:* `[Phase B4 deliverable per Roadmap §10.2.2 — module not yet built]`. Currently: SKIP if no module is loaded.
+**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/sex_axis_foreground.py` — `class SexAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, sex_at_birth)`.
 
-**The math.** *When implemented:* Per CpG i:
-> **β_corrected[i] = β_observed[i] − δ_i × sex_indicator**
+**The math.** Per CpG i:
+> **β_corrected[i] = β_observed[i] − ψ_i × indicator_male**
 
-where δ_i is the per-CpG female-vs-male shift (learned from same-cohort HC by sex) and sex_indicator ∈ {−1, +1} maps {male, female} respectively. Centered so the cohort mean is zero across sexes.
+where ψ_i is the per-CpG male-vs-female shift (learned on HC samples by OLS regression of β on sex indicator), and indicator_male ∈ {0, 1} for {female, male} respectively. Intercept α_i NOT subtracted — preserves per-CpG baseline. For female samples (indicator=0), no subtraction. For male samples, ψ_i subtracted.
 
-**CMB equivalent.** This is **secondary foreground subtraction** — like removing synchrotron emission after dust. Each foreground has its own template and subtraction operator.
+Special handling of sex chromosomes:
+- **chrY CpGs** carry `is_chr_y` flag; for female samples these CpGs are masked entirely (no Y chromosome) rather than subtracted.
+- **chrX CpGs** carry `is_chr_x` flag; high-|ψ| chrX CpGs (above 0.20 threshold) additionally carry `x_inactivation_flag` to mark XCI-driven shifts that reflect X-inactivation biology, not disease-relevant signal.
 
-**How the methylome differs in implementation.** Currently unimplemented. The SOP declares this as Phase B4 work.
+**CMB equivalent.** Secondary foreground subtraction — like removing synchrotron emission after dust. Each foreground has its own template and subtraction operator. Sex acts as a known, frozen, additive component.
 
-**How it's the same in principle.** When implemented, it follows the same pattern as age-axis subtraction.
+**How the methylome differs in implementation.** Sex-chromosome handling (chrX/chrY) has no CMB analog — the framework simply masks chrY for female samples and flags chrX XCI loci.
 
-**Outputs.** *When implemented:* β_corrected matrix with sex component removed.
+**How it's the same in principle.** Identical to age-axis subtraction (§35): per-CpG OLS coefficient frozen at training time + linear subtraction at runtime.
 
-**Decision points.** Currently: PASS THROUGH (no correction applied). Future: apply correction, proceed to §37.
+**Outputs.** β_corrected matrix with sex component removed; chrY mask flag for female samples; x_inactivation flag per CpG for downstream consumer transparency.
 
-**Failure modes.** *When implemented:* same pattern as age foreground.
+**Decision points.** v1.2 default behavior: PASS THROUGH (no correction applied) until `IAMAtlas_sex_layer.csv` is fit at v1.3. Stage 7 sex-stratified threshold tables in `tier_breakpoints.json v1.2` absorb the bulk effect as interim mitigation. After v1.3 layer fit: apply correction, proceed to §37; Stage 7 sex-stratification retires.
 
-**Canonical cross-references.** Roadmap §10.2.2 B4 (foreground modules pending).
+**Failure modes.** Same pattern as age foreground (§35). Additionally: missing sex_at_birth in intake → cannot apply subtraction → audit trail flags STAGE_3_SEX_FOREGROUND_SKIPPED_NO_METADATA.
+
+**Canonical cross-references.** BUILD_SPEC v1.2 §3.3 (module table) + §5 Stage 3 (sequence). Roadmap §10.2.2 B4 (now built; layer fit scheduled v1.3).
 
 **CPG Plate references.** Not yet applicable.
 
-**Chain-link assignment.** L4 (secondary).
+**Chain-link assignment.** L4 (secondary foreground).
 
 ---
 
@@ -1283,35 +1287,45 @@ where δ_i is the per-CpG female-vs-male shift (learned from same-cohort HC by s
 
 ---
 
-### §39. Step 3.5 — Smoking-axis foreground subtraction (when card requires it)
+### §39. Step 3.5 — Smoking-axis foreground subtraction
 
-**What this step does.** Removes per-CpG smoking-status-specific methylation differences. Several disease cards (notably lung-epic) have smoking status as a known covariate that confounds the disease signal. Smoking foreground subtraction is card-conditional — it runs only when the card declares smoking as a covariate.
+**What this step does.** Removes per-CpG smoking-status-specific methylation differences at the β level — the architecturally correct L4 component-separation move for tobacco signal. Tobacco methylates a well-documented set of CpGs (notably AHRR cg05575921 + ~600 cataloged tobacco-associated CpGs per Joehanes 2016 meta-analysis) with effect sizes that persist for years post-cessation and partially recover with cumulative time off tobacco. Without this subtraction, residual smoking signal absorbs into the immune-class A-score and inflates the apparent disease departure.
 
-**Inputs.** β_corrected from §38 + patient's declared smoking status (from intake metadata, if collected).
+**Inputs.** β_corrected from §38 + patient's declared smoking_status + smoking_bin (from intake questionnaire q08–q09).
 
-**Atlas reference.** Not directly — smoking-CpG associations are well-characterized in the literature (notably AHRR cg05575921). The runtime artifact would be a per-CpG smoking shift table.
+**Atlas reference.** `IAMAtlas_smoking_layer.csv` — per-CpG (α, δ_current_smoker, φ_recency, R², n_samples). Built once via `SmokingAxisForeground.fit()` on the n_hc=601 HC cohort with smoking-status metadata; cached as a frozen runtime artifact. **Module BUILT (v1.2); layer CSV pending v1.3 fit on n_hc=601.**
 
-**Files invoked.** *Future:* `[Phase B4 deliverable per Roadmap §10.2.2 — module not yet built]`. Currently: handled per-card, not at this stage.
+**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_axis_foreground.py` — `class SmokingAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, smoking_bin)`.
 
-**The math.** *When implemented:* per-CpG smoking shift δ_smoking[i] subtracted for current smokers, with intermediate values for former smokers based on years since cessation.
+**The math.** Per CpG i:
+> **β_corrected[i] = β_observed[i] − δ_i × indicator_current − φ_i × recency_score**
 
-**CMB equivalent.** This is **point-source masking + subtraction** — handling a known per-source contamination component.
+where δ_i captures the step effect of being a current smoker (vs not) and φ_i captures the recency-graded effect that decays as the patient gets further from quit. Recency score is mapped from `smoking_bin`:
+- `never_smoker`: 0.00
+- `former_15plus_y`: 0.10
+- `former_5_15y`: 0.30
+- `former_0_5y`: 0.60
+- `current_smoker`: 1.00
 
-**How the methylome differs in implementation.** Currently handled per-card (e.g., lung-epic adjusts thresholds based on smoking status) rather than as a global Stage 3 foreground.
+Intercept α_i NOT subtracted — preserves per-CpG baseline. For never-smokers, both indicator and recency_score are 0 → no subtraction. For current smokers, full subtraction of both δ_i and φ_i.
 
-**How it's the same in principle.** Card-specific covariate handling vs global foreground subtraction is a design choice; the principle of removing a known confounder before disease-signal extraction is the same.
+**CMB equivalent.** Point-source masking + subtraction — handling a known per-source contamination component (tobacco is a "loud point source" in the methylome the way bright radio sources are in microwave maps).
 
-**Outputs.** *When implemented:* β_corrected with smoking component removed.
+**How the methylome differs in implementation.** Smoking effect is recency-graded (decays over years post-cessation) — no direct CMB equivalent. The two-coefficient model (δ for current + φ for recency) captures both the step effect and the decay.
 
-**Decision points.** Currently: PASS THROUGH (cards handle smoking inline at §68).
+**How it's the same in principle.** Identical to age-axis subtraction (§35): per-CpG OLS coefficient frozen at training time + linear subtraction at runtime.
 
-**Failure modes.** *When implemented:* patient under-reports smoking, leading to under-correction.
+**Outputs.** β_corrected matrix with smoking component removed.
 
-**Canonical cross-references.** Recipe §4 (Smoking handling). Roadmap §10.2.2 B4.
+**Decision points.** v1.2 default behavior: PASS THROUGH (no β-level subtraction applied) until `IAMAtlas_smoking_layer.csv` is fit at v1.3. Stage 7 smoking-bin threshold-stratification in `tier_breakpoints.json v1.2` (`tier_by_smoking_bin.elevated_floor_by_bin`) absorbs the bulk effect as interim mitigation: current → ELEVATED floor 1.10; former_0_5y → 1.08; former_5_15y → 1.07; former_15plus_y → 1.05; never → 1.04. After v1.3 layer fit: apply β-level correction, Stage 7 smoking-bin stratification retires.
+
+**Failure modes.** Patient under-reports smoking → under-correction → residual signal contaminates immune A-score. Mitigation: the intake questionnaire q08–q09 ask explicitly, and the report's Quality section discloses smoking-status as a self-reported input.
+
+**Canonical cross-references.** BUILD_SPEC v1.2 §3.3 (module table) + §5 Stage 3 (sequence). Roadmap §10.2.2 B4 (now built; layer fit scheduled v1.3). Reference literature: Joehanes et al. 2016 (Circ Cardiovasc Genet); McCarthy et al. 2017 (AHRR cg05575921 durability); Zeilinger et al. 2013 (KORA 187 lead CpGs).
 
 **CPG Plate references.** Not applicable.
 
-**Chain-link assignment.** L4 (secondary).
+**Chain-link assignment.** L4 (secondary foreground).
 
 ---
 
@@ -1590,7 +1604,7 @@ For the Xu-538 panel anchored to immune class: A_panel = H(β_mean over 538 CpGs
 
 Location: `<Stage 4 output — emitted internally by `GAPE_WEB_v13.py`>`.
 
-**Decision points.** Handoff to §47 (Step 5.1 Patient 115-cell-type A-score vector assembly).
+**Decision points.** Handoff to §46.5 (Stage 4.5 bidirectional decomposition).
 
 **Failure modes.** Output packaging is mechanical.
 
@@ -1602,4 +1616,123 @@ Location: `<Stage 4 output — emitted internally by `GAPE_WEB_v13.py`>`.
 
 ---
 
-*End of Stages 0-4. Continued in Part II Stages 5-10 + Parts III-V.*
+## Stage 4.5 — Bidirectional decomposition (NEW v1.3 / L4 cont.)
+
+### §46.5. Step 4.5.1 — Bidirectional pattern detection
+
+**What this step does.** Decomposes each class's signal into a signed directional composite that catches bidirectional methylation patterns at patient runtime. The pooled-entropy A-score from §43 is **direction-agnostic** because Shannon entropy is symmetric around β=0.5. When a disease produces a bidirectional pattern (some CpGs going UP, others going DOWN), the pooled β_mean barely moves and the pooled A-score reads NULL — the directional opposites cancel. This step recovers the cancelled signal at patient runtime.
+
+**Why this stage exists.** The VAL-050 → VAL-051 lesson made the cancellation visible: pooled-entropy A returned d=+0.077 (null) on the 18-CpG IMM panel applied to AIBL AD vs HC; the directional weighted composite z-score on a 7-CpG sub-panel returned d=+0.624 (recovery) on the SAME cohort. At validation time, every VAL has a PREREG specifying direction. At patient runtime, there's no PREREG per patient — the engine MUST decompose autonomously.
+
+**Inputs.** Stage 4 output (per-class A-scores) + foreground-cleaned β vector from Stage 3 + the frozen directional panels artifact.
+
+**Atlas reference.** `directional_panels_v1_0.json` at `walther_clinical_runtime/Bidirectional_Decomposition/`. Schema: per-class panels with CpG-level (cpg_id, direction±1, mean_hc_train, sd_hc_train) + the pooled-entropy parent panel CpG list. **v1.0 coverage: immune class only** (VAL-051 Rule A 7-CpG AD-direction-anchored panel, SHA-anchored to sealed `val051_panel_ruleA.json` SHA-256 `52061285...`). 7 other classes return `NO_PANEL` honestly until future sealed VALs populate them. The immune-class pooled-entropy comparator uses the 18-CpG VAL-050 IMM_CPGS_EPIC parent panel.
+
+**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Bidirectional_Decomposition/bidirectional_decomposition.py` — mirrors the sealed `val051_analyze.py:112-121` `a_dir_score` formula exactly. Public surface: `load_directional_panels`, `score_directional_composite`, `score_pooled_entropy`, `bidirectional_flag`, `compute_per_class_bidirectional_decomposition`, `save_bidirectional_report`.
+
+**The math.** For each panel CpG:
+> **z_i = (β_patient[i] − mean_hc_train[i]) / sd_hc_train[i]**
+> **contrib_i = direction_i × z_i**
+
+Where direction_i is +1 (up in disease) or −1 (down in disease), frozen at VAL training time. The directional composite is then:
+> **a_directional = mean(contrib_i over covered CpGs)**
+
+Coverage gate: require `n_covered ≥ max(3, 0.7 × n_panel)`; below this, a_directional returns None (INSUFFICIENT_COVERAGE).
+
+Pooled-entropy comparator (mirrors val051_analyze.py:123-128):
+> **a_pooled = H(β_mean over parent panel) / H_min(class)**
+
+The bidirectional flag fires when:
+> **FLAG_BIDIRECTIONAL = (|a_pooled − 1.0| < 0.05) AND (|a_directional| > 0.40)**
+
+In English: pooled is mute (near baseline) AND directional is loud (above effect-size threshold). Both required.
+
+**CMB equivalent.** Polarization decomposition — the CMB's total intensity I doesn't tell you which sources produced it, but decomposing into Q + U polarization recovers directional information about the underlying physics. Here pooled-entropy A is the "I" (direction-agnostic); the directional composite is the "Q" (signed projection along the disease direction).
+
+**How the methylome differs in implementation.** Direction is frozen per VAL panel, not computed at runtime. The decomposition projection is along a pre-specified disease axis, not a free spherical-harmonic decomposition. This is appropriate: at patient runtime we have only one observation (one patient), so there's no statistical power to estimate direction from the data — the direction must come from the validated panel.
+
+**How it's the same in principle.** Both decompose a scalar (intensity / pooled-entropy A) into a signed vector (Q+U / directional composite) by projecting against a known basis (polarization axes / disease panel directions). Both recover information that the scalar discards.
+
+**Outputs.** `BidirectionalReport` per patient:
+- Per-class `BidirectionalResult` (a_pooled_entropy, a_directional_composite, n_covered, coverage_fraction, flag_bidirectional, flag_insufficient_coverage, interpretation string)
+- Aggregate `any_bidirectional_flagged` boolean + `flagged_classes` list
+
+Location: `reports/{patient_id}/stage_4_5/{patient_id}_stage_4_5_bidirectional_decomposition.json`.
+
+**Decision points.**
+- If `flag_bidirectional == True` for any class: Stage 7 (§59) uses the directional composite (signed magnitude) rather than the pooled A-score to drive tier reporting for the flagged class. Stage 8 Route C-bidirectional activates per the relevant card.
+- If `flag_insufficient_coverage == True`: pooled A from Stage 4 remains valid; directional read is omitted from the report with an audit note.
+- If `NO_PANEL` (7 classes that lack sealed directional panels): Stage 4 pooled-entropy A is the only A-score reported for those classes.
+
+**Failure modes.**
+- Panel CpGs not present in patient β (low coverage) → INSUFFICIENT_COVERAGE.
+- Panel JSON SHA mismatch vs sealed VAL anchor → STAGE_4_5_PANEL_DRIFT (engine refuses to score).
+- Directional panel inverted by accident (signs flipped) → would show as systematic anti-direction across all flagged patients (operational integrity check).
+
+**Canonical cross-references.** BUILD_SPEC v1.2 §5 Stage 4.5. Bidirectional_Decomposition/README. Sealed VAL artifacts at `Biological_Physics/validation_runs/val_051_ad_directional/`.
+
+**CPG Plate references.** None directly. (Future: Plate 5 could visualize the patient's per-CpG directional contributions on the Mollweide grid.)
+
+**Chain-link assignment.** L4 (the directional refinement of L4 component separation — analogous to the polarization decomposition added to CMB analyses after the initial I-only maps).
+
+---
+
+## Stage 4.6 — Patient brightness comparison (NEW v1.3 / L4 cont.)
+
+### §46.6. Step 4.6.1 — Per-class z-score departure + Mollweide projection
+
+**What this step does.** Computes per-CpG z-score departure of the patient β from each of 8 frozen healthy class brightness references, then projects the departure pattern onto a HEALPix NSIDE=128 grid for Mollweide rendering. Produces the patient's personal Cosmic Microwave Methylome — the customer-facing analog of CPG Plate 1.
+
+**Why this stage exists.** Stage 4's A-score collapses each class's signal into a single scalar. The customer report shows this scalar as a tier (NORMAL / ELEVATED / etc.), which is useful for triage but loses the spatial structure of WHERE the departure lives. The patient brightness comparison preserves the spatial structure by projecting the per-CpG departure pattern onto the same HEALPix grid as Plate 1 (the framework's reference Cosmic Microwave Methylome). The customer sees their personal map next to the reference and can see the anisotropy directly.
+
+**Inputs.** Foreground-cleaned β vector from Stage 3 + class brightness references (8 brightness CSVs, one per class) + the canonical CpG-to-HEALPix mapping.
+
+**Atlas reference.**
+- 8 class brightness CSVs at `IAMAtlas_v0_1/class_archives/{class}.tar.xz` (inner `{class}/iamatlas_v0_1_{class}_brightness.csv`); each has per-CpG mean β + SD β over the healthy class reference + per-CpG MCMC posterior CI.
+- `iamatlas_cpg_to_healpix_nside128.npy` at `IAMAtlas_v0_1/healpix_mapping/` (1.93 MB, 483,092 entries, int32 pixel indices in atlas row order). 450,192 CpGs annotated to real HEALPix pixels; 32,900 CpGs (HM450-only probes not in EPIC manifest) mapped to sentinel pixel that renders as the framework's galactic mask analog.
+- CPG Plate 1 at `IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png` — the binding contract for the projection grid.
+
+**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py`. Public surface: `load_all_8_class_references`, `compute_all_8_class_departures`, `render_patient_cosmic_methylome`, `save_brightness_report`.
+
+The HEALPix mapping is generated one time per atlas version by `Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/generate_cpg_healpix_mapping.py`. Production mapping is committed; the generator script exists so the build is reproducible from inputs (IAMAtlas REBUILD CSV + EPIC v1 B4 manifest) without manual intervention.
+
+**The math.** Per class C and per CpG i in class C's covered set:
+> **z_i^C = (β_patient[i] − mean_class_β_C[i]) / sd_class_β_C[i]**
+
+Per pixel p (aggregating over CpGs that map to p):
+> **z_pixel_p^C = mean(z_i^C over CpGs i with cpg_to_pixel[i] = p)**
+
+Empty pixels (no CpGs map there) and sentinel pixels (HM450-only probes) render as the galactic-mask analog (BLACK in the Mollweide).
+
+**CMB equivalent.** This is the patient's personal CMB anisotropy map. Plate 1 is the reference universe; this is the patient's universe; the difference between them is the personal anisotropy.
+
+**How the methylome differs in implementation.** Sphere is a representation choice (HEALPix is convenient, equal-area, full-sky), not a physical sphere. The methylome doesn't actually live on a sphere — the spatial structure comes from chromosomal position + per-chromosome ordering by MAPINFO. The Mollweide projection is the chosen visual representation; it could equally be a flat 2D rectangle, but Mollweide preserves the cosmic-resonance framing that anchors the customer's intuition.
+
+**How it's the same in principle.** Both are anisotropy maps on a HEALPix-projected sphere; both use NSIDE=128 (Plate 1 inherits the convention from CMB literature); both produce visual signatures that match the statistical properties of CMB temperature anisotropies in spite of the substrates being completely different.
+
+**Outputs.** `PatientBrightnessReport` per patient:
+- Per-class HEALPix array of z-pixel departures (8 arrays, one per class)
+- Patient Mollweide PNG (rendered alongside the Plate 1 reference for direct visual comparison)
+- Aggregate departure statistics per class (max z-departure, fraction of pixels above ±2σ, anisotropy spectrum)
+
+Location: `reports/{patient_id}/stage_4_6/{patient_id}_personal_cosmic_methylome.png` + companion JSON.
+
+**Decision points.**
+- Patient Mollweide rendered for all 8 classes regardless of tier — even NORMAL-tier classes carry visually informative anisotropy.
+- The customer report's "your personal map" section uses the 1-2 classes with the largest departure as headline.
+- Audit-trail JSON carries all 8 maps even when only some are highlighted.
+
+**Failure modes.**
+- Patient β coverage low (<60% of brightness reference CpGs) → STAGE_4_6_LOW_COVERAGE flag; Mollweide rendered but with coverage warning watermark.
+- HEALPix mapping SHA mismatch → STAGE_4_6_GRID_DRIFT (engine refuses to render).
+- Brightness CSV not found in expected path → STAGE_4_6_REFERENCE_MISSING.
+
+**Canonical cross-references.** BUILD_SPEC v1.2 §3.5b (CPG Plates) + §5 Stage 4.6. Brightness_Comparison/README. HEALPix mapping README at `IAMAtlas_v0_1/healpix_mapping/README_HEALPix_Mapping.md`.
+
+**CPG Plate references.** Plate 1 (the framework's reference Cosmic Microwave Methylome) is the visual benchmark this stage produces a patient-specific analog of.
+
+**Chain-link assignment.** L4 (the spatial-structure preservation of L4 component separation — analogous to keeping the full anisotropy map rather than collapsing to a power spectrum).
+
+---
+
+*End of Stages 0-4 (including Stages 4.5 and 4.6, both new in v1.3). Continued in Part II Stages 5-10 + Parts III-V.*
