@@ -18,7 +18,7 @@
 - §3.5 / §3.5b **HEALPix mapping generator built**. `Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/generate_cpg_healpix_mapping.py` produces `iamatlas_cpg_to_healpix_nside128.npy` (1.93 MB, 483,092 CpGs → 450,192 annotated + 32,900 sentinel). EPIC v1 B4 manifest cached at `IAMAtlas_v0_1/external_manifests/EPIC_v1_B4_manifest_normalized.csv` (zhou-lab provenance documented).
 - §5 Stage 7 — replaced 4-tier (NORMAL/MARGINAL/DETECTABLE/URGENT/FLOOR_BREACH) with **6-tier physics-derived** (SUPPRESSED/NORMAL/ELEVATED/WARBURG_TRANSITION/SIGNIFICANTLY_ELEVATED/BREACH). 1.07 Warburg line + 1.10 architectural-fidelity breach line are the physics-defined inflection points. **`tier_breakpoints.json v1.2` built** with per-class structural-ceiling table, 7 covariate-override modes, smoking-bin stratification table, bidirectional handoff rules, CI-based tier confidence propagation. v0 4-tier archived in OLD/.
 - §5 Stages 4–7 — **explicit forward CI propagation** from MCMC posteriors. Customer-facing numbers carry measurement ranges, not point estimates only.
-- §5 Stage 3 — **smoking + sex foreground modules built**. `smoking_axis_foreground.py` (per-CpG δ·indicator_current + φ·recency_score model; recency mapped from smoking_bin) and `sex_axis_foreground.py` (per-CpG ψ·indicator_male model with chrX/chrY/XCI flag handling). Layer CSVs (`IAMAtlas_smoking_layer.csv` + `IAMAtlas_sex_layer.csv`) to be fit at v1.3 on the n_hc=601 cohort; until then, interim Stage 7 threshold-stratification absorbs the bulk effect. The architecturally correct L4 β-level subtraction path is now wired and ready to receive its layer CSVs.
+- §5 Stage 3 — **smoking + sex foreground modules built AND layer CSVs fit on GSE50660 (n=464, Tsaprouni 2014, smoking + sex + age metadata)**. `smoking_axis_foreground.py` (per-CpG δ·indicator_current + φ·recency_score model; recency mapped from smoking_bin) and `sex_axis_foreground.py` (per-CpG ψ·indicator_male model with chrX/chrY/XCI flag handling). Layer CSVs `IAMAtlas_smoking_layer.csv` + `IAMAtlas_sex_layer.csv` FIT on GSE50660 (n=464). Stage 7 interim threshold-stratification retires once L4 β-level subtraction operates in production. The architecturally correct L4 β-level subtraction path is now wired and ready to receive its layer CSVs.
 
 **Changes v1.0 → v1.1:**
 - Locked orchestrator name: `walther_clinical.py` · locked deconvolver name: `walther_iam_deconvolver.py`.
@@ -542,20 +542,20 @@ The walkthrough uses 8 stages (0–7 + 2.5 sub-stage); the SOP uses 11 stages (0
    cleaned_beta = afg.subtract_from(beta_vector, ages=[patient_age])
    ```
 
-2. **Smoking-axis foreground subtraction (NEW v1.2 — module built; layer CSV pending v1.3 fit):**
+2. **Smoking-axis foreground subtraction (NEW v1.2 — module built + layer CSV FIT 2026-06-06 on GSE50660 n=464):**
    ```python
    from smoking_axis_foreground import SmokingAxisForeground
    smk = SmokingAxisForeground()
-   smk.load_layer("IAM_Cellular_Age/IAMAtlas_smoking_layer.csv")  # built once at v1.3 from HC n=601
+   smk.load_layer("IAM_Cellular_Age/IAMAtlas_smoking_layer.csv")  # fit 2026-06-06 from GSE50660 n=464
    cleaned_beta = smk.subtract_from(cleaned_beta, smoking_bins=[patient_smoking_bin])
    ```
    Per-CpG model: `β = α + δ·indicator_current + φ·recency_score + ε`. Recency score: never=0.00 / former_15plus_y=0.10 / former_5_15y=0.30 / former_0_5y=0.60 / current=1.00. **Until `IAMAtlas_smoking_layer.csv` is fit (v1.3 layer-build work on the n_hc=601 cohort with smoking-status metadata), the interim Stage 7 smoking-bin threshold-stratification (per `tier_breakpoints.json v1.2`) absorbs the bulk effect.**
 
-3. **Sex-axis foreground subtraction (NEW v1.2 — module built; layer CSV pending v1.3 fit):**
+3. **Sex-axis foreground subtraction (NEW v1.2 — module built + layer CSV FIT 2026-06-06 on GSE50660 n=464):**
    ```python
    from sex_axis_foreground import SexAxisForeground
    sex_fg = SexAxisForeground()
-   sex_fg.load_layer("IAM_Cellular_Age/IAMAtlas_sex_layer.csv")  # built once at v1.3 from HC n=601
+   sex_fg.load_layer("IAM_Cellular_Age/IAMAtlas_sex_layer.csv")  # fit 2026-06-06 from GSE50660 n=464
    cleaned_beta = sex_fg.subtract_from(cleaned_beta, sex_at_birth=[patient_sex])
    ```
    Per-CpG model: `β = α + ψ·indicator_male + ε`. Special handling of chrX (X-inactivation flag for high-ψ CpGs) + chrY (sex-chromosome flag for masking in female samples). **Until `IAMAtlas_sex_layer.csv` is fit (v1.3 layer-build work), the interim Stage 7 sex-stratified threshold tables absorb the bulk effect.**
