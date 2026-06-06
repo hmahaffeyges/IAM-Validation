@@ -117,7 +117,7 @@ Reading the actual source files in `walther_clinical_runtime/`:
 | `iam_cellular_age_scoring.py` | `IAM_Cellular_Age/` | `class IAMCellularAge(ref_matrix_path, markers_artifact_path, markers_per_class, min_cpgs_per_class=30)`. `.score()` returns `CellularAgeResult` dataclass with per-class age + status + concordance. |
 | `age_axis_foreground.py` | `IAM_Cellular_Age/` | `class AgeAxisForeground(min_samples=30, min_age_range=10.0)`. `.fit(beta_matrix, ages, hc_mask, cpg_ids)`. `.subtract_from(beta, ages) → cleaned_beta`. |
 | `patient_brightness_comparison.py` (NEW v1.2) | `Brightness_Comparison/` | Stage 4.6 module. `load_all_8_class_references(archives_dir) → Dict[class, BrightnessReference]`. `compute_all_8_class_departures(patient_beta, references, patient_id) → PatientBrightnessReport`. `render_patient_cosmic_methylome(report, cpg_to_pixel, out_path) → png_path`. `save_brightness_report(report, out_dir) → artifacts_dict`. Reads brightness CSVs directly from class archive tar.xz files. |
-| `bidirectional_decomposition.py` (v1.2 STUB — to be built) | `Bidirectional_Decomposition/` | Stage 4.5 module. `load_directional_panels(panel_json_path) → Dict[class, {positive_panel, negative_panel}]`. `score_directional(patient_beta, cpg_list, h_min_class) → a_score`. `bidirectional_flag(a_positive, a_negative, pooled, threshold_ratio=0.30) → bool`. Frozen directional panels per class (initial: VAL-051 Rule-A 7-CpG panel for immune-AD; expansion per CPG-VAL-019). |
+| `bidirectional_decomposition.py` (NEW v1.2) | `Bidirectional_Decomposition/` | Stage 4.5 module. `load_directional_panels(panel_json_path) → Dict[class, DirectionalPanel]`. `compute_per_class_bidirectional_decomposition(patient_beta, panels, patient_id) → BidirectionalReport`. `score_directional_composite(patient_beta, panel) → (composite, n_covered, n_total)` — mirrors the sealed VAL-051 `a_dir_score` formula exactly (z-scores against frozen training-set HC mean/SD, multiplied by frozen ±1 disease direction, averaged across covered CpGs). `bidirectional_flag(a_pooled, a_directional)` — fires when pooled is mute (within ±0.05 of 1.0) AND directional is loud (|composite| > 0.40). v1.0 panel coverage: immune class only (VAL-051 Rule A, 7 CpGs). Other 7 classes pending future sealed VALs (declared NO_PANEL honestly). |
 | `cpg_null_runner.py` | `CPG_Null_Runner/` | L9 8-null framework. Not invoked per-patient; runs against sealed VALs. |
 | `synthetic_patient_generator.py` | `Synthetic_Patient_Generator/` | N6/N7 testing only; not in per-patient flow. |
 
@@ -571,45 +571,48 @@ The walkthrough uses 8 stages (0–7 + 2.5 sub-stage); the SOP uses 11 stages (0
 
 ### Stage 4.5 — Bidirectional decomposition (SOP v1.3 §-section / NEW in v1.2)
 
-**Rationale.** Per VAL-050 (pooled-entropy NULL d=+0.077) → VAL-051 (directional Rule-A panel d=+0.624 same cohort): pooled A-score CANCELS when bidirectional patterns are present. At patient runtime, the engine MUST decompose each class signal into directional sub-panels before any tier call. The pooled A from Stage 4 is necessary but not sufficient — Stage 4.5 catches the cases where pooled is mute but the directional decomposition is loud.
+**Rationale.** Per VAL-050 (pooled-entropy NULL d=+0.077) → VAL-051 (directional composite d=+0.624 same cohort): pooled-entropy A-score CANCELS when bidirectional patterns are present. Pooled β_mean barely moves because some CpGs go up while others go down. The directional weighted composite z-score recovers the signal. At patient runtime, the engine MUST run the directional decomposition autonomously — every VAL has a PREREG specifying direction, but patient runtime has none.
 
-**Algorithm:**
+**Algorithm — mirrors the sealed VAL-051 `a_dir_score` formula exactly:**
+
+For each panel CpG: compute z = (β_patient − μ_hc_train) / σ_hc_train. Multiply z by the CpG's frozen direction sign (+1 disease-up, −1 disease-down). Average across covered CpGs. Single signed composite per panel.
 
 ```python
 from bidirectional_decomposition import (
     load_directional_panels,
-    score_directional,
-    bidirectional_flag,
+    compute_per_class_bidirectional_decomposition,
+    save_bidirectional_report,
 )
 
-# Per-class directional panels — split class-informative CpGs by frozen
-# historical sign of effect from validated cohorts (VAL-051 Rule-A for AD-immune,
-# CPG-VAL-001 for breast-immune, etc.).
-directional_panels = load_directional_panels(
+# Per-class sealed directional panels — directions + training-set HC stats frozen
+# at VAL training time. v1.0 immune panel = VAL-051 Rule A 7-CpG AD-direction-anchored;
+# other 7 classes pending future sealed VALs.
+panels = load_directional_panels(
     "Bidirectional_Decomposition/directional_panels_v1_0.json"
 )
 
-bidirectional_results = {}
-for cls in ARCHITECTURAL_CLASSES:
-    panels = directional_panels[cls]  # {"positive_panel": [cpgs...], "negative_panel": [cpgs...]}
-    a_positive = score_directional(cleaned_beta, panels["positive_panel"], h_min_by_class[cls])
-    a_negative = score_directional(cleaned_beta, panels["negative_panel"], h_min_by_class[cls])
-    pooled = class_ascores[cls]["A"]
-    flag = bidirectional_flag(a_positive, a_negative, pooled, threshold_ratio=0.30)
-    bidirectional_results[cls] = {
-        "a_pooled": pooled,
-        "a_positive_panel": a_positive,
-        "a_negative_panel": a_negative,
-        "flag_bidirectional": flag,
-        "directional_d_max": max(abs(a_positive - 1.0), abs(a_negative - 1.0)),
-    }
+report = compute_per_class_bidirectional_decomposition(
+    patient_beta=cleaned_beta,                # Stage 3 output (foreground-cleaned)
+    panels=panels,
+    patient_id=patient_metadata["patient_id"],
+)
+
+# report.per_class_results[cls] carries:
+#   - a_pooled_entropy:           Stage 4 pooled-entropy A on the parent panel (the null comparator)
+#   - a_directional_composite:    the SEALED VAL-051 a_dir_score signed composite
+#   - flag_bidirectional:         True when pooled is mute AND directional is loud
+#   - flag_insufficient_coverage: True when <70% panel CpGs present in patient β
 ```
 
-**Flag rule:** `FLAG_BIDIRECTIONAL = (|a_positive_panel − a_negative_panel| / max(a_positive, a_negative)) > 0.30`
+**Flag rule:** `FLAG_BIDIRECTIONAL = (|a_pooled − 1.0| < 0.05) AND (|a_directional_composite| > 0.40)`. The first clause says "pooled is at-baseline / mute"; the second says "directional is loud." Both required.
 
-**When flagged:** Stage 7 reports the directional decomposition (not pooled) as customer-facing. Mahalanobis (Stage 5) also runs against the directional vector. Stage 8 Route C activates.
+**Coverage gate:** Mirrors `val051_analyze.py:120` — `n_covered >= max(3, int(0.7 * n_panel))`. Below the gate, `a_directional_composite = None` and `flag_insufficient_coverage = True`. The orchestrator interprets None as INSUFFICIENT_COVERAGE for the directional read; pooled-entropy A from Stage 4 is still valid.
 
-**Output of Stage 4.5:** Per-class bidirectional decomposition (pooled / positive / negative / flag); engine-internal directional anchor for downstream Stage 5/7/8 consumption.
+**When flagged:** Stage 7 reports the directional composite (signed, magnitude) as the customer-facing tier driver — NOT the pooled A. The Mahalanobis at Stage 5 also runs against the directional-decomposition vector (per-class composite as one axis) in addition to the standard 115-cell A-score vector. Stage 8 Route C activates per the immune card.
+
+**v1.0 panel coverage:** immune class only (VAL-051 Rule A, 7 CpGs: 2 positive + 5 negative, all AD-direction-anchored). Other 7 classes return `NO_PANEL` until future sealed VALs populate them. This is **declared honestly** in the panel JSON's `_panel_pending_note`. Future expansion via CPG-VAL-019 (cancer-positive vs AD-negative direction discrimination, in v1.0 VAL set) broadens the immune-class panel beyond AD-direction-only.
+
+**Output of Stage 4.5:** Per-class `BidirectionalResult` (n_panel_cpgs, n_covered, coverage_fraction, a_pooled_entropy, a_directional_composite, flag_bidirectional, flag_insufficient_coverage, interpretation string); engine-internal directional anchor for downstream Stage 5/7/8 consumption.
 
 ### Stage 4.6 — Per-class healthy brightness comparison + patient Mollweide projection (SOP v1.3 §-section / NEW in v1.2)
 
