@@ -1,0 +1,28 @@
+{
+  "N1_directional": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "Label permutation",
+    "passed": true,
+    "observed": 0.6155968968804308,
+    "null_mean": 0.0035592637725798755,
+    "null_std": 0.09479443380703724,
+    "p_value": 0.0,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05"
+  },
+  "N1_pooled": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "Label permutation",
+    "passed": false,
+    "observed": 0.07682335519747328,
+    "null_mean": 0.0010370615121472388,
+    "null_std": 0.08896027840369054,
+    "p_value": 0.388,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05"
+  },
+  "d_directional": 0.6155968968804308,
+  "d_pooled": 0.07682335519747328,
+  "directional_over_pooled_ratio": 8.013147763437932,
+  "interpretation": "Higher d for directional confirms FLAG_BIDIRECTIONAL trigger pattern: pooled-entropy signal is muted while sign-multiplied directional signal is loud. This is the architectural signature the framework was designed to detect (a class with opposing-direction CpG drift cancels in pooled but not in directional)."
+}

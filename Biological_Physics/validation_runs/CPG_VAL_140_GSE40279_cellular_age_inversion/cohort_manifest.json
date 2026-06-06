@@ -1,0 +1,12 @@
+{
+  "val_id": "CPG-VAL-140",
+  "title": "Cellular age inversion via 8-class A-score linear model on GSE40279",
+  "cohort": "GSE40279 (Hannum 2013)",
+  "n_samples": 656,
+  "signal": "Predicted age from 8-class A-vector",
+  "R2": 0.25090733765694073,
+  "pearson_r": 0.5009065158858893,
+  "MAE_years": 10.101633300184458,
+  "outcome_code": "O5_BASELINE_DOMINATED",
+  "per_sample_sha256": "72a40560ac6117b0dc22c771cd3ee7154f47c25c58111acd4180a70efec811cb"
+}

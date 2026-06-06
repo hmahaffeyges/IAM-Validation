@@ -1,0 +1,14 @@
+{
+  "val_id": "CPG-VAL-141",
+  "title": "Cross-cohort A_immune baseline concordance (GSE50660 never-smokers vs GSE40279 HC age-matched)",
+  "cohorts": [
+    "GSE50660_never_smoker_age_40_65",
+    "GSE40279_HC_age_40_65"
+  ],
+  "n_GSE50660": 179,
+  "n_GSE40279": 308,
+  "ks_statistic": 0.7163353406370166,
+  "ks_p_value": 8.786281986227107e-57,
+  "outcome_code": "O2_NEAR_THRESHOLD",
+  "per_sample_sha256": "1d47610c13ca6a99fe1fa40dbf93d32decbd85a96d3e34034e06f41ab2f22f32"
+}

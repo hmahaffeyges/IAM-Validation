@@ -1,0 +1,14 @@
+{
+  "val_id": "CPG-VAL-137",
+  "title": "Sex-axis subtraction \u0394d on GSE40279 M-vs-F contrast",
+  "cohort": "GSE40279 (Hannum 2013)",
+  "n_M": 318,
+  "n_F": 338,
+  "signal": "A_immune (Stage 4)",
+  "intervention": "Stage 3 sex-axis foreground subtraction",
+  "d_with_subtraction": -0.5476289954686954,
+  "d_without_subtraction": -0.12636403739452362,
+  "delta_abs_d": -0.42126495807417175,
+  "outcome_code": "O3_INVERTED",
+  "per_sample_sha256": "793d4e9c93e681cfa92281906f5276459c198ec7f8a14e0c457f753aa883ae02"
+}

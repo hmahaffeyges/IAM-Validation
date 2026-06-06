@@ -1,0 +1,58 @@
+{
+  "N1_hc_label_permutation": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "HC label permutation",
+    "passed": true,
+    "observed": 0.6155968968804308,
+    "null_mean": -0.0009946906466505162,
+    "null_std": 0.09076388515413981,
+    "p_value": 0.0,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05",
+    "narrative": "Observed |d|=0.616. Null distribution: mean=-0.001, std=0.091. Two-sided p=0.000. PASS at alpha=0.05."
+  },
+  "N3_sex_stratified": {
+    "null_id": "N3_sex_stratified",
+    "null_name": "Sex-stratified permutation",
+    "passed": true,
+    "observed": 0.6155968968804308,
+    "null_mean": 0.0037561939588273458,
+    "null_std": 0.09112258343168361,
+    "p_value": 0.0,
+    "n_permutations": 500,
+    "pass_condition": "permutation p < 0.05"
+  },
+  "N4_cohort_split": {
+    "null_id": "N4_cohort_split",
+    "null_name": "Cohort 50/50 split sign-concordance",
+    "passed": true,
+    "observed_sign_concordance": 1.0,
+    "n_splits": 100,
+    "pass_condition": "sign concordance >= 0.90"
+  },
+  "N2_age_stratified": {
+    "null_id": "N2_age_stratified",
+    "skipped": true,
+    "reason": "AIBL manifest has no age field"
+  },
+  "N5_plate_position": {
+    "null_id": "N5_plate_position",
+    "skipped": true,
+    "reason": "AIBL plate metadata not in published manifest"
+  },
+  "N6_injection_recovery": {
+    "null_id": "N6_injection_recovery",
+    "skipped": true,
+    "reason": "deferred \u2014 see VAL-141 follow-up plan"
+  },
+  "N7_chain_recovery": {
+    "null_id": "N7_chain_recovery",
+    "skipped": true,
+    "reason": "deferred \u2014 full N7 needs synthetic patient generator on full \u03b2; see VAL-142"
+  },
+  "N8_look_elsewhere": {
+    "null_id": "N8_look_elsewhere",
+    "skipped": true,
+    "reason": "not applicable for single signal"
+  }
+}
