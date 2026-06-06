@@ -12,11 +12,13 @@
 **Changes v1.1 → v1.2:**
 - §4.3 **expanded patient intake schema** from 8 doctor-supplied fields → 24 covariates per `patient_intake_questionnaire_v1_0.md`. Schema, default values, and validation rules documented.
 - §4.5 **conditional consumption table extended** with the full per-stage routing of intake covariates (which covariate enters which stage).
-- §5 **new Stage 4.5** — bidirectional decomposition BEFORE pooled A-scoring. Implements the VAL-050/VAL-051 lesson at patient runtime.
-- §5 **new Stage 4.6** — per-class healthy brightness comparison + patient Mollweide projection. The customer's personal Cosmic Microwave Methylome (Plate 1 analog).
-- §5 Stage 7 — replaced 4-tier (NORMAL/MARGINAL/DETECTABLE/URGENT/FLOOR_BREACH) with **6-tier physics-derived** (SUPPRESSED/NORMAL/ELEVATED/WARBURG_TRANSITION/SIGNIFICANTLY_ELEVATED/BREACH). 1.07 Warburg line + 1.10 architectural-fidelity breach line are the physics-defined inflection points.
+- §5 **new Stage 4.5** — bidirectional decomposition BEFORE pooled A-scoring. Implements the VAL-050/VAL-051 lesson at patient runtime. **`bidirectional_decomposition.py` built**, mirrors the sealed `val051_analyze.a_dir_score` formula exactly. **`directional_panels_v1_0.json`** carries the VAL-051 7-CpG immune panel (SHA-anchored to sealed `val051_panel_ruleA.json`) + 18-CpG VAL-050 pooled-entropy comparator parent panel.
+- §5 **new Stage 4.6** — per-class healthy brightness comparison + patient Mollweide projection. The customer's personal Cosmic Microwave Methylome (Plate 1 analog). **`patient_brightness_comparison.py` built**.
+- §3.5b **CPG Plates 1–4 declared as canonical visualization references** + pushed to `IAMAtlas_v0_1/plates/` with README documenting HEALPix NSIDE=128 + Mollweide + genomic-order conventions.
+- §3.5 / §3.5b **HEALPix mapping generator built**. `Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/generate_cpg_healpix_mapping.py` produces `iamatlas_cpg_to_healpix_nside128.npy` (1.93 MB, 483,092 CpGs → 450,192 annotated + 32,900 sentinel). EPIC v1 B4 manifest cached at `IAMAtlas_v0_1/external_manifests/EPIC_v1_B4_manifest_normalized.csv` (zhou-lab provenance documented).
+- §5 Stage 7 — replaced 4-tier (NORMAL/MARGINAL/DETECTABLE/URGENT/FLOOR_BREACH) with **6-tier physics-derived** (SUPPRESSED/NORMAL/ELEVATED/WARBURG_TRANSITION/SIGNIFICANTLY_ELEVATED/BREACH). 1.07 Warburg line + 1.10 architectural-fidelity breach line are the physics-defined inflection points. **`tier_breakpoints.json v1.2` built** with per-class structural-ceiling table, 7 covariate-override modes, smoking-bin stratification table, bidirectional handoff rules, CI-based tier confidence propagation. v0 4-tier archived in OLD/.
 - §5 Stages 4–7 — **explicit forward CI propagation** from MCMC posteriors. Customer-facing numbers carry measurement ranges, not point estimates only.
-- §3 new entry — CPG Plates 1–4 declared as canonical visualization reference. Plate 1 conventions (HEALPix NSIDE=128, Mollweide, genomic-order pixel assignment) are the build target for Stage 4.6's patient projection.
+- §5 Stage 3 — **smoking + sex foreground modules built**. `smoking_axis_foreground.py` (per-CpG δ·indicator_current + φ·recency_score model; recency mapped from smoking_bin) and `sex_axis_foreground.py` (per-CpG ψ·indicator_male model with chrX/chrY/XCI flag handling). Layer CSVs (`IAMAtlas_smoking_layer.csv` + `IAMAtlas_sex_layer.csv`) to be fit at v1.3 on the n_hc=601 cohort; until then, interim Stage 7 threshold-stratification absorbs the bulk effect. The architecturally correct L4 β-level subtraction path is now wired and ready to receive its layer CSVs.
 
 **Changes v1.0 → v1.1:**
 - Locked orchestrator name: `walther_clinical.py` · locked deconvolver name: `walther_iam_deconvolver.py`.
@@ -116,6 +118,8 @@ Reading the actual source files in `walther_clinical_runtime/`:
 | `iamatlas_mahalanobis_scoring.py` | `Mahalanobis_healthy_reference/` | `class MahalanobisHealthyHull(reference_path)`. `.score(celltype_ascores: Dict[str, float]) → Dict` with `mahalanobis_distance`, `top10_axis_contributions`, `status`. |
 | `iam_cellular_age_scoring.py` | `IAM_Cellular_Age/` | `class IAMCellularAge(ref_matrix_path, markers_artifact_path, markers_per_class, min_cpgs_per_class=30)`. `.score()` returns `CellularAgeResult` dataclass with per-class age + status + concordance. |
 | `age_axis_foreground.py` | `IAM_Cellular_Age/` | `class AgeAxisForeground(min_samples=30, min_age_range=10.0)`. `.fit(beta_matrix, ages, hc_mask, cpg_ids)`. `.subtract_from(beta, ages) → cleaned_beta`. |
+| `smoking_axis_foreground.py` (NEW v1.2) | `IAM_Cellular_Age/` | `class SmokingAxisForeground(min_samples_per_bin=10, min_recency_variance=0.05)`. `.fit(beta_matrix, smoking_bins, hc_mask, cpg_ids, candidate_cpgs=None)`. `.subtract_from(beta, smoking_bins) → cleaned_beta`. Per-CpG model: β = α + δ·indicator_current + φ·recency_score + ε. Smoking_bin mapped to recency score: never=0.00 / former_15plus_y=0.10 / former_5_15y=0.30 / former_0_5y=0.60 / current=1.00. Fit on HC samples only; case samples excluded. Layer artifact `IAMAtlas_smoking_layer.csv` (cpg_id, α, δ_current, φ_recency, R², n_samples). |
+| `sex_axis_foreground.py` (NEW v1.2) | `IAM_Cellular_Age/` | `class SexAxisForeground(min_samples_per_sex=30, x_inactivation_psi_threshold=0.20)`. `.fit(beta_matrix, sex_at_birth, hc_mask, cpg_ids, chr_annotation=None)`. `.subtract_from(beta, sex_at_birth) → cleaned_beta`. Per-CpG model: β = α + ψ·indicator_male + ε. Special handling of chrX (X-inactivation flag for high-ψ CpGs) + chrY (sex-chromosome flag for masking in female samples). Layer artifact `IAMAtlas_sex_layer.csv` (cpg_id, α, ψ_male, R², n_samples, is_chr_x, is_chr_y, x_inactivation_flag). |
 | `patient_brightness_comparison.py` (NEW v1.2) | `Brightness_Comparison/` | Stage 4.6 module. `load_all_8_class_references(archives_dir) → Dict[class, BrightnessReference]`. `compute_all_8_class_departures(patient_beta, references, patient_id) → PatientBrightnessReport`. `render_patient_cosmic_methylome(report, cpg_to_pixel, out_path) → png_path`. `save_brightness_report(report, out_dir) → artifacts_dict`. Reads brightness CSVs directly from class archive tar.xz files. |
 | `bidirectional_decomposition.py` (NEW v1.2) | `Bidirectional_Decomposition/` | Stage 4.5 module. `load_directional_panels(panel_json_path) → Dict[class, DirectionalPanel]`. `compute_per_class_bidirectional_decomposition(patient_beta, panels, patient_id) → BidirectionalReport`. `score_directional_composite(patient_beta, panel) → (composite, n_covered, n_total)` — mirrors the sealed VAL-051 `a_dir_score` formula exactly (z-scores against frozen training-set HC mean/SD, multiplied by frozen ±1 disease direction, averaged across covered CpGs). `bidirectional_flag(a_pooled, a_directional)` — fires when pooled is mute (within ±0.05 of 1.0) AND directional is loud (|composite| > 0.40). v1.0 panel coverage: immune class only (VAL-051 Rule A, 7 CpGs). Other 7 classes pending future sealed VALs (declared NO_PANEL honestly). |
 | `cpg_null_runner.py` | `CPG_Null_Runner/` | L9 8-null framework. Not invoked per-patient; runs against sealed VALs. |
@@ -132,7 +136,7 @@ All in `walther_clinical_runtime/`:
 | `IAMAtlasREBUILD_provenance.json` | `IAMAtlas_REBUILD/` | `h_min_values_frozen_2026_04_06` key with the 8 anchors; atlas version, build date, predecessor, classes, n_cpgs=483092. |
 | `mahalanobis_healthy_reference_v0_1.json` | `Mahalanobis_healthy_reference/` | `artifact_id`, `feature_names_valid`, `n_features`, `centroid`, `covariance_matrix`, `shrinkage`, `validation_anchor` (anchored at Cohen's d = +1.871 GSE51057, +2.088 GSE51032). |
 | `age_reference_matrix.{json,csv,py}` | `Age_Reference_Matrix_80_cells/` | 80-cell baseline: per-class list of decadal-bin records with `age_midpoint, A_mean, A_sd, beta_mean, beta_sd, n_samples, A_p10..A_p90, source_citation`. |
-| `tier_breakpoints.json` | `Tier_breakpoints/` | `engine_tier_breakpoints` (A_NORMAL_MAX=1.05, A_MARGINAL_MAX=1.07, A_DETECTABLE_MAX=1.10); `warburg_threshold` (A_WARBURG=1.07); `saturation_thresholds` (STRUCTURAL=1.10, RUNTIME_MARGIN=0.005); `customer_facing_vocabulary.engine_to_customer_translation`. |
+| `tier_breakpoints.json` v1.2 (NEW v1.2 — 6-tier physics-derived) | `Tier_breakpoints/` | `tier_system_v1_2.tiers` (6 entries: SUPPRESSED < 0.95 / NORMAL [0.95, 1.04) / ELEVATED [1.04, 1.07) / **WARBURG_TRANSITION [1.07, 1.10)** / SIGNIFICANTLY_ELEVATED [1.10, 1.12) / **BREACH ≥1.10 sustained or ≥1.12 single-timepoint**); `per_class_default_breakpoints.structural_ceiling_by_class` (1/H_min per class; stem_pluri structurally blind for BREACH at ceiling 1.0181); `tier_by_covariate_overrides` (7 modes: EXPECTED_SUPPRESSION, TRAJECTORY_WATCH, TREATMENT_RESPONSE, CONTEXT_PREGNANCY/POSTPARTUM/HRT_BASELINE/WEIGHT_LOSS_INTERVENTION); `tier_by_smoking_bin` (interim mitigation until smoking_axis_foreground.py at v1.3); `bidirectional_pattern_handoff` (consume Stage 4.5 directional composite when FLAG_BIDIRECTIONAL); `tier_confidence_propagation` (BORDERLINE_TIER flag at 0.20 prob threshold from MCMC CI). v0 4-tier statistical-percentile archived in `OLD/tier_breakpoints_v0_4tier_statistical.json`. |
 | `cfdna_weight.json` | `Cfdna_weight_nonderived_placeholder/` | Per-class weights (immune 0.70, cycling 0.12, secretory 0.08, stromal 0.04, stem_adult 0.03, progenitor 0.02, terminal 0.005, stem_pluri 0.005). |
 | `literature_anchors.json` | `Literature_anchors_Report_building/` | Per-class list of `{label, A, beta, context, source}` records (Lister 2013, De Jager 2014, Shireby 2022, etc.). |
 | `cancer_prior.json` | `Cancer_prior/` | Per-class US lifetime cancer incidence (cycling 0.055, secretory 0.140, immune 0.020, terminal 0.008, stromal 0.005, stem_adult 0.008, progenitor 0.006, stem_pluri 0.004). |
@@ -530,17 +534,35 @@ The walkthrough uses 8 stages (0–7 + 2.5 sub-stage); the SOP uses 11 stages (0
 
 ### Stage 3 — Foreground subtraction (SOP §35–§40 / walkthrough Stage 3 first half)
 
-1. Load `IAMAtlas_age_layer.csv` (per-CpG α, γ, R², n at 8,199 CpGs).
-2. Instantiate:
+1. Load `IAMAtlas_age_layer.csv` (per-CpG α, γ, R², n at 8,199 CpGs):
    ```python
    from age_axis_foreground import AgeAxisForeground
    afg = AgeAxisForeground()
    afg.load_layer("IAM_Cellular_Age/IAMAtlas_age_layer.csv")
    cleaned_beta = afg.subtract_from(beta_vector, ages=[patient_age])
    ```
-3. **V1 documented gaps:** sex / batch / ancestry / smoking foregrounds are NOT subtracted at the CpG level (no modules exist yet — Phase B4 per Roadmap §10.2.2). Audit trail declares the gap honestly; doctor report's Quality section lists them as documented limitations.
 
-**Output of Stage 3:** Age-cleaned β vector.
+2. **Smoking-axis foreground subtraction (NEW v1.2 — module built; layer CSV pending v1.3 fit):**
+   ```python
+   from smoking_axis_foreground import SmokingAxisForeground
+   smk = SmokingAxisForeground()
+   smk.load_layer("IAM_Cellular_Age/IAMAtlas_smoking_layer.csv")  # built once at v1.3 from HC n=601
+   cleaned_beta = smk.subtract_from(cleaned_beta, smoking_bins=[patient_smoking_bin])
+   ```
+   Per-CpG model: `β = α + δ·indicator_current + φ·recency_score + ε`. Recency score: never=0.00 / former_15plus_y=0.10 / former_5_15y=0.30 / former_0_5y=0.60 / current=1.00. **Until `IAMAtlas_smoking_layer.csv` is fit (v1.3 layer-build work on the n_hc=601 cohort with smoking-status metadata), the interim Stage 7 smoking-bin threshold-stratification (per `tier_breakpoints.json v1.2`) absorbs the bulk effect.**
+
+3. **Sex-axis foreground subtraction (NEW v1.2 — module built; layer CSV pending v1.3 fit):**
+   ```python
+   from sex_axis_foreground import SexAxisForeground
+   sex_fg = SexAxisForeground()
+   sex_fg.load_layer("IAM_Cellular_Age/IAMAtlas_sex_layer.csv")  # built once at v1.3 from HC n=601
+   cleaned_beta = sex_fg.subtract_from(cleaned_beta, sex_at_birth=[patient_sex])
+   ```
+   Per-CpG model: `β = α + ψ·indicator_male + ε`. Special handling of chrX (X-inactivation flag for high-ψ CpGs) + chrY (sex-chromosome flag for masking in female samples). **Until `IAMAtlas_sex_layer.csv` is fit (v1.3 layer-build work), the interim Stage 7 sex-stratified threshold tables absorb the bulk effect.**
+
+4. **v1.2 documented gaps:** batch / ancestry foregrounds are NOT yet subtracted at the CpG level (modules not built). Audit trail declares the gap honestly; doctor report's Quality section lists them as documented limitations. Batch correction is typically handled at the cohort level (ComBat/funnorm) in pre-processing, so its absence at L4 per-patient runtime is less critical than smoking/sex/age.
+
+**Output of Stage 3:** Foreground-cleaned β vector (age + smoking + sex once layers fit; age-only as v1.2 default until smoking/sex layer-build complete at v1.3).
 
 ### Stage 4 — A-score (SOP §41–§46 / walkthrough Stage 2)
 
