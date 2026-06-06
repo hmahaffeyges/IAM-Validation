@@ -1,34 +1,240 @@
 {
   "_meta": {
-    "name": "EDEAR Tier Breakpoints + Saturation Thresholds",
-    "purpose": "Stage 4 floor-departure detection - the A-score thresholds that translate continuous engine output into customer-facing tier vocabulary. Frozen with the framework; same breakpoints across all classes.",
-    "extracted_from": "GAPE_WEB_v13.py lines 55-61 and 493-497",
-    "extraction_date": "2026-05-28"
+    "name": "CPG/EDEAR Tier Breakpoints \u2014 6-tier physics-derived v1.2",
+    "version": "v1.2",
+    "date": "2026-06-06",
+    "supersedes": "v0 4-tier statistical-percentile (archived in OLD/tier_breakpoints_v0_4tier_statistical.json)",
+    "purpose": "Stage 7 customer-facing tier breakpoints translating continuous A-score engine output into 6 physics-derived metabolic-transition tiers. The 1.07 Warburg line and 1.10 architectural-fidelity breach line are the framework's two physics-defined inflection points, not statistical percentiles.",
+    "framework_anchor": "BUILD_SPEC v1.2 \u00a75 Stage 7; immune card v1.0 Stage 7 tier system",
+    "h_min_reference_date": "2026-04-06 (G-003b MCMC freeze)"
   },
-  "engine_tier_breakpoints": {
-    "A_NORMAL_MAX": 1.05,
-    "A_MARGINAL_MAX": 1.07,
-    "A_DETECTABLE_MAX": 1.1,
-    "comment": "A <= 1.05 NORMAL; 1.05-1.07 MARGINAL; 1.07-1.10 DETECTABLE; > 1.10 FLOOR_BREACH. Below 1.0 is BELOW_NORMAL (suppression/homogenization)."
+  "tier_system_v1_2": {
+    "_doc": "Six physics-derived tiers replacing the v0 4-tier statistical-percentile system. These breakpoints are universal across all classes; per-class overrides at the bottom of this file shift the ELEVATED floor for context-dependent baselines but preserve the Warburg line and breach line.",
+    "tiers": [
+      {
+        "tier_id": "SUPPRESSED",
+        "a_score_range": {
+          "min": 0.0,
+          "max_exclusive": 0.95
+        },
+        "customer_label": "Suppressed",
+        "engine_label": "SUPPRESSED",
+        "physics_meaning": "Measurable shift below the healthy class baseline. Treatment-context-dependent reading \u2014 without context (chemotherapy, immunosuppression, transplant), suppression is signal worth investigating.",
+        "customer_paragraph": "Your A-score for this class is measurably below the healthy baseline. In some treatment contexts (active chemotherapy, transplant recovery, immunosuppression) this is expected and even therapeutically intended. In the absence of such context, suppression below the baseline can reflect compartment shrinkage or treatment footprint that warrants a conversation with your clinician."
+      },
+      {
+        "tier_id": "NORMAL",
+        "a_score_range": {
+          "min": 0.95,
+          "max_exclusive": 1.04
+        },
+        "customer_label": "Normal",
+        "engine_label": "NORMAL",
+        "physics_meaning": "Within healthy sampling variance \u2014 no measurable departure from the class baseline.",
+        "customer_paragraph": "Your A-score for this class is within the healthy sampling-variance range. No measurable departure from the architectural baseline."
+      },
+      {
+        "tier_id": "ELEVATED",
+        "a_score_range": {
+          "min": 1.04,
+          "max_exclusive": 1.07
+        },
+        "customer_label": "Elevated",
+        "engine_label": "ELEVATED",
+        "physics_meaning": "Recoverable drift above the healthy baseline. The architecture is intact. This is the holistic-intervention window \u2014 lifestyle, nutrition, anti-inflammatory interventions, stress management, and trajectory monitoring are appropriate.",
+        "customer_paragraph": "Your A-score sits above the healthy baseline but below the metabolic transition line. This is the recoverable drift window \u2014 the architecture is intact, and holistic intervention (lifestyle, nutrition, anti-inflammatory support, stress reduction) is where meaningful change happens. Trajectory monitoring across follow-up tests is the most informative next step."
+      },
+      {
+        "tier_id": "WARBURG_TRANSITION",
+        "a_score_range": {
+          "min": 1.07,
+          "max_exclusive": 1.1
+        },
+        "customer_label": "Warburg Transition",
+        "engine_label": "WARBURG_TRANSITION",
+        "warburg_line_anchor": true,
+        "physics_meaning": "The 1.07 Warburg line \u2014 the metabolic point where adding fuel can ACCELERATE decline instead of correcting it. Above this line, the same intervention that worked below the line can have the opposite effect. Intervention character must change from 'add fuel' to 'restrict and rebuild.' This is the single most clinically useful number on the gauge for metabolic-intervention clinicians (GLP-1, bariatric, semaglutide patients sit on this edge).",
+        "customer_paragraph": "Your A-score crosses the Warburg metabolic transition line. This is a specific physics-defined inflection where the character of useful intervention changes. Below this line, adding metabolic support (nutrients, fuel) tends to help. Above this line, the same intervention can accelerate the drift instead of correcting it \u2014 the metabolic regime has shifted. Your clinician should know about this transition specifically; the intervention strategy at this tier is materially different from one tier lower."
+      },
+      {
+        "tier_id": "SIGNIFICANTLY_ELEVATED",
+        "a_score_range": {
+          "min": 1.1,
+          "max_exclusive": 1.12
+        },
+        "customer_label": "Significantly Elevated",
+        "engine_label": "SIGNIFICANTLY_ELEVATED",
+        "physics_meaning": "Structural-fidelity breach territory. This is the rare senescence-without-diagnosed-cancer regime \u2014 some individuals reach this tier and never progress further; others move into the BREACH range. The architecture is no longer fully intact, and the trajectory direction (rising, stable, falling) is the most informative read.",
+        "customer_paragraph": "Your A-score is in the significantly elevated range \u2014 past the Warburg transition but below the architectural-fidelity breach line. The trajectory direction across follow-up tests is more informative at this tier than the single-point value. A clinical conversation to interpret context (recent illness, medication, family history, accumulated treatment footprint) is appropriate."
+      },
+      {
+        "tier_id": "BREACH",
+        "a_score_range": {
+          "min": 1.1,
+          "max_inclusive": 999.0
+        },
+        "trigger_condition": "A >= 1.10 sustained across timepoints OR A >= 1.12 at a single timepoint",
+        "customer_label": "Breach",
+        "engine_label": "BREACH",
+        "breach_line_anchor": true,
+        "physics_meaning": "The 1.10 architectural-fidelity breach line. The regime where diagnosed cancer is typically observed (~1.12+) AND the rare senescence-without-cancer regime. Not a diagnosis, not a verdict \u2014 a prompt for workup. Single-timepoint A >= 1.12 is a sufficient breach trigger; A >= 1.10 requires sustained-trajectory confirmation across follow-up tests.",
+        "customer_paragraph": "Your A-score is in the breach range. This is the framework's most serious customer-facing tier \u2014 but it is a prompt for clinical workup, NOT a diagnosis. The same A-score range encompasses both diagnosed-disease cases AND rare-but-real senescence-without-progression patterns. A clinical conversation to interpret the full picture (this readout + your trajectory + your context) is the appropriate next step."
+      }
+    ],
+    "warburg_line_value": 1.07,
+    "breach_line_value": 1.1,
+    "diagnosed_cancer_typical_range_lower_bound": 1.12
   },
-  "warburg_threshold": {
-    "A_WARBURG": 1.07,
-    "comment": "Approximate Warburg metabolic transition threshold - the energy/order regime where cells flip from oxidative to glycolytic metabolism. Open problem G-004 for exact derivation."
+  "per_class_default_breakpoints": {
+    "_doc": "Default 6-tier breakpoints apply uniformly across all 8 classes. Per-class structural ceiling is 1/H_min \u2014 beyond this ceiling, further A-score departure cannot be resolved (Appendix E \u00a7E.4).",
+    "structural_ceiling_by_class": {
+      "stem_pluri": {
+        "h_min": 0.9822,
+        "ceiling_1_over_h_min": 1.0181
+      },
+      "stem_adult": {
+        "h_min": 0.8737,
+        "ceiling_1_over_h_min": 1.1446
+      },
+      "stromal": {
+        "h_min": 0.863,
+        "ceiling_1_over_h_min": 1.1588
+      },
+      "cycling": {
+        "h_min": 0.8561,
+        "ceiling_1_over_h_min": 1.1681
+      },
+      "progenitor": {
+        "h_min": 0.8522,
+        "ceiling_1_over_h_min": 1.1734
+      },
+      "secretory": {
+        "h_min": 0.8433,
+        "ceiling_1_over_h_min": 1.1858
+      },
+      "immune": {
+        "h_min": 0.838889,
+        "ceiling_1_over_h_min": 1.1921
+      },
+      "terminal": {
+        "h_min": 0.7728,
+        "ceiling_1_over_h_min": 1.294
+      }
+    },
+    "structural_blind_classes_note": "stem_pluri has structural ceiling 1.0181 < 1.10 \u2014 meaning the stem_pluri class CANNOT reach the BREACH tier at full architectural departure. This is structurally documented, not a bug. Reporting for stem_pluri uses the 6-tier system but the BREACH tier is unreachable; SIGNIFICANTLY_ELEVATED is the practical ceiling.",
+    "runtime_saturation_margin": 0.005,
+    "runtime_saturation_note": "If a measured A is within 0.005 of the class ceiling, further departure cannot be resolved. Engine emits SATURATED flag; tier reporting uses the highest reachable tier for that class."
   },
-  "saturation_thresholds": {
-    "STRUCTURAL_SATURATION_THRESHOLD": 1.1,
-    "RUNTIME_SATURATION_MARGIN": 0.005,
-    "comment": "Per Appendix E \u00a7E.4/\u00a7E.6. Structural: if a (class, substrate) ceiling 1/H_min is below 1.10, the substrate is structurally blind for that class even at full departure. Runtime: if measured A is within 0.005 of the ceiling, further departure cannot be resolved."
+  "tier_by_covariate_overrides": {
+    "_doc": "Per BUILD_SPEC v1.2 \u00a74.5 patient intake covariate routing + \u00a75 Stage 7 special-mode override table. Triggered by specific intake-questionnaire covariates; replaces standard 6-tier output with mode-specific interpretation for the customer's report.",
+    "EXPECTED_SUPPRESSION": {
+      "triggers_any_of": [
+        "current_immunosuppression == true",
+        "transplant_status in {solid_organ, stem_cell_bm}"
+      ],
+      "behavior": "Engine emits EXPECTED_SUPPRESSION label rather than SUPPRESSED-with-vigilance. The customer's SUPPRESSED tier reading is interpreted as therapeutically expected; no vigilance flag is raised.",
+      "customer_paragraph": "Your declared treatment context (immunosuppression / transplant recovery) is consistent with the suppressed A-score reading. This is therapeutically expected rather than a finding that warrants additional workup."
+    },
+    "TRAJECTORY_WATCH": {
+      "triggers_any_of": [
+        "known_autoimmune_condition == true",
+        "known_chronic_inflammatory_disease == true",
+        "hiv_status == positive_treated_suppressed"
+      ],
+      "behavior": "Single-timepoint magnitude de-emphasized. Trajectory direction across follow-up tests is the primary reading. ELEVATED floor SHIFTED upward to account for chronic-disease baseline.",
+      "elevated_floor_shifted_to": 1.1,
+      "customer_paragraph": "Your declared chronic condition (autoimmune / chronic inflammatory / HIV+ treated) shifts the baseline interpretation. The trajectory across follow-up tests is more informative than the single-point A-score."
+    },
+    "TREATMENT_RESPONSE": {
+      "triggers_any_of": [
+        "current_cancer_in_treatment == true"
+      ],
+      "behavior": "Single-timepoint tier reading replaced with trajectory framing across treatment timepoints. Engine reports tier alongside trend (rising, stable, falling) when serial data available.",
+      "customer_paragraph": "Your declared active cancer treatment context shifts the interpretation to a treatment-response trajectory frame. The pattern of change across treatment timepoints is the primary read; the single-timepoint A-score is one point on that trajectory."
+    },
+    "CONTEXT_PREGNANCY": {
+      "triggers_any_of": [
+        "current_pregnancy_with_trimester != none"
+      ],
+      "behavior": "Physiological pregnancy immune shift flagged. Trimester-stratified interpretation; absolute tier de-emphasized in favor of trajectory across pregnancy timepoints.",
+      "customer_paragraph": "Your declared pregnancy produces a well-documented physiological immune shift \u2014 the absolute A-score during pregnancy is not directly comparable to non-pregnant baseline. Trajectory monitoring across pregnancy and postpartum is the appropriate framing."
+    },
+    "CONTEXT_POSTPARTUM": {
+      "triggers_any_of": [
+        "postpartum_within_6_months == true"
+      ],
+      "behavior": "Postpartum physiological recovery context flagged. Absolute tier readings de-emphasized for 6 months postpartum.",
+      "customer_paragraph": "Your declared postpartum context (within 6 months of birth) means the immune compartment is still recovering from pregnancy's physiological shift. Absolute tier readings are de-emphasized during this window in favor of trajectory monitoring."
+    },
+    "CONTEXT_HRT_BASELINE": {
+      "triggers_any_of": [
+        "hrt_status in {estrogen, estrogen_progesterone, bhrt, testosterone_low_dose}"
+      ],
+      "behavior": "First-of-its-kind HRT-stratified immune readout per CPG-VAL-018 (in v1.0 VAL set). HRT modulates the immune-class baseline; engine surfaces HRT context in the report.",
+      "customer_paragraph": "Your declared HRT context is incorporated into the interpretation. CPG-VAL-018 establishes the HRT-stratified baseline; your reading is interpreted relative to that baseline, not the non-HRT population norm."
+    },
+    "CONTEXT_WEIGHT_LOSS_INTERVENTION": {
+      "triggers_any_of": [
+        "current_glp1_or_weight_loss_medication == current",
+        "bariatric_surgery_within_18_months == true"
+      ],
+      "behavior": "Expected downward immune trajectory per CPG-VAL-021 anti-inflammatory framing. Engine flags expected downward drift; rising A-score on this context becomes more notable.",
+      "customer_paragraph": "Your declared weight-loss intervention context (GLP-1 / bariatric) is consistent with an anti-inflammatory trajectory. CPG-VAL-021 establishes the expected downward immune drift; your reading is interpreted against that expected trajectory."
+    }
+  },
+  "tier_by_smoking_bin": {
+    "_doc": "Interim mitigation per BUILD_SPEC v1.2 \u00a75 Stage 7 \u2014 until smoking_axis_foreground.py is built at v1.3, smoking-bin selects an ELEVATED floor shift that absorbs residual tobacco signal. After smoking_axis_foreground.py is operational, these bin-based shifts retire and full per-CpG subtraction replaces them.",
+    "elevated_floor_by_bin": {
+      "current_smoker": {
+        "elevated_floor": 1.1,
+        "rationale": "Strong residual AHRR + ~100 tobacco CpG drift absorbed"
+      },
+      "former_0_5y": {
+        "elevated_floor": 1.08,
+        "rationale": "Substantial residual drift persists 0-5 years post-quit"
+      },
+      "former_5_15y": {
+        "elevated_floor": 1.07,
+        "rationale": "Moderate residual drift; intermediate calibration"
+      },
+      "former_15plus_y": {
+        "elevated_floor": 1.05,
+        "rationale": "Mostly recovered to baseline; small remaining residual"
+      },
+      "never_smoker": {
+        "elevated_floor": 1.04,
+        "rationale": "Default \u2014 no residual to absorb"
+      }
+    }
+  },
+  "bidirectional_pattern_handoff": {
+    "_doc": "When Stage 4.5 sets FLAG_BIDIRECTIONAL for a class (per BUILD_SPEC v1.2 \u00a75 Stage 4.5), Stage 7 uses the directional composite (signed) rather than the pooled A-score to drive tier reporting.",
+    "when_flagged_use_directional_composite": true,
+    "directional_composite_tier_mapping": {
+      "_doc": "|directional composite z-score| \u2192 tier driver. Positive = disease-direction; negative = anti-direction.",
+      "abs_dir_lt_0.40": "NORMAL (no directional signal)",
+      "abs_dir_0.40_to_0.80": "ELEVATED (directional signal present)",
+      "abs_dir_0.80_to_1.20": "WARBURG_TRANSITION (significant directional signal)",
+      "abs_dir_1.20_to_1.60": "SIGNIFICANTLY_ELEVATED (strong directional signal)",
+      "abs_dir_gt_1.60": "BREACH-ANALOG (directional signal at the level associated with diagnosed-cohort effect sizes)"
+    },
+    "customer_paragraph_when_bidirectional_flagged": "A bidirectional methylation pattern was detected in this class \u2014 some cell populations are running elevated while others are running suppressed. The pooled (averaged) reading would have looked NORMAL because the directional opposites cancel; the engine's directional decomposition recovers the signal that pooled averaging hides. This is a known pattern in certain neurodegenerative and pre-diagnostic states; trajectory monitoring + a clinical conversation is the appropriate next step."
   },
   "customer_facing_vocabulary": {
-    "engine_to_customer_translation": {
-      "BELOW_NORMAL": "SUPPRESSED",
-      "NORMAL": "NORMAL",
-      "MARGINAL": "ELEVATED",
-      "DETECTABLE": "SIGNIFICANTLY_ELEVATED",
-      "URGENT": "SIGNIFICANTLY_ELEVATED",
-      "FLOOR_BREACH": "SIGNIFICANTLY_ELEVATED"
+    "engine_to_customer_mapping": {
+      "SUPPRESSED": "Suppressed",
+      "NORMAL": "Normal",
+      "ELEVATED": "Elevated",
+      "WARBURG_TRANSITION": "Warburg Transition",
+      "SIGNIFICANTLY_ELEVATED": "Significantly Elevated",
+      "BREACH": "Breach"
     },
-    "comment": "Customer-facing labels collapse engine tiers 3-5 into a single 'SIGNIFICANTLY_ELEVATED' bucket to keep the wellness-report vocabulary plain-English. The engine still computes all six tiers internally - the collapse is only at the report-rendering layer."
+    "_doc": "v1.2 uses the same vocabulary at engine and customer layers (no collapse). Earlier v0 collapsed MARGINAL/DETECTABLE/URGENT/FLOOR_BREACH into a single 'SIGNIFICANTLY_ELEVATED' customer bucket; v1.2 keeps the 6 tiers visible to the customer because the Warburg line + breach line are clinically actionable distinctions."
+  },
+  "tier_confidence_propagation": {
+    "_doc": "Per BUILD_SPEC v1.2 \u00a75 Stages 4-7 forward CI propagation: tier confidence is the probability of A falling in each tier under the posterior distribution propagated from MCMC atlas posteriors.",
+    "borderline_tier_flag_threshold": 0.2,
+    "borderline_tier_flag_rule": "When |P(primary_tier) - P(second_max_tier)| < 0.20, the engine emits BORDERLINE_TIER flag. Customer report includes 'your reading straddles the {tier_A}/{tier_B} boundary' language.",
+    "example_warburg_straddler": "Patient with A = 1.08 [CI 1.06\u20131.10] straddles the 1.07 Warburg line. P(ELEVATED) \u2248 0.40, P(WARBURG_TRANSITION) \u2248 0.60. Engine emits BORDERLINE_TIER + customer language explaining the measurement range crosses a physics-defined transition."
   }
 }
