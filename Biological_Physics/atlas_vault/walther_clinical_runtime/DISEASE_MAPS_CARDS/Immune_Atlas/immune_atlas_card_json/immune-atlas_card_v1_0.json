@@ -1,0 +1,787 @@
+{
+  "schema_version": "1.0",
+  "card_id": "immune-atlas",
+  "card_version": "v1.0",
+  "card_date": "2026-06-06",
+  "card_type": "universal_baseline_card",
+  "display_name": "Immune Atlas (Universal Baseline)",
+  "architectural_class": "immune",
+  "supersedes": "Pre-build immune-atlas card v0.3.2 + pre-build immune card v1.0-draft, both retired to RETIRED_PREBUILD_REFERENCE/. Multi-atlas methods (Xu-538, Loyfer, Salas, EpiSCORE, UniLIFE, Caggiano, Reinius) replaced with the IAMAtlas REBUILD v0_2 single Bayesian deconvolution architecture. The clinical content (19 cell pages, tier vocabulary, vigilance language, grouping rationale, covariate intake) is preserved; only infrastructure references are replaced.",
+  "disease": "n/a — universal baseline (wellness card, not disease-specific)",
+  "icd10_scope": [
+    "n/a — universal"
+  ],
+  "clinical_claim": {
+    "scope": "Every customer IDAT runs through this card. It quantifies the patient's immune-class architectural state at the cellular level — immune-class A-score (with 95% CI propagated from IAMAtlas MCMC posteriors), 51-cell immune fanout (aggregated to 19 customer-facing pages), immune cellular age + immune age delta (inflammaging quantum), Mahalanobis distance against the n=601 pooled-HC hull, and the patient's personal Cosmic Microwave Methylome (8-panel Mollweide PNG). The immune card produces no disease verdict — instead it produces the universal first-pass measurement that downstream disease cards interpret in context, with engine-internal concordance flags surfaced from the Stage 8 disease signature matrix v1.7 consultation.",
+    "what_this_card_reports_to_customer": "Immune A-score with 95% measurement range, immune cellular age + immune age delta (inflammaging quantum), tier verdict on the 6-tier physics-derived scale (SUPPRESSED / NORMAL / ELEVATED / WARBURG_TRANSITION / SIGNIFICANTLY_ELEVATED / BREACH), per-cell findings on the 19 customer-facing pages when individual cells depart significantly, bidirectional-pattern flag when relevant, the patient's personal Cosmic Microwave Methylome 8-panel Mollweide PNG, Mahalanobis distance with CI surfaced as 'overall departure from healthy is X SDs (range L–U).'",
+    "what_this_card_does_NOT_report": "No disease names in the customer report. No diagnostic verdicts. No specific clinical follow-up recommendations. Disease-specific concordance flags from the Stage 8 disease signature matrix consultation are ENGINE-INTERNAL — they feed downstream disease cards' interpretation, never appearing in the customer's immune readout.",
+    "framework_lineage": "IAMAtlas single Bayesian deconvolution. All pre-build atlas references (Xu-538, Loyfer, EpiSCORE, Salas, UniLIFE, Caggiano TIM, Reinius) were INGESTED at IAMAtlas BUILD time as published per-cell methylation data points, not queried at runtime. EDEAR runs its own MCMC chains against those data points with EDEAR's H_min anchors and 8-class architectural taxonomy producing the IAMAtlas. At patient runtime, the chain runs Stage 0 → 10 every time against the IAMAtlas posterior only."
+  },
+  "framework_methodology_clarification": "Astro-Genetics: EDEAR's chain methodology adapts proven astrophysics/cosmology tools (Planck CMB NILC needlet decomposition for Stage 2 cross-method gate, HEALPix sphere pixelization for Stage 4.6 personal Cosmic Microwave Methylome rendering, Mollweide projection for customer-facing visualization, virial-theorem-derived Mahaffey number for tier physics) to methylome architecture. The 1.07 Warburg-transition line and the 1.10 architectural-fidelity breach line are physics-defined inflection points, not statistical percentiles.",
+  "substrate": {
+    "validated_substrates": [
+      "ccfDNA_plasma",
+      "buffy_coat"
+    ],
+    "default_substrate_for_v1": "buffy_coat",
+    "min_cpg_coverage_pct_of_immune_marker_substrate": 80,
+    "platform_compatibility": {
+      "HM450": "validated — reference platform; the IAMAtlas REBUILD posterior was anchored against HM450",
+      "EPIC_v1_B4": "validated_with_cross_platform_attenuation_documented — AD VAL-052 established d=+0.33 EPIC vs d=+0.624 HM450 on same disease cohort (attenuation factor ~0.53)",
+      "EPIC_v2_GPL33022": "validated_with_caveat — IAMAtlas full-CpG-universe coverage typically 87–92% on EPIC v2; engine flags reduced coverage per sample",
+      "LBC_pap_smear_cytology": "NOT_validated — reserved for future research (substrate-specific bidirectional decomposition not yet developed)",
+      "urine_sediment": "NOT_validated"
+    },
+    "_panel_substrate_compatibility_note": "Customer IDATs may arrive on any of the validated platforms. The engine inspects platform metadata at intake and flags reduced-coverage cases (notably EPIC v2.0) in the customer report so the customer knows their immune-class score is computed at 90% panel coverage rather than full coverage."
+  },
+  "demographic_gates": {
+    "age_range_validated": [
+      18,
+      95
+    ],
+    "age_outside_range_behavior": "Report still generated; engine flags INSUFFICIENT_AGE_CALIBRATION at Stage 6 cellular age inversion; report carries an age-calibration disclaimer. Age reference matrix (80-cell baseline) extends ages 4–95 by published reference (Alisch 2012 + Horvath 2013 + Hannum 2013), but A-score CI widens substantially outside 18–95.",
+    "sex_at_birth_required": true,
+    "sex_at_birth_missing_behavior": "Halt at Stage 0 intake — universal card cannot run sex-stratified Stage 7 thresholds without sex_at_birth, and cannot run sex_axis_foreground at Stage 3.",
+    "_prebuild_demographic_gates": {
+      "age_min": 18,
+      "age_max": null,
+      "sex": "any"
+    }
+  },
+  "cell_types_of_interest": [
+    "B_cells",
+    "naive_B_cells",
+    "memory_B_cells",
+    "plasma_cells",
+    "CD4_T_cells",
+    "CD8_T_cells",
+    "naive_CD4_T_cells",
+    "naive_CD8_T_cells",
+    "memory_T_cells",
+    "regulatory_T_cells",
+    "NK_cells",
+    "neutrophils",
+    "eosinophils",
+    "basophils",
+    "monocytes",
+    "macrophages",
+    "microglia",
+    "kupffer_cells",
+    "dendritic_cells"
+  ],
+  "_cell_types_note": "The exact list will be finalized after IAMAtlas v1 lands. Cell types listed here are those expected to have clean enough posteriors for per-cell-type reporting. Cell types without sufficient posterior resolution will be aggregated to the immune-class level for reporting.",
+  "n_cell_types_in_atlas_fanout": 51,
+  "n_customer_facing_pages": 16,
+  "_cell_to_page_mapping_note": "The 19 atlas-resolved cell categories collapse to 16 customer-facing pages per the bidirectional-grouping discipline. The collapse follows the 'follow the biology' rule: immune lineage groupings reflect cellular function (e.g. naive-vs-memory CD4 vs CD8 T cells share enough biology to share a parent page with sub-section detail).",
+  "_cell_type_to_page_mapping": {
+    "_doc_note": "The 19 cell-type categories listed in cell_types_of_interest map to 16 customer-facing per-cell pages. Pages are organized per the bidirectional-grouping discipline rule and the 'follow the biology' rule: immune biology is class-unified (cells circulate together, share lineage, share class-level disease patterns) so subpages group by immune lineage function rather than by organ.",
+    "B_cells": "b_cells_page",
+    "naive_B_cells": "naive_b_cells_page",
+    "memory_B_cells": "memory_b_cells_page",
+    "plasma_cells": "plasma_cells_page",
+    "CD4_T_cells": "cd4_t_cells_page",
+    "CD8_T_cells": "cd8_t_cells_page",
+    "naive_CD4_T_cells": "naive_cd4_t_cells_page",
+    "naive_CD8_T_cells": "naive_cd8_t_cells_page",
+    "memory_T_cells": "memory_t_cells_page",
+    "regulatory_T_cells": "regulatory_t_cells_page",
+    "NK_cells": "nk_cells_page",
+    "neutrophils": "neutrophils_page",
+    "eosinophils": "eosinophils_page",
+    "basophils": "basophils_page",
+    "monocytes": "monocytes_page",
+    "macrophages": "macrophages_page",
+    "microglia": "microglia_page",
+    "kupffer_cells": "kupffer_cells_page",
+    "dendritic_cells": "dendritic_cells_page"
+  },
+  "_cell_types_atlas_provenance": {
+    "B_cells": "B (epidish_centBloodSub, epidish_centDHSbloodDMC, unilife_guo_2025), Bcell (salas_blood_450k_idol, salas_blood_epic_idol), B-cells_EPIC (loyfer_moss_2018), CD19_B-cells (reinius_gse35069)",
+    "naive_B_cells": "Bnv (epidish_cent12CT, epidish_cent12CT450k), aBnv (unilife_guo_2025)",
+    "memory_B_cells": "Bmem (epidish_cent12CT, epidish_cent12CT450k), aBmem (unilife_guo_2025)",
+    "plasma_cells": "Plasma (episcore_oeref)",
+    "CD4_T_cells": "CD4T (epidish_centBloodSub, epidish_centDHSbloodDMC, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), CD4T-cells_EPIC (loyfer_moss_2018), CD4_T-cells (reinius_gse35069)",
+    "CD8_T_cells": "CD8T (epidish_centBloodSub, epidish_centDHSbloodDMC, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), CD8T-cells_EPIC (loyfer_moss_2018), CD8_T-cells (reinius_gse35069)",
+    "naive_CD4_T_cells": "CD4Tnv (epidish_cent12CT, epidish_cent12CT450k), aCD4Tnv (unilife_guo_2025)",
+    "naive_CD8_T_cells": "CD8Tnv (epidish_cent12CT, epidish_cent12CT450k), aCD8Tnv (unilife_guo_2025)",
+    "memory_T_cells": "CD4Tmem + CD8Tmem (epidish_cent12CT, epidish_cent12CT450k), aCD4Tmem + aCD8Tmem (unilife_guo_2025)",
+    "regulatory_T_cells": "Treg (epidish_cent12CT, epidish_cent12CT450k), aTreg (unilife_guo_2025)",
+    "NK_cells": "NK (epidish_cent12CT, epidish_cent12CT450k, epidish_centBloodSub, epidish_centDHSbloodDMC, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), NK-cells_EPIC (loyfer_moss_2018), CD56_NK-cells (reinius_gse35069), aNK (unilife_guo_2025)",
+    "neutrophils": "Neu (epidish_cent12CT, epidish_cent12CT450k, salas_blood_450k_idol, salas_blood_epic_idol), Neutro (epidish_centBloodSub, epidish_centDHSbloodDMC), Neutrophils_EPIC (loyfer_moss_2018), Neutrophils_reinius (reinius_gse35069), neutrophil (caggiano_celfie_tim), aNeu (unilife_guo_2025)",
+    "eosinophils": "Eos (epidish_cent12CT, epidish_cent12CT450k), Eosino (epidish_centBloodSub, epidish_centDHSbloodDMC), Eosinophils_reinius (reinius_gse35069), eosinophil (caggiano_celfie_tim), aEos (unilife_guo_2025)",
+    "basophils": "Baso (epidish_cent12CT, epidish_cent12CT450k), aBaso (unilife_guo_2025)",
+    "monocytes": "Mono (epidish_cent12CT, epidish_cent12CT450k, epidish_centBloodSub, epidish_centDHSbloodDMC, episcore_lungref, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), Monocytes_EPIC (loyfer_moss_2018), CD14_monocytes (reinius_gse35069), monocyte (caggiano_celfie_tim), aMono (unilife_guo_2025)",
+    "macrophages": "Macro (episcore_lungref, episcore_oeref, episcore_skinref), macrophage (caggiano_celfie_tim), MP (episcore_breastref, episcore_heartref pooled myeloid)",
+    "microglia": "Microglia (episcore_brainref) — CNS-tissue-resident macrophage",
+    "kupffer_cells": "Kup (episcore_liverref) — liver-resident macrophage",
+    "dendritic_cells": "dendritic (caggiano_celfie_tim)"
+  },
+  "_grouping_rationale": {
+    "_doc_note": "Bidirectional-discipline reasoning: cell types that could move in opposite directions in the same disease pattern get separate pages; cells that consistently move together can share a page or sub-section.",
+    "naive_CD4_vs_naive_CD8": "Separate pages required. Chronic HIV selectively depletes naive CD4 more than naive CD8 — opposite-direction pattern documented in clinical literature. CMV chronic infection drives differential CD8 vs CD4 dynamics. Grouping these would mask HIV-status and chronic-viral-infection signatures at the customer level.",
+    "B_cells_vs_naive_B_vs_memory_B_vs_plasma": "Separate pages for naive B, memory B, and plasma cells. In multiple myeloma, plasma cells expand clonally while general B cells and naive B cells stay normal or DOWN. In B-cell lymphomas (DLBCL, follicular), the opposite — general B-cell up, plasma stays normal. Naive B cells specifically elevate near solid-tumor diagnosis (VAL-095 aBnv at 0-2yr d=+0.44/+0.49). The general B_cells page covers the umbrella signal; subset pages cover lineage-stage-specific patterns.",
+    "macrophages_vs_microglia_vs_kupffer": "Separate pages for tissue-resident macrophage subtypes. Microglia (CNS-resident) elevate in neurodegeneration patterns (AD, MS, PD, ALS) while peripheral macrophages stay normal — opposite-direction. Kupffer cells (liver-resident) DEPLETE in HCC while peripheral macrophages infiltrating tumor (TAMs) elevate — opposite-direction in same customer. Different organ-system patterns, different disease drivers, must stay separate.",
+    "memory_T_cells_combined_CD4_and_CD8": "Single memory_T_cells page covering both CD4Tmem and CD8Tmem. Memory T cell pool dynamics (chronic-viral-infection-driven memory inflation, TEMRA accumulation, immunosenescence) generally affect CD4mem and CD8mem in the same direction. CMV-driven CD8mem expansion is the strongest exception, but CD4mem typically also expands in CMV+ customers (just less dramatically). Treated as one page with sub-section discussion of subtype-specific findings."
+  },
+  "covariate_dependencies": [
+    "sex_at_birth",
+    "smoking_status",
+    "recent_illness_within_3_months",
+    "recent_vaccination_within_3_months",
+    "current_pregnancy_with_trimester",
+    "known_autoimmune_condition",
+    "current_immunosuppression",
+    "current_medications_systemic",
+    "current_treatment_status",
+    "prior_cancer_history",
+    "hpv_status",
+    "hiv_status",
+    "transplant_status"
+  ],
+  "_covariate_notes": "Covariates are collected at intake by the engine (not by this card). The engine's customer profile aggregates the union of covariates declared by all cards. This card's covariate consumption is light: smoking_status feeds threshold lookup (immune class shows persistent methylation signal from tobacco for years post-cessation; thresholds are calibrated by smoking bin); sex_at_birth is mandatory per CCL-002 because immune-class effect magnitudes differ substantially by sex (VAL-051/057 anchor); HPV status is a Stage 1 stratifier per cerv-LL-002 (not just metadata) because HPV exposure measurably shifts the cervical immune compartment baseline (VAL-074); HIV, transplant_status, and current_treatment_status feed SUPPRESSED-tier interpretation (post-chemo, post-transplant, primary immunodeficiency are real signals per CHK-4.7 / heme-LL-003); prior_cancer_history feeds remission-baseline interpretation; the other covariates are reported back to the customer as context in the report (e.g., 'Note: you reported recent illness within 3 months; immune signals from recent illness can persist for weeks to months'). The covariates are never used by this card to suppress a flag — only to contextualize it in the report.",
+  "patient_intake_questionnaire_v1_0_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/patient_intake_questionnaire_v1_0.md",
+  "_runtime_routing_role": {
+    "card_role": "universal_baseline — always produces customer-facing readout. The card's Stage 8 consultation against the disease signature matrix produces engine-internal concordance flags that feed downstream disease cards. Routes A (Mahalanobis), B (disease matrix signature match), and C (bidirectional pattern) may or may not fire — but the immune readout always renders.",
+    "run_everything_doctrine": "The full SOP chain (Stages 0–10) runs every time, against the IAMAtlas REBUILD posterior only. There is no Xu-538 panel pre-screen and no multi-atlas RUN-everything sweep — those were pre-build patterns retired by the IAMAtlas-only directive.",
+    "lineage_adjacent_discrimination_note": "Boundary with progenitor class: CHIP (clonal hematopoiesis of indeterminate potential) presents as a progenitor-class signal but consumes immune-cell production, so apparent immune-fraction shifts must be cross-checked against progenitor A-score. Boundary with secretory class: tumor-microenvironment immune infiltration overlaps the secretory class because TME shifts secretory architectural signal. Both adjacencies are resolved via Stage 4.5 bidirectional decomposition + Stage 8 disease-matrix concordance flags.",
+    "class_aggregation_discipline_compliant": true,
+    "aggregation_sequence": [
+      "Stage 4.5 bidirectional correction first (split into directional sub-panels)",
+      "Aggregate against ALL class-informative CpGs, not just the resolved cells",
+      "Partial-coverage flag if cell coverage <80%",
+      "CHK gate (CHK-1.7 immune-class coverage; CHK-3.8 bidirectional flag handling)"
+    ],
+    "bidirectional_panel_status": "validated_via_AD_instance_VAL_051"
+  },
+  "stage_0_intake": {
+    "module": "patient_intake_questionnaire_v1_0.md",
+    "purpose": "Capture sex_at_birth + 24-covariate intake schema; halt if mandatory fields missing.",
+    "card_specific_required_fields": [
+      "sex_at_birth",
+      "chronological_age (years)",
+      "smoking_status (current/former_0_5y/former_5_15y/former_15plus/never)",
+      "current_pregnancy_status_with_trimester (when sex_at_birth=F)",
+      "current_immunosuppression (yes/no)",
+      "known_autoimmune_condition_list",
+      "hiv_status (negative/positive_untreated/positive_treated/unknown)",
+      "current_medications_systemic_list",
+      "recent_illness_within_3_months (yes/no/specify)",
+      "recent_vaccination_within_3_months (yes/no/specify)",
+      "transplant_status (none/recent_bm/recent_solid_organ/established_post_transplant)",
+      "current_treatment_status (none/active_chemo/active_radiation/active_immunotherapy/other)",
+      "prior_cancer_history"
+    ],
+    "halt_conditions": [
+      "sex_at_birth_missing → halt + return INTAKE_INCOMPLETE",
+      "chronological_age_missing OR not in [4, 95] → halt + return AGE_OUT_OF_RANGE"
+    ]
+  },
+  "stage_1_substrate_qc": {
+    "purpose": "Substrate identification + raw IDAT QC + CpG coverage check against IAMAtlas marker substrate.",
+    "card_specific_substrate_gate": {
+      "min_cpg_coverage_of_immune_marker_substrate": 0.8,
+      "below_threshold_behavior": "PARTIAL_COVERAGE — card runs but downstream Mahalanobis flagged for imputation; immune cellular age CI widens",
+      "immune_marker_substrate_n_cpgs": 7114,
+      "immune_marker_substrate_provenance": "Top 100 markers per 51 immune-class cells in iamatlas_celltype_markers_v0_2.json (union deduplicated)"
+    },
+    "chk_gates_consumed": [
+      "CHK-3.1 raw β bimodality check",
+      "CHK-3.2 cross-cohort baseline alignment"
+    ]
+  },
+  "stage_2_dual_deconvolution": {
+    "doctrine": "Two mathematically independent deconvolvers run every time. Cross-method confirmation is what Planck used to validate CMB temperature maps (Commander/NILC/SMICA/SEVEM all had to agree); CPG inherits the same discipline. Disagreement between deconvolvers IS diagnostic information — surfaced, not averaged away.",
+    "primary_deconvolver": {
+      "name": "Walther IAM Deconvolver",
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Walther_iam_deconvolver/walther_iam_deconvolver.py",
+      "class": "WaltherIAMDeconvolver",
+      "constructor_signature": "WaltherIAMDeconvolver(matrix_path, celltype_class_map, n_class_markers_per_class=600, max_celltype_markers=4000)",
+      "method": "deconvolve(customer_betas, refine_celltypes=True) → DeconvolutionResult",
+      "algorithm": "Non-Negative Least Squares (NNLS) with simplex constraint (Σf=1, f≥0); class-level solve first, then per-cell-type refinement",
+      "reference_matrix": "IAMAtlas REBUILD v0_2 (canonical SHA 41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee)",
+      "n_class_markers_per_class": 600,
+      "n_classes": 8,
+      "max_celltype_markers": 4000,
+      "output_per_patient": {
+        "per_class_fractions": "8-vector of class fractions",
+        "per_class_ci": "95% CI propagated from atlas MCMC posterior SDs via Monte Carlo (1000 draws from per-CpG posteriors)",
+        "per_celltype_fractions": "115-cell fraction vector",
+        "marker_coverage": "fraction of marker substrate observed in patient β"
+      }
+    },
+    "secondary_deconvolver": {
+      "name": "NILC Deconvolver (Needlet Internal Linear Combination)",
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/NILC_Deconvolver/nilc_deconvolver-2.py",
+      "class": "NILCDeconvolver",
+      "method": "deconvolve(customer_betas) → NILCResult",
+      "cross_method_function": "cross_method_comparison(walther_df, nilc_df) → CrossMethodReport",
+      "algorithm": "Generalized least squares with inverse-variance weighting (W=diag(1/σ²)) using per-CpG posterior SDs from the IAMAtlas posterior. No non-negativity constraint imposed during solve; simplex projection applied post-hoc. Mathematically independent from Walther NNLS.",
+      "rationale": "Derived from Planck's NILC methodology applied to the methylome. The two deconvolvers are derived from different optimization frameworks (Walther: constrained optimization via NNLS; NILC: variance-weighted least squares). Disagreement reveals β-profile structure neither captures cleanly, surfacing patient-specific peculiarity.",
+      "output_per_patient": "Independent per-class fraction estimate + per-CpG residual variance",
+      "reference_artifacts": [
+        "nilc_fractions_all.csv (n=601 HC reference NILC fractions)",
+        "nilc_fractions_v2_departure.csv (departure profile)",
+        "nilc_walther_crosscheck_v2.json (cross-method validation log)"
+      ]
+    },
+    "cross_method_gate": {
+      "per_class_L1_disagreement_max": 0.15,
+      "p95_disagreement_threshold": 0.2,
+      "outlier_patient_rule": "Any patient with per-class disagreement > 0.20 on >= 2 classes is flagged CROSS_METHOD_DISAGREEMENT; downstream Stage 5+ outputs carry a confidence-reduction flag; the report includes a cross-method-gate warning.",
+      "immune_class_specific_tolerance": 0.15
+    },
+    "stage_2_output": "Per-class fractions (8 classes × {walther_f, walther_ci, nilc_f, nilc_ci, agreement_flag}), per-cell-type fractions (115 cells × {f, ci}), cross-method gate verdict"
+  },
+  "stage_3_foreground_subtraction": {
+    "doctrine": "Empirical foreground subtraction is a SUPPORT tool. The architectural A-score H(β_mean)/H_min IS the physics. When a foreground layer doesn't transfer across cohorts (a real risk for linear-coefficient layers fit on one population), the physics-correct response is to run on raw β and let the architecture speak — not pivot to better regression. Foreground subtraction REDUCES noise from known confounders when it transfers cleanly, never compromises the physics readout.",
+    "age_axis_foreground": {
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/age_axis_foreground.py",
+      "layer_csv": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/IAMAtlas_age_layer.csv",
+      "layer_diagnostics": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/age_layer_diagnostics.json",
+      "method": "Subtract age-correlated linear-component β shift before downstream A-scoring",
+      "n_cpgs_in_layer": 8199,
+      "fit_cohort": "Foundation cohort GSE51057+GSE51032 n=601 HC (EPIC-Italy)",
+      "status": "operational",
+      "transfer_caveat": "Layer fit on foundation cohort (female-only EPIC-Italy ages 40–65). Cross-cohort transfer to wider age ranges (e.g. Hannum GSE40279 19–101) requires monitoring; if Δ|r| inverts at runtime, raw-β chain is the fallback."
+    },
+    "smoking_axis_foreground": {
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_axis_foreground (PROPOSED — script not yet built; layer CSV available)",
+      "layer_csv": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/IAMAtlas_smoking_layer.csv",
+      "layer_diagnostics": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_sex_layer_diagnostics.json",
+      "method": "Subtract tobacco-associated per-CpG drift (AHRR cg05575921 + ~100 cataloged tobacco-CpGs) using smoking_status + smoking_bin from intake",
+      "fit_cohort": "GSE50660 Tsaprouni 2014 n=464 (179 never, 263 former, 22 current)",
+      "status": "layer fit; runtime subtraction script v1.1",
+      "v1_0_mitigation": "Smoking enters via Stage 7 threshold-stratification per smoking_bin; full Stage 3 β-level subtraction deferred to v1.1",
+      "honest_disclosure": "v1.0 does NOT apply smoking subtraction at β level. Smoking-driven residual signal IS being scored as if it were inflammation for current_smoker bin. For never_smoker and former_smoker_long this matters less. Reported per Stage 7 threshold uplift."
+    },
+    "sex_axis_foreground": {
+      "layer_csv": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/IAMAtlas_sex_layer.csv",
+      "layer_diagnostics": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_sex_layer_diagnostics.json",
+      "method": "Subtract sex-dimorphic chrX/chrY/XCI escape methylation",
+      "fit_cohort": "GSE50660 Tsaprouni 2014 n=464 (327M / 137F)",
+      "status": "layer fit; runtime script v1.1",
+      "v1_0_mitigation": "Sex enters via Stage 7 threshold tables + sex-stratified VAL anchors"
+    },
+    "batch_plate_foreground": {
+      "status": "v1.1 — controlled per-cohort during VAL sealing; runtime per-patient batch correction deferred"
+    },
+    "stage_3_output": "Foreground-cleaned β matrix ready for A-score computation (when foregrounds applied); else raw β passes through"
+  },
+  "stage_4_a_scoring": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/A_Scoring_Module/iamatlas_a_scoring.py",
+    "functions": {
+      "load_artifact": "load_artifact(artifact_path) → (metadata, celltype_markers, celltype_to_class, h_min_by_class)",
+      "score_per_class": "score_per_class(customer_betas, class_markers, h_min_by_class) → 8-class A-scores",
+      "score_per_celltype": "score_per_celltype(customer_betas, celltype_markers, celltype_to_class, h_min_by_class) → 115-cell A-scores"
+    },
+    "celltype_marker_artifact": {
+      "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
+      "sha256_file": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.sha256",
+      "marker_artifact_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+      "n_celltypes": 115,
+      "n_markers_per_celltype": 100,
+      "selection_method": "one-vs-rest top-100 by class-discrimination signal from IAMAtlas REBUILD posterior",
+      "supersedes": "iamatlas_celltype_markers_v0_1_SUPERSEDED.md"
+    },
+    "h_min_by_class": {
+      "terminal": 0.7728,
+      "immune": 0.838889,
+      "secretory": 0.843264,
+      "cycling": 0.856055,
+      "progenitor": 0.852216,
+      "stromal": 0.86295,
+      "stem_adult": 0.873718,
+      "stem_pluri": 0.982166,
+      "_provenance": "G-003b MCMC frozen 2026-04-06"
+    },
+    "scoring_formula": "A_class = H(β_mean_over_class_markers) / H_min(class)",
+    "shannon_entropy_formula": "H(β) = −β log₂(β) − (1−β) log₂(1−β)",
+    "card_specific_outputs": {
+      "immune_A_score": "scalar with 95% CI propagated via Monte Carlo (1000 draws from per-CpG posteriors, A computed per draw)",
+      "per_immune_cell_A_scores": "51 immune cell types × {A, CI, n_markers_matched, coverage, confidence, class}",
+      "per_immune_cell_A_aggregated_to_19_pages": "19 customer-facing pages × {A_aggregate, CI_aggregate, n_atlas_labels_contributing, coverage_fraction}"
+    },
+    "n_immune_marker_cpgs_total": 7114
+  },
+  "stage_4_5_bidirectional_decomposition": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Bidirectional_Decomposition/bidirectional_decomposition.py",
+    "panel_artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Bidirectional_Decomposition/directional_panels_v1_0.json",
+    "doctrine": "Per VAL-050 (pooled-entropy NULL d=+0.077) → VAL-051 (directional Rule-A panel d=+0.624 same cohort): pooled A-score CANCELS when bidirectional patterns are present. At patient runtime, the engine MUST decompose the immune-class signal into directional sub-panels before reporting a single pooled tier. This was the single most important Stage-1 design lesson in the pre-build cookbook and applies identically at patient runtime — not just at VAL time.",
+    "immune_panel": {
+      "panel_id_in_directional_panels_json": "panels.immune",
+      "panel_sha256_anchor": "52061285fc97bfff871ba7b62f625b14d953bccf25ee24e35f328e15b9827998",
+      "n_cpgs": 7,
+      "n_positive_direction": 3,
+      "n_negative_direction": 4,
+      "panel_source_val": "CPG-VAL-051 AD AIBL directional recovery (sealed pre-build)",
+      "validation_anchor": "VAL-051 holdout d=+0.624 AUC=0.68 on AIBL HM450",
+      "scoring_formula_reference": "val051_analyze.py:112-121 — a_dir = mean of sign-multiplied z-scores against frozen HC training distribution",
+      "future_expansion": "Cancer-positive vs AD-negative direction discrimination panels expand at CPG-VAL-019 sealing"
+    },
+    "bidirectional_flag_rule": "FLAG_BIDIRECTIONAL when |A_positive_panel − A_negative_panel| / max(|A_positive|, |A_negative|) > 0.30",
+    "when_flagged_customer_report": "Customer sees: 'Your immune profile shows a mixed-direction pattern — some cell populations elevated while others are running lower than typical.' Engine reports the directional decomposition magnitudes to Stage 8 for disease-matrix consultation.",
+    "when_not_flagged_customer_report": "Pooled immune A-score reported as customer-facing summary",
+    "_pooled_panel_n_cpgs": 6800,
+    "_pooled_panel_source_val": "VAL-050 pooled-entropy panel (sealed null d=+0.077 — the empirical demonstration of cancellation)"
+  },
+  "stage_4_6_brightness_comparison": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py",
+    "purpose": "Render the patient's personal Cosmic Microwave Methylome (8-panel Mollweide PNG): one Mollweide panel per architectural class showing the patient's per-CpG β departure from the IAMAtlas class brightness reference, projected onto HEALPix sphere coordinates. The immune-class panel is the bottom-right of the 8-panel CMM.",
+    "healpix_mapping": {
+      "file": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy",
+      "provenance_file": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.provenance.json",
+      "generator_script": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/generate_cpg_healpix_mapping.py",
+      "nside": 128,
+      "npix": 196608,
+      "n_cpgs_annotated": 483092,
+      "coverage_pct": 100.0,
+      "sentinel_pixel_for_unannotated": 196607,
+      "manifest_csv": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/external_manifests/EPIC_plus_HM450_combined_manifest_normalized.csv"
+    },
+    "mollweide_projection": {
+      "library": "healpy.mollview (matplotlib backend)",
+      "coordinate_system": "Equatorial (RA, Dec) — chromosomes ordered around equator, genomic position mapped to RA",
+      "panel_layout": "8-panel grid (2 rows × 4 cols), one panel per architectural class",
+      "color_scale": "Signed z-departure: blue (suppressed) ↔ white (baseline) ↔ red (elevated)",
+      "z_clip_range": [
+        -3,
+        3
+      ],
+      "annotation": "1.07 Warburg line marked; 1.10 breach line marked; class label + Mahaffey number per panel"
+    },
+    "immune_class_brightness_reference": {
+      "csv_path": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/class_archives/immune_v0_1_REBUILD.tar.xz → iamatlas_v0_1_immune_brightness.csv",
+      "n_cpgs": 483092,
+      "columns": [
+        "cpg_id",
+        "class",
+        "mean",
+        "sd",
+        "ci_lo",
+        "ci_hi"
+      ],
+      "computation": "Per-CpG posterior mean (class-conditional) and posterior SD from IAMAtlas REBUILD MCMC"
+    },
+    "customer_facing_artifact": "personal_cosmic_microwave_methylome_{patient_id}.png — embedded in customer report",
+    "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Microwave_Methylome.png (Plate 1 from atlas_vault/IAMAtlas_v0_1/plates/)"
+  },
+  "stage_5_mahalanobis": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
+    "class": "MahalanobisHealthyHull",
+    "reference_artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_1.json",
+    "feature_space": "115_celltype_A_scores",
+    "n_features_valid": 112,
+    "n_features_dropped": 3,
+    "n_hc_samples_pooled": 601,
+    "hc_cohort_sources": [
+      "GSE51057 EPIC-Italy",
+      "GSE51032 EPIC-Italy"
+    ],
+    "covariance_method": "Ledoit-Wolf shrinkage estimator",
+    "ledoit_wolf_shrinkage": 0.00875,
+    "input": "115-cell A-score dict from Stage 4 score_per_celltype()",
+    "method_signature": ".score(celltype_ascores: Dict[str, float]) → {mahalanobis_distance, n_features_used, n_features_imputed, status, top10_axis_contributions, reference_anchor}",
+    "missing_feature_handling": "Mean-impute from HC centroid; flag PARTIAL_DATA when n_missing > 5",
+    "card_specific_route_A_threshold": "Mahalanobis_d ≥ 2.0 fires Route A (universal architectural alarm)",
+    "customer_facing_output": "Mahalanobis distance + CI surfaced as 'Your overall departure from healthy baseline is X SDs (range L–U).'",
+    "engine_internal_output": "Top-10 axis contributions (which cell types drive the departure) → fed to disease-matrix Stage 8 consultation",
+    "validation_anchor": "Anchored on Xu-538 GSE51057 d versus Mahalanobis GSE51057 d (provenance in reference artifact validation_anchor block)"
+  },
+  "stage_6_cellular_age": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/iam_cellular_age_scoring.py",
+    "class": "IAMCellularAge",
+    "method_signature": ".score_patient(beta_dict, chronological_age=None, patient_id=None) → CellularAgeResult",
+    "age_reference_matrix": {
+      "json_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Age_Reference_Matrix_80_cells/age_reference_matrix.json",
+      "csv_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Age_Reference_Matrix_80_cells/age_reference_matrix.csv",
+      "builder": "Biological_Physics/atlas_vault/walther_clinical_runtime/Age_Reference_Matrix_80_cells/age_reference_matrix.py",
+      "n_classes": 8,
+      "n_age_bins": 10,
+      "age_range": [
+        4,
+        95
+      ],
+      "schema_per_row": "{age_midpoint, A_mean, A_sd, beta_mean, beta_sd, n_samples, A_p10, A_p25, A_p50, A_p75, A_p90, source_citation}",
+      "sources_cited": [
+        "Alisch 2012",
+        "Horvath 2013",
+        "Hannum 2013",
+        "Bocklandt 2011",
+        "Weidner 2014"
+      ]
+    },
+    "doctrine_recipe_6_3": "For each architectural class: compute β_mean = mean of patient's β over that class's marker CpGs. Invert the baseline's (decade → β_mean) curve to find the age at which baseline β_mean equals patient β_mean. That's the per-class cellular age. No training. No regression. The baseline IS the instrument; the patient's β_mean IS the measurement; the cellular age IS the readback.",
+    "monotonicity_note": "β_mean DECREASES with age in healthy reference per Recipe §6.3 line 1900. Patient β_mean above youngest decade → SATURATED_HIGH (assign youngest age). Patient β_mean below oldest decade → SATURATED_LOW.",
+    "min_cpgs_per_class": 30,
+    "primary_customer_facing_output": "immune_cellular_age + immune_age_delta",
+    "immune_age_delta_definition": "immune_age_delta = immune_cellular_age − chronological_age (from intake)",
+    "interpretation": "The inflammaging quantum. Positive delta = immune system reads older than chronological; negative = younger than chronological.",
+    "all_8_per_class_ages_computed": true,
+    "only_immune_surfaces_in_this_card_report": true,
+    "ci_propagation": "95% CI from inverting A-score CI bounds against the baseline curve",
+    "saturation_flag_values": [
+      "OK",
+      "SAT_HIGH",
+      "SAT_LOW",
+      "INSUFFICIENT_CPGS"
+    ],
+    "validation_anchor_dataset": {
+      "file": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv",
+      "cohort": "EPIC-Italy GSE51057+GSE51032 n=601 HC",
+      "what_it_validates": "Stage 6 inversion outputs against chronological age in HC — anchor for inflammaging quantum interpretation"
+    }
+  },
+  "stage_7_tier_breakpoints": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Tier_breakpoints/tier_breakpoints.json",
+    "tier_system_version": "v1.2",
+    "supersedes": "v0 4-tier statistical-percentile system (archived in OLD/)",
+    "doctrine": "Six physics-derived tiers replacing v0 statistical-percentile system. The 1.07 Warburg-transition line and 1.10 architectural-fidelity breach line are physics-defined inflection points (not statistical percentiles). Universal across all 8 classes; per-class overrides shift the ELEVATED floor for context-dependent baselines but preserve the Warburg line and breach line.",
+    "tiers": [
+      {
+        "tier_id": "SUPPRESSED",
+        "a_score_range": [
+          0.0,
+          0.95
+        ],
+        "customer_label": "Suppressed"
+      },
+      {
+        "tier_id": "NORMAL",
+        "a_score_range": [
+          0.95,
+          1.04
+        ],
+        "customer_label": "Normal"
+      },
+      {
+        "tier_id": "ELEVATED",
+        "a_score_range": [
+          1.04,
+          1.07
+        ],
+        "customer_label": "Elevated"
+      },
+      {
+        "tier_id": "WARBURG_TRANSITION",
+        "a_score_range": [
+          1.07,
+          1.1
+        ],
+        "customer_label": "Warburg Transition",
+        "physics_anchor": "1.07 = Warburg metabolic-transition line"
+      },
+      {
+        "tier_id": "SIGNIFICANTLY_ELEVATED",
+        "a_score_range": [
+          1.1,
+          1.12
+        ],
+        "customer_label": "Significantly Elevated",
+        "physics_anchor": "1.10 = architectural-fidelity breach line"
+      },
+      {
+        "tier_id": "BREACH",
+        "a_score_range": [
+          1.12,
+          null
+        ],
+        "customer_label": "Breach"
+      }
+    ],
+    "tier_by_covariate_overrides_applied_for_immune_card": [
+      "known_autoimmune_condition=true → ELEVATED floor 1.04→1.07 (autoimmune chronic-inflammatory baseline)",
+      "hiv_status=positive_treated → ELEVATED floor 1.07→1.10 (treated HIV chronic-immune-activation baseline)",
+      "current_immunosuppression=true → SUPPRESSED ceiling 0.95→0.93 (treatment-expected suppression)",
+      "current_pregnancy=any_trimester → ELEVATED floor 1.04→1.06 (pregnancy immune accommodation)",
+      "transplant_status=recent_bm OR recent_solid_organ → ELEVATED floor 1.07→1.10 (post-transplant adaptive state)",
+      "current_treatment_status=active_chemotherapy → SUPPRESSED ceiling 0.95→0.92 (cytoreduction expected)",
+      "recent_illness_within_3_months → ELEVATED floor 1.04→1.05 (acute-phase tail)",
+      "recent_vaccination_within_3_months → ELEVATED floor 1.04→1.05 (vaccine-response immune activation)"
+    ],
+    "tier_by_smoking_bin_inherited": true,
+    "bidirectional_pattern_handoff_inherited": true,
+    "customer_facing_vocabulary_inherited": true,
+    "tier_confidence_propagation_inherited": true
+  },
+  "stage_8_card_matching": {
+    "card_role": "Universal baseline — always produces customer-facing readout. Routes A/B/C may or may not fire.",
+    "route_A_universal_architectural": {
+      "trigger": "Mahalanobis_d ≥ 2.0 against pooled n=601 HC hull",
+      "what_it_fires": "Architectural-alarm flag → engine surfaces to all downstream disease cards as concordance input"
+    },
+    "route_B_disease_signature_match": {
+      "trigger": "Computed always; produces top-3 ranked disease concordances",
+      "signature_matrix_file": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/disease_cell_signature_matrix_v1_7.csv",
+      "engine_schema": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/disease_cell_signature_matrix_engine_schema_v1_2.md",
+      "matrix_115_to_v1_7_mapping": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json",
+      "n_disease_rows_in_v1_7": "all rows; ~60+ of 82 rows have populated immune-cell-type columns",
+      "n_immune_columns_consumed": 29,
+      "match_magnitude_function": "compute_match_magnitude per engine_schema_v1_2.md — Mahalanobis-style sign-aligned product weighted by √n",
+      "what_it_fires": "Top-3 disease-signature concordances → engine-internal only; downstream disease cards consume"
+    },
+    "route_C_bidirectional_pattern": {
+      "trigger": "FLAG_BIDIRECTIONAL from Stage 4.5 AND max(|A_positive|, |A_negative|) ≥ 0.60",
+      "what_it_fires": "Bidirectional-pattern flag → customer-facing report includes mixed-direction callout; engine surfaces to disease cards"
+    },
+    "immune_residual_map_status": "TO_BE_BUILT_DURING_v1_0_VAL_SEALING — immune_atlas_residual_map_chr_annotated.csv will be produced at end of CPG-VAL-015 through CPG-VAL-021 sealing; once built, Route A gets a residual-map-overlap channel parallel to breast/AD cards"
+  },
+  "stage_9_report_assembly": {
+    "module": "TBD — universal_baseline_card report generator (parallels breast/AD per-disease report generator)",
+    "report_template_anchor": "Pre-build report_strings + report_vigilance_strings (preserved verbatim below) provide the language layer",
+    "report_contents": {
+      "top_of_report_headline_metric": "immune_age_delta — 'Your immune system biological age is approximately X years (range L–U); your chronological age is Y; your immune age delta is Z years.'",
+      "secondary_headline_metric": "immune_A_score with 95% measurement range + tier verdict on 6-tier scale",
+      "tier_visualization": "Bar gauge showing where customer sits on 6-tier scale with 1.07 Warburg line + 1.10 breach line annotated",
+      "per_cell_findings_section": "When individual immune cells depart significantly: '{N} of your immune cell types show measurable departure from baseline: {comma-separated list}.' Per-cell page links to website (19 pages → 16 customer-facing pages per grouping rationale).",
+      "bidirectional_pattern_callout_when_flagged": "Customer sees: 'mixed-direction immune pattern detected — some cell populations elevated while others are running lower than typical.'",
+      "personal_cmm_visualization": "8-panel Mollweide PNG from Stage 4.6 — the customer's personal Cosmic Microwave Methylome — embedded in the report",
+      "mahalanobis_headline": "Customer sees: 'Your overall departure from healthy baseline is X SDs (range L–U).'",
+      "vigilance_paragraph_per_tier": "Per-tier vigilance content (one paragraph per tier, customer-facing language, no disease names)",
+      "no_disease_names_in_customer_report_rule": "Disease names appear only on website per-disease pages, never in the report itself"
+    },
+    "language_discipline": [
+      "Never 'resolves/confirms/validates/proves' → use 'consistent with/tested against/predictions within the framework'",
+      "Never 'why it matters' or 'it matters' as headers",
+      "No diagnostic verdicts",
+      "No specific follow-up recommendations (referral suggested but not specified)"
+    ]
+  },
+  "stage_10_delivery": {
+    "customer_artifacts": [
+      "PDF report — customer-facing immune readout + Mollweide CMM PNG embedded",
+      "HTML report — web-friendly with deep-links to 16 per-cell pages on iamperformance.net",
+      "JSON engine output (engine-internal only) — full per-stage outputs for downstream disease card consumption"
+    ],
+    "delivery_channel": "Customer portal at iamperformance.net (post-build; provisional clinician PDF delivery for pre-deploy partners)"
+  },
+  "cancer_prior_integration": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Cancer_prior/cancer_prior.json",
+    "purpose": "Stage 8 disease-matrix Route B match_magnitude weighting incorporates baseline lifetime cancer prior probabilities to convert raw signature concordances into prior-weighted concordance scores. The immune card consumes this for engine-internal disease-card feed (never customer-facing).",
+    "use_in_immune_card": "Route B engine-internal weighting only — customer never sees prior values"
+  },
+  "family_history_multiplier_integration": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Family_history_multiplier/family_history_multiplier.json",
+    "purpose": "Family history risk multipliers (per intake) modulate Stage 8 Route B concordance scores. Customer family history captured at intake; engine applies multipliers engine-internally; result feeds downstream disease cards.",
+    "use_in_immune_card": "Route B engine-internal weighting only"
+  },
+  "literature_anchors_integration": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Literature_anchors_Report_building/literature_anchors.json",
+    "purpose": "Per-class literature citations consumed by report builder to anchor vigilance language; immune class anchors include inflammaging literature (Franceschi 2007, Furman 2019), Hannum 2013 aging, AHRR cg05575921 smoking (Joehanes 2016), AD methylation (Lunnon 2014, Smith 2018)",
+    "use_in_immune_card": "Report builder consumes immune-class anchors for vigilance paragraph language"
+  },
+  "cpg_null_runner_integration": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/CPG_Null_Runner/cpg_null_runner.py",
+    "purpose": "L9 N1–N8 null battery runs at VAL-sealing time (not patient runtime). Each CPG-VAL-015 through CPG-VAL-021 must pass the appropriate subset of N1 (label permutation), N2 (CpG label permutation), N3 (covariate-stratified label permutation), N4 (50/50 cohort split), N5 (downsampling), N6 (cohort holdout), N7 (chain integrity), N8 (cross-platform sanity) before sealing.",
+    "use_in_immune_card": "Each VAL in the v1.0 set carries its own null_results.json with the N1-N8 outcomes"
+  },
+  "validation_anchor_csv": {
+    "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv",
+    "purpose": "Holdout anchor for immune cellular age inversion outputs against EPIC-Italy chronological age (n=601 HC). Re-checked at every Stage 6 module change."
+  },
+  "synthetic_patient_generator_integration": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Synthetic_Patient_Generator/synthetic_patient_generator.py",
+    "purpose": "Engine smoke-test fixture generation — synthesize patient β profiles from IAMAtlas posterior for end-to-end chain testing without real cohort data",
+    "use_in_immune_card": "Pre-sealing smoke tests + L9 N1-N8 synthetic null generation"
+  },
+  "report_strings": {
+    "flag_summary_NORMAL": null,
+    "flag_summary_SUPPRESSED": "Your immune class score is below your age-matched normal range. Lower than typical can have several meanings — see your immune system health page on the website for context.",
+    "flag_summary_ELEVATED_aggregate": "Your immune class score is mildly elevated compared to your age-matched baseline.",
+    "flag_summary_ELEVATED_per_cell_type": "{n_cell_types} of your immune cell types are showing measurable departure from your age-matched baseline. Specifically: {cell_types_list}.",
+    "flag_summary_ELEVATED_bidirectional": "Your immune cells are showing a mixed pattern — some cell types running higher than typical and others running lower than typical at the same time. This pattern can have several meanings; see the immune system health page for context.",
+    "flag_summary_SIGNIFICANTLY_ELEVATED_aggregate": "Your immune class score is significantly elevated compared to your age-matched baseline.",
+    "flag_summary_SIGNIFICANTLY_ELEVATED_per_cell_type": "{n_cell_types} of your immune cell types are showing significant departure from your age-matched baseline. Specifically: {cell_types_list}.",
+    "physician_referral_sentence": "We recommend you discuss this finding with your primary care provider.",
+    "_template_slot_note": "{n_cell_types} and {cell_types_list} are filled in by the report builder at runtime from the engine's per-cell-type output. cell_types_list is rendered as a comma-separated list with cell types in plain English, e.g., 'CD4 T cells, monocytes, and B cells'."
+  },
+  "_strings_design_principle": "All flag-summary strings are factual, neutral, and free of disease names. The customer reads what was measured and how it compares to their baseline. The customer does not read interpretation or speculation in the report itself — that lives on the website page linked below. The strings deliberately do not say 'this could mean X' or 'this is associated with Y disease' — those statements are in research publications, reproduced on the website with citations, and are not the engine's role to deliver to a specific customer.",
+  "report_vigilance_strings": {
+    "_principle": "Vigilance content fires conditionally based on what flagged in the customer's report. The report builder assembles vigilance paragraphs from this lookup based on which cells/classes flagged at which tiers. EDEAR does not specify ages, screening intervals, or specific clinical follow-up tests. All clinical-action language defers to the customer's clinician. EDEAR provides the cellular-level reading; the customer's clinician provides the clinical context. The vigilance content is supportive, not prescriptive.",
+    "vigilance_NORMAL": "Routine monitoring. Continue the lifestyle habits that work for you (sleep, stress management, exercise, the basics that affect immune function). Continue the screening recommendations your clinician has discussed with you. Retest with EDEAR at your standard subscription interval.",
+    "vigilance_ELEVATED_aggregate": "Mild elevation in your immune class score has many possible drivers — recent illness, sustained stress, active allergy season, sleep disruption, lifestyle context. Review whether any of these apply to you over the past few weeks or months. Address what you can address in lifestyle. Continue the screening recommendations your clinician has given you on the schedule they recommended. Retest with EDEAR in 6 months instead of waiting a full year, so trajectory becomes informative — a signal that resolves was your body recovering; a signal that stays or intensifies is more useful information for a clinician conversation.",
+    "vigilance_ELEVATED_per_cell_type": "Mild elevation in {n_cell_types} of your immune cell types ({cell_types_list}) suggests the immune system is responding to something specific. The per-cell pages on the website explain what each elevated cell type does and what research has observed about elevations in each. Review whether any of the common context drivers apply to you — recent illness, sustained stress period, active allergy season, sleep disruption, autoimmune condition. If something fits, addressing it is usually enough. Continue your clinician's recommended screening on the schedule they recommended. Retest with EDEAR in 6 months to see how the signal moves.",
+    "vigilance_ELEVATED_bidirectional": "Your immune cells are showing a mixed pattern — some elevating while others are running lower than typical. This bidirectional pattern is different from a uniform elevation and is worth tracking carefully. The per-cell pages explain what each cell type does and what research has observed about bidirectional patterns. Continue your clinician's recommended screening on the schedule they recommended. We recommend you discuss this finding with your clinician at your next visit and bring this report. Retest with EDEAR in 6 months to track how the pattern evolves.",
+    "vigilance_SIGNIFICANTLY_ELEVATED_aggregate": "Your immune class score is significantly elevated. We recommend you discuss this finding with your clinician. Bring this report — the conversation is more useful with the result in hand than without. Continue your clinician's recommended screening on the schedule they recommend, and ask whether they want to adjust anything in light of the EDEAR finding. Retest with EDEAR every 6 months going forward to track how the signal moves. We do not recommend specific clinical follow-up tests; those are decisions for you and your clinician based on your full health history and clinical context.",
+    "vigilance_SIGNIFICANTLY_ELEVATED_per_cell_type": "Significant elevation in {n_cell_types} of your immune cell types ({cell_types_list}) warrants a conversation with your clinician. Bring this report. The per-cell pages on the website explain what each elevated cell type does and what research has observed about significant elevations in each. Continue your clinician's recommended screening on the schedule they recommended. Retest with EDEAR every 6 months going forward.",
+    "vigilance_SUPPRESSED": "Your immune class score is below your age-matched normal range. SUPPRESSED readings are common when current immunosuppression, active chemotherapy, transplant status, certain biologic medications, or HIV status applies. If you declared one of these contexts at intake, the reading reflects what your body is doing in response to your treatment or condition. If you cannot identify a declared context that explains it, discuss the reading with your clinician at your next visit. Continue your clinician's recommended screening on the schedule they recommended.",
+    "_screening_language_rule": "EDEAR is not a clinician and does not specify screening tests, ages, intervals, or follow-up workups. All vigilance content uses the phrase 'your clinician's recommended screening' or 'the screening recommendations your clinician has discussed with you' or equivalent — never 'mammography after 40' or 'colonoscopy every 5 years' or any other specific recommendation. The customer's clinician owns the clinical screening conversation; EDEAR provides the cellular reading and supports the clinician conversation.",
+    "_per_cell_vigilance_supplement_note": "Each per-cell page on the website carries cell-specific vigilance content matching this tier vocabulary. The class-level vigilance content above is the report's class-level paragraph; per-cell findings link to per-cell pages where cell-specific vigilance content (and the cell-specific research observations) live. Engine-side: per-cell vigilance strings live in per-cell card supplements (or in the engine's per-cell lookup table) and are not duplicated in the immune class card."
+  },
+  "validation_tier_label": "core_class_card",
+  "validation_evidence_v1_0_set": {
+    "CPG-VAL-015": {
+      "what": "Aging trajectory — immune cellular age + immune A-score vs chronological age",
+      "cohort": "GSE40279 Hannum n=656 healthy whole blood ages 19–101",
+      "anchor": "Pre-build VAL-006 sealed r=0.9999 on Hannum (anchor for reproduction)",
+      "status": "PENDING — runs in CPG-VAL-015 buildout",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_015_OUTCOME.md",
+        "CPG_VAL_015_per_sample.csv",
+        "GSE40279_115celltype_ascores.csv",
+        "CPG_VAL_015_null_results.json",
+        "cohort_manifest.json"
+      ]
+    },
+    "CPG-VAL-016": {
+      "what": "Cross-disease universal alarm — immune-class A-score departures in breast pre-dx, AD-at-dx, Crohn's active",
+      "cohort": "Reuse CPG-VAL-001 (breast pre-dx EPIC-Italy) + CPG-VAL-008 (AD-AIBL) + VAL-128 (Crohn's)",
+      "anchor": "Cross-disease immune-class signal consolidation; foundation for universal alarm vocabulary",
+      "status": "PENDING",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_016_OUTCOME.md",
+        "CPG_VAL_016_per_sample.csv",
+        "CPG_VAL_016_null_results.json",
+        "cohort_manifest.json"
+      ]
+    },
+    "CPG-VAL-017": {
+      "what": "Inflammaging quantum — immune cellular age delta correlates with chronological age in pooled HC",
+      "cohort": "Pooled HC ~800 patients ages 40–90 across breast + AD + Crohn's HC arms",
+      "anchor": "Inflammaging literature (Franceschi 2007, Furman 2019)",
+      "status": "PENDING",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_017_OUTCOME.md",
+        "CPG_VAL_017_per_sample.csv",
+        "CPG_VAL_017_null_results.json",
+        "cohort_manifest.json"
+      ]
+    },
+    "CPG-VAL-018": {
+      "what": "HRT effect on female immune signal — peri/post-menopausal women on HRT vs not",
+      "cohort": "GSE51057 EPIC-Italy women, HRT-field stratified",
+      "anchor": "First-of-its-kind systematic methylation-immune HRT characterization",
+      "status": "PENDING",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_018_OUTCOME.md",
+        "CPG_VAL_018_per_sample.csv",
+        "CPG_VAL_018_null_results.json",
+        "cohort_manifest.json"
+      ]
+    },
+    "CPG-VAL-019": {
+      "what": "Bidirectional immune signal direction recovery — cancer-positive vs AD-negative direction discrimination",
+      "cohort": "Reuse breast (cancer-positive direction) + AD (AD-negative direction)",
+      "anchor": "Foundational bidirectional pattern from VAL-050/051 AD-instance",
+      "status": "PENDING",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_019_OUTCOME.md",
+        "CPG_VAL_019_per_sample.csv",
+        "CPG_VAL_019_null_results.json",
+        "cohort_manifest.json"
+      ]
+    },
+    "CPG-VAL-020": {
+      "what": "Hannum aging anchor reproduction — full SOP chain re-run on IAMAtlas with Walther + NILC two-deconvolver discipline",
+      "cohort": "GSE40279 Hannum n=656 (same data as CPG-VAL-015, different framing/test)",
+      "anchor": "Pre-build VAL-006 reproduction — 'show our diligence' VAL for the June 11 GeoMetric meeting",
+      "status": "PENDING — Heath's priority for the meeting",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_020_OUTCOME.md",
+        "CPG_VAL_020_per_sample.csv",
+        "GSE40279_115celltype_ascores.csv",
+        "CPG_VAL_020_null_results.json",
+        "cohort_manifest.json"
+      ]
+    },
+    "CPG-VAL-021": {
+      "what": "Weight-loss inflammaging response — paired pre/post bariatric proxy for GLP-1 (semaglutide)",
+      "cohort": "GSE61450 bariatric paired pre/post n=18 (Dr. Escobedo angle)",
+      "anchor": "Inflammaging-as-anti-inflammatory-intervention-responsive signal; first-of-its-kind framing for semaglutide cohort",
+      "status": "PENDING — cohort acquisition required",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_021_OUTCOME.md",
+        "CPG_VAL_021_per_sample.csv",
+        "CPG_VAL_021_null_results.json",
+        "cohort_manifest.json"
+      ]
+    }
+  },
+  "honest_limitations": [
+    "v1.0 6-tier thresholds (0.95/1.04/1.07/1.10/1.12) are physics-derived from Heath's calibration; final cohort-specific tuning waits for pooled-HC distribution after CPG-VAL-015 + CPG-VAL-017 seal.",
+    "Smoking foreground subtraction at Stage 3 is NOT yet built (script v1.1); current_smoker bin carries residual tobacco signal absorbed into immune A-score. Mitigated via smoking-bin threshold stratification at Stage 7 in v1.0.",
+    "Sex foreground subtraction at Stage 3 is NOT yet built (script v1.1); mitigated via sex-stratified VAL anchors + Stage 7 threshold tables.",
+    "Batch/plate foreground subtraction NOT in v1.0 (controlled per-cohort during VAL sealing; runtime per-patient batch correction deferred).",
+    "L5 correlation structure (C(d), bispectrum, cross-substrate cross-correlations) EMPTY — Phase C deliverable.",
+    "L7 proper Bayesian per-card likelihood EMPTY — Phase E deliverable. v1.0 ships rule-based Stage 8 Route A/B/C scoring, not likelihood evaluation.",
+    "L8 per-card MCMC posterior EMPTY — Phase E deliverable. Atlas posterior is propagated forward to A-score CI / cellular age CI / Mahalanobis CI, but per-card parameter inference deferred.",
+    "Per-card immune residual map will be built during CPG-VAL-015 through CPG-VAL-021 sealing; until built, Stage 8 Route A uses Mahalanobis-only.",
+    "The 19 per-cell customer-facing pages (preserved from pre-build draft) contain pre-build atlas references that need scrubbing for the Astro-Genetics framing correction.",
+    "FLAG_BIDIRECTIONAL ratio threshold (0.30) is provisional; calibration against the cancer-positive vs AD-negative discrimination at CPG-VAL-019 may shift the threshold."
+  ],
+  "outstanding_work_v1_0": [
+    "Build smoking_axis_foreground.py for Stage 3 β-level subtraction (v1.1)",
+    "Build sex_axis_foreground.py for Stage 3 β-level subtraction (v1.1)",
+    "Build immune_atlas_residual_map_chr_annotated.csv during VAL sealing",
+    "Build immune_atlas_pca_projections.csv during VAL sealing",
+    "Build immune_atlas_bimodality_map.csv during VAL sealing",
+    "Scrub the 19 per-cell pages for Astro-Genetics framing corrections + IAMAtlas-only references (currently in RETIRED_PREBUILD_REFERENCE/Cell Pages Immune/)",
+    "Build universal_baseline_card report-generator module (Stage 9 — parallels breast/AD per-disease report generators)",
+    "Add CPG-VAL-019 cancer-positive vs AD-negative directional sub-panels to directional_panels_v1_0.json once CPG-VAL-019 seals",
+    "Calibrate FLAG_BIDIRECTIONAL ratio threshold against CPG-VAL-019 holdout",
+    "Build the GeoMetric demo report HTML (single-page, four provider sections) for the June 11 meeting",
+    "Update CPG_VAL_Inventory_Report.md + CPG_IAMAtlas_Evidence_Report.html with CPG-VAL-015 through CPG-VAL-021 entries as they seal",
+    "Update DISEASE_MATRIX/disease_cell_signature_matrix_v1_7.csv → v1_8 with immune card v1.0 rows after CPG-VAL-015 through CPG-VAL-021 seal"
+  ],
+  "chain_of_custody": {
+    "iamatlas_canonical_sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+    "iamatlas_canonical_csv": "Biological_Physics/atlas_vault/IAMAtlas_v0_1 (REBUILD CSV per atlas_vault INVENTORY)",
+    "marker_artifact_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+    "marker_artifact_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
+    "build_spec_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_2.md",
+    "sop_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_3.md",
+    "plates_reference": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/ (Plates 1-4 + README)",
+    "engine_modules_consumed_at_runtime": [
+      "Stage 2 primary: Walther_iam_deconvolver/walther_iam_deconvolver.py (WaltherIAMDeconvolver)",
+      "Stage 2 secondary: NILC_Deconvolver/nilc_deconvolver-2.py (NILCDeconvolver + cross_method_comparison)",
+      "Stage 3 age: IAM_Cellular_Age/age_axis_foreground.py + IAMAtlas_age_layer.csv",
+      "Stage 3 smoking: IAMAtlas_smoking_layer.csv (script v1.1)",
+      "Stage 3 sex: IAMAtlas_sex_layer.csv (script v1.1)",
+      "Stage 4: A_Scoring_Module/iamatlas_a_scoring.py (load_artifact, score_per_class, score_per_celltype)",
+      "Stage 4.5: Bidirectional_Decomposition/bidirectional_decomposition.py + directional_panels_v1_0.json",
+      "Stage 4.6: Brightness_Comparison/patient_brightness_comparison.py + IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy",
+      "Stage 5: Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py (MahalanobisHealthyHull) + mahalanobis_healthy_reference_v0_1.json",
+      "Stage 6: IAM_Cellular_Age/iam_cellular_age_scoring.py (IAMCellularAge) + Age_Reference_Matrix_80_cells/age_reference_matrix.json",
+      "Stage 7: Tier_breakpoints/tier_breakpoints.json (v1.2 6-tier physics)",
+      "Stage 8: DISEASE_MATRIX/disease_cell_signature_matrix_v1_7.csv + engine_schema_v1_2.md + iamatlas_115_to_matrix_v1_7_mapping.json",
+      "Cancer prior: Cancer_prior/cancer_prior.json",
+      "Family history: Family_history_multiplier/family_history_multiplier.json",
+      "Literature anchors: Literature_anchors_Report_building/literature_anchors.json",
+      "Null runner (sealing time): CPG_Null_Runner/cpg_null_runner.py",
+      "Synthetic patient generator (smoke tests): Synthetic_Patient_Generator/synthetic_patient_generator.py",
+      "Validation anchor: IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv"
+    ]
+  },
+  "v1_0_changes_from_pre_build": [
+    "STRUCTURE: Adopted per-stage block architecture from breast v3.1 (Stage 0 → 10) with explicit module + file references for every chain element",
+    "ATLAS: All pre-build atlas references (Xu-538/Loyfer/EpiSCORE/Salas/UniLIFE/Caggiano/Reinius) replaced with IAMAtlas REBUILD v0_2 single Bayesian deconvolution",
+    "STAGE 2: Dual deconvolver (Walther NNLS + NILC) replaces pre-build single-atlas single-method approach; cross-method gate is mandatory",
+    "STAGE 3: Three explicit foreground axes (age operational, smoking + sex layers fit but scripts v1.1) replace pre-build threshold-only handling",
+    "STAGE 4.5: Bidirectional decomposition as MANDATORY engine step (per VAL-050/051 doctrine) replaces pre-build pooled-only scoring",
+    "STAGE 4.6: Mollweide + HEALPix Cosmic Microwave Methylome rendering NEW (no pre-build equivalent)",
+    "STAGE 5: Mahalanobis against frozen n=601 HC reference in 115-cell A-score feature space replaces pre-build cohort-internal Mahalanobis",
+    "STAGE 6: IAMCellularAge β_mean inversion against 80-cell baseline replaces pre-build epigenetic-age regression",
+    "STAGE 7: 6-tier physics-derived (v1.2) replaces v0 4-tier statistical-percentile system; 1.07 Warburg + 1.10 breach are physics-defined inflection points",
+    "STAGE 8: Three-route architecture (Route A Mahalanobis + Route B disease matrix + Route C bidirectional) replaces pre-build single-route alarm",
+    "REPORT: Top-of-report headline is immune_age_delta (the inflammaging quantum); personal CMM Mollweide PNG embedded; Mahalanobis CI surfaced as 'overall departure'",
+    "COVARIATE: Full 24-covariate intake schema per patient_intake_questionnaire_v1_0.md preserved from pre-build",
+    "FAILURE MODES: 10-fingerprint heuristic catalog from pre-build NOT ported; replaced by N7 chain-integrity test + L9 N1–N8 nulls + SOP CHK-series + Mahalanobis pooled-HC + Stage 4/7 bidirectional flag (measured chain validation replaces heuristic catalog per MASTER_TRACKER §0.7 Lesson 4)",
+    "FRAMING: 'Stage 1/2/3' pre-build language replaced with 'full SOP chain runs Stages 0–10 every time' — no diagnostic-tier ordering, no atlas-RUN-everything"
+  ],
+  "_open_questions_for_review": [
+    "Smoking bin definitions: current/0-5/5-15/15+ split is based on the McCarthy 2017 / Joehanes 2016 smoking-EWAS half-life literature. Heath has confirmed 18-years-post-quit (his case) should map to former_smoker_long. Bin boundaries can be tuned with empirical data from the IAMAtlas v1 age-matched cohort once available.",
+    "Cell type list: the listed 9 cell types are an intent declaration. Final list depends on which IAMAtlas v1 immune-class cell types have clean enough posteriors to support per-cell-type reporting. Cells without sufficient posterior resolution aggregate up to the immune class.",
+    "SUPPRESSED tier handling: immune class running below age-matched baseline can mean immunosuppression, certain medications, post-chemo, post-transplant, HIV+, primary immunodeficiency, cachexia, or late-stage marrow infiltration. The current schema treats SUPPRESSED as a tier with website pointer. Open question: should certain covariates declared at intake (current_treatment_status = active chemo, transplant_status = recent transplant, hiv_status = HIV+, current_immunosuppression = yes) suppress the SUPPRESSED flag (since they explain it) or leave the flag with explanatory context? Current draft leaves the flag with context — the customer is told their score is below baseline AND why their declared context can drive that.",
+    "Bidirectional firing tier: current draft fires bidirectional patterns at ELEVATED. Open question: under what conditions should bidirectional fire at SIGNIFICANTLY_ELEVATED instead? The cookbook immune-atlas notes that AD-instance and IBD-instance patterns can have very large directional or per-cell-type magnitudes. A conditional rule (bidirectional with directional |d| > 1.0 fires at SIGNIFICANTLY_ELEVATED) would match the validation evidence; a flat rule keeps the schema simpler.",
+    "Tier vocabulary: card uses customer-facing NORMAL / ELEVATED / SIGNIFICANTLY_ELEVATED / SUPPRESSED per wellness-positioning lock-in. Cookbook framework also uses MARGINAL / DETECTABLE / URGENT / FLOOR_BREACH for research-tier reporting. Open question: should the card carry both vocabularies (cookbook tier as engine-internal metadata, customer tier as report-facing label), or stay customer-vocabulary-only and let the cookbook tier live in the cross-reference spec / engine? Current draft is customer-vocabulary-only.",
+    "v1.0 tier threshold final calibration deferred until CPG-VAL-015 + CPG-VAL-017 seal; v1.0.1 patch may shift breakpoints by ±0.005",
+    "FLAG_BIDIRECTIONAL ratio threshold (0.30) provisional; CPG-VAL-019 holdout calibration may revise",
+    "Stage 9 report generator module not yet written — currently report template anchored on preserved pre-build strings; module v1.1 work"
+  ]
+}
