@@ -1,0 +1,26 @@
+{
+  "N1_with_subtraction": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "Label permutation",
+    "passed": true,
+    "observed": -0.5476289954686954,
+    "null_mean": 0.0008343686442797234,
+    "null_std": 0.07964430108208677,
+    "p_value": 0.0,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05"
+  },
+  "N1_without_subtraction": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "Label permutation",
+    "passed": false,
+    "observed": -0.12636403739452362,
+    "null_mean": 0.0012272204039618373,
+    "null_std": 0.07927197962999344,
+    "p_value": 0.12,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05"
+  },
+  "delta_abs_d_with_minus_without": -0.42126495807417175,
+  "interpretation": "Positive \u0394|d| = sex subtraction reduces M-vs-F contrast (desired). Observed \u0394|d| = -0.421."
+}

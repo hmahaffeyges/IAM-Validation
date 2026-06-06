@@ -1,0 +1,56 @@
+{
+  "GSE50660": {
+    "cohort": "GSE50660",
+    "n": 464,
+    "a_dir_immune": {
+      "mean": -0.9736903465130453,
+      "sd": 0.4645968578867991,
+      "median": -0.9589474174482828,
+      "q25": -1.295380775501713,
+      "q75": -0.6644882551800821,
+      "n_valid": 464
+    },
+    "A_immune": {
+      "mean": 1.059041441907047,
+      "sd": 0.0077570071044573705,
+      "median": 1.058012973669005,
+      "n_valid": 464
+    },
+    "tier_distribution_immune": {
+      "ELEVATED": "417",
+      "WARBURG_TRANSITION": "45",
+      "NORMAL": "2"
+    }
+  },
+  "GSE40279": {
+    "cohort": "GSE40279",
+    "n": 656,
+    "a_dir_immune": {
+      "mean": -0.5589726349584412,
+      "sd": 0.9003623382445755,
+      "median": -0.5576820604239636,
+      "q25": -1.1576582058947797,
+      "q75": 0.03616720466920123,
+      "n_valid": 656
+    },
+    "A_immune": {
+      "mean": 1.0389385352847345,
+      "sd": 0.012271206846622197,
+      "median": 1.0385136418329395,
+      "n_valid": 656
+    },
+    "tier_distribution_immune": {
+      "NORMAL": "368",
+      "ELEVATED": "280",
+      "WARBURG_TRANSITION": "7",
+      "BREACH": "1"
+    }
+  },
+  "VAL-051_anchor": {
+    "a_dir_immune_AD_vs_HC_d_sealed": 0.624,
+    "a_dir_immune_AD_vs_HC_d_VAL135_reproduced": 0.6155968968804308,
+    "absolute_deviation": 0.008403103119569155,
+    "relative_deviation_pct": 1.3466511409565955,
+    "verdict": "REPRODUCED"
+  }
+}

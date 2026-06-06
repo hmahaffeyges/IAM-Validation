@@ -1,0 +1,15 @@
+{
+  "primary_test": "Pearson correlation between A_immune and chronological age",
+  "r_with_subtraction": {
+    "r": -0.4053463616118155,
+    "p_value": 2.4681515279625757e-27,
+    "n": 656
+  },
+  "r_without_subtraction": {
+    "r": -0.1576826743704392,
+    "p_value": 4.984612288046176e-05,
+    "n": 656
+  },
+  "delta_abs_r": -0.24766368724137627,
+  "interpretation": "Positive \u0394|r| = age subtraction reduces A_immune's age dependence (desired). Observed \u0394|r| = -0.248."
+}

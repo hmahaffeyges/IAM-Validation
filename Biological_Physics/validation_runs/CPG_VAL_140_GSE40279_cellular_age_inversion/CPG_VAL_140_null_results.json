@@ -1,0 +1,9 @@
+{
+  "model": "Linear regression on 8-class A-scores",
+  "R2": 0.25090733765694073,
+  "pearson_r": 0.5009065158858893,
+  "pearson_p": 5.826348397092166e-43,
+  "MAE_years": 10.101633300184458,
+  "n_samples": 656,
+  "interpretation": "R\u00b2 = 0.251 means the 8-class A-vector accounts for 25.1% of chronological-age variance in GSE40279. Pearson r = 0.501."
+}

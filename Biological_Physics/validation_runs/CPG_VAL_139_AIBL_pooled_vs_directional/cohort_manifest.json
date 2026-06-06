@@ -1,0 +1,12 @@
+{
+  "val_id": "CPG-VAL-139",
+  "title": "Pooled-entropy vs directional bidirectional comparison on AIBL",
+  "cohort": "AIBL GSE153712 18-CpG IMM panel",
+  "n_case_AD": 161,
+  "n_hc": 471,
+  "primary_signal": "Cohen's d for directional vs pooled scoring of the same CpG panel",
+  "d_directional": 0.6155968968804308,
+  "d_pooled": 0.07682335519747328,
+  "outcome_code": "O1_PRIMARY_VALIDATED",
+  "per_sample_sha256": "2e3c8a14f0d7ed7616862f92cce345f44e3b3212bcfc07da923d02aa1e03dc13"
+}

@@ -1,0 +1,12 @@
+{
+  "ks_test": {
+    "statistic": 0.7163353406370166,
+    "p_value": 8.786281986227107e-57,
+    "n_GSE50660": 179,
+    "n_GSE40279": 308
+  },
+  "mean_GSE50660_never": 1.0589003661385976,
+  "mean_GSE40279_HC": 1.0428657406328388,
+  "delta_mean": 0.016034625505758848,
+  "interpretation": "KS p > 0.05 means the A_immune distributions are statistically indistinguishable between cohorts (cross-platform reproducibility). Observed KS p = 0.0000."
+}
