@@ -1,0 +1,49 @@
+======================================================================
+CPG-VAL-020 — Hannum aging anchor reproduction (FULL CHAIN, v2)
+======================================================================
+
+--- Init canonical modules ---
+  115-cell markers: 115 celltypes, H_min(immune)=0.838889
+  Loading Walther IAM Deconvolver...
+Scanning header: /home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv
+  8 class columns, 114 cell-type columns
+Selecting markers (one streaming pass, bounded memory)...
+  class markers: 7114 CpGs
+  cell-type markers: 4000 CpGs
+  Mahalanobis HC: 112 features, n=601 pooled
+  IAMCellularAge: 80-cell baseline, 8189 class-marker CpGs
+
+  Union of needed CpGs: 13,991 (vs 473,034 full atlas → 3.0%)
+
+--- Load Hannum GSE40279 + subset to needed CpGs ---
+  Full β loaded: shape=(473034, 656), dtype=float32
+  Subset to needed CpGs: (13478, 656), dtype=float32, size=35 MB
+  Freed full β; load+subset elapsed: 8s
+  Meta: n=656, age 19-101, M=318 F=338
+
+--- Per-sample full chain (n=656) ---
+  50/656 (19s, 2.7/s, ETA 225s, free 1.7GB)
+  100/656 (37s, 2.7/s, ETA 208s, free 1.7GB)
+  150/656 (56s, 2.7/s, ETA 188s, free 1.7GB)
+  200/656 (74s, 2.7/s, ETA 169s, free 1.7GB)
+  250/656 (93s, 2.7/s, ETA 151s, free 1.7GB)
+  300/656 (112s, 2.7/s, ETA 133s, free 1.7GB)
+  350/656 (131s, 2.7/s, ETA 114s, free 1.7GB)
+  400/656 (149s, 2.7/s, ETA 95s, free 1.7GB)
+  450/656 (168s, 2.7/s, ETA 77s, free 1.7GB)
+  500/656 (186s, 2.7/s, ETA 58s, free 1.7GB)
+  550/656 (204s, 2.7/s, ETA 39s, free 1.7GB)
+  600/656 (222s, 2.7/s, ETA 21s, free 1.7GB)
+  650/656 (240s, 2.7/s, ETA 2s, free 1.7GB)
+
+  Chain complete: 656 samples in 4.0 min
+  Walther status: {'OK': 656}
+
+  per_sample.csv: 656 rows × 30 cols
+  115celltype_ascores.csv: 75440 rows (long)
+
+  HEADLINE: r(immune_cellular_age, chrono_age) = -0.1227 (p=1.644e-03), MAE=30.85yr, slope=-0.0402
+  Saved VAL_020_headline.json
+  Saved healpix_example_sample.json (gsm=GSM989830, age=64, n_β=13466)
+
+Total elapsed: 4.6 min

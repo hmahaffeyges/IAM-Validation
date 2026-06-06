@@ -1,0 +1,25 @@
+{
+  "real_aging_signals": {
+    "A_immune_vs_age_r": -0.18447633936438101,
+    "A_terminal_vs_age_r": -0.07952320439520998,
+    "A_secretory_vs_age_r": 0.0013465127923872264,
+    "A_stromal_vs_age_r": -0.0692319051608249,
+    "A_cycling_vs_age_r": -0.01803088117452817,
+    "A_progenitor_vs_age_r": -0.06784870149525982,
+    "A_stem_adult_vs_age_r": -0.10320103834575749,
+    "A_stem_pluri_vs_age_r": -0.18428632118763688
+  },
+  "mahalanobis_vs_age": {
+    "r_pearson": 0.08452022375907212,
+    "median_d": 13.705401686590816,
+    "all_samples_flag_route_A": true,
+    "interpretation": "n=601 HC reference doesn't transfer to Hannum \u2014 cohort/platform batch effect"
+  },
+  "cellular_age_saturation": {
+    "n_saturated_at_95": 611,
+    "n_total": 656,
+    "saturation_rate_pct": 93.14024390243902,
+    "interpretation": "\u03b2_mean for immune in Hannum falls below youngest decade of 80-cell baseline \u2192 SATURATED_HIGH; the 80-cell baseline (foundation cohort GSE51057+GSE51032) needs cohort expansion before deployment"
+  },
+  "honest_finding": "The framework's chain itself works flawlessly (Walther 656/656 OK, 115-cell A-scoring complete, Mahalanobis runs, cellular age inverts), but the FIXED REFERENCES (n=601 HC + 80-cell baseline) are cohort-bound. Cross-cohort/cross-platform calibration is the next required step."
+}

@@ -1,0 +1,31 @@
+======================================================================
+CPG-VAL-020 — Hannum aging anchor reproduction (FULL CHAIN, v2)
+======================================================================
+
+--- Init canonical modules ---
+  115-cell markers: 115 celltypes, H_min(immune)=0.838889
+  Loading Walther IAM Deconvolver...
+Scanning header: /home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv
+  8 class columns, 114 cell-type columns
+Selecting markers (one streaming pass, bounded memory)...
+  class markers: 7114 CpGs
+  cell-type markers: 4000 CpGs
+  Mahalanobis HC: 112 features, n=601 pooled
+  IAMCellularAge: 80-cell baseline, 8189 class-marker CpGs
+
+  Union of needed CpGs: 13,991 (vs 473,034 full atlas → 3.0%)
+
+--- Load Hannum GSE40279 + subset to needed CpGs ---
+  Full β loaded: shape=(473034, 656), dtype=float32
+  Subset to needed CpGs: (13478, 656), dtype=float32, size=35 MB
+  Freed full β; load+subset elapsed: 8s
+  Meta: n=656, age 19-101, M=318 F=338
+
+--- Per-sample full chain (n=656) ---
+Traceback (most recent call last):
+  File "/home/claude/IAM-Validation/Biological_Physics/validation_runs/CPG_VAL_020_Immune_Hannum_full_chain/val_020_runner_v2.py", line 298, in <module>
+    main()
+  File "/home/claude/IAM-Validation/Biological_Physics/validation_runs/CPG_VAL_020_Immune_Hannum_full_chain/val_020_runner_v2.py", line 203, in main
+    if healpix_example is None and 50 <= chrono <= 65 and len(customer_betas) > 5000:
+                                                              ^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'customer_betas' where it is not associated with a value
