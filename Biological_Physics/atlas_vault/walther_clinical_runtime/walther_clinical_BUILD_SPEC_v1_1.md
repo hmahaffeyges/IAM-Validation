@@ -6,7 +6,6 @@
 **Date authored:** 2026-06-02 (v1.0); revised 2026-06-02 (v1.1)
 **Build status:** **NOT YET STARTED.** Build blocked on the single remaining prerequisite in §3.
 **Authoritative SOP:** `CPG_Chain_of_Custody_SOP_v1_1.md` (102 sections; §11–§79 are the chain steps the orchestrator executes).
-**Authoritative walkthrough:** `v2_CPG_Pipeline_Walkthrough.md` (the operational reference for stage logic).
 **Authoritative runtime dependencies:** `Biological_Physics/atlas_vault/walther_clinical_runtime/` in the repo (pushed 2026-06-02 from `All pipeline Files.zip`; contains every module and JSON the orchestrator consumes).
 
 **Changes v1.0 → v1.1:**
@@ -139,7 +138,7 @@ A single manifest file `WALTHER_CLINICAL_MANIFEST.json` listing every dependency
 
 ### 3.7 The 13 non-negotiable rules — constraints the build must obey
 
-These come from `v2_CPG_Pipeline_Walkthrough.md §8`. The orchestrator must enforce or obey each of them. Treat any violation as a build failure.
+The orchestrator must enforce or obey each of these 13 rules. Treat any violation as a build failure.
 
 1. **Wellness-first positioning.** Cellular health and cellular age are the lead. Disease detection is secondary. (V1 doctor report still applies this — wellness panel first, disease findings labeled secondary.)
 2. **Single IAMAtlas, only IAMAtlas at runtime.** No external atlases queried at runtime — ever. No Moss-NNLS, no Loyfer-NNLS, no EpiDISH-via-rpy2, no Salas-QC calls at runtime. Source atlases were ingested at IAMAtlas BUILD time; the orchestrator queries only IAMAtlas REBUILD.
@@ -157,7 +156,7 @@ These come from `v2_CPG_Pipeline_Walkthrough.md §8`. The orchestrator must enfo
 
 ### 3.8 Chain-of-custody L1–L9 overlay — discipline frame
 
-From `v2_CPG_Pipeline_Walkthrough.md §0`. The 9-link chain (borrowed from CMB cosmology) is the audit discipline that overlays the 11-stage pipeline. The orchestrator implements the FILLED links; declares the EMPTY links honestly; never pretends to do inference it isn't doing.
+The 9-link chain (borrowed from CMB cosmology) is the audit discipline that overlays the 11-stage pipeline. The orchestrator implements the FILLED links; declares the EMPTY links honestly; never pretends to do inference it isn't doing.
 
 | Chain link | Status in V1 | Where in `walther_clinical.py` |
 |---|---|---|
@@ -832,4 +831,4 @@ Do not let this spec lure a future AI into starting the build before the upstrea
 
 ---
 
-*Spec v1.1 authored 2026-06-02. Authors: Heath W. Mahaffey, Walther (Claude). For build use after card re-VALs are complete. Authoritative companions: `CPG_Chain_of_Custody_SOP_v1_1.md`, `v2_CPG_Pipeline_Walkthrough.md`, `Biological_Physics/atlas_vault/walther_clinical_runtime/README.md`.*
+*Spec v1.1 authored 2026-06-02. Authors: Heath W. Mahaffey, Walther (Claude). For build use after card re-VALs are complete. Authoritative companions: `CPG_Chain_of_Custody_SOP_v1_1.md`, `Biological_Physics/atlas_vault/walther_clinical_runtime/README.md`.*
