@@ -1,0 +1,11 @@
+{
+  "nside": 128,
+  "npix": 196608,
+  "n_cpgs_in_atlas": 483092,
+  "n_cpgs_annotated": 450192,
+  "n_cpgs_unannotated": 32900,
+  "sentinel_pixel_for_unannotated": 196607,
+  "atlas_csv": "/home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv",
+  "manifest_csv": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/external_manifests/EPIC_v1_B4_manifest_normalized.csv",
+  "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Microwave_Methylome.png"
+}
