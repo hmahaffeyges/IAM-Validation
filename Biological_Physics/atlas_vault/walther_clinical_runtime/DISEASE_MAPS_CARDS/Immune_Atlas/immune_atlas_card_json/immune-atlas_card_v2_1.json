@@ -362,7 +362,12 @@
           "bidirectional_universal_alarm_channel": "Pearson rho computed on the 12 CpGs tagged fires_in_both_diseases_opposing_direction subset — THE VAL-016 BIDIRECTIONAL UNIVERSAL ALARM SIGNATURE at per-CpG resolution. Pooled (sign-aligned) tests cancel; directional decomposition recovers signal. Stage 4.5 within-class operationalization is the VAL-051 7-CpG panel; Stage 8 Route A cross-disease operationalization is this 12-CpG subset."
         },
         "thresholds_calibration_status": "PROVISIONAL — Stage 8 Route A overlap thresholds (rho >= 0.10, CI lower bound > 0) inherited from breast-EPIC card v3.1; first-cohort recalibration pending",
-        "relationship_to_val_051_panel": "Disjoint instruments — VAL-051 7-CpG panel CpGs are NOT in this map's CpG universe (post-build VAL-003 + VAL-013 residual maps). VAL-051 is high-precision Stage 4.5 within-AD discriminator; this is broader Stage 8 Route A cross-disease overlap channel. See provenance JSON."
+        "relationship_to_val_051_panel": "Disjoint instruments — VAL-051 7-CpG panel CpGs are NOT in this map's CpG universe (post-build VAL-003 + VAL-013 residual maps). VAL-051 is high-precision Stage 4.5 within-AD discriminator; this is broader Stage 8 Route A cross-disease overlap channel. See provenance JSON.",
+        "companion_artifacts": {
+          "bimodality_map": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_bimodality_map.csv — 6,018 CpGs with per-disease bimodality coefficients side-by-side + cross-disease bimodality tags (double_disease_gain 1,592 / double_disease_loss 26 / opposing_bimodality_pattern 850). Stage 8 Route A supporting evidence channel for bimodality co-fire patterns. SHA-256 35868c5f265befb74fa6f94640fd36805dc42e6ec5dcb012e6b6a715f2b4b9be.",
+          "pca_projections": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_pca_projections.csv — 1,373 samples combined (647 breast EPIC-Italy + 726 AD AIBL) with cohort/disease/pca_basis tags. Stage 8 Route A supporting evidence — cross-cohort PC axis comparison documents same-biology-different-rank pattern (breast PC2 = T-cell axis, AD PC1 = T-cell axis). SHA-256 b9a166d0cdf0471cee5f8df33441a8143b419af83433a2a08d9a45f13a4b8640.",
+          "readme": "immune_atlas_residual_maps/README_immune_atlas_residual_maps.md — 4-file package documentation. SHA-256 d3ed232aeb7d42f1837d4e22a2b49c752fd3baaaaa1e599d8ecbbfe53bfbce7b."
+        }
       },
       "what_it_fires": "Architectural-alarm flag (when EITHER Mahalanobis channel OR residual-map-overlap channel triggers) → engine surfaces to all downstream disease cards as concordance input. Channel-specific magnitudes preserved in engine output for downstream interpretation."
     },
@@ -1839,7 +1844,13 @@
       "Synthetic patient generator (smoke tests): Synthetic_Patient_Generator/synthetic_patient_generator.py",
       "Validation anchor: IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv (n=601 HC Stage 6 anchor)"
     ],
-    "cross_disease_universal_alarm_residual_map_v0_1": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv (sha256 29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970)"
+    "cross_disease_universal_alarm_residual_map_v0_1": {
+      "residual_map_csv": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv (sha256 29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970)",
+      "bimodality_map_csv": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_bimodality_map.csv (sha256 35868c5f265befb74fa6f94640fd36805dc42e6ec5dcb012e6b6a715f2b4b9be)",
+      "pca_projections_csv": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_pca_projections.csv (sha256 b9a166d0cdf0471cee5f8df33441a8143b419af83433a2a08d9a45f13a4b8640)",
+      "readme": "immune_atlas_residual_maps/README_immune_atlas_residual_maps.md (sha256 d3ed232aeb7d42f1837d4e22a2b49c752fd3baaaaa1e599d8ecbbfe53bfbce7b)",
+      "package_pattern": "4-file pattern mirrors breast-EPIC and AD-immune disease card residual_maps folders: residual_map_chr_annotated + bimodality_map + pca_projections + README"
+    }
   },
   "validation_evidence_v2_1_set": {
     "CPG-VAL-014": {
@@ -2150,6 +2161,7 @@
     "(COMPLETED) Phase 4 Mahalanobis HC hull expansion: Asian-population HC cohort added (hull v0_4 -> v0_5, n=2,481, p95=13.62 default / p99=18.59 strict)",
     "(COMPLETED 2026-06-07) DISEASE_MATRIX v1_7 -> v1_8 with immune card validation findings (5 surgical evidence_anchor appends across 5 rows incorporating CPG-VAL-014/015/016/017/019/020 + CPG-VAL-001/011 expansions)",
     "(COMPLETED 2026-06-07) Immune-atlas card v1.0/v1.1 -> v2.0 clean rebuild with disease_immune_lens (81 entries) and wellness_aging_inflammation_lens (10 categories)",
+    "(COMPLETED 2026-06-07 same-day patch) Cross-disease universal alarm residual map 4-file package brought to parity with breast/AD disease-card pattern — bimodality intersection map, combined PCA projections, README all added alongside the main residual map CSV. BUILD_SPEC v1.2 -> v1.2.1 and SOP v1.3 -> v1.3.1 surgical updates capture the addition + the VAL-051 complementarity-not-redundancy declaration.",
     "Phase 5+ Mahalanobis HC hull expansion: routine maintenance — add new HC cohorts as research surfaces them; each version frozen as production artifact",
     "Build smoking_axis_foreground.py for Stage 3 β-level subtraction (v1.1 script, deferred from v2.0)",
     "Build sex_axis_foreground.py for Stage 3 β-level subtraction (v1.1 script, deferred from v2.0)",
@@ -2179,7 +2191,12 @@
     "what_was_added": [
       "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv (6,018 CpGs × 17 columns, ~1.25 MB)",
       "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv.sha256",
-      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.provenance.json"
+      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.provenance.json",
+      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_bimodality_map.csv (6,018 CpGs × 27 columns, ~2.5 MB) — 4-file pattern parity with breast/AD residual maps folder",
+      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_pca_projections.csv (1,373 samples combined) — 4-file pattern parity",
+      "immune_atlas_residual_maps/README_immune_atlas_residual_maps.md — 4-file package documentation following breast/AD README template",
+      "walther_clinical_BUILD_SPEC_v1_2.md → v1.2.1 surgical update — adds v0.1 residual map artifact reference + VAL-051 complementarity-not-redundancy declaration",
+      "CPG_Chain_of_Custody_SOP_v1_3.md → v1.3.1 surgical update — adds Stage 8 Route A residual-map-overlap channel description for the universal baseline card + companion artifact enumeration"
     ],
     "what_was_preserved_byte_identical": [
       "All operational chain stages 2-7 and 9-10 (untouched in v2.1)",
