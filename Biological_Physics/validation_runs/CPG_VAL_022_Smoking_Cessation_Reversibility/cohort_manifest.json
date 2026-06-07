@@ -1,0 +1,14 @@
+{
+  "cohort": "GSE50660 Tsaprouni 2014",
+  "platform": "HM450",
+  "tissue": "whole blood",
+  "population": "UK",
+  "n_total": 464,
+  "group_counts": {
+    "former": 263,
+    "never": 179,
+    "current": 22
+  },
+  "ascores_sha256": "ba4d08e42d0d6a99af1d2f7bf8cece592445816cb4999a8e3c78ff58b288a994",
+  "metadata_sha256": "b52f76b66a518bd634ce1a68b83dbdc84b3bfae8095d5c3f9501e66bbfd69130"
+}
