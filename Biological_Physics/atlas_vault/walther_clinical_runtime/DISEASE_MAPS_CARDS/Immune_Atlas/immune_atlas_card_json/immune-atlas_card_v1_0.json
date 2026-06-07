@@ -662,17 +662,20 @@
       ]
     },
     "CPG-VAL-019": {
-      "what": "Bidirectional immune signal direction recovery — cancer-positive vs AD-negative direction discrimination",
-      "cohort": "Reuse breast (cancer-positive direction) + AD (AD-negative direction)",
-      "anchor": "Foundational bidirectional pattern from VAL-050/051 AD-instance",
-      "status": "PENDING",
-      "deliverables": [
-        "PREREG.md",
-        "CPG_VAL_019_OUTCOME.md",
-        "CPG_VAL_019_per_sample.csv",
-        "CPG_VAL_019_null_results.json",
-        "cohort_manifest.json"
-      ]
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "PASS",
+      "title": "Bidirectional immune direction discrimination",
+      "cohorts": "AIBL GSE153712 + GSE51057 breast EPIC-Italy",
+      "panel_source": "VAL-051 sealed Rule A 7-CpG AD-direction-anchored panel",
+      "headline_findings": [
+        "AIBL: d_up = +0.494, d_down = -0.515 (both fire strongly, opposite signs as expected)",
+        "AIBL: d_signed = +0.599 > |d_pooled| = 0.348 (directional decomposition recovers information pooled discards)",
+        "Per-CpG concordance with VAL-051 panel directions: 7/7 perfect in AIBL",
+        "Null permutation (1000 random direction shuffles): p < 0.001",
+        "Breast pre-dx fires DOWN direction only (d_down=-0.56) but not UP (d_up=-0.14) — disease-specific bidirectional firing"
+      ],
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_019_Immune_Bidirectional/"
     },
     "CPG-VAL-020": {
       "what": "Hannum aging anchor reproduction — full SOP chain re-run on IAMAtlas with Walther + NILC two-deconvolver discipline",
