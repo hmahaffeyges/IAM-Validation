@@ -1,9 +1,9 @@
-# Immune Atlas Card v2.0
+# Immune Atlas Card v2.1
 
 **Card type:** universal_baseline_card
-**Status:** v2.0 — first CLEAN rebuild. Operational chain runs on IAMAtlas REBUILD + Walther IAM Deconvolver + NILC v2 exclusively. All multi-atlas references confined to `pre_build_audit_lineage` at bottom of card JSON.
+**Status:** v2.1 — surgical additive update on v2.0 adding cross-disease universal alarm residual map v0_1 + Stage 8 Route A residual-map-overlap channel
 **Date:** 2026-06-07
-**Card JSON:** `immune_atlas_card_json/immune-atlas_card_v2_0.json` (~145 KB, 37 top-level keys)
+**Card JSON:** `immune_atlas_card_json/immune-atlas_card_v2_1.json` (~152 KB, 38 top-level keys)
 
 ## What this card is
 
@@ -21,6 +21,24 @@ The Immune Atlas is the **universal first-pass baseline** that every customer ID
 It produces **no disease verdict** in the customer-facing immune readout. Disease-specific concordance flags from Stage 8 Route B consultation against disease matrix v1.8 are engine-internal only, feeding downstream disease cards.
 
 This is the most important card in the system: every disease in the matrix is first detected via the immune system response, which makes the immune-atlas card the integration point for the entire disease constellation.
+
+## v2.1 highlight — cross-disease universal alarm residual map
+
+v2.1 builds and integrates the cross-disease universal alarm residual map. Derived from the inner-join of breast-EPIC VAL-003 residual map (7,114 CpGs) and AD-immune VAL-013 residual map (6,018 CpGs) on cpg_id → 6,018 CpGs at intersection, each tagged with one of five firing-pattern buckets:
+
+| Pattern | CpGs | % | Operational use |
+|---|---:|---:|---|
+| `fires_neither_background` | 4,641 | 77.12% | Background reservoir — not part of operational alarm signature |
+| `fires_breast_only` | 1,136 | 18.88% | Breast-specific residual signal (already in breast-EPIC card Route A) |
+| `fires_AD_only` | 212 | 3.52% | AD-specific residual signal (already in AD-immune card Route A) |
+| `fires_in_both_diseases_same_direction` | 17 | 0.28% | **Cross-disease concordance channel** — shared aging/inflammation drift candidates |
+| `fires_in_both_diseases_opposing_direction` | 12 | 0.20% | **Bidirectional universal alarm channel** — the VAL-016 universal alarm signature at per-CpG resolution |
+
+These 12 opposing-direction CpGs and the VAL-051 7-CpG directional panel (Stage 4.5) are **disjoint instruments by design** — zero CpG overlap. VAL-051 is the high-precision within-AD discriminator; this map is the broader cross-disease Stage 8 Route A overlap channel. The two operate complementarily at different scales.
+
+Artifact path: `immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv` (1.25 MB, sha256 `29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970`).
+
+v0_1 is a derived vault artifact (not a sealed VAL — inherits validation status of CPG-VAL-003 + CPG-VAL-013). v0_2 may extend to additional disease cohorts and merge with the VAL-051 CpG universe.
 
 ## Chain modules consumed at runtime
 
@@ -45,7 +63,7 @@ All canonical, all in `atlas_vault/walther_clinical_runtime/`. Full path list in
 | 6 Age reference | age_reference_matrix.json — 80-cell baseline, 10 age bins 4–95 | Age_Reference_Matrix_80_cells/ |
 | 6 Cellular age | IAMCellularAge — β_mean inversion per Recipe §6.3 | IAM_Cellular_Age/ |
 | 7 Tier breakpoints | tier_breakpoints.json — v1.2 6-tier physics + 8 covariate overrides | Tier_breakpoints/ |
-| 8 Card matching | disease_cell_signature_matrix_v1_8.csv + Route A Mahalanobis / Route B matrix / Route C bidirectional | DISEASE_MATRIX/ |
+| 8 Card matching | disease_cell_signature_matrix_v1_8.csv + Route A (Mahalanobis + residual-map-overlap v2.1) / Route B matrix / Route C bidirectional | DISEASE_MATRIX/ + Immune_Atlas/immune_atlas_residual_maps/ |
 | 8 Cancer prior | Route B weighting | Cancer_prior/cancer_prior.json |
 | 8 Family history | Route B weighting | Family_history_multiplier/family_history_multiplier.json |
 | 9 Literature anchors | Report builder language anchors | Literature_anchors_Report_building/literature_anchors.json |
@@ -95,7 +113,8 @@ Everything that affects the immune system outside discrete diseases:
 | Pre-build v0.3.2 | (pre-2026-06) | Multi-atlas operational chain (Xu-538/Loyfer/Salas/EpiSCORE/UniLIFE/Caggiano/Reinius) | RETIRED to `RETIRED_PREBUILD_REFERENCE/Immune_Atlas_PreBuild_RETIRED/` |
 | v1.0 SKELETON | 2026-06-06 | Per-stage block architecture adopted; pre-build clinical content preserved wholesale | RETIRED to `immune_atlas_card_json/OLD/` |
 | v1.1 surgical bump | 2026-06-07 | 16 surgical edits; structural bloat preserved | RETIRED to `immune_atlas_card_json/OLD/` |
-| **v2.0 CLEAN REBUILD** | **2026-06-07** | **First clean structure aligned with breast v3.1 + AD-immune v3.1; 152 forbidden language hits eliminated; disease_immune_lens (81 entries) + wellness_aging_inflammation_lens (10 categories) added; chain_of_custody_anchors consolidated** | **CURRENT** |
+| v2.0 CLEAN REBUILD | 2026-06-07 | First clean structure aligned with breast v3.1 + AD-immune v3.1; 152 forbidden language hits eliminated; disease_immune_lens (81 entries) + wellness_aging_inflammation_lens (10 categories) added; chain_of_custody_anchors consolidated | ARCHIVED to OLD/ |
+| **v2.1 surgical additive** | **2026-06-07** | **Built cross-disease universal alarm residual map v0_1 (6,018 CpGs, 4 firing-pattern buckets) from inner-join of breast VAL-003 + AD VAL-013 sealed residual maps; integrated into Stage 8 Route A as residual-map-overlap channel parallel to disease cards; immune_residual_map_status flipped NOT_BUILT -> BUILT v0_1** | **CURRENT** |
 
 Full v2.0 changelog in `v2_0_changes_from_v1_0_and_v1_1` of the card JSON.
 
@@ -110,10 +129,13 @@ See `outstanding_work_v2_0` in the card JSON for the full 17-item list. Highest 
 ## Files in this card package
 
 - `immune-atlas_README.md` — this file
-- `immune_atlas_card_json/immune-atlas_card_v2_0.json` — the card itself (current)
+- `immune_atlas_card_json/immune-atlas_card_v2_1.json` — the card itself (current)
+- `immune_atlas_card_json/OLD/immune-atlas_card_v2_0.json` — v2.0 archived
+- `immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv` + .sha256 + .provenance.json
 - `immune_atlas_card_json/OLD/immune-atlas_card_v1_0.json` — v1.0 archived
 - `immune_atlas_card_json/OLD/immune-atlas_card_v1_1.json` — v1.1 archived
 - `immune-atlas_v1_0_release_notes.md` — v1.0 release history (preserved)
 - `immune-atlas_v1_1_release_notes.md` — v1.1 release history (preserved)
-- `immune-atlas_v2_0_release_notes.md` — this release
+- `immune-atlas_v2_0_release_notes.md` — v2.0 release notes (preserved)
+- `immune-atlas_v2_1_release_notes.md` — this release
 - `patient_intake_questionnaire_v1_0.md` — Stage 0 intake (unchanged across v1.0/v1.1/v2.0)

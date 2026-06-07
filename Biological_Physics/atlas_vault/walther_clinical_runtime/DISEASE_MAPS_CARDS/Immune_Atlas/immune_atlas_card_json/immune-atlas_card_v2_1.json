@@ -1,0 +1,2203 @@
+{
+  "card_id": "immune-atlas",
+  "card_version": "v2.1",
+  "card_date": "2026-06-07",
+  "card_type": "universal_baseline_card",
+  "supersedes": "Immune-atlas v2.0 (2026-06-07 first clean rebuild). v2.0 status was clean: 0 forbidden hits in operational sections, all 20 chain modules present, disease_immune_lens (81 entries) and wellness_aging_inflammation_lens (10 categories) added, chain_of_custody_anchors restored. v2.1 is a surgical additive update adding the cross-disease universal alarm residual map artifact (built 2026-06-07 from intersection of breast VAL-003 + AD-immune VAL-013 sealed residual maps) and integrating it into Stage 8 Route A as a residual-map-overlap channel parallel to breast-EPIC and AD-immune disease cards. v1.0 + v1.1 + v2.0 all archived at immune_atlas_card_json/OLD/.",
+  "universal_role": "The immune-atlas card is the universal first-pass baseline that every customer IDAT runs through. It quantifies the patient's immune-class architectural state at the cellular level and routes the per-CpG profile to the disease signature matrix for downstream disease-card consumption. Every disease in the matrix is first detected via the immune system response, which makes this card the integration point for the entire disease constellation: the universal screen, the per-cell-type fanout, the inflammaging quantum, the personal Cosmic Microwave Methylome, and the Stage 8 three-route engine that hands findings to downstream disease cards. The immune-atlas card produces no disease verdict — disease names appear only on per-disease cards and per-disease website pages, never in the immune-class readout itself.",
+  "clinical_claim": {
+    "summary": "Universal first-pass immune-class baseline measurement. Returns immune A-score with 95% CI, immune cellular age + immune age delta (the inflammaging quantum), tier verdict on the 6-tier physics-derived scale, bidirectional pattern flag when relevant, the patient's personal Cosmic Microwave Methylome (8-panel Mollweide PNG), Mahalanobis distance against the n=2,481 pooled-HC hull v0_5, and per-immune-cell fanout (19 cell types). Produces engine-internal Stage 8 concordance flags from disease signature matrix v1.8 consultation that feed downstream disease cards; no disease verdict in the immune-class customer readout.",
+    "regulatory_status": "Not FDA approved. Not a diagnostic test.",
+    "deployment_model": "Direct-to-consumer cellular state report through CPG (Cellular Performance Gauge). Trajectory monitoring against the patient's own baseline is the primary clinical use mode. Annual or biannual draws.",
+    "report_recipient": "The customer; clinician interpretation optional. Provisional clinician-PDF delivery for pre-deploy partners (GeoMetric Health pilot)."
+  },
+  "substrate": {
+    "supported": [
+      "whole_blood_buffy_coat_EDTA"
+    ],
+    "platforms_supported": [
+      {
+        "platform": "Illumina EPIC 850K BeadChip",
+        "preferred": true,
+        "notes": "Primary clinical deployment platform"
+      },
+      {
+        "platform": "Illumina EPIC v2 (1M)",
+        "preferred": true,
+        "notes": "Engine flags reduced coverage per sample (IAMAtlas full-CpG-universe coverage typically 87-92% on EPIC v2)"
+      },
+      {
+        "platform": "Illumina HumanMethylation450K BeadChip",
+        "preferred": false,
+        "requires_coverage_check": true,
+        "min_coverage_pct_vs_epic": 80,
+        "notes": "Reference platform for IAMAtlas REBUILD posterior anchoring"
+      }
+    ],
+    "min_cpg_coverage_pct_of_immune_marker_substrate": 80,
+    "below_coverage_action": "INSUFFICIENT_COVERAGE flag; fall back to per-class-tier-only matching",
+    "optional_add_on_substrates": {
+      "plasma_cfDNA": {
+        "status": "optional add-on for at-diagnosis tumor-burden monitoring only",
+        "not_the_routine_surveillance_substrate": true,
+        "note": "Customer plasma cfDNA is in scope for the validated detection pathway when ordered; the routine surveillance specimen is whole-blood EDTA on EPIC 850K."
+      }
+    }
+  },
+  "stage_2_dual_deconvolution": {
+    "doctrine": "Two mathematically independent deconvolvers run every time. Cross-method confirmation is what Planck used to validate CMB temperature maps (Commander/NILC/SMICA/SEVEM all had to agree); CPG inherits the same discipline. Disagreement between deconvolvers IS diagnostic information — surfaced, not averaged away.",
+    "primary_deconvolver": {
+      "name": "Walther IAM Deconvolver",
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Walther_iam_deconvolver/walther_iam_deconvolver.py",
+      "class": "WaltherIAMDeconvolver",
+      "constructor_signature": "WaltherIAMDeconvolver(matrix_path, celltype_class_map, n_class_markers_per_class=600, max_celltype_markers=4000)",
+      "method": "deconvolve(customer_betas, refine_celltypes=True) → DeconvolutionResult",
+      "algorithm": "Non-Negative Least Squares (NNLS) with simplex constraint (Σf=1, f≥0); class-level solve first, then per-cell-type refinement",
+      "reference_matrix": "IAMAtlas REBUILD v0_2 (canonical SHA 41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee)",
+      "n_class_markers_per_class": 600,
+      "n_classes": 8,
+      "max_celltype_markers": 4000,
+      "output_per_patient": {
+        "per_class_fractions": "8-vector of class fractions",
+        "per_class_ci": "95% CI propagated from atlas MCMC posterior SDs via Monte Carlo (1000 draws from per-CpG posteriors)",
+        "per_celltype_fractions": "115-cell fraction vector",
+        "marker_coverage": "fraction of marker substrate observed in patient β"
+      }
+    },
+    "secondary_deconvolver": {
+      "name": "NILC Deconvolver (Needlet Internal Linear Combination)",
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/NILC_Deconvolver/nilc_deconvolver-2.py",
+      "class": "NILCDeconvolver",
+      "method": "deconvolve(customer_betas) → NILCResult",
+      "cross_method_function": "cross_method_comparison(walther_df, nilc_df) → CrossMethodReport",
+      "algorithm": "Generalized least squares with inverse-variance weighting (W=diag(1/σ²)) using per-CpG posterior SDs from the IAMAtlas posterior. No non-negativity constraint imposed during solve; simplex projection applied post-hoc. Mathematically independent from Walther NNLS.",
+      "rationale": "Derived from Planck's NILC methodology applied to the methylome. The two deconvolvers are derived from different optimization frameworks (Walther: constrained optimization via NNLS; NILC: variance-weighted least squares). Disagreement reveals β-profile structure neither captures cleanly, surfacing patient-specific peculiarity.",
+      "output_per_patient": "Independent per-class fraction estimate + per-CpG residual variance",
+      "reference_artifacts": [
+        "nilc_fractions_all.csv (n=601 HC reference NILC fractions)",
+        "nilc_fractions_v2_departure.csv (departure profile)",
+        "nilc_walther_crosscheck_v2.json (cross-method validation log)"
+      ]
+    },
+    "cross_method_gate": {
+      "per_class_L1_disagreement_max": 0.15,
+      "p95_disagreement_threshold": 0.2,
+      "outlier_patient_rule": "Any patient with per-class disagreement > 0.20 on >= 2 classes is flagged CROSS_METHOD_DISAGREEMENT; downstream Stage 5+ outputs carry a confidence-reduction flag; the report includes a cross-method-gate warning.",
+      "immune_class_specific_tolerance": 0.15
+    },
+    "stage_2_output": "Per-class fractions (8 classes × {walther_f, walther_ci, nilc_f, nilc_ci, agreement_flag}), per-cell-type fractions (115 cells × {f, ci}), cross-method gate verdict"
+  },
+  "stage_3_foreground_subtraction": {
+    "doctrine": "Empirical foreground subtraction is a SUPPORT tool. The architectural A-score H(β_mean)/H_min IS the physics. When a foreground layer doesn't transfer across cohorts (a real risk for linear-coefficient layers fit on one population), the physics-correct response is to run on raw β and let the architecture speak — not pivot to better regression. Foreground subtraction REDUCES noise from known confounders when it transfers cleanly, never compromises the physics readout.",
+    "age_axis_foreground": {
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/age_axis_foreground.py",
+      "layer_csv": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/IAMAtlas_age_layer.csv",
+      "layer_diagnostics": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/age_layer_diagnostics.json",
+      "method": "Subtract age-correlated linear-component β shift before downstream A-scoring",
+      "n_cpgs_in_layer": 8199,
+      "fit_cohort": "Foundation cohort GSE51057+GSE51032 n=601 HC (EPIC-Italy)",
+      "status": "operational",
+      "transfer_caveat": "Layer fit on foundation cohort (female-only EPIC-Italy ages 40–65). Cross-cohort transfer to wider age ranges (e.g. Hannum GSE40279 19–101) requires monitoring; if Δ|r| inverts at runtime, raw-β chain is the fallback."
+    },
+    "smoking_axis_foreground": {
+      "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_axis_foreground (PROPOSED — script not yet built; layer CSV available)",
+      "layer_csv": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/IAMAtlas_smoking_layer.csv",
+      "layer_diagnostics": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_sex_layer_diagnostics.json",
+      "method": "Subtract tobacco-associated per-CpG drift (AHRR cg05575921 + ~100 cataloged tobacco-CpGs) using smoking_status + smoking_bin from intake",
+      "fit_cohort": "GSE50660 Tsaprouni 2014 n=464 (179 never, 263 former, 22 current)",
+      "status": "layer fit; runtime subtraction script v1.1",
+      "v1_0_mitigation": "Smoking enters via Stage 7 threshold-stratification per smoking_bin; full Stage 3 β-level subtraction deferred to v1.1",
+      "honest_disclosure": "v1.0 does NOT apply smoking subtraction at β level. Smoking-driven residual signal IS being scored as if it were inflammation for current_smoker bin. For never_smoker and former_smoker_long this matters less. Reported per Stage 7 threshold uplift."
+    },
+    "sex_axis_foreground": {
+      "layer_csv": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/IAMAtlas_sex_layer.csv",
+      "layer_diagnostics": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_sex_layer_diagnostics.json",
+      "method": "Subtract sex-dimorphic chrX/chrY/XCI escape methylation",
+      "fit_cohort": "GSE50660 Tsaprouni 2014 n=464 (327M / 137F)",
+      "status": "layer fit; runtime script v1.1",
+      "v1_0_mitigation": "Sex enters via Stage 7 threshold tables + sex-stratified VAL anchors"
+    },
+    "batch_plate_foreground": {
+      "status": "v1.1 — controlled per-cohort during VAL sealing; runtime per-patient batch correction deferred"
+    },
+    "stage_3_output": "Foreground-cleaned β matrix ready for A-score computation (when foregrounds applied); else raw β passes through"
+  },
+  "stage_4_a_scoring": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/A_Scoring_Module/iamatlas_a_scoring.py",
+    "functions": {
+      "load_artifact": "load_artifact(artifact_path) → (metadata, celltype_markers, celltype_to_class, h_min_by_class)",
+      "score_per_class": "score_per_class(customer_betas, class_markers, h_min_by_class) → 8-class A-scores",
+      "score_per_celltype": "score_per_celltype(customer_betas, celltype_markers, celltype_to_class, h_min_by_class) → 115-cell A-scores"
+    },
+    "celltype_marker_artifact": {
+      "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
+      "sha256_file": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.sha256",
+      "marker_artifact_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+      "n_celltypes": 115,
+      "n_markers_per_celltype": 100,
+      "selection_method": "one-vs-rest top-100 by class-discrimination signal from IAMAtlas REBUILD posterior",
+      "supersedes": "iamatlas_celltype_markers_v0_1_SUPERSEDED.md"
+    },
+    "h_min_by_class": {
+      "terminal": 0.7728,
+      "immune": 0.838889,
+      "secretory": 0.843264,
+      "cycling": 0.856055,
+      "progenitor": 0.852216,
+      "stromal": 0.86295,
+      "stem_adult": 0.873718,
+      "stem_pluri": 0.982166,
+      "_provenance": "G-003b MCMC frozen 2026-04-06"
+    },
+    "scoring_formula": "A_class = H(β_mean_over_class_markers) / H_min(class)",
+    "shannon_entropy_formula": "H(β) = −β log₂(β) − (1−β) log₂(1−β)",
+    "card_specific_outputs": {
+      "immune_A_score": "scalar with 95% CI propagated via Monte Carlo (1000 draws from per-CpG posteriors, A computed per draw)",
+      "per_immune_cell_A_scores": "51 immune cell types × {A, CI, n_markers_matched, coverage, confidence, class}",
+      "per_immune_cell_A_aggregated_to_19_pages": "19 customer-facing pages × {A_aggregate, CI_aggregate, n_atlas_labels_contributing, coverage_fraction}"
+    },
+    "n_immune_marker_cpgs_total": 7114
+  },
+  "stage_4_5_bidirectional_decomposition": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Bidirectional_Decomposition/bidirectional_decomposition.py",
+    "panel_artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Bidirectional_Decomposition/directional_panels_v1_0.json",
+    "doctrine": "Per VAL-050 (pooled-entropy NULL d=+0.077) → VAL-051 (directional Rule-A panel d=+0.624 same cohort): pooled A-score CANCELS when bidirectional patterns are present. At patient runtime, the engine MUST decompose the immune-class signal into directional sub-panels before reporting a single pooled tier. This was the single most important Stage-1 design lesson in the pre-build cookbook and applies identically at patient runtime — not just at VAL time.",
+    "immune_panel": {
+      "panel_id_in_directional_panels_json": "panels.immune",
+      "panel_sha256_anchor": "52061285fc97bfff871ba7b62f625b14d953bccf25ee24e35f328e15b9827998",
+      "n_cpgs": 7,
+      "n_positive_direction": 3,
+      "n_negative_direction": 4,
+      "panel_source_val": "CPG-VAL-051 AD AIBL directional recovery (sealed pre-build)",
+      "validation_anchor": "VAL-051 holdout d=+0.624 AUC=0.68 on AIBL HM450",
+      "scoring_formula_reference": "val051_analyze.py:112-121 — a_dir = mean of sign-multiplied z-scores against frozen HC training distribution",
+      "future_expansion": "Cancer-positive vs AD-negative direction discrimination panels expand at CPG-VAL-019 sealing"
+    },
+    "bidirectional_flag_rule": "FLAG_BIDIRECTIONAL when |A_positive_panel − A_negative_panel| / max(|A_positive|, |A_negative|) > 0.30",
+    "when_flagged_customer_report": "Customer sees: 'Your immune profile shows a mixed-direction pattern — some cell populations elevated while others are running lower than typical.' Engine reports the directional decomposition magnitudes to Stage 8 for disease-matrix consultation.",
+    "when_not_flagged_customer_report": "Pooled immune A-score reported as customer-facing summary",
+    "_pooled_panel_n_cpgs": 6800,
+    "_pooled_panel_source_val": "VAL-050 pooled-entropy panel (sealed null d=+0.077 — the empirical demonstration of cancellation)"
+  },
+  "stage_4_6_brightness_comparison": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py",
+    "purpose": "Render the patient's personal Cosmic Microwave Methylome (8-panel Mollweide PNG): one Mollweide panel per architectural class showing the patient's per-CpG β departure from the IAMAtlas class brightness reference, projected onto HEALPix sphere coordinates. The immune-class panel is the bottom-right of the 8-panel CMM.",
+    "healpix_mapping": {
+      "file": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy",
+      "provenance_file": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.provenance.json",
+      "generator_script": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/generate_cpg_healpix_mapping.py",
+      "nside": 128,
+      "npix": 196608,
+      "n_cpgs_annotated": 483092,
+      "coverage_pct": 100.0,
+      "sentinel_pixel_for_unannotated": 196607,
+      "manifest_csv": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/external_manifests/EPIC_plus_HM450_combined_manifest_normalized.csv"
+    },
+    "mollweide_projection": {
+      "library": "healpy.mollview (matplotlib backend)",
+      "coordinate_system": "Equatorial (RA, Dec) — chromosomes ordered around equator, genomic position mapped to RA",
+      "panel_layout": "8-panel grid (2 rows × 4 cols), one panel per architectural class",
+      "color_scale": "Signed z-departure: blue (suppressed) ↔ white (baseline) ↔ red (elevated)",
+      "z_clip_range": [
+        -3,
+        3
+      ],
+      "annotation": "1.07 Warburg line marked; 1.10 breach line marked; class label + Mahaffey number per panel"
+    },
+    "immune_class_brightness_reference": {
+      "csv_path": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/class_archives/immune_v0_1_REBUILD.tar.xz → iamatlas_v0_1_immune_brightness.csv",
+      "n_cpgs": 483092,
+      "columns": [
+        "cpg_id",
+        "class",
+        "mean",
+        "sd",
+        "ci_lo",
+        "ci_hi"
+      ],
+      "computation": "Per-CpG posterior mean (class-conditional) and posterior SD from IAMAtlas REBUILD MCMC"
+    },
+    "customer_facing_artifact": "personal_cosmic_microwave_methylome_{patient_id}.png — embedded in customer report",
+    "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Microwave_Methylome.png (Plate 1 from atlas_vault/IAMAtlas_v0_1/plates/)"
+  },
+  "stage_5_mahalanobis": {
+    "doctrine": "Stage 5 consumes the canonical Mahalanobis healthy reference artifact at runtime. The hull, percentile thresholds, calibration data, version lineage, validation history, and per-cohort distributional metadata all live in the runtime artifact — NOT in this card. This card carries only the file path and the consumption interface.",
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
+    "class": "MahalanobisHealthyHull",
+    "reference_artifact_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_5.json",
+    "reference_artifact_consumption": "Engine loads the current production artifact at session startup; all hull/threshold/calibration metadata flows from there. Production version is whatever is named in BUILD_SPEC v1.2 + chain-of-custody SOP — not pinned by this card.",
+    "method_signature": ".score(celltype_ascores) → {mahalanobis_distance, n_features_used, n_features_imputed, status, top10_axis_contributions, reference_anchor}",
+    "input": "115-cell A-score dict from Stage 4 score_per_celltype()",
+    "customer_facing_output": "Mahalanobis distance + CI surfaced as 'Your overall departure from healthy baseline is X SDs (range L–U).'",
+    "engine_internal_output": "Top-10 axis contributions (which cell types drive the departure) → fed to Stage 8 disease-matrix consultation"
+  },
+  "stage_6_cellular_age": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/iam_cellular_age_scoring.py",
+    "class": "IAMCellularAge",
+    "method_signature": ".score_patient(beta_dict, chronological_age=None, patient_id=None) → CellularAgeResult",
+    "age_reference_matrix": {
+      "json_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Age_Reference_Matrix_80_cells/age_reference_matrix.json",
+      "csv_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Age_Reference_Matrix_80_cells/age_reference_matrix.csv",
+      "builder": "Biological_Physics/atlas_vault/walther_clinical_runtime/Age_Reference_Matrix_80_cells/age_reference_matrix.py",
+      "n_classes": 8,
+      "n_age_bins": 10,
+      "age_range": [
+        4,
+        95
+      ],
+      "schema_per_row": "{age_midpoint, A_mean, A_sd, beta_mean, beta_sd, n_samples, A_p10, A_p25, A_p50, A_p75, A_p90, source_citation}",
+      "sources_cited": [
+        "Alisch 2012",
+        "Horvath 2013",
+        "Hannum 2013",
+        "Bocklandt 2011",
+        "Weidner 2014"
+      ]
+    },
+    "doctrine_recipe_6_3": "For each architectural class: compute β_mean = mean of patient's β over that class's marker CpGs. Invert the baseline's (decade → β_mean) curve to find the age at which baseline β_mean equals patient β_mean. That's the per-class cellular age. No training. No regression. The baseline IS the instrument; the patient's β_mean IS the measurement; the cellular age IS the readback.",
+    "monotonicity_note": "β_mean DECREASES with age in healthy reference per Recipe §6.3 line 1900. Patient β_mean above youngest decade → SATURATED_HIGH (assign youngest age). Patient β_mean below oldest decade → SATURATED_LOW.",
+    "min_cpgs_per_class": 30,
+    "primary_customer_facing_output": "immune_cellular_age + immune_age_delta",
+    "immune_age_delta_definition": "immune_age_delta = immune_cellular_age − chronological_age (from intake)",
+    "interpretation": "The inflammaging quantum. Positive delta = immune system reads older than chronological; negative = younger than chronological.",
+    "all_8_per_class_ages_computed": true,
+    "only_immune_surfaces_in_this_card_report": true,
+    "ci_propagation": "95% CI from inverting A-score CI bounds against the baseline curve",
+    "saturation_flag_values": [
+      "OK",
+      "SAT_HIGH",
+      "SAT_LOW",
+      "INSUFFICIENT_CPGS"
+    ],
+    "validation_anchor_dataset": {
+      "file": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv",
+      "cohort": "EPIC-Italy GSE51057+GSE51032 n=601 HC",
+      "what_it_validates": "Stage 6 inversion outputs against chronological age in HC — anchor for inflammaging quantum interpretation"
+    }
+  },
+  "stage_7_tier_breakpoints": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Tier_breakpoints/tier_breakpoints.json",
+    "tier_system_version": "v1.2",
+    "supersedes": "v0 4-tier statistical-percentile system (archived in OLD/)",
+    "doctrine": "Six physics-derived tiers replacing v0 statistical-percentile system. The 1.07 Warburg-transition line and 1.10 architectural-fidelity breach line are physics-defined inflection points (not statistical percentiles). Universal across all 8 classes; per-class overrides shift the ELEVATED floor for context-dependent baselines but preserve the Warburg line and breach line.",
+    "tiers": [
+      {
+        "tier_id": "SUPPRESSED",
+        "a_score_range": [
+          0.0,
+          0.95
+        ],
+        "customer_label": "Suppressed"
+      },
+      {
+        "tier_id": "NORMAL",
+        "a_score_range": [
+          0.95,
+          1.04
+        ],
+        "customer_label": "Normal"
+      },
+      {
+        "tier_id": "ELEVATED",
+        "a_score_range": [
+          1.04,
+          1.07
+        ],
+        "customer_label": "Elevated"
+      },
+      {
+        "tier_id": "WARBURG_TRANSITION",
+        "a_score_range": [
+          1.07,
+          1.1
+        ],
+        "customer_label": "Warburg Transition",
+        "physics_anchor": "1.07 = Warburg metabolic-transition line"
+      },
+      {
+        "tier_id": "SIGNIFICANTLY_ELEVATED",
+        "a_score_range": [
+          1.1,
+          1.12
+        ],
+        "customer_label": "Significantly Elevated",
+        "physics_anchor": "1.10 = architectural-fidelity breach line"
+      },
+      {
+        "tier_id": "BREACH",
+        "a_score_range": [
+          1.12,
+          null
+        ],
+        "customer_label": "Breach"
+      }
+    ],
+    "tier_by_covariate_overrides_applied_for_immune_card": [
+      "known_autoimmune_condition=true → ELEVATED floor 1.04→1.07 (autoimmune chronic-inflammatory baseline)",
+      "hiv_status=positive_treated → ELEVATED floor 1.07→1.10 (treated HIV chronic-immune-activation baseline)",
+      "current_immunosuppression=true → SUPPRESSED ceiling 0.95→0.93 (treatment-expected suppression)",
+      "current_pregnancy=any_trimester → ELEVATED floor 1.04→1.06 (pregnancy immune accommodation)",
+      "transplant_status=recent_bm OR recent_solid_organ → ELEVATED floor 1.07→1.10 (post-transplant adaptive state)",
+      "current_treatment_status=active_chemotherapy → SUPPRESSED ceiling 0.95→0.92 (cytoreduction expected)",
+      "recent_illness_within_3_months → ELEVATED floor 1.04→1.05 (acute-phase tail)",
+      "recent_vaccination_within_3_months → ELEVATED floor 1.04→1.05 (vaccine-response immune activation)"
+    ],
+    "tier_by_smoking_bin_inherited": true,
+    "bidirectional_pattern_handoff_inherited": true,
+    "customer_facing_vocabulary_inherited": true,
+    "tier_confidence_propagation_inherited": true
+  },
+  "stage_8_card_matching": {
+    "card_role": "Universal baseline — always produces customer-facing readout. Routes A/B/C may or may not fire. This is the gateway card: every disease in the disease signature matrix v1.8 is consulted here, and engine-internal top-3 disease concordances are surfaced to downstream disease cards for interpretation. v2.1 adds the cross-disease universal alarm residual-map-overlap channel to Route A, parallel to breast-EPIC and AD-immune disease cards.",
+    "route_A_universal_architectural": {
+      "trigger_mahalanobis_channel": "Mahalanobis_d >= p95 threshold = 13.62 (default) or p99 = 18.59 (strict) against pooled n=2,481 HC hull v0_5",
+      "trigger_residual_map_overlap_channel_v2_1_NEW": {
+        "rule": "Pearson rho >= 0.10 with cross-disease universal alarm residual map signed Cohen's d, with Fisher z-transform 95% CI lower bound > 0",
+        "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MAPS_CARDS/Immune_Atlas/immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv",
+        "artifact_sha256": "29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970",
+        "artifact_n_cpgs": 6018,
+        "artifact_provenance_json": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MAPS_CARDS/Immune_Atlas/immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.provenance.json",
+        "overlap_sub_channels": {
+          "cross_disease_concordance_channel": "Pearson rho computed on the 17 CpGs tagged fires_in_both_diseases_same_direction subset — shared aging/inflammation drift candidates that fire in the same direction across breast pre-dx and AD",
+          "bidirectional_universal_alarm_channel": "Pearson rho computed on the 12 CpGs tagged fires_in_both_diseases_opposing_direction subset — THE VAL-016 BIDIRECTIONAL UNIVERSAL ALARM SIGNATURE at per-CpG resolution. Pooled (sign-aligned) tests cancel; directional decomposition recovers signal. Stage 4.5 within-class operationalization is the VAL-051 7-CpG panel; Stage 8 Route A cross-disease operationalization is this 12-CpG subset."
+        },
+        "thresholds_calibration_status": "PROVISIONAL — Stage 8 Route A overlap thresholds (rho >= 0.10, CI lower bound > 0) inherited from breast-EPIC card v3.1; first-cohort recalibration pending",
+        "relationship_to_val_051_panel": "Disjoint instruments — VAL-051 7-CpG panel CpGs are NOT in this map's CpG universe (post-build VAL-003 + VAL-013 residual maps). VAL-051 is high-precision Stage 4.5 within-AD discriminator; this is broader Stage 8 Route A cross-disease overlap channel. See provenance JSON."
+      },
+      "what_it_fires": "Architectural-alarm flag (when EITHER Mahalanobis channel OR residual-map-overlap channel triggers) → engine surfaces to all downstream disease cards as concordance input. Channel-specific magnitudes preserved in engine output for downstream interpretation."
+    },
+    "route_B_disease_signature_match": {
+      "trigger": "Computed always; produces top-3 ranked disease concordances",
+      "signature_matrix_file": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv",
+      "engine_schema": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/disease_cell_signature_matrix_engine_schema_v1_2.md",
+      "matrix_115_to_v1_7_mapping": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json",
+      "mapping_artifact_validity_note": "The mapping artifact retains its v1_7-suffixed filename because v1.7 -> v1.8 was a strict additive evidence_anchor refresh with zero column structure changes (per README_disease_signature_matrix_folder.md v1.8 changelog). Mapping is valid for v1.8 without rebuild.",
+      "n_disease_rows_in_v1_8": 81,
+      "n_immune_columns_consumed": 28,
+      "match_magnitude_function": "compute_match_magnitude per engine_schema_v1_2.md — Mahalanobis-style sign-aligned product weighted by sqrt(n)",
+      "what_it_fires": "Top-3 disease-signature concordances -> engine-internal only; downstream disease cards consume",
+      "see_also": "disease_immune_lens (this card) — provides the per-disease immune-perspective summary for each of the 81 matrix rows; matrix is the data, lens is the readable index"
+    },
+    "route_C_bidirectional_pattern": {
+      "trigger": "FLAG_BIDIRECTIONAL from Stage 4.5 AND max(|A_positive|, |A_negative|) >= 0.60",
+      "what_it_fires": "Bidirectional-pattern flag -> customer-facing report includes mixed-direction callout; engine surfaces to disease cards"
+    },
+    "immune_residual_map_status": "BUILT v0_1 (2026-06-07). Cross-disease universal alarm residual map at immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv. Sha256 29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970. Derived from inner-join of breast-EPIC VAL-003 residual map (7,114 CpGs) and AD-immune VAL-013 residual map (6,018 CpGs) = 6,018 CpGs at intersection. Firing-pattern distribution: 4,641 fires_neither_background (77.12%), 1,136 fires_breast_only (18.88%), 212 fires_AD_only (3.52%), 17 fires_in_both_diseases_same_direction (0.28%), 12 fires_in_both_diseases_opposing_direction (0.20% — the VAL-016 universal alarm signature). v0_1 is a derived vault artifact, not a sealed VAL (inherits validation status of source artifacts CPG-VAL-003 and CPG-VAL-013). Operational consumption in Stage 8 Route A residual-map-overlap channel above."
+  },
+  "stage_9_report_assembly": {
+    "module": "TBD — universal_baseline_card report generator (parallels breast/AD per-disease report generator)",
+    "report_template_anchor": "Pre-build report_strings + report_vigilance_strings (preserved verbatim below) provide the language layer",
+    "report_contents": {
+      "top_of_report_headline_metric": "immune_age_delta — 'Your immune system biological age is approximately X years (range L–U); your chronological age is Y; your immune age delta is Z years.'",
+      "secondary_headline_metric": "immune_A_score with 95% measurement range + tier verdict on 6-tier scale",
+      "tier_visualization": "Bar gauge showing where customer sits on 6-tier scale with 1.07 Warburg line + 1.10 breach line annotated",
+      "per_cell_findings_section": "When individual immune cells depart significantly: '{N} of your immune cell types show measurable departure from baseline: {comma-separated list}.' Per-cell page links to website (19 pages → 16 customer-facing pages per grouping rationale).",
+      "bidirectional_pattern_callout_when_flagged": "Customer sees: 'mixed-direction immune pattern detected — some cell populations elevated while others are running lower than typical.'",
+      "personal_cmm_visualization": "8-panel Mollweide PNG from Stage 4.6 — the customer's personal Cosmic Microwave Methylome — embedded in the report",
+      "mahalanobis_headline": "Customer sees: 'Your overall departure from healthy baseline is X SDs (range L–U).'",
+      "vigilance_paragraph_per_tier": "Per-tier vigilance content (one paragraph per tier, customer-facing language, no disease names)",
+      "no_disease_names_in_customer_report_rule": "Disease names appear only on website per-disease pages, never in the report itself"
+    },
+    "language_discipline": [
+      "Never 'resolves/confirms/validates/proves' → use 'consistent with/tested against/predictions within the framework'",
+      "Never 'why it matters' or 'it matters' as headers",
+      "No diagnostic verdicts",
+      "No specific follow-up recommendations (referral suggested but not specified)"
+    ]
+  },
+  "stage_10_delivery": {
+    "customer_artifacts": [
+      "PDF report — customer-facing immune readout + Mollweide CMM PNG embedded",
+      "HTML report — web-friendly with deep-links to 16 per-cell pages on iamperformance.net",
+      "JSON engine output (engine-internal only) — full per-stage outputs for downstream disease card consumption"
+    ],
+    "delivery_channel": "Customer portal at iamperformance.net (post-build; provisional clinician PDF delivery for pre-deploy partners)"
+  },
+  "cancer_prior_integration": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Cancer_prior/cancer_prior.json",
+    "purpose": "Stage 8 disease-matrix Route B match_magnitude weighting incorporates baseline lifetime cancer prior probabilities to convert raw signature concordances into prior-weighted concordance scores. The immune card consumes this for engine-internal disease-card feed (never customer-facing).",
+    "use_in_immune_card": "Route B engine-internal weighting only — customer never sees prior values"
+  },
+  "family_history_multiplier_integration": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Family_history_multiplier/family_history_multiplier.json",
+    "purpose": "Family history risk multipliers (per intake) modulate Stage 8 Route B concordance scores. Customer family history captured at intake; engine applies multipliers engine-internally; result feeds downstream disease cards.",
+    "use_in_immune_card": "Route B engine-internal weighting only"
+  },
+  "literature_anchors_integration": {
+    "artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Literature_anchors_Report_building/literature_anchors.json",
+    "purpose": "Per-class literature citations consumed by report builder to anchor vigilance language; immune class anchors include inflammaging literature (Franceschi 2007, Furman 2019), Hannum 2013 aging, AHRR cg05575921 smoking (Joehanes 2016), AD methylation (Lunnon 2014, Smith 2018)",
+    "use_in_immune_card": "Report builder consumes immune-class anchors for vigilance paragraph language"
+  },
+  "cpg_null_runner_integration": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/CPG_Null_Runner/cpg_null_runner.py",
+    "purpose": "L9 N1–N8 null battery runs at VAL-sealing time (not patient runtime). Each CPG-VAL-015 through CPG-VAL-021 must pass the appropriate subset of N1 (label permutation), N2 (CpG label permutation), N3 (covariate-stratified label permutation), N4 (50/50 cohort split), N5 (downsampling), N6 (cohort holdout), N7 (chain integrity), N8 (cross-platform sanity) before sealing.",
+    "use_in_immune_card": "Each VAL in the v1.0 set carries its own null_results.json with the N1-N8 outcomes"
+  },
+  "validation_anchor_csv": {
+    "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv",
+    "purpose": "Holdout anchor for immune cellular age inversion outputs against EPIC-Italy chronological age (n=601 HC). Re-checked at every Stage 6 module change."
+  },
+  "synthetic_patient_generator_integration": {
+    "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Synthetic_Patient_Generator/synthetic_patient_generator.py",
+    "purpose": "Engine smoke-test fixture generation — synthesize patient β profiles from IAMAtlas posterior for end-to-end chain testing without real cohort data",
+    "use_in_immune_card": "Pre-sealing smoke tests + L9 N1-N8 synthetic null generation"
+  },
+  "cells_resolved": {
+    "doctrine": "IAMAtlas REBUILD is the SOLE production atlas. Cells listed below are resolved natively from the IAMAtlas REBUILD posterior; no external atlas references are operational at runtime. Cells without sufficient posterior resolution aggregate up to the immune-class A-score for reporting.",
+    "atlas_anchor": {
+      "atlas_name": "IAMAtlas REBUILD",
+      "atlas_sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+      "scope": "483,092 CpGs x 8 architecture classes x 115 cell types",
+      "celltype_marker_artifact": "iamatlas_celltype_markers_v0_2.json",
+      "celltype_marker_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd"
+    },
+    "n_immune_cells_in_atlas_fanout": 51,
+    "n_customer_facing_pages": 19,
+    "cell_list_19_pages_by_lineage": {
+      "B_cell_lineage": [
+        "B_cells",
+        "naive_B_cells",
+        "memory_B_cells",
+        "plasma_cells"
+      ],
+      "T_cell_lineage": [
+        "CD4_T_cells",
+        "CD8_T_cells",
+        "naive_CD4_T_cells",
+        "naive_CD8_T_cells",
+        "memory_T_cells",
+        "regulatory_T_cells"
+      ],
+      "NK_and_granulocyte_lineage": [
+        "NK_cells",
+        "neutrophils",
+        "eosinophils",
+        "basophils"
+      ],
+      "monocyte_macrophage_lineage": [
+        "monocytes",
+        "macrophages",
+        "microglia",
+        "kupffer_cells"
+      ],
+      "other_immune": [
+        "dendritic_cells"
+      ]
+    },
+    "grouping_rationale": {
+      "B_cell_lineage_separated": "B-lineage compartments diverge in different malignancies (multiple myeloma drives plasma cell clonal expansion while general B-cell stays normal; DLBCL drives B-cell expansion while plasma cells stay normal — opposite-direction patterns at the same lineage).",
+      "naive_CD4_vs_CD8_separated": "HIV selectively depletes CD4 (gp120-CD4 binding) while sparing naive CD8 — opposite-direction pattern within the same lineage.",
+      "memory_T_cells_pooled": "CD4mem + CD8mem aggregate is the right granularity for inflammaging and chronic viral memory inflation (CMV, EBV) signatures.",
+      "macrophage_subtypes_separated": "Microglia (CNS-resident, behind blood-brain barrier) and Kupffer cells (liver-resident) diverge from peripheral macrophages in neurodegenerative and hepatic disease — opposite-direction patterns at the same lineage.",
+      "dendritic_cells_standalone": "Antigen-presenter bridge between innate and adaptive; cardiovascular and tumor microenvironment signatures distinct from monocyte lineage."
+    }
+  },
+  "within_card_covariates": {
+    "age": {
+      "handled_at_stage": 3,
+      "method": "age-axis foreground subtraction via IAMAtlas_age_layer.csv (8,199 CpGs) when chronological_age available at intake",
+      "validated_age_range": [
+        18,
+        95
+      ],
+      "age_outside_range_behavior": "Report still generated; engine flags INSUFFICIENT_AGE_CALIBRATION at Stage 6 cellular age inversion; report carries an age-calibration disclaimer. Age reference matrix (80-cell baseline) extends ages 4-95 by published reference (Alisch 2012 + Horvath 2013 + Hannum 2013), but A-score CI widens substantially outside 18-95.",
+      "note": "Stage 3 age foreground REMOVES the age-correlated drift before downstream A-scoring; the immune A-score and per-cell scores that customer sees are age-corrected. The cellular age + immune age delta (Stage 6) is the customer-facing aging readout."
+    },
+    "sex_at_birth": {
+      "handled_at": "Stage 0 intake + Stage 3 sex-axis foreground (script v1.1) + Stage 7 sex-stratified thresholds",
+      "rule": "Card runs on both sexes. Sex-axis foreground subtraction script is v1.1 deferred; in v2.0, sex enters via Stage 7 threshold tables + sex-stratified VAL anchors.",
+      "missing_behavior": "Halt at Stage 0 intake — universal card cannot run sex-stratified Stage 7 thresholds without sex_at_birth."
+    },
+    "smoking_status": {
+      "handled_at": "Stage 0 intake (smoking_bin: never / current / quit_0-5y / quit_5-15y / quit_15+y) + Stage 7 smoking-bin threshold stratification",
+      "stage_3_subtraction_status": "Smoking-axis foreground subtraction script is v1.1 deferred; v2.0 mitigates via Stage 7 threshold uplift per smoking_bin.",
+      "honest_disclosure": "v2.0 does NOT apply smoking subtraction at beta level. Smoking-driven residual signal IS being scored as if it were inflammation for the current_smoker bin. For never_smoker and former_smoker_long this matters less. Reported per Stage 7 threshold uplift."
+    },
+    "platform": {
+      "handled_at": "Stage 0 metadata + Stage 5 platform-specific Mahalanobis threshold + Stage 7 platform-aware tier confidence",
+      "rule": "EPIC vs 450K matters for universal Mahalanobis (attenuates on 450K). Per-cell biology robust across platforms. Card includes platform tag in output and applies platform-specific Mahalanobis threshold when 450K."
+    },
+    "ancestry_cohort_context": {
+      "handled_at": "Stage 0 intake metadata + Mahalanobis hull v0_5 (built from n=2,481 multi-ancestry HC including Asian-population cohort)",
+      "note": "Hull v0_5 includes Asian-population HC; African-ancestry expansion in roadmap. Customer ancestry tag captured at intake for transparency, not gating."
+    },
+    "covariate_overrides_applied_at_stage_7": [
+      "known_autoimmune_condition=true -> ELEVATED floor 1.04->1.07 (autoimmune chronic-inflammatory baseline)",
+      "hiv_status=positive_treated -> ELEVATED floor 1.07->1.10 (treated HIV chronic-immune-activation baseline)",
+      "current_immunosuppression=true -> SUPPRESSED ceiling 0.95->0.93 (treatment-expected suppression)",
+      "current_pregnancy=any_trimester -> ELEVATED floor 1.04->1.06 (pregnancy immune accommodation)",
+      "transplant_status=recent_bm OR recent_solid_organ -> ELEVATED floor 1.07->1.10 (post-transplant adaptive state)",
+      "current_treatment_status=active_chemotherapy -> SUPPRESSED ceiling 0.95->0.92 (cytoreduction expected)",
+      "recent_illness_within_3_months -> ELEVATED floor 1.04->1.05 (acute-phase tail)",
+      "recent_vaccination_within_3_months -> ELEVATED floor 1.04->1.05 (vaccine-response immune activation)"
+    ]
+  },
+  "report_contents": {
+    "mandatory_elements": [
+      "Top-of-report headline: immune cellular age + immune age delta (the inflammaging quantum) — 'Your immune system biological age is approximately X years (range L-U); your chronological age is Y; your immune age delta is Z years.'",
+      "Secondary headline: immune A-score with 95% measurement range + tier verdict on 6-tier scale (SUPPRESSED / NORMAL / ELEVATED / WARBURG_TRANSITION / SIGNIFICANTLY_ELEVATED / BREACH)",
+      "Tier visualization: bar gauge showing where customer sits on 6-tier scale with 1.07 Warburg line + 1.10 breach line annotated",
+      "Per-cell findings section: when individual immune cells depart significantly, '{N} of your immune cell types show measurable departure from baseline: {comma-separated list}.' Per-cell page links to website (19 pages).",
+      "Bidirectional pattern callout when FLAG_BIDIRECTIONAL fires: 'mixed-direction immune pattern detected — some cell populations elevated while others are running lower than typical.'",
+      "Personal Cosmic Microwave Methylome: 8-panel Mollweide PNG from Stage 4.6 embedded in the report",
+      "Mahalanobis headline: 'Your overall departure from healthy baseline is X SDs (range L-U).'",
+      "Vigilance paragraph per tier: one paragraph per tier, customer-facing language, no disease names",
+      "Honest limitations section (see clinical_claim.regulatory_status)",
+      "Serial-sampling-baseline guidance"
+    ],
+    "language_discipline": {
+      "allowed": [
+        "pattern consistent with...",
+        "flag worth watching",
+        "trajectory drift",
+        "consistent with the inflammaging signature",
+        "tested against the validated cohort",
+        "predictions within the framework"
+      ],
+      "forbidden": [
+        "diagnoses",
+        "will develop",
+        "validates",
+        "proves",
+        "confirms",
+        "resolves",
+        "rules out",
+        "EDEAR (use CPG instead)",
+        "why it matters / it matters (as headers)",
+        "any disease name in the immune-class customer report itself (disease names live on per-disease cards and per-disease website pages, never in the immune-class readout)"
+      ]
+    },
+    "design_principle": "All flag-summary strings are factual, neutral, and free of disease names. The customer report communicates what the framework measured (architectural state, cellular age delta, per-cell departures, bidirectional pattern when present, Mahalanobis distance) and points to the relevant website pages for context. Disease concordance flags from Stage 8 Route B are engine-internal — they route to downstream disease cards, never appear in the customer's immune-class readout."
+  },
+  "disease_immune_lens": {
+    "doctrine": "The disease_immune_lens is the JSON-formatted, immune-class-perspective index of the disease signature matrix v1.8. Every disease the framework can detect is first detected via the immune system response — this lens names them. The matrix is the authoritative source for cell-level Cohen's d values; this lens provides the per-disease immune-perspective summary, the immune cells most informative for each disease, and the matrix row pointer. Disease names appear here for engine consumption and clinician reading — NEVER in the customer-facing immune-class readout.",
+    "design_principle": "Design C (hybrid) per Heath's 2026-06-07 direction — compact disease index from immune perspective; authoritative numeric data stays in the matrix, lens avoids data duplication.",
+    "n_entries": 81,
+    "matrix_source": "disease_cell_signature_matrix_v1_8.csv (Heath's 2026-06-07 release, 81 rows × 131 columns, 354 populated cells across 8 classes)",
+    "matrix_source_sha256": "1ed44cccad8e7af21e5a5901453fc6de6ab416988a284accd3de8469150e69f1",
+    "cells_firing_threshold": "Per-cell Cohen's |d| >= 0.20 included in immune_cells_most_informative list (lower-magnitude signals visible in matrix v1.8 source)",
+    "heme_card_note": "Heme cancers (AML, CML, MDS, MPN, B-ALL, T-ALL, DLBCL, CLL, multiple myeloma, thymoma) appear here as disease-index entries; the heme-immune card owns the disease-specific deep clinical detail.",
+    "entries": [
+      {
+        "matrix_row_id": 1,
+        "disease_id": "breast_cancer",
+        "phase": "long_pre_dx",
+        "mechanism_code": "pooled_positive_distributed_multi_tile",
+        "organ_pages_to_link": "secretory:breast_secretory",
+        "immune_perspective": "Pre-diagnostic immune-class signal distributed across multiple cells 10+ years before clinical breast cancer diagnosis (eosinophils, regulatory T cells, naive B cells co-elevated); the immune system response is the EARLIEST detectable signal of breast cancer and is consistently strongest at long pre-dx windows then attenuates as diagnosis approaches.",
+        "immune_cells_most_informative": [
+          "plasma_cells UP",
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "regulatory_T_cells UP",
+          "eosinophils UP",
+          "basophils UP",
+          "monocytes UP",
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 1"
+      },
+      {
+        "matrix_row_id": 2,
+        "disease_id": "breast_cancer",
+        "phase": "mid_pre_dx",
+        "mechanism_code": "pooled_positive_attenuating",
+        "organ_pages_to_link": "secretory:breast_secretory",
+        "immune_perspective": "Distributed immune-class signal persists at mid-pre-dx window but at attenuated magnitude vs long-pre-dx; the long-pre-dx signature pattern is weakening as the disease approaches clinical detection.",
+        "immune_cells_most_informative": [
+          "regulatory_T_cells UP",
+          "eosinophils UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 2"
+      },
+      {
+        "matrix_row_id": 3,
+        "disease_id": "breast_cancer",
+        "phase": "mid_late_pre_dx",
+        "mechanism_code": "pooled_positive_attenuating",
+        "organ_pages_to_link": "secretory:breast_secretory",
+        "immune_perspective": "Continued attenuation of the distributed immune-class signal at the mid-to-late pre-dx window; trajectory direction matters more than single-time-point magnitude.",
+        "immune_cells_most_informative": [
+          "regulatory_T_cells UP",
+          "eosinophils UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 3"
+      },
+      {
+        "matrix_row_id": 4,
+        "disease_id": "breast_cancer",
+        "phase": "near_dx",
+        "mechanism_code": "compartment_transition_immune_tiles_sign_flip",
+        "organ_pages_to_link": "secretory:breast_secretory",
+        "immune_perspective": "Compartment transition — naive B cell elevation appears at 0-2 years before clinical breast cancer diagnosis; the long-pre-dx regulatory T cell signal attenuates; immune-tile sign reversal is characteristic of the immediate-pre-clinical phase.",
+        "immune_cells_most_informative": [
+          "naive_B_cells UP",
+          "regulatory_T_cells UP",
+          "neutrophils DOWN",
+          "monocytes DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 4"
+      },
+      {
+        "matrix_row_id": 5,
+        "disease_id": "breast_cancer",
+        "phase": "at_dx",
+        "mechanism_code": "pooled_positive_at_dx",
+        "organ_pages_to_link": "secretory:breast_secretory",
+        "immune_perspective": "At clinical breast cancer diagnosis, the immune-class signal quiets while the breast tile (cycling/secretory class) dominates; same disease arc, different phase.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 5"
+      },
+      {
+        "matrix_row_id": 6,
+        "disease_id": "breast_cancer",
+        "phase": "long_pre_dx_post_build_v3_0",
+        "mechanism_code": "broad_architectural_disturbance_universal_mahalanobis_route_plus_tissue_of_origin_per_cell_route",
+        "organ_pages_to_link": "secretory:breast_epithelial,immune:basophils,immune:T_cells_PC2_axis",
+        "immune_perspective": "Post-IAMAtlas-build re-validation — broad architectural disturbance with universal Mahalanobis at d=+1.876/+2.097 across two EPIC-Italy cohorts (CPG-VAL-002); 1,392 concordant CpG residual map (CPG-VAL-003); the universal architectural metric outperforms the prior disease-trained panel by d=+0.75 (panel identity in pre_build_audit_lineage).",
+        "immune_cells_most_informative": [
+          "plasma_cells UP",
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "eosinophils UP",
+          "basophils UP",
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 6"
+      },
+      {
+        "matrix_row_id": 7,
+        "disease_id": "breast_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_secretory_class",
+        "organ_pages_to_link": "secretory:breast_secretory",
+        "immune_perspective": "In tumor tissue (research substrate), immune-class signal aggregates with the secretory-class tile elevation; not the surveillance pathway.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 7"
+      },
+      {
+        "matrix_row_id": 8,
+        "disease_id": "colorectal_cancer",
+        "phase": "long_pre_dx",
+        "mechanism_code": "pooled_negative_inversion",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Pre-diagnostic blood signal INVERSION — colorectal cancer reads with immune-class signal NEGATIVE (suppressed) in pre-diagnostic blood, opposite of breast/lung. The tumor-infiltrating immune compartment shows positive signal in tumor tissue (research only) — compartment-flip pattern.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "monocytes DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 8"
+      },
+      {
+        "matrix_row_id": 9,
+        "disease_id": "colorectal_cancer",
+        "phase": "mid_pre_dx",
+        "mechanism_code": "pooled_negative_inversion",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Continued immune-class signal inversion at mid-pre-dx; pattern stays SUPPRESSED in peripheral blood throughout the pre-diagnostic window.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "monocytes DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 9"
+      },
+      {
+        "matrix_row_id": 10,
+        "disease_id": "colorectal_cancer",
+        "phase": "mid_late_pre_dx",
+        "mechanism_code": "pooled_negative_inversion",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Continued immune-class signal inversion approaching diagnosis; SUPPRESSED tier reading in patients with CRC family history warrants discussion.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "monocytes DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 10"
+      },
+      {
+        "matrix_row_id": 11,
+        "disease_id": "colorectal_cancer",
+        "phase": "near_dx",
+        "mechanism_code": "pooled_negative_inversion",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Immune-class signal stays inverted (SUPPRESSED) into the near-diagnostic window.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 11"
+      },
+      {
+        "matrix_row_id": 12,
+        "disease_id": "colorectal_cancer",
+        "phase": "at_dx",
+        "mechanism_code": "compartment_flip_at_diagnosis",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "At diagnosis, compartment flip — peripheral immune still suppressed while tumor compartment shows positive immune infiltration.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 12"
+      },
+      {
+        "matrix_row_id": 13,
+        "disease_id": "colorectal_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "compartment_flip_CCL019_plus_cell_of_origin_CCL039",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Tumor tissue (research substrate) shows positive immune infiltration (CD4 and CD8 expansion); peripheral blood remains suppressed — the CRC three-compartment signature.",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "CD4_T_cells UP",
+          "CD8_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 13"
+      },
+      {
+        "matrix_row_id": 14,
+        "disease_id": "colorectal_cancer",
+        "phase": "pre_malignant",
+        "mechanism_code": "O5_data_integrity_flag_CCL040",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Pre-malignant signal flagged O5 data integrity (CCL-040); interpretation deferred pending cohort review.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 14"
+      },
+      {
+        "matrix_row_id": 15,
+        "disease_id": "lung_cancer",
+        "phase": "mid_late_pre_dx",
+        "mechanism_code": "pooled_positive",
+        "organ_pages_to_link": "cycling:lung",
+        "immune_perspective": "Pooled positive immune-class signal in pre-diagnostic lung cancer cohorts; smoking status is a MANDATORY covariate because tobacco-driven methylation co-occurs with malignancy-driven methylation.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 15"
+      },
+      {
+        "matrix_row_id": 16,
+        "disease_id": "lung_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_smoking_dominant",
+        "organ_pages_to_link": "cycling:lung",
+        "immune_perspective": "Largest paired immune effect in the tumor-tissue cookbook (d=+1.020 universal; d=+1.283 in ever-smoker stratum); neutrophil expansion characteristic of NSCLC tumor microenvironment.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "neutrophils UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 16"
+      },
+      {
+        "matrix_row_id": 17,
+        "disease_id": "pancreatic_cancer",
+        "phase": "mid_pre_dx",
+        "mechanism_code": "pooled_null_directional_pass_AD_instance",
+        "organ_pages_to_link": "secretory:pancreatic_exocrine",
+        "immune_perspective": "Pooled-entropy NULL with directional panel recovery — the universal alarm cancels in pre-diagnostic pancreatic cancer due to bidirectional firing, but the AD-style directional panel recovers signal cleanly (n=7 paired d=+1.51 on TCGA-PAAD holdout).",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 17"
+      },
+      {
+        "matrix_row_id": 18,
+        "disease_id": "pancreatic_cancer",
+        "phase": "mid_late_pre_dx",
+        "mechanism_code": "pooled_null_directional_pass_AD_instance",
+        "organ_pages_to_link": "secretory:pancreatic_exocrine",
+        "immune_perspective": "Continued bidirectional-cancellation pattern; trajectory monitoring is essential.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 18"
+      },
+      {
+        "matrix_row_id": 19,
+        "disease_id": "pancreatic_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_null_directional_pass_AD_instance",
+        "organ_pages_to_link": "secretory:pancreatic_exocrine",
+        "immune_perspective": "Tumor tissue shows the bidirectional pattern; pancreatic exocrine + endocrine secretory tiles diverge.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 19"
+      },
+      {
+        "matrix_row_id": 20,
+        "disease_id": "prostate_cancer",
+        "phase": "at_dx",
+        "mechanism_code": "pooled_positive_balanced_bidirectional",
+        "organ_pages_to_link": "secretory:prostate",
+        "immune_perspective": "Pooled-positive balanced bidirectional firing in prostate cancer at diagnosis; monocyte expansion + LE (luminal epithelial) tile depression — the 5-vs-1 direction split is the prostate cancer signature.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 20"
+      },
+      {
+        "matrix_row_id": 21,
+        "disease_id": "prostate_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "cell_of_origin_negative_microenv_positive_CCL039",
+        "organ_pages_to_link": "secretory:prostate",
+        "immune_perspective": "Cell-of-origin (LE luminal epithelial) NEGATIVE while tumor microenvironment immune cells (CD4/CD8/B/NK monocytes) all POSITIVE — characteristic compartment divergence.",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "NK_cells UP",
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 21"
+      },
+      {
+        "matrix_row_id": 22,
+        "disease_id": "hcc",
+        "phase": "pre_malignant_fibrosis",
+        "mechanism_code": "substrate_restricted_ccfDNA",
+        "organ_pages_to_link": "secretory:liver",
+        "immune_perspective": "Substrate-restricted to plasma cfDNA — HCC immune signal detectable in plasma cfDNA at pre-malignant fibrosis stage; whole-blood substrate NULL. Monotonic dose-response healthy → fibrosis → cirrhosis → HCC.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 22"
+      },
+      {
+        "matrix_row_id": 23,
+        "disease_id": "hcc",
+        "phase": "pre_malignant_cirrhosis",
+        "mechanism_code": "substrate_restricted_ccfDNA",
+        "organ_pages_to_link": "secretory:liver,immune:kupffer_cells",
+        "immune_perspective": "Substrate-restricted plasma cfDNA signal escalates at cirrhosis stage; Kupffer cell signature elevates with hepatic inflammation.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "kupffer_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 23"
+      },
+      {
+        "matrix_row_id": 24,
+        "disease_id": "hcc",
+        "phase": "active_ccfDNA",
+        "mechanism_code": "substrate_restricted_ccfDNA_only",
+        "organ_pages_to_link": "secretory:liver,immune:kupffer_cells",
+        "immune_perspective": "Active HCC immune-class signal d=+0.634 on plasma cfDNA (Nigerian HIV+ cohort); whole-blood NULL. Plasma cfDNA is the optional add-on substrate for HCC monitoring.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "monocytes UP",
+          "kupffer_cells DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 24"
+      },
+      {
+        "matrix_row_id": 25,
+        "disease_id": "hcc",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_etiology_stratified",
+        "organ_pages_to_link": "secretory:liver,immune:kupffer_cells",
+        "immune_perspective": "Kupffer cells DEPLETE in advanced HCC while peripheral macrophages (tumor-associated macrophages within the tumor) ELEVATE — opposite direction in the same patient. Non-viral HCC (alcohol/NAFLD) shows stronger paired-tissue signal than viral HCC.",
+        "immune_cells_most_informative": [
+          "kupffer_cells DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 25"
+      },
+      {
+        "matrix_row_id": 26,
+        "disease_id": "gastric_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_substrate_tier3_caveat",
+        "organ_pages_to_link": "cycling:gastric,secretory:gastric",
+        "immune_perspective": "Advanced gastric cancer in tumor tissue — T cells DEPLETED (CD4 and CD8 both DOWN), B cells preserved (B-cell-rich pattern in advanced cohorts). Active gastritis shows the opposite (T cells UP, neutrophils UP).",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 26"
+      },
+      {
+        "matrix_row_id": 27,
+        "disease_id": "esophageal_cancer_escc",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_squamous_subtype_substrate_tier3",
+        "organ_pages_to_link": "cycling:esophagus",
+        "immune_perspective": "ESCC squamous cell carcinoma — within-cohort Stage 1 d=+2.644; cell-of-origin retention signature in squamous tissue.",
+        "immune_cells_most_informative": [
+          "neutrophils DOWN",
+          "eosinophils DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 27"
+      },
+      {
+        "matrix_row_id": 28,
+        "disease_id": "esophageal_cancer_eac",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_adenocarcinoma_subtype_substrate_tier3",
+        "organ_pages_to_link": "cycling:esophagus",
+        "immune_perspective": "EAC adenocarcinoma — within-cohort Stage 1 d=+3.703 (strongest in gastric/eso sprint); cell-of-origin signature LOST (homogenized methylation pattern).",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 28"
+      },
+      {
+        "matrix_row_id": 29,
+        "disease_id": "esophageal_cancer_eac",
+        "phase": "pre_malignant_barretts",
+        "mechanism_code": "pooled_positive_pre_malignant",
+        "organ_pages_to_link": "cycling:esophagus",
+        "immune_perspective": "Pre-malignant Barrett's esophagus — within-cohort Barrett-positive subset d=+4.50, +1.69 d-units above Barrett-negative.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 29"
+      },
+      {
+        "matrix_row_id": 30,
+        "disease_id": "cervical_cancer",
+        "phase": "pre_malignant_cin3",
+        "mechanism_code": "pooled_positive_HPV_stratified",
+        "organ_pages_to_link": "cycling:cervix",
+        "immune_perspective": "Pre-malignant CIN3 — pooled-positive immune signal HPV-stratified; HPV status drives healthy-baseline differences; HPV-negative comparator vs HPV-positive baseline gives different Cohen's d values.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 30"
+      },
+      {
+        "matrix_row_id": 31,
+        "disease_id": "cervical_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_HPV_stratified",
+        "organ_pages_to_link": "cycling:cervix",
+        "immune_perspective": "Active cervical cancer in tumor tissue — pooled positive with HPV stratification; cervical cycling epithelium dominates.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 31"
+      },
+      {
+        "matrix_row_id": 32,
+        "disease_id": "bladder_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_loudest_immune_in_cookbook",
+        "organ_pages_to_link": "cycling:bladder",
+        "immune_perspective": "Loudest immune-class red flag in the cookbook — paired Stage 1 d=+1.90; broad TIL+TAM+MDSC tumor microenvironment infiltration (6/6 immune tiles fire POSITIVE, |d| range 0.49-1.24).",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "NK_cells UP",
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 32"
+      },
+      {
+        "matrix_row_id": 33,
+        "disease_id": "kidney_cancer",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_cycling_predicted",
+        "organ_pages_to_link": "cycling:kidney",
+        "immune_perspective": "Predicted positive (cycling-class moderate, d~+0.30 to +0.50); kidney-epic card v0.1 in development.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 33"
+      },
+      {
+        "matrix_row_id": 34,
+        "disease_id": "glioma_lgg",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_orthogonal_to_cellfraction",
+        "organ_pages_to_link": "terminal:cortical_neurons,immune:microglia",
+        "immune_perspective": "Low-grade glioma — Stage 1 immune blood d=+1.25 pre-surgery (LARGER than GBM in same cohort); cortical-neuron Stage 2 cfDNA fraction d=+1.96 through blood-brain-barrier disruption. The lower-grade tumor produces a louder Stage 1 immune signal than the higher-grade tumor.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "neutrophils UP",
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 34"
+      },
+      {
+        "matrix_row_id": 35,
+        "disease_id": "glioma_gbm",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_orthogonal_to_cellfraction",
+        "organ_pages_to_link": "terminal:cortical_neurons,immune:microglia",
+        "immune_perspective": "Glioblastoma — Stage 1 immune blood d=+0.80 pre-surgery (quieter than LGG); cortical-neuron cfDNA d=+1.96 from BBB disruption. Higher-grade tumor is already farther into post-commitment dedifferentiation.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "neutrophils UP",
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 35"
+      },
+      {
+        "matrix_row_id": 36,
+        "disease_id": "glioma_gbm",
+        "phase": "tumor_tissue",
+        "mechanism_code": "pooled_positive_terminal_class_displacement",
+        "organ_pages_to_link": "terminal:cortical_neurons",
+        "immune_perspective": "GBM tumor tissue — terminal-class displacement; cortical-neuron fraction at 39.3% vs 62.4% non-tumor brain (d=-2.81).",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 36"
+      },
+      {
+        "matrix_row_id": 37,
+        "disease_id": "leukemia_aml",
+        "phase": "pre_malignant_chip",
+        "mechanism_code": "pooled_positive_clonal_expansion",
+        "organ_pages_to_link": "progenitor:GMP,stem_adult:HSC",
+        "immune_perspective": "CHIP (Clonal Hematopoiesis of Indeterminate Potential) — pooled-positive clonal expansion signature at the HSC/myeloid progenitor stage; serial CHIP-to-AML trajectory is a research priority.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 37"
+      },
+      {
+        "matrix_row_id": 38,
+        "disease_id": "leukemia_aml",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_disease_in_readout_compartment",
+        "organ_pages_to_link": "progenitor:GMP,stem_adult:HSC",
+        "immune_perspective": "Active AML — immune class IS the diseased tissue. Methyl-only single-substrate buffy-coat ΔA=+0.10 absolute (d=+3.71 STRONGEST single-cohort effect in cookbook). Broad immune-class compositional shifts reflect clonal expansion at the GMP stage with neutrophil-dominant pattern.",
+        "immune_cells_most_informative": [
+          "B_cells DOWN",
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "NK_cells DOWN",
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 38"
+      },
+      {
+        "matrix_row_id": 39,
+        "disease_id": "leukemia_cml",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_disease_in_readout_compartment",
+        "organ_pages_to_link": "progenitor:GMP,stem_adult:HSC",
+        "immune_perspective": "CML — BCR::ABL1-driven; neutrophils + monocytes + myeloid progenitors expanded; disease lives in the readout compartment.",
+        "immune_cells_most_informative": [
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 39"
+      },
+      {
+        "matrix_row_id": 40,
+        "disease_id": "mds",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_disease_in_readout_compartment",
+        "organ_pages_to_link": "progenitor:GMP,stem_adult:HSC",
+        "immune_perspective": "MDS — dyserythropoiesis (erythroid downstream DEPLETED), myeloid progenitors UP; ~30% transform to AML.",
+        "immune_cells_most_informative": [
+          "neutrophils UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 40"
+      },
+      {
+        "matrix_row_id": 41,
+        "disease_id": "mpn",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_lineage_specific_expansion",
+        "organ_pages_to_link": "progenitor:MEP,progenitor:erythroid_progenitor,progenitor:megakaryocyte",
+        "immune_perspective": "MPN — lineage-specific expansion (polycythemia vera erythroid UP; essential thrombocythemia megakaryocyte UP; primary myelofibrosis).",
+        "immune_cells_most_informative": [
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 41"
+      },
+      {
+        "matrix_row_id": 42,
+        "disease_id": "leukemia_b_all",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_lymphoid_lineage",
+        "organ_pages_to_link": "immune:B_cells,progenitor:L_MPP",
+        "immune_perspective": "B-ALL — pooled positive B-cell + lymphoid progenitor expansion; mostly pediatric.",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "CD4_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 42"
+      },
+      {
+        "matrix_row_id": 43,
+        "disease_id": "leukemia_t_all",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_lymphoid_lineage",
+        "organ_pages_to_link": "immune:CD4_T_cells,immune:CD8_T_cells,progenitor:L_MPP",
+        "immune_perspective": "T-ALL — pooled positive CD4 + CD8 + lymphoid progenitor expansion; mostly pediatric.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 43"
+      },
+      {
+        "matrix_row_id": 44,
+        "disease_id": "lymphoma_dlbcl",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_B_cell_dominant",
+        "organ_pages_to_link": "immune:B_cells,immune:memory_B_cells",
+        "immune_perspective": "DLBCL — the largest immune-class ΔA in the cookbook (A≈1.13 ΔA=+0.203, Chapuy 2018 n=48). B cell expansion strongly (d=+1.5 to +2.5); plasma cells typically NORMAL (distinguishes from multiple myeloma); quieter T-cell.",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "memory_B_cells UP",
+          "plasma_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 44"
+      },
+      {
+        "matrix_row_id": 45,
+        "disease_id": "leukemia_cll",
+        "phase": "long_pre_dx",
+        "mechanism_code": "pooled_positive_B_cell_dominant",
+        "organ_pages_to_link": "immune:B_cells,immune:memory_B_cells",
+        "immune_perspective": "CLL pre-diagnostic (CCL-064 EnviroGenomarkers Georgiadis 2017 anchor) — 28 future-CLL of n=347 with samples 2-15.7 years before diagnosis; A≈1.07 ΔA=+0.098. Closest pre-diagnostic anchor in cookbook to breast-epic VAL-047 10-year window.",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "memory_B_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 45"
+      },
+      {
+        "matrix_row_id": 46,
+        "disease_id": "leukemia_cll",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_B_cell_dominant",
+        "organ_pages_to_link": "immune:B_cells,immune:memory_B_cells",
+        "immune_perspective": "Active CLL — B cells UP, memory B cells UP, T cells quiet.",
+        "immune_cells_most_informative": [
+          "B_cells UP",
+          "memory_B_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 46"
+      },
+      {
+        "matrix_row_id": 47,
+        "disease_id": "thymoma",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_T_cell_dominant",
+        "organ_pages_to_link": "immune:CD8_T_cells",
+        "immune_perspective": "Thymoma — T-cell expansion (often CD8) at d=+1.0 to +2.0; CD4/CD8 ratio inversion characteristic. Stage 3 T-cell-dominant shift routes to chest imaging differential.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 47"
+      },
+      {
+        "matrix_row_id": 48,
+        "disease_id": "multiple_myeloma",
+        "phase": "pre_malignant_mgus",
+        "mechanism_code": "pooled_positive_plasma_clonal_expansion",
+        "organ_pages_to_link": "immune:plasma_cells",
+        "immune_perspective": "MGUS / smoldering myeloma — plasma cell signal elevation BEFORE overt malignancy. The earliest pre-malignant signal in the cookbook.",
+        "immune_cells_most_informative": [
+          "plasma_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 48"
+      },
+      {
+        "matrix_row_id": 49,
+        "disease_id": "multiple_myeloma",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_plasma_clonal_expansion",
+        "organ_pages_to_link": "immune:plasma_cells",
+        "immune_perspective": "Active multiple myeloma — plasma cells UP (clonal expansion at d=+1.5/+3.0) while general B cells stay normal or DOWN. Opposite direction from B-cell lymphomas — clonal plasma expansion replaces normal B-cell diversity.",
+        "immune_cells_most_informative": [
+          "B_cells DOWN",
+          "naive_B_cells DOWN",
+          "plasma_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 49"
+      },
+      {
+        "matrix_row_id": 50,
+        "disease_id": "alzheimers_disease",
+        "phase": "mid_pre_dx",
+        "mechanism_code": "pooled_null_directional_pass_AD_instance",
+        "organ_pages_to_link": "immune:microglia,terminal:cortical_neurons",
+        "immune_perspective": "Pre-symptomatic AD — pooled-entropy NULL with directional 7-CpG Rule A panel recovery (d=+0.62 on AIBL holdout, d=+0.33 on AddNeuroMed cross-platform). The universal alarm cancels due to bidirectional firing; directional panel surfaces the signal.",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 50"
+      },
+      {
+        "matrix_row_id": 51,
+        "disease_id": "alzheimers_disease",
+        "phase": "active",
+        "mechanism_code": "pooled_null_directional_pass_AD_instance",
+        "organ_pages_to_link": "immune:microglia,terminal:cortical_neurons",
+        "immune_perspective": "Active AD — A_immune fires with disease-specific direction (CPG-VAL-016 d=-0.364); microglia activation around amyloid plaques (CNS-resident); cortical-neuron cfDNA <0.5% with AD anchor 0.25% (vs glioma anchor 1.09%). The glioma-vs-AD differential flag fires when cortical-neuron > 0.5%.",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 51"
+      },
+      {
+        "matrix_row_id": 52,
+        "disease_id": "frontotemporal_dementia",
+        "phase": "active",
+        "mechanism_code": "pooled_null_per_cpg_partial_preservation",
+        "organ_pages_to_link": "immune:microglia,terminal:cortical_neurons",
+        "immune_perspective": "Active FTD — pooled-entropy NULL with per-CpG partial preservation; Stage 1 immune signal preserves 5/7 frozen directions per VAL-057 — suggesting tauopathy-associated drift co-detection with the AD directional panel.",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 52"
+      },
+      {
+        "matrix_row_id": 53,
+        "disease_id": "psp_cbd_tauopathies",
+        "phase": "active",
+        "mechanism_code": "directional_panel_partial_preservation",
+        "organ_pages_to_link": "immune:microglia,terminal:cortical_neurons",
+        "immune_perspective": "Active PSP/CBD — directional panel partial preservation; PSP/CBD reads BELOW HC in some cohorts (architectural compaction direction).",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 53"
+      },
+      {
+        "matrix_row_id": 54,
+        "disease_id": "pah",
+        "phase": "active",
+        "mechanism_code": "substrate_cell_match_pure_signal",
+        "organ_pages_to_link": "stromal:vascular_endothelial,terminal:cardiomyocytes",
+        "immune_perspective": "Pulmonary arterial hypertension — vascular endothelial cells elevation (d=+0.79 hPAH); concurrent cardiac stroma elevation (heart-tissue calibration cohort d=+1.42); Stage 1 immune at d=+0.65 in cultured PEC substrate. hPAH > iPAH framework signal.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 54"
+      },
+      {
+        "matrix_row_id": 55,
+        "disease_id": "aortic_dissection_BAV",
+        "phase": "active",
+        "mechanism_code": "substrate_cell_mismatch_bulk_aorta_SMC_fibroblast_dominant",
+        "organ_pages_to_link": "immune:macrophages,stromal:fibroblasts",
+        "immune_perspective": "BAV with aortic dissection — macrophage elevation (d=+1.40 to +1.61); dendritic cell elevation; fibroblast elevation; endothelial elevation; Stage 1 immune at d=+1.08 BAV vs +0.56 dissection. Substrate-distribution-mismatch flag for bulk aorta tiles.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "dendritic_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 55"
+      },
+      {
+        "matrix_row_id": 56,
+        "disease_id": "ischemic_stroke",
+        "phase": "active",
+        "mechanism_code": "biology_correct_null_post_stroke_homogenization",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Ischemic stroke — biology-correct NULL on whole blood. Post-stroke systemic inflammatory response homogenizes the immune signature; whole-blood DNA methylation does not stratify ischemic stroke by TOAST etiology at array resolution.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 56"
+      },
+      {
+        "matrix_row_id": 57,
+        "disease_id": "crohns_disease",
+        "phase": "active",
+        "mechanism_code": "population_fraction_shift_T_up_myeloid_down_DISC_GE_005",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Active Crohn's disease — population-fraction T-up / myeloid-down shift. Broad T cell expansion (CD4 d=+1.64 to +1.66, CD8 d=+1.70, naive CD8 d=+1.72); neutrophil DEPRESSION (d=-1.34). The T-up/myeloid-down pattern is the IBD signature distinct from cancer.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "naive_CD4_T_cells UP",
+          "naive_CD8_T_cells UP",
+          "neutrophils DOWN",
+          "monocytes DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 57"
+      },
+      {
+        "matrix_row_id": 58,
+        "disease_id": "ulcerative_colitis",
+        "phase": "active",
+        "mechanism_code": "population_fraction_shift_T_up_myeloid_down_pattern",
+        "organ_pages_to_link": "cycling:colon",
+        "immune_perspective": "Active ulcerative colitis — similar T-up/myeloid-down pattern as Crohn's, with disease-specific magnitude variations.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "neutrophils DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 58"
+      },
+      {
+        "matrix_row_id": 59,
+        "disease_id": "rheumatoid_arthritis",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_autoantibody_lineage",
+        "organ_pages_to_link": "immune:memory_B_cells,immune:plasma_cells",
+        "immune_perspective": "Active rheumatoid arthritis — pooled-positive autoantibody-lineage expansion. Memory B cell expansion (chronic-autoreactive-antibody-producing repertoire); regulatory T cell shifts; plasma cell expansion in established RA.",
+        "immune_cells_most_informative": [
+          "memory_B_cells UP",
+          "plasma_cells UP",
+          "regulatory_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 59"
+      },
+      {
+        "matrix_row_id": 60,
+        "disease_id": "lupus_sle",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_autoantibody_lineage",
+        "organ_pages_to_link": "immune:memory_B_cells,immune:plasma_cells",
+        "immune_perspective": "Active SLE — pooled-positive autoantibody-lineage expansion. Memory B cell expansion; plasma cell expansion (autoantibody production); naive B cell variable.",
+        "immune_cells_most_informative": [
+          "naive_B_cells DOWN",
+          "memory_B_cells UP",
+          "plasma_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 60"
+      },
+      {
+        "matrix_row_id": 61,
+        "disease_id": "multiple_sclerosis",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_CNS_resident_inflammation",
+        "organ_pages_to_link": "immune:microglia,terminal:oligodendrocytes",
+        "immune_perspective": "Active MS — pooled-positive CNS-resident inflammation. Microglia activation in CNS (demyelinating lesions); peripheral T cell shifts; memory B cell expansion documented.",
+        "immune_cells_most_informative": [
+          "memory_B_cells UP",
+          "CD4_T_cells UP",
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 61"
+      },
+      {
+        "matrix_row_id": 62,
+        "disease_id": "psoriasis",
+        "phase": "active",
+        "mechanism_code": "pooled_positive_T_cell_skin_hyperproliferation",
+        "organ_pages_to_link": "immune:regulatory_T_cells,terminal:kera_diff",
+        "immune_perspective": "Active psoriasis — pooled-positive T-cell skin-hyperproliferation signature; T cell shifts + regulatory T cell variations.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "regulatory_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 62"
+      },
+      {
+        "matrix_row_id": 63,
+        "disease_id": "parkinsons_disease",
+        "phase": "active",
+        "mechanism_code": "placeholder_clinical_literature",
+        "organ_pages_to_link": "immune:microglia,terminal:cortical_neurons",
+        "immune_perspective": "Active Parkinson's — placeholder clinical literature; microglia activation in substantia nigra documented; peripheral immune signature less characterized at v2.0.",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 63"
+      },
+      {
+        "matrix_row_id": 64,
+        "disease_id": "als",
+        "phase": "active",
+        "mechanism_code": "placeholder_clinical_literature",
+        "organ_pages_to_link": "immune:microglia,terminal:skeletal_muscle",
+        "immune_perspective": "Active ALS — placeholder clinical literature; microglia activation along motor neuron tracts documented; peripheral immune signature characterized at the class-pattern level.",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 64"
+      },
+      {
+        "matrix_row_id": 65,
+        "disease_id": "schizophrenia",
+        "phase": "active",
+        "mechanism_code": "placeholder_no_canonical_signature",
+        "organ_pages_to_link": "immune:microglia",
+        "immune_perspective": "Active schizophrenia — placeholder; no canonical immune-class signature established at v2.0.",
+        "immune_cells_most_informative": [
+          "microglia UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 65"
+      },
+      {
+        "matrix_row_id": 66,
+        "disease_id": "major_depression",
+        "phase": "active",
+        "mechanism_code": "placeholder_no_canonical_signature",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Active major depression — placeholder; no canonical immune-class signature established at v2.0.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 66"
+      },
+      {
+        "matrix_row_id": 67,
+        "disease_id": "chronic_hiv",
+        "phase": "chronic",
+        "mechanism_code": "lineage_specific_depletion_CD4_targeting",
+        "organ_pages_to_link": "immune:naive_CD4_T_cells",
+        "immune_perspective": "Chronic HIV — lineage-specific CD4 depletion. Naive CD4 T cells DEPLETED (HIV selectively targets CD4 lineage via gp120-CD4 binding); naive CD8 less affected — opposite-direction pattern.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "naive_CD4_T_cells DOWN",
+          "naive_CD8_T_cells DOWN",
+          "memory_T_cells_pooled UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 67"
+      },
+      {
+        "matrix_row_id": 68,
+        "disease_id": "chronic_hepatitis_bc",
+        "phase": "chronic",
+        "mechanism_code": "pooled_positive_with_hcc_pre_malignant_pathway",
+        "organ_pages_to_link": "secretory:liver,immune:plasma_cells,immune:kupffer_cells",
+        "immune_perspective": "Chronic HBV/HCV — pooled positive with HCC pre-malignant progression risk; plasma cell expansion (sustained antibody production); Kupffer cell signal elevation (liver inflammation).",
+        "immune_cells_most_informative": [
+          "naive_B_cells DOWN",
+          "plasma_cells UP",
+          "kupffer_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 68"
+      },
+      {
+        "matrix_row_id": 69,
+        "disease_id": "chronic_cmv",
+        "phase": "chronic",
+        "mechanism_code": "memory_inflation_lineage_skew",
+        "organ_pages_to_link": "immune:memory_T_cells_pooled",
+        "immune_perspective": "Chronic CMV — memory inflation lineage skew. Memory T cell expansion (CD8mem strongly, CD4mem moderately) — the canonical memory inflation signature.",
+        "immune_cells_most_informative": [
+          "naive_CD8_T_cells DOWN",
+          "memory_CD8_T_cells UP",
+          "memory_T_cells_pooled UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 69"
+      },
+      {
+        "matrix_row_id": 70,
+        "disease_id": "chronic_ebv",
+        "phase": "chronic",
+        "mechanism_code": "memory_inflation_lineage_skew",
+        "organ_pages_to_link": "immune:memory_B_cells,immune:memory_T_cells_pooled",
+        "immune_perspective": "Chronic EBV — memory inflation lineage skew. Memory B cell expansion + memory T cell expansion.",
+        "immune_cells_most_informative": [
+          "memory_B_cells UP",
+          "memory_T_cells_pooled UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 70"
+      },
+      {
+        "matrix_row_id": 71,
+        "disease_id": "recent_vaccination",
+        "phase": "context",
+        "mechanism_code": "context_driven_resolves",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Recent vaccination (within 6 weeks) — context-driven, resolves. Naive B cell expansion (encounter-driven activation); plasma cell expansion (antibody production); memory B cell expansion (memory formation); T helper cell shifts. Normal vaccine response biology, not pathology.",
+        "immune_cells_most_informative": [
+          "naive_B_cells UP",
+          "memory_B_cells UP",
+          "plasma_cells UP",
+          "CD4_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 71"
+      },
+      {
+        "matrix_row_id": 72,
+        "disease_id": "recent_infection_bacterial",
+        "phase": "context",
+        "mechanism_code": "context_driven_resolves",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Recent bacterial infection — context-driven, resolves. Neutrophil expansion characteristic; resolves over weeks.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 72"
+      },
+      {
+        "matrix_row_id": 73,
+        "disease_id": "recent_infection_viral",
+        "phase": "context",
+        "mechanism_code": "context_driven_resolves",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Recent viral infection (including common cold, flu, COVID-19) — context-driven, resolves. T cell expansion (viral); pattern depends on pathogen class; resolves over weeks. The single most common cause of transient elevated immune-class signal in healthy customers.",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "NK_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 73"
+      },
+      {
+        "matrix_row_id": 74,
+        "disease_id": "active_allergies",
+        "phase": "context",
+        "mechanism_code": "context_driven_resolves",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Active allergies (in season) — context-driven, resolves with allergen exposure ending. Eosinophil elevation; basophil shifts; IgE-related pattern.",
+        "immune_cells_most_informative": [
+          "eosinophils UP",
+          "basophils UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 74"
+      },
+      {
+        "matrix_row_id": 75,
+        "disease_id": "pregnancy",
+        "phase": "context",
+        "mechanism_code": "context_DECLINED",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Pregnancy — context_DECLINED scoring. Immune compartment shifts toward tolerance (regulatory T cells UP, certain effector subsets DOWN). v2.0 DECLINES scoring during pregnancy because the baseline reference distribution does not include pregnancy-state customers.",
+        "immune_cells_most_informative": [
+          "regulatory_T_cells UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 75"
+      },
+      {
+        "matrix_row_id": 76,
+        "disease_id": "active_chemotherapy",
+        "phase": "treatment",
+        "mechanism_code": "expected_suppression_declared_treatment",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Active chemotherapy — expected suppression, declared treatment context. Broad immune compartment SUPPRESSION expected; engine uses EXPECTED_SUPPRESSION mode for declared treatment contexts.",
+        "immune_cells_most_informative": [
+          "B_cells DOWN",
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "NK_cells DOWN",
+          "neutrophils DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 76"
+      },
+      {
+        "matrix_row_id": 77,
+        "disease_id": "normal_aging",
+        "phase": "chronic",
+        "mechanism_code": "chronological_drift_thymic_involution",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Normal aging — chronological drift; thymic involution drives naive T cell decline; memory T cell accumulation; gradual broad immune-class shifts. Normal aging does NOT reach disease-tier thresholds — A-score reaches cancer threshold only after ~1,075 years of normal-aging-rate drift per CPG-VAL-006/015/020 anchors.",
+        "immune_cells_most_informative": [],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 77"
+      },
+      {
+        "matrix_row_id": 78,
+        "disease_id": "inflammaging",
+        "phase": "chronic",
+        "mechanism_code": "uniform_immune_elevation_no_lineage_skew",
+        "organ_pages_to_link": "",
+        "immune_perspective": "Inflammaging — uniform immune elevation with no lineage skew. Pooled cross-cohort r=+0.034 NULL informative (CPG-VAL-017) due to cohort heterogeneity; within-cohort late-life acceleration ratio 2.19 (post-70 slope 2.2x steeper than pre-50); decade-medians show late-life-specific decline (60s peak 0.792, 80s 0.766).",
+        "immune_cells_most_informative": [
+          "CD4_T_cells UP",
+          "CD8_T_cells UP",
+          "neutrophils UP",
+          "monocytes UP"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 78"
+      },
+      {
+        "matrix_row_id": 79,
+        "disease_id": "alzheimers_disease",
+        "phase": "at_dx_post_build_v3_0",
+        "mechanism_code": "directional_panel_dominant_plus_architectural_immunosenescence_via_115cell_fanout",
+        "organ_pages_to_link": "immune:eosinophils,immune:neutrophils,immune:B-cells,immune:CD4_T-cells,progenitor:L-MPP,stem_adult:HSC,terminal:cortical_neurons",
+        "immune_perspective": "At-diagnosis AD post-build — directional panel dominant + architectural compaction; CPG-VAL-014 GIFT AD d=+0.681; CPG-VAL-019 AIBL bidirectional d_up=+0.494 / d_down=-0.515; CPG-VAL-011 stem_adult age-subtraction reveals d=-0.190 (from -0.004).",
+        "immune_cells_most_informative": [
+          "B_cells DOWN",
+          "CD4_T_cells DOWN",
+          "CD8_T_cells DOWN",
+          "naive_CD8_T_cells DOWN",
+          "memory_CD4_T_cells DOWN",
+          "neutrophils DOWN",
+          "eosinophils DOWN",
+          "monocytes DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 79"
+      },
+      {
+        "matrix_row_id": 80,
+        "disease_id": "frontotemporal_dementia",
+        "phase": "post_build_GIFT_2026",
+        "mechanism_code": "weak_immune_negative_drift_tauopathy_class_crossover",
+        "organ_pages_to_link": "immune:NK-cells,immune:MPP,immune:granulocytes,immune:neutrophils",
+        "immune_perspective": "Post-build FTD on GIFT 2026 — weak immune negative drift; tauopathy class. CPG-VAL-014 FTD d=+0.279 (p=0.108 non-significant); intermediate between AD positive and PSP negative directions.",
+        "immune_cells_most_informative": [
+          "NK_cells DOWN",
+          "neutrophils DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 80"
+      },
+      {
+        "matrix_row_id": 81,
+        "disease_id": "psp_cbd_tauopathies",
+        "phase": "post_build_GIFT_2026",
+        "mechanism_code": "broad_negative_drift_architectural_compaction_below_HC_centroid",
+        "organ_pages_to_link": "stromal:smooth_muscle,secretory:skin_melanocytes,immune:basophils,immune:microglia,terminal:LE",
+        "immune_perspective": "Post-build PSP/CBD on GIFT 2026 — broad negative drift; architectural compaction. CPG-VAL-014 PSP d=-0.380 (p=0.034); confirms v2.2 BELOW_NORMAL tier directly via universal hyper-volume metric. Three-direction tauopathy differential: AD positive / FTD intermediate / PSP negative.",
+        "immune_cells_most_informative": [
+          "basophils DOWN",
+          "microglia DOWN"
+        ],
+        "matrix_v1_8_row_pointer": "disease_cell_signature_matrix_v1_8.csv row 81"
+      }
+    ]
+  },
+  "wellness_aging_inflammation_lens": {
+    "doctrine": "The immune system tells us things beyond discrete diseases. The disease_immune_lens covers what the immune-class signal looks like for each named disease in the matrix v1.8. This lens covers everything else: aging trajectory, inflammaging burden, lifestyle factors that shift the immune baseline, acute response contexts (illness, vaccination), life-stage hormonal changes, treatment contexts that drive expected suppression, environmental exposures, and the cross-disease universal alarm signatures. The categories below are how the framework reads non-disease immune state — most customers most of the time live in these patterns, not in disease signatures.",
+    "aging_and_inflammaging": {
+      "healthy_aging_trajectory": {
+        "description": "Chronological methylation drift — the immune A-score declines monotonically with age across general-population cohorts (Hannum r=-0.197, Han Chinese r=-0.142, Tsaprouni r=-0.056). Naive T cell decline (thymic involution) + memory T cell accumulation are the canonical immune-aging biomarkers.",
+        "validation_anchor": "CPG-VAL-015 PASS (A_immune r=-0.197 p=3.69e-07 Hannum n=656; sex-symmetric; decade-median Spearman rho=-0.854) + CPG-VAL-020 full-chain reproduction (chain integrity 656/656, physics-layer A_immune r=-0.184 p=1.97e-06)",
+        "magnitude_calibration": "A-score reaches cancer-tier threshold only after ~1,075 years of normal-aging-rate drift — normal aging does NOT cross disease tiers (CPG-VAL-006 / VAL-020 anchor).",
+        "matrix_pointer": "matrix v1.8 row 77 (normal_aging, chronic)"
+      },
+      "inflammaging_burden": {
+        "description": "Late-life acceleration of immune-class methylation drift — within-cohort ratio 2.19 (post-70 slope 2.2x steeper than pre-50, in the opposite direction). Pooled cross-cohort regression FAILS because of cohort recruitment heterogeneity (case-control HC arms over-represent survivor selection) but the late-life-specific decline is unambiguous in decade-medians.",
+        "validation_anchor": "CPG-VAL-017 NULL informative (pooled r=+0.034 p=0.150 washed by heterogeneity; within-cohort late-life acceleration ratio 2.19; decade-medians show late-life-specific decline 60s peak 0.792 -> 80s 0.766)",
+        "lesson": "Pooled fixed-effects regression is the wrong test when cohorts have heterogeneous recruitment frames. Mixed-effects with cohort random effect is the correct test (queued for CPG-VAL-017_v2).",
+        "matrix_pointer": "matrix v1.8 row 78 (inflammaging, chronic)"
+      },
+      "cellular_age_delta_interpretation": {
+        "description": "The headline metric — immune cellular age minus chronological age. Positive delta = immune system reads OLDER than chronological (inflammaging quantum positive); negative delta = immune system reads YOUNGER than chronological (rare; chemo/cytoreduction artifact or chronological-age intake error). Saturation flags (SAT_HIGH / SAT_LOW) when patient is outside the age reference matrix range (4-95 years).",
+        "anchor": "Stage 6 module + cellular_ages_v4_epic_italy_validation.csv (n=601 HC anchor)"
+      }
+    },
+    "lifestyle_factors": {
+      "smoking_active": {
+        "description": "Current smoking drives chronic immune-class methylation drift via AHRR cg05575921 + ~100 cataloged tobacco-CpGs. Current_smoker bin carries residual tobacco signal absorbed into the immune A-score in v2.0 (Stage 3 smoking-axis foreground subtraction script is v1.1 deferred). Stage 7 threshold uplift partially mitigates.",
+        "evidence_anchor": "CPG-VAL-022 NULL informative (Tsaprouni n=464, smoking effect d=+0.11 BELOW detection threshold with n=22 current; cohort-limitation null, not framework falsification)",
+        "stage_7_handling": "smoking_bin (never / current / quit_0-5y / quit_5-15y / quit_15+y) drives threshold stratification"
+      },
+      "smoking_post_cessation_persistence": {
+        "description": "Former smokers OVERSHOOT past never-smoker baseline in some cohorts (Tsaprouni former mean 0.831 vs current 0.828 vs never 0.825) — NOT simple intermediate as reversibility would predict. Persistent post-cessation immune-class methylation marks track tobacco exposure with ~10-year half-life (AHRR cg05575921 well-validated); F2RL3 cg03636183 is a second well-validated tobacco-driven site. Only stem_adult class shows true reversibility (Tsaprouni ratio 0.66).",
+        "evidence_anchor": "CPG-VAL-022 + literature (McCarthy 2017, Joehanes 2016, Annibali 2019, van der Plaat 2018)"
+      },
+      "alcohol_use": {
+        "description": "Regular alcohol use shifts immune-class methylation in cohort-stratified ways; cumulative exposure tracks with hepatic and CNS class drift. Literature anchor; no dedicated CPG-VAL.",
+        "evidence_anchor": "literature_anchors.json (alcohol entries)"
+      },
+      "sleep_quality_and_duration": {
+        "description": "The strongest single modifiable factor for immune health. Chronic sleep restriction drives inflammaging-pattern shifts; recovery from improved sleep typically observable in CPG re-test at 8-12 weeks. Literature anchor; no dedicated CPG-VAL.",
+        "evidence_anchor": "literature_anchors.json (sleep entries — Irwin lab + AASM cohorts)"
+      },
+      "chronic_stress": {
+        "description": "Cortisol-driven chronic-stress immune compartment shifts; observable in regulatory T cell, memory B cell, and inflammatory neutrophil patterns. Recovery via stress-management interventions typically observable in 12-24 weeks. Literature anchor.",
+        "evidence_anchor": "literature_anchors.json (Cole lab UCLA chronic-stress methylation)"
+      },
+      "exercise_regular": {
+        "description": "Beneficial methylation patterns; exercise drives reductions in inflammatory cell-fraction signatures (neutrophil-to-lymphocyte normalization). Literature anchor.",
+        "evidence_anchor": "literature_anchors.json (exercise entries)"
+      },
+      "nutrition": {
+        "description": "Specific dietary patterns (Mediterranean, plant-forward) associated with favorable immune methylation; the literature is heterogeneous on specific food-level claims. Customer-facing guidance grounded in well-established cohort findings only.",
+        "evidence_anchor": "literature_anchors.json (nutrition entries)"
+      }
+    },
+    "acute_response_context": {
+      "common_cold_and_other_recent_viral_infection": {
+        "description": "Common cold (rhinovirus, coronaviruses, RSV), flu, COVID-19 — recent viral infection drives transient immune-class elevation via T cell expansion (viral pattern); typically resolves over 4-12 weeks. The single most common cause of transient elevated immune-class signal in healthy customers. CPG declines to interpret single readings within 6 weeks of declared recent illness.",
+        "matrix_pointer": "matrix v1.8 row 73 (recent_infection_viral, context)",
+        "stage_7_handling": "recent_illness_within_3_months -> ELEVATED floor 1.04->1.05 (acute-phase tail)"
+      },
+      "recent_bacterial_infection": {
+        "description": "Bacterial infection (UTI, strep, pneumonia, gum disease flare) drives neutrophil-dominant immune-class elevation; resolves over 4-8 weeks post-recovery.",
+        "matrix_pointer": "matrix v1.8 row 72 (recent_infection_bacterial, context)"
+      },
+      "recent_vaccination": {
+        "description": "Vaccine response (within 6 weeks) drives naive B cell expansion + plasma cell expansion + memory B cell expansion + T helper cell shifts. This is NORMAL vaccine response biology, not pathology. CPG flags recent vaccination at intake and applies Stage 7 floor uplift.",
+        "matrix_pointer": "matrix v1.8 row 71 (recent_vaccination, context)",
+        "stage_7_handling": "recent_vaccination_within_3_months -> ELEVATED floor 1.04->1.05"
+      },
+      "active_allergies_in_season": {
+        "description": "Eosinophil elevation + basophil shifts + IgE-related pattern; resolves with allergen exposure ending. Customer-declared seasonal-allergy context contextualizes the eosinophil tile elevation.",
+        "matrix_pointer": "matrix v1.8 row 74 (active_allergies, context)"
+      },
+      "recent_surgery_or_acute_inflammation_episode": {
+        "description": "Post-surgical acute-phase response drives broad immune-class elevation for 6-12 weeks. Engine flags recent_surgery at intake and applies suppression-of-interpretation window."
+      }
+    },
+    "life_stages_and_hormonal": {
+      "pregnancy": {
+        "description": "Immune compartment shifts toward tolerance (regulatory T cells UP, certain effector subsets DOWN). v2.0 DECLINES scoring during pregnancy — the baseline reference distribution does not include pregnancy-state customers. Post-partum return to baseline typically 6-12 months.",
+        "matrix_pointer": "matrix v1.8 row 75 (pregnancy, context_DECLINED)",
+        "stage_7_handling": "current_pregnancy=any_trimester -> ELEVATED floor 1.04->1.06 (when scoring is performed despite pregnancy flag)"
+      },
+      "menopause_and_post_menopause": {
+        "description": "Hormonal shifts post-menopause drive immune-class baseline changes; HRT status modulates these. CPG captures menopause_status + HRT_status at intake but applies no Stage 7 override at v2.0 (literature evidence pending).",
+        "evidence_anchor": "literature pending; no dedicated CPG-VAL"
+      },
+      "menarche_age_effect": {
+        "description": "Tested in CPG-VAL-018 as a natural-experiment variable in female immune architecture — clean NULL (partial r=+0.010 p=0.82, magnitude 10x below pre-registered threshold). Menarche-age range restriction (9-17) and adult-age sampling (34-72) limit power; framework's broader reproductive-endocrinology claim is NOT falsified, only this specific proxy.",
+        "evidence_anchor": "CPG-VAL-018 NULL"
+      },
+      "puberty_and_pediatric_immune_baseline": {
+        "description": "Pediatric (<18) immune baselines are NOT in v2.0 calibration cohort (age range validated 18-95). Pediatric customers receive INSUFFICIENT_AGE_CALIBRATION flag with age-calibration disclaimer."
+      }
+    },
+    "chronic_conditions_affecting_baseline": {
+      "doctrine": "These chronic conditions shift the immune-class baseline persistently. Customer-declared status at intake triggers Stage 7 covariate overrides + report context. Disease-specific signatures live in disease_immune_lens (see matrix v1.8 row pointers).",
+      "chronic_hiv": {
+        "stage_7_handling": "hiv_status=positive_treated -> ELEVATED floor 1.07->1.10 (treated HIV chronic-immune-activation baseline)",
+        "matrix_pointer": "matrix v1.8 row 67 (chronic_hiv, chronic)"
+      },
+      "autoimmune_chronic": {
+        "stage_7_handling": "known_autoimmune_condition=true -> ELEVATED floor 1.04->1.07 (autoimmune chronic-inflammatory baseline)",
+        "matrix_pointer": "matrix v1.8 rows 59-62 (RA, SLE, MS, psoriasis)"
+      },
+      "chronic_viral_persistence_cmv_ebv": {
+        "description": "CMV and EBV chronic carriage drive memory inflation lineage skew. Most adults carry CMV and EBV; customer baseline reflects this background carriage. No specific Stage 7 override but engine flags memory-inflation pattern.",
+        "matrix_pointer": "matrix v1.8 rows 69-70 (chronic_cmv, chronic_ebv)"
+      },
+      "chronic_hepatitis_bc": {
+        "stage_7_handling": "Engine flags chronic hepatitis at intake; downstream HCC card consumed if pre-malignant fibrosis/cirrhosis declared",
+        "matrix_pointer": "matrix v1.8 row 68 (chronic_hepatitis_bc, chronic)"
+      }
+    },
+    "treatment_context": {
+      "active_chemotherapy": {
+        "description": "Broad immune compartment SUPPRESSION expected. Engine uses EXPECTED_SUPPRESSION mode. Not a pathology signal — declared treatment context drives the SUPPRESSED reading.",
+        "stage_7_handling": "current_treatment_status=active_chemotherapy -> SUPPRESSED ceiling 0.95->0.92 (cytoreduction expected)",
+        "matrix_pointer": "matrix v1.8 row 76 (active_chemotherapy, treatment)"
+      },
+      "immunosuppression_medications": {
+        "description": "Immunosuppressive medications (tacrolimus, cyclosporine, methotrexate, biologic monoclonals) drive expected suppression. Customer-declared at intake; SUPPRESSED tier is intended treatment effect.",
+        "stage_7_handling": "current_immunosuppression=true -> SUPPRESSED ceiling 0.95->0.93"
+      },
+      "recent_transplant_solid_organ_or_bm": {
+        "description": "Post-transplant adaptive state — broad immune compartment in transitional state for 6-24 months post-transplant. Customer-declared at intake.",
+        "stage_7_handling": "transplant_status=recent_bm OR recent_solid_organ -> ELEVATED floor 1.07->1.10 (post-transplant adaptive state)"
+      },
+      "active_radiation_therapy": {
+        "description": "Local radiation does not typically drive systemic immune-class signal at the magnitudes seen for chemo; total body irradiation pre-BMT is the exception (treated under transplant_status)."
+      }
+    },
+    "environmental_exposures": {
+      "air_pollution_chronic": {
+        "description": "Chronic exposure to PM2.5/diesel exhaust/wildfire smoke drives sustained inflammatory immune-class methylation shifts. Literature anchor.",
+        "evidence_anchor": "literature_anchors.json (air pollution entries)"
+      },
+      "persistent_low_grade_infections": {
+        "description": "Common silent drivers of immune-class elevation — periodontal disease (gum disease), chronic sinusitis, untreated UTI, H. pylori carriage, untreated dental abscess. Addressing these often shows up in CPG re-test as immune-class normalization within 12-24 weeks.",
+        "evidence_anchor": "literature_anchors.json (periodontal and chronic infection entries)"
+      },
+      "occupational_chemical_exposure": {
+        "description": "Heavy metals, organic solvents, pesticides — drive cohort-specific methylation patterns; CPG flags occupational exposure at intake for transparency, no Stage 7 override at v2.0."
+      }
+    },
+    "universal_alarm_signatures": {
+      "doctrine": "These are immune-class patterns that fire across multiple diseases as PRE-CLINICAL signals — the immune system has detected something but the disease signature hasn't yet specialized to a specific tile.",
+      "cross_disease_universal_alarm": {
+        "description": "A_immune fires across multiple diseases with disease-specific direction (AD hypomethylates, breast pre-dx hypermethylates). The universal alarm signal is real and disease-specific in direction — pooled (sign-aligned) tests CANCEL the signal informatively.",
+        "validation_anchor": "CPG-VAL-016 DIRECTIONAL (AD d=-0.36, breast pre-dx d=+0.69 GSE51057, d=+0.22 GSE51032; null permutation p=0.016)",
+        "engine_role": "Stage 4.5 bidirectional decomposition runs every patient runtime — pooled cancellation does not hide bidirectional firing in v2.0 reporting"
+      },
+      "bidirectional_immune_decomposition": {
+        "description": "AIBL d_up=+0.494 / d_down=-0.515 in AD (opposite signs strongly fire); per-CpG concordance 7/7 with VAL-051 panel. Breast pre-dx fires DOWN only (d_down=-0.56, d_up=-0.14) — disease-specific bidirectional firing.",
+        "validation_anchor": "CPG-VAL-019 PASS",
+        "engine_role": "FLAG_BIDIRECTIONAL when |A_positive - A_negative| / max(|A_positive|, |A_negative|) > 0.30"
+      },
+      "trajectory_intensification_signature": {
+        "description": "When a customer's immune A-score intensifies across serial samples (vs stable or resolving), the trajectory itself is the diagnostic signal — not the single reading. The framework's primary clinical use mode is trajectory monitoring against the patient's own baseline."
+      }
+    },
+    "homeostasis_quality_indicators": {
+      "doctrine": "How well-tuned is the immune system? These metrics describe homeostasis quality beyond simple disease detection.",
+      "narrow_per_cell_CI_low_signal_variance": "Patient with narrow per-cell A-score CIs + low variance across the 19-cell fanout indicates well-calibrated immune compartment — even if some cells show elevation, the COHERENCE of the pattern is reassuring",
+      "broad_per_cell_CI_high_signal_variance": "Wide per-cell CIs + high variance indicates immune compartment in flux — could be acute recovery, immunosuppression transition, or pre-clinical disease drift starting; trajectory monitoring is the discriminator",
+      "low_mahalanobis_high_per_cell_signal": "Mahalanobis low + per-cell elevations present indicates the elevations are concordant with healthy variation across the n=2,481 HC hull — interesting but not concerning",
+      "high_mahalanobis_low_per_cell_signal": "Mahalanobis high without specific per-cell elevations indicates the patient's immune profile is in an unusual region of HC-space — investigate for unmeasured covariate (recent vaccination, recent illness, undeclared medication)"
+    }
+  },
+  "validation_tier_label": "core_class_card_with_universal_baseline_role",
+  "chain_of_custody_anchors": {
+    "_note": "Single source of truth for chain-of-custody anchors. Per-stage SHAs and module paths are also declared in their respective stage_X blocks above; this block consolidates the cross-stage anchors (BUILD_SPEC, SOP, plates) and provides the full runtime engine-module list for engine bootstrap. Per Heath's per-card workflow rule, this card is one of seven files that update together — see SOP v1.3 §65.",
+    "iamatlas_canonical_sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+    "iamatlas_canonical_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAMAtlas_REBUILD/IAMAtlasREBUILD.csv.xz (per atlas_vault INVENTORY)",
+    "marker_artifact_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+    "marker_artifact_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
+    "build_spec_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_2.md",
+    "sop_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_3.md",
+    "plates_reference": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/ (Plates 1-4 + README)",
+    "mahalanobis_hull_production": "mahalanobis_healthy_reference_v0_5.json (n=2,481 HC, p95=13.62 default / p99=18.59 strict)",
+    "disease_matrix_production": "DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv (sha256 1ed44cccad8e7af21e5a5901453fc6de6ab416988a284accd3de8469150e69f1)",
+    "engine_modules_consumed_at_runtime": [
+      "Stage 2 primary: Walther_iam_deconvolver/walther_iam_deconvolver.py (WaltherIAMDeconvolver)",
+      "Stage 2 secondary: NILC_Deconvolver/nilc_deconvolver.py (NILCDeconvolver + cross_method_comparison)",
+      "Stage 3 age: IAM_Cellular_Age/age_axis_foreground.py + IAMAtlas_age_layer.csv (8,199 CpGs)",
+      "Stage 3 smoking: IAMAtlas_smoking_layer.csv (script v1.1 deferred)",
+      "Stage 3 sex: IAMAtlas_sex_layer.csv (script v1.1 deferred)",
+      "Stage 4: A_Scoring_Module/iamatlas_a_scoring.py (load_artifact, score_per_class, score_per_celltype)",
+      "Stage 4.5: Bidirectional_Decomposition/bidirectional_decomposition.py + directional_panels_v1_0.json",
+      "Stage 4.6: Brightness_Comparison/patient_brightness_comparison.py + IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy",
+      "Stage 5: Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py (MahalanobisHealthyHull) + mahalanobis_healthy_reference_v0_5.json",
+      "Stage 6: IAM_Cellular_Age/iam_cellular_age_scoring.py (IAMCellularAge) + Age_Reference_Matrix_80_cells/age_reference_matrix.json",
+      "Stage 7: Tier_breakpoints/tier_breakpoints.json (v1.2 6-tier physics + 8 covariate overrides)",
+      "Stage 8: DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv + engine_schema_v1_2.md + iamatlas_115_to_matrix_v1_7_mapping.json",
+      "Stage 8 Route A residual-map-overlap (v2.1+): immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv (6,018 CpGs, 4 firing-pattern buckets)",
+      "Cancer prior: Cancer_prior/cancer_prior.json",
+      "Family history: Family_history_multiplier/family_history_multiplier.json",
+      "Literature anchors: Literature_anchors_Report_building/literature_anchors.json",
+      "Null runner (sealing time): CPG_Null_Runner/cpg_null_runner.py (N1-N8 battery)",
+      "Synthetic patient generator (smoke tests): Synthetic_Patient_Generator/synthetic_patient_generator.py",
+      "Validation anchor: IAM_Cellular_Age/cellular_ages_v4_epic_italy_validation.csv (n=601 HC Stage 6 anchor)"
+    ],
+    "cross_disease_universal_alarm_residual_map_v0_1": "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv (sha256 29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970)"
+  },
+  "validation_evidence_v2_1_set": {
+    "CPG-VAL-014": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-03 (substantive analysis); 2026-06-07 retrospective PREREG seal",
+      "outcome": "PASS",
+      "title": "AD-GIFT tauopathy specificity arm — AD vs FTD vs PSP/CBD vs HC Mahalanobis hyper-volume",
+      "cohort": "GSE53740 GIFT (n_AD=15, n_FTD=121, n_FTD-MND=7, n_PSP=43, n_CBD=1, n_HC=193, 450K platform)",
+      "anchor": "Pre-build VAL-091 Mahalanobis tauopathy differential",
+      "primary_origin_card": "AD-immune card v3.1 (where CPG-VAL-014 is the canonical evidence anchor for FTD/PSP post_build_GIFT_2026 disease matrix rows)",
+      "why_included_here": "Mahalanobis hyper-volume is computed on the 115-cell A-score space (29 of 115 columns are immune-class); the tauopathy differential is immune-class-relevant because it demonstrates the Mahalanobis metric's discriminative capacity across distinct neurodegenerative subtypes. The immune-atlas card's Stage 5 Mahalanobis is the same metric.",
+      "headline_findings": [
+        "AD vs HC: Mahalanobis d=+0.681 (N1 null permutation p=0.037) — third independent cross-platform AD anchor after AIBL (d=+0.20) and AddNeuroMed (d=-0.006)",
+        "PSP/CBD vs HC: Mahalanobis d=-0.380 (N1 null permutation p=0.034) — DIRECTION IS NEGATIVE (architectural compaction BELOW HC centroid); confirms BELOW_NORMAL tier directly via universal hyper-volume metric",
+        "FTD vs HC: Mahalanobis d=+0.279 (p=0.108, non-significant); intermediate between AD positive and PSP negative",
+        "PSP+CBD combined: d=-0.378 (p=3.0e-6 highly significant)",
+        "Three-direction tauopathy differential established: AD positive / FTD intermediate / PSP negative"
+      ],
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_014_OUTCOME.md",
+        "cohort_manifest.json",
+        "per_sample.csv",
+        "per_sample_PSP_vs_HC.csv",
+        "null_results.json",
+        "null_results_PSP_vs_HC.json",
+        "gift_ad_vs_hc_per_celltype.csv",
+        "gift_ftd_vs_hc_per_celltype.csv",
+        "gift_psp_vs_hc_per_celltype.csv"
+      ],
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_014_AD_GIFT_specificity/"
+    },
+    "CPG-VAL-015": {
+      "what": "Aging trajectory — immune cellular age + immune A-score vs chronological age",
+      "cohort": "GSE40279 Hannum n=656 healthy whole blood ages 19–101",
+      "anchor": "Pre-build VAL-006 sealed r=0.9999 on Hannum (anchor for reproduction)",
+      "status": "SEALED",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_015_OUTCOME.md",
+        "CPG_VAL_015_per_sample.csv",
+        "GSE40279_115celltype_ascores.csv",
+        "CPG_VAL_015_null_results.json",
+        "cohort_manifest.json"
+      ],
+      "sealed_date": "2026-06-07",
+      "outcome": "PASS",
+      "headline_findings": [
+        "A_immune vs chronological age: r=-0.197, p=3.69e-07 (Hannum n=656, cross-cohort by construction)",
+        "Survived sex stratification (F: r=-0.199 p=2e-4; M: r=-0.210 p=2e-4)",
+        "Survived 50/50 CV (|Δr|=0.043, under 0.05 threshold)",
+        "Decade-median monotonicity: Spearman ρ=-0.854 (p=0.002)",
+        "Class-specific: immune + stem_pluri dominate; cycling/stromal/secretory essentially flat"
+      ],
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_015_Immune_Aging_Trajectory/"
+    },
+    "CPG-VAL-016": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "DIRECTIONAL",
+      "title": "Cross-disease universal alarm via A_immune",
+      "cohorts": "AIBL AD + GSE51057 breast + GSE51032 breast (canonical 115-cell A-scores)",
+      "headline_findings": [
+        "A_immune fires in BOTH AD (d=-0.364, p<0.001) and breast pre-dx (d=+0.688 GSE51057; d=+0.217 GSE51032)",
+        "Direction is DISEASE-SPECIFIC: AD hypomethylates, breast hypermethylates",
+        "In AIBL, A_immune is the STRONGEST signal (stronger than 7/7 other classes)",
+        "In breast cohorts, A_immune is one of several signals (cycling/progenitor outrank it)",
+        "Pre-registered Pass-3 (fixed-effect meta) FAILS due to sign-opposition — informative, not adverse",
+        "Null test (1000 arm shuffles): observed effect distinguishable from noise (p=0.016)"
+      ],
+      "note": "DIRECTIONAL outcome reflects pre-registration choice. The substantive claim (universal alarm fires across diseases with disease-specific direction) is fully supported. Pass-3 (fixed-effects meta) was the wrong test for sign-heterogeneous effects.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_016_Cross_Disease_Universal_Alarm/"
+    },
+    "CPG-VAL-017": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "NULL",
+      "title": "Inflammaging in pooled hull HC",
+      "cohorts": "Hannum + Han Chinese + Tsaprouni + GSE51057 HC + GSE51032 HC (n=1,763 pooled)",
+      "headline_findings": [
+        "Pooled A_immune-vs-age r = +0.034 (Pass-1 FAILS) due to cohort-recruitment heterogeneity",
+        "General-population cohorts go negative as predicted: Hannum r=-0.197, Han Chinese r=-0.142, Tsaprouni r=-0.056",
+        "Case-control HC arms go POSITIVE: GSE51057 r=+0.210, GSE51032 r=+0.061 — survivor selection effect",
+        "Late-life acceleration ratio (Pass-3): 2.19 (post-70 slope 2.2x steeper than pre-50, in opposite direction)",
+        "Pooled decade-medians show late-life-specific decline (60s peak 0.792, 80s 0.766) — inflammaging signature detected without linear pooled test",
+        "Null test confirms pooled regression is washed by cohort heterogeneity (p=1.00 vs cohort-stratified shuffle)"
+      ],
+      "lessons": "Pooled fixed-effects regression is the wrong test when cohorts have heterogeneous recruitment frames. The signal IS detectable in decade-medians + per-cohort breakdown + within-cohort acceleration analysis. Future VAL-017_v2 should use mixed-effects with cohort random effect.",
+      "note": "NULL outcome by strict PREREG; substantive late-life-decline signal IS present and Pass-3 IS met. The cohort-heterogeneity finding is itself informative for the card's recruitment-frame guidance.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_017_Inflammaging_Pooled_HC/"
+    },
+    "CPG-VAL-018": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "NULL",
+      "title": "Menarche-age effect on female immune architecture (pivoted from HRT scope)",
+      "cohorts": "GSE51057 (n=177) + GSE51032 (n=336) = 513 HC women pooled with menarche metadata",
+      "scope_pivot_note": "Pivoted from HRT (field not in available cohort metadata) to menarche-age (cleaner natural-experiment variable available in both cohorts). Pivot documented in SCOPE_PIVOT_AUDIT.md.",
+      "headline_findings": [
+        "Pooled partial r(menarche, A_immune | age + cohort) = +0.010, p=0.82 — clean null",
+        "Per-cohort: GSE51057 +0.022 (p=0.77), GSE51032 +0.003 (p=0.96) — signs concur but magnitudes negligible",
+        "ALL 8 classes show partial r between -0.05 and +0.04 — no class-specific menarche signature",
+        "Magnitude: +0.0002 A_immune per menarche-year (10x below the pre-registered threshold of 0.002)",
+        "Null test: observed indistinguishable from cohort-stratified shuffle (p=0.82)",
+        "HONEST NEGATIVE: menarche-age operationalization fails. Framework's broader reproductive-endocrinology claim is NOT falsified — only this specific proxy is."
+      ],
+      "lessons": "Menarche-age range restriction (9-17) and adult-age sampling (34-72) limit power to detect a signal that may exist with extreme cases or longitudinal peri-menopausal tracking. Future v1.1 extension should prioritize HRT-stratified or peri-menopausal cohorts over historical-timing proxies.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_018_Menarche_Immune/"
+    },
+    "CPG-VAL-019": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "PASS",
+      "title": "Bidirectional immune direction discrimination",
+      "cohorts": "AIBL GSE153712 + GSE51057 breast EPIC-Italy",
+      "panel_source": "VAL-051 sealed Rule A 7-CpG AD-direction-anchored panel",
+      "headline_findings": [
+        "AIBL: d_up = +0.494, d_down = -0.515 (both fire strongly, opposite signs as expected)",
+        "AIBL: d_signed = +0.599 > |d_pooled| = 0.348 (directional decomposition recovers information pooled discards)",
+        "Per-CpG concordance with VAL-051 panel directions: 7/7 perfect in AIBL",
+        "Null permutation (1000 random direction shuffles): p < 0.001",
+        "Breast pre-dx fires DOWN direction only (d_down=-0.56) but not UP (d_up=-0.14) — disease-specific bidirectional firing"
+      ],
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_019_Immune_Bidirectional/"
+    },
+    "CPG-VAL-020": {
+      "what": "Hannum aging anchor reproduction — full SOP chain re-run on IAMAtlas with Walther + NILC two-deconvolver discipline",
+      "cohort": "GSE40279 Hannum n=656 (same data as CPG-VAL-015, different framing/test)",
+      "anchor": "Pre-build VAL-006 reproduction — 'show our diligence' VAL for the June 11 GeoMetric meeting",
+      "status": "SEALED 2026-06-06",
+      "deliverables": [
+        "PREREG.md",
+        "CPG_VAL_020_OUTCOME.md",
+        "CPG_VAL_020_per_sample.csv",
+        "GSE40279_115celltype_ascores.csv",
+        "CPG_VAL_020_null_results.json",
+        "cohort_manifest.json"
+      ],
+      "headline_findings": {
+        "chain_integrity": "PASS — Walther 656/656 OK, every canonical module produced valid outputs",
+        "physics_layer_signal": "A_immune r=-0.184 p=1.97e-6, A_stem_pluri r=-0.184 p=2.02e-6 (architectural-information-loss prediction confirmed)",
+        "cellular_age_inversion": "93.1% saturation rate — honest out-of-calibration response from IAMCellularAge module",
+        "VAL_006_anchor_reproduction": "NOT REPRODUCED BY DESIGN — pre-build anchor was regression-trained predictor, not physics inversion",
+        "mahalanobis_v0_1_finding": "All 656 fired Route A at v0_1 threshold; surfaces hull expansion requirement",
+        "mahalanobis_v0_2_resolution": "After hull expansion (Phase 1: +Hannum n=656), Hannum FPR drops 100% → 2.9% at percentile-calibrated p95 threshold (d=12.68)",
+        "cosmic_methylome_render": "8-panel Mollweide PNG produced for GSM989830, HEALPix NSIDE=128 196,608 pixels — per-patient artifact works"
+      },
+      "outcome_codes": [
+        "O_CHAIN_INTEGRITY_PASS",
+        "O_PHYSICS_SIGNAL_REPRODUCIBLE",
+        "O_REFERENCE_CALIBRATION_BOUNDARY_DETECTED",
+        "O_HULL_EXPANSION_PHASE_1_COMPLETE",
+        "NOT_REPRODUCED_VAL_006_ANCHOR_BY_DESIGN"
+      ],
+      "full_deliverables_path": "Biological_Physics/validation_runs/CPG_VAL_020_Immune_Hannum_full_chain/"
+    },
+    "CPG-VAL-021": {
+      "status": "DEFERRED",
+      "deferred_date": "2026-06-07",
+      "title": "Weight-loss inflammaging — DEFERRED (suitable public cohort not yet identified)",
+      "reason": "Two candidate cohorts inspected (GSE61450, GSE73103) — both cross-sectional, not longitudinal bariatric pre/post. Suitable cohort acquisition queued post-June-11.",
+      "framing_correction_2026_06_07": "VAL-021 will be executed on PUBLIC longitudinal-bariatric methylation data ONLY. Patient enrollment is NOT in scope. The Escobedo meeting framing is show-don't-ask: present framework validated on existing public data and let clinical conversation emerge from her interest.",
+      "recommendation": "Drop from v1.0; card stands at 6 sealed VALs for June 11 release",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_021_Weight_Loss_DEFERRED/"
+    },
+    "CPG-VAL-022": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "NULL",
+      "title": "Lifestyle reversibility via smoking cessation (Tsaprouni)",
+      "cohort": "GSE50660 Tsaprouni 2014 (UK, HM450, whole blood) — never 179, former 263, current 22",
+      "headline_findings": [
+        "Smoking effect d(current-never)=+0.11 p=0.65 — BELOW detection threshold (cohort underpowered with n=22 current)",
+        "Former smokers OVERSHOOT (mean 0.831) past current (0.828) past never (0.825) — NOT intermediate as simple reversibility predicts",
+        "Pattern consistent with literature on persistent post-cessation inflammation (Annibali 2019, van der Plaat 2018)",
+        "Only stem_adult class shows true reversibility (ratio 0.66) — per-class diagnostic finding",
+        "Cohort-limitation NULL, NOT framework falsification — proper test needs longitudinal pre/post with quit-duration metadata"
+      ],
+      "lessons": "Cross-sectional cohorts with status-only metadata cannot resolve reversibility — need longitudinal pre/post. Healthy-adult cohorts are pre-filtered for successful-survivor selection effects. VAL-021 (weight-loss) will need a proper pre/post bariatric cohort, not cross-sectional weight history.",
+      "connection_to_CMB_framing": "Just as CMB analysis requires multiple angular scales, polarization modes, and time-derivative effects, methylome reversibility analysis requires multiple measurements per patient across time. This is the natural clinical workflow: baseline + post-intervention re-measurement.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_022_Smoking_Cessation_Reversibility/"
+    }
+  },
+  "honest_limitations": [
+    "v2.0 6-tier thresholds (0.95/1.04/1.07/1.10/1.12) are physics-derived from Heath's calibration; final cohort-specific tuning may shift breakpoints by ±0.005 as additional HC cohorts seal.",
+    "Smoking foreground subtraction at Stage 3 is NOT yet built (script v1.1); current_smoker bin carries residual tobacco signal absorbed into immune A-score in v2.0. Mitigated via smoking-bin threshold stratification at Stage 7.",
+    "Sex foreground subtraction at Stage 3 is NOT yet built (script v1.1); mitigated via sex-stratified VAL anchors + Stage 7 threshold tables.",
+    "Batch/plate foreground subtraction NOT in v2.0 (controlled per-cohort during VAL sealing; runtime per-patient batch correction deferred).",
+    "L5 correlation structure (C(d), bispectrum, cross-substrate cross-correlations) EMPTY — Phase C deliverable.",
+    "L7 proper Bayesian per-card likelihood EMPTY — Phase E deliverable. v2.0 ships rule-based Stage 8 Route A/B/C scoring.",
+    "L8 per-card MCMC posterior EMPTY — Phase E deliverable. Atlas posterior propagates forward to A-score CI / cellular age CI / Mahalanobis CI, but per-card parameter inference deferred.",
+    "Per-card immune residual map NOT BUILT — necessity assessment open (see stage_8_card_matching.immune_residual_map_status). Class-level metrics + disease matrix routing cover the clinical workflow at v2.0.",
+    "The 19 per-cell customer-facing pages (currently at RETIRED_PREBUILD_REFERENCE/Cell Pages Immune/) need scrubbing for IAMAtlas-native + CPG framing — deferred to Stage D of the four-stage immune-atlas card plan per Heath's 2026-06-07 direction (patient-facing education, lower priority than doctor-report workstream).",
+    "FLAG_BIDIRECTIONAL ratio threshold (0.30) is provisional; calibration against CPG-VAL-019 holdout may shift threshold.",
+    "Schizophrenia, major depression, and most cardiovascular conditions are placeholder entries in disease_immune_lens — no canonical immune-class signature established at v2.0. Pre-card status.",
+    "Pregnancy state — v2.0 DECLINES scoring during pregnancy; baseline reference distribution does not include pregnancy-state customers.",
+    "Pediatric (<18) immune baselines NOT in v2.0 calibration cohort; engine flags INSUFFICIENT_AGE_CALIBRATION.",
+    "Cross-disease universal alarm residual map v0_1 (BUILT 2026-06-07) is a DERIVED VAULT ARTIFACT, not a sealed VAL — inherits validation status of source artifacts (CPG-VAL-003 breast + CPG-VAL-013 AD). Future v0_2 may extend to additional disease cohorts and merge with VAL-051 CpG universe.",
+    "Stage 8 Route A residual-map-overlap channel thresholds (rho >= 0.10, CI lower bound > 0) are PROVISIONAL — inherited from breast-EPIC v3.1; first-cohort recalibration pending.",
+    "VAL-051 7-CpG directional panel (Stage 4.5) and cross-disease universal alarm residual map v0_1 (Stage 8 Route A) are DISJOINT instruments by design — zero CpG overlap. Complementary at different scales: VAL-051 is high-precision within-AD discriminator; v0_1 is broader cross-disease overlap channel."
+  ],
+  "pre_build_audit_lineage": {
+    "_note": "Audit lineage only. NONE of these references are operational in v2.0 production scoring. Per the Walther rule: 'POST-BUILD: CPG uses IAMAtlas-native only. External panels and external atlases were build-only, never production.' The IAMAtlas REBUILD INGESTED these pre-build atlases as published per-cell methylation data points during the BUILD phase to calibrate the post-build instrument. At patient runtime, the chain runs Stage 0 → 10 every time against the IAMAtlas posterior only.",
+    "pre_build_atlases_calibration_only": [
+      {
+        "name": "Xu-538",
+        "role_in_history": "Breast pre-dx panel used in pre-build VALs (VAL-046, VAL-047). Post-build IAMAtlas REBUILD + universal Mahalanobis supersedes it; universal metric BEATS Xu-538 by d=+0.75 on GSE51032 (CPG-VAL-002)."
+      },
+      {
+        "name": "Loyfer/Moss 25-tile array atlas",
+        "role_in_history": "Tissue-of-origin atlas used in pre-build VAL-091, VAL-093, VAL-096. Replaced in production by Walther IAM Deconvolver on IAMAtlas REBUILD."
+      },
+      {
+        "name": "EpiSCORE per-tissue refs (BreastRef/LungRef/LiverRef/HeartRef/BrainRef/SkinRef/OERef)",
+        "role_in_history": "Sub-cell-type tissue references used in pre-build VAL-094, VAL-109, VAL-110. Documented resolution-collapse pattern at buffy-coat input for some refs. Not in production."
+      },
+      {
+        "name": "Salas IDOL 2018 immune sub-composition (6-cell + 12-cell)",
+        "role_in_history": "Stage 3 QC harness used pre-build. Replaced by NILC v2 cross-method check in production."
+      },
+      {
+        "name": "UniLIFE Guo 2025 19-cell adult overlay",
+        "role_in_history": "19-cell adult-specific overlay used in pre-build VAL-095. Not in production scoring."
+      },
+      {
+        "name": "Caggiano celfie_tim (tumor immune microenvironment)",
+        "role_in_history": "TIM panel used in pre-build VAL-120 (bladder), VAL-127 (esophageal), VAL-110 (aortic). Replaced by IAMAtlas REBUILD per-cell deconvolution in production."
+      },
+      {
+        "name": "Reinius GSE35069 (450K immune reference)",
+        "role_in_history": "Early 450K immune cell-fraction reference used in pre-build VAL series. Replaced by IAMAtlas REBUILD."
+      },
+      {
+        "name": "epidish centBloodSub / centDHSbloodDMC / cent12CT / cent12CT450k",
+        "role_in_history": "centDHS and centBlood panel families used in pre-build cell-fraction work. Replaced by Walther IAM Deconvolver."
+      },
+      {
+        "name": "Moss 2018 NNLS (scipy.optimize.nnls)",
+        "role_in_history": "Tissue deconvolution method used in pre-build VAL-041. Replaced in production by Walther IAM Deconvolver (marker-rank streaming on IAMAtlas REBUILD)."
+      }
+    ],
+    "pre_build_val_series_for_audit_only": "Pre-build VAL series (VAL-001 through VAL-128) preserved in repo at validation_runs/ for historical lineage. Post-build CPG-VAL series (CPG-VAL-001 onward) is the operational validation lineage.",
+    "historical_v1_0_changes_from_pre_build": [
+      "STRUCTURE: v1.0 adopted per-stage block architecture from breast v3.1 (Stage 0 -> 10) — preserved in v2.0",
+      "ATLAS: all pre-build atlas references replaced with IAMAtlas REBUILD v0_2 single Bayesian deconvolution — preserved in v2.0",
+      "STAGE 2: dual deconvolver (Walther NNLS + NILC v2) replaces pre-build single-atlas single-method approach — preserved in v2.0",
+      "STAGE 4.5: bidirectional decomposition as MANDATORY engine step (per VAL-050/051 doctrine) — preserved in v2.0",
+      "STAGE 4.6: Mollweide + HEALPix Cosmic Microwave Methylome rendering NEW (no pre-build equivalent) — preserved in v2.0",
+      "STAGE 7: 6-tier physics-derived (v1.2) replaces v0 4-tier statistical-percentile system — preserved in v2.0",
+      "STAGE 8: three-route architecture (A architectural + B disease matrix + C bidirectional) replaces pre-build single-route alarm — preserved in v2.0",
+      "FAILURE MODES: 10-fingerprint heuristic catalog from pre-build NOT ported; replaced by N7 chain-integrity + L9 N1-N8 nulls + SOP CHK-series + Mahalanobis pooled-HC + Stage 4/7 bidirectional flag — preserved in v2.0",
+      "FRAMING: 'Stage 1/2/3' pre-build language replaced with 'full SOP chain runs Stages 0-10 every time' — preserved in v2.0"
+    ],
+    "retired_files": [
+      "Pre-build immune-atlas card v0.3.2 -> RETIRED_PREBUILD_REFERENCE/Immune_Atlas_PreBuild_RETIRED/",
+      "Pre-build immune card v1.0-draft -> RETIRED_PREBUILD_REFERENCE/Immune_Class_Reference_PreBuild_RETIRED/",
+      "19 per-cell pages (B_cells.md through dendritic_cells.md) -> RETIRED_PREBUILD_REFERENCE/Immune_Class_Reference_PreBuild_RETIRED/Cell Pages Immune/ (pending Stage D scrub)",
+      "Immune-atlas card v1.0 -> immune_atlas_card_json/OLD/ (when v2.0 ships)",
+      "Immune-atlas card v1.1 -> immune_atlas_card_json/OLD/ (when v2.0 ships)"
+    ]
+  },
+  "v2_0_changes_from_v1_0_and_v1_1": {
+    "date": "2026-06-07",
+    "rationale": "v1.0 (2026-06-06 SKELETON) preserved pre-build clinical content wholesale; v1.1 (2026-06-07 surgical bump) version-bumped without auditing v1.0 content. Per Heath's 2026-06-07 audit, the card contained 152 multi-atlas language hits across 8 top-level keys (epidish_cent x 36, UniLIFE x 19, Salas x 15, EDEAR-instead-of-CPG x 14, Caggiano x 13, EpiSCORE x 12, Reinius x 12, IDOL x 12, Loyfer x 9, Xu-538 x 4) plus structural bloat (55 keys at 78 KB vs ~25 keys at ~28 KB in clean breast v3.1 and AD-immune v3.1). v2.0 is the first clean rebuild modeled on the breast/AD-immune clean structure with the universal-baseline-card additions Heath specified.",
+    "what_changed_structurally": [
+      "Operational sections (Stages 2-10) now use IAMAtlas REBUILD + Walther IAM Deconvolver + NILC v2 only (clean per breast/AD pattern)",
+      "Multi-atlas references CONFINED to pre_build_audit_lineage block at bottom with explicit non-operational note",
+      "_cell_types_atlas_provenance (2,824 bytes, 110 forbidden hits) DELETED — replaced with cells_resolved (clean IAMAtlas-native list of 19 cell names by lineage)",
+      "_cell_types_note (273 bytes, 1 forbidden 'after IAMAtlas v1 lands' hit) DELETED — IAMAtlas IS done",
+      "_cell_type_to_page_mapping + _cell_to_page_mapping_note + _grouping_rationale CONSOLIDATED into cells_resolved",
+      "_runtime_routing_role (3 forbidden hits) CONSOLIDATED into stage_8_card_matching.card_role",
+      "_strings_design_principle CONSOLIDATED into report_contents.design_principle",
+      "_open_questions_for_review CONSOLIDATED into outstanding_work_v2_0",
+      "framework_methodology_clarification ('EDEAR's chain methodology', 2 forbidden hits) DELETED — chain architecture documented in stages already",
+      "report_strings + report_vigilance_strings (11 forbidden hits) REWRITTEN clean as report_contents.mandatory_elements + language_discipline (per breast/AD pattern)",
+      "demographic_gates + _covariate_notes + covariate_dependencies CONSOLIDATED into within_card_covariates (per breast/AD pattern)",
+      "Stage 8 Route A trigger refreshed from stale 'd >= 2.0 against n=601 HC' to current 'd >= p95=13.62 / p99=18.59 against n=2,481 v0_5 hull'",
+      "Stage 8 Route B signature_matrix_file refreshed v1_7.csv -> v1_8.csv (mapping artifact retains v1_7 name per v1.8 README — column structure unchanged)",
+      "Stage 8 immune_residual_map_status refreshed: 'TO_BE_BUILT_DURING_v1_0_VAL_SEALING' -> 'NOT_BUILT — necessity assessment open' (per Heath's 2026-06-07 open question)"
+    ],
+    "what_was_added": [
+      "universal_role top-level field — one paragraph on what the universal baseline card does for the chain",
+      "card_type top-level field — 'universal_baseline_card'",
+      "cells_resolved top-level field — IAMAtlas-native cell list by lineage, with grouping rationale, replacing 5 bloat keys",
+      "disease_immune_lens top-level field — 81 entries, one per matrix v1.8 row, each with mechanism_code + organ_pages + immune_perspective + immune_cells_most_informative + matrix_v1_8_row_pointer (Design C hybrid per Heath direction)",
+      "wellness_aging_inflammation_lens top-level field — 10 categories covering everything that affects immune outside discrete diseases (aging, lifestyle, acute response, life stages, chronic conditions, treatment context, environmental, universal alarm, homeostasis quality)",
+      "pre_build_audit_lineage top-level field (bottom-confined per breast/AD pattern) — the ONLY place multi-atlas references appear, with explicit non-operational note",
+      "v2_0_changes_from_v1_0_and_v1_1 top-level field — this changelog"
+    ],
+    "what_was_preserved": [
+      "All 9 validation_evidence entries CPG-VAL-014 through CPG-VAL-022 — byte-identical to v1.1",
+      "Stage 2 dual_deconvolution full block (Walther + NILC + cross-method gate) — already clean",
+      "Stage 3 foreground_subtraction full block (age + smoking + sex axes) — already clean",
+      "Stage 4 a_scoring with h_min frozen values (terminal 0.7728 through stem_pluri 0.982166)",
+      "Stage 4.5 bidirectional_decomposition full block (VAL-051 panel anchor)",
+      "Stage 4.6 brightness_comparison full block (HEALPix nside=128 npix=196608, Mollweide projection)",
+      "Stage 5 mahalanobis (v0_5 hull reference)",
+      "Stage 6 cellular_age full block (Recipe §6.3 doctrine)",
+      "Stage 7 tier_breakpoints with 8 covariate overrides",
+      "All 6 integration blocks (cancer_prior, family_history_multiplier, literature_anchors, cpg_null_runner, validation_anchor_csv, synthetic_patient_generator)"
+    ],
+    "scope_pivot_captured_in_v2_0": "Heath's 2026-06-07 strategic pivot: the immediate priority following v2.0 release is no longer the patient-facing report build (cell page scrub, customer education, residual maps). The new priority is (1) capability inventory — comprehensive list of EVERYTHING the current CPG version with all chain-of-custody steps can actually determine from a single blood draw; (2) doctor report draft built from that inventory, designed for the June 11 GeoMetric meeting with Dr. Tanya Escobedo. Patient-facing report design will follow AFTER Dr. Escobedo's input."
+  },
+  "outstanding_work_v2_1": [
+    "(COMPLETED 2026-06-06) Phase 1 Mahalanobis HC hull expansion: v0_1 (n=601) -> v0_2 (n=1,257) +Hannum",
+    "(COMPLETED 2026-06-06) Phase 2 Mahalanobis HC hull expansion: v0_2 -> v0_3 (n=1,721) +Tsaprouni GSE50660",
+    "(COMPLETED) Phase 3 Mahalanobis HC hull expansion: EPIC platform HC cohort added (hull v0_3 -> v0_4); cross-platform AIBL verification passed",
+    "(COMPLETED) Phase 4 Mahalanobis HC hull expansion: Asian-population HC cohort added (hull v0_4 -> v0_5, n=2,481, p95=13.62 default / p99=18.59 strict)",
+    "(COMPLETED 2026-06-07) DISEASE_MATRIX v1_7 -> v1_8 with immune card validation findings (5 surgical evidence_anchor appends across 5 rows incorporating CPG-VAL-014/015/016/017/019/020 + CPG-VAL-001/011 expansions)",
+    "(COMPLETED 2026-06-07) Immune-atlas card v1.0/v1.1 -> v2.0 clean rebuild with disease_immune_lens (81 entries) and wellness_aging_inflammation_lens (10 categories)",
+    "Phase 5+ Mahalanobis HC hull expansion: routine maintenance — add new HC cohorts as research surfaces them; each version frozen as production artifact",
+    "Build smoking_axis_foreground.py for Stage 3 β-level subtraction (v1.1 script, deferred from v2.0)",
+    "Build sex_axis_foreground.py for Stage 3 β-level subtraction (v1.1 script, deferred from v2.0)",
+    "(COMPLETED 2026-06-07) Necessity assessment for immune-atlas residual maps: cross-disease universal alarm residual map v0_1 built from inner-join of breast VAL-003 + AD VAL-013 sealed residual maps (6,018 CpGs, 4 firing-pattern buckets). Stage 8 Route A residual-map-overlap channel integrated in v2.1.",
+    "Stage D — scrub the 19 per-cell pages for IAMAtlas-only references + Astro-Genetics framing; move out of RETIRED_PREBUILD_REFERENCE/ folder (deferred — patient-facing education, lower priority than doctor-report workstream)",
+    "Build Stage 9 universal_baseline_card report-generator module (parallels breast/AD per-disease report generators)",
+    "Add CPG-VAL-019 cancer-positive vs AD-negative directional sub-panels to directional_panels_v1_0.json",
+    "Calibrate FLAG_BIDIRECTIONAL ratio threshold against CPG-VAL-019 holdout",
+    "**NEW HIGHEST PRIORITY (Heath 2026-06-07 pivot)** — Comprehensive doctor report capability inventory: list EVERYTHING the current CPG version with all chain-of-custody steps can actually determine from a single blood draw, organized for the June 11 GeoMetric meeting with Dr. Tanya Escobedo",
+    "**NEW HIGHEST PRIORITY (Heath 2026-06-07 pivot)** — Build the thorough doctor report draft from the capability inventory, designed for June 11 GeoMetric meeting (patient-facing report design will follow AFTER Dr. Escobedo provides direction on what patients should/shouldn't receive)",
+    "Update CPG_VAL_Inventory_Report.md + CPG_IAMAtlas_Evidence_Report.html with all sealed VAL entries",
+    "Cross-disease universal alarm residual map v0_2: extend to additional disease cohorts as sealed residual maps become available (CRC pre-dx, lung pre-dx, autoimmune) to broaden the cross-disease universe beyond the current 2-disease (breast + AD) intersection",
+    "Cross-disease universal alarm residual map v0_2: optional merge with VAL-051 7-CpG panel CpG universe to create a unified bidirectional instrument (currently disjoint sets — VAL-051 is Stage 4.5 within-AD high-precision; v0_1 is Stage 8 Route A cross-disease broader)",
+    "Stage 8 Route A residual-map-overlap channel threshold calibration on first patient cohort runs through immune-atlas v2.1 chain (provisional thresholds inherited from breast-EPIC v3.1)"
+  ],
+  "v2_1_changes_from_v2_0": {
+    "date": "2026-06-07",
+    "rationale": "Per Heath direction 2026-06-07: cross-disease universal alarm residual map build was simple enough to execute immediately given that source residual maps (breast VAL-003 + AD VAL-013) already existed in identical column format and had a clean 6,018-CpG intersection. Built before the June 11 GeoMetric meeting to give Stage 8 Route A a residual-map-overlap channel parallel to breast-EPIC and AD-immune disease cards.",
+    "what_changed": [
+      "stage_8_card_matching.card_role refreshed to reference the v2.1 residual-map-overlap channel addition",
+      "stage_8_card_matching.route_A_universal_architectural restructured into two channels: trigger_mahalanobis_channel (unchanged) and trigger_residual_map_overlap_channel_v2_1_NEW with two sub-channels (cross_disease_concordance + bidirectional_universal_alarm)",
+      "stage_8_card_matching.immune_residual_map_status flipped NOT_BUILT → BUILT v0_1 with full firing-pattern distribution and operational note",
+      "chain_of_custody_anchors.cross_disease_universal_alarm_residual_map_v0_1 NEW field with sha256 anchor",
+      "chain_of_custody_anchors.engine_modules_consumed_at_runtime added the new residual map artifact (entry #13 after Stage 8 disease matrix)",
+      "outstanding_work_v2_0 → outstanding_work_v2_1 with the necessity-assessment item marked COMPLETED and three new v0_2 items added"
+    ],
+    "what_was_added": [
+      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv (6,018 CpGs × 17 columns, ~1.25 MB)",
+      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv.sha256",
+      "immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.provenance.json"
+    ],
+    "what_was_preserved_byte_identical": [
+      "All operational chain stages 2-7 and 9-10 (untouched in v2.1)",
+      "Stage 4.5 bidirectional decomposition (VAL-051 7-CpG panel reference preserved — disjoint instrument from v0_1 map per provenance)",
+      "Stage 8 Route B disease signature matrix v1.8 + Route C bidirectional pattern (untouched)",
+      "All 6 integration blocks",
+      "cells_resolved, within_card_covariates, report_contents (untouched)",
+      "disease_immune_lens (81 entries — untouched)",
+      "wellness_aging_inflammation_lens (10 categories — untouched)",
+      "validation_evidence_v2_0_set → renamed to validation_evidence_v2_1_set (CPG-VAL-014 through CPG-VAL-022, byte-identical content)",
+      "honest_limitations (refreshed with v0_1 residual map specific caveats)",
+      "pre_build_audit_lineage (untouched)",
+      "v2_0_changes_from_v1_0_and_v1_1 (preserved as historical changelog alongside this new v2_1_changes_from_v2_0)"
+    ],
+    "cross_check_pass_results": {
+      "forbidden_language_audit_operational_sections": "0 hits (clean per v2.0 + new v2.1 content)",
+      "required_modules_from_heath_spec_table": "all 20 + new cross-disease residual map = 21 modules present",
+      "v2_0_to_v2_1_diff": "surgical additive update; 0 keys removed, 1 added (v2_1_changes_from_v2_0), 2 renamed (outstanding_work + validation_evidence with version suffix)"
+    }
+  }
+}
