@@ -730,6 +730,23 @@
       "framing_correction_2026_06_07": "VAL-021 will be executed on PUBLIC longitudinal-bariatric methylation data ONLY. Patient enrollment is NOT in scope. The Escobedo meeting framing is show-don't-ask: present framework validated on existing public data and let clinical conversation emerge from her interest.",
       "recommendation": "Drop from v1.0; card stands at 6 sealed VALs for June 11 release",
       "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_021_Weight_Loss_DEFERRED/"
+    },
+    "CPG-VAL-022": {
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "NULL",
+      "title": "Lifestyle reversibility via smoking cessation (Tsaprouni)",
+      "cohort": "GSE50660 Tsaprouni 2014 (UK, HM450, whole blood) — never 179, former 263, current 22",
+      "headline_findings": [
+        "Smoking effect d(current-never)=+0.11 p=0.65 — BELOW detection threshold (cohort underpowered with n=22 current)",
+        "Former smokers OVERSHOOT (mean 0.831) past current (0.828) past never (0.825) — NOT intermediate as simple reversibility predicts",
+        "Pattern consistent with literature on persistent post-cessation inflammation (Annibali 2019, van der Plaat 2018)",
+        "Only stem_adult class shows true reversibility (ratio 0.66) — per-class diagnostic finding",
+        "Cohort-limitation NULL, NOT framework falsification — proper test needs longitudinal pre/post with quit-duration metadata"
+      ],
+      "lessons": "Cross-sectional cohorts with status-only metadata cannot resolve reversibility — need longitudinal pre/post. Healthy-adult cohorts are pre-filtered for successful-survivor selection effects. VAL-021 (weight-loss) will need a proper pre/post bariatric cohort, not cross-sectional weight history.",
+      "connection_to_CMB_framing": "Just as CMB analysis requires multiple angular scales, polarization modes, and time-derivative effects, methylome reversibility analysis requires multiple measurements per patient across time. This is the natural clinical workflow: baseline + post-intervention re-measurement.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_022_Smoking_Cessation_Reversibility/"
     }
   },
   "honest_limitations": [

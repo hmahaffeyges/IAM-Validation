@@ -1,0 +1,110 @@
+{
+  "group_summary": [
+    {
+      "smoking_label": "current",
+      "n": 22,
+      "mean_A_immune": 0.8283624519283326,
+      "median_A_immune": 0.8315707361981217,
+      "std_A_immune": 0.028450601021849244,
+      "mean_age": 54.09090909090909
+    },
+    {
+      "smoking_label": "former",
+      "n": 263,
+      "mean_A_immune": 0.8314743135753919,
+      "median_A_immune": 0.8347482636529991,
+      "std_A_immune": 0.024712406160871007,
+      "mean_age": 55.460076045627375
+    },
+    {
+      "smoking_label": "never",
+      "n": 179,
+      "mean_A_immune": 0.8254769768997726,
+      "median_A_immune": 0.8277422649398611,
+      "std_A_immune": 0.02653302492481834,
+      "mean_age": 55.435754189944134
+    }
+  ],
+  "per_class_reversibility": {
+    "cycling": {
+      "d_current_vs_never": 0.1761,
+      "reversibility_ratio": 2.374,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.48287,
+        "former": 0.48887,
+        "current": 0.4854
+      }
+    },
+    "immune": {
+      "d_current_vs_never": 0.1079,
+      "reversibility_ratio": 2.078,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.82548,
+        "former": 0.83147,
+        "current": 0.82836
+      }
+    },
+    "progenitor": {
+      "d_current_vs_never": 0.1881,
+      "reversibility_ratio": 1.691,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.71903,
+        "former": 0.7233,
+        "current": 0.72156
+      }
+    },
+    "secretory": {
+      "d_current_vs_never": 0.2201,
+      "reversibility_ratio": 1.892,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.46035,
+        "former": 0.46671,
+        "current": 0.46371
+      }
+    },
+    "stem_adult": {
+      "d_current_vs_never": 0.1403,
+      "reversibility_ratio": 0.658,
+      "intermediate": "True",
+      "group_means": {
+        "never": 0.91156,
+        "former": 0.91275,
+        "current": 0.91336
+      }
+    },
+    "stem_pluri": {
+      "d_current_vs_never": 0.0331,
+      "reversibility_ratio": 6.987,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.24986,
+        "former": 0.25344,
+        "current": 0.25037
+      }
+    },
+    "stromal": {
+      "d_current_vs_never": 0.0998,
+      "reversibility_ratio": 3.203,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.48812,
+        "former": 0.4941,
+        "current": 0.48999
+      }
+    },
+    "terminal": {
+      "d_current_vs_never": 0.1066,
+      "reversibility_ratio": 3.505,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.52416,
+        "former": 0.53129,
+        "current": 0.52619
+      }
+    }
+  }
+}
