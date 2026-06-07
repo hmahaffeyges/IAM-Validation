@@ -1,0 +1,9 @@
+{
+  "null_type": "shuffle_age_within_cohort",
+  "n_perms": 1000,
+  "rng_seed": 42,
+  "observed_pooled_r": 0.03429,
+  "null_mean": 0.09955,
+  "null_std": 0.01574,
+  "p_two_sided_abs": 1.0
+}

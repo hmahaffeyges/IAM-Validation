@@ -1,0 +1,121 @@
+{
+  "per_cohort": {
+    "GSE40279_Hannum_US": {
+      "n": 656,
+      "age_range": [
+        19,
+        101
+      ],
+      "pearson_r": -0.1969,
+      "pearson_p": 3.688496971815972e-07,
+      "slope_per_year": -0.00052362,
+      "slope_p": 3.6884969718159374e-07
+    },
+    "GSE141682_HanChinese": {
+      "n": 42,
+      "age_range": [
+        18,
+        62
+      ],
+      "pearson_r": -0.1424,
+      "pearson_p": 0.36818491710067763,
+      "slope_per_year": -0.00028113,
+      "slope_p": 0.36818491710067786
+    },
+    "GSE50660_Tsaprouni_UK": {
+      "n": 464,
+      "age_range": [
+        38,
+        67
+      ],
+      "pearson_r": -0.0563,
+      "pearson_p": 0.22616768856842162,
+      "slope_per_year": -0.00021723,
+      "slope_p": 0.2261676885684211
+    },
+    "GSE51057_EPIC_Italy": {
+      "n": 177,
+      "age_range": [
+        34,
+        65
+      ],
+      "pearson_r": 0.2101,
+      "pearson_p": 0.005014104805061428,
+      "slope_per_year": 0.00088456,
+      "slope_p": 0.005014104805061458
+    },
+    "GSE51032_EPIC_Italy": {
+      "n": 424,
+      "age_range": [
+        34,
+        71
+      ],
+      "pearson_r": 0.0608,
+      "pearson_p": 0.2115224776185687,
+      "slope_per_year": 0.00026469,
+      "slope_p": 0.2115224776185693
+    }
+  },
+  "decade_stats": [
+    {
+      "age_decade": 10,
+      "n": 9,
+      "median_A_immune": 0.78112,
+      "mean_A_immune": 0.76434
+    },
+    {
+      "age_decade": 20,
+      "n": 17,
+      "median_A_immune": 0.78153,
+      "mean_A_immune": 0.77605
+    },
+    {
+      "age_decade": 30,
+      "n": 61,
+      "median_A_immune": 0.75331,
+      "mean_A_immune": 0.7606
+    },
+    {
+      "age_decade": 40,
+      "n": 347,
+      "median_A_immune": 0.76759,
+      "mean_A_immune": 0.77292
+    },
+    {
+      "age_decade": 50,
+      "n": 649,
+      "median_A_immune": 0.77379,
+      "mean_A_immune": 0.77788
+    },
+    {
+      "age_decade": 60,
+      "n": 436,
+      "median_A_immune": 0.7918,
+      "mean_A_immune": 0.7873
+    },
+    {
+      "age_decade": 70,
+      "n": 144,
+      "median_A_immune": 0.78036,
+      "mean_A_immune": 0.77751
+    },
+    {
+      "age_decade": 80,
+      "n": 87,
+      "median_A_immune": 0.76642,
+      "mean_A_immune": 0.76711
+    },
+    {
+      "age_decade": 90,
+      "n": 12,
+      "median_A_immune": 0.76931,
+      "mean_A_immune": 0.77039
+    },
+    {
+      "age_decade": 100,
+      "n": 1,
+      "median_A_immune": 0.78859,
+      "mean_A_immune": 0.78859
+    }
+  ]
+}

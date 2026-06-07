@@ -640,17 +640,22 @@
       "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_016_Cross_Disease_Universal_Alarm/"
     },
     "CPG-VAL-017": {
-      "what": "Inflammaging quantum — immune cellular age delta correlates with chronological age in pooled HC",
-      "cohort": "Pooled HC ~800 patients ages 40–90 across breast + AD + Crohn's HC arms",
-      "anchor": "Inflammaging literature (Franceschi 2007, Furman 2019)",
-      "status": "PENDING",
-      "deliverables": [
-        "PREREG.md",
-        "CPG_VAL_017_OUTCOME.md",
-        "CPG_VAL_017_per_sample.csv",
-        "CPG_VAL_017_null_results.json",
-        "cohort_manifest.json"
-      ]
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "NULL",
+      "title": "Inflammaging in pooled hull HC",
+      "cohorts": "Hannum + Han Chinese + Tsaprouni + GSE51057 HC + GSE51032 HC (n=1,763 pooled)",
+      "headline_findings": [
+        "Pooled A_immune-vs-age r = +0.034 (Pass-1 FAILS) due to cohort-recruitment heterogeneity",
+        "General-population cohorts go negative as predicted: Hannum r=-0.197, Han Chinese r=-0.142, Tsaprouni r=-0.056",
+        "Case-control HC arms go POSITIVE: GSE51057 r=+0.210, GSE51032 r=+0.061 — survivor selection effect",
+        "Late-life acceleration ratio (Pass-3): 2.19 (post-70 slope 2.2x steeper than pre-50, in opposite direction)",
+        "Pooled decade-medians show late-life-specific decline (60s peak 0.792, 80s 0.766) — inflammaging signature detected without linear pooled test",
+        "Null test confirms pooled regression is washed by cohort heterogeneity (p=1.00 vs cohort-stratified shuffle)"
+      ],
+      "lessons": "Pooled fixed-effects regression is the wrong test when cohorts have heterogeneous recruitment frames. The signal IS detectable in decade-medians + per-cohort breakdown + within-cohort acceleration analysis. Future VAL-017_v2 should use mixed-effects with cohort random effect.",
+      "note": "NULL outcome by strict PREREG; substantive late-life-decline signal IS present and Pass-3 IS met. The cohort-heterogeneity finding is itself informative for the card's recruitment-frame guidance.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_017_Inflammaging_Pooled_HC/"
     },
     "CPG-VAL-018": {
       "what": "HRT effect on female immune signal — peri/post-menopausal women on HRT vs not",

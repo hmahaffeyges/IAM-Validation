@@ -1,0 +1,33 @@
+{
+  "cohorts_with_age_metadata": [
+    [
+      "GSE40279_Hannum_US",
+      656
+    ],
+    [
+      "GSE141682_HanChinese",
+      42
+    ],
+    [
+      "GSE50660_Tsaprouni_UK",
+      464
+    ],
+    [
+      "GSE51057_EPIC_Italy",
+      177
+    ],
+    [
+      "GSE51032_EPIC_Italy",
+      424
+    ]
+  ],
+  "pooled_n": 1763,
+  "age_range_pooled": [
+    18,
+    101
+  ],
+  "input_files_sha256": {
+    "Hannum_ascores": "3b5ab62ad0cb9d3355e352fe327e9dc34f82e3560d0c39a789dbdd686e39e5e0",
+    "HanChinese_ascores": "ad89a50688bbfc23ac8b5938e92b2b872bf38c2ad3dbb1a117741a231a2cf0f5"
+  }
+}
