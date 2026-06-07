@@ -1,0 +1,27 @@
+{
+  "stratification": "by cohort (AIBL AD-anchored vs GSE51057 breast pre-dx)",
+  "AIBL_AD": {
+    "n_case": 161,
+    "n_hc": 471,
+    "case_arm": "ad",
+    "hc_arm": "hc",
+    "d_pooled": -0.3484,
+    "d_up_panel": 0.4939,
+    "d_down_panel": -0.5153,
+    "d_directional_signed": 0.5991
+  },
+  "GSE51057_breast": {
+    "n_case": 11,
+    "n_hc": 177,
+    "case_arm": "case",
+    "hc_arm": "hc",
+    "d_pooled": -0.5907,
+    "d_up_panel": -0.1419,
+    "d_down_panel": -0.5574,
+    "d_directional_signed": 0.2036
+  },
+  "comparison": {
+    "d_pooled_AIBL_minus_breast": 0.2423,
+    "d_signed_AIBL_minus_breast": 0.3955
+  }
+}
