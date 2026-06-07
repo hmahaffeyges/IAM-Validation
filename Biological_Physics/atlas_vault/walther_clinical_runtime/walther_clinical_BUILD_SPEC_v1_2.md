@@ -134,7 +134,7 @@ All in `walther_clinical_runtime/`:
 | `iamatlas_celltype_markers_v0_2.json` + `.sha256` | `Celltype_Marker/` | `markers_by_celltype` (dict), `celltype_to_class` (dict), `H_min_by_class` (dict). Loaded via `iamatlas_a_scoring.load_artifact(path)`. |
 | `IAMAtlasREBUILD_celltype_to_class.json` | `IAMAtlas_REBUILD/` | Flat `{cell_type: class_name}` dict, 115 entries. |
 | `IAMAtlasREBUILD_provenance.json` | `IAMAtlas_REBUILD/` | `h_min_values_frozen_2026_04_06` key with the 8 anchors; atlas version, build date, predecessor, classes, n_cpgs=483092. |
-| `mahalanobis_healthy_reference_v0_1.json` | `Mahalanobis_healthy_reference/` | `artifact_id`, `feature_names_valid`, `n_features`, `centroid`, `covariance_matrix`, `shrinkage`, `validation_anchor` (anchored at Cohen's d = +1.871 GSE51057, +2.088 GSE51032). |
+| `mahalanobis_healthy_reference_v0_3.json` (current production) | `Mahalanobis_healthy_reference/` | `artifact_id`, `feature_names_valid`, `n_features`, `centroid`, `covariance_matrix`, `shrinkage`, `route_A_calibration_v0_3` (p95 threshold + percentile distribution under n=1,721 HC), `hc_cohort_sources` (foundation + Hannum + Tsaprouni), `phase_planning` (Phase 3 + Phase 4 queued). v0_1 (n=601, foundation-only) and v0_2 (n=1,257, +Hannum) preserved at same folder for lineage. See §3.4b hull versioning protocol. |
 | `age_reference_matrix.{json,csv,py}` | `Age_Reference_Matrix_80_cells/` | 80-cell baseline: per-class list of decadal-bin records with `age_midpoint, A_mean, A_sd, beta_mean, beta_sd, n_samples, A_p10..A_p90, source_citation`. |
 | `tier_breakpoints.json` v1.2 (NEW v1.2 — 6-tier physics-derived) | `Tier_breakpoints/` | `tier_system_v1_2.tiers` (6 entries: SUPPRESSED < 0.95 / NORMAL [0.95, 1.04) / ELEVATED [1.04, 1.07) / **WARBURG_TRANSITION [1.07, 1.10)** / SIGNIFICANTLY_ELEVATED [1.10, 1.12) / **BREACH ≥1.10 sustained or ≥1.12 single-timepoint**); `per_class_default_breakpoints.structural_ceiling_by_class` (1/H_min per class; stem_pluri structurally blind for BREACH at ceiling 1.0181); `tier_by_covariate_overrides` (7 modes: EXPECTED_SUPPRESSION, TRAJECTORY_WATCH, TREATMENT_RESPONSE, CONTEXT_PREGNANCY/POSTPARTUM/HRT_BASELINE/WEIGHT_LOSS_INTERVENTION); `tier_by_smoking_bin` (interim mitigation until smoking_axis_foreground.py at v1.3); `bidirectional_pattern_handoff` (consume Stage 4.5 directional composite when FLAG_BIDIRECTIONAL); `tier_confidence_propagation` (BORDERLINE_TIER flag at 0.20 prob threshold from MCMC CI). v0 4-tier statistical-percentile archived in `OLD/tier_breakpoints_v0_4tier_statistical.json`. |
 | `cfdna_weight.json` | `Cfdna_weight_nonderived_placeholder/` | Per-class weights (immune 0.70, cycling 0.12, secretory 0.08, stromal 0.04, stem_adult 0.03, progenitor 0.02, terminal 0.005, stem_pluri 0.005). |
@@ -198,7 +198,7 @@ The 9-link chain (borrowed from CMB cosmology) is the audit discipline that over
 | **L3** Map-making | FILLED | Stage 1 — β = M / (M + U + 100) |
 | **L4** Component separation | FILLED | Stage 2 (Walther + NILC v2) + Stage 3 (age-axis foreground subtraction) |
 | **L5** Correlation structure | EMPTY in V1 | Currently empty in pipeline. TODO 2.1 (C(d)), 2.2 (bispectrum), 2.3 (banana degeneracies). Declared empty, not faked. |
-| **L6** Covariance modeling | FILLED via Mahalanobis hull | Stage 5 (Mahalanobis distance against `mahalanobis_healthy_reference_v0_1.json`'s pooled HC covariance, Ledoit-Wolf shrinkage) |
+| **L6** Covariance modeling | FILLED via Mahalanobis hull | Stage 5 (Mahalanobis distance against `mahalanobis_healthy_reference_v0_3.json`'s pooled HC covariance n=1,721, Ledoit-Wolf shrinkage, percentile-calibrated Route A threshold) |
 | **L7** Likelihood construction | EMPTY in V1 | Per-card Bayesian likelihood is a Phase E deliverable. Not in V1. |
 | **L8** Parameter inference | EMPTY in V1 | MCMC posteriors per card — Phase E. Not in V1. |
 | **L9** Null suite + end-to-end sims | FILLED for sealed-VAL validation | `cpg_null_runner.py` + `synthetic_patient_generator.py` exist and have processed 7 Family A VALs (5 sealed + 2 RESTATE). NOT invoked per-patient at runtime; runs above the operational flow against sealed VAL artifacts. |
@@ -252,7 +252,9 @@ The doctor report (§8) must honestly declare which links contributed to each fi
 │
 ├── Mahalanobis_healthy_reference/
 │   ├── iamatlas_mahalanobis_scoring.py        (Stage 5 — MahalanobisHealthyHull)
-│   ├── mahalanobis_healthy_reference_v0_1.json (HC centroid + Ledoit-Wolf cov, n_hc=601)
+│   ├── mahalanobis_healthy_reference_v0_3.json (CURRENT PRODUCTION: HC centroid + Ledoit-Wolf cov, n_hc=1,721)
+│   ├── mahalanobis_healthy_reference_v0_2.json (n_hc=1,257, foundation+Hannum — lineage)
+│   ├── mahalanobis_healthy_reference_v0_1.json (n_hc=601, foundation-only — lineage)
 │   └── mahalanobis_per_patient.csv
 │
 ├── Age_Reference_Matrix_80_cells/
@@ -695,7 +697,8 @@ The HEADLINE number on every doctor report.
 
 ```python
 from iamatlas_mahalanobis_scoring import MahalanobisHealthyHull
-hull = MahalanobisHealthyHull("Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_1.json")
+# Production loads CURRENT version — currently v0_3 (n=1,721 pooled HC).
+hull = MahalanobisHealthyHull("Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json")
 maha_result = hull.score(celltype_ascores)
 # maha_result["mahalanobis_distance"]       ← the headline number
 # maha_result["top10_axis_contributions"]   ← which cell-types drove the distance
@@ -704,11 +707,49 @@ maha_result = hull.score(celltype_ascores)
 # maha_result["reference_anchor"]           ← validation context
 ```
 
-**Validation anchor built into the reference:** Cohen's d = +1.871 GSE51057, +2.088 GSE51032 on >10yr breast pre-dx. Beats Xu-538 disease-trained panel by +0.752 on GSE51032 — without being breast-trained. This is the multi-D analog of CMB's joint posterior banana / hyper-volume.
+**Route A trigger threshold is percentile-based, NOT a fixed value.** With 112 features under multivariate normality, expected median Mahalanobis distance is √112 ≈ 10.58 — a fixed threshold like `d ≥ 2.0` would fire on ALL samples (the v0_1 mistake). The current v0_3 thresholds are:
+- p95 (default Route A): d ≥ 13.54
+- p99 (strict): d ≥ 18.71
+calibrated against the pooled n=1,721 HC distance distribution stored in the artifact under `route_A_calibration_v0_3`. Production engine reads the threshold from the artifact at session startup — not hard-coded in any card or module.
+
+**Validation anchor lineage** (preserved as HC hull expands):
+- Breast pre-dx Cohen's d (GSE51057 n=11): v0_1 +1.871 → v0_2 +0.981 → v0_3 +0.896
+- Breast pre-dx Cohen's d (GSE51032 n=36): v0_1 +2.088 → v0_2 +1.653 → v0_3 +1.611
+- Case detection % at p95 threshold (GSE51032): v0_2 50.0% → v0_3 55.6% (improves with broader HC representation)
+- Case detection % at p95 threshold (GSE51057): v0_2 9.1% → v0_3 27.3% (small n=11)
 
 Imputation rules per SOP §47: HARD-fail if >15 cell types imputed; SOFT-flag at 6–15.
 
 **Output of Stage 5:** One Mahalanobis distance, top-10 axis decomposition, imputation count, validation anchor.
+
+### Stage 5.1 — Mahalanobis HC hull versioning protocol (NEW v1.2 patch 2026-06-06)
+
+The Mahalanobis hull is the only chain element with cohort-empirical content (centroid + covariance must be MEASURED from HC samples, not physics-derived). The hull is versioned as new HC cohorts are added; each version is frozen for production deployment.
+
+**Versioning rules:**
+- Build versions never rebuild on patient β. At patient runtime, the chain queries the FROZEN current production version.
+- Each version is named `mahalanobis_healthy_reference_v0_N.json` with full provenance (cohort sources, SHA-256 of each input CSV, Ledoit-Wolf shrinkage parameter, percentile thresholds, case-discrimination lineage).
+- Prior versions are retained in the same folder for lineage traceability — never deleted.
+- The `route_A_calibration_v0_N` block holds the percentile distribution thresholds. Engine reads default and strict thresholds from this block at session startup.
+
+**Phase planning** (no fixed N — phases extend HC representation along one dimension at a time):
+- **Phase 1 ✓** (2026-06-06): v0_1 → v0_2 by adding Hannum GSE40279 n=656. Brings +full age span (40-65 → 19-101), +mixed sex, +US population.
+- **Phase 2 ✓** (2026-06-06): v0_2 → v0_3 by adding Tsaprouni GSE50660 n=464. Brings +UK population, +smoking-stratified covariate.
+- **Phase 3** (queued): Add EPIC platform HC cohort for cross-platform transferability (candidates: AIBL HC n=471 if full β accessible; AddNeuroMed HC; GIFT HC).
+- **Phase 4** (queued): Add Asian-population HC cohort (currently a gap).
+- **Phase N**: Routine maintenance as research surfaces new cohorts.
+
+**Build protocol (operator workflow):**
+1. Acquire the new HC cohort's β matrix; verify all-HC composition.
+2. Run canonical 115-cell A-scoring on the cohort via `score_per_celltype` against `iamatlas_celltype_markers_v0_2.json`. Save as `GSE{ID}_115celltype_ascores.csv` in `validation_runs/hull_expansion_phaseN_GSE{ID}/`.
+3. Pool with the current `v0_N` hull's sample-level inputs (per-cohort CSVs are preserved at sample level alongside the cohort manifests).
+4. Compute new centroid + Ledoit-Wolf shrunk covariance from the pooled `M × 112` matrix.
+5. Recompute percentile thresholds (p95, p99) under the new HC distance distribution.
+6. Re-validate against the breast pre-dx anchor (GSE51057 + GSE51032 case-vs-HC Cohen's d).
+7. Save as `mahalanobis_healthy_reference_v0_(N+1).json` with full provenance + supersession block.
+8. Update BUILD_SPEC + SOP + Evidence Report + VAL Inventory to reference new version.
+
+**Cards never carry hull-specific runtime data.** Each disease card (and the immune universal card) only references the artifact path. The artifact carries the data. This separation ensures hull expansion does not require touching any card.
 
 ### Stage 6 — Cellular age inversion (SOP §52–§58 / walkthrough Stage 3 second half)
 
