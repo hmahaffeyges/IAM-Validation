@@ -1,0 +1,9 @@
+{
+  "null_type": "arm_label_shuffle_per_cohort",
+  "n_permutations": 1000,
+  "rng_seed": 42,
+  "observed_meta_d": -0.1786,
+  "null_mean": -0.00548,
+  "null_std": 0.07419,
+  "p_two_sided_abs": 0.016
+}

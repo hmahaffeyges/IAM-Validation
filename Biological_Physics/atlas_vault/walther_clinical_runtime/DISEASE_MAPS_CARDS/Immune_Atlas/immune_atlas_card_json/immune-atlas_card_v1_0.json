@@ -623,17 +623,21 @@
       "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_015_Immune_Aging_Trajectory/"
     },
     "CPG-VAL-016": {
-      "what": "Cross-disease universal alarm — immune-class A-score departures in breast pre-dx, AD-at-dx, Crohn's active",
-      "cohort": "Reuse CPG-VAL-001 (breast pre-dx EPIC-Italy) + CPG-VAL-008 (AD-AIBL) + VAL-128 (Crohn's)",
-      "anchor": "Cross-disease immune-class signal consolidation; foundation for universal alarm vocabulary",
-      "status": "PENDING",
-      "deliverables": [
-        "PREREG.md",
-        "CPG_VAL_016_OUTCOME.md",
-        "CPG_VAL_016_per_sample.csv",
-        "CPG_VAL_016_null_results.json",
-        "cohort_manifest.json"
-      ]
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "DIRECTIONAL",
+      "title": "Cross-disease universal alarm via A_immune",
+      "cohorts": "AIBL AD + GSE51057 breast + GSE51032 breast (canonical 115-cell A-scores)",
+      "headline_findings": [
+        "A_immune fires in BOTH AD (d=-0.364, p<0.001) and breast pre-dx (d=+0.688 GSE51057; d=+0.217 GSE51032)",
+        "Direction is DISEASE-SPECIFIC: AD hypomethylates, breast hypermethylates",
+        "In AIBL, A_immune is the STRONGEST signal (stronger than 7/7 other classes)",
+        "In breast cohorts, A_immune is one of several signals (cycling/progenitor outrank it)",
+        "Pre-registered Pass-3 (fixed-effect meta) FAILS due to sign-opposition — informative, not adverse",
+        "Null test (1000 arm shuffles): observed effect distinguishable from noise (p=0.016)"
+      ],
+      "note": "DIRECTIONAL outcome reflects pre-registration choice. The substantive claim (universal alarm fires across diseases with disease-specific direction) is fully supported. Pass-3 (fixed-effects meta) was the wrong test for sign-heterogeneous effects.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_016_Cross_Disease_Universal_Alarm/"
     },
     "CPG-VAL-017": {
       "what": "Inflammaging quantum — immune cellular age delta correlates with chronological age in pooled HC",

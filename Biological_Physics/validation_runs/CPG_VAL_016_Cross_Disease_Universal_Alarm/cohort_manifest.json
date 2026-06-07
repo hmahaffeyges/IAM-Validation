@@ -1,0 +1,13 @@
+{
+  "AIBL_AD_EPIC": {
+    "sha256": "03a582045ad1a50731bdf5209b513ed4989a01016c586d00ce67d4764b78bbd8"
+  },
+  "GSE51057_breast_HM450": {
+    "sha256": "5160698304114b7db807a0f02cd0c239d86eb344b2282f3ee376022c023c9395"
+  },
+  "GSE51032_breast_HM450": {
+    "sha256": "e5360084639a1efc03649f51c80a6440072b7d9161a4709c6614f46174c618d9"
+  },
+  "canonical_markers_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+  "note_on_crohns": "VAL-128 Crohn's cohort uses pre-canonical Xu-538 + Loyfer pipeline, not canonical 115-cell. Excluded from this VAL to preserve apples-to-apples comparison. Re-scoring Crohn's with canonical markers queued as separate work."
+}
