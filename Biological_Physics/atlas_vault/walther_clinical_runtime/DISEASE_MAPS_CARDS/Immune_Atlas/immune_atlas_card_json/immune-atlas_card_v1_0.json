@@ -658,16 +658,22 @@
       "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_017_Inflammaging_Pooled_HC/"
     },
     "CPG-VAL-018": {
-      "status": "DEFERRED",
-      "deferred_date": "2026-06-07",
-      "title": "HRT effect on female immune (NOT EXECUTED)",
-      "reason": "HRT metadata not present in GSE51057/GSE51032 clinical schema (only gender/age/menarche_age available). Needs cohort acquisition or scope pivot.",
-      "options_pending_heath_decision": [
-        "Option A: Pivot to menarche-age-effect question (uses available data, scope change)",
-        "Option B: Acquire new cohort with HRT metadata (KORA / ARIES candidates)",
-        "Option C: Drop from v1.0, defer to v1.1"
+      "status": "SEALED",
+      "sealed_date": "2026-06-07",
+      "outcome": "NULL",
+      "title": "Menarche-age effect on female immune architecture (pivoted from HRT scope)",
+      "cohorts": "GSE51057 (n=177) + GSE51032 (n=336) = 513 HC women pooled with menarche metadata",
+      "scope_pivot_note": "Pivoted from HRT (field not in available cohort metadata) to menarche-age (cleaner natural-experiment variable available in both cohorts). Pivot documented in SCOPE_PIVOT_AUDIT.md.",
+      "headline_findings": [
+        "Pooled partial r(menarche, A_immune | age + cohort) = +0.010, p=0.82 — clean null",
+        "Per-cohort: GSE51057 +0.022 (p=0.77), GSE51032 +0.003 (p=0.96) — signs concur but magnitudes negligible",
+        "ALL 8 classes show partial r between -0.05 and +0.04 — no class-specific menarche signature",
+        "Magnitude: +0.0002 A_immune per menarche-year (10x below the pre-registered threshold of 0.002)",
+        "Null test: observed indistinguishable from cohort-stratified shuffle (p=0.82)",
+        "HONEST NEGATIVE: menarche-age operationalization fails. Framework's broader reproductive-endocrinology claim is NOT falsified — only this specific proxy is."
       ],
-      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_018_HRT_Effect_DEFERRED/"
+      "lessons": "Menarche-age range restriction (9-17) and adult-age sampling (34-72) limit power to detect a signal that may exist with extreme cases or longitudinal peri-menopausal tracking. Future v1.1 extension should prioritize HRT-stratified or peri-menopausal cohorts over historical-timing proxies.",
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_018_Menarche_Immune/"
     },
     "CPG-VAL-019": {
       "status": "SEALED",
