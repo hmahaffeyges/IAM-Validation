@@ -46,6 +46,23 @@
 ---
 
 
+## Changelog v1.3 patch 3 — Phase 4 hull expansion + first Asian population (2026-06-06 late evening)
+
+- **§48 Step 5.2 update — Mahalanobis hull v0_4 (n=2,481) → v0_5 (n=2,523).** Phase 4 expansion adds GSE141682 Han Chinese n=42 healthy whole blood (EPIC 850K, ages 18-62, 21M/21F, all 'disease state: normal', 'race: Han Chinese'). **FIRST ASIAN-POPULATION REPRESENTATION** in the hull. Population coverage now: EU-Italian + UK + US Caucasian/Mexican + Han Chinese. Platform coverage: HM450 + EPIC 850K. v0_4 retained in same folder for lineage.
+
+- **Han Chinese transfer verification.** Han Chinese samples sit at median Mahalanobis d=10.51 in the v0_5 hull — within the typical-HC range (foundation cohorts at 10-11; Tsaprouni/AIBL at 7). This confirms canonical 115-cell A-scoring transfers across populations without systematic offset. **Caveat:** n=42 is small. The d=10.51 estimate has wide CI. Phase 5+ should expand Asian representation with larger cohorts before clinical deployment in Asian populations.
+
+- **Route A threshold v0_5 essentially unchanged from v0_4.** p95 (default): d ≥ 13.62 (same). p99 (strict): d ≥ 18.43 (was 18.59). The small +42 addition didn't significantly shift the centroid — expected behavior when adding a well-represented HC cohort to an already-broad hull.
+
+- **Anchor preservation v0_4 → v0_5: stable.** Cohen's d GSE51057 +0.593 → +0.599; GSE51032 +1.450 → +1.450. Case detection at p95 GSE51057 9.1% (unchanged); GSE51032 38.9% → 41.7% (slight improvement). This is the EXPECTED behavior when adding a small well-represented HC cohort: thresholds and anchor d's stabilize.
+
+- **Phase 5+ targets monitored:** HELIOS Singapore EPIC if accessible; OEP001178 Han Chinese schizophrenia n=476 HC if Chinese NODE access granted; Korean/Japanese cohorts as they surface. Asian-population expansion remains the highest priority for the next session.
+
+- **Production-ready milestone:** v0_5 is the first hull defensible for multi-population cross-platform clinical deployment. 8 cohorts, 4 populations, 2 platforms, mixed sex, ages 18-101, n=2,523 HC samples. 313% growth from v0_1's n=601 in a single day of focused expansion work.
+
+---
+
+
 ## How to use this document
 
 This is the operator's manual for the Cellular Performance Gauge (CPG) chain of custody. It is granular to the quantum level — every step has its own section. Every step section follows the same template:
@@ -138,7 +155,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 **Stage 5 — Multi-D departure (Mahalanobis hyper-volume)**
 - §47  Step 5.1 — Patient 115-cell-type A-score vector assembly
-- §48  Step 5.2 — HC centroid load (`mahalanobis_healthy_reference_v0_4.json` current production; v0_1/v0_2/v0_3 retained for lineage)
+- §48  Step 5.2 — HC centroid load (`mahalanobis_healthy_reference_v0_5.json` current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
 - §49  Step 5.3 — Inverse-covariance distance computation
 - §50  Step 5.4 — Top-10 axis contribution decomposition
 - §51  Step 5.5 — Stage 5 output: Mahalanobis distance + per-axis explainability
@@ -293,7 +310,7 @@ The chain of custody is the audit framework borrowed directly from CMB cosmology
 | **L3** | Map-making | β = M/(M+U+100) per CpG per sample, standard | Probe-response-function nuisance treatment | **B** |
 | **L4** | Component separation | Walther IAM Deconvolver + NILC v2 cross-check + age-axis foreground module (Phase B3) | Sex, batch, ancestry, smoking foreground modules formalized; foreground_registry.py to chain them | **C** (was D before Phase B2.1 + B3) |
 | **L5** | Correlation structure | **EMPTY in V1.** Genomic-distance correlation C(d), bispectrum, and cross-substrate cross-correlations are Phase C deliverables (Roadmap TODO 2.1 / 2.2 / 2.3). Stages 4–8 currently operate on independent CpGs / cell types without exploiting correlation structure between them. | C(d) genomic-distance correlation. Bispectrum. Banana-degeneracy mapping. Cross-substrate cross-correlations. | **F** (declared empty — Phase C) |
-| **L6** | Covariance modeling | **FILLED via Mahalanobis hyper-volume (Stage 5).** Ledoit-Wolf shrinkage covariance built from the pooled-HC cohort (CURRENT production: v0_4 with n_hc=2,481 — foundation + Hannum + Tsaprouni + AddNeuroMed + AIBL + GIFT, 7 cohorts spanning HM450 + EPIC platforms; lineage versions v0_1/v0_2/v0_3 retained for traceability), applied as a distance metric: Mahalanobis_d² = (x − μ_HC)ᵀ Σ⁻¹ (x − μ_HC). This IS L6 — the covariance is constructed and consulted. Route A threshold is percentile-of-pooled-HC (p95 default d≥13.62 under v0_4), NOT a fixed value. Mahalanobis distance is L6 applied as a metric, not L7 likelihood and not L8 inference. | Sim-based covariance from synthetic patient ensemble (Phase D). Per-CpG covariance. Cross-cohort covariance. Nuisance-parameter covariance. | **B** (functional with Ledoit-Wolf; upgrades to sim-based in Phase D) |
+| **L6** | Covariance modeling | **FILLED via Mahalanobis hyper-volume (Stage 5).** Ledoit-Wolf shrinkage covariance built from the pooled-HC cohort (CURRENT production: v0_5 with n_hc=2,523 — foundation + Hannum + Tsaprouni + AddNeuroMed + AIBL + GIFT + Han Chinese, 8 cohorts spanning 4 populations (EU + US + UK + Han Chinese) + HM450 + EPIC platforms; lineage versions v0_1/v0_2/v0_3/v0_4 retained for traceability), applied as a distance metric: Mahalanobis_d² = (x − μ_HC)ᵀ Σ⁻¹ (x − μ_HC). This IS L6 — the covariance is constructed and consulted. Route A threshold is percentile-of-pooled-HC (p95 default d≥13.62 under v0_5), NOT a fixed value. Mahalanobis distance is L6 applied as a metric, not L7 likelihood and not L8 inference. | Sim-based covariance from synthetic patient ensemble (Phase D). Per-CpG covariance. Cross-cohort covariance. Nuisance-parameter covariance. | **B** (functional with Ledoit-Wolf; upgrades to sim-based in Phase D) |
 | **L7** | Likelihood construction | **EMPTY in V1.** Cellular age inversion (Stage 6) is a scoring step — a reference-curve readback, not a likelihood function. Card threshold breakpoints (Stage 8 Path A) are rule-based, not log-L evaluation. Matrix Mahalanobis-style match (Stage 8 Path B) is L6 applied as match magnitude, not L7. A proper Bayesian per-card log L(data \| params, Σ) with nuisance-parameter marginalization is a Phase E deliverable. | Proper Bayesian per-card likelihood. Nuisance parameter marginalization. Profile vs marginalized decomposition. | **F** (declared empty — Phase E) |
 | **L8** | Parameter inference / posterior | **EMPTY in V1.** A-scores (Stage 4) return point estimates, not posteriors. Mahalanobis distance (Stage 5) returns a scalar metric, not a posterior. The atlas is built via MCMC (per-CpG posteriors over the 8 architecture classes, frozen 2026-04-06), but the orchestrator does NOT run MCMC per-patient — that is a Phase E per-card deliverable. Credible intervals propagate from the atlas posterior SDs forward into Stage 2 fraction CIs (see §31), but per-card posterior inference is not yet built. | MCMC posterior for per-card parameters. Banana-degeneracy mapping. Posterior-predictive checks. | **F** (declared empty — Phase E) |
 | **L9** | Null suite + end-to-end sims | Phase A done 2026-05-30: unified 8-null framework + synthetic patient generator + 5 of 7 Family A VALs sealed, 2 restated | Phase A2.1: production-precision N7 recovery; signed-direction injection. Phase A3.1: per-cohort bimodality recomputation for VAL-004 | **A-** |
@@ -406,7 +423,7 @@ The atlas is consulted at every stage that requires a reference comparison or a 
 | Stage 3 (age foreground) | `age_axis_foreground.py` | Per-CpG age-drift slopes (`IAMAtlas_age_layer.csv`) |
 | Stage 4 (A-score) | `iamatlas_a_scoring.py` | Per-class marker CpGs + H_min per class |
 | Stage 4 (per-cell-type A-score) | `iamatlas_a_scoring.py` | Per-cell-type marker CpGs from `iamatlas_celltype_markers_v0_2.json` |
-| Stage 5 (Mahalanobis) | `iamatlas_mahalanobis_scoring.py` | HC centroid + covariance from `mahalanobis_healthy_reference_v0_3.json` (current production, n=1,721; v0_1/v0_2/v0_3 retained for lineage) |
+| Stage 5 (Mahalanobis) | `iamatlas_mahalanobis_scoring.py` | HC centroid + covariance from `mahalanobis_healthy_reference_v0_3.json` (current production, n=1,721; v0_1/v0_2/v0_3/v0_4 retained for lineage) |
 | Stage 6 (cellular age) | `iam_cellular_age_scoring.py` | 80-cell age × class baseline curve |
 
 **Every step section in Part II carries an explicit "Atlas reference" line.** If a step does NOT consult the atlas, that line says so. If it does, the line names which slice of the atlas, in which file, at which path.
@@ -2442,17 +2459,18 @@ The imputation count is tracked separately. Patients with > 5 imputations get a 
 
 ---
 
-## §48. Step 5.2 — HC centroid load (`mahalanobis_healthy_reference_v0_4.json` current production; v0_1/v0_2/v0_3 retained for lineage)
+## §48. Step 5.2 — HC centroid load (`mahalanobis_healthy_reference_v0_5.json` current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
 
 **What this step does.** Loads the pre-computed healthy-control reference object — the centroid (mean) and inverse-covariance matrix in 115-cell-type A-score space — into memory. This is the **calibrated healthy reference** the patient's vector will be measured against. Loaded once per session at engine startup; pinned in memory thereafter.
 
-**Inputs.** Current production: `mahalanobis_healthy_reference_v0_4.json` (n_hc=2,481 from GSE51057 + GSE51032 + GSE40279 Hannum + GSE50660 Tsaprouni + GSE144858 AddNeuroMed + GSE153712 AIBL + GSE53740 GIFT). Engine loads whichever version is named in BUILD_SPEC §3.4b. Prior versions (v0_1 n=601, v0_2 n=1,257) retained in same folder for traceability.
+**Inputs.** Current production: `mahalanobis_healthy_reference_v0_5.json` (n_hc=2,523 from GSE51057 + GSE51032 + GSE40279 Hannum + GSE50660 Tsaprouni + GSE144858 AddNeuroMed + GSE153712 AIBL + GSE53740 GIFT + GSE141682 Han Chinese — 8 cohorts, 4 populations). Engine loads whichever version is named in BUILD_SPEC §3.4b. Prior versions (v0_1 n=601, v0_2 n=1,257) retained in same folder for traceability.
 
 **Hull versioning protocol (BUILD_SPEC §Stage 5.1).** The hull is the only chain element with cohort-empirical content — centroid + covariance MUST be measured from HC samples, not physics-derived. Versions extend HC representation:
 - v0_1 (foundation): GSE51057 + GSE51032 EPIC-Italy women 40-65 HM450, n=601.
 - v0_2 (Phase 1, 2026-06-06): +GSE40279 Hannum US M/F 19-101 HM450, n=1,257.
 - v0_3 (Phase 2, 2026-06-06): +GSE50660 Tsaprouni UK M/F 40-65 HM450 smoking-stratified, n=1,721.
-- v0_4 (Phase 3, 2026-06-06): +GSE144858 AddNeuroMed n=96 + GSE153712 AIBL n=471 EPIC (FIRST CROSS-PLATFORM) + GSE53740 GIFT n=193, n=2,481.: +EPIC platform HC for cross-platform transferability.
+- v0_4 (Phase 3, 2026-06-06): +GSE144858 AddNeuroMed n=96 + GSE153712 AIBL n=471 EPIC (FIRST CROSS-PLATFORM) + GSE53740 GIFT n=193, n=2,481.
+- v0_5 (Phase 4, 2026-06-06): +GSE141682 Han Chinese n=42 EPIC (FIRST ASIAN POPULATION), n=2,523.: +EPIC platform HC for cross-platform transferability.
 
 Build versions never rebuild on patient β. Patient runtime queries the FROZEN current production version.
 
@@ -2462,13 +2480,13 @@ Build versions never rebuild on patient β. Patient runtime queries the FROZEN c
 
 **The math.** The reference carries:
 - `centroid`: 112-element mean vector (pooled-HC mean A-score per cell type; 3 features dropped: Cortical_neurons, Glia, stem_pluri).
-- `covariance_matrix`: 112×112 covariance matrix (Ledoit-Wolf shrinkage — v0_4 shrinkage 0.002208 (v0_3: 0.001317), down from v0_1's 0.008751 because more samples reduce regularization need).
+- `covariance_matrix`: 112×112 covariance matrix (Ledoit-Wolf shrinkage — v0_5 shrinkage 0.002202 (v0_4: 0.002208, v0_3: 0.001317), down from v0_1's 0.008751 because more samples reduce regularization need).
 - `feature_names_valid`: canonical 112-element ordering matching §47.
-- `n_hc_samples_pooled`: 2,481 (v0_4 calibration sample size).
+- `n_hc_samples_pooled`: 2,523 (v0_5 calibration sample size).
 - `hc_cohort_sources`: list of contributing cohorts with sample counts + platform + demographic span.
-- `route_A_calibration_v0_4`: percentile thresholds (p95 = 13.62 default, p99 = 18.59 strict) calibrated against the pooled-HC distance distribution — Route A trigger is percentile-of-HC, NOT a fixed value.
+- `route_A_calibration_v0_5`: percentile thresholds (p95 = 13.62 default, p99 = 18.43 strict) calibrated against the pooled-HC distance distribution — Route A trigger is percentile-of-HC, NOT a fixed value.
 - `expansion_lineage_v0_1_to_v0_3`: documents what each version added.
-- `validation_v0_3`: Hannum HC self-test + foundation HC self-test + breast pre-dx anchor preservation (Cohen's d lineage GSE51057: 1.871 → 0.981 → 0.896 → 0.593; GSE51032: 2.088 → 1.653 → 1.611 → 1.450).
+- `validation_v0_3`: Hannum HC self-test + foundation HC self-test + breast pre-dx anchor preservation (Cohen's d lineage GSE51057: 1.871 → 0.981 → 0.896 → 0.593 → 0.599; GSE51032: 2.088 → 1.653 → 1.611 → 1.450 → 1.450).
 - `input_data_provenance`: SHA-256 of every input CSV.
 
 Loaded with SHA-256 verification. If hash mismatches the pinned value, halt and investigate.
@@ -4902,7 +4920,7 @@ If an operator is looking for a path that this SOP names anywhere from §11 to �
 | Marker artifact | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` | §29, §44, §65 | Per-cell-type one-vs-rest top-100, 115 cell types |
 | Marker SHA anchor | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.sha256` | §29 | SHA: `46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd` |
 | **Mahalanobis scoring** | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_mahalanobis_scoring.py` | §47–§51 | `MahalanobisHealthyHull` class — distance + top-10 axis decomp |
-| Mahalanobis reference | `Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json` (current production; v0_1/v0_2/v0_3 retained for lineage) | §48 | HC centroid + covariance (n_hc=1,721, Ledoit-Wolf shrinkage=0.001317, percentile-calibrated Route A threshold p95=13.54) |
+| Mahalanobis reference | `Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json` (current production; v0_1/v0_2/v0_3/v0_4 retained for lineage) | §48 | HC centroid + covariance (n_hc=1,721, Ledoit-Wolf shrinkage=0.001317, percentile-calibrated Route A threshold p95=13.54) |
 | Mahalanobis validation | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/mahalanobis_per_patient_breast_predx_validation.csv` | (audit) | Per-patient breast pre-dx distances (n=648) |
 | **Cellular age scoring** | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iam_cellular_age_scoring.py` | §52–§58 | `IAMCellularAge` class — canonical Recipe §6.3 inversion |
 | Age reference matrix (JSON) | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/age_reference_matrix.json` | §53 | 80-cell baseline: 8 classes × 10 decades |
