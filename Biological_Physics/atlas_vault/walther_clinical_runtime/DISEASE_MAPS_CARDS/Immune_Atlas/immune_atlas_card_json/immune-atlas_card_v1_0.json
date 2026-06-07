@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "card_id": "immune-atlas",
   "card_version": "v1.0",
-  "card_date": "2026-06-06 (v1.0 SKELETON + CPG-VAL-020 SEALED + Mahalanobis hull v0_2 Phase 1 expansion)",
+  "card_date": "2026-06-06 (v1.0 SKELETON + CPG-VAL-020 SEALED + Mahalanobis hull v0_3 Phases 1+2 complete)",
   "card_type": "universal_baseline_card",
   "display_name": "Immune Atlas (Universal Baseline)",
   "architectural_class": "immune",
@@ -368,33 +368,39 @@
   "stage_5_mahalanobis": {
     "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
     "class": "MahalanobisHealthyHull",
-    "reference_artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_2.json",
+    "reference_artifact": "Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json",
     "feature_space": "115_celltype_A_scores",
     "n_features_valid": 112,
     "n_features_dropped": 3,
-    "n_hc_samples_pooled": 1257,
+    "n_hc_samples_pooled": 1721,
     "hc_cohort_sources": [
-      "GSE51057 EPIC-Italy women HC n=177 (HM450, 40-65)",
-      "GSE51032 EPIC-Italy women HC n=424 (HM450, 40-65)",
-      "GSE40279 Hannum 2013 US whole blood HC n=656 (HM450, 19-101, mixed sex)"
+      "GSE51057 EPIC-Italy women HC n=177 (HM450, ages 40-65)",
+      "GSE51032 EPIC-Italy women HC n=424 (HM450, ages 40-65)",
+      "GSE40279 Hannum 2013 US whole blood HC n=656 (HM450, 19-101, mixed sex)",
+      "GSE50660 Tsaprouni 2014 UK whole blood HC n=464 (HM450, 40-65, mixed sex, smoking-stratified)"
     ],
     "covariance_method": "Ledoit-Wolf shrinkage estimator",
-    "ledoit_wolf_shrinkage": 0.002868,
+    "ledoit_wolf_shrinkage": 0.001317,
     "input": "115-cell A-score dict from Stage 4 score_per_celltype()",
     "method_signature": ".score(celltype_ascores: Dict[str, float]) → {mahalanobis_distance, n_features_used, n_features_imputed, status, top10_axis_contributions, reference_anchor}",
     "missing_feature_handling": "Mean-impute from HC centroid; flag PARTIAL_DATA when n_missing > 5",
-    "card_specific_route_A_threshold": "Mahalanobis d >= 12.68 (p95 of pooled n=1,257 HC distance distribution under v0_2 hull). Replaces v0_1's mis-calibrated 'd >= 2.0' which fired on ALL samples in 112-dim space. Strict threshold: d >= 17.36 (p99 of pooled HC). Calibration data in v0_2 artifact under route_A_calibration_v0_2.",
+    "card_specific_route_A_threshold": "Mahalanobis d >= 13.54 (p95 of pooled n=1,721 HC distance distribution under v0_3 hull). Replaces v0_1 fixed 'd >= 2.0' which was inappropriate for 112-dim data. Strict threshold: d >= 18.71 (p99). Calibration data in v0_3 artifact under route_A_calibration_v0_3.",
     "customer_facing_output": "Mahalanobis distance + CI surfaced as 'Your overall departure from healthy baseline is X SDs (range L–U).'",
     "engine_internal_output": "Top-10 axis contributions (which cell types drive the departure) → fed to disease-matrix Stage 8 consultation",
     "validation_anchor": "v0_2 preserves case-vs-HC architectural discrimination after hull expansion. Breast pre-dx Cohen's d (v0_1 vs v0_2): GSE51057 +1.87 → +0.98, GSE51032 +2.09 → +1.65. Reduction reflects honest broadening of the HC reference; absolute discrimination still useful (50% case detection at 7.3% FPR for GSE51032).",
     "reference_artifact_v0_1_superseded": "mahalanobis_healthy_reference_v0_1.json (n=601 foundation-only)",
     "ledoit_wolf_shrinkage_v0_1_note": "Was 0.008751 in v0_1; lower in v0_2 because larger sample size reduces shrinkage need",
     "route_A_threshold_calibration": {
-      "p95_default": 12.68,
-      "p99_strict": 17.36,
+      "p95_default": 13.54,
+      "p99_strict": 18.71,
       "n_features": 112,
       "expected_chi_sq_p95_for_112_features": 11.73,
-      "observed_vs_expected_note": "Empirical p95 (12.68) slightly exceeds chi-square theoretical (11.73) due to real-data covariance structure; well-behaved"
+      "observed_vs_expected_note": "Empirical p95 (13.54) slightly exceeds chi-square theoretical (11.73); well-behaved",
+      "lineage_p95_v0_1_v0_2_v0_3": [
+        "n/a (fixed 2.0, invalid)",
+        12.68,
+        13.54
+      ]
     },
     "expansion_phase_1_validation": {
       "Hannum_HC_false_positive_rate_at_p95": "2.9% (19/656)",
@@ -403,6 +409,54 @@
       "GSE51057_breast_pre_dx_cases_detection_at_p95": "9.1% (1/11) — small n",
       "v0_1_Hannum_route_A_fire_rate": "100% (656/656) — invalid baseline",
       "v0_2_Hannum_route_A_fire_rate": "2.9% (19/656) — properly calibrated"
+    },
+    "reference_artifact_versions_lineage": [
+      "v0_1: n=601, foundation-only EPIC-Italy women 40-65 (initial build)",
+      "v0_2: n=1,257, +Hannum GSE40279 US n=656 (Phase 1: full age span 19-101 + mixed sex + US population)",
+      "v0_3: n=1,721, +Tsaprouni GSE50660 UK n=464 (Phase 2: +UK population + smoking-stratified covariate)"
+    ],
+    "ledoit_wolf_shrinkage_lineage": {
+      "v0_1": 0.008751,
+      "v0_2": 0.002868,
+      "v0_3": 0.001317
+    },
+    "expansion_phase_validation_lineage": {
+      "GSE51057_breast_pre_dx_cohens_d_v0_1_v0_2_v0_3": [
+        1.871,
+        0.981,
+        0.896
+      ],
+      "GSE51032_breast_pre_dx_cohens_d_v0_1_v0_2_v0_3": [
+        2.088,
+        1.653,
+        1.611
+      ],
+      "GSE51057_case_detection_pct_at_p95": [
+        null,
+        9.1,
+        27.3
+      ],
+      "GSE51032_case_detection_pct_at_p95": [
+        null,
+        50.0,
+        55.6
+      ],
+      "Hannum_HC_FPR_at_p95": [
+        "100% (invalid)",
+        "2.9%",
+        "in-hull self-test"
+      ],
+      "Tsaprouni_HC_FPR_at_p95": [
+        "n/a",
+        "n/a",
+        "in-hull self-test"
+      ]
+    },
+    "per_cohort_self_distance_medians_v0_3": {
+      "GSE51057": 10.71,
+      "GSE51032": 11.21,
+      "GSE40279_Hannum": 9.46,
+      "GSE50660_Tsaprouni": 7.37
     }
   },
   "stage_6_cellular_age": {
@@ -751,9 +805,11 @@
     "FLAG_BIDIRECTIONAL ratio threshold (0.30) is provisional; calibration against the cancer-positive vs AD-negative discrimination at CPG-VAL-019 may shift the threshold."
   ],
   "outstanding_work_v1_0": [
-    "(COMPLETED 2026-06-06) Phase 1 Mahalanobis HC hull expansion: v0_1 (n=601 foundation-only) → v0_2 (n=1,257 +Hannum). Hannum FPR 100%→2.9% at percentile-calibrated threshold.",
-    "Phase 2 Mahalanobis hull expansion: Add GSE50660 Tsaprouni n=464 (requires canonical 115-cell A-scoring re-run, currently only ad-hoc-marker version exists in retired off-scope)",
-    "Phase 3 Mahalanobis hull expansion: Add EPIC platform HC cohort (cross-platform transferability)",
+    "(COMPLETED 2026-06-06) Phase 1 Mahalanobis HC hull expansion: v0_1 (n=601) → v0_2 (n=1,257) +Hannum",
+    "(COMPLETED 2026-06-06) Phase 2 Mahalanobis HC hull expansion: v0_2 (n=1,257) → v0_3 (n=1,721) +Tsaprouni GSE50660; Route A p95 threshold = 13.54",
+    "Phase 3 Mahalanobis HC hull expansion: Add EPIC platform HC cohort for cross-platform transferability (candidates: AIBL HC n=471 if full β acquirable; AddNeuroMed HC; GIFT HC)",
+    "Phase 4 Mahalanobis HC hull expansion: Add Asian-population HC cohort (currently a gap)",
+    "Phase 5+ Mahalanobis HC hull expansion: Routine maintenance — add new HC cohorts as research surfaces them; each version frozen as production artifact",
     "Build smoking_axis_foreground.py for Stage 3 β-level subtraction (v1.1)",
     "Build sex_axis_foreground.py for Stage 3 β-level subtraction (v1.1)",
     "Build immune_atlas_residual_map_chr_annotated.csv during VAL sealing",
