@@ -725,13 +725,10 @@
     "CPG-VAL-021": {
       "status": "DEFERRED",
       "deferred_date": "2026-06-07",
-      "title": "Weight-loss inflammaging (Dr. Escobedo angle) — NOT EXECUTED",
-      "reason": "Memorized cohort spec (GSE61450 n=18 pre/post) was incorrect. GSE61450 is actually 71 cross-sectional severely obese adipose samples with NO pre/post structure. Proper longitudinal bariatric cohort (e.g., GSE73103 at 1.14 GB) requires acquisition + canonical scoring sprint that exceeds current disk + time constraints.",
-      "options_pending_heath_decision": [
-        "Option A: Acquire GSE73103 (1.14 GB) for proper pre/post test (~half day + disk cleanup)",
-        "Option B: Use GSE61450 cross-sectional for BMI-vs-A_immune (scope change, related question)",
-        "Option C: Drop from v1.0, frame as future target study for Dr. Escobedo meeting"
-      ],
+      "title": "Weight-loss inflammaging — DEFERRED (suitable public cohort not yet identified)",
+      "reason": "Two candidate cohorts inspected (GSE61450, GSE73103) — both cross-sectional, not longitudinal bariatric pre/post. Suitable cohort acquisition queued post-June-11.",
+      "framing_correction_2026_06_07": "VAL-021 will be executed on PUBLIC longitudinal-bariatric methylation data ONLY. Patient enrollment is NOT in scope. The Escobedo meeting framing is show-don't-ask: present framework validated on existing public data and let clinical conversation emerge from her interest.",
+      "recommendation": "Drop from v1.0; card stands at 6 sealed VALs for June 11 release",
       "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_021_Weight_Loss_DEFERRED/"
     }
   },
