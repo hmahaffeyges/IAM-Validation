@@ -602,7 +602,7 @@
       "what": "Aging trajectory — immune cellular age + immune A-score vs chronological age",
       "cohort": "GSE40279 Hannum n=656 healthy whole blood ages 19–101",
       "anchor": "Pre-build VAL-006 sealed r=0.9999 on Hannum (anchor for reproduction)",
-      "status": "PENDING — runs in CPG-VAL-015 buildout",
+      "status": "SEALED",
       "deliverables": [
         "PREREG.md",
         "CPG_VAL_015_OUTCOME.md",
@@ -610,7 +610,17 @@
         "GSE40279_115celltype_ascores.csv",
         "CPG_VAL_015_null_results.json",
         "cohort_manifest.json"
-      ]
+      ],
+      "sealed_date": "2026-06-07",
+      "outcome": "PASS",
+      "headline_findings": [
+        "A_immune vs chronological age: r=-0.197, p=3.69e-07 (Hannum n=656, cross-cohort by construction)",
+        "Survived sex stratification (F: r=-0.199 p=2e-4; M: r=-0.210 p=2e-4)",
+        "Survived 50/50 CV (|Δr|=0.043, under 0.05 threshold)",
+        "Decade-median monotonicity: Spearman ρ=-0.854 (p=0.002)",
+        "Class-specific: immune + stem_pluri dominate; cycling/stromal/secretory essentially flat"
+      ],
+      "deliverable_path": "Biological_Physics/validation_runs/CPG_VAL_015_Immune_Aging_Trajectory/"
     },
     "CPG-VAL-016": {
       "what": "Cross-disease universal alarm — immune-class A-score departures in breast pre-dx, AD-at-dx, Crohn's active",
