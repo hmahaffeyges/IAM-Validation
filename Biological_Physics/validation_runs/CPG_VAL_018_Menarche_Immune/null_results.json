@@ -1,0 +1,9 @@
+{
+  "null_type": "shuffle_menarche_age_within_cohort",
+  "n_perms": 1000,
+  "rng_seed": 42,
+  "observed_pooled_partial_r": 0.01003,
+  "null_mean": 0.00172,
+  "null_std": 0.0466,
+  "p_two_sided_abs": 0.823
+}
