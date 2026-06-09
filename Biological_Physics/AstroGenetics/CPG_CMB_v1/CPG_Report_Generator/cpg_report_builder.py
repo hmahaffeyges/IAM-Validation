@@ -136,17 +136,16 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     max_tier_label = (s7["class_tiers"].get(max_tier, {}) or {}).get("label", max_tier) if max_tier else "—"
     n_breach = s7.get("n_cells_breach", 0)
     chrono = meta.get("age")
-    age_med = getattr(s6, "age_median", None)
     maha = s5.get("mahalanobis_distance"); maha_status = s5.get("status")
     exec_bits = []
     exec_bits.append(f"Overall architectural state reads <b>{_esc((max_tier_label or '').replace(chr(10),' '))}</b> "
                      f"(highest-tier architectural class).")
     exec_bits.append(f"<b>{n_breach}</b> of 115 cell types crossed the breach line (A &ge; {s7.get('breach_line',1.10)}).")
-    if age_med is not None and chrono is not None:
-        delta = age_med - chrono
-        dirn = "older than" if delta > 1 else ("younger than" if delta < -1 else "consistent with")
-        exec_bits.append(f"Median cellular age <b>{age_med:.0f}</b> vs chronological <b>{chrono:.0f}</b> "
-                         f"({dirn} chronological age).")
+    total_dep = getattr(s6, "total_cellular_departure", None)
+    excess_dep = getattr(s6, "excess_departure", None)
+    if total_dep is not None and excess_dep is not None:
+        exec_bits.append(f"Total cellular departure (per-cell, confidence-weighted) <b>{total_dep:.0f}</b> "
+                         f"units — <b>{excess_dep:+.0f}</b> vs the typical-for-population reference.")
     if maha is not None:
         exec_bits.append(f"Universal architectural departure (Mahalanobis) = <b>{maha:.1f}</b> ({_esc(maha_status)}).")
 
@@ -203,6 +202,32 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         P(f'<p class="muted">Stage 2 status: {_esc(s2.get("status","—"))}. '
           f'Class-level fractions are the production answer (Walther NNLS); NILC v2 runs in parallel as the '
           f'independent cross-method check (Planck Commander/NILC discipline).</p>')
+    # B.2 — detailed per-cell, every detected cell, with its age/sex/smoking-adjusted normal range
+    pc = getattr(s6, "per_cell", {}) or {}
+    if pc:
+        P('<h3>B.2 Detailed per-cell — every cell against its healthy range</h3>')
+        P('<p class="muted">Normal range is the cell\'s healthy reference mean ± 1.96·SD, taken directly '
+          'from the IAMAtlas MCMC posterior (95% CI). The A-score is age/sex/smoking-adjusted (Stage 3 '
+          'foregrounds removed up front). "Remarkable" = the cell\'s A-score falls outside its 95% range.</p>')
+        ctf = (s2 or {}).get("celltype_fractions") if isinstance(s2, dict) else None
+        by_cls_cells = {}
+        for cell, d in pc.items():
+            by_cls_cells.setdefault(d.get("class", "?"), []).append((cell, d))
+        for cls in ARCH_CLASSES:
+            rows = sorted(by_cls_cells.get(cls, []), key=lambda kv: -kv[1]["abs_z"])
+            if not rows:
+                continue
+            P(f'<h4 style="margin:14px 0 4px;color:#3a4656">{_esc(CLASS_PRETTY.get(cls,cls))} '
+              f'<span class="muted">({len(rows)} cells)</span></h4>')
+            P('<table class="kv"><tr><th>Cell type</th><th style="text-align:right">A-score</th>'
+              '<th>Normal range (95% CI)</th><th style="text-align:right">z</th><th>Remarkable</th></tr>')
+            for cell, d in rows:
+                rem = ('<span style="color:#b03020;font-weight:600">outside range</span>'
+                       if not d["in_range"] else '<span style="color:#3f9b54">within range</span>')
+                P(f'<tr><td>{_esc(cell)}</td><td style="text-align:right">{d["A"]:.3f}</td>'
+                  f'<td>[{d["ci_lo"]:.3f}, {d["ci_hi"]:.3f}]</td>'
+                  f'<td style="text-align:right">{d["z"]:+.2f}</td><td>{rem}</td></tr>')
+            P('</table>')
     P('</section>')
 
     # ---- C. architectural state ----
@@ -211,31 +236,77 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     P(f'<div class="fig">{_img(figs.get("A1_reference_gauge"), "A-score reference gauge")}</div>')
     P('<h3>C.2 Top 15 cells by magnitude of departure</h3>')
     P(f'<div class="fig">{_img(figs.get("A2_cellular_departure_ranking"), "Top-15 cellular departure ranking")}</div>')
-    # the same data as a table
-    ranked = sorted([(n, v) for n, v in ct.items() if isinstance(v, dict) and v.get("A") is not None],
-                    key=lambda kv: abs(kv[1]["A"] - 1.0), reverse=True)[:15]
-    P('<table class="kv"><tr><th>#</th><th>Cell type</th><th>Class</th><th>A-score</th><th>Δ from 1.00</th></tr>')
-    for i, (n, v) in enumerate(ranked, 1):
-        P(f'<tr><td>{i}</td><td>{_esc(n)}</td><td>{_esc(v.get("class",""))}</td>'
-          f'<td>{v["A"]:.3f}</td><td>{v["A"]-1.0:+.3f}</td></tr>')
-    P('</table></section>')
+    P('<p class="muted">Ranked by confidence-weighted departure |z| = |A − healthy mean| / posterior SD — '
+      'the same per-cell quantity that drives the cellular-age total (D) and the Mahalanobis distance (E). '
+      'Stable cells (tight posterior) surface on real shifts; noisy cells do not dominate.</p>')
+    pcr = getattr(s6, "per_cell", {}) or {}
+    if pcr:
+        ranked = sorted(pcr.items(), key=lambda kv: kv[1]["abs_z"], reverse=True)[:15]
+        P('<table class="kv"><tr><th>#</th><th>Cell type</th><th>Class</th>'
+          '<th style="text-align:right">A-score</th><th>Normal range</th>'
+          '<th style="text-align:right">z</th><th>Remarkable</th></tr>')
+        for i, (n, d) in enumerate(ranked, 1):
+            rem = "outside" if not d["in_range"] else "within"
+            P(f'<tr><td>{i}</td><td>{_esc(n)}</td><td>{_esc(d.get("class",""))}</td>'
+              f'<td style="text-align:right">{d["A"]:.3f}</td>'
+              f'<td>[{d["ci_lo"]:.3f}, {d["ci_hi"]:.3f}]</td>'
+              f'<td style="text-align:right">{d["z"]:+.2f}</td><td>{rem}</td></tr>')
+        P('</table>')
+    else:
+        ranked = sorted([(n, v) for n, v in ct.items() if isinstance(v, dict) and v.get("A") is not None],
+                        key=lambda kv: abs(kv[1]["A"] - 1.0), reverse=True)[:15]
+        P('<table class="kv"><tr><th>#</th><th>Cell type</th><th>Class</th><th>A-score</th><th>Δ from 1.00</th></tr>')
+        for i, (n, v) in enumerate(ranked, 1):
+            P(f'<tr><td>{i}</td><td>{_esc(n)}</td><td>{_esc(v.get("class",""))}</td>'
+              f'<td>{v["A"]:.3f}</td><td>{v["A"]-1.0:+.3f}</td></tr>')
+        P('</table>')
+    P('</section>')
 
-    # ---- D. cellular age ----
-    P('<section><h2>D · Cellular aging — departure from age-adjusted normal</h2>')
-    cap = getattr(s6, "cellular_age_per_class", {}) or {}
-    P(f'<p>Median cellular age <b>{_esc(getattr(s6,"age_median","—"))}</b> '
-      f'(chronological {_esc(getattr(s6,"chronological_age","—"))}); '
-      f'spread {_esc(getattr(s6,"age_spread","—"))}.</p>')
-    accel = getattr(s6, "compartments_accelerated", []) or []
-    decel = getattr(s6, "compartments_decelerated", []) or []
-    if accel:
-        P(f'<p><b>Accelerated compartments:</b> {_esc(", ".join(map(str, accel)))}</p>')
-    if decel:
-        P(f'<p><b>Decelerated compartments:</b> {_esc(", ".join(map(str, decel)))}</p>')
-    if cap:
-        P('<table class="kv"><tr><th>Class</th><th>Cellular age</th></tr>')
-        for cls, age in cap.items():
-            P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td><td>{age:.1f}</td></tr>')
+    # ---- D. cellular aging (per-cell confidence-weighted absolute departure) ----
+    P('<section><h2>D · Cellular aging — total departure from age-adjusted normal</h2>')
+    P('<h3>D.1 Methodology</h3>')
+    P('<p class="muted">Cellular age is the <b>confidence-weighted absolute sum of per-cell departures</b> '
+      'from age-adjusted normal across all measured cells: total = Σ |A_patient(cell) − mean(cell)| / SD(cell), '
+      'where mean and SD are the cell\'s MCMC posterior. Stable cells (tight SD) dominate; absolute values '
+      'avoid the bidirectional cancellation that makes class means useless. No class averaging is used.</p>')
+    chrono = getattr(s6, "chronological_age", None)
+    total = getattr(s6, "total_cellular_departure", None)
+    nullx = getattr(s6, "null_expected_departure", None)
+    excess = getattr(s6, "excess_departure", None)
+    nsc = getattr(s6, "n_cells_scored", None)
+    cal = getattr(s6, "calibration", {}) or {}
+    P('<h3>D.2 Your total cellular departure</h3>')
+    P('<table class="kv"><tr><th>Measure</th><th style="text-align:right">Value</th></tr>')
+    P(f'<tr><td>Chronological age</td><td style="text-align:right">{_esc(chrono if chrono is not None else "—")}</td></tr>')
+    if total is not None:
+        P(f'<tr><td><b>Total cellular departure (Σ|z|, {nsc} cells)</b></td>'
+          f'<td style="text-align:right"><b>{total:.1f}</b> confidence-weighted units</td></tr>')
+        P(f'<tr><td>Typical-for-population reference (Σ|z| under the standardized null)</td>'
+          f'<td style="text-align:right">{nullx:.1f}</td></tr>')
+        P(f'<tr><td><b>Excess departure above typical</b></td>'
+          f'<td style="text-align:right"><b>{excess:+.1f}</b></td></tr>')
+    P(f'<tr><td>Cellular age (years)</td><td style="text-align:right">{_esc(getattr(s6,"cellular_age",None) or "pending calibration")}</td></tr>')
+    P('</table>')
+    if cal.get("years_mapping_status") == "PENDING_HC_FIT":
+        P('<p class="muted">The total and per-cell departures are fully derived from the posterior. '
+          'Converting excess departure to a cellular-age-in-<i>years</i> delta requires the one-time '
+          'healthy-cohort calibration (Σ|z| vs chronological age, then inverted); that fit needs per-sample '
+          'per-cell HC A-scores not stored in the repo. Until it is run, the report shows the real departure '
+          'magnitude and does not assert a fabricated years figure.</p>')
+    # D.3 per-class contributions — reference only
+    pcd = getattr(s6, "per_class_departure", {}) or {}
+    if pcd:
+        P('<h3>D.3 Per-class contribution to the departure total — reference only</h3>')
+        P('<p class="muted">Which classes the per-cell departures aggregate into (e.g. the immune share '
+          'is the inflammaging contribution). This is a <i>readout</i> of the per-cell sum, not a per-class '
+          'calculation — the math is always per cell.</p>')
+        P('<table class="kv"><tr><th>Class</th><th style="text-align:right">Σ|z| contribution</th>'
+          '<th style="text-align:right">% of total</th></tr>')
+        tot = total or sum(pcd.values()) or 1.0
+        for cls, v in sorted(pcd.items(), key=lambda x: -x[1]):
+            P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td>'
+              f'<td style="text-align:right">{v:.1f}</td>'
+              f'<td style="text-align:right">{100*v/tot:.0f}%</td></tr>')
         P('</table>')
     P('</section>')
 
