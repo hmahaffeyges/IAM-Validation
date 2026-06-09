@@ -263,20 +263,45 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         P('</table>')
     P('</section>')
 
-    # ---- D. cellular aging (per-cell confidence-weighted absolute departure) ----
-    P('<section><h2>D · Cellular aging — total departure from age-adjusted normal</h2>')
-    P('<h3>D.1 Methodology</h3>')
-    P('<p class="muted">Cellular age is the <b>confidence-weighted absolute sum of per-cell departures</b> '
-      'from age-adjusted normal across all measured cells: total = Σ |A_patient(cell) − mean(cell)| / SD(cell), '
+    # ---- D. cellular departure (per-cell confidence-weighted absolute departure) ----
+    P('<section><h2>D · Cellular departure &mdash; and why this report gives no single &ldquo;cellular age&rdquo;</h2>')
+    # D.1 — why we do not report a cellular-age-in-years number (2026-06-09 age-stability finding).
+    P('<h3>D.1 Why there is no &ldquo;cellular age&rdquo; here</h3>')
+    P('<p>You will not find a single number telling you that you are &ldquo;biologically 62 instead of 60.&rdquo; '
+      'That number is popular, and it is a gimmick. Here is why, in plain terms.</p>')
+    P('<p>A cell&rsquo;s methylation pattern has a physically defined floor &mdash; the most ordered, highest-fidelity '
+      'state it can hold &mdash; set by the class-specific fidelity-to-noise ratio (H<sub>min</sub>). Healthy aging is a '
+      'slow, gentle drift <i>toward</i> that floor: the cell loses a little of its ability to hold its full working '
+      'pattern. Across the whole adult lifespan this drift is tiny &mdash; about one-seventh of the normal cell-to-cell '
+      'variation. A healthy 30-year-old and a healthy 90-year-old sit, for practical purposes, in the same normal range. '
+      'Age by itself barely moves the needle &mdash; so we measure each cell&rsquo;s departure from its healthy '
+      'reference directly, with no age adjustment needed and none applied.</p>')
+    P('<p>What <i>does</i> move the needle is real departure, and it has a <b>direction</b>. Proliferative disease '
+      '(cancer, pre-cancer) pushes cells <i>up and outward</i>, away from the floor toward disorder. Degenerative '
+      'disease (Alzheimer&rsquo;s, the tauopathies) pulls cells <i>down toward the floor</i> &mdash; the same direction '
+      'as aging, but far stronger and concentrated in specific cell types. A single &ldquo;cellular age&rdquo; number is '
+      'blind to this: it collapses an up-axis and a down-axis onto one scale, where they blur together or cancel out, so '
+      'an early cancer signal can read as &ldquo;younger,&rdquo; and an Alzheimer&rsquo;s signal is indistinguishable '
+      'from ordinary aging. It also throws away the one thing you can act on: <i>where</i> the departure is.</p>')
+    P('<p>So we do something only the underlying physics makes possible. We measure each cell&rsquo;s departure from its '
+      'healthy expectation, keeping the sign &mdash; upward departures flag proliferative risk, downward departures flag '
+      'degenerative or inflammatory loss &mdash; and we name the <b>pattern</b> and the <b>location</b>. Epigenetic age '
+      'clocks are legitimate population-level risk summaries, useful for actuarial and research purposes. But as a tool '
+      'for <i>you</i>, a single averaged age is a blunt, direction-blind instrument. The cellular-age number is the '
+      'headline; your per-cell departure map is the diagnosis.</p>')
+    P('<h3>D.2 Methodology</h3>')
+    P('<p class="muted">The departure measure is the <b>confidence-weighted absolute sum of per-cell departures</b> '
+      'from healthy normal across all measured cells: total = &Sigma; |A_patient(cell) &minus; mean(cell)| / SD(cell), '
       'where mean and SD are the cell\'s MCMC posterior. Stable cells (tight SD) dominate; absolute values '
-      'avoid the bidirectional cancellation that makes class means useless. No class averaging is used.</p>')
+      'avoid the bidirectional cancellation that makes class means useless. No class averaging is used, and '
+      'no age curve is applied &mdash; the per-cell measure is age-stable by construction.</p>')
     chrono = getattr(s6, "chronological_age", None)
     total = getattr(s6, "total_cellular_departure", None)
     nullx = getattr(s6, "null_expected_departure", None)
     excess = getattr(s6, "excess_departure", None)
     nsc = getattr(s6, "n_cells_scored", None)
     cal = getattr(s6, "calibration", {}) or {}
-    P('<h3>D.2 Your total cellular departure</h3>')
+    P('<h3>D.3 Your total cellular departure</h3>')
     cal = getattr(s6, "calibration", {}) or {}
     hc_med = cal.get("hc_median"); hc_p95 = cal.get("hc_p95")
     dep_pct = cal.get("departure_percentile_in_healthy")
@@ -305,7 +330,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     # D.3 per-class contributions — reference only
     pcd = getattr(s6, "per_class_departure", {}) or {}
     if pcd:
-        P('<h3>D.3 Per-class contribution to the departure total — reference only</h3>')
+        P('<h3>D.4 Per-class contribution to the departure total — reference only</h3>')
         P('<p class="muted">Which classes the per-cell departures aggregate into (e.g. the immune share '
           'is the inflammaging contribution). This is a <i>readout</i> of the per-cell sum, not a per-class '
           'calculation — the math is always per cell.</p>')

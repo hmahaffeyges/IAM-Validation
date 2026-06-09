@@ -59,17 +59,15 @@ _THIS_DIR = Path(__file__).resolve().parent
 CPG_ROOT = _THIS_DIR.parent  # .../AstroGenetics/CPG_CMB_v1
 
 DEFAULT_CONFIG = {
-    # Foreground modules (Stage 3)
-    "age_module_path":   CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/Age Axis Foreground/age_axis_foreground.py",
+    # Foreground modules (Stage 3) — age removed 2026-06-09 (per-cell A is age-stable); sex + smoking retained
     "smoking_module_path": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Smoking Axis Foreground/smoking_axis_foreground.py",
     "sex_module_path":   CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Sex Axis Foreground/sex_axis_foreground.py",
-    # Frozen per-CpG layers (Stage 3)
-    "age_layer_csv":     CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/Age Axis Foreground/IAMAtlas_age_layer.csv",
+    # Frozen per-CpG layers (Stage 3) — sex + smoking only
     "smoking_layer_csv": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Smoking Axis Foreground/IAMAtlas_smoking_layer.csv",
     "sex_layer_csv":     CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Sex Axis Foreground/IAMAtlas_sex_layer.csv",
-    # Cellular age (Stage 6)
-    "cellular_age_module_path": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/Age Axis Foreground/iam_cellular_age_scoring.py",
-    "age_reference_matrix_json": CPG_ROOT / "Runtime Matrices/Age_Reference_Matrix 80_cells/age_reference_matrix.json",
+    # Cell-type markers (Stage 4). NOTE: the per-class cellular-age scorer (iam_cellular_age_scoring.py)
+    # and age_reference_matrix were removed 2026-06-09 — the per-cell departure (Stage 6) is age-robust
+    # and consumes neither. Their files remain on disk (preserved) but are no longer in the runtime path.
     "celltype_markers_json": CPG_ROOT / "Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
     # Stage 4 — A-score
     "a_scoring_module_path": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py",
@@ -131,7 +129,7 @@ def _load_module(path, name):
 @dataclass
 class Stage3Output:
     beta_raw: pd.Series        # untouched calibrated beta  -> Stage 6 ONLY
-    cleaned_beta: pd.Series    # age (+ smoking + sex) removed -> Stage 4/4.5/4.6/5/8
+    cleaned_beta: pd.Series    # smoking + sex removed -> Stage 4/4.5/4.6/5/8 (age NOT removed; age-stable)
     foregrounds_applied: list = field(default_factory=list)
     notes: list = field(default_factory=list)
 
@@ -145,7 +143,7 @@ def stage_3_foreground_fork(beta_calibrated: pd.Series,
 
     Args:
         beta_calibrated : pd.Series of calibrated beta indexed by cpg_id (Stage 1 output).
-        patient_age     : chronological age in years (None -> no age subtraction).
+        patient_age     : chronological age in years (recorded in metadata; NOT subtracted -- per-cell A is age-stable).
         patient_sex     : 'M'/'F'/'male'/'female' etc (None or no layer -> skip sex).
         patient_smoking_bin : never / former_15plus_y / former_5_15y / former_0_5y /
                               current (None or no layer -> skip smoking).
@@ -161,14 +159,15 @@ def stage_3_foreground_fork(beta_calibrated: pd.Series,
 
     applied, notes = [], []
 
-    # --- Age (always, per v1.2 default; the architecturally required L4 axis) ---
-    age_mod = _load_module(cfg["age_module_path"], "age_axis_foreground")
-    afg = age_mod.AgeAxisForeground()
-    afg.load_layer(str(cfg["age_layer_csv"]))
-    cleaned_beta = afg.subtract_from_single_patient(beta_raw, patient_age)
-    applied.append("age")
-    if patient_age is None:
-        notes.append("patient_age is None -> age component not subtracted (cleaned_beta == beta_raw for age axis)")
+    # --- Age: NOT subtracted (removed 2026-06-09). Empirically the per-cell A-score is
+    #     age-stable across adulthood (age effect ~14% of normal per-cell SD; 89/112 cells
+    #     drift gently toward the floor with age, negligibly). Applying an age curve to the
+    #     per-cell baseline mis-calibrated the elderly (-0.99 mean z at 80+). Per-cell
+    #     departure is therefore age-robust by construction and no age axis is removed.
+    #     Sex and smoking ARE real methylation confounders and remain below. ---
+    cleaned_beta = beta_raw.copy()
+    notes.append("age foreground NOT applied (removed 2026-06-09): per-cell A-score is age-stable; "
+                 "per-cell departure is age-robust without subtraction")
 
     # --- Smoking (if layer present and enabled) ---
     smk_csv = Path(cfg["smoking_layer_csv"])
