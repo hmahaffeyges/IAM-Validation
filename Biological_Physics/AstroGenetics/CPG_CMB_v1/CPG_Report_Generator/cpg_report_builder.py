@@ -50,6 +50,29 @@ def _img(path, alt="", style="max-width:100%;height:auto;"):
     return f'<img src="{_b64(path)}" alt="{html.escape(alt)}" style="{style}">'
 
 
+def _img_scaled(path, alt="", max_px=1500, style="max-width:100%;height:auto;"):
+    """Embed an image, downsampling large sources (the multi-MB reference plates) so the
+    single-file report stays a sane size. Falls back to a raw embed if Pillow is absent."""
+    if path is None or not Path(path).exists():
+        return f'<div class="missing">[figure not available: {html.escape(alt)}]</div>'
+    try:
+        from PIL import Image
+        import io, base64 as _b64mod
+        im = Image.open(path)
+        if im.mode in ("RGBA", "P", "LA"):
+            im = im.convert("RGB")
+        w, h = im.size
+        if max(w, h) > max_px:
+            s = max_px / float(max(w, h))
+            im = im.resize((max(1, int(w * s)), max(1, int(h * s))), Image.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, format="JPEG", quality=88, optimize=True)
+        enc = _b64mod.b64encode(buf.getvalue()).decode("ascii")
+        return f'<img src="data:image/jpeg;base64,{enc}" alt="{html.escape(alt)}" style="{style}">'
+    except Exception:
+        return _img(path, alt, style)
+
+
 def _esc(x):
     return html.escape(str(x))
 
@@ -127,6 +150,20 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     figs = bundle.get("figures", {}) or {}
     bril = figs.get("brilliance_maps", {}) or {}
     atlas_plate_paths = atlas_plate_paths or {}
+    # Resolve the four reference plates if not explicitly supplied. Defaults to the atlas_vault
+    # plates tree (present in the research environment, read-only); a shipped report can pass
+    # atlas_plate_paths={...} or config["plates_dir"] instead.
+    if not atlas_plate_paths:
+        _cfg = config or {}
+        _pdir = Path(_cfg.get("plates_dir") or
+                     (Path(__file__).resolve().parents[3] / "atlas_vault/IAMAtlas_v0_1/plates"))
+        _plate_files = {
+            "plate1": "CPG_Plate_01_Cosmic_Microwave_Methylome.png",
+            "plate2": "CPG_Plate_02_Breast_Anisotropy.png",
+            "plate3": "CPG_Plate_03_Grandaddy_CMM_vs_CMB.png",
+            "plate4": "CPG_Plate_04_Patterns_Discovered.png",
+        }
+        atlas_plate_paths = {k: str(_pdir / v) for k, v in _plate_files.items() if (_pdir / v).exists()}
 
     parts = []
     P = parts.append
@@ -361,21 +398,75 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     P('</section>')
 
     # ---- F. Personal Brilliance Maps ----
-    P('<section><h2>F · Personal Brilliance Map — your methylation pattern vs the Cosmic Methylome Background</h2>')
-    P('<p class="muted">Your departures projected onto the same HEALPix sphere as the reference atlas. '
-      'Eight per-class panels (one per architecture class) plus one whole-atlas map of your entire methylome '
-      'against the whole-450K reference — the same mathematics the Planck mission uses on the microwave sky.</p>')
-    if atlas_plate_paths.get("plate1"):
-        P('<h3>F.2 Reference atlas (Plate 1 — Cosmic Methylome Background)</h3>')
-        P(f'<div class="fig">{_img(atlas_plate_paths["plate1"], "Plate 1 reference")}</div>')
+    P('<section><h2>F · Personal Brilliance Map — your methylome vs the Cosmic Methylome Background</h2>')
+
+    # F.1 — what a brilliance map is (the CMB analogy)
+    P('<h3>F.1 What this is</h3>')
+    P('<p>Your 481,966 measured CpGs are ordered by genomic position (chromosome 1 through X) and projected onto a '
+      'sphere using the same equal-area projection the Planck mission uses to map the cosmic microwave background — '
+      'a HEALPix Mollweide grid of 196,608 pixels. The healthy IAMAtlas, mapped the same way, is the '
+      '<b>Cosmic Methylome Background (CMB)</b>: the smooth reference pattern a healthy methylome makes. Your map '
+      'shows where <i>your</i> pattern departs from that background — red where a region is hypermethylated beyond '
+      'healthy variance, blue where it is hypomethylated, neutral where it sits within healthy variance. '
+      'The departures are the signal: exactly as the faint anisotropies on top of the cosmic background are where '
+      'the real structure lives, the bright patches on your map are where your methylome carries real structure.</p>')
+
+    # F.2 — the four canonical reference plates
+    P('<h3>F.2 The reference plates</h3>')
+    P('<p class="muted">The four canonical references your map is read against — the visual analog of the IAMAtlas '
+      'numerical matrices, the same posteriors projected onto the celestial sphere.</p>')
+    _plates = [
+        ("plate1", "Plate 1 — Cosmic Methylome Background",
+         "Eight Mollweide panels, one per architecture class, showing the healthy per-CpG posterior mean across "
+         "481,966 CpGs. This is the healthy reference your per-class maps (F.3) are read against. The stromal "
+         "panel's sparse patch is the methylome's declared known-unknown (4.93% MCMC coverage)."),
+        ("plate3", "Plate 3 — Methylome vs CMB, side by side",
+         "The healthy methylome and a cosmic-microwave-background realization at matched projection, colormap and "
+         "pixelization. The whole idea in one image: the two fields are read with the same instrument."),
+        ("plate2", "Plate 2 — A worked anisotropy (breast pre-diagnostic)",
+         "What a real departure field looks like: 1,392 concordant breast pre-diagnostic CpGs, blue hypomethylated "
+         "vs orange hypermethylated, 5.4:1 hypomethylation dominance, with the chr6 MHC region lit up. An example "
+         "of the kind of pattern your map is screened for."),
+        ("plate4", "Plate 4 — Patterns the sphere makes visible",
+         "Six findings the spherical projection reveals — class-difference maps, chr16/chr17 cold-patch zones, "
+         "concordant signal density, the differentiation gradient, the MCMC coverage map, and the breast "
+         "anisotropy field."),
+    ]
+    for key, title, desc in _plates:
+        if atlas_plate_paths.get(key):
+            P(f'<h4>{_esc(title)}</h4>')
+            P(f'<div class="fig">{_img_scaled(atlas_plate_paths[key], title)}</div>')
+            P(f'<p class="muted">{_esc(desc)}</p>')
+
+    # F.3 — patient per-class panels
     P('<h3>F.3 Your 8 per-class Personal Brilliance Maps</h3>')
+    P('<p class="muted">Your per-CpG z-departure from the healthy posterior, one panel per architecture class, on the '
+      'same grid as Plate 1. Read each against the matching Plate 1 panel: red = hypermethylated departure, '
+      'blue = hypomethylated, neutral = within healthy variance.</p>')
     P('<div class="grid">')
     for cls in ARCH_CLASSES:
         if cls in bril:
             P(f'<div class="cell"><div class="lab">{_esc(CLASS_PRETTY.get(cls,cls))}</div>{_img(bril[cls], cls)}</div>')
     P('</div>')
-    P('<h3>F.4 The whole-atlas Personal Brilliance Map — your entire methylome vs whole-450K CMB</h3>')
-    P(f'<div class="fig">{_img(bril.get("whole_atlas"), "whole-atlas brilliance map")}</div>')
+
+    # F.4 — whole-atlas patient map NEXT TO the CMB reference, with the pattern-difference explanation
+    P('<h3>F.4 Your whole methylome vs the Cosmic Methylome Background</h3>')
+    P('<p>This is the endpoint — your entire methylome on one sphere, placed directly beside the healthy background '
+      'it is read against. <b>How to read the pair:</b> where your map (left) is smooth and neutral, your pattern '
+      'matches the healthy background (right) — there is nothing to see, and that is the goal. Where your map shows '
+      'bright red or blue clusters the background does not, those are <i>your</i> anisotropies: regions where your '
+      'methylome has departed from healthy. Those clusters are the same departures that drive your cell ranking '
+      '(C.2), your departure total (D) and your Mahalanobis distance (E) — here you can see <i>where</i> on the '
+      'methylome they sit. A healthy methylome looks like the background; a departing one grows structure.</p>')
+    _cmb_ref = atlas_plate_paths.get("plate3") or atlas_plate_paths.get("plate1")
+    P('<div class="grid">')
+    P(f'<div class="cell"><div class="lab">Your whole-atlas map</div>{_img(bril.get("whole_atlas"), "your whole-atlas brilliance map")}</div>')
+    if _cmb_ref:
+        P(f'<div class="cell"><div class="lab">Cosmic Methylome Background (healthy reference)</div>{_img_scaled(_cmb_ref, "Cosmic Methylome Background reference")}</div>')
+    P('</div>')
+    if bril.get("whole_atlas_ascii"):
+        P('<h4>F.4a Text rendering (accessibility / archival)</h4>')
+        P('<pre class="ascii">' + _esc(bril.get("whole_atlas_ascii")) + '</pre>')
     P(f'<div class="fig">{_img(figs.get("star_gauge"), "star gauge — same ruler as the cell")}</div>')
     P('</section>')
 
@@ -570,6 +661,8 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
   .cell {{ border:1px solid #e1e6ec; border-radius:6px; padding:6px; background:#0c0c0c; }}
   .cell .lab {{ color:#fff; font-size:12px; font-weight:600; padding:2px 4px; }}
   .muted {{ color:#5d6775; font-size:13px; }}
+  .ascii {{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:9px; line-height:1.05;
+            background:#0c0c0c; color:#cfd6df; padding:10px; border-radius:6px; overflow-x:auto; white-space:pre; }}
   .pending {{ background:#fff7e6; border:1px solid #f0d28a; padding:10px 12px; border-radius:6px; font-size:13px; }}
   .missing {{ color:#b03020; font-size:12px; font-style:italic; }}
 </style></head><body>
