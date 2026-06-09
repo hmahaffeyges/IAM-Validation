@@ -2,12 +2,12 @@
   "nside": 128,
   "npix": 196608,
   "n_cpgs_in_atlas": 483092,
-  "n_cpgs_annotated": 483084,
-  "n_cpgs_unannotated": 8,
+  "n_cpgs_annotated": 483092,
+  "n_cpgs_unannotated": 0,
   "sentinel_pixel_for_unannotated": 196607,
   "atlas_csv": "IAM_Atlas/IAMAtlasREBUILD.csv.xz (cpg_id column, atlas row order)",
-  "manifest_csv": "epic_hg38_normalized.csv",
+  "manifest_csv": "external_manifests/EPIC_plus_HM450_combined_manifest_normalized.csv",
   "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Methylome_Background.png",
-  "manifest_source": "Zhou lab sesame EPIC.hg38 + HM450.hg38 manifests (public), merged + normalized to IlmnID,CHR,MAPINFO",
-  "genome_build": "hg38"
+  "genome_build": "hg19 (canonical \u2014 the build the IAMAtlas was constructed against)",
+  "manifest_source": "Zhou-lab InfiniumAnnotationV1 EPIC.hg19 + HM450.hg19, merged (EPIC priority) -> EPIC_plus_HM450_combined_manifest_normalized.csv"
 }
