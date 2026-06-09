@@ -594,6 +594,63 @@ def render_patient_cosmic_methylome(
 # PERSISTENCE
 # ============================================================================
 
+def load_whole_atlas_reference(npz_path):
+    """Load the whole-450K Cosmic Methylome Background reference (single full-methylome).
+
+    Returns (mean, sd, cpg_ids) arrays in atlas row order. This is the WHOLE reference the
+    patient's whole-atlas map is compared against — distinct from the 8 per-class references.
+    """
+    import numpy as np
+    d = np.load(npz_path, allow_pickle=True)
+    return d["mean"], d["sd"], d["cpg_ids"]
+
+
+def compute_whole_atlas_departure(patient_beta, ref_mean, ref_sd, *, min_sd=1e-4):
+    """Per-CpG z-departure of the WHOLE patient methylome vs the WHOLE-450K reference.
+
+    patient_beta : np.ndarray of patient β in the SAME (atlas row) order as ref_mean/ref_sd.
+    Returns a z-score array (NaN where the reference SD is missing/degenerate).
+    """
+    import numpy as np
+    sd_eff = np.where(np.isfinite(ref_sd) & (ref_sd > min_sd), ref_sd, np.nan)
+    return (patient_beta - ref_mean) / sd_eff
+
+
+def render_whole_atlas_methylome(values, cpg_to_pixel, out_path, *, mode="departure",
+                                 nside=HEALPIX_NSIDE, title=None, patient_id=None):
+    """Render the WHOLE methylome as ONE full-sky Mollweide (all atlas CpGs on one sphere).
+
+    The whole-atlas counterpart to the 8 per-class panels: the WHOLE patient (or the WHOLE
+    reference) on a single sphere, NOT split by class and NOT a single class. This is the map
+    that pairs with the whole-450K Cosmic Methylome Background, mirroring the methylome side of
+    Plate 3 (full methylome vs the microwave CMB).
+
+    mode='departure' -> z-score map (RdBu_r, ±3); mode='beta' -> posterior mean β (PuOr_r, 0-1).
+    """
+    try:
+        import healpy as hp
+        import matplotlib.pyplot as plt
+        import numpy as np
+    except ImportError as exc:
+        raise ImportError("Whole-atlas rendering requires matplotlib + healpy.") from exc
+    npix = 12 * nside ** 2
+    sums = np.zeros(npix); cnt = np.zeros(npix); v = np.isfinite(values)
+    np.add.at(sums, cpg_to_pixel[v], values[v]); np.add.at(cnt, cpg_to_pixel[v], 1)
+    px = np.full(npix, np.nan); nz = cnt > 0; px[nz] = sums[nz] / cnt[nz]
+    if mode == "beta":
+        cmap, vmin, vmax, unit = "PuOr_r", 0.0, 1.0, "posterior mean \u03b2"
+        default_title = "Cosmic Methylome Background \u2014 whole-450K reference"
+    else:
+        cmap, vmin, vmax, unit = "RdBu_r", -3.0, 3.0, "z-score departure (red=hyper, blue=hypo)"
+        default_title = "Whole-methylome departure vs whole-450K reference" + (f" \u2014 {patient_id}" if patient_id else "")
+    fig = plt.figure(figsize=(9, 5)); fig.patch.set_facecolor("black")
+    hp.mollview(px, title=title or default_title, cmap=cmap, min=vmin, max=vmax,
+                unit=unit, fig=fig.number, badcolor="black")
+    out_path = Path(out_path); out_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out_path, dpi=120, bbox_inches="tight", facecolor="black"); plt.close(fig)
+    return out_path
+
+
 def save_brightness_report(
     report: PatientBrightnessReport,
     out_dir: Path | str,
