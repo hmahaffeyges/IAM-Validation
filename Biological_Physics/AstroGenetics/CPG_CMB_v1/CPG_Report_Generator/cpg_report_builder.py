@@ -388,12 +388,24 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
       f'({s5.get("n_features_used","?")} features used, {s5.get("n_features_imputed",0)} imputed).</p>')
     top = s5.get("top10_axis_contributions") or []
     if top:
-        P('<table class="kv"><tr><th>#</th><th>Axis (cell type)</th><th>Contribution</th></tr>')
-        for i, c in enumerate(top, 1):
-            if isinstance(c, dict):
-                nm = c.get("cell_type") or c.get("axis") or c.get("name") or list(c.values())[0]
-                val = c.get("contribution") or c.get("value") or c.get("z")
-                P(f'<tr><td>{i}</td><td>{_esc(nm)}</td><td>{_esc(round(val,3) if isinstance(val,(int,float)) else val)}</td></tr>')
+        P('<table class="kv"><tr><th>#</th><th>Axis (cell type)</th>'
+          '<th style="text-align:right">z-shift</th><th style="text-align:right">your A</th>'
+          '<th style="text-align:right">healthy mean</th></tr>')
+        for c in top:
+            if not isinstance(c, dict):
+                continue
+            nm = c.get("celltype") or c.get("cell_type") or c.get("axis") or c.get("name") or "?"
+            z = c.get("z_shift")
+            if z is None:
+                z = c.get("contribution") or c.get("value") or c.get("z")
+            pv = c.get("patient_value"); hc = c.get("hc_centroid"); rk = c.get("rank", "")
+            zs = f'{z:+.2f}' if isinstance(z, (int, float)) else _esc(z)
+            pvs = f'{pv:.3f}' if isinstance(pv, (int, float)) else "—"
+            hcs = f'{hc:.3f}' if isinstance(hc, (int, float)) else "—"
+            P(f'<tr><td>{_esc(rk)}</td><td>{_esc(nm)}</td>'
+              f'<td style="text-align:right">{zs}</td>'
+              f'<td style="text-align:right">{pvs}</td>'
+              f'<td style="text-align:right">{hcs}</td></tr>')
         P('</table>')
     P('</section>')
 
