@@ -2,8 +2,8 @@
 """
 walther_clinical.py — CPG clinical orchestrator.
 
-CURRENT SCOPE: Stages 3 and 6 only, built to BUILD_SPEC v1.3 (Option C age
-architecture). Stages 0-2, 4-5, 7-10 are declared as explicit NotImplemented
+CURRENT SCOPE: Stages 3, 4, 4.5, 4.6, 5, and 6, built to BUILD_SPEC v1.3 (Option C
+age architecture). Stages 0-2, 7-10 are declared as explicit NotImplemented
 placeholders so the contract is honest about what is and is not built yet.
 
 Option C (hybrid, V1 simplification)
@@ -71,6 +71,17 @@ DEFAULT_CONFIG = {
     "cellular_age_module_path": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/Age Axis Foreground/iam_cellular_age_scoring.py",
     "age_reference_matrix_json": CPG_ROOT / "Runtime Matrices/Age_Reference_Matrix 80_cells/age_reference_matrix.json",
     "celltype_markers_json": CPG_ROOT / "Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
+    # Stage 4 — A-score
+    "a_scoring_module_path": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py",
+    # Stage 4.5 — bidirectional decomposition
+    "bidirectional_module_path": CPG_ROOT / "Runtime Matrices/Bidirectional Decomposition py/bidirectional_decomposition.py",
+    "directional_panels_json": CPG_ROOT / "Runtime Matrices/Bidirectional Decomposition py/directional_panels_v1_0.json",
+    # Stage 4.6 — brightness comparison / Mollweide
+    "brightness_module_path": CPG_ROOT / "Runtime Matrices/Mollweide & Brightness Comparison/patient_brightness_comparison.py",
+    "brightness_archives_dir": CPG_ROOT / "IAM_Atlas/iamatlas_class_archives",
+    # Stage 5 — Mahalanobis
+    "mahalanobis_module_path": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
+    "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_5.json",
     # Behaviour flags
     "apply_smoking_foreground": True,   # applied iff the smoking layer CSV exists
     "apply_sex_foreground": True,       # applied iff the sex layer CSV exists
@@ -210,10 +221,93 @@ def _not_built(stage):
 def stage_0_intake(*a, **k):            _not_built("Stage 0 (intake)")
 def stage_1_calibration_beta(*a, **k):  _not_built("Stage 1 (calibration & beta)")
 def stage_2_deconvolution(*a, **k):     _not_built("Stage 2 (deconvolution)")
-def stage_4_a_score(*a, **k):           _not_built("Stage 4 (A-score)")
-def stage_4_5_bidirectional(*a, **k):   _not_built("Stage 4.5 (bidirectional)")
-def stage_4_6_brightness(*a, **k):      _not_built("Stage 4.6 (brightness/Mollweide)")
-def stage_5_mahalanobis(*a, **k):       _not_built("Stage 5 (Mahalanobis)")
+# ---------------------------------------------------------------------------
+# Stage 4 — A-score (per-class + per-cell-type). Consumes cleaned_beta.
+# ---------------------------------------------------------------------------
+def _aggregate_markers_to_class(markers_by_celltype, celltype_to_class):
+    """Union the per-cell-type marker CpGs up to their parent class (dedup, order-preserving)."""
+    from collections import OrderedDict
+    class_markers = {}
+    for ct, markers in markers_by_celltype.items():
+        cls = celltype_to_class.get(ct)
+        if cls is None:
+            continue
+        d = class_markers.setdefault(cls, OrderedDict())
+        for m in markers:
+            d[m] = None
+    return {cls: list(d.keys()) for cls, d in class_markers.items()}
+
+
+def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None) -> dict:
+    """Stage 4 per BUILD_SPEC v1.3 — consumes cleaned_beta (foreground-removed).
+
+    A = H(beta_mean) / H_min(class) over panel CpGs, per class and per cell type.
+    Returns {'class_ascores', 'celltype_ascores', 'h_min_by_class', 'celltype_to_class'}.
+    (95% CI propagation from atlas posteriors is added at the report layer; the
+    point A-scores are produced here.)
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    a_mod = _load_module(cfg["a_scoring_module_path"], "iamatlas_a_scoring")
+    meta, ct_markers, ct_to_class, h_min = a_mod.load_artifact(str(cfg["celltype_markers_json"]))
+    beta_dict = cleaned_beta.to_dict()
+    class_markers = _aggregate_markers_to_class(ct_markers, ct_to_class)
+    class_ascores = a_mod.score_per_class(beta_dict, class_markers, h_min)
+    celltype_ascores = a_mod.score_per_celltype(beta_dict, ct_markers, ct_to_class, h_min)
+    return {
+        "class_ascores": class_ascores,           # {class: {A, coverage, status, ...}}  (8)
+        "celltype_ascores": celltype_ascores,     # {celltype: {A, class, status, ...}}  (115)
+        "h_min_by_class": h_min,
+        "celltype_to_class": ct_to_class,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Stage 4.5 — Bidirectional decomposition. Consumes cleaned_beta.
+# ---------------------------------------------------------------------------
+def stage_4_5_bidirectional(cleaned_beta: pd.Series, patient_id: str = "patient",
+                            config: Optional[dict] = None):
+    """Stage 4.5 per BUILD_SPEC v1.3 — directional composite + pooled-entropy comparator
+    + FLAG_BIDIRECTIONAL per class, on cleaned_beta. Recovers signal that pooled averaging
+    hides (the VAL-050 null vs VAL-051 directional lesson). Returns a BidirectionalReport.
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    bd_mod = _load_module(cfg["bidirectional_module_path"], "bidirectional_decomposition")
+    panels = bd_mod.load_directional_panels(str(cfg["directional_panels_json"]))
+    return bd_mod.compute_per_class_bidirectional_decomposition(
+        cleaned_beta, panels, patient_id=patient_id)
+
+
+# ---------------------------------------------------------------------------
+# Stage 4.6 — Per-class brightness departure / personal methylome. Consumes cleaned_beta.
+# ---------------------------------------------------------------------------
+def stage_4_6_brightness(cleaned_beta: pd.Series, patient_id: str = "patient",
+                         config: Optional[dict] = None):
+    """Stage 4.6 per BUILD_SPEC v1.3 — per-CpG z-score departure of the patient from each
+    class's healthy reference (the customer's personal methylome map; the Mollweide panel
+    is rendered downstream at Stage 9). Returns a PatientBrightnessReport.
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    br_mod = _load_module(cfg["brightness_module_path"], "patient_brightness_comparison")
+    references = br_mod.load_all_8_class_references(str(cfg["brightness_archives_dir"]))
+    return br_mod.compute_all_8_class_departures(cleaned_beta, references, patient_id=patient_id)
+
+
+# ---------------------------------------------------------------------------
+# Stage 5 — Mahalanobis distance of the 115 per-cell-type A-scores vs the HC hull.
+# Consumes the Stage 4 per-cell-type A-scores (NOT beta directly).
+# ---------------------------------------------------------------------------
+def stage_5_mahalanobis(stage4_output: dict, config: Optional[dict] = None) -> dict:
+    """Stage 5 per BUILD_SPEC v1.3 — multivariate distance of the patient's 115 per-cell-type
+    A-scores from the healthy-cohort hull centroid. stage4_output is the dict from
+    stage_4_a_score; its 'celltype_ascores' supply the feature vector. Returns the module's
+    score dict (mahalanobis_distance, status, top10_axis_contributions, ...).
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    m_mod = _load_module(cfg["mahalanobis_module_path"], "iamatlas_mahalanobis_scoring")
+    hull = m_mod.MahalanobisHealthyHull(str(cfg["mahalanobis_reference_json"]))
+    ct_results = stage4_output.get("celltype_ascores", stage4_output)
+    celltype_a = {ct: (v["A"] if isinstance(v, dict) else v) for ct, v in ct_results.items()}
+    return hull.score(celltype_a)
 def stage_7_tiers(*a, **k):             _not_built("Stage 7 (tier breakpoints)")
 def stage_8_dual_matching(*a, **k):     _not_built("Stage 8 (dual matching)")
 def stage_9_report(*a, **k):            _not_built("Stage 9 (report assembly)")
@@ -221,7 +315,8 @@ def stage_10_delivery(*a, **k):         _not_built("Stage 10 (delivery)")
 
 
 if __name__ == "__main__":
-    print("walther_clinical.py — Stages 3 & 6 implemented (BUILD_SPEC v1.3).")
-    print("Stage 3 forks beta_raw (-> Stage 6) and cleaned_beta (-> Stage 4+).")
-    print("Stage 6 inverts the age baseline on beta_raw for class-level absolute cellular age.")
-    print("Remaining stages raise NotImplementedError by design.")
+    print("walther_clinical.py — Stages 3, 4, 4.5, 4.6, 5 & 6 implemented (BUILD_SPEC v1.3).")
+    print("Stage 3 forks beta_raw (-> Stage 6) and cleaned_beta (-> Stages 4/4.5/4.6/5).")
+    print("Stage 4 = A-scores (8 class + 115 cell type); 4.5 = bidirectional; 4.6 = brightness;")
+    print("Stage 5 = Mahalanobis on the 115 cell-type A-scores; Stage 6 = cellular age on beta_raw.")
+    print("Stages 0-2, 7-10 raise NotImplementedError by design.")
