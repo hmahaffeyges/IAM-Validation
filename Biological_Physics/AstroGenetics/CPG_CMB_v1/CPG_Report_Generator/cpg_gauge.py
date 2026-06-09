@@ -169,6 +169,81 @@ def render_reference_gauge(tier_breakpoints_path,
     return out_path
 
 
+def _tier_for(a, partitions):
+    """Canonical tier_id for an A-score from the JSON partition (consistency-by-construction)."""
+    for tier_id, lo, hi in partitions:
+        if lo <= a < hi:
+            return tier_id
+    return "BREACH" if a >= partitions[-1][1] else "SUPPRESSED"
+
+
+def render_cellular_departure_ranking(cells,
+                                      tier_breakpoints_path,
+                                      out_path,
+                                      title="Cellular departure ranking \u2014 top cells by magnitude",
+                                      dpi=160):
+    """Appendix A2 \u2014 horizontal bar chart of the top-N cells by A-score departure, drawn
+    against the reference-gauge tier zones (same boundaries as A1, read from the same JSON).
+
+    cells: list of dicts with keys: rank, cell_type, class (short), a_score, and optionally
+           ci_lo / ci_hi. Bars run from the A=1.0 baseline to each cell's A-score, coloured by
+           the tier the score falls in; 95% CI shown as a whisker. Rank 1 at top.
+    """
+    scheme = load_tier_scheme(tier_breakpoints_path)
+    partitions = scheme["partitions"]
+    cells = sorted(cells, key=lambda c: c["rank"])
+    n = len(cells)
+
+    lo_vals = [c.get("ci_lo", c["a_score"]) for c in cells]
+    hi_vals = [c.get("ci_hi", c["a_score"]) for c in cells]
+    x_lo = min(0.99, min(lo_vals) - 0.005)
+    x_hi = max(1.10, max(hi_vals) + 0.010)
+
+    fig, ax = plt.subplots(figsize=(11, 0.42 * n + 1.6))
+
+    # Tier zones shaded behind the bars.
+    for tier_id, lo, hi in partitions:
+        lo_c, hi_c = max(lo, x_lo), min(hi, x_hi)
+        if hi_c > lo_c:
+            ax.axvspan(lo_c, hi_c, color=TIER_COLORS.get(tier_id, "#dddddd"), alpha=0.30, zorder=0)
+
+    y = list(range(n))[::-1]  # rank 1 at top
+    for yi, c in zip(y, cells):
+        a = c["a_score"]
+        color = TIER_COLORS[_tier_for(a, partitions)]
+        ax.barh(yi, a - 1.00, left=1.00, height=0.62, color=color,
+                edgecolor="#666666", linewidth=0.5, zorder=2)
+        if "ci_lo" in c and "ci_hi" in c:
+            ax.plot([c["ci_lo"], c["ci_hi"]], [yi, yi], color="#333333", lw=1.0, zorder=3)
+            for xx in (c["ci_lo"], c["ci_hi"]):
+                ax.plot([xx, xx], [yi - 0.12, yi + 0.12], color="#333333", lw=1.0, zorder=3)
+        ax.text(max(a, c.get("ci_hi", a)) + 0.0015, yi, f"{a:.3f}", va="center", ha="left",
+                fontsize=7.5, fontweight="bold", color="#222222", zorder=4)
+
+    ax.axvline(1.00, color="black", lw=1.6, zorder=4)
+    ax.axvline(scheme["warburg_line"], color="#c8771f", lw=1.5, ls="--", zorder=4)
+    if scheme["breach_line"] <= x_hi:
+        ax.axvline(scheme["breach_line"], color="#8a3326", lw=1.3, ls=":", zorder=4)
+
+    ax.set_yticks(y)
+    ax.set_yticklabels([f"{c['rank']}. {c['cell_type']} ({c.get('class','')})" for c in cells], fontsize=8)
+    ax.set_xlim(x_lo, x_hi)
+    ax.set_ylim(-0.8, n - 0.2)
+    ax.set_xlabel("Architectural A-score  (1.00 = healthy class baseline)", fontsize=9)
+    ax.set_title(title, fontsize=12, fontweight="bold", pad=12)
+    for spine in ("top", "right", "left"):
+        ax.spines[spine].set_visible(False)
+    fig.text(0.5, 0.006,
+             f"Bars coloured by tier (zones shaded behind). Whiskers = 95% CI. "
+             f"Warburg {scheme['warburg_line']:.2f} dashed; breach {scheme['breach_line']:.2f} dotted.",
+             ha="center", fontsize=7.5, style="italic", color="#555555")
+    fig.tight_layout(rect=[0, 0.03, 1, 1])
+    out_path = Path(out_path)
+    fig.savefig(out_path, dpi=dpi, bbox_inches="tight")
+    plt.close(fig)
+    return out_path
+
+
 def _frange(lo, hi, step):
     x = lo
     while x <= hi + 1e-9:
