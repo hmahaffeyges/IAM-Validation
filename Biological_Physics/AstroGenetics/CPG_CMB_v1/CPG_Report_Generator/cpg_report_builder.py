@@ -60,6 +60,64 @@ def _tier_badge(tier_id, label=None):
     return f'<span class="badge" style="background:{c}">{_esc(label)}</span>'
 
 
+def _resemblance_pct(match):
+    """Transparent match-magnitude -> resemblance percentage. NOT a calibrated Bayesian
+    posterior (L7/L8 are Phase-E-empty per the SOP grade table); this is a documented
+    monotone transform of the Stage 8 resemblance score, disclosed in the H.2 footnote:
+        pct = 0                       if match <= 0
+        pct = 100*(1 - exp(-match/1.5)) otherwise
+    """
+    import math
+    if match is None or match <= 0:
+        return 0
+    return round(100 * (1 - math.exp(-match / 1.5)))
+
+
+def _match_confidence(n_cells, evidence):
+    """Qualitative confidence from cells-matched + whether the row is VAL-anchored."""
+    val_anchored = bool(evidence) and "VAL" in str(evidence)
+    if n_cells >= 15 and val_anchored:
+        return "moderate"        # clean-patient ceiling; "high" reserved for above-threshold
+    if n_cells >= 8:
+        return "low-moderate"
+    return "low"
+
+
+DISEASE_CATEGORY = {
+    "breast_cancer": "Pre-cancer / malignancy", "pancreatic_cancer": "Pre-cancer / malignancy",
+    "hcc": "Pre-cancer / malignancy", "lung_cancer": "Active malignancy",
+    "colorectal_cancer": "Active malignancy", "gastric_cancer": "Active malignancy",
+    "prostate_cancer": "Active malignancy", "bladder_cancer": "Active malignancy",
+    "cervical_cancer": "Active malignancy", "esophageal_cancer": "Active malignancy",
+    "leukemia_aml": "Hematologic malignancy", "leukemia_all": "Hematologic malignancy",
+    "lymphoma_dlbcl": "Hematologic malignancy", "myeloma": "Hematologic malignancy",
+    "alzheimers_disease": "Neurodegenerative", "frontotemporal_dementia": "Neurodegenerative",
+    "parkinsons_disease": "Neurodegenerative", "als": "Neurodegenerative",
+    "multiple_sclerosis": "Neurodegenerative", "psp_cbd": "Neurodegenerative",
+    "mild_cognitive_impairment": "Neurodegenerative",
+    "chronic_inflammation": "Inflammatory", "inflammaging": "Inflammatory",
+    "crohns_disease": "Inflammatory", "ulcerative_colitis": "Inflammatory",
+    "rheumatoid_arthritis": "Autoimmune", "lupus": "Autoimmune", "sle": "Autoimmune",
+    "hashimotos": "Autoimmune",
+    "cardiovascular": "Cardiovascular", "pulmonary_arterial_hypertension": "Cardiovascular",
+    "atherosclerosis": "Cardiovascular", "aortic_dilation": "Cardiovascular",
+    "type_2_diabetes": "Metabolic", "pre_t2d": "Metabolic", "nafld": "Metabolic",
+    "normal_aging": "Aging baseline",
+}
+
+
+def _category_for(disease_id):
+    if not disease_id:
+        return "Other"
+    d = str(disease_id).lower()
+    if d in DISEASE_CATEGORY:
+        return DISEASE_CATEGORY[d]
+    for k, v in DISEASE_CATEGORY.items():
+        if k in d:
+            return v
+    return "Other"
+
+
 def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     """Render the CPG report HTML from a run_pipeline bundle. Returns the output path."""
     pid = bundle.get("patient_id", "patient")
@@ -252,18 +310,30 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         else:
             P(f'<p>Your pattern was scored against all {scored_n} signatures. <b>No signature reaches a '
               f'non-baseline tier.</b> Closest resemblances are shown below for context.</p>')
-        # H.2 closest matches
-        P('<h3>H.2 Closest pattern matches</h3>')
-        P('<table class="kv"><tr><th>Signature (disease · phase)</th><th>Match magnitude</th>'
-          '<th>Cells matched</th><th>Tier</th></tr>')
-        for m in rb:
+        # H.2 closest matches — mock-faithful: Disease | Detection probability | Confidence | Status
+        all_scored = [x for x in (s8.route_B_all_scored or []) if x.get("match_magnitude") is not None]
+        all_scored.sort(key=lambda s: s["match_magnitude"], reverse=True)
+        top5 = all_scored[:5]
+        n_low = sum(1 for s in all_scored if _resemblance_pct(s["match_magnitude"]) <= 5)
+        P('<h3>H.2 Closest pattern matches' + ('' if flagged else ' (all below threshold)') + '</h3>')
+        P('<table class="kv"><tr><th>Disease · phase</th><th style="text-align:right">Detection probability</th>'
+          '<th>Confidence</th><th>Status</th></tr>')
+        for m in top5:
+            pct = _resemblance_pct(m["match_magnitude"])
+            pct_str = "&lt;1%" if pct < 1 else f"{pct}%"
+            conf = _match_confidence(m["n_cells_matched"], "")
+            status = ("Below threshold" if m["tier"] in ("NORMAL", "MARGINAL")
+                      else f'{m["tier"].replace("_"," ").title()} — review')
             P(f'<tr><td>{_esc(m["disease"])} · {_esc(m["phase"])}</td>'
-              f'<td>{m["match_magnitude"]:+.3f}</td><td>{m["n_cells_matched"]}</td>'
-              f'<td>{_tier_badge(m["tier"], m["tier"])}</td></tr>')
+              f'<td style="text-align:right">{pct_str}</td><td>{conf}</td><td>{_esc(status)}</td></tr>')
         P('</table>')
-        P('<p class="muted">Match magnitude is a sign-aligned, √n-weighted concordance between your per-cell '
-          'departures and each signature\'s documented per-cell Cohen\'s d (engine schema v1.2). '
-          'It is a resemblance score, not a probability of disease.</p>')
+        P(f'<p><b>Patterns at 0–5% probability:</b> {max(0,len(all_scored)-5)} other (disease × phase) rows. '
+          f'<b>Complete per-disease scoring is in Appendix C.</b></p>')
+        P('<p class="muted">"Detection probability" here is a transparent monotone transform of the Stage 8 '
+          'resemblance magnitude (pct = 100·(1−e^(−match/1.5)); 0 when match ≤ 0) — <b>not</b> a calibrated '
+          'Bayesian posterior. The calibrated per-disease posterior is the Phase E (L7/L8) deliverable, which '
+          'the chain-of-custody grade table declares not-yet-built. The number ranks resemblance; it is not a '
+          'probability of having the disease.</p>')
         # H.3 routes A / C
         P('<h3>H.3 Architectural-alarm & bidirectional channels</h3>')
         P(f'<p><b>Route A (universal architectural alarm):</b> Mahalanobis {rA.get("mahalanobis_d",0):.1f} '
@@ -327,6 +397,26 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
       'uncertainty from the IAMAtlas MCMC; the stromal class carries a known ~7% coverage mask. Disease '
       'matches are pattern resemblances scored against documented signatures, not diagnoses. '
       '<b>This is a wellness and cellular-fitness instrument, not a diagnostic device.</b></p></section>')
+
+    # ---- Appendix C — complete per-disease scoring ----
+    if s8 is not None:
+        allc = [x for x in (s8.route_B_all_scored or []) if x.get("match_magnitude") is not None]
+        allc.sort(key=lambda s: s["match_magnitude"], reverse=True)
+        P('<section><h2>Appendix C · Complete disease scoring (all scored signature rows)</h2>')
+        P(f'<p class="muted">All {len(allc)} (disease × phase) rows the patient pattern was scored against, '
+          f'ranked by resemblance. Same detection-probability transform + caveat as H.2.</p>')
+        P('<table class="kv"><tr><th>#</th><th>Disease · phase</th><th>Category</th>'
+          '<th style="text-align:right">Detection probability</th><th>Confidence</th><th>Status</th></tr>')
+        for i, m in enumerate(allc, 1):
+            pct = _resemblance_pct(m["match_magnitude"])
+            pct_str = "&lt;1%" if pct < 1 else f"{pct}%"
+            conf = _match_confidence(m["n_cells_matched"], "")
+            status = ("Below threshold" if m["tier"] in ("NORMAL", "MARGINAL")
+                      else f'{m["tier"].replace("_"," ").title()} — review')
+            P(f'<tr><td>{i}</td><td>{_esc(m["disease"])} · {_esc(m["phase"])}</td>'
+              f'<td>{_esc(_category_for(m["disease"]))}</td>'
+              f'<td style="text-align:right">{pct_str}</td><td>{conf}</td><td>{_esc(status)}</td></tr>')
+        P('</table></section>')
 
     body = "\n".join(parts)
 
