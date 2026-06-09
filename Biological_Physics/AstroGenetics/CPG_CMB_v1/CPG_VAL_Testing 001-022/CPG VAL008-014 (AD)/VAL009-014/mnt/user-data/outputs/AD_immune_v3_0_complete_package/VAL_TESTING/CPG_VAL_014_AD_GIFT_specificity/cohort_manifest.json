@@ -1,0 +1,13 @@
+{
+  "val_id": "CPG_VAL_014_AD_GIFT_specificity",
+  "cohort_summary": "GSE53740 GIFT",
+  "primary_cohort_folder": "Biological_Physics/validation_runs/ad_immune_cohorts/GSE53740_GIFT/",
+  "primary_cohort_manifest": "Biological_Physics/validation_runs/ad_immune_cohorts/GSE53740_GIFT/cohort_manifest.json",
+  "n_case": 15,
+  "n_hc": 193,
+  "case_label": "ad",
+  "hc_label": "hc",
+  "signal": "Mahalanobis hyper-volume (AD vs HC primary; PSP vs HC secondary)",
+  "observed_d": 0.681,
+  "primary_n1_p": 0.027
+}

@@ -1,0 +1,88 @@
+{
+  "artifact_id": "immune_atlas_cross_disease_universal_alarm_residual_map",
+  "version": "v0_1",
+  "build_date": "2026-06-07",
+  "card": "immune-atlas card v2.1",
+  "purpose": "Per-CpG cross-disease firing-pattern residual map for Stage 8 Route A residual-map-overlap channel in the immune-atlas universal baseline card. Captures CpGs that fire across multiple diseases, with the four firing-pattern classifications operationalizing the VAL-016 cross-disease universal alarm doctrine at per-CpG resolution.",
+  "method": "Inner-join of breast-EPIC pre-dx and AD-immune residual maps on cpg_id, with per-disease mean Cohen's d, sign, and disease-internal concordance preserved. Cross-disease firing pattern classified into four mutually exclusive buckets using the source files' concordant_strong flags as the disease-internal concordance criterion.",
+  "source_artifacts": [
+    {
+      "name": "breast_epic_residual_map_chr_annotated.csv",
+      "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MAPS_CARDS/Breast_EPIC/breast_epic_residual_maps/breast_epic_residual_map_chr_annotated.csv",
+      "sha256": "ff186abe737faa5a208a34a0b62edf22fc9e3a49f6f6707e2e251947666b7de3",
+      "n_cpgs": 7114,
+      "validation_anchor": "CPG-VAL-003 cross-cohort residual concordance (GSE51057 + GSE51032 long_pre_dx >10y breast)",
+      "card_origin": "breast-epic card v3.1"
+    },
+    {
+      "name": "ad_immune_residual_map_chr_annotated.csv",
+      "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MAPS_CARDS/AD_immune/ad_immune_residual_maps/ad_immune_residual_map_chr_annotated.csv",
+      "sha256": "aa17a50c1a5bb969f5ba81c36b07f945140631e431d2597f4983cc8e448c3287",
+      "n_cpgs": 6018,
+      "validation_anchor": "CPG-VAL-013 cross-cohort AD residual map (AIBL + AddNeuroMed)",
+      "card_origin": "ad-immune card v3.1"
+    }
+  ],
+  "output_artifact": {
+    "name": "immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv",
+    "path": "Biological_Physics/atlas_vault/walther_clinical_runtime/DISEASE_MAPS_CARDS/Immune_Atlas/immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv",
+    "sha256": "29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970",
+    "size_bytes": 1252214,
+    "n_cpgs": 6018,
+    "schema": {
+      "cpg": "Illumina CpG ID (cg-prefix)",
+      "CHR": "Chromosome (Illumina EPIC manifest)",
+      "MAPINFO": "Genomic position (Illumina EPIC manifest)",
+      "breast_d_GSE51057": "Cohen's d in breast pre-dx >10y EPIC-Italy GSE51057",
+      "breast_d_GSE51032": "Cohen's d in breast pre-dx >10y EPIC-Italy GSE51032",
+      "breast_d_mean": "Mean Cohen's d across breast cohorts (signed)",
+      "breast_sign": "Sign of breast_d_mean (+1, -1, 0)",
+      "breast_mean_abs_d": "Mean |Cohen's d| across breast cohorts (magnitude)",
+      "breast_concordant_strong": "Source flag from breast residual map — both breast cohorts strong AND same direction",
+      "ad_d_AIBL": "Cohen's d in AD AIBL cohort",
+      "ad_d_AddNeuroMed": "Cohen's d in AD AddNeuroMed cohort",
+      "ad_d_mean": "Mean Cohen's d across AD cohorts (signed)",
+      "ad_sign": "Sign of ad_d_mean (+1, -1, 0)",
+      "ad_mean_abs_d": "Mean |Cohen's d| across AD cohorts (magnitude)",
+      "ad_concordant_strong": "Source flag from AD residual map — both AD cohorts strong AND same direction",
+      "cross_disease_firing_pattern": "One of 5 mutually exclusive buckets (see firing_pattern_definitions below)",
+      "cross_disease_mean_abs_d": "Mean of breast_mean_abs_d and ad_mean_abs_d (cross-disease magnitude)"
+    },
+    "firing_pattern_definitions": {
+      "fires_in_both_diseases_same_direction": "CpG fires concordantly in BOTH breast cohorts AND BOTH AD cohorts, with the same overall sign across diseases — cross-disease concordance pattern (shared inflammation/aging drift candidates)",
+      "fires_in_both_diseases_opposing_direction": "CpG fires concordantly in BOTH breast cohorts AND BOTH AD cohorts, with OPPOSING signs across diseases — THE VAL-016 BIDIRECTIONAL UNIVERSAL ALARM SIGNATURE. Pooled (sign-aligned) tests cancel; directional decomposition recovers signal.",
+      "fires_in_both_diseases_ambiguous_sign": "CpG fires concordantly in both diseases but at least one disease has zero mean d (degenerate case, rare)",
+      "fires_breast_only": "CpG fires concordantly in BOTH breast cohorts but NOT concordantly in AD",
+      "fires_AD_only": "CpG fires concordantly in BOTH AD cohorts but NOT concordantly in breast",
+      "fires_neither_background": "CpG does NOT meet concordant_strong threshold in EITHER disease — background reservoir, not part of operational alarm signature"
+    },
+    "firing_pattern_distribution": {
+      "fires_neither_background": 4641,
+      "fires_breast_only": 1136,
+      "fires_AD_only": 212,
+      "fires_in_both_diseases_same_direction": 17,
+      "fires_in_both_diseases_opposing_direction": 12
+    }
+  },
+  "validation_anchors_inherited": [
+    "CPG-VAL-003 (breast cross-cohort residual concordance)",
+    "CPG-VAL-013 (AD cross-cohort residual map)",
+    "CPG-VAL-016 (cross-disease universal alarm directional — pooled NULL informative, directional recovery)",
+    "CPG-VAL-019 (immune bidirectional decomposition AIBL holdout PASS)"
+  ],
+  "operational_use": {
+    "consumed_by": "immune-atlas card v2.1 Stage 8 Route A — residual-map-overlap channel parallel to breast and AD-immune disease cards",
+    "stage_8_overlap_method": "Pearson correlation of patient per-CpG departure (post-Stage 3) with cross-disease firing-pattern map signed Cohen's d, computed separately for fires_in_both_diseases_same_direction subset (cross-disease concordance channel) and fires_in_both_diseases_opposing_direction subset (bidirectional universal alarm channel). Fisher z-transform CI for confidence bounds.",
+    "stage_4_5_relationship": "The fires_in_both_diseases_opposing_direction subset is the per-CpG operationalization of the VAL-051 7-CpG directional panel. The 7-CpG panel is a small high-precision instrument inside Stage 4.5; this residual map is the broader per-CpG signature for Stage 8 Route A overlap matching.",
+    "relationship_to_val_051_directional_panel": "The VAL-051 7-CpG directional panel and this cross-disease residual map are DISJOINT instruments by design, not overlapping. VAL-051 7-CpG panel CpGs (cg16867657, cg25809905, cg22454769, cg09809672, cg26614073, cg00431549, cg02228185) were selected via Rule A criterion (|Δβ|>0.015 AND q_FDR<0.10) on AIBL training split alone using pre-build methodology, and are NOT in the post-build VAL-003 breast or VAL-013 AD residual map CpG universes. The cross-disease residual map's 12 opposing-direction CpGs (cg00932141, cg01006587, cg05257202, cg08200043, cg08886001, cg09622285, cg12565635, cg15459165, cg18332838, cg18418928, cg20700762, cg26131879) come from the intersection of the post-build breast + AD residual maps with the opposing-direction criterion. The two instruments operate complementarily: VAL-051 is the high-precision Stage 4.5 within-AD directional discriminator (AUC=0.84 AIBL holdout); this map is the broader Stage 8 Route A cross-disease overlap channel."
+  },
+  "honest_caveats": [
+    "The 12-CpG opposing-direction subset and the VAL-051 7-CpG panel are DISJOINT — they share zero CpGs. This is expected because VAL-051 was selected from AIBL-only using pre-build methodology, while this map intersects post-build VAL-003 (breast) + VAL-013 (AD) residual maps. The two instruments are complementary, not redundant. A future v0.2 could merge both candidate universes — pending Heath direction.",
+    "v0.1 derives entirely from existing sealed VAL artifacts (CPG-VAL-003 breast + CPG-VAL-013 AD). Does NOT independently re-validate the cross-disease firing patterns — inherits the validation status of its source artifacts.",
+    "Two-disease intersection only (breast pre-dx + AD). Future v0.2 may add CRC, lung, or autoimmune cohorts as sealed residual maps become available.",
+    "The fires_neither_background bucket is the dominant pattern by count — most CpGs in either source map do NOT fire concordantly in both diseases. The cross-disease alarm subset is a small fraction.",
+    "Not a sealed VAL — derived vault artifact (parallels IAMAtlas_age_layer.csv and directional_panels_v1_0.json which are also derived artifacts without their own VAL seals).",
+    "Stage 8 Route A overlap thresholds for the new channel not yet calibrated — pending first patient cohort runs through immune-atlas v2.1 chain.",
+    "Bidirectional pattern interpretation depends on disease-direction priors: breast pre-dx hypermethylates while AD hypomethylates — this is the canonical opposing-direction example. Other disease pairs may have different direction conventions."
+  ]
+}

@@ -1,0 +1,991 @@
+[
+  {
+    "accession": "GSE28094",
+    "uid": "200028094",
+    "title": "A DNA Methylation Fingerprint of  1,628 Human Samples",
+    "summary": "DNA methylation is the best characterized of the different layers that make up the epigenetic setting. Most of the studies characterizing DNA methylation patterns have been restricted to particular genomic loci in a limited number of human samples and pathological conditions. The recently arrived single-base-resolution technologies for DNA methylation are extremely helpful tools, but are not yet applicable and affordable for studying large groups of subjects. Herein, we present a compromise between an extremely comprehensive study of a human sample population with an intermediate level of resolution of CpGs at the genomic level. We obtained a DNA methylation fingerprint of 1,628 human samples where we interrogated 1,505 CpG sites. The DNA methylation patterns revealed show this epigenetic mark to be critical in tissue-type definition and stemness, particularly around transcription start sites that are not within a CpG island. For disease, the generated DNA methylation fingerprints show that, during tumorigenesis, human cancer cells underwent a progressive gain of promoter CpG island hypermethylation and a loss of CpG methylation in non-CpG island promoters. Although transformed cells are those where DNA methylation disruption is more obvious, we observed that other common human diseases, such as neurological and autoimmune disorders, had their own distinct DNA methylation profiles. Most importantly, we provide proof of principle that the obtained DNA methylation fingerprints might be useful for translational purposes by showing that are able to identify the tumor type origin of Cancers of Unknown Primary (CUPs). Thus, the DNA methylation patterns identified across the largest spectrum of samples, tissues and diseases reported to date constitute a baseline for developing higher-resolution DNA methylation maps, and provide important clues concerning the contribution of CpG methylation to tissue identity and its changes in the most prevalent human diseases.",
+    "n_samples": 1628,
+    "platforms": [
+      "GPL9183"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "21613409"
+    ],
+    "date": "2011/05/24",
+    "matched_queries": [
+      "atherosclerosis"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE28nnn/GSE28094/"
+  },
+  {
+    "accession": "GSE157131",
+    "uid": "200157131",
+    "title": "Methylation data from stored peripheral blood leukocytes from African American participants in the GENOA study",
+    "summary": "African-American individuals of the GENOA cohort",
+    "n_samples": 1218,
+    "platforms": [
+      "EPIC v1.0 (850K)",
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "32917208"
+    ],
+    "date": "2020/08/31",
+    "matched_queries": [
+      "hypertension"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157131/"
+  },
+  {
+    "accession": "GSE69138",
+    "uid": "200069138",
+    "title": "Epigenome analysis of ischemic stroke patients",
+    "summary": "We performed a genome-wide methylation study in whole-blood DNA from 404 ischemic stroke patient cohort, distributed across 3 ischemic stroke subtypes: Large-artery atherosclerosis (n=132), Small-artery disease (n=141) and Cardio embolic (n=127) . Illumina HumanMethylation450 BeadChip array was used to measure DNA methylation in CpG sites.  We performed a genome-wide methylation study in whole-blood DNA from 185 ischemic stroke patient cohort. Illumina HumanMethylation450 BeadChip array was used to measure DNA methylation in CpG sites.",
+    "n_samples": 589,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "26643952",
+      "29515201",
+      "36180927"
+    ],
+    "date": "2015/08/19",
+    "matched_queries": [
+      "stroke",
+      "atherosclerosis",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE69nnn/GSE69138/"
+  },
+  {
+    "accession": "GSE128235",
+    "uid": "200128235",
+    "title": "Epigenome analysis of depressed and control subjects. [subset]",
+    "summary": "Genome wide DNA methylation profiling of depressed (n=324) and control subjects (n=209)  that were recruited at the Max Planck Institute of Psychiatry (MPIP). The Illumina Infinium 450k Human DNA methylation Beadchip was used to obtain DNA methylation profiles based whole blood samples.",
+    "n_samples": 537,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "31113877"
+    ],
+    "date": "2019/03/14",
+    "matched_queries": [
+      "CHD_MI",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE128nnn/GSE128235/"
+  },
+  {
+    "accession": "GSE203332",
+    "uid": "200203332",
+    "title": "Epigenome-wide association study of human frontal cortex identifies differential methylation in Lewy body pathology",
+    "summary": "The goal of the study was to investigate if DNA methylation is associated with Lewy body pathology in human brain tissue. The Illumina Infinium MethylationEPIC Beadchip was used to obtain DNA methylation profiles across approximately 850,000 CpGs in postmortem human frontal cortex samples from European donors in the Netherlands Brain Bank. Following quality checks, sample filtering and normalization, association between CpG methylation and Braak alpha-synuclein stage was assessed using linear models.",
+    "n_samples": 492,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "35995800",
+      "40162278"
+    ],
+    "date": "2022/07/20",
+    "matched_queries": [
+      "stroke",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE203nnn/GSE203332/"
+  },
+  {
+    "accession": "GSE159930",
+    "uid": "200159930",
+    "title": "Rare genetic variation at transcription factor binding site modulates local DNA methylation profiles",
+    "summary": "Recently, it has been proposed that local DNA methylation profiles might be dictated by cis-regulatory DNA sequences that mainly operate via DNA-binding factors. Combining blood genome-wide DNA methylation profiles (Illumina Infinium MethylationEPIC BeadChiP), whole genome sequencing-derived single nucleotide variants (SNVs) along with predicted transcription factor binding site (TFBS), we were able to observe that rare regulatory variants, i.e, SNVs that disrupt TFBSs, are associated with DNA methylation at both local and, to a lesser extent, broader locations. Interestingly, we also observed that this directed DNA methylation can have consequences on genome regulation by altering expression levels of nearby genes.",
+    "n_samples": 267,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "33216750"
+    ],
+    "date": "2020/10/24",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159930/"
+  },
+  {
+    "accession": "GSE57362",
+    "uid": "200057362",
+    "title": "A DNA methylation atlas of the human eye and its diseases",
+    "summary": "Genome-scale DNA methylation profiling using the Infinium DNA methylation BeadChip platform and samples from normal human eye and five ocular- related diseases",
+    "n_samples": 265,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "28924151"
+    ],
+    "date": "2017/05/02",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE57nnn/GSE57362/"
+  },
+  {
+    "accession": "GSE147667",
+    "uid": "200147667",
+    "title": "Epigenetic blueprint identifies poor outcome and hypomethylating agent-responsive T-ALL subgroup",
+    "summary": "Adult T-cell acute lymphoblastic leukemia (T-ALL) is an aggressive hematological malignancy still associated with poor outcome calling for new therapeutic options. DNA methylation landscapes of adult T-ALL remain largely uncharacterized. Here, we systematically analyzed the DNA methylation profiles of normal thymic sorted T-cell subpopulations and 143 primary adult T-ALLs as part of French GRAALL 2003-2005 trial. Our results indicated that T-ALL is epigenetically distinct from normal T-cell subpopulations and consisted of five major subtypes (C1-C5) which were either associating with co-occurring DNMT3A/IDH2 mutations (C1), TAL1 deregulation (C2), TLX3 (C3), TLX1/in cis-HOXA9 (C4) or in trans-HOXA9 (C5) overexpression. Importantly, our data identified an unexpected subset of hypermethylated T-ALL associated with poor outcome and primary therapeutic response. Using mouse xenografts, we showed that hypermethylated T-ALL samples displayed therapeutic response to the DNA hypomethylating agent, 5-Azacitidine, which significantly delayed tumor progression suggesting epigenetic-based therapies as a novel treatment option in hypermethylated T-ALL.",
+    "n_samples": 155,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TSV",
+    "pubmed_ids": [
+      "34039737"
+    ],
+    "date": "2021/03/01",
+    "matched_queries": [
+      "CHD_MI",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE147nnn/GSE147667/"
+  },
+  {
+    "accession": "GSE193879",
+    "uid": "200193879",
+    "title": "Epigenetic Profiling Linked to Multisystem Inflammatory Syndrome in Children (MIS-C): A Multicenter, Retrospective Study",
+    "summary": "Background: Most children and adolescents infected with the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) develop a mild coronavirus disease 2019 (COVID-19) that usually does not require medical intervention. However, a small proportion of pediatric patients develop a severe clinical condition, Multisystem Inflammatory Syndrome in Children (MIS-C). The involvement of epigenetics in the control of the immune response and viral activity prompted us to carry out an epigenomic study to uncover target loci regulated by DNA methylation that could be altered upon the appearance of MIS-C. Methods: Peripheral blood samples were recruited from 43 confirmed MIS-C patients with a median age of 7.7 years, most of whom were of West-Eurasian origin. Four or more organ systems were involved in the majority of patients. 69 non-COVID-19 pediatric samples and 15 COVID-19 pediatric samples without MIS-C were used as controls. The cases in the two groups were mixed and divided into discovery (MIS-C = 29 and non-MIS-C = 56) and validation (MIS-C = 14 and non-MIS-C = 28) cohorts, and balanced for age, gender and ethnic background. We interrogated 850,000 CpG sites of the human genome for DNA methylation variants. Findings: The DNA methylation content of 33 CpG loci was linked with the presence of MIS-C. Of these sites, 18 (54.5%) were located in described genes. The top candidate gene was the immune T-cell mediator ZEB2; and others highly ranked candidates included the regulator of natural killer cell functional competence SH2D1B; VWA8, which contains a domain of the Von Willebrand factor A involved in the pediatric hemostasis disease; and human leukocyte antigen complex member HLA-DRB1; in addition to pro-inflammatory genes such as CUL2 and AIM2. The identified loci were used to construct a DNA methylation profile (EPIMISC) that was associated with MIS-C in both cohorts. The EPIMISC signature was also overrepresented in Kawasaki disease patients, a childhood pathology with also a possible viral trigger, that shares many of the clinical features of MIS-C. Interpretation: We have characterized DNA methylation loci that are associated with the onset of MIS-C. The identified genes are likely contributors to the characteristic exaggerated host inflammatory response observed in these patients. The described epigenetic signature could also provide new targets for more specific therapies for the disorder.",
+    "n_samples": 127,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "CSV, IDAT",
+    "pubmed_ids": [
+      "35770252"
+    ],
+    "date": "2022/06/26",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE193nnn/GSE193879/"
+  },
+  {
+    "accession": "GSE315451",
+    "uid": "200315451",
+    "title": "Blood-based epigenetic instability linked to human aging and disease [MDS_CML]",
+    "summary": "The abundance, dynamics, and context-dependent heterogeneity of DNA methylation, where a pattern considered abnormal in one cell type may be normal in another, complicate the identification of early methylation changes that drive or signal disease development. This complexity can obscure early markers of increased disease risk, making it challenging to detect and intervene in disease processes at their inception. Here, we report 31,744 CpG sites exhibiting highly consistent methylation profiles in the blood of young, healthy individuals. We assess alterations at these epigenetically stable loci in 8,886 individuals across 29 diverse cohorts, including those with hematological cancers (n = 3,159), cardiovascular complications (n = 2,788), and healthy controls (n = 2,939). Our findings reveal methylation pattern disruption in myeloid and lymphoid malignancies, correlating with clonal burden dynamics and mutation frequency throughout leukemia treatment. In non-cancer cohorts, we observe that methylation levels at epigenetically stable loci become increasingly variable with age, a shift linked to higher cardiovascular disease risk and lower survival rates. This study highlights DNA methylation instability as a blood-based biomarker for both hematological cancer and cardiovascular disease and uncovers a mechanistic link between methylation dynamics and the expansion of maladaptive hematopoietic clones.",
+    "n_samples": 126,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "41690920"
+    ],
+    "date": "2026/01/06",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE315nnn/GSE315451/"
+  },
+  {
+    "accession": "GSE203399",
+    "uid": "200203399",
+    "title": "Study of the DNA methylation in the stroke outcome: an Epigenome-Wide Association Study",
+    "summary": "Background and Purpose  The neurological course after stroke is highly variable and is determined by demographic, clinical, and genetic factors. However, other heritable factors such as epigenetic DNA methylation could play a role in neurological changes after stroke.  Methods  We performed a three-stage epigenome-wide association study (EWAS) to evaluate DNA methylation associated with the difference between the National Institutes of Health Stroke Scale (NIHSS) at baseline and at discharge (\u0394NIHSS) in ischemic stroke patients. DNA methylation data in the Discovery (n = 643) and Replication (n = 62) Cohorts were interrogated with the 450K and EPIC BeadChip. Nominal CpG-sites from the Discovery (p-value < 10-06) were also evaluated in a meta-analysis of the Discovery and Replication cohorts, using a random-fixed effect model. Specific cell type methylation was assessed using EpiDISH. We integrated the methylation data with 1305 plasma protein expression levels measured by SOMAscan and measured RNA expression with RT-PCR in a subgroup of 13 subjects.   Results   The meta-analysis revealed an epigenome-wide significant association in EXOC4 (p-value = 8.4x10-08) and in MERTK (p-value = 1.56x10-07). Only the methylation in EXOC4 was also associated in the Discovery and in the Replication cohort (p-value = 1.14x10-06 and p-value = 1.3x10-02, respectively). EXOC4 methylation negatively correlated with the long-term outcome (coefficient  = -5.89) and showed a tendency towards a decrease in EXOC4 expression (rho = -0.469, p-value = 0.091). Pathway enrichment from the meta-analysis revealed significant associations related with the exocytic process. Seventy-nine plasma proteins were differentially expressed in association with EXOC4 methylation. Pathway analysis of these proteins showed an enrichment in Natural Killer cell activation.  Conclusions  DNA methylation of EXOC4 is associated with a worse neurological course after stroke. Pathway analysis suggests that the exocytic pathway could be a potential biological mechanism underlying this association. Background and Purpose  The neurological course after stroke is highly variable and is determined by demographic, clinical, and genetic factors. However, other heritable factors such as epigenetic DNA methylation could play a role in neurological changes after stroke.  Methods  We performed a three-stage epigenome-wide association study (EWAS) to evaluate DNA methylation associated with the difference between the National Institutes of Health Stroke Scale (NIHSS) at baseline and at discharge (\u0394NIHSS) in ischemic stroke patients. DNA methylation data in the Discovery (n = 643) and Replication (n = 62) Cohorts were interrogated with the 450K and EPIC BeadChip. Nominal CpG-sites from the Discovery (p-value < 10-06) were also evaluated in a meta-analysis of the Discovery and Replication cohorts, using a random-fixed effect model. Specific cell type methylation was assessed using EpiDISH. We integrated the methylation data with 1305 plasma protein expression levels measured by SOMAscan and measured RNA expression with RT-PCR in a subgroup of 13 subjects.   Results   The meta-analysis revealed an epigenome-wide significant association in EXOC4 (p-value = 8.4x10-08) and in MERTK (p-value = 1.56x10-07). Only the methylation in EXOC4 was also associated in the Discovery and in the Replication cohort (p-value = 1.14x10-06 and p-value = 1.3x10-02, respectively). EXOC4 methylation negatively correlated with the long-term outcome (coefficient  = -5.89) and showed a tendency towards a decrease in EXOC4 expression (rho = -0.469, p-value = 0.091). Pathway enrichment from the meta-analysis revealed significant associations related with the exocytic process. Seventy-nine plasma proteins were differentially expressed in association with EXOC4 methylation. Pathway analysis of these proteins showed an enrichment in Natural Killer cell activation.  Conclusions  DNA methylation of EXOC4 is associated with a worse neurological course after stroke. Pathway analysis suggests that the exocytic pathway could be a potential biological mechanism underlying this association.",
+    "n_samples": 121,
+    "platforms": [
+      "HM450K",
+      "GPL29753"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "35717949",
+      "36180927"
+    ],
+    "date": "2022/05/20",
+    "matched_queries": [
+      "stroke"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE203nnn/GSE203399/"
+  },
+  {
+    "accession": "GSE201752",
+    "uid": "200201752",
+    "title": "Methylome and transcriptome profiling of giant cell arteritis monocytes reveals novel pathways involved in disease pathogenesis and molecular response to glucocorticoids [array]",
+    "summary": "Giant cell arteritis (GCA) is a complex systemic vasculitis mediated by the interplay between both genetic and epigenetic factors. Monocytes are crucial players of the inflammation occurring in GCA. Therefore, characterization of the monocyte methylome and transcriptome in GCA would be helpful to better understand disease pathogenesis. We performed an integrated epigenome- and transcriptome-wide association study in CD14+ monocytes from 82 patients with GCA, cross-sectionally classified into three different clinical status (active, in remission with or without glucocorticoid (GC)-treatment), and 31 healthy controls. We identified a global methylation and gene expression dysregulation in GCA monocytes. Specifically, monocytes from active patients showed a more pro-inflammatory phenotype compared with healthy controls and patients in remission. In addition to inflammatory pathways known to be involved in active GCA, such as response to interleukin (IL)-6 and IL-1, we identified a significant number of chemokines, such as CCRL2, and integrins. Furthermore, monocytes from patients in remission with treatment showed downregulation of genes involved in inflammatory processes as well as overexpression of GC receptor-target genes. Finally, we identified changes in DNA methylation correlating with alterations in expression levels of genes with a potential role in GCA pathogenesis, such as ITGA7 and CD63, as well as genes mediating the molecular response to GC, including FKBP5, ETS2, ZBTB16, and ADAMTS2. Our results revealed profound alterations in the methylation and transcriptomic profiles of monocytes from GCA patients, uncovering novel genes and pathways involved in GCA pathogenesis and in the molecular response to GC treatment.",
+    "n_samples": 113,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "35705375"
+    ],
+    "date": "2022/06/28",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE201nnn/GSE201752/"
+  },
+  {
+    "accession": "GSE305349",
+    "uid": "200305349",
+    "title": "Epigenetic evolution of IDHwt glioblastomas",
+    "summary": "Although the genetic evolution of IDH-wildtype glioblastomas has extensively been investigated, limited studies have addressed the epigenetic evolution. Understanding the epigenetic evolution is particularly relevant as demethylation of the MGMT promoter may form a means to treatment resistance.  Methods  We generated whole genome DNA methylation data of 64 matched primary-recurrent samples from IDH-wildtype glioblastoma patients. Data were combined with three publicly available datasets into a final cohort consisting of 418 samples. In the combined dataset, we determined change in genome-wide DNA-methylation. MGMT promoter methylation was defined using the MGMT-STP27 algorithm. CoxPH regression was used to investigate the impact of identified changes on survival.   Results  Our analysis demonstrates that the methylome of IDH-wildtype glioblastomas is highly stable. Changes that do occur can mostly be allocated to differences in tumor purity. Conversion from a MGMT promoter methylated to unmethylated status at progression occurred infrequently, but significantly more often than the converse. Conversion was associated with poorer overall and progression-free survival compared to those that remained MGMT methylated. Similar to previously reported, MGMT promoter methylation status was significantly associated with overall-, progression-free and post-recurrence survival. Despite this large survival difference, very few CpGs were co-methylated with the MGMT methylation status. Of these, the vast majority lied within the MGMT gene body and were inversely correlated with MGMT promoter methylation status.    Conclusions   The methylome of IDH-wildtype glioblastomas is highly stable at tumor progression. This stability is also present in the MGMT promoter.",
+    "n_samples": 64,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "CSV, IDAT",
+    "pubmed_ids": [],
+    "date": "2026/03/19",
+    "matched_queries": [
+      "aneurysm",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE305nnn/GSE305349/"
+  },
+  {
+    "accession": "GSE293799",
+    "uid": "200293799",
+    "title": "Epigenomic signatures of accelerated epigenetic aging are associated with congenital heart disease in newborns",
+    "summary": "Background: Congenital heart disease (CHD) lesions are the most common birth defects and are associated with life-long neurodevelopmental risks. The exact mechanism by which CHD and neurodevelopment are linked remains unclear; exploring the epigenome in these cases may provide novel insights into predictive biomarkers contributing to outcomes. The present study characterizes the impact of CHD on the newborn epigenome and uncovers potential differences in epigenetic age that may underpin long-term neurodevelopmental disabilities in this high-risk population.  Methods: This is a prospective, single-site case-control study conducted at Children\u2019s National Hospital with subjects enrolled from the Washington DC Metropolitan area. Genomic samples were collected between 2018 and 2024 and analyzed using the Illumina MethylationEPIC BeadChip array platform. PedBE was used to assess infant biological age acceleration.  Results: Using a methylation array approach, analysis of 33 newborns with complex CHD requiring neonatal cardiac surgery and 26 healthy controls. There was a significant accelerated epigenetic age in newborns with CHD compared to newborns from uncomplicated pregnancies (p < 0.001). Further subgroup analysis within the CHD cohort revealed that both single- and two-ventricle CHD displayed significant accelerated epigenetic age, with transposition of the great arteries (TGA) cases specifically having the greatest accelerated age (107.2 days, p = 0.0001). Further analysis of the CHD group revealed significant age acceleration associated with low blood oxygen saturation.  Conclusions: The present study reveals novel epigenomic signatures newborns with CHD. The functional significance of these findings, specifically accelerated epigenetic age, should be the focus of future analyses to uncover correlations associated with related outcomes. These studies aim to advance our understanding of mechanisms underlying long-term neurodevelopmental and behavioral impairment in these patients.",
+    "n_samples": 59,
+    "platforms": [
+      "EPIC v2.0 (935K)",
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "CSV, IDAT",
+    "pubmed_ids": [
+      "40722095"
+    ],
+    "date": "2025/07/09",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE293nnn/GSE293799/"
+  },
+  {
+    "accession": "GSE46394",
+    "uid": "200046394",
+    "title": "Genome-wide DNA methylation aberrations in human atherosclerosis (450K)",
+    "summary": "Epigenetics may help understanding the molecular mechanisms of atherosclerosis as genetic predisposition explains only part of cardiovascular disease risk. In particular, DNA methylation, a reversible and highly regulative DNA modification could contribute to disease onset and progression as it functions as effector for environmental impacts, including dietary and life-style, similarly to risk factors for cardiovascular diseases. We addressed this issue by performing whole-genome shotgun bisulfite sequencing and high-resolution DNAmethylation array analysis of healthy and diseased donor-matched atherosclerotic DNA methylomes.",
+    "n_samples": 49,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "25091541",
+      "25881171",
+      "35657981"
+    ],
+    "date": "2014/08/12",
+    "matched_queries": [
+      "atherosclerosis",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE46nnn/GSE46394/"
+  },
+  {
+    "accession": "GSE103929",
+    "uid": "200103929",
+    "title": "Epigenomic and lipidomic changes in Multiple Sclerosis patients with high Body Mass Index enhance the neurotoxic function of monocytes",
+    "summary": "The growing obesity \u201cepidemic\u201d has shed light on its negative impact on overall health status, not only in relation to cardiovascular disorders and metabolic syndrome, but also in regard to its influence on a variety of other health conditions, including autoimmune diseases, such as Multiple Sclerosis (MS). High Body Mass index (BMI) is a risk factor for MS, however, it is not known whether and how it could impact disease course. Several studies, including those on the Dutch Famine, have highlighted the role of epigenetic modifications in mediating phenotypic changes in response to metabolic shifts, suggesting that epigenetic changes could be a potential mechanism for BMI-driven differences in disease course. Using the Illumina 450K array, we identified genome-wide differences in DNA methylation between blood monocytes from therapy-na\u00efve RRMS patients with high BMI compared to low BMI. Differences were subtle, however, were heavily skewed in the positive direction in the high BMI group, indicative of overall DNA hypermethylation. Further curation of differentially methylated genes, using stringent criteria, revealed enrichment in anti-inflammatory functions among the top hypermethylated genes. Thus, epigenomic changes related to inflammatory processes of monocytes are detected in MS patients with high BMI compared to those with low BMI and could potentially impact disease course by modulating immune-driven neurotoxicity.",
+    "n_samples": 49,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "30981648"
+    ],
+    "date": "2019/06/20",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE103nnn/GSE103929/"
+  },
+  {
+    "accession": "GSE59274",
+    "uid": "200059274",
+    "title": "Comprehensive Analysis of Preeclampsia-Associated DNA Methylation in the Placenta",
+    "summary": "Background: A small number of recent reports have suggested that altered placental DNA methylation may be associated with early onset preeclampsia. It is important that further studies be undertaken to confirm and develop these findings. We therefore undertook a systematic analysis of DNA methylation patterns in placental tissue from 24 women with preeclampsia and 24 with uncomplicated pregnancy outcome.   Methods: We analyzed the DNA methylation status of approximately 27,000 CpG sites in placental tissues in a massively parallel fashion using an oligonucleotide microarray. Follow up analysis of DNA methylation at specific CpG loci was performed using the Epityper MassArray approach and high-throughput bisulfite sequencing.  Results: Preeclampsia-specific DNA methylation changes were identified in placental tissue samples irrespective of gestational age of delivery. In addition, we identified a group of CpG sites within specific gene sequences that were only altered in early onset-preeclampsia (EOPET) although these DNA methylation changes did not correlate with altered mRNA transcription. We found evidence that fetal gender influences DNA methylation at autosomal loci but could find no clear association between DNA methylation and gestational age.   Conclusion: Preeclampsia is associated with altered placental DNA methylation. Fetal gender should be carefully considered during the design of future studies in which placental DNA is analyzed at the level of DNA methylation. Further large-scale analyses of preeclampsia-associated DNA methylation are necessary.",
+    "n_samples": 48,
+    "platforms": [
+      "HM27K (legacy 27K)"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "25247495"
+    ],
+    "date": "2014/07/12",
+    "matched_queries": [
+      "hypertension"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE59nnn/GSE59274/"
+  },
+  {
+    "accession": "GSE71398",
+    "uid": "200071398",
+    "title": "Tumor hypoxia causes DNA hypermethylation by reducing TET activity (BeadChip)",
+    "summary": "Genome wide DNA methylation profiling of normoxic and hypoxic non-small-cell lung cancer samples for 5mC and 5hmC. The Illumina Infinium 450k Human DNA methylation Beadchip v1.2 was used to obtain DNA methylation and hydroxymethylation profiles across 485,512 CpGs from DNA extracted from fresh-frozen tumor samples. Samples included 12 hypoxic and 12 normoxic tumor samples, with hypoxia determined according to the hypoxia metagene score (Buffa et al, Br J Cancer 2010). To profile hydroxymethylation, 5hmC was glycosylated and 5mC was oxidised as described by Yu and colleagues (Nat Protoc 2012), and hydroxymethylation and methylation were differentially profiled according to the Nazor and colleagues (Genomics 2014). Hypermethylation of tumor suppressor gene (TSG) promoters confers growth advantages to cancer cells, but how these changes arise is poorly understood. Here, we report that tumor hypoxia reduces the activity of oxygen-dependent TET enzymes, which catalyze DNA de-methylation through 5-methylcytosine oxidation. This occurs independently of hypoxia-associated alterations in TET gene expression, basal metabolism, HIF activity or nuclear reactive oxygen species, but directly depends on oxygen shortage. Hypoxia-induced loss of TET activity increases hypermethylation at gene promoters in vitro, while also in patients, gene promoters are markedly more methylated in hypoxic than normoxic tumors. Affected genes are frequently involved in DNA repair, cell cycle regulation, angiogenesis and metastasis, indicating cellular selection of hypermethylation events. Overall, up to 50% of the tumor-associated hypermethylation is ascribable to hypoxia across various cancer types. Accordingly, spontaneous murine breast tumors become hypermethylated when rendered hypoxic through vessel pruning, whereas vessel normalisation rescues this effect. Tumor hypoxia thus acts as a novel regulator underlying DNA methylation.",
+    "n_samples": 48,
+    "platforms": [
+      "HM450K (alt)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "27533040"
+    ],
+    "date": "2016/09/01",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE71nnn/GSE71398/"
+  },
+  {
+    "accession": "GSE40360",
+    "uid": "200040360",
+    "title": "DNA methylation differences between multiple sclerosis and controls in frontal lobe white matter",
+    "summary": "Using the Illumina 450K array and a stringent statistical analysis with age and gender correction, we report genome-wide differences in DNA methylation between pathology-free regions derived from human multiple sclerosis\u2013affected and control brains. Differences were subtle, but widespread and reproducible in an independent validation cohort. The transcriptional consequences of differential DNA methylation were further defined by genome-wide RNA-sequencing analysis and validated in two independent cohorts. Genes regulating oligodendrocyte survival, such as BCL2L2 and NDRG1, were hypermethylated and expressed at lower levels in multiple sclerosis\u2013affected brains than in controls, while genes related to proteolytic processing (for example, LGMN, CTSZ) were hypomethylated and expressed at higher levels. These results were not due to differences in cellular composition between multiple sclerosis and controls. Thus, epigenomic changes in genes affecting oligodendrocyte susceptibility to damage are detected in pathology-free areas of multiple sclerosis\u2013affected brains.",
+    "n_samples": 47,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "24270187"
+    ],
+    "date": "2013/11/24",
+    "matched_queries": [
+      "CHD_MI",
+      "stroke",
+      "hypertension",
+      "HF_cardiomyopathy",
+      "atherosclerosis",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE40nnn/GSE40360/"
+  },
+  {
+    "accession": "GSE57767",
+    "uid": "200057767",
+    "title": "Epigenome analysis of normal and preeclamptic placenta samples",
+    "summary": "Preeclampsia (PE), a hypertensive disorder of pregnancy, is hypothesized to be associated with, if not mechanistically related to abnormal placental function. However, the exact mechanisms regulating the pathogenesis of PE remain unclear. While many studies have investigated changes in gene expression in the PE placenta, the role of epigenetics in PE associated placental dysfunction remains unclear.  Using the genome-wide Illumina Infinium Methylation 450 BeadChip array, we analyzed gene-specific alterations in DNA methylation in placental biopsies collected from normal pregnant women delivering at term (n=14), with term PE (\u226537 weeks; n=19) or with preterm PE (<37 weeks, n=12).  Of the 485,582 gene loci on the array, compared to controls, 229 loci were differentially methylated in PE placentas and 3411 loci were differentially methylated in preterm PE (step up p-value <0.05 and >5% methylation difference). Functional annotation of the differentially methylated genes in preterm PE placentas revealed a 32 gene cluster in the cadherin and cell adhesion functional groups (Benjamini p<0.00001). Hypermethylation of CDH11 (p=0.0143), COL5A1 (p=0.0127) and TNF (p=0.0098) and hypomethylation of NCAM1 (p=0.0158) was associated with altered mRNA expression in preterm PE placentas. These studies demonstrate aberrant methylation, correlating with disease severity, in PE placentas.",
+    "n_samples": 45,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "24963923"
+    ],
+    "date": "2014/05/20",
+    "matched_queries": [
+      "hypertension",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE57nnn/GSE57767/"
+  },
+  {
+    "accession": "GSE84395",
+    "uid": "200084395",
+    "title": "Endothelial DNA methalytion signature in pulmonary arterial hypertension",
+    "summary": "Pulmonary arterial hypertension (PAH) is a severe and incurable pulmonary vascular disease. One of the primary origins of PAH is pulmonary endothelial dysfunction leading to vasoconstriction, aberrant angiogenesis and smooth muscle cell proliferation, endothelial-to-mesenchymal transition, thrombosis and inflammation. Our objective was to study the epigenetic variations in pulmonary endothelial cells (PEC) through a specific pattern of DNA methylation.",
+    "n_samples": 39,
+    "platforms": [
+      "HM450K (alt)"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "28881789"
+    ],
+    "date": "2016/07/15",
+    "matched_queries": [
+      "hypertension",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84395/"
+  },
+  {
+    "accession": "GSE159479",
+    "uid": "200159479",
+    "title": "Modeling Preeclampsia using human induced pluripotent stem cells [methylation]",
+    "summary": "Preeclampsia (PE) is a hypertensive disorder, which affects up to 10% of pregnancies worldwide. The primary etiology is considered to be abnormal development and function of placental cells called trophoblasts. We previously developed a two-step protocol for differentiation of human pluripotent stem cells, first into cytotrophoblast (CTB) progenitor-like cells, and then into both syncytiotrophoblast (STB)- and extravillous trophoblast (EVT)-like cells, and\u00a0showed that this protocol can be used to\u00a0model both normal and abnormal trophoblast differentiation.\u00a0We\u00a0have now\u00a0applied this protocol to differentiate induced pluripotent stem cells\u00a0(iPSC)\u00a0derived from\u00a0placentas of pregnancies with or without\u00a0PE.\u00a0\u00a0While we\u00a0did not note any\u00a0differences in\u00a0CTB\u00a0induction,\u00a0PE-iPSC-derived\u00a0CTB\u00a0showed\u00a0a defect in\u00a0syncytialization, and\u00a0had\u00a0a >180-fold reduction in expression of PSG4, a mature STB marker (p<0.02).\u00a0While EVT formation\u00a0did not appear to be\u00a0altered, the invasive capacity of PE-iPSC-derived EVT was\u00a0non-responsive to\u00a0a decrease in\u00a0oxygen tension, while\u00a0that of\u00a0non-PE-iPSC-derived EVT was enhanced 3.8-fold.\u00a0RNA\u00a0sequencing analysis\u00a0showed\u00a0gene expression changes consistent with defects in\u00a0STB formation and response\u00a0to hypoxia\u00a0in PE-iPSC derived trophoblast. However,\u00a0differences in\u00a0DNA methylation were minimal,\u00a0with only documented differences consistent with part of the response to hypoxia.\u00a0Overall, PE-associated\u00a0iPSC\u00a0recapitulated\u00a0multiple\u00a0defects\u00a0associated with placental dysfunction,\u00a0with their lack of response\u00a0to decreased oxygen tension\u00a0emphasizing\u00a0the importance of the interface with the maternal microenvironment\u00a0in\u00a0normal\u00a0placentation.",
+    "n_samples": 36,
+    "platforms": [
+      "EPIC v1 (alt)"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "33723311"
+    ],
+    "date": "2021/03/15",
+    "matched_queries": [
+      "hypertension",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159479/"
+  },
+  {
+    "accession": "GSE137416",
+    "uid": "200137416",
+    "title": "Targeting aberrant DNA methylation in mesenchymal stromal cells as a treatment for myeloma bone disease [methylation II]",
+    "summary": "Genome wide DNA methylation profiling of bone marrow-derived mesenchymal stromal cells from healthy donors (n=11), monoclonal gammopathy of undetermined significance (MGUS) (n=10), smoldering myeloma (SMM) (n=8), multiple myeloma (MM) (n=9) patients, and healthy donors exposed to the MM.1S cell line (n=3). The Illumina Infinium MethylationEPIC Beadchip was used to obtain DNA methylation profiles across approximately 850,000 CpGs in this cell type.",
+    "n_samples": 35,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "",
+    "pubmed_ids": [
+      "33462210"
+    ],
+    "date": "2020/11/25",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137416/"
+  },
+  {
+    "accession": "GSE273625",
+    "uid": "200273625",
+    "title": "Methylation and Transcriptomic Profiling Reveals Short Term and Long Term Regulatory Responses in Polarized Macrophages",
+    "summary": "Macrophage plasticity allows the adoption of distinct functional states in response to environmental   cues. While unique transcriptomic profiles define these states, focusing solely on transcription neglects   potential long-term effects. The investigation of epigenetic changes can be used to understand how   temporary stimuli can result in lasting effects. Moreover, epigenetic alterations play an important role   in the pathophysiology of macrophages, including phenomena related to the trained innate immunity,   which allow faster and more efficient inflammatory responses upon subsequent encounters with the   same pathogen. In this study, we used a multi-omics approach to elucidate the interplay between gene   expression and DNA-methylation, unravelling the long-term effects of diverse polarizing environments   on macrophage activity. We identified a common core set of genes that are differentially methylated   regardless of exposure suggesting a potential mechanism for rapid adaptation to various stimuli. These   conserved epigenetic modifications might represent a fundamental state that allows for flexible   responses to various environmental cues. Functional analysis revealed that processes requiring rapid   responses displayed transcriptomic regulation, whereas functions critical for long-term adaptations   exhibited co-regulation at both transcriptomic and epigenetic levels. Our study unveils a novel set of   genes critically linked to the long-term effects of macrophage polarization. This discovery underscores   the potential of epigenetics in elucidating how macrophages establish long-term memory and influence   health outcomes.",
+    "n_samples": 33,
+    "platforms": [
+      "EPIC v2.0 (935K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [],
+    "date": "2024/12/31",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE273nnn/GSE273625/"
+  },
+  {
+    "accession": "GSE213029",
+    "uid": "200213029",
+    "title": "Aerobic Exercise Training Rejuvenates the Human Skeletal Muscle Methylome Ten years after Breast Cancer Treatment and Survival",
+    "summary": "Many cancer survivors suffer from impairments in skeletal muscle (SkM), both in terms of reduced mass and function. Interestingly, human SkM possesses an epigenetic memory of earlier stimuli, such as exercise. Long-term retention of epigenetic changes in SkM following cancer survival and/or exercise training have not yet been studied. We therefore investigated genome-wide DNA methylation (the methylome) in SkM following a 5-month, 3/week treadmill-based aerobic training intervention in breast cancer survivors 10-14 years after diagnosis and treatment. These results were compared to breast cancer survivors who remained untrained and to age-matched controls with no history of cancer, who undertook the same training intervention. SkM biopsies were obtained before (pre) and after (post) the 5-month training period and DNA methylation was analysed using InfiniumEPIC 850K Arrays. The breast cancer survivors displayed a significant retention of increased DNA methylation (i.e., hypermethylation) at a larger number of differentially methylated positions (DMPs) compared with healthy age-matched controls pre-training. Training in cancer survivors led to an exaggerated number of DMPs with a hypermethylated signature occurring at more random non-regulatory regions across the DNA compared with training in healthy age-matched controls. However, the opposite occurred in important gene regulatory regions, where training in cancer survivors elicited a considerable reduction in methylation (i.e., hypomethylation) in 99% of the DMPs located specifically in CpG islands within promoter regions. Importantly, training was able to reverse the hypermethylation identified in cancer survivors back towards a hypomethylated signature that was observed pre-training in healthy age-matched controls at 300 (out of 881) of these island and promoter associated CpG sites. Pathway enrichment analysis identified that the training in cancer survivors evoked this predominantly hypomethylated signature in pathways associated with: Cell cycle, DNA replication and repair, transcription, translation, mTOR signalling and proteosome. Differentially methylated region (DMR) analysis also identified genes: BAG1, BTG2, CHP1, KIFC1, MKL2, MTR, PEX11B, POLD2, S100A6, SNORD104 and SPG7 as hypermethylated in breast cancer survivors with training reversing these CpG island / promoter associated DMRs towards a hypomethylated signature. Training also elicited a largely different epigenetic response in healthy individuals than that observed in cancer survivors, with very few overlapping changes. Only one gene, SIRT2, was identified as having altered methylation in cancer survivors at baseline as well as after training in both the cancer survivors and healthy controls. In conclusion, human SkM muscle retains a hypermethylated signature for as long as 10-14 years after breast cancer treatment and survival. Importantly, 5 months of aerobic training rejuvenated the SkM methylome towards signatures identified in healthy age-matched individuals in gene regulatory regions.",
+    "n_samples": 32,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "36542473"
+    ],
+    "date": "2022/09/12",
+    "matched_queries": [
+      "afib",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213029/"
+  },
+  {
+    "accession": "GSE318387",
+    "uid": "200318387",
+    "title": "Promoter hypomethylation of cadherin-7: a novel epigenetic marker associated with cerebral small vessel disease",
+    "summary": "Introduction: Cerebral small vessel disease (SVD), manifesting as white matter hyperintensities (WMH), lacunar infarctions, and cerebral microbleeds on MRI, has been linked to epigenetic alterations. Methods: Genome-wide promoter methylation was profiled using the Infinium MethylationEPIC v2.0 array in peripheral inflammatory cells from 16 patients without SVD and 16 patients with all three imaging features. Results: EPIC profiling identified 17 promoter regions with significant differences between groups, and CDH7 hypomethylation emerged as an independent predictor of SVD imaging features. Conclusion: CDH7 hypomethylation was identified and validated as an epigenetic marker predictive of MRI-defined SVD imaging features.",
+    "n_samples": 32,
+    "platforms": [
+      "EPIC v2.0 (935K)"
+    ],
+    "suppfile": "IDAT, TSV",
+    "pubmed_ids": [
+      "41890232"
+    ],
+    "date": "2026/04/01",
+    "matched_queries": [
+      "stroke",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE318nnn/GSE318387/"
+  },
+  {
+    "accession": "GSE81337",
+    "uid": "200081337",
+    "title": "Methylome analysis reveals alterations in DNA methylation in the regulatory regions of left ventricle development genes in human dilated cardiomyopathy (methylation)",
+    "summary": "Alterations in DNA methylation and gene expression have been implicated in the development of human dilated cardiomyopathy (DCM). In this study, we analyzed DNA methylomes (Infinium 450K HumanMethylation BeadChip) and characterize differentially methylated probes between the left and right ventricles",
+    "n_samples": 27,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "27417303",
+      "27699191"
+    ],
+    "date": "2016/08/15",
+    "matched_queries": [
+      "HF_cardiomyopathy",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81337/"
+  },
+  {
+    "accession": "GSE85621",
+    "uid": "200085621",
+    "title": "The Effects of Regular Post-Exercise Cold Water Immersion on DNA methylation in Muscle Following 10-weeks of Strength Training",
+    "summary": "In this study, the primary objective was to characterise the impact of regular post-exercise (20 strength training sessions across 10 weeks) cold-water immersion (CWI) on DNA methhylation.  Secondary to this, the effect of regular post-exercise CWI on strength gains and post-exercise soreness was investigated. We used microarrays to detail the global effects of CWI on DNA methylation in vastus lateralis muscle tissue.",
+    "n_samples": 26,
+    "platforms": [
+      "HM450K (alt)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [],
+    "date": "2016/08/16",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE85nnn/GSE85621/"
+  },
+  {
+    "accession": "GSE236694",
+    "uid": "200236694",
+    "title": "DNA methylation patterns in CD4+ T cells separate psoriasis patients from healthy controls, and skin psoriasis from psoriatic arthritis I",
+    "summary": "Background: Psoriasis is a systemic inflammatory disease primarily affecting the skin. Approximately one-third of psoriasis patients develop joint involvement and are diagnosed with psoriatic arthritis (PsA). While, inIn adult-onset disease,  adults, the development of arthritis usually follows skin psoriasis, but approximately 15% experience arthritis first,  which can delay diagnosis.  While the pathophysiology of psoriasis and PsA is incompletely understood, epigenetic dysregulation affecting CD4+ and CD8+ T-cells has been suggested.  Objectives: This project aimed to identify disease-associated DNA methylation signatures in CD4+ T-cells from psoriasis and PsA patients that may be used as diagnostic and/or prognostic biomarkers.   Methods: PBMCs were collected from 12 patients with chronic plaque skin psoriasis and 8 PsA patients, and 8 healthy controls. CD4+ T-cells were separated through FACS sorting, and DNA methylation profiling was performed (Illumina EPIC850K arrays). Bioinformatic analyses, including gene ontology (GO) and KEGG pathway analysis, were performed using R software. To identify genes under the control of interferon (IFN), the Interferome database was consulted, and DNA Methylation Scores were calculated.  Results: Numbers and proportions of CD4+ T-cell subsets (na\u00efve, central memory, effector memory, CD45RA re-expressing effector memory cells) did not vary between controls, skin psoriasis and PsA patients. 883 differentially methylated positions (DMPs) affecting 548 genes were identified between healthy controls and \u201call\u201d psoriasis patients. Principal component and partial least-squares discriminant analysis separated controls from skin psoriasis and PsA patients. GO analysis considering promoter DMPs delivered hypermethylation of genes involved in \u201cregulation of wound healing, spreading of epidermal cells\u201d, \u201cnegative regulation of cell-substrate junction organization\u201d and \u201cnegative regulation of focal adhesion assembly\u201d. Comparing controls and \u201call\u201d psoriasis, a majority of DMPs mapped to IFN-related genes (69.2%). Notably, DNA methylation profiles also distinguished skin psoriasis from PsA patients (2,949 DMPs/1,084 genes) through genes affecting \u201ccAMP-dependent protein kinase inhibitor activity\u201d and \u201ccAMP-dependent protein kinase regulator activity\u201d (GO analysis). Treatment with cytokine inhibitors (IL-17/TNF) corrected DNA methylation patterns of IL-17/TNF-associated genes, and methylation scores correlated with skin disease activity scores (PASI).  Conclusion: DNA methylation profiles in CD4+ T-cells discriminate between skin psoriasis and PsA. DNA methylation signatures may be applied for quantification of disease activity and patient stratification towards individualized treatment. The aim of this study was to identify disease-associated DNA methylation signatures in CD4+ T-cells from patients with psoriasis and PsA that may be used as diagnostic and/or prognostic biomarkers to inform treatment and care.",
+    "n_samples": 26,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "CSV, IDAT",
+    "pubmed_ids": [
+      "37662940"
+    ],
+    "date": "2023/09/14",
+    "matched_queries": [
+      "atherosclerosis"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE236nnn/GSE236694/"
+  },
+  {
+    "accession": "GSE23638",
+    "uid": "200023638",
+    "title": "Genome-wide analysis of autosomal sex differences in human DNA methylome",
+    "summary": "Sex difference had been implicated in pathophysiology and prognosis of common diseases, such as acute lymphoblastic leukemia and coronary heart disease. It is well known that the disease phenotype is shaped by the interaction between the environment, genome, and epigenome. The environmental and the genetic components were extensively studied in the past. Unlike the formers, the role of epigenetics has only been recently investigated. To date, little has been known about differences in epigenetic makeup between the two sexes. Here we present a genome-wide study of sex-specific differences in DNA methylation in healthy individuals. We compared the methylation status of ~26,000 CpGs in the promoter of ~14,000 genes between age-matched males (n=12) and females (n=12). We identified 19 CpGs in 18 genes to have significant sex-specific methylation differences. Our finding was validated by a recent publication of Liu et al. 2010 where they found  similar results (ie. 11 of their 12 CpGs overlapped with ours) using the same microarray platform. However, with further investigation we showed that the probes with sex-specific methylation differences displayed cross-reactive targets on the sex chromosomes. This data indicates that autosomal sex-specific methylation detected  in this study and by Lui et al, 2010 using the Illumina array platform, is the result of  technical artifacts or non-specificity of those microarray probes. Overall, our findings suggest that there is no sex-specific DNA methylation difference in human beyond the sex chromosomes using the Illumina Methylation 27 microarray.",
+    "n_samples": 24,
+    "platforms": [
+      "HM27K (legacy 27K)"
+    ],
+    "suppfile": "",
+    "pubmed_ids": [
+      "21211562"
+    ],
+    "date": "2011/08/22",
+    "matched_queries": [
+      "CHD_MI"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE23nnn/GSE23638/"
+  },
+  {
+    "accession": "GSE62867",
+    "uid": "200062867",
+    "title": "A comparison of genome-wide DNA methylation patterns between different tissues from patients with coronary heart disease",
+    "summary": "Using the Illumina Infinium Human Methylation27 BeadChip, we performed a genome-wide analysis of DNA methylation in right coronary artery in the area of advanced atherosclerotic plaques, atherosclerotic-resistant internal mammary arteries, and great saphenous veins obtained from same patients with coronary heart disease. The resulting DNA methylation patterns were markedly different between all the vascular tissues. The genes hypomethylated in athero-prone arteries to compare with atherosclerotic-resistant arteries were predominately involved in regulation of inflammation and immune processes, as well as development. The great saphenous veins exhibited an increase of the DNA methylation age in comparison to the internal mammary arteries. Gene ontology analysis for genes harboring hypermethylated CpG-sites in veins revealed the enrichment for biological processes associated with the development. Four CpG-sites located within the MIR10B gene sequence and about 1 Kb upstream of the HOXD4 gene were also confirmed as hypomethylated in the independent dataset of right coronary arteries in the area of advanced atherosclerotic plaques in comparison with the other vascular tissues.",
+    "n_samples": 24,
+    "platforms": [
+      "HM27K (legacy 27K)"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "25856389"
+    ],
+    "date": "2014/10/31",
+    "matched_queries": [
+      "CHD_MI",
+      "atherosclerosis",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE62nnn/GSE62867/"
+  },
+  {
+    "accession": "GSE84274",
+    "uid": "200084274",
+    "title": "Epigenome analysis of ascending aorta from normal, aortic dissection and bicuspid aortic valve patients",
+    "summary": "Genome wide DNA methylation profiling of ascending aorta tissue samples from normal, aortic dissection and bicuspid aortic valve patients with aortic dilation. The Illumina Infinium 450k Human DNA methylation Beadchip was used to obtain DNA methylation profiles across more than 450,000 CpGs in ascending aorta samples. Samples included 6 normal donors, 12 patients with aortic dissection and 6 patients with bicuspid aortic valve and dilated aorta.",
+    "n_samples": 24,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [],
+    "date": "2019/07/11",
+    "matched_queries": [
+      "aneurysm"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84274/"
+  },
+  {
+    "accession": "GSE87016",
+    "uid": "200087016",
+    "title": "Genomewide methylation profiles in coronary artery ectasia",
+    "summary": "Genomewide methylation profiles in coronary artery ectasia patients and matched healthy controls.",
+    "n_samples": 23,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "28143891"
+    ],
+    "date": "2017/12/21",
+    "matched_queries": [
+      "hypertension",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE87nnn/GSE87016/"
+  },
+  {
+    "accession": "GSE249157",
+    "uid": "200249157",
+    "title": "Epigenetic Rewiring of Metastatic Cancer to the Brain: Focus on Lung and Colon Cancers",
+    "summary": "Genome wide DNA methylation profiling of brain metastasis from colorectal and lung cancer. The Illumina Infinium MethylationEPIC was used to obtain DNA methylation profiles across approximately 850,000 CpGs in brain metastasis samples. Samples included 1 breast ductal invasive carcinoma, 4 colon adenocarcinoma, 1 melanoma, 1 multiple mieloma, 7 non small cell lung cancer adenocarcinoma,  3 non small cell lung cancer G3, 4 non small cell lung cancer SCC, 1 prostate cancer adenocarcinoma and 1 serous carcinoma.",
+    "n_samples": 23,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "37046805"
+    ],
+    "date": "2023/12/17",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE249nnn/GSE249157/"
+  },
+  {
+    "accession": "GSE57484",
+    "uid": "200057484",
+    "title": "Dietary fat quality, more than dietary fat quantity, impacts genome-wide DNA methylation patterns in Greek preadolescents",
+    "summary": "The type and the amount of dietary fat have a significant influence on the metabolic pathways involved in the development of obesity, metabolic syndrome, diabetes type 2 and cardiovascular diseases. However, it is unknown to what extent this modulation is achieved through DNA methylation. We assessed the effects of cholesterol intake, the proportion of energy intake derived from fat, the ratio of polyunsaturated fatty acids (PUFA) to saturated fatty acids (SFA), the ratio of monounsaturated fatty acids (MUFA) to SFA, and the ratio of (MUFA+PUFA) to SFA on genome-wide DNA methylation patterns in normal-weight and obese children. We determined the genome-wide methylation profile in blood of 69 Greek preadolescents (~10 y old), as well as their dietary intake for two consecutive weekdays and one weekend day. The methylation levels of four sites and a CpG island were significantly correlated with total fat intake. The methylation levels of 13 islands and 16 sites were significantly correlated with PUFA/SFA; of 35 islands and 158 sites with MUFA/SFA; and of 50 islands and 130 sites with (MUFA+PUFA)/SFA. We found significant gene enrichment in 26 pathways for PUFA/SFA, including the leptin pathway, and a significant enrichment in three pathways for (MUFA+PUFA)/SFA. Our results suggest that the quality, and to a lesser extent the quantity of fat intake, influences DNA methylation, including genes involved in metabolism. Thus, specific changes in DNA methylation may play an important role in the mechanisms involved in the physiological responses to different types of dietary fat.",
+    "n_samples": 22,
+    "platforms": [
+      "HM27K (legacy 27K)"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [],
+    "date": "2014/05/09",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE57nnn/GSE57484/"
+  },
+  {
+    "accession": "GSE236695",
+    "uid": "200236695",
+    "title": "DNA methylation patterns in CD4+ T cells separate psoriasis patients from healthy controls, and skin psoriasis from psoriatic arthritis II",
+    "summary": "Background: Psoriasis is a systemic inflammatory disease primarily affecting the skin. Approximately one-third of psoriasis patients develop joint involvement and are diagnosed with psoriatic arthritis (PsA). While, inIn adult-onset disease,  adults, the development of arthritis usually follows skin psoriasis, but approximately 15% experience arthritis first,  which can delay diagnosis.  While the pathophysiology of psoriasis and PsA is incompletely understood, epigenetic dysregulation affecting CD4+ and CD8+ T-cells has been suggested.  Objectives: This project aimed to identify disease-associated DNA methylation signatures in CD4+ T-cells from psoriasis and PsA patients that may be used as diagnostic and/or prognostic biomarkers.   Methods: PBMCs were collected from 12 patients with chronic plaque skin psoriasis and 8 PsA patients, and 8 healthy controls. CD4+ T-cells were separated through FACS sorting, and DNA methylation profiling was performed (Illumina EPIC850K arrays). Bioinformatic analyses, including gene ontology (GO) and KEGG pathway analysis, were performed using R software. To identify genes under the control of interferon (IFN), the Interferome database was consulted, and DNA Methylation Scores were calculated.  Results: Numbers and proportions of CD4+ T-cell subsets (na\u00efve, central memory, effector memory, CD45RA re-expressing effector memory cells) did not vary between controls, skin psoriasis and PsA patients. 883 differentially methylated positions (DMPs) affecting 548 genes were identified between healthy controls and \u201call\u201d psoriasis patients. Principal component and partial least-squares discriminant analysis separated controls from skin psoriasis and PsA patients. GO analysis considering promoter DMPs delivered hypermethylation of genes involved in \u201cregulation of wound healing, spreading of epidermal cells\u201d, \u201cnegative regulation of cell-substrate junction organization\u201d and \u201cnegative regulation of focal adhesion assembly\u201d. Comparing controls and \u201call\u201d psoriasis, a majority of DMPs mapped to IFN-related genes (69.2%). Notably, DNA methylation profiles also distinguished skin psoriasis from PsA patients (2,949 DMPs/1,084 genes) through genes affecting \u201ccAMP-dependent protein kinase inhibitor activity\u201d and \u201ccAMP-dependent protein kinase regulator activity\u201d (GO analysis). Treatment with cytokine inhibitors (IL-17/TNF) corrected DNA methylation patterns of IL-17/TNF-associated genes, and methylation scores correlated with skin disease activity scores (PASI).  Conclusion: DNA methylation profiles in CD4+ T-cells discriminate between skin psoriasis and PsA. DNA methylation signatures may be applied for quantification of disease activity and patient stratification towards individualized treatment. The aim of this study was to identify disease-associated DNA methylation signatures in CD4+ T-cells from patients with psoriasis and PsA that may be used as diagnostic and/or prognostic biomarkers to inform treatment and care.",
+    "n_samples": 22,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "CSV, IDAT",
+    "pubmed_ids": [
+      "37662940"
+    ],
+    "date": "2023/09/14",
+    "matched_queries": [
+      "atherosclerosis"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE236nnn/GSE236695/"
+  },
+  {
+    "accession": "GSE75434",
+    "uid": "200075434",
+    "title": "Epigenome analysis of intracranial aneurysm and superficial temporal artery samples",
+    "summary": "Genomic DNA of intracranial aneurysm and matched superficial temporal artery from same patient (n=9) was extracted  with\u00a0QIAamp DNA Mini Kit\u00a0(Qiagen, Valencia, CA). A total of 500 of genomic DNA was bisulfite conversion using the EZ DNA Methylation Gold Kit (Zymo Research, Irvine, CA) and then analyzed on an Infinium HumanMethylation450 BeadChip (Illumina, San Diego, CA) following the manufacturer\u2019s instructions.",
+    "n_samples": 18,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [],
+    "date": "2016/12/01",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE75nnn/GSE75434/"
+  },
+  {
+    "accession": "GSE42510",
+    "uid": "200042510",
+    "title": "Alterations in cardiac DNA methylation in human dilated cardiomyopathy",
+    "summary": "This project analyzes genome-wide cardiac DNA methylation in patients with idopathic DCM and control individuals",
+    "n_samples": 17,
+    "platforms": [
+      "HM27K (legacy 27K)"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "23341106"
+    ],
+    "date": "2012/12/18",
+    "matched_queries": [
+      "HF_cardiomyopathy"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42510/"
+  },
+  {
+    "accession": "GSE307696",
+    "uid": "200307696",
+    "title": "Epigenomic analysis of human advanced heart failure",
+    "summary": "The goal of this study is to compare the epigenome of advanced heart failure patients (with idiopathic dilated cardiomyopathy) undergoing heart transplantation compared with healthy controls.",
+    "n_samples": 17,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "41126307"
+    ],
+    "date": "2025/10/22",
+    "matched_queries": [
+      "HF_cardiomyopathy",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE307nnn/GSE307696/"
+  },
+  {
+    "accession": "GSE42774",
+    "uid": "200042774",
+    "title": "A genome-wide methylation study on essential hypertension in young African American Males",
+    "summary": "We performed a genome wide methylation scan using the Illumina HumanMethylation27 BeadChip on DNAs extracted from the leukocytes of 8 hypertensive cases and 8 normotensive age-matched controls. All subjects were African American males aged 14-23 years.",
+    "n_samples": 16,
+    "platforms": [
+      "HM27K (legacy 27K)"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "23325143"
+    ],
+    "date": "2013/05/01",
+    "matched_queries": [
+      "hypertension"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42774/"
+  },
+  {
+    "accession": "GSE62727",
+    "uid": "200062727",
+    "title": "Genome-wide DNA methylation analysis in permanent atrial fibrillation",
+    "summary": "Atrial fibrillation (AF) is the most common sustained arrhythmia with increased risk of stroke and congestive heart failure. AF is a highly genetic heterogeneous disease, but a large proportion of AF cannot be explained by genetic variants only. Some risk factors of AF, tendentious heritable phenomenon, potentially reversible conditions and some subtypes without DNA sequence variation all indicate the participation of DNA methylation in the pathogenesis of AF.",
+    "n_samples": 11,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "24463922"
+    ],
+    "date": "2014/10/28",
+    "matched_queries": [
+      "stroke",
+      "HF_cardiomyopathy",
+      "afib",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE62nnn/GSE62727/"
+  },
+  {
+    "accession": "GSE213382",
+    "uid": "200213382",
+    "title": "An epigenetic switch controls the expression of an alternative NR2F2 isoform that unleashes a pro-metastatic program in melanoma [450K]",
+    "summary": "Metastatic melanoma develops once transformed melanocytic cells begin to de-differentiate into migratory and invasive melanoma cells with neural crest cell (NCC)-like and epithelial-to mesenchymal transition (EMT)-like features. However, it is still unclear how transformed melanocytes assume a metastatic melanoma cell state. Here, we define DNA-methylation changes that accompany metastatic progression in melanoma patients and discover Nuclear Receptor Subfamily 2 Group F, Member 2 \u2013 isoform 2 (NR2F2-Iso2) as an epigenetically regulated metastasis driver. NR2F2-Iso2 is transcribed from an alternative transcriptional start site (TSS) and it is truncated at the N-terminal end which encodes the NR2F2 DNA-binding domain. We find that NR2F2-Iso2 expression is turned off by DNA methylation when NCCs differentiate into melanocytes. Conversely, this process is reversed during metastatic melanoma progression, when NR2F2-Iso2 becomes increasingly hypomethylated and re-expressed. Our functional and molecular studies suggest that NR2F2-Iso2 drives metastatic melanoma progression by modulating the activity of full-length NR2F2 (Isoform 1) over EMT- and NCC associated target genes. Our findings indicate that DNA-methylation changes play a crucial role during metastatic melanoma progression, and their control of NR2F2 activity allows transformed melanocytes to acquire NCC-like and EMT-like features. This epigenetically regulated transcriptional plasticity facilitates cell state transitions and metastatic spread.",
+    "n_samples": 11,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "37015919"
+    ],
+    "date": "2022/12/31",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213382/"
+  },
+  {
+    "accession": "GSE188395",
+    "uid": "200188395",
+    "title": "DNA Methylation Profiling Reveals Novel Pathway Implicated in Cardiovascular Diseases of Diabetes",
+    "summary": "Epigenetics was reported to mediate the effects of environmental risk factors on disease pathogenesis. To unleash the role of DNA methylation modification in the pathological process of cardiovascular diseases in diabetes, we screened differentially methylated genes by methylated DNA immunoprecipitation chip (MeDIP-chip) among the enrolled participants.",
+    "n_samples": 9,
+    "platforms": [
+      "GPL16353"
+    ],
+    "suppfile": "PAIR, TXT",
+    "pubmed_ids": [
+      "36875456"
+    ],
+    "date": "2022/07/01",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188395/"
+  },
+  {
+    "accession": "GSE286164",
+    "uid": "200286164",
+    "title": "Epigenomic-transcriptional network during neural crest cell differentiation [DNA methylation]",
+    "summary": "Neural crest cells (NCCs) originate from the neural tube during early embryogenesis, and they are a pivotal cell population involved in vertebrate development. NCCs are mainly divided into cranial NCCs (cNCCs) and trunk NCCs (tNCCs), which subsequently differentiate into diverse tissues and organs. Proper differentiation and fate determination into NCCs are essential for normal development and survival of individuals, and abnormal differentiation of NCCs can lead to various diseases such as cardiac disorders and tumors. Epigenetic mechanisms, including histone modification and DNA methylation, are crucial for regulating NCC differentiation. However, the specific mechanisms of DNA methylation underlying the differentiation of cNCCs and tNCCs remain poorly understood. This study aimed to address this knowledge gap by comparing the differentiation mechanisms of cranial and trunk NCCs derived from human induced pluripotent stem cells. Through integrated analysis of the transcriptome and DNA methylome data, we found that along with differentiation, DNA demethylation upstream of the transcription start sites of myocyte enhancer factor 2C (MEF2C) in cNCCs and thyroid hormone receptor alpha-2 (THRA2) in tNCCs led to increased expression of these genes. Furthermore, MEF2C and THRA2 were found to potentially regulate NCC markers. Our findings contribute to a detailed understanding of regulatory mechanisms of DNA methylation in normal NCC differentiation and may provide insights into the pathogenesis of NCC-related diseases such as neuroblastoma.",
+    "n_samples": 9,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [],
+    "date": "2026/04/26",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE286nnn/GSE286164/"
+  },
+  {
+    "accession": "GSE289988",
+    "uid": "200289988",
+    "title": "Comparative DNA methylation profiling of human and murine ALK-positive B-cell neoplasms [EPIC]",
+    "summary": "Structural genomic variants leading to anaplastic lymphoma kinase (ALK) gene fusions and aberrant expression of the ALK tyrosine kinase are the hallmark of subtypes of T- and B-lineage neoplasms, namely ALK-positive anaplastic large lymphoma (ALCL) and ALK-positive large B-cell lymphoma (LBCL). The latter is a rare aggressive lymphoma, which has been initially identified as a variant of diffuse LBCL (DLBCL) with plasmablastic features. Here, we performed comparative DNA methylation profiling of human and murine ALK-positive B-cell neoplasms. Array-based DNA methylation data from ALK-positive LBCL samples of eight patients were compared to that of DLBCL (n=75), multiple myeloma (MM, n=24), ALK-positive ALCL (n=12) and normal B-cell populations (n=93). ALK-positive LBCLs share a distinct DNA methylation signature similar to that of MM, characterized by lower global DNA methylation levels compared to DLBCLs and normal B-cell populations. DNA methylation alterations in ALK-positive LBCL were predominantly located in heterochromatic and polycomb-repressed regions. The epigenetic age and relative proliferative history of ALK-positive LBCL were intermediate between MM and DLBCL. B-cell neoplasms in NPM::ALK transgenic mice showed a similar hypomethylated signature when compared to normal murine B cells. Cross-species comparison indicated conservation of chromatin states and pathways affected by hypomethylation. Together, the findings suggest that in line with their phenotypical appearance human and murine ALK-positive B-cell lymphomas share an epigenetic profile more closely resembling that of plasma cell neoplasias than that of DLBCLs.",
+    "n_samples": 9,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT, TXT",
+    "pubmed_ids": [
+      "40879321"
+    ],
+    "date": "2025/09/10",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE289nnn/GSE289988/"
+  },
+  {
+    "accession": "GSE202047",
+    "uid": "200202047",
+    "title": "Epigenome analysis of aorta from normal and Stanford-A aortic dissection patients",
+    "summary": "Genome wide DNA methylation profiling of normal and ascending aorta tissue samples from normal and aortic dissection patients. The Illumina Infinium 450k Human DNA methylation Beadchip was used to obtain DNA methylation profiles across approximately 485,512 CpGs in ascending aorta tissue samples. Samples included 4 normal donors and 4 patients with aortic dissection.",
+    "n_samples": 8,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "36309656"
+    ],
+    "date": "2022/11/02",
+    "matched_queries": [
+      "aneurysm"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE202nnn/GSE202047/"
+  },
+  {
+    "accession": "GSE68259",
+    "uid": "200068259",
+    "title": "DNA methylation data from cell lines originating from patients with multiple myeloma",
+    "summary": "We performed genome-wide DNA methylation profiling of KMS11, MM.1S, and RPMI8226 multiple myeloma cell lines to identify methylation changes distinct to each cell line",
+    "n_samples": 6,
+    "platforms": [
+      "HM450K"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [],
+    "date": "2015/06/30",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE68nnn/GSE68259/"
+  },
+  {
+    "accession": "GSE137360",
+    "uid": "200137360",
+    "title": "Targeting aberrant DNA methylation in mesenchymal stromal cells as a treatment for myeloma bone disease [methylation]",
+    "summary": "Genome wide DNA methylation profiling of bone marrow-derived mesenchymal stromal cells from healthy donors (n=11), monoclonal gammopathy of undetermined significance (MGUS) (n=10), smoldering myeloma (SMM) (n=8), multiple myeloma (MM) (n=9) patients, and healthy donors exposed to the MM.1S cell line (n=3). The Illumina Infinium MethylationEPIC Beadchip was used to obtain DNA methylation profiles across approximately 850,000 CpGs in this cell type.",
+    "n_samples": 6,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "TXT",
+    "pubmed_ids": [
+      "33462210"
+    ],
+    "date": "2020/11/25",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137360/"
+  },
+  {
+    "accession": "GSE188552",
+    "uid": "200188552",
+    "title": "CLINICOPATHOLOGIC AND MOLECULAR ANALYSIS OF A BCOR-CCNB3+ UNDIFFERENTIATED SARCOMA OF THE KIDNEY REVEALS SIGNIFICANT EPI-GENETIC ALTERATION [methylation]",
+    "summary": "Undifferentiated soft tissue sarcomas (UDSTS ) are a group of mesenchymal tumors that remain a diagnostic challenge due to their morphologic heterogeneity and unclear histologic origin (Pe-ters et al. 2015b). In this case report, we present the first multi-omics molecular signature for BCOR-CCNB3 sarcomas (BCS) that includes mutation analysis, gene expression, DNA methyla-tion, and mi-RNA expression. We identify a paucity of additonal mutations in this tumor and de-tail that there is significant dysregulation of gene expression of epigeneic remodeling agents in-cluding key members of the PRC, Sin3A/3b, NuRD, and NcoR/SMRT complexes and the DNA methyltransferases DNMT1, DNMT3a, and DNMT3b. This is accompanied by significant DNA methylation changes and dysregulation of multiple miRNA with known links to tumorigenesis. This study significantly increases our understanding of the BCOR effects on fusion positive un-differentiated sarcomas at both the genomic and epigenomic level, and suggests that as better-tailored and more refined treatment algorithms continue to evolve, epigenetic modifying agents should be further evaluated for their efficacy against these tumors.",
+    "n_samples": 2,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "34819304"
+    ],
+    "date": "2021/11/12",
+    "matched_queries": [
+      "CHD_MI",
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188552/"
+  },
+  {
+    "accession": "GSE207108",
+    "uid": "200207108",
+    "title": "Monosomy X in isogenic human iPSC-derived trophoblast model impacts expression modules preserved in human placenta [Infinium methylEPIC]",
+    "summary": "Mammalian sex chromosomes encode homologous X/Y gene pairs that were retained on the male Y and escape X chromosome inactivation (XCI) in females. Inferred to reflect X/Y-pair dosage sensitivity, monosomy X is a leading cause of miscarriage in humans with near full penetrance. This phenotype is shared with many other mammals but not the mouse, which offers sophisticated genetic tools to generate sex chromosomal aneuploidy but also tolerates its developmental impact. To address this critical gap, we generated X-monosomic human induced pluripotent stem cells (hiPSCs) alongside otherwise isogenic euploid controls from male and female mosaic samples. Phased genomic variants of these hiPSC panels enable systematic investigation of X/Y dosage-sensitive features using in vitro models of human development.  Here, we demonstrate the utility of these validated hiPSC lines to test how X/Y-linked gene dosage impacts a widely-used model for the human syncytiotrophoblast. While these isogenic panels trigger a GATA2/3 and TFAP2A/C -driven trophoblast gene circuit irrespective of karyotype, differential expression implicates monosomy X in altered levels of placental genes, and in secretion of placental growth factor (PlGF) and human chorionic gonadotropin (hCG). Remarkably, weighted gene co-expression network modules that significantly reflect these changes are also preserved in first-trimester chorionic villi and term placenta. Our results suggest monosomy X may skew trophoblast cell type composition and function, and that the compound haploinsufficiency of the pseudoautosomal region likely plays a key role in these changes.",
+    "n_samples": 2,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "36161909"
+    ],
+    "date": "2022/10/04",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207108/"
+  },
+  {
+    "accession": "GSE213390",
+    "uid": "200213390",
+    "title": "An epigenetic switch controls the expression of an alternative NR2F2 isoform that unleashes a pro-metastatic program in melanoma [EPIC]",
+    "summary": "Metastatic melanoma develops once transformed melanocytic cells begin to de-differentiate into migratory and invasive melanoma cells with neural crest cell (NCC)-like and epithelial-to mesenchymal transition (EMT)-like features. However, it is still unclear how transformed melanocytes assume a metastatic melanoma cell state. Here, we define DNA-methylation changes that accompany metastatic progression in melanoma patients and discover Nuclear Receptor Subfamily 2 Group F, Member 2 \u2013 isoform 2 (NR2F2-Iso2) as an epigenetically regulated metastasis driver. NR2F2-Iso2 is transcribed from an alternative transcriptional start site (TSS) and it is truncated at the N-terminal end which encodes the NR2F2 DNA-binding domain. We find that NR2F2-Iso2 expression is turned off by DNA methylation when NCCs differentiate into melanocytes. Conversely, this process is reversed during metastatic melanoma progression, when NR2F2-Iso2 becomes increasingly hypomethylated and re-expressed. Our functional and molecular studies suggest that NR2F2-Iso2 drives metastatic melanoma progression by modulating the activity of full-length NR2F2 (Isoform 1) over EMT- and NCC associated target genes. Our findings indicate that DNA-methylation changes play a crucial role during metastatic melanoma progression, and their control of NR2F2 activity allows transformed melanocytes to acquire NCC-like and EMT-like features. This epigenetically regulated transcriptional plasticity facilitates cell state transitions and metastatic spread.",
+    "n_samples": 1,
+    "platforms": [
+      "EPIC v1.0 (850K)"
+    ],
+    "suppfile": "IDAT",
+    "pubmed_ids": [
+      "37015919"
+    ],
+    "date": "2022/12/31",
+    "matched_queries": [
+      "general_CVD"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213390/"
+  }
+]

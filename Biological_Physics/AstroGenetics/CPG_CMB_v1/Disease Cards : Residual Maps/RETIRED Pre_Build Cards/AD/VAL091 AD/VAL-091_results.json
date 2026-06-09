@@ -1,0 +1,218 @@
+{
+  "val_id": "VAL-091",
+  "title": "Cortical-neuron cfDNA fraction in AD blood \u2014 Loyfer/Moss array atlas",
+  "card": "ad-immune-epic v2.1 \u2192 v2.2 pending VAL-091 outcome",
+  "prereg_seal_sha256": "56c7cac9bb869e4ec2b72a6359f87767035443e0f9b5d34d1a7c848b10053c2f",
+  "rng_seed": 20260426,
+  "date": "2026-04-26",
+  "method": "NNLS deconvolution against nloyfer/meth_atlas reference_atlas.csv (Loyfer 2023 Nature 613:355). Cortical_neurons row extracted per cohort.",
+  "reference_atlas_sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1",
+  "cohorts": {
+    "GSE51057_HC_external_reference": {
+      "n": 329,
+      "platform": "HM450",
+      "role": "healthy reference (same as VAL-090)"
+    },
+    "GSE153712_AIBL": {
+      "n": 726,
+      "platform": "EPIC 850K",
+      "role": "AD primary cohort, panel-training"
+    },
+    "GSE144858_AddNeuroMed": {
+      "n": 300,
+      "platform": "HM450",
+      "role": "AD cross-platform replication"
+    },
+    "GSE53740_GIFT": {
+      "n": 384,
+      "platform": "HM450",
+      "role": "AD specificity vs FTD/PSP/CBD"
+    }
+  },
+  "descriptives_pct": {
+    "GSE51057_HC_external": {
+      "n": 329,
+      "mean": 0.29118541033434653,
+      "sd": 0.37653927049581043,
+      "median": 0.1,
+      "min": 0.0,
+      "max": 1.5,
+      "p25": 0.0,
+      "p75": 0.5
+    },
+    "AIBL_HC": {
+      "n": 471,
+      "mean": 0.2581740976645435,
+      "sd": 0.29472681084314195,
+      "median": 0.1,
+      "min": 0.0,
+      "max": 1.3,
+      "p25": 0.0,
+      "p75": 0.5
+    },
+    "AIBL_AD": {
+      "n": 161,
+      "mean": 0.2503105590062112,
+      "sd": 0.32922716769779276,
+      "median": 0.1,
+      "min": 0.0,
+      "max": 2.1999999999999997,
+      "p25": 0.0,
+      "p75": 0.5
+    },
+    "AIBL_MCI": {
+      "n": 94,
+      "mean": 0.30851063829787234,
+      "sd": 0.38203179917977304,
+      "median": 0.2,
+      "min": 0.0,
+      "max": 1.9,
+      "p25": 0.0,
+      "p75": 0.5
+    },
+    "AddNeuroMed_HC": {
+      "n": 96,
+      "mean": 7.397916666666666,
+      "sd": 0.7026235297521735,
+      "median": 7.3999999999999995,
+      "min": 5.5,
+      "max": 10.299999999999999,
+      "p25": 7.000000000000001,
+      "p75": 7.8
+    },
+    "AddNeuroMed_AD": {
+      "n": 93,
+      "mean": 7.341935483870968,
+      "sd": 0.6401974187099327,
+      "median": 7.3,
+      "min": 5.7,
+      "max": 9.1,
+      "p25": 6.9,
+      "p75": 7.75
+    },
+    "AddNeuroMed_MCI": {
+      "n": 111,
+      "mean": 7.224324324324324,
+      "sd": 0.6301826886944936,
+      "median": 7.199999999999999,
+      "min": 5.7,
+      "max": 9.6,
+      "p25": 6.9,
+      "p75": 7.6
+    },
+    "GIFT_HC": {
+      "n": 193,
+      "mean": 0.4958549222797927,
+      "sd": 0.6723585815442277,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 2.5,
+      "p25": 0.0,
+      "p75": 1.0
+    },
+    "GIFT_AD": {
+      "n": 15,
+      "mean": 1.2133333333333334,
+      "sd": 1.4376899460427417,
+      "median": 0.8999999999999999,
+      "min": 0.0,
+      "max": 5.800000000000001,
+      "p25": 0.3,
+      "p75": 1.7000000000000002
+    },
+    "GIFT_FTD": {
+      "n": 128,
+      "mean": 0.62890625,
+      "sd": 0.7426439618914694,
+      "median": 0.4,
+      "min": 0.0,
+      "max": 3.9,
+      "p25": 0.0,
+      "p75": 1.1749999999999998
+    },
+    "GIFT_PSP_CBD": {
+      "n": 44,
+      "mean": 0.16363636363636364,
+      "sd": 0.5113097223164318,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 2.3,
+      "p25": 0.0,
+      "p75": 0.0
+    }
+  },
+  "cohens_d_within_cohort": {
+    "AIBL_AD_vs_HC": {
+      "d": -0.025878810804938163,
+      "ci_lo": -0.2080866273252922,
+      "ci_hi": 0.16611465161479824,
+      "n_a": 161,
+      "n_b": 471
+    },
+    "AddNeuroMed_AD_vs_HC": {
+      "d": -0.08322660943419162,
+      "ci_lo": -0.3550699317882071,
+      "ci_hi": 0.1934768846721937,
+      "n_a": 93,
+      "n_b": 96
+    },
+    "GIFT_AD_vs_HC": {
+      "d": 0.9572203738042198,
+      "ci_lo": 0.14739616530564703,
+      "ci_hi": 1.877260396095549,
+      "n_a": 15,
+      "n_b": 193
+    },
+    "GIFT_FTD_vs_HC": {
+      "d": 0.18975206468951705,
+      "ci_lo": -0.036822141406549935,
+      "ci_hi": 0.41153891435662215,
+      "n_a": 128,
+      "n_b": 193
+    },
+    "GIFT_PSP_CBD_vs_HC": {
+      "d": -0.5143508799739651,
+      "ci_lo": -0.7826275139080757,
+      "ci_hi": -0.21417879309066148,
+      "n_a": 44,
+      "n_b": 193
+    }
+  },
+  "pooled_AD_vs_HC": {
+    "pooled_AD_vs_pooled_native_HC": {
+      "d": 0.5696060970194213,
+      "ci_lo": 0.4002553109865455,
+      "ci_hi": 0.7248716949942228,
+      "n_a": 269,
+      "n_b": 760
+    },
+    "pooled_AD_vs_GSE51057_external_HC": {
+      "d": 1.0749617919897092,
+      "ci_lo": 0.938036368353829,
+      "ci_hi": 1.2152373739250228,
+      "n_a": 269,
+      "n_b": 329
+    }
+  },
+  "cross_cohort_HC_baseline_pct": {
+    "GSE51057_HC_external (Loyfer ref base)": 0.29118541033434653,
+    "AIBL_HC (EPIC, Australian)": 0.2581740976645435,
+    "AddNeuroMed_HC (450K, European)": 7.397916666666666,
+    "GIFT_HC (450K, US UCSF-MAC)": 0.4958549222797927
+  },
+  "cross_cohort_HC_fold_range": 28.65475945723684,
+  "val090_glioma_anchor_pct": 1.092,
+  "val090_hc_anchor_pct": 0.276,
+  "primary_outcome_label": "O4_AD_NEURO_NULL",
+  "primary_outcome_d": -0.026,
+  "interpretation_note": "O4_AD_NEURO_NULL is the AD card v2.1 PREDICTION. The card explicitly states \"Stage 2 Moss NNLS for AD is expected NULL \u2014 brain tissue not in buffy coat.\" VAL-091 tests this prediction with the Loyfer atlas (which has a Cortical_neurons reference Moss 2018 lacked). O4 confirms the prediction; O1-O3 contradict it; O5 is biologically anomalous.",
+  "primary_outcome_basis": "Within-cohort AIBL AD-vs-HC d = -0.026 [-0.21, +0.17] is the strongest single-cohort evidence (largest n, panel-training cohort, EPIC platform). Within-cohort AddNeuroMed AD-vs-HC d = -0.083 [-0.36, +0.19] confirms across platform. The pooled-AD-vs-external-HC d = +1.075 reported in the analysis output is NOT a valid primary statistic because the cross-cohort HC baseline fold range is 28.7\u00d7 \u2014 pooling AD samples whose underlying HC baselines differ by 28-fold confounds disease effect with cohort/platform/preprocessing batch.",
+  "caveats": {
+    "addneuromed_baseline_shift": "AddNeuroMed HC mean cortical-neuron fraction is 7.4%, vs ~0.3% in AIBL HC and GIFT HC. AddNeuroMed is 450K with only 5599 of 6105 Loyfer reference CpGs present (8% missing). NNLS with reduced reference coverage routes mass into Cortical_neurons by default when discriminating CpGs are absent. The within-AddNeuroMed AD-vs-HC contrast is still valid (both arms suffer the same routing) but absolute fractions are not interpretable.",
+    "gift_n15_outlier": "GIFT n=15 AD shows d=+0.96 in raw boxplot, but the median AD = 0.9% vs median HC = 0.0% is modest. The mean is pulled by a single 5.8% outlier (GSM1300378). With n=15 and one outlier driving the effect, this signal is not robust enough to claim against the AIBL/AddNeuroMed null. GIFT also has its own well-documented batch offset (per VAL-057, GSE53740 HC sit elevated vs 80-cell baseline by 2.3 SD).",
+    "gift_specificity_arm": "FTD d=+0.19 (essentially null), PSP/CBD d=-0.51 (PSP/CBD reads LOWER cortical-neuron than HC). No tauopathy-class elevation. The signal pattern argues against either tauopathy-shared or generic-neurodegeneration explanations."
+  },
+  "supports_card_v21_prediction": true,
+  "card_v21_prediction": "Card v2.1 README states: \"Stage 2 Moss NNLS for AD is expected NULL \u2014 brain tissue is not in buffy coat at levels Moss NNLS can resolve.\" VAL-091 tested this prediction with the expanded Loyfer atlas (which DOES include a Cortical_neurons sorted-cell reference Moss 2018 lacked). The within-cohort AIBL and AddNeuroMed nulls confirm the prediction extends to the Loyfer-augmented Stage 2 readout.",
+  "edear_routing_implication": "Glioma plasma cortical-neuron fraction (VAL-090): ~1.09% (4\u00d7 HC). AIBL AD plasma cortical-neuron fraction: ~0.25% (HC-equivalent). Cortical-neuron cfDNA fraction is a cross-platform discriminator between glioma and AD at the cohort level. EDEAR Stage 2 cortical-neuron tile becomes a glioma-vs-AD differentiator when both Stage 1 panels (AD-directional immune for AD, immune A-score for glioma) co-flag."
+}

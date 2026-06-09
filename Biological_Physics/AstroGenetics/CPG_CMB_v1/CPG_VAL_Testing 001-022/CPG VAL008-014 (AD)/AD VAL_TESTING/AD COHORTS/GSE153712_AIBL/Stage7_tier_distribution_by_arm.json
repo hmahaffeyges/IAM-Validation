@@ -1,0 +1,146 @@
+{
+  "ad_stem_pluri": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_stem_pluri": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_stem_adult": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_stem_adult": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_progenitor": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_progenitor": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_cycling": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_cycling": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_secretory": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_secretory": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_immune": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_immune": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_terminal": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_terminal": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  },
+  "ad_stromal": {
+    "counts": {
+      "BELOW_NORMAL": 161
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 161
+  },
+  "hc_stromal": {
+    "counts": {
+      "BELOW_NORMAL": 471
+    },
+    "fractions": {
+      "BELOW_NORMAL": 1.0
+    },
+    "n": 471
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "card_id": "cardio-epic",
+  "card_version": "v0.1",
+  "card_date": "2026-04-28",
+  "supersedes": "(none \u2014 initial card; first card built natively under CHK-3.1A/B split convention)",
+  "disease": {
+    "name": "Cardiovascular disease (CVD)",
+    "common_synonyms": [
+      "heart disease",
+      "circulatory disease",
+      "stroke",
+      "PAH",
+      "aortic dissection"
+    ],
+    "full_name": "Cardiovascular disease \u2014 composite category covering ischemic stroke, pulmonary arterial hypertension (PAH), aortic dissection / bicuspid aortic valve (BAV) with dilation, with framework architecture extensible to coronary heart disease, heart failure, and hypertensive heart disease in v0.2+.",
+    "global_burden": "Leading global cause of mortality (~17.9M deaths/year per WHO 2023). Ischemic heart disease and stroke are the top two causes of death worldwide.",
+    "primary_sites": "Heart, vasculature (endothelium, smooth muscle), brain (in stroke).",
+    "tissue_classes_engaged": [
+      "stromal (vascular endothelial, peri-vascular adipose)",
+      "terminal (left atrium / cardiomyocyte-adjacent)",
+      "immune (systemic inflammatory response)"
+    ],
+    "h_min_anchors_engaged": {
+      "immune": 0.838889,
+      "stromal": 0.86295,
+      "terminal": 0.7728
+    }
+  },
+  "icd10_scope": {
+    "included_v0_1": [
+      "I63 \u2014 Cerebral infarction (ischemic stroke; tested via VAL-108 GSE69138 3-subtype TOAST)",
+      "I27.0 \u2014 Primary pulmonary hypertension (tested via VAL-109 GSE84395 cultured PECs)",
+      "I27.2 \u2014 Other secondary pulmonary hypertension (heritable PAH covered by VAL-109)",
+      "I71 \u2014 Aortic aneurysm and dissection (tested via VAL-110 GSE84274 ascending aorta)",
+      "Q23.1 \u2014 Congenital insufficiency of aortic valve / bicuspid aortic valve with dilation (VAL-110 BAV+dilation arm)"
+    ],
+    "deferred_to_v0_2": [
+      "I20-I25 \u2014 Ischemic heart disease / coronary heart disease / MI",
+      "I50 \u2014 Heart failure",
+      "I10-I15 \u2014 Hypertensive disease",
+      "I60-I62 \u2014 Hemorrhagic stroke",
+      "I26 \u2014 Pulmonary embolism",
+      "I05-I09 \u2014 Rheumatic / valvular disease (excluding BAV which is included)"
+    ],
+    "excluded_for_clinical_distinctness": [
+      "I00-I02 \u2014 Acute rheumatic fever (infectious etiology, distinct mechanism)",
+      "Q20-Q24 (excluding Q23.1) \u2014 Other congenital heart defects (developmental, distinct from acquired CVD)"
+    ]
+  },
+  "cookbook_master_readme": "README_MASTER_v2_3.md (current); v2_4 pending Phase 2 cookbook-wide CHK-3.1A/B split rollout.",
+  "validation_tier": "multi_modal_validated",
+  "validation_tier_rationale": "VAL-108 + VAL-109 + VAL-110 tested cardio-epic across THREE independent public cohorts spanning THREE distinct substrates (GenomeStudio AVG_Beta whole blood, minfi preprocessFunnorm cultured PECs, GenomeStudio V2011.1 aortic tissue) and FOUR distinct cardiovascular pathologies (ischemic stroke 3-subtype, heritable PAH, idiopathic PAH, aortic dissection, BAV+dilation). VAL-109 demonstrated direct vascular-tile discrimination (Vascular_endothelial_cells d=+0.79 control vs hPAH on cultured PECs). VAL-110 demonstrated Stage 1 immune discrimination of aortic pathology (d=+1.08 normal vs BAV). VAL-108 documented the framework's correct null finding that whole-blood methylation does not stratify ischemic stroke etiology. The combined evidence supports a multi-modal validation tier \u2014 framework discriminates cardiovascular disease vs healthy on multiple substrates with biology-appropriate signal envelope, and correctly reports nulls where biology is homogenized.",
+  "universal_pipeline_acknowledgment": {
+    "stage1": {
+      "panel": "Salas IDOL 350-CpG (proxy for patent-protected Xu-538)",
+      "h_min_anchor_immune": 0.838889
+    },
+    "stage2": {
+      "atlas": "Loyfer 25-tile run-everything",
+      "cardio_relevant_tiles": [
+        "Vascular_endothelial_cells",
+        "Left_atrium",
+        "Adipocytes"
+      ],
+      "n_cpgs_in_atlas": 6105,
+      "h_min_anchors_used": [
+        "stromal_0.862950",
+        "terminal_0.7728"
+      ]
+    },
+    "stage3": {
+      "atlases": [
+        "UniLIFE 19-cell (1,906 CpGs)",
+        "Salas Blood.EPIC IDOL 6-cell (350 CpGs)"
+      ]
+    },
+    "deferred_to_v0_2": [
+      "EpiSCORE HeartRef CM/EC/FB/MP/SMC (integer marker IDs)",
+      "Caggiano CelFiE heart_meth + endothelial_meth (WGBS regions)"
+    ],
+    "chk_3_1_thresholds_per_substrate": {
+      "TCGA_HM450K_sesame_level3": {
+        "chk_3_1a_full_genome": {
+          "extreme_min": 0.505,
+          "middle_max": 0.09,
+          "nvalid_min": 400000,
+          "source": "VAL-106"
+        },
+        "chk_3_1b_cardio_epic_subset": {
+          "extreme_min": 0.55,
+          "middle_max": 0.085,
+          "n_subset_valid_min": 7000,
+          "subset_sha": "5a00e29ace75daae5a5bf7e3cfca26c16aa6dbd92750d16ebeaba4e874c48511",
+          "source": "VAL-107"
+        }
+      },
+      "GenomeStudio_AVG_Beta_HM450K": {
+        "chk_3_1a_full_genome_self_cal_envelope": {
+          "whole_blood_GSE69138": {
+            "f_extreme_mean_pct": 31.81,
+            "f_extreme_sd_pct": 3.54,
+            "self_cal_pass_envelope": "[25%, 40%]"
+          },
+          "aortic_tissue_GSE84274": {
+            "f_extreme_mean_pct": 33.95,
+            "f_extreme_sd_pct": 2.21,
+            "self_cal_pass_envelope": "[27%, 40%]"
+          }
+        },
+        "note": "NOT a generalizable platform threshold; pending structurally-separated calibration VAL"
+      },
+      "minfi_preprocessFunnorm_HM450K": {
+        "chk_3_1a_full_genome_self_cal_envelope": {
+          "PEC_GSE84395": {
+            "f_extreme_mean_pct": 52.82,
+            "f_extreme_sd_pct": 2.33,
+            "self_cal_pass_envelope": "[48.16%, 57.48%]"
+          }
+        },
+        "note": "NOT generalizable; pending structurally-separated calibration VAL"
+      }
+    }
+  },
+  "calibration_anchor_vals": [
+    {
+      "val_id": "VAL-106",
+      "purpose": "CHK-3.1A baseline TCGA HM450K sesame Level 3",
+      "outcome": "O3_under_conflated_convention",
+      "reclassified": "CHK_3_1A_baseline_under_split"
+    },
+    {
+      "val_id": "VAL-107",
+      "purpose": "CHK-3.1B threshold cardio-epic on TCGA HM450K sesame Level 3",
+      "outcome": "O2_PLATFORM_DIVERGENCE_DOCUMENTED",
+      "established_threshold": "extreme>=55.0% middle<=8.5% n_subset_valid>=7000"
+    }
+  ],
+  "stage_1_immune_flag": {
+    "panel_v0_1": "Salas IDOL 350-CpG (proxy for patent-protected Xu-538 production panel)",
+    "panel_v0_2_planned": "Xu-538 universal immune panel (production)",
+    "h_min_immune": 0.838889,
+    "scoring_method": "Pooled-entropy A-score against H_min(immune); A = H_observed - H_min",
+    "validated_substrates": [
+      {
+        "substrate": "GenomeStudio AVG_Beta whole blood (GSE69138)",
+        "n": 379,
+        "finding": "Stage 1 d < 0.17 across all stroke etiology pairs \u2014 etiology-equivalent in whole blood (not a framework failure; biology-correct)"
+      },
+      {
+        "substrate": "minfi preprocessFunnorm cultured PECs (GSE84395)",
+        "n": 37,
+        "finding": "Stage 1 d = +0.65 control vs hPAH and control vs iPAH; strong PAH detection on cultured cells"
+      },
+      {
+        "substrate": "GenomeStudio V2011.1 aortic tissue (GSE84274)",
+        "n": 23,
+        "finding": "Stage 1 d = +0.56 normal vs dissection; d = +1.08 normal vs BAV \u2014 strongest aortic discrimination"
+      }
+    ],
+    "deployment_policy": "Stage 1 immune A-score is the primary discriminator for cardio-epic across all validated substrates. Pure-cell substrates (PECs, cardiomyocyte) and bulk-tissue substrates (aorta) both show Stage 1 differentiation; whole-blood does not stratify etiology but does anchor the pooled inflammatory signature."
+  },
+  "stage_2_localization": {
+    "atlas_v0_1": "Loyfer 25-tile run-everything reference (6,105 CpGs across 25 cell-type-specific tiles)",
+    "atlas_v0_2_planned": "Loyfer 25-tile + EpiSCORE HeartRef (CM/EC/FB/MP/SMC) + Caggiano CelFiE TIM heart_meth + endothelial_meth",
+    "scoring_method": "Per-tile per-class A-score against frozen H_min anchor for each tile's mapped class; mean(|sample_\u03b2 - tile_ref_\u03b2|) over shared CpGs",
+    "cardio_relevant_tiles_v0_1": {
+      "Vascular_endothelial_cells": {
+        "class": "stromal",
+        "h_min": 0.86295,
+        "operational_status": "VALIDATED on cultured PEC substrate (VAL-109 d=+0.79); NOT discriminating on bulk aortic substrate (VAL-110 d=\u22120.04, dominated by SMC/fibroblast)"
+      },
+      "Left_atrium": {
+        "class": "terminal",
+        "h_min": 0.7728,
+        "operational_status": "VALIDATED \u2014 VAL-109 d=+0.65 control vs hPAH; VAL-110 d=\u22120.81 normal vs BAV"
+      },
+      "Adipocytes": {
+        "class": "stromal",
+        "h_min": 0.86295,
+        "operational_status": "PROXY for peri-vascular/peri-cardiac adipose context \u2014 VAL-110 d=\u22120.88 normal vs BAV (peri-aortic adipose)"
+      }
+    },
+    "non_cardio_tile_caveats": "Bulk aortic samples (VAL-110) showed massive non-vascular tile divergence (Hepatocytes d=\u22123.64, Lung_cells d=\u22123.25, Pancreatic d ~ \u22123) \u2014 interpreted as peri-aortic adipose tissue contamination producing tile-class signal in non-cardio tiles. Cardio-epic v0.1 reporting filters non-cardio tile signals from bulk-aortic interpretation."
+  },
+  "stage_3_subcomposition": {
+    "atlas_v0_1": "UniLIFE 19-cell (1,906 CpGs) + Salas Blood.EPIC IDOL 6-cell (350 CpGs)",
+    "scoring_method": "Pooled Shannon entropy on each atlas's CpG subset",
+    "validated_findings": {
+      "VAL_108_stroke_whole_blood": "All Stage 3 pair-d <0.16 \u2014 immune subcomposition does not stratify stroke etiology",
+      "VAL_109_PAH_cultured_PEC": "UniLIFE control vs hPAH d=+0.48; control vs iPAH d=+0.22 \u2014 moderate Stage 3 signal on cultured PECs",
+      "VAL_110_aortic_tissue": "UniLIFE normal vs dissection d=+0.55; normal vs BAV d=+0.55 \u2014 moderate Stage 3 signal on aortic tissue"
+    }
+  },
+  "report_contents": {
+    "headline_score": "Cardio-epic A-score = composite Stage 1 + Stage 2 (cardio-tile-weighted) + Stage 3 with substrate-specific weighting per the validated substrate matrix",
+    "always_reported": [
+      "Stage 1 immune A-score (Salas proxy in v0.1; Xu-538 in v0.2+)",
+      "Stage 2 cardio-relevant tile A-scores (Vascular_endothelial_cells, Left_atrium, Adipocytes) with operational-status flag per substrate",
+      "Stage 3 UniLIFE 19-cell + Salas 6-cell pooled entropy",
+      "CHK-3.1A pass/fail with substrate-specific threshold cited",
+      "CHK-3.1B pass/fail with cardio-epic subset coverage cited"
+    ],
+    "conditionally_reported": [
+      "Stroke etiology etiology stratification \u2014 NOT reported at v0.1 (VAL-108 demonstrated etiology-equivalence in whole blood)",
+      "PAH heritable-vs-idiopathic discrimination \u2014 NOT reported at v0.1 (VAL-109 demonstrated framework-equivalence)",
+      "Aortic dissection vs BAV+dilation \u2014 NOT reported at v0.1 (VAL-110 demonstrated framework-equivalence)"
+    ],
+    "v0_2_planned_additions": [
+      "EpiSCORE HeartRef CM/EC/FB/MP/SMC per-cell-type fractions",
+      "Caggiano CelFiE heart_meth + endothelial_meth contributions",
+      "Coronary heart disease / MI subdomain",
+      "Heart failure subdomain",
+      "Hypertensive heart disease subdomain"
+    ]
+  },
+  "validation_evidence_summary": {
+    "VAL_108_GSE69138_stroke": {
+      "cohort": "GSE69138 ischemic stroke discovery cohort, n=404 whole blood",
+      "substrate": "GenomeStudio AVG_Beta HM450K (Illumina raw, no normalization)",
+      "design": "Within-cohort 3-subtype contrast (large-artery atherosclerosis vs small-vessel disease vs cardioembolic); no external healthy baseline",
+      "qc_pass": "383/404 (94.8%) cleared CHK-3.1A self-calibration",
+      "outcome": "O3_CARDIO_EPIC_3SUBTYPE_UNDIFFERENTIATED",
+      "key_d_values": {
+        "max_observed": 0.167,
+        "all_pairs_below_0_5": true
+      },
+      "interpretation": "Whole-blood methylation does NOT stratify ischemic stroke by TOAST etiology \u2014 biology-correct null (post-stroke inflammatory response homogenizes immune methylation across etiologies)",
+      "prereg_sha": "6f40ebd9d30bb10242b245d7bde280607f1170e3c7993a8284e2852ad1f69e7a"
+    },
+    "VAL_109_GSE84395_PAH": {
+      "cohort": "GSE84395 cultured pulmonary endothelial cells, n=39 (control 18 + hPAH 10 + iPAH 11)",
+      "substrate": "minfi preprocessFunnorm HM450K GPL16304",
+      "design": "Within-cohort case-control with two PAH subtypes (heritable + idiopathic)",
+      "qc_pass": "37/39 (94.9%) cleared CHK-3.1A self-calibration",
+      "outcome": "O2_PAH_VASCULAR_TILE_DIFFERENTIATING",
+      "key_d_values": {
+        "Vascular_endothelial_cells_control_vs_hPAH": 0.79,
+        "Left_atrium_control_vs_hPAH": 0.65,
+        "Stage1_immune_control_vs_PAH": 0.65,
+        "hPAH_vs_iPAH": "framework_equivalent (|d|<0.5)"
+      },
+      "interpretation": "Direct vascular-tile discrimination on actual endothelial cell substrate; hPAH stronger than iPAH consistent with germline genetic component",
+      "prereg_sha": "f6450b4cf5d384d2ea27b349c101b3f167a6a549d276e670e68fb2232b45f21e"
+    },
+    "VAL_110_GSE84274_aortic": {
+      "cohort": "GSE84274 ascending aorta, n=24 (normal 6 + dissection 12 + BAV+dilation 6)",
+      "substrate": "GenomeStudio V2011.1 HM450K (Illumina raw, no normalization)",
+      "design": "Within-cohort case-control with two pathological etiologies",
+      "qc_pass": "23/24 (95.8%) cleared CHK-3.1A self-calibration",
+      "outcome": "O2_AORTIC_ANY_TILE_DIFFERENTIATING",
+      "key_d_values": {
+        "Stage1_immune_normal_vs_BAV": 1.08,
+        "Stage1_immune_normal_vs_dissection": 0.56,
+        "Vascular_endothelial_cells": "NOT differentiating (d=\u22120.04) \u2014 bulk aorta dominated by SMC/fibroblast",
+        "Left_atrium_normal_vs_BAV": -0.81,
+        "Adipocytes_normal_vs_BAV": -0.88,
+        "dissection_vs_BAV": "framework_equivalent (|d|<0.5)"
+      },
+      "interpretation": "Stage 1 immune A-score is primary discriminator for aortic pathology; Stage 2 vascular tile fails on bulk substrate (substrate-cell-mismatch lesson); peri-aortic adipose tile signal contributes",
+      "prereg_sha": "1041738ccc8bcdd45a4754d599a28ad80fde3a7b37b6c18b4d528f4fe0271bc8"
+    }
+  },
+  "known_limitations": {
+    "v0_1_explicit_limitations": [
+      "Stage 1 uses Salas IDOL 350-CpG proxy panel, not the production Xu-538 panel \u2014 Stage 1 results are descriptive proxy estimates",
+      "EpiSCORE HeartRef and Caggiano CelFiE atlases NOT integrated at v0.1 (deferred to v0.2 \u2014 integer marker IDs and WGBS region format require scoring-time mappings not yet built)",
+      "GenomeStudio AVG_Beta substrate threshold is within-cohort self-calibration only (NOT a generalizable platform threshold; pending structurally-separated calibration VAL on a separate GenomeStudio cohort)",
+      "minfi preprocessFunnorm substrate threshold likewise within-cohort only",
+      "No coronary heart disease / MI subdomain validation at v0.1 (largest CV mortality category \u2014 deferred to v0.2)",
+      "No stroke vs healthy contrast (no healthy controls in GSE69138; deferred)",
+      "Etiology stratification not claimed for any subdomain at v0.1"
+    ],
+    "substrate_cell_mismatch_lesson": "VAL-110 Vascular_endothelial_cells d=\u22120.04 on aortic bulk tissue vs VAL-109 d=+0.79 on cultured PECs is a substrate-cell-mismatch finding: framework reads what is in the sample. Pure cell type \u2192 pure cell signal. Mixed bulk tissue \u2192 mixed signal dominated by bulk's actual cell types (SMC + fibroblast for ascending aorta). Cardio-epic deployment must communicate the tile-substrate match to the customer.",
+    "biology_correct_nulls_documented": "VAL-108 whole-blood stroke etiology equivalence is reported as a biology-correct null, not a framework failure. The framework correctly does not stratify what biology has homogenized."
+  },
+  "next_validation_steps": [
+    "Acquire structurally-separated GenomeStudio AVG_Beta calibration cohort (GSE40360 brain, GSE128235 raw IDAT processed) to establish a generalizable CHK-3.1A platform threshold",
+    "Acquire structurally-separated minfi preprocessFunnorm calibration cohort to establish generalizable threshold for that substrate",
+    "Integrate EpiSCORE HeartRef at scoring time (Illumina manifest probe\u2192cg mapping pipeline)",
+    "Integrate Caggiano CelFiE heart_meth + endothelial_meth at scoring time (region-to-CpG mapping per array)",
+    "Replace Stage 1 Salas proxy with Xu-538 production panel when GAPE engine integration permits",
+    "Acquire and validate coronary heart disease / MI cohort (target: GSE56046 MESA cardiovascular cohort, n=1,202 EPIC-era ROS/MAP) for v0.2 CHD subdomain",
+    "Acquire stroke vs healthy cohort (target: GSE128235 healthy controls vs stroke meta-cohort) for stroke vs healthy contrast"
+  ],
+  "reproducibility_anchors": {
+    "VAL_106_chk_3_1a_baseline": {
+      "prereg_sha": "0330a3c6c76c8874ba5027e88670ab60307dc322fa4cb9186ffac06d6ec4117a",
+      "cohort": "TCGA-KIRC n=160 + TCGA-PRAD n=50 adjacent-normal HM450K sesame Level 3",
+      "established": "TCGA HM450K sesame Level 3 CHK-3.1A baseline f_extreme 55.87% \u00b1 2.44%, f_middle 7.42% \u00b1 0.75%"
+    },
+    "VAL_107_chk_3_1b_threshold": {
+      "prereg_sha": "b58ce4dbd422198c7cbd6e7d1ee1cdbed86a758afc204189f8a9e070fd700d82",
+      "subset_sha": "5a00e29ace75daae5a5bf7e3cfca26c16aa6dbd92750d16ebeaba4e874c48511",
+      "subset_size": 8100,
+      "established": "Cardio-epic CHK-3.1B on TCGA HM450K sesame Level 3: extreme\u226555.0%, middle\u22648.5%, n_subset_valid\u22657000 of 8100"
+    },
+    "VAL_108_GSE69138": {
+      "prereg_sha": "6f40ebd9d30bb10242b245d7bde280607f1170e3c7993a8284e2852ad1f69e7a"
+    },
+    "VAL_109_GSE84395": {
+      "prereg_sha": "f6450b4cf5d384d2ea27b349c101b3f167a6a549d276e670e68fb2232b45f21e"
+    },
+    "VAL_110_GSE84274": {
+      "prereg_sha": "1041738ccc8bcdd45a4754d599a28ad80fde3a7b37b6c18b4d528f4fe0271bc8"
+    }
+  },
+  "universal_reference": "EDEAR_PIPELINE_OFFICIAL_REFERENCE_v2.md current; v2.x pending Phase 2 update incorporating CHK-3.1A/B split convention.",
+  "lessons_learned": {
+    "card_specific": [
+      "LL-CARDIO-001: Substrate-cell match matters. Vascular_endothelial_cells tile reads endothelial methylation when sample IS endothelial cells; reads SMC/fibroblast when sample IS bulk aorta. Cardio-epic deployment must communicate tile-substrate fitness to customers.",
+      "LL-CARDIO-002: Whole blood does not stratify stroke etiology. Post-stroke inflammatory homogenization is a real biological phenomenon. Cardio-epic v0.1 reports stroke as a single signature, not by TOAST etiology.",
+      "LL-CARDIO-003: hPAH > iPAH framework signal is consistent with germline genetic component. Future PAH cards may stratify by genetic vs idiopathic when biology supports.",
+      "LL-CARDIO-004: Aortic Stage 2 vascular tile fails on bulk tissue (cell mismatch); Stage 1 immune A-score is the strong aortic discriminator. The framework's stage-1 universal immune flag works on aortic tissue."
+    ],
+    "cookbook_wide_referenced": [
+      "CCL-040 LL-PROCESSED-OUTPUT-DEFERRAL \u2014 VAL-100 GSE282666 was deferred for processed-output substrate; cardio-epic v0.1 honors this with substrate-specific CHK-3.1A self-cal envelopes",
+      "CCL-041 LL-CHK-3.1-PLATFORM-CALIBRATION \u2014 different substrates require different CHK-3.1A thresholds; cardio-epic v0.1 inherited this lesson directly",
+      "CCL-042 (PENDING in Phase 2) LL-CHK-3.1-A/B-SPLIT \u2014 cardio-epic is the first card built natively under the split convention"
+    ]
+  },
+  "deployment_positioning_v0_1": {
+    "supported_substrates_validated": [
+      "TCGA HM450K sesame Level 3 (calibration anchor \u2014 production-ready substrate gates established)",
+      "GenomeStudio AVG_Beta HM450K whole blood (within-cohort, NOT generalizable until separate calibration VAL)",
+      "minfi preprocessFunnorm HM450K cultured cells (within-cohort, NOT generalizable until separate calibration VAL)",
+      "GenomeStudio V2011.1 HM450K aortic tissue (within-cohort, NOT generalizable until separate calibration VAL)"
+    ],
+    "production_substrate_envelope_v0_1": "EDEAR commercial deployment uses single calibrated patient-vs-internal-reference pipeline (CCL-037). The substrate the customer's IDAT is processed through must match the EDEAR deployment substrate. Cardio-epic v0.1 supports EDEAR's single-pipeline substrate. Public-cohort substrate diversity tested here informs the cardio-epic EVIDENCE ENVELOPE but does not modify deployment architecture.",
+    "v0_1_clinical_action_envelope": [
+      "Cardiovascular composite A-score (Stage 1 + Stage 2 cardio-tiles + Stage 3) reported with 95% CI",
+      "Substrate-specific CHK-3.1A and CHK-3.1B pass/fail",
+      "Tile-class fitness flag per the cardiovascular tile (vascular vs left atrium vs adipocytes \u2014 which is operational on this sample type)",
+      "No etiology stratification claims (stroke, PAH, aortic each reported as a single pooled signature at v0.1)"
+    ],
+    "v0_2_clinical_action_expansion_target": "Add CHD/MI subdomain, heart failure subdomain, hypertensive heart disease subdomain, EpiSCORE HeartRef cell fractions, etiology stratification where biology supports."
+  },
+  "v0_1_changes": [
+    "Initial card creation",
+    "First cardio-epic VAL chain: VAL-108 + VAL-109 + VAL-110",
+    "Calibration anchors VAL-106 + VAL-107 established",
+    "Built natively under CHK-3.1A/B split convention (locked 2026-04-28)",
+    "Substrate-specific CHK-3.1A self-cal envelopes documented for 3 distinct substrates",
+    "Cardio-relevant Loyfer tiles (Vascular_endothelial_cells, Left_atrium, Adipocytes) operationalized with substrate-fitness flags",
+    "Stage 1 Salas IDOL proxy noted as v0.1 limitation pending Xu-538 integration"
+  ]
+}

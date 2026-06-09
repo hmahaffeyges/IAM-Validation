@@ -1,0 +1,166 @@
+{
+  "val_id": "VAL-059",
+  "val_type": "cross_cohort_blood_methylation_validation",
+  "card_target": "hcc-epic v0.1",
+  "prereg_sha_original": "f06fcd3fc91ae0ca9f212f029577357dfc69abc31e9fd97cc1c67a6f5aae4c90",
+  "prereg_sha_amendment": "b669a4c87db545b054e8f8aa87cdab30e22130a4cf072fc00ae767a9c89b3191",
+  "run_date": "2026-04-24 07:08:38 UTC",
+  "rng_seed": 20260420,
+  "runtime_seconds": 136.24,
+  "panel": {
+    "panel_id": "Xu2020_breast_cancer_replicated_full",
+    "panel_sha256": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6"
+  },
+  "cohort_gse281691_primary": {
+    "cohort_label": "GSE281691 (PRIMARY) \u2014 Metabolic HCC multicenter, whole-blood leukocyte",
+    "beta_sha": "5ce39843c1a2cdf20db0c73d64be976be7c3820b19a3d95cb9003245a2b6e11f",
+    "n_cpgs_on_epic": 469,
+    "epic_coverage": 0.8717,
+    "n_samples_total": 481,
+    "n_samples_matched": 481,
+    "n_valid_A": 481,
+    "group_counts": {
+      "Case": 221,
+      "Control": 260
+    },
+    "case_label": "Case",
+    "control_label": "Control",
+    "case_stats": {
+      "n": 221,
+      "mean": 0.5872213955339589,
+      "sd": 0.014507102022836811
+    },
+    "control_stats": {
+      "n": 260,
+      "mean": 0.5894380483546685,
+      "sd": 0.014019516991892762
+    },
+    "primary_cohens_d": -0.15560336781034803,
+    "primary_perm_p": 0.09049095090490951,
+    "primary_ci_95_lo": -0.33667830633679474,
+    "primary_ci_95_hi": 0.02696870683589367,
+    "sex_stratified": {
+      "Male": {
+        "n_case": 144,
+        "n_ctrl": 161,
+        "cohens_d": -0.23127577951966674,
+        "perm_p": 0.044795520447955206
+      },
+      "Female": {
+        "n_case": 77,
+        "n_ctrl": 99,
+        "cohens_d": -0.000824223086326527,
+        "perm_p": 0.9959004099590041
+      }
+    },
+    "age_regression": {
+      "slope": -0.0001483924477952245,
+      "intercept": 0.5987491126840477,
+      "r_squared": 0.00994226628805528,
+      "cohens_d_age_regressed": -0.13194492945772382,
+      "perm_p_age_regressed": 0.16028397160283972
+    },
+    "per_cpg_direction": {
+      "n_analyzed": 469,
+      "n_hypermethylated_in_case": 244,
+      "n_hypomethylated_in_case": 225,
+      "hyper_rate": 0.5203,
+      "n_significant_abs_delta_gt_0_02": 5
+    }
+  },
+  "cohort_gse298812_replication": {
+    "cohort_label": "GSE298812 (REPLICATION) \u2014 Nigerian HIV+ HCC, ccfDNA plasma",
+    "beta_sha": "4a586138987065a70f473f9d97d7e36646829371f662ffe052146a5232edd981",
+    "n_cpgs_on_epic": 452,
+    "epic_coverage": 0.8401,
+    "n_samples_total": 245,
+    "n_samples_matched": 245,
+    "n_valid_A": 245,
+    "group_counts": {
+      "HIV-Pos_HCC-Neg": 115,
+      "HIV-Pos_HCC-Pos": 31,
+      "HIV-Pos_HCC-Cir": 31,
+      "HIV-Pos_HCC-Fib": 68
+    },
+    "case_label": "HIV-Pos_HCC-Pos",
+    "control_label": "HIV-Pos_HCC-Neg",
+    "case_stats": {
+      "n": 31,
+      "mean": 0.5979419095559825,
+      "sd": 0.042228568129763173
+    },
+    "control_stats": {
+      "n": 115,
+      "mean": 0.5764943451827419,
+      "sd": 0.031273595345984596
+    },
+    "primary_cohens_d": 0.6336148233130049,
+    "primary_perm_p": 0.0023997600239976003,
+    "primary_ci_95_lo": 0.17474439618710708,
+    "primary_ci_95_hi": 1.1206095919431545,
+    "sex_stratified": {
+      "Male": {
+        "n_case": 17,
+        "n_ctrl": 31,
+        "cohens_d": 0.9984012658384843,
+        "perm_p": 0.0020997900209979003
+      },
+      "Female": {
+        "n_case": 14,
+        "n_ctrl": 84,
+        "cohens_d": 0.4968159062472655,
+        "perm_p": 0.0913908609139086
+      }
+    },
+    "age_regression": {
+      "slope": -0.000736380970678329,
+      "intercept": 0.6114308197568379,
+      "r_squared": 0.04932699143164776,
+      "cohens_d_age_regressed": 0.6979092713132363,
+      "perm_p_age_regressed": 0.0005999400059994001
+    },
+    "per_cpg_direction": {
+      "n_analyzed": 452,
+      "n_hypermethylated_in_case": 242,
+      "n_hypomethylated_in_case": 210,
+      "hyper_rate": 0.5354,
+      "n_significant_abs_delta_gt_0_02": 219
+    }
+  },
+  "cross_cohort_synthesis": {
+    "d_gse281691_leukocyte": -0.15560336781034803,
+    "d_gse298812_ccfdna": 0.6336148233130049,
+    "direction_match": false,
+    "magnitude_preservation_ratio": 0.24558037799169383,
+    "outcome_code": "O3",
+    "outcome_name": "SINGLE_COHORT_VALIDATED_CCFDNA",
+    "card_tier": "cohort_screening_validated"
+  },
+  "gse298812_disease_spectrum": {
+    "HIV-Pos_HCC-Neg": {
+      "n": 115,
+      "mean": 0.5764943451827419,
+      "delta_from_baseline": 0.0,
+      "cohens_d_vs_baseline": 0.0
+    },
+    "HIV-Pos_HCC-Fib": {
+      "n": 68,
+      "mean": 0.5908957250044744,
+      "delta_from_baseline": 0.014401379821732507,
+      "cohens_d_vs_baseline": 0.43969956888498546
+    },
+    "HIV-Pos_HCC-Cir": {
+      "n": 31,
+      "mean": 0.5920692733057026,
+      "delta_from_baseline": 0.015574928122960685,
+      "cohens_d_vs_baseline": 0.4496604002331974
+    },
+    "HIV-Pos_HCC-Pos": {
+      "n": 31,
+      "mean": 0.5979419095559825,
+      "delta_from_baseline": 0.02144756437324058,
+      "cohens_d_vs_baseline": 0.6336148233130049
+    }
+  },
+  "results_sha256": "c5e73c3baae71b7a8476226d0a2bbba7af1685cd5926bc9a5774fd9f07612dc0"
+}

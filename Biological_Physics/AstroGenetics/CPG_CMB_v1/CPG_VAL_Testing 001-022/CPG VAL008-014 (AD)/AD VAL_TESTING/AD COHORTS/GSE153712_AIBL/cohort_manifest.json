@@ -1,0 +1,76 @@
+{
+  "manifest_version": "v1",
+  "purpose": "AIBL cohort for AD-immune post-build VALs (CPG-VAL-008 through CPG-VAL-014). Streaming extraction of the 14,018-CpG union (Walther class+celltype markers \u222a v0_2 markers \u222a age layer \u222a AD Rule A panel \u222a IMM_CPGS_RAW panel) from GEO series matrix.",
+  "build_date": "2026-06-02",
+  "authored_by": "Walther (Claude) per Heath's 2026-06-02 directive to acquire cohorts via SOP v1.2",
+  "cohort_source_paper": {
+    "citation": "Nabais et al. 2021 AIBL DNA methylation. Australian Imaging, Biomarker and Lifestyle (AIBL) study release.",
+    "geo_accession": "GSE153712",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE153712"
+  },
+  "platform": "Illumina HumanMethylationEPIC 850K",
+  "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE153nnn/GSE153712/suppl/GSE153712_normalized_average_betas.txt.gz",
+  "extracted_cpg_union": {
+    "n_target_cpgs": 14018,
+    "n_found_cpgs": 13384,
+    "n_missing_cpgs": 634,
+    "coverage_pct": 95.5,
+    "missing_note": "Likely 450K-only CpGs from the v0_2 markers or age layer. EPIC platform doesn't carry every 450K probe."
+  },
+  "files": [
+    {
+      "name": "GSE153712_betas_union.csv",
+      "schema": "CpGs as rows (13,384), samples as columns (726). First column = cpg_id, header row = sentrix sample IDs.",
+      "size_bytes": 87626192,
+      "sha256": "15633616e6d4f3cab28e03677ef69f013464853aa31366b04328df0f4f162900"
+    },
+    {
+      "name": "GSE153712_clinical_metadata.json",
+      "schema": "per-sample arm + sex"
+    },
+    {
+      "name": "extract_GSE153712_betas_union.py",
+      "schema": "reproducer script (streams from GEO)"
+    },
+    {
+      "name": "cpg_union_for_ad_extraction.txt",
+      "schema": "the 14,018-CpG target union"
+    },
+    {
+      "name": "cpg_extraction_manifest.json",
+      "schema": "per-set breakdown of the CpG union (Walther + v0_2 + age + panels)"
+    }
+  ],
+  "sample_counts_total": 726,
+  "arm_breakdown": {
+    "hc": 471,
+    "mci": 94,
+    "ad": 161
+  },
+  "sex_breakdown": {
+    "Male": 326,
+    "Female": 400
+  },
+  "stage_1_reproduction_check_2026_06_02": {
+    "description": "Sanity check that post-build extracted \u03b2 reproduces pre-build VAL-051 Rule A 7-CpG directional signal",
+    "panel": "VAL-051 Rule A 7-CpG directional (cg16867657:+, cg25809905:-, cg22454769:+, cg09809672:-, cg26614073:-, cg00431549:-, cg02228185:-)",
+    "scoring": "A_dir = \u03a3 z-score \u00d7 direction; HC mean/SD as reference",
+    "full_cohort_AD_vs_HC_cohens_d": 0.615,
+    "full_cohort_mann_whitney_p_one_sided": "3.76e-11",
+    "val_051_holdout_anchor_d": 0.624,
+    "val_051_holdout_anchor_n": "33 AD / 95 HC (80/20 holdout)",
+    "post_build_n": "161 AD / 471 HC (full cohort)",
+    "interpretation": "Full-cohort d=+0.615 is consistent with VAL-051 holdout d=+0.624. Slight reduction is expected (panel selection bias on training data inflated the holdout estimate vs population). Extraction is verified.",
+    "sex_stratified": {
+      "Female_d": 0.782,
+      "Female_n_AD": 91,
+      "Female_n_HC": 272,
+      "Male_d": 0.428,
+      "Male_n_AD": 70,
+      "Male_n_HC": 199,
+      "VAL_051_holdout_Female_d_anchor": 0.71,
+      "VAL_051_holdout_Male_d_anchor": 0.51,
+      "interpretation": "Sex-stratified d values match pre-build directionally (F > M). Magnitudes within sampling variation."
+    }
+  }
+}

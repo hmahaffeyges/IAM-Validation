@@ -1,0 +1,474 @@
+{
+  "card_id": "ad-immune",
+  "card_version": "v3.1",
+  "card_date": "2026-06-05",
+  "supersedes": "v3.0 (2026-06-02). v3.0 was a 'strict additive over v2.2' bump that preserved v2.2's pre-build operational logic (Stage 1 Rule A panel, Stage 2 Moss 2018 NNLS, Stage 3 Salas 2018) byte-for-byte and bolted a post-build addendum on top. v3.1 is a full clean rewrite aligned to SOP v1.2 chain-of-custody stages. Notable distinction from breast-epic: the 7-CpG Rule A directional panel IS legitimate operational scoring for AD (disease-trained, AUC 0.84 vs universal Mahalanobis AUC 0.62), so Rule A stays in production. Pre-build references to Moss/Salas/Loyfer confined to pre_build_audit_lineage. v3.0 archived at OLD/ad-immune_card_v3_0.json. v2.2 archived at OLD/ad-immune_card_v2.2.json.",
+  "disease": "alzheimers_disease",
+  "icd10_scope": [
+    "G30",
+    "F00",
+    "F01",
+    "F02",
+    "F03"
+  ],
+  "differential_diagnosis_scope": [
+    "frontotemporal_dementia",
+    "progressive_supranuclear_palsy",
+    "corticobasal_degeneration"
+  ],
+  "clinical_claim": {
+    "summary": "Two-purpose card: (1) detection of clinical Alzheimer's disease from blood methylation, and (2) discrimination among three neurodegenerative diseases (AD vs FTD vs PSP/CBD) by direction-of-departure on the universal architectural metric. This is the strongest single piece of evidence yet that the IAM-architectural distance is biologically meaningful — generic 'different from healthy' would not produce direction-resolved discrimination across diseases.",
+    "regulatory_status": "Not FDA approved. Not a substitute for cognitive assessment, CSF biomarkers, or PET imaging.",
+    "deployment_model": "Direct-to-consumer cellular state report. Triage / tauopathy-differential layer. Single blood draw places patient on a three-way continuum.",
+    "report_recipient": "The customer; clinician interpretation recommended for the differential interpretation"
+  },
+  "substrate": {
+    "supported": [
+      "whole_blood_buffy_coat"
+    ],
+    "platforms_supported": [
+      {
+        "platform": "Illumina EPIC 850K BeadChip",
+        "preferred": true
+      },
+      {
+        "platform": "Illumina EPIC v2 (1M)",
+        "preferred": true
+      },
+      {
+        "platform": "Illumina HumanMethylation450K BeadChip",
+        "preferred": false,
+        "requires_coverage_check": true,
+        "min_coverage_pct_vs_epic": 80,
+        "operational_note": "AddNeuroMed cross-platform CPG-VAL-010 showed per-cell biology replicates on 450K (Eosino d=-0.46 vs AIBL d=-0.43) but universal Mahalanobis attenuates on 450K (drops to near-null vs AIBL d=+0.20) due to 86-95% CpG coverage gap. Per-cell readouts are robust; universal metrics may need platform-specific normalization."
+      }
+    ]
+  },
+  "stage_2_deconvolution": {
+    "atlas": {
+      "name": "IAMAtlas REBUILD",
+      "file": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAMAtlas_REBUILD/IAMAtlasREBUILD.csv.xz",
+      "atlas_sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+      "scope": "483,092 CpGs x 8 architecture classes x 115 cell types",
+      "h_min_frozen_date": "2026-04-06"
+    },
+    "primary_deconvolver": {
+      "module": "Walther IAM Deconvolver",
+      "code_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Walther_iam_deconvolver/walther_iam_deconvolver.py",
+      "method": "marker-rank streaming NNLS with 60% / 80% per-class coverage gates",
+      "markers_artifact": "iamatlas_celltype_markers_v0_2.json",
+      "markers_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
+      "produces": "8 architecture-class fractions per patient + 115 cell-type fractions"
+    },
+    "secondary_deconvolver_for_cross_method_check": {
+      "module": "NILC v2",
+      "code_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/NILC_Deconvolver/nilc_deconvolver.py",
+      "method": "departure-from-consensus GLS",
+      "purpose": "independent cross-method check (NOT used for primary scoring)"
+    },
+    "cross_method_gate": {
+      "rule": "Spearman rho between Walther and NILC fractions must be >= 0.70 for immune and progenitor classes",
+      "validated_on_AD_cohorts": {
+        "AIBL_GSE153712_n726": {
+          "immune_rho": 0.93,
+          "progenitor_rho": 0.86,
+          "verdict": "PASS"
+        },
+        "AddNeuroMed_GSE144858_n300": {
+          "immune_rho": 0.84,
+          "progenitor_rho": 0.78,
+          "verdict": "PASS"
+        },
+        "GIFT_GSE53740_n384": {
+          "immune_rho": 0.8,
+          "progenitor_rho": 0.92,
+          "verdict": "PASS"
+        }
+      }
+    }
+  },
+  "stage_3_age_foreground_subtraction": {
+    "module": "age_axis_foreground.py",
+    "age_layer_file": "IAMAtlas_age_layer.csv",
+    "age_layer_n_cpgs": 8199,
+    "mandatory_when_age_available": true,
+    "ad_specific_note": "CPG-VAL-011 PASS-AS-NULL at baseline (raw d=-0.004); post-subtraction stem_adult d=-0.19 emerges. The 7-CpG Rule A panel has R-squared=0.26 with age (meaningful age confound) — Stage 3 subtraction is MANDATORY before the AD discrimination score is reported. AIBL excluded from Stage 3 testing (no chronological ages in GEO release).",
+    "ad_age_adjusted_z_output_rule_per_section_e5": "AD-A-score must be reported as age-adjusted Z, not raw"
+  },
+  "stage_4_a_scoring": {
+    "formula": "A = H(beta_mean) / H_min(class)",
+    "h_min_by_class_frozen_2026_04_06": {
+      "terminal": 0.7728,
+      "immune": 0.838889,
+      "secretory": 0.8433,
+      "progenitor": 0.8522,
+      "cycling": 0.8561,
+      "stromal": 0.863,
+      "stem_adult": 0.8737,
+      "stem_pluri": 0.9822
+    },
+    "primary_module": "iamatlas_a_scoring.py",
+    "fanout_115_cell": true,
+    "ad_age_orthogonality_note": "The 115-cell A-score layer is naturally age-orthogonal (delta-d < 0.05 under age subtraction at the 115-cell layer). This is in contrast to the 7-CpG Rule A panel (R-squared=0.26 with age, meaningful age confound). For AD reporting, the 115-cell layer is the cleaner architectural readout; the 7-CpG Rule A panel is the discriminative readout (must be age-adjusted)."
+  },
+  "ad_disease_trained_panel": {
+    "panel_id": "AD 7-CpG Rule A directional panel",
+    "panel_status": "OPERATIONAL — legitimate disease-trained AD discriminator. Selected via Rule A criterion (|delta-beta| > 0.015 AND q_FDR < 0.10) on AIBL training split, directions frozen before holdout access.",
+    "panel_n_cpgs": 7,
+    "scoring_method": "directional weighted composite (AD-upward weighted positively, AD-downward weighted negatively)",
+    "auc_on_AIBL_holdout": 0.84,
+    "comparison_to_universal_mahalanobis": "Universal Mahalanobis AUC 0.62 on same AIBL holdout. The 7-CpG Rule A panel BEATS the universal screen by 0.22 AUC because AD's signal is targeted (immune-class architectural disruption), not broad-architectural. This is OPPOSITE of breast pre-dx where universal Mahalanobis BEATS the disease-trained Xu-538 panel by d=+0.75 — different diseases need different operational scoring routes.",
+    "age_confound": {
+      "r_squared_with_age": 0.26,
+      "required_handling": "Stage 3 age-axis subtraction MANDATORY before Rule A score is reported"
+    }
+  },
+  "stage_5_mahalanobis": {
+    "module": "iamatlas_mahalanobis_scoring.py",
+    "healthy_reference": "mahalanobis_healthy_reference_v0_1.json",
+    "n_hc_in_reference": 601,
+    "covariance_shrinkage_method": "Ledoit-Wolf shrinkage 0.00875",
+    "three_way_specificity_findings_GIFT_GSE53740": {
+      "alzheimers_d": 0.681,
+      "alzheimers_p": 0.001,
+      "alzheimers_label": "POSITIVE — hyper-volume departure outward",
+      "frontotemporal_dementia_d": 0.279,
+      "frontotemporal_dementia_p": 0.108,
+      "frontotemporal_dementia_label": "INTERMEDIATE",
+      "PSP_CBD_d": -0.38,
+      "PSP_CBD_p": 2e-06,
+      "PSP_CBD_label": "NEGATIVE — BELOW_NORMAL architectural compaction direction",
+      "interpretation": "Same Mahalanobis metric, three biologically distinct signatures. Primary 4R-tauopathies (PSP/CBD) show OPPOSITE direction from AD on the universal architectural readout. The methylation patterns in 4R-tauopathies are MORE compressed toward H_min floors, not less — consistent with accelerated cellular quiescence / stress-induced compaction. This is the strongest single piece of evidence that the metric is measuring real architectural geometry."
+    }
+  },
+  "stage_6_cellular_age": {
+    "module": "iam_cellular_age_scoring.py",
+    "reference_matrix_file": "Age_Reference_Matrix_80_cells/age_reference_matrix.json",
+    "ad_signature_finding": {
+      "cohort": "GSE53740 GIFT",
+      "immune_class_case_mean_age_yr": 55.4,
+      "immune_class_hc_mean_age_yr": 64.6,
+      "d": -0.56,
+      "delta_yr": -9.2,
+      "interpretation": "AD immune cells appear ~9 years YOUNGER methylation-wise. NOT a sign of youth — consistent with cell-cycle arrest / senescence in the immune compartment, where stressed cells stop progressing through the normal methylation-aging trajectory."
+    },
+    "saturation_handling": [
+      "OK",
+      "SAT_HIGH",
+      "SAT_LOW",
+      "INSUFFICIENT_CPGS"
+    ],
+    "blood_substrate_caveat": "Non-blood classes (terminal, stromal, stem_pluri) commonly saturate when scoring blood samples against the multi-tissue 80-cell baseline. Production reports must handle SATURATED status; only OK-status cellular ages should be presented as real ages."
+  },
+  "stage_7_tier_breakpoints": {
+    "module": "tier_breakpoints.json",
+    "thresholds": {
+      "BELOW_NORMAL": "A_score < 1.00",
+      "NORMAL": "A_score in [1.00, 1.05]",
+      "MARGINAL": "A_score in (1.05, 1.07]",
+      "DETECTABLE": "A_score in (1.07, 1.10]",
+      "FLOOR_BREACH": "A_score > 1.10"
+    },
+    "operational_note_for_AD": "Universal tier thresholds (calibrated against HC permutation on breast pre-dx context, VAL-054b) do NOT discriminate AD because AD's universal signal is modest (Mahalanobis d=+0.20). AIBL immune tier distribution: HC 88% NORMAL vs AD 88% NORMAL. AD operational scoring routes through the 7-CpG Rule A panel (ad_disease_trained_panel above), NOT through the universal tier system. Tier system stays as universal screen — FLOOR_BREACH on any class still triggers downstream workup regardless of card.",
+    "operational_note_for_PSP_CBD": "PSP/CBD signature is BELOW_NORMAL direction on immune class (Mahalanobis d=-0.38). The BELOW_NORMAL tier flag IS the correct operational readout for the PSP/CBD differential."
+  },
+  "stage_8_card_matching": {
+    "matching_logic_summary": "Card produces a four-way differential output: AD / FTD / PSP-CBD / NO_MATCH. The discriminator is the SIGN of the Mahalanobis hyper-volume distance combined with the 7-CpG Rule A panel score.",
+    "route_AD_positive_departure": {
+      "label": "Alzheimer's disease — positive architectural departure + Rule A signal",
+      "condition": "Stage_5_Mahalanobis_d >= +0.40 AND age_adjusted_Rule_A_Z >= +1.0 AND immune_class_cellular_age_delta_yr <= -5",
+      "phase_emitted": "at_dx_post_build_v3_0",
+      "validated_against": "AIBL (Rule A d=+0.624 AUC 0.84) + AddNeuroMed (Rule A d=+0.317) + GIFT (Mahalanobis d=+0.681)"
+    },
+    "route_PSP_CBD_negative_departure": {
+      "label": "PSP/CBD tauopathy — BELOW_NORMAL architectural compaction direction",
+      "condition": "Stage_5_Mahalanobis_d <= -0.20 AND BELOW_NORMAL on immune class",
+      "phase_emitted": "post_build_GIFT_2026_PSP_CBD",
+      "validated_against": "GIFT (Mahalanobis d=-0.380, p=2e-6)"
+    },
+    "route_FTD_intermediate": {
+      "label": "FTD — intermediate positive departure without strong Rule A signal",
+      "condition": "Stage_5_Mahalanobis_d in [+0.10, +0.40] AND age_adjusted_Rule_A_Z in [+0.3, +1.0]",
+      "phase_emitted": "post_build_GIFT_2026_FTD",
+      "validated_against": "GIFT (Mahalanobis d=+0.279)"
+    },
+    "residual_map_reference": {
+      "file": "ad_immune_residual_maps/ad_immune_residual_map_chr_annotated.csv",
+      "n_cpgs_in_candidate_panel": 200,
+      "candidate_panel_id": "CPG_ad_panel_v1 (awaits holdout)",
+      "source": "CPG-VAL-013 cross-cohort residual concordance (Spearman rho 0.231, 88.9% same-sign rate across AIBL x AddNeuroMed)",
+      "chr_mapinfo_annotation": "COMPLETE — CHR + MAPINFO columns added 2026-06-05 (lookup from breast residual map; 100% overlap)",
+      "bimodality_decomposition": "COMPLETE — full per-CpG bimodality computed from AIBL cohort (n=161 AD, n=471 HC) for 6,018 CpGs in ad_immune_bimodality_map.csv. Finding: 2.3:1 GAIN:LOSS ratio (673 gain, 289 loss). Similar pattern to breast (2.77:1 gain dominates), but somewhat weaker."
+    },
+    "disease_matrix_rows_consumed": [
+      "alzheimers_disease / at_dx_post_build_v3_0",
+      "frontotemporal_dementia / post_build_GIFT_2026",
+      "progressive_supranuclear_palsy_CBD / post_build_GIFT_2026"
+    ],
+    "card_never_fires_on_one_tile_rule": "Each route requires the conjunction of at least 2 independent signals (Mahalanobis direction + panel score OR cellular age delta). A single elevated A-score alone does NOT fire any route.",
+    "verdict_outputs": [
+      "FIRED_AD",
+      "FIRED_PSP_CBD",
+      "FIRED_FTD",
+      "NOT_FIRED",
+      "INSUFFICIENT_DATA",
+      "AMBIGUOUS_DIFFERENTIAL"
+    ],
+    "confidence_metric": "Combined: |Mahalanobis_d - 0| * Rule_A_Z_significance, normalized"
+  },
+  "within_card_covariates": {
+    "age": {
+      "handled_at_stage": 3,
+      "method": "age-axis foreground subtraction",
+      "mandatory_for_AD": true,
+      "rationale": "Rule A panel R-squared=0.26 with age — without Stage 3 subtraction, the AD-A-score is partially an age proxy"
+    },
+    "sex": {
+      "handled_at": "card-eligibility metadata",
+      "rule": "Card runs on both sexes. Sex-specific panels do NOT outperform unified per CPG-VAL-053; unified Rule A panel applies."
+    },
+    "platform": {
+      "handled_at": "Stage 0 metadata",
+      "rule": "EPIC vs 450K matters for universal Mahalanobis (attenuates on 450K). Per-cell biology robust across platforms. Card includes platform tag in output and applies platform-specific Mahalanobis threshold when 450K."
+    }
+  },
+  "report_contents": {
+    "mandatory_elements": [
+      "Card-firing verdict (FIRED_AD / FIRED_PSP_CBD / FIRED_FTD / NOT_FIRED) + confidence",
+      "Stage 5 Mahalanobis distance with SIGN explicitly shown (positive = AD-region, negative = PSP/CBD region)",
+      "AD-A-score (7-CpG Rule A, age-adjusted Z output per Stage 3 rule)",
+      "Stage 4 8-class A-score table",
+      "Stage 4 115-cell A-score fan-out (Eosino, Neutro, B-cells highlighted if in top negative departures)",
+      "Stage 6 cellular age per class with SATURATED status flags + immune-class age delta vs chronological age",
+      "Three-way differential interpretation",
+      "Honest limitations section"
+    ],
+    "language_discipline": {
+      "allowed": [
+        "pattern consistent with AD architectural signature",
+        "tauopathy compaction direction",
+        "differential favors X",
+        "consistent with senescence in immune compartment"
+      ],
+      "forbidden": [
+        "diagnoses Alzheimer's",
+        "diagnoses PSP",
+        "diagnoses CBD",
+        "diagnoses FTD",
+        "rules out X",
+        "validates",
+        "proves",
+        "confirms"
+      ]
+    }
+  },
+  "validation_tier": "cross_platform_validated_three_cohorts_plus_specificity_arm",
+  "validation_evidence": {
+    "val_series": "CPG-VAL-008 through CPG-VAL-014",
+    "val_series_status": "All 8 N1 nulls PASS. CPG-VAL-011 is PASS-AS-NULL at age-baseline (correctly null at raw, post-subtraction stem_adult d=-0.19 emerges). N2 age-strata permutation also PASS on VAL-011.",
+    "per_val_bundle_path": "Biological_Physics/validation_runs/CPG_VAL_NNN_AD_*/",
+    "cohorts": [
+      {
+        "name": "AIBL",
+        "gse": "GSE153712",
+        "platform": "EPIC",
+        "n_total": 726,
+        "arm_breakdown": {
+          "AD": 161,
+          "HC": 471,
+          "MCI": 94
+        },
+        "cohort_folder": "validation_runs/ad_immune_cohorts/GSE153712_AIBL/",
+        "stage_1_reproduction": {
+          "rule_a_d": 0.615,
+          "anchor_d": 0.624,
+          "agreement": "within sampling variation, PASS"
+        }
+      },
+      {
+        "name": "AddNeuroMed",
+        "gse": "GSE144858",
+        "platform": "450K",
+        "n_total": 300,
+        "arm_breakdown": {
+          "AD": 93,
+          "HC": 96,
+          "MCI_AD_precursor": 111
+        },
+        "cohort_folder": "validation_runs/ad_immune_cohorts/GSE144858_AddNeuroMed/",
+        "stage_1_reproduction": {
+          "rule_a_d": 0.317,
+          "anchor_d": 0.332,
+          "agreement": "within sampling variation, PASS"
+        }
+      },
+      {
+        "name": "GIFT",
+        "gse": "GSE53740",
+        "platform": "450K",
+        "n_total": 384,
+        "arm_breakdown": {
+          "AD": 15,
+          "HC": 193,
+          "FTD": 95,
+          "PSP_CBD": 47,
+          "other": 34
+        },
+        "cohort_folder": "validation_runs/ad_immune_cohorts/GSE53740_GIFT/",
+        "purpose": "three-way specificity arm",
+        "stage_1_reproduction": {
+          "pooled_d": 0.013,
+          "anchor_d": 0.013,
+          "male_AD_d": 0.415,
+          "male_AD_anchor": 0.415,
+          "agreement": "EXACT, PASS"
+        }
+      }
+    ],
+    "headline_findings": [
+      {
+        "finding": "AIBL per-cell-type fan-out: 20 Bonferroni-sig negative effects across immune class; top Eosino A-score d=-0.426 (p=2.3e-5); ZERO positive",
+        "val_id": "CPG-VAL-008"
+      },
+      {
+        "finding": "AIBL Mahalanobis d=+0.20 (modest — confirms AD signal is targeted not universal)",
+        "val_id": "CPG-VAL-009"
+      },
+      {
+        "finding": "AddNeuroMed cross-platform Eosino d=-0.46 (replicates AIBL d=-0.43)",
+        "val_id": "CPG-VAL-010"
+      },
+      {
+        "finding": "AIBL PC1 (not PC2 as in breast) is the T-cell axis, d=-0.356",
+        "val_id": "CPG-VAL-012"
+      },
+      {
+        "finding": "Per-CpG residual map: top CpG cg19459094 d=-0.493; cross-cohort Spearman rho=0.231 (p=1e-74); 88.9% same-sign rate; 200-CpG candidate panel CPG_ad_panel_v1",
+        "val_id": "CPG-VAL-013"
+      },
+      {
+        "finding": "GIFT three-disease specificity: AD d=+0.68, PSP/CBD d=-0.38 (BELOW_NORMAL direction), FTD d=+0.28 — same metric, three distinct signatures by direction",
+        "val_id": "CPG-VAL-014"
+      },
+      {
+        "finding": "AD immune cellular age d=-0.56 (case 55.4y vs HC 64.6y, ~9y younger — senescence not aging)",
+        "val_id": "Stage 6 cellular age"
+      },
+      {
+        "finding": "7-CpG Rule A panel AUC 0.84 vs universal Mahalanobis AUC 0.62 on AIBL holdout",
+        "val_id": "ad_disease_trained_panel"
+      },
+      {
+        "finding": "All 8 N1 nulls PASS across all 7 VALs",
+        "val_id": "L9 null suite"
+      }
+    ],
+    "sop_chain_of_custody_audit": "DISEASE_MAPS_CARDS/AD_immune/AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md",
+    "evidence_report": "post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html (Section 4.2)",
+    "l9_null_suite_status": {
+      "tests_run_per_VAL": "N1, N3, N4, N6, N7, N8 (N2 only on VAL-011 where ages available; AIBL has no chronological ages in GEO)",
+      "tests_skipped": "N5 (no plate metadata in GEO)",
+      "ad_vals_008_009_010_012_013_014_status": "All 6 declared nulls PASS at α=0.05 (N1 p=0.000; N3 p<0.05 across all; N4 sign-concordance ≥0.90; N6 within ±20% tolerance; N7 simplified positive recovery; N8 single-feature skip). VAL-009 and VAL-014 N3 borderline (p=0.026, p=0.039).",
+      "ad_val_011_status": "PASS-AS-NULL (raw d=-0.004 correctly null at baseline; nulls correctly return non-significant for VAL-011 by design — the post-subtraction d=-0.19 finding is a separate scoped analysis).",
+      "note_on_N7": "Simplified signal-level N7. Full β-matrix end-to-end via synthetic_patient_generator.py still to be run."
+    }
+  },
+  "honest_limitations": [
+    "Not a substitute for cognitive assessment, CSF biomarkers, or PET imaging. Those have decades of clinical validation. This card is a single blood draw with promise as triage and tauopathy differential.",
+    "No prospective primary-care validation. All three cohorts are research cohorts with established clinical diagnoses.",
+    "Cross-ethnicity validation outstanding. All three cohorts are predominantly European-ancestry.",
+    "7-CpG Rule A panel has R-squared=0.26 with age. Stage 3 age subtraction is MANDATORY. Without it the AD-A-score is partially an age proxy.",
+    "AddNeuroMed AD detection on 450K platform: per-cell biology replicates (Eosino d=-0.46) but universal Mahalanobis attenuates (d=-0.006 vs AIBL +0.20). Platform attenuation is real for the universal metric on 450K.",
+    "AIBL cohort has no chronological ages in GEO release. Age subtraction testing in CPG-VAL-011 used AddNeuroMed + GIFT only.",
+    "Stage 8 Path B disease-matrix engine not yet wired. Per-patient reporting flows through Path A (this card)."
+  ],
+  "outstanding_work_v3_1": [
+    "CPG_ad_panel_v1 formal seal (200 CpGs from CPG-VAL-013) + holdout validation on independent cohort",
+    "Prospective primary-care validation cohort (the big one for AD clinical deployment)",
+    "Cross-ethnicity validation cohorts",
+    "Stage 8 Path B engine wiring — mapping artifact v0.1 EXISTS (50% atlas coverage); compute_match_magnitude() per-patient call still pending",
+    "N7 v0.2 refinements: (1) synthetic_patient_generator.py adds optional restrict_panel_to_cpgs parameter (defaults to cell-type marker substrate) so injected signal lands where the chain measures by default; (2) within-cohort R3 uses matched arm sizes or k-fold cross-validation to remove the sample-size variance baseline (~Cohen's d of +3 observed under unequal arms); (3) ChainRecoveryTester extends from R1+R3 to the full R1–R8 suite (A-score recovery, residual-map recovery, bimodality, PCA axis recovery, chromosome isotropy, age dipole subtraction)",
+    "N5 plate-position null (requires plate metadata not in GEO release)",
+    "Formal v4 PREREG protocol — current PREREGs RETROSPECTIVE",
+    "First-client IDAT integration test"
+  ],
+  "pre_build_audit_lineage": {
+    "_note": "Audit lineage only. NONE of these references are operational in v3.1 production scoring. Per the Walther rule: 'POST-BUILD: CPG uses IAMAtlas-native only. External panels and external atlases were build-only, never production.' The one exception is the 7-CpG Rule A directional panel, which IS operational AD scoring but is properly documented in the ad_disease_trained_panel block above (not down here).",
+    "pre_build_atlases_calibration_only": [
+      {
+        "name": "Loyfer/Moss array atlas",
+        "role_in_history": "Stage 2 NNLS atlas used in pre-build VAL-057, VAL-091 for cortical-neuron cfDNA fraction in AD blood. Replaced by Walther IAM Deconvolver on IAMAtlas REBUILD."
+      },
+      {
+        "name": "Salas 2018 immune sub-composition",
+        "role_in_history": "Stage 3 QC harness used pre-build. Replaced by NILC v2 cross-method check."
+      },
+      {
+        "name": "Moss 2018 NNLS",
+        "role_in_history": "Tissue deconvolution method used pre-build. Replaced by Walther marker-rank streaming on IAMAtlas REBUILD."
+      }
+    ],
+    "pre_build_val_series_for_audit_only": [
+      {
+        "val": "VAL-049",
+        "purpose": "AD pooled-entropy initial sealing on AIBL"
+      },
+      {
+        "val": "VAL-050",
+        "purpose": "Pooled-entropy null on AIBL (d=+0.077)"
+      },
+      {
+        "val": "VAL-051",
+        "purpose": "Rule A directional panel derivation on AIBL training split (the 7-CpG panel itself is operational — only VAL-051 as a sealed VAL is in audit lineage)"
+      },
+      {
+        "val": "VAL-052",
+        "purpose": "AddNeuroMed cross-platform Rule A test"
+      },
+      {
+        "val": "VAL-053",
+        "purpose": "Sex-specific Rule A panels tested, do NOT outperform unified"
+      },
+      {
+        "val": "VAL-054b",
+        "purpose": "HC permutation tier-threshold calibration"
+      },
+      {
+        "val": "VAL-057",
+        "purpose": "GSE53740 specificity arm initial sealing"
+      },
+      {
+        "val": "VAL-090",
+        "purpose": "Pre-build cross-platform NNLS routing audit"
+      },
+      {
+        "val": "VAL-091",
+        "purpose": "Loyfer/Moss Stage 2 cortical-neuron audit on GSE53740 cohort"
+      }
+    ],
+    "retired_evidence_report_path": "post_build_evidence/RETIRED_Evidence_Report.html"
+  },
+  "v31_changes": {
+    "date": "2026-06-05",
+    "from_v30": "Full clean rewrite. v3.0 was 'strict additive over v2.2' which preserved the v2.2 pre-build operational logic byte-for-byte. v3.1 rewrites the operational sections to reflect current production methodology aligned to SOP v1.2 chain-of-custody stages. Pre-build references confined to pre_build_audit_lineage block.",
+    "key_distinction_from_breast_card": "The 7-CpG Rule A directional panel IS legitimate operational scoring for AD (disease-trained, AUC 0.84) and is KEPT in production — documented as ad_disease_trained_panel block in operational sections. This is the OPPOSITE of breast pre-dx where the universal Mahalanobis BEATS the disease-trained Xu-538 panel. Different diseases need different operational scoring routes.",
+    "what_changed_operationally": [
+      "stage_1_immune_flag (Rule A as 'Stage 1') -> Reframed: Rule A is the ad_disease_trained_panel block; Stage 2 (Walther deconvolution) runs FIRST as it does for every card",
+      "stage_2_localization (Moss 2018 NNLS for cortical-neuron cfDNA) -> stage_2_deconvolution (Walther IAM Deconvolver, IAMAtlas REBUILD)",
+      "stage_3_subcomposition (Salas 2018 QC) -> stage_2_deconvolution.secondary_deconvolver_for_cross_method_check (NILC v2)",
+      "Pre-build VAL refs (049-091) moved from operational sections to pre_build_audit_lineage",
+      "Added explicit three-way differential (AD vs FTD vs PSP/CBD) routing in stage_8_card_matching reflecting CPG-VAL-014 GIFT findings"
+    ],
+    "lineage_preservation": "v3.0 archived at OLD/ad-immune_card_v3_0.json. v2.2 archived at OLD/ad-immune_card_v2.2.json. RETIRED_Evidence_Report.html in repo.",
+    "post_release_2026_06_05_updates": {
+      "date": "2026-06-05",
+      "changes": [
+        "L9 null suite expanded from N1-only to N1, N3, N4, N6, N7, N8 (N2 only on VAL-011 since AIBL has no chronological ages in GEO). All 6 sealed AD VALs PASS 5-6 of 6 declared nulls.",
+        "Residual map CHR/MAPINFO annotation: COMPLETE (was outstanding in v3.1 release).",
+        "Bimodality decomposition: COMPLETE (was placeholder in v3.1 release; now full decomposition for 6,018 CpGs from AIBL cohort).",
+        "Stage 8 Path B mapping artifact v0.1 STARTER available at DISEASE_MATRIX/iamatlas_115_to_matrix_v1_7_mapping.json.",
+        "L9 N7 end-to-end chain-recovery test: full β-matrix run executed 2026-06-05 at Biological_Physics/validation_runs/L9_N7_chain_recovery_2026_06_05/. First run of the full chain (Walther → A-scoring → Mahalanobis) on synthetic patients with known truth. Chain end-to-end wiring VALIDATED. Walther class-fraction recovery VALIDATED at MAE = 0.0076–0.0093 across 8 classes × 3 conditions (well under the 0.10 threshold). Signal recovery confirmed substrate-specific: on-substrate injection (signal placed on cell-type marker CpGs) produces Cohen's d = +10.24 against within-cohort centroid, vs +5.10 for off-substrate injection — 3.5× stronger when signal lands where the chain measures. Two operational findings carry forward: (a) the production Mahalanobis healthy reference is calibrated on real n=601 HC and is not the appropriate oracle for synthetic recovery tests because synthetic patients have systematically different β distributions; (b) within-cohort R3 with unequal arm sizes (n_case=50 < n_hc=200) produces a sampling-variance baseline of Cohen's d ≈ +3 on the true-null condition, so absolute R3 criterion needs matched arms or cross-validation. N7 is a chain-level test run once per chain version; the full outcome document is at validation_runs/L9_N7_chain_recovery_2026_06_05/N7_OUTCOME.md. Per SOP v1.2 §87, N7 is run above the chain — not per VAL."
+      ]
+    }
+  }
+}

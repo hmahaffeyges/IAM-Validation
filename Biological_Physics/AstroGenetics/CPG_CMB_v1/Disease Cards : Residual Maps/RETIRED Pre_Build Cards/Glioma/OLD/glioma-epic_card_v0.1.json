@@ -1,0 +1,110 @@
+{
+  "card_id": "glioma-epic",
+  "version": "0.1",
+  "date": "2026-04-25",
+  "disease_family": "Adult diffuse glioma (LGG and GBM, IDH-mutant and IDH-wildtype)",
+  "out_of_scope_v0_1": "Pediatric brain tumors, primary CNS lymphoma, brain metastases (separate card if commercially relevant)",
+  "primary_class": "terminal",
+  "h_min_terminal": 0.7728,
+  "stage_1_class": "immune",
+  "h_min_immune": 0.838889,
+  "rationale_class_choice": "Whole blood is the dominant v1 specimen pathway. Whole blood is dominated by immune cells, so Stage 1 scores immune class. Terminal class becomes the relevant scoring class only on CSF, tumor tissue, or cfMeDIP-seq-enriched plasma — see Pathway 3 multi-specimen tier table.",
+  "validation_tier_blood_arm": "exploratory_pending_replication",
+  "validation_tier_tissue_arm": "single_cohort_validated_with_substrate_scope_caveat",
+  "validation_tier_overall": "v0.1 has two specimen pathways tested. Blood arm exploratory (no internal controls, cross-platform reference). Tissue arm single-cohort-validated with on-study controls and substrate-scope caveat. Other pathways (CSF / cfMeDIP-seq plasma / lymphatic) remain pre-validation_skeleton or external_classifier_validated.",
+  "validation_floor_explanation": "Blood arm: VAL-088 cohort (GSE180683 n=76 EPIC). External cross-platform reference (GSE51057 HM450). Direction-of-effect d ≈ 0.9 [95% CI 0.6, 1.2]. Replication on UCSF AGS phs001497 required for upgrade. Tissue arm: VAL-089 cohort (GSE60274 n=72 GBM + 5 NTB on 450K). On-study controls eliminate cross-platform confound. GBM primary d=+0.24 wide CI; recurrent d=+1.17; spheres d=-1.81 inversion validates Shannon-entropy=cell-mixture-diversity interpretation. Replication on GSE90496/GSE143843/TCGA required for tighter CI.",
+  "issue_002_prediction_substrate_scope": "Issue 002 figures (LGG ΔA = +0.239, GBM ΔA = +0.217, terminal class A_combined ≈ 1.10 FLOOR BREACH) refer to TUMOR TISSUE 5-substrate cfDNA combined target (L2/L3 platform). v1 single-substrate methyl-only readings are different scope and not directly comparable. CHK-1.5 substrate-scope translation documented per heme-LL-009.",
+  "specimen_pathways": {
+    "pathway_1_cfmedip_seq_plasma": {
+      "description": "cfMeDIP-seq enrichment overcomes 4% plasma cfDNA detection floor under active disease",
+      "v1_status": "external_classifier_validated_different_chemistry (Nassiri 2020 published AUC 0.99); not v1 deployment chemistry",
+      "v1_alternative": "Sabedot 2021 GeLB EPIC-array-with-restoration-kit cfDNA approach (Mendeley cgrz6zztfg); could be integrated as external-classifier arm in v0.2"
+    },
+    "pathway_2_lymphatic_concentration": {
+      "description": "Deep cervical lymph node aspirate concentrates brain cfDNA via meningeal lymphatic system (Iliff/Nedergaard 2012, Louveau 2015, Aspelund 2015)",
+      "v1_status": "pre-validation_skeleton",
+      "rationale": "No published cohort exists for this specimen pathway; framework-level prediction"
+    },
+    "pathway_3_multi_specimen_tiers": {
+      "description": "Graded specimen tier system: LP-CSF (gold) → ventricular shunt → Ommaya → cisterna magna → cervical lymph → FUS-disrupted plasma → cfMeDIP-seq plasma → standard plasma → whole blood",
+      "v1_status": "individual_tiers_have_individual_status",
+      "tier_table_in_readme": true
+    },
+    "pathway_4_brain_immune_trafficking": {
+      "description": "Microglial activation + monocyte-to-TAM trafficking signature in peripheral blood",
+      "v1_status": "directional_panel_pending_construction (component CpGs published, panel not yet built)",
+      "components_to_assemble": ["Sabedot 2021 GeLB CpGs", "Nassiri 2020 cfMeDIP-seq glioma DMRs", "Microglial markers TMEM119/P2RY12/TREM2/CSF1R", "Brain-immune-trafficking CCL2/CCR2/monocyte-to-TAM"]
+    },
+    "pathway_5_direction_as_discriminator": {
+      "description": "CCL-023 direction-as-discriminator applied to glioma",
+      "ccl_023_status_post_val_088": "REVISED — VAL-088 measured POSITIVE direction (d ≈ +0.91), inverting the cell-fraction-prior NEGATIVE prediction. Cell-fraction direction (Bracci 2022 lymphocytes-down/neutrophils-up) does NOT directly translate to A-score direction (Shannon entropy of methylation). Glioma joins the activation-shifted set (AD, breast, lung, prostate, HCC), not the suppression-shifted set (CRC).",
+      "revised_pattern": "Pre-diagnostic CRC at 5-10yr window reads NEGATIVE; everything else (AD, breast, lung, prostate, HCC, glioma) at-diagnosis or post-diagnosis reads POSITIVE. Direction-as-discriminator may collapse to 'early-pre-dx CRC is the outlier'. Pre-diagnostic glioma blood untested (no cohort)."
+    }
+  },
+  "validations_completed": ["VAL-088", "VAL-089"],
+  "validations_planned": [
+    "VAL-090 (GSE90496 Heidelberg GBM tumor + 24 inflammatory + 3 reactive controls)",
+    "VAL-091 (Sabedot Mendeley cfDNA serum via GAPE pipeline — first serum-cfDNA-pathway VAL)",
+    "VAL-092 (GSE143843 three-cohort meta-analysis tumor n≈800 GBM)",
+    "VAL-093 (TCGA-LGG/GBM direct test — largest accessible cohort, n=129 GBM + 516 LGG)",
+    "VAL-094 (GSE292314 Silv 2026 with cellular deconvolution + Stage 3 microenvironment)"
+  ],
+  "validations_blocked": [
+    {"id": "Bracci 2022 replication on UCSF AGS", "blocker": "dbGaP phs001497 application required, multi-month timeline"},
+    {"id": "UCSF Immune Profiles Study", "blocker": "dbGaP phs002998 application required"},
+    {"id": "GICC international cohort", "blocker": "dbGaP phs001319 application required; methylation re-runs would require collaboration"},
+    {"id": "Pre-diagnostic glioma direction test", "blocker": "no published cohort with pre-diagnostic blood + glioma incidence + EPIC methylation"},
+    {"id": "LP-CSF gold-standard test", "blocker": "no published cohort with EPIC-array CSF cfDNA + glioma diagnosis"},
+    {"id": "Pathway 2 cervical lymph", "blocker": "no published cohort exists for this specimen"},
+    {"id": "cfMeDIP-seq pipeline integration", "blocker": "different chemistry; v0.2+ build target"}
+  ],
+  "key_results_val_088": {
+    "design": "Stage 1 immune Xu-538 A-score on glioma EPIC whole blood (GSE180683 n=76) vs Italian healthy buffy coat HM450 reference (n=115)",
+    "headline_d_full_cohort": 0.914,
+    "headline_d_full_ci": [0.610, 1.218],
+    "headline_d_presurg": 0.944,
+    "headline_d_presurg_ci": [0.558, 1.329],
+    "delta_A_full_cohort": 0.0187,
+    "delta_in_healthy_sd_units": 0.77,
+    "outcome_label": "O5_POSITIVE_INVERTED",
+    "ccl_023_direction_match": false,
+    "data_integrity": "PASSED (CHK-3.1 bimodal β; CHK-3.3 panel coverage 90.6%; CHK-3.5 max A 0.519, no saturation)",
+    "biology_consistency": "REFINED — published immunomethylomics/NLR literature consistent with positive direction; CCL-023 cell-fraction-prior bridge inverted",
+    "pre_surgery_lgg_n12": {"mean_A": 0.4622, "sd_A": 0.0197, "d_vs_healthy": 1.247},
+    "pre_surgery_gbm_n25": {"mean_A": 0.4535, "sd_A": 0.0188, "d_vs_healthy": 0.800},
+    "interesting_pattern_lgg_d_higher_than_gbm": "Pre-surgery LGG (n=12) shows d=+1.25 vs healthy; pre-surgery GBM (n=25) shows d=+0.80. Counterintuitive that lower-grade tumor produces larger immune A-score signal; could be sample size effect, or could be biological — LGGs have intact BBB and longer disease duration, possibly producing more sustained peripheral immune trafficking."
+  },
+  "key_results_val_089": {
+    "design": "Direct tissue architecture A-score on GSE60274 (Lai 2015) brain tissue 450K platform — 60 primary GBM + 4 paired primary + 4 recurrent + 4 cultured spheres + 5 on-study NTB controls",
+    "h_min_used_terminal": 0.7728,
+    "h_min_used_immune_for_comparability": 0.838889,
+    "panel_coverage_pct": 100.0,
+    "ntb_healthy_baseline_mean_A_terminal": 0.6869,
+    "ntb_healthy_baseline_sd_A_terminal": 0.0107,
+    "gbm_primary_d_vs_ntb": 0.243,
+    "gbm_primary_ci_95": [-0.668, 1.154],
+    "gbm_primary_delta_A_terminal": 0.0145,
+    "gbm_recurrent_d_vs_ntb": 1.167,
+    "gbm_spheres_d_vs_ntb": -1.805,
+    "outcome_label": "O2_PARTIAL_DIRECTION_CONSISTENT_VARIANCE_HIGH",
+    "data_integrity": "PASSED (CHK-3.1 brain-tissue distribution as expected; CHK-3.3 100% Xu-538 coverage on 450K; CHK-3.5 max A_terminal 1.074, headroom)",
+    "biology_consistency": "PASS with substrate-scope translation. Direction matches Issue 002 prediction; magnitude smaller because v1 is single-substrate methyl-only vs Issue 002 5-substrate cfDNA. Recurrent>primary consistent with disease progression. Spheres NEGATIVE confirms entropy=cell-mixture-diversity, NOT tumorness.",
+    "biology_cross_check_findings": [
+      "GBM primary tissue direction matches Issue 002 framework prediction (positive ΔA), magnitude smaller per CHK-1.5 substrate-scope translation",
+      "Recurrent GBM > primary GBM (d +1.17 vs +0.24): disease progression amplifies architecture disruption",
+      "Cultured spheres < NTB (d -1.81 NEGATIVE): pure tumor-cell-line β distributions are LESS mixed than mixed-cell tissue. Validates that Shannon entropy of methylation captures cell-mixture diversity, NOT tumor-cell intrinsic property. High A-score is a heterogeneity marker, not a tumor marker.",
+      "GBM tumor variance 5x NTB (SD 0.061 vs 0.011): per heme-LL-008, programmed plasticity not noise"
+    ]
+  },
+  "honesty_disclosures": [
+    "Test cohort lacks internal healthy controls",
+    "Cross-platform comparison (test EPIC, reference HM450)",
+    "CCL-023 direction-as-discriminator hypothesis was inverted by VAL-088",
+    "Cannot detect terminal-class cfDNA on whole blood at v1",
+    "Cannot distinguish glioma from AD on Stage 1 direction alone",
+    "Pre-diagnostic glioma direction unknown (no cohort)",
+    "Treatment-stage heterogeneity in test cohort; pre-surgery subset (n=37) is cleanest signal"
+  ],
+  "patent_disclosure": "GAPE engine + EDEAR product covered by provisional patents 64/012,720 (March 21, 2026) and 64/014,568 (March 23, 2026). Non-provisional conversion deadline ~March 2027.",
+  "subscription_revenue_funds": "Future cfMeDIP-seq integration, LP-CSF cohort partnerships, biobank application fees for AGS/GICC/Mayo, Pathway 4 directional panel construction"
+}
