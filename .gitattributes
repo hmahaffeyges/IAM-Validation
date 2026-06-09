@@ -6,3 +6,5 @@ iamatlas_production_data/**/*.idat filter=lfs diff=lfs merge=lfs -text
 iamatlas_production_data/**/*.h5 filter=lfs diff=lfs merge=lfs -text
 Biological_Physics/atlas_vault/**/*.csv.xz filter=lfs diff=lfs merge=lfs -text
 Biological_Physics/atlas_vault/**/*.tar.xz filter=lfs diff=lfs merge=lfs -text
+Biological_Physics/AstroGenetics/**/*.csv.xz filter=lfs diff=lfs merge=lfs -text
+Biological_Physics/AstroGenetics/**/*.tar.xz filter=lfs diff=lfs merge=lfs -text

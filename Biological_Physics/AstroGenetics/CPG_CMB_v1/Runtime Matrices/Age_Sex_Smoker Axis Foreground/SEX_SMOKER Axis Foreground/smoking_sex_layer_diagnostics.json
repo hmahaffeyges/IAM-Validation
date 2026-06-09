@@ -1,0 +1,416 @@
+{
+  "source_cohort": "GSE50660 (Tsaprouni 2014)",
+  "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50660/matrix/GSE50660_series_matrix.txt.gz",
+  "n_samples": 464,
+  "n_atlas_cpgs_covered": 479599,
+  "n_atlas_cpgs_total": 483092,
+  "fit_date": "2026-06-06",
+  "sex_layer": {
+    "n_cpgs_fitted": 483092,
+    "n_cpgs_converged": 479599,
+    "n_samples_used": 464,
+    "n_male": 327,
+    "n_female": 137,
+    "psi_distribution": {
+      "min": -0.6512745454611879,
+      "25%": -0.0014308282767091002,
+      "median": 0.0009142182133412457,
+      "75%": 0.004231834712823344,
+      "max": 0.6357515796868655
+    },
+    "r_squared_distribution": {
+      "min": -1.0130072647385191e-07,
+      "25%": 0.0008550516136357489,
+      "median": 0.004004615393583544,
+      "75%": 0.012642567031379115,
+      "max": 0.9880297649120192
+    },
+    "top_sex_correlated_cpgs": [
+      {
+        "cpg_id": "cg21983484",
+        "psi_male": -0.6512745454611879,
+        "r_squared": 0.9835669510788768,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg09460641",
+        "psi_male": 0.6357515796868655,
+        "r_squared": 0.9439834600002457,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg01375382",
+        "psi_male": -0.6238566003785566,
+        "r_squared": 0.9755179460404894,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg08265308",
+        "psi_male": 0.6236339985405273,
+        "r_squared": 0.9460880543416054,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg10422744",
+        "psi_male": 0.6162228233821715,
+        "r_squared": 0.9630116925162333,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg01742836",
+        "psi_male": -0.6124170656458195,
+        "r_squared": 0.983314042213154,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg03278611",
+        "psi_male": 0.6083908459145165,
+        "r_squared": 0.9159162488338399,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg11673471",
+        "psi_male": -0.5950245074383136,
+        "r_squared": 0.9829287328126989,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg24186901",
+        "psi_male": -0.5933416420771082,
+        "r_squared": 0.9863975693512012,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg23696472",
+        "psi_male": -0.5925743565556528,
+        "r_squared": 0.9878119259631801,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg08417382",
+        "psi_male": -0.5861015531057255,
+        "r_squared": 0.9834568280253736,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg27355713",
+        "psi_male": -0.5798284674125731,
+        "r_squared": 0.9620099190091242,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg13574945",
+        "psi_male": -0.576979621829181,
+        "r_squared": 0.9838000959004995,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg26023405",
+        "psi_male": -0.576441782340486,
+        "r_squared": 0.9850554371422372,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg20766178",
+        "psi_male": -0.5728534185196306,
+        "r_squared": 0.9860879969811147,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg13023833",
+        "psi_male": -0.5713927673549338,
+        "r_squared": 0.9816422477506657,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg08059778",
+        "psi_male": -0.5713163391865569,
+        "r_squared": 0.9855006204441635,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg02105393",
+        "psi_male": -0.5700086832201425,
+        "r_squared": 0.9527827497158399,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg15935877",
+        "psi_male": 0.5646226001796264,
+        "r_squared": 0.906174017272975,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg13130271",
+        "psi_male": -0.563397905985542,
+        "r_squared": 0.9811469191677108,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg13244998",
+        "psi_male": -0.5598700837044944,
+        "r_squared": 0.9867630523543296,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg21290550",
+        "psi_male": -0.5585827649259146,
+        "r_squared": 0.9867569577810346,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg09748856",
+        "psi_male": -0.5568725386830589,
+        "r_squared": 0.9543041760040613,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg26584339",
+        "psi_male": -0.5559157023489121,
+        "r_squared": 0.9818934845135378,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      },
+      {
+        "cpg_id": "cg06041068",
+        "psi_male": -0.5555576553203853,
+        "r_squared": 0.9859663804440082,
+        "is_chr_x": false,
+        "is_chr_y": false,
+        "x_inactivation_flag": false
+      }
+    ],
+    "n_chr_x_cpgs": 0,
+    "n_chr_y_cpgs": 0,
+    "n_x_inactivation_flagged": 0
+  },
+  "smoking_layer": {
+    "n_cpgs_fitted": 483092,
+    "n_cpgs_converged": 479599,
+    "n_samples_used": 464,
+    "n_current_smokers": 22,
+    "n_former_smokers": 263,
+    "n_never_smokers": 179,
+    "delta_distribution": {
+      "min": -0.3217754940964884,
+      "25%": -0.008209301196168495,
+      "median": 0.00021817106629290944,
+      "75%": 0.009012526638449444,
+      "max": 0.2821652885561168
+    },
+    "phi_distribution": {
+      "min": -0.4036800284253196,
+      "25%": -0.010070759189547349,
+      "median": -0.0003339354665475799,
+      "75%": 0.008890357708965037,
+      "max": 0.2849146454403526
+    },
+    "r_squared_distribution": {
+      "min": -1.8726991068973575e-08,
+      "25%": 0.0026716155723699453,
+      "median": 0.00665940693518563,
+      "75%": 0.013390406168117153,
+      "max": 0.36233624109105445
+    },
+    "top_smoking_correlated_cpgs": [
+      {
+        "cpg_id": "cg22336867",
+        "delta_current": -0.3217754940964884,
+        "phi_recency": 0.2543369326290639,
+        "r_squared": 0.027758647416225912
+      },
+      {
+        "cpg_id": "cg15029183",
+        "delta_current": -0.29734199711602505,
+        "phi_recency": 0.1684296589605535,
+        "r_squared": 0.03270663017641329
+      },
+      {
+        "cpg_id": "cg04246708",
+        "delta_current": -0.2838902517274449,
+        "phi_recency": 0.18498182615522407,
+        "r_squared": 0.015803170577806003
+      },
+      {
+        "cpg_id": "cg20187719",
+        "delta_current": 0.2821652885561168,
+        "phi_recency": -0.17674616370063817,
+        "r_squared": 0.02207546003483718
+      },
+      {
+        "cpg_id": "cg00814218",
+        "delta_current": -0.25378797631989636,
+        "phi_recency": 0.16999764579048657,
+        "r_squared": 0.016331459459711817
+      },
+      {
+        "cpg_id": "cg05890457",
+        "delta_current": -0.2484570959256443,
+        "phi_recency": 0.12782504481946708,
+        "r_squared": 0.017672944273233293
+      },
+      {
+        "cpg_id": "cg05338731",
+        "delta_current": -0.2429141546169118,
+        "phi_recency": 0.13418062424538588,
+        "r_squared": 0.013683946303424399
+      },
+      {
+        "cpg_id": "cg03449867",
+        "delta_current": 0.23846960604575917,
+        "phi_recency": -0.2578433700340938,
+        "r_squared": 0.011830100812290745
+      },
+      {
+        "cpg_id": "cg04131969",
+        "delta_current": -0.23536976021675604,
+        "phi_recency": 0.18645126279965107,
+        "r_squared": 0.010820906323465884
+      },
+      {
+        "cpg_id": "cg07474670",
+        "delta_current": 0.23102699804762755,
+        "phi_recency": -0.19930235569840876,
+        "r_squared": 0.0174034338760235
+      },
+      {
+        "cpg_id": "cg13387643",
+        "delta_current": 0.22884380827367884,
+        "phi_recency": -0.18053508715214017,
+        "r_squared": 0.01963464753930766
+      },
+      {
+        "cpg_id": "cg01156747",
+        "delta_current": 0.2285423371794229,
+        "phi_recency": -0.1409771395241777,
+        "r_squared": 0.016306590849050284
+      },
+      {
+        "cpg_id": "cg09993319",
+        "delta_current": 0.22343796313842906,
+        "phi_recency": -0.10317057085895574,
+        "r_squared": 0.010762098516450824
+      },
+      {
+        "cpg_id": "cg14167033",
+        "delta_current": 0.2232062052487679,
+        "phi_recency": -0.19226583600043834,
+        "r_squared": 0.016890544444062017
+      },
+      {
+        "cpg_id": "cg11047442",
+        "delta_current": -0.21793295495626996,
+        "phi_recency": 0.2849146454403526,
+        "r_squared": 0.037142427151735435
+      },
+      {
+        "cpg_id": "cg01561758",
+        "delta_current": -0.21712618118218646,
+        "phi_recency": 0.15375064500574395,
+        "r_squared": 0.01973637855168675
+      },
+      {
+        "cpg_id": "cg11585022",
+        "delta_current": -0.215426443760458,
+        "phi_recency": 0.17470519330560594,
+        "r_squared": 0.010906682925704625
+      },
+      {
+        "cpg_id": "cg08331829",
+        "delta_current": -0.21536816962032132,
+        "phi_recency": 0.15274025284687606,
+        "r_squared": 0.010294215181837041
+      },
+      {
+        "cpg_id": "cg22505202",
+        "delta_current": -0.21093655438185316,
+        "phi_recency": 0.14636253690435763,
+        "r_squared": 0.016285742127437386
+      },
+      {
+        "cpg_id": "cg03393996",
+        "delta_current": 0.21043251501927235,
+        "phi_recency": -0.16637320771806066,
+        "r_squared": 0.028015038880920606
+      },
+      {
+        "cpg_id": "cg27467876",
+        "delta_current": 0.20940820842011662,
+        "phi_recency": -0.16852586393521224,
+        "r_squared": 0.00948205076335007
+      },
+      {
+        "cpg_id": "cg02909570",
+        "delta_current": 0.20919866202348256,
+        "phi_recency": -0.0927405174226516,
+        "r_squared": 0.016953129496433905
+      },
+      {
+        "cpg_id": "cg18346634",
+        "delta_current": 0.20912613118630086,
+        "phi_recency": -0.1370316210713026,
+        "r_squared": 0.011388855373233087
+      },
+      {
+        "cpg_id": "cg02898977",
+        "delta_current": -0.20462231038374473,
+        "phi_recency": 0.14867197986259578,
+        "r_squared": 0.01690544973679331
+      },
+      {
+        "cpg_id": "cg01463139",
+        "delta_current": -0.20433999043266923,
+        "phi_recency": 0.04996302426433246,
+        "r_squared": 0.013481155238667109
+      }
+    ],
+    "candidate_panel_size": 483092
+  }
+}
