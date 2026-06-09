@@ -345,7 +345,7 @@ There are **9 panels** — one per architecture class (8 of them) plus one whole
 These four plates document the CMB and the visualization framework — they are the same for every patient and establish what "background" looks like:
 
 1. **CPG Plate 01 — Cosmic Methylome Background** *(stable reference)*
-   File: `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
+   File: `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png`
    *The healthy class baseline projected onto the HEALPix Mollweide grid.*
 
 2. **CPG Plate 02 — Breast Anisotropy** *(disease-amplified reference)*
@@ -774,7 +774,7 @@ Each term is defined inline at first appearance throughout the report. The full 
 
 ## A4. Reference plates (already in atlas — same for every patient)
 
-- `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
+- `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png`
 - `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_02_Breast_Anisotropy.png`
 - `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_03_Grandaddy_CMM_vs_CMB.png`
 - `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_04_Patterns_Discovered.png`

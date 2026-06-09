@@ -120,7 +120,7 @@ Each named pattern cites the four visualization sources as converging evidence.
 ### D7. Naming: Cosmic Methylome Background + Personal Brilliance Map
 
 **Decision (confirmed multiple times):**
-- "Cosmic Methylome Background (CMB)" — never "Cosmic Microwave Methylome", never "C-Methylane-B"
+- "Cosmic Methylome Background (CMB)" — never "Cosmic Methylome Background", never "C-Methylane-B"
 - "Personal Brilliance Map" — never "Patient Brightness Map" or "personal cosmic methylome"
 - Output filename: `{patient_id}_personal_brilliance_map.png` (NOT `_cosmic_methylome.png`)
 - 8 per-class panels + 1 whole-atlas panel = 9 panels total
@@ -217,8 +217,8 @@ Archive the old class-average-based `IAMCellularAge` class to `OLD/` with note a
 
 | Find | Replace |
 |---|---|
-| "Cosmic Microwave Methylome" | "Cosmic Methylome Background (CMB)" |
-| "personal Cosmic Microwave Methylome" | "Personal Brilliance Map" |
+| "Cosmic Methylome Background" | "Cosmic Methylome Background (CMB)" |
+| "personal Cosmic Methylome Background" | "Personal Brilliance Map" |
 | Output filename: `{patient_id}_cosmic_methylome.png` | `{patient_id}_personal_brilliance_map.png` |
 | "pending repo addition" note (HEALPix file) | Remove — file exists at `IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy` |
 
@@ -318,7 +318,7 @@ Stage 9 report builder must:
 ## VERIFICATION CHECKLIST (run after all updates)
 
 - [ ] grep all customer-facing docs for "REBUILD" — should return zero hits
-- [ ] grep all customer-facing docs for "Cosmic Microwave Methylome" — should return zero hits
+- [ ] grep all customer-facing docs for "Cosmic Methylome Background" — should return zero hits
 - [ ] grep all customer-facing docs for "Patient Brightness Map" / "patient brightness" — should return zero hits
 - [ ] grep `tier_breakpoints.json` for SIG_ELEV or SIGNIFICANTLY_ELEVATED — should return zero hits
 - [ ] grep `tier_breakpoints.json` for BREACH — should appear once with range `[1.10, ∞)`

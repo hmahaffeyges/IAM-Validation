@@ -2,11 +2,11 @@
 
 **Module:** `patient_brightness_comparison.py`
 **Stage:** 4.6 — Per-class healthy brightness comparison + patient Mollweide projection
-**Reference:** CPG Plate 1 (Cosmic Microwave Methylome) at `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
+**Reference:** CPG Plate 1 (Cosmic Methylome Background) at `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png`
 
 ## What this module does
 
-For each of the 8 architectural classes, compute the patient's per-CpG z-score departure from the class's healthy reference (μ, σ from the brightness CSVs), then project those z-scores onto the same HEALPix NSIDE=128 Mollweide grid as Plate 1. The output is the patient's personal Cosmic Microwave Methylome — an 8-panel sky map of where their methylation pattern departs from the per-class healthy baseline.
+For each of the 8 architectural classes, compute the patient's per-CpG z-score departure from the class's healthy reference (μ, σ from the brightness CSVs), then project those z-scores onto the same HEALPix NSIDE=128 Mollweide grid as Plate 1. The output is the patient's personal Cosmic Methylome Background — an 8-panel sky map of where their methylation pattern departs from the per-class healthy baseline.
 
 ## Inputs
 

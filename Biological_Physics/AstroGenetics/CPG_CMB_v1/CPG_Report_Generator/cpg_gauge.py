@@ -246,20 +246,20 @@ def render_cellular_departure_ranking(cells,
 
 # ---------------------------------------------------------------------------
 # Star gauge (AstroGenetics companion to the cell gauge) — same ruler, same JSON zones.
-# NOTE: the per-star A-score positions below are PROVISIONAL, transcribed from Heath's
-# figC. They are his derived A_IAM-rescaled values (gravitational saturation A_IAM=1 ->
-# cellular breach 1.10); confirm/replace with the exact derived values. Stellar masses are
-# the real public figures. This generator renders the gauge from whatever table is passed in.
+# Values are Heath's derived A_IAM table (figC LaTeX): raw A_IAM = M_core / M_saturation
+# (Chandrasekhar 1.44 Msun for WDs, TOV ~2.3 Msun for NS), rescaled onto the cellular ruler so
+# gravitational saturation A_IAM=1 lands on the cellular breach at 1.10 (collapse = cellular
+# breach = the same no-return event). Stellar masses are real public figures.
 # ---------------------------------------------------------------------------
 FIGC_STARS = [
-    {"name": "Sun's future WD",  "mass": 0.54, "a": 1.01, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
-    {"name": "Procyon B",        "mass": 0.60, "a": 1.02, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
-    {"name": "typical neutron star", "mass": 1.40, "a": 1.035, "note": "", "color": "#2f9bb0"},
-    {"name": "Sirius B",         "mass": 1.00, "a": 1.05, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
-    {"name": "PSR J0740+6620",   "mass": 2.08, "a": 1.06, "note": "", "color": "#2f9bb0"},
-    {"name": "IK Pegasi B",      "mass": 1.15, "a": 1.07, "note": "binary \u00b7 can accrete", "color": "#c8771f"},
-    {"name": "Chandrasekhar / Betelgeuse core / NS at TOV", "mass": None, "a": 1.10, "note": "A_IAM=1: collapse", "color": "#b03020"},
-    {"name": "core past TOV: black hole", "mass": None, "a": 1.13, "note": "past breach", "color": "#7a1f12"},
+    {"name": "Sun's future WD core", "mass": 0.54, "a_raw": 0.38, "a": 1.01, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
+    {"name": "Procyon B",            "mass": 0.60, "a_raw": 0.42, "a": 1.01, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
+    {"name": "typical neutron star", "mass": 1.40, "a_raw": 0.61, "a": 1.04, "note": "TOV \u2248 2.3 M\u2609",          "color": "#2f9bb0"},
+    {"name": "Sirius B",             "mass": 1.00, "a_raw": 0.69, "a": 1.05, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
+    {"name": "IK Pegasi B",          "mass": 1.15, "a_raw": 0.80, "a": 1.07, "note": "binary \u00b7 can accrete",      "color": "#c8771f"},
+    {"name": "PSR J0740+6620",       "mass": 2.08, "a_raw": 0.90, "a": 1.09, "note": "massive neutron star",       "color": "#2f9bb0"},
+    {"name": "Chandrasekhar / Betelgeuse iron core / NS at TOV", "mass": None, "a_raw": 1.00, "a": 1.10, "note": "A_IAM=1: collapse", "color": "#b03020"},
+    {"name": "core above the limit", "mass": None, "a_raw": 1.05, "a": 1.13, "note": "past breach: black hole",    "color": "#7a1f12"},
 ]
 
 

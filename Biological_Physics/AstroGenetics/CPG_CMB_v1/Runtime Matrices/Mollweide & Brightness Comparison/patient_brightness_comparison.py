@@ -21,7 +21,7 @@ For the methylome, the per-class brightness CSVs are the human body's
 architectural classes from 3 weeks of dedicated MCMC compute. Patient runtime
 compares the patient's β against this reference per class, producing a z-score
 departure map. The patient's per-class Mollweide projection becomes their
-personal CMM — the visualization analog of every other metric the engine
+personal CMB — the visualization analog of every other metric the engine
 produces.
 
 This module is the engine's bridge between the reference (Plate 1) and the

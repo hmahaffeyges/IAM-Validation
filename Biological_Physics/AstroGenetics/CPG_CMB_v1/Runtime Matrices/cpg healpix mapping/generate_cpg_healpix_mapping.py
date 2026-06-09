@@ -3,7 +3,7 @@
 generate_cpg_healpix_mapping.py — One-time generator for iamatlas_cpg_to_healpix_nside128.npy
 
 The canonical mapping that every patient projection in Stage 4.6 uses to sit on
-the same HEALPix grid as Plate 1 (the Cosmic Microwave Methylome reference). Run
+the same HEALPix grid as Plate 1 (the Cosmic Methylome Background reference). Run
 once at IAMAtlas build time; cached forever after.
 
 PLATE 1 CONVENTIONS (the binding contract)
@@ -257,7 +257,7 @@ def build_cpg_to_pixel_mapping(
         "sentinel_pixel_for_unannotated": SENTINEL_PIXEL,
         "atlas_csv": str(atlas_csv),
         "manifest_csv": str(manifest_csv),
-        "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Microwave_Methylome.png",
+        "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Methylome_Background.png",
     }
 
     return cpg_to_pixel, cpg_ids, provenance
