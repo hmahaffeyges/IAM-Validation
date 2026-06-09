@@ -18,8 +18,8 @@ Full-sky scatter of 1,392 concordant breast pre-diagnostic CpGs, signed Cohen's 
 
 The cross-genome anisotropy field-effect signature for breast pre-dx — used at Stage 8 Route A per-card residual map matching.
 
-**Plate 3 — `CPG_Plate_03_Grandaddy_CMM_vs_CMB.png`**
-Side-by-side methylome vs CMB at matched Mollweide projection, matched colormap, matched pixelization. Top: full-sky overview. Bottom: zoom on small-scale anisotropy texture.
+**Plate 3 — `CPG_Plate_03_Methylome_CMB_vs_Microwave_CMB.png`**
+Side-by-side methylome CMB (Cosmic Methylome Background) vs microwave CMB (Cosmic Microwave Background) at matched Mollweide projection, matched colormap, matched pixelization. Top: full-sky overview. Bottom: zoom on small-scale anisotropy texture.
 
 Makes the CMB↔methylome analogy visually irrefutable. The right panel (CMB realization) was produced via `healpy.synfast()` from Planck's ΛCDM C_ℓ spectrum — same generative discipline as the synthetic patient generator at Stage 4.6 / L9 N7.
 
