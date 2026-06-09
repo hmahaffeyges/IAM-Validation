@@ -82,6 +82,8 @@ DEFAULT_CONFIG = {
     # Stage 5 — Mahalanobis
     "mahalanobis_module_path": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
     "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_5.json",
+    # Stage 9 — brilliance maps (HEALPix Mollweide)
+    "cpg_healpix_mapping_npy": CPG_ROOT / "Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy",
     # Behaviour flags
     "apply_smoking_foreground": True,   # applied iff the smoking layer CSV exists
     "apply_sex_foreground": True,       # applied iff the sex layer CSV exists
@@ -210,8 +212,51 @@ def stage_6_cellular_age(beta_raw: pd.Series,
 
 
 # ---------------------------------------------------------------------------
-# Not-yet-built stages — honest placeholders (do not silently no-op)
+# Stage 9 helper — Personal Brilliance Maps (HEALPix Mollweide). Consumes the
+# Stage 4.6 PatientBrightnessReport. Requires healpy at runtime.
 # ---------------------------------------------------------------------------
+def render_brilliance_maps(brightness_report, output_dir, patient_id="patient",
+                           config=None):
+    """Render the patient's Personal Brilliance Maps (Appendix A3):
+      - 8 individual per-class panels  -> personal_brilliance_map_{class}.png
+      - 1 whole-atlas 8-panel figure   -> personal_brilliance_map_whole_atlas.png
+
+    These are the patient's per-class z-score departures projected onto the same
+    HEALPix NSIDE=128 grid as the Cosmic Methylome Background reference (Plate 1),
+    so the customer's maps sit on the identical ruler as the atlas reference.
+
+    brightness_report : the PatientBrightnessReport from stage_4_6_brightness.
+    Requires healpy (pip install healpy) at runtime.
+    """
+    import numpy as np
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    br_mod = _load_module(cfg["brightness_module_path"], "patient_brightness_comparison")
+    cpg_to_pixel = np.load(str(cfg["cpg_healpix_mapping_npy"]))
+
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    written = {}
+
+    # 8 individual per-class panels
+    for cls, departure in brightness_report.per_class_results.items():
+        pixel_values = br_mod.project_to_healpix_pixels(departure, cpg_to_pixel)
+        fig = br_mod.render_patient_mollweide_panel(
+            pixel_values, cls,
+            title=f"{cls.upper()} \u00b7 personal departure vs Cosmic Methylome Background")
+        panel_path = out / f"{patient_id}_personal_brilliance_map_{cls}.png"
+        fig.savefig(panel_path, dpi=120, bbox_inches="tight", facecolor="black")
+        import matplotlib.pyplot as plt
+        plt.close(fig)
+        written[cls] = panel_path
+
+    # 1 whole-atlas (all 8 classes in one figure)
+    whole = out / f"{patient_id}_personal_brilliance_map_whole_atlas.png"
+    br_mod.render_patient_cosmic_methylome(brightness_report, cpg_to_pixel, whole)
+    written["whole_atlas"] = whole
+    return written
+
+
+
 def _not_built(stage):
     raise NotImplementedError(
         f"{stage} is not implemented in this build. Current scope: Stage 3 + Stage 6 "
