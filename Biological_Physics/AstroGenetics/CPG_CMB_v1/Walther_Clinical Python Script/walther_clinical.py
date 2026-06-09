@@ -84,6 +84,7 @@ DEFAULT_CONFIG = {
     "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_5.json",
     # Stage 9 — brilliance maps (HEALPix Mollweide)
     "cpg_healpix_mapping_npy": CPG_ROOT / "Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy",
+    "whole_atlas_reference_npz": CPG_ROOT / "Runtime Matrices/Mollweide & Brightness Comparison/whole_atlas_reference/iamatlas_whole450k_reference.npz",
     # Behaviour flags
     "apply_smoking_foreground": True,   # applied iff the smoking layer CSV exists
     "apply_sex_foreground": True,       # applied iff the sex layer CSV exists
@@ -215,20 +216,21 @@ def stage_6_cellular_age(beta_raw: pd.Series,
 # Stage 9 helper — Personal Brilliance Maps (HEALPix Mollweide). Consumes the
 # Stage 4.6 PatientBrightnessReport. Requires healpy at runtime.
 # ---------------------------------------------------------------------------
-def render_brilliance_maps(brightness_report, output_dir, patient_id="patient",
-                           config=None):
+def render_brilliance_maps(brightness_report, patient_beta, output_dir,
+                           patient_id="patient", config=None):
     """Render the patient's Personal Brilliance Maps (Appendix A3):
       - 8 individual per-class panels  -> personal_brilliance_map_{class}.png
-      - 1 whole-atlas 8-panel figure   -> personal_brilliance_map_whole_atlas.png
+        (patient departure vs each class reference; compared to Plate 1's 8 per-class panels)
+      - 1 whole-atlas single map       -> personal_brilliance_map_whole_atlas.png
+        (the WHOLE patient methylome vs the WHOLE-450K reference, all CpGs on one sphere;
+         compared to the whole-450K Cosmic Methylome Background, NOT a single class)
 
-    These are the patient's per-class z-score departures projected onto the same
-    HEALPix NSIDE=128 grid as the Cosmic Methylome Background reference (Plate 1),
-    so the customer's maps sit on the identical ruler as the atlas reference.
-
-    brightness_report : the PatientBrightnessReport from stage_4_6_brightness.
-    Requires healpy (pip install healpy) at runtime.
+    brightness_report : PatientBrightnessReport from stage_4_6_brightness (per-class z-departures).
+    patient_beta      : pd.Series of the patient's calibrated β indexed by cpg_id (whole methylome),
+                        used for the whole-atlas map. Requires healpy at runtime.
     """
     import numpy as np
+    import matplotlib.pyplot as plt
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     br_mod = _load_module(cfg["brightness_module_path"], "patient_brightness_comparison")
     cpg_to_pixel = np.load(str(cfg["cpg_healpix_mapping_npy"]))
@@ -237,21 +239,23 @@ def render_brilliance_maps(brightness_report, output_dir, patient_id="patient",
     out.mkdir(parents=True, exist_ok=True)
     written = {}
 
-    # 8 individual per-class panels
+    # 8 individual per-class panels (patient departure vs each class reference)
     for cls, departure in brightness_report.per_class_results.items():
         pixel_values = br_mod.project_to_healpix_pixels(departure, cpg_to_pixel)
         fig = br_mod.render_patient_mollweide_panel(
             pixel_values, cls,
-            title=f"{cls.upper()} \u00b7 personal departure vs Cosmic Methylome Background")
+            title=f"{cls.upper()} \u00b7 personal departure vs class reference")
         panel_path = out / f"{patient_id}_personal_brilliance_map_{cls}.png"
         fig.savefig(panel_path, dpi=120, bbox_inches="tight", facecolor="black")
-        import matplotlib.pyplot as plt
         plt.close(fig)
         written[cls] = panel_path
 
-    # 1 whole-atlas (all 8 classes in one figure)
+    # 1 whole-atlas: WHOLE patient methylome vs WHOLE-450K reference (single sphere, all CpGs)
+    ref_mean, ref_sd, ref_cpgs = br_mod.load_whole_atlas_reference(str(cfg["whole_atlas_reference_npz"]))
+    patient_aligned = patient_beta.reindex(list(ref_cpgs)).to_numpy(dtype=float)
+    z = br_mod.compute_whole_atlas_departure(patient_aligned, ref_mean, ref_sd)
     whole = out / f"{patient_id}_personal_brilliance_map_whole_atlas.png"
-    br_mod.render_patient_cosmic_methylome(brightness_report, cpg_to_pixel, whole)
+    br_mod.render_whole_atlas_methylome(z, cpg_to_pixel, whole, mode="departure", patient_id=patient_id)
     written["whole_atlas"] = whole
     return written
 

@@ -244,6 +244,83 @@ def render_cellular_departure_ranking(cells,
     return out_path
 
 
+# ---------------------------------------------------------------------------
+# Star gauge (AstroGenetics companion to the cell gauge) — same ruler, same JSON zones.
+# NOTE: the per-star A-score positions below are PROVISIONAL, transcribed from Heath's
+# figC. They are his derived A_IAM-rescaled values (gravitational saturation A_IAM=1 ->
+# cellular breach 1.10); confirm/replace with the exact derived values. Stellar masses are
+# the real public figures. This generator renders the gauge from whatever table is passed in.
+# ---------------------------------------------------------------------------
+FIGC_STARS = [
+    {"name": "Sun's future WD",  "mass": 0.54, "a": 1.01, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
+    {"name": "Procyon B",        "mass": 0.60, "a": 1.02, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
+    {"name": "typical neutron star", "mass": 1.40, "a": 1.035, "note": "", "color": "#2f9bb0"},
+    {"name": "Sirius B",         "mass": 1.00, "a": 1.05, "note": "isolated \u00b7 ceiling-capped", "color": "#5a7fb8"},
+    {"name": "PSR J0740+6620",   "mass": 2.08, "a": 1.06, "note": "", "color": "#2f9bb0"},
+    {"name": "IK Pegasi B",      "mass": 1.15, "a": 1.07, "note": "binary \u00b7 can accrete", "color": "#c8771f"},
+    {"name": "Chandrasekhar / Betelgeuse core / NS at TOV", "mass": None, "a": 1.10, "note": "A_IAM=1: collapse", "color": "#b03020"},
+    {"name": "core past TOV: black hole", "mass": None, "a": 1.13, "note": "past breach", "color": "#7a1f12"},
+]
+
+
+def render_star_gauge(stars, tier_breakpoints_path, out_path,
+                      title="How astro-genetics reads a star \u2014 same ruler as the cell",
+                      axis=(0.95, 1.18), dpi=160):
+    """Render the star gauge on the SAME tier ruler as the cell gauge (zones from the same
+    tier_breakpoints.json). Stars are placed by their A_IAM rescaled onto the cellular ruler:
+    gravitational saturation (A_IAM=1: Chandrasekhar / TOV / Schwarzschild) lands on the cellular
+    breach at 1.10, because collapse and cellular breach are the same no-return event.
+
+    stars: list of dicts {name, a (A-score on the cellular ruler), note, color, mass(optional)}.
+    """
+    scheme = load_tier_scheme(tier_breakpoints_path)
+    ax_lo, ax_hi = axis
+    fig, ax = plt.subplots(figsize=(12, 3.6))
+    for tier_id, lo, hi in scheme["partitions"]:
+        lo_c, hi_c = max(lo, ax_lo), min(hi, ax_hi)
+        if hi_c > lo_c:
+            ax.add_patch(Rectangle((lo_c, 0.0), hi_c - lo_c, 1.0,
+                         facecolor=TIER_COLORS.get(tier_id, "#ddd"), edgecolor="white",
+                         linewidth=1.5, zorder=1))
+    for tier_id in ("NORMAL", "BREACH"):
+        mids = [(max(lo, ax_lo) + min(hi, ax_hi)) / 2 for t, lo, hi in scheme["partitions"] if t == tier_id]
+        if mids:
+            ax.text(mids[0], 0.5, CUSTOMER_LABELS[tier_id], ha="center", va="center",
+                    fontsize=9.5, fontweight="bold", color="#222", zorder=3)
+    bl = scheme["breach_line"]
+    ax.axvline(1.00, color="black", lw=1.6, zorder=4)
+    ax.axvline(scheme["warburg_line"], color="#c8771f", lw=1.6, ls="--", zorder=4)
+    ax.axvline(bl, color="#8a3326", lw=1.8, zorder=4)
+    ax.text(bl + 0.004, -0.12, f"BREACH = collapse\n(A_IAM=1: Chandrasekhar / TOV / Schwarzschild)",
+            ha="left", va="top", fontsize=7.5, color="#8a3326", fontweight="bold")
+
+    # star markers, staggered above the bar
+    y_levels = [1.16, 1.34, 1.52, 1.70]
+    for i, s in enumerate(sorted(stars, key=lambda d: d["a"])):
+        a = min(max(s["a"], ax_lo), ax_hi)
+        yl = y_levels[i % len(y_levels)]
+        ax.plot([a, a], [1.02, yl - 0.04], color=s.get("color", "#444"), lw=0.8, ls=":", zorder=4)
+        lbl = s["name"] + (f"\n({s['mass']:.2f} M\u2609" + (f" \u00b7 {s['note']})" if s.get("note") else ")") if s.get("mass") else (f"\n{s['note']}" if s.get("note") else ""))
+        ax.text(a, yl, lbl, ha="center", va="bottom", fontsize=7, color=s.get("color", "#444"),
+                fontweight="bold", zorder=5)
+
+    ax.set_xlim(ax_lo, ax_hi); ax.set_ylim(-0.45, 1.95)
+    ax.set_yticks([]); ax.set_xticks([round(x, 2) for x in _frange(ax_lo, ax_hi, 0.05)])
+    ax.tick_params(axis="x", labelsize=8.5)
+    for sp in ("top", "left", "right"):
+        ax.spines[sp].set_visible(False)
+    ax.set_xlabel("A-score on the cellular ruler  (gravitational A_IAM rescaled so saturation = breach)", fontsize=9)
+    ax.set_title(title, fontsize=12, fontweight="bold", pad=14)
+    fig.text(0.5, 0.005, "Same physics, same ruler as the cell. Isolated spent stars sit above healthy "
+             "but are capped below breach; only collapse-capable cores reach it.",
+             ha="center", fontsize=7.5, style="italic", color="#555")
+    fig.tight_layout(rect=[0, 0.03, 1, 1])
+    out_path = Path(out_path)
+    fig.savefig(out_path, dpi=dpi, bbox_inches="tight")
+    plt.close(fig)
+    return out_path
+
+
 def _frange(lo, hi, step):
     x = lo
     while x <= hi + 1e-9:
