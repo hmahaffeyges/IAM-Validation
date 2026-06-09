@@ -44,7 +44,7 @@ All canonical, all in `atlas_vault/walther_clinical_runtime/`. Full path list in
 | 5 Mahalanobis | MahalanobisHealthyHull + mahalanobis_healthy_reference_v0_5.json (n=2,481, Ledoit-Wolf shrinkage 0.00875) | Mahalanobis_healthy_reference/ |
 | 6 Age reference | age_reference_matrix.json — 80-cell baseline, 10 age bins 4–95 | Age_Reference_Matrix_80_cells/ |
 | 6 Cellular age | IAMCellularAge — β_mean inversion per Recipe §6.3 | IAM_Cellular_Age/ |
-| 7 Tier breakpoints | tier_breakpoints.json — v1.2 6-tier physics + 8 covariate overrides | Tier_breakpoints/ |
+| 7 Tier breakpoints | tier_breakpoints.json — v1.3 6-tier physics (Warburg line @ 1.07) + 8 covariate overrides | Tier_breakpoints/ |
 | 8 Card matching | disease_cell_signature_matrix_v1_8.csv + Route A Mahalanobis / Route B matrix / Route C bidirectional | DISEASE_MATRIX/ |
 | 8 Cancer prior | Route B weighting | Cancer_prior/cancer_prior.json |
 | 8 Family history | Route B weighting | Family_history_multiplier/family_history_multiplier.json |

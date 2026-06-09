@@ -273,6 +273,38 @@ class AgeAxisForeground:
         df.to_csv(path, index=False)
         return path
 
+    def load_layer(self, path: str):
+        """Load a pre-fit per-CpG age layer (IAMAtlas_age_layer.csv) for runtime use.
+
+        Mirrors SexAxisForeground.load_layer / SmokingAxisForeground.load_layer so the
+        clinical orchestrator can load a frozen layer without re-fitting on HC data.
+        """
+        df = pd.read_csv(path)
+        self.cpg_ids = df['cpg_id'].astype(str).tolist()
+        self.intercepts = df['intercept_alpha'].to_numpy(dtype=np.float64)
+        self.slopes = df['slope_gamma'].to_numpy(dtype=np.float64)
+        self.r_squared = df['r_squared'].to_numpy(dtype=np.float64)
+        self.n_samples = df['n_samples'].to_numpy(dtype=int)
+        self.is_fitted = True
+        return self
+
+    def subtract_from_single_patient(self, patient_beta, age):
+        """Convenience wrapper for the single-patient runtime path.
+
+        Patient β arrives as a pd.Series indexed by cpg_id; returns same.
+        cleaned[cpg] = beta[cpg] - slope_gamma[cpg] * age  (per-CpG age component removed).
+        CpGs with no fitted slope contribute 0 (no correction). NaN age -> no correction.
+        """
+        if self.cpg_ids is None or self.slopes is None:
+            raise RuntimeError("AgeAxisForeground has no layer loaded. Call fit(...) or load_layer(...).")
+        if age is None or (isinstance(age, float) and np.isnan(age)):
+            return patient_beta.copy()
+        cpg_to_slope = dict(zip(self.cpg_ids, self.slopes))
+        cleaned = patient_beta.copy()
+        for cpg in cleaned.index:
+            cleaned[cpg] = cleaned[cpg] - cpg_to_slope.get(cpg, 0.0) * age
+        return cleaned
+
     def save_diagnostics(self, path: str):
         if self.diagnostics is None:
             raise RuntimeError("No diagnostics; module not fitted.")

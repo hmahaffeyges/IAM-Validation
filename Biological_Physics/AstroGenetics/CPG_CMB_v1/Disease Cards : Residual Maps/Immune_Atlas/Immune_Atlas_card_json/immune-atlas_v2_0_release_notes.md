@@ -76,7 +76,7 @@ Operational chain sections (10 stages) — already clean IAMAtlas-native:
 - `stage_4_6_brightness_comparison` (HEALPix nside=128 npix=196608 100% coverage; Mollweide 8-panel CMM)
 - `stage_5_mahalanobis` (consumes hull v0_5 artifact at runtime; n=2,481 HC, p95=13.62 default / p99=18.59 strict)
 - `stage_6_cellular_age` (IAMCellularAge β_mean inversion per Recipe §6.3; 80-cell age reference matrix, 10 bins 4–95)
-- `stage_7_tier_breakpoints` (6-tier physics v1.2 + 8 covariate overrides)
+- `stage_7_tier_breakpoints` (6-tier physics v1.3 — Warburg line @ 1.07 + 8 covariate overrides)
 - `stage_8_card_matching` (three routes — refreshed Route A trigger to current v0_5 hull thresholds + v1_7 → v1_8 matrix)
 - `stage_9_report_assembly`
 - `stage_10_delivery`
