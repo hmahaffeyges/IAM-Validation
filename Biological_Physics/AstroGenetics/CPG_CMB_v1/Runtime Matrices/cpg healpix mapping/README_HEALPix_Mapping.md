@@ -91,4 +91,4 @@ The `provenance.json` file records the atlas SHA + manifest version used to gene
 
 - Stage 4.6 module: `Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py`
 - Plate 1 reference: `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
-- BUILD_SPEC: `Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_2.md` §3.5b + §5 Stage 4.6
+- BUILD_SPEC: `Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_3.md` §3.5b + §5 Stage 4.6

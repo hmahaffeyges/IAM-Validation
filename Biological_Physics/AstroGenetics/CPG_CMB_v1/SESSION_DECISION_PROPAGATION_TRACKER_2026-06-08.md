@@ -45,7 +45,7 @@ These two systems handle age differently. The age architecture decision determin
    - `iam_cellular_age_scoring.py` (the Stage 6 cellular age scoring module)
    - Goal: understand the customer-age-geared subsystem — how the age axis is fit at the per-CpG level (analogous to Horvath/Hannum-style clocks) and how it's subtracted in Stage 3.
 
-3. **Read `Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_2.md` end-to-end** with specific attention to Stage 3, Stage 6, and the data flow between them.
+3. **Read `Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_3.md` end-to-end** with specific attention to Stage 3, Stage 6, and the data flow between them.
 
 4. **THEN make a recommendation to Heath** about which option to lock in:
 
@@ -234,7 +234,7 @@ Archive the old class-average-based `IAMCellularAge` class to `OLD/` with note a
 
 **Action:** Already pending. v1.8 file at `/mnt/user-data/outputs/DISEASE_MATRIX_v1_8/disease_cell_signature_matrix_v1_8.csv`. Copy to runtime, archive v1.7 to OLD/, regenerate or update `iamatlas_115_to_matrix_v1_8_mapping.json`, update folder README version log.
 
-### File 8: `walther_clinical_BUILD_SPEC_v1_2.md`
+### File 8: `walther_clinical_BUILD_SPEC_v1_3.md`
 
 **Action:** Edit to v1.3. Sections to update:
 

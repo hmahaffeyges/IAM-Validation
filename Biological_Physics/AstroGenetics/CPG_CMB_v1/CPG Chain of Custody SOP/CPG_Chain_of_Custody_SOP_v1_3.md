@@ -3,7 +3,7 @@
 **Document version:** v1.3.1 — 2026-06-07 (residual-map-overlap channel patch on v1.3 base of 2026-06-06)
 **Supersedes:** v1.3 (2026-06-06), v1.2 (2026-06-02, walkthrough-aligned), v1.1 (2026-06-02 cleanup), v1 (2026-05-31)
 **Authors:** Heath W. Mahaffey + Walther (Claude)
-**Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_2.md`, `Biological_Physics/atlas_vault/walther_clinical_runtime/README.md`
+**Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_3.md`, `Biological_Physics/atlas_vault/walther_clinical_runtime/README.md`
 
 ---
 
@@ -2954,16 +2954,16 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 
 **Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Tier_breakpoints/tier_breakpoints.json` (v1.2). Engine consumes the JSON via a small helper. v0 4-tier statistical-percentile predecessor archived in `Tier_breakpoints/OLD/tier_breakpoints_v0_4tier_statistical.json`.
 
-**The math.** Per class `c`, using the 6-tier system v1.2:
+**The math.** Per class `c`, using the 6-tier system v1.3 (WARBURG_TRANSITION is a boundary line at 1.07, not a band; the partition is the other five ranges):
 
 | Engine tier | Condition | Customer label | Physics meaning |
 |---|---|---|---|
 | SUPPRESSED | A[c] < 0.95 | Suppressed | Below baseline — context-dependent (treatment/transplant/immunosuppression) |
 | NORMAL | 0.95 ≤ A[c] < 1.04 | Normal | Within healthy sampling variance |
-| ELEVATED | 1.04 ≤ A[c] < 1.07 | Elevated | Recoverable drift; intervention window |
-| WARBURG_TRANSITION | 1.07 ≤ A[c] < 1.10 | Warburg Transition | **1.07 Warburg line** — intervention character changes from "add fuel" to "restrict and rebuild" |
-| SIGNIFICANTLY_ELEVATED | 1.10 ≤ A[c] < 1.12 | Significantly Elevated | Structural-fidelity breach territory; trajectory direction is primary read |
-| BREACH | A[c] ≥ 1.10 sustained OR A[c] ≥ 1.12 single-timepoint | Breach | **1.10 architectural-fidelity breach line** — prompt for clinical workup; NOT a diagnosis |
+| ELEVATED | 1.04 ≤ A[c] < 1.07 | Elevated | Recoverable drift; intervention window — closes at the 1.07 Warburg line |
+| WARBURG_TRANSITION | **A[c] = 1.07 (boundary line, not a band)** | Warburg Transition | **1.07 Warburg line** — intervention character must change from "add fuel" to "restrict and rebuild" |
+| SIGNIFICANTLY_ELEVATED | 1.07 ≤ A[c] < 1.10 | Significantly Elevated | Past the Warburg line, below breach; trajectory direction is the primary read |
+| BREACH | A[c] ≥ 1.10 | Breach | **1.10 architectural-fidelity breach line** — senescence ≈ 1.24–1.27 / malignancy ≈ 1.28–1.32 regime; prompt for clinical workup, NOT a diagnosis |
 
 Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.json v1.2): if a class's `1/H_min` is below 1.10, the BREACH tier is structurally unreachable for that class. stem_pluri (ceiling 1.0181) is structurally blind for BREACH; SIGNIFICANTLY_ELEVATED is the practical ceiling. Runtime saturation margin: 0.005 below the ceiling, engine emits SATURATED flag.
 
@@ -2980,7 +2980,7 @@ Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.
 **Bidirectional pattern handoff (v1.2):** When Stage 4.5 (§46.5) sets `FLAG_BIDIRECTIONAL = True` for a class, this step uses the directional composite (signed) rather than the pooled A-score to drive tier reporting. Mapping per `bidirectional_pattern_handoff.directional_composite_tier_mapping`:
 - |a_dir| < 0.40 → NORMAL
 - 0.40 ≤ |a_dir| < 0.80 → ELEVATED
-- 0.80 ≤ |a_dir| < 1.20 → WARBURG_TRANSITION
+- 0.80 ≤ |a_dir| < 1.20 → WARBURG_TRANSITION (directional analog of crossing the 1.07 line)
 - 1.20 ≤ |a_dir| < 1.60 → SIGNIFICANTLY_ELEVATED
 - |a_dir| ≥ 1.60 → BREACH-ANALOG
 

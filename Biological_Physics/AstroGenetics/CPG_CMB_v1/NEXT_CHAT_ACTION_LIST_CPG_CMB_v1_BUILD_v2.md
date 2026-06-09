@@ -108,7 +108,7 @@ Before any file operations, in this exact order:
 1. Read this v2 action list end-to-end
 2. Read `CPG_MOCK_REPORT_60yo_subtle_drift_v1.md` end-to-end — this IS the visual specification
 3. Read `SESSION_DECISION_PROPAGATION_TRACKER_2026-06-08.md` — this IS the per-file checklist
-4. Read `walther_clinical_BUILD_SPEC_v1_2.md` end-to-end (in `Biological_Physics/atlas_vault/walther_clinical_runtime/`)
+4. Read `walther_clinical_BUILD_SPEC_v1_3.md` end-to-end (in `Biological_Physics/atlas_vault/walther_clinical_runtime/`)
 5. Check Heath has unzipped his local files to `/home/claude/heath_upload/` or equivalent — ASK if path unclear
 6. **ASK HEATH** before any destructive action (deletion, overwrite). Surgical edits only.
 

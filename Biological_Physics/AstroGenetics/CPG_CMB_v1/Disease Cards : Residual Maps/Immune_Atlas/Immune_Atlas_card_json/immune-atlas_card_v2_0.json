@@ -309,27 +309,30 @@
         "tier_id": "WARBURG_TRANSITION",
         "a_score_range": [
           1.07,
-          1.1
+          1.07
         ],
+        "is_boundary_line": true,
+        "line_value": 1.07,
         "customer_label": "Warburg Transition",
-        "physics_anchor": "1.07 = Warburg metabolic-transition line"
+        "physics_anchor": "1.07 = Warburg metabolic-transition line (boundary line, not a band)"
       },
       {
         "tier_id": "SIGNIFICANTLY_ELEVATED",
         "a_score_range": [
-          1.1,
-          1.12
+          1.07,
+          1.1
         ],
         "customer_label": "Significantly Elevated",
-        "physics_anchor": "1.10 = architectural-fidelity breach line"
+        "physics_anchor": "1.07-1.10 = past the Warburg line, below the 1.10 breach line"
       },
       {
         "tier_id": "BREACH",
         "a_score_range": [
-          1.12,
+          1.1,
           null
         ],
-        "customer_label": "Breach"
+        "customer_label": "Breach",
+        "physics_anchor": "1.10 = architectural-fidelity breach line"
       }
     ],
     "tier_by_covariate_overrides_applied_for_immune_card": [
@@ -1982,7 +1985,7 @@
     "iamatlas_canonical_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/IAMAtlas_REBUILD/IAMAtlasREBUILD.csv.xz (per atlas_vault INVENTORY)",
     "marker_artifact_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd",
     "marker_artifact_path": "Biological_Physics/atlas_vault/walther_clinical_runtime/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
-    "build_spec_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_2.md",
+    "build_spec_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_3.md",
     "sop_reference": "Biological_Physics/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_3.md",
     "plates_reference": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/ (Plates 1-4 + README)",
     "mahalanobis_hull_production": "mahalanobis_healthy_reference_v0_5.json (n=2,481 HC, p95=13.62 default / p99=18.59 strict)",
@@ -2009,7 +2012,7 @@
     ]
   },
   "honest_limitations": [
-    "v2.0 6-tier thresholds (0.95/1.04/1.07/1.10/1.12) are physics-derived from Heath's calibration; final cohort-specific tuning may shift breakpoints by ±0.005 as additional HC cohorts seal.",
+    "v2.0 6-tier thresholds (0.95/1.04/1.07/1.10; Warburg line at 1.07, breach at 1.10) are physics-derived from Heath's calibration; final cohort-specific tuning may shift breakpoints by ±0.005 as additional HC cohorts seal.",
     "Smoking foreground subtraction at Stage 3 is NOT yet built (script v1.1); current_smoker bin carries residual tobacco signal absorbed into immune A-score in v2.0. Mitigated via smoking-bin threshold stratification at Stage 7.",
     "Sex foreground subtraction at Stage 3 is NOT yet built (script v1.1); mitigated via sex-stratified VAL anchors + Stage 7 threshold tables.",
     "Batch/plate foreground subtraction NOT in v2.0 (controlled per-cohort during VAL sealing; runtime per-patient batch correction deferred).",

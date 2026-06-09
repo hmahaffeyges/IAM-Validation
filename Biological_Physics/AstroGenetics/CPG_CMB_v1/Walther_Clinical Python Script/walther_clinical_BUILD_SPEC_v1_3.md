@@ -1,9 +1,9 @@
-# Walther Clinical Pipeline — Build Specification v1.2.1
+# Walther Clinical Pipeline — Build Specification v1.3
 
 **Document purpose:** Complete specification a future AI follows to build `walther_clinical.py`, the clinical orchestrator that runs the CPG Chain-of-Custody SOP end-to-end on a single patient IDAT pair and produces the doctor-facing report.
 
 **Author of spec:** Heath W. Mahaffey + Walther (Claude)
-**Date authored:** 2026-06-02 (v1.0); revised 2026-06-02 (v1.1); revised 2026-06-06 (v1.2); patched 2026-06-07 (v1.2.1 — cross-disease universal alarm residual map v0.1)
+**Date authored:** 2026-06-02 (v1.0); revised 2026-06-02 (v1.1); revised 2026-06-06 (v1.2); patched 2026-06-07 (v1.2.1 — cross-disease universal alarm residual map v0.1); revised 2026-06-09 (v1.3 — Option C age architecture, Stage 3/6 β fork)
 **Build status:** **NOT YET STARTED.** Build blocked on the single remaining prerequisite in §3.
 **Authoritative SOP:** `CPG_Chain_of_Custody_SOP_v1_2.md` + v1.3 native sections for Stage 4.5 / 4.6 (in repo). The SOP is the encyclopedia; this spec is the build contract.
 **Authoritative runtime dependencies:** `Biological_Physics/atlas_vault/walther_clinical_runtime/` in the repo (every module and JSON the orchestrator consumes).
@@ -24,6 +24,12 @@
 - §6.x **Cross-disease universal alarm residual map v0.1 — NEW** (derived vault artifact, inherits source VAL validation). Built 2026-06-07 from inner-join of breast-EPIC card v3.1 residual map (`breast_epic_residual_map_chr_annotated.csv`, 7,114 CpGs, CPG-VAL-003 anchor) and AD-immune card v3.1 residual map (`ad_immune_residual_map_chr_annotated.csv`, 6,018 CpGs, CPG-VAL-013 anchor) on cpg_id → 6,018 CpGs at intersection. Lives at `walther_clinical_runtime/DISEASE_MAPS_CARDS/Immune_Atlas/immune_atlas_residual_maps/immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv` (sha256 29b518b3d4ddd3c590a97a94d20e3e86ce38b65bb71f0ee653233384d0ceb970). Companion artifacts: bimodality intersection map (6,018 CpGs, 3 cross-disease bimodality tags including 1,592 double_disease_gain + 26 double_disease_loss + 850 opposing_bimodality_pattern) + combined PCA projections (1,373 samples = 647 breast + 726 AD with cohort tags) + README. Operationalized at immune-atlas card v2.1 Stage 8 Route A as residual-map-overlap channel with two sub-channels: cross_disease_concordance_channel (17 CpGs same direction) + bidirectional_universal_alarm_channel (12 CpGs opposing direction — the per-CpG operationalization of the VAL-016 universal alarm signature).
 - §5 Stage 4.5 **Complementarity-not-redundancy declaration between VAL-051 7-CpG directional panel and v0_1 12-CpG opposing-direction subset.** These instruments are DISJOINT by design — zero CpG overlap. VAL-051 was selected via Rule A criterion (|Δβ|>0.015 AND q_FDR<0.10) on AIBL training data alone using pre-build methodology and its CpGs are NOT in either post-build residual map's CpG universe. The v0_1 12-CpG subset comes from the post-build VAL-003 + VAL-013 intersection with opposing-direction filter. They operate at different scales: VAL-051 is the high-precision within-AD Stage 4.5 directional discriminator (AUC=0.84 AIBL holdout); v0_1 is the broader Stage 8 Route A cross-disease overlap channel. Future v0_2 may merge both CpG universes into a unified bidirectional instrument.
 - §3.4b **Immune-atlas card v2.1 declared as production-current** (was v1.0 SKELETON in v1.2 build spec). Lineage v1.0 (2026-06-06 SKELETON) → v1.1 (surgical bump, local-only) → v2.0 (2026-06-07 clean rebuild, 152 forbidden language hits eliminated, disease_immune_lens 81 entries + wellness_aging_inflammation_lens 10 categories added) → v2.1 (this entry, residual-map-overlap channel integration).
+
+**Changes v1.2.1 → v1.3 (2026-06-09):**
+- §5 Stage 3 / Stage 6 — **Option C age architecture (hybrid, V1 simplification).** Stage 3 now forks β: `cleaned_beta` (age + smoking + sex foreground-subtracted) feeds Stages 4 / 4.5 / 4.6 / 5 / 8 where age is a nuisance; `beta_raw` (calibrated, pre-foreground, untouched) feeds Stage 6 only, where age is the signal the cellular-age inversion must read. Resolves the prior Stage 3 ↔ Stage 6 collision (Stage 6 was being handed the age-subtracted β, which strips the very signal the inversion reads, so every patient would read near the training-cohort mean age). Cellular age stays class-level (8 per-class absolute ages + n-weighted summary) for V1; per-cell (115) confidence-weighted total-departure (decision D6) deferred to V2 pending age-reference-matrix expansion from 8 class baselines (80 entries) to per-cell baselines.
+- §5 Stage 6 — corrected the orchestrator call to the module's real signature: `IAMCellularAge.score_patient(beta_dict=beta_raw, ...)` (was `ca.score(patient_betas=...)`, which does not exist on the class) and corrected stale dataclass field names in the spec comments (`summary_cellular_age`; `compartments_accelerated` / `_decelerated` / `_concordant`).
+- §4.3 metadata table — `chronological_age_years` row updated to state Stage 6 inverts the age baseline on `beta_raw` (pre-foreground).
+- §5 Stage 7 — **tier scheme corrected.** WARBURG_TRANSITION is now a boundary **line at A = 1.07** (not a 1.07–1.10 band); SIGNIFICANTLY_ELEVATED is 1.07–1.10; BREACH is A ≥ 1.10. Removes the v1.2 overlap (old SIGNIFICANTLY_ELEVATED 1.10–1.12 overlapped BREACH 1.10+) and drops the 1.12-single-timepoint trigger. `tier_breakpoints.json` bumped v1.2 → v1.3 to match. Reference clusters past breach: senescence ≈ 1.24–1.27, malignancy ≈ 1.28–1.32.
 
 **Changes v1.0 → v1.1:**
 - Locked orchestrator name: `walther_clinical.py` · locked deconvolver name: `walther_iam_deconvolver.py`.
@@ -453,7 +459,7 @@ Per walkthrough §3. Several lookup matrices are consumed only when their input 
 
 | Intake field | Used at stage(s) | How it's used |
 |---|---|---|
-| `chronological_age_years` | Stage 3 (age foreground subtraction), Stage 6 (cellular age delta vs chronological) | `age_axis_foreground.py` subtracts the chronological-age β component before A-score; Stage 6 computes age_delta = cellular_age − chronological_age per class |
+| `chronological_age_years` | Stage 3 (age foreground subtraction), Stage 6 (cellular age on raw β) | `age_axis_foreground.py` subtracts the chronological-age β component to produce `cleaned_beta` (used Stage 4+); Stage 6 inverts the age baseline on `beta_raw` (pre-foreground) for absolute cellular age and reports age_delta = cellular_age − chronological_age per class |
 | `sex_at_birth` | Stage 3 (sex foreground when module built — v1.1), Stage 7 (sex-stratified threshold tables) | Stage 7 selects sex-stratified threshold table for each card; sex foreground subtraction is v1.1 work |
 | `smoking_status`, `smoking_bin` | Stage 3 (smoking foreground when module built — v1.1), Stage 7 (smoking-bin threshold selection) | Stage 7 selects smoking-bin threshold table at runtime; smoking_axis_foreground.py is v1.1 work |
 | `recent_illness_within_3_months`, `recent_vaccination_within_3_months` | Stage 9 (report context paragraph) | Immune-class signal interpretation context — surfaces as a caveat paragraph when immune A-score elevated AND recent immune event reported |
@@ -548,7 +554,8 @@ The walkthrough uses 8 stages (0–7 + 2.5 sub-stage); the SOP uses 11 stages (0
    from age_axis_foreground import AgeAxisForeground
    afg = AgeAxisForeground()
    afg.load_layer("IAM_Cellular_Age/IAMAtlas_age_layer.csv")
-   cleaned_beta = afg.subtract_from(beta_vector, ages=[patient_age])
+   beta_raw = beta_vector                          # calibrated β, PRE-foreground — preserved untouched for Stage 6
+   cleaned_beta = afg.subtract_from(beta_raw, ages=[patient_age])
    ```
 
 2. **Smoking-axis foreground subtraction (NEW v1.2 — module built + layer CSV FIT 2026-06-06 on GSE50660 n=464):**
@@ -571,7 +578,9 @@ The walkthrough uses 8 stages (0–7 + 2.5 sub-stage); the SOP uses 11 stages (0
 
 4. **v1.2 documented gaps:** batch / ancestry foregrounds are NOT yet subtracted at the CpG level (modules not built). Audit trail declares the gap honestly; doctor report's Quality section lists them as documented limitations. Batch correction is typically handled at the cohort level (ComBat/funnorm) in pre-processing, so its absence at L4 per-patient runtime is less critical than smoking/sex/age.
 
-**Output of Stage 3:** Foreground-cleaned β vector (age + smoking + sex once layers fit; age-only as v1.2 default until smoking/sex layer-build complete at v1.3).
+**Output of Stage 3 (Option C — two β vectors):**
+- `cleaned_beta` — foreground-subtracted (age + smoking + sex once layers fit; age-only as v1.2 default until smoking/sex layer-build complete at v1.3). Consumed by Stage 4 (A-score), 4.5 (bidirectional), 4.6 (brightness), 5 (Mahalanobis), 8 (disease matching). Age is a **nuisance** removed here.
+- `beta_raw` — calibrated β with **no** foreground subtraction, passed through untouched. Consumed **only** by Stage 6 (cellular age inversion). Age is the **signal** read there. Forking β at Stage 3 is what resolves the Stage 3 ↔ Stage 6 collision: the age inversion reads age out of β by matching per-class β_mean to the age-indexed baseline, so it must see the age signal that foreground subtraction otherwise removes.
 
 ### Stage 4 — A-score (SOP §41–§46 / walkthrough Stage 2)
 
@@ -769,39 +778,45 @@ ca = IAMCellularAge(
     ref_matrix_path="Age_Reference_Matrix_80_cells/age_reference_matrix.json",
     markers_artifact_path="Celltype_Marker/iamatlas_celltype_markers_v0_2.json"
 )
-age_result = ca.score(
-    patient_betas=cleaned_beta,
+# Option C: feed beta_raw (PRE-foreground), NOT cleaned_beta. The inversion reads age
+# OUT of β by matching per-class β_mean to the age-indexed baseline; if Stage 3 already
+# subtracted the age component, that signal is gone and every patient reads near the
+# training-cohort mean age. score_patient(beta_dict=...) is the module's real method.
+age_result = ca.score_patient(
+    beta_dict=beta_raw,
     chronological_age=patient_age,
     patient_id=patient_id
 )
 # age_result is a CellularAgeResult dataclass with:
-#   - cellular_age_per_class: 8 per-class ages
+#   - cellular_age_per_class:  8 per-class ABSOLUTE biological ages
 #   - status_per_class:        OK / SATURATED_HIGH / SATURATED_LOW / INSUFFICIENT_CPGS
 #   - a_score_per_class
-#   - summary_age:             n_samples-weighted mean across non-saturated classes
-#   - accelerated / decelerated / concordant: vs chronological age
+#   - summary_cellular_age:    n_samples-weighted mean across non-saturated classes
+#   - compartments_accelerated / _decelerated / _concordant: vs chronological age (the delta view)
 #   - age_spread, age_median, age_iqr
-#   - overall status:          OK / OK_PARTIAL / OK_LIMITED / ALL_SATURATED_OR_INSUFFICIENT
+#   - status:                  OK / OK_PARTIAL / OK_LIMITED / ALL_SATURATED_OR_INSUFFICIENT
 ```
 
 Saturation is data, not error. Report all 8 per-class ages with their saturation flags. The 80-cell baseline is calibrated on ages 4–95 per class.
 
-**Output of Stage 6:** 8 per-class cellular ages with status, summary age, concordance structure, overall status.
+**V1 scope (Option C simplification):** cellular age is **class-level** — the 8 per-class β_mean inversions above. The absolute per-class ages plus the n-weighted `summary_cellular_age` are the V1 headline number (the single biological-age figure the competitors report), and `compartments_accelerated` / `_decelerated` give the delta-vs-chronological view. The per-cell (115-cell) confidence-weighted total-departure methodology (decision D6) is **V2** work: it requires expanding the age reference matrix from 8 class baselines (currently 80 entries = 8 classes × 10 decades) to per-cell baselines. Do **not** implement per-cell cellular age in V1.
 
-### Stage 7 — Tier breakpoints (SOP §59–§64 / walkthrough Stage 4) — **6-TIER PHYSICS-DERIVED in v1.2**
+**Output of Stage 6:** 8 per-class **absolute** cellular ages (computed from `beta_raw`) with saturation status, n-weighted `summary_cellular_age`, accelerated/decelerated/concordant compartments (delta vs chronological), age spread/median/IQR, and overall status.
 
-1. Load `tier_breakpoints.json` (v1.2 schema with 6-tier physics-derived breakpoints + special-mode overrides).
+### Stage 7 — Tier breakpoints (SOP §59–§64 / walkthrough Stage 4) — **6-TIER PHYSICS-DERIVED (v1.3 — Warburg = boundary line at 1.07)**
+
+1. Load `tier_breakpoints.json` (v1.3 schema: 5 partitioning ranges + the 1.07 Warburg boundary line + special-mode overrides).
 
 2. Apply the **6-tier physics-derived breakpoints** to each per-class A-score. These are NOT statistical percentiles — they are metabolic-transition inflection points from Heath's calibration:
 
    | Range | Customer-facing tier | Physics meaning |
    |---|---|---|
-   | A < 0.95 | **SUPPRESSED** | Measurable shift below the healthy class baseline; treatment-context-dependent reading |
-   | 0.95 ≤ A < 1.04 | **NORMAL** | Within healthy sampling variance |
-   | 1.04 ≤ A < 1.07 | **ELEVATED** | Recoverable drift, architecture intact, holistic-intervention window |
-   | 1.07 ≤ A < 1.10 | **WARBURG_TRANSITION** | The 1.07 Warburg line — metabolic point where adding fuel can accelerate decline; intervention character must change |
-   | 1.10 ≤ A < 1.12 | **SIGNIFICANTLY_ELEVATED** | Structural-fidelity breach territory; rare senescence-without-cancer regime |
-   | A ≥ 1.10 sustained OR A ≥ 1.12 single timepoint | **BREACH** | Regime where diagnosed cancer is typically observed; prompt for clinical workup, not a verdict |
+   | A < 0.95 | **SUPPRESSED** | Measurable shift below the healthy class baseline; treatment-context-dependent (post-chemo / immunosuppressed) |
+   | 0.95 ≤ A < 1.04 | **NORMAL** | Within healthy sampling variance (healthy individual) |
+   | 1.04 ≤ A < 1.07 | **ELEVATED** | Recoverable drift, architecture intact (rising trajectory / pre-diagnostic). The holistic-intervention window — closes at the 1.07 Warburg line |
+   | **A = 1.07** | **WARBURG_TRANSITION** | A boundary **line**, not a band. The metabolic point where adding fuel can ACCELERATE decline instead of correcting it; the intervention strategy must change character (supporting metabolism → forcing oxidative return / structural approaches) |
+   | 1.07 ≤ A < 1.10 | **SIGNIFICANTLY_ELEVATED** | Past the Warburg line, below the breach line; trajectory direction is the primary read |
+   | A ≥ 1.10 | **BREACH** | Architectural fidelity lost — the regime where senescence (reference cluster ≈ 1.24–1.27) and malignancy (≈ 1.28–1.32) live. A prompt for clinical workup, NOT a diagnosis or a verdict |
 
    **The 1.07 Warburg line and the 1.10 breach line are the framework's two physics-defined inflection points.** All cards inherit this 6-tier system; per-card threshold overrides (smoking-bin, sex-stratified, HIV-baseline-shifted) shift the floor of ELEVATED but preserve the Warburg line.
 

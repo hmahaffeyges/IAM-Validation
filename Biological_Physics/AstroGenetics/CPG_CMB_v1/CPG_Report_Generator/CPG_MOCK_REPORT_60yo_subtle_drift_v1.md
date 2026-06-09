@@ -203,15 +203,15 @@ Each of the 115 atlas cell types gets two readings:
 ## C.1 The reference scale — what each A-score value means
 
 ```
-SUPPRESSED   NORMAL              ELEVATED   WARBURG    BREACH
-< 0.95       0.95 ───────── 1.04 1.04─1.07  1.07─1.10  ≥ 1.10
-                                       │           │       │
-                                       │           │       └── architectural fidelity loss
-                                       │           └── approaching breach
-                                       └── measurable departure
-                                                                  
-                                                                  ≥ 1.20 — pre-diagnostic
-                                                                  active malignancy magnitude
+SUPPRESSED   NORMAL          ELEVATED    SIGNIFICANTLY_ELEVATED   BREACH
+< 0.95       0.95 ──── 1.04  1.04─1.07   1.07 ──────── 1.10       ≥ 1.10
+                                  │       ▲                        │
+                                  │       │ WARBURG line @ 1.07     └── architectural fidelity loss
+                                  │       │ (metabolic strategy must change)
+                                  └── measurable departure begins
+
+   Reference clusters past breach: senescence ≈ 1.24–1.27, malignancy ≈ 1.28–1.32
+   ≥ 1.20 — pre-diagnostic active malignancy magnitude (reference annotation only, not a tier)
 ```
 
 *The full visual gauge is in Appendix A1.*
@@ -696,7 +696,7 @@ Each term is defined inline at first appearance throughout the report. The full 
 
 - **A-score**: A continuous number quantifying how well a cell's methylation matches the healthy class baseline. A = 1.00 is healthy baseline. Values above 1.00 indicate departure. Computed as the Shannon entropy of the cell's pooled β values divided by the class's minimum entropy anchor (H_min).
 - **H_min**: The minimum entropy value for each architectural class, frozen 2026-04-06 from MCMC: terminal 0.7728, immune 0.838889, secretory 0.8433, progenitor 0.8522, cycling 0.8561, stromal 0.863, stem (adult) 0.8737, stem (pluri) 0.9822.
-- **5-tier verdict**: The categorical translation of the continuous A-score. SUPPRESSED (< 0.95), NORMAL (0.95–1.04), ELEVATED (1.04–1.07), WARBURG TRANSITION (1.07–1.10), BREACH (≥ 1.10).
+- **6-tier verdict**: The categorical translation of the continuous A-score. SUPPRESSED (< 0.95), NORMAL (0.95–1.04), ELEVATED (1.04–1.07), WARBURG_TRANSITION (boundary line at 1.07 — not a band), SIGNIFICANTLY_ELEVATED (1.07–1.10), BREACH (≥ 1.10).
 - **Warburg line at 1.07**: A metabolic transition threshold derived from the IAM physics framework. Cells crossing 1.07 are exhibiting Warburg-like metabolic shifts (cancer-cell-like glucose metabolism preference even in oxygen-rich conditions).
 - **Breach line at 1.10**: The architectural fidelity breach threshold. Cells with A ≥ 1.10 have lost coherent class-baseline structure; the cellular architecture is breaching.
 - **Pre-diagnostic active malignancy magnitude (≥ 1.20)**: Values at this magnitude indicate methylation patterns consistent with active or pre-active malignancy. Reference annotation only, not a tier.
