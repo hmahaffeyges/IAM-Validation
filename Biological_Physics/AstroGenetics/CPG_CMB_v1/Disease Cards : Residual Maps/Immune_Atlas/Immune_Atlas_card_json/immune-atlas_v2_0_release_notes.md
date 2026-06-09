@@ -73,7 +73,7 @@ Operational chain sections (10 stages) — already clean IAMAtlas-native:
 - `stage_3_foreground_subtraction` (age + smoking + sex axes)
 - `stage_4_a_scoring` (H_min frozen 2026-04-06: terminal 0.7728 / immune 0.838889 / secretory 0.843264 / cycling 0.856055 / progenitor 0.852216 / stromal 0.86295 / stem_adult 0.873718 / stem_pluri 0.982166)
 - `stage_4_5_bidirectional_decomposition` (VAL-051 7-CpG panel: 4 down + 3 up, sha256 `52061285...`)
-- `stage_4_6_brightness_comparison` (HEALPix nside=128 npix=196608 100% coverage; Mollweide 8-panel CMM)
+- `stage_4_6_brightness_comparison` (HEALPix nside=128 npix=196608 100% coverage; Mollweide 8-panel CMB)
 - `stage_5_mahalanobis` (consumes hull v0_5 artifact at runtime; n=2,481 HC, p95=13.62 default / p99=18.59 strict)
 - `stage_6_cellular_age` (IAMCellularAge β_mean inversion per Recipe §6.3; 80-cell age reference matrix, 10 bins 4–95)
 - `stage_7_tier_breakpoints` (6-tier physics v1.3 — Warburg line @ 1.07 + 8 covariate overrides)

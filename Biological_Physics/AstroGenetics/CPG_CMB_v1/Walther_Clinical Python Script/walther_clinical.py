@@ -85,6 +85,9 @@ DEFAULT_CONFIG = {
     # Stage 9 — brilliance maps (HEALPix Mollweide)
     "cpg_healpix_mapping_npy": CPG_ROOT / "Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy",
     "whole_atlas_reference_npz": CPG_ROOT / "Runtime Matrices/Mollweide & Brightness Comparison/whole_atlas_reference/iamatlas_whole450k_reference.npz",
+    # Stage 9 — report visual assets (gauges + rankings)
+    "gauge_module_path": CPG_ROOT / "CPG_Report_Generator/cpg_gauge.py",
+    "tier_breakpoints_json": CPG_ROOT / "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json",
     # Behaviour flags
     "apply_smoking_foreground": True,   # applied iff the smoking layer CSV exists
     "apply_sex_foreground": True,       # applied iff the sex layer CSV exists
@@ -260,10 +263,58 @@ def render_brilliance_maps(brightness_report, patient_beta, output_dir,
     return written
 
 
+# ---------------------------------------------------------------------------
+# Stage 9 — report visual assets (A1 reference gauge, A2 departure ranking, star gauge,
+# A3 brilliance maps). Calls the cpg_gauge generators + render_brilliance_maps.
+# (Narrative report assembly is layered on top of these assets.)
+# ---------------------------------------------------------------------------
+def _top_cells_for_ranking(stage4_output, top_n=15):
+    """Build the A2 cell list (top-N of 115 by |A - 1.0|) from the Stage 4 per-cell A-scores."""
+    ct = stage4_output.get("celltype_ascores", stage4_output)
+    rows = []
+    for name, v in ct.items():
+        a = v["A"] if isinstance(v, dict) else v
+        if a is None:
+            continue
+        cls = (v.get("class", "") if isinstance(v, dict) else "")
+        rows.append((name, cls, float(a)))
+    rows.sort(key=lambda r: abs(r[2] - 1.0), reverse=True)
+    return [{"rank": i, "cell_type": name, "class": cls, "a_score": a}
+            for i, (name, cls, a) in enumerate(rows[:top_n], start=1)]
+
+
+def stage_9_report(stage4_output, brightness_report, patient_beta, output_dir,
+                   patient_id="patient", config=None):
+    """Stage 9 (visual assets) per BUILD_SPEC v1.3 — renders the report figures:
+      - A1  reference gauge (calibration scale)          -> {pid}_reference_gauge.svg
+      - A2  cellular departure ranking (top 15 cells)    -> {pid}_cellular_departure_ranking.svg
+      - star gauge (AstroGenetics companion, same ruler) -> {pid}_star_gauge.svg
+      - A3  brilliance maps (8 per-class + 1 whole-atlas) -> {pid}_personal_brilliance_map_*.png
+
+    Returns a dict of written paths. The brilliance maps require healpy at runtime.
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    gauge = _load_module(cfg["gauge_module_path"], "cpg_gauge")
+    tb = str(cfg["tier_breakpoints_json"])
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    written = {}
+    written["A1_reference_gauge"] = gauge.render_reference_gauge(
+        tb, out / f"{patient_id}_reference_gauge.svg")
+    written["A2_cellular_departure_ranking"] = gauge.render_cellular_departure_ranking(
+        _top_cells_for_ranking(stage4_output, top_n=15), tb,
+        out / f"{patient_id}_cellular_departure_ranking.svg",
+        title="Cellular departure ranking \u2014 top 15 of 115 cells")
+    written["star_gauge"] = gauge.render_star_gauge(
+        gauge.FIGC_STARS, tb, out / f"{patient_id}_star_gauge.svg")
+    written["brilliance_maps"] = render_brilliance_maps(
+        brightness_report, patient_beta, out, patient_id=patient_id, config=cfg)
+    return written
+
 
 def _not_built(stage):
     raise NotImplementedError(
-        f"{stage} is not implemented in this build. Current scope: Stage 3 + Stage 6 "
+        f"{stage} is not implemented in this build. Current scope: Stages 3, 4, 4.5, 4.6, 5, 6, 9 "
         f"per BUILD_SPEC v1.3. See the build spec for the remaining stage contracts."
     )
 
@@ -359,7 +410,6 @@ def stage_5_mahalanobis(stage4_output: dict, config: Optional[dict] = None) -> d
     return hull.score(celltype_a)
 def stage_7_tiers(*a, **k):             _not_built("Stage 7 (tier breakpoints)")
 def stage_8_dual_matching(*a, **k):     _not_built("Stage 8 (dual matching)")
-def stage_9_report(*a, **k):            _not_built("Stage 9 (report assembly)")
 def stage_10_delivery(*a, **k):         _not_built("Stage 10 (delivery)")
 
 

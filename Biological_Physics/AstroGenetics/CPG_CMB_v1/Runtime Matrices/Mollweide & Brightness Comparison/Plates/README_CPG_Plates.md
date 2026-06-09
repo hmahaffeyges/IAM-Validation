@@ -8,7 +8,7 @@ These four plates are the **canonical visualization references** for the CPG fra
 
 ## The four plates
 
-**Plate 1 — `CPG_Plate_01_Cosmic_Microwave_Methylome.png`**
+**Plate 1 — `CPG_Plate_01_Cosmic_Methylome_Background.png`**
 Eight Mollweide panels — one per architectural class (stem_pluri, stem_adult, stromal, progenitor, cycling, secretory, terminal, immune). Each panel shows the per-CpG posterior mean β across 481,966 CpGs from the IAMAtlas REBUILD MCMC. The stromal panel's "galactic mask" (4.93% MCMC coverage) is the methylome's declared known-unknown.
 
 **The healthy reference per class.** Patient runtime consults this data (via the per-class brightness CSVs) at Stage 4.6.
@@ -38,9 +38,9 @@ At Stage 4.6 (per-class healthy brightness comparison + patient Mollweide projec
 
 1. For each of 8 architectural classes, compute per-CpG z-score: z[i] = (β_patient[i] − μ_class[i]) / σ_class[i]
 2. Project the 8 z-vectors onto the same HEALPix NSIDE=128 Mollweide grid as Plate 1
-3. Generate `patient_id_cosmic_methylome.png` — 8-panel personal CMM where red = significantly hypermethylated departures, blue = significantly hypomethylated departures, neutral = within healthy variance
+3. Generate `patient_id_cosmic_methylome.png` — 8-panel personal CMB where red = significantly hypermethylated departures, blue = significantly hypomethylated departures, neutral = within healthy variance
 
-The customer's personal CMM ships in the report as the visualization endpoint of their immune-class A-score + immune cellular age + Mahalanobis distance — the same data, mapped to a sphere.
+The customer's personal CMB ships in the report as the visualization endpoint of their immune-class A-score + immune cellular age + Mahalanobis distance — the same data, mapped to a sphere.
 
 ## Plate generation conventions
 

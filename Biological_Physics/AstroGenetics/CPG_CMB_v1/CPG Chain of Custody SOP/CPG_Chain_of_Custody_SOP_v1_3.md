@@ -12,7 +12,7 @@
 - **§36 Sex-axis foreground subtraction** — module rewrite: `sex_axis_foreground.py` now built; per-CpG β = α + ψ·indicator_male + ε with chrX/chrY/XCI flag handling; layer CSV `IAMAtlas_sex_layer.csv` fit on GSE50660 (Tsaprouni 2014, n=464; same cohort used for smoking layer since GSE50660 carries both metadata fields). Stage 7 sex-stratified threshold tables retire once this layer operates in production.
 - **§39 Smoking-axis foreground subtraction** — module rewrite: `smoking_axis_foreground.py` now built; per-CpG β = α + δ·indicator_current + φ·recency_score + ε; recency mapped from smoking_bin (never=0.00 to current=1.00); layer CSV `IAMAtlas_smoking_layer.csv` FIT on GSE50660 (Tsaprouni 2014, n=464: 179 never / 263 former / 22 current). Top smoking CpG cg22336867: δ_current=-0.322 + recency=+0.254 (AHRR-style hypomethylation in current smokers). Stage 7 smoking-bin threshold-stratification (in `tier_breakpoints.json v1.2`) retires once this layer operates in production.
 - **§46.5 NEW — Stage 4.5 Bidirectional decomposition** — mirrors the sealed VAL-051 `a_dir_score` formula at patient runtime. Sign-multiplied z-scores against frozen training-set HC mean/SD averaged across covered CpGs. Pooled-entropy comparator on parent panel. FLAG_BIDIRECTIONAL fires when pooled mute + directional loud. v1.0 panel coverage: immune class only (VAL-051 Rule A 7-CpG); other 7 classes return NO_PANEL honestly.
-- **§46.6 NEW — Stage 4.6 Patient brightness comparison** — per-class z-score departure of patient β from each frozen healthy class brightness reference, projected onto HEALPix NSIDE=128 grid for Mollweide rendering. Patient's personal Cosmic Microwave Methylome (customer-facing analog of CPG Plate 1). `iamatlas_cpg_to_healpix_nside128.npy` generated as one-time output of `generate_cpg_healpix_mapping.py` against the IAMAtlas REBUILD CSV + combined EPIC + HM450 manifest. **100% atlas coverage** (483,092 / 483,092 CpGs annotated, zero sentinel pixels).
+- **§46.6 NEW — Stage 4.6 Patient brightness comparison** — per-class z-score departure of patient β from each frozen healthy class brightness reference, projected onto HEALPix NSIDE=128 grid for Mollweide rendering. Patient's personal Cosmic Methylome Background (customer-facing analog of CPG Plate 1). `iamatlas_cpg_to_healpix_nside128.npy` generated as one-time output of `generate_cpg_healpix_mapping.py` against the IAMAtlas REBUILD CSV + combined EPIC + HM450 manifest. **100% atlas coverage** (483,092 / 483,092 CpGs annotated, zero sentinel pixels).
 - **§59 Step 7.1 — Per-class tier call** — replaced 4-tier statistical-percentile schema with **6-tier physics-derived schema** (SUPPRESSED / NORMAL / ELEVATED / WARBURG_TRANSITION / SIGNIFICANTLY_ELEVATED / BREACH). The 1.07 Warburg line + 1.10 architectural-fidelity breach line are physics-defined inflection points. Per-class structural ceiling table. 7 covariate-override modes. Smoking-bin override table. Bidirectional pattern handoff from §46.5. CI-based tier confidence propagation.
 - **File consolidation:** Returns to single-file SOP (v1.2 was previously split into 6 PART_*.md files; v1.3 consolidates back to one file per Heath's request).
 
@@ -482,7 +482,7 @@ The methylome is, in a deep structural sense, the same kind of object:
 - Reducible to spherical-pixelization (HEALPix at NSIDE=128 across the genomic axis — see Plates 1-4)
 - Subject to the same statistical disciplines (cross-method consensus, null testing, banana degeneracy mapping)
 
-**The Cosmic Microwave Methylome (CMM) plates** (CPG_Plate_01 through CPG_Plate_04) make this visually irrefutable. They render IAMAtlas REBUILD posteriors using Planck visualization conventions (Mollweide projection, Planck colormap, HEALPix NSIDE=128). The methylome literally LOOKS like a CMB sky map — same angular structure, same large-scale anisotropy with embedded small-scale fluctuation. The visible difference (methylome bimodal, CMB Gaussian) is itself the biological signature.
+**The Cosmic Methylome Background (CMB) plates** (CPG_Plate_01 through CPG_Plate_04) make this visually irrefutable. They render IAMAtlas REBUILD posteriors using Planck visualization conventions (Mollweide projection, Planck colormap, HEALPix NSIDE=128). The methylome literally LOOKS like a CMB sky map — same angular structure, same large-scale anisotropy with embedded small-scale fluctuation. The visible difference (methylome bimodal, CMB Gaussian) is itself the biological signature.
 
 Every step section in Part II carries an explicit "CMB equivalent" subsection. The point is not metaphor. The point is that the SAME ALGORITHM, applied to the methylome, does the same thing it does on the CMB — because the math doesn't care which substrate it's running on.
 
@@ -2343,16 +2343,16 @@ Location: `reports/{patient_id}/stage_4_5/{patient_id}_stage_4_5_bidirectional_d
 
 ### §46.6. Step 4.6.1 — Per-class z-score departure + Mollweide projection
 
-**What this step does.** Computes per-CpG z-score departure of the patient β from each of 8 frozen healthy class brightness references, then projects the departure pattern onto a HEALPix NSIDE=128 grid for Mollweide rendering. Produces the patient's personal Cosmic Microwave Methylome — the customer-facing analog of CPG Plate 1.
+**What this step does.** Computes per-CpG z-score departure of the patient β from each of 8 frozen healthy class brightness references, then projects the departure pattern onto a HEALPix NSIDE=128 grid for Mollweide rendering. Produces the patient's personal Cosmic Methylome Background — the customer-facing analog of CPG Plate 1.
 
-**Why this stage exists.** Stage 4's A-score collapses each class's signal into a single scalar. The customer report shows this scalar as a tier (NORMAL / ELEVATED / etc.), which is useful for triage but loses the spatial structure of WHERE the departure lives. The patient brightness comparison preserves the spatial structure by projecting the per-CpG departure pattern onto the same HEALPix grid as Plate 1 (the framework's reference Cosmic Microwave Methylome). The customer sees their personal map next to the reference and can see the anisotropy directly.
+**Why this stage exists.** Stage 4's A-score collapses each class's signal into a single scalar. The customer report shows this scalar as a tier (NORMAL / ELEVATED / etc.), which is useful for triage but loses the spatial structure of WHERE the departure lives. The patient brightness comparison preserves the spatial structure by projecting the per-CpG departure pattern onto the same HEALPix grid as Plate 1 (the framework's reference Cosmic Methylome Background). The customer sees their personal map next to the reference and can see the anisotropy directly.
 
 **Inputs.** Foreground-cleaned β vector from Stage 3 + class brightness references (8 brightness CSVs, one per class) + the canonical CpG-to-HEALPix mapping.
 
 **Atlas reference.**
 - 8 class brightness CSVs at `IAMAtlas_v0_1/class_archives/{class}.tar.xz` (inner `{class}/iamatlas_v0_1_{class}_brightness.csv`); each has per-CpG mean β + SD β over the healthy class reference + per-CpG MCMC posterior CI.
 - `iamatlas_cpg_to_healpix_nside128.npy` at `IAMAtlas_v0_1/healpix_mapping/` (1.93 MB, 483,092 entries, int32 pixel indices in atlas row order). 450,192 CpGs annotated to real HEALPix pixels; 32,900 CpGs (HM450-only probes not in EPIC manifest) mapped to sentinel pixel that renders as the framework's galactic mask analog.
-- CPG Plate 1 at `IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png` — the binding contract for the projection grid.
+- CPG Plate 1 at `IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png` — the binding contract for the projection grid.
 
 **Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py`. Public surface: `load_all_8_class_references`, `compute_all_8_class_departures`, `render_patient_cosmic_methylome`, `save_brightness_report`.
 
@@ -2391,7 +2391,7 @@ Location: `reports/{patient_id}/stage_4_6/{patient_id}_personal_cosmic_methylome
 
 **Canonical cross-references.** BUILD_SPEC v1.2 §3.5b (CPG Plates) + §5 Stage 4.6. Brightness_Comparison/README. HEALPix mapping README at `IAMAtlas_v0_1/healpix_mapping/README_HEALPix_Mapping.md`.
 
-**CPG Plate references.** Plate 1 (the framework's reference Cosmic Microwave Methylome) is the visual benchmark this stage produces a patient-specific analog of.
+**CPG Plate references.** Plate 1 (the framework's reference Cosmic Methylome Background) is the visual benchmark this stage produces a patient-specific analog of.
 
 **Chain-link assignment.** L4 (the spatial-structure preservation of L4 component separation — analogous to keeping the full anisotropy map rather than collapsing to a power spectrum).
 
@@ -5098,7 +5098,7 @@ The Recipe is the proprietary vault (NOT in repo). The Roadmap is the canonical 
 
 The four plates are the visual anchor of the framework. Each plate illustrates specific steps of the chain.
 
-**Plate 1 — The Cosmic Microwave Methylome (`CPG_Plate_01_Cosmic_Microwave_Methylome.png`).**
+**Plate 1 — The Cosmic Methylome Background (`CPG_Plate_01_Cosmic_Methylome_Background.png`).**
 - Sections illustrated: §6 (CMB ↔ methylome principle), §28 (Atlas load), §31 (per-class confidence — the stromal panel's MCMC coverage gap), §42 (Shannon entropy on per-class β).
 - Visual content: 8-panel Mollweide projection of IAMAtlas REBUILD posterior β across architectural classes, in genomic order. Each panel shows one class's per-CpG posterior mean β across 481,966 CpGs.
 - Key feature: stromal panel's "galactic mask" (4.93% MCMC coverage gap) is the methylome's declared known-unknown.
@@ -5108,7 +5108,7 @@ The four plates are the visual anchor of the framework. Each plate illustrates s
 - Visual content: Full-sky scatter of 1,392 concordant breast-pre-dx CpGs (signed Cohen's d, sized by |d|, colored cyan-blue hypomethylated vs orange-yellow hypermethylated, 5.4:1 hypomethylation dominance). Lower panel: chr6 zoom showing MHC region enrichment (HLA classes I+II+III) carrying disproportionate concordant signal.
 - Key feature: visualizes both the cross-genome anisotropy field-effect signature AND the chr6 MHC concentration that VAL-006 originally claimed (and that N8 honestly restated).
 
-**Plate 3 — The Cosmic Microwave Methylome (Grandaddy plate — `CPG_Plate_03_Grandaddy_CMM_vs_CMB.png`).**
+**Plate 3 — The Cosmic Methylome Background (Grandaddy plate — `CPG_Plate_03_Grandaddy_CMM_vs_CMB.png`).**
 - Sections illustrated: §6 (CMB ↔ methylome principle), §25 (β distribution shape — the methylome's bimodality vs CMB's Gaussianity), §27 (the β matrix that becomes the methylome map), §87 (N7 end-to-end simulation — the right panel is the CMB equivalent of CPG's synthetic patient generation).
 - Visual content: Side-by-side methylome vs CMB at matched projection (Mollweide), matched colormap, matched pixelization conventions. Top panels: full-sky overview. Bottom panels: zoom on small-scale anisotropy texture.
 - Key feature: makes Heath's "math doesn't care if it's a CMB or a methylome" visually irrefutable while also making the biological difference (bimodal vs Gaussian) visible at the texture level.

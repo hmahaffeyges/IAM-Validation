@@ -3,11 +3,11 @@
 **Date:** 2026-06-06
 **Module:** `generate_cpg_healpix_mapping.py`
 **Output:** `iamatlas_cpg_to_healpix_nside128.npy` (to be generated; see Production Run below)
-**Reference:** CPG Plate 1 — `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
+**Reference:** CPG Plate 1 — `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png`
 
 ## What this folder contains
 
-The canonical CpG-to-HEALPix mapping that Stage 4.6 uses to project per-patient z-score departures onto the same HEALPix grid as Plate 1. This is **the binding contract** between every patient's personal Cosmic Microwave Methylome and the framework's reference visualization.
+The canonical CpG-to-HEALPix mapping that Stage 4.6 uses to project per-patient z-score departures onto the same HEALPix grid as Plate 1. This is **the binding contract** between every patient's personal Cosmic Methylome Background and the framework's reference visualization.
 
 The mapping is generated **once** at IAMAtlas build time and cached as a `.npy` file. Stage 4.6's `patient_brightness_comparison.py` loads it at session startup with `np.load("iamatlas_cpg_to_healpix_nside128.npy")`.
 
@@ -90,5 +90,5 @@ The `provenance.json` file records the atlas SHA + manifest version used to gene
 ## Cross-references
 
 - Stage 4.6 module: `Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py`
-- Plate 1 reference: `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
+- Plate 1 reference: `Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png`
 - BUILD_SPEC: `Biological_Physics/atlas_vault/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_3.md` §3.5b + §5 Stage 4.6

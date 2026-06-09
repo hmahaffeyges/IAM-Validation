@@ -13,7 +13,7 @@ The Immune Atlas is the **universal first-pass baseline** that every customer ID
 - 51-cell immune fanout (aggregated to 19 customer-facing pages)
 - Immune cellular age + **immune age delta** (the inflammaging quantum — the headline metric)
 - Mahalanobis distance against the n=2,481 pooled-HC hull v0_5 (with CI)
-- Personal Cosmic Microwave Methylome (8-panel Mollweide PNG)
+- Personal Cosmic Methylome Background (8-panel Mollweide PNG)
 - 6-tier verdict on the physics-derived scale (SUPPRESSED / NORMAL / ELEVATED / WARBURG_TRANSITION / SIGNIFICANTLY_ELEVATED / BREACH)
 - Bidirectional pattern flag when relevant
 - Stage 8 three-route engine output (Route A architectural / Route B disease signature matrix v1.8 / Route C bidirectional)
@@ -39,7 +39,7 @@ All canonical, all in `atlas_vault/walther_clinical_runtime/`. Full path list in
 | 4 A-scoring | iamatlas_a_scoring.py — H(β_mean)/H_min per class, 8-class + 115-cell formulas | A_Scoring_Module/ |
 | 4 Celltype markers | iamatlas_celltype_markers_v0_2.json — 115 cells × 100 markers, sha256 `46ea5be1...` | Celltype_Marker/ |
 | 4.5 Bidirectional | bidirectional_decomposition.py + directional_panels_v1_0.json (VAL-051 7-CpG panel: 4 down + 3 up) | Bidirectional_Decomposition/ |
-| 4.6 Mollweide | healpy.mollview 8-panel CMM layout | (in stage_4_6_brightness_comparison) |
+| 4.6 Mollweide | healpy.mollview 8-panel CMB layout | (in stage_4_6_brightness_comparison) |
 | 4.6 HEALPix | nside=128, npix=196608, 100% coverage (483,092 CpGs annotated) | IAMAtlas_v0_1/healpix_mapping/ |
 | 5 Mahalanobis | MahalanobisHealthyHull + mahalanobis_healthy_reference_v0_5.json (n=2,481, Ledoit-Wolf shrinkage 0.00875) | Mahalanobis_healthy_reference/ |
 | 6 Age reference | age_reference_matrix.json — 80-cell baseline, 10 age bins 4–95 | Age_Reference_Matrix_80_cells/ |

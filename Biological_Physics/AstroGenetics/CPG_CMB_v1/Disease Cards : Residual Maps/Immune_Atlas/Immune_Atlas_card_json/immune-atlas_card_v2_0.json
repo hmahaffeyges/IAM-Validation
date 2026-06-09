@@ -4,9 +4,9 @@
   "card_date": "2026-06-07",
   "card_type": "universal_baseline_card",
   "supersedes": "Immune-atlas v1.0 (2026-06-06 SKELETON release) and v1.1 (2026-06-07 surgical bump). Both v1.0 and v1.1 preserved pre-build clinical content wholesale, which dragged in 152 multi-atlas language hits across 8 top-level keys (epidish_cent x 36, UniLIFE x 19, Salas x 15, EDEAR-instead-of-CPG x 14, Caggiano x 13, EpiSCORE x 12, Reinius x 12, IDOL x 12, Loyfer x 9, Xu-538 x 4) plus structural bloat (55 top-level keys at 78 KB, vs ~25 keys at ~28 KB in breast v3.1 and AD-immune v3.1 clean cards). v2.0 is the first clean rebuild — operational sections Stages 2-10 use IAMAtlas REBUILD + Walther IAM Deconvolver + NILC v2 only; multi-atlas references confined to pre_build_audit_lineage at the bottom with an explicit non-operational note per the breast/AD-immune pattern. All validation evidence (CPG-VAL-014 through CPG-VAL-022), Stage 4.5/4.6 universal-baseline-specific machinery, h_min frozen values, hull v0_5 reference, and disease matrix v1.8 routing are preserved. v1.0 and v1.1 archived at immune_atlas_card_json/OLD/.",
-  "universal_role": "The immune-atlas card is the universal first-pass baseline that every customer IDAT runs through. It quantifies the patient's immune-class architectural state at the cellular level and routes the per-CpG profile to the disease signature matrix for downstream disease-card consumption. Every disease in the matrix is first detected via the immune system response, which makes this card the integration point for the entire disease constellation: the universal screen, the per-cell-type fanout, the inflammaging quantum, the personal Cosmic Microwave Methylome, and the Stage 8 three-route engine that hands findings to downstream disease cards. The immune-atlas card produces no disease verdict — disease names appear only on per-disease cards and per-disease website pages, never in the immune-class readout itself.",
+  "universal_role": "The immune-atlas card is the universal first-pass baseline that every customer IDAT runs through. It quantifies the patient's immune-class architectural state at the cellular level and routes the per-CpG profile to the disease signature matrix for downstream disease-card consumption. Every disease in the matrix is first detected via the immune system response, which makes this card the integration point for the entire disease constellation: the universal screen, the per-cell-type fanout, the inflammaging quantum, the personal Cosmic Methylome Background, and the Stage 8 three-route engine that hands findings to downstream disease cards. The immune-atlas card produces no disease verdict — disease names appear only on per-disease cards and per-disease website pages, never in the immune-class readout itself.",
   "clinical_claim": {
-    "summary": "Universal first-pass immune-class baseline measurement. Returns immune A-score with 95% CI, immune cellular age + immune age delta (the inflammaging quantum), tier verdict on the 6-tier physics-derived scale, bidirectional pattern flag when relevant, the patient's personal Cosmic Microwave Methylome (8-panel Mollweide PNG), Mahalanobis distance against the n=2,481 pooled-HC hull v0_5, and per-immune-cell fanout (19 cell types). Produces engine-internal Stage 8 concordance flags from disease signature matrix v1.8 consultation that feed downstream disease cards; no disease verdict in the immune-class customer readout.",
+    "summary": "Universal first-pass immune-class baseline measurement. Returns immune A-score with 95% CI, immune cellular age + immune age delta (the inflammaging quantum), tier verdict on the 6-tier physics-derived scale, bidirectional pattern flag when relevant, the patient's personal Cosmic Methylome Background (8-panel Mollweide PNG), Mahalanobis distance against the n=2,481 pooled-HC hull v0_5, and per-immune-cell fanout (19 cell types). Produces engine-internal Stage 8 concordance flags from disease signature matrix v1.8 consultation that feed downstream disease cards; no disease verdict in the immune-class customer readout.",
     "regulatory_status": "Not FDA approved. Not a diagnostic test.",
     "deployment_model": "Direct-to-consumer cellular state report through CPG (Cellular Performance Gauge). Trajectory monitoring against the patient's own baseline is the primary clinical use mode. Annual or biannual draws.",
     "report_recipient": "The customer; clinician interpretation optional. Provisional clinician-PDF delivery for pre-deploy partners (GeoMetric Health pilot)."
@@ -181,7 +181,7 @@
   },
   "stage_4_6_brightness_comparison": {
     "module": "Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py",
-    "purpose": "Render the patient's personal Cosmic Microwave Methylome (8-panel Mollweide PNG): one Mollweide panel per architectural class showing the patient's per-CpG β departure from the IAMAtlas class brightness reference, projected onto HEALPix sphere coordinates. The immune-class panel is the bottom-right of the 8-panel CMM.",
+    "purpose": "Render the patient's personal Cosmic Methylome Background (8-panel Mollweide PNG): one Mollweide panel per architectural class showing the patient's per-CpG β departure from the IAMAtlas class brightness reference, projected onto HEALPix sphere coordinates. The immune-class panel is the bottom-right of the 8-panel CMB.",
     "healpix_mapping": {
       "file": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy",
       "provenance_file": "Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.provenance.json",
@@ -218,7 +218,7 @@
       "computation": "Per-CpG posterior mean (class-conditional) and posterior SD from IAMAtlas REBUILD MCMC"
     },
     "customer_facing_artifact": "personal_cosmic_microwave_methylome_{patient_id}.png — embedded in customer report",
-    "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Microwave_Methylome.png (Plate 1 from atlas_vault/IAMAtlas_v0_1/plates/)"
+    "plate_1_conventions_anchor": "CPG_Plate_01_Cosmic_Methylome_Background.png (Plate 1 from atlas_vault/IAMAtlas_v0_1/plates/)"
   },
   "stage_5_mahalanobis": {
     "doctrine": "Stage 5 consumes the canonical Mahalanobis healthy reference artifact at runtime. The hull, percentile thresholds, calibration data, version lineage, validation history, and per-cohort distributional metadata all live in the runtime artifact — NOT in this card. This card carries only the file path and the consumption interface.",
@@ -383,7 +383,7 @@
       "tier_visualization": "Bar gauge showing where customer sits on 6-tier scale with 1.07 Warburg line + 1.10 breach line annotated",
       "per_cell_findings_section": "When individual immune cells depart significantly: '{N} of your immune cell types show measurable departure from baseline: {comma-separated list}.' Per-cell page links to website (19 pages → 16 customer-facing pages per grouping rationale).",
       "bidirectional_pattern_callout_when_flagged": "Customer sees: 'mixed-direction immune pattern detected — some cell populations elevated while others are running lower than typical.'",
-      "personal_cmm_visualization": "8-panel Mollweide PNG from Stage 4.6 — the customer's personal Cosmic Microwave Methylome — embedded in the report",
+      "personal_cmb_visualization": "8-panel Mollweide PNG from Stage 4.6 — the customer's personal Cosmic Methylome Background — embedded in the report",
       "mahalanobis_headline": "Customer sees: 'Your overall departure from healthy baseline is X SDs (range L–U).'",
       "vigilance_paragraph_per_tier": "Per-tier vigilance content (one paragraph per tier, customer-facing language, no disease names)",
       "no_disease_names_in_customer_report_rule": "Disease names appear only on website per-disease pages, never in the report itself"
@@ -529,7 +529,7 @@
       "Tier visualization: bar gauge showing where customer sits on 6-tier scale with 1.07 Warburg line + 1.10 breach line annotated",
       "Per-cell findings section: when individual immune cells depart significantly, '{N} of your immune cell types show measurable departure from baseline: {comma-separated list}.' Per-cell page links to website (19 pages).",
       "Bidirectional pattern callout when FLAG_BIDIRECTIONAL fires: 'mixed-direction immune pattern detected — some cell populations elevated while others are running lower than typical.'",
-      "Personal Cosmic Microwave Methylome: 8-panel Mollweide PNG from Stage 4.6 embedded in the report",
+      "Personal Cosmic Methylome Background: 8-panel Mollweide PNG from Stage 4.6 embedded in the report",
       "Mahalanobis headline: 'Your overall departure from healthy baseline is X SDs (range L-U).'",
       "Vigilance paragraph per tier: one paragraph per tier, customer-facing language, no disease names",
       "Honest limitations section (see clinical_claim.regulatory_status)",
@@ -2091,7 +2091,7 @@
       "ATLAS: all pre-build atlas references replaced with IAMAtlas REBUILD v0_2 single Bayesian deconvolution — preserved in v2.0",
       "STAGE 2: dual deconvolver (Walther NNLS + NILC v2) replaces pre-build single-atlas single-method approach — preserved in v2.0",
       "STAGE 4.5: bidirectional decomposition as MANDATORY engine step (per VAL-050/051 doctrine) — preserved in v2.0",
-      "STAGE 4.6: Mollweide + HEALPix Cosmic Microwave Methylome rendering NEW (no pre-build equivalent) — preserved in v2.0",
+      "STAGE 4.6: Mollweide + HEALPix Cosmic Methylome Background rendering NEW (no pre-build equivalent) — preserved in v2.0",
       "STAGE 7: 6-tier physics-derived (v1.2) replaces v0 4-tier statistical-percentile system — preserved in v2.0",
       "STAGE 8: three-route architecture (A architectural + B disease matrix + C bidirectional) replaces pre-build single-route alarm — preserved in v2.0",
       "FAILURE MODES: 10-fingerprint heuristic catalog from pre-build NOT ported; replaced by N7 chain-integrity + L9 N1-N8 nulls + SOP CHK-series + Mahalanobis pooled-HC + Stage 4/7 bidirectional flag — preserved in v2.0",

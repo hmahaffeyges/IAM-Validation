@@ -94,7 +94,7 @@ The next chat needs these documents accessible. Paste them or attach them:
 | D4 | New Section H.5 — Pattern Recognition | Names patterns across cells (Inflammaging signature, Age-related epithelial drift, etc.). Unifies cell ranking + Brilliance Map + Mahalanobis contributions + disease matching. |
 | D5 | literature_anchors.json → v2.1 cell-level searchable | Every anchor entry carries cell_type + parent_class; engine can look up by either. |
 | D6 | Section B detailed per-cell composition + normal ranges | Every detected cell listed individually with age + sex + substrate adjusted normal range and remarkability flag. A shedding tumor surfaces here even before architecture shifts. |
-| D7 | Naming locked: Cosmic Methylome Background (CMB) + Personal Brilliance Map | NEVER "Cosmic Microwave Methylome", "Patient Brightness Map", or "personal cosmic methylome". 9 panels: 8 per-class + 1 whole-atlas. |
+| D7 | Naming locked: Cosmic Methylome Background (CMB) + Personal Brilliance Map | NEVER "Cosmic Methylome Background", "Patient Brightness Map", or "personal cosmic methylome". 9 panels: 8 per-class + 1 whole-atlas. |
 | D8 | IAMAtlas REBUILD is internal-only | Customer-facing: "CPG". Technical: "IAMAtlas". REBUILD appears ONLY in internal filenames like `IAMAtlasREBUILD.csv`. |
 | D9 | Stage 4.6 Brightness Comparison: all files confirmed present | 4 plates + HEALPix mapping + provenance JSON + script all exist. README naming needs surgical update only. |
 | D10 | cfDNA + family history defaulted OFF | `walther_clinical.py` imports `cfdna_weight.json` and `family_history_multiplier.json` AND references them, but defaults are `whole_blood` and `not_provided`. |
@@ -203,7 +203,7 @@ Biological_Physics/AstroGenetics/CPG_CMB_v1/
 │   ├── IAMAtlasREBUILD_provenance.json
 │   ├── IAMAtlasREBUILD_celltype_to_class.json
 │   ├── plates/
-│   │   ├── CPG_Plate_01_Cosmic_Microwave_Methylome.png  ← filename has legacy spelling, content is CMB
+│   │   ├── CPG_Plate_01_Cosmic_Methylome_Background.png  ← filename has legacy spelling, content is CMB
 │   │   ├── CPG_Plate_02_Breast_Anisotropy.png
 │   │   ├── CPG_Plate_03_Grandaddy_CMM_vs_CMB.png
 │   │   ├── CPG_Plate_04_Patterns_Discovered.png
@@ -283,7 +283,7 @@ cd /home/claude/IAM-Validation/Biological_Physics/AstroGenetics/CPG_CMB_v1
 
 # Forbidden-language checks (should return ZERO hits each):
 grep -r "REBUILD" --include="*.md" --include="*.py" --include="*.json" . | grep -v ".csv.xz" | grep -v "IAMAtlasREBUILD.csv\|IAMAtlasREBUILD_provenance\|IAMAtlasREBUILD_celltype"
-grep -r "Cosmic Microwave Methylome" --include="*.md" --include="*.py" --include="*.json" . | grep -v "CPG_Plate_01_Cosmic_Microwave_Methylome.png"
+grep -r "Cosmic Methylome Background" --include="*.md" --include="*.py" --include="*.json" . | grep -v "CPG_Plate_01_Cosmic_Methylome_Background.png"
 grep -r "patient brightness\|Patient Brightness\|cosmic_methylome\.png" --include="*.md" --include="*.py" --include="*.json" .
 grep -r "SIGNIFICANTLY_ELEVATED\|SIG_ELEV" --include="*.json" .
 
@@ -456,7 +456,7 @@ Use `L9_Audit/Synthetic_Patient_Generator/synthetic_patient_generator.py` to gen
 ## CRITICAL DISCIPLINE FOR NEXT CHAT (do not skip)
 
 1. **No new IAMAtlas REBUILD leaks** — this failure pattern has recurred multiple times. Pre-delivery grep mandatory.
-2. **No Cosmic Microwave Methylome leaks** — same. Per D7, only CMB and Personal Brilliance Map.
+2. **No Cosmic Methylome Background leaks** — same. Per D7, only CMB and Personal Brilliance Map.
 3. **No class-level-as-headline regression** — per D2, cell-level is the unit of analysis. Class-level is reference only.
 4. **No tier overlap in tier_breakpoints.json** — per D1, 5 tiers, BREACH at 1.10, no SIG_ELEV.
 5. **Preserve everything, delete nothing** — Heath's standing preference. Archive to OLD/ or archived/ subdirectories.
