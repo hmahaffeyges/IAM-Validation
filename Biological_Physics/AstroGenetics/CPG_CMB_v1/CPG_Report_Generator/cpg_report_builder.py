@@ -142,10 +142,11 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
                      f"(highest-tier architectural class).")
     exec_bits.append(f"<b>{n_breach}</b> of 115 cell types crossed the breach line (A &ge; {s7.get('breach_line',1.10)}).")
     total_dep = getattr(s6, "total_cellular_departure", None)
-    excess_dep = getattr(s6, "excess_departure", None)
-    if total_dep is not None and excess_dep is not None:
-        exec_bits.append(f"Total cellular departure (per-cell, confidence-weighted) <b>{total_dep:.0f}</b> "
-                         f"units — <b>{excess_dep:+.0f}</b> vs the typical-for-population reference.")
+    dep_pct_x = (getattr(s6, "calibration", {}) or {}).get("departure_percentile_in_healthy")
+    if total_dep is not None:
+        pctstr = (f" — <b>{dep_pct_x:.0f}th</b> percentile vs the healthy reference" if dep_pct_x is not None else "")
+        exec_bits.append(f"Total cellular departure (per-cell, confidence-weighted) <b>{total_dep:.0f}</b> units{pctstr}. "
+                         f"This is a dysregulation magnitude, not a cellular-age-in-years figure (see D).")
     if maha is not None:
         exec_bits.append(f"Universal architectural departure (Mahalanobis) = <b>{maha:.1f}</b> ({_esc(maha_status)}).")
 
@@ -276,23 +277,31 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     nsc = getattr(s6, "n_cells_scored", None)
     cal = getattr(s6, "calibration", {}) or {}
     P('<h3>D.2 Your total cellular departure</h3>')
+    cal = getattr(s6, "calibration", {}) or {}
+    hc_med = cal.get("hc_median"); hc_p95 = cal.get("hc_p95")
+    dep_pct = cal.get("departure_percentile_in_healthy")
     P('<table class="kv"><tr><th>Measure</th><th style="text-align:right">Value</th></tr>')
     P(f'<tr><td>Chronological age</td><td style="text-align:right">{_esc(chrono if chrono is not None else "—")}</td></tr>')
     if total is not None:
         P(f'<tr><td><b>Total cellular departure (Σ|z|, {nsc} cells)</b></td>'
           f'<td style="text-align:right"><b>{total:.1f}</b> confidence-weighted units</td></tr>')
-        P(f'<tr><td>Typical-for-population reference (Σ|z| under the standardized null)</td>'
-          f'<td style="text-align:right">{nullx:.1f}</td></tr>')
-        P(f'<tr><td><b>Excess departure above typical</b></td>'
-          f'<td style="text-align:right"><b>{excess:+.1f}</b></td></tr>')
-    P(f'<tr><td>Cellular age (years)</td><td style="text-align:right">{_esc(getattr(s6,"cellular_age",None) or "pending calibration")}</td></tr>')
+        if hc_med is not None:
+            P(f'<tr><td>Healthy-reference median (pooled HC, n=1763)</td>'
+              f'<td style="text-align:right">{hc_med:.1f}</td></tr>')
+            P(f'<tr><td>Healthy-reference 95th percentile</td>'
+              f'<td style="text-align:right">{hc_p95:.1f}</td></tr>')
+        if dep_pct is not None:
+            P(f'<tr><td><b>Your departure percentile within healthy</b></td>'
+              f'<td style="text-align:right"><b>{dep_pct:.0f}th</b> percentile</td></tr>')
     P('</table>')
-    if cal.get("years_mapping_status") == "PENDING_HC_FIT":
-        P('<p class="muted">The total and per-cell departures are fully derived from the posterior. '
-          'Converting excess departure to a cellular-age-in-<i>years</i> delta requires the one-time '
-          'healthy-cohort calibration (Σ|z| vs chronological age, then inverted); that fit needs per-sample '
-          'per-cell HC A-scores not stored in the repo. Until it is run, the report shows the real departure '
-          'magnitude and does not assert a fabricated years figure.</p>')
+    if cal.get("years_mapping_status") == "NOT_AN_AGE_CLOCK":
+        P('<p class="muted"><b>On "cellular age in years":</b> the HC calibration (Hannum n=656, ages 19–101) '
+          'shows this departure magnitude does <b>not</b> track chronological age (r=0.05; flat across decades; '
+          '0/112 per-cell A-scores carry a significant age slope). The departure is therefore reported as a '
+          '<b>dysregulation magnitude expressed as a percentile against the healthy reference</b> — not as a '
+          'chronological-age-in-years estimate, and not a competing clock against Horvath/Hannum. '
+          'Departure magnitude also carries cohort/platform variance (HC medians 51–98), so the percentile, '
+          'not the raw number, is the interpretation.</p>')
     # D.3 per-class contributions — reference only
     pcd = getattr(s6, "per_class_departure", {}) or {}
     if pcd:
