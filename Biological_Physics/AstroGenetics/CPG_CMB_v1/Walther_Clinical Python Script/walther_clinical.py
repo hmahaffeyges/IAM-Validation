@@ -244,6 +244,12 @@ def render_brilliance_maps(brightness_report, patient_beta, output_dir,
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     br_mod = _load_module(cfg["brightness_module_path"], "patient_brightness_comparison")
     cpg_to_pixel = np.load(str(cfg["cpg_healpix_mapping_npy"]))
+    # The mapping is in atlas row order; the whole-450K reference carries the atlas cpg_ids in
+    # that same order, so zip() gives the cpg_id -> pixel lookup. Each per-class departure has
+    # its OWN cpg_ids (a subset/reorder), so per panel we align the mapping to departure.cpg_ids.
+    ref_mean, ref_sd, ref_cpgs = br_mod.load_whole_atlas_reference(str(cfg["whole_atlas_reference_npz"]))
+    cpg2pix = {str(c): int(p) for c, p in zip(ref_cpgs, cpg_to_pixel)}
+    sentinel = int(cpg_to_pixel.max())
 
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -251,7 +257,9 @@ def render_brilliance_maps(brightness_report, patient_beta, output_dir,
 
     # 8 individual per-class panels (patient departure vs each class reference)
     for cls, departure in brightness_report.per_class_results.items():
-        pixel_values = br_mod.project_to_healpix_pixels(departure, cpg_to_pixel)
+        aligned = np.array([cpg2pix.get(str(c), sentinel) for c in departure.cpg_ids],
+                           dtype=np.int64)
+        pixel_values = br_mod.project_to_healpix_pixels(departure, aligned)
         fig = br_mod.render_patient_mollweide_panel(
             pixel_values, cls,
             title=f"{cls.upper()} \u00b7 personal departure vs class reference")
@@ -260,8 +268,8 @@ def render_brilliance_maps(brightness_report, patient_beta, output_dir,
         plt.close(fig)
         written[cls] = panel_path
 
-    # 1 whole-atlas: WHOLE patient methylome vs WHOLE-450K reference (single sphere, all CpGs)
-    ref_mean, ref_sd, ref_cpgs = br_mod.load_whole_atlas_reference(str(cfg["whole_atlas_reference_npz"]))
+    # 1 whole-atlas: WHOLE patient methylome vs WHOLE-450K reference (single sphere, all CpGs).
+    # patient_beta is reindexed to ref_cpgs (atlas order), so cpg_to_pixel aligns positionally.
     patient_aligned = patient_beta.reindex(list(ref_cpgs)).to_numpy(dtype=float)
     z = br_mod.compute_whole_atlas_departure(patient_aligned, ref_mean, ref_sd)
     whole = out / f"{patient_id}_personal_brilliance_map_whole_atlas.png"
