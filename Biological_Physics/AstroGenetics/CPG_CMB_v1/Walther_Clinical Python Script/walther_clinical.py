@@ -95,12 +95,19 @@ DEFAULT_CONFIG = {
 
 
 def _load_module(path, name):
-    """Load a module from an absolute file path (handles spaces in folder names)."""
+    """Load a module from an absolute file path (handles spaces in folder names).
+
+    Registers the module in sys.modules before executing it, which @dataclass requires
+    to resolve cls.__module__ during class construction (importlib-by-path otherwise
+    leaves the module unregistered and dataclass creation raises AttributeError).
+    """
+    import sys
     path = Path(path)
     if not path.exists():
         raise FileNotFoundError(f"Required module not found: {path}")
     spec = importlib.util.spec_from_file_location(name, str(path))
     mod = importlib.util.module_from_spec(spec)
+    sys.modules[name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -408,9 +415,74 @@ def stage_5_mahalanobis(stage4_output: dict, config: Optional[dict] = None) -> d
     ct_results = stage4_output.get("celltype_ascores", stage4_output)
     celltype_a = {ct: (v["A"] if isinstance(v, dict) else v) for ct, v in ct_results.items()}
     return hull.score(celltype_a)
-def stage_7_tiers(*a, **k):             _not_built("Stage 7 (tier breakpoints)")
+def stage_7_tiers(stage4_output, config=None):
+    """Stage 7 per BUILD_SPEC v1.3 — classify each class + cell-type A-score into the customer
+    tier scheme (tier_breakpoints.json, the single source of truth shared with the gauges).
+    Returns {class_tiers, celltype_tiers, max_class_tier, n_cells_breach}.
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    gauge = _load_module(cfg["gauge_module_path"], "cpg_gauge")
+    scheme = gauge.load_tier_scheme(str(cfg["tier_breakpoints_json"]))
+    parts = scheme["partitions"]
+    order = [p[0] for p in parts]  # ordered low->high
+
+    def classify(a):
+        tid = gauge._tier_for(a, parts)
+        return {"A": float(a), "tier_id": tid, "label": gauge.CUSTOMER_LABELS.get(tid, tid)}
+
+    cls_t = {c: classify(v["A"]) for c, v in stage4_output["class_ascores"].items()
+             if isinstance(v, dict) and v.get("A") is not None}
+    ct_t = {c: {**classify(v["A"]), "class": v.get("class")}
+            for c, v in stage4_output["celltype_ascores"].items()
+            if isinstance(v, dict) and v.get("A") is not None}
+
+    def rank(tid):
+        return order.index(tid) if tid in order else (len(order) if tid == "BREACH" else -1)
+    max_tier = max((t["tier_id"] for t in cls_t.values()), key=rank, default=None)
+    n_breach = sum(1 for t in ct_t.values() if t["tier_id"] == "BREACH")
+    return {"class_tiers": cls_t, "celltype_tiers": ct_t,
+            "max_class_tier": max_tier, "n_cells_breach": n_breach,
+            "breach_line": scheme["breach_line"], "warburg_line": scheme["warburg_line"]}
+
+
 def stage_8_dual_matching(*a, **k):     _not_built("Stage 8 (dual matching)")
 def stage_10_delivery(*a, **k):         _not_built("Stage 10 (delivery)")
+
+
+# ---------------------------------------------------------------------------
+# run_pipeline — chain the BUILT stages for a calibrated-beta patient.
+# Synthetic/test patients enter HERE at the calibrated-beta level; Stages 0-2
+# (IDAT -> beta -> deconvolution) are bypassed for the demo/test path.
+# ---------------------------------------------------------------------------
+def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
+                 patient_smoking_bin=None, patient_id="patient",
+                 output_dir="reports", config=None, render_figures=True):
+    """Chain Stages 3 -> 4 -> 4.5 -> 4.6 -> 5 -> 6 -> 7 (and Stage 9 figures) for a
+    calibrated-beta patient. Returns a result bundle dict consumed by the report builder.
+
+    beta_calibrated : pd.Series indexed by cpg_id (the Stage 1 calibration output; for
+                      synthetic/test patients this is supplied directly).
+    """
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    s3 = stage_3_foreground_fork(beta_calibrated, patient_age, patient_sex,
+                                 patient_smoking_bin, cfg)
+    s4 = stage_4_a_score(s3.cleaned_beta, cfg)
+    s45 = stage_4_5_bidirectional(s3.cleaned_beta, patient_id, cfg)
+    s46 = stage_4_6_brightness(s3.cleaned_beta, patient_id, cfg)
+    s5 = stage_5_mahalanobis(s4, cfg)
+    s6 = stage_6_cellular_age(s3.beta_raw, patient_age, patient_id, cfg)
+    s7 = stage_7_tiers(s4, cfg)
+    bundle = {
+        "patient_id": patient_id,
+        "patient_meta": {"age": patient_age, "sex": patient_sex,
+                         "smoking_bin": patient_smoking_bin},
+        "stage3": s3, "stage4": s4, "stage4_5": s45, "stage4_6": s46,
+        "stage5": s5, "stage6": s6, "stage7": s7,
+    }
+    if render_figures:
+        bundle["figures"] = stage_9_report(s4, s46, s3.cleaned_beta,
+                                           output_dir, patient_id, cfg)
+    return bundle
 
 
 if __name__ == "__main__":
