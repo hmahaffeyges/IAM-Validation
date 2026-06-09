@@ -85,6 +85,18 @@ DEFAULT_CONFIG = {
     # Stage 9 — brilliance maps (HEALPix Mollweide)
     "cpg_healpix_mapping_npy": CPG_ROOT / "Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy",
     "whole_atlas_reference_npz": CPG_ROOT / "Runtime Matrices/Mollweide & Brightness Comparison/whole_atlas_reference/iamatlas_whole450k_reference.npz",
+    # Stage 2 — deconvolution (Walther NNLS primary + NILC cross-check)
+    "atlas_csv_xz":        CPG_ROOT / "IAM_Atlas/IAMAtlasREBUILD.csv.xz",
+    "atlas_csv_decompressed": Path("/home/claude/IAMAtlasREBUILD.csv"),
+    "celltype_to_class_json": CPG_ROOT / "IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json",
+    "walther_deconv_module": CPG_ROOT / "Walther_iam_deconvolver/walther_iam_deconvolver.py",
+    "nilc_deconv_module":  CPG_ROOT / "NILC Deconvolver/nilc_deconvolver-2.py",
+    # Stage 8 — disease signature matrix matching (Path B) + priors
+    "disease_matrix_csv":  CPG_ROOT / "Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv",
+    "matrix_mapping_json": CPG_ROOT / "Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json",
+    "cancer_prior_json":   CPG_ROOT / "Runtime Matrices/Cancer_prior/cancer_prior.json",
+    "family_history_json": CPG_ROOT / "Runtime Matrices/Family_history_multiplier/family_history_multiplier.json",
+    "literature_anchors_json": CPG_ROOT / "Runtime Matrices/Literature_anchors_Report building/literature_anchors_v2_1.json",
     # Stage 9 — report visual assets (gauges + rankings)
     "gauge_module_path": CPG_ROOT / "CPG_Report_Generator/cpg_gauge.py",
     "tier_breakpoints_json": CPG_ROOT / "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json",
@@ -335,7 +347,55 @@ def _not_built(stage):
 
 def stage_0_intake(*a, **k):            _not_built("Stage 0 (intake)")
 def stage_1_calibration_beta(*a, **k):  _not_built("Stage 1 (calibration & beta)")
-def stage_2_deconvolution(*a, **k):     _not_built("Stage 2 (deconvolution)")
+
+
+# ---------------------------------------------------------------------------
+# Stage 2 — Deconvolution (SOP Part II §28-§34). Two deconvolvers in PARALLEL on
+# the same calibrated beta + same IAMAtlas reference (Planck Commander/NILC discipline):
+#   Walther IAM Deconvolver (NNLS)  -> production per-class fractions  (trusted)
+#   NILC v2 (departure-from-consensus GLS) -> independent cross-check
+# Cross-method gate compares them at the inference layer (SOP §33). Class-level is the
+# reliable output; per-cell-type fractions are indicative (REBUILD carries 8 class columns).
+# ---------------------------------------------------------------------------
+def _ensure_atlas_decompressed(cfg):
+    """Decompress IAMAtlasREBUILD.csv.xz once to the runtime path if not already present."""
+    import lzma, shutil
+    src = Path(cfg["atlas_csv_xz"]); dst = Path(cfg["atlas_csv_decompressed"])
+    if dst.exists() and dst.stat().st_size > 0:
+        return dst
+    with lzma.open(src, "rb") as fin, open(dst, "wb") as fout:
+        shutil.copyfileobj(fin, fout, length=1 << 24)
+    return dst
+
+
+def stage_2_deconvolution(beta_calibrated: pd.Series, config: Optional[dict] = None,
+                          run_nilc: bool = True) -> dict:
+    """Stage 2 per SOP — returns {class_fractions, celltype_fractions, walther_diagnostics,
+    nilc_fractions, cross_method, status}. beta_calibrated is the Stage 1 output (pre
+    foreground-subtraction); deconvolution reads composition from the raw calibrated beta."""
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    atlas = _ensure_atlas_decompressed(cfg)
+    w_mod = _load_module(cfg["walther_deconv_module"], "walther_iam_deconvolver")
+    deconv = w_mod.WaltherIAMDeconvolver(str(atlas),
+                                         celltype_class_map=str(cfg["celltype_to_class_json"]),
+                                         verbose=False)
+    betas = {str(k): float(v) for k, v in beta_calibrated.items()
+             if isinstance(v, (int, float)) and 0.0 <= v <= 1.0}
+    res = deconv.deconvolve(betas, refine_celltypes=True)
+    out = {"class_fractions": res.class_fractions,
+           "celltype_fractions": res.celltype_fractions,
+           "walther_diagnostics": res.diagnostics,
+           "status": res.status,
+           "nilc_fractions": None, "cross_method": None}
+    if run_nilc:
+        try:
+            n_mod = _load_module(cfg["nilc_deconv_module"], "nilc_deconvolver")
+            nilc = n_mod.NILCDeconvolver(str(atlas), verbose=False)
+            nres = nilc.deconvolve(betas, patient_id="patient")
+            out["nilc_fractions"] = nres.to_dict() if hasattr(nres, "to_dict") else nres
+        except Exception as e:
+            out["nilc_fractions"] = {"_error": str(e)}
+    return out
 # ---------------------------------------------------------------------------
 # Stage 4 — A-score (per-class + per-cell-type). Consumes cleaned_beta.
 # ---------------------------------------------------------------------------
@@ -453,7 +513,195 @@ def stage_7_tiers(stage4_output, config=None):
             "breach_line": scheme["breach_line"], "warburg_line": scheme["warburg_line"]}
 
 
-def stage_8_dual_matching(*a, **k):     _not_built("Stage 8 (dual matching)")
+# ---------------------------------------------------------------------------
+# Stage 8 — Card-level pattern matching (SOP Part II-C §65-§69).
+# Runs the THREE routes the immune-atlas card v2.0 declares, in parallel:
+#   Route A  — universal architectural alarm: Mahalanobis_d >= p95 hull threshold
+#   Route B  — disease signature matrix match: per-cell z-shift profile scored vs all
+#              81 (disease x phase) rows via compute_match_magnitude (engine schema v1.2),
+#              top-3 concordances + per-row customer tier, then risk-context per SOP §9.4b
+#   Route C  — bidirectional pattern: FLAG_BIDIRECTIONAL from Stage 4.5 AND |a_dir| >= 0.60
+# NO-FABRICATION: customer profile = per-cell signed z-shift (Cohen's d departure from the
+# HC centroid) — the SAME quantity the Stage 5 decomposition uses (SOP §50). Empty matrix
+# cells are skipped (SOP §10.5 rule 8: "no documented signature", not zero).
+# ---------------------------------------------------------------------------
+@dataclass
+class Stage8Output:
+    route_A_architectural_alarm: dict      # {fired, mahalanobis_d, p95, p99}
+    route_B_disease_matches: list          # top-3 [{disease, phase, match, tier, severity, ...}]
+    route_B_all_scored: list               # all 81 rows scored (for audit / appendix C)
+    route_C_bidirectional: dict            # {fired, flagged_classes}
+    customer_profile: dict                 # {matrix_column: z_shift} actually consumed
+    risk_context: dict                     # §9.4b per-match context when prior/FH available
+    status: str = "OK"
+
+
+def _matrix_match_magnitude(customer, signature_row, cell_cols):
+    """compute_match_magnitude per engine schema v1.2 — Mahalanobis-style sign-aligned
+    product weighted by sqrt(n). Skips empty cells and arrow-prefixed qualitative cells."""
+    import numpy as np
+    populated = []
+    for c in cell_cols:
+        v = signature_row.get(c, "")
+        if v is None:
+            continue
+        v = str(v).strip()
+        if not v or v.startswith(("\u2191", "\u2193")):   # empty / arrow-qualitative
+            continue
+        populated.append((c, v))
+    if not populated:
+        return None, 0
+    matches = []
+    for col, sig_str in populated:
+        try:
+            if "/" in sig_str:
+                lo, hi = sig_str.split("/")
+                sig = (float(lo) + float(hi)) / 2.0
+            else:
+                sig = float(sig_str)
+        except ValueError:
+            continue
+        cust = customer.get(col, 0.0)
+        if (sig > 0 and cust > 0) or (sig < 0 and cust < 0):
+            matches.append(min(abs(cust), abs(sig)))
+        else:
+            matches.append(-min(abs(cust), abs(sig)))
+    if not matches:
+        return None, 0
+    return float(sum(matches) / np.sqrt(len(matches))), len(matches)
+
+
+def _matrix_customer_tier(match, severity_class, phase):
+    """compute_customer_tier per engine schema v1.2."""
+    if match is None:
+        return "NORMAL"
+    if severity_class == "NORMAL_VARIANT":
+        return "NORMAL"
+    if match < 0.5:
+        return "NORMAL"
+    elif match < 1.0:
+        return "MARGINAL"
+    elif match < 1.5:
+        return "ELEVATED"
+    elif match < 2.0:
+        return "SIGNIFICANTLY_ELEVATED"
+    else:
+        if phase in ("active", "active_ccfDNA", "tumor_tissue") and severity_class == "URGENT_CLINICAL":
+            return "URGENT"
+        return "SIGNIFICANTLY_ELEVATED"
+
+
+def _build_customer_zshift_profile(stage4_output, mahalanobis_ref_path, mapping_path):
+    """Per-cell signed z-shift (Cohen's d departure) keyed by matrix column.
+    z[cell] = (A_patient[cell] - centroid[cell]) / sqrt(diag(cov)[cell]) over the hull's
+    feature set, then atlas-cell -> matrix-column via the v0.2 mapping (averaging when
+    several atlas cells map to one column)."""
+    import json, numpy as np
+    ref = json.load(open(mahalanobis_ref_path))
+    feats = ref.get("feature_names_valid") or ref.get("feature_names")
+    centroid = np.asarray(ref["centroid"], dtype=float)
+    cov = np.asarray(ref["covariance_matrix"], dtype=float)
+    sd = np.sqrt(np.clip(np.diag(cov), 1e-12, None))
+    ct_a = {ct: (v["A"] if isinstance(v, dict) else v)
+            for ct, v in stage4_output["celltype_ascores"].items()}
+    z_by_atlas = {}
+    for i, cell in enumerate(feats):
+        a = ct_a.get(cell)
+        if a is None:
+            continue
+        z_by_atlas[cell] = (float(a) - centroid[i]) / sd[i]
+    mapping = json.load(open(mapping_path))["mapping"]
+    by_col = {}
+    for atlas_cell, z in z_by_atlas.items():
+        col = mapping.get(atlas_cell)
+        if not col:
+            continue
+        by_col.setdefault(col, []).append(z)
+    return {col: float(np.mean(v)) for col, v in by_col.items()}
+
+
+def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
+                          patient_meta=None, config=None):
+    """Stage 8 per SOP Part II-C. Returns a Stage8Output with all three routes scored."""
+    import csv, json
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    patient_meta = patient_meta or {}
+
+    # ---- Route A: universal architectural alarm (Mahalanobis vs hull percentile) ----
+    ref = json.load(open(cfg["mahalanobis_reference_json"]))
+    cal = None
+    for k in ref:
+        if k.startswith("route_A_calibration"):
+            cal = ref[k]
+    p95 = float(cal["p95"]) if cal and "p95" in cal else 13.62
+    p99 = float(cal["p99"]) if cal and "p99" in cal else 18.59
+    mahal_d = stage5_output.get("mahalanobis_distance")
+    route_A = {"fired": (mahal_d is not None and mahal_d >= p95),
+               "mahalanobis_d": mahal_d, "p95": p95, "p99": p99,
+               "strict_fired": (mahal_d is not None and mahal_d >= p99)}
+
+    # ---- Route B: disease signature matrix match ----
+    customer = _build_customer_zshift_profile(
+        stage4_output, cfg["mahalanobis_reference_json"], cfg["matrix_mapping_json"])
+    with open(cfg["disease_matrix_csv"]) as f:
+        rows = list(csv.DictReader(f))
+    header = list(rows[0].keys()) if rows else []
+    meta_cols = ["disease_id", "phase", "time_range", "substrate",
+                 "disease_severity_class", "mechanism", "organ_pages_to_link", "evidence_anchors"]
+    cell_cols = [c for c in header if c not in meta_cols]
+    scored = []
+    for r in rows:
+        match, n = _matrix_match_magnitude(customer, r, cell_cols)
+        tier = _matrix_customer_tier(match, r.get("disease_severity_class", ""), r.get("phase", ""))
+        scored.append({
+            "disease": r.get("disease_id"), "phase": r.get("phase"),
+            "time_range": r.get("time_range"), "substrate": r.get("substrate"),
+            "severity": r.get("disease_severity_class"), "mechanism": r.get("mechanism"),
+            "organ_pages": r.get("organ_pages_to_link"),
+            "match_magnitude": match, "n_cells_matched": n, "tier": tier,
+        })
+    scored_valid = [s for s in scored if s["match_magnitude"] is not None]
+    scored_valid.sort(key=lambda s: s["match_magnitude"], reverse=True)
+    top3 = scored_valid[:3]
+
+    # ---- §9.4b risk-context for the top matches (when prior/FH supplied) ----
+    risk_context = {}
+    try:
+        prior = json.load(open(cfg["cancer_prior_json"])).get("data", {})
+        fh = json.load(open(cfg["family_history_json"])).get("data", {})
+        fam = (patient_meta.get("family_history") or {})
+        for m in top3:
+            d = m["disease"]
+            base = prior.get(d) if isinstance(prior, dict) else None
+            fh_mult = 1.0
+            if d in fam and isinstance(fh, dict) and d in fh:
+                fh_mult = fh.get(d, {}).get(fam[d], 1.0) if isinstance(fh.get(d), dict) else 1.0
+            risk_context[d] = {"baseline_prior": base, "family_history_multiplier": fh_mult,
+                               "family_history_supplied": d in fam}
+    except Exception as e:
+        risk_context = {"_note": f"risk-context not applied: {e}"}
+
+    # ---- Route C: bidirectional pattern ----
+    flagged = []
+    per_class = getattr(stage4_5_report, "per_class_results", None) or {}
+    for cls, res in per_class.items():
+        fb = getattr(res, "flag_bidirectional", False)
+        a_dir = getattr(res, "a_directional_composite", None)
+        if fb and a_dir is not None and abs(a_dir) >= 0.60:
+            flagged.append({"class": cls, "a_directional": a_dir})
+    route_C = {"fired": bool(flagged), "flagged_classes": flagged}
+
+    return Stage8Output(
+        route_A_architectural_alarm=route_A,
+        route_B_disease_matches=top3,
+        route_B_all_scored=scored,
+        route_C_bidirectional=route_C,
+        customer_profile=customer,
+        risk_context=risk_context,
+        status="OK",
+    )
+
+
 def stage_10_delivery(*a, **k):         _not_built("Stage 10 (delivery)")
 
 
@@ -464,7 +712,8 @@ def stage_10_delivery(*a, **k):         _not_built("Stage 10 (delivery)")
 # ---------------------------------------------------------------------------
 def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
                  patient_smoking_bin=None, patient_id="patient",
-                 output_dir="reports", config=None, render_figures=True):
+                 output_dir="reports", config=None, render_figures=True,
+                 run_deconvolution=True):
     """Chain Stages 3 -> 4 -> 4.5 -> 4.6 -> 5 -> 6 -> 7 (and Stage 9 figures) for a
     calibrated-beta patient. Returns a result bundle dict consumed by the report builder.
 
@@ -472,6 +721,9 @@ def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
                       synthetic/test patients this is supplied directly).
     """
     cfg = {**DEFAULT_CONFIG, **(config or {})}
+    s2 = None
+    if run_deconvolution:
+        s2 = stage_2_deconvolution(beta_calibrated, cfg)
     s3 = stage_3_foreground_fork(beta_calibrated, patient_age, patient_sex,
                                  patient_smoking_bin, cfg)
     s4 = stage_4_a_score(s3.cleaned_beta, cfg)
@@ -480,12 +732,16 @@ def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
     s5 = stage_5_mahalanobis(s4, cfg)
     s6 = stage_6_cellular_age(s3.beta_raw, patient_age, patient_id, cfg)
     s7 = stage_7_tiers(s4, cfg)
+    s8 = stage_8_dual_matching(s4, s5, s45,
+                               patient_meta={"age": patient_age, "sex": patient_sex,
+                                             "family_history": (config or {}).get("family_history")},
+                               config=cfg)
     bundle = {
         "patient_id": patient_id,
         "patient_meta": {"age": patient_age, "sex": patient_sex,
                          "smoking_bin": patient_smoking_bin},
-        "stage3": s3, "stage4": s4, "stage4_5": s45, "stage4_6": s46,
-        "stage5": s5, "stage6": s6, "stage7": s7,
+        "stage2": s2, "stage3": s3, "stage4": s4, "stage4_5": s45, "stage4_6": s46,
+        "stage5": s5, "stage6": s6, "stage7": s7, "stage8": s8,
     }
     if render_figures:
         bundle["figures"] = stage_9_report(s4, s46, s3.cleaned_beta,

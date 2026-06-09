@@ -116,22 +116,36 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
 
     # ---- B. composition (cells grouped by class) ----
     ct = s4["celltype_ascores"]
+    s2 = bundle.get("stage2")
     by_class = {}
     for name, v in ct.items():
         if not isinstance(v, dict):
             continue
         by_class.setdefault(v.get("class", "?"), []).append((name, v))
     P('<section><h2>B · Cellular composition — every cell detected, with state</h2>')
-    P('<table class="kv"><tr><th>Architectural class</th><th>Class A-score</th><th>Tier</th><th>Cells detected</th></tr>')
+    P('<p class="muted">Composition is read first (who is present, in what proportion — from Stage 2 '
+      'deconvolution); architecture (A-score, Section C) is read on whatever cells are present. '
+      'A shedding tumor surfaces here as an elevated tissue-of-origin fraction before its methylation '
+      'architecture shifts.</p>')
+    cfr = (s2 or {}).get("class_fractions") if isinstance(s2, dict) else None
+    P('<table class="kv"><tr><th>Architectural class</th><th>Composition (Stage 2)</th>'
+      '<th>Class A-score</th><th>Tier</th><th>Cells detected</th></tr>')
     for cls in ARCH_CLASSES:
         cv = s4["class_ascores"].get(cls)
         if not isinstance(cv, dict):
             continue
         t = s7["class_tiers"].get(cls, {})
         ncells = len(by_class.get(cls, []))
-        P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td><td>{cv.get("A",0):.3f}</td>'
+        frac = (f'{cfr.get(cls,0)*100:.1f}%' if cfr and cls in cfr else '—')
+        P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td><td>{frac}</td><td>{cv.get("A",0):.3f}</td>'
           f'<td>{_tier_badge(t.get("tier_id"), t.get("label"))}</td><td>{ncells}</td></tr>')
-    P('</table></section>')
+    P('</table>')
+    if s2 and isinstance(s2, dict):
+        gate = s2.get("cross_method")
+        P(f'<p class="muted">Stage 2 status: {_esc(s2.get("status","—"))}. '
+          f'Class-level fractions are the production answer (Walther NNLS); NILC v2 runs in parallel as the '
+          f'independent cross-method check (Planck Commander/NILC discipline).</p>')
+    P('</section>')
 
     # ---- C. architectural state ----
     P('<section><h2>C · Architectural state — the cell-level view</h2>')
@@ -218,20 +232,128 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
             P('<p class="muted">No class triggered FLAG_BIDIRECTIONAL — pooled and directional scores agree.</p>')
         P('</section>')
 
-    # ---- H. disease matching (Stage 8 pending) ----
-    P('<section><h2>H · Disease pattern matching</h2>'
-      '<p class="pending">Stage 8 (disease-matrix matching across the card catalog) is not yet wired into '
-      'this build. When enabled it scores every disease card against the patient\'s per-cell departures and '
-      'reports closest matches + named patterns (Section H.5).</p></section>')
+    # ---- H. disease pattern matching (Stage 8) ----
+    s8 = bundle.get("stage8")
+    P('<section><h2>H · Disease pattern matching — every signature scored against your data</h2>')
+    if s8 is None:
+        P('<p class="pending">Stage 8 did not run for this bundle.</p>')
+    else:
+        rb = s8.route_B_disease_matches or []
+        rA = s8.route_A_architectural_alarm or {}
+        rC = s8.route_C_bidirectional or {}
+        scored_n = len([x for x in (s8.route_B_all_scored or []) if x.get("match_magnitude") is not None])
+        # H.1 summary
+        flagged = [m for m in rb if m["tier"] not in ("NORMAL", "MARGINAL")]
+        P('<h3>H.1 Summary</h3>')
+        if flagged:
+            P(f'<p>Your cellular departure pattern was scored against all {scored_n} (disease × phase) '
+              f'signatures in the matrix. <b>{len(flagged)}</b> of the closest matches reach a non-baseline '
+              f'tier. These are pattern resemblances for physician review — not diagnoses.</p>')
+        else:
+            P(f'<p>Your pattern was scored against all {scored_n} signatures. <b>No signature reaches a '
+              f'non-baseline tier.</b> Closest resemblances are shown below for context.</p>')
+        # H.2 closest matches
+        P('<h3>H.2 Closest pattern matches</h3>')
+        P('<table class="kv"><tr><th>Signature (disease · phase)</th><th>Match magnitude</th>'
+          '<th>Cells matched</th><th>Tier</th></tr>')
+        for m in rb:
+            P(f'<tr><td>{_esc(m["disease"])} · {_esc(m["phase"])}</td>'
+              f'<td>{m["match_magnitude"]:+.3f}</td><td>{m["n_cells_matched"]}</td>'
+              f'<td>{_tier_badge(m["tier"], m["tier"])}</td></tr>')
+        P('</table>')
+        P('<p class="muted">Match magnitude is a sign-aligned, √n-weighted concordance between your per-cell '
+          'departures and each signature\'s documented per-cell Cohen\'s d (engine schema v1.2). '
+          'It is a resemblance score, not a probability of disease.</p>')
+        # H.3 routes A / C
+        P('<h3>H.3 Architectural-alarm & bidirectional channels</h3>')
+        P(f'<p><b>Route A (universal architectural alarm):</b> Mahalanobis {rA.get("mahalanobis_d",0):.1f} '
+          f'vs hull p95 {rA.get("p95","—")} — <b>{"TRIGGERED" if rA.get("fired") else "within hull"}</b>.</p>')
+        if rC.get("fired"):
+            cls_list = ", ".join(f'{f["class"]} (a_dir {f["a_directional"]:+.2f})' for f in rC["flagged_classes"])
+            P(f'<p><b>Route C (bidirectional pattern):</b> TRIGGERED — {_esc(cls_list)}.</p>')
+        else:
+            P('<p><b>Route C (bidirectional pattern):</b> not triggered.</p>')
+        # H.5 pattern recognition (convergent-evidence naming)
+        P('<h3>H.5 Pattern Recognition — convergent evidence across channels</h3>')
+        conv = []
+        if rb:
+            conv.append(f'the disease-matrix top match is <b>{_esc(rb[0]["disease"])} · {_esc(rb[0]["phase"])}</b> '
+                        f'(magnitude {rb[0]["match_magnitude"]:+.2f})')
+        if maha is not None:
+            conv.append(f'the Mahalanobis distance is <b>{maha:.1f}</b> ({_esc(maha_status)})')
+        top = s5.get("top10_axis_contributions") or []
+        if top:
+            names = []
+            for c in top[:3]:
+                if isinstance(c, dict):
+                    names.append(str(c.get("cell_type") or c.get("axis") or c.get("name") or ""))
+            if names:
+                conv.append(f'the cells driving the distance are <b>{_esc(", ".join(n for n in names if n))}</b>')
+        P('<p>' + ('; '.join(conv) if conv else 'No convergent pattern surfaced.') +
+          '. The cell ranking (C.2), the Mahalanobis decomposition (E), the Personal Brilliance Map (F) and '
+          'the disease matrix (H.2) are four views of the same per-cell departure data — where they converge, '
+          'the pattern is real.</p>')
 
-    # ---- confidence ----
-    P('<section><h2>Confidence and caveats</h2>'
-      '<p class="muted">This report is generated by the CPG research pipeline (Stages 3–7 + figures). '
-      'Stages 0–2 (IDAT → calibrated β → deconvolution) and Stage 8 (disease matching) are pending; this run '
-      'entered at the calibrated-β level. A-scores carry posterior uncertainty from the IAMAtlas MCMC; the '
-      'stromal class carries a known ~7% coverage mask. Not a diagnostic device.</p></section>')
+    P('</section>')
+
+    # ---- I. cross-disease universal alarm channel ----
+    P('<section><h2>I · Cross-disease universal alarm channel</h2>')
+    P('<p class="muted">The immune-atlas card carries a 6,018-CpG cross-disease firing-pattern map with a '
+      '12-CpG opposing-direction sub-channel (the VAL-016 universal-alarm signature). The Stage 8 Route A '
+      'residual-map-overlap channel computes the patient\'s Pearson overlap with that map. '
+      'Per-CpG residual-overlap is the next wiring step (the channel artifact and thresholds are staged; '
+      'overlap is computed once the per-CpG departure vector is exposed from Stage 4.6).</p></section>')
+
+    # ---- L. risk context (cancer prior × family history, SOP §9.4b) ----
+    if s8 is not None and getattr(s8, "risk_context", None):
+        rc = s8.risk_context
+        if "_note" not in rc:
+            P('<section><h2>L · Prior and family-history context</h2>')
+            P('<p class="muted">Per SOP §9.4b, a closest-match resemblance is framed with population base rate '
+              'and family history when supplied — "your reading combined with your risk context suggests…", '
+              'never "you have." Family history not supplied → population base rate only.</p>')
+            P('<table class="kv"><tr><th>Disease</th><th>Baseline prior</th><th>Family-hx multiplier</th>'
+              '<th>Family history supplied</th></tr>')
+            for d, info in rc.items():
+                P(f'<tr><td>{_esc(d)}</td><td>{_esc(info.get("baseline_prior") or "—")}</td>'
+                  f'<td>{_esc(info.get("family_history_multiplier"))}</td>'
+                  f'<td>{"yes" if info.get("family_history_supplied") else "no"}</td></tr>')
+            P('</table></section>')
+
+    # ---- N / O. confidence backbone + caveats ----
+    P('<section><h2>N · Confidence and caveats</h2>')
+    P('<p class="muted">This report is generated by the CPG chain (Stages 2–9). The patient entered at the '
+      'calibrated-β level (Stages 0–1, IDAT→β, are the wet-lab/array front end). A-scores carry posterior '
+      'uncertainty from the IAMAtlas MCMC; the stromal class carries a known ~7% coverage mask. Disease '
+      'matches are pattern resemblances scored against documented signatures, not diagnoses. '
+      '<b>This is a wellness and cellular-fitness instrument, not a diagnostic device.</b></p></section>')
 
     body = "\n".join(parts)
+
+    # ---- §76 legal-boundary gate — scan the rendered body for CANNOT_SAY language ----
+    import re as _re
+    cannot_say = [
+        r"\byou have (?:cancer|alzheimer|disease|a tumou?r)\b",
+        r"\byou will (?:get|develop|have)\b",
+        r"\byou should (?:take|start|stop|use)\b",
+        r"\bwe diagnose\b", r"\byou are diagnosed\b",
+        r"\bthis (?:is|confirms) (?:a )?diagnosis\b",
+    ]
+    violations = []
+    low = body.lower()
+    for pat in cannot_say:
+        for mt in _re.finditer(pat, low):
+            violations.append(mt.group(0))
+    gate_ok = not violations
+    gate_html = (
+        '<section><h2>O · Reporting-boundary check</h2>'
+        f'<p class="muted">Stage 9.7 legal-boundary gate (SOP §76): scanned the rendered report for diagnostic / '
+        f'directive language a physician-facing instrument may not assert. '
+        f'<b>{"PASS — no CANNOT_SAY language detected." if gate_ok else "HALT — review required: " + _esc(", ".join(set(violations)))}</b> '
+        f'This report states measurements, percentiles, pattern resemblances, base rates, and "discuss with your '
+        f'physician"; it does not diagnose, predict, or prescribe.</p></section>'
+    )
+    body = body + "\n" + gate_html
     doc = f"""<!doctype html><html><head><meta charset="utf-8">
 <title>CPG Report — {_esc(pid)}</title>
 <style>
