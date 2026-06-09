@@ -16,7 +16,7 @@ Usage:
                  atlas_plate_paths={...}, config=...)
 
 Data-driven sections implemented: Executive summary, A (intake), B (composition),
-C (architectural state + gauges + top-15 ranking), D (cellular age), E (Mahalanobis),
+C (architectural state + gauges + top-15 ranking), D (cellular departure), E (Mahalanobis),
 F (Personal Brilliance Maps), G (bidirectional). H (disease matching) is shown as
 Stage-8-pending until the disease-matrix stage is wired.
 """
@@ -203,12 +203,12 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         P(f'<p class="muted">Stage 2 status: {_esc(s2.get("status","—"))}. '
           f'Class-level fractions are the production answer (Walther NNLS); NILC v2 runs in parallel as the '
           f'independent cross-method check (Planck Commander/NILC discipline).</p>')
-    # B.2 — detailed per-cell, every detected cell, with its age/sex/smoking-adjusted normal range
+    # B.2 — detailed per-cell, every detected cell, with its healthy normal range (sex/smoking-adjusted A; not age-adjusted)
     pc = getattr(s6, "per_cell", {}) or {}
     if pc:
         P('<h3>B.2 Detailed per-cell — every cell against its healthy range</h3>')
         P('<p class="muted">Normal range is the cell\'s healthy reference mean ± 1.96·SD, taken directly '
-          'from the IAMAtlas MCMC posterior (95% CI). The A-score is age/sex/smoking-adjusted (Stage 3 '
+          'from the IAMAtlas MCMC posterior (95% CI). The A-score is sex/smoking-adjusted (Stage 3 '
           'foregrounds removed up front). "Remarkable" = the cell\'s A-score falls outside its 95% range.</p>')
         ctf = (s2 or {}).get("celltype_fractions") if isinstance(s2, dict) else None
         by_cls_cells = {}
@@ -238,7 +238,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     P('<h3>C.2 Top 15 cells by magnitude of departure</h3>')
     P(f'<div class="fig">{_img(figs.get("A2_cellular_departure_ranking"), "Top-15 cellular departure ranking")}</div>')
     P('<p class="muted">Ranked by confidence-weighted departure |z| = |A − healthy mean| / posterior SD — '
-      'the same per-cell quantity that drives the cellular-age total (D) and the Mahalanobis distance (E). '
+      'the same per-cell quantity that drives the cellular departure total (D) and the Mahalanobis distance (E). '
       'Stable cells (tight posterior) surface on real shifts; noisy cells do not dominate.</p>')
     pcr = getattr(s6, "per_cell", {}) or {}
     if pcr:
