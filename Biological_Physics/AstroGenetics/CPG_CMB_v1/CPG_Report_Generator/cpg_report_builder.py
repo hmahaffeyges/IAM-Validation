@@ -582,6 +582,45 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
       'Per-CpG residual-overlap is the next wiring step (the channel artifact and thresholds are staged; '
       'overlap is computed once the per-CpG departure vector is exposed from Stage 4.6).</p></section>')
 
+    # ---- J. wellness / lifestyle / inflammaging lens (parameterized; no "years" framing) ----
+    P('<section><h2>J · Wellness, lifestyle, and inflammaging context</h2>')
+    P('<p class="muted">Contextual lenses on your reading. The inflammaging lens is the immune-class share '
+      'of your per-cell departure (an immune-dysregulation contribution), expressed as a fraction of the '
+      'total \u2014 not a "years" figure.</p>')
+    P('<table class="kv"><tr><th>Lens</th><th>Reading</th></tr>')
+    _pcdj = getattr(s6, "per_class_departure", {}) or {}
+    _totj = getattr(s6, "total_cellular_departure", None) or (sum(_pcdj.values()) if _pcdj else None)
+    if _pcdj.get("immune") is not None and _totj:
+        P(f'<tr><td>Inflammaging (immune-class share of departure)</td>'
+          f'<td>{100*_pcdj["immune"]/_totj:.0f}% of your total cellular departure is immune-class '
+          f'\u2014 the inflammaging contribution</td></tr>')
+    _fga = getattr(bundle.get("stage3"), "foregrounds_applied", []) or []
+    _smk = meta.get("smoking_bin")
+    if "smoking" in _fga:
+        P(f'<tr><td>Smoking status</td><td>Smoking-axis foreground subtracted (bin: {_esc(_smk or "provided")}); '
+          f'residual smoking signature removed up front</td></tr>')
+    else:
+        P(f'<tr><td>Smoking status</td><td>{_esc(_smk or "not provided")} \u2014 smoking foreground not applied '
+          f'(interim Stage 7 stratification absorbs residual)</td></tr>')
+    _sex = (meta.get("sex") or "").lower(); _age = meta.get("age")
+    if _sex.startswith("f"):
+        if isinstance(_age, (int, float)) and _age >= 50:
+            P('<tr><td>Hormonal stratification</td><td>Likely post-menopausal (age-based) \u2014 secretory-class '
+              'baseline read accordingly</td></tr>')
+            P('<tr><td>Menarche signature</td><td>Not applicable at this age</td></tr>')
+        else:
+            P('<tr><td>Hormonal stratification</td><td>Pre-menopausal context (age-based)</td></tr>')
+    else:
+        P('<tr><td>Hormonal stratification</td><td>n/a (not female-context)</td></tr>')
+    P('<tr><td>Body composition / metabolic signature</td><td>Not assessable from blood EPIC alone '
+      '(requires additional substrate)</td></tr>')
+    P('<tr><td>Stress / sleep / mood</td><td>Not directly assessable from methylation alone '
+      '(clinical history supplements)</td></tr>')
+    P('<tr><td>Active treatment footprint</td><td>None reported; none detected in this reading</td></tr>')
+    P('<tr><td>Intervention-direction tracking</td><td>n/a \u2014 single sample; sample 2+ unlocks '
+      'direction-of-change tracking (Section K)</td></tr>')
+    P('</table></section>')
+
     # ---- L. risk context (cancer prior × family history, SOP §9.4b) ----
     if s8 is not None and getattr(s8, "risk_context", None):
         rc = s8.risk_context
