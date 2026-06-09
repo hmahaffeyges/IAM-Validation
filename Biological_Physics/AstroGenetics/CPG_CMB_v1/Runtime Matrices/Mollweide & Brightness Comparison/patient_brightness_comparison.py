@@ -170,7 +170,7 @@ class PatientBrightnessReport:
             },
             "notes": self.notes,
             "framework_anchor": (
-                "Reference: CPG Plate 1 (Cosmic Microwave Methylome). Per-class brightness "
+                "Reference: CPG Plate 1 (Cosmic Methylome Background). Per-class brightness "
                 "data from IAMAtlas REBUILD MCMC posterior, frozen 2026-04-06."
             ),
         }
@@ -542,7 +542,7 @@ def render_patient_cosmic_methylome(
     *,
     nside: int = HEALPIX_NSIDE,
 ) -> Path:
-    """Render the patient's personal 8-panel Cosmic Microwave Methylome.
+    """Render the patient's personal 8-panel Cosmic Methylome Background.
 
     Mirrors Plate 1 conventions: 4 rows × 2 columns, Mollweide projection,
     HEALPix NSIDE=128, diverging colormap centered at z=0.
@@ -566,22 +566,21 @@ def render_patient_cosmic_methylome(
         departure = report.per_class_results[cls]
         pixel_values = project_to_healpix_pixels(departure, cpg_to_pixel, nside=nside)
 
-        sub = fig.add_subplot(4, 2, i + 1)
+        sub = (4, 2, i + 1)
         hp.mollview(
             pixel_values,
             title=f"{cls.upper()}  ·  H_min={departure.h_min:.4f}  ·  mean|z|={departure.mean_abs_z:.2f}",
             cmap="RdBu_r",
             min=-3.0, max=3.0,
             unit="z-score departure (red = hyper, blue = hypo)",
-            sub=(4, 2, i + 1),
-            hold=True,
+            sub=sub,
             cbar=True,
             badcolor="black",
         )
 
     fig.suptitle(
-        f"Your Personal Cosmic Microwave Methylome — {report.patient_id}",
-        fontsize=20, color="white", style="italic", y=0.995
+        f"Your Personal Cosmic Methylome Background — {report.patient_id}",
+        fontsize=20, color="white", style="italic", y=0.93
     )
 
     out_path = Path(out_path)
