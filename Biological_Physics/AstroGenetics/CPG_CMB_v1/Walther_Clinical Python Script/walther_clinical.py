@@ -201,37 +201,98 @@ def stage_3_foreground_fork(beta_calibrated: pd.Series,
 
 
 # ---------------------------------------------------------------------------
-# Stage 6 — Cellular age inversion (consumes beta_raw, NOT cleaned_beta)
+# Stage 6 — Cellular age = PER-CELL confidence-weighted absolute departure.
+# (Retires the per-class beta inversion; class means are useless here because
+# class variance — immune especially — is large and bidirectional, so per-cell
+# departures cancel when pooled. Per-cell only.)
+#
+#   z[cell]   = (A_patient[cell] - baseline[cell]) / posterior_SD[cell]
+#   Total_Cellular_Departure = Σ over cells |z[cell]|
+#
+# baseline[cell] + posterior_SD[cell] are the hull's per-cell centroid + sqrt(diag Σ).
+# The 1/SD confidence weight is baked into z (tight-posterior cells dominate); the
+# absolute value avoids bidirectional cancellation. Consumes the Stage 4 A-scores
+# (computed on age/sex/smoking-adjusted β), NOT beta_raw — age is already removed
+# up front at Stage 3, so nothing re-adjusts for age here.
 # ---------------------------------------------------------------------------
-def stage_6_cellular_age(beta_raw: pd.Series,
-                         chronological_age: Optional[float],
-                         patient_id: Optional[str] = None,
+@dataclass
+class Stage6Output:
+    chronological_age: Optional[float]
+    total_cellular_departure: float          # Σ|z| over scored cells  (THE value)
+    n_cells_scored: int
+    null_expected_departure: float           # n * sqrt(2/π): typical-HC Σ|z| under the standardized null
+    excess_departure: float                  # total - null_expected (departure above typical)
+    per_cell: dict                           # {cell: {A, baseline, sd, ci_lo, ci_hi, z, abs_z, in_range, class}}
+    per_class_departure: dict                # {class: Σ|z| within class} — REFERENCE ONLY (not a calculation input)
+    cellular_age: Optional[float]
+    age_delta: Optional[float]
+    calibration: dict
+    status: str = "OK"
+
+
+def _load_hull_baseline(mahalanobis_ref_path):
+    """Per-cell healthy baseline (centroid) + posterior SD (sqrt diag Σ) from the hull.
+    centroid[cell] is the age-adjusted normal; centroid ± 1.96·SD is the 95% normal range."""
+    import json, numpy as np
+    ref = json.load(open(mahalanobis_ref_path))
+    feats = ref.get("feature_names_valid") or ref.get("feature_names")
+    cen = np.asarray(ref["centroid"], dtype=float)
+    sd = np.sqrt(np.clip(np.diag(np.asarray(ref["covariance_matrix"], dtype=float)), 1e-12, None))
+    return {feats[i]: (float(cen[i]), float(sd[i])) for i in range(len(feats))}
+
+
+def stage_6_cellular_age(stage4_output, chronological_age: Optional[float] = None,
                          config: Optional[dict] = None):
-    """Stage 6 per BUILD_SPEC v1.3.
+    """Stage 6 — per-cell confidence-weighted absolute departure (replaces per-class inversion).
 
-    Inverts the age-indexed baseline on the PRE-foreground beta_raw to produce
-    class-level absolute cellular ages. Returns the module's CellularAgeResult
-    (8 per-class ages, n-weighted summary_cellular_age, accelerated/decelerated/
-    concordant compartments vs chronological age, saturation flags, overall status).
-
-    CRITICAL: pass beta_raw here, never cleaned_beta -- see module docstring.
+    stage4_output : the dict from stage_4_a_score (its 'celltype_ascores' are computed on the
+                    age/sex/smoking-adjusted cleaned β). Returns a Stage6Output.
     """
+    import math
     cfg = {**DEFAULT_CONFIG, **(config or {})}
-    if not isinstance(beta_raw, pd.Series):
-        raise TypeError("beta_raw must be a pd.Series indexed by cpg_id")
+    baseline = _load_hull_baseline(cfg["mahalanobis_reference_json"])
+    ct_a = {ct: (v["A"] if isinstance(v, dict) else v)
+            for ct, v in stage4_output["celltype_ascores"].items()}
+    ct2c = stage4_output.get("celltype_to_class", {})
 
-    ca_mod = _load_module(cfg["cellular_age_module_path"], "iam_cellular_age_scoring")
-    ca = ca_mod.IAMCellularAge(
-        ref_matrix_path=str(cfg["age_reference_matrix_json"]),
-        markers_artifact_path=str(cfg["celltype_markers_json"]),
-    )
-    # score_patient consumes a {cpg_id: beta} dict, not a Series.
-    age_result = ca.score_patient(
-        beta_dict=beta_raw.to_dict(),
+    per_cell, per_class = {}, {}
+    total, n = 0.0, 0
+    for cell, (mean, sd) in baseline.items():
+        a = ct_a.get(cell)
+        if a is None:
+            continue
+        z = (a - mean) / sd
+        absz = abs(z)
+        total += absz
+        n += 1
+        cls = ct2c.get(cell)
+        per_class[cls] = per_class.get(cls, 0.0) + absz
+        lo, hi = mean - 1.96 * sd, mean + 1.96 * sd
+        per_cell[cell] = {"A": float(a), "baseline": mean, "sd": sd,
+                          "ci_lo": lo, "ci_hi": hi, "z": z, "abs_z": absz,
+                          "in_range": bool(lo <= a <= hi), "class": cls}
+
+    null_expected = n * math.sqrt(2.0 / math.pi)   # E[Σ|z|] if z ~ N(0,1): per-cell half-normal mean
+    excess = total - null_expected
+    calibration = {
+        "method": "per-cell confidence-weighted absolute departure: total = Σ|z|, "
+                  "z = (A_patient - centroid)/posterior_SD over hull cells",
+        "n_cells_scored": n,
+        "years_mapping_status": "PENDING_HC_FIT",
+        "note": "Total cellular departure and per-cell departures/ranges are fully derived from the "
+                "MCMC posterior (centroid ± 1.96·SD per cell). Mapping excess departure to a "
+                "cellular-age-in-years delta requires the one-time HC calibration (Σ|z| vs chronological "
+                "age across the healthy cohort, then inverted); that needs per-sample per-cell HC "
+                "A-scores, which are not stored in the repo (the hull keeps only centroid + covariance). "
+                "Until that fit is run, the report presents total + excess departure as the real output "
+                "and does not assert a fabricated years value.",
+    }
+    return Stage6Output(
         chronological_age=chronological_age,
-        patient_id=patient_id,
-    )
-    return age_result
+        total_cellular_departure=total, n_cells_scored=n,
+        null_expected_departure=null_expected, excess_departure=excess,
+        per_cell=per_cell, per_class_departure=per_class,
+        cellular_age=None, age_delta=None, calibration=calibration, status="OK")
 
 
 # ---------------------------------------------------------------------------
@@ -730,7 +791,7 @@ def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
     s45 = stage_4_5_bidirectional(s3.cleaned_beta, patient_id, cfg)
     s46 = stage_4_6_brightness(s3.cleaned_beta, patient_id, cfg)
     s5 = stage_5_mahalanobis(s4, cfg)
-    s6 = stage_6_cellular_age(s3.beta_raw, patient_age, patient_id, cfg)
+    s6 = stage_6_cellular_age(s4, patient_age, cfg)
     s7 = stage_7_tiers(s4, cfg)
     s8 = stage_8_dual_matching(s4, s5, s45,
                                patient_meta={"age": patient_age, "sex": patient_sex,
