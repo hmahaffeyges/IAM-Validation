@@ -59,6 +59,8 @@ _THIS_DIR = Path(__file__).resolve().parent
 CPG_ROOT = _THIS_DIR.parent  # .../AstroGenetics/CPG_CMB_v1
 
 DEFAULT_CONFIG = {
+    # Stage 0 — sample intake (L1); Step 0.1 built (IDAT arrival, SOP §11), Steps 0.2-0.9 pending
+    "stage_0_intake_module_path": CPG_ROOT / "Runtime Matrices/Stage_0_Intake/stage_0_intake.py",
     # Foreground modules (Stage 3) — age removed 2026-06-09 (per-cell A is age-stable); sex + smoking retained
     "smoking_module_path": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Smoking Axis Foreground/smoking_axis_foreground.py",
     "sex_module_path":   CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Sex Axis Foreground/sex_axis_foreground.py",
@@ -434,7 +436,12 @@ def _not_built(stage):
         f"per BUILD_SPEC v1.3. See the build spec for the remaining stage contracts."
     )
 
-def stage_0_intake(*a, **k):            _not_built("Stage 0 (intake)")
+def stage_0_intake(manifest_entry, grn_path, red_path, config=None, intake_log_path=None):
+    """SOP Stage 0 (L1) sample intake. Step 0.1 (IDAT arrival, SOP §11) built;
+    Steps 0.2-0.9 pending. Returns the per-sample intake record; advance=True gates to Stage 1."""
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    s0 = _load_module(cfg["stage_0_intake_module_path"], "stage_0_intake")
+    return s0.step_0_1_idat_arrival(manifest_entry, grn_path, red_path, intake_log_path)
 def stage_1_calibration_beta(*a, **k):  _not_built("Stage 1 (calibration & beta)")
 
 
