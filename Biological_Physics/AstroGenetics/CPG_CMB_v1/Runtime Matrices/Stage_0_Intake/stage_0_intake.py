@@ -7,6 +7,11 @@ Implemented so far:
   Step 0.3 (SOP §13) — IDAT integrity hash check (SHA-256 + re-transmission/re-run detection).
   Step 0.4 (SOP §14) — Control probe validation (BS conversion / hybridization / extension gates).
   Step 0.5 (SOP §15) — Detection p-value QC per probe (detected-fraction gate).
+  Step 0.6 (SOP §16) — Bead count QC (>= 3 beads/probe, warn-only gate).
+  Step 0.7 (SOP §17) — Sample-level call rate (detection AND bead, 0.98/0.95 gates).
+  Step 0.7b           — HM450 >= 80% reference-CpG coverage gate + platform tag (VAL-091).
+  Step 0.8 (SOP §18) — Sex check vs metadata (minfi getSex; mismatch -> quarantine).
+  Step 0.9 (SOP §19) — Stage 0 decision gate (PROCEED / PROCEED_WITH_PENALTY / QUARANTINE).
 
 Design choices flagged for review (SOP marked these "TBD per orchestrator design"):
   - Handler lives here in the Walther runtime, NOT in GAPE_WEB_v13.py (frozen demo).
@@ -614,6 +619,222 @@ def step_0_5_detection_pvalue_qc(record, probe_intensities=None,
     return record
 
 
+# ============================================================================
+# Step 0.6 (SOP §16) — Bead count QC. Per-probe bead count >= 3 (Illumina default).
+# Summary fraction; warn (not hard-fail) below 99.5% per §16. Extraction deferred.
+# ============================================================================
+BEAD_COUNT_MIN = 3
+BEAD_PASS_FRACTION = 0.995
+
+
+def validate_bead_count(bead_counts, min_beads=BEAD_COUNT_MIN) -> dict:
+    import numpy as np
+    bc = np.asarray(bead_counts)
+    n = bc.size
+    pct = float(np.mean(bc >= min_beads)) if n else 0.0
+    status = "PASS" if pct >= BEAD_PASS_FRACTION else "WARN_LOW_BEAD_COUNT"
+    return {"bead_qc": status, "pct_probes_bead_count_ge_3": round(pct, 5),
+            "n_probes": int(n), "advance": True}  # §16: warn only, no hard fail
+
+
+def step_0_6_bead_count_qc(record, bead_counts=None) -> dict:
+    flags = record.setdefault("flags", [])
+    if bead_counts is None:
+        record["bead_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"
+        flags.append("BEAD_QC_DEFERRED:no_bead_counts")
+        record["advance"] = True
+        return record
+    v = validate_bead_count(bead_counts)
+    record["bead_qc"] = v["bead_qc"]
+    record["pct_probes_bead_count_ge_3"] = v["pct_probes_bead_count_ge_3"]
+    if v["bead_qc"] != "PASS":
+        flags.append("LOW_BEAD_COUNT")
+    record["advance"] = True
+    return record
+
+
+# ============================================================================
+# Step 0.7 (SOP §17) — Sample-level call rate = fraction passing BOTH detection
+# and bead thresholds. >=0.98 proceed; 0.95-0.98 borderline (penalty); <0.95 fail.
+# ============================================================================
+CALL_RATE_PASS = 0.98
+CALL_RATE_BORDERLINE = 0.95
+
+
+def validate_call_rate(n_passing_both: int, n_total: int) -> dict:
+    cr = (n_passing_both / n_total) if n_total else 0.0
+    if cr >= CALL_RATE_PASS:
+        status, advance = "PASS", True
+    elif cr >= CALL_RATE_BORDERLINE:
+        status, advance = "CALL_RATE_BORDERLINE", True
+    else:
+        status, advance = "CALL_RATE_FAIL", False
+    return {"call_rate": round(cr, 5), "call_rate_status": status, "advance": advance}
+
+
+def step_0_7_call_rate(record, detection_pass_mask=None, bead_pass_mask=None) -> dict:
+    flags = record.setdefault("flags", [])
+    if detection_pass_mask is None or bead_pass_mask is None:
+        record["call_rate"] = None
+        record["call_rate_status"] = "DEFERRED_PENDING_STAGE1_DECODER"
+        flags.append("CALL_RATE_DEFERRED:no_probe_masks")
+        record["advance"] = True
+        return record
+    import numpy as np
+    dpm = np.asarray(detection_pass_mask, dtype=bool)
+    bpm = np.asarray(bead_pass_mask, dtype=bool)
+    v = validate_call_rate(int(np.sum(dpm & bpm)), int(dpm.size))
+    record["call_rate"] = v["call_rate"]
+    record["call_rate_status"] = v["call_rate_status"]
+    if v["call_rate_status"] == "CALL_RATE_BORDERLINE":
+        flags.append("CALL_RATE_BORDERLINE")
+    elif v["call_rate_status"] == "CALL_RATE_FAIL":
+        flags.append("CALL_RATE_FAIL")
+    record["advance"] = v["advance"]
+    return record
+
+
+# ============================================================================
+# Step 0.7b — HM450 >=80% reference-CpG coverage gate + platform tagging (VAL-091).
+# Platform tag always stamped; on 450K, HARD-fail below 80% reference coverage.
+# ============================================================================
+HM450_COVERAGE_MIN = 0.80
+
+
+def step_0_7b_platform_coverage(record, reference_cpg_coverage=None) -> dict:
+    flags = record.setdefault("flags", [])
+    array_type = record.get("array_type") or ""
+    platform = "450K" if "450" in array_type else "EPIC"
+    record["platform_tag"] = platform
+    if platform != "450K":
+        record["hm450_coverage_gate"] = "NA_EPIC"
+        record["advance"] = True
+        return record
+    if reference_cpg_coverage is None:
+        record["hm450_coverage_gate"] = "DEFERRED_PENDING_STAGE1_DECODER"
+        flags.append("HM450_COVERAGE_DEFERRED:no_beta_coverage")
+        record["advance"] = True
+        return record
+    record["hm450_reference_coverage"] = round(reference_cpg_coverage, 4)
+    if reference_cpg_coverage < HM450_COVERAGE_MIN:
+        flags.append("HM450_COVERAGE_FAIL")
+        record["hm450_coverage_gate"] = "FAIL"
+        record["advance"] = False
+    else:
+        record["hm450_coverage_gate"] = "PASS"
+        record["advance"] = True
+    return record
+
+
+# ============================================================================
+# Step 0.8 (SOP §18) — Sex check vs metadata. minfi getSex: predicted F if
+# (log2_Y_median - log2_X_median) < -2 else M. Mismatch -> quarantine (never silently fixed).
+# ============================================================================
+SEX_GETSEX_CUTOFF = -2.0
+
+
+def predict_sex(log2_x_median, log2_y_median, cutoff=SEX_GETSEX_CUTOFF) -> str:
+    return "F" if (log2_y_median - log2_x_median) < cutoff else "M"
+
+
+def validate_sex(log2_x_median, log2_y_median, declared_sex) -> dict:
+    pred = predict_sex(log2_x_median, log2_y_median)
+    declared = (declared_sex or "").strip().upper()[:1]
+    match = declared in ("F", "M") and pred == declared
+    return {"predicted_sex": pred, "sex_check": "PASS" if match else "MISMATCH", "advance": match}
+
+
+def step_0_8_sex_check(record, sex_intensities=None) -> dict:
+    flags = record.setdefault("flags", [])
+    if sex_intensities is None:
+        record["sex_check"] = "DEFERRED_PENDING_STAGE1_DECODER"
+        flags.append("SEX_CHECK_DEFERRED:no_chrXY_intensities")
+        record["advance"] = True
+        return record
+    v = validate_sex(sex_intensities["log2_x_median"], sex_intensities["log2_y_median"],
+                     record.get("declared_sex"))
+    record["predicted_sex"] = v["predicted_sex"]
+    record["sex_check"] = v["sex_check"]
+    if v["sex_check"] == "MISMATCH":
+        flags.append("SEX_MISMATCH")
+    record["advance"] = v["advance"]
+    return record
+
+
+# ============================================================================
+# Step 0.9 (SOP §19) — Stage 0 decision gate. Consolidate all QC into
+# PROCEED / PROCEED_WITH_PENALTY / QUARANTINE. Hard FAIL -> quarantine; borderline/warn
+# -> proceed with penalty; deferred QC (pending Stage 1 decoder) noted, non-blocking.
+# ============================================================================
+
+def step_0_9_decision_gate(record, verdict_log_path=None) -> dict:
+    flags = record.setdefault("flags", [])
+    hard_fail, borderline, deferred = [], [], []
+
+    if record.get("integrity_status") and record.get("integrity_status") != "INTEGRITY_OK":
+        hard_fail.append("integrity")
+
+    cq = record.get("ctrl_qc", "") or ""
+    if cq.startswith("FAIL"):
+        hard_fail.append("ctrl_qc")
+    elif cq.startswith("DEFERRED"):
+        deferred.append("ctrl_qc")
+
+    dq = record.get("detection_qc", "") or ""
+    if dq == "FAIL_LOW_DETECTION":
+        hard_fail.append("detection")
+    elif dq == "DETECTION_BORDERLINE":
+        borderline.append("detection")
+    elif dq.startswith("DEFERRED"):
+        deferred.append("detection")
+
+    bq = record.get("bead_qc", "") or ""
+    if bq.startswith("WARN"):
+        borderline.append("bead")
+    elif bq.startswith("DEFERRED"):
+        deferred.append("bead")
+
+    crs = record.get("call_rate_status", "") or ""
+    if crs == "CALL_RATE_FAIL":
+        hard_fail.append("call_rate")
+    elif crs == "CALL_RATE_BORDERLINE":
+        borderline.append("call_rate")
+    elif crs.startswith("DEFERRED"):
+        deferred.append("call_rate")
+
+    hg = record.get("hm450_coverage_gate", "") or ""
+    if hg == "FAIL":
+        hard_fail.append("hm450_coverage")
+    elif hg.startswith("DEFERRED"):
+        deferred.append("hm450_coverage")
+
+    sc = record.get("sex_check", "") or ""
+    if sc == "MISMATCH":
+        hard_fail.append("sex")
+    elif sc.startswith("DEFERRED"):
+        deferred.append("sex")
+
+    if hard_fail:
+        verdict, advance = "QUARANTINE", False
+    elif borderline:
+        verdict, advance = "PROCEED_WITH_PENALTY", True
+    else:
+        verdict, advance = "PROCEED", True
+
+    record["stage0_verdict"] = verdict
+    record["stage0_hard_fail"] = hard_fail
+    record["stage0_borderline"] = borderline
+    record["stage0_deferred_qc"] = deferred
+    record["advance"] = advance
+    if verdict_log_path:
+        _log_integrity(verdict_log_path, {
+            "sample_run_id": record.get("sample_run_id"), "sentrix_id": record.get("sentrix_id"),
+            "stage0_verdict": verdict, "hard_fail": hard_fail,
+            "borderline": borderline, "deferred": deferred,
+        })
+    return record
+
+
 if __name__ == "__main__":
     # Self-test: manifest-validation branches (no real IDATs needed).
     good = {
@@ -720,4 +941,44 @@ if __name__ == "__main__":
     assert r5["detection_qc"] == "DEFERRED_PENDING_STAGE1_DECODER" and r5["advance"]
 
     print("Step 0.5 self-test: PASS (detection-p PASS/BORDERLINE/FAIL gates + deferred marker)")
-    print("  NOTE: IDAT size/array-type/duplicate + control-probe + detection-p extraction need real IDATs (Stage 1 decoder).")
+
+    # Step 0.6: bead count.
+    assert validate_bead_count([5] * 1000)["bead_qc"] == "PASS"
+    assert validate_bead_count([5] * 990 + [1] * 10)["bead_qc"] == "WARN_LOW_BEAD_COUNT"
+
+    # Step 0.7: call rate from detection + bead masks.
+    dpm = [True] * 990 + [False] * 10
+    bpm = [True] * 1000
+    assert validate_call_rate(sum(1 for a, b in zip(dpm, bpm) if a and b), 1000)["call_rate_status"] == "PASS"
+    assert validate_call_rate(960, 1000)["call_rate_status"] == "CALL_RATE_BORDERLINE"
+    assert validate_call_rate(900, 1000)["call_rate_status"] == "CALL_RATE_FAIL"
+
+    # Step 0.7b: platform tag + 450K coverage gate.
+    assert step_0_7b_platform_coverage({"array_type": "EPIC_v1", "flags": []})["platform_tag"] == "EPIC"
+    r7b = step_0_7b_platform_coverage({"array_type": "HM450K", "flags": []}, reference_cpg_coverage=0.72)
+    assert r7b["hm450_coverage_gate"] == "FAIL" and not r7b["advance"]
+    assert step_0_7b_platform_coverage({"array_type": "HM450K", "flags": []}, reference_cpg_coverage=0.91)["hm450_coverage_gate"] == "PASS"
+
+    # Step 0.8: sex check (minfi getSex boundary).
+    assert validate_sex(11.0, 12.5, "M")["sex_check"] == "PASS"        # Y-X = +1.5 -> M
+    assert validate_sex(12.5, 8.0, "F")["sex_check"] == "PASS"         # Y-X = -4.5 -> F
+    assert validate_sex(11.0, 12.5, "F")["sex_check"] == "MISMATCH"    # predicted M, declared F
+
+    # Step 0.9: decision gate over a record.
+    clean = {"integrity_status": "INTEGRITY_OK", "ctrl_qc": "PASS", "detection_qc": "PASS",
+             "bead_qc": "PASS", "call_rate_status": "PASS", "hm450_coverage_gate": "NA_EPIC",
+             "sex_check": "PASS", "flags": []}
+    assert step_0_9_decision_gate(dict(clean))["stage0_verdict"] == "PROCEED"
+    pen = dict(clean, detection_qc="DETECTION_BORDERLINE")
+    assert step_0_9_decision_gate(pen)["stage0_verdict"] == "PROCEED_WITH_PENALTY"
+    fail = dict(clean, sex_check="MISMATCH")
+    g = step_0_9_decision_gate(fail)
+    assert g["stage0_verdict"] == "QUARANTINE" and not g["advance"] and "sex" in g["stage0_hard_fail"]
+    deferred = {"integrity_status": "INTEGRITY_OK", "ctrl_qc": "DEFERRED_PENDING_STAGE1_DECODER",
+                "detection_qc": "DEFERRED_PENDING_STAGE1_DECODER", "flags": []}
+    gd = step_0_9_decision_gate(deferred)
+    assert gd["stage0_verdict"] == "PROCEED" and set(gd["stage0_deferred_qc"]) >= {"ctrl_qc", "detection"}
+
+    print("Step 0.6-0.9 self-tests: PASS (bead / call-rate / platform-coverage / sex / decision gate)")
+    print("  NOTE: all intensity-dependent extraction (control, detection, bead, call-rate, sex, 450K coverage)")
+    print("        is deferred to the shared Stage 1 IDAT decoder; the decision gate marks those deferred QCs honestly.")

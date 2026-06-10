@@ -439,28 +439,48 @@ def _not_built(stage):
 def stage_0_intake(manifest_entry, grn_path, red_path, questionnaire_answers=None,
                    config=None, intake_log_path=None, manifest_dir=None,
                    integrity_log_path=None, control_summary=None,
-                   probe_intensities=None, neg_control_stats=None):
-    """SOP Stage 0 (L1) sample intake. Steps 0.1-0.5 built; Steps 0.6-0.9 pending.
-    Runs 0.1 -> 0.2 -> 0.3 -> 0.4 -> 0.5 in sequence, stopping at the first gate that
-    does not advance. control_summary feeds 0.4; probe_intensities + neg_control_stats
-    feed 0.5; when absent those steps mark their QC deferred (extraction needs the
-    Stage 1 IDAT decoder). Returns the per-sample record, or the quarantine/hold result
-    of whichever step halted."""
+                   probe_intensities=None, neg_control_stats=None,
+                   bead_counts=None, detection_pass_mask=None, bead_pass_mask=None,
+                   reference_cpg_coverage=None, sex_intensities=None,
+                   verdict_log_path=None):
+    """SOP Stage 0 (L1) sample intake — COMPLETE (Steps 0.1-0.9). Runs
+    0.1 -> 0.2 -> 0.3 -> 0.4 -> 0.5 -> 0.6 -> 0.7 -> 0.7b -> 0.8 -> 0.9, stopping at the
+    first gate that does not advance, and ends on the §19 decision gate
+    (PROCEED / PROCEED_WITH_PENALTY / QUARANTINE). The intensity-dependent inputs
+    (control_summary, probe_intensities + neg_control_stats, bead_counts, the detection/
+    bead pass masks, reference_cpg_coverage, sex_intensities) come from the shared Stage 1
+    IDAT decoder; when absent, those steps mark their QC deferred and 0.9 records the
+    deferred set honestly rather than asserting a clean pass."""
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     s0 = _load_module(cfg["stage_0_intake_module_path"], "stage_0_intake")
-    r1 = s0.step_0_1_idat_arrival(manifest_entry, grn_path, red_path, intake_log_path)
-    if not r1.get("advance"):
-        return r1
-    r2 = s0.step_0_2_manifest_creation(r1, questionnaire_answers, manifest_dir)
-    if not r2.get("advance"):
-        return r2
-    r3 = s0.step_0_3_integrity_hash(r2, grn_path, red_path, integrity_log_path)
-    if not r3.get("advance"):
-        return r3
-    r4 = s0.step_0_4_control_probe_validation(r3, grn_path, red_path, control_summary)
-    if not r4.get("advance"):
-        return r4
-    return s0.step_0_5_detection_pvalue_qc(r4, probe_intensities, neg_control_stats)
+    r = s0.step_0_1_idat_arrival(manifest_entry, grn_path, red_path, intake_log_path)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_2_manifest_creation(r, questionnaire_answers, manifest_dir)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_3_integrity_hash(r, grn_path, red_path, integrity_log_path)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_4_control_probe_validation(r, grn_path, red_path, control_summary)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_5_detection_pvalue_qc(r, probe_intensities, neg_control_stats)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_6_bead_count_qc(r, bead_counts)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_7_call_rate(r, detection_pass_mask, bead_pass_mask)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_7b_platform_coverage(r, reference_cpg_coverage)
+    if not r.get("advance"):
+        return r
+    r = s0.step_0_8_sex_check(r, sex_intensities)
+    if not r.get("advance"):
+        return r
+    return s0.step_0_9_decision_gate(r, verdict_log_path)
 def stage_1_calibration_beta(*a, **k):  _not_built("Stage 1 (calibration & beta)")
 
 
@@ -869,4 +889,4 @@ if __name__ == "__main__":
     print("Stage 3 forks beta_raw (-> Stage 6) and cleaned_beta (-> Stages 4/4.5/4.6/5).")
     print("Stage 4 = A-scores (8 class + 115 cell type); 4.5 = bidirectional; 4.6 = brightness;")
     print("Stage 5 = Mahalanobis on the 115 cell-type A-scores; Stage 6 = cellular age on beta_raw.")
-    print("Stages 0-2, 7-10 raise NotImplementedError by design.")
+    print("Stage 0 intake QC (Steps 0.1-0.9) now complete; Stages 1 and 10 remain stubs.")
