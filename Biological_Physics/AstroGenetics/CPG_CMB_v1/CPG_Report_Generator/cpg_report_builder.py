@@ -569,9 +569,9 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
                 conv.append(f'the cells driving the distance are <b>{_esc(", ".join(n for n in names if n))}</b>')
         P('<p>' + ('; '.join(conv) if conv else 'No convergent pattern surfaced.') +
           '. The cell ranking (C.2), the Mahalanobis decomposition (E), the Personal Brilliance Map (F) and '
-          'the disease matrix (H.2) are four views of the same per-cell departure data — where they converge, '
+          'the disease matrix (H.2), and the immune universal-alarm axis (H.5b) are five converging views of the same departure signal — where they converge, '
           'the pattern is real.</p>')
-        # H.5b immune universal-alarm axis (per-disease direction)
+        # H.5b immune universal-alarm axis -- wired to the patient's measured immune direction
         _icp = (Path(__file__).resolve().parents[1] /
                 "Runtime Matrices/Literature_anchors_Report building/literature_anchors_v2_1.json")
         try:
@@ -581,21 +581,70 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
             _icat = {}
         _icat = {k: v for k, v in _icat.items() if not k.startswith("_") and isinstance(v, dict)}
         if _icat:
-            P('<h4>H.5b Immune universal-alarm axis &mdash; cross-disease reference</h4>')
-            P('<p class="muted">For every disease the framework predicts which way the immune class moves. '
-              'Cancers elevate toward the ceiling; colorectal and Alzheimer\u2019s suppress toward the floor. '
-              'That direction is what separates proliferative failure from degenerative failure &mdash; the same '
-              'per-cell axis your own report is scored on. <b>Validated</b> rows are sealed VAL results; '
-              '<b>predicted</b> rows are framework expectations not yet validated.</p>')
+            def _axisdir(s):
+                s = str(s).lower()
+                if "positive" in s: return "up"
+                if "negative" in s: return "down"
+                return "mixed"
+            _imm = (getattr(s45, "per_class_results", {}) or {}).get("immune") if s45 is not None else None
+            _pdir, _pcomp, _pinterp, _pcov = None, None, "", True
+            if _imm is not None:
+                _pcomp = getattr(_imm, "a_directional_composite", None)
+                _pinterp = str(getattr(_imm, "interpretation", "") or "")
+                if getattr(_imm, "flag_insufficient_coverage", False): _pcov = False
+                _il = _pinterp.lower()
+                # The panel reports a signed directional composite ("disease-direction" /
+                # "anti-disease-direction"); the bridge to the catalog's elevation/suppression
+                # axis is a sign convention not yet confirmed. Do NOT auto-classify direction
+                # (a backwards map would flip every convergence call). _pdir stays None until
+                # the convention is confirmed; the measured signal is shown verbatim below.
+                _pdir = None
+            P('<h4>H.5b Immune universal-alarm axis &mdash; your signal against the cross-disease map</h4>')
+            if _imm is not None and _pcov and _pcomp is not None:
+                P(f'<p>Your measured immune signal (sealed immune panel): directional composite '
+                  f'<b>{_pcomp:+.3f}</b>. {_esc(_pinterp)}</p>')
+            else:
+                P('<p class="muted">The sealed immune panel did not return a confident direction for this sample, '
+                  'so the table below is shown as cross-disease reference only.</p>')
+            P('<p class="muted">Cancers elevate the immune class toward the ceiling; colorectal and '
+              'Alzheimer\u2019s suppress it toward the floor. <b>Validated</b> rows are sealed VAL results; '
+              '<b>predicted</b> rows are framework expectations not yet validated. The final column marks where a '
+              'disease\u2019s expected direction matches your measured immune direction &mdash; a fifth view that '
+              'converges with the disease matrix (H.2) when a pattern is real. Automatic per-disease matching '
+              'appears once the panel\u2019s directional sign convention is confirmed; until then this is a '
+              'reference map and your measured signal is shown above.</p>')
             P('<table class="kv"><tr><th>Disease</th><th>Immune direction</th>'
-              '<th>Expected magnitude</th><th>Status</th></tr>')
+              '<th>Expected magnitude</th><th>Status</th><th>Matches your signal</th></tr>')
             for _dz, _v in _icat.items():
                 _val = bool(_v.get("validated"))
-                _dir = _esc(str(_v.get("expected_direction", "")))
-                _mag = _esc(str(_v.get("expected_magnitude_d", ""))[:110])
+                _cdir = _axisdir(_v.get("expected_direction", ""))
+                _match = "&#10003;" if (_pdir and _cdir == _pdir) else ("&mdash;" if _pdir else "&middot;")
                 _st = "Validated" if _val else "<i>Predicted / pending</i>"
-                P(f'<tr><td>{_esc(_dz)}</td><td>{_dir}</td><td>{_mag or "\u2014"}</td><td>{_st}</td></tr>')
+                P(f'<tr><td>{_esc(_dz)}</td><td>{_esc(str(_v.get("expected_direction","")))}</td>'
+                  f'<td>{_esc(str(_v.get("expected_magnitude_d",""))[:110]) or "\u2014"}</td>'
+                  f'<td>{_st}</td><td style="text-align:center">{_match}</td></tr>')
             P('</table>')
+            if _pdir and rb:
+                _alias = {"breast_cancer":"Breast cancer","colorectal_cancer":"Colorectal cancer",
+                  "alzheimers_disease":"Alzheimer's disease","lung_cancer":"Lung cancer (NSCLC)",
+                  "prostate_cancer":"Prostate cancer","hcc":"Hepatocellular carcinoma",
+                  "pancreatic_cancer":"Pancreatic cancer","gastric_cancer":"Gastric cancer",
+                  "bladder_cancer":"Bladder cancer","cervical_cancer":"Cervical cancer",
+                  "kidney_cancer":"Kidney cancer (RCC)","glioma_gbm":"Glioma / GBM / LGG",
+                  "glioma_lgg":"Glioma / GBM / LGG"}
+                _top = str(rb[0].get("disease", ""))
+                _cn = _alias.get(_top)
+                if _cn and _cn in _icat:
+                    _tdir = _axisdir(_icat[_cn].get("expected_direction", ""))
+                    if _tdir in ("up", "down"):
+                        if _tdir == _pdir:
+                            P(f'<p><b>Convergence:</b> the disease-matrix top match ({_esc(_top)}) expects an immune '
+                              f'direction that agrees with your measured immune signal &mdash; the universal-alarm axis '
+                              f'and the disease matrix point the same way.</p>')
+                        else:
+                            P(f'<p><b>Discordance flag:</b> the disease-matrix top match ({_esc(_top)}) expects the '
+                              f'opposite immune direction from your measured signal &mdash; the channels do not converge '
+                              f'here, which argues against a real pattern.</p>')
 
     P('</section>')
 
