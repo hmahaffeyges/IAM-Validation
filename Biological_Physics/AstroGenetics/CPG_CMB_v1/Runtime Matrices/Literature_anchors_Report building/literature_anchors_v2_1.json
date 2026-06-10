@@ -938,6 +938,16 @@
       }
     },
     "gastric_cancer": {
+      "stad_tumor_architecture": {
+        "d": 3.343,
+        "note": "vs anchor; subtype hierarchy MSI \u2248 EBV > CIN > GS within cohort",
+        "cohort": "TCGA-STAD",
+        "source": "VAL-126"
+      },
+      "substrate_baseline_caveat": {
+        "note": "CHK-3.2 tier-3 substrate baseline -5.02 anchor-SD",
+        "source": "VAL-126"
+      },
       "stad_phase_c_within_cohort": {
         "d": 3.34,
         "source": "VAL-126 TCGA-STAD Phase C"
@@ -964,6 +974,25 @@
       "substrate_caveat": "CHK-3.2 tier_3 detected (\u22124.31 anchor-SD); within-cohort subtype + Barrett's contrasts are immune to baseline shift"
     },
     "cervical_cancer": {
+      "_note": "Validated on tissue; cohort heterogeneity flagged per CCL-019.",
+      "verlaat_cin_progression": {
+        "d": 0.7253,
+        "pattern": "monotonic Normal < CIN3 < SCC",
+        "source": "VAL-073"
+      },
+      "hpv_neg_normals": {
+        "d": -0.61,
+        "source": "VAL-074"
+      },
+      "cohort_heterogeneity": {
+        "d": -0.43,
+        "note": "per CCL-019",
+        "source": "VAL-081"
+      },
+      "landscape_survey": {
+        "note": "cervical landscape survey",
+        "source": "VAL-071"
+      },
       "wid_cin_cohort": {
         "n": 2254,
         "A_CIN2": 1.015,
@@ -1045,6 +1074,22 @@
       "anchors": "VAL-058, VAL-117, VAL-118"
     },
     "bladder_cancer": {
+      "tumor_paired": {
+        "paired_d": 1.9,
+        "note": "3.8x louder than prostate",
+        "source": "VAL-120"
+      },
+      "bladderref_epithelial": {
+        "d": -1.46,
+        "source": "VAL-121"
+      },
+      "salas_idol_immune": {
+        "note": "6/6 immune cell types positive",
+        "source": "VAL-122"
+      },
+      "bladderref_calibration": {
+        "source": "VAL-119"
+      },
       "stage1_universal_immune_panel": {
         "source": "VAL-120"
       },
@@ -1069,6 +1114,26 @@
       "coverage": "AML, CML, B-ALL, T-ALL, CLL, MDS, MPN, DLBCL, thymoma, multiple myeloma"
     },
     "cardiovascular": {
+      "_note": "Cardiovascular landscape: PAH, aortic dissection/BAV, ischemic stroke (extensible to CHD/HF/HHD).",
+      "pah": {
+        "pec_d": 0.65,
+        "caggiano_heart_d": 1.42,
+        "cohort": "GSE84395 cultured PECs n=39",
+        "source": "VAL-109"
+      },
+      "aortic_dissection_bav": {
+        "bav_dilation_d": 1.08,
+        "dissection_d": 0.56,
+        "caggiano_fibroblast_d": 2.1,
+        "cohort": "GSE84274",
+        "source": "VAL-110"
+      },
+      "ischemic_stroke": {
+        "max_abs_d": 0.167,
+        "note": "convergent NULL across 3 TOAST subtypes; max|d|=0.19 run-everything",
+        "cohort": "GSE69138",
+        "source": "VAL-108"
+      },
       "ischemic_stroke_3subtype_O3_biology_correct_null": {
         "source": "VAL-108 GSE69138 \u2014 whole blood does not stratify ischemic stroke etiology; biology-correct null"
       },
