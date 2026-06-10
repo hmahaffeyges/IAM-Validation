@@ -2,17 +2,17 @@
 
 Built against CPG_Chain_of_Custody_SOP_v1_3.md §20-§27.
 
-ARCHITECTURE NOTE (awaiting sign-off):
-  Stage 1 wraps the standard methylation stack. The SOP names minfi/methylprep for
-  IDAT decoding (1.1), noob dye-bias, funnorm probe-type normalization (1.2), and
-  sva::ComBat batch correction (1.3). This module wraps them rather than reimplementing
-  validated tools. The IDAT decoder here is the SHARED decoder that also feeds Stage 0's
-  deferred QC (control probes, detection-p, bead counts, chrX/Y intensities).
+ARCHITECTURE (decided 2026-06-10):
+  Stage 1 wraps the standard methylation stack (methylprep) for IDAT decoding (1.1) +
+  per-sample noob normalization, rather than reimplementing validated tools. The IDAT
+  decoder here is the SHARED decoder that also feeds Stage 0's deferred QC (control probes,
+  detection-p, bead counts, chrX/Y intensities). Normalization = noob (see NORMALIZATION_METHOD
+  for the rationale). ComBat (1.3) is a SKIP for single-patient deployment (single batch);
+  it exists in the SOP only for multi-sample runs.
 
-  Two decisions await sign-off:
-    (1) Wrap the standard stack (recommended) vs reimplement from scratch.
-    (2) Production normalization: funnorm (SOP default, minfi/R dependency) vs noob
-        (methylprep, pure Python). Set NORMALIZATION_METHOD accordingly.
+  Standing principle: H_min is DERIVED (IAMAtlas REBUILD MCMC + first principles), so the
+  A-score floor is an absolute constant. There is NO cohort calibration and NO cross-cohort
+  scale-shift step anywhere in this stage. The normalizer only produces clean patient beta.
 
 Implemented now (IAM-native, dependency-free, tested):
   Step 1.4 (§23) — bisulfite-conversion efficiency check (reuses Stage 0 §14 controls).
@@ -31,7 +31,18 @@ import json
 import os
 
 BETA_STABILIZATION_OFFSET = 100        # SOP §24: beta = M / (M + U + 100)
-NORMALIZATION_METHOD = "funnorm"        # SOP default (minfi); see architecture note re: noob
+# DECISION (2026-06-10, Heath-delegated): noob, NOT the SOP's funnorm default.
+# Chosen purely on clinical-product merits. NOT for any cohort-calibration reason: the
+# framework DERIVES H_min from the IAMAtlas REBUILD MCMC posteriors + first principles, so
+# the A-score floor is an absolute derived constant and there is NO cross-cohort scale-shift
+# problem to solve here. The normalizer only has to produce clean, reproducible patient beta:
+#   - Per-sample deterministic. noob normalizes each sample from its own in-array controls,
+#     so the same IDAT always yields the same beta + A-score regardless of what runs
+#     alongside it. funnorm learns technical PCs across a sample BATCH -> batch-dependent,
+#     non-reproducible per sample. Unacceptable for a clinical product.
+#   - Lighter touch preserves the bimodality the entropy A-score reads against the floor.
+#   - Pure Python (methylprep), no R/Bioconductor dependency — simpler, containerizable.
+NORMALIZATION_METHOD = "noob"
 BS_PASS = 0.98
 BS_BORDERLINE = 0.95
 
