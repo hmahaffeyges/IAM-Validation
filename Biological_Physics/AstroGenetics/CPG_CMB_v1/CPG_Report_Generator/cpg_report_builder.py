@@ -620,7 +620,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
                 _cdir = _axisdir(_v.get("expected_direction", ""))
                 _match = "&#10003;" if (_pdir and _cdir == _pdir) else ("&mdash;" if _pdir else "&middot;")
                 _st = "Validated" if _val else "<i>Predicted / pending</i>"
-                P(f'<tr><td>{_esc(_dz)}</td><td>{_esc(str(_v.get("expected_direction","")))}</td>'
+                P(f'<tr><td>{_esc(_dz)}</td><td>{_esc(str(_v.get("direction") or _v.get("expected_direction","")))}</td>'
                   f'<td>{_esc(str(_v.get("expected_magnitude_d",""))[:110]) or "\u2014"}</td>'
                   f'<td>{_st}</td><td style="text-align:center">{_match}</td></tr>')
             P('</table>')
