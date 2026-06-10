@@ -4,6 +4,7 @@ Built one step at a time against CPG_Chain_of_Custody_SOP_v1_3.md.
 Implemented so far:
   Step 0.1 (SOP §11) — IDAT file arrival on server.
   Step 0.2 (SOP §12) — Sample manifest creation (patient_manifest.json + covariates).
+  Step 0.3 (SOP §13) — IDAT integrity hash check (SHA-256 + re-transmission/re-run detection).
 
 Design choices flagged for review (SOP marked these "TBD per orchestrator design"):
   - Handler lives here in the Walther runtime, NOT in GAPE_WEB_v13.py (frozen demo).
@@ -17,6 +18,7 @@ No math in this stage. Pure I/O + metadata + decision gate.
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 import struct
 import uuid
@@ -373,6 +375,83 @@ def step_0_2_manifest_creation(step_0_1_result: dict,
     return record
 
 
+# ============================================================================
+# Step 0.3 (SOP §13) — IDAT integrity hash check
+# SHA-256 both IDATs; compare against prior intake of the same Sentrix ID;
+# register in the integrity log; stamp INTEGRITY_OK and gate to 0.4.
+# ============================================================================
+
+def _sha256_file(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _prior_hashes_for_sentrix(integrity_log_path, sentrix_id) -> list:
+    """(grn_sha, red_sha) from prior integrity-log rows for this Sentrix ID."""
+    out = []
+    if not integrity_log_path or not os.path.isfile(integrity_log_path):
+        return out
+    with open(integrity_log_path) as f:
+        for line in f:
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if row.get("sentrix_id") == sentrix_id:
+                out.append((row.get("grn_sha256"), row.get("red_sha256")))
+    return out
+
+
+def _log_integrity(integrity_log_path, row) -> None:
+    if not integrity_log_path:
+        return
+    os.makedirs(os.path.dirname(integrity_log_path), exist_ok=True)
+    with open(integrity_log_path, "a") as f:
+        f.write(json.dumps(row) + "\n")
+
+
+def step_0_3_integrity_hash(record: dict, grn_path: str, red_path: str,
+                            integrity_log_path: str | None = None) -> dict:
+    """SOP §13. SHA-256 both IDATs, compare to prior intakes of the same Sentrix ID,
+    register in the integrity log, stamp integrity_status, gate to 0.4.
+
+    Decision (per §13):
+      - no prior record           -> INTEGRITY_OK, advance
+      - identical hashes to prior  -> RE_TRANSMISSION_DETECTED, HOLD for operator
+      - same Sentrix, diff hashes  -> LIKELY_RE_RUN_FRESH_ARRAY, advance (new run id)
+    """
+    flags = record.setdefault("flags", [])
+    grn_sha = _sha256_file(grn_path)
+    red_sha = _sha256_file(red_path)
+    record["grn_sha256"] = grn_sha
+    record["red_sha256"] = red_sha
+    sentrix = record.get("sentrix_id")
+
+    prior = _prior_hashes_for_sentrix(integrity_log_path, sentrix)
+    prior_match = (grn_sha, red_sha) in prior
+
+    if prior_match:
+        flags.append("RE_TRANSMISSION_DETECTED")
+        record["integrity_status"] = "RE_TRANSMISSION_DETECTED"
+        record["advance"] = False
+    else:
+        if prior:
+            flags.append("LIKELY_RE_RUN_FRESH_ARRAY")
+        record["integrity_status"] = "INTEGRITY_OK"
+        record["advance"] = True
+
+    _log_integrity(integrity_log_path, {
+        "sentrix_id": sentrix,
+        "intake_timestamp": record.get("intake_timestamp"),
+        "grn_sha256": grn_sha, "red_sha256": red_sha,
+        "prior_hash_match": prior_match,
+    })
+    return record
+
+
 if __name__ == "__main__":
     # Self-test: manifest-validation branches (no real IDATs needed).
     good = {
@@ -417,4 +496,25 @@ if __name__ == "__main__":
     assert any("CLEARTEXT_PII" in f for f in cleartext["flags"])
 
     print("Step 0.2 self-test: PASS (manifest build, covariate derivation, PII gate)")
+
+    # Step 0.3: integrity hashing + re-transmission / re-run detection.
+    import tempfile
+    _d = tempfile.mkdtemp()
+    _g = os.path.join(_d, "g.idat"); _r = os.path.join(_d, "r.idat")
+    open(_g, "wb").write(b"GREEN-BYTES"); open(_r, "wb").write(b"RED-BYTES")
+    _log = os.path.join(_d, "integrity.log")
+    base = {"sentrix_id": "200123456789_R01C01", "intake_timestamp": "2026-06-10T14:22:00+00:00", "flags": []}
+    r3a = step_0_3_integrity_hash(dict(base), _g, _r, _log)
+    assert r3a["integrity_status"] == "INTEGRITY_OK" and r3a["advance"], r3a
+    assert len(r3a["grn_sha256"]) == 64
+    # identical bytes re-arrive -> re-transmission, HOLD.
+    r3b = step_0_3_integrity_hash(dict(base), _g, _r, _log)
+    assert r3b["integrity_status"] == "RE_TRANSMISSION_DETECTED" and not r3b["advance"], r3b
+    # same Sentrix, different bytes -> fresh-array re-run, advance.
+    open(_g, "wb").write(b"GREEN-BYTES-RERUN")
+    r3c = step_0_3_integrity_hash(dict(base), _g, _r, _log)
+    assert r3c["integrity_status"] == "INTEGRITY_OK" and r3c["advance"]
+    assert any("LIKELY_RE_RUN_FRESH_ARRAY" in f for f in r3c["flags"]), r3c
+
+    print("Step 0.3 self-test: PASS (sha256 + re-transmission + fresh-array re-run gates)")
     print("  NOTE: IDAT size/array-type/duplicate gates require real IDAT files to exercise.")
