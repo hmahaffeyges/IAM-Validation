@@ -5,6 +5,7 @@ Implemented so far:
   Step 0.1 (SOP §11) — IDAT file arrival on server.
   Step 0.2 (SOP §12) — Sample manifest creation (patient_manifest.json + covariates).
   Step 0.3 (SOP §13) — IDAT integrity hash check (SHA-256 + re-transmission/re-run detection).
+  Step 0.4 (SOP §14) — Control probe validation (BS conversion / hybridization / extension gates).
 
 Design choices flagged for review (SOP marked these "TBD per orchestrator design"):
   - Handler lives here in the Walther runtime, NOT in GAPE_WEB_v13.py (frozen demo).
@@ -452,6 +453,89 @@ def step_0_3_integrity_hash(record: dict, grn_path: str, red_path: str,
     return record
 
 
+# ============================================================================
+# Step 0.4 (SOP §14) — Control probe validation
+# Validation LOGIC + gates built here and fully testable. Control-probe INTENSITY
+# EXTRACTION from the IDAT pair is deferred to the shared IDAT decoder (Stage 1,
+# methylprep / illumina-idat-reader) rather than duplicated. When no control
+# summary and no decoder are available, the step marks CTRL_QC DEFERRED and
+# advances (honest gap marker) instead of fabricating a pass.
+#
+# Thresholds: BS conversion 0.95 is the SOP §14 explicit value. The hybridization
+# and extension thresholds are provisional and must be confirmed against the
+# Illumina control-probe specification.
+# ============================================================================
+
+BS_CONVERSION_MIN = 0.95               # SOP §14 explicit
+HYB_HIGH_LOW_MIN_RATIO = 2.0           # provisional — confirm vs Illumina control spec
+EXTENSION_BALANCE_RANGE = (0.2, 5.0)   # provisional meth/unmeth ratio sanity band
+
+
+def extract_control_probes(grn_path, red_path, array_type):
+    """Extract Illumina control-probe intensities grouped by control class from the
+    IDAT pair. DEFERRED: backed by the shared IDAT decoder (Stage 1, methylprep).
+    Raises NotImplementedError until that decoder exists so callers never get fake data."""
+    raise NotImplementedError(
+        "Control-probe extraction requires the shared IDAT decoder (Stage 1, methylprep). "
+        "Supply a precomputed control_summary to validate_control_probes() in the meantime."
+    )
+
+
+def validate_control_probes(control_summary: dict) -> dict:
+    """SOP §14 control-probe math + gates. Input: per-control-class intensity medians
+    extracted from the IDAT pair. Returns the CTRL_QC verdict."""
+    flags, metrics = [], {}
+
+    bs1 = control_summary.get("bisulfite_conversion_I_median")
+    bs2 = control_summary.get("bisulfite_conversion_II_median")
+    if bs1 is not None and bs2 is not None and (bs1 + bs2) > 0:
+        bs_eff = bs1 / (bs1 + bs2)
+        metrics["bisulfite_conversion_efficiency"] = round(bs_eff, 4)
+        if bs_eff < BS_CONVERSION_MIN:
+            flags.append("BS_CONVERSION_LOW")
+
+    hh = control_summary.get("hyb_high_median")
+    hl = control_summary.get("hyb_low_median")
+    if hh is not None and hl is not None:
+        metrics["hyb_signal"] = round(hh - hl, 2)
+        if not (hl > 0 and hh / hl >= HYB_HIGH_LOW_MIN_RATIO):
+            flags.append("HYB_FAIL")
+
+    em = control_summary.get("extension_meth_median")
+    eu = control_summary.get("extension_unmeth_median")
+    if em is not None and eu is not None and eu > 0:
+        ratio = em / eu
+        metrics["extension_ratio"] = round(ratio, 3)
+        lo, hi = EXTENSION_BALANCE_RANGE
+        if not (lo <= ratio <= hi):
+            flags.append("EXT_FAIL")
+
+    status = "PASS" if not flags else "FAIL_" + ",".join(flags)
+    return {"ctrl_qc": status, "metrics": metrics, "flags": flags, "advance": not flags}
+
+
+def step_0_4_control_probe_validation(record, grn_path, red_path,
+                                      control_summary=None) -> dict:
+    """SOP §14. Validate control probes, stamp CTRL_QC, gate to 0.5. If no control
+    summary is supplied, attempt extraction (deferred to the Stage 1 decoder); when that
+    is unavailable, mark CTRL_QC DEFERRED and advance rather than fabricate a pass."""
+    flags = record.setdefault("flags", [])
+    if control_summary is None:
+        try:
+            control_summary = extract_control_probes(grn_path, red_path, record.get("array_type"))
+        except NotImplementedError:
+            record["ctrl_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"
+            flags.append("CTRL_QC_DEFERRED:no_control_intensities")
+            record["advance"] = True
+            return record
+    verdict = validate_control_probes(control_summary)
+    record["ctrl_qc"] = verdict["ctrl_qc"]
+    record["ctrl_qc_metrics"] = verdict["metrics"]
+    flags.extend(verdict["flags"])
+    record["advance"] = verdict["advance"]
+    return record
+
+
 if __name__ == "__main__":
     # Self-test: manifest-validation branches (no real IDATs needed).
     good = {
@@ -517,4 +601,25 @@ if __name__ == "__main__":
     assert any("LIKELY_RE_RUN_FRESH_ARRAY" in f for f in r3c["flags"]), r3c
 
     print("Step 0.3 self-test: PASS (sha256 + re-transmission + fresh-array re-run gates)")
-    print("  NOTE: IDAT size/array-type/duplicate gates require real IDAT files to exercise.")
+
+    # Step 0.4: control-probe validation math + gates (synthetic control summaries).
+    passing = {"bisulfite_conversion_I_median": 9000, "bisulfite_conversion_II_median": 300,
+               "hyb_high_median": 20000, "hyb_low_median": 4000,
+               "extension_meth_median": 8000, "extension_unmeth_median": 7500}
+    v_pass = validate_control_probes(passing)
+    assert v_pass["ctrl_qc"] == "PASS" and v_pass["advance"], v_pass
+    assert v_pass["metrics"]["bisulfite_conversion_efficiency"] >= 0.95
+
+    low_bs = dict(passing, bisulfite_conversion_I_median=850, bisulfite_conversion_II_median=300)
+    v_bs = validate_control_probes(low_bs)
+    assert "BS_CONVERSION_LOW" in v_bs["flags"] and not v_bs["advance"], v_bs
+
+    bad_hyb = dict(passing, hyb_high_median=4200, hyb_low_median=4000)
+    assert "HYB_FAIL" in validate_control_probes(bad_hyb)["flags"]
+
+    # deferred path (no summary, no decoder) -> advances with CTRL_QC_DEFERRED, no fake pass.
+    r4 = step_0_4_control_probe_validation({"array_type": "EPIC_v1", "flags": []}, "g", "r")
+    assert r4["ctrl_qc"] == "DEFERRED_PENDING_STAGE1_DECODER" and r4["advance"]
+
+    print("Step 0.4 self-test: PASS (BS/HYB/EXT gates + deferred-extraction marker)")
+    print("  NOTE: IDAT size/array-type/duplicate + control-probe extraction need real IDATs (Stage 1 decoder).")
