@@ -993,6 +993,52 @@
       }
     },
     "colorectal_cancer": {
+      "_note": "Multi-compartment CRC: pre-dx (suppressed circulating immune), tumor cycling architecture, tumor immune infiltrate, rectal, polyp.",
+      "pre_dx_circulating_immune_suppression": {
+        "long_pre_dx_d": -0.8,
+        "mid_late_d": -0.33,
+        "cohort": "GSE51032 Italian EPIC (Phase 9/12)",
+        "interpretation": "Negative d = suppressed circulating immune response pre-diagnosis",
+        "source": "VAL-047"
+      },
+      "tumor_cycling_architecture": {
+        "paired_d": 0.7241,
+        "unpaired_d": 0.8947,
+        "p": 0.000223,
+        "delta_A": 0.0205,
+        "n_pairs": 26,
+        "cohort": "TCGA-COAD matched normal",
+        "class": "cycling",
+        "interpretation": "comparable to breast secretory (0.745), larger than prostate secretory (0.497)",
+        "source": "VAL-062"
+      },
+      "tumor_immune_infiltrate_TIL": {
+        "paired_d": 1.0658,
+        "unpaired_d": 1.4687,
+        "p": "<0.00001",
+        "delta_A": 0.0294,
+        "n_pairs": 26,
+        "per_cpg": "61% hypomethylated in tumor (classic CRC global hypomethylation)",
+        "source": "VAL-061"
+      },
+      "at_dx": {
+        "paired_d": 0.539,
+        "stratum": "age 50+",
+        "source": "VAL-099"
+      },
+      "rectal_TCGA_READ": {
+        "d": 0.612,
+        "colon_epithelial_d": -2.5,
+        "cohort": "TCGA-READ (n=7, small)",
+        "source": "VAL-098"
+      },
+      "polyp_pre_malignant": {
+        "A_immune": 0.807,
+        "anchor_sd": 15.13,
+        "cohort": "GSE282666 polyp PNP-",
+        "caveat": "CCL-040 noob-bg-corrected substrate",
+        "source": "VAL-100"
+      },
       "anchors": "VAL-061, VAL-062, VAL-098 (rectal)"
     },
     "prostate_cancer": {
