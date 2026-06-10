@@ -1422,7 +1422,8 @@
       "per_cpg_pattern": "uniform_positive",
       "stage_2_target_tissue": "breast_ductal",
       "validation_status": "cross_platform_validated",
-      "validated": true
+      "validated": true,
+      "direction": "Elevation (up)"
     },
     "Colorectal cancer": {
       "expected_direction": "negative",
@@ -1430,7 +1431,8 @@
       "per_cpg_pattern": "uniform_negative",
       "stage_2_target_tissue": "colon_epithelial",
       "validation_status": "cross_platform_validated",
-      "validated": true
+      "validated": true,
+      "direction": "Suppression (down)"
     },
     "Alzheimer's disease": {
       "expected_direction": "pooled_null_directional_positive",
@@ -1438,7 +1440,8 @@
       "per_cpg_pattern": "bidirectional_requires_directional_panel",
       "stage_2_target_tissue": "NULL",
       "validation_status": "cross_platform_validated",
-      "validated": true
+      "validated": true,
+      "direction": "Suppression (down) \u2014 pooled signal null (bidirectional); recovered by directional panel (detection d=+0.62)"
     },
     "Lung cancer (NSCLC)": {
       "expected_direction": "positive",
@@ -1446,7 +1449,8 @@
       "per_cpg_pattern": "uniform_positive",
       "stage_2_target_tissue": "lung_epithelial",
       "validation_status": "multi_modal_validated",
-      "validated": true
+      "validated": true,
+      "direction": "Elevation (up)"
     },
     "Prostate cancer": {
       "expected_direction": "positive",
@@ -1454,7 +1458,8 @@
       "per_cpg_pattern": "balanced bidirectional 217/481 hyper / 264/481 hypo (~45/55), pooled-positive via Shannon symmetry",
       "stage_2_target_tissue": "prostate_epithelial",
       "validation_status": "multi_modal_validated_plus_multi_atlas_calibrated",
-      "validated": true
+      "validated": true,
+      "direction": "Elevation (up)"
     },
     "Hepatocellular carcinoma": {
       "expected_direction": "positive_possibly_bidirectional",
@@ -1462,7 +1467,8 @@
       "per_cpg_pattern": "may_require_directional_panel",
       "stage_2_target_tissue": "hepatocyte",
       "validation_status": "cross_cohort_validated",
-      "validated": true
+      "validated": true,
+      "direction": "Elevation (up); possibly bidirectional"
     },
     "Pancreatic cancer": {
       "expected_direction": "PREDICTED_positive",
@@ -1470,7 +1476,8 @@
       "per_cpg_pattern": "likely_uniform_positive",
       "stage_2_target_tissue": "pancreatic_exocrine",
       "validation_status": "PENDING",
-      "validated": false
+      "validated": false,
+      "direction": "Predicted elevation (up)"
     },
     "Gastric cancer": {
       "expected_direction": "PREDICTED_negative_cycling_like_inversion",
@@ -1478,7 +1485,8 @@
       "per_cpg_pattern": "inversion_predicted",
       "stage_2_target_tissue": "gastric_epithelial",
       "validation_status": "PENDING",
-      "validated": false
+      "validated": false,
+      "direction": "Predicted suppression (down)"
     },
     "Bladder cancer": {
       "expected_direction": "PREDICTED_negative_cycling_like_inversion",
@@ -1486,7 +1494,8 @@
       "per_cpg_pattern": "inversion_predicted",
       "stage_2_target_tissue": "bladder_epithelial",
       "validation_status": "PENDING",
-      "validated": false
+      "validated": false,
+      "direction": "Predicted suppression (down)"
     },
     "Cervical cancer": {
       "expected_direction": "positive",
@@ -1494,7 +1503,8 @@
       "per_cpg_pattern": "uniform_positive",
       "stage_2_target_tissue": "cervical_epithelial",
       "validation_status": "validated_on_mucosa_specimen",
-      "validated": true
+      "validated": true,
+      "direction": "Elevation (up)"
     },
     "Kidney cancer (RCC)": {
       "expected_direction": "PREDICTED_positive",
@@ -1502,7 +1512,8 @@
       "per_cpg_pattern": "likely_uniform_positive",
       "stage_2_target_tissue": "kidney_epithelial",
       "validation_status": "PENDING",
-      "validated": false
+      "validated": false,
+      "direction": "Predicted elevation (up)"
     },
     "Glioma / GBM / LGG": {
       "expected_direction": "weak_or_null_in_plasma",
@@ -1510,7 +1521,8 @@
       "per_cpg_pattern": "underpowered_in_plasma",
       "stage_2_target_tissue": "neuron_plus_oligodendrocyte",
       "validation_status": "stage2_localized_in_CSF_only",
-      "validated": false
+      "validated": false,
+      "direction": "Weak / null in plasma"
     },
     "Cardiovascular disease": {
       "expected_direction": "PREDICTED_positive_chronic_inflammation_pattern",
@@ -1518,7 +1530,8 @@
       "per_cpg_pattern": "monocyte_shift_plus_FOXP3_Treg_plus_ZBTB12",
       "stage_2_target_tissue": "NULL_systemic_vascular_inflammation_not_localized",
       "validation_status": "PENDING",
-      "validated": false
+      "validated": false,
+      "direction": "Predicted elevation (up) \u2014 chronic-inflammation pattern"
     },
     "Hematologic malignancies (AML / DLBCL / CLL / thymoma / MM)": {
       "expected_direction": "strongly_positive",
@@ -1532,7 +1545,8 @@
       "per_cpg_pattern": "disease_specific_directional_per_subtype",
       "stage_2_target_tissue": "NULL",
       "validation_status": "validated_at_tcga_tissue_level",
-      "validated": true
+      "validated": true,
+      "direction": "Strong elevation (up)"
     },
     "Esophageal cancer (ESCC + EAC)": {
       "expected_direction": "POSITIVE for both subtypes; subtype discrimination is in MAGNITUDE not direction",
@@ -1540,7 +1554,8 @@
       "per_cpg_pattern": "monotonic positive both subtypes; Caggiano TIM 13+ tiles fire EAC > ESCC at ~2 d-units (homogenization gradient EAC > ESCC)",
       "stage_2_target_tissue": "esophageal_squamous (ESCC) or esophageal_columnar_metaplastic (EAC)",
       "validation_status": "SEALED v0.3.2 (VAL-127 sealed 2026-05-02)",
-      "validated": true
+      "validated": true,
+      "direction": "Elevation (up) \u2014 both subtypes"
     },
     "Crohn's disease + ulcerative colitis (IBD pathway)": {
       "expected_direction": "Stage 1 INFORMATIVE NULL across all cell-type strata (|d_CD-HC| < 0.5 in monocytes, CD4, CD8, whole blood); Stage 3 BIDIRECTIONAL BY DESIGN \u2014 T-cell expansion UP, myeloid depletion DOWN \u2014 population-fraction-shift signature",
@@ -1548,7 +1563,8 @@
       "per_cpg_pattern": "NOT a Stage 1 cycling-class architectural-drift signature; IS a Stage 3 cell-fraction-shift signature in mixed-population substrate (whole blood). Sorted-cell substrate ELIMINATES the signal because t",
       "stage_2_target_tissue": "Not applicable for IBD detection at v0.1 \u2014 no GI-tissue readout in blood substrate. All Stage 2 atlases (Boccellato gastric, EsoRef esophageal, OEref oral, Layered Moss+Loyfer 25-tile, Caggiano TIM) read INFORMATIVE NULL on Crohn's blood cohort. Class-of-disease finding documenting Stage 2 atlas family fitness for IBD.",
       "validation_status": "AMENDMENT-LANGUAGE SCOPE only at v0.1; not a deployed per-patient IBD-detection product",
-      "validated": false
+      "validated": false,
+      "direction": "Bidirectional (Stage-1 null; T-cell up / myeloid down)"
     }
   }
 }
