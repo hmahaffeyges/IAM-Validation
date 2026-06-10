@@ -95,8 +95,14 @@ def _score_one(beta_series: pd.Series,
             "status": STATUS_INSUFFICIENT_MARKERS,
         }
 
-    per_cpg_a = _shannon_bits(vals) / h_min
-    a_score = float(np.mean(per_cpg_a))
+    # A-score = H(beta_mean) / H_min(class): take the MEAN beta across the panel
+    # FIRST, then the entropy of that single mean, then divide by the class floor.
+    # (Prior code computed mean(H(beta_i)) -- the average of per-CpG entropies --
+    #  which is a different quantity and collapses bimodal marker panels toward
+    #  the floor, so healthy samples read ~0.4-0.5 instead of ~1.0.)
+    beta_mean = float(np.mean(vals))
+    a_score = float(_shannon_bits(np.array([beta_mean]))[0] / h_min)
+    per_cpg_a = _shannon_bits(vals) / h_min  # retained only as a dispersion diagnostic
     dispersion = float(np.std(per_cpg_a, ddof=1)) if n_usable >= 2 else 0.0
     coverage = n_usable / n_expected
     confidence = _scoring_confidence(coverage, dispersion)
