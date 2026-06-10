@@ -571,6 +571,31 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
           '. The cell ranking (C.2), the Mahalanobis decomposition (E), the Personal Brilliance Map (F) and '
           'the disease matrix (H.2) are four views of the same per-cell departure data — where they converge, '
           'the pattern is real.</p>')
+        # H.5b immune universal-alarm axis (per-disease direction)
+        _icp = (Path(__file__).resolve().parents[1] /
+                "Runtime Matrices/Literature_anchors_Report building/literature_anchors_v2_1.json")
+        try:
+            import json as _json_h5
+            _icat = _json_h5.load(open(_icp)).get("immune_class_disease_catalog", {})
+        except Exception:
+            _icat = {}
+        _icat = {k: v for k, v in _icat.items() if not k.startswith("_") and isinstance(v, dict)}
+        if _icat:
+            P('<h4>H.5b Immune universal-alarm axis &mdash; cross-disease reference</h4>')
+            P('<p class="muted">For every disease the framework predicts which way the immune class moves. '
+              'Cancers elevate toward the ceiling; colorectal and Alzheimer\u2019s suppress toward the floor. '
+              'That direction is what separates proliferative failure from degenerative failure &mdash; the same '
+              'per-cell axis your own report is scored on. <b>Validated</b> rows are sealed VAL results; '
+              '<b>predicted</b> rows are framework expectations not yet validated.</p>')
+            P('<table class="kv"><tr><th>Disease</th><th>Immune direction</th>'
+              '<th>Expected magnitude</th><th>Status</th></tr>')
+            for _dz, _v in _icat.items():
+                _val = bool(_v.get("validated"))
+                _dir = _esc(str(_v.get("expected_direction", "")))
+                _mag = _esc(str(_v.get("expected_magnitude_d", ""))[:110])
+                _st = "Validated" if _val else "<i>Predicted / pending</i>"
+                P(f'<tr><td>{_esc(_dz)}</td><td>{_dir}</td><td>{_mag or "\u2014"}</td><td>{_st}</td></tr>')
+            P('</table>')
 
     P('</section>')
 
