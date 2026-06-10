@@ -873,14 +873,69 @@
       }
     },
     "hepatocellular_carcinoma": {
+      "_substrate_restriction": "Validated on plasma cfDNA; NULL in leukocytes/whole blood. The HCC flag requires a cfDNA substrate.",
+      "ccfdna_primary": {
+        "d": 0.6336,
+        "ci": [
+          0.175,
+          1.121
+        ],
+        "perm_p": 0.0024,
+        "cohort": "GSE298812 (Soliman et al., Nigerian HIV+ HCC, plasma cfDNA)",
+        "n": 245,
+        "age_regressed_d": 0.6979,
+        "age_regressed_p": 0.0006,
+        "source": "VAL-059",
+        "outcome": "O3 single-cohort cfDNA validated"
+      },
+      "ccfdna_sex_stratified": {
+        "male_d": 0.9984,
+        "male_p": 0.0021,
+        "female_d": 0.4968,
+        "female_p": 0.0914,
+        "source": "VAL-059"
+      },
+      "leukocyte_null": {
+        "d": -0.1556,
+        "p": 0.0905,
+        "cohort": "GSE281691 (metabolic HCC, leukocyte)",
+        "interpretation": "NULL on leukocyte substrate confirms the signal is cfDNA-specific",
+        "source": "VAL-059"
+      },
+      "dose_response_spectrum": {
+        "fibrosis_d_vs_baseline": 0.44,
+        "cirrhosis_d_vs_baseline": 0.45,
+        "hcc_d_vs_baseline": 0.63,
+        "interpretation": "Monotonic A-score progression healthy < fibrosis < cirrhosis < HCC",
+        "cohort": "GSE298812",
+        "source": "VAL-059"
+      },
+      "tissue_secretory_architecture": {
+        "paired_d": 0.4975,
+        "ci": [
+          0.1911,
+          0.8038
+        ],
+        "p": 0.000741,
+        "delta_A": 0.0196,
+        "n_pairs": 46,
+        "source": "VAL-064"
+      },
+      "viral_etiology_blunting": {
+        "non_viral_p": 0.000108,
+        "viral_combined_p": 0.936,
+        "alcohol_p": 0.00613,
+        "nafld_p": 0.106,
+        "interpretation": "Viral-hepatitis etiology blunts the paired tumor contrast (consistent with Villanueva 2015); strongest in non-viral/alcohol",
+        "source": "VAL-064"
+      },
       "pre_dx_vs_cirrhosis_combined_score": {
         "S_cirrhosis": 0.072,
         "S_early_hcc": 0.583,
         "separation_ratio": 8.03,
         "note": "Where standard-of-care AFP cannot discriminate",
         "source": "VAL-010"
-      },
-      "additional_anchors": "VAL-059, VAL-064, VAL-101"
+      }
     },
     "gastric_cancer": {
       "stad_phase_c_within_cohort": {
