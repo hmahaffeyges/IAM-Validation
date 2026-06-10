@@ -59,8 +59,10 @@ _THIS_DIR = Path(__file__).resolve().parent
 CPG_ROOT = _THIS_DIR.parent  # .../AstroGenetics/CPG_CMB_v1
 
 DEFAULT_CONFIG = {
-    # Stage 0 — sample intake (L1); Step 0.1 built (IDAT arrival, SOP §11), Steps 0.2-0.9 pending
+    # Stage 0 — sample intake (L1); Steps 0.1-0.9 complete (SOP §11-§19)
     "stage_0_intake_module_path": CPG_ROOT / "Runtime Matrices/Stage_0_Intake/stage_0_intake.py",
+    # Stage 1 — calibration & beta (L2+L3); 1.4-1.8 built, 1.1-1.3 + IDAT decode wrap the standard stack
+    "stage_1_calibration_module_path": CPG_ROOT / "Runtime Matrices/Stage_1_Calibration/stage_1_calibration.py",
     # Foreground modules (Stage 3) — age removed 2026-06-09 (per-cell A is age-stable); sex + smoking retained
     "smoking_module_path": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Smoking Axis Foreground/smoking_axis_foreground.py",
     "sex_module_path":   CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Sex Axis Foreground/sex_axis_foreground.py",
@@ -481,7 +483,18 @@ def stage_0_intake(manifest_entry, grn_path, red_path, questionnaire_answers=Non
     if not r.get("advance"):
         return r
     return s0.step_0_9_decision_gate(r, verdict_log_path)
-def stage_1_calibration_beta(*a, **k):  _not_built("Stage 1 (calibration & beta)")
+def stage_1_calibration_beta(record, M=None, U=None, cohort_median=None,
+                             bs_controls=None, beta_output_dir=None, config=None):
+    """SOP Stage 1 (L2+L3) calibration & beta. Steps 1.4-1.8 built (IAM-native BS check,
+    beta = M/(M+U+100), sanity, identity probe-response, packaging); Steps 1.1-1.3 + IDAT
+    decode wrap the standard methylation stack (methylprep/minfi) and are deferred pending
+    sign-off. M/U intensities come from the shared decoder. Returns the record with the
+    calibrated beta matrix attached (internal) + Stage 1 provenance, or the quarantine
+    result of whichever step halted (e.g. BS_CONVERSION_FAIL, BETA_OUT_OF_RANGE)."""
+    cfg = {**DEFAULT_CONFIG, **(config or {})}
+    s1 = _load_module(cfg["stage_1_calibration_module_path"], "stage_1_calibration")
+    return s1.run_stage_1(record, M=M, U=U, cohort_median=cohort_median,
+                          bs_controls=bs_controls, beta_output_dir=beta_output_dir)
 
 
 # ---------------------------------------------------------------------------
@@ -889,4 +902,4 @@ if __name__ == "__main__":
     print("Stage 3 forks beta_raw (-> Stage 6) and cleaned_beta (-> Stages 4/4.5/4.6/5).")
     print("Stage 4 = A-scores (8 class + 115 cell type); 4.5 = bidirectional; 4.6 = brightness;")
     print("Stage 5 = Mahalanobis on the 115 cell-type A-scores; Stage 6 = cellular age on beta_raw.")
-    print("Stage 0 intake QC (Steps 0.1-0.9) now complete; Stages 1 and 10 remain stubs.")
+    print("Stage 0 intake QC (0.1-0.9) + Stage 1 calibration (1.4-1.8) built; Stage 10 (delivery) remains the stub.")
