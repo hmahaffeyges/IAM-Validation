@@ -288,4 +288,4 @@ if __name__ == "__main__":
     assert rd["beta_computed"] is False and rd["advance"]
 
     print("Stage 1 self-test: PASS (1.4 BS / 1.5 beta / 1.6 sanity / 1.7 identity / 1.8 package + deferred)")
-    print("  NOTE: IDAT decode + 1.1 dye-bias + 1.2 funnorm + 1.3 ComBat wrap the standard stack (deferred, pending sign-off).")
+    print("  NOTE: IDAT decode + 1.1 dye-bias (noob) + 1.2 normalization (noob) + 1.3 ComBat wrap methylprep (deferred).")
