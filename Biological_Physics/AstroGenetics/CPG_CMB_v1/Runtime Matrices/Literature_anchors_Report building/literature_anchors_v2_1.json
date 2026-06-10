@@ -1382,5 +1382,143 @@
       "total_n_hc": 2523,
       "source": "VAL-049 T1-T15 cross-population panel transferability"
     }
+  },
+  "immune_class_disease_catalog": {
+    "_note": "Immune-class expected signal direction + magnitude per disease (Stage-1 universal-alarm axis): cancers elevate toward ceiling, CRC/AD suppress. 'validated' flag distinguishes sealed VAL results from PREDICTED/PENDING expectations. Source: immune-atlas pre-build card v0.3.2.",
+    "_source": "immune-atlas_card_v0_3_2",
+    "Breast cancer": {
+      "expected_direction": "positive",
+      "expected_magnitude_d": "+0.45 to +0.71 pre-dx; +1.36 to +1.78 at >10yr lookback",
+      "per_cpg_pattern": "uniform_positive",
+      "stage_2_target_tissue": "breast_ductal",
+      "validation_status": "cross_platform_validated",
+      "validated": true
+    },
+    "Colorectal cancer": {
+      "expected_direction": "negative",
+      "expected_magnitude_d": "-0.33 pre-dx",
+      "per_cpg_pattern": "uniform_negative",
+      "stage_2_target_tissue": "colon_epithelial",
+      "validation_status": "cross_platform_validated",
+      "validated": true
+    },
+    "Alzheimer's disease": {
+      "expected_direction": "pooled_null_directional_positive",
+      "expected_magnitude_d": "+0.08 pooled / +0.62 directional",
+      "per_cpg_pattern": "bidirectional_requires_directional_panel",
+      "stage_2_target_tissue": "NULL",
+      "validation_status": "cross_platform_validated",
+      "validated": true
+    },
+    "Lung cancer (NSCLC)": {
+      "expected_direction": "positive",
+      "expected_magnitude_d": "+0.35 to +0.50 pre-dx",
+      "per_cpg_pattern": "uniform_positive",
+      "stage_2_target_tissue": "lung_epithelial",
+      "validation_status": "multi_modal_validated",
+      "validated": true
+    },
+    "Prostate cancer": {
+      "expected_direction": "positive",
+      "expected_magnitude_d": "Stage 1 paired d = +0.50 (VAL-058 sealed +0.4973; VAL-118 reproduction +0.5258 within \u00b10.10 tolerance)",
+      "per_cpg_pattern": "balanced bidirectional 217/481 hyper / 264/481 hypo (~45/55), pooled-positive via Shannon symmetry",
+      "stage_2_target_tissue": "prostate_epithelial",
+      "validation_status": "multi_modal_validated_plus_multi_atlas_calibrated",
+      "validated": true
+    },
+    "Hepatocellular carcinoma": {
+      "expected_direction": "positive_possibly_bidirectional",
+      "expected_magnitude_d": "~+0.40 HCC-specific; cirrhosis vs early HCC 8.03x separability on combined-score",
+      "per_cpg_pattern": "may_require_directional_panel",
+      "stage_2_target_tissue": "hepatocyte",
+      "validation_status": "cross_cohort_validated",
+      "validated": true
+    },
+    "Pancreatic cancer": {
+      "expected_direction": "PREDICTED_positive",
+      "expected_magnitude_d": "~+0.40 per VAL-046 Rotterdam n=182",
+      "per_cpg_pattern": "likely_uniform_positive",
+      "stage_2_target_tissue": "pancreatic_exocrine",
+      "validation_status": "PENDING",
+      "validated": false
+    },
+    "Gastric cancer": {
+      "expected_direction": "PREDICTED_negative_cycling_like_inversion",
+      "expected_magnitude_d": "-0.30 to -0.60 predicted",
+      "per_cpg_pattern": "inversion_predicted",
+      "stage_2_target_tissue": "gastric_epithelial",
+      "validation_status": "PENDING",
+      "validated": false
+    },
+    "Bladder cancer": {
+      "expected_direction": "PREDICTED_negative_cycling_like_inversion",
+      "expected_magnitude_d": "-0.20 to -0.40 predicted",
+      "per_cpg_pattern": "inversion_predicted",
+      "stage_2_target_tissue": "bladder_epithelial",
+      "validation_status": "PENDING",
+      "validated": false
+    },
+    "Cervical cancer": {
+      "expected_direction": "positive",
+      "expected_magnitude_d": "d >= +1.0 on cervical-mucosa specimen",
+      "per_cpg_pattern": "uniform_positive",
+      "stage_2_target_tissue": "cervical_epithelial",
+      "validation_status": "validated_on_mucosa_specimen",
+      "validated": true
+    },
+    "Kidney cancer (RCC)": {
+      "expected_direction": "PREDICTED_positive",
+      "expected_magnitude_d": "+0.30 to +0.50 predicted (KIRC and KIRP both cycling-class in Issue 002 TCGA panel)",
+      "per_cpg_pattern": "likely_uniform_positive",
+      "stage_2_target_tissue": "kidney_epithelial",
+      "validation_status": "PENDING",
+      "validated": false
+    },
+    "Glioma / GBM / LGG": {
+      "expected_direction": "weak_or_null_in_plasma",
+      "expected_magnitude_d": "blood_likely_small; CSF_strong",
+      "per_cpg_pattern": "underpowered_in_plasma",
+      "stage_2_target_tissue": "neuron_plus_oligodendrocyte",
+      "validation_status": "stage2_localized_in_CSF_only",
+      "validated": false
+    },
+    "Cardiovascular disease": {
+      "expected_direction": "PREDICTED_positive_chronic_inflammation_pattern",
+      "expected_magnitude_d": "d = +0.2 to +0.4 estimated from CHD cohort methylation literature",
+      "per_cpg_pattern": "monocyte_shift_plus_FOXP3_Treg_plus_ZBTB12",
+      "stage_2_target_tissue": "NULL_systemic_vascular_inflammation_not_localized",
+      "validation_status": "PENDING",
+      "validated": false
+    },
+    "Hematologic malignancies (AML / DLBCL / CLL / thymoma / MM)": {
+      "expected_direction": "strongly_positive",
+      "expected_magnitude_d": {
+        "AML": "A_combined ~1.10, delta_A = +0.168 cfDNA level",
+        "DLBCL": "A_combined ~1.13, delta_A = +0.203",
+        "thymoma": "A ~1.09",
+        "CLL": "A ~1.07 DETECTABLE tier",
+        "MM": "referenced but less characterized"
+      },
+      "per_cpg_pattern": "disease_specific_directional_per_subtype",
+      "stage_2_target_tissue": "NULL",
+      "validation_status": "validated_at_tcga_tissue_level",
+      "validated": true
+    },
+    "Esophageal cancer (ESCC + EAC)": {
+      "expected_direction": "POSITIVE for both subtypes; subtype discrimination is in MAGNITUDE not direction",
+      "expected_magnitude_d": "EAC d=+3.70, ESCC d=+2.64 within-cohort vs anchor (sealed VAL-127); d_ESCC-EAC = -1.06 within cohort (p=1.50e-11) on Stage 1 alone",
+      "per_cpg_pattern": "monotonic positive both subtypes; Caggiano TIM 13+ tiles fire EAC > ESCC at ~2 d-units (homogenization gradient EAC > ESCC)",
+      "stage_2_target_tissue": "esophageal_squamous (ESCC) or esophageal_columnar_metaplastic (EAC)",
+      "validation_status": "SEALED v0.3.2 (VAL-127 sealed 2026-05-02)",
+      "validated": true
+    },
+    "Crohn's disease + ulcerative colitis (IBD pathway)": {
+      "expected_direction": "Stage 1 INFORMATIVE NULL across all cell-type strata (|d_CD-HC| < 0.5 in monocytes, CD4, CD8, whole blood); Stage 3 BIDIRECTIONAL BY DESIGN \u2014 T-cell expansion UP, myeloid depletion DOWN \u2014 population-fraction-shift signature",
+      "expected_magnitude_d": "Stage 1 NULL; Stage 3 max |d_CD-HC| = +1.72 on UniLIFE aCD8Tnv tile in whole blood",
+      "per_cpg_pattern": "NOT a Stage 1 cycling-class architectural-drift signature; IS a Stage 3 cell-fraction-shift signature in mixed-population substrate (whole blood). Sorted-cell substrate ELIMINATES the signal because t",
+      "stage_2_target_tissue": "Not applicable for IBD detection at v0.1 \u2014 no GI-tissue readout in blood substrate. All Stage 2 atlases (Boccellato gastric, EsoRef esophageal, OEref oral, Layered Moss+Loyfer 25-tile, Caggiano TIM) read INFORMATIVE NULL on Crohn's blood cohort. Class-of-disease finding documenting Stage 2 atlas family fitness for IBD.",
+      "validation_status": "AMENDMENT-LANGUAGE SCOPE only at v0.1; not a deployed per-patient IBD-detection product",
+      "validated": false
+    }
   }
 }
