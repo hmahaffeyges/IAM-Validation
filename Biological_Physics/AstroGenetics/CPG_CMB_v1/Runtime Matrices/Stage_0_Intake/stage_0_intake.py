@@ -6,6 +6,7 @@ Implemented so far:
   Step 0.2 (SOP §12) — Sample manifest creation (patient_manifest.json + covariates).
   Step 0.3 (SOP §13) — IDAT integrity hash check (SHA-256 + re-transmission/re-run detection).
   Step 0.4 (SOP §14) — Control probe validation (BS conversion / hybridization / extension gates).
+  Step 0.5 (SOP §15) — Detection p-value QC per probe (detected-fraction gate).
 
 Design choices flagged for review (SOP marked these "TBD per orchestrator design"):
   - Handler lives here in the Walther runtime, NOT in GAPE_WEB_v13.py (frozen demo).
@@ -536,6 +537,83 @@ def step_0_4_control_probe_validation(record, grn_path, red_path,
     return record
 
 
+# ============================================================================
+# Step 0.5 (SOP §15) — Detection p-value QC per probe
+# Per-probe detection_p = 1 - Φ((I - μ_bg)/σ_bg) vs the negative-control background;
+# probes with detection_p > 0.01 are undetected. Gate on the detected fraction.
+# Math + summary + gates built and tested here; per-probe intensity + negative-control
+# extraction is deferred to the shared Stage 1 IDAT decoder (same as Step 0.4).
+#
+# NOTE: this mirrors the SOP's stated formula. The exact minfi detectionP (M+U total
+# vs median/MAD negative-control background) is the production target and is flagged
+# to be reconciled to minfi for cross-platform exactness.
+# ============================================================================
+
+DETECTION_P_THRESHOLD = 0.01
+DETECTION_PASS_FRACTION = 0.99
+DETECTION_BORDERLINE_FRACTION = 0.95
+
+
+def _normal_sf(z):
+    """Survival function 1 - Φ(z), vectorized. scipy if available, else erfc fallback."""
+    try:
+        from scipy.stats import norm
+        return norm.sf(z)
+    except Exception:
+        import numpy as _np
+        import math as _math
+        return 0.5 * _np.vectorize(_math.erfc)(_np.asarray(z, dtype=float) / _math.sqrt(2.0))
+
+
+def compute_detection_p(probe_intensities, mu_bg, sigma_bg):
+    """detection_p = 1 - Φ((I - μ_bg)/σ_bg) per probe (SOP §15 stated formula)."""
+    import numpy as np
+    I = np.asarray(probe_intensities, dtype=float)
+    sigma_bg = sigma_bg if sigma_bg > 0 else 1e-9
+    return _normal_sf((I - mu_bg) / sigma_bg)
+
+
+def validate_detection_p(detection_p_array) -> dict:
+    """SOP §15 gate on the detected fraction: >99% PASS, 95-99% BORDERLINE, <95% FAIL."""
+    import numpy as np
+    dp = np.asarray(detection_p_array, dtype=float)
+    n = dp.size
+    pct = float(np.mean(dp <= DETECTION_P_THRESHOLD)) if n else 0.0
+    if pct > DETECTION_PASS_FRACTION:
+        status, advance = "PASS", True
+    elif pct >= DETECTION_BORDERLINE_FRACTION:
+        status, advance = "DETECTION_BORDERLINE", True
+    else:
+        status, advance = "FAIL_LOW_DETECTION", False
+    return {"detection_qc": status,
+            "pct_probes_detected_p_le_01": round(pct, 5),
+            "n_probes": int(n), "advance": advance}
+
+
+def step_0_5_detection_pvalue_qc(record, probe_intensities=None,
+                                 neg_control_stats=None) -> dict:
+    """SOP §15. Compute per-probe detection p, summarize, gate to 0.6. If intensities
+    or negative-control stats are absent (extraction deferred to the Stage 1 decoder),
+    mark DETECTION_QC deferred and advance rather than fabricate a pass."""
+    flags = record.setdefault("flags", [])
+    if probe_intensities is None or neg_control_stats is None:
+        record["detection_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"
+        flags.append("DETECTION_QC_DEFERRED:no_probe_intensities")
+        record["advance"] = True
+        return record
+    dp = compute_detection_p(probe_intensities,
+                             neg_control_stats["mu_bg"], neg_control_stats["sigma_bg"])
+    v = validate_detection_p(dp)
+    record["detection_qc"] = v["detection_qc"]
+    record["pct_probes_detected_p_le_01"] = v["pct_probes_detected_p_le_01"]
+    if v["detection_qc"] == "DETECTION_BORDERLINE":
+        flags.append("DETECTION_BORDERLINE")
+    elif v["detection_qc"] == "FAIL_LOW_DETECTION":
+        flags.append("DETECTION_QC_FAIL")
+    record["advance"] = v["advance"]
+    return record
+
+
 if __name__ == "__main__":
     # Self-test: manifest-validation branches (no real IDATs needed).
     good = {
@@ -622,4 +700,24 @@ if __name__ == "__main__":
     assert r4["ctrl_qc"] == "DEFERRED_PENDING_STAGE1_DECODER" and r4["advance"]
 
     print("Step 0.4 self-test: PASS (BS/HYB/EXT gates + deferred-extraction marker)")
-    print("  NOTE: IDAT size/array-type/duplicate + control-probe extraction need real IDATs (Stage 1 decoder).")
+
+    # Step 0.5: detection p-value math + detected-fraction gates (synthetic intensities).
+    import numpy as _np
+    neg = {"mu_bg": 200.0, "sigma_bg": 50.0}
+    detected = [2000.0] * 1000                      # far above background -> p ~ 0
+    v_all = validate_detection_p(compute_detection_p(detected, **neg))
+    assert v_all["detection_qc"] == "PASS" and v_all["pct_probes_detected_p_le_01"] == 1.0, v_all
+
+    borderline = [2000.0] * 970 + [180.0] * 30       # 97% detected
+    v_bd = validate_detection_p(compute_detection_p(borderline, **neg))
+    assert v_bd["detection_qc"] == "DETECTION_BORDERLINE" and v_bd["advance"], v_bd
+
+    failing = [2000.0] * 900 + [180.0] * 100         # 90% detected
+    v_fail = validate_detection_p(compute_detection_p(failing, **neg))
+    assert v_fail["detection_qc"] == "FAIL_LOW_DETECTION" and not v_fail["advance"], v_fail
+
+    r5 = step_0_5_detection_pvalue_qc({"flags": []})   # deferred path
+    assert r5["detection_qc"] == "DEFERRED_PENDING_STAGE1_DECODER" and r5["advance"]
+
+    print("Step 0.5 self-test: PASS (detection-p PASS/BORDERLINE/FAIL gates + deferred marker)")
+    print("  NOTE: IDAT size/array-type/duplicate + control-probe + detection-p extraction need real IDATs (Stage 1 decoder).")

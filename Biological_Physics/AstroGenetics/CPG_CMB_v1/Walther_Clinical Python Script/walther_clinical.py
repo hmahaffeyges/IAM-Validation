@@ -438,13 +438,14 @@ def _not_built(stage):
 
 def stage_0_intake(manifest_entry, grn_path, red_path, questionnaire_answers=None,
                    config=None, intake_log_path=None, manifest_dir=None,
-                   integrity_log_path=None, control_summary=None):
-    """SOP Stage 0 (L1) sample intake. Steps 0.1 (IDAT arrival, §11), 0.2 (manifest
-    creation, §12), 0.3 (integrity hash, §13), 0.4 (control-probe validation, §14) built;
-    Steps 0.5-0.9 pending. Runs 0.1 -> 0.2 -> 0.3 -> 0.4 in sequence, stopping at the
-    first gate that does not advance. control_summary (per-control-class intensity medians)
-    feeds 0.4; if absent, 0.4 marks CTRL_QC deferred (extraction needs the Stage 1 decoder).
-    Returns the per-sample record, or the quarantine/hold result of whichever step halted."""
+                   integrity_log_path=None, control_summary=None,
+                   probe_intensities=None, neg_control_stats=None):
+    """SOP Stage 0 (L1) sample intake. Steps 0.1-0.5 built; Steps 0.6-0.9 pending.
+    Runs 0.1 -> 0.2 -> 0.3 -> 0.4 -> 0.5 in sequence, stopping at the first gate that
+    does not advance. control_summary feeds 0.4; probe_intensities + neg_control_stats
+    feed 0.5; when absent those steps mark their QC deferred (extraction needs the
+    Stage 1 IDAT decoder). Returns the per-sample record, or the quarantine/hold result
+    of whichever step halted."""
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     s0 = _load_module(cfg["stage_0_intake_module_path"], "stage_0_intake")
     r1 = s0.step_0_1_idat_arrival(manifest_entry, grn_path, red_path, intake_log_path)
@@ -456,7 +457,10 @@ def stage_0_intake(manifest_entry, grn_path, red_path, questionnaire_answers=Non
     r3 = s0.step_0_3_integrity_hash(r2, grn_path, red_path, integrity_log_path)
     if not r3.get("advance"):
         return r3
-    return s0.step_0_4_control_probe_validation(r3, grn_path, red_path, control_summary)
+    r4 = s0.step_0_4_control_probe_validation(r3, grn_path, red_path, control_summary)
+    if not r4.get("advance"):
+        return r4
+    return s0.step_0_5_detection_pvalue_qc(r4, probe_intensities, neg_control_stats)
 def stage_1_calibration_beta(*a, **k):  _not_built("Stage 1 (calibration & beta)")
 
 
