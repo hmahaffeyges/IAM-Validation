@@ -1107,6 +1107,36 @@
       "additional_anchors": "VAL-088, VAL-089, VAL-090, VAL-092"
     },
     "hematologic_malignancies": {
+      "_note": "Strongly positive immune-class elevation; per-subtype validated at tissue/cfDNA level. Stage-3 discriminates lymphoid vs myeloid vs CHIP.",
+      "aml": {
+        "d": 3.71,
+        "ci": [
+          3.23,
+          4.2
+        ],
+        "p": "<1e-50",
+        "delta_A": 0.1039,
+        "note": "98.5% above HC 95th %ile",
+        "cohort": "GSE62298 vs Italian healthy",
+        "source": "VAL-082"
+      },
+      "dlbcl": {
+        "A_combined": 1.13,
+        "delta_A": 0.203,
+        "note": "largest immune-class delta_A in cookbook",
+        "cohort": "Chapuy 2018 n=48"
+      },
+      "cll_active": {
+        "A_combined": 1.07,
+        "delta_A": 0.098
+      },
+      "cll_pre_dx": {
+        "cohort": "EnviroGenomarkers Georgiadis 2017 n=347",
+        "note": "28 future-CLL, 2-15.7yr pre-dx"
+      },
+      "thymoma": {
+        "A_combined": 1.09
+      },
       "heme_calibration_anchor": {
         "source": "VAL-082"
       },
