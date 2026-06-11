@@ -532,6 +532,9 @@ def stage_2_deconvolution(beta_calibrated: pd.Series, config: Optional[dict] = N
     res = deconv.deconvolve(betas, refine_celltypes=True)
     out = {"class_fractions": res.class_fractions,
            "celltype_fractions": res.celltype_fractions,
+           "class_present": res.class_present,
+           "class_fraction_ci": res.class_fraction_ci,
+           "presence_method": res.presence_method,
            "walther_diagnostics": res.diagnostics,
            "status": res.status,
            "nilc_fractions": None, "cross_method": None}
@@ -901,7 +904,11 @@ def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
         s2 = stage_2_deconvolution(beta_calibrated, cfg)
     s3 = stage_3_foreground_fork(beta_calibrated, patient_age, patient_sex,
                                  patient_smoking_bin, cfg)
-    s4 = stage_4_a_score(s3.cleaned_beta, cfg)
+    # Substrate presence gate: Walther (primary) decides which classes are
+    # assessable in this substrate; Stage 4 masks the rest. None when
+    # deconvolution is off (synthetic runs) -> Stage 4 scores all (legacy).
+    class_present = s2["class_present"] if s2 else None
+    s4 = stage_4_a_score(s3.cleaned_beta, cfg, class_present=class_present)
     s45 = stage_4_5_bidirectional(s3.cleaned_beta, patient_id, cfg)
     s46 = stage_4_6_brightness(s3.cleaned_beta, patient_id, cfg)
     s5 = stage_5_mahalanobis(s4, cfg)
