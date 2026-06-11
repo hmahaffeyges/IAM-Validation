@@ -127,6 +127,21 @@ def _load_module(path, name):
     return mod
 
 
+def _assert_a_score_canonical(cfg):
+    """Startup gate: run the canonical A-score fail-safe and RAISE if the scoring
+    math has regressed (the entropy-of-mean vs mean-of-entropy bug). Wired into
+    run_pipeline so a regression can never silently ship a real patient run."""
+    cfg = {**DEFAULT_CONFIG, **(cfg or {})}
+    test_path = os.path.join(os.path.dirname(str(cfg["a_scoring_module_path"])),
+                             "test_a_score_canonical.py")
+    fs = _load_module(test_path, "test_a_score_canonical")
+    fails = fs.check()
+    if fails:
+        raise RuntimeError(
+            "A-score canonical fail-safe FAILED at startup (scoring math regressed):\n  - "
+            + "\n  - ".join(fails))
+
+
 # ---------------------------------------------------------------------------
 # Stage 3 — Foreground subtraction (Option C fork)
 # ---------------------------------------------------------------------------
@@ -899,6 +914,7 @@ def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
                       synthetic/test patients this is supplied directly).
     """
     cfg = {**DEFAULT_CONFIG, **(config or {})}
+    _assert_a_score_canonical(cfg)   # halt before scoring if the A-score math regressed
     s2 = None
     if run_deconvolution:
         s2 = stage_2_deconvolution(beta_calibrated, cfg)
