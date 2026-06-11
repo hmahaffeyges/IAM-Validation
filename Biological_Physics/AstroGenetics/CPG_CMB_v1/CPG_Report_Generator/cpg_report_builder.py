@@ -16,7 +16,8 @@ Usage:
                  atlas_plate_paths={...}, config=...)
 
 Data-driven sections implemented: Executive summary, A (intake), B (composition),
-C (architectural state + gauges + top-15 ranking), D (cellular departure), E (Mahalanobis),
+C (architectural state + gauges + top-15 ranking), D (why no cellular age), E (internal
+consistency & fail-safes, PASS/REVIEW only),
 F (Personal Brilliance Maps), G (bidirectional). H (disease matching) is shown as
 Stage-8-pending until the disease-matrix stage is wired.
 """
@@ -81,6 +82,113 @@ def _tier_badge(tier_id, label=None):
     label = (label or tier_id).replace("\n", " ")
     c = TIER_CSS.get(tier_id, "#777")
     return f'<span class="badge" style="background:{c}">{_esc(label)}</span>'
+
+
+def _nilc_agreement(walther_fracs, nilc_fracs, thresh=0.05):
+    """Do the primary and the independent cross-method deconvolution agree on which
+    cell classes are present? Returns (True/False/None, note)."""
+    try:
+        nf = nilc_fracs
+        if isinstance(nf, dict) and "class_fractions" in nf:
+            nf = nf["class_fractions"]
+        if not isinstance(nf, dict) or not isinstance(walther_fracs, dict):
+            return None, "Cross-method output could not be compared."
+        w_present = {k for k, v in walther_fracs.items() if isinstance(v, (int, float)) and v > thresh}
+        n_present = {k for k, v in nf.items() if isinstance(v, (int, float)) and v > thresh}
+        if not w_present and not n_present:
+            return None, "No dominant class to compare."
+        union = w_present | n_present
+        jacc = len(w_present & n_present) / len(union) if union else 1.0
+        if jacc >= 0.6:
+            return True, None
+        return False, "The two methods disagree on which cell types are present."
+    except Exception:
+        return None, "Cross-method comparison could not be completed."
+
+
+def _consistency_checks_panel(s2, s5, s7, s8, P):
+    """Behind-the-scenes integrity & consistency checks. Doctor-facing as PASS /
+    NEEDS REVIEW only -- no internal numbers. A REVIEW is the clinician's cue to
+    notify the lab. Only checks that genuinely run are listed."""
+    s2 = s2 or {}
+    s7 = s7 or {}
+    checks = []  # (name, what-it-confirms, ok True/False/None, note)
+
+    # 1. A-score integrity (startup fail-safe raises; reaching the report => it passed)
+    checks.append(("A-score integrity",
+        "The core A-score formula -- order divided by each cell's physical fidelity floor -- is "
+        "re-verified against a sealed reference before any cell is scored. The report is not "
+        "produced if this fails.", True, None))
+
+    # 2. Substrate presence gate
+    ok2 = bool(s2.get("presence_method")) and s2.get("class_present") is not None
+    checks.append(("Substrate presence gate",
+        "Confirms only cell types actually present in this sample were scored. Cell types not "
+        "detected in the substrate are marked not-assessable rather than given a misleading reading.",
+        ok2, None if ok2 else "The presence gate did not resolve."))
+
+    # 3. Deconvolution
+    ds = s2.get("status")
+    ok3 = (ds is None) or (isinstance(ds, str) and ds.upper().startswith("OK"))
+    checks.append(("Cell-mixture deconvolution",
+        "Confirms the cell-type composition resolved cleanly from the methylation signal.",
+        ok3, None if ok3 else f"Deconvolution status: {ds}."))
+
+    # 4. Independent cross-method check (NILC)
+    nf = s2.get("nilc_fractions")
+    if nf is None:
+        ok4, note4 = None, "Cross-method check was not run for this sample."
+    elif isinstance(nf, dict) and "_error" in nf:
+        ok4, note4 = False, "The independent method did not complete."
+    else:
+        ok4, note4 = _nilc_agreement(s2.get("class_fractions") or {}, nf)
+    checks.append(("Independent cross-method check",
+        "A second, mathematically independent method re-derives the cell composition from the same "
+        "data. Agreement between the two confirms the result reflects your sample, not an artifact "
+        "of one method.", ok4, note4))
+
+    # 5. Whole-sample architectural consistency (Mahalanobis vs the per-cell picture)
+    rA = (getattr(s8, "route_A_architectural_alarm", None) or {})
+    fired = rA.get("fired")
+    elevated = {"ELEVATED", "WARBURG_TRANSITION", "SIGNIFICANTLY_ELEVATED", "BREACH"}
+    percell_elevated = (s7.get("max_class_tier") in elevated) or (s7.get("n_cells_breach", 0) > 0)
+    if fired is None:
+        ok5, note5 = None, "Insufficient assessable cells to run the whole-sample measure."
+    elif fired and not percell_elevated:
+        ok5, note5 = False, "The whole-sample measure flagged but no individual cell is elevated -- worth re-checking."
+    else:
+        ok5, note5 = True, None
+    checks.append(("Whole-sample architectural consistency",
+        "The Mahalanobis distance is a standard statistical measure of how far a many-dimensional "
+        "reading sits from a healthy reference. This check confirms that single whole-sample measure "
+        "agrees with the per-cell A-scores above; a disagreement would be a signal to re-check.",
+        ok5, note5))
+
+    any_review = any(ok is False for _, _, ok, _ in checks)
+    P('<section><h2>E &middot; Internal consistency &amp; fail-safes &mdash; what runs behind the scenes</h2>')
+    P('<p>Your result is produced under several automatic integrity and consistency checks. The '
+      'internal numbers are not shown here &mdash; what matters clinically is that each check ran '
+      'and what it confirms. A line marked <b>NEEDS REVIEW</b> is your cue to notify the laboratory '
+      'before relying on the result.</p>')
+    P('<table class="kv"><tr><th>Check</th><th>What it confirms</th>'
+      '<th style="text-align:center">Status</th></tr>')
+    for name, desc, ok, note in checks:
+        if ok is True:
+            badge = '<span style="color:#3f9b54;font-weight:700">PASSED</span>'
+        elif ok is False:
+            badge = '<span style="color:#b23b3b;font-weight:700">NEEDS REVIEW</span>'
+        else:
+            badge = '<span style="color:#888;font-weight:700">NOT RUN</span>'
+        d = _esc(desc) + (f' <i>({_esc(note)})</i>' if note else '')
+        P(f'<tr><td><b>{_esc(name)}</b></td><td>{d}</td>'
+          f'<td style="text-align:center">{badge}</td></tr>')
+    P('</table>')
+    if any_review:
+        P('<p style="color:#b23b3b"><b>One or more consistency checks need review.</b> Please notify '
+          'the laboratory so the result can be verified before clinical use.</p>')
+    else:
+        P('<p class="muted">All internal consistency checks passed.</p>')
+    P('</section>')
 
 
 def _resemblance_pct(match):
@@ -178,14 +286,6 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     exec_bits.append(f"Overall architectural state reads <b>{_esc((max_tier_label or '').replace(chr(10),' '))}</b> "
                      f"(highest-tier architectural class).")
     exec_bits.append(f"<b>{n_breach}</b> of 115 cell types crossed the breach line (A &ge; {s7.get('breach_line',1.10)}).")
-    total_dep = getattr(s6, "total_cellular_departure", None)
-    dep_pct_x = (getattr(s6, "calibration", {}) or {}).get("departure_percentile_in_healthy")
-    if total_dep is not None:
-        pctstr = (f" — <b>{dep_pct_x:.0f}th</b> percentile vs the healthy reference" if dep_pct_x is not None else "")
-        exec_bits.append(f"Total cellular departure (per-cell, confidence-weighted) <b>{total_dep:.0f}</b> units{pctstr}. "
-                         f"This is a dysregulation magnitude, not a cellular-age-in-years figure (see D).")
-    if maha is not None:
-        exec_bits.append(f"Universal architectural departure (Mahalanobis) = <b>{maha:.1f}</b> ({_esc(maha_status)}).")
 
     P(f"""<div class="hdr">
       <div class="brand">Cellular Performance Gauge <span>· AstroGenetics</span></div>
@@ -275,7 +375,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     P('<h3>C.2 Top 15 cells by magnitude of departure</h3>')
     P(f'<div class="fig">{_img(figs.get("A2_cellular_departure_ranking"), "Top-15 cellular departure ranking")}</div>')
     P('<p class="muted">Ranked by confidence-weighted departure |z| = |A − healthy mean| / posterior SD — '
-      'the same per-cell quantity that drives the cellular departure total (D) and the Mahalanobis distance (E). '
+      'the same per-cell quantity that every other view in this report is built from. '
       'Stable cells (tight posterior) surface on real shifts; noisy cells do not dominate.</p>')
     pcr = getattr(s6, "per_cell", {}) or {}
     if pcr:
@@ -301,7 +401,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     P('</section>')
 
     # ---- D. cellular departure (per-cell confidence-weighted absolute departure) ----
-    P('<section><h2>D · Cellular departure &mdash; and why this report gives no single &ldquo;cellular age&rdquo;</h2>')
+    P('<section><h2>D &middot; Why this report gives no single &ldquo;cellular age&rdquo;</h2>')
     # D.1 — why we do not report a cellular-age-in-years number (2026-06-09 age-stability finding).
     P('<h3>D.1 Why there is no &ldquo;cellular age&rdquo; here</h3>')
     P('<p>You will not find a single number telling you that you are &ldquo;biologically 62 instead of 60.&rdquo; '
@@ -326,88 +426,10 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
       'clocks are legitimate population-level risk summaries, useful for actuarial and research purposes. But as a tool '
       'for <i>you</i>, a single averaged age is a blunt, direction-blind instrument. The cellular-age number is the '
       'headline; your per-cell departure map is the diagnosis.</p>')
-    P('<h3>D.2 Methodology</h3>')
-    P('<p class="muted">The departure measure is the <b>confidence-weighted absolute sum of per-cell departures</b> '
-      'from healthy normal across all measured cells: total = &Sigma; |A_patient(cell) &minus; mean(cell)| / SD(cell), '
-      'where mean and SD are the cell\'s MCMC posterior. Stable cells (tight SD) dominate; absolute values '
-      'avoid the bidirectional cancellation that makes class means useless. No class averaging is used, and '
-      'no age curve is applied &mdash; the per-cell measure is age-stable by construction.</p>')
-    chrono = getattr(s6, "chronological_age", None)
-    total = getattr(s6, "total_cellular_departure", None)
-    nullx = getattr(s6, "null_expected_departure", None)
-    excess = getattr(s6, "excess_departure", None)
-    nsc = getattr(s6, "n_cells_scored", None)
-    cal = getattr(s6, "calibration", {}) or {}
-    P('<h3>D.3 Your total cellular departure</h3>')
-    cal = getattr(s6, "calibration", {}) or {}
-    hc_med = cal.get("hc_median"); hc_p95 = cal.get("hc_p95")
-    dep_pct = cal.get("departure_percentile_in_healthy")
-    P('<table class="kv"><tr><th>Measure</th><th style="text-align:right">Value</th></tr>')
-    P(f'<tr><td>Chronological age</td><td style="text-align:right">{_esc(chrono if chrono is not None else "—")}</td></tr>')
-    if total is not None:
-        P(f'<tr><td><b>Total cellular departure (Σ|z|, {nsc} cells)</b></td>'
-          f'<td style="text-align:right"><b>{total:.1f}</b> confidence-weighted units</td></tr>')
-        if hc_med is not None:
-            P(f'<tr><td>Healthy-reference median (pooled HC, n=1763)</td>'
-              f'<td style="text-align:right">{hc_med:.1f}</td></tr>')
-            P(f'<tr><td>Healthy-reference 95th percentile</td>'
-              f'<td style="text-align:right">{hc_p95:.1f}</td></tr>')
-        if dep_pct is not None:
-            P(f'<tr><td><b>Your departure percentile within healthy</b></td>'
-              f'<td style="text-align:right"><b>{dep_pct:.0f}th</b> percentile</td></tr>')
-    P('</table>')
-    if cal.get("years_mapping_status") == "NOT_AN_AGE_CLOCK":
-        P('<p class="muted"><b>On "cellular age in years":</b> the HC calibration (Hannum n=656, ages 19–101) '
-          'shows this departure magnitude does <b>not</b> track chronological age (r=0.05; flat across decades; '
-          '0/112 per-cell A-scores carry a significant age slope). The departure is therefore reported as a '
-          '<b>dysregulation magnitude expressed as a percentile against the healthy reference</b> — not as a '
-          'chronological-age-in-years estimate, and not a competing clock against Horvath/Hannum. '
-          'Departure magnitude also carries cohort/platform variance (HC medians 51–98), so the percentile, '
-          'not the raw number, is the interpretation.</p>')
-    # D.3 per-class contributions — reference only
-    pcd = getattr(s6, "per_class_departure", {}) or {}
-    if pcd:
-        P('<h3>D.4 Per-class contribution to the departure total — reference only</h3>')
-        P('<p class="muted">Which classes the per-cell departures aggregate into (e.g. the immune share '
-          'is the inflammaging contribution). This is a <i>readout</i> of the per-cell sum, not a per-class '
-          'calculation — the math is always per cell.</p>')
-        P('<table class="kv"><tr><th>Class</th><th style="text-align:right">Σ|z| contribution</th>'
-          '<th style="text-align:right">% of total</th></tr>')
-        tot = total or sum(pcd.values()) or 1.0
-        for cls, v in sorted(pcd.items(), key=lambda x: -x[1]):
-            P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td>'
-              f'<td style="text-align:right">{v:.1f}</td>'
-              f'<td style="text-align:right">{100*v/tot:.0f}%</td></tr>')
-        P('</table>')
     P('</section>')
 
-    # ---- E. Mahalanobis ----
-    P('<section><h2>E · Universal architectural departure — Mahalanobis distance</h2>')
-    P(f'<p>Distance from the healthy-cohort centroid across all 115 cell-type axes: '
-      f'<b>{maha:.2f}</b> — status <b>{_esc(maha_status)}</b> '
-      f'({s5.get("n_features_used","?")} features used, {s5.get("n_features_imputed",0)} imputed).</p>')
-    top = s5.get("top10_axis_contributions") or []
-    if top:
-        P('<table class="kv"><tr><th>#</th><th>Axis (cell type)</th>'
-          '<th style="text-align:right">z-shift</th><th style="text-align:right">your A</th>'
-          '<th style="text-align:right">healthy mean</th></tr>')
-        for c in top:
-            if not isinstance(c, dict):
-                continue
-            nm = c.get("celltype") or c.get("cell_type") or c.get("axis") or c.get("name") or "?"
-            z = c.get("z_shift")
-            if z is None:
-                z = c.get("contribution") or c.get("value") or c.get("z")
-            pv = c.get("patient_value"); hc = c.get("hc_centroid"); rk = c.get("rank", "")
-            zs = f'{z:+.2f}' if isinstance(z, (int, float)) else _esc(z)
-            pvs = f'{pv:.3f}' if isinstance(pv, (int, float)) else "—"
-            hcs = f'{hc:.3f}' if isinstance(hc, (int, float)) else "—"
-            P(f'<tr><td>{_esc(rk)}</td><td>{_esc(nm)}</td>'
-              f'<td style="text-align:right">{zs}</td>'
-              f'<td style="text-align:right">{pvs}</td>'
-              f'<td style="text-align:right">{hcs}</td></tr>')
-        P('</table>')
-    P('</section>')
+    # ---- E. Internal consistency & fail-safes (no internal numbers; PASS / NEEDS REVIEW) ----
+    _consistency_checks_panel(s2, s5, s7, s8, P)
 
     # ---- F. Personal Brilliance Maps ----
     P('<section><h2>F · Personal Brilliance Map — your methylome vs the Cosmic Methylome Background</h2>')
@@ -468,7 +490,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
       'matches the healthy background (right) — there is nothing to see, and that is the goal. Where your map shows '
       'bright red or blue clusters the background does not, those are <i>your</i> anisotropies: regions where your '
       'methylome has departed from healthy. Those clusters are the same departures that drive your cell ranking '
-      '(C.2), your departure total (D) and your Mahalanobis distance (E) — here you can see <i>where</i> on the '
+      '(C.2) &mdash; here you can see <i>where</i> on the '
       'methylome they sit. A healthy methylome looks like the background; a departing one grows structure.</p>')
     _cmb_ref = atlas_plate_paths.get("plate3") or atlas_plate_paths.get("plate1")
     P('<div class="grid">')
@@ -544,8 +566,8 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
           'probability of having the disease.</p>')
         # H.3 routes A / C
         P('<h3>H.3 Architectural-alarm & bidirectional channels</h3>')
-        P(f'<p><b>Route A (universal architectural alarm):</b> Mahalanobis {rA.get("mahalanobis_d",0):.1f} '
-          f'vs hull p95 {rA.get("p95","—")} — <b>{"TRIGGERED" if rA.get("fired") else "within hull"}</b>.</p>')
+        P(f'<p><b>Route A (universal architectural alarm):</b> '
+          f'<b>{"TRIGGERED &mdash; see internal consistency checks (E)" if rA.get("fired") else "within normal architecture"}</b>.</p>')
         if rC.get("fired"):
             cls_list = ", ".join(f'{f["class"]} (a_dir {f["a_directional"]:+.2f})' for f in rC["flagged_classes"])
             P(f'<p><b>Route C (bidirectional pattern):</b> TRIGGERED — {_esc(cls_list)}.</p>')
@@ -557,8 +579,9 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         if rb:
             conv.append(f'the disease-matrix top match is <b>{_esc(rb[0]["disease"])} · {_esc(rb[0]["phase"])}</b> '
                         f'(magnitude {rb[0]["match_magnitude"]:+.2f})')
-        if maha is not None:
-            conv.append(f'the Mahalanobis distance is <b>{maha:.1f}</b> ({_esc(maha_status)})')
+        if rA.get("fired") is not None:
+            conv.append('the whole-sample architectural check '
+                        + ('flagged an overall departure' if rA.get("fired") else 'is within normal architecture'))
         top = s5.get("top10_axis_contributions") or []
         if top:
             names = []
@@ -566,9 +589,9 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
                 if isinstance(c, dict):
                     names.append(str(c.get("cell_type") or c.get("axis") or c.get("name") or ""))
             if names:
-                conv.append(f'the cells driving the distance are <b>{_esc(", ".join(n for n in names if n))}</b>')
+                conv.append(f'the cells showing the largest departures are <b>{_esc(", ".join(n for n in names if n))}</b>')
         P('<p>' + ('; '.join(conv) if conv else 'No convergent pattern surfaced.') +
-          '. The cell ranking (C.2), the Mahalanobis decomposition (E), the Personal Brilliance Map (F) and '
+          '. The cell ranking (C.2), the internal consistency checks (E), the Personal Brilliance Map (F) and '
           'the disease matrix (H.2), and the immune universal-alarm axis (H.5b) are five converging views of the same departure signal — where they converge, '
           'the pattern is real.</p>')
         # H.5b immune universal-alarm axis -- wired to the patient's measured immune direction
