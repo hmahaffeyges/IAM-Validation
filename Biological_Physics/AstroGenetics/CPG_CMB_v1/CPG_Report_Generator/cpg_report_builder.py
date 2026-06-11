@@ -79,7 +79,9 @@ def _esc(x):
 
 
 def _tier_badge(tier_id, label=None):
-    label = (label or tier_id).replace("\n", " ")
+    if tier_id is None and label is None:
+        return '<span class="badge" style="background:#888">—</span>'
+    label = (label or tier_id or "—").replace("\n", " ")
     c = TIER_CSS.get(tier_id, "#777")
     return f'<span class="badge" style="background:{c}">{_esc(label)}</span>'
 
@@ -575,7 +577,9 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         t = s7["class_tiers"].get(cls, {})
         ncells = len(by_class.get(cls, []))
         frac = (f'{cfr.get(cls,0)*100:.1f}%' if cfr and cls in cfr else '—')
-        P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td><td>{frac}</td><td>{cv.get("A",0):.3f}</td>'
+        _av = cv.get("A")
+        astr = f'{_av:.3f}' if isinstance(_av, (int, float)) else '—'
+        P(f'<tr><td>{_esc(CLASS_PRETTY.get(cls,cls))}</td><td>{frac}</td><td>{astr}</td>'
           f'<td>{_tier_badge(t.get("tier_id"), t.get("label"))}</td><td>{ncells}</td></tr>')
     P('</table>')
     if s2 and isinstance(s2, dict):
@@ -672,7 +676,7 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     P('</section>')
 
     # ---- E. Internal consistency & fail-safes (no internal numbers; PASS / NEEDS REVIEW) ----
-    _consistency_checks_panel(s2, s5, s7, s8, P)
+    _consistency_checks_panel(s2, s5, s7, bundle.get("stage8"), P)
 
     # ---- F. Personal Brilliance Maps ----
     P('<section><h2>F · Personal Brilliance Map — your methylome vs the Cosmic Methylome Background</h2>')
