@@ -109,6 +109,7 @@ def _score_one(beta_series: pd.Series,
     confidence = _scoring_confidence(coverage, dispersion)
     return {
         "A": a_score,
+        "v_s": beta_mean,
         "n_markers_expected": n_expected,
         "n_markers_matched": n_usable,
         "coverage": coverage,

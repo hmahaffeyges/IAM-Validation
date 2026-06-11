@@ -106,35 +106,32 @@ def _nilc_agreement(walther_fracs, nilc_fracs, thresh=0.05):
         return None, "Cross-method comparison could not be completed."
 
 
-def _consistency_checks_panel(s2, s5, s7, s8, P):
-    """Behind-the-scenes integrity & consistency checks. Doctor-facing as PASS /
-    NEEDS REVIEW only -- no internal numbers. A REVIEW is the clinician's cue to
-    notify the lab. Only checks that genuinely run are listed."""
+def _run_consistency_checks(s2, s5, s7, s8):
+    """Single source of truth for the internal consistency checks. Returns a list of
+    (name, what-it-confirms, ok True/False/None, note). Used by both the doctor-facing
+    panel and the trajectory snapshot so their verdicts can never diverge."""
     s2 = s2 or {}
+    s5 = s5 or {}
     s7 = s7 or {}
-    checks = []  # (name, what-it-confirms, ok True/False/None, note)
+    checks = []
 
-    # 1. A-score integrity (startup fail-safe raises; reaching the report => it passed)
     checks.append(("A-score integrity",
         "The core A-score formula -- order divided by each cell's physical fidelity floor -- is "
         "re-verified against a sealed reference before any cell is scored. The report is not "
         "produced if this fails.", True, None))
 
-    # 2. Substrate presence gate
     ok2 = bool(s2.get("presence_method")) and s2.get("class_present") is not None
     checks.append(("Substrate presence gate",
         "Confirms only cell types actually present in this sample were scored. Cell types not "
         "detected in the substrate are marked not-assessable rather than given a misleading reading.",
         ok2, None if ok2 else "The presence gate did not resolve."))
 
-    # 3. Deconvolution
     ds = s2.get("status")
     ok3 = (ds is None) or (isinstance(ds, str) and ds.upper().startswith("OK"))
     checks.append(("Cell-mixture deconvolution",
         "Confirms the cell-type composition resolved cleanly from the methylation signal.",
         ok3, None if ok3 else f"Deconvolution status: {ds}."))
 
-    # 4. Independent cross-method check (NILC)
     nf = s2.get("nilc_fractions")
     if nf is None:
         ok4, note4 = None, "Cross-method check was not run for this sample."
@@ -147,7 +144,6 @@ def _consistency_checks_panel(s2, s5, s7, s8, P):
         "data. Agreement between the two confirms the result reflects your sample, not an artifact "
         "of one method.", ok4, note4))
 
-    # 5. Whole-sample architectural consistency (Mahalanobis vs the per-cell picture)
     rA = (getattr(s8, "route_A_architectural_alarm", None) or {})
     fired = rA.get("fired")
     elevated = {"ELEVATED", "WARBURG_TRANSITION", "SIGNIFICANTLY_ELEVATED", "BREACH"}
@@ -163,6 +159,14 @@ def _consistency_checks_panel(s2, s5, s7, s8, P):
         "reading sits from a healthy reference. This check confirms that single whole-sample measure "
         "agrees with the per-cell A-scores above; a disagreement would be a signal to re-check.",
         ok5, note5))
+    return checks
+
+
+def _consistency_checks_panel(s2, s5, s7, s8, P):
+    """Behind-the-scenes integrity & consistency checks. Doctor-facing as PASS /
+    NEEDS REVIEW only -- no internal numbers. A REVIEW is the clinician's cue to
+    notify the lab. Only checks that genuinely run are listed."""
+    checks = _run_consistency_checks(s2, s5, s7, s8)
 
     any_review = any(ok is False for _, _, ok, _ in checks)
     P('<section><h2>E &middot; Internal consistency &amp; fail-safes &mdash; what runs behind the scenes</h2>')
@@ -315,6 +319,110 @@ def build_audit_appendix(bundle, audit_path):
     p = Path(audit_path)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(doc, encoding="utf-8")
+    return p
+
+
+def build_trajectory_snapshot(bundle, snapshot_path, scale_provenance=None):
+    """Per-timepoint trajectory snapshot for the patient folder. The next IDAT's
+    tracker loads every snapshot in the folder, verifies they share the same
+    scoring scale (scoring_scale_id), then plots each cell's A-score over time.
+
+    Stores: identity + time (the x-axis), the scale provenance that gates
+    comparability, the per-cell A AND v_s (mean beta -> survives an H_min
+    recalibration without a re-run), and the run trust-flags. Derived intermediates
+    only -- no raw methylation / PHI."""
+    import json, hashlib, datetime
+    from pathlib import Path
+
+    s2 = bundle.get("stage2") or {}
+    s4 = bundle.get("stage4") or {}
+    s6 = bundle.get("stage6")
+    s7 = bundle.get("stage7") or {}
+    s8 = bundle.get("stage8")
+    s5 = bundle.get("stage5") or {}
+    meta = bundle.get("patient_meta", {}) or {}
+    pid = bundle.get("patient_id", "patient")
+
+    # --- scale provenance: the comparability gate ---
+    h_min = (s4.get("h_min_by_class") if isinstance(s4, dict) else None) or {}
+    prov = dict(scale_provenance or {})
+    prov.setdefault("h_min_floors", h_min)
+    prov.setdefault("mu_floor", 1.0)
+    prov.setdefault("sigma", 0.02)
+    for k in ("atlas_version", "marker_panel_version", "tier_breakpoints_version", "derived_reference_version"):
+        prov.setdefault(k, None)
+    prov["provenance_complete"] = all(prov.get(k) is not None
+                                      for k in ("atlas_version", "marker_panel_version",
+                                                "tier_breakpoints_version"))
+    scale_id = hashlib.sha256(
+        json.dumps({k: prov[k] for k in sorted(prov) if k != "provenance_complete"},
+                   sort_keys=True, default=str).encode()).hexdigest()[:16]
+    prov["scoring_scale_id"] = scale_id
+
+    # --- per-cell trended values (A + v_s for assessable cells) ---
+    cta = s4.get("celltype_ascores", {}) if isinstance(s4, dict) else {}
+    per_cell = {}
+    for cell, rec in cta.items():
+        if not isinstance(rec, dict):
+            per_cell[cell] = {"A": rec, "v_s": None, "assessable": None, "class": None}
+            continue
+        assessable = rec.get("assessable")
+        per_cell[cell] = {
+            "A": rec.get("A"),
+            "v_s": rec.get("v_s") if assessable is not False else None,  # mean beta; only meaningful if assessable
+            "assessable": assessable,
+            "class": rec.get("class"),
+            "status": rec.get("status"),
+        }
+
+    # --- per-class summary (A + tier from Stage 7) ---
+    class_a = s4.get("class_ascores", {}) if isinstance(s4, dict) else {}
+    class_tiers = s7.get("class_tiers", {}) or {}
+    per_class = {}
+    for cls in set(list(class_a.keys()) + list(class_tiers.keys())):
+        ca = class_a.get(cls, {})
+        per_class[cls] = {
+            "A": ca.get("A") if isinstance(ca, dict) else ca,
+            "tier": (class_tiers.get(cls, {}) or {}).get("label"),
+        }
+
+    # --- run trust-flags (shared check logic; a flagged run is plotted but marked) ---
+    checks = _run_consistency_checks(s2, s5, s7, s8)
+    review_flags = [name for name, _, ok, note in checks if ok is False]
+    rA = (getattr(s8, "route_A_architectural_alarm", None) or {})
+    cal6 = _g(s6, "calibration", {}) or {}
+
+    snapshot = {
+        "schema_version": "trajectory_snapshot_v1",
+        "identity": {
+            "patient_id": pid,
+            "sample_id": meta.get("sample_id") or bundle.get("sample_id"),
+            "collection_date": meta.get("collection_date") or meta.get("assay_date"),  # trajectory x-axis
+            "report_generated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "substrate": meta.get("substrate", "blood"),
+            "array_type": meta.get("array_type"),
+        },
+        "scale_provenance": prov,
+        "per_cell": per_cell,
+        "per_class": per_class,
+        "run_flags": {
+            "architectural_alarm_fired": rA.get("fired"),
+            "departure_sigma": cal6.get("departure_sigma_above_null"),
+            "all_consistency_checks_passed": len(review_flags) == 0,
+            "review_flags": review_flags,
+        },
+        "tracker_rules": {
+            "comparability": "Trend only across snapshots that share scoring_scale_id. "
+                             "On mismatch, re-score from stored v_s (H_min change) or re-run (atlas/marker change).",
+            "per_cell": "Trend a cell only across timepoints where assessable is True in BOTH; never trend across a not-assessable gap.",
+            "review_points": "Plot review-flagged timepoints with a distinct marker; do not silently exclude.",
+            "normal_band": "Draw the sigma=0.02 normal band; the signal is direction and velocity across cells, not a single sub-sigma wiggle.",
+        },
+    }
+
+    p = Path(snapshot_path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(snapshot, indent=1, default=str), encoding="utf-8")
     return p
 
 
@@ -1079,4 +1187,10 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
         build_audit_appendix(bundle, out.with_name(out.stem + "_AUDIT_APPENDIX.html"))
     except Exception:
         pass  # the audit appendix must never break the clinical report
+    try:
+        build_trajectory_snapshot(
+            bundle, out.with_name(out.stem + "_trajectory_snapshot.json"),
+            scale_provenance=(config or {}).get("scale_provenance"))
+    except Exception:
+        pass  # the trajectory snapshot must never break the clinical report
     return out
