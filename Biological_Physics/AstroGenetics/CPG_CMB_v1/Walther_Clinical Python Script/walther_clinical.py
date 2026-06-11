@@ -72,9 +72,18 @@ DEFAULT_CONFIG = {
     # Cell-type markers (Stage 4). NOTE: the per-class cellular-age scorer (iam_cellular_age_scoring.py)
     # and age_reference_matrix were removed 2026-06-09 — the per-cell departure (Stage 6) is age-robust
     # and consumes neither. Their files remain on disk (preserved) but are no longer in the runtime path.
+    # Discriminative one-vs-rest markers. THESE ARE FOR STAGE-1 DECONVOLUTION ONLY.
+    # They are mixed-direction by construction and MUST NOT feed the Stage-4 A-score
+    # (see a_score_loci_json below and the guard in stage_4_a_score).
     "celltype_markers_json": CPG_ROOT / "Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
     # Stage 4 — A-score
     "a_scoring_module_path": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py",
+    # Stage 4 A-score LOCI — per-cell-type MOST-METHYLATED CpGs from the IAMAtlas.
+    # This is the ONLY correct loci source for the A-score. Built so the atlas
+    # reference is unidirectional (healthy ~beta_floor; disorder walks beta -> 0.5).
+    # NEVER point Stage 4 at celltype_markers_json (discriminative) — that is the
+    # all-BREACH bug, root-caused 2026-06-11 (GAPE _derive_A + Recipe Part 4 / line 884).
+    "a_score_loci_json": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_score_loci_v1_0.json",
     # Stage 4.5 — bidirectional decomposition
     "bidirectional_module_path": CPG_ROOT / "Runtime Matrices/Bidirectional Decomposition py/bidirectional_decomposition.py",
     "directional_panels_json": CPG_ROOT / "Runtime Matrices/Bidirectional Decomposition py/directional_panels_v1_0.json",
@@ -599,9 +608,46 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
     """
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     a_mod = _load_module(cfg["a_scoring_module_path"], "iamatlas_a_scoring")
-    meta, ct_markers, ct_to_class, h_min = a_mod.load_artifact(str(cfg["celltype_markers_json"]))
+    # h_min (the 8 frozen Mahaffey Numbers) + cell->class map come from the artifact loader.
+    meta, _discriminative_markers, ct_to_class, h_min = a_mod.load_artifact(str(cfg["celltype_markers_json"]))
+
+    # ========================================================================
+    # A-SCORE LOCI GUARD — DO NOT REMOVE  (root-caused 2026-06-11)
+    # ------------------------------------------------------------------------
+    # The Stage-4 A-score scores the per-cell-type MOST-METHYLATED loci from the
+    # IAMAtlas (a_score_loci_json). It must NEVER score the discriminative
+    # one-vs-rest deconvolution markers (_discriminative_markers / celltype_markers_json).
+    #
+    # WHY THIS EXISTS: discriminative markers are mixed-direction by design, so
+    # their panel MEAN collapses to ~0.5 in any cell mixture; H(0.5)=1.0 pins every
+    # A-score at the ceiling (1/H_min) and the whole report reads all-BREACH. This
+    # was traced to scoring the wrong CpG set, confirmed against the frozen GAPE
+    # engine (_derive_A on a single representative beta) and the Recipe (Part 4 /
+    # line 884: "CpGs that are most-methylated in the class's reference cells").
+    # Two CpG sets, two jobs: discriminative -> Stage 1 deconvolution; most-methylated
+    # -> Stage 4 A-score. NEVER cross them.
+    # ========================================================================
+    import json as _json
+    _loci = _json.load(open(str(cfg["a_score_loci_json"])))
+    class_markers = _loci["loci_by_class"]        # per-class most-methylated loci
+    ct_to_class  = _loci.get("class_of_celltype", ct_to_class)
+    # Bulk substrate: each cell inherits its CLASS most-methylated loci. A fine cell
+    # subtype's order cannot be isolated from a mixed sample, so the honest A-score
+    # unit on bulk is the class (cell-type differentiation comes from deconvolution
+    # fractions + Stage 4.5 bidirectional, not from per-cell A magnitude on bulk).
+    # Sharp per-cell-type loci for PURE substrates are in loci_by_celltype_sharp.
+    ct_markers = {ct: class_markers[cls] for ct, cls in ct_to_class.items()
+                  if cls in class_markers}
+    # Hard guard: the A-score loci object must NOT be the discriminative marker object,
+    # and must carry the most-methylated provenance. Fail loudly rather than silently
+    # producing an all-BREACH report.
+    if ct_markers is _discriminative_markers or "most-methylated" not in _loci.get("_meta", {}).get("purpose", "").lower():
+        raise RuntimeError(
+            "Stage 4 A-score loci guard tripped: refusing to score discriminative "
+            "deconvolution markers. a_score_loci_json must be the IAMAtlas "
+            "most-methylated loci (iamatlas_a_score_loci_v1_0.json).")
+
     beta_dict = cleaned_beta.to_dict()
-    class_markers = _aggregate_markers_to_class(ct_markers, ct_to_class)
     class_ascores = a_mod.score_per_class(beta_dict, class_markers, h_min)
     celltype_ascores = a_mod.score_per_celltype(beta_dict, ct_markers, ct_to_class, h_min)
 
