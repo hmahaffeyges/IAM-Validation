@@ -416,7 +416,15 @@ def build_trajectory_snapshot(bundle, snapshot_path, scale_provenance=None):
                              "On mismatch, re-score from stored v_s (H_min change) or re-run (atlas/marker change).",
             "per_cell": "Trend a cell only across timepoints where assessable is True in BOTH; never trend across a not-assessable gap.",
             "review_points": "Plot review-flagged timepoints with a distinct marker; do not silently exclude.",
-            "normal_band": "Draw the sigma=0.02 normal band; the signal is direction and velocity across cells, not a single sub-sigma wiggle.",
+            "normal_band": "Draw the NORMAL tier band [0.95, 1.04) (asymmetric around the 1.0 floor anchor; "
+                           "the band is global because A is H_min-normalized, so it is the same for all classes). "
+                           "Within-band drift toward 1.04 is real early-warning even before a tier is crossed; "
+                           "the signal is direction and velocity of A across many cells, not a single wiggle.",
+            "structural_ceiling": "Each cell's A cannot exceed its class ceiling = 1/H_min(class) (from "
+                                  "scale_provenance.h_min_floors; e.g. stem_pluri ~1.018, terminal ~1.294). Draw the "
+                                  "per-class ceiling; a cell near its ceiling has little remaining headroom, and a "
+                                  "low-ceiling class is structurally blind to high-tier departure -- do not read its "
+                                  "flat trajectory as 'stable' without noting the ceiling.",
         },
     }
 
