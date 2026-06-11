@@ -821,7 +821,7 @@ def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     patient_meta = patient_meta or {}
 
-    # ---- Route A: universal architectural alarm (Mahalanobis vs hull percentile) ----
+    # ---- Route A: universal architectural alarm (derived chi-squared null) ----
     ref = json.load(open(cfg["mahalanobis_reference_json"]))
     is_derived = (ref.get("method") == "derived_floor_tierband"
                   or ref.get("covariance_method") == "derived_diagonal")
@@ -830,13 +830,30 @@ def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
         if k.startswith("route_A_calibration"):
             cal = ref[k]
     mahal_d = stage5_output.get("mahalanobis_distance")
-    if cal is None and is_derived:
-        # Derived distance scale: the pooled p95/p99 (13.62/18.59) do NOT apply.
-        # No firing until a derived threshold is recalibrated on derived-scored refs.
-        route_A = {"fired": None, "mahalanobis_d": mahal_d,
-                   "status": "PENDING_DERIVED_CALIBRATION",
-                   "note": "Derived reference in use; Route A p95/p99 must be "
-                           "recalibrated on the derived distance scale before firing."}
+    n_assess = stage5_output.get("n_features_assessable")
+    if is_derived and cal is None:
+        # Derived chi-squared null. Under the healthy floor each assessable cell's
+        # z = (A-1)/sigma ~ N(0,1), so distance^2 = sum z^2 ~ chi^2(n_assessable). The
+        # alarm threshold is the chi-distribution quantile sqrt(chi2.ppf(p, n)) --
+        # analytic, n-adaptive, no cohort. p95 = 5% whole-patient false-positive.
+        from scipy.stats import chi2
+        if mahal_d is not None and n_assess and n_assess > 0:
+            thr95 = float(chi2.ppf(0.95, n_assess)) ** 0.5
+            thr99 = float(chi2.ppf(0.99, n_assess)) ** 0.5
+            # analytic percentile of this patient's distance against the chi^2 null
+            pct = float(chi2.cdf(mahal_d ** 2, n_assess) * 100.0)
+            route_A = {"fired": bool(mahal_d >= thr95),
+                       "strict_fired": bool(mahal_d >= thr99),
+                       "mahalanobis_d": mahal_d, "n_assessable": int(n_assess),
+                       "p95": thr95, "p99": thr99,
+                       "percentile_vs_derived_null": pct,
+                       "method": "derived_chi2_null",
+                       "note": "distance^2 ~ chi^2(n_assessable) under the healthy floor; "
+                               "threshold = sqrt(chi2 quantile). No cohort."}
+        else:
+            route_A = {"fired": None, "mahalanobis_d": mahal_d, "n_assessable": n_assess,
+                       "status": "INSUFFICIENT_ASSESSABLE_CELLS",
+                       "note": "Route A needs >=1 assessable cell to form the chi^2 null."}
     else:
         p95 = float(cal["p95"]) if cal and "p95" in cal else 13.62
         p99 = float(cal["p99"]) if cal and "p99" in cal else 18.59

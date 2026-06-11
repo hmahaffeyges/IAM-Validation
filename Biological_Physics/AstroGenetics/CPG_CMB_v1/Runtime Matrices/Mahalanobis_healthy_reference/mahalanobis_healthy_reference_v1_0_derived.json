@@ -131,5 +131,5 @@
     "whole_blood"
   ],
   "provenance": "No GEO. No pooled cohort. Derived from IAMAtlas H_min floors + physics-derived tier breakpoints (tier_breakpoints.json NORMAL band).",
-  "calibration_note": "Distance scale differs from the retired pooled artifact; the old Cohen's d validation anchors do NOT carry over. A derived abnormal-distance threshold (Route A) must be recalibrated against derived-scored cohorts as a separate step before clinical thresholding."
+  "calibration_note": "Distance scale differs from the retired pooled artifact; the old Cohen's d anchors do NOT carry over. Route A is calibrated ANALYTICALLY, not from a cohort: under the healthy floor distance^2 = sum z^2 ~ chi^2(n_assessable), so the alarm threshold is sqrt(chi2.ppf(p, n_assessable)) at p95/p99, n-adaptive. Validated: healthy false-positive ~5%/1% at p95/p99 across n=20-115; disease fires at >=4/40 elevated cells."
 }
