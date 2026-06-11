@@ -14,8 +14,19 @@ via entropy-at-markers. Different math, different CpG sets, different failure
 modes - kept separate so each component is independently testable.
 
 Companion artifacts (must be loaded once at session start):
-  - iamatlas_celltype_markers_v0_2.json  (the per-class + per-celltype marker lists)
+  - iamatlas_celltype_markers_v0_2.json  (loaded here ONLY for the H_min table and
+                                          the cell->class map. Its marker lists are
+                                          DISCRIMINATIVE one-vs-rest deconvolution
+                                          markers and MUST NOT be scored by the
+                                          A-score — see below.)
   - H_min_by_class table                  (the 8 architectural floors)
+
+  A-SCORE LOCI (the CpGs actually scored): per-class MOST-METHYLATED loci from the
+  IAMAtlas (iamatlas_a_score_loci_v1_0.json), supplied by the caller. NEVER score
+  the discriminative markers: they are mixed-direction, so their panel mean -> 0.5
+  and H(0.5)=1.0 pins every A at the ceiling 1/H_min (the all-BREACH bug, root-caused
+  2026-06-11; Recipe Part 4 / line 884; SOP §103). Two CpG sets, two jobs:
+  discriminative -> Stage 1 deconvolution; most-methylated -> Stage 4 A-score.
 
 Author: WaltherMayer + Heath W. Mahaffey
 Build session: EDEAR_Physics_Roadmap TODO 1.1 (2026-05-29)

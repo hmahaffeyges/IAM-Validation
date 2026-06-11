@@ -100,6 +100,13 @@ DEFAULT_CONFIG = {
     "atlas_csv_xz":        CPG_ROOT / "IAM_Atlas/IAMAtlasREBUILD.csv.xz",
     "atlas_csv_decompressed": Path("/home/claude/IAMAtlasREBUILD.csv"),
     "celltype_to_class_json": CPG_ROOT / "IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json",
+    # Atlas provenance — SOP §99 SINGLE SOURCE OF TRUTH for the frozen H_min
+    # (key h_min_values_frozen_2026_04_06), build pipeline, distinctness tests.
+    # Stage 4 reads this and refuses to run if the runtime H_min disagrees.
+    # NOTE: the atlas <class>_mean global mean ~0.5 (std ~0.34, mass at both ends)
+    # is CORRECT bimodal methylation, NOT a flat atlas or a scale offset — see
+    # IAMAtlas_FLATNESS_LESSON.md and SOP §103. Do not re-derive H_min from it.
+    "atlas_provenance_json": CPG_ROOT / "IAM_Atlas/IAMAtlasREBUILD_provenance.json",
     "walther_deconv_module": CPG_ROOT / "Walther_iam_deconvolver/walther_iam_deconvolver.py",
     "nilc_deconv_module":  CPG_ROOT / "NILC Deconvolver/nilc_deconvolver-2.py",
     # Stage 8 — disease signature matrix matching (Path B) + priors
@@ -610,6 +617,35 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
     a_mod = _load_module(cfg["a_scoring_module_path"], "iamatlas_a_scoring")
     # h_min (the 8 frozen Mahaffey Numbers) + cell->class map come from the artifact loader.
     meta, _discriminative_markers, ct_to_class, h_min = a_mod.load_artifact(str(cfg["celltype_markers_json"]))
+
+    # ========================================================================
+    # H_MIN PROVENANCE PIN — SOP §99  (DO NOT REMOVE)
+    # ------------------------------------------------------------------------
+    # SOP §99: "Single source of truth: IAMAtlasREBUILD_provenance.json, key
+    # h_min_values_frozen_2026_04_06" and "any code that hardcodes these values
+    # WITHOUT reading from the canonical JSON is a chain-of-custody violation;
+    # the engine refuses to deploy." We enforce that here: read the frozen H_min
+    # from provenance and REFUSE TO RUN if the runtime H_min disagrees.
+    #
+    # The frozen H_min are MCMC posteriors (provenance.json), NEVER H(atlas global
+    # mean). The atlas <class>_mean global ~0.5 (std ~0.34) is correct BIMODAL
+    # methylation, not a flat atlas and not a scale offset (IAMAtlas_FLATNESS_LESSON.md;
+    # SOP §103). Re-deriving a floor from the atlas global mean is the 2026-06-11
+    # false-alarm; do not repeat it.
+    # ========================================================================
+    import json as _json
+    with open(str(cfg["atlas_provenance_json"])) as _pf:
+        _prov_hmin = _json.load(_pf)["h_min_values_frozen_2026_04_06"]
+    for _cls, _hv in _prov_hmin.items():
+        if _cls not in h_min:
+            raise RuntimeError(
+                f"H_min chain-of-custody violation (SOP §99): class '{_cls}' is in "
+                f"provenance but missing at runtime. Refusing to deploy.")
+        if abs(float(h_min[_cls]) - float(_hv)) > 1e-3:
+            raise RuntimeError(
+                f"H_min chain-of-custody violation (SOP §99): class '{_cls}' runtime "
+                f"H_min={h_min[_cls]} != provenance frozen {_hv}. Refusing to deploy. "
+                f"Single source of truth: IAMAtlasREBUILD_provenance.json.")
 
     # ========================================================================
     # A-SCORE LOCI GUARD — DO NOT REMOVE  (root-caused 2026-06-11)

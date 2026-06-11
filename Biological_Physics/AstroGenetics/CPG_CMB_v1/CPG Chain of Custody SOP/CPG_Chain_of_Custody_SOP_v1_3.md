@@ -5130,12 +5130,41 @@ The four plates are the visual anchor of the framework. Each plate illustrates s
 | Date | Version | Change | Authority |
 |---|---|---|---|
 | 2026-05-31 | v1 | Initial release. Parts I-V complete: §1-§102. Foundations + step-by-step + audit machinery + failure modes + reference. | Heath W. Mahaffey |
+| 2026-06-11 | v1.3.2 | **§103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, after the first real-IDAT end-to-end run. Code: `walther_clinical.stage_4_a_score` now reads frozen H_min from `IAMAtlasREBUILD_provenance.json` and refuses to run on mismatch (enforces §99 in code); permanent A-SCORE LOCI GUARD added. | Heath W. Mahaffey + Walther |
 
 **Change discipline.** Every future modification to this SOP creates a new version entry. The previous version is archived (not overwritten). Changes that modify CANNOT-SAY language, H_min values, atlas references, or VAL sealing protocols require Heath's explicit authority. Changes that update file paths, add new failure modes catalog entries, or expand the glossary can be made by Walther under standing instruction. The change log is the chain-of-custody for the SOP itself.
 
 ---
 
-**End of Part V (§97-§102).**
+## §103. LESSON — A-score loci selection & the atlas-flatness false-alarm (2026-06-11)
+
+Recorded after the first real-IDAT end-to-end run (real EPIC IDAT GSM3228562, whole blood, decoded + noob-normalized in pure Python). Two failure modes were hit. Both are recorded here so they are never repeated.
+
+### §103.1 — The A-score scores MOST-METHYLATED loci, NEVER discriminative markers
+
+Stage 4 (A-score) must score each class's **most-methylated loci** from the IAMAtlas — the CpGs where the class reference is methylated (β ≈ 0.72–0.78 healthy, walking toward 0.5 under disorder; Recipe Part 4 / line 884). It must NEVER score the discriminative one-vs-rest deconvolution markers (`iamatlas_celltype_markers_v0_2.json`).
+
+- **Symptom of the violation:** all-BREACH — every A-score pinned at the ceiling 1/H_min. Discriminative markers are mixed-direction by construction, so their panel MEAN collapses to ~0.5 in any cell mixture; H(0.5)=1.0 → A=1/H_min for every cell. This was confirmed against the frozen GAPE engine (`_derive_A` scores a single representative β) and the Recipe.
+- **Two CpG sets, two jobs:** discriminative → Stage 1 deconvolution ONLY; most-methylated → Stage 4 A-score. NEVER cross them.
+- **Enforcement (in code):** `iamatlas_a_score_loci_v1_0.json` holds the per-class most-methylated loci (derived from the atlas, ref β > class β_floor − 0.08); `walther_clinical.stage_4_a_score` loads it via `a_score_loci_json` and carries a permanent **A-SCORE LOCI GUARD** that hard-fails if Stage 4 is ever pointed at the discriminative markers again.
+- **Bulk vs pure substrate:** on a BULK sample the honest A-score unit is the class — a fine subtype's order cannot be isolated from a mixed tube — so each cell inherits its class most-methylated loci. Sharp per-cell-type loci (`loci_by_celltype_sharp`) are for PURE substrates. On bulk, cell-type *differentiation* comes from deconvolution fractions + Stage 4.5 bidirectional, not from per-cell A magnitude.
+
+### §103.2 — Atlas `<class>_mean` ≈ 0.5 is correct bimodal methylation, NOT a scale problem
+
+The IAMAtlas REBUILD `<class>_mean` columns have a genome-wide mean ≈ 0.5 with **std ≈ 0.34** and mass at BOTH ends (~35% of CpGs > 0.8, ~35% < 0.2). This is correct bimodal methylation — confirmed against `IAMAtlasREBUILD_provenance.json` and `IAMAtlas_FLATNESS_LESSON.md`. Do NOT mistake the ~0.5 mean for a flat atlas or a "scale offset" against H_min.
+
+- The OLD collapsed build was flat at ~0.47 with std ≈ 0.005 (signal below noise); the REBUILD fixed it (FLATNESS_LESSON).
+- H_min is the frozen MCMC posterior (§99), **not** H(atlas global mean). `atlas global mean ≠ H(β_floor)` is expected, not a contradiction. There is nothing to "anchor" or "re-derive" against the atlas global mean.
+
+### §103.3 — Source-doc discipline for the atlas
+
+Before theorizing about the atlas or flagging a scale/anchor problem, READ in this order: `IAM_Atlas/IAMAtlasREBUILD_provenance.json`, `IAM_Atlas/1_README.md`, `IAM_Atlas/IAMAtlas_FLATNESS_LESSON.md`. The frozen H_min, the build pipeline, the distinctness-test outcomes, and the bimodal-not-flat fact are all documented there. Re-deriving from the atlas global mean produced the 2026-06-11 false-alarm; reading the provenance first prevents it.
+
+**Code linkage:** `walther_clinical.stage_4_a_score` now reads `h_min_values_frozen_2026_04_06` from `IAMAtlasREBUILD_provenance.json` (the §99 single source of truth) and refuses to run if the runtime H_min disagrees — implementing §99's "engine refuses to deploy" rule in code.
+
+---
+
+**End of Part V (§97-§103).**
 
 **End of CPG Chain-of-Custody SOP v1.** 102 sections. Five parts. Quantum-level granular operator manual from IDAT-on-server (§11) to audit-trail-closed (§79), with L9 chain-integrity scaffolding (§80-§91), failure-mode response catalog (§92-§96), and complete reference apparatus (§97-§102).
 
