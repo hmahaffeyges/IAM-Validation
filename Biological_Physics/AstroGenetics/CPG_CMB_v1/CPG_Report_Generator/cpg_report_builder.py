@@ -188,7 +188,134 @@ def _consistency_checks_panel(s2, s5, s7, s8, P):
           'the laboratory so the result can be verified before clinical use.</p>')
     else:
         P('<p class="muted">All internal consistency checks passed.</p>')
+    P('<p class="muted">A <b>Technical Audit Appendix</b> is generated alongside this report; it carries the '
+      'internal values behind every check above. Send it to the laboratory with any line marked NEEDS REVIEW.</p>')
     P('</section>')
+
+
+def _g(obj, key, default=None):
+    """Read a field from either a dict or a dataclass-like object."""
+    if obj is None:
+        return default
+    if isinstance(obj, dict):
+        return obj.get(key, default)
+    return getattr(obj, key, default)
+
+
+def build_audit_appendix(bundle, audit_path):
+    """Technical Audit Appendix — the internal diagnostic values behind the
+    doctor-facing PASS / NEEDS REVIEW checks, so a flagged result can be diagnosed
+    from this single file without re-running the patient. Derived intermediates
+    only (no raw methylation / PHI)."""
+    import json, datetime
+    from pathlib import Path
+
+    def J(x, n=6000):
+        return _esc(json.dumps(x, indent=1, default=str))[:n]
+
+    s2 = bundle.get("stage2") or {}
+    s4 = bundle.get("stage4") or {}
+    s5 = bundle.get("stage5") or {}
+    s6 = bundle.get("stage6")
+    s7 = bundle.get("stage7") or {}
+    s8 = bundle.get("stage8")
+    pid = bundle.get("patient_id", "patient")
+    meta = bundle.get("patient_meta", {}) or {}
+
+    R = []
+    A = R.append
+    A("<h1>Technical Audit Appendix</h1>")
+    A(f"<p class='muted'>Sample <b>{_esc(pid)}</b> &middot; generated "
+      f"{datetime.datetime.now():%Y-%m-%d %H:%M} &middot; derived intermediates only "
+      f"(no raw methylation). For laboratory diagnostics.</p>")
+    A("<p>This appendix accompanies the clinical report. That report shows PASS / NEEDS REVIEW "
+      "only; every internal value behind those checks is below, so a flagged result can be "
+      "diagnosed from this file alone &mdash; no re-run of the patient sample is required.</p>")
+
+    # 1. Checks with their internal values
+    A("<h2>1 &middot; Consistency checks &mdash; internal values</h2>")
+    A("<h3>Substrate presence gate</h3>")
+    A(f"<pre>presence_method   = {_esc(s2.get('presence_method'))}\n"
+      f"deconv_status     = {_esc(s2.get('status'))}\n"
+      f"class_present     = {J(s2.get('class_present'))}\n"
+      f"class_fraction_ci = {J(s2.get('class_fraction_ci'))}</pre>")
+    A("<h3>Deconvolution (primary / Walther)</h3>")
+    A(f"<pre>class_fractions = {J(s2.get('class_fractions'))}</pre>")
+    if s2.get("walther_diagnostics"):
+        A(f"<pre>walther_diagnostics = {J(s2.get('walther_diagnostics'))}</pre>")
+    A("<h3>Independent cross-method (NILC)</h3>")
+    nf = s2.get("nilc_fractions")
+    agree, note = _nilc_agreement(s2.get("class_fractions") or {}, nf) if nf is not None else (None, "not run")
+    A(f"<pre>present_class_agreement = {agree}  ({_esc(note)})\nnilc_fractions = {J(nf)}</pre>")
+    A("<h3>Whole-sample architectural (Mahalanobis / Route A)</h3>")
+    rA = _g(s8, "route_A_architectural_alarm", {}) or {}
+    A(f"<pre>route_A = {J(rA)}</pre>")
+    top = s5.get("top10_axis_contributions") if isinstance(s5, dict) else None
+    if top:
+        A(f"<pre>top_axis_contributions = {J(top)}</pre>")
+
+    # 2. Stage 6 departure internals
+    A("<h2>2 &middot; Cellular departure internals (Stage 6)</h2>")
+    cal6 = _g(s6, "calibration", {}) or {}
+    A(f"<pre>total_cellular_departure = {_g(s6,'total_cellular_departure')}\n"
+      f"n_cells_scored           = {_g(s6,'n_cells_scored')}\n"
+      f"null_expected_departure  = {_g(s6,'null_expected_departure')}\n"
+      f"excess_departure         = {_g(s6,'excess_departure')}\n"
+      f"calibration              = {J(cal6)}</pre>")
+    pcd = _g(s6, "per_class_departure", {}) or {}
+    if pcd:
+        A(f"<pre>per_class_departure = {J(pcd)}</pre>")
+
+    # 3. Tiers (Stage 7)
+    A("<h2>3 &middot; Architectural tiers (Stage 7)</h2>")
+    A(f"<pre>max_class_tier = {_esc(s7.get('max_class_tier'))}\n"
+      f"n_cells_breach = {s7.get('n_cells_breach')}\nbreach_line = {s7.get('breach_line')}\n"
+      f"class_tiers = {J(s7.get('class_tiers'))}</pre>")
+
+    # 4. Full per-cell A-score table (the core data)
+    A("<h2>4 &middot; Per-cell A-scores (every cell)</h2>")
+    cta = s4.get("celltype_ascores", {}) if isinstance(s4, dict) else {}
+    A("<table class='kv'><tr><th>Cell</th><th>A</th><th>Tier</th><th>Class</th><th>Status</th></tr>")
+    for cell, v in sorted(cta.items()):
+        if isinstance(v, dict):
+            a, tier, cls, st = v.get("A"), v.get("tier"), v.get("class"), v.get("status")
+        else:
+            a, tier, cls, st = v, None, None, None
+        astr = f"{a:.4f}" if isinstance(a, (int, float)) else _esc(a)
+        A(f"<tr><td>{_esc(cell)}</td><td>{astr}</td><td>{_esc(tier)}</td>"
+          f"<td>{_esc(cls)}</td><td>{_esc(st)}</td></tr>")
+    A("</table>")
+
+    # 5. Machine-readable snapshot
+    snapshot = {
+        "patient_id": pid, "patient_meta": meta,
+        "stage2": {k: s2.get(k) for k in ("status", "presence_method", "class_present",
+                   "class_fraction_ci", "class_fractions", "celltype_fractions",
+                   "nilc_fractions", "walther_diagnostics")},
+        "stage5": s5 if isinstance(s5, dict) else None,
+        "stage6": {**{k: _g(s6, k) for k in ("total_cellular_departure", "n_cells_scored",
+                   "null_expected_departure", "excess_departure", "per_class_departure")},
+                   "calibration": cal6},
+        "stage7": {k: s7.get(k) for k in ("max_class_tier", "n_cells_breach", "breach_line", "class_tiers")},
+        "stage8_route_A": rA,
+        "stage4_celltype_ascores": cta,
+    }
+    A("<h2>5 &middot; Machine-readable snapshot (JSON)</h2>")
+    A(f"<pre>{J(snapshot, 200000)}</pre>")
+
+    doc = ("<!doctype html><html><head><meta charset='utf-8'>"
+           f"<title>Audit Appendix &mdash; {_esc(pid)}</title><style>"
+           "body{font-family:ui-sans-serif,system-ui,sans-serif;max-width:980px;margin:24px auto;padding:0 16px;color:#1a1f26}"
+           "h1{font-size:20px}h2{font-size:16px;border-bottom:1px solid #e1e6ec;padding-bottom:4px;margin-top:24px}"
+           "h3{font-size:13px;margin:14px 0 4px}"
+           "pre{background:#f6f8fa;border:1px solid #e1e6ec;border-radius:6px;padding:8px;font-size:11px;overflow-x:auto;white-space:pre-wrap}"
+           ".kv{border-collapse:collapse;width:100%;font-size:12px}.kv th,.kv td{border:1px solid #e1e6ec;padding:3px 6px;text-align:left}"
+           ".muted{color:#5d6775;font-size:12px}</style></head><body>"
+           + "\n".join(R) + "</body></html>")
+    p = Path(audit_path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(doc, encoding="utf-8")
+    return p
 
 
 def _resemblance_pct(match):
@@ -948,4 +1075,8 @@ def build_report(bundle, output_html_path, atlas_plate_paths=None, config=None):
     out = Path(output_html_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(doc, encoding="utf-8")
+    try:
+        build_audit_appendix(bundle, out.with_name(out.stem + "_AUDIT_APPENDIX.html"))
+    except Exception:
+        pass  # the audit appendix must never break the clinical report
     return out
