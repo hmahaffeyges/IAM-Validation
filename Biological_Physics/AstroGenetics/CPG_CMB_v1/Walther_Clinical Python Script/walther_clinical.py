@@ -561,10 +561,16 @@ def _aggregate_markers_to_class(markers_by_celltype, celltype_to_class):
     return {cls: list(d.keys()) for cls, d in class_markers.items()}
 
 
-def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None) -> dict:
+def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
+                    class_present: Optional[dict] = None) -> dict:
     """Stage 4 per BUILD_SPEC v1.3 — consumes cleaned_beta (foreground-removed).
 
     A = H(beta_mean) / H_min(class) over panel CpGs, per class and per cell type.
+    class_present: optional {class: bool} substrate-presence verdict from the Stage 2
+    deconvolver gate. When supplied, classes (and their cell types) NOT present in the
+    substrate are marked NOT_ASSESSABLE_IN_SUBSTRATE with A=None instead of being scored
+    against blood-background beta at their marker addresses. When None, all classes are
+    scored (legacy behavior).
     Returns {'class_ascores', 'celltype_ascores', 'h_min_by_class', 'celltype_to_class'}.
     (95% CI propagation from atlas posteriors is added at the report layer; the
     point A-scores are produced here.)
@@ -576,6 +582,27 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None) -> d
     class_markers = _aggregate_markers_to_class(ct_markers, ct_to_class)
     class_ascores = a_mod.score_per_class(beta_dict, class_markers, h_min)
     celltype_ascores = a_mod.score_per_celltype(beta_dict, ct_markers, ct_to_class, h_min)
+
+    # Substrate presence gate: a class not detected in this substrate is not
+    # assessable -- do not report a blood-background A-score for it (the cause of
+    # spurious terminal/stromal/stem_pluri "suppression" on whole blood). Present
+    # classes are scored against their OWN class H_min, unchanged.
+    if class_present is not None:
+        NA = "NOT_ASSESSABLE_IN_SUBSTRATE"
+        for cls, rec in class_ascores.items():
+            present = bool(class_present.get(cls, False))
+            rec["assessable"] = present
+            if not present:
+                rec["A"] = None
+                rec["status"] = NA
+        for ct, rec in celltype_ascores.items():
+            cls = rec.get("class")
+            present = bool(class_present.get(cls, False)) if cls is not None else False
+            rec["assessable"] = present
+            if not present:
+                rec["A"] = None
+                rec["status"] = NA
+
     return {
         "class_ascores": class_ascores,           # {class: {A, coverage, status, ...}}  (8)
         "celltype_ascores": celltype_ascores,     # {celltype: {A, class, status, ...}}  (115)

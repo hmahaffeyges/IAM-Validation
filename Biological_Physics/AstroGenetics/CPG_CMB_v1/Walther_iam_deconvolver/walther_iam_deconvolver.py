@@ -57,6 +57,13 @@ CLASSES = ["stem_pluri", "stem_adult", "progenitor", "stromal",
            "cycling", "secretory", "immune", "terminal"]
 
 
+# Below this bootstrap-fraction lower-CI bound a class is treated as numerical
+# dust (NNLS returns ~1e-15 noise), not a real detection. This is a numerical
+# floor to separate true zero from float noise -- NOT a biological threshold;
+# the biological detection emerges from the bootstrap CI itself.
+PRESENCE_NUMERICAL_ZERO = 1e-6
+
+
 @dataclass
 class DeconvolutionResult:
     # PRIMARY output -- trust this
@@ -67,6 +74,11 @@ class DeconvolutionResult:
     # diagnostics
     diagnostics: dict = field(default_factory=dict)
     status: str = "OK"
+    # presence gate (bootstrap detection test): per-class fraction CI and a
+    # present/absent verdict. A class is PRESENT iff the lower CI bound > 0.
+    class_fraction_ci: dict = field(default_factory=dict)
+    class_present: dict = field(default_factory=dict)
+    presence_method: str = "none"
 
 
 class WaltherIAMDeconvolver:
@@ -274,9 +286,14 @@ class WaltherIAMDeconvolver:
         return f
 
     # ------------------------------------------------------------------
-    def deconvolve(self, customer_betas, refine_celltypes=True):
+    def deconvolve(self, customer_betas, refine_celltypes=True,
+                   presence_bootstrap=True, n_boot=200, presence_seed=0,
+                   presence_ci=(2.5, 97.5)):
         """
         customer_betas : dict {cpg_id: beta in [0,1]}
+        presence_bootstrap : if True, bootstrap the class fractions to produce
+            per-class CIs and a present/absent verdict (the substrate presence
+            gate). n_boot resamples of the matched markers, re-solved by NNLS.
         Returns DeconvolutionResult.
         """
         import numpy as np
@@ -339,10 +356,46 @@ class WaltherIAMDeconvolver:
                             for c in solve_classes}
         diag["class_confidence"] = class_confidence
 
+        # --- Presence gate (bootstrap detection test) ------------------------
+        # Resample the matched markers with replacement, re-solve NNLS, and call
+        # a class PRESENT iff the lower bound of its bootstrap fraction CI > 0.
+        # NNLS non-negativity makes this self-calibrating: a truly-absent class
+        # is pinned to 0 in many resamples (lower CI -> 0 -> NOT present); a
+        # present class carries weight in nearly all resamples (lower CI > 0).
+        # Also supplies the per-class fraction CIs the BUILD_SPEC asks for.
+        class_fraction_ci, class_present = {}, {}
+        if presence_bootstrap and n_boot and n >= 1:
+            rng = np.random.default_rng(presence_seed)
+            boot = np.empty((int(n_boot), k))
+            for b in range(int(n_boot)):
+                idx = rng.integers(0, n, size=n)
+                boot[b] = self._solve_nnls(R[idx], y[idx])
+            lo_p, hi_p = presence_ci
+            los = np.percentile(boot, lo_p, axis=0)
+            his = np.percentile(boot, hi_p, axis=0)
+            for j, c in enumerate(solve_classes):
+                class_fraction_ci[c] = [round(float(los[j]), 4), round(float(his[j]), 4)]
+                class_present[c] = bool(los[j] > PRESENCE_NUMERICAL_ZERO)
+            presence_method = f"bootstrap_marker_resample_n{int(n_boot)}_ci{lo_p}-{hi_p}"
+            diag["presence_n_boot"] = int(n_boot)
+        else:
+            for j, c in enumerate(solve_classes):
+                class_fraction_ci[c] = [round(float(f[j]), 4), round(float(f[j]), 4)]
+                class_present[c] = bool(f[j] > PRESENCE_NUMERICAL_ZERO)
+            presence_method = "point_fraction_no_bootstrap"
+            diag["presence_n_boot"] = 0
+        # classes that never entered the solve are not assessable in this substrate
+        for c in CLASSES:
+            class_fraction_ci.setdefault(c, [0.0, 0.0])
+            class_present.setdefault(c, False)
+
         result = DeconvolutionResult(
             class_fractions={c: round(v, 4) for c, v in class_fractions.items()},
             diagnostics=diag,
-            status="OK")
+            status="OK",
+            class_fraction_ci=class_fraction_ci,
+            class_present=class_present,
+            presence_method=presence_method)
 
         # ===== TIER 2: CELL-TYPE REFINEMENT (secondary, indicative) =====
         if refine_celltypes and self.celltype_ref:
