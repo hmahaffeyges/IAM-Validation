@@ -83,7 +83,7 @@ DEFAULT_CONFIG = {
     "brightness_archives_dir": CPG_ROOT / "IAM_Atlas/iamatlas_class_archives",
     # Stage 5 — Mahalanobis
     "mahalanobis_module_path": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
-    "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_5.json",
+    "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v1_0_derived.json",
     "cellular_departure_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/cpg_cellular_departure_hc_reference_v0_1.json",
     # Stage 9 — brilliance maps (HEALPix Mollweide)
     "cpg_healpix_mapping_npy": CPG_ROOT / "Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy",
@@ -249,14 +249,29 @@ class Stage6Output:
     status: str = "OK"
 
 
-def _load_hull_baseline(mahalanobis_ref_path):
-    """Per-cell healthy baseline (centroid) + posterior SD (sqrt diag Σ) from the hull.
-    centroid[cell] is the age-adjusted normal; centroid ± 1.96·SD is the 95% normal range."""
-    import json, numpy as np
-    ref = json.load(open(mahalanobis_ref_path))
+def _hull_centroid_sd(ref):
+    """(feature_names, centroid_array, sd_array) for either a DERIVED
+    (floor+tier-band) reference or a legacy pooled centroid+cov reference.
+    Derived: centroid = 1.0 (floor) and sd = sigma for every cell."""
+    import numpy as np
+    if (ref.get("method") == "derived_floor_tierband"
+            or ref.get("covariance_method") == "derived_diagonal"):
+        feats = ref["feature_names"]
+        mu, sg = float(ref["mu_floor"]), float(ref["sigma"])
+        return feats, np.full(len(feats), mu), np.full(len(feats), sg)
     feats = ref.get("feature_names_valid") or ref.get("feature_names")
     cen = np.asarray(ref["centroid"], dtype=float)
     sd = np.sqrt(np.clip(np.diag(np.asarray(ref["covariance_matrix"], dtype=float)), 1e-12, None))
+    return feats, cen, sd
+
+
+def _load_hull_baseline(mahalanobis_ref_path):
+    """Per-cell healthy baseline + SD. Derived reference -> (floor 1.0, sigma 0.02)
+    for every cell (centroid +/- 1.96*sigma is the 95% normal range); legacy pooled
+    -> (centroid, sqrt diag cov)."""
+    import json
+    ref = json.load(open(mahalanobis_ref_path))
+    feats, cen, sd = _hull_centroid_sd(ref)
     return {feats[i]: (float(cen[i]), float(sd[i])) for i in range(len(feats))}
 
 
@@ -791,10 +806,7 @@ def _build_customer_zshift_profile(stage4_output, mahalanobis_ref_path, mapping_
     several atlas cells map to one column)."""
     import json, numpy as np
     ref = json.load(open(mahalanobis_ref_path))
-    feats = ref.get("feature_names_valid") or ref.get("feature_names")
-    centroid = np.asarray(ref["centroid"], dtype=float)
-    cov = np.asarray(ref["covariance_matrix"], dtype=float)
-    sd = np.sqrt(np.clip(np.diag(cov), 1e-12, None))
+    feats, centroid, sd = _hull_centroid_sd(ref)
     ct_a = {ct: (v["A"] if isinstance(v, dict) else v)
             for ct, v in stage4_output["celltype_ascores"].items()}
     z_by_atlas = {}
@@ -822,16 +834,26 @@ def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
 
     # ---- Route A: universal architectural alarm (Mahalanobis vs hull percentile) ----
     ref = json.load(open(cfg["mahalanobis_reference_json"]))
+    is_derived = (ref.get("method") == "derived_floor_tierband"
+                  or ref.get("covariance_method") == "derived_diagonal")
     cal = None
     for k in ref:
         if k.startswith("route_A_calibration"):
             cal = ref[k]
-    p95 = float(cal["p95"]) if cal and "p95" in cal else 13.62
-    p99 = float(cal["p99"]) if cal and "p99" in cal else 18.59
     mahal_d = stage5_output.get("mahalanobis_distance")
-    route_A = {"fired": (mahal_d is not None and mahal_d >= p95),
-               "mahalanobis_d": mahal_d, "p95": p95, "p99": p99,
-               "strict_fired": (mahal_d is not None and mahal_d >= p99)}
+    if cal is None and is_derived:
+        # Derived distance scale: the pooled p95/p99 (13.62/18.59) do NOT apply.
+        # No firing until a derived threshold is recalibrated on derived-scored refs.
+        route_A = {"fired": None, "mahalanobis_d": mahal_d,
+                   "status": "PENDING_DERIVED_CALIBRATION",
+                   "note": "Derived reference in use; Route A p95/p99 must be "
+                           "recalibrated on the derived distance scale before firing."}
+    else:
+        p95 = float(cal["p95"]) if cal and "p95" in cal else 13.62
+        p99 = float(cal["p99"]) if cal and "p99" in cal else 18.59
+        route_A = {"fired": (mahal_d is not None and mahal_d >= p95),
+                   "mahalanobis_d": mahal_d, "p95": p95, "p99": p99,
+                   "strict_fired": (mahal_d is not None and mahal_d >= p99)}
 
     # ---- Route B: disease signature matrix match ----
     customer = _build_customer_zshift_profile(
