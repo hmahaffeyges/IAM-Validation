@@ -32,7 +32,9 @@ def _score(betas, h_min):
     return asc._score_one(pd.Series(dict(zip(cgs, betas))), cgs, h_min)["A"]
 
 
-def run():
+def check():
+    """Run the canonical assertions; return a list of failure strings (empty = pass).
+    Importable so the orchestrator can gate startup on it without sys.exit."""
     fails = []
 
     # 1. Canonical worked examples (single characteristic beta per cell, replicated
@@ -70,6 +72,11 @@ def run():
     if not (0.95 <= a_healthy <= 1.04):
         fails.append(f"healthy beta=0.75 gave A={a_healthy:.3f}, outside the 0.95-1.04 normal band")
 
+    return fails
+
+
+def run():
+    fails = check()
     if fails:
         print("A-SCORE FAIL-SAFE: FAILED")
         for f in fails:
