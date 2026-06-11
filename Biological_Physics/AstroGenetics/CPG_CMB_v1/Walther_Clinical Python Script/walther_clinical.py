@@ -84,7 +84,6 @@ DEFAULT_CONFIG = {
     # Stage 5 — Mahalanobis
     "mahalanobis_module_path": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
     "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v1_0_derived.json",
-    "cellular_departure_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/cpg_cellular_departure_hc_reference_v0_1.json",
     # Stage 9 — brilliance maps (HEALPix Mollweide)
     "cpg_healpix_mapping_npy": CPG_ROOT / "Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy",
     "whole_atlas_reference_npz": CPG_ROOT / "Runtime Matrices/Mollweide & Brightness Comparison/whole_atlas_reference/iamatlas_whole450k_reference.npz",
@@ -306,53 +305,43 @@ def stage_6_cellular_age(stage4_output, chronological_age: Optional[float] = Non
                           "ci_lo": lo, "ci_hi": hi, "z": z, "abs_z": absz,
                           "in_range": bool(lo <= a <= hi), "class": cls}
 
-    # Express the departure as a percentile against the empirical pooled-HC reference
-    # (cpg_cellular_departure_hc_reference). The HC calibration showed Σ|z| does NOT track
-    # chronological age (r=0.05; flat across decades), so this is a dysregulation/atypicality
-    # magnitude — NOT a cellular-age-in-years clock. No years value is asserted.
-    import json
-    hc_pct = {}
-    hc_median = hc_p95 = departure_percentile = None
-    try:
-        cal_ref = json.load(open(cfg["cellular_departure_reference_json"]))
-        hc_pct = {float(k.lstrip("p")): float(v)
-                  for k, v in cal_ref["sum_abs_z_percentiles"].items()}
-        ps = sorted(hc_pct)
-        hc_median = hc_pct.get(50.0)
-        hc_p95 = hc_pct.get(95.0)
-        xs = [hc_pct[p] for p in ps]
-        if total <= xs[0]:
-            departure_percentile = ps[0]
-        elif total >= xs[-1]:
-            departure_percentile = ps[-1]
-        else:
-            departure_percentile = float(np.interp(total, xs, ps))
-    except Exception as e:
-        hc_pct = {"_error": str(e)}
+    # Express the total departure against the DERIVED null, not a cohort. Under the
+    # healthy floor each cell's z = (A-1)/sigma ~ N(0,1), so |z| is half-normal with
+    # E[|z|]=sqrt(2/pi) and Var=1-2/pi. The null distribution of total=Σ|z| over n
+    # assessable cells is therefore analytic: mean = n*sqrt(2/pi), sd = sqrt(n*(1-2/pi)).
+    # The patient's departure is reported as sigma above this derived null (plus an
+    # analytic percentile via the normal approximation). No pooled cohort.
+    # FINDING (stands, cohort-independent): Σ|z| does NOT track chronological age, so
+    # this is a dysregulation/atypicality magnitude, NOT a cellular-age-in-years clock.
+    null_mean = n * math.sqrt(2.0 / math.pi)
+    null_sd = math.sqrt(n * (1.0 - 2.0 / math.pi)) if n > 0 else 0.0
+    excess = total - null_mean
+    departure_sigma = (excess / null_sd) if null_sd > 0 else None
+    departure_percentile = None
+    if departure_sigma is not None:
+        departure_percentile = float(100.0 * 0.5 * (1.0 + math.erf(departure_sigma / math.sqrt(2.0))))
 
     calibration = {
-        "method": "per-cell confidence-weighted absolute departure: total = Σ|z|, "
-                  "z = (A_patient - centroid)/posterior_SD over hull cells",
+        "method": "derived per-cell absolute departure: total = Σ|z|, z = (A-1)/sigma "
+                  "over substrate-assessable cells against the DERIVED floor (mu=1.0, sigma=0.02)",
         "n_cells_scored": n,
-        "hc_reference": "cpg_cellular_departure_hc_reference_v0_1 (pooled n=1763 HC, 5 cohorts)",
-        "hc_median": hc_median, "hc_p95": hc_p95,
-        "departure_percentile_in_healthy": departure_percentile,
+        "null_model": "analytic half-normal under the healthy-floor null (each z ~ N(0,1)): "
+                      "E[total] = n*sqrt(2/pi), SD = sqrt(n*(1-2/pi))",
+        "null_expected_departure": null_mean,
+        "null_sd": null_sd,
+        "departure_sigma_above_null": departure_sigma,
+        "departure_percentile_vs_derived_null": departure_percentile,
         "years_mapping_status": "NOT_AN_AGE_CLOCK",
-        "finding": "HC calibration (2026-06-09): Σ|z| does NOT correlate with chronological age "
-                   "(Hannum r=0.054; median ~51 flat across decades 20s-90s; 0/112 per-cell A-scores "
-                   "carry a significant linear age slope). The departure sum is a per-cell "
-                   "dysregulation/atypicality magnitude expressed as a percentile against the healthy "
-                   "reference, NOT a chronological-age-in-years estimate. Reading departure->years was "
-                   "tested against the HC reference and is not supported; no years figure is asserted.",
-        "caveat_cohort_variance": "Departure magnitude carries cohort/platform variance (HC cohort "
-                   "medians 51-98), so it is reported as a percentile against the pooled HC reference, "
-                   "with platform attenuation noted.",
+        "finding": "Σ|z| does NOT correlate with chronological age (Hannum r=0.054; flat across "
+                   "decades 20s-90s; 0/112 per-cell A-scores carry a significant linear age slope). "
+                   "The departure sum is a per-cell dysregulation/atypicality magnitude, NOT a "
+                   "chronological-age-in-years estimate. No years figure is asserted.",
     }
     return Stage6Output(
         chronological_age=chronological_age,
         total_cellular_departure=total, n_cells_scored=n,
-        null_expected_departure=(hc_median if hc_median is not None else n * math.sqrt(2.0 / math.pi)),
-        excess_departure=(total - hc_median if hc_median is not None else total - n * math.sqrt(2.0 / math.pi)),
+        null_expected_departure=null_mean,
+        excess_departure=excess,
         per_cell=per_cell, per_class_departure=per_class,
         cellular_age=None, age_delta=None, calibration=calibration, status="OK")
 
