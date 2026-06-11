@@ -68,6 +68,59 @@ def _infer_array_type(grn_path: str) -> str:
     return "epic+"
 
 
+def preflight() -> dict:
+    """Confirm the decode dependencies are present BEFORE attempting a decode.
+
+    Returns {ok, python, methylprep, numpy, pandas, messages}. It does NOT install
+    anything: a clinical pipeline's environment must be provisioned deliberately,
+    not mutated at runtime. It reports exactly what is missing or version-incompatible
+    and the one command that fixes it. (The Illumina manifest -- the probe map, which
+    is DATA not software -- is a separate thing that methylprep auto-downloads and
+    caches on first use; that does not need provisioning.)
+    """
+    import sys
+    info = {"python": "%d.%d" % sys.version_info[:2],
+            "methylprep": None, "numpy": None, "pandas": None,
+            "messages": [], "ok": True}
+
+    if sys.version_info[:2] not in ((3, 10), (3, 11)):
+        info["ok"] = False
+        info["messages"].append(
+            f"Python {info['python']} unsupported for methylprep 1.7.1; use 3.10 or 3.11 "
+            "(pandas<2 has no Python 3.12 wheels).")
+
+    try:
+        import methylprep
+        info["methylprep"] = methylprep.__version__
+    except Exception:
+        info["ok"] = False
+        info["messages"].append(
+            "methylprep NOT installed. In the pinned env run: "
+            "pip install 'numpy<2' 'pandas<2' methylprep")
+
+    try:
+        import numpy
+        info["numpy"] = numpy.__version__
+        if int(numpy.__version__.split(".")[0]) >= 2:
+            info["ok"] = False
+            info["messages"].append("numpy>=2 breaks methylprep 1.7.1; pin numpy<2.")
+    except Exception as e:
+        info["ok"] = False
+        info["messages"].append(f"numpy import failed: {e}")
+
+    try:
+        import pandas
+        info["pandas"] = pandas.__version__
+        if int(pandas.__version__.split(".")[0]) >= 2:
+            info["ok"] = False
+            info["messages"].append("pandas>=2 breaks methylprep 1.7.1; pin pandas<2.")
+    except Exception as e:
+        info["ok"] = False
+        info["messages"].append(f"pandas import failed: {e}")
+
+    return info
+
+
 def decode_idat_pair(grn_path: str,
                      red_path: str,
                      array_type: Optional[str] = None,
@@ -79,7 +132,14 @@ def decode_idat_pair(grn_path: str,
     do_noob             : run methylprep noob (matches the pipeline's chosen
                           normalization). Stage 1.5 may also recompute beta from
                           the returned meth/unmeth so the choice is auditable.
+
+    Fails fast with status DECODE_ENV_NOT_READY (no exception) if the pinned
+    methylprep environment is absent, so the caller can surface a clear message.
     """
+    pf = preflight()
+    if not pf["ok"]:
+        return DecodedSample(status="DECODE_ENV_NOT_READY", notes=pf["messages"])
+
     import methylprep
     from methylprep.files.idat import IdatDataset
     from methylprep.models import Channel
