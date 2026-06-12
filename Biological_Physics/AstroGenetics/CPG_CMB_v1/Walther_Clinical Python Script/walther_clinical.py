@@ -650,13 +650,17 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
     _loci = _json.load(open(str(cfg["a_score_loci_json"])))
     class_markers = _loci["loci_by_class"]        # per-class most-methylated loci
     ct_to_class  = _loci.get("class_of_celltype", ct_to_class)
-    # Bulk substrate: each cell inherits its CLASS most-methylated loci. A fine cell
-    # subtype's order cannot be isolated from a mixed sample, so the honest A-score
-    # unit on bulk is the class (cell-type differentiation comes from deconvolution
-    # fractions + Stage 4.5 bidirectional, not from per-cell A magnitude on bulk).
-    # Sharp per-cell-type loci for PURE substrates are in loci_by_celltype_sharp.
-    ct_markers = {ct: class_markers[cls] for ct, cls in ct_to_class.items()
-                  if cls in class_markers}
+    # Per-cell-type A-score uses each cell's SHARP most-methylated loci so cell types
+    # come out DISTINCT. Collapsing to class loci flattened every cell in a class to a
+    # single value -- the IAMAtlas flatness signature, and a regression vs the synth
+    # ground-truth report (Appendix D shows per-cell A spread within each class). Sharp
+    # loci are most-methylated (not discriminative), so the Stage-4 purpose still holds;
+    # class loci remain the basis for the class-level A-score below. Cells absent from
+    # the sharp set fall back to their class loci.
+    sharp_markers = _loci.get("loci_by_celltype_sharp", {})
+    ct_markers = {ct: (sharp_markers.get(ct) or class_markers.get(cls))
+                  for ct, cls in ct_to_class.items()
+                  if (ct in sharp_markers) or (cls in class_markers)}
     # Hard guard: the A-score loci object must NOT be the discriminative marker object,
     # and must carry the most-methylated provenance. Fail loudly rather than silently
     # producing an all-BREACH report.
