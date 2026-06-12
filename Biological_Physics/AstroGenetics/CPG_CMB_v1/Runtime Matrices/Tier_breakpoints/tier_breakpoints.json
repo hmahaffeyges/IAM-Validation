@@ -197,29 +197,7 @@
     }
   },
   "tier_by_smoking_bin": {
-    "_doc": "Interim mitigation per BUILD_SPEC v1.2 §5 Stage 7 — until smoking_axis_foreground.py is built at v1.3, smoking-bin selects an ELEVATED floor shift that absorbs residual tobacco signal. After smoking_axis_foreground.py is operational, these bin-based shifts retire and full per-CpG subtraction replaces them.",
-    "elevated_floor_by_bin": {
-      "current_smoker": {
-        "elevated_floor": 1.1,
-        "rationale": "Strong residual AHRR + ~100 tobacco CpG drift absorbed"
-      },
-      "former_0_5y": {
-        "elevated_floor": 1.08,
-        "rationale": "Substantial residual drift persists 0-5 years post-quit"
-      },
-      "former_5_15y": {
-        "elevated_floor": 1.07,
-        "rationale": "Moderate residual drift; intermediate calibration"
-      },
-      "former_15plus_y": {
-        "elevated_floor": 1.05,
-        "rationale": "Mostly recovered to baseline; small remaining residual"
-      },
-      "never_smoker": {
-        "elevated_floor": 1.04,
-        "rationale": "Default — no residual to absorb"
-      }
-    }
+    "_RETIRED": "2026-06-11 — REMOVED FROM PRODUCTION (SOP §104 foreground firewall). This smoking-bin ELEVATED-floor shift absorbed the very tobacco signal the A-score is built to detect; raising the floor for a smoker hides their real epigenetic departure. The production chain subtracts/absorbs NO foreground. Smoking status is a REPORT ANNOTATION for the clinician, never a tier operand. The original elevated_floor_by_bin table is removed here and recoverable from git history if ever needed for a labelled test."
   },
   "bidirectional_pattern_handoff": {
     "_doc": "When Stage 4.5 sets FLAG_BIDIRECTIONAL for a class (per BUILD_SPEC v1.2 §5 Stage 4.5), Stage 7 uses the directional composite (signed) rather than the pooled A-score to drive tier reporting.",
