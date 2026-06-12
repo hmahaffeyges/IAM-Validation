@@ -1848,6 +1848,8 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 
 ### §36. Step 3.2 — Sex-axis foreground subtraction (when present)
 
+> **RETIRED FROM PRODUCTION — 2026-06-11 (SOP §104 foreground firewall).** The production chain subtracts NO foregrounds. Sex-driven methylation is handled at the loci level (the 64 chrX markers are dropped from the panels), not by subtracting a sex component from the score. Patient sex is a REPORT ANNOTATION, never a score operand. The module and layer below are retained as TEST-ONLY tooling. The description that follows documents the retired method.
+
 **What this step does.** Removes the per-CpG sex-specific methylation component. Methylation patterns differ systematically between males and females at many autosomal CpGs (not just chrX/chrY). For multi-sex cohorts, subtracting this foreground prevents sex from contaminating the disease signal.
 
 **Inputs.** β_corrected from §35 + patient's declared sex_at_birth (from intake questionnaire q06 / manifest, validated at §18).
@@ -1950,6 +1952,8 @@ Special handling of sex chromosomes:
 ---
 
 ### §39. Step 3.5 — Smoking-axis foreground subtraction
+
+> **RETIRED FROM PRODUCTION — 2026-06-11 (SOP §104 foreground firewall).** The production chain subtracts NO foregrounds. Smoking-driven methylation change is part of the cellular departure the A-score is built to detect — subtracting it (or absorbing it via the §59 `tier_by_smoking_bin` floor shift, also retired) deletes real loss-of-fidelity signal and would hide a smoker's epigenetic injury. Smoking status is a REPORT ANNOTATION for the clinician, never a score or tier operand. The module and layer below are retained as TEST-ONLY tooling. The description that follows documents the retired method.
 
 **What this step does.** Removes per-CpG smoking-status-specific methylation differences at the β level — the architecturally correct L4 component-separation move for tobacco signal. Tobacco methylates a well-documented set of CpGs (notably AHRR cg05575921 + ~600 cataloged tobacco-associated CpGs per Joehanes 2016 meta-analysis) with effect sizes that persist for years post-cessation and partially recover with cumulative time off tobacco. Without this subtraction, residual smoking signal absorbs into the immune-class A-score and inflates the apparent disease departure.
 
@@ -2945,6 +2949,8 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 ---
 
 ## §59. Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json v1.2`)
+
+> **NOTE — `tier_by_smoking_bin` RETIRED 2026-06-11 (SOP §104).** The smoking-bin ELEVATED-floor shift (current → 1.10, former_0_5y → 1.08, …) is removed from production: raising a smoker's floor absorbs the very tobacco departure the A-score is meant to detect. The block is retired to a `_RETIRED` marker in `tier_breakpoints.json`. Smoking status is a report annotation, not a tier operand. All other §59 breakpoints and override modes are unchanged.
 
 **What this step does.** For each architectural class, maps the patient's A-score to an engine tier using the 6-tier physics-derived breakpoints in `tier_breakpoints.json v1.2`. The breakpoints are universal (same across all classes); per-class structural ceilings (1/H_min) cap the highest reachable tier per class.
 
@@ -5131,6 +5137,7 @@ The four plates are the visual anchor of the framework. Each plate illustrates s
 |---|---|---|---|
 | 2026-05-31 | v1 | Initial release. Parts I-V complete: §1-§102. Foundations + step-by-step + audit machinery + failure modes + reference. | Heath W. Mahaffey |
 | 2026-06-11 | v1.3.2 | **§103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, after the first real-IDAT end-to-end run. Code: `walther_clinical.stage_4_a_score` now reads frozen H_min from `IAMAtlasREBUILD_provenance.json` and refuses to run on mismatch (enforces §99 in code); permanent A-SCORE LOCI GUARD added. | Heath W. Mahaffey + Walther |
+| 2026-06-11 | v1.3.3 | **§104 NEW — foreground firewall.** Production chain subtracts NO foregrounds (age/sex/smoking/batch); these are the cellular departure the A-score measures, not contamination. `stage_3_foreground_fork` made a zero-foreground pass-through (`cleaned_beta == beta_raw`); foreground config keys + apply flags removed (no dormant wiring); `tier_by_smoking_bin` retired (§59). Intake facts become report annotations, never score operands. §36/§39 banner-marked retired-from-production (test-only tooling retained). | Heath W. Mahaffey + Walther |
 
 **Change discipline.** Every future modification to this SOP creates a new version entry. The previous version is archived (not overwritten). Changes that modify CANNOT-SAY language, H_min values, atlas references, or VAL sealing protocols require Heath's explicit authority. Changes that update file paths, add new failure modes catalog entries, or expand the glossary can be made by Walther under standing instruction. The change log is the chain-of-custody for the SOP itself.
 
@@ -5164,7 +5171,28 @@ Before theorizing about the atlas or flagging a scale/anchor problem, READ in th
 
 ---
 
-**End of Part V (§97-§103).**
+---
+
+## §104. FIREWALL — the production chain subtracts no foregrounds (2026-06-11)
+
+**Principle.** The production CPG chain subtracts/absorbs **no** foregrounds. Age-, sex-, and smoking-driven methylation change is not contamination sitting in front of the signal — it **is** part of the cellular departure the A-score is built to measure. A smoker's epigenetic injury is reduced pattern-maintenance margin; age drift is precisely what Stage 6 reads as cellular age. Subtracting any of it deletes the signal we exist to detect.
+
+This is where the CMB analogy (SOP §98) legitimately breaks. In cosmology, galactic dust is a separate physical source in front of the primordial signal, so subtracting it is correct. In the methylome, the "foreground" is frequently the patient's actual biological injury, so subtracting it is wrong. The pipeline follows the CMB method through L1→L2→L3, component separation, the maps, and the null suite — and stops at foreground subtraction.
+
+**The rule (absolute).**
+- No age / sex / smoking / batch foreground is subtracted in the production chain. `stage_3_foreground_fork` is a zero-foreground pass-through: `cleaned_beta == beta_raw`.
+- The `tier_by_smoking_bin` ELEVATED-floor shift (§59) is retired for the same reason — raising a smoker's floor absorbs the departure.
+- Intake facts (age, sex, smoking, pregnancy, active treatment) are **REPORT ANNOTATIONS** for the clinician — context for reading an abnormal A-score — and are **never operands** in `v`, `H_min`, the tier call, the departure, or any score arithmetic. The wall is display-layer only.
+- Sex-linked baseline biology (chrX/XCI) is handled at the **loci** level (the 64 chrX markers are dropped from the panels), not by subtracting a sex component from the score.
+- The age/sex/smoking foreground modules and layer CSVs are retained as **TEST-ONLY** tooling for labelled validation use (e.g. ruling out that a cohort signal is purely an age artifact). They are never wired into the production orchestrator. Off-by-default is not enough — the production config carries no foreground keys, so there is no dormant wiring to re-enable.
+
+**Annotation confidence tiers (for the report layer, when built).** State plainly only what is established (smoking drives epigenetic aging/inflammation; chronological age associates with drift; pregnancy and active chemotherapy substantially remodel methylation). Any numeric "expected delta" is labelled a framework estimate pending trial confirmation, with its cohort and n. Sex: flag that no A-score difference is established yet; do not put a number on it. Pregnancy and active treatment get a prominent "interpret with caution — known large transient remodeling" banner, not a delta.
+
+**Why this exists.** Recorded after the foreground excision of 2026-06-11. The recurring failure mode is dormant machinery that "shouldn't run" getting run because the next reader sees it wired in and assumes it is meant to — the same class of error as scoring discriminative markers (§103). The firewall is written so it cannot drift back.
+
+---
+
+**End of Part V (§97-§104).**
 
 **End of CPG Chain-of-Custody SOP v1.** 102 sections. Five parts. Quantum-level granular operator manual from IDAT-on-server (§11) to audit-trail-closed (§79), with L9 chain-integrity scaffolding (§80-§91), failure-mode response catalog (§92-§96), and complete reference apparatus (§97-§102).
 

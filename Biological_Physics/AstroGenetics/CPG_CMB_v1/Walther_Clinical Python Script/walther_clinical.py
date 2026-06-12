@@ -10,17 +10,23 @@ Option C (hybrid, V1 simplification)
 ------------------------------------
 Stage 3 FORKS the per-patient beta vector into two products:
 
-  * cleaned_beta : age + smoking + sex foreground subtracted. Age is a NUISANCE
-                   here. Consumed by Stage 4 (A-score), 4.5 (bidirectional),
-                   4.6 (brightness), 5 (Mahalanobis), 8 (disease matching).
-  * beta_raw     : the calibrated beta with NO foreground subtraction, passed
-                   through untouched. Age is the SIGNAL here. Consumed ONLY by
-                   Stage 6 (cellular age inversion).
+Stage 3 carries the per-patient beta vector through unchanged and exposes it under
+two names for the downstream contract:
 
-This fork is what resolves the Stage 3 <-> Stage 6 collision: the cellular-age
-inversion reads age OUT of beta by matching per-class beta_mean to the age-indexed
-baseline. If it were handed the age-subtracted beta, that signal would be gone and
-every patient would read near the training-cohort mean age.
+  * cleaned_beta : == beta_raw. NO foreground subtraction. Consumed by Stage 4
+                   (A-score), 4.5 (bidirectional), 4.6 (brightness), 5 (Mahalanobis),
+                   8 (disease matching).
+  * beta_raw     : the calibrated beta, passed through untouched. Consumed by
+                   Stage 6 (cellular age).
+
+PRODUCTION SUBTRACTS NO FOREGROUNDS (firewall, 2026-06-11; SOP §104). Smoking-,
+age-, and sex-driven methylation change is part of the cellular departure the
+A-score is built to measure -- subtracting it would delete the very signal we want
+to see (a smoker's epigenetic injury IS reduced pattern-maintenance margin; age
+drift IS what Stage 6 reads as cellular age). Intake facts (smoker / age / sex /
+pregnancy / active treatment) are REPORT ANNOTATIONS for the clinician, never
+operands in the score. The age/sex/smoking foreground modules are retained as
+test-only tooling and are never called by this chain.
 
 Cellular age in V1 is CLASS-LEVEL (8 per-class absolute ages + n-weighted summary).
 The per-cell (115) confidence-weighted total-departure method (decision D6) is V2
@@ -63,12 +69,11 @@ DEFAULT_CONFIG = {
     "stage_0_intake_module_path": CPG_ROOT / "Runtime Matrices/Stage_0_Intake/stage_0_intake.py",
     # Stage 1 — calibration & beta (L2+L3); 1.4-1.8 built, 1.1-1.3 + IDAT decode wrap the standard stack
     "stage_1_calibration_module_path": CPG_ROOT / "Runtime Matrices/Stage_1_Calibration/stage_1_calibration.py",
-    # Foreground modules (Stage 3) — age removed 2026-06-09 (per-cell A is age-stable); sex + smoking retained
-    "smoking_module_path": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Smoking Axis Foreground/smoking_axis_foreground.py",
-    "sex_module_path":   CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Sex Axis Foreground/sex_axis_foreground.py",
-    # Frozen per-CpG layers (Stage 3) — sex + smoking only
-    "smoking_layer_csv": CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Smoking Axis Foreground/IAMAtlas_smoking_layer.csv",
-    "sex_layer_csv":     CPG_ROOT / "Runtime Matrices/Age_Sex_Smoker Axis Foreground/SEX_SMOKER Axis Foreground/Sex Axis Foreground/IAMAtlas_sex_layer.csv",
+    # NOTE: NO foreground module/layer paths here by design. The production chain
+    # subtracts no foregrounds (firewall, 2026-06-11; SOP §104) -- removing those keys
+    # so there is no dormant wiring to re-enable. The age/sex/smoking foreground
+    # modules are retained as TEST-ONLY tooling under the foreground folder and are
+    # never loaded by this orchestrator.
     # Cell-type markers (Stage 4). NOTE: the per-class cellular-age scorer (iam_cellular_age_scoring.py)
     # and age_reference_matrix were removed 2026-06-09 — the per-cell departure (Stage 6) is age-robust
     # and consumes neither. Their files remain on disk (preserved) but are no longer in the runtime path.
@@ -118,9 +123,6 @@ DEFAULT_CONFIG = {
     # Stage 9 — report visual assets (gauges + rankings)
     "gauge_module_path": CPG_ROOT / "CPG_Report_Generator/cpg_gauge.py",
     "tier_breakpoints_json": CPG_ROOT / "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json",
-    # Behaviour flags
-    "apply_smoking_foreground": True,   # applied iff the smoking layer CSV exists
-    "apply_sex_foreground": True,       # applied iff the sex layer CSV exists
 }
 
 
@@ -163,7 +165,7 @@ def _assert_a_score_canonical(cfg):
 @dataclass
 class Stage3Output:
     beta_raw: pd.Series        # untouched calibrated beta  -> Stage 6 ONLY
-    cleaned_beta: pd.Series    # smoking + sex removed -> Stage 4/4.5/4.6/5/8 (age NOT removed; age-stable)
+    cleaned_beta: pd.Series    # == beta_raw (zero-foreground, SOP §104) -> Stage 4/4.5/4.6/5/8
     foregrounds_applied: list = field(default_factory=list)
     notes: list = field(default_factory=list)
 
@@ -173,16 +175,22 @@ def stage_3_foreground_fork(beta_calibrated: pd.Series,
                             patient_sex: Optional[str] = None,
                             patient_smoking_bin: Optional[str] = None,
                             config: Optional[dict] = None) -> Stage3Output:
-    """Stage 3 per BUILD_SPEC v1.3.
+    """Stage 3 per BUILD_SPEC v1.3 — ZERO-FOREGROUND pass-through (firewall, SOP §104).
+
+    The production chain subtracts NO foregrounds. Smoking-, age-, and sex-driven
+    methylation change is part of the cellular departure the A-score measures;
+    subtracting any of it deletes real loss-of-fidelity signal (a smoker's epigenetic
+    injury, the age drift Stage 6 reads as cellular age, etc.). The intake facts
+    (age / sex / smoking_bin, plus pregnancy / active-treatment) are carried in
+    metadata as REPORT ANNOTATIONS for the clinician -- they are never operands in
+    the score. This function therefore returns cleaned_beta == beta_raw, untouched.
 
     Args:
         beta_calibrated : pd.Series of calibrated beta indexed by cpg_id (Stage 1 output).
-        patient_age     : chronological age in years (recorded in metadata; NOT subtracted -- per-cell A is age-stable).
-        patient_sex     : 'M'/'F'/'male'/'female' etc (None or no layer -> skip sex).
-        patient_smoking_bin : never / former_15plus_y / former_5_15y / former_0_5y /
-                              current (None or no layer -> skip smoking).
+        patient_age / patient_sex / patient_smoking_bin : recorded for report
+            annotation only; NOT used in any calculation here or downstream.
     Returns:
-        Stage3Output with beta_raw (untouched) and cleaned_beta (foregrounds removed).
+        Stage3Output with beta_raw (untouched) and cleaned_beta (== beta_raw).
     """
     cfg = {**DEFAULT_CONFIG, **(config or {})}
     if not isinstance(beta_calibrated, pd.Series):
@@ -191,44 +199,19 @@ def stage_3_foreground_fork(beta_calibrated: pd.Series,
     # beta_raw is the untouched calibrated beta, reserved for Stage 6.
     beta_raw = beta_calibrated.copy()
 
-    applied, notes = [], []
-
-    # --- Age: NOT subtracted (removed 2026-06-09). Empirically the per-cell A-score is
-    #     age-stable across adulthood (age effect ~14% of normal per-cell SD; 89/112 cells
-    #     drift gently toward the floor with age, negligibly). Applying an age curve to the
-    #     per-cell baseline mis-calibrated the elderly (-0.99 mean z at 80+). Per-cell
-    #     departure is therefore age-robust by construction and no age axis is removed.
-    #     Sex and smoking ARE real methylation confounders and remain below. ---
+    # ========================================================================
+    # FOREGROUND FIREWALL — DO NOT ADD SUBTRACTION HERE  (2026-06-11; SOP §104)
+    # ------------------------------------------------------------------------
+    # NO age/sex/smoking/batch foreground is subtracted in production. cleaned_beta
+    # IS beta_raw. The age/sex/smoking foreground modules are retained as TEST-ONLY
+    # tooling and must never be wired into this chain. Intake facts annotate the
+    # report; they are never operands in the score. If you find yourself about to
+    # subtract a "known" effect here, that effect is the signal -- stop.
+    # ========================================================================
     cleaned_beta = beta_raw.copy()
-    notes.append("age foreground NOT applied (removed 2026-06-09): per-cell A-score is age-stable; "
-                 "per-cell departure is age-robust without subtraction")
-
-    # --- Smoking (if layer present and enabled) ---
-    smk_csv = Path(cfg["smoking_layer_csv"])
-    if cfg.get("apply_smoking_foreground", True) and smk_csv.exists() and patient_smoking_bin is not None:
-        smk_mod = _load_module(cfg["smoking_module_path"], "smoking_axis_foreground")
-        smk = smk_mod.SmokingAxisForeground()
-        smk.load_layer(str(smk_csv))
-        cleaned_beta = smk.subtract_from_single_patient(cleaned_beta, patient_smoking_bin)
-        applied.append("smoking")
-    else:
-        notes.append("smoking foreground not applied (layer missing, disabled, or smoking_bin None) "
-                      "-- interim Stage 7 smoking-bin threshold stratification absorbs residual")
-
-    # --- Sex (if layer present and enabled) ---
-    sex_csv = Path(cfg["sex_layer_csv"])
-    if cfg.get("apply_sex_foreground", True) and sex_csv.exists() and patient_sex is not None:
-        sex_mod = _load_module(cfg["sex_module_path"], "sex_axis_foreground")
-        sex_fg = sex_mod.SexAxisForeground()
-        sex_fg.load_layer(str(sex_csv))
-        cleaned_beta = sex_fg.subtract_from_single_patient(cleaned_beta, patient_sex)
-        applied.append("sex")
-    else:
-        notes.append("sex foreground not applied (layer missing, disabled, or sex None) "
-                      "-- interim Stage 7 sex-stratified threshold tables absorb residual")
-
-    # batch / ancestry: documented gap (modules not built) per BUILD_SPEC v1.3 Stage 3.4
-    notes.append("batch/ancestry foregrounds NOT subtracted at CpG level (documented gap)")
+    notes = ["zero-foreground pass-through (SOP §104): no age/sex/smoking/batch "
+             "subtraction; intake facts are report annotations, never operands"]
+    applied: list = []
 
     return Stage3Output(beta_raw=beta_raw, cleaned_beta=cleaned_beta,
                         foregrounds_applied=applied, notes=notes)
