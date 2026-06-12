@@ -583,7 +583,9 @@ def _aggregate_markers_to_class(markers_by_celltype, celltype_to_class):
 
 
 def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
-                    class_present: Optional[dict] = None) -> dict:
+                    class_present: Optional[dict] = None,
+                    celltype_fractions: Optional[dict] = None,
+                    detect_floor: float = 0.01) -> dict:
     """Stage 4 per BUILD_SPEC v1.3 — consumes cleaned_beta (foreground-removed).
 
     A = H(beta_mean) / H_min(class) over panel CpGs, per class and per cell type.
@@ -650,13 +652,17 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
     _loci = _json.load(open(str(cfg["a_score_loci_json"])))
     class_markers = _loci["loci_by_class"]        # per-class most-methylated loci
     ct_to_class  = _loci.get("class_of_celltype", ct_to_class)
-    # Bulk substrate: each cell inherits its CLASS most-methylated loci. A fine cell
-    # subtype's order cannot be isolated from a mixed sample, so the honest A-score
-    # unit on bulk is the class (cell-type differentiation comes from deconvolution
-    # fractions + Stage 4.5 bidirectional, not from per-cell A magnitude on bulk).
-    # Sharp per-cell-type loci for PURE substrates are in loci_by_celltype_sharp.
-    ct_markers = {ct: class_markers[cls] for ct, cls in ct_to_class.items()
-                  if cls in class_markers}
+    # Per-cell-type A-score uses each cell's SHARP most-methylated loci so DETECTED
+    # cells come out distinct. The mixture only corrupts cells that are NOT actually in
+    # the sample (their sharp loci read diluted background and breach); the presence
+    # gate below excludes those, so only cells the deconvolver detects get scored, and
+    # those read correctly because they are abundant enough for their loci to be real.
+    # Cells absent from the sharp set fall back to class loci. Class loci still drive
+    # the class-level A-score below.
+    sharp_markers = _loci.get("loci_by_celltype_sharp", {})
+    ct_markers = {ct: (sharp_markers.get(ct) or class_markers.get(cls))
+                  for ct, cls in ct_to_class.items()
+                  if (ct in sharp_markers) or (cls in class_markers)}
     # Hard guard: the A-score loci object must NOT be the discriminative marker object,
     # and must carry the most-methylated provenance. Fail loudly rather than silently
     # producing an all-BREACH report.
@@ -684,11 +690,20 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
                 rec["status"] = NA
         for ct, rec in celltype_ascores.items():
             cls = rec.get("class")
-            present = bool(class_present.get(cls, False)) if cls is not None else False
+            class_ok = bool(class_present.get(cls, False)) if cls is not None else False
+            # Cell-level presence: only cells the deconvolver actually DETECTS are
+            # scored. An undetected cell's sharp loci read mixture background and would
+            # both breach spuriously and drag the aggregate down -- exclude it. With no
+            # per-cell fractions supplied, fall back to the class-level gate.
+            if celltype_fractions is not None:
+                detected = float(celltype_fractions.get(ct, 0.0)) >= detect_floor
+            else:
+                detected = class_ok
+            present = class_ok and detected
             rec["assessable"] = present
             if not present:
                 rec["A"] = None
-                rec["status"] = NA
+                rec["status"] = NA if not class_ok else "NOT_DETECTED_IN_SUBSTRATE"
 
     return {
         "class_ascores": class_ascores,           # {class: {A, coverage, status, ...}}  (8)
@@ -1017,7 +1032,9 @@ def run_pipeline(beta_calibrated, *, patient_age=None, patient_sex=None,
     # assessable in this substrate; Stage 4 masks the rest. None when
     # deconvolution is off (synthetic runs) -> Stage 4 scores all (legacy).
     class_present = s2["class_present"] if s2 else None
-    s4 = stage_4_a_score(s3.cleaned_beta, cfg, class_present=class_present)
+    celltype_fractions = s2.get("celltype_fractions") if s2 else None
+    s4 = stage_4_a_score(s3.cleaned_beta, cfg, class_present=class_present,
+                         celltype_fractions=celltype_fractions)
     s45 = stage_4_5_bidirectional(s3.cleaned_beta, patient_id, cfg)
     s46 = stage_4_6_brightness(s3.cleaned_beta, patient_id, cfg)
     s5 = stage_5_mahalanobis(s4, cfg)
