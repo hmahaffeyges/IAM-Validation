@@ -1,7 +1,5 @@
 # PreIAMAtlas_Build
 
-> **STUB — full README in progress.** This file stands up the folder and states the two governing principles; the complete write-up is being prepared.
-
 This folder holds the **pre-IAMAtlas-build development phase** of the biophysics track — the foundational work that asked two questions, in order:
 
 1. Does IAM's law apply to the methylome at all?
