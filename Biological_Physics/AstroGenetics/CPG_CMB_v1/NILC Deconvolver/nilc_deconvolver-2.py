@@ -315,16 +315,19 @@ class NILCDeconvolver:
         X_dep = X - consensus[:, None]                # (m × K), rows sum to 0
         beta_dep = beta - consensus                   # (m,)
 
-        # Per-CpG inverse-variance weights
+        # Per-CpG inverse-variance weights. Keep the diagonal W as a VECTOR; never
+        # materialize the m x m matrix -- with m ~ 450k CpGs that is a 1.47 TiB OOM
+        # that silently killed the independent NILC cross-check every run. The GLS math
+        # is unchanged: X.T diag(w) X == X.T (w[:,None] * X), O(m*K) memory.
         sigma2 = np.maximum((SIGMA ** 2).mean(axis=1), 1e-6)
-        W = np.diag(1.0 / sigma2)
+        w = 1.0 / sigma2
 
         # GLS in departure space with ridge for rank-deficiency stability
-        XtWX = X_dep.T @ W @ X_dep
+        XtWX = X_dep.T @ (w[:, None] * X_dep)
         ridge = self.ridge_lambda * np.trace(XtWX) / len(CLASSES) * np.eye(len(CLASSES))
         XtWX_reg = XtWX + ridge
         try:
-            f_dep_raw = np.linalg.inv(XtWX_reg) @ X_dep.T @ W @ beta_dep
+            f_dep_raw = np.linalg.inv(XtWX_reg) @ (X_dep.T @ (w * beta_dep))
         except np.linalg.LinAlgError:
             return NILCResult(
                 fractions={c: np.nan for c in CLASSES},
@@ -386,11 +389,11 @@ class NILCDeconvolver:
                 continue
             Xc = X_m[sel]; SIGMAc = SIGMA_m[sel]; bc = beta[sel]
             sigma2 = np.maximum((SIGMAc ** 2).mean(axis=1), 1e-6)
-            Wc = np.diag(1.0 / sigma2)
-            XtWX = Xc.T @ Wc @ Xc
+            wc = 1.0 / sigma2
+            XtWX = Xc.T @ (wc[:, None] * Xc)
             ridge = self.ridge_lambda * np.trace(XtWX) / len(CLASSES) * np.eye(len(CLASSES))
             try:
-                f_raw_c = np.linalg.inv(XtWX + ridge) @ Xc.T @ Wc @ bc
+                f_raw_c = np.linalg.inv(XtWX + ridge) @ (Xc.T @ (wc * bc))
                 f_proj_c = self._project_simplex(f_raw_c)
                 out[str(ch)] = {c: float(f_proj_c[ki]) for ki, c in enumerate(CLASSES)}
             except np.linalg.LinAlgError:
