@@ -1,0 +1,232 @@
+{
+  "_meta": {
+    "name": "CPG/EDEAR Tier Breakpoints — 6-tier physics-derived v1.3",
+    "version": "v1.3",
+    "date": "2026-06-09",
+    "supersedes": "v1.2 6-tier (WARBURG_TRANSITION held a 1.07-1.10 band and SIGNIFICANTLY_ELEVATED 1.10-1.12 overlapped BREACH 1.10+). v1.3 fixes this: WARBURG_TRANSITION is a boundary LINE at 1.07 (not a band), SIGNIFICANTLY_ELEVATED is 1.07-1.10, BREACH is 1.10+. No overlapping ranges.",
+    "purpose": "Stage 7 customer-facing tier breakpoints translating continuous A-score engine output into physics-derived tiers. The 1.07 Warburg line and 1.10 architectural-fidelity breach line are the framework's two physics-defined inflection points, not statistical percentiles. The continuous A axis is partitioned by FIVE ranges (SUPPRESSED, NORMAL, ELEVATED, SIGNIFICANTLY_ELEVATED, BREACH); WARBURG_TRANSITION is the named boundary line at A=1.07 that coincides with the ELEVATED -> SIGNIFICANTLY_ELEVATED transition.",
+    "framework_anchor": "BUILD_SPEC v1.3 §5 Stage 7; immune card Stage 7 tier system",
+    "h_min_reference_date": "2026-04-06 (G-003b MCMC freeze)"
+  },
+  "tier_system_v1_2": {
+    "_doc": "Six physics-derived tiers. WARBURG_TRANSITION is a boundary LINE at A=1.07, not a consuming band: the partition is SUPPRESSED / NORMAL / ELEVATED / SIGNIFICANTLY_ELEVATED / BREACH, with the Warburg line marking where ELEVATED ends and SIGNIFICANTLY_ELEVATED begins. Breakpoints are universal across classes; per-class overrides shift the ELEVATED floor but preserve the Warburg line and breach line.",
+    "tiers": [
+      {
+        "tier_id": "SUPPRESSED",
+        "a_score_range": {
+          "min": 0.0,
+          "max_exclusive": 0.95
+        },
+        "customer_label": "Suppressed",
+        "engine_label": "SUPPRESSED",
+        "context_label": "Post-chemo / immunosuppressed",
+        "physics_meaning": "Measurable shift below the healthy class baseline. Treatment-context-dependent — without context (chemotherapy, immunosuppression, transplant), suppression is signal worth investigating.",
+        "customer_paragraph": "Your A-score for this class is measurably below the healthy baseline. In some treatment contexts (active chemotherapy, transplant recovery, immunosuppression) this is expected and even therapeutically intended. In the absence of such context, suppression below the baseline can reflect compartment shrinkage or treatment footprint that warrants a conversation with your clinician."
+      },
+      {
+        "tier_id": "NORMAL",
+        "a_score_range": {
+          "min": 0.95,
+          "max_exclusive": 1.04
+        },
+        "customer_label": "Normal",
+        "engine_label": "NORMAL",
+        "context_label": "Healthy individual",
+        "physics_meaning": "Within healthy sampling variance — no measurable departure from the class baseline. Sits inside the recoverable range (A 1.00-1.07): architecture intact and metabolically recoverable.",
+        "customer_paragraph": "Your A-score for this class is within the healthy sampling-variance range. No measurable departure from the architectural baseline."
+      },
+      {
+        "tier_id": "ELEVATED",
+        "a_score_range": {
+          "min": 1.04,
+          "max_exclusive": 1.07
+        },
+        "customer_label": "Elevated",
+        "engine_label": "ELEVATED",
+        "context_label": "Rising trajectory / pre-diagnostic",
+        "physics_meaning": "Recoverable drift above the healthy baseline; the architecture is intact. Upper part of the recoverable range (A 1.00-1.07): the window in which lifestyle, metabolic, hormonal, and nutritional intervention can move the reading back toward the healthy reference. Most of what a wellness-oriented practice tracks and influences lives here. The window closes at the 1.07 Warburg line.",
+        "customer_paragraph": "Your A-score sits above the healthy baseline but below the 1.07 Warburg metabolic transition line. This is the recoverable-drift window — the architecture is intact, and holistic intervention (lifestyle, nutrition, anti-inflammatory support, stress reduction, hormonal/metabolic levers) is where meaningful change happens. Trajectory monitoring across follow-up tests is the most informative next step."
+      },
+      {
+        "tier_id": "WARBURG_TRANSITION",
+        "is_boundary_line": true,
+        "line_value": 1.07,
+        "a_score_range": null,
+        "warburg_line_anchor": true,
+        "customer_label": "Warburg Transition",
+        "engine_label": "WARBURG_TRANSITION",
+        "context_label": "Metabolic strategy must change",
+        "physics_meaning": "A boundary LINE at A=1.07, not a tier band. The metabolic point of no return for one specific class of intervention: at this threshold the cell has flipped toward aerobic glycolysis (the Warburg effect), and the consequence is counterintuitive and clinically crucial — adding metabolic fuel past this point can ACCELERATE the drift rather than correct it. The same supplementation that helps below 1.07 can feed the glycolytic program above it. The holistic metabolic strategy must change character here: from supporting normal metabolism to forcing a return to oxidative metabolism or turning to structural approaches. For a practice built on metabolic and lifestyle levers, 1.07 is arguably the single most important number on the gauge, because it marks where the toolkit itself has to change.",
+        "customer_paragraph": "Your A-score crosses the Warburg metabolic transition line at 1.07. Below this line, adding metabolic support (nutrients, fuel) tends to help. Above it, the same intervention can accelerate the drift instead of correcting it — the metabolic regime has shifted toward aerobic glycolysis. Your clinician should know about this transition specifically; the intervention strategy above this line is materially different from below it."
+      },
+      {
+        "tier_id": "SIGNIFICANTLY_ELEVATED",
+        "a_score_range": {
+          "min": 1.07,
+          "max_exclusive": 1.1
+        },
+        "customer_label": "Significantly Elevated",
+        "engine_label": "SIGNIFICANTLY_ELEVATED",
+        "context_label": "Past the Warburg line, below breach",
+        "physics_meaning": "Above the 1.07 Warburg transition and below the 1.10 architectural-fidelity breach line. The intervention regime has already shifted (per the Warburg line). The architecture is still standing but under strain; trajectory direction across follow-up tests is the most informative read at this tier.",
+        "customer_paragraph": "Your A-score is in the significantly elevated range — past the 1.07 Warburg transition but below the 1.10 architectural-fidelity breach line. The trajectory direction across follow-up tests is more informative at this tier than the single-point value. A clinical conversation to interpret context (recent illness, medication, family history, accumulated treatment footprint) is appropriate."
+      },
+      {
+        "tier_id": "BREACH",
+        "a_score_range": {
+          "min": 1.1,
+          "max_inclusive": 999.0
+        },
+        "trigger_condition": "A >= 1.10",
+        "breach_line_anchor": true,
+        "customer_label": "Breach",
+        "engine_label": "BREACH",
+        "context_label": "Structural fidelity lost — senescence / malignancy regime",
+        "physics_meaning": "The 1.10 architectural-fidelity breach line. The cell's architecture can no longer maintain its healthy identity — structural fidelity has been lost (informationally the same threshold as a stellar core reaching the mass at which its support mechanism can no longer hold). Past breach a cell takes one of two roads: senescence (it stops dividing and persists as a dysfunctional cell; reference cluster A 1.24-1.27) or transformation (it becomes malignant; reference cluster A 1.28-1.32). Breach is a statement about the state of a cell population, NOT a clinical diagnosis. It does not mean a tumor has formed (a tumor is an anatomical entity at a location; breach is an informational state read from cell-free DNA). It does not mean cancer is present (senescent cells cross the same threshold and are not cancer). It does not mean death or inevitability. The honest reading: a population of cells in this compartment has lost its structural fidelity — the regime where senescence and transformation live — and this compartment warrants clinical attention. A prompt for a clinician, not a verdict for a patient.",
+        "customer_paragraph": "Your A-score is in the breach range. This is the framework's most serious customer-facing tier — but it is a prompt for clinical workup, NOT a diagnosis. The same breach line is crossed by senescent cells (not cancer) as well as transformed cells. Breach says a population of cells in this compartment has lost its structural fidelity; it does not say where they are, whether they have organized into a mass, or which road (senescence vs transformation) has been taken. A clinical conversation to interpret the full picture (this readout + your trajectory + your context) is the appropriate next step."
+      }
+    ],
+    "warburg_line_value": 1.07,
+    "breach_line_value": 1.1,
+    "reference_clusters_past_breach": {
+      "senescent_cells": {
+        "a_low": 1.24,
+        "a_high": 1.27
+      },
+      "malignant_cells": {
+        "a_low": 1.28,
+        "a_high": 1.32
+      }
+    }
+  },
+  "per_class_default_breakpoints": {
+    "_doc": "Default tier breakpoints apply uniformly across all 8 classes (SUPPRESSED/NORMAL/ELEVATED/SIGNIFICANTLY_ELEVATED/BREACH ranges + the 1.07 Warburg boundary line). Per-class structural ceiling is 1/H_min — beyond this ceiling, further A-score departure cannot be resolved (Appendix E §E.4).",
+    "structural_ceiling_by_class": {
+      "stem_pluri": {
+        "h_min": 0.9822,
+        "ceiling_1_over_h_min": 1.0181
+      },
+      "stem_adult": {
+        "h_min": 0.8737,
+        "ceiling_1_over_h_min": 1.1446
+      },
+      "stromal": {
+        "h_min": 0.863,
+        "ceiling_1_over_h_min": 1.1588
+      },
+      "cycling": {
+        "h_min": 0.8561,
+        "ceiling_1_over_h_min": 1.1681
+      },
+      "progenitor": {
+        "h_min": 0.8522,
+        "ceiling_1_over_h_min": 1.1734
+      },
+      "secretory": {
+        "h_min": 0.8433,
+        "ceiling_1_over_h_min": 1.1858
+      },
+      "immune": {
+        "h_min": 0.838889,
+        "ceiling_1_over_h_min": 1.1921
+      },
+      "terminal": {
+        "h_min": 0.7728,
+        "ceiling_1_over_h_min": 1.294
+      }
+    },
+    "structural_blind_classes_note": "stem_pluri has structural ceiling 1.0181 < 1.10 — meaning the stem_pluri class CANNOT reach the BREACH tier at full architectural departure. This is structurally documented, not a bug. Reporting for stem_pluri uses the 6-tier system but the BREACH tier is unreachable; SIGNIFICANTLY_ELEVATED is the practical ceiling.",
+    "runtime_saturation_margin": 0.005,
+    "runtime_saturation_note": "If a measured A is within 0.005 of the class ceiling, further departure cannot be resolved. Engine emits SATURATED flag; tier reporting uses the highest reachable tier for that class."
+  },
+  "tier_by_covariate_overrides": {
+    "_doc": "Per BUILD_SPEC v1.2 §4.5 patient intake covariate routing + §5 Stage 7 special-mode override table. Triggered by specific intake-questionnaire covariates; replaces standard 6-tier output with mode-specific interpretation for the customer's report.",
+    "EXPECTED_SUPPRESSION": {
+      "triggers_any_of": [
+        "current_immunosuppression == true",
+        "transplant_status in {solid_organ, stem_cell_bm}"
+      ],
+      "behavior": "Engine emits EXPECTED_SUPPRESSION label rather than SUPPRESSED-with-vigilance. The customer's SUPPRESSED tier reading is interpreted as therapeutically expected; no vigilance flag is raised.",
+      "customer_paragraph": "Your declared treatment context (immunosuppression / transplant recovery) is consistent with the suppressed A-score reading. This is therapeutically expected rather than a finding that warrants additional workup."
+    },
+    "TRAJECTORY_WATCH": {
+      "triggers_any_of": [
+        "known_autoimmune_condition == true",
+        "known_chronic_inflammatory_disease == true",
+        "hiv_status == positive_treated_suppressed"
+      ],
+      "behavior": "Single-timepoint magnitude de-emphasized. Trajectory direction across follow-up tests is the primary reading. ELEVATED floor SHIFTED upward to account for chronic-disease baseline.",
+      "elevated_floor_shifted_to": 1.1,
+      "customer_paragraph": "Your declared chronic condition (autoimmune / chronic inflammatory / HIV+ treated) shifts the baseline interpretation. The trajectory across follow-up tests is more informative than the single-point A-score."
+    },
+    "TREATMENT_RESPONSE": {
+      "triggers_any_of": [
+        "current_cancer_in_treatment == true"
+      ],
+      "behavior": "Single-timepoint tier reading replaced with trajectory framing across treatment timepoints. Engine reports tier alongside trend (rising, stable, falling) when serial data available.",
+      "customer_paragraph": "Your declared active cancer treatment context shifts the interpretation to a treatment-response trajectory frame. The pattern of change across treatment timepoints is the primary read; the single-timepoint A-score is one point on that trajectory."
+    },
+    "CONTEXT_PREGNANCY": {
+      "triggers_any_of": [
+        "current_pregnancy_with_trimester != none"
+      ],
+      "behavior": "Physiological pregnancy immune shift flagged. Trimester-stratified interpretation; absolute tier de-emphasized in favor of trajectory across pregnancy timepoints.",
+      "customer_paragraph": "Your declared pregnancy produces a well-documented physiological immune shift — the absolute A-score during pregnancy is not directly comparable to non-pregnant baseline. Trajectory monitoring across pregnancy and postpartum is the appropriate framing."
+    },
+    "CONTEXT_POSTPARTUM": {
+      "triggers_any_of": [
+        "postpartum_within_6_months == true"
+      ],
+      "behavior": "Postpartum physiological recovery context flagged. Absolute tier readings de-emphasized for 6 months postpartum.",
+      "customer_paragraph": "Your declared postpartum context (within 6 months of birth) means the immune compartment is still recovering from pregnancy's physiological shift. Absolute tier readings are de-emphasized during this window in favor of trajectory monitoring."
+    },
+    "CONTEXT_HRT_BASELINE": {
+      "triggers_any_of": [
+        "hrt_status in {estrogen, estrogen_progesterone, bhrt, testosterone_low_dose}"
+      ],
+      "behavior": "First-of-its-kind HRT-stratified immune readout per CPG-VAL-018 (in v1.0 VAL set). HRT modulates the immune-class baseline; engine surfaces HRT context in the report.",
+      "customer_paragraph": "Your declared HRT context is incorporated into the interpretation. CPG-VAL-018 establishes the HRT-stratified baseline; your reading is interpreted relative to that baseline, not the non-HRT population norm."
+    },
+    "CONTEXT_WEIGHT_LOSS_INTERVENTION": {
+      "triggers_any_of": [
+        "current_glp1_or_weight_loss_medication == current",
+        "bariatric_surgery_within_18_months == true"
+      ],
+      "behavior": "Expected downward immune trajectory per CPG-VAL-021 anti-inflammatory framing. Engine flags expected downward drift; rising A-score on this context becomes more notable.",
+      "customer_paragraph": "Your declared weight-loss intervention context (GLP-1 / bariatric) is consistent with an anti-inflammatory trajectory. CPG-VAL-021 establishes the expected downward immune drift; your reading is interpreted against that expected trajectory."
+    }
+  },
+  "tier_by_smoking_bin": {
+    "_RETIRED": "2026-06-11 — REMOVED FROM PRODUCTION (SOP §104 foreground firewall). This smoking-bin ELEVATED-floor shift absorbed the very tobacco signal the A-score is built to detect; raising the floor for a smoker hides their real epigenetic departure. The production chain subtracts/absorbs NO foreground. Smoking status is a REPORT ANNOTATION for the clinician, never a tier operand. The original elevated_floor_by_bin table is removed here and recoverable from git history if ever needed for a labelled test."
+  },
+  "bidirectional_pattern_handoff": {
+    "_doc": "When Stage 4.5 sets FLAG_BIDIRECTIONAL for a class (per BUILD_SPEC v1.2 §5 Stage 4.5), Stage 7 uses the directional composite (signed) rather than the pooled A-score to drive tier reporting.",
+    "when_flagged_use_directional_composite": true,
+    "directional_composite_tier_mapping": {
+      "_doc": "|directional composite z-score| → tier driver. Positive = disease-direction; negative = anti-direction.",
+      "abs_dir_lt_0.40": "NORMAL (no directional signal)",
+      "abs_dir_0.40_to_0.80": "ELEVATED (directional signal present)",
+      "abs_dir_0.80_to_1.20": "WARBURG_TRANSITION (directional analog of crossing the 1.07 line)",
+      "abs_dir_1.20_to_1.60": "SIGNIFICANTLY_ELEVATED (strong directional signal)",
+      "abs_dir_gt_1.60": "BREACH-ANALOG (directional signal at the level associated with diagnosed-cohort effect sizes)"
+    },
+    "customer_paragraph_when_bidirectional_flagged": "A bidirectional methylation pattern was detected in this class — some cell populations are running elevated while others are running suppressed. The pooled (averaged) reading would have looked NORMAL because the directional opposites cancel; the engine's directional decomposition recovers the signal that pooled averaging hides. This is a known pattern in certain neurodegenerative and pre-diagnostic states; trajectory monitoring + a clinical conversation is the appropriate next step."
+  },
+  "customer_facing_vocabulary": {
+    "engine_to_customer_mapping": {
+      "SUPPRESSED": "Suppressed",
+      "NORMAL": "Normal",
+      "ELEVATED": "Elevated",
+      "WARBURG_TRANSITION": "Warburg Transition",
+      "SIGNIFICANTLY_ELEVATED": "Significantly Elevated",
+      "BREACH": "Breach"
+    },
+    "_doc": "v1.3 keeps all 6 named tiers visible to the customer. WARBURG_TRANSITION is the boundary line at 1.07 (annotation, not a band); the consuming tiers are the other five. The Warburg line + breach line are clinically actionable distinctions."
+  },
+  "tier_confidence_propagation": {
+    "_doc": "Per BUILD_SPEC v1.2 §5 Stages 4-7 forward CI propagation: tier confidence is the probability of A falling in each tier under the posterior distribution propagated from MCMC atlas posteriors.",
+    "borderline_tier_flag_threshold": 0.2,
+    "borderline_tier_flag_rule": "When |P(primary_tier) - P(second_max_tier)| < 0.20, the engine emits BORDERLINE_TIER flag. Customer report includes 'your reading straddles the {tier_A}/{tier_B} boundary' language.",
+    "example_warburg_straddler": "Patient with A = 1.08 [CI 1.06–1.10] straddles the 1.07 Warburg line. P(ELEVATED) ≈ 0.40, P(WARBURG_TRANSITION) ≈ 0.60. Engine emits BORDERLINE_TIER + customer language explaining the measurement range crosses a physics-defined transition."
+  }
+}

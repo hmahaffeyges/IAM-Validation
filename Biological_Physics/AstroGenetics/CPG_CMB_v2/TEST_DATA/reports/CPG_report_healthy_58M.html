@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPG Report — SAMPLE_01</title>
+<style>
+:root{--ink:#16202a;--soft:#516170;--line:#dfe3e8;--paper:#fbfcfd;--accent:#0e6b53;--red:#b2182b;--amber:#b45309;}
+*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);
+font-family:system-ui,-apple-system,"Segoe UI",Helvetica,sans-serif;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding:34px 26px 70px}
+h1{font-size:26px;margin:0 0 2px} h2{font-size:18px;margin:30px 0 8px;border-bottom:2px solid var(--ink);padding-bottom:4px}
+h3{font-size:14px;margin:16px 0 4px;color:var(--accent)}
+.meta{font-size:13px;color:var(--soft);font-family:ui-monospace,Menlo,monospace}
+.ctx{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:12px 0;font-size:13px}
+.ctx b{color:var(--soft);font-weight:600}
+ul.exec{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 16px 12px 32px;margin:10px 0}
+ul.exec li{margin:5px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0 4px}
+th,td{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--soft)}
+td.num{font-family:ui-monospace,Menlo,monospace;text-align:right;white-space:nowrap}
+.muted{color:var(--soft);font-style:italic} .red{color:var(--red)}
+.tag-bbb{font-size:9px;background:#fbe9eb;color:var(--red);padding:1px 5px;border-radius:4px;font-weight:700;letter-spacing:.04em}
+.method{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 18px 14px;margin:8px 0;font-size:13px}
+.method p{margin:9px 0} .method b{color:var(--ink)}
+.caveat{background:#fff7ed;border:1px solid #f3d9b5;border-radius:8px;padding:8px 16px;font-size:13px}
+.explain{background:#f3f7f6;border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:9px 14px;margin:8px 0;font-size:12.5px;color:#33414d}
+.explain b{color:var(--ink)}
+.foot{margin-top:30px;font-size:11px;color:var(--soft);font-family:ui-monospace,Menlo,monospace}
+details{margin-top:10px} summary{cursor:pointer;font-size:12px;color:var(--soft)}
+pre{background:#0f1720;color:#e7edf3;padding:12px;border-radius:8px;overflow:auto;font-size:11px}
+</style></head><body><div class="wrap">
+
+<h1>Cellular Performance Gauge — Report</h1>
+<div class="meta">Patient SAMPLE_01 &nbsp;·&nbsp; Test 20260623T232124Z
+ &nbsp;·&nbsp; 2026-06-23 &nbsp;·&nbsp; chain CPG_v1_primary_plus_confirmation</div>
+
+<div class="ctx"><b>Context (read alongside, never used in scoring):</b>
+age 58 · sex M · substrate whole_blood
+· family history none provided</div>
+
+<h2>Executive summary</h2>
+<ul class="exec"><li>Architectural mode (Mode 1): closest pattern is <b>mds</b> (strong resemblance, cosine +0.98, 3 signal-bearing cells). Resemblance, not a probability.</li><li>Cell-of-origin mode (Mode 2): no blood-brain-barrier cells circulating. (Epithelial/cycling cells in blood are normal and are not flagged.)</li></ul>
+
+<h2>How to read this report <span class="meta">(for the clinician and for a future AI)</span></h2>
+<div class="method">
+<p>CPG runs <b>two independent detection modes</b>. A finding in either is worth attention; they answer different questions.</p>
+<p><b>Two deconvolvers, by design.</b> A blood sample is a mixture of dozens of cell types, so before anything else CPG
+has to estimate how much of each is present from the bulk methylation signal — a step called <b>deconvolution</b>. CPG
+runs this twice, with two methods built on different mathematics. The first (<b>Walther</b>, a constrained fit) is
+deliberately conservative: it will not report a cell unless the evidence forces it, so faint traces are floored to zero.
+That gives the <b>reliable composition</b> the rest of the report stands on. The second (<b>NILC</b>, adapted from the
+variance-weighted technique used to clean cosmic-microwave-background maps) is deliberately sensitive: it surfaces the
+faint shed signal the conservative fit suppresses. Where the two agree, confidence is high. Where they disagree, the
+disagreement is itself information — it is how a cell quietly shedding into blood gets caught early. Two lenses, each
+catching what the other can miss; neither alone would be as trustworthy as the pair.</p>
+<p><b>Mode 1 — Architectural concordance.</b> Each cell gets an <b>A-score</b>, a derived measure of how far its
+methylation architecture has walked from its healthy floor (A ≈ 1.0 by derivation; no cohort, no population). The
+pattern of those departures across cells is compared to each disease's signature by <b>scale-invariant cosine</b>
+— the angle between the patient's departure vector and the signature, so absolute magnitudes never need converting and
+nothing standardizes the patient against a population. This is the workhorse for field-effect and systemic disease,
+whose signal sits in the <b>abundant immune cells we can score cleanly</b>. It reports <b>resemblance, not a
+probability</b>: v1 can recognize that a pattern looks like a template learned in validation cohorts; the calibrated
+magnitude that would turn resemblance into "this stage of this disease" only accrues from real patients over years, in
+our own derived A-units. Direction agreement is the coarse gate; cosine shape is the fine discriminator (it is what
+separates aging from Alzheimer's — same direction, different proportions).</p>
+<p><b>Mode 2 — Cell-of-origin presence.</b> A different test: a cell <b>circulating in blood that should not be
+there</b>. The one presence that is alarming by itself is a <b>blood-brain-barrier cell</b> (cortical neuron, glia,
+oligodendrocyte) — it crossed a physical barrier to be in blood, so quantity and A-score are irrelevant to the call;
+refer. Every other cell that can shed into blood — epithelial/secretory (breast, prostate, colon), cycling — does so at
+a normal baseline. <b>Detecting them is not abnormal</b>; we detect and, when abundant enough, score them routinely. So
+their presence is normal composition (see the composition table), and the A-score is the discriminator only when the
+cell is abundant enough to score. A cell at ~1% is ~99% blood, so its architecture cannot be scored from the bulk signal
+— we detect such a cell's presence but do not assign it an A-score. The sensitive front end is the unconstrained NILC
+deconvolver, which surfaces faint shed signal the constrained fit floors to zero.</p>
+<p><b>Confidence intervals</b> on every A-score are derived from the atlas's own MCMC posteriors (the 8 per-class
+per-CpG brightness tables), not from a cohort. <b>Trajectory:</b> this report stores the patient's derived departure
+vector as a baseline; a second or third test compares drift toward a signature's angle, which is a far stronger signal
+than any single snapshot.</p>
+</div>
+
+<h2>Mode 1 — Architectural concordance</h2>
+<table><thead><tr><th>Disease</th><th>Phase</th><th>Cosine (shape)</th><th>Direction</th><th>Shared cells</th><th>Resemblance</th></tr></thead>
+<tbody><tr><td>mds</td><td>active</td><td class='num'>+0.984</td><td class='num'>1.00</td><td class='num'>3</td><td>strong resemblance</td></tr><tr><td>leukemia_aml</td><td>active</td><td class='num'>+0.778</td><td class='num'>0.89</td><td class='num'>5</td><td>strong resemblance</td></tr><tr><td>active_chemotherapy</td><td>treatment</td><td class='num'>+0.576</td><td class='num'>0.80</td><td class='num'>3</td><td>moderate resemblance</td></tr><tr><td>alzheimers_disease</td><td>at_dx_post_build_v3_0</td><td class='num'>+0.340</td><td class='num'>0.67</td><td class='num'>4</td><td>moderate resemblance</td></tr></tbody></table>
+
+<h2>Mode 2 — Cell-of-origin presence</h2>
+<table><thead><tr><th>Class</th><th>Observed</th><th>Walther / NILC-raw</th><th>Severity</th><th>Interpretation</th></tr></thead>
+<tbody><tr><td colspan='5' class='muted'>No blood-brain-barrier cells circulating. Epithelial, cycling and other shed cells in blood are normal and are not flagged here — see composition.</td></tr></tbody></table>
+<p class="meta">NILC-raw rescued (surfaced where Walther floored): stem_pluri (0.0421), secretory (0.0148)</p>
+
+<h2>Cell-level architectural departure <span class="meta">(the A-score readout — every cell found in blood)</span></h2>
+
+<svg viewBox="0 0 900 878" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:system-ui,sans-serif"><text x="450.0" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#16202a">Cellular departure ranking &#8212; top 24 of 36 resolved cells</text><text x="450.0" y="45" text-anchor="middle" font-size="10.5" fill="#6b7780">ranked by distance from baseline &#183; right = elevated &#183; left = suppressed &#183; bold border = deconvolver-resolved (reliable) &#183; whiskers = 95% CI</text><rect x="300.0" y="70" width="226.8" height="730.0" fill="#EAF2F8"/><rect x="526.8" y="70" width="68.8" height="730.0" fill="#EAF6EA"/><rect x="595.6" y="70" width="22.9" height="730.0" fill="#FBF3DF"/><rect x="618.5" y="70" width="22.9" height="730.0" fill="#F7E6CC"/><rect x="641.4" y="70" width="188.6" height="730.0" fill="#F6DEDC"/><line x1="565.0" y1="70" x2="565.0" y2="808" stroke="#16202a" stroke-width="2"/><text x="565.0" y="832" text-anchor="middle" font-size="10" font-weight="700" fill="#16202a">1.00 healthy</text><line x1="618.5" y1="70" x2="618.5" y2="800" stroke="#C77514" stroke-width="1.4" stroke-dasharray="6 4"/><text x="618.5" y="54" text-anchor="middle" font-size="9" fill="#C77514" font-weight="700">1.07 Warburg</text><line x1="641.4" y1="70" x2="641.4" y2="800" stroke="#B2182B" stroke-width="1.4" stroke-dasharray="2 3"/><text x="641.4" y="66" text-anchor="middle" font-size="9" fill="#B2182B" font-weight="700">1.10 breach</text><line x1="335.8" y1="802" x2="335.8" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="335.8" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">0.70</text><line x1="412.2" y1="802" x2="412.2" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="412.2" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">0.80</text><line x1="488.6" y1="802" x2="488.6" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="488.6" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">0.90</text><line x1="565.0" y1="802" x2="565.0" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="565.0" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">1.00</text><line x1="641.4" y1="802" x2="641.4" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="641.4" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">1.10</text><line x1="717.8" y1="802" x2="717.8" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="717.8" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">1.20</text><line x1="794.2" y1="802" x2="794.2" y2="807" stroke="#9aa3ab" stroke-width="1"/><text x="794.2" y="850" text-anchor="middle" font-size="9" fill="#6b7780" font-family="ui-monospace,Menlo,monospace">1.30</text><rect x="565.0" y="86.0" width="146.5" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="699.6" y1="95.0" x2="711.7" y2="95.0" stroke="#3a3a3a" stroke-width="1"/><line x1="699.6" y1="91.0" x2="699.6" y2="99.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.7" y1="91.0" x2="711.7" y2="99.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="99.0" text-anchor="end" font-size="11.5" fill="#16202a">1. Eosino <tspan fill="#7a8690">(IMM)</tspan></text><text x="717.5" y="99.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.192</text><rect x="565.0" y="116.0" width="145.9" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="691.3" y1="125.0" x2="711.7" y2="125.0" stroke="#3a3a3a" stroke-width="1"/><line x1="691.3" y1="121.0" x2="691.3" y2="129.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.7" y1="121.0" x2="711.7" y2="129.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="129.0" text-anchor="end" font-size="11.5" fill="#16202a">2. Eosinophils_reinius <tspan fill="#7a8690">(IMM)</tspan></text><text x="716.9" y="129.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.191</text><rect x="565.0" y="146.0" width="144.5" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="686.0" y1="155.0" x2="711.7" y2="155.0" stroke="#3a3a3a" stroke-width="1"/><line x1="686.0" y1="151.0" x2="686.0" y2="159.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.7" y1="151.0" x2="711.7" y2="159.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="159.0" text-anchor="end" font-size="11.5" fill="#16202a">3. Gran <tspan fill="#7a8690">(IMM)</tspan></text><text x="715.5" y="159.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.189</text><rect x="565.0" y="176.0" width="141.7" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="668.8" y1="185.0" x2="711.7" y2="185.0" stroke="#3a3a3a" stroke-width="1"/><line x1="668.8" y1="181.0" x2="668.8" y2="189.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.7" y1="181.0" x2="711.7" y2="189.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="189.0" text-anchor="end" font-size="11.5" fill="#16202a">4. tcell <tspan fill="#7a8690">(IMM)</tspan></text><text x="712.7" y="189.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.185</text><rect x="565.0" y="206.0" width="137.9" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="671.4" y1="215.0" x2="711.6" y2="215.0" stroke="#3a3a3a" stroke-width="1"/><line x1="671.4" y1="211.0" x2="671.4" y2="219.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.6" y1="211.0" x2="711.6" y2="219.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="219.0" text-anchor="end" font-size="11.5" fill="#16202a">5. CD14_monocytes <tspan fill="#7a8690">(IMM)</tspan></text><text x="708.9" y="219.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.181</text><rect x="565.0" y="236.0" width="137.9" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="665.2" y1="245.0" x2="711.7" y2="245.0" stroke="#3a3a3a" stroke-width="1"/><line x1="665.2" y1="241.0" x2="665.2" y2="249.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.7" y1="241.0" x2="711.7" y2="249.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="249.0" text-anchor="end" font-size="11.5" fill="#16202a">6. Neutro <tspan fill="#7a8690">(IMM)</tspan></text><text x="708.9" y="249.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.180</text><rect x="565.0" y="266.0" width="130.6" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="622.0" y1="275.0" x2="711.6" y2="275.0" stroke="#3a3a3a" stroke-width="1"/><line x1="622.0" y1="271.0" x2="622.0" y2="279.0" stroke="#3a3a3a" stroke-width="1"/><line x1="711.6" y1="271.0" x2="711.6" y2="279.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="279.0" text-anchor="end" font-size="11.5" fill="#16202a">7. Neu <tspan fill="#7a8690">(IMM)</tspan></text><text x="701.6" y="279.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.171</text><rect x="565.0" y="296.0" width="122.4" height="18" fill="#B2182B" stroke="#16202a" stroke-width="1.6"/><line x1="668.0" y1="305.0" x2="696.8" y2="305.0" stroke="#3a3a3a" stroke-width="1"/><line x1="668.0" y1="301.0" x2="668.0" y2="309.0" stroke="#3a3a3a" stroke-width="1"/><line x1="696.8" y1="301.0" x2="696.8" y2="309.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="309.0" text-anchor="end" font-size="11.5" fill="#16202a">8. GMP <tspan fill="#7a8690">(PRO)</tspan></text><text x="693.4" y="309.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.160</text><rect x="565.0" y="326.0" width="121.3" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="640.9" y1="335.0" x2="708.5" y2="335.0" stroke="#3a3a3a" stroke-width="1"/><line x1="640.9" y1="331.0" x2="640.9" y2="339.0" stroke="#3a3a3a" stroke-width="1"/><line x1="708.5" y1="331.0" x2="708.5" y2="339.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="339.0" text-anchor="end" font-size="11.5" fill="#16202a">9. Neutrophils_EPIC <tspan fill="#7a8690">(IMM)</tspan></text><text x="692.3" y="339.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.159</text><rect x="444.7" y="356.0" width="120.3" height="18" fill="#3E6E99" stroke="#9aa3ab" stroke-width="0.5"/><line x1="328.4" y1="365.0" x2="553.4" y2="365.0" stroke="#3a3a3a" stroke-width="1"/><line x1="328.4" y1="361.0" x2="328.4" y2="369.0" stroke="#3a3a3a" stroke-width="1"/><line x1="553.4" y1="361.0" x2="553.4" y2="369.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="369.0" text-anchor="end" font-size="11.5" fill="#16202a">10. Microglia <tspan fill="#7a8690">(IMM)</tspan></text><text x="438.7" y="369.0" text-anchor="end" font-size="11" font-weight="700" fill="#16202a">0.842</text><rect x="565.0" y="386.0" width="119.9" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="664.6" y1="395.0" x2="695.1" y2="395.0" stroke="#3a3a3a" stroke-width="1"/><line x1="664.6" y1="391.0" x2="664.6" y2="399.0" stroke="#3a3a3a" stroke-width="1"/><line x1="695.1" y1="391.0" x2="695.1" y2="399.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="399.0" text-anchor="end" font-size="11.5" fill="#16202a">11. MPP <tspan fill="#7a8690">(PRO)</tspan></text><text x="690.9" y="399.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.157</text><rect x="565.0" y="416.0" width="108.9" height="18" fill="#B2182B" stroke="#16202a" stroke-width="1.6"/><line x1="619.5" y1="425.0" x2="704.3" y2="425.0" stroke="#3a3a3a" stroke-width="1"/><line x1="619.5" y1="421.0" x2="619.5" y2="429.0" stroke="#3a3a3a" stroke-width="1"/><line x1="704.3" y1="421.0" x2="704.3" y2="429.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="429.0" text-anchor="end" font-size="11.5" fill="#16202a">12. granulocytes <tspan fill="#7a8690">(IMM)</tspan></text><text x="679.9" y="429.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.143</text><rect x="565.0" y="446.0" width="106.4" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="604.0" y1="455.0" x2="705.2" y2="455.0" stroke="#3a3a3a" stroke-width="1"/><line x1="604.0" y1="451.0" x2="604.0" y2="459.0" stroke="#3a3a3a" stroke-width="1"/><line x1="705.2" y1="451.0" x2="705.2" y2="459.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="459.0" text-anchor="end" font-size="11.5" fill="#16202a">13. Neutrophils_reinius <tspan fill="#7a8690">(IMM)</tspan></text><text x="677.4" y="459.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.139</text><rect x="565.0" y="476.0" width="106.3" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="642.2" y1="485.0" x2="689.1" y2="485.0" stroke="#3a3a3a" stroke-width="1"/><line x1="642.2" y1="481.0" x2="642.2" y2="489.0" stroke="#3a3a3a" stroke-width="1"/><line x1="689.1" y1="481.0" x2="689.1" y2="489.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="489.0" text-anchor="end" font-size="11.5" fill="#16202a">14. L-MPP <tspan fill="#7a8690">(PRO)</tspan></text><text x="677.3" y="489.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.139</text><rect x="565.0" y="506.0" width="106.3" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="619.1" y1="515.0" x2="693.1" y2="515.0" stroke="#3a3a3a" stroke-width="1"/><line x1="619.1" y1="511.0" x2="619.1" y2="519.0" stroke="#3a3a3a" stroke-width="1"/><line x1="693.1" y1="511.0" x2="693.1" y2="519.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="519.0" text-anchor="end" font-size="11.5" fill="#16202a">15. erythroblast <tspan fill="#7a8690">(PRO)</tspan></text><text x="677.3" y="519.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.139</text><rect x="565.0" y="536.0" width="106.1" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="612.8" y1="545.0" x2="706.4" y2="545.0" stroke="#3a3a3a" stroke-width="1"/><line x1="612.8" y1="541.0" x2="612.8" y2="549.0" stroke="#3a3a3a" stroke-width="1"/><line x1="706.4" y1="541.0" x2="706.4" y2="549.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="549.0" text-anchor="end" font-size="11.5" fill="#16202a">16. dendritic <tspan fill="#7a8690">(IMM)</tspan></text><text x="677.1" y="549.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.139</text><rect x="565.0" y="566.0" width="102.1" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="599.4" y1="575.0" x2="700.0" y2="575.0" stroke="#3a3a3a" stroke-width="1"/><line x1="599.4" y1="571.0" x2="599.4" y2="579.0" stroke="#3a3a3a" stroke-width="1"/><line x1="700.0" y1="571.0" x2="700.0" y2="579.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="579.0" text-anchor="end" font-size="11.5" fill="#16202a">17. Plasma <tspan fill="#7a8690">(IMM)</tspan></text><text x="673.1" y="579.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.134</text><rect x="565.0" y="596.0" width="101.2" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="606.2" y1="605.0" x2="693.8" y2="605.0" stroke="#3a3a3a" stroke-width="1"/><line x1="606.2" y1="601.0" x2="606.2" y2="609.0" stroke="#3a3a3a" stroke-width="1"/><line x1="693.8" y1="601.0" x2="693.8" y2="609.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="609.0" text-anchor="end" font-size="11.5" fill="#16202a">18. megakaryocyte <tspan fill="#7a8690">(PRO)</tspan></text><text x="672.2" y="609.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.132</text><rect x="565.0" y="626.0" width="99.1" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="598.3" y1="635.0" x2="702.4" y2="635.0" stroke="#3a3a3a" stroke-width="1"/><line x1="598.3" y1="631.0" x2="598.3" y2="639.0" stroke="#3a3a3a" stroke-width="1"/><line x1="702.4" y1="631.0" x2="702.4" y2="639.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="639.0" text-anchor="end" font-size="11.5" fill="#16202a">19. macrophage <tspan fill="#7a8690">(IMM)</tspan></text><text x="670.1" y="639.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.130</text><rect x="565.0" y="656.0" width="97.6" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="603.6" y1="665.0" x2="699.3" y2="665.0" stroke="#3a3a3a" stroke-width="1"/><line x1="603.6" y1="661.0" x2="603.6" y2="669.0" stroke="#3a3a3a" stroke-width="1"/><line x1="699.3" y1="661.0" x2="699.3" y2="669.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="669.0" text-anchor="end" font-size="11.5" fill="#16202a">20. neutrophil <tspan fill="#7a8690">(IMM)</tspan></text><text x="668.6" y="669.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.128</text><rect x="565.0" y="686.0" width="86.0" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="609.3" y1="695.0" x2="679.3" y2="695.0" stroke="#3a3a3a" stroke-width="1"/><line x1="609.3" y1="691.0" x2="609.3" y2="699.0" stroke="#3a3a3a" stroke-width="1"/><line x1="679.3" y1="691.0" x2="679.3" y2="699.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="699.0" text-anchor="end" font-size="11.5" fill="#16202a">21. CMP <tspan fill="#7a8690">(PRO)</tspan></text><text x="657.0" y="699.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.113</text><rect x="481.1" y="716.0" width="83.9" height="18" fill="#3E6E99" stroke="#16202a" stroke-width="1.6"/><line x1="377.8" y1="725.0" x2="577.8" y2="725.0" stroke="#3a3a3a" stroke-width="1"/><line x1="377.8" y1="721.0" x2="377.8" y2="729.0" stroke="#3a3a3a" stroke-width="1"/><line x1="577.8" y1="721.0" x2="577.8" y2="729.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="729.0" text-anchor="end" font-size="11.5" fill="#16202a">22. CD56_NK-cells <tspan fill="#7a8690">(IMM)</tspan></text><text x="475.1" y="729.0" text-anchor="end" font-size="11" font-weight="700" fill="#16202a">0.890</text><rect x="565.0" y="746.0" width="83.2" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="588.8" y1="755.0" x2="681.4" y2="755.0" stroke="#3a3a3a" stroke-width="1"/><line x1="588.8" y1="751.0" x2="588.8" y2="759.0" stroke="#3a3a3a" stroke-width="1"/><line x1="681.4" y1="751.0" x2="681.4" y2="759.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="759.0" text-anchor="end" font-size="11.5" fill="#16202a">23. Monocytes_EPIC <tspan fill="#7a8690">(IMM)</tspan></text><text x="654.2" y="759.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.109</text><rect x="565.0" y="776.0" width="80.2" height="18" fill="#B2182B" stroke="#9aa3ab" stroke-width="0.5"/><line x1="561.0" y1="785.0" x2="690.6" y2="785.0" stroke="#3a3a3a" stroke-width="1"/><line x1="561.0" y1="781.0" x2="561.0" y2="789.0" stroke="#3a3a3a" stroke-width="1"/><line x1="690.6" y1="781.0" x2="690.6" y2="789.0" stroke="#3a3a3a" stroke-width="1"/><text x="286.0" y="789.0" text-anchor="end" font-size="11.5" fill="#16202a">24. eosinophil <tspan fill="#7a8690">(IMM)</tspan></text><text x="651.2" y="789.0" text-anchor="start" font-size="11" font-weight="700" fill="#16202a">1.105</text></svg>
+<div class='caveat' style='border-color:#c9a227;background:#fffdf3'><b>Indicative tier &#8212; read alongside, not instead of, the class call above.</b> Per SOP &sect;30, within-class cell types are the Tier-2 <em>finer-grained decomposition</em> and are <b>weakly separable in IAMAtlas v0.1</b> &#8212; trust the class-level scores for the call. The <b>chart shows the deconvolver-resolved cells</b> (real per-cell signal); the <b>table below lists every present-class cell</b> with a confidence column, so nothing is hidden. Every cell type in a present class is A-scored (SOP &sect;44, independent of deconvolution fraction); the fraction is a confidence cue, never a gate. An <em>indicative</em> cell reads the bulk mixture at its one-vs-rest markers and can pin near the ceiling or below its floor &#8212; that is a low-confidence background read, not a finding.</div><p class='meta'>62 cell type(s) in present classes, ranked by departure from baseline.</p><table><thead><tr><th>Cell type</th><th>Class</th><th>Fraction</th><th>A-score</th><th>95% CI</th><th>tier</th><th>confidence</th></tr></thead><tbody><tr><td>Eosino</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.192</td><td class='num'>[1.176, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Eosinophils_reinius</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.191</td><td class='num'>[1.165, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Gran</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.189</td><td class='num'>[1.158, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>tcell</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.185</td><td class='num'>[1.136, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>CD14_monocytes</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.181</td><td class='num'>[1.139, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Neutro</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.180</td><td class='num'>[1.131, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Neu</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.171</td><td class='num'>[1.075, 1.192]</td><td>BREACH</td><td>indicative</td></tr><tr><td>GMP</td><td>progenitor</td><td class='num'>1.9%</td><td class='num'>1.160</td><td class='num'>[1.135, 1.172]</td><td>BREACH</td><td>reliable</td></tr><tr><td>Neutrophils_EPIC</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.159</td><td class='num'>[1.099, 1.188]</td><td>BREACH</td><td>indicative</td></tr><tr><td>MPP</td><td>progenitor</td><td class='num'>0.0%</td><td class='num'>1.157</td><td class='num'>[1.130, 1.170]</td><td>BREACH</td><td>indicative</td></tr><tr><td>granulocytes</td><td>immune</td><td class='num'>36.0%</td><td class='num'>1.143</td><td class='num'>[1.071, 1.182]</td><td>BREACH</td><td>reliable</td></tr><tr><td>Neutrophils_reinius</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.139</td><td class='num'>[1.051, 1.183]</td><td>BREACH</td><td>indicative</td></tr><tr><td>L-MPP</td><td>progenitor</td><td class='num'>0.0%</td><td class='num'>1.139</td><td class='num'>[1.101, 1.162]</td><td>BREACH</td><td>indicative</td></tr><tr><td>erythroblast</td><td>progenitor</td><td class='num'>0.0%</td><td class='num'>1.139</td><td class='num'>[1.071, 1.168]</td><td>BREACH</td><td>indicative</td></tr><tr><td>dendritic</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.139</td><td class='num'>[1.063, 1.185]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Plasma</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.134</td><td class='num'>[1.045, 1.177]</td><td>BREACH</td><td>indicative</td></tr><tr><td>megakaryocyte</td><td>progenitor</td><td class='num'>0.0%</td><td class='num'>1.132</td><td class='num'>[1.054, 1.169]</td><td>BREACH</td><td>indicative</td></tr><tr><td>macrophage</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.130</td><td class='num'>[1.044, 1.180]</td><td>BREACH</td><td>indicative</td></tr><tr><td>neutrophil</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.128</td><td class='num'>[1.051, 1.176]</td><td>BREACH</td><td>indicative</td></tr><tr><td>CMP</td><td>progenitor</td><td class='num'>0.0%</td><td class='num'>1.113</td><td class='num'>[1.058, 1.150]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Monocytes_EPIC</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.109</td><td class='num'>[1.031, 1.152]</td><td>BREACH</td><td>indicative</td></tr><tr><td>eosinophil</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.105</td><td class='num'>[0.995, 1.164]</td><td>BREACH</td><td>indicative</td></tr><tr><td>CD4_T-cells</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.101</td><td class='num'>[1.018, 1.153]</td><td>BREACH</td><td>indicative</td></tr><tr><td>Kup</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.081</td><td class='num'>[0.977, 1.149]</td><td>sig. elevated</td><td>indicative</td></tr><tr><td>Tcell</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.075</td><td class='num'>[0.998, 1.149]</td><td>sig. elevated</td><td>indicative</td></tr><tr><td>monocyte</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.062</td><td class='num'>[0.947, 1.134]</td><td>elevated</td><td>indicative</td></tr><tr><td>IC</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.032</td><td class='num'>[0.942, 1.125]</td><td>normal</td><td>indicative</td></tr><tr><td>CD8T-cells_EPIC</td><td>immune</td><td class='num'>0.0%</td><td class='num'>1.022</td><td class='num'>[0.901, 1.109]</td><td>normal</td><td>indicative</td></tr><tr><td>Eos</td><td>immune</td><td class='num'>0.0%</td><td class='num'>0.987</td><td class='num'>[0.858, 1.087]</td><td>normal</td><td>indicative</td></tr><tr><td>CD4T-cells_EPIC</td><td>immune</td><td class='num'>0.0%</td><td class='num'>0.975</td><td class='num'>[0.846, 1.074]</td><td>normal</td><td>indicative</td></tr><tr><td>CD8_T-cells</td><td>immune</td><td class='num'>0.0%</td><td class='num'>0.964</td><td class='num'>[0.826, 1.069]</td><td>normal</td><td>indicative</td></tr><tr><td>nRBC</td><td>progenitor</td><td class='num'>0.0%</td><td class='num'>0.943</td><td class='num'>[0.873, 1.007]</td><td>suppressed</td><td>indicative</td></tr><tr><td>NK-cells_EPIC</td><td>immune</td><td class='num'>0.0%</td><td class='num'>0.908</td><td class='num'>[0.781, 0.996]</td><td>suppressed</td><td>indicative</td></tr><tr><td>Mye</td><td>immune</td><td class='num'>0.0%</td><td class='num'>0.905</td><td class='num'>[0.708, 1.060]</td><td>suppressed</td><td>indicative</td></tr><tr><td>CD56_NK-cells</td><td>immune</td><td class='num'>5.9%</td><td class='num'>0.890</td><td class='num'>[0.755, 1.017]</td><td>suppressed</td><td>reliable</td></tr><tr><td>Microglia</td><td>immune</td><td class='num'>0.0%</td><td class='num'>0.842</td><td class='num'>[0.690, 0.985]</td><td>suppressed</td><td>indicative</td></tr></tbody></table>
+
+<h2>Confirmation — second chain <span class="meta">(ran because Stage 8 flagged mds)</span></h2>
+<div class="method">
+<p>The second chain is independent and runs only on a Route B flag (fires on any Route B match above threshold (when in doubt, run it out)).
+It does not change anything above; it adjudicates whether the flag reflects a real departure.
+Read alongside context: age 58 · sex M · substrate whole_blood.</p>
+<div style="background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:10px 16px;margin:10px 0">
+<b style="color:var(--accent)">Verdict:</b> Within the derived healthy band (Mahalanobis d=0.0, threshold not crossed). The Route B resemblance to mds is most consistent with bulk-composition shape, not a real global departure.</div>
+
+<h3>A · Global departure (derived Mahalanobis — the adjudicator)</h3>
+<p class="explain"><b>What this is and why it matters.</b> A <b>Mahalanobis distance</b> measures, in a single number,
+how far the patient's whole cell architecture sits from healthy — but unlike a plain distance it weights each cell
+class by how much it normally varies, so a small shift on a steady class counts for more than a large shift on a noisy
+one. That gives the number a known statistical meaning (how far from the healthy floor in combined standard deviations),
+which we test against a &chi;&sup2; threshold. We use it because the primary chain answers <em>"what does this pattern
+resemble?"</em> but not <em>"is the architecture actually departed, and by how much?"</em> This is the step that answers
+the second question and adjudicates the flag. Because the reference is the <b>derived healthy floor</b> — every class at
+1.0 by construction, not a group of sick or healthy people — the number compares the patient to the architecture's own
+baseline, never to a cohort.</p>
+<p>d&sup2; = <b>0.0</b> vs &chi;&sup2;<sub>0.95</sub> threshold <b>5.99</b>
+over 2 present classes &rarr; <b style="color:var(--accent)">within the derived healthy band</b>.
+Reference: derived (normal band [0.95,1.04), sigma=0.02, diagonal) — not a cohort.</p>
+<table><thead><tr><th>Driving class</th><th>A-score</th><th>z from floor</th></tr></thead><tbody><tr><td>progenitor</td><td class='num'>0.975</td><td class='num'>+0.0</td></tr><tr><td>immune</td><td class='num'>0.960</td><td class='num'>+0.0</td></tr></tbody></table>
+
+<h3>B · Literature-anchor evidence <span class="meta">(published context, not the reference)</span></h3>
+<p>Patient <b>immune</b> class A = <b>0.960</b>, nearest published anchor: <b>Neutrophil (reference)</b> (A=0.948, normal).</p><table><thead><tr><th>Published anchor</th><th>A</th><th>Context</th><th>Source</th></tr></thead><tbody><tr><td>Neutrophil (reference)</td><td class='num'>0.948</td><td>normal</td><td class='meta'>Roadmap Epigenomics E030</td></tr><tr><td>CD4+ naive T cell</td><td class='num'>1.023</td><td>normal</td><td class='meta'>Roadmap Epigenomics E043</td></tr><tr><td>Leukemia AML (LAML)</td><td class='num'>1.15</td><td>cancer</td><td class='meta'>Cancer Genome Atlas 2013 NEJM</td></tr><tr><td>Lymphoma DLBCL</td><td class='num'>1.161</td><td>cancer</td><td class='meta'>Chapuy et al. 2018 Nat Med</td></tr></tbody></table>
+
+<h3>C · Residual-map concordance <span class="meta">(patient departure from the derived atlas baseline)</span></h3>
+<p>25% of 3886 disease-direction CpGs in the immune cross-disease universal alarm move the patient&#x27;s way (not strongly consistent with the mds residual pattern) <span class='meta'>(3886 CpGs, immune cross-disease universal alarm)</span></p>
+</div>
+
+<h2>Honest limits</h2>
+<div class="caveat">
+A cell at ~1% of blood is ~99% diluted, so its architecture cannot be scored from the bulk signal — we detect such a
+cell's presence (Mode 2) but do not assign it an A-score; only cells abundant enough to read their own loci are scored.
+Healthy cells land at A&#8776;1.0 only when the patient beta is on the atlas scale. Mode 2 flags blood-brain-barrier cells only; epithelial, cycling and other
+shed cells in blood are normal and are not flagged. None of the resemblance magnitude bands are calibrated yet — that is
+what real patient data builds, in our own derived units. This report flags and refers; it does not diagnose.
+</div>
+
+<details><summary>Machine-readable snapshot (for a future AI)</summary>
+<pre>{
+  &quot;patient_id&quot;: &quot;SAMPLE_01&quot;,
+  &quot;test_id&quot;: &quot;20260623T232124Z&quot;,
+  &quot;chain&quot;: &quot;CPG_v1_primary_plus_confirmation&quot;,
+  &quot;mode1_top&quot;: [
+    {
+      &quot;disease&quot;: &quot;mds&quot;,
+      &quot;phase&quot;: &quot;active&quot;,
+      &quot;time_range&quot;: &quot;myelodysplastic syndromes&quot;,
+      &quot;substrate&quot;: &quot;whole_blood_buffy_coat&quot;,
+      &quot;severity&quot;: &quot;ACTIVE&quot;,
+      &quot;mechanism&quot;: &quot;pooled_positive_disease_in_readout_compartment&quot;,
+      &quot;cosine&quot;: 0.9838,
+      &quot;direction_agreement&quot;: 1.0,
+      &quot;n_shared&quot;: 3,
+      &quot;n_signal&quot;: 3,
+      &quot;signal_cells&quot;: [
+        &quot;neutrophils&quot;,
+        &quot;GMP&quot;,
+        &quot;erythroid_progenitor&quot;
+      ],
+      &quot;specificity&quot;: &quot;SPECIFIC&quot;,
+      &quot;resemblance&quot;: &quot;STRONG_RESEMBLANCE&quot;
+    },
+    {
+      &quot;disease&quot;: &quot;leukemia_aml&quot;,
+      &quot;phase&quot;: &quot;active&quot;,
+      &quot;time_range&quot;: &quot;active AML (strongest single-cohort effect in cookbook)&quot;,
+      &quot;substrate&quot;: &quot;whole_blood_buffy_coat&quot;,
+      &quot;severity&quot;: &quot;URGENT_CLINICAL&quot;,
+      &quot;mechanism&quot;: &quot;pooled_positive_disease_in_readout_compartment&quot;,
+      &quot;cosine&quot;: 0.7785,
+      &quot;direction_agreement&quot;: 0.889,
+      &quot;n_shared&quot;: 9,
+      &quot;n_signal&quot;: 5,
+      &quot;signal_cells&quot;: [
+        &quot;B_cells&quot;,
+        &quot;NK_cells&quot;,
+        &quot;neutrophils&quot;,
+        &quot;MPP&quot;,
+        &quot;GMP&quot;
+      ],
+      &quot;specificity&quot;: &quot;SPECIFIC&quot;,
+      &quot;resemblance&quot;: &quot;STRONG_RESEMBLANCE&quot;
+    },
+    {
+      &quot;disease&quot;: &quot;active_chemotherapy&quot;,
+      &quot;phase&quot;: &quot;treatment&quot;,
+      &quot;time_range&quot;: &quot;active chemotherapy / immunosuppression / transplant&quot;,
+      &quot;substrate&quot;: &quot;whole_blood_buffy_coat&quot;,
+      &quot;severity&quot;: &quot;NORMAL_VARIANT&quot;,
+      &quot;mechanism&quot;: &quot;expected_suppression_declared_treatment&quot;,
+      &quot;cosine&quot;: 0.5755,
+      &quot;direction_agreement&quot;: 0.8,
+      &quot;n_shared&quot;: 5,
+      &quot;n_signal&quot;: 3,
+      &quot;signal_cells&quot;: [
+        &quot;B_cells&quot;,
+        &quot;NK_cells&quot;,
+        &quot;neutrophils&quot;
+      ],
+      &quot;specificity&quot;: &quot;SPECIFIC&quot;,
+      &quot;resemblance&quot;: &quot;MODERATE_RESEMBLANCE&quot;
+    },
+    {
+      &quot;disease&quot;: &quot;alzheimers_disease&quot;,
+      &quot;phase&quot;: &quot;at_dx_post_build_v3_0&quot;,
+      &quot;time_range&quot;: &quot;clinical AD (AIBL + AddNeuroMed post-build instrument)&quot;,
+      &quot;substrate&quot;: &quot;whole_blood_buffy_coat&quot;,
+      &quot;severity&quot;: &quot;ACTIVE&quot;,
+      &quot;mechanism&quot;: &quot;directional_panel_dominant_plus_architectural_immunosenescence_via_115cell_fanout&quot;,
+      &quot;cosine&quot;: 0.3398,
+      &quot;direction_agreement&quot;: 0.667,
+      &quot;n_shared&quot;: 9,
+      &quot;n_signal&quot;: 4,
+      &quot;signal_cells&quot;: [
+        &quot;B_cells&quot;,
+        &quot;naive_CD8_T_cells&quot;,
+        &quot;memory_CD4_T_cells&quot;,
+        &quot;neutrophils&quot;
+      ],
+      &quot;specificity&quot;: &quot;SPECIFIC&quot;,
+      &quot;resemblance&quot;: &quot;MODERATE_RESEMBLANCE&quot;
+    }
+  ],
+  &quot;mode2_flags&quot;: [],
+  &quot;nilc_rescued&quot;: [
+    {
+      &quot;class&quot;: &quot;stem_pluri&quot;,
+      &quot;nilc_raw_fraction&quot;: 0.0421
+    },
+    {
+      &quot;class&quot;: &quot;secretory&quot;,
+      &quot;nilc_raw_fraction&quot;: 0.0148
+    }
+  ],
+  &quot;trajectory_baseline_departure&quot;: {
+    &quot;CMP&quot;: 0.11259671135030147,
+    &quot;erythroid_progenitor&quot;: -0.2278044251888255,
+    &quot;GMP&quot;: 0.16020574729835912,
+    &quot;L_MPP&quot;: 0.1391674794410065,
+    &quot;MEP&quot;: -0.3723225228180801,
+    &quot;MPP&quot;: 0.1568691213987672,
+    &quot;NeuIm&quot;: -0.6863343172271366,
+    &quot;OPC&quot;: -0.19950287614876494,
+    &quot;erythroblast&quot;: 0.1391562177317811,
+    &quot;megakaryocyte&quot;: 0.1324914277983833,
+    &quot;nRBC&quot;: -0.05657990861186124,
+    &quot;B_cells&quot;: -0.2935640316499967,
+    &quot;basophils&quot;: -0.571669920900985,
+    &quot;memory_B_cells&quot;: -0.6502732244367068,
+    &quot;naive_B_cells&quot;: -0.3959600479860884,
+    &quot;monocytes&quot;: -0.008580774237595679,
+    &quot;CD4_T_cells&quot;: -0.0787214196234723,
+    &quot;memory_CD4_T_cells&quot;: -0.27236712908582983,
+    &quot;naive_CD4_T_cells&quot;: -0.36787792918814144,
+    &quot;NK_cells&quot;: -0.20222881843545892,
+    &quot;CD8_T_cells&quot;: -0.1020138544041757,
+    &quot;memory_CD8_T_cells&quot;: -0.3423260941732814,
+    &quot;naive_CD8_T_cells&quot;: -0.3811587563182417,
+    &quot;eosinophils&quot;: 0.11866687048659616,
+    &quot;granulocytes_pooled&quot;: 0.16580559491728641,
+    &quot;IC_immune_pooled&quot;: 0.032252289493772235,
+    &quot;kupffer_cells&quot;: 0.08143279246303314,
+    &quot;leukocyte_pooled&quot;: -0.28577885106573225,
+    &quot;macrophages_peripheral&quot;: -0.3376904415155933,
+    &quot;microglia&quot;: -0.15751030178581316,
+    &quot;neutrophils&quot;: 0.15539783548622058,
+    &quot;PBMC&quot;: -0.09985441847813448,
+    &quot;plasma_cells&quot;: 0.13357094791349056,
+    &quot;regulatory_T_cells&quot;: -0.4421471191044677,
+    &quot;dendritic_cells&quot;: 0.1388344040170708
+  }
+}</pre></details>
+
+<div class="foot">CPG v1 lean · two-mode detection · scale-invariant cosine, no cohort · MCMC-derived CI · flag-and-refer, not diagnostic</div>
+</div></body></html>
