@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPG Patient Intake</title>
+<style>
+  :root{
+    --ink:#16242b; --paper:#f5f8f8; --card:#ffffff; --line:#d6e0e2;
+    --teal:#0d6e78; --teal-dark:#094f57; --amber:#b3641f; --soft:#5f7177;
+    --ok:#2f7d5b; --used-bg:#eef6f5; --shadow:0 1px 2px rgba(16,40,46,.06),0 8px 24px rgba(16,40,46,.05);
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px 140px}
+
+  /* masthead */
+  header.mast{padding:34px 0 22px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+  .kicker{font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--teal-dark);font-weight:700}
+  h1{font-family:var(--serif);font-size:30px;line-height:1.1;margin:8px 0 6px;font-weight:600;letter-spacing:-.01em}
+  .mast p{margin:6px 0 0;color:var(--soft);max-width:62ch}
+
+  /* honest engine-reads banner */
+  .reads{margin:18px 0 26px;background:var(--used-bg);border:1px solid #bcdad7;border-radius:10px;
+    padding:13px 16px;font-size:13.5px;color:var(--teal-dark)}
+  .reads b{color:var(--ink)}
+  .reads .chips{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #bcdad7;
+    border-radius:999px;padding:3px 10px;font-size:12.5px;color:var(--soft);font-variant-numeric:tabular-nums}
+  .chip.on{color:var(--teal-dark);border-color:var(--teal);font-weight:600}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:#cdd8da}
+  .chip.on .dot{background:var(--ok)}
+
+  /* sections */
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:22px 24px;margin:16px 0;box-shadow:var(--shadow)}
+  section > .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+  .sec-letter{font-family:var(--serif);font-size:13px;font-weight:700;color:#fff;background:var(--teal);
+    width:26px;height:26px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+    transform:translateY(3px)}
+  .sec-letter.office{background:var(--amber)}
+  h2{font-family:var(--serif);font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em}
+  .sec-note{color:var(--soft);font-size:13px;margin:2px 0 16px 38px}
+
+  .q{margin:0 0 20px;padding-top:4px}
+  .q:last-child{margin-bottom:4px}
+  .q > label.qtext, .q > .qtext{display:block;font-weight:600;margin-bottom:9px}
+  .q .why{color:var(--soft);font-size:12.5px;font-weight:400;margin-top:3px;font-style:italic}
+  .req{color:var(--amber);font-weight:700;margin-left:3px}
+
+  /* option rows */
+  .opts{display:flex;flex-direction:column;gap:7px}
+  .opts.cols{display:grid;grid-template-columns:1fr 1fr;gap:7px 18px}
+  @media(max-width:560px){.opts.cols{grid-template-columns:1fr}}
+  .opt{display:flex;align-items:flex-start;gap:9px;padding:8px 11px;border:1px solid var(--line);
+    border-radius:8px;cursor:pointer;transition:border-color .12s,background .12s;background:#fff}
+  .opt:hover{border-color:var(--teal)}
+  .opt input{margin-top:2px;accent-color:var(--teal);width:16px;height:16px;flex:0 0 auto}
+  .opt span{font-size:14px}
+  .opt.checked{border-color:var(--teal);background:var(--used-bg)}
+
+  input[type=text],input[type=number],input[type=date],textarea,select{
+    width:100%;font-family:var(--sans);font-size:14.5px;color:var(--ink);background:#fff;
+    border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:2px}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+  textarea{resize:vertical;min-height:64px;line-height:1.5}
+  .dob{display:flex;gap:10px;max-width:340px}
+  .dob > div{flex:1}
+  .dob label{font-size:12px;color:var(--soft);display:block;margin-bottom:3px}
+  .freetext{margin-top:9px}
+  .freetext label{font-size:13px;color:var(--soft);display:block;margin-bottom:3px}
+  .med-list{display:flex;flex-direction:column;gap:7px;max-width:520px}
+  .computed{font-size:13px;color:var(--teal-dark);margin-top:7px;font-weight:600}
+  .computed.empty{color:var(--soft);font-weight:400}
+
+  /* office-use section accent */
+  section.office{border-color:#e6cdb4;background:#fffdfa}
+  section.office .sec-note{color:#9a6b40}
+
+  /* save bar */
+  .savebar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);
+    backdrop-filter:saturate(1.1) blur(6px);border-top:1px solid var(--line);
+    box-shadow:0 -6px 24px rgba(16,40,46,.07);z-index:20}
+  .savebar .inner{max-width:860px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;gap:16px}
+  .savebar .status{font-size:13px;color:var(--soft);flex:1;min-width:0}
+  .savebar .status b{color:var(--ink)}
+  button.save{font-family:var(--sans);font-size:15px;font-weight:600;color:#fff;background:var(--teal);
+    border:none;border-radius:9px;padding:12px 22px;cursor:pointer;transition:background .12s;white-space:nowrap}
+  button.save:hover{background:var(--teal-dark)}
+  button.save:disabled{background:#9fb3b5;cursor:not-allowed}
+  button.ghost{font-family:var(--sans);font-size:14px;color:var(--teal-dark);background:none;border:1px solid var(--line);
+    border-radius:9px;padding:11px 16px;cursor:pointer}
+  button.ghost:hover{border-color:var(--teal)}
+
+  .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(12px);opacity:0;
+    background:var(--ink);color:#fff;padding:11px 18px;border-radius:9px;font-size:14px;
+    pointer-events:none;transition:opacity .2s,transform .2s;z-index:30;max-width:90vw}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.err{background:var(--amber)}
+
+  .foot{color:var(--soft);font-size:12px;text-align:center;margin-top:24px}
+  .privacy{color:var(--soft);font-size:13px;margin:14px 0 0;max-width:64ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="kicker">Cellular Performance Gauge · Patient Intake</div>
+    <h1>Before your sample is read</h1>
+    <p>Your answers are recorded with your sample's anonymized ID. They give your clinician
+       context for the report and form part of the chain-of-custody record. Answer honestly;
+       leave anything blank you're unsure of.</p>
+  </header>
+
+  <div class="reads">
+    <b>What the engine reads from this form today:</b> only date of birth, sex at birth, sample type,
+    and the anonymized ID. Everything else is recorded for your clinician and the audit trail, and
+    feeds future versions of the engine as those features are added. None of these answers change the
+    cellular score itself — they label and contextualize the report.
+    <div class="chips" id="readChips">
+      <span class="chip" data-k="patient_id"><span class="dot"></span>Anonymized ID</span>
+      <span class="chip" data-k="age"><span class="dot"></span>Date of birth</span>
+      <span class="chip" data-k="sex"><span class="dot"></span>Sex at birth</span>
+      <span class="chip" data-k="substrate"><span class="dot"></span>Sample type</span>
+    </div>
+  </div>
+
+  <!-- OFFICE USE -->
+  <section class="office" id="sec-office">
+    <div class="sec-head"><span class="sec-letter office">○</span><h2>Office use</h2></div>
+    <div class="sec-note">Completed by clinic staff, not the patient. These set the report label and the sample type the engine reads.</div>
+
+    <div class="q">
+      <label class="qtext" for="patient_id">Anonymized patient ID<span class="req">required</span></label>
+      <input type="text" id="patient_id" placeholder="e.g. ANON_0001" autocomplete="off">
+    </div>
+
+    <div class="q">
+      <div class="qtext">Sample type (substrate)<span class="req">required</span></div>
+      <div class="opts cols" data-name="substrate" data-single="1">
+        <label class="opt"><input type="radio" name="substrate" value="whole_blood"><span>Whole blood</span></label>
+        <label class="opt"><input type="radio" name="substrate" value="cfdna"><span>Cell-free DNA (cfDNA)</span></label>
+        <label class="opt"><input type="radio" name="substrate" value="pbmc"><span>PBMC</span></label>
+        <label class="opt"><input type="radio" name="substrate" value="buffy_coat"><span>Buffy coat</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="qtext">Family history of cancer <span style="font-weight:400;color:var(--soft)">(optional — read by the engine as report context)</span></div>
+      <div class="opts" data-name="family_history" data-single="1">
+        <label class="opt"><input type="radio" name="family_history" value="none"><span>None reported</span></label>
+        <label class="opt"><input type="radio" name="family_history" value="present"><span>Yes — first-degree relative(s)</span></label>
+        <label class="opt"><input type="radio" name="family_history" value="extended"><span>Yes — extended family only</span></label>
+      </div>
+      <div class="freetext"><label for="fh_detail">If yes, which cancer(s) and relation:</label>
+        <input type="text" id="fh_detail" autocomplete="off"></div>
+    </div>
+  </section>
+
+  <!-- A demographics -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">A</span><h2>Basic demographics</h2></div>
+    <div class="sec-note">Read by the engine.</div>
+
+    <div class="q">
+      <div class="qtext">1. Date of birth<span class="req">required</span>
+        <div class="why">Sets the chronological-age reference for the report.</div></div>
+      <div class="dob">
+        <div><label for="dob_y">Year</label><input type="number" id="dob_y" min="1900" max="2025" placeholder="YYYY"></div>
+        <div><label for="dob_m">Month</label><input type="number" id="dob_m" min="1" max="12" placeholder="MM"></div>
+        <div><label for="dob_d">Day</label><input type="number" id="dob_d" min="1" max="31" placeholder="DD"></div>
+      </div>
+      <div class="computed empty" id="ageOut">Age will be calculated here.</div>
+    </div>
+
+    <div class="q">
+      <div class="qtext">2. Sex at birth<span class="req">required</span>
+        <div class="why">Used to stratify report thresholds.</div></div>
+      <div class="opts cols" data-name="sex_at_birth" data-single="1">
+        <label class="opt"><input type="radio" name="sex_at_birth" value="Female"><span>Female</span></label>
+        <label class="opt"><input type="radio" name="sex_at_birth" value="Male"><span>Male</span></label>
+        <label class="opt"><input type="radio" name="sex_at_birth" value="Intersex"><span>Intersex</span></label>
+        <label class="opt"><input type="radio" name="sex_at_birth" value="Prefer not to say"><span>Prefer not to say</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- B smoking -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">B</span><h2>Smoking history</h2></div>
+    <div class="sec-note">Recorded for the report and future engine versions.</div>
+
+    <div class="q">
+      <div class="qtext">3. Current smoking status</div>
+      <div class="opts" data-name="smoking_status" data-single="1">
+        <label class="opt"><input type="radio" name="smoking_status" value="never"><span>Never smoker (under 100 cigarettes in lifetime)</span></label>
+        <label class="opt"><input type="radio" name="smoking_status" value="former"><span>Former smoker (quit)</span></label>
+        <label class="opt"><input type="radio" name="smoking_status" value="current"><span>Current smoker (any in past 30 days)</span></label>
+        <label class="opt"><input type="radio" name="smoking_status" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">4. If former smoker, when did you quit?</div>
+      <div class="opts cols" data-name="smoking_quit" data-single="1">
+        <label class="opt"><input type="radio" name="smoking_quit" value="lt1y"><span>Less than 1 year ago</span></label>
+        <label class="opt"><input type="radio" name="smoking_quit" value="1_5y"><span>1–5 years ago</span></label>
+        <label class="opt"><input type="radio" name="smoking_quit" value="5_15y"><span>5–15 years ago</span></label>
+        <label class="opt"><input type="radio" name="smoking_quit" value="15y_plus"><span>15+ years ago</span></label>
+        <label class="opt"><input type="radio" name="smoking_quit" value="na"><span>Not applicable</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">5. Total years smoked (if ever)</div>
+      <div class="opts cols" data-name="smoking_years" data-single="1">
+        <label class="opt"><input type="radio" name="smoking_years" value="lt5"><span>Less than 5 years</span></label>
+        <label class="opt"><input type="radio" name="smoking_years" value="5_15"><span>5–15 years</span></label>
+        <label class="opt"><input type="radio" name="smoking_years" value="15_30"><span>15–30 years</span></label>
+        <label class="opt"><input type="radio" name="smoking_years" value="30_plus"><span>30+ years</span></label>
+        <label class="opt"><input type="radio" name="smoking_years" value="na"><span>Not applicable</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- C illness -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">C</span><h2>Recent illness &amp; immune events</h2></div>
+    <div class="sec-note">Recent illness or vaccination can lift the immune signal for weeks — useful context for the report.</div>
+
+    <div class="q">
+      <div class="qtext">6. Significant illness, fever, or infection in the past 3 months?</div>
+      <div class="opts" data-name="recent_illness" data-single="1">
+        <label class="opt"><input type="radio" name="recent_illness" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="recent_illness" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="recent_illness" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="illness_detail">If yes, briefly describe:</label>
+        <input type="text" id="illness_detail" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">7. Any vaccinations in the past 3 months?</div>
+      <div class="opts" data-name="recent_vaccination" data-single="1">
+        <label class="opt"><input type="radio" name="recent_vaccination" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="recent_vaccination" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="recent_vaccination" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="vacc_detail">If yes, which and approximately when:</label>
+        <input type="text" id="vacc_detail" autocomplete="off"></div>
+    </div>
+  </section>
+
+  <!-- D hormonal -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">D</span><h2>Hormonal status</h2></div>
+    <div class="sec-note">Recorded for the report and future engine versions.</div>
+
+    <div class="q">
+      <div class="qtext">8. Currently pregnant?</div>
+      <div class="opts cols" data-name="pregnancy" data-single="1">
+        <label class="opt"><input type="radio" name="pregnancy" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="pregnancy" value="t1"><span>Yes — first trimester</span></label>
+        <label class="opt"><input type="radio" name="pregnancy" value="t2"><span>Yes — second trimester</span></label>
+        <label class="opt"><input type="radio" name="pregnancy" value="t3"><span>Yes — third trimester</span></label>
+        <label class="opt"><input type="radio" name="pregnancy" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">9. Given birth in the past 6 months?</div>
+      <div class="opts" data-name="postpartum" data-single="1">
+        <label class="opt"><input type="radio" name="postpartum" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="postpartum" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="postpartum" value="na"><span>Not applicable</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">10. Menopause status (if applicable)</div>
+      <div class="opts" data-name="menopause" data-single="1">
+        <label class="opt"><input type="radio" name="menopause" value="pre"><span>Pre-menopausal (regular cycles)</span></label>
+        <label class="opt"><input type="radio" name="menopause" value="peri"><span>Peri-menopausal (irregular, transition symptoms)</span></label>
+        <label class="opt"><input type="radio" name="menopause" value="meno"><span>Menopausal (12+ months no period)</span></label>
+        <label class="opt"><input type="radio" name="menopause" value="post_surgical"><span>Post-menopausal (surgical / chemical)</span></label>
+        <label class="opt"><input type="radio" name="menopause" value="na"><span>Not applicable</span></label>
+      </div>
+      <div class="freetext"><label for="lmp">Date of last menstrual period (if known):</label>
+        <input type="text" id="lmp" placeholder="e.g. 2026-02 or unknown" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">11. On hormone replacement therapy (HRT / bHRT)?</div>
+      <div class="opts" data-name="hrt" data-single="1">
+        <label class="opt"><input type="radio" name="hrt" value="estrogen"><span>Yes — estrogen alone</span></label>
+        <label class="opt"><input type="radio" name="hrt" value="estro_prog"><span>Yes — estrogen + progesterone</span></label>
+        <label class="opt"><input type="radio" name="hrt" value="bioidentical"><span>Yes — bio-identical (compounded)</span></label>
+        <label class="opt"><input type="radio" name="hrt" value="testosterone_f"><span>Yes — testosterone (low-dose for women)</span></label>
+        <label class="opt"><input type="radio" name="hrt" value="recently_stopped"><span>Considering or recently stopped</span></label>
+        <label class="opt"><input type="radio" name="hrt" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="hrt" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">12. On testosterone replacement therapy (TRT)?</div>
+      <div class="opts cols" data-name="trt" data-single="1">
+        <label class="opt"><input type="radio" name="trt" value="current"><span>Yes — currently on TRT</span></label>
+        <label class="opt"><input type="radio" name="trt" value="recently_stopped"><span>Considering / recently stopped</span></label>
+        <label class="opt"><input type="radio" name="trt" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="trt" value="na"><span>Not applicable</span></label>
+        <label class="opt"><input type="radio" name="trt" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- E metabolic -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">E</span><h2>Weight, metabolic, GLP-1</h2></div>
+    <div class="sec-note">Recorded for the report and future engine versions.</div>
+
+    <div class="q">
+      <div class="qtext">13. Taking a GLP-1 / weight-loss medication? <span style="font-weight:400;color:var(--soft)">(Ozempic, Wegovy, Mounjaro, Zepbound, Saxenda, Trulicity, etc.)</span></div>
+      <div class="opts cols" data-name="glp1" data-single="1">
+        <label class="opt"><input type="radio" name="glp1" value="current"><span>Yes — currently taking</span></label>
+        <label class="opt"><input type="radio" name="glp1" value="recent"><span>Considering / recently started</span></label>
+        <label class="opt"><input type="radio" name="glp1" value="former"><span>Previously took, no longer</span></label>
+        <label class="opt"><input type="radio" name="glp1" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="glp1" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="glp1_detail">If yes, which medication and approximate start:</label>
+        <input type="text" id="glp1_detail" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">14. Bariatric surgery in the past 18 months?</div>
+      <div class="opts" data-name="bariatric" data-single="1">
+        <label class="opt"><input type="radio" name="bariatric" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="bariatric" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="bariatric" value="na"><span>Not applicable</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- F autoimmune -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">F</span><h2>Autoimmune, inflammatory, immunosuppression</h2></div>
+    <div class="sec-note">Recorded for the report and future engine versions.</div>
+
+    <div class="q">
+      <div class="qtext">15. Diagnosed autoimmune condition?</div>
+      <div class="opts" data-name="autoimmune" data-single="1">
+        <label class="opt"><input type="radio" name="autoimmune" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="autoimmune" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="autoimmune" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="autoimmune_detail">If yes, which (e.g. SLE, RA, MS, Type 1 diabetes, Hashimoto's, Graves', psoriatic arthritis, Sjögren's, other):</label>
+        <input type="text" id="autoimmune_detail" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">16. Diagnosed chronic inflammatory condition?</div>
+      <div class="opts" data-name="chronic_inflammatory" data-single="1">
+        <label class="opt"><input type="radio" name="chronic_inflammatory" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="chronic_inflammatory" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="chronic_inflammatory" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="inflammatory_detail">If yes, which (e.g. Crohn's, ulcerative colitis, IBD-U, ankylosing spondylitis, other):</label>
+        <input type="text" id="inflammatory_detail" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">17. On immunosuppressive medication?</div>
+      <div class="opts" data-name="immunosuppression" data-single="1">
+        <label class="opt"><input type="radio" name="immunosuppression" value="biologic"><span>Yes — biologic (adalimumab, infliximab, rituximab, etanercept, …)</span></label>
+        <label class="opt"><input type="radio" name="immunosuppression" value="corticosteroids"><span>Yes — long-term oral corticosteroids</span></label>
+        <label class="opt"><input type="radio" name="immunosuppression" value="methotrexate"><span>Yes — methotrexate</span></label>
+        <label class="opt"><input type="radio" name="immunosuppression" value="calcineurin"><span>Yes — cyclosporine, tacrolimus, mycophenolate, similar</span></label>
+        <label class="opt"><input type="radio" name="immunosuppression" value="other"><span>Yes — other immunosuppressant</span></label>
+        <label class="opt"><input type="radio" name="immunosuppression" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="immunosuppression" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="immuno_detail">If other, specify:</label>
+        <input type="text" id="immuno_detail" autocomplete="off"></div>
+    </div>
+  </section>
+
+  <!-- G cancer -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">G</span><h2>Cancer history &amp; treatment</h2></div>
+    <div class="sec-note">Recorded for the report and future engine versions.</div>
+
+    <div class="q">
+      <div class="qtext">18. Currently receiving cancer treatment?</div>
+      <div class="opts" data-name="current_cancer" data-single="1">
+        <label class="opt"><input type="radio" name="current_cancer" value="chemo"><span>Yes — chemotherapy</span></label>
+        <label class="opt"><input type="radio" name="current_cancer" value="immuno"><span>Yes — immunotherapy</span></label>
+        <label class="opt"><input type="radio" name="current_cancer" value="radiation"><span>Yes — radiation</span></label>
+        <label class="opt"><input type="radio" name="current_cancer" value="recent_complete"><span>Yes — completed within 12 months</span></label>
+        <label class="opt"><input type="radio" name="current_cancer" value="recent_surgery"><span>Yes — recent surgery</span></label>
+        <label class="opt"><input type="radio" name="current_cancer" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="current_cancer" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="cancer_detail">If yes, which cancer and treatment:</label>
+        <input type="text" id="cancer_detail" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">19. Any prior cancer diagnoses?</div>
+      <div class="opts" data-name="prior_cancer" data-single="1">
+        <label class="opt"><input type="radio" name="prior_cancer" value="yes"><span>Yes</span></label>
+        <label class="opt"><input type="radio" name="prior_cancer" value="no"><span>No</span></label>
+        <label class="opt"><input type="radio" name="prior_cancer" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+      <div class="freetext"><label for="prior_cancer_detail">If yes, type(s) and approximate year:</label>
+        <input type="text" id="prior_cancer_detail" autocomplete="off"></div>
+    </div>
+    <div class="q">
+      <div class="qtext">20. Chemotherapy in the past 5 years?</div>
+      <div class="opts cols" data-name="prior_chemo" data-single="1">
+        <label class="opt"><input type="radio" name="prior_chemo" value="lt2y"><span>Yes, within past 2 years</span></label>
+        <label class="opt"><input type="radio" name="prior_chemo" value="2_5y"><span>Yes, 2–5 years ago</span></label>
+        <label class="opt"><input type="radio" name="prior_chemo" value="no"><span>No</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">21. Radiation therapy in the past 5 years?</div>
+      <div class="opts" data-name="prior_radiation" data-single="1">
+        <label class="opt"><input type="radio" name="prior_radiation" value="head_neck"><span>Yes — head/neck</span></label>
+        <label class="opt"><input type="radio" name="prior_radiation" value="chest_breast"><span>Yes — chest/breast</span></label>
+        <label class="opt"><input type="radio" name="prior_radiation" value="abdo_pelvic"><span>Yes — abdominal/pelvic</span></label>
+        <label class="opt"><input type="radio" name="prior_radiation" value="marrow_field"><span>Yes — bone-marrow-containing field</span></label>
+        <label class="opt"><input type="radio" name="prior_radiation" value="other"><span>Yes — other</span></label>
+        <label class="opt"><input type="radio" name="prior_radiation" value="no"><span>No</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- H transplant/hiv -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">H</span><h2>Transplant &amp; infectious</h2></div>
+    <div class="sec-note">Recorded for the report and future engine versions.</div>
+
+    <div class="q">
+      <div class="qtext">22. Solid-organ or stem-cell transplant in the past 24 months?</div>
+      <div class="opts" data-name="transplant" data-single="1">
+        <label class="opt"><input type="radio" name="transplant" value="solid_organ"><span>Yes — solid-organ transplant</span></label>
+        <label class="opt"><input type="radio" name="transplant" value="stem_cell"><span>Yes — stem-cell / bone-marrow transplant</span></label>
+        <label class="opt"><input type="radio" name="transplant" value="no"><span>No</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">23. HIV status</div>
+      <div class="opts" data-name="hiv" data-single="1">
+        <label class="opt"><input type="radio" name="hiv" value="positive_suppressed"><span>Positive — on treatment, virally suppressed</span></label>
+        <label class="opt"><input type="radio" name="hiv" value="positive_untreated"><span>Positive — not currently on treatment</span></label>
+        <label class="opt"><input type="radio" name="hiv" value="positive_recent"><span>Positive — recently diagnosed, status unclear</span></label>
+        <label class="opt"><input type="radio" name="hiv" value="negative"><span>No</span></label>
+        <label class="opt"><input type="radio" name="hiv" value="prefer_not"><span>Prefer not to say</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- I medications -->
+  <section>
+    <div class="sec-head"><span class="sec-letter">I</span><h2>Medications &amp; notes</h2></div>
+    <div class="sec-note">Optional. The clinician note is for your doctor and is not read by the engine.</div>
+
+    <div class="q">
+      <div class="qtext">24. Current prescription medications <span style="font-weight:400;color:var(--soft)">(beyond those above)</span></div>
+      <div class="med-list">
+        <input type="text" class="med" placeholder="1." autocomplete="off">
+        <input type="text" class="med" placeholder="2." autocomplete="off">
+        <input type="text" class="med" placeholder="3." autocomplete="off">
+        <input type="text" class="med" placeholder="4." autocomplete="off">
+        <input type="text" class="med" placeholder="5." autocomplete="off">
+      </div>
+    </div>
+    <div class="q">
+      <div class="qtext">A concern that prompted this test? <span style="font-weight:400;color:var(--soft)">(for your clinician — not read by the engine)</span></div>
+      <textarea id="clinician_note" rows="3" placeholder="Optional"></textarea>
+    </div>
+
+    <p class="privacy">Answers stay paired with the anonymized sample ID and are not shared with third parties.
+       The engine reads only the four labeled fields; the rest are kept for your clinician and the chain-of-custody record.</p>
+  </section>
+
+  <div class="foot">CPG Patient Intake form · writes <code>questionnaire.json</code> into the sample's run folder.</div>
+</div>
+
+<div class="savebar">
+  <div class="inner">
+    <div class="status" id="status">Fill the four required fields (ID, date of birth, sex, sample type) to enable saving.</div>
+    <button class="ghost" id="copyBtn" type="button">Copy JSON</button>
+    <button class="save" id="saveBtn" type="button" disabled>Save questionnaire.json</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  var SEX_MAP = {"Female":"F","Male":"M","Intersex":"I","Prefer not to say":null};
+
+  function val(name){
+    var el = document.querySelector('input[name="'+name+'"]:checked');
+    return el ? el.value : null;
+  }
+  function txt(id){ var e=document.getElementById(id); return e && e.value.trim() ? e.value.trim() : null; }
+  function computeAge(){
+    var y=parseInt(document.getElementById('dob_y').value,10),
+        m=parseInt(document.getElementById('dob_m').value,10),
+        d=parseInt(document.getElementById('dob_d').value,10);
+    if(!y || !m || !d || y<1900 || m<1 || m>12 || d<1 || d>31) return null;
+    var today=new Date(), bd=new Date(y, m-1, d);
+    if(isNaN(bd.getTime())) return null;
+    var age=today.getFullYear()-y;
+    if(today.getMonth()<m-1 || (today.getMonth()===m-1 && today.getDate()<d)) age--;
+    if(age<0 || age>130) return null;
+    return age;
+  }
+
+  function meds(){
+    var out=[];
+    document.querySelectorAll('.med').forEach(function(el){ if(el.value.trim()) out.push(el.value.trim()); });
+    return out.length?out:null;
+  }
+
+  function buildJSON(){
+    var age=computeAge();
+    var sexRaw=val('sex_at_birth');
+    var intake={
+      date_of_birth:{
+        year:parseInt(document.getElementById('dob_y').value,10)||null,
+        month:parseInt(document.getElementById('dob_m').value,10)||null,
+        day:parseInt(document.getElementById('dob_d').value,10)||null
+      },
+      sex_at_birth:sexRaw,
+      smoking_status:val('smoking_status'),
+      smoking_quit_timeframe:val('smoking_quit'),
+      smoking_years_total:val('smoking_years'),
+      recent_illness_within_3_months:val('recent_illness'),
+      recent_illness_detail:txt('illness_detail'),
+      recent_vaccination_within_3_months:val('recent_vaccination'),
+      recent_vaccination_detail:txt('vacc_detail'),
+      current_pregnancy_with_trimester:val('pregnancy'),
+      birth_past_6_months:val('postpartum'),
+      menopause_status:val('menopause'),
+      last_menstrual_period:txt('lmp'),
+      hrt_status:val('hrt'),
+      trt_status:val('trt'),
+      current_glp1_or_weight_loss_medication:val('glp1'),
+      glp1_detail:txt('glp1_detail'),
+      bariatric_surgery_past_18_months:val('bariatric'),
+      known_autoimmune_condition:val('autoimmune'),
+      autoimmune_detail:txt('autoimmune_detail'),
+      known_chronic_inflammatory_disease:val('chronic_inflammatory'),
+      chronic_inflammatory_detail:txt('inflammatory_detail'),
+      current_immunosuppression:val('immunosuppression'),
+      immunosuppression_detail:txt('immuno_detail'),
+      current_cancer_in_treatment:val('current_cancer'),
+      current_cancer_detail:txt('cancer_detail'),
+      prior_cancer_history:val('prior_cancer'),
+      prior_cancer_detail:txt('prior_cancer_detail'),
+      prior_chemotherapy_history:val('prior_chemo'),
+      prior_radiation_history:val('prior_radiation'),
+      transplant_status:val('transplant'),
+      hiv_status:val('hiv'),
+      family_history_detail:txt('fh_detail'),
+      current_medications_systemic:meds(),
+      clinician_note:txt('clinician_note')
+    };
+    return {
+      patient_id: txt('patient_id'),
+      age: age,
+      sex: sexRaw ? SEX_MAP[sexRaw] : null,
+      substrate: val('substrate'),
+      family_history: val('family_history'),
+      intake_version: "v1.0",
+      intake_completed_utc: new Date().toISOString(),
+      intake: intake
+    };
+  }
+
+  function requiredOK(j){ return !!(j.patient_id && j.age!=null && j.sex!=null && j.substrate); }
+
+  function refresh(){
+    var age=computeAge();
+    var ageOut=document.getElementById('ageOut');
+    if(age!=null){ ageOut.textContent="Age: "+age+" years"; ageOut.classList.remove('empty'); }
+    else { ageOut.textContent="Age will be calculated here."; ageOut.classList.add('empty'); }
+
+    var j=buildJSON();
+    var chips={patient_id:!!j.patient_id, age:j.age!=null, sex:j.sex!=null, substrate:!!j.substrate};
+    document.querySelectorAll('#readChips .chip').forEach(function(c){
+      c.classList.toggle('on', !!chips[c.getAttribute('data-k')]);
+    });
+
+    var ok=requiredOK(j);
+    document.getElementById('saveBtn').disabled=!ok;
+    var miss=[];
+    if(!j.patient_id) miss.push('ID'); if(j.age==null) miss.push('date of birth');
+    if(j.sex==null) miss.push('sex'); if(!j.substrate) miss.push('sample type');
+    document.getElementById('status').innerHTML = ok
+      ? 'Ready to save for <b>'+escapeHtml(j.patient_id)+'</b> — age '+j.age+', '+j.sex+', '+escapeHtml(j.substrate)+'.'
+      : 'Still needed: <b>'+miss.join(', ')+'</b>.';
+  }
+
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  // option highlight
+  document.querySelectorAll('.opts').forEach(function(group){
+    group.addEventListener('change', function(){
+      group.querySelectorAll('.opt').forEach(function(o){
+        var inp=o.querySelector('input'); o.classList.toggle('checked', inp && inp.checked);
+      });
+      refresh();
+    });
+  });
+  document.querySelectorAll('input[type=text],input[type=number],textarea').forEach(function(el){
+    el.addEventListener('input', refresh);
+  });
+
+  function showToast(msg,isErr){
+    var t=document.getElementById('toast'); t.textContent=msg;
+    t.className='toast show'+(isErr?' err':''); setTimeout(function(){ t.className='toast'+(isErr?' err':''); },2600);
+  }
+
+  function jsonText(){ return JSON.stringify(buildJSON(),null,2); }
+
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    navigator.clipboard.writeText(jsonText()).then(
+      function(){ showToast('JSON copied to clipboard.'); },
+      function(){ showToast('Could not copy — use Save instead.', true); });
+  });
+
+  document.getElementById('saveBtn').addEventListener('click', async function(){
+    var j=buildJSON();
+    if(!requiredOK(j)){ showToast('Fill the four required fields first.', true); return; }
+    var text=jsonText();
+    // Preferred: write straight into the run folder (Chrome/Edge)
+    if(window.showSaveFilePicker){
+      try{
+        var handle=await window.showSaveFilePicker({
+          suggestedName:'questionnaire.json',
+          types:[{description:'JSON',accept:{'application/json':['.json']}}]
+        });
+        var w=await handle.createWritable(); await w.write(text); await w.close();
+        showToast('Saved questionnaire.json into the run folder.');
+        return;
+      }catch(e){ if(e && e.name==='AbortError') return; /* fall through to download */ }
+    }
+    // Fallback: download (any browser) — staff move it into the run folder
+    var blob=new Blob([text],{type:'application/json'});
+    var url=URL.createObjectURL(blob); var a=document.createElement('a');
+    a.href=url; a.download='questionnaire.json'; document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+    showToast('Downloaded questionnaire.json — move it into the sample run folder.');
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
