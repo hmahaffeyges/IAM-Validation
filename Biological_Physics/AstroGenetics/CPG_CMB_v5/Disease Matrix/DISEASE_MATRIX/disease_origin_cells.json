@@ -1,0 +1,154 @@
+{
+ "breast_cancer": [
+  "breast_secretory"
+ ],
+ "colorectal_cancer": [
+  "colon"
+ ],
+ "lung_cancer": [
+  "lung"
+ ],
+ "pancreatic_cancer": [
+  "pancreatic_exocrine"
+ ],
+ "prostate_cancer": [
+  "prostate"
+ ],
+ "hcc": [
+  "liver"
+ ],
+ "gastric_cancer": [
+  "gastric"
+ ],
+ "esophageal_cancer_escc": [
+  "esophagus"
+ ],
+ "esophageal_cancer_eac": [
+  "esophagus"
+ ],
+ "cervical_cancer": [
+  "cervix"
+ ],
+ "bladder_cancer": [
+  "bladder"
+ ],
+ "kidney_cancer": [
+  "kidney"
+ ],
+ "glioma_lgg": [
+  "cortical_neurons",
+  "microglia"
+ ],
+ "glioma_gbm": [
+  "cortical_neurons",
+  "microglia"
+ ],
+ "leukemia_aml": [
+  "GMP",
+  "HSC"
+ ],
+ "leukemia_cml": [
+  "GMP",
+  "HSC"
+ ],
+ "mds": [
+  "GMP",
+  "HSC"
+ ],
+ "mpn": [
+  "MEP",
+  "erythroid_progenitor",
+  "megakaryocyte"
+ ],
+ "leukemia_b_all": [
+  "B_cells",
+  "L_MPP"
+ ],
+ "leukemia_t_all": [
+  "CD4_T_cells",
+  "CD8_T_cells",
+  "L_MPP"
+ ],
+ "lymphoma_dlbcl": [
+  "B_cells",
+  "memory_B_cells"
+ ],
+ "leukemia_cll": [
+  "B_cells",
+  "memory_B_cells"
+ ],
+ "thymoma": [
+  "CD8_T_cells"
+ ],
+ "multiple_myeloma": [
+  "plasma_cells"
+ ],
+ "alzheimers_disease": [
+  "cortical_neurons",
+  "microglia"
+ ],
+ "frontotemporal_dementia": [
+  "cortical_neurons",
+  "microglia"
+ ],
+ "psp_cbd_tauopathies": [
+  "cortical_neurons",
+  "microglia"
+ ],
+ "pah": [
+  "cardiomyocytes",
+  "vascular_endothelial"
+ ],
+ "aortic_dissection_BAV": [
+  "fibroblasts",
+  "macrophages"
+ ],
+ "crohns_disease": [
+  "colon"
+ ],
+ "ulcerative_colitis": [
+  "colon"
+ ],
+ "rheumatoid_arthritis": [
+  "memory_B_cells",
+  "plasma_cells"
+ ],
+ "lupus_sle": [
+  "memory_B_cells",
+  "plasma_cells"
+ ],
+ "multiple_sclerosis": [
+  "microglia",
+  "oligodendrocytes"
+ ],
+ "psoriasis": [
+  "kera_diff",
+  "regulatory_T_cells"
+ ],
+ "parkinsons_disease": [
+  "cortical_neurons",
+  "microglia"
+ ],
+ "als": [
+  "microglia",
+  "skeletal_muscle"
+ ],
+ "schizophrenia": [
+  "microglia"
+ ],
+ "chronic_hiv": [
+  "naive_CD4_T_cells"
+ ],
+ "chronic_hepatitis_bc": [
+  "kupffer_cells",
+  "liver",
+  "plasma_cells"
+ ],
+ "chronic_cmv": [
+  "memory_T_cells_pooled"
+ ],
+ "chronic_ebv": [
+  "memory_B_cells",
+  "memory_T_cells_pooled"
+ ]
+}
