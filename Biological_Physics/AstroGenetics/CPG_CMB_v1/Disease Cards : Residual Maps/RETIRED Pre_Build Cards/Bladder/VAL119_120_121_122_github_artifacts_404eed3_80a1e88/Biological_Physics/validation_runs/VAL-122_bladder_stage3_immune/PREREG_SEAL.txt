@@ -1,5 +1,0 @@
-PREREG_SHA256=2d101db94cdc7a71466c5f8071a936abd426f85ecd9ea27ae8fa73cd0d81f855
-SEAL_TIMESTAMP=2026-05-01T03:48:17Z
-SEAL_FILE=prereg.md
-SEAL_LOC=Biological_Physics/validation_runs/VAL-122_bladder_stage3_immune/prereg.md
-SEAL_NOTE=Stage 3 immune fine-tune prereg sealed BEFORE any β file read by val122 script. CCL-041 compliance. Patient-flow order complete: VAL-120 → VAL-121 → VAL-122.

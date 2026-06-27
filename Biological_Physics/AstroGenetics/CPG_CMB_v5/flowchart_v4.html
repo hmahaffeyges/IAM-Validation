@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Walther CPG v4 — Definitive Step-by-Step Chain</title>
+<style>
+  :root{
+    --paper:#F6F4EE; --panel:#FFFFFF; --ink:#15201C; --ink-soft:#4A555C;
+    --line:#D8D2C4; --live:#0E6B53; --live-soft:#E3F0EA;
+    --ci:#B45309; --ci-soft:#FBEFE0; --detector:#3A3597; --detector-soft:#E9E8F6;
+    --confirm:#6D28D9; --confirm-soft:#EFE9FB; --gate:#A12B2B; --gate-soft:#F8E9E7;
+    --defer:#6B7280; --defer-soft:#F0EEE9; --excl:#9A3412;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:40px 28px 80px}
+
+  .masthead{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:28px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--live);font-weight:600}
+  h1{font-size:33px;line-height:1.1;margin:10px 0 6px;letter-spacing:-.02em;font-weight:700}
+  .sub{font-size:15.5px;color:var(--ink-soft);max-width:66ch;margin:0}
+  .provenance{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:16px;background:var(--panel);
+    border:1px solid var(--line);border-left:3px solid var(--live);padding:10px 14px;border-radius:0 6px 6px 0}
+  .run{font-size:13.5px;margin-top:14px;color:var(--ink-soft)}
+  .run code{font-family:var(--mono);background:#15201C;color:#EDEAE0;padding:2px 8px;border-radius:4px;font-size:12.5px}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:20px 0 6px;font-size:12px;color:var(--ink-soft)}
+  .key{display:inline-flex;align-items:center;gap:7px}
+  .swatch{width:13px;height:13px;border-radius:3px;flex:none}
+  .sw-live{background:var(--live)} .sw-ci{background:var(--ci)} .sw-det{background:var(--detector)}
+  .sw-gate{background:var(--gate)} .sw-conf{background:var(--confirm)} .sw-file{background:#15201C}
+
+  .band{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 20px;margin:16px 0}
+  .band-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px}
+  .io-row{display:flex;flex-wrap:wrap;gap:9px}
+  .pill{font-family:var(--mono);font-size:12px;background:var(--live-soft);color:var(--live);border:1px solid #B9D9CC;border-radius:20px;padding:5px 12px;font-weight:600}
+
+  .secthead{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    margin:30px 0 4px;display:flex;align-items:center;gap:10px}
+  .secthead .tagline{font-family:var(--sans);text-transform:none;letter-spacing:0;font-weight:400;font-size:13px;color:var(--ink-soft)}
+  .secthead.primary{color:var(--live)} .secthead.second{color:var(--confirm)}
+
+  .spine{display:grid;grid-template-columns:1fr 196px;gap:0 24px;position:relative;margin-top:6px}
+  .links{position:relative}
+  .links::before{content:"";position:absolute;left:21px;top:18px;bottom:30px;width:2px;background:var(--line)}
+  .link{position:relative;padding-left:56px;margin-bottom:16px}
+  .node{position:absolute;left:8px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--live);color:#fff;
+    font-family:var(--mono);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 0 0 4px var(--paper)}
+  .link.detect .node{background:var(--detector)}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--live);border-radius:10px;padding:14px 18px}
+  .link.detect .card{border-left-color:var(--detector);background:linear-gradient(0deg,var(--detector-soft),#fff 55%)}
+  .card h3{margin:0 0 7px;font-size:17px;letter-spacing:-.01em}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--detector);font-weight:700;
+    background:var(--detector-soft);padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:7px}
+  ol.steps{margin:0 0 10px;padding-left:0;list-style:none;counter-reset:s}
+  ol.steps li{font-size:13.5px;color:var(--ink);margin:4px 0;padding-left:30px;position:relative;line-height:1.45}
+  ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:1px;font-family:var(--mono);font-size:10.5px;
+    font-weight:700;color:var(--live);background:var(--live-soft);width:19px;height:19px;border-radius:5px;display:flex;align-items:center;justify-content:center}
+  .link.detect ol.steps li::before{color:var(--detector);background:var(--detector-soft)}
+  .files{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+  .file{font-family:var(--mono);font-size:11px;color:#EDEAE0;background:#15201C;padding:5px 9px;border-radius:5px;word-break:break-all}
+  .out{font-size:12.5px;color:var(--live);font-weight:600;margin-top:9px;display:flex;align-items:flex-start;gap:6px}
+  .out::before{content:"→";font-weight:700}
+  .link.detect .out{color:var(--detector)}
+
+  .cirail{position:relative}
+  .cihead{background:var(--ci-soft);border:1px solid #E7C79B;border-left:4px solid var(--ci);border-radius:10px;padding:13px 15px;position:sticky;top:18px}
+  .cihead .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ci);font-weight:700}
+  .cihead h4{margin:5px 0 6px;font-size:15px;color:#7A3A06}
+  .cihead p{margin:0 0 8px;font-size:12px;color:#7A4A12;line-height:1.45}
+  .citap{font-family:var(--mono);font-size:10.5px;color:var(--ci);background:#fff;border:1px dashed #E0B074;border-radius:6px;padding:6px 9px}
+
+  .gate{margin:6px 0 16px;padding-left:56px;position:relative}
+  .gate .diamond{position:absolute;left:6px;top:12px;width:32px;height:32px;background:var(--gate);transform:rotate(45deg);
+    border-radius:6px;z-index:2;box-shadow:0 0 0 4px var(--paper)}
+  .gate .gq{position:absolute;left:6px;top:12px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:15px;z-index:3}
+  .gcard{background:var(--gate-soft);border:1px solid #E2B6B1;border-left:4px solid var(--gate);border-radius:10px;padding:13px 18px}
+  .gcard h3{margin:0 0 4px;font-size:16px;color:#7A1F1F}
+  .gcard p{margin:0;font-size:13.5px;color:#6E3A36}
+  .branch{display:flex;gap:10px;margin-top:9px;flex-wrap:wrap}
+  .br{font-family:var(--mono);font-size:11.5px;padding:5px 11px;border-radius:7px;font-weight:600}
+  .br.no{background:var(--live-soft);color:var(--live);border:1px solid #B9D9CC}
+  .br.yes{background:var(--confirm-soft);color:var(--confirm);border:1px solid #CBB6F0}
+
+  .second{border:1.5px solid #CBB6F0;background:linear-gradient(0deg,var(--confirm-soft),#fff 70%);border-radius:12px;padding:6px 18px 14px;margin-top:6px}
+  .second .links::before{background:#D9C9F4}
+  .second .node{background:var(--confirm)}
+  .second .card{border-left-color:var(--confirm)}
+  .second ol.steps li::before{color:var(--confirm);background:var(--confirm-soft)}
+  .second .out{color:var(--confirm)}
+
+  .shelf{margin-top:40px;border-top:2px dashed var(--defer);padding-top:24px}
+  .shelf h2{font-size:21px;margin:0 0 4px;letter-spacing:-.01em}
+  .shelf .lede{color:var(--ink-soft);font-size:14px;max-width:66ch;margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+  .scard{background:var(--defer-soft);border:1.5px dashed #C3BCAC;border-radius:10px;padding:13px 16px}
+  .scard h3{margin:0 0 2px;font-size:14.5px;color:#374151}
+  .scard .stage{font-family:var(--mono);font-size:10px;color:var(--defer);letter-spacing:.05em;font-weight:700}
+  .scard .adds{font-size:12.5px;color:var(--ink-soft);margin:6px 0 7px}
+  .scard .path{font-family:var(--mono);font-size:10px;color:#525B62;word-break:break-all;background:#fff;border:1px solid var(--line);padding:4px 8px;border-radius:5px}
+  .scard.excluded{background:var(--gate-soft);border:1.5px solid #E2B6B1}
+  .scard.excluded h3{color:var(--excl)} .scard.excluded .stage{color:var(--excl)}
+  .scard.tooling{background:#EEF1F4;border-color:#C2CBD3}
+
+  footer{margin-top:40px;border-top:1px solid var(--line);padding-top:16px;font-size:11.5px;color:var(--ink-soft);font-family:var(--mono)}
+  @media (max-width:780px){.spine{grid-template-columns:1fr}.cirail{margin-top:18px}.cihead{position:static}.grid{grid-template-columns:1fr}}
+  @media print{body{background:#fff}.cihead{position:static}.link,.scard,.band,.gate,.second{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Walther CPG · v4 · Definitive step-by-step</div>
+    <h1>The chain we follow — every step, in order</h1>
+    <p class="sub">This is the reference both <span style="font-family:var(--mono);font-size:13px">walther_clinical.py</span>
+      and the report builder get checked against. Primary chain stays KISS and runs on every patient. A flag from the
+      disease matrix — and only a flag — triggers a separate confirmation chain. Every value carries a CI from the atlas's own MCMC posteriors.</p>
+    <div class="provenance">Drawn from the live AstroGenetics/CPG_CMB_v4 folder — verified paths and runtime steps,
+      8 brightness files (per-class per-CpG mean/sd/ci), 246 atlas posterior columns.</div>
+    <p class="run">This is the <b>canonical run document</b> — everything a future AI or operator needs to run the chain and nothing else.
+      Build the folder from the manifest below, drop in the IDAT pair + <code>questionnaire.json</code>, then run
+      <code>python walther_clinical.py</code> (or <code>--folder &lt;path&gt;</code>). It calibrates the IDAT (Stage 1 noob), walks steps 1→7, and writes the report beside the inputs.
+      File lists per step are traced from a real EPIC run, not assumed.</p>
+  </header>
+
+  <div class="legend">
+    <span class="key"><span class="swatch sw-live"></span>Primary chain (every patient)</span>
+    <span class="key"><span class="swatch sw-det"></span>Detector — Mode 1 architectural + Mode 2 presence</span>
+    <span class="key"><span class="swatch sw-gate"></span>Flag gate</span>
+    <span class="key"><span class="swatch sw-conf"></span>Second chain (only on a flag)</span>
+    <span class="key"><span class="swatch sw-ci"></span>CI thread (MCMC posteriors)</span>
+    <span class="key"><span class="swatch sw-file"></span>Real repo file</span>
+  </div>
+
+  <section class="manifest" style="margin:18px 0 8px;border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fbfdff">
+    <h2 style="margin:0 0 4px;font-size:16px">Run folder — exactly these files, nothing else</h2>
+    <p class="sub" style="margin:0 0 10px">Traced from a real EPIC IDAT run (every path the chain actually opens). Keep the
+      relative subfolders intact; <code>walther_clinical.py</code> auto-resolves the tree by finding <code>IAM_Atlas/</code>.</p>
+    <div style="display:block;font-family:var(--mono);font-size:12.5px;line-height:1.7">
+      <b>Code (you execute the first one):</b><br>
+      &nbsp;&nbsp;walther_clinical.py &nbsp;·&nbsp; cpg_report_builder.py<br>
+      &nbsp;&nbsp;stage_1_idat_calibration.py &nbsp;<span style="color:var(--soft)">(Stage 1 — per-sample noob calibration; needs methylprep)</span><br>
+      &nbsp;&nbsp;Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py &nbsp;·&nbsp; test_a_score_canonical.py<br>
+      &nbsp;&nbsp;Walther_iam_deconvolver/walther_iam_deconvolver.py<br>
+      &nbsp;&nbsp;NILC Deconvolver/nilc_deconvolver-2.py<br>
+      &nbsp;&nbsp;CPG_Report_Generator/cpg_gauge.py<br>
+      &nbsp;&nbsp;cpg_intake_form.html &nbsp;<span style="color:var(--soft)">(operator tool — run once per patient in a browser to produce questionnaire.json)</span><br>
+      <b style="display:inline-block;margin-top:8px">Reference data:</b><br>
+      <span style="color:var(--soft)">(no array manifest needed — methylprep manages its own manifest cache for Stage 1)</span><br>
+      &nbsp;&nbsp;IAM_Atlas/IAMAtlasREBUILD.csv.xz &nbsp;<span style="color:var(--soft)">(the atlas)</span><br>
+      &nbsp;&nbsp;IAM_Atlas/IAMAtlasREBUILD_provenance.json &nbsp;<span style="color:var(--soft)">(frozen H_min — the Mahaffey Numbers)</span><br>
+      &nbsp;&nbsp;IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json<br>
+      &nbsp;&nbsp;IAM_Atlas/iamatlas_class_archives/{cycling,immune,progenitor,secretory,stem_adult,stem_pluri,stromal,terminal}_v0_1_REBUILD.tar.xz &nbsp;<span style="color:var(--soft)">(8 brightness archives)</span><br>
+      &nbsp;&nbsp;Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json &nbsp;<span style="color:var(--soft)">(markers)</span><br>
+      &nbsp;&nbsp;Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv &nbsp;·&nbsp; iamatlas_115_to_matrix_v0_2_mapping.json<br>
+      &nbsp;&nbsp;Runtime Matrices/Tier_breakpoints/tier_breakpoints.json<br>
+      <b style="display:inline-block;margin-top:8px">You drop in:</b><br>
+      &nbsp;&nbsp;&lt;sample&gt;_Grn.idat &nbsp;·&nbsp; &lt;sample&gt;_Red.idat &nbsp;·&nbsp; questionnaire.json<br>
+    </div>
+    <p class="sub" style="margin:10px 0 0">Not needed for the lean chain (verified by trace — leave them out): Stage_0_Intake,
+      cancer_prior, family_history_multiplier, literature_anchors, matched_filter, healpix, mollweide. <b>Stage 1 calibration IS now wired in</b>
+      (per-sample noob via <code>stage_1_idat_calibration.py</code>); the old raw decoder (<code>idat_decoder_pure.py</code>) is retired from the run path.</p>
+    <p class="sub" style="margin:8px 0 0"><b>questionnaire.json</b> &mdash; the chain reads only <code>{"patient_id","age","sex","substrate"}</code> (+ optional <code>family_history</code>);
+      <b>every field is report context only and never enters the scored &#946;</b> (hard firewall). Produce it one of two ways: open <code>cpg_intake_form.html</code> in a
+      browser (the office tool — collects the full clinical questionnaire, writes the json into the run folder), or, if you run the conductor with no questionnaire.json present,
+      it prompts at the terminal for the four fields and writes the file itself. The full intake (smoking, pregnancy, autoimmune, cancer, meds, &hellip;) rides along under an
+      <code>"intake"</code> key for the clinician and the record &mdash; context for reading the result, not inputs to it.</p>
+  </section>
+
+  <div style="border:2px solid #b45309;background:#fffaf0;border-radius:8px;padding:16px 20px;margin:22px 0 28px">
+    <div style="font-weight:700;color:#b45309;font-size:15px;margin-bottom:8px">HARD-WON LESSONS — read before touching the deconvolver</div>
+    <p style="margin:0 0 8px"><b>LESSON-DECONV-01 (2026-06-21):</b> The global NNLS deconvolver and the A-scoring are <b>correct</b> — the A-scorer scored all 115 cells cleanly across 460 GSE51032 samples in VAL. The real-IDAT inflation (absent cells like stem_pluri reading 0.44 instead of 0.14) was traced to a <b>missing Stage 1 calibration</b>: the chain was fed raw decoder β = M/(M+U+100) with no dye-bias or probe-type normalization, leaving β compressed (methylated peak ~0.85 not ~0.95), which inflates every A-score — worst where the true score is lowest. The earlier "reference mismatch / blood β fits atlas 2.6× worse" framing was <b>wrong</b>; calibrating the IDAT to noob β restores the correct readings (stem_pluri 0.14, granulocytes 1.18 — both VAL-matched).</p>
+    <p style="margin:0 0 8px">A hierarchical within-class refinement was built and validated — it <b>invents signal</b> (HSC/GMP/neurons; MAE 0.271 on pure monocytes), failed composition-recovery validation, and <b>does not ship</b>.</p>
+    <p style="margin:0"><b>Binding:</b> the cell tier is INDICATIVE by design in v0.1; the two-tier report (class reliable / cell indicative) is the validated honest posture. Richer per-cell resolution is <b>reference/atlas work, never a solver swap</b>, and must clear a composition-recovery + null suite before production. "More cells resolved" is only progress if resolved correctly.</p>
+  </div>
+
+  <div class="band">
+    <div class="band-label">Inputs · dropped into the folder</div>
+    <div class="io-row">
+      <span class="pill">IDAT pair (Grn + Red)</span>
+      <span class="pill">Intake — age · sex · substrate · family history (context, never subtracted)</span>
+    </div>
+  </div>
+
+  <div class="secthead primary">Primary chain · KISS <span class="tagline">runs start to finish on every sample</span></div>
+
+  <div class="spine">
+    <div class="links">
+
+      <div class="link">
+        <div class="node">1</div>
+        <div class="card">
+          <h3>Intake — questionnaire as report context</h3>
+          <ol class="steps">
+            <li>The drop folder is scanned for the IDAT pair and <code>questionnaire.json</code> (entry point <code>run_from_folder</code> in <code>walther_clinical.py</code>).</li>
+            <li><code>questionnaire.json</code> is produced before the run by the office intake form (<code>cpg_intake_form.html</code> — opens in any browser, collects the full clinical questionnaire, writes the file). If it is missing and the conductor is run interactively, the conductor prompts at the terminal for the four fields and writes the file itself.</li>
+            <li>The chain reads only <em>patient_id, age, sex, substrate</em> (+ optional <em>family_history</em>). <strong>Every questionnaire field is context for interpreting the report and never enters the scored β</strong> — hard firewall (<code>_assert_no_covariate_in_beta</code>). The full intake (smoking, pregnancy, autoimmune, cancer, meds, …) is preserved under an <code>"intake"</code> key for the clinician and the record.</li>
+            <li>No separate Stage-0 QC gate runs (<code>stage_0_intake.py</code> is not called). <strong>Stage 1 calibration IS called</strong> — the IDAT is calibrated to β by <code>stage_1_idat_calibration.py</code> (per-sample noob) before scoring. (Verified by run trace.)</li>
+          </ol>
+          <div class="files">
+            <div class="file">questionnaire.json &middot; you drop this in (optional)</div>
+          </div>
+          <div class="out">PatientContext (report-only) + located IDAT pair</div>
+        </div>
+      </div>
+
+      <div class="link">
+        <div class="node">2</div>
+        <div class="card">
+          <h3>Stage 1 — Calibration &amp; β (noob)</h3>
+          <ol class="steps">
+            <li>The patient's IDAT pair is calibrated to β with the standard per-sample preprocessing: <strong>dye-bias correction + probe-type normalization (noob)</strong>. This uses only the patient's own on-chip control and out-of-band probes — <strong>no cohort, no reference matrix, nothing external</strong>.</li>
+            <li>Array type (450k vs EPIC) is auto-detected from the IDAT bead-address count; the operator drops any IDAT pair and the step adapts. No manifest file is supplied — methylprep manages its own manifest cache.</li>
+            <li>Output β = the noob-calibrated methylation value per CpG. (The raw decoder β = M/(M+U+100) with no normalization is retired from the chain — it left the methylated peak compressed ~0.85 and inflated every A-score; the Stage 1 calibration spec.)</li>
+            <li>β range and distribution sanity.</li>
+          </ol>
+          <div class="files">
+            <div class="file">stage_1_idat_calibration.py &middot; per-sample noob (dye-bias + probe-type normalization)</div>
+            <div class="file">methylprep &middot; standard preprocessing stack (manages its own manifest)</div>
+          </div>
+          <div class="out">per-CpG calibrated β vector — feeds run_pipeline directly (no manifest needed)</div>
+        </div>
+      </div>
+
+      <div class="link">
+        <div class="node">3</div>
+        <div class="card">
+          <h3>Stage 2 — Deconvolution (two methods in parallel)</h3>
+          <ol class="steps">
+            <li>Load the rebuilt atlas — 115 cells / 8 classes, with the *_mean / *_sd MCMC posteriors.</li>
+            <li>Load the per-class markers.</li>
+            <li>Walther NNLS solve → class fractions (constrained: f ≥ 0, Σf = 1; the production layer).</li>
+            <li>NILC solve in parallel → independent fractions (unconstrained GLS, inverse-variance weighted by the posterior SD). Different math, so its agreement means something — the Planck Commander/NILC discipline. Because it does not floor at the simplex boundary, it can surface a faint signal Walther zeroes out (the glioma-terminal case) — a class it surfaces at &ge;1% is merged into the present set and A-scored, not left presence-only.</li>
+            <li>Cross-method gate: compare the two at the inference layer; agreement raises trust, divergence is a documented signal to investigate, not an error.</li>
+            <li><strong>Two tiers, by design.</strong> <strong>Tier 1 — 8 class fractions:</strong> the production answer, RELIABLE, the call. <strong>Tier 2 — 115 cell-type fractions:</strong> finer decomposition within each class, INDICATIVE only — "weakly separable in IAMAtlas v0.1; trust class_fractions" (deconvolver docstring). NNLS is sparse, so Tier 2 often resolves only a handful of cells per sample; that is expected v0.1 behaviour, not a bug. Never gate anything downstream on Tier 2.</li>
+            <li>class_present from the bootstrap CI lower bound (&gt; numerical zero). The per-cell fraction sets cell-level CONFIDENCE (reliable vs indicative), never a scoring gate.</li>
+            <li>Attach a CI to each fraction from the atlas posteriors.</li>
+          </ol>
+          <div class="files">
+            <div class="file">Walther_iam_deconvolver/walther_iam_deconvolver.py · selects markers by rank from the atlas (no separate marker file)</div>
+            <div class="file">NILC Deconvolver/nilc_deconvolver-2.py · independent cross-check</div>
+            <div class="file">IAM_Atlas/IAMAtlasREBUILD.csv.xz · decompressed once at runtime</div>
+            <div class="file">IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json · the 115→8 map</div>
+          </div>
+          <div class="out">class + cell fractions ± CI from both methods · cross-method verdict · presence flags</div>
+        </div>
+      </div>
+
+      <div class="link">
+        <div class="node">4</div>
+        <div class="card">
+          <h3>Stage 4 — A-score (architectural state + brightness CI)</h3>
+          <ol class="steps">
+            <li>Load the per-class marker CpGs — the class markers from the celltype-markers artifact, aggregated to class (union of the class's cell-type marker pools). <em>Not</em> the most-methylated loci: those drove healthy below the floor and produce impossible scores.</li>
+            <li>Load the 8 frozen H_min floors (the Mahaffey Numbers), one per class.</li>
+            <li>Per-class A = H(β_mean) / H_min(class) — mean β across the class markers first, then entropy of that one mean (entropy-of-mean, never mean-of-entropies).</li>
+            <li><strong>EVERY cell type in a present class is A-scored (run-everything doctrine)</strong>, each on its own class's H_min. This is INDEPENDENT of the deconvolution fraction — the fraction sets confidence (reliable vs indicative), it NEVER gates scoring. The only thing that NULLs a cell A-score is insufficient marker coverage (INSUFFICIENT_MARKERS). Do not gate on a per-cell fraction floor — that collapses the cell tier and violates &sect;655.</li>
+            <li><strong>Substrate gate &amp; floor-gate.</strong> Whole blood scores every class detected at or above ~1% by <em>either</em> deconvolver — Walther OR NILC-raw, merged — so a tissue cell that breaches into blood (the glioma cortical neuron) is scored, not just flagged for presence. Only a class neither deconvolver detects reads <code>NOT_ASSESSABLE_IN_SUBSTRATE</code>: detection is the gate, never cell type. Plasma cfDNA is the opposite: <code>cfdna_run_everything</code> marks every architecture class assessable, because shed tissue DNA <em>is</em> present in plasma — every tile is scored on its own class H_min, the per-cell fraction setting confidence only, never gating the score. Across both substrates a <strong>floor-gate</strong> marks any tile scored below its class H_min as an absent cell reading background (the cfDNA cortical-neuron artifact, A~0.58 below the 0.773 terminal floor): flagged <code>below_floor</code>, never counted as a positive organ flag. Above-floor homogenization (the hepatocyte tissue-of-origin signal, A~0.99 above the 0.843 secretory floor) is a present-cell read and is preserved untouched.</li>
+            <li><strong>Two tiers:</strong> class-level A-scores are RELIABLE (the call); cell-level A-scores are the INDICATIVE tier (weakly separable in v0.1). A cell the deconvolver does not resolve reads the bulk mixture at its one-vs-rest markers and can pin near the ceiling or below its floor — a low-confidence background read, flagged, never a finding.</li>
+            <li>Load the 8 brightness files (per-class per-CpG mean/sd/ci) and propagate the per-CpG sd through H/H_min → a real CI on every A.</li>
+            <li><strong>The scale, per class:</strong> A = 1.0 is the healthy reference; the <em>floor</em> is the class's own H_min (e.g. immune 0.839, terminal 0.773) and the <em>ceiling</em> is 1/H_min. A cell can be driven down toward its floor and still hold identity; a value <em>below</em> H_min is impossible for a present cell, so the report flags that as a data problem rather than a reading. Verified: healthy whole-blood immune A = 1.035, glioma 0.970 — both on-scale.</li>
+          </ol>
+          <div class="files">
+            <div class="file">Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py</div>
+            <div class="file">Runtime Matrices/A_Scoring_Module/test_a_score_canonical.py · canonical self-check on load</div>
+            <div class="file">Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json · class markers</div>
+            <div class="file">IAM_Atlas/IAMAtlasREBUILD_provenance.json · the 8 frozen H_min (key h_min_values_frozen_2026_04_06)</div>
+            <div class="file">IAM_Atlas/iamatlas_class_archives/{cycling,immune,progenitor,secretory,stem_adult,stem_pluri,stromal,terminal}_v0_1_REBUILD.tar.xz · the 8 brightness archives (per-CpG mean/sd/ci)</div>
+          </div>
+          <div class="out">per-cell A-scores ± CI (the per-cell departure pattern — the fingerprint)</div>
+        </div>
+      </div>
+
+      <div class="link">
+        <div class="node">5</div>
+        <div class="card">
+          <h3>Stage 7 — Tier the signal</h3>
+          <ol class="steps">
+            <li>Apply the physics tier breakpoints to each A-score (normal … elevated … breach).</li>
+            <li>CI-aware: an interval straddling a breakpoint is flagged low-confidence, not forced to a side.</li>
+            <li>Floor-breach detection.</li>
+          </ol>
+          <div class="files">
+            <div class="file">CPG_Report_Generator/cpg_gauge.py · applies the breakpoints</div>
+            <div class="file">Runtime Matrices/Tier_breakpoints/tier_breakpoints.json</div>
+          </div>
+          <div class="out">tier per cell/class, with confidence</div>
+        </div>
+      </div>
+
+      <div class="link detect">
+        <div class="node">6</div>
+        <div class="card">
+          <span class="tag">Detector · Mode 1 — architectural</span>
+          <h3>Stage 8 · Route B — Disease-signature concordance</h3>
+          <ol class="steps">
+            <li>Assemble the patient's derived A-departure vector — how far each scorable cell has walked from its healthy reference (A−1.0).</li>
+            <li>Load the disease matrix — 81 signatures spanning 52 disease cores across their phases (10-yr-prior, 5-yr) and states. For a whole-blood sample the whole-blood subset is scored (42 signatures in our GSE42861 test). The one-stop comparison sheet; all cards folded in.</li>
+            <li>Match by <em>scale-invariant cosine</em> — the angle between the patient's departure and each signature. Units cancel: no σ, no z-shift, nothing standardizes the patient against a population. Direction agreement is the coarse gate; cosine shape is the fine discriminator (it is what separates aging from Alzheimer's — same direction, different proportions).</li>
+            <li>Works on every class detected at or above ~1% (Walther OR NILC). In normal whole blood that is dominated by the <em>immune class</em>, where most field-effect and systemic disease writes its signal — but a breached tissue class (the glioma cortical neuron, terminal) is scored and enters the vector too. This is the workhorse for most of the 52.</li>
+            <li>Reports <em>resemblance, not probability</em>; the calibrated magnitude that turns resemblance into a stage accrues from real patients, in our own derived A-units.</li>
+            <li>Flag may fire on either deconvolver — a signal NILC-raw surfaces but Walther floored still counts.</li>
+          </ol>
+          <div class="files">
+            <div class="file">Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv</div>
+            <div class="file">Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json · cell→signature-column map</div>
+          </div>
+          <div class="out">resemblance scores → 52 disease cores verdict, each ± CI · architectural flags</div>
+        </div>
+      </div>
+
+      <div class="link detect">
+        <div class="node" style="font-size:11px">6b</div>
+        <div class="card">
+          <span class="tag">Detector · Mode 2 — cell-of-origin</span>
+          <h3>Stage 8 · Mode 2 — Presence: a cell that shouldn't be here</h3>
+          <ol class="steps">
+            <li>A different test entirely: not architecture, but a cell <em>circulating in blood that should not be there</em>. The shed-cell premise — the family of signal GRAIL screens for.</li>
+            <li>NILC-raw is the sensitive front end: its unconstrained fit surfaces faint shed signal the constrained solve floors to zero (the glioma terminal case, 1.26%).</li>
+            <li>Flag any non-blood class present in whole blood above the detect_floor (1%, VAL-090).</li>
+            <li><strong>Blood-brain-barrier cells</strong> (cortical neurons, glia, oligodendrocytes) — red flag the moment they are <em>present</em>: they crossed a physical barrier to be here. And once present they are also A-scored (the glioma cortical neuron, +1.96) — presence is the alarm, the A-score is added signal, not discarded. Refer.</li>
+            <li>Other shed cells (epithelial) — <em>presence plus A-score</em>: present with a normal A is benign turnover; present with an abnormal A is concerning. The A-score is the discriminator.</li>
+            <li><strong>Substrate split:</strong> this barrier-breach alarm is a <em>whole-blood</em> test. On plasma cfDNA it does not fire (<code>detect_cell_of_origin_presence</code> returns nothing for cfdna) — a brain or other tissue signal in plasma is shed DNA (tissue-of-origin), read in the cfDNA card below, not a cell that crossed a barrier.</li>
+            <li>Flag-and-refer to a specialist, never a diagnosis. Baseline shed quantities calibrate from real patients.</li>
+          </ol>
+          <div class="files">
+            <div class="file">walther_clinical.py · detect_cell_of_origin_presence() · BBB_PROTECTED set</div>
+          </div>
+          <div class="out">cell-of-origin red flags (BBB breach · elevated shed cells)</div>
+        </div>
+      </div>
+
+      <div class="link detect">
+        <div class="node" style="font-size:11px">6c</div>
+        <div class="card">
+          <span class="tag">Detector · cfDNA — tissue-of-origin</span>
+          <h3>Stage 8 · cfDNA — Tissue-of-origin: shed tissue DNA</h3>
+          <ol class="steps">
+            <li><strong>cfDNA only.</strong> In plasma, shed tissue DNA circulates — the non-immune tissue tiles carry a tissue-of-origin signal that whole-blood Mode 2 (BBB-only) never surfaces. In normal whole blood these tissue cells are absent (floor-gated out); a disease that breaches one in — the glioma cortical neuron — makes it present and scored there too. In plasma they are routinely present, and their shed signal is the read.</li>
+            <li>Rank the non-immune tissue tiles by <strong>departure from the derived reference (A=1.0)</strong> in either direction. <em>Homogenization</em> (A&lt;1.0 — the HCC hepatocyte signature) and <em>elevation</em> (A&gt;1.0) both carry information.</li>
+            <li>Immune is excluded — it is the ~70% systemic plasma background, not tissue-of-origin. Floor-gated: a tile below its class H_min is an absent cell reading background and is dropped (the cortical-neuron artifact), so the ranking is real shed-tissue reads only.</li>
+            <li>A single timepoint is a <strong>flag</strong>; the <strong>trajectory</strong> across draws is the call. Flag-and-refer, never a diagnosis.</li>
+          </ol>
+          <div class="files"><div class="file">cpg_report_builder.py · _tissue_of_origin_section · walther_clinical.py · cfdna_run_everything (VAL-090)</div></div>
+          <div class="out">non-immune tiles ranked by |departure| from the derived reference · homogenization &amp; elevation both signal</div>
+        </div>
+      </div>
+
+      <div class="link">
+        <div class="node">7</div>
+        <div class="card">
+          <h3>Patient report — cell-centric</h3>
+          <ol class="steps">
+            <li><strong>Per-cell A-scores are the body of the report.</strong> Every cell present in the blood is scored on its own class's H_min floor. The class-level composition table and the class-level architectural-state section are <em>not</em> shown — the report is the cell-level fingerprint, not class summaries.</li>
+            <li><strong>Departure-ranking chart</strong> of the resolved cells: elevated bars right, suppressed left, 1.00 = healthy baseline, 95% CI whiskers, bold border = deconvolver-resolved (reliable). Cells below their class H_min floor are dropped (impossible reads); suppressed-but-above-floor cells are kept (a real measurement).</li>
+            <li>Non-cell aggregates (whole_blood, PBMC, buffy_coat, …) are filtered out of the per-cell display — they are reference profiles, not cells.</li>
+            <li>Mode 1 architectural concordance (with the specificity gate — a generic myeloid shift reads as "non-specific systemic myeloid pattern", not a named leukemia) + Mode 2 cell-of-origin presence (NILC-raw) + honest limits.</li>
+            <li>Writes <code>CPG_report_&lt;patient&gt;_&lt;UTC&gt;.html</code> beside the inputs.</li>
+          </ol>
+          <div class="files">
+            <div class="file">cpg_report_builder.py · beside walther_clinical.py</div>
+          </div>
+          <div class="out">CPG_report_&lt;patient&gt;_&lt;timestamp&gt;.html</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cirail">
+      <div class="cihead">
+        <div class="k">The edge · links 3 → 7</div>
+        <h4>Calibrated uncertainty</h4>
+        <p>Weeks of MCMC gave the atlas per-cell posteriors and 8 per-class per-CpG brightness tables (mean · sd · ci_lo · ci_hi). Every number carries a real interval — derived from our own posteriors, never a cohort.</p>
+        <div class="citap">fractions ± CI&nbsp;→&nbsp;A-scores ± CI&nbsp;→&nbsp;disease scores ± CI</div>
+          <p style="margin-top:9px;font-size:11px">Source: atlas *_mean/*_sd + the 8 brightness CI files. No one else's atlas is calibrated this way.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GATE -->
+  <div class="gate">
+    <div class="diamond"></div><div class="gq">?</div>
+    <div class="gcard">
+      <h3>Flag gate — did the matrix flag any disease?</h3>
+      <p>The single branch point in the whole chain. It keeps the primary lean and the confirmation independent.</p>
+      <div class="branch">
+        <span class="br no">NO → straight to the report (no pattern detected)</span>
+        <span class="br yes">YES → run the second chain on the flagged disease</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="secthead second">Second chain · confirmation only <span class="tagline">BUILT. Independent: runs only when a flag fires, never mutates the primary. The disease matrix (Route B) remains the primary detector; the residual matched filter confirms; the directional class signal and literature anchor qualify. One integrated verdict is appended to the single report.</span></div>
+  <div class="second">
+    <div class="links">
+      <div class="link">
+        <div class="node">S1</div>
+        <div class="card">
+          <h3>Residual-map matched filter (SOP 8.2) <span class="tagline">the detection instrument</span></h3>
+          <ol class="steps">
+            <li>For the flagged disease, route to its sealed residual map: breast &rarr; breast map, Alzheimer's &rarr; AD map, immune-class diseases &rarr; the immune cross-disease universal alarm. More maps over the coming months.</li>
+            <li>Patient per-CpG departure from the <strong>derived atlas baseline</strong> (the whole-blood class mean &mdash; derived, no cohort), versus the map's signed Cohen's d &mdash; the direction the disease moves each CpG, fixed in advance from validated case/control cohorts.</li>
+            <li>Pearson correlation between the two, with a 95% Fisher confidence interval. Fires when the interval is clear of zero in <em>either</em> direction &mdash; elevation or suppression both count. The same matched-filter statistic used in gravitational-wave and CMB searches; offset-robust, so a cohort-vs-atlas baseline shift cancels.</li>
+          </ol>
+          <div class="files"><div class="file">stage_5_second_chain.py</div><div class="file">Disease Cards : Residual Maps/Breast_EPIC/&hellip; &middot; /AD_EPIC/&hellip; &middot; /Immune_Atlas/&hellip;universal_alarm&hellip;csv</div></div>
+          <div class="out">matched-filter &rho; &plusmn; 95% CI &middot; fires / quiet &middot; in the flagged-disease direction (or "no map yet")</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="node">S2</div>
+        <div class="card">
+          <h3>Directional class signal <span class="tagline">qualifier</span></h3>
+          <ol class="steps">
+            <li>Read the flagged disease's architectural class A-score straight off Stage 4 (the reliable class aggregate, presence-gated to the substrate).</li>
+            <li>Departs when |A &minus; 1.0| &ge; 0.04 &mdash; in <em>either</em> direction: elevation (e.g. immune activation) or suppression (e.g. the breast pre-dx secretory homogenization). No global adjudicator, no cohort.</li>
+            <li>Confirms the flag when the disease's own class has moved off the healthy floor the way the disease moves it.</li>
+          </ol>
+          <div class="files"><div class="file">stage_5_second_chain.py &middot; stage4 class A-scores</div></div>
+          <div class="out">flagged class A vs the healthy floor &rarr; folded into the integrated verdict</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="node">S3</div>
+        <div class="card">
+          <h3>Literature-anchor evidence <span class="tagline">qualifier</span></h3>
+          <ol class="steps">
+            <li>Map the flagged disease to its architectural class; read the patient's class A-score.</li>
+            <li>Place it on the published anchor ladder for that class (healthy / disease / cancer anchors — labels, never the statistical reference).</li>
+            <li>Shows whether the flagged class sits at a normal anchor or near the disease anchor — the evidence layer behind the verdict.</li>
+          </ol>
+          <div class="files"><div class="file">Runtime Matrices/Literature_anchors_Report building/literature_anchors.json</div></div>
+          <div class="out">patient class A vs published anchors → folded into the integrated verdict, appended to the report</div>
+        </div>
+      </div>
+    </div>
+    <div class="cirail"></div>
+  </div>
+
+  <!-- REPORT -->
+  <div class="secthead primary" style="margin-top:26px">Report · lean, CI-forward <span class="tagline">answers the one question and stops</span></div>
+  <div class="spine">
+    <div class="links">
+      <div class="link">
+        <div class="node">7</div>
+        <div class="card">
+          <h3>Build the patient report</h3>
+          <ol class="steps">
+            <li>Executive verdict — which of the 52 disease cores show, in which mode, each ± CI.</li>
+            <li>How to read this report — the two detection modes, written for the clinician <em>and</em> a future AI.</li>
+            <li>Mode 1 — architectural concordance table (resemblance, not probability).</li>
+            <li>Mode 2 — cell-of-origin presence (BBB breach red flags · elevated shed cells + A-score).</li>
+            <li><strong>Substrate-appropriate read.</strong> Whole blood surfaces Mode 1 + Mode 2 (BBB); plasma cfDNA surfaces the <strong>Tissue-of-origin</strong> table in place of Mode 2 — same per-cell A-scores, the substrate decides which reads appear.</li>
+            <li>Per-cell A-scores ± CI as the body (the cell fingerprint). The class-level composition table is not shown — the report is cell-centric.</li>
+            <li><strong>Confirmation section — only when a flag fired:</strong> the second chain's integrated verdict (residual matched-filter &rho; &plusmn; CI, directional class signal, and anchor ladder) is appended after the cell readout. No flag → the report ends after the primary chain, untouched.</li>
+            <li><strong>Input-scale guard:</strong> if abundant classes read below the floor, suppress per-cell A and flag un-normalized input rather than printing artifacts.</li>
+            <li>Honest limits, machine-readable snapshot, and the stored departure-vector baseline for tracking drift over time.</li>
+            <li>Age/sex/family history shown as <em>context</em> alongside the result, never in the math.</li>
+          </ol>
+          <div class="files"><div class="file">CPG_Report_Generator/cpg_report_builder.py · stripped to the disease verdict + CI</div></div>
+          <div class="out">patient report</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="node">8</div>
+        <div class="card">
+          <h3>Trajectory — from the second draw on <span class="tagline">per-cell, the same patient against themselves</span></h3>
+          <ol class="steps">
+            <li>Each draw saves a small derived baseline — per-cell A-scores with their reliability tier, the matrix-column departure vector, and the global departure. No raw β.</li>
+            <li>On the next draw, compare cell by cell: the <strong>per-cell delta</strong> is the unit — each cell's dilution offset is shared at both draws and cancels in the subtraction, so a class can sit flat while the cells beneath it move in opposite directions. Deconvolver-resolved cells lead; indicative cells follow as a softer read; bulk pseudo-cells (whole_blood, PBMC) are excluded.</li>
+            <li><strong>Rotation toward the flagged signature:</strong> the whole departure vector's cosine to the disease signature, prior vs now — the strongest single indicator of where the architecture is headed — plus self-alignment to the prior draw and the global-departure trend.</li>
+          </ol>
+          <div class="files"><div class="file">walther_clinical.py · _compute_trajectory · patients/&lt;id&gt;/baselines/ + dated visit folders</div></div>
+          <div class="out">per-cell change table (reliable-led) · rotation-toward-signature · appended only on the 2nd+ visit</div>
+        </div>
+      </div>
+    </div>
+    <div class="cirail"></div>
+  </div>
+
+  <div class="band" style="border-left:4px solid var(--detector)">
+    <div class="band-label">Output</div>
+    <div class="io-row">
+      <span class="pill" style="background:var(--detector-soft);color:var(--detector);border-color:#C4C1EB">52 disease cores verdict ± CI</span>
+      <span class="pill" style="background:var(--detector-soft);color:var(--detector);border-color:#C4C1EB">composition + A-scores ± CI (trackable)</span>
+      <span class="pill" style="background:var(--confirm-soft);color:var(--confirm);border-color:#CBB6F0">confirmation, if flagged</span>
+    </div>
+  </div>
+
+  <!-- SHELF -->
+  <section class="shelf">
+    <h2>Other products &amp; deferred tools — in the repo, not in v4</h2>
+    <p class="lede">Separate products, customer extras, and one thing we deliberately keep <em>out</em>. Each is real and ready;
+      we add any of them one at a time, to a chain we already trust, only when a real run proves the need.</p>
+    <div class="grid">
+
+      <div class="scard excluded">
+        <div class="stage">DELIBERATELY EXCLUDED · not a "later" item</div>
+        <h3>Stage 3 — Foreground subtraction (age / sex / smoking) — NOT BUILT</h3>
+        <div class="adds">Regressing out age would erase the subtle signal we exist to find. A 90- and a 20-year-old both sit in the normal band — that difference is context to read, not a confound to remove. Age stays in the report, never in the math.</div>
+        <div class="path">walther_clinical.py · stage_3_foreground_fork — intentionally not wired</div>
+      </div>
+
+      <div class="scard">
+        <div class="stage">Separate product · EDEAR aging arm</div>
+        <h3>Stage 6 — Cellular age — NOT BUILT</h3>
+        <div class="adds">Per-class cellular age vs chronological. A different product from disease detection — its own chain when we build it.</div>
+        <div class="path">Runtime Matrices/Age_Reference_Matrix 80_cells/</div>
+      </div>
+
+      <div class="scard">
+        <div class="stage">Customer presentation layer</div>
+        <h3>Personal Brilliance Map</h3>
+        <div class="adds">HEALPix Mollweide of the patient methylome vs the cosmic background. Detects nothing — pure presentation. Note: the 8 brightness files it once fed now do real work in Link 4.</div>
+        <div class="path">Runtime Matrices/Mollweide &amp; Brightness Comparison/ · cpg healpix mapping/</div>
+      </div>
+
+      <div class="scard">
+        <div class="stage">Refinement · directional</div>
+        <h3>Bidirectional decomposition</h3>
+        <div class="adds">Separates same-direction diseases that point the same way. Fold into the second chain if a flag is ambiguous.</div>
+        <div class="path">Runtime Matrices/Bidirectional Decomposition py/</div>
+      </div>
+
+      <div class="scard">
+        <div class="stage">Refinement · QC</div>
+        <h3>Full sample QC</h3>
+        <div class="adds">Control-probe, bead-count, detection-p-value, call-rate suite. Add the moment a real IDAT shows a quality problem.</div>
+        <div class="path">Runtime Matrices/Stage_0_Intake/ · full QC steps</div>
+      </div>
+
+      <div class="scard">
+        <div class="stage">Substrate branch</div>
+        <h3>Plasma cfDNA weighting</h3>
+        <div class="adds">The cfDNA chain itself is <strong>live</strong> — run-everything A-scoring + Tissue-of-origin (Stage 8 above). Deferred here is only the optional plasma fraction <em>weighting</em> refinement; dormant for whole blood, wired when a real cfDNA run proves the need.</div>
+        <div class="path">Runtime Matrices/Cfdna_weight_nonderived placeholder/cfdna_weight.json</div>
+      </div>
+
+      <div class="scard">
+        <div class="stage">Report context</div>
+        <h3>Risk-framing layers</h3>
+        <div class="adds">Cancer priors, literature anchors, family-history multiplier — narrative framing, not detection.</div>
+        <div class="path">Runtime Matrices/Cancer_prior/ · Literature_anchors/ · Family_history_multiplier/</div>
+      </div>
+
+      <div class="scard tooling">
+        <div class="stage">Ours · never the patient chain</div>
+        <h3>Validation harness</h3>
+        <div class="adds">Null suite, synthetic patients, end-to-end recovery test. Our tooling for trusting the chain — it never touches a patient IDAT.</div>
+        <div class="path">Runtime Matrices/CPG Null Runner/ · Synthetic Patient Generator/ · N7 Chain Integrity/</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    Walther CPG v4 · definitive step-by-step · 7 links · two detection modes (architectural concordance + cell-of-origin presence) · two substrates (whole blood + plasma cfDNA) · flag gate + 3-step confirmation · drawn from the live repo · every value carries an MCMC-derived CI
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPG — Clinic Workflow</title>
+<style>
+  :root{
+    --paper:#F6F4EE; --panel:#FFFFFF; --ink:#15201C; --ink-soft:#4A555C;
+    --line:#D8D2C4; --live:#0E6B53; --live-soft:#E3F0EA;
+    --ci:#B45309; --ci-soft:#FBEFE0; --confirm:#6D28D9; --confirm-soft:#EFE9FB;
+    --gate:#A12B2B; --gate-soft:#F8E9E7;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;
+    -webkit-font-smoothing:antialiased;padding:34px 20px 60px}
+  .wrap{max-width:920px;margin:0 auto}
+  .masthead{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--live);font-weight:600}
+  h1{font-size:30px;margin:8px 0 10px;letter-spacing:-.01em}
+  .sub{font-size:16px;color:var(--ink-soft);max-width:70ch;margin:0}
+  h2{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:8px;margin:34px 0 16px}
+  code{font-family:var(--mono);background:#15201C;color:#EDEAE0;padding:2px 8px;border-radius:4px;font-size:12.5px}
+  pre{font-family:var(--mono);background:#15201C;color:#EDEAE0;padding:14px 16px;border-radius:8px;font-size:12.5px;
+    overflow-x:auto;line-height:1.5;margin:10px 0}
+  pre .c{color:#8FB7A8}
+  pre .d{color:#C7B891}
+  .step{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;margin:12px 0}
+  .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--live);color:#fff;font-weight:700;
+    font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .step h3{margin:2px 0 6px;font-size:17px}
+  .step p{margin:6px 0;color:var(--ink-soft);font-size:14.5px}
+  .step .tip{font-size:13px;background:var(--ci-soft);border:1px solid #EAD7B5;border-radius:7px;padding:8px 12px;color:#7c5310;margin-top:8px}
+  .band{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:14px 0}
+  .band b{color:var(--ink)}
+  .tree{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--ink);white-space:pre;margin:0}
+  .tree .p{color:var(--live);font-weight:700}
+  .tree .f{color:var(--ink-soft)}
+  .tree .note{color:var(--ci)}
+  .auto{background:var(--live-soft);border:1px solid #B9D9CC;border-left:4px solid var(--live);border-radius:0 8px 8px 0;
+    padding:6px 14px;margin:8px 0;font-size:14px}
+  .auto b{color:var(--live)}
+  ul{margin:8px 0 8px 2px;padding-left:20px;color:var(--ink-soft);font-size:14.5px}
+  li{margin:5px 0}
+  .foot{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .arrow{text-align:center;color:var(--line);font-size:20px;margin:-2px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="masthead">
+  <div class="eyebrow">CPG · Cellular Performance Gauge — Clinic Workflow</div>
+  <h1>Running patients, step by step</h1>
+  <p class="sub">From the lab's IDAT files to a finished report — how to keep every patient separate, how to
+  fill the intake, what one command runs the whole batch, and how a second blood draw automatically builds a
+  trajectory against the first.</p>
+</div>
+
+<h2>Bloodwork — what to draw and what to order from the lab</h2>
+<div class="band">
+  <p><b>One venipuncture, two tubes, every visit.</b> CPG reads two substrates that answer different
+  questions, both from the same stick.</p>
+  <ul>
+    <li><b>Tube 1 &#8212; whole blood.</b> EDTA (lavender top). The lab extracts buffy-coat / whole-blood
+    genomic DNA and runs it on the <b>Illumina Infinium MethylationEPIC (850K) BeadChip</b>. Deliverable: one
+    IDAT pair (<code>_Grn.idat</code> + <code>_Red.idat</code>). Run with substrate <code>whole_blood</code>.</li>
+    <li><b>Tube 2 &#8212; plasma cfDNA.</b> A cell-free DNA stabilizing tube (e.g. Streck Cell-Free DNA BCT),
+    or plain EDTA spun to plasma within ~2 hours. The lab extracts circulating cell-free DNA and runs it on the
+    <b>same EPIC 850K array</b>. Deliverable: a second IDAT pair. Run with substrate <code>cfdna</code>.</li>
+  </ul>
+  <div class="auto"><b>What to tell the lab:</b> &#8220;Infinium MethylationEPIC (850K) array, two samples per
+  patient per visit &#8212; one buffy-coat genomic DNA, one plasma cell-free DNA &#8212; return the raw IDAT
+  (Grn + Red) for each.&#8221; You get two IDAT pairs back per patient per draw.</div>
+  <div class="tip"><b>Why two tubes:</b> whole blood carries the immune / systemic architecture; plasma cfDNA
+  carries shed tissue DNA from elsewhere in the body. They are read together. Repeat the same two-tube draw each
+  visit &#8212; that is what builds the trajectory.</div>
+</div>
+
+<h2>One-time setup (do once per computer)</h2>
+<div class="band">
+  <p>Install a clean Python environment and unzip the engine folder. After this you never touch it again.</p>
+  <pre><span class="c"># 1. create the environment (once)</span>
+conda create -n cpg python=3.11
+conda activate cpg
+pip install methylprep numpy pandas scipy scikit-learn matplotlib
+
+<span class="c"># 2. unzip CPG_CMB_v4 somewhere stable — that folder IS the engine</span></pre>
+  <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:0">The very first patient run takes about a minute
+  longer while the atlas unpacks itself one time. Every run after that is immediate.</p>
+</div>
+
+<h2>The folder model — how patients stay separate</h2>
+<div class="band">
+  <p>Each blood draw produces <b>two samples</b> (Tube 1 whole blood, Tube 2 plasma cfDNA), and each
+  substrate needs its own clean trajectory over time. The simplest layout that does that with the shipped
+  runner: give each patient <b>two trees</b> — one whole-blood, one cfDNA — distinguished by an ID suffix.
+  The engine writes each report into its draw folder and keeps a per-substrate <b>baselines</b> record so the
+  next visit compares like-with-like.</p>
+  <p class="tree"><span class="p">patients/</span>
+  <span class="p">ANON_0001_WB/</span>                   <span class="f">&larr; whole-blood tree (Tube 1)</span>
+    <span class="f">baselines/</span>                   <span class="note">&larr; per-substrate; created for you</span>
+    <span class="p">2026-06-22/</span>
+      &lt;sample&gt;_Grn.idat.gz + &lt;sample&gt;_Red.idat.gz
+      questionnaire.json                <span class="note">sample type = whole_blood</span>
+      CPG_report_..._WB.html
+    <span class="p">2027-01-10/</span> ...               <span class="f">&larr; next whole-blood draw</span>
+  <span class="p">ANON_0001_CF/</span>                   <span class="f">&larr; cfDNA tree, SAME patient (Tube 2)</span>
+    <span class="f">baselines/</span>
+    <span class="p">2026-06-22/</span>
+      &lt;sample&gt;_Grn.idat.gz + &lt;sample&gt;_Red.idat.gz
+      questionnaire.json                <span class="note">sample type = cfdna</span>
+      CPG_report_..._CF.html
+    <span class="p">2027-01-10/</span> ...
+  <span class="p">ANON_0002_WB/</span> ... <span class="p">ANON_0002_CF/</span> ...</p>
+  <div class="auto"><b>Why two trees:</b> the runner builds each trajectory from a tree's own baselines, so a
+  whole-blood tree must hold only whole-blood draws and a cfDNA tree only cfDNA draws. Keeping them separate is
+  what gives each substrate a clean, like-with-like trajectory. Read the WB and CF reports for a given visit
+  together. One <code>run_batch.py</code> command processes all trees.</div>
+</div>
+
+<h2>Running a batch — say she has 10 patients today</h2>
+
+<div class="step"><div class="num">1</div><div>
+  <h3>Make a folder for each patient, with today's draw inside</h3>
+  <p>Create <code>patients/ANON_0001</code> … <code>patients/ANON_0010</code>, and inside each one a folder named
+  for the draw date, e.g. <code>2026-06-22</code>.</p>
+</div></div>
+
+<div class="step"><div class="num">2</div><div>
+  <h3>Drop each patient's IDAT pair into their draw folder</h3>
+  <p>From the lab you get a <code>_Grn.idat</code> and <code>_Red.idat</code> for each sample (gzipped is fine).
+  Put each patient's pair into their dated folder.</p>
+  <div class="tip"><b>The one thing to watch:</b> the lab names IDATs by the chip barcode (like
+  <code>207...R01C01</code>), not by patient. Use the lab's sample sheet to match each barcode to the right patient
+  as you sort the files in. That is the only place a mix-up could happen, so do it carefully.</div>
+</div></div>
+
+<div class="step"><div class="num">3</div><div>
+  <h3>Fill the intake form for each patient and save it into their draw folder</h3>
+  <p>Open <code>cpg_intake_form.html</code> in Chrome or Edge. Fill the four required fields — anonymized ID, date of
+  birth, sex, and <b>sample type</b> — plus anything else useful. <b>Set sample type to match the tube and tree:</b>
+  <code>whole_blood</code> for the IDATs going into the <code>_WB</code> tree, <code>cfdna</code> for the
+  <code>_CF</code> tree. This is what tells the engine to run the whole-blood chain or the cfDNA (run-everything)
+  chain. Click <b>Save questionnaire.json</b> and, in the dialog, navigate into that sample's dated folder and save.</p>
+  <div class="tip">In other browsers the file lands in Downloads instead; just move it into the patient's draw folder.
+  The file must be named <code>questionnaire.json</code> and sit beside that patient's IDATs.</div>
+</div></div>
+
+<div class="step"><div class="num">4</div><div>
+  <h3>Run the whole batch with one command</h3>
+  <p>From inside the engine folder:</p>
+  <pre>conda activate cpg
+cd CPG_CMB_v4
+python run_batch.py --patients /path/to/patients</pre>
+  <p>It walks every patient, runs each draw that doesn't already have a report (in date order), and prints a summary
+  when it finishes. Re-running it is safe — already-finished draws are skipped.</p>
+</div></div>
+
+<div class="step"><div class="num">5</div><div>
+  <h3>Open each report</h3>
+  <p>Every report is the <code>CPG_report_*.html</code> file inside that patient's draw folder. Double-click to open
+  it in any browser. It opens with the verdict, then the cell-by-cell readout, the confirmation layer if anything was
+  flagged, and — from the second draw onward — the trajectory.</p>
+</div></div>
+
+<h2>A returning patient — the next blood draw</h2>
+<div class="band">
+  <p>Nothing new to learn. Under that patient's existing folder, add a new dated draw folder, drop in the new IDAT pair
+  and a fresh <code>questionnaire.json</code>, and run the batch again.</p>
+  <pre><span class="c"># six months later, same patient</span>
+patients/ANON_0001/2027-01-10/   <span class="d">&larr; new IDAT pair + questionnaire.json</span>
+python run_batch.py --patients /path/to/patients</pre>
+  <div class="auto"><b>Automatic:</b> because the patient ID matches, the engine finds the earlier draw, compares the
+  two, and adds a <b>Trajectory</b> section to the new report — showing which cell classes rose or fell, whether any
+  crossed the 1.07 Warburg or 1.10 breach line, and whether the whole architecture moved toward or away from healthy.
+  Over five years and ten draws, every one is on record and each new report reads against the last.</div>
+</div>
+
+<h2>What the engine handles for you</h2>
+<div class="band">
+  <ul>
+    <li><b>Separation</b> — one folder per patient; their inputs, report, and history live together and never mix.</li>
+    <li><b>Calibration</b> — each IDAT is normalized on its own (dye-bias + probe-type), no cohort, no batch.</li>
+    <li><b>Two deconvolvers</b> — a conservative fit for the reliable composition and a sensitive one that surfaces
+    faint shed signal; the report explains both.</li>
+    <li><b>Confirmation</b> — if a disease pattern is flagged, a second chain (residual matched filter + directional class signal + literature anchor) runs automatically and tests whether the patient's methylation moves in the disease's own direction.</li>
+    <li><b>Trajectory</b> — every draw's vector is saved; the next draw compares against it with no extra steps.</li>
+  </ul>
+</div>
+
+<div class="foot">CPG_CMB_v4 · run_batch.py orchestrates walther_clinical.py · two substrates per draw (whole_blood + cfdna) · reports are flag-and-refer, not diagnostic ·
+anonymized IDs only; patient context is report-only and never enters the scored signal.</div>
+
+</div>
+</body>
+</html>

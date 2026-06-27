@@ -1,5 +1,0 @@
-PREREG_SHA256=eb68e4d4ca6270cdcce60269375af787537c560fabea18ee31cbaf558dea1962
-SEAL_TIMESTAMP=2026-05-01T03:48:17Z
-SEAL_FILE=prereg.md
-SEAL_LOC=Biological_Physics/validation_runs/VAL-121_bladder_stage2_multiatlas/prereg.md
-SEAL_NOTE=Stage 2 multi-atlas run-everything Phase C prereg sealed BEFORE any β file read by val121 script. CCL-041 compliance. Patient-flow order: VAL-120 (Stage 1) → VAL-121 (Stage 2) → VAL-122 (Stage 3).

@@ -1,5 +1,0 @@
-PREREG_SHA256=04d9d0d36faaf3bc6051c5f852f3bcb9d2ab48c437982b714ff8573d4cad178a
-SEAL_TIMESTAMP=2026-05-01T03:35:46Z
-SEAL_FILE=prereg.md
-SEAL_LOC=Biological_Physics/validation_runs/VAL-119_bladderref_calibrate/prereg.md
-SEAL_NOTE=Sealed BEFORE any β file read by val119 script. CCL-041 compliance.
