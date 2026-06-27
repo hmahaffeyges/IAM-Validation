@@ -809,16 +809,30 @@ _LYMPHOID_CELLS = {
 }
 
 
-def _classify_match_specificity(signal_cells, patient_departure):
-    """A match is NON-SPECIFIC when EVERY agreeing cell sits on the generic stress axis:
-    myeloid-elevated, progenitor-elevated, or lymphoid-suppressed. That is the neutrophil-to-
-    lymphocyte / myeloproliferative shift seen in infection, inflammation, stress and many
-    cancers alike -- it directionally resembles every myeloid-involved disease and is not a
-    fingerprint of any one. A single break in that axis (a lymphoid-elevated cell, a myeloid-
-    suppressed cell, or any non-immune tissue/origin cell) makes the match disease-SPECIFIC.
-    Returns 'NON_SPECIFIC_GENERIC' or 'SPECIFIC'."""
+def _classify_match_specificity(signal_cells, patient_departure, disease_signature=None,
+                                origin_cells=None):
+    """Return 'SPECIFIC' or 'NON_SPECIFIC_GENERIC' for one disease match.
+
+    The generic stress axis -- myeloid-elevated, progenitor-elevated, lymphoid-suppressed -- is
+    the neutrophil-to-lymphocyte / myeloproliferative shift that directionally resembles every
+    myeloid-involved condition (infection, inflammation, stress, paraneoplasia) and fingerprints
+    none of them. Naming a disease off it is the failure mode (lung cancer flagged off a head cold).
+
+    The decisive question is the disease's CELL OF ORIGIN (from the disease wall):
+      - TISSUE-origin disease (solid cancer / organ disease: lung, colon, breast, brain, ...):
+        SPECIFIC only when one of its own origin cells actually agrees -- i.e. shed tissue is
+        present (cfDNA) or the origin cell is otherwise resolved. Matching on shared blood-immune
+        cells alone is the generic pattern wearing the disease's name -> NON_SPECIFIC. From whole
+        blood, where the origin tissue is not present, these are correctly never named here; that
+        is the matched filter's and the cell-of-origin layer's job, not the per-cell matcher's.
+      - IMMUNE / blood-origin disease (myeloma=plasma, lymphoma/leukemia=blasts, autoimmune) or a
+        disease with no tissue origin (infection, inflammaging): can be SPECIFIC on a genuine
+        immune-pattern distinction (an off-axis break: lymphoid-elevated or myeloid-suppressed)."""
     if not signal_cells:
         return "SPECIFIC"
+
+    def _is_immune(c):
+        return c in _MYELOID_CELLS or c in _LYMPHOID_CELLS or c in _PROGENITOR_CELLS
 
     def _on_generic_axis(c):
         d = patient_departure.get(c, 0.0)
@@ -830,12 +844,20 @@ def _classify_match_specificity(signal_cells, patient_departure):
             return True                                  # lymphoid down (the lymphopenia half)
         return False
 
-    # a tissue / origin cell (not myeloid, lymphoid, or progenitor) is disease-specific evidence
-    non_immune = [c for c in signal_cells
-                  if c not in _MYELOID_CELLS and c not in _LYMPHOID_CELLS
-                  and c not in _PROGENITOR_CELLS]
-    if non_immune:
+    origin_cells = origin_cells or []
+    tissue_origin = [c for c in origin_cells if not _is_immune(c)]
+
+    # tissue-origin disease: SPECIFIC only if its own cell-of-origin agrees
+    if tissue_origin:
+        if any(c in signal_cells for c in origin_cells):
+            return "SPECIFIC"
+        return "NON_SPECIFIC_GENERIC"
+
+    # immune / blood-origin (or origin not marked): any non-immune agreeing cell is distinctive
+    if any(not _is_immune(c) for c in signal_cells):
         return "SPECIFIC"
+    # a purely-immune pattern -- an off-axis break is a real immune distinction; the pure
+    # myeloid-expansion / lymphopenia axis is not
     if all(_on_generic_axis(c) for c in signal_cells):
         return "NON_SPECIFIC_GENERIC"
     return "SPECIFIC"
@@ -951,6 +973,13 @@ def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
     patient_dep = _build_patient_departure_profile(stage4_output, cfg["matrix_mapping_json"])
     with open(cfg["disease_matrix_csv"]) as f:
         rows = list(csv.DictReader(f))
+    # cell-of-origin map (disease_id -> [origin cells]); drives the specificity rule so a solid-
+    # cancer card is never named off the shared blood-immune axis without real tissue evidence
+    import json as _json
+    try:
+        origin_map = _json.load(open(Path(cfg["disease_matrix_csv"]).parent / "disease_origin_cells.json"))
+    except Exception:
+        origin_map = {}
     header = list(rows[0].keys()) if rows else []
     meta_cols = ["disease_id", "phase", "time_range", "substrate",
                  "disease_severity_class", "mechanism", "organ_pages_to_link", "evidence_anchors"]
@@ -995,7 +1024,8 @@ def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
             "n_signal": con["n_signal"],
             "coverage": round(con["coverage"], 3),
             "signal_cells": con["signal_cells"],
-            "specificity": _classify_match_specificity(con["signal_cells"], patient_dep),
+            "specificity": _classify_match_specificity(con["signal_cells"], patient_dep, sig,
+                                                       origin_map.get(r.get("disease_id"))),
             "resemblance": _resemblance_label(con),
         })
 
