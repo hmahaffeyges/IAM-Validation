@@ -112,3 +112,31 @@ composite > 0.40, so a non-transferring cohort is a MISS, never a false alarm. P
 KNOWN OPEN (pre-existing, not from this change): per-cell deconvolution shows stem_adult/
 progenitor breach reads in peripheral blood (artifact suspected); patient report does not
 yet render the strawman / reference wall (separate pipeline). Both next.
+
+---
+
+## Patient straw man + crown-jewel reference wall wired into the report
+
+cpg_report_builder.py now renders the pattern-recognition straw man: the patient's own
+per-cell A-score architecture on the eight-class grid, the disease rows it flagged pulled
+from the crown jewel for side-by-side comparison, and the full reference disease-signature
+wall (crown jewel, 81 rows) collapsed beneath it. The patient is measured by physics
+(A = H(beta)/H_min, derived floor, no cohort); the wall supplies only the DIRECTION each
+disease moves each cell -- the demarcation line. No per-disease derived panels: the matrix
+v1.8 / crown jewel IS the reference, and the patient pattern is matched against it.
+
+CHANGES:
+- cpg_report_builder.py: added _exec_render (runs the sealed builders/render_patient_wall.py
+  and render_strawman_v2.py WITHOUT modifying them -- strips their file-I/O, injects data,
+  captures HTML) and _strawman_section (builds the patient wall from the EXISTING bundle,
+  no chain re-run; embeds both walls collapsed in iframes). 1097 -> 1229.
+- Crown Jewel and Patient Strawman/strawman_data_v2.json: NEW. The crown-jewel data,
+  generated from disease_cell_signature_matrix_v1_8.csv (build_strawman + enrich_strawman).
+  81 disease rows, 49 VAL-anchored. Shipped so the report builder needs no regeneration.
+
+BREACH ARTIFACT (partial): the straw man's present-cell gate (above floor AND deconvolver
+fraction >= 0.001) excludes the zero-fraction reads that inflate the class ranking -- on the
+AIBL AD case, 19 such reads (HSC, CMP, L-MPP, MPP, erythroblast, megakaryocyte ...) are
+dropped, leaving the 5 cells actually present. STILL OPEN: the class-level "Cellular
+departure ranking" and cell census do not yet apply this gate, so they still show the
+artifact (stem_adult 1.142). Fix pending design decision on threshold.
