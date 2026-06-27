@@ -276,6 +276,26 @@
         </div>
       </div>
 
+      <div class="link detect">
+        <div class="node" style="font-size:11px">4.5</div>
+        <div class="card">
+          <span class="tag">Detector &middot; the AD directional read &mdash; and a hard-won lesson</span>
+          <h3>Stage 4.5 &mdash; Bidirectional decomposition (composition-independent)</h3>
+          <ol class="steps">
+            <li><strong>What it does.</strong> For each class that has a sealed directional panel, it z-scores every panel CpG against that CpG's <em>frozen</em> reference mean/SD and multiplies by the CpG's <em>frozen</em> direction (+1 up-in-disease, &minus;1 down-in-disease), then averages to one signed composite. Positive = the patient moves the disease way; negative = the patient moves the healthy way. The sealed VAL-051 Rule A 7-CpG immune panel is the v1.0 anchor (AD-direction); the other seven classes return NO_PANEL until their VALs seal.</li>
+            <li><strong>Why it must exist &mdash; the trouble its absence caused.</strong> AD's immune signal is <em>bidirectional</em>: some CpGs go up, others down. The pooled A-score, being entropy, is symmetric around &beta;=0.5 and cancels it (VAL-050: d=+0.077, null). The natural fallback &mdash; running AD through the residual matched filter (S1 below) &mdash; is <strong>worse than null: it false-fires.</strong> The matched filter measures departure from a <em>fixed</em> whole-blood baseline, and a patient's own cell composition shifts &beta; away from that baseline in a <em>patterned</em> way. On AD that pattern aligns with the disease map, so the filter fired AD positive at &rho; &asymp; +0.55&ndash;0.60 on <em>healthy</em> blood &mdash; sick and well alike. A healthy 58-year-old read as AD.</li>
+            <li><strong>Why this stage cannot leak that way.</strong> The reference here is frozen <em>per CpG</em>, not a whole-blood composition baseline, so a patient's composition has nothing to leak into. It is composition-independent by construction. That is the entire reason AD is detected HERE and is <strong>deliberately removed from the matched-filter sweep</strong> (S1 now sweeps breast + immune-alarm only). The same healthy 58M now reads composite &minus;0.102 (healthy direction), not AD.</li>
+            <li><strong>How it was lost &mdash; so we never lose it again.</strong> This stage was DESIGNED in (config keys present, listed in-scope) but Route C &ldquo;stood down in the lean v1 build,&rdquo; and the two module files were never placed in the run folder. With no Stage 4.5, the chain silently fell back to the matched filter for AD &mdash; that absence is the entire origin of the false-positive bug. The files are now placed and the stage is wired into <code>run_pipeline</code>. <strong>If this node is ever empty again, AD detection is broken.</strong></li>
+            <li><strong>Honest scope.</strong> The sealed Rule A reference is AIBL-trained: it discriminates within AIBL (AD +0.329 vs HC +0.079) but its frozen reference does not transfer to other-platform cohorts (GIFT AD reads &minus;1.228). The flag only fires on a clear AD-direction move (|composite| &gt; 0.40), so a non-transferring cohort yields a <em>miss</em>, never a false alarm. The physics cure &mdash; re-anchor the reference to the IAMAtlas A-score departure and keep only the <em>direction</em> from the cohort &mdash; is the open VAL-053 question.</li>
+          </ol>
+          <div class="files">
+            <div class="file">Runtime Matrices/Directional Panel/bidirectional_decomposition.py</div>
+            <div class="file">Runtime Matrices/Directional Panel/directional_panels_v1_0.json &middot; sealed VAL-051 Rule A immune panel (7 CpGs, frozen ref + direction)</div>
+          </div>
+          <div class="out">per-class signed directional composite + FLAG_BIDIRECTIONAL (|composite| &gt; 0.40) &middot; surfaced as the AD read in the second chain's verdict</div>
+        </div>
+      </div>
+
       <div class="link">
         <div class="node">5</div>
         <div class="card">
@@ -403,11 +423,11 @@
         <div class="card">
           <h3>Residual-map matched filter (SOP 8.2) <span class="tagline">the detection instrument</span></h3>
           <ol class="steps">
-            <li>For the flagged disease, route to its sealed residual map: breast &rarr; breast map, Alzheimer's &rarr; AD map, immune-class diseases &rarr; the immune cross-disease universal alarm. More maps over the coming months.</li>
+            <li>For the flagged disease, route to its sealed residual map: breast &rarr; breast map, immune-class diseases &rarr; the immune cross-disease universal alarm. <strong>AD is NOT routed here</strong> &mdash; its signal is bidirectional and composition-aligned, so this filter false-fired it on healthy blood; AD is detected at Stage 4.5 instead. More maps over the coming months.</li>
             <li>Patient per-CpG departure from the <strong>derived atlas baseline</strong> (the whole-blood class mean &mdash; derived, no cohort), versus the map's signed Cohen's d &mdash; the direction the disease moves each CpG, fixed in advance from validated case/control cohorts.</li>
-            <li>Pearson correlation between the two, with a 95% Fisher confidence interval. Fires when the interval is clear of zero in <em>either</em> direction &mdash; elevation or suppression both count. The same matched-filter statistic used in gravitational-wave and CMB searches; offset-robust, so a cohort-vs-atlas baseline shift cancels.</li>
+            <li>Pearson correlation between the two, with a 95% Fisher confidence interval. Fires when the interval is clear of zero in <em>either</em> direction &mdash; elevation or suppression both count. The same matched-filter statistic used in gravitational-wave and CMB searches. <strong>Offset-robust only against a <em>uniform</em> baseline shift</strong> (Pearson centres both vectors), which cancels cleanly &mdash; this is why breast and the immune alarm are safe here. It is <strong>NOT robust against a <em>patterned</em> shift</strong>: a patient's cell composition moves &beta; in a structured way that can align with a disease map, and that alignment is exactly what false-fired AD at &rho; &asymp; +0.6 on healthy blood. Use this instrument only where the signal is broad enough that composition does not align with it (breast case +0.10 vs control &minus;0.27 separates cleanly).</li>
           </ol>
-          <div class="files"><div class="file">stage_5_second_chain.py</div><div class="file">Disease Cards : Residual Maps/Breast_EPIC/&hellip; &middot; /AD_EPIC/&hellip; &middot; /Immune_Atlas/&hellip;universal_alarm&hellip;csv</div></div>
+          <div class="files"><div class="file">stage_5_second_chain.py &middot; _RESIDUAL_SWEEP_DISEASES = [breast_cancer, immune_universal_alarm]</div><div class="file">Disease Cards : Residual Maps/Breast_EPIC/&hellip; &middot; /Immune_Atlas/&hellip;universal_alarm&hellip;csv &middot; <em>(AD_EPIC map now read by Stage 4.5, not swept here)</em></div></div>
           <div class="out">matched-filter &rho; &plusmn; 95% CI &middot; fires / quiet &middot; in the flagged-disease direction (or "no map yet")</div>
         </div>
       </div>
@@ -456,7 +476,7 @@
             <li>Mode 2 — cell-of-origin presence (BBB breach red flags · elevated shed cells + A-score).</li>
             <li><strong>Substrate-appropriate read.</strong> Whole blood surfaces Mode 1 + Mode 2 (BBB); plasma cfDNA surfaces the <strong>Tissue-of-origin</strong> table in place of Mode 2 — same per-cell A-scores, the substrate decides which reads appear.</li>
             <li>Per-cell A-scores ± CI as the body (the cell fingerprint). The class-level composition table is not shown — the report is cell-centric.</li>
-            <li><strong>Confirmation section — only when a flag fired:</strong> the second chain's integrated verdict (residual matched-filter &rho; &plusmn; CI, directional class signal, and anchor ladder) is appended after the cell readout. No flag → the report ends after the primary chain, untouched.</li>
+            <li><strong>Confirmation section — only when a flag fired:</strong> the second chain's integrated verdict (residual matched-filter &rho; &plusmn; CI, the <strong>Stage 4.5 AD directional composite</strong>, directional class signal, and anchor ladder) is appended after the cell readout. No flag → the report ends after the primary chain, untouched.</li>
             <li><strong>Input-scale guard:</strong> if abundant classes read below the floor, suppress per-cell A and flag un-normalized input rather than printing artifacts.</li>
             <li>Honest limits, machine-readable snapshot, and the stored departure-vector baseline for tracking drift over time.</li>
             <li>Age/sex/family history shown as <em>context</em> alongside the result, never in the math.</li>
@@ -523,7 +543,7 @@
         <div class="stage">Refinement · directional</div>
         <h3>Bidirectional decomposition</h3>
         <div class="adds">Separates same-direction diseases that point the same way. Fold into the second chain if a flag is ambiguous.</div>
-        <div class="path">Runtime Matrices/Bidirectional Decomposition py/</div>
+        <div class="path">Runtime Matrices/Directional Panel/</div>
       </div>
 
       <div class="scard">

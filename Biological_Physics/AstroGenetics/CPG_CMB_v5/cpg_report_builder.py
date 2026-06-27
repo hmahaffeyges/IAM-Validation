@@ -535,6 +535,29 @@ def _confirmation_section(bundle):
     else:
         sweep_html = "<p class='muted'>Residual sweep: no maps available for this substrate.</p>"
 
+    # Stage 4.5 AD directional read (composition-independent; AD's validated detector,
+    # surfaced here because AD is deliberately NOT in the matched-filter sweep above).
+    adx = s5.get("ad_directional")
+    if adx and adx.get("composite") is not None:
+        _comp = float(adx["composite"]); _adflag = bool(adx.get("flags_ad_direction"))
+        _adcol = "var(--red)" if _adflag else "var(--accent)"
+        _adstate = ("flags an AD-direction immune pattern" if _adflag
+                    else "no AD-direction flag &mdash; graded read only")
+        ad_html = (
+            "<h3>AD directional read <span class=\"meta\">(Stage 4.5 &mdash; composition-independent, sealed VAL-051 Rule A)</span></h3>"
+            "<p class=\"explain\"><b>What this is.</b> AD's immune signal is bidirectional &mdash; some CpGs up, others down "
+            "&mdash; so the pooled A-score cancels it and the residual matched filter (whose baseline carries cell composition) "
+            "false-fires it on healthy blood. This read instead z-scores 7 sealed CpGs against a frozen per-CpG reference and "
+            "multiplies by each CpG's frozen direction, so cell composition cannot leak in. AD is detected here, not in the sweep.</p>"
+            f"<div style=\"background:#fff;border:1px solid var(--line);border-left:4px solid {_adcol};"
+            f"border-radius:0 8px 8px 0;padding:8px 14px;margin:8px 0\">Directional composite = "
+            f"<b style=\"color:{_adcol}\">{_comp:+.3f}</b> &middot; {_esc(adx.get('lean',''))} &middot; {_adstate}.</div>"
+            "<p class=\"meta\">Reference is AIBL-trained: it discriminates within AIBL but does not transfer to other-platform "
+            "cohorts. Flags only on a clear move (|composite| &gt; 0.40), so a non-transferring cohort is a miss, never a false "
+            "alarm. The single-patient AD signal is diffuse (AUC ~0.67) &mdash; read this as a lean, not a call.</p>")
+    else:
+        ad_html = ""
+
     return f"""
 <h2>Confirmation — second chain <span class="meta">(ran because Stage 8 {_flag_label})</span></h2>
 <div class="method">
@@ -544,7 +567,7 @@ It does not change anything above; it confirms whether the flag reflects a real 
 disease's own direction. Read alongside context: age {_esc(ctx.get('age'))} &middot; sex {_esc(ctx.get('sex'))} &middot; substrate {_esc(ctx.get('substrate'))}.</p>
 <div style="background:#fff;border:1px solid var(--line);border-left:4px solid {verdict_col};border-radius:0 8px 8px 0;padding:10px 16px;margin:10px 0">
 <b style="color:{verdict_col}">Verdict:</b> {_esc(s5['overall_verdict'])}</div>
-
+{ad_html}
 <h3>A &middot; Residual-map matched filter <span class="meta">(the detection instrument — SOP 8.2)</span></h3>
 <p class="explain"><b>What this is.</b> For the flagged disease we hold a sealed <b>residual map</b> — the per-CpG
 direction the disease moves methylation, fixed in advance from validated case/control cohorts. We measure the
@@ -896,6 +919,9 @@ def build_report(bundle, out_path=None):
         "mode2_flags": bundle.get("cell_of_origin_flags", []),
         "nilc_rescued": rescued,
         "trajectory_baseline_departure": bundle.get("trajectory_baseline", {}).get("patient_departure", {}),
+        "stage4_5_directional": bundle.get("stage4_5"),
+        "ad_directional": ((bundle.get("stage5") or {}).get("ad_directional")
+                           if isinstance(bundle.get("stage5"), dict) else None),
         "errors": bundle.get("errors") or bundle.get("warnings") or [],
     }
 
