@@ -128,8 +128,8 @@ DEFAULT_CONFIG = {
     # all-BREACH bug, root-caused 2026-06-11 (GAPE _derive_A + Recipe Part 4 / line 884).
     "a_score_loci_json": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_score_loci_v1_0.json",
     # Stage 4.5 — bidirectional decomposition
-    "bidirectional_module_path": CPG_ROOT / "Runtime Matrices/Bidirectional Decomposition py/bidirectional_decomposition.py",
-    "directional_panels_json": CPG_ROOT / "Runtime Matrices/Bidirectional Decomposition py/directional_panels_v1_0.json",
+    "bidirectional_module_path": CPG_ROOT / "Runtime Matrices/Directional Panel/bidirectional_decomposition.py",
+    "directional_panels_json": CPG_ROOT / "Runtime Matrices/Directional Panel/directional_panels_v1_0.json",
     # Stage 4.6 — brightness comparison / Mollweide
     "brightness_module_path": CPG_ROOT / "Runtime Matrices/Mollweide & Brightness Comparison/patient_brightness_comparison.py",
     "brightness_archives_dir": CPG_ROOT / "IAM_Atlas/iamatlas_class_archives",
@@ -161,7 +161,7 @@ DEFAULT_CONFIG = {
     "family_history_json": CPG_ROOT / "Runtime Matrices/Family_history_multiplier/family_history_multiplier.json",
     "literature_anchors_json": CPG_ROOT / "Runtime Matrices/Literature_anchors_Report building/literature_anchors.json",
     # Stage 9 — report visual assets (gauges + rankings)
-    "gauge_module_path": CPG_ROOT / "CPG_Report_Generator/cpg_gauge.py",
+    "gauge_module_path": CPG_ROOT / "cpg_gauge.py",
     "tier_breakpoints_json": CPG_ROOT / "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json",
 }
 
@@ -1216,12 +1216,36 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
         except Exception as e:
             s4["_ci_note"] = f"brightness CI not attached: {e}"
 
+    # L4.5 — Stage 4.5 bidirectional decomposition (sealed VAL-051 Rule A immune
+    # panel). The validated directional detector for cancellation-pattern signals:
+    # it z-scores each panel CpG against its FROZEN training-set HC mean/SD and
+    # frozen direction, so it is composition-independent by construction. This is
+    # the AD-direction immune detector. The whole-blood-referenced matched filter
+    # is NOT used for AD -- its fixed atlas baseline carried each patient's
+    # composition into the departure and false-fired AD on healthy blood
+    # (rho ~ +0.55-0.60 on cases AND controls alike). Shelved in lean v1; wired
+    # back in here per VAL-051 (Rule A, d=0.624) / VAL-013.
+    s4_5 = None
+    try:
+        import importlib.util as _iu5, sys as _sys5
+        _sp5 = _iu5.spec_from_file_location(
+            "bidirectional_decomposition", str(cfg["bidirectional_module_path"]))
+        _bd = _iu5.module_from_spec(_sp5)
+        _sys5.modules["bidirectional_decomposition"] = _bd
+        _sp5.loader.exec_module(_bd)
+        _panels = _bd.load_directional_panels(cfg["directional_panels_json"])
+        s4_5 = _bd.compute_per_class_bidirectional_decomposition(
+            beta_calibrated, _panels, patient_id=patient_id)
+    except Exception as e:
+        s4_5 = None
+        s4["_stage4_5_note"] = f"stage 4.5 not run: {e}"
+
     # L5 — tier
     s7 = stage_7_tiers(s4, cfg)
 
     # L6 — disease-signature match (direction-gated cosine concordance, architectural mode)
     s8 = stage_8_dual_matching(
-        s4, {}, None,
+        s4, {}, s4_5,
         patient_meta={"age": context.age, "sex": context.sex,
                       "family_history": context.family_history,
                       "substrate": context.substrate},
@@ -1240,6 +1264,7 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
                     "substrate": context.substrate},
         "nilc_rescued_classes": rescued,
         "stage2": s2, "stage4": s4, "stage7": s7, "stage8": s8,
+        "stage4_5": (s4_5.to_dict() if s4_5 is not None else {"status": "not_run"}),
         "cell_of_origin_flags": cell_of_origin,   # L6b second detection mode
         "trajectory_baseline": {
             "patient_departure": s8.patient_departure,

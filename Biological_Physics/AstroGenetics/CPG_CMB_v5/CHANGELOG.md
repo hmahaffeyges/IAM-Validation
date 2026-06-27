@@ -77,3 +77,38 @@ not a flat green band: SUPPRESSED <0.95, NORMAL 0.95-1.04 (green/healthy), ELEVA
 Each cell shows its A-score; a white outline marks a confident departure (95% CI clears NORMAL),
 a hatch marks CI-uncertain. This matches the report gauge exactly.
 NOTE: the tier file puts the NORMAL->ELEVATED edge at 1.04 (used here), not 1.05.
+
+---
+
+## Stage 4.5 — AD directional detector wired in (bidirectional decomposition)
+
+ROOT CAUSE: the residual matched filter (SOP 8.2) was acting as AD's detector. Its fixed
+whole-blood baseline folds each patient's cell composition into the departure, so it
+false-fired AD positive on healthy blood (rho ~ +0.55-0.60 on cases AND controls alike).
+AD's validated per-patient detector is the Stage 4.5 directional composite (sealed VAL-051
+Rule A, composition-independent z-score vs a frozen per-CpG reference). It was designed in
+but Route C stood down in lean v1 and the module files were never placed.
+
+CHANGES:
+- Runtime Matrices/Directional Panel/: placed bidirectional_decomposition.py +
+  directional_panels_v1_0.json (sealed VAL-051 Rule A 7-CpG immune panel).
+- walther_clinical.py: Stage 4.5 wired into run_pipeline (computes per-class directional
+  composite after Stage 4, feeds stage_8); config path -> Directional Panel.
+- stage_5_second_chain.py: AD removed from _RESIDUAL_SWEEP_DISEASES (breast + immune-alarm
+  only); AD directional read surfaced; gate fires on composite > 0.40 (the directional
+  threshold), independent of the module's narrower cancellation flag.
+- cpg_report_builder.py: AD directional subsection + machine-readable snapshot keys.
+- flowchart_v4.html: Stage 4.5 node (what/why/the-trouble); matched-filter node corrected
+  (offset-robust only vs UNIFORM shifts, never patterned composition shifts).
+
+VERIFIED end-to-end (AIBL AD GSM4649829): composite +2.017, flags, second chain fires,
+AD section renders. Healthy 58M reads -0.102 (no AD).
+
+HONEST SCOPE: Rule A reference is AIBL-trained; discriminates within AIBL (AD +0.329 vs
+HC +0.079) but does not transfer to other-platform cohorts (GIFT AD -1.228). Flag requires
+composite > 0.40, so a non-transferring cohort is a MISS, never a false alarm. Physics cure
+(re-anchor reference to IAMAtlas A-score departure, keep only the direction) is open VAL-053.
+
+KNOWN OPEN (pre-existing, not from this change): per-cell deconvolution shows stem_adult/
+progenitor breach reads in peripheral blood (artifact suspected); patient report does not
+yet render the strawman / reference wall (separate pipeline). Both next.

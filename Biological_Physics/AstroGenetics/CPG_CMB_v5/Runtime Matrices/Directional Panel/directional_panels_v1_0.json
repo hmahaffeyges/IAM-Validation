@@ -1,0 +1,117 @@
+{
+  "version": "v1.0",
+  "date": "2026-06-06",
+  "schema_note": "Per-class directional panels for Stage 4.5 bidirectional decomposition. Each panel carries CpG-level direction (+1 disease-up, -1 disease-down) plus the training-set HC mean/SD used to compute z-scores at runtime. Direction-multiplied z-scores aggregate to a single signed directional composite per panel, mirroring the sealed VAL-051 a_dir_score formula. Pooled-entropy comparator (parent panel CpG list) is used to detect the bidirectional-cancellation signature where pooled is mute but directional is loud.",
+  "scoring_formula_reference": "val051_analyze.py:112-121 \u2014 Biological_Physics/validation_runs/val_051_ad_directional/val051_analyze.py",
+  "panels": {
+    "immune": {
+      "panel_id": "VAL-051 Rule A 7-CpG AD-direction-anchored",
+      "panel_source_val": "VAL-051",
+      "panel_source_date": "2026-04-23",
+      "panel_sha256_anchor": "52061285fc97bfff871ba7b62f625b14d953bccf25ee24e35f328e15b9827998",
+      "h_min": 0.838889,
+      "h_min_provenance": "G-002 MCMC posterior (frozen 2026-04-06)",
+      "n_cpgs": 7,
+      "n_positive": 2,
+      "n_negative": 5,
+      "validation_anchor": {
+        "AIBL_holdout_d": 0.624,
+        "AIBL_holdout_AUC": 0.84,
+        "AIBL_holdout_p_onesided": 0.0012617970689060617,
+        "null_comparator_pooled_d": 0.077,
+        "cohort": "AIBL GSE153712 holdout split (n_AD=33, n_HC=95)"
+      },
+      "description": "Sealed VAL-051 Rule A panel: 7 CpGs selected from the parent 18-CpG IMM_CPGS_EPIC panel by criterion |\u0394\u03b2| > 0.015 AND q_FDR < 0.10 on AIBL training split. Of these 7, 2 are direction=+1 (up in AD) and 5 are direction=-1 (down in AD). The 5-2 split is the actual SEALED breakdown \u2014 the pre-build cookbook reference '4 down + 3 up' refers to the 18-CpG parent panel, not the 7-CpG Rule A subset.",
+      "pooled_panel_cpgs": [
+        "cg16867657",
+        "cg25809905",
+        "cg22454769",
+        "cg09809672",
+        "cg26614073",
+        "cg00431549",
+        "cg22736354",
+        "cg02228185",
+        "cg12554573",
+        "cg14614643",
+        "cg25432518",
+        "cg23244761",
+        "cg17861230",
+        "cg18834029",
+        "cg01127300",
+        "cg10632894",
+        "cg02489552",
+        "cg04023335"
+      ],
+      "pooled_panel_source_val": "VAL-050 IMM_CPGS_EPIC 18-CpG",
+      "cpgs": [
+        {
+          "cpg_id": "cg16867657",
+          "direction": 1,
+          "mean_hc_train": 0.7309489888527215,
+          "sd_hc_train": 0.04740840611328334,
+          "delta_beta": 0.02456083637906692,
+          "q_fdr": 8.371717234126051e-05
+        },
+        {
+          "cpg_id": "cg25809905",
+          "direction": -1,
+          "mean_hc_train": 0.5273053421114196,
+          "sd_hc_train": 0.06271532259216783,
+          "delta_beta": -0.027724015760970444,
+          "q_fdr": 0.001659061574045426
+        },
+        {
+          "cpg_id": "cg22454769",
+          "direction": 1,
+          "mean_hc_train": 0.6065230367500901,
+          "sd_hc_train": 0.053162061838158164,
+          "delta_beta": 0.0207200899788319,
+          "q_fdr": 0.0015458528203719142
+        },
+        {
+          "cpg_id": "cg09809672",
+          "direction": -1,
+          "mean_hc_train": 0.39732172867940285,
+          "sd_hc_train": 0.05735641969209439,
+          "delta_beta": -0.020282541355724992,
+          "q_fdr": 0.003505808510160927
+        },
+        {
+          "cpg_id": "cg26614073",
+          "direction": -1,
+          "mean_hc_train": 0.4183603947897491,
+          "sd_hc_train": 0.052808468570794395,
+          "delta_beta": -0.019380991695698957,
+          "q_fdr": 0.0030648963364291217
+        },
+        {
+          "cpg_id": "cg00431549",
+          "direction": -1,
+          "mean_hc_train": 0.16630319002951335,
+          "sd_hc_train": 0.05111950579450484,
+          "delta_beta": -0.015178106942357383,
+          "q_fdr": 0.003192416413082535
+        },
+        {
+          "cpg_id": "cg02228185",
+          "direction": -1,
+          "mean_hc_train": 0.6701327900241804,
+          "sd_hc_train": 0.10516326824696613,
+          "delta_beta": -0.03295195764238035,
+          "q_fdr": 0.039938923206882596
+        }
+      ],
+      "future_expansion_note": "v1.1 expansion via CPG-VAL-019 (cancer-positive vs AD-negative direction discrimination) will add additional immune-class directional panels for non-AD diseases. The v1.0 panel is AD-direction-anchored only."
+    },
+    "_panel_pending_classes": [
+      "stem_pluri",
+      "stem_adult",
+      "stromal",
+      "progenitor",
+      "cycling",
+      "secretory",
+      "terminal"
+    ],
+    "_panel_pending_note": "Seven of eight classes do not yet have sealed directional panels. The immune class is the v1.0 anchor (validated by VAL-051). For these seven, Stage 4 pooled-entropy A-score is the only A-score reported \u2014 no bidirectional decomposition yet. Future sealed VALs will populate per-class panels per documented evidence anchors. Until then, Stage 4.5 returns NO_PANEL for these classes (not an error \u2014 a known data gap, declared honestly)."
+  }
+}

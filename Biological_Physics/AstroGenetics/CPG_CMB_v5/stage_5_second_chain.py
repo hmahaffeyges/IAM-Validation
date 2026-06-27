@@ -230,7 +230,15 @@ def _residual_concordance(beta, flagged_disease, cfg):
 #  The maps are whole-blood-derived, so the sweep self-skips for cfDNA / tissue substrates
 #  (the cell-of-origin detector handles those).
 # ===========================================================================
-_RESIDUAL_SWEEP_DISEASES = ["breast_cancer", "alzheimers_disease", "immune_universal_alarm"]
+# AD is intentionally NOT swept here. The whole-blood-referenced matched filter
+# carried a fixed atlas baseline that folded each patient's composition into the
+# departure, so it false-fired AD positive on healthy blood (rho ~ +0.55-0.60 on
+# cases and controls alike). AD's validated per-patient detector is the Stage 4.5
+# directional composite (sealed VAL-051 Rule A, composition-independent z-score),
+# computed upstream in run_pipeline. Breast and the immune universal alarm keep
+# the matched filter -- they are broad enough that the composition leak does not
+# align with their direction (breast case +0.10 vs control -0.27 separates cleanly).
+_RESIDUAL_SWEEP_DISEASES = ["breast_cancer", "immune_universal_alarm"]
 _WHOLE_BLOOD_SUBSTRATES = {
     "whole_blood", "whole_blood_buffy_coat", "buffy_coat", "pbmc", "blood", "",
 }
@@ -283,17 +291,41 @@ def run_second_chain(bundle, beta, cfg):
         sweep = {"status": "error", "note": f"residual sweep error: {e}", "results": {}, "fired": []}
     sweep_fired = sweep.get("fired") or []
 
-    # gate: open if a SPECIFIC concern-worthy per-cell match exists OR the residual sweep fired.
-    # The per-cell flag we confirm is the top SPECIFIC, at-least-moderate match. Non-specific
-    # generic-axis matches (the neutrophil-to-lymphocyte / myeloproliferative shift) are handled
-    # by the report's Mode 1 line, never escalated here as a named disease.
+    # Stage 4.5 AD-direction read -- AD's validated per-patient detector (sealed
+    # VAL-051 Rule A). AD is deliberately NOT in the matched-filter sweep: its
+    # whole-blood atlas baseline folded composition into the departure and
+    # false-fired AD positive on healthy blood. The composition-independent
+    # directional composite computed at Stage 4.5 is AD's detector. It FLAGS only
+    # on a clear directional move (|composite| > 0.40, the module's own threshold);
+    # weaker leans are graded context, never a call -- AD's single-patient signal
+    # is diffuse (AUC ~0.67) and an honest chain does not overstate it.
+    ad_dir = None
+    _imm = ((bundle.get("stage4_5") or {}).get("per_class") or {}).get("immune") or {}
+    _adc = _imm.get("a_directional_composite")
+    # AD fires on a clear AD-direction move in the directional composite itself
+    # (|composite| > 0.40, the module's loud-signal threshold). This is INDEPENDENT of
+    # the module's flag_bidirectional, which detects only the narrower cancellation
+    # signature (pooled mute AND directional loud); a strong directional composite is an
+    # AD signal whether or not the pooled A happens to be mute, so we gate on it directly.
+    ad_flag = (_adc is not None) and (_adc > 0.40)
+    if _adc is not None:
+        ad_dir = {"composite": round(float(_adc), 3),
+                  "flags_ad_direction": bool(ad_flag),
+                  "lean": ("AD-direction" if _adc > 0 else "HC-direction (anti-AD)"),
+                  "detector": "Stage 4.5 directional composite (sealed VAL-051 Rule A, "
+                              "composition-independent z-score)"}
+
+    # gate: open if a SPECIFIC concern-worthy per-cell match exists, the residual sweep
+    # fired, or the Stage 4.5 AD directional composite flagged. The per-cell flag we confirm
+    # is the top SPECIFIC, at-least-moderate match; non-specific generic-axis matches are
+    # handled by the report's Mode 1 line, never escalated here as a named disease.
     flagged_matches = [m for m in matches
                        if m.get("specificity") == "SPECIFIC"
                        and m.get("resemblance") in ("STRONG_RESEMBLANCE", "MODERATE_RESEMBLANCE")]
     flagged = flagged_matches[0]["disease"] if flagged_matches else None
 
-    if not flagged and not sweep_fired:
-        return None                          # nothing specific from either instrument
+    if not flagged and not sweep_fired and not ad_flag:
+        return None                          # nothing specific from any instrument
 
     if flagged:
         anchor = _literature_anchor(stage4, flagged, cfg)
@@ -355,8 +387,18 @@ def run_second_chain(bundle, beta, cfg):
         overall = ("No per-cell Route B flag and no sweep hit; nothing specific from either "
                    "instrument.")
 
+    # Stage 4.5 AD-direction read: leads the verdict when it is the only trigger, otherwise
+    # appends. Only fires on a clear directional move (the module's |composite| > 0.40 flag).
+    if ad_flag:
+        ad_sentence = (f"Stage 4.5 directional composite flags an AD-direction immune pattern "
+                       f"(composite={ad_dir['composite']}; sealed VAL-051 Rule A, "
+                       f"composition-independent). This is AD's validated per-patient detector; "
+                       f"the matched-filter sweep deliberately does not carry AD.")
+        overall = ad_sentence if (not flagged and not sweep_fired) else (overall + " " + ad_sentence)
+
     return {
         "fired": True,
+        "ad_directional": ad_dir,
         "trigger": {
             "flagged_disease": flagged,
             "flagged_confirmed": bool(flagged and supports),
