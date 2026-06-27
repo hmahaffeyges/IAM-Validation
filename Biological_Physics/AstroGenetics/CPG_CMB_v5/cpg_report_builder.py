@@ -887,6 +887,136 @@ def _cell_census_table(bundle):
     return out
 
 
+def _exec_render(renderer_path, inject, strip_substrings):
+    """Run a sealed standalone renderer (builders/render_*.py) WITHOUT modifying it:
+    strip its hardcoded file-I/O lines, inject the data dict it expects as `D`, and
+    capture its `HTML` output variable. The renderer file on disk is never touched."""
+    src = Path(renderer_path).read_text()
+    for s in strip_substrings:
+        src = src.replace(s, "")
+    ns = dict(inject)
+    exec(compile(src, str(renderer_path), "exec"), ns)
+    return ns.get("HTML", "")
+
+
+def _strawman_section(bundle):
+    """Pattern-recognition straw man: this patient's per-cell architecture laid on the
+    eight-class grid next to the disease rows it flagged, plus the full reference
+    disease-signature wall (the crown jewel) collapsed beneath it.
+
+    The patient is measured by physics (A = H(beta)/H_min, derived floor, no cohort);
+    the wall supplies only the DIRECTION each disease moves each cell, learned from
+    validation cohorts -- the demarcation line. Built from the EXISTING bundle (no chain
+    re-run). The present-cell gate (above floor AND real deconvolver fraction) is what
+    excludes the zero-fraction breach reads that inflate the class-level ranking, so the
+    straw man is the honest per-cell view. Both walls are rendered by the sealed
+    renderers (files untouched) and embedded in iframes so their styling stays isolated."""
+    try:
+        root = Path(__file__).resolve().parent
+        cj_path  = root / "Crown Jewel and Patient Strawman" / "strawman_data_v2.json"
+        map_path = root / "Disease Matrix" / "DISEASE_MATRIX" / "iamatlas_115_to_matrix_v0_2_mapping.json"
+        rp_wall  = root / "builders" / "render_patient_wall.py"
+        rp_crown = root / "builders" / "render_strawman_v2.py"
+        if not (cj_path.exists() and map_path.exists() and rp_wall.exists()):
+            return ""  # straw man assets not shipped in this package; omit silently
+        CJ = json.loads(cj_path.read_text())
+        mapping = json.loads(map_path.read_text())["mapping"]
+
+        # ---- 1. patient cells from the bundle: PRESENT cells only, mapped, tiered ----
+        # (same gate as build_patient_wall.py: above floor AND deconvolver fraction >= MIN)
+        s4 = bundle.get("stage4") or {}
+        ct = s4.get("celltype_ascores") or {}
+        MIN_FRACTION = 0.001
+        def _present(rec):
+            if not (isinstance(rec, dict) and rec.get("A") is not None and not rec.get("below_floor")):
+                return False
+            frac = rec.get("celltype_fraction")
+            return True if frac is None else float(frac) >= MIN_FRACTION
+        bycol = {}
+        for cell, rec in ct.items():
+            if not _present(rec):
+                continue
+            col = mapping.get(cell)
+            if not col:
+                continue
+            bycol.setdefault(col, []).append((float(rec["A"]), rec.get("A_ci_lo"), rec.get("A_ci_hi"), cell))
+        patient_cells = {}
+        for col, vals in bycol.items():
+            A = sum(v[0] for v in vals) / len(vals); dep = A - 1.0
+            cis = [(v[1], v[2]) for v in vals if v[1] is not None and v[2] is not None]
+            ci = ([sum(c[0] for c in cis)/len(cis), sum(c[1] for c in cis)/len(cis)] if cis else None)
+            if   A < 0.95: tier = "SUPPRESSED"
+            elif A < 1.04: tier = "NORMAL"
+            elif A < 1.07: tier = "ELEVATED"
+            elif A < 1.10: tier = "SIGNIFICANTLY_ELEVATED"
+            else:          tier = "BREACH"
+            confident = bool(ci and (ci[0] >= 1.04 or ci[1] <= 0.95))
+            patient_cells[col] = {"A": round(A, 3), "dep": round(dep, 3),
+                                  "ci": [round(c, 3) for c in ci] if ci else None,
+                                  "tier": tier, "confident": confident,
+                                  "atlas": [v[3] for v in vals]}
+
+        # ---- 2. flagged diseases from the EXISTING second chain (sweep + confirmed + AD direction) ----
+        s5 = bundle.get("stage5") or {}
+        trig = s5.get("trigger", {}) or {}
+        _alias = {"breast_cancer": "breast_cancer", "alzheimers_disease": "alzheimers_disease",
+                  "immune_universal_alarm": "immune"}
+        flagged = []
+        for d in (trig.get("residual_sweep_fired") or []):
+            flagged.append({"disease": _alias.get(d, d), "via": "matched filter (residual sweep)"})
+        if trig.get("flagged_confirmed") and trig.get("flagged_disease"):
+            flagged.append({"disease": trig["flagged_disease"], "via": "per-cell matcher (confirmed)"})
+        adx = s5.get("ad_directional")
+        if adx and adx.get("flags_ad_direction"):
+            flagged.append({"disease": "alzheimers_disease",
+                            "via": "Stage 4.5 directional composite (VAL-051 Rule A)"})
+        flagged_ids = {f["disease"] for f in flagged}
+        cj_rows = [r for r in CJ["disease_rows"] if r["disease"] in flagged_ids]
+
+        # ---- 3. assemble the data dict render_patient_wall.py expects as D ----
+        ctx = bundle.get("context", {}) or {}
+        stress = bundle.get("systemic_stress") or {"level": "NONE", "n_axis_cells": 0, "mean_magnitude": 0}
+        D = {"patient_id": bundle.get("patient_id", ""), "substrate": ctx.get("substrate", ""),
+             "age": ctx.get("age", ""), "sex": ctx.get("sex", ""),
+             "patient_cells": patient_cells, "stress": stress,
+             "flagged": flagged, "flagged_rows": cj_rows,
+             "verdict": s5.get("overall_verdict", "") or "",
+             "sec_cols": CJ["sec_cols"], "sections_used": CJ["sections_used"]}
+
+        # ---- 4. render BOTH walls with the sealed renderers (their files are not modified) ----
+        patient_wall = _exec_render(rp_wall, {"D": D}, [
+            'D=json.load(open("/home/claude/patient_wall_data.json"))',
+            'open("/home/claude/IAM_Patient_StrawMan.html","w").write(HTML)'])
+        crown_wall = ""
+        if rp_crown.exists():
+            crown_wall = _exec_render(rp_crown, {"D": CJ}, [
+                'D=json.load(open("/home/claude/strawman_data_v2.json"))',
+                'open("/home/claude/IAM_Disease_Wall_strawman_v2.html","w").write(HTML)'])
+
+        # ---- 5. embed both, collapsed; iframe keeps the dark wall styling isolated ----
+        def _frame(h, height):
+            return (f'<iframe srcdoc="{_html.escape(h, quote=True)}" '
+                    f'style="width:100%;height:{height}px;border:1px solid var(--line);'
+                    f'border-radius:8px;background:#100c08"></iframe>')
+        n_flag = len(flagged)
+        out = ['<h2>Pattern recognition — straw man <span class="meta">(per-cell architecture vs the disease signature wall)</span></h2>']
+        out.append('<div class="explain"><b>How this is read.</b> The patient\'s own per-cell A-score architecture is '
+                   'laid on the same eight-class grid as the reference disease-signature wall, so the two can be set '
+                   'side by side. The patient is measured by physics (A = H(&#946;)/H_min, a derived floor, no cohort); '
+                   'the wall supplies only the <b>direction</b> each disease moves each cell, learned from validation '
+                   'cohorts. Where the patient\'s red or blue lines up with a disease row\'s red or blue, the patient is '
+                   'moving that pattern\'s way. A single cell is never the call &#8212; the shape across cells is. '
+                   'Present cells only (above floor, real deconvolver fraction): the zero-fraction reads that inflate '
+                   'the class-level ranking are excluded here.</div>')
+        out.append(f'<details><summary>Your straw man &#8212; this patient\'s per-cell wall vs {n_flag} flagged pattern(s)</summary>{_frame(patient_wall, 560)}</details>')
+        if crown_wall:
+            out.append('<details><summary>Reference disease-signature wall (crown jewel) &#8212; the full pattern '
+                       'catalog the patient is matched against</summary>' + _frame(crown_wall, 640) + '</details>')
+        return "\n".join(out)
+    except Exception as e:
+        return f'<div class="caveat">Straw man pattern view unavailable: {_html.escape(str(e))}</div>'
+
+
 def build_report(bundle, out_path=None):
     ctx = bundle.get("context", {})
     rescued = bundle.get("nilc_rescued_classes", [])
@@ -970,6 +1100,7 @@ def build_report(bundle, out_path=None):
     trajectory_html = _trajectory_section(bundle)
     tissue_of_origin_html = _tissue_of_origin_section(bundle)
     disease_card_html = _disease_card_section(bundle)
+    strawman_html = _strawman_section(bundle)
     _shed_note = ("In plasma cfDNA, shed epithelial, cycling and other tissue cells ARE the tissue-of-origin "
                   "signal and are surfaced in the Tissue-of-origin section above; Mode 2 BBB flagging still applies."
                   if _is_cfdna(bundle) else
@@ -1074,6 +1205,7 @@ than any single snapshot.</p>
 {departure_html}
 {cell_census_html}
 {confirmation_html}
+{strawman_html}
 
 <h2>Reading the result</h2>
 <div class="caveat">
