@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Walther CPG v4 — Definitive Step-by-Step Chain</title>
+<title>Walther CPG vKISS — Definitive Step-by-Step Chain</title>
 <style>
   :root{
     --paper:#F6F4EE; --panel:#FFFFFF; --ink:#15201C; --ink-soft:#4A555C;
@@ -115,12 +115,12 @@
 <div class="wrap">
 
   <header class="masthead">
-    <div class="eyebrow">Walther CPG · v4 · Definitive step-by-step</div>
+    <div class="eyebrow">Walther CPG · vKISS · Definitive step-by-step</div>
     <h1>The chain we follow — every step, in order</h1>
     <p class="sub">This is the reference both <span style="font-family:var(--mono);font-size:13px">walther_clinical.py</span>
-      and the report builder get checked against. Primary chain stays KISS and runs on every patient. A flag from the
+      and the report builder get checked against. Primary chain stays KISS and runs on every patient. <strong>The detection call is read from the IAMAtlas through the A-score and the derived healthy hull — never through a deconvolver.</strong> The Walther deconvolver runs alone for composition/presence only and gates nothing; NILC, the agreement AND-gate, and the fraction-presence gate are cut to the deferred shelf. A flag from the
       disease matrix — and only a flag — triggers a separate confirmation chain. Every value carries a CI from the atlas's own MCMC posteriors.</p>
-    <div class="provenance">Drawn from the live AstroGenetics/CPG_CMB_v4 folder — verified paths and runtime steps,
+    <div class="provenance">Drawn from the live AstroGenetics/CPG_CMB_vKISS folder — verified paths and runtime steps,
       8 brightness files (per-class per-CpG mean/sd/ci), 246 atlas posterior columns.</div>
     <p class="run">This is the <b>canonical run document</b> — everything a future AI or operator needs to run the chain and nothing else.
       Build the folder from the manifest below, drop in the IDAT pair + <code>questionnaire.json</code>, then run
@@ -146,8 +146,8 @@
       &nbsp;&nbsp;walther_clinical.py &nbsp;·&nbsp; cpg_report_builder.py<br>
       &nbsp;&nbsp;stage_1_idat_calibration.py &nbsp;<span style="color:var(--soft)">(Stage 1 — per-sample noob calibration; needs methylprep)</span><br>
       &nbsp;&nbsp;Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py &nbsp;·&nbsp; test_a_score_canonical.py<br>
-      &nbsp;&nbsp;Walther_iam_deconvolver/walther_iam_deconvolver.py<br>
-      &nbsp;&nbsp;NILC Deconvolver/nilc_deconvolver-2.py<br>
+      &nbsp;&nbsp;Walther_iam_deconvolver/walther_iam_deconvolver.py &nbsp;<span style="color:var(--soft)">(composition/presence only — gates no call)</span><br>
+      &nbsp;&nbsp;<span style="color:var(--defer)">NILC Deconvolver/nilc_deconvolver-2.py &nbsp;(DEFERRED — not in the lean run; see shelf)</span><br>
       &nbsp;&nbsp;CPG_Report_Generator/cpg_gauge.py<br>
       &nbsp;&nbsp;cpg_intake_form.html &nbsp;<span style="color:var(--soft)">(operator tool — run once per patient in a browser to produce questionnaire.json)</span><br>
       <b style="display:inline-block;margin-top:8px">Reference data:</b><br>
@@ -157,7 +157,7 @@
       &nbsp;&nbsp;IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json<br>
       &nbsp;&nbsp;IAM_Atlas/iamatlas_class_archives/{cycling,immune,progenitor,secretory,stem_adult,stem_pluri,stromal,terminal}_v0_1_REBUILD.tar.xz &nbsp;<span style="color:var(--soft)">(8 brightness archives)</span><br>
       &nbsp;&nbsp;Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json &nbsp;<span style="color:var(--soft)">(markers)</span><br>
-      &nbsp;&nbsp;Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv &nbsp;·&nbsp; iamatlas_115_to_matrix_v0_2_mapping.json<br>
+      &nbsp;&nbsp;Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv &nbsp;·&nbsp; iamatlas_115_to_matrix_v0_2_mapping.json<br>
       &nbsp;&nbsp;Runtime Matrices/Tier_breakpoints/tier_breakpoints.json<br>
       <b style="display:inline-block;margin-top:8px">You drop in:</b><br>
       &nbsp;&nbsp;&lt;sample&gt;_Grn.idat &nbsp;·&nbsp; &lt;sample&gt;_Red.idat &nbsp;·&nbsp; questionnaire.json<br>
@@ -174,6 +174,7 @@
 
   <div style="border:2px solid #b45309;background:#fffaf0;border-radius:8px;padding:16px 20px;margin:22px 0 28px">
     <div style="font-weight:700;color:#b45309;font-size:15px;margin-bottom:8px">HARD-WON LESSONS — read before touching the deconvolver</div>
+    <p style="margin:0 0 8px"><b>LESSON-MATRIX-02 (2026-06-29):</b> The disease matrix is the cellular comparison engine — per-disease signatures scored against the patient's per-cell A-departures by <b>directional concordance</b> (direction, not magnitude: the cohort supplies the arrow, the A-score supplies the size). Its patient-safety gate is the <b>cell-of-origin specificity rule</b>: a solid-tissue cancer is SPECIFIC only when one of its own origin cells is actually present. From whole blood, where the tissue is absent, a cancer matched only on shared immune cells is <b>NON_SPECIFIC_GENERIC</b> — the generic stress axis wearing the disease's name. This gate is driven by <code>disease_origin_cells.json</code>; if that file is missing the gate silently fails and solid cancers get named off a head cold. <b>Verify the origin map loads.</b></p>
     <p style="margin:0 0 8px"><b>LESSON-DECONV-01 (2026-06-21):</b> The global NNLS deconvolver and the A-scoring are <b>correct</b> — the A-scorer scored all 115 cells cleanly across 460 GSE51032 samples in VAL. The real-IDAT inflation (absent cells like stem_pluri reading 0.44 instead of 0.14) was traced to a <b>missing Stage 1 calibration</b>: the chain was fed raw decoder β = M/(M+U+100) with no dye-bias or probe-type normalization, leaving β compressed (methylated peak ~0.85 not ~0.95), which inflates every A-score — worst where the true score is lowest. The earlier "reference mismatch / blood β fits atlas 2.6× worse" framing was <b>wrong</b>; calibrating the IDAT to noob β restores the correct readings (stem_pluri 0.14, granulocytes 1.18 — both VAL-matched).</p>
     <p style="margin:0 0 8px">A hierarchical within-class refinement was built and validated — it <b>invents signal</b> (HSC/GMP/neurons; MAE 0.271 on pure monocytes), failed composition-recovery validation, and <b>does not ship</b>.</p>
     <p style="margin:0"><b>Binding:</b> the cell tier is INDICATIVE by design in v0.1; the two-tier report (class reliable / cell indicative) is the validated honest posture. Richer per-cell resolution is <b>reference/atlas work, never a solver swap</b>, and must clear a composition-recovery + null suite before production. "More cells resolved" is only progress if resolved correctly.</p>
@@ -230,24 +231,21 @@
       <div class="link">
         <div class="node">3</div>
         <div class="card">
-          <h3>Stage 2 — Deconvolution (two methods in parallel)</h3>
+          <h3>Stage 2 — Deconvolution (Walther alone — composition/presence, gates no call)</h3>
           <ol class="steps">
             <li>Load the rebuilt atlas — 115 cells / 8 classes, with the *_mean / *_sd MCMC posteriors.</li>
-            <li>Load the per-class markers.</li>
-            <li>Walther NNLS solve → class fractions (constrained: f ≥ 0, Σf = 1; the production layer).</li>
-            <li>NILC solve in parallel → independent fractions (unconstrained GLS, inverse-variance weighted by the posterior SD). Different math, so its agreement means something — the Planck Commander/NILC discipline. Because it does not floor at the simplex boundary, it can surface a faint signal Walther zeroes out (the glioma-terminal case) — a class it surfaces at &ge;1% is merged into the present set and A-scored, not left presence-only.</li>
-            <li>Cross-method gate: compare the two at the inference layer; agreement raises trust, divergence is a documented signal to investigate, not an error.</li>
-            <li><strong>Two tiers, by design.</strong> <strong>Tier 1 — 8 class fractions:</strong> the production answer, RELIABLE, the call. <strong>Tier 2 — 115 cell-type fractions:</strong> finer decomposition within each class, INDICATIVE only — "weakly separable in IAMAtlas v0.1; trust class_fractions" (deconvolver docstring). NNLS is sparse, so Tier 2 often resolves only a handful of cells per sample; that is expected v0.1 behaviour, not a bug. Never gate anything downstream on Tier 2.</li>
-            <li>class_present from the bootstrap CI lower bound (&gt; numerical zero). The per-cell fraction sets cell-level CONFIDENCE (reliable vs indicative), never a scoring gate.</li>
+            <li>Walther NNLS solve → class fractions (constrained: f ≥ 0, Σf = 1; the production composition layer). <strong>This is the only deconvolver in the lean chain.</strong> NILC and the agreement AND-gate are cut (deferred shelf) — they collapsed on correlated blood mixtures and deleted correct calls.</li>
+            <li><strong>The deconvolver answers one question only: what cells are in the mix.</strong> It resolves the immune compartment so the per-cell layer reads resolved cells, not bulk-mixture background (an unresolved cell's markers read a blend, not that cell's architecture). <strong>It never gates a detection call</strong> — the call is the A-score and the derived hull (Stage 4 / verdict).</li>
+            <li><strong>Two tiers, by design.</strong> <strong>Tier 1 — 8 class fractions:</strong> the reliable composition answer. <strong>Tier 2 — 115 cell-type fractions:</strong> finer decomposition, INDICATIVE only — "weakly separable in IAMAtlas v0.1." NNLS is sparse, so Tier 2 resolves a handful of cells per sample; expected v0.1 behaviour. Never gate anything downstream on Tier 2.</li>
+            <li>class_present from the bootstrap CI lower bound (&gt; numerical zero). The per-cell fraction sets cell-level CONFIDENCE (reliable vs indicative), never a scoring gate. <strong>Shed organ cells are the exception</strong> — they are detected by A-score, not fraction (a cortical neuron at 1.292% reads d=+1.96; the fraction nulls it, the A-score catches it), so the ≥3% composition floor used by the architectural verdict (below) never applies to them.</li>
             <li>Attach a CI to each fraction from the atlas posteriors.</li>
           </ol>
           <div class="files">
             <div class="file">Walther_iam_deconvolver/walther_iam_deconvolver.py · selects markers by rank from the atlas (no separate marker file)</div>
-            <div class="file">NILC Deconvolver/nilc_deconvolver-2.py · independent cross-check</div>
             <div class="file">IAM_Atlas/IAMAtlasREBUILD.csv.xz · decompressed once at runtime</div>
             <div class="file">IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json · the 115→8 map</div>
           </div>
-          <div class="out">class + cell fractions ± CI from both methods · cross-method verdict · presence flags</div>
+          <div class="out">class + cell fractions ± CI (composition/presence) · gates no call</div>
         </div>
       </div>
 
@@ -260,7 +258,7 @@
             <li>Load the 8 frozen H_min floors (the Mahaffey Numbers), one per class.</li>
             <li>Per-class A = H(β_mean) / H_min(class) — mean β across the class markers first, then entropy of that one mean (entropy-of-mean, never mean-of-entropies).</li>
             <li><strong>EVERY cell type in a present class is A-scored (run-everything doctrine)</strong>, each on its own class's H_min. This is INDEPENDENT of the deconvolution fraction — the fraction sets confidence (reliable vs indicative), it NEVER gates scoring. The only thing that NULLs a cell A-score is insufficient marker coverage (INSUFFICIENT_MARKERS). Do not gate on a per-cell fraction floor — that collapses the cell tier and violates &sect;655.</li>
-            <li><strong>Substrate gate &amp; floor-gate.</strong> Whole blood scores every class detected at or above ~1% by <em>either</em> deconvolver — Walther OR NILC-raw, merged — so a tissue cell that breaches into blood (the glioma cortical neuron) is scored, not just flagged for presence. Only a class neither deconvolver detects reads <code>NOT_ASSESSABLE_IN_SUBSTRATE</code>: detection is the gate, never cell type. Plasma cfDNA is the opposite: <code>cfdna_run_everything</code> marks every architecture class assessable, because shed tissue DNA <em>is</em> present in plasma — every tile is scored on its own class H_min, the per-cell fraction setting confidence only, never gating the score. Across both substrates a <strong>floor-gate</strong> marks any tile scored below its class H_min as an absent cell reading background (the cfDNA cortical-neuron artifact, A~0.58 below the 0.773 terminal floor): flagged <code>below_floor</code>, never counted as a positive organ flag. Above-floor homogenization (the hepatocyte tissue-of-origin signal, A~0.99 above the 0.843 secretory floor) is a present-cell read and is preserved untouched.</li>
+            <li><strong>Floor-gate (whole blood — the only substrate we draw).</strong> Every class the deconvolver resolves at or above ~1% is A-scored, so a tissue cell that breaches into blood (the glioma cortical neuron at 1.292%) is <em>scored</em>, not just flagged — detection is by A-score, never gated by cell type. A class the deconvolver does not detect reads <code>NOT_ASSESSABLE_IN_SUBSTRATE</code>. A <strong>floor-gate</strong> marks any tile scored below its class H_min as an absent cell reading background: flagged <code>below_floor</code>, never counted as a positive organ flag. (cfDNA/plasma is not drawn — that tissue-of-origin lane is left to GRAIL; see shelf.)</li>
             <li><strong>Two tiers:</strong> class-level A-scores are RELIABLE (the call); cell-level A-scores are the INDICATIVE tier (weakly separable in v0.1). A cell the deconvolver does not resolve reads the bulk mixture at its one-vs-rest markers and can pin near the ceiling or below its floor — a low-confidence background read, flagged, never a finding.</li>
             <li>Load the 8 brightness files (per-class per-CpG mean/sd/ci) and propagate the per-CpG sd through H/H_min → a real CI on every A.</li>
             <li><strong>The scale, per class:</strong> A = 1.0 is the healthy reference; the <em>floor</em> is the class's own H_min (e.g. immune 0.839, terminal 0.773) and the <em>ceiling</em> is 1/H_min. A cell can be driven down toward its floor and still hold identity; a value <em>below</em> H_min is impossible for a present cell, so the report flags that as a data problem rather than a reading. Verified: healthy whole-blood immune A = 1.035, glioma 0.970 — both on-scale.</li>
@@ -327,7 +325,7 @@
             <li>Flag may fire on either deconvolver — a signal NILC-raw surfaces but Walther floored still counts.</li>
           </ol>
           <div class="files">
-            <div class="file">Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv</div>
+            <div class="file">Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv</div>
             <div class="file">Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json · cell→signature-column map</div>
           </div>
           <div class="out">resemblance scores → 52 disease cores verdict, each ± CI · architectural flags</div>
@@ -341,11 +339,11 @@
           <h3>Stage 8 · Mode 2 — Presence: a cell that shouldn't be here</h3>
           <ol class="steps">
             <li>A different test entirely: not architecture, but a cell <em>circulating in blood that should not be there</em>. The shed-cell premise — the family of signal GRAIL screens for.</li>
-            <li>NILC-raw is the sensitive front end: its unconstrained fit surfaces faint shed signal the constrained solve floors to zero (the glioma terminal case, 1.26%).</li>
-            <li>Flag any non-blood class present in whole blood above the detect_floor (1%, VAL-090).</li>
+            <li><strong>The A-score is the sensitive front end</strong> — VAL-090: the deconvolver fraction <em>nulled</em> the glioma cortical-neuron signal; the A-score caught it (d=+1.96, and d=+5.47 on the strong cohort). A terminal/secretory cell reading above its class floor in whole blood is the shed signal, at any fraction. (NILC-raw surfacing is deferred to the shelf; the A-score makes it unnecessary.)</li>
+            <li>Flag any non-blood class reading <strong>above its class floor</strong> in whole blood (detect ~1%, VAL-090) — <strong>this path is never gated by the ≥3% composition floor</strong>; a 1.292% cortical neuron is exactly the signal.</li>
             <li><strong>Blood-brain-barrier cells</strong> (cortical neurons, glia, oligodendrocytes) — red flag the moment they are <em>present</em>: they crossed a physical barrier to be here. And once present they are also A-scored (the glioma cortical neuron, +1.96) — presence is the alarm, the A-score is added signal, not discarded. Refer.</li>
             <li>Other shed cells (epithelial) — <em>presence plus A-score</em>: present with a normal A is benign turnover; present with an abnormal A is concerning. The A-score is the discriminator.</li>
-            <li><strong>Substrate split:</strong> this barrier-breach alarm is a <em>whole-blood</em> test. On plasma cfDNA it does not fire (<code>detect_cell_of_origin_presence</code> returns nothing for cfdna) — a brain or other tissue signal in plasma is shed DNA (tissue-of-origin), read in the cfDNA card below, not a cell that crossed a barrier.</li>
+            <li>This barrier-breach alarm is a <em>whole-blood</em> test (the substrate we draw): a brain cell in peripheral blood crossed a physical barrier to be there. (We do not draw plasma; cfDNA tissue-of-origin is GRAIL's lane.)</li>
             <li>Flag-and-refer to a specialist, never a diagnosis. Baseline shed quantities calibrate from real patients.</li>
           </ol>
           <div class="files">
@@ -355,21 +353,6 @@
         </div>
       </div>
 
-      <div class="link detect">
-        <div class="node" style="font-size:11px">6c</div>
-        <div class="card">
-          <span class="tag">Detector · cfDNA — tissue-of-origin</span>
-          <h3>Stage 8 · cfDNA — Tissue-of-origin: shed tissue DNA</h3>
-          <ol class="steps">
-            <li><strong>cfDNA only.</strong> In plasma, shed tissue DNA circulates — the non-immune tissue tiles carry a tissue-of-origin signal that whole-blood Mode 2 (BBB-only) never surfaces. In normal whole blood these tissue cells are absent (floor-gated out); a disease that breaches one in — the glioma cortical neuron — makes it present and scored there too. In plasma they are routinely present, and their shed signal is the read.</li>
-            <li>Rank the non-immune tissue tiles by <strong>departure from the derived reference (A=1.0)</strong> in either direction. <em>Homogenization</em> (A&lt;1.0 — the HCC hepatocyte signature) and <em>elevation</em> (A&gt;1.0) both carry information.</li>
-            <li>Immune is excluded — it is the ~70% systemic plasma background, not tissue-of-origin. Floor-gated: a tile below its class H_min is an absent cell reading background and is dropped (the cortical-neuron artifact), so the ranking is real shed-tissue reads only.</li>
-            <li>A single timepoint is a <strong>flag</strong>; the <strong>trajectory</strong> across draws is the call. Flag-and-refer, never a diagnosis.</li>
-          </ol>
-          <div class="files"><div class="file">cpg_report_builder.py · _tissue_of_origin_section · walther_clinical.py · cfdna_run_everything (VAL-090)</div></div>
-          <div class="out">non-immune tiles ranked by |departure| from the derived reference · homogenization &amp; elevation both signal</div>
-        </div>
-      </div>
 
       <div class="link">
         <div class="node">7</div>
@@ -406,11 +389,11 @@
   <div class="gate">
     <div class="diamond"></div><div class="gq">?</div>
     <div class="gcard">
-      <h3>Flag gate — did the matrix flag any disease?</h3>
-      <p>The single branch point in the whole chain. It keeps the primary lean and the confirmation independent.</p>
+      <h3>Verdict gate — the derived-hull architectural alarm + the matrix flag</h3>
+      <p><strong>Layer 0 — derived-hull global departure (the primary verdict).</strong> Sum the standardized departure (A&minus;1.0)/&sigma; over the classes that are <em>present</em> (composition) <em>and</em> off the healthy band [0.95,1.04); under the healthy floor this ~ &chi;&sup2;(n), so the threshold is analytic (p95/p99), n-adaptive — <strong>no cohort</strong>. Within band → the report reads healthy and every Route-B resemblance is demoted as coincidence (the documented healthy-58M verdict: d=0.0, "resemblance, not a probability"). Beyond band → a real architectural departure, named by which class drove it (the 67F verdict: d beyond band, driven by stem_adult 1.101). <strong>Shed organ cells (Mode 2) and the AD directional panel (Stage 4.5) fire independently of this hull.</strong></p>
       <div class="branch">
-        <span class="br no">NO → straight to the report (no pattern detected)</span>
-        <span class="br yes">YES → run the second chain on the flagged disease</span>
+        <span class="br no">WITHIN BAND &amp; no flag → report reads healthy (resemblances demoted)</span>
+        <span class="br yes">BEYOND BAND or matrix flag or BBB breach → run the second chain</span>
       </div>
     </div>
   </div>
@@ -474,7 +457,7 @@
             <li>How to read this report — the two detection modes, written for the clinician <em>and</em> a future AI.</li>
             <li>Mode 1 — architectural concordance table (resemblance, not probability).</li>
             <li>Mode 2 — cell-of-origin presence (BBB breach red flags · elevated shed cells + A-score).</li>
-            <li><strong>Substrate-appropriate read.</strong> Whole blood surfaces Mode 1 + Mode 2 (BBB); plasma cfDNA surfaces the <strong>Tissue-of-origin</strong> table in place of Mode 2 — same per-cell A-scores, the substrate decides which reads appear.</li>
+            <li><strong>Whole-blood read.</strong> The report surfaces Mode 1 (architectural concordance) + Mode 2 (cell-of-origin / barrier-breach) on one whole-blood draw. (cfDNA tissue-of-origin is not run — GRAIL's lane.)</li>
             <li>Per-cell A-scores ± CI as the body (the cell fingerprint). The class-level composition table is not shown — the report is cell-centric.</li>
             <li><strong>Confirmation section — only when a flag fired:</strong> the second chain's integrated verdict (residual matched-filter &rho; &plusmn; CI, the <strong>Stage 4.5 AD directional composite</strong>, directional class signal, and anchor ladder) is appended after the cell readout. No flag → the report ends after the primary chain, untouched.</li>
             <li><strong>Input-scale guard:</strong> if abundant classes read below the floor, suppress per-cell A and flag un-normalized input rather than printing artifacts.</li>
@@ -525,6 +508,13 @@
         <div class="path">walther_clinical.py · stage_3_foreground_fork — intentionally not wired</div>
       </div>
 
+      <div class="scard tooling">
+        <div class="stage">CUT FROM THE LEAN CHAIN · recoverable bolt-on</div>
+        <h3>NILC · agreement AND-gate · fraction-presence gate</h3>
+        <div class="adds">The second (NILC) deconvolver, the celltype-agreed AND-gate, and the Stage-8 fraction-presence gate on matching. They collapsed on correlated blood mixtures (NILC dumped 92% on neutrophils, the AND-gate then deleted Walther's correct monocyte/CD4/NK calls). Their one real job — surfacing a faint shed signal — is done better by the A-score (VAL-090). Kept here as a potential future refinement, re-tested only if a real run shows a need.</div>
+        <div class="path">NILC Deconvolver/ · walther_clinical.py · celltype_agreed / _build_patient_departure_profile fraction gate</div>
+      </div>
+
       <div class="scard">
         <div class="stage">Separate product · EDEAR aging arm</div>
         <h3>Stage 6 — Cellular age — NOT BUILT</h3>
@@ -555,9 +545,9 @@
 
       <div class="scard">
         <div class="stage">Substrate branch</div>
-        <h3>Plasma cfDNA weighting</h3>
-        <div class="adds">The cfDNA chain itself is <strong>live</strong> — run-everything A-scoring + Tissue-of-origin (Stage 8 above). Deferred here is only the optional plasma fraction <em>weighting</em> refinement; dormant for whole blood, wired when a real cfDNA run proves the need.</div>
-        <div class="path">Runtime Matrices/Cfdna_weight_nonderived placeholder/cfdna_weight.json</div>
+        <h3>cfDNA / plasma — NOT USED (GRAIL's lane)</h3>
+        <div class="adds">We draw whole blood only and get what we need from it; the plasma cfDNA tissue-of-origin / fraction lane is deliberately left to GRAIL. The code paths exist in the repo but are not drawn or run in CPG. Revisit only if a real need is shown.</div>
+        <div class="path">walther_clinical.py · cfdna_run_everything · cpg_report_builder.py · _tissue_of_origin_section — present but not invoked</div>
       </div>
 
       <div class="scard">
@@ -578,7 +568,7 @@
   </section>
 
   <footer>
-    Walther CPG v4 · definitive step-by-step · 7 links · two detection modes (architectural concordance + cell-of-origin presence) · two substrates (whole blood + plasma cfDNA) · flag gate + 3-step confirmation · drawn from the live repo · every value carries an MCMC-derived CI
+    Walther CPG vKISS · definitive step-by-step · deconvolver = composition/presence only (gates no call) · A-score + derived-hull verdict fire the call · two detection modes (architectural concordance + cell-of-origin presence) · one substrate (whole blood — cfDNA is GRAIL's lane) · verdict gate + 3-step confirmation · drawn from the live repo · every value carries an MCMC-derived CI
   </footer>
 
 </div>

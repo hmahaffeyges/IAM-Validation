@@ -54,7 +54,7 @@
 <div class="wrap">
 
 <div class="masthead">
-  <div class="eyebrow">CPG · Cellular Performance Gauge — Clinic Workflow</div>
+  <div class="eyebrow">CPG · vKISS · Cellular Performance Gauge — Clinic Workflow</div>
   <h1>Running patients, step by step</h1>
   <p class="sub">From the lab's IDAT files to a finished report — how to keep every patient separate, how to
   fill the intake, what one command runs the whole batch, and how a second blood draw automatically builds a
@@ -63,22 +63,15 @@
 
 <h2>Bloodwork — what to draw and what to order from the lab</h2>
 <div class="band">
-  <p><b>One venipuncture, two tubes, every visit.</b> CPG reads two substrates that answer different
-  questions, both from the same stick.</p>
+  <p><b>One venipuncture, one tube, every visit.</b> CPG reads the immune / systemic architecture from a single whole-blood draw &#8212; that is all it needs.</p>
   <ul>
-    <li><b>Tube 1 &#8212; whole blood.</b> EDTA (lavender top). The lab extracts buffy-coat / whole-blood
+    <li><b>Whole blood.</b> EDTA (lavender top). The lab extracts buffy-coat / whole-blood
     genomic DNA and runs it on the <b>Illumina Infinium MethylationEPIC (850K) BeadChip</b>. Deliverable: one
     IDAT pair (<code>_Grn.idat</code> + <code>_Red.idat</code>). Run with substrate <code>whole_blood</code>.</li>
-    <li><b>Tube 2 &#8212; plasma cfDNA.</b> A cell-free DNA stabilizing tube (e.g. Streck Cell-Free DNA BCT),
-    or plain EDTA spun to plasma within ~2 hours. The lab extracts circulating cell-free DNA and runs it on the
-    <b>same EPIC 850K array</b>. Deliverable: a second IDAT pair. Run with substrate <code>cfdna</code>.</li>
   </ul>
-  <div class="auto"><b>What to tell the lab:</b> &#8220;Infinium MethylationEPIC (850K) array, two samples per
-  patient per visit &#8212; one buffy-coat genomic DNA, one plasma cell-free DNA &#8212; return the raw IDAT
-  (Grn + Red) for each.&#8221; You get two IDAT pairs back per patient per draw.</div>
-  <div class="tip"><b>Why two tubes:</b> whole blood carries the immune / systemic architecture; plasma cfDNA
-  carries shed tissue DNA from elsewhere in the body. They are read together. Repeat the same two-tube draw each
-  visit &#8212; that is what builds the trajectory.</div>
+  <div class="auto"><b>What to tell the lab:</b> &#8220;Infinium MethylationEPIC (850K) array, one buffy-coat / whole-blood genomic DNA sample per
+  patient per visit &#8212; return the raw IDAT (Grn + Red).&#8221; One IDAT pair back per patient per draw.</div>
+  <div class="tip"><b>Why whole blood only:</b> the immune compartment carries the systemic / field-effect architecture CPG reads, and shed organ cells (e.g. a glioma cortical neuron at ~1.3%) are recoverable from the same whole-blood array by A-score &#8212; no plasma needed. We deliberately leave the plasma cfDNA tissue-of-origin lane to GRAIL. Repeat the same single draw each visit &#8212; that is what builds the trajectory.</div>
 </div>
 
 <h2>One-time setup (do once per computer)</h2>
@@ -87,40 +80,27 @@
   <pre><span class="c"># 1. create the environment (once)</span>
 conda create -n cpg python=3.11
 conda activate cpg
-pip install methylprep numpy pandas scipy scikit-learn matplotlib
+pip install methylprep "pandas<2" numpy scipy scikit-learn matplotlib
 
-<span class="c"># 2. unzip CPG_CMB_v4 somewhere stable — that folder IS the engine</span></pre>
+<span class="c"># 2. unzip CPG_CMB_vKISS somewhere stable — that folder IS the engine</span></pre>
   <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:0">The very first patient run takes about a minute
   longer while the atlas unpacks itself one time. Every run after that is immediate.</p>
 </div>
 
 <h2>The folder model — how patients stay separate</h2>
 <div class="band">
-  <p>Each blood draw produces <b>two samples</b> (Tube 1 whole blood, Tube 2 plasma cfDNA), and each
-  substrate needs its own clean trajectory over time. The simplest layout that does that with the shipped
-  runner: give each patient <b>two trees</b> — one whole-blood, one cfDNA — distinguished by an ID suffix.
-  The engine writes each report into its draw folder and keeps a per-substrate <b>baselines</b> record so the
-  next visit compares like-with-like.</p>
+  <p>Each blood draw produces <b>one sample</b> (whole blood). Give each patient <b>one folder</b>, with one dated draw folder inside per visit.
+  The engine writes each report into its draw folder and keeps a <b>baselines</b> record so the next visit compares like-with-like.</p>
   <p class="tree"><span class="p">patients/</span>
-  <span class="p">ANON_0001_WB/</span>                   <span class="f">&larr; whole-blood tree (Tube 1)</span>
-    <span class="f">baselines/</span>                   <span class="note">&larr; per-substrate; created for you</span>
+  <span class="p">ANON_0001/</span>                       <span class="f">&larr; one tree per patient (whole blood)</span>
+    <span class="f">baselines/</span>                   <span class="note">&larr; created for you</span>
     <span class="p">2026-06-22/</span>
       &lt;sample&gt;_Grn.idat.gz + &lt;sample&gt;_Red.idat.gz
       questionnaire.json                <span class="note">sample type = whole_blood</span>
-      CPG_report_..._WB.html
-    <span class="p">2027-01-10/</span> ...               <span class="f">&larr; next whole-blood draw</span>
-  <span class="p">ANON_0001_CF/</span>                   <span class="f">&larr; cfDNA tree, SAME patient (Tube 2)</span>
-    <span class="f">baselines/</span>
-    <span class="p">2026-06-22/</span>
-      &lt;sample&gt;_Grn.idat.gz + &lt;sample&gt;_Red.idat.gz
-      questionnaire.json                <span class="note">sample type = cfdna</span>
-      CPG_report_..._CF.html
-    <span class="p">2027-01-10/</span> ...
-  <span class="p">ANON_0002_WB/</span> ... <span class="p">ANON_0002_CF/</span> ...</p>
-  <div class="auto"><b>Why two trees:</b> the runner builds each trajectory from a tree's own baselines, so a
-  whole-blood tree must hold only whole-blood draws and a cfDNA tree only cfDNA draws. Keeping them separate is
-  what gives each substrate a clean, like-with-like trajectory. Read the WB and CF reports for a given visit
-  together. One <code>run_batch.py</code> command processes all trees.</div>
+      CPG_report_....html
+    <span class="p">2027-01-10/</span> ...               <span class="f">&larr; next draw</span>
+  <span class="p">ANON_0002/</span> ...</p>
+  <div class="auto"><b>One tree per patient:</b> the runner builds the trajectory from that patient's own baselines, so each new whole-blood draw reads against the last. One <code>run_batch.py</code> command processes every patient.</div>
 </div>
 
 <h2>Running a batch — say she has 10 patients today</h2>
@@ -143,10 +123,7 @@ pip install methylprep numpy pandas scipy scikit-learn matplotlib
 <div class="step"><div class="num">3</div><div>
   <h3>Fill the intake form for each patient and save it into their draw folder</h3>
   <p>Open <code>cpg_intake_form.html</code> in Chrome or Edge. Fill the four required fields — anonymized ID, date of
-  birth, sex, and <b>sample type</b> — plus anything else useful. <b>Set sample type to match the tube and tree:</b>
-  <code>whole_blood</code> for the IDATs going into the <code>_WB</code> tree, <code>cfdna</code> for the
-  <code>_CF</code> tree. This is what tells the engine to run the whole-blood chain or the cfDNA (run-everything)
-  chain. Click <b>Save questionnaire.json</b> and, in the dialog, navigate into that sample's dated folder and save.</p>
+  birth, sex, and <b>sample type</b> — plus anything else useful. Sample type is always <code>whole_blood</code>. Click <b>Save questionnaire.json</b> and, in the dialog, navigate into that sample's dated folder and save.</p>
   <div class="tip">In other browsers the file lands in Downloads instead; just move it into the patient's draw folder.
   The file must be named <code>questionnaire.json</code> and sit beside that patient's IDATs.</div>
 </div></div>
@@ -155,7 +132,7 @@ pip install methylprep numpy pandas scipy scikit-learn matplotlib
   <h3>Run the whole batch with one command</h3>
   <p>From inside the engine folder:</p>
   <pre>conda activate cpg
-cd CPG_CMB_v4
+cd CPG_CMB_vKISS
 python run_batch.py --patients /path/to/patients</pre>
   <p>It walks every patient, runs each draw that doesn't already have a report (in date order), and prints a summary
   when it finishes. Re-running it is safe — already-finished draws are skipped.</p>
@@ -186,14 +163,13 @@ python run_batch.py --patients /path/to/patients</pre>
   <ul>
     <li><b>Separation</b> — one folder per patient; their inputs, report, and history live together and never mix.</li>
     <li><b>Calibration</b> — each IDAT is normalized on its own (dye-bias + probe-type), no cohort, no batch.</li>
-    <li><b>Two deconvolvers</b> — a conservative fit for the reliable composition and a sensitive one that surfaces
-    faint shed signal; the report explains both.</li>
+    <li><b>Composition</b> — one deconvolver resolves which cells are present (so per-cell reads are real, not bulk-mixture background). It informs presence only and never fires the call; the call is the A-score and the derived healthy hull.</li>
     <li><b>Confirmation</b> — if a disease pattern is flagged, a second chain (residual matched filter + directional class signal + literature anchor) runs automatically and tests whether the patient's methylation moves in the disease's own direction.</li>
     <li><b>Trajectory</b> — every draw's vector is saved; the next draw compares against it with no extra steps.</li>
   </ul>
 </div>
 
-<div class="foot">CPG_CMB_v4 · run_batch.py orchestrates walther_clinical.py · two substrates per draw (whole_blood + cfdna) · reports are flag-and-refer, not diagnostic ·
+<div class="foot">CPG_CMB_vKISS · run_batch.py orchestrates walther_clinical.py · one substrate per draw (whole blood; cfDNA is GRAIL's lane) · reports are flag-and-refer, not diagnostic ·
 anonymized IDs only; patient context is report-only and never enters the scored signal.</div>
 
 </div>

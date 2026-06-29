@@ -1,6 +1,6 @@
 import json, csv, math, html
 ROOT="/home/claude/CPG_CMB_v4"
-MATRIX=f"{ROOT}/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv"
+MATRIX=f"{ROOT}/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv"
 C2C=json.load(open(f"{ROOT}/IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json"))
 MAP=json.load(open(f"{ROOT}/Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json"))["mapping"]
 

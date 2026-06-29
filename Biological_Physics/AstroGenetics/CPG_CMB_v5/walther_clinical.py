@@ -155,7 +155,7 @@ DEFAULT_CONFIG = {
     "nilc_celltype_module": CPG_ROOT / "NILC Deconvolver/nilc_celltype_deconvolver.py",
     "cell_agreement_min_fraction": 0.02,
     # Stage 8 — disease signature matrix matching (Path B) + priors
-    "disease_matrix_csv":  CPG_ROOT / "Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv",
+    "disease_matrix_csv":  CPG_ROOT / "Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv",
     "matrix_mapping_json": CPG_ROOT / "Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json",
     "cancer_prior_json":   CPG_ROOT / "Runtime Matrices/Cancer_prior/cancer_prior.json",
     "family_history_json": CPG_ROOT / "Runtime Matrices/Family_history_multiplier/family_history_multiplier.json",

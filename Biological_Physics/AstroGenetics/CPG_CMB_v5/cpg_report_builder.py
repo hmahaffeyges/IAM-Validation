@@ -99,7 +99,7 @@ def _reference_gauge_html(include_star=True):
         return _REF_GAUGE_CACHE[key]
     try:
         import cpg_gauge
-        root = Path(os.environ.get("CPG_ROOT") or Path(__file__).resolve().parent)
+        root = Path(os.environ.get("CPG_ROOT") or os.environ.get("CPG_ENGINE_ROOT") or Path(__file__).resolve().parent)
         tb = str(root / "Runtime Matrices" / "Tier_breakpoints" / "tier_breakpoints.json")
         def _png_b64(render):
             tmp = tempfile.mktemp(suffix=".png"); render(tmp)
@@ -138,17 +138,10 @@ def departure_ranking_svg(bundle, width=900, max_rows=15, reliable_only=True):
     is shown below the chart so nothing is hidden. Direction is the diagnostic part: a bar
     points RIGHT when elevated, LEFT when suppressed."""
     s4 = bundle["stage4"]["celltype_ascores"]
-    # SAME cell set as the census table -- present = scored, a real cell, above its class floor
-    # (not below_floor), and resolved by BOTH deconvolvers (agreement). A cell only one lens
-    # resolves reads the bulk mixture at its one-vs-rest markers and pins spuriously, so it is
-    # excluded here exactly as the census excludes it. Chart and table then tell one story.
-    s2 = bundle.get("stage2") or {}
-    agreed = s2.get("celltype_agreed")
-    agreed_set = set(agreed) if agreed is not None else None
+    # vKISS cell set: every cell scored above its class floor (Walther alone, no AND-gate).
     cells = [(ct, r) for ct, r in s4.items()
              if r.get("A") is not None and _is_cell(ct)
-             and not r.get("below_floor")
-             and (agreed_set is None or ct in agreed_set)]
+             and not r.get("below_floor")]
     if not cells:
         return "<p class='meta'>No cells scored above the presence floor on this sample.</p>"
     cells.sort(key=lambda kv: -abs(kv[1]["A"] - 1.0))
@@ -156,8 +149,8 @@ def departure_ranking_svg(bundle, width=900, max_rows=15, reliable_only=True):
     if max_rows:
         cells = cells[:max_rows]
     n = len(cells)
-    _title = (f"Cellular departure ranking &#8212; top {n} of {total} resolved cells"
-              if total > n else f"Cellular departure ranking &#8212; {n} resolved cell(s)")
+    _title = (f"Cellular departure ranking &#8212; top {n} of {total} present cells"
+              if total > n else f"Cellular departure ranking &#8212; {n} present cell(s)")
     allv = [1.0]
     for _, r in cells:
         allv += [r["A"], r.get("A_ci_lo") or r["A"], r.get("A_ci_hi") or r["A"]]
@@ -188,7 +181,7 @@ def departure_ranking_svg(bundle, width=900, max_rows=15, reliable_only=True):
              f'fill="#16202a">{_title}</text>')
     o.append(f'<text x="{width/2}" y="45" text-anchor="middle" font-size="10.5" fill="#6b7780">'
              'ranked by distance from baseline &#183; right = elevated &#183; left = suppressed '
-             '&#183; bold border = deconvolver-resolved (reliable) &#183; whiskers = 95% CI</text>')
+             '&#183; whiskers = 95% CI</text>')
     pT, pB = top - 10, top + n * rh
     for a0, a1, fill in [(xlo, 0.95, "#EAF2F8"), (0.95, 1.04, "#EAF6EA"), (1.04, 1.07, "#FBF3DF"),
                          (1.07, 1.10, "#F7E6CC"), (1.10, xhi, "#F6DEDC")]:
@@ -324,9 +317,12 @@ def _exec_summary(bundle):
                              "shift seen in infection, inflammation, stress and many conditions), not a "
                              "fingerprint specific to any one disease. Not flagged as a named malignancy.")
             elif _is_concern(top):
-                lines.append(f"Architectural mode (Mode 1): closest specific pattern is <b>{_esc(top['disease'])}</b> "
-                             f"&#8212; <b>{_match_pct(top)}% shape resemblance</b> "
-                             f"({top.get('n_signal',0)} signal-bearing cells). Shape resemblance, not a probability of disease.")
+                lines.append(f"Architectural mode (Mode 1): your per-cell <b>A-scores</b> are the measurement &#8212; read them "
+                             f"against the reference gauge below (H_min floor &#183; ~1.00 mid healthy band &#183; 1.10 breach). "
+                             f"The <i>shape</i> of your departures across {top.get('n_signal',0)} cells most resembles the "
+                             f"<b>{_esc(top['disease'])}</b> pattern template ({_match_pct(top)}% shape match). This is the shape of a "
+                             f"pattern, <b>not a diagnosis, not a probability, and not a stage</b> &#8212; many conditions and benign states "
+                             f"share pattern shapes. The confirmation chain below is what tests whether it is a real departure.")
             else:
                 lines.append(f"Architectural mode (Mode 1): no disease-specific pattern reached the "
                              f"{int(CONCERN_COSINE*100)}% concern threshold (closest specific {_match_pct(top)}%). "
@@ -339,8 +335,9 @@ def _exec_summary(bundle):
         lines.append(f"Cell-of-origin mode (Mode 2): <b class='red'>blood-brain-barrier cells circulating</b> "
                      f"(terminal class, {cls}) — barrier breach, refer for specialist evaluation.")
     else:
-        lines.append("Cell-of-origin mode (Mode 2): no blood-brain-barrier cells circulating. "
-                     "(Epithelial/cycling cells in blood are normal and are not flagged.)")
+        lines.append("Cell-of-origin mode (Mode 2): no barrier-restricted cells circulating, and no tissue "
+                     "cell present above its expected level. (Tissue cells at expected levels are normal; an amount "
+                     "well above expected is watched as a possible shedding signal and scored when abundant enough.)")
 
     # Mode 3 — systemic stress / inflammatory wellness read (never a disease call, never alarm)
     ss = bundle.get("systemic_stress") or {}
@@ -381,7 +378,7 @@ def _mode1_rows(bundle):
                 f"<td class='num'>{m.get('n_signal', 0)}</td>"
                 f"<td>{status}</td></tr>")
 
-    rows = "".join(_row(m, "at/above concern") for m in surfaced)
+    rows = "".join(_row(m, "shape match \u2014 not a diagnosis") for m in surfaced)
     if not rows:
         rows = (f"<tr><td colspan='6' class='muted'>No disease-specific pattern reached the "
                 f"{int(CONCERN_COSINE*100)}% concern threshold. Below-threshold and non-specific "
@@ -403,12 +400,13 @@ def _mode2_rows(bundle):
     for f in flags:
         rows += (f"<tr><td>{_esc(f['class'])}</td>"
                  f"<td class='num'>{f['observed_fraction']*100:.2f}%</td>"
-                 f"<td class='num'>{f['fraction_walther']*100:.2f}% / {f['fraction_nilc_raw']*100:.2f}%</td>"
+                 f"<td class='num'>{f['fraction_walther']*100:.2f}%</td>"
                  f"<td><b class='red'>REVIEW — BBB</b></td>"
                  f"<td>{_esc(f['interpretation'])}</td></tr>")
-    return rows or ("<tr><td colspan='5' class='muted'>No blood-brain-barrier cells circulating. "
-                    "Epithelial, cycling and other shed cells in blood are normal and are not flagged here — "
-                    "see composition.</td></tr>")
+    return rows or ("<tr><td colspan='5' class='muted'>No barrier-restricted cells circulating, and no tissue "
+                    "cell present above its expected level. Tissue cells at expected levels are normal; CPG watches for "
+                    "any cell elevated well above expectation as a possible shedding signal, and scores its architecture "
+                    "when it is abundant enough to read — see composition.</td></tr>")
 
 
 def _composition_rows(bundle):
@@ -462,6 +460,12 @@ def _ascore_rows(bundle):
         frac = r.get("celltype_fraction")
         frac_txt = f"{frac*100:.1f}%" if frac is not None else "&#8212;"
         conf = r.get("fraction_tier", "indicative")
+        # vKISS noise fix: a wide A-CI = poorly-constrained (low-representation) reference
+        # (Microglia/Kupffer/thin aliases ~0.07 posterior sd vs ~0.004 for well-covered cells).
+        # Flag it so a thin-reference read is never mistaken for a confident finding.
+        _lo, _hi = r.get("A_ci_lo"), r.get("A_ci_hi")
+        if _lo is not None and _hi is not None and (_hi - _lo) > 0.05:
+            conf = "indicative \u00b7 thin reference"
         bbb = " <span class='tag-bbb'>BBB</span>" if ct in BBB_PROTECTED else ""
         rows += (f"<tr><td>{_esc(ct)}{bbb}</td><td>{_esc(cls)}</td>"
                  f"<td class='num'>{frac_txt}</td>"
@@ -545,13 +549,18 @@ def _confirmation_section(bundle):
                     else "no AD-direction flag &mdash; graded read only")
         ad_html = (
             "<h3>AD directional read <span class=\"meta\">(Stage 4.5 &mdash; composition-independent, sealed VAL-051 Rule A)</span></h3>"
-            "<p class=\"explain\"><b>What this is.</b> AD's immune signal is bidirectional &mdash; some CpGs up, others down "
-            "&mdash; so the pooled A-score cancels it and the residual matched filter (whose baseline carries cell composition) "
-            "false-fires it on healthy blood. This read instead z-scores 7 sealed CpGs against a frozen per-CpG reference and "
-            "multiplies by each CpG's frozen direction, so cell composition cannot leak in. AD is detected here, not in the sweep.</p>"
+            "<p class=\"explain\"><b>What this is.</b> Architecturally, AD is <b>suppression toward the H_min floor</b> &mdash; "
+            "advanced aging of informational fidelity, the cell&#39;s methylation drifting down toward its entropy floor (the AIBL "
+            "per-cell-type fan-out is uniformly negative: 20 significant suppressed cells, zero elevated). The reason we read it with a "
+            "sealed 7-CpG <b>directional panel</b> rather than the pooled A-score is purely statistical: at the individual-CpG level a "
+            "minority of sites move the other way, so they partly cancel in the <i>pooled</i> number. The panel z-scores 7 sealed CpGs "
+            "against a frozen per-CpG reference and multiplies by each CpG&#39;s frozen direction, so cell composition cannot leak in and "
+            "the suppression signal is not washed out. The composite below is a directional-panel score, <b>not an A-score</b>.</p>"
             f"<div style=\"background:#fff;border:1px solid var(--line);border-left:4px solid {_adcol};"
-            f"border-radius:0 8px 8px 0;padding:8px 14px;margin:8px 0\">Directional composite = "
-            f"<b style=\"color:{_adcol}\">{_comp:+.3f}</b> &middot; {_esc(adx.get('lean',''))} &middot; {_adstate}.</div>"
+            f"border-radius:0 8px 8px 0;padding:8px 14px;margin:8px 0\">Directional-panel score (not an A-score) = "
+            f"<b style=\"color:{_adcol}\">{_comp:+.3f}</b> &middot; {_esc(adx.get('lean',''))} &middot; {_adstate}."
+            f"<br><span class='meta'>Positive = toward the AD-suppression direction; negative = away from it (anti-AD / healthy lean). "
+            f"Flags only past |0.40|.</span></div>"
             "<p class=\"meta\">Reference is AIBL-trained: it discriminates within AIBL but does not transfer to other-platform "
             "cohorts. Flags only on a clear move (|composite| &gt; 0.40), so a non-transferring cohort is a miss, never a false "
             "alarm. The single-patient AD signal is diffuse (AUC ~0.67) &mdash; read this as a lean, not a call.</p>")
@@ -817,13 +826,8 @@ def _cell_census_table(bundle):
     collapsed, labelled section and are never fed to the disease matrix."""
     s4 = bundle["stage4"]
     cta = s4.get("celltype_ascores", {}) or {}
-    s2 = bundle.get("stage2") or {}
-    agreed = s2.get("celltype_agreed")
-    # agreed is a list when the cell-level agreement ran; None means it could not run
-    # (then we do not filter, to avoid hiding data on an error).
-    agreed_set = set(agreed) if agreed is not None else None
     LO, HI, MIN_SHOW = 0.95, 1.04, 10
-    present, noise, disagreed = [], [], []
+    present, noise, disagreed = [], [], []   # vKISS: no AND-gate; disagreed stays empty
     for ct, r in cta.items():
         a = r.get("A")
         if a is None or not _is_cell(ct):
@@ -831,10 +835,8 @@ def _cell_census_table(bundle):
         row = (ct, r.get("class"), r.get("celltype_fraction"), a, r.get("A_ci_lo"), r.get("A_ci_hi"))
         if r.get("below_floor"):
             noise.append(row)
-        elif agreed_set is not None and ct not in agreed_set:
-            disagreed.append(row)   # only one deconvolver resolved it -> excluded as noise
         else:
-            present.append(row)
+            present.append(row)   # vKISS: every above-floor cell is a present cell (Walther alone)
     present.sort(key=lambda x: -abs(x[3] - 1.0))
     departed = [p for p in present if p[3] < LO or p[3] > HI]
     normal = [p for p in present if LO <= p[3] <= HI]
@@ -859,8 +861,7 @@ def _cell_census_table(bundle):
             "<th>departure</th><th>where on gauge</th><th>direction</th><th>95% CI</th></tr>")
     vis_rows = "".join(_row(p) for p in visible) or \
         "<tr><td colspan='8' class='muted'>No present cells scored.</td></tr>"
-    intro_agree = ("Only cells <b>both deconvolvers agree on</b> are presented; a cell only one "
-                   "deconvolver resolved is excluded as noise. " if agreed_set is not None else "")
+    intro_agree = ""   # vKISS: no AND-gate, every above-floor cell is presented
     out = (f"<p class='meta'>{intro_agree}Every present cell, scored on its own &#8212; no class average. "
            f"{len(departed)} of {len(present)} present cells depart from the normal band "
            f"(A&nbsp;0.95&#8211;1.04), in either direction; a suppressed cell carries signal as much as an "
@@ -870,19 +871,13 @@ def _cell_census_table(bundle):
         out += (f"<details><summary>Show all {len(present)} present cells "
                 f"(+{len(collapsed)} more, within the normal band)</summary>"
                 f"<table><thead>{head}</thead><tbody>{''.join(_row(p) for p in collapsed)}</tbody></table></details>")
-    if disagreed:
-        disagreed.sort(key=lambda x: -abs(x[3] - 1.0))
-        out += (f"<details><summary>Excluded by deconvolver disagreement ({len(disagreed)}) &#8212; "
-                f"only one of the two deconvolvers resolved these, so they are treated as noise</summary>"
-                f"<p class='meta'>A cell is presented only when Walther and the per-cell NILC both resolve it. "
-                f"These were seen by one lens only and are not scored as present signal.</p>"
-                f"<table><thead>{head}</thead><tbody>{''.join(_row(p) for p in disagreed)}</tbody></table></details>")
+    # (deconvolver-disagreement exclusion removed in vKISS — no NILC, no AND-gate)
     if noise:
         noise.sort(key=lambda x: -abs(x[3] - 1.0))
         out += (f"<details><summary>Below-floor reads ({len(noise)}) &#8212; absent cells reading background, "
                 f"NOT present-cell signal, excluded from the disease match</summary>"
-                f"<p class='meta'>A tile below its class floor is an absent cell whose markers read background "
-                f"cfDNA, not that cell's own architecture. Shown for completeness; never fed to the matrix.</p>"
+                f"<p class='meta'>A tile below its class floor is an absent cell whose markers read background, "
+                f"not that cell's own architecture. Shown for completeness; never fed to the matrix.</p>"
                 f"<table><thead>{head}</thead><tbody>{''.join(_row(p) for p in noise)}</tbody></table></details>")
     return out
 
@@ -912,13 +907,22 @@ def _strawman_section(bundle):
     straw man is the honest per-cell view. Both walls are rendered by the sealed
     renderers (files untouched) and embedded in iframes so their styling stays isolated."""
     try:
-        root = Path(__file__).resolve().parent
-        cj_path  = root / "Crown Jewel and Patient Strawman" / "strawman_data_v2.json"
-        map_path = root / "Disease Matrix" / "DISEASE_MATRIX" / "iamatlas_115_to_matrix_v0_2_mapping.json"
-        rp_wall  = root / "builders" / "render_patient_wall.py"
-        rp_crown = root / "builders" / "render_strawman_v2.py"
-        if not (cj_path.exists() and map_path.exists() and rp_wall.exists()):
-            return ""  # straw man assets not shipped in this package; omit silently
+        import os
+        roots = [Path(__file__).resolve().parent,
+                 Path(os.environ.get("CPG_ENGINE_ROOT", "/home/claude/work/FILES FOR AI/CPG_CMB_v5"))]
+        def _find(*rel):
+            for r in roots:
+                for rp in rel:
+                    p = r / rp
+                    if p.exists():
+                        return p
+            return None
+        cj_path  = _find("builders/strawman_data_v2.json", "Crown Jewel and Patient Strawman/strawman_data_v2.json")
+        map_path = _find("Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json")
+        rp_wall  = _find("builders/render_patient_wall.py")
+        rp_crown = _find("builders/render_strawman_v2.py")
+        if not (cj_path and map_path and rp_wall):
+            return ""  # straw man assets not found; omit silently
         CJ = json.loads(cj_path.read_text())
         mapping = json.loads(map_path.read_text())["mapping"]
 
@@ -976,8 +980,8 @@ def _strawman_section(bundle):
         # ---- 3. assemble the data dict render_patient_wall.py expects as D ----
         ctx = bundle.get("context", {}) or {}
         stress = bundle.get("systemic_stress") or {"level": "NONE", "n_axis_cells": 0, "mean_magnitude": 0}
-        D = {"patient_id": bundle.get("patient_id", ""), "substrate": ctx.get("substrate", ""),
-             "age": ctx.get("age", ""), "sex": ctx.get("sex", ""),
+        D = {"patient_id": bundle.get("patient_id") or "", "substrate": ctx.get("substrate") or "",
+             "age": ctx.get("age") or "", "sex": ctx.get("sex") or "",
              "patient_cells": patient_cells, "stress": stress,
              "flagged": flagged, "flagged_rows": cj_rows,
              "verdict": s5.get("overall_verdict", "") or "",
@@ -988,7 +992,12 @@ def _strawman_section(bundle):
             'D=json.load(open("/home/claude/patient_wall_data.json"))',
             'open("/home/claude/IAM_Patient_StrawMan.html","w").write(HTML)'])
         crown_wall = ""
-        if rp_crown.exists():
+        crown_v3 = _find("Crown Jewel and Patient Strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html",
+                         "outputs/IAM_Disease_Wall_CROWN_JEWEL_v3.html",
+                         "IAM_Disease_Wall_CROWN_JEWEL_v3.html")
+        if crown_v3:
+            crown_wall = crown_v3.read_text(encoding="utf-8")   # the sealed v1_13 wall, embedded as-is
+        elif rp_crown.exists():
             crown_wall = _exec_render(rp_crown, {"D": CJ}, [
                 'D=json.load(open("/home/claude/strawman_data_v2.json"))',
                 'open("/home/claude/IAM_Disease_Wall_strawman_v2.html","w").write(HTML)'])
@@ -1015,6 +1024,61 @@ def _strawman_section(bundle):
         return "\n".join(out)
     except Exception as e:
         return f'<div class="caveat">Straw man pattern view unavailable: {_html.escape(str(e))}</div>'
+
+
+
+def _plate_thumb_b64(path, width=520):
+    """Downscale a sky-map plate to a small base64 PNG for the folded Stage 4.6 showcase."""
+    try:
+        from PIL import Image
+        import io, base64
+        im = Image.open(path).convert("RGB")
+        if im.width > width:
+            im = im.resize((width, int(im.height * width / im.width)))
+        buf = io.BytesIO(); im.save(buf, format="PNG", optimize=True)
+        return base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        return None
+
+
+def _cosmic_methylome_section(bundle, plate_path=None):
+    """Stage 4.6 — the Cosmic Methylome Background, folded (AstroGenetics showcase).
+    Full per-patient 8-panel Mollweide sky map renders on the production box (healpy + the
+    cpg->HEALPix NSIDE=128 mapping); here we show the reference background and the framing."""
+    thumb = _plate_thumb_b64(plate_path) if plate_path else None
+    img = (f"<img alt='Cosmic Methylome Background' style='max-width:100%;border:1px solid var(--line);"
+           f"border-radius:8px;margin:8px 0' src='data:image/png;base64,{thumb}'>" if thumb else
+           "<p class='meta'>[reference plate renders on the production box]</p>")
+    return (
+        "<details><summary><b>Cosmic Methylome Background</b> &#8212; your methylome on the celestial sphere "
+        "(AstroGenetics companion)</summary>"
+        "<p>We are the first to map and score the methylome with the visualization tools of cosmology. "
+        "Each architecture class's per-CpG posterior mean (the MCMC-built IAMAtlas) is projected onto a "
+        "HEALPix NSIDE=128 Mollweide sky &#8212; the same equal-area, full-sky convention used for the cosmic "
+        "microwave background. The reference below is the healthy <b>Cosmic Methylome Background</b>.</p>"
+        f"{img}"
+        "<p class='meta'>The per-patient view projects this patient's per-class z-score departure "
+        "(&beta;<sub>patient</sub> &#8722; &mu;<sub>class</sub>)/&sigma;<sub>class</sub> onto the same grid &#8212; "
+        "an 8-panel personal sky map of where their methylation departs from healthy. It renders on the "
+        "production box (healpy + the cpg&#8594;HEALPix mapping). Same MCMC posteriors that set every A-score's "
+        "95% CI above.</p></details>")
+
+
+def _how_cpg_works_section():
+    """The AstroGenetics method explainer, folded. Reads the prose from the sealed HTML file so it
+    can be edited independently of the builder."""
+    import os, re as _re
+    from pathlib import Path as _P
+    for r in [_P(__file__).resolve().parent,
+              _P(os.environ.get("CPG_ENGINE_ROOT", "") or "."),
+              _P(os.environ.get("CPG_ROOT", "") or ".")]:
+        p = r / "CPG_AstroGenetics_explainer_section.html"
+        if p.exists():
+            html = _re.sub(r"<!--.*?-->", "", p.read_text(encoding="utf-8"), flags=_re.S)
+            html = _re.sub(r"<h2>.*?</h2>", "", html, count=1, flags=_re.S)  # summary supplies the title
+            return ("<details class=\"howworks\"><summary><b>How CPG works</b> "
+                    "&#8212; the AstroGenetics method</summary>" + html + "</details>")
+    return ""
 
 
 def build_report(bundle, out_path=None):
@@ -1101,6 +1165,14 @@ def build_report(bundle, out_path=None):
     tissue_of_origin_html = _tissue_of_origin_section(bundle)
     disease_card_html = _disease_card_section(bundle)
     strawman_html = _strawman_section(bundle)
+    # Stage 4.6 — Cosmic Methylome Background (folded). Resolve the reference plate if present.
+    from pathlib import Path as _P
+    _plate = None
+    for _c in [_P(__file__).parent / "AstroGenetics_and_NullSuite_assets/Mollweide & Brightness Comparison/Plates/SkyMaps of the Methylome/CPG_Plate_01_Cosmic_Methylome_Background.png",
+               _P("Biological_Physics/atlas_vault/IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png")]:
+        if _c.exists(): _plate=str(_c); break
+    cosmic_methylome_html = _cosmic_methylome_section(bundle, _plate)
+    how_cpg_works_html = _how_cpg_works_section()
     _shed_note = ("In plasma cfDNA, shed epithelial, cycling and other tissue cells ARE the tissue-of-origin "
                   "signal and are surfaced in the Tissue-of-origin section above; Mode 2 BBB flagging still applies."
                   if _is_cfdna(bundle) else
@@ -1150,24 +1222,18 @@ age {_esc(ctx.get('age'))} · sex {_esc(ctx.get('sex'))} · substrate {_esc(ctx.
 <h2>Executive summary</h2>
 <ul class="exec">{exec_lines}</ul>
 
+{how_cpg_works_html}
+
 <h2>How to read this report <span class="meta">(for the clinician and for a future AI)</span></h2>
 <div class="method">
-<p>CPG asks <b>two detection questions</b> — the two modes below. It answers each with two independent deconvolvers (Walther and NILC), on whichever substrate it is given (whole blood or cfDNA plasma), and adds a confirmation chain — derived global-departure adjudication, and trajectory across visits — whenever a pattern flags or a prior draw exists. A finding in either mode is worth attention; they answer different questions.</p>
-<p><b>Two deconvolvers, by design.</b> A blood sample is a mixture of dozens of cell types, so before anything else CPG
-has to estimate how much of each is present from the bulk methylation signal — a step called <b>deconvolution</b>. CPG
-runs this twice, with two methods built on different mathematics. The first (<b>Walther</b>, a constrained fit) is
-deliberately conservative: it will not report a cell unless the evidence forces it, so faint traces are floored to zero.
-That gives the <b>reliable composition</b> the rest of the report stands on. The second (<b>NILC</b>, adapted from the
-variance-weighted technique used to clean cosmic-microwave-background maps) is deliberately sensitive: it surfaces the
-faint shed signal the conservative fit suppresses. Where the two agree, confidence is high. Where they disagree, the
-disagreement is itself information — it is how a cell quietly shedding into blood gets caught early. Two lenses, each
-catching what the other can miss; neither alone would be as trustworthy as the pair.</p>
+<p>CPG asks <b>two detection questions</b> — the two modes below — from a single <b>whole-blood</b> draw, and adds a confirmation chain (derived global-departure adjudication, and trajectory across visits) whenever a pattern flags or a prior draw exists. A finding in either mode is worth attention; they answer different questions.</p>
+<p><b>The deconvolver answers one question only: what cells are in the mix.</b> A blood sample is a mixture of dozens of cell types, so CPG first estimates how much of each is present from the bulk methylation signal (a step called <b>deconvolution</b>, the Walther constrained fit). This resolves the composition so the per-cell reads below are real cells, not bulk-mixture background. <b>It never fires the detection call</b> — the call is the A-score read straight from the methylation, and the derived healthy hull. Composition informs; it does not decide.</p>
 <p><b>Mode 1 — Architectural concordance.</b> Each cell gets an <b>A-score</b>, a derived measure of how far its
 methylation architecture has walked from its healthy floor (A ≈ 1.0 by derivation; no cohort, no population). The
 pattern of those departures across cells is compared to each disease's signature by <b>scale-invariant cosine</b>
 — the angle between the patient's departure vector and the signature, so absolute magnitudes never need converting and
 nothing standardizes the patient against a population. This is the workhorse for field-effect and systemic disease,
-whose signal sits in the <b>abundant immune cells we can score cleanly</b>. A-scores are produced on whichever substrate is run: in whole blood, the immune and shed cells abundant enough to score; in cfDNA plasma, the run-everything pass scores every class the plasma actually carries. It reports <b>resemblance, not a
+whose signal sits in the <b>abundant immune cells we can score cleanly</b>. A-scores are produced from whole blood — the immune compartment and any shed cells abundant enough to score. It reports <b>resemblance, not a
 probability</b>: v1 can recognize that a pattern looks like a template learned in validation cohorts; the calibrated
 magnitude that would turn resemblance into "this stage of this disease" only accrues from real patients over years, in
 our own derived A-units. Direction agreement is the coarse gate; cosine shape is the fine discriminator (it is what
@@ -1180,8 +1246,7 @@ refer. Every other cell that can shed into blood — epithelial/secretory (breas
 a normal baseline. <b>Detecting them is not abnormal</b>; we detect and, when abundant enough, score them routinely. So
 their presence is normal composition (see the composition table), and the A-score is the discriminator only when the
 cell is abundant enough to score. A cell at ~1% is ~99% blood, so its architecture cannot be scored from the bulk signal
-— we detect such a cell's presence but do not assign it an A-score. The sensitive front end is the unconstrained NILC
-deconvolver, which surfaces faint shed signal the constrained fit floors to zero.</p>
+— we flag such a cell's presence as a barrier-breach. The sensitive front end is the cell's own <b>A-score</b>: VAL-090 showed the A-score catches a shed cortical neuron (1.292%) that the deconvolver fraction nulls — the A-score, not a fraction, is the shed-cell detector.</p>
 <p><b>Confidence intervals</b> on every A-score are derived from the atlas's own MCMC posteriors (the 8 per-class
 per-CpG brightness tables), not from a cohort. <b>Trajectory:</b> this report stores the patient's derived departure
 vector as a baseline; a second or third test compares drift toward a signature's angle, which is a far stronger signal
@@ -1193,9 +1258,8 @@ than any single snapshot.</p>
 <tbody>{_mode1_rows(bundle)}</tbody></table>
 
 <h2>Mode 2 — Cell-of-origin presence</h2>
-<table><thead><tr><th>Class</th><th>Observed</th><th>Walther / NILC-raw</th><th>Severity</th><th>Interpretation</th></tr></thead>
+<table><thead><tr><th>Class</th><th>Observed</th><th>Presence</th><th>Severity</th><th>Interpretation</th></tr></thead>
 <tbody>{_mode2_rows(bundle)}</tbody></table>
-<p class="meta">NILC-raw rescued — faint shed signal the conservative fit floored to zero, shown as % of the mixture: {rescued_txt}. Each is below the scoring floor (too dilute to read its own architecture from the bulk signal), so it is reported as <b>presence only</b>, not assigned an A-score.</p>
 {tissue_of_origin_html}
 {disease_card_html}
 
@@ -1204,6 +1268,7 @@ than any single snapshot.</p>
 {trajectory_html}
 {departure_html}
 {cell_census_html}
+{cosmic_methylome_html}
 {confirmation_html}
 {strawman_html}
 
@@ -1216,7 +1281,7 @@ Healthy cells land at A&#8776;1.0 when the patient beta is on the atlas scale. {
 <details><summary>Machine-readable snapshot (for a future AI)</summary>
 <pre>{_esc(json.dumps(snapshot, indent=2, default=str))}</pre></details>
 
-<div class="foot">CPG v1 · two detection modes · two deconvolvers (Walther + NILC) · whole blood + cfDNA · derived A-score, no cohort · MCMC-derived CI · matched-filter + trajectory confirmation · flags and refers, not diagnostic</div>
+<div class="foot">CPG vKISS · two detection modes · one deconvolver (Walther — composition/presence, gates no call) · whole blood · derived A-score + healthy hull, no cohort · MCMC-derived CI · matched-filter + trajectory confirmation · flags and refers, not diagnostic</div>
 </div></body></html>"""
 
     if out_path:
