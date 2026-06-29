@@ -1286,6 +1286,8 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
     except Exception as e:
         bundle["stage5"] = {"fired": None, "error": f"second chain not run: {e}"}
 
+    # carry the calibrated beta so Stage 4.6 can render the patient Cosmic Methylome
+    bundle["patient_beta"] = beta_calibrated
     return bundle
 
 
