@@ -1042,26 +1042,61 @@ def _plate_thumb_b64(path, width=520):
 
 
 def _cosmic_methylome_section(bundle, plate_path=None):
-    """Stage 4.6 — the Cosmic Methylome Background, folded (AstroGenetics showcase).
-    Full per-patient 8-panel Mollweide sky map renders on the production box (healpy + the
-    cpg->HEALPix NSIDE=128 mapping); here we show the reference background and the framing."""
-    thumb = _plate_thumb_b64(plate_path) if plate_path else None
-    img = (f"<img alt='Cosmic Methylome Background' style='max-width:100%;border:1px solid var(--line);"
-           f"border-radius:8px;margin:8px 0' src='data:image/png;base64,{thumb}'>" if thumb else
-           "<p class='meta'>[reference plate renders on the production box]</p>")
+    """Stage 4.6 — the patient's Cosmic Methylome Background, rendered here.
+
+    Projects this patient's per-class departure z = (beta - mu_class)/sd_class onto a HEALPix
+    Mollweide sky. sd_class is the atlas per-CpG biological spread (it scales with locus lability),
+    so z reads departure relative to how much a healthy person varies, not reference precision.
+    Classes the blood does not contain read as a uniform offset and are labeled reference-only.
+    """
+    import os, base64, tempfile
+    from pathlib import Path as _P
+    patient_img = None; present = None
+    beta = bundle.get("patient_beta")
+    if beta is not None:
+        try:
+            import cpg_patient_cmb as _cmb
+            root = _P(os.environ.get("CPG_ENGINE_ROOT") or os.environ.get("CPG_ROOT") or ".")
+            csv = root / "IAM_Atlas" / "IAMAtlasREBUILD.csv"
+            xz = root / "IAM_Atlas" / "IAMAtlasREBUILD.csv.xz"
+            if not csv.exists() and xz.exists():
+                import lzma, shutil
+                with lzma.open(xz) as fi, open(csv, "wb") as fo:
+                    shutil.copyfileobj(fi, fo)
+            if csv.exists():
+                atlas = _cmb.load_atlas_mean_sd(str(csv))
+                cmb, _pix = _cmb.compute_patient_cmb(beta, atlas)
+                tmp = _P(tempfile.gettempdir()) / f"cmb_{bundle.get('patient_id','patient')}.png"
+                _cmb.render_patient_cmb(cmb, str(tmp), str(bundle.get("patient_id", "patient")))
+                present = [c for c in _cmb.CLASSES if cmb[c]["assessable"]]
+                patient_img = base64.b64encode(tmp.read_bytes()).decode()
+        except Exception:
+            patient_img = None
+    ref_thumb = _plate_thumb_b64(plate_path) if plate_path else None
+    blocks = []
+    if patient_img:
+        blocks.append("<img alt='Personal Cosmic Methylome' style='max-width:100%;border:1px solid "
+                      f"var(--line);border-radius:8px;margin:8px 0' src='data:image/png;base64,{patient_img}'>")
+        blocks.append("<p class='meta'>Assessable from this whole-blood draw: <b>"
+                      f"{_esc(', '.join(present))}</b>. Panels for tissue not present in blood are greyed "
+                      "and labeled reference-only &#8212; a uniform offset there is the absence of that tissue, "
+                      "not a finding.</p>")
+    elif ref_thumb:
+        blocks.append("<img alt='Cosmic Methylome Background' style='max-width:100%;border:1px solid "
+                      f"var(--line);border-radius:8px;margin:8px 0' src='data:image/png;base64,{ref_thumb}'>")
     return (
-        "<details><summary><b>Cosmic Methylome Background</b> &#8212; your methylome on the celestial sphere "
+        "<details><summary><b>Cosmic Methylome Background</b> &#8212; this methylome on the celestial sphere "
         "(AstroGenetics companion)</summary>"
-        "<p>We are the first to map and score the methylome with the visualization tools of cosmology. "
-        "Each architecture class's per-CpG posterior mean (the MCMC-built IAMAtlas) is projected onto a "
-        "HEALPix NSIDE=128 Mollweide sky &#8212; the same equal-area, full-sky convention used for the cosmic "
-        "microwave background. The reference below is the healthy <b>Cosmic Methylome Background</b>.</p>"
-        f"{img}"
-        "<p class='meta'>The per-patient view projects this patient's per-class z-score departure "
-        "(&beta;<sub>patient</sub> &#8722; &mu;<sub>class</sub>)/&sigma;<sub>class</sub> onto the same grid &#8212; "
-        "an 8-panel personal sky map of where their methylation departs from healthy. It renders on the "
-        "production box (healpy + the cpg&#8594;HEALPix mapping). Same MCMC posteriors that set every A-score's "
-        "95% CI above.</p></details>")
+        "<p>CPG is the first to map and score the methylome with the visualization tools of cosmology. Each "
+        "architecture class is projected onto a HEALPix NSIDE=128 Mollweide sky &#8212; the equal-area, full-sky "
+        "convention used for the cosmic microwave background. The map below is this patient's personal sky: each "
+        "panel shows the per-CpG departure z = (&beta;<sub>patient</sub> &#8722; &mu;<sub>class</sub>) / "
+        "&sigma;<sub>class</sub>, where &sigma;<sub>class</sub> is the atlas per-CpG spread &#8212; how much a "
+        "healthy person varies at that locus &#8212; so z reads departure relative to healthy biological "
+        "variation, not reference precision.</p>"
+        + "".join(blocks) +
+        "<p class='meta'>The assessable panels are the detector; the matched-filter and hull adjudication above "
+        "act on these same departures. Same MCMC-built IAMAtlas that sets every A-score's 95% CI.</p></details>")
 
 
 def _how_cpg_works_section():
