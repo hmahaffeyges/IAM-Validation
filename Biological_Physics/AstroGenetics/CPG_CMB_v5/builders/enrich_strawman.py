@@ -5,7 +5,7 @@ C2C=json.load(open(f"{ROOT}/IAM_Atlas/IAMAtlasREBUILD_celltype_to_class.json"))
 MAP=json.load(open(f"{ROOT}/Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json"))
 mapping=MAP["mapping"]
 lens=json.load(open(f"{ROOT}/Disease Cards : Residual Maps/Immune_Atlas/immune-atlas_card_v2_0.json"))["disease_immune_lens"]["entries"]
-mrows=list(csv.DictReader(open(f"{ROOT}/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_8.csv")))
+mrows=list(csv.DictReader(open(f"{ROOT}/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv")))
 
 # index lens + matrix meta by matrix_row_id (1-based row order == disease_rows order)
 lens_by_idx={int(e["meta_matrix_row_id"]) if "meta_matrix_row_id" in e else int(e.get("matrix_row_id", e.get("matrix_row_id",0))):e for e in lens}

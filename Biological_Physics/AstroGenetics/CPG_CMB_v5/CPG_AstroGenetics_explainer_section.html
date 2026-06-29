@@ -1,0 +1,102 @@
+<!-- ============================================================================
+  CPG report — "How CPG works" (AstroGenetics method). Professional, third-person.
+  Drop-in HTML fragment using the report's existing classes.
+  ========================================================================== -->
+
+<h2>How CPG works <span class="meta">(the AstroGenetics method)</span></h2>
+
+<div class="method">
+
+<p><b>The central idea.</b> For the past two decades, the most precise measurement tools in science
+were developed by cosmologists to read a faint glow left over from the origin of the universe. CPG
+applies those same tools to the methylation pattern in a single tube of blood. This approach &#8212;
+using the instruments of cosmology to map and score the methylome &#8212; is called <b>AstroGenetics</b>,
+and as far as is known it has not been done before.</p>
+
+<h3>What is being read</h3>
+<p>Every cell in the body carries the same DNA, yet a neuron and a white blood cell behave nothing alike.
+The difference is <b>methylation</b>: chemical tags on the DNA that switch genes on and off, defining what
+a cell is and how well it is holding that identity. CPG reads roughly 450,000 of these sites from one
+blood draw. The question it asks of each cell is not what its DNA is, but how far that cell&#8217;s identity
+has drifted from a healthy reference.</p>
+
+<h3>Where the method came from: the cosmic microwave background</h3>
+<p>Shortly after the Big Bang, the universe filled with light. That light persists today as a faint
+microwave glow arriving from every direction &#8212; the <b>cosmic microwave background</b> (CMB). It
+appears perfectly smooth, yet it contains differences of roughly <b>one part in 100,000</b>, and the
+structure and history of the universe is encoded in those minute variations. They cannot be seen directly.
+Over decades, cosmologists built an arsenal of statistical instruments &#8212; full-sky maps, matched
+filters, and rigorous treatment of uncertainty &#8212; to extract a real signal from what looks like noise.
+The <b>Planck space telescope</b> &#8212; the mission that mapped the CMB across the entire sky with
+extraordinary precision &#8212; is the defining example. AstroGenetics adapts that arsenal. The methylome
+behaves like the same kind of object: a healthy cell sits almost exactly where it should, and disease often
+appears as differences just as faint as the CMB&#8217;s. The appropriate response is not to inspect the map
+and hope, but to apply the tools built for precisely this problem.</p>
+
+<h3>The atlas and its uncertainty layer</h3>
+<p>Before drift can be measured, the location of healthy must be known &#8212; for every cell type, at every
+one of the ~450,000 sites. That reference is the <b>IAMAtlas</b>, and it was not built by averaging. An
+average gives a single number and no idea how trustworthy it is. <b>MCMC</b> (Markov chain Monte Carlo)
+instead returns, for every site in every cell type, a full probability distribution &#8212; a
+<b>posterior</b> &#8212; so that not only the healthy value is known but exactly how sure that value is, and
+how the cells move together (their <b>covariance</b>). Running that across half a million epigenetic markers
+in more than 115 types of cells required more than <b>500 hours of continuous computation</b>. The payoff is
+the layer no one else in methylation has: every score CPG reports carries an honest <b>95% confidence
+interval</b> drawn straight from the atlas&#8217;s own posteriors. A poorly-constrained cell returns a wide
+interval and is treated with caution; a well-constrained one returns a tight interval. The uncertainty is
+not an afterthought &#8212; it is built in, the same discipline the Planck telescope brought to mapping the
+universe&#8217;s oldest light.</p>
+
+<h3>Why the IAMAtlas is more than an atlas with error bars</h3>
+<p>The IAMAtlas is the <b>first reference of its kind derived from the laws of physics</b> rather than
+assembled from population studies. A conventional reference must be recalibrated for each population &#8212;
+hundreds of thousands of participants studied over many years &#8212; and even then it recovers only a
+<i>direction</i>, the similarities shared across a large group. The IAMAtlas requires none of that. It can
+be applied to a single person, at any time, anywhere humans exist. It does not measure a sick individual
+against a large group of study participants constrained to particular parameters; it measures a person
+against <b>their own cellular operating range, set by the cell itself</b>. One person or fifty, young or
+old, American or Chinese, cancer patient or Olympic athlete &#8212; it does not matter, because human
+biology fixed that operating range millions of years ago, and CPG simply reads the operator&#8217;s manual,
+which specifies a range for each cell. In summary: a single atlas, more than <b>150 validation tests</b> to
+date, more than <b>80 distinct patterns</b> detected across many cancers and other diseases at various
+stages of progression &#8212; all from one reference. A cohort-based approach would need dozens of separate
+references, each recalibrated for its own study and its own measured cells, in place of one covering all
+115 cell types.</p>
+
+<h3>Two jobs, and the line that is never crossed</h3>
+<p>CPG performs two very different tasks, and keeping them separate is the central discipline of the method.</p>
+<p><b>Measuring a person&#8217;s state is physics, and it is self-calibrating.</b> Each cell receives an
+<b>A-score = H(&#946;) / H<sub>min</sub></b>: that cell&#8217;s own methylation <i>entropy</i> (a measure of
+how scrambled its identity has become) divided by a fixed <b>informational floor</b> derived from first
+principles &#8212; the lowest order a cell of that type can hold and still be that cell. A healthy cell reads
+about <b>1.0</b>; drift toward the floor, or a breach upward, appears as movement away from 1.0. Nothing in
+that calculation asks how the person compares to a group of others. It asks how far the cell sits from its
+<i>own</i> floor. Because the number is intrinsic to the person, it <b>transfers</b> &#8212; across
+instruments, populations, and laboratories. This is the part of the method that is never compromised.</p>
+<p><b>Learning what a disease looks like is empirical &#8212; but it enters as a direction, never as a
+baseline.</b> Physics cannot say which way Alzheimer&#8217;s pushes the immune compartment; that can only be
+learned by studying people who have it, and such knowledge is unavoidably cohort-derived. The discipline is
+in how it is admitted: a disease cohort may supply a <b>direction</b> &#8212; a sign indicating which way a
+condition moves a set of cells &#8212; and nothing more. A direction indicates where to look; it is never
+permitted to become the ruler a patient is measured against. That ruler is always the derived one: the
+IAMAtlas, the informational floor, the expectation that healthy is 1.0. The moment a cohort&#8217;s mean and
+spread become the standard a patient is measured against, the line between physics and cohort methodology has
+been crossed &#8212; and the known consequence is a model that works only in the population it came from and
+weakens elsewhere. Methods such as GRAIL and the methylation aging clocks measure a person against a
+cohort&#8217;s distribution; CPG measures a person against a derived floor, which is why a CPG A-score is
+intended to mean the same thing for a patient anywhere.</p>
+
+<h3>What CPG looks for</h3>
+<p>Two things, together. The first is <b>shape</b>: whether a person&#8217;s cellular departures point, as a
+pattern, the way a known condition points. The second, equally important, is <b>amount</b>: CPG measures how
+much of each cell type is present against how much is expected, and <b>any</b> cell sitting well above its
+expected level warrants attention &#8212; because an elevated tissue cell can indicate that tissue is
+<b>shedding into the blood</b>, which can be an early sign of a growing tumor. When a shed cell is abundant
+enough for its architecture to be read, CPG scores it with the A-score as well. The method does not only
+search for cells that should not be present in blood; it watches for any cell at a level the body does not
+expect.</p>
+
+<p class="meta">CPG flags and refers; it does not diagnose. The material above is the method, not a verdict.
+The verdict is the patient&#8217;s A-scores read against the reference gauge by a clinician.</p>
+
+</div>
