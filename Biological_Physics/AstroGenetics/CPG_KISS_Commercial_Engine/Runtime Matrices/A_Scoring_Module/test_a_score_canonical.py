@@ -1,10 +1,17 @@
 """Canonical A-score fail-safe.
 
-Guards the one invariant that matters: A = H(beta_mean) / H_min(class) is the
-ENTROPY OF THE MEAN beta across the panel -- NOT the mean of the per-CpG
-entropies. Those two agree only when every beta is identical (e.g. a uniform
-beta=0.5 input), which is exactly why the old uniform self-test passed while the
-production aggregation was backwards.
+Guards the one invariant that matters: A = mean_i( H(beta_i) / H_min(class) ) is
+the MEAN OF THE PER-CpG ENTROPIES across the panel -- NOT H(beta_mean), the
+entropy of the mean beta. Those two agree only when every beta is identical
+(e.g. a uniform beta=0.5 input), which is exactly why the old uniform self-test
+passed while a backwards aggregation could still ship.
+
+CORRECTED v1.4.0 (2026-06-30, SOP LESSON-ASCORE-02 / §105): a prior version of
+this fail-safe asserted the H(beta_mean) form as canonical and would have BLOCKED
+the validated module. The validated instrument -- the one that reproduces the
+sealed GSE51032 anchor (115/115 A-scores, 460/460 Mahalanobis, Cohen's d +2.088)
+-- computes the mean of per-CpG entropies. Any build that does not reproduce that
+anchor is wrong by definition.
 
 Run: python test_a_score_canonical.py   (exits non-zero on any failure)
 Wire into startup / CI so a regression in the scoring math can never ship again.
@@ -49,17 +56,22 @@ def check():
             fails.append(f"{name}: A={a:.3f}, canonical reference says {expected:.3f}")
 
     # 2. THE BIMODAL GUARD -- the test the old uniform self-test could not be.
-    #    Half the panel at 0.05, half at 0.95 -> mean beta = 0.5 -> A must be
-    #    H(0.5)/H_min = 1/H_min (the ceiling). If the module averages per-CpG
-    #    entropies instead, it returns H(0.05)/H_min ~ 0.37 and this fails loudly.
+    #    Half the panel at 0.05, half at 0.95. Each locus is locked (low entropy),
+    #    so the CORRECT mean-of-per-CpG score is H(0.05)/H_min ~ 0.371. The BROKEN
+    #    H(beta_mean) form would average beta to 0.5 first and return the ceiling
+    #    1/H_min ~ 1.294 -- a healthy locked panel reading as max disorder (the
+    #    false-breach regression). This guard fails loudly if the module reverts to
+    #    entropy-of-the-mean.
     bimodal = [0.05] * 15 + [0.95] * 15
     a_bim = _score(bimodal, H_MIN["terminal"])
-    ceiling = 1.0 / H_MIN["terminal"]  # 1.294
-    if abs(a_bim - ceiling) > 0.02:
+    correct_mean_of_H = _H(0.05) / H_MIN["terminal"]   # ~0.371
+    broken_ceiling = 1.0 / H_MIN["terminal"]           # ~1.294
+    if abs(a_bim - correct_mean_of_H) > 0.02:
         fails.append(
-            f"AGGREGATION REGRESSION: bimodal panel (mean beta=0.5) gave A={a_bim:.3f}; "
-            f"must be H(mean)/H_min={ceiling:.3f}. A value near 0.37 means the module is "
-            f"averaging per-CpG entropies instead of taking the entropy of the mean beta."
+            f"AGGREGATION REGRESSION: bimodal panel (each locus locked) gave A={a_bim:.3f}; "
+            f"correct mean-of-per-CpG = H(0.05)/H_min = {correct_mean_of_H:.3f}. A value near "
+            f"the ceiling {broken_ceiling:.3f} means the module took the entropy of the mean "
+            f"beta (H(beta_mean)) -- the regression. See SOP LESSON-ASCORE-02 (§105)."
         )
 
     # 3. Ceiling invariant: A never exceeds 1/H_min.
