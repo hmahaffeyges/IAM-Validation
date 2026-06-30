@@ -166,12 +166,58 @@ def load_artifact(artifact_path: str) -> Tuple[Dict, Dict, Dict, Dict]:
     )
 
 
+def regression_guard_bimodal():
+    """LESSON-ASCORE-02 guard (SOP v1.4.0 §105).
+
+    The A-score MUST be mean_i(H(beta_i)/H_min) -- the mean of per-CpG
+    entropies -- NEVER H(beta_mean)/H_min. This guard scores a known bimodal
+    panel and asserts the mean-of-per-CpG value. Any build that reverts to the
+    entropy-of-the-mean form (the 2026-06-11 regression) fails here.
+    """
+    import pandas as _pd
+    import math as _math
+
+    def _H(b):
+        if b <= 0.0 or b >= 1.0:
+            return 0.0
+        return -b * _math.log2(b) - (1 - b) * _math.log2(1 - b)
+
+    h_min = 0.84  # representative class floor, illustrative
+    # Bimodal locked panel: 50 loci locked low, 50 locked high (a normal marker panel,
+    # well above MIN_MARKERS_FOR_SCORING). beta_mean lands at 0.5 -> the H(beta_mean)
+    # trap reads max entropy, while mean-of-per-CpG correctly reads the locked floor.
+    cpgs = [f"cg_lo_{i}" for i in range(50)] + [f"cg_hi_{i}" for i in range(50)]
+    betas = _pd.Series([0.1] * 50 + [0.9] * 50, index=cpgs)
+
+    result = _score_one(betas, cpgs, h_min)
+    got = result["A"]
+
+    expected_mean_of_H = sum(_H(b) / h_min for b in betas.values) / len(betas)  # ~0.4690/0.84
+    broken_H_of_mean = _H(float(betas.mean())) / h_min                          # H(0.5)/0.84 = 1/0.84
+
+    assert abs(got - expected_mean_of_H) < 1e-9, (
+        f"A-SCORE REGRESSION: got A={got:.6f}, expected mean-of-per-CpG-entropies "
+        f"{expected_mean_of_H:.6f}. The formula must be mean_i(H(beta_i)/H_min), "
+        f"not H(beta_mean)/H_min. See SOP v1.4.0 LESSON-ASCORE-02 (§105)."
+    )
+    assert abs(got - broken_H_of_mean) > 0.4, (
+        f"A-SCORE REGRESSION: got A={got:.6f}, which matches the BROKEN "
+        f"H(beta_mean)/H_min={broken_H_of_mean:.6f}. See SOP v1.4.0 §105."
+    )
+    return got, expected_mean_of_H, broken_H_of_mean
+
+
 if __name__ == "__main__":
+    # Regression guard runs FIRST, always, with no artifact required.
+    _g, _exp, _broken = regression_guard_bimodal()
+    print(f"[regression_guard] bimodal panel A={_g:.4f} == mean-of-per-CpG {_exp:.4f} "
+          f"(broken H(beta_mean) would be {_broken:.4f}) -- PASS")
+
     # Self-test: load the artifact and score a synthetic uniform-beta patient
     import sys
     if len(sys.argv) < 2:
         print("Usage: python iamatlas_a_scoring.py <path_to_iamatlas_celltype_markers_v0_1.json>")
-        sys.exit(1)
+        sys.exit(0)
     meta, ct_markers, cmap, hmin = load_artifact(sys.argv[1])
     print(f"Artifact: {meta['artifact_id']}")
     print(f"  source_atlas:    {meta['source_atlas']}")
