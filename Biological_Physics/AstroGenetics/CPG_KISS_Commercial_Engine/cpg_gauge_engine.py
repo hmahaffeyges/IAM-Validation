@@ -34,15 +34,15 @@ TWO AXES  (age matters — the root of the A-score methodology)
     A <  A_p10(class,age)     BELOW BAND
     A_p10 <= A <= A_p90       IN BAND
     A >  A_p90(class,age)     ABOVE BAND
-  SEVERITY — absolute physics ladder; the low end is age-relative:
-    far below age p10         INVERSION  — legitimate identity loss (seminoma
-                                0.67, senescence, aged HSC). A finding, not error.
-    mildly below age p10      SUPPRESSED
-    in band .. 1.01           NORMAL
-    1.01 <= A < 1.05          MARGINAL
-    1.05 <= A < 1.07          DETECTABLE
-    1.07 <= A < 1.10          URGENT
+  SEVERITY — elevation alarm ladder (Issue 002); the tier, not the placement:
     A >= 1.10                 FLOOR BREACH   (ceiling at 1/H_min)
+    1.07 <= A < 1.10          URGENT
+    1.05 <= A < 1.07          DETECTABLE
+    1.01 <= A < 1.05          MARGINAL
+    below 1.01                NORMAL         — fidelity maintained, including a
+                                mild dip below the age cohort (not an alarm)
+    far below the age cohort  INVERSION      — legitimate identity loss (seminoma
+                                0.67, senescence, aged HSC). A finding, not error.
 
 INPUT SCALE
 -----------
@@ -230,14 +230,12 @@ def placement(A: float, cls: str, age: Optional[int]) -> str:
 
 
 def tier(A: float, cls: Optional[str] = None, age: Optional[int] = None) -> str:
-    """Absolute severity (Issue 002 ladder). When cls/age are given the low end is
-    age-relative: below the age-matched p10 reads SUPPRESSED, and materially below
-    (>2 sd) reads INVERSION — legitimate identity loss, a finding, not an error."""
-    if cls is not None:
-        p10, mean, p90 = age_band(cls, age)
-        if A < p10:
-            sd = max((mean - p10) / _Z90, 1e-6)
-            return 'INVERSION' if A <= p10 - 2.0 * sd else 'SUPPRESSED'
+    """Absolute elevation severity (Issue 002 ladder). Following GAPE_WEB_v13, the
+    tier is the elevation alarm: healthy sits below the threshold and reads NORMAL,
+    including when it is mildly below its age cohort (a batch/normalization dip is
+    not an alarm). Only a genuine FAR-below-cohort reading — identity loss such as
+    seminoma (0.67) or senescence — reads INVERSION, a real finding. The age-cohort
+    placement (below/in/above band) is a separate context axis, not a tier."""
     if A >= 1.10:
         return 'BREACH'
     if A >= 1.07:
@@ -246,6 +244,11 @@ def tier(A: float, cls: Optional[str] = None, age: Optional[int] = None) -> str:
         return 'DETECTABLE'
     if A >= 1.01:
         return 'MARGINAL'
+    if cls is not None:
+        p10, mean, p90 = age_band(cls, age)
+        sd = max((mean - p10) / _Z90, 1e-6)
+        if A <= p10 - 2.0 * sd:      # genuine identity loss, far below cohort
+            return 'INVERSION'
     return 'NORMAL'
 
 
@@ -321,6 +324,80 @@ def three_component(mean_beta: float, cls: str, sub: str = 'methyl') -> Tuple[fl
         return (0.0, 0.0, 0.0)
     hm = H_min_for(cls, sub)
     return (H_MIN_GLOBAL / h, (hm - H_MIN_GLOBAL) / h, max(0.0, h - hm) / h)
+
+
+def cellular_age(A: float, cls: str) -> Optional[float]:
+    """Invert the age-matched A_mean(class, age) curve: the age at which a HEALTHY
+    <class> cell reads this A. For immune and most classes A_mean rises with age
+    (cells lose fidelity, beta drifts toward the H_min anchor), so a higher A reads
+    as OLDER cells. Interpolates within the table and extrapolates past the ends
+    using the end slope. Returns the cellular age in years, or None if unavailable.
+
+    NOTE: accuracy depends on Stage-1 normalization — an un-normalized sample that
+    reads a few hundredths off in beta will bias the inferred age; read alongside
+    the placement/departure, not in isolation.
+    """
+    bands = _load_bands()
+    if not bands.get(cls):
+        return None
+    pts = [(a, m) for a, m, lo, hi in bands[cls]]
+    ages = [p[0] for p in pts]
+    means = [p[1] for p in pts]
+    if means[-1] == means[0]:
+        return None
+    ascending = means[-1] > means[0]
+    # below the youngest reference -> extrapolate with the first slope
+    if (ascending and A <= means[0]) or (not ascending and A >= means[0]):
+        s = (means[1] - means[0]) / (ages[1] - ages[0])
+        return ages[0] + (A - means[0]) / s if s else None
+    # above the oldest reference -> extrapolate with the last slope
+    if (ascending and A >= means[-1]) or (not ascending and A <= means[-1]):
+        s = (means[-1] - means[-2]) / (ages[-1] - ages[-2])
+        return ages[-1] + (A - means[-1]) / s if s else None
+    for i in range(1, len(pts)):
+        m0, m1 = means[i - 1], means[i]
+        if (m0 <= A <= m1) or (m1 <= A <= m0):
+            a0, a1 = ages[i - 1], ages[i]
+            return a0 + (a1 - a0) * (A - m0) / (m1 - m0) if m1 != m0 else a0
+    return None
+
+
+def overall_cellular_age(class_ascores: Dict[str, object],
+                         chronological_age: Optional[int] = None,
+                         weights: Optional[Dict[str, float]] = None) -> Optional[Dict]:
+    """Overall cellular age = mean per-class cellular age over assessable classes.
+
+    class_ascores accepts {class: A_float} or {class: {'A': ...}} (a stage-4 rec).
+    Returns {cellular_age, per_class, n, chronological_age, delta_years} where
+    delta_years = cellular_age - chronological_age (>0 = cells read older than age).
+    """
+    per = {}
+    for cls, v in class_ascores.items():
+        a = v.get("A") if isinstance(v, dict) else v
+        if a is None:
+            continue
+        try:
+            a = float(a)
+        except (TypeError, ValueError):
+            continue
+        if a != a:  # NaN
+            continue
+        ca = cellular_age(a, cls)
+        if ca is not None:
+            per[cls] = ca
+    if not per:
+        return None
+    if weights:
+        num = sum(per[c] * weights.get(c, 1.0) for c in per)
+        den = sum(weights.get(c, 1.0) for c in per)
+        overall = num / den if den else None
+    else:
+        overall = sum(per.values()) / len(per)
+    out = {"cellular_age": overall, "per_class": per, "n": len(per),
+           "chronological_age": chronological_age}
+    if overall is not None and chronological_age is not None:
+        out["delta_years"] = overall - float(chronological_age)
+    return out
 
 
 # ─── Self-test: reproduce the GAPE Issue 002 published examples ──────────────
