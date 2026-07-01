@@ -121,12 +121,19 @@ DEFAULT_CONFIG = {
     "celltype_markers_json": CPG_ROOT / "Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json",
     # Stage 4 — A-score
     "a_scoring_module_path": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py",
-    # Stage 4 A-score LOCI — per-cell-type MOST-METHYLATED CpGs from the IAMAtlas.
-    # This is the ONLY correct loci source for the A-score. Built so the atlas
-    # reference is unidirectional (healthy ~beta_floor; disorder walks beta -> 0.5).
-    # NEVER point Stage 4 at celltype_markers_json (discriminative) — that is the
-    # all-BREACH bug, root-caused 2026-06-11 (GAPE _derive_A + Recipe Part 4 / line 884).
-    "a_score_loci_json": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_a_score_loci_v1_0.json",
+    # Stage 4 A-score LOCI — per-class IDENTITY CpGs (beta near the class H_min_beta,
+    # i.e. where a healthy cell sits at its characteristic methylation). This is the
+    # gauge instrument: the mean beta over these loci, read as A = H(beta_mean)/H_min,
+    # lands healthy on the age-matched band (immune ~0.90 young -> 1.00 age 95). It is
+    # NOT the most-methylated extremes (old a_score_loci_v1_0 read immune 0.729) and
+    # NOT the discriminative one-vs-rest markers (celltype_markers_json, the all-BREACH
+    # bug root-caused 2026-06-11). Two loci sets, two jobs (Issue 002 §103): identity
+    # loci -> the gauge here; discriminative markers -> Stage-1 deconvolution + the
+    # separation/Cohen's-d disease-matching surface, never this A-score.
+    "a_score_loci_json": CPG_ROOT / "Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json",
+    # Stage 4 GAUGE engine — A = H(one mean beta)/H_min, age-matched placement +
+    # Issue-002 severity ladder (cpg_gauge_engine.read). Loads age_reference_matrix.
+    "gauge_engine_path": CPG_ROOT / "cpg_gauge_engine.py",
     # Stage 4.5 — bidirectional decomposition
     "bidirectional_module_path": CPG_ROOT / "Runtime Matrices/Directional Panel/bidirectional_decomposition.py",
     "directional_panels_json": CPG_ROOT / "Runtime Matrices/Directional Panel/directional_panels_v1_0.json",
@@ -431,33 +438,78 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
                 f"Single source of truth: IAMAtlasREBUILD_provenance.json.")
 
     # ========================================================================
-    # A-SCORE MARKERS — SOP §41 (canonical).
+    # A-SCORE = THE GAUGE (Issue 002).  A = H(beta_mean) / H_min over IDENTITY loci.
     # ------------------------------------------------------------------------
-    # Per-class beta_mean is taken across the class's marker CpGs from the
-    # celltype-markers artifact (iamatlas_celltype_markers_v0_2.json), AGGREGATED to
-    # class = union of the class's cell-type marker pools (SOP §41). Per-cell A-score
-    # uses each cell's own marker pool.
-    #
-    # Verified against the ACTUAL a-scoring script (iamatlas_a_scoring.py) on a healthy
-    # whole-blood reference: immune A = 1.035 -- at the healthy reference, above the
-    # 0.838889 floor, exactly where the gauge centers it. The previously-wired
-    # most-methylated loci (a_score_loci_v1_0.json) gave immune A = 0.729, BELOW the
-    # floor -- a number a present cell cannot produce. A value below H_min is impossible
-    # for a cell still holding its identity, so the loci path was wrong by definition.
-    # The all-BREACH concern that motivated the loci path does not occur on v0_2 markers:
-    # healthy and glioma both land near 1.0, never ceiling-pinned. SOP §41 wins.
+    # SUPERSEDES SOP §41. The earlier chain scored the A-score on DISCRIMINATIVE
+    # markers (celltype_markers_json), read healthy immune ~1.035, and rejected the
+    # identity-loci gauge because it read < 1.0 ("below floor = impossible"). That
+    # conflated two instruments. Discriminative one-vs-rest markers are bimodal
+    # (beta ~0.5, so A >= 1.0 by construction) — the separation / deconvolution
+    # instrument, never the gauge. The GAUGE is the mean beta over IDENTITY loci
+    # (beta near the class H_min_beta), read as H(beta_mean)/H_min. On identity loci
+    # healthy sits BELOW 1.0, age-matched: age_reference_matrix has immune 0.906
+    # (young) -> 1.000 (age 95). A < 1.0 is not impossible — it is the age-matched
+    # norm; A = 1.0 is the age-95 commitment line. Verified: real healthy blood reads
+    # beta_mean ~0.786 on the immune identity loci -> A ~0.90, on the age-matched band.
+    # So the A-score is scored on a_score_loci_json (identity loci) through the gauge
+    # engine, with age-matched placement + the Issue-002 severity ladder. Discriminative
+    # markers never feed this A-score (line ~118). Two loci sets, two jobs (Issue 002 §103).
     # ========================================================================
-    class_markers = {}
-    for _ct, _mk in _discriminative_markers.items():
-        _c = ct_to_class.get(_ct)
-        if _c:
-            class_markers.setdefault(_c, set()).update(_mk)
-    class_markers = {_c: sorted(_v) for _c, _v in class_markers.items()}
-    ct_markers = _discriminative_markers
+    gauge = _load_module(cfg["gauge_engine_path"], "cpg_gauge_engine")
+    with open(str(cfg["a_score_loci_json"])) as _lf:
+        _identity = _json.load(_lf)
+    # Patient age sets the age-matched band (the A value itself is age-independent).
+    # Substrate floor: methyl for whole blood; cfDNA scores on frag/wps/nucl.
+    _age = cfg.get("patient_age", None)
+    _sub = cfg.get("gauge_substrate", "methyl")
+    beta_series = cleaned_beta if isinstance(cleaned_beta, pd.Series) else pd.Series(cleaned_beta)
 
-    beta_dict = cleaned_beta.to_dict()
-    class_ascores = a_mod.score_per_class(beta_dict, class_markers, h_min)
-    celltype_ascores = a_mod.score_per_celltype(beta_dict, ct_markers, ct_to_class, h_min)
+    def _gauge_rec(loci, cls):
+        """Gauge one target on its class identity loci. A = H(mean beta)/H_min, with
+        age-matched placement + Issue-002 severity, plus coverage/confidence QC."""
+        n_expected = len(loci)
+        matched = [c for c in loci if c in beta_series.index]
+        vals = beta_series.loc[matched].dropna().astype(float).values if matched else np.array([])
+        n_usable = int(vals.size)
+        if n_usable < 2:
+            return {"A": float("nan"), "placement": None, "tier": "N/A",
+                    "n_markers_expected": n_expected, "n_markers_matched": n_usable,
+                    "coverage": (n_usable / n_expected) if n_expected else 0.0,
+                    "confidence": 0.0, "status": "INSUFFICIENT_MARKERS"}
+        mean_beta = float(np.mean(vals))
+        r = gauge.read(mean_beta, cls, age=_age, sub=_sub)
+        coverage = n_usable / n_expected if n_expected else 0.0
+        disp = float(np.std(vals, ddof=1))            # tightness of the identity band
+        confidence = float(min(1.0, coverage * max(0.0, 1.0 - disp / 0.15)))
+        return {
+            "A": r["A"], "beta_mean": mean_beta,
+            "placement": r["placement"], "tier": r["tier"],
+            "band": r["band"], "departure": r["departure"],
+            "healthy_baseline": r["healthy_baseline"], "ceiling": r["ceiling"],
+            "structurally_saturated": r["structurally_saturated"],
+            "n_markers_expected": n_expected, "n_markers_matched": n_usable,
+            "coverage": coverage, "confidence": confidence, "status": "OK",
+        }
+
+    # Class gauge (8) — one identity-loci reading per architecture class.
+    class_ascores = {cls: _gauge_rec(_identity.get(cls, {}).get("loci", []), cls)
+                     for cls in h_min if _identity.get(cls, {}).get("loci")}
+    # Per-cell-type (115): each cell reads its CLASS identity loci. Whole blood carries
+    # one bulk beta, so per-cell beta on identity loci equals the class beta — per-cell
+    # disease RESOLUTION comes from the separation surface downstream, not the gauge.
+    celltype_ascores = {}
+    for ct, cls in ct_to_class.items():
+        loci = _identity.get(cls, {}).get("loci", [])
+        if not loci:
+            continue
+        rec = dict(class_ascores.get(cls) or _gauge_rec(loci, cls))
+        rec["class"] = cls
+        celltype_ascores[ct] = rec
+
+    # Loci actually scored (identity loci) — for the CI step, which re-derives beta_mean
+    # at these same loci through A = H(beta_mean)/H_min (now consistent with the point score).
+    class_markers = {cls: _identity.get(cls, {}).get("loci", []) for cls in h_min}
+    ct_markers = {ct: _identity.get(cls, {}).get("loci", []) for ct, cls in ct_to_class.items()}
 
     # cfDNA RUN-EVERYTHING (VAL-090 / CCL-033). The whole-blood presence gate below is
     # correct for whole blood, where terminal/secretory/stromal cells do not circulate.
@@ -503,15 +555,19 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
                 rec["A"] = None
                 rec["status"] = NA
 
-    # FLOOR-GATE (principled, all substrates). A tile scored below its class H_min is an
-    # ABSENT cell -- its markers are reading background cfDNA, not a present cell of that
-    # class (H(beta) < H_min is impossible for a cell still holding its identity). Mark it
-    # so the cell-of-origin / disease-card layer never calls an absent cell as a positive
-    # organ flag from background drift. This is the cfDNA cortical-neuron artifact: A~0.58,
-    # below the 0.7728 terminal floor, moved +1.3 d in HCC -- that is tumor-background
-    # disorder leaking through absent-cell markers, NOT a brain signal. Above-floor
-    # homogenization (the hepatocyte tissue-of-origin signal at A~0.99, above the 0.843
-    # secretory floor) is a PRESENT-cell signal and is preserved untouched.
+    # FLOOR-GATE (principled, all substrates). A tile scored below its class H_min has
+    # H(beta) < H_min -- entropy beneath the identity floor. On IDENTITY loci this means
+    # one of two things, disambiguated by the presence gate above: (a) an ABSENT cell
+    # whose loci are reading background cfDNA (marked NOT_ASSESSABLE, e.g. terminal/
+    # secretory/stromal on whole blood), or (b) a PRESENT cell that has INVERTED -- lost
+    # its identity to hyper-methylation (seminoma, senescence). Case (a) is background,
+    # not an organ signal; case (b) is a genuine finding. We mark below_floor so the
+    # cell-of-origin / disease-card layer never calls an ABSENT cell as a positive organ
+    # flag from background drift. This is the cfDNA cortical-neuron artifact: A~0.58,
+    # below the 0.7728 terminal floor, moved +1.3 d in HCC -- tumor-background disorder
+    # leaking through absent-cell markers, NOT a brain signal. Above-floor homogenization
+    # (hepatocyte tissue-of-origin at A~0.99, above the 0.843 secretory floor) is a
+    # PRESENT-cell signal and is preserved untouched.
     for _ct, _rec in celltype_ascores.items():
         _A = _rec.get("A"); _fl = h_min.get(_rec.get("class"))
         _rec["below_floor"] = bool(_A is not None and _fl is not None and _A < _fl)
