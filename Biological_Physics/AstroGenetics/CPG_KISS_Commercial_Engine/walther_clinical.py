@@ -491,25 +491,24 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
             "coverage": coverage, "confidence": confidence, "status": "OK",
         }
 
-    # Class gauge (8) — one identity-loci reading per architecture class.
+    # Class gauge (8) — one identity-loci reading per architecture class. THE fuel gauge.
     class_ascores = {cls: _gauge_rec(_identity.get(cls, {}).get("loci", []), cls)
                      for cls in h_min if _identity.get(cls, {}).get("loci")}
-    # Per-cell-type (115): each cell reads its CLASS identity loci. Whole blood carries
-    # one bulk beta, so per-cell beta on identity loci equals the class beta — per-cell
-    # disease RESOLUTION comes from the separation surface downstream, not the gauge.
-    celltype_ascores = {}
-    for ct, cls in ct_to_class.items():
-        loci = _identity.get(cls, {}).get("loci", [])
-        if not loci:
-            continue
-        rec = dict(class_ascores.get(cls) or _gauge_rec(loci, cls))
-        rec["class"] = cls
-        celltype_ascores[ct] = rec
+    # Per-cell SEPARATION surface (115) — NOT the gauge. Distinct per-cell A on the celltype
+    # discriminative markers (mean-of-per-CpG H/H_min, healthy ~1.0). This is the disease-
+    # matching feature vector consumed by the Mahalanobis (mu_floor=1.0, sigma=0.02) and the
+    # Cohen's-d residual maps -- it MUST stay per-cell-distinct: class-inheriting it collapses
+    # the Mahalanobis axis contributions AND lands on the wrong scale (gauge ~0.9 vs floor 1.0
+    # -> every healthy cell reads z=-5). Two loci sets, two jobs (Issue 002 §103): identity
+    # loci -> the class GAUGE above; discriminative markers -> this separation surface. Line
+    # ~118 forbids discriminative markers in the GAUGE (class_ascores), not in this surface.
+    beta_dict = beta_series.to_dict()
+    celltype_ascores = a_mod.score_per_celltype(beta_dict, _discriminative_markers, ct_to_class, h_min)
+    for _ct, _rec in celltype_ascores.items():
+        _rec["class"] = ct_to_class.get(_ct)
 
-    # Loci actually scored (identity loci) — for the CI step, which re-derives beta_mean
-    # at these same loci through A = H(beta_mean)/H_min (now consistent with the point score).
-    class_markers = {cls: _identity.get(cls, {}).get("loci", []) for cls in h_min}
-    ct_markers = {ct: _identity.get(cls, {}).get("loci", []) for ct, cls in ct_to_class.items()}
+    class_markers = {cls: _identity.get(cls, {}).get("loci", []) for cls in h_min}  # gauge loci (class CI)
+    ct_markers = _discriminative_markers  # separation markers (celltype CI + disease-match)
 
     # cfDNA RUN-EVERYTHING (VAL-090 / CCL-033). The whole-blood presence gate below is
     # correct for whole blood, where terminal/secretory/stromal cells do not circulate.
@@ -1260,7 +1259,12 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
     # the background either way.
     _cfdna = str(getattr(context, "substrate", "") or "").lower() in (
         "cfdna", "cf_dna", "plasma", "ctdna", "ct_dna")
-    s4 = stage_4_a_score(beta_calibrated, cfg,
+    # Thread patient age from intake into the gauge so the age-matched band is exact
+    # (age_reference_matrix placement, per class per decade). Absent age -> the gauge's
+    # neutral middle-adult default (44). The A value itself is age-independent; age only
+    # sets which age band the reading is placed against.
+    _s4cfg = {**cfg, "patient_age": getattr(context, "age", None)}
+    s4 = stage_4_a_score(beta_calibrated, _s4cfg,
                          class_present=class_present,
                          celltype_fractions=celltype_fractions,
                          detect_floor=detect_floor,
