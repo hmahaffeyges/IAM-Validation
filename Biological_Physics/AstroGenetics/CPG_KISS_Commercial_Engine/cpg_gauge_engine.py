@@ -24,25 +24,33 @@ WHAT THIS IS NOT  (read this before you ever change the formula)
     high, half low), their mean beta collapses toward 0.5, and the gauge falsely
     pins the ceiling. That is the all-BREACH bug of 2026-06-11.
   * NOT forced to 1.0. A = 1.0 is the architectural COMMITMENT LINE (the H_min
-    reference), not where healthy sits. Healthy reads in the age-matched NORMAL
-    band ~0.95-1.00 and drifts up toward 1.0 across the lifespan.
+    reference), not where healthy sits. Healthy reads on the age-matched curve
+    (age_reference_matrix): immune 0.906 @ age 4 rising to 1.000 @ age 95. The
+    gauge places a patient against that age band, never a fixed line.
 
-THREE DIRECTIONS
-----------------
-  A < 0.95         INVERSION  — legitimate identity loss (seminoma 0.67,
-                                senescence, aged HSC). A finding, never an error.
-  0.95 <= A < 1.01 NORMAL     — the age-matched healthy band.
-  1.01 <= A < 1.05 MARGINAL
-  1.05 <= A < 1.07 DETECTABLE
-  1.07 <= A < 1.10 URGENT
-  A >= 1.10        FLOOR BREACH  (ceiling at 1/H_min)
+TWO AXES  (age matters — the root of the A-score methodology)
+-------------------------------------------------------------
+  PLACEMENT — vs age-matched healthy peers (age_reference_matrix p10..p90):
+    A <  A_p10(class,age)     BELOW BAND
+    A_p10 <= A <= A_p90       IN BAND
+    A >  A_p90(class,age)     ABOVE BAND
+  SEVERITY — absolute physics ladder; the low end is age-relative:
+    far below age p10         INVERSION  — legitimate identity loss (seminoma
+                                0.67, senescence, aged HSC). A finding, not error.
+    mildly below age p10      SUPPRESSED
+    in band .. 1.01           NORMAL
+    1.01 <= A < 1.05          MARGINAL
+    1.05 <= A < 1.07          DETECTABLE
+    1.07 <= A < 1.10          URGENT
+    A >= 1.10                 FLOOR BREACH   (ceiling at 1/H_min)
 
 INPUT SCALE
 -----------
 The gauge is pure: it assumes the incoming mean beta is already on the IAMAtlas
-scale. Aligning a raw array sample to that scale (the ~0.05 per-class/substrate
-offset demonstrated on whole-blood immune) is a Stage-1 normalization job, NOT
-the gauge's. Keep it upstream so the gauge stays a clean physics reading.
+scale. Stage-1 normalization owns any raw-array alignment. The per-class input
+offset explored earlier is RETIRED — it was reinventing age_reference_matrix and
+forcing healthy onto 1.0 (the age-95 value only). Healthy IS the age-matched
+band, so no offset is applied in the gauge.
 
 SUBSTRATE
 ---------
@@ -96,26 +104,54 @@ HEALTHY_BASELINE = {
     '90+':   [0.9912, 1.0046, 0.9996, 1.0244, 0.9991, 0.9791, 1.0038, 0.8371],
 }
 
-# ─── Tier structure — three directions ───────────────────────────────────────
-INVERSION_LINE = 0.95
+# ─── Age-matched band half-width (fallback only) ─────────────────────────────
+# Decade-averaged A_sd per class from age_reference_matrix, used to synthesize a
+# p10..p90 band ONLY when the canonical age_reference_matrix.json is unreachable.
+# When it is reachable (default), its own A_p10/A_p90 percentiles are used verbatim.
+HEALTHY_SD = {
+    'cycling': 0.030, 'secretory': 0.028, 'immune': 0.034, 'terminal': 0.038,
+    'stromal': 0.031, 'stem_adult': 0.026, 'progenitor': 0.024, 'stem_pluri': 0.005,
+}
+_Z90 = 1.2816  # p10/p90 = mean -/+ 1.2816*sd (normal approx; JSON percentiles win)
+
+# ─── Absolute severity ladder (Issue 002; low end is age-relative) ───────────
 BREACH = 1.10
 SATURATION_MARGIN = 0.005
-_TIERS = [  # (label, lo_inclusive, hi_exclusive)
-    ('INVERSION',  -math.inf,      INVERSION_LINE),
-    ('NORMAL',     INVERSION_LINE, 1.01),
-    ('MARGINAL',   1.01,           1.05),
-    ('DETECTABLE', 1.05,           1.07),
-    ('URGENT',     1.07,           1.10),
-    ('BREACH',     1.10,           math.inf),
-]
 
-# ─── Input-scale offset hook (per class, substrate) ──────────────────────────
-# Aligns a raw array mean-beta to the IAMAtlas scale. Default 0.0 — the gauge is
-# pure and expects atlas-scale input. Any offset belongs to Stage-1 normalization
-# and must be VALIDATED (frozen per class/substrate) before it is set non-zero.
-# The whole-blood immune/methyl offset demonstrated ~0.054 but is NOT frozen
-# (batch structure; awaits the production normalizer).
-OFFSET: Dict[Tuple[str, str], float] = {}
+# ─── Canonical age_reference_matrix loader ───────────────────────────────────
+# The gauge places a patient against the age-matched band. The matrix (8 classes
+# x 10 age bins, A_mean/A_p10/A_p90/beta_mean) is loaded from the co-located
+# runtime copy (sourced from atlas_vault). No input offset — healthy IS this band.
+AGE_MATRIX_JSON: Optional[str] = None   # Stage-4 may override the path
+_BANDS_CACHE: Optional[Dict[str, list]] = None
+_MIDPOINTS = [4, 14, 24, 34, 44, 54, 64, 74, 84, 95]
+
+
+def _load_bands() -> Dict[str, list]:
+    """Return {class: [(age, A_mean, A_p10, A_p90), ...]} from the canonical JSON,
+    or {} to signal the embedded A_mean fallback should be used."""
+    global _BANDS_CACHE
+    if _BANDS_CACHE is not None:
+        return _BANDS_CACHE
+    import json, os
+    cands = ([AGE_MATRIX_JSON] if AGE_MATRIX_JSON else []) + [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                     'Runtime Matrices', 'A_Scoring_Module',
+                     'age_reference_matrix.json'),
+    ]
+    for p in cands:
+        if p and os.path.exists(p):
+            try:
+                d = json.load(open(p))
+                out = {c: [(r['age_midpoint'], r['A_mean'], r['A_p10'], r['A_p90'])
+                           for r in d.get(c, [])] for c in _BASELINE_CLASSES}
+                if all(out[c] for c in _BASELINE_CLASSES):
+                    _BANDS_CACHE = out
+                    return out
+            except Exception:
+                pass
+    _BANDS_CACHE = {}
+    return _BANDS_CACHE
 
 
 def H_min_for(cls: str, sub: str = 'methyl') -> float:
@@ -130,10 +166,10 @@ def a_ceiling(cls: str, sub: str = 'methyl') -> float:
 def a_score(mean_beta: float, cls: str, sub: str = 'methyl') -> float:
     """THE GAUGE. A = H(one mean beta) / H_min(class, substrate).
 
-    mean_beta is expected on the IAMAtlas scale (Stage-1 normalized).
+    mean_beta is expected on the IAMAtlas scale (Stage-1 normalized). No offset:
+    healthy is the age-matched band, read downstream, not a shift applied here.
     """
-    shift = OFFSET.get((cls, sub), 0.0)
-    return H(mean_beta - shift) / H_min_for(cls, sub)
+    return H(mean_beta) / H_min_for(cls, sub)
 
 
 def _decade(age: int) -> str:
@@ -145,22 +181,96 @@ def _decade(age: int) -> str:
     return f'{lo}-{lo + 9}'
 
 
+def _interp(pts: List[Tuple[float, float]], age: Optional[float]) -> float:
+    """Linear interpolation of (age, value) points at age, clamped to the ends."""
+    if age is None:
+        age = 44.0
+    if age <= pts[0][0]:
+        return pts[0][1]
+    if age >= pts[-1][0]:
+        return pts[-1][1]
+    for i in range(1, len(pts)):
+        if age <= pts[i][0]:
+            (x0, y0), (x1, y1) = pts[i - 1], pts[i]
+            return y0 + (y1 - y0) * (age - x0) / (x1 - x0)
+    return pts[-1][1]
+
+
+def age_band(cls: str, age: Optional[int]) -> Tuple[float, float, float]:
+    """Age-matched (A_p10, A_mean, A_p90) for this class.
+
+    Uses the canonical age_reference_matrix percentiles when reachable; otherwise
+    synthesizes p10/p90 from the embedded A_mean +/- 1.2816*A_sd.
+    """
+    bands = _load_bands()
+    if bands.get(cls):
+        pts = bands[cls]
+        mean = _interp([(a, m) for a, m, lo, hi in pts], age)
+        p10 = _interp([(a, lo) for a, m, lo, hi in pts], age)
+        p90 = _interp([(a, hi) for a, m, lo, hi in pts], age)
+        return (p10, mean, p90)
+    mean = healthy_baseline(cls, age)
+    sd = HEALTHY_SD[cls]
+    return (mean - _Z90 * sd, mean, mean + _Z90 * sd)
+
+
 def healthy_baseline(cls: str, age: Optional[int]) -> float:
     """Age-matched expected healthy A for this class (the NORMAL-band center)."""
     return HEALTHY_BASELINE[_decade(age)][_BASELINE_CLASSES.index(cls)]
 
 
-def tier(A: float) -> str:
-    """Three-direction tier label from the absolute A-score."""
-    for label, lo, hi in _TIERS:
-        if lo <= A < hi:
-            return label
-    return 'BREACH'
+def placement(A: float, cls: str, age: Optional[int]) -> str:
+    """Where the patient sits vs age-matched healthy peers."""
+    p10, mean, p90 = age_band(cls, age)
+    if A < p10:
+        return 'BELOW_BAND'
+    if A > p90:
+        return 'ABOVE_BAND'
+    return 'IN_BAND'
+
+
+def tier(A: float, cls: Optional[str] = None, age: Optional[int] = None) -> str:
+    """Absolute severity (Issue 002 ladder). When cls/age are given the low end is
+    age-relative: below the age-matched p10 reads SUPPRESSED, and materially below
+    (>2 sd) reads INVERSION — legitimate identity loss, a finding, not an error."""
+    if cls is not None:
+        p10, mean, p90 = age_band(cls, age)
+        if A < p10:
+            sd = max((mean - p10) / _Z90, 1e-6)
+            return 'INVERSION' if A <= p10 - 2.0 * sd else 'SUPPRESSED'
+    if A >= 1.10:
+        return 'BREACH'
+    if A >= 1.07:
+        return 'URGENT'
+    if A >= 1.05:
+        return 'DETECTABLE'
+    if A >= 1.01:
+        return 'MARGINAL'
+    return 'NORMAL'
 
 
 def departure(A: float, cls: str, age: Optional[int]) -> float:
-    """A minus the age-matched healthy baseline. >0 elevated, <0 suppressed."""
-    return A - healthy_baseline(cls, age)
+    """A minus the age-matched healthy mean. >0 elevated, <0 suppressed."""
+    return A - age_band(cls, age)[1]
+
+
+def read(mean_beta: float, cls: str, age: Optional[int] = None,
+         sub: str = 'methyl') -> Dict[str, object]:
+    """Full doctor readout for one class/cell: the A-score, its age-matched band,
+    placement vs peers, absolute severity tier, departure, and the ceiling."""
+    A = a_score(mean_beta, cls, sub)
+    p10, mean, p90 = age_band(cls, age)
+    return {
+        'A': A, 'class': cls, 'age': age, 'substrate': sub,
+        'band': {'p10': p10, 'mean': mean, 'p90': p90},
+        'placement': placement(A, cls, age),
+        'tier': tier(A, cls, age),
+        'departure': A - mean,
+        'healthy_baseline': mean,
+        'ceiling': a_ceiling(cls, sub),
+        'structurally_saturated': is_structurally_saturated(cls, sub),
+        'age_decade': _decade(age),
+    }
 
 
 def is_saturated(A: float, cls: str, sub: str, margin: float = SATURATION_MARGIN) -> bool:
@@ -213,21 +323,6 @@ def three_component(mean_beta: float, cls: str, sub: str = 'methyl') -> Tuple[fl
     return (H_MIN_GLOBAL / h, (hm - H_MIN_GLOBAL) / h, max(0.0, h - hm) / h)
 
 
-def read(mean_beta: float, cls: str, age: Optional[int] = None,
-         sub: str = 'methyl') -> Dict:
-    """Full gauge reading for one cell: the object the report renders."""
-    A = a_score(mean_beta, cls, sub)
-    return {
-        'A': A,
-        'tier': tier(A),
-        'ceiling': a_ceiling(cls, sub),
-        'healthy_baseline': healthy_baseline(cls, age),
-        'departure_from_age_band': departure(A, cls, age),
-        'structurally_saturated': is_structurally_saturated(cls, sub),
-        'class': cls, 'substrate': sub, 'age_decade': _decade(age),
-    }
-
-
 # ─── Self-test: reproduce the GAPE Issue 002 published examples ──────────────
 def _selftest() -> bool:
     ok = True
@@ -243,13 +338,19 @@ def _selftest() -> bool:
         abs(H(0.5) - 1) < 1e-9 and H(0) == 0 and H(1) == 0)
     a = a_score(0.685, 'cycling', 'methyl')
     chk("gauge: beta=0.685 cycling -> A=1.050 (DETECTABLE)",
-        abs(a - 1.0502) < 1e-3 and tier(a) == 'DETECTABLE', f"A={a:.4f}")
-    a_h = a_score(0.720, 'cycling', 'methyl')
-    chk("gauge: healthy cycling beta~0.72 -> A~1.0 NORMAL band",
-        0.95 <= a_h < 1.01, f"A={a_h:.4f} tier={tier(a_h)}")
+        abs(a - 1.0502) < 1e-3 and tier(a, 'cycling', 55) == 'DETECTABLE', f"A={a:.4f}")
+    # healthy cycling at its age-matched beta reads IN its age band (not a fixed line)
+    a_h = a_score(0.720, 'cycling')
+    chk("gauge: healthy cycling beta~0.72 age55 -> IN_BAND NORMAL",
+        placement(a_h, 'cycling', 55) == 'IN_BAND' and tier(a_h, 'cycling', 55) == 'NORMAL',
+        f"A={a_h:.4f} band={tuple(round(x,3) for x in age_band('cycling',55))}")
+    # young healthy immune sits at ~0.906 — BELOW a fixed 0.95 line, but IN its age band
+    a_yi = a_score(0.780, 'immune')
+    chk("age matters: young immune ~0.906 is IN_BAND (would false-invert on fixed 0.95)",
+        placement(a_yi, 'immune', 4) == 'IN_BAND', f"A={a_yi:.4f} band p10={age_band('immune',4)[0]:.3f}")
     a_sem = a_score(0.18, 'stem_pluri', 'methyl')
     chk("inversion: seminoma beta=0.18 stem_pluri -> A<0.75 INVERSION",
-        a_sem < 0.75 and tier(a_sem) == 'INVERSION', f"A={a_sem:.4f}")
+        a_sem < 0.75 and tier(a_sem, 'stem_pluri', 40) == 'INVERSION', f"A={a_sem:.4f}")
     chk("ceiling cycling methyl = 1/H_min = 1.168",
         abs(a_ceiling('cycling', 'methyl') - 1.1681) < 1e-3)
     chk("structural saturation: stem_pluri methyl ceiling below BREACH",
