@@ -1116,6 +1116,66 @@ def _how_cpg_works_section():
     return ""
 
 
+def _cellular_age_section(bundle):
+    """Cellular age: headline delta BESIDE the per-class breakdown, never a lone number."""
+    cage = bundle.get("cellular_age") or {}
+    overall = cage.get("cellular_age"); chrono = cage.get("chronological_age")
+    per = cage.get("per_class") or {}
+    if overall is None or not per:
+        return ("<h2>Cellular age</h2><div class='caveat'>Not computed &#8212; requires at least one "
+                "architecture class assessable and holding identity (above its floor). On whole blood that "
+                "is normally immune; a below-floor immune read points to Stage-1 normalization, not a real "
+                "age. Reported once the input is on the atlas scale.</div>")
+    delta = cage.get("delta_years"); dtxt = ""
+    if delta is not None:
+        col = "var(--accent)" if abs(delta) <= 5 else ("var(--amber)" if abs(delta) <= 12 else "var(--red)")
+        verdict = ("about where it should be for age" if abs(delta) <= 5
+                   else ("aging faster than chronological age" if delta > 0 else "reading younger than age"))
+        dtxt = (f"<b style='color:{col};font-size:20px'>{delta:+.0f} yr</b> "
+                f"<span class='muted'>vs chronological &#8212; {verdict}</span>")
+    prows = "".join(f"<tr><td>{_esc(c)}</td><td class='num'>{a:.0f} yr</td>"
+                    f"<td class='num'>{(a - chrono):+.0f} yr</td></tr>"
+                    for c, a in sorted(per.items(), key=lambda kv: -abs(kv[1] - (chrono or kv[1])))
+                    ) if chrono is not None else "".join(
+        f"<tr><td>{_esc(c)}</td><td class='num'>{a:.0f} yr</td><td class='num muted'>&mdash;</td></tr>"
+        for c, a in per.items())
+    return ("<h2>Cellular age <span class='meta'>(headline + which cells drive it)</span></h2>"
+            f"<p><b style='font-size:20px'>{overall:.0f} yr</b> overall &nbsp; {dtxt}</p>"
+            "<p class='explain'>The overall number is the friendly headline &#8212; whether cells are aging on "
+            "pace. It is <b>not</b> the finding on its own; a single age collapses up- and down-departures and can "
+            "hide a signal. The per-class rows are where the action is: they say <b>which</b> compartment is off "
+            "pace. A single class old is a lead; all classes old is genuine accelerated aging.</p>"
+            "<table><thead><tr><th>Architecture class</th><th>cellular age</th><th>vs chronological</th>"
+            f"</tr></thead><tbody>{prows}</tbody></table>")
+
+
+def _departure_section(bundle):
+    """Age-matched departure (Mahalanobis Option A): one derived number + the classes driving it."""
+    m = bundle.get("mahalanobis") or {}
+    d = m.get("mahalanobis_distance")
+    if d is None:
+        return ("<h2>Age-matched departure</h2><p class='muted'>Not computed "
+                f"({_esc(m.get('status', 'no assessable classes'))}).</p>")
+    thr = m.get("alarm_threshold_p95"); beyond = m.get("mahalanobis_beyond_band")
+    n = m.get("n_features_assessable", 0)
+    col = "var(--red)" if beyond else "var(--accent)"
+    verdict = "beyond the age-matched healthy band" if beyond else "within the age-matched healthy band"
+    top = m.get("top_axis_contributions", []) or []
+    trows = "".join(f"<tr><td>{_esc(t.get('class'))}</td><td class='num'>{t.get('patient_A', float('nan')):.3f}</td>"
+                    f"<td class='num'>{t.get('age_matched_mean', float('nan')):.3f}</td>"
+                    f"<td class='num'>{t.get('z_shift', float('nan')):+.2f}</td></tr>" for t in top[:6])
+    return ("<h2>Age-matched departure <span class='meta'>(one number, derived &#8212; Option A)</span></h2>"
+            f"<p><b style='color:{col};font-size:20px'>{d:.2f}</b> "
+            f"<span class='muted'>alarm p95 = {thr:.2f} &middot; {n} class(es) assessable &middot; "
+            f"<b style='color:{col}'>{verdict}</b></span></p>"
+            "<p class='explain'>Each assessable class gauge is z-scored against its own age-matched band "
+            "(&mu; = A_mean(class, age), &sigma; from the p10&ndash;p90 spread) and the distances summed. Derived "
+            "from the age matrix, not a pooled cohort; the threshold adapts to how many classes were assessable "
+            "(&chi;&sup2;). The classes below drive the distance.</p>"
+            + (f"<table><thead><tr><th>class</th><th>patient A</th><th>age-matched mean</th><th>z</th>"
+               f"</tr></thead><tbody>{trows}</tbody></table>" if trows else ""))
+
+
 def build_report(bundle, out_path=None):
     ctx = bundle.get("context", {})
     rescued = bundle.get("nilc_rescued_classes", [])
@@ -1168,22 +1228,34 @@ def build_report(bundle, out_path=None):
     if _scale_ok:
         _crows = ""
         for cls, r in sorted(bundle["stage4"].get("class_ascores", {}).items(),
-                             key=lambda kv: -(kv[1].get("A") or -9)):
+                             key=lambda kv: -((kv[1] or {}).get("departure") or -9)):
             a = r.get("A")
             if a is None or r.get("status") != "OK":
                 continue
-            floor = hmin.get(cls)
-            below = (floor is not None and a < float(floor))
-            tier = "below floor" if below else _tier(a)
+            # Age-matched read straight from the gauge engine (class_ascores carry it) —
+            # no fixed 0.95-1.04 band, no "A=1.0 healthy". placement/tier/band are the engine's.
+            band = r.get("band", {}) or {}
+            band_txt = (f"{band.get('p10'):.3f}&ndash;{band.get('p90'):.3f}"
+                        if band.get("p10") is not None else "&mdash;")
+            placement = (r.get("placement") or "").replace("_", " ").lower()
+            tier = r.get("tier") or _tier(a)
+            dep = r.get("departure")
+            dep_txt = (f"{dep:+.3f}" if isinstance(dep, (int, float)) else "&mdash;")
             _crows += (f"<tr><td>{_esc(cls)}</td><td class='num'>{a:.3f}</td>"
                        f"<td class='num'>{_fmt_ci(r.get('A_ci_lo'), r.get('A_ci_hi'))}</td>"
-                       f"<td class='num'>{floor:.3f}</td><td>{_esc(tier)}</td></tr>")
+                       f"<td class='num'>{band_txt}</td><td class='num'>{dep_txt}</td>"
+                       f"<td>{_esc(tier)} <span class='muted'>{_esc(placement)}</span></td></tr>")
         class_reliable_html = (
             "<p class='meta'>SOP &sect;30 Tier 1 / &sect;44: the 8 architectural-class A-scores are the "
-            "<b>production-grade, reliable</b> readout &#8212; this is the call. A = H(&#946;_mean)/H_min(class): "
-            "1.0 is the healthy reference, the floor is the class H_min, the ceiling is 1/H_min.</p>"
+            "<b>production-grade, reliable</b> readout &#8212; this is the call. A = H(&#946;_mean)/H_min(class), "
+            "read against the <b>age-matched band</b> (age_reference_matrix, this patient's age): healthy is the "
+            "band, not a fixed line. A = 1.0 is the architectural commitment line (the age-95 value), not where "
+            "healthy sits. Placement = below / in / above the p10&ndash;p90 age band; tier = NORMAL &lt; 1.01, "
+            "MARGINAL &ge; 1.01, DETECTABLE &ge; 1.05, URGENT &ge; 1.07, BREACH &ge; 1.10; INVERSION = a genuine "
+            "far-below identity-loss reading.</p>"
             "<table><thead><tr><th>Architecture class</th><th>A-score</th><th>95% CI (MCMC)</th>"
-            f"<th>floor (H_min)</th><th>tier</th></tr></thead><tbody>{_crows}</tbody></table>")
+            "<th>age band (p10&ndash;p90)</th><th>departure</th><th>reading</th></tr></thead>"
+            f"<tbody>{_crows}</tbody></table>")
     else:
         class_reliable_html = (
             f"<div class='caveat'><b>Class A-scores withheld.</b> {_off} of {_total} classes scored below "
@@ -1298,8 +1370,13 @@ than any single snapshot.</p>
 {tissue_of_origin_html}
 {disease_card_html}
 
-<h2>Cell-level architectural departure <span class="meta">(the A-score readout — every cell found in blood)</span></h2>
+<h2>Cellular Performance Gauge <span class="meta">(age-matched, per architecture class &#8212; the reliable Tier-1 call)</span></h2>
 {gauge_html}
+{class_reliable_html}
+{_cellular_age_section(bundle)}
+{_departure_section(bundle)}
+
+<h2>Cell-level architectural departure <span class="meta">(the A-score readout — every cell found in blood)</span></h2>
 {trajectory_html}
 {departure_html}
 {cell_census_html}
