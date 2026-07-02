@@ -134,6 +134,10 @@ DEFAULT_CONFIG = {
     # Stage 4 GAUGE engine — A = H(one mean beta)/H_min, age-matched placement +
     # Issue-002 severity ladder (cpg_gauge_engine.read). Loads age_reference_matrix.
     "gauge_engine_path": CPG_ROOT / "cpg_gauge_engine.py",
+    # L6c derived age-matched departure (Option A): the class GAUGE scored against the
+    # age_reference_matrix band, + overall cellular age. DERIVED-only, no cohort.
+    "mahalanobis_module_path": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py",
+    "mahalanobis_reference_json": CPG_ROOT / "Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json",
     # Stage 4.5 — bidirectional decomposition
     "bidirectional_module_path": CPG_ROOT / "Runtime Matrices/Directional Panel/bidirectional_decomposition.py",
     "directional_panels_json": CPG_ROOT / "Runtime Matrices/Directional Panel/directional_panels_v1_0.json",
@@ -319,7 +323,7 @@ def _ensure_atlas_decompressed(cfg):
 
 
 def stage_2_deconvolution(beta_calibrated: pd.Series, config: Optional[dict] = None,
-                          run_nilc: bool = True) -> dict:
+                          run_nilc: bool = False) -> dict:
     """Stage 2 per SOP — returns {class_fractions, celltype_fractions, walther_diagnostics,
     nilc_fractions, cross_method, status}. beta_calibrated is the Stage 1 output (pre
     foreground-subtraction); deconvolution reads composition from the raw calibrated beta."""
@@ -1231,7 +1235,10 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
     _assert_no_covariate_in_beta(beta_calibrated, context)
 
     # L3 — deconvolution: Walther (NNLS) + NILC (GLS) on the same beta + atlas
-    s2 = stage_2_deconvolution(beta_calibrated, cfg, run_nilc=True) if run_deconvolution else None
+    # NILC and the agreement AND-gate are CUT (flowchart: "Walther alone… NILC and the
+    # agreement AND-gate are cut — they collapsed on correlated blood mixtures and deleted
+    # correct calls"). Stage 2 is the Walther NNLS deconvolver only.
+    s2 = stage_2_deconvolution(beta_calibrated, cfg, run_nilc=False) if run_deconvolution else None
     class_present = s2["class_present"] if s2 else None
     celltype_fractions = s2.get("celltype_fractions") if s2 else None
 
@@ -1315,6 +1322,32 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
     cell_of_origin = detect_cell_of_origin_presence(s2, detect_floor=detect_floor,
                                                      substrate=context.substrate)
 
+    # L6c — derived AGE-MATCHED departure (Mahalanobis, Option A) + overall cellular age.
+    # Both read the class GAUGE (identity loci), scored against the age_reference_matrix
+    # band for the patient's age. Assessable classes only (presence-gated). DERIVED-only,
+    # no cohort. See mahalanobis_healthy_reference_v2_0_age_matched_derived.json.
+    maha = None
+    cellular = None
+    try:
+        _gauge6 = _load_module(cfg["gauge_engine_path"], "cpg_gauge_engine")
+        _mh6 = _load_module(cfg["mahalanobis_module_path"], "iamatlas_mahalanobis_scoring")
+        _hull6 = _mh6.MahalanobisHealthyHull(str(cfg["mahalanobis_reference_json"]), gauge=_gauge6)
+        _ca6 = {c: r.get("A") for c, r in s4["class_ascores"].items()}
+        # Score only classes that are presence-gated assessable AND holding identity
+        # (above floor). A below-floor class is background/absent (or inverted) — not a
+        # valid gauge reading, so it must not enter the departure distance or cellular
+        # age. This keeps the matcher honest even if the presence gate falls back to
+        # all-on (e.g. deconvolution unavailable).
+        _assess6 = [c for c, r in s4["class_ascores"].items()
+                    if r.get("assessable", True) and r.get("A") is not None
+                    and not r.get("below_floor", False)]
+        maha = _hull6.score(_ca6, age=context.age, assessable=_assess6 or None)
+        cellular = _gauge6.overall_cellular_age(
+            {c: s4["class_ascores"][c] for c in _assess6} if _assess6 else s4["class_ascores"],
+            chronological_age=context.age)
+    except Exception as e:
+        maha = {"status": f"mahalanobis not run: {e}"}
+
     bundle = {
         "patient_id": patient_id,
         "test_id": test_id or datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ"),
@@ -1326,6 +1359,10 @@ def run_pipeline(beta_calibrated, *, context=None, patient_id="patient", test_id
         "stage2": s2, "stage4": s4, "stage7": s7, "stage8": s8,
         "stage4_5": (s4_5.to_dict() if s4_5 is not None else {"status": "not_run"}),
         "cell_of_origin_flags": cell_of_origin,   # L6b second detection mode
+        "mahalanobis": maha,                      # L6c derived age-matched departure (Option A)
+        "mahalanobis_distance": (maha or {}).get("mahalanobis_distance"),      # run_batch convenience
+        "mahalanobis_beyond_band": (maha or {}).get("mahalanobis_beyond_band"),
+        "cellular_age": cellular,                 # overall cellular age vs chronological
         "trajectory_baseline": {
             "patient_departure": s8.patient_departure,
             "celltype_A": {ct: {"A": r.get("A"), "ci": [r.get("A_ci_lo"), r.get("A_ci_hi")]}
