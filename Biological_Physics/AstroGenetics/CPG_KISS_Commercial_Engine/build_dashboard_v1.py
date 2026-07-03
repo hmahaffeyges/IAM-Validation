@@ -101,6 +101,7 @@ def _demo_bundle():
         "departure": {"distance": dist, "threshold": dep.get("threshold"),
                       "beyond": dep.get("beyond"), "driver": driver},
         "cellular_age": {"overall": None, "chrono": age, "delta": None, "per_class": {}},
+        "composition": rb.get("composition", {}),
     }
 
 
@@ -143,6 +144,17 @@ def build_dashboard(bundle, out_path):
     plate01 = open("/tmp/plate01_b64.txt").read() if os.path.exists("/tmp/plate01_b64.txt") else ""
     plate03 = open("/tmp/plate03_b64.txt").read() if os.path.exists("/tmp/plate03_b64.txt") else ""
 
+    comp = bundle.get("composition", {}) or {}
+    cls_rows = "".join(f'<div class="crow" style="grid-template-columns:150px 1fr 90px"><div class="cn">{c.replace("_"," ")}</div>'
+                       f'<div style="background:var(--surf2);border-radius:4px;height:14px;position:relative"><div style="position:absolute;left:0;top:0;height:14px;border-radius:4px;background:var(--lav2);width:{min(v,100):.1f}%"></div></div>'
+                       f'<div class="cd" style="text-align:right">{v:.1f}%</div></div>'
+                       for c, v in sorted((comp.get("class") or {}).items(), key=lambda kv:-kv[1]) if v > 0.05)
+    ct_rows = ""
+    for c in (comp.get("celltype") or []):
+        flag = ' <span class="culprit">NOT BLOOD-RESIDENT</span>' if c.get("flag") else ""
+        ct_rows += (f'<div class="crow" style="grid-template-columns:200px 1fr 130px"><div class="cn">{c["cell"].replace("_"," ")}{flag}</div>'
+                    f'<div style="background:var(--surf2);border-radius:4px;height:14px;position:relative"><div style="position:absolute;left:0;top:0;height:14px;border-radius:4px;background:{"#b2182b" if c.get("flag") else "var(--accent)"};width:{min(c["pct"],100):.1f}%"></div></div>'
+                    f'<div class="cd" style="text-align:right">{c["pct"]:.1f}%</div></div>')
     # verdict
     dist_val = dep.get("distance")
     beyond = dep.get("beyond")
@@ -228,7 +240,7 @@ th{{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted
 <div class="top"><div class="brand">Cellular Performance <span>Gauge</span><small>IAMPerformance · AstroGenetics</small></div>
 <div style="display:flex;align-items:center"><div class="pt">Patient {bundle['patient_id']}<br>Age {ctx['age']} · {ctx['sex']} · {ctx['substrate']}</div>
 <button class="printbtn" onclick="window.print()">Print patient report</button></div></div>
-<div class="tabs"><div class="tab on" data-p="dx">Detection</div><div class="tab" data-p="ga">Class Gauge</div>
+<div class="tabs"><div class="tab on" data-p="dx">Detection</div><div class="tab" data-p="co">Composition</div><div class="tab" data-p="ga">Class Gauge</div>
 <div class="tab" data-p="ag">Cellular Age</div><div class="tab" data-p="mm">Methylome Map</div><div class="tab" data-p="ab">About</div></div>
 <div class="wrap">
 <div class="illus"><b>Real chain output on raw (un-calibrated) β — Stage-1 pending.</b> The cell names and A-scores below are
@@ -256,6 +268,17 @@ is guarded; the Stage-1-calibrated run is what makes the breach and verdict fire
   {norm_html}
 </div>
 
+<div class="panel" id="co">
+  <h2>Composition — what cells are in the blood, and how much</h2>
+  <div class="explain">The Walther deconvolver resolves the fraction of each architecture class and cell type from the
+  whole-blood methylation. A cell type appearing that <b>should not circulate in blood</b> (brain / BBB cells), or a
+  resident type at an unexpected fraction, is itself a signal — independent of the A-score. Composition informs; it does
+  not by itself fire the call.</div>
+  <div class="sub">By architecture class</div>
+  {cls_rows}
+  <div class="sub">By cell type (resolved &gt; 0.1%)</div>
+  {ct_rows}
+</div>
 <div class="panel" id="ga">
   <h2>Class Gauge — the reliable call</h2>
   <div class="explain">Per class, A = H(β_mean)/H_min on identity loci, read against the age-matched band (lavender).

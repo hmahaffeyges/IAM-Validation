@@ -399,10 +399,10 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
 
     A = H(beta_mean) / H_min(class) over panel CpGs, per class and per cell type.
     class_present: optional {class: bool} substrate-presence verdict from the Stage 2
-    deconvolver gate. When supplied, classes (and their cell types) NOT present in the
-    substrate are marked NOT_ASSESSABLE_IN_SUBSTRATE with A=None instead of being scored
-    against blood-background beta at their marker addresses. When None, all classes are
-    scored (legacy behavior).
+    deconvolver gate. When supplied, classes below the substrate fraction floor are
+    flagged LOW_SUBSTRATE_FRACTION and their assessable=False, but they are STILL SCORED
+    (fraction sets confidence, it never gates the score — per the flowchart and the
+    run-everything doctrine). The A-score is only nulled by INSUFFICIENT_MARKERS.
     Returns {'class_ascores', 'celltype_ascores', 'h_min_by_class', 'celltype_to_class'}.
     (95% CI propagation from atlas posteriors is added at the report layer; the
     point A-scores are produced here.)
@@ -525,38 +525,29 @@ def stage_4_a_score(cleaned_beta: pd.Series, config: Optional[dict] = None,
     if cfdna_run_everything:
         class_present = {cls: True for cls in h_min}
 
-    # Substrate presence gate: a class not detected in this substrate is not
-    # assessable -- do not report a blood-background A-score for it (the cause of
-    # spurious terminal/stromal/stem_pluri "suppression" on whole blood). Present
-    # classes are scored against their OWN class H_min, unchanged.
+    # STOP BLOCKING CELL CLASSES (Heath, 2026): every class and cell type is SCORED.
+    # A low substrate fraction sets CONFIDENCE (assessable flag + fraction tier); it
+    # does NOT null the A-score. Departure from the class's expected baseline is the
+    # signal (Reproduction Paper 9.2 — all 8 classes shed into blood at a baseline;
+    # nothing is marked "not there" for being low). Downstream reads the assessable
+    # flag + fraction to interpret a low-fraction class's A-score, but the score stays.
     if class_present is not None:
-        NA = "NOT_ASSESSABLE_IN_SUBSTRATE"
+        LOWF = "LOW_SUBSTRATE_FRACTION"
         for cls, rec in class_ascores.items():
             present = bool(class_present.get(cls, False))
             rec["assessable"] = present
-            if not present:
-                rec["A"] = None
-                rec["status"] = NA
+            if not present and rec.get("status") == "OK":
+                rec["status"] = LOWF
         for ct, rec in celltype_ascores.items():
             cls = rec.get("class")
             class_ok = bool(class_present.get(cls, False)) if cls is not None else False
-            # SOP §44 + run-everything doctrine (§655): EVERY cell type in a PRESENT
-            # class is A-scored. The per-cell deconvolution fraction is the indicative
-            # tier (§9) -- it sets CONFIDENCE, it does NOT gate scoring. The only thing
-            # that NULLs a cell-type A-score is insufficient marker coverage in the
-            # patient beta (INSUFFICIENT_MARKERS, set inside score_per_celltype). A
-            # class absent from this substrate is the one substrate gate kept: it avoids
-            # reporting a blood-background A-score for terminal/stromal cells that do not
-            # circulate. (The prior per-cell fraction gate collapsed 51 immune cells to 4
-            # by riding the sparse NNLS cell tier -- removed.)
             rec["assessable"] = class_ok
             if celltype_fractions is not None:
                 _f = float(celltype_fractions.get(ct, 0.0))
                 rec["celltype_fraction"] = _f
                 rec["fraction_tier"] = "reliable" if _f >= detect_floor else "indicative"
-            if not class_ok:
-                rec["A"] = None
-                rec["status"] = NA
+            if not class_ok and rec.get("status") == "OK":
+                rec["status"] = LOWF
 
     # FLOOR-GATE (principled, all substrates). A tile scored below its class H_min has
     # H(beta) < H_min -- entropy beneath the identity floor. On IDENTITY loci this means
