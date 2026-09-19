@@ -86,7 +86,7 @@ Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mec
 
 ```
 cd issue003_build
-CPG_TRIAL=../runtime python build_mphys_issue003.py IAMPerformance_MPHYSIssue003_DRAFT.pdf
+CPG_TRIAL=../runtime python build_mphys_issue003.py IAMPerformance_MPHYSIssue003_RC1.pdf
 ```
 `data003.py` holds every number printed in the document; change a value there and rebuild. `mphys002_lib.py` is the Issue 002
 script with its `build()` cut into page functions — every 002 primitive, card and section reused verbatim.
