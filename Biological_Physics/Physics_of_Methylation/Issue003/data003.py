@@ -825,3 +825,17 @@ SEP_01 = {
 }
 FUTURE_GOALS.insert(2, ("GATE 0", "Contrast-specific markers in Walther: split stem_adult from progenitor with the 1,290 CpGs the Atlas already holds", "PROC-SEP-01",
   "The information is in the Atlas (1,290 CpGs > 0.2 beta apart; 4,265 above 3 sigma) and the deconvolver uses ~129 of them because it ranks markers by separation from the field, not from the neighbour. A pairwise-forced marker step should bring the blood sub-problem from kappa 30.6 to single digits; N7 + PROC-NILC-01 are the test. Then hierarchical (coarse-to-fine) composition. No new atlases: the claim is that THIS atlas works.", "one session; Atlas only"))
+
+# SCOPE STATEMENT — the author's positioning, 2026-09-19, placed before any table
+SCOPE = {
+ "not_claimed": [
+  "the world's largest atlas, or a new MCMC atlas built to sell",
+  "that one atlas is the right structure - a future builder may well use one per cell class, or a classification not yet conceived; that is fine",
+  "detection of all diseases, or of any disease ten years early",
+  "detection of the myeloid cancers (MDS, CML, CHIP) - those matrix rows are unvalidated and say so",
+  "clinical readiness of any kind - nothing here is validated for patient care",
+ ],
+ "claimed": ("A method biology did not know it needed: the physics of methylation - a per-class thermodynamic reference, an MCMC atlas as the posterior, and the CMB toolkit (end-to-end simulation, component separation, cross-method comparison, split-half replication) as the validation discipline. "
+             "On a very limited public dataset with no funding or institutional support, this method already resolves things that cohort comparison structurally cannot (s1.6). For the immune class in whole blood there are reproducible signals worth investigating with proper support. That is the claim, and all of it."),
+ "invitation": "The record is written so that a reader can break it: every constant loaded from a file, every procedure runnable from the kit, every reversal kept. The intended reader is the one who says 'cohorts, circular' first - and then pulls the repository.",
+}
