@@ -1,0 +1,77 @@
+he completion sprint — sequenced
+Below is the full sprint, ordered so each step unlocks the next. I'm listing the deliverable for each step (the artifact that ends up in repo + INVENTORY), not the analysis. Analysis exists in service of the artifact, not the other way around.
+Phase A — L9 framework FIRST (mandatory foundation)
+Doing this first because: every downstream step must pass L9 nulls to be claimable. Building the null suite before the analyses ensures we never publish a result that hasn't been beaten through nulls. This is the discipline that distinguishes CMB cosmology from typical biology.
+A1. Build the unified null-test framework. Module: Biological_Physics/atlas_vault/null_suite/cpg_null_runner.py Inputs: any CPG-VAL artifact set (per-sample.csv + results.json). Outputs: 8 standard null tests run automatically, each returning PASS/FAIL + p-value + 95% CI.
+* N1: HC-permutation null (shuffle case/HC labels, recompute, repeat 1000×)
+* N2: Age-decade null (permute within age-decade strata)
+* N3: Sex null (when sex variable present)
+* N4: Cohort-split null (50/50 within-cohort splits)
+* N5: Plate/array-position null (when probe coordinates available)
+* N6: Synthetic injection-recovery null (inject known signal at known strength into HC, recover)
+* N7: End-to-end sim null (simulate patients from known truth, run full chain, recover truth)
+* N8: Look-elsewhere null (when scanning many features, correct for multiple comparisons)
+Estimated work: 1 focused session, ~8 hours.
+A2. Build the synthetic patient generator (end-to-end sims). Module: Biological_Physics/atlas_vault/null_suite/synthetic_patient_generator.py Inputs: cohort design specification (n_case, n_HC, age distribution, sex distribution, disease signal strength, foreground levels). Outputs: synthetic IDAT-equivalent β-matrix with known truth labels. This becomes the methylome's FFP10/NPIPE equivalent.
+Estimated work: 1 focused session, ~6-8 hours.
+A3. Run all 7 existing Family A CPG-VALs through the null framework. Each existing VAL becomes formally sealed only after passing its declared null suite. Some may fail. That's the point of the discipline.
+Estimated work: 1 focused session, ~4 hours.
+Phase B — L4 component-separation expansion (foregrounds)
+Doing this next because: every L5+ analysis assumes proper foreground subtraction. Without it, our power spectrum or bispectrum picks up cell-composition signal masquerading as disease signal.
+B1. Build the foreground module registry. Module: Biological_Physics/atlas_vault/components/foreground_registry.py Each foreground gets a declared interface: subtract_from(beta_matrix, metadata) → cleaned_beta_matrix. Foregrounds: cell composition (Walther, exists), age (have seed from CPG-VAL-007), sex, batch, ancestry, smoking (when present). The registry runs them in declared order with documented transfer functions.
+Estimated work: 1 session, ~6 hours.
+B2. Build an independent second deconvolver — NILC-style. Module: Biological_Physics/atlas_vault/deconvolver/nilc_deconvolver.py Algorithm: Needlet Internal Linear Combination. A constrained linear combination of class-specific marker pools that minimizes residual variance subject to preserving the disease signal. Cross-check against Walther IAM Deconvolver. Two methods must agree to within stated tolerance. This is Planck's Commander/NILC/SMICA/SEVEM discipline applied to the methylome.
+Estimated work: 1-2 sessions, ~12-16 hours.
+B3. Build the age-axis foreground module formally. Currently CPG-VAL-007 produced a seed but it's not a reusable module. Formalize. Module: Biological_Physics/atlas_vault/components/age_axis_foreground.py
+Estimated work: ~3 hours.
+B4. Add sex/batch/ancestry foreground modules where cohort data permits. EPIC-Italy has age + sex. Has it has batch/plate metadata? Need to check what's available.
+Estimated work: ~4 hours.
+Phase C — L5 correlation structure (the paper-grade novelty)
+Doing this AFTER L4 because: all L5 statistics must be computed on foreground-cleaned data. Running C(d) on raw data picks up cell-composition correlation, not disease correlation.
+C1. TODO 2.1 — C(d) genomic-distance correlation per class. Module: Biological_Physics/atlas_vault/correlation/cpg_correlation_function.py For each architectural class, compute the two-point correlation function of methylation residuals vs genomic distance d. Look for acoustic peaks — characteristic-scale features that would be the methylome's analog of the CMB acoustic peaks. Apply MASTER-style mode-coupling correction for masked CpGs (chr16/chr17 transfer-function suppression we found in Plate 4).
+Estimated work: 1 session, ~6-8 hours.
+C2. TODO 2.2 — Bispectrum on highest-A-score class markers. Module: Biological_Physics/atlas_vault/correlation/cpg_bispectrum.py Three-point correlation function: coordinated methylation across 3 loci. Probes coordinated regulatory programs — chromatin remodeling complexes, multi-enhancer hubs. Implement KSW-style separable estimator (Planck convention).
+Estimated work: 1 session, ~6-8 hours.
+C3. TODO 2.3 — Banana degeneracy / 2D posterior shape analysis. Module: Biological_Physics/atlas_vault/posterior/degeneracy_mapper.py For pairs of A-scores (e.g., immune × cycling, terminal × stem_pluri), map the 2D case-vs-HC posterior shape. Identify degeneracy directions. The CIMP-axis is one we already see in Image 2 of your archive.
+Estimated work: 1 session, ~3-4 hours.
+Phase D — L6 covariance hardening
+D1. Sim-based covariance model. Module: Biological_Physics/atlas_vault/covariance/sim_based_covariance.py Generate N=1000 synthetic patients via the synthetic patient generator (Phase A2). Run all through L1-L5. Observe the covariance of L5 outputs. Compare against analytic Ledoit-Wolf. Use the larger of the two per element.
+Estimated work: ~6 hours.
+D2. Per-CpG covariance for downstream likelihood. Module: Biological_Physics/atlas_vault/covariance/per_cpg_covariance.py
+Estimated work: ~4 hours.
+Phase E — L7 likelihood + L8 inference (the clinical core)
+E1. TODO 2.4 — IAM cellular age clock. Module: Biological_Physics/atlas_vault/age_clock/iam_cellular_age_clock.py Train against chronological-age-labeled reference cohorts (Hannum 2013 + Horvath multi-tissue + UniLIFE 2025 — using these as DATA SOURCES, not external production tools; that's post-build-legal). Per-patient age estimate + 95% CI. Becomes nuisance parameter in L7 likelihood. This is the methods paper potential — could be standalone publication.
+Estimated work: 1-2 sessions, ~12-16 hours.
+E2. Build the per-card Bayesian likelihood module. Module: Biological_Physics/atlas_vault/likelihood/per_card_likelihood.py For each card, declare: likelihood function (Gaussian on A-scores + Mahalanobis), nuisance parameters (cell composition residuals, age, sex, batch), prior structure (cancer_prior, family_history_multiplier — already runtime artifacts). Output: full posterior over per-card parameters, marginalized over nuisance.
+Estimated work: 1 session, ~8 hours.
+E3. MCMC inference on per-card posteriors. Use Cobaya/emcee/dynesty (industry-standard CMB toolchain). Generate chains, compute confidence intervals, derive credible regions.
+Estimated work: 1 session, ~6 hours.
+Phase F — completion and L9 audit
+F1. Re-run all 7 Family A CPG-VALs through the now-complete chain L1-L9. Every VAL produces: prereg → cleaned data → L5 statistics → likelihood → posterior → null tests → outcome. Single end-to-end protocol.
+F2. Update v1_CPG_IAMAtlas_Evidence_Report → v2 with sealed CPG-VAL-001 through CPG-VAL-007 in full chain form.
+F3. Update v1_VAL_Test_Checklist → v2 to declare the chain L1-L9 as the mandatory test scope for every future CPG-VAL.
+Estimated work: 1 session, ~6 hours.
+The total
+Roughly 12-15 focused sessions of engineering work to fill out the chain completely. That gets us from C- to A.
+After Phase F, we have:
+* A complete chain of custody with documented failure modes per link
+* Every CPG-VAL passes its declared null suite or it doesn't ship
+* Two independent deconvolvers cross-checking each other
+* Sim-based covariance hardened against analytic Ledoit-Wolf
+* Per-card Bayesian likelihood with proper posterior, not threshold scoring
+* The IAM cellular age clock as both a nuisance parameter AND a publishable methods paper
+Then we move to:
+* Phase G: CPG_breast_panel_v1 build (CPG-VAL-008)
+* Phase H: Family B breast-epic confirmation series (CPG-VAL-009 through CPG-VAL-014)
+* Phase I: Family B immune-epic (lighthouse card)
+* Phase J: All remaining cards using the template
+What I'd want sign-off on before any code is written
+1. The order. Phase A first (L9 nulls), then B (L4 foregrounds), then C (L5 correlation), then D (L6 covariance), then E (L7+L8 likelihood/inference), then F (audit). Each phase unlocks the next. Doing them out of order means rework. Do you agree, or do you want a different sequence?
+2. The scope of "complete." The plan above gets us to a chain that a Planck postdoc would call complete for a single-frequency, single-method instrument. Going further (multi-substrate 5mC/5hmC/5fC/5caC, multi-omics cross-correlations) is Tier 5 — past the chain completion. Do you want me to scope Tier 5 as a follow-on phase or leave it off the immediate plan?
+3. The independent deconvolver requirement (B2). This is the largest single chunk of work (~12-16 hours) and the most architecturally significant. Without it we have one method talking to itself. With it we have Planck-grade cross-validation. My strong recommendation: include it. But it's expensive. Worth the cost? Or defer to Tier 5?
+4. The age clock methods paper (E1). When you train CPG's own cellular age clock against published age-labeled cohorts, it WILL outperform Horvath's clock at most tissues because we're using IAMAtlas's per-cell-type resolution while Horvath used bulk tissue. The temptation will be huge to publish this as a standalone methods paper before the rest of the chain is done. My recommendation: build it as part of the chain, don't publish standalone yet — the framework is stronger if every component lands together. Agree or push back?
+5. The Phase F audit deadline. When the chain is complete, every existing claim needs to be re-run through it. Anything that doesn't survive the audit gets retracted, not quietly buried. We need to agree to that protocol in advance, otherwise the discipline doesn't hold when the first inconvenient result comes back.
+Once you sign off on #1-#5 I start Phase A (the L9 null suite framework) next. That's the foundation everything else depends on.
+Also: while we're doing this work, the immune-class MCMC is still running in the background. By the time we finish Phase F (the chain audit), the immune MCMC will be complete, which positions us perfectly for the breast-epic-then-immune-epic Family B sequence.
+What's your read on the order, scope, and the five sign-off questions?
+
