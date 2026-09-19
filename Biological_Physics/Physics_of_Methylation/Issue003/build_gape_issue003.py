@@ -105,7 +105,7 @@ def toc(story):
             ("§3", "Two Instruments and the Presence Rule"),
             ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
             ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
-            ("§1.7", "NEW — The presence rule: a class gauge is reported only where the class is determined and present; whole blood reports immune plus one haematopoietic-progenitor component. stem_adult has carried no finding in nine VALs"),
+            ("§1.7", "NEW — The reporting rule (extends the §3.2 presence gate): a class gauge is put on the report only where the class is determined and present; whole blood reports immune plus one haematopoietic-progenitor component. stem_adult has carried no finding in nine VALs"),
             ("§1.6", "NEW — What the cosmology tools found that cohorts could not: the standing evidence ledger (nine rows to date, N7 first) that pre-empts the circularity objection"),
             ("App. VI–IX", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; Future Goals — the CMB items worth the effort, in gated order; the Part II outline"),
             ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
@@ -568,7 +568,7 @@ def sec_cosmo_evidence(story):
 
 def sec_presence(story):
     story.append(PageBreak())
-    story.append(Paragraph('THE PRESENCE RULE - WHICH CLASSES A SUBSTRATE MAY REPORT', sSect))
+    story.append(Paragraph('THE REPORTING RULE - WHICH CLASSES A SUBSTRATE MAY REPORT', sSect))
     story.append(Paragraph('Asked how often stem_adult had been the deciding class, the record was checked: every OUTCOME file, the VAL index, every disease card.', sBodySm))
     story.append(tbl([("where","stem_adult result","what carried the finding")]+[tuple(r) for r in D.STEM_ADULT_RECORD],[0.28,0.36,0.36], fs=6.0))
     story.append(SP(0.1))
