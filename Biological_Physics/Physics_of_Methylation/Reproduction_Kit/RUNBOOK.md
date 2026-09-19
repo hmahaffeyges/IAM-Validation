@@ -123,3 +123,7 @@ public healthy whole-blood IDATs run through Stage 1 (`PROC_CAL_01.py`), then re
 `cpg_conductor.run_full(beta_dict, atlas_csv, cfg={"age": N})` from `CPG_Engine/` on the eleven Stage-1 betas. First run from the repository layout; two things had to be fixed to make it run at all: the conductor resolved every file as `HERE/<name>` (flat working-folder layout) and `iam_cellular_age_scoring.py` was not in the repo. Both fixed in the same commit.
 
 Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–1.006) — the shipped chain absorbs the Stage-1 β offset through the age band. Three defects recorded in Issue 003 RECON/PROC-CHAIN-01: stem_adult false BREACH on 6 of 7 blood samples — every one where its fraction cleared the 1% presence floor (its band is n = 28, one source), a Mahalanobis key mismatch between `run_full` and the report builder, and cellular age pinned at the curve floor. **Do not report stem_adult from blood, Stage 5 distance, or Stage 6 age until those are fixed.**
+
+## 8. PROC-STAGE0-01 — Stage 0 intake on raw IDATs (added 2026-09-19)
+
+`stage_0_intake.py` steps 0.1–0.9 on the eleven raw IDAT pairs (methylprep env). Array type is verified from the IDAT header, files are SHA-256 hashed with re-transmission detection, bead counts pass. Detection-p, call rate and sex check need Stage 1's decoded intensities and report DEFERRED until that hand-off is wired. **Defect fixed:** the decision gate ignored Step 0.1 quarantines (fail-open) — guard added.
