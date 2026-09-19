@@ -2,13 +2,14 @@
 
 **Written by the author before the chain was built** (the 32-section CMB-postdoc spec walked module by module). Kept verbatim; a `2026-09-19 status` column is added so the map becomes the scorecard of the translation rather than a wish list. Legend as in the original: ✓ have · ⟳ roadmap · ➕ should add · ◐ translates with reinterpretation · ✗ does not translate.
 
-**Scorecard:** 78 rows. The two rows where the chain went *against* the map are the two most instructive: a second deconvolver (row 20, cut) and de-aging (row 47, refused). Both are Part II chapters: *where the CMB analogy breaks, and why that is the finding.*
+**Scorecard:** 79 rows. The two rows where the chain went *against* the map are the two most instructive: a second deconvolver (row 20, cut) and de-aging (row 47, refused). Both are Part II chapters: *where the CMB analogy breaks, and why that is the finding.*
 
 
 ## Section I — Foundations: what the CMB field actually is
 
 | # | CMB module | CPG analog | status (author) | notes (author) | **2026-09-19 status** |
 |---|---|---|---|---|---|
+| 1 | Spherical harmonic decomposition T ( n ^ ) = ∑ a ℓ m Y ℓ m T(n^)=∑aℓm Yℓm , including E/B polarization | The genome isn't a sphere, but it's a structured manifold (chromosomes × position × 3D chromatin TADs). Harmonic decomposition becomes (a) per-chromosome Fourier along position, (b) per-TAD modal decomposition, (c) the 115-cell-type basis itself acts as a "feature-space harmonic basis" | ◐ | Need to write this up — it's the single biggest conceptual move in the rulebook. The 115 cell types are our spherical harmonics. A patient's β profile gets decomposed onto that basis via Walther IAM Deconvolver. | UNWRITTEN as a chapter — but the chain does exactly this: the deconvolver projects a patient's β onto the 115-cell-type basis (Stage 2) and the class gauge reads eight coefficients of that projection. The 'harmonic basis' is the Atlas. Row 1 is the conceptual frame for Part II's Atlas chapters. |
 | 2 | Monopole, dipole, quadrupole, low-ℓ culture | Monopole = mean genome-wide β. Dipole = age axis (CPG-VAL-007) + sex axis. Quadrupole+ = cellular-composition axes (TODO 1.5 PCA). Low-ℓ anomalies = global-genome-level patterns (CIMP+, X-inactivation status, ploidy) | ✓ | Implicit today, need to make explicit. |  |
 | 3 | Cosmic variance — finite-mode irreducible noise | Cellular variance — finite number of independent cells contributing to a methylation reading. A pure plasma sample only carries ~10,000 cell-equivalents of cfDNA; you cannot reduce the variance below the cell-count floor. Same structural limit as 2ℓ+1 modes. | ➕ | Important to name. Defines fundamental limits on small samples. | NOT BUILT — cfDNA cell-equivalent variance floor never modelled |
 

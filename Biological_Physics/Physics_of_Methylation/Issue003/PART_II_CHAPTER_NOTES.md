@@ -36,6 +36,6 @@ these notes collect the material as it is learned so nothing is lost.
 ## The Atlas — several chapters: build (per-class MCMC, 115 cells, 262 columns), the flatness lesson, the brightness posterior
    (mean/sd per CpG = a reference map with per-pixel uncertainty), HEALPix and why a sky.
 
-## Opening chapter — the translation map. `CMB_TO_METHYLOME_MAP.md`: 78 rows written before the build; scored. Two reversals are the finding:
+## Opening chapter — the translation map. `CMB_TO_METHYLOME_MAP.md`: 79 rows written before the build; scored. Two reversals are the finding (row 1, the 115-cell basis as the harmonic basis, is the frame):
    row 20 (second deconvolver: NILC built then cut — the one Planck principle the chain knowingly does not follow) and row 47 (de-aging built then refused, §104 —
    the methylome's foreground is the patient). Row 44 (aging as lensing) is the unwritten explanation of the age band.
