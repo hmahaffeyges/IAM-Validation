@@ -327,6 +327,7 @@ def sec8_procedures(story):
         + [(s_, f"{a} | {m}") for s_, a, m in D.N7_01["same samples, both statistics"]]
         + [(f"consequence {k+1}", c) for k, c in enumerate(D.N7_01["consequences"])]
         + [("verdict", D.N7_01["verdict"])])
+    proc(story, 'PROC-NILC-01', 'The retired second deconvolver, rerun as designed', [(k, D.NILC_01[k]) for k in ("input","conditioning","result","reading","recommendation")])
     proc(story, 'PROC-WB-IMMUNE-01', 'Whole blood × immune — healthy reads in band', [
         ("input", "betas_cache.pkl for GSM2333901 (58M), GSM2333905 (67F), GSM2333950 (43M), GSM1051533, GSM1051534 (RA-study controls), GSM1051525, GSM1051526 (RA); iamatlas_gauge_identity_loci_v1_0.json; age_reference_matrix.json; IAMAtlasREBUILD.csv + map"),
         ("operation", "(1) deconvolve → require immune fraction ≥ DETECT_FLOOR (it is: 0.80–0.97); (2) β<sub>mean</sub> over the 42,134 immune identity loci (36,290 present on 450K); (3) A = H(β<sub>mean</sub>)/0.838889; (4) place against the immune p10–p90 band at the donor's age; (5) NO input offset (retired)"),
