@@ -127,3 +127,7 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 ## 8. PROC-STAGE0-01 — Stage 0 intake on raw IDATs (added 2026-09-19)
 
 `stage_0_intake.py` steps 0.1–0.9 on the eleven raw IDAT pairs (methylprep env). Array type is verified from the IDAT header, files are SHA-256 hashed with re-transmission detection, bead counts pass. Detection-p, call rate and sex check need Stage 1's decoded intensities and report DEFERRED until that hand-off is wired. **Defect fixed:** the decision gate ignored Step 0.1 quarantines (fail-open) — guard added.
+
+## 9. PROC-N7-01 — end-to-end synthetic simulation (added 2026-09-19)
+
+`CPG_Engine/Synthetic_Patient_Generator/synthetic_patient_generator.py` (restored; now reads the repo atlas; `composition_alpha=WHOLE_BLOOD_ALPHA`) → 24 synthetic patients → `run_full`. Composition recovery PASS (MAE ≤ 0.015). **Gauge FAIL:** every synthetic healthy reads BREACH, because the conductor's class gauge is H(β̄) over the *marker union* (bimodal), not the identity loci — despite its docstring. Real blood masked this because the age band was compiled on the same statistic. Identity-loci H(β̄) reads the synthetic healthy at 0.99 and real adenoma at 1.10 (correct both times) but has no band until Phase 1. **Do not read a conductor gauge value as a class measurement until `gauge_surface` says `identity_loci`.** Section 7's 'healthy IN_BAND' is withdrawn as conformance.

@@ -5314,6 +5314,9 @@ The fake 0.5-ish mean is an artifact of averaging in the wrong order. The per-lo
 ---
 
 
+
+> **Correction 2026-09-19 (PROC-N7-01).** §106 states the gauge formula correctly and misstates the running code: `cpg_conductor.stage_b_classes` computes H(β_mean)/H_min over the **class marker union** (bimodal), not the identity loci, and `age_reference_matrix.json` was compiled on that same marker-union statistic. On a synthetic healthy mixture the marker-union gauge reads BREACH (1.13) where identity-loci reads 0.99; on real adenoma it reads NORMAL (0.93) where identity-loci reads 1.10. The identity-loci gauge §106 prescribes has no band yet; Phase 1 builds it. Until then every conductor reading carries `gauge_surface = "marker_union"`.
+
 ## §107. THE JULY 2026 WIRING — what changed between v1.4.0 and the engine at HEAD (recorded 2026-09-19)
 
 Fifteen commits between 2026-07-01 and 07-03 changed the chain after this SOP was last written from the code. In order:
