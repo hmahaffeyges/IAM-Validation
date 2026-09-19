@@ -52,3 +52,5 @@ these notes collect the material as it is learned so nothing is lost.
 
 ## Stage 2 addendum 3 - PROC-SEP-01. The HSC/progenitor split IS in the Atlas (1,290 CpGs) and the deconvolver uses 129 of them: field-ranked markers answer 'haematopoietic or not', not 'HSC or MPP'. Class boundary drawn one step down a lineage (stem_adult = 1 cell type, progenitor = 11). Remedy ladder: pairwise-forced markers -> coarse-to-fine composition -> independent HSC reference. Chapter point: 'more CpGs' is rarely the answer; the RIGHT CpGs for the contrast that is ill-conditioned is.
 
+
+## Stage 2 addendum 4 - PROC-SEP-03, the two-tool design. Tool A: what is in the tube. Tool B: how one compartment divides, on the contrast CpGs only, with its own kappa check. kappa 30.6 -> 5.5; stem_adult = 0 in 7/7 blood; COMPARTMENT_ONLY where there is nothing to split. Chapter point (the author's question): 'can we refine the tools into two tools with each their own speciality?' - yes, and it is Planck's multi-scale habit. Three routes (NILC, contrast Walther, splitter) now agree stem_adult ~0 in healthy blood.
