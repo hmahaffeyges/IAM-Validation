@@ -3,7 +3,7 @@
 **Written 2026-09-19 at commit `46f9b77`.** This file is for a researcher arriving cold. It says where to start, what is sealed, what is open, and what not to do. It does not repeat the science; it points at where the science is.
 
 ## Start here, in this order
-1. `Physics_of_Methylation/Issue003/IAMPerformance_GAPEIssue003_DRAFT.pdf` — **page 4 first** ("What this document claims, and what it does not"). Then §1.6 (what the cosmology tools found that cohorts could not) and §1.7 (the reporting rule). Everything else in the 280+ pages is reference.
+1. `Physics_of_Methylation/Issue003/IAMPerformance_GAPEIssue003_RC1.pdf` — **page 4 first** ("What this document claims, and what it does not"). Then §1.6 (what the cosmology tools found that cohorts could not) and §1.7 (the reporting rule). Everything else in the 280+ pages is reference.
 2. `Physics_of_Methylation/Reproduction_Kit/README_FIRST.md` → `RUNBOOK.md`. Run `PROC_DECON_01.py` first. If it passes on your machine, the atlas and deconvolver are working; if it does not, stop and open an issue — nothing downstream is meaningful.
 3. `Physics_of_Methylation/SOP/CPG_Chain_of_Custody_SOP_v2_0_0.md` — read the **SUPERSESSION LEDGER** before any stage section; stale sections are marked, not deleted.
 4. `Testing_and_Code/VAL_INDEX.csv` — every validation ever run, with its path and stated verdict where one exists. Verdicts are *recorded*, not re-verified.

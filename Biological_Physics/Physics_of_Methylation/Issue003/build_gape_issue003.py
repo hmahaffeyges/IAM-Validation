@@ -24,7 +24,7 @@ def make_canvas(canvas, doc):
     canvas.setStrokeColor(LAV_D); canvas.setLineWidth(0.5)
     canvas.line(0.5*inch, 0.45*inch, W - 0.5*inch, 0.45*inch)
     canvas.setFillColor(MUTED2); canvas.setFont('Helvetica', 7)
-    canvas.drawString(0.5*inch, 0.30*inch, f'IAMPerformance  ·  GAPE {ISSUE}  ·  DRAFT')
+    canvas.drawString(0.5*inch, 0.30*inch, f'IAMPerformance  ·  GAPE {ISSUE}')
     canvas.drawCentredString(W/2, 0.30*inch, 'Patents pending 64/012,720 and 64/014,568')
     canvas.drawRightString(W - 0.5*inch, 0.30*inch, f'Page {canvas.getPageNumber()}')
     canvas.restoreState()
@@ -57,7 +57,7 @@ def cover(story):
     story.append(SP(0.08))
     story.append(Paragraph('Heath W. Mahaffey  ·  IAMPerformance  ·  Entiat, Washington', sMut))
     story.append(Paragraph('Repository: github.com/hmahaffeyges/IAM-Validation  ·  engine at commit 66f37fe (2026-07-03)', sMut))
-    story.append(Paragraph('Prepared with Claude Science, 2026-09-19. <b>DRAFT.</b> Every number is loaded from the runtime '
+    story.append(Paragraph('Prepared with Claude Science, 2026-09-19. <b>Release candidate 1.</b> Every number is loaded from the runtime '
         'files or from a dated run named in the text. Rows marked OPEN are unresolved and are printed as such.', sMut))
     story.append(SP(0.12))
     story.append(Paragraph("WHAT'S NEW IN ISSUE 003", sSect))
@@ -645,5 +645,5 @@ def build(out_path):
     return out_path
 
 if __name__ == '__main__':
-    out = sys.argv[1] if len(sys.argv) > 1 else 'IAMPerformance_GAPEIssue003_DRAFT.pdf'
+    out = sys.argv[1] if len(sys.argv) > 1 else 'IAMPerformance_GAPEIssue003_RC1.pdf'
     print(build(out))

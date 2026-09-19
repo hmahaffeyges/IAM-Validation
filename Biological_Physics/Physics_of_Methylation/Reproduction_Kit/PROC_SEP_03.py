@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """PROC-SEP-03 — Tool B (lineage splitter) on the 11 Stage-1 test samples. Expect: 7/7 whole blood SPLIT, kappa 3.9-5.2,
 stem_adult = 0.000; tissue with no haematopoietic-progenitor mass -> COMPARTMENT_ONLY (kappa = inf)."""
-import os, sys, pickle, numpy as np, cpg_kit as K
+import os, sys, pickle, numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cpg_kit as K
 sys.path.insert(0, K.ENGINE)
 from walther_iam_deconvolver import WaltherIAMDeconvolver; from lineage_splitter import LineageSplitter
 def main():

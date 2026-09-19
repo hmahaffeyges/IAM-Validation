@@ -6,7 +6,7 @@ This folder is the researcher-facing entry to the cellular track of the Informat
 
 | | file | what it is |
 |---|---|---|
-| **Report** | [`Issue003/IAMPerformance_GAPEIssue003_DRAFT.pdf`](Issue003/IAMPerformance_GAPEIssue003_DRAFT.pdf) | GAPE Issue 003 (September 2026, 263 pp). Supersedes Issue 002 (April 2026, pre-Atlas, in `Papers/`). Regenerate: `python Issue003/build_gape_issue003.py out.pdf` with `CPG_TRIAL` pointing at the runtime JSONs |
+| **Report** | [`Issue003/IAMPerformance_GAPEIssue003_RC1.pdf`](Issue003/IAMPerformance_GAPEIssue003_RC1.pdf) | GAPE Issue 003 (September 2026, 263 pp). Supersedes Issue 002 (April 2026, pre-Atlas, in `Papers/`). Regenerate: `python Issue003/build_gape_issue003.py out.pdf` with `CPG_TRIAL` pointing at the runtime JSONs |
 | **Verify it yourself** | [`Reproduction_Kit/README_FIRST.md`](Reproduction_Kit/README_FIRST.md) → [`RUNBOOK.md`](Reproduction_Kit/RUNBOOK.md) | five scripts, each printing input / operation / expected / observed / verdict. Every link of the chain from raw IDAT to the sealed anchors reproduces on a machine that had never seen the project |
 | **Where every component lives** | [`Reproduction_Kit/COMPONENT_MAP.md`](Reproduction_Kit/COMPONENT_MAP.md) | repo vs. large local inputs vs. vault IP |
 | **Operating procedure** | [`SOP/CPG_Chain_of_Custody_SOP_v2_0_0.md`](SOP/CPG_Chain_of_Custody_SOP_v2_0_0.md) | the chain stage by stage. **Read the SUPERSESSION LEDGER at the top first** — it maps every section superseded by the July 2026 commits to the file that is now authoritative. §105–§107 carry the scoring rulings and the July wiring |

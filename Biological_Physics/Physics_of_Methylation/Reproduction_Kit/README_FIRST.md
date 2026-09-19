@@ -39,7 +39,7 @@ Read in this order: this file → `RUNBOOK.md` (how to run the tests) → `COMPO
 | `results/PROC_*.json` | generated | each test's printed block, as data |
 | `results/VAL_INDEX.csv`, `.json` | generated | all 103 VAL identifiers in the repo with title, date, cohorts, stated decision, record completeness, path (Issue 003 Appendix V) |
 | `results/*.json` (formula_2x2, anchor_recompute, stage1_conformance, mix/cfdna/sepsis/wholeblood_decon, identity_shift) | generated | raw outputs of the day's runs |
-| `issue003_build/IAMPerformance_GAPEIssue003_DRAFT.pdf` | written | **Issue 003 draft, 263 pages** |
+| `issue003_build/IAMPerformance_GAPEIssue003_RC1.pdf` | written | **Issue 003 draft, 263 pages** |
 | `issue003_build/build_gape_issue003.py`, `data003.py`, `gape002_lib.py`, `val_index.json`, `fig_four_skies.*` | written | regenerates the PDF: `CPG_TRIAL=../runtime python build_gape_issue003.py out.pdf` |
 | `issue003_build/FullVersion_build_gape_issue002.py` | your upload | the Issue 002 script the 003 build reuses verbatim |
 | `figures/fig_four_skies.png/.pdf` | written | Fig 5A-1: Planck CMB / atlas immune posterior mean / posterior sd / patient z — made with your `cpg_patient_cmb.py` |
