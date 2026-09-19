@@ -138,4 +138,6 @@ Every time a CMB-derived method (end-to-end simulation, injection-recovery, spli
 
 ## 11. RULE — a safeguard that can be switched off when it disagrees is not a safeguard (added 2026-09-19)
 
+> **Trust your equipment.** Cutting a check because it trips is ripping the methane detector out of the house because it went off. When the alarm sounds, the first question is not "is the detector broken?" but "what does the detector know that I don't?" — H. Mahaffey, senior grid operator, 2026-09-19.
+
 Two safeguards built in spring 2026 were switched off because their first real finding looked like a defect in the safeguard: NILC (disagreed with Walther on every blood sample → cut; it was reporting that the Atlas cannot split immune/progenitor/stem_adult in blood, PROC-NILC-01) and the synthetic patient generator (retired unused; on its first run it exposed the production gauge reading the marker union, PROC-N7-01). Rule: **N7 (synthetic cohort through the full chain) and the cross-method comparison run on every chain release.** A disagreement gets a row in the §1.6 ledger and a RECON entry; it is never resolved by disabling the check.
