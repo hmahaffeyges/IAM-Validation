@@ -58,7 +58,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 |---|---|---|---|
 | Issue 003 build chain (build, data003, gape002_lib, 002 script) | **KIT** `issue003_build/` → **should be committed to REPO** `Physics_of_Methylation/Issue003/` | yes | new |
 | Issue 003 PDF | KIT `issue003_build/` | yes | v8 |
-| SOP v1.4.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
+| SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
 | LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `CPG_Engine/` and `ENGINE/README's/` | no | canonical |
 | Recipe, `_gape_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_gape_constants_private.py` still names the constant `n_bio` (retired name; the value 20.94 is the Mahaffey number) |
 | GAPE_EDEAR_Reproduction_Paper_v3, IAM_for_physicists, Hubble2GAPE, Cellular Margin, Astro-Genetics | REPO `docs/papers/` or `Biological_Physics/papers/` (check each) | no | verify each is committed |
@@ -85,7 +85,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 
 1. commit the chrX-removed `iamatlas_celltype_markers_v0_2.json` (RULING M1b)
 2. commit `anchors_v2/` beside `foundation_cohort/`, mark v1 SUPERSEDED in `cohort_manifest.json`
-3. commit SOP v1.4.0 to `VAULT/walther_clinical_runtime/`, then amend §105 per RULING A3
+3. commit SOP v2.0.0 to `VAULT/walther_clinical_runtime/`, then amend §105 per RULING A3
 4. commit the two extra plates from your zip (or delete them locally)
 5. promote `cpg_kit.py` and the five `PROC_*.py` into `Physics_of_Methylation/Reproduction_Kit/`, and `issue003_build/` into `Physics_of_Methylation/Issue003/`
 6. amend `test_a_score_canonical.py`'s guard to name its surface and add a gauge-surface test

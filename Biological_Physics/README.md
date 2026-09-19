@@ -32,7 +32,7 @@ Five folders. A researcher starts at the first one.
 
 | folder | what it is | start with |
 |---|---|---|
-| [`Physics_of_Methylation/`](Physics_of_Methylation/) | **Start here.** GAPE Issue 003 (the current report), the reproduction kit that verifies the measurement chain end to end, the chain-of-custody SOP (v1.5.0), the papers, and the methylome-vs-CMB plates | [`Physics_of_Methylation/README.md`](Physics_of_Methylation/README.md) |
+| [`Physics_of_Methylation/`](Physics_of_Methylation/) | **Start here.** GAPE Issue 003 (the current report), the reproduction kit that verifies the measurement chain end to end, the chain-of-custody SOP (v2.0.0, matched to the engine at HEAD), the papers, and the methylome-vs-CMB plates | [`Physics_of_Methylation/README.md`](Physics_of_Methylation/README.md) |
 | [`IAM_Atlas/`](IAM_Atlas/) | the derived reference atlas — 483,092 CpGs × 115 cell types, per-class MCMC posterior mean/sd, `H_min` provenance, the HEALPix sky mapping, and the scripts that built it | [`IAM_Atlas/README.md`](IAM_Atlas/README.md) |
 | [`CPG_Engine/`](CPG_Engine/) | the running code: Stage 0–1 intake and calibration, the Walther deconvolver, the class gauge, the conductor, the patient-CMB module, runtime matrices, test data, disease cards, report builders | [`CPG_Engine/README.md`](CPG_Engine/README.md) |
 | [`Testing_and_Code/`](Testing_and_Code/) | every validation run (VAL-001 … VAL-141) split into pre-Atlas and post-Atlas, the sealed foundation-cohort anchors, cohort manifests and extraction scripts, the full validation record and index | [`Testing_and_Code/README.md`](Testing_and_Code/README.md) |

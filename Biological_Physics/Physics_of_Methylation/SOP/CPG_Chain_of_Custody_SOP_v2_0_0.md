@@ -1,10 +1,11 @@
-# CPG Chain-of-Custody Standard Operating Procedure (SOP) — v1.4.0 (LESSON-ASCORE-02 locked: the A-score is mean(H(β_i)/H_min), the mean of per-CpG entropies — NOT H(β_mean). The H-of-the-mean form is the regression that broke the sealed VALs.)
+# CPG Chain-of-Custody Standard Operating Procedure (SOP) — v2.0.0 (matched to the engine at repo commit 66f37fe, 2026-07-03; layout of 2026-09-19)
 
-**Document version:** v1.5.0 — 2026-09-19 (§106 RULING A3 added: §105's per-locus rule is scoped to the SEPARATION surface (discriminative markers); the class GAUGE on identity loci keeps H(β_mean)/H_min because H_min and the age band are defined that way. Both reproduce their own sealed references. Open decisions 2 and 3 of §105 closed; decision 1 (Recipe §6.3) remains Heath's.)
+**Document version:** v2.0.0 — 2026-09-19. Brought into line with the fifteen engine commits of 2026-07-01 … 07-03 that post-date v1.4.0 (see the SUPERSESSION LEDGER immediately below and §107). Body text is the author's; corrections are marked. Repository paths follow the 2026-09-19 layout (`Biological_Physics/{Physics_of_Methylation, IAM_Atlas, CPG_Engine, Testing_and_Code, RETIRED}`).
+**Previous:** v1.5.0 — 2026-09-19 (§106 RULING A3 added: §105's per-locus rule is scoped to the SEPARATION surface (discriminative markers); the class GAUGE on identity loci keeps H(β_mean)/H_min because H_min and the age band are defined that way. Both reproduce their own sealed references. Open decisions 2 and 3 of §105 closed; decision 1 (Recipe §6.3) remains Heath's.)
 **Previous:** v1.4.0 — 2026-06-30 (LESSON-ASCORE-02 added — A-score formula corrected to the mean of per-CpG entropies at every Stage-4 site; reproduces the sealed VAL anchors exactly. See the HARD-WON LESSONS box below §0 and §105.)
 **Supersedes:** v1.3.2 (2026-06-21), v1.3.1 (2026-06-07), v1.3 (2026-06-06), v1.2 (2026-06-02, walkthrough-aligned), v1.1 (2026-06-02 cleanup), v1 (2026-05-31)
 **Authors:** Heath W. Mahaffey + Walther (Claude)
-**Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_3.md`, `Biological_Physics/atlas_vault/walther_clinical_runtime/README.md`
+**Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_3.md`, `Biological_Physics/CPG_Engine/Runtime Matrices/README.md`
 
 ---
 
@@ -110,7 +111,31 @@ A reader executing this document by hand should arrive at the same readout the e
 
 ## TABLE OF CONTENTS
 
-### Part I — Foundations
+##
+---
+
+## SUPERSESSION LEDGER — read this before any section below
+
+This SOP was written to v1.4.0 on 2026-06-30. The engine then changed for three more days. **Where a section below disagrees with this table, the table and the code win.** Every row names the commit and the file that is now authoritative.
+
+| SOP section(s) | what the section says | what the engine does now | since | authoritative file |
+|---|---|---|---|---|
+| §9, Stage 2, §94 (cross-method disagreement), 49 mentions of "NILC" | two deconvolvers (Walther + NILC) with an agreement AND-gate | **Walther alone.** NILC collapsed on correlated blood mixtures and deleted correct calls; it is on the deferred shelf and never invoked | c1be0c3, 2026-07-02 | `CPG_Engine/Walther_iam_deconvolver/`; NILC in `RETIRED/NILC_Deconvolver_cut_from_chain_2026-07-02/` |
+| §41–§44 (Stage 4), §1 chain-at-a-glance | one A-score, on discriminative markers | **two surfaces.** Class GAUGE = H(β̄)/H_min over per-class *identity loci*, read against the age-matched band; per-cell SEPARATION = mean of per-CpG H over discriminative markers, feeding the disease matcher. §105/§106 | d7b0e1f + b40ffbd, 2026-07-01 | `CPG_Engine/cpg_gauge_engine.py`, `Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json` |
+| Stage 4 (input offset) | — | a 0.055 atlas-to-blood input offset was frozen (143704d) and **retired the same day** in favour of the age-matched band; the file was deleted so it cannot be re-wired | d7b0e1f, 2026-07-01 | (none — removed) |
+| §47–§51 (Stage 5) | Mahalanobis over the 115-cell A vector against `mahalanobis_healthy_reference_v0_5` | **Option A:** Mahalanobis over the 8 class-gauge A-scores against the age-matched band, n-adaptive χ² thresholds; v1_0 reference retired, module refuses it | edc91e6, 2026-07-01 | `Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json` |
+| Stage 6 (§52–§58) | cellular age "NOT BUILT" | built: inverts the age-matched A_mean curve per class; accuracy gated on Stage-1 normalization | edc91e6 + a2a9c28, 2026-07-01/02 | `cpg_gauge_engine.cellular_age` |
+| §59 (Stage 7 tier table), §57 example | NORMAL 0.95–1.04, ELEVATED from 1.04 | **ELEVATED from 1.01** (NORMAL 0.95–1.01) to match the gauge's MARGINAL onset; the six-tier schema is otherwise as written | 66f37fe, 2026-07-03 | `Runtime Matrices/Tier_breakpoints/tier_breakpoints.json` |
+| every mention of `walther_clinical.py` as the orchestrator (16) | `walther_clinical.py` runs the chain | **`cpg_conductor.py`** runs the chain and pairs every per-cell A with its deconvolved fraction (DETECT_FLOOR 0.01 — a class below it is *absent*, not scored). `walther_clinical.py` is kept for reference | 2026-07 | `CPG_Engine/cpg_conductor.py` |
+| Stage 9 report | the v1 report builder | report builder v2 on the current chain + dashboard builder | 555994b, 3744909, aa248e6, c39ca44 | `CPG_Engine/cpg_report_builder.py`, `build_dashboard_v1.py` |
+| all paths `Biological_Physics/atlas_vault/…`, `PreIAMAtlas_Build/…`, `AstroGenetics/…` (39 in v1.4.0) | — | folders reorganized 2026-09-19; paths below are rewritten to the new tree; `atlas_vault` itself is in `RETIRED/` | e55fe78 | `Biological_Physics/README.md` |
+| §99 "eight Mahaffey Numbers — H_min values" | H_min called the Mahaffey number | the **Mahaffey number is one constant, M = ΔG_ATP/RT = 20.94**; H_min are the forty per-class per-substrate floors. Different quantities (Issue 003 §5A.1) | 2026-09-19 | Issue 003 |
+
+Sections not in this table are current as written.
+
+---
+
+# Part I — Foundations
 
 - §1   The chain at a glance (visual + one-paragraph summary per stage)
 - §2   The L1-L9 chain of custody — full grading table + what each link owes
@@ -124,6 +149,8 @@ A reader executing this document by hand should arrive at the same readout the e
 - §10  Stage 6 reporting layer — the legal boundary between physics measurement and customer communication
 
 ### Part II — The step-by-step chain of custody
+
+> **Orchestrator note (v2.0.0).** Wherever this Part names `walther_clinical.py` as the script that runs a stage, read `CPG_Engine/cpg_conductor.py` (2026-07; its docstring: "replaces the confusing walther_clinical.py"). The conductor pairs every per-cell A with its deconvolved fraction and treats a class below DETECT_FLOOR = 0.01 as absent. `walther_clinical.py` remains in `CPG_Engine/` for reference only.
 
 **Stage 0 — Sample intake (L1)**
 - §11  Step 0.1 — IDAT file arrival on server
@@ -444,10 +471,10 @@ The current production version is **IAMAtlas REBUILD** (frozen 2026-04-06), comp
 
 The full atlas posterior is at `IAMAtlasREBUILD.csv` (605 MB, 483,093 CpGs × 8 classes × {mean, sd, ci_lo, ci_hi}). The full file is NOT in the public repository — it's the proprietary core. What IS in the repo:
 
-- `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` — per-cell-type marker CpGs derived from the atlas (115 × 100 markers)
+- `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` — per-cell-type marker CpGs derived from the atlas (115 × 100 markers)
 - `IAMAtlasREBUILD_provenance.json` — the H_min values and convergence diagnostics
-- `Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json` (current production) + v0_2 + v0_1 (lineage) — HC centroid + covariance in 115-cell-type A-score space
-- `Biological_Physics/atlas_vault/pipeline_runtime_matrices/age_reference_matrix.{json,csv,py}` — 80-cell age × class baseline
+- `Biological_Physics/CPG_Engine/Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json` (current production) + v0_2 + v0_1 (lineage) — HC centroid + covariance in 115-cell-type A-score space
+- `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/age_reference_matrix.{json,csv,py}` — 80-cell age × class baseline
 
 The atlas is the SOURCE for all runtime artifacts but is itself proprietary IP. The Recipe (§9 of `v1_CPG_Recipe.md`) is the vault. The runtime artifacts are the public surfaces derived from the vault.
 
@@ -468,7 +495,7 @@ The atlas is consulted at every stage that requires a reference comparison or a 
 
 ---
 
-## §5. The Mahaffey Number (H_min) — the eight frozen anchors
+## §5. The eight frozen floors H_min *(v2.0.0: formerly "The Mahaffey Number (H_min)" — H_min and the Mahaffey number M = 20.94 are different quantities)*
 
 The H_min values are the architectural floor entropies — the minimum Shannon entropy each architectural class must maintain to remain that class. They are derived from the IAMAtlas REBUILD MCMC posteriors via the Jacobson → virial → Landauer derivation chain. They are **frozen 2026-04-06** and are the only "constants" in the entire framework. Everything else is computed.
 
@@ -596,7 +623,11 @@ The Euclid framing rule from the project memory applies here: **feathers, not ve
 
 ---
 
-## §9. The two-deconvolver discipline — when each runs, why both, what disagreement means
+## §9. The two-deconvolver discipline — RETIRED IN PLACE (c1be0c3, 2026-07-02)
+
+> **This section describes a design that is no longer run.** Stage 2 is the Walther NNLS deconvolver alone; NILC and the agreement gate were cut because they collapsed on correlated blood mixtures and deleted correct calls. The text is kept because the *reasoning* about disagreement is still the right way to think about a second method if one is ever re-introduced. See the SUPERSESSION LEDGER.
+
+### §9 (historical) — when each ran, why both, what disagreement meant
 
 **Both deconvolvers run on every patient. They run in parallel, not in sequence.**
 
@@ -1597,7 +1628,7 @@ Computed at atlas build time, frozen in the artifact. At runtime, this step is p
 **Atlas reference.** **IAMAtlas consulted.** Specifically: the per-class β posterior means at marker CpGs serve as the reference matrix X in the NNLS system. Loaded from `pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` extended with the atlas posterior moments at those CpGs.
 
 **Files invoked.**
-- Walther deconvolver: `Biological_Physics/atlas_vault/deconvolver/walther_iam_deconvolver.py`
+- Walther deconvolver: `Biological_Physics/CPG_Engine/Walther_iam_deconvolver/walther_iam_deconvolver.py`
 - Class-CpG reference matrix: built at runtime from the atlas posterior at marker CpGs
 
 **The math.** For each patient, Walther solves:
@@ -1840,11 +1871,11 @@ Location: `<Stage 2 output — emitted internally by `GAPE_WEB_v13.py`>`.
 
 **Inputs.** The Stage 2-deconvolved β data + the patient's declared chronological age.
 
-**Atlas reference.** **IAMAtlas consulted.** Specifically: the per-CpG age layer at `Biological_Physics/atlas_vault/components/IAMAtlas_age_layer.csv` (8,199 CpGs × {α intercept, γ slope per year, R², n_samples}), built from EPIC-Italy HC by the Phase B3 age-axis foreground module.
+**Atlas reference.** **IAMAtlas consulted.** Specifically: the per-CpG age layer at `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/IAMAtlas_age_layer.csv` (8,199 CpGs × {α intercept, γ slope per year, R², n_samples}), built from EPIC-Italy HC by the Phase B3 age-axis foreground module.
 
 **Files invoked.**
-- Foreground module: `Biological_Physics/atlas_vault/components/age_axis_foreground.py`
-- Age layer: `Biological_Physics/atlas_vault/components/IAMAtlas_age_layer.csv`
+- Foreground module: `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/age_axis_foreground.py`
+- Age layer: `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/IAMAtlas_age_layer.csv`
 
 **The math.** Per CpG i:
 > **β_corrected[i] = β_observed[i] − γ_i × (age − age_train_mean)**
@@ -1869,7 +1900,7 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 - *Patient declared age is wrong.* Manifests as anomalous post-correction β distribution. Not directly detectable here; surfaces at §41 (β_mean computation) if it's severe.
 - *Per-CpG age slope is wrong because the calibration cohort doesn't generalize to this patient's population.* This is the known limitation of the EPIC-Italy-only calibration; Phase B4 will add population-specific age layers.
 
-**Canonical cross-references.** Recipe §4.1 (Age foreground). Roadmap §10.2.2 Phase B3 (the age-axis module). Phase B3 finding doc at `Biological_Physics/atlas_vault/age_clock/Phase_B3_FINDING.md`.
+**Canonical cross-references.** Recipe §4.1 (Age foreground). Roadmap §10.2.2 Phase B3 (the age-axis module). Phase B3 finding doc at `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/age_clock/Phase_B3_FINDING.md`.
 
 **CPG Plate references.** Plate 4 Panel D (Differentiation Gradient — illustrates how age drift maps onto the methylome sphere).
 
@@ -1887,7 +1918,7 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 
 **Atlas reference.** `IAMAtlas_sex_layer.csv` — per-CpG (α, ψ_male, R², n_samples, is_chr_x, is_chr_y, x_inactivation_flag). Built once via `SexAxisForeground.fit()` on the n_hc=601 HC cohort with sex-at-birth metadata; cached as a frozen runtime artifact. **Module BUILT and layer CSV FIT (v1.2, 2026-06-06 on GSE50660 n=464).**
 
-**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/sex_axis_foreground.py` — `class SexAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, sex_at_birth)`.
+**Files invoked.** `Biological_Physics/CPG_Engine/Runtime Matrices/IAM_Cellular_Age/sex_axis_foreground.py` — `class SexAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, sex_at_birth)`.
 
 **The math.** Per CpG i:
 > **β_corrected[i] = β_observed[i] − ψ_i × indicator_male**
@@ -1992,7 +2023,7 @@ Special handling of sex chromosomes:
 
 **Atlas reference.** `IAMAtlas_smoking_layer.csv` — per-CpG (α, δ_current_smoker, φ_recency, R², n_samples). Built once via `SmokingAxisForeground.fit()` on the n_hc=601 HC cohort with smoking-status metadata; cached as a frozen runtime artifact. **Module BUILT and layer CSV FIT (v1.2, 2026-06-06 on GSE50660 n=464).**
 
-**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/IAM_Cellular_Age/smoking_axis_foreground.py` — `class SmokingAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, smoking_bin)`.
+**Files invoked.** `Biological_Physics/CPG_Engine/Runtime Matrices/IAM_Cellular_Age/smoking_axis_foreground.py` — `class SmokingAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, smoking_bin)`.
 
 **The math.** Per CpG i:
 > **β_corrected[i] = β_observed[i] − δ_i × indicator_current − φ_i × recency_score**
@@ -2329,7 +2360,7 @@ Location: `<Stage 4 output — emitted internally by `GAPE_WEB_v13.py`>`.
 
 **Atlas reference.** `directional_panels_v1_0.json` at `walther_clinical_runtime/Bidirectional_Decomposition/`. Schema: per-class panels with CpG-level (cpg_id, direction±1, mean_hc_train, sd_hc_train) + the pooled-entropy parent panel CpG list. **v1.0 coverage: immune class only** (VAL-051 Rule A 7-CpG AD-direction-anchored panel, SHA-anchored to sealed `val051_panel_ruleA.json` SHA-256 `52061285...`). 7 other classes return `NO_PANEL` honestly until future sealed VALs populate them. The immune-class pooled-entropy comparator uses the 18-CpG VAL-050 IMM_CPGS_EPIC parent panel.
 
-**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Bidirectional_Decomposition/bidirectional_decomposition.py` — mirrors the sealed `val051_analyze.py:112-121` `a_dir_score` formula exactly. Public surface: `load_directional_panels`, `score_directional_composite`, `score_pooled_entropy`, `bidirectional_flag`, `compute_per_class_bidirectional_decomposition`, `save_bidirectional_report`.
+**Files invoked.** `Biological_Physics/CPG_Engine/Runtime Matrices/Bidirectional_Decomposition/bidirectional_decomposition.py` — mirrors the sealed `val051_analyze.py:112-121` `a_dir_score` formula exactly. Public surface: `load_directional_panels`, `score_directional_composite`, `score_pooled_entropy`, `bidirectional_flag`, `compute_per_class_bidirectional_decomposition`, `save_bidirectional_report`.
 
 **The math.** For each panel CpG:
 > **z_i = (β_patient[i] − mean_hc_train[i]) / sd_hc_train[i]**
@@ -2393,9 +2424,9 @@ Location: `reports/{patient_id}/stage_4_5/{patient_id}_stage_4_5_bidirectional_d
 - `iamatlas_cpg_to_healpix_nside128.npy` at `IAMAtlas_v0_1/healpix_mapping/` (1.93 MB, 483,092 entries, int32 pixel indices in atlas row order). 450,192 CpGs annotated to real HEALPix pixels; 32,900 CpGs (HM450-only probes not in EPIC manifest) mapped to sentinel pixel that renders as the framework's galactic mask analog.
 - CPG Plate 1 at `IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png` — the binding contract for the projection grid.
 
-**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Brightness_Comparison/patient_brightness_comparison.py`. Public surface: `load_all_8_class_references`, `compute_all_8_class_departures`, `render_patient_cosmic_methylome`, `save_brightness_report`.
+**Files invoked.** `Biological_Physics/CPG_Engine/Runtime Matrices/Brightness_Comparison/patient_brightness_comparison.py`. Public surface: `load_all_8_class_references`, `compute_all_8_class_departures`, `render_patient_cosmic_methylome`, `save_brightness_report`.
 
-The HEALPix mapping is generated one time per atlas version by `Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/generate_cpg_healpix_mapping.py`. Production mapping is committed; the generator script exists so the build is reproducible from inputs (IAMAtlas REBUILD CSV + EPIC v1 B4 manifest) without manual intervention.
+The HEALPix mapping is generated one time per atlas version by `Biological_Physics/IAM_Atlas/healpix_mapping/generate_cpg_healpix_mapping.py`. Production mapping is committed; the generator script exists so the build is reproducible from inputs (IAMAtlas REBUILD CSV + EPIC v1 B4 manifest) without manual intervention.
 
 **The math.** Per class C and per CpG i in class C's covered set:
 > **z_i^C = (β_patient[i] − mean_class_β_C[i]) / sd_class_β_C[i]**
@@ -2983,7 +3014,7 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 
 ---
 
-## §59. Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json v1.2`)
+## §59. Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json`, tier_system_v1_2, onset corrected 2026-07-03)
 
 > **NOTE — `tier_by_smoking_bin` RETIRED 2026-06-11 (SOP §104).** The smoking-bin ELEVATED-floor shift (current → 1.10, former_0_5y → 1.08, …) is removed from production: raising a smoker's floor absorbs the very tobacco departure the A-score is meant to detect. The block is retired to a `_RETIRED` marker in `tier_breakpoints.json`. Smoking status is a report annotation, not a tier operand. All other §59 breakpoints and override modes are unchanged.
 
@@ -2993,15 +3024,15 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 
 **Atlas reference.** Indirect: structural ceiling per class is `1 / H_min(class)` from the frozen MCMC posteriors (G-003b freeze 2026-04-06). Tier breakpoints (1.07 Warburg + 1.10 breach) are physics-defined inflection points, not statistical percentiles.
 
-**Files invoked.** `Biological_Physics/atlas_vault/walther_clinical_runtime/Tier_breakpoints/tier_breakpoints.json` (v1.2). Engine consumes the JSON via a small helper. v0 4-tier statistical-percentile predecessor archived in `Tier_breakpoints/OLD/tier_breakpoints_v0_4tier_statistical.json`.
+**Files invoked.** `Biological_Physics/CPG_Engine/Runtime Matrices/Tier_breakpoints/tier_breakpoints.json` (v1.2). Engine consumes the JSON via a small helper. v0 4-tier statistical-percentile predecessor archived in `Tier_breakpoints/OLD/tier_breakpoints_v0_4tier_statistical.json`.
 
 **The math.** Per class `c`, using the 6-tier system v1.3 (WARBURG_TRANSITION is a boundary line at 1.07, not a band; the partition is the other five ranges):
 
 | Engine tier | Condition | Customer label | Physics meaning |
 |---|---|---|---|
 | SUPPRESSED | A[c] < 0.95 | Suppressed | Below baseline — context-dependent (treatment/transplant/immunosuppression) |
-| NORMAL | 0.95 ≤ A[c] < 1.04 | Normal | Within healthy sampling variance |
-| ELEVATED | 1.04 ≤ A[c] < 1.07 | Elevated | Recoverable drift; intervention window — closes at the 1.07 Warburg line |
+| NORMAL | 0.95 ≤ A[c] < 1.01 | Normal | Within healthy sampling variance *(was 1.04; changed 66f37fe 2026-07-03 to match the gauge MARGINAL onset)* |
+| ELEVATED | 1.01 ≤ A[c] < 1.07 | Elevated | Recoverable drift; intervention window — closes at the 1.07 Warburg line |
 | WARBURG_TRANSITION | **A[c] = 1.07 (boundary line, not a band)** | Warburg Transition | **1.07 Warburg line** — intervention character must change from "add fuel" to "restrict and rebuild" |
 | SIGNIFICANTLY_ELEVATED | 1.07 ≤ A[c] < 1.10 | Significantly Elevated | Past the Warburg line, below breach; trajectory direction is the primary read |
 | BREACH | A[c] ≥ 1.10 | Breach | **1.10 architectural-fidelity breach line** — senescence ≈ 1.24–1.27 / malignancy ≈ 1.28–1.32 regime; prompt for clinical workup, NOT a diagnosis |
@@ -4942,7 +4973,7 @@ The final part. Tables, glossaries, indices. Designed for at-a-glance lookup dur
 
 ## §97. File-to-stage mapping table
 
-Authoritative inventory: `Biological_Physics/atlas_vault/SYSTEM_INVENTORY.md`. This SOP section mirrors that inventory and adds the SOP-section cross-reference column.
+Authoritative inventory: `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/SYSTEM_INVENTORY.md`. This SOP section mirrors that inventory and adds the SOP-section cross-reference column.
 
 §97 is organized in three blocks: **(A) Real artifacts that exist as files in the repo today; (B) Logic currently embedded inside `GAPE_WEB_v13.py` — the production engine — and not yet isolated as standalone modules; (C) Pending — does not exist yet, awaits the `web.commercial.py` orchestrator design discussion.**
 
@@ -4954,8 +4985,8 @@ If an operator is looking for a path that this SOP names anywhere from §11 to �
 |---|---|---|---|
 | **IAMAtlas REBUILD** | `IAMAtlasREBUILD.csv` (proprietary; not in repo) | §28 + all atlas-consulting steps | The calibrated instrument |
 | Atlas provenance | `IAMAtlasREBUILD_provenance.json` | §28, §43, §99 | H_min source of truth (frozen 2026-04-06) |
-| **Walther deconvolver** | `Biological_Physics/atlas_vault/deconvolver/walther_iam_deconvolver.py` | §30, §31 | Production NNLS deconvolution |
-| Walther README | `Biological_Physics/atlas_vault/deconvolver/README.md` | §30, §31 | Deconvolver-specific docs |
+| **Walther deconvolver** | `Biological_Physics/CPG_Engine/Walther_iam_deconvolver/walther_iam_deconvolver.py` | §30, §31 | Production NNLS deconvolution |
+| Walther README | `Biological_Physics/CPG_Engine/Walther_iam_deconvolver/README.md` | §30, §31 | Deconvolver-specific docs |
 | **NILC v2 deconvolver** | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_deconvolver.py` | §32 | Cross-method GLS deconvolution |
 | NILC v1 fractions | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_fractions_all.csv` | (audit) | Historical v1 output |
 | NILC v2 fractions | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_fractions_v2_departure.csv` | (audit) | Current v2 output |
@@ -4963,32 +4994,32 @@ If an operator is looking for a path that this SOP names anywhere from §11 to �
 | NILC v2 crosscheck | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck_v2.json` | §33, §94 | Current cross-method gate report |
 | Phase B2 finding | `Biological_Physics/chain_of_custody/L4_component_separation/Phase_B2_FINDING.md` | (historical) | Initial NILC+Walther cross-check |
 | Phase B2.1 finding | `Biological_Physics/chain_of_custody/L4_component_separation/Phase_B2_1_FINDING.md` | §33 | Current cross-method gate documentation |
-| **Age-axis foreground** | `Biological_Physics/atlas_vault/components/age_axis_foreground.py` | §35 | Per-CpG age regression / β subtraction (Phase B3) |
-| Age layer matrix | `Biological_Physics/atlas_vault/components/IAMAtlas_age_layer.csv` | §35 | Per-CpG (α, γ, R², n) — 8,199 CpGs, 100% convergence |
-| Age layer diagnostics | `Biological_Physics/atlas_vault/components/age_layer_diagnostics.json` | §35 | Per-CpG fit diagnostics |
-| **A-score scoring** | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_a_scoring.py` | §41–§45 | `score_per_class()` + `score_per_celltype()` |
-| Marker artifact | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` | §29, §44, §65 | Per-cell-type one-vs-rest top-100, 115 cell types |
-| Marker SHA anchor | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.sha256` | §29 | SHA: `46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd` |
-| **Mahalanobis scoring** | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_mahalanobis_scoring.py` | §47–§51 | `MahalanobisHealthyHull` class — distance + top-10 axis decomp |
-| Mahalanobis reference | `Biological_Physics/atlas_vault/walther_clinical_runtime/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json` (current production; v0_1/v0_2/v0_3/v0_4 retained for lineage) | §48 | HC centroid + covariance (n_hc=1,721, Ledoit-Wolf shrinkage=0.001317, percentile-calibrated Route A threshold p95=13.54) |
-| Mahalanobis validation | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/mahalanobis_per_patient_breast_predx_validation.csv` | (audit) | Per-patient breast pre-dx distances (n=648) |
-| **Cellular age scoring** | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/iam_cellular_age_scoring.py` | §52–§58 | `IAMCellularAge` class — canonical Recipe §6.3 inversion |
-| Age reference matrix (JSON) | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/age_reference_matrix.json` | §53 | 80-cell baseline: 8 classes × 10 decades |
-| Age reference matrix (CSV) | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/age_reference_matrix.csv` | §53 | Same data, flat CSV |
-| Age reference matrix (PY) | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/age_reference_matrix.py` | §53 | Same data, with interpolation helpers |
-| Cellular age validation | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/cellular_ages_v4_epic_italy_validation.csv` | (audit) | 1,174 EPIC-Italy v4 output |
-| Tier breakpoints | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/tier_breakpoints.json` | §59, §60, §63 | A-score thresholds + customer-label collapse |
-| cfDNA weights | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/cfdna_weight.json` | §61 | Healthy-blood per-class expected (Snyder/Moss) |
-| Literature anchors | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/literature_anchors.json` | §71 | Per-class published anchors |
-| Cancer prior | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/cancer_prior.json` | §72 | US lifetime incidence per class |
-| Family history mult. | `Biological_Physics/atlas_vault/pipeline_runtime_matrices/family_history_multiplier.json` | §73 | First-degree-relative RR per class |
+| **Age-axis foreground** | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/age_axis_foreground.py` | §35 | Per-CpG age regression / β subtraction (Phase B3) |
+| Age layer matrix | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/IAMAtlas_age_layer.csv` | §35 | Per-CpG (α, γ, R², n) — 8,199 CpGs, 100% convergence |
+| Age layer diagnostics | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/age_layer_diagnostics.json` | §35 | Per-CpG fit diagnostics |
+| **A-score scoring** | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iamatlas_a_scoring.py` | §41–§45 | `score_per_class()` + `score_per_celltype()` |
+| Marker artifact | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` | §29, §44, §65 | Per-cell-type one-vs-rest top-100, 115 cell types |
+| Marker SHA anchor | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.sha256` | §29 | SHA: `46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd` |
+| **Mahalanobis scoring** | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iamatlas_mahalanobis_scoring.py` | §47–§51 | `MahalanobisHealthyHull` class — distance + top-10 axis decomp |
+| Mahalanobis reference | `Biological_Physics/CPG_Engine/Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_3.json` (current production; v0_1/v0_2/v0_3/v0_4 retained for lineage) | §48 | HC centroid + covariance (n_hc=1,721, Ledoit-Wolf shrinkage=0.001317, percentile-calibrated Route A threshold p95=13.54) |
+| Mahalanobis validation | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/mahalanobis_per_patient_breast_predx_validation.csv` | (audit) | Per-patient breast pre-dx distances (n=648) |
+| **Cellular age scoring** | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iam_cellular_age_scoring.py` | §52–§58 | `IAMCellularAge` class — canonical Recipe §6.3 inversion |
+| Age reference matrix (JSON) | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/age_reference_matrix.json` | §53 | 80-cell baseline: 8 classes × 10 decades |
+| Age reference matrix (CSV) | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/age_reference_matrix.csv` | §53 | Same data, flat CSV |
+| Age reference matrix (PY) | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/age_reference_matrix.py` | §53 | Same data, with interpolation helpers |
+| Cellular age validation | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/cellular_ages_v4_epic_italy_validation.csv` | (audit) | 1,174 EPIC-Italy v4 output |
+| Tier breakpoints | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/tier_breakpoints.json` | §59, §60, §63 | A-score thresholds + customer-label collapse |
+| cfDNA weights | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/cfdna_weight.json` | §61 | Healthy-blood per-class expected (Snyder/Moss) |
+| Literature anchors | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/literature_anchors.json` | §71 | Per-class published anchors |
+| Cancer prior | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/cancer_prior.json` | §72 | US lifetime incidence per class |
+| Family history mult. | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/family_history_multiplier.json` | §73 | First-degree-relative RR per class |
 | Disease signature matrix v1.5 | embedded inside `GAPE_WEB_v13.py` at present writing | §65 | 77×131 card-level lookup; standalone binary export pending at `pipeline_runtime_matrices/disease_signature_matrix/` |
 | Card residual maps | placeholder dir `pipeline_runtime_matrices/card_residual_maps/` | §66 | Currently empty; populated per card as VALs lock thresholds |
 | **L9 null runner** | `Biological_Physics/chain_of_custody/L9_null_suite/cpg_null_runner.py` | §80–§88, §91 | Unified 8-null framework (N1–N8) |
 | **Synthetic patients** | `Biological_Physics/chain_of_custody/L9_null_suite/synthetic_patient_generator.py` | §86, §87, §89 | FFP10/NPIPE analog — signal-injection harness |
 | Per-VAL null outputs | `Biological_Physics/chain_of_custody/L9_null_suite/test_runs/CPG_VAL_00X/` | (audit) | Phase A: 5 sealed, 2 RESTATE (VAL-004 gain/loss, VAL-006 chr6 LEC) |
 | **Production engine** | `GAPE_WEB_v13.py` | §11–§79 (where logic is embedded) | The actual runtime — see §97.B |
-| System inventory | `Biological_Physics/atlas_vault/SYSTEM_INVENTORY.md` | (this table) | Source of truth for paths |
+| System inventory | `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/SYSTEM_INVENTORY.md` | (this table) | Source of truth for paths |
 
 ### §97.B — Logic currently embedded inside `GAPE_WEB_v13.py`
 
@@ -5015,7 +5046,7 @@ The following operations described in §11–§79 are performed by the productio
 | `web.commercial.py` orchestrator | Top-level driver that calls the modules in §97.A in sequence, replacing the engine-internal orchestration in §97.B. Working name — final naming TBD. | Open design discussion between Heath and Walther |
 | Standalone disease-signature-matrix v1.5 CSV | Binary export of the matrix currently embedded inside `GAPE_WEB_v13.py`. Placeholder dir already created at `pipeline_runtime_matrices/disease_signature_matrix/`. | Pending decision on whether to externalize before orchestrator design |
 | Per-card residual maps for cards other than breast-epic | Per-card CSVs at `pipeline_runtime_matrices/card_residual_maps/<card>/`. | Per-card VALs locking thresholds |
-| Sex / batch / ancestry / smoking foreground modules | Companions to `age_axis_foreground.py`; would live in `Biological_Physics/atlas_vault/components/`. | Phase B4 per Roadmap §10.2.2 |
+| Sex / batch / ancestry / smoking foreground modules | Companions to `age_axis_foreground.py`; would live in `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/components/`. | Phase B4 per Roadmap §10.2.2 |
 | Probe response function (L3) | Per-probe transfer function as a separate module; documented gap in L3 grading. | Atlas-wide probe characterization work |
 | Manifest schema (standalone JSON Schema) | The intake schema as a versioned file rather than engine-embedded validation. | Orchestrator design |
 | CANNOT_SAY list (standalone JSON) | Legal-boundary regex/keyword list as a versioned file rather than engine-embedded checks. | Orchestrator design + legal review |
@@ -5076,7 +5107,7 @@ The two-way translation between cosmology vocabulary and methylome vocabulary. U
 
 ---
 
-## §99. The eight Mahaffey Numbers — H_min values frozen 2026-04-06
+## §99. The eight class floors H_min — frozen 2026-04-06 *(v2.0.0: formerly titled "Mahaffey Numbers"; H_min is not the Mahaffey number — see LEDGER last row)*
 
 **These are the only constants in the framework.** Every A-score in the system divides by one of these eight numbers. They are derived from the IAMAtlas REBUILD MCMC posteriors and frozen on 2026-04-06.
 
@@ -5167,6 +5198,9 @@ The four plates are the visual anchor of the framework. Each plate illustrates s
 ---
 
 ## §102. Change log
+
+- **v2.0.0 — 2026-09-19.** Supersession ledger added; §9 retired in place (NILC cut c1be0c3); Stage 4 two-surface wiring, Mahalanobis Option A, cellular age and tier onset 1.01 recorded (§107); `cpg_conductor.py` named as orchestrator; all repository paths rewritten to the 2026-09-19 layout; §5/§99 retitled (H_min ≠ Mahaffey number). Author's text otherwise unchanged.
+- **v1.5.0 — 2026-09-19.** §106 RULING A3.
 
 | Date | Version | Change | Authority |
 |---|---|---|---|
@@ -5279,7 +5313,26 @@ The fake 0.5-ish mean is an artifact of averaging in the wrong order. The per-lo
 
 ---
 
-**End of Part V (§97-§106).**
+
+## §107. THE JULY 2026 WIRING — what changed between v1.4.0 and the engine at HEAD (recorded 2026-09-19)
+
+Fifteen commits between 2026-07-01 and 07-03 changed the chain after this SOP was last written from the code. In order:
+
+1. **Canonical gauge engine** (536c0e9, a892086, 8cdf352). `cpg_gauge_engine.py` carries the forty `H_min` values (8 classes × 5 substrates, byte-identical to Issue 002), the age-matched two-axis readout, and the Issue-002 severity vocabulary. Healthy is a **band at the patient's age**, not the point A = 1.
+2. **Identity loci frozen** (7b74f36). `iamatlas_gauge_identity_loci_v1_0.json`: per-class loci selected where the class sits at its characteristic β (unimodal), 20k–42k per class, with `H_min_beta` and a ±0.05 band.
+3. **Input offset frozen, then retired** (143704d → d7b0e1f). A 0.055 atlas-to-healthy-blood offset was frozen on the immune identity loci, then removed the same day: the age-matched band absorbs it, and the offset file was deleted so no future session re-wires it. *Issue 003 §6a measures the same offset (+0.054 … +0.090 in seven Stage-1 whole-blood samples) and records the closing test: re-derive `H_min_beta` and the band from ≥30 public healthy blood IDATs through Stage 1.*
+4. **Stage 4 wired to the gauge** (d7b0e1f). `class_ascores` = H(β̄)/H_min over identity loci, placed in the age band, superseding §41's discriminative-marker formula for the *class* call. Below-floor on identity loci means **absence or inversion**, disambiguated by the presence gate.
+5. **Two surfaces kept** (b40ffbd). `celltype_ascores` reverted to per-cell mean-of-H on discriminative markers — the SEPARATION surface feeding the disease matcher — after inheriting the gauge collapsed the matcher's per-cell axes. Patient age threaded into Stage 4 so the band is exact; the commit records that healthy blood read **IN_BAND at the true age** where it had read BELOW_BAND at the age-44 default. Flagged and left open there: the Mahalanobis reference μ = 1.0 did not match the separation scale (~0.56 healthy).
+6. **Mahalanobis Option A + cellular age** (edc91e6). The hull now scores the eight class-gauge A's against the band (μ = A_mean(class, age), σ = (A_mean − A_p10)/1.2816), distance over assessable classes, n-adaptive χ² alarm; the v1_0 reference is retired and refused. Cellular age inverts the band's A_mean curve per class; accuracy gated on Stage-1 normalization.
+7. **NILC cut** (c1be0c3). Stage 2 is Walther alone. §9 retired in place.
+8. **Report builder v2 and dashboard** (555994b, 3744909, aa248e6, c39ca44).
+9. **Tier onset** (66f37fe). ELEVATED begins at 1.01, not 1.04, matching the gauge's MARGINAL onset.
+
+**What v2.0.0 does not do.** It does not rewrite Parts II–IV stage by stage against the code; it corrects the parts list, marks the retired design, and states the current one. A stage-by-stage re-derivation of this SOP from `cpg_conductor.py` is the next revision. The reproduction kit (`Physics_of_Methylation/Reproduction_Kit/`) verifies the links that matter — Stage 1, the deconvolver, both scoring surfaces against their sealed references — and is the check that any future SOP text must pass.
+
+---
+
+**End of Part V (§97-§107).**
 
 **End of CPG Chain-of-Custody SOP v1.** 102 sections. Five parts. Quantum-level granular operator manual from IDAT-on-server (§11) to audit-trail-closed (§79), with L9 chain-integrity scaffolding (§80-§91), failure-mode response catalog (§92-§96), and complete reference apparatus (§97-§102).
 
