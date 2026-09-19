@@ -1,17 +1,22 @@
-"""Canonical A-score fail-safe.
+"""Canonical A-score fail-safe -- SEPARATION SURFACE (discriminative markers, 115 cell types).
 
-Guards the one invariant that matters: A = mean_i( H(beta_i) / H_min(class) ) is
-the MEAN OF THE PER-CpG ENTROPIES across the panel -- NOT H(beta_mean), the
-entropy of the mean beta. Those two agree only when every beta is identical
-(e.g. a uniform beta=0.5 input), which is exactly why the old uniform self-test
-passed while a backwards aggregation could still ship.
+Guards the invariant for THIS surface: A = mean_i( H(beta_i) / H_min(class) ) is the MEAN OF THE
+PER-CpG ENTROPIES across a marker panel -- NOT H(beta_mean). Marker panels are bimodal by
+construction, so H(beta_mean) manufactures ~0.5 and pins the ceiling (SOP s105).
 
-CORRECTED v1.4.0 (2026-06-30, SOP LESSON-ASCORE-02 / §105): a prior version of
-this fail-safe asserted the H(beta_mean) form as canonical and would have BLOCKED
-the validated module. The validated instrument -- the one that reproduces the
-sealed GSE51032 anchor (115/115 A-scores, 460/460 Mahalanobis, Cohen's d +2.088)
--- computes the mean of per-CpG entropies. Any build that does not reproduce that
-anchor is wrong by definition.
+SCOPED v1.5.0 (2026-09-19, SOP s106 / RULING A3): this rule applies to the separation surface only.
+The class GAUGE (8 classes, identity loci, cpg_gauge_engine.py + Stage 4 wiring) correctly computes
+H(beta_mean)/H_min, because H_min (G-002/G-003b) and age_reference_matrix.json are both defined as H
+of a mean beta and the identity loci are unimodal. Both surfaces reproduce their own sealed reference
+(PROC-ANCHOR-01: r = 1.00000 on 648 samples; PROC-FORMULA-01). Neither form is "the regression" --
+using either on the other surface is. The gauge-side guard is the Jensen-gap test in
+CPG_KISS_Commercial_Engine/tests/cpg_kit.py::gauge_A.
+
+CORRECTED v1.4.0 (2026-06-30, SOP LESSON-ASCORE-02 / s105): a prior version of this fail-safe
+asserted the H(beta_mean) form as canonical for markers and would have BLOCKED the validated module.
+The validated separation instrument -- the one that reproduces the sealed GSE51032 anchor (115/115
+A-scores, 460/460 Mahalanobis, Cohen's d +2.088) -- computes the mean of per-CpG entropies. Any
+SEPARATION build that does not reproduce that anchor is wrong by definition.
 
 Run: python test_a_score_canonical.py   (exits non-zero on any failure)
 Wire into startup / CI so a regression in the scoring math can never ship again.
@@ -97,5 +102,23 @@ def run():
     print("A-score fail-safe: PASS (4 checks incl. bimodal aggregation guard)")
 
 
+
+
+# --- v1.5.0: gauge-surface companion test (SOP s106). Identity loci are unimodal; on such a panel
+# H(beta_mean) and mean_i H(beta_i) must agree to within the Jensen bound the gauge tolerates (0.05).
+def test_gauge_surface_jensen_bound(jensen_max=0.05):
+    import math, random
+    random.seed(20260919)
+    def H(b):
+        b=min(max(b,1e-12),1-1e-12); return -b*math.log2(b)-(1-b)*math.log2(1-b)
+    panel=[min(max(random.gauss(0.73,0.06),0.02),0.98) for _ in range(5000)]   # unimodal identity-like panel
+    gap=H(sum(panel)/len(panel))-sum(H(b) for b in panel)/len(panel)
+    assert 0 <= gap < jensen_max, f"identity-like panel Jensen gap {gap:.4f} exceeds {jensen_max}"
+    bim=[0.05]*2500+[0.95]*2500                                                 # bimodal marker-like panel
+    gap_b=H(sum(bim)/len(bim))-sum(H(b) for b in bim)/len(bim)
+    assert gap_b > jensen_max, "bimodal panel must be refused by the gauge (Jensen gap too small?)"
+    return gap, gap_b
+
 if __name__ == "__main__":
+    _g,_gb=test_gauge_surface_jensen_bound(); print(f"[gauge_surface] identity-like Jensen gap {_g:.4f} (<0.05 ok) | bimodal {_gb:.4f} (refused ok)")
     run()

@@ -172,7 +172,8 @@ def regression_guard_bimodal():
     The A-score MUST be mean_i(H(beta_i)/H_min) -- the mean of per-CpG
     entropies -- NEVER H(beta_mean)/H_min. This guard scores a known bimodal
     panel and asserts the mean-of-per-CpG value. Any build that reverts to the
-    entropy-of-the-mean form (the 2026-06-11 regression) fails here.
+    entropy-of-the-mean form (the 2026-06-11 regression ON MARKER PANELS) fails here.
+    v1.5.0 / SOP s106: on identity loci the class gauge legitimately uses H(beta_mean); this module is the SEPARATION surface only.
     """
     import pandas as _pd
     import math as _math

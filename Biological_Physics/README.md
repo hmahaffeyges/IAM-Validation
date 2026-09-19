@@ -33,6 +33,17 @@ These hold across the whole track and are stated first because they are easy to 
 - **`papers/`** — publications and figures.
 - **`DETAILED_VALIDATION_RECORD.md`** — the full, granular validation record and per-study notes.
 
+## Issue 003 (September 2026) — current report, reproduction kit, and where things are
+
+- **Report:** [`AstroGenetics/CPG_KISS_Commercial_Engine/builders/IAMPerformance_GAPEIssue003_DRAFT.pdf`](AstroGenetics/CPG_KISS_Commercial_Engine/builders/IAMPerformance_GAPEIssue003_DRAFT.pdf) — supersedes Issue 002 (April 2026, pre-Atlas). Regenerate with `builders/build_gape_issue003.py`.
+- **Reproduction kit:** [`AstroGenetics/CPG_KISS_Commercial_Engine/tests/`](AstroGenetics/CPG_KISS_Commercial_Engine/tests/) — start with `README_FIRST.md`, then `RUNBOOK.md`. Five scripts, each printing input / operation / expected / observed / verdict: Stage 1 raw IDAT → β (11/11 bit-identical to the cached betas), deconvolver vs documented outputs (MAE 0.0004), the sealed 115-cell anchors recomputed from raw GEO (r = 1.00000, GSE51032 and GSE51057), the two aggregation formulas on the same samples, and the deconvolver against known plasma mixtures. `COMPONENT_MAP.md` says which file lives where.
+- **Chain-of-custody SOP:** [`PreIAMAtlas_Build/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_5_0.md`](PreIAMAtlas_Build/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_5_0.md) — v1.5.0 adds §106 (one aggregation per surface: gauge = H(β̄)/H_min on identity loci; separation = mean of per-CpG H on discriminative markers). v1.3 retained for the record.
+- **Validation index:** `tests/VAL_INDEX.csv` — every VAL identifier in this tree (103) with title, date, cohorts, stated decision and path. VAL-047 restored at [`PreIAMAtlas_Build/Preliminary_Test_Results/validation_runs/CPG_VAL_047_Breast_per_patient_prediagnostic/`](PreIAMAtlas_Build/Preliminary_Test_Results/validation_runs/CPG_VAL_047_Breast_per_patient_prediagnostic/).
+- **Anchors:** `validation_runs/foundation_cohort/anchors_v2_chrXremoved/` re-seals GSE51032/GSE51057 under the chrX-removed marker file now canonical in `Runtime Matrices/Celltype_Marker/`; the 2026-05-29 seal beside it is retained as superseded.
+- **Plates:** `PreIAMAtlas_Build/atlas_vault/IAMAtlas_v0_1/plates/` gains Plate 01 (Cosmic Methylome Background), Plate 03 (Methylome CMB vs microwave CMB) and Plate 05 (Issue 003 four skies: Planck realization, Atlas immune posterior mean and sd, one patient's z-departure, all on one HEALPix grid).
+
+*Research stage. Nothing in this tree is clinical validation.*
+
 ## Methodology — the CMB pipeline, applied to the methylome
 
 The chain follows the Planck-style cosmic-microwave-background data-processing pipeline stage for stage: raw detector intensities (IDAT) → calibration → an all-sky map (the per-CpG β matrix) → component separation (deconvolution) → an information-theoretic statistic scored against a derived reference scale, with an end-to-end null-test suite for sealing results and Mollweide / HEALPix all-sky map rendering for the report. The full term-by-term mapping is documented in the current-chain README and in the chain-of-custody SOP. The one place the analogy is deliberately *not* followed is foreground subtraction (principle 2 above): in cosmology a galactic foreground is a separate physical source; in the methylome the "foreground" is often the patient's own biology, so it is annotated, not removed.
