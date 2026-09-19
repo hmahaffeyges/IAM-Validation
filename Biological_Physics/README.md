@@ -19,6 +19,8 @@ The same framework, on the cosmological side, produces parameter-free derivation
 
 </details>
 
+**New here? Read [`HANDOFF.md`](HANDOFF.md) first.**
+
 ## Two governing principles
 
 These hold across the whole track and are stated first because they are easy to violate by habit:
