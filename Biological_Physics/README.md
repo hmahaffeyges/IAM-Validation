@@ -26,23 +26,19 @@ These hold across the whole track and are stated first because they are easy to 
 1. **Derived, not comparison.** The score is `A = H(v) / H_min`, where `H` is binary Shannon entropy and `H_min` is a *derived* architectural floor (an MCMC posterior, frozen). It measures departure from a derived reference, not a statistical distance to a population. It is **not** deconvolution-against-a-reference-panel and it does **not** pool cohorts. Reference-atlas (Loyfer/Moss), pooled-cohort, and Mahalanobis-distance-to-a-population framing belong to a different paradigm and are not how this method works.
 2. **No foregrounds subtracted.** The production chain subtracts no age / sex / smoking / batch foreground. Smoking-, age-, and sex-driven methylation change is part of the cellular departure the score is built to measure — removing it would remove signal. Intake facts are report annotations for the clinician, never operands in the score.
 
-## Repository layout
+## Repository layout (reorganized 2026-09-19)
 
-- **`AstroGenetics/CPG_CMB_v1/`** — the current production chain: the CPG clinical pipeline and the derived reference atlas (the IAMAtlas), its provenance, and the per-class brightness archives. See that folder's README for the methodology and stage map.
-- **`PreIAMAtlas_Build/`** — the pre-build development phase: the foundational test results and VAL runs (`Preliminary_Test_Results/`), the pre-build disease cards retained as a reference set for the new chain (`RETIRED_Phase1_PreBuild_Cards/`), and the atlas-build machinery. Kept as a distinct phase so the methods are not conflated.
-- **`papers/`** — publications and figures.
-- **`DETAILED_VALIDATION_RECORD.md`** — the full, granular validation record and per-study notes.
+Five folders. A researcher starts at the first one.
 
-## Issue 003 (September 2026) — current report, reproduction kit, and where things are
+| folder | what it is | start with |
+|---|---|---|
+| [`Physics_of_Methylation/`](Physics_of_Methylation/) | **Start here.** GAPE Issue 003 (the current report), the reproduction kit that verifies the measurement chain end to end, the chain-of-custody SOP (v1.5.0), the papers, and the methylome-vs-CMB plates | [`Physics_of_Methylation/README.md`](Physics_of_Methylation/README.md) |
+| [`IAM_Atlas/`](IAM_Atlas/) | the derived reference atlas — 483,092 CpGs × 115 cell types, per-class MCMC posterior mean/sd, `H_min` provenance, the HEALPix sky mapping, and the scripts that built it | [`IAM_Atlas/README.md`](IAM_Atlas/README.md) |
+| [`CPG_Engine/`](CPG_Engine/) | the running code: Stage 0–1 intake and calibration, the Walther deconvolver, the class gauge, the conductor, the patient-CMB module, runtime matrices, test data, disease cards, report builders | [`CPG_Engine/README.md`](CPG_Engine/README.md) |
+| [`Testing_and_Code/`](Testing_and_Code/) | every validation run (VAL-001 … VAL-141) split into pre-Atlas and post-Atlas, the sealed foundation-cohort anchors, cohort manifests and extraction scripts, the full validation record and index | [`Testing_and_Code/README.md`](Testing_and_Code/README.md) |
+| [`RETIRED/`](RETIRED/) | superseded material kept for the record: the pre-build phase (Phase-1 cards, early chain-of-custody, production data), the June-2026 `atlas_vault` snapshot, and the NILC deconvolver cut from the chain | [`RETIRED/README.md`](RETIRED/README.md) |
 
-- **Report:** [`AstroGenetics/CPG_KISS_Commercial_Engine/builders/IAMPerformance_GAPEIssue003_DRAFT.pdf`](AstroGenetics/CPG_KISS_Commercial_Engine/builders/IAMPerformance_GAPEIssue003_DRAFT.pdf) — supersedes Issue 002 (April 2026, pre-Atlas). Regenerate with `builders/build_gape_issue003.py`.
-- **Reproduction kit:** [`AstroGenetics/CPG_KISS_Commercial_Engine/tests/`](AstroGenetics/CPG_KISS_Commercial_Engine/tests/) — start with `README_FIRST.md`, then `RUNBOOK.md`. Five scripts, each printing input / operation / expected / observed / verdict: Stage 1 raw IDAT → β (11/11 bit-identical to the cached betas), deconvolver vs documented outputs (MAE 0.0004), the sealed 115-cell anchors recomputed from raw GEO (r = 1.00000, GSE51032 and GSE51057), the two aggregation formulas on the same samples, and the deconvolver against known plasma mixtures. `COMPONENT_MAP.md` says which file lives where.
-- **Chain-of-custody SOP:** [`PreIAMAtlas_Build/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_5_0.md`](PreIAMAtlas_Build/atlas_vault/walther_clinical_runtime/CPG_Chain_of_Custody_SOP_v1_5_0.md) — v1.5.0 adds §106 (one aggregation per surface: gauge = H(β̄)/H_min on identity loci; separation = mean of per-CpG H on discriminative markers). v1.3 retained for the record.
-- **Validation index:** `tests/VAL_INDEX.csv` — every VAL identifier in this tree (103) with title, date, cohorts, stated decision and path. VAL-047 restored at [`PreIAMAtlas_Build/Preliminary_Test_Results/validation_runs/CPG_VAL_047_Breast_per_patient_prediagnostic/`](PreIAMAtlas_Build/Preliminary_Test_Results/validation_runs/CPG_VAL_047_Breast_per_patient_prediagnostic/).
-- **Anchors:** `validation_runs/foundation_cohort/anchors_v2_chrXremoved/` re-seals GSE51032/GSE51057 under the chrX-removed marker file now canonical in `Runtime Matrices/Celltype_Marker/`; the 2026-05-29 seal beside it is retained as superseded.
-- **Plates:** `PreIAMAtlas_Build/atlas_vault/IAMAtlas_v0_1/plates/` gains Plate 01 (Cosmic Methylome Background), Plate 03 (Methylome CMB vs microwave CMB) and Plate 05 (Issue 003 four skies: Planck realization, Atlas immune posterior mean and sd, one patient's z-departure, all on one HEALPix grid).
-
-*Research stage. Nothing in this tree is clinical validation.*
+Nothing in `RETIRED/` is used by the current chain. Nothing outside `RETIRED/` is obsolete.
 
 ## Methodology — the CMB pipeline, applied to the methylome
 
@@ -66,4 +62,6 @@ This is a first-principles framework with **preliminary** results. The biologica
 
 ## Reproduce
 
-The reference atlas, its provenance, the clinical orchestrator, and the runtime matrices are in `AstroGenetics/CPG_CMB_v1/`. The atlas floors (the frozen `H_min` values) and their derivation provenance are in `AstroGenetics/CPG_CMB_v1/IAM_Atlas/IAMAtlasREBUILD_provenance.json`. Per-study inputs, code, and environment are recorded with each VAL run under `PreIAMAtlas_Build/Preliminary_Test_Results/`.
+Start with [`Physics_of_Methylation/Reproduction_Kit/README_FIRST.md`](Physics_of_Methylation/Reproduction_Kit/README_FIRST.md). Five scripts verify the chain link by link against known answers — raw IDAT → β (bit-identical to the cached betas, 11/11), deconvolver vs documented outputs (MAE 0.0004), the sealed 115-cell anchors recomputed from raw GEO (r = 1.00000 on both cohorts), the two aggregation formulas on the same samples, and the deconvolver against known plasma mixtures. The atlas is `IAM_Atlas/IAMAtlasREBUILD.csv.xz` (decompress in place); the frozen `H_min` values and their derivation provenance are in `IAM_Atlas/IAMAtlasREBUILD_provenance.json` and printed in Issue 003.
+
+*Research stage. Nothing in this tree is clinical validation.*

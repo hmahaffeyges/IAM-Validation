@@ -68,9 +68,9 @@ This is the 18th independent test. All 18 run on personal hardware by an indepen
 
 **All chains, config files, modified Boltzmann code, and analysis scripts are publicly available. Anyone is free to verify without obligation and without notifying the author. If after reviewing the evidence anyone wishes to make contact, the author welcomes that at any time.**
 
-→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](mgcamb_validation/iam_planck_chains/)
+→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](mgcamb_validation/chains/)
 
-→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
+→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml)
 
 → Result paper: [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
 
@@ -100,7 +100,7 @@ The Landauer cost of irreversible DNA methylation maintenance at physiological t
 
 | Result | Value |
 |--------|-------|
-| Universal Landauer floor | frontal cortex neuron reference &mdash; value proprietary |
+| Class floors H_min (8 classes × 5 substrates) | MCMC-confirmed; table published in GAPE Issue 003 |
 | Cancer types confirmed (direction) | 27/28 TCGA types, n = 4,304 matched pairs |
 | Zero free parameters | No cancer data used in calibration |
 | DunedinPACE biological aging fit | t_max = 120.3 ± 7.1 yr (MCMC) |
@@ -109,9 +109,11 @@ The same encoding surface saturation that produces the Dennard wall in semicondu
 
 **→ Full Biological Physics derivations and validation:** [Biological_Physics/README.md](Biological_Physics/README.md)
 
-**→ Cell thermodynamics paper:** [Biological_Physics/papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/papers/Mahaffey_2026_cell_thermodynamics.pdf)
+**→ Cell thermodynamics paper:** [Biological_Physics/Physics_of_Methylation/Papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/Physics_of_Methylation/Papers/Mahaffey_2026_cell_thermodynamics.pdf)
 
-**→ GAPE Issue 002 — comprehensive 120-page cellular thermodynamics publication:** [Biological_Physics/papers/IAMPerformance_GAPEIssue002.pdf](Biological_Physics/papers/IAMPerformance_GAPEIssue002.pdf)
+**→ GAPE Issue 003 (September 2026) — current cellular report, with reproduction kit:** [Biological_Physics/Physics_of_Methylation/](Biological_Physics/Physics_of_Methylation/)
+
+**→ GAPE Issue 002 (April 2026, pre-Atlas):** [Biological_Physics/Physics_of_Methylation/Papers/IAMPerformance_GAPEIssue002.pdf](Biological_Physics/Physics_of_Methylation/Papers/IAMPerformance_GAPEIssue002.pdf)
 
 ---
 
