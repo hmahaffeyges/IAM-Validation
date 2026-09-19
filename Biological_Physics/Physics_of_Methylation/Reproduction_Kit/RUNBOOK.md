@@ -135,3 +135,7 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 ## 10. RULE — the cosmology-evidence ledger (added 2026-09-19)
 
 Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `Issue003/data003.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
+
+## 11. RULE — a safeguard that can be switched off when it disagrees is not a safeguard (added 2026-09-19)
+
+Two safeguards built in spring 2026 were switched off because their first real finding looked like a defect in the safeguard: NILC (disagreed with Walther on every blood sample → cut; it was reporting that the Atlas cannot split immune/progenitor/stem_adult in blood, PROC-NILC-01) and the synthetic patient generator (retired unused; on its first run it exposed the production gauge reading the marker union, PROC-N7-01). Rule: **N7 (synthetic cohort through the full chain) and the cross-method comparison run on every chain release.** A disagreement gets a row in the §1.6 ledger and a RECON entry; it is never resolved by disabling the check.
