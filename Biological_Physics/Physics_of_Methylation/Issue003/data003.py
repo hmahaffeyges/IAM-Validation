@@ -719,3 +719,42 @@ FALSIFICATION += [
  ("s6a 'healthy whole blood reads below band'", "identity-loci A compared against a marker-union band - statistic mismatch; the beta shift at identity loci is real, the band conclusion was not", "RESTATED"),
 ]
 RECON += [("A4", "which CpG set the production gauge reads", "docstring / SOP s41 / Issue 002: identity loci", "code: class marker union (iamatlas_celltype_markers_v0_2.json), with age_reference_matrix compiled on the same", "identity loci, once Phase 1 supplies their band; label until then", "PROC-N7-01")]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WHAT THE COSMOLOGY TOOLS FOUND THAT COHORTS COULD NOT — the standing evidence ledger.
+# Rule (RUNBOOK §10): every time a CMB-derived method surfaces something a cohort comparison could not have,
+# it gets a row here, the same day. This is the pre-built answer to "your reasoning is circular".
+# Columns: date, CMB method, why a cohort is blind to it, what was found, record.
+# ═══════════════════════════════════════════════════════════════════════════════
+COSMO_EVIDENCE = [
+ ("2026-09-19", "End-to-end simulation with known truth (FFP / mock-sky discipline; null N7)",
+  "A cohort supplies a comparison, never a truth. Two statistics that are wrong in the same way agree on every cohort.",
+  "The production class gauge read H(beta_mean) over the bimodal MARKER UNION, not the identity loci; the age band had been compiled on the same statistic, so every real cohort for eleven weeks read 'healthy IN_BAND'. A synthetic healthy patient - a pure mixture of healthy Atlas posteriors - read BREACH (1.13) on the first run. Identity-loci gauge read 0.99 on the same input and 1.10 on real adenoma where the production gauge read NORMAL.", "PROC-N7-01; RECON A4"),
+ ("2026-09-19", "Component separation validated on known mixtures (Planck FFP component maps; here Moss 2018 Table 6 in-vitro mixes)",
+  "Bulk-tissue cohorts never expose the mixing fractions; a deconvolver can be systematically wrong and still order cohorts correctly.",
+  "Neuron spikes recovered (r = +0.945, under-read 10% -> 6.5%); hepatocyte and colon spikes NOT recovered (r = +0.19, +0.10) - the atlas routes shed epithelium to gastric references. Tissue-of-origin claims withdrawn until the atlas recovers Table 6; composition departure itself confirmed real.", "PROC-PLASMA-MIX-01; LESSON-DECONV-01"),
+ ("2026-09-19", "Transfer-function decomposition (what each pipeline stage does to a known input)",
+  "On real data every stage's effect is confounded with biology; only a constructed input isolates the stage.",
+  "Term-by-term decomposition of one synthetic patient (composition -> age loading -> sex -> batch -> noise -> clip) showed every generator term moved the identity-loci gauge by < 0.004; the +0.14 lived entirely inside Stage B. That is what located the marker-union code path in one step.", "PROC-N7-01 decomposition"),
+ ("2026-05 -> 2026-09", "Half-mission x half-mission cross-check (two independent cohorts as two detector halves)",
+  "A single cohort can carry a plate or preprocessing offset that looks like signal; only an independent half exposes it.",
+  "GSE51032 x GSE51057 breast anchors: the effect replicates across both halves (d = +2.088 vs +2.097 in the sealed record); the whole 648-sample foundation cohort reproduced from raw GEO at r = 1.00000. Separately, GSE53740's healthy controls sat +2.3 SD above the 80-cell baseline - a cohort offset that a single-cohort analysis would have read as disease (CCL-004).", "PROC-ANCHOR-01; CCL-004"),
+ ("2026-06", "Convergence diagnostics are not a truth test (the R-hat lesson from MCMC map-making)",
+  "Cohort validation has no analogue of a chain diagnostic at all; it cannot see that a reference is flat.",
+  "The first Atlas build showed R-hat ~1.01 (looks perfect) while every cell type in a class came out identical - a flat, useless atlas. The fixed build showed R-hat 1.4-2.6 (looks alarming) with distinct cell types. Judge a rebuilt class by the distinctness test, never by convergence alone.", "IAM_Atlas/IAMAtlas_FLATNESS_LESSON.md"),
+ ("2026-06", "Component-separation cross-validation (Commander / NILC / SMICA discipline) - the reversal",
+  "A second method fails differently from the first; with one method, the chain is 'talking to itself' (sprint sign-off question 3).",
+  "NILC was built as the second deconvolver and CUT: it collapsed on correlated blood mixtures and deleted correct calls. Recorded as the one Planck principle the chain knowingly does not follow, with the reason. A parametric second method is Future Goal #6.", "commit c1be0c3; Appendix VI row 20; Appendix VII B2"),
+ ("2026-05", "Look-elsewhere correction (null N8)",
+  "A cohort scan over many features will always find one that separates; without the correction the finding is published.",
+  "VAL-006's chr6 (MHC) signal died under look-elsewhere correction and was recorded as a null rather than a discovery.", "VAL-006; null N8"),
+ ("2026-04 -> 2026-05", "Pre-registration with sealed prediction and direction (the CMB blinding culture)",
+  "A cohort analysis performed after the labels are seen can accommodate any sign.",
+  "VAL-061 predicted the wrong sign and was recorded as such, which produced CCL-019/020 (direction depends on class x compartment, not disease). VAL-102 was VOIDED four minutes after sealing for a post-hoc accommodation, seal preserved. VAL-128 failed opposite to its prereg and stands as a FAIL.", "CCL-019; CCL-020; VAL-102; VAL-128"),
+ ("2026-09-19", "Foreground reasoning applied in reverse (delensing refused)",
+  "Cohort clocks subtract age as a nuisance; that removes the patient's own biology along with it.",
+  "Built age/sex/smoking subtraction layers were refused under SOP s104: a galactic foreground is a separate source, the methylome's 'foreground' is the patient. The band (annotate) replaced subtraction (de-age). Recorded as the second place the CMB analogy is deliberately broken - and why.", "Appendix VI row 47; SOP s104"),
+]
+COSMO_EVIDENCE_RULE = ("Every time a CMB-derived method surfaces something a cohort comparison could not have, it gets a row in this ledger the same day, with its PROC or VAL. "
+    "This is not a list of successes; the NILC reversal and the withdrawn tissue-of-origin claim are here too. It is the record that answers the circularity objection: "
+    "we do not ask cohorts to validate the instrument, because they cannot - we ask constructed truth, split halves, injection-recovery and pre-registration to do it, and here is what they found.")

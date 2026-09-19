@@ -105,6 +105,7 @@ def toc(story):
             ("§3", "Two Instruments and the Presence Rule"),
             ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
             ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
+            ("§1.6", "NEW — What the cosmology tools found that cohorts could not: the standing evidence ledger (nine rows to date, N7 first) that pre-empts the circularity objection"),
             ("App. VI–IX", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; Future Goals — the CMB items worth the effort, in gated order; the Part II outline"),
             ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
             ("App. V", "NEW — Validation index: all 103 VAL identifiers in the repository with title, date, cohort, stated decision, record completeness and path"),
@@ -552,6 +553,17 @@ def secIX_future(story):
     rows=[("gate","goal","from","why it is realistic","needs")]+[tuple(r) for r in D.FUTURE_GOALS]
     story.append(tbl(rows,[0.10,0.20,0.11,0.43,0.16], fs=5.8))
 
+def sec_cosmo_evidence(story):
+    story.append(PageBreak())
+    story.append(Paragraph('WHAT THE COSMOLOGY TOOLS FOUND THAT COHORTS COULD NOT', sSect))
+    story.append(Paragraph('The objection this section pre-empts is the one every reviewer will make: <i>"your healthy reference was calibrated on cohorts and validated on cohorts - that is circular."</i> '
+        'The answer is not a denial. It is correct, and a cohort-only pipeline cannot detect the circularity - which is why this project does not use cohorts to validate the instrument. '
+        'It validates the way a CMB experiment does: synthetic data with known truth, injection-recovery, split-half cross-checks, convergence and distinctness tests, look-elsewhere correction, sealed pre-registration. '
+        'Below is what those methods found that no cohort could have. It is a ledger, kept current by rule (Reproduction Kit RUNBOOK §10), and it includes the reversals.', sBodySm))
+    story.append(Paragraph(D.COSMO_EVIDENCE_RULE, sMut)); story.append(SP(0.08))
+    rows=[("date","CMB method","why a cohort is blind to it","what was found","record")]+[tuple(r) for r in D.COSMO_EVIDENCE]
+    story.append(tbl(rows,[0.10,0.18,0.19,0.38,0.15], fs=5.8))
+
 def sec_chain_terms(story):
     story.append(PageBreak())
     story.append(Paragraph('GLOSSARY — CMB AND CHAIN TERMS', sSect))
@@ -583,7 +595,7 @@ def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)
     story = []
     cover(story); toc(story)
-    sec1_recon(story); sec1b_rulings(story); sec2_atlas(story); sec3_instruments(story)
+    sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards

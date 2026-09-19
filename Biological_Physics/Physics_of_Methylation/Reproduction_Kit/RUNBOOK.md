@@ -131,3 +131,7 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 ## 9. PROC-N7-01 — end-to-end synthetic simulation (added 2026-09-19)
 
 `CPG_Engine/Synthetic_Patient_Generator/synthetic_patient_generator.py` (restored; now reads the repo atlas; `composition_alpha=WHOLE_BLOOD_ALPHA`) → 24 synthetic patients → `run_full`. Composition recovery PASS (MAE ≤ 0.015). **Gauge FAIL:** every synthetic healthy reads BREACH, because the conductor's class gauge is H(β̄) over the *marker union* (bimodal), not the identity loci — despite its docstring. Real blood masked this because the age band was compiled on the same statistic. Identity-loci H(β̄) reads the synthetic healthy at 0.99 and real adenoma at 1.10 (correct both times) but has no band until Phase 1. **Do not read a conductor gauge value as a class measurement until `gauge_surface` says `identity_loci`.** Section 7's 'healthy IN_BAND' is withdrawn as conformance.
+
+## 10. RULE — the cosmology-evidence ledger (added 2026-09-19)
+
+Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `Issue003/data003.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
