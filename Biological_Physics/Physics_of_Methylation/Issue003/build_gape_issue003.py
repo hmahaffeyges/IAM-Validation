@@ -572,7 +572,7 @@ def sec_presence(story):
     story.append(Paragraph('Asked how often stem_adult had been the deciding class, the record was checked: every OUTCOME file, the VAL index, every disease card.', sBodySm))
     story.append(tbl([("where","stem_adult result","what carried the finding")]+[tuple(r) for r in D.STEM_ADULT_RECORD],[0.28,0.36,0.36], fs=6.0))
     story.append(SP(0.1))
-    for k in ("statement","whole blood","rationale","keep"):
+    for k in ("statement","scope","whole blood","myeloid check","rationale","path back","keep"):
         story.append(Paragraph(f'<b>{k}.</b> {D.PRESENCE_RULE[k]}', sBodySm))
 
 def sec_chain_terms(story):
