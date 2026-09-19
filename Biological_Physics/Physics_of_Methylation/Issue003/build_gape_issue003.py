@@ -104,6 +104,7 @@ def toc(story):
             ("§3", "Two Instruments and the Presence Rule"),
             ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
             ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
+            ("App. VI–VIII", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; the Part II outline"),
             ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
             ("App. V", "NEW — Validation index: all 103 VAL identifiers in the repository with title, date, cohort, stated decision, record completeness and path"),
             ("§5A", "NEW — Where the tools come from: Mahaffey number 20.94, forty MCMC floors, the atlas posterior, the CMB toolkit, not a cohort method"),
@@ -502,6 +503,39 @@ def sec12_clinician(story):
         story.append(Paragraph(k.upper(), sLabel)); story.append(Paragraph(D.CLINICIAN[k], sBodySm)); story.append(SP(0.05))
     story.append(Paragraph('The stellar analogy the author uses: white dwarfs and neutron stars sit below a mass limit (Chandrasekhar 1.4 M_sun, TOV ~2.3 M_sun) set by physics, not by a survey of stars; the Sun\'s eventual core at 0.54 M_sun reads 0.38 of the limit, Procyon B 0.42, PSR J0740+6620 0.90. The cellular floor is the same kind of number: a limit from the physics, against which each object is read individually.', sBodySm))
 
+def secVI_translation_map(story):
+    story.append(PageBreak())
+    story.append(Paragraph('APPENDIX VI — THE CMB → METHYLOME TRANSLATION MAP, SCORED', sSect))
+    story.append(Paragraph('Written by the author before the chain was built: the 32-section CMB-analysis curriculum walked module by module, each assigned a methylome analog and a status '
+        '(HAVE · ROADMAP · ADD = should add · REINTERP = translates with reinterpretation · NO = does not translate). The last column was added on 2026-09-19 and records what the chain actually did. '
+        'Two rows went <i>against</i> the map and are the most instructive: a second deconvolver (row 20, built then cut) and de-aging (row 47, built then refused). '
+        'Row 1 is the frame for the whole chain: the 115 cell types are the harmonic basis, and the deconvolver is the projection onto it. '
+        'This appendix exists so that a geneticist can see where each tool came from, and a cosmologist can see where the methylome stops behaving like the sky.', sBodySm))
+    for sec_ in D.TRANSLATION_MAP:
+        story.append(Paragraph(sec_["title"], sLabel))
+        rows=[("#","CMB module","CPG analog","status","author's note","2026-09-19 status")]+[tuple(r) for r in sec_["rows"]]
+        story.append(tbl(rows,[0.03,0.15,0.23,0.10,0.20,0.29], fs=5.6)); story.append(SP(0.08))
+
+def secVII_sprint(story):
+    story.append(PageBreak())
+    story.append(Paragraph('APPENDIX VII — THE COMPLETION SPRINT, SCORED', sSect))
+    story.append(Paragraph('The spring-2026 plan to take the chain "from C- to A" in 12–15 sessions: Phase A (L9 nulls) → B (L4 foregrounds) → C (L5 correlation structure) → D (L6 covariance) → E (L7–L8 likelihood and inference) → F (audit). '
+        f'Scored against the repository on 2026-09-19. The author\'s verdict: <i>"{D.SPRINT_VERDICT}"</i>', sBodySm))
+    rows=[("phase","deliverable","what happened")]+[tuple(r) for r in D.SPRINT_SCORED]
+    story.append(tbl(rows,[0.08,0.30,0.62], fs=6.0))
+    story.append(SP(0.1)); story.append(Paragraph('The lesson', sLabel))
+    for para in D.SPRINT_LESSON.split("\n\n"):
+        story.append(Paragraph(para.replace("**","").replace("`",""), sBodySm)); story.append(SP(0.05))
+
+def secVIII_part2(story):
+    story.append(PageBreak())
+    story.append(Paragraph('PART II — THE CHAIN, STAGE BY STAGE (FORTHCOMING)', sSect))
+    story.append(Paragraph('Issue 003 documents the engine and its evidence. Part II, written once the chain carries its seal, will teach it: one chapter per stage, each giving the purpose, the cosmology it borrows, '
+        'what was tried first and why it failed, the runtime files it reads, the procedure that confirms it, and what a researcher trained on bootstrapping needs to know before touching MCMC output or a Mahalanobis distance. '
+        'The outline as it stands:', sBodySm))
+    rows=[("chapter","content")]+[tuple(r) for r in D.PART_II_OUTLINE]
+    story.append(tbl(rows,[0.30,0.70], fs=6.4))
+
 def sec_chain_terms(story):
     story.append(PageBreak())
     story.append(Paragraph('GLOSSARY — CMB AND CHAIN TERMS', sSect))
@@ -552,7 +586,7 @@ def build(out_path):
     # new sections
     sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
     # back matter from 002
-    secV_val_index(story)
+    secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secVIII_part2(story)
     L.blk_master_predictions(story); L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)

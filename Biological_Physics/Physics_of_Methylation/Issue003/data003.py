@@ -633,3 +633,25 @@ CHAIN_TERMS = [
  ("Flatness (the Atlas lesson)", "The v0.1 rebuild lesson: the old MCMC script showed R-hat ~1.01 (looks perfect) while every cell type in a class came out identical - a flat, broken atlas; the fixed script shows R-hat 1.4-2.6 (looks alarming) while the cell types are distinct and the atlas is right. Convergence diagnostics cannot see the failure that matters; judge a rebuilt class by the distinctness test on per_celltype.csv, never by R-hat alone. [IAM_Atlas/IAMAtlas_FLATNESS_LESSON.md]"),
  ("Xu-538", "The 538-CpG breast-cancer panel of Xu et al. 2019 used as the per-patient scoring surface in VAL-047 (pre-Atlas); 'Xu-538 relativity' names the finding that a panel's absolute A depends on the pipeline that produced the betas, so bands compiled on one pipeline do not transfer to another without re-derivation. [VAL-047 record; s6a]"),
 ]
+
+# APPENDIX VI / VII — the CMB->methylome translation map (author, pre-build; scored 2026-09-19) and the completion sprint, scored
+_avi=os.path.join(os.path.dirname(os.path.abspath(__file__)),"appendix_vi_vii.json")
+_A=json.load(open(_avi,encoding="utf-8")) if os.path.exists(_avi) else {"sections":[],"sprint":[],"lesson":""}
+TRANSLATION_MAP=_A["sections"]; SPRINT_SCORED=_A["sprint"]; SPRINT_LESSON=_A["lesson"]
+SPRINT_VERDICT="Too ambitious too quick. It ended up harming rather than helping. These should have been worked on long after the bones were trusted."
+PART_II_OUTLINE=[
+ ("Opening — the translation map", "Appendix VI as narrative: what the CMB gave us, row by row, and the two places we stopped taking it (a second deconvolver; de-aging)."),
+ ("Three kinds of file", "FLOOR (H_min: physics, 40 numbers) / RULER (identity loci: where the gauge reads) / BAND (age reference: a cohort statistic). Every 'healthy reads wrong' case of 2026 traced to a band."),
+ ("Stage 0 — intake", "Array type from the IDAT header; SHA-256 with re-transmission detection; the fail-open we closed."),
+ ("Stage 1 — calibration", "noob via methylprep; bit-identical on 11/11; the 6-7% normalisation gain between atlas-source betas and Stage 1 output and why the band absorbs it."),
+ ("Stage 2 — component separation", "Walther NNLS against the Atlas; presence, not gating; why NILC was cut."),
+ ("Stage 3 — the foreground we refused to subtract", "Built age/sex/smoking layers; SOP s104; a galactic foreground is a separate source, the methylome's is the patient."),
+ ("Stage 4 — the gauge", "H(beta_mean)/H_min on identity loci, placed in the band; two surfaces (s106); four formula changes in three weeks and the measurement that settled them."),
+ ("Stage 4.5 — bidirectional", "Shannon H is symmetric about 0.5; VAL-050's null and VAL-051's recovery."),
+ ("Stage 4.6 — the patient sky", "z = (beta - mu)/sigma on HEALPix; the residual map against a reference with per-pixel uncertainty; Plate 05."),
+ ("Stage 5 — Mahalanobis Option A", "Eight coefficients as a vector; distance from the age-band centroid; why v1 put healthy at z ~ -22."),
+ ("Stage 6 — cellular age", "The band run backwards; three attempts; why it does not calibrate yet."),
+ ("The Atlas (several chapters)", "Per-class MCMC over 115 cell types; the flatness lesson (R-hat misled twice, in opposite directions); the brightness posterior; why a sphere."),
+ ("What we built before the bones were trusted", "Appendix VII as narrative; the order that should have been."),
+ ("For the bootstrapper", "MCMC vs resampling; what a posterior sd buys that a bootstrap CI does not; when a Mahalanobis distance is and is not a p-value."),
+]
