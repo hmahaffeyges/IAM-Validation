@@ -35,3 +35,7 @@ these notes collect the material as it is learned so nothing is lost.
 ## Stage 7 — tiers. NORMAL 0.95–1.01, ELEVATED 1.01–1.07, SIGNIFICANTLY_ELEVATED 1.07–1.10, BREACH ≥1.10 (onset moved 1.04→1.01, 66f37fe).
 ## The Atlas — several chapters: build (per-class MCMC, 115 cells, 262 columns), the flatness lesson, the brightness posterior
    (mean/sd per CpG = a reference map with per-pixel uncertainty), HEALPix and why a sky.
+
+## Opening chapter — the translation map. `CMB_TO_METHYLOME_MAP.md`: 78 rows written before the build; scored. Two reversals are the finding:
+   row 20 (second deconvolver: NILC built then cut — the one Planck principle the chain knowingly does not follow) and row 47 (de-aging built then refused, §104 —
+   the methylome's foreground is the patient). Row 44 (aging as lensing) is the unwritten explanation of the age band.
