@@ -585,3 +585,27 @@ STAGE0_01 = {
  "open": "the Stage 0 <-> Stage 1 intensity hand-off (control probes, detection-p from negative controls, call rate, X/Y for sex) is designed but not wired; until it is, those QCs report DEFERRED and Stage 0 is an integrity-and-manifest gate only.",
  "verdict": "RUNS. Every stage of the chain (0, 1, 2, 4, 4.5, 5, 6) has now executed from the repository on the same eleven samples.",
 }
+
+# GLOSSARY — CHAIN LINKS: one line per runtime file the conductor touches. Kind: FLOOR (physics, frozen) /
+# RULER (where the gauge reads, derived from the Atlas, frozen) / BAND (cohort statistic) / CODE / DATA.
+CHAIN_LINKS = [
+ ("IAM_Atlas/IAMAtlasREBUILD.csv(.xz)", "DATA", "The reference sky: 483,092 CpGs x 115 cell types, per-class MCMC posterior mean, sd and CI per CpG. Every patient is read against it. 2026-05-28, frozen."),
+ ("IAMAtlasREBUILD_celltype_to_class.json", "DATA", "115 cell types -> 8 architecture classes. The deconvolver's cell fractions are summed to class fractions through it."),
+ ("cpg_gauge_engine.py  H_MIN_TABLE", "FLOOR", "The forty floors: 8 classes x 5 substrates (methyl, nucl, fuzz, wps, frag). Physics; one number each; frozen 2026-04-06, MCMC-confirmed. Never a cohort."),
+ ("iamatlas_gauge_identity_loci_v1_0.json", "RULER", "Which CpGs the gauge reads, per class: the loci where healthy cells of that class sit within +/-0.05 of H_min_beta. Derived from the Atlas, frozen. Counts terminal 57,247 ... stromal 2,294."),
+ ("iamatlas_celltype_markers_v0_2.json", "RULER", "The separation surface: ~100 one-vs-rest discriminative CpGs per cell type (bimodal by construction). Read with mean-of-per-CpG-H, never H(beta_mean) (s105). chrX markers removed (RULING M1b)."),
+ ("age_reference_matrix.json", "BAND", "What healthy looks like at each age, per class: A and beta mean/sd/p10-p90 in 10 age bins. A cohort table compiled 2026-05-28 from nine papers; n is uneven (immune ~100/bin, stem_adult 28). The gauge's placement is read against this. Phase 1 rebuilds it from one cohort, one pipeline."),
+ ("tier_breakpoints.json", "BAND", "The severity ladder: NORMAL 0.95-1.01, ELEVATED 1.01-1.07, SIGNIFICANTLY_ELEVATED 1.07-1.10, BREACH >= 1.10; Warburg line 1.07. Onset moved 1.04 -> 1.01 on 2026-07-03."),
+ ("mahalanobis_healthy_reference_v2_0_age_matched_derived.json", "BAND", "Stage 5's reference: derived from the age band (mu = A_mean(class, age), sigma from p10). v0_5 / v1_0 retired and refused by the module."),
+ ("walther_iam_deconvolver.py", "CODE", "Stage 2: NNLS composition against the Atlas. Returns cell and class fractions and a residual. Gates nothing; presence (fraction >= DETECT_FLOOR) decides which classes may be scored."),
+ ("cpg_conductor.py", "CODE", "The orchestrator (2026-07; replaces walther_clinical.py). Pairs every per-cell A with its deconvolved fraction; a class below DETECT_FLOOR 0.01 is absent, not a reading. Runs Stages 2 -> 4 -> 4.5 -> 5 -> 6."),
+ ("iamatlas_a_scoring.py", "CODE", "The separation statistic: mean_i H(beta_i)/H_min over each cell type's discriminative markers -> 115 per-cell A's for the disease matcher. Guarded by test_a_score_canonical.py (separation surface only)."),
+ ("cpg_gauge_engine.py", "CODE", "Stage 4: A = H(beta_mean)/H_min over identity loci, placed in the age band (BELOW/IN/ABOVE) and on the severity ladder. Carries the FLOOR table and the SATURATION_MARGIN."),
+ ("bidirectional_decomposition.py + directional_panels_v1_0.json", "CODE", "Stage 4.5, the fix for entropy's symmetry: H is symmetric about 0.5, so a disease pushing CpGs both ways leaves beta_mean unmoved and the gauge reads null (VAL-050 d=+0.08). Scores direction per CpG with the sealed VAL-051 composite (d=+0.62). Immune panel only in v1.0."),
+ ("cpg_patient_cmb.py + IAM_Atlas/healpix_mapping/", "CODE", "Stage 4.6: the patient's per-CpG z = (beta - mu)/sigma against the Atlas posterior, on the HEALPix NSIDE-128 sky (Plate 05). The residual map of one observation against a reference map with per-pixel uncertainty - the Planck workflow."),
+ ("iamatlas_mahalanobis_scoring.py", "CODE", "Stage 5, Option A: the eight class-gauge A's as a vector, distance from the age-band centroid with the band's covariance, n-adaptive chi-square alarm. Answers 'is the whole profile off' where any single class may be in band."),
+ ("iam_cellular_age_scoring.py", "CODE", "Stage 6: the band run backwards - at what age does healthy beta_mean(class) equal this patient's? Third attempt: v1 was a trained clock (wrong), v2 inverted the wrong formula (Jensen). Built; calibration pending; reads 4 yr for adults today because the band curves are too flat to invert - not reportable."),
+ ("stage_0_intake.py", "CODE", "Stage 0: manifest, IDAT header vs declared array, SHA-256 integrity with re-transmission detection, control-probe / detection-p / bead / call-rate / sex QC (the last four await the Stage 1 hand-off), PROCEED / PENALTY / QUARANTINE gate. Fail-open on 0.1 quarantines closed 2026-09-19."),
+ ("stage_1_idat_calibration.py", "CODE", "Stage 1: raw IDAT pair -> noob-calibrated beta via methylprep (pandas < 2). Bit-identical to the project cache on 11/11 (PROC-CAL-01). Owns any raw-array alignment; no per-class input offset is applied downstream."),
+ ("RETIRED/.../IAM_Cellular_Age/ (age_/sex_/smoking_axis_foreground.py, *_layer.csv)", "RETIRED", "Stage 3 foreground subtraction, built and deliberately not wired (SOP s104): a galactic foreground is a separate source; the methylome 'foreground' is the patient's own biology - annotated, never subtracted."),
+]

@@ -104,6 +104,7 @@ def toc(story):
             ("§3", "Two Instruments and the Presence Rule"),
             ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
             ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
+            ("Glossary", "NEW — Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
             ("App. V", "NEW — Validation index: all 103 VAL identifiers in the repository with title, date, cohort, stated decision, record completeness and path"),
             ("§5A", "NEW — Where the tools come from: Mahaffey number 20.94, forty MCMC floors, the atlas posterior, the CMB toolkit, not a cohort method"),
             ("§5", "Physics & Methodology (Issue 002 Section 2) — H_min derivation, substrates, saturation, inversions, C1/C2/C3"),
@@ -501,6 +502,15 @@ def sec12_clinician(story):
         story.append(Paragraph(k.upper(), sLabel)); story.append(Paragraph(D.CLINICIAN[k], sBodySm)); story.append(SP(0.05))
     story.append(Paragraph('The stellar analogy the author uses: white dwarfs and neutron stars sit below a mass limit (Chandrasekhar 1.4 M_sun, TOV ~2.3 M_sun) set by physics, not by a survey of stars; the Sun\'s eventual core at 0.54 M_sun reads 0.38 of the limit, Procyon B 0.42, PSR J0740+6620 0.90. The cellular floor is the same kind of number: a limit from the physics, against which each object is read individually.', sBodySm))
 
+def sec_chain_links(story):
+    story.append(PageBreak())
+    story.append(Paragraph('GLOSSARY — CHAIN LINKS', sSect))
+    story.append(Paragraph('One line per runtime file the conductor touches, tagged by what kind of thing it holds. The tags matter more than the names: a '
+        '<b>FLOOR</b> is physics and is one number; a <b>RULER</b> says where the gauge reads and is derived from the Atlas; a <b>BAND</b> is a cohort statistic and is only '
+        'as good as its n and pipeline; <b>CODE</b> runs; <b>DATA</b> is read. Every "healthy reads wrong" case found in September 2026 traced to a BAND, never to a FLOOR (RECON B1).', sBodySm))
+    rows=[("file","kind","what it is")]+[(f,k,w) for f,k,w in D.CHAIN_LINKS]
+    story.append(tbl(rows,[0.27,0.07,0.66], fs=6.4))
+
 def secV_val_index(story):
     story.append(PageBreak())
     story.append(Paragraph('APPENDIX V - VALIDATION INDEX: EVERY VAL IN THE REPOSITORY, WITH ITS PATH', sSect))
@@ -536,7 +546,7 @@ def build(out_path):
     sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
     # back matter from 002
     secV_val_index(story)
-    L.blk_master_predictions(story); L.blk_data_sources(story); L.blk_glossary(story)
+    L.blk_master_predictions(story); L.blk_data_sources(story); L.blk_glossary(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)
     doc.build(story, onFirstPage=make_canvas, onLaterPages=make_canvas)
