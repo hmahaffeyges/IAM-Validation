@@ -17,7 +17,7 @@ from gape002_lib import (Paragraph, Table, Spacer, PageBreak, HRFlowable, KeepTo
                          sMut, sDisc, sCode, LAV, LAV_M, LAV_D, MUTED, MUTED2, TEXT, WHITE, TEAL,
                          GREEN, AMBER, RED_C, ORANGE, SURF, SURF2, BORDER, BG, W, H, CLS_COLS, FillRect)
 
-ISSUE = "Issue 003"; DATE = "September 2026"
+ISSUE = "Issue 003 RC1"; DATE = "September 2026"
 
 def make_canvas(canvas, doc):
     canvas.saveState(); canvas.setFillColor(BG); canvas.rect(0, 0, W, H, fill=1, stroke=0)
