@@ -25,6 +25,19 @@ import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+
+# ── Resolve chain files whether laid out flat (the CPG_TRIAL_CODE working folder) or in the
+#    repository tree (Biological_Physics/CPG_Engine/{Runtime Matrices/*, Walther_iam_deconvolver/} and
+#    Biological_Physics/IAM_Atlas/). Added 2026-09-19; first run of the conductor from the repo.
+_SEARCH = [HERE, HERE / "Walther_iam_deconvolver", HERE / "Runtime Matrices" / "A_Scoring_Module",
+           HERE / "Runtime Matrices" / "Celltype_Marker", HERE / "Runtime Matrices" / "Directional Panel",
+           HERE / "Runtime Matrices" / "Mahalanobis_healthy_reference", HERE / "Runtime Matrices" / "Tier_breakpoints",
+           HERE / "Runtime Matrices" / "Cellular_Age", HERE.parent / "IAM_Atlas"]
+def _find(name):
+    for d in _SEARCH:
+        p = d / name
+        if p.exists(): return p
+    raise FileNotFoundError(f"{name}: not found in any of {[str(d.relative_to(HERE.parent)) for d in _SEARCH]}")
 DETECT_FLOOR = 0.01  # 1% — a cell below this is treated as absent (fraction sets presence)
 
 
@@ -46,10 +59,10 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
              {cell: {A, coverage, confidence, status, class, fraction, present}}.
     """
     cfg = cfg or {}
-    dec_mod = _load_module("walther_iam_deconvolver", HERE / "walther_iam_deconvolver.py")
-    asc = _load_module("iamatlas_a_scoring", HERE / "iamatlas_a_scoring.py")
-    c2c_path = HERE / "IAMAtlasREBUILD_celltype_to_class.json"
-    markers_path = HERE / "iamatlas_celltype_markers_v0_2.json"
+    dec_mod = _load_module("walther_iam_deconvolver", _find("walther_iam_deconvolver.py"))
+    asc = _load_module("iamatlas_a_scoring", _find("iamatlas_a_scoring.py"))
+    c2c_path = _find("IAMAtlasREBUILD_celltype_to_class.json")
+    markers_path = _find("iamatlas_celltype_markers_v0_2.json")
 
     # 1. Deconvolve -> the ratio of each class and cell type present
     dec = dec_mod.WaltherIAMDeconvolver(str(atlas_csv), celltype_class_map=str(c2c_path))
@@ -87,12 +100,12 @@ def stage_b_classes(beta_dict, stage_a_out, cfg=None):
     import numpy as np
     cfg = cfg or {}
     age = cfg.get("age", 60)
-    ge = _load_module("cpg_gauge_engine", HERE / "cpg_gauge_engine.py")
-    asc = _load_module("iamatlas_a_scoring", HERE / "iamatlas_a_scoring.py")
+    ge = _load_module("cpg_gauge_engine", _find("cpg_gauge_engine.py"))
+    asc = _load_module("iamatlas_a_scoring", _find("iamatlas_a_scoring.py"))
     # PRODUCTION A-score (GAPE_WEB_v13 + Reproduction Paper v3): beta_mean = customer's mean
     # beta over the class MARKER/informative CpGs (NOT identity loci). ge.read() then does
     # A = H(beta_mean)/H_min + age-matched placement + tier.
-    _meta, ctm, c2c, _hmin = asc.load_artifact(str(HERE / "iamatlas_celltype_markers_v0_2.json"))
+    _meta, ctm, c2c, _hmin = asc.load_artifact(str(_find("iamatlas_celltype_markers_v0_2.json")))
     cls_markers = {}
     for ct, mk in ctm.items():
         cls_markers.setdefault(c2c.get(ct), []).extend(mk)
@@ -126,8 +139,8 @@ def stage_4_5_bidirectional(beta_dict, cfg=None):
     composite that catches bidirectional CpG patterns the pooled entropy cancels.
     v1.0 panels: immune class only (VAL-051 AD). Other classes -> NO_PANEL honestly."""
     import pandas as pd
-    bd = _load_module("bidirectional_decomposition", HERE / "bidirectional_decomposition.py")
-    panels = bd.load_directional_panels(HERE / "directional_panels_v1_0.json")
+    bd = _load_module("bidirectional_decomposition", _find("bidirectional_decomposition.py"))
+    panels = bd.load_directional_panels(_find("directional_panels_v1_0.json"))
     beta_series = pd.Series(beta_dict)
     report = bd.compute_per_class_bidirectional_decomposition(beta_series, panels, patient_id="patient")
     out = {}
@@ -146,9 +159,9 @@ def stage_5_mahalanobis(stage_b_out, cfg=None):
     background is excluded). One number + top-axis decomposition. No cohort."""
     cfg = cfg or {}
     age = cfg.get("age", stage_b_out.get("age", 60))
-    mh = _load_module("iamatlas_mahalanobis_scoring", HERE / "iamatlas_mahalanobis_scoring.py")
-    ge = _load_module("cpg_gauge_engine", HERE / "cpg_gauge_engine.py")
-    ref = HERE / "mahalanobis_healthy_reference_v2_0_age_matched_derived.json"
+    mh = _load_module("iamatlas_mahalanobis_scoring", _find("iamatlas_mahalanobis_scoring.py"))
+    ge = _load_module("cpg_gauge_engine", _find("cpg_gauge_engine.py"))
+    ref = _find("mahalanobis_healthy_reference_v2_0_age_matched_derived.json")
     hull = mh.MahalanobisHealthyHull(str(ref), gauge=ge)
     # Mahalanobis presence gate (manifest adjudicator fix): a class contributes ONLY if
     # abundance >= 3% AND it is outside the age-matched NORMAL band (placement != IN_BAND).
@@ -179,14 +192,14 @@ def stage_6_cellular_age(beta_dict, cfg=None):
     age_reference_matrix: the age at which population beta_mean equals the patient's
     beta_mean, per class. iam_cellular_age_scoring.py."""
     cfg = cfg or {}
-    ca = _load_module("iam_cellular_age_scoring", HERE / "iam_cellular_age_scoring.py")
+    ca = _load_module("iam_cellular_age_scoring", _find("iam_cellular_age_scoring.py"))
     cls_name = [n for n in dir(ca) if n.lower().startswith("iamcellularage")][0]
     # beta_mean SOURCE = IDENTITY loci (the axis the age curve is built on), NOT discriminative markers
-    loci = json.load(open(HERE / "iamatlas_gauge_identity_loci_v1_0.json"))
+    loci = json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json")))
     markers_per_class = {c: v["loci"] for c, v in loci.items()
                          if isinstance(v, dict) and "loci" in v}
     clock = getattr(ca, cls_name)(
-        ref_matrix_path=str(HERE / "age_reference_matrix.json"),
+        ref_matrix_path=str(_find("age_reference_matrix.json")),
         markers_per_class=markers_per_class)
     res = clock.score_patient(beta_dict, chronological_age=cfg.get("age"))
     per_class = dict(getattr(res, "cellular_age_per_class", {}))

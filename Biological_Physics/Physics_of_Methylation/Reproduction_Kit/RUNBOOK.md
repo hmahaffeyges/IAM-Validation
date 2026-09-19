@@ -117,3 +117,9 @@ reference** — outside the ±0.05 selection band in 7 of 7 (smallest shift +0.0
 a band centred near 0.95. So "below band" is a reference-β offset between the atlas's source pipelines and noob Stage-1 output,
 not a Stage-1 error and not a property of the donors. The test that closes it: re-derive `H_min_beta` and the age band from ≥30
 public healthy whole-blood IDATs run through Stage 1 (`PROC_CAL_01.py`), then re-read the seven.
+
+## 7. PROC-CHAIN-01 — the conductor end to end (added 2026-09-19)
+
+`cpg_conductor.run_full(beta_dict, atlas_csv, cfg={"age": N})` from `CPG_Engine/` on the eleven Stage-1 betas. First run from the repository layout; two things had to be fixed to make it run at all: the conductor resolved every file as `HERE/<name>` (flat working-folder layout) and `iam_cellular_age_scoring.py` was not in the repo. Both fixed in the same commit.
+
+Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–1.006) — the shipped chain absorbs the Stage-1 β offset through the age band. Three defects recorded in Issue 003 RECON/PROC-CHAIN-01: stem_adult false BREACH on every blood sample (its band is n = 28, one source), a Mahalanobis key mismatch between `run_full` and the report builder, and cellular age pinned at the curve floor. **Do not report stem_adult from blood, Stage 5 distance, or Stage 6 age until those are fixed.**
