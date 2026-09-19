@@ -92,7 +92,16 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
 
 
 def stage_b_classes(beta_dict, stage_a_out, cfg=None):
-    """Stage B - per-class GAUGE (SOP §41-43): A = H(beta_mean)/H_min over the class
+    """Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the
+    class MARKER UNION (iamatlas_celltype_markers_v0_2.json, ~3k bimodal CpGs per class), read
+    against age_reference_matrix, which was compiled on the same marker-union statistic
+    (GAPE_WEB_v13 _AGE_REFERENCE).** This is NOT the identity-loci gauge that SOP §41/§106,
+    Issue 002 and the sentence below describe; PROC-N7-01 (2026-09-19) showed the marker-union
+    statistic reads a synthetic healthy mixture as BREACH (1.13) and misses real adenoma (0.93),
+    while identity-loci H(beta_mean) reads 0.99 and 1.10 respectively. The switch to identity
+    loci is gated on an identity-loci band (Phase 1, GSE87571); until then every reading carries
+    gauge_surface = "marker_union". Original docstring follows.
+    A = H(beta_mean)/H_min over the class
     IDENTITY loci (iamatlas_gauge_identity_loci_v1_0.json), read against the age-matched
     band via cpg_gauge_engine. Paired with the Stage A fraction: a class below the
     substrate presence floor reads blood-background, flagged BACKGROUND_LOW_FRACTION,
@@ -129,6 +138,8 @@ def stage_b_classes(beta_dict, stage_a_out, cfg=None):
             "tier": (r.get("tier") if isinstance(r, dict) else ge.tier(A, cls, age)),
             "fraction": round(frac, 4), "present": present,
             "status": "OK" if present else "BACKGROUND_LOW_FRACTION",
+            "gauge_surface": "marker_union",   # PROC-N7-01: not identity loci; see docstring
+            "n_cpgs": len(vals),
         }
     return {"class_gauge": classes, "age": age}
 

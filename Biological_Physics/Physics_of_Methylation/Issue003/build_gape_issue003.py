@@ -79,6 +79,7 @@ def cover(story):
      ("Sections 7–8 replaced.", "The detection-trajectory and deployment-readiness sections are replaced by Substrate Characterization "
       "(§7) and Procedures (§8): what each substrate carries, what is verified, what is open, and the exact steps that reproduce each verified number."),
      ("Stage 1 executed from raw IDATs - the chain is closed.", "All eleven test IDAT pairs through the repo\'s own calibrator reproduce the cached betas bit-for-bit (11/11, max diff 0.000000, both array types). Raw IDAT -> beta -> class fractions -> sealed anchor: every link now reproduced from the repository on a stranger\'s machine (PROC-CAL-01)."),
+     ("The end-to-end simulation caught the production gauge reading the wrong CpG set.", "A synthetic healthy patient - a pure mixture of healthy Atlas posteriors - reads BREACH through the conductor, because Stage B computes H(beta_mean) over the bimodal class marker union, not the identity loci its docstring and the SOP name; the age band was compiled the same way, so real blood never showed it. The identity-loci gauge reads the synthetic at 0.99 and real adenoma at 1.10 but has no band yet. Phase 1 becomes a prerequisite (PROC-N7-01, RECON A4)."),
      ("The sealed breast anchor reproduced from raw GEO.", "GSE51032, 460 samples, 115 cell types: mean-of-H over the v0_2 discriminative markers returns the sealed CSV at r = 1.00000, max diff 0.00004, on a machine that had never seen the project. H(beta_mean) on the same markers does not (r = 0.45). The seal rests on the repo-HEAD markers, not the chrX-removed copy (PROC-ANCHOR-01)."),
      ("The aggregation conflict between the current SOP and the running code, measured.", "SOP v1.4.0 says never H(β_mean); the chain at HEAD computes H(β_mean); the age band is compiled as H(β_mean). On whole blood with the class present the two aggregations are rank-identical with a +0.029 offset; on mixed or absent-class panels H(β_mean) inflates as §105 says. Ruled in §1.5: one aggregation per surface, fixed by the reference each was built with (RECON A3) - and the analyst's own first reading of the tissue values is retracted in §10."),
      ("First real-data ground truth for the deconvolver.", "Nine known genomic-DNA mixes (Moss 2018): the terminal class recovers a neuronal spike (r = 0.945); secretory and cycling do not recover hepatocyte or colon spikes. Recorded as PASS/FAIL in §8 and §10, not smoothed over."),
@@ -104,7 +105,7 @@ def toc(story):
             ("§3", "Two Instruments and the Presence Rule"),
             ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
             ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
-            ("App. VI–VIII", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; the Part II outline"),
+            ("App. VI–IX", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; Future Goals — the CMB items worth the effort, in gated order; the Part II outline"),
             ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
             ("App. V", "NEW — Validation index: all 103 VAL identifiers in the repository with title, date, cohort, stated decision, record completeness and path"),
             ("§5A", "NEW — Where the tools come from: Mahaffey number 20.94, forty MCMC floors, the atlas posterior, the CMB toolkit, not a cohort method"),
@@ -319,6 +320,12 @@ def sec8_procedures(story):
         ("input", D.CAL01["input"]), ("operation", D.CAL01["operation"]), ("expected", D.CAL01["expected"])]
         + [(r["gsm"], f"{r['array']} {r['n_cpgs']:,} CpGs, {r['secs']} s; vs cache r = {r['r']:.6f}, max |diff| {r['maxdiff']:.6f}, CpGs differing >1e-4: {r['n_gt_1e4']}") for r in D.STAGE1]
         + [("verdict", D.CAL01["verdict"]), ("consequence", D.CAL01["consequence"])])
+    proc(story, 'PROC-N7-01', 'End-to-end synthetic simulation - the gauge as wired reads the wrong CpG set', [
+        ("input", D.N7_01["input"]), ("R1 composition", D.N7_01["R1 composition"]), ("R2 gauge", D.N7_01["R2 gauge"]),
+        ("root cause", D.N7_01["root cause"])]
+        + [(s_, f"{a} | {m}") for s_, a, m in D.N7_01["same samples, both statistics"]]
+        + [(f"consequence {k+1}", c) for k, c in enumerate(D.N7_01["consequences"])]
+        + [("verdict", D.N7_01["verdict"])])
     proc(story, 'PROC-WB-IMMUNE-01', 'Whole blood × immune — healthy reads in band', [
         ("input", "betas_cache.pkl for GSM2333901 (58M), GSM2333905 (67F), GSM2333950 (43M), GSM1051533, GSM1051534 (RA-study controls), GSM1051525, GSM1051526 (RA); iamatlas_gauge_identity_loci_v1_0.json; age_reference_matrix.json; IAMAtlasREBUILD.csv + map"),
         ("operation", "(1) deconvolve → require immune fraction ≥ DETECT_FLOOR (it is: 0.80–0.97); (2) β<sub>mean</sub> over the 42,134 immune identity loci (36,290 present on 450K); (3) A = H(β<sub>mean</sub>)/0.838889; (4) place against the immune p10–p90 band at the donor's age; (5) NO input offset (retired)"),
@@ -536,6 +543,15 @@ def secVIII_part2(story):
     rows=[("chapter","content")]+[tuple(r) for r in D.PART_II_OUTLINE]
     story.append(tbl(rows,[0.30,0.70], fs=6.4))
 
+def secIX_future(story):
+    story.append(PageBreak())
+    story.append(Paragraph('FUTURE GOALS — WHAT IS WORTH THE EFFORT, IN ORDER', sSect))
+    story.append(Paragraph('Drawn from the scored translation map (Appendix VI) and the scored sprint (Appendix VII): only items not yet built, kept only where the data and tools in hand can support them, '
+        'each with the gate it waits on. The order is the lesson of Appendix VII applied — nothing above the bands is scheduled until the bands are rebuilt from one cohort through one pipeline. '
+        '"Not now" is a list, not a refusal; "does not translate" is the author\'s own ruling.', sBodySm))
+    rows=[("gate","goal","from","why it is realistic","needs")]+[tuple(r) for r in D.FUTURE_GOALS]
+    story.append(tbl(rows,[0.10,0.20,0.11,0.43,0.16], fs=5.8))
+
 def sec_chain_terms(story):
     story.append(PageBreak())
     story.append(Paragraph('GLOSSARY — CMB AND CHAIN TERMS', sSect))
@@ -586,7 +602,7 @@ def build(out_path):
     # new sections
     sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
     # back matter from 002
-    secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secVIII_part2(story)
+    secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
     L.blk_master_predictions(story); L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)

@@ -655,3 +655,67 @@ PART_II_OUTLINE=[
  ("What we built before the bones were trusted", "Appendix VII as narrative; the order that should have been."),
  ("For the bootstrapper", "MCMC vs resampling; what a posterior sd buys that a bootstrap CI does not; when a Mahalanobis distance is and is not a p-value."),
 ]
+
+# FUTURE GOALS — from the scored translation map (Appendix VI) and the scored sprint (Appendix VII): only items not yet built,
+# filtered to what the data and tools in hand can support, each with the gate it waits on. Order is the order.
+FUTURE_GOALS = [
+ # (gate, goal, from map row / sprint item, why realistic, what it needs)
+ ("GATE 0 — before anything else", "Rebuild the eight class BANDS from one healthy cohort through one pipeline", "sprint lesson; RECON B1",
+  "GSE87571 (n≈730 healthy whole blood, ages 14–94, raw 450K IDATs) through Stage 1 as shipped. Replaces a band compiled from nine papers on nine pipelines. Resolves the stem_adult false alarm and the identity-loci offset in one step.", "6 GB download; ~6 h of Stage 1; a sealed PREREG first"),
+ ("GATE 0", "Wire the Stage 0 ↔ Stage 1 intensity hand-off", "map rows 10–11; PROC-STAGE0-01",
+  "methylprep already exposes negative-control probes, per-probe detection p, bead counts and X/Y intensities; Stage 0 only has to receive them. Turns four DEFERRED QCs into real ones.", "half a day; no new data"),
+ ("GATE 0", "Reproduce the breast pre-diagnostic anchor from raw IDATs", "sprint F1", "GSE51057 (329 IDATs) through the whole chain against the rebuilt band. The first result a reader will check; it should stand on the corrected reference.", "2.8 GB; ~3 h"),
+ ("after GATE 0", "Cellular variance as cosmic variance", "map row 3",
+  "A cfDNA sample carries a finite number of cell-equivalents; the variance floor that sets is computable from the deconvolved composition and the read depth. Names the fundamental limit on small plasma samples. Analytic; no new data.", "a derivation and one figure"),
+ ("after GATE 0", "Transfer function of the chain", "map row 14; CCL-039",
+  "Inject a known per-CpG signal into synthetic patients (N6) and measure what fraction survives each stage — the deconvolver 'explains away' composition-like signal and this quantifies how much. The synthetic generator and null runner already exist.", "N6/N7 runs; one table per stage"),
+ ("after GATE 0", "Second, independent deconvolver — the right way this time", "map row 20; sprint B2",
+  "Planck never trusted a single component-separation method. NILC failed on correlated blood mixtures; a parametric Bayesian (Commander-style) deconvolver on the same Atlas is the natural second, and it fails differently. Agreement within tolerance becomes a gate; disagreement becomes a flag, not a deletion.", "1–2 sessions; the Atlas; Moss 2018 mixtures as ground truth"),
+ ("after GATE 0", "Nuisance marginalisation in the gauge", "map row 21",
+  "Composition and age enter as point estimates today. Propagating the deconvolver's residual and the band's sd into the gauge A gives every reading an uncertainty — the posterior sd the MCMC atlas already carries but the chain drops at Stage 4.", "half a session; no new data"),
+ ("after the anchor", "Banana degeneracy — 2D posterior shape for A-score pairs", "map row 38; sprint C3 ('I never got my banana degeneracy')",
+  "For pairs such as immune × cycling or terminal × stem_pluri, map the 2D case-vs-HC distribution; the CIMP axis is the first known one. Cheap once bands are trusted; meaningless before.", "one session; the foundation cohort"),
+ ("after the anchor", "C(d): two-point correlation of residuals vs genomic distance, per class", "map rows 17, 23, 25; sprint C1",
+  "The methylome's power spectrum. Look for characteristic-scale features (the 'acoustic peaks' of the map), with MASTER-style correction for masked CpGs. Needs CHR/MAPINFO on every CpG (the manifest is in IAM_Atlas/external_manifests).", "one session; the Atlas + anchor cohort"),
+ ("after the anchor", "Per-card likelihood, marginalised, with MCMC posteriors", "map rows 28, 37; sprint E2/E3",
+  "Replace threshold-plus-band scoring with a proper posterior over per-card parameters, nuisance-marginalised. emcee is already in the toolchain from the Atlas build. This is what a Planck reader will expect L7 to be.", "1–2 sessions; everything above"),
+ ("after the anchor", "Formal blinding for confirmation VALs", "map row 78", "Apply the pipeline before case labels are seen; unblind only after the seal. PREREG already does half of this; the other half is a procedural rule and a script flag.", "a checklist change"),
+ ("substrates", "Urine, CSF, and the within-patient tissue/plasma/urine trio", "Issue 003 §7",
+  "Cohorts already located and partly downloaded (GSE119260 four men × three substrates; GSE292312 and GSE269403 CSF). Each is one experiment with a declared prediction: the class present in the shed tissue should appear in its fluid and be absent from the same patient's blood.", "data in hand; PREREG each"),
+ ("not now", "Bispectrum / trispectrum; Minkowski functionals; isotropy and alignment tests; spectral distortions", "map rows 45, 53–60, 69",
+  "Real analogs, genuinely novel, and every one of them needs a trusted two-point function first. Listed so they are not forgotten; not scheduled.", "after C(d)"),
+ ("not now", "Multi-substrate 5mC/5hmC (E/B separation); multi-omics cross-correlation", "map rows 4, 49, 70", "Tier 5. Needs oxBS or matched RNA-seq/ATAC on the same samples — data the project does not hold.", "new data"),
+ ("does not translate", "Rees–Sciama; Rayleigh scattering", "map rows 63, 68", "The author's own ✗ rows; kept for completeness.", "—"),
+]
+
+# PROC-N7-01 — end-to-end synthetic simulation, 2026-09-19. THE FINDING OF THE DAY.
+N7_01 = {
+ "input": "synthetic_patient_generator.py (restored from RETIRED; patched to read IAM_Atlas/IAMAtlasREBUILD.csv; composition_alpha added): 16 healthy + 8 case, whole-blood composition (~immune 0.89, progenitor 0.08, stem_adult 0.03), disease panel 500 CpGs on the immune identity loci, signal 2.0. Each patient is a linear mix of the Atlas class posterior means plus age/sex/batch loadings and noise 0.03. Run through cpg_conductor.run_full.",
+ "R1 composition": "PASS - deconvolver recovers every class: immune MAE 0.0095, progenitor 0.0145, stem_adult 0.0116, epithelial classes <= 0.0016 (r 0.79-0.98 on the legacy mix).",
+ "R2 gauge": "FAIL - every synthetic patient, healthy or case, reads immune A 1.12-1.13 ABOVE_BAND / BREACH; case and healthy do not separate.",
+ "root cause": "cpg_conductor.stage_b_classes computes H(beta_mean)/H_min over the class MARKER UNION (2,952 bimodal CpGs for immune; comment: 'PRODUCTION A-score (GAPE_WEB_v13 + Reproduction Paper v3) ... NOT identity loci'), while its own docstring, SOP s41/s106 and Issue 002 say identity loci (42,134 unimodal CpGs). Confirmed: ge.read on the marker-union beta_mean returns 1.1303, the conductor's number, to four decimals. The marker union's beta_mean depends on the SHAPE of the input (Jensen gap 0.257 vs 0.026 on identity loci): a smooth synthetic mixture pulls it to 0.63 (BREACH); real bimodal blood lands at 0.75 (NORMAL).",
+ "same samples, both statistics": [
+  ("synthetic healthy (pure mixture of healthy posteriors)", "identity 0.9875", "marker-union 1.1303 BREACH"),
+  ("real WB healthy 43M", "identity 0.874", "marker-union 0.957 IN_BAND"),
+  ("real WB healthy 58M", "identity 0.807", "marker-union 0.960 IN_BAND"),
+  ("real WB RA", "identity 0.879", "marker-union 1.002 IN_BAND"),
+  ("real tissue adenoma GSM8772492", "identity 1.096 (elevated)", "marker-union 0.932 IN_BAND (missed)"),
+ ],
+ "consequences": [
+  "RULING A3 was right about the formula (H(beta_mean) on identity loci) and WRONG in asserting that the wired chain computes it. Corrected in s1.5.",
+  "age_reference_matrix.json was compiled (GAPE_WEB_v13 _AGE_REFERENCE) on the marker-union statistic. PROC-CHAIN-01's '7/7 healthy IN_BAND' is the marker-union gauge agreeing with the marker-union band - self-consistency, not conformance. Withdrawn as evidence of a working gauge.",
+  "s6a's 'below band' reading compared identity-loci A against a marker-union band: a statistic mismatch, not an offset. The +0.05-0.09 beta shift at identity loci vs the Atlas posterior IS real and remains Phase 1's business.",
+  "The identity-loci gauge is the correct statistic - unimodal, passes N7, carries the adenoma signal - and has NO BAND. Phase 1 (rebuild the band on identity-loci H(beta_mean) from GSE87571 through Stage 1) is now a prerequisite for any gauge reading, not a refinement.",
+  "The conductor is NOT switched today (a statistic without its band would read every healthy patient below band). Every class-gauge reading now carries gauge_surface = 'marker_union' and n_cpgs so it cannot be mistaken.",
+ ],
+ "verdict": "N7 did its job: the synthetic healthy patient exposed a gauge that real blood had been masking. Composition PASS; gauge as wired FAIL; identity-loci gauge PASS on N7 and blocked on its band.",
+}
+RULING_A3["status"] = ("RULING STANDS FOR THE FORMULA; CORRECTED ON THE CHAIN 2026-09-19 (PROC-N7-01): the wired conductor computes H(beta_mean) over the class MARKER UNION, not identity loci, "
+    "and age_reference_matrix was compiled the same way. The ruling's target - identity-loci H(beta_mean) against an identity-loci band - does not exist yet; Phase 1 builds it. Until then the conductor's gauge is labelled gauge_surface='marker_union'.")
+CHAIN01["findings"] = [(k, (v + " [WITHDRAWN as conformance by PROC-N7-01: this is the marker-union gauge agreeing with the marker-union band. See N7_01.]") if k=="healthy whole blood, immune" else v) for k,v in CHAIN01["findings"]]
+FALSIFICATION += [
+ ("PROC-CHAIN-01 'healthy blood IN_BAND 7/7 = the shipped chain absorbs the offset'", "the conductor's gauge and its band are both marker-union statistics; agreement between them is self-consistency, not validation (PROC-N7-01)", "WITHDRAWN"),
+ ("RULING A3 'the wired chain computes H(beta_mean) on identity loci'", "the wired chain computes it on the marker union (cpg_conductor.stage_b_classes, comment citing GAPE_WEB_v13)", "CORRECTED"),
+ ("s6a 'healthy whole blood reads below band'", "identity-loci A compared against a marker-union band - statistic mismatch; the beta shift at identity loci is real, the band conclusion was not", "RESTATED"),
+]
+RECON += [("A4", "which CpG set the production gauge reads", "docstring / SOP s41 / Issue 002: identity loci", "code: class marker union (iamatlas_celltype_markers_v0_2.json), with age_reference_matrix compiled on the same", "identity loci, once Phase 1 supplies their band; label until then", "PROC-N7-01")]

@@ -41,3 +41,5 @@ these notes collect the material as it is learned so nothing is lost.
    the methylome's foreground is the patient). Row 44 (aging as lensing) is the unwritten explanation of the age band.
 
 ## Part II page — what we built before the bones were trusted. `COMPLETION_SPRINT_scored.md`: Phase A (nulls) held; B built then torn out (NILC cut, de-aging refused); C–E never started. Order should have been A → trust the bones → C/E. Banana degeneracy (C3), C(d) (C1), per-card likelihood (E2/E3) are the correct next layer AFTER Phase 1 rebuilds the bands.
+
+## Stage 4 addendum — the lesson N7 taught (2026-09-19). The production gauge read the marker union, not the identity loci, for eleven weeks; real blood never showed it because the band was compiled the same way; a synthetic healthy patient showed it in one run. Two morals for the chapter: (1) a statistic that agrees with its own band is not thereby measuring anything; (2) end-to-end simulation is not optional - it is the only test that knows the truth. Also the Jensen gap as a diagnostic: 0.026 on identity loci, 0.257 on the marker union.

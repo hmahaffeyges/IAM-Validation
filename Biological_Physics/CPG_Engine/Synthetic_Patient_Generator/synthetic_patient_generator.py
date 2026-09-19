@@ -76,8 +76,14 @@ import pandas as pd
 # =========================================================================
 # Configuration
 # =========================================================================
-ATLAS_PATH = "/home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv"
-MANIFEST_PARQUET = "/home/claude/skymap_v1/master_cpg_atlas.parquet"  # has CHR + MAPINFO + posteriors
+from pathlib import Path as _P
+# 2026-09-19 layout patch: resolve the atlas from the repository (Biological_Physics/IAM_Atlas/), not a machine path.
+# The original read a machine-local parquet (master_cpg_atlas.parquet) carrying CHR/MAPINFO + posteriors; that file is
+# not in the repo. We read the canonical atlas CSV (posterior means per class) and attach CHR/MAPINFO from the Illumina
+# manifest in IAM_Atlas/external_manifests when present, else leave them absent (only used for per-chromosome panels).
+ATLAS_PATH = str(_P(__file__).resolve().parent.parent.parent / "IAM_Atlas" / "IAMAtlasREBUILD.csv")
+MANIFEST_PARQUET = None  # retired: see _load_atlas
+WHOLE_BLOOD_ALPHA = [0.05, 1.0, 0.05, 4.0, 0.05, 0.05, 0.05, 40.0]  # CLASSES order -> ~immune 0.88, progenitor 0.09, stem_adult 0.02, no epithelium (matches Stage-1 deconvolution of healthy whole blood)
 CLASSES = ['stem_pluri', 'stem_adult', 'stromal', 'progenitor',
            'cycling', 'secretory', 'terminal', 'immune']
 H_MIN = {'terminal': 0.7728, 'immune': 0.838889, 'secretory': 0.8433,
@@ -127,7 +133,9 @@ class SyntheticCohort:
                  noise_sigma: float = 0.03,               # β-measurement noise
                  n_cpgs: Optional[int] = None,            # subset of CpGs (None = use all from atlas)
                  random_seed: int = 42,
-                 cohort_name: str = "synth"):
+                 cohort_name: str = "synth",
+                 composition_alpha=None):                 # Dirichlet alpha in CLASSES order; None = legacy blood-like (see WHOLE_BLOOD_ALPHA)
+        self.composition_alpha = composition_alpha
         self.n_case = n_case
         self.n_hc = n_hc
         self.disease_signal_strength = disease_signal_strength
@@ -157,10 +165,22 @@ class SyntheticCohort:
     # ------------------------------------------------------------------
     def _load_atlas(self):
         if self.atlas is not None: return
-        df = pd.read_parquet(MANIFEST_PARQUET)
-        # Need posteriors for all 8 classes — drop CpGs missing any
+        cols = ['cpg_id'] + [f'{c}_mean' for c in CLASSES]
+        df = pd.read_csv(ATLAS_PATH, usecols=cols).rename(columns={'cpg_id': 'cpg'}).dropna()
+        df['CHR'] = 'NA'; df['MAPINFO'] = 0
+        mdir = _P(ATLAS_PATH).parent / "external_manifests"
+        for mf in sorted(mdir.glob("*.csv*")) if mdir.exists() else []:
+            try:
+                man = pd.read_csv(mf, usecols=lambda c: c in ("IlmnID", "Name", "CHR", "MAPINFO"), skiprows=7, low_memory=False, dtype=str)
+                key = "Name" if "Name" in man else "IlmnID"
+                man = man.dropna(subset=[key]).drop_duplicates(key).set_index(key)
+                hit = df['cpg'].map(man['CHR']); df.loc[hit.notna(), 'CHR'] = hit[hit.notna()]
+                mi = pd.to_numeric(df['cpg'].map(man['MAPINFO']), errors='coerce'); df.loc[mi.notna(), 'MAPINFO'] = mi[mi.notna()].astype(int)
+                break
+            except Exception:
+                continue
         keep_cols = ['cpg', 'CHR', 'MAPINFO'] + [f'{c}_mean' for c in CLASSES]
-        df = df[keep_cols].dropna()
+        df = df[keep_cols]
         if self.n_cpgs and self.n_cpgs < len(df):
             df = df.sample(n=self.n_cpgs, random_state=self.random_seed).reset_index(drop=True)
         self.atlas = df
@@ -214,11 +234,12 @@ class SyntheticCohort:
 
         # 1. Cell-type composition (Dirichlet, biased toward immune-dominated like whole blood)
         # Reasonable blood-like composition: ~60% immune, ~5% cycling, etc.
-        if arm == "hc":
-            # HC: typical-population composition
-            alpha = np.array([0.5, 0.5, 1.0, 5.0, 5.0, 5.0, 5.0, 60.0])  # in CLASSES order
-        else:  # case: same baseline composition (architectural; disease signal is overlay)
-            alpha = np.array([0.5, 0.5, 1.0, 5.0, 5.0, 5.0, 5.0, 60.0])
+        # Composition prior. The legacy default carries ~6% each of cycling, secretory, terminal and stromal --
+        # epithelium whole blood does not contain; PROC-N7-01 (2026-09-19) showed every such synthetic 'healthy'
+        # reads ABOVE_BAND because the gauge correctly reads a tissue mixture as a departure. Pass composition_alpha
+        # to match the substrate the band was compiled on (WHOLE_BLOOD_ALPHA for the blood card).
+        alpha = np.array(self.composition_alpha if self.composition_alpha is not None
+                         else [0.5, 0.5, 1.0, 5.0, 5.0, 5.0, 5.0, 60.0], dtype=float)  # in CLASSES order
         fracs = rng.dirichlet(alpha)
         true_fractions = dict(zip(CLASSES, fracs))
 
@@ -410,7 +431,7 @@ class ChainRecoveryTester:
 
         # Build A-scores per architectural class (simplified — average β at class marker CpGs)
         # Strict version would call iamatlas_a_scoring.py; this is a streamlined recovery test
-        df = pd.read_parquet(MANIFEST_PARQUET)
+        df = pd.read_csv(ATLAS_PATH, usecols=['cpg_id']+[f'{c}_mean' for c in CLASSES]).rename(columns={'cpg_id':'cpg'})
         atlas_cpgs = set(df['cpg'].values) & set(self.beta.index)
         atlas_aligned = df[df['cpg'].isin(atlas_cpgs)].set_index('cpg').loc[list(atlas_cpgs)]
         beta_aligned = self.beta.loc[list(atlas_cpgs)]
