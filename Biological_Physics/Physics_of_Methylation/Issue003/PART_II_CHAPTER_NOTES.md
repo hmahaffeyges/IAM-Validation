@@ -52,4 +52,3 @@ these notes collect the material as it is learned so nothing is lost.
 
 ## Stage 2 addendum 3 - PROC-SEP-01. The HSC/progenitor split IS in the Atlas (1,290 CpGs) and the deconvolver uses 129 of them: field-ranked markers answer 'haematopoietic or not', not 'HSC or MPP'. Class boundary drawn one step down a lineage (stem_adult = 1 cell type, progenitor = 11). Remedy ladder: pairwise-forced markers -> coarse-to-fine composition -> independent HSC reference. Chapter point: 'more CpGs' is rarely the answer; the RIGHT CpGs for the contrast that is ill-conditioned is.
 
-## Part II epigraph (author, 2026-09-19): 'from what we can see with our VERY limited data set and non existent funding or support... SETI is talking to us.' Use as the opening of the signal-detection chapter, in his voice - not in the claims statement.
