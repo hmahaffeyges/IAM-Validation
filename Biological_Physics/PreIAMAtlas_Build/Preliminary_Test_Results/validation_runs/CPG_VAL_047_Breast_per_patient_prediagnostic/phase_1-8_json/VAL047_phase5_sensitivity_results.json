@@ -1,0 +1,122 @@
+{
+  "val_id": "VAL-047",
+  "phase": "5_sensitivity_analyses",
+  "purpose": "Age-adjustment and age-split negative control for the primary variance finding",
+  "timestamp_utc": "2026-04-20T05:24:49.145337+00:00",
+  "test_A_age_adjusted_variance": {
+    "description": "Fit age regression on controls, subtract from all samples, rerun per-window d",
+    "age_regression_slope": -0.0013575176444741415,
+    "age_regression_intercept": 0.428756012663124,
+    "per_window_results": {
+      "0-1yr (imminent)": {
+        "n": 22,
+        "mean_residual": -0.005026753924583471,
+        "cohens_d_age_adjusted": -0.21129604376156055,
+        "permutation_p": 0.35876412358764126,
+        "bootstrap_ci_lo": -0.6655081361187815,
+        "bootstrap_ci_hi": 0.21881639557236182
+      },
+      "1-2yr": {
+        "n": 36,
+        "mean_residual": 0.0017435890260848695,
+        "cohens_d_age_adjusted": 0.07371112975810928,
+        "permutation_p": 0.6736326367363263,
+        "bootstrap_ci_lo": -0.285121650591488,
+        "bootstrap_ci_hi": 0.42168814411039307
+      },
+      "2-5yr": {
+        "n": 34,
+        "mean_residual": -0.016738885176002187,
+        "cohens_d_age_adjusted": -0.7038098474056647,
+        "permutation_p": 0.00029997000299970003,
+        "bootstrap_ci_lo": -1.1009384006122664,
+        "bootstrap_ci_hi": -0.3446249399914704
+      },
+      "5-10yr": {
+        "n": 43,
+        "mean_residual": -0.011825591264103227,
+        "cohens_d_age_adjusted": -0.49558978510532165,
+        "permutation_p": 0.0040995900409959,
+        "bootstrap_ci_lo": -0.834696867367698,
+        "bootstrap_ci_hi": -0.159470696745616
+      },
+      ">10yr (early pre-dx)": {
+        "n": 11,
+        "mean_residual": -0.02836550250552815,
+        "cohens_d_age_adjusted": -1.1786694008427225,
+        "permutation_p": 0.00019998000199980003,
+        "bootstrap_ci_lo": -1.9251865712911882,
+        "bootstrap_ci_hi": -0.44331273253489184
+      }
+    }
+  },
+  "test_B_age_split_negative_control": {
+    "age_median": 54.078,
+    "n_younger": 88,
+    "n_older": 89,
+    "younger_mean_age": 46.918988636363636,
+    "older_mean_age": 58.510775280898876,
+    "younger_mean_sd": 0.36466282137809874,
+    "older_mean_sd": 0.34972194663446077,
+    "cohens_d": -0.6096380767477104,
+    "permutation_p": 0.00019998000199980003,
+    "bootstrap_ci_lo": -0.9217797518042294,
+    "bootstrap_ci_hi": -0.3239809009665005,
+    "passes_null_threshold_abs_d_lt_0p3": false
+  },
+  "test_C_age_distribution_comparison": {
+    "decade_cases_mean_age": 55.326727272727275,
+    "decade_cases_sd_age": 7.116370846026914,
+    "controls_mean_age": 52.74762711864407,
+    "controls_sd_age": 7.026964032062265,
+    "age_gap_years": -2.579100154083207
+  },
+  "input_matrix_sha256": "828059824b67af46fb022f872ff9f69395e2e99b5975b3101157731a04d98bb0",
+  "h_min_secretory_used": 0.843264,
+  "cpg_panel": [
+    "cg16867657",
+    "cg06639320",
+    "cg13552692",
+    "cg11807280",
+    "cg19283806",
+    "cg02580606",
+    "cg22454769",
+    "cg02228185",
+    "cg06691716",
+    "cg00846300",
+    "cg01127300",
+    "cg26521404",
+    "cg08262002",
+    "cg18181703",
+    "cg09809672",
+    "cg22736354",
+    "cg02489552",
+    "cg26203572",
+    "cg25382485"
+  ],
+  "cpgs_available": [
+    "cg00846300",
+    "cg01127300",
+    "cg02228185",
+    "cg02489552",
+    "cg02580606",
+    "cg06639320",
+    "cg08262002",
+    "cg09809672",
+    "cg11807280",
+    "cg16867657",
+    "cg18181703",
+    "cg19283806",
+    "cg22454769",
+    "cg22736354",
+    "cg26203572",
+    "cg26521404"
+  ],
+  "statistical_parameters": {
+    "random_seed": 42,
+    "n_permutations": 10000,
+    "n_bootstrap": 10000,
+    "confidence_level": 0.95
+  },
+  "runtime_seconds": 66.9
+}

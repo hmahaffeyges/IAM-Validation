@@ -1,0 +1,107 @@
+{
+  "val_id": "VAL-047-PHASE-8",
+  "title": "Kresovich-100 vs Xu-6 Head-to-Head on GSE51057 EPIC-Italy",
+  "cohort": "GSE51057 (EPIC-Italy nested case-control, n=329)",
+  "timestamp_utc": "2026-04-21T05:45:19.241206+00:00",
+  "comparisons": {
+    "xu_6_signed": {
+      "panel_size": 6,
+      "cv_d_mean": 0.3421713099835598,
+      "cv_d_std": 0.1823636939911987,
+      "cv_d_per_iter": [
+        0.44134853064723095,
+        0.3614157135463212,
+        0.3674695587652904,
+        0.3139404113689512,
+        0.4119083056096861,
+        0.35974207508170175,
+        0.4803918722838499,
+        0.44741142697180525,
+        0.3953938036211296,
+        -0.15730859806036832
+      ],
+      "permutation_p": 0.028197180281971802,
+      "bootstrap_95ci": [
+        -0.013325772786719103,
+        0.7383450180874933
+      ]
+    },
+    "kresovich_100_signed": {
+      "panel_size": 100,
+      "panel_source": "Kresovich 2022 Supplementary S1 (100 CpGs)",
+      "cv_d_mean": 0.490626574661915,
+      "cv_d_std": 0.1247058197076641,
+      "cv_d_per_iter": [
+        0.6425183785394099,
+        0.25227201125997417,
+        0.6227523154494794,
+        0.4692905434791378,
+        0.4757768712433448,
+        0.48062041265159344,
+        0.3489609950302136,
+        0.6358000083042392,
+        0.4704571516344855,
+        0.5078170590272724
+      ],
+      "permutation_p": 0.0016998300169983002,
+      "bootstrap_95ci": [
+        0.3076925841861408,
+        0.9945799208933548
+      ]
+    },
+    "kresovich_100_magnitude": {
+      "panel_size": 100,
+      "cv_d_mean": 0.6291398914300165,
+      "cv_d_std": 0.12764749300881634,
+      "cv_d_per_iter": [
+        0.7437280954360803,
+        0.3813332670004538,
+        0.7681911926697006,
+        0.5486987163937593,
+        0.5435459215082008,
+        0.6189813350885505,
+        0.5324714011508959,
+        0.7281398580598923,
+        0.6602014190549622,
+        0.7661077079376687
+      ],
+      "bootstrap_95ci": [
+        0.43091805736659994,
+        1.0904632940805647
+      ]
+    },
+    "direction_audit": {
+      "stable_direction_cpgs": 39,
+      "unstable_direction_cpgs": 61,
+      "total_audited": 100
+    }
+  },
+  "verdicts": {
+    "scale_vs_saturate": "SCALE: Kresovich-100 outperforms Xu-6 with physics weighting.",
+    "weight_mode": "Magnitude weighting helps (signed-d loses information)."
+  },
+  "input_hashes": {
+    "prereg": "8e1dd52621ff7bee18ce6783ca617ff726cc39e8f844bddedf773a8fb43c0967",
+    "phase1_ranking": "b4d848f25585e1899fa50da22a85abe75b7c7617af2f389d6d8df4fc3dfabc25",
+    "matrix": "828059824b67af46fb022f872ff9f69395e2e99b5975b3101157731a04d98bb0"
+  },
+  "methodology": {
+    "cv_iterations": 10,
+    "permutation_shuffles": 10000,
+    "bootstrap_resamples": 10000,
+    "bootstrap_resamples_diagnostic": 2000,
+    "random_seed": 42,
+    "train_test_split": "50/50 per iteration",
+    "h_min_class": "secretory (breast = secretory class)",
+    "h_min_value": 0.843264
+  },
+  "xu_6_panel": [
+    "cg03430067",
+    "cg03616357",
+    "cg07072643",
+    "cg08287471",
+    "cg19709625",
+    "cg26203572"
+  ],
+  "kresovich_100_source": "Kresovich 2022 Supplementary S1 (100 CpGs)"
+}

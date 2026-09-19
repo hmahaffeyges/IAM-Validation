@@ -1,0 +1,112 @@
+{
+  "val_id": "VAL-047",
+  "phase": 2,
+  "timestamp_utc": "2026-04-20T04:33:42.403327+00:00",
+  "hashes_verified": {
+    "prereg_hash": "8e1dd52621ff7bee18ce6783ca617ff726cc39e8f844bddedf773a8fb43c0967",
+    "phase1_ranking_hash": "b4d848f25585e1899fa50da22a85abe75b7c7617af2f389d6d8df4fc3dfabc25",
+    "input_matrix_hash": "828059824b67af46fb022f872ff9f69395e2e99b5975b3101157731a04d98bb0"
+  },
+  "cohort_composition": {
+    "control": 177,
+    "C50": 146,
+    "C73": 1,
+    "C18": 3,
+    "C19": 1,
+    "C80": 1
+  },
+  "primary_analysis": {
+    "n_cases": 146,
+    "n_controls": 177,
+    "case_mean_a": 1.181318015400391,
+    "ctrl_mean_a": 1.181190973662694,
+    "case_sd_a": 0.007493563065716816,
+    "ctrl_sd_a": 0.005119509840058016,
+    "cohens_d": 0.02015379761953391,
+    "permutation_p": 0.8606139386061394,
+    "bootstrap_ci_lo": -0.18214393799678197,
+    "bootstrap_ci_hi": 0.2881715359084633,
+    "bootstrap_mean": 0.03439109300469021,
+    "decision_rule_triggered": false
+  },
+  "sliding_window_by_ttd": {
+    "gt_1yr": {
+      "n_cases": 124,
+      "case_mean_a": 1.1814460094587835,
+      "cohens_d_vs_controls": 0.04010251136611171,
+      "bootstrap_ci_lo": -0.18070059224672408,
+      "bootstrap_ci_hi": 0.33573975511205856
+    },
+    "gt_2yr": {
+      "n_cases": 88,
+      "case_mean_a": 1.1828297087042636,
+      "cohens_d_vs_controls": 0.3473822051653612,
+      "bootstrap_ci_lo": 0.12684020981191793,
+      "bootstrap_ci_hi": 0.5768820138784428
+    },
+    "gt_3yr": {
+      "n_cases": 73,
+      "case_mean_a": 1.182959656822135,
+      "cohens_d_vs_controls": 0.3729214443620717,
+      "bootstrap_ci_lo": 0.13255251144293095,
+      "bootstrap_ci_hi": 0.6040835965309019
+    },
+    "gt_5yr": {
+      "n_cases": 54,
+      "case_mean_a": 1.1826922089691518,
+      "cohens_d_vs_controls": 0.30742409899227974,
+      "bootstrap_ci_lo": 0.0512106442371086,
+      "bootstrap_ci_hi": 0.5570625057876865
+    },
+    "gt_8yr": {
+      "n_cases": 24,
+      "case_mean_a": 1.1816943668254059,
+      "cohens_d_vs_controls": 0.09866603459405972,
+      "bootstrap_ci_lo": -0.3678602560567296,
+      "bootstrap_ci_hi": 0.48134174370856225
+    },
+    "gt_10yr": {
+      "n_cases": 11,
+      "case_mean_a": 1.1827509320804233,
+      "cohens_d_vs_controls": 0.31000039517478717,
+      "bootstrap_ci_lo": -0.07789898851450125,
+      "bootstrap_ci_hi": 0.6597660095832272
+    }
+  },
+  "negative_control_age_split": {
+    "description": "Split controls at median age, compute d. Expected: near zero.",
+    "age_median": 54.078,
+    "n_younger": 88,
+    "n_older": 89,
+    "cohens_d": 0.18621669669934546,
+    "permutation_p": 0.21189405297351324,
+    "bootstrap_ci_lo": -0.10683128236715504,
+    "bootstrap_ci_hi": 0.45085728990477836,
+    "interpretation": "Passes (null) if |d| < 0.3"
+  },
+  "top_quartile_enrichment": {
+    "quartile_size": 82,
+    "top_quartile_cases": 38,
+    "bottom_quartile_cases": 31,
+    "top_case_fraction": 0.4634146341463415,
+    "bottom_case_fraction": 0.3780487804878049,
+    "overall_case_fraction": 0.44376899696048633,
+    "fisher_odds_ratio": 1.4208211143695015,
+    "fisher_p_two_sided": 0.34263675382503533
+  },
+  "statistical_parameters": {
+    "random_seed": 42,
+    "n_permutations": 10000,
+    "n_bootstrap_primary": 10000,
+    "n_bootstrap_sliding": 2000,
+    "n_bootstrap_negctl": 2000,
+    "confidence_level": 0.95
+  },
+  "caveats": [
+    "CpG panel coverage: 3 of 6 pre-registered Xu-2020 CpGs were present on the GSE51057 450K deposit (cg17301223, cg26203572, cg27091787). The mean-beta computation proceeded with 3 CpGs. The observed A-score distribution is narrow (range 1.11-1.19) because 3-CpG mean-beta sits near the top of the H(beta) curve; absolute values are not directly comparable to tier thresholds from full-class panels, but RELATIVE ranking (which drives Cohen's d) is preserved.",
+    "GSE51057 is a retrospective case-control analysis; cases were identified after diagnosis in the EPIC-Italy cohort. Not prospective.",
+    "Analysis does not adjust for batch effects, cell-type composition, BMI, smoking status, or menopausal status \u2014 all of which the published Kresovich/Xu analyses adjusted for. Our result is a lower-bound effect size relative to a properly covariate-adjusted pipeline.",
+    "Xu-2020 CpG panel was selected on correlation with breast cancer outcome in Sister Study; using those CpGs to score GSE51057 may inflate Cohen's d relative to a naive CpG selection. This is a known pre-reg caveat and was specified before unblinding."
+  ],
+  "runtime_seconds": 4.35
+}

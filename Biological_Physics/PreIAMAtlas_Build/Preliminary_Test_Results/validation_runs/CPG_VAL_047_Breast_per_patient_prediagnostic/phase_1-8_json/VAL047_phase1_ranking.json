@@ -1,0 +1,2011 @@
+{
+  "val_id": "VAL-047",
+  "phase": 1,
+  "timestamp_utc": "2026-04-20T04:31:57.116492+00:00",
+  "prereg_hash": "8e1dd52621ff7bee18ce6783ca617ff726cc39e8f844bddedf773a8fb43c0967",
+  "input_matrix_hash": "828059824b67af46fb022f872ff9f69395e2e99b5975b3101157731a04d98bb0",
+  "input_hmin_hash": "ae9b6433a6d159965152d7087e9afb764e8a6f4488dba242325ba41949c0c912",
+  "cpg_panel_used": [
+    "cg26203572",
+    "cg03172595",
+    "cg05928286",
+    "cg17301223",
+    "cg27091787",
+    "cg11667314"
+  ],
+  "cpg_panel_coverage": [
+    "cg17301223",
+    "cg26203572",
+    "cg27091787"
+  ],
+  "h_min_secretory": 0.843264,
+  "n_samples_total": 329,
+  "n_samples_scored": 329,
+  "blinding_audit": {
+    "forbidden_metadata_keys": [
+      "cancer type",
+      "cancer type (icd-10)",
+      "icd-10",
+      "time to diagnosis"
+    ],
+    "phase1_never_reads": "cancer type, time to diagnosis, any ICD-10 column",
+    "ranking_is_frozen_before_unblinding": true
+  },
+  "runtime_seconds": 21.29,
+  "ranking": [
+    {
+      "sample_id": "GSM1236032",
+      "age": 50.869,
+      "mean_beta_xu6": 0.4999408666664206,
+      "a_score_secretory": 1.1858682333296677
+    },
+    {
+      "sample_id": "GSM1235549",
+      "age": 58.746,
+      "mean_beta_xu6": 0.5001311084057475,
+      "a_score_secretory": 1.1858681864775855
+    },
+    {
+      "sample_id": "GSM1236291",
+      "age": 63.888,
+      "mean_beta_xu6": 0.5008127463046769,
+      "a_score_secretory": 1.1858659850720843
+    },
+    {
+      "sample_id": "GSM1235887",
+      "age": 52.914,
+      "mean_beta_xu6": 0.4990914061637392,
+      "a_score_secretory": 1.1858654205394743
+    },
+    {
+      "sample_id": "GSM1235994",
+      "age": 47.915,
+      "mean_beta_xu6": 0.49869835136265644,
+      "a_score_secretory": 1.1858624479514086
+    },
+    {
+      "sample_id": "GSM1236343",
+      "age": 51.444,
+      "mean_beta_xu6": 0.498523439379658,
+      "a_score_secretory": 1.1858607852027203
+    },
+    {
+      "sample_id": "GSM1236280",
+      "age": 58.283,
+      "mean_beta_xu6": 0.49849936226034636,
+      "a_score_secretory": 1.1858605399270035
+    },
+    {
+      "sample_id": "GSM1235571",
+      "age": 42.949,
+      "mean_beta_xu6": 0.49845218860520607,
+      "a_score_secretory": 1.1858600478639005
+    },
+    {
+      "sample_id": "GSM1235813",
+      "age": 47.773,
+      "mean_beta_xu6": 0.5018747351054801,
+      "a_score_secretory": 1.1858562192774087
+    },
+    {
+      "sample_id": "GSM1235561",
+      "age": 58.505,
+      "mean_beta_xu6": 0.5018913207651228,
+      "a_score_secretory": 1.1858560055488607
+    },
+    {
+      "sample_id": "GSM1236053",
+      "age": 59.691,
+      "mean_beta_xu6": 0.4980865284117624,
+      "a_score_secretory": 1.1858557171696829
+    },
+    {
+      "sample_id": "GSM1235544",
+      "age": 47.283,
+      "mean_beta_xu6": 0.5022633401258106,
+      "a_score_secretory": 1.1858507169014096
+    },
+    {
+      "sample_id": "GSM1236294",
+      "age": 46.976,
+      "mean_beta_xu6": 0.49762845703907294,
+      "a_score_secretory": 1.1858490008847098
+    },
+    {
+      "sample_id": "GSM1236048",
+      "age": 44.999,
+      "mean_beta_xu6": 0.49757473553367876,
+      "a_score_secretory": 1.1858481191361405
+    },
+    {
+      "sample_id": "GSM1236377",
+      "age": 48.457,
+      "mean_beta_xu6": 0.5026646832748587,
+      "a_score_secretory": 1.1858439493256083
+    },
+    {
+      "sample_id": "GSM1235908",
+      "age": 58.845,
+      "mean_beta_xu6": 0.5029018732769163,
+      "a_score_secretory": 1.1858394315102982
+    },
+    {
+      "sample_id": "GSM1235560",
+      "age": 56.726,
+      "mean_beta_xu6": 0.5029255726667297,
+      "a_score_secretory": 1.1858389589455642
+    },
+    {
+      "sample_id": "GSM1236209",
+      "age": 39.852,
+      "mean_beta_xu6": 0.5031448865710587,
+      "a_score_secretory": 1.185834403466764
+    },
+    {
+      "sample_id": "GSM1236180",
+      "age": 47.962,
+      "mean_beta_xu6": 0.49663241539717595,
+      "a_score_secretory": 1.185829440866272
+    },
+    {
+      "sample_id": "GSM1236227",
+      "age": 54.932,
+      "mean_beta_xu6": 0.503423484988366,
+      "a_score_secretory": 1.1858281418917425
+    },
+    {
+      "sample_id": "GSM1236064",
+      "age": 48.304,
+      "mean_beta_xu6": 0.504023340769336,
+      "a_score_secretory": 1.185812856833581
+    },
+    {
+      "sample_id": "GSM1236336",
+      "age": 59.65,
+      "mean_beta_xu6": 0.4959472952196202,
+      "a_score_secretory": 1.185812045378367
+    },
+    {
+      "sample_id": "GSM1236364",
+      "age": 66.319,
+      "mean_beta_xu6": 0.5040903672247561,
+      "a_score_secretory": 1.1858109959631613
+    },
+    {
+      "sample_id": "GSM1235632",
+      "age": 64.676,
+      "mean_beta_xu6": 0.5042722249368528,
+      "a_score_secretory": 1.1858057921254568
+    },
+    {
+      "sample_id": "GSM1235838",
+      "age": 59.253,
+      "mean_beta_xu6": 0.5043508592144883,
+      "a_score_secretory": 1.1858034719209505
+    },
+    {
+      "sample_id": "GSM1236224",
+      "age": 57.391,
+      "mean_beta_xu6": 0.49552107506678883,
+      "a_score_secretory": 1.18579960259566
+    },
+    {
+      "sample_id": "GSM1236211",
+      "age": 48.268,
+      "mean_beta_xu6": 0.4953010748420883,
+      "a_score_secretory": 1.1857926935627714
+    },
+    {
+      "sample_id": "GSM1235655",
+      "age": 57.719,
+      "mean_beta_xu6": 0.4952797451521925,
+      "a_score_secretory": 1.1857920060964031
+    },
+    {
+      "sample_id": "GSM1236003",
+      "age": 46.79,
+      "mean_beta_xu6": 0.4952250760419003,
+      "a_score_secretory": 1.1857902298664857
+    },
+    {
+      "sample_id": "GSM1235815",
+      "age": 58.355,
+      "mean_beta_xu6": 0.5052349747470096,
+      "a_score_secretory": 1.1857744722337782
+    },
+    {
+      "sample_id": "GSM1236312",
+      "age": 53.35,
+      "mean_beta_xu6": 0.50540737155786,
+      "a_score_secretory": 1.185768194195056
+    },
+    {
+      "sample_id": "GSM1236231",
+      "age": 40.011,
+      "mean_beta_xu6": 0.5054846432450887,
+      "a_score_secretory": 1.1857653142329818
+    },
+    {
+      "sample_id": "GSM1235966",
+      "age": 55.792,
+      "mean_beta_xu6": 0.4943888412537382,
+      "a_score_secretory": 1.1857605106948903
+    },
+    {
+      "sample_id": "GSM1235562",
+      "age": 43.866,
+      "mean_beta_xu6": 0.4943510891103424,
+      "a_score_secretory": 1.1857590561001243
+    },
+    {
+      "sample_id": "GSM1235588",
+      "age": 64.394,
+      "mean_beta_xu6": 0.5057184343471607,
+      "a_score_secretory": 1.1857563518298493
+    },
+    {
+      "sample_id": "GSM1236208",
+      "age": 57.673,
+      "mean_beta_xu6": 0.4940778152986465,
+      "a_score_secretory": 1.1857482359605025
+    },
+    {
+      "sample_id": "GSM1235643",
+      "age": 49.459,
+      "mean_beta_xu6": 0.5062315150909175,
+      "a_score_secretory": 1.1857353714440584
+    },
+    {
+      "sample_id": "GSM1236272",
+      "age": 57.708,
+      "mean_beta_xu6": 0.4934923931470046,
+      "a_score_secretory": 1.1857233361301056
+    },
+    {
+      "sample_id": "GSM1236287",
+      "age": 58.976,
+      "mean_beta_xu6": 0.4933991357845146,
+      "a_score_secretory": 1.1857191530033826
+    },
+    {
+      "sample_id": "GSM1236195",
+      "age": 58.092,
+      "mean_beta_xu6": 0.5066628978173264,
+      "a_score_secretory": 1.185716337473346
+    },
+    {
+      "sample_id": "GSM1235551",
+      "age": 53.09,
+      "mean_beta_xu6": 0.4931316185063392,
+      "a_score_secretory": 1.1857068230236476
+    },
+    {
+      "sample_id": "GSM1235935",
+      "age": 59.291,
+      "mean_beta_xu6": 0.49292695366445805,
+      "a_score_secretory": 1.185697059206916
+    },
+    {
+      "sample_id": "GSM1235826",
+      "age": 42.779,
+      "mean_beta_xu6": 0.5071875848154939,
+      "a_score_secretory": 1.185691469866235
+    },
+    {
+      "sample_id": "GSM1236025",
+      "age": 55.08,
+      "mean_beta_xu6": 0.4927812297639345,
+      "a_score_secretory": 1.1856899325021129
+    },
+    {
+      "sample_id": "GSM1236214",
+      "age": 43.74,
+      "mean_beta_xu6": 0.5077749320259531,
+      "a_score_secretory": 1.1856613971262169
+    },
+    {
+      "sample_id": "GSM1235812",
+      "age": 43.904,
+      "mean_beta_xu6": 0.5077991188840499,
+      "a_score_secretory": 1.1856601081136904
+    },
+    {
+      "sample_id": "GSM1236119",
+      "age": 55.211,
+      "mean_beta_xu6": 0.5079442300952743,
+      "a_score_secretory": 1.18565229048658
+    },
+    {
+      "sample_id": "GSM1235569",
+      "age": 54.401,
+      "mean_beta_xu6": 0.5079613924266431,
+      "a_score_secretory": 1.185651356362523
+    },
+    {
+      "sample_id": "GSM1236192",
+      "age": 57.506,
+      "mean_beta_xu6": 0.4919126641334322,
+      "a_score_secretory": 1.185644439734142
+    },
+    {
+      "sample_id": "GSM1236100",
+      "age": 61.002,
+      "mean_beta_xu6": 0.4918724227909268,
+      "a_score_secretory": 1.1856422068503212
+    },
+    {
+      "sample_id": "GSM1236142",
+      "age": 46.281,
+      "mean_beta_xu6": 0.5081491255600233,
+      "a_score_secretory": 1.185641006633236
+    },
+    {
+      "sample_id": "GSM1235979",
+      "age": 44.591,
+      "mean_beta_xu6": 0.5083046864320367,
+      "a_score_secretory": 1.1856322477835362
+    },
+    {
+      "sample_id": "GSM1235582",
+      "age": 42.658,
+      "mean_beta_xu6": 0.4915108615401223,
+      "a_score_secretory": 1.1856216475638135
+    },
+    {
+      "sample_id": "GSM1236251",
+      "age": 63.715,
+      "mean_beta_xu6": 0.4912462957061499,
+      "a_score_secretory": 1.185606036709981
+    },
+    {
+      "sample_id": "GSM1236075",
+      "age": 52.997,
+      "mean_beta_xu6": 0.5091956004370699,
+      "a_score_secretory": 1.185578893857199
+    },
+    {
+      "sample_id": "GSM1236359",
+      "age": 48.841,
+      "mean_beta_xu6": 0.5093048507300802,
+      "a_score_secretory": 1.1855719772125832
+    },
+    {
+      "sample_id": "GSM1236137",
+      "age": 55.877,
+      "mean_beta_xu6": 0.5094912112119633,
+      "a_score_secretory": 1.185559990148588
+    },
+    {
+      "sample_id": "GSM1235922",
+      "age": 62.76,
+      "mean_beta_xu6": 0.5095408012406883,
+      "a_score_secretory": 1.1855567603719228
+    },
+    {
+      "sample_id": "GSM1236201",
+      "age": 58.27,
+      "mean_beta_xu6": 0.5096661109828512,
+      "a_score_secretory": 1.1855485239842898
+    },
+    {
+      "sample_id": "GSM1236252",
+      "age": 54.99,
+      "mean_beta_xu6": 0.49032970900825695,
+      "a_score_secretory": 1.185548247386961
+    },
+    {
+      "sample_id": "GSM1235534",
+      "age": 54.322,
+      "mean_beta_xu6": 0.5097078170993427,
+      "a_score_secretory": 1.1855457588721041
+    },
+    {
+      "sample_id": "GSM1236349",
+      "age": 55.266,
+      "mean_beta_xu6": 0.5097570042175258,
+      "a_score_secretory": 1.1855424824667116
+    },
+    {
+      "sample_id": "GSM1235947",
+      "age": 58.223,
+      "mean_beta_xu6": 0.5098577640753413,
+      "a_score_secretory": 1.1855357190303173
+    },
+    {
+      "sample_id": "GSM1236160",
+      "age": 49.276,
+      "mean_beta_xu6": 0.49013330546954603,
+      "a_score_secretory": 1.1855351162265069
+    },
+    {
+      "sample_id": "GSM1235930",
+      "age": 47.702,
+      "mean_beta_xu6": 0.5100969199207283,
+      "a_score_secretory": 1.1855193875898753
+    },
+    {
+      "sample_id": "GSM1235963",
+      "age": 57.906,
+      "mean_beta_xu6": 0.5101448685910096,
+      "a_score_secretory": 1.1855160661549302
+    },
+    {
+      "sample_id": "GSM1235829",
+      "age": 57.169,
+      "mean_beta_xu6": 0.5102287252446233,
+      "a_score_secretory": 1.1855102195163625
+    },
+    {
+      "sample_id": "GSM1235757",
+      "age": 47.239,
+      "mean_beta_xu6": 0.5102448123327926,
+      "a_score_secretory": 1.1855090923915823
+    },
+    {
+      "sample_id": "GSM1235929",
+      "age": 55.379,
+      "mean_beta_xu6": 0.5104233518036813,
+      "a_score_secretory": 1.1854964642635792
+    },
+    {
+      "sample_id": "GSM1236262",
+      "age": 46.409,
+      "mean_beta_xu6": 0.5105518531523545,
+      "a_score_secretory": 1.1854872402787802
+    },
+    {
+      "sample_id": "GSM1235936",
+      "age": 61.281,
+      "mean_beta_xu6": 0.5105922173654428,
+      "a_score_secretory": 1.1854843195529177
+    },
+    {
+      "sample_id": "GSM1235555",
+      "age": 58.576,
+      "mean_beta_xu6": 0.5108916970467409,
+      "a_score_secretory": 1.1854623010090832
+    },
+    {
+      "sample_id": "GSM1235988",
+      "age": 62.732,
+      "mean_beta_xu6": 0.4890399102823668,
+      "a_score_secretory": 1.1854571864684542
+    },
+    {
+      "sample_id": "GSM1235542",
+      "age": 55.737,
+      "mean_beta_xu6": 0.5111745460090461,
+      "a_score_secretory": 1.1854409413421167
+    },
+    {
+      "sample_id": "GSM1235904",
+      "age": 35.039,
+      "mean_beta_xu6": 0.5113364749622785,
+      "a_score_secretory": 1.185428466528823
+    },
+    {
+      "sample_id": "GSM1236332",
+      "age": 61.016,
+      "mean_beta_xu6": 0.5116460292298345,
+      "a_score_secretory": 1.1854041191836031
+    },
+    {
+      "sample_id": "GSM1236151",
+      "age": 35.157,
+      "mean_beta_xu6": 0.5117564212057433,
+      "a_score_secretory": 1.1853952778226737
+    },
+    {
+      "sample_id": "GSM1235984",
+      "age": 58.442,
+      "mean_beta_xu6": 0.4878444250160285,
+      "a_score_secretory": 1.1853626130327448
+    },
+    {
+      "sample_id": "GSM1236310",
+      "age": 51.68,
+      "mean_beta_xu6": 0.5122675441082339,
+      "a_score_secretory": 1.1853532540907008
+    },
+    {
+      "sample_id": "GSM1235587",
+      "age": 50.853,
+      "mean_beta_xu6": 0.5125340543725216,
+      "a_score_secretory": 1.185330632472491
+    },
+    {
+      "sample_id": "GSM1236001",
+      "age": 54.264,
+      "mean_beta_xu6": 0.4874324196874615,
+      "a_score_secretory": 1.1853277523219838
+    },
+    {
+      "sample_id": "GSM1235694",
+      "age": 56.137,
+      "mean_beta_xu6": 0.48718784694429296,
+      "a_score_secretory": 1.1853065086607817
+    },
+    {
+      "sample_id": "GSM1236147",
+      "age": 63.348,
+      "mean_beta_xu6": 0.5132411967440963,
+      "a_score_secretory": 1.185268252235993
+    },
+    {
+      "sample_id": "GSM1235570",
+      "age": 58.787,
+      "mean_beta_xu6": 0.5133603225931277,
+      "a_score_secretory": 1.1852574065781232
+    },
+    {
+      "sample_id": "GSM1235577",
+      "age": 39.439,
+      "mean_beta_xu6": 0.5134670169500649,
+      "a_score_secretory": 1.1852476102290268
+    },
+    {
+      "sample_id": "GSM1236086",
+      "age": 44.917,
+      "mean_beta_xu6": 0.48638215749753283,
+      "a_score_secretory": 1.185233628891494
+    },
+    {
+      "sample_id": "GSM1235804",
+      "age": 43.463,
+      "mean_beta_xu6": 0.5138485267670044,
+      "a_score_secretory": 1.1852119433907646
+    },
+    {
+      "sample_id": "GSM1236216",
+      "age": 55.926,
+      "mean_beta_xu6": 0.514166082718708,
+      "a_score_secretory": 1.1851814953416449
+    },
+    {
+      "sample_id": "GSM1235870",
+      "age": 53.84,
+      "mean_beta_xu6": 0.48558795672522986,
+      "a_score_secretory": 1.185157437399913
+    },
+    {
+      "sample_id": "GSM1236039",
+      "age": 36.572,
+      "mean_beta_xu6": 0.5145551237450895,
+      "a_score_secretory": 1.1851432517618214
+    },
+    {
+      "sample_id": "GSM1235583",
+      "age": 50.251,
+      "mean_beta_xu6": 0.48529197428152115,
+      "a_score_secretory": 1.1851279373914299
+    },
+    {
+      "sample_id": "GSM1236292",
+      "age": 39.559,
+      "mean_beta_xu6": 0.48518794438145757,
+      "a_score_secretory": 1.185117426418734
+    },
+    {
+      "sample_id": "GSM1236240",
+      "age": 58.574,
+      "mean_beta_xu6": 0.5148737248374139,
+      "a_score_secretory": 1.1851111604890654
+    },
+    {
+      "sample_id": "GSM1236204",
+      "age": 59.68,
+      "mean_beta_xu6": 0.48505661048252263,
+      "a_score_secretory": 1.1851040508428976
+    },
+    {
+      "sample_id": "GSM1235575",
+      "age": 43.387,
+      "mean_beta_xu6": 0.4841333902890988,
+      "a_score_secretory": 1.1850066919658337
+    },
+    {
+      "sample_id": "GSM1236179",
+      "age": 54.612,
+      "mean_beta_xu6": 0.4839101256411092,
+      "a_score_secretory": 1.184982270718823
+    },
+    {
+      "sample_id": "GSM1235876",
+      "age": 37.142,
+      "mean_beta_xu6": 0.5163091544174502,
+      "a_score_secretory": 1.1849579529267962
+    },
+    {
+      "sample_id": "GSM1235821",
+      "age": 54.7,
+      "mean_beta_xu6": 0.48332244131781366,
+      "a_score_secretory": 1.1849163559006914
+    },
+    {
+      "sample_id": "GSM1235600",
+      "age": 56.197,
+      "mean_beta_xu6": 0.5167761355317694,
+      "a_score_secretory": 1.1849050677685344
+    },
+    {
+      "sample_id": "GSM1235818",
+      "age": 42.059,
+      "mean_beta_xu6": 0.5169745412232056,
+      "a_score_secretory": 1.1848821462927432
+    },
+    {
+      "sample_id": "GSM1235824",
+      "age": 41.739,
+      "mean_beta_xu6": 0.5171839844986846,
+      "a_score_secretory": 1.1848576570408629
+    },
+    {
+      "sample_id": "GSM1236367",
+      "age": 54.382,
+      "mean_beta_xu6": 0.5171943056491245,
+      "a_score_secretory": 1.1848564424653083
+    },
+    {
+      "sample_id": "GSM1236283",
+      "age": 51.795,
+      "mean_beta_xu6": 0.5174134864029748,
+      "a_score_secretory": 1.1848304773195386
+    },
+    {
+      "sample_id": "GSM1235886",
+      "age": 36.172,
+      "mean_beta_xu6": 0.4822706773577734,
+      "a_score_secretory": 1.184792483032082
+    },
+    {
+      "sample_id": "GSM1236150",
+      "age": 54.888,
+      "mean_beta_xu6": 0.4818714415418905,
+      "a_score_secretory": 1.184743477923429
+    },
+    {
+      "sample_id": "GSM1235545",
+      "age": 38.686,
+      "mean_beta_xu6": 0.5181557265373882,
+      "a_score_secretory": 1.1847401034254004
+    },
+    {
+      "sample_id": "GSM1235926",
+      "age": 55.428,
+      "mean_beta_xu6": 0.5191073493717577,
+      "a_score_secretory": 1.184618712619714
+    },
+    {
+      "sample_id": "GSM1235683",
+      "age": 48.75,
+      "mean_beta_xu6": 0.5191653964753296,
+      "a_score_secretory": 1.1846111071973515
+    },
+    {
+      "sample_id": "GSM1235566",
+      "age": 42.576,
+      "mean_beta_xu6": 0.5192866957000496,
+      "a_score_secretory": 1.184595139835857
+    },
+    {
+      "sample_id": "GSM1235631",
+      "age": 56.627,
+      "mean_beta_xu6": 0.5195722995264437,
+      "a_score_secretory": 1.1845571458098199
+    },
+    {
+      "sample_id": "GSM1236357",
+      "age": 53.596,
+      "mean_beta_xu6": 0.4802916733795033,
+      "a_score_secretory": 1.184538853509776
+    },
+    {
+      "sample_id": "GSM1235852",
+      "age": 61.815,
+      "mean_beta_xu6": 0.5197722287842533,
+      "a_score_secretory": 1.1845302164566276
+    },
+    {
+      "sample_id": "GSM1235873",
+      "age": 56.512,
+      "mean_beta_xu6": 0.5197753922209071,
+      "a_score_secretory": 1.1845297881576395
+    },
+    {
+      "sample_id": "GSM1235568",
+      "age": 53.621,
+      "mean_beta_xu6": 0.5201038066591973,
+      "a_score_secretory": 1.1844849507966615
+    },
+    {
+      "sample_id": "GSM1235591",
+      "age": 39.439,
+      "mean_beta_xu6": 0.47985730008028815,
+      "a_score_secretory": 1.1844795918656186
+    },
+    {
+      "sample_id": "GSM1235787",
+      "age": 63.206,
+      "mean_beta_xu6": 0.4796933058868326,
+      "a_score_secretory": 1.1844568817944563
+    },
+    {
+      "sample_id": "GSM1236360",
+      "age": 57.815,
+      "mean_beta_xu6": 0.5203406295945887,
+      "a_score_secretory": 1.1844521593560957
+    },
+    {
+      "sample_id": "GSM1235714",
+      "age": 61.298,
+      "mean_beta_xu6": 0.5204025165139022,
+      "a_score_secretory": 1.1844435268899471
+    },
+    {
+      "sample_id": "GSM1235541",
+      "age": 44.257,
+      "mean_beta_xu6": 0.5204227563636771,
+      "a_score_secretory": 1.1844406979820379
+    },
+    {
+      "sample_id": "GSM1235644",
+      "age": 43.365,
+      "mean_beta_xu6": 0.5204285671320836,
+      "a_score_secretory": 1.1844398852966798
+    },
+    {
+      "sample_id": "GSM1235578",
+      "age": 61.413,
+      "mean_beta_xu6": 0.5204379262750988,
+      "a_score_secretory": 1.1844385758543534
+    },
+    {
+      "sample_id": "GSM1235949",
+      "age": 54.757,
+      "mean_beta_xu6": 0.5205845367214721,
+      "a_score_secretory": 1.1844179851397187
+    },
+    {
+      "sample_id": "GSM1236237",
+      "age": 45.697,
+      "mean_beta_xu6": 0.5208539604139947,
+      "a_score_secretory": 1.184379761720534
+    },
+    {
+      "sample_id": "GSM1235901",
+      "age": 54.157,
+      "mean_beta_xu6": 0.521303458526816,
+      "a_score_secretory": 1.184314883284598
+    },
+    {
+      "sample_id": "GSM1235784",
+      "age": 53.35,
+      "mean_beta_xu6": 0.5215471368481194,
+      "a_score_secretory": 1.1842791328963318
+    },
+    {
+      "sample_id": "GSM1236213",
+      "age": 48.983,
+      "mean_beta_xu6": 0.5218096860739695,
+      "a_score_secretory": 1.1842401583085846
+    },
+    {
+      "sample_id": "GSM1236016",
+      "age": 52.537,
+      "mean_beta_xu6": 0.47807556129536505,
+      "a_score_secretory": 1.1842229752217777
+    },
+    {
+      "sample_id": "GSM1235589",
+      "age": 56.575,
+      "mean_beta_xu6": 0.5219965294819123,
+      "a_score_secretory": 1.184212134153469
+    },
+    {
+      "sample_id": "GSM1236047",
+      "age": 55.71,
+      "mean_beta_xu6": 0.5221015721516754,
+      "a_score_secretory": 1.1841962739638703
+    },
+    {
+      "sample_id": "GSM1235730",
+      "age": 58.601,
+      "mean_beta_xu6": 0.522358018042666,
+      "a_score_secretory": 1.1841572358721923
+    },
+    {
+      "sample_id": "GSM1235679",
+      "age": 54.108,
+      "mean_beta_xu6": 0.5226637619912812,
+      "a_score_secretory": 1.184110103943647
+    },
+    {
+      "sample_id": "GSM1236243",
+      "age": 59.236,
+      "mean_beta_xu6": 0.5227133078405138,
+      "a_score_secretory": 1.184102405852508
+    },
+    {
+      "sample_id": "GSM1236376",
+      "age": 56.72,
+      "mean_beta_xu6": 0.5228346477636506,
+      "a_score_secretory": 1.1840834817983361
+    },
+    {
+      "sample_id": "GSM1235925",
+      "age": 56.282,
+      "mean_beta_xu6": 0.47708539829653285,
+      "a_score_secretory": 1.184070957076622
+    },
+    {
+      "sample_id": "GSM1235625",
+      "age": 51.674,
+      "mean_beta_xu6": 0.5230044902676143,
+      "a_score_secretory": 1.1840568237552158
+    },
+    {
+      "sample_id": "GSM1235559",
+      "age": 51.633,
+      "mean_beta_xu6": 0.5230270018903428,
+      "a_score_secretory": 1.1840532755408204
+    },
+    {
+      "sample_id": "GSM1235580",
+      "age": 54.226,
+      "mean_beta_xu6": 0.47682433708729816,
+      "a_score_secretory": 1.184029756780221
+    },
+    {
+      "sample_id": "GSM1236186",
+      "age": 57.481,
+      "mean_beta_xu6": 0.5234924674611233,
+      "a_score_secretory": 1.1839791313900825
+    },
+    {
+      "sample_id": "GSM1235556",
+      "age": 61.002,
+      "mean_beta_xu6": 0.5236227443728475,
+      "a_score_secretory": 1.1839581133970059
+    },
+    {
+      "sample_id": "GSM1236265",
+      "age": 63.392,
+      "mean_beta_xu6": 0.5240145571400313,
+      "a_score_secretory": 1.183894199459675
+    },
+    {
+      "sample_id": "GSM1235659",
+      "age": 38.541,
+      "mean_beta_xu6": 0.5240335735386517,
+      "a_score_secretory": 1.1838910706417918
+    },
+    {
+      "sample_id": "GSM1235897",
+      "age": 46.475,
+      "mean_beta_xu6": 0.5244386967900255,
+      "a_score_secretory": 1.1838238253302504
+    },
+    {
+      "sample_id": "GSM1235601",
+      "age": 47.68,
+      "mean_beta_xu6": 0.5245781473651197,
+      "a_score_secretory": 1.183800417841914
+    },
+    {
+      "sample_id": "GSM1235547",
+      "age": 50.409,
+      "mean_beta_xu6": 0.5246941793729879,
+      "a_score_secretory": 1.183780839600479
+    },
+    {
+      "sample_id": "GSM1236215",
+      "age": 54.434,
+      "mean_beta_xu6": 0.4752719890327129,
+      "a_score_secretory": 1.1837751137579706
+    },
+    {
+      "sample_id": "GSM1236369",
+      "age": 53.109,
+      "mean_beta_xu6": 0.5248618718774453,
+      "a_score_secretory": 1.1837523814143482
+    },
+    {
+      "sample_id": "GSM1235619",
+      "age": 45.153,
+      "mean_beta_xu6": 0.5248724280152554,
+      "a_score_secretory": 1.1837505835352027
+    },
+    {
+      "sample_id": "GSM1236218",
+      "age": 55.472,
+      "mean_beta_xu6": 0.5250290269460648,
+      "a_score_secretory": 1.1837238224416993
+    },
+    {
+      "sample_id": "GSM1235581",
+      "age": 50.196,
+      "mean_beta_xu6": 0.5250699689814926,
+      "a_score_secretory": 1.1837167981398025
+    },
+    {
+      "sample_id": "GSM1236136",
+      "age": 59.102,
+      "mean_beta_xu6": 0.525111245700172,
+      "a_score_secretory": 1.1837097047757723
+    },
+    {
+      "sample_id": "GSM1235786",
+      "age": 43.395,
+      "mean_beta_xu6": 0.4748788975691463,
+      "a_score_secretory": 1.1837080091772545
+    },
+    {
+      "sample_id": "GSM1236052",
+      "age": 41.207,
+      "mean_beta_xu6": 0.5252760672031722,
+      "a_score_secretory": 1.1836812638327152
+    },
+    {
+      "sample_id": "GSM1236112",
+      "age": 47.614,
+      "mean_beta_xu6": 0.5252933735922424,
+      "a_score_secretory": 1.1836782666984278
+    },
+    {
+      "sample_id": "GSM1235557",
+      "age": 58.344,
+      "mean_beta_xu6": 0.5258006792844477,
+      "a_score_secretory": 1.18358949808179
+    },
+    {
+      "sample_id": "GSM1235535",
+      "age": 44.561,
+      "mean_beta_xu6": 0.5267893766767232,
+      "a_score_secretory": 1.1834114206035233
+    },
+    {
+      "sample_id": "GSM1236049",
+      "age": 56.394,
+      "mean_beta_xu6": 0.5268168045020475,
+      "a_score_secretory": 1.1834063848584349
+    },
+    {
+      "sample_id": "GSM1236199",
+      "age": 56.079,
+      "mean_beta_xu6": 0.5268201327433796,
+      "a_score_secretory": 1.1834057734425012
+    },
+    {
+      "sample_id": "GSM1236065",
+      "age": 54.078,
+      "mean_beta_xu6": 0.5268978961668312,
+      "a_score_secretory": 1.1833914662415794
+    },
+    {
+      "sample_id": "GSM1236093",
+      "age": 56.717,
+      "mean_beta_xu6": 0.5272686105923505,
+      "a_score_secretory": 1.1833226902926208
+    },
+    {
+      "sample_id": "GSM1236352",
+      "age": 55.411,
+      "mean_beta_xu6": 0.527511341482246,
+      "a_score_secretory": 1.1832771471849641
+    },
+    {
+      "sample_id": "GSM1235572",
+      "age": 51.866,
+      "mean_beta_xu6": 0.5275888236098308,
+      "a_score_secretory": 1.1832625242178818
+    },
+    {
+      "sample_id": "GSM1235554",
+      "age": 53.487,
+      "mean_beta_xu6": 0.5275923155955231,
+      "a_score_secretory": 1.1832618642155381
+    },
+    {
+      "sample_id": "GSM1235850",
+      "age": 58.984,
+      "mean_beta_xu6": 0.5277933531138141,
+      "a_score_secretory": 1.1832237260177747
+    },
+    {
+      "sample_id": "GSM1236006",
+      "age": 45.755,
+      "mean_beta_xu6": 0.5280901268004559,
+      "a_score_secretory": 1.1831669189295082
+    },
+    {
+      "sample_id": "GSM1236131",
+      "age": 61.068,
+      "mean_beta_xu6": 0.5285468347129849,
+      "a_score_secretory": 1.1830783167301888
+    },
+    {
+      "sample_id": "GSM1235654",
+      "age": 54.122,
+      "mean_beta_xu6": 0.5287329765065547,
+      "a_score_secretory": 1.1830417940955786
+    },
+    {
+      "sample_id": "GSM1235579",
+      "age": 59.912,
+      "mean_beta_xu6": 0.5289619248058004,
+      "a_score_secretory": 1.1829965461970295
+    },
+    {
+      "sample_id": "GSM1235539",
+      "age": 52.055,
+      "mean_beta_xu6": 0.5291142149930279,
+      "a_score_secretory": 1.1829662491972421
+    },
+    {
+      "sample_id": "GSM1236375",
+      "age": 57.112,
+      "mean_beta_xu6": 0.5291776232996918,
+      "a_score_secretory": 1.1829535876287194
+    },
+    {
+      "sample_id": "GSM1235638",
+      "age": 57.169,
+      "mean_beta_xu6": 0.5291979724016574,
+      "a_score_secretory": 1.1829495184047454
+    },
+    {
+      "sample_id": "GSM1236062",
+      "age": 57.465,
+      "mean_beta_xu6": 0.4706341163561519,
+      "a_score_secretory": 1.1829158325431015
+    },
+    {
+      "sample_id": "GSM1236206",
+      "age": 53.7,
+      "mean_beta_xu6": 0.5298415386098413,
+      "a_score_secretory": 1.1828193569528223
+    },
+    {
+      "sample_id": "GSM1235816",
+      "age": 53.013,
+      "mean_beta_xu6": 0.5299985087602753,
+      "a_score_secretory": 1.182787178203115
+    },
+    {
+      "sample_id": "GSM1235574",
+      "age": 58.453,
+      "mean_beta_xu6": 0.5300228974367254,
+      "a_score_secretory": 1.1827821633558089
+    },
+    {
+      "sample_id": "GSM1235711",
+      "age": 58.815,
+      "mean_beta_xu6": 0.5301446176498735,
+      "a_score_secretory": 1.1827570739343025
+    },
+    {
+      "sample_id": "GSM1236366",
+      "age": 47.009,
+      "mean_beta_xu6": 0.5302739726327234,
+      "a_score_secretory": 1.1827302992711528
+    },
+    {
+      "sample_id": "GSM1235760",
+      "age": 54.815,
+      "mean_beta_xu6": 0.5303573126576966,
+      "a_score_secretory": 1.1827129881815721
+    },
+    {
+      "sample_id": "GSM1236278",
+      "age": 49.054,
+      "mean_beta_xu6": 0.5304808120524017,
+      "a_score_secretory": 1.1826872476032189
+    },
+    {
+      "sample_id": "GSM1235707",
+      "age": 43.228,
+      "mean_beta_xu6": 0.5305556755957868,
+      "a_score_secretory": 1.1826715930356462
+    },
+    {
+      "sample_id": "GSM1235677",
+      "age": 47.899,
+      "mean_beta_xu6": 0.5307062293337387,
+      "a_score_secretory": 1.182639994481688
+    },
+    {
+      "sample_id": "GSM1235538",
+      "age": 56.192,
+      "mean_beta_xu6": 0.5308227783621905,
+      "a_score_secretory": 1.182615425989734
+    },
+    {
+      "sample_id": "GSM1235586",
+      "age": 38.927,
+      "mean_beta_xu6": 0.5310583826574963,
+      "a_score_secretory": 1.1825654757120898
+    },
+    {
+      "sample_id": "GSM1236296",
+      "age": 51.619,
+      "mean_beta_xu6": 0.5318080034058298,
+      "a_score_secretory": 1.1824040122466168
+    },
+    {
+      "sample_id": "GSM1236013",
+      "age": 53.383,
+      "mean_beta_xu6": 0.5319877913168269,
+      "a_score_secretory": 1.18236471304406
+    },
+    {
+      "sample_id": "GSM1235649",
+      "age": 54.237,
+      "mean_beta_xu6": 0.5320601874517672,
+      "a_score_secretory": 1.182348825502879
+    },
+    {
+      "sample_id": "GSM1235637",
+      "age": 65.046,
+      "mean_beta_xu6": 0.5322548358009859,
+      "a_score_secretory": 1.1823059307647923
+    },
+    {
+      "sample_id": "GSM1236268",
+      "age": 60.898,
+      "mean_beta_xu6": 0.5325564268869529,
+      "a_score_secretory": 1.1822389547710874
+    },
+    {
+      "sample_id": "GSM1235646",
+      "age": 51.058,
+      "mean_beta_xu6": 0.5327542183330498,
+      "a_score_secretory": 1.182194690726361
+    },
+    {
+      "sample_id": "GSM1235704",
+      "age": 63.786,
+      "mean_beta_xu6": 0.5329739615405634,
+      "a_score_secretory": 1.182145198768659
+    },
+    {
+      "sample_id": "GSM1235567",
+      "age": 64.178,
+      "mean_beta_xu6": 0.5330539228619503,
+      "a_score_secretory": 1.1821271070158983
+    },
+    {
+      "sample_id": "GSM1235809",
+      "age": 57.563,
+      "mean_beta_xu6": 0.5331624664820332,
+      "a_score_secretory": 1.1821024780192069
+    },
+    {
+      "sample_id": "GSM1235727",
+      "age": 70.393,
+      "mean_beta_xu6": 0.5333528708549473,
+      "a_score_secretory": 1.1820590788506893
+    },
+    {
+      "sample_id": "GSM1235781",
+      "age": 53.183,
+      "mean_beta_xu6": 0.5337616982393111,
+      "a_score_secretory": 1.1819650521638698
+    },
+    {
+      "sample_id": "GSM1236330",
+      "age": 64.712,
+      "mean_beta_xu6": 0.5337893303010136,
+      "a_score_secretory": 1.1819586555796422
+    },
+    {
+      "sample_id": "GSM1236362",
+      "age": 58.149,
+      "mean_beta_xu6": 0.5338936586139214,
+      "a_score_secretory": 1.1819344571504318
+    },
+    {
+      "sample_id": "GSM1236348",
+      "age": 45.09,
+      "mean_beta_xu6": 0.5339342769280433,
+      "a_score_secretory": 1.1819250156980274
+    },
+    {
+      "sample_id": "GSM1235543",
+      "age": 51.329,
+      "mean_beta_xu6": 0.5342214099686601,
+      "a_score_secretory": 1.1818579500578823
+    },
+    {
+      "sample_id": "GSM1235953",
+      "age": 46.48,
+      "mean_beta_xu6": 0.5342898028399387,
+      "a_score_secretory": 1.1818418919508342
+    },
+    {
+      "sample_id": "GSM1235546",
+      "age": 59.978,
+      "mean_beta_xu6": 0.5344269450931104,
+      "a_score_secretory": 1.1818095951253562
+    },
+    {
+      "sample_id": "GSM1236110",
+      "age": 40.805,
+      "mean_beta_xu6": 0.5345397078712902,
+      "a_score_secretory": 1.1817829427527693
+    },
+    {
+      "sample_id": "GSM1236340",
+      "age": 54.47,
+      "mean_beta_xu6": 0.5345566039260908,
+      "a_score_secretory": 1.1817789417050126
+    },
+    {
+      "sample_id": "GSM1236267",
+      "age": 55.874,
+      "mean_beta_xu6": 0.5345591676359851,
+      "a_score_secretory": 1.1817783344375807
+    },
+    {
+      "sample_id": "GSM1235607",
+      "age": 63.713,
+      "mean_beta_xu6": 0.5346359960460815,
+      "a_score_secretory": 1.1817601150768648
+    },
+    {
+      "sample_id": "GSM1236005",
+      "age": 45.881,
+      "mean_beta_xu6": 0.4652091352860473,
+      "a_score_secretory": 1.181723265601402
+    },
+    {
+      "sample_id": "GSM1235573",
+      "age": 41.344,
+      "mean_beta_xu6": 0.5349016437615429,
+      "a_score_secretory": 1.181696805633467
+    },
+    {
+      "sample_id": "GSM1236378",
+      "age": 48.78,
+      "mean_beta_xu6": 0.5352840357695879,
+      "a_score_secretory": 1.1816048214929933
+    },
+    {
+      "sample_id": "GSM1236043",
+      "age": 46.497,
+      "mean_beta_xu6": 0.5352894349251728,
+      "a_score_secretory": 1.1816035155299973
+    },
+    {
+      "sample_id": "GSM1236196",
+      "age": 43.964,
+      "mean_beta_xu6": 0.5354904125130184,
+      "a_score_secretory": 1.1815547598686005
+    },
+    {
+      "sample_id": "GSM1235723",
+      "age": 56.033,
+      "mean_beta_xu6": 0.5357353325244357,
+      "a_score_secretory": 1.181494968529245
+    },
+    {
+      "sample_id": "GSM1235836",
+      "age": 57.328,
+      "mean_beta_xu6": 0.5362927148671582,
+      "a_score_secretory": 1.1813573589688051
+    },
+    {
+      "sample_id": "GSM1236347",
+      "age": 46.39,
+      "mean_beta_xu6": 0.5363044745145227,
+      "a_score_secretory": 1.1813544326624519
+    },
+    {
+      "sample_id": "GSM1235764",
+      "age": 70.064,
+      "mean_beta_xu6": 0.5364492843353702,
+      "a_score_secretory": 1.181318319755462
+    },
+    {
+      "sample_id": "GSM1236029",
+      "age": 48.063,
+      "mean_beta_xu6": 0.5364534921274869,
+      "a_score_secretory": 1.1813172682525137
+    },
+    {
+      "sample_id": "GSM1235940",
+      "age": 54.571,
+      "mean_beta_xu6": 0.5369390066147026,
+      "a_score_secretory": 1.1811951230336073
+    },
+    {
+      "sample_id": "GSM1236286",
+      "age": 52.706,
+      "mean_beta_xu6": 0.5370805705505745,
+      "a_score_secretory": 1.1811592031230036
+    },
+    {
+      "sample_id": "GSM1235871",
+      "age": 49.336,
+      "mean_beta_xu6": 0.5371042186001473,
+      "a_score_secretory": 1.1811531893120606
+    },
+    {
+      "sample_id": "GSM1236084",
+      "age": 46.374,
+      "mean_beta_xu6": 0.5372752842218568,
+      "a_score_secretory": 1.181109571909415
+    },
+    {
+      "sample_id": "GSM1236009",
+      "age": 51.127,
+      "mean_beta_xu6": 0.5382849351638104,
+      "a_score_secretory": 1.1808480342980008
+    },
+    {
+      "sample_id": "GSM1235987",
+      "age": 58.543,
+      "mean_beta_xu6": 0.53853995299811,
+      "a_score_secretory": 1.1807808651130824
+    },
+    {
+      "sample_id": "GSM1236345",
+      "age": 61.856,
+      "mean_beta_xu6": 0.5388486623617903,
+      "a_score_secretory": 1.1806989550761262
+    },
+    {
+      "sample_id": "GSM1236358",
+      "age": 48.654,
+      "mean_beta_xu6": 0.5388957853306907,
+      "a_score_secretory": 1.1806863941896732
+    },
+    {
+      "sample_id": "GSM1236018",
+      "age": 61.812,
+      "mean_beta_xu6": 0.5389955469473259,
+      "a_score_secretory": 1.180659751737124
+    },
+    {
+      "sample_id": "GSM1235641",
+      "age": 38.809,
+      "mean_beta_xu6": 0.5390858798274633,
+      "a_score_secretory": 1.180635568217748
+    },
+    {
+      "sample_id": "GSM1235548",
+      "age": 49.533,
+      "mean_beta_xu6": 0.5391551838322861,
+      "a_score_secretory": 1.180616976367439
+    },
+    {
+      "sample_id": "GSM1236361",
+      "age": 53.112,
+      "mean_beta_xu6": 0.5392631087542356,
+      "a_score_secretory": 1.180587958018165
+    },
+    {
+      "sample_id": "GSM1235680",
+      "age": 57.544,
+      "mean_beta_xu6": 0.539492265111227,
+      "a_score_secretory": 1.1805260775768585
+    },
+    {
+      "sample_id": "GSM1235612",
+      "age": 58.834,
+      "mean_beta_xu6": 0.5396651762409586,
+      "a_score_secretory": 1.1804791459910235
+    },
+    {
+      "sample_id": "GSM1235605",
+      "age": 63.91,
+      "mean_beta_xu6": 0.5397787691692443,
+      "a_score_secretory": 1.180448202504588
+    },
+    {
+      "sample_id": "GSM1235866",
+      "age": 57.388,
+      "mean_beta_xu6": 0.5400222868733898,
+      "a_score_secretory": 1.1803815671659716
+    },
+    {
+      "sample_id": "GSM1236046",
+      "age": 51.745,
+      "mean_beta_xu6": 0.5400883028030813,
+      "a_score_secretory": 1.1803634324273895
+    },
+    {
+      "sample_id": "GSM1236045",
+      "age": 51.25,
+      "mean_beta_xu6": 0.5401348426020055,
+      "a_score_secretory": 1.1803506297900768
+    },
+    {
+      "sample_id": "GSM1235831",
+      "age": 43.211,
+      "mean_beta_xu6": 0.5401821533937525,
+      "a_score_secretory": 1.1803375997689411
+    },
+    {
+      "sample_id": "GSM1235553",
+      "age": 44.772,
+      "mean_beta_xu6": 0.5403331309669142,
+      "a_score_secretory": 1.1802959154351913
+    },
+    {
+      "sample_id": "GSM1236173",
+      "age": 50.125,
+      "mean_beta_xu6": 0.5403562131652624,
+      "a_score_secretory": 1.1802895286908925
+    },
+    {
+      "sample_id": "GSM1236219",
+      "age": 65.123,
+      "mean_beta_xu6": 0.5403601295658245,
+      "a_score_secretory": 1.1802884446756494
+    },
+    {
+      "sample_id": "GSM1236370",
+      "age": 52.966,
+      "mean_beta_xu6": 0.5404055921581065,
+      "a_score_secretory": 1.180275853414127
+    },
+    {
+      "sample_id": "GSM1236109",
+      "age": 57.238,
+      "mean_beta_xu6": 0.5406505024078606,
+      "a_score_secretory": 1.1802077784445268
+    },
+    {
+      "sample_id": "GSM1235817",
+      "age": 41.284,
+      "mean_beta_xu6": 0.5409745524790884,
+      "a_score_secretory": 1.1801170707955273
+    },
+    {
+      "sample_id": "GSM1236212",
+      "age": 58.166,
+      "mean_beta_xu6": 0.541264220200602,
+      "a_score_secretory": 1.1800353750072765
+    },
+    {
+      "sample_id": "GSM1236295",
+      "age": 58.932,
+      "mean_beta_xu6": 0.5418306359827969,
+      "a_score_secretory": 1.179873956592918
+    },
+    {
+      "sample_id": "GSM1235915",
+      "age": 43.578,
+      "mean_beta_xu6": 0.5421996948510615,
+      "a_score_secretory": 1.1797675917622101
+    },
+    {
+      "sample_id": "GSM1235606",
+      "age": 56.843,
+      "mean_beta_xu6": 0.542285155050228,
+      "a_score_secretory": 1.1797428277956195
+    },
+    {
+      "sample_id": "GSM1235657",
+      "age": 48.559,
+      "mean_beta_xu6": 0.5427529861090888,
+      "a_score_secretory": 1.17960637137484
+    },
+    {
+      "sample_id": "GSM1235703",
+      "age": 47.105,
+      "mean_beta_xu6": 0.5427628809534858,
+      "a_score_secretory": 1.1796034689654071
+    },
+    {
+      "sample_id": "GSM1236221",
+      "age": 47.228,
+      "mean_beta_xu6": 0.5430323433138686,
+      "a_score_secretory": 1.1795241693262979
+    },
+    {
+      "sample_id": "GSM1235830",
+      "age": 58.048,
+      "mean_beta_xu6": 0.5431570646830604,
+      "a_score_secretory": 1.1794872958040854
+    },
+    {
+      "sample_id": "GSM1235934",
+      "age": 57.572,
+      "mean_beta_xu6": 0.456105293026777,
+      "a_score_secretory": 1.1792670208473204
+    },
+    {
+      "sample_id": "GSM1235536",
+      "age": 50.869,
+      "mean_beta_xu6": 0.5440602519788774,
+      "a_score_secretory": 1.1792170702052027
+    },
+    {
+      "sample_id": "GSM1236371",
+      "age": 35.039,
+      "mean_beta_xu6": 0.5443321524855821,
+      "a_score_secretory": 1.1791346182654883
+    },
+    {
+      "sample_id": "GSM1236373",
+      "age": 53.854,
+      "mean_beta_xu6": 0.5444105559752314,
+      "a_score_secretory": 1.1791107482325005
+    },
+    {
+      "sample_id": "GSM1236004",
+      "age": 56.225,
+      "mean_beta_xu6": 0.5447383680001064,
+      "a_score_secretory": 1.1790104862054083
+    },
+    {
+      "sample_id": "GSM1235590",
+      "age": 55.981,
+      "mean_beta_xu6": 0.5449137252686275,
+      "a_score_secretory": 1.1789565484580344
+    },
+    {
+      "sample_id": "GSM1235585",
+      "age": 52.35,
+      "mean_beta_xu6": 0.5450470448947139,
+      "a_score_secretory": 1.1789153990178671
+    },
+    {
+      "sample_id": "GSM1236230",
+      "age": 55.291,
+      "mean_beta_xu6": 0.5450862065053431,
+      "a_score_secretory": 1.1789032883864037
+    },
+    {
+      "sample_id": "GSM1235941",
+      "age": 57.752,
+      "mean_beta_xu6": 0.5453507116223975,
+      "a_score_secretory": 1.1788212137358265
+    },
+    {
+      "sample_id": "GSM1236074",
+      "age": 56.624,
+      "mean_beta_xu6": 0.5454451994917602,
+      "a_score_secretory": 1.1787917775840002
+    },
+    {
+      "sample_id": "GSM1235978",
+      "age": 58.346,
+      "mean_beta_xu6": 0.5459966509373643,
+      "a_score_secretory": 1.1786187528538963
+    },
+    {
+      "sample_id": "GSM1235789",
+      "age": 43.211,
+      "mean_beta_xu6": 0.5467721029254589,
+      "a_score_secretory": 1.1783718942762407
+    },
+    {
+      "sample_id": "GSM1236162",
+      "age": 59.625,
+      "mean_beta_xu6": 0.5474684354550082,
+      "a_score_secretory": 1.1781466850594822
+    },
+    {
+      "sample_id": "GSM1235576",
+      "age": 41.218,
+      "mean_beta_xu6": 0.5474825728626228,
+      "a_score_secretory": 1.1781420780339602
+    },
+    {
+      "sample_id": "GSM1236135",
+      "age": 59.606,
+      "mean_beta_xu6": 0.5475310312317362,
+      "a_score_secretory": 1.1781262761969309
+    },
+    {
+      "sample_id": "GSM1236171",
+      "age": 60.186,
+      "mean_beta_xu6": 0.5478838069995955,
+      "a_score_secretory": 1.1780107504398725
+    },
+    {
+      "sample_id": "GSM1235537",
+      "age": 46.858,
+      "mean_beta_xu6": 0.5480698656522208,
+      "a_score_secretory": 1.1779494744033143
+    },
+    {
+      "sample_id": "GSM1235874",
+      "age": 53.27,
+      "mean_beta_xu6": 0.5482820848661903,
+      "a_score_secretory": 1.177879290812532
+    },
+    {
+      "sample_id": "GSM1235883",
+      "age": 62.864,
+      "mean_beta_xu6": 0.5482893073896523,
+      "a_score_secretory": 1.1778768967582263
+    },
+    {
+      "sample_id": "GSM1235858",
+      "age": 56.422,
+      "mean_beta_xu6": 0.45140139590471046,
+      "a_score_secretory": 1.1777740358432194
+    },
+    {
+      "sample_id": "GSM1235790",
+      "age": 63.176,
+      "mean_beta_xu6": 0.5490465868581788,
+      "a_score_secretory": 1.1776238810585158
+    },
+    {
+      "sample_id": "GSM1235670",
+      "age": 48.559,
+      "mean_beta_xu6": 0.5490712331214574,
+      "a_score_secretory": 1.177615579885545
+    },
+    {
+      "sample_id": "GSM1235564",
+      "age": 55.792,
+      "mean_beta_xu6": 0.5494410404318993,
+      "a_score_secretory": 1.1774905201036243
+    },
+    {
+      "sample_id": "GSM1235584",
+      "age": 52.408,
+      "mean_beta_xu6": 0.5497607273133442,
+      "a_score_secretory": 1.1773816481647403
+    },
+    {
+      "sample_id": "GSM1235563",
+      "age": 54.494,
+      "mean_beta_xu6": 0.5497905115524774,
+      "a_score_secretory": 1.1773714689321675
+    },
+    {
+      "sample_id": "GSM1235950",
+      "age": 50.949,
+      "mean_beta_xu6": 0.5498426109006722,
+      "a_score_secretory": 1.1773536484163347
+    },
+    {
+      "sample_id": "GSM1236365",
+      "age": 47.236,
+      "mean_beta_xu6": 0.5499338736538613,
+      "a_score_secretory": 1.1773223868899054
+    },
+    {
+      "sample_id": "GSM1235740",
+      "age": 45.44,
+      "mean_beta_xu6": 0.5503579674134197,
+      "a_score_secretory": 1.1771763606229166
+    },
+    {
+      "sample_id": "GSM1236167",
+      "age": 52.175,
+      "mean_beta_xu6": 0.5508792796347666,
+      "a_score_secretory": 1.1769951558758993
+    },
+    {
+      "sample_id": "GSM1235596",
+      "age": 61.177,
+      "mean_beta_xu6": 0.551049516468071,
+      "a_score_secretory": 1.1769355756354618
+    },
+    {
+      "sample_id": "GSM1236107",
+      "age": 60.561,
+      "mean_beta_xu6": 0.5511403671544356,
+      "a_score_secretory": 1.1769036972935654
+    },
+    {
+      "sample_id": "GSM1236054",
+      "age": 43.551,
+      "mean_beta_xu6": 0.5515674015077993,
+      "a_score_secretory": 1.1767530916510591
+    },
+    {
+      "sample_id": "GSM1235875",
+      "age": 46.1,
+      "mean_beta_xu6": 0.5519263081850839,
+      "a_score_secretory": 1.1766255375874133
+    },
+    {
+      "sample_id": "GSM1236067",
+      "age": 55.028,
+      "mean_beta_xu6": 0.5520673690087942,
+      "a_score_secretory": 1.1765751611675572
+    },
+    {
+      "sample_id": "GSM1236057",
+      "age": 54.185,
+      "mean_beta_xu6": 0.5523571919086709,
+      "a_score_secretory": 1.1764712260197039
+    },
+    {
+      "sample_id": "GSM1235620",
+      "age": 54.333,
+      "mean_beta_xu6": 0.5524541282436523,
+      "a_score_secretory": 1.1764363333912604
+    },
+    {
+      "sample_id": "GSM1235939",
+      "age": 58.47,
+      "mean_beta_xu6": 0.4469249029174704,
+      "a_score_secretory": 1.1762112706607053
+    },
+    {
+      "sample_id": "GSM1235819",
+      "age": 45.292,
+      "mean_beta_xu6": 0.5535179211080226,
+      "a_score_secretory": 1.1760491441925032
+    },
+    {
+      "sample_id": "GSM1236368",
+      "age": 65.854,
+      "mean_beta_xu6": 0.5542476844017149,
+      "a_score_secretory": 1.1757790016527598
+    },
+    {
+      "sample_id": "GSM1235891",
+      "age": 36.06,
+      "mean_beta_xu6": 0.5544939498776779,
+      "a_score_secretory": 1.1756870073327144
+    },
+    {
+      "sample_id": "GSM1235706",
+      "age": 57.394,
+      "mean_beta_xu6": 0.55469358927304,
+      "a_score_secretory": 1.1756121222764135
+    },
+    {
+      "sample_id": "GSM1235667",
+      "age": 40.731,
+      "mean_beta_xu6": 0.554971061630572,
+      "a_score_secretory": 1.1755075834786253
+    },
+    {
+      "sample_id": "GSM1235594",
+      "age": 49.429,
+      "mean_beta_xu6": 0.555675339659776,
+      "a_score_secretory": 1.1752398490285971
+    },
+    {
+      "sample_id": "GSM1235624",
+      "age": 57.399,
+      "mean_beta_xu6": 0.5557142674904468,
+      "a_score_secretory": 1.1752249502120855
+    },
+    {
+      "sample_id": "GSM1236205",
+      "age": 60.539,
+      "mean_beta_xu6": 0.5559184353666323,
+      "a_score_secretory": 1.1751466372433084
+    },
+    {
+      "sample_id": "GSM1235782",
+      "age": 57.908,
+      "mean_beta_xu6": 0.5565228243870665,
+      "a_score_secretory": 1.17491311746474
+    },
+    {
+      "sample_id": "GSM1235552",
+      "age": 51.444,
+      "mean_beta_xu6": 0.5565551316362352,
+      "a_score_secretory": 1.1749005635175769
+    },
+    {
+      "sample_id": "GSM1236363",
+      "age": 52.693,
+      "mean_beta_xu6": 0.5568243351180541,
+      "a_score_secretory": 1.1747956751190436
+    },
+    {
+      "sample_id": "GSM1236374",
+      "age": 54.27,
+      "mean_beta_xu6": 0.5573316139278223,
+      "a_score_secretory": 1.1745966611614
+    },
+    {
+      "sample_id": "GSM1235672",
+      "age": 43.354,
+      "mean_beta_xu6": 0.557660413925707,
+      "a_score_secretory": 1.174466714287235
+    },
+    {
+      "sample_id": "GSM1235742",
+      "age": 64.709,
+      "mean_beta_xu6": 0.5579612551236278,
+      "a_score_secretory": 1.1743471602889306
+    },
+    {
+      "sample_id": "GSM1235565",
+      "age": 55.696,
+      "mean_beta_xu6": 0.5582305703427456,
+      "a_score_secretory": 1.1742396021227737
+    },
+    {
+      "sample_id": "GSM1236152",
+      "age": 63.765,
+      "mean_beta_xu6": 0.44157867256108774,
+      "a_score_secretory": 1.1741631138038178
+    },
+    {
+      "sample_id": "GSM1236113",
+      "age": 49.106,
+      "mean_beta_xu6": 0.5584273990096399,
+      "a_score_secretory": 1.1741606751263016
+    },
+    {
+      "sample_id": "GSM1235661",
+      "age": 57.369,
+      "mean_beta_xu6": 0.5590818437725106,
+      "a_score_secretory": 1.1738963143006704
+    },
+    {
+      "sample_id": "GSM1235558",
+      "age": 54.412,
+      "mean_beta_xu6": 0.5591964909982341,
+      "a_score_secretory": 1.1738496969769279
+    },
+    {
+      "sample_id": "GSM1236372",
+      "age": 34.686,
+      "mean_beta_xu6": 0.5592308295508496,
+      "a_score_secretory": 1.1738357166399027
+    },
+    {
+      "sample_id": "GSM1235721",
+      "age": 52.791,
+      "mean_beta_xu6": 0.559342368930895,
+      "a_score_secretory": 1.1737902488774996
+    },
+    {
+      "sample_id": "GSM1235604",
+      "age": 63.896,
+      "mean_beta_xu6": 0.5593582466977088,
+      "a_score_secretory": 1.1737837694648363
+    },
+    {
+      "sample_id": "GSM1235955",
+      "age": 44.925,
+      "mean_beta_xu6": 0.5598671473871761,
+      "a_score_secretory": 1.173575169902222
+    },
+    {
+      "sample_id": "GSM1235973",
+      "age": 47.406,
+      "mean_beta_xu6": 0.5598709279497864,
+      "a_score_secretory": 1.173573613512999
+    },
+    {
+      "sample_id": "GSM1235708",
+      "age": 47.639,
+      "mean_beta_xu6": 0.5599478570464639,
+      "a_score_secretory": 1.1735419216414986
+    },
+    {
+      "sample_id": "GSM1235640",
+      "age": 48.6,
+      "mean_beta_xu6": 0.5610372263506448,
+      "a_score_secretory": 1.1730887312911182
+    },
+    {
+      "sample_id": "GSM1235664",
+      "age": 54.971,
+      "mean_beta_xu6": 0.5615471449344162,
+      "a_score_secretory": 1.1728737668505653
+    },
+    {
+      "sample_id": "GSM1235752",
+      "age": 65.018,
+      "mean_beta_xu6": 0.5619653238139454,
+      "a_score_secretory": 1.1726961283617756
+    },
+    {
+      "sample_id": "GSM1235617",
+      "age": 59.31,
+      "mean_beta_xu6": 0.5627114564163446,
+      "a_score_secretory": 1.1723761591262682
+    },
+    {
+      "sample_id": "GSM1235660",
+      "age": 52.271,
+      "mean_beta_xu6": 0.5635671515201645,
+      "a_score_secretory": 1.1720044403602088
+    },
+    {
+      "sample_id": "GSM1235806",
+      "age": 57.284,
+      "mean_beta_xu6": 0.5638137995323659,
+      "a_score_secretory": 1.17189634956472
+    },
+    {
+      "sample_id": "GSM1235793",
+      "age": 43.34,
+      "mean_beta_xu6": 0.5641199571197922,
+      "a_score_secretory": 1.1717615906465917
+    },
+    {
+      "sample_id": "GSM1236285",
+      "age": 45.974,
+      "mean_beta_xu6": 0.5642076439155262,
+      "a_score_secretory": 1.1717228741170749
+    },
+    {
+      "sample_id": "GSM1235811",
+      "age": 57.279,
+      "mean_beta_xu6": 0.5662538032896187,
+      "a_score_secretory": 1.1708042337259288
+    },
+    {
+      "sample_id": "GSM1235611",
+      "age": 58.502,
+      "mean_beta_xu6": 0.5664767744876832,
+      "a_score_secretory": 1.1707023673635262
+    },
+    {
+      "sample_id": "GSM1235962",
+      "age": 52.931,
+      "mean_beta_xu6": 0.5668787421393165,
+      "a_score_secretory": 1.1705178498467743
+    },
+    {
+      "sample_id": "GSM1235628",
+      "age": 56.131,
+      "mean_beta_xu6": 0.5678472490492202,
+      "a_score_secretory": 1.1700686456905987
+    },
+    {
+      "sample_id": "GSM1235911",
+      "age": 58.513,
+      "mean_beta_xu6": 0.5680355978611008,
+      "a_score_secretory": 1.169980528002714
+    },
+    {
+      "sample_id": "GSM1236356",
+      "age": 36.394,
+      "mean_beta_xu6": 0.5765310063927357,
+      "a_score_secretory": 1.1657484144180807
+    },
+    {
+      "sample_id": "GSM1235756",
+      "age": 52.882,
+      "mean_beta_xu6": 0.5778756546540094,
+      "a_score_secretory": 1.1650322651386196
+    },
+    {
+      "sample_id": "GSM1236115",
+      "age": 61.081,
+      "mean_beta_xu6": 0.5790601748046027,
+      "a_score_secretory": 1.1643908934658647
+    },
+    {
+      "sample_id": "GSM1236317",
+      "age": 63.305,
+      "mean_beta_xu6": 0.4195716073716294,
+      "a_score_secretory": 1.1636377987218343
+    },
+    {
+      "sample_id": "GSM1235621",
+      "age": 59.201,
+      "mean_beta_xu6": 0.5831246366021577,
+      "a_score_secretory": 1.162115226533499
+    },
+    {
+      "sample_id": "GSM1235540",
+      "age": 56.372,
+      "mean_beta_xu6": 0.5890345831170521,
+      "a_score_secretory": 1.1585987565716633
+    },
+    {
+      "sample_id": "GSM1236253",
+      "age": 55.499,
+      "mean_beta_xu6": 0.5891612013467671,
+      "a_score_secretory": 1.158520720396331
+    },
+    {
+      "sample_id": "GSM1235550",
+      "age": 52.107,
+      "mean_beta_xu6": 0.6474898862009398,
+      "a_score_secretory": 1.1103163942184164
+    }
+  ]
+}
