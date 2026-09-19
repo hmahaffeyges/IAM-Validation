@@ -569,3 +569,19 @@ RECON += [
   "numerator = COHORT-MEAN GENOME-WIDE beta (TCGA tumor / solid-tissue-normal means, Xu 2019; healthy from one Roadmap cell per class); divisor = H_min of the cancer's tissue-of-origin class (LGG->terminal, BRCA->secretory, COAD->cycling ...). Class-correct divisor, global-mean numerator, cohort-level - a different instrument from the identity-loci gauge, sharing only the divisor. The script itself notes a '~10% global entropy offset expected'.",
   "state this wherever 27/28 is quoted; it explains why direction holds while absolute A is offset", "GAPE_Evidence_Report_UPDATED VAL-003 script l.5208-5544"),
 ]
+
+# PROC-STAGE0-01 — Stage 0 intake executed on raw IDATs for the first time, 2026-09-19
+STAGE0_01 = {
+ "input": "the eleven raw IDAT pairs (7 HM450K whole blood, 4 EPIC_v1 tissue), decompressed; a manifest per sample (sentrix id, array type, hashed patient id, substrate, sex, age); intensities read with methylprep IdatDataset for the QC steps that accept them",
+ "operation": "step_0_1 arrival+header -> 0_3 SHA-256 integrity -> 0_5 detection-p -> 0_6 bead count -> 0_7 call rate -> 0_7b platform coverage -> 0_9 decision gate",
+ "observed": [
+  ("0.1", "STAGED 11/11; array type inferred from the IDAT header agreed with the declared type in every case (HM450K x7, EPIC_v1 x4)"),
+  ("0.3", "INTEGRITY_OK 11/11; re-transmission detection exercised by the module's own self-test"),
+  ("0.5", "DETECTION_BORDERLINE 11/11 - with a crude 2nd-percentile background in place of the negative-control probes; the verdict reflects the stand-in, not the arrays"),
+  ("0.6", "PASS 11/11"), ("0.7 / 0.8", "DEFERRED - call rate and sex check need Stage 1's decoded per-probe data"),
+  ("0.9", "PROCEED_WITH_PENALTY 11/11 (from the borderline detection)"),
+ ],
+ "defect_fixed": "the decision gate did not read Step 0.1's status, so QUARANTINE_INCOMPLETE_MANIFEST / QUARANTINE_MISSING_CHANNEL samples fell through to PROCEED. Guard added; module self-tests pass. Same fail-open class as the origin-gate finding of the first read.",
+ "open": "the Stage 0 <-> Stage 1 intensity hand-off (control probes, detection-p from negative controls, call rate, X/Y for sex) is designed but not wired; until it is, those QCs report DEFERRED and Stage 0 is an integrity-and-manifest gate only.",
+ "verdict": "RUNS. Every stage of the chain (0, 1, 2, 4, 4.5, 5, 6) has now executed from the repository on the same eleven samples.",
+}
