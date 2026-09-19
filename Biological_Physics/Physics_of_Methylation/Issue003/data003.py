@@ -782,8 +782,8 @@ FUTURE_GOALS.insert(1, ("GATE 0", "Merge progenitor + stem_adult for whole blood
 
 # stem_adult in the validation record (grep of every OUTCOME file, VAL_INDEX, disease cards, 2026-09-19) + the presence rule
 STEM_ADULT_RECORD = [
- ("VAL-008 AD (AIBL), per cell type", "d = -0.329, second-ranked", "immune carried the finding (d = +0.68)"),
- ("VAL-016 cross-disease universal alarm", "second-ranked", "immune"),
+ ("VAL-008 AD (AIBL), per cell type", "HSC d = -0.329 ***, third of eight class top-hits", "immune top hit Eosino d = -0.426 ***; progenitor L-MPP -0.385 (per-class top-hits table, CPG_VAL_008_OUTCOME.md)"),
+ ("VAL-016 cross-disease, AIBL arm (n = 161 AD / 471 HC)", "class d = -0.329, ranked 2nd by |d|", "immune d = -0.364, 1st; progenitor -0.316, 3rd (per-cohort table, OUTCOME.md)"),
  ("VAL-011 AD age subtraction", "d = -0.004 -> -0.190 after age subtraction", "'interesting biology'; never a call"),
  ("VAL-015 / VAL-020 immune aging", "r = -0.103, 'weak aging signal'", "-"),
  ("VAL-018 menarche", "~0", "null"),
