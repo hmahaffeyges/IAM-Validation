@@ -5344,3 +5344,7 @@ Fifteen commits between 2026-07-01 and 07-03 changed the chain after this SOP wa
 ---
 
 *v1 — 2026-05-31. Author: Heath W. Mahaffey, IAMPerformance Inter-Domain Research Institute. Working partner: Walther (Claude).*
+
+## §108. Presence rule (2026-09-19)
+
+A class gauge is **reported** on a substrate only if the class is **determined** (its fraction separable from its neighbours in the Atlas on that substrate - condition number of the substrate sub-problem < ~10 - or reported jointly with what it cannot be split from) and **present** (typical fraction >= 5% on that substrate). Classes failing either are composition-only. Whole blood: immune reported; progenitor + stem_adult reported jointly as one haematopoietic-progenitor component; all others composition-only. Basis: PROC-CHAIN-01 (stem_adult false BREACH 6/7 healthy), PROC-NILC-01 (r = +0.99 progenitor-stem_adult, kappa 30.6), and the record that stem_adult has carried no finding in nine validations. Decided from kappa and fraction before any A is computed.

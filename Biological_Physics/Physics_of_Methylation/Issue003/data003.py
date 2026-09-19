@@ -779,3 +779,25 @@ COSMO_EVIDENCE.insert(1, ("2026-09-19 (rerun of 2026-06)", "Cross-method disagre
 RECON = [r if r[0]!="D3" else (r[0], r[1], r[2], r[3] + " MEASURED (PROC-NILC-01): kappa(blood sub-problem) = 30.6, r(progenitor, stem_adult) = +0.99; NILC L1 vs Walther 0.55-0.65 on all blood.", "the divergence was the diagnostic NILC was designed to give: stem_adult/progenitor are not separately determined by the Atlas in blood. Report them jointly for whole blood until they are; a second deconvolver's disagreement is to be read, not failed.", r[5]) for r in RECON]
 FUTURE_GOALS.insert(1, ("GATE 0", "Merge progenitor + stem_adult for whole blood; add condition number to pre-flight", "PROC-NILC-01",
   "The Atlas reference columns for the two classes are r = +0.99 at the deconvolver's markers; the split between them is chosen by the simplex constraint, and the stem_adult band then flags healthy donors. One joint haematopoietic-progenitor component removes the false alarm without touching any floor. kappa of the substrate sub-problem joins the Jensen gap as a pre-flight number.", "a config change in the conductor + the band rebuild of Phase 1"))
+
+# stem_adult in the validation record (grep of every OUTCOME file, VAL_INDEX, disease cards, 2026-09-19) + the presence rule
+STEM_ADULT_RECORD = [
+ ("VAL-008 AD (AIBL), per cell type", "d = -0.329, second-ranked", "immune carried the finding (d = +0.68)"),
+ ("VAL-016 cross-disease universal alarm", "second-ranked", "immune"),
+ ("VAL-011 AD age subtraction", "d = -0.004 -> -0.190 after age subtraction", "'interesting biology'; never a call"),
+ ("VAL-015 / VAL-020 immune aging", "r = -0.103, 'weak aging signal'", "-"),
+ ("VAL-018 menarche", "~0", "null"),
+ ("VAL-022 smoking cessation", "the only class with true reversibility (former/never ratio 0.66)", "flagged 'worth investigating later' - the one distinctive stem_adult result"),
+ ("VAL-135 (retired, off-scope)", "1.083 'ELEVATED - blood-stem-cell content'", "-"),
+ ("disease cards (all)", "none names stem_adult as origin class", "Issue 002 targets: HSC-origin AML, CHIP, HSC aging - haematology, not the breast/CRC/AD work"),
+ ("age band", "n = 4-32 per decade, sorted CD34+ HSC (Adelman 2019), two decades extrapolated", "purified stem cells, no whole-blood context"),
+ ("fraction in blood", "2-4%%, constraint-chosen (r = +0.99 with progenitor, PROC-NILC-01)", "false BREACH in 6/7 healthy donors (PROC-CHAIN-01)"),
+]
+PRESENCE_RULE = {
+ "statement": "A class gauge is REPORTED on a substrate only if the class is (1) DETERMINED - its fraction is separable from its neighbours in the Atlas on that substrate (condition number of the substrate sub-problem < ~10), or it is reported jointly with what it cannot be split from - and (2) PRESENT - its typical fraction on that substrate is >= 5%% (above the conductor's 1%% detection gate and the adjudicator's 3%%), so that beta_mean over its loci is the class and not the background. Classes failing either condition are composition-only (present/absent, no A).",
+ "whole blood": "REPORTED: immune. REPORTED JOINTLY: progenitor + stem_adult as one haematopoietic-progenitor component. COMPOSITION-ONLY: cycling, secretory, terminal, stromal, stem_pluri. Decided from kappa and fraction BEFORE any A is computed; written into the Phase 1 PREREG as a pass condition.",
+ "rationale": "Risk over reward (author, 2026-09-19): a class that has never carried a finding, whose fraction the data does not determine, and whose band rests on n = 4-32 sorted cells, is a false-alarm source on the patient report and nothing else. Classes earn their way back onto a substrate's report as separability and presence are demonstrated there (plasma cfDNA is expected to qualify cycling and secretory).",
+ "keep": "VAL-022's stem_adult reversibility (ratio 0.66) is retained as a note - the one distinctive result - testable once a joint component and a real band exist.",
+}
+FUTURE_GOALS = [(g if not g[1].startswith("Merge progenitor + stem_adult") else (g[0], "Presence rule: report a class gauge only where DETERMINED (kappa < ~10, or joint) and PRESENT (>= 5%%); whole blood -> immune + one haematopoietic-progenitor component", "PROC-NILC-01; author's risk-over-reward rule", g[3] + " stem_adult has carried zero findings in nine VALs; its band is n = 4-32 sorted HSC.", g[4])) for g in FUTURE_GOALS]
+RULES += [("L-10", "Presence rule (2026-09-19): a class gauge is reported on a substrate only where the class is DETERMINED and PRESENT (>= 5%%); otherwise composition-only. Whole blood: immune, plus progenitor+stem_adult jointly. Decided before any A is computed.", "author, after PROC-CHAIN-01 / PROC-NILC-01")]

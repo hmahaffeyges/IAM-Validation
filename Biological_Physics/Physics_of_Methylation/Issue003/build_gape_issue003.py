@@ -105,6 +105,7 @@ def toc(story):
             ("§3", "Two Instruments and the Presence Rule"),
             ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
             ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
+            ("§1.7", "NEW — The presence rule: a class gauge is reported only where the class is determined and present; whole blood reports immune plus one haematopoietic-progenitor component. stem_adult has carried no finding in nine VALs"),
             ("§1.6", "NEW — What the cosmology tools found that cohorts could not: the standing evidence ledger (nine rows to date, N7 first) that pre-empts the circularity objection"),
             ("App. VI–IX", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; Future Goals — the CMB items worth the effort, in gated order; the Part II outline"),
             ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
@@ -565,6 +566,15 @@ def sec_cosmo_evidence(story):
     rows=[("date","CMB method","why a cohort is blind to it","what was found","record")]+[tuple(r) for r in D.COSMO_EVIDENCE]
     story.append(tbl(rows,[0.10,0.18,0.19,0.38,0.15], fs=5.8))
 
+def sec_presence(story):
+    story.append(PageBreak())
+    story.append(Paragraph('THE PRESENCE RULE - WHICH CLASSES A SUBSTRATE MAY REPORT', sSect))
+    story.append(Paragraph('Asked how often stem_adult had been the deciding class, the record was checked: every OUTCOME file, the VAL index, every disease card.', sBodySm))
+    story.append(tbl([("where","stem_adult result","what carried the finding")]+[tuple(r) for r in D.STEM_ADULT_RECORD],[0.28,0.36,0.36], fs=6.0))
+    story.append(SP(0.1))
+    for k in ("statement","whole blood","rationale","keep"):
+        story.append(Paragraph(f'<b>{k}.</b> {D.PRESENCE_RULE[k]}', sBodySm))
+
 def sec_chain_terms(story):
     story.append(PageBreak())
     story.append(Paragraph('GLOSSARY — CMB AND CHAIN TERMS', sSect))
@@ -596,7 +606,7 @@ def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)
     story = []
     cover(story); toc(story)
-    sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec2_atlas(story); sec3_instruments(story)
+    sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
