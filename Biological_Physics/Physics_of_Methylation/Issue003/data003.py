@@ -839,3 +839,18 @@ SCOPE = {
              "On a very limited public dataset with no funding or institutional support, this method already resolves things that cohort comparison structurally cannot (s1.6). For the immune class in whole blood there are reproducible signals worth investigating with proper support. That is the claim, and all of it."),
  "invitation": "The record is written so that a reader can break it: every constant loaded from a file, every procedure runnable from the kit, every reversal kept. The intended reader is the one who says 'cohorts, circular' first - and then pulls the repository.",
 }
+
+# PROC-SEP-02 — contrast-specific markers, tested (2026-09-19)
+SEP_02 = {
+ "change": "WaltherIAMDeconvolver gains contrast_pairs / n_contrast_markers_per_pair: for each named class pair the top-N CpGs by |mean_a - mean_b| are forced into the class reference. Default OFF; no sealed result changes.",
+ "result": "baseline: 1,256 markers, kappa(all) 47.0, kappa(blood) 30.6, r(prog, stem_adult) +0.987, blood L1 Walther-vs-unconstrained 0.59. +300/pair: 1,335 markers, 32.8 / 22.0 / +0.974 / 0.47. +800/pair: 1,567 markers, 26.1 / 17.0 / +0.954 / 0.60 (unconstrained drives progenitor negative, stem_adult to ~0.3 on every blood sample).",
+ "reading": "Conditioning improves monotonically - the contrast CpGs act on the reference exactly as intended - but kappa(blood) does not reach 10 and the two solvers do not converge. With the Atlas alone the HSC / progenitor split is not data-determined at the marker level. Walther's own stem_adult estimate in healthy blood falls from 0.017-0.044 to ~0.000 (6/7 at +300) once it has the contrast information: the 2-4% was the constraint's, not the blood's - the same thing NILC said in June.",
+ "verdict": "Passing test of the METHOD (the Atlas holds the information and it moves kappa the right way); NEGATIVE result for the shortcut (marker selection alone does not make stem_adult reportable on blood). The reporting rule stands as the operating position: whole blood reports immune, plus progenitor + stem_adult as one haematopoietic-progenitor component (coarse-to-fine, which never asks the ill-conditioned question). Step 3 remains out of scope by the author's decision.",
+ "ledger": "Second cross-method row: the disagreement metric, run under three marker configurations, located the limit of what this Atlas determines in blood - a measurement no cohort comparison can make.",
+}
+FUTURE_GOALS = [(("after GATE 0", "Coarse-to-fine composition for whole blood: haematopoietic as one component, split only where kappa allows", "PROC-SEP-02",
+  "Contrast markers moved kappa(blood) 30.6 -> 17.0 and r(prog, stem_adult) 0.987 -> 0.954 but did not reach kappa < 10; the split is not data-determined at the marker level with this Atlas. The joint component is the operating position; the option stays in Walther (default off) for the next atlas.", "half a session; Atlas only")
+  if g[1].startswith("Contrast-specific markers in Walther") else g) for g in FUTURE_GOALS]
+COSMO_EVIDENCE.insert(2, ("2026-09-19", "Cross-method disagreement as a measuring instrument (three marker configurations)",
+  "A cohort cannot tell which of a deconvolver's fractions the reference determines; only two solvers on the same reference can.",
+  "Pairwise-contrast markers moved the blood sub-problem from kappa 30.6 to 17.0 and the two solvers still did not converge; Walther's own stem_adult estimate fell to ~0 once given the contrast information. Located the limit of what this Atlas determines in blood and confirmed the reporting rule's joint component as the correct operating position.", "PROC-SEP-02"))

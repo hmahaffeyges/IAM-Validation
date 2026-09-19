@@ -94,7 +94,9 @@ class WaltherIAMDeconvolver:
     def __init__(self, matrix_path, celltype_class_map=None,
                  n_class_markers_per_class=600,
                  max_celltype_markers=4000,
-                 verbose=True):
+                 verbose=True,
+                 contrast_pairs=None,
+                 n_contrast_markers_per_pair=300):
         """
         Parameters
         ----------
@@ -112,6 +114,14 @@ class WaltherIAMDeconvolver:
         self.verbose = verbose
         self.n_class_markers_per_class = n_class_markers_per_class
         self.max_celltype_markers = max_celltype_markers
+        # PROC-SEP-01 (2026-09-19): optional pairwise-contrast markers. The default per-class
+        # criterion sep = |class mean - field mean| never selects a CpG where two classes differ
+        # from EACH OTHER but both sit near the field mean - which is exactly the HSC / progenitor
+        # case (1,290 Atlas CpGs > 0.2 apart; ~129 chosen). For each (a, b) in contrast_pairs the
+        # top n_contrast_markers_per_pair CpGs by |mean_a - mean_b| are forced into class_ref.
+        # OFF by default (None): sealed results are unchanged unless a caller opts in.
+        self.contrast_pairs = [tuple(p) for p in contrast_pairs] if contrast_pairs else []
+        self.n_contrast_markers_per_pair = n_contrast_markers_per_pair
 
         # cell type -> class
         self.celltype_to_class = {}
@@ -196,6 +206,7 @@ class WaltherIAMDeconvolver:
         class_heap = []           # key=class_var, payload=(cpg, cls_means)
         ct_heap = []              # key=ct_var,    payload=(cpg, ct_data)
         per_class_heap = {c: [] for c in CLASSES}  # key=separation, payload=(cpg, cls_means)
+        pair_heap = {pr: [] for pr in self.contrast_pairs}  # key=|mean_a - mean_b|
         tie = 0
 
         def push_bounded(heap, key, payload, cap):
@@ -235,6 +246,13 @@ class WaltherIAMDeconvolver:
                                 push_bounded(per_class_heap[cls], sep,
                                              (cpg, cls_means),
                                              self.n_class_markers_per_class)
+                        for pr in self.contrast_pairs:
+                            a, b = pr
+                            if a in cls_means and b in cls_means:
+                                d = abs(cls_means[a] - cls_means[b])
+                                if d > 0:
+                                    push_bounded(pair_heap[pr], d, (cpg, cls_means),
+                                                 self.n_contrast_markers_per_pair)
 
                 # ---- cell-type level ----
                 ct_data = {}
@@ -270,13 +288,18 @@ class WaltherIAMDeconvolver:
         for cls in CLASSES:
             for _, _, (cpg, means) in per_class_heap[cls]:
                 chosen.setdefault(cpg, means)
+        self.n_contrast_added = 0
+        for pr in self.contrast_pairs:
+            for _, _, (cpg, means) in pair_heap[pr]:
+                if cpg not in chosen:
+                    chosen[cpg] = means; self.n_contrast_added += 1
         self.class_ref = chosen
 
         # ---- assemble cell-type marker reference ----
         self.celltype_ref = {cpg: data for _, _, (cpg, data) in ct_heap}
 
         if self.verbose:
-            print(f"  class markers: {len(self.class_ref)} CpGs")
+            print(f"  class markers: {len(self.class_ref)} CpGs" + (f" (incl. {self.n_contrast_added} contrast markers for {self.contrast_pairs})" if self.contrast_pairs else ""))
             print(f"  cell-type markers: {len(self.celltype_ref)} CpGs")
 
     # ------------------------------------------------------------------
