@@ -771,6 +771,11 @@ def step_0_9_decision_gate(record, verdict_log_path=None) -> dict:
     flags = record.setdefault("flags", [])
     hard_fail, borderline, deferred = [], [], []
 
+    # Step 0.1 / 0.2 quarantines are hard failures. (Added 2026-09-19, PROC-STAGE0-01: before this
+    # guard a QUARANTINE_INCOMPLETE_MANIFEST or QUARANTINE_MISSING_CHANNEL sample fell through to PROCEED.)
+    if str(record.get("status") or "").startswith("QUARANTINE"):
+        hard_fail.append("intake_" + record["status"].lower())
+
     if record.get("integrity_status") and record.get("integrity_status") != "INTEGRITY_OK":
         hard_fail.append("integrity")
 
