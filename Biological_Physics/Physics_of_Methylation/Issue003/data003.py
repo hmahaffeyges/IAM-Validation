@@ -915,3 +915,18 @@ RECON += [("B2", "one universal healthy band", "Issue 002 / SOP: a single age ba
   "FLOOR + PIPELINE MAP + LAB ZERO; the lab zero is set once per lab on healthy controls (or, future, from control probes) and printed on the report", "band_v2 OUTCOME 2026-09-20"),]
 FUTURE_GOALS.insert(1, ("GATE 0b - lab zero", "Predict the per-lab offset from the array's own control-probe intensities (Stage 0 QCs)", "band_v2 OUTCOME; Stage 0 deferred QCs",
   "three cohorts with known offsets (0 / +0.018 / -0.030) are the training and test set; if control probes predict them, no healthy-control panel is needed per lab", "Stage 0 <-> Stage 1 intensity hand-off (unwired)"))
+
+LABZERO_01 = {
+ "question": "Can the per-lab offset be predicted from the 850 Illumina control probes on each array, so no per-lab healthy-control panel is needed?",
+ "data": "1,277 raw IDATs (three cohorts already on disk), 33 features = log2 mean per Control_Type x channel + overall medians + G/R ratio; target mapped immune identity-loci A (1,173 gated). Ridge, leave-one-cohort-out.",
+ "result": "held-out Karolinska: obs +0.024 pred +0.021 (err 0.002); Uppsala: obs -0.024 pred -0.026 (err 0.002); Munich: obs -0.021 pred -0.071 (err 0.050) - direction 3/3, size right for the Swedish labs, Munich overshoots 3x with no neighbouring lab in training. P1 FAIL as sealed.",
+ "features": "cohort-separating features (range/sd ~2.6): NORM_T/A/C/G, BISULFITE CONVERSION II, SPECIFICITY I - red channel. The lab's chemistry is recorded on the array.",
+ "within_cohort": "control probes explain r ~0.6 of a healthy donor's A inside a single cohort: about a third of the 'healthy spread' is per-array technical variance. Correcting it would narrow the band (LAB-ZERO-02).",
+ "nulls": "the sealed permutation null was uninformative (shuffling cohort labels removes the offsets) and is recorded as such; the correct null is a fourth held-out cohort.",
+ "verdict": "standard today = per-lab healthy-control panel (CLSI EP28), offset printed on the report. Control-probe zero = upgrade path, decided by a fourth Stage-1 healthy cohort (minutes to fetch with tools/geo_fetch_idats.py).",
+}
+FUTURE_GOALS[1] = ("GATE 0b - lab zero from control probes (PROMISING)", "Fourth Stage-1 healthy cohort as the held-out test; then LAB-ZERO-02: per-array technical correction to narrow the band", "LAB-ZERO-01",
+  "direction 3/3, Swedish magnitude to 0.002, Munich overshoot with no neighbour; within-cohort r~0.6 says a third of band width is technical", "a fourth 450K healthy whole-blood cohort with raw IDATs")
+COSMO_EVIDENCE.insert(6, ("2026-09-20", "Instrument self-calibration from housekeeping channels (Planck/WMAP used detector housekeeping - thermometry, gain monitors - to model systematics rather than fit them away on the sky)",
+  "A cohort method has no housekeeping: it subtracts the lab offset with the cohort mean and never asks what caused it.",
+  "The 850 control probes on every array carry the lab's chemistry signature; they predict two of three lab offsets to 0.002 and explain a third of the healthy within-cohort spread - a technical term cohort methods had always booked as biology.", "LAB-ZERO-01"))
