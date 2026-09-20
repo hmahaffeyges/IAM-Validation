@@ -1,5 +1,8 @@
 # Physics of Methylation — start here
 
+**What this field is called (2026-09-20): Physics of Methylation: Landauer Metrology** — measuring how far above the thermal noise quantum an information-writing process operates, against a fixed physical zero (H_min per cell class). Thermal noise is the unit (M = E_drive / k_B T), not the nuisance. Prior art: Sanchez & Mackenzie 2016 established that the methylome obeys Landauer's bound; Landauer metrology measures how far above it each cell class operates (Issue 003 §0b).
+
+
 This folder is the researcher-facing entry to the cellular track of the Informational Actualization Model: the claim, the current report, the kit that lets you verify the measurement chain on your own machine, the operating procedure, the papers, and the plates that show why the methylome is treated as a sky.
 
 **The claim, in one paragraph.** A cell maintains its methylation pattern by irreversible information writing, and at body temperature that writing has a thermodynamic cost. For each of eight cellular architecture classes there is a floor entropy `H_min` below which a healthy cell of that class does not operate; it is calibrated once on healthy reference cells (an MCMC posterior, frozen before any disease sample is scored) and never re-fitted. A sample's reading is `A = H(β̄)/H_min` — the binary Shannon entropy of its mean methylation at the class's identity loci, over the class floor — read against an age-matched healthy band. Cohorts are used only to establish which *direction* a disease moves; they are never the baseline. This is the same measurement made in semiconductors (energy per switch over the Landauer floor) and in superconducting qubits, which is why the Mahaffey number `M = E_drive/(k_B T)` appears in all three.
