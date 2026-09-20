@@ -870,3 +870,21 @@ COSMO_EVIDENCE.insert(3, ("2026-09-19", "Coarse-to-fine component separation (Pl
 FUTURE_GOALS = [(("GATE 0", "Wire Tool B (lineage splitter) into the conductor behind the reporting rule; run it in the myeloid arm", "PROC-SEP-03",
   "Tool B resolves HSC vs progenitor at kappa ~4-5 on the contrast CpGs and reports stem_adult = 0 in healthy blood; it is the instrument that would see HSC content rise in MDS / CML / CHIP. Wire it so the joint component is reported by rule and the split is offered only when Tool B's kappa clears the bar, with its uncertainty.", "half a session + the myeloid cohorts")
   if g[1].startswith("Coarse-to-fine composition for whole blood") else g) for g in FUTURE_GOALS]
+
+# PHASE 1 (2026-09-20) — identity-loci band from GSE87571 through Stage 1; sealed FAIL on P3/P4 with the cause measured
+PHASE1 = {
+ "verdict": "FAIL on P3 (synthetic healthy in band 0/16) and P4 (test WB in band 3/7) as sealed; P1 732/732; band built n=560 and kept (identity_band_v1.json). N-random 0/16 (pass). Spearman(age, immune A) = +0.52.",
+ "cause": "Three beta scales on the same 42,024 immune identity loci: Roadmap/Atlas 0.737 (A 1.00, where G-002 calibrated H_min); GEO author-processed EPIC 0.774 (A 0.92; the anchor cohort); Stage-1 noob raw 450K 0.815 (A 0.82). The offset is additive (+0.066 beta).",
+ "why_now": "Author's April 2026 record (VAL-003 output): 'G-002 H_min calibrated on Roadmap (GenomicStudio); TCGA uses sesame; ~10% offset expected; delta-A valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference.' Every VAL since was within-pipeline and immune by design. Phase 1 is the first absolute reading of raw-IDAT beta against the floor with no cohort in the loop.",
+ "mcmc": "UNCHANGED. The H_min floors are correct on the Roadmap scale; the analyst's recommendation to re-derive them on Stage 1 is WITHDRAWN. The fix is a per-pipeline affine map onto the Roadmap scale, fit on healthy blood - what the April note prescribed and Phase 1 finally built.",
+ "after_map": "Swedish healthy immune A 0.990 (p10-p90 0.962-1.016): healthy sits at the floor. P3 15/15 (post-hoc; map fit on the band cohort, so a consistency check). P4 3/7 unchanged: the four out read ABOVE band by 0.01-0.02 A - a lab batch residual on top of the pipeline offset, the size of the band half-width; N-plate is its test.",
+ "layers": "FLOOR (Roadmap scale, MCMC, physics) -> PIPELINE (+0.066 beta per pipeline, affine map) -> LAB (0.01-0.02 A per cohort). Cohort-relative statistics cancel layers 2-3 and never see them; the absolute gauge sees all three.",
+ "next": "Phase 1c prereg: fix the map on GSE87571, test on an independent Stage-1 healthy cohort; N-plate from Sentrix IDs; sex-split bands 35-64; P2 restated as immune + haem-progenitor >= 0.85. Phase 1b (EPIC-Italy portability) proceeds.",
+}
+COSMO_EVIDENCE.insert(4, ("2026-09-20", "Absolute calibration against a fixed physical reference (the CMB's absolute-temperature discipline: FIRAS calibrated against a blackbody, not against another sky map)",
+  "A cohort comparison subtracts the reference away, so a pipeline offset between the floor's scale and the patient's scale is invisible to it by construction.",
+  "Reading 732 raw IDATs absolutely against the MCMC floor exposed a +0.066 beta pipeline offset the author's April note predicted and 200 within-pipeline VALs could not see; once mapped, healthy blood sits at A = 0.99 with the floor at 1.00.", "PHASE 1 OUTCOME + addendum"))
+RECON += [("S1", "beta scale of the gauge input vs the floor", "Issue 002: A read directly from any beta",
+  "Three scales measured on the identity loci (Roadmap 0.737 / GEO-processed EPIC 0.774 / Stage-1 noob 0.815). H_min lives on the Roadmap scale. Patient beta must be mapped there before an absolute reading; cohort-relative statistics did not need this and so never showed it.",
+  "per-pipeline affine map onto the Roadmap scale, fit on healthy blood; floors unchanged", "PHASE 1 OUTCOME, 2026-09-20"),]
+FALSIFICATION += [("Analyst recommendation (2026-09-20 03:30) to re-derive H_min_beta on Stage-1 healthy blood", "would discard the G-002 MCMC confirmation and make the floor pipeline-dependent; the offset is in the input scale, not the floor", "WITHDRAWN same day"),]
