@@ -1,0 +1,37 @@
+{
+ "_meta": {
+  "version": "v1 PROVISIONAL 2026-09-20",
+  "reference_scale": "Roadmap/ENCODE (GenomicStudio) - the scale G-002 calibrated H_min on and the IAMAtlas posteriors sit on",
+  "rule": "beta_roadmap = (beta_pipeline - intercept) / slope, applied BEFORE H(beta_mean)/H_min for any ABSOLUTE reading. Not needed for within-pipeline comparisons.",
+  "fit": "identity loci, healthy whole blood, per-CpG Stage-1 mean vs Atlas immune_mean; PHASE 1 addendum",
+  "status": "fit on GSE87571 only; NOT yet tested on an independent Stage-1 cohort (Phase 1c). Use with the label PROVISIONAL.",
+  "record": "Testing_and_Code/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md"
+ },
+ "maps": {
+  "stage1_noob_450K": {
+   "slope": 1.0127,
+   "intercept": 0.0662,
+   "gain_form": 1.1023,
+   "n_loci": 32688,
+   "fit_cohort": "GSE87571 n=560 healthy",
+   "healthy_immune_A_after_map": 0.99
+  },
+  "geo_author_processed_EPIC": {
+   "slope": null,
+   "intercept": null,
+   "note": "GSE51032 HC identity-loci beta_bar 0.774 vs Roadmap 0.737 -> ~+0.037; affine not yet fit",
+   "status": "TO FIT"
+  },
+  "tcga_sesame": {
+   "slope": null,
+   "intercept": null,
+   "note": "April 2026 VAL-003: ~10% entropy offset expected; not fit",
+   "status": "TO FIT"
+  },
+  "roadmap_genomicstudio": {
+   "slope": 1.0,
+   "intercept": 0.0,
+   "note": "reference scale"
+  }
+ }
+}
