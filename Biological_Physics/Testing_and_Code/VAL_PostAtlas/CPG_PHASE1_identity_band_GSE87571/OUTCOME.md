@@ -52,3 +52,28 @@ The Atlas places a healthy immune cell at β ≈ 0.737 on the identity loci; Sta
 
 ---
 **SEALED** sha256 `3d04c118033859664f695e00d62a60e6598f0eb5b17fe9ec1b72c51c0756cc6b` · 2026-09-20
+
+---
+
+## ADDENDUM (post-hoc, 2026-09-20, after the seal) — the pipeline-scale map
+
+**Why now and not before — answered from the author's April 2026 record.** VAL-003's own output (Terminal 2026-04-07) states: *"G-002 H_min calibrated on Roadmap WGBS/450K (GenomicStudio normalization). TCGA uses sesame normalization. ~10% global entropy offset expected. Field effect ΔA valid within-pipeline… absolute A-score thresholds require validation against pipeline-matched healthy reference."* Every VAL since was a within-pipeline comparison (ΔA, Cohen's d) and therefore immune to the offset by design. Phase 1 is the first absolute reading of raw-IDAT Stage-1 β against the floor with no cohort in the loop; the offset had nowhere to cancel.
+
+**Three pipelines, same 42,024 immune identity loci, healthy blood:**
+| pipeline | β̄ | A |
+|---|---|---|
+| Roadmap / Atlas (G-002 calibration scale) | 0.737 | 1.00 |
+| GEO author-processed EPIC (GSE51032 HC, n = 424 — the anchor cohort) | 0.774 | 0.92 |
+| Stage-1 noob, raw 450K IDATs (GSE87571, n = 560) | 0.815 | 0.82 |
+
+**The MCMC floors are unchanged.** G-002 calibrated and confirmed H_min on the Roadmap scale and nothing here contradicts it. The analyst's earlier recommendation (a) — re-derive H_min on Stage-1 blood — is **withdrawn**: it would discard the MCMC confirmation and make the floor pipeline-dependent. The correct form is (b): a per-pipeline map onto the Roadmap scale, fit on healthy blood, as the April note prescribed.
+
+**Map, fit on the 560 healthy Swedish donors, identity loci (32,688 with both values):** affine β_stage1 = 1.0127·β_atlas + 0.0662 (r = 0.51 per-CpG on this narrow-range set); zero-intercept gain form 1.1023. **The offset is additive (+0.066), not a gain**; the affine form should be used.
+
+**After the map (gain form, as recorded):** Swedish healthy immune A median **0.990**, p10–p90 0.962–1.016 — healthy sits at the floor. P3 synthetic-in-band **15/15** (one patient's decade cell had n < 30 after mapping and was not scored). P4 **3/7, unchanged**: the four out read ABOVE band (1.019–1.030 vs p90 ≈ 1.015) — same Stage 1, different labs (RA study; GSE2333 study). That ~0.01–0.02 A residual is a lab batch offset on top of the pipeline offset and is the size of the band's half-width; N-plate is its test.
+
+**Status of this addendum.** P3 after the map is a consistency check, not the sealed independent test: the map was fit on the band cohort, so the Swedish median landing at ~1.0 is by construction; the synthetic patients falling inside the band's *width* is not. The sealed verdict (FAIL on P3/P4 as defined) stands. A prereg for Phase 1c should fix the map on GSE87571 and test it on an independent Stage-1 healthy cohort.
+
+**Three layers, now separated:** FLOOR (Roadmap scale, MCMC, physics — unchanged) → PIPELINE (+0.066 β on identity loci; one affine map per pipeline) → LAB (~0.01–0.02 A per cohort; plate/batch). Cohort-relative VALs cancel layers 2–3 and never see them; the absolute gauge sees all three, which is what it is for.
+
+**ADDENDUM sha256** `496c8c364be3551dc5ff3ffb2d36f321ea79555d64d331e2ad9723813fd64c04` · 2026-09-20 (the seal above it is unchanged)
