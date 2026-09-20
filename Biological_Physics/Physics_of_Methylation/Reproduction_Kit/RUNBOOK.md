@@ -160,3 +160,23 @@ python3 Biological_Physics/CPG_Engine/tools/geo_fetch_idats.py GSE125105 idats/G
 reads the series-matrix header by range request, selects samples on a characteristics field, and fetches only their `_Grn/_Red.idat.gz` from `geo/samples/GSMnnn/GSM/suppl/` with 8 threads: 210 controls, 1.7 GB, **6 minutes at ~5–7 MB/s**. Idempotent; writes `selected.json`. Then run Stage 1 with a process pool (6 workers on 8 cores, ~6×) — `band_v2_test_run.py::calibrate_all` is the template. The per-sample code path is identical to PROC-CAL-01; only the scheduling changes.
 
 Streaming a series matrix (author-processed β) is still the fastest route for **within-pipeline** work (anchor reproduction, PROC-ANCHOR-01) and must NOT be used for absolute gauge readings or reference bands (LESSON-SCALE-01).
+
+## 14. THE FINDING PROTOCOL — one procedure, every finding, in this order (added 2026-09-20)
+
+Written because the pipeline-scale offset was known in April and lost by June, and because on 2026-09-20 three day-one passages in Issue 003 were still stating overturned claims until the author read them. Information updated in different places at different times in different manners is how a record rots. This is the one way.
+
+**When a finding lands (a PROC, PHASE, VAL outcome, or a correction):**
+
+| step | do | where | check |
+|---|---|---|---|
+| 1 | **Seal the record.** OUTCOME.md with the sealed PREREG it answers, sha256 at the foot. Post-seal changes are labelled ADDENDUM/CORRECTION, never edits. | `Testing_and_Code/VAL_PostAtlas/<ID>/` | file exists, checksum line present |
+| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep `Issue003/build_gape_issue003.py`, `Issue003/data003.py`, `SOP/*.md`, `Reproduction_Kit/*.md`, `HANDOFF.md`. Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
+| 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | `data003.py`, `CHAIN_COMMISSIONING.md`, `switching_order.py` | the ID appears in each register the finding touches |
+| 4 | **Close it in code** if it is a lesson. A label, a guard, a refusal to report (`scale=UNMAPPED → reportable=False` is the model). A lesson that lives only in prose is re-learned. | `CPG_Engine/` | the guard has a test in the kit |
+| 5 | **Teach it.** ONE canonical paragraph, identical text, in every door a reader opens first: HANDOFF.md, root/Engine/Testing/Atlas READMEs, SOP (new §), RUNBOOK (new § or pre-flight), CPG_Lessons_Learned, README_FOR_FUTURE_AI, and the module docstring it bites. | the door list | the ID appears in every door |
+| 6 | **Rebuild and READ.** Page 1, page 2, §11 (coverage), and every touched section — by eye. Assertions catch strings; only reading catches a stale sentence that uses new words. | PDF | page count, ID rendered, retired phrases absent, visual check of touched pages |
+| 7 | **Push with copies.** Commit names the ID. `push_copies_<date>_<from>_to_HEAD.zip` + the OUTCOME as a plain file + the RC PDF saved as artifacts. Update `STATUS_*.md` in place. | repo + artifacts | the user has the copies |
+
+`Reproduction_Kit/finding_check.py <ID> --retires "phrase" ...` runs steps 2, 3, 5 and 6's string checks as assertions and exits non-zero on any miss. It does not replace step 6's reading.
+
+**What is NOT a finding:** a typo, a layout fix, a renamed variable. Those get a commit and copies, nothing else.

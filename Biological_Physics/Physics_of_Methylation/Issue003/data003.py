@@ -87,7 +87,7 @@ RECON = [
   "NORMAL->ELEVATED edge moved 1.04->1.01 to match gauge MARGINAL onset (last commit)", "commit 66f37fe 2026-07-03; tier_breakpoints.json _meta.marginal_onset_note"),
  ("T3", "Two tier vocabularies coexist", "one", "gauge says MARGINAL/DETECTABLE/URGENT; Stage 7 says ELEVATED/SIGNIFICANTLY_ELEVATED",
   "OPEN - same breakpoints except the gauge's 1.05 split; one vocabulary must be chosen for the report", "both files at HEAD"),
- ("S1", "Substrate floors for cfDNA", "cfDNA listed as a substrate with % contributions (CFDNA_PCT)",
+ ("S1 (LESSON-SCALE-01)", "Substrate floors for cfDNA", "cfDNA listed as a substrate with % contributions (CFDNA_PCT)",
   "'cfDNA is the frag/wps/nucl substrates - score it on those floors, NEVER the methyl floor'",
   "engine docstring", "cpg_gauge_engine.py lines 56-58"),
  ("I1", "Two instruments", "one A-score", "GAUGE = H(beta_mean)/H_min over per-class IDENTITY loci; SEPARATION = mean_i(H(beta_i))/H_min over per-cell DISCRIMINATIVE markers",
