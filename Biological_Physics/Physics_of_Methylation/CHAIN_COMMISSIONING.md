@@ -1,0 +1,26 @@
+# Chain commissioning — stage by stage, in switching order
+
+**Goal:** every link accepted on record before any new disease cohort is scored. Acceptance = a named test on known inputs with the result written to `Testing_and_Code/`; a stage is COMMISSIONED only when its test passes from the repo on a machine that has never seen the project. Order is the chain order; nothing downstream is accepted while something upstream is open.
+
+**End state:** one raw IDAT pair in → one final report out, every number on it carrying its surface, scale and band status, no number on it that any open item forbids. Then breast, CRC, prostate, pancreatic.
+
+| # | stage | acceptance test | status 2026-09-20 | open before COMMISSIONED |
+|---|---|---|---|---|
+| 0 | Intake | 11 test IDATs → 11 PASS; a manifest with a missing field → QUARANTINE that STOPS the chain | fail-open closed (PROC-STAGE0-01) | wire the Stage 1 intensity hand-off so the 4 deferred QCs run |
+| 1 | Calibration | PROC-CAL-01: 11/11 exact vs cached β; both array types | **COMMISSIONED** | — |
+| 1s | Scale map | Phase 1c: map fixed on GSE87571, tested on an independent Stage-1 healthy cohort; healthy immune A within 0.02 of 1.00 | wired; map PROVISIONAL | Phase 1c prereg + run; fit EPIC Stage-1, GEO-processed, TCGA-sesame maps or leave them UNMAPPED by rule |
+| 2 | Deconvolution (Tool A) | PROC-DECON-01 (MAE < 0.001 vs manifest) + PROC-ANCHOR-01 (r > 0.9999) + N7 R1 | **COMMISSIONED** | — |
+| 2b | Lineage split (Tool B) | PROC-SEP-03: 7/7 blood SPLIT κ < 10; tissue COMPARTMENT_ONLY | passes | add to kit's default run; decide whether Tool B output appears on the report |
+| B | Class gauge | Phase 1c P3 (synthetic healthy IN band ≥ 14/16, NOT on random panel) and P4 (≥ 6/7 test blood IN band) on the identity-loci gauge with mapped β; then SWITCH the conductor from marker union to identity loci | identity gauge emitted alongside wired gauge; Phase 1 sealed FAIL, cause measured | Phase 1c; N-plate (lab layer); sex-split bands 35–64; Phase 1b portability; then the switch |
+| 4.5 | Bidirectional | VAL-050/051 reproduce from the kit (pooled d ≈ +0.08 → directional d ≈ +0.62 on the same AIBL samples) | built, not re-run this cycle | one kit procedure |
+| 4.6 | Patient CMB | assessability gated by Stage 2 presence; four-skies plate regenerates from the kit | built | gate fix; kit procedure |
+| 5 | Mahalanobis | on the 11 test samples with the identity gauge as input: no healthy donor beyond band; key names reconciled with the report builder | driven by stem_adult false alarm | wait for B; rename keys |
+| 6 | Cellular age | recalibrated on identity_band_v1: adult healthy donors within ±10 yr of chronological age on immune | pinned at 4 yr | wait for B; recalibrate or mark NOT REPORTABLE in the report |
+| 7 | Tier | every §108-failing class carries no tier; ceiling caps honoured | built | one assertion test |
+| 8 | Disease matching | PROC-ANCHOR-01 already reproduces the surface; origin gate verified fail-CLOSED with a missing file | anchor reproduces | the fail-closed test |
+| 9 | Report | the 11 test samples → 11 reports; no UNMAPPED A, no stem_adult gauge on blood, no Stage 5 distance, no cellular age unless 5/6 are commissioned; legal gate runs | built | run it; read every line of one report against this table |
+| N | Nulls / simulation | N7 + cross-method comparison + N-random run green on the release commit; a disagreement gets a §1.6 row, never a disable flag | verified | make it one command (`RUNBOOK` release check) |
+
+**Then, in this order, the hunt.** Breast (the anchor exists; Phase 3 = GSE51057 from raw IDATs through the commissioned chain). CRC (tissue substrate; the mucosal artifact is documented; cfDNA GSE122126 has the colon arm). Prostate (GSE119260: tissue / plasma / urine sediment in the same men — the substrate question answered within-patient). **Pancreatic** — secretory class; whole blood will not carry it and the record says so; plasma cfDNA is the substrate, so it waits on the cfDNA scale map and a healthy cfDNA band, and it is the one where "we only lose if we cannot detect anything" is the whole bet.
+
+**Rule while commissioning:** no cohort with disease labels is opened until row 9 is COMMISSIONED. The temptation to peek at breast is exactly the cohort reflex the ledger is built to catch.
