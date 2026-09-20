@@ -148,6 +148,59 @@ def stage_b_classes(beta_dict, stage_a_out, cfg=None):
 
 
 
+
+def stage_1s_scale_map(beta_dict, pipeline):
+    """Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas
+    were calibrated on. beta_roadmap = (beta - intercept) / slope from beta_scale_maps_v1.json, keyed by the
+    pipeline tag Stage 1 stamps on its output. Returns (mapped_dict, scale_label). If the pipeline has no
+    fitted map the beta is returned UNCHANGED with label 'UNMAPPED' - downstream must not report a tier from it.
+    Applied to the GAUGE path only: Stage 2 composition was verified on unmapped Stage-1 beta and is scale-tolerant
+    (simplex-constrained NNLS); the wired marker-union gauge keeps unmapped beta because ITS band was compiled that way."""
+    maps = json.load(open(_find("beta_scale_maps_v1.json")))["maps"]
+    m = maps.get(pipeline or "", {})
+    if m.get("slope") is None:
+        return beta_dict, f"UNMAPPED({pipeline or 'unknown pipeline'})"
+    a, b = float(m["slope"]), float(m["intercept"])
+    return {k: min(1.0, max(0.0, (v - b) / a)) for k, v in beta_dict.items()}, f"MAPPED({pipeline}->roadmap; slope {a}, intercept {b}; {maps and json.load(open(_find('beta_scale_maps_v1.json')))['_meta']['version']})"
+
+
+def stage_b_identity(beta_mapped, stage_a_out, age, scale_label):
+    """The gauge SOP s41/s106 actually specifies: A = H(beta_mean)/H_min over the class IDENTITY loci, on
+    Roadmap-scale beta, read against identity_band_v1 (PHASE 1, GSE87571, n=560, PROVISIONAL until Phase 1c).
+    Emitted ALONGSIDE the wired marker-union gauge (stage_b_classes) - not yet in its place. s108 reporting rule:
+    on whole blood only immune and the joint haematopoietic-progenitor component get a band."""
+    import math
+    ident = json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json")))
+    ident = {k: v for k, v in ident.items() if isinstance(v, dict) and "loci" in v}
+    try:
+        band_file = json.load(open(_find("scale_map_addendum.json")))["mapped_band"]   # p10/p90 per decade on MAPPED A
+    except Exception:
+        band_file = {}
+    def H(b): b = min(max(b, 1e-12), 1 - 1e-12); return -b * math.log2(b) - (1 - b) * math.log2(1 - b)
+    def band_for(age_):
+        for k, v in band_file.items():
+            lo, hi = map(int, k.split("-"))
+            if lo <= age_ <= hi: return {"decade": k, "p10": v[0], "p90": v[1], "n": v[2]}
+        return None
+    fr = stage_a_out["class_fractions"]
+    out = {}
+    groups = {"immune": ["immune"], "haematopoietic_progenitor": ["progenitor", "stem_adult"]}
+    for name, members in groups.items():
+        loci = [c for cls in members for c in ident[cls]["loci"]]
+        vals = [beta_mapped[c] for c in loci if c in beta_mapped]
+        frac = sum(fr.get(c, 0) for c in members)
+        if not vals or frac < 0.01:
+            out[name] = {"present": False, "fraction": round(frac, 4)}; continue
+        hm = ident["progenitor" if name != "immune" else "immune"]["H_min"]        # joint uses progenitor's floor (PREREG s3)
+        A = H(sum(vals) / len(vals)) / hm
+        band = band_for(age) if name == "immune" else None
+        placement = None if band is None else ("BELOW_BAND" if A < band["p10"] else "ABOVE_BAND" if A > band["p90"] else "IN_BAND")
+        out[name] = {"present": True, "fraction": round(frac, 4), "A": round(A, 4), "n_loci": len(vals),
+                     "band": band, "placement": placement, "gauge_surface": "identity_loci",
+                     "scale": scale_label, "band_status": "PROVISIONAL identity_band_v1 (Phase 1; one population; Phase 1c pending)" if band else "no band for this component yet",
+                     "reportable": bool(band) and scale_label.startswith("MAPPED")}
+    return out
+
 def stage_4_5_bidirectional(beta_dict, cfg=None):
     """Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional
     composite that catches bidirectional CpG patterns the pooled entropy cancels.
@@ -230,12 +283,16 @@ def stage_6_cellular_age(beta_dict, cfg=None):
 
 
 def run_full(beta_dict, atlas_csv, cfg=None):
-    """Full conductor: Stage A -> B -> 4.5 -> 5 -> 6, assembled into one bundle
-    in the shape build_dashboard_v1.py consumes. Present-gated throughout."""
+    """Full conductor: Stage A -> B (wired) -> 1s scale map -> B-identity -> 4.5 -> 5 -> 6, one bundle
+    in the shape build_dashboard_v1.py consumes. Present-gated throughout.
+    cfg["pipeline"] MUST be the tag Stage 1 stamped (meta["pipeline"], e.g. "stage1_noob_450K"); without it the
+    identity-loci gauge is emitted with scale UNMAPPED and reportable=False (LESSON-SCALE-01, SOP s109)."""
     cfg = cfg or {}
     age = cfg.get("age", 60)
     a = stage_a_cells(beta_dict, atlas_csv, cfg)
-    b = stage_b_classes(beta_dict, a, cfg={"age": age})
+    b = stage_b_classes(beta_dict, a, cfg={"age": age})                         # wired gauge (marker union) - unmapped beta, its own band
+    beta_rm, scale_label = stage_1s_scale_map(beta_dict, cfg.get("pipeline"))   # Stage 1s: Roadmap scale for the identity-loci gauge
+    bi = stage_b_identity(beta_rm, a, age, scale_label)                        # SOP s41/s106 gauge, s108 components, PROVISIONAL band
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
     m = stage_5_mahalanobis(b, cfg={"age": age})
@@ -255,6 +312,8 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "classes": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
                         "fraction": round(v["fraction"], 4), "present": v["present"], "band": v.get("band")}
                     for c, v in b["class_gauge"].items() if v.get("A") is not None},
+        "classes_identity": bi,
+        "scale": scale_label,
         "departure": {"distance": dep.get("mahalanobis_distance"), "beyond": dep.get("mahalanobis_beyond_band"),
                       "driver": (dep.get("top", [{}])[0].get("class") if dep.get("top") else None)},
         "bidirectional": bd["bidirectional"],

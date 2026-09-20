@@ -132,6 +132,7 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True):
     meta = {
         "barcode": barcode,
         "array_type": at_str,
+        "pipeline": f"stage1_noob_{'450K' if at_str=='450k' else at_str.upper()}",   # LESSON-SCALE-01: the tag beta_scale_maps_v1.json is keyed by
         "n_cpgs": int(len(beta)),
         "calibration": "noob (dye-bias + probe-type normalization), per-sample",
         "stage": "SOP Stage 1 steps 1.1-1.2 + 1.5",
