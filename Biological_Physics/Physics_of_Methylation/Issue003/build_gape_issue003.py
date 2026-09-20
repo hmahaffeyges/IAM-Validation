@@ -334,7 +334,6 @@ def sec8_procedures(story):
     proc(story, 'PROC-SEP-03', 'Two tools, two questions: the lineage splitter', [(k, D.SEP_03[k]) for k in ("design","conditioning","result","reading","myeloid","verdict")])
     proc(story, 'PHASE 1 - identity-loci healthy band (GSE87571, 732 raw IDATs through Stage 1)', 'Sealed FAIL on P3/P4; the cause measured; the floors unchanged', [(k, D.PHASE1[k]) for k in ("verdict","cause","why_now","mcmc","after_map","layers","next")])
     proc(story, 'PROC-WB-IMMUNE-01', 'Whole blood × immune — healthy reads in band', [
-    proc(story, 'PHASE 1c - scale-map and band transfer to an unseen lab (GSE42861 controls, n = 335)', 'Map transfers (Stage 1s COMMISSIONED); one-lab band does not; lab layer sized', [(k, D.PHASE1C[k]) for k in ('verdict','lab_layer','n_random','design','nulls','layers')])
         ("input", "betas_cache.pkl for GSM2333901 (58M), GSM2333905 (67F), GSM2333950 (43M), GSM1051533, GSM1051534 (RA-study controls), GSM1051525, GSM1051526 (RA); iamatlas_gauge_identity_loci_v1_0.json; age_reference_matrix.json; IAMAtlasREBUILD.csv + map"),
         ("operation", "(1) deconvolve → require immune fraction ≥ DETECT_FLOOR (it is: 0.80–0.97); (2) β<sub>mean</sub> over the 42,134 immune identity loci (36,290 present on 450K); (3) A = H(β<sub>mean</sub>)/0.838889; (4) place against the immune p10–p90 band at the donor's age; (5) NO input offset (retired)"),
         ("expected", "healthy donors IN BAND; RA cases not required to differ (chronic autoimmune; no prior)"),
@@ -342,6 +341,7 @@ def sec8_procedures(story):
         ("observed 2026-09-19", "43M A=0.8739 vs [0.9021, 0.9934] z −2.07 BELOW · 58M 0.8066 vs [0.9083, 1.0029] z −4.03 BELOW · 67F 0.8326 vs [0.9166, 1.0138] z −3.49 BELOW · RA 0.8789/0.8743 and controls 0.8924/0.8673 (ages not in GEO). Composition: epithelial 0.0000–0.0111 all seven."),
         ("verdict", "OPEN. 3/3 healthy BELOW BAND. Two hypotheses, not separable at n=3: (a) age_reference_matrix (compiled from Hannum/Horvath/Alisch literature β) and the Stage-1 noob path are on different scales — the ~0.1 gap is in the direction the retired 0.055 offset addressed; (b) the donors are below band. Next: run ≥30 public healthy whole-blood 450K/EPIC through the same path; if the median sits ~0.1 below p50 at every decade, (a) is confirmed and the reference is re-anchored to the atlas scale (VAL-053)."),
         ("do not", "compute a group mean and call it the result; the reading is per donor against the band")])
+    proc(story, 'PHASE 1c - scale-map and band transfer to an unseen lab (GSE42861 controls, n = 335)', 'Map transfers (Stage 1s COMMISSIONED); one-lab band does not; lab layer sized', [(k, D.PHASE1C[k]) for k in ('verdict','lab_layer','n_random','design','nulls','layers')])
     proc(story, 'PROC-WB-COMP-01', 'Whole blood — composition is immune, epithelium absent', [
         ("input", "as PROC-WB-IMMUNE-01, deconvolver only"),
         ("expected", "immune + progenitor + stem_adult ≥ 0.95; epithelial (cycling+secretory+terminal+stromal) ≤ 0.02; residual MAE below tissue (0.108–0.153)"),
