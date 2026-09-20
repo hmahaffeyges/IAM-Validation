@@ -884,7 +884,7 @@ PHASE1 = {
 }
 COSMO_EVIDENCE.insert(4, ("2026-09-20", "Absolute calibration against a fixed physical reference (the CMB's absolute-temperature discipline: FIRAS calibrated against a blackbody, not against another sky map)",
   "A cohort comparison subtracts the reference away, so a pipeline offset between the floor's scale and the patient's scale is invisible to it by construction.",
-  "Reading 732 raw IDATs absolutely against the MCMC floor exposed a +0.066 beta pipeline offset the author's April note predicted and 200 within-pipeline VALs could not see; once mapped, healthy blood sits at A = 0.99 with the floor at 1.00.", "PHASE 1 OUTCOME + addendum"))
+  "Reading 732 raw IDATs absolutely against the MCMC floor exposed a +0.066 beta pipeline offset the author's April note predicted and 200 within-pipeline VALs could not see; once mapped, healthy blood sits at A = 0.99 with the floor at 1.00.", "PHASE 1 OUTCOME + addendum; LESSON-SCALE-01"))
 RECON += [("S1", "beta scale of the gauge input vs the floor", "Issue 002: A read directly from any beta",
   "Three scales measured on the identity loci (Roadmap 0.737 / GEO-processed EPIC 0.774 / Stage-1 noob 0.815). H_min lives on the Roadmap scale. Patient beta must be mapped there before an absolute reading; cohort-relative statistics did not need this and so never showed it.",
   "per-pipeline affine map onto the Roadmap scale, fit on healthy blood; floors unchanged", "PHASE 1 OUTCOME, 2026-09-20"),]

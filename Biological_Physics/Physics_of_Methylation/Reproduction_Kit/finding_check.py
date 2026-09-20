@@ -16,9 +16,21 @@ def read(p): return open(p, encoding="utf-8", errors="replace").read() if os.pat
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("id"); ap.add_argument("--retires", nargs="*", default=[]); ap.add_argument("--registers", nargs="*", default=[]); ap.add_argument("--doors", action="store_true"); ap.add_argument("--pdf", default=os.path.join(I3, "IAMPerformance_GAPEIssue003_RC1.pdf"))
     a = ap.parse_args(); fails = []
+    VAR = {"RECON": "RECON", "FALSIFICATION": "FALSIFICATION", "COSMO": "COSMO_EVIDENCE", "FUTURE": "FUTURE_GOALS"}
+    def scoped_blocks(txt, name):
+        """Every `NAME = [...]`, `NAME += [...]`, `NAME.insert(...)`, `NAME.append(...)`, `NAME[i] = (...)` statement, bracket-matched."""
+        out = ""
+        for mm in re.finditer(rf"^{name}\s*(?:=|\+=)\s*\[|^{name}\.(?:insert|append)\(|^{name}\[\d+\]\s*=\s*\(", txt, re.M):
+            j = mm.end() - 1; open_, close = txt[j], {"[": "]", "(": ")"}[txt[j]]; depth = 0
+            while j < len(txt):
+                depth += (txt[j] == open_) - (txt[j] == close); j += 1
+                if depth == 0: break
+            out += txt[mm.start():j] + "\n"
+        return out
     for r in a.registers:
         f, _ = REG[r]; p = f if os.path.isabs(f) else os.path.join(I3, f); txt = read(p)
-        if a.id not in txt: fails.append(f"register {r}: '{a.id}' not in {os.path.relpath(p, BP)}")
+        if r in VAR: txt = scoped_blocks(txt, VAR[r])
+        if a.id not in txt: fails.append(f"register {r}: '{a.id}' not in the {r} block(s) of {os.path.relpath(p, BP)}")
     if a.doors:
         for d in DOORS:
             if a.id not in read(d): fails.append(f"door: '{a.id}' not in {os.path.relpath(d, BP)}")
