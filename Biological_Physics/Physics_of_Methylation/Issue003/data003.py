@@ -377,7 +377,7 @@ HULL = [  # SOP s48-50, CR2 s2.1
  ("Anchor trade-off", "GSE51032 case-vs-HC Cohen's d +2.088 (v0_1) -> +1.450 (v0_5): the honest cost of a hull that represents more populations and platforms"),
  ("Transfer", "Han Chinese n = 42 (GSE141682) median d = 10.51, no systematic offset (small n); GIFT HC n = 193 median d = 12.18 - FTD-context HC selection broadens the envelope into case range"),
  ("Guards", "negative quadratic form = corrupted reference, halt; >15 imputed cell types = INSUFFICIENT_DATA (hard), 6-15 = PARTIAL_DATA (soft)"),
- ("Status in this issue", "NOT executed; specified here from SOP v1.4.0 so the next issue can write PROC-HULL-01"),
+ ("Status in this issue", "NOT executed; specified here from SOP v1.4.0 as the specification for PROC-HULL-01 (open row: Stage 5 is driven by the stem_adult false alarm and waits on the lab zero; see CHAIN_COMMISSIONING)"),
 ]
 NULLS = [  # SOP s80-91
  ("N1 label permutation", "observed statistic outside the 95% CI of the permuted distribution"), ("N2 age-stratified permutation", "shuffle within age decades; percentiles, not Gaussian"),

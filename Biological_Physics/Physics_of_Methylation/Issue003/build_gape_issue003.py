@@ -87,9 +87,17 @@ def cover(story):
     for h, b in news:
         story.append(Paragraph(f'<b>{h}</b> {b}', sBodySm))
     story.append(SP(0.1)); story.append(HR())
-    story.append(Paragraph('WHAT THIS ISSUE DOES NOT YET COVER', sLabel))
-    story.append(Paragraph('Of the twelve chain stages at HEAD (0, 1, 2, 3, 4, 4.5, 4.6, 5, 6, 7, 8, 9) this issue documents three — Stages 2, 4 and 7 — and the atlas. The other nine (0, 1, 3 [not built], 4.5, 4.6, 5, 6, 8, 9) are named in §11 with their files and left for the next issue. '
-        'The disease-signature matrix, the crown-jewel wall, the second chain, the directional AD detector, cellular age and the report builders are therefore not described here.', sBodySm))
+    story.append(Paragraph('COVERAGE OF THE CHAIN, BY STAGE (as of this RC)', sLabel))
+    story.append(Paragraph('Issue 003 is the one document for this work; there is no "next issue". Every stage of the chain at HEAD is described in the switching order (Part II) '
+        'and carries a status in CHAIN_COMMISSIONING.md. As of this RC: <b>commissioned</b> - Stage 1 calibration (PROC-CAL-01), Stage 1s scale map (PHASE 1c), Stage 2 deconvolution '
+        '(PROC-DECON-01, PROC-ANCHOR-01, N7). <b>Run and recorded with open defects</b> - Stage 0 intake (fail-open closed; intensity QC hand-off unwired), Stage 2b lineage splitter '
+        '(PROC-SEP-03), Stage B class gauge (identity-loci statistic emitted alongside the wired marker-union gauge; band gated on the lab zero), Stage 4.6 patient CMB (four-skies plate; '
+        'assessability gate to fix), Stage 5 Mahalanobis (driven by the stem_adult false alarm; key names reconciled), Stage 6 cellular age (pinned at the curve floor; not reportable), '
+        'Stage 7 tiers, Stage 8 disease matching (separation surface reproduces the sealed anchor), Stage 9 report. <b>Built, not re-run this cycle</b> - Stage 4.5 bidirectional. '
+        '<b>Not wired by decision</b> - Stage 3 foreground (SOP s104). Row N (nulls and simulation) is verified and runs on every release (RUNBOOK s11).', sBodySm))
+    story.append(Paragraph('<b>Described only by reference in this RC:</b> the disease-signature matrix v1.13 (read in s3 for the myeloid rows; the full matrix is a repo file), '
+        'the crown-jewel disease wall, the directional AD detector (Stage 4.5, VAL-050/051 - reproduce from the kit is an open commissioning row), and the report builders '
+        '(Stage 9 - the report is commissioned only when Stages 5 and 6 are). These are open rows, not deferred chapters.', sBodySm))
     story.append(SP(0.06))
     story.append(Paragraph('WHAT THIS PAPER IS NOT', sLabel))
     story.append(Paragraph('Not clinical validation. Not a diagnostic. Nothing here should inform patient care. The instrument is at a research stage; '
@@ -407,7 +415,7 @@ def sec10_falsification(story):
 
 
 def sec11_engine_map(story):
-    opener(story, 'SECTION 11', 'ENGINE MAP — WHAT THE RUNNING CHAIN CONTAINS, AND WHAT THIS ISSUE DOES NOT YET COVER',
+    opener(story, 'SECTION 11', 'ENGINE MAP — WHAT THE RUNNING CHAIN CONTAINS, AND ITS COMMISSIONING STATUS',
         'The flowchart at HEAD (flowchart_vKISS.html) lists the twelve stages below (0 through 9, with 4.5 and 4.6 as separate wired stages), plus orchestration and test data. Issue 002 had no chain at all — it was class cards and physics — so every stage is new territory for 003, '
         'and this issue documents only the stages that were executed with the canonical files during its preparation. The right-hand column says so, stage by stage. '
         'A reader who needs Stage 4.5, 5, 6, 8 or 9 will not find them here; they are the next issue\'s work, and the files that implement them are named so they can be read now.')
