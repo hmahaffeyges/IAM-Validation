@@ -148,3 +148,15 @@ Two safeguards built in spring 2026 were switched off because their first real f
 **BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (`Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json`). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: `Testing_and_Code/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md`; Issue 003 RECON S1, §1.6.
 
 Pre-flight check: for every cohort, compute healthy-immune β̄ on the identity loci and compare to 0.737 (Roadmap). A departure > 0.01 without a matching entry in `beta_scale_maps_v1.json` halts absolute reporting for that cohort.
+
+## 13. Getting raw IDATs fast (added 2026-09-20)
+
+Do not download `GSExxxxx_RAW.tar`. GEO serves it single-stream at ~0.7 MB/s and it carries every sample in the study; a 5.7 GB tar for 210 controls out of 699 took 2.5 h. Instead:
+
+```
+python3 Biological_Physics/CPG_Engine/tools/geo_fetch_idats.py GSE125105 idats/GSE125105 --field diagnosis --value control --workers 8
+```
+
+reads the series-matrix header by range request, selects samples on a characteristics field, and fetches only their `_Grn/_Red.idat.gz` from `geo/samples/GSMnnn/GSM/suppl/` with 8 threads: 210 controls, 1.7 GB, **6 minutes at ~5–7 MB/s**. Idempotent; writes `selected.json`. Then run Stage 1 with a process pool (6 workers on 8 cores, ~6×) — `band_v2_test_run.py::calibrate_all` is the template. The per-sample code path is identical to PROC-CAL-01; only the scheduling changes.
+
+Streaming a series matrix (author-processed β) is still the fastest route for **within-pipeline** work (anchor reproduction, PROC-ANCHOR-01) and must NOT be used for absolute gauge readings or reference bands (LESSON-SCALE-01).
