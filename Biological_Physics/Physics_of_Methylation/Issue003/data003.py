@@ -953,3 +953,19 @@ PRIOR_ART = {
 }
 FUTURE_GOALS.append(("GATE 2 - after the band", "Apply the Sanchez-Mackenzie thermal-background model (Weibull/gen-gamma Hellinger divergence) to the identity loci: which loci carry regulatory vs thermal signal? Compare to the empirical marker selection.", "PRIOR_ART",
   "the two uses of k_B T ln2 are complementary - their filter could sharpen our ruler's loci", "MethylIT on the Stage-1 healthy betas already cached (three cohorts)"))
+
+LABZERO_02 = {
+ "question": "Does a fourth lab (UCLA, USA) let the control probes predict the lab offset within 0.010, and does per-array correction narrow a healthy band by 20%?",
+ "result": "P4 FAIL: UCLA predicted -0.020, observed -0.046 (err 0.026). P4b FAIL: LOO over four labs - Karolinska 0.004, Uppsala 0.018, UCLA 0.026, Munich 0.052 (1/4 within bar). P6 FAIL: within-cohort sd 0.0203 -> 0.0177 (12.6%, bar 20%).",
+ "four_labs": "mapped immune A cohort constant vs Uppsala: Karolinska +0.024, Munich -0.021, UCLA -0.046 - each flat across age. The pipeline map (Stage 1s, commissioned) is common to all four; the constants are what it does not remove.",
+ "reading": "control probes carry the DIRECTION of a lab's offset, not its size; adding a lab widened the error spread. The housekeeping channels record part of the chemistry (normalisation, conversion controls) but not the pre-analytical part (DNA input, bisulfite batch, storage). Honest end of the route for now.",
+ "decision": "THE LAB ZERO IS THE HEALTHY-CONTROL PANEL (CLSI EP28): 20-30 healthy arrays per lab through the same Stage 1, median mapped immune A subtracted, offset printed on every report. Tried the ideal route first, fell back to the standard when it failed - the floor and the map are untouched.",
+ "nulls": "N-plate 38 chips F 1.79 p 0.009. N-sex signed: women lower in every UCLA decade (as Uppsala, opposite Karolinska) - sign lab-dependent, no split. N-ethnicity Hispanic-Caucasian d -0.33 at n=18, descriptive only. P2 presence 86% in a median-age-70 cohort - the gate needs an age-aware look (commissioning note).",
+}
+RECON += [("B3 (LAB-ZERO-02)", "lab-zero mechanism", "LAB-ZERO-01: control probes promising", "fourth lab: direction 4/4, magnitude 1/4 within bar; within-cohort narrowing 13%", "LAB ZERO = per-lab healthy-control panel (CLSI EP28); control-probe route closed for now, revisit with >=6 labs", "LAB-ZERO-02 OUTCOME"),]
+FALSIFICATION += [("LAB-ZERO-01 'promising - a fourth cohort decides' (2026-09-20)", "fourth cohort: P4 err 0.026, LOO 1/4, narrowing 13% - the control probes do not supply the lab zero", "DECIDED AGAINST same day (LAB-ZERO-02); panel standard adopted"),]
+COSMO_EVIDENCE.insert(7, ("2026-09-20", "Housekeeping-channel systematics model tested on an unseen instrument (the Planck rule: a systematics model earns its place only by predicting a detector it was not fit on)",
+  "A cohort method never asks whether a lab offset is predictable from the array itself; it subtracts it with the cohort mean and moves on.",
+  "Four labs on one scale (0 / +0.024 / -0.021 / -0.046, each flat across age): the control probes predict every sign and only the Swedish pair's size. A negative result that fixed the design: the lab zero is a measured healthy panel, not a model.", "LAB-ZERO-02"))
+FUTURE_GOALS[1] = ("GATE 0b - lab zero: CLOSED (panel standard)", "Per-lab healthy-control panel is the lab zero (LAB-ZERO-02). Revisit the control-probe route only with >= 6 labs and pre-analytical metadata; the 13% within-cohort narrowing is noted, not built.", "LAB-ZERO-01, LAB-ZERO-02",
+  "direction 4/4, magnitude 1/4; the unrecorded pre-analytical term dominates", "closed")

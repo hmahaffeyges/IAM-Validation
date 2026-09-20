@@ -61,3 +61,5 @@ result it established. Harness scripts are in `TEST_DATA/harness/`; demo reports
 Source-doc before concluding; no fabrication; referee language ("consistent with", never
 "confirms/validates/proves"); DERIVED-IAMAtlas-only (no cohort pooling); surgical edits with
 before/after; set up tests fully then await go.
+
+**LAB ZERO (LAB-ZERO-02, 2026-09-20).** A patient's absolute A is read against FLOOR (H_min) + PIPELINE MAP (Stage 1s) + **LAB ZERO**. Four healthy whole-blood cohorts on one scale sit at 0 / +0.024 / −0.021 / −0.046 A (Uppsala / Karolinska / Munich / UCLA), each constant flat across age; the array's control probes predict the sign of every offset but the size of only the Swedish pair, so the lab zero is **not** modelled — it is measured: a per-lab healthy-control panel (20–30 arrays, once, through the same Stage 1; median mapped immune A subtracted; offset printed on every report), as CLSI EP28 prescribes. Record: `Testing_and_Code/VAL_PostAtlas/CPG_LABZERO_02_fourth_cohort_GSE111629/`.
