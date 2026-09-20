@@ -25,8 +25,7 @@ def make_canvas(canvas, doc):
     canvas.line(0.5*inch, 0.45*inch, W - 0.5*inch, 0.45*inch)
     canvas.setFillColor(MUTED2); canvas.setFont('Helvetica', 7)
     canvas.drawString(0.5*inch, 0.30*inch, f'Physics of Methylation: Landauer Metrology  ·  GAPE {ISSUE}')
-    canvas.drawCentredString(W/2, 0.30*inch, 'Patents pending 64/012,720 and 64/014,568')
-    canvas.drawRightString(W - 0.5*inch, 0.30*inch, f'Page {canvas.getPageNumber()}')
+    canvas.drawRightString(W - 0.5*inch, 0.30*inch, f'Patents pending 64/012,720 and 64/014,568  ·  Page {canvas.getPageNumber()}')
     canvas.restoreState()
 
 def opener(story, num, title, blurb):
