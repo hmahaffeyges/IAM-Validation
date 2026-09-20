@@ -24,7 +24,7 @@ def make_canvas(canvas, doc):
     canvas.setStrokeColor(LAV_D); canvas.setLineWidth(0.5)
     canvas.line(0.5*inch, 0.45*inch, W - 0.5*inch, 0.45*inch)
     canvas.setFillColor(MUTED2); canvas.setFont('Helvetica', 7)
-    canvas.drawString(0.5*inch, 0.30*inch, f'IAMPerformance  ·  Physics of Methylation: Landauer Metrology  ·  GAPE {ISSUE}')
+    canvas.drawString(0.5*inch, 0.30*inch, f'Physics of Methylation: Landauer Metrology  ·  GAPE {ISSUE}')
     canvas.drawCentredString(W/2, 0.30*inch, 'Patents pending 64/012,720 and 64/014,568')
     canvas.drawRightString(W - 0.5*inch, 0.30*inch, f'Page {canvas.getPageNumber()}')
     canvas.restoreState()
@@ -464,7 +464,7 @@ def sec5a_tools(story):
         'where the class mean sits within 0.05 of the class H_min_β; and the Stage 4.6 sky (5A.4) uses the per-CpG SD as its noise model. The predecessor IAMAtlas.csv.xz was retired for a collapse/flatness bug — '
         'which is what the first two lines of the CHANGELOG are about, and why the provenance file names the build.', sBodySm))
     story.append(Paragraph('How the atlas was built', sLabel))
-    story.append(tbl([("item","value")]+[(Pb(k),v) for k,v in D.ATLAS_BUILD],[0.22,0.78],fs=6.8))
+    story.append(tbl([("item","value")]+[(Pb(k),v) for k,v in D.ATLAS_BUILD_DETAIL],[0.22,0.78],fs=6.8))
     # 5A.4 CMB toolkit
     story.append(Paragraph('5A.4  The CMB toolkit, applied to the methylome', sSect2))
     story.append(Paragraph('The methylome and the microwave sky pose the same problem: one noisy map, a physical reference for what it should look like, several foregrounds, and the need to say '

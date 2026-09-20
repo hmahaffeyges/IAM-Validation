@@ -351,7 +351,7 @@ MCMC_HMIN = [  # G-002 / G-003b sampler settings (EDEAR s5)
  ("H_min_global", "0.756499 = H(0.782), frontal cortex neuron, Lister 2013 (E073) - the universal reference the class floors are read against"),
  ("Reference-cohort rule", "FACS-sorted or laser-microdissected only; never bulk tissue (cell-type purity)"),
 ]
-ATLAS_BUILD = [  # EDEAR s5.4-5.6, SOP s26-29
+ATLAS_BUILD_DETAIL = [  # EDEAR s5.4-5.6, SOP s26-29
  ("Source rows", "10,938,662 (iamatlas_mcmc_inputs.csv, 732 MB) from Moss 2018, Loyfer 2023, EpiDISH, Salas, Lister 2013 and others, harmonised to one cell-type label set"),
  ("Chains per cell type", "2"), ("SD tightness target", "posterior SD < 0.10 for >= 90% of CpGs per cell type"),
  ("Informative-CpG selection", "posterior SD <= 0.10 AND between-cell-type variance >= 0.02"),
