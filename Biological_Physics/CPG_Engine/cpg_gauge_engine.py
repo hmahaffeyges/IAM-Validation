@@ -59,6 +59,9 @@ substrates — score it on those floors, NEVER the methyl floor.
 
 Source: Mahaffey 2026 GAPE Issue 002 (H_MIN_TABLE, substrate registry, tiers,
 healthy baselines, three-component decomposition). Zero fitted parameters.
+
+
+BETA SCALE (LESSON-SCALE-01, 2026-09-20): H_min and the Atlas live on the Roadmap/GenomicStudio beta scale. Stage-1 noob beta is +0.066 higher on the identity loci; GEO author-processed EPIC +0.037. ANY absolute A reading must first map patient beta onto the Roadmap scale via Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json (PROVISIONAL). Within-pipeline comparisons do not need it. Do NOT re-derive H_min per pipeline. Record: Testing_and_Code/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md
 """
 from __future__ import annotations
 import math

@@ -134,5 +134,6 @@
  "n_band": 560,
  "statistic": "H(beta_mean)/H_min over identity loci",
  "pipeline": "Stage0/1 methylprep noob; Walther HEAD contrast off",
- "sealed_prereg_sha256_prefix": "4d8f40ace72eca1f"
+ "sealed_prereg_sha256_prefix": "4d8f40ace72eca1f",
+ "beta_scale": "Stage-1 noob 450K (NOT the Roadmap scale). Map with beta_scale_maps_v1.json:stage1_noob_450K before comparing to H_min = 1.0 or to Atlas-scale synthetic patients. See OUTCOME.md addendum."
 }
