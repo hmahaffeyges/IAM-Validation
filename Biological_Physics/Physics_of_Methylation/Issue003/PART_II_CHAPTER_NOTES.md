@@ -74,3 +74,6 @@ Author's rule for future readers and future AIs: *not "no cohorts" — "no cohor
 
 ## Prior art as the door (author, 2026-09-20)
 Sanchez & Mackenzie (PLoS ONE 2016; IJMS 2019; MethylIT) put Landauer under methylation a decade ago, peer-reviewed. Enter the conversation on what is agreed - the bound, the thermal background, information divergences, the clinic gap - then carry it forward: they had no fixed zero (centroid of controls), no single-sample reading, no composition step, no calibration toolkit. "One filters, one calibrates." Cite, do not credit: the author arrived from cosmology without them and first read the paper 2026-09-20. Their thermal-background filter is complementary and is a Future Goal on the identity loci.
+
+## Title adopted 2026-09-20: *Physics of Methylation: Landauer Metrology*
+The field is Landauer metrology; the methylome is its third application after silicon (SCAPE) and qubits (QAPE). Part II chapter added: **'Landauer Metrology and the Physics of the Biological Write-Head'** — the cell as a write-head that writes and holds a state against thermal noise; the Mahaffey number as energy per bit above the noise floor (M1 ~117, cell 20.94, transmon 1); why the cell cannot cool and the qubit must.

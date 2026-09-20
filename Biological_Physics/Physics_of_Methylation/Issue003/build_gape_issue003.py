@@ -24,7 +24,7 @@ def make_canvas(canvas, doc):
     canvas.setStrokeColor(LAV_D); canvas.setLineWidth(0.5)
     canvas.line(0.5*inch, 0.45*inch, W - 0.5*inch, 0.45*inch)
     canvas.setFillColor(MUTED2); canvas.setFont('Helvetica', 7)
-    canvas.drawString(0.5*inch, 0.30*inch, f'IAMPerformance  ·  GAPE {ISSUE}')
+    canvas.drawString(0.5*inch, 0.30*inch, f'IAMPerformance  ·  Physics of Methylation: Landauer Metrology  ·  GAPE {ISSUE}')
     canvas.drawCentredString(W/2, 0.30*inch, 'Patents pending 64/012,720 and 64/014,568')
     canvas.drawRightString(W - 0.5*inch, 0.30*inch, f'Page {canvas.getPageNumber()}')
     canvas.restoreState()
@@ -49,7 +49,8 @@ def status_p(s):
 # ═══════════════════════════════════════════════════════════════════════════════
 def cover(story):
     story.append(Paragraph('IAMPerformance', sTitle))
-    story.append(Paragraph('Physics-Derived Cellular Fidelity Intelligence', sSub)); story.append(SP(0.06))
+    story.append(Paragraph('PHYSICS OF METHYLATION: LANDAUER METROLOGY', sSub)); story.append(SP(0.02))
+    story.append(Paragraph('GAPE Issue 003  ·  measuring how far above the thermal noise quantum each cell class writes and holds its state, against a fixed physical zero', sMut)); story.append(SP(0.06))
     story.append(HRFlowable(width='100%', thickness=1, color=LAV, spaceAfter=5))
     story.append(Paragraph(f'<b>{ISSUE}  ·  {DATE}</b>  ·  The Healthy Range of the Cellular Write Process — '
         'Eight Architecture Classes, Forty H_min Values, One Atlas of 115 Cell Types, and the First Written '
@@ -597,6 +598,7 @@ def sec0b_prior_art(story):
 
 def sec0_scope(story):
     story.append(Paragraph('WHAT THIS DOCUMENT CLAIMS, AND WHAT IT DOES NOT', sSect))
+    story.append(Paragraph('WHAT THIS FIELD IS CALLED', sLabel)); story.append(Paragraph(D.SCOPE['field'], sBody))
     story.append(Paragraph('<b>Not claimed.</b>', sBodySm))
     for x in D.SCOPE["not_claimed"]: story.append(Paragraph(f'&bull; {x}', sBodySm))
     story.append(SP(0.06)); story.append(Paragraph('<b>Claimed.</b> ' + D.SCOPE["claimed"], sBodySm))

@@ -1,5 +1,8 @@
 # Biological Physics — the Informational Actualization Model applied to the methylome
 
+**What this field is called (2026-09-20): Physics of Methylation: Landauer Metrology** — measuring how far above the thermal noise quantum an information-writing process operates, against a fixed physical zero (H_min per cell class). Thermal noise is the unit (M = E_drive / k_B T), not the nuisance. Prior art: Sanchez & Mackenzie 2016 established that the methylome obeys Landauer's bound; Landauer metrology measures how far above it each cell class operates (Issue 003 §0b).
+
+
 This track applies the Informational Actualization Model (IAM) — a first-principles thermodynamic framework — to DNA methylation. The premise the framework carries across scales is a single one: the Landauer cost of maintaining an irreversible information pattern at physiological temperature sets an architecture-class-specific entropy floor. For cells, that floor is the minimum entropy a healthy cell type can hold while keeping its identity. The clinical instrument built on it, the **Cellular Performance Gauge (CPG)**, reads how far a cell type's methylation pattern has departed from that derived floor.
 
 The naming is literal, not decorative: the patient's per-CpG departure map is the **Cosmic Methylome Background (CMB)**, and the chain is constructed on the same data-processing pipeline used in CMB cosmology (see *Methodology* below).
