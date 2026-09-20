@@ -35,14 +35,14 @@ SWITCHING_ORDER = [
   defects=[], procedures=["PROC-CAL-01","PHASE 1 (732/732)"], rules=["SOP §109 (β scale)","RUNBOOK §12 (pre-flight: healthy immune β̄ vs 0.737)"],
   do_not=["do not compare a Stage-1 β to an Atlas β, a GEO-processed β, or H_min_beta without the pipeline map"]),
 
- dict(id="1s", name="Scale map (pipeline → Roadmap)", status="WIRED 2026-09-20 (map PROVISIONAL - Phase 1c pending)",
+ dict(id="1s", name="Scale map (pipeline → Roadmap)", status="COMMISSIONED 2026-09-20 (Phase 1c: map transfers to an independent lab, median mapped A 1.0097)",
   purpose="Put the patient's β on the scale H_min and the Atlas were calibrated on, so an ABSOLUTE reading means something. WIRED: Stage 1 stamps meta['pipeline']; cpg_conductor.stage_1s_scale_map applies the map to the gauge path; stage_b_identity emits the identity-loci gauge with scale + reportable labels alongside the wired gauge.",
   inputs="β vector + its pipeline tag", outputs="β on the Roadmap scale; label scale=MAPPED(<pipeline>) or scale=UNMAPPED",
   files=["CPG_Engine/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json","CPG_Engine/cpg_conductor.py (stage_1s_scale_map, stage_b_identity)","CPG_Engine/stage_1_idat_calibration.py (meta['pipeline'])"],
   command="python3 -c \"import json; m=json.load(open('CPG_Engine/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json'))['maps']['stage1_noob_450K']; print('beta_roadmap = (beta -', m['intercept'], ') /', m['slope'])\"",
   expected="GSM2333901 (healthy 58M) through run_full: cfg without pipeline → identity immune A 0.8066 BELOW_BAND scale=UNMAPPED reportable=False; with cfg['pipeline']='stage1_noob_450K' → A 0.9748 IN_BAND reportable=True. stage1_noob_450K: slope 1.0127, intercept 0.0662. After mapping, Swedish healthy immune A = 0.990 (p10-p90 0.962-1.016). GEO-processed EPIC and TCGA-sesame entries are TO FIT.",
   lessons=[("LESSON-SCALE-01","three scales measured: Roadmap 0.737 / GEO-processed EPIC 0.774 / Stage-1 0.815 on the same 42k identity loci."),
-           ("PHASE 1 addendum","P3 15/15 after the map is a CONSISTENCY check (map fit on the band cohort); Phase 1c tests it on an independent cohort.")],
+           ("PHASE 1c","map fit on GSE87571 puts GSE42861 controls (independent lab, n=315) at 1.0097 - a pipeline constant. The one-lab BAND does not transfer: lab layer +0.017 A flat across age, chips p=3e-12, and a random panel sits in band 67% of the time - band width is pipeline/chip variance, so the healthy reference must be pooled across labs AFTER the map with the lab term disclosed.")],
   defects=["only one pipeline fit; GEO-processed and TCGA maps not yet fit"], procedures=["PHASE 1 addendum"], rules=["SOP §109","RUNBOOK §12"],
   do_not=["do not report a tier from UNMAPPED β"]),
 

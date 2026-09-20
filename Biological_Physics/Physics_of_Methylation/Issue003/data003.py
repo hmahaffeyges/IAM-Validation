@@ -888,3 +888,15 @@ RECON += [("S1", "beta scale of the gauge input vs the floor", "Issue 002: A rea
   "Three scales measured on the identity loci (Roadmap 0.737 / GEO-processed EPIC 0.774 / Stage-1 noob 0.815). H_min lives on the Roadmap scale. Patient beta must be mapped there before an absolute reading; cohort-relative statistics did not need this and so never showed it.",
   "per-pipeline affine map onto the Roadmap scale, fit on healthy blood; floors unchanged", "PHASE 1 OUTCOME, 2026-09-20"),]
 FALSIFICATION += [("Analyst recommendation (2026-09-20 03:30) to re-derive H_min_beta on Stage-1 healthy blood", "would discard the G-002 MCMC confirmation and make the floor pipeline-dependent; the offset is in the input scale, not the floor", "WITHDRAWN same day"),]
+
+PHASE1C = {
+ "verdict": "P3 PASS (map transfers: GSE42861 controls n=315, independent lab, median mapped immune A 1.0097; unmapped 0.857). P4 FAIL (one-lab band: 53% in the GSE87571 band). Stage 1s COMMISSIONED.",
+ "lab_layer": "GSE42861 - GSE87571 median per decade: +0.013, +0.016, +0.018, +0.016, +0.018 (25-74) - flat across age, ~+0.017 A. N-plate: 37 Sentrix chips, F=4.30, p=2.6e-12. The four TEST_DATA GSE42861 arrays sit inside their own cohort p5-p95 (4/4): Phase 1's 'above band' was the cohort, not the chips.",
+ "n_random": "a mean-beta-matched random panel put 67% of controls IN band (must have been <50%): on healthy blood the identity loci set the LEVEL, but the band WIDTH is pipeline/chip variance any panel shares. A one-lab band is too narrow by the between-lab term.",
+ "design": "healthy reference = pooled across >=2 labs AFTER the pipeline map, percentile bands on mapped A, sex-split 35-64, lab/chip random effect estimated and disclosed. Pool after mapping (the pipeline term must be removed first), never raw (Phase 1 was right about that).",
+ "nulls": "N-sex |d| 0.28-0.69, women higher every decade. N-smoke: current 1.0108 / ex 1.0086 / never 1.0107 - no effect. RA arrays not opened.",
+ "layers": "FLOOR (Roadmap, MCMC) -> PIPELINE (+0.066 beta; transfers; COMMISSIONED) -> LAB (+0.017 A between two labs; chips p~1e-12) -> SEX (smaller, consistent).",
+}
+COSMO_EVIDENCE.insert(5, ("2026-09-20", "Transfer test on an unseen calibrator (Planck's cross-frequency and cross-instrument consistency: a calibration is only accepted when it predicts data it was not fit on)",
+  "A cohort-relative statistic has nothing to transfer: it is re-fit on every cohort by construction, so it cannot distinguish a pipeline constant from a lab offset.",
+  "The pipeline map fit on one lab put an unseen lab's healthy blood at A = 1.010; the same test separated a constant lab offset (+0.017) and a chip effect (p = 1e-12) that no within-cohort analysis had ever resolved.", "PHASE 1c OUTCOME"))
