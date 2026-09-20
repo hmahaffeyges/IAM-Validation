@@ -88,7 +88,7 @@ SWITCHING_ORDER = [
            ("LESSON-SCALE-01","the gauge input must be on the floor's scale."),
            ("PROC-CHAIN-01","stem_adult false BREACH in 6/7 healthy blood from an n=28 band → §108 reporting rule."),
            ("Floor / ruler / band","FLOOR = H_min (physics, 40 values). RULER = the identity loci. BAND = a cohort percentile with its own provenance. Every 'healthy reads wrong' case traced to a band or a scale, never a floor.")],
-  defects=["conductor still wired to the marker union (labelled gauge_surface='marker_union'); switch only when identity_band_v1 is confirmed on an independent cohort (Phase 1c)","band is one population (N. Sweden) - Phase 1b","N-sex indicates sex-split bands 35-64","N-plate not yet run"],
+  defects=["conductor still wired to the marker union (labelled gauge_surface='marker_union'); switch only when identity_band_v1 is confirmed on an independent cohort (Phase 1c)","band is one population (N. Sweden) - Phase 1b","sex: signed d flips between labs (GSE42861 women higher, GSE87571 women lower) - no split until the sign is stable on pooled mapped data","N-plate not yet run"],
   procedures=["PROC-FORMULA-01","PROC-N7-01","PHASE 1"], rules=["SOP §41-§43, §105-§109","RUNBOOK §10-§12","§108 reporting rule"],
   do_not=["do not compute Cohen's d between groups and call it a result - the physics measures, cohorts only point","do not read A from marker-union β","do not read A from UNMAPPED β"]),
 
