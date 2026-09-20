@@ -582,6 +582,19 @@ def sec_presence(story):
     for k in ("statement","scope","whole blood","myeloid check","rationale","path back","keep"):
         story.append(Paragraph(f'<b>{k}.</b> {D.PRESENCE_RULE[k]}', sBodySm))
 
+def sec0b_prior_art(story):
+    story.append(PageBreak())
+    story.append(Paragraph('PRIOR ART - THE DOOR INTO THE CONVERSATION', sSect))
+    story.append(Paragraph('Established physics we stand on, what it left open, and why this is cited but not built upon', sSub))
+    story.append(Paragraph('<b>Cited.</b> ' + D.PRIOR_ART["citation"], sBodySm))
+    story.append(Paragraph('<b>Independent arrival.</b> ' + D.PRIOR_ART["independence"], sBodySm))
+    story.append(Paragraph('WHAT WE AGREE ON', sLabel))
+    for a in D.PRIOR_ART["agreed"]: story.append(Paragraph('&bull; ' + a, sBodySm))
+    story.append(Paragraph('WHAT WAS MISSING - AND WHAT THIS DOCUMENT ADDS', sLabel))
+    for m in D.PRIOR_ART["missing"]: story.append(Paragraph('&bull; ' + m, sBodySm))
+    story.append(Paragraph('IN ONE LINE', sLabel)); story.append(Paragraph(D.PRIOR_ART["one_line"], sBody))
+    story.append(Paragraph('THERMAL NOISE IS THE RULER', sLabel)); story.append(Paragraph(D.PRIOR_ART["thermal"], sBodySm))
+
 def sec0_scope(story):
     story.append(Paragraph('WHAT THIS DOCUMENT CLAIMS, AND WHAT IT DOES NOT', sSect))
     story.append(Paragraph('<b>Not claimed.</b>', sBodySm))
@@ -621,7 +634,7 @@ def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)
     story = []
     cover(story); toc(story)
-    story.append(PageBreak()); sec0_scope(story)
+    story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story)
     sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
