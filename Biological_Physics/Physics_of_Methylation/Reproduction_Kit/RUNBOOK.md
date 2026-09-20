@@ -180,3 +180,8 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 `Reproduction_Kit/finding_check.py <ID> --retires "phrase" ...` runs steps 2, 3, 5 and 6's string checks as assertions and exits non-zero on any miss. It does not replace step 6's reading.
 
 **What is NOT a finding:** a typo, a layout fix, a renamed variable. Those get a commit and copies, nothing else.
+
+**Two rules that keep the count down** (author, 2026-09-20 — "that is exactly how I ended up with 50 versions of an SOP and 10 other documents"):
+
+- **No new document for a finding.** The document set is CLOSED: Issue 003 (the one book), the SOP (one live file), this RUNBOOK, HANDOFF.md, CHAIN_COMMISSIONING.md, switching_order.py, one STATUS sheet, and one OUTCOME folder per sealed procedure. A finding goes into a register or a door that already exists. Wanting a new roadmap / lessons / status file is the signal that its place has not yet been found — find it. New files are for new *code* and new *sealed procedures*, never for new *prose*.
+- **One live version per document, edited in place; git is the history.** No `_v2_1`, `_final`, `_FINAL2`. The SOP's supersession ledger says what changed and why; `git log -p` holds every prior state. Retired documents go to `RETIRED/` with a date and are never edited again.
