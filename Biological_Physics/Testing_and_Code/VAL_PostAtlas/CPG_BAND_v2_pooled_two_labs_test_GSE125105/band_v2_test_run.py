@@ -19,8 +19,7 @@ def log(*a): print(*a, flush=True)
 
 # ---------- 0. unpack + metadata ----------
 def unpack():
-    if not glob.glob(os.path.join(IDAT_DIR, "*_Grn.idat*")):
-        with tarfile.open(TAR) as t: t.extractall(IDAT_DIR)
+    pass  # IDATs fetched per-sample by tools/geo_fetch_idats.py (controls only)
     grn = sorted(glob.glob(os.path.join(IDAT_DIR, "*_Grn.idat*")))
     pairs = {}
     for g in grn:
@@ -46,18 +45,21 @@ def metadata():
     return pd.DataFrame({"gsm": gsms, "age": age, "sex": sex, "disease": dz, "smoking": smk}).set_index("gsm")
 
 # ---------- 1. Stage 0 + Stage 1 ----------
-def calibrate_all(pairs):
-    from stage_1_idat_calibration import calibrate_idat_to_beta
+def calibrate_all(pairs, workers=6):
+    """Stage 1 in parallel via independent subprocesses (the sandbox forbids multiprocessing semaphores).
+    Same per-sample code path as PROC-CAL-01; only the scheduling differs. 6 workers on 8 cores."""
+    import subprocess
     cache = os.path.join(OUT, "betas_GSE125105_controls.pkl")
     if os.path.exists(cache): return pd.read_pickle(cache)
-    B = {}; t = time.time(); fails = []
-    for i, (gsm, (g, r)) in enumerate(pairs.items()):
-        try:
-            beta, meta = calibrate_idat_to_beta(g, r); B[gsm] = beta.astype("float32")
-        except Exception as e: fails.append((gsm, str(e)[:80]))
-        if (i+1) % 50 == 0: log(f"  stage1 {i+1}/{len(pairs)}  {time.time()-t:.0f}s  fails {len(fails)}")
-    df = pd.DataFrame(B); df.to_pickle(cache); json.dump(fails, open(os.path.join(OUT, "stage1_fails.json"), "w"))
-    return df
+    items = list(pairs.items()); slices = [items[k::workers] for k in range(workers)]; procs = []; t = time.time()
+    for k, sl in enumerate(slices):
+        jf = os.path.join(OUT, f"jobs_{k}.json"); json.dump([(g, p[0], p[1]) for g, p in sl], open(jf, "w"))
+        procs.append(subprocess.Popen([sys.executable, os.path.join(ROOT, "stage1_worker.py"), jf, os.path.join(OUT, f"part_{k}.pkl")], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
+    for p in procs: p.wait()
+    parts = [pd.read_pickle(os.path.join(OUT, f"part_{k}.pkl")) for k in range(workers) if os.path.exists(os.path.join(OUT, f"part_{k}.pkl"))]
+    fails = [f for k in range(workers) if os.path.exists(os.path.join(OUT, f"part_{k}.pkl.fails.json")) for f in json.load(open(os.path.join(OUT, f"part_{k}.pkl.fails.json")))]
+    df = pd.concat(parts, axis=1); df.to_pickle(cache); json.dump(fails, open(os.path.join(OUT, "stage1_fails.json"), "w"))
+    log(f"  stage1 {df.shape[1]}/{len(pairs)} in {time.time()-t:.0f}s, fails {len(fails)}"); return df
 
 # ---------- 2. deconvolution + gauge ----------
 def score(df, ident):

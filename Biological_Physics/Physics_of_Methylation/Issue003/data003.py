@@ -902,3 +902,16 @@ COSMO_EVIDENCE.insert(5, ("2026-09-20", "Transfer test on an unseen calibrator (
   "The pipeline map fit on one lab put an unseen lab's healthy blood at A = 1.010; the same test separated a constant lab offset (+0.017) and a chip effect (p = 1e-12) that no within-cohort analysis had ever resolved.", "PHASE 1c OUTCOME"))
 
 FALSIFICATION += [("Phase 1c N-sex 'women higher every decade' (2026-09-20)", "the runner computed |d|; direction was asserted without support. Signed recomputation: women higher in GSE42861, LOWER in GSE87571 - sign flips between labs", "CORRECTED same day; sex-split band withdrawn"),]
+
+BAND_V2 = {
+ "verdict": "identity_band_v2 (pooled GSE87571 659 + GSE42861 315, mapped A, per-decade p10/p50/p90; adults >=45 at p50 1.00, 14-24 at 0.96) tested on GSE125105 Munich controls (n=201): P3 median 0.9645 FAIL (bar +/-0.02); P4 54.7% in band FAIL (bar 80%).",
+ "three_cohorts": "mapped immune A offset vs Uppsala: Karolinska +0.018 (chips p~1e-12), Munich -0.030 (chips p=0.39) - each flat across age. The pipeline map moved Munich 0.79 -> 0.96 (shared term real; Stage 1s stays commissioned); the residual is a per-cohort constant the size of the band half-width.",
+ "why_pooling_fails": "a band pooled over N labs is wider, but the next lab's constant is a new number - so ~50% of any new cohort lands in band regardless of N. Confirmed twice (Karolinska on a one-lab band 53%; Munich on a two-lab band 55%).",
+ "design": "healthy reference = FLOOR (physics, universal) + PIPELINE MAP (universal per pipeline) + LAB ZERO (local, once per lab). This is CLSI EP28 practice for every clinical assay. Routes: (1) per-lab healthy-control panel of 20-30 arrays, offset disclosed on every report - recommended primary; (2) learn the offset from control-probe intensities (Stage 0 QCs, deferred) - Future Goal.",
+ "nulls": "N-random REDESIGNED (size-matched, level test): random panel median 1.174, 0% in band -> the identity loci set the LEVEL; Phase 1c's mean-beta-matched null was circular for H(beta_bar) and is retired. N-sex unsigned as run (|d| 0.17-0.38) - no direction claimed. Stage 1 parallel: 210 arrays 37 min; per-sample IDAT fetch 1.7 GB in 6 min (tools/geo_fetch_idats.py).",
+}
+RECON += [("B2", "one universal healthy band", "Issue 002 / SOP: a single age band per class",
+  "three Stage-1 cohorts on the Roadmap scale differ by per-cohort constants (0 / +0.018 / -0.030) flat across age, independent of chip effects; a pooled band cannot contain the next lab's constant",
+  "FLOOR + PIPELINE MAP + LAB ZERO; the lab zero is set once per lab on healthy controls (or, future, from control probes) and printed on the report", "band_v2 OUTCOME 2026-09-20"),]
+FUTURE_GOALS.insert(1, ("GATE 0b - lab zero", "Predict the per-lab offset from the array's own control-probe intensities (Stage 0 QCs)", "band_v2 OUTCOME; Stage 0 deferred QCs",
+  "three cohorts with known offsets (0 / +0.018 / -0.030) are the training and test set; if control probes predict them, no healthy-control panel is needed per lab", "Stage 0 <-> Stage 1 intensity hand-off (unwired)"))
