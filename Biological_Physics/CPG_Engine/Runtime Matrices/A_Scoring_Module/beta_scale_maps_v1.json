@@ -1,10 +1,10 @@
 {
  "_meta": {
-  "version": "v1 PROVISIONAL 2026-09-20",
+  "version": "v1 COMMISSIONED 2026-09-20 (Phase 1c)",
   "reference_scale": "Roadmap/ENCODE (GenomicStudio) - the scale G-002 calibrated H_min on and the IAMAtlas posteriors sit on",
   "rule": "beta_roadmap = (beta_pipeline - intercept) / slope, applied BEFORE H(beta_mean)/H_min for any ABSOLUTE reading. Not needed for within-pipeline comparisons.",
   "fit": "identity loci, healthy whole blood, per-CpG Stage-1 mean vs Atlas immune_mean; PHASE 1 addendum",
-  "status": "fit on GSE87571 only; NOT yet tested on an independent Stage-1 cohort (Phase 1c). Use with the label PROVISIONAL.",
+  "status": "stage1_noob_450K transfers: fit on GSE87571, GSE42861 controls median mapped immune A 1.0097. Other entries TO FIT.",
   "record": "Testing_and_Code/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md"
  },
  "maps": {
@@ -14,7 +14,8 @@
    "gain_form": 1.1023,
    "n_loci": 32688,
    "fit_cohort": "GSE87571 n=560 healthy",
-   "healthy_immune_A_after_map": 0.99
+   "healthy_immune_A_after_map": 0.99,
+   "transfer_test": "GSE42861 n=315 controls: median 1.0097 (PHASE 1c P3 PASS)"
   },
   "geo_author_processed_EPIC": {
    "slope": null,
