@@ -168,10 +168,9 @@ def departure_ranking_svg(bundle, width=900, max_rows=15, reliable_only=True):
             "cycling": "CYC", "terminal": "TER", "stem_adult": "SAD", "stem_pluri": "SPL"}
 
     def col(a):
-        if a >= 1.10: return "#B2182B"
-        if a >= 1.07: return "#D98A45"
-        if a > 1.04:  return "#E8B04B"
-        if a >= 0.95: return "#86C28B"
+        _c={"BREACH":"#B2182B","SIGNIFICANTLY_ELEVATED":"#D98A45","ELEVATED":"#E8B04B","NORMAL":"#86C28B","AT_CEILING":"#B2182B"}   # PROC-TIER-01: colour follows the JSON tier
+        _t=_tier(a)
+        if _t in _c: return _c[_t]
         if a >= 0.90: return "#6B9BC4"
         return "#3E6E99"
 
