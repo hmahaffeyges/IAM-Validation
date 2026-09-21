@@ -1181,3 +1181,9 @@ PHYSICS = {
   ("tier NORMAL [0.95, 1.04)", "MEASURED convention", "healthy central 95% (PROC-TIER-02)"),
  ],
 }
+
+BIDIR_PROC = [("question","Does the Stage 4.5 bidirectional detector reproduce its sealed record from the kit, and does the engine compute what the seal computed?"),
+ ("result","B1-B5 PASS. VAL-050 d = +0.0768 / VAL-051 Rule A d = +0.6237 (AUC 0.677) reproduced to the sealed digits; engine score == sealed per-sample A_dir_A to 2e-16; the 18 IMM CpGs x 726 AIBL samples re-extracted from the raw 5.1 GB GEO supplementary file match the sealed betas with zero difference."),
+ ("standing","Row 4.5 COMMISSIONED (a built tool against sealed bars). Detection in a new cohort on the commissioned chain: not yet tested.")]
+FALSIFICATION += [("PROC-BIDIR-01 B5 (2026-09-21)", "sealed AIBL IMM betas match the raw GEO file for 726 samples x 18 CpGs", "PASS, max diff 0.00")]
+ROW9_NOTE = ("ROW 9 - THE REPORT - IN BUILD (working note, unsealed). cpg_report_v3.py renders the author's specification from run_full: cells detected and percentages; A per class on the three-layer reference with placement and tier; A per cell with no band; Stage 5 departure with the laboratory's false-alarm sentence; the sky; flags; scope. A vocabulary guard refuses any forbidden word. 11 cached arrays render; three with a commissioned laboratory read fully (immune A'' 0.977-1.024, IN_BAND, NORMAL), eight print NOT REPORTABLE where their laboratory has no panel. First read caught a percent/fraction unit mismatch in Stage 2 and an unsupported footnote. Sealed when the author has read one.")
