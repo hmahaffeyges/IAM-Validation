@@ -85,3 +85,5 @@ All nine actions listed in earlier versions of this file were applied in commits
 reorganization commit that followed (layout). The repository tree is now:
 `Physics_of_Methylation/` (start here) · `IAM_Atlas/` · `CPG_Engine/` · `Testing_and_Code/` · `RETIRED/`.
 See `Biological_Physics/README.md` for the map.
+
+| `test_gauge_switch.py` | generated 2026-09-21 | PROC-SWITCH-01 S1–S3 conformance on the kit's cached whole-blood betas: the reported A is the identity-loci gauge; UNSET refuses — run |

@@ -42,6 +42,7 @@ SWITCHING_ORDER = [
   command="python3 -c \"import json; m=json.load(open('CPG_Engine/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json'))['maps']['stage1_noob_450K']; print('beta_roadmap = (beta -', m['intercept'], ') /', m['slope'])\"",
   expected="GSM2333901 (healthy 58M) through run_full: cfg without pipeline → identity immune A 0.8066 BELOW_BAND scale=UNMAPPED reportable=False; with cfg['pipeline']='stage1_noob_450K' → A 0.9748 IN_BAND reportable=True. stage1_noob_450K: slope 1.0127, intercept 0.0662. After mapping, Swedish healthy immune A = 0.990 (p10-p90 0.962-1.016). GEO-processed EPIC and TCGA-sesame entries are TO FIT.",
   lessons=[("LESSON-SCALE-01","three scales measured: Roadmap 0.737 / GEO-processed EPIC 0.774 / Stage-1 0.815 on the same 42k identity loci."),
+           ("PROC-SWITCH-02","row B commissioned: the reported A = H(beta_mean)/H_min on identity loci, mapped, minus c(decade), minus lab zero, in identity_band_v3 (four zeroed labs, n=1,379; pooled p10-p90 0.9724-1.0248). Marker-union statistic retained as diagnostic_marker_union only. Stages 5/6 pending_recalibration. The atlas is a fifth laboratory (z=-0.0146); SWITCH-01 S4 failed as sealed for assuming otherwise."),
            ("PROC-HISTORY-01","the validation count corrected from the record: 3 G-series + 119 pre-Atlas VALs (107 run) + T1-T15 + 22 post-Atlas CPG-VALs (21 run) + hull v0_1-v0_5 + N7; the 2026-09-19 index had said 103 (bare-number key collisions, folders not record). AD folders 008-014 moved to VAL_PostAtlas."),
            ("PROC-PANEL-01 → PROC-PANEL-03","the lab zero is a 40-array healthy panel read against the reference age curve (healthy immune A rises ~0.045 from the teens to the eighties within a lab; between-lab offsets are parallel). LOO: a three-lab band holds 75-84% of a fourth lab. Closed in code (lab_zero.py); UNSET is not reportable."),
            ("PROC-HMIN-BOOT-01","the eight methylation H_min values had MCMC (R-hat < 1.001) but the April bootstrap cross-check covered only the 32 G-003b floors; run 2026-09-20 on the 37 G-002 reference cells: 8/8 frozen values in the bootstrap 95% CI, 0.060% mean / 0.095% max. Values unchanged."),
@@ -83,7 +84,7 @@ SWITCHING_ORDER = [
   lessons=[("SOP §104","decision: age handled by the age-matched band, not by subtraction; sex and smoking remain nulls (N-sex) not corrections.")],
   defects=[], procedures=[], rules=["SOP §104"], do_not=["do not silently add a foreground correction - it changes what 'healthy range' means"]),
 
- dict(id="B", name="Class gauge  A = H(β̄)/H_min on IDENTITY loci, read against the age band", status="KNOWN-DEFECT as wired; correct statistic has a PROVISIONAL band",
+ dict(id="B", name="Class gauge  A = H(β̄)/H_min on IDENTITY loci, read against the age band", status="COMMISSIONED 2026-09-21 (PROC-SWITCH-02): identity-loci gauge + three-layer reference is the reported A; identity_band_v3; marker union diagnostic only",
   purpose="The call. For each class present (§108), the binary entropy of the mean β over that class's identity loci, divided by the MCMC floor, placed in the age-decade percentile band.",
   inputs="β on the Roadmap scale (Stage 1s); class fractions (Stage 2); age", outputs="per class: A, placement (BELOW/IN/ABOVE band), tier input; gauge_surface label",
   files=["CPG_Engine/cpg_conductor.py (stage_b_classes)","CPG_Engine/cpg_gauge_engine.py","CPG_Engine/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json","…/age_reference_matrix.json","Testing_and_Code/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/identity_band_v1.json"],
@@ -94,7 +95,7 @@ SWITCHING_ORDER = [
            ("LESSON-SCALE-01","the gauge input must be on the floor's scale."),
            ("PROC-CHAIN-01","stem_adult false BREACH in 6/7 healthy blood from an n=28 band → §108 reporting rule."),
            ("Floor / ruler / band","FLOOR = H_min (physics, 40 values). RULER = the identity loci. BAND = a cohort percentile with its own provenance. Every 'healthy reads wrong' case traced to a band or a scale, never a floor.")],
-  defects=["conductor still wired to the marker union (labelled gauge_surface='marker_union'); switch only when identity_band_v1 is confirmed on an independent cohort (Phase 1c)","band is one population (N. Sweden) - Phase 1b","sex: signed d flips between labs (GSE42861 women higher, GSE87571 women lower) - no split until the sign is stable on pooled mapped data","N-plate not yet run"],
+  defects=["RESOLVED 2026-09-21 (PROC-SWITCH-02): conductor reports the identity-loci gauge; marker union is diagnostic_marker_union","band is one population (N. Sweden) - Phase 1b","sex: signed d flips between labs (GSE42861 women higher, GSE87571 women lower) - no split until the sign is stable on pooled mapped data","N-plate not yet run"],
   procedures=["PROC-FORMULA-01","PROC-N7-01","PHASE 1"], rules=["SOP §41-§43, §105-§109","RUNBOOK §10-§12","§108 reporting rule"],
   do_not=["do not compute Cohen's d between groups and call it a result - the physics measures, cohorts only point","do not read A from marker-union β","do not read A from UNMAPPED β"]),
 
