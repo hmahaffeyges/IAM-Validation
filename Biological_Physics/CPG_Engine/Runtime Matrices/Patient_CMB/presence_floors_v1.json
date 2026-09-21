@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "proc": "PROC-CMB-04",
+  "rule": "non-blood classes: max(0.02, p99 of Stage 2 fraction over the 160 healthy PANEL arrays); blood lineage (immune, progenitor, stem_adult): 0.02",
+  "seed": 2028
+ },
+ "floors": {
+  "stem_pluri": 0.02,
+  "stem_adult": 0.02,
+  "progenitor": 0.02,
+  "terminal": 0.029778999999999993,
+  "cycling": 0.02,
+  "immune": 0.02,
+  "secretory": 0.02,
+  "stromal": 0.02
+ }
+}

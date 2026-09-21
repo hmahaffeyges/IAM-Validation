@@ -365,6 +365,29 @@ def stage_6_cellular_age_marker_union(beta_dict, cfg=None):
             "present_classes": present, "chronological_age": getattr(res, "chronological_age", cfg.get("age"))}
 
 
+def stage_4_6_patient_sky(beta_rm, stage_a_out, cfg=None, atlas_csv=None):
+    """Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped
+    beta; class panels gated by the measured presence floors. Needs the laboratory's residual scale (Runtime Matrices/Patient_CMB/
+    residual_scale_<lab>.npz, built from the same 40-array panel as the lab zero); without it the sky is NOT AVAILABLE, never approximated.
+    Calibration on record: healthy held-out arrays show 2.6-3.2% of CpGs beyond |z|=2 (scale ~1.1x conservative; CMB-04 C2' failed as sealed)."""
+    import importlib.util, os as _os, json as _json, pandas as _pd
+    cfg = cfg or {}
+    spec = importlib.util.spec_from_file_location("stage_4_6_patient_cmb", _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "stage_4_6_patient_cmb.py"))
+    S = importlib.util.module_from_spec(spec); spec.loader.exec_module(S)
+    lab = cfg.get("lab"); rt = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "Runtime Matrices", "Patient_CMB")
+    sp = _os.path.join(rt, f"residual_scale_{lab}.npz") if lab else None
+    if not sp or not _os.path.exists(sp):
+        return {"available": False, "status": f"NOT AVAILABLE - no residual scale for laboratory {lab!r} (build it from the lab's 40-array healthy panel: PROC-CMB-04)", "classes": {}}
+    scale = S.load_scale(sp); floors = _json.load(open(_os.path.join(rt, "presence_floors_v1.json")))["floors"]
+    means = S.load_atlas_means(atlas_csv or _find("IAMAtlasREBUILD.csv"))
+    ident = _json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json"))); loci = {c: v["loci"] for c, v in ident.items() if isinstance(v, dict) and "loci" in v}
+    sky = S.patient_sky(_pd.Series(beta_rm, dtype=float), stage_a_out["class_fractions"], means, scale, loci, S.load_mapping(), presence_floors_by_class=floors)
+    out = {"available": True, "lab": lab, "scale_panel_n": scale["n_panel"], "presence_floors": floors,
+           "all": sky["all"], "classes": {c: {k: v for k, v in d.items() if k != "pixels"} for c, d in sky["classes"].items()},
+           "calibration_note": "healthy held-out arrays read 2.6-3.2% of CpGs beyond |z|=2 (PROC-CMB-04); a healthy sky is quiet at that level, not at 5%",
+           "_sky": sky}   # full arrays for render_plate; stripped by the report builder
+    return out
+
 def run_full(beta_dict, atlas_csv, cfg=None):
     """Full conductor: Stage A -> B (wired) -> 1s scale map -> B-identity -> 4.5 -> 5 -> 6, one bundle
     in the shape build_dashboard_v1.py consumes. Present-gated throughout.
@@ -378,6 +401,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
+    sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6, PROC-CMB-04)
     m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
     m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
     reliable_cls = [c for c, v in b["class_gauge"].items() if v.get("fraction", 0) >= 0.15]
@@ -394,6 +418,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
+        "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
                         "fraction": round(v["fraction"], 4), "present": v["present"], "band": v.get("band"), "gauge_surface": "marker_union",
