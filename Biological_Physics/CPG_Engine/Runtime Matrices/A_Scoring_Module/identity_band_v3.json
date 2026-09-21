@@ -1,0 +1,85 @@
+{
+ "_meta": {
+  "built": "2026-09-21",
+  "procedure": "PROC-SWITCH-01 (in-sample form of the band PANEL-03 P3'' tested leave-one-lab-out: held 0.753-0.839 of a fourth lab, nominal 0.80)",
+  "definition": "A'' = A_mapped(identity loci, immune) - c(decade) [reference_age_curve_v1] - z_lab [median residual of the lab's healthy arrays]; band = p10-p90 of A'' pooled over the four zeroed healthy cohorts",
+  "cohorts": {
+   "GSE111629_UCLA": {
+    "n": 204,
+    "z_lab_full_cohort": -0.0673
+   },
+   "GSE125105_Munich": {
+    "n": 201,
+    "z_lab_full_cohort": -0.0346
+   },
+   "GSE42861_Karolinska": {
+    "n": 315,
+    "z_lab_full_cohort": 0.0084
+   },
+   "GSE87571_Uppsala": {
+    "n": 659,
+    "z_lab_full_cohort": -0.0117
+   }
+  },
+  "n": 1379,
+  "scale": "stage1_noob_450K mapped",
+  "class": "immune",
+  "status": "COMMISSIONED band for the identity-loci gauge; per-decade rows are for reporting only (age already removed by c)"
+ },
+ "pooled": {
+  "p10": 0.9724,
+  "p50": 1.0,
+  "p90": 1.0248,
+  "width": 0.0524
+ },
+ "per_decade": {
+  "10": {
+   "n": 100,
+   "p10": 0.9716,
+   "p50": 0.9975,
+   "p90": 1.0278
+  },
+  "20": {
+   "n": 114,
+   "p10": 0.9765,
+   "p50": 0.9978,
+   "p90": 1.0196
+  },
+  "30": {
+   "n": 150,
+   "p10": 0.9717,
+   "p50": 0.999,
+   "p90": 1.0221
+  },
+  "40": {
+   "n": 241,
+   "p10": 0.9725,
+   "p50": 0.9996,
+   "p90": 1.0206
+  },
+  "50": {
+   "n": 276,
+   "p10": 0.9691,
+   "p50": 1.0008,
+   "p90": 1.0246
+  },
+  "60": {
+   "n": 247,
+   "p10": 0.9754,
+   "p50": 1.0012,
+   "p90": 1.0272
+  },
+  "70": {
+   "n": 176,
+   "p10": 0.9764,
+   "p50": 1.001,
+   "p90": 1.0282
+  },
+  "80": {
+   "n": 72,
+   "p10": 0.9758,
+   "p50": 1.0,
+   "p90": 1.0271
+  }
+ }
+}
