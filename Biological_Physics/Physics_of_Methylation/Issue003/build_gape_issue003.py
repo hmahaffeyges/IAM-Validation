@@ -624,6 +624,8 @@ def sec0b_prior_art(story):
 
 def sec0_scope(story):
     story.append(Paragraph('WHAT THIS DOCUMENT CLAIMS, AND WHAT IT DOES NOT', sSect))
+    story.append(Paragraph('WHAT THE INSTRUMENT REPORTS', sLabel))
+    story.append(Paragraph(D.SCOPE['what_it_reports'], sBody)); story.append(SP(0.06))
     story.append(Paragraph('WHAT THIS FIELD IS CALLED', sLabel)); story.append(Paragraph(D.SCOPE['field'], sBody))
     story.append(Paragraph('<b>Not claimed.</b>', sBodySm))
     for x in D.SCOPE["not_claimed"]: story.append(Paragraph(f'&bull; {x}', sBodySm))
