@@ -1115,3 +1115,69 @@ SEALING_RULE = ("SEALING RULE (author, 2026-09-21). We seal when we have a worki
 REPORT_SPEC = ("WHAT THE REPORT SAYS (author, 2026-09-21). Cells detected and their percentages; the A-score of each cell the chain could calculate and of each class on the three-layer reference, "
  "with band placement and tier; the Stage 5 departure with the laboratory's false-alarm rate; the patient's sky; every flag, logged. It names no disease and gives no age in years. "
  "The disease matrix and its cards, compiled from the preliminary record, are record-side: cohort cellular behaviour is logged as trusted-chain cohorts accumulate. Our job is not to say 'the pattern in this patient's immune cells looks like colon cancer'.")
+
+# ═══ ISSUE 003 PHYSICS (written 2026-09-21 from Paper 1, Landauer_Metrology_of_the_Methylome.tex; supersedes 002 s2.1 and s2.1a) ═══
+_kB=1.380649e-23; _T=310.15; _R=8.314462618
+PHYSICS = {
+ "E_landauer_J": _kB*_T*math.log(2),          # 2.968e-21 J per bit at 310.15 K
+ "M_cell": 54000.0/(_R*_T),                    # 20.94 - the Mahaffey number of the cell
+ "premise": ("Cytosine methylation is a stable, enzymatically written and erased mark whose genome-wide pattern carries the information of cell identity and state. Writing or erasing it is an "
+   "information-processing operation, and Landauer's principle sets the minimum energy dissipated per bit: k_B T ln 2 = 2.97 x 10^-21 J at 310.15 K. That the methylome obeys this bound is "
+   "peer-reviewed physics (Sanchez & Mackenzie 2016, PLoS ONE): with p_i the methylation level at site i, the per-site Shannon entropy H(p_i) = -p_i log2 p_i - (1-p_i) log2(1-p_i) measures the "
+   "uncertainty of methylation status, the information processed in a region is the change in the sum of H, and the minimum energy to process it is that information times k_B T ln 2. Their thermal "
+   "background of methylation change follows a Weibull law whose scale recovers the DNA persistence length from methylome data alone. We take three things as established: k_B T ln 2 is the anchor; "
+   "thermal fluctuations produce a real statistical background; signal and background must be measured from one origin of coordinates. We part with them at that origin (s0b)."),
+ "three_quantities": [
+  # (symbol, name, definition, units, one per, what fixes it, provenance)
+  ("M", "the Mahaffey number", "E_drive / k_B T - the energy a substrate spends per irreversible write, in units of the thermal quantum at its operating temperature", "none (ratio)", "substrate", "biochemistry / device physics", "Delta G_ATP = 54 kJ/mol at 310 K -> 20.9; Apple M1 ~117; Al transmon 1 (exact)"),
+  ("H_min(c)", "class entropy reference", "the binary entropy of the healthy class's mean methylation level on its identity loci; A = 1 by definition there", "bits", "class (8)", "healthy reference cells, calibrated once, frozen", "G-002 MCMC on 37 reference cells (R-hat < 1.001), April 2026; bootstrap 8/8 in CI (PROC-HMIN-BOOT-01); iamatlas_gauge_identity_loci_v1_0.json"),
+  ("A_c", "the gauge", "H(beta_bar_c) / H_min(c), beta_bar_c the sample's mean methylation over the identity loci of class c, on the mapped scale", "none (ratio)", "class x sample", "the sample (numerator); the frozen reference (denominator)", "cpg_conductor.stage_b_identity; then A'' = A - c(decade) - z_lab (s3.5)"),
+ ],
+ "not_derived": ("WHAT ISSUE 002 SAID, AND WHAT IS RETIRED. Issue 002 s2.1 titled the floor 'H_min Derivation' and s2.1a laid out a seven-step chain from Landauer's bound, through the cell's ATP "
+   "budget and the DNMT1 error rate, to 'a lower bound on entropy', and asked the reader's question aloud: how does an energy bound produce a lower bound on entropy? The honest answer is that it "
+   "does not. An energy bound per operation constrains the COST of writing and holding a pattern; it does not fix the ENTROPY of the pattern a healthy class holds. Steps 1-3 of that chain stand as "
+   "published physics and biology (identity is methylation information; maintenance through division is information copying; each irreversible operation costs at least k_B T ln 2). Steps 4-7 "
+   "(budget -> error rate -> floor) are retired as a derivation and kept only as motivation for why a written state has a holding cost. H_min is not derived from an energy budget. It is the "
+   "MEASURED entropy of the healthy class at its identity loci - calibrated by MCMC on 37 FACS-sorted or microdissected reference methylomes, cross-checked by bootstrap, frozen in April 2026 - "
+   "and that is the stronger statement, because it is checkable. The immune revision is on the record: first set from neutrophils alone at 0.795, re-converged at 0.8389 +/- 0.0012 with six immune "
+   "cell types, every immune reading revised by ~0.055. Where 002 s2.1/s2.1a and this section differ, this section governs; 002's text is reproduced after it as the historical record."),
+ "mahaffey": ("THE MAHAFFEY NUMBER. Thermal noise is not a nuisance to subtract; it is the unit. M = E_drive / k_B T is how many thermal quanta a substrate pays per irreversible write at its own "
+   "temperature. For the cell the drive energy is the free energy of ATP hydrolysis: M_cell = Delta G_ATP / RT = 54,000 / (8.314 x 310.15) = 20.9. The same ratio places a CMOS transistor at ~117 "
+   "(Apple M1, measured switching energy at 348 K) and an aluminium transmon at exactly 1: with E_drive = Delta_Al ln 2 and T_gap = Delta_Al / k_B both the gap and ln 2 cancel - the saturated case "
+   "that superconducting-qubit engineering reaches by cooling until k_B T is the only energy scale left. The cell cannot cool. It runs ~21 thermal quanta above the floor at 310 K and pays that to "
+   "write and hold every mark against noise it cannot escape. M is one number for the substrate, fixed by biochemistry; it does not determine H_min and it does not enter A. Its role in this "
+   "document is to say what kind of instrument this is: the cell is an information-writing substrate read against thermal noise, exactly as a chip or a qubit is, and the healthy entropy reference "
+   "is a statement about how a cell class holds its written state at that ratio."),
+ "gauge": ("THE GAUGE. A_c = H(beta_bar_c) / H_min(c) is a ratio of two entropies to one fixed reference - not a divergence between two samples, and not a statement about which loci moved. It is "
+   "defined on the class's IDENTITY loci, where a healthy cell of that class sits at a characteristic unimodal level (immune: beta_bar = 0.7318 at A = 1, 42,134 loci). On bimodal marker panels the "
+   "same statistic is dominated by Jensen's inequality - H of the mean of a bimodal set manufactures ~1 bit whatever the cells do - and is not used for the gauge; those panels carry the SEPARATION "
+   "statistic, mean_i H(beta_i)/H_min, which reproduces the sealed anchors at r = 1.00000 (s3.3, PROC-ANCHOR-01). Three properties of A follow from H: (i) it is two-to-one in beta - H is symmetric "
+   "about 0.5, so a strongly hypomethylated class reads BELOW 1 (the seminoma case, A = 0.692 on stem_pluri; s5.1b); (ii) it has a structural ceiling A_max = 1/H_min (immune 1.192) beyond which "
+   "departure is not resolvable and the report says AT CEILING; (iii) A rising toward the ceiling is the class's identity loci drifting toward beta = 0.5 - toward one full bit of uncertainty per "
+   "site, the loss of the written specification. The Warburg line (1.07) and the breach line (1.10) are the framework's claims about where on that axis metabolic and structural transitions "
+   "occur; on the commissioned gauge they admit 1 and 0 of 1,379 healthy donors (PROC-TIER-01) and they are tested against disease cohorts, not assumed."),
+ "reference_layers": ("A FIXED ZERO IN BITS STILL NEEDS TWO MEASURED CONSTANTS. This is the metrology result of Paper 1 and s3.5. H_min lives on the scale of the reference methylomes (Roadmap/"
+   "GenomicStudio). A laboratory's Stage-1 beta sits on a different scale: an affine map (slope 1.0127, intercept 0.0662 for stage1_noob_450K) fitted on one lab transfers to three others "
+   "(pipeline map). After the map, each laboratory - one processing pipeline - still carries a constant offset of its own (z_lab, -0.067 to +0.008 across four countries) that neither the map nor "
+   "the array's control probes predict in size; it is measured from 40 healthy arrays read against the age curve (laboratory zero). And healthy A rises ~0.045 across a lifetime within a lab, so "
+   "the zero is age-referenced. Floor + map + zero: physics fixes the first; the second and third are measured, once per pipeline and once per laboratory, and stated. The atlas itself is a fifth "
+   "laboratory with its own constant (-0.0146, PROC-SWITCH-02). Nothing about this weakens the fixed origin - it is how every absolute instrument is used - but a reading that omits either "
+   "constant is not a reading of the physics, it is a reading of the pipeline."),
+ "filter_vs_ruler": ("FILTER AND RULER. Sanchez and Mackenzie take k_B T ln 2 and model the thermal background of methylation change so that regulatory sites can be found against a control "
+   "reference; in MethylIT that background is filtered away. We take the same constant as the unit and ask how far above the thermal floor a class holds its written state, against an origin fixed "
+   "once. One filters, one calibrates. Their background model is the first extension we intend to test on the identity loci (Future Goals, GATE 2); our transfer discipline applies to any absolute "
+   "methylation measurement, including one built on their divergences, because a divergence from a control pool inherits that pool's laboratory offset."),
+ "ledger": [  # (quantity, physics or measured, how)
+  ("k_B T ln 2 at 310 K", "physics", "constant; 2.97e-21 J"),
+  ("M_cell = 20.9", "physics + biochemistry", "Delta G_ATP / RT; not fitted"),
+  ("H(beta) binary entropy", "physics", "definition"),
+  ("H_min(c), eight values", "MEASURED reference", "MCMC on 37 healthy reference methylomes; bootstrap; frozen April 2026"),
+  ("identity loci per class", "MEASURED selection", "unimodal healthy loci; iamatlas_gauge_identity_loci_v1_0"),
+  ("pipeline map (slope, intercept)", "MEASURED constant", "one per pipeline; transfers across labs (Phase 1c)"),
+  ("laboratory zero z_lab", "MEASURED constant", "40 healthy arrays vs the age curve; one per laboratory (PROC-PANEL-03)"),
+  ("reference age curve c(decade)", "MEASURED", "1,379 healthy, four labs; 0.47 mA/yr (PROC-AGE-01)"),
+  ("identity band v3 (p10-p90)", "MEASURED", "four zeroed labs, n = 1,379"),
+  ("Warburg 1.07, breach 1.10", "framework CLAIM", "tested against cohorts; clean of healthy donors (1 and 0 of 1,379)"),
+  ("tier NORMAL [0.95, 1.04)", "MEASURED convention", "healthy central 95% (PROC-TIER-02)"),
+ ],
+}

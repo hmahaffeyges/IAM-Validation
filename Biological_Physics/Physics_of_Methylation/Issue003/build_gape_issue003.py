@@ -457,6 +457,32 @@ def sec11_engine_map(story):
         'Each is in the project record (CPG_first_read.md, CPG_LEDGER.md, CPG_breast_CRC_learned.md, OUTCOME_CPG-NEW-001.md) and none has been re-verified for this issue.', sBodySm))
 
 # ═══════════════════════════════════════════════════════════════════════════════
+def sec5_physics(story):
+    """Issue 003 physics, written from Paper 1 (2026-09-21). Supersedes 002 s2.1 / s2.1a, which are dropped from the 002 render below."""
+    P=D.PHYSICS
+    story.append(PageBreak()); opener(story, 'SECTION 5', 'THE PHYSICS - LANDAUER, THE MAHAFFEY NUMBER, THE REFERENCE, THE GAUGE', 'Three quantities that must not be confused, and what is physics versus what is measured')
+    story.append(Paragraph('5.0.1  Premise: the methylome obeys Landauer\'s bound', sSub)); story.append(Paragraph(P["premise"], sBodySm)); story.append(SP(0.06))
+    story.append(Paragraph('5.0.2  Three quantities', sSub))
+    story.append(Paragraph('Issue 002 used H_min where the physics called for the Mahaffey number, and derived where it should have measured. The three quantities below are distinct in units, in cardinality and in what fixes them; every later section names which one it is using.', sBodySm))
+    story.append(tbl([("symbol","name","definition","units","one per","fixed by","provenance")]+[tuple(r) for r in P["three_quantities"]],[0.08,0.13,0.27,0.10,0.11,0.15,0.16], fs=5.8)); story.append(SP(0.08))
+    story.append(Paragraph('5.0.3  The Mahaffey number', sSub)); story.append(Paragraph(P["mahaffey"], sBodySm)); story.append(SP(0.04))
+    story.append(tbl([("substrate","E_drive","T","M")]+[("CMOS logic transistor (Apple M1, measured TDP/switch)","switching energy","348 K","~117"),("human cell nucleus","Delta G_ATP = 54 kJ/mol","310 K",f"{P['M_cell']:.1f}"),("aluminium transmon","Delta_Al ln 2","Delta_Al / k_B","1 (exact)")],[0.42,0.24,0.16,0.18], fs=6.4)); story.append(SP(0.08))
+    story.append(Paragraph('5.0.4  H_min is measured, not derived - what Issue 002 said and what is retired', sSub)); story.append(Paragraph(P["not_derived"], sBodySm)); story.append(SP(0.04))
+    story.append(tbl([("class","identity loci","H_min (bits)","beta at A = 1","ceiling 1/H_min")]+[(c, f"{v['n_loci']:,}", f"{v['H_min']:.4f}", f"{v['H_min_beta']:.4f}", f"{1/v['H_min']:.3f}") for c,v in D.IDENTITY.items()],[0.20,0.20,0.20,0.20,0.20], fs=6.4)); story.append(SP(0.08))
+    story.append(Paragraph('5.0.5  The gauge A = H(beta_bar)/H_min', sSub)); story.append(Paragraph(P["gauge"], sBodySm)); story.append(SP(0.06))
+    story.append(Paragraph('5.0.6  A fixed zero still needs two measured constants', sSub)); story.append(Paragraph(P["reference_layers"], sBodySm)); story.append(SP(0.06))
+    story.append(Paragraph('5.0.7  Filter and ruler', sSub)); story.append(Paragraph(P["filter_vs_ruler"], sBodySm)); story.append(SP(0.06))
+    story.append(Paragraph('5.0.8  Ledger: physics, measured, claimed', sSub))
+    story.append(tbl([("quantity","status","how")]+[tuple(r) for r in P["ledger"]],[0.30,0.22,0.48], fs=6.2)); story.append(SP(0.06))
+    story.append(Paragraph('What follows (5.1b onward) is reproduced from Issue 002 as the historical record of the substrates, saturation, inversions, decomposition and post-breach physics. Issue 002\'s s2.1 (\'H_min Derivation\') and s2.1a (\'the physical chain\') are not reproduced: section 5.0.4 above states why, and what of them stands.', sMut))
+
+def _render_002_physics_without_derivation(story):
+    tmp=[]; L.render_section_2_physics(tmp)
+    def txt(f): return getattr(f,"text","") or ""
+    i0=next((k for k,f in enumerate(tmp) if "The Architecture-Class Floor" in txt(f) and "H_min Derivation" in txt(f)),None); i1=next((k for k,f in enumerate(tmp) if "Reading the Gauge" in txt(f) and "Below H_min" in txt(f)),None)
+    assert i0 is not None and i1 is not None and i1>i0, (i0,i1)
+    story.extend(tmp[:i0]); story.extend(tmp[i1:])
+
 def sec5a_tools(story):
     opener(story, 'SECTION 5A', 'WHERE THE TOOLS COME FROM',
         'Issue 002 stated the physics of the floor. Since April the engine acquired an atlas, a deconvolver, a sky projection, a matched filter and a second '
@@ -690,12 +716,12 @@ def build(out_path):
         L.render_card(story, card); card_addendum(story, card['key'])
     sec5a_tools(story)
     # §5 physics (002 §2) with a one-paragraph preface
+    sec5_physics(story)
     story.append(PageBreak())
-    story.append(Paragraph('PREFACE TO SECTION 5 (ISSUE 002 SECTION 2), ADDED IN ISSUE 003', sLabel))
-    story.append(Paragraph('The derivation below is reproduced from Issue 002 as written. It was written before the G-002 and G-003b chains were run; the chains (17 methylation chains R-hat &lt; 1.001; '
-        '5 × 32-walker chains for the four other substrates) then returned the forty H_min values that the engine at HEAD carries byte-for-byte. The derived-vs-calibrated ledger of the companion '
-        'physics reference (IAM_for_physicists, §4) is available to any reader who wants each quantity\'s provenance stated separately; it is not reproduced here.', sBodySm))
-    L.render_section_2_physics(story)
+    story.append(Paragraph('PREFACE TO THE ISSUE 002 PHYSICS REPRODUCED BELOW', sLabel))
+    story.append(Paragraph('Sections 5.1b-5.6 are reproduced from Issue 002 as written (April 2026). Its s2.1 and s2.1a - the \'derivation\' of H_min from Landauer and the seven-step chain - are NOT reproduced: '
+        'section 5.0.4 states what of them stands and what is retired, and the ledger in 5.0.8 gives every quantity\'s provenance. The forty H_min values the engine carries are the G-002/G-003b MCMC posteriors, frozen; see 5.0.4 and PROC-HMIN-BOOT-01.', sBodySm))
+    _render_002_physics_without_derivation(story)
     L.render_section_3_evidence(story); L.render_section_4_baselines(story); L.render_section_5_scenarios(story); L.render_section_6_predictions(story)
     # new sections
     sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
