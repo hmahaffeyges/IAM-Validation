@@ -322,7 +322,8 @@ def stage_6_cellular_age(identity_out, cfg=None):
     """Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21).
     The healthy immune identity-gauge curve rises 0.47 mA per year against a within-laboratory SD of 0.0235:
     inverting it resolves age to ~50 years per array (1,379 healthy donors, four labs: 15.9% within +/-10 yr,
-    Spearman rho 0.27). The gauge is not a clock. This stage reports the resolution, not an age; the inversion
+    Spearman rho 0.27). The population aging trajectory (CPG-VAL-015, mammalian paper) is REPRODUCED by this curve; what is below resolution is one person's
+    position on it. This stage reports the resolution, not an age; the inversion
     is available as diagnostic_cellular_age for lineage only."""
     r = json.load(open(_find("age01_results.json"))) if _find("age01_results.json", required=False) else {"resolution_yr": 50, "A1_within10": 0.159, "A3_rho": 0.271}
     im = identity_out.get("immune", {})
@@ -330,7 +331,9 @@ def stage_6_cellular_age(identity_out, cfg=None):
             "resolution_yr": round(r["resolution_yr"]), "healthy_within_10yr": r["A1_within10"], "spearman_rho": r["A3_rho"],
             "sentence": (f"Cellular age is not reported: on the immune identity gauge the healthy age curve moves 0.47 mA/yr against a "
                          f"within-laboratory spread of 0.0235, so one array resolves age to about {round(r['resolution_yr'])} years "
-                         f"({round(100*r['A1_within10'])} of 100 healthy donors within +/-10 yr; PROC-AGE-01). The gauge measures fidelity, not time."),
+                         f"({round(100*r['A1_within10'])} of 100 healthy donors within +/-10 yr; PROC-AGE-01). The healthy aging TRAJECTORY itself is real and "
+                         f"reproduced here (0.47 mA/yr, monotone by decade, four laboratories; CPG-VAL-015 found the same slope on Hannum) - it is a population "
+                         f"measurement, and one array cannot resolve a person's position on it."),
             "gauge_A_abs": im.get("A_abs")}
 
 def stage_6_cellular_age_marker_union(beta_dict, cfg=None):
