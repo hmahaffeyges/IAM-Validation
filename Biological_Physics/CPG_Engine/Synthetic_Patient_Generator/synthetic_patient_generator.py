@@ -57,6 +57,12 @@ DEPENDENCIES
 ------------
   - IAMAtlas REBUILD posterior means (per-class β references) at the CpG level
   - 450K manifest with chromosome positions (for chromosome-specific injection)
+
+
+ATLAS ZERO (PROC-SWITCH-02, 2026-09-21): patients built from IAMAtlasREBUILD class means read A = 0.985 on the immune identity loci with lab zero 0,
+because the atlas posterior (immune identity-loci mean beta 0.7373) and the G-002 floor (A = 1 at beta 0.7318) are different reference
+sets. The atlas is a fifth laboratory: zero any synthetic cohort from its own 40-patient panel (lab_zero.compute_lab_zero) before
+reading it absolutely; measured z_atlas = -0.0146. Any test that assumes the synthetic zero is 0 will read 0.015 low.
 """
 
 import argparse
