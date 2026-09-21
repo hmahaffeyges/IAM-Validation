@@ -116,7 +116,7 @@ def toc(story):
             ("§1.6", "NEW — What the cosmology tools found that cohorts could not: the standing evidence ledger (nine rows to date, N7 first) that pre-empts the circularity objection"),
             ("App. VI–IX", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; Future Goals — the CMB items worth the effort, in gated order; the Part II outline"),
             ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
-            ("App. V", "NEW — Validation index: all 103 VAL identifiers in the repository with title, date, cohort, stated decision, record completeness and path"),
+            ("App. V", "NEW — Validation index: all 175 validation records (G, VAL-001..128, T1..T15, CPG-VAL-001..022, hull, N7, September PROCs; unique keys by series) in the repository with title, date, cohort, stated decision, record completeness and path"),
             ("§5A", "NEW — Where the tools come from: Mahaffey number 20.94, forty MCMC floors, the atlas posterior, the CMB toolkit, not a cohort method"),
             ("§5", "Physics & Methodology (Issue 002 Section 2) — H_min derivation, substrates, saturation, inversions, C1/C2/C3"),
             ("§6", "Evidence, Baselines, Scenarios, Predictions (Issue 002 Sections 3–6)"),
@@ -354,6 +354,7 @@ def sec8_procedures(story):
     proc(story, 'LAB-ZERO-02 - the fourth lab (UCLA) decides the lab-zero route', 'Control probes carry direction, not magnitude; the lab zero is the healthy-control panel (CLSI EP28)', [(k, D.LABZERO_02[k]) for k in ('question','result','four_labs','reading','decision','nulls')])
     proc(story, 'PROC-HMIN-BOOT-01 - the methylation floors bootstrap-checked for the first time', 'The record said all 40; the TSV held 32. Run: 8/8 in CI, 0.060%', [(k, D.HMIN_BOOT[k]) for k in ('question','finding','run','result','code_status')])
     proc(story, 'PROC-PANEL-01 → PROC-PANEL-03 - the per-lab healthy panel as the lab zero: COMMISSIONED', '40 healthy arrays, any age mix, read against the reference age curve; a three-lab band holds 75-84% of a fourth lab', [(k, D.PANEL[k]) for k in ('question','panel01','panel02','panel03','decision','residual')])
+    proc(story, 'PROC-HISTORY-01 - the validation count, corrected from the record', 'The 2026-09-19 index said 103; the record says 3 G + 119 VAL + 15 T + 22 CPG-VAL + hull + N7', [(k, dict(D.HISTORY_PROC)[k]) for k in ('question','finding','correction')])
     proc(story, 'PROC-WB-COMP-01', 'Whole blood — composition is immune, epithelium absent', [
         ("input", "as PROC-WB-IMMUNE-01, deconvolver only"),
         ("expected", "immune + progenitor + stem_adult ≥ 0.95; epithelial (cycling+secretory+terminal+stromal) ≤ 0.02; residual MAE below tissue (0.108–0.153)"),
@@ -633,13 +634,17 @@ def sec_chain_links(story):
 def secV_val_index(story):
     story.append(PageBreak())
     story.append(Paragraph('APPENDIX V - VALIDATION INDEX: EVERY VAL IN THE REPOSITORY, WITH ITS PATH', sSect))
+    story.append(Paragraph('THE COMPLETE VALIDATION HISTORY, APRIL-SEPTEMBER 2026 (PROC-HISTORY-01)', sLabel))
+    story.append(tbl([[Pb('series'),Pb('when'),Pb('count'),Pb('executed'),Pb('what it was')]]+[[Pb(a),P(bb),P(c.replace("<","&lt;").replace(">","&gt;")),P(d.replace("<","&lt;").replace(">","&gt;")),P(e.replace("<","&lt;").replace(">","&gt;"))] for a,bb,c,d,e in D.HISTORY],[0.17,0.11,0.20,0.14,0.38], fs=6.2))
+    story.append(SP(0.04)); story.append(Paragraph(D.HISTORY_NOTE, sBodySm)); story.append(SP(0.10))
     story.append(Paragraph(D.VAL_INDEX_NOTE, sBodySm)); story.append(SP(0.08))
-    rows=[("VAL","title","date","cohorts","decision","record","path (repo, 66f37fe)")]
+    rows=[("series","id","title","date","result / status","path (repo)")]
     for o in D.VAL_INDEX:
-        t=o["title"].replace("CPG-VAL-","").replace(o["val"]+" ","")[:64]
-        rows.append((o["val"], t, o["date"][:10], o["cohorts"], o["decision"][:34], o["record"]+(" · RETIRED" if o["retired"] else ""), o["path"].replace("Biological_Physics/","BP/")))
-    story.append(Paragraph("Path prefix <font face=\"Courier\">BP/</font> = <font face=\"Courier\">Biological_Physics/</font> (tree reorganized 2026-09-19: Testing_and_Code/VAL_PreAtlas, VAL_PostAtlas, RETIRED). Paths are directories; the prereg, outcome and results files sit inside them.", sMut))
-    story.append(tbl(rows,[0.082,0.225,0.078,0.105,0.105,0.085,0.32], fs=5.4))
+        rs=(o.get("result","")[:70]+(" | " if o.get("result") and o.get("status") else "")+o.get("status","")[:40]).strip(" |")
+        esc=lambda x: str(x).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+        rows.append((esc(o["series"]), esc(o["id"]), esc(o["title"][:72]), o.get("date","")[:10], esc(rs), esc(o.get("path","").replace("Biological_Physics/","BP/")[:70])))
+    story.append(Paragraph("175 rows. Path prefix <font face=\"Courier\">BP/</font> = <font face=\"Courier\">Biological_Physics/</font>; an empty path means the record lives in the RETIRED evidence report / inventory and the Zenodo deposit, not in a repository folder. Verdicts are recorded from each OUTCOME, not re-verified.", sMut)); story.append(SP(0.04))
+    story.append(tbl(rows,[0.075,0.11,0.30,0.07,0.245,0.20], fs=5.2))
 
 def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)

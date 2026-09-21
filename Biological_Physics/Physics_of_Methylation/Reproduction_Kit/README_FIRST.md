@@ -37,7 +37,7 @@ Read in this order: this file → `RUNBOOK.md` (how to run the tests) → `COMPO
 | `anchors_v1/*.csv`, `anchors_v1/cohort_manifest.json` | repo | the 2026-05-29 seal — SUPERSEDED, keep |
 | `anchors_v2/*.csv`, `anchors_v2/RESEAL_REPORT.json` | written | re-sealed under the chrX-removed markers (RULING M1b) — commit |
 | `results/PROC_*.json` | generated | each test's printed block, as data |
-| `results/VAL_INDEX.csv`, `.json` | generated | all 103 VAL identifiers in the repo with title, date, cohorts, stated decision, record completeness, path (Issue 003 Appendix V) |
+| `results/VAL_INDEX.csv`, `.json` | generated | all 175 validation records (G, VAL-001..128, T1..T15, CPG-VAL-001..022, hull, N7, September PROCs; unique keys by series) in the repo with title, date, cohorts, stated decision, record completeness, path (Issue 003 Appendix V) |
 | `results/*.json` (formula_2x2, anchor_recompute, stage1_conformance, mix/cfdna/sepsis/wholeblood_decon, identity_shift) | generated | raw outputs of the day's runs |
 | `issue003_build/IAMPerformance_GAPEIssue003_RC1.pdf` | written | **Issue 003 draft, 263 pages** |
 | `issue003_build/build_gape_issue003.py`, `data003.py`, `gape002_lib.py`, `val_index.json`, `fig_four_skies.*` | written | regenerates the PDF: `CPG_TRIAL=../runtime python build_gape_issue003.py out.pdf` |
