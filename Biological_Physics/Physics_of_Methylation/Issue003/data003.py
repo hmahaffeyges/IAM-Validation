@@ -1071,5 +1071,8 @@ SCOPE["what_it_reports"] = ("In the author's words (2026-09-21): CPG reports whe
  "to the answer; this asks whether the healthy range is held, and - when it is not - which class of cells slipped. Each clause is a commissioned layer: the range is "
  "the floor + identity_band_v3 (four laboratories, 1,379 healthy); 'for their age' is reference_age_curve_v1 (measured; the slope CPG-VAL-015 found); 'sitting in it' "
  "is the Stage 5 departure with the laboratory's false-alarm rate beside it; 'which cells' is Walther's eight class fractions and the 115-cell atlas beneath them. "
- "The last clause is the stated goal, not yet a claim: today one axis (immune, whole blood) carries a band; per-class bands, disease cohorts read absolutely against "
- "them (paper two), and the cell-level layer are the gates in order.")
+ "The last clause is DEMONSTRATED AT THE COHORT LEVEL and not yet absolutely: the atlas and deconvolver have named the moved cells and their organ against a control centroid - "
+ "breast pre-dx (GSE51032/51057, a coordinated 115-cell shift 10+ yr before diagnosis, anchors reproduced r = 1.00000), AD/FTD/PSP-CBD by direction on GIFT, and pre-Atlas "
+ "VAL-007 (9/9 tissue-of-origin in plasma), VAL-008 (19/19 cancer types), VAL-003 (field effect, 28 tumour types). What remains is the same reading with no control group in "
+ "the room: one patient against the class band and the laboratory zero. Today one axis (immune, whole blood) carries a band; per-class bands and the absolute breast and CRC "
+ "readings (paper two) are the gates, in order.")
