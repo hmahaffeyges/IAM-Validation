@@ -38,10 +38,11 @@ _SEARCH = [HERE, HERE / "Walther_iam_deconvolver", HERE / "Runtime Matrices" / "
            HERE / "Runtime Matrices" / "Celltype_Marker", HERE / "Runtime Matrices" / "Directional Panel",
            HERE / "Runtime Matrices" / "Mahalanobis_healthy_reference", HERE / "Runtime Matrices" / "Tier_breakpoints",
            HERE / "Runtime Matrices" / "Cellular_Age", HERE.parent / "IAM_Atlas"]
-def _find(name):
+def _find(name, required=True):
     for d in _SEARCH:
         p = d / name
         if p.exists(): return p
+    if not required: return None
     raise FileNotFoundError(f"{name}: not found in any of {[str(d.relative_to(HERE.parent)) for d in _SEARCH]}")
 DETECT_FLOOR = 0.01  # 1% — a cell below this is treated as absent (fraction sets presence)
 
@@ -317,8 +318,24 @@ def stage_5_hull_marker_union(stage_b_out, cfg=None):
 
 
 
-def stage_6_cellular_age(beta_dict, cfg=None):
-    """Stage 6 (SOP §Stage 6) - per-class cellular age by IAM inversion of the
+def stage_6_cellular_age(identity_out, cfg=None):
+    """Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21).
+    The healthy immune identity-gauge curve rises 0.47 mA per year against a within-laboratory SD of 0.0235:
+    inverting it resolves age to ~50 years per array (1,379 healthy donors, four labs: 15.9% within +/-10 yr,
+    Spearman rho 0.27). The gauge is not a clock. This stage reports the resolution, not an age; the inversion
+    is available as diagnostic_cellular_age for lineage only."""
+    r = json.load(open(_find("age01_results.json"))) if _find("age01_results.json", required=False) else {"resolution_yr": 50, "A1_within10": 0.159, "A3_rho": 0.271}
+    im = identity_out.get("immune", {})
+    return {"reportable": False, "cellular_age": None, "chronological_age": (cfg or {}).get("age"),
+            "resolution_yr": round(r["resolution_yr"]), "healthy_within_10yr": r["A1_within10"], "spearman_rho": r["A3_rho"],
+            "sentence": (f"Cellular age is not reported: on the immune identity gauge the healthy age curve moves 0.47 mA/yr against a "
+                         f"within-laboratory spread of 0.0235, so one array resolves age to about {round(r['resolution_yr'])} years "
+                         f"({round(100*r['A1_within10'])} of 100 healthy donors within +/-10 yr; PROC-AGE-01). The gauge measures fidelity, not time."),
+            "gauge_A_abs": im.get("A_abs")}
+
+def stage_6_cellular_age_marker_union(beta_dict, cfg=None):
+    """DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported.
+    Stage 6 (SOP §Stage 6) - per-class cellular age by IAM inversion of the
     age_reference_matrix: the age at which population beta_mean equals the patient's
     beta_mean, per class. iam_cellular_age_scoring.py."""
     cfg = cfg or {}
@@ -361,7 +378,8 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
     m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
     reliable_cls = [c for c, v in b["class_gauge"].items() if v.get("fraction", 0) >= 0.15]
-    ag = stage_6_cellular_age(beta_dict, cfg={"age": age, "present_classes": reliable_cls})
+    ag = stage_6_cellular_age(bi, cfg={"age": age})                                     # NOT REPORTABLE at single-array resolution (PROC-AGE-01); prints the resolution
+    ag_diag = stage_6_cellular_age_marker_union(beta_dict, cfg={"age": age, "present_classes": reliable_cls})   # diagnostic only
     # per-cell separation, present cells only, with class
     cells = [{"cell": ct, "class": v["class"], "A": round(v["A"], 3) if v["A"] is not None else None,
               "fraction": round(v["fraction"], 4)}
@@ -379,14 +397,15 @@ def run_full(beta_dict, atlas_csv, cfg=None):
                         "status": "DIAGNOSTIC ONLY - not the reported A (PROC-N7-01, PROC-SWITCH-01)"}
                     for c, v in b["class_gauge"].items() if v.get("A") is not None},
         "scale": scale_label, "lab_zero": ("UNSET" if cfg.get("lab_zero") is None else cfg.get("lab_zero")),
-        "pending_recalibration": {"stage_5_mahalanobis": False, "stage_6_cellular_age": True,
-                                  "note": "Stage 5 re-based on the identity gauge (PROC-MAHA-01); Stage 6 still consumes the marker-union statistics - row 6 is next"},
+        "pending_recalibration": {"stage_5_mahalanobis": False, "stage_6_cellular_age": False,
+                                  "note": "Stage 5 re-based on the identity gauge (PROC-MAHA-01/02); Stage 6 closed as NOT REPORTABLE at single-array resolution (PROC-AGE-01) - no reported path reads the marker-union statistics"},
         "departure": dep,                                # identity-gauge departure; long keys + short aliases (PROC-MAHA-01)
         "mahalanobis": dep,                              # the key cpg_report_builder._departure_section reads
         "diagnostic_hull_marker_union": m_diag["departure"],
         "bidirectional": bd["bidirectional"],
-        "cellular_age": {"summary": ag["summary_cellular_age_present"], "chrono": age,
-                         "per_class": ag["cellular_age_per_class"]},
+        "cellular_age": ag,                              # reportable False; resolution + sentence (PROC-AGE-01)
+        "diagnostic_cellular_age": {"summary": ag_diag["summary_cellular_age_present"], "chrono": age, "per_class": ag_diag["cellular_age_per_class"],
+                                    "status": "DIAGNOSTIC ONLY - marker-union age matrix inversion; never reported (PROC-AGE-01)"},
     }
 
 
