@@ -105,10 +105,10 @@ The per-class, per-substrate H_min values are part of the proprietary calibratio
 | VAL-022 | Fuzziness field effect (22 cancer types) | **22/22 · p=6.9×10⁻¹² · mean ΔA field=+0.084 · TGCT inversion confirmed** | Corces 2018 + Esfahani 2022 |
 | VAL-023 | WPS field effect (22 cancer types) | **22/22 · p=9.1×10⁻¹² · mean ΔA field=+0.174 · TGCT inversion confirmed** | Snyder 2016 + Corces 2018 |
 | VAL-024 | Fragment size field effect (22 cancer types) | **22/22 · p=9.8×10⁻¹¹ · mean ΔA field=+0.102 · TGCT inversion confirmed** | Cristiano 2019 + Mathios 2022 |
-| VAL-025 | Nucleosome occupancy aging (human + 104 canine) | **r=0.9998 human · r=0.986 canine · slope 53.6× methylation rate** | Wang 2020 + Pal 2016 |
-| VAL-026 | Fuzziness aging (human + canine) | **r=0.9995 human · r=0.982 canine · slope 21.0× methylation** | Bochkis 2014 + Ucar 2017 |
-| VAL-027 | WPS aging (human + canine) | **r=0.9990 human · r=0.983 canine · slope 40.9× methylation** | Snyder 2016 + Mouliere 2018 |
-| VAL-028 | Fragment size aging (human + canine) | **r=0.9962 human · r=0.993 canine · slope 24.5× methylation** | Mathios 2022 |
+| VAL-025 | Nucleosome occupancy aging (human + 104 canine) | **r=0.9998 human · r=0.986 canine · slope 53.6× methylation rate - MODELED PREDICTION (typed age table; PROC-RECORD-02)** | Wang 2020 + Pal 2016 |
+| VAL-026 | Fuzziness aging (human + canine) | **r=0.9995 human · r=0.982 canine · slope 21.0× methylation - MODELED PREDICTION (typed age table; PROC-RECORD-02)** | Bochkis 2014 + Ucar 2017 |
+| VAL-027 | WPS aging (human + canine) | **r=0.9990 human · r=0.983 canine · slope 40.9× methylation - MODELED PREDICTION (typed age table; PROC-RECORD-02)** | Snyder 2016 + Mouliere 2018 |
+| VAL-028 | Fragment size aging (human + canine) | **r=0.9962 human · r=0.993 canine · slope 24.5× methylation - MODELED PREDICTION (typed age table; PROC-RECORD-02)** | Mathios 2022 |
 | VAL-029 | Nucleosome occupancy — tissue-specific cfDNA | **FLOOR BREACH tissue-specific · AUC=0.89 (Griffin ER) · bulk plasma buried** | Doebley 2022 [10.1038/s41467-022-35076-w](https://doi.org/10.1038/s41467-022-35076-w) |
 | VAL-030 | Fuzziness pre-cancer window | Monotonic dysplasia gradient · A=1.01–1.05 zone observed · pre-CIN2 equivalent | Esfahani 2022 + Bochkis 2014 |
 | VAL-031 | WPS pre-cancer + field effect | Adjacent normal WPS depletion confirmed (field effect at WPS, 8yr pre-MESA) | Snyder 2016 Fig 5 [10.1016/j.cell.2015.11.050](https://doi.org/10.1016/j.cell.2015.11.050) |
@@ -209,7 +209,7 @@ Sources (population data, public): [Hannum 2013](https://doi.org/10.1016/j.molce
 
 1. **Field cancerization is substrate-independent.** VAL-003 showed 20.2% adjacent-normal entropy elevation in methylation. VAL-021–VAL-024 confirmed the same effect in all four non-methylation substrates at p < 10⁻¹¹. Not a methylation artifact — a thermodynamic phenomenon.
 
-2. **H_min is species-independent.** VAL-013 found a 0.004 A-score difference across 70 million years of human-canine divergence. VAL-025–VAL-028 showed all five substrates in 104 Labradors follow the same aging curves.
+2. **H_min is species-independent.** VAL-013 found a 0.004 A-score difference across 70 million years of human-canine divergence. VAL-025–VAL-028 *modeled* (typed literature age tables, not per-sample data; PROC-RECORD-02) all five substrates in 104 Labradors follow the same aging curves.
 
 3. **Brain tumors produce the largest signal.** LGG ΔA = 0.273 (largest of 28 TCGA types). GBM ΔA = 0.228 (second). Reason: neurons start from the lowest-entropy baseline (terminal class has the tightest floor of any architecture class), so departure is largest.
 
@@ -264,7 +264,7 @@ The findings are strong. They also have methodological considerations a rigorous
 
 - **VAL-012 D+Q — global mean proxy.** ΔA=−0.00079 computed from Lee 2024 published global-mean beta, not class-stratified raw EPIC. Definitive test requires raw Lee 2024 EPIC with class-stratified val002_v3.py. Prediction: secretory class shows largest decrease (senolytic acts preferentially on senescent secretory cells). Directional argument (GAPE alone correct; all published clocks wrong) holds on proxy and is reinforced by mechanistic explanation.
 
-- **Non-methylation aging slopes.** VAL-025–VAL-028 report slope ratios 20× to 38× methylation. Not a framework inconsistency: H(p) is maximized at p=0.5 and steep near p=0 or p=1. Nucleosome occupancy healthy reference (p≈0.89) sits farther from 0.5 than methylation (β≈0.74), giving larger ΔA per unit change. Property of the Shannon curve, not physical scaling. When normalized by each substrate's own H_min (as A-score is), all substrates report the same departure from floor.
+- **Non-methylation aging slopes.** VAL-025–VAL-028 report slope ratios 20× to 38× methylation — ratios between typed literature tables, not measured samples (PROC-RECORD-02). Not a framework inconsistency: H(p) is maximized at p=0.5 and steep near p=0 or p=1. Nucleosome occupancy healthy reference (p≈0.89) sits farther from 0.5 than methylation (β≈0.74), giving larger ΔA per unit change. Property of the Shannon curve, not physical scaling. When normalized by each substrate's own H_min (as A-score is), all substrates report the same departure from floor.
 
 ---
 
