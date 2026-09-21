@@ -635,7 +635,7 @@ def secV_val_index(story):
     story.append(PageBreak())
     story.append(Paragraph('APPENDIX V - VALIDATION INDEX: EVERY VAL IN THE REPOSITORY, WITH ITS PATH', sSect))
     story.append(Paragraph('THE COMPLETE VALIDATION HISTORY, APRIL-SEPTEMBER 2026 (PROC-HISTORY-01)', sLabel))
-    story.append(tbl([[Pb('series'),Pb('when'),Pb('count'),Pb('executed'),Pb('what it was')]]+[[Pb(a),P(bb),P(c.replace("<","&lt;").replace(">","&gt;")),P(d.replace("<","&lt;").replace(">","&gt;")),P(e.replace("<","&lt;").replace(">","&gt;"))] for a,bb,c,d,e in D.HISTORY],[0.17,0.11,0.20,0.14,0.38], fs=6.2))
+    story.append(tbl([('series','when','count','executed','what it was')]+[(a,bb,c.replace("<","&lt;").replace(">","&gt;"),d.replace("<","&lt;").replace(">","&gt;"),e.replace("<","&lt;").replace(">","&gt;")) for a,bb,c,d,e in D.HISTORY],[0.17,0.11,0.20,0.14,0.38], fs=6.2))
     story.append(SP(0.04)); story.append(Paragraph(D.HISTORY_NOTE, sBodySm)); story.append(SP(0.10))
     story.append(Paragraph(D.VAL_INDEX_NOTE, sBodySm)); story.append(SP(0.08))
     rows=[("series","id","title","date","result / status","path (repo)")]
