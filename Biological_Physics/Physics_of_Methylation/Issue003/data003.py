@@ -143,7 +143,7 @@ PLASMA_NOTE = ("All plasma GAUGE A-scores computed 2026-09-19 were on the METHYL
 CELL_ROUTING = ("Cell-level calls on shed epithelium route to gastric references (Fundus_diff, Antrum_diff) in colon tissue, "
                 "colon plasma and breast plasma alike; Colon_epithelial_cells and Breast return 0.0000 despite being in the atlas. "
                 "LESSON-DECONV-01 attributes this to reference mismatch, not solver conditioning; hierarchical refinement was tested, "
-                "invents cells, and does not ship. Cell tier is INDICATIVE. No organ-level claim is supported by either channel today.")
+                "invents cells, and does not ship. Cell tier is INDICATIVE on that (pre-Atlas, wrong-triple) run. Whether the commissioned chain attributes an organ absolutely for one patient is NOT YET TESTED (paper two); at the cohort level the record shows it (scope, p4).")
 CHK31 = [  # extreme-beta integrity check on Stage-1-calibrated test data: % <0.05 or >0.95, % in 0.4-0.6
  ("GSM2333901","whole blood 450K",33.8,4.5),("GSM1051533","whole blood 450K",27.3,5.0),
  ("GSM8772491","colon adenoma EPIC tissue",6.7,5.5),("GSM8772492","colon adenoma EPIC tissue",8.5,6.4),("GSM5065990","CRC EPIC tissue",23.6,11.7),
@@ -1076,3 +1076,20 @@ SCOPE["what_it_reports"] = ("In the author's words (2026-09-21): CPG reports whe
  "VAL-007 (9/9 tissue-of-origin in plasma), VAL-008 (19/19 cancer types), VAL-003 (field effect, 28 tumour types). What remains is the same reading with no control group in "
  "the room: one patient against the class band and the laboratory zero. Today one axis (immune, whole blood) carries a band; per-class bands and the absolute breast and CRC "
  "readings (paper two) are the gates, in order.")
+
+DETECTION_RULE = ("RULE (author, 2026-09-21). Issue 003 describes what the chain IS and what has been MEASURED through it. A statement about what the "
+ "commissioned chain can or cannot detect is made only from a sealed procedure that ran the chain on that question. Until then the language is "
+ "'not yet tested', never 'cannot'. Recording a measured DEFECT (e.g. the retired sky formula reading 61% of a healthy genome as anomalous, PROC-CMB-01 C1) is a "
+ "measurement and stays. Retired the same day by this rule: 'only breast has a pre-diagnostic window' (the record holds VAL-046 2-5 yr multi-cancer, VAL-032 2 yr fragment size, VAL-083 CLL queued); "
+ "'healthy blood carries only immune' (Stage 2 reports terminal, stem_pluri, secretory or cycling above 2% in some healthy arrays, and the record has scored them); "
+ "'no organ-level claim is supported by either channel' (cohort-level attribution is in the record; the absolute reading is not yet tested).")
+
+CMB_PROC = [("question","Can a patient's sky be drawn against a healthy expectation, and is a healthy person's sky quiet?"),
+ ("defect measured","PROC-CMB-01 C1: the retired module (z against a pure-class mean over the atlas posterior SD) reads 60.7% of a healthy genome as |z|>2. Closed."),
+ ("design","z_i = (beta_i - sum_c f_c mu_ci - m_lab,i)/s_lab,i: the sample's own Stage 2 composition sets the expectation (PROC-SWITCH-02), the laboratory's 40-array healthy panel supplies the per-CpG zero m and spread s (the same panel as the lab zero), the class panel renders only above a measured presence floor, and z is projected to HEALPix NSIDE 128 in genomic order (deterministic mapping, 483,092/483,092 atlas CpGs)."),
+ ("four seals","CMB-01 omitted the zero (held-out median z -1.1); CMB-02 masked the blood classes with their own p99; CMB-03 inflated the scale with an RMS target and carried a render-cap bar the author retired ('we have detected secretory and cycling in whole blood and scored it fine'); CMB-04 as run."),
+ ("result","Held-out healthy, four labs (n=160): median z -0.013..-0.051; tail 2.6-3.2% against a sealed 3.0% floor - FAILED AS SEALED in 3/4 labs by <=0.004; recorded. Gate 160/160. Rendered: immune 160, progenitor 150, stem_adult 19, stem_pluri 1, each quiet (0.03-0.07). Cross-lab: the zero and scale belong to the laboratory."),
+ ("standing","Row 4.6 COMMISSIONED with the calibration constant stated on every sky: a healthy sky is quiet at 2.6-3.2%, not 5%. Analyst decision under the author's 'do what you surmise best' instruction; author may order CMB-05.")]
+FALSIFICATION += [("PROC-CMB-04 C2' (2026-09-21)", "held-out healthy tail bar [0.03,0.08] in >=3/4 labs; measured 0.029/0.026/0.032/0.029 - scale ~1.1x conservative", "FAIL as sealed; recorded; row 4.6 commissioned with the constant stated on every sky"),
+                  ("PROC-CMB-03 C4' render-cap bar (2026-09-21)", "'<=3 healthy test arrays render a non-blood class' assumed healthy blood never carries secretory/cycling/terminal above the floor - a prior about biology, not a test of the gate", "RETIRED by the author same day"),
+                  ("PROC-CMB-01 C1 retired sky formula (2026-09-21)", "z against a pure-class mean over the atlas posterior SD reads 60.7% of a healthy genome as |z|>2", "DEFECT CONFIRMED; module closed")]

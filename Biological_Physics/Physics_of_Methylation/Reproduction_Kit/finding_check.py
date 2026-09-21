@@ -47,4 +47,23 @@ def main():
     if fails:
         print(f"FINDING CHECK {a.id}: FAIL"); [print("  -", f) for f in fails]; sys.exit(1)
     print(f"FINDING CHECK {a.id}: PASS ({len(a.registers)} registers, {'doors, ' if a.doors else ''}{len(a.retires)} retired phrases)")
+# ---- detection-language scan (author's rule 2026-09-21) ----
+def detection_scan(root):
+    import re, os
+    files=["Physics_of_Methylation/Issue003/data003.py","Physics_of_Methylation/Issue003/build_gape_issue003.py","HANDOFF.md","README.md","Physics_of_Methylation/Papers/Landauer_Metrology_of_the_Methylome.tex"]
+    pat=re.compile(r"[^.\n]{0,100}\b(cannot (?:resolve|detect|tell|distinguish|determine|name|read)|no [a-z-]* ?claim is supported|only (?:breast|immune) (?:has|carries)|never (?:carries|shows|contains)|\bdetects\b|validated (?:for|on|in) (?!patient care))\b[^.\n]{0,100}",re.I)
+    ok=re.compile(r"not yet tested|PROC-[A-Z]+-\d+|prior art|MethylIT|Sanchez|Planck|cohort comparison|cohort-only|cohort-relative|Cohort validation|A cohort cannot|by construction|retired|withdrawn|superseded|Convergence diagnostics|C1 |DETECTION_RULE|no definitive statement|run on that question|calibrated on cohorts|the absolute reading is not yet|sealed procedure that ran the chain",re.I)
+    hits=[]
+    for f in files:
+        fp=os.path.join(root,f)
+        if not os.path.exists(fp): continue
+        for m in pat.finditer(open(fp,encoding="utf-8",errors="replace").read()):
+            if not ok.search(m.group(0)): hits.append((f,m.group(0).strip()[:200]))
+    for f,h in hits: print(f"  DETECTION-LANGUAGE {f}: {h}")
+    print(f"detection scan: {len(hits)} unqualified detection statements -> {'PASS' if not hits else 'FAIL'}"); return not hits
+if __name__=="__main__" and "--detection-scan" in sys.argv:
+    import os; sys.exit(0 if detection_scan(os.path.abspath(os.path.join(os.path.dirname(__file__),"..",".."))) else 1)
+
 if __name__ == "__main__": main()
+
+
