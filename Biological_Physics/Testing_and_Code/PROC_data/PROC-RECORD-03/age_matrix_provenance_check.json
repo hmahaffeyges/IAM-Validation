@@ -1,0 +1,20 @@
+{
+ "cells": 80,
+ "implied_Hmin_matches_frozen": 80,
+ "gaussian_percentiles": 80,
+ "tolerance_note": "first pass used |dA|<2e-5, tighter than a 3-decimal beta_mean supports (23/80); the implied H_min per class equals the frozen G-002 value to 4 dp in all 80",
+ "immune_slope_mA_per_yr": 1.0271428571428578,
+ "immune_A_at_54": 0.95558,
+ "beta_mean_immune": [
+  0.78,
+  0.773,
+  0.768,
+  0.764,
+  0.76,
+  0.756,
+  0.751,
+  0.745,
+  0.739,
+  0.732
+ ]
+}

@@ -1,0 +1,16 @@
+# PROC-RECORD-03 — the 80-cell age reference matrix: provenance stated; AD / breast "cellular age in years" restated as ΔA
+
+**2026-09-21.** Prompted by the author supplying the April HEALTHY_BASELINES table and asking "what about the 80-cell aging baseline?" and "the AD was all about sooner aging".
+
+**What the 80-cell table is.** `age_reference_matrix.json` at HEAD is content-identical to the June vault copy and to the April 18 HEALTHY_BASELINES table (8 classes × 10 decades). Every cell is a **typed β_mean to three decimals** (immune: 0.780, 0.773, 0.768, 0.764, 0.760, 0.756, 0.751, 0.745, 0.739, 0.732) with a typed β_sd and n and a literature label per row (Alisch 2012, Hannum 2013, Horvath, Roadmap, Moss 2018); **A_mean = H(β_mean)/H_min in 80/80 cells** (the implied H_min per class equals the frozen G-002 value to 4 dp; a first check at |ΔA| < 2×10⁻⁵ passed only 23/80 because β_mean is typed to 3 dp — tolerance corrected, recorded), and **the percentiles are A ± 1.2816·sd in 80/80 cells** — a Gaussian drawn around the typed number. No generating script exists in the repository, its history, or the Zenodo deposit; the module header says "extracted from GAPE_WEB_v13.py `_AGE_REFERENCE`" (a literal dict). It is a literature-informed constructed table, not a per-sample measurement — the same class as VAL-025..028 (PROC-RECORD-02), with per-row citations.
+
+**Correction to the 2026-09-19 record.** PROC-N7-01 / RECON said the age matrix was "compiled" by code on the marker-union (or identity) surface. Half right: the A column is computed from β_mean by the formula; the β_means themselves are typed, not measured on any surface. Amended.
+
+**What it got right, measured.** Its direction — healthy A rises with age in every somatic class — is confirmed by PROC-AGE-01 on 1,379 donors from four laboratories. Its slope (immune ≈ 1.0 mA/yr) is about twice the measured 0.47 mA/yr. Its level (immune A = 0.956 at 54) is the pre-scale-offset era (LESSON-SCALE-01): healthy blood sits at 1.000 on the mapped, zeroed scale.
+
+**AD and breast "cellular age".** v10: immune cellular age in AD ≈ 9 y *younger* than HC (55.4 vs 64.6, d = −0.56; "cell-cycle arrest / senescence, not chronological aging"); breast pre-dx cycling ≈ 5.5 y younger. The record never said "older". The **ΔA between groups is the measurement** (d = −0.56 on immune, a cohort pointing); the **years are a unit borrowed from this table's slope** — ΔA ≈ 0.009 read at 1.0 mA/yr; on the measured curve the same ΔA reads ≈ 19 "years". The years are therefore withdrawn as a unit; the finding stands as: *the AD immune gauge departs from the healthy age curve, in A, as a group.* Whether one AD patient's departure clears the within-laboratory spread (0.0235) is paper two's absolute question. The longitudinal claim ("tracks worse over years") was never tested: VAL-005 (Health ABC, n = 17, 5 yr) is recorded UNDERPOWERED and nothing else follows one person.
+
+**Status.** `age_reference_matrix.json` is read by no reported path since PROC-AGE-01; retained for lineage. Superseded by `reference_age_curve_v1.json` (measured). Index/record rows that cite AD or breast "cellular age in years" carry this note.
+
+---
+**SEALED** sha256 `a3a92ca60556607acacf7546084d0d5ddd860029e1d7eacbad228091206f2157` · 2026-09-21
