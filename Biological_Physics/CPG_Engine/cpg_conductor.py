@@ -203,15 +203,16 @@ def stage_b_identity(beta_mapped, stage_a_out, age, scale_label, lab_zero=None):
             rec["age_reference_c"] = None if c is None else round(c, 4)
             if lab_zero is None or c is None or not mapped:
                 rec.update({"lab_zero": "UNSET" if lab_zero is None else round(lab_zero, 4), "A_abs": None, "placement": None,
-                            "band": band["pooled"], "reportable": False,
+                            "band": band["pooled"], "reportable": False, "tier": None,
                             "reason": ("no laboratory zero (Issue 003 s3.5; lab_zero.py)" if lab_zero is None else "beta not on the calibration scale" if not mapped else "no age")})
             else:
                 A_abs = A - c - lab_zero
                 rec.update({"lab_zero": round(lab_zero, 4), "A_abs": round(A_abs, 4), "band": band["pooled"],
                             "placement": "BELOW_BAND" if A_abs < band["pooled"]["p10"] else "ABOVE_BAND" if A_abs > band["pooled"]["p90"] else "IN_BAND",
                             "reportable": True, "band_status": "identity_band_v3 (four zeroed labs, n=1,379; LOO 0.75-0.84, PROC-PANEL-03)"})
+                _t,_n=_load_module("cpg_tiers", HERE/"cpg_tiers.py").tier_of(A_abs, True, HM.get(cls) if "HM" in dir() else None); rec.update({"tier": _t, "tier_note": _n})   # Stage 7 (PROC-TIER-01): one JSON-driven tier
         else:
-            rec.update({"A_abs": None, "placement": None, "reportable": False, "reason": "no band for this component yet (s108)"})
+            rec.update({"A_abs": None, "placement": None, "reportable": False, "tier": None, "reason": "no band for this component yet (s108)"})
         out[name] = rec
     return out
 
@@ -401,7 +402,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
-    sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6, PROC-CMB-04)
+    sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6 built, commissioning WITHHELD - PROC-CMB-04 C2')
     m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
     m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
     reliable_cls = [c for c, v in b["class_gauge"].items() if v.get("fraction", 0) >= 0.15]
