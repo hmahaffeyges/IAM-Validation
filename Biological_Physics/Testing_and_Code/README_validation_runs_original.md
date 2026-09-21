@@ -65,10 +65,10 @@ Methylation, nucleosome occupancy, nucleosome fuzziness, windowed protection sco
 | VAL-022 | Fuzziness field effect (22 types) | 22/22; p=6.9e-12; mean ΔA +0.081 (README +0.084); TGCT inversion | Corces 2018 + Esfahani 2022 | PASS |
 | VAL-023 | WPS field effect (22 types) | 22/22; p=9.1e-12; mean ΔA +0.160 (README +0.174); TGCT inversion | Snyder 2016 + Corces 2018 | PASS |
 | VAL-024 | Fragment size field effect (22 types) | 22/22; p=9.8e-11; mean ΔA +0.099 (README +0.102); TGCT inversion | Cristiano 2019 + Mathios 2022 | PASS |
-| VAL-025 | Nucleosome occupancy aging (human + 104 canine) | r=0.9998 human, r=0.986 canine; slope 24.9× (README 53.6×) methylation | Wang 2020 + Pal 2016 | PASS [report/README slope differ] |
-| VAL-026 | Fuzziness aging (human + canine) | r=0.9995 human, r=0.982 canine; slope 20.2× (README 21.0×) | Bochkis 2014 + Ucar 2017 | PASS |
-| VAL-027 | WPS aging (human + canine) | r=0.9990 human, r=0.983 canine; slope 37.7× (README 40.9×) | Snyder 2016 + Mouliere 2018 | PASS |
-| VAL-028 | Fragment size aging (human + canine) | r=0.9962 human, r=0.993 canine; slope 24.0× (README 24.5×) | Mathios 2022 | PASS |
+| VAL-025 | Nucleosome occupancy aging (human + 104 canine) | r=0.9998 human, r=0.986 canine; slope 24.9× (README 53.6×) methylation | Wang 2020 + Pal 2016 | MODELED PREDICTION (PROC-RECORD-02) [report/README slope differ] |
+| VAL-026 | Fuzziness aging (human + canine) | r=0.9995 human, r=0.982 canine; slope 20.2× (README 21.0×) | Bochkis 2014 + Ucar 2017 | MODELED PREDICTION (PROC-RECORD-02) |
+| VAL-027 | WPS aging (human + canine) | r=0.9990 human, r=0.983 canine; slope 37.7× (README 40.9×) | Snyder 2016 + Mouliere 2018 | MODELED PREDICTION (PROC-RECORD-02) |
+| VAL-028 | Fragment size aging (human + canine) | r=0.9962 human, r=0.993 canine; slope 24.0× (README 24.5×) | Mathios 2022 | MODELED PREDICTION (PROC-RECORD-02) |
 | VAL-029 | Nucleosome occupancy — tissue-specific cfDNA | FLOOR BREACH; AUC=0.89 (Griffin ER); bulk plasma buried | Doebley 2022 | PASS |
 | VAL-030 | Fuzziness pre-cancer window | Monotonic dysplasia gradient; A=1.01-1.05 zone | Esfahani 2022 + Bochkis 2014 | PASS |
 | VAL-031 | WPS pre-cancer + field effect | Adjacent-normal WPS depletion (8 yr pre-MESA) | Snyder 2016 Fig 5 | PASS |
