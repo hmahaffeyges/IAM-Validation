@@ -19,7 +19,7 @@ architecture-class-specific entropy floors for all mammalian somatic cell types.
 
 **Updated: April 25, 2026 — Retroactive tissue validation sprint extended further (VAL-058 through VAL-069). pancreatic-epic v0.1 added with three independent tissue cohorts (TCGA-PAAD VAL-066, GSE49149 VAL-067, GSE74071 VAL-068) plus a 324-CpG directional fallback panel (VAL-069) per CCL-027. PDAC confirmed as the second bidirectional-cancellation disease at the Xu-538 panel level (after AD): per-CpG positive-direction percentages cluster around 50% (46.9% / 50.4% / 52.9%), pooled-entropy nulls cross-cohort, directional fallback recovers TCGA-PAAD holdout at d = +1.51 [+0.43, +2.59] p = 6.4e-05.**
 
-**Cross-validated:** 10,000-resample non-parametric bootstrap on identical reference data agrees with G-003b MCMC posteriors at 0.168% mean relative difference (max 1.091%), 24 of 32 MCMC posterior means within bootstrap 95% CI. Calibration is method-independent. Methodology documentation available under NDA.
+**Cross-validated:** 10,000-resample non-parametric bootstrap on identical reference data agrees with G-003b MCMC posteriors at 0.168% mean relative difference (max 1.091%), 24 of 32 MCMC posterior means within bootstrap 95% CI — these 32 are the four non-methylation substrates. The eight methylation floors (G-002) were bootstrap-checked on 2026-09-20 (PROC-HMIN-BOOT-01): 8/8 within the 95% CI, 0.060% mean relative difference. Calibration is method-independent. Methodology documentation available under NDA.
 
 **Archival DOI (all versions):** [10.5281/zenodo.19547624](https://doi.org/10.5281/zenodo.19547624) — frozen Zenodo snapshots of the complete biological physics validation package. Cite the version DOI listed on Zenodo for state-specific references.
 

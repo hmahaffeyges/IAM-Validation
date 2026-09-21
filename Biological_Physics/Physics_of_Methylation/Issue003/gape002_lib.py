@@ -6407,7 +6407,7 @@ def render_section_3_evidence(story):
             ('VAL-028', 'Canine fragment size (modeled)', 'Prediction filed', 'VAL-036'),
             ('VAL-029', 'TGCT inversion (Pluripotent class)', 'Zero-param confirmed', 'G-008'),
             ('VAL-030', 'Adjacent-normal consistency across substrates', '+20.2% all 4 subs', 'G-003b'),
-            ('VAL-031', 'Bootstrap cross-validation (40 class×substrate pairs)', '24/32 within 95% CI', 'G-003b'),
+            ('VAL-031', 'Bootstrap cross-validation (32 non-methylation class×substrate pairs; methylation eight: PROC-HMIN-BOOT-01, 8/8)', '24/32 within 95% CI', 'G-003b'),
             ('VAL-032', 'Cross-substrate correlation structure', 'r=0.54 inter-substrate', 'G-003b'),
             ('VAL-033', 'MESA test vs GAPE 5-substrate theoretical ceiling', 'AUC 0.931 vs 1.000', 'G-003b'),
         ]),
@@ -6487,10 +6487,11 @@ def render_section_3_evidence(story):
     # ─────────────────────────────────────────────────────────────────────
     story.append(Paragraph('3.3  Bootstrap Cross-Validations', sSub3))
     story.append(Paragraph(
-        'For each of the 40 class×substrate H_min values, a leave-one-reference-out bootstrap '
+        'For each of the 32 non-methylation class×substrate H_min values, a leave-one-reference-out bootstrap '
         'was executed to confirm the posterior is not driven by any single reference dataset. '
         'The results: mean absolute difference between full-data posterior and leave-one-out '
         'posterior is 0.168%. 24 of 32 leave-one-out intervals fall within the full-data '
+        '(these 32 are the four non-methylation substrates; the eight methylation floors were bootstrap-checked on 2026-09-20, PROC-HMIN-BOOT-01: 8/8 in CI, 0.060%) '
         '95% credible interval. The eight pairs where the leave-one-out interval exceeds the '
         'full-data CI are all small-sample classes (stem_pluri n=3, stem_adult n=5) where '
         'reference dataset heterogeneity drives the variance — not a framework failure but a '
@@ -10302,7 +10303,7 @@ def blk_glossary(story):
              'Confidence interval derived by resampling. For H_min posteriors, '
              'leave-one-reference-out bootstrap confirms no single dataset drives '
              'the result. Mean |Δ| between full-data and leave-one-out posteriors: '
-             '0.168% across 40 class×substrate H_min values (VAL-031).'),
+             '0.168% across the 32 non-methylation class×substrate H_min values (VAL-031); 0.060% across the 8 methylation values (PROC-HMIN-BOOT-01, 2026-09-20).'),
             ('MCMC',
              'Markov Chain Monte Carlo. Statistical method for sampling from posterior '
              'distributions. G-002 (methylation H_min): 17 chains, R-hat < 1.001, '
