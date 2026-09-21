@@ -233,8 +233,48 @@ def stage_4_5_bidirectional(beta_dict, cfg=None):
     return {"bidirectional": out, "any_flagged": getattr(report, "any_bidirectional_flagged", False)}
 
 
-def stage_5_mahalanobis(stage_b_out, cfg=None):
-    """Stage 5 (SOP §47-51, Option A) - derived age-matched departure of the patient's
+def stage_5_mahalanobis(identity_out, cfg=None):
+    """Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B).
+    Input is the REPORTED gauge (stage_b_identity): for each component with a commissioned band,
+        z = (A_abs - 1.000) / sigma,   sigma = (p90 - p10) / (2 * 1.2816)  from identity_band_v3
+    distance = sqrt(sum z^2) over the n assessable components; thresholds sqrt(chi2(0.95|0.99, n)).
+    Components without a band (haematopoietic-progenitor joint; all non-blood classes) are not assessable.
+    On whole blood today n = 1: the departure is how many band-widths from the healthy line the immune
+    reading sits, and the report says so. Not reportable when the gauge is not (UNSET / UNMAPPED).
+    Keys: both the long names cpg_report_builder reads and the short aliases run_full exposed."""
+    import math
+    try:
+        from scipy.stats import chi2
+        thr = lambda n: (math.sqrt(chi2.ppf(0.95, n)), math.sqrt(chi2.ppf(0.99, n)))
+    except Exception:
+        thr = lambda n: (math.sqrt(n + 2.0 * math.sqrt(2.0 * n)), math.sqrt(n + 3.0 * math.sqrt(2.0 * n)))
+    contribs = []; unreportable = []
+    for name, v in identity_out.items():
+        if not v.get("present") or not v.get("band"): continue
+        if not v.get("reportable"): unreportable.append(name); continue
+        b = v["band"]; sigma = (b["p90"] - b["p10"]) / (2 * 1.2816); z = (v["A_abs"] - 1.0) / sigma
+        contribs.append({"class": name, "patient_A": v["A_abs"], "age_matched_mean": 1.0, "sigma": round(sigma, 5), "z": round(z, 3),
+                         "band_widths_from_line": round((v["A_abs"] - 1.0) / (b["p90"] - b["p10"]), 3)})
+    n = len(contribs)
+    if n == 0:
+        status = ("gauge not reportable (" + ", ".join(unreportable) + ")") if unreportable else "no assessable component with a commissioned band"
+        out = {"mahalanobis_distance": None, "n_features_assessable": 0, "n_assessable": 0, "reportable": False, "status": status,
+               "alarm_threshold_p95": None, "alarm_threshold_p99": None, "mahalanobis_beyond_band": None, "top_axis_contributions": []}
+    else:
+        d = math.sqrt(sum(c["z"] ** 2 for c in contribs)); t95, t99 = thr(n)
+        contribs.sort(key=lambda c: -abs(c["z"]))
+        out = {"mahalanobis_distance": round(d, 4), "n_features_assessable": n, "n_assessable": n, "reportable": True,
+               "alarm_threshold_p95": round(t95, 4), "alarm_threshold_p99": round(t99, 4),
+               "mahalanobis_beyond_band": bool(d > t95), "beyond_p99": bool(d > t99), "top_axis_contributions": contribs,
+               "status": "one banded axis (immune) - the distance is |z_immune|" if n == 1 else f"{n} banded axes",
+               "reference": "identity_band_v3 (four zeroed labs, n=1,379); mu = 1.000; sigma from p10-p90"}
+    out.update({"distance": out["mahalanobis_distance"], "beyond": out["mahalanobis_beyond_band"],
+                "driver": contribs[0]["class"] if contribs else None})
+    return {"departure": out, "class_ascores_scored": {c["class"]: c["patient_A"] for c in contribs}}
+
+def stage_5_hull_marker_union(stage_b_out, cfg=None):
+    """DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure.
+    Stage 5 (SOP §47-51, Option A) - derived age-matched departure of the patient's
     CLASS GAUGE A-scores from the age band. Scores PRESENT classes only (absent-class
     background is excluded). One number + top-axis decomposition. No cohort."""
     cfg = cfg or {}
@@ -308,7 +348,8 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
-    m = stage_5_mahalanobis(b, cfg={"age": age})
+    m = stage_5_mahalanobis(bi, cfg={"age": age})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
+    m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
     reliable_cls = [c for c, v in b["class_gauge"].items() if v.get("fraction", 0) >= 0.15]
     ag = stage_6_cellular_age(beta_dict, cfg={"age": age, "present_classes": reliable_cls})
     # per-cell separation, present cells only, with class
@@ -328,10 +369,11 @@ def run_full(beta_dict, atlas_csv, cfg=None):
                         "status": "DIAGNOSTIC ONLY - not the reported A (PROC-N7-01, PROC-SWITCH-01)"}
                     for c, v in b["class_gauge"].items() if v.get("A") is not None},
         "scale": scale_label, "lab_zero": ("UNSET" if cfg.get("lab_zero") is None else cfg.get("lab_zero")),
-        "pending_recalibration": {"stage_5_mahalanobis": True, "stage_6_cellular_age": True,
-                                  "note": "Stages 5 and 6 still consume the marker-union statistics; CHAIN_COMMISSIONING rows 5 and 6 are next"},
-        "departure": {"distance": dep.get("mahalanobis_distance"), "beyond": dep.get("mahalanobis_beyond_band"),
-                      "driver": (dep.get("top", [{}])[0].get("class") if dep.get("top") else None)},
+        "pending_recalibration": {"stage_5_mahalanobis": False, "stage_6_cellular_age": True,
+                                  "note": "Stage 5 re-based on the identity gauge (PROC-MAHA-01); Stage 6 still consumes the marker-union statistics - row 6 is next"},
+        "departure": dep,                                # identity-gauge departure; long keys + short aliases (PROC-MAHA-01)
+        "mahalanobis": dep,                              # the key cpg_report_builder._departure_section reads
+        "diagnostic_hull_marker_union": m_diag["departure"],
         "bidirectional": bd["bidirectional"],
         "cellular_age": {"summary": ag["summary_cellular_age_present"], "chrono": age,
                          "per_class": ag["cellular_age_per_class"]},

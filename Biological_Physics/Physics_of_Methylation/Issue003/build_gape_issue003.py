@@ -364,6 +364,7 @@ def sec8_procedures(story):
     proc(story, 'PROC-PANEL-01 → PROC-PANEL-03 - the per-lab healthy panel as the lab zero: COMMISSIONED', '40 healthy arrays, any age mix, read against the reference age curve; a three-lab band holds 75-84% of a fourth lab', [(k, D.PANEL[k]) for k in ('question','panel01','panel02','panel03','decision','residual')])
     proc(story, 'PROC-HISTORY-01 - the validation count, corrected from the record', 'The 2026-09-19 index said 103; the record says 3 G + 119 VAL + 15 T + 22 CPG-VAL + hull + N7', [(k, dict(D.HISTORY_PROC)[k]) for k in ('question','finding','correction')])
     proc(story, 'PROC-SWITCH-01 -> PROC-SWITCH-02 - the gauge switch, commissioned', 'The reported A is now the identity-loci gauge with the three-layer reference; the atlas turned out to be a fifth laboratory', [(k, dict(D.SWITCH_PROC)[k]) for k in ('question','finding','correction')])
+    proc(story, 'PROC-MAHA-01 - the departure re-based on the identity gauge; the chip term measured', 'Row 5 BUILT, not commissioned: one lab fails the p95 tail bar and the cause is the Sentrix chip', [(k, dict(D.MAHA_PROC)[k]) for k in ('question','finding','correction')])
     proc(story, 'PROC-WB-COMP-01', 'Whole blood — composition is immune, epithelium absent', [
         ("input", "as PROC-WB-IMMUNE-01, deconvolver only"),
         ("expected", "immune + progenitor + stem_adult ≥ 0.95; epithelial (cycling+secretory+terminal+stromal) ≤ 0.02; residual MAE below tissue (0.108–0.153)"),
