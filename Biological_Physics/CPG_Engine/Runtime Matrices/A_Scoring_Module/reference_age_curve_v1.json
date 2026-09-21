@@ -1,0 +1,29 @@
+{
+ "_meta": {
+  "built": "2026-09-20",
+  "from": "PROC-PANEL-03: four healthy whole-blood cohorts (GSE87571, GSE42861 ctrl, GSE125105 ctrl, GSE111629 ctrl), each zeroed by its full-cohort median; per-decade median of mapped immune identity-loci A about the grand median; decades with n>=30 only",
+  "class": "immune",
+  "scale": "stage1_noob_450K mapped",
+  "n": 1379,
+  "n_per_decade": {
+   "10": 100,
+   "20": 114,
+   "30": 150,
+   "40": 241,
+   "50": 276,
+   "60": 247,
+   "70": 176,
+   "80": 72
+  }
+ },
+ "curve": {
+  "10": -0.0244,
+  "20": -0.0113,
+  "30": -0.0062,
+  "40": 0.0,
+  "50": 0.0019,
+  "60": 0.006,
+  "70": 0.0094,
+  "80": 0.0121
+ }
+}
