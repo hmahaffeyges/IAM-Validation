@@ -390,7 +390,11 @@ def stage_4_6_patient_sky(beta_rm, stage_a_out, cfg=None, atlas_csv=None):
     return out
 
 def stage_8_matching(stage_a_out, cfg=None):
-    """Stage 8 - disease-pattern concordance (route B) on the per-cell SEPARATION surface. ROW 8 OPEN (PROC-MATCH-01, 2026-09-21):
+    """NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix
+    compiled from pre-build and early post-build VALs, i.e. the preliminary record. The chain reports what it measured (cells detected,
+    fractions, A per cell and class, placement, flags) and names no disease. This function is kept callable for RECORD-SIDE study only
+    (logging cohort behaviour as trusted-chain cohorts accumulate); run_full does not call it and the report never shows its output.
+    Earlier text (superseded): ROW 8 OPEN (PROC-MATCH-01, 2026-09-21):
     the departure profile is (A_cell - 1.0) over PRESENT cells, but healthy per-cell A on this surface sits at ~0.44-0.52 with class
     H_min 0.77-0.98, so on healthy whole blood only ~3 cells enter the profile. The reference level must be re-derived on this surface
     (healthy per-cell level from the four-lab panels) before any match is reported. Until then the output is DIAGNOSTIC and not reportable.
@@ -420,7 +424,6 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
-    m8 = stage_8_matching(a, cfg=cfg)                                                                # Stage 8 (row 8 OPEN): diagnostic only, fail-closed origin gate
     sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6 built, commissioning WITHHELD - PROC-CMB-04 C2')
     m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
     m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
@@ -438,7 +441,6 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
-        "diagnostic_disease_matching": m8,               # Stage 8 (row 8 OPEN, PROC-MATCH-01): NOT reportable
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
