@@ -389,6 +389,24 @@ def stage_4_6_patient_sky(beta_rm, stage_a_out, cfg=None, atlas_csv=None):
            "_sky": sky}   # full arrays for render_plate; stripped by the report builder
     return out
 
+def stage_8_matching(stage_a_out, cfg=None):
+    """Stage 8 - disease-pattern concordance (route B) on the per-cell SEPARATION surface. ROW 8 OPEN (PROC-MATCH-01, 2026-09-21):
+    the departure profile is (A_cell - 1.0) over PRESENT cells, but healthy per-cell A on this surface sits at ~0.44-0.52 with class
+    H_min 0.77-0.98, so on healthy whole blood only ~3 cells enter the profile. The reference level must be re-derived on this surface
+    (healthy per-cell level from the four-lab panels) before any match is reported. Until then the output is DIAGNOSTIC and not reportable.
+    Origin gate fails CLOSED (missing/unreadable disease_origin_cells.json -> status NOT AVAILABLE, zero candidates)."""
+    cfg = cfg or {}
+    W = _load_module("walther_clinical", _find("walther_clinical.py"))
+    md = HERE / "Disease Matrix" / "DISEASE_MATRIX"
+    c2c = json.load(open(_find("IAMAtlasREBUILD_celltype_to_class.json"))); HM = json.load(open(_find("iamatlas_celltype_markers_v0_2.json"))).get("H_min_by_class", {})
+    s4 = {"celltype_ascores": {cell: {"A": r.get("A"), "below_floor": bool(r.get("A") is not None and r["A"] < HM.get(c2c.get(cell), 0)),
+                                       "celltype_fraction": r.get("fraction")} for cell, r in stage_a_out["cells"].items()}}
+    out = W.stage_8_dual_matching(s4, None, None, patient_meta={"substrate": cfg.get("substrate", "whole_blood")},
+                                  config={"disease_matrix_csv": str(md / "disease_cell_signature_matrix_v1_13.csv"), "matrix_mapping_json": str(md / "iamatlas_115_to_matrix_v0_2_mapping.json")})
+    return {"available": out.status == "OK", "status": out.status, "reportable": False, "row_status": "OPEN - departure reference not commissioned on the separation surface (PROC-MATCH-01)",
+            "n_present_cells": len(out.patient_departure), "patient_departure": out.patient_departure,
+            "route_B_top": out.route_B_concordance[:5], "n_scored": len(out.route_B_all_scored)}
+
 def run_full(beta_dict, atlas_csv, cfg=None):
     """Full conductor: Stage A -> B (wired) -> 1s scale map -> B-identity -> 4.5 -> 5 -> 6, one bundle
     in the shape build_dashboard_v1.py consumes. Present-gated throughout.
@@ -402,6 +420,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
+    m8 = stage_8_matching(a, cfg=cfg)                                                                # Stage 8 (row 8 OPEN): diagnostic only, fail-closed origin gate
     sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6 built, commissioning WITHHELD - PROC-CMB-04 C2')
     m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
     m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
@@ -419,6 +438,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
+        "diagnostic_disease_matching": m8,               # Stage 8 (row 8 OPEN, PROC-MATCH-01): NOT reportable
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],

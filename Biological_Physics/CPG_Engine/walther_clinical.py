@@ -1026,10 +1026,15 @@ def stage_8_dual_matching(stage4_output, stage5_output, stage4_5_report,
     # cell-of-origin map (disease_id -> [origin cells]); drives the specificity rule so a solid-
     # cancer card is never named off the shared blood-immune axis without real tissue evidence
     import json as _json
+    # PROC-MATCH-01 M1 (2026-09-21): FAIL CLOSED. A missing or unparsable origin map used to become {} and the
+    # specificity rule degraded silently; now Stage 8 refuses to match at all.
+    _op = Path(cfg["disease_matrix_csv"]).parent / "disease_origin_cells.json"
     try:
-        origin_map = _json.load(open(Path(cfg["disease_matrix_csv"]).parent / "disease_origin_cells.json"))
-    except Exception:
-        origin_map = {}
+        origin_map = _json.load(open(_op))
+        if not isinstance(origin_map, dict) or not origin_map: raise ValueError("origin map empty")
+    except Exception as _e:
+        return Stage8Output(route_B_concordance=[], route_B_all_scored=[], patient_departure={}, route_A_architectural_alarm={},
+                            route_C_bidirectional={}, status=f"NOT AVAILABLE - cell-of-origin map unreadable ({_op.name}: {_e}); Stage 8 refuses to match (fail-closed, PROC-MATCH-01)")
     header = list(rows[0].keys()) if rows else []
     meta_cols = ["disease_id", "phase", "time_range", "substrate",
                  "disease_severity_class", "mechanism", "organ_pages_to_link", "evidence_anchors"]

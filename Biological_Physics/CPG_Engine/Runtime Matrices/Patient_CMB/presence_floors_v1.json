@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "proc": "PROC-CMB-04",
+  "proc": "PROC-CMB-05",
   "rule": "non-blood classes: max(0.02, p99 of Stage 2 fraction over the 160 healthy PANEL arrays); blood lineage (immune, progenitor, stem_adult): 0.02",
   "seed": 2028
  },
