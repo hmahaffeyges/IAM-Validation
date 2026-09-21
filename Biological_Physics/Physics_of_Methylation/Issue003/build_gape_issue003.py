@@ -352,6 +352,7 @@ def sec8_procedures(story):
     proc(story, 'band_v2 test - pooled two-lab band on a third lab and population (GSE125105 Munich controls, n = 201)', 'P3 and P4 FAIL; the per-cohort constant is a layer pooling cannot remove; healthy reference = floor + pipeline map + lab zero', [(k, D.BAND_V2[k]) for k in ('verdict','three_cohorts','why_pooling_fails','design','nulls')])
     proc(story, 'LAB-ZERO-01 - can the array\'s own control probes supply the lab zero?', 'Direction 3/3, Swedish magnitude to 0.002, Munich overshoot; panel standard today, fourth cohort decides', [(k, D.LABZERO_01[k]) for k in ('question','data','result','features','within_cohort','nulls','verdict')])
     proc(story, 'LAB-ZERO-02 - the fourth lab (UCLA) decides the lab-zero route', 'Control probes carry direction, not magnitude; the lab zero is the healthy-control panel (CLSI EP28)', [(k, D.LABZERO_02[k]) for k in ('question','result','four_labs','reading','decision','nulls')])
+    proc(story, 'PROC-HMIN-BOOT-01 - the methylation floors bootstrap-checked for the first time', 'The record said all 40; the TSV held 32. Run: 8/8 in CI, 0.060%', [(k, D.HMIN_BOOT[k]) for k in ('question','finding','run','result','code_status')])
     proc(story, 'PROC-WB-COMP-01', 'Whole blood — composition is immune, epithelium absent', [
         ("input", "as PROC-WB-IMMUNE-01, deconvolver only"),
         ("expected", "immune + progenitor + stem_adult ≥ 0.95; epithelial (cycling+secretory+terminal+stromal) ≤ 0.02; residual MAE below tissue (0.108–0.153)"),

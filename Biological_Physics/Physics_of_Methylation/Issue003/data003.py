@@ -344,7 +344,7 @@ MCMC_HMIN = [  # G-002 / G-003b sampler settings (EDEAR s5)
  ("N_CHAINS", "5 independent (for R-hat)"), ("THIN", "10"), ("PRIOR_SIGMA", "0.05 (prior width around the published central value; walkers initialised at mean + 0.1 x PRIOR_SIGMA x N(0,1))"), ("SIGMA_A", "0.03 (likelihood tolerance on (A - 1)^2)"), ("SEED_BASE", "20260420"),
  ("Acceptance window", "0.20-0.50 (step-size tuning; <0.1 too large, >0.7 too small)"), ("Autocorrelation time", "tau ~ 50 -> ~16,000 effective samples per class"),
  ("Posterior draws per class", "(32 x 5,000 x 5)/10 = 80,000"), ("Likelihood", "Gaussian on (A_i - 1.0)^2 / SIGMA_A^2 per reference cell"),
- ("Prior", "Gaussian centred on the published calibration value"), ("Cross-check", "leave-one-out bootstrap, n = 10,000 resamples; MCMC and bootstrap must agree within 5-10% or the cohort is audited"),
+ ("Prior", "Gaussian centred on the published calibration value"), ("Cross-check", "leave-one-out bootstrap, n = 10,000 resamples; MCMC and bootstrap must agree within 5-10% or the cohort is audited. RUN in April for the 32 G-003b floors only (0.168%, 24/32 in CI); run for the 8 methylation floors on 2026-09-20 - PROC-HMIN-BOOT-01: 0.060% mean, 0.095% max, 8/8 in CI"),
  ("Convergence", "17 methylation chains R-hat < 1.001 (G-002); 5 x 32-walker ensembles per substrate (G-003b)"),
  ("Runtime", "G-002 29.7 s for 8 classes (laptop); G-003b ~24 min for 32 posteriors (desktop)"),
  ("Notable posterior shift", "immune: 0.795 (neutrophil-based calibration) -> 0.838889 after MCMC over six immune cell types, a 6.44 sigma move (EDEAR s4.6); every immune A in the database was revised downward by approximately 0.055 as a consequence (Issue 002, immune card)"),
@@ -969,3 +969,12 @@ COSMO_EVIDENCE.insert(7, ("2026-09-20", "Housekeeping-channel systematics model 
   "Four labs on one scale (0 / +0.024 / -0.021 / -0.046, each flat across age): the control probes predict every sign and only the Swedish pair's size. A negative result that fixed the design: the lab zero is a measured healthy panel, not a model.", "LAB-ZERO-02"))
 FUTURE_GOALS[1] = ("GATE 0b - lab zero: CLOSED (panel standard)", "Per-lab healthy-control panel is the lab zero (LAB-ZERO-02). Revisit the control-probe route only with >= 6 labs and pre-analytical metadata; the 13% within-cohort narrowing is noted, not built.", "LAB-ZERO-01, LAB-ZERO-02",
   "direction 4/4, magnitude 1/4; the unrecorded pre-analytical term dominates", "closed")
+
+HMIN_BOOT = {
+ "question": "Were the eight methylation H_min values ever bootstrap cross-checked, as the record's 'all 40 values' sentence implies?",
+ "finding": "No. bootstrap_vs_mcmc_comparison.tsv (commit 22749f0) has 32 rows = nucl/fuzz/wps/frag x 8 classes. The methylation eight had MCMC (R-hat < 1.001) and no bootstrap.",
+ "run": "G-002 reference database (37 published reference cell methylomes, 4-6 per class) + bootstrap_h_min from gape_bootstrap_comparison.py, both from 22749f0; 10,000 resamples, seed 42, mean-over-cells H(beta); exact leave-one-out; compared with the frozen values at HEAD.",
+ "result": "8/8 frozen values inside the bootstrap 95% CI; mean relative difference 0.060%, max 0.095% (immune). Tighter than the G-003b substrates. Frozen values unchanged.",
+ "code_status": "The calibration scripts are NOT at HEAD (removed 2026-04-19, 538667d, 'commercial calibration layer'); they are in public git history at 22749f0, so the evidence report's links are dead while the files remain retrievable. Disclosure decision for the author.",
+}
+FALSIFICATION += [("'All 40 H_min values bootstrap cross-validated at 0.168%' (record, April 2026)", "the TSV holds the 32 non-methylation floors only; methylation had no bootstrap", "CORRECTED 2026-09-20; methylation bootstrap run (PROC-HMIN-BOOT-01): 8/8 in CI, 0.060%"),]
