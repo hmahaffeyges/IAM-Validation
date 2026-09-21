@@ -6,25 +6,46 @@
   "cohorts": {
    "GSE111629_UCLA": {
     "n": 204,
-    "z_lab_full_cohort": -0.0673
+    "z_lab_full_cohort": -0.0673,
+    "tail_p95": 0.0441,
+    "tail_p99": 0.0049,
+    "chip_median_sd": 0.0123,
+    "tail_p95_if_chip_centred": 0.0196
    },
    "GSE125105_Munich": {
     "n": 201,
-    "z_lab_full_cohort": -0.0346
+    "z_lab_full_cohort": -0.0346,
+    "tail_p95": 0.0647,
+    "tail_p99": 0.01,
+    "chip_median_sd": 0.0116,
+    "tail_p95_if_chip_centred": 0.0348
    },
    "GSE42861_Karolinska": {
     "n": 315,
-    "z_lab_full_cohort": 0.0084
+    "z_lab_full_cohort": 0.0084,
+    "tail_p95": 0.0984,
+    "tail_p99": 0.0508,
+    "chip_median_sd": 0.0203,
+    "tail_p95_if_chip_centred": 0.0413
    },
    "GSE87571_Uppsala": {
     "n": 659,
-    "z_lab_full_cohort": -0.0117
+    "z_lab_full_cohort": -0.0117,
+    "tail_p95": 0.0561,
+    "tail_p99": 0.0152,
+    "chip_median_sd": 0.0138,
+    "tail_p95_if_chip_centred": 0.0364
    }
   },
   "n": 1379,
   "scale": "stage1_noob_450K mapped",
   "class": "immune",
-  "status": "COMMISSIONED band for the identity-loci gauge; per-decade rows are for reporting only (age already removed by c)"
+  "status": "COMMISSIONED band for the identity-loci gauge; per-decade rows are for reporting only (age already removed by c)",
+  "false_alarm_note": "PROC-MAHA-02 (2026-09-21): tail_p95/tail_p99 = fraction of this laboratory's gated healthy donors whose immune A'' reads beyond the chi2 p95/p99 thresholds on the identity gauge (MAHA-01 M2). Range across four laboratories 0.044-0.098 at p95; the excess over 0.05 is the Sentrix-chip term (chip_median_sd), open as CHAIN_COMMISSIONING row 5b. A laboratory without a measured tail is reported with the four-lab range.",
+  "four_lab_tail_range_p95": [
+   0.0441,
+   0.0984
+  ]
  },
  "pooled": {
   "p10": 0.9724,

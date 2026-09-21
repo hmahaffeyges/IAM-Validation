@@ -1160,6 +1160,8 @@ def _departure_section(bundle):
     n = m.get("n_features_assessable", 0)
     col = "var(--red)" if beyond else "var(--accent)"
     verdict = "beyond the age-matched healthy band" if beyond else "within the age-matched healthy band"
+    fa = m.get("lab_false_alarm_sentence")  # PROC-MAHA-02: the laboratory's false-alarm rate travels with the number
+    fa_html = f"<p class='muted'>{_esc(fa)}</p>" if fa else ""
     top = m.get("top_axis_contributions", []) or []
     trows = "".join(f"<tr><td>{_esc(t.get('class'))}</td><td class='num'>{t.get('patient_A', float('nan')):.3f}</td>"
                     f"<td class='num'>{t.get('age_matched_mean', float('nan')):.3f}</td>"
@@ -1173,8 +1175,7 @@ def _departure_section(bundle):
             "from the age matrix, not a pooled cohort; the threshold adapts to how many classes were assessable "
             "(&chi;&sup2;). The classes below drive the distance.</p>"
             + (f"<table><thead><tr><th>class</th><th>patient A</th><th>age-matched mean</th><th>z</th>"
-               f"</tr></thead><tbody>{trows}</tbody></table>" if trows else ""))
-
+               f"</tr></thead><tbody>{trows}</tbody></table>" if trows else "")) + fa_html
 
 def build_report(bundle, out_path=None):
     ctx = bundle.get("context", {})

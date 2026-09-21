@@ -268,6 +268,16 @@ def stage_5_mahalanobis(identity_out, cfg=None):
                "mahalanobis_beyond_band": bool(d > t95), "beyond_p99": bool(d > t99), "top_axis_contributions": contribs,
                "status": "one banded axis (immune) - the distance is |z_immune|" if n == 1 else f"{n} banded axes",
                "reference": "identity_band_v3 (four zeroed labs, n=1,379); mu = 1.000; sigma from p10-p90"}
+    # PROC-MAHA-02: the laboratory's empirical false-alarm rate travels with the number (row 5b = the chip term behind it)
+    band_meta = json.load(open(_find("identity_band_v3.json")))["_meta"]
+    lab_key = (cfg or {}).get("lab"); rec = band_meta.get("cohorts", {}).get(lab_key) if lab_key else None
+    if rec and "tail_p95" in rec:
+        out.update({"lab_false_alarm_p95": rec["tail_p95"], "lab_false_alarm_p99": rec["tail_p99"], "lab_false_alarm_source": f"measured on {rec['n']} healthy arrays at {lab_key}",
+                    "lab_false_alarm_sentence": f"At this laboratory {round(100*rec['tail_p95'])} of 100 healthy donors read beyond p95 on this axis ({round(100*rec['tail_p99'])} of 100 beyond p99); the excess over 5 is the chip term (row 5b)."})
+    else:
+        lo, hi = band_meta.get("four_lab_tail_range_p95", [0.044, 0.098])
+        out.update({"lab_false_alarm_p95": None, "lab_false_alarm_p99": None, "lab_false_alarm_source": "not measured for this laboratory",
+                    "lab_false_alarm_sentence": f"This laboratory's healthy false-alarm rate is not measured; across four commissioned laboratories {round(100*lo)}-{round(100*hi)} of 100 healthy donors read beyond p95 on this axis (chip term, row 5b)."})
     out.update({"distance": out["mahalanobis_distance"], "beyond": out["mahalanobis_beyond_band"],
                 "driver": contribs[0]["class"] if contribs else None})
     return {"departure": out, "class_ascores_scored": {c["class"]: c["patient_A"] for c in contribs}}
@@ -348,7 +358,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
-    m = stage_5_mahalanobis(bi, cfg={"age": age})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
+    m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
     m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
     reliable_cls = [c for c, v in b["class_gauge"].items() if v.get("fraction", 0) >= 0.15]
     ag = stage_6_cellular_age(beta_dict, cfg={"age": age, "present_classes": reliable_cls})
