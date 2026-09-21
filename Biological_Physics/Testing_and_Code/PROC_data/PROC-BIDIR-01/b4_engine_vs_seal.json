@@ -1,0 +1,8 @@
+{
+ "B4_n": 148,
+ "B4_unmatched": 0,
+ "B4_max_abs_diff": 2.22e-16,
+ "runtime_panel": "immune",
+ "runtime_panel_identical_to_sealed_ruleA": true,
+ "pass": true
+}
