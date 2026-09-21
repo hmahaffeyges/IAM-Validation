@@ -9,7 +9,7 @@ Inputs it needs (all in the working dir or repo):
   - IAMAtlasREBUILD.csv                 (decompressed atlas, the deconvolver reference)
   - IAMAtlasREBUILD_celltype_to_class.json
   - iamatlas_celltype_markers_v0_2.json (per-cell discriminative markers + H_min_by_class)
-  - iamatlas_gauge_identity_loci_v1_0.json, age_reference_matrix.json  (Stage B)
+  - iamatlas_gauge_identity_loci_v1_0.json, reference_age_curve_v1.json, identity_band_v3.json, lab_zero.py  (Stage B, the reported gauge; age_reference_matrix.json is diagnostic only)
   - iamatlas_mahalanobis_scoring.py + mahalanobis_healthy_reference_v2_0_*.json (Stage C)
   - directional_panels_v1_0.json, bidirectional_decomposition.py       (Stage C)
   - tier_breakpoints.json, disease_cell_signature_matrix_v1_13.csv,
@@ -158,6 +158,8 @@ def stage_1s_scale_map(beta_dict, pipeline):
     fitted map the beta is returned UNCHANGED with label 'UNMAPPED' - downstream must not report a tier from it.
     Applied to the GAUGE path only: Stage 2 composition was verified on unmapped Stage-1 beta and is scale-tolerant
     (simplex-constrained NNLS); the wired marker-union gauge keeps unmapped beta because ITS band was compiled that way."""
+    if pipeline == "atlas_scale":   # beta already on the Roadmap/atlas scale (synthetic patients, N7); identity map
+        return dict(beta_dict), "MAPPED(atlas_scale identity; slope 1, intercept 0)"
     maps = json.load(open(_find("beta_scale_maps_v1.json")))["maps"]
     m = maps.get(pipeline or "", {})
     if m.get("slope") is None:
@@ -166,27 +168,25 @@ def stage_1s_scale_map(beta_dict, pipeline):
     return {k: min(1.0, max(0.0, (v - b) / a)) for k, v in beta_dict.items()}, f"MAPPED({pipeline}->roadmap; slope {a}, intercept {b}; {maps and json.load(open(_find('beta_scale_maps_v1.json')))['_meta']['version']})"
 
 
-def stage_b_identity(beta_mapped, stage_a_out, age, scale_label):
-    """The gauge SOP s41/s106 actually specifies: A = H(beta_mean)/H_min over the class IDENTITY loci, on
-    Roadmap-scale beta, read against identity_band_v1 (PHASE 1, GSE87571, n=560, PROVISIONAL until Phase 1c).
-    Emitted ALONGSIDE the wired marker-union gauge (stage_b_classes) - not yet in its place. s108 reporting rule:
-    on whole blood only immune and the joint haematopoietic-progenitor component get a band."""
+def stage_b_identity(beta_mapped, stage_a_out, age, scale_label, lab_zero=None):
+    """THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the
+    class IDENTITY loci on mapped beta, then the three-layer reference (Issue 003 s3.5):
+        A_abs = A_mapped - c(decade) - z_lab
+    c from reference_age_curve_v1.json (PROC-PANEL-03), z_lab from the laboratory's 40-array healthy panel
+    (lab_zero.py). Placement in identity_band_v3.json (pooled p10-p90 of A_abs over four zeroed healthy cohorts).
+    lab_zero None -> 'UNSET': A_mapped is still returned, but A_abs/placement are None and reportable=False.
+    s108 reporting rule: on whole blood only immune and the joint haematopoietic-progenitor component are read."""
     import math
     ident = json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json")))
     ident = {k: v for k, v in ident.items() if isinstance(v, dict) and "loci" in v}
-    try:
-        band_file = json.load(open(_find("scale_map_addendum.json")))["mapped_band"]   # p10/p90 per decade on MAPPED A
-    except Exception:
-        band_file = {}
+    band = json.load(open(_find("identity_band_v3.json")))
+    lz = _load_module("lab_zero", _find("lab_zero.py"))
+    curve = lz.load_curve(_find("reference_age_curve_v1.json"))
     def H(b): b = min(max(b, 1e-12), 1 - 1e-12); return -b * math.log2(b) - (1 - b) * math.log2(1 - b)
-    def band_for(age_):
-        for k, v in band_file.items():
-            lo, hi = map(int, k.split("-"))
-            if lo <= age_ <= hi: return {"decade": k, "p10": v[0], "p90": v[1], "n": v[2]}
-        return None
     fr = stage_a_out["class_fractions"]
     out = {}
     groups = {"immune": ["immune"], "haematopoietic_progenitor": ["progenitor", "stem_adult"]}
+    mapped = scale_label.startswith("MAPPED")
     for name, members in groups.items():
         loci = [c for cls in members for c in ident[cls]["loci"]]
         vals = [beta_mapped[c] for c in loci if c in beta_mapped]
@@ -195,12 +195,23 @@ def stage_b_identity(beta_mapped, stage_a_out, age, scale_label):
             out[name] = {"present": False, "fraction": round(frac, 4)}; continue
         hm = ident["progenitor" if name != "immune" else "immune"]["H_min"]        # joint uses progenitor's floor (PREREG s3)
         A = H(sum(vals) / len(vals)) / hm
-        band = band_for(age) if name == "immune" else None
-        placement = None if band is None else ("BELOW_BAND" if A < band["p10"] else "ABOVE_BAND" if A > band["p90"] else "IN_BAND")
-        out[name] = {"present": True, "fraction": round(frac, 4), "A": round(A, 4), "n_loci": len(vals),
-                     "band": band, "placement": placement, "gauge_surface": "identity_loci",
-                     "scale": scale_label, "band_status": "PROVISIONAL identity_band_v1 (Phase 1; one population; Phase 1c pending)" if band else "no band for this component yet",
-                     "reportable": bool(band) and scale_label.startswith("MAPPED")}
+        rec = {"present": True, "fraction": round(frac, 4), "A_mapped": round(A, 4), "n_loci": len(vals),
+               "gauge_surface": "identity_loci", "scale": scale_label, "H_min": hm}
+        if name == "immune":
+            c = lz.age_reference(age, curve) if age is not None else None
+            rec["age_reference_c"] = None if c is None else round(c, 4)
+            if lab_zero is None or c is None or not mapped:
+                rec.update({"lab_zero": "UNSET" if lab_zero is None else round(lab_zero, 4), "A_abs": None, "placement": None,
+                            "band": band["pooled"], "reportable": False,
+                            "reason": ("no laboratory zero (Issue 003 s3.5; lab_zero.py)" if lab_zero is None else "beta not on the calibration scale" if not mapped else "no age")})
+            else:
+                A_abs = A - c - lab_zero
+                rec.update({"lab_zero": round(lab_zero, 4), "A_abs": round(A_abs, 4), "band": band["pooled"],
+                            "placement": "BELOW_BAND" if A_abs < band["pooled"]["p10"] else "ABOVE_BAND" if A_abs > band["pooled"]["p90"] else "IN_BAND",
+                            "reportable": True, "band_status": "identity_band_v3 (four zeroed labs, n=1,379; LOO 0.75-0.84, PROC-PANEL-03)"})
+        else:
+            rec.update({"A_abs": None, "placement": None, "reportable": False, "reason": "no band for this component yet (s108)"})
+        out[name] = rec
     return out
 
 def stage_4_5_bidirectional(beta_dict, cfg=None):
@@ -292,9 +303,9 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     cfg = cfg or {}
     age = cfg.get("age", 60)
     a = stage_a_cells(beta_dict, atlas_csv, cfg)
-    b = stage_b_classes(beta_dict, a, cfg={"age": age})                         # wired gauge (marker union) - unmapped beta, its own band
-    beta_rm, scale_label = stage_1s_scale_map(beta_dict, cfg.get("pipeline"))   # Stage 1s: Roadmap scale for the identity-loci gauge
-    bi = stage_b_identity(beta_rm, a, age, scale_label)                        # SOP s41/s106 gauge, s108 components, PROVISIONAL band
+    b = stage_b_classes(beta_dict, a, cfg={"age": age})                         # marker-union statistic: DIAGNOSTIC ONLY since PROC-SWITCH-01 (feeds Stages 5/6 pending their recalibration)
+    beta_rm, scale_label = stage_1s_scale_map(beta_dict, cfg.get("pipeline"))   # Stage 1s: calibration scale for the gauge
+    bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
     m = stage_5_mahalanobis(b, cfg={"age": age})
@@ -311,11 +322,14 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
-        "classes": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
-                        "fraction": round(v["fraction"], 4), "present": v["present"], "band": v.get("band")}
+        "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
+        "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
+                        "fraction": round(v["fraction"], 4), "present": v["present"], "band": v.get("band"), "gauge_surface": "marker_union",
+                        "status": "DIAGNOSTIC ONLY - not the reported A (PROC-N7-01, PROC-SWITCH-01)"}
                     for c, v in b["class_gauge"].items() if v.get("A") is not None},
-        "classes_identity": bi,
-        "scale": scale_label,
+        "scale": scale_label, "lab_zero": ("UNSET" if cfg.get("lab_zero") is None else cfg.get("lab_zero")),
+        "pending_recalibration": {"stage_5_mahalanobis": True, "stage_6_cellular_age": True,
+                                  "note": "Stages 5 and 6 still consume the marker-union statistics; CHAIN_COMMISSIONING rows 5 and 6 are next"},
         "departure": {"distance": dep.get("mahalanobis_distance"), "beyond": dep.get("mahalanobis_beyond_band"),
                       "driver": (dep.get("top", [{}])[0].get("class") if dep.get("top") else None)},
         "bidirectional": bd["bidirectional"],
