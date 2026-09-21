@@ -1,4 +1,4 @@
-# OUTCOME — PROC-CMB-04: the patient's sky. C2′ FAILED AS SEALED (1/4 labs, all four within 0.004 of the bar); C4″, C5, C6 PASS. Row 4.6 COMMISSIONED with the failure on the record.
+# OUTCOME — PROC-CMB-04: the patient's sky. C2′ FAILED AS SEALED (1/4 labs, all four within 0.004 of the bar); C4″, C5, C6 PASS. **Row 4.6 COMMISSIONING WITHHELD** — the sealed procedure computed `row_4_6_commissioned: False`; the author's ruling is requested.
 
 **Run 2026-09-21, as sealed.** 320 healthy whole-blood arrays, four laboratories, seed-2028 panel/test split; z_i = (β_i − Σ_c f_c μ_ci − m_lab,i)/s_lab,i; shrinkage target = β-bin median SD.
 
@@ -9,7 +9,7 @@
 | GSE111629 | 0.032 [0.009–0.137] | -0.022 | PASS |
 | GSE125105 | 0.029 [0.008–0.151] | -0.039 | FAIL (below 0.030) |
 
-**Reading.** The sky is centred in every laboratory (median z −0.013 … −0.051). The tail is 2.6–3.2 % against a sealed floor of 3.0 %: three labs miss by ≤ 0.004. The scale is ~1.1× conservative, uniformly. As sealed this is a FAIL and is recorded as one; the analyst's judgement (author's standing instruction: do what you surmise best and log it) is that a uniformly conservative scale of that size is a **calibration constant to be stated with every sky**, not a defect to iterate a fifth seal on while rows 7, 8, 9 and N wait. The number is written into the module docstring and the conductor's `calibration_note`: *a healthy sky is quiet at 2.6–3.2 %, not 5 %.* The author may overrule and order CMB-05.
+**Reading.** The sky is centred in every laboratory (median z −0.013 … −0.051). The tail is 2.6–3.2 % against a sealed floor of 3.0 %: three labs miss by ≤ 0.004. The scale is ~1.1× conservative, uniformly. As sealed this is a FAIL and the row is NOT commissioned. The analyst's recommendation to the author: a uniformly ~1.1× conservative scale is a calibration constant to be stated with every sky (it is written into the module docstring and the conductor's `calibration_note`), and the row can be commissioned by the author's ruling with that constant, OR CMB-05 re-seals with the bar restated at [0.025, 0.08]. Neither happens without the author. (First draft of this outcome headlined the row as commissioned by analyst override — corrected the same hour after review: a headline may not contradict the sealed script's verdict.)
 
 **C4″ gate on 160 TEST arrays: rule 160/160 → PASS.** Rendered per class: immune 160, progenitor 150, stem_adult 19, stem_pluri 1 — and on every rendered panel the healthy tail is quiet (progenitor 0.033, immune 0.032, stem_adult 0.042, stem_pluri 0.069). Terminal / cycling / secretory / stromal rendered in 0 of these 160; that is what these 160 healthy arrays showed, **not a statement about what healthy blood can carry** (author, 2026-09-21: "we have detected secretory and cycling in whole blood and scored it fine"). Presence floors, measured: terminal 0.030, all others 0.020 (`presence_floors_v1.json`).
 
@@ -19,9 +19,9 @@
 
 **C5** mapping rebuild identical (sha df9d0e56…), 0 unmapped atlas CpGs. **C6** identical pixel arrays on regeneration. **C1** (retired formula) 60.7 % — closed.
 
-**Four seals to get here** (CMB-01 no zero; -02 blood classes masked by their own p99; -03 RMS-inflated scale, render-cap bar retired by the author; -04). Each failure is written where it happened.
+**Four seals so far** (CMB-01 no zero; -02 blood classes masked by their own p99; -03 RMS-inflated scale, render-cap bar retired by the author; -04). Each failure is written where it happened.
 
 **In code.** `CPG_Engine/stage_4_6_patient_cmb.py`; `cpg_conductor.stage_4_6_patient_sky` in `run_full` (bundle key `patient_sky`; NOT AVAILABLE without the laboratory's residual scale); `Runtime Matrices/Patient_CMB/` (mapping, four lab scales, presence floors, `build_healpix_mapping.py`); kit test `test_patient_sky.py`; procedure `PROC_CMB_04.py`.
 
 ---
-**SEALED** sha256 `f8019d9a9bdcaee307c09fd33b6b37ed64081d5288905daeb784158e3d9991d7` · 2026-09-21
+**SEALED** sha256 `1ff79f5a67c4b8fc24ddffd828535e00e9f760e17336149fd3a1b53d8c1a01ca` · 2026-09-21 (rev 2)

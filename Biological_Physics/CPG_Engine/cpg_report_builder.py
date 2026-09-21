@@ -424,20 +424,11 @@ def _composition_rows(bundle):
     return rows
 
 
-def _tier(a):
-    if a is None:
-        return ""
-    if a >= 1.10:
-        return "BREACH"
-    if a >= 1.07:
-        return "sig. elevated"
-    if a > 1.04:
-        return "elevated"
-    if a >= 0.95:
-        return "normal"
-    return "suppressed"
-
-
+def _tier(a, reportable=True, h_min=None):
+    """PROC-TIER-01: one definition, read from tier_breakpoints.json via cpg_tiers.tier_of."""
+    import importlib.util, os as _os
+    _sp=importlib.util.spec_from_file_location("cpg_tiers", _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "cpg_tiers.py")); _m=importlib.util.module_from_spec(_sp); _sp.loader.exec_module(_m)
+    t,_=_m.tier_of(a, reportable, h_min); return "" if t is None else t
 def _ascore_rows(bundle):
     s4 = bundle["stage4"]
     cta = s4["celltype_ascores"]
@@ -949,11 +940,7 @@ def _strawman_section(bundle):
             A = sum(v[0] for v in vals) / len(vals); dep = A - 1.0
             cis = [(v[1], v[2]) for v in vals if v[1] is not None and v[2] is not None]
             ci = ([sum(c[0] for c in cis)/len(cis), sum(c[1] for c in cis)/len(cis)] if cis else None)
-            if   A < 0.95: tier = "SUPPRESSED"
-            elif A < 1.04: tier = "NORMAL"
-            elif A < 1.07: tier = "ELEVATED"
-            elif A < 1.10: tier = "SIGNIFICANTLY_ELEVATED"
-            else:          tier = "BREACH"
+            tier = _tier(A)   # PROC-TIER-01: JSON-driven
             confident = bool(ci and (ci[0] >= 1.04 or ci[1] <= 0.95))
             patient_cells[col] = {"A": round(A, 3), "dep": round(dep, 3),
                                   "ci": [round(c, 3) for c in ci] if ci else None,
