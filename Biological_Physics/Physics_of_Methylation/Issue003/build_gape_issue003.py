@@ -70,7 +70,7 @@ def cover(story):
       "Every class card now lists its cell types. The atlas did not exist when Issue 002 was written."),
      ("Two instruments, stated.", "The GAUGE (entropy of one mean β over per-class identity loci) and the SEPARATION statistic "
       "(mean per-CpG entropy over per-cell discriminative markers) are different instruments answering different questions. Issue 002 had one A-score."),
-     ("Healthy is a band, not a line - and the band has three layers.", "A = 1.0 is the architectural commitment line. A patient is read against FLOOR (H_min, physics, universal) + PIPELINE MAP (one affine per pipeline onto the Roadmap scale; Stage 1s COMMISSIONED, PHASE 1c) + LAB ZERO (40 healthy arrays per lab, read against the reference age curve, set once - PROC-PANEL-03, COMMISSIONED; the control-probe route was tested on four labs and closed, LAB-ZERO-01/02), then placed in a per-decade percentile band of healthy mapped A (identity_band_v2, PROVISIONAL). The shipped age_reference_matrix.json was compiled on the marker-union statistic and is NOT the reference for the identity-loci gauge (PROC-N7-01). The per-class input offset explored in July is retired."),
+     ("Healthy is a band, not a line - and the reference has three layers (s3.5).", "A = 1.0 is the architectural commitment line. A patient is read against FLOOR (H_min, physics, universal) + PIPELINE MAP (one affine per pipeline onto the Roadmap scale; Stage 1s COMMISSIONED, PHASE 1c) + LAB ZERO (40 healthy arrays per lab, read against the reference age curve, set once - PROC-PANEL-03, COMMISSIONED; the control-probe route was tested on four labs and closed, LAB-ZERO-01/02), then placed in a per-decade percentile band of healthy mapped A (identity_band_v2, PROVISIONAL). The shipped age_reference_matrix.json was compiled on the marker-union statistic and is NOT the reference for the identity-loci gauge (PROC-N7-01). The per-class input offset explored in July is retired."),
      ("Presence before score.", "A class's A-score is a reading only if the deconvolver finds the class in the sample "
       "(DETECT_FLOOR). Scoring absent classes produced spurious BREACH calls in 4/4 healthy plasma samples on 2026-09-19; the rule is now printed."),
      ("Where the tools come from (§5A).", "The Mahaffey number (20.94 = dG_ATP/RT, the cell's ATP budget over k_B T; the name n_bio retired); the forty MCMC-confirmed floors and their forty ceilings; the atlas as a posterior; the Planck toolkit borrowed for the methylome - brightness sky, masking and matched filter (built in spring), and the four disciplines that did the work of 2026-09-19/20: end-to-end simulation with known truth (PROC-N7-01), cross-method disagreement as diagnostic (PROC-NILC-01 - the second deconvolver was cut in July, rerun in September, and vindicated; RUNBOOK s11 now forbids disabling either relay), absolute calibration against an unseen lab (PHASE 1c), and instrument housekeeping from the array's own control probes (LAB-ZERO-01); and why this is not a cohort method (s0, s1.6)."),
@@ -237,6 +237,12 @@ def sec3_instruments(story):
         'The gauge answers "did the compartment depart"; that is the claim this document makes.', sBodySm))
 
 # ═══════════════════════════════════════════════════════════════════════════════
+    story.append(SP(0.10)); story.append(Paragraph('3.5  The healthy reference has three layers - floor, pipeline map, laboratory zero', sSub))
+    story.append(Paragraph(D.REFERENCE_LAYERS["intro"], sBodySm)); story.append(SP(0.04))
+    story.append(tbl([("layer","what it is, and where it came from","cardinality")]+[(a,bb,c) for a,bb,c in D.REFERENCE_LAYERS["layers"]],[0.18,0.62,0.20], fs=6.4)); story.append(SP(0.06))
+    for lab,key in [("WHAT \"LABORATORY\" MEANS","what_a_lab_is"),("TWO ROUTES TO THE CONSTANT, TESTED IN ORDER","two_routes"),("THE PANEL: WHERE THE 40 ARRAYS COME FROM, AND WHY 40","panel"),("THE AGE CURVE: WHY A FLAT PANEL MEDIAN FAILED","age_curve"),("THE TEST THAT COMMISSIONED IT","test"),("THE SINGLE-ARRAY CASE","one_idat"),("WHAT THE LAYERS DO NOT REMOVE","residual")]:
+        story.append(Paragraph(lab, sLabel)); story.append(Paragraph(D.REFERENCE_LAYERS[key], sBodySm)); story.append(SP(0.05))
+
 def card_addendum(story, key):
     cells = D.CELLS_BY_CLASS[key]; idl = D.IDENTITY[key]; hm = D.H_MIN_TABLE[key]
     story.append(KeepTogether([
@@ -247,7 +253,8 @@ def card_addendum(story, key):
     rows = [("Age (midpoint)", "n", "A mean", "p10", "p90", "β mean", "Source")]
     for e in D.AGE_REF[key]:
         rows.append((str(e["age_midpoint"]), str(e["n_samples"]), f'{e["A_mean"]:.4f}', f'{e["A_p10"]:.4f}', f'{e["A_p90"]:.4f}', f'{e["beta_mean"]:.3f}', e["source_citation"]))
-    story.append(Paragraph('Healthy age-matched band (age_reference_matrix.json). A = 1.0 is the commitment line; healthy reads on this band.', sMut))
+    story.append(Paragraph('Healthy age-matched band. A = 1.0 is the commitment line; healthy reads on a band above it. [Issue 003: the age_reference_matrix.json shown here was compiled on the marker union and is SUPERSEDED (PROC-N7-01); the commissioned band is band_v2 on the identity loci with the three-layer reference of s3.5.]', sMut))
+
     story.append(tbl(rows, [0.14, 0.07, 0.12, 0.12, 0.12, 0.12, 0.31], fs=7))
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -527,7 +534,7 @@ def sec5a_tools(story):
 def sec12_clinician(story):
     opener(story, 'SECTION 12', 'FOR THE CLINICIAN - THE INSTRUMENT IN PLAIN TERMS',
         'Two of the source documents (The Cellular Margin; What Is Astro-Genetics) were written for readers who are not physicists. This section carries their content, corrected where the errata in s10 apply, so a physician reading only this section understands what a departure is and is not.')
-    for k in ["margin","floor","reading","substrate","life","errata"]:
+    for k in ["margin","floor","reading","your_sample","substrate","life","errata"]:
         story.append(Paragraph(k.upper(), sLabel)); story.append(Paragraph(D.CLINICIAN[k], sBodySm)); story.append(SP(0.05))
     story.append(Paragraph('The stellar analogy the author uses: white dwarfs and neutron stars sit below a mass limit (Chandrasekhar 1.4 M_sun, TOV ~2.3 M_sun) set by physics, not by a survey of stars; the Sun\'s eventual core at 0.54 M_sun reads 0.38 of the limit, Procyon B 0.42, PSR J0740+6620 0.90. The cellular floor is the same kind of number: a limit from the physics, against which each object is read individually.', sBodySm))
 
