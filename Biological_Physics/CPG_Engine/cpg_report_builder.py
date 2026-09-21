@@ -1119,6 +1119,8 @@ def _how_cpg_works_section():
 def _cellular_age_section(bundle):
     """Cellular age: headline delta BESIDE the per-class breakdown, never a lone number."""
     cage = bundle.get("cellular_age") or {}
+    if cage.get("reportable") is False and cage.get("sentence"):   # PROC-AGE-01: print the resolution, not an age
+        return "<h2>Cellular age</h2><p class='muted'>" + _esc(cage["sentence"]) + "</p>"
     overall = cage.get("cellular_age"); chrono = cage.get("chronological_age")
     per = cage.get("per_class") or {}
     if overall is None or not per:
