@@ -1,0 +1,49 @@
+{
+ "_meta": {
+  "procedure": "PROC-MAHA-03 deep arm",
+  "cohort": "GSE87571",
+  "chips_complete": 23,
+  "arrays": 268,
+  "scale": "Stage 1 noob from IDATs with the scale map applied - commissioned scale",
+  "interim": true
+ },
+ "B1": {
+  "chips": 23,
+  "arrays": 268,
+  "icc": 0.1972,
+  "sd_between": 0.00997,
+  "sd_within": 0.02012,
+  "F": 3.862,
+  "p_perm": 0.0005
+ },
+ "B2_B3": {
+  "k=1": {
+   "n": 268,
+   "tail_band_sigma": 0.1306,
+   "tail_rederived": 0.0485,
+   "sigma_rederived": 0.02816,
+   "meets_bar": true
+  },
+  "k=2": {
+   "n": 268,
+   "tail_band_sigma": 0.0896,
+   "tail_rederived": 0.056,
+   "sigma_rederived": 0.02408,
+   "meets_bar": false
+  },
+  "k=3": {
+   "n": 268,
+   "tail_band_sigma": 0.0597,
+   "tail_rederived": 0.0597,
+   "sigma_rederived": 0.02033,
+   "meets_bar": false
+  },
+  "k=5": {
+   "n": 268,
+   "tail_band_sigma": 0.0597,
+   "tail_rederived": 0.0709,
+   "sigma_rederived": 0.01955,
+   "meets_bar": false
+  }
+ }
+}
