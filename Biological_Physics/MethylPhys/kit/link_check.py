@@ -61,7 +61,13 @@ def references(text):
 
 def main():
     show_all = "--all" in sys.argv
+    # Tracked AND untracked-but-present files. A new document is exactly where broken links live, and until
+    # 2026-09-22 this checked only tracked paths - so REVIEWER_MANIFEST.md passed with a deliberately broken
+    # link in it, because it had not been committed yet.
     tracked = subprocess.run(["git", "-C", R, "ls-files"], capture_output=True, text=True).stdout.split("\n")
+    untracked = subprocess.run(["git", "-C", R, "ls-files", "--others", "--exclude-standard"],
+                               capture_output=True, text=True).stdout.split("\n")
+    tracked = tracked + [f for f in untracked if f]
     basenames = {f.split("/")[-1] for f in tracked if f}
     docs = [f for f in tracked
             if f and not SKIP.search(f) and f.split(".")[-1] in EXT and (show_all or LIVE.match(f))]

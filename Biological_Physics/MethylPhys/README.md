@@ -17,6 +17,9 @@ in `../RETIRED_2026-09/`. If you are reading this to run something, start at `do
 | `doors/` | `RUNBOOK.md` (how to run it and the finding protocol), `HANDOFF.md`, `CHAIN_COMMISSIONING.md` (every row and its state), `COMPONENT_MAP.md` |
 | `hmin_calibration/` | the floor calibration - the MCMC chains, the bootstrap cross-check and their outputs |
 
+
+**Checking this work?** [`doors/REVIEWER_MANIFEST.md`](doors/REVIEWER_MANIFEST.md) lists every file a reviewer can download - the chain, the H_min MCMC calibration, the runtime matrices, the atlas, every sealed procedure including the ones that failed - and states plainly what is *not* published and why.
+
 ## One command
 
 ```
