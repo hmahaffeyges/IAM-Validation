@@ -111,7 +111,7 @@ RECON = [
   "cpg_conductor.py 2026-07 'Replaces the confusing walther_clinical.py'", "cpg_conductor.py DETECT_FLOOR = 0.01"),
  ("D2", "Presence floor value", "-", "1% (cpg_conductor.py) vs 3% (README_FOR_FUTURE_AI Mahalanobis adjudicator gate)",
   "OPEN - two floors give different answers on plasma terminal class", "both files at HEAD; run 2026-09-19"),
- ("D3", "NILC second deconvolver", "-", "CUT from Stage 2; Walther alone", "per flowchart", "commit c1be0c3 2026-07-02"),
+ ("D3", "NILC second deconvolver", "-", "CUT from Stage 2 on 2026-07-02; REINSTATED 2026-09-22 as the class-level second opinion (stage_2b_second_opinion in the conductor: compared with Walther by class, agreement bar L1 <= 0.10, reported as a flag and never as the composition)", "per flowchart, then reversed on the evidence", "commit c1be0c3 2026-07-02; PROC-NILC-01 2026-09-19; reinstated 2026-09-22"),
  ("D4", "Deconvolver validation scope", "-", "N7: MAE 0.0076-0.0093 on SYNTHETIC Dirichlet mixtures; conformance MAE 0.0004 vs TEST_DATA_MANIFEST on 3 real EPIC tissue samples",
   "never validated against real tissue of KNOWN composition; GSE122126 in-vitro mixes are the available ground truth", "N7_OUTCOME.md; run 2026-09-19"),
  ("K1", "Atlas", "not in 002", f"IAMAtlasREBUILD: {N_CPGS:,} CpGs, {N_CELLTYPES} cell types -> 8 classes, built {ATLAS_BUILD}",
@@ -656,7 +656,7 @@ PART_II_OUTLINE=[
  ("Three kinds of file", "FLOOR (H_min: physics, 40 numbers) / RULER (identity loci: where the gauge reads) / BAND (age reference: a cohort statistic). Every 'healthy reads wrong' case of 2026 traced to a band."),
  ("Stage 0 — intake", "Array type from the IDAT header; SHA-256 with re-transmission detection; the fail-open we closed."),
  ("Stage 1 — calibration", "noob via methylprep; bit-identical on 11/11; the 6-7% normalisation gain between atlas-source betas and Stage 1 output and why the band absorbs it."),
- ("Stage 2 — component separation", "Walther NNLS against the Atlas; presence, not gating; why NILC was cut."),
+ ("Stage 2 — component separation", "Walther NNLS against the Atlas; presence, not gating; why NILC was cut, and why it came back."),
  ("Stage 3 — the foreground we refused to subtract", "Built age/sex/smoking layers; SOP s104; a galactic foreground is a separate source, the methylome's is the patient."),
  ("Stage 4 — the gauge", "H(beta_mean)/H_min on identity loci, placed in the band; two surfaces (s106); four formula changes in three weeks and the measurement that settled them."),
  ("Stage 4.5 — bidirectional", "Shannon H is symmetric about 0.5; VAL-050's null and VAL-051's recovery."),
@@ -772,7 +772,7 @@ COSMO_EVIDENCE_RULE = ("Every time a CMB-derived method surfaces something a coh
     "we do not ask cohorts to validate the instrument, because they cannot - we ask constructed truth, split halves, injection-recovery and pre-registration to do it, and here is what they found.")
 
 RECON += [("D3", "why NILC and Walther never agreed", "flowchart: 'collapsed on correlated blood mixtures and deleted correct calls'",
-  "NILC (RETIRED/NILC_Deconvolver_cut_from_chain_2026-07-02) solved UNCONSTRAINED generalized least squares on the CELL-TYPE MARKER POOL (iamatlas_celltype_markers_v0_1.json, bimodal one-vs-rest), then projected onto the simplex; Walther solves NNLS with a simplex constraint on its own top-600-per-class CLASS-discriminating CpGs. In blood the immune / progenitor / stem_adult reference columns are nearly parallel, so the unconstrained inverse is ill-conditioned: fractions swing negative, the projection zeroes them - 'deleted correct calls'. Not a second opinion; the unregularised version of the same inverse problem on a worse-conditioned CpG set.",
+  "NILC (RETIRED_2026-09/NILC_Deconvolver_cut_2026-07-02_REINSTATED_2026-09-22) solved UNCONSTRAINED generalized least squares on the CELL-TYPE MARKER POOL (iamatlas_celltype_markers_v0_1.json, bimodal one-vs-rest), then projected onto the simplex; Walther solves NNLS with a simplex constraint on its own top-600-per-class CLASS-discriminating CpGs. In blood the immune / progenitor / stem_adult reference columns are nearly parallel, so the unconstrained inverse is ill-conditioned: fractions swing negative, the projection zeroes them - 'deleted correct calls'. Not a second opinion; the unregularised version of the same inverse problem on a worse-conditioned CpG set.",
   "third instance of one lesson: the cell-type marker pool is a SEPARATION surface only (gauge -> PROC-N7-01; NILC basis -> here; the 2026-06-11 all-BREACH bug). A second deconvolver must fail DIFFERENTLY: parametric Bayesian on Walther's class-marker set with a simplex prior (Future Goal 6).", "NILC docstring; c1be0c3; PROC-N7-01")]
 FUTURE_GOALS = [(g if g[1] != "Second, independent deconvolver — the right way this time" else
   (g[0], g[1], g[2], g[3] + " Lesson from the first attempt (RECON D3): NILC ran unconstrained GLS on the bimodal cell-type marker pool and was ill-conditioned on blood's near-parallel immune/progenitor/stem_adult columns; the replacement must solve on Walther's class-marker ruler with a simplex prior, so that it differs in principle rather than in stability.", g[4])) for g in FUTURE_GOALS]

@@ -1045,6 +1045,12 @@ CLASS_CANCERS = {
 # and the most validated cancer for each class.
 
 EMIT_CARDS_AFTER_SATURATION = True
+# The cards are emitted in descending share of cell-free DNA in blood (immune 70 per cent first, terminal and
+# pluripotent 0.5 per cent last). Each card also carries an 'order' field - its position in Issue 002's
+# CLASS_ORDER (terminal 1 ... stem_pluri 8) - which Issue 002 prints as the card number. The two disagree, so
+# Issue 002 reads '#3 IMMUNE' on its first card. Issue 003 sets this True and prints the position in the book
+# instead; Issue 002 keeps its own numbering (author, 2026-09-22).
+CARD_NUMBER_BY_POSITION = False
 EMIT_CARD_DISEASE_BLOCKS = True   # the per-card disease reference, signature comparison, post-breach trajectory and
                                   # intervention levers. Issue 002 publishes them; Issue 003 sets this False (author,
                                   # 2026-09-22) and Issue 004 will carry disease evidence measured on this chain.   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
@@ -4824,7 +4830,7 @@ def render_card(story, card):
     story.append(Spacer(1, -0.45*inch))
     story.append(Spacer(1, 4))
     hdr = Table([[
-        Paragraph(f'<font color="#{col.hexval()[2:]}">■</font>  <b>#{card["order"]} · {card["name"].upper()}</b>',
+        Paragraph(f'<font color="#{col.hexval()[2:]}">■</font>  <b>#{card["pos"] if CARD_NUMBER_BY_POSITION else card["order"]} · {card["name"].upper()}</b>',
                   S('CH', fontName='Helvetica-Bold', fontSize=12, textColor=WHITE, leading=14)),
         Paragraph(f'<font color="#{MUTED2.hexval()[2:]}" size="7">'
                   f'cfDNA = {card["cfdna_pct"]:.1f}%  ·  H_min(methyl) = {hm:.4f}  ·  '
@@ -11030,7 +11036,7 @@ class GlobalClassRanking(Flowable):
             # Class dot + name
             c.setFillColor(col); c.circle(8, y + 7, 4, fill=1, stroke=0)
             c.setFillColor(TEXT); c.setFont('Helvetica-Bold', 8)
-            c.drawString(18, y + 5, f'#{card["order"]} {card["short"]}')
+            c.drawString(18, y + 5, f'#{card["pos"] if CARD_NUMBER_BY_POSITION else card["order"]} {card["short"]}')
             # cfDNA percentage
             c.setFillColor(MUTED2); c.setFont('Courier', 7.5)
             c.drawString(name_w + 10, y + 5, f'{pct:>5.1f}%')
@@ -11490,7 +11496,6 @@ class SubstrateSaturationChart(Flowable):
                 c.drawRightString(self.width - 2, y + 2, f'{ceiling:.3f}{flag}')
                 y -= self.row_h
 
-
-
-
-
+# position in the emitted sequence, assigned after every CARDS.extend() above
+for _i, _c in enumerate(CARDS, 1):
+    _c["pos"] = _i

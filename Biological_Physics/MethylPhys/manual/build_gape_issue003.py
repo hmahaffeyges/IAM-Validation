@@ -540,9 +540,13 @@ def sec5a_tools(story):
         ("Brightness / temperature map with per-pixel noise","T(pixel) vs the ΛCDM expectation, standardised by the pixel noise","Stage 4.6 <b>Personal Cosmic Methylome</b> (cpg_patient_cmb.py): z(CpG) = (β_patient − μ_class)/max(σ_class, floor), σ from the atlas posterior, so z is departure relative to healthy biological variation at that locus; projected to a HEALPix sky by atlas row order, one Mollweide per class","BUILT 2026-06-29"),
         ("Assessability / masking","galactic mask: don\'t read where the foreground dominates","a class is ASSESSABLE from blood only if its DNA is present; when it is not, the whole panel reads as a uniform offset and is drawn reference-only. Self-determined: median|z| &lt; ASSESS_MAX. The presence rule (§3.2) is the same idea one stage earlier","BUILT"),
         ("Matched filter","correlate the map against a template to detect a known signal below the noise","Stage 5 <b>residual-map matched filter</b>: Pearson r between the patient\'s per-CpG departure from the derived atlas baseline and a disease\'s signed residual map, with Fisher CI; fires when the CI clears zero in either direction. Breast: ρ = +0.058, CI [+0.001, +0.114] on the pre-dx cohort (a detection whose lower bound is 0.001 above zero — marginal, and printed as such)","BUILT; AD residual map removed 2026-07 (was acting as AD\'s detector)"),
-        ("Component separation cross-check (Commander / NILC / SMICA / SEVEM must agree)","four independent algorithms had to agree before any CMB result shipped","<b>NILC methylome deconvolver</b>: weights derived once from the data\'s own covariance, independent of Walther\'s NNLS; the two had to agree on class fractions before L5+ was trusted (Walther vs NILC ρ = +0.74 immune, +0.82 progenitor on GSE51032)","<b>CUT 2026-07-02</b> (commit c1be0c3, Walther alone). The cross-method discipline is no longer enforced in the chain; the code remains in NILC Deconvolver/")],
+        ("Component separation cross-check (Commander / NILC / SMICA / SEVEM must agree)","four independent algorithms had to agree before any CMB result shipped","<b>NILC methylome deconvolver</b>: weights derived once from the data\'s own covariance, independent of Walther\'s NNLS; the two had to agree on class fractions before L5+ was trusted (Walther vs NILC ρ = +0.74 immune, +0.82 progenitor on GSE51032)","<b>CUT 2026-07-02</b> (commit c1be0c3), then <b>REINSTATED 2026-09-22</b>: rerun as designed in September (PROC-NILC-01), the divergence proved to be the diagnostic it was built to give, and it runs now as stage_2b_second_opinion - compared with Walther by class, agreement bar L1 &lt;= 0.10, reported as a flag and never as the composition. The cross-method discipline is enforced again; RUNBOOK s11 forbids disabling either relay")],
         [0.18,0.22,0.42,0.18],fs=6.8))
-    story.append(Paragraph('The honest note on the last row: the Planck discipline was the strongest methodological borrow in the engine, and it was removed to simplify. Whether it returns is a decision this document records as OPEN.', sDisc))
+    story.append(Paragraph('The honest note on the last row: the Planck discipline was the strongest methodological borrow in the engine, '
+        'and in July it was removed to simplify. That is no longer where this stands. Rerunning the cut solver as designed (PROC-NILC-01) '
+        'showed its divergence was marking exactly what it was built to mark - where the atlas does not separately determine the '
+        'composition - so the cut had removed the instrument that was reporting the problem. It was reinstated on 2026-09-22 as a '
+        'class-level second opinion, and RUNBOOK s11 now forbids disabling either relay.', sDisc))
     from reportlab.platypus import Image as RLImage
     _fp=os.path.join(os.path.dirname(os.path.abspath(__file__)),"fig_four_skies.png")
     if os.path.exists(_fp):
@@ -728,6 +732,7 @@ def build(out_path):
     # saturation block would otherwise emit a second, addendum-less copy of both (84 duplicate pages).
     L.EMIT_CARDS_AFTER_SATURATION = False
     L.EMIT_CARD_DISEASE_BLOCKS = False
+    L.CARD_NUMBER_BY_POSITION = True
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
     # The multi-class drift cascade (VAL-037..046) and its healthy baseline reference tables are Issue 002's

@@ -181,7 +181,7 @@
      "Walther IAM Deconvolver = one method. We need to build at least one INDEPENDENT method (parametric Bayesian vs blind/ILC-style) so we can compare, the way Planck compared Commander/NILC/SMICA/SEVEM.",
      "ROADMAP",
      "Critical addition. No single-method CMB result was ever trusted. Need at least 2 deconvolvers.",
-     "REVERSED — NILC built as the second method, then CUT 2026-07-02 (c1be0c3): it collapsed on correlated blood mixtures and deleted correct calls. Single-method today, by decision. The Planck principle this row cites is the one the chain knowingly does not follow."
+     "REVERSED, THEN RESTORED — NILC was built as the second method and CUT 2026-07-02 (c1be0c3) for collapsing on correlated blood mixtures and deleting correct calls. Rerun as designed in September (PROC-NILC-01) it was vindicated: the divergence marked where the atlas does not separately determine the composition, which is what the method exists to report - the cut had removed the instrument reporting the problem. REINSTATED 2026-09-22 as stage_2b_second_opinion: compared with Walther by class, agreement bar L1 <= 0.10, reported as a flag and never as the composition. The Planck principle this row cites is followed again, and RUNBOOK s11 forbids disabling either relay."
     ],
     [
      "21",
@@ -737,7 +737,7 @@
   [
    "B2",
    "NILC second deconvolver",
-   "BUILT → CUT 2026-07-02 (c1be0c3): collapsed on correlated blood mixtures, deleted correct calls. Single method today, by decision."
+   "BUILT → CUT → REINSTATED. Cut 2026-07-02 (c1be0c3) for collapsing on correlated blood mixtures and deleting correct calls; rerun as designed in September (PROC-NILC-01) and vindicated — the divergence was marking where the atlas does not separately determine the composition. Reinstated 2026-09-22 as stage_2b_second_opinion: class-level comparison against Walther, agreement bar L1 ≤ 0.10, reported as a flag and never as the composition."
   ],
   [
    "B3/B4",

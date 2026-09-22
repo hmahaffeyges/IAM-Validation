@@ -9,7 +9,7 @@ Author's verdict, 2026-09-19: **"Too ambitious too quick. It ended up harming ra
 | A2 | synthetic patient generator | **BUILT** (`RETIRED/…/Synthetic_Patient_Generator/`; harness in `MethylPhys/chain/report_builders/`). N7 depends on it — to be restored beside the null runner. |
 | A3 | Family A VALs through the nulls | **DONE** (CPG-VAL-001…007 all carry null results). |
 | B1 | foreground registry | never built |
-| B2 | NILC second deconvolver | **BUILT → CUT** 2026-07-02 (c1be0c3): collapsed on correlated blood mixtures, deleted correct calls. Single method today, by decision. |
+| B2 | NILC second deconvolver | **BUILT → CUT → REINSTATED.** Cut 2026-07-02 (c1be0c3) for collapsing on correlated blood mixtures and deleting correct calls; rerun as designed in September (PROC-NILC-01) and vindicated — the divergence was marking where the atlas does not separately determine the composition. Reinstated 2026-09-22 as `stage_2b_second_opinion`: class-level comparison against Walther, agreement bar L1 ≤ 0.10, reported as a flag and never as the composition. |
 | B3/B4 | age / sex / smoking foreground modules | **BUILT → REFUSED** (SOP §104): the methylome's foreground is the patient's own biology — annotate, never subtract. In `RETIRED/…/IAM_Cellular_Age/`. |
 | C1 | C(d) genomic-distance correlation, "acoustic peaks" | never built |
 | C2 | bispectrum | never built |
