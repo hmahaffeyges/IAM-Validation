@@ -29,63 +29,153 @@ This repository contains the derivation, implementation, and validation of IAM a
 
 ---
 
-## Two programmes, one measurement principle
+## One law, three domains
 
-Landauer's bound says that writing or erasing one bit of information costs at least `k_B T ln 2` of energy. That
-bound is not a statement about computers; it is a statement about any physical system that holds a state against
-thermal noise. This repository applies it in two places, with the same arithmetic and two entirely different
-instruments.
+Landauer's bound says that writing or erasing one bit of information costs at least `k_B T ln 2` of energy. That is
+not a statement about computers: it is a statement about any physical system that holds a state against thermal
+noise. IAM identifies the informational entropy term this implies in the Jacobson–Cai-Kim entropy functional, and
+the same arithmetic then applies wherever a system pays to stay ordered — a horizon, a Josephson junction, a cell.
+
+**The law itself, before any application:**
+
+- [IAM's Law: the thermodynamic cost of classical existence - the law itself; the cosmological model is one derived implementation of it](docs/papers/IAM_Law.pdf)
+- [The thermodynamic identity governing the virial theorem - physical identification of K, with evidence across domains](docs/papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+- [The virial partition across a wide range of physical scales - the cross-domain validation](docs/papers/Virial_Partitian_Across_Wide_Domains.pdf)
 
 <table>
-<tr><th align="left" width="50%">Cosmology and particle physics</th><th align="left" width="50%">Cellular systems</th></tr>
+<tr>
+<th align="left" width="33%">I · Cosmology and gravitation</th>
+<th align="left" width="33%">II · Quantum and particle physics</th>
+<th align="left" width="34%">III · Cellular systems</th>
+</tr>
 <tr valign="top">
 <td>
 
-**Informational Actualization Model (IAM)**<br>
-*GR's own thermodynamic derivation, completed*
+**Informational Actualization Model (IAM)**
 
-The informational entropy of gravitational decoherence, entering the Jacobson–Cai-Kim entropy functional through
-the matter sector alone. Zero free parameters beyond ΛCDM; 17 converged MCMC chains against the full Planck 2018
-likelihood; `Δχ² = +0.54` best-fit versus ΛCDM.
+Zero free parameters beyond ΛCDM; 17 converged MCMC chains against the full Planck 2018 likelihood;
+`Δχ² = +0.54` best-fit versus ΛCDM; `µ(a) < 1`, `Σ(a) = 1`.
 
-Everything below on this page, plus the paper library in [`docs/`](docs/README.md).
+The validation record is the rest of this page.
+
+</td>
+<td>
+
+**QAPE · SCAPE — devices and constants**
+
+The same bound at a device: the minimum quasiparticle density in a Josephson junction, the switching energy of a
+transistor, and the lepton mass ratios read as horizon information equipartition.
+
+QAPE covers quantum-computing platforms, SCAPE semiconductors.
 
 </td>
 <td>
 
 **[AstroGenetics — Physics of Methylation: Landauer Metrology · Cellular Performance Gauge](Biological_Physics/MethylPhys/)**
 
-The same bound read at the epigenome, with cosmology's measurement tooling: a fixed physical zero per architecture
-class, a single-sample absolute reading, HEALPix projection of the per-CpG residual, and an internal-linear-
-combination solver for cellular composition.
+A fixed physical zero per architecture class, a single-sample absolute reading, HEALPix projection of the per-CpG
+residual, and an internal-linear-combination solver for cellular composition.
 
-The instrument, its SOP, its reproduction kit, the calibrated reference data and the researcher interface:
-[`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/). The evidence:
-[`Biological_Physics/Record/`](Biological_Physics/Record/).
+The instrument: [`MethylPhys/`](Biological_Physics/MethylPhys/). The evidence:
+[`Record/`](Biological_Physics/Record/).
 
 </td>
 </tr>
 </table>
 
-**For a physicist arriving from the cosmology side:** the cellular work is metrology, not a new theory. It uses the
-Landauer bound as a *unit* — the measured quantity is a dimensionless ratio of an observed entropy to a fitted
-per-class reference — and it states plainly which of its constants are derived and which are measured. The
-[methods paper](Biological_Physics/MethylPhys/papers/) carries only that claim.
+<details>
+<summary><strong>I · Cosmology and gravitation — 27 papers</strong></summary>
 
-**For a geneticist or biophysicist arriving from the biology side:** you need no cosmology to use it. The
-instrument reports whether a sample's cellular write process is operating within the healthy range for its age, by
-architecture class, against a fixed zero. It names no condition and states no age in years. Start at
-[`MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md), then `doors/RUNBOOK.md`.
+- [Horizon thermodynamics and gravitational decoherence as the origin of mu < 1, Sigma = 1](docs/papers/IAM_Theory_Paper.pdf)
+- [Master consolidated preprint - dual-sector cosmology, zero parameters beyond LCDM](docs/papers/IAM_Master_Preprint.pdf)
+- [Technical companion - the quick overview](docs/papers/IAM_Overview_Companion.pdf)
+- [IAM-CAMB technical note: mapping, Boltzmann validation, full Planck MCMC](docs/papers/IAM_CAMB_Technical_Note.pdf)
+- [Dual-sector perturbation cosmology: the modified CAMB implementation](docs/papers/Dual_Sector_Perturbation_Cosmology_CAMB.pdf)
+- [Type Ia supernovae validate matter-sector H0 normalisation](docs/papers/Dual_Sector_Validation_Paper.pdf)
+- [Why the sector split is already in general relativity](docs/papers/IAM_Dual_Sector_Note.pdf)
+- [Constraints on late-time fsigma8 suppression: Planck 2018 and large-scale structure](docs/papers/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf)
+- [Confrontation with DESI full-shape growth rates and joint weak lensing](docs/papers/Dark_Energy_or_Sector_Tension.pdf)
+- [The redshift-dependent S8 trend](docs/papers/The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf)
+- [The cosmological constant as actualised vacuum energy - a zero-parameter resolution](docs/papers/The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf)
+- [Dark energy evolution and the far future of an IAM universe](docs/papers/wz_far_future.pdf)
+- [Falsifiable predictions for Euclid, DESI and next-generation surveys](docs/papers/IAM_Survey_Predictions_Paper.pdf)
+- [Missing satellites: the virial partition closure condition and the two mechanisms](docs/papers/Missing_Satellites.pdf)
+- [Virial efficiency and the effective nonlinear exponent - published N-body confirmation](docs/papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
+- [Lensing-dynamics mass discrepancy as a redshift-dependent signature](docs/papers/IAM_Lensing_Dynamics_Paper.pdf)
+- [Three-way mass discrepancy in galaxy clusters: eROSITA, Planck SZ, DES](docs/papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
+- [The M-sigma relation from gravitational decoherence thermodynamics](docs/papers/IAM_M_Sigma_Paper.pdf)
+- [Quantum Darwinism at cosmological scales - the cosmic horizon and the emergence of classicality](docs/papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+- [Black hole horizons as thermodynamic encoding surfaces](docs/papers/IAM_BH_Thermodynamics.pdf)
+- [The cessation of projection: the information paradox](docs/papers/IAM_Black_Hole_Information_Paradox.pdf)
+- [The geometric origin of the Bekenstein-Hawking entropy coefficient](docs/papers/Bekenstein_coefficient.pdf)
+- [A note on entropic gravity and the thermodynamic-gravity conjecture](docs/papers/A_Note_on_Entropic_Gravity__Saridakis_.pdf)
+- [Validation scorecard - the complete test ledger](docs/papers/IAM_Official_Score_Card.pdf)
+- [Complete test validation compendium](docs/papers/IAM_Test_Validation_Compendium.pdf)
+- [Supplementary methods and reproducibility guide](docs/papers/Supplementary_Methods_Reproducibility_Guide.pdf)
+- [Where we started, where we are - a six-month state of the model](docs/papers/IAM_Six_Month_Synthesis.pdf)
 
+**Superseded revisions, kept for provenance** — cited by nothing; the current version of each is above:
+
+- [Earlier revision of the Bekenstein coefficient paper](docs/papers/iam_bekenstein_coefficient.pdf)
+- [Retired v1 manuscript](docs/Retired(V1)IAM_Manuscript.pdf)
+- [Retired technical clarifications guide](docs/Retired_IAM_Technical_Clarifications_Guide.pdf)
+
+**Exploratory, and marked as such** — first-principles speculation, not part of the validation record:
+
+- [Gravitational engineering and interstellar transit - a first-principles exploration](docs/papers/Gravitational_Propulsion_and_IAM.pdf)
+- [Earlier revision of the same exploration](docs/papers/IAM_Gravitational_Engineering_Exploration.pdf)
+
+</details>
 
 <details>
-<summary><h2 style="display:inline">Cosmology and particle physics — the parent programme</h2></summary>
+<summary><strong>II · Quantum and particle physics — 13 papers</strong></summary>
+
+_This is where the QAPE and SCAPE work belongs: both read the Landauer bound at an engineered device, the same way
+the cellular work reads it at a cell._
+
+- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the QAPE foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
+- [QAPE Issue 002 - the quantum-computing platform report](docs/papers/IAMPerformance_QAPEIssue002.pdf)
+- [SCAPE Issue 002 - the semiconductor report](docs/papers/IAMPerformance_SCAPEIssue002.pdf)
+- [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
+- [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
+- [Electroweak symmetry breaking as the first irreversible act](docs/papers/The_Higgs_Boson_and_the_Origin_of_Duration.pdf)
+- [Matter-antimatter asymmetry and the information-writing constraint](docs/papers/Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf)
+- [The baryon asymmetry as a derived quantity - CMB evidence without a BBN prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
+- [The measurement problem dissolved: decoherence as irreversible sector crossing](docs/papers/IAM_Measurement_Problem_Quantum.pdf)
+- [Gravitational decoherence from dual-sector thermodynamics - predictions for optomechanical experiments](docs/papers/Gravitational_Decoherence_Quantum_Level.pdf)
+- [The boundary between potential and actual](docs/papers/The_Boundary_Between_Potential_and_Actual.pdf)
+- [Non-locality and the boundary of reality - quantum potential and irreversible actualisation](docs/papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
+- [The two faces of time: coordinate time, proper time, and duration](docs/papers/The_Two_Faces_of_Time.pdf)
+
+</details>
+
+<details>
+<summary><strong>III · Cellular systems — the instrument, not a paper library</strong></summary>
+
+The cellular work is a running instrument with a reproduction kit rather than a set of preprints. Start at
+[`MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md), then `doors/RUNBOOK.md`. The methods paper and
+the explainers are in [`MethylPhys/papers/`](Biological_Physics/MethylPhys/papers/); the engineering manual is in
+[`MethylPhys/manual/`](Biological_Physics/MethylPhys/manual/).
+
+</details>
+
+**For a physicist arriving from the cosmology side:** the cellular work is metrology, not a new theory. It uses the
+Landauer bound as a *unit* — the measured quantity is a dimensionless ratio of an observed entropy to a fitted
+per-class reference — and it states plainly which of its constants are derived and which are measured.
+
+**For a geneticist or biophysicist:** you need no cosmology to use it. The instrument reports whether a sample's
+cellular write process is operating within the healthy range for its age, by architecture class, against a fixed
+zero. It names no condition and states no age in years.
+
+The complete annotated library, with an abstract for every paper, is in [`docs/README.md`](docs/README.md).
+
+<details>
+<summary><h2 style="display:inline">The cosmological validation record — expand for the full MCMC chains, datasets and predictions</h2></summary>
 
 _Jacobson showed in 1995 that Einstein's equations are an equation of state; Cai and Kim showed in 2005 that the
 Friedmann equations follow from the same argument applied to the apparent horizon. IAM identifies the missing term
-in that entropy functional. Everything in this section is the cosmological and particle-physics programme: the
-derivation, the MCMC validation against Planck 2018, the dual-sector mechanism, the datasets and the predictions.
-Expand it for the full record._
+in that entropy functional. Everything below is the cosmological programme: the derivation, the MCMC validation
+against Planck 2018, the dual-sector mechanism, the datasets and the predictions._
 
 ## Methodological Distinction
 
