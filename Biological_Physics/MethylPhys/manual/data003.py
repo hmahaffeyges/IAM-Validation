@@ -1155,7 +1155,7 @@ PHYSICS = {
    "(budget -> error rate -> floor) are retired as a derivation and kept only as motivation for why a written state has a holding cost. H_min is not derived from an energy budget. It is the "
    "MEASURED entropy of the healthy class at its identity loci - calibrated by MCMC on 37 FACS-sorted or microdissected reference methylomes, cross-checked by bootstrap, frozen in April 2026 - "
    "and that is the stronger statement, because it is checkable. The immune revision is on the record: first set from neutrophils alone at 0.795, re-converged at 0.8389 +/- 0.0012 with six immune "
-   "cell types, every immune reading revised by ~0.055. Where 002 s2.1/s2.1a and this section differ, this section governs; 002's text is reproduced after it as the historical record."),
+   "cell types, every immune reading revised by ~0.055. Where 002 s2.1/s2.1a and this section differ, this section governs. 002's text is not reproduced in this document - this section replaces it - and stands in Issue 002 as published (MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf, section 2), so a reader holding both knows which is current."),
  "mahaffey": ("THE MAHAFFEY NUMBER. Thermal noise is not a nuisance to subtract; it is the unit. M = E_drive / k_B T is how many thermal quanta a substrate pays per irreversible write at its own "
    "temperature. For the cell the drive energy is the free energy of ATP hydrolysis: M_cell = Delta G_ATP / RT = 54,000 / (8.314 x 310.15) = 20.9. The same ratio places a CMOS transistor at ~117 "
    "(Apple M1, measured switching energy at 348 K) and an aluminium transmon at exactly 1: with E_drive = Delta_Al ln 2 and T_gap = Delta_Al / k_B both the gap and ln 2 cancel - the saturated case "
@@ -1183,7 +1183,7 @@ PHYSICS = {
    "once. One filters, one calibrates. Their background model is the first extension we intend to test on the identity loci (Future Goals, GATE 2); our transfer discipline applies to any absolute "
    "methylation measurement, including one built on their divergences, because a divergence from a control pool inherits that pool's laboratory offset."),
  "ledger": [  # (quantity, physics or measured, how)
-  ("k_B T ln 2 at 310 K The Issue 002 physics section is not reproduced in this document: Section 5 replaces it, and its original text stands in Issue 002 as published (MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf, section 2). What is retired is named here so a reader holding both knows which is current.", "physics", "constant; 2.97e-21 J"),
+  ("k_B T ln 2 at 310 K", "physics", "constant; 2.97e-21 J"),
   ("M_cell = 20.9", "physics + biochemistry", "Delta G_ATP / RT; not fitted"),
   ("H(beta) binary entropy", "physics", "definition"),
   ("H_min(c), eight values", "MEASURED reference", "MCMC on 37 healthy reference methylomes; bootstrap; frozen April 2026"),

@@ -608,3 +608,22 @@ Issue 002 said, what is retired and why, and now ends with one sentence pointing
 
 Cover: the subtitle under IAMPerformance is now white rather than muted lavender, at the author's request. Checked
 by rendering page 1 and reading it.
+
+### 2026-09-22 - the author asked whether the SOP copy he has was verified. It was not current, and two real defects were in it
+
+He asked: *"Did you give me a copy of the SOP after you updated it and confirmed it was perfect?"* The copy delivered
+earlier was **pre-move** and therefore stale. Re-verifying on the current tree found two defects, neither of which a
+line count would have shown:
+
+1. **The title pinned an engine commit** - "matched to the engine at repo commit 66f37fe, 2026-07-03" - which is the
+   same defect removed from the manual's page one in September. A procedure that names a commit is stale the moment
+   the engine moves. The title now states the version only and the version line points at
+   `git log -1 -- Biological_Physics/MethylPhys/chain`. The fix is in `sop_repoint.py`, so a regeneration cannot put
+   it back.
+2. **Section 9 said the NILC solver "was cut"** - written in July and true then. It was rerun in September against
+   the same arrays, vindicated, and is now wired as `stage_2b_second_opinion`, compared at class level and reported
+   as an agreement flag rather than as the composition. The section now says that, and keeps the July reasoning as
+   the historical record of why the cut was made.
+
+Verified after: 5,384 lines, 128 file names cited, **zero unaccounted**, all 18 chain files named, zero old-tree
+paths, no commit pinned in the header, the stale NILC claim gone and the second-opinion statement present.

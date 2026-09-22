@@ -1,6 +1,6 @@
-# CPG Chain-of-Custody Standard Operating Procedure (SOP) — v2.0.0 (matched to the engine at repo commit 66f37fe, 2026-07-03; layout of 2026-09-19)
+# CPG Chain-of-Custody Standard Operating Procedure (SOP) — v2.0.0
 
-**Document version:** v2.0.0. Earlier versions are in git history; this document states the current procedure.
+**Document version:** v2.0.0, matched to the engine in this repository at the commit this file was last regenerated from (`git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions are in git history; this document states the current procedure.
 **Authors:** Heath W. Mahaffey + Walther (Claude)
 **Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_3.md (not called by run_full; use walther_clinical.py - the pre-conductor monolith; kept for provenance)`, `Biological_Physics/MethylPhys/chain/Runtime Matrices/README.md`
 
@@ -543,9 +543,9 @@ The Euclid framing rule from the project memory applies here: **feathers, not ve
 
 ---
 
-## §9. The two-deconvolver discipline — RETIRED IN PLACE (c1be0c3, 2026-07-02)
+## §9. The two-deconvolver discipline — RESTORED as a second opinion (PROC-NILC-01, 2026-09-22)
 
-> **This section describes a design that is no longer run.** Stage 2 is the Walther NNLS deconvolver alone; NILC and the agreement gate were cut because they collapsed on correlated blood mixtures and deleted correct calls. The text is kept because the *reasoning* about disagreement is still the right way to think about a second method if one is ever re-introduced. See the SUPERSESSION LEDGER.
+> **Current.** Stage 2 reports the Walther NNLS deconvolver. The NILC solver was cut in July on the grounds that it collapsed on correlated blood mixtures; it was rerun in September against the same arrays and **vindicated** — it runs now as `stage_2b_second_opinion`, compared with Walther at **class level** and reported as an agreement flag, never as the reported composition. Cell-level disagreement inside one lineage is expected and is not scored, because the atlas cannot separate the members of a collinearity group; class-level disagreement is. The historical text below records the original two-deconvolver design and why the July cut was made, because the *reasoning* about disagreement is still the right way to think about a second method if one is ever re-introduced. See the SUPERSESSION LEDGER.
 
 ### §9 (historical) — when each ran, why both, what disagreement meant
 
