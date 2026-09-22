@@ -1,0 +1,4 @@
+# versions under which the reproduction in reproduction/REPRODUCTION.md succeeded (2026-09-22)
+numpy==2.4.6
+emcee==3.1.6
+# python 3.11.16

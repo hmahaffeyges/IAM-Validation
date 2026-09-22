@@ -365,6 +365,7 @@ MCMC_HMIN = [  # G-002 / G-003b sampler settings (EDEAR s5)
  ("Notable posterior shift", "immune: 0.795 (neutrophil-based calibration) -> 0.838889 after MCMC over six immune cell types, a 6.44 sigma move (EDEAR s4.6); every immune A in the database was revised downward by approximately 0.055 as a consequence (Issue 002, immune card)"),
  ("H_min_global", "0.756499 = H(0.782), frontal cortex neuron, Lister 2013 (E073) - the universal reference the class floors are read against"),
  ("Reference-cohort rule", "FACS-sorted or laser-microdissected only; never bulk tissue (cell-type purity)"),
+ ("Deposited", "Samplers, the 37 reference cells as a table and reproduce.sh: 10.5281/zenodo.22905819. Re-run 2026-09-22 returned all eight floors inside their own posterior SDs (max difference 0.000245; R-hat < 1.001). The posterior samples were never written to disk by any run, so the deposit carries the re-run, not an archive of chains."),
 ]
 ATLAS_BUILD_DETAIL = [  # EDEAR s5.4-5.6, SOP s26-29
  ("Source rows", "10,938,662 (iamatlas_mcmc_inputs.csv, 732 MB) from Moss 2018, Loyfer 2023, EpiDISH, Salas, Lister 2013 and others, harmonised to one cell-type label set"),

@@ -630,6 +630,14 @@ def tab_reference(R, percell_status):
              f"<tr><td>Per-cell healthy range</td><td>{_e(percell_status)}</td><td>80 arrays per laboratory (seed 2029: 40 build, 40 held out)</td><td>working note, unsealed</td><td>-</td></tr></table>")
     H.append("<h3>4. The data itself</h3><p>The calibrated beta matrices the constants were fitted on are published beside them (per laboratory, filtered to the 153,444 CpGs the chain reads, with the GSM list, Stage 1 version and SHA-256 in a manifest). "
              "<span class='pend'>Rebuild in progress 2026-09-22: the 1,379-array Stage 1 output behind PROC-PANEL-03 was not preserved; 80 arrays per laboratory are being re-run through Stage 1 and will be linked here the moment they exist. A reference layer is not considered commissioned until its data is published beside it (RUNBOOK).</span></p>")
+    H.append("<h3>The floors, and how to check them yourself</h3>"
+      "<p>The eight class floors this reading divides by were fitted by MCMC on 37 published reference cells - "
+      "32 walkers, 500 burn-in and 5,000 production steps, five independent chains. The samplers, the 37 cells as "
+      "a table, and a script that re-runs the calibration in about fifteen seconds are deposited at "
+      "<a href='https://doi.org/10.5281/zenodo.22905819'>10.5281/zenodo.22905819</a>. Re-running it on 2026-09-22 returned every floor inside its own posterior "
+      "standard deviation - largest difference 0.000245 against SDs of 0.0069 to 0.0088, R-hat below 1.001 on all "
+      "eight parameters. The posterior samples themselves were never written to disk by any run, so the deposit "
+      "carries the re-run rather than an archive of chains.</p>")
     H.append("<h3>5. What is NOT in the reference</h3><ul><li>No disease sample, no case arm of any cohort.</li><li>No author-processed beta; no typed literature values (the April 80-cell age table was retired for that reason - PROC-RECORD-03).</li><li>The class floors H_min are not fitted here; they come from the 37-cell G-002 calibration and are frozen.</li></ul>")
     H.append(deepdive(R,"the healthy reference and how each constant was measured"))
     return "".join(H)   # not a measurement tab: quotes GEO characteristic fields verbatim ("disease state: normal")
