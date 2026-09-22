@@ -19,40 +19,111 @@ the same arithmetic then applies wherever a system pays to stay ordered — a ho
 
 <table>
 
-**The three domains, each with its own evidence and its own instruments. Expand the one you came for.**
+**The law itself, before any application:**
+
+- [IAM's Law: the thermodynamic cost of classical existence - the law itself; the cosmological model is one derived implementation of it](docs/papers/IAM_Law.pdf)
+- [The thermodynamic identity governing the virial theorem - physical identification of K, with evidence across domains](docs/papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
+- [The virial partition across a wide range of physical scales - the cross-domain validation](docs/papers/Virial_Partitian_Across_Wide_Domains.pdf)
+
+---
+
+**The three domains. Each section holds its own papers, instruments and evidence — expand the one you came for.**
 
 <details>
-<summary><h3 style="display:inline">I &nbsp;·&nbsp; Biological physics — AstroGenetics: Physics of Methylation: Landauer Metrology &nbsp;·&nbsp; Cellular Performance Gauge</h3></summary>
+<summary><h3 style="display:inline">I &nbsp;·&nbsp; Biological physics — Physics of Methylation: Landauer Metrology</h3></summary>
 
-**[→ Biological_Physics/MethylPhys/](Biological_Physics/MethylPhys/)** — the instrument. **[→ Biological_Physics/Record/](Biological_Physics/Record/)** — the evidence.
+**[→ the instrument: Biological_Physics/MethylPhys/](Biological_Physics/MethylPhys/)** &nbsp;·&nbsp; **[→ the evidence: Biological_Physics/Record/](Biological_Physics/Record/)**
 
-A cell holds its identity as a pattern of methyl marks written along the DNA, and it spends energy continuously to
-hold that pattern against thermal noise. Read against the Landauer bound, that gives a fixed physical zero per
-architecture class and a single-sample absolute reading — not a comparison to a control group. The chain measures
-one sample against that zero, corrects for the donor's decade and the laboratory's own offset, and prints
+A cell holds its identity as a pattern of methyl marks along the DNA and spends energy continuously to hold that
+pattern against thermal noise. Read against the Landauer bound, that gives a fixed physical zero per architecture
+class and a single-sample absolute reading — not a comparison against a control group. The chain measures one
+sample against that zero, corrects for the donor's decade and the laboratory's own offset, and prints
 NOT REPORTABLE with a reason wherever it cannot honestly report.
 
 The cosmology toolkit does real work here: HEALPix projection of the per-CpG residual onto a sphere (locality
-preserved — every pixel holds contiguous CpGs of one chromosome, median span 511 bp), an internal-linear-combination
-solver for cellular composition, per-pixel noise covariances, and shuffled-sky nulls.
+preserved — every pixel holds genomically contiguous CpGs of one chromosome, median span 511 bp), an
+internal-linear-combination solver for cellular composition, per-pixel noise covariances, and shuffled-sky nulls.
 
-
+The cellular work is a running instrument with a reproduction kit rather than a set of preprints. Start at
+[`MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md), then `doors/RUNBOOK.md`. The methods paper and
+the explainers are in [`MethylPhys/papers/`](Biological_Physics/MethylPhys/papers/); the engineering manual is in
+[`MethylPhys/manual/`](Biological_Physics/MethylPhys/manual/).
 
 </details>
 
 <details>
-<summary><h3 style="display:inline">II &nbsp;·&nbsp; Quantum and particle physics — QAPE &nbsp;·&nbsp; SCAPE, devices and constants</h3></summary>
+<summary><h3 style="display:inline">II &nbsp;·&nbsp; Quantum and particle physics — QAPE &nbsp;·&nbsp; SCAPE</h3></summary>
 
-_The same bound at an engineered device, and at the constants of the standard model. QAPE covers quantum-computing
+_The same bound at an engineered device and at the constants of the standard model. QAPE covers quantum-computing
 platforms, SCAPE semiconductors — both read the Landauer bound at a device the way the cellular work reads it at a
 cell._
 
+_This is where the QAPE and SCAPE work belongs: both read the Landauer bound at an engineered device, the same way
+the cellular work reads it at a cell._
 
+- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the QAPE foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
+- [QAPE Issue 002 - the quantum-computing platform report](docs/papers/IAMPerformance_QAPEIssue002.pdf)
+- [SCAPE Issue 002 - the semiconductor report](docs/papers/IAMPerformance_SCAPEIssue002.pdf)
+- [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
+- [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
+- [Electroweak symmetry breaking as the first irreversible act](docs/papers/The_Higgs_Boson_and_the_Origin_of_Duration.pdf)
+- [Matter-antimatter asymmetry and the information-writing constraint](docs/papers/Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf)
+- [The baryon asymmetry as a derived quantity - CMB evidence without a BBN prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
+- [The measurement problem dissolved: decoherence as irreversible sector crossing](docs/papers/IAM_Measurement_Problem_Quantum.pdf)
+- [Gravitational decoherence from dual-sector thermodynamics - predictions for optomechanical experiments](docs/papers/Gravitational_Decoherence_Quantum_Level.pdf)
+- [The boundary between potential and actual](docs/papers/The_Boundary_Between_Potential_and_Actual.pdf)
+- [Non-locality and the boundary of reality - quantum potential and irreversible actualisation](docs/papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
+- [The two faces of time: coordinate time, proper time, and duration](docs/papers/The_Two_Faces_of_Time.pdf)
 
 </details>
 
 <details>
 <summary><h3 style="display:inline">III &nbsp;·&nbsp; Cosmology and gravitation — the Informational Actualization Model</h3></summary>
+
+
+
+#### The papers
+
+- [Horizon thermodynamics and gravitational decoherence as the origin of mu < 1, Sigma = 1](docs/papers/IAM_Theory_Paper.pdf)
+- [Master consolidated preprint - dual-sector cosmology, zero parameters beyond LCDM](docs/papers/IAM_Master_Preprint.pdf)
+- [Technical companion - the quick overview](docs/papers/IAM_Overview_Companion.pdf)
+- [IAM-CAMB technical note: mapping, Boltzmann validation, full Planck MCMC](docs/papers/IAM_CAMB_Technical_Note.pdf)
+- [Dual-sector perturbation cosmology: the modified CAMB implementation](docs/papers/Dual_Sector_Perturbation_Cosmology_CAMB.pdf)
+- [Type Ia supernovae validate matter-sector H0 normalisation](docs/papers/Dual_Sector_Validation_Paper.pdf)
+- [Why the sector split is already in general relativity](docs/papers/IAM_Dual_Sector_Note.pdf)
+- [Constraints on late-time fsigma8 suppression: Planck 2018 and large-scale structure](docs/papers/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf)
+- [Confrontation with DESI full-shape growth rates and joint weak lensing](docs/papers/Dark_Energy_or_Sector_Tension.pdf)
+- [The redshift-dependent S8 trend](docs/papers/The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf)
+- [The cosmological constant as actualised vacuum energy - a zero-parameter resolution](docs/papers/The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf)
+- [Dark energy evolution and the far future of an IAM universe](docs/papers/wz_far_future.pdf)
+- [Falsifiable predictions for Euclid, DESI and next-generation surveys](docs/papers/IAM_Survey_Predictions_Paper.pdf)
+- [Missing satellites: the virial partition closure condition and the two mechanisms](docs/papers/Missing_Satellites.pdf)
+- [Virial efficiency and the effective nonlinear exponent - published N-body confirmation](docs/papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
+- [Lensing-dynamics mass discrepancy as a redshift-dependent signature](docs/papers/IAM_Lensing_Dynamics_Paper.pdf)
+- [Three-way mass discrepancy in galaxy clusters: eROSITA, Planck SZ, DES](docs/papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
+- [The M-sigma relation from gravitational decoherence thermodynamics](docs/papers/IAM_M_Sigma_Paper.pdf)
+- [Quantum Darwinism at cosmological scales - the cosmic horizon and the emergence of classicality](docs/papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
+- [Black hole horizons as thermodynamic encoding surfaces](docs/papers/IAM_BH_Thermodynamics.pdf)
+- [The cessation of projection: the information paradox](docs/papers/IAM_Black_Hole_Information_Paradox.pdf)
+- [The geometric origin of the Bekenstein-Hawking entropy coefficient](docs/papers/Bekenstein_coefficient.pdf)
+- [A note on entropic gravity and the thermodynamic-gravity conjecture](docs/papers/A_Note_on_Entropic_Gravity__Saridakis_.pdf)
+- [Validation scorecard - the complete test ledger](docs/papers/IAM_Official_Score_Card.pdf)
+- [Complete test validation compendium](docs/papers/IAM_Test_Validation_Compendium.pdf)
+- [Supplementary methods and reproducibility guide](docs/papers/Supplementary_Methods_Reproducibility_Guide.pdf)
+- [Where we started, where we are - a six-month state of the model](docs/papers/IAM_Six_Month_Synthesis.pdf)
+
+**Superseded revisions, kept for provenance** — cited by nothing; the current version of each is above:
+
+- [Earlier revision of the Bekenstein coefficient paper](docs/papers/iam_bekenstein_coefficient.pdf)
+- [Retired v1 manuscript](docs/Retired_V1_IAM_Manuscript.pdf)
+- [Retired technical clarifications guide](docs/Retired_IAM_Technical_Clarifications_Guide.pdf)
+
+**Exploratory, and marked as such** — first-principles speculation, not part of the validation record:
+
+- [Gravitational engineering and interstellar transit - a first-principles exploration](docs/papers/Gravitational_Propulsion_and_IAM.pdf)
+- [Earlier revision of the same exploration](docs/papers/IAM_Gravitational_Engineering_Exploration.pdf)
+
+#### The validation record
 
 # Informational Actualization Model (IAM)
 ## GR's Own Thermodynamic Derivation, Completed
@@ -731,118 +802,7 @@ All 9 figures generated successfully!
 
 </details>
 
-</tr>
-<tr valign="top">
-<td>
-
-**Informational Actualization Model (IAM)**
-
-Zero free parameters beyond ΛCDM; 17 converged MCMC chains against the full Planck 2018 likelihood;
-`Δχ² = +0.54` best-fit versus ΛCDM; `µ(a) < 1`, `Σ(a) = 1`.
-
-The validation record is the rest of this page.
-
-</td>
-<td>
-
-**QAPE · SCAPE — devices and constants**
-
-The same bound at a device: the minimum quasiparticle density in a Josephson junction, the switching energy of a
-transistor, and the lepton mass ratios read as horizon information equipartition.
-
-QAPE covers quantum-computing platforms, SCAPE semiconductors.
-
-</td>
-<td>
-
-**[AstroGenetics — Physics of Methylation: Landauer Metrology · Cellular Performance Gauge](Biological_Physics/MethylPhys/)**
-
-A fixed physical zero per architecture class, a single-sample absolute reading, HEALPix projection of the per-CpG
-residual, and an internal-linear-combination solver for cellular composition.
-
-The instrument: [`MethylPhys/`](Biological_Physics/MethylPhys/). The evidence:
-[`Record/`](Biological_Physics/Record/).
-
-</td>
-</tr>
-</table>
-
-<details>
-<summary><strong>I · Cosmology and gravitation — 27 papers</strong></summary>
-
-- [Horizon thermodynamics and gravitational decoherence as the origin of mu < 1, Sigma = 1](docs/papers/IAM_Theory_Paper.pdf)
-- [Master consolidated preprint - dual-sector cosmology, zero parameters beyond LCDM](docs/papers/IAM_Master_Preprint.pdf)
-- [Technical companion - the quick overview](docs/papers/IAM_Overview_Companion.pdf)
-- [IAM-CAMB technical note: mapping, Boltzmann validation, full Planck MCMC](docs/papers/IAM_CAMB_Technical_Note.pdf)
-- [Dual-sector perturbation cosmology: the modified CAMB implementation](docs/papers/Dual_Sector_Perturbation_Cosmology_CAMB.pdf)
-- [Type Ia supernovae validate matter-sector H0 normalisation](docs/papers/Dual_Sector_Validation_Paper.pdf)
-- [Why the sector split is already in general relativity](docs/papers/IAM_Dual_Sector_Note.pdf)
-- [Constraints on late-time fsigma8 suppression: Planck 2018 and large-scale structure](docs/papers/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf)
-- [Confrontation with DESI full-shape growth rates and joint weak lensing](docs/papers/Dark_Energy_or_Sector_Tension.pdf)
-- [The redshift-dependent S8 trend](docs/papers/The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf)
-- [The cosmological constant as actualised vacuum energy - a zero-parameter resolution](docs/papers/The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf)
-- [Dark energy evolution and the far future of an IAM universe](docs/papers/wz_far_future.pdf)
-- [Falsifiable predictions for Euclid, DESI and next-generation surveys](docs/papers/IAM_Survey_Predictions_Paper.pdf)
-- [Missing satellites: the virial partition closure condition and the two mechanisms](docs/papers/Missing_Satellites.pdf)
-- [Dark matter and dark energy as virial partners](docs/papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
-- [Virial efficiency and the effective nonlinear exponent - published N-body confirmation](docs/papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
-- [Lensing-dynamics mass discrepancy as a redshift-dependent signature](docs/papers/IAM_Lensing_Dynamics_Paper.pdf)
-- [Three-way mass discrepancy in galaxy clusters: eROSITA, Planck SZ, DES](docs/papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
-- [The M-sigma relation from gravitational decoherence thermodynamics](docs/papers/IAM_M_Sigma_Paper.pdf)
-- [Quantum Darwinism at cosmological scales - the cosmic horizon and the emergence of classicality](docs/papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
-- [Black hole horizons as thermodynamic encoding surfaces](docs/papers/IAM_BH_Thermodynamics.pdf)
-- [The cessation of projection: the information paradox](docs/papers/IAM_Black_Hole_Information_Paradox.pdf)
-- [The geometric origin of the Bekenstein-Hawking entropy coefficient](docs/papers/Bekenstein_coefficient.pdf)
-- [A note on entropic gravity and the thermodynamic-gravity conjecture](docs/papers/A_Note_on_Entropic_Gravity__Saridakis_.pdf)
-- [Validation scorecard - the complete test ledger](docs/papers/IAM_Official_Score_Card.pdf)
-- [Complete test validation compendium](docs/papers/IAM_Test_Validation_Compendium.pdf)
-- [Supplementary methods and reproducibility guide](docs/papers/Supplementary_Methods_Reproducibility_Guide.pdf)
-- [Where we started, where we are - a six-month state of the model](docs/papers/IAM_Six_Month_Synthesis.pdf)
-
-**Superseded revisions, kept for provenance** — cited by nothing; the current version of each is above:
-
-- [Earlier revision of the Bekenstein coefficient paper](docs/papers/iam_bekenstein_coefficient.pdf)
-- [Retired v1 manuscript](docs/Retired_V1_IAM_Manuscript.pdf)
-- [Retired technical clarifications guide](docs/Retired_IAM_Technical_Clarifications_Guide.pdf)
-
-**Exploratory, and marked as such** — first-principles speculation, not part of the validation record:
-
-- [Gravitational engineering and interstellar transit - a first-principles exploration](docs/papers/Gravitational_Propulsion_and_IAM.pdf)
-- [Earlier revision of the same exploration](docs/papers/IAM_Gravitational_Engineering_Exploration.pdf)
-
-</details>
-
-<details>
-<summary><strong>II · Quantum and particle physics — 13 papers</strong></summary>
-
-_This is where the QAPE and SCAPE work belongs: both read the Landauer bound at an engineered device, the same way
-the cellular work reads it at a cell._
-
-- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the QAPE foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
-- [QAPE Issue 002 - the quantum-computing platform report](docs/papers/IAMPerformance_QAPEIssue002.pdf)
-- [SCAPE Issue 002 - the semiconductor report](docs/papers/IAMPerformance_SCAPEIssue002.pdf)
-- [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
-- [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
-- [Electroweak symmetry breaking as the first irreversible act](docs/papers/The_Higgs_Boson_and_the_Origin_of_Duration.pdf)
-- [Matter-antimatter asymmetry and the information-writing constraint](docs/papers/Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf)
-- [The baryon asymmetry as a derived quantity - CMB evidence without a BBN prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
-- [The measurement problem dissolved: decoherence as irreversible sector crossing](docs/papers/IAM_Measurement_Problem_Quantum.pdf)
-- [Gravitational decoherence from dual-sector thermodynamics - predictions for optomechanical experiments](docs/papers/Gravitational_Decoherence_Quantum_Level.pdf)
-- [The boundary between potential and actual](docs/papers/The_Boundary_Between_Potential_and_Actual.pdf)
-- [Non-locality and the boundary of reality - quantum potential and irreversible actualisation](docs/papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
-- [The two faces of time: coordinate time, proper time, and duration](docs/papers/The_Two_Faces_of_Time.pdf)
-
-</details>
-
-<details>
-<summary><strong>III · Cellular systems — the instrument, not a paper library</strong></summary>
-
-The cellular work is a running instrument with a reproduction kit rather than a set of preprints. Start at
-[`MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md), then `doors/RUNBOOK.md`. The methods paper and
-the explainers are in [`MethylPhys/papers/`](Biological_Physics/MethylPhys/papers/); the engineering manual is in
-[`MethylPhys/manual/`](Biological_Physics/MethylPhys/manual/).
-
-</details>
+---
 
 **For a physicist arriving from the cosmology side:** the cellular work is metrology, not a new theory. It uses the
 Landauer bound as a *unit* — the measured quantity is a dimensionless ratio of an observed entropy to a fitted
