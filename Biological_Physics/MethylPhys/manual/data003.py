@@ -12,14 +12,17 @@ import json, re, ast, os, collections
 T = os.environ.get("CPG_TRIAL") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "chain")
 _TSEARCH = [T] + [os.path.join(T, "Runtime Matrices", d) for d in
                   ("A_Scoring_Module","Celltype_Marker","Directional Panel","Tier_breakpoints","Cellular_Age",
-                   "Mahalanobis_healthy_reference","Patient_CMB")] + [os.path.join(T, "Walther_iam_deconvolver")]
+                   "Mahalanobis_healthy_reference","Patient_CMB")] + [os.path.join(T, "Walther_iam_deconvolver"),
+                  # the atlas is a sibling of the chain, not inside it
+                  os.path.join(os.path.dirname(T), "atlas"),
+                  os.path.join(os.path.dirname(T), "atlas", "external_manifests")]
 def _tfile(name):
     for d in _TSEARCH:
         q = os.path.join(d, name)
         if os.path.exists(q): return q
     raise FileNotFoundError(f"{name}: not found under {T} or its Runtime Matrices subdirectories")
 
-def _j(name): return json.load(open(os.path.join(T, name)))
+def _j(name): return json.load(open(_tfile(name)))   # resolve by name: runtime files sit in subdirectories, the atlas is a sibling
 
 # ── engine constants (cpg_gauge_engine.py @ HEAD) ─────────────────────────────
 _eng = open(_tfile("cpg_gauge_engine.py"), encoding="utf-8").read()

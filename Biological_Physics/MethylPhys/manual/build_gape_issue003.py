@@ -711,6 +711,9 @@ def build(out_path):
     story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story)
     sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
+    # Issue 003 renders the cascade and the cards itself, each followed by its addendum; the inherited
+    # saturation block would otherwise emit a second, addendum-less copy of both (84 duplicate pages).
+    L.EMIT_CARDS_AFTER_SATURATION = False
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
     L.render_cascade_section(story)

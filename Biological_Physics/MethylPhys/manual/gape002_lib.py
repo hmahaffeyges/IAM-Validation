@@ -1044,6 +1044,8 @@ CLASS_CANCERS = {
 # All representative values calibrated from published healthy reference cells
 # and the most validated cancer for each class.
 
+EMIT_CARDS_AFTER_SATURATION = True   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
+
 CARDS = [
     # ─── #1: IMMUNE (70% of cfDNA — the dominant signal in blood) ──────────────
     {
@@ -9709,14 +9711,13 @@ def blk_bodytemp_saturation(story):
     # New section inserted before cards — introduces the clinical thesis that
     # the cascade established, so readers encounter it before the card matrix.
     # ══════════════════════════════════════════════════════════════════════════
-    render_cascade_section(story)
-
-    # ══════════════════════════════════════════════════════════════════════════
-    # CLASS CARDS (one per architecture class, each with 12+ sections)
-    # Ordered by H_min (lowest floor first — scientific ordering, matches papers)
-    # ══════════════════════════════════════════════════════════════════════════
-    for card in sorted(CARDS, key=lambda c: c['order']):
-        render_card(story, card)
+    # In Issue 002 this block led straight into the cascade and the class cards, so it emitted them itself.
+    # Issue 003 renders both explicitly, each card followed by its Issue 003 addendum, so emitting them here
+    # duplicates 84 pages. The flag keeps the Issue 002 reproduction unchanged; Issue 003's build sets it False.
+    if EMIT_CARDS_AFTER_SATURATION:
+        render_cascade_section(story)
+        for card in sorted(CARDS, key=lambda c: c['order']):
+            render_card(story, card)
 
     # ══════════════════════════════════════════════════════════════════════════
 
