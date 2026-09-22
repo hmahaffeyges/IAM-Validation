@@ -147,3 +147,39 @@ biology, which is a better sentence than a zero would have been.
 
 **Rule.** When a precedence or absence claim rests on a search, the document carries the **counts and the queries**, never a characterisation of them. "We found nothing
 relevant" and "the query returned nothing" are different claims and only one of them is checkable.
+
+### 2026-09-22 - two measurements behind the Sky tab, and a locality scare that was my own error
+
+**PROJECTION LOCALITY (measured, and it matters).** Asked whether the sphere is necessary, I measured whether the CpG-to-pixel mapping actually
+preserves genomic locality. First attempt used the **atlas row index** as a proxy for genomic order and reported the mapping as nearly random
+(median neighbour gap ~100,000 rows). That was wrong: `IAMAtlasREBUILD.csv` rows are **alphabetical by CpG ID**, not genomic - the mapping itself was
+built from the real manifest (CHR + MAPINFO). Re-measured against `external_manifests/EPIC_plus_HM450_combined_manifest_normalized.csv`:
+
+| quantity | value |
+|---|---|
+| pixels whose CpGs are genomically contiguous | **100.0 %** (196,608 of 196,608) |
+| pixels whose CpGs are all on one chromosome | **100.0 %** |
+| median bp span within a pixel | **511 bp** (90th pct 20,481) |
+| median genomic-order gap between neighbouring pixels | 1,256 CpGs (25th pct 40) |
+| neighbouring pairs within 10 CpGs / beyond 10,000 | 25.0 % / 0.9 % |
+| the same for a random assignment | ~161,000 |
+
+So the projection is a genuine locality-preserving space-filling reindexing at 511 bp per pixel. **This retroactively supports the 57-sigma
+interpretation**: the smoothed mottling really is the genomic correlation of methylation, because adjacent pixels really are adjacent genome.
+Had the first (wrong) measurement stood, that interpretation would have had to be withdrawn. Lesson: a row index is not a coordinate - check what a
+file is sorted by before using its order as a proxy for anything.
+
+**DIFFERENCE-MAP SENSITIVITY (measured on the Uppsala panel, n=80).** Between-person beta SD per address: median 0.0289 (IQR 0.0182-0.0463). The 5th
+percentile, 0.0089, is an **upper bound on the technical term** (nothing can be quieter than the noise). Paired 2-sigma detection limits, from
+technical noise x root 2: 1 address 0.025; 5 addresses 0.011; **20 addresses (an island) 0.0056**; 100 addresses 0.0025; 1,000 addresses 0.0008.
+Reported island-scale disease effects run several to twenty points, so an island-scale paired difference should resolve changes an order of
+magnitude below published effect sizes. **Caveats that must travel with it:** the technical term is inferred from cross-sectional data because
+**no repeat draws of the same person exist in anything held here** (the EPIC-Italy foundation cohort is 460 distinct participants, 0 repeats - checked),
+and the cancellation only holds within one laboratory and pipeline. A serial cohort is now roadmap item 1.
+
+**Report changes in this pass:** presence-floor row corrected (below its floor a class **is not there**, and the galaxy-mask analogy is explicitly
+inexact - the galaxy hides a real sky, an absent class has nothing behind the mask); a section on what else the MCMC gives and the unused
+cell-type covariance; the brightness/brilliance lineage as the first CMB-derived tool, superseded not retired; the author's difference-map
+paragraph verbatim with the measured table; the sphere question answered with the locality numbers plus the linear-track / Hilbert-curve
+recommendation for clinical reading; an **Acknowledgement** section crediting the cosmology community ('we are the messenger, not the inventor');
+and a new **Roadmap** tab, 20 items from the translation map and this chain's own measurements, banana degeneracy included.

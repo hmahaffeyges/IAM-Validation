@@ -300,9 +300,13 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "<tr><td>Subtract the monopole and dipole before anything else</td><td>they are real and they are not the signal</td>"
  "<td>the <b>laboratory zero</b> and the <b>age term</b>, each measured - 40 healthy arrays of that laboratory, and the "
  "four-laboratory age curve - and subtracted before any reading is placed</td></tr>"
- "<tr><td>Mask the galaxy</td><td>part of the sky cannot be measured; do not guess it</td>"
- "<td>the <b>presence floors</b>. A class below its measured floor is masked black, never estimated. PROC-CEIL-01 measured the "
- "consequence of not masking: absent classes read at or past their ceiling purely because their addresses carry other cells' DNA</td></tr>"
+ "<tr><td>Mask the galaxy</td><td>part of the sky cannot be measured; do not guess what is behind it</td>"
+ "<td>the <b>presence floors</b>. <b>Below its floor a class is not there</b> - the specimen holds no detectable amount of it - so the chain "
+ "masks it black and reports nothing about it. <i>The analogy is close but not exact, and the difference is worth stating:</i> the galaxy hides a "
+ "sky that really is behind it, whereas an absent class has nothing behind the mask. Both are refusals to report where the instrument cannot see, "
+ "for different reasons. PROC-CEIL-01 measured what happens without the refusal: on healthy whole blood the absent classes read at or past their "
+ "ceiling, because their identity addresses carry other cells' DNA and average near a coin flip - so an unmasked healthy sample would report two "
+ "classes past breach</td></tr>"
  "<tr><td>Component separation - dust, synchrotron, free-free</td><td>you cannot read the sky until you separate what lies in "
  "front of it</td><td><b>Stage 2, the composition step.</b> Not a loose parallel: the second solver in this chain <i>is</i> NILC, "
  "the needlet internal linear combination Planck used, pointed at cell types instead of foregrounds</td></tr>"
@@ -334,6 +338,75 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "correlation, the laboratory's own character, that individual's baseline) cancels and only what changed survives. That is not a "
  "metaphor; it is an experimental design a clinic can execute, and it is the strongest argument for treating a methylome this way.</p>"
 
+
+ "<h3>What else the MCMC gives us, and what we are not yet using</h3>"
+ "<p>The atlas does not store one number per cell type per address. It stores the <b>posterior mean, the posterior SD and the credible-interval "
+ "bounds</b> - 123 standard-deviation columns with interval columns beside them - because MCMC produces a distribution, and keeping only its "
+ "centre throws away most of what was computed. Three uses are live: the floors were fitted this way and frozen; the sky weights each class panel "
+ "by how well the atlas pinned that class down; and the second solver uses each entry's posterior SD as its inverse-variance weight, which is what "
+ "makes it sensitive to faint components.</p>"
+ "<p><b>What is not yet used - the largest piece of unspent evidence in the chain.</b> MCMC also gives the <i>covariance between cell types at the "
+ "same address</i>: if two cell types are hard to tell apart there, the chains wander together, and that correlation is exactly what a proper "
+ "generalised-least-squares separation needs. The chain currently treats each entry's uncertainty as independent - the conservative choice, and the "
+ "wasteful one. A full covariance would let the composition step say <i>these two are individually uncertain but their sum is well determined</i>, "
+ "which is precisely the situation PROC-SEP-03 found in blood. The credible intervals are also asymmetric near the ends of the scale and are "
+ "currently summarised by a symmetric SD. Both are on the list below.</p>"
+
+ "<h3>Brilliance - the first tool taken from cosmology, and where it went</h3>"
+ "<p>The first CMB-derived instrument in this work was not the sky; it was <b>brightness</b>. Surface brightness is how astronomy states an "
+ "intensity that does not depend on the distance to the source or the size of the telescope, and the brightness layer built alongside the atlas "
+ "applied that idea to an architecture class: how strongly does this class shine at its own addresses, on a scale that does not depend on how much "
+ "of it happens to be in the tube. That was the right instinct, and it is why a per-class expectation exists at all. It has been <b>superseded "
+ "rather than retired</b>: the sky now builds its expectation from <i>this sample's own composition</i>, which a precomputed per-class file cannot "
+ "do. The lineage is worth stating, because the first import from cosmology is still load-bearing one layer down.</p>"
+
+ "<h3>Two maps from one patient - the difference map</h3>"
+ "<p>In the author's words, and it is the strongest argument on this page: <i>a methylome sky can be re-measured on the same patient. Two draws "
+ "six months apart gives a difference map - and difference maps are where cosmology's entire toolkit is most powerful, because the static "
+ "foregrounds cancel. That is not a metaphor, it is an experimental design a clinic can execute, and it is the strongest reason the analogy is a "
+ "method rather than a decoration.</i></p>"
+ "<p><b>Is it sensitive enough to see a change in one island? Measured, not asserted.</b> On the Uppsala panel the between-person spread per "
+ "address is 0.029 in beta units (IQR 0.018-0.046). The quietest addresses - 5th percentile, 0.0089 - bound the purely technical part from above, "
+ "since nothing can be quieter than the noise. A paired difference of two draws from one person removes that person's baseline, the laboratory zero "
+ "and the genomic correlation, leaving technical noise times root two:</p>"
+ "<table class='t'><tr><th>addresses averaged</th><th>what that is</th><th>detectable change in methylation (2 sigma, paired)</th></tr>"
+ "<tr><td class='n'>1</td><td>one CpG</td><td class='n'>2.5 percentage points</td></tr>"
+ "<tr><td class='n'>5</td><td>a few sites in one promoter</td><td class='n'>1.1 points</td></tr>"
+ "<tr><td class='n'>20</td><td><b>a CpG island</b></td><td class='n'><b>0.6 points</b></td></tr>"
+ "<tr><td class='n'>100</td><td>a small domain</td><td class='n'>0.25 points</td></tr>"
+ "<tr><td class='n'>1,000</td><td>a large domain, or a class panel</td><td class='n'>0.08 points</td></tr></table>"
+ "<p>Reported effects at a CpG island typically run from several to twenty points. <b>So yes: at island scale and above, a paired difference map "
+ "should resolve changes an order of magnitude smaller than effects already in the literature</b>, and the limit is set by array noise rather than "
+ "by anything in this chain. Two caveats travel with that. The technical term is an <i>upper bound inferred from cross-sectional data</i>, because "
+ "<b>no repeat draws of the same person exist in anything held here</b> - the EPIC-Italy foundation cohort is 460 distinct participants with no "
+ "second sample - so a real serial test must re-measure it from actual replicates. And a difference map cancels the laboratory only if both draws "
+ "went through the same laboratory and pipeline; otherwise the pipeline map and laboratory zero must be applied to each before differencing. "
+ "Finding a serial cohort is the first item on the list below.</p>"
+
+ "<h3>Is the sphere necessary? A straight answer</h3>"
+ "<p><b>For the measurement, no. For the toolkit, yes.</b> The residual is a one-dimensional sequence along the genome; the sphere is a "
+ "space-filling reindexing of it. What makes that legitimate rather than ornamental is that the reindexing <b>preserves locality</b> - measurable, "
+ "not assumed: every one of the 196,608 pixels holds CpGs that are genomically contiguous and on a single chromosome, with a median span of "
+ "<b>511 base pairs</b> (90th percentile 20 kb); a quarter of all neighbouring-pixel pairs sit within 10 CpGs of each other in genomic order and "
+ "fewer than 1 per cent are more than 10,000 apart, against about 161,000 for a random assignment. Angular distance therefore tracks genomic "
+ "distance at the scales that matter, which is what makes needlets, a harmonic decomposition and a power spectrum mean anything here - and it is "
+ "why the correlation noted below is genomic rather than an artefact of the projection.</p>"
+ "<p><b>For a clinician reading one patient, a sphere is probably the wrong picture,</b> and this page would rather say so than defend it. A "
+ "geneticist thinks in chromosome coordinates and an ellipse has no chromosomes on it. Better formats for the clinical read: a <b>per-chromosome "
+ "linear track</b> - immediately interpretable, the format every genome browser already uses - or a <b>Hilbert-curve layout</b>, a space-filling "
+ "curve in the plane already used in genomics, which keeps locality about as well as the sphere while staying rectangular and printable. The sphere "
+ "earns its place where the <i>statistics</i> are spherical. The intended end state is both: the sphere for the spectral analysis, a linear or "
+ "Hilbert track for what a clinician sees, and the same residual underneath so the two cannot disagree.</p>"
+
+ "<h3>Acknowledgement - whose tools these are</h3>"
+ "<p>Everything on this page except the biology was built by the cosmology community over some thirty years, out of necessity, because they had one "
+ "noisy sky and no way to obtain another. HEALPix; the internal-linear-combination and needlet methods that make component separation work; beam "
+ "deconvolution; per-pixel noise covariances; simulation-based nulls, and the discipline of scoring an anomaly against a null rather than against "
+ "intuition - none of it was invented here. The contribution is the recognition that a methylome is the same kind of object and can be measured "
+ "with the same instruments. <b>We are the messenger, not the inventor</b>, and the right response to a cosmologist reading this page is thanks.</p>"
+ "<p>What is handed over is also more than a ruler for cellular fidelity. It is a <b>toolkit, and a different way of seeing the methylome</b> - as "
+ "a field on a manifold with a model, a mask, a beam and a noise budget, rather than as a list of sites with p-values attached. What a geneticist "
+ "builds with that is not ours to predict, which is rather the point of handing it over.</p>"
  "<p class='m'><b>On precedence, stated the way a referee will read it.</b> We are not aware of prior work that projects a methylome "
  "onto a sphere and applies component-separation and sky-statistics machinery to it. The search behind that sentence, run 2026-09-22, with its "
  "actual counts rather than a summary: in <b>Europe PMC</b>, <i>spherical harmonic</i> + <i>methylome</i> returned <b>0</b>, "
@@ -781,6 +854,46 @@ def tab_safeguards(o, R):
     return guard("".join(H),"Safeguards")
 
 
+ROADMAP=[
+ ("now","Find a serial cohort - two draws, same person","the difference map is the strongest design on the Sky tab and nothing held here has a repeat draw; the technical noise term is currently an upper bound inferred from cross-sectional data","EPIC-Italy and the Uppsala follow-up arms are the candidates; needs repeat-draw metadata, which the public extracts do not carry"),
+ ("now","Merge the atlas's duplicate labels to one lineage per entry","the same lineage appears under several atlas entries whose per-cell readings differ by more than anything biological, purely by which reference panel defined the markers; until they are merged nobody can say 'which cell moved'","a merge rule plus a re-measured per-entry reference; it is the blocker on per-cell reporting"),
+ ("now","Per-entry healthy bands wide enough to carry a tier word","20 per cent of atlas entries have a healthy spread wider than the gauge's NORMAL band, so their tier word is withheld and only the number is printed","the T-cell and NK entries are the widest; needs a per-entry band rather than the class band"),
+ ("gate 0","Rebuild the eight class bands from one healthy cohort through one pipeline","RECON B1 - the bands still carry the history of how they were assembled","the four-laboratory panel exists; this is the re-fit"),
+ ("gate 0","Wire the Stage 0 to Stage 1 intensity hand-off","four QC checks are deferred rather than running, because Stage 0 never sees the raw intensities","PROC-STAGE0-01; map rows 10-11"),
+ ("gate 0","Reproduce the breast pre-symptomatic-window anchor from raw IDATs","the sealed anchor reproduces from processed betas; from raw IDATs it has not been run end to end","sprint F1"),
+ ("after gate 0","The full MCMC covariance in the composition step","the atlas carries the covariance between cell types at each address and the chain ignores it; a generalised-least-squares separation would use it, and it is exactly what the blood-separability finding needs","the largest piece of unspent evidence in the chain (see Sky)"),
+ ("after gate 0","Cellular variance as cosmic variance","one methylome is one realisation; how much of the spread between healthy people is irreducible sampling rather than biology","map row 3"),
+ ("after gate 0","Transfer function of the chain","what the pipeline does to a signal of known size and shape, measured rather than assumed","map row 14; CCL-039"),
+ ("after gate 0","Nuisance marginalisation in the gauge","age, sex, chip and laboratory are currently subtracted as point estimates; marginalising over them propagates their uncertainty into the reading","map row 21"),
+ ("after the anchor","C(d) - the two-point correlation of residuals against genomic distance, per class","the first real step toward a power spectrum, and the quantity behind the spatial null; a healthy correlation scale is a measurable baseline","map rows 17, 23, 25; sprint C1"),
+ ("after the anchor","The angular power spectrum itself","the scale-resolved observable the sphere was built for: at what genomic scale does a departure live, with the look-elsewhere effect handled by simulation","not started; the frontier named on the Sky tab"),
+ ("after the anchor","Banana degeneracy - the 2D posterior shape for A-score pairs","two classes can be individually uncertain and jointly well determined; the shape of that degeneracy is the honest error bar and it is not an ellipse","map row 38; sprint C3 - the author's outstanding request, 'I never got my banana degeneracy'"),
+ ("after the anchor","Per-card likelihood, marginalised, with MCMC posteriors","a proper likelihood per class rather than a point reading against a band","map rows 28, 37; sprint E2/E3"),
+ ("after the anchor","Formal blinding for confirmation runs","the analyst should not know the arm; the pre-registration protocol allows it, the tooling does not enforce it","map row 78"),
+ ("clinical format","A per-chromosome linear track and a Hilbert-curve layout","a sphere is the right object for spherical statistics and the wrong picture for a clinician; the same residual should be renderable in chromosome coordinates","see 'Is the sphere necessary' on the Sky tab"),
+ ("substrates","Urine, CSF, and the within-patient tissue / plasma / urine trio","each needs its own pipeline map, laboratory zero and healthy band before it can read; the trio would test whether one person's classes agree across specimens","Issue 003 section 7; see Coverage"),
+ ("not now","Bispectrum and trispectrum; Minkowski functionals; isotropy and alignment tests","higher-order sky statistics; they need the power spectrum first and a reason to look","map rows 45, 53-60, 69"),
+ ("not now","5mC / 5hmC as an E/B-mode separation; multi-omics cross-correlation","a genuinely deep parallel - two components of one field - but it needs oxidative-bisulphite data the chain has never seen","map rows 4, 49, 70"),
+ ("does not translate","Rees-Sciama; Rayleigh scattering","recorded so nobody spends a week on them: the analogy breaks, and saying so is part of the map","map rows 63, 68"),
+]
+
+def tab_roadmap(R):
+    H=["<h2>What is being considered next</h2>",
+       "<p>Everything on this list is either named in the translation map between the microwave background and the methylome, or came out of a "
+       "measurement made while building this chain. It is ordered by what has to happen first, not by how interesting it is. <b>Nothing here is a "
+       "claim</b> - an item on this list has not been done, and several are listed precisely so that nobody spends a week rediscovering why they "
+       "do not work.</p>",
+       "<table class='t'><tr><th>when</th><th>item</th><th>why it matters</th><th>what it needs / where it comes from</th></tr>"]
+    for when,item,why,needs in ROADMAP:
+        H.append(f"<tr><td class='m'>{_e(when)}</td><td><b>{_e(item)}</b></td><td>{_e(why)}</td><td class='m'>{_e(needs)}</td></tr>")
+    H.append("</table>")
+    H.append("<p class='m'>The ordering rule is the author's, from the day an earlier version of this list was attempted all at once: "
+             "<i>too ambitious too quick - these should have been worked on long after the bones were trusted.</i> The bones are the commissioning "
+             "table; the Safeguards tab says which of them currently hold.</p>")
+    H.append(deepdive(R,"any item on this list"))
+    return guard("".join(H),"Roadmap")
+
+
 def tab_run(R):
     return f"""<h2>Run it yourself</h2><p>The chain is open. Clone the repository, verify it on the eleven commissioning arrays, then run your own IDATs. A local server (in build) will drive this same page live, stage by stage.</p>
 <pre>git clone {GH}.git
@@ -824,7 +937,7 @@ function tab(id){document.querySelectorAll('section.tab').forEach(s=>s.classList
 function aud(a){document.body.classList.toggle('researcher',a==='researcher');document.querySelectorAll('.aud button').forEach(b=>b.classList.toggle('on',b.dataset.a===a));localStorage.setItem('mp_aud',a)}
 window.addEventListener('DOMContentLoaded',()=>{aud(localStorage.getItem('mp_aud')||'researcher');tab((location.hash||'#reading').slice(1))});
 """
-TABS=[("reading","Reading",True),("howto","How to read",True),("cells","Every cell",True),("departure","Departure",True),("sky","Sky",True),("reference","Healthy reference",False),("coverage","Coverage",False),("safeguards","Safeguards",False),("integrity","Integrity",False),("chain","Chain",False),("physics","Physics",False),("story","Story",False),("record","Record",False),("run","Run",False)]
+TABS=[("reading","Reading",True),("howto","How to read",True),("cells","Every cell",True),("departure","Departure",True),("sky","Sky",True),("reference","Healthy reference",False),("coverage","Coverage",False),("safeguards","Safeguards",False),("roadmap","Roadmap",False),("integrity","Integrity",False),("chain","Chain",False),("physics","Physics",False),("story","Story",False),("record","Record",False),("run","Run",False)]
 
 def refusals_from(o):
     r=[]
@@ -839,7 +952,7 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"story":tab_story(),"record":tab_record(R),"run":tab_run(R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(),"record":tab_record(R),"run":tab_run(R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_ in TABS)
     body="".join(f"<section class='tab{' print' if p else ''}' id='{i}'>{sec[i]}</section>" for i,n,p in TABS)
