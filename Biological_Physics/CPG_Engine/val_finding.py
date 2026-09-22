@@ -364,7 +364,18 @@ class Finding:
                 # cards solved the same problem with a concordant_strong flag across cohorts. Here the second
                 # ranking is |mean z| / sd across the samples of the arm: a departure most of the arm agrees on.
                 R["per_cpg"]["top_200_by_abs_mean_z"]=rows(np.argsort(-np.abs(mu))[:200])
-                R["per_cpg"]["top_200_by_consistency"]=rows(np.argsort(-(np.abs(mu)/(sd+1e-6)))[:200])
+                # The consistency ranking needs enough samples for sd to mean anything. On the 3-sample dry run it
+                # returned ratios of 3,800 because sd came out at 1e-4 - a division by an unestimated quantity, not
+                # a consistent departure. Requires >= 8 samples in the arm, and sd is floored at a tenth of the
+                # arm's median sd so a handful of freakishly tight probes cannot dominate the list.
+                if per[a0]["n"]>=8:
+                    fl=max(float(np.nanmedian(sd))*0.1,1e-4)
+                    R["per_cpg"]["top_200_by_consistency"]=rows(np.argsort(-(np.abs(mu)/np.maximum(sd,fl)))[:200])
+                    R["per_cpg"]["consistency_sd_floor"]=round(fl,6)
+                else:
+                    R["per_cpg"]["top_200_by_consistency"]=None
+                    R["per_cpg"]["consistency_not_computed"]=(f"arm '{a0}' has {per[a0]['n']} samples; the "
+                        "consistency ranking needs at least 8 for the per-CpG sd to be estimable")
                 R["per_cpg"]["ranking_note"]=("top_200_by_abs_mean_z is the largest departures and is dominated by "
                     "unstable probes; top_200_by_consistency is |mean z| / sd across the arm and is the list to "
                     "carry into a candidate panel. With two or more cohorts, the intersection of the two "
