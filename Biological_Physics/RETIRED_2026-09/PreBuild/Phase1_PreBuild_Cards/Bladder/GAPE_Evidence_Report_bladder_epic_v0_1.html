@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GAPE Evidence Report — bladder-epic v0.1</title>
+<style>
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 1100px; margin: 2em auto; padding: 0 1.5em; color: #222; line-height: 1.55; }
+  h1 { border-bottom: 3px solid #2c3e50; padding-bottom: 0.3em; }
+  h2 { margin-top: 2em; padding-top: 0.5em; border-top: 1px solid #ddd; color: #2c3e50; }
+  h3 { color: #34495e; margin-top: 1.5em; }
+  h4 { color: #555; margin-top: 1.2em; }
+  .meta { background: #f4f6f8; padding: 1em; border-left: 4px solid #2c3e50; margin: 1em 0; font-size: 0.92em; }
+  .seal { background: #fff3cd; padding: 0.7em; border-left: 4px solid #d39e00; margin: 1em 0; font-family: monospace; font-size: 0.86em; }
+  .outcome-box { background: #e7f3fe; padding: 1em; border-left: 4px solid #2196F3; margin: 1em 0; }
+  .outcome-box.o4 { background: #fff3cd; border-left-color: #d39e00; }
+  .outcome-box.o2 { background: #e7e3ff; border-left-color: #7e57c2; }
+  .outcome-box.o1 { background: #e8f5e9; border-left-color: #43a047; }
+  table { border-collapse: collapse; margin: 1em 0; font-size: 0.92em; }
+  th, td { border: 1px solid #ccc; padding: 0.5em 0.8em; text-align: left; }
+  th { background: #ecf0f1; }
+  .num { font-family: monospace; text-align: right; }
+  pre { background: #f4f6f8; padding: 1em; border-radius: 4px; overflow-x: auto; font-size: 0.85em; }
+  code { font-family: 'Monaco', 'Courier New', monospace; }
+  .cite { background: #f8f9fa; padding: 0.5em 0.8em; border-left: 3px solid #6c757d; margin: 0.5em 0; font-size: 0.92em; }
+  .repro { background: #f0f7f0; padding: 1em; border-left: 4px solid #4caf50; margin: 1em 0; font-size: 0.92em; }
+  .footer { margin-top: 4em; padding-top: 1em; border-top: 2px solid #2c3e50; font-size: 0.88em; color: #555; }
+  .nav { background: #ecf0f1; padding: 0.8em 1em; border-radius: 4px; font-size: 0.93em; }
+  .nav a { color: #2c3e50; margin-right: 1em; }
+</style>
+</head>
+<body>
+
+<h1>GAPE Evidence Report — bladder-epic v0.1</h1>
+
+<div class="meta">
+  <strong>Card:</strong> bladder-epic v0.1<br>
+  <strong>Sealed:</strong> 2026-05-01<br>
+  <strong>Tier:</strong> multi_modal_validated + multi_atlas_calibrated<br>
+  <strong>Sealed VALs:</strong> VAL-119 (BladderRef calibration), VAL-120 (Stage 1 Xu-538), VAL-121 (Stage 2 multi-atlas), VAL-122 (Stage 3 immune fine-tune)<br>
+  <strong>Author:</strong> Heath W. Mahaffey, IAMPerformance Inter-Domain Research Institute, Entiat, WA, USA<br>
+  <strong>Repository:</strong> <a href="https://github.com/hmahaffeyges/IAM-Validation">https://github.com/hmahaffeyges/IAM-Validation</a> commit <code>404eed3</code> on <code>main</code>
+</div>
+
+<div class="nav">
+  <a href="#headline">Headline</a>
+  <a href="#val119">VAL-119</a>
+  <a href="#val120">VAL-120</a>
+  <a href="#val121">VAL-121</a>
+  <a href="#val122">VAL-122</a>
+  <a href="#disc">DISC-BLADDER lessons</a>
+  <a href="#repro">Reproducibility</a>
+</div>
+
+<h2 id="headline">Headline</h2>
+
+<p>Bladder-epic v0.1 is a four-VAL discovery sprint on TCGA-BLCA n=440 (HM450K sesame Level 3, 21 paired tumor-vs-adjacent-normal patients). Three Phase C outcomes plus one Phase B calibration anchor sealed against pre-locked prereg.md files (with one CHK-3.1A tissue-class floor amendment 002 sealed AFTER β observed under honest CCL-041 second-best-path disclosure).</p>
+
+<p>The card line under no-overclaim language: <em>"Phase C scoring on TCGA-BLCA n=440 produced results consistent with the framework and with published bladder cancer biology, with three structural caveats sealed and propagated to v0.2 promotion path. Stage 1 immune red flag fires diagnostically at d_paired=+1.90 (p=3.1×10⁻⁸) but Xu-538 panel cohort-substrate coverage triggered O4 sealed outcome (DISC-BLADDER-004). Stage 2 cell-of-origin: BladderRef Epi paired d=−1.46 (p=1.6×10⁻⁶) satisfies CCL-039 expectation; Loyfer bulk Bladder fires opposite direction reflecting substrate-distribution mismatch on mucosal cohort (DISC-BLADDER-003). Stage 3 immune fine-tune fires across all 6 Salas IDOL tiles consistent with mixed TIL+TAM+MDSC infiltration of muscle-invasive bladder tumor microenvironment."</em></p>
+
+<p><strong>Sealed outcomes:</strong></p>
+<ul>
+<li><strong>VAL-119</strong> sealed <code>O1_BLADDERREF_CALIBRATION_SEALED</code></li>
+<li><strong>VAL-120</strong> sealed <code>O4_STAGE1_DATA_INTEGRITY_FAILURE</code> (Xu-538 panel cohort-substrate coverage gate fired; diagnostic d_paired=+1.90 reported separately)</li>
+<li><strong>VAL-121</strong> sealed <code>O2_BLADDER_TILE_DIFFERENTIATING_DIRECTION_AMBIGUOUS</code> (Loyfer +1.91 vs BladderRef Epi −1.46 dual-atlas direction divergence)</li>
+<li><strong>VAL-122</strong> sealed <code>O1_STAGE_3_IMMUNE_DIFFERENTIATING</code> (all 6/6 Salas IDOL tiles fire POSITIVE)</li>
+</ul>
+
+<h2 id="val119">VAL-119 — EpiSCORE BladderRef Phase B calibration anchor</h2>
+
+<div class="outcome-box o1">
+<strong>Sealed:</strong> 2026-05-01T03:46:00Z<br>
+<strong>Outcome class:</strong> <code>O1_BLADDERREF_CALIBRATION_SEALED</code><br>
+<strong>Sealing basis:</strong> All three CHK gates clear; max within-cohort tile range 0.0694 well above tissue-floor-dominated threshold 0.02; gene-promoter atlas family separates cleanly with only 4 cell types.
+</div>
+
+<h3>Atlas</h3>
+
+<div class="cite">
+<strong>EpiSCORE BladderRef CpG-bridged.</strong> Source: Zhu T, Liu J, Beck S, Pan S, Capper D, Lechner M, Thirlwell C, Breeze CE, Teschendorff AE. <em>A pan-tissue DNA-methylation atlas based on deconvolution of major cell-types.</em> Nature Methods 2022;19:296. DOI: 10.1038/s41592-022-01412-7. Repository: <a href="https://github.com/aet21/EpiSCORE">https://github.com/aet21/EpiSCORE</a>.
+</div>
+
+<p><strong>Bridge methodology:</strong> Same as VAL-094 BreastRef + VAL-111 HeartRef + VAL-117 ProstateRef. Source <code>mrefBladder.m</code> (163 Entrez Gene IDs × 4 cell types + weight) bridged to 450K CpG resolution via EpiSCORE's <code>probeInfo450k.lv</code>. Final dimensions: 2,696 unique 450K CpG probes × 4 bladder cell types.</p>
+
+<div class="seal">Bridged atlas SHA-256: 3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6</div>
+
+<h3>Cell types and class assignments</h3>
+
+<table>
+<tr><th>Tile</th><th>Cell type</th><th>Class</th><th>H_min</th></tr>
+<tr><td>EC</td><td>Vascular endothelial</td><td>stromal</td><td class="num">0.862950</td></tr>
+<tr><td>Epi</td><td>Urothelial epithelium (bladder cancer cell of origin)</td><td>secretory</td><td class="num">0.843264</td></tr>
+<tr><td>Fib</td><td>Fibroblasts (stromal)</td><td>stromal</td><td class="num">0.862950</td></tr>
+<tr><td>IC</td><td>Immune cells (intra-bladder)</td><td>immune</td><td class="num">0.838889</td></tr>
+</table>
+
+<h3>Calibration cohort</h3>
+
+<p>TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (same VAL-106 cohort that anchored cardio + prostate). Substrate: TCGA HM450K sesame Level 3.</p>
+
+<h3>QC gates</h3>
+
+<table>
+<tr><th>Gate</th><th>Threshold</th><th>Observed</th><th>Status</th></tr>
+<tr><td>CHK-3.1A (substrate validity)</td><td>≥ 75% pass</td><td class="num">206/210 (98.1%)</td><td>✓</td></tr>
+<tr><td>CHK-3.1B (atlas coverage)</td><td>≥ 80% per-sample; ≥ 95% pass rate</td><td class="num">210/210 (100%); q5 = 86.15%</td><td>✓</td></tr>
+<tr><td>CHK-3.1C (atlas dedup)</td><td>0 duplicate probeIDs</td><td class="num">0/2,696</td><td>✓</td></tr>
+<tr><td>Tissue-floor-dominated</td><td>max within-cohort tile range ≥ 0.02</td><td class="num">0.0694</td><td>✓</td></tr>
+</table>
+
+<h3>Per-tile healthy-floor distributions (n=206 QC-passed)</h3>
+
+<table>
+<tr><th>Tile</th><th>Mean A</th><th>SD</th><th>q5</th><th>q95</th><th>Within-cohort range</th></tr>
+<tr><td>EC</td><td class="num">0.4087</td><td class="num">0.0100</td><td class="num">0.3972</td><td class="num">0.4265</td><td class="num">0.0565</td></tr>
+<tr><td><strong>Epi</strong></td><td class="num"><strong>0.4135</strong></td><td class="num"><strong>0.0066</strong></td><td class="num"><strong>0.4004</strong></td><td class="num"><strong>0.4219</strong></td><td class="num"><strong>0.0410</strong></td></tr>
+<tr><td>Fib</td><td class="num">0.4875</td><td class="num">0.0090</td><td class="num">0.4770</td><td class="num">0.5020</td><td class="num">0.0694</td></tr>
+<tr><td>IC</td><td class="num">0.4106</td><td class="num">0.0086</td><td class="num">0.4001</td><td class="num">0.4263</td><td class="num">0.0504</td></tr>
+</table>
+
+<p>The Epi tile has the tightest within-cohort variance (sd = 0.0066) — the bladder analog of prostate's LE tile. The Fib tile separates cleanly from EC/Epi/IC clustered at ~0.41, confirming that BladderRef's 4-cell-type set spans markedly different gene-promoter methylation profiles for the marker genes Zhu/Teschendorff selected.</p>
+
+<h2 id="val120">VAL-120 — Stage 1 Xu-538 immune red flag</h2>
+
+<div class="outcome-box o4">
+<strong>Sealed:</strong> 2026-05-01T04:35:00Z<br>
+<strong>Outcome class:</strong> <code>O4_STAGE1_DATA_INTEGRITY_FAILURE</code><br>
+<strong>Sealing basis:</strong> CHK-3.1B Xu-538 panel per-sample coverage pass rate 51.1% below pre-locked ≥75% threshold. Stage 1 paired contrast d_paired = +1.8977 reported as <strong>diagnostic finding</strong>, not as sealed VAL outcome.
+</div>
+
+<h3>Cohort</h3>
+
+<p>TCGA-BLCA n=440 (418 Primary Tumor + 21 Solid Tissue Normal + 1 Metastatic; 21 paired tumor-vs-adjacent-normal patients).</p>
+
+<h3>Panel</h3>
+
+<div class="cite">
+<strong>Xu-538</strong> (538 CpGs from Xu Z, Sandler DP, Taylor JA. <em>Methylation-mediated regulation of TFAP2A and a stem-like state in luminal-A breast cancer.</em> JNCI 2020. DOI: 10.1093/jnci/djz065). Sister Study breast cancer + EPIC-Italy replication. Panel ID: <code>Xu2020_breast_cancer_replicated_full</code>.
+</div>
+
+<h3>QC gates (under amended CHK-3.1A mucosal-tissue-class floor per VAL-120 prereg amendment 002)</h3>
+
+<table>
+<tr><th>Gate</th><th>Pre-locked threshold</th><th>Observed</th><th>Status</th></tr>
+<tr><td>CHK-3.1A f_extreme floor (amended mucosal-class)</td><td>≥ 0.387</td><td class="num">mean 0.4723 ± 0.0485</td><td>✓</td></tr>
+<tr><td>CHK-3.1A f_middle ceiling (amended mucosal-class)</td><td>≤ 0.184</td><td class="num">mean 0.1117 ± 0.0295</td><td>✓</td></tr>
+<tr><td>CHK-3.1A pass rate</td><td>≥ 75%</td><td class="num">98.0% (431/440)</td><td>✓</td></tr>
+<tr><td>CHK-3.1B Xu-538 per-sample coverage</td><td>≥ 80% per-sample; ≥ 75% pass rate</td><td class="num">mean 78.0%; pass rate 51.1%</td><td><strong>✗ FAIL → triggered O4</strong></td></tr>
+</table>
+
+<h3>Diagnostic finding (reported in results JSON, not sealed as VAL outcome)</h3>
+
+<table>
+<tr><th>Contrast</th><th>n</th><th>d</th><th>95% CI</th><th>p_value</th><th>Direction</th></tr>
+<tr><td>Paired (n=21 paired patients)</td><td class="num">21</td><td class="num"><strong>+1.8977</strong></td><td class="num">[+1.182, +2.614]</td><td class="num">3.14×10⁻⁸</td><td>POSITIVE</td></tr>
+<tr><td>Welch (409 tumor vs 21 normal)</td><td class="num">—</td><td class="num">+1.6433</td><td class="num">[+1.191, +2.099]</td><td class="num">1.92×10⁻⁸</td><td>POSITIVE</td></tr>
+</table>
+
+<h3>A_immune by sample type</h3>
+
+<table>
+<tr><th>Sample type</th><th>n</th><th>mean</th><th>SD</th></tr>
+<tr><td>Solid Tissue Normal</td><td class="num">21</td><td class="num">0.5446</td><td class="num">0.0306</td></tr>
+<tr><td>Primary Tumor</td><td class="num">418</td><td class="num">0.6037</td><td class="num">0.0361</td></tr>
+<tr><td>Metastatic</td><td class="num">1</td><td class="num">0.6150</td><td class="num">—</td></tr>
+</table>
+
+<h3>Comparison to prior Stage 1 cohorts</h3>
+
+<table>
+<tr><th>Cohort</th><th>Cancer type</th><th>Substrate</th><th>Paired d</th><th>Direction</th></tr>
+<tr><td>VAL-058 (sealed)</td><td>Prostate</td><td>EPIC 850K</td><td class="num">+0.497</td><td>POSITIVE</td></tr>
+<tr><td><strong>VAL-120 (this VAL)</strong></td><td><strong>Bladder</strong></td><td><strong>HM450K</strong></td><td class="num"><strong>+1.898</strong></td><td><strong>POSITIVE</strong></td></tr>
+</table>
+
+<p>Bladder Stage 1 paired contrast is <strong>3.8× larger</strong> than prostate's. The biology is consistent with bladder cancer's documented heavy TIL infiltration. The cohort-substrate-panel-coverage gate fired regardless. v0.2 promotion path: VAL-114 Wave 1 calibration of Stage 1 panel + CHK-2.17 cohort-substrate coverage validation.</p>
+
+<h2 id="val121">VAL-121 — Stage 2 multi-atlas cell-of-origin</h2>
+
+<div class="outcome-box o2">
+<strong>Sealed:</strong> 2026-05-01T04:35:00Z<br>
+<strong>Outcome class:</strong> <code>O2_BLADDER_TILE_DIFFERENTIATING_DIRECTION_AMBIGUOUS</code><br>
+<strong>Sealing basis:</strong> Loyfer bulk Bladder tile and EpiSCORE BladderRef Epi tile both fire at high magnitude (|d_paired| ≥ 0.30) on n=21 paired tumor-vs-adjacent-normal contrast, but in OPPOSITE directions. The dual-atlas direction-divergence finding is the v0.1 result and the most informative finding on the entire bladder-epic sprint.
+</div>
+
+<h3>Atlases</h3>
+
+<table>
+<tr><th>Atlas</th><th>n_CpGs</th><th>n_tiles</th><th>Calibration anchor</th><th>Family</th></tr>
+<tr><td>Layered Moss+Loyfer</td><td class="num">6,105</td><td class="num">25</td><td>VAL-112</td><td>tile-coverage WGBS</td></tr>
+<tr><td>EpiSCORE BladderRef</td><td class="num">2,696</td><td class="num">4</td><td>VAL-119</td><td>gene-promoter</td></tr>
+<tr><td>Caggiano CelFiE TIM</td><td class="num">254</td><td class="num">19</td><td>VAL-113</td><td>tile-coverage WGBS</td></tr>
+</table>
+
+<h3>Cell-of-origin paired contrasts (n=21 paired pairs)</h3>
+
+<table>
+<tr><th>Atlas</th><th>Tile</th><th>d_paired</th><th>95% CI</th><th>p_value</th><th>Direction</th><th>CCL-039 expectation</th><th>Match</th></tr>
+<tr><td>Loyfer</td><td>Bladder (bulk WGBS)</td><td class="num"><strong>+1.9100</strong></td><td class="num">[+1.191, +2.629]</td><td class="num">2.83×10⁻⁸</td><td><strong>POSITIVE</strong></td><td>NEGATIVE</td><td>✗</td></tr>
+<tr><td>EpiSCORE</td><td>BladderRef Epi (urothelial gene-promoter)</td><td class="num"><strong>−1.4623</strong></td><td class="num">[−2.078, −0.847]</td><td class="num">1.60×10⁻⁶</td><td><strong>NEGATIVE</strong></td><td>NEGATIVE</td><td><strong>✓</strong></td></tr>
+</table>
+
+<p>The biological interpretation favors the BladderRef Epi reading. BladderRef Epi is a gene-promoter signature specifically for urothelial epithelium (the bladder cancer cell of origin). The d=−1.46 signal is consistent with CCL-039 cell-of-origin direction expectation (urothelial-program loss in tumor; structurally identical to prostate VAL-118 LE NEGATIVE pattern). Loyfer Bladder is bulk-tissue WGBS reference; on a mucosal-cohort substrate, the bulk-WGBS reference produces inflated A-scores driven by substrate-distribution mismatch.</p>
+
+<h3>BladderRef microenvironment tiles (CCL-039 POSITIVE expected)</h3>
+
+<table>
+<tr><th>Tile</th><th>d_paired</th><th>p_value</th><th>Direction</th><th>Match</th></tr>
+<tr><td>BladderRef EC (vascular)</td><td class="num">+0.4069</td><td class="num">0.077</td><td>POSITIVE</td><td>✓</td></tr>
+<tr><td>BladderRef Fib (stromal)</td><td class="num">+0.3691</td><td class="num">0.106</td><td>POSITIVE</td><td>✓</td></tr>
+<tr><td>BladderRef IC (intra-bladder immune)</td><td class="num">+0.5905</td><td class="num">0.014</td><td>POSITIVE</td><td>✓</td></tr>
+</table>
+
+<p>Combined BladderRef pattern: <strong>Epi NEGATIVE + EC/Fib/IC POSITIVE</strong>. This is the canonical CCL-039 pattern for an epithelial-origin tumor with microenvironmental immune and stromal infiltration, and is structurally consistent with prostate VAL-118's pattern (LE NEGATIVE + BE/EC/Fib/Leu/SM POSITIVE).</p>
+
+<h3>CHK-3.2 cross-tile sanity (Loyfer non-bladder solid-tissue tiles)</h3>
+
+<p><strong>ALL 14 Loyfer non-bladder solid-tissue tiles fire POSITIVE FIRES</strong> at d_paired ranging +2.34 to +2.92:</p>
+
+<table>
+<tr><th>Tile</th><th>d_paired</th><th>Direction</th></tr>
+<tr><td>Loyfer Thyroid</td><td class="num">+2.9188</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Pancreatic_duct_cells</td><td class="num">+2.8479</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Cortical_neurons</td><td class="num">+2.8390</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Uterus_cervix</td><td class="num">+2.8193</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Upper_GI</td><td class="num">+2.8148</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Pancreatic_beta_cells</td><td class="num">+2.8056</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Kidney</td><td class="num">+2.7147</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Lung_cells</td><td class="num">+2.6397</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Breast</td><td class="num">+2.6187</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Head_and_neck_larynx</td><td class="num">+2.6045</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Hepatocytes</td><td class="num">+2.5078</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Pancreatic_acinar_cells</td><td class="num">+2.5050</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Prostate</td><td class="num">+2.4491</td><td>POSITIVE FLAGGED</td></tr>
+<tr><td>Loyfer Colon_epithelial_cells</td><td class="num">+2.3417</td><td>POSITIVE FLAGGED</td></tr>
+</table>
+
+<p>This is not a cross-tissue biology finding — it is the substrate-distribution-mismatch artifact. Bulk-tissue WGBS references on mucosal-cohort substrate produce uniformly inflated A-scores that do not differentiate among non-cohort tissue classes. The Loyfer Bladder POSITIVE +1.91 sits within this inflated band (it is actually the lowest of the solid-tissue Loyfer tile readings, suggesting the residual signal is the bladder-specific component minus the substrate-mismatch baseline). DISC-BLADDER-003 propagates this finding to LESSONS_LEARNED.</p>
+
+<h2 id="val122">VAL-122 — Stage 3 immune fine-tune</h2>
+
+<div class="outcome-box o1">
+<strong>Sealed:</strong> 2026-05-01T04:35:00Z<br>
+<strong>Outcome class:</strong> <code>O1_STAGE_3_IMMUNE_DIFFERENTIATING</code><br>
+<strong>Sealing basis:</strong> All 6 of 6 Salas IDOL tiles fire |d_paired| ≥ 0.30 with consistent POSITIVE direction. Pattern is broad immune-architectural drift consistent with mixed TIL+TAM+MDSC infiltration.
+</div>
+
+<h3>Salas IDOL 6-tile paired contrasts (n=21 paired pairs)</h3>
+
+<table>
+<tr><th>Tile</th><th>Cell type</th><th>d_paired</th><th>95% CI</th><th>p_value</th><th>Direction</th></tr>
+<tr><td>Bcell</td><td>B lymphocytes</td><td class="num"><strong>+1.1479</strong></td><td class="num">[+0.597, +1.699]</td><td class="num">3.79×10⁻⁵</td><td>POSITIVE FIRES</td></tr>
+<tr><td>Mono</td><td>Monocytes</td><td class="num"><strong>+1.1322</strong></td><td class="num">[+0.584, +1.680]</td><td class="num">4.46×10⁻⁵</td><td>POSITIVE FIRES</td></tr>
+<tr><td>Neu</td><td>Neutrophils</td><td class="num"><strong>+1.2354</strong></td><td class="num">[+0.668, +1.803]</td><td class="num">1.53×10⁻⁵</td><td>POSITIVE FIRES</td></tr>
+<tr><td>NK</td><td>Natural killer</td><td class="num"><strong>+0.7943</strong></td><td class="num">[+0.304, +1.285]</td><td class="num">1.63×10⁻³</td><td>POSITIVE FIRES</td></tr>
+<tr><td>CD8T</td><td>Cytotoxic T cells</td><td class="num"><strong>+0.6222</strong></td><td class="num">[+0.155, +1.089]</td><td class="num">9.87×10⁻³</td><td>POSITIVE FIRES</td></tr>
+<tr><td>CD4T</td><td>Helper T cells</td><td class="num"><strong>+0.4884</strong></td><td class="num">[+0.036, +0.941]</td><td class="num">3.67×10⁻²</td><td>POSITIVE FIRES</td></tr>
+</table>
+
+<p><strong>All six immune-cell-type A-scores increase in tumor versus adjacent-normal at high statistical significance.</strong> Pre-locked O2 (lymphoid-dominant: CD4T/CD8T POSITIVE + Mono/Neu NEGATIVE — would have replicated Chen 2022 NMIBC blood EPIC RFS signature) did NOT fire. Pre-locked O3 (myeloid-dominant: inverse pattern, MDSC infiltration in advanced/MIBC) did NOT fire. The TCGA-BLCA primary tumor cohort produces the more biologically realistic mixed-infiltration signature characteristic of muscle-invasive bladder cancer.</p>
+
+<p><strong>Card line (no overclaim):</strong> "Stage 3 immune fine-tune fires consistent with mixed TIL + TAM + MDSC infiltration in muscle-invasive bladder tumor microenvironment. All six Salas IDOL immune-cell-type A-scores increase in tumor vs adjacent-normal at |d_paired| range 0.49 to 1.24."</p>
+
+<h2 id="disc">DISC-BLADDER lessons (cookbook propagation)</h2>
+
+<h3>DISC-BLADDER-001 — Gene-promoter atlas family fitness depends on cell-type DISTINCTNESS, not cell-type COUNT</h3>
+
+<p>Atlas family per-tissue test record (third entry):</p>
+
+<table>
+<tr><th>Atlas</th><th>Tissue</th><th>n cell types</th><th>Outcome</th><th>Max within-cohort range</th></tr>
+<tr><td>HeartRef (VAL-111)</td><td>cardiac</td><td class="num">5</td><td>O3_TISSUE_FLOOR_DOMINATED</td><td class="num">0.0152 (collapsed)</td></tr>
+<tr><td>ProstateRef (VAL-117)</td><td>prostate</td><td class="num">6</td><td>O1 sealed</td><td class="num">0.0597 (separated)</td></tr>
+<tr><td><strong>BladderRef (VAL-119)</strong></td><td><strong>bladder</strong></td><td class="num"><strong>4</strong></td><td><strong>O1 sealed</strong></td><td class="num"><strong>0.0694 (separated)</strong></td></tr>
+</table>
+
+<p>The hypothesis "more cell types = better gene-promoter atlas separation" is falsified by bladder. Future EpiSCORE per-tissue calibrations cannot be predicted from source matrix dimensions alone — each tissue must be smoke-tested independently.</p>
+
+<h3>DISC-BLADDER-002 — CHK-3.1A f_extreme floor is tissue-class-dependent</h3>
+
+<p>The VAL-106 kidney+prostate-derived 0.50 floor is empirically appropriate for solid parenchyma, NOT for mucosal tissue. Bladder cohort observed pass rate under that floor: 23.9%. Bladder cohort q1/q99 (f_extreme ≥ 0.387, f_middle ≤ 0.184) is the appropriate mucosal-tissue-class bracket. Pass rate under amended floor: 98.0%. Zero samples in cohort had genuine substrate corruption — was a gate-calibration mismatch, not a data integrity issue.</p>
+
+<p><strong>CHK-2.16</strong> cookbook gate added: every card prereg specifies the tissue-class CHK-3.1A floor at prereg-write time, not inherited implicitly.</p>
+
+<h3>DISC-BLADDER-003 — Bulk-WGBS atlases on mucosal-cohort substrates produce inflated cross-tile A-scores</h3>
+
+<p>Loyfer Bladder POSITIVE +1.91 vs BladderRef Epi NEGATIVE −1.46 on same n=21 paired pairs. CHK-3.2 cross-tile sanity flagged ALL 14 Loyfer non-bladder solid-tissue tiles uniformly POSITIVE +2.34 to +2.92.</p>
+
+<p>Bulk-tissue WGBS reference encodes mixed-cell-type beta profiles; |β_sample − β_bulk_ref| dominated by substrate-distribution mismatch on mucosal cohorts, not by cell-of-origin biology. Gene-promoter sub-cell-type references encode signature beta profiles for specific cell types and avoid this artifact.</p>
+
+<p><strong>Cookbook rule:</strong> Multi-atlas readings on mucosal cohorts MUST include a gene-promoter sub-cell-type atlas as the primary cell-of-origin reader. Single-atlas Stage 2 readings on mucosal cohorts using bulk-WGBS references can be substrate-substitution-fooled.</p>
+
+<h3>DISC-BLADDER-004 — Stage 1 panels require per-cohort substrate-coverage validation at prereg-write time</h3>
+
+<p>Xu-538 panel mean per-sample coverage on TCGA-BLCA: 78.0%; pass rate 51.1% at ≥80% threshold. The panel CpGs are all valid HM450 designs (substrate-applicable) but per-sample coverage drops on this specific cohort. Stage 1 panel transferability is cohort-specific, not platform-specific.</p>
+
+<p><strong>CHK-2.17</strong> cookbook gate added: Stage 1 panels must be validated against the target Phase C cohort's substrate-coverage envelope at prereg-write time. Validation procedure: sample 5-10 random Phase C cohort β files, compute per-sample panel coverage, FLAG if mean < 90% or q5 < 80%.</p>
+
+<h2 id="repro">Reproducibility (CHK-7.6 reproducibility triple)</h2>
+
+<div class="repro">
+All four sealed VALs maintain the CHK-7.6 reproducibility triple: <strong>(1) source code</strong>, <strong>(2) inputs with download URL/SHA</strong>, <strong>(3) headline outputs</strong>. All artifacts published to GitHub commit <code>404eed3</code> on <code>hmahaffeyges/IAM-Validation</code> main.
+</div>
+
+<h3>Source code</h3>
+
+<table>
+<tr><th>File</th><th>Purpose</th></tr>
+<tr><td><code>Biological_Physics/atlas_vault/stage2_cell_of_origin/episcore_bladderref/bridge_bladderref_to_array.py</code></td><td>EpiSCORE BladderRef Entrez → 450K CpG bridge (VAL-119 input artifact)</td></tr>
+<tr><td><code>Biological_Physics/validation_runs/VAL-119_bladderref_calibrate/val119_bladderref_calibrate.py</code></td><td>VAL-119 Phase B calibration on TCGA n=210</td></tr>
+<tr><td><code>Biological_Physics/validation_runs/unified_phaseC_runner.py</code></td><td>Single-pass Phase C runner for VAL-120 + VAL-121 + VAL-122 on TCGA-BLCA n=440 (270.7 sec runtime)</td></tr>
+<tr><td><code>Biological_Physics/validation_runs/postpass_amended.py</code></td><td>Paired d, Welch d, outcome class against amended CHK-3.1A floor</td></tr>
+<tr><td><code>Biological_Physics/validation_runs/VAL-120_bladder_stage1_xu538/val120_bladder_stage1_xu538.py</code></td><td>VAL-120 reference implementation (per-VAL standalone)</td></tr>
+<tr><td><code>Biological_Physics/validation_runs/VAL-121_bladder_stage2_multiatlas/val121_bladder_stage2_multiatlas.py</code></td><td>VAL-121 reference implementation</td></tr>
+<tr><td><code>Biological_Physics/validation_runs/VAL-122_bladder_stage3_immune/val122_bladder_stage3_immune.py</code></td><td>VAL-122 reference implementation</td></tr>
+</table>
+
+<p><strong>Environment:</strong> Python 3.12.3, numpy 2.4.4, pandas 2.x, scipy 1.17.1, pyreadr 0.5.6 (R 4.3.3 used for probeInfo450k.rda extraction).</p>
+
+<h3>Inputs</h3>
+
+<table>
+<tr><th>Input</th><th>Source / SHA-256</th><th>Anchor VAL</th></tr>
+<tr><td>EpiSCORE BladderRef bridged matrix</td><td><code>3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6</code> (2,696 unique 450K CpGs × 4 cell types). Source: Zhu et al. Nature Methods 2022, GitHub <a href="https://github.com/aet21/EpiSCORE">aet21/EpiSCORE</a> commit master.</td><td>VAL-119</td></tr>
+<tr><td>EpiSCORE probeInfo450k.lv</td><td>SHA-256 <code>1b4d0bb8ebd0de3a5bd8b1c9cbf170599fce920da399076182070bdd93b57ca8</code> (485,577 array probes; 331,229 with EID; 19,357 unique EIDs)</td><td>VAL-119 (bridge input)</td></tr>
+<tr><td>Layered Moss+Loyfer atlas</td><td>6,105 CpGs × 25 tiles (calibration anchor)</td><td>VAL-112</td></tr>
+<tr><td>Caggiano CelFiE TIM array-bridged</td><td>254 CpGs × 19 tiles</td><td>VAL-113</td></tr>
+<tr><td>Salas Blood.EPIC IDOL 450K legacy</td><td>350 CpGs × 6 tiles (production calibrated)</td><td>—</td></tr>
+<tr><td>UniLIFE Guo 2025 reference matrix</td><td>1,906 CpGs × 19 tiles (within-cohort self-cal v0.1)</td><td>VAL-115 (Wave 1 promotion path)</td></tr>
+<tr><td>Xu-538 panel</td><td>538 CpGs (Xu 2020 djz065 Sister Study breast)</td><td>VAL-120 input</td></tr>
+<tr><td>TCGA-BLCA cohort</td><td>440 sesame Level 3 .txt files. Source: GDC API <code>https://api.gdc.cancer.gov/data/{file_id}</code>. Manifest: <code>VAL-120/cohort_manifest.json</code> (132 KB; 440 file_id entries).</td><td>VAL-120/121/122</td></tr>
+<tr><td>TCGA-KIRC + TCGA-PRAD calibration cohort</td><td>n=210 adjacent-normal (160 KIRC + 50 PRAD); same VAL-106 cohort</td><td>VAL-119 calibration</td></tr>
+</table>
+
+<h3>Headline outputs</h3>
+
+<table>
+<tr><th>VAL</th><th>Outputs</th></tr>
+<tr><td>VAL-119</td><td><code>VAL-119_calibration_results.json</code> + <code>VAL-119_per_sample_calibration.csv</code> + <code>outcome.md</code> + <code>PREREG_SEAL.txt</code> + <code>PREREG_AMENDMENT_SEAL.txt</code></td></tr>
+<tr><td>VAL-120</td><td><code>VAL-120_results.json</code> + <code>VAL-120_per_sample.csv</code> + <code>VAL-120_paired_pairs.json</code> + <code>VAL-120_stratified_results.json</code> + <code>cohort_manifest.json</code> + <code>clinical_metadata.json</code> + <code>outcome.md</code> + <code>PREREG_SEAL.txt</code> + <code>PREREG_AMENDMENT_002_SEAL.txt</code></td></tr>
+<tr><td>VAL-121</td><td><code>VAL-121_results.json</code> + <code>VAL-121_per_sample_per_atlas.csv</code> + <code>VAL_121_unified_per_sample.csv</code> + <code>VAL-121_cross_tile_sanity.json</code> + <code>VAL-121_stratified_results.json</code> + <code>cohort_manifest.json</code> + <code>clinical_metadata.json</code> + <code>outcome.md</code> + <code>PREREG_SEAL.txt</code> + <code>PREREG_AMENDMENT_002_SEAL.txt</code></td></tr>
+<tr><td>VAL-122</td><td><code>VAL-122_results.json</code> + <code>VAL-122_stratified_results.json</code> + <code>cohort_manifest.json</code> + <code>clinical_metadata.json</code> + <code>outcome.md</code> + <code>PREREG_SEAL.txt</code> + <code>PREREG_AMENDMENT_002_SEAL.txt</code></td></tr>
+</table>
+
+<h3>Sealed prereg + amendment SHA chain</h3>
+
+<table>
+<tr><th>VAL</th><th>prereg.md SHA-256</th><th>prereg_amendment_002.md SHA-256</th></tr>
+<tr><td>VAL-119</td><td><code>04d9d0d36faaf3bc6051c5f852f3bcb9d2ab48c437982b714ff8573d4cad178a</code></td><td><code>c3015ca3ba25f6c13f4f93fec85edea8506f64472657d03b59ed9ccda8355787</code> (atlas SHA correction; β not yet observed at amendment seal)</td></tr>
+<tr><td>VAL-120</td><td><code>6d1807440dcf6cf33c9abbe791f9260224b768065bdd272f029b6e334d3c6996</code></td><td><code>93cd2171b131977f3bbd6e76d57df6cf291ae7d5ce2d297d5bd9bd656444c31d</code> (CHK-3.1A tissue-class floor correction; β observed before amendment per CCL-041 honest disclosure)</td></tr>
+<tr><td>VAL-121</td><td><code>eb68e4d4ca6270cdcce60269375af787537c560fabea18ee31cbaf558dea1962</code></td><td><code>7f4b3148949060d6f0b8c27a5b55161c06a848d9b00d1e765ddcb182b3d0ec30</code></td></tr>
+<tr><td>VAL-122</td><td><code>2d101db94cdc7a71466c5f8071a936abd426f85ecd9ea27ae8fa73cd0d81f855</code></td><td><code>db3f6563533ab625326acd42aab7a8028313a898bfec833c756f7be85f00df29</code></td></tr>
+</table>
+
+<h3>How to reproduce</h3>
+
+<pre><code># 1. Clone the repository
+git clone https://github.com/hmahaffeyges/IAM-Validation
+cd IAM-Validation
+git checkout 404eed3
+
+# 2. Acquire TCGA-BLCA cohort (440 sesame Level 3 .txt files)
+#    Use cohort_manifest.json file_id list to query GDC API:
+#    https://api.gdc.cancer.gov/data/{file_id}
+
+# 3. Acquire TCGA-KIRC + TCGA-PRAD calibration cohort (n=210)
+#    Same VAL-106 cohort; manifest available in VAL-106 directory.
+
+# 4. Run unified Phase C runner
+python3 Biological_Physics/validation_runs/unified_phaseC_runner.py
+
+# 5. Run post-pass against amended CHK-3.1A floor
+python3 Biological_Physics/validation_runs/postpass_amended.py
+
+# 6. Verify outputs against sealed results JSON
+diff VAL-120_results.json Biological_Physics/validation_runs/VAL-120_bladder_stage1_xu538/VAL-120_results.json
+</code></pre>
+
+<div class="footer">
+<p><strong>bladder-epic v0.1 sealed 2026-05-01.</strong> The cookbook caught its own assumptions in real time and corrected them transparently. That is what discipline looks like.</p>
+
+<p>Heath W. Mahaffey | IAMPerformance Inter-Domain Research Institute | Entiat, Washington, USA | <a href="https://iamperformance.net">iamperformance.net</a> | <a href="mailto:hmahaffeyges@gmail.com">hmahaffeyges@gmail.com</a></p>
+
+<p><strong>Intellectual Property Notice.</strong> The GAPE framework, class-specific H_min floor values, architecture-class taxonomy, substrate-specific calibration, age-stratified healthy baseline reference tables, and associated clinical applications are covered under US Provisional Patent Applications 64/012,720 (filed March 21, 2026) and 64/014,568 (filed March 23, 2026). Bladder-epic v0.1 is a research-stage diagnostic card; not a clinical product; not FDA-cleared; not a substitute for clinical evaluation. Production deployment requires partner-lab validation per IAMPerformance services-based commercial structure.</p>
+</div>
+
+</body>
+</html>

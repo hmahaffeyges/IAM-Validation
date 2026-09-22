@@ -1,7 +1,0 @@
-# PREREG — PROC-TIER-02: the NORMAL→ELEVATED onset set to the commissioned healthy population
-
-**Sealed 2026-09-21 after PROC-TIER-01 (T2: 30.2 % of 1,379 healthy donors read ELEVATED under the July 1.01 onset) and the author's instruction to make the best decision.** Analyst decision, logged: NORMAL = the central 95 % of healthy A″ on the commissioned identity gauge, [0.954, 1.041] measured in TIER-01, rounded to the pre-July breakpoints **0.95 / 1.04** (the clinical reference-interval convention; two decimals because the band is stated to two). The Warburg line 1.07 and breach line 1.10 are the framework's physics claims and are NOT moved. The July 1.01 onset was set on the marker-union statistic that N7 retired; its ground moved.
-**Bars.** U1: `tier_breakpoints.json` v1.4 carries NORMAL [0.95, 1.04), ELEVATED [1.04, 1.07), the measured healthy occupancy and this procedure ID in `_meta`; `cpg_tiers` and the kit test read it with no code change. U2: healthy occupancy re-measured on the same 1,379: **prediction ELEVATED 2.0–3.0 %**, SUPPRESSED 2.2 % (unchanged), ≥ 1.07 one donor, ≥ 1.10 none. U3: `test_tiers.py` passes on v1.4. Consistency note recorded, not a bar: band placement (p10–p90, IN_BAND/ABOVE_BAND) is the finer statement; a donor may be ABOVE_BAND and NORMAL — both words are defined and both print.
-
----
-**SEALED** sha256 `8733eecba78143ad3639929f4faa8c04f5a2379db8e856b1c6e939a90abca528` · 2026-09-21

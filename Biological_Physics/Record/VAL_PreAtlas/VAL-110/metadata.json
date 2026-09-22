@@ -1,0 +1,98 @@
+[
+  {
+    "geo": "GSM2230660",
+    "disease": "normal"
+  },
+  {
+    "geo": "GSM2230661",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230662",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230663",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230664",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230665",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230666",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230667",
+    "disease": "normal"
+  },
+  {
+    "geo": "GSM2230668",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230669",
+    "disease": "normal"
+  },
+  {
+    "geo": "GSM2230670",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230671",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230672",
+    "disease": "normal"
+  },
+  {
+    "geo": "GSM2230673",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230674",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230675",
+    "disease": "normal"
+  },
+  {
+    "geo": "GSM2230676",
+    "disease": "normal"
+  },
+  {
+    "geo": "GSM2230677",
+    "disease": "dissection"
+  },
+  {
+    "geo": "GSM2230678",
+    "disease": "BAV_dilation"
+  },
+  {
+    "geo": "GSM2230679",
+    "disease": "BAV_dilation"
+  },
+  {
+    "geo": "GSM2230680",
+    "disease": "BAV_dilation"
+  },
+  {
+    "geo": "GSM2230681",
+    "disease": "BAV_dilation"
+  },
+  {
+    "geo": "GSM2230682",
+    "disease": "BAV_dilation"
+  },
+  {
+    "geo": "GSM2230683",
+    "disease": "BAV_dilation"
+  }
+]

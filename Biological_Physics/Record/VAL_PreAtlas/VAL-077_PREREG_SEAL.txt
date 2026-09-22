@@ -1,0 +1,4 @@
+VAL-077 PREREG_SEAL
+SHA-256: 4fc18252abe2915941aed5f86ed4a2e4270c693bfe1b3fd2079d50c81340bd85
+Sealed: 2026-04-25
+Locked criteria: see VAL-077_prereg.md

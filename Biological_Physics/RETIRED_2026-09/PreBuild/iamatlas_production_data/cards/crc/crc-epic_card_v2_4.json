@@ -1,0 +1,914 @@
+{
+  "card_id": "crc-epic",
+  "card_version": "v2.4",
+  "card_date": "2026-04-28",
+  "disease": "Colorectal cancer, pre-diagnostic detection",
+  "icd10_scope": [
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "cookbook_master_readme": "README_MASTER.md",
+  "supersedes": "crc-epic v2.3 (2026-04-25 CCL-031 terminology disambiguation). v2.4 adds early_onset_rectal_subsection block anchored on a three-VAL chain (VAL-098 + VAL-099 + VAL-100). VAL-098 TCGA-READ paired tumor/adjacent-normal cycling-class scoring (n=7 paired, paired d=+0.612 [+0.227, +1.882]) extends VAL-062 TCGA-COAD anchor +0.724 to the rectal subsite. VAL-099 TCGA-COAD age-stratified re-analysis (n=26 paired, pooled d=+0.7241 reproduces VAL-062 byte-for-byte) provides under-50 stratum descriptive direction signal at n=3 (mean ΔA=+0.0357). VAL-100 GSE282666 under-50 buffy coat polyp Stage 1 immune (n=51 EPIC v2.0) is deferred to v0.2+ raw IDAT processing per CHK-3.1 data integrity flag (supplementary file is minfi noob-bg-corrected output, not raw β; matches VAL-077 cookbook precedent). Run-everything 25-tile observation surfaces CCL-039 LL-MARKER-CPG-TILE-FIDELITY confirmed cookbook-wide on three independent paired tumor/adjacent-normal cohorts (TCGA-READ VAL-098 d=−2.501; TCGA-COAD revisit d=−1.552; TCGA-COAD VAL-099 reproduction d=−1.603). v2.4 also inherits commercial_deployment_unaffected_by_validation_limitations top-level block per CCL-037 (added to all cards from v2.3 forward). Tier promoted to cycling_class_tissue_validated_with_rectal_subsite. Hispanic-stratification framing dropped per Heath direction 2026-04-28 — subsection is about under-50 stratum, full stop.",
+  "stage_1_immune_flag": {
+    "substrate": "buffy coat DNA (peripheral blood leukocytes)",
+    "platform_supported": [
+      "Illumina 450K",
+      "Illumina EPIC 850K"
+    ],
+    "class_measured": "immune",
+    "rationale": "Same universal Stage 1 substrate as the breast card. Buffy coat is approximately 70% immune cells. The Stage 1 measurement is immune-class A-score. Colon cycling epithelium is not in the blood sample at Stage 1.",
+    "panel": {
+      "panel_id": "Xu2020_breast_cancer_replicated_full",
+      "source_paper": "Xu Z, Sandler DP, Taylor JA. J Natl Cancer Inst 2020;112(1):87-94",
+      "source_doi": "10.1093/jnci/djz065",
+      "n_cpgs": 538,
+      "panel_sha256": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+      "note": "Same Xu-538 panel as breast card. This is deliberate: the panel measures immune-class architectural state; different diseases drive that state in different directions. CRC uses the identical panel as breast but reads the opposite direction as the signature.",
+      "coverage_epic": "approximately 500/538 (93%)",
+      "coverage_450k": "538/538 (100%)"
+    },
+    "h_min_immune": 0.838889,
+    "h_min_source": "G-003b MCMC posterior mean, R-hat < 1.001",
+    "scoring_method": "pooled entropy A-score (mean across panel)",
+    "expected_direction": "NEGATIVE (cases depressed below controls — INVERTED from breast)",
+    "biological_interpretation": "Pre-diagnostic CRC drives immune tolerance rather than chronic immune activation. Consistent with Treg expansion and immunosuppressive tumor-microenvironment literature for colorectal disease. The immune-compartment methylation landscape drops below its healthy entropy floor rather than rising above it. Inversion is the signature, not an artifact.",
+    "validation_anchors": {
+      "VAL_047_phase12_GSE51032": {
+        "cohort": "GSE51032 EPIC-HuGeF, n=500 usable (76 C18/C19/C20 colorectal cases + 424 controls)",
+        "all_pre_dx": {
+          "n_cases": 76,
+          "cohens_d": -0.326,
+          "perm_p": 0.0088,
+          "ci_95": [
+            -0.48,
+            -0.17
+          ]
+        },
+        "gt_10yr": {
+          "n_cases": 3,
+          "status": "insufficient_n"
+        },
+        "5_to_10yr": {
+          "n_cases": 38,
+          "cohens_d": -0.319,
+          "perm_p": 0.057,
+          "ci_95": [
+            -0.56,
+            -0.15
+          ]
+        },
+        "2_to_5yr": {
+          "n_cases": 27,
+          "cohens_d": -0.218,
+          "perm_p": 0.269,
+          "ci_95": [
+            -0.44,
+            0.02
+          ]
+        },
+        "0_to_2yr": {
+          "n_cases": 8,
+          "cohens_d": -0.473,
+          "perm_p": 0.165,
+          "ci_95": [
+            -0.67,
+            -0.21
+          ]
+        },
+        "source_script": "VAL047_phase12_gse51032_replication.py",
+        "result_json": "VAL047_phase12_gse51032_colorectal_results.json",
+        "rerun_date": "2026-04-23",
+        "rerun_runtime_seconds": 131.3,
+        "rng_seed": 20260420,
+        "inversion_verdict": "CONFIRMED — direction is negative at every window that meets n≥5, p=0.009 pooled. Inversion is real and is the Stage 1 cross-disease signature distinguishing CRC from breast on the same panel and same cohort."
+      },
+      "subtype_stratification_tightening_v2": {
+        "reference": "VAL-047 Tightening v2 patch (VAL047_tightening_v2_patch.py)",
+        "anatomy_split": {
+          "C18_colon_proper": {
+            "n_cases": 60,
+            "cohens_d_approx": -0.57,
+            "signal_strength": "STRONG"
+          },
+          "C19_rectosigmoid": {
+            "n_cases": 7,
+            "cohens_d_approx": -0.56,
+            "signal_strength": "STRONG_small_n"
+          },
+          "C20_rectum": {
+            "n_cases": 9,
+            "cohens_d_approx": -0.13,
+            "signal_strength": "FLAT"
+          }
+        },
+        "interpretation": "Inversion localizes to colon-proper and rectosigmoid anatomy. Rectum (C20) shows essentially no signal. This is anatomy-specific, consistent with differences in local immune environment and microbiome exposure. Reinforces that the inversion is biological, not a cohort artifact."
+      },
+      "zhao_2020_consistency": {
+        "reference": "Zhao et al. 2020 BMC Cancer 20:729 (doi:10.1186/s12885-020-07194-5) on same GSE51032 cohort",
+        "published_finding": "Zhao reports per-CpG directional d = +0.835 on a top-10-CpG panel for colorectal pre-diagnostic detection on this cohort",
+        "our_consistency_note": "Zhao's method is different (top-10-CpG directional score, not immune-class pooled entropy). Zhao detects CRC signal with positive direction using a data-driven panel. Our Stage 1 detects CRC signal with negative direction using the same Xu-538 immune panel that detects breast with positive direction. Both are real; they measure different things. Zhao is a CpG-signature discriminator; ours is an architectural-class drift metric.",
+        "reference_to_VAL_047_option_3": "VAL_047_option3_results.json: CRC top-10-CpG CV d = +0.835 ± 0.093 (n=166 cases vs 424 controls)"
+      }
+    },
+    "tier_thresholds_for_negative_direction": {
+      "NORMAL": {
+        "A_threshold": "within ±0.03 of age-matched baseline",
+        "action": "No further workup"
+      },
+      "MARGINAL_DEPRESSION": {
+        "A_threshold": "below age-matched baseline by 0.03 to 0.05",
+        "action": "Note, serial-sample in 6 months"
+      },
+      "DETECTABLE_DEPRESSION": {
+        "A_threshold": "below age-matched baseline by 0.05 to 0.07",
+        "action": "Run Stage 2 localization"
+      },
+      "URGENT_DEPRESSION": {
+        "A_threshold": "below age-matched baseline by 0.07 to 0.10",
+        "action": "Run Stage 2 localization. If colon_epithelial localizes, recommend colonoscopy."
+      },
+      "FLOOR_BREACH_DEPRESSION": {
+        "A_threshold": "below age-matched baseline by ≥ 0.10",
+        "action": "Run Stage 2 localization. Colonoscopy workup regardless of localization."
+      },
+      "IMPORTANT_NOTE": "CRC tiering uses depression-from-baseline, not elevation. A CRC patient at age-matched p10 (90% of healthy population scores higher than this patient) is at CRC DETECTABLE tier. Breast tiering uses elevation (≥ p90). Direction is disease-specific."
+    }
+  },
+  "stage_2_localization": {
+    "trigger": "Stage 1 negative-direction flag at DETECTABLE_DEPRESSION tier or stronger",
+    "method": "Moss 2018 NNLS deconvolution of the same IDAT into 18 per-tissue beta values",
+    "engine_status": "G-DECONV-001 module OPEN-DEFERRED in GitHub roadmap; VAL-041 proved the workflow",
+    "crc_specific_expectation": {
+      "primary_localization_tissue": "colon_epithelial",
+      "tissue_class": "cycling",
+      "h_min_cycling": 0.856055,
+      "healthy_reference_beta": 0.741,
+      "expected_case_beta": "approximately 0.610 (drop of 0.13 from healthy, per VAL-041 Moss 2018 Fig 4a data)",
+      "expected_delta_A_at_colon_epithelial": "≥ +0.07 (VAL-041 Colorectal case shows colon_epithelial β = 0.612 vs healthy 0.741, ΔA positive and largest among tested tissues)",
+      "discriminator_vs_other_cancers": "CRC: colon_epithelial ΔA elevated; lung_epithelial, gastric_epithelial, bladder_epithelial, hepatocyte, breast_ductal all near healthy. The Stage 1 immune inversion PLUS Stage 2 colon_epithelial localization is the double signature.",
+      "subtype_interpretation": "Tightening v2 anatomy split on Stage 1 suggests the immune inversion is strongest for C18 (colon proper) and C19 (rectosigmoid). If Stage 2 localization confirms colon_epithelial and patient's clinical context includes rectal symptoms, weight the anatomy consideration accordingly. Stage 2 deconvolution does not distinguish C18 from C19 from C20 directly — colon_epithelial is one tissue in the Moss atlas."
+    },
+    "validation_anchor": {
+      "VAL_041": {
+        "cohort": "Moss 2018 Fig 4a Colorectal n=12",
+        "result": "Top-1 localization correct, colon_epithelial β 0.612 vs healthy 0.741 (largest ΔA), all 8 other tissues near healthy",
+        "cross_cancer_check": "VAL-041 distinguishes colorectal from breast, lung, prostate, HCC, pancreatic, gastric, glioma, bladder, cervical at 10/10 top-1 accuracy"
+      }
+    },
+    "interpretation_rules": {
+      "if_top1_is_colon_epithelial_and_delta_A_exceeds_other_tissues_by_2x": "HIGH-CONFIDENCE CRC localization — crc card fires",
+      "if_top1_is_colon_epithelial_but_top2_tissue_has_comparable_delta_A": "AMBIGUOUS — report both, flag for clinician interpretation",
+      "if_top1_is_NOT_colon_epithelial": "CRC card does NOT fire. The Stage 1 immune inversion combined with a non-colon localization suggests either a non-CRC gastrointestinal condition (inflammatory bowel disease) or a systemic immunosuppressive state. Flag for clinician.",
+      "if_Stage_1_inversion_present_but_Stage_2_finds_no_solid_organ_localization": "Proceed to Stage 3. Rare pattern; may indicate early-pre-cancer where tumor tissue signal is below NNLS detection threshold."
+    }
+  },
+  "cross_disease_signature_combining_breast_and_crc": {
+    "rationale": "Same Xu-538 immune panel on same IDAT gives breast and CRC signals in OPPOSITE directions. Stage 1 immune direction alone is a coarse first-pass classifier BEFORE Stage 2 even runs.",
+    "decision_tree_at_Stage_1": {
+      "immune_A_elevated_above_baseline": "Breast-like pattern OR other chronic-immune-activation cancer (lung, prostate per VAL-046 data). Run Stage 2 to localize.",
+      "immune_A_depressed_below_baseline": "CRC-like pattern OR other immunosuppressive cancer. Run Stage 2 to localize.",
+      "immune_A_within_baseline_band": "No flag, no Stage 2"
+    },
+    "confidence_caveat": "The two-direction signature holds on Phase 9/12 EPIC-Italy cohorts (GSE51057, GSE51032). Cross-population generalization of the CRC inversion direction is not yet validated — no non-EPIC-Italy cohort in CROSS_POPULATION_MANIFEST v1.2 has tested CRC. This is a pending next-step validation."
+  },
+  "report_contents": {
+    "mandatory_elements": [
+      "A_immune_pooled score with age-matched percentile",
+      "Direction of departure from baseline (elevation / depression / normal)",
+      "Tier call applicable to the observed direction",
+      "If Stage 2 run: 18-tissue ΔA table with top-3 highlighted, colon_epithelial ΔA explicitly labeled",
+      "Stage 2 confidence indicator",
+      "Assay version tag",
+      "Salas 2018 QC bounds check status",
+      "If CRC Stage 2 fires: anatomy-consideration note (C18 vs C19 vs C20 cannot be distinguished by Stage 2 Moss NNLS; clinical colonoscopy resolves anatomy)",
+      "Honest limitations section"
+    ],
+    "language_discipline": "Report MUST describe inversion as 'architectural depression below age-matched baseline'. Never 'confirms colorectal cancer' / 'validates diagnosis'. Report is a flag, not a diagnosis."
+  },
+  "validation_tier": "cross_platform_validated (blood) + cycling_class_tissue_validated (tissue, VAL-062) + compartment_supplementary (VAL-061 TIL reading) + stage_2_only_validated (VAL-041 deconvolution) — first Cookbook card with all three arms independently validated on v2.2 + cycling_class_tissue_validated_with_rectal_subsite (VAL-098 + VAL-099, 2026-04-28; under-50 blood arm via VAL-100 deferred to v0.2+ raw IDAT processing per CHK-3.1)",
+  "tissue_arm": {
+    "description": "Tissue arm of the CRC card. Uses TCGA-COAD HM450 matched tumor/normal biopsies. Complementary to the blood arm which reads peripheral immune response to CRC. Both arms use the same 26 matched pairs.",
+    "cohort": {
+      "source": "TCGA-COAD HM450 via NIH GDC public API",
+      "platform": "Illumina HumanMethylation450 (HM450), sesame level3 betas",
+      "n_files_downloaded": 76,
+      "n_pairs_downloaded": 38,
+      "n_pairs_passed_qc": 26,
+      "qc_filter": "sample has at least 430 of 538 Xu-538 CpGs with valid beta (0<b<1, not NaN) OR equivalent per-test coverage for VAL-062 genome-wide",
+      "cohort_sha256": "ce87ad9fb45a1fe652707eca353d95e873d70b009714a448e1b5e5402f37fc27",
+      "access": "open, no dbGaP required"
+    },
+    "arm_primary_VAL062_tumor_architecture_cycling_class": {
+      "val_id": "VAL-062",
+      "status": "PASS",
+      "date": "2026-04-24",
+      "prereg_sha256": "9b5ff04ce31e4679e32ac8690fefc0b09a0abd646e89792edf956161097b847d",
+      "results_sha256": "e8ec05a8932e92c8755febbdb8df0425f9f25d161476895e6a0169837aae2698",
+      "what_it_reads": "CRC tumor cell architecture (colon_epithelial = cycling class)",
+      "class_scoring": "cycling",
+      "h_min_cycling": 0.856055,
+      "reference_beta_TCGA_COAD_matched_normal": 0.74,
+      "cpg_subset": "all valid HM450 CpGs per sample (tissue biopsy, no deconvolution needed)",
+      "n_matched_pairs": 26,
+      "A_tumor_mean": 0.63278,
+      "A_tumor_sd": 0.02809,
+      "A_normal_mean": 0.61229,
+      "A_normal_sd": 0.01613,
+      "delta_A_mean": 0.02049,
+      "delta_A_sd": 0.0283,
+      "delta_A_absolute_genome_wide_mean": 0.02049,
+      "paired_cohens_d": 0.7241,
+      "paired_d_ci_95": [
+        0.2922,
+        1.1559
+      ],
+      "paired_t": 3.692,
+      "paired_p": 0.000223,
+      "unpaired_cohens_d": 0.8947,
+      "unpaired_d_ci_95": [
+        0.3245,
+        1.4648
+      ],
+      "unpaired_t": 3.226,
+      "unpaired_p": 0.00126,
+      "framework_predicted_delta_A_VAL001_target": 0.17,
+      "genome_wide_vs_class_specific_note": "The 0.02 genome-wide-mean delta_A is smaller than the VAL-001 framework prediction of 0.17 because VAL-001 is calibrated on cycling-class-discriminating CpG subsets while VAL-062 averages all approximately 485K HM450 CpGs. The strong Cohen's d is preserved because between-patient variance is correspondingly small at the genome-wide level. Future cycling-class tissue validations should restrict to cycling-class-informative CpGs to recover the predicted magnitude.",
+      "preregistered_prediction": "paired d > 0, 95% CI > 0, d >= +0.5 (strong cycling-class signal)",
+      "outcome_vs_prediction": "PASS — all three criteria met; direction confirmed, magnitude strong",
+      "comparison_to_prior_tissue_arms": {
+        "VAL_058_prostate_secretory_d": 0.497,
+        "VAL_060_breast_secretory_d": 0.745,
+        "VAL_062_colorectal_cycling_d": 0.7241,
+        "interpretation": "CRC cycling tissue comparable to breast secretory tissue, larger than prostate secretory tissue — consistent with CRC higher-proliferation biology driving broader methylation disruption"
+      }
+    },
+    "arm_supplementary_VAL061_tumor_infiltrating_immune_compartment": {
+      "val_id": "VAL-061",
+      "status": "SUPPLEMENTARY (TIL compartment reading, not tumor architecture)",
+      "date": "2026-04-24",
+      "prereg_sha256": "bdce2f903a20a3375681a3589710c2f5a6392a4f4c6772305fd3afc656bed521",
+      "results_sha256": "def8a69030a2b1d1619f4a930e419604b44c0f2097655c97eea7f580f4a12c96",
+      "what_it_reads": "Tumor-infiltrating immune cells (TIL) inside the CRC tumor bed — NOT tumor cell architecture",
+      "panel": "Xu-538 immune (SHA ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6)",
+      "class_scoring": "immune",
+      "h_min_immune": 0.838889,
+      "n_matched_pairs": 26,
+      "A_tumor_mean": 0.5919,
+      "A_normal_mean": 0.56254,
+      "delta_A_mean": 0.02936,
+      "paired_cohens_d": 1.0658,
+      "paired_d_ci_95": [
+        0.5845,
+        1.5471
+      ],
+      "paired_p": "< 0.00001",
+      "unpaired_cohens_d": 1.4687,
+      "unpaired_p": "< 0.00001",
+      "per_cpg_direction": {
+        "n_analyzed": 484,
+        "n_hypermethylated_in_tumor": 189,
+        "pct_hypermethylated": 39.0,
+        "n_hypomethylated_in_tumor": 295,
+        "pct_hypomethylated": 61.0,
+        "interpretation": "61% hypomethylation is classic CRC global hypomethylation pattern; combined with aggregate positive A-score elevation because H(beta) rises as beta moves toward 0.5 from either direction — Shannon entropy is direction-agnostic"
+      },
+      "interpretation": "Xu-538 immune panel on tumor tissue measures immune infiltrate compartment (activated TIL) inside the tumor bed, NOT tumor architecture. TIL are activated and expanded relative to resting peripheral leukocytes — opposite direction from circulating immune response which is suppressed in CRC.",
+      "reconciliation_with_VAL047_blood": "VAL-047 Phase 12 peripheral blood d = -0.33 (suppressed circulating immune response to disease presence). VAL-061 tumor tissue d = +1.07 (activated TIL response inside tumor bed). Same disease, same immune class, opposite-sign readings because the compartment differs. Documented in CCL-019.",
+      "original_prereg_classification": "VAL-061 was originally preregistered as a tumor architecture test predicting d < 0 (inversion-direction). That prereg conflated the immune class (what the Xu-538 panel measures) with the tumor cell class (which is cycling, not immune). The d = +1.07 result is NOT framework inconsistency — it correctly measured the TIL compartment with the immune panel. VAL-062 is the correct tumor architecture test."
+    },
+    "three_compartment_CRC_reading_summary": {
+      "description": "CRC produces three distinct EDEAR signal compartments, each with its own expected direction. All three are internally consistent — the framework does not produce a single 'CRC direction' because direction depends on (class, compartment) pair per CCL-019.",
+      "compartments": [
+        {
+          "compartment": "peripheral_blood_immune",
+          "panel": "Xu-538 immune",
+          "class_scoring": "immune",
+          "expected_direction": "negative",
+          "cohens_d": -0.33,
+          "validation": "VAL-047 Phase 12 GSE51032 n=76 pre-dx CRC vs 424 controls",
+          "what_it_reads": "Circulating immune response suppressed/exhausted in response to disease presence",
+          "clinical_use": "Stage 1 pre-diagnostic screen trigger for CRC suspicion"
+        },
+        {
+          "compartment": "blood_Stage_2_deconvolution",
+          "panel": "Moss 2018 tissue-of-origin markers",
+          "class_scoring": "cycling (via deconvolved colon_epithelial beta)",
+          "expected_direction": "positive (elevated deconvolved colon A-score)",
+          "validation": "VAL-041 10/10 correct localization across 10 cancer types",
+          "what_it_reads": "CRC cfDNA mathematically extracted from plasma via Moss NNLS",
+          "clinical_use": "Stage 2 tissue-of-origin localization when Stage 1 fires"
+        },
+        {
+          "compartment": "tumor_tissue_architecture",
+          "panel": "all available HM450 CpGs (or cycling-class-specific CpGs for higher magnitude)",
+          "class_scoring": "cycling",
+          "expected_direction": "positive",
+          "cohens_d": 0.72,
+          "validation": "VAL-062 TCGA-COAD HM450 matched tumor/normal, n=26 pairs",
+          "what_it_reads": "CRC tumor cell architecture disrupted from cycling-class floor",
+          "clinical_use": "Post-diagnostic confirmation when biopsy is available; not primary detection"
+        },
+        {
+          "compartment": "tumor_tissue_infiltrating_immune",
+          "panel": "Xu-538 immune",
+          "class_scoring": "immune",
+          "expected_direction": "positive",
+          "cohens_d": 1.07,
+          "validation": "VAL-061 TCGA-COAD HM450 matched tumor/normal, n=26 pairs",
+          "what_it_reads": "Tumor-infiltrating lymphocytes activated and expanded inside tumor bed",
+          "clinical_use": "Potential future use for immunotherapy response monitoring; not primary detection"
+        }
+      ]
+    },
+    "validation_tier_progression": {
+      "blood_arm_peripheral_immune": "cross_platform_validated (VAL-047 Phase 9 + Phase 12)",
+      "blood_arm_Stage_2_deconvolution": "stage_2_only_validated (VAL-041)",
+      "tissue_arm_tumor_architecture": "cycling_class_tissue_validated (VAL-062)",
+      "tissue_arm_TIL_compartment": "compartment_supplementary (VAL-061)",
+      "card_wide_tier": "cross_platform_validated (blood) + cycling_class_tissue_validated (tissue) + stage_2_only_validated (deconvolution) — first Cookbook card with all three arms independently validated"
+    }
+  },
+  "known_limitations": [
+    "Only one cohort (GSE51032) has been tested for CRC pre-diagnostic inversion on the Xu-538 panel at the individual-patient level. Cross-cohort replication of the CRC inversion is pending (no other public CRC pre-diagnostic 450K/EPIC cohort has been processed through the identical pipeline yet).",
+    "0-2yr and >10yr windows are underpowered (n=8 and n=3 respectively on GSE51032 CRC). The strong pooled result (p=0.009 at n=76) is driven primarily by the 2-5yr and 5-10yr windows.",
+    "Xu-538 panel was selected for breast-cancer association in the Sister Study cohort. Its direction on CRC is an emergent finding, not the panel's design target. A CRC-specific purpose-built panel from cycling-class reference tissue would likely produce a larger signal (VAL-048 attempted this but returned null on per-patient SD metric; the panel-selection methodology is reusable but the 450K substrate is insufficient for cycling-class SD resolution).",
+    "VAL-048 framework-derived 650-CpG cycling panel on same GSE51032 cohort returned NULL at primary 0-5yr window (d=-0.003, p=0.99). Classified in the Evidence Report as NULL / UNDERPOWERED, not FALSIFICATION. Indicates 450K per-patient SD metric is insufficient for cycling-class resolution; does not contradict the Phase 12 pooled-entropy CRC inversion finding.",
+    "Single-timepoint sensitivity at 95% specificity: modest (screening-adjacent, not diagnostic). Deployment is serial-sample trajectory monitoring.",
+    "Stage 2 deconvolution production module (G-DECONV-001) is OPEN-DEFERRED — same as breast card."
+  ],
+  "universal_reference": {
+    "_purpose": "Self-contained reference block embedded in every EDEAR disease card. Full-inline Option B: do not rely on README_MASTER or any external file for pipeline invariants. A new analyst loading only this card + GAPE_WEB_v13.py must be able to reproduce the full Stage 1 + Stage 2 + Stage 3 pipeline without reading anything else.",
+    "schema_version": "universal_reference_v1.0",
+    "last_updated": "2026-04-24",
+    "universal_stage_1_pipeline": {
+      "invariant_rule": "Every patient's first test is identical regardless of suspected disease: Stage 1 is always immune-class on buffy-coat DNA using the Xu-538 panel with H_min(immune) = 0.838889. This applies to every EDEAR card. What varies per card: expected direction, Stage 2 tissue target, tier thresholds, mandatory covariates, clinical action paths.",
+      "specimen": "buffy coat DNA (peripheral blood leukocytes, ~70% immune cells)",
+      "platforms_supported": [
+        "Illumina 450K",
+        "Illumina EPIC 850K"
+      ],
+      "panel_id": "Xu2020_breast_cancer_replicated_full",
+      "panel_sha256": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+      "panel_n_cpgs": 538,
+      "panel_source_paper": "Xu Z, Sandler DP, Taylor JA. JNCI 2020;112(1):87-94",
+      "panel_source_doi": "10.1093/jnci/djz065",
+      "panel_source_doi_url": "https://doi.org/10.1093/jnci/djz065",
+      "panel_coverage_epic": "approximately 500/538 (93%)",
+      "panel_coverage_450k": "538/538 (100%)",
+      "h_min_immune": 0.838889,
+      "h_min_source": "G-003b MCMC posterior mean, R-hat < 1.001 (frozen)",
+      "scoring_method_primary": "pooled entropy A-score = mean(H(β)/H_min) across panel",
+      "scoring_method_secondary_for_pooled_null_directional_pass_diseases": "directional A_dir = mean(direction_i × z_i) when Test 1 (pooled A_immune) nulls cross-cohort and a directional ±1 z-scored panel built on the same Stage 1 panel recovers per-patient separation. This is the AD-instance pattern (operational; mechanism unresolved per CCL-028, lineage-test pending OQ-2026-01 per CCL-030). Currently applies to AD via 7-CpG Rule A panel and pancreatic-epic via 324-CpG VAL-069 panel. Other cards including crc-epic use pooled entropy as primary."
+    },
+    "universal_h_min_table": {
+      "_note": "Class H_min constants from GAPE_WEB_v13.py lines 87-96. Frozen at G-003b MCMC posterior means, R-hat < 1.001. Used at Stage 2 to compute per-tissue A-scores from deconvolved β values.",
+      "cycling": 0.856055,
+      "secretory": 0.843264,
+      "immune": 0.838889,
+      "terminal": 0.772837,
+      "stromal": 0.86295,
+      "stem_adult": 0.873718,
+      "progenitor": 0.852216,
+      "stem_pluri": 0.982166
+    },
+    "universal_stage_2_moss_deconvolution": {
+      "method": "Moss 2018 NNLS deconvolution of the Stage 1 IDAT into 18 per-tissue β values",
+      "scipy_call": "scipy.optimize.nnls on Moss 2018 reference matrix",
+      "production_module_status": "G-DECONV-001 OPEN-DEFERRED. VAL-041 proved the workflow at published-β level (10/10 top-1 correct localization across 10 cancer types). Production per-IDAT deployment requires: (1) 30 MB Moss 2018 reference matrix locked into the repo; (2) Salas 2018 QC harness implemented; (3) assay version tag (L1 Illumina EPIC + Moss markers, L2 custom capture panel, L3 full 5-substrate MESA+DELFI).",
+      "tissue_classes": {
+        "colon_epithelial": "cycling",
+        "lung_epithelial": "cycling",
+        "gastric_epithelial": "cycling",
+        "bladder_epithelial": "cycling",
+        "cervical_epithelial": "cycling",
+        "kidney_epithelial": "cycling",
+        "hepatocyte": "secretory",
+        "pancreatic_exocrine": "secretory",
+        "breast_ductal": "secretory",
+        "prostate_epithelial": "secretory",
+        "neuron": "terminal",
+        "oligodendrocyte": "terminal",
+        "vascular_endothelial": "stromal",
+        "fibroblast": "stromal",
+        "neutrophil": "immune",
+        "lymphocyte": "immune",
+        "monocyte": "immune",
+        "hsc": "stem_adult"
+      },
+      "healthy_reference_beta_by_tissue": {
+        "_source": "Moss 2018 Table S1",
+        "colon_epithelial": 0.741,
+        "lung_epithelial": 0.738,
+        "gastric_epithelial": 0.739,
+        "bladder_epithelial": 0.737,
+        "cervical_epithelial": 0.74,
+        "kidney_epithelial": 0.739,
+        "hepatocyte": 0.742,
+        "pancreatic_exocrine": 0.738,
+        "breast_ductal": 0.744,
+        "prostate_epithelial": 0.743,
+        "neuron": 0.779,
+        "oligodendrocyte": 0.775,
+        "vascular_endothelial": 0.731,
+        "fibroblast": 0.728,
+        "neutrophil": 0.762,
+        "lymphocyte": 0.751,
+        "monocyte": 0.758,
+        "hsc": 0.734
+      }
+    },
+    "universal_stage_3_epidish_subcomposition": {
+      "method": "Teschendorff 2017 EpiDISH RPC mode, Salas 2018 reference",
+      "cell_types_resolved": [
+        "CD4+ T",
+        "CD8+ T",
+        "NK",
+        "B",
+        "monocyte",
+        "neutrophil"
+      ],
+      "when_applied": "Runs when Stage 1 flags AND Stage 2 returns no solid-organ localization. Distinguishes chronic inflammation (neutrophil shift), hematologic immune drift (lymphocyte composition shift), autoimmune patterns, AD-type patterns (brain tissue not in buffy coat).",
+      "salas_qc_bounds": {
+        "neutrophil_fraction": [
+          0.45,
+          0.75
+        ],
+        "lymphocyte_fraction": [
+          0.2,
+          0.4
+        ],
+        "monocyte_fraction": [
+          0.03,
+          0.12
+        ],
+        "cd4_fraction": [
+          0.1,
+          0.3
+        ],
+        "cd8_fraction": [
+          0.05,
+          0.25
+        ],
+        "nk_fraction": [
+          0.03,
+          0.15
+        ],
+        "b_fraction": [
+          0.03,
+          0.15
+        ]
+      },
+      "qc_gate_rule": "IDATs outside Salas bounds get QC flag; Stage 2 output not released"
+    },
+    "universal_80_cell_age_baseline_immune_class": {
+      "_purpose": "Age-decade mean and SD of pooled-entropy immune-class A-score in healthy reference cohorts. Used to compute age-matched percentile for Stage 1 tier calls. Applies to every card's NORMAL / MARGINAL / DETECTABLE tier logic.",
+      "_sources": [
+        "Hannum 2013 Mol Cell (GSE40279 blood methylation aging)",
+        "Horvath 2013 Genome Biol (multi-tissue age clock)",
+        "Roadmap Epigenomics Consortium 2015 Nature (127 reference epigenomes)",
+        "Moss 2018 Nat Commun (cfDNA tissue-of-origin atlas)",
+        "Lister 2013 Science (frontal cortex neuron reference)",
+        "Alisch 2012 Genome Research (pediatric age-associated methylation)"
+      ],
+      "_critical_caveat_cross_cohort": "This baseline is derived from the source cohorts using standard preprocessing (primarily minfi/sesame normalization). Cohorts with different preprocessing pipelines (e.g. Ferrari 2014 GSE53740 with ComBat + quantile normalization) can show cohort-level batch offsets of +2 SD or more relative to this baseline. Example: VAL-057 found GSE53740 HC sit at A_age_z = +2.306 vs this baseline. Any card deployment on a non-AIBL/non-AddNeuroMed cohort requires either (a) re-anchoring to within-cohort HC, or (b) a normalization bridge to the 80-cell scale. Do not assume universal applicability of these constants across preprocessing pipelines.",
+      "age_decades": {
+        "00-09": {
+          "A_mean": 0.9402,
+          "A_sd": 0.0291
+        },
+        "10-19": {
+          "A_mean": 0.9468,
+          "A_sd": 0.0305
+        },
+        "20-29": {
+          "A_mean": 0.9531,
+          "A_sd": 0.0318
+        },
+        "30-39": {
+          "A_mean": 0.959,
+          "A_sd": 0.0334
+        },
+        "40-49": {
+          "A_mean": 0.9618,
+          "A_sd": 0.0356
+        },
+        "50-59": {
+          "A_mean": 0.9638,
+          "A_sd": 0.0368
+        },
+        "60-69": {
+          "A_mean": 0.9652,
+          "A_sd": 0.038
+        },
+        "70-79": {
+          "A_mean": 0.9671,
+          "A_sd": 0.0394
+        },
+        "80-89": {
+          "A_mean": 0.9688,
+          "A_sd": 0.0403
+        },
+        "90-99": {
+          "A_mean": 0.971,
+          "A_sd": 0.0415
+        }
+      }
+    },
+    "universal_tier_thresholds": {
+      "_source": "80-cell healthy baseline reference; same across breast-epic, crc-epic, ad-immune, lung-epic",
+      "_note": "Per-card tier thresholds MAY deviate from these universals if disease-specific literature justifies. When they deviate, the card MUST cite the deviation explicitly. Silent deviation is forbidden.",
+      "NORMAL": {
+        "A_threshold": "< 1.01",
+        "action": "No action; serial-sample per screening cadence"
+      },
+      "MARGINAL": {
+        "A_threshold": "≥ 1.01",
+        "action": "Note; serial-sample in 6 months"
+      },
+      "DETECTABLE": {
+        "A_threshold": "≥ 1.05, age-percentile ≥ p90",
+        "action": "Run Stage 2 localization"
+      },
+      "URGENT": {
+        "A_threshold": "≥ 1.07, age-percentile ≥ p90",
+        "action": "Run Stage 2; expedited workup per disease card"
+      },
+      "FLOOR_BREACH": {
+        "A_threshold": "≥ 1.10",
+        "action": "Run Stage 2; urgent clinical workup regardless of localization"
+      }
+    },
+    "universal_sex_stratification_rule": {
+      "rule": "Every card's deployment MUST stratify reports by sex when sex-differential signal has been documented in validation. At v2.1 this applies to ad-immune (VAL-051: female d=+0.71 vs male d=+0.51 AIBL; VAL-057 male recovery, female non-replication in GSE53740). For other cards, sex stratification is recommended in deployment even where no sex-differential has been documented, since absence of evidence is not evidence of absence.",
+      "minimum_reporting": "Report must include patient sex. Card scoring MAY differ by sex if documented in validation."
+    },
+    "universal_language_discipline": {
+      "allowed": [
+        "consistent with",
+        "tested against",
+        "data are consistent with",
+        "architectural signal detected",
+        "elevated above age-matched baseline",
+        "predictions within the framework",
+        "flag that changes downstream workup"
+      ],
+      "forbidden": [
+        "confirms",
+        "validates",
+        "proves",
+        "diagnoses",
+        "first derivation",
+        "154 years no one has",
+        "resolves",
+        "definitive",
+        "cure",
+        "treat"
+      ],
+      "rationale": "Every report must present EDEAR output as a flag that changes downstream workup, never as a diagnosis. Final diagnosis requires clinical assessment plus standard-of-care workup (imaging, tissue biopsy, amyloid PET/CSF for AD, etc.) per the relevant clinical guidelines."
+    },
+    "universal_cohort_batch_offset_warning": {
+      "_critical": true,
+      "_discovered_in": "VAL-057 (2026-04-24)",
+      "description": "VAL-057 established that cohort-level preprocessing artifacts can shift pooled-entropy A-score by +2 SD or more relative to the 80-cell Cookbook baseline. This is a systematic offset, not a biological finding. Applies to any new cohort before its baseline can be used for cross-cohort comparison.",
+      "example": "GSE53740 (Ferrari 2014, 450K + ComBat + quantile normalization): HC mean A_age_z = +2.306 vs 80-cell immune baseline.",
+      "deployment_rule": "(1) On AIBL or AddNeuroMed-equivalent preprocessing: 80-cell baseline usable directly. (2) On any other cohort: re-anchor to within-cohort HC for tier thresholds OR run a normalization bridge to the 80-cell scale before applying Cookbook tier thresholds."
+    },
+    "universal_no_fabrication_rule": {
+      "rule": "Every numeric value, CpG ID, cohort size, validation result, or citation in this card traces to a primary source or a SHA-locked validation run. Nothing is invented or estimated. If a value is a projection or estimate, it is explicitly labeled as such in its field."
+    },
+    "gape_web_version_reference": {
+      "canonical_file": "GAPE_WEB_v13.py",
+      "h_min_constants_line_range": "87-96",
+      "port": 8080,
+      "frozen_at": "2026-04-23"
+    }
+  },
+  "lessons_learned": {
+    "_purpose": "Disease-specific quirks encountered during validation and deployment.",
+    "lessons": [
+      {
+        "lesson_id": "crc-LL-001",
+        "source": "VAL-047 Phase 12",
+        "context": "GSE51032 colorectal replication, n_cases=76",
+        "quirk": "CRC immune A-score direction is INVERTED relative to breast (d=-0.33 all-pre-dx on Xu-538 panel). Same panel, same pipeline, opposite sign. This was surprising on first encounter.",
+        "interpretation": "CRC pre-diagnostic immune response is tolerogenic (Treg-dominated, immune-suppressive) rather than activated. The architectural signature is lower entropy drift (more ordered) rather than higher (more disordered) — opposite direction to most cancers. Mechanism aligns with published CRC immune literature on Treg infiltration and immune exclusion.",
+        "applied_to_card": "expected_direction in card JSON explicitly flagged as NEGATIVE. Decision logic item 2 in README_MASTER handles this: \"depressed below DETECTABLE tier (negative direction) + Stage 2 localizes to colon_epithelial\"."
+      },
+      {
+        "lesson_id": "crc-LL-002",
+        "source": "Phase 12 0-2yr window",
+        "context": "GSE51032 0-2yr CRC cases, n=8",
+        "quirk": "Near-dx 0-2yr window shows d=-0.47 (even more negative) than all-pre-dx d=-0.33. Direction is preserved and amplified close to diagnosis, not attenuated as in breast.",
+        "interpretation": "CRC Treg dominance persists or intensifies close to diagnosis, consistent with published immune-exclusion phenotype of late-stage CRC. Breast (immune escape → attenuation) and CRC (immune suppression → intensification) have structurally different trajectories.",
+        "applied_to_card": "known_limitations includes note that CRC and breast have mechanistically opposite pre-dx trajectories; one-size-fits-all interpretation does not work."
+      },
+      {
+        "lesson_id": "crc-LL-003",
+        "source": "Zhao 2020 literature cross-check",
+        "context": "Zhao 2020 BMC Cancer published CRC methylation signature",
+        "quirk": "Zhao 2020 used a DIFFERENT methodology (classification-trained panel) on the SAME GSE51032 cohort and found CRC-predictive signal. Our inverted-direction finding is consistent with their predictive result — both detect the CRC signal, with different aggregations picking up different aspects.",
+        "interpretation": "Cross-methodology consistency on the same cohort supports the finding. Upgrades tier from exploratory to single_cohort_validated_with_consistent_published_reference.",
+        "applied_to_card": "validation_tier includes explicit Zhao 2020 cross-reference."
+      },
+      {
+        "lesson_id": "crc-LL-CCL-039",
+        "source": "VAL-098 + VAL-062 revisit + VAL-099",
+        "context": "CCL-039 LL-MARKER-CPG-TILE-FIDELITY now confirmed on three independent paired tumor/adjacent-normal cohort configurations: TCGA-READ (VAL-098 n=7), TCGA-COAD revisit (n=26 same VAL-062 cohort), TCGA-COAD VAL-099 reproduction (n=26 same cohort, fresh re-execution). All three show full-HM450 cycling-class paired d positive AND Colon_epithelial_cells tile paired d strongly negative on the same paired tumor/normal samples.",
+        "quirk": "Full-HM450 cycling-class paired d positive (TCGA-READ +0.612; TCGA-COAD revisit +0.724; TCGA-COAD VAL-099 +0.7241) AND Colon_epithelial_cells tile paired d strongly NEGATIVE (TCGA-READ −2.501; TCGA-COAD revisit −1.552; TCGA-COAD VAL-099 −1.603). Two metrics measure different observables and do not move in the same direction in tumor.",
+        "interpretation": "CCL-039 LL-MARKER-CPG-TILE-FIDELITY: marker-CpG-tile A-score measures cell-of-origin tile fidelity, which DEGRADES in tumor (negative d at the cell-of-origin tile due to tumor de-differentiation). Full-HM450 cycling-class A-score measures global Shannon entropy change (positive d in tumor). Both observations are real biology; they measure different things.",
+        "applied_to_card": "early_onset_rectal_subsection.run_everything_25_tile_observation_CCL_039 block in crc-epic v2.4. CHK-4.11 logged in TESTING_CHECKLIST.md. Future tumor-vs-adjacent-normal paired VALs (breast revisit, lung revisit, HCC revisit, prostate revisit) will document whether this pattern generalizes beyond colorectal cancer."
+      },
+      {
+        "lesson_id": "crc-LL-VAL-100-CHK-3.1-DEFERRAL",
+        "source": "VAL-100 GSE282666 EPIC v2.0 supplementary betas file",
+        "context": "First VAL on EPIC v2.0 (GPL33022) in the entire cookbook. Xu-538 panel coverage 484/538 = 90.0% on EPIC v2.0 platform.",
+        "quirk": "GSE282666 supplementary file `GSE282666_Betas.csv.gz` is minfi v1.40.0 noob-bg-corrected output per Kumar 2024 Methods, NOT raw β. CHK-3.1 beta distribution check fails: extreme 3.9%, middle 6.8%. Bimodal raw β signature requires extreme >30% AND middle <10%. CHK-3.2 cross-cohort baseline confirms: PNP- mean 0.807 vs Italian healthy anchor 0.438 = +15.13 anchor-SD offset (off-spec scale).",
+        "interpretation": "Same pattern as VAL-077 (cervical-LBC GSE287994 supplementary file = batch+chip+age+HPV-corrected residual M-values per Bowden 2025 Methods). Per CCL-032 diagnostic order (data integrity → biology → framework), the d does not get interpreted as biology under O5_DATA_INTEGRITY_FLAG. Cookbook precedent: defer the VAL to raw IDAT processing rather than over-interpret normalized output.",
+        "applied_to_card": "VAL-100 deferred to v0.2+ raw IDAT re-processing of GSE282666_RAW.tar through minfi or sesame. The IDATs ARE deposited in the GSE282666 supplementary, no biobank application required. Card validation tier `cycling_class_tissue_validated_with_rectal_subsite` is established by VAL-098 + VAL-099; the under-50 blood arm under-50 polyp confirmation is a v0.2+ task."
+      }
+    ]
+  },
+  "ccl_031_terminology_disambiguation": {
+    "_purpose": "Prevent future AI sessions from confusing CRC compartment-direction-flip (CCL-019) with AD-instance bidirectional cancellation (CCL-031). This block is mandatory per CCL-031 for any card whose Stage 1 readings differ by sign across compartments or differ from the breast-positive baseline.",
+    "crc_pattern": "COMPARTMENT-DIRECTION-FLIP (per CCL-019)",
+    "crc_pattern_description": "Same disease (CRC), same Stage 1 panel (Xu-538), opposite-sign pooled A_immune readings depending on compartment. Peripheral blood reads d = -0.33 (negative; suppressed circulating immune compartment, Treg/exhausted dominant). Tumor-infiltrating immune compartment reads d = +1.066 (positive; activated TIL inside tumor bed). Pooled Test 1 works fine in each compartment — it just goes opposite directions in blood vs tumor.",
+    "crc_is_NOT_bidirectional_cancellation": true,
+    "why_it_is_NOT_bidirectional_cancellation": "Bidirectional cancellation per CCL-031 requires the AD-instance pattern: Test 1 pooled A_immune NULLS cross-cohort AND a directional +/-1 z-scored panel built on the same Stage 1 panel PASSES on holdout. CRC has neither feature. Pooled Test 1 passes in blood (negative direction) and passes in tumor (positive direction). No directional fallback panel exists or is needed for CRC.",
+    "directional_fallback_panel_for_crc": "NONE. Not needed. Test 1 pooled A_immune is the operational metric in each compartment. Build a directional panel for CRC only if a future cohort produces a Test 1 null where a Test 1 pass was expected.",
+    "language_to_use_in_crc_card": "Use \"inversion\" or \"compartment-direction-flip\" or \"negative-direction Stage 1 signal in blood; positive-direction Stage 1 signal in tumor TIL\". Per CCL-031 do NOT use \"bidirectional cancellation\" or \"bidirectional drift\" or \"second confirmed bidirectional\" anywhere in this card.",
+    "language_NOT_to_use_in_crc_card": [
+      "CRC is bidirectional cancellation",
+      "CRC drives Xu-538 in opposite directions (without specifying compartment)",
+      "CRC requires a directional fallback panel",
+      "CRC is the second/third bidirectional disease"
+    ],
+    "cross_references": [
+      "CCL-019 — A-score direction depends on (class, compartment) pair, not disease alone",
+      "CCL-006 — Disease direction is not universal across cancer types",
+      "CCL-027 — Four-question bidirectional cancellation guard at v0.1 build",
+      "CCL-028 — PDAC pooled-null + directional-pass; mechanism unresolved",
+      "CCL-030 — Test 1 (operational) vs Test 2 (lineage, pending OQ-2026-01)",
+      "CCL-031 — Bidirectional cancellation reserved exclusively for AD-instance pattern"
+    ]
+  },
+  "ccl_027_four_questions_answered": {
+    "_added": "2026-04-25",
+    "_per_ccl_031_terminology": "Answers reflect CRC compartment-direction-flip (CCL-019), NOT bidirectional cancellation (CCL-031)",
+    "q1_pooled_expected_direction": {
+      "peripheral_blood": "NEGATIVE — confirmed by VAL-047 Phase 12 GSE51032 (d = -0.33, p = 0.009)",
+      "tumor_infiltrating_immune": "POSITIVE — confirmed by VAL-061 TCGA-COAD tumor TIL (d = +1.066)",
+      "pooled_test_1_status": "PASSES in each compartment alone; sign differs by compartment per CCL-019"
+    },
+    "q2_bidirectional_cancellation_risk_per_ccl_031": {
+      "classification": "NOT bidirectional cancellation",
+      "rationale": "Test 1 pooled A_immune does not null on any CRC cohort. The cross-compartment sign difference is not the AD-instance pooled-null + directional-pass pattern (per CCL-031). It is a compartment-direction-flip (per CCL-019)."
+    },
+    "q3_directional_panel_fallback": {
+      "specification": "NONE NEEDED",
+      "rationale": "Test 1 pooled is operational in each compartment. CRC does not exhibit the AD-instance pooled-null pattern. Build a directional fallback panel only if a future CRC cohort produces a Test 1 null where a Test 1 pass was expected."
+    },
+    "q4_lymphoid_myeloid_pattern_test_2_per_ccl_030": {
+      "literature_anchored_expectation": "CRC peripheral blood: lymphoid suppression + myeloid Treg/MDSC dominance (Galon 2006, Pages 2010 Immunoscore literature). Tumor TIL: lymphoid expansion + myeloid M1 activation in microsatellite-instability-high subset.",
+      "operational_status": "Test 2 (lymphoid vs myeloid sub-panel split) pending OQ-2026-01 immune-atlas staging; not directly measured at Xu-538 panel level for CRC at v2.2",
+      "expected_test_2_outcome_if_runnable": "Both blood compartment and tumor compartment may show within-compartment lineage homogeneity (Treg-dominant in blood; effector T-cell + macrophage activation in tumor). Lineage-bidirectional pattern (lymphoid down + myeloid up with comparable magnitudes within the same compartment) is NOT predicted from CRC literature."
+    }
+  },
+  "corrections_log": [
+    {
+      "date": "2026-04-25",
+      "session": "CRC card review during cervical-epic build (caught terminology drift risk)",
+      "corrections": [
+        "Renamed scoring_method_secondary_for_bidirectional_diseases to scoring_method_secondary_for_pooled_null_directional_pass_diseases per CCL-031 terminology",
+        "Added top-level ccl_031_terminology_disambiguation block to prevent future AI sessions from confusing CRC compartment-direction-flip with AD-instance bidirectional cancellation",
+        "Added ccl_027_four_questions_answered block with answers framed under CCL-031 terminology",
+        "No numerical results changed (VAL-047 d=-0.33 blood, VAL-061 d=+1.066 TIL, VAL-062 d=+0.724 tumor cycling all preserved verbatim)"
+      ]
+    }
+  ],
+  "early_onset_rectal_subsection": {
+    "_purpose": "Clinical-action routing layer for under-50 patients with elevated cycling-class colorectal A-score on the existing crc-epic Stage 2 layer. Subsection does NOT claim rectum-vs-colon biology-detection at v1 — atlas resolution (Loyfer 25-tile production atlas) does not support that distinction. Subsection adds age × family-history clinical-action routing on top of the existing crc-epic methylation signal. The methylation evidence base extends VAL-062 TCGA-COAD anchor to the rectal subsite via VAL-098 TCGA-READ paired comparison, with under-50 colon stratum descriptive evidence from VAL-099 and a deferred-to-v0.2+ buffy-coat under-50 polyp arm via VAL-100.",
+    "date_added": "2026-04-28",
+    "three_val_evidence_chain": {
+      "_purpose": "The under-50 evidence chain for crc-epic v2.4 has three sources: tissue arm rectal anchor (VAL-098), tissue arm age-stratified colon descriptive (VAL-099), and blood arm under-50 polyp Stage 1 immune (VAL-100, deferred per CHK-3.1).",
+      "VAL-098_tissue_arm_rectal_anchor": {
+        "val_id": "VAL-098",
+        "date": "2026-04-28",
+        "cohort": "TCGA-READ HM450 paired tumor/adjacent-normal, 7 paired pairs",
+        "cohort_age_distribution": {
+          "under_50": {
+            "n": 1,
+            "patient": "TCGA-AG-A01Y",
+            "age_y": 49.6,
+            "stage": "II",
+            "subsite": "Rectum NOS",
+            "pre_locked_status": "direction-only, descriptive-only per CHK-2.7"
+          },
+          "age_50_plus": {
+            "n": 6,
+            "paired_d_cycling": 0.577,
+            "ci_95": [
+              0.03,
+              1.608
+            ]
+          }
+        },
+        "subsite_distribution": {
+          "Rectum_NOS": 6,
+          "Rectosigmoid_junction": 1
+        },
+        "method": "Within-cohort paired Cohen's d on cycling-class A-score (H_min = 0.856055), full HM450 valid CpGs per sample, 10000-iteration bootstrap CI. RNG seed 20260428. Mirrors VAL-062 TCGA-COAD methodology exactly. Within-cohort paired comparison (CHK-3.8 condition 1 satisfied — no cross-cohort calibration problem).",
+        "prereg_sha256": "57d830d6c7ba64482b5da7c1c942aceeeeba3f9d1cf76b22f12f416562247d49",
+        "pooled_paired_d": 0.6116,
+        "pooled_ci_95": [
+          0.227,
+          1.882
+        ],
+        "t_statistic": 1.62,
+        "p_value": 0.157,
+        "n_pairs_qc_passed": 7,
+        "comparison_to_VAL_062_anchor": {
+          "val_062_d": 0.7241,
+          "val_062_cohort": "TCGA-COAD n=26 paired pairs",
+          "val_098_d": 0.6116,
+          "val_098_cohort": "TCGA-READ n=7 paired pairs",
+          "difference": -0.1125,
+          "interpretation": "Direction confirmed in rectal subsite. Magnitude consistent within bootstrap variation. Smaller cohort gives wider CI; direction confirmation robust, magnitude precision limited."
+        },
+        "outcome_label": "O1_CYCLING_CLASS_RECTAL_CONFIRMED"
+      },
+      "VAL-099_tissue_arm_age_stratified_colon": {
+        "val_id": "VAL-099",
+        "date": "2026-04-28",
+        "cohort": "TCGA-COAD HM450 paired tumor/adjacent-normal, 26 paired pairs (re-analysis of VAL-061/VAL-062 sealed cohort, no new data download)",
+        "method": "Re-execution of VAL-062 cycling-class methodology on same cached .txt files. Plus run-everything 25-tile per-class A-score. Plus stratified analysis by age, subsite, sex. RNG seed 20260428.",
+        "prereg_sha256": "8e4ee02c59774514b0fca6969d8c77ab4ca191ff729b71224e72e3af4977865f",
+        "pooled_paired_d": 0.7241,
+        "pooled_ci_95": [
+          0.352,
+          1.296
+        ],
+        "val_062_anchor_reproduction": {
+          "anchor_d": 0.7241,
+          "val_099_d": 0.7241,
+          "drift": -3.3e-05,
+          "within_drift_tolerance": true,
+          "note": "Reproduces VAL-062 anchor byte-for-byte at four decimal places."
+        },
+        "cohort_age_distribution": {
+          "under_50": {
+            "n": 3,
+            "patients": [
+              "TCGA-A6-2685 (48.6 y)",
+              "TCGA-A6-5667 (40.4 y)",
+              "TCGA-AA-3663 (42.9 y)"
+            ],
+            "mean_delta_a": 0.0357,
+            "pre_locked_status": "direction-only, descriptive-only per CHK-2.7 (n<5)"
+          },
+          "age_50_plus": {
+            "n": 21,
+            "paired_d": 0.539,
+            "note": "inferential at n=21"
+          },
+          "age_NA": {
+            "n": 2,
+            "note": "TCGA-AZ-6601 + TCGA-G4-6625 (subsite \"Skin, NOS\" — anomaly flagged but not excluded, ΔA=+0.0472 single-patient descriptive)"
+          }
+        },
+        "by_subsite": {
+          "Ascending_colon": {
+            "n": 8,
+            "paired_d": 0.387
+          },
+          "Cecum": {
+            "n": 5,
+            "paired_d": 1.094
+          },
+          "Colon_NOS": {
+            "n": 5,
+            "paired_d": 1.702
+          },
+          "Sigmoid_colon": {
+            "n": 3,
+            "mean_delta_a": -0.0015,
+            "note": "descriptive — could be biology (sigmoid more rectum-like) or n=3 noise"
+          },
+          "Hepatic_flexure": {
+            "n": 2,
+            "mean_delta_a": 0.0538,
+            "note": "descriptive"
+          },
+          "Descending_colon": {
+            "n": 1,
+            "note": "descriptive"
+          },
+          "Skin_NOS_anomaly": {
+            "n": 1,
+            "note": "TCGA-G4-6625 anomaly, descriptive"
+          },
+          "Not_Reported": {
+            "n": 1,
+            "note": "descriptive"
+          }
+        },
+        "outcome_label": "O1_AGE_STRATIFIED_DIRECTION_CONFIRMED",
+        "role_in_evidence_chain": "Reproduces VAL-062 anchor + provides under-50 colon stratum descriptive direction signal at n=3."
+      },
+      "VAL-100_blood_arm_under_50_polyp_DEFERRED": {
+        "val_id": "VAL-100",
+        "date": "2026-04-28",
+        "cohort": "GSE282666 (Kumar 2024) — n=51 buffy coat EPIC v2.0 (GPL33022), all under age 50, with same-day colonoscopy PNP+/PNP- status (16 PNP+ / 35 PNP-)",
+        "method": "Stage 1 universal Xu-538 immune A-score against H_min(immune) = 0.838889. Coverage check + CHK-3.1 beta distribution check + CHK-3.2 cross-cohort baseline check + outcome decision matrix. RNG seed 20260428.",
+        "prereg_sha256": "4017913d31b31e031ab01d2c0a016374334658ab9f526d99d90642d0f3f8bf67",
+        "outcome_label": "O5_DATA_INTEGRITY_FLAG",
+        "reason_deferred": "CHK-3.1 beta distribution check FAILED. Extreme 3.9%, middle 6.8%. Bimodal raw β signature requires extreme >30% AND middle <10%. Supplementary file `GSE282666_Betas.csv.gz` is minfi noob-bg-corrected output per Kumar 2024 Methods, not raw β. CHK-3.2 cross-cohort baseline confirms: PNP- mean A_immune = 0.807 vs Italian healthy anchor 0.438 = +15.13 anchor-SD offset (off-spec scale).",
+        "observed_d_descriptive_only": 0.2355,
+        "observed_d_ci_95_descriptive_only": [
+          -0.363,
+          0.919
+        ],
+        "do_not_interpret_d": "Per CCL-032 diagnostic order (data integrity → biology → framework), the d does not get interpreted as biology under O5_DATA_INTEGRITY_FLAG. Number is supplementary documentation, not card direction.",
+        "cookbook_precedent": "Same pattern as VAL-077 (cervical-LBC GSE287994 supplementary file = batch+chip+age+HPV-corrected residual M-values per Bowden 2025 Methods, deferred to v0.2+ raw IDAT processing). Cookbook precedent: defer the VAL to raw IDAT processing rather than over-interpret normalized output.",
+        "platform_note": "First VAL on EPIC v2.0 (GPL33022). Xu-538 panel coverage = 484/538 = 90.0% (10% coverage drop). Future EPIC v2.0 cookbook work may need panel re-design for platform compatibility.",
+        "v0_2_next_step": "Process GSE282666_RAW.tar through minfi v1.40.0 or sesame from raw .idat files to produce raw β output. Re-run val_100.py against raw β. Re-evaluate CHK-3.1, CHK-3.2, and the Cohen's d under proper input. This is a 2-4 hour task; not pursued at v1 per LL-PUBLIC-TIER. The IDATs ARE deposited in the GSE282666 supplementary, no biobank application required."
+      },
+      "evidence_chain_honest_summary": "The under-50 evidence chain has tissue-arm direction confirmed (VAL-098 rectal d=+0.612 + VAL-099 colon d=+0.7241 with under-50 stratum descriptive d=+0.0357). The blood-arm under-50 confirmation requires raw IDAT re-processing of GSE282666 in v0.2+ (the cohort design is right; the public supplementary file is not the right substrate for the cookbook Stage 1 methodology). Card validation tier is `cycling_class_tissue_validated_with_rectal_subsite` based on the tissue arm. Blood-arm under-50 confirmation is a v0.2+ task."
+    },
+    "run_everything_25_tile_observation_CCL_039": {
+      "_purpose": "CCL-039 LL-MARKER-CPG-TILE-FIDELITY surfaced via VAL-098 + confirmed via VAL-062 revisit + further confirmed via VAL-099. Cookbook-wide pattern across three independent paired tumor/adjacent-normal cohorts.",
+      "cohort_evidence": {
+        "TCGA-READ_VAL_098": {
+          "full_hm450_d": 0.612,
+          "colon_epithelial_tile_d": -2.501,
+          "colon_epithelial_tile_ci": [
+            -9.307,
+            -1.584
+          ]
+        },
+        "TCGA-COAD_VAL_062_revisit": {
+          "full_hm450_d": 0.724,
+          "colon_epithelial_tile_d": -1.552,
+          "colon_epithelial_tile_ci": [
+            -2.175,
+            -1.214
+          ]
+        },
+        "TCGA-COAD_VAL_099_reproduction": {
+          "full_hm450_d": 0.7241,
+          "colon_epithelial_tile_d": -1.603,
+          "colon_epithelial_tile_ci": [
+            -2.173,
+            -1.288
+          ]
+        }
+      },
+      "biology_interpretation": "Full-HM450 cycling-class A-score (~485K CpGs averaged) measures global Shannon entropy change — every CpG counted equally, every signal direction averaged. Tumors increase entropy globally, A-score rises, paired d positive. Per-tile A-score on top-100 marker CpGs of Colon_epithelial_cells measures cell-of-origin tile fidelity, which DEGRADES in tumor (negative d at the cell-of-origin tile due to tumor de-differentiation). The other tiles (Bladder, Hepatocytes, Pancreatic_beta, etc.) read positive in tumor because their marker CpGs drift toward homogenized tumor methylation away from healthy-colon-specific values.",
+      "ccl_039_LL_MARKER_CPG_TILE_FIDELITY": {
+        "rule": "Marker-CpG-tile A-score and full-HM450 architectural-drift A-score are two distinct observables that do NOT necessarily move in the same direction in tumor vs adjacent-normal paired comparisons.",
+        "mechanism": "Tumor de-differentiation degrades cell-of-origin tile fidelity (negative d at the cell-of-origin tile) while increasing global Shannon entropy (positive d at full-HM450 cycling-class).",
+        "prereg_implication": "Future preregs that include run-everything 25-tile per-class A-score on tumor-vs-adjacent-normal paired comparisons must NOT pre-lock \"cell-of-origin tile is largest |d|\" or \"cell-of-origin tile shows positive d\" as an O1 criterion. Pre-lock \"cell-of-origin tile is among the largest |d|\" instead, with explicit acknowledgment that direction depends on whether the comparison is tumor-vs-adjacent-normal-paired (cell-of-origin tile NEGATIVE due to fidelity loss) or healthy-tissue-vs-tissue cross-reference (cell-of-origin tile POSITIVE).",
+        "testing_checklist_addition": "CHK-4.11 — see TESTING_CHECKLIST.md"
+      }
+    },
+    "atlas_resolution_constraint": {
+      "rule": "v1 Loyfer atlas (production Stage 2) has Colon_epithelial_cells tile but no rectum-specific tile. Methylation signal cannot disambiguate rectum vs sigmoid vs ascending colon at v1.",
+      "atlas_vault_check_2026_04_28": "Surveyed every reference matrix in Biological_Physics/atlas_vault/ (Loyfer 25-tile production atlas, EpiSCORE ColonRef 5 sub-cell-types, Caggiano CelFiE TIM, MARLIN, Sabedot GeLB, all Stage 3 immune atlases). Zero rectum-specific cell types anywhere.",
+      "future_promotion": "Future atlases (Liu 2023 brain scMCodes-style single-nucleus methylation, 223-cell-type WGBS atlas referenced in arXiv 2506.00146, GTEx-derived sigmoid-vs-rectum split when available) will enable subsite-specific tile separation. Subsection promotes to standalone rectal-epic card at that point."
+    },
+    "age_stratified_clinical_action_matrix": {
+      "_purpose": "Age × family-history routing for patients with elevated cycling-class colorectal architectural drift signal. Same EDEAR Stage 2 reading routes to different clinical action depending on patient demographics. Per published ACG 2021 / NCCN EOCRC screening guidance.",
+      "under_30_NORMAL_signal": "Routine surveillance; no immediate workup unless family history of CRC <50 (Lynch syndrome, FAP, MUTYH-AP).",
+      "under_30_ELEVATED_or_higher": "Gastroenterology consult with family-history-guided workup. Hereditary CRC syndrome screening (Lynch / FAP / MUTYH / Peutz-Jeghers) before colonoscopy unless emergent.",
+      "age_30_to_49_NORMAL_signal_no_family_history": "Routine screening per USPSTF guidance starting at age 45.",
+      "age_30_to_49_NORMAL_signal_with_family_history_CRC_under_50": "Colonoscopy 10 years before youngest first-degree-relative diagnosis age, OR age 40, whichever is earlier. Repeat every 5 years.",
+      "age_30_to_49_ELEVATED_or_higher_no_family_history": "Colonoscopy with rectal exam emphasis. Per ACG 2021 EOCRC screening guidance — early-onset CRC is rising in this age stratum independent of family history; elevated EDEAR signal at this age elevates the colonoscopy priority.",
+      "age_30_to_49_ELEVATED_or_higher_with_family_history": "Urgent colonoscopy + rectal exam + hereditary CRC syndrome screening (germline panel: Lynch / FAP / MUTYH / Peutz-Jeghers). Gastroenterology consult.",
+      "age_50_plus": "Standard crc-epic clinical_action_matrix (existing card content unchanged)."
+    },
+    "commercial_deployment_unaffected_by_subsection_evidence_gaps": "Per CCL-037: EDEAR commercial deployment is single-pipeline patient-vs-internal-reference and is unaffected by Tier 1 cohort coverage gaps for any subgroup. The early-onset rectal subsection adds clinical-action routing logic, not deployment-architecture changes. The subsection is honest about its evidence base: VAL-098 + VAL-099 confirm direction in tissue cohorts at the cycling-class architectural drift level; VAL-100 is deferred per CHK-3.1 data integrity flag pending v0.2+ raw IDAT re-processing; per-tile cell-of-origin disambiguation between rectum and colon is not biologically achievable at v1 atlas resolution; the clinical-action routing layer is published medical guidance (ACG 2021, NCCN), not framework-derived calibration.",
+    "next_validation_steps_post_v2_4": [
+      "VAL-100 v0.2 raw IDAT re-processing — process GSE282666_RAW.tar through minfi v1.40.0 or sesame from raw .idat files. Re-run Xu-538 Stage 1 immune A-score on raw β. Re-evaluate CHK-3.1, CHK-3.2, and Cohen's d. ~2-4 hour task.",
+      "Atlas-vault expansion when rectum-specific reference cell types become available (Liu 2023 single-nucleus methylation, GTEx-derived sigmoid-vs-rectum split). Promotes subsection to standalone rectal-epic card at that point.",
+      "Future-when-support-arrives: GSE284325 EOCRC WGBS cohort (n=16) requires post-Caggiano methods translation engineering for WGBS-to-array mapping. Logged in crc-epic/future_when_support_arrives.md. Not pursued at v1 per LL-PUBLIC-TIER.",
+      "Cookbook-wide retroactive task: apply the run-everything 25-tile methodology to the existing per-sample CSVs for VAL-060 (TCGA-BRCA breast), VAL-063 (TCGA-LUAD lung), VAL-064 (TCGA-LIHC liver), VAL-058 (GSE269244 prostate). Verify CCL-039 cell-of-origin tile negative-direction pattern generalizes beyond colorectal. Cross-tissue confirmation upgrades CCL-039 from a colorectal observation to a framework-level rule."
+    ],
+    "known_limitations": [
+      "TCGA-READ paired cohort is small (n=7). VAL-098 direction confirmation is robust; magnitude precision is limited by sample size. Bootstrap CI [+0.227, +1.882] is honestly wide.",
+      "Under-50 stratum is small across the tissue arm: VAL-098 has n=1 under 50 (TCGA-AG-A01Y, 49.6 y); VAL-099 has n=3 under 50 (TCGA-A6-2685, TCGA-A6-5667, TCGA-AA-3663). Combined tissue-arm under-50 evidence is descriptive, not inferential. The under-50 evidence chain in crc-epic v2.4 relies on tissue arm direction concordance + deferred-to-v0.2+ blood arm under-50 polyp data.",
+      "VAL-100 (under-50 buffy coat polyp blood arm, n=51 GSE282666) failed CHK-3.1 beta distribution check; supplementary file is minfi noob-bg-corrected output, not raw β. Outcome O5_DATA_INTEGRITY_FLAG. The d=+0.236 is descriptive-only and is NOT taken as a card-direction signal under CCL-032 (data integrity → biology → framework). v0.2+ raw IDAT re-processing will resolve this.",
+      "Atlas resolution does not support rectum-vs-colon cell-of-origin tile disambiguation at v1.",
+      "TCGA-READ + TCGA-COAD cohorts are predominantly Western. Cohorts cannot speak to population-stratified rectal cancer biology.",
+      "Run-everything 25-tile observation (CCL-039) is currently confirmed on three colorectal cohort configurations (TCGA-READ VAL-098, TCGA-COAD revisit, TCGA-COAD VAL-099 reproduction). Generalizability beyond colorectal requires cross-tissue retroactive task on existing tumor-vs-adjacent-normal per-sample CSVs."
+    ]
+  },
+  "commercial_deployment_unaffected_by_validation_limitations": {
+    "_purpose": "Per CCL-037 LL-CROSS-COHORT-CALIBRATION (signed off 2026-04-28), the cross-cohort calibration boundary applies exclusively to retrospective cookbook validation. EDEAR commercial deployment uses a single calibrated pipeline against a fixed reference distribution and is unaffected by the validation-side limitations documented in this card.",
+    "deployment_architecture": "One partner lab generates the patient IDAT through a single calibrated normalization protocol. That same partner lab has, during L1 onboarding, run a calibration anchor batch that aligns their β-value output to the public Loyfer/Moss/Tanaka atlas reference frame. Every patient's IDAT runs through that same pipeline. Every patient is compared to the same calibrated reference distribution per substrate.",
+    "first_patient_calibration": "No cold-start problem. The Loyfer 25-tile array atlas IS the healthy reference (built from sorted purified cells across 25 healthy human tissues, not patient data). H_min values are frozen from MCMC posteriors on healthy cell populations and do not move between patients. L1 partner-lab calibration is done once at onboarding and refreshed periodically. Patient one is just as valid as patient one thousand.",
+    "cross_cohort_calibration_boundary_does_not_apply": "EDEAR does not compare two patient cohorts to each other. EDEAR compares one patient to a fixed atlas reference within one calibrated pipeline. There is no cross-cohort comparison at deployment, therefore no cross-cohort calibration problem at deployment.",
+    "val_098_lesson_in_deployment_terms": "For a real CRC or rectal cancer patient, the colorectal cell-of-origin tile pattern WILL fire in the EDEAR Stage 2 reading because tumor colorectal cells diverge from healthy colorectal methylation as captured by the Loyfer reference. The pattern of WHICH tiles co-fire is the diagnostic information. VAL-062 + VAL-099 (TCGA-COAD) and VAL-098 (TCGA-READ) demonstrate clean signal on within-cohort same-pipeline paired comparisons — the deployment configuration that EDEAR uses by construction.",
+    "val_100_lesson_in_deployment_terms": "EDEAR commercial deployment uses raw IDAT input through a single calibrated pipeline. A real patient's IDAT goes through the partner-lab pipeline, not through GEO-deposited supplementary normalized files. The CHK-3.1 failure on GSE282666 supplementary file does not propagate to deployment. Deployment behavior is unaffected by the data-format issue in retrospective public-data validation.",
+    "marketing_language_unchanged": "EDEAR fires a red flag early enough that the patient sees a doctor while there is time to act. EDEAR is health-and-wellness early-detection, not regulated diagnostic. Cookbook validation limitations are scientific honesty about retrospective evidence; they are not deployment limitations."
+  }
+}

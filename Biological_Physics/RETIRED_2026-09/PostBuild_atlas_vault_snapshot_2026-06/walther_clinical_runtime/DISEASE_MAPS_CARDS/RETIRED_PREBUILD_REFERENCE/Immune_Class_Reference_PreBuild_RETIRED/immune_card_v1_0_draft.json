@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "card_id": "immune",
+  "card_version": "v1.0-draft",
+  "card_date": "2026-05-08",
+  "_doc_note": "This is the CUSTOMER-FACING immune wellness card. It is distinct from the cookbook immune-atlas reference document (immune-atlas v0.3.2), which remains as audit-trail documentation and is not consumed by the runtime engine. This card monitors the customer's immune class A-score and per-immune-cell-type results against age-matched healthy baselines and reports findings via the four-fields-per-finding rule. The cookbook immune-atlas content informs the engine cross-reference module (Stage 2 logic) but does not appear as a card itself.",
+  "display_name": "Immune System Health",
+  "architectural_class": "immune",
+  "cell_types_of_interest": [
+    "B_cells",
+    "naive_B_cells",
+    "memory_B_cells",
+    "plasma_cells",
+    "CD4_T_cells",
+    "CD8_T_cells",
+    "naive_CD4_T_cells",
+    "naive_CD8_T_cells",
+    "memory_T_cells",
+    "regulatory_T_cells",
+    "NK_cells",
+    "neutrophils",
+    "eosinophils",
+    "basophils",
+    "monocytes",
+    "macrophages",
+    "microglia",
+    "kupffer_cells",
+    "dendritic_cells"
+  ],
+  "_cell_types_note": "The exact list will be finalized after IAMAtlas v1 lands. Cell types listed here are those expected to have clean enough posteriors for per-cell-type reporting. Cell types without sufficient posterior resolution will be aggregated to the immune-class level for reporting.",
+  "validated_substrates": [
+    "ccfDNA_plasma"
+  ],
+  "panel_substrate_compatibility": {
+    "HM450": {
+      "xu538_coverage_pct": 100,
+      "production_status": "validated",
+      "notes": "Full panel coverage. Reference platform for VAL-047/050/051/058/082 anchor cohorts."
+    },
+    "EPIC_v1_B4": {
+      "xu538_coverage_pct": 91,
+      "production_status": "validated",
+      "notes": "VAL-088 glioma anchor cohort substrate. ~9% drift from HM450 panel."
+    },
+    "EPIC_v2_GPL33022": {
+      "xu538_coverage_pct": 90,
+      "production_status": "validated_with_caveat",
+      "notes": "VAL-100 first cookbook EPIC v2.0 run. 54 of 538 panel CpGs missing on EPIC v2.0. Engine flags reduced coverage in customer report. Panel re-design candidate for v0.2+ EPIC v2.0 platform compatibility."
+    },
+    "LBC_pap_smear_cytology": {
+      "xu538_coverage_pct": null,
+      "production_status": "NOT_validated",
+      "notes": "VAL-076/077 demonstrate Xu-538 does NOT transfer to LBC pap smear at v0.1 (n=427 across two cohorts, pooled NULL). LBC pathway requires alternative scoring outside universal pipeline."
+    },
+    "urine_sediment": {
+      "xu538_coverage_pct": 81,
+      "production_status": "exploratory",
+      "notes": "VAL-065 Brikun n=4 demonstrated panel transfers to urine sediment EPIC 850K (435/538 CpGs). Public-data ceiling at n=4 advanced-stage patients; not anchored at v0.1."
+    }
+  },
+  "_panel_substrate_compatibility_note": "Customer IDATs may arrive on any of the validated platforms. The engine inspects platform metadata at intake and flags reduced-coverage cases (notably EPIC v2.0) in the customer report so the customer knows their immune-class score is computed at 90% panel coverage rather than full coverage.",
+  "demographic_gates": {
+    "age_min": 18,
+    "age_max": null,
+    "sex": "any"
+  },
+  "covariate_dependencies": [
+    "sex_at_birth",
+    "smoking_status",
+    "recent_illness_within_3_months",
+    "recent_vaccination_within_3_months",
+    "current_pregnancy_with_trimester",
+    "known_autoimmune_condition",
+    "current_immunosuppression",
+    "current_medications_systemic",
+    "current_treatment_status",
+    "prior_cancer_history",
+    "hpv_status",
+    "hiv_status",
+    "transplant_status"
+  ],
+  "_covariate_notes": "Covariates are collected at intake by the engine (not by this card). The engine's customer profile aggregates the union of covariates declared by all cards. This card's covariate consumption is light: smoking_status feeds threshold lookup (immune class shows persistent methylation signal from tobacco for years post-cessation; thresholds are calibrated by smoking bin); sex_at_birth is mandatory per CCL-002 because immune-class effect magnitudes differ substantially by sex (VAL-051/057 anchor); HPV status is a Stage 1 stratifier per cerv-LL-002 (not just metadata) because HPV exposure measurably shifts the cervical immune compartment baseline (VAL-074); HIV, transplant_status, and current_treatment_status feed SUPPRESSED-tier interpretation (post-chemo, post-transplant, primary immunodeficiency are real signals per CHK-4.7 / heme-LL-003); prior_cancer_history feeds remission-baseline interpretation; the other covariates are reported back to the customer as context in the report (e.g., 'Note: you reported recent illness within 3 months; immune signals from recent illness can persist for weeks to months'). The covariates are never used by this card to suppress a flag \u2014 only to contextualize it in the report.",
+  "thresholds": {
+    "ccfDNA_plasma": {
+      "score_basis": "immune_class_A_score_aggregate_plus_per_cell_type",
+      "smoking_bins": {
+        "current_smoker": {
+          "NORMAL_max": 1.1,
+          "ELEVATED_max": 1.2,
+          "SIGNIFICANTLY_ELEVATED_min": 1.2,
+          "SUPPRESSED_max": 0.95
+        },
+        "former_smoker_recent": {
+          "_definition": "quit 0-5 years ago",
+          "NORMAL_max": 1.08,
+          "ELEVATED_max": 1.18,
+          "SIGNIFICANTLY_ELEVATED_min": 1.18,
+          "SUPPRESSED_max": 0.95
+        },
+        "former_smoker_intermediate": {
+          "_definition": "quit 5-15 years ago",
+          "NORMAL_max": 1.07,
+          "ELEVATED_max": 1.16,
+          "SIGNIFICANTLY_ELEVATED_min": 1.16,
+          "SUPPRESSED_max": 0.95
+        },
+        "former_smoker_long": {
+          "_definition": "quit 15+ years ago \u2014 methylation largely returned to never-smoker baseline",
+          "NORMAL_max": 1.06,
+          "ELEVATED_max": 1.15,
+          "SIGNIFICANTLY_ELEVATED_min": 1.15,
+          "SUPPRESSED_max": 0.95
+        },
+        "never_smoker": {
+          "NORMAL_max": 1.05,
+          "ELEVATED_max": 1.15,
+          "SIGNIFICANTLY_ELEVATED_min": 1.15,
+          "SUPPRESSED_max": 0.95
+        }
+      },
+      "_smoking_bins_basis_note": "Smoking bins are calibrated against the methylation half-life literature for tobacco-driven CpG sites. AHRR cg05575921 is the canonical smoking biomarker (McCarthy 2017, Joehanes 2016, Baglietto 2017, Hong 2019). Methylation half-life at AHRR cg05575921 is approximately 10 years post-cessation, with substantial reversal in the first 5 years and gradual return toward never-smoker baseline by 15+ years. The four-bin split (current / 0-5 / 5-15 / 15+) reflects these timeline transitions. Final per-bin thresholds will be calibrated against the IAMAtlas v1 immune-class smoking-stratified cohort once production MCMC completes.",
+      "_threshold_provenance_note": "These thresholds are placeholders for the v1.0-draft of this card. Final thresholds will be calibrated against the IAMAtlas v1 immune-class age-matched baseline distribution once the production MCMC completes (cycling, progenitor, immune chains pending as of 2026-05-08). Card thresholds will then be derived from posterior-distribution percentiles per smoking bin: NORMAL_max set at 90th percentile of healthy reference; ELEVATED_max at 97.5th percentile; SIGNIFICANTLY_ELEVATED_min at 99th percentile. SUPPRESSED_max set at 10th percentile.",
+      "VAL_anchor_supports_significant": true,
+      "VAL_anchor_provenance": "Aggregate immune-class A-score thresholds at the SIGNIFICANTLY ELEVATED level are anchored by Stage 1 cross-cancer validation: VAL-051 AD directional 7-CpG Rule A d=+0.624; VAL-082 AML d=+3.71 (strongest single-cohort effect anywhere in the catalog); VAL-058/118 prostate d=+0.50 paired and d=+0.5258 reproduction; VAL-088 glioma blood d=+0.91; VAL-110 cardio BAV d=+1.08. These VAL anchors support the framework's confidence that magnitudes at SIGNIFICANTLY ELEVATED warrant physician follow-up.",
+      "_substrate_scope_note": "All anchor magnitudes cited above are methyl-only single-substrate buffy-coat scoring on EPIC/HM450 IDAT input \u2014 the v1 EDEAR deployment regime. Per heme-LL-009: Issue 002 framework predictions (e.g., A_AML \u2248 1.10) are 5-substrate combined cfDNA targets for future L2/L3 platform expansion, NOT directly comparable to v1 single-substrate magnitudes. The v1 deployment effect-size anchor is VAL-082 \u0394A = +0.10 absolute units above healthy with d \u2248 3.71 \u2014 that is the magnitude at v1 deployment. Threshold derivations from these anchors inherit the methyl-only single-substrate scope.",
+      "_stage_1_scope_note": "Stage 1 immune-class A-score on the Xu-538 panel has validated deployment scope for: (a) primary tumor tissue substrate from TCGA + analogous cancer cohorts (research only); (b) plasma cfDNA in advanced cancer (VAL-059 hcc-epic ccfDNA d=+0.634); (c) buffy-coat / whole-blood pre-diagnostic cancer cohorts (VAL-047 GSE51057). Validated NULL scope: (a) chronic inflammatory disease without directional panel (VAL-128 Crohn's + UC); (b) AD without directional panel (VAL-050 pooled-entropy null requires Rule A directional fallback); (c) PDAC without directional panel (VAL-066-068 pooled-entropy null requires 324-CpG directional fallback). Customer ccfDNA plasma deployment is in scope (b).",
+      "bidirectional_pattern_fires_at": "ELEVATED",
+      "_bidirectional_note": "The immune class is the canonical home for bidirectional patterns in EDEAR. The AD-instance signature (Pattern 3 in CCL-031: pooled-null but directional panel passes) and the population-fraction-shift signature (Pattern 7: Stage 1 null but Stage 3 cell-fraction shift detectable) both fire at the immune class. Stage 2 of the engine produces a bidirectional consistency flag per class; when set true for the immune class, this card's customer flag fires at ELEVATED tier even if the aggregate A-score sits within NORMAL. The flag-summary string for bidirectional firing is reported in report_strings below."
+    }
+  },
+  "report_strings": {
+    "flag_summary_NORMAL": null,
+    "flag_summary_SUPPRESSED": "Your immune class score is below your age-matched normal range. Lower than typical can have several meanings \u2014 see your immune system health page on the website for context.",
+    "flag_summary_ELEVATED_aggregate": "Your immune class score is mildly elevated compared to your age-matched baseline.",
+    "flag_summary_ELEVATED_per_cell_type": "{n_cell_types} of your immune cell types are showing measurable departure from your age-matched baseline. Specifically: {cell_types_list}.",
+    "flag_summary_ELEVATED_bidirectional": "Your immune cells are showing a mixed pattern \u2014 some cell types running higher than typical and others running lower than typical at the same time. This pattern can have several meanings; see the immune system health page for context.",
+    "flag_summary_SIGNIFICANTLY_ELEVATED_aggregate": "Your immune class score is significantly elevated compared to your age-matched baseline.",
+    "flag_summary_SIGNIFICANTLY_ELEVATED_per_cell_type": "{n_cell_types} of your immune cell types are showing significant departure from your age-matched baseline. Specifically: {cell_types_list}.",
+    "physician_referral_sentence": "We recommend you discuss this finding with your primary care provider.",
+    "_template_slot_note": "{n_cell_types} and {cell_types_list} are filled in by the report builder at runtime from the engine's per-cell-type output. cell_types_list is rendered as a comma-separated list with cell types in plain English, e.g., 'CD4 T cells, monocytes, and B cells'."
+  },
+  "_strings_design_principle": "All flag-summary strings are factual, neutral, and free of disease names. The customer reads what was measured and how it compares to their baseline. The customer does not read interpretation or speculation in the report itself \u2014 that lives on the website page linked below. The strings deliberately do not say 'this could mean X' or 'this is associated with Y disease' \u2014 those statements are in research publications, reproduced on the website with citations, and are not the engine's role to deliver to a specific customer.",
+  "report_vigilance_strings": {
+    "_principle": "Vigilance content fires conditionally based on what flagged in the customer's report. The report builder assembles vigilance paragraphs from this lookup based on which cells/classes flagged at which tiers. EDEAR does not specify ages, screening intervals, or specific clinical follow-up tests. All clinical-action language defers to the customer's clinician. EDEAR provides the cellular-level reading; the customer's clinician provides the clinical context. The vigilance content is supportive, not prescriptive.",
+    "vigilance_NORMAL": "Routine monitoring. Continue the lifestyle habits that work for you (sleep, stress management, exercise, the basics that affect immune function). Continue the screening recommendations your clinician has discussed with you. Retest with EDEAR at your standard subscription interval.",
+    "vigilance_ELEVATED_aggregate": "Mild elevation in your immune class score has many possible drivers \u2014 recent illness, sustained stress, active allergy season, sleep disruption, lifestyle context. Review whether any of these apply to you over the past few weeks or months. Address what you can address in lifestyle. Continue the screening recommendations your clinician has given you on the schedule they recommended. Retest with EDEAR in 6 months instead of waiting a full year, so trajectory becomes informative \u2014 a signal that resolves was your body recovering; a signal that stays or intensifies is more useful information for a clinician conversation.",
+    "vigilance_ELEVATED_per_cell_type": "Mild elevation in {n_cell_types} of your immune cell types ({cell_types_list}) suggests the immune system is responding to something specific. The per-cell pages on the website explain what each elevated cell type does and what research has observed about elevations in each. Review whether any of the common context drivers apply to you \u2014 recent illness, sustained stress period, active allergy season, sleep disruption, autoimmune condition. If something fits, addressing it is usually enough. Continue your clinician's recommended screening on the schedule they recommended. Retest with EDEAR in 6 months to see how the signal moves.",
+    "vigilance_ELEVATED_bidirectional": "Your immune cells are showing a mixed pattern \u2014 some elevating while others are running lower than typical. This bidirectional pattern is different from a uniform elevation and is worth tracking carefully. The per-cell pages explain what each cell type does and what research has observed about bidirectional patterns. Continue your clinician's recommended screening on the schedule they recommended. We recommend you discuss this finding with your clinician at your next visit and bring this report. Retest with EDEAR in 6 months to track how the pattern evolves.",
+    "vigilance_SIGNIFICANTLY_ELEVATED_aggregate": "Your immune class score is significantly elevated. We recommend you discuss this finding with your clinician. Bring this report \u2014 the conversation is more useful with the result in hand than without. Continue your clinician's recommended screening on the schedule they recommend, and ask whether they want to adjust anything in light of the EDEAR finding. Retest with EDEAR every 6 months going forward to track how the signal moves. We do not recommend specific clinical follow-up tests; those are decisions for you and your clinician based on your full health history and clinical context.",
+    "vigilance_SIGNIFICANTLY_ELEVATED_per_cell_type": "Significant elevation in {n_cell_types} of your immune cell types ({cell_types_list}) warrants a conversation with your clinician. Bring this report. The per-cell pages on the website explain what each elevated cell type does and what research has observed about significant elevations in each. Continue your clinician's recommended screening on the schedule they recommended. Retest with EDEAR every 6 months going forward.",
+    "vigilance_SUPPRESSED": "Your immune class score is below your age-matched normal range. SUPPRESSED readings are common when current immunosuppression, active chemotherapy, transplant status, certain biologic medications, or HIV status applies. If you declared one of these contexts at intake, the reading reflects what your body is doing in response to your treatment or condition. If you cannot identify a declared context that explains it, discuss the reading with your clinician at your next visit. Continue your clinician's recommended screening on the schedule they recommended.",
+    "_screening_language_rule": "EDEAR is not a clinician and does not specify screening tests, ages, intervals, or follow-up workups. All vigilance content uses the phrase 'your clinician's recommended screening' or 'the screening recommendations your clinician has discussed with you' or equivalent \u2014 never 'mammography after 40' or 'colonoscopy every 5 years' or any other specific recommendation. The customer's clinician owns the clinical screening conversation; EDEAR provides the cellular reading and supports the clinician conversation.",
+    "_per_cell_vigilance_supplement_note": "Each per-cell page on the website carries cell-specific vigilance content matching this tier vocabulary. The class-level vigilance content above is the report's class-level paragraph; per-cell findings link to per-cell pages where cell-specific vigilance content (and the cell-specific research observations) live. Engine-side: per-cell vigilance strings live in per-cell card supplements (or in the engine's per-cell lookup table) and are not duplicated in the immune class card."
+  },
+  "website_url": "_PLACEHOLDER_website_url",
+  "_website_url_note": "Final domain and customer-facing brand name are deferred decisions. The current iamperformance.net Namecheap hosting has reliability issues that prevent committing to it as the production domain; a more secure managed-hosting solution will be selected before launch. Branding is also under review \u2014 the IAMPerformance name was built around domain-performance scoring (chips, quantum computers, cellular performance) and works for the wellness positioning of EDEAR but may carry unintended implications when EDEAR matures into FDA-approved disease detection (performance framing implies grading; disease-detection messaging wants insight/awareness/early-signal framing instead). LLC formation and brand decisions are roadmap items, not yet made. Once domain and brand are chosen, the placeholder URL is replaced and the report builder begins emitting customer-facing links. Until then, this card is engine-runnable for synthetic data and internal testing without the link.",
+  "validation_tier_label": "core_class_card",
+  "_runtime_routing_role": {
+    "note": "This card produces customer-facing findings for the immune class. It does NOT perform cross-disease pattern matching; that work happens in the engine's Stage 2 cross-reference module which consumes Stage 1 immune output AND runs all other cards in parallel AND consults the cookbook immune-atlas pattern catalog to set engine-internal concordance flags. Concordance flags inform how downstream disease cards interpret their own findings. Customers do not see concordance flags directly \u2014 they see only the per-card findings that result from them. See STEP D2 of EDEAR_MASTER_ROADMAP.md for the cross-reference module specification.",
+    "run_everything_doctrine": "All cards run in parallel for every customer IDAT regardless of any prior-stage result. This card's output is one of many parallel outputs, not a gate that controls downstream firing. Stage 1 Xu-538 immune A-score is computed for every sample; Stage 2 per-tile A-scores are computed for every sample; Stage 3 immune fine-tune is computed for every sample; every disease card scores against its own thresholds. The cross-reference module assembles concordance flags from the joint output of all parallel computations, not as a sequential filter chain. Per CCL-035 and the cookbook run-everything doctrine, this is the architectural safety net that surfaces multi-class drift patterns and concurrent-disease scenarios that gating would miss."
+  },
+  "_open_questions_for_review": [
+    "Smoking bin definitions: current/0-5/5-15/15+ split is based on the McCarthy 2017 / Joehanes 2016 smoking-EWAS half-life literature. Heath has confirmed 18-years-post-quit (his case) should map to former_smoker_long. Bin boundaries can be tuned with empirical data from the IAMAtlas v1 age-matched cohort once available.",
+    "Cell type list: the listed 9 cell types are an intent declaration. Final list depends on which IAMAtlas v1 immune-class cell types have clean enough posteriors to support per-cell-type reporting. Cells without sufficient posterior resolution aggregate up to the immune class.",
+    "SUPPRESSED tier handling: immune class running below age-matched baseline can mean immunosuppression, certain medications, post-chemo, post-transplant, HIV+, primary immunodeficiency, cachexia, or late-stage marrow infiltration. The current schema treats SUPPRESSED as a tier with website pointer. Open question: should certain covariates declared at intake (current_treatment_status = active chemo, transplant_status = recent transplant, hiv_status = HIV+, current_immunosuppression = yes) suppress the SUPPRESSED flag (since they explain it) or leave the flag with explanatory context? Current draft leaves the flag with context \u2014 the customer is told their score is below baseline AND why their declared context can drive that.",
+    "Bidirectional firing tier: current draft fires bidirectional patterns at ELEVATED. Open question: under what conditions should bidirectional fire at SIGNIFICANTLY_ELEVATED instead? The cookbook immune-atlas notes that AD-instance and IBD-instance patterns can have very large directional or per-cell-type magnitudes. A conditional rule (bidirectional with directional |d| > 1.0 fires at SIGNIFICANTLY_ELEVATED) would match the validation evidence; a flat rule keeps the schema simpler.",
+    "Tier vocabulary: card uses customer-facing NORMAL / ELEVATED / SIGNIFICANTLY_ELEVATED / SUPPRESSED per wellness-positioning lock-in. Cookbook framework also uses MARGINAL / DETECTABLE / URGENT / FLOOR_BREACH for research-tier reporting. Open question: should the card carry both vocabularies (cookbook tier as engine-internal metadata, customer tier as report-facing label), or stay customer-vocabulary-only and let the cookbook tier live in the cross-reference spec / engine? Current draft is customer-vocabulary-only."
+  ],
+  "_cell_types_atlas_provenance": {
+    "B_cells": "B (epidish_centBloodSub, epidish_centDHSbloodDMC, unilife_guo_2025), Bcell (salas_blood_450k_idol, salas_blood_epic_idol), B-cells_EPIC (loyfer_moss_2018), CD19_B-cells (reinius_gse35069)",
+    "naive_B_cells": "Bnv (epidish_cent12CT, epidish_cent12CT450k), aBnv (unilife_guo_2025)",
+    "memory_B_cells": "Bmem (epidish_cent12CT, epidish_cent12CT450k), aBmem (unilife_guo_2025)",
+    "plasma_cells": "Plasma (episcore_oeref)",
+    "CD4_T_cells": "CD4T (epidish_centBloodSub, epidish_centDHSbloodDMC, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), CD4T-cells_EPIC (loyfer_moss_2018), CD4_T-cells (reinius_gse35069)",
+    "CD8_T_cells": "CD8T (epidish_centBloodSub, epidish_centDHSbloodDMC, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), CD8T-cells_EPIC (loyfer_moss_2018), CD8_T-cells (reinius_gse35069)",
+    "naive_CD4_T_cells": "CD4Tnv (epidish_cent12CT, epidish_cent12CT450k), aCD4Tnv (unilife_guo_2025)",
+    "naive_CD8_T_cells": "CD8Tnv (epidish_cent12CT, epidish_cent12CT450k), aCD8Tnv (unilife_guo_2025)",
+    "memory_T_cells": "CD4Tmem + CD8Tmem (epidish_cent12CT, epidish_cent12CT450k), aCD4Tmem + aCD8Tmem (unilife_guo_2025)",
+    "regulatory_T_cells": "Treg (epidish_cent12CT, epidish_cent12CT450k), aTreg (unilife_guo_2025)",
+    "NK_cells": "NK (epidish_cent12CT, epidish_cent12CT450k, epidish_centBloodSub, epidish_centDHSbloodDMC, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), NK-cells_EPIC (loyfer_moss_2018), CD56_NK-cells (reinius_gse35069), aNK (unilife_guo_2025)",
+    "neutrophils": "Neu (epidish_cent12CT, epidish_cent12CT450k, salas_blood_450k_idol, salas_blood_epic_idol), Neutro (epidish_centBloodSub, epidish_centDHSbloodDMC), Neutrophils_EPIC (loyfer_moss_2018), Neutrophils_reinius (reinius_gse35069), neutrophil (caggiano_celfie_tim), aNeu (unilife_guo_2025)",
+    "eosinophils": "Eos (epidish_cent12CT, epidish_cent12CT450k), Eosino (epidish_centBloodSub, epidish_centDHSbloodDMC), Eosinophils_reinius (reinius_gse35069), eosinophil (caggiano_celfie_tim), aEos (unilife_guo_2025)",
+    "basophils": "Baso (epidish_cent12CT, epidish_cent12CT450k), aBaso (unilife_guo_2025)",
+    "monocytes": "Mono (epidish_cent12CT, epidish_cent12CT450k, epidish_centBloodSub, epidish_centDHSbloodDMC, episcore_lungref, salas_blood_450k_idol, salas_blood_epic_idol, unilife_guo_2025), Monocytes_EPIC (loyfer_moss_2018), CD14_monocytes (reinius_gse35069), monocyte (caggiano_celfie_tim), aMono (unilife_guo_2025)",
+    "macrophages": "Macro (episcore_lungref, episcore_oeref, episcore_skinref), macrophage (caggiano_celfie_tim), MP (episcore_breastref, episcore_heartref pooled myeloid)",
+    "microglia": "Microglia (episcore_brainref) \u2014 CNS-tissue-resident macrophage",
+    "kupffer_cells": "Kup (episcore_liverref) \u2014 liver-resident macrophage",
+    "dendritic_cells": "dendritic (caggiano_celfie_tim)"
+  },
+  "_cell_type_to_page_mapping": {
+    "_doc_note": "The 19 cell-type categories listed in cell_types_of_interest map to 16 customer-facing per-cell pages. Pages are organized per the bidirectional-grouping discipline rule and the 'follow the biology' rule: immune biology is class-unified (cells circulate together, share lineage, share class-level disease patterns) so subpages group by immune lineage function rather than by organ.",
+    "B_cells": "b_cells_page",
+    "naive_B_cells": "naive_b_cells_page",
+    "memory_B_cells": "memory_b_cells_page",
+    "plasma_cells": "plasma_cells_page",
+    "CD4_T_cells": "cd4_t_cells_page",
+    "CD8_T_cells": "cd8_t_cells_page",
+    "naive_CD4_T_cells": "naive_cd4_t_cells_page",
+    "naive_CD8_T_cells": "naive_cd8_t_cells_page",
+    "memory_T_cells": "memory_t_cells_page",
+    "regulatory_T_cells": "regulatory_t_cells_page",
+    "NK_cells": "nk_cells_page",
+    "neutrophils": "neutrophils_page",
+    "eosinophils": "eosinophils_page",
+    "basophils": "basophils_page",
+    "monocytes": "monocytes_page",
+    "macrophages": "macrophages_page",
+    "microglia": "microglia_page",
+    "kupffer_cells": "kupffer_cells_page",
+    "dendritic_cells": "dendritic_cells_page"
+  },
+  "_grouping_rationale": {
+    "_doc_note": "Bidirectional-discipline reasoning: cell types that could move in opposite directions in the same disease pattern get separate pages; cells that consistently move together can share a page or sub-section.",
+    "naive_CD4_vs_naive_CD8": "Separate pages required. Chronic HIV selectively depletes naive CD4 more than naive CD8 \u2014 opposite-direction pattern documented in clinical literature. CMV chronic infection drives differential CD8 vs CD4 dynamics. Grouping these would mask HIV-status and chronic-viral-infection signatures at the customer level.",
+    "B_cells_vs_naive_B_vs_memory_B_vs_plasma": "Separate pages for naive B, memory B, and plasma cells. In multiple myeloma, plasma cells expand clonally while general B cells and naive B cells stay normal or DOWN. In B-cell lymphomas (DLBCL, follicular), the opposite \u2014 general B-cell up, plasma stays normal. Naive B cells specifically elevate near solid-tumor diagnosis (VAL-095 aBnv at 0-2yr d=+0.44/+0.49). The general B_cells page covers the umbrella signal; subset pages cover lineage-stage-specific patterns.",
+    "macrophages_vs_microglia_vs_kupffer": "Separate pages for tissue-resident macrophage subtypes. Microglia (CNS-resident) elevate in neurodegeneration patterns (AD, MS, PD, ALS) while peripheral macrophages stay normal \u2014 opposite-direction. Kupffer cells (liver-resident) DEPLETE in HCC while peripheral macrophages infiltrating tumor (TAMs) elevate \u2014 opposite-direction in same customer. Different organ-system patterns, different disease drivers, must stay separate.",
+    "memory_T_cells_combined_CD4_and_CD8": "Single memory_T_cells page covering both CD4Tmem and CD8Tmem. Memory T cell pool dynamics (chronic-viral-infection-driven memory inflation, TEMRA accumulation, immunosenescence) generally affect CD4mem and CD8mem in the same direction. CMV-driven CD8mem expansion is the strongest exception, but CD4mem typically also expands in CMV+ customers (just less dramatically). Treated as one page with sub-section discussion of subtype-specific findings."
+  }
+}

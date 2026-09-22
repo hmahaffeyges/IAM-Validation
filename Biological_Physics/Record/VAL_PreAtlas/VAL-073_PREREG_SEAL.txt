@@ -1,0 +1,8 @@
+VAL-073 Pre-Registration Seal
+================================
+Sealed:                2026-04-25 (UTC, before any β-value parse)
+Pre-reg file SHA-256:  f4f637c313c2b6250ce62887bf151640f8ef80dd54cae2dda4c743a063f42d0b
+Manifest file SHA-256: f1c9e3e2db37e62816a1546e37fcdeb67755a5d5f1df5a067fc659e57a1fd957
+Series matrix SHA-256: 1bde17e6a236c78d18370fe8a98a5c4a21de3c32e8d4447076f1dad239074339
+Panel SHA-256:         ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6
+RNG seed:              20260425

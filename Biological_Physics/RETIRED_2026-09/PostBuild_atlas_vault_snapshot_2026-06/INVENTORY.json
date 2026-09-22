@@ -1,0 +1,973 @@
+[
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlasREBUILD.csv.xz",
+    "size": 100700052,
+    "sha256": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee",
+    "description": "IAMAtlas v0.1 REBUILD - unified IAM cell-type methylation reference matrix, xz-compressed (LFS). 483,092 CpGs x 264 columns (32 class-level brightness + 230 per-cell-type [115 cells x 2] + n_classes_with_data). REPLACES the retired collapsed IAMAtlas.csv.xz (sha256 a11f62b0...). Rebuilt with iamatlas_v0_1_mcmc_batched_FIXED.py to fix the per-cell-type flatness in the original build. 8 architecture classes (immune=51, cycling=19, secretory=18, terminal=9, progenitor=11, stromal=5, stem_pluri=1, stem_adult=1) - cell counts reflect post-reconciliation cleanup that resolved Salas a-prefix duplicates and lowercase thin-twin duplicates. 450K-level CpG universe. Every class distinctness-tested before acceptance. Built 2026-05-28. Uncompressed ~577 MB."
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlasREBUILD_celltype_to_class.json",
+    "size": 3080,
+    "sha256": "06f89ea339e2e30d4b1540ae13bd426aa9a77eefa9c499a935670139a22e9249",
+    "description": "Maps each of the 115 REBUILD cell types to its architecture class. Required by the deconvolver for class-level aggregation. Replaces IAMAtlas_celltype_to_class.json (which mapped 133 cells before duplicate reconciliation)."
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlasREBUILD_provenance.json",
+    "size": 1757,
+    "sha256": "91b688f173b68c6c40e1176d584e0605995784cb67cede2f03a07f0069403c66",
+    "description": "Full build metadata for the REBUILD edition: build date, pipeline steps (FIXED MCMC -> reconcile_duplicates -> merge -> compact), predecessor, the 8 classes, n_cell_types=115, n_cpgs=483092, frozen H_min values, per-class distinctness test outcomes."
+  },
+  {
+    "path": "IAMAtlas_v0_1/IAMAtlas_FLATNESS_LESSON.md",
+    "size": 10075,
+    "sha256": "b4c302467560727fd9b70b2d567736fd142fcf1dd1ea5cbb97d221e127b991c1",
+    "description": "READ BEFORE ANY REBUILD. The flatness problem and the fix: the original v0.1 build's per-cell-type layer collapsed onto the class mean despite clean R-hat convergence; the FIXED script's per-pair logit-mean parameterization restores distinct cells; the FIXED script produces high R-hat (1.4-2.6) and low ESS (5-9) with zero divergences, which is BENIGN for the means and must not be 'fixed' down. Replaces the prior MCMC_BUILD_LESSONS.md which incorrectly stated the 7 non-stromal v0.1 classes were 'valid as-is and not re-run' - they were collapsed and HAVE been re-run."
+  },
+  {
+    "path": "IAMAtlas_v0_1/README.md",
+    "size": 14094,
+    "sha256": "992de754d9db1a8f3c30cb6960ed8b6246f1e7ee2eebb95a60205c25bdc36e60",
+    "description": "IAMAtlas v0.1 REBUILD edition documentation (May 2026). Replaces the retired collapsed-build README. Covers the REBUILD pipeline, the 8 architecture classes (115 cell types post-reconciliation), per-class distinctness verification, single-class re-run procedure, CpG universe scope, and deconvolver integration. Points to IAMAtlas_FLATNESS_LESSON.md as the load-bearing 'read before any rebuild' document."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/cycling_v0_1_REBUILD.tar.xz",
+    "size": 15951064,
+    "sha256": "74062a0dcafb4af4393d9d64cc6fa23471666f5adbf220df6d8a801d748ba203",
+    "description": "Per-class re-run archive (LFS) for class=cycling. Contains: iamatlas_v0_1_cycling_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_cycling_brightness.csv, iamatlas_v0_1_cycling_result.json, and raw/iamatlas_v0_1_cycling_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/immune_v0_1_REBUILD.tar.xz",
+    "size": 63580672,
+    "sha256": "b6c7afe63b51f6a4f86d731088227c38e7755c1ad7c9151879aeb4365b6116f7",
+    "description": "Per-class re-run archive (LFS) for class=immune. Contains: iamatlas_v0_1_immune_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_immune_brightness.csv, iamatlas_v0_1_immune_result.json, and raw/iamatlas_v0_1_immune_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/progenitor_v0_1_REBUILD.tar.xz",
+    "size": 33054132,
+    "sha256": "6d685be8ccff7e6c82a691b28b9c4d809eacc796b2924fdfa981017e1db2adca",
+    "description": "Per-class re-run archive (LFS) for class=progenitor. Contains: iamatlas_v0_1_progenitor_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_progenitor_brightness.csv, iamatlas_v0_1_progenitor_result.json, and raw/iamatlas_v0_1_progenitor_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/secretory_v0_1_REBUILD.tar.xz",
+    "size": 16113176,
+    "sha256": "9a8fc1f7b18b4511046f88f842158a0c6716bd6599e8a1d577264ea5877002db",
+    "description": "Per-class re-run archive (LFS) for class=secretory. Contains: iamatlas_v0_1_secretory_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_secretory_brightness.csv, iamatlas_v0_1_secretory_result.json, and raw/iamatlas_v0_1_secretory_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/stem_adult_v0_1_REBUILD.tar.xz",
+    "size": 9005068,
+    "sha256": "5b08e09e0a097a4389d3f776261a476859cf8d0b1489f939a754c4a70c67f59a",
+    "description": "Per-class re-run archive (LFS) for class=stem_adult. Contains: iamatlas_v0_1_stem_adult_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_stem_adult_brightness.csv, iamatlas_v0_1_stem_adult_result.json, and raw/iamatlas_v0_1_stem_adult_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/stem_pluri_v0_1_REBUILD.tar.xz",
+    "size": 9062768,
+    "sha256": "9d9d5238fb60b8a6ed40d104a64c0c354d3f9aee258ee9e812624d846893eb54",
+    "description": "Per-class re-run archive (LFS) for class=stem_pluri. Contains: iamatlas_v0_1_stem_pluri_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_stem_pluri_brightness.csv, iamatlas_v0_1_stem_pluri_result.json, and raw/iamatlas_v0_1_stem_pluri_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/stromal_v0_1_REBUILD.tar.xz",
+    "size": 792568,
+    "sha256": "8a68846561cdb47f8cab00346f73b83cd8ecd655abfab53502697f32ae9699c6",
+    "description": "Per-class re-run archive (LFS) for class=stromal. Contains: iamatlas_v0_1_stromal_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_stromal_brightness.csv, iamatlas_v0_1_stromal_result.json, and raw/iamatlas_v0_1_stromal_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/class_archives/terminal_v0_1_REBUILD.tar.xz",
+    "size": 17112924,
+    "sha256": "a8550c17293c763c6af2a39f003b1ebdcd7b3fdcac8f9a20cbe765d6ef11a591",
+    "description": "Per-class re-run archive (LFS) for class=terminal. Contains: iamatlas_v0_1_terminal_per_celltype.csv (post-reconciliation canonical), iamatlas_v0_1_terminal_brightness.csv, iamatlas_v0_1_terminal_result.json, and raw/iamatlas_v0_1_terminal_per_celltype.csv (pre-reconciliation original). Use this archive as the starting point when re-running ONLY this class (adding atlases/cells without rebuilding the others). Extract, modify the inputs, re-run iamatlas_v0_1_mcmc_batched_FIXED.py for this class, distinctness-test, then re-merge."
+  },
+  {
+    "path": "IAMAtlas_v0_1/compact_atlas.py",
+    "size": 4900,
+    "sha256": "ef8bdf4debd1878a1be06d36a15367c689ae48e4003e44902a5891bd4f2407d9",
+    "description": "Stage 4 of the REBUILD pipeline. xz-compresses the merged atlas to IAMAtlasREBUILD.csv.xz (preset 9 | PRESET_EXTREME) and tarballs each class's three files (per_celltype + brightness + result.json, plus raw pre-reconciliation per_celltype under /raw/) into class_archives/<class>_v0_1_REBUILD.tar.xz. Computes SHA-256 for each archive."
+  },
+  {
+    "path": "IAMAtlas_v0_1/iamatlas_v0_1_mcmc_batched_FIXED.py",
+    "size": 22164,
+    "sha256": "b067c922757ec3cca0e9578d4586d4619db7bb0635fa5308bb0b3a19f5315aea",
+    "description": "CANONICAL MCMC build script (USE FOR ALL FUTURE REBUILDS). Hierarchical Bayesian per-class model with the swamp+ridge fix: parameters restricted to observed (cpg,celltype) pairs; per-pair mu_logit prior removing the sigma_class_logit/log_kappa identifiability ridge. The older iamatlas_v0_1_mcmc_batched.py lacks this fix; the 7 non-stromal v0.1 classes were built with the old script and converged only because their data overpowered the ridge (verified: fixed model reproduces old at corr 0.99996). Stromal required this fix. See MCMC_BUILD_LESSONS.md."
+  },
+  {
+    "path": "IAMAtlas_v0_1/merge_iamatlas_v0_1_REBUILD.py",
+    "size": 8470,
+    "sha256": "1fdf78665a4d8d7e3124665b4183fdb2e33891b441805af949d774d4ecad51ec",
+    "description": "Stage 3 of the REBUILD pipeline. Combines the 8 per-class outputs into the unified IAMAtlasREBUILD.csv. Reads the *.RECONCILED.csv files from reconcile_duplicates.py plus the original brightness.csv files. Writes IAMAtlasREBUILD.csv, IAMAtlasREBUILD_celltype_to_class.json, and IAMAtlasREBUILD_provenance.json. Replaces the older merge_iamatlas_v0_1.py."
+  },
+  {
+    "path": "IAMAtlas_v0_1/reconcile_duplicates.py",
+    "size": 9276,
+    "sha256": "a6287bcdf51443b58c9b5cbc2b72ff9fede510b0911cfa88d1cce4107f485bc9",
+    "description": "Stage 2 of the REBUILD pipeline. Resolves duplicate-named cell types surfaced by the rebuild's distinctness tests. Immune: merges 12 a-prefix Salas-naming variants (aCD8Tmem vs CD8Tmem etc.) into their plain-name twins via coverage-weighted inverse-variance pooling (corr=1.000 between pairs confirmed they are the same biological cells). Cycling/Secretory/Terminal: drops thin lowercase variants (lung/hepatocyte/mammary/brain/heart/skeletal) whose better-covered capitalized twins exist; keeps thin no-twin cells (small_intestine, neuron) at low confidence per the two-tier design. Run between MCMC and merge."
+  },
+  {
+    "path": "README.md",
+    "size": 21110,
+    "sha256": "666f1fc029be333107fe0b9dbaa504cb84ef699a2e2e6898e508d4dd7259cae4"
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/cpg_null_runner.py",
+    "size": 34206,
+    "sha256": "b1dc56ea21a9a5a5a321ef2112cb3819d9c980f2c1c395da38fe7c614aaceca9",
+    "description": "L9 unified null-test framework v2 (2026-05-30). 8 standard nulls: N1 HC-label permutation, N2 age-strata permutation, N3 sex-strata permutation, N4 cohort-split replication, N5 plate-position null, N6 injection-recovery, N7 end-to-end simulation (now wired to synthetic_patient_generator.py \u2014 no longer DEFERRED), N8 look-elsewhere correction. Required for every CPG-VAL: N1, N4. Strongly recommended: N2, N6, N7, N8."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/synthetic_patient_generator.py",
+    "size": 24058,
+    "sha256": "e8bf4bb80f8d8ba33e1d1cf95ee79582e3e1fbe68b24af3209fcc08762014d49",
+    "description": "Phase A2 synthetic patient generator (2026-05-30). Methylome's FFP10/NPIPE equivalent. SyntheticCohort class generates \u03b2-matrix with known truth: per-patient cell-type fractions (Dirichlet), age, sex, batch, plate position, disease-panel CpG injection with hypomethylation-bias (5.4:1 matching CPG-VAL-003 empirical). ChainRecoveryTester reads cohort, runs simplified chain, returns recovery test (R3 Mahalanobis recovers signal). Wired into N7 of cpg_null_runner.py \u2014 N7 now performs real end-to-end sim instead of vacuous DEFERRED pass."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_null_results.json",
+    "size": 6566,
+    "sha256": "69cc2506af577d3246c36e6382d83a0703fccf6c0ee1f3bdac69e528ef7f40a4",
+    "description": "CPG-VAL-002 null suite run (2026-05-30). 7/7 declared nulls PASS at n_permutations=2000. N1 label perm p=0, N2 age-strata perm p=0, N3 sex-strata perm p=0, N4 cohort-split 100% concordance both cohorts, N6 injection-recovery within tolerance, N7 DEFERRED Phase A2, N8 skipped single-feature. First CPG-VAL formally null-validated."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_null_results_v2.json",
+    "size": 6418,
+    "sha256": "222e8cd0bda771a706e6d0deccd4a4151fb3c33990464868bb08d74723ddd46b",
+    "description": "CPG-VAL-002 null suite v2 (2026-05-30) with REAL N7 wired in. 7/7 PASS: N1 label perm p=0, N2 age-strata perm p=0, N3 sex-strata perm p=0, N4 cohort-split 100% concordance, N6 injection-recovery within tolerance, N7 synthetic cohort 47case/600HC at injected d=+2.0 recovers positive d through chain, N8 single-feature no correction needed."
+  },
+  {
+    "path": "chain_of_custody/L9_null_suite/test_runs/CPG_VAL_002_per_sample.csv",
+    "size": 32516,
+    "sha256": "5dc87f677d6f37c9b182217c92e607c7033a7affe97c944295e34033a6563d58",
+    "description": "CPG-VAL-002 per-sample reconstruction. 647 patients (47 cases / 600 HC after 1 NaN drop) \u00d7 {gsm, arm, cohort, age, gender, mahalanobis_distance}. Mahalanobis built from HC pooled reference centroid, Ledoit-Wolf shrinkage 0.0090, 115-cell-type feature space. d=+1.876 GSE51057, +2.097 GSE51032."
+  },
+  {
+    "path": "commercial_web_scoring_engine_skeleton.py",
+    "size": 24727,
+    "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
+  },
+  {
+    "path": "deconvolver/README.md",
+    "size": 10858,
+    "sha256": "f2a15d816ea1a7c3aee3ef0ca27dc8b7be152383fd075ae8ea09ee024b8e8832",
+    "description": "Walther IAM Deconvolver documentation: design rationale, usage, two-tier class/cell-type output, validation status."
+  },
+  {
+    "path": "deconvolver/walther_iam_deconvolver.py",
+    "size": 17777,
+    "sha256": "cb4e4db3051382f43982086e4cd4bea20fe8b5c4abd8080329a656e478df9016",
+    "description": "Walther IAM Deconvolver - cell-fraction estimator built for IAMAtlas. Two-tier: per-CLASS fractions (primary, reliable - the 8 architecture classes) + per-cell-type (secondary, indicative - within-class cells weakly separable in v0.1). Rank-based marker selection adapts to atlas's compressed between-cell variance; bounded-memory streaming (~120MB on full 1.2GB atlas). Replaces removed prototype iamatlas_deconvolver.py which used absolute thresholds that rejected all CpGs and loaded whole matrix. Validated: clean mixture recovered exactly, noisy 3-class class-level err ~0.10."
+  },
+  {
+    "path": "pipeline_runtime_matrices/README.md",
+    "size": 15029,
+    "sha256": "4b1ca6231faf9cca4c1f4a91110650842158e47c3a25255bbe17e07d4241bf70",
+    "description": "Inventory + how-to-use for the pipeline runtime matrices folder. Updated 2026-05-29 to add Stage 2.5 Mahalanobis files (mahalanobis_healthy_reference_v0_1.json + iamatlas_mahalanobis_scoring.py + per-patient validation CSV) in addition to the earlier TODO 1.1 Stage 2 per-cell-type files. 12 files total covering Stages 2, 2.5, 3, 4, 6."
+  },
+  {
+    "path": "pipeline_runtime_matrices/age_reference_matrix.csv",
+    "size": 7877,
+    "sha256": "2addfb4db77268f0230c5deb4daef0cc651fe80d2ba3d311e8b91125b6daeee2",
+    "description": "Stage 3 age reference matrix in CSV form - same content as the JSON, easier for inspection and citation."
+  },
+  {
+    "path": "pipeline_runtime_matrices/age_reference_matrix.json",
+    "size": 27182,
+    "sha256": "54232a5d1e269acbaacfa629d21d9c42fc77b5e1cf3af5289f2bd7450c5ef56a",
+    "description": "Stage 3 runtime matrix. 80 cells = 8 architecture classes x 10 decadal age bins (4-95). Each cell: (age_midpoint, A_mean, A_sd, beta_mean, beta_sd, n_samples, A_p10, A_p25, A_p50, A_p75, A_p90, source_citation). Source citations: Hannum 2013, Horvath 2013, Roadmap Epigenomics 2015, Moss 2018, Lister 2013, Alisch 2012, Adelman 2019, De Jager 2014 / Shireby 2022, Jaiswal 2014 CHIP-neg. Headline product feature: per-class cellular age computation + age-matched percentile ranking."
+  },
+  {
+    "path": "pipeline_runtime_matrices/age_reference_matrix.py",
+    "size": 11674,
+    "sha256": "8239519685171f76e6071ae2e1c61ed3700c8e14055dc6568ce936c5f6eaf5d5",
+    "description": "Stage 3 age reference matrix as Python module with age_ref_A(), age_ref_sd(), age_ref_percentiles() linear-interpolation helpers for any continuous patient age (matrix is decadal)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/cancer_prior.json",
+    "size": 500,
+    "sha256": "8ae529be32fb7d208224e34e2fcd97ce1d873bee30c86326761b2c1ece827805",
+    "description": "Stage 6 risk context. US lifetime cancer incidence per class. Provides Bayesian prior for the 'your reading combined with your risk context' framing of elevated readings in the customer report."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/README.md",
+    "size": 2018,
+    "sha256": "8592db8d2bdf13dcf51cb8c4c428096baa64e5f6885cbf3a5ea58c93a770b1d5",
+    "description": "Index README for per-card disease residual maps subfolder. Each card has its own subfolder containing README + residual_map.csv (TODO 1.3) + bimodality_map.csv (TODO 1.4) + pca_projections.csv (TODO 1.5). Grows one subfolder per active card as cohort cycles complete."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/README.md",
+    "size": 4920,
+    "sha256": "dcf5cffda5ad377d1ac83bbc0c6ca1b4c1a727c00b16161c540b76ce15526985",
+    "description": "Card-specific evidence README for breast-epic. Documents the cohort (GSE51057+GSE51032 >10yr breast pre-dx, n=47/601), methodology, key findings, and how the breast-epic card consumes the three artifacts in this folder."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/bimodality_map.csv",
+    "size": 1594351,
+    "sha256": "491385849b8fbc633f4e28edc3a262e599dc9b48cae95f0d68cc6f4d1f538bb8",
+    "description": "TODO 1.4 \u2014 breast-epic per-CpG bimodality (Sarle BC) case vs HC. 8,199 CpGs. 821 bimodal in HC, 396 lose bimodality in cases. Distribution-shape signature orthogonal to mean-shift. 35 CpGs double-confirmed (loss-of-bimodality AND concordant residual)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/pca_projections.csv",
+    "size": 118386,
+    "sha256": "2ecd5d85a6ef110d20c72b17d8775a6513521f06600f8ce4ba15b8bf0117fec0",
+    "description": "TODO 1.5 \u2014 breast-epic 8-class PCA projections per patient. 647 patients (47 cases + 600 HC after one NaN drop) \u00d7 8 PCs. PC1 (70.7% variance) broad cellular drift d=+1.07/+0.57. PC2 (13.4%) stem_pluri vs stem_adult+immune. Cross-reference: 115-cell PCA (not saved) reveals PC2 T-cell SUPPRESSION axis d=-0.67/-0.58 replicating \u2014 immunosurveillance failure signature."
+  },
+  {
+    "path": "pipeline_runtime_matrices/card_residual_maps/breast_epic/residual_map.csv",
+    "size": 544186,
+    "sha256": "edd006f8b4030eb36a0e9bc31134e87f62ed1ccc3290f2170e2a7519ec3a78f7",
+    "description": "TODO 1.3 \u2014 breast-epic per-CpG residual map. 7,114 class marker CpGs. Built 2026-05-29 from production Walther IAM Deconvolver. 1,392 concordant CpGs (|d|>0.3 both cohorts, same sign), 1,173 hypomethylated vs 219 hypermethylated (5.4:1), 1,389 NEW candidates not in Xu-538. Top hits cg20124336 d=-2.17/-1.89, cg16188349 d=-1.67/-1.67."
+  },
+  {
+    "path": "pipeline_runtime_matrices/cfdna_weight.json",
+    "size": 557,
+    "sha256": "ca632d039a2590fd4aaf26f6c9514a19981bafac90c7bdc248f3ee8298d7cd61",
+    "description": "Stage 4 runtime matrix. Tissue-of-origin shedding weights for healthy plasma cfDNA, derived from Snyder 2016 + Moss 2018. Per-class expected fractions: immune 0.70, cycling 0.12, secretory 0.08, stromal 0.04, stem_adult 0.03, progenitor 0.02, terminal 0.005, stem_pluri 0.005. Consumed when substrate is plasma cfDNA to compute the pan-tissue weighted screen (E4 engine)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/disease_signature_matrix/README.md",
+    "size": 5709,
+    "sha256": "c44505b2dc590a72520495b38dc09972c89a63291fa257f5b86f56120e324a54",
+    "description": "Folder README for disease signature matrix. Explains how matrix + schema work together (matrix is data, schema is contract \u2014 they ship as a unit), version log, maintenance protocol, how Stage 5 consumes them, and the distinction between this matrix (global pattern-matching) and disease CARDS (per-disease scoring)."
+  },
+  {
+    "path": "pipeline_runtime_matrices/disease_signature_matrix/disease_cell_signature_matrix_engine_schema_v1_2.md",
+    "size": 6427,
+    "sha256": "b54c38542ff6837741b7bda47fd4a28863b349e211f208927f6eb162183ecbc1",
+    "description": "Engine consumption schema v1.2 (2026-05-10, refs refreshed for v1.4 matrix). Defines column structure (8 metadata + 123 cell-type), value encoding (float / range / directional), Mahalanobis-style compute_match_magnitude() algorithm Stage 5 calls, compute_customer_tier() severity mapping, maintenance protocol. Schema bumps only on structural changes (column additions/removals/renames or value-encoding changes) \u2014 stays stable across cell-value-only matrix updates. WITHOUT this schema the CSV is unparseable."
+  },
+  {
+    "path": "pipeline_runtime_matrices/disease_signature_matrix/disease_cell_signature_matrix_v1_4.csv",
+    "size": 33852,
+    "sha256": "8600d3e7f5449722436cd2532875048b30955b3bf94ddf9f3d1bd1b58213ce32",
+    "description": "Disease \u00d7 cell signature matrix v1.4 (2026-05-29). 77 disease/condition \u00d7 phase rows \u00d7 131 cols (8 metadata + 123 cell-type). Each cell holds a signed Cohen's d (e.g. '+1.26') or a magnitude range ('+0.5/+1.0') or a directional placeholder ('\u2191\u2191'). Stage 5 pattern-matching layer: customer's per-cell-type A-score profile is matched against every row via Mahalanobis-style sign-aligned product. Top-3 candidate signatures returned per customer. v1.3\u2192v1.4 update: breast_cancer long_pre_dx row +11 new cell values (basophils, plasma_cells, microglia, skin_melanocytes, NeuMa, neurons_pooled, smooth_muscle, breast_BE TISSUE-OF-ORIGIN, endothelial_cells, CD4_T_cells, CD8_T_cells) from TODO 1.1 per-cell-type extension. evidence_anchors expanded to cite TODO 1.2 Mahalanobis d=+1.87/+2.09, TODO 1.3 residual map 1,392 concordant CpGs, TODO 1.5 PC2 T-cell suppression d=-0.67/-0.58."
+  },
+  {
+    "path": "pipeline_runtime_matrices/family_history_multiplier.json",
+    "size": 469,
+    "sha256": "86468854acda627e9130139b36eb3ca264c0f4e7a7416c3de7a157cb7534967c",
+    "description": "Stage 6 risk context. First-degree-relative cancer relative-risk multipliers per class. Adjusts the cancer_prior conditional on family-history intake form data. Turns 'keep watching' into 'go to a doctor' when family history is present."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_a_scoring.py",
+    "size": 7558,
+    "sha256": "bfe897d6d6b87099f5e93ee6e1be5034712d1f2cf4cc6a7159f69f703c8f4576",
+    "description": "Stage 2 scoring module (NEW 2026-05-29 \u2014 TODO 1.1 v0.2 sharpening extension). Two functions: score_per_class(beta_dict, class_markers, H_min_by_class) returns 8 class A-scores; score_per_celltype(beta_dict, celltype_markers, celltype_to_class, H_min_by_class) returns 115 cell-type A-scores. Both return per-result A-score + coverage + confidence + status (OK / INSUFFICIENT_MARKERS / NO_MARKER_OVERLAP). Sibling to the Walther IAM Deconvolver, NOT a replacement: deconvolver does NNLS fractions, this module does entropy-at-markers A-scores. Different math, different CpG sets, different failure modes - kept independent for testability."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_celltype_markers_v0_1.json",
+    "size": 237021,
+    "sha256": "a56576cd5a7b2219d22d9a7a6efccd141a43c6d5fe4f5eb1d81e7375e1061ddc",
+    "description": "Stage 2 per-cell-type marker artifact (NEW 2026-05-29 \u2014 TODO 1.1 v0.2 sharpening extension). 115 cell types x top-100 one-vs-rest marker CpGs each. Selection: |target_celltype_mean - mean(other_114_celltype_means)|, top-N. Adapted from val_093.py identify_marker_cpgs (per-Loyfer-tile) to per-IAMAtlas-cell-type. Built from IAMAtlasREBUILD (source SHA 41b7c16f...). Loaded by iamatlas_a_scoring.py at startup. Unlocks per-cell-type A-scores beyond the 8-class output: VAL-095 aTreg at >10yr breast pre-dx d=+1.26/+0.79 and VAL-096 pancreatic/kidney/erythrocyte-progenitor signals now natively in one pipeline run; new findings at sub-cellular resolution include Basophils d=+1.577 in GSE51057 and BE breast-epithelial d=+1.281 at >10yr."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_celltype_markers_v0_1.sha256",
+    "size": 102,
+    "sha256": "aa318093e5161d3141faaa82116efb0f6fc8b3e4d4fb5377876ff5b7e48be686",
+    "description": "SHA-256 sidecar file for iamatlas_celltype_markers_v0_1.json."
+  },
+  {
+    "path": "pipeline_runtime_matrices/iamatlas_mahalanobis_scoring.py",
+    "size": 4731,
+    "sha256": "f04e8f8aba62d2717a7f832c608937d7fe449ac329b6ca61e624531f0d32fc08",
+    "description": "TODO 1.2 scoring module (2026-05-29). MahalanobisHealthyHull class. Load reference once at startup, call .score(celltype_ascores_dict) per patient. Returns mahalanobis_distance + n_features_used/imputed + status + top10_axis_contributions (which cell types most drive this patient's distance from healthy). Companion to iamatlas_a_scoring.py."
+  },
+  {
+    "path": "pipeline_runtime_matrices/literature_anchors.json",
+    "size": 5385,
+    "sha256": "b78e7d19096192fdf844e899e1ad38b62ce3c820cb1d1580ce2011d55c22b002",
+    "description": "Stage 6 report context. Published reference A-scores per class (healthy / disease / cancer cohort anchors). Used by E7 engine to position patient's reading against published cohorts in the customer report."
+  },
+  {
+    "path": "pipeline_runtime_matrices/mahalanobis_healthy_reference_v0_1.json",
+    "size": 373529,
+    "sha256": "fae063012ff7542a56ae4f91a494bad087d714f944911d6ff289113014a95b2b",
+    "description": "TODO 1.2 v0.2 sharpening output (2026-05-29). Pooled-HC Mahalanobis reference ellipsoid in 115-cell-type A-score space. LedoitWolf shrinkage 0.0088. n_hc=601 (GSE51057 + GSE51032 healthy controls). 112 features after NaN-column drop. Stores centroid + full covariance matrix + validation anchor. Validation: >10yr breast pre-dx cases vs HC Cohen's d = +1.871 (GSE51057, 95% CI [+1.014, +2.856]) and +2.088 (GSE51032, 95% CI [+1.502, +2.735]). Beats Xu-538 disease-trained panel by +0.752 on GSE51032 while NOT being breast-trained \u2014 universal departure-from-healthy summary across all cards."
+  },
+  {
+    "path": "pipeline_runtime_matrices/mahalanobis_per_patient_breast_predx_validation.csv",
+    "size": 26770,
+    "sha256": "b4de7375cb1fb415eae2bb49746d0c7c3a14647ae041331ff852506954b837cf",
+    "description": "TODO 1.2 validation data (2026-05-29). Per-patient Mahalanobis distance from pooled-HC centroid for the breast pre-dx validation cohort (GSE51057 + GSE51032, n=648 total). Columns: gsm, arm (case/hc), cohort, mahalanobis_115."
+  },
+  {
+    "path": "pipeline_runtime_matrices/tier_breakpoints.json",
+    "size": 1911,
+    "sha256": "1e98640d58b61aec94d37446ae2dd175c6d1c06f8ab4ebd49fa7815cf45d8d2f",
+    "description": "Stage 4 runtime matrix. A-score thresholds for tier calls: NORMAL (A<=1.05), MARGINAL (1.05<A<=1.07), DETECTABLE (1.07<A<=1.10), URGENT (1.10<A), FLOOR_BREACH (A above class ceiling), BELOW_NORMAL (A significantly below age-matched expectation = suppression/homogenization). Includes engine -> customer language collapse: engine tiers map to ELEVATED / SIGNIFICANTLY_ELEVATED / SUPPRESSED / NORMAL in the customer report."
+  },
+  {
+    "path": "post_build_evidence/v1_CPG_IAMAtlas_Evidence_Report.html",
+    "size": 41075,
+    "sha256": "f5db12ea4b86c9787ab6c7e40ea64c084f4370e9209f44d1b945b659cc0bc033",
+    "description": "CPG (Cellular Performance Gauge) post-IAMAtlas-build Evidence Report v1 (2026-05-29). Reproducibility quadruple (cohort + script + sealed prereg + sealed results) mandatory for every VAL block. Family A (Section 3) = 7 foundation VALs CPG-VAL-001 through CPG-VAL-007 from the 2026-05-29 v0.2 sharpening session, full methodology + headline results + replication evidence + outcome codes. Family B (Section 4) = breast-epic template placeholders CPG-VAL-008 through CPG-VAL-014. CPG uses IAMAtlas-native tools ONLY \u2014 never external panels (Xu-538) or atlases (Loyfer/EpiSCORE/Salas/UniLIFE) in production scoring. Pre-build evidence archived in RETIRED_Evidence_Report.html."
+  },
+  {
+    "path": "post_build_evidence/v1_CPG_VAL_Inventory_Report.md",
+    "size": 16847,
+    "sha256": "bf408b6c775565b02c6cafa9f4ff75b435e38f074bd846d44c825c6a743cd2a2",
+    "description": "CPG (Cellular Performance Gauge) post-build Complete VAL Inventory v1 (2026-05-29). 6-rule reproducibility protocol at top: every VAL row must have GSE+URL+paper+script+SHA+prereg+SHA+results+SHA+per-sample+SHA+outcome+headline+code. Four families: A=foundation confirmation (7 entries, all sealed pending VAL formalization), B=per-card confirmation (breast-epic template B.1, immune-epic B.2 pending), C=exploratory enrichment (future), D=educational replication (future). Numbering CPG-VAL-001+. Pre-build VAL-001 through VAL-128 archived in RETIRED_VAL_inventory_report.md."
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/README.md",
+    "size": 6639,
+    "sha256": "d61b32d405bb48a4073c0dc7128fe24b884e34a484fff3777c904c3a247a9007",
+    "description": "README for BoccellatoStomachRef_HM450 v1: HM450-platform restriction methodology, VAL-123 calibration outcome, sealed Type 2 healthy-floor thresholds."
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/boccellato_stomachref_HM450_v1.csv",
+    "size": 25110908,
+    "sha256": "f5a620a93aba40d0567346d156ce7ea2861f8ed38ee1bd669a4ff52b261fa390",
+    "description": "BoccellatoStomachRef_HM450 v1 \u2014 HM450-restricted derivative of EPIC-source atlas (Fritsche/Boccellato 2022 GSE141660). 380,467 CpGs intersected with HM450 platform from EPIC source 738,115 CpGs. 6 tiles: 3 gastric regions (Antrum/Corpus/Fundus) \u00d7 2 differentiation states (undiff/diff). All tiles secretory class (H_min=0.843264). Calibrated VAL-123 PASS on TCGA-KIRC+PRAD adjacent-normal n=210.",
+    "n_unique_cpgs": 380467,
+    "n_tile_columns": 6,
+    "tiles": [
+      "Antrum_undiff",
+      "Antrum_diff",
+      "Corpus_undiff",
+      "Corpus_diff",
+      "Fundus_undiff",
+      "Fundus_diff"
+    ],
+    "tile_class_assignment": {
+      "Antrum_undiff": "secretory",
+      "Antrum_diff": "secretory",
+      "Corpus_undiff": "secretory",
+      "Corpus_diff": "secretory",
+      "Fundus_undiff": "secretory",
+      "Fundus_diff": "secretory"
+    },
+    "h_min_secretory": 0.843264,
+    "platform": "HM450 (Illumina HumanMethylation450 BeadChip), restricted from EPIC 850K source",
+    "epic_source_path": "stage2_cell_of_origin/boccellato_stomachref_v1/boccellato_stomachref_v1.csv",
+    "epic_source_sha256": "fbe1dbfdeceb87a1f28c5737f0c3d8b6f86614dee5b9dfeb525741d3e4ef4d11",
+    "source_paper": "Fritsche K, Boccellato F et al. Clin Epigenetics 2022;14:193. DOI 10.1186/s13148-022-01406-4. PMID 36585699.",
+    "geo_accession": "GSE141660 (GPL21145 EPIC sub-platform; HM450 derivative built 2026-05-02)",
+    "license": "CC BY 4.0 (Boccellato 2022 source paper)",
+    "calibration_val": "VAL-123",
+    "calibration_outcome": "O1_BOCCELLATO_CALIBRATION_SEALED",
+    "calibration_anchor_cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (VAL-106 substrate)"
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_HM450_v1/restrict_to_hm450.py",
+    "size": 4383,
+    "sha256": "1ba300343d37c392063bc38b6d59aa66c7f15c8001281a29c246b3d0cb7398d0",
+    "description": "Reproducibility-triple build script (CHK-7.6) \u2014 restricts the EPIC-source atlas to HM450-platform CpG subset. Python 3 standard library only. Pattern mirrors VAL-117 ProstateRef amendment precedent."
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_v1/README.md",
+    "size": 4466,
+    "sha256": "8b65e006d29fa2470a322e50226fc2b8a4fbe19f0e807f6010f80354fc102c5e",
+    "description": "README for BoccellatoStomachRef v1 EPIC source: provenance, construction methodology, verification gates, atlas-family-fitness diagnostic."
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_v1/boccellato_stomachref_v1.csv",
+    "size": 48715676,
+    "sha256": "fbe1dbfdeceb87a1f28c5737f0c3d8b6f86614dee5b9dfeb525741d3e4ef4d11",
+    "description": "BoccellatoStomachRef v1 (EPIC source) \u2014 gastric epithelial mucosoid reference, 18 samples (3 donors \u00d7 3 regions \u00d7 2 differentiation states), 738,115 CpGs after Boccellato 2022 SWAN+ChAMP filtering. 6 tiles: Antrum/Corpus/Fundus \u00d7 undiff/diff. All tiles secretory class (H_min=0.843264). PROVENANCE only \u2014 operational atlas is HM450-restricted derivative at boccellato_stomachref_HM450_v1/.",
+    "n_unique_cpgs": 738115,
+    "n_tile_columns": 6,
+    "tiles": [
+      "Antrum_undiff",
+      "Antrum_diff",
+      "Corpus_undiff",
+      "Corpus_diff",
+      "Fundus_undiff",
+      "Fundus_diff"
+    ],
+    "tile_class_assignment": {
+      "Antrum_undiff": "secretory",
+      "Antrum_diff": "secretory",
+      "Corpus_undiff": "secretory",
+      "Corpus_diff": "secretory",
+      "Fundus_undiff": "secretory",
+      "Fundus_diff": "secretory"
+    },
+    "h_min_secretory": 0.843264,
+    "platform": "Illumina MethylationEPIC (EPIC 850K), GPL21145",
+    "source_paper": "Fritsche K, Boccellato F et al. Clin Epigenetics 2022;14:193. DOI 10.1186/s13148-022-01406-4. PMID 36585699.",
+    "geo_accession": "GSE141660 (GPL21145 EPIC sub-platform)",
+    "license": "CC BY 4.0 (Boccellato 2022 source paper)",
+    "calibration_val": "none directly; HM450 derivative calibrated as VAL-123",
+    "role": "PROVENANCE_SOURCE for HM450-restricted derivative"
+  },
+  {
+    "path": "stage2_cell_of_origin/boccellato_stomachref_v1/build_boccellato_stomachref_v1.py",
+    "size": 5007,
+    "sha256": "9568a21f3b818a2cfbf32c8f4732d978df15fb67375242ed52ce367f3f682b7b",
+    "description": "Reproducibility-triple build script (CHK-7.6) \u2014 constructs the EPIC-source atlas from GSE141660 GPL21145 series matrix. Python 3 standard library only."
+  },
+  {
+    "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
+    "size": 10102,
+    "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt",
+    "size": 378052,
+    "sha256": "103aad66cc3ebc19930a1ef458e78abde46c5b63ec194a4ca6b4886c91f73b6c"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/bridge_caggiano_to_array.py",
+    "size": 7568,
+    "sha256": "78addc66e37ff12a33a9879a40eb260d47b5fcaf932a66f94067e40800046b4d"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_INVENTORY.json",
+    "size": 1687,
+    "sha256": "6ee97f2d7e94d39cde8961d919e4b7244713393eca99993e08cfa6c65997a31d",
+    "description": "Per-atlas INVENTORY companion for Caggiano TIM array-bridged atlas"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_cpg_bridged.csv",
+    "size": 90062,
+    "sha256": "42c9899ad44b0c2737591299c75f4b2e0e83196e8a76bc061c575a317e6ff848",
+    "n_unique_cpgs": 254,
+    "n_cell_type_columns": 19,
+    "cell_types": [
+      "dendritic",
+      "endothelial",
+      "eosinophil",
+      "erythroblast",
+      "macrophage",
+      "monocyte",
+      "neutrophil",
+      "placenta",
+      "tcell",
+      "adipose",
+      "brain",
+      "fibroblast",
+      "heart",
+      "hepatocyte",
+      "lung",
+      "mammary",
+      "megakaryocyte",
+      "skeletal",
+      "small_intestine"
+    ],
+    "chk_3_1c_passed": true,
+    "bridge_method": "HM450 hg19 manifest CpG-in-region intersection from Caggiano et al. 2021 WGBS regions (1,581 \u2192 254 array CpGs); multi-region CpGs averaged",
+    "source_paper": "Caggiano C, Celona B, Garton F, Mefford J, Black BL, Henderson R, Lomen-Hoerth C, Dahl A, Zaitlen N. \"Comprehensive cell type decomposition of circulating cell-free DNA with CelFiE.\" Nat Commun 2021;12:2717. doi:10.1038/s41467-021-22901-x",
+    "bridge_date": "2026-04-29",
+    "calibration_VAL": "VAL-113",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-113_caggiano/VAL-113_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.5779
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/extract_manifest.R",
+    "size": 595,
+    "sha256": "75ce723b8916b5967bb4dfaa3e9be0b0d80a89489fe9fc461a0121ab1550d689"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/hm450_hg19_manifest.csv",
+    "size": 14394805,
+    "sha256": "a4c987458d0128311c6b74ae2fa6db64c2ed6b5a1a789d07247af86cf116598a",
+    "description": "HM450 hg19 (cpg_id, chr, pos) manifest extracted from Bioconductor IlluminaHumanMethylation450kanno v0.6.1; 485,512 CpGs; reusable for any region-indexed WGBS atlas bridge to array CpGs",
+    "derived_from": "IlluminaHumanMethylation450kanno.ilmn12.hg19_0.6.1 (Bioconductor)"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/README.md",
+    "size": 4040,
+    "sha256": "cf79f1e3f57822e209c2f83c9809afcb06ee1434f0329135326541a386a0c5ee"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/bridge_bladderref_to_array.py",
+    "size": 7773,
+    "sha256": "353ad950ed2a28274e93c1e7bd5e373daad1da4e495bbb7fb7ffa58e5eca3648"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_cpg_bridged.csv",
+    "size": 238102,
+    "sha256": "3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_bladderref/episcore_bladderref_entrez_matrix.csv",
+    "size": 9553,
+    "sha256": "5a4256833e2b6c8e57f10d724daaf56f72cc4905ae50209806335f3aa961d0d8"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/README.md",
+    "size": 4831,
+    "sha256": "056f47a9aeb2b9eab5d5c19d07e2d25774a9663af98af1a680cc43b33692b6b7"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/bridge_esoref_to_array.py",
+    "size": 7221,
+    "sha256": "187b7ce5f7d7c8c07c211c424b7df67dde6d88c8b5e87d7976fa32b4c27b6f3e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_cpg_bridged.csv",
+    "size": 403406,
+    "sha256": "6e650bd78ed2ee32d98ac4508b3b4295a1cd303a0fed2d850eeb9c35f897692b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_esoref/episcore_esoref_entrez_matrix.csv",
+    "size": 20825,
+    "sha256": "6d27782d8a3fb40dc9d663ca534e2b2880b103213dfba7ca27110dca10031f0b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/HeartRef_source.rda",
+    "size": 21401,
+    "sha256": "b000be45678fc6f95d94a3d8a2d20eadd24e36182935bc9a38408d6b718aa7a8"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/README.md",
+    "size": 2268,
+    "sha256": "4f585a48189a124f1d87e9ab8ff874b5b49910a885a2d3fae5026a0a991512da"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_cpg_bridged.csv",
+    "size": 325170,
+    "sha256": "bf6431f66749f02a616560764af3fdd0adc70b03bca96b2a13b6221bbd847c83",
+    "n_unique_cpgs": 3727,
+    "n_cell_type_columns": 5,
+    "cell_types": [
+      "CM",
+      "EC",
+      "FB",
+      "MP",
+      "SMC"
+    ],
+    "chk_3_1c_passed": true,
+    "calibration_VAL": "VAL-112",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.4283
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_entrez_matrix.csv",
+    "size": 16529,
+    "sha256": "dbd94719e2ad3a92433a1d16615457d9e05d1b1f60fc65128d39d60adb091edd"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/README.md",
+    "size": 3888,
+    "sha256": "9ce375e8f92cb4440c33adbf706b010c60d62b1769b763e512e8a3abeaccb291"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/bridge_oeref_to_array.py",
+    "size": 6112,
+    "sha256": "c7d01eee05015eb2396bcf80cb65b9b0747121707161c83cf9ffc79f6bf54d51"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_cpg_bridged.csv",
+    "size": 798233,
+    "sha256": "8f4e34ef63247b0ca09312fedb52abf5eee9ee1e8f09e35044ddceb8bdf3f651"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_oeref/episcore_oeref_entrez_matrix.csv",
+    "size": 33170,
+    "sha256": "12d44c311a28451771a3502382553ebdb704a8cedcedfc1e4d483e51b42c59e9"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
+    "size": 2545,
+    "sha256": "61958ebc9f69b83a12f5711e4305d2a1b4ddec94a7b4a78e465d904889100921"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_cpg_bridged.csv",
+    "size": 288130,
+    "sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_entrez_matrix.csv",
+    "size": 12959,
+    "sha256": "9cf0e54cb22e12986dab2e8a836cac80049dcf377231125a99cd3b6316707a8c"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__exprefBladder_m.csv",
+    "size": 19350,
+    "sha256": "941a34440da170698fda9dc44227ba8bed8b0e98fe325f30ad96ba81e614ab2e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__mrefBladder_m.csv",
+    "size": 9859,
+    "sha256": "f73fbeab74dfbe5aec2829303757908df569bb969101180c2875a46505a3e758"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BrainRef__exprefBrain_m.csv",
+    "size": 59215,
+    "sha256": "6341fd68f520772a43f00328cbd43cbba6a7616cbfcf051cb88280b7f39bafb2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BrainRef__mrefBrain_m.csv",
+    "size": 11051,
+    "sha256": "bbc2fc0d5d75851206663d1e2c7e0ec4a7ec0102edb0e53866efb1e295ec4ba6"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BreastRef__exprefBreast_m.csv",
+    "size": 168064,
+    "sha256": "36975c96c74939da2de05cbd252bed773c1d30671bb6339cc3515bfce20e5e62"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BreastRef__mrefBreast_m.csv",
+    "size": 40949,
+    "sha256": "9f546c2deba0d7890794094afe79d3134b00fe3f8f22e01c0072eea8753bca9b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ColonRef__Colon_Expref_m.csv",
+    "size": 15812,
+    "sha256": "a5c7edbe6ee5ac38586fd4c73255d9b7c4b78a79a9821858936058b7c8b1fc13"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ColonRef__Colon_Mref_m.csv",
+    "size": 8441,
+    "sha256": "d6ac1cc8bd74eb1fadd29291999ff5b768ec56619265e2eae3f8ecaff77e5506"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/EsoRef__Eso_Expref_m.csv",
+    "size": 78389,
+    "sha256": "11f1d79cad63aa5fcc3578bf53e3ef58c6264371f89d3f34f4ed96323a2f2256"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/EsoRef__Eso_Mref_m.csv",
+    "size": 21240,
+    "sha256": "975bbf80b07f31c802045fa152fb38917158e7dc4d9f363371c9173dca26c826"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/HeartRef__exprefHeart_m.csv",
+    "size": 52217,
+    "sha256": "26dada627159b68cb333a94e570bb82b70d39626f9cebd740fa1554f1f6a4ccb"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/HeartRef__mrefHeart_m.csv",
+    "size": 18187,
+    "sha256": "a8ec58a43294b772392a015ce967df384f27f4986723a8aac29d87ec3509e77a"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/KidneyRef__Kidney_Expref_m.csv",
+    "size": 10450,
+    "sha256": "3c3df96658d45fd40e5a2bb39f15dd87f2aaa0336aba244d63876c436b6576e3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/KidneyRef__Kidney_Mref_m.csv",
+    "size": 2144,
+    "sha256": "3cff72c408426ea815f86ac097edd3fa6465ab8cd7cab757011eaf0b645d9786"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LiverRef__exprefLiver_m.csv",
+    "size": 29305,
+    "sha256": "eed814361a009697d47504bddf56eaedce599d3c80be13d897dcdda8482cf2d1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LiverRef__mrefLiver_m.csv",
+    "size": 13765,
+    "sha256": "e285bdb6c19d3a281503be14405b48412080e80552aaa4435859efb714d51b15"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LungRef__exprefLung_m.csv",
+    "size": 95857,
+    "sha256": "3dba4fc4c1e00444263c1aac5828aaa918ab07da8d058e86164770226a7a5891"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LungRef__mrefLung_m.csv",
+    "size": 31445,
+    "sha256": "c7aecba5e46d4c31ea434f71186693f3aafb0800de761975bcdd18b401d44dd7"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/MANIFEST.json",
+    "size": 11939,
+    "sha256": "90800ffa05523924a40d4cee39315f63187b3b95f18d588e70b5d65d40a58990"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/OEref__exprefOE_m.csv",
+    "size": 123964,
+    "sha256": "6289dc60bc70f47ec886900403298dfb2dbc3320724e12a460fa0dd9f876660d"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/OEref__mrefOE_m.csv",
+    "size": 34304,
+    "sha256": "c2a2e673f8b3ebd7c1bcbae60ae62571ecda77ab7a5ef06cf9333a23cfd33a67"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef9ct__exprefPancreas9ct_m.csv",
+    "size": 62255,
+    "sha256": "f2f9656e759e81c4efca53d592fe469909cd6354c3177588c24b9857c7f9f95e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef9ct__mrefPancreas9ct_m.csv",
+    "size": 21144,
+    "sha256": "e6cad884bc29b349379c40e87acf607374a5451e6f800b005cf57b429043fcea"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef__exprefPancreas_m.csv",
+    "size": 39900,
+    "sha256": "9251be6b0cc9565fed5cdc2972f91c730652a9a50946904e03eaa9bd2768a05e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef__mrefPancreas_m.csv",
+    "size": 13979,
+    "sha256": "f3997f453ebbcabef30f63406e24c9b5cc939cfb87a328131d06e885f5c22df1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ProstateRef__exprefProstate_m.csv",
+    "size": 34949,
+    "sha256": "3c465a691ce9f82f3ec1adcdd387a49844bbf88bd3a087be4417e47bf74522d3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ProstateRef__mrefProstate_m.csv",
+    "size": 12240,
+    "sha256": "706a0910a6d284b268cd8d2bc6ffa131beadab9ee2d942a18178903e682a72a3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/SkinRef__exprefSkin_m.csv",
+    "size": 39527,
+    "sha256": "258b3fe81f57f6ee6d3254a614eb9a9b06ce974813ce265e61e21466def305f1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/SkinRef__mrefSkin_m.csv",
+    "size": 13380,
+    "sha256": "d6844f4ded676ba2f4499afbd889e1919858f88aa0de265ae87a3824a79dbc79"
+  },
+  {
+    "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv",
+    "size": 1125966,
+    "sha256": "9107929c3a140574a6b040e9d0b3645c3d4f7918e22501ba63588c7310c06177",
+    "n_unique_cpgs": 6105,
+    "n_cell_type_columns": 25,
+    "chk_3_1c_passed": true,
+    "dedupe_status": "deduped 2026-04-29 from 7890\u21926105 unique CpGs (1785 identical-value duplicates removed); see CCL-047",
+    "calibration_VAL": "VAL-112",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.6839
+  },
+  {
+    "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas_v0.2_with_duplicates.csv",
+    "size": 1454581,
+    "sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1",
+    "audit_trail_role": "Preserved v0.2 layered Moss+Loyfer file with 1,785 duplicate rows; superseded by reference_atlas.csv (deduped) on 2026-04-29; retained for v0.2.x sealed VAL outcome reproducibility",
+    "note": "DO NOT USE for production scoring \u2014 biased per CCL-047. Use reference_atlas.csv (deduped) instead."
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/CVresults.Rmd",
+    "size": 1192,
+    "sha256": "4a985339b13f6b98743e77ce6fa7558d236be8656518a112a71aad9bd81fd2c0"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/LICENSE",
+    "size": 1068,
+    "sha256": "3ffc1e1acb97b2770962f16af552035439ab866c534160852c3e0cb5693f43bc"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/MNPprocessIDAT_functions.R",
+    "size": 2908,
+    "sha256": "1f04db03c2a3e16a731f1bc7f06ea10bc2d4ab74ef7374bae17ae8c8a11c4052"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/RSpectra_pca.R",
+    "size": 1400,
+    "sha256": "ae62e3cd1de9224707c36981f2d204a2a091352184ff73283cb9314bb5b3890b"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/batchadjust.R",
+    "size": 2116,
+    "sha256": "282b4e5abed1b590be36a7188ee2c43b5775dc3f1ef2a99324f714fdd6c2913e"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/calculateCVfold.R",
+    "size": 2492,
+    "sha256": "6a78241eec054e77974b291dcb49b2c8f8242ee98f6716347b126ce6f86565ec"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/makefolds.R",
+    "size": 1087,
+    "sha256": "515b8dad33d94417ef41c3f8f8df5f856850d3816a58143a8b3f1ee2e9197fe5"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/multi_brier.R",
+    "size": 496,
+    "sha256": "fb3b134cc52eaa13a4b605ba52705309aef0bf4fe5762aa14c53034ea1814ad9"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/multi_logloss.R",
+    "size": 585,
+    "sha256": "410e55f3af5657b93cea4a30ae2b0d837868671a12f7557341fcba0a4bde834a"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/train.R",
+    "size": 881,
+    "sha256": "100608ee23268a5275eef2cfe7c80c1bfa378c4a612bc2646f8d250d217a4ff6"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/README.md",
+    "size": 1900,
+    "sha256": "27cc4dad13791c47c7f50fb5808ea24287ee4ed5da2d72a8709bc8ba1a66447b"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/calibration.R",
+    "size": 3466,
+    "sha256": "c87229c1bf41b9a5d92e903b532a44e6830b07d8269ca8890f5a95a2384e260a"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/cnv_analysis.R",
+    "size": 1451,
+    "sha256": "deb50a3caec07b3595f01f3cefd6a71e5579c2a47730f6e10a4e9e71dd2546e1"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/cross_validation.R",
+    "size": 2192,
+    "sha256": "8a81517d609ee1cc58b6865a9a5808d054ac2dbc00c556195a554fc833161121"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/amb_3965probes.vh20151030.txt",
+    "size": 47580,
+    "sha256": "22cbd00130047a08c56ad52ae4f02c8a9a97c2c8203b9fa847e3c30b7252ffe6"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/epicV1B2_32260probes.vh20160325.txt",
+    "size": 354860,
+    "sha256": "f607b2d17c10352d2d2cd318c08398158e504b5ee0b9df3d5800999985902941"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/snp_7998probes.vh20151030.txt",
+    "size": 95976,
+    "sha256": "d9d3df9bb240651c015085eb1b0e38c9181ac44df8cf217c51f31484c68fb134"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/xy_11551probes.vh20151030.txt",
+    "size": 138612,
+    "sha256": "af273d5328d40acb09a1b0e750f4d4b59d87f7fb03a65be92bff7c5392c4610f"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/preprocessing.R",
+    "size": 3329,
+    "sha256": "c7705e3417d1bdc4c527ec001b7851fdee5e57c70fb446d6c5a525b2a2e5a60d"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/purity.Rmd",
+    "size": 1167,
+    "sha256": "acc55b97090d59cdbdd6f38b2ff12a272e59c951a9348d4af346468de18808d0"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/training.R",
+    "size": 2809,
+    "sha256": "1d2e5b9a73d9fd2c02a10af030c1a6c2c428bfe57e3b27d5b067f64c5cc2838f"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/tsne.R",
+    "size": 1304,
+    "sha256": "28c97be4f4240f02d1e3b7ec2bbbb401769d68df611d694b80a4d82e42b602e5"
+  },
+  {
+    "path": "stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R",
+    "size": 6551,
+    "sha256": "2e92235b6ba3f83a58f8d1ced0d2efdc6e31de6d8f8924ef90e30719ac2bb8ec"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/MANIFEST.json",
+    "size": 2375,
+    "sha256": "ed5cce072226a9fd87e8d449b3d04fb048373effbebdcc7c587798590a9d42c8"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT.m.rda",
+    "size": 51336,
+    "sha256": "4a6bc14ab354242f9be49824366bbecba5ee851626880ee00a66c2c7ac47c469"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT450k.m.rda",
+    "size": 51508,
+    "sha256": "9bbf8979e3e4729c3777162ce31ca4938c8c6608b0a37f182995c7bffa84d555"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT450k_reference_matrix.csv",
+    "size": 143083,
+    "sha256": "ef79b229cacf35fc0379874fba217f3b283708a0588e99c8c97595cf33d3f502"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT_reference_matrix.csv",
+    "size": 143151,
+    "sha256": "beeef0947d3f2ed7de6654f4be74406fe96113f0195efebd8f0291789976e975"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centBloodSub.m.rda",
+    "size": 11340,
+    "sha256": "45c867691eef7b05341f352fd7bdf168b558b2874da16d5f4ad13b55d6afb96e"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centBloodSub_reference_matrix.csv",
+    "size": 17716,
+    "sha256": "b19fe9dc43af3e74d6f1d8e5614b915568c9f27d1e153e78163ab93016d4378c"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centDHSbloodDMC.m.rda",
+    "size": 7714,
+    "sha256": "a24f37e87e15789da7103d57c186ca7e102998c8a9e564e2cf89093129f16e3b"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centDHSbloodDMC_reference_matrix.csv",
+    "size": 17444,
+    "sha256": "a3415477d84fa7f154db914a3b115405692a3b9771677f402d72da2d69cd551f"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibFatIC.m.rda",
+    "size": 18209,
+    "sha256": "c9ce6282368f4c2604998753bf619ea389bb13a7b5d58341a82614af144db6b8"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibFatIC_reference_matrix.csv",
+    "size": 28695,
+    "sha256": "55e364594f77955a10480625548e0198e392f74687c697e3c5eed472ebaa7038"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibIC.m.rda",
+    "size": 20960,
+    "sha256": "5bd51e4c9d8727d1cf443dbcb7709a42190a81904c7079c604f6e83a60fd63e1"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibIC_reference_matrix.csv",
+    "size": 49424,
+    "sha256": "f1d7e668a1dc6963ffa7e3228a3484aac503dabb25990962e3994aa64b99553c"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.compTable.rda",
+    "size": 23612,
+    "sha256": "ab1ae36984a473aaa653ea0192d12da6cd60bd9254b46244c3a042b08ebf389b"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.rda",
+    "size": 1965,
+    "sha256": "a07eafddda69c7144d32eb8e21ecd356ecd501399e25af8c35b649cadcd1bd39"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450k_compTable.csv",
+    "size": 44236,
+    "sha256": "90fc4333a0514508410c9c5683be5a05d0ed89cdfa1744300166314fbaa18ff8"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450klegacy.compTable.rda",
+    "size": 18450,
+    "sha256": "a057fdc254263cc285abdde99600b43176f2afe969f6ec69168e380171c4a723"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450klegacy.rda",
+    "size": 1589,
+    "sha256": "6babee8af9cf5e8fb859f6104ff4338b32735fa1b30e5ddf6d54201d52c3f3a3"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGsCordBlood.rda",
+    "size": 2226,
+    "sha256": "efd68ef3460a3c87f1152ace3d7afd441137c0ae68838dc14ee83f322d1f4093"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs_compTable.csv",
+    "size": 57091,
+    "sha256": "0db724702ef1bb17699bd5900a60094c6ee77fef817a9e83e3ba84dff1971887"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_idol_ext/Pheno.csv",
+    "size": 91754,
+    "sha256": "db7aa709fc200d54b8ff0cb388f24d1d29d63e446993f5c2ce0a6f23598d15a0"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_idol_ext/metadata.csv",
+    "size": 867,
+    "sha256": "bc9b9a0fc2a5bd3fb0ee8cd634ab3317b4b28d89ff6ce97b85b93f2eda0b144b"
+  },
+  {
+    "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE.m.rda",
+    "size": 281435,
+    "sha256": "eeae8b6fe8d0355333c0fe0338ee4036d67cdb84e774a96bb69cbdd908ab42ba"
+  },
+  {
+    "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
+    "size": 711707,
+    "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
+  }
+]

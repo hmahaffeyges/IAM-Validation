@@ -1,0 +1,15 @@
+VAL-051 SEAL — SHA-256 hashes (pre-seal + post-analysis)
+========================================================================
+97feb504b2397d9f23b8d5f3a6b0ccd49e246e6c74f5e421010277d0f0a4e20c  VAL_051_PREREG.md
+40682cc8eaffac1aa1d99ff36c38f5327a76d5abc0d97793666b3566218a8077  aibl_manifest.json
+1ec36d863d007dc5a249dfff6178475f2ae70ede8e5c2749ed526968971d7a19  aibl_imm_betas.json
+209b9a2350db0a26c6e57b34f39eb54bfaab4ae9c31fb5b0beb777cf77b82232  val051_split.py
+009db3e4b809d40eb611cc4942c2245d701321ac2b304d72448f6a37cfa4ef29  val051_split_map.json
+4cf138241ddcf1a51e2a394b2d3ecc4b174b9d1034dac4e06fcb5c2c04bda86d  val051_select.py
+6e2c820ffd483e1a1939c74e0f71b2da653bed6ee588ed2148df1189bb64c41d  val051_analyze.py
+52061285fc97bfff871ba7b62f625b14d953bccf25ee24e35f328e15b9827998  val051_panel_ruleA.json
+c1ebc82440a4e5df0fd59daf9b3b74fae4dab857c373c067f8e2c36a03853dad  val051_panel_ruleB.json
+7f5e857ac9daf0818e9e7640ccf8ac08bcf50e329bc7ac9627af3955fac4b7a6  VAL_051_RESULTS.json
+
+Pre-seal (PREREG+inputs+scripts): 2026-04-23 07:23:53 UTC
+Post-analysis (outputs added):    2026-04-23 07:24:32 UTC

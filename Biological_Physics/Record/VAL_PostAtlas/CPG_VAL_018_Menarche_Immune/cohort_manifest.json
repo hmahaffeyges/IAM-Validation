@@ -1,0 +1,18 @@
+{
+  "cohorts": [
+    {
+      "id": "GSE51057_EPIC_Italy",
+      "n_HC_women_with_menarche": 177,
+      "ascores_sha256": "5160698304114b7db807a0f02cd0c239d86eb344b2282f3ee376022c023c9395",
+      "meta_sha256": "ba1c079430025ec20fc904b81ad16199d949554cf9c39eeb54282809b31675d3"
+    },
+    {
+      "id": "GSE51032_EPIC_Italy",
+      "n_HC_women_with_menarche": 336,
+      "ascores_sha256": "e5360084639a1efc03649f51c80a6440072b7d9161a4709c6614f46174c618d9",
+      "meta_sha256": "cbf2db2a4194c68896361573cd9d63435e45999fce62e2c0177792e98a389c14"
+    }
+  ],
+  "n_total_pooled": 513,
+  "canonical_markers_sha256": "46ea5be1db377f2b8773a02418a7f481a191630e0fa833d3294eab1fd19c47bd"
+}

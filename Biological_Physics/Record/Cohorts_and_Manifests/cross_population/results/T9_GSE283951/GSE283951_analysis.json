@@ -1,0 +1,81 @@
+{
+  "cohort": "GSE283951_Sokolowska2025_Polish_pre_dx_BC",
+  "design": "34 Polish women with BC, blood drawn mean 4.29 years pre-dx; 56 healthy Polish women with 12-year cancer-free follow-up. Peripheral blood, Illumina MethylationEPIC v1.0 B5.",
+  "caveats": "TtD is not per-sample (only study-wide mean of 4.29 yr); can only do pooled case vs control; cannot replicate TtD windows. 4.29 yr pre-dx is outside EPIC-Italy's strongest window (>10 yr).",
+  "n_samples_total": 90,
+  "n_cases": 34,
+  "n_controls": 56,
+  "panel": "xu538_breast",
+  "panel_n_cpgs": 538,
+  "panel_cpgs_matched": 454,
+  "H_min_immune": 0.838889,
+  "random_seed": 20260420,
+  "A_score_formula": "CANONICAL (matches VAL047)",
+  "input_sha256": {
+    "series_matrix": "441f83841c17e9184643bd82998747e6b4501abffd053372c93e4a6cca3f2023",
+    "data_table": "04836cd0b4239a8c52359d7cfa8fa938edef4b78867881ef739a9566370bc422",
+    "panel": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6"
+  },
+  "output_sha256": {
+    "per_sample_csv": "a6cd7d0d756b3f81bec49b50324af57ab926a6fb8dfc5e93cf91c7beaa07a16e"
+  },
+  "primary_result": {
+    "n_cases": 34,
+    "n_controls": 56,
+    "case_A_mean": 0.4523259988356435,
+    "case_A_sd": 0.05072071161548234,
+    "control_A_mean": 0.43331150634373294,
+    "control_A_sd": 0.0747715099522452,
+    "delta_A": 0.019014492491910562,
+    "cohens_d": 0.28475282398759233,
+    "p_perm_10k": 0.18858114188581143,
+    "CI95_bootstrap": [
+      -0.10433815239648034,
+      0.7575508219554661
+    ]
+  },
+  "age_strata": [
+    {
+      "age_bin": "40-50",
+      "n_case": 11,
+      "n_ctrl": 22,
+      "case_A_mean": 0.4503447474826768,
+      "control_A_mean": 0.4206123266460571,
+      "cohens_d": 0.6211162674213542
+    },
+    {
+      "age_bin": "50-60",
+      "n_case": 9,
+      "n_ctrl": 19,
+      "case_A_mean": 0.4696153717855059,
+      "control_A_mean": 0.4487126868856152,
+      "cohens_d": 0.23770972059234866
+    },
+    {
+      "age_bin": "60-70",
+      "n_case": 10,
+      "n_ctrl": 15,
+      "case_A_mean": 0.46048575366089245,
+      "control_A_mean": 0.43242880788060656,
+      "cohens_d": 0.43244584213361387
+    }
+  ],
+  "as_strata": [
+    {
+      "as_tertile": "low",
+      "n_case": 11,
+      "n_ctrl": 19,
+      "case_A_mean": 0.4295923711362388,
+      "control_A_mean": 0.5175642154493346,
+      "cohens_d": -1.539319570923469
+    },
+    {
+      "as_tertile": "mid",
+      "n_case": 21,
+      "n_ctrl": 8,
+      "case_A_mean": 0.45611828567826457,
+      "control_A_mean": 0.3934788276193954,
+      "cohens_d": 1.4852704115662319
+    }
+  ]
+}

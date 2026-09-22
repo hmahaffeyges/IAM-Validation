@@ -1,0 +1,5 @@
+PREREG_SHA256=f7628a46c36f3d268b0eadbfe495e302a4373238c3cffeaf170ef152aa8b4c1c
+SEAL_TIMESTAMP=2026-05-02T19:55:34Z
+SEAL_FILE=prereg.md
+SEAL_LOC=Biological_Physics/validation_runs/VAL-125_oeref_calibrate/prereg.md
+SEAL_NOTE=Sealed BEFORE any β file read. CCL-041 compliance. Atlas: EpiSCORE OEref CpG-bridged (5,396 CpGs × 9 cell types). CHK-2.17 PASS at 89.38% mean / 88.40% min coverage on same 5 samples. Coverage threshold ≥ 80% per VAL-117/119 EpiSCORE precedent.

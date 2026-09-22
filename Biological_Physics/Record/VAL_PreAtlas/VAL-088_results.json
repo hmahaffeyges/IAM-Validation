@@ -1,0 +1,204 @@
+{
+  "val_id": "VAL-088",
+  "card": "glioma-epic",
+  "arm": "whole_blood_stage_1",
+  "date": "2026-04-25",
+  "design": "Stage 1 immune Xu-538 A-score on glioma EPIC whole blood (GSE180683 n=76, Salas/Wiencke 2022) compared against Italian healthy buffy coat HM450 reference (VAL-082 GSE51057 EPIC-Italy n=115)",
+  "panel": "Xu-538 immune",
+  "panel_sha256": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+  "h_min_immune": 0.838889,
+  "rng_seed": 20260425,
+  "platform_test": "IlluminaHumanMethylationEPIC v1.0_B4",
+  "platform_reference": "IlluminaHumanMethylation450K (cross-platform; coverage drift documented)",
+  "panel_coverage_test_mean": 487.5394736842105,
+  "panel_coverage_test_pct": 90.62072001565251,
+  "n_glioma_total": 76,
+  "n_glioma_qc_fail": 0,
+  "n_presurg": 37,
+  "mean_A_glioma_full": 0.45709446046566915,
+  "sd_A_glioma_full": 0.022867648809015324,
+  "mean_A_glioma_presurg": 0.4563132109123891,
+  "sd_A_glioma_presurg": 0.019289926785093375,
+  "mean_A_italian_healthy_ref": 0.43841742714322374,
+  "sd_A_italian_healthy_ref": 0.024405874491852105,
+  "delta_A_full": 0.018677033322445413,
+  "delta_in_healthy_sd": 0.7652679410721683,
+  "cohen_d_full_vs_ref": 0.9139479530714874,
+  "cohen_d_full_ci": [
+    0.6100518752861535,
+    1.2178440308568212
+  ],
+  "cohen_d_presurg_vs_ref": 0.9435660643343281,
+  "cohen_d_presurg_ci": [
+    0.5582310948185163,
+    1.32890103385014
+  ],
+  "expected_direction_ccl_023": "NEGATIVE",
+  "observed_direction": "POSITIVE",
+  "direction_match": false,
+  "chk_3_1_beta_distribution": {
+    "extremes_pct": 56.53179190751445,
+    "mid_pct": 6.173410404624278,
+    "median": 0.8225529,
+    "pass": true
+  },
+  "chk_3_3_panel_coverage": {
+    "mean_cpgs_per_sample": 487.5394736842105,
+    "panel_size": 538,
+    "coverage_pct": 90.62072001565251,
+    "qc_pass": 76,
+    "qc_fail": 0
+  },
+  "chk_3_5_saturation": {
+    "a_ceiling_immune": 1.1921,
+    "flag_threshold": 1.1871,
+    "n_saturated": 0,
+    "max_a_observed": 0.5188177603056069,
+    "fraction_at_ceiling": 0.43521328773224305
+  },
+  "stratified_by_histological_group": {
+    "2 new lgg": {
+      "n": 14,
+      "mean_A": 0.45425027963284353,
+      "sd_A": 0.01514917734708003
+    },
+    "1 new gbm": {
+      "n": 39,
+      "mean_A": 0.4610621324505946,
+      "sd_A": 0.024374681927795183
+    },
+    "3 rec lgg, still lgg": {
+      "n": 13,
+      "mean_A": 0.4482491217038422,
+      "sd_A": 0.026358775389626856
+    },
+    "4 rec lgg, now gbm": {
+      "n": 10,
+      "mean_A": 0.4571013332807908,
+      "sd_A": 0.019938049765004594
+    }
+  },
+  "stratified_by_timepoint": {
+    "2 postsurg/prechemorad": {
+      "n": 20,
+      "mean_A": 0.4563747831047489,
+      "sd_A": 0.027589144329392676
+    },
+    "1 pre surg": {
+      "n": 37,
+      "mean_A": 0.4563132109123891,
+      "sd_A": 0.019289926785093375
+    },
+    "3 postchemorad/pre adj tmz": {
+      "n": 3,
+      "mean_A": 0.46707655280712274,
+      "sd_A": 0.042171799371670315
+    },
+    "8 postsurg/no chemorad": {
+      "n": 10,
+      "mean_A": 0.4488144617424615,
+      "sd_A": 0.014655731451627364
+    },
+    "9 postsurg/nochemorad/during adjtmz": {
+      "n": 1,
+      "mean_A": 0.444964648650995,
+      "sd_A": null
+    },
+    "4 during chemorad": {
+      "n": 4,
+      "mean_A": 0.4699618455663287,
+      "sd_A": 0.016505530607409585
+    },
+    "7 postchemorad/no adjtmz": {
+      "n": 1,
+      "mean_A": 0.5139082227751881,
+      "sd_A": null
+    }
+  },
+  "per_sample_A_immune": {
+    "GSM5468023": 0.44689394636166835,
+    "GSM5468022": 0.4422483941852081,
+    "GSM5468021": 0.46841121636580596,
+    "GSM5468020": 0.4455773354695486,
+    "GSM5468019": 0.45547093641806913,
+    "GSM5468018": 0.5146512609946177,
+    "GSM5468017": 0.4538191279817699,
+    "GSM5468016": 0.45811886229771814,
+    "GSM5468015": 0.444964648650995,
+    "GSM5468014": 0.44479655394414563,
+    "GSM5468013": 0.4668706603614146,
+    "GSM5468012": 0.446482898199525,
+    "GSM5468011": 0.4726689459294299,
+    "GSM5468010": 0.46528893206591193,
+    "GSM5468009": 0.4655492915530509,
+    "GSM5468008": 0.4979131504609261,
+    "GSM5468007": 0.4579695093164264,
+    "GSM5468006": 0.4485109692879308,
+    "GSM5468005": 0.44816042060252886,
+    "GSM5468004": 0.4707703282014642,
+    "GSM5468003": 0.47720473982604295,
+    "GSM5468002": 0.5188177603056069,
+    "GSM5468001": 0.4142765638172344,
+    "GSM5468000": 0.43856330306484254,
+    "GSM5467999": 0.441838345852216,
+    "GSM5467998": 0.4430270091312196,
+    "GSM5467997": 0.45156834063248874,
+    "GSM5467996": 0.4943066548328049,
+    "GSM5467995": 0.44686504690127354,
+    "GSM5467994": 0.47145766349535795,
+    "GSM5467993": 0.4669426882976173,
+    "GSM5467992": 0.46167178767792416,
+    "GSM5467991": 0.5139082227751881,
+    "GSM5467990": 0.45146769473349174,
+    "GSM5467989": 0.446350764759547,
+    "GSM5467988": 0.4598449507553362,
+    "GSM5467987": 0.4704836492019225,
+    "GSM5467986": 0.48685023300859565,
+    "GSM5467985": 0.4710388116372694,
+    "GSM5467984": 0.47395155851971277,
+    "GSM5467983": 0.4579209407033863,
+    "GSM5467982": 0.46761285934131674,
+    "GSM5467981": 0.46502615527270974,
+    "GSM5467980": 0.47264239432395855,
+    "GSM5467979": 0.49391934895620043,
+    "GSM5467978": 0.505878552582834,
+    "GSM5467977": 0.44955754471322507,
+    "GSM5467976": 0.44986270329992245,
+    "GSM5467975": 0.46249114082225196,
+    "GSM5467974": 0.47784415366501487,
+    "GSM5467973": 0.46679361590057306,
+    "GSM5467972": 0.43996315898077315,
+    "GSM5467971": 0.4044459605214854,
+    "GSM5467970": 0.4264934971107434,
+    "GSM5467969": 0.44347186356836843,
+    "GSM5467968": 0.4522861992080091,
+    "GSM5467967": 0.4728654351888404,
+    "GSM5467966": 0.47458750159286667,
+    "GSM5467965": 0.4622822860501715,
+    "GSM5467964": 0.4307574605642058,
+    "GSM5467963": 0.43919050034323026,
+    "GSM5467962": 0.41134094577561914,
+    "GSM5467961": 0.4586269319712816,
+    "GSM5467960": 0.4655994278689501,
+    "GSM5467959": 0.45865409678157454,
+    "GSM5467958": 0.4369436807307717,
+    "GSM5467957": 0.4306867931641583,
+    "GSM5467956": 0.4329874909256226,
+    "GSM5467955": 0.4369668948109172,
+    "GSM5467954": 0.45657508957427223,
+    "GSM5467953": 0.4283650280549726,
+    "GSM5467952": 0.4342921982187415,
+    "GSM5467951": 0.4333852775069793,
+    "GSM5467950": 0.42867559015701184,
+    "GSM5467949": 0.47002663408227185,
+    "GSM5467948": 0.4245864651837741
+  },
+  "caveats": [
+    "CHK-1.6: cohort lacks healthy controls within study; external comparator required",
+    "CHK-1.2/3.3: cross-platform comparison (test EPIC, reference HM450); coverage drift documented; use direction-of-effect not absolute magnitude",
+    "CHK-1.5: no Issue 002 substrate-scope conflict \u2014 both test and reference are single-substrate methyl-only buffy coat at v1 deployment level",
+    "CHK-2.4: panel transferability \u2014 Xu-538 trained on whole buffy coat; this is native specimen, no transferability flag",
+    "Treatment heterogeneity: 37/76 are pre-surgery treatment-naive; the 39 post-treatment patients may carry chemotherapy/radiation/dexamethasone confounding",
+    "Substrate-scope (CHK-1.5): we are scoring IMMUNE-class A on whole blood (cells dominate), NOT terminal-class on cfDNA \u2014 different signal, different ceiling, different interpretation than Issue 002 LGG/GBM tumor figures"
+  ]
+}

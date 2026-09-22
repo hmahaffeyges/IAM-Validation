@@ -1,0 +1,84 @@
+{
+  "manifest_version": "v1",
+  "purpose": "AddNeuroMed cohort for AD-immune post-build VAL-010 (cross-platform Mahalanobis replication of CPG-VAL-009).",
+  "build_date": "2026-06-02",
+  "authored_by": "Walther (Claude) per Heath's 2026-06-02 directive \u2014 SOP v1.2 chain, no Step 7",
+  "cohort_source_paper": {
+    "citation": "Lunnon et al. AddNeuroMed study release. UK/Finland/Italy/France/Poland/Greece multi-center European cohort.",
+    "geo_accession": "GSE144858",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE144858"
+  },
+  "platform": "Illumina HumanMethylation450K",
+  "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE144858/matrix/GSE144858_series_matrix.txt.gz",
+  "extracted_cpg_union": {
+    "n_target_cpgs": 14018,
+    "n_found_cpgs": 12169,
+    "n_missing_cpgs": 1849,
+    "coverage_pct": 86.8,
+    "note": "450K platform \u2014 narrower CpG coverage than EPIC; missing CpGs are EPIC-only probes from the v0_2 markers or age layer."
+  },
+  "files": [
+    {
+      "name": "GSE144858_betas_union.csv",
+      "size_bytes": 33005636,
+      "sha256": "d4edaa43f1bdcb29adde2373d6caa2407d0b956fe61bf0c47e77a587d54f3b3a",
+      "schema": "CpGs as rows (12,169), samples as columns (300). First column = cpg_id, header = GSM IDs."
+    },
+    {
+      "name": "GSE144858_clinical_metadata.json",
+      "schema": "per-sample arm + mci_subclass + sex + age"
+    },
+    {
+      "name": "GSE144858_raw_geo_metadata.json",
+      "schema": "raw GEO Sample_characteristics fields"
+    },
+    {
+      "name": "GSE144858_full_results.csv",
+      "schema": "per-sample Walther deconvolution + 8 class A-scores + 115 cell-type A-scores + MCI subclass + age"
+    },
+    {
+      "name": "GSE144858_mahalanobis.csv",
+      "schema": "per-sample Mahalanobis distance from HC hyper-volume centroid"
+    },
+    {
+      "name": "extract_series_matrix_cohort.py",
+      "schema": "reproducer for GEO streaming extraction"
+    },
+    {
+      "name": "run_stage2_4_5.py",
+      "schema": "Stage 2+4+5 driver"
+    }
+  ],
+  "sample_counts_total": 300,
+  "arm_breakdown": {
+    "mci": 111,
+    "ad": 93,
+    "hc": 96
+  },
+  "mci_subclass_breakdown": {
+    "mci_stable": 68,
+    "mci_converter": 39,
+    "mci_unknown": 4
+  },
+  "sex_breakdown": {
+    "Female": 180,
+    "Male": 120
+  },
+  "stage_1_reproduction_check_2026_06_02": {
+    "panel": "VAL-051 Rule A 7-CpG directional (frozen from AIBL training; tested cross-platform)",
+    "scoring": "A_dir directional composite; HC reference for z-score",
+    "AD_vs_HC_cohens_d": 0.317,
+    "p_one_sided": "0.0117",
+    "pre_build_anchor_d_raw": 0.332,
+    "anchor_source": "VAL-052 outcome.md",
+    "agreement": "0.015 within sampling variation \u2014 cross-platform reproduction verified",
+    "sex_stratified": {
+      "Female_d": 0.337,
+      "Female_n_AD": 62,
+      "Female_n_HC": 59,
+      "Male_d": 0.38,
+      "Male_n_AD": 31,
+      "Male_n_HC": 37
+    }
+  }
+}

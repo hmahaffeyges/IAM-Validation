@@ -1,0 +1,69 @@
+{
+  "val_id": "VAL-065",
+  "cohort_geo_accession": "GSE119260",
+  "cohort_title": "Evaluating Liquid Biopsies for Methylomic Profiling of Prostate Cancer",
+  "cohort_publication": "Brikun I et al. 2018, PMID 32000564, University College Dublin",
+  "platform": "Illumina Infinium MethylationEPIC 850K (GPL21145)",
+  "design": "Within-patient four-specimen comparison: FFPE benign + FFPE tumor + plasma cfDNA + urine sediment",
+  "n_patients": 4,
+  "n_specimens_per_patient": 4,
+  "n_samples_total": 16,
+  "all_male": true,
+  "patients": [
+    {
+      "patient_id": 1,
+      "age": 58,
+      "gleason": "4+4 (LHS and RHS)",
+      "psa_ngml": 1400.0,
+      "metastases": "Bone",
+      "samples": {
+        "FFPE_benign": "GSM3362390",
+        "FFPE_tumour": "GSM3362394",
+        "Plasma_cfDNA": "GSM3362398",
+        "Urine_sediment": "GSM3362402"
+      }
+    },
+    {
+      "patient_id": 2,
+      "age": 66,
+      "gleason": "5+4 (LHS) and 4+5 (RHS)",
+      "psa_ngml": 10.9,
+      "metastases": "Bone",
+      "samples": {
+        "FFPE_benign": "GSM3362391",
+        "FFPE_tumour": "GSM3362395",
+        "Plasma_cfDNA": "GSM3362399",
+        "Urine_sediment": "GSM3362403"
+      }
+    },
+    {
+      "patient_id": 3,
+      "age": 76,
+      "gleason": "4+5 (RHS)",
+      "psa_ngml": 144.0,
+      "metastases": "Bone",
+      "samples": {
+        "FFPE_benign": "GSM3362392",
+        "FFPE_tumour": "GSM3362396",
+        "Plasma_cfDNA": "GSM3362400",
+        "Urine_sediment": "GSM3362404"
+      }
+    },
+    {
+      "patient_id": 4,
+      "age": 68,
+      "gleason": "5+5 (LHS and RHS)",
+      "psa_ngml": 38.98,
+      "metastases": "Bone",
+      "samples": {
+        "FFPE_benign": "GSM3362393",
+        "FFPE_tumour": "GSM3362397",
+        "Plasma_cfDNA": "GSM3362401",
+        "Urine_sediment": "GSM3362405"
+      }
+    }
+  ],
+  "extraction_protocol": "FFPE tissue: QIAamp DNA FFPE tissue kit. Plasma cfDNA: QIAamp Circulating Nucleic Acid (Qiagen) from 3 mL plasma. Urine sediment: AllPrep DNA/RNA/mRNA Universal kit (Qiagen). All samples bisulfite-modified using Zymo EZ DNA methylation kit.",
+  "data_access": "Public \u2014 no dbGaP application required. Series matrix: ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE119nnn/GSE119260/matrix/GSE119260_series_matrix.txt.gz",
+  "provenance_warning_advanced_disease": "All 4 patients have advanced metastatic disease (bone metastases, Gleason 4+4 to 5+5, PSA range 10.9 to 1400 ng/mL). This cohort is NOT pre-diagnostic and does NOT represent early-stage detection. VAL-065 results on this cohort cannot be extrapolated to early-detection populations."
+}

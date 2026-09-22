@@ -1,0 +1,82 @@
+{
+  "val_id": "CPG-VAL-020",
+  "title": "Hannum aging anchor reproduction \u2014 full SOP chain on IAMAtlas",
+  "date_sealed": "2026-06-06",
+  "cohort": {
+    "name": "GSE40279_Hannum2013",
+    "citation": "Hannum G et al. Genome-wide methylation profiles reveal quantitative views of human aging rates. Mol Cell 2013;49(2):359-367",
+    "n_total": 656,
+    "n_case": 0,
+    "n_hc": 656,
+    "platform": "Illumina HumanMethylation450",
+    "age_range": [
+      19,
+      101
+    ],
+    "sex_distribution": {
+      "M": 318,
+      "F": 338
+    },
+    "ethnicity_distribution": {
+      "Caucasian-European": 426,
+      "Hispanic-Mexican": 230
+    },
+    "n_plates": 9,
+    "source_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE40279",
+    "acquisition_date": "2026-06-06",
+    "format_on_disk": "/tmp/geo_downloads/GSE40279_beta_matrix.npz (float32, 473034 \u00d7 656)"
+  },
+  "chain_modules_used": {
+    "Stage_2_Walther_Deconvolver": "WaltherIAMDeconvolver against IAMAtlas REBUILD CSV (605MB)",
+    "Stage_4_A_scoring": "score_per_celltype + score_per_class via iamatlas_celltype_markers_v0_2.json (115 \u00d7 100)",
+    "Stage_5_Mahalanobis": "MahalanobisHealthyHull(mahalanobis_healthy_reference_v0_1.json), n=601 HC, 112 features in 115-cell A-score space",
+    "Stage_6_Cellular_Age": "IAMCellularAge.score_patient \u03b2_mean inversion against 80-cell baseline (age_reference_matrix.json)",
+    "Stage_7_Tier_Breakpoints": "6-tier physics-derived v1.2 (SUPPRESSED/NORMAL/ELEVATED/WARBURG_TRANSITION/SIGNIFICANTLY_ELEVATED/BREACH)"
+  },
+  "primary_signal": "Pearson r(immune_cellular_age, chronological_age) \u2014 anchor against pre-build VAL-006 r=0.9999",
+  "primary_observed_value": -0.1227,
+  "primary_p_value": 0.00164,
+  "secondary_signals": {
+    "r_A_immune_vs_age": -0.1845,
+    "p_A_immune_vs_age": 1.97e-06,
+    "r_A_stem_pluri_vs_age": -0.1843,
+    "p_A_stem_pluri_vs_age": 2.02e-06,
+    "mahalanobis_median": 13.71,
+    "cellular_age_saturated_pct": 93.1
+  },
+  "outcome_codes": [
+    "O_CHAIN_INTEGRITY_PASS",
+    "O_PHYSICS_SIGNAL_REPRODUCIBLE",
+    "O_REFERENCE_CALIBRATION_BOUNDARY_DETECTED",
+    "NOT_REPRODUCED_VAL_006_ANCHOR_BY_DESIGN"
+  ],
+  "deliverables": {
+    "per_sample_csv": {
+      "path": "CPG_VAL_020_per_sample.csv",
+      "n_rows": 656,
+      "n_cols": 30,
+      "sha256": "d605078289cf100b4fa198e35dcea6abc573f12649fa7ffd186c774581269752"
+    },
+    "per_celltype_csv": {
+      "path": "GSE40279_115celltype_ascores.csv",
+      "n_rows": 75440,
+      "format": "long (gsm \u00d7 celltype)",
+      "sha256": "3b5ab62ad0cb9d3355e352fe327e9dc34f82e3560d0c39a789dbdd686e39e5e0"
+    },
+    "runner_py": {
+      "path": "val_020_runner_v2.py",
+      "sha256": "3a4ba68f919e8a112d05e7d964b9a97ab45d3d0d110c2fee825184ba4f8504cd"
+    },
+    "cosmic_methylome_png": "cosmic_methylome_example.png",
+    "cosmic_methylome_z_summary": "cosmic_methylome_z_summary.json",
+    "healpix_example_sample": "healpix_example_sample.json (gsm=GSM989830, age=64, n_\u03b2=13466)"
+  },
+  "frozen_inputs": {
+    "IAMAtlas_REBUILD_csv_size_bytes": 605124914,
+    "Celltype_markers_artifact": "iamatlas_celltype_markers_v0_2.json (115 celltypes \u00d7 100 markers each)",
+    "Mahalanobis_HC_reference": "mahalanobis_healthy_reference_v0_1.json (n=601 HC pooled GSE51057+GSE51032)",
+    "Age_reference_matrix": "age_reference_matrix.json (80-cell baseline, foundation cohort)",
+    "H_min_immune": 0.838889,
+    "Tier_breakpoints": "tier_breakpoints.json v1.2 (SUPPRESSED <0.95 / NORMAL [0.95-1.04) / ELEVATED [1.04-1.07) / WARBURG_TRANSITION [1.07-1.10) / SIGNIFICANTLY_ELEVATED [1.10-1.12) / BREACH \u22651.12)"
+  }
+}

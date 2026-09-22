@@ -1,0 +1,261 @@
+{
+ "_meta": {
+  "version": "identity_band_v2 (2026-09-20) - PROVISIONAL until tested on GSE125105 controls (band_v2 PREREG)",
+  "statistic": "H(beta_mean)/H_min over identity loci, beta mapped to the Roadmap scale via beta_scale_maps_v1:stage1_noob_450K",
+  "fitting_cohorts": {
+   "GSE87571_Uppsala": 659,
+   "GSE42861_Karolinska": 315
+  },
+  "pipeline": "Stage 1 methylprep noob, 450K",
+  "substrate": "whole blood",
+  "population": "Sweden (two labs)",
+  "rule": "a class gauge is placed in its decade band only for s108-eligible components (immune; joint haematopoietic-progenitor)",
+  "lab_term_summary": "Karolinska minus Uppsala median immune A per decade (both labs n>=10): [0.0148, 0.0181, 0.0206, 0.0184, 0.0186]; mean +0.0181",
+  "sex_summary": "signed d(f-m) per decade per lab; sign agrees between labs in decades ['65-74'] -> split only where agreeing",
+  "N_split_p10_p90_diff": [
+   [
+    "14-24",
+    0.0021,
+    0.0016
+   ],
+   [
+    "25-34",
+    0.0024,
+    0.0082
+   ],
+   [
+    "35-44",
+    0.0032,
+    0.0039
+   ],
+   [
+    "45-54",
+    0.0073,
+    0.0019
+   ],
+   [
+    "55-64",
+    0.0007,
+    0.0042
+   ],
+   [
+    "65-74",
+    0.0057,
+    0.0085
+   ]
+  ]
+ },
+ "immune": [
+  {
+   "decade": "14-24",
+   "n": 155,
+   "thin": false,
+   "p10": 0.9397,
+   "p50": 0.9644,
+   "p90": 0.9937,
+   "sd": 0.0212
+  },
+  {
+   "decade": "25-34",
+   "n": 95,
+   "thin": false,
+   "p10": 0.9543,
+   "p50": 0.9838,
+   "p90": 1.0131,
+   "sd": 0.0222
+  },
+  {
+   "decade": "35-44",
+   "n": 134,
+   "thin": false,
+   "p10": 0.9592,
+   "p50": 0.988,
+   "p90": 1.0178,
+   "sd": 0.0244
+  },
+  {
+   "decade": "45-54",
+   "n": 202,
+   "thin": false,
+   "p10": 0.9647,
+   "p50": 1.0007,
+   "p90": 1.0233,
+   "sd": 0.0235
+  },
+  {
+   "decade": "55-64",
+   "n": 171,
+   "thin": false,
+   "p10": 0.9697,
+   "p50": 1.0051,
+   "p90": 1.0297,
+   "sd": 0.0239
+  },
+  {
+   "decade": "65-74",
+   "n": 142,
+   "thin": false,
+   "p10": 0.9747,
+   "p50": 1.0012,
+   "p90": 1.0341,
+   "sd": 0.025
+  },
+  {
+   "decade": "75-84",
+   "n": 63,
+   "thin": false,
+   "p10": 0.9729,
+   "p50": 1.0009,
+   "p90": 1.0273,
+   "sd": 0.0227
+  },
+  {
+   "decade": "85-94",
+   "n": 12,
+   "thin": true,
+   "p10": 0.9798,
+   "p50": 0.9995,
+   "p90": 1.0229,
+   "sd": 0.0231
+  }
+ ],
+ "haematopoietic_progenitor": [
+  {
+   "decade": "14-24",
+   "n": 155,
+   "thin": false,
+   "p10": 0.9106,
+   "p50": 0.927,
+   "p90": 0.9488,
+   "sd": 0.0167
+  },
+  {
+   "decade": "25-34",
+   "n": 95,
+   "thin": false,
+   "p10": 0.92,
+   "p50": 0.9407,
+   "p90": 0.973,
+   "sd": 0.0208
+  },
+  {
+   "decade": "35-44",
+   "n": 134,
+   "thin": false,
+   "p10": 0.9245,
+   "p50": 0.9465,
+   "p90": 0.9766,
+   "sd": 0.0203
+  },
+  {
+   "decade": "45-54",
+   "n": 202,
+   "thin": false,
+   "p10": 0.9313,
+   "p50": 0.9573,
+   "p90": 0.9869,
+   "sd": 0.0211
+  },
+  {
+   "decade": "55-64",
+   "n": 171,
+   "thin": false,
+   "p10": 0.9388,
+   "p50": 0.9654,
+   "p90": 0.9944,
+   "sd": 0.0222
+  },
+  {
+   "decade": "65-74",
+   "n": 142,
+   "thin": false,
+   "p10": 0.9368,
+   "p50": 0.9595,
+   "p90": 0.9862,
+   "sd": 0.0194
+  },
+  {
+   "decade": "75-84",
+   "n": 63,
+   "thin": false,
+   "p10": 0.9409,
+   "p50": 0.9568,
+   "p90": 0.977,
+   "sd": 0.0154
+  },
+  {
+   "decade": "85-94",
+   "n": 12,
+   "thin": true,
+   "p10": 0.94,
+   "p50": 0.9537,
+   "p90": 0.982,
+   "sd": 0.0193
+  }
+ ],
+ "lab_term": {
+  "14-24": {
+   "GSE87571_Uppsala": 0.9644
+  },
+  "25-34": {
+   "GSE87571_Uppsala": 0.9792,
+   "GSE42861_Karolinska": 0.994,
+   "offset_K_minus_U": 0.0148
+  },
+  "35-44": {
+   "GSE87571_Uppsala": 0.9853,
+   "GSE42861_Karolinska": 1.0034,
+   "offset_K_minus_U": 0.0181
+  },
+  "45-54": {
+   "GSE87571_Uppsala": 0.9889,
+   "GSE42861_Karolinska": 1.0095,
+   "offset_K_minus_U": 0.0206
+  },
+  "55-64": {
+   "GSE87571_Uppsala": 0.9931,
+   "GSE42861_Karolinska": 1.0115,
+   "offset_K_minus_U": 0.0184
+  },
+  "65-74": {
+   "GSE87571_Uppsala": 0.9998,
+   "GSE42861_Karolinska": 1.0184,
+   "offset_K_minus_U": 0.0186
+  },
+  "75-84": {
+   "GSE87571_Uppsala": 1.0009
+  },
+  "85-94": {
+   "GSE87571_Uppsala": 0.9995
+  }
+ },
+ "sex_signed": {
+  "14-24": {
+   "GSE87571_Uppsala": 0.134
+  },
+  "25-34": {
+   "GSE87571_Uppsala": 0.033,
+   "GSE42861_Karolinska": -0.08
+  },
+  "35-44": {
+   "GSE87571_Uppsala": -0.089,
+   "GSE42861_Karolinska": 0.635
+  },
+  "45-54": {
+   "GSE87571_Uppsala": -0.217,
+   "GSE42861_Karolinska": 0.282
+  },
+  "55-64": {
+   "GSE87571_Uppsala": -0.227,
+   "GSE42861_Karolinska": 0.691
+  },
+  "65-74": {
+   "GSE87571_Uppsala": 0.122,
+   "GSE42861_Karolinska": 0.372
+  },
+  "75-84": {
+   "GSE87571_Uppsala": 0.178
+  },
+  "85-94": {}
+ }
+}

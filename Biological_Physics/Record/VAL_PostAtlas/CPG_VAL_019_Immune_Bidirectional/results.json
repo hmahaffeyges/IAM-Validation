@@ -1,0 +1,134 @@
+{
+  "val_id": "CPG-VAL-019",
+  "title": "Bidirectional immune direction discrimination",
+  "card": "Immune universal v1.0",
+  "execution_date": "2026-06-07",
+  "outcome_code": "PASS",
+  "panel_source": "VAL-051 Rule A 7-CpG AD-direction-anchored",
+  "panel_h_min": 0.838889,
+  "panel_cpgs_count": 7,
+  "panel_up_cpgs": [
+    "cg16867657",
+    "cg22454769"
+  ],
+  "panel_down_cpgs": [
+    "cg25809905",
+    "cg09809672",
+    "cg26614073",
+    "cg00431549",
+    "cg02228185"
+  ],
+  "per_cohort_results": {
+    "AIBL_AD_anchored": {
+      "n_case": 161,
+      "n_hc": 471,
+      "case_arm": "ad",
+      "hc_arm": "hc",
+      "d_pooled": -0.3484,
+      "d_up_panel": 0.4939,
+      "d_down_panel": -0.5153,
+      "d_directional_signed": 0.5991
+    },
+    "GSE51057_breast_pre_dx": {
+      "n_case": 11,
+      "n_hc": 177,
+      "case_arm": "case",
+      "hc_arm": "hc",
+      "d_pooled": -0.5907,
+      "d_up_panel": -0.1419,
+      "d_down_panel": -0.5574,
+      "d_directional_signed": 0.2036
+    }
+  },
+  "per_cpg_concordance_AIBL": {
+    "n_concordant": 7,
+    "n_total": 7,
+    "concordance_pct": 100.0,
+    "details": [
+      {
+        "cpg_id": "cg16867657",
+        "expected_direction": 1,
+        "observed_case_mean": 0.75523,
+        "observed_hc_mean": 0.7311,
+        "observed_diff": 0.02413,
+        "observed_sign": 1,
+        "concordant_with_panel": true
+      },
+      {
+        "cpg_id": "cg25809905",
+        "expected_direction": -1,
+        "observed_case_mean": 0.50008,
+        "observed_hc_mean": 0.52668,
+        "observed_diff": -0.0266,
+        "observed_sign": -1,
+        "concordant_with_panel": true
+      },
+      {
+        "cpg_id": "cg22454769",
+        "expected_direction": 1,
+        "observed_case_mean": 0.62578,
+        "observed_hc_mean": 0.60535,
+        "observed_diff": 0.02043,
+        "observed_sign": 1,
+        "concordant_with_panel": true
+      },
+      {
+        "cpg_id": "cg09809672",
+        "expected_direction": -1,
+        "observed_case_mean": 0.37676,
+        "observed_hc_mean": 0.39794,
+        "observed_diff": -0.02118,
+        "observed_sign": -1,
+        "concordant_with_panel": true
+      },
+      {
+        "cpg_id": "cg26614073",
+        "expected_direction": -1,
+        "observed_case_mean": 0.39749,
+        "observed_hc_mean": 0.41837,
+        "observed_diff": -0.02088,
+        "observed_sign": -1,
+        "concordant_with_panel": true
+      },
+      {
+        "cpg_id": "cg00431549",
+        "expected_direction": -1,
+        "observed_case_mean": 0.14814,
+        "observed_hc_mean": 0.16606,
+        "observed_diff": -0.01792,
+        "observed_sign": -1,
+        "concordant_with_panel": true
+      },
+      {
+        "cpg_id": "cg02228185",
+        "expected_direction": -1,
+        "observed_case_mean": 0.64365,
+        "observed_hc_mean": 0.67253,
+        "observed_diff": -0.02888,
+        "observed_sign": -1,
+        "concordant_with_panel": true
+      }
+    ]
+  },
+  "pass_conditions": {
+    "condition_1_AIBL_both_directions_fire": {
+      "criterion": "|d_up| \u2265 0.30 AND |d_down| \u2265 0.30 AND opposite signs",
+      "passed": true,
+      "d_up_panel": 0.4939,
+      "d_down_panel": -0.5153
+    },
+    "condition_2_directional_beats_pooled": {
+      "criterion": "|d_directional_signed| > |d_pooled| in AIBL",
+      "passed": true,
+      "d_directional_signed": 0.5991,
+      "d_pooled": -0.3484
+    },
+    "condition_3_disease_specific_firing": {
+      "criterion": "breast firing pattern DIFFERENT from AIBL (sign flip in any direction OR |\u0394d_signed| > 0.2)",
+      "passed": true,
+      "AIBL_d_signed": 0.5991,
+      "breast_d_signed": 0.2036,
+      "abs_difference": 0.3955
+    }
+  }
+}

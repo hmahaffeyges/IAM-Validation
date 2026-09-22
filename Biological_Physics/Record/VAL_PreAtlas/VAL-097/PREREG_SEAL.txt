@@ -1,0 +1,4 @@
+prereg_path: /home/claude/edear_working/VAL-097/VAL-097/prereg.md
+sha256: 9a1bd45e240eea7ac8d03915de9a85deb35533700f2fd263ce1912d40a3ee5f9
+sealed_at: 2026-04-28T14:49:30.321727Z
+rng_seed: 20260428

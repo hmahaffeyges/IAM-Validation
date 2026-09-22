@@ -1,0 +1,1466 @@
+{
+  "_metadata": {
+    "method": "complete_linkage",
+    "space": "consensus_centered_cosine",
+    "threshold_centered_cosine": 0.95,
+    "atlas": "IAMAtlasREBUILD",
+    "n_cells": 111,
+    "n_groups": 94,
+    "n_multi_member": 10,
+    "built": "2026-06-26",
+    "note": "Cells within a group are methylation-collinear in the departure-from-consensus space and not individually identifiable by deconvolution. Solve and presence-test collapse each group to one unit (group-mean profile). Singletons are individually resolvable organs/cells. Mixed-class groups are low-confidence (collapsed redundant/low-quality atlas entries) and must not be reported as a clean organ call.",
+    "low_confidence_rule": "low_confidence=True iff a multi-member group spans >1 tissue super-family (epithelial{secretory,cycling} / immune / terminal_neural / stem_prog / stromal). Same-organ multi-state groups (e.g. stomach diff+undiff) are clean units; cross-organ collinear junk (e.g. CM/Hep/neuron duplicate entries) is low-confidence and never reported as a clean organ."
+  },
+  "groups": {
+    "g015": {
+      "members": [
+        "Acinar"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Acinar",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g039": {
+      "members": [
+        "Antrum_diff",
+        "Antrum_undiff",
+        "Corpus_diff",
+        "Corpus_undiff",
+        "Fundus_diff",
+        "Fundus_undiff"
+      ],
+      "classes": [
+        "cycling",
+        "secretory"
+      ],
+      "singleton": false,
+      "label": "UNIT:Antrum_diff",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g058": {
+      "members": [
+        "B"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "B",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g022": {
+      "members": [
+        "B-cells_EPIC"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "B-cells_EPIC",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g086": {
+      "members": [
+        "BE"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "BE",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g014": {
+      "members": [
+        "Basal"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Basal",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g062": {
+      "members": [
+        "Baso"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Baso",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g065": {
+      "members": [
+        "Bcell"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Bcell",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g031": {
+      "members": [
+        "Bladder"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Bladder",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g060": {
+      "members": [
+        "Bmem"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Bmem",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g059": {
+      "members": [
+        "Bnv"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Bnv",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g027": {
+      "members": [
+        "Breast"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Breast",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g047": {
+      "members": [
+        "CD14_monocytes"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD14_monocytes",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g051": {
+      "members": [
+        "CD19_B-cells"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD19_B-cells",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g054": {
+      "members": [
+        "CD4T",
+        "CD8T"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": false,
+      "label": "UNIT:CD4T",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g020": {
+      "members": [
+        "CD4T-cells_EPIC",
+        "CD8T-cells_EPIC"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": false,
+      "label": "UNIT:CD4T-cells_EPIC",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g055": {
+      "members": [
+        "CD4Tmem"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD4Tmem",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g053": {
+      "members": [
+        "CD4Tnv",
+        "CD8Tnv"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": false,
+      "label": "UNIT:CD4Tnv",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g048": {
+      "members": [
+        "CD4_T-cells"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD4_T-cells",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g050": {
+      "members": [
+        "CD56_NK-cells"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD56_NK-cells",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g057": {
+      "members": [
+        "CD8Tmem"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD8Tmem",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g049": {
+      "members": [
+        "CD8_T-cells"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "CD8_T-cells",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g011": {
+      "members": [
+        "CM",
+        "Hep",
+        "neuron"
+      ],
+      "classes": [
+        "secretory",
+        "terminal"
+      ],
+      "singleton": false,
+      "label": "AMBIGUOUS:CM/Hep/neuron",
+      "tissue_families": [
+        "epithelial",
+        "terminal_neural"
+      ],
+      "low_confidence": true
+    },
+    "g042": {
+      "members": [
+        "CMP",
+        "MEP"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": false,
+      "label": "UNIT:CMP",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g001": {
+      "members": [
+        "Chol"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Chol",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g038": {
+      "members": [
+        "Colon_epithelial_cells"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Colon_epithelial_cells",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g040": {
+      "members": [
+        "Cortical_neurons"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "Cortical_neurons",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g070": {
+      "members": [
+        "Ductal"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Ductal",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g071": {
+      "members": [
+        "Endocrine"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Endocrine",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g066": {
+      "members": [
+        "Eos"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Eos",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g061": {
+      "members": [
+        "Eosino",
+        "Neutro"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": false,
+      "label": "UNIT:Eosino",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g045": {
+      "members": [
+        "Eosinophils_reinius"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Eosinophils_reinius",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g087": {
+      "members": [
+        "Epi"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Epi",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g093": {
+      "members": [
+        "Epi_basal"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Epi_basal",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g091": {
+      "members": [
+        "Epi_stratified"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Epi_stratified",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g092": {
+      "members": [
+        "Epi_suprabasal"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Epi_suprabasal",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g013": {
+      "members": [
+        "Epi_upper"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "Epi_upper",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g023": {
+      "members": [
+        "Erythrocyte_progenitors"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "Erythrocyte_progenitors",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g044": {
+      "members": [
+        "GMP"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "GMP",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g094": {
+      "members": [
+        "Gland"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Gland",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g041": {
+      "members": [
+        "Glia"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "Glia",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g068": {
+      "members": [
+        "Gran"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Gran",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g043": {
+      "members": [
+        "HSC",
+        "L-MPP",
+        "MPP"
+      ],
+      "classes": [
+        "progenitor",
+        "stem_adult"
+      ],
+      "singleton": false,
+      "label": "UNIT:HSC",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g029": {
+      "members": [
+        "Head_and_neck_larynx"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Head_and_neck_larynx",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g037": {
+      "members": [
+        "Hepatocytes"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Hepatocytes",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g080": {
+      "members": [
+        "IC"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "IC",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g083": {
+      "members": [
+        "Kera_diff"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "Kera_diff",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g084": {
+      "members": [
+        "Kera_undiff"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Kera_undiff",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g034": {
+      "members": [
+        "Kidney"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Kidney",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g082": {
+      "members": [
+        "Kup"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Kup",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g002": {
+      "members": [
+        "LE"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "LE",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g032": {
+      "members": [
+        "Left_atrium"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "Left_atrium",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g006": {
+      "members": [
+        "Leu"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Leu",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g088": {
+      "members": [
+        "Luminal"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Luminal",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g036": {
+      "members": [
+        "Lung_cells"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Lung_cells",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g078": {
+      "members": [
+        "Lym"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Lym",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g081": {
+      "members": [
+        "MP"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "MP",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g007": {
+      "members": [
+        "Macro"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Macro",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g085": {
+      "members": [
+        "Mela"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Mela",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g075": {
+      "members": [
+        "Microglia"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Microglia",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g069": {
+      "members": [
+        "Mono"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Mono",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g018": {
+      "members": [
+        "Monocytes_EPIC"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Monocytes_EPIC",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g012": {
+      "members": [
+        "Mye"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Mye",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g064": {
+      "members": [
+        "NK"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "NK",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g021": {
+      "members": [
+        "NK-cells_EPIC"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "NK-cells_EPIC",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g067": {
+      "members": [
+        "Neu"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Neu",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g089": {
+      "members": [
+        "NeuIm"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "NeuIm",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g090": {
+      "members": [
+        "NeuMa"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "NeuMa",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g019": {
+      "members": [
+        "Neutrophils_EPIC"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Neutrophils_EPIC",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g046": {
+      "members": [
+        "Neutrophils_reinius"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Neutrophils_reinius",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g076": {
+      "members": [
+        "OPC"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "OPC",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g077": {
+      "members": [
+        "Oligo"
+      ],
+      "classes": [
+        "terminal"
+      ],
+      "singleton": true,
+      "label": "Oligo",
+      "tissue_families": [
+        "terminal_neural"
+      ],
+      "low_confidence": false
+    },
+    "g026": {
+      "members": [
+        "Pancreatic_acinar_cells"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Pancreatic_acinar_cells",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g024": {
+      "members": [
+        "Pancreatic_beta_cells"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Pancreatic_beta_cells",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g025": {
+      "members": [
+        "Pancreatic_duct_cells"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Pancreatic_duct_cells",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g030": {
+      "members": [
+        "Prostate"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Prostate",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g079": {
+      "members": [
+        "Tcell"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Tcell",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g035": {
+      "members": [
+        "Thyroid"
+      ],
+      "classes": [
+        "secretory"
+      ],
+      "singleton": true,
+      "label": "Thyroid",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g056": {
+      "members": [
+        "Treg"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "Treg",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g033": {
+      "members": [
+        "Upper_GI"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Upper_GI",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g028": {
+      "members": [
+        "Uterus_cervix"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "Uterus_cervix",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g016": {
+      "members": [
+        "adipocyte"
+      ],
+      "classes": [
+        "stromal"
+      ],
+      "singleton": true,
+      "label": "adipocyte",
+      "tissue_families": [
+        "stromal"
+      ],
+      "low_confidence": false
+    },
+    "g008": {
+      "members": [
+        "dendritic",
+        "macrophage"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": false,
+      "label": "UNIT:dendritic",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g017": {
+      "members": [
+        "endothelial"
+      ],
+      "classes": [
+        "stromal"
+      ],
+      "singleton": true,
+      "label": "endothelial",
+      "tissue_families": [
+        "stromal"
+      ],
+      "low_confidence": false
+    },
+    "g010": {
+      "members": [
+        "eosinophil",
+        "monocyte",
+        "neutrophil"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": false,
+      "label": "UNIT:eosinophil",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    },
+    "g009": {
+      "members": [
+        "erythroblast"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "erythroblast",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g005": {
+      "members": [
+        "fibroblast"
+      ],
+      "classes": [
+        "stromal"
+      ],
+      "singleton": true,
+      "label": "fibroblast",
+      "tissue_families": [
+        "stromal"
+      ],
+      "low_confidence": false
+    },
+    "g074": {
+      "members": [
+        "megakaryocyte"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "megakaryocyte",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g063": {
+      "members": [
+        "nRBC"
+      ],
+      "classes": [
+        "progenitor"
+      ],
+      "singleton": true,
+      "label": "nRBC",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g072": {
+      "members": [
+        "small_intestine"
+      ],
+      "classes": [
+        "cycling"
+      ],
+      "singleton": true,
+      "label": "small_intestine",
+      "tissue_families": [
+        "epithelial"
+      ],
+      "low_confidence": false
+    },
+    "g003": {
+      "members": [
+        "smooth_muscle"
+      ],
+      "classes": [
+        "stromal"
+      ],
+      "singleton": true,
+      "label": "smooth_muscle",
+      "tissue_families": [
+        "stromal"
+      ],
+      "low_confidence": false
+    },
+    "g052": {
+      "members": [
+        "stem_pluri"
+      ],
+      "classes": [
+        "stem_pluri"
+      ],
+      "singleton": true,
+      "label": "stem_pluri",
+      "tissue_families": [
+        "stem_prog"
+      ],
+      "low_confidence": false
+    },
+    "g004": {
+      "members": [
+        "stromal_other"
+      ],
+      "classes": [
+        "stromal"
+      ],
+      "singleton": true,
+      "label": "stromal_other",
+      "tissue_families": [
+        "stromal"
+      ],
+      "low_confidence": false
+    },
+    "g073": {
+      "members": [
+        "tcell"
+      ],
+      "classes": [
+        "immune"
+      ],
+      "singleton": true,
+      "label": "tcell",
+      "tissue_families": [
+        "immune"
+      ],
+      "low_confidence": false
+    }
+  },
+  "cell_to_group": {
+    "Acinar": "g015",
+    "Antrum_diff": "g039",
+    "Antrum_undiff": "g039",
+    "Corpus_diff": "g039",
+    "Corpus_undiff": "g039",
+    "Fundus_diff": "g039",
+    "Fundus_undiff": "g039",
+    "B": "g058",
+    "B-cells_EPIC": "g022",
+    "BE": "g086",
+    "Basal": "g014",
+    "Baso": "g062",
+    "Bcell": "g065",
+    "Bladder": "g031",
+    "Bmem": "g060",
+    "Bnv": "g059",
+    "Breast": "g027",
+    "CD14_monocytes": "g047",
+    "CD19_B-cells": "g051",
+    "CD4T": "g054",
+    "CD8T": "g054",
+    "CD4T-cells_EPIC": "g020",
+    "CD8T-cells_EPIC": "g020",
+    "CD4Tmem": "g055",
+    "CD4Tnv": "g053",
+    "CD8Tnv": "g053",
+    "CD4_T-cells": "g048",
+    "CD56_NK-cells": "g050",
+    "CD8Tmem": "g057",
+    "CD8_T-cells": "g049",
+    "CM": "g011",
+    "Hep": "g011",
+    "neuron": "g011",
+    "CMP": "g042",
+    "MEP": "g042",
+    "Chol": "g001",
+    "Colon_epithelial_cells": "g038",
+    "Cortical_neurons": "g040",
+    "Ductal": "g070",
+    "Endocrine": "g071",
+    "Eos": "g066",
+    "Eosino": "g061",
+    "Neutro": "g061",
+    "Eosinophils_reinius": "g045",
+    "Epi": "g087",
+    "Epi_basal": "g093",
+    "Epi_stratified": "g091",
+    "Epi_suprabasal": "g092",
+    "Epi_upper": "g013",
+    "Erythrocyte_progenitors": "g023",
+    "GMP": "g044",
+    "Gland": "g094",
+    "Glia": "g041",
+    "Gran": "g068",
+    "HSC": "g043",
+    "L-MPP": "g043",
+    "MPP": "g043",
+    "Head_and_neck_larynx": "g029",
+    "Hepatocytes": "g037",
+    "IC": "g080",
+    "Kera_diff": "g083",
+    "Kera_undiff": "g084",
+    "Kidney": "g034",
+    "Kup": "g082",
+    "LE": "g002",
+    "Left_atrium": "g032",
+    "Leu": "g006",
+    "Luminal": "g088",
+    "Lung_cells": "g036",
+    "Lym": "g078",
+    "MP": "g081",
+    "Macro": "g007",
+    "Mela": "g085",
+    "Microglia": "g075",
+    "Mono": "g069",
+    "Monocytes_EPIC": "g018",
+    "Mye": "g012",
+    "NK": "g064",
+    "NK-cells_EPIC": "g021",
+    "Neu": "g067",
+    "NeuIm": "g089",
+    "NeuMa": "g090",
+    "Neutrophils_EPIC": "g019",
+    "Neutrophils_reinius": "g046",
+    "OPC": "g076",
+    "Oligo": "g077",
+    "Pancreatic_acinar_cells": "g026",
+    "Pancreatic_beta_cells": "g024",
+    "Pancreatic_duct_cells": "g025",
+    "Prostate": "g030",
+    "Tcell": "g079",
+    "Thyroid": "g035",
+    "Treg": "g056",
+    "Upper_GI": "g033",
+    "Uterus_cervix": "g028",
+    "adipocyte": "g016",
+    "dendritic": "g008",
+    "macrophage": "g008",
+    "endothelial": "g017",
+    "eosinophil": "g010",
+    "monocyte": "g010",
+    "neutrophil": "g010",
+    "erythroblast": "g009",
+    "fibroblast": "g005",
+    "megakaryocyte": "g074",
+    "nRBC": "g063",
+    "small_intestine": "g072",
+    "smooth_muscle": "g003",
+    "stem_pluri": "g052",
+    "stromal_other": "g004",
+    "tcell": "g073"
+  }
+}

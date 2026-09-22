@@ -1,0 +1,14 @@
+{
+  "val_id": "CPG-VAL-138",
+  "title": "Age-axis subtraction \u0394r on GSE40279 age dependence",
+  "cohort": "GSE40279 (Hannum 2013)",
+  "n_samples": 656,
+  "age_range": "19-101",
+  "signal": "Pearson r(A_immune, chronological age)",
+  "intervention": "Stage 3 age-axis foreground subtraction",
+  "r_with_subtraction": -0.4053463616118155,
+  "r_without_subtraction": -0.1576826743704392,
+  "delta_abs_r": -0.24766368724137627,
+  "outcome_code": "O3_INVERTED",
+  "per_sample_sha256": "51dcb54a93f48b5c27dce5d1812c632d12f8ffef5dc57d0f281699820828d7ec"
+}

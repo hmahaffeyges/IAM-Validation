@@ -1,0 +1,1559 @@
+{
+  "card_id": "gastric-esophageal-epic",
+  "card_version": "v0.1",
+  "card_date": "2026-05-03",
+  "card_status": "sealed",
+  "card_seal_timestamp": "2026-05-03T01:30:00Z",
+  "card_seal_basis": "VAL-123 + VAL-124 + VAL-125 + VAL-126 + VAL-127 + VAL-128 sealed 2026-05-02 with proper KIRC+PRAD adjacent-normal anchor n=210; LESSONS_LEARNED.md updates pending Heath canonical-files cycle; Phase B + Phase C run-everything battery completed end-to-end.",
+  "supersedes": null,
+  "tier": "multi_atlas_calibrated_within_cohort_signal_validated",
+  "tier_modifier": "tier_3_substrate_baseline_caveat_pending_substrate_matched_anchor",
+  "disease": {
+    "name": "Gastric adenocarcinoma + Esophageal cancer (squamous + adenocarcinoma) + Crohn's-pathway amendment",
+    "common_synonyms_gastric": [
+      "gastric cancer",
+      "stomach cancer",
+      "STAD"
+    ],
+    "common_synonyms_esophageal": [
+      "esophageal squamous cell carcinoma",
+      "ESCC",
+      "esophageal adenocarcinoma",
+      "EAC",
+      "ESCA"
+    ],
+    "common_synonyms_ibd_amendment": [
+      "Crohn's disease",
+      "CD",
+      "ulcerative colitis",
+      "UC",
+      "inflammatory bowel disease",
+      "IBD"
+    ],
+    "full_name_gastric": "Adenocarcinoma of the stomach (TCGA-STAD molecular subtypes: CIN chromosomal-instability, MSI microsatellite-instability hypermutator, EBV Epstein-Barr-virus-associated CIMP-high, GS genomically-stable mostly diffuse-Lauren, POLE polymerase-epsilon-mutant ultramutator)",
+    "full_name_esophageal": "Carcinoma of the esophagus (TCGA-ESCA two histological subtypes: ESCC esophageal squamous-cell carcinoma + EAC esophageal adenocarcinoma)",
+    "global_burden_gastric": "Gastric cancer is the 5th most common cancer globally (~1.1M new cases/year per GLOBOCAN 2022) and 4th leading cause of cancer death (~770K deaths/year). Five-year survival in the US ~32%, driven primarily by late-stage diagnosis. Highest incidence in East Asia (China, Korea, Japan) where H. pylori prevalence and dietary risk factors are elevated. Bass et al. 2014 Cell defined the four-subtype TCGA molecular classification (CIN/MSI/EBV/GS) that remains the canonical molecular taxonomy.",
+    "global_burden_esophageal": "Esophageal cancer is the 8th most common cancer globally (~510K new cases/year per GLOBOCAN 2022) and 6th leading cause of cancer death (~445K deaths/year). Five-year survival ~20% globally, ~22% in the US. Two histologically distinct subtypes with different epidemiology: ESCC predominates in East Asia and is associated with smoking, alcohol, and hot-beverage consumption; EAC predominates in Western countries and is strongly associated with Barrett's esophagus + GERD + obesity (Krause et al. 2016 Nat Genet).",
+    "global_burden_ibd_amendment": "Inflammatory bowel disease (Crohn's + UC) prevalence ~3 million in the US (CDC), with rising incidence globally. Diagnosed primarily by endoscopy with biopsy; no validated blood-based methylation signature deployed clinically as of 2026. Ventham et al. 2016 Nat Commun 7:13507 (PMID 27886173) is the largest published methylation cohort.",
+    "primary_site_gastric": "Stomach (antrum, corpus, fundus; cardia at gastroesophageal junction overlaps with EAC origin spectrum)",
+    "primary_site_esophageal": "Esophagus (squamous epithelium for ESCC; columnar Barrett's-derived metaplastic epithelium for EAC, predominantly distal third)",
+    "primary_site_ibd_amendment": "Whole blood + sorted lymphocytes/myeloid cells (peripheral immune-population signature; not a direct GI-tissue readout at v0.1)",
+    "tissue_class_gastric": "cycling (gastric adenocarcinoma primary tumor architectural drift); secretory (Boccellato gastric epithelial mucosoid sub-cell-type tiles, H_min=0.843264)",
+    "tissue_class_esophageal": "cycling (ESCA primary tumor architectural drift); secretory (EsoRef squamous epithelial sub-cell-type tiles, H_min=0.843264)",
+    "tissue_class_ibd_amendment": "immune (Stage 3 cell-fraction deconvolution readout, H_min=0.838889)",
+    "h_min_cycling": 0.856055,
+    "h_min_secretory": 0.843264,
+    "h_min_immune": 0.838889,
+    "healthy_reference_beta_gastric_epithelial": 0.739,
+    "healthy_reference_beta_esophageal_squamous": "not in Moss 2018 18-tissue table; calibrated via VAL-124 EsoRef bridged atlas per-tile q5 thresholds (Epi_stratified q5 = 0.4202)",
+    "biology_note_gastric": "TCGA 2014 (Bass et al.) defined four molecular subtypes of gastric adenocarcinoma: (1) Chromosomal instability (CIN, ~50% of cases) characterized by intestinal-Lauren histology + recurrent TP53 mutations + chromosomal aneuploidy; (2) Microsatellite instability (MSI, ~22%) with hypermutator phenotype + DNA mismatch repair deficiency + elevated CIMP methylation; (3) Epstein-Barr virus-associated (EBV, ~9%) with extreme CIMP-high methylation + PIK3CA mutations + immune cell infiltration; (4) Genomically stable (GS, ~20%) with diffuse-Lauren histology + CDH1/RHOA mutations + low mutational burden. ACRG 2015 (Cristescu et al. Nat Med) extended this with prognostic stratification. The card-relevant prediction is that Stage 1 cycling-class architectural-drift readout will produce a within-cohort hierarchy MSI ≈ EBV (high CIMP) > CIN > GS (low methylation drift) consistent with high-CIMP-amplification of methylation drift signature.",
+    "biology_note_esophageal": "Two histologically and biologically distinct subtypes. ESCC arises from squamous-stratified esophageal epithelium typically in proximal-mid esophagus; risk factors smoking + alcohol + hot beverages + low fruit/vegetable intake; characterized by acute squamous transformation with TP53 mutations + cyclin D1 amplification (Hao et al. 2018 Mol Cancer Res). EAC arises from columnar Barrett's-derived metaplastic epithelium typically in distal third + gastroesophageal junction; risk factors GERD + obesity + Barrett's history; characterized by chronic CIMP-driven methylation drift accumulation through metaplasia → low-grade dysplasia → high-grade dysplasia → invasive adenocarcinoma sequence (Krause et al. 2016 Nat Genet; Yu et al. 2019 Front Genet; Kaz et al. 2011 Cancer Res). Card-relevant prediction: within-cohort EAC > ESCC on Stage 1 architectural-drift readout because EAC's chronic methylation drift accumulation exceeds ESCC's acute squamous transformation drift in cycling-class methylation space.",
+    "biology_note_ibd_amendment": "Crohn's and UC produce a peripheral-blood immune-population signature characterized by T-cell expansion (CD4 + CD8 + Treg) with proportional decrease in monocytes and neutrophils. The signature is captured by methylation-based cell-type deconvolution panels (Salas IDOL, Loyfer immune tiles, UniLIFE 19-cell, Caggiano TIM) detecting the population-fraction shift in mixed populations. The signature is NOT detected by Stage 1 cycling-class architectural-drift panel (which is tissue/cancer-specific). The signature is NOT detected by sorting cells (because the signature is in proportions, not in any single cell type's methylation pattern). Card-relevant prediction (sealed before VAL-128 β access): mixture-attenuation hypothesis (sorted ≥ 1.5x whole-blood). Observed: REVERSED direction — whole blood STRONGER than sorted because the IBD signature is a population-fraction shift, not within-cell-type drift."
+  },
+  "icd10_scope": {
+    "included_gastric": [
+      "C16.0 — Malignant neoplasm of cardia (stomach)",
+      "C16.1 — Malignant neoplasm of fundus of stomach",
+      "C16.2 — Malignant neoplasm of body of stomach (corpus)",
+      "C16.3 — Malignant neoplasm of pyloric antrum",
+      "C16.4 — Malignant neoplasm of pylorus",
+      "C16.5 — Malignant neoplasm of lesser curvature of stomach, unspecified",
+      "C16.6 — Malignant neoplasm of greater curvature of stomach, unspecified",
+      "C16.8 — Malignant neoplasm of overlapping sites of stomach",
+      "C16.9 — Malignant neoplasm of stomach, unspecified"
+    ],
+    "included_esophageal": [
+      "C15.3 — Malignant neoplasm of upper third of esophagus (typically ESCC)",
+      "C15.4 — Malignant neoplasm of middle third of esophagus (mixed ESCC + EAC)",
+      "C15.5 — Malignant neoplasm of lower third of esophagus (typically EAC)",
+      "C15.8 — Malignant neoplasm of overlapping sites of esophagus",
+      "C15.9 — Malignant neoplasm of esophagus, unspecified"
+    ],
+    "included_ibd_amendment": [
+      "K50.00-K50.919 — Crohn's disease (Crohn's enteritis, Crohn's colitis, ileal Crohn's, etc.)",
+      "K51.00-K51.919 — Ulcerative colitis (ulcerative pancolitis, ulcerative ileocolitis, etc.)"
+    ],
+    "excluded": [
+      "C15.0-C15.2 — Cervical/thoracic esophageal subsites (covered by upper-third C15.3 mapping; explicit cardia-overlap C15.5/C16.0 routes to module_2 EAC arm via Barrett's stratification)",
+      "C16.7 — Malignant neoplasm of greater curvature, primary site (subset of C16 stomach scope)",
+      "Other gastrointestinal malignancies (colorectal, hepatobiliary, pancreatic) — covered by separate cards (crc-epic, hcc-epic, pancreatic-epic)",
+      "Esophageal sarcomas and rare histologies (e.g., gastrointestinal stromal tumor of esophagus, neuroendocrine carcinoma of esophagus) — out of scope for v0.1; tracked for v0.4+",
+      "Inflammatory bowel disease (Crohn's, UC) — included as a known-limitations amendment (module_3) NOT a deployed sub-product at v0.1; future IBD-epic v0.0 card-construction sprint"
+    ]
+  },
+  "cookbook_master_readme": {
+    "reference": "/mnt/project/README_MASTER_v2_7.md (or current cookbook master version)",
+    "invariants": "All cards inherit: Stage 1 H_min(immune) = 0.838889 invariant for cycling-class architectural-drift readout (Xu-538 panel, buffy-coat-validated); Stage 2 atlas family fitness rules (CCL-039 cell-of-origin direction, DISC-BLADDER-003 mucosal-cohort gene-promoter atlas mandate, DISC-CARDIO-005 cultured-cell substrate-equivalence); Stage 3 immune-fraction deconvolution interpretation rules (DISC-GE-005 population-fraction-shift vs within-cell-type-drift); CHK-2.16 tissue-class CHK-3.1A floor verification (DISC-BLADDER-002); CHK-2.17 cohort-substrate-coverage pre-flight (DISC-BLADDER-004); CHK-3.2 cross-cohort baseline check tier-3 invalidation rules (CCL-040 + CCL-041); CHK-5.7-5.13 card structural-parity gates; CCL-029 cohort-completeness; CCL-046 citation verification; CCL-047 atlas dedupe; CCL-048 substrate normalization required."
+  },
+  "specimen_pathways_supported": {
+    "_purpose": "gastric-esophageal-epic v0.1 supports six specimen pathways across the three disease modules. v0.1 deployment validated on tissue-arm (TCGA-STAD primary tumor + TCGA-ESCA primary tumor + GSE87650 sorted blood + whole blood). Plasma cfDNA / urine / saliva / FNA cytology specimens are documented but not yet validated at v0.1.",
+    "A_tissue_biopsy_gastric": {
+      "specimen": "Endoscopic gastric biopsy or surgical gastrectomy specimen, fresh-frozen or FFPE-eligible (HM450K / EPIC 850K methylation array)",
+      "primary_pathway": true,
+      "module": "module_1 STAD",
+      "stage_1_role": "Cycling-class architectural-drift readout via Xu-538 panel; primary deployment readout for module_1; molecular-subtype-stratification load-bearing layer under tier-3 substrate caveat",
+      "stage_2_role": "Cell-of-origin localization via Boccellato 6-tile gastric mucosoid atlas (Antrum_undiff/diff, Corpus_undiff/diff, Fundus_undiff/diff) + Layered Moss+Loyfer 25-tile cross-tissue panel + Caggiano TIM 19-tile broad cell-type panel; pre-locked direction predictions FAIL pre-lock under tier-3 caveat (substrate-shift OR tumor-methylation-homogenization both go positive direction)",
+      "stage_3_role": "Immune microenvironment readout via Salas IDOL 6-cell + UniLIFE 19-cell + Caggiano TIM immune subset; validated in VAL-126 firing T-cell + myeloid depletion bidirectional pattern consistent with Lin 2019 / Kang 2020 / Sundar 2021 advanced gastric cancer immune evasion literature",
+      "deployment_anchor": "VAL-126 TCGA-STAD HM450 sesame Level 3 n=395 primary tumor sealed 2026-05-02 with O5_SUBSTRATE_BASELINE_TIER_3_DETECTED + O1_WITHIN_COHORT_SIGNAL_PRESERVED",
+      "validated_at": "tissue arm cohort-level sealed 2026-05-02; per-patient deployment pending v0.2 substrate-matched gastric anchor",
+      "key_confounds": [
+        "Substrate baseline shift (CHK-3.2 tier-3) on TCGA HM450 sesame Level 3 STAD vs KIRC+PRAD anchor (-5.02 anchor-SD) — tumor and adjacent-normal both shift, ruling out tumor-specific signature; documents tissue/pipeline-level baseline difference not a tumor effect",
+        "Tumor cellularity heterogeneity (low-tumor-content samples may dilute architectural-drift signal; TCGA convention ≥60% tumor cellularity per pathology review)",
+        "H. pylori infection status (within-cohort Yes n=20 d=+3.94 vs No n=168 d=+3.71 — modest amplification +0.23 d-units; underpowered at v0.1)",
+        "EBV serology overlap with EBV molecular subtype (cBioPortal EBV_PRESENT field; serology-positive-but-not-molecular-EBV samples reported separately in stratified JSON)",
+        "Lauren classification sub-stratification (intestinal-pooled n=158 d=+3.67 vs diffuse-pooled n=78 d=+3.29; mucinous n=20 d=+3.92; adenoNOS n=134 d=+3.09)",
+        "MSI hypermutator phenotype overlapping with CIMP-high methylation (MSI-H n=67 d=+3.85; MSS n=326 d=+3.27; +0.58 d-units MSI amplification)",
+        "Anatomic site (antrum vs corpus vs fundus) — Boccellato atlas resolves these but tier-3 caveat applies to absolute direction interpretation",
+        "Sex stratification (male n=259 d=+3.42 vs female n=136 d=+3.20 — +0.22 d-units male amplification, modest)"
+      ]
+    },
+    "B_tissue_biopsy_esophageal": {
+      "specimen": "Endoscopic esophageal biopsy or surgical esophagectomy specimen (HM450K / EPIC 850K methylation array)",
+      "primary_pathway": true,
+      "module": "module_2 ESCA",
+      "stage_1_role": "Cycling-class architectural-drift readout via Xu-538 panel; ESCC vs EAC histological-subtype-discrimination load-bearing layer (d_ESCC-EAC = -1.06, p=1.50e-11)",
+      "stage_2_role": "Cell-of-origin localization via EpiSCORE EsoRef 8-tile (EC + Epi_basal + Epi_stratified + Epi_suprabasal + Epi_upper + Fib + Gland + IC) + Layered Moss+Loyfer 25-tile + Caggiano TIM 19-tile + EpiSCORE OEref 9-tile squamous-tissue cross-card calibration arm; ESCC Epi_stratified d=-0.99 fires NEGATIVE direction = cell-of-origin retention in target tissue (squamous-stratified epithelial origin retained in ESCC, lost in EAC at d=-0.05)",
+      "stage_3_role": "Immune microenvironment readout via Salas IDOL + UniLIFE + Caggiano TIM immune subset",
+      "deployment_anchor": "VAL-127 TCGA-ESCA HM450 sesame Level 3 n=185 primary tumor (96 ESCC + 89 EAC) sealed 2026-05-02 with O1_SUBTYPE_DISCRIMINATION_PASS + O5_SUBSTRATE_BASELINE_TIER_3 + O1_BARRETT_AMPLIFICATION_FIRES",
+      "validated_at": "tissue arm cohort-level sealed 2026-05-02; per-patient deployment pending v0.2 substrate-matched esophageal anchor",
+      "key_confounds": [
+        "Substrate baseline shift (CHK-3.2 tier-3) on TCGA HM450 sesame Level 3 ESCA vs KIRC+PRAD anchor (-4.31 anchor-SD; less severe than STAD's -5.02, GI-continuum substrate gradient: distal-stomach + cardia + distal-esophagus carry mixed columnar/squamous epithelium with reduced bimodality vs solid parenchyma)",
+        "Histological subtype (ESCC squamous-cell vs EAC adenocarcinoma — fundamentally different methylation drivers; within-cohort d=-1.06 on Stage 1 alone discriminates, p=1.50e-11)",
+        "Barrett's esophagus history (Yes n=28 d=+4.50 vs No n=118 d=+2.81; +1.69 d-units within-cohort amplification — cleanest within-cohort biological signal in the sprint)",
+        "Smoking history (informative null — all four smoking strata within 0.6 d-units; methylation drift ≠ mutational burden discriminator)",
+        "Alcohol consumption frequency (clinical metadata available; within-cohort stratification preserved for v0.2 expansion)",
+        "Columnar metaplasia (Barrett's-positive subset; cBioPortal HISTORY_BARRETTS_ESOPHAGEAL_INDICATOR coding includes Yes-USA n=18 + Yes-UK n=10 = 28)",
+        "MSI_SENSOR (clinical metadata available; ESCA cohort low-MSI overall)",
+        "Anatomic site (proximal-mid C15.3-C15.4 typically ESCC, distal C15.5 typically EAC — matches histology stratification at the operational level)"
+      ]
+    },
+    "C_blood_whole_blood_ibd_amendment": {
+      "specimen": "Whole blood DNA (HM450K methylation array)",
+      "primary_pathway": true,
+      "module": "module_3 Crohn's pathway amendment",
+      "stage_1_role": "INFORMATIVE NULL — Stage 1 cycling-class architectural-drift panel does NOT detect IBD in any cell type (|d_CD-HC| < 0.5 across monocytes, CD4, CD8, wh blood); class-of-disease finding clarifying Stage 1 is tissue/cancer-specific not generic chronic-inflammation marker",
+      "stage_2_role": "Not applicable for IBD; no GI-tissue readout in blood substrate",
+      "stage_3_role": "PRIMARY DEPLOYMENT READOUT — Salas IDOL 6-cell + UniLIFE 19-cell + Loyfer immune EPIC tiles + Caggiano TIM immune subset detect T-cell-expansion + myeloid-depletion bidirectional population-fraction-shift signature; max |d_CD-HC| = 1.72 on UniLIFE aCD8Tnv tile in whole blood",
+      "deployment_anchor": "VAL-128 GSE87650 GPL13534 sorted-cell sub-experiment n=240 (whole-blood-companion subset n=65) sealed 2026-05-02 with O1_CROHNS_LANGUAGE_SUPPORTED + O5_MIXTURE_ATTENUATION_REVERSAL",
+      "validated_at": "amendment-language scope at v0.1; not a deployed per-patient IBD-detection product",
+      "key_confounds": [
+        "Mixture-attenuation reversal — sorted-cell d is SMALLER than whole-blood d on most tiles (40/93 = 43% pass) because Crohn's signature is a population-fraction shift not within-cell-type drift; sorting eliminates the very signal being detected",
+        "CD vs UC discrimination is modest overall; CD8 cleanest discriminator at d_CD-UC = -0.72 (consistent with literature on CD's stronger Th1/CD8 effector memory)",
+        "Disease activity state (active flare vs remission) — clinical metadata not consistently captured in GSE87650; disease-activity-stratified analysis pending v0.1.1",
+        "Treatment status (anti-TNF biologics, corticosteroids, immunomodulators) — major confounder for immune-fraction shifts; clinical metadata pending v0.1.1",
+        "Substrate (Ventham 2016 in-house preprocessing on HM450K GPL13534, not sesame Level 3) — within-cohort self-cal at v0.1; cross-cohort generalization pending"
+      ]
+    },
+    "D_blood_sorted_cells_ibd_amendment": {
+      "specimen": "Sorted-cell (CD4, CD8, monocyte) DNA from peripheral blood (HM450K methylation array)",
+      "primary_pathway": false,
+      "module": "module_3 Crohn's pathway amendment",
+      "stage_1_role": "Not informative — same null as whole blood",
+      "stage_2_role": "Not applicable",
+      "stage_3_role": "Reversal-test substrate — sorted-cell d expected SMALLER than whole-blood d under DISC-GE-005 population-fraction-shift mechanism; confirms whole-blood is the operative substrate for IBD deployment (separation of cells eliminates the population-shift signal)",
+      "validated_at": "VAL-128 sorted-cell sub-experiment n=175 (CD4=59, CD8=56, Mono=60) sealed 2026-05-02; demonstrates mixture-attenuation reversal mechanism"
+    },
+    "E_plasma_cfdna_gastric_esophageal": {
+      "specimen": "Plasma cell-free DNA (HM450K / EPIC 850K methylation array)",
+      "primary_pathway": false,
+      "module": "module_1 STAD + module_2 ESCA",
+      "stage_1_role": "Pending validation — Xu-538 panel buffy-coat-derived (Xu 2020); cfDNA transferability validated for hcc-epic VAL-059 ccfDNA d=+0.634; gastric+esophageal cfDNA validation pending v0.3",
+      "stage_2_role": "Pending validation",
+      "validated_at": "not validated at v0.1; v0.3 priority",
+      "use_when": "Future plasma-based screening or post-treatment monitoring deployment when cfDNA cohorts become available (e.g., GSE116988 if accessible, or commercial partner cfDNA prospective cohort)"
+    },
+    "F_pancreatic_juice_gastric_esophageal": {
+      "specimen": "Pancreatic juice (not applicable for gastric/esophageal cancer detection)",
+      "applicable": false,
+      "rationale": "Pancreatic juice is sampled via ERCP and is anatomically + pathophysiologically specific to pancreatic cancer detection (panc-epic VAL-068). Not a relevant specimen pathway for gastric or esophageal cancer."
+    },
+    "G_urine_saliva_csf_fna": {
+      "specimen": "Urine cfDNA / saliva / CSF / fine-needle aspirate cytology",
+      "applicable_status": "documented but not validated at v0.1; v0.3+ validation pending appropriate cohorts",
+      "rationale": "Saliva sampling has theoretical relevance for ESCC (oral microbiome and methylation markers correlate with esophageal squamous-cell carcinoma per Peters et al. 2017 Nat Commun); urine cfDNA carries weak signal for distant epithelial cancers. Not validated for gastric/esophageal at v0.1."
+    }
+  },
+  "stage_1_immune_flag": {
+    "panel": {
+      "panel_id": "Xu-538 immune cycling-class panel (cookbook canonical)",
+      "panel_sha256": "(see Xu-538 reference SHA in cookbook canonical; matches breast-epic + lung-epic + crc-epic + prostate-epic + bladder-epic + cardio-epic Stage 1)",
+      "n_cpgs": 538,
+      "source_paper": "Xu Z, Sandler DP, Taylor JA. Blood DNA methylation and breast cancer: a prospective case-cohort analysis in the Sister Study. JNCI 2020;112:87-94.",
+      "source_doi": "10.1093/jnci/djz065",
+      "source_doi_url": "https://doi.org/10.1093/jnci/djz065",
+      "panel_coverage_epic": ">= 95% on EPIC 850K (validated cookbook-wide)",
+      "panel_coverage_450k": "100% on HM450K (validated VAL-126 + VAL-127 + VAL-128 in this sprint, all 3 cohorts at 100% per-sample coverage)",
+      "platforms_supported": [
+        "HM450K",
+        "EPIC 850K"
+      ]
+    },
+    "h_min_immune": 0.838889,
+    "h_min_immune_source": "GAPE_WEB_v13.py line 89 (immune class H_min constant from G-003b MCMC posterior mean, R-hat < 1.001).",
+    "scoring_methods_for_gastric_esophageal": {
+      "primary": "Pooled A_immune (mean β across 538 CpGs / H_min_immune); same scoring method as breast-epic + crc-epic + prostate-epic + bladder-epic.",
+      "secondary": "None at v0.1. Stage 1 directional fallback panel NOT required for module_1 STAD or module_2 ESCA (both fire pooled A_immune above the 80-cell baseline reference NORMAL cutoff). Module_3 Crohn's amendment confirms Stage 1 cycling-class is NOT informative for IBD; no directional fallback applies to module_3.",
+      "rationale": "Pooled A_immune fires consistently above tier on TCGA-STAD and TCGA-ESCA primary tumor cohorts; molecular subtype hierarchy (STAD MSI > EBV > CIN > GS) and histological subtype discrimination (ESCA EAC > ESCC) emerge cleanly without requiring directional decomposition."
+    },
+    "module_1_stad_stage_1_findings": {
+      "all_stad_d_vs_anchor": 3.343,
+      "all_stad_p_value": 5.71e-184,
+      "all_stad_n": 395,
+      "molecular_subtype_within_cohort_hierarchy": {
+        "subtype_STAD_MSI": {
+          "n": 59,
+          "d_vs_anchor": 4.026,
+          "lauren_modal": "intestinal",
+          "ranking": "1st (highest)"
+        },
+        "subtype_STAD_EBV": {
+          "n": 29,
+          "d_vs_anchor": 3.852,
+          "lauren_modal": "mixed",
+          "ranking": "2nd"
+        },
+        "subtype_STAD_CIN": {
+          "n": 202,
+          "d_vs_anchor": 3.298,
+          "lauren_modal": "intestinal",
+          "ranking": "3rd (cohort-modal)"
+        },
+        "subtype_STAD_POLE": {
+          "n": 7,
+          "d_vs_anchor": 2.978,
+          "underpowered": true,
+          "ranking": "4th (underpowered)"
+        },
+        "subtype_STAD_GS": {
+          "n": 46,
+          "d_vs_anchor": 2.887,
+          "lauren_modal": "diffuse",
+          "ranking": "5th (lowest)"
+        }
+      },
+      "msi_status_within_cohort": {
+        "MSI-H": {
+          "n": 67,
+          "d_vs_anchor": 3.853,
+          "definition": "MSI_SENSOR_SCORE >= 4.0 per TCGA convention"
+        },
+        "MSS": {
+          "n": 326,
+          "d_vs_anchor": 3.271,
+          "amplification_d_units": 0.582
+        }
+      },
+      "h_pylori_within_cohort": {
+        "Yes": {
+          "n": 20,
+          "d_vs_anchor": 3.942,
+          "underpowered": true
+        },
+        "No": {
+          "n": 168,
+          "d_vs_anchor": 3.713,
+          "amplification_d_units": 0.229
+        }
+      },
+      "lauren_within_cohort": {
+        "intestinal_pooled": {
+          "n": 158,
+          "d_vs_anchor": 3.667
+        },
+        "diffuse_pooled": {
+          "n": 78,
+          "d_vs_anchor": 3.289
+        },
+        "mucinous": {
+          "n": 20,
+          "d_vs_anchor": 3.915
+        },
+        "adenoNOS": {
+          "n": 134,
+          "d_vs_anchor": 3.087
+        }
+      },
+      "sex_within_cohort": {
+        "male": {
+          "n": 259,
+          "d_vs_anchor": 3.422
+        },
+        "female": {
+          "n": 136,
+          "d_vs_anchor": 3.199,
+          "amplification_d_units_male_minus_female": 0.223
+        }
+      },
+      "interpretation": "All five molecular subtype rankings preserve the pre-locked CIMP-amplification ordering (MSI ≈ EBV > CIN > GS) within cohort. MSI slightly leads EBV by ~0.2 d-units (interpretable as MSI's hypermutator phenotype amplifying methylation drift modestly above EBV's pure CIMP). Within-cohort signals are robust to CHK-3.2 tier-3 substrate baseline shift because all subgroups share the same baseline. Some published literature reports EBV-leads-MSI on different methylation platforms — VAL-126 reports the observed direction with this interpretive note rather than claiming exact reproduction of any single published ordering."
+    },
+    "module_2_esca_stage_1_findings": {
+      "all_esca_d_vs_anchor": 2.883,
+      "all_esca_p_value": 2.77e-81,
+      "all_esca_n": 185,
+      "histology_within_cohort": {
+        "ESCC": {
+          "n": 96,
+          "d_vs_anchor": 2.644,
+          "p_value": 9.24e-41
+        },
+        "EAC": {
+          "n": 89,
+          "d_vs_anchor": 3.703,
+          "p_value": 9.39e-50
+        }
+      },
+      "histology_contrast_d_ESCC_minus_EAC": -1.064,
+      "histology_contrast_p_value": 1.5e-11,
+      "histology_contrast_interpretation": "EAC architectural drift exceeds ESCC by 1.06 d-units within cohort (within-cohort signal robust to substrate baseline shift). Consistent with prereg hypothesis that EAC's Barrett's-driven chronic methylation drift exceeds ESCC's acute squamous transformation drift in cycling-class methylation space. First cookbook example of methylation-only within-cancer histological-subtype discrimination at this magnitude (1.06 d-units within cohort) outside MSI-tracking-Lauren cases.",
+      "barrett_within_cohort": {
+        "Yes": {
+          "n": 28,
+          "d_vs_anchor": 4.498,
+          "breakdown": "Yes-USA 18 + Yes-UK 10 = 28 per cBioPortal HISTORY_BARRETTS_ESOPHAGEAL_INDICATOR coding"
+        },
+        "No": {
+          "n": 118,
+          "d_vs_anchor": 2.809
+        },
+        "amplification_d_units_yes_minus_no": 1.69,
+        "interpretation": "Cleanest within-cohort biological signal in the sprint. Barrett's history amplifies the architectural-drift signature by +1.69 d-units within the same cohort. Substrate-tier-3 doesn't apply because both groups share identical baseline. Biologically consistent: Barrett's esophagus is chronic columnar metaplasia with progressive methylation drift accumulation; tumors arising from Barrett's substrate inherit and amplify that drift signature."
+      },
+      "smoking_within_cohort_informative_null": {
+        "Lifelong_non": {
+          "n": 56,
+          "d_vs_anchor": 3.032
+        },
+        "Reformed_ge15yr": {
+          "n": 36,
+          "d_vs_anchor": 2.878
+        },
+        "Current": {
+          "n": 37,
+          "d_vs_anchor": 2.825
+        },
+        "Reformed_lt15yr": {
+          "n": 37,
+          "d_vs_anchor": 2.426
+        },
+        "all_strata_range_d_units": 0.6,
+        "interpretation": "All four smoking strata within 0.6 d-units of each other (range 2.43-3.03). Smoking status is NOT a strong driver of architectural-drift signal in this cohort, in marked contrast to Barrett's (1.69 d-unit amplification). Card-relevant finding: gastric-esophageal-epic v0.1 Stage 1 readout responds to chronic-methylation-drift drivers (Barrett's metaplasia, MSI-CIMP overlap) more strongly than to acute-mutagenic drivers (smoking-induced DNA damage). Distinguishes mechanism: methylation drift ≠ mutational burden."
+      },
+      "sex_within_cohort": {
+        "male": {
+          "n": 158,
+          "d_vs_anchor": 2.843
+        },
+        "female": {
+          "n": 27,
+          "d_vs_anchor": 3.099
+        }
+      }
+    },
+    "module_3_crohns_stage_1_null": {
+      "monocytes_d_CD_vs_HC": -0.161,
+      "CD4_d_CD_vs_HC": 0.064,
+      "CD8_d_CD_vs_HC": -0.463,
+      "wh_blood_d_CD_vs_HC": -0.205,
+      "all_strata_max_abs_d": 0.463,
+      "interpretation": "INFORMATIVE NULL. Stage 1 Xu-538 cycling-class architectural-drift panel does NOT detect Crohn's in any cell-type strata. UC vs HC similarly near-null. Class-of-disease finding: IBD does not register on cycling-class Stage 1 panel. Stage 1 is tissue/cancer-specific (validated previously on TCGA-COAD, TCGA-LIHC, TCGA-STAD, TCGA-ESCA, GSE51057 breast) not generic chronic-inflammation marker."
+    },
+    "ccl_027_four_questions_answered_per_module": {
+      "module_1_stad": {
+        "i_pooled_direction": "POSITIVE (all 5 subtypes fire d > +2.88 within cohort; all-cohort d=+3.34). No bidirectional cancellation.",
+        "ii_bidirectional_risk_with_citation": "Low. STAD primary tumor methylation drift is monotonic positive across subtypes per Bass et al. 2014 Cell methylation profiling and Cristescu et al. 2015 Nat Med. CIMP-high MSI + EBV subtypes amplify drift relative to CIN; GS subtype dampens drift but stays positive.",
+        "iii_directional_fallback": "Not required at v0.1. Pooled A_immune fires consistently above 80-cell baseline reference NORMAL cutoff on all subtypes. Directional fallback panel reserved for diseases with bidirectional cancellation (AD-instance pattern per CCL-031, PDAC pooled-null per CCL-028).",
+        "iv_lymphoid_myeloid_pattern_literature": "T-cell + myeloid depletion bidirectional pattern in peripheral blood readout consistent with Lin et al. 2019 J Hepatol, Kang et al. 2020 Theranostics, Sundar et al. 2021 Nat Commun documenting peripheral T-cell exhaustion + reduced lymphocyte/myeloid blood-compartment proportions in advanced gastric cancer. Stage 3 Salas IDOL fires CD4T -1.92, CD8T -1.58, Mono -0.90, NK -0.86 — direction consistent with literature."
+      },
+      "module_2_esca": {
+        "i_pooled_direction": "POSITIVE for both subtypes (ESCC d=+2.64, EAC d=+3.70 within cohort). Direction is monotonic positive across both subtypes; subtype discrimination is in magnitude not direction.",
+        "ii_bidirectional_risk_with_citation": "Low. EAC and ESCC both produce monotonic positive cycling-class methylation drift per Krause et al. 2016 Nat Genet (EAC Barrett's-CIMP) and Hao et al. 2018 Mol Cancer Res (ESCC squamous transformation).",
+        "iii_directional_fallback": "Not required at v0.1. Pooled A_immune fires consistently above 80-cell baseline.",
+        "iv_lymphoid_myeloid_pattern_literature": "ESCA Stage 3 immune-fraction readout pending v0.2 expansion; clinically expected mixed pattern with TIL infiltration in EAC (Lagisetty et al. 2021 Br J Cancer) + immune-suppressive microenvironment in advanced ESCC."
+      },
+      "module_3_crohns_amendment": {
+        "i_pooled_direction": "Stage 1 NULL across all cell-type strata. Pooled A_immune does NOT detect IBD.",
+        "ii_bidirectional_risk_with_citation": "Stage 3 readout is bidirectional by design (T-cell expansion UP, myeloid depletion DOWN). This is the operational signature, not a confound — it reflects population-fraction-shift biology of IBD per Strober et al. 2007 Nat Rev Immunol + Globig et al. 2014 J Crohns Colitis.",
+        "iii_directional_fallback": "Not applicable. The IBD signature is captured by Stage 3 cell-fraction deconvolution atlases not by Stage 1 architectural-drift directionality.",
+        "iv_lymphoid_myeloid_pattern_literature": "T-cell expansion (CD4 + CD8 + Treg) + myeloid depletion (Mono + Neu) per VAL-128 max |d| = 1.72 on UniLIFE aCD8Tnv; cross-atlas reproduction across Salas IDOL + UniLIFE 19-cell + Loyfer EPIC immune tiles. Consistent with Strober et al. 2007 + Globig et al. 2014 + Ventham et al. 2016 Nat Commun PMID 27886173 sorted-cell methylation profiling."
+      }
+    }
+  },
+  "stage_2_localization": {
+    "_purpose": "Stage 2 localizes the cell-of-origin tissue for the Stage 1 architectural-drift signal. gastric-esophageal-epic v0.1 uses 5 atlases at Stage 2: Layered Moss + Loyfer 25-tile (cookbook canonical, all cards) + BoccellatoStomachRef HM450 6-tile (gastric-specific, VAL-123 calibrated) + EpiSCORE EsoRef 8-tile (esophageal-specific, VAL-124 calibrated) + EpiSCORE OEref 9-tile (oral-squamous cross-card calibration arm, VAL-125 calibrated) + Caggiano CelFiE TIM 19-tile (broad cross-tissue panel, VAL-113 calibrated).",
+    "moss_atlas_reference": "Moss J et al. Comprehensive human cell-type methylation atlas reveals origins of circulating cell-free DNA in health and disease. Nat Commun 2018;9:5068. DOI 10.1038/s41467-018-07466-6.",
+    "loyfer_atlas_reference": "Loyfer N et al. A DNA methylation atlas of normal human cell types. Nature 2023;613:355-364. DOI 10.1038/s41586-022-05580-6. Layered into the 25-tile reference per CCL-047 dedupe (7,890 → 6,105 unique CpGs).",
+    "boccellato_atlas_reference": "Fritsche K, Boccellato F et al. 2022 GSE141660 EPIC 850K source (gastric organoid mucosoid lines: Antrum, Corpus, Fundus). HM450-restricted to 380,467 CpGs after CHK-2.17 cohort-substrate-coverage pre-flight gate (49.26% mean coverage on EPIC source → 95.56% on HM450 restricted; identical failure mode to VAL-117 ProstateRef amendment precedent). VAL-123 calibration anchor.",
+    "esoref_atlas_reference": "Zhu T, Liu J, Beck S, Pan S, Capper D, Lechner M, Thirlwell C, Breeze CE, Teschendorff AE. A pan-tissue DNA-methylation atlas based on deconvolution of major cell-types. Nature Methods 2022;19:296. DOI 10.1038/s41592-022-01412-7. mrefEso.m source: 163 Entrez × 8 cell types broadcast to 2,464 unique 450K CpGs via probeInfo450k.lv. VAL-124 calibration anchor.",
+    "oeref_atlas_reference": "Zhu T et al. 2022 (same source paper as EsoRef). mrefOE.m source: ~340 Entrez × 9 oral cell types broadcast to 5,396 unique 450K CpGs. VAL-125 calibration anchor.",
+    "caggiano_atlas_reference": "Caggiano C et al. Comprehensive cell type decomposition of circulating cell-free DNA with CelFiE. Nat Commun 2021;12:2717. tim_matrix.txt source: 1,581 WGBS regions × 19 cell types; HM450 hg19 manifest CpG-in-region intersection produces 254 unique array CpGs × 19 cell types. VAL-113 calibration anchor.",
+    "module_1_stad_target_tissue": {
+      "primary_target_tissue": "gastric_epithelial",
+      "primary_target_class": "cycling (per Moss 2018 18-tissue table) for tumor-vs-anchor cycling-class architectural-drift readout; secretory for sub-cell-type Boccellato gastric mucosoid tile readout",
+      "h_min_cycling": 0.856055,
+      "h_min_secretory": 0.843264,
+      "moss_healthy_reference_beta_gastric_epithelial": 0.739,
+      "boccellato_healthy_reference_per_tile_q5": {
+        "Antrum_undiff": 0.1194,
+        "Antrum_diff": 0.1234,
+        "Corpus_undiff": 0.1298,
+        "Corpus_diff": 0.1278,
+        "Fundus_undiff": 0.1216,
+        "Fundus_diff": 0.1212
+      },
+      "score_formula_cycling": "A_cycling = (1 - β_tumor / β_healthy) / (1 - H_min_cycling); A < 1.01 NORMAL, A ≥ 1.01 MARGINAL, A ≥ 1.05 DETECTABLE, A ≥ 1.07 URGENT, A ≥ 1.10 FLOOR_BREACH per universal_tier_thresholds (deviation justified per disease literature as appropriate)",
+      "score_formula_boccellato_secretory": "Per-tile A_secretory = mean(β over tile CpGs) / H_min_secretory; FLOOR_BREACH triggered when sample's per-tile A_secretory < q5 healthy floor for that tile (BELOW_NORMAL drift detection)",
+      "localization_criterion": "Boccellato tile fires within calibrated q5 floor range AND within-cohort molecular-subtype hierarchy (MSI ≈ EBV > CIN > GS) reproduces predicted ordering = high confidence gastric-adenocarcinoma localization. Substrate-tier-3 caveat applies to absolute Boccellato direction interpretation pending v0.2 substrate-matched gastric anchor.",
+      "ambiguous_action": "Under tier-3 substrate baseline shift, Boccellato POSITIVE_UNEXPECTED + Loyfer homogenization tile pattern + EsoRef cross-tissue overread = STAD adenocarcinoma differential (Pattern A in clinical_action_matrix) with GI-tissue cross-card differential considered (gastric vs esophageal-cardia vs distal-esophageal-EAC). v0.2 substrate-matched anchor clears the ambiguity."
+    },
+    "module_2_esca_target_tissue": {
+      "primary_target_tissue": "esophageal_squamous (ESCC) or esophageal_columnar_metaplastic (EAC)",
+      "primary_target_class": "cycling (primary tumor architectural drift); secretory (EsoRef squamous epithelial sub-cell-type tiles)",
+      "h_min_cycling": 0.856055,
+      "h_min_secretory": 0.843264,
+      "esoref_healthy_reference_per_tile_q5": {
+        "EC": 0.3754,
+        "Epi_basal": 0.3721,
+        "Epi_stratified": 0.4202,
+        "Epi_suprabasal": 0.3931,
+        "Epi_upper": 0.454,
+        "Fib": 0.3774,
+        "Gland": 0.3624,
+        "IC": 0.3632
+      },
+      "oeref_healthy_reference_per_tile_q5": {
+        "Basal": 0.391,
+        "Fib": 0.386,
+        "Gland": 0.3873,
+        "Macro": 0.4217,
+        "NeuIm": 0.4165,
+        "NeuMa": 0.3993,
+        "Peri": 0.4224,
+        "Plasma": 0.3831,
+        "Tcell": 0.3847
+      },
+      "esoref_target_tissue_finding_in_escc": "Epi_stratified d=-0.99 in ESCC squamous-cell carcinoma (cell-of-origin retention signature in target tissue — squamous tumor retains methylation patterns consistent with squamous-stratified epithelial origin); Epi_upper d=-1.51 in ESCC further confirming target-tissue specificity. EAC reads near-null on Epi_stratified (d=-0.05). First cookbook example of a gene-promoter atlas reading its target biology in one disease subtype within the same multi-cohort sprint.",
+      "score_formula_cycling": "Same as module_1; A_cycling = (1 - β_tumor / β_healthy) / (1 - H_min_cycling)",
+      "score_formula_esoref_secretory": "Per-tile A_secretory = mean(β over tile CpGs) / H_min_secretory; FLOOR_BREACH triggered for cell-of-origin retention signature when sample's A_Epi_stratified < q5 healthy floor 0.4202 (below-normal direction = squamous-stratified epithelial origin retained, characteristic of ESCC)",
+      "localization_criterion": "(1) ESCC: Stage 1 elevated + EsoRef Epi_stratified BELOW q5 floor (cell-of-origin retention) + Loyfer Head_and_neck_larynx elevated = ESCC localization; (2) EAC: Stage 1 elevated + Caggiano TIM panel uniformly elevated + EsoRef Epi_stratified near-null + Barrett's positive covariate = EAC localization; (3) Subtype d_ESCC-EAC = -1.06 within cohort discriminates at p=1.50e-11.",
+      "ambiguous_action": "ESCC vs EAC discrimination is ROBUST in this card via Caggiano TIM panel (13+ tiles fire EAC > ESCC at ~2 d-units within cohort). Ambiguous case = EsoRef tiles fire WITHOUT clear ESCC retention pattern AND Caggiano TIM panel fires WITHOUT clear EAC > ESCC pattern → flag for review-pending; recommend EGD with biopsy for histological confirmation."
+    },
+    "module_3_crohns_target_tissue": {
+      "primary_target_tissue": "Not applicable — module_3 is a Stage 3 readout in blood substrate, not a Stage 2 cell-of-origin tissue localization. The IBD signature is a peripheral-blood immune-population-fraction shift, not a cell-of-origin readout.",
+      "primary_target_class": "immune (Stage 3 cell-fraction deconvolution; H_min=0.838889)",
+      "stage_2_role_for_module_3": "INFORMATIVE NULL. Boccellato gastric tiles, EsoRef esophageal tiles, OEref oral tiles, Loyfer 25-tile, Caggiano TIM all read NULL on Crohn's blood cohort because the disease signature is in blood compartment composition, not in any GI-tissue methylation pattern. This is a class-of-disease structural finding documenting Stage 2 atlas family fitness for IBD.",
+      "localization_criterion": "Not applicable for IBD detection at v0.1.",
+      "ambiguous_action": "Crohn's blood signature is interpreted ONLY at Stage 3; if Stage 1 + Stage 2 fire WITH the Crohn's Stage 3 immune-population pattern, the patient may have a coincident GI cancer + IBD comorbidity (clinically plausible scenario per Marcus's stepbrother case: Crohn's history + HCC, see Heath's documented motivating case)."
+    }
+  },
+  "saturation_levels": {
+    "_source": "GAPE Reproduction Paper Part 2.4A (A_ceiling grid) and Part 2.4B (runtime saturation flag thresholds). gastric-esophageal-epic v0.1 spans THREE tissue classes (cycling for primary tumor architectural drift, secretory for sub-cell-type cell-of-origin tiles, immune for Stage 3 cell-fraction deconvolution); all three have independent A_ceiling grids per substrate.",
+    "_formula": "A_ceiling(class, substrate) = 1 / H_min(class, substrate). Per-class H_min_methyl values from GAPE_WEB_v13.py lines 87-96 (G-003b MCMC posterior means, R-hat < 1.001).",
+    "_runtime_flag_rule": "Runtime saturation flag fires when sample's A-score on a substrate is within 0.005 of A_ceiling (i.e., A >= A_ceiling - 0.005). Saturated substrates are excluded from A_active aggregation per Reproduction Paper Part 3.3.",
+    "tissue_classes_active_in_card": [
+      "cycling",
+      "secretory",
+      "immune"
+    ],
+    "cycling_class_a_ceiling_grid": {
+      "_purpose": "Cycling-class architectural drift — applies to module_1 STAD primary tumor + module_2 ESCA primary tumor Stage 1 readout (Xu-538 panel scored against H_min_cycling).",
+      "methyl": {
+        "H_min": 0.856055,
+        "A_ceiling": 1.1681,
+        "runtime_flag_threshold": 1.1631,
+        "structurally_saturated": false,
+        "active_to_breach": true
+      },
+      "nucl": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A cycling-class entry; deferred to v1.0+ MESA platform integration",
+        "A_ceiling": "TBD",
+        "runtime_flag_threshold": "TBD",
+        "structurally_saturated_status": "pending v1.0+ MESA integration; v0.1 deployment is methyl-only",
+        "v0_1_status": "deferred"
+      },
+      "fuzz": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A cycling-class entry; deferred to v1.0+",
+        "A_ceiling": "TBD",
+        "runtime_flag_threshold": "TBD",
+        "v0_1_status": "deferred"
+      },
+      "wps": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A cycling-class entry; deferred to v1.0+",
+        "A_ceiling": "TBD",
+        "runtime_flag_threshold": "TBD",
+        "v0_1_status": "deferred"
+      },
+      "frag": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A cycling-class entry; deferred to v1.0+",
+        "A_ceiling": "TBD",
+        "runtime_flag_threshold": "TBD",
+        "v0_1_status": "deferred"
+      }
+    },
+    "secretory_class_a_ceiling_grid": {
+      "_purpose": "Secretory-class sub-cell-type readout — applies to (a) module_1 Boccellato gastric mucosoid tiles (Antrum/Corpus/Fundus undiff/diff), (b) module_2 EsoRef esophageal squamous tiles (Epi_basal/stratified/suprabasal/upper, Gland), (c) module_2 OEref oral squamous tiles (Basal, Gland). Five-substrate values inherited from pancreatic-epic v0.1 secretory-class grid (same H_min table per Reproduction Paper Part 2.4A).",
+      "methyl": {
+        "H_min": 0.843264,
+        "A_ceiling": 1.1859,
+        "runtime_flag_threshold": 1.1809,
+        "structurally_saturated": false,
+        "active_to_breach": true
+      },
+      "nucl": {
+        "H_min": 0.982594,
+        "A_ceiling": 1.0177,
+        "runtime_flag_threshold": 1.0127,
+        "structurally_saturated": true,
+        "active_to_breach": false,
+        "saturation_note": "ceiling 1.0177 < 1.10 BREACH threshold; nucl is restricted to NORMAL/MARGINAL/DETECTABLE drift detection only for secretory-class tiles (gastric Boccellato + esophageal EsoRef + oral OEref). Same structural saturation pattern as panc-epic + breast-epic + hcc-epic + prostate-epic secretory tiles."
+      },
+      "fuzz": {
+        "H_min": 0.847955,
+        "A_ceiling": 1.1793,
+        "runtime_flag_threshold": 1.1743,
+        "structurally_saturated": false,
+        "active_to_breach": true
+      },
+      "wps": {
+        "H_min": 0.634518,
+        "A_ceiling": 1.576,
+        "runtime_flag_threshold": 1.571,
+        "structurally_saturated": false,
+        "active_to_breach": true
+      },
+      "frag": {
+        "H_min": 0.697838,
+        "A_ceiling": 1.4332,
+        "runtime_flag_threshold": 1.4282,
+        "structurally_saturated": false,
+        "active_to_breach": true
+      }
+    },
+    "immune_class_a_ceiling_grid": {
+      "_purpose": "Immune-class cell-fraction readout — applies to (a) module_1 STAD Stage 3 Salas IDOL + UniLIFE 19-cell + Caggiano TIM immune subset (T-cell + myeloid depletion bidirectional pattern), (b) module_2 ESCA Stage 3 (pending v0.2 expansion), (c) module_3 Crohn's pathway primary deployment readout via Stage 3 immune-fraction deconvolution. Methyl substrate values from cookbook H_min_immune = 0.838889; non-methyl substrates deferred to v1.0+.",
+      "methyl": {
+        "H_min": 0.838889,
+        "A_ceiling": 1.1921,
+        "runtime_flag_threshold": 1.1871,
+        "structurally_saturated": false,
+        "active_to_breach": true
+      },
+      "nucl": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A immune-class entry; deferred to v1.0+",
+        "v0_1_status": "deferred"
+      },
+      "fuzz": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A immune-class entry; deferred to v1.0+",
+        "v0_1_status": "deferred"
+      },
+      "wps": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A immune-class entry; deferred to v1.0+",
+        "v0_1_status": "deferred"
+      },
+      "frag": {
+        "H_min": "TBD per Reproduction Paper Part 2.4A immune-class entry; deferred to v1.0+",
+        "v0_1_status": "deferred"
+      }
+    },
+    "structurally_saturated_substrates_secretory": [
+      "nucl"
+    ],
+    "active_to_breach_substrates_methyl_only_v0_1": [
+      "methyl"
+    ],
+    "v0_1_operational_substrate": "methyl",
+    "v0_1_operational_note": "v0.1 deployment runs on 450K/EPIC methylation arrays only. Methyl is the operational substrate at all tiers for all three modules. The non-methylation substrate guidance (nucl/fuzz/wps/frag) applies once the L2/L3 multi-assay platform is operational. Until then, A_ceiling(methyl, cycling) = 1.1681 for module_1 + module_2 primary tumor readout, A_ceiling(methyl, secretory) = 1.1859 for sub-cell-type tile readout, A_ceiling(methyl, immune) = 1.1921 for Stage 3 immune-fraction readout, with runtime flags firing 0.005 below ceiling.",
+    "per_tier_substrate_strategy_v_0_1_methyl_only": {
+      "_purpose": "Per-tier substrate strategy at v0.1 is methyl-only across all three modules. Tier thresholds + atlas selection per tier follow universal_tier_thresholds (with disease-specific deviations documented per Block 7 tier_thresholds_per_substrate).",
+      "NORMAL": {
+        "primary_substrate": "methyl",
+        "primary_atlases": "All 5 Stage 2 atlases (Layered Moss+Loyfer, Boccellato, EsoRef, OEref, Caggiano TIM) + both Stage 3 atlases (Salas IDOL, UniLIFE)",
+        "excluded": [],
+        "notes": "Run-everything: all atlases score every IDAT regardless of Stage 1 result. Display logic in patient report can collapse uninformative tiles."
+      },
+      "MARGINAL": {
+        "primary_substrate": "methyl",
+        "primary_atlases": "Same as NORMAL — run-everything",
+        "excluded": [],
+        "notes": "MARGINAL flag triggers serial-sample at 6 months per universal cadence."
+      },
+      "DETECTABLE": {
+        "primary_substrate": "methyl",
+        "primary_atlases": "Same — run-everything; clinical action triggers Stage 2 localization review per Pattern matrix",
+        "excluded_or_downweighted": [],
+        "notes": "DETECTABLE on cycling-class Stage 1 + Stage 2 atlas pattern matching → route per clinical_action_matrix Pattern A (gastric) / B (ESCC) / C (EAC) / E (IBD pathway) / F (no immediate culprit) / G (cross-tissue overread flag)"
+      },
+      "URGENT": {
+        "primary_substrate": "methyl",
+        "primary_atlases": "Run-everything",
+        "excluded": [],
+        "notes": "URGENT on Stage 1 with Pattern A/B/C/D match → expedited gastroenterology workup"
+      },
+      "FLOOR_BREACH": {
+        "primary_substrate": "methyl",
+        "primary_atlases": "Run-everything",
+        "confirmation_rule": "FLOOR_BREACH at v0.1 = methyl A ≥ 1.10 cycling-class on tumor cohort or A ≤ q5 floor on cell-of-origin secretory tile (cell-of-origin retention pattern in ESCC). Cross-substrate confirmation (≥2 unsaturated substrates above 1.10) is the v1.0+ rule once L2/L3 is operational."
+      }
+    },
+    "saturation_clinical_interpretation": "When a runtime saturation flag fires for a substrate, that substrate is excluded from A_active aggregation per Reproduction Paper Part 3.3, and the patient EDEAR report carries a saturation alert for that substrate. The flag does NOT indicate disease severity — it indicates measurement-channel exhaustion. At v0.1 (methyl-only deployment), the only relevant saturation scenario is module_1/2 primary tumor methyl A approaching 1.1681 cycling-class ceiling or 1.1859 secretory-class ceiling on sub-cell-type tile readout, indicating the methyl channel is exhausted as a progression metric; continued progression must be tracked via Stage 2 cell-of-origin tile trajectory or, when L2 platform is operational, via fuzz/wps/frag.",
+    "gastric_esophageal_specific_saturation_relevance": "(1) Module_1 STAD primary tumor: tier-3 substrate baseline shift caps the cohort-level cycling-class methyl A-score below the 1.1681 ceiling on tumor samples (observed all-STAD d=+3.34 vs anchor; absolute A-magnitude is tier-3-invalidated under CHK-3.2). The methyl channel is operationally below saturation across the cohort. (2) Module_2 ESCA EAC subset: EAC's higher methylation drift (d=+3.70 vs ESCC's +2.64) approaches but does not breach the cycling-class ceiling on tumor cohort. (3) Module_3 Crohn's: Stage 3 immune-fraction readout operates on per-cell-type fractions not on H_min_immune ceiling; saturation rule does not apply structurally to cell-fraction outputs. (4) Boccellato secretory tile reading on STAD primary tumor: under tier-3 caveat, all 6 tiles read POSITIVE_UNEXPECTED relative to anchor; pre-locked NEGATIVE direction (cell-of-origin dedifferentiation) FAILS pre-lock. v0.2 substrate-matched gastric anchor is the path to clean interpretation."
+  },
+  "stage_3_subcomposition": {
+    "_purpose": "Stage 3 immune-fraction deconvolution via Salas IDOL 6-cell + UniLIFE 19-cell + Loyfer EPIC immune tiles + Caggiano TIM immune subset. All three modules use Stage 3 in different roles: module_1 + module_2 use it as immune-microenvironment readout; module_3 uses it as PRIMARY DEPLOYMENT READOUT for IBD population-fraction-shift detection.",
+    "method": "EpiDISH-style proportion estimation (Salas IDOL companion) + tile-coverage A-score (Loyfer immune EPIC tiles + UniLIFE 19-cell + Caggiano TIM immune subset). Substrate normalization per CHK-0.7 sesame Level 3 reference path.",
+    "atlases_used": {
+      "salas_idol_450k_6_cell": {
+        "atlas_id": "Salas Blood.EPIC IDOL companion",
+        "n_cpgs": 350,
+        "n_tiles": 6,
+        "cell_types_resolved": [
+          "Bcell",
+          "CD4T",
+          "CD8T",
+          "Mono",
+          "Neu",
+          "NK"
+        ],
+        "calibration_anchor_val": "VAL-091 (heme-epic precedent; cookbook-wide carry-forward)",
+        "source_paper": "Salas LA et al. An optimized library for reference-based deconvolution of whole-blood biospecimens assayed using the Illumina HumanMethylationEPIC BeadArray. Genome Biology 2018;19:64.",
+        "doi": "10.1186/s13059-018-1448-7",
+        "deployment_status": "production"
+      },
+      "unilife_19_cell": {
+        "atlas_id": "Guo 2025 UniLIFE Genome Medicine",
+        "n_cpgs": 1906,
+        "n_tiles": 19,
+        "cell_types_resolved": [
+          "aCD4Tnv",
+          "aCD4Tmem",
+          "aCD8Tnv",
+          "aCD8Tmem",
+          "aTreg",
+          "aBnv",
+          "aBmem",
+          "Mono",
+          "Macro",
+          "Neu",
+          "Eos",
+          "Bas",
+          "NK",
+          "DC",
+          "Plasma",
+          "iCD4T",
+          "iCD8T",
+          "iBcell",
+          "iMono"
+        ],
+        "calibration_anchor_val": "VAL-095 (breast sprint head-to-head VAL vs Salas baseline; cookbook-wide carry-forward)",
+        "source_paper": "Guo J et al. UniLIFE: a unified atlas for adult and infant immune cell methylation deconvolution. Genome Medicine 2025.",
+        "deployment_status": "production"
+      },
+      "loyfer_immune_epic_subset": {
+        "atlas_id": "Loyfer 2023 EPIC-trained sorted immune subset (within Layered Moss+Loyfer 25-tile)",
+        "n_cells_resolved": 5,
+        "cell_types_resolved": [
+          "CD4T-cells_EPIC",
+          "CD8T-cells_EPIC",
+          "B-cells_EPIC",
+          "NK-cells_EPIC",
+          "Neutrophils_EPIC"
+        ],
+        "calibration_anchor_val": "VAL-112 (cardio canonical; cookbook-wide carry-forward)",
+        "deployment_status": "production"
+      },
+      "caggiano_tim_immune_subset": {
+        "atlas_id": "Caggiano TIM (within 19-tile Caggiano CelFiE TIM array-bridged)",
+        "n_immune_tiles": 8,
+        "cell_types_resolved": [
+          "tcell",
+          "macrophage",
+          "neutrophil",
+          "monocyte",
+          "dendritic",
+          "eosinophil",
+          "megakaryocyte",
+          "erythroblast"
+        ],
+        "calibration_anchor_val": "VAL-113",
+        "deployment_status": "production"
+      }
+    },
+    "module_1_stad_stage_3_findings": {
+      "salas_idol_pattern": "T-cell + myeloid depletion bidirectional pattern (CD4T -1.92, CD8T -1.58, Mono -0.90, NK -0.86, Neu -0.45, Bcell -0.20)",
+      "interpretation": "Consistent with Lin 2019 J Hepatol, Kang 2020 Theranostics, Sundar 2021 Nat Commun advanced gastric cancer immune evasion literature documenting peripheral T-cell exhaustion + reduced lymphocyte/myeloid blood-compartment proportions in advanced gastric cancer. Stage 3 immune signal is a within-tumor-cohort vs anchor-cohort reading; substrate baseline shift documented at CHK-3.2 affects absolute magnitudes but the direction reproduces published signature.",
+      "operational_status": "production-validated for module_1 deployment under tier-3 substrate caveat for absolute magnitudes"
+    },
+    "module_2_esca_stage_3_findings": {
+      "salas_idol_pattern": "Caggiano TIM panel fires consistent EAC > ESCC pattern across 13+ tiles at ~2 d-units within cohort (immune subset: tcell d_ESCC-EAC = -1.96, macrophage -2.08, neutrophil -2.09, monocyte -2.03)",
+      "interpretation": "Strongest ESCC vs EAC discriminator in the sprint. Caggiano TIM panel shows EAC's homogenized methylation pattern looking more like generic-epithelial tissue than ESCC's preserved squamous-specific structure across broad-cell-type panel.",
+      "operational_status": "Caggiano TIM panel is production-validated for ESCC vs EAC subtype discrimination at v0.1; full Salas + UniLIFE Stage 3 lineage profile pending v0.2 expansion (sample sizes per subtype and per Barrett's stratum sufficient for top tiles but underpowered for full 19-cell UniLIFE sub-classification)"
+    },
+    "module_3_crohns_stage_3_findings_PRIMARY_DEPLOYMENT": {
+      "max_abs_d_CD_vs_HC": 1.716,
+      "max_abs_tile": "A_uni_aCD8Tnv (UniLIFE activated naive CD8)",
+      "top_tcell_expansion_tiles": [
+        {
+          "tile": "A_uni_aCD8Tnv",
+          "d_CD_vs_HC": 1.716
+        },
+        {
+          "tile": "A_uni_CD8T",
+          "d_CD_vs_HC": 1.698
+        },
+        {
+          "tile": "A_loyfer_CD4T-cells_EPIC",
+          "d_CD_vs_HC": 1.664
+        },
+        {
+          "tile": "A_uni_CD4T",
+          "d_CD_vs_HC": 1.636
+        },
+        {
+          "tile": "A_uni_aCD4Tmem",
+          "d_CD_vs_HC": 1.611
+        },
+        {
+          "tile": "A_salas_CD4T",
+          "d_CD_vs_HC": 1.584
+        },
+        {
+          "tile": "A_uni_aCD4Tnv",
+          "d_CD_vs_HC": 1.582
+        },
+        {
+          "tile": "A_uni_aTreg",
+          "d_CD_vs_HC": 1.56
+        },
+        {
+          "tile": "A_loyfer_CD8T-cells_EPIC",
+          "d_CD_vs_HC": 1.377
+        },
+        {
+          "tile": "A_loyfer_NK-cells_EPIC",
+          "d_CD_vs_HC": 1.375
+        }
+      ],
+      "top_myeloid_depletion_tiles": [
+        {
+          "tile": "A_salas_Mono",
+          "d_CD_vs_HC": -1.136
+        },
+        {
+          "tile": "A_salas_Neu",
+          "d_CD_vs_HC": -1.344
+        },
+        {
+          "tile": "A_loyfer_Neutrophils_EPIC",
+          "d_CD_vs_HC": -1.005
+        }
+      ],
+      "cd_vs_uc_subtype_discrimination": {
+        "monocytes_d_CD_minus_UC": 0.35,
+        "CD4_d_CD_minus_UC": 0.327,
+        "CD8_d_CD_minus_UC": -0.716,
+        "wh_blood_d_CD_minus_UC": 0.263,
+        "interpretation": "CD8 cells in CD show methylation patterns distinct from CD8 in UC (d=-0.72), suggesting CD8 immune phenotype is the cleanest CD-vs-UC discriminator at v0.1. Other cell types show only partial separation. Consistent with Strober et al. 2007 Nat Rev Immunol on CD's stronger Th1/CD8 effector memory signatures than UC's Th2-skewed presentation."
+      },
+      "interpretation": "T-cells (CD4/CD8/Treg/NK) UP, monocytes/neutrophils DOWN. Classic immune-population-shift signature of active inflammatory bowel disease in peripheral blood. Cross-atlas reproduction across UniLIFE + Salas + Loyfer. PRIMARY DEPLOYMENT READOUT for module_3 amendment-language.",
+      "operational_status": "amendment-language scope at v0.1; not a deployed per-patient IBD-detection product; future IBD-epic v0.0 dedicated card construction sprint with v0.1.1 GSE87650 main n=384 cohort expansion is the path to per-patient deployment"
+    }
+  },
+  "mandatory_covariates_per_module": {
+    "_purpose": "Every patient sample must be accompanied by mandatory clinical covariates appropriate to the disease module fired. The intake questionnaire requirements differ per module. Sex + age + ethnicity are universal across all three modules.",
+    "module_1_stad": {
+      "sex": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Within-cohort male n=259 d=+3.42 vs female n=136 d=+3.20 (modest +0.22 d-unit male amplification); reported on all patient samples per universal_sex_stratification_rule."
+      },
+      "age": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Age-decade healthy reference per universal_80_cell_age_baseline_immune_class block; required to compute age-adjusted Z-score for tier classification."
+      },
+      "ethnicity_race": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "TCGA-STAD ethnicity distribution available for stratified analysis but underpowered at v0.1; reported on all samples for v0.2 stratification expansion."
+      },
+      "h_pylori_status": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Within-cohort Yes n=20 d=+3.94 vs No n=168 d=+3.71; modest +0.23 d-unit amplification; underpowered at v0.1. Report Yes/No/Unknown per cBioPortal H_PYLORI_INFECTION coding. Relevant for clinical workup pathway (H. pylori eradication therapy + repeat screening)."
+      },
+      "ebv_serology": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "EBV+ subset overlaps with EBV molecular subtype (n=29 d=+3.85). Serology-positive-but-not-molecular-EBV samples reported separately. Relevant for clinical workup (tonsillar / nasopharyngeal exam if EBV+ without GI tumor)."
+      },
+      "msi_sensor_score": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "MSI_SENSOR_SCORE >= 4.0 = MSI-H per TCGA convention (n=67 d=+3.85 vs MSS n=326 d=+3.27); +0.58 d-unit MSI-H amplification. Relevant for immunotherapy eligibility (MSI-H predicts pembrolizumab response)."
+      },
+      "lauren_classification": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "intestinal-pooled n=158 d=+3.67 vs diffuse-pooled n=78 d=+3.29 vs mucinous n=20 d=+3.92 vs adenoNOS n=134 d=+3.09. Pathologist-reported on biopsy."
+      },
+      "family_history_gastric_cancer": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Hereditary diffuse gastric cancer (CDH1 germline mutation) is a distinct clinical entity warranting prophylactic gastrectomy per international consortium guidelines. Family-history-positive patients route to genetic counseling regardless of methylation result."
+      },
+      "anatomic_subsite": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "ICD-10 C16.0-C16.9 subsite reported on biopsy. Relevant for v0.2 Boccellato sub-tile resolution (Antrum vs Corpus vs Fundus)."
+      },
+      "prior_gastric_ulcer_disease": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Chronic gastritis + atrophic gastritis precursor states; relevant for clinical context."
+      },
+      "smoking_status": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Smoking is a moderate gastric cancer risk factor per IARC; not strongly stratified at v0.1 (TCGA-STAD smoking metadata sparse). Reported on all samples for v0.2 expansion."
+      }
+    },
+    "module_2_esca": {
+      "sex": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Within-cohort male n=158 d=+2.84 vs female n=27 d=+3.10 (note male-skewed cohort, female n underpowered at v0.1). Reported on all patient samples."
+      },
+      "age": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Same as module_1; required for age-adjusted Z."
+      },
+      "ethnicity_race": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "ESCC predominates in East Asian populations vs EAC in Western populations — major epidemiological pattern. Reported on all samples."
+      },
+      "histology": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "ESCC vs EAC = primary subtype-discrimination axis. d_ESCC-EAC = -1.06 within cohort (p=1.50e-11). Required pathology-confirmed input."
+      },
+      "barrett_esophagus_history": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "MOST IMPORTANT MODULE_2 COVARIATE. Within-cohort Barrett+ n=28 d=+4.50 vs Barrett- n=118 d=+2.81 (+1.69 d-units). Required for EAC-arm patient-report routing. Specify prior diagnosis date if known + subsequent surveillance protocol."
+      },
+      "smoking_status_pack_years": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Within-cohort smoking informative null (all four strata within 0.6 d-units); but smoking is a major epidemiological risk factor for ESCC per IARC. Pack-years required for clinical context (mean 34.5 in TCGA-ESCA cohort)."
+      },
+      "alcohol_consumption_frequency": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Major ESCC risk factor (especially in combination with smoking + ALDH2 polymorphism in East Asian populations). cBioPortal alcohol consumption frequency available; within-cohort stratification preserved for v0.2."
+      },
+      "gerd_reflux_symptoms": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Major EAC risk factor; clinical context for Barrett's surveillance routing."
+      },
+      "bmi": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Obesity major EAC risk factor."
+      },
+      "columnar_metaplasia_documented": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Imaging or pathology-documented; secondary to Barrett's-positive status."
+      },
+      "msi_sensor_esca": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "ESCA cohort low-MSI overall; reported but not load-bearing at v0.1."
+      }
+    },
+    "module_3_crohns_amendment": {
+      "sex": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Within-cohort sex distribution M=126 F=114 in GSE87650 sub-experiment; sex stratification preserved for v0.1.1 main cohort expansion."
+      },
+      "age": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Required for age-adjusted Z; IBD diagnosis age informs pediatric vs adult-onset stratification."
+      },
+      "ibd_disease_subtype": {
+        "stratification": true,
+        "report_field": true,
+        "rationale": "Crohn's vs ulcerative colitis vs IBD-unclassified. Within-cohort modest CD vs UC discrimination at v0.1 (CD8 d_CD-UC = -0.72 cleanest)."
+      },
+      "ibd_disease_activity_state": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Active flare vs remission — major confounder for immune-fraction shifts; clinical metadata not consistently captured in GSE87650 v0.1; pending v0.1.1 expansion."
+      },
+      "current_medications": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Anti-TNF biologics (infliximab, adalimumab), corticosteroids (prednisone), immunomodulators (azathioprine, methotrexate) ALL alter peripheral immune-fraction profile. Pending v0.1.1 expansion + dedicated treatment-stratified VAL."
+      },
+      "recent_symptom_flares": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "Clinical context."
+      },
+      "cancer_comorbidity_screening": {
+        "stratification": false,
+        "report_field": true,
+        "rationale": "If module_3 fires AND module_1 or module_2 ALSO fires, the patient may have coincident GI cancer + IBD. Clinically plausible per Marcus's stepbrother case (Crohn's + HCC). Trigger careful cross-module workup."
+      }
+    }
+  },
+  "tier_thresholds_per_substrate": {
+    "_calibration_source": "80-cell healthy baseline reference per universal_tier_thresholds; deviations per disease literature documented.",
+    "_caveat": "v0.1 deploys methyl-only across all three modules. Tier thresholds below apply to methyl substrate. Non-methyl substrate thresholds deferred to v1.0+ MESA platform integration.",
+    "module_1_stad_methyl_thresholds": {
+      "NORMAL": {
+        "A_threshold": "< 1.01",
+        "stage_1_d_vs_anchor": "n.a. (cohort-level metric not per-patient)",
+        "action": "No action; serial-sample per screening cadence"
+      },
+      "MARGINAL": {
+        "A_threshold": "≥ 1.01",
+        "action": "Note; serial-sample in 6 months"
+      },
+      "DETECTABLE": {
+        "A_threshold": "≥ 1.05, age-percentile ≥ p90",
+        "action": "Run Stage 2 localization; review Boccellato + Loyfer + EsoRef + Caggiano patterns; route per clinical_action_matrix Pattern A"
+      },
+      "URGENT": {
+        "A_threshold": "≥ 1.07, age-percentile ≥ p90",
+        "action": "Run Stage 2; expedited gastroenterology referral + EGD with biopsy + H. pylori test if ≥45"
+      },
+      "FLOOR_BREACH": {
+        "A_threshold": "≥ 1.10",
+        "action": "Run Stage 2; urgent gastroenterology referral regardless of localization; oncology consultation if biopsy confirms malignancy"
+      }
+    },
+    "module_2_esca_methyl_thresholds": {
+      "NORMAL": {
+        "A_threshold": "< 1.01",
+        "action": "No action; serial-sample per screening cadence (Barrett's surveillance protocol if applicable)"
+      },
+      "MARGINAL": {
+        "A_threshold": "≥ 1.01",
+        "action": "Note; serial-sample in 6 months; accelerate Barrett's surveillance if applicable"
+      },
+      "DETECTABLE": {
+        "A_threshold": "≥ 1.05, age-percentile ≥ p90",
+        "action": "Run Stage 2; review EsoRef Epi_stratified pattern (BELOW q5 floor = ESCC retention; near-null = EAC); review Caggiano TIM (uniform elevation = EAC); route per Pattern B (ESCC) or Pattern C (EAC) or Pattern D (Barrett's amplification trajectory)"
+      },
+      "URGENT": {
+        "A_threshold": "≥ 1.07, age-percentile ≥ p90",
+        "action": "Run Stage 2; expedited gastroenterology + EGD with biopsy + Barrett's surveillance protocol if Barrett's positive"
+      },
+      "FLOOR_BREACH": {
+        "A_threshold": "≥ 1.10",
+        "action": "Run Stage 2; urgent EGD; oncology consultation if biopsy confirms"
+      }
+    },
+    "module_3_crohns_methyl_thresholds": {
+      "_purpose": "Module_3 thresholds are Stage 3 cell-fraction-shift-based, not Stage 1 architectural-drift-based (Stage 1 is informative null for IBD per VAL-128).",
+      "NORMAL_pattern": {
+        "d_threshold": "Stage 3 |d| < 0.5 across all immune-fraction tiles",
+        "action": "No IBD pattern detected; module_3 amendment language not triggered"
+      },
+      "DETECTABLE_pattern": {
+        "d_threshold": "Stage 3 |d| ≥ 1.0 on at least 2 of {Salas CD4T, Salas CD8T, UniLIFE aCD8Tnv, UniLIFE aCD4Tmem} AND |d| ≤ -1.0 on at least 1 of {Salas Mono, Salas Neu, Loyfer Neutrophils_EPIC}",
+        "action": "Trigger module_3 amendment-language patient-report; recommend gastroenterology referral for IBD workup if clinically indicated"
+      },
+      "URGENT_pattern": {
+        "d_threshold": "Stage 3 |d| ≥ 1.5 on UniLIFE aCD8Tnv (matching VAL-128 cohort-max d=+1.72)",
+        "action": "Strong amendment-language trigger; high-confidence IBD pattern; recommend prompt gastroenterology referral"
+      },
+      "_calibration_anchor": "VAL-128 GSE87650 n=240 healthy n=84 reference distribution; thresholds calibrated to ROC 95th percentile of CD vs HC discrimination on whole-blood cell-companion subset n=65"
+    }
+  },
+  "clinical_action_matrix": {
+    "_purpose": "Routing-pattern matrix for commercial.web.py running on Heath's server. Every possible Stage 1 + Stage 2 + Stage 3 pattern combination has a named clinical action with cited guideline.",
+    "Pattern_A_STAD_suspicion": {
+      "trigger": "Stage 1 DETECTABLE/URGENT (cycling-class) + Boccellato gastric tiles fire within calibrated range + Loyfer homogenization tile pattern (Pancreatic_beta_cells / Hepatocytes / Lung_cells / Bladder elevated) + Stage 3 T-cell + myeloid depletion bidirectional",
+      "module": "module_1 STAD",
+      "clinical_action": "Gastroenterology referral for upper endoscopy (EGD) with biopsy; H. pylori testing if ≥45 or symptomatic; CT abdomen/pelvis if biopsy confirms malignancy",
+      "guideline_citation": "NCCN Guidelines for Gastric Cancer v.2.2026; ASGE 2019 endoscopy guidelines; Society of Surgical Oncology 2020 staging; ACG 2018 H. pylori treatment guideline",
+      "patient_report_template": "Your methylation profile shows a pattern consistent with the architectural drift seen in gastric cancer, with cell-type-specific markers pointing toward the gastric epithelial layer. The pattern is most consistent with [CIN-like / MSI-like / EBV-like / GS-like] subtype based on within-cohort comparison, though this is a research-grade signal not a diagnosis. Recommended next step: gastroenterology referral for upper endoscopy (EGD) with biopsy, and H. pylori testing if you are 45 or older."
+    },
+    "Pattern_B_ESCC_suspicion": {
+      "trigger": "Stage 1 DETECTABLE/URGENT + EsoRef Epi_stratified BELOW q5 floor 0.4202 (cell-of-origin retention) + Loyfer Head_and_neck_larynx elevated + smoking history covariate (modulates risk pre-test probability)",
+      "module": "module_2 ESCA ESCC-arm",
+      "clinical_action": "Gastroenterology referral for EGD with biopsy; CT chest/abdomen if biopsy confirms; barium swallow if dysphagia symptoms",
+      "guideline_citation": "NCCN Guidelines for Esophageal and Esophagogastric Junction Cancers v.2.2026; ASGE 2019; ACR 2020 imaging appropriateness criteria for esophageal cancer",
+      "patient_report_template": "Your methylation profile shows a pattern consistent with squamous-cell carcinoma of the esophagus, with cell-of-origin markers pointing toward squamous-stratified esophageal epithelium. Recommended next step: gastroenterology referral for upper endoscopy with biopsy."
+    },
+    "Pattern_C_EAC_suspicion": {
+      "trigger": "Stage 1 DETECTABLE/URGENT (often elevated to URGENT/FLOOR_BREACH if Barrett's history) + Caggiano TIM panel uniformly elevated (13+ tiles ≥ +2 d-units cohort baseline) + EsoRef Epi_stratified near-null (d ~ 0) + Barrett's-positive covariate",
+      "module": "module_2 ESCA EAC-arm",
+      "clinical_action": "Gastroenterology referral for EGD with biopsy + accelerated Barrett's surveillance protocol if Barrett's positive; CT chest/abdomen if biopsy confirms",
+      "guideline_citation": "NCCN Esophageal v.2.2026; ACG 2022 Barrett's Esophagus Practice Guidelines; ASGE 2019",
+      "patient_report_template": "Your methylation profile shows a pattern consistent with esophageal adenocarcinoma, often associated with Barrett's esophagus history. The signal is amplified if Barrett's history is present. Recommended next step: gastroenterology referral for upper endoscopy with biopsy + Barrett's surveillance protocol if not already in place."
+    },
+    "Pattern_D_Barrett_amplification_trajectory": {
+      "trigger": "Stage 1 URGENT/FLOOR_BREACH (d > +4.0 within ESCA-cohort calibration; or matching cohort q90 percentile) AND patient covariate Barrett's history POSITIVE",
+      "module": "module_2 ESCA EAC-arm with trajectory-tracking",
+      "clinical_action": "Accelerated Barrett's surveillance per ASGE 2019 / ACG 2022; trajectory-tracking framing for follow-up samples; refer for EGD with biopsy",
+      "guideline_citation": "ACG 2022 Barrett's Esophagus Practice Guidelines (Table 4 surveillance intervals); ASGE 2019",
+      "patient_report_template": "Your methylation pattern is significantly elevated and you have a documented history of Barrett's esophagus. This combination warrants accelerated surveillance for potential progression to esophageal adenocarcinoma. Recommended next step: prompt gastroenterology referral for EGD with biopsy."
+    },
+    "Pattern_E_IBD_pathway": {
+      "trigger": "Stage 1 NORMAL + Stage 2 NORMAL on all GI-tissue tiles + Stage 3 T-cell expansion (CD4/CD8/Treg) + myeloid depletion (Mono/Neu) bidirectional pattern; |d| ≥ 1.0 on ≥2 T-cell tiles AND |d| ≤ -1.0 on ≥1 myeloid tile",
+      "module": "module_3 Crohn's-pathway amendment",
+      "clinical_action": "Trigger module_3 amendment-language patient-report; recommend gastroenterology referral for IBD workup if clinically indicated; do NOT issue cancer-specific recommendation",
+      "guideline_citation": "ACG 2019 Crohn's Disease Practice Guidelines; ECCO 2020 ulcerative colitis guidelines",
+      "patient_report_template": "Your immune-cell-fraction profile shows a pattern consistent with active inflammatory bowel disease (Crohn's or UC), characterized by T-cell expansion (CD4, CD8, regulatory T) with proportional decrease in monocytes and neutrophils in whole blood. This is a population-shift signature, not a cancer-specific signature. Recommended next step: gastroenterology referral for IBD workup if clinically indicated. This card does NOT diagnose IBD — it surfaces a methylation pattern consistent with chronic intestinal inflammation."
+    },
+    "Pattern_F_no_immediate_culprit": {
+      "trigger": "Stage 1 DETECTABLE + Stage 2 NULL on all gastric+esophageal tiles + Stage 3 NULL (no IBD pattern)",
+      "module": "Cross-module review",
+      "clinical_action": "Active surveillance; trajectory-tracking framing — repeat sample at 6-12 months; do NOT issue false-positive panic; if multiple cards fire, route to relevant card-specific workup",
+      "guideline_citation": "USPSTF 2024 cancer screening framework (active surveillance principle)",
+      "patient_report_template": "Your methylation profile shows a mild elevation that doesn't localize to any specific tissue at this point. This is consistent with normal variation or very early changes that may or may not progress. Recommended next step: repeat sample in 6-12 months for trajectory tracking. No immediate action required."
+    },
+    "Pattern_G_cross_tissue_overread_flag": {
+      "trigger": "EsoRef tiles fire on patient WITHOUT esophageal symptoms or risk factors; cross-tissue overread vs Barrett's-derived GI-continuum methylation memory hypothesis pending kidney-card cross-card calibration sprint",
+      "module": "Pending sprint",
+      "clinical_action": "Flag for review-pending; do NOT issue esophageal-specific recommendation until kidney-card cross-card calibration sprint resolves the cross-tissue overread vs GI-continuum-memory ambiguity",
+      "guideline_citation": "Internal cookbook discipline; CCL-039 cell-of-origin direction expectation",
+      "patient_report_template": "Your methylation profile shows a pattern that is currently under research review. We are not issuing a specific recommendation at this time. Repeat sampling in 6-12 months."
+    },
+    "Pattern_H_dual_cancer_plus_IBD_comorbidity": {
+      "trigger": "Pattern A or B or C fires AND Pattern E ALSO fires (cancer methylation pattern + IBD immune-fraction shift simultaneously)",
+      "module": "Cross-module: module_1 OR module_2 + module_3",
+      "clinical_action": "Coincident GI cancer + IBD comorbidity (clinically plausible per Marcus's stepbrother case: Crohn's history + HCC). Refer to gastroenterology for cross-disease workup; biopsy-confirm cancer first; treat IBD per active-disease management.",
+      "guideline_citation": "ACG 2019 Crohn's Disease + relevant cancer-specific NCCN guideline; cross-disease management per institutional protocol",
+      "patient_report_template": "Your profile shows two distinct patterns simultaneously: one consistent with [gastric / esophageal] cancer, and one consistent with inflammatory bowel disease. This combination warrants careful gastroenterology evaluation. Recommended next step: prompt gastroenterology referral for cross-disease workup."
+    }
+  },
+  "validation_evidence_summary": {
+    "val_123_boccellato_calibration": {
+      "val_id": "VAL-123",
+      "phase": "Phase B (atlas calibration)",
+      "module": "module_1 STAD",
+      "cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal HM450 sesame Level 3 n=210 (160 KIRC + 50 PRAD; same VAL-106 calibration cohort that anchored VAL-117/119)",
+      "atlas_calibrated": "BoccellatoStomachRef_HM450 v1 (Fritsche/Boccellato 2022 GSE141660 EPIC 850K source HM450-restricted to 380,467 CpGs after CHK-2.17 cohort-substrate-coverage pre-flight gate FAILED on EPIC source at 49.26% mean coverage — root cause: EPIC vs HM450 platform mismatch; identical failure mode to VAL-117 ProstateRef amendment precedent. Restricted atlas re-tested CHK-2.17 PASS at 95.56% mean coverage)",
+      "n_cpgs_restricted": 380467,
+      "n_tiles": 6,
+      "result_chk_3_1a": "203/210 (96.7%) PASS",
+      "result_chk_3_1b": "210/210 (100%) PASS",
+      "result_chk_3_1c": "0 duplicates",
+      "outcome_class": "O1_BOCCELLATO_CALIBRATION_SEALED",
+      "headline_metric": "Six tiles all secretory class (gastric epithelial mucosoid, H_min=0.843264). Antrum_undiff lowest mean 0.1282 sd 0.0051 q5 0.1194; Corpus_undiff highest mean 0.1389 sd 0.0055 q5 0.1298. Cross-tile separation on means 0.0107 (~2 within-tile-SDs apart on non-stomach tissue) — atlas does not collapse to substrate-floor-dominated, ruling out O3 outcome. PRAD reads systematically lower than KIRC by ~0.004 across all 6 tiles (sub-SD-level cross-tissue offset, not a CHK-3.2 mismatch flag).",
+      "literature_anchor": "Fritsche K, Boccellato F et al. 2022 (GSE141660 source). Gastric organoid mucosoid lines from healthy gastric biopsy donors; Antrum/Corpus/Fundus regions × undifferentiated/differentiated states.",
+      "seal_timestamp": "2026-05-02T17:00:00Z",
+      "prereg_sha": "(see VAL-123 PREREG_SEAL.txt in repo)"
+    },
+    "val_124_esoref_calibration": {
+      "val_id": "VAL-124",
+      "phase": "Phase B (atlas calibration)",
+      "module": "module_2 ESCA",
+      "cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (203 QC-pass)",
+      "atlas_calibrated": "EpiSCORE EsoRef bridged (Zhu/Teschendorff 2022 mrefEso.m, 163 Entrez × 8 cell types broadcast to 2,464 unique 450K CpGs via probeInfo450k.lv)",
+      "n_cpgs_bridged": 2464,
+      "n_tiles": 8,
+      "result_chk_3_1a": "100% PASS",
+      "result_chk_3_1b": "100% PASS above ≥80% threshold",
+      "result_chk_3_1c": "0 duplicates across 2,464 unique probeIDs",
+      "outcome_class": "O1_CALIBRATION_SEALED",
+      "headline_metric": "All three CHK gates clear at 100%. Per-tile q5 sealed for 8 tiles; Epi_upper highest mean 0.4698 q5 0.4540; Gland lowest mean 0.3708 q5 0.3624. Cross-tile separation 0.0990 — the LARGEST cross-tile separation observed across any EpiSCORE bridge calibrated to date (significantly exceeds ProstateRef's own ~0.06 separation in VAL-117). Logged for kidney-card cross-card calibration sprint follow-up.",
+      "literature_anchor": "Zhu T, Liu J, Beck S, Pan S, Capper D, Lechner M, Thirlwell C, Breeze CE, Teschendorff AE. A pan-tissue DNA-methylation atlas based on deconvolution of major cell-types. Nature Methods 2022;19:296. DOI 10.1038/s41592-022-01412-7. URL https://doi.org/10.1038/s41592-022-01412-7",
+      "seal_timestamp": "2026-05-02T18:30:00Z",
+      "prereg_sha": "1bab7c99b35a3ebc680e93e6935a84f2b712fe7ec6663632d696a6a92433090f"
+    },
+    "val_125_oeref_calibration": {
+      "val_id": "VAL-125",
+      "phase": "Phase B (atlas calibration)",
+      "module": "module_2 ESCA cross-card calibration arm",
+      "cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (203 QC-pass)",
+      "atlas_calibrated": "EpiSCORE OEref bridged (Zhu/Teschendorff 2022 mrefOE.m, ~340 Entrez × 9 cell types broadcast to 5,396 unique 450K CpGs via probeInfo450k.lv)",
+      "n_cpgs_bridged": 5396,
+      "n_tiles": 9,
+      "result_chk_3_1a": "100% PASS",
+      "result_chk_3_1b": "100% PASS",
+      "result_chk_3_1c": "0 duplicates",
+      "outcome_class": "O2_PARTIAL_FLOORS",
+      "headline_metric": "All three CHK gates clear at 100%. 4/9 tiles cleared SD≥0.005 strict floor (Macro 0.4264 sd 0.0072, NeuIm 0.4226 sd 0.0080, Peri 0.4275 sd 0.0067, Tcell 0.3879 sd 0.0050); 5 tiles tight 0.0037-0.0048 SD (Basal/Fib/Gland/NeuMa/Plasma). Cross-tile separation 0.0407. Atlas does not collapse to substrate-floor-dominated, but 5/9 tiles fall under O2 partial-floor outcome class. All 9 per-tile q5 sealed.",
+      "literature_anchor": "Zhu T et al. 2022 (same source paper as EsoRef).",
+      "seal_timestamp": "2026-05-02T19:30:00Z",
+      "prereg_sha": "f7628a46c36f3d268b0eadbfe495e302a4373238c3cffeaf170ef152aa8b4c1c"
+    },
+    "val_126_stad_phase_c": {
+      "val_id": "VAL-126",
+      "phase": "Phase C (run-everything disease cohort scoring)",
+      "module": "module_1 STAD",
+      "cohort": "TCGA-STAD HM450 sesame Level 3 n=395 primary tumor + n=2 paired adjacent-normal; full molecular subtype + MSI scores + H. pylori + EBV serology + Lauren classification joined from cBioPortal stad_tcga (CIN n=202, MSI n=59, GS n=46, EBV n=29, POLE n=7, NotClassified n=52)",
+      "anchor_cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (shared with VAL-127; same VAL-106 calibration cohort)",
+      "atlas_pipeline": "8-atlas run-everything (Stage 1 Xu-538 + Stage 2 Layered Moss+Loyfer 25-tile + Boccellato 6-tile + EsoRef 8-tile + OEref 9-tile + Caggiano TIM 19-tile + Stage 3 Salas IDOL 6-tile + UniLIFE 19-tile)",
+      "outcome_class": "O5_SUBSTRATE_BASELINE_TIER_3_DETECTED + O1_WITHIN_COHORT_SIGNAL_PRESERVED",
+      "chk_3_2_substrate_baseline": {
+        "stad_tumor_f_extreme": 0.4399,
+        "stad_tumor_f_extreme_sd": 0.0303,
+        "stad_adjacent_normal_f_extreme": 0.4231,
+        "anchor_f_extreme": 0.5591,
+        "anchor_f_extreme_sd": 0.0237,
+        "shift_anchor_sd_units": -5.02,
+        "tier_classification": "tier_3_invalidate_cross_cohort"
+      },
+      "stage_1_findings": "All-STAD d=+3.343 vs anchor (p=5.71e-184); within-cohort molecular-subtype hierarchy MSI (n=59 d=+4.03) ≈ EBV (n=29 d=+3.85) > CIN (n=202 d=+3.30) > POLE (n=7 d=+2.98) > GS (n=46 d=+2.89). MSI-H (n=67 d=+3.85) vs MSS (n=326 d=+3.27). H. pylori Yes (n=20 d=+3.94) vs No (n=168 d=+3.71). Lauren intestinal-pooled (n=158 d=+3.67) vs diffuse-pooled (n=78 d=+3.29) vs mucinous (n=20 d=+3.92) vs adenoNOS (n=134 d=+3.09). Sex male (n=259 d=+3.42) vs female (n=136 d=+3.20).",
+      "stage_2_findings": "Boccellato gastric tiles all 6 fire POSITIVE_UNEXPECTED on STAD primary tumor (Antrum_undiff +5.07, Antrum_diff +4.98, Corpus_undiff +4.42, Corpus_diff +4.36, Fundus_undiff +4.85, Fundus_diff +4.80) — pre-locked NEGATIVE direction (cell-of-origin dedifferentiation) FAILS pre-lock under tier-3 caveat. Loyfer homogenization tiles fire as predicted (Pancreatic_beta_cells +2.50, Hepatocytes +2.43, Lung_cells +2.18, Bladder +1.80) consistent with CCL-039 colorectal precedent. EsoRef squamous tiles fire 3-of-4 in DIFFERENTIATING_CROSS_TISSUE_OVERREAD pattern (Epi_basal +0.96, Epi_suprabasal +0.54, Epi_upper -1.13; Epi_stratified -0.19 NULL).",
+      "stage_3_findings": "Salas IDOL T-cell + myeloid depletion bidirectional pattern (CD4T -1.92, CD8T -1.58, Mono -0.90, NK -0.86, Neu -0.45, Bcell -0.20).",
+      "literature_anchor": "Bass AJ et al. (TCGA Network). Comprehensive molecular characterization of gastric adenocarcinoma. Nature 2014;513:202-209. DOI 10.1038/nature13480. Cristescu R et al. Molecular analysis of gastric cancer identifies subtypes associated with distinct clinical outcomes. Nat Med 2015;21:449-456. ACRG 2015. Lin Q et al. 2019 J Hepatol on advanced gastric cancer immune evasion. Kang BW et al. 2020 Theranostics. Sundar R et al. 2021 Nat Commun.",
+      "limitation": "CHK-3.2 tier-3 substrate baseline shift (-5.02 anchor-SD) invalidates absolute cross-cohort d-magnitudes for cell-of-origin direction interpretation; within-cohort contrasts (subtype hierarchy, H. pylori, Lauren) immune to baseline shift form the load-bearing v0.1 contribution.",
+      "anchors_tier": "multi_atlas_calibrated_within_cohort_signal_validated for module_1; tier promotion to multi_atlas_calibrated_substrate_matched_anchor pending v0.2 substrate-matched gastric anchor",
+      "seal_timestamp": "2026-05-02T22:35:00Z",
+      "prereg_sha": "8f47ba2e725319e116ce4fda24e49e1c3ba2fa3936142cce9d54c45584590cd3"
+    },
+    "val_127_esca_phase_c": {
+      "val_id": "VAL-127",
+      "phase": "Phase C (run-everything disease cohort scoring)",
+      "module": "module_2 ESCA",
+      "cohort": "TCGA-ESCA HM450 sesame Level 3 n=185 primary tumor (96 ESCC + 89 EAC) + n=16 paired adjacent-normal + n=1 metastatic; full clinical metadata joined from cBioPortal esca_tcga (Barrett's Yes-USA 18 + Yes-UK 10 = 28 / No 118 / NotReported 39, smoking Lifelong-non 56 / Current 37 / Reformed-≥15yr 36 / Reformed-<15yr 37, pack-years mean 34.5)",
+      "anchor_cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (shared with VAL-126)",
+      "atlas_pipeline": "Same 8-atlas pipeline as VAL-126",
+      "outcome_class": "O1_SUBTYPE_DISCRIMINATION_PASS + O5_SUBSTRATE_BASELINE_TIER_3 + O1_BARRETT_AMPLIFICATION_FIRES",
+      "chk_3_2_substrate_baseline": {
+        "esca_tumor_f_extreme": 0.4568,
+        "esca_tumor_f_extreme_sd": 0.0438,
+        "esca_adjacent_normal_f_extreme": 0.4974,
+        "anchor_f_extreme": 0.5591,
+        "shift_anchor_sd_units": -4.31,
+        "tier_classification": "tier_3_invalidate_cross_cohort",
+        "gi_continuum_observation": "ESCA substrate sits BETWEEN gastric (STAD: 0.4399) and kidney/prostate (anchor: 0.5591). GI continuum produces a substrate gradient where distal-stomach + cardia + distal-esophagus carry mixed columnar/squamous epithelium with reduced bimodality vs solid parenchyma."
+      },
+      "stage_1_findings": "All-ESCA d=+2.883 (p=2.77e-81). ESCC (n=96) d=+2.644 (p=9.24e-41); EAC (n=89) d=+3.703 (p=9.39e-50); d_ESCC-EAC = -1.064 within cohort (p=1.50e-11). 15+ Stage 2 tiles |d_ESCC-EAC| ≥ 0.5. Barrett+ (n=28) d=+4.498 vs Barrett- (n=118) d=+2.809 = +1.69 within-cohort amplification. Smoking informative null (all four strata within 0.6 d-units, range 2.43-3.03).",
+      "stage_2_findings": "EsoRef cell-of-origin retention test FIRES IN ESCC TARGET TISSUE: Epi_stratified d=-0.99 in ESCC (cell-of-origin retention signature in target tissue); EAC reads near-null d=-0.05 (cell-of-origin signature lost); Epi_upper d=-1.51 in ESCC further confirming target-tissue specificity. Caggiano TIM panel shows consistent EAC > ESCC pattern across 13+ tiles (~2 d-units within cohort): erythroblast d_ESCC-EAC=-2.26, eosinophil -2.23, small_intestine -2.17, megakaryocyte -2.17, neutrophil -2.09, dendritic -2.09, macrophage -2.08, monocyte -2.03, tcell -1.96, fibroblast -1.93. Loyfer Head_and_neck_larynx ESCC +1.12 vs EAC +2.76 (d_ESCC-EAC=-1.30). Loyfer Prostate ESCC +1.79 vs EAC +2.93.",
+      "stage_3_findings": "Caggiano TIM panel is strongest discriminator; full Salas + UniLIFE Stage 3 lineage profile pending v0.2 (sample sizes per subtype underpowered for full 19-cell UniLIFE sub-classification).",
+      "literature_anchor": "Krause L et al. Deciphering the clonal relationship between glandular and squamous components in oesophageal cancers. Nat Genet 2016. Yu C et al. Multifaceted role of branched-chain amino acid homeostasis in cancer and immune function. Front Genet 2019. Kaz AM et al. DNA methylation profiling in Barrett's esophagus and esophageal adenocarcinoma reveals unique methylation signatures and molecular subclasses. Cancer Res 2011. Hao JJ et al. Molecular characteristics of esophageal squamous cell carcinoma. Mol Cancer Res 2018. Lagisetty KH et al. Immune microenvironment of esophageal cancer. Br J Cancer 2021.",
+      "limitation": "Same CHK-3.2 tier-3 caveat as VAL-126; ESCC vs EAC subtype discrimination + Barrett's amplification within-cohort are the load-bearing findings.",
+      "anchors_tier": "multi_atlas_calibrated_within_cohort_signal_validated for module_2; tier promotion pending v0.2 substrate-matched esophageal anchor",
+      "seal_timestamp": "2026-05-02T23:13:00Z",
+      "prereg_sha": "cb521d83afe8bee8136c73cf0e0526a9b5e60758df7a77ae51709000c4014b1e"
+    },
+    "val_128_crohns_blood_phase_c": {
+      "val_id": "VAL-128",
+      "phase": "Phase C (sorted-cell sub-experiment scope; v0.1.1 = main whole-blood n=384 expansion)",
+      "module": "module_3 Crohn's pathway amendment",
+      "cohort": "GSE87650 GPL13534 sorted-cell sub-experiment n=240 (CD=77, UC=79, HC=84; cell types monocytes 60 + CD4 59 + CD8 56 + wh-blood-companion 65; sex M=126, F=114). Ventham 2016 Nat Commun 7:13507 PMID 27886173.",
+      "v_0_1_1_expansion_deferred": "Main Ventham whole-blood cohort n=384 (CD=103, UC=101, HL=105, HS=75) lives in supplementary file GSE87650_processedMethCombinedWb.txt.gz (1.4 GB compressed) NOT in GPL13534 series matrix; queued for v0.1.1 expansion sprint with proper compute allocation.",
+      "atlas_pipeline": "Same 8-atlas pipeline; memory-bounded chunked-pass scorer (4 passes × 60 samples through 2.2 GB series matrix) due to 4 GB RAM constraint",
+      "outcome_class": "O1_CROHNS_LANGUAGE_SUPPORTED + O5_MIXTURE_ATTENUATION_REVERSAL",
+      "stage_1_findings_null": "Stage 1 cycling-class architectural-drift panel does NOT detect IBD in any cell-type strata (|d_CD-HC| < 0.5 across monocytes, CD4, CD8, wh blood). UC vs HC similarly near-null. Class-of-disease finding: IBD does not register on cycling-class Stage 1 panel. Stage 1 is tissue/cancer-specific, not generic chronic-inflammation marker.",
+      "stage_3_findings_primary_deployment": "Max |d_CD-HC| = 1.72 on UniLIFE aCD8Tnv tile in whole-blood substrate. T-cell expansion (CD4/CD8/Treg/NK |d| 1.4-1.7) + myeloid depletion (Mono/Neu |d| 1.0-1.3) bidirectional population-shift signature characteristic of active inflammatory bowel disease in peripheral blood. Cross-atlas reproduction across UniLIFE + Salas + Loyfer.",
+      "mixture_attenuation_reversal": "Pre-locked test (sorted-cell d ≥ 1.5x whole-blood d) FAILS in OPPOSITE direction predicted: 40/93 tiles pass = 43%. Whole blood STRONGER than sorted cells. The IBD signature is a population-fraction shift, not within-cell-type drift; sorting cells eliminates the very signal being detected. DISC-GE-005: Stage 3 deconvolution atlases measure cell-type composition, not within-cell-type chronic-inflammation drift.",
+      "cd_vs_uc": "Modest overall; CD8 cleanest discriminator at d_CD-UC = -0.72 (consistent with literature on CD's stronger Th1/CD8 effector memory signatures vs UC's Th2-skewed presentation per Strober et al. 2007 + Globig et al. 2014 J Crohns Colitis).",
+      "literature_anchor": "Ventham NT et al. Integrative Epigenome-Wide Analysis Shows That DNA Methylation May Mediate Genetic Risk In Inflammatory Bowel Disease. Nat Commun 2016;7:13507. PMID 27886173. Strober W, Fuss IJ. The fundamental basis of inflammatory bowel disease. Nat Rev Immunol 2007. Globig AM et al. Comprehensive intestinal T helper cell profiling reveals specific accumulation of IFN-γ+IL-17+ co-producing CD4+ T cells in active inflammatory bowel disease. J Crohns Colitis 2014.",
+      "limitation": "Sorted-cell sub-experiment scope only at v0.1; main whole-blood n=384 cohort deferred to v0.1.1 expansion sprint. Treatment status (anti-TNF biologics, corticosteroids, immunomodulators) and disease activity state confounders not consistently captured; pending v0.1.1.",
+      "anchors_tier": "amendment-language scope for module_3; per-patient IBD-detection product NOT v0.1; future IBD-epic v0.0 dedicated panel construction sprint",
+      "seal_timestamp": "2026-05-02T23:50:00Z",
+      "prereg_sha": "e7cdb09082d39bdb0c82d4465ffd43a9cc12b79c1b56a5dcd23f22a0086da7bc"
+    }
+  },
+  "validation_tier": "multi_atlas_calibrated_within_cohort_signal_validated",
+  "validation_tier_modifier": "tier_3_substrate_baseline_caveat_pending_substrate_matched_anchor + amendment_language_scope_for_module_3",
+  "validation_tier_rationale": "Anchored by VAL-126 TCGA-STAD n=395 + VAL-127 TCGA-ESCA n=185 + VAL-128 GSE87650 sorted blood n=240, all sealed 2026-05-02 against KIRC+PRAD anchor n=210. Within-cohort findings (subtype hierarchy, Barrett's amplification, ESCC vs EAC discrimination, IBD population-fraction shifts) are robust to the CHK-3.2 tier-3 substrate baseline shift documented for STAD (-5.02 anchor-SD) and ESCA (-4.31 anchor-SD) and form the load-bearing v0.1 deployment narrative. Absolute cross-cohort d-magnitudes are reported under explicit tier-3 invalidation language and are NOT load-bearing for v0.1 deployment. v0.2 path: substrate-matched gastric+esophageal anchor (additional GI adjacent-normal HM450 cohorts beyond TCGA's n=2 / n=16) bypasses the tier-3 caveat for absolute Boccellato + EsoRef direction interpretation and promotes the card to multi_atlas_calibrated_substrate_matched_anchor.",
+  "known_limitations": [
+    "CHK-3.2 tier-3 substrate baseline shift on TCGA HM450 sesame Level 3 STAD (-5.02 anchor-SD) and ESCA (-4.31 anchor-SD) vs KIRC+PRAD anchor invalidates absolute cross-cohort d-magnitudes for cell-of-origin direction interpretation; within-cohort contrasts immune to baseline shift are the load-bearing v0.1 findings. v0.2 substrate-matched gastric+esophageal anchor is the documented path forward.",
+    "Pre-locked Boccellato gastric tile direction prediction (NEGATIVE consistent with cell-of-origin dedifferentiation) FAILS pre-lock on STAD primary tumor under tier-3 caveat. All 6 Boccellato tiles read POSITIVE_UNEXPECTED. Cannot separate substrate-shift effect from tumor-methylation-homogenization within VAL-126 because both contributions go in the same direction under tier-3 invalidation.",
+    "EsoRef cross-tissue overread observed on STAD adenocarcinoma (3 of 4 squamous tiles fire DIFFERENTIATING_CROSS_TISSUE_OVERREAD) and EAC adenocarcinoma may be generic atlas overread OR Barrett's-derived methylation memory propagating through columnar adenocarcinomas across the GI continuum. The kidney-card cross-card calibration test (running EsoRef on TCGA-KIRC tumor) is the discriminating experiment, not yet completed at v0.1.",
+    "Module_3 Crohn's pathway amendment is supported at v0.1 by n=65 whole-blood-companion subset + n=175 sorted-cell sub-experiment from GSE87650 GPL13534 series matrix. The Ventham main whole-blood cohort n=384 lives in supplementary file (1.4 GB compressed) requiring separate download + preprocessing; queued for v0.1.1 expansion. v0.1 amendment language is supported but not yet at full statistical power.",
+    "Module_3 does NOT produce a per-patient IBD-detection score at v0.1. The signature is a Stage 3 immune-population-fraction shift detected by existing cell-fraction deconvolution atlases. A dedicated IBD-discriminating panel (top 20-30 CpGs from VAL-128 Stage 3 whole-blood findings) is the path to a clean per-patient IBD-specific A-score, tracked for future IBD-epic v0.0 sprint NOT in scope for gastric+esophageal-epic.",
+    "STAD H. pylori stratification at v0.1 is underpowered (n=20 Yes vs n=168 No). +0.23 d-unit amplification observed but not load-bearing. v0.2 expansion: additional H_PYLORI_INFECTION-coded gastric cohorts (e.g., Asian consortia data) would tighten this signal.",
+    "STAD POLE molecular subtype underpowered at n=7; reported but not load-bearing. v0.2 expansion: additional POLE-coded gastric/esophageal cohorts.",
+    "Card does not currently distinguish STAD CIN from MSI vs EBV vs GS molecular subtype at single-patient level — within-cohort hierarchy in VAL-126 is a cohort-level finding; absolute d-magnitudes per patient subject to CHK-3.2 tier-3 caveat. Per-patient subtype assignment requires concordant tissue molecular pathology workup (MSI testing, EBER-ISH for EBV, IHC for GS markers).",
+    "Card cannot detect Barrett's metaplasia at pre-EAC stages — VAL-127 Barrett's amplification is observed on Barrett-with-EAC samples, not on Barrett-without-EAC samples. A Barrett's-progression timeline cohort (e.g., GSE104707 if accessible) would test whether Stage 1 A-score scales monotonically with metaplasia → dysplasia → adenocarcinoma sequence. v0.2 module_2 expansion target.",
+    "Plasma cfDNA pathway not validated at v0.1; v0.3 priority. Card is currently tissue-biopsy-validated for module_1 and module_2; whole-blood-validated for module_3.",
+    "v0.1 deployment is methylation-only (450K / EPIC). Non-methylation substrate guidance (nucl/fuzz/wps/frag) deferred to v1.0+ MESA five-substrate platform integration. Per-class A_ceiling values for cycling and immune classes on non-methyl substrates listed as TBD pending Reproduction Paper Part 2.4A finalization for those classes.",
+    "EpiSCORE OEref calibration outcome O2_PARTIAL_FLOORS — 5 of 9 tiles fall in tight 0.0037-0.0048 SD range; production deployment uses sealed q5 thresholds but tile-level resolution is partial. v0.2 expansion: sample-size increase on the calibration anchor (n=210 → ideally n=400+) would tighten or upgrade outcome class.",
+    "Caggiano TIM panel ESCC vs EAC pattern (~2 d-units across 13+ tiles) interpretable as EAC homogenization rather than ESCC-specific signature; the panel cannot per-se identify EAC origin without the Barrett's-positive covariate AND EsoRef Epi_stratified near-null pattern as confirming companions. v0.2 mechanistic expansion: Barrett's-progression cohort would test whether the Caggiano homogenization pattern emerges progressively during metaplasia → dysplasia → EAC sequence."
+  ],
+  "next_validation_steps": [
+    "v0.2 substrate-matched gastric+esophageal anchor (highest priority) — pull additional GI adjacent-normal HM450 cohorts (GSE99553, GSE52826, healthy gastric biopsies, healthy esophageal biopsies) to construct a substrate-matched anchor. Bypasses CHK-3.2 tier-3 caveat. Module_1 STAD pre-locked Boccellato direction interpretation can clear pre-lock cleanly. Module_2 ESCA absolute d-magnitudes become load-bearing.",
+    "v0.1.1 GSE87650 Ventham main whole-blood cohort n=384 expansion — would extend module_3 Crohn's-pathway Stage 3 statistical power 4-5x over the n=65 wh-blood-companion subset analyzed in v0.1. Logged for v0.1.1 expansion sprint with proper compute allocation (1.4 GB compressed supplementary file requires extraction + pre-processing + chunked scoring).",
+    "Kidney-card cross-card calibration test — EsoRef + OEref bridged atlases tested on TCGA-KIRC tumor + TCGA-PRAD tumor. EsoRef on TCGA-KIRC tumor reading NULL = GI-continuum methylation memory hypothesis confirmed (cross-tissue overread on STAD/EAC reframes as Barrett's-derived methylation memory); EsoRef on TCGA-KIRC tumor reading strong = generic atlas overread. Tracked in CROSS_CARD_CALIBRATION_TODO.",
+    "Barrett's-progression methylation timeline cohort (e.g., GSE104707 if accessible) — within-cohort Barrett+ vs Barrett- amplification (+1.69 d-units in VAL-127) suggests methylation drift accumulates progressively during metaplasia → dysplasia → adenocarcinoma sequence. Test: does Stage 1 A-score scale monotonically with Barrett's → dysplasia → EAC progression? v0.2 module_2 expansion target.",
+    "Dedicated IBD-discriminating panel construction — top-20-30 CpGs from VAL-128 Stage 3 whole-blood findings (UniLIFE aCD8Tnv, Loyfer CD4T-cells_EPIC, Salas CD4T, Salas Neu) could produce a clean IBD-specific A-score with single-cell granularity. Tracked for future IBD-epic v0.0 sprint, NOT in scope for gastric+esophageal-epic.",
+    "v0.3 plasma cfDNA validation — pull cfDNA cohorts (commercial partner cohort if available; GSE116988 if accessible) to validate cfDNA transferability of gastric+esophageal Stage 1 + Stage 2 readouts. Anchored by hcc-epic VAL-059 ccfDNA d=+0.634 cfDNA precedent."
+  ],
+  "reproducibility_anchors": {
+    "github_commit": "d7c26f6",
+    "github_branch": "main",
+    "github_repo": "https://github.com/hmahaffeyges/IAM-Validation",
+    "val123_directory": "Biological_Physics/validation_runs/VAL-123_boccellato_calibrate/",
+    "val124_directory": "Biological_Physics/validation_runs/VAL-124_esoref_calibrate/",
+    "val125_directory": "Biological_Physics/validation_runs/VAL-125_oeref_calibrate/",
+    "val126_directory": "Biological_Physics/validation_runs/VAL-126_stad_phase_c/",
+    "val127_directory": "Biological_Physics/validation_runs/VAL-127_esca_phase_c/",
+    "val128_directory": "Biological_Physics/validation_runs/VAL-128_crohns_blood/",
+    "val126_anchor_scoring": "val106_anchor_scorer.py + val106_anchor_per_sample.ndjson + val106_anchor_kirc_prad_manifest.json (anchor scoring shared with VAL-127 for n=210 KIRC+PRAD adjacent-normal)",
+    "boccellato_atlas_directory": "Biological_Physics/atlas_vault/stage2_cell_of_origin/boccellato_stomachref_HM450_v1/",
+    "boccellato_atlas_sha256": "(see boccellato_stomachref_HM450_v1.csv SHA in INVENTORY.json entry 95-103)",
+    "esoref_atlas_directory": "Biological_Physics/atlas_vault/stage2_cell_of_origin/episcore_esoref/",
+    "esoref_atlas_sha256": "6e650bd78ed2ee32d98ac4508b3b4295a1cd303a0fed2d850eeb9c35f897692b",
+    "oeref_atlas_directory": "Biological_Physics/atlas_vault/stage2_cell_of_origin/episcore_oeref/",
+    "oeref_atlas_sha256": "8f4e34ef63247b0ca09312fedb52abf5eee9ee1e8f09e35044ddceb8bdf3f651",
+    "atlas_vault_inventory": "Biological_Physics/atlas_vault/INVENTORY.json (104 → 112 entries; +8 EsoRef + OEref files)",
+    "atlas_vault_zip": "/mnt/user-data/outputs/post_sprint_delivery/atlas_vault_post_VAL128.zip (35.6 MB; SHA-256 81feb773a0394dc9b3f38e5202cb4416a2778113a1481181c560c174505f17cc)",
+    "stage_1_panel_xu538_github": "(see Xu-538 panel reference SHA in cookbook canonical; matches breast-epic + lung-epic + crc-epic + prostate-epic + bladder-epic + cardio-epic Stage 1 panel)",
+    "rng_seed": 20260502
+  },
+  "universal_reference": {
+    "_purpose": "Self-contained pipeline-invariant reference block. Every card carries this block in its JSON so that an AI or human reading ONLY this card can reconstruct the full Stage 1 + Stage 2 + Stage 3 pipeline architecture without consulting any other file. Per CHK-5.7 (added 2026-04-28 from cardio-epic v0.1 ship-state audit).",
+    "schema_version": "universal_reference_v1.0",
+    "last_updated": "2026-05-03",
+    "universal_stage_1_pipeline": {
+      "invariant_rule": "Stage 1 ALWAYS scores Xu-538 panel against H_min(immune) = 0.838889 regardless of which disease card is being run. The Xu-538 panel is the immune-class panel; the disease-tissue class is a Stage 2 concept only. Per panc-LL-007 generalized.",
+      "specimen": "Buffy-coat DNA (Sister Study training cohort) extending to plasma cfDNA + tissue with high immune infiltrate per CHK-0.5 panel-substrate transferability. Tissue arms validated for breast-epic (VAL-060), crc-epic (VAL-061+062), lung-epic (VAL-063), hcc-epic (VAL-064), prostate-epic (VAL-058), pancreatic-epic (VAL-066+067+068), bladder-epic (VAL-119-122), and now gastric-esophageal-epic (VAL-126+127). Whole-blood specimen validated for module_3 IBD readout (VAL-128).",
+      "platforms_supported": [
+        "Illumina HumanMethylation450K BeadChip (HM450K)",
+        "Illumina MethylationEPIC v1/v2 BeadChip (EPIC 850K)"
+      ],
+      "panel_id": "Xu-538 immune cycling-class panel (cookbook canonical)",
+      "panel_sha256": "(see Xu-538 reference SHA in cookbook canonical)",
+      "panel_n_cpgs": 538,
+      "panel_source_paper": "Xu Z, Sandler DP, Taylor JA. Blood DNA methylation and breast cancer: a prospective case-cohort analysis in the Sister Study.",
+      "panel_source_doi": "10.1093/jnci/djz065",
+      "panel_source_doi_url": "https://doi.org/10.1093/jnci/djz065",
+      "panel_coverage_epic": ">= 95% on EPIC 850K (validated cookbook-wide)",
+      "panel_coverage_450k": "100% on HM450K (validated VAL-126 + VAL-127 + VAL-128 in this sprint, all 3 cohorts at 100% per-sample coverage)",
+      "h_min_immune": 0.838889,
+      "h_min_source": "GAPE_WEB_v13.py line 89 (immune class H_min constant from G-003b MCMC posterior mean, R-hat < 1.001).",
+      "scoring_method_primary": "Pooled A_immune = mean(β across 538 CpGs) / H_min_immune",
+      "scoring_method_secondary_for_bidirectional_diseases": "Directional fallback panel (per-disease, AD-instance pattern per CCL-031, PDAC pooled-null per CCL-028). Not required for gastric-esophageal-epic v0.1 because pooled A_immune fires consistently above 80-cell baseline NORMAL cutoff for both module_1 STAD and module_2 ESCA cohorts. Module_3 IBD does not use Stage 1 (informative null per VAL-128)."
+    },
+    "universal_h_min_table": {
+      "_note": "Class H_min constants from GAPE_WEB_v13.py lines 87-96. Frozen at G-003b MCMC posterior means, R-hat < 1.001. Used at Stage 2 to compute per-tissue A-scores from deconvolved β values.",
+      "cycling": 0.856055,
+      "secretory": 0.843264,
+      "immune": 0.838889,
+      "terminal": 0.772837,
+      "stromal": 0.86295,
+      "stem_adult": 0.873718,
+      "progenitor": 0.852216,
+      "stem_pluri": 0.982166
+    },
+    "universal_stage_2_moss_deconvolution": {
+      "method": "Non-negative least squares (NNLS) deconvolution against Moss 2018 18-tissue + Loyfer 2023 sorted-cell extension reference matrix; layered Moss + Loyfer 25-tile primary atlas (deduped per CCL-047 from 7,890 → 6,105 unique CpGs).",
+      "scipy_call": "scipy.optimize.nnls(reference_matrix, sample_beta) → fractions per tile; A_tile = (1 - β_tile_in_sample / β_tile_healthy) / (1 - H_min_tile_class)",
+      "production_module_status": "production for HM450K + EPIC 850K substrates per CCL-048 substrate-normalization-required gate (CHK-0.7).",
+      "tissue_classes": {
+        "colon_epithelial": "cycling",
+        "lung_epithelial": "cycling",
+        "gastric_epithelial": "cycling",
+        "bladder_epithelial": "cycling",
+        "cervical_epithelial": "cycling",
+        "kidney_epithelial": "cycling",
+        "hepatocyte": "secretory",
+        "pancreatic_exocrine": "secretory",
+        "breast_ductal": "secretory",
+        "prostate_epithelial": "secretory",
+        "neuron": "terminal",
+        "oligodendrocyte": "terminal",
+        "vascular_endothelial": "stromal",
+        "fibroblast": "stromal",
+        "neutrophil": "immune",
+        "lymphocyte": "immune",
+        "monocyte": "immune",
+        "hsc": "stem_adult"
+      },
+      "healthy_reference_beta_by_tissue": {
+        "_source": "Moss 2018 Table S1",
+        "colon_epithelial": 0.741,
+        "lung_epithelial": 0.738,
+        "gastric_epithelial": 0.739,
+        "bladder_epithelial": 0.737,
+        "cervical_epithelial": 0.74,
+        "kidney_epithelial": 0.739,
+        "hepatocyte": 0.742,
+        "pancreatic_exocrine": 0.738,
+        "breast_ductal": 0.744,
+        "prostate_epithelial": 0.743,
+        "neuron": 0.779,
+        "oligodendrocyte": 0.775,
+        "vascular_endothelial": 0.731,
+        "fibroblast": 0.728,
+        "neutrophil": 0.762,
+        "lymphocyte": 0.751,
+        "monocyte": 0.758,
+        "hsc": 0.734
+      }
+    },
+    "universal_stage_3_epidish_subcomposition": {
+      "method": "EpiDISH-style proportion estimation via Salas Blood.EPIC IDOL companion + UniLIFE 19-cell overlay + Loyfer sorted immune EPIC tiles + Caggiano TIM immune subset.",
+      "cell_types_resolved": [
+        "Bcell",
+        "CD4T",
+        "CD8T",
+        "Mono",
+        "Neu",
+        "NK"
+      ],
+      "when_applied": "Run-everything: Stage 3 fires on every IDAT regardless of Stage 1 result. Production cookbook-wide post Heath sign-off 2026-04-26.",
+      "salas_qc_bounds": {
+        "neutrophil_fraction": [
+          0.3,
+          0.85
+        ],
+        "lymphocyte_fraction": [
+          0.1,
+          0.55
+        ],
+        "monocyte_fraction": [
+          0.02,
+          0.2
+        ],
+        "cd4_fraction": [
+          0.05,
+          0.45
+        ],
+        "cd8_fraction": [
+          0.05,
+          0.4
+        ],
+        "nk_fraction": [
+          0.02,
+          0.25
+        ],
+        "b_fraction": [
+          0.01,
+          0.2
+        ]
+      },
+      "qc_gate_rule": "Sample fails Salas QC if any cell-type fraction falls outside the bounds; failed samples are flagged but A-scores still reported with caveat."
+    },
+    "universal_80_cell_age_baseline_immune_class": {
+      "_purpose": "Healthy A_immune reference distribution by age decade for tier classification. Required to compute per-patient age-percentile and absolute tier (NORMAL/MARGINAL/DETECTABLE/URGENT/FLOOR_BREACH).",
+      "_sources": [
+        "Hannum 2013 (BMIQ-normalized age-stratified blood)",
+        "Horvath 2013 multi-tissue clock",
+        "Roadmap Epigenomics blood references",
+        "Moss 2018 sorted-cell healthy",
+        "Lister 2009 H1 ESC + IMR-90",
+        "Alisch 2012 pediatric blood"
+      ],
+      "_critical_caveat_cross_cohort": "Per CCL-034 cross-cohort baseline check: this 80-cell baseline is calibrated against pooled healthy references; individual cohorts may show ±0.05-0.10 baseline offset due to substrate / preprocessing differences. CHK-3.2 mandatory-every-run gates on this offset. Tier-3 invalidation triggers when cohort baseline shifts >3 SD from anchor.",
+      "age_decades": {
+        "00-09": {
+          "A_mean": 0.9402,
+          "A_sd": 0.0291
+        },
+        "10-19": {
+          "A_mean": 0.9468,
+          "A_sd": 0.0305
+        },
+        "20-29": {
+          "A_mean": 0.9531,
+          "A_sd": 0.0318
+        },
+        "30-39": {
+          "A_mean": 0.959,
+          "A_sd": 0.0334
+        },
+        "40-49": {
+          "A_mean": 0.9618,
+          "A_sd": 0.0356
+        },
+        "50-59": {
+          "A_mean": 0.9638,
+          "A_sd": 0.0368
+        },
+        "60-69": {
+          "A_mean": 0.9652,
+          "A_sd": 0.038
+        },
+        "70-79": {
+          "A_mean": 0.9671,
+          "A_sd": 0.0394
+        },
+        "80-89": {
+          "A_mean": 0.9688,
+          "A_sd": 0.0403
+        },
+        "90-99": {
+          "A_mean": 0.971,
+          "A_sd": 0.0415
+        }
+      }
+    },
+    "universal_tier_thresholds": {
+      "_source": "80-cell healthy baseline reference; same across breast-epic, crc-epic, ad-immune, lung-epic, prostate-epic, bladder-epic, hcc-epic, pancreatic-epic, cardio-epic, and now gastric-esophageal-epic.",
+      "_note": "Per-card tier thresholds MAY deviate from these universals if disease-specific literature justifies. When they deviate, the card MUST cite the deviation explicitly. Silent deviation is forbidden. gastric-esophageal-epic v0.1 inherits these universals for module_1 STAD + module_2 ESCA Stage 1 readout. Module_3 Crohn's pathway uses Stage 3 cell-fraction-shift thresholds NOT Stage 1 architectural-drift thresholds (per VAL-128 informative null on Stage 1).",
+      "NORMAL": {
+        "A_threshold": "< 1.01",
+        "action": "No action; serial-sample per screening cadence"
+      },
+      "MARGINAL": {
+        "A_threshold": "≥ 1.01",
+        "action": "Note; serial-sample in 6 months"
+      },
+      "DETECTABLE": {
+        "A_threshold": "≥ 1.05, age-percentile ≥ p90",
+        "action": "Run Stage 2 localization"
+      },
+      "URGENT": {
+        "A_threshold": "≥ 1.07, age-percentile ≥ p90",
+        "action": "Run Stage 2; expedited workup per disease card"
+      },
+      "FLOOR_BREACH": {
+        "A_threshold": "≥ 1.10",
+        "action": "Run Stage 2; urgent clinical workup regardless of localization"
+      }
+    },
+    "universal_sex_stratification_rule": {
+      "rule": "Sex-specific stratification reported when within-cohort sex-stratified A_immune differs by ≥0.10 d-units (cohort-level effect size). gastric-esophageal-epic v0.1 module_1 STAD: male n=259 d=+3.42 vs female n=136 d=+3.20 = +0.22 amplification (above threshold; reported). Module_2 ESCA male n=158 d=+2.84 vs female n=27 d=+3.10 = -0.26 amplification (above threshold but female n underpowered; reported with caveat).",
+      "minimum_reporting": "Patient sex always reported in the EDEAR patient report regardless of whether stratification effect crosses the 0.10 d-unit threshold."
+    },
+    "universal_language_discipline": {
+      "allowed": [
+        "consistent with",
+        "tested against",
+        "predictions within the framework",
+        "the data are consistent with",
+        "supports the framework prediction",
+        "anchored by",
+        "informative null"
+      ],
+      "forbidden": [
+        "resolves",
+        "confirms",
+        "validates (in declarative claim form)",
+        "proves",
+        "definitively",
+        "first-of-kind diagnostic",
+        "groundbreaking",
+        "revolutionary",
+        "novel discovery",
+        "paradigm-shifting"
+      ],
+      "rationale": "Heath's language discipline: never overclaim, never make a recipient's work sound incomplete, let numbers speak. Allowed phrases preserve epistemic honesty + room for replication; forbidden phrases overclaim mechanism or significance."
+    },
+    "universal_cohort_batch_offset_warning": {
+      "_critical": true,
+      "_discovered_in": "VAL-057 + cookbook-wide investigation circa 2026-04-26 (CCL-040)",
+      "description": "Different cohorts processed through different methylation array preprocessing pipelines (sesame Level 3 vs minfi preprocessFunnorm vs GenomeStudio AVG_Beta vs Ventham 2016 in-house) produce systematically different f_extreme distributions. Cardio sprint hit four substrates with a 24-percentage-point distribution gap (f_extreme 31.81% to 55.87%). gastric-esophageal-epic sprint hit a tier-3 -5.02 anchor-SD shift on TCGA-STAD vs KIRC+PRAD anchor (BOTH on TCGA HM450 sesame Level 3 — the shift is GI-tissue-class structural, not preprocessing-induced).",
+      "example": "TCGA-STAD primary tumor f_extreme 0.4399 ± 0.0303 vs TCGA-KIRC + TCGA-PRAD adjacent-normal anchor f_extreme 0.5591 ± 0.0237 (-5.02 anchor-SD shift). STAD adjacent-normals (n=2) read 0.4231 confirming this is a tissue/pipeline-level baseline difference, not a tumor signature.",
+      "deployment_rule": "CHK-3.2 cross-cohort baseline check runs on every VAL outcome. If shift > 3 SD vs anchor, tier-3 invalidation applies to absolute cross-cohort d-magnitudes; within-cohort contrasts immune to baseline shift become the load-bearing analytical layer."
+    },
+    "universal_no_fabrication_rule": {
+      "rule": "Never invent class names, biological categories, numerical values, citations, cohort sizes, validation results, method details, or product specs. Mirror source files exactly. If the source files don't have it, ask Heath or leave it out. Never fill in plausible-looking numbers. This rule outranks all other formatting / structural / completeness rules."
+    },
+    "gape_web_version_reference": {
+      "canonical_file": "GAPE_WEB_v13.py (in /mnt/project)",
+      "h_min_constants_line_range": "lines 87-96",
+      "port": 8080,
+      "frozen_at": "Production canonical v13 (8 architecture classes; H_min values frozen at G-003b MCMC posterior means with R-hat < 1.001 per Reproduction Paper Part 2.3)"
+    }
+  },
+  "lessons_learned": [
+    {
+      "id": "DISC-GE-001",
+      "title": "Within-cohort molecular-subtype hierarchy is robust under CHK-3.2 tier-3 substrate baseline shift",
+      "observation": "When a card's primary cohort sits on a different substrate baseline than the calibration anchor (CHK-3.2 tier-3 shift detected), absolute cross-cohort d-magnitudes are invalidated by the baseline shift, but within-cohort molecular-subtype d-hierarchies are immune to the baseline shift because all subtypes share the same baseline. VAL-126 STAD demonstrates: substrate shift -5.02 anchor-SD invalidates absolute d-magnitudes for cell-of-origin direction interpretation, but the within-cohort hierarchy MSI ≈ EBV > CIN > POLE ≈ GS preserves the prereg-predicted CIMP-amplification ordering with high resolution.",
+      "implication": "When CHK-3.2 fires tier-3, the within-cohort molecular-subtype hierarchy block becomes the primary load-bearing analytical layer for the card v0.1 deployment narrative; cell-of-origin direction predictions get explicitly flagged as pending-substrate-matched-anchor. Add to TESTING_CHECKLIST CHK-3.2 section. Promotes to CCL-### in next LESSONS_LEARNED.md cycle.",
+      "date_recorded": "2026-05-02",
+      "source_val": [
+        "VAL-126"
+      ],
+      "extends": [
+        "CCL-039",
+        "DISC-BLADDER-002"
+      ]
+    },
+    {
+      "id": "DISC-GE-002",
+      "title": "ESCC vs EAC subtype discrimination on methylation alone via Caggiano TIM panel — first cookbook example of within-cancer histological-subtype methylation discrimination at >1 d-unit magnitude outside MSI-tracking-Lauren cases",
+      "observation": "Caggiano TIM panel produces consistent EAC > ESCC pattern across 13+ tiles (~2 d-units within cohort, p=1.5e-11 on Stage 1 alone). Interpretable as EAC's homogenized methylation pattern looking more like generic-epithelial tissue than ESCC's preserved squamous-specific structure — i.e., EAC has lost more cell-type-specific methylation than ESCC. d_ESCC-EAC = -1.06 on Stage 1 alone within cohort.",
+      "implication": "Cards covering cancers with multiple distinct histological subtypes should pre-lock magnitude-based |d_subtype1-subtype2| ≥ 0.5 as a discrimination criterion. The Caggiano TIM panel's broad-cell-type coverage is particularly useful for histological-subtype discrimination because biologically distinct subtypes (e.g., ESCC squamous transformation vs EAC Barrett's-CIMP) produce different methylation drift patterns across the panel's 19 cell-type tiles. Future card preregs targeting cancers with multiple histological subtypes should include the Caggiano TIM panel as a primary discrimination atlas.",
+      "date_recorded": "2026-05-02",
+      "source_val": [
+        "VAL-127"
+      ],
+      "extends": [
+        "DISC-PROSTATE-002 (magnitude-based |d| thresholds; subtype direction-ambiguity)"
+      ]
+    },
+    {
+      "id": "DISC-GE-003",
+      "title": "Gene-promoter atlas reads target biology in target subtype (EsoRef Epi_stratified d=-0.99 in ESCC, near-null in EAC) — first cookbook example",
+      "observation": "EsoRef Epi_stratified tile reads d=-0.99 in ESCC squamous-cell carcinoma (squamous tumor retains methylation patterns consistent with squamous-stratified epithelial origin) and d=-0.05 in EAC adenocarcinoma (cell-of-origin signature lost). First cookbook example of a gene-promoter atlas reading its target biology in one disease subtype within the same multi-cohort sprint. The cross-tissue overread observed on STAD adenocarcinoma + EAC adenocarcinoma may reframe as Barrett's-derived methylation memory propagating through columnar adenocarcinomas across the GI continuum, not generic atlas overread.",
+      "implication": "Gene-promoter atlases applied to multi-subtype cancer cohorts should be evaluated per-subtype rather than at cohort level. The DIFFERENTIATING_CROSS_TISSUE_OVERREAD outcome class is now bidirectional: when a gene-promoter atlas reads strong in cohorts of non-target tissue, the appropriate test for whether the signal is genuine cross-tissue gene-promoter biology or atlas overread is a within-cohort subtype split on a target-tissue-adjacent cohort. The kidney-card cross-card calibration test (running EsoRef on TCGA-KIRC tumor) is the discriminating experiment, sharpened by this finding.",
+      "date_recorded": "2026-05-02",
+      "source_val": [
+        "VAL-127"
+      ],
+      "extends": [
+        "DISC-BLADDER-003 (bulk-WGBS atlases on mucosal cohorts)",
+        "CCL-039 cell-of-origin direction expectation",
+        "DISC-PROSTATE-002 magnitude-based thresholds"
+      ]
+    },
+    {
+      "id": "DISC-GE-004",
+      "title": "Risk-factor amplification within cancer cohort (Barrett's +1.69 d-units within ESCA) is robust to substrate baseline shift",
+      "observation": "Within-cohort risk-factor stratification produces interpretable amplification signal even under tier-3 substrate baseline shift because the risk-factor-positive and risk-factor-negative subgroups share the same baseline. Barrett+ ESCA (n=28) Stage 1 d=+4.50 vs Barrett- ESCA (n=118) d=+2.81 = +1.69 d-units within cohort. Smoking (n=37 current vs n=56 lifelong-non) NULL (within 0.6 d-units) — informative null distinguishing methylation-drift mechanisms from mutational-burden mechanisms.",
+      "implication": "Every multi-cohort card should pre-lock at least one within-cohort risk-factor stratification when clinical metadata supports it (Barrett's for esophageal, MSI status for STAD, H. pylori for gastric, pack-years for lung, BMI/diabetes for HCC, family history for breast, etc.). Within-cohort risk-factor stratification is the cleanest signal under tier-3 substrate caveat. Add to TESTING_CHECKLIST and LESSONS_LEARNED.",
+      "date_recorded": "2026-05-02",
+      "source_val": [
+        "VAL-127"
+      ],
+      "extends": [
+        "DISC-GE-001 (within-cohort subtype hierarchy)"
+      ]
+    },
+    {
+      "id": "DISC-GE-005",
+      "title": "Mixture-attenuation reversal — Stage 3 deconvolution atlases measure cell-type composition not within-cell-type drift",
+      "observation": "Pre-locked test: sorted-cell d should be ≥ 1.5x whole-blood d (mixture-attenuation hypothesis: separating cells should AMPLIFY within-cell-type drift signal). Observed: 40/93 tiles pass (43%) — whole blood is STRONGER than sorted cells. Direction is REVERSED from prereg expectation. Crohn's produces methylation signature primarily through population-fraction shifts. When cells are sorted, the population-shift signal is gone by definition. Stage 3 atlases (Salas IDOL, Loyfer immune tiles, UniLIFE 19-cell, Caggiano TIM) detect proportional shifts in mixed populations; in sorted cells there is no shift to detect. This is not a refutation of the Stage 3 atlases — it is a clarification of what Stage 3 measures.",
+      "implication": "Stage 3 deconvolution atlases measure cell-type composition shifts in mixed-population substrates, not within-cell-type chronic-inflammation drift. Cards interpreting Stage 3 results should anchor the interpretation in population-fraction-shift language ('T-cell expansion + myeloid depletion in whole blood') not within-cell-type-drift language. Future card preregs should pre-specify whether the disease is expected to drive a population-fraction shift (IBD, viral infection, sepsis) vs a within-cell-type drift (TIL exhaustion in solid tumor microenvironment). Re-frames Stage 3 interpretation across the cookbook.",
+      "date_recorded": "2026-05-02",
+      "source_val": [
+        "VAL-128"
+      ],
+      "extends": [
+        "Re-frames Stage 3 deconvolution-atlas interpretation across the cookbook"
+      ]
+    },
+    {
+      "id": "DISC-GE-006",
+      "title": "Stage 1 cycling-class architectural-drift panel does NOT detect IBD — informative null clarifying Stage 1 specificity",
+      "observation": "Xu-538 Stage 1 panel produces |d_CD-HC| < 0.5 across all four cell-type strata (monocytes, CD4, CD8, wh blood) on GSE87650 Crohn's cohort. UC vs HC similar near-null. Class-of-disease finding: IBD does not register on cycling-class Stage 1 panel. Stage 1 is tissue/cancer-specific (validated previously on TCGA-COAD, TCGA-LIHC, TCGA-STAD, TCGA-ESCA, GSE51057 breast) not generic chronic-inflammation marker.",
+      "implication": "Stage 1 Xu-538 cycling-class architectural-drift panel is specific to tissue/cancer cycling acceleration, not generic chronic-inflammation. Card preregs targeting chronic-inflammatory diseases (IBD, autoimmune, chronic viral infection) should NOT pre-lock Stage 1 elevation as a primary outcome and should expect Stage 3 immune-fraction shifts to be the load-bearing readout instead. Stage 1 panel scope clarification across cookbook.",
+      "date_recorded": "2026-05-02",
+      "source_val": [
+        "VAL-128"
+      ],
+      "extends": [
+        "Stage 1 panel scope clarification across cookbook"
+      ]
+    }
+  ],
+  "corrections_log": [
+    {
+      "date": "2026-05-03",
+      "session": "gastric-esophageal-epic v0.1 card construction",
+      "corrections": [
+        "Initial card draft sized at 584 lines JSON / 548 lines README; flagged by Heath as undersized given the scope (two cancers + Crohn's amendment subsection). Pancreatic-epic v0.1 (single cancer) is 3,311 lines JSON / 597 README. Card rebuilt with full universal_reference Block 5 (CHK-5.7 14 sub-keys), full saturation_levels grid for cycling + secretory + immune classes × 5 substrates, full mandatory_covariates per module, full clinical_action_matrix with 8 routing patterns including IBD comorbidity pattern, full validation_evidence_summary per VAL with inline literature, full reproducibility_anchors block, and 6 fully-elaborated DISC-GE lessons.",
+        "Pre-locked direction prediction for Boccellato gastric tiles on STAD primary tumor (NEGATIVE consistent with cell-of-origin dedifferentiation) FAILED pre-lock under CHK-3.2 tier-3 substrate baseline shift; corrected post-VAL-126 outcome to document the tier-3 invalidation explicitly rather than re-interpret the direction. Both Boccellato POSITIVE_UNEXPECTED and the substrate baseline shift contribute to the same observed direction; cannot separate within VAL-126 — flagged as v0.2 substrate-matched anchor expansion target.",
+        "Pre-locked mixture-attenuation hypothesis for VAL-128 (sorted-cell d ≥ 1.5x whole-blood d) FAILED in opposite direction predicted; corrected post-VAL-128 to document DISC-GE-005 (Stage 3 atlases measure cell-type composition not within-cell-type drift). Cookbook-wide Stage 3 interpretation re-frame logged.",
+        "Pre-locked EBV+ > MSI molecular-subtype ordering on STAD reversed by ~0.2 d-units in observed VAL-126 data (MSI d=+4.03 ≈ EBV d=+3.85; MSI slightly leads). Documented with interpretive note (MSI hypermutator phenotype amplifying methylation drift modestly above EBV's pure CIMP) rather than claiming exact reproduction of any single published ordering.",
+        "EsoRef cross-tissue overread observed on STAD adenocarcinoma + EAC adenocarcinoma reframed as candidate Barrett's-derived GI-continuum methylation memory hypothesis (rather than generic atlas overread) in light of VAL-127 ESCC target-tissue retention finding (EsoRef Epi_stratified d=-0.99 in ESCC). Discriminating experiment (kidney-card cross-card calibration: EsoRef on TCGA-KIRC tumor) logged in CROSS_CARD_CALIBRATION_TODO."
+      ]
+    }
+  ],
+  "card_authorship": {
+    "card_built_by": "Walther (AI assistant, Anthropic Claude Opus 4.7) — building under per-card workflow rules CCL-027/029/039/041/046/047/048 + CHK-0.5/2.7/2.16/2.17/3.1A/3.1B/3.1C/3.2/5.7/5.8/5.9/5.10/5.11/5.12/5.13",
+    "card_reviewed_by": "Heath W. Mahaffey (IAMPerformance Inter-Domain Research Institute, Entiat WA / iamperformance.net)",
+    "card_seal_authority": "Heath W. Mahaffey",
+    "card_audit_chain": "VAL-123 + VAL-124 + VAL-125 + VAL-126 + VAL-127 + VAL-128 sealed prereg SHAs match files in repo (commit d7c26f6); KIRC+PRAD anchor scoring (val106_anchor_per_sample.ndjson) shared with VAL-126/127 with full reproducibility manifest; outcome.md per-VAL contains exact d-magnitudes matched to results JSON; cross-tile separations sealed at calibration time per VAL-124/125; healthy_floor_q5 thresholds sealed at calibration time per VAL-123/124/125; GitHub commit d7c26f6 contains full reproducibility bundle of all 58 files."
+  },
+  "_disclaimer": "gastric-esophageal-epic v0.1 is a research-stage diagnostic card. Not a clinical product. Not for diagnosis, treatment, or prevention of any disease. The within-cohort findings (subtype hierarchy, Barrett's amplification, ESCC vs EAC discrimination, IBD population-fraction shifts) are robust to substrate baseline shift and form the load-bearing v0.1 deployment narrative. The absolute cross-cohort d-magnitudes are reported under explicit CHK-3.2 tier-3 invalidation language and are NOT load-bearing for v0.1 deployment. Module_3 Crohn's pathway is amendment-language scope only at v0.1 — NOT a deployed per-patient IBD-detection product. Under CCL-037 EDEAR commercial deployment runs single calibrated patient-vs-internal-reference pipeline; the public-cohort substrate diversity surfaced in this card is structurally insulated from EDEAR commercial deployment."
+}

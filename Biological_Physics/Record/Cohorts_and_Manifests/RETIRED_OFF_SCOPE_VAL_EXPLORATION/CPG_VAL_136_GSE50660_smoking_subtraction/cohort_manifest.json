@@ -1,0 +1,15 @@
+{
+  "val_id": "CPG-VAL-136",
+  "title": "Smoking-axis subtraction \u0394d on GSE50660 never-vs-current contrast",
+  "cohort": "GSE50660 (Tsaprouni 2014)",
+  "n_never": 179,
+  "n_current": 22,
+  "n_former": 263,
+  "signal": "A_immune (Stage 4)",
+  "intervention": "Stage 3 smoking-axis foreground subtraction (\u03b2-level)",
+  "d_with_subtraction": 0.005027445673793466,
+  "d_without_subtraction": -0.0631006583571434,
+  "delta_abs_d": 0.05807321268334994,
+  "outcome_code": "O1_PRIMARY_VALIDATED",
+  "per_sample_sha256": "cd325146c1b0743fe40ea38548b2835be140d19d5a4af4aea576aac2c2889928"
+}

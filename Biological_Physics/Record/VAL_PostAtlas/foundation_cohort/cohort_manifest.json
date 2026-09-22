@@ -1,0 +1,66 @@
+{
+  "manifest_version": "v1",
+  "purpose": "Foundation cohort for CPG-VAL-001 through CPG-VAL-007 (post-IAMAtlas-build era). Anchored at this path by the v2 Evidence Report. Per-cell-type A-score CSVs in this folder ARE the production outputs of the IAMAtlas-native pipeline run on the foundation cohort (Walther IAM Deconvolver + IAMAtlas REBUILD + iamatlas_a_scoring.py with 115-cell markers v0_2).",
+  "build_date": "2026-05-29",
+  "manifest_authored": "2026-06-02 (Walther, retroactive documentation per v3 inventory protocol)",
+  "cohort_source_paper": {
+    "citation": "Severi G et al. Epigenome-wide methylation in DNA from peripheral blood as a marker of risk for breast cancer. Carcinogenesis 2014;35(10):2349-2357",
+    "doi": "10.1093/carcin/bgu138"
+  },
+  "geo_accessions": [
+    {
+      "gse": "GSE51057",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE51057",
+      "platform": "EPIC",
+      "raw_n_total": 329,
+      "raw_composition_note": "146 C50 breast cancer cases + 177 controls + 6 other (filtered out)",
+      "filter_applied": "cases = (cancer_site == 'C50' AND ttd_years > 10); hc = (group == 'control')",
+      "filtered_n_cases": 11,
+      "filtered_n_hc": 177,
+      "filtered_n_total": 188
+    },
+    {
+      "gse": "GSE51032",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE51032",
+      "platform": "EPIC",
+      "raw_n_total": 845,
+      "raw_composition_note": "76 colorectal + 76 breast + 424 controls + others (filtered to breast >10yr pre-dx + controls only)",
+      "filter_applied": "cases = (cancer_site == 'C50' AND ttd_years > 10); hc = (group == 'control')",
+      "filtered_n_cases": 36,
+      "filtered_n_hc": 424,
+      "filtered_n_total": 460
+    }
+  ],
+  "pooled_sample_counts": {
+    "total_cases_pre_dx_gt_10yr": 47,
+    "total_hc": 601,
+    "total_filtered": 648,
+    "ties_to_mahalanobis_reference": "n_hc=601 matches mahalanobis_healthy_reference_v0_1.json validation_anchor"
+  },
+  "files_in_this_folder": [
+    {
+      "filename": "GSE51057_115celltype_ascores.csv",
+      "rows": 188,
+      "columns": 117,
+      "schema": "gsm, arm (case|hc), then 115 cell-type A-score columns",
+      "sha256": "5160698304114b7db807a0f02cd0c239d86eb344b2282f3ee376022c023c9395",
+      "produced_by": "Walther IAM Deconvolver + iamatlas_a_scoring.score_per_celltype() + iamatlas_celltype_markers_v0_2.json"
+    },
+    {
+      "filename": "GSE51032_115celltype_ascores.csv",
+      "rows": 460,
+      "columns": 117,
+      "schema": "gsm, arm (case|hc), then 115 cell-type A-score columns",
+      "sha256": "e5360084639a1efc03649f51c80a6440072b7d9161a4709c6614f46174c618d9",
+      "produced_by": "Walther IAM Deconvolver + iamatlas_a_scoring.score_per_celltype() + iamatlas_celltype_markers_v0_2.json"
+    }
+  ],
+  "consumed_by": {
+    "CPG-VAL-001": "Per-cell-type A-score fan-out — direct input. Headline: Baso d=+1.577/+1.010, Plasma cells +1.264/+0.813, Microglia +1.304/+0.707, breast-epithelial (BE) +1.281/+0.614 tissue-of-origin, ...",
+    "CPG-VAL-002": "Mahalanobis hyper-volume — 115-D feature vector built from these per-cell-type A-scores. Headline: d=+1.871/+2.088 case-vs-HC",
+    "CPG-VAL-003": "Per-CpG residual map — uses Walther deconvolution fractions (separate β-level analysis), but this cohort. Headline: 1,392 concordant CpGs",
+    "CPG-VAL-005": "PC2 T-cell suppression axis — PCA on 115-cell A-score covariance from these CSVs. Headline: d=-0.67/-0.58",
+    "CPG-VAL-007": "Age-axis subtraction — re-projection of these A-scores after removing age component. Headline: Mahalanobis improved +0.255 on GSE51032 after age subtraction"
+  },
+  "reproducibility_note": "An independent investigator with these two CSVs + the production runtime modules (walther_clinical_runtime/) can reproduce CPG-VAL-001/002/005/007's headline numbers from these inputs alone. CPG-VAL-003 and CPG-VAL-004 require the raw β matrix, not just the A-scores — those are reconstructible from the GEO IDATs via Walther IAM Deconvolver."
+}

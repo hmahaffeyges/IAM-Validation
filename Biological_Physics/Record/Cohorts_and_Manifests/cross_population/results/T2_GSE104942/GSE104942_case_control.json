@@ -1,0 +1,120 @@
+{
+  "cohort": "GSE104942_Joo2018_Australian_HBOC_familial_breast",
+  "purpose": "constitutional/familial methylation discrimination test \u2014 NOT a pre-diagnostic time-to-diagnosis test",
+  "cohort_design_note": "GEO metadata has no age, no time-to-diagnosis, no ICD. Status is a single-assessment 'affected/unaffected' flag.",
+  "n_samples_total": 210,
+  "panel": "xu538_breast",
+  "panel_n_cpgs": 538,
+  "panel_cpgs_in_matrix": 522,
+  "H_min_immune": 0.838889,
+  "random_seed": 20260420,
+  "input_sha256": {
+    "matrix_file": "fea0eec1eed08193d068ea5f6942ce276c54cbec730a519a2bd82c04d8d76253",
+    "panel_file": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6"
+  },
+  "output_sha256": {
+    "per_sample_csv": "efc87fdd6d2e81b922a6334c12ad141ea9c3bf4d4d4f019da45084daaee9e53b"
+  },
+  "cohort_composition": [
+    {
+      "source_class": "blood pellet",
+      "status": "affected",
+      "n": 62
+    },
+    {
+      "source_class": "blood pellet",
+      "status": "unaffected",
+      "n": 74
+    },
+    {
+      "source_class": "buffy",
+      "status": "affected",
+      "n": 1
+    },
+    {
+      "source_class": "lcl",
+      "status": "affected",
+      "n": 10
+    },
+    {
+      "source_class": "lcl",
+      "status": "unaffected",
+      "n": 3
+    },
+    {
+      "source_class": "non_lymph",
+      "status": "affected",
+      "n": 2
+    },
+    {
+      "source_class": "non_lymph",
+      "status": "unaffected",
+      "n": 3
+    },
+    {
+      "source_class": "whole peripheral blood",
+      "status": "affected",
+      "n": 12
+    },
+    {
+      "source_class": "whole peripheral blood",
+      "status": "unaffected",
+      "n": 43
+    }
+  ],
+  "primary_analysis": {
+    "analysis": "primary_blood_pellet_plus_wpb",
+    "n_cases": 74,
+    "n_controls": 117,
+    "case_A_mean": 0.6226078295847152,
+    "case_A_sd": 0.027825184304682483,
+    "control_A_mean": 0.613348597667619,
+    "control_A_sd": 0.03411644784678095,
+    "Cohens_d": 0.2908579908709265,
+    "permutation_p_10000": 0.055894410558944105,
+    "bootstrap_95CI_lo": 0.030400607335868756,
+    "bootstrap_95CI_hi": 0.6041356278709767
+  },
+  "blood_pellet_only": {
+    "analysis": "blood_pellet_only",
+    "n_cases": 62,
+    "n_controls": 74,
+    "case_A_mean": 0.6250456192192287,
+    "case_A_sd": 0.028188689890961238,
+    "control_A_mean": 0.6246942820873627,
+    "control_A_sd": 0.03378844102950419,
+    "Cohens_d": 0.011202095329289527,
+    "permutation_p_10000": 0.9436056394360564,
+    "bootstrap_95CI_lo": -0.3243129148307431,
+    "bootstrap_95CI_hi": 0.36860761110564133
+  },
+  "whole_peripheral_blood_only": {
+    "analysis": "whole_peripheral_blood_only",
+    "n_cases": 12,
+    "n_controls": 43,
+    "case_A_mean": 0.6100125831397286,
+    "case_A_sd": 0.02291627115727101,
+    "control_A_mean": 0.5938234663406181,
+    "control_A_sd": 0.02476387806254641,
+    "Cohens_d": 0.6637080676637106,
+    "permutation_p_10000": 0.048295170482951705,
+    "bootstrap_95CI_lo": 0.07511811269633605,
+    "bootstrap_95CI_hi": 1.3157105590754528
+  },
+  "secondary_all_sources": {
+    "analysis": "all_sources_secondary",
+    "n_cases": 87,
+    "n_controls": 123,
+    "case_A_mean": 0.6287226211644675,
+    "case_A_sd": 0.03452801224576538,
+    "control_A_mean": 0.6142306905545174,
+    "control_A_sd": 0.034454106479380985,
+    "Cohens_d": 0.42024253671182116,
+    "permutation_p_10000": 0.0027997200279972004,
+    "bootstrap_95CI_lo": 0.15513960839542604,
+    "bootstrap_95CI_hi": 0.7169365290361
+  },
+  "direction_verdict_primary": "MODEST_POSITIVE",
+  "predicted_direction": "positive (d > 0) if panel generalizes",
+  "caveat": "This cohort tests a DIFFERENT claim than EPIC-Italy. No TtD, no pre-diagnostic windowing possible."
+}

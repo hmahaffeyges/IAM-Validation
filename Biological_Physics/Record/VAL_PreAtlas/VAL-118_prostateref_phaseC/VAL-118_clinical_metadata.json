@@ -1,0 +1,792 @@
+{
+  "val_id": "VAL-118",
+  "cohort_id": "GSE269244",
+  "metadata_version": "1.0",
+  "de_identification": "Patient IDs use GEO-deposited P-XXXX pseudonyms; no PHI",
+  "study_of_origin": {
+    "paper": "Berglund/Yamoah/Kresovich et al 2024",
+    "pmid": "39162297",
+    "doi_search_target": "10.1158/1078-0432.CCR-24-0837",
+    "design": "tumor + adjacent-normal paired tissue methylation in African American men",
+    "consent_framework": "GEO public-deposit terms"
+  },
+  "stratification_variables_available": [
+    {
+      "variable": "sample_type",
+      "values": [
+        "Tumor",
+        "Normal"
+      ],
+      "used_in_VAL-118": true,
+      "used_for": "primary case-control axis; paired tumor vs adjacent-normal Cohen's d"
+    },
+    {
+      "variable": "patient_id",
+      "values": "120 unique P-XXXX pseudonyms",
+      "used_in_VAL-118": true,
+      "used_for": "paired-difference structure (118 paired tumor+normal)"
+    },
+    {
+      "variable": "gleason_score",
+      "values": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "used_in_VAL-118": false,
+      "reason_not_used": "VAL-118 prereg did NOT pre-register Gleason-stratified outcomes per CCL-041; aggressiveness card extension deferred to v0.4 per next_validation_steps. Stratified-results JSON contains descriptive-only Gleason breakdowns.",
+      "distribution_among_tumor_samples": {
+        "7": 72,
+        "6": 24,
+        "9": 7,
+        "8": 15,
+        "5": 1,
+        "treatment: Surgery": 1
+      }
+    },
+    {
+      "variable": "population_ancestry",
+      "values": "100% African American",
+      "used_in_VAL-118": false,
+      "reason_not_used": "Single-ancestry cohort; no within-cohort stratification possible. Multi-ancestry replication is a v0.4+ next-validation-step."
+    }
+  ],
+  "data_quirks_noted": [
+    {
+      "sample": "P-4585-T (one tumor row in series matrix)",
+      "quirk": "Gleason field contained \"treatment: Surgery\" string; appears to be a column-shift parsing artifact in the GEO series matrix at this row. Documented; left as-is in manifest. Sample retained in cohort; treatment of this sample as Gleason-NA is the conservative choice."
+    }
+  ],
+  "gleason_distribution_tumor_samples": {
+    "7": 72,
+    "6": 24,
+    "9": 7,
+    "8": 15,
+    "5": 1,
+    "treatment: Surgery": 1
+  },
+  "per_patient_metadata": [
+    {
+      "patient_id": "P-1055",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-1242",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-1345",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-1374",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-1398",
+      "has_tumor": true,
+      "has_normal": false,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-1412",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-1477",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-1514",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-1635",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-1913",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-2011",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-2118",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-2516",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-2521",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "treatment: Surgery"
+    },
+    {
+      "patient_id": "P-3184",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-3215",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-3245",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-3288",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-3312",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3318",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-3380",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3446",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-3598",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3625",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3725",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3897",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3914",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-3958",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-3988",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4006",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-4093",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4143",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4241",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-4242",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4256",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4260",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4353",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4457",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-4585",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-4838",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-4841",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-4911",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-4991",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5153",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5167",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-5184",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5185",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5281",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5321",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5331",
+      "has_tumor": true,
+      "has_normal": false,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5345",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5361",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5405",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-5659",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5676",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5691",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5777",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5787",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5909",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "5"
+    },
+    {
+      "patient_id": "P-5931",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5939",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-5945",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-5963",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-6212",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-6396",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-6669",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-6699",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-6714",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-6800",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-6807",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-6861",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-6864",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-6876",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-6893",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-6916",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-6959",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7095",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-7221",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7277",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7359",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-7450",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-7492",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7513",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-7530",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7568",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7580",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-7583",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7612",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7690",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-7695",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7704",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7725",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7764",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7920",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7952",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-7969",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-8083",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-8137",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8156",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8165",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8215",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8269",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-8306",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8372",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8428",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8464",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-8538",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8556",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8583",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8757",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8759",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-8766",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-8768",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8771",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8811",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "8"
+    },
+    {
+      "patient_id": "P-8820",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8842",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    },
+    {
+      "patient_id": "P-8876",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "6"
+    },
+    {
+      "patient_id": "P-8894",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "9"
+    },
+    {
+      "patient_id": "P-8946",
+      "has_tumor": true,
+      "has_normal": true,
+      "gleason": "7"
+    }
+  ]
+}

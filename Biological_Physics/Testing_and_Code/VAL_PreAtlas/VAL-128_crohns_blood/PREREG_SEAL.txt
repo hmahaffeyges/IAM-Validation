@@ -1,5 +1,0 @@
-PREREG_SHA256=e7cdb09082d39bdb0c82d4465ffd43a9cc12b79c1b56a5dcd23f22a0086da7bc
-SEAL_TIMESTAMP=2026-05-02T23:18:10Z
-SEAL_FILE=prereg.md
-SEAL_LOC=Biological_Physics/validation_runs/VAL-128_crohns_blood/prereg.md
-SEAL_NOTE=Sealed BEFORE β data observation. CCL-041 compliance. CHK-2.17 pre-flight previously showed 2/5 samples at 0% coverage; investigation revealed those positions correspond to the n=384 main whole-blood cohort which lives in a SEPARATE supplementary file (GSE87650_processedMethCombinedWb.txt.gz, 1.4 GB), NOT in the GPL13534 series matrix. VAL-128 v1.0 scope: sorted-cell sub-experiment n=240 (CD=77, UC=79, HC=84, by cell-type wh-blood-companion=65, monocytes=60, CD4=59, CD8=56). v0.2 expansion: pull the supplementary whole-blood file separately. NO DEFERRAL of within-scope data — all 240 sorted-cell samples will be run end-to-end through the same atlas pipeline as VAL-126/127.

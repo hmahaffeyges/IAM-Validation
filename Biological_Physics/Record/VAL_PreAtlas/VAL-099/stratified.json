@@ -1,0 +1,227 @@
+{
+  "by_age": {
+    "under_50": {
+      "n": 3,
+      "patients": [
+        "TCGA-A6-2685",
+        "TCGA-A6-5667",
+        "TCGA-AA-3663"
+      ],
+      "mean_delta_A": 0.035655343961531506,
+      "note": "n=3 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    },
+    "age_50_plus": {
+      "n": 21,
+      "patients": [
+        "TCGA-A6-2671",
+        "TCGA-A6-2675",
+        "TCGA-A6-2679",
+        "TCGA-A6-2680",
+        "TCGA-A6-2686",
+        "TCGA-A6-4107",
+        "TCGA-AA-3492",
+        "TCGA-AA-3495",
+        "TCGA-AA-3510",
+        "TCGA-AA-3655",
+        "TCGA-AA-3660",
+        "TCGA-AA-3697",
+        "TCGA-AA-3712",
+        "TCGA-AZ-6598",
+        "TCGA-AZ-6599",
+        "TCGA-AZ-6600",
+        "TCGA-G4-6295",
+        "TCGA-G4-6298",
+        "TCGA-G4-6311",
+        "TCGA-G4-6314",
+        "TCGA-G4-6320"
+      ],
+      "mean_delta_A": 0.015551898201093256,
+      "cycling_d": 0.5388005619256953,
+      "ci_95": [
+        0.1332869293487045,
+        1.0815437053841268
+      ],
+      "t_stat": 2.4690943595092403,
+      "p_approx": 0.01354554949632214
+    },
+    "age_NA": {
+      "n": 2,
+      "patients": [
+        "TCGA-AZ-6601",
+        "TCGA-G4-6625"
+      ],
+      "mean_delta_A": 0.049610859348791336,
+      "note": "n=2 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    }
+  },
+  "by_sex": {
+    "female": {
+      "n": 12,
+      "patients": [
+        "TCGA-A6-2679",
+        "TCGA-A6-2680",
+        "TCGA-A6-2685",
+        "TCGA-A6-2686",
+        "TCGA-A6-4107",
+        "TCGA-A6-5667",
+        "TCGA-AA-3492",
+        "TCGA-AA-3660",
+        "TCGA-AZ-6598",
+        "TCGA-G4-6295",
+        "TCGA-G4-6314",
+        "TCGA-G4-6625"
+      ],
+      "mean_delta_A": 0.029304437382366405,
+      "cycling_d": 1.1036001950644767,
+      "ci_95": [
+        0.465571428595598,
+        2.969054426860773
+      ],
+      "t_stat": 3.822983218189195,
+      "p_approx": 0.000131846756229681
+    },
+    "male": {
+      "n": 14,
+      "patients": [
+        "TCGA-A6-2671",
+        "TCGA-A6-2675",
+        "TCGA-AA-3495",
+        "TCGA-AA-3510",
+        "TCGA-AA-3655",
+        "TCGA-AA-3663",
+        "TCGA-AA-3697",
+        "TCGA-AA-3712",
+        "TCGA-AZ-6599",
+        "TCGA-AZ-6600",
+        "TCGA-AZ-6601",
+        "TCGA-G4-6298",
+        "TCGA-G4-6311",
+        "TCGA-G4-6320"
+      ],
+      "mean_delta_A": 0.012937454586909909,
+      "cycling_d": 0.45444470375081397,
+      "ci_95": [
+        -0.05039464743263454,
+        1.1025993620380297
+      ],
+      "t_stat": 1.7003763826695286,
+      "p_approx": 0.0890601512780198
+    }
+  },
+  "by_subsite": {
+    "Not Reported": {
+      "n": 1,
+      "patients": [
+        "TCGA-A6-2671"
+      ],
+      "mean_delta_A": -0.020563700661838435,
+      "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    },
+    "Sigmoid colon": {
+      "n": 3,
+      "patients": [
+        "TCGA-A6-2675",
+        "TCGA-A6-5667",
+        "TCGA-AA-3655"
+      ],
+      "mean_delta_A": -0.0014549658211107837,
+      "note": "n=3 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    },
+    "Ascending colon": {
+      "n": 8,
+      "patients": [
+        "TCGA-A6-2679",
+        "TCGA-A6-4107",
+        "TCGA-AA-3492",
+        "TCGA-AA-3495",
+        "TCGA-AA-3510",
+        "TCGA-AZ-6598",
+        "TCGA-AZ-6600",
+        "TCGA-G4-6311"
+      ],
+      "mean_delta_A": 0.009728050476152605,
+      "cycling_d": 0.38741323376391923,
+      "ci_95": [
+        -0.3292980760365959,
+        1.7237667699625696
+      ],
+      "t_stat": 1.0957700988635055,
+      "p_approx": 0.2731793969853764
+    },
+    "Hepatic flexure of colon": {
+      "n": 2,
+      "patients": [
+        "TCGA-A6-2680",
+        "TCGA-G4-6320"
+      ],
+      "mean_delta_A": 0.05377827154364595,
+      "note": "n=2 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    },
+    "Colon, NOS": {
+      "n": 5,
+      "patients": [
+        "TCGA-A6-2685",
+        "TCGA-A6-2686",
+        "TCGA-AA-3660",
+        "TCGA-AA-3697",
+        "TCGA-AZ-6601"
+      ],
+      "mean_delta_A": 0.039646259395791715,
+      "cycling_d": 1.7022170176901545,
+      "ci_95": [
+        0.964264483050339,
+        12.25164775237717
+      ],
+      "t_stat": 3.806272964012148,
+      "p_approx": 0.0001410766764242677
+    },
+    "Cecum": {
+      "n": 5,
+      "patients": [
+        "TCGA-AA-3663",
+        "TCGA-AZ-6599",
+        "TCGA-G4-6295",
+        "TCGA-G4-6298",
+        "TCGA-G4-6314"
+      ],
+      "mean_delta_A": 0.02602716055655898,
+      "cycling_d": 1.093971904285979,
+      "ci_95": [
+        0.24140934701255642,
+        5.0849576334342785
+      ],
+      "t_stat": 2.4461955434583427,
+      "p_approx": 0.014437267452962699
+    },
+    "Descending colon": {
+      "n": 1,
+      "patients": [
+        "TCGA-AA-3712"
+      ],
+      "mean_delta_A": -0.0032834053307576605,
+      "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    },
+    "Skin, NOS": {
+      "n": 1,
+      "patients": [
+        "TCGA-G4-6625"
+      ],
+      "mean_delta_A": 0.047241569602797795,
+      "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7 (threshold n<5)",
+      "cycling_d": null,
+      "ci_95": null
+    }
+  }
+}

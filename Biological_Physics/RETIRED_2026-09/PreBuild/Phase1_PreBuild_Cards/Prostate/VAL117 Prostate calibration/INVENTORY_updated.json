@@ -1,0 +1,515 @@
+[
+  {
+    "path": "README.md",
+    "size": 14634,
+    "sha256": "d791f7c808c386fe44dbf5f832fcd77ac7c4feb2846df3dca7725a3807471c99"
+  },
+  {
+    "path": "commercial_web_scoring_engine_skeleton.py",
+    "size": 24727,
+    "sha256": "cc51724f24c6db709f8066a9d631cce11a274acd9800988eb73025faf9294775"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_2021/tim_matrix.txt",
+    "size": 378052,
+    "sha256": "103aad66cc3ebc19930a1ef458e78abde46c5b63ec194a4ca6b4886c91f73b6c"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_INVENTORY.json",
+    "size": 1687,
+    "sha256": "6ee97f2d7e94d39cde8961d919e4b7244713393eca99993e08cfa6c65997a31d",
+    "description": "Per-atlas INVENTORY companion for Caggiano TIM array-bridged atlas"
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/caggiano_tim_cpg_bridged.csv",
+    "size": 90062,
+    "sha256": "42c9899ad44b0c2737591299c75f4b2e0e83196e8a76bc061c575a317e6ff848",
+    "n_unique_cpgs": 254,
+    "n_cell_type_columns": 19,
+    "cell_types": [
+      "dendritic",
+      "endothelial",
+      "eosinophil",
+      "erythroblast",
+      "macrophage",
+      "monocyte",
+      "neutrophil",
+      "placenta",
+      "tcell",
+      "adipose",
+      "brain",
+      "fibroblast",
+      "heart",
+      "hepatocyte",
+      "lung",
+      "mammary",
+      "megakaryocyte",
+      "skeletal",
+      "small_intestine"
+    ],
+    "chk_3_1c_passed": true,
+    "bridge_method": "HM450 hg19 manifest CpG-in-region intersection from Caggiano et al. 2021 WGBS regions (1,581 \u2192 254 array CpGs); multi-region CpGs averaged",
+    "source_paper": "Caggiano C, Celona B, Garton F, Mefford J, Black BL, Henderson R, Lomen-Hoerth C, Dahl A, Zaitlen N. \"Comprehensive cell type decomposition of circulating cell-free DNA with CelFiE.\" Nat Commun 2021;12:2717. doi:10.1038/s41467-021-22901-x",
+    "bridge_date": "2026-04-29",
+    "calibration_VAL": "VAL-113",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-113_caggiano/VAL-113_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.5779
+  },
+  {
+    "path": "stage2_cell_of_origin/caggiano_celfie_tim/hm450_hg19_manifest.csv",
+    "size": 14394805,
+    "sha256": "a4c987458d0128311c6b74ae2fa6db64c2ed6b5a1a789d07247af86cf116598a",
+    "description": "HM450 hg19 (cpg_id, chr, pos) manifest extracted from Bioconductor IlluminaHumanMethylation450kanno v0.6.1; 485,512 CpGs; reusable for any region-indexed WGBS atlas bridge to array CpGs",
+    "derived_from": "IlluminaHumanMethylation450kanno.ilmn12.hg19_0.6.1 (Bioconductor)"
+  },
+  {
+    "path": "stage2_cell_of_origin/cuadrat_2023/deconvR/data/HumanCellTypeMethAtlas.rda",
+    "size": 294372,
+    "sha256": "9aa70e192fadde02674b52bcf56a4fdf103b6f7cee936106521ae903e5dff99e",
+    "n_unique_cpgs": 6105,
+    "n_cell_type_columns": 25,
+    "description": "deconvR R package bundled atlas \u2014 IDENTICAL CONTENT to Moss 2018 25-cell-type base; provides verified deduplicated reference. 6,105 CpGs is the same set as our deduped layered Moss+Loyfer reference_atlas.csv after CCL-047 dedupe.",
+    "role": "redundant with stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv (deduped); kept for audit-trail and as the dedupe-verification source",
+    "note": "Cuadrat 2023 EXTENDED atlas (28-cell with 3 ENCODE bulk heart additions) is NOT distributed in this package; it must be built from raw ENCODE EPIC IDATs per the paper Methods. v0.4+ engineering task."
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_heartref/episcore_heartref_cpg_bridged.csv",
+    "size": 325170,
+    "sha256": "bf6431f66749f02a616560764af3fdd0adc70b03bca96b2a13b6221bbd847c83",
+    "n_unique_cpgs": 3727,
+    "n_cell_type_columns": 5,
+    "cell_types": [
+      "CM",
+      "EC",
+      "FB",
+      "MP",
+      "SMC"
+    ],
+    "chk_3_1c_passed": true,
+    "calibration_VAL": "VAL-112",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.4283
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__exprefBladder_m.csv",
+    "size": 19350,
+    "sha256": "941a34440da170698fda9dc44227ba8bed8b0e98fe325f30ad96ba81e614ab2e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BladderRef__mrefBladder_m.csv",
+    "size": 9859,
+    "sha256": "f73fbeab74dfbe5aec2829303757908df569bb969101180c2875a46505a3e758"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BrainRef__exprefBrain_m.csv",
+    "size": 59215,
+    "sha256": "6341fd68f520772a43f00328cbd43cbba6a7616cbfcf051cb88280b7f39bafb2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BrainRef__mrefBrain_m.csv",
+    "size": 11051,
+    "sha256": "bbc2fc0d5d75851206663d1e2c7e0ec4a7ec0102edb0e53866efb1e295ec4ba6"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BreastRef__exprefBreast_m.csv",
+    "size": 168064,
+    "sha256": "36975c96c74939da2de05cbd252bed773c1d30671bb6339cc3515bfce20e5e62"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/BreastRef__mrefBreast_m.csv",
+    "size": 40949,
+    "sha256": "9f546c2deba0d7890794094afe79d3134b00fe3f8f22e01c0072eea8753bca9b"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ColonRef__Colon_Expref_m.csv",
+    "size": 15812,
+    "sha256": "a5c7edbe6ee5ac38586fd4c73255d9b7c4b78a79a9821858936058b7c8b1fc13"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ColonRef__Colon_Mref_m.csv",
+    "size": 8441,
+    "sha256": "d6ac1cc8bd74eb1fadd29291999ff5b768ec56619265e2eae3f8ecaff77e5506"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/EsoRef__Eso_Expref_m.csv",
+    "size": 78389,
+    "sha256": "11f1d79cad63aa5fcc3578bf53e3ef58c6264371f89d3f34f4ed96323a2f2256"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/EsoRef__Eso_Mref_m.csv",
+    "size": 21240,
+    "sha256": "975bbf80b07f31c802045fa152fb38917158e7dc4d9f363371c9173dca26c826"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/HeartRef__exprefHeart_m.csv",
+    "size": 52217,
+    "sha256": "26dada627159b68cb333a94e570bb82b70d39626f9cebd740fa1554f1f6a4ccb"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/HeartRef__mrefHeart_m.csv",
+    "size": 18187,
+    "sha256": "a8ec58a43294b772392a015ce967df384f27f4986723a8aac29d87ec3509e77a"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/KidneyRef__Kidney_Expref_m.csv",
+    "size": 10450,
+    "sha256": "3c3df96658d45fd40e5a2bb39f15dd87f2aaa0336aba244d63876c436b6576e3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/KidneyRef__Kidney_Mref_m.csv",
+    "size": 2144,
+    "sha256": "3cff72c408426ea815f86ac097edd3fa6465ab8cd7cab757011eaf0b645d9786"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LiverRef__exprefLiver_m.csv",
+    "size": 29305,
+    "sha256": "eed814361a009697d47504bddf56eaedce599d3c80be13d897dcdda8482cf2d1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LiverRef__mrefLiver_m.csv",
+    "size": 13765,
+    "sha256": "e285bdb6c19d3a281503be14405b48412080e80552aaa4435859efb714d51b15"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LungRef__exprefLung_m.csv",
+    "size": 95857,
+    "sha256": "3dba4fc4c1e00444263c1aac5828aaa918ab07da8d058e86164770226a7a5891"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/LungRef__mrefLung_m.csv",
+    "size": 31445,
+    "sha256": "c7aecba5e46d4c31ea434f71186693f3aafb0800de761975bcdd18b401d44dd7"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/MANIFEST.json",
+    "size": 11939,
+    "sha256": "90800ffa05523924a40d4cee39315f63187b3b95f18d588e70b5d65d40a58990"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/OEref__exprefOE_m.csv",
+    "size": 123964,
+    "sha256": "6289dc60bc70f47ec886900403298dfb2dbc3320724e12a460fa0dd9f876660d"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/OEref__mrefOE_m.csv",
+    "size": 34304,
+    "sha256": "c2a2e673f8b3ebd7c1bcbae60ae62571ecda77ab7a5ef06cf9333a23cfd33a67"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef9ct__exprefPancreas9ct_m.csv",
+    "size": 62255,
+    "sha256": "f2f9656e759e81c4efca53d592fe469909cd6354c3177588c24b9857c7f9f95e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef9ct__mrefPancreas9ct_m.csv",
+    "size": 21144,
+    "sha256": "e6cad884bc29b349379c40e87acf607374a5451e6f800b005cf57b429043fcea"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef__exprefPancreas_m.csv",
+    "size": 39900,
+    "sha256": "9251be6b0cc9565fed5cdc2972f91c730652a9a50946904e03eaa9bd2768a05e"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/PancreasRef__mrefPancreas_m.csv",
+    "size": 13979,
+    "sha256": "f3997f453ebbcabef30f63406e24c9b5cc939cfb87a328131d06e885f5c22df1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ProstateRef__exprefProstate_m.csv",
+    "size": 34949,
+    "sha256": "3c465a691ce9f82f3ec1adcdd387a49844bbf88bd3a087be4417e47bf74522d3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/ProstateRef__mrefProstate_m.csv",
+    "size": 12240,
+    "sha256": "706a0910a6d284b268cd8d2bc6ffa131beadab9ee2d942a18178903e682a72a3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/SkinRef__exprefSkin_m.csv",
+    "size": 39527,
+    "sha256": "258b3fe81f57f6ee6d3254a614eb9a9b06ce974813ce265e61e21466def305f1"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_zhu_teschendorff_2022/SkinRef__mrefSkin_m.csv",
+    "size": 13380,
+    "sha256": "d6844f4ded676ba2f4499afbd889e1919858f88aa0de265ae87a3824a79dbc79"
+  },
+  {
+    "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas.csv",
+    "size": 1125966,
+    "sha256": "9107929c3a140574a6b040e9d0b3645c3d4f7918e22501ba63588c7310c06177",
+    "n_unique_cpgs": 6105,
+    "n_cell_type_columns": 25,
+    "chk_3_1c_passed": true,
+    "dedupe_status": "deduped 2026-04-29 from 7890\u21926105 unique CpGs (1785 identical-value duplicates removed); see CCL-047",
+    "calibration_VAL": "VAL-112",
+    "calibration_anchor": "TCGA HM450 sesame Level 3 adjacent-normal n=210 (KIRC + PRAD)",
+    "calibration_results_path": "validation_runs/VAL-112_run_everything/VAL-112_calibration_results.json",
+    "chk_3_1b_q5_threshold": 0.6839
+  },
+  {
+    "path": "stage2_cell_of_origin/loyfer_moss_2018/reference_atlas_v0.2_with_duplicates.csv",
+    "size": 1454581,
+    "sha256": "4b97dd2a8ba7bf41008e20703e8e12df731179e95cee50fdc12c4d2c202f05b1",
+    "audit_trail_role": "Preserved v0.2 layered Moss+Loyfer file with 1,785 duplicate rows; superseded by reference_atlas.csv (deduped) on 2026-04-29; retained for v0.2.x sealed VAL outcome reproducibility",
+    "note": "DO NOT USE for production scoring \u2014 biased per CCL-047. Use reference_atlas.csv (deduped) instead."
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/CVresults.Rmd",
+    "size": 1192,
+    "sha256": "4a985339b13f6b98743e77ce6fa7558d236be8656518a112a71aad9bd81fd2c0"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/LICENSE",
+    "size": 1068,
+    "sha256": "3ffc1e1acb97b2770962f16af552035439ab866c534160852c3e0cb5693f43bc"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/MNPprocessIDAT_functions.R",
+    "size": 2908,
+    "sha256": "1f04db03c2a3e16a731f1bc7f06ea10bc2d4ab74ef7374bae17ae8c8a11c4052"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/RSpectra_pca.R",
+    "size": 1400,
+    "sha256": "ae62e3cd1de9224707c36981f2d204a2a091352184ff73283cb9314bb5b3890b"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/batchadjust.R",
+    "size": 2116,
+    "sha256": "282b4e5abed1b590be36a7188ee2c43b5775dc3f1ef2a99324f714fdd6c2913e"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/calculateCVfold.R",
+    "size": 2492,
+    "sha256": "6a78241eec054e77974b291dcb49b2c8f8242ee98f6716347b126ce6f86565ec"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/makefolds.R",
+    "size": 1087,
+    "sha256": "515b8dad33d94417ef41c3f8f8df5f856850d3816a58143a8b3f1ee2e9197fe5"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/multi_brier.R",
+    "size": 496,
+    "sha256": "fb3b134cc52eaa13a4b605ba52705309aef0bf4fe5762aa14c53034ea1814ad9"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/multi_logloss.R",
+    "size": 585,
+    "sha256": "410e55f3af5657b93cea4a30ae2b0d837868671a12f7557341fcba0a4bde834a"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/R/train.R",
+    "size": 881,
+    "sha256": "100608ee23268a5275eef2cfe7c80c1bfa378c4a612bc2646f8d250d217a4ff6"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/README.md",
+    "size": 1900,
+    "sha256": "27cc4dad13791c47c7f50fb5808ea24287ee4ed5da2d72a8709bc8ba1a66447b"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/calibration.R",
+    "size": 3466,
+    "sha256": "c87229c1bf41b9a5d92e903b532a44e6830b07d8269ca8890f5a95a2384e260a"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/cnv_analysis.R",
+    "size": 1451,
+    "sha256": "deb50a3caec07b3595f01f3cefd6a71e5579c2a47730f6e10a4e9e71dd2546e1"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/cross_validation.R",
+    "size": 2192,
+    "sha256": "8a81517d609ee1cc58b6865a9a5808d054ac2dbc00c556195a554fc833161121"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/amb_3965probes.vh20151030.txt",
+    "size": 47580,
+    "sha256": "22cbd00130047a08c56ad52ae4f02c8a9a97c2c8203b9fa847e3c30b7252ffe6"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/epicV1B2_32260probes.vh20160325.txt",
+    "size": 354860,
+    "sha256": "f607b2d17c10352d2d2cd318c08398158e504b5ee0b9df3d5800999985902941"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/snp_7998probes.vh20151030.txt",
+    "size": 95976,
+    "sha256": "d9d3df9bb240651c015085eb1b0e38c9181ac44df8cf217c51f31484c68fb134"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/filter/xy_11551probes.vh20151030.txt",
+    "size": 138612,
+    "sha256": "af273d5328d40acb09a1b0e750f4d4b59d87f7fb03a65be92bff7c5392c4610f"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/preprocessing.R",
+    "size": 3329,
+    "sha256": "c7705e3417d1bdc4c527ec001b7851fdee5e57c70fb446d6c5a525b2a2e5a60d"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/purity.Rmd",
+    "size": 1167,
+    "sha256": "acc55b97090d59cdbdd6f38b2ff12a272e59c951a9348d4af346468de18808d0"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/training.R",
+    "size": 2809,
+    "sha256": "1d2e5b9a73d9fd2c02a10af030c1a6c2c428bfe57e3b27d5b067f64c5cc2838f"
+  },
+  {
+    "path": "stage2_cell_of_origin/marlin_capper_training/tsne.R",
+    "size": 1304,
+    "sha256": "28c97be4f4240f02d1e3b7ec2bbbb401769d68df611d694b80a4d82e42b602e5"
+  },
+  {
+    "path": "stage2_cell_of_origin/sabedot_gelb_2021/GeLB.R",
+    "size": 6551,
+    "sha256": "2e92235b6ba3f83a58f8d1ced0d2efdc6e31de6d8f8924ef90e30719ac2bb8ec"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/MANIFEST.json",
+    "size": 2375,
+    "sha256": "ed5cce072226a9fd87e8d449b3d04fb048373effbebdcc7c587798590a9d42c8"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT.m.rda",
+    "size": 51336,
+    "sha256": "4a6bc14ab354242f9be49824366bbecba5ee851626880ee00a66c2c7ac47c469"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT450k.m.rda",
+    "size": 51508,
+    "sha256": "9bbf8979e3e4729c3777162ce31ca4938c8c6608b0a37f182995c7bffa84d555"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT450k_reference_matrix.csv",
+    "size": 143083,
+    "sha256": "ef79b229cacf35fc0379874fba217f3b283708a0588e99c8c97595cf33d3f502"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/cent12CT_reference_matrix.csv",
+    "size": 143151,
+    "sha256": "beeef0947d3f2ed7de6654f4be74406fe96113f0195efebd8f0291789976e975"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centBloodSub.m.rda",
+    "size": 11340,
+    "sha256": "45c867691eef7b05341f352fd7bdf168b558b2874da16d5f4ad13b55d6afb96e"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centBloodSub_reference_matrix.csv",
+    "size": 17716,
+    "sha256": "b19fe9dc43af3e74d6f1d8e5614b915568c9f27d1e153e78163ab93016d4378c"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centDHSbloodDMC.m.rda",
+    "size": 7714,
+    "sha256": "a24f37e87e15789da7103d57c186ca7e102998c8a9e564e2cf89093129f16e3b"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centDHSbloodDMC_reference_matrix.csv",
+    "size": 17444,
+    "sha256": "a3415477d84fa7f154db914a3b115405692a3b9771677f402d72da2d69cd551f"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibFatIC.m.rda",
+    "size": 18209,
+    "sha256": "c9ce6282368f4c2604998753bf619ea389bb13a7b5d58341a82614af144db6b8"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibFatIC_reference_matrix.csv",
+    "size": 28695,
+    "sha256": "55e364594f77955a10480625548e0198e392f74687c697e3c5eed472ebaa7038"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibIC.m.rda",
+    "size": 20960,
+    "sha256": "5bd51e4c9d8727d1cf443dbcb7709a42190a81904c7079c604f6e83a60fd63e1"
+  },
+  {
+    "path": "stage3_immune_fraction/epidish_companion_panels/centEpiFibIC_reference_matrix.csv",
+    "size": 49424,
+    "sha256": "f1d7e668a1dc6963ffa7e3228a3484aac503dabb25990962e3994aa64b99553c"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.compTable.rda",
+    "size": 23612,
+    "sha256": "ab1ae36984a473aaa653ea0192d12da6cd60bd9254b46244c3a042b08ebf389b"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs.rda",
+    "size": 1965,
+    "sha256": "a07eafddda69c7144d32eb8e21ecd356ecd501399e25af8c35b649cadcd1bd39"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450k_compTable.csv",
+    "size": 44236,
+    "sha256": "90fc4333a0514508410c9c5683be5a05d0ed89cdfa1744300166314fbaa18ff8"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450klegacy.compTable.rda",
+    "size": 18450,
+    "sha256": "a057fdc254263cc285abdde99600b43176f2afe969f6ec69168e380171c4a723"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs450klegacy.rda",
+    "size": 1589,
+    "sha256": "6babee8af9cf5e8fb859f6104ff4338b32735fa1b30e5ddf6d54201d52c3f3a3"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGsCordBlood.rda",
+    "size": 2226,
+    "sha256": "efd68ef3460a3c87f1152ace3d7afd441137c0ae68838dc14ee83f322d1f4093"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_blood_epic_idol/IDOLOptimizedCpGs_compTable.csv",
+    "size": 57091,
+    "sha256": "0db724702ef1bb17699bd5900a60094c6ee77fef817a9e83e3ba84dff1971887"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_idol_ext/Pheno.csv",
+    "size": 91754,
+    "sha256": "db7aa709fc200d54b8ff0cb388f24d1d29d63e446993f5c2ce0a6f23598d15a0"
+  },
+  {
+    "path": "stage3_immune_fraction/salas_idol_ext/metadata.csv",
+    "size": 867,
+    "sha256": "bc9b9a0fc2a5bd3fb0ee8cd634ab3317b4b28d89ff6ce97b85b93f2eda0b144b"
+  },
+  {
+    "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE.m.rda",
+    "size": 281435,
+    "sha256": "eeae8b6fe8d0355333c0fe0338ee4036d67cdb84e774a96bb69cbdd908ab42ba"
+  },
+  {
+    "path": "stage3_immune_fraction/unilife_guo_2025/centUniLIFE_reference_matrix.csv",
+    "size": 711707,
+    "sha256": "c6cae4fd8d9016c877a8c28f2157e76afb48ca3a80a218162413c501cc882dc3"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_cpg_bridged.csv",
+    "size": 288130,
+    "sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/episcore_prostateref_entrez_matrix.csv",
+    "size": 12959,
+    "sha256": "9cf0e54cb22e12986dab2e8a836cac80049dcf377231125a99cd3b6316707a8c"
+  },
+  {
+    "path": "stage2_cell_of_origin/episcore_prostateref/README.md",
+    "size": 2545,
+    "sha256": "61958ebc9f69b83a12f5711e4305d2a1b4ddec94a7b4a78e465d904889100921"
+  },
+  {
+    "path": "stage2_cell_of_origin/bridge_prostateref_to_array.py",
+    "size": 10102,
+    "sha256": "2ac81f25db4b60a69230f4d79dadc7363f81618fe73766fa53b354219f24c0f1"
+  }
+]

@@ -1,0 +1,262 @@
+[
+  {
+    "patient": "TCGA-AZ-6599",
+    "age": 72.4,
+    "gender": "male",
+    "A_tumor": 0.6069736477262379,
+    "A_normal": 0.5422221313099116,
+    "delta_A": 0.06475151641632626,
+    "cpgs_tumor": 482,
+    "cpgs_normal": 500
+  },
+  {
+    "patient": "TCGA-AZ-6601",
+    "age": null,
+    "gender": "male",
+    "A_tumor": 0.5837097766710652,
+    "A_normal": 0.5515659544309193,
+    "delta_A": 0.03214382224014589,
+    "cpgs_tumor": 481,
+    "cpgs_normal": 488
+  },
+  {
+    "patient": "TCGA-AA-3697",
+    "age": 77.7,
+    "gender": "male",
+    "A_tumor": 0.598354354521308,
+    "A_normal": 0.5541095672792684,
+    "delta_A": 0.04424478724203962,
+    "cpgs_tumor": 438,
+    "cpgs_normal": 476
+  },
+  {
+    "patient": "TCGA-G4-6298",
+    "age": 90.0,
+    "gender": "male",
+    "A_tumor": 0.581972192768873,
+    "A_normal": 0.6058662124727521,
+    "delta_A": -0.023894019703879055,
+    "cpgs_tumor": 460,
+    "cpgs_normal": 464
+  },
+  {
+    "patient": "TCGA-G4-6314",
+    "age": 76.5,
+    "gender": "female",
+    "A_tumor": 0.6097134141888136,
+    "A_normal": 0.5760337097851339,
+    "delta_A": 0.03367970440367973,
+    "cpgs_tumor": 464,
+    "cpgs_normal": 474
+  },
+  {
+    "patient": "TCGA-AA-3712",
+    "age": 65.2,
+    "gender": "male",
+    "A_tumor": 0.555968852394502,
+    "A_normal": 0.5700363216360571,
+    "delta_A": -0.014067469241555108,
+    "cpgs_tumor": 479,
+    "cpgs_normal": 480
+  },
+  {
+    "patient": "TCGA-A6-4107",
+    "age": 57.7,
+    "gender": "female",
+    "A_tumor": 0.6059002057722374,
+    "A_normal": 0.5693299830568731,
+    "delta_A": 0.03657022271536425,
+    "cpgs_tumor": 465,
+    "cpgs_normal": 479
+  },
+  {
+    "patient": "TCGA-A6-2686",
+    "age": 81.1,
+    "gender": "female",
+    "A_tumor": 0.6343492617662903,
+    "A_normal": 0.5610937420744032,
+    "delta_A": 0.07325551969188704,
+    "cpgs_tumor": 430,
+    "cpgs_normal": 492
+  },
+  {
+    "patient": "TCGA-AZ-6600",
+    "age": 64.6,
+    "gender": "male",
+    "A_tumor": 0.5733010371827237,
+    "A_normal": 0.5343993920326796,
+    "delta_A": 0.03890164515004413,
+    "cpgs_tumor": 488,
+    "cpgs_normal": 494
+  },
+  {
+    "patient": "TCGA-G4-6320",
+    "age": 73.5,
+    "gender": "male",
+    "A_tumor": 0.6118128548458233,
+    "A_normal": 0.5547717416227377,
+    "delta_A": 0.05704111322308558,
+    "cpgs_tumor": 447,
+    "cpgs_normal": 493
+  },
+  {
+    "patient": "TCGA-A6-2675",
+    "age": 78.9,
+    "gender": "male",
+    "A_tumor": 0.5768409283065918,
+    "A_normal": 0.6119809776364085,
+    "delta_A": -0.035140049329816625,
+    "cpgs_tumor": 468,
+    "cpgs_normal": 451
+  },
+  {
+    "patient": "TCGA-A6-2679",
+    "age": 73.4,
+    "gender": "female",
+    "A_tumor": 0.6116591305464121,
+    "A_normal": 0.578066049011637,
+    "delta_A": 0.03359308153477503,
+    "cpgs_tumor": 462,
+    "cpgs_normal": 487
+  },
+  {
+    "patient": "TCGA-AA-3495",
+    "age": 79.1,
+    "gender": "male",
+    "A_tumor": 0.609181412983957,
+    "A_normal": 0.5660491071553306,
+    "delta_A": 0.04313230582862637,
+    "cpgs_tumor": 447,
+    "cpgs_normal": 473
+  },
+  {
+    "patient": "TCGA-A6-5667",
+    "age": 40.4,
+    "gender": "female",
+    "A_tumor": 0.5689538556217468,
+    "A_normal": 0.5312523844376951,
+    "delta_A": 0.03770147118405176,
+    "cpgs_tumor": 467,
+    "cpgs_normal": 494
+  },
+  {
+    "patient": "TCGA-A6-2671",
+    "age": 88.0,
+    "gender": "male",
+    "A_tumor": 0.5652438218955775,
+    "A_normal": 0.556707649345264,
+    "delta_A": 0.008536172550313581,
+    "cpgs_tumor": 443,
+    "cpgs_normal": 497
+  },
+  {
+    "patient": "TCGA-AZ-6598",
+    "age": 77.2,
+    "gender": "female",
+    "A_tumor": 0.5698925606890688,
+    "A_normal": 0.5491605805924469,
+    "delta_A": 0.020731980096621916,
+    "cpgs_tumor": 469,
+    "cpgs_normal": 498
+  },
+  {
+    "patient": "TCGA-G4-6295",
+    "age": 70.5,
+    "gender": "female",
+    "A_tumor": 0.6059498426700051,
+    "A_normal": 0.5751552110787843,
+    "delta_A": 0.030794631591220756,
+    "cpgs_tumor": 466,
+    "cpgs_normal": 475
+  },
+  {
+    "patient": "TCGA-A6-2685",
+    "age": 48.6,
+    "gender": "female",
+    "A_tumor": 0.5731639696004449,
+    "A_normal": 0.5432929257978125,
+    "delta_A": 0.02987104380263239,
+    "cpgs_tumor": 479,
+    "cpgs_normal": 494
+  },
+  {
+    "patient": "TCGA-AA-3660",
+    "age": 51.8,
+    "gender": "female",
+    "A_tumor": 0.6099117203037862,
+    "A_normal": 0.53888362317528,
+    "delta_A": 0.0710280971285061,
+    "cpgs_tumor": 449,
+    "cpgs_normal": 494
+  },
+  {
+    "patient": "TCGA-G4-6625",
+    "age": null,
+    "gender": "female",
+    "A_tumor": 0.6099758810847207,
+    "A_normal": 0.5512936810447254,
+    "delta_A": 0.05868220003999525,
+    "cpgs_tumor": 483,
+    "cpgs_normal": 489
+  },
+  {
+    "patient": "TCGA-A6-2680",
+    "age": 72.6,
+    "gender": "female",
+    "A_tumor": 0.5956567135320888,
+    "A_normal": 0.5627484719330718,
+    "delta_A": 0.03290824159901706,
+    "cpgs_tumor": 467,
+    "cpgs_normal": 482
+  },
+  {
+    "patient": "TCGA-AA-3510",
+    "age": 70.9,
+    "gender": "male",
+    "A_tumor": 0.5793310555015531,
+    "A_normal": 0.5600020615007227,
+    "delta_A": 0.019328994000830324,
+    "cpgs_tumor": 462,
+    "cpgs_normal": 492
+  },
+  {
+    "patient": "TCGA-G4-6311",
+    "age": 80.2,
+    "gender": "male",
+    "A_tumor": 0.6019070220004213,
+    "A_normal": 0.5745103871649717,
+    "delta_A": 0.02739663483544963,
+    "cpgs_tumor": 471,
+    "cpgs_normal": 484
+  },
+  {
+    "patient": "TCGA-AA-3663",
+    "age": 42.9,
+    "gender": "male",
+    "A_tumor": 0.5882993380683559,
+    "A_normal": 0.5604880788769571,
+    "delta_A": 0.02781125919139882,
+    "cpgs_tumor": 471,
+    "cpgs_normal": 493
+  },
+  {
+    "patient": "TCGA-AA-3492",
+    "age": 90.0,
+    "gender": "female",
+    "A_tumor": 0.6096254868669999,
+    "A_normal": 0.577297103904324,
+    "delta_A": 0.03232838296267593,
+    "cpgs_tumor": 436,
+    "cpgs_normal": 477
+  },
+  {
+    "patient": "TCGA-AA-3655",
+    "age": 68.2,
+    "gender": "male",
+    "A_tumor": 0.5517632677937531,
+    "A_normal": 0.5697351334032327,
+    "delta_A": -0.01797186560947961,
+    "cpgs_tumor": 452,
+    "cpgs_normal": 486
+  }
+]

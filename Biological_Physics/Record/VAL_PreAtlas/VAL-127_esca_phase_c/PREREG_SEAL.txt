@@ -1,0 +1,5 @@
+PREREG_SHA256=cb521d83afe8bee8136c73cf0e0526a9b5e60758df7a77ae51709000c4014b1e
+SEAL_TIMESTAMP=2026-05-02T21:02:51Z
+SEAL_FILE=prereg.md
+SEAL_LOC=Biological_Physics/validation_runs/VAL-127_esca_phase_c/prereg.md
+SEAL_NOTE=Sealed BEFORE β data observation. CCL-041 compliance. CHK-2.17 pre-flight PASS on all 8 atlases. ESCC vs EAC subtype-discrimination headline test enabled by VAL-123/124/125 calibrated atlas stack.

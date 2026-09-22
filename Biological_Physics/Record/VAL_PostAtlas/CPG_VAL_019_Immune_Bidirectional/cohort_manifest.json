@@ -1,0 +1,16 @@
+{
+  "AIBL": {
+    "path": "Biological_Physics/validation_runs/ad_immune_cohorts/GSE153712_AIBL/GSE153712_betas_union.csv",
+    "n": 726,
+    "platform": "EPIC 850K",
+    "sha256": "15633616e6d4f3cab28e03677ef69f013464853aa31366b04328df0f4f162900"
+  },
+  "GSE51057": {
+    "path": "Biological_Physics/validation_runs/breast_epic_cohorts/GSE51057_EPIC_Italy/GSE51057_betas_union.csv.gz",
+    "n": 329,
+    "platform": "HM450",
+    "sha256": "f025ebfbc839de7bb1a6e054041875742bfb6132a757ddf6bd7ff95f4f87d075"
+  },
+  "panel_source": "VAL-051 Rule A 7-CpG AD-direction-anchored",
+  "panel_sha256": "52061285fc97bfff871ba7b62f625b14d953bccf25ee24e35f328e15b9827998"
+}

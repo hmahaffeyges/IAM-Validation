@@ -1,0 +1,5 @@
+PREREG_SHA256=6d1807440dcf6cf33c9abbe791f9260224b768065bdd272f029b6e334d3c6996
+SEAL_TIMESTAMP=2026-05-01T03:48:17Z
+SEAL_FILE=prereg.md
+SEAL_LOC=Biological_Physics/validation_runs/VAL-120_bladder_stage1_xu538/prereg.md
+SEAL_NOTE=Stage 1 Xu-538 immune red flag prereg sealed BEFORE any β file read by val120 script. CCL-041 compliance. Patient-flow order: VAL-120 (Stage 1) sealed first, then VAL-121 (Stage 2), then VAL-122 (Stage 3).

@@ -1,0 +1,4899 @@
+[
+  {
+    "geo_accession": "GSM1693270",
+    "chip_id": "9403904025_R01C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693271",
+    "chip_id": "9403904025_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693272",
+    "chip_id": "9403904025_R02C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693273",
+    "chip_id": "9403904025_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693274",
+    "chip_id": "9403904025_R03C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693275",
+    "chip_id": "9403904025_R03C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693276",
+    "chip_id": "9403904025_R04C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693277",
+    "chip_id": "9403904025_R04C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693278",
+    "chip_id": "9403904025_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693279",
+    "chip_id": "9403904025_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693280",
+    "chip_id": "9403904025_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693281",
+    "chip_id": "9403904025_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693282",
+    "chip_id": "9403904041_R01C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693283",
+    "chip_id": "9403904041_R02C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693284",
+    "chip_id": "9403904041_R03C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693285",
+    "chip_id": "9403904041_R03C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693286",
+    "chip_id": "9403904041_R04C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693287",
+    "chip_id": "9403904041_R04C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693288",
+    "chip_id": "9403904041_R05C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693289",
+    "chip_id": "9403904041_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693290",
+    "chip_id": "9403904041_R06C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693291",
+    "chip_id": "9403904041_R06C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693292",
+    "chip_id": "9403904043_R01C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693293",
+    "chip_id": "9403904043_R01C02",
+    "gender": "Male",
+    "stroke subtype": "null",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693306",
+    "chip_id": "9403904043_R02C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693307",
+    "chip_id": "9403904043_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693308",
+    "chip_id": "9403904043_R04C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693309",
+    "chip_id": "9403904043_R05C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693310",
+    "chip_id": "9403904043_R05C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693311",
+    "chip_id": "9403904067_R01C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693312",
+    "chip_id": "9403904067_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693313",
+    "chip_id": "9403904067_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693314",
+    "chip_id": "9403904067_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693315",
+    "chip_id": "9403904067_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693316",
+    "chip_id": "9403904067_R04C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693317",
+    "chip_id": "9403904067_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693318",
+    "chip_id": "9403904067_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693319",
+    "chip_id": "9403904067_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693320",
+    "chip_id": "9403904067_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693321",
+    "chip_id": "9403904067_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693322",
+    "chip_id": "9403904087_R01C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693323",
+    "chip_id": "9403904087_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693324",
+    "chip_id": "9403904087_R02C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693325",
+    "chip_id": "9403904087_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693326",
+    "chip_id": "9403904087_R03C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693327",
+    "chip_id": "9403904087_R03C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693328",
+    "chip_id": "9403904087_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693329",
+    "chip_id": "9403904087_R05C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693330",
+    "chip_id": "9403904087_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693331",
+    "chip_id": "9403904087_R06C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693332",
+    "chip_id": "9403904087_R06C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693333",
+    "chip_id": "9403904094_R01C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693334",
+    "chip_id": "9403904094_R02C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693335",
+    "chip_id": "9403904094_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693336",
+    "chip_id": "9403904094_R03C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693337",
+    "chip_id": "9403904094_R03C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693338",
+    "chip_id": "9403904094_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693339",
+    "chip_id": "9403904094_R05C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693340",
+    "chip_id": "9403904094_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693341",
+    "chip_id": "9403904094_R06C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693342",
+    "chip_id": "9403904094_R06C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693343",
+    "chip_id": "9403904085_R01C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693344",
+    "chip_id": "9403904085_R01C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693345",
+    "chip_id": "9403904085_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693346",
+    "chip_id": "9403904085_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693347",
+    "chip_id": "9403904085_R03C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693348",
+    "chip_id": "9403904085_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693349",
+    "chip_id": "9403904085_R04C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693350",
+    "chip_id": "9403904085_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693351",
+    "chip_id": "9403904085_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693352",
+    "chip_id": "9403904085_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693353",
+    "chip_id": "9403904085_R06C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693354",
+    "chip_id": "9403904085_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693355",
+    "chip_id": "9403904130_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693356",
+    "chip_id": "9403904130_R01C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693357",
+    "chip_id": "9403904130_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693358",
+    "chip_id": "9403904130_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693359",
+    "chip_id": "9403904130_R03C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693360",
+    "chip_id": "9403904130_R03C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693361",
+    "chip_id": "9403904130_R04C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693362",
+    "chip_id": "9403904130_R05C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693363",
+    "chip_id": "9403904130_R05C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693364",
+    "chip_id": "9403904130_R06C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693365",
+    "chip_id": "9403904130_R06C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693366",
+    "chip_id": "9422491012_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693367",
+    "chip_id": "9422491012_R01C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693368",
+    "chip_id": "9422491012_R02C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693369",
+    "chip_id": "9422491012_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693370",
+    "chip_id": "9422491012_R03C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693371",
+    "chip_id": "9422491012_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693372",
+    "chip_id": "9422491012_R04C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693373",
+    "chip_id": "9422491012_R05C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693374",
+    "chip_id": "9422491012_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693375",
+    "chip_id": "9422491012_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693376",
+    "chip_id": "9422491012_R06C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693377",
+    "chip_id": "9422491019_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693380",
+    "chip_id": "9422491019_R01C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693381",
+    "chip_id": "9422491019_R02C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693382",
+    "chip_id": "9422491019_R02C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693383",
+    "chip_id": "9422491019_R03C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693384",
+    "chip_id": "9422491019_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693385",
+    "chip_id": "9422491019_R04C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693386",
+    "chip_id": "9422491019_R04C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693387",
+    "chip_id": "9422491019_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693396",
+    "chip_id": "9422491019_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693397",
+    "chip_id": "9422491019_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693398",
+    "chip_id": "9422491042_R01C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693399",
+    "chip_id": "9422491042_R01C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693400",
+    "chip_id": "9422491042_R02C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693401",
+    "chip_id": "9422491042_R02C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693402",
+    "chip_id": "9422491042_R03C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693403",
+    "chip_id": "9422491042_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693404",
+    "chip_id": "9422491042_R04C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693405",
+    "chip_id": "9422491042_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693406",
+    "chip_id": "9422491042_R05C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693407",
+    "chip_id": "9422491042_R05C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693408",
+    "chip_id": "9422491042_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693409",
+    "chip_id": "9422491042_R06C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693410",
+    "chip_id": "9422491058_R01C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693411",
+    "chip_id": "9422491058_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693412",
+    "chip_id": "9422491058_R02C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693413",
+    "chip_id": "9422491058_R02C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693414",
+    "chip_id": "9422491058_R03C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693415",
+    "chip_id": "9422491058_R03C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693416",
+    "chip_id": "9422491058_R04C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693417",
+    "chip_id": "9422491058_R04C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693418",
+    "chip_id": "9422491058_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693419",
+    "chip_id": "9422491058_R05C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693420",
+    "chip_id": "9422491058_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693421",
+    "chip_id": "9422491058_R06C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693422",
+    "chip_id": "9422491059_R01C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693423",
+    "chip_id": "9422491059_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693424",
+    "chip_id": "9422491059_R03C01",
+    "gender": "Female",
+    "stroke subtype": "null",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693425",
+    "chip_id": "9422491059_R04C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693426",
+    "chip_id": "9422491059_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693427",
+    "chip_id": "9422491059_R05C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693428",
+    "chip_id": "9422491059_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693429",
+    "chip_id": "9422491059_R06C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693430",
+    "chip_id": "9422491083_R01C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693431",
+    "chip_id": "9422491083_R01C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693432",
+    "chip_id": "9422491083_R02C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693433",
+    "chip_id": "9422491083_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693434",
+    "chip_id": "9422491083_R03C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693435",
+    "chip_id": "9422491083_R03C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693436",
+    "chip_id": "9422491083_R04C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693437",
+    "chip_id": "9422491083_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693438",
+    "chip_id": "9422491083_R05C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693439",
+    "chip_id": "9422491083_R05C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693440",
+    "chip_id": "9422491083_R06C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693441",
+    "chip_id": "9422491083_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693442",
+    "chip_id": "9422492042_R01C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693443",
+    "chip_id": "9422492042_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693444",
+    "chip_id": "9422492042_R02C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693445",
+    "chip_id": "9422492042_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693446",
+    "chip_id": "9422492042_R03C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693447",
+    "chip_id": "9422492042_R03C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693448",
+    "chip_id": "9422492042_R04C01",
+    "gender": "Male",
+    "stroke subtype": "null",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693449",
+    "chip_id": "9422492042_R04C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693450",
+    "chip_id": "9422492042_R05C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693451",
+    "chip_id": "9422492042_R05C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693452",
+    "chip_id": "9422492042_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693453",
+    "chip_id": "9422492042_R06C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693454",
+    "chip_id": "9513149117_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693455",
+    "chip_id": "9513149117_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693456",
+    "chip_id": "9513149117_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693457",
+    "chip_id": "9513149117_R03C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693458",
+    "chip_id": "9533774070_R01C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693459",
+    "chip_id": "9533774070_R02C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693460",
+    "chip_id": "9533774070_R02C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693461",
+    "chip_id": "9533774070_R03C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693462",
+    "chip_id": "9533774070_R04C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693463",
+    "chip_id": "9533774070_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693464",
+    "chip_id": "9533774070_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693465",
+    "chip_id": "9533774070_R06C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693466",
+    "chip_id": "9533774085_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693467",
+    "chip_id": "9533774085_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693468",
+    "chip_id": "9533774085_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693469",
+    "chip_id": "9533774085_R02C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693470",
+    "chip_id": "9533774085_R03C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693471",
+    "chip_id": "9533774085_R04C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693472",
+    "chip_id": "9533774085_R04C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693473",
+    "chip_id": "9533774085_R05C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693474",
+    "chip_id": "9533774085_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693475",
+    "chip_id": "9533774085_R06C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693476",
+    "chip_id": "9533774085_R06C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693477",
+    "chip_id": "9533774086_R01C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693478",
+    "chip_id": "9533774086_R01C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693479",
+    "chip_id": "9533774086_R02C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693480",
+    "chip_id": "9533774086_R02C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693481",
+    "chip_id": "9533774086_R03C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693482",
+    "chip_id": "9533774086_R03C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693483",
+    "chip_id": "9533774086_R04C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693484",
+    "chip_id": "9533774086_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693485",
+    "chip_id": "9533774086_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693486",
+    "chip_id": "9533774086_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693487",
+    "chip_id": "9533774086_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693488",
+    "chip_id": "9533774086_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693489",
+    "chip_id": "9533774087_R01C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693490",
+    "chip_id": "9533774087_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693491",
+    "chip_id": "9533774087_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693492",
+    "chip_id": "9533774087_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693493",
+    "chip_id": "9533774087_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693494",
+    "chip_id": "9533774087_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693495",
+    "chip_id": "9533774087_R04C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693496",
+    "chip_id": "9533774087_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693497",
+    "chip_id": "9533774087_R05C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693498",
+    "chip_id": "9533774087_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693499",
+    "chip_id": "9533774087_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693500",
+    "chip_id": "9533774087_R06C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693501",
+    "chip_id": "9533774089_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693502",
+    "chip_id": "9533774089_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693503",
+    "chip_id": "9533774089_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693504",
+    "chip_id": "9533774089_R02C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693505",
+    "chip_id": "9533774089_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693506",
+    "chip_id": "9533774089_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693507",
+    "chip_id": "9533774089_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693508",
+    "chip_id": "9533774089_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693509",
+    "chip_id": "9533774089_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693510",
+    "chip_id": "9533774089_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693511",
+    "chip_id": "9533774089_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693512",
+    "chip_id": "9533774096_R01C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693513",
+    "chip_id": "9533774096_R01C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693514",
+    "chip_id": "9533774096_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693515",
+    "chip_id": "9533774096_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693516",
+    "chip_id": "9533774096_R03C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693517",
+    "chip_id": "9533774096_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693518",
+    "chip_id": "9533774096_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693519",
+    "chip_id": "9533774096_R05C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693520",
+    "chip_id": "9533774096_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693521",
+    "chip_id": "9533774096_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693522",
+    "chip_id": "9533774098_R01C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693523",
+    "chip_id": "9533774098_R01C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693524",
+    "chip_id": "9533774098_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693525",
+    "chip_id": "9533774098_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693526",
+    "chip_id": "9533774098_R03C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693527",
+    "chip_id": "9533774098_R03C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693528",
+    "chip_id": "9533774098_R04C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693529",
+    "chip_id": "9533774098_R04C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693530",
+    "chip_id": "9533774098_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693531",
+    "chip_id": "9533774098_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693532",
+    "chip_id": "9533774098_R06C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693533",
+    "chip_id": "9533774099_R01C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693534",
+    "chip_id": "9533774099_R02C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693535",
+    "chip_id": "9533774099_R03C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693536",
+    "chip_id": "9533774099_R03C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693537",
+    "chip_id": "9533774099_R04C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693538",
+    "chip_id": "9533774099_R04C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693539",
+    "chip_id": "9533774099_R05C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693552",
+    "chip_id": "9533774099_R05C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693553",
+    "chip_id": "9533774099_R06C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693554",
+    "chip_id": "9533774099_R06C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693555",
+    "chip_id": "9533774108_R01C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693556",
+    "chip_id": "9533774108_R01C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693557",
+    "chip_id": "9533774108_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693558",
+    "chip_id": "9533774108_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693559",
+    "chip_id": "9533774108_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693560",
+    "chip_id": "9533774108_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693561",
+    "chip_id": "9533774108_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693562",
+    "chip_id": "9533774108_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693563",
+    "chip_id": "9533774108_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693564",
+    "chip_id": "9533774108_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693565",
+    "chip_id": "9533774108_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693566",
+    "chip_id": "9533774108_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693567",
+    "chip_id": "9534104001_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693568",
+    "chip_id": "9534104001_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693569",
+    "chip_id": "9534104001_R02C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693570",
+    "chip_id": "9534104001_R02C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693571",
+    "chip_id": "9534104001_R03C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693572",
+    "chip_id": "9534104001_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693573",
+    "chip_id": "9534104001_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693574",
+    "chip_id": "9534104001_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693575",
+    "chip_id": "9534104001_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693576",
+    "chip_id": "9534104001_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693577",
+    "chip_id": "9534104001_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693578",
+    "chip_id": "9534104001_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693579",
+    "chip_id": "9534104003_R01C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693580",
+    "chip_id": "9534104003_R02C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693581",
+    "chip_id": "9534104003_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693582",
+    "chip_id": "9534104003_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693583",
+    "chip_id": "9534104004_R01C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693584",
+    "chip_id": "9534104004_R01C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693585",
+    "chip_id": "9534104004_R02C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693586",
+    "chip_id": "9534104004_R03C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693587",
+    "chip_id": "9534104004_R03C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693588",
+    "chip_id": "9534104004_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693589",
+    "chip_id": "9534104004_R04C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693590",
+    "chip_id": "9534104004_R05C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693591",
+    "chip_id": "9534104004_R05C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693592",
+    "chip_id": "9534104004_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693593",
+    "chip_id": "9534104004_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693594",
+    "chip_id": "9534104043_R01C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693595",
+    "chip_id": "9534104043_R01C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693596",
+    "chip_id": "9534104043_R02C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693597",
+    "chip_id": "9534104043_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693598",
+    "chip_id": "9534104043_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693599",
+    "chip_id": "9534104043_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693600",
+    "chip_id": "9534104043_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693601",
+    "chip_id": "9534104043_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693602",
+    "chip_id": "9534104043_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693603",
+    "chip_id": "9534104043_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693604",
+    "chip_id": "9534104043_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693605",
+    "chip_id": "9534104043_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693606",
+    "chip_id": "9534104044_R01C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693607",
+    "chip_id": "9534104044_R02C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693608",
+    "chip_id": "9534104044_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693609",
+    "chip_id": "9534104044_R03C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693610",
+    "chip_id": "9534104044_R03C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693611",
+    "chip_id": "9534104044_R04C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693612",
+    "chip_id": "9534104044_R04C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693613",
+    "chip_id": "9534104044_R05C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693614",
+    "chip_id": "9534104044_R05C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693615",
+    "chip_id": "9534104044_R06C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693616",
+    "chip_id": "9534104044_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693617",
+    "chip_id": "9534104045_R01C01",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693618",
+    "chip_id": "9534104045_R01C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693619",
+    "chip_id": "9534104045_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693620",
+    "chip_id": "9534104045_R03C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693621",
+    "chip_id": "9534104045_R03C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693622",
+    "chip_id": "9534104045_R04C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693623",
+    "chip_id": "9534104045_R06C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693624",
+    "chip_id": "9534104045_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693625",
+    "chip_id": "9610361002_R02C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693626",
+    "chip_id": "9610361002_R02C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693627",
+    "chip_id": "9610361002_R04C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693628",
+    "chip_id": "9610361002_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693629",
+    "chip_id": "9611518002_R01C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693630",
+    "chip_id": "9611518002_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693631",
+    "chip_id": "9611518002_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693632",
+    "chip_id": "9611518002_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693633",
+    "chip_id": "9611518002_R03C01",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693634",
+    "chip_id": "9611518002_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693635",
+    "chip_id": "9611518002_R04C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693636",
+    "chip_id": "9611518002_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693637",
+    "chip_id": "9611518002_R05C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693638",
+    "chip_id": "9611518002_R05C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693639",
+    "chip_id": "9611518002_R06C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693640",
+    "chip_id": "9611518002_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693641",
+    "chip_id": "9403904115_R01C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693642",
+    "chip_id": "9403904115_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693643",
+    "chip_id": "9403904115_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693644",
+    "chip_id": "9403904115_R02C02",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693645",
+    "chip_id": "9403904115_R03C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693646",
+    "chip_id": "9403904115_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693647",
+    "chip_id": "9403904115_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693666",
+    "chip_id": "9403904115_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693669",
+    "chip_id": "9403904115_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693672",
+    "chip_id": "9403904115_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693675",
+    "chip_id": "9403904115_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693676",
+    "chip_id": "9403904115_R06C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693677",
+    "chip_id": "9611518003_R01C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693678",
+    "chip_id": "9611518003_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693679",
+    "chip_id": "9611518003_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693680",
+    "chip_id": "9611518003_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693681",
+    "chip_id": "9611518003_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693682",
+    "chip_id": "9611518003_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693683",
+    "chip_id": "9611518003_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693684",
+    "chip_id": "9611518003_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693685",
+    "chip_id": "9611518003_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693686",
+    "chip_id": "9611518007_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693687",
+    "chip_id": "9611518007_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693688",
+    "chip_id": "9611518007_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693689",
+    "chip_id": "9611518007_R02C02",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693690",
+    "chip_id": "9611518007_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693691",
+    "chip_id": "9611518007_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693692",
+    "chip_id": "9611518007_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693693",
+    "chip_id": "9611518007_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693694",
+    "chip_id": "9611518007_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693695",
+    "chip_id": "9611518007_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693696",
+    "chip_id": "9611518007_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693697",
+    "chip_id": "9611518062_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693698",
+    "chip_id": "9611518062_R01C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693699",
+    "chip_id": "9611518062_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693700",
+    "chip_id": "9611518062_R02C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693701",
+    "chip_id": "9611518062_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693702",
+    "chip_id": "9611518062_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693703",
+    "chip_id": "9611518062_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693704",
+    "chip_id": "9611518062_R04C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693705",
+    "chip_id": "9611518062_R05C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693706",
+    "chip_id": "9611518062_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693707",
+    "chip_id": "9611518062_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693708",
+    "chip_id": "9611518062_R06C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693709",
+    "chip_id": "9611518063_R01C01",
+    "gender": "Female",
+    "stroke subtype": "null",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693710",
+    "chip_id": "9611518063_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693711",
+    "chip_id": "9611518063_R02C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693712",
+    "chip_id": "9611518063_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693713",
+    "chip_id": "9611518063_R03C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693714",
+    "chip_id": "9611518063_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693715",
+    "chip_id": "9611518063_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693716",
+    "chip_id": "9611518063_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693717",
+    "chip_id": "9611518063_R05C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693718",
+    "chip_id": "9611518063_R06C01",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693719",
+    "chip_id": "9611518063_R06C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693720",
+    "chip_id": "9611518097_R01C01",
+    "gender": "Female",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693721",
+    "chip_id": "9611518097_R01C02",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693722",
+    "chip_id": "9611518097_R02C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693723",
+    "chip_id": "9611518097_R02C02",
+    "gender": "Female",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693724",
+    "chip_id": "9611518097_R03C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693725",
+    "chip_id": "9611518097_R03C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693726",
+    "chip_id": "9611518097_R04C01",
+    "gender": "Male",
+    "stroke subtype": "Large-artery atherosclerosis",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693727",
+    "chip_id": "9611518097_R04C02",
+    "gender": "Female",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693728",
+    "chip_id": "9611518097_R05C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693729",
+    "chip_id": "9611518097_R05C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693730",
+    "chip_id": "9611518097_R06C01",
+    "gender": "Male",
+    "stroke subtype": "lacunar",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM1693731",
+    "chip_id": "9611518097_R06C02",
+    "gender": "Male",
+    "stroke subtype": "cardio emobolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026613",
+    "chip_id": "9969477167_R02C01",
+    "age": "60",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026614",
+    "chip_id": "9969477167_R02C02",
+    "age": "78",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026615",
+    "chip_id": "9969477167_R03C01",
+    "age": "52",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026616",
+    "chip_id": "9969477167_R03C02",
+    "age": "65",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026617",
+    "chip_id": "9969477167_R04C01",
+    "age": "92",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026618",
+    "chip_id": "9969477167_R04C02",
+    "age": "87",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026619",
+    "chip_id": "9969477167_R05C01",
+    "age": "77",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026620",
+    "chip_id": "9969477167_R05C02",
+    "age": "87",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026621",
+    "chip_id": "9969477167_R06C01",
+    "age": "41",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026622",
+    "chip_id": "9969477167_R06C02",
+    "age": "78",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026623",
+    "chip_id": "9969489002_R01C02",
+    "age": "80",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026624",
+    "chip_id": "9969489002_R03C01",
+    "age": "69",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026625",
+    "chip_id": "9969489002_R03C02",
+    "age": "84",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026626",
+    "chip_id": "9969489002_R04C01",
+    "age": "75",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026627",
+    "chip_id": "9969489002_R04C02",
+    "age": "83",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026628",
+    "chip_id": "9969489002_R05C01",
+    "age": "50",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026629",
+    "chip_id": "9969489002_R06C01",
+    "age": "84",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026630",
+    "chip_id": "9969489005_R02C01",
+    "age": "75",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026631",
+    "chip_id": "9969489005_R02C02",
+    "age": "87",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026632",
+    "chip_id": "9969489005_R03C01",
+    "age": "53",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026633",
+    "chip_id": "9969489005_R03C02",
+    "age": "73",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026634",
+    "chip_id": "9969489005_R04C01",
+    "age": "85",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026635",
+    "chip_id": "9969489005_R04C02",
+    "age": "80",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026636",
+    "chip_id": "9969489005_R05C01",
+    "age": "88",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026637",
+    "chip_id": "9969489005_R05C02",
+    "age": "77",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026638",
+    "chip_id": "9969489005_R06C01",
+    "age": "92",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026639",
+    "chip_id": "9969489005_R06C02",
+    "age": "84",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026640",
+    "chip_id": "9969489006_R02C01",
+    "age": "79",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026641",
+    "chip_id": "9969489006_R03C02",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026642",
+    "chip_id": "9969489006_R04C01",
+    "age": "92",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026643",
+    "chip_id": "9969489006_R04C02",
+    "age": "68",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026644",
+    "chip_id": "9969489006_R05C01",
+    "age": "73",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026645",
+    "chip_id": "9969489006_R05C02",
+    "age": "88",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026646",
+    "chip_id": "9969489006_R06C01",
+    "age": "71",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026647",
+    "chip_id": "9969489006_R06C02",
+    "age": "57",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026648",
+    "chip_id": "9969489007_R02C01",
+    "age": "73",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026649",
+    "chip_id": "9969489007_R02C02",
+    "age": "91",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026650",
+    "chip_id": "9969489007_R03C01",
+    "age": "62",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026651",
+    "chip_id": "9969489007_R03C02",
+    "age": "80",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026652",
+    "chip_id": "9969489007_R04C01",
+    "age": "84",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026653",
+    "chip_id": "9969489007_R04C02",
+    "age": "92",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026654",
+    "chip_id": "9969489007_R05C01",
+    "age": "75",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026655",
+    "chip_id": "9969489007_R05C02",
+    "age": "43",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026656",
+    "chip_id": "9969489007_R06C01",
+    "age": "54",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026657",
+    "chip_id": "9969489007_R06C02",
+    "age": "93",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026658",
+    "chip_id": "9969489009_R02C01",
+    "age": "66",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026659",
+    "chip_id": "9969489009_R02C02",
+    "age": "90",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026660",
+    "chip_id": "9969489009_R03C01",
+    "age": "91",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026661",
+    "chip_id": "9969489009_R03C02",
+    "age": "81",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026662",
+    "chip_id": "9969489009_R04C01",
+    "age": "53",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026663",
+    "chip_id": "9969489009_R04C02",
+    "age": "85",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026664",
+    "chip_id": "9969489009_R05C02",
+    "age": "80",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026665",
+    "chip_id": "9969489009_R06C01",
+    "age": "94",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026666",
+    "chip_id": "9969489009_R06C02",
+    "age": "62",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026667",
+    "chip_id": "9969489033_R02C01",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026668",
+    "chip_id": "9969489033_R02C02",
+    "age": "88",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026669",
+    "chip_id": "9969489033_R03C01",
+    "age": "71",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026670",
+    "chip_id": "9969489033_R03C02",
+    "age": "70",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026671",
+    "chip_id": "9969489033_R04C01",
+    "age": "58",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026672",
+    "chip_id": "9969489033_R04C02",
+    "age": "86",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026673",
+    "chip_id": "9969489033_R05C01",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026674",
+    "chip_id": "9969489033_R05C02",
+    "age": "80",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026675",
+    "chip_id": "9969489033_R06C01",
+    "age": "78",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026676",
+    "chip_id": "9969489033_R06C02",
+    "age": "68",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026677",
+    "chip_id": "9969489065_R02C01",
+    "age": "89",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026678",
+    "chip_id": "9969489065_R02C02",
+    "age": "73",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026679",
+    "chip_id": "9969489065_R03C02",
+    "age": "78",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026680",
+    "chip_id": "9969489065_R04C01",
+    "age": "80",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026681",
+    "chip_id": "9969489065_R04C02",
+    "age": "76",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026682",
+    "chip_id": "9969489065_R05C01",
+    "age": "77",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026683",
+    "chip_id": "9969489065_R05C02",
+    "age": "83",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026684",
+    "chip_id": "9969489065_R06C01",
+    "age": "73",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026685",
+    "chip_id": "9969489065_R06C02",
+    "age": "81",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026686",
+    "chip_id": "9969489092_R01C01",
+    "age": "86",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026687",
+    "chip_id": "9969489092_R01C02",
+    "age": "57",
+    "gender": "Female",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026688",
+    "chip_id": "9969489092_R02C01",
+    "age": "53",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026689",
+    "chip_id": "9969489092_R03C01",
+    "age": "80",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026690",
+    "chip_id": "9969489092_R04C02",
+    "age": "67",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026691",
+    "chip_id": "9969489092_R05C02",
+    "age": "75",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026692",
+    "chip_id": "9969489092_R06C01",
+    "age": "58",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026693",
+    "chip_id": "9969489092_R06C02",
+    "age": "39",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026694",
+    "chip_id": "9969489116_R03C01",
+    "age": "73",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026695",
+    "chip_id": "9969489116_R03C02",
+    "age": "84",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026696",
+    "chip_id": "9969489116_R04C01",
+    "age": "65",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026697",
+    "chip_id": "9969489116_R05C01",
+    "age": "85",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026698",
+    "chip_id": "9969489116_R06C01",
+    "age": "79",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026699",
+    "chip_id": "9969489116_R06C02",
+    "age": "98",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026700",
+    "chip_id": "9969489137_R02C01",
+    "age": "47",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026701",
+    "chip_id": "9969489137_R02C02",
+    "age": "49",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026702",
+    "chip_id": "9969489137_R03C01",
+    "age": "71",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026703",
+    "chip_id": "9969489137_R03C02",
+    "age": "86",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026704",
+    "chip_id": "9969489137_R04C01",
+    "age": "60",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026705",
+    "chip_id": "9969489137_R04C02",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026706",
+    "chip_id": "9969489137_R05C01",
+    "age": "77",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026707",
+    "chip_id": "9969489137_R05C02",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026708",
+    "chip_id": "9969489137_R06C01",
+    "age": "79",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026709",
+    "chip_id": "9969489137_R06C02",
+    "age": "88",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026710",
+    "chip_id": "9969489154_R01C02",
+    "age": "70",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026711",
+    "chip_id": "9969489154_R02C02",
+    "age": "51",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026712",
+    "chip_id": "9969489154_R03C01",
+    "age": "78",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026713",
+    "chip_id": "9969489154_R03C02",
+    "age": "85",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026714",
+    "chip_id": "9969489154_R04C01",
+    "age": "69",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026715",
+    "chip_id": "9969489154_R04C02",
+    "age": "81",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026716",
+    "chip_id": "9969489154_R05C01",
+    "age": "75",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026717",
+    "chip_id": "9969489154_R06C01",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026718",
+    "chip_id": "9969489154_R06C02",
+    "age": "71",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026719",
+    "chip_id": "9969489155_R01C01",
+    "age": "81",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026720",
+    "chip_id": "9969489155_R01C02",
+    "age": "69",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026721",
+    "chip_id": "9969489155_R02C01",
+    "age": "88",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026722",
+    "chip_id": "9969489155_R02C02",
+    "age": "59",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026723",
+    "chip_id": "9969489155_R03C01",
+    "age": "54",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026724",
+    "chip_id": "9969489155_R03C02",
+    "age": "83",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026725",
+    "chip_id": "9969489155_R04C01",
+    "age": "86",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026726",
+    "chip_id": "9969489155_R04C02",
+    "age": "49",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026727",
+    "chip_id": "9969489155_R05C01",
+    "age": "77",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026728",
+    "chip_id": "9969489155_R05C02",
+    "age": "68",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026729",
+    "chip_id": "9969489155_R06C01",
+    "age": "72",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026730",
+    "chip_id": "9969489155_R06C02",
+    "age": "71",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026731",
+    "chip_id": "9969489156_R01C02",
+    "age": "69",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026732",
+    "chip_id": "9969489156_R03C02",
+    "age": "80",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026733",
+    "chip_id": "9969489156_R04C02",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026734",
+    "chip_id": "9969489156_R06C01",
+    "age": "72",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026735",
+    "chip_id": "9969489156_R06C02",
+    "age": "83",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026736",
+    "chip_id": "9969489158_R01C01",
+    "age": "51",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026737",
+    "chip_id": "9969489158_R01C02",
+    "age": "81",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026738",
+    "chip_id": "9969489158_R02C01",
+    "age": "66",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026739",
+    "chip_id": "9969489158_R03C01",
+    "age": "78",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026740",
+    "chip_id": "9969489158_R04C02",
+    "age": "84",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026741",
+    "chip_id": "9969489158_R05C01",
+    "age": "79",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026742",
+    "chip_id": "9969489158_R05C02",
+    "age": "73",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026743",
+    "chip_id": "9969489158_R06C02",
+    "age": "48",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026744",
+    "chip_id": "9969489161_R01C02",
+    "age": "90",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026745",
+    "chip_id": "9969489161_R02C02",
+    "age": "77",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026746",
+    "chip_id": "9969489161_R03C01",
+    "age": "85",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026747",
+    "chip_id": "9969489161_R03C02",
+    "age": "83",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026748",
+    "chip_id": "9969489161_R04C01",
+    "age": "78",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026749",
+    "chip_id": "9969489161_R04C02",
+    "age": "65",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026750",
+    "chip_id": "9969489161_R05C01",
+    "age": "64",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026751",
+    "chip_id": "9969489161_R05C02",
+    "age": "65",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026752",
+    "chip_id": "9969489161_R06C01",
+    "age": "83",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026753",
+    "chip_id": "9969489161_R06C02",
+    "age": "78",
+    "gender": "Female",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026754",
+    "chip_id": "9980092137_R01C02",
+    "age": "86",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026755",
+    "chip_id": "9980092137_R02C02",
+    "age": "84",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026756",
+    "chip_id": "9980092137_R03C01",
+    "age": "72",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026757",
+    "chip_id": "9980092137_R03C02",
+    "age": "95",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026758",
+    "chip_id": "9980092137_R04C01",
+    "age": "57",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026759",
+    "chip_id": "9980092137_R05C02",
+    "age": "49",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026760",
+    "chip_id": "9980092137_R06C02",
+    "age": "78",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026761",
+    "chip_id": "9980102002_R01C02",
+    "age": "77",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026762",
+    "chip_id": "9980102002_R02C02",
+    "age": "82",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026763",
+    "chip_id": "9980102002_R03C01",
+    "age": "88",
+    "gender": "Female",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026764",
+    "chip_id": "9980102002_R03C02",
+    "age": "82",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026765",
+    "chip_id": "9980102002_R04C01",
+    "age": "88",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026766",
+    "chip_id": "9980102002_R04C02",
+    "age": "69",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026767",
+    "chip_id": "9980102002_R05C01",
+    "age": "90",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026768",
+    "chip_id": "9980102002_R05C02",
+    "age": "56",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026769",
+    "chip_id": "9980102002_R06C01",
+    "age": "99",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026770",
+    "chip_id": "9980102002_R06C02",
+    "age": "91",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026771",
+    "chip_id": "9980102020_R01C01",
+    "age": "81",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026772",
+    "chip_id": "9980102020_R02C02",
+    "age": "72",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026773",
+    "chip_id": "9980102020_R03C02",
+    "age": "88",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026774",
+    "chip_id": "9980102020_R04C01",
+    "age": "62",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026775",
+    "chip_id": "9980102020_R04C02",
+    "age": "77",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026776",
+    "chip_id": "9980102020_R05C01",
+    "age": "72",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026777",
+    "chip_id": "9980102020_R06C01",
+    "age": "57",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026778",
+    "chip_id": "9980102044_R01C02",
+    "age": "66",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026779",
+    "chip_id": "9980102044_R02C02",
+    "age": "62",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026780",
+    "chip_id": "9980102044_R03C01",
+    "age": "57",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026781",
+    "chip_id": "9980102044_R03C02",
+    "age": "49",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026782",
+    "chip_id": "9980102044_R04C01",
+    "age": "80",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026783",
+    "chip_id": "9980102044_R05C02",
+    "age": "53",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026784",
+    "chip_id": "9980102044_R06C02",
+    "age": "84",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026785",
+    "chip_id": "9980102075_R01C02",
+    "age": "66",
+    "gender": "Male",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026786",
+    "chip_id": "9980102075_R02C02",
+    "age": "88",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026787",
+    "chip_id": "9980102075_R03C02",
+    "age": "78",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026788",
+    "chip_id": "9980102075_R04C02",
+    "age": "72",
+    "gender": "Female",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026789",
+    "chip_id": "9980102075_R06C01",
+    "age": "86",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026790",
+    "chip_id": "9980102107_R01C02",
+    "age": "88",
+    "gender": "Female",
+    "stroke subtype": "small-vessel disease",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026791",
+    "chip_id": "9980102107_R02C02",
+    "age": "85",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026792",
+    "chip_id": "9980102107_R03C02",
+    "age": "92",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026793",
+    "chip_id": "9980102107_R04C01",
+    "age": "79",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026794",
+    "chip_id": "9980102107_R04C02",
+    "age": "79",
+    "gender": "Female",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026795",
+    "chip_id": "9980102107_R05C01",
+    "age": "80",
+    "gender": "Male",
+    "stroke subtype": "cardioembolic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026796",
+    "chip_id": "9980102107_R05C02",
+    "age": "58",
+    "gender": "Male",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  },
+  {
+    "geo_accession": "GSM3026797",
+    "chip_id": "9980102107_R06C02",
+    "age": "80",
+    "gender": "Female",
+    "stroke subtype": "atherotrombotic",
+    "sample type": "blood",
+    "disease state": "stroke"
+  }
+]

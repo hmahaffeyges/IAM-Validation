@@ -1,0 +1,95 @@
+{
+  "val_id": "CPG-VAL-135",
+  "title": "Immune card v1.0 full-chain validation across three independent cohorts",
+  "date_sealed": "2026-06-06",
+  "cohorts_run": [
+    {
+      "cohort_name": "AIBL_GSE153712",
+      "source": "GSE153712 series matrix + existing 18-CpG IMM panel (from sealed VAL-050)",
+      "citation": "Nabais MF et al. Genome Biol 2021;22:90",
+      "n_case_AD": 161,
+      "n_hc": 471,
+      "n_mci": 94,
+      "platform": "Illumina HumanMethylation EPIC",
+      "chain_depth": "PARTIAL \u2014 Stage 4 immune A-score + Stage 4.5 bidirectional only",
+      "per_sample_file": "per_sample_AIBL.csv",
+      "per_sample_sha256": "72240ede1324d8da29d928bd109f45694a80809d0bb9f6120cff17d755607f7d"
+    },
+    {
+      "cohort_name": "GSE50660_Tsaprouni2014",
+      "source": "GSE50660_series_matrix.txt.gz (acquired 2026-06-06)",
+      "citation": "Tsaprouni LG et al. Epigenetics 2014;9(10):1382-1396",
+      "n_total": 464,
+      "n_case": 0,
+      "n_hc": 464,
+      "smoking_distribution": {
+        "never": 179,
+        "former": 263,
+        "current": 22
+      },
+      "sex_distribution": {
+        "M": 327,
+        "F": 137
+      },
+      "age_range": "40-65",
+      "platform": "Illumina HumanMethylation450",
+      "chain_depth": "FULL \u2014 Stage 3 + Stage 4 + Stage 4.5 + Stage 5 + Stage 7",
+      "per_sample_file": "per_sample_GSE50660.csv",
+      "per_sample_sha256": "c813dcbf69c07df3b3199a580378f0643c05c602c7dfb2105fb290e9d78ac6e8"
+    },
+    {
+      "cohort_name": "GSE40279_Hannum2013",
+      "source": "GSE40279_series_matrix.txt.gz (acquired 2026-06-06)",
+      "citation": "Hannum G et al. Mol Cell 2013;49(2):359-367",
+      "n_total": 656,
+      "n_case": 0,
+      "n_hc": 656,
+      "sex_distribution": {
+        "M": 318,
+        "F": 338
+      },
+      "age_range": "19-101",
+      "ethnicity": {
+        "Caucasian_European": 426,
+        "Hispanic_Mexican": 230
+      },
+      "n_plates": 9,
+      "platform": "Illumina HumanMethylation450",
+      "chain_depth": "FULL \u2014 Stage 3 + Stage 4 + Stage 4.5 + Stage 5 + Stage 7",
+      "per_sample_file": "per_sample_GSE40279.csv",
+      "per_sample_sha256": "002ad19bf5a8849066cc108c5adc16864a51ab8111496320a0d1951dcd53bccc"
+    }
+  ],
+  "primary_signal": "a_dir_immune (Stage 4.5 directional composite, VAL-051 Rule A 7-CpG panel)",
+  "anchor_target": {
+    "source": "Sealed VAL-051 AIBL holdout",
+    "d": 0.624
+  },
+  "observed_d_AIBL_AD_vs_HC": 0.616,
+  "deviation_absolute": 0.008,
+  "deviation_relative_pct": 1.3,
+  "primary_n1_p": 0.0,
+  "outcome_code": "O1_PRIMARY_VALIDATED",
+  "nulls_results_file": "CPG_VAL_135_null_results.json",
+  "modules_tested": [
+    "Stage 3 \u2014 age_axis_foreground.py + IAMAtlas_age_layer.csv",
+    "Stage 3 \u2014 smoking_axis_foreground.py + IAMAtlas_smoking_layer.csv (FIT 2026-06-06)",
+    "Stage 3 \u2014 sex_axis_foreground.py + IAMAtlas_sex_layer.csv (FIT 2026-06-06)",
+    "Stage 4 \u2014 A-scoring (Shannon entropy / H_min) per class, 200 markers per class",
+    "Stage 4.5 \u2014 bidirectional_decomposition.py + directional_panels_v1_0.json (VAL-051 panel)",
+    "Stage 5 \u2014 Mahalanobis (8-class A-vector, cohort-internal HC reference)",
+    "Stage 7 \u2014 tier_breakpoints.json v1.2 (6-tier physics-derived schema)"
+  ],
+  "modules_NOT_tested_in_VAL135": [
+    "Stage 2 \u2014 Walther IAM Deconvolver (deferred \u2014 needs class-mean reference matrix work)",
+    "Stage 4.6 \u2014 Patient brightness comparison + Mollweide (rendering deferred)",
+    "Stage 6 \u2014 Cellular age inversion (deferred to VAL-140)",
+    "Stage 8 \u2014 Card matching (deferred \u2014 card v3.2 update pending)",
+    "Stage 9 \u2014 Report generation (deferred to post-deploy)"
+  ],
+  "frozen_inputs": {
+    "IAMAtlas_REBUILD_csv_sha": "41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee (per atlas_vault INVENTORY)",
+    "VAL_051_panel_sha": "52061285fc97bfff871ba7b62f625b14d953bccf25ee24e35f328e15b9827998",
+    "H_min_immune": 0.838889
+  }
+}

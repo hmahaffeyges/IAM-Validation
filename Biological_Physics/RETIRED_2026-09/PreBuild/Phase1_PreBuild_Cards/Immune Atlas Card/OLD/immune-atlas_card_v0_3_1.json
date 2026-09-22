@@ -1,0 +1,1698 @@
+{
+  "card_id": "immune-atlas",
+  "card_name": "Immune-Atlas Differential-Diagnosis Engine",
+  "version": "0.3",
+  "date_created": "2026-04-24",
+  "card_type": "reference_document",
+  "validation_tier": "rosetta_reference_card",
+  "fires_independently": false,
+  "reads_from": "universal_stage_1_output",
+  "position_in_cookbook": 15,
+  "purpose": "Cross-reference immune signatures for all Cookbook diseases plus four diagnostic pathways for Stage-1-positive / Stage-2-null cases",
+  "universal_pipeline_reference": {
+    "stage_1_substrate": "buffy_coat_DNA",
+    "stage_1_class": "immune",
+    "stage_1_panel": "Xu-538",
+    "stage_1_panel_sha": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+    "stage_1_H_min": 0.838889,
+    "stage_1_scoring": [
+      "pooled_entropy_A_immune",
+      "directional_A_dir"
+    ],
+    "stage_2_module": "Moss_2018_NNLS_tissue_of_origin",
+    "stage_2_detection_floor": "4_percent_cfDNA",
+    "stage_3_module": "EpiDISH_RPC_immune_subcomposition"
+  },
+  "disease_signature_catalog": [
+    {
+      "disease": "Breast cancer",
+      "card": "breast-epic",
+      "expected_direction": "positive",
+      "expected_magnitude_d": "+0.45 to +0.71 pre-dx; +1.36 to +1.78 at >10yr lookback",
+      "per_cpg_pattern": "uniform_positive",
+      "stage_2_target_tissue": "breast_ductal",
+      "stage_2_target_class": "secretory",
+      "stage_2_H_min": 0.843264,
+      "validation_status": "cross_platform_validated",
+      "validation_runs": [
+        "VAL-047 Phase 9+12",
+        "VAL-060 TCGA-BRCA tissue arm"
+      ],
+      "specimen_primary": "blood_buffy_coat",
+      "specimen_alternates": [
+        "NAF_nipple_aspirate_fluid",
+        "tissue_biopsy_450K"
+      ],
+      "v0_2_annotation": {
+        "sub_cell_type_resolution": "breast-LL-007 resolution-collapse",
+        "breastref_atlas_outcome_on_VAL_093": "All 7 EpiSCORE BreastRef tiles (basal epithelial, luminal epithelial, fibroblast, fat, lactocyte, vascular endothelial, lymphocyte) read positive at d \u2248 +1.0 to +1.2 on TCGA-BRCA tumor + adjacent-normal. Atlas registers tumor-driven architectural drift but cannot isolate which sub-cell-type is the dominant signal source.",
+        "cell_of_origin_dedifferentiation_pattern": "Likely exists biologically (luminal adenocarcinoma standard pathology) but NOT isolatable at current atlas resolution. Future atlas improvement or alternative atlas family required.",
+        "pre_diagnostic_blood_signal": "Cookbook strongest. VAL-047 Phase 9 GSE51057 EPIC-Italy >10yr pre-diagnostic d = +1.78. Replicated on GSE51032 Phase 12. Operational TODAY for breast (research-grade).",
+        "cross_reference_to": "cross_card_synthesis (prostate vs breast)"
+      }
+    },
+    {
+      "disease": "Colorectal cancer",
+      "card": "crc-epic",
+      "expected_direction": "negative",
+      "expected_direction_rationale": "cycling_class_immune_inversion",
+      "expected_magnitude_d": "-0.33 pre-dx",
+      "per_cpg_pattern": "uniform_negative",
+      "stage_2_target_tissue": "colon_epithelial",
+      "stage_2_target_class": "cycling",
+      "stage_2_H_min": 0.856055,
+      "validation_status": "cross_platform_validated",
+      "validation_runs": [
+        "VAL-047 Phase 12",
+        "VAL-062 TCGA-COAD tissue arm (cycling-class rescore)"
+      ],
+      "specimen_primary": "blood_buffy_coat",
+      "specimen_alternates": [
+        "stool_methylation_Cologuard_compatible",
+        "tissue_biopsy_450K"
+      ]
+    },
+    {
+      "disease": "Alzheimer's disease",
+      "card": "ad-immune",
+      "expected_direction": "pooled_null_directional_positive",
+      "expected_magnitude_d": "+0.08 pooled / +0.62 directional",
+      "per_cpg_pattern": "bidirectional_requires_directional_panel",
+      "directional_panel": "AD_7CpG_Rule_A",
+      "stage_2_target_tissue": "NULL",
+      "stage_2_target_rationale": "blood_brain_barrier_excludes_brain_cfDNA_from_plasma",
+      "validation_status": "cross_platform_validated",
+      "validation_runs": [
+        "VAL-051 AIBL",
+        "VAL-052 AddNeuroMed"
+      ],
+      "specimen_primary": "blood_buffy_coat"
+    },
+    {
+      "disease": "Lung cancer (NSCLC)",
+      "card": "lung-epic",
+      "expected_direction": "positive",
+      "expected_magnitude_d": "+0.35 to +0.50 pre-dx",
+      "per_cpg_pattern": "uniform_positive",
+      "stage_2_target_tissue": "lung_epithelial",
+      "stage_2_target_class": "cycling",
+      "stage_2_H_min": 0.856055,
+      "validation_status": "multi_modal_validated",
+      "validation_runs": [
+        "VAL-056 Kadota+Moss+TCGA_LUAD_LUSC"
+      ],
+      "specimen_primary": "blood_buffy_coat",
+      "specimen_alternates": [
+        "sputum_bronchial_cells"
+      ]
+    },
+    {
+      "disease": "Prostate cancer",
+      "card": "prostate-epic",
+      "expected_direction": "positive",
+      "expected_magnitude_d": "Stage 1 paired d = +0.50 (VAL-058 sealed +0.4973; VAL-118 reproduction +0.5258 within \u00b10.10 tolerance)",
+      "per_cpg_pattern": "balanced bidirectional 217/481 hyper / 264/481 hypo (~45/55), pooled-positive via Shannon symmetry",
+      "stage_2_target_tissue": "prostate_epithelial",
+      "stage_2_target_class": "secretory",
+      "stage_2_H_min": 0.843264,
+      "validation_status": "multi_modal_validated_plus_multi_atlas_calibrated",
+      "validation_runs": [
+        "VAL-058 GSE269244 Stage 1 tissue arm (v0.2 anchor)",
+        "VAL-117 ProstateRef Phase B calibration on TCGA n=210 (KIRC + PRAD adjacent-normal HM450K sesame Level 3)",
+        "VAL-118 Phase C multi-atlas run-everything on GSE269244 (n=238 EPIC 850K, 118 paired AA men)"
+      ],
+      "specimen_primary": "blood_buffy_coat",
+      "specimen_alternates": [
+        "post_DRE_urine",
+        "tissue_biopsy_450K"
+      ],
+      "v0_3_sealed_2026_04_30": {
+        "cell_of_origin_tile_signature": {
+          "atlas": "EpiSCORE ProstateRef CpG-bridged to 2,603 unique 450K CpGs \u00d7 6 prostate cell types",
+          "atlas_sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2",
+          "tiles": {
+            "LE_luminal_epithelial": {
+              "d_paired": -0.767,
+              "direction": "LE_NEGATIVE",
+              "biological_interpretation": "luminal dedifferentiation (DISC-PROSTATE-003)",
+              "role": "PCa cell of origin"
+            },
+            "BE_basal_epithelial": {
+              "d_paired": 0.477,
+              "direction": "BE_POSITIVE"
+            },
+            "EC_vascular_endothelial": {
+              "d_paired": 1.284,
+              "direction": "EC_POSITIVE"
+            },
+            "Fib_fibroblasts": {
+              "d_paired": 1.311,
+              "direction": "Fib_POSITIVE"
+            },
+            "Leu_intra_prostatic_leukocytes": {
+              "d_paired": 0.999,
+              "direction": "Leu_POSITIVE"
+            },
+            "SM_smooth_muscle": {
+              "d_paired": 1.092,
+              "direction": "SM_POSITIVE"
+            }
+          },
+          "pattern": "five_vs_one_direction_split \u2014 cell of origin LE dedifferentiates while microenvironment develops architectural complexity",
+          "operational_diagnostic": "A_LE BELOW VAL-117 healthy-floor q5 = 0.4190 flags luminal dedifferentiation drift"
+        },
+        "stage_3_sub_cell_type_signature": {
+          "salas_idol_blood_epic_atlas": {
+            "Mono": 0.77,
+            "Bcell": 0.67,
+            "CD4T": 0.66,
+            "NK": 0.65,
+            "CD8T": 0.59,
+            "Neu": 0.39
+          },
+          "unilife_19_cell_overlay_atlas": {
+            "aMono_activated_monocyte": 0.47,
+            "aNeu_activated_neutrophil": 0.43,
+            "Mono": 0.39
+          },
+          "lineup_pattern": "monocyte_led_TIL_infiltration",
+          "lineup_ranking": "monocyte > Bcell > CD4T > NK > CD8T > neutrophil",
+          "biological_interpretation": "Possible TAM (tumor-associated macrophage) recruitment; B-cell second-position consistent with reported tertiary lymphoid structures in prostate cancer; signature consistent with Berglund 2024 published CD40/OX40L/STING DMRs from independent EWAS."
+        },
+        "discoveries_sealed": [
+          "DISC-PROSTATE-001: gene-promoter atlas family fitness depends on per-tissue cell-type distinctness; ProstateRef separates where HeartRef collapsed (extends LL-CARDIO-005)",
+          "DISC-PROSTATE-002: cell-of-origin atlas preregs MUST use magnitude-based |d| thresholds with direction labels; formalized as cookbook-wide CHK-2.7",
+          "DISC-PROSTATE-003: ProstateRef LE tile reads tumor strongly NEGATIVE (luminal dedifferentiation); operational diagnostic A_LE < q5=0.4190"
+        ],
+        "audit_trail": {
+          "first_execution_outcome": "O5_LE_DIRECTION_FLIP_UNANTICIPATED (commit edf6229) \u2014 preserved as discipline-discovery record",
+          "amendment_threshold_change": "magnitude-based |d| \u2265 0.30 with direction labels, sealed BEFORE re-execution per CCL-041",
+          "amended_outcome": "O1_MULTI_ATLAS_CONVERGENT + O2_LE_TILE_DIFFERENTIATING (LE_NEGATIVE) + O4_STAGE_3_IMMUNE_SHIFT_PROMINENT (commit 58ecd16)",
+          "github_commit_chain": "40ce175 \u2192 edf6229 \u2192 58ecd16 \u2192 c5ee9d5 \u2192 388e5b0"
+        },
+        "pre_diagnostic_blood_signal_status": "NOT YET. FitzGerald 2017 MCCS pre-dx and Howard AA EPIC are biobank-gated v1.0+ targets. Prostate cancer sheds substantially less DNA into plasma than breast, expected to limit signal magnitude.",
+        "cross_reference_to": "cross_card_synthesis (prostate vs breast)"
+      }
+    },
+    {
+      "disease": "Hepatocellular carcinoma",
+      "card": "hcc-epic",
+      "expected_direction": "positive_possibly_bidirectional",
+      "expected_magnitude_d": "~+0.40 HCC-specific; cirrhosis vs early HCC 8.03x separability on combined-score",
+      "per_cpg_pattern": "may_require_directional_panel",
+      "stage_2_target_tissue": "hepatocyte",
+      "stage_2_target_class": "secretory",
+      "stage_2_H_min": 0.843264,
+      "validation_status": "cross_cohort_validated",
+      "validation_runs": [
+        "VAL-059 GSE281691+GSE298812"
+      ],
+      "specimen_primary": "blood_buffy_coat",
+      "specimen_alternates": [
+        "ccfDNA_plasma"
+      ]
+    },
+    {
+      "disease": "Pancreatic cancer",
+      "card": "pancreatic-epic",
+      "expected_direction": "PREDICTED_positive",
+      "expected_magnitude_d": "~+0.40 per VAL-046 Rotterdam n=182",
+      "per_cpg_pattern": "likely_uniform_positive",
+      "stage_2_target_tissue": "pancreatic_exocrine",
+      "stage_2_target_class": "secretory",
+      "stage_2_H_min": 0.843264,
+      "validation_status": "PENDING",
+      "build_phase": "B"
+    },
+    {
+      "disease": "Gastric cancer",
+      "card": "gastric-epic",
+      "expected_direction": "PREDICTED_negative_cycling_like_inversion",
+      "expected_magnitude_d": "-0.30 to -0.60 predicted",
+      "per_cpg_pattern": "inversion_predicted",
+      "stage_2_target_tissue": "gastric_epithelial",
+      "stage_2_target_class": "cycling",
+      "stage_2_H_min": 0.856055,
+      "validation_status": "PENDING",
+      "build_phase": "B",
+      "cohort_hunt_status": "East_Asian_cohorts_priority"
+    },
+    {
+      "disease": "Bladder cancer",
+      "card": "bladder-epic",
+      "expected_direction": "PREDICTED_negative_cycling_like_inversion",
+      "expected_magnitude_d": "-0.20 to -0.40 predicted",
+      "per_cpg_pattern": "inversion_predicted",
+      "stage_2_target_tissue": "bladder_epithelial",
+      "stage_2_target_class": "cycling",
+      "stage_2_H_min": 0.856055,
+      "validation_status": "PENDING",
+      "build_phase": "C",
+      "specimen_primary_preferred": "urine_urothelial_cells"
+    },
+    {
+      "disease": "Cervical cancer",
+      "card": "cervical-epic",
+      "expected_direction": "positive",
+      "expected_magnitude_d": "d >= +1.0 on cervical-mucosa specimen",
+      "per_cpg_pattern": "uniform_positive",
+      "stage_2_target_tissue": "cervical_epithelial",
+      "stage_2_target_class": "cycling",
+      "stage_2_H_min": 0.856055,
+      "validation_status": "validated_on_mucosa_specimen",
+      "validation_runs": [
+        "VAL-042 WID-CIN n=2254"
+      ],
+      "specimen_primary_preferred": "cervical_mucosa_pap_smear"
+    },
+    {
+      "disease": "Kidney cancer (RCC)",
+      "card": "kidney-epic",
+      "expected_direction": "PREDICTED_positive",
+      "expected_magnitude_d": "+0.30 to +0.50 predicted (KIRC and KIRP both cycling-class in Issue 002 TCGA panel)",
+      "per_cpg_pattern": "likely_uniform_positive",
+      "stage_2_target_tissue": "kidney_epithelial",
+      "stage_2_target_class": "cycling",
+      "stage_2_H_min": 0.856055,
+      "validation_status": "PENDING",
+      "build_phase": "C",
+      "cookbook_v21_addition": true
+    },
+    {
+      "disease": "Glioma / GBM / LGG",
+      "card": "glioma-epic",
+      "expected_direction": "weak_or_null_in_plasma",
+      "expected_magnitude_d": "blood_likely_small; CSF_strong",
+      "per_cpg_pattern": "underpowered_in_plasma",
+      "stage_2_target_tissue": "neuron_plus_oligodendrocyte",
+      "stage_2_target_class": "terminal",
+      "stage_2_H_min": 0.772837,
+      "validation_status": "stage2_localized_in_CSF_only",
+      "validation_runs": [
+        "VAL-041 Moss CSF localization",
+        "VAL-031 brain cortex terminal tumor A~1.25"
+      ],
+      "specimen_primary_required": "CSF_not_plasma",
+      "specimen_rationale": "brain_cfDNA_only_0.5_percent_of_plasma_below_4_percent_detection_floor",
+      "scope_restriction": "post_diagnosis_monitoring_only_not_pre_diagnostic_screening"
+    },
+    {
+      "disease": "Cardiovascular disease",
+      "card": "cardio-epic",
+      "expected_direction": "PREDICTED_positive_chronic_inflammation_pattern",
+      "expected_magnitude_d": "d = +0.2 to +0.4 estimated from CHD cohort methylation literature",
+      "per_cpg_pattern": "monocyte_shift_plus_FOXP3_Treg_plus_ZBTB12",
+      "stage_2_target_tissue": "NULL_systemic_vascular_inflammation_not_localized",
+      "validation_status": "PENDING",
+      "build_phase": "D",
+      "literature_anchors": [
+        "Circulation 2019 EWAS meta-analysis n=11461 9 cohorts ARIC CHS FHS InCHIANTI KORA NAS WHI-EMPC WHI-BAA23 EPICOR 1895 incident CHD 11.2yr follow-up",
+        "Nat Commun 2025 DNA methylation predicts CAD adverse outcomes prognostic models",
+        "Clinical Epigenetics 2019 WHI+FHS WGCNA monocyte-specific modules",
+        "Zhu 2018 FOXP3 Treg methylation n=171 acute CHD severity correlation",
+        "Guarrera 2015 ZBTB12 15-CpG panel AUC improvement 0.66->0.69 women 0.70 men"
+      ]
+    },
+    {
+      "disease": "Hematologic malignancies (AML / DLBCL / CLL / thymoma / MM)",
+      "card": "heme-epic",
+      "expected_direction": "strongly_positive",
+      "expected_magnitudes": {
+        "AML": "A_combined ~1.10, delta_A = +0.168 cfDNA level",
+        "DLBCL": "A_combined ~1.13, delta_A = +0.203",
+        "thymoma": "A ~1.09",
+        "CLL": "A ~1.07 DETECTABLE tier",
+        "MM": "referenced but less characterized"
+      },
+      "per_cpg_pattern": "disease_specific_directional_per_subtype",
+      "stage_2_target_tissue": "NULL",
+      "stage_2_target_rationale": "immune_class_IS_diseased_tissue",
+      "stage_3_critical": true,
+      "stage_3_discrimination": "lymphocyte_shift_vs_myeloid_shift_vs_CHIP_pattern",
+      "validation_status": "validated_at_tcga_tissue_level",
+      "literature_anchors": [
+        "Ley 2013 NEJM TCGA AML n=200",
+        "Chapuy 2018 DLBCL n=48",
+        "TCGA thymoma n=120",
+        "Hannum 2013 GSE40279 inflammaging context"
+      ],
+      "build_phase": "B"
+    }
+  ],
+  "stage_1_positive_stage_2_null_pathways": [
+    {
+      "pathway_id": 1,
+      "pathway_name": "Terminal-class disease hidden by specimen problem",
+      "trigger_pattern": {
+        "stage_1_direction": "weakly_positive_or_null",
+        "stage_1_directional_panel": "mild_elevation",
+        "clinical_symptoms": "neurological_or_cognitive_or_cardiac",
+        "stage_2_result": "no_solid_organ_localization"
+      },
+      "framework_basis": "terminal_class_H_min_0.7728_lowest_in_framework; per_cell_delta_A_huge_GBM=0.217_LGG=0.239; plasma_cfDNA_only_0.5_percent_brain_below_4_percent_detection_floor",
+      "recommended_actions": [
+        "Neurology_consult",
+        "CSF_draw_if_indicated",
+        "AD_trajectory_6_12_month_serial_blood",
+        "Imaging_review"
+      ],
+      "related_cards": [
+        "glioma-epic",
+        "future_cardio_terminal_post_MI_card"
+      ]
+    },
+    {
+      "pathway_id": 2,
+      "pathway_name": "Hematologic/immune-compartment disease",
+      "trigger_pattern": {
+        "stage_1_direction": "strongly_positive",
+        "per_cpg_pattern": "lymphocyte_shift_or_unusual_subcomposition",
+        "stage_3_epiDISH": "out_of_Salas_2018_range"
+      },
+      "framework_basis": "immune_compartment_cancers_defined_A_scores_AML_1.10_DLBCL_1.13_CLL_1.07_thymoma_1.09; CHIP_precedes_AML_by_years_WPS_signature",
+      "recommended_actions": [
+        "CBC_with_differential",
+        "EpiDISH_Stage_3_subcomposition_analysis",
+        "Hematology_consult_if_lymphocyte_shift",
+        "Chronic_inflammation_workup_if_neutrophil_shift",
+        "Flow_cytometry_bone_marrow_if_clonal_hematopoiesis_suspected"
+      ],
+      "related_cards": [
+        "heme-epic"
+      ]
+    },
+    {
+      "pathway_id": 3,
+      "pathway_name": "Cardiovascular/systemic inflammatory disease",
+      "trigger_pattern": {
+        "stage_1_direction": "positive",
+        "per_cpg_pattern": "monocyte_shift_plus_FOXP3_plus_ZBTB12",
+        "patient_risk_factors": "CVD_risk_profile_age_hypertension_diabetes_smoking_hyperlipidemia"
+      },
+      "framework_basis": "systemic_vascular_inflammation_not_localized_tumor; 9_cohort_meta_analysis_n_11461_CHD_prediction_published_in_Circulation_2019",
+      "recommended_actions": [
+        "Lipid_panel",
+        "hsCRP",
+        "Blood_pressure",
+        "HbA1c",
+        "Coronary_calcium_score_if_signature_matches",
+        "Lifestyle_intervention"
+      ],
+      "related_cards": [
+        "cardio-epic"
+      ]
+    },
+    {
+      "pathway_id": 4,
+      "pathway_name": "Unexplained immune drift \u2014 serial trajectory watch",
+      "trigger_pattern": {
+        "stage_1_direction": "modest_elevation",
+        "per_cpg_pattern": "no_distinctive_match",
+        "stage_2_result": "null",
+        "clinical_symptoms": "absent"
+      },
+      "framework_basis": "early_upstream_drift_below_any_single_disease_detection_threshold; serial_sampling_trajectory_discriminates_benign_inflammaging_from_early_pre_malignant",
+      "recommended_actions": [
+        "No_immediate_workup",
+        "6_month_serial_EDEAR_blood_draw",
+        "Stage_2_re_analysis_with_increased_sensitivity_if_trajectory_rises",
+        "Return_to_baseline_screening_if_signature_normalizes"
+      ],
+      "related_reference": "README_MASTER_v2.1_serial_sampling_trajectory_subsection"
+    }
+  ],
+  "pathway_routing_algorithm": {
+    "description": "Ordered decision tree for routing a Stage-1-positive Stage-2-null case into one of the four pathways",
+    "decision_tree": [
+      {
+        "step": 1,
+        "check": "stage_1_signature_matches_known_disease_card_at_cross_platform_validated_tier",
+        "if_true_action": "report_matched_card_signature_with_confidence_score",
+        "if_false_go_to": 2
+      },
+      {
+        "step": 2,
+        "check": "clinical_symptoms_neurological_or_cognitive",
+        "if_true_action": "route_to_pathway_1_terminal",
+        "if_false_go_to": 3
+      },
+      {
+        "step": 3,
+        "check": "stage_1_magnitude_strong_AND_stage_3_EpiDISH_out_of_healthy_range",
+        "if_true_action": "route_to_pathway_2_heme",
+        "if_false_go_to": 4
+      },
+      {
+        "step": 4,
+        "check": "per_cpg_monocyte_FOXP3_ZBTB12_signature_match_AND_CVD_risk_factors_present",
+        "if_true_action": "route_to_pathway_3_cardio",
+        "if_false_go_to": 5
+      },
+      {
+        "step": 5,
+        "check": "default_when_no_specific_pattern_matched",
+        "action": "route_to_pathway_4_trajectory_watch"
+      }
+    ]
+  },
+  "card_evolution_targets": {
+    "v0_2": "Add trajectory rate-of-change columns for each validated disease (requires serial cohort data)",
+    "v0_3": "Mahalanobis distance differential ranker locked into production",
+    "v1_0": "All 15 Cookbook cards validated to cross_platform_validated tier",
+    "v3_0": "20+ disease rows including non-cancer applications (inflammaging, autoimmune subtypes, chronic infection, metabolic syndrome)"
+  },
+  "related_lessons_learned": [
+    "CCL-019_direction_depends_on_class_compartment_pair_not_disease_alone",
+    "CCL-020_same_panel_same_disease_different_specimen_opposite_direction",
+    "CCL-021_4_percent_cfDNA_detection_floor_creates_structured_S1pos_S2null_patterns",
+    "CCL-022_single_timepoint_flag_serial_trajectory_diagnostic",
+    "DISC-PROSTATE-001 (2026-04-30): atlas family fitness depends on per-tissue cell-type distinctness (extends LL-CARDIO-005)",
+    "DISC-PROSTATE-002 (2026-04-30): cell-of-origin atlas preregs MUST use magnitude-based |d| thresholds with direction labels (cookbook-wide CHK-2.7)",
+    "DISC-PROSTATE-003 (2026-04-30): ProstateRef LE tile reads tumor strongly NEGATIVE (luminal dedifferentiation); operational diagnostic A_LE < q5=0.4190",
+    "breast-LL-007 (2026-04-30): BreastRef cell-of-origin tile resolution-collapse on TCGA-BRCA",
+    "immune-atlas-LL-001 (2026-04-30): Stage 3 sub-cell-type lineup as differential dimension",
+    "immune-atlas-LL-002 (2026-04-30): Rosetta Stone reframe - card is not differential-diagnosis engine alone but Stage 1 interpretation engine + Stage 2 atlas cross-reference + Stage 3 OQ-2026-01 staging hub. Card position #15 of 15 reflects dependency-final not operational unimportance.",
+    "immune-atlas-LL-003 (2026-04-30): OQ-2026-01 canonical home moved to this card section 12. Other cards reference here.",
+    "immune-atlas-LL-004 (2026-04-30): CCL-027 four-question centralization. Future cards complete CCL-027 in own README; this card consolidates cross-reference in section 11.",
+    "immune-atlas-LL-005 (2026-04-30): v0.3-disease vs v1.0-symptom architectural lifecycle. Phase 1 disease-organized for learning; Phase 2 symptom-organized for bedside use. Flip when disease catalog stops adding new branches.",
+    "immune-atlas-LL-006 (2026-04-30): bidirectional-as-default operational doctrine. Pooled A_immune NEVER sole metric. Operator must always assume bidirectional behavior is possible until ruled out by Test 2 (pending OQ-2026-01).",
+    "immune-atlas-LL-007 (2026-04-30): RUN-everything as concurrent-disease safety net. Patients do not present with one disease at a time. Conditional gating would let one signal dominate and others get filtered out.",
+    "immune-atlas-LL-008 (2026-04-30): demographics as mandatory analysis stratifiers. Sex, age, smoking, ancestry, HPV, HIV, immunosuppression, pregnancy, treatment stage - each mandatory or recommended per disease per card CCL-027 answers."
+  ],
+  "language_discipline_outputs": {
+    "allowed": [
+      "signature_most_consistent_with_disease_X_Y_Z",
+      "signature_does_not_match_established_card_at_DETECTABLE_tier",
+      "pattern_characteristic_of_disease_category_recommend_workup",
+      "serial_sampling_trajectory_recommended"
+    ],
+    "forbidden": [
+      "confirms_disease_X",
+      "diagnoses_disease_Y",
+      "rules_out_disease_Z",
+      "you_have_disease_X",
+      "your_test_is_negative_for_disease_Y"
+    ]
+  },
+  "date_amended": "2026-04-30",
+  "v0_2_amendment_summary": "Prostate row updated post-VAL-117 + VAL-118 sealed (multi-atlas calibrated, sealed direction-flip in cell-of-origin tile, monocyte-led TIL signature). Breast row annotated with sub-cell-type resolution-collapse note (breast-LL-007). NEW top-level keys: stage_3_sub_cell_type_signatures, cross_card_synthesis. v0.1 content preserved verbatim for all other diseases.",
+  "stage_3_sub_cell_type_signatures": {
+    "description": "Cards with sealed Stage 3 multi-atlas data. Expanded in v0.3 from prostate-only to 5 sealed cards plus heme analog.",
+    "cards_with_sealed_stage_3_data": [
+      {
+        "card": "prostate-epic",
+        "val_id": "VAL-118",
+        "date_sealed": "2026-04-30",
+        "cohort": "GSE269244 n=238 EPIC 850K paired tumor + adjacent-normal AA men",
+        "salas_idol": {
+          "Mono": 0.77,
+          "Bcell": 0.67,
+          "CD4T": 0.66,
+          "NK": 0.65,
+          "CD8T": 0.59,
+          "Neu": 0.39
+        },
+        "unilife_overlay": {
+          "aMono": 0.47,
+          "aNeu": 0.43,
+          "Mono": 0.39
+        },
+        "lineup_ranking": "monocyte_gt_Bcell_gt_CD4T_gt_NK_gt_CD8T_gt_neutrophil",
+        "distinctive_feature": "monocyte_led_NOT_T_cell_led",
+        "biological_interpretation": "TAM_recruitment_B_cell_second_consistent_with_tertiary_lymphoid_structures_Berglund_2024"
+      },
+      {
+        "card": "breast-epic",
+        "val_id": "VAL-095",
+        "cohort": "GSE51057 + GSE51032 paired pre-diagnostic blood",
+        "gt_10yr_window": {
+          "unilife_aTreg_GSE51057": 1.26,
+          "unilife_aTreg_GSE51032": 0.79,
+          "salas_CD4T_GSE51057": 0.36,
+          "salas_CD4T_GSE51032": 0.07
+        },
+        "window_0_2yr": {
+          "unilife_aBnv_GSE51057": 0.44,
+          "unilife_aBnv_GSE51032": 0.49,
+          "salas_Bcell_GSE51057": 0.31,
+          "salas_Bcell_GSE51032": 0.36
+        },
+        "lineup_ranking": "time_window_dependent_long_pre_dx_aTreg_led_near_dx_aBnv_led"
+      },
+      {
+        "card": "glioma-epic",
+        "val_id": "VAL-090",
+        "date_sealed": "2026-04-25",
+        "cohort": "GSE180683 n=76 glioma EPIC blood + GSE51057 n=177 healthy",
+        "cortical_neuron_d": 1.96,
+        "cortical_neuron_ci_95": [
+          1.62,
+          2.31
+        ],
+        "cell_fraction_bracci_2022_confirmed": {
+          "neutrophils_pct_change": 16,
+          "lymphocytes_pct_change": -13
+        },
+        "tissue_arm_GSE60274": {
+          "NTB_neuron_pct": 62.4,
+          "GBM_primary_neuron_pct": 39.3,
+          "GBM_primary_d_vs_NTB": -2.81
+        },
+        "lineup_pattern": "cortical_neuron_plus_Bracci_confirmed_lymphocyte_neutrophil_shift_orthogonal_to_A_score"
+      },
+      {
+        "card": "ad-immune",
+        "val_id": "descriptive_exploratory",
+        "method": "EpiDISH_RPC_6_cell_subtypes",
+        "literature_pattern": "T_cell_senescence_CD4_CD8_ratio_shift_elevated_NLR_altered_monocyte_methylation",
+        "edear_stage_3_status": "EXPLORATORY_descriptive_pending_dedicated_AD_specific_validation"
+      },
+      {
+        "card": "heme-epic",
+        "role": "closest_existing_OQ_2026_01_analog",
+        "three_arm_structure": {
+          "lymphoid_B": {
+            "cards_mapped": [
+              "DLBCL",
+              "CLL",
+              "MM"
+            ],
+            "A_combined_predicted": "1.07_to_1.13"
+          },
+          "lymphoid_T": {
+            "cards_mapped": [
+              "thymoma"
+            ],
+            "A_combined_predicted": 1.09
+          },
+          "myeloid": {
+            "cards_mapped": [
+              "AML"
+            ],
+            "A_combined_predicted": 1.1
+          }
+        },
+        "description": "card_structure_IS_lymphoid_vs_myeloid_discrimination_at_disease_level"
+      }
+    ],
+    "cards_pending_stage_3_runs": [
+      "breast-epic_Salas_IDOL_retroactive_run_on_VAL_060",
+      "crc-epic_Stage_3_immune_sub_composition_on_VAL_061",
+      "lung-epic_Stage_3_multi_atlas_smoking_stratified",
+      "hcc-epic_Stage_3_multi_atlas_on_VAL_059",
+      "cervical-epic_Stage_3_multi_atlas_HPV_stratified",
+      "cardio-epic_Stage_3_multi_atlas_substrate_stratified",
+      "pancreatic-epic_Stage_3_multi_atlas_OQ_2026_01_priority_unlock",
+      "gastric_bladder_kidney_pending"
+    ]
+  },
+  "cross_card_synthesis": {
+    "description": "Cross-card comparisons. Expanded in v0.3 from 1 pair to 10 pairs.",
+    "pairs_v0_3": [
+      {
+        "pair": "prostate_vs_breast",
+        "preserved_from_v0_2": true,
+        "one_line": "Breast cancer is the cancer EDEAR catches earliest in pre-diagnostic blood; prostate cancer is the cancer EDEAR sees the cleanest cell-of-origin signature in tumor tissue."
+      },
+      {
+        "pair": "lung_vs_CRC",
+        "one_line": "Lung and CRC share architectural class but diverge at the immune-compartment compartment-flip: lung drives systemic immune activation in pre-diagnostic blood, CRC drives systemic immune tolerance."
+      },
+      {
+        "pair": "lung_vs_breast",
+        "one_line": "Tissue-arm effect size ordering d(lung) > d(CRC) > d(breast) > d(prostate) is consistent with tumor mutational burden ordering."
+      },
+      {
+        "pair": "glioma_vs_AD",
+        "one_line": "Both produce immune-class architectural drift readable in peripheral blood despite BBB cfDNA limitation. Different patterns, both Pathway 1."
+      },
+      {
+        "pair": "HCC_vs_breast",
+        "one_line": "Substrate-as-discriminator is HCC gift. Same disease class, different substrate gives different signal."
+      },
+      {
+        "pair": "PDAC_vs_AD",
+        "one_line": "AD and PDAC are the cookbook two canonical Pattern 3 cases. Both teach: pooled-null does not mean biology-null."
+      },
+      {
+        "pair": "cardio_vs_everything_pathway_3_hub",
+        "description": "cardio-epic v0.3 canonical Pathway 3 card. Substrate-stratified Stage 1.",
+        "implication": "When Stage 2 returns null and patient has CVD risk factors, Pathway 3 is the route."
+      },
+      {
+        "pair": "heme_vs_everything_pathway_2_hub_oq_2026_01_closest_analog",
+        "description": "heme-epic v0.1 canonical Pathway 2 card and closest OQ-2026-01 analog."
+      },
+      {
+        "pair": "cervical_vs_everything_cohort_direction_flip_ccl_019",
+        "description": "cervical-epic v0.1 canonical cohort-direction-flip lesson. VAL-073/074/081 across cohort designs.",
+        "implication": "Any disease where healthy reference is stratified by disease-relevant covariate requires that covariate as Stage 1 stratifier."
+      },
+      {
+        "pair": "pancreatic_vs_everything_second_pooled_null_directional_pass",
+        "implication": "PDAC confirms Pattern 3 not unique to AD. Build directional fallback during card v0.1."
+      }
+    ]
+  },
+  "date_amended_v0_3": "2026-04-30",
+  "card_role": "stage_1_interpretation_engine + stage_2_atlas_cross_reference + stage_3_oq_2026_01_staging_hub",
+  "v0_3_amendment_summary": "Card promoted from reference_document to rosetta_reference_card. Reframed from v0.1 differential-diagnosis engine to v0.3 three-role operational engine: Stage 1 interpretation + Stage 2 atlas cross-reference + Stage 3 OQ-2026-01 staging. NEW master sections: pre-test integrity protocol, cookbook doctrine that touches immune class (CCL-006/019/023/027/028/030/031/032/039), CCL-027 four-question master cross-reference table, CCL-031 five-pattern taxonomy, three doctrine cases (AD/HCC/glioma gifts), Stage 2 atlas registry, Stage 3 sub-cell-type signatures expanded to 5 sealed cards + heme analog, OQ-2026-01 canonical home moved here, cross-card syntheses expanded from 1 pair to 10 pairs, open atlas-coverage gaps, future v1.0 reorganization plan. Lessons learned grow with immune-atlas-LL-002 through LL-008. v0.1 + v0.2 content preserved verbatim.",
+  "pre_test_integrity_protocol_v0_3": {
+    "mandatory_first_step": true,
+    "rule": "Before ANY interpretation downstream of Stage 1, the operator MUST verify the test passed all six data integrity checks, the biology consistency check, and the demographics stratification check.",
+    "fixed_diagnostic_order_ccl_032": "data_integrity -> biology_consistency -> framework_finding",
+    "six_data_integrity_checks": {
+      "CHK_3_1_raw_beta_distribution": {
+        "rule": "Real raw beta is bimodal: >30% at extremes (<0.1 or >0.9) AND <10% in middle (0.4-0.6)",
+        "failure_examples": [
+          "VAL-100 GSE282666 polyp: extreme 3.9% middle 6.8%",
+          "VAL-077 GSE287994 cervical LBC: 50% middle 12% extremes"
+        ],
+        "action_on_fail": "STOP, reprocess from raw IDATs through minfi/sesame"
+      },
+      "CHK_3_1B_atlas_coverage_substrate_floor": {
+        "rule": "Per-sample atlas-CpG coverage threshold must match substrate floor, NOT default 95%",
+        "substrate_floors": {
+          "TCGA_HM450K_sesame_Level_3": 0.8,
+          "EPIC_850K_native": 0.85,
+          "HM450K_minfi_preprocessFunnorm": 0.92,
+          "bridges_27K_to_450K": "substrate_specific_check_before_pre_lock"
+        },
+        "sealed_precedent": "VAL-117 first execution failed at 0/210 samples on 95% threshold; amendment to 80% sealed before re-execution: 210/210 pass. CHK-2.8 cookbook-wide rule."
+      },
+      "CHK_3_1C_atlas_duplicate_check": {
+        "rule": "Bridged atlases must be deduplicated; SHA-256 must be computed on bridged matrix and verified",
+        "sealed_atlas_shas": {
+          "Xu_538_immune_panel": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+          "ProstateRef_CpG_bridged": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2"
+        }
+      },
+      "CHK_3_2_cross_cohort_baseline_alignment": {
+        "rule": "Healthy mean A-score >1 SD from anchor = cross-cohort calibration failure, NOT disease finding",
+        "sealed_precedent": "VAL-100 polyp PNP- mean A_immune 0.807 vs Italian healthy anchor 0.438 = +15.13 anchor-SD offset",
+        "action_on_fail": "Use within-cohort paired comparison; do NOT interpret cases-vs-controls Cohen d in cross-cohort framing. CCL-034 secondary-evidence tier."
+      },
+      "CHK_3_5_saturation_flag": {
+        "rule": "Each substrate has per-class A-ceiling; approaching ceiling produces saturation compression. Mandatory before any null outcome.",
+        "cycling_class_methyl_ceiling": 1.1681,
+        "cycling_class_methyl_runtime_flag": 1.1631,
+        "cycling_class_nucl": "structurally_saturated_NON_functional_substrate"
+      },
+      "sample_group_assignment_spot_check": {
+        "rule": "Sample-title scan against published Methods BEFORE beta extraction; verify subgroup labels match cohort design",
+        "sealed_precedent": "VAL-075 excluded mid-run because GSE38266 was HNSCC head/neck not cervical (cerv-LL-008)"
+      }
+    },
+    "biology_consistency_check_three_categories": {
+      "transferability_finding": "Clinical-grade panels achieve signal where framework reads null - panel does not transfer to specimen. Outcome: O5_TRANSFERABILITY_FLAG",
+      "cohort_heterogeneity_finding": "Healthy reference is stratified by disease-relevant covariate - the disease has signal but comparator is wrong. Outcome: O5_COHORT_HETEROGENEITY_FLAG",
+      "true_biology_null": "Clinical-grade panels also read null - true biology null at this resolution."
+    },
+    "demographics_mandatory_stratifiers": {
+      "sex_mandatory": [
+        "breast",
+        "prostate",
+        "cervical",
+        "HCC",
+        "lung",
+        "AD",
+        "cardio"
+      ],
+      "sex_recommended": [
+        "CRC",
+        "glioma",
+        "pancreatic",
+        "heme"
+      ],
+      "age_mandatory_all_cards": true,
+      "age_regression_required": "every Stage 1 analysis must report age-regressed A-score alongside raw A-score",
+      "smoking_mandatory": [
+        "lung",
+        "cardio",
+        "bladder"
+      ],
+      "smoking_long_tail_confounder_all_cards": true,
+      "ancestry_mandatory_when": "single-ancestry cohort OR ancestry-stratified disease incidence OR clinical-grade panels trained on different ancestry",
+      "other_per_card_stratifiers": {
+        "cervical": "HPV status (STAGE 1 STRATIFIER per cerv-LL-002)",
+        "HCC_cervical": "HIV status",
+        "all_cards": "immunosuppression / transplant status, pregnancy status, treatment stage, prior cancer history, specimen collection method"
+      }
+    },
+    "bidirectional_as_default_doctrine": {
+      "rule": "Pooled A_immune should NEVER be the sole metric. Operator must always assume bidirectional behavior is possible until ruled out.",
+      "mandatory_outputs_per_stage_1_analysis": [
+        "pooled-entropy A_immune (standard metric)",
+        "per-CpG delta-beta direction percentage (descriptive only per CCL-030)",
+        "directional A_dir panel (when disease has one constructed)"
+      ],
+      "default_assumption": "bidirectional behavior is possible until ruled out by Test 2 (pending OQ-2026-01)"
+    },
+    "atlas_calibration_prerequisite": {
+      "rule": "Before any atlas is used in production for a patient sample, atlas must have sealed Phase B calibration anchor on substrate-matched healthy cohort, with all three CHK gates clear (3.1A, 3.1B, 3.1C) and per-tile healthy-floor distributions sealed."
+    },
+    "ten_failure_mode_fingerprints": [
+      {
+        "fingerprint": "flat beta distribution near 0.5",
+        "meaning": "file is not raw beta",
+        "examples": "VAL-077 VAL-100",
+        "action": "stop reprocess from raw IDATs"
+      },
+      {
+        "fingerprint": "healthy A-score drifted >1 SD from anchor",
+        "meaning": "cross-cohort calibration failure",
+        "action": "use within-cohort paired comparison"
+      },
+      {
+        "fingerprint": "per-sample atlas coverage <80% on TCGA HM450K",
+        "meaning": "expected substrate behavior NOT failure",
+        "action": "verify CHK-2.8 substrate-floor threshold used"
+      },
+      {
+        "fingerprint": "per-sample atlas coverage <50% on EPIC 850K",
+        "meaning": "wrong-platform-bridge or version-mismatch",
+        "action": "verify GPL accession against atlas substrate"
+      },
+      {
+        "fingerprint": "A-score within 5% of substrate ceiling",
+        "meaning": "saturation compression",
+        "action": "switch to non-saturated substrate"
+      },
+      {
+        "fingerprint": "pooled NULL plus per-CpG ~50%",
+        "meaning": "NOT bidirectional cancellation per CCL-030/031",
+        "action": "descriptive only not mechanism"
+      },
+      {
+        "fingerprint": "massive per-cohort A-score range with cohort-internal stratification",
+        "meaning": "cohort heterogeneity in healthy reference",
+        "examples": "cervical VAL-073/074/081",
+        "action": "investigate cohort design per CCL-019"
+      },
+      {
+        "fingerprint": "cross-platform reference comparison without on-study controls",
+        "meaning": "cross-platform confound risk",
+        "action": "tier as exploratory_pending_replication"
+      },
+      {
+        "fingerprint": "O5_DIRECTION_FLIP_UNANTICIPATED",
+        "meaning": "pre-registration over-specification direction-locked when biology supports either",
+        "action": "amend to magnitude-based |d| with direction labels per CCL-041 / CHK-2.7"
+      },
+      {
+        "fingerprint": "Stage 1 immune positive in tumor TIL but negative in pre-dx blood",
+        "meaning": "compartment-direction-flip per CCL-019 NOT bidirectional cancellation",
+        "examples": "VAL-047 + VAL-061 CRC",
+        "action": "document compartment-specific scoring"
+      }
+    ],
+    "six_biology_real_patterns_not_failures": [
+      "pooled NULL plus directional panel passes on holdout = AD-instance pattern AD VAL-050+VAL-051 PDAC VAL-066/067/068+VAL-069 mechanism unresolved per CCL-028",
+      "Stage 1 pooled positive plus Stage 2 null = real biology routes Pathways 1-4",
+      "cell-of-origin tile NEGATIVE in tumor-vs-adjacent-normal while other tiles POSITIVE = CCL-039 homogenization mechanism",
+      "cell-fraction direction Bracci 2022 type and A-score direction reading orthogonal axes = real biology NOT inversion glioma gift VAL-088+VAL-090",
+      "substrate dichotomy HCC ccfDNA d=+0.63 vs whole-blood NULL on metabolic controls = HCC gift NOT failure",
+      "sub-cell-type Stage 3 lineage signature distinct from Stage 1 pooled = OQ-2026-01 territory prostate VAL-118 monocyte-led breast VAL-095 aTreg+aBnv glioma VAL-090 cortical-neuron+cell-fraction"
+    ]
+  },
+  "cookbook_doctrine_immune_class_v0_3": {
+    "CCL_006_cross_disease_direction_differences": {
+      "rule": "Different diseases drive same Xu-538 panel in different directions. Card specifies expected direction per disease.",
+      "cards_exhibiting": "breast positive vs CRC negative on same panel",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-006"
+    },
+    "CCL_019_compartment_direction_flip": {
+      "rule": "A-score direction depends on (class, compartment) pair, not disease alone. Blood immune != tumor-infiltrating immune.",
+      "cards_exhibiting": "crc-epic blood d=-0.33 tumor TIL d=+1.066",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-019"
+    },
+    "CCL_023_v0_2_orthogonal_not_inverted": {
+      "rule": "Cell-fraction direction (Bracci 2022 type) and A-score direction read orthogonal axes, not opposite.",
+      "cards_exhibiting": "glioma-epic canonical VAL-088 + VAL-090",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-023; glioma-epic v0.2 CCL_023_status"
+    },
+    "CCL_027_mandatory_four_question_check": {
+      "rule": "Every card v0.1 must answer: (i) pooled-entropy expected direction; (ii) bidirectional-cancellation risk; (iii) directional-panel fallback specification; (iv) lymphoid-vs-myeloid expected pattern from literature.",
+      "cards_exhibiting": "every card",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-027; master README"
+    },
+    "CCL_028_pooled_null_directional_pass_mechanism_unresolved": {
+      "rule": "When pooled nulls AND directional panel passes, mechanism unresolved between (a) lineage cancellation, (b) z-scoring sensitivity gain, (c) cohort/batch structure. Test 2 would distinguish.",
+      "cards_exhibiting": "ad-immune, pancreatic-epic",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-028"
+    },
+    "CCL_030_per_cpg_delta_beta_descriptive_only": {
+      "rule": "Per-CpG cohort delta-beta direction percentage describes where beta shifted on average. NOT a mechanism diagnostic. 47/50/52% split is not bidirectional cancellation by itself.",
+      "cards_exhibiting": "all cards; cervical-epic VAL-073 canonical example",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-030"
+    },
+    "CCL_031_bidirectional_cancellation_terminology_rule": {
+      "verbatim_single_sentence": "Bidirectional cancellation is the AD-instance pattern: Test 1 pooled A_immune nulls cross-cohort AND a directional plus-or-minus 1 z-scored panel built on the same Stage 1 panel passes on holdout. Compartment-direction-flips, cross-disease direction differences, and negative-direction-dominant cohort-mean delta-beta are NOT bidirectional cancellation.",
+      "cards_confirmed_clean": [
+        "crc-epic v2.1/v2.2",
+        "breast-epic",
+        "ad-immune",
+        "pancreatic-epic v0.1",
+        "cervical-epic v0.1"
+      ],
+      "source_of_truth": "LESSONS_LEARNED.md CCL-031"
+    },
+    "CCL_032_diagnostic_order_fixed": {
+      "rule": "Every cohort run with null or negative-direction reading must complete data integrity -> biology consistency -> framework finding in sequence BEFORE outcome drafted.",
+      "cards_exhibiting": "all cards; cervical-epic VAL-076/077 canonical incident",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-032"
+    },
+    "CCL_039_cell_of_origin_tile_direction_depends_on_comparison_type": {
+      "rule": "Tumor-vs-adjacent-normal paired comparisons: cell-of-origin tile NEGATIVE (homogenization). Diseased-tissue-vs-healthy-cross-reference: cell-of-origin tile POSITIVE. Prereg O1 must specify comparison type with magnitude-based |d| + direction labels.",
+      "cards_exhibiting": "three colorectal cohort configurations confirmed VAL-098 VAL-062 revisit VAL-099 reproduction",
+      "source_of_truth": "LESSONS_LEARNED.md CCL-039; TESTING_CHECKLIST.md CHK-4.11"
+    }
+  },
+  "ccl_027_four_questions_master_table_v0_3": {
+    "question_i_pooled_entropy_expected_direction": [
+      {
+        "disease": "breast",
+        "direction": "positive",
+        "source": "Xu 2020 JNCI",
+        "status": "confirmed VAL-047 Phase 9+12"
+      },
+      {
+        "disease": "colorectal_blood",
+        "direction": "negative",
+        "source": "Xu 2020 cross-disease",
+        "status": "confirmed VAL-047 Phase 12"
+      },
+      {
+        "disease": "colorectal_tumor",
+        "direction": "positive",
+        "source": "TIL literature",
+        "status": "confirmed VAL-061/062/098/099"
+      },
+      {
+        "disease": "AD",
+        "direction": "NULL_pooled",
+        "source": "VAL-050",
+        "status": "confirmed; directional fallback required"
+      },
+      {
+        "disease": "lung",
+        "direction": "positive",
+        "source": "Xu 2020 plus lung lit",
+        "status": "confirmed VAL-046 + VAL-056 + VAL-063"
+      },
+      {
+        "disease": "prostate",
+        "direction": "positive_Shannon_symmetric_on_balanced_bidirectional",
+        "source": "VAL-058",
+        "status": "confirmed VAL-058 + VAL-118"
+      },
+      {
+        "disease": "HCC_ccfDNA",
+        "direction": "positive",
+        "source": "VAL-059",
+        "status": "confirmed substrate-as-discriminator"
+      },
+      {
+        "disease": "HCC_whole_blood_vs_metabolic_controls",
+        "direction": "NULL",
+        "source": "VAL-059",
+        "status": "confirmed transferability flag"
+      },
+      {
+        "disease": "pancreatic",
+        "direction": "NULL_pooled",
+        "source": "VAL-066/067/068",
+        "status": "confirmed; directional fallback required"
+      },
+      {
+        "disease": "glioma_blood",
+        "direction": "positive",
+        "source": "VAL-088",
+        "status": "confirmed orthogonal to cell-fraction prior"
+      },
+      {
+        "disease": "glioma_tissue",
+        "direction": "positive",
+        "source": "VAL-089",
+        "status": "confirmed"
+      },
+      {
+        "disease": "cardio_whole_blood_etiology_pooled",
+        "direction": "NULL",
+        "source": "VAL-108",
+        "status": "confirmed biology-correct null"
+      },
+      {
+        "disease": "cardio_cultured_PECs",
+        "direction": "positive",
+        "source": "VAL-110",
+        "status": "confirmed"
+      },
+      {
+        "disease": "cardio_aortic_tissue",
+        "direction": "positive",
+        "source": "VAL-110",
+        "status": "confirmed"
+      },
+      {
+        "disease": "cervical_Verlaat_tissue_anchor",
+        "direction": "positive",
+        "source": "VAL-073",
+        "status": "confirmed"
+      },
+      {
+        "disease": "cervical_Farkas_Lando_cohorts",
+        "direction": "negative_cohort_heterogeneity_per_CCL_019",
+        "source": "VAL-074 + VAL-081",
+        "status": "cohort heterogeneity not bidirectional"
+      },
+      {
+        "disease": "hematologic_per_arm",
+        "direction": "strongly_positive_subtype_dependent",
+        "source": "TCGA + Chapuy 2018",
+        "status": "predicted"
+      },
+      {
+        "disease": "gastric",
+        "direction": "negative_predicted",
+        "source": "crc-epic precedent",
+        "status": "PENDING"
+      },
+      {
+        "disease": "bladder",
+        "direction": "negative_predicted",
+        "source": "crc-epic precedent",
+        "status": "PENDING"
+      },
+      {
+        "disease": "kidney",
+        "direction": "positive_predicted",
+        "source": "predicted",
+        "status": "PENDING"
+      }
+    ],
+    "question_ii_bidirectional_cancellation_risk": [
+      {
+        "disease": "AD",
+        "risk": "HIGH_confirmed_pooled_null_directional_pass",
+        "source": "VAL-050/051; Mastroeni 2020"
+      },
+      {
+        "disease": "pancreatic",
+        "risk": "HIGH_confirmed_pooled_null_directional_pass",
+        "source": "VAL-066/067/068/069; Clark 2007"
+      },
+      {
+        "disease": "glioma",
+        "risk": "YES_per_literature_NO_per_VAL_088_pooled",
+        "source": "Bracci 2022; pooled passes positive"
+      },
+      {
+        "disease": "cardiovascular",
+        "risk": "YES_per_literature",
+        "source": "CCL-021 monocyte-shift + FOXP3 Treg + ZBTB12"
+      },
+      {
+        "disease": "hematologic",
+        "risk": "YES_per_arm_specific",
+        "source": "subtype-dependent"
+      },
+      {
+        "disease": "breast",
+        "risk": "LOW_pooled_positive_clean",
+        "source": "Xu 2020"
+      },
+      {
+        "disease": "colorectal",
+        "risk": "LOW_per_compartment",
+        "source": "VAL-047 + VAL-061"
+      },
+      {
+        "disease": "lung",
+        "risk": "LOW_pooled_positive",
+        "source": "Xu 2020 cross-disease"
+      },
+      {
+        "disease": "prostate",
+        "risk": "LOW_at_pooled_Shannon_symmetric",
+        "source": "VAL-118"
+      },
+      {
+        "disease": "HCC",
+        "risk": "LOW_per_substrate_ccfDNA_pooled_positive",
+        "source": "VAL-059"
+      },
+      {
+        "disease": "cervical",
+        "risk": "LOW_pooled_positive_on_Verlaat_anchor",
+        "source": "VAL-073 + CCL-019"
+      }
+    ],
+    "question_iii_directional_panel_fallback": [
+      {
+        "disease": "AD",
+        "panel": "7-CpG_Rule_A_panel_VAL_051_freeze_2026_04_23",
+        "status": "OPERATIONAL"
+      },
+      {
+        "disease": "pancreatic",
+        "panel": "324-CpG_GSE49149_trained_pancreatic_epic_directional_v0_1",
+        "status": "OPERATIONAL"
+      },
+      {
+        "disease": "glioma",
+        "panel": "not_built_pooled_passes_positive",
+        "status": "NOT_NEEDED_at_v0_2"
+      },
+      {
+        "disease": "cardiovascular",
+        "panel": "not_built_substrate_stratified_scoring",
+        "status": "DESIGN_ALTERNATIVE"
+      },
+      {
+        "disease": "hematologic",
+        "panel": "per_arm_directional_panels_predicted",
+        "status": "PENDING"
+      },
+      {
+        "diseases_no_panel_needed": [
+          "breast",
+          "CRC_blood",
+          "lung",
+          "prostate",
+          "HCC_ccfDNA",
+          "cervical_Verlaat"
+        ],
+        "status": "NOT_NEEDED_pooled_passes"
+      },
+      {
+        "diseases_pending": [
+          "gastric",
+          "bladder",
+          "kidney"
+        ],
+        "status": "PENDING_card_pending"
+      }
+    ],
+    "question_iv_lymphoid_myeloid_expected_pattern": [
+      {
+        "disease": "AD",
+        "lymphoid": "up_T_cell_senescence",
+        "myeloid": "up_NLR_shift",
+        "source": "Mastroeni 2020"
+      },
+      {
+        "disease": "pancreatic",
+        "lymphoid": "down_Treg_up_effector_T_down",
+        "myeloid": "up_MDSCs_M2_macs",
+        "source": "Clark 2007 PMC1944938"
+      },
+      {
+        "disease": "glioma",
+        "lymphoid": "down_lymphocytes_minus_13",
+        "myeloid": "up_neutrophils_plus_16",
+        "source": "Bracci 2022"
+      },
+      {
+        "disease": "cardiovascular",
+        "lymphoid": "mixed_Treg_up_FOXP3",
+        "myeloid": "up_monocyte_shift",
+        "source": "CCL-021"
+      },
+      {
+        "disease": "hematologic_AML",
+        "lymphoid": "immune_class_IS_diseased_tissue",
+        "myeloid": "up_myeloid_lineage",
+        "source": "TCGA AML"
+      },
+      {
+        "disease": "hematologic_DLBCL_CLL_MM",
+        "lymphoid": "up_B_cell_lineage",
+        "myeloid": "varies",
+        "source": "subtype-specific"
+      },
+      {
+        "disease": "hematologic_thymoma",
+        "lymphoid": "up_T_cell_lineage",
+        "myeloid": "varies",
+        "source": "TCGA thymoma"
+      },
+      {
+        "disease": "breast",
+        "lymphoid": "up_at_sub_cell_type_aTreg_1_26_at_gt10yr_aBnv_0_44_to_0_49_at_0_2yr",
+        "myeloid": "uniform_positive_at_bulk",
+        "source": "VAL-095 UniLIFE"
+      },
+      {
+        "disease": "prostate",
+        "lymphoid": "mixed_positive_Bcell_0_67_CD4T_0_66_NK_0_65_CD8T_0_59",
+        "myeloid": "up_Mono_0_77_leads_Neu_0_39_trails",
+        "source": "VAL-118 Salas IDOL"
+      }
+    ],
+    "note": "All Question (iv) entries are literature-anchored expected patterns only at v0.1. Operational confirmation requires Test 2 (lymphoid-vs-myeloid sub-panel split on Xu-538), pending OQ-2026-01."
+  },
+  "ccl_031_five_pattern_taxonomy_v0_3": {
+    "pattern_1_pooled_positive": {
+      "diagnostic": "Pooled A_immune d >= +0.5, lower CI > 0",
+      "cards_exhibiting": [
+        "breast-epic",
+        "lung-epic",
+        "prostate-epic",
+        "hcc-epic_ccfDNA",
+        "cervical-epic_VAL_073",
+        "heme-epic_predicted"
+      ],
+      "card_consequence": "Pooled scoring is operational. No directional fallback panel needed."
+    },
+    "pattern_2_pooled_negative_compartment_direction_flip_ccl_019": {
+      "diagnostic": "Pooled A_immune negative in one compartment, positive in another, same disease",
+      "cards_exhibiting": [
+        "crc-epic_blood_d_minus_0_33_tumor_TIL_d_plus_1_066"
+      ],
+      "card_consequence": "Document compartment-specific scoring. Pooled is operational metric in EACH compartment alone. NOT bidirectional cancellation."
+    },
+    "pattern_3_pooled_null_directional_pass_AD_instance": {
+      "diagnostic": "Pooled CIs straddle zero AND directional plus-or-minus 1 z-scored panel passes on holdout",
+      "cards_exhibiting": [
+        "ad-immune_VAL_050_pooled_null_VAL_051_directional_d_plus_0_624",
+        "pancreatic-epic_VAL_066_067_068_pooled_null_VAL_069_directional_d_plus_1_51"
+      ],
+      "card_consequence": "Build directional fallback panel. Use directional A_dir as primary metric. Recovery mechanism unresolved per CCL-028. Test 2 pending OQ-2026-01."
+    },
+    "pattern_4_cross_disease_direction_difference_ccl_006": {
+      "diagnostic": "Pooled Test 1 different sign across diseases on same panel",
+      "cards_exhibiting": [
+        "breast_positive_vs_CRC_negative_on_same_Xu_538"
+      ],
+      "card_consequence": "Card specifies expected direction per disease."
+    },
+    "pattern_5_lineage_confirmed_bidirectional_cancellation_currently_NONE": {
+      "diagnostic": "Both pooled-null AND lymphoid-vs-myeloid sub-panel split goes opposite directions with comparable magnitudes",
+      "cards_exhibiting": "NONE_Test_2_not_yet_operational_pending_OQ_2026_01",
+      "card_consequence": "When OQ-2026-01 operationalizes, AD and PDAC will be the first cards tested."
+    },
+    "single_sentence_rule_verbatim": "Bidirectional cancellation is the AD-instance pattern: Test 1 pooled A_immune nulls cross-cohort AND a directional plus-or-minus 1 z-scored panel built on the same Stage 1 panel passes on holdout."
+  },
+  "three_doctrine_cases_v0_3": {
+    "AD_gift_pooled_vs_directional_distinction": {
+      "case": "AD pooled A_immune AIBL n=726 d=+0.077 NULL (VAL-050). 7-CpG Rule A directional d=+0.624 (VAL-051). Cross-platform AddNeuroMed d=+0.33; age-adjusted residual d=+0.12 (VAL-052).",
+      "doctrine": "Pooled-entropy is not always sufficient. Directional weighting recovers signed signal when per-CpG direction is balanced bidirectional.",
+      "card_consequence": "Every Stage 1 design must answer CCL-027 question (iii).",
+      "mechanism_caveat_ccl_028": "AD directional recovery operationally robust but mechanistically unresolved. Three candidates: (a) lineage cancellation; (b) z-scoring sensitivity gain; (c) cohort/batch structure. Test 2 pending OQ-2026-01."
+    },
+    "HCC_gift_substrate_as_discriminator": {
+      "case": "HCC ccfDNA VAL-059 GSE298812 paired d=+0.6336 p=0.0024 sex-stratified male d=+0.998 female d=+0.497. HCC whole-blood VAL-059 GSE281691 controls=metabolic-liver-disease d=-0.1556 NULL.",
+      "doctrine": "Substrate choice IS part of the immune-class signature. For diseases of secretory organs that do not trigger massive systemic immune drift in healthy peripheral leukocytes, ccfDNA may be the right substrate even when whole-blood reads NULL.",
+      "card_consequence": "Future card builds must document substrate dichotomies as part of Stage 1 specification, not as failures.",
+      "bonus_finding_dose_response": "Monotonic A-score progression healthy->fibrosis->cirrhosis->HCC (0.576->0.591->0.592->0.598). Signal scales with disease stage."
+    },
+    "glioma_gift_orthogonal_vs_inverted_ccl_023_v0_2": {
+      "case": "v0.1 predicted Stage 1 NEGATIVE per Bracci 2022 cell-fraction prior. VAL-088 read d=+0.91 POSITIVE. v0.1 sealed O5_POSITIVE_INVERTED. VAL-090 confirmed Bracci 2022 cell-fraction (neutrophils +16% lymphocytes -13%) AND cortical-neuron deconvolution d=+1.96.",
+      "doctrine": "Cell-fraction direction and A-score direction are NOT opposite axes - they are orthogonal axes, different lenses on same disease state.",
+      "card_consequence": "When a disease has both cell-fraction prior in literature AND Stage 1 A-score reading in framework, do NOT predict A-score direction from cell-fraction direction."
+    }
+  },
+  "stage_2_atlas_registry_v0_3": {
+    "production_atlases": [
+      {
+        "atlas": "Xu_538_immune_panel",
+        "class": "Stage_1_panel",
+        "sha256": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+        "use_tier": "PRODUCTION",
+        "diseases_using": "universal_every_disease"
+      },
+      {
+        "atlas": "Layered_Moss_Loyfer_25_tile",
+        "class": "Stage_2_RUN_everything",
+        "calibration_anchor": "VAL-112_VAL-113",
+        "calibration_cohort": "TCGA_HM450K_n_210",
+        "use_tier": "PRODUCTION"
+      },
+      {
+        "atlas": "Salas_IDOL_Blood_EPIC_6_cell",
+        "class": "Stage_3",
+        "use_tier": "PRODUCTION"
+      },
+      {
+        "atlas": "EpiDISH_RPC",
+        "class": "Stage_3",
+        "use_tier": "PRODUCTION"
+      },
+      {
+        "atlas": "Loyfer_Moss_array_atlas",
+        "class": "Stage_2_cell_of_origin",
+        "use_tier": "PRODUCTION"
+      },
+      {
+        "atlas": "ProstateRef_CpG_bridged_6_tile",
+        "class": "Stage_2_prostate_cell_of_origin",
+        "sha256": "4e60c3d038a637e9742f51d9bc7c119e06fe5d2e91abb2b12db8867ceb7813d2",
+        "calibration_anchor": "VAL-117_VAL-118",
+        "use_tier": "PRODUCTION",
+        "le_tile_q5_operational_diagnostic": 0.419
+      },
+      {
+        "atlas": "UniLIFE_19_cell_overlay",
+        "class": "Stage_3_sub_cell_type",
+        "use_tier": "PRODUCTION"
+      }
+    ],
+    "research_grade_NOT_calibrated": [
+      {
+        "atlas": "HeartRef_CpG_bridged",
+        "status": "O3_TISSUE_FLOOR_DOMINATED_VAL_111",
+        "rationale": "cardiac_cell_types_share_gene_promoter_methylation_similarity"
+      },
+      {
+        "atlas": "BreastRef_CpG_bridged",
+        "status": "sub_tile_resolution_collapse_VAL_093",
+        "rationale": "all_7_tiles_uniform_positive"
+      },
+      {
+        "atlas": "Caggiano_TIM_region_indexed",
+        "status": "bridge_verified_Phase_B_NOT_sealed"
+      },
+      {
+        "atlas": "EpiSCORE_future_bridges",
+        "status": "NOT_YET_BUILT",
+        "list": "LungRef KidneyRef ColonRef BrainRef PancreasRef etc"
+      }
+    ],
+    "atlas_family_fitness_lesson": "Atlas family fitness depends on per-tissue cell-type distinctness (DISC-PROSTATE-001 / LL-CARDIO-005). Same family separates clean on prostate, partially collapses on breast, failed on cardiac.",
+    "ccl_039_cell_of_origin_tile_direction_rule": {
+      "tumor_vs_adjacent_normal_paired": "NEGATIVE_direction_homogenization",
+      "diseased_tissue_vs_healthy_cross_reference": "POSITIVE_direction",
+      "operational": "Prereg O1 must specify comparison type with magnitude-based |d| + direction labels (CHK-4.11)"
+    }
+  },
+  "oq_2026_01_immune_atlas_staging_v0_3": {
+    "canonical_home_in_v0_3": true,
+    "description": "The cookbook central open problem: building Test 2 sub-panel split on Xu-538 that operationally separates lymphoid-driven signal from myeloid-driven signal.",
+    "when_operational_unblocks": [
+      "AD_Pattern_3_to_Pattern_5_lineage_mechanism_testable",
+      "PDAC_Pattern_3_to_Pattern_5_lineage_mechanism_testable",
+      "glioma_orthogonal_at_lineage_resolution",
+      "cardiovascular_FOXP3_monocyte_pattern_at_operational_resolution",
+      "every_future_card_question_iv_operationally_answerable",
+      "concurrent_disease_scenarios_decomposable",
+      "Mahalanobis_ranker_5_dim_lineage_vector_axis"
+    ],
+    "what_test_2_needs": {
+      "description": "per-CpG lineage assignment for Xu-538 panel",
+      "candidate_atlases": [
+        "Salas_IDOL_Ext_most_complete_published",
+        "UniLIFE_19_cell_finer_resolution",
+        "Loyfer_Moss_array_atlas_complementary"
+      ],
+      "build_sequence": [
+        "cross_walk_Xu_538_against_each_candidate",
+        "identify_cell_type_assignment_per_CpG",
+        "classify_lymphoid_or_myeloid_or_unassigned",
+        "build_per_arm_A_lymphoid_A_myeloid",
+        "calibrate_per_arm_healthy_floor_distributions",
+        "seal_as_production_Test_2_panel"
+      ]
+    },
+    "closest_existing_analogs": [
+      "heme_epic_three_arm_structure_lymphoid_B_lymphoid_T_myeloid_IS_Test_2_at_card_level",
+      "prostate_VAL_118_Salas_IDOL_Mono_0_77_Bcell_0_67_CD4T_0_66_NK_0_65_CD8T_0_59_Neu_0_39",
+      "breast_VAL_095_UniLIFE_separates_aTreg_aBnv_from_Salas_bulk",
+      "glioma_VAL_090_Loyfer_atlas_immune_fractions_cell_fraction_proxy_axis",
+      "AD_directional_7_CpG_Rule_A_panel_methodology"
+    ],
+    "open_atlas_coverage_gaps_blocking": [
+      "Salas_IDOL_Ext_panel_CpG_cross_walk_to_Xu_538_NOT_BUILT",
+      "UniLIFE_19_cell_panel_CpG_cross_walk_to_Xu_538_NOT_BUILT",
+      "substrate_matched_calibration_per_arm_NOT_RUN",
+      "cross_cohort_baseline_alignment_per_arm_NOT_RUN",
+      "per_arm_healthy_floor_sealing_NOT_RUN"
+    ],
+    "cards_first_affected_priority_order": [
+      "ad-immune",
+      "pancreatic-epic",
+      "cardio-epic",
+      "glioma-epic",
+      "heme-epic",
+      "all_other_cards"
+    ]
+  },
+  "open_atlas_coverage_gaps_v0_3": {
+    "biobank_gated_cohorts": [
+      {
+        "cohort": "FitzGerald_2017_MCCS_pre_dx",
+        "disease": "prostate",
+        "access": "EGA_or_direct_PI"
+      },
+      {
+        "cohort": "Howard_AA_EPIC",
+        "disease": "prostate",
+        "access": "dbGaP"
+      },
+      {
+        "cohort": "UCSF_AGS_phs001497",
+        "disease": "glioma",
+        "access": "dbGaP"
+      },
+      {
+        "cohort": "UCSF_Immune_Profiles_phs002998",
+        "disease": "glioma",
+        "access": "dbGaP"
+      },
+      {
+        "cohort": "GICC_international_phs001319",
+        "disease": "glioma",
+        "access": "dbGaP_plus_collaboration"
+      },
+      {
+        "cohort": "UK_Biobank_methylation",
+        "disease": "lung_multiple",
+        "access": "UK_Biobank_application"
+      },
+      {
+        "cohort": "Bracci_2022_replication",
+        "disease": "glioma",
+        "access": "direct_PI"
+      },
+      {
+        "cohort": "Health_ABC_plus_Rotterdam",
+        "disease": "prostate",
+        "access": "dbGaP"
+      },
+      {
+        "cohort": "Sundstrom_CIN2_2026",
+        "disease": "cervical",
+        "access": "direct_PI"
+      },
+      {
+        "cohort": "CINCS_Bukowski_2023",
+        "disease": "cervical",
+        "access": "direct_PI"
+      },
+      {
+        "cohort": "EnviroGenomarkers_VAL_082",
+        "disease": "hematologic",
+        "access": "direct_PI_consortium"
+      }
+    ],
+    "atlas_builds_NOT_YET_STARTED": [
+      "Salas_IDOL_Ext_panel_CpG_cross_walk_to_Xu_538_OQ_2026_01_prerequisite",
+      "UniLIFE_19_cell_panel_CpG_cross_walk_to_Xu_538_OQ_2026_01_prerequisite",
+      "EpiSCORE_LungRef_CpG_bridge",
+      "EpiSCORE_KidneyRef_CpG_bridge",
+      "EpiSCORE_ColonRef_CpG_bridge",
+      "EpiSCORE_BrainRef_CpG_bridge_Pathway_1_deep_dive",
+      "EpiSCORE_PancreasRef_CpG_bridge",
+      "EpiSCORE_other_tissue_bridges",
+      "Caggiano_TIM_Phase_B_calibration",
+      "cfMeDIP_seq_pipeline_integration_for_glioma",
+      "Sabedot_2021_GeLB_cfDNA_pipeline_integration"
+    ],
+    "validation_runs_blocked_by_access": [
+      "pre_diagnostic_prostate_blood_validation",
+      "pre_diagnostic_glioma_blood_validation_no_cohort_exists",
+      "LP_CSF_gold_standard_glioma_test",
+      "Pathway_2_cervical_lymph_specimen_pathway"
+    ],
+    "stage_3_multi_atlas_runs_pending": [
+      "breast_epic_Salas_IDOL_retroactive_on_VAL_060",
+      "crc_epic_Stage_3_on_VAL_061_tumor_TIL",
+      "lung_epic_Stage_3_smoking_stratified",
+      "hcc_epic_Stage_3_on_VAL_059_ccfDNA",
+      "cervical_epic_Stage_3_HPV_stratified",
+      "cardio_epic_Stage_3_substrate_stratified",
+      "pancreatic_epic_Stage_3_OQ_2026_01_priority_unlock"
+    ]
+  },
+  "future_v1_0_reorganization_plan": {
+    "description": "v0.3 is disease-organized; v1.0 will be symptom-organized decision tree.",
+    "phase_1_disease_organized_v0_x": "Each disease is a row; rows accumulate as cards validate. How you LEARN the framework.",
+    "phase_2_symptom_organized_v1_0_plus": "Decision tree from chief complaint. How you USE the framework at the bedside.",
+    "transition_trigger": "all_15_cards_have_sealed_v0_x_plus_entries",
+    "symptom_tree_skeleton": {
+      "entry": "patient_Stage_1_result",
+      "first_branch": "data_integrity_passed_per_section_2",
+      "pooled_direction_branches": {
+        "positive_strong_gt_0_8": "Stage_3_lineage_check",
+        "positive_moderate_0_3_to_0_8": "Stage_2_atlas_sweep",
+        "positive_weak_0_15_to_0_3": "trajectory_watch_6_month_re_test",
+        "negative": "compartment_check_cohort_heterogeneity_check",
+        "null_pooled_directional_positive": "AD_instance_pattern_Pathway_1",
+        "null_pooled_directional_null": "true_biology_null_OR_substrate_mismatch"
+      }
+    },
+    "tagging_v0_3_disease_entries_to_v1_0_symptom_tree_nodes": [
+      {
+        "v0_3": "prostate_Stage_1_d_0_50_plus_monocyte_led_TIL",
+        "v1_0_node": "pooled_positive_moderate_magnitude_plus_monocyte_led_Stage_3_secretory_class_TME_active"
+      },
+      {
+        "v0_3": "AD_pooled_NULL_plus_directional_7_CpG_positive",
+        "v1_0_node": "pooled_null_plus_directional_positive_Pathway_1_candidate"
+      },
+      {
+        "v0_3": "HCC_ccfDNA_d_0_63_plus_whole_blood_NULL",
+        "v1_0_node": "substrate_dichotomy_secretory_class_disease"
+      }
+    ]
+  },
+  "mahalanobis_differential_ranker_v0_3": {
+    "description": "When Stage 1 fires, Mahalanobis-distance signature ranking against cross-reference table.",
+    "v0_1_signature_vector_3_dim": [
+      "direction",
+      "magnitude",
+      "per_cpg_pattern"
+    ],
+    "v0_3_expanded_signature_vector_5_dim": [
+      "direction",
+      "magnitude",
+      "per_cpg_pattern",
+      "A_lymphoid",
+      "A_myeloid"
+    ],
+    "v0_3_expansion_status": "A_lymphoid and A_myeloid axes require OQ-2026-01 Test 2 staging operational. Until then, v0.1 3-dim vector used. When OQ-2026-01 goes live, 5-dim ranker drops in as non-breaking upgrade.",
+    "four_pathway_routing_inputs": [
+      "magnitude_strong_positive_favors_Pathway_2_or_3",
+      "direction_negative_favors_CRC_or_predicted_gastric_bladder",
+      "per_cpg_pattern_bidirectional_favors_AD_like_Pathway_1",
+      "patient_risk_factors_age_CVD_favor_Pathway_3",
+      "v0_3_addition_Stage_3_lineage_vector_lymphoid_shift_favors_Pathway_2_myeloid_monocyte_favors_Pathway_3_uniform_low_favors_Pathway_4"
+    ]
+  },
+  "v0_3_changelog": {
+    "header": "tier reference_document -> rosetta_reference_card; card position 13 -> 15; framing differential-diagnosis engine -> Stage 1 interpretation + Stage 2 atlas cross-reference + Stage 3 OQ-2026-01 staging",
+    "section_2_NEW": "Pre-test Integrity Protocol \u2014 atlas calibration prerequisite, six data integrity checks, biology consistency check, demographics-as-mandatory-stratifiers, bidirectional-as-default doctrine, ten failure-mode fingerprints, six biology-real patterns",
+    "section_6_NEW": "CCL-031 five-pattern taxonomy",
+    "section_7_NEW": "Three doctrine cases (AD HCC glioma gifts)",
+    "section_8_NEW": "Cookbook doctrine that touches immune class (CCL-006/019/023/027/028/030/031/032/039)",
+    "section_10_NEW": "Stage 2 atlas registry",
+    "section_11_NEW": "CCL-027 four-question master cross-reference table",
+    "section_12_NEW": "OQ-2026-01 staging hub (canonical home moved here)",
+    "section_13_expanded": "Stage 3 sub-cell-type signatures expanded from prostate-only (v0.2) to 5 sealed cards plus heme analog plus 8 pending",
+    "section_14_expanded": "Cross-card syntheses expanded from 1 pair to 10 pairs",
+    "section_15_NEW": "Open atlas-coverage gaps and biobank-gated next steps",
+    "section_17_NEW": "Future v1.0 reorganization plan (symptom-organized decision tree)",
+    "section_22_lessons_added": "immune-atlas-LL-002 through LL-008"
+  },
+  "v0_3_1_amendment_2026_05_01": {
+    "_purpose": "Additive bladder-epic v0.1 integration. All v0.3 keys preserved verbatim. Card position remains #15 of 15.",
+    "amendment_summary": [
+      "\u00a76.6a \u2014 sixth CCL-031 pattern added (substrate-distribution mismatch on mucosal cohort) per DISC-BLADDER-003",
+      "\u00a710.1 \u2014 EpiSCORE BladderRef added as fourth gene-promoter bridge in production atlases (PRIMARY cell-of-origin reader for bladder-epic v0.1 mucosal-cohort scoring)",
+      "\u00a710.3 \u2014 atlas-family-fitness lesson extended to third data point (DISC-BLADDER-001 falsifies \"more cell types = better separation\" hypothesis)",
+      "\u00a711.1, \u00a711.2, \u00a711.3, \u00a711.4 \u2014 bladder rows added to all four CCL-027 question tables",
+      "\u00a713.6a \u2014 bladder cancer (VAL-122 sealed 2026-05-01) Stage 3 sub-cell-type signature added",
+      "\u00a713.7 \u2014 NEW operational guidance subsection: how to interpret bladder-style broad-positive Stage 3 readings (for the future-AI-2-years-from-now interpreter)",
+      "\u00a722.4 \u2014 v0.3.1 lessons added (immune-atlas-LL-009 through LL-013)",
+      "\u00a723 \u2014 changelog row added for v0.3 \u2192 v0.3.1"
+    ],
+    "lessons_added": {
+      "immune-atlas-LL-009": "Sixth CCL-031 pattern (substrate-distribution mismatch on mucosal cohort) sealed 2026-05-01 from VAL-121 dual-atlas direction divergence (Loyfer Bladder POSITIVE +1.91 vs BladderRef Epi NEGATIVE -1.46 on same n=21 paired pairs). Multi-atlas readings on mucosal cohorts MUST include a gene-promoter sub-cell-type atlas as primary cell-of-origin reader.",
+      "immune-atlas-LL-010": "Tissue-class CHK-3.1A floor parameterization (DISC-BLADDER-002). Solid parenchyma >= 0.50 / <= 0.12 (anchor VAL-106); mucosal/epithelial-lined-organ >= 0.387 / <= 0.184 (anchor VAL-120/121/122 amendment 002, bladder cohort q1/q99). New CHK-2.16 cookbook gate.",
+      "immune-atlas-LL-011": "Gene-promoter atlas family fitness depends on cell-type DISTINCTNESS, not cell-type COUNT (DISC-BLADDER-001 extends DISC-PROSTATE-001 / LL-CARDIO-005). Three data points: HeartRef 5 collapsed (0.0152); ProstateRef 6 separated (0.0597); BladderRef 4 separated cleanly (0.0694).",
+      "immune-atlas-LL-012": "Stage 1 panel transferability is cohort-specific, not platform-specific (DISC-BLADDER-004). Xu-538 on TCGA-BLCA mean coverage 78.0% / pass rate 51.1% triggered O4. New CHK-2.17 cookbook gate. VAL-114 Wave 1 calibration gets per-cohort substrate-coverage precheck baked in.",
+      "immune-atlas-LL-013": "Meta-lesson on how the cookbook self-corrects when a silent assumption meets data that violates it. Bladder-epic v0.1 is the canonical reference example for the future-AI-2-years-from-now interpreter when EDEAR output exhibits structural patterns the immune-atlas card has not catalogued before. Apply CCL-032 diagnostic order, CCL-041 honest second-best path if beta has been observed, atlas-family-fitness check, multi-atlas convergence rule (gene-promoter atlas required as primary cell-of-origin reader on mucosal cohorts)."
+    },
+    "sixth_ccl_031_pattern": {
+      "name": "Pattern 6 \u2014 Substrate-distribution mismatch on mucosal cohort",
+      "sealed_source": "VAL-121 sealed O2_BLADDER_TILE_DIFFERENTIATING_DIRECTION_AMBIGUOUS 2026-05-01",
+      "definition": "Two atlases score the SAME cell-of-origin question on the SAME paired pairs and produce HIGH-MAGNITUDE contrasts in OPPOSITE DIRECTIONS, not because of biology, but because the two atlas families measure different observables on the same substrate. Bulk-WGBS atlas families (Loyfer/Moss, Caggiano TIM) on mucosal-tissue cohorts produce inflated cross-tile A-scores from substrate-distribution mismatch. Gene-promoter sub-cell-type atlas families (EpiSCORE per-tissue bridges) avoid this artifact.",
+      "canonical_case_sealed": {
+        "val_id": "VAL-121",
+        "cohort": "TCGA-BLCA n=440, n=21 paired pairs",
+        "loyfer_bladder_d_paired": 1.91,
+        "loyfer_bladder_p_value": 2.83e-08,
+        "loyfer_bladder_direction": "POSITIVE",
+        "bladderref_epi_d_paired": -1.4623,
+        "bladderref_epi_p_value": 1.6e-06,
+        "bladderref_epi_direction": "NEGATIVE",
+        "chk_3_2_cross_tile_sanity": "ALL 14 Loyfer non-bladder solid-tissue tiles fire POSITIVE +2.34 to +2.92 \u2014 uniform inflation confirms substrate-distribution mismatch"
+      },
+      "operational_rule": "Multi-atlas readings on mucosal cohorts (bladder, lung airways, colon epithelium, GI epithelium, cervical mucosa) MUST include a gene-promoter sub-cell-type atlas as the PRIMARY cell-of-origin reader. Single-atlas Stage 2 readings on mucosal cohorts using bulk-WGBS references can be substrate-substitution-fooled."
+    },
+    "episcore_bladderref_atlas": {
+      "name": "EpiSCORE BladderRef CpG-bridged",
+      "source_citation": "Zhu T, Liu J, Beck S, Pan S, Capper D, Lechner M, Thirlwell C, Breeze CE, Teschendorff AE. A pan-tissue DNA-methylation atlas based on deconvolution of major cell-types. Nature Methods 2022;19:296. DOI: 10.1038/s41592-022-01412-7",
+      "github": "aet21/EpiSCORE master",
+      "license": "GPL-2",
+      "cell_types": [
+        "EC vascular endothelial",
+        "Epi urothelial epithelium",
+        "Fib fibroblast",
+        "IC immune"
+      ],
+      "n_cell_types": 4,
+      "n_unique_cpgs_bridged": 2696,
+      "eids_covered": "158/163 (5 unmapped: 1880, 2252, 26521, 51699, 54829)",
+      "atlas_sha256": "3005663b4ede4b20199bacff641952390b1434764b8cf0915cdc9d6a6c1517c6",
+      "calibration_anchor_val": "VAL-119",
+      "calibration_outcome": "O1_BLADDERREF_CALIBRATION_SEALED",
+      "calibration_seal_timestamp": "2026-05-01T03:46:00Z",
+      "calibration_cohort": "TCGA-KIRC + TCGA-PRAD adjacent-normal n=210 (same VAL-106 cohort)",
+      "per_tile_healthy_floor": {
+        "EC": {
+          "mean": 0.4087,
+          "sd": 0.01,
+          "q5": 0.3972,
+          "q95": 0.4265,
+          "within_cohort_range": 0.0565
+        },
+        "Epi": {
+          "mean": 0.4135,
+          "sd": 0.0066,
+          "q5": 0.4004,
+          "q95": 0.4219,
+          "within_cohort_range": 0.041,
+          "note": "OPERATIONAL CELL-OF-ORIGIN TILE: tightest within-cohort variance (sd 0.0066), bladder analog of prostate LE"
+        },
+        "Fib": {
+          "mean": 0.4875,
+          "sd": 0.009,
+          "q5": 0.477,
+          "q95": 0.502,
+          "within_cohort_range": 0.0694,
+          "note": "separates cleanly from EC/Epi/IC clustered at ~0.41"
+        },
+        "IC": {
+          "mean": 0.4106,
+          "sd": 0.0086,
+          "q5": 0.4001,
+          "q95": 0.4263,
+          "within_cohort_range": 0.0504
+        }
+      },
+      "max_within_cohort_tile_range": 0.0694,
+      "tissue_floor_dominated_threshold": 0.02,
+      "production_status": "PRIMARY cell-of-origin reader for bladder-epic v0.1 mucosal-cohort scoring per DISC-BLADDER-003",
+      "github_path": "Biological_Physics/atlas_vault/stage2_cell_of_origin/episcore_bladderref/"
+    },
+    "bladder_stage_3_sealed_signature_val_122": {
+      "_purpose": "Stage 3 sub-cell-type signature for bladder cancer; canonical example of broad-positive multi-lineage immune-architectural drift",
+      "cohort": "TCGA-BLCA n=440 (HM450K sesame Level 3, n=21 paired pairs)",
+      "sealed_outcome": "O1_STAGE_3_IMMUNE_DIFFERENTIATING",
+      "salas_idol_paired_contrasts": {
+        "Bcell": {
+          "d_paired": 1.1479,
+          "ci_95": [
+            0.597,
+            1.699
+          ],
+          "p_value": 3.79e-05,
+          "direction": "POSITIVE_FIRES"
+        },
+        "Mono": {
+          "d_paired": 1.1322,
+          "ci_95": [
+            0.584,
+            1.68
+          ],
+          "p_value": 4.46e-05,
+          "direction": "POSITIVE_FIRES"
+        },
+        "Neu": {
+          "d_paired": 1.2354,
+          "ci_95": [
+            0.668,
+            1.803
+          ],
+          "p_value": 1.53e-05,
+          "direction": "POSITIVE_FIRES"
+        },
+        "NK": {
+          "d_paired": 0.7943,
+          "ci_95": [
+            0.304,
+            1.285
+          ],
+          "p_value": 0.00163,
+          "direction": "POSITIVE_FIRES"
+        },
+        "CD8T": {
+          "d_paired": 0.6222,
+          "ci_95": [
+            0.155,
+            1.089
+          ],
+          "p_value": 0.00987,
+          "direction": "POSITIVE_FIRES"
+        },
+        "CD4T": {
+          "d_paired": 0.4884,
+          "ci_95": [
+            0.036,
+            0.941
+          ],
+          "p_value": 0.0367,
+          "direction": "POSITIVE_FIRES"
+        }
+      },
+      "lineage_pattern": "BROAD MULTI-LINEAGE POSITIVE \u2014 both lymphoid AND myeloid fire POSITIVE; pre-locked O2 (lymphoid-dominant Chen 2022 NMIBC blood RFS pattern) and O3 (myeloid-dominant MDSC pattern) did NOT fire",
+      "biological_interpretation": "Mixed TIL+TAM+MDSC infiltration of muscle-invasive bladder tumor microenvironment",
+      "card_line_no_overclaim": "Stage 3 immune fine-tune fires consistent with mixed TIL + TAM + MDSC infiltration in muscle-invasive bladder tumor microenvironment. All six Salas IDOL immune-cell-type A-scores increase in tumor vs adjacent-normal at |d_paired| range 0.49 to 1.24.",
+      "comparison_to_prostate_val_118": "Bladder Salas Mono d=+1.13 is 1.5x larger than prostate Salas Mono d=+0.771; same direction (POSITIVE) on Salas Mono; bladder MIBC has heavier microenvironmental infiltration than typical prostate adenocarcinoma"
+    },
+    "how_to_interpret_bladder_style_broad_positive_stage_3": {
+      "_purpose": "Operational guidance for the future-AI-2-years-from-now interpreter (corresponds to README \u00a713.7)",
+      "pattern_signature": {
+        "salas_idol": "ALL 6 of 6 tiles fire POSITIVE at |d|>=0.30 with no NEGATIVE-firing tiles",
+        "magnitude_range": "0.49 to 1.24 across cell types",
+        "p_value_range": "10^-2 to 10^-5",
+        "multi_atlas_convergence": "pattern reproduces across UniLIFE 19-cell and Caggiano TIM immune subset"
+      },
+      "underlying_biology": "Mixed multi-lineage immune infiltration of a tissue compartment \u2014 TILs + tumor-associated macrophages + tumor-associated neutrophils + myeloid-derived suppressor cells + B lymphocytes (often in tertiary lymphoid structures) + NK cells. Standard immunology of muscle-invasive solid-tumor microenvironments under heavy infiltration.",
+      "NOT_pathway_1_terminal_specimen_problem": "Pathway 1 fires when Stage 1 immune is positive but Stage 2 cell-of-origin is null (e.g., glioma in plasma where 96% of cfDNA is non-brain). Bladder VAL-122 substrate IS the diseased tissue and Stage 2 BladderRef Epi fires NEGATIVE (CCL-039) \u2014 Stage 2 is NOT null. Pathway 1 does not apply.",
+      "NOT_pathway_2_hematologic": "Pathway 2 fires when disease IS the immune compartment (B-cell lymphoma, AML). Bladder VAL-122 is solid-tumor microenvironment infiltration, not immune-compartment-of-origin disease. Distinguishing test: does Stage 2 cell-of-origin tile fire at high magnitude with disease-appropriate direction? If yes (BladderRef Epi NEGATIVE), solid-tumor with infiltrate (NOT Pathway 2).",
+      "NOT_pathway_3_cardiovascular_systemic": "Pathway 3 fires when Stage 1 positive on whole-blood substrate but Stage 2 cell-of-origin null. Bladder VAL-122 is on tumor TISSUE substrate (not blood). If substrate=blood and Stage 2 null --> Pathway 3; if substrate=tumor tissue and Stage 2 BladderRef Epi NEGATIVE --> solid-tumor mixed-infiltration (THIS pattern, NOT Pathway 3).",
+      "NOT_pathway_4_unexplained_drift": "Pathway 4 applies to single Stage 1 positive at moderate magnitude with no Stage 2/3 corroboration; bladder VAL-122 has overwhelming Stage 1 + Stage 2 + Stage 3 corroboration across 21 paired patients.",
+      "lymphoid_vs_myeloid_lineage_skew_test": {
+        "myeloid_dominant_pattern": "lymphoid (CD4T, CD8T, NK, Bcell) NEGATIVE + myeloid (Mono, Neu) POSITIVE \u2014 consistent with MDSC infiltration in advanced metastatic / immunotherapy-refractory disease",
+        "lymphoid_dominant_pattern": "myeloid (Mono, Neu) NEGATIVE + lymphoid (CD4T, CD8T) POSITIVE \u2014 consistent with Chen 2022 NMIBC blood RFS signature in early-stage / immunotherapy-responding disease",
+        "broad_multi_lineage_pattern_THIS_IS_BLADDER_VAL_122": "BOTH lymphoid AND myeloid fire POSITIVE (no NEGATIVE-firing tiles in lineage panel) \u2014 heavily-infiltrated tumor microenvironment characteristic of muscle-invasive disease; NOT a clean lineage-skewed signature; do NOT report as lymphoid-dominant or myeloid-dominant",
+        "suppressed_exhausted_pattern_HYPOTHETICAL": "BOTH lymphoid AND myeloid fire NEGATIVE \u2014 possible immune escape / late-stage tumor evasion / post-chemotherapy immune ablation; currently no sealed cookbook example"
+      },
+      "is_stage_1_panel_reliable_check": "When broad-positive Stage 3 fires alongside Stage 1 O4 panel-coverage gate fire (as in bladder-epic v0.1), the Stage 3 reading is independently informative. Salas IDOL + UniLIFE + Caggiano TIM are not gated by Stage 1 panel coverage. Stage 3 pattern stands on its own.",
+      "is_bladderref_epi_negative_the_cell_of_origin_signal_check": "Stage 2 cell-of-origin reading on a gene-promoter sub-cell-type atlas should fire NEGATIVE per CCL-039 in tumor-vs-adjacent-normal paired comparisons. If BladderRef Epi or ProstateRef LE or future LungRef AT2 fires NEGATIVE alongside broad-positive Stage 3, this is the canonical solid-tumor mixed-infiltration cohort \u2014 generalizes to expected solid-tumor patterns for breast, lung, colon, cervical, GI cancers.",
+      "single_sentence_rule_for_this_pattern": "When Stage 3 RUN-everything fires broad-positive across all six Salas IDOL tiles with no NEGATIVE-firing tiles, AND Stage 2 cell-of-origin fires NEGATIVE on the appropriate gene-promoter sub-cell-type atlas, AND Stage 2 microenvironment tiles fire POSITIVE, AND substrate is tumor tissue (not blood), the EDEAR output should be reported as: mixed multi-lineage immune infiltration of a solid-tumor microenvironment with cell-of-origin dedifferentiation, consistent with muscle-invasive / heavily-infiltrated cancer biology \u2014 NOT a lymphoid-skewed or myeloid-skewed signature."
+    },
+    "ccl_027_four_question_bladder_row": {
+      "question_i_pooled_entropy_expected_direction": "POSITIVE (immune infiltration; bladder cancer has heavy TIL load \u2014 BCG immunotherapy is standard of care for NMIBC; PD-L1 inhibitors approved for advanced UC). Sealed VAL-120 d_paired=+1.8977 (n=21, p=3.14e-08) on TCGA-BLCA HM450K \u2014 diagnostic-not-sealed under O4 panel coverage gate fire (DISC-BLADDER-004). 3.8x larger than prostate VAL-058 d=+0.497.",
+      "question_ii_bidirectional_cancellation_risk": "LOW for solid-tumor tissue substrate; mixed TIL+TAM+MDSC infiltration is broadly POSITIVE direction across all cell types (sealed VAL-122 all 6/6 Salas IDOL POSITIVE |d| range 0.49-1.24). UNKNOWN for blood-substrate (Chen 2022 NMIBC blood EPIC suggests lymphoid-vs-myeloid split possible; pending VAL on Chen 2022 cohort in v0.2).",
+      "question_iii_directional_panel_fallback": "Xu-538 panel triggered O4 on TCGA-BLCA HM450K cohort-substrate coverage. Operational fallback: defer Stage 1 production scoring to v0.2 with VAL-114 Wave 1 calibrated panel + CHK-2.17 cohort-substrate-coverage precheck baked in. v0.1 Stage 1 d=+1.90 reported as diagnostic-only.",
+      "question_iv_lymphoid_vs_myeloid_expected_pattern": "TISSUE substrate: broad multi-lineage POSITIVE (sealed VAL-122) \u2014 both lymphoid (CD4T +0.49, CD8T +0.62, NK +0.79, Bcell +1.15) AND myeloid (Mono +1.13, Neu +1.24) POSITIVE. NOT lymphoid-dominant; NOT myeloid-dominant. Mixed TIL+TAM+MDSC of MIBC. BLOOD substrate: Chen 2022 mdNLR signature suggests lymphoid-vs-myeloid split possible; pending VAL."
+    },
+    "github_artifacts_for_bladder_epic_v0_1": {
+      "commit": "404eed3",
+      "branch": "main",
+      "repository": "https://github.com/hmahaffeyges/IAM-Validation",
+      "val_directories": [
+        "Biological_Physics/validation_runs/VAL-119_bladderref_calibrate/",
+        "Biological_Physics/validation_runs/VAL-120_bladder_stage1_xu538/",
+        "Biological_Physics/validation_runs/VAL-121_bladder_stage2_multiatlas/",
+        "Biological_Physics/validation_runs/VAL-122_bladder_stage3_immune/"
+      ],
+      "atlas_vault_path": "Biological_Physics/atlas_vault/stage2_cell_of_origin/episcore_bladderref/",
+      "unified_runner_path": "Biological_Physics/validation_runs/unified_phaseC_runner.py",
+      "postpass_path": "Biological_Physics/validation_runs/postpass_amended.py"
+    }
+  }
+}

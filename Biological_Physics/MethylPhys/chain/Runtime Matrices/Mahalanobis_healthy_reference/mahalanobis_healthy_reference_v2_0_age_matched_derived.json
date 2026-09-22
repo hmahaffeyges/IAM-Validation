@@ -1,0 +1,17 @@
+{
+  "artifact_id": "mahalanobis_healthy_reference_v2_0_age_matched_derived",
+  "build_date": "2026-06-30",
+  "supersedes": "mahalanobis_healthy_reference_v1_0_derived.json (fixed mu=1.0 / sigma=0.02, RETIRED)",
+  "supersession_reason": "Option A. mu=1.0 was derived and confirmed on CLASS-level gauge readings (~1.0) but its feature space was the 115 per-cell SEPARATION A-scores (~0.56 healthy, discriminative markers) -> z ~ -22 for every healthy cell. This reference scores the 8 CLASS GAUGE readings (identity loci, cpg_gauge_engine) against the AGE-MATCHED band from age_reference_matrix. DERIVED-IAMAtlas-ONLY preserved (no GEO, no pooled cohort); age matters (the whole-session correction).",
+  "method": "age_matched_class_gauge",
+  "feature_space": "8_class_gauge_A_scores",
+  "mu_source": "age_reference_matrix -> A_mean(class, age)  (read via cpg_gauge_engine.age_band)",
+  "sigma_source": "age_reference_matrix -> (A_mean - A_p10)/1.2816 per class per age",
+  "covariance_method": "derived_diagonal",
+  "covariance_note": "Diagonal Sigma. Distance = sqrt( sum_c ((A_c - mu_c(age))/sigma_c(age))^2 ) over assessable classes. Off-diagonal cross-class correlations are population-empirical and deliberately NOT used (would reintroduce a cohort).",
+  "assessable_gating": "Distance summed ONLY over classes the Stage-2 presence gate marks assessable in the patient's substrate (A not None). Whole blood: immune (+ any tissue class shed into cfDNA). Non-assessable classes are EXCLUDED, not imputed.",
+  "n_features": 8,
+  "feature_names": ["immune", "cycling", "secretory", "terminal", "stromal", "stem_adult", "progenitor", "stem_pluri"],
+  "provenance": "No GEO. No pooled cohort. Derived from IAMAtlas H_min floors + age_reference_matrix (EDEAR, 8 classes x 10 age bins).",
+  "calibration_note": "Under the age-matched healthy band, distance^2 = sum z^2 ~ chi^2(n_assessable); alarm threshold sqrt(chi2.ppf(p, n_assessable)) at p95/p99, n-adaptive. A healthy patient sits at its age band -> z ~ 0 per class -> small distance."
+}

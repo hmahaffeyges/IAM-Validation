@@ -1,0 +1,486 @@
+{
+  "test_id": "T15",
+  "cohort": "NHANES_1999_2002_blinded_prospective",
+  "random_seed": 20260420,
+  "design_description": "NHANES 1999-2002 samples drawn with no knowledge of subsequent cancer. NDI LMF through 2019-12-31 gives up to 20 yr prospective follow-up. Age acceleration (clock - chronological age) used as flag metric. Raw Xu-538 panel NOT available in public release (NCHS RDC only).",
+  "honest_limitation": "GrimAge/PhenoAge age-acceleration is a published methylation-based composite, NOT the framework's Xu-538 immune A-score. If the framework's premise that methylation drift predicts cancer risk holds, these clocks should produce the predicted blinded-flag pattern. The A-score is expected to produce at least as strong a signal when RDC access is obtained, because it targets the architectural drift quantity directly.",
+  "n_cohort": 2532,
+  "n_all_deaths": 1361,
+  "n_cancer_deaths": 271,
+  "median_follow_up_yr": 17.083333333333332,
+  "max_follow_up_yr": 20.75,
+  "median_age_at_draw": 65.0,
+  "input_sha256": {
+    "dnmepi": "583e0660eafac5b4b2600a18bc4ca6e8a342fd1e87a78c1b03063b14223d956f",
+    "DEMO_A": "a17bd1ebfd6007b8dc93f16259cb090678eb6c467a39363b7e932bba15febf89",
+    "DEMO_B": "6458dc2307cee244ab6ba26f70ec78c7b842ffc68e668bc43f0ab6b9737937d9",
+    "LMF_A": "562bd367107add0b2b40fed36a062d8b194fca31e11aab897a0efad4bebc8b26",
+    "LMF_B": "2788c8c8a02995ea5686882b5fe65b4b9cd415016031525f8a3c1a3646c47f1b"
+  },
+  "per_clock": {
+    "GrimAgeMort": {
+      "n": 2532,
+      "n_cancer_deaths": 271,
+      "accel_median": -0.4509100000000039,
+      "accel_IQR": [
+        -3.5562009875000005,
+        3.3413507925
+      ],
+      "flag_table": [
+        {
+          "flag_label": "top_50",
+          "pct_cutoff": 0.5,
+          "threshold": -0.4509100000000039,
+          "n_flagged": 1266,
+          "n_not_flagged": 1266,
+          "cancer_deaths_flagged": 141,
+          "cancer_deaths_not_flagged": 130,
+          "cancer_rate_flagged": 0.11137440758293839,
+          "cancer_rate_not_flagged": 0.10268562401263823,
+          "ppv": 0.11137440758293839,
+          "relative_risk": 1.0846153846153845
+        },
+        {
+          "flag_label": "top_25",
+          "pct_cutoff": 0.75,
+          "threshold": 3.3413507925,
+          "n_flagged": 633,
+          "n_not_flagged": 1899,
+          "cancer_deaths_flagged": 86,
+          "cancer_deaths_not_flagged": 185,
+          "cancer_rate_flagged": 0.1358609794628752,
+          "cancer_rate_not_flagged": 0.09741969457609267,
+          "ppv": 0.1358609794628752,
+          "relative_risk": 1.3945945945945948
+        },
+        {
+          "flag_label": "top_10",
+          "pct_cutoff": 0.9,
+          "threshold": 7.935866873999999,
+          "n_flagged": 254,
+          "n_not_flagged": 2278,
+          "cancer_deaths_flagged": 34,
+          "cancer_deaths_not_flagged": 237,
+          "cancer_rate_flagged": 0.13385826771653545,
+          "cancer_rate_not_flagged": 0.10403863037752414,
+          "ppv": 0.13385826771653545,
+          "relative_risk": 1.2866208179673744
+        },
+        {
+          "flag_label": "top_5",
+          "pct_cutoff": 0.95,
+          "threshold": 10.802997857999998,
+          "n_flagged": 127,
+          "n_not_flagged": 2405,
+          "cancer_deaths_flagged": 19,
+          "cancer_deaths_not_flagged": 252,
+          "cancer_rate_flagged": 0.14960629921259844,
+          "cancer_rate_not_flagged": 0.10478170478170479,
+          "ppv": 0.14960629921259844,
+          "relative_risk": 1.427790276215473
+        }
+      ],
+      "top_vs_bot_decile_logrank": {
+        "HR": 1.8306194952801071,
+        "chi2": 4.289721201761515,
+        "p_value": 0.0383434525986323,
+        "e1": 34,
+        "e0": 17,
+        "n1": 254,
+        "n0": 254,
+        "O1": 34.0,
+        "E1": 26.627546830396277
+      },
+      "km_by_quartile": {
+        "Q1": {
+          "n": 633,
+          "events": 61,
+          "km_cum_incidence": {
+            "5yr": 0.021775599859895634,
+            "10yr": 0.06834045728431015,
+            "15yr": 0.10052091978929933,
+            "17yr": 0.11886153125586985
+          }
+        },
+        "Q2": {
+          "n": 633,
+          "events": 69,
+          "km_cum_incidence": {
+            "5yr": 0.022909367563728855,
+            "10yr": 0.06995626187545234,
+            "15yr": 0.10486440719811518,
+            "17yr": 0.12467915128184492
+          }
+        },
+        "Q3": {
+          "n": 633,
+          "events": 55,
+          "km_cum_incidence": {
+            "5yr": 0.032598167381978294,
+            "10yr": 0.050957151114110255,
+            "15yr": 0.08031785559964533,
+            "17yr": 0.09683809141382482
+          }
+        },
+        "Q4": {
+          "n": 633,
+          "events": 86,
+          "km_cum_incidence": {
+            "5yr": 0.033544009299920075,
+            "10yr": 0.08291817993535355,
+            "15yr": 0.1386573358959997,
+            "17yr": 0.16338066277243624
+          }
+        }
+      }
+    },
+    "GrimAge2Mort": {
+      "n": 2532,
+      "n_cancer_deaths": 271,
+      "accel_median": 5.505041215000002,
+      "accel_IQR": [
+        1.8442743149999963,
+        9.527499829999996
+      ],
+      "flag_table": [
+        {
+          "flag_label": "top_50",
+          "pct_cutoff": 0.5,
+          "threshold": 5.505041215000002,
+          "n_flagged": 1266,
+          "n_not_flagged": 1266,
+          "cancer_deaths_flagged": 146,
+          "cancer_deaths_not_flagged": 125,
+          "cancer_rate_flagged": 0.11532385466034756,
+          "cancer_rate_not_flagged": 0.09873617693522907,
+          "ppv": 0.11532385466034756,
+          "relative_risk": 1.1680000000000001
+        },
+        {
+          "flag_label": "top_25",
+          "pct_cutoff": 0.75,
+          "threshold": 9.527499829999996,
+          "n_flagged": 633,
+          "n_not_flagged": 1899,
+          "cancer_deaths_flagged": 80,
+          "cancer_deaths_not_flagged": 191,
+          "cancer_rate_flagged": 0.1263823064770932,
+          "cancer_rate_not_flagged": 0.10057925223802001,
+          "ppv": 0.1263823064770932,
+          "relative_risk": 1.2565445026178008
+        },
+        {
+          "flag_label": "top_10",
+          "pct_cutoff": 0.9,
+          "threshold": 14.073725902999998,
+          "n_flagged": 254,
+          "n_not_flagged": 2278,
+          "cancer_deaths_flagged": 35,
+          "cancer_deaths_not_flagged": 236,
+          "cancer_rate_flagged": 0.1377952755905512,
+          "cancer_rate_not_flagged": 0.10359964881474978,
+          "ppv": 0.1377952755905512,
+          "relative_risk": 1.3300747364206593
+        },
+        {
+          "flag_label": "top_5",
+          "pct_cutoff": 0.95,
+          "threshold": 17.119945619999996,
+          "n_flagged": 127,
+          "n_not_flagged": 2405,
+          "cancer_deaths_flagged": 21,
+          "cancer_deaths_not_flagged": 250,
+          "cancer_rate_flagged": 0.16535433070866143,
+          "cancer_rate_not_flagged": 0.10395010395010396,
+          "ppv": 0.16535433070866143,
+          "relative_risk": 1.590708661417323
+        }
+      ],
+      "top_vs_bot_decile_logrank": {
+        "HR": 1.5813940358419312,
+        "chi2": 2.8177178212443397,
+        "p_value": 0.09322887282655962,
+        "e1": 35,
+        "e0": 21,
+        "n1": 254,
+        "n0": 254,
+        "O1": 35.0,
+        "E1": 28.735095148082834
+      },
+      "km_by_quartile": {
+        "Q1": {
+          "n": 633,
+          "events": 66,
+          "km_cum_incidence": {
+            "5yr": 0.028012582263812758,
+            "10yr": 0.07701255362254267,
+            "15yr": 0.1144998242958184,
+            "17yr": 0.12667976669199332
+          }
+        },
+        "Q2": {
+          "n": 633,
+          "events": 59,
+          "km_cum_incidence": {
+            "5yr": 0.021676985800445636,
+            "10yr": 0.06153597593632221,
+            "15yr": 0.08802594746425396,
+            "17yr": 0.11328129647307594
+          }
+        },
+        "Q3": {
+          "n": 633,
+          "events": 66,
+          "km_cum_incidence": {
+            "5yr": 0.029109019562609362,
+            "10yr": 0.056569036629013913,
+            "15yr": 0.0937812723534196,
+            "17yr": 0.11456706420745422
+          }
+        },
+        "Q4": {
+          "n": 633,
+          "events": 80,
+          "km_cum_incidence": {
+            "5yr": 0.031986498244258255,
+            "10yr": 0.07713846753014408,
+            "15yr": 0.12818641275981335,
+            "17yr": 0.14798177953891523
+          }
+        }
+      }
+    },
+    "PhenoAge": {
+      "n": 2532,
+      "n_cancer_deaths": 271,
+      "accel_median": -10.369191219999998,
+      "accel_IQR": [
+        -14.394081025,
+        -6.0505648600000015
+      ],
+      "flag_table": [
+        {
+          "flag_label": "top_50",
+          "pct_cutoff": 0.5,
+          "threshold": -10.369191219999998,
+          "n_flagged": 1266,
+          "n_not_flagged": 1266,
+          "cancer_deaths_flagged": 134,
+          "cancer_deaths_not_flagged": 137,
+          "cancer_rate_flagged": 0.10584518167456557,
+          "cancer_rate_not_flagged": 0.10821484992101106,
+          "ppv": 0.10584518167456557,
+          "relative_risk": 0.9781021897810219
+        },
+        {
+          "flag_label": "top_25",
+          "pct_cutoff": 0.75,
+          "threshold": -6.0505648600000015,
+          "n_flagged": 633,
+          "n_not_flagged": 1899,
+          "cancer_deaths_flagged": 75,
+          "cancer_deaths_not_flagged": 196,
+          "cancer_rate_flagged": 0.11848341232227488,
+          "cancer_rate_not_flagged": 0.10321221695629279,
+          "ppv": 0.11848341232227488,
+          "relative_risk": 1.1479591836734693
+        },
+        {
+          "flag_label": "top_10",
+          "pct_cutoff": 0.9,
+          "threshold": -1.7647480099999988,
+          "n_flagged": 254,
+          "n_not_flagged": 2278,
+          "cancer_deaths_flagged": 33,
+          "cancer_deaths_not_flagged": 238,
+          "cancer_rate_flagged": 0.12992125984251968,
+          "cancer_rate_not_flagged": 0.1044776119402985,
+          "ppv": 0.12992125984251968,
+          "relative_risk": 1.2435320584926883
+        },
+        {
+          "flag_label": "top_5",
+          "pct_cutoff": 0.95,
+          "threshold": 0.6730114889999963,
+          "n_flagged": 127,
+          "n_not_flagged": 2405,
+          "cancer_deaths_flagged": 19,
+          "cancer_deaths_not_flagged": 252,
+          "cancer_rate_flagged": 0.14960629921259844,
+          "cancer_rate_not_flagged": 0.10478170478170479,
+          "ppv": 0.14960629921259844,
+          "relative_risk": 1.427790276215473
+        }
+      ],
+      "top_vs_bot_decile_logrank": {
+        "HR": 1.2893847370278084,
+        "chi2": 0.9658151975463054,
+        "p_value": 0.32572607877040743,
+        "e1": 33,
+        "e0": 27,
+        "n1": 254,
+        "n0": 254,
+        "O1": 33.0,
+        "E1": 29.197774382354304
+      },
+      "km_by_quartile": {
+        "Q1": {
+          "n": 633,
+          "events": 69,
+          "km_cum_incidence": {
+            "5yr": 0.022974667998010068,
+            "10yr": 0.06671268674522846,
+            "15yr": 0.1115398808394843,
+            "17yr": 0.13668261947235272
+          }
+        },
+        "Q2": {
+          "n": 633,
+          "events": 68,
+          "km_cum_incidence": {
+            "5yr": 0.04102273458265415,
+            "10yr": 0.0652870783216587,
+            "15yr": 0.10379403708958701,
+            "17yr": 0.1227159504725367
+          }
+        },
+        "Q3": {
+          "n": 633,
+          "events": 59,
+          "km_cum_incidence": {
+            "5yr": 0.021550971786661433,
+            "10yr": 0.05682636231149241,
+            "15yr": 0.08667749009650583,
+            "17yr": 0.11058421641393346
+          }
+        },
+        "Q4": {
+          "n": 633,
+          "events": 75,
+          "km_cum_incidence": {
+            "5yr": 0.025090420670354163,
+            "10yr": 0.08313939687486038,
+            "15yr": 0.12314035295391867,
+            "17yr": 0.13435757598516285
+          }
+        }
+      }
+    },
+    "DunedinPoAm": {
+      "n": 2532,
+      "n_cancer_deaths": 271,
+      "accel_median": 0.10017101000000006,
+      "accel_IQR": [
+        0.04567007024999997,
+        0.16532783399999995
+      ],
+      "flag_table": [
+        {
+          "flag_label": "top_50",
+          "pct_cutoff": 0.5,
+          "threshold": 0.10017101000000006,
+          "n_flagged": 1266,
+          "n_not_flagged": 1266,
+          "cancer_deaths_flagged": 149,
+          "cancer_deaths_not_flagged": 122,
+          "cancer_rate_flagged": 0.11769352290679305,
+          "cancer_rate_not_flagged": 0.09636650868878358,
+          "ppv": 0.11769352290679305,
+          "relative_risk": 1.221311475409836
+        },
+        {
+          "flag_label": "top_25",
+          "pct_cutoff": 0.75,
+          "threshold": 0.16532783399999995,
+          "n_flagged": 633,
+          "n_not_flagged": 1899,
+          "cancer_deaths_flagged": 80,
+          "cancer_deaths_not_flagged": 191,
+          "cancer_rate_flagged": 0.1263823064770932,
+          "cancer_rate_not_flagged": 0.10057925223802001,
+          "ppv": 0.1263823064770932,
+          "relative_risk": 1.2565445026178008
+        },
+        {
+          "flag_label": "top_10",
+          "pct_cutoff": 0.9,
+          "threshold": 0.23558781670000012,
+          "n_flagged": 254,
+          "n_not_flagged": 2278,
+          "cancer_deaths_flagged": 34,
+          "cancer_deaths_not_flagged": 237,
+          "cancer_rate_flagged": 0.13385826771653545,
+          "cancer_rate_not_flagged": 0.10403863037752414,
+          "ppv": 0.13385826771653545,
+          "relative_risk": 1.2866208179673744
+        },
+        {
+          "flag_label": "top_5",
+          "pct_cutoff": 0.95,
+          "threshold": 0.2817159473999999,
+          "n_flagged": 127,
+          "n_not_flagged": 2405,
+          "cancer_deaths_flagged": 19,
+          "cancer_deaths_not_flagged": 252,
+          "cancer_rate_flagged": 0.14960629921259844,
+          "cancer_rate_not_flagged": 0.10478170478170479,
+          "ppv": 0.14960629921259844,
+          "relative_risk": 1.427790276215473
+        }
+      ],
+      "top_vs_bot_decile_logrank": {
+        "HR": 2.138706989837452,
+        "chi2": 8.158612739145314,
+        "p_value": 0.004285714087270375,
+        "e1": 34,
+        "e0": 22,
+        "n1": 254,
+        "n0": 254,
+        "O1": 34.0,
+        "E1": 23.491221466920603
+      },
+      "km_by_quartile": {
+        "Q1": {
+          "n": 633,
+          "events": 49,
+          "km_cum_incidence": {
+            "5yr": 0.016028835164708655,
+            "10yr": 0.05147965952530298,
+            "15yr": 0.06938989823164643,
+            "17yr": 0.08277485246795113
+          }
+        },
+        "Q2": {
+          "n": 633,
+          "events": 73,
+          "km_cum_incidence": {
+            "5yr": 0.021486755027551263,
+            "10yr": 0.06481623057581454,
+            "15yr": 0.10617055775859519,
+            "17yr": 0.12469678741136447
+          }
+        },
+        "Q3": {
+          "n": 633,
+          "events": 69,
+          "km_cum_incidence": {
+            "5yr": 0.02160618328572328,
+            "10yr": 0.05927957094177472,
+            "15yr": 0.1169780026476972,
+            "17yr": 0.1395335171873816
+          }
+        },
+        "Q4": {
+          "n": 633,
+          "events": 80,
+          "km_cum_incidence": {
+            "5yr": 0.0525465767086315,
+            "10yr": 0.09672447532552886,
+            "15yr": 0.13628446696774366,
+            "17yr": 0.16439826386143253
+          }
+        }
+      }
+    }
+  }
+}

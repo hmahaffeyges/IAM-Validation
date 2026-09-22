@@ -1,0 +1,21 @@
+{
+  "null_type": "50_50_random_split_cv",
+  "rng_seed": 42,
+  "results": {
+    "half_A": {
+      "n": 328,
+      "r": -0.17748,
+      "p": 0.001247942689640476,
+      "slope": -0.0004794
+    },
+    "half_B": {
+      "n": 328,
+      "r": -0.22038,
+      "p": 5.680922813552278e-05,
+      "slope": -0.0005757
+    },
+    "abs_r_diff": 0.0429,
+    "pass_3_r_diff_under_0_05": true
+  },
+  "interpretation": "If physics-layer aging trajectory is real, both halves should yield consistent r within 0.05."
+}

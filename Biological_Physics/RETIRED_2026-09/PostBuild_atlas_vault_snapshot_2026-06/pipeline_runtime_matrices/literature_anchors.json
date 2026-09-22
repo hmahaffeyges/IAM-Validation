@@ -1,0 +1,213 @@
+{
+  "_meta": {
+    "name": "_LITERATURE_ANCHORS",
+    "purpose": "Published reference A-score anchors per class (healthy/disease/cancer) - used by E7 Literature Anchor engine to label a customer reading against published cohort data. Useful for evidence reports and clinician-facing context.",
+    "extracted_from": "GAPE_WEB_v13.py _LITERATURE_ANCHORS",
+    "extraction_date": "2026-05-28"
+  },
+  "data": {
+    "terminal": [
+      {
+        "label": "Healthy neuron (control)",
+        "A": 0.978,
+        "beta": 0.782,
+        "context": "normal",
+        "source": "Lister et al. 2013 Science"
+      },
+      {
+        "label": "Low AD neuropathology",
+        "A": 1.043,
+        "beta": 0.753,
+        "context": "disease",
+        "source": "De Jager et al. 2014 Nat Neurosci"
+      },
+      {
+        "label": "High AD neuropathology",
+        "A": 1.062,
+        "beta": 0.744,
+        "context": "disease",
+        "source": "De Jager et al. 2014; Shireby et al. 2022"
+      },
+      {
+        "label": "Glioblastoma (GBM)",
+        "A": 1.256,
+        "beta": 0.4,
+        "context": "cancer",
+        "source": "Ceccarelli et al. 2016 Cell"
+      },
+      {
+        "label": "Lower Grade Glioma (LGG)",
+        "A": 1.285,
+        "beta": 0.45,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2015 NEJM"
+      }
+    ],
+    "secretory": [
+      {
+        "label": "Normal breast (control)",
+        "A": 0.971,
+        "beta": 0.745,
+        "context": "normal",
+        "source": "TCGA BRCA matched normal"
+      },
+      {
+        "label": "T2D pancreatic islet",
+        "A": 1.022,
+        "beta": 0.715,
+        "context": "disease",
+        "source": "Volkmar et al. 2012 Nat Genet"
+      },
+      {
+        "label": "Low-grade DCIS",
+        "A": 1.045,
+        "beta": 0.7,
+        "context": "disease",
+        "source": "Fleischer et al. 2017"
+      },
+      {
+        "label": "High-grade DCIS",
+        "A": 1.097,
+        "beta": 0.66,
+        "context": "cancer",
+        "source": "Stefansson et al. 2015"
+      },
+      {
+        "label": "Breast cancer (BRCA)",
+        "A": 1.177,
+        "beta": 0.55,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2012 Nature"
+      },
+      {
+        "label": "Pancreatic adenocarcinoma",
+        "A": 1.164,
+        "beta": 0.58,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2017 Cancer Cell"
+      }
+    ],
+    "cycling": [
+      {
+        "label": "Normal colon (control)",
+        "A": 0.966,
+        "beta": 0.74,
+        "context": "normal",
+        "source": "TCGA COAD matched normal"
+      },
+      {
+        "label": "Normal lung (control)",
+        "A": 0.962,
+        "beta": 0.742,
+        "context": "normal",
+        "source": "TCGA LUAD matched normal"
+      },
+      {
+        "label": "Colon cancer (COAD)",
+        "A": 1.147,
+        "beta": 0.58,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2012 Nature"
+      },
+      {
+        "label": "Lung adenocarcinoma (LUAD)",
+        "A": 1.134,
+        "beta": 0.6,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2014 Nature"
+      },
+      {
+        "label": "Melanoma (SKCM)",
+        "A": 1.134,
+        "beta": 0.6,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2015 Cell"
+      }
+    ],
+    "immune": [
+      {
+        "label": "CD4+ naive T cell",
+        "A": 1.023,
+        "beta": 0.718,
+        "context": "normal",
+        "source": "Roadmap Epigenomics E043"
+      },
+      {
+        "label": "Neutrophil (reference)",
+        "A": 0.948,
+        "beta": 0.76,
+        "context": "normal",
+        "source": "Roadmap Epigenomics E030"
+      },
+      {
+        "label": "Leukemia AML (LAML)",
+        "A": 1.15,
+        "beta": 0.61,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2013 NEJM"
+      },
+      {
+        "label": "Lymphoma DLBCL",
+        "A": 1.161,
+        "beta": 0.595,
+        "context": "cancer",
+        "source": "Chapuy et al. 2018 Nat Med"
+      }
+    ],
+    "stromal": [
+      {
+        "label": "Fibroblast IMR90 (young)",
+        "A": 0.978,
+        "beta": 0.728,
+        "context": "normal",
+        "source": "Roadmap Epigenomics E056"
+      },
+      {
+        "label": "Fibroblast IMR90 (aged)",
+        "A": 1.028,
+        "beta": 0.695,
+        "context": "normal",
+        "source": "Cruickshanks et al. 2013"
+      },
+      {
+        "label": "Mesothelioma (MESO)",
+        "A": 1.122,
+        "beta": 0.605,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2018 Nat Genet"
+      },
+      {
+        "label": "Sarcoma (SARC)",
+        "A": 1.11,
+        "beta": 0.62,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2017 Cell"
+      }
+    ],
+    "stem_adult": [
+      {
+        "label": "HSC (hematopoietic)",
+        "A": 0.955,
+        "beta": 0.735,
+        "context": "normal",
+        "source": "Roadmap Epigenomics E035"
+      }
+    ],
+    "stem_pluri": [
+      {
+        "label": "hESC H1",
+        "A": 0.999,
+        "beta": 0.42,
+        "context": "normal",
+        "source": "Roadmap Epigenomics E003"
+      },
+      {
+        "label": "TGCT (note: DECLINING A)",
+        "A": 0.871,
+        "beta": 0.72,
+        "context": "cancer",
+        "source": "Cancer Genome Atlas 2018 Cell Rep"
+      }
+    ]
+  }
+}

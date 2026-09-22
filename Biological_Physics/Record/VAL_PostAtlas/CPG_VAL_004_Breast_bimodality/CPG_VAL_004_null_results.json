@@ -1,0 +1,17 @@
+{
+  "N_bimo_001_asymmetry_direction": {
+    "passed": false,
+    "observed_loss": 396,
+    "observed_gain": 1096,
+    "either_direction_total": 1492,
+    "p_value": 1.0,
+    "pass_condition": "binomial p < 0.05 that asymmetry favors loss-in-case",
+    "narrative": "Of 1492 CpGs with bimodality asymmetry between case/HC, 396 (26.5%) lose bimodality in case vs 1096 that gain. Binomial p=1.00e+00. FAIL."
+  },
+  "N_bimo_002_per_cohort_concordance": {
+    "passed": null,
+    "deferred": true,
+    "reason": "Bimodality map was computed pooled across cohorts. Per-cohort recomputation needed.",
+    "phase": "Phase A3.1 deliverable"
+  }
+}

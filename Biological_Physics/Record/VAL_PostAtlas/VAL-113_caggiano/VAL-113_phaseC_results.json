@@ -1,0 +1,441 @@
+{
+  "val_id": "VAL-113",
+  "phase": "C \u2014 cardio cohort scoring",
+  "date": "2026-04-29",
+  "atlas_id": "Caggiano_CelFiE_TIM_cardiac_array_bridged_v1",
+  "cohorts": {
+    "GSE84395": {
+      "n_samples": 39,
+      "group_counts": {
+        "control": 18,
+        "hPAH": 10,
+        "iPAH": 11
+      },
+      "cohen_d": {
+        "control_vs_hPAH": {
+          "n_g1": 18,
+          "n_g2": 10,
+          "caggiano": {
+            "dendritic": 0.2253269409477189,
+            "endothelial": 0.29663730640065955,
+            "eosinophil": 0.25920686205597127,
+            "erythroblast": 0.40851925029716457,
+            "macrophage": 0.04004346581694671,
+            "monocyte": -0.46560339111112925,
+            "neutrophil": 0.22982581906649793,
+            "placenta": 0.5087892419874925,
+            "tcell": 0.22582456727655384,
+            "adipose": 1.0238653745991582,
+            "brain": 0.9378912306665779,
+            "fibroblast": 0.1486237870742137,
+            "heart": 1.1320944547235063,
+            "hepatocyte": 0.9315749012129413,
+            "lung": 1.040524893308142,
+            "mammary": 1.2417211510162918,
+            "megakaryocyte": 0.2757507963860225,
+            "skeletal": 0.007158475439054138,
+            "small_intestine": 0.17662070277388614
+          }
+        },
+        "control_vs_iPAH": {
+          "n_g1": 18,
+          "n_g2": 11,
+          "caggiano": {
+            "dendritic": 0.08496445843185904,
+            "endothelial": 0.592794228271371,
+            "eosinophil": 0.37527384240938166,
+            "erythroblast": 0.21384105518681712,
+            "macrophage": -0.12266369758680082,
+            "monocyte": -0.8319129968380822,
+            "neutrophil": -0.15137612520425142,
+            "placenta": 0.38213321243297765,
+            "tcell": 0.20713125725542111,
+            "adipose": 1.1782652150597561,
+            "brain": 1.1598719108235538,
+            "fibroblast": 0.12517794108900906,
+            "heart": 1.4185559114032373,
+            "hepatocyte": 1.1962966707103946,
+            "lung": 1.1883354620370692,
+            "mammary": 1.5922157663871457,
+            "megakaryocyte": 0.28397769028315134,
+            "skeletal": 0.16866929330839373,
+            "small_intestine": -0.0021566695973188727
+          }
+        },
+        "hPAH_vs_iPAH": {
+          "n_g1": 10,
+          "n_g2": 11,
+          "caggiano": {
+            "dendritic": -0.09745217987695465,
+            "endothelial": 0.24104603741616717,
+            "eosinophil": 0.12267978263272881,
+            "erythroblast": -0.12980911348005825,
+            "macrophage": -0.13159204885764705,
+            "monocyte": -0.39117406056468845,
+            "neutrophil": -0.28498191216830837,
+            "placenta": -0.03084848308311391,
+            "tcell": -0.010051935492781796,
+            "adipose": 0.1072892132912052,
+            "brain": 0.17054747905826756,
+            "fibroblast": -0.014410364823315596,
+            "heart": 0.18062061538488874,
+            "hepatocyte": 0.24638176262842587,
+            "lung": 0.10283733452999298,
+            "mammary": 0.22397642352149583,
+            "megakaryocyte": 0.0055511861094502,
+            "skeletal": 0.12633720823170952,
+            "small_intestine": -0.1301788133122352
+          }
+        }
+      }
+    },
+    "GSE84274": {
+      "n_samples": 24,
+      "group_counts": {
+        "normal": 6,
+        "dissection": 12,
+        "BAV": 6
+      },
+      "cohen_d": {
+        "normal_vs_dissection": {
+          "n_g1": 6,
+          "n_g2": 12,
+          "caggiano": {
+            "dendritic": 1.3611372193306142,
+            "endothelial": 0.5550709515613156,
+            "eosinophil": -0.09756198913669788,
+            "erythroblast": 0.4825870103251502,
+            "macrophage": 1.6056415496263925,
+            "monocyte": 1.0733572197272847,
+            "neutrophil": 2.42580843164283,
+            "placenta": 0.5654190523293153,
+            "tcell": 1.5862808156070651,
+            "adipose": 1.1464560553656535,
+            "brain": 1.0079148231566415,
+            "fibroblast": 0.5452145950359084,
+            "heart": 1.1557302339694224,
+            "hepatocyte": 1.0752710159897245,
+            "lung": 1.0693728739778408,
+            "mammary": 0.9306169657138773,
+            "megakaryocyte": 1.331552587467079,
+            "skeletal": 0.5896005747696974,
+            "small_intestine": 0.5265015402101206
+          }
+        },
+        "normal_vs_BAV": {
+          "n_g1": 6,
+          "n_g2": 6,
+          "caggiano": {
+            "dendritic": 0.8580204147444439,
+            "endothelial": 1.5219580077425108,
+            "eosinophil": -0.05672707233238798,
+            "erythroblast": -0.105112166626245,
+            "macrophage": 0.8575433972620001,
+            "monocyte": 0.7778157253723352,
+            "neutrophil": 0.5732249047521629,
+            "placenta": 0.3095116705155599,
+            "tcell": 1.020806085163659,
+            "adipose": 1.3584005139827036,
+            "brain": 0.9343743349481751,
+            "fibroblast": 2.0974313829748326,
+            "heart": 1.3997615928924323,
+            "hepatocyte": 1.3133799393520635,
+            "lung": 1.2394068581061237,
+            "mammary": 1.036513353999796,
+            "megakaryocyte": 0.6982556606023526,
+            "skeletal": 1.0423519695763357,
+            "small_intestine": 0.7152957280156728
+          }
+        },
+        "dissection_vs_BAV": {
+          "n_g1": 12,
+          "n_g2": 6,
+          "caggiano": {
+            "dendritic": -0.4131436387617901,
+            "endothelial": 0.1814255416838627,
+            "eosinophil": 0.03916338355262576,
+            "erythroblast": -0.6327144959302584,
+            "macrophage": -0.4615965792567716,
+            "monocyte": -0.01584355201188928,
+            "neutrophil": -0.799821126276937,
+            "placenta": -0.2103991657003557,
+            "tcell": -0.7128140322266957,
+            "adipose": -0.2461236812207453,
+            "brain": -0.2783121918610237,
+            "fibroblast": 0.5149909325858468,
+            "heart": -0.08605664895365629,
+            "hepatocyte": -0.17041289367396106,
+            "lung": -0.2314225718613617,
+            "mammary": -0.24176875222210478,
+            "megakaryocyte": -0.7401589970824679,
+            "skeletal": 0.25852365698804286,
+            "small_intestine": -0.0056839826883303465
+          }
+        }
+      }
+    },
+    "GSE69138": {
+      "n_samples": 589,
+      "group_counts": {
+        "SVD": 199,
+        "LAA": 132,
+        "stroke_cardio emobolic": 127,
+        "stroke_null": 4,
+        "CE": 109,
+        "stroke_atherotrombotic": 18
+      },
+      "cohen_d": {
+        "SVD_vs_LAA": {
+          "n_g1": 199,
+          "n_g2": 132,
+          "caggiano": {
+            "dendritic": 0.05625558215457611,
+            "endothelial": -0.02973243992341536,
+            "eosinophil": -0.026731216653493265,
+            "erythroblast": 0.0497137908602759,
+            "macrophage": 0.05317842075039321,
+            "monocyte": -0.07214275978915244,
+            "neutrophil": 0.08218329050526467,
+            "placenta": 0.0331080381961278,
+            "tcell": 0.0442162766546319,
+            "adipose": 0.08858845858903241,
+            "brain": 0.07440966672761636,
+            "fibroblast": -0.09695190861102342,
+            "heart": 0.04903194372471429,
+            "hepatocyte": 0.0840579390400051,
+            "lung": 0.08462100548322007,
+            "mammary": 0.01340432759487956,
+            "megakaryocyte": 0.04076490845745651,
+            "skeletal": 0.042741219832669514,
+            "small_intestine": 0.02994215757978397
+          }
+        },
+        "SVD_vs_stroke_cardio emobolic": {
+          "n_g1": 199,
+          "n_g2": 127,
+          "caggiano": {
+            "dendritic": 0.0032422855147124655,
+            "endothelial": -0.03272406840873838,
+            "eosinophil": -0.06506516884441307,
+            "erythroblast": 0.05181063208887249,
+            "macrophage": -0.01145705360279711,
+            "monocyte": -0.194533795141806,
+            "neutrophil": 0.03747073109486698,
+            "placenta": 0.023710685198058676,
+            "tcell": 0.13443777718663305,
+            "adipose": 0.11182078226567253,
+            "brain": 0.10467424978108097,
+            "fibroblast": -0.023366688088471112,
+            "heart": 0.08559756080781175,
+            "hepatocyte": 0.1178390946181305,
+            "lung": 0.10772546380872848,
+            "mammary": 0.02720856507819417,
+            "megakaryocyte": 0.052469022011368015,
+            "skeletal": 0.05982494994785297,
+            "small_intestine": 0.07302695388968092
+          }
+        },
+        "SVD_vs_CE": {
+          "n_g1": 199,
+          "n_g2": 109,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        },
+        "SVD_vs_stroke_atherotrombotic": {
+          "n_g1": 199,
+          "n_g2": 18,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        },
+        "LAA_vs_stroke_cardio emobolic": {
+          "n_g1": 132,
+          "n_g2": 127,
+          "caggiano": {
+            "dendritic": -0.05442000139413243,
+            "endothelial": -0.0026124617476258293,
+            "eosinophil": -0.03663239558148017,
+            "erythroblast": 0.0018041962718378089,
+            "macrophage": -0.06481034898343244,
+            "monocyte": -0.1153368872094582,
+            "neutrophil": -0.048809962160090384,
+            "placenta": -0.010084227050373954,
+            "tcell": 0.0948086528345335,
+            "adipose": 0.01921000257014059,
+            "brain": 0.026380545958861846,
+            "fibroblast": 0.07522990748262343,
+            "heart": 0.03315009251710736,
+            "hepatocyte": 0.028766175353938744,
+            "lung": 0.019627712844343167,
+            "mammary": 0.011689253648858394,
+            "megakaryocyte": 0.01161257257682094,
+            "skeletal": 0.01810427302665576,
+            "small_intestine": 0.04491507620272056
+          }
+        },
+        "LAA_vs_CE": {
+          "n_g1": 132,
+          "n_g2": 109,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        },
+        "LAA_vs_stroke_atherotrombotic": {
+          "n_g1": 132,
+          "n_g2": 18,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        },
+        "stroke_cardio emobolic_vs_CE": {
+          "n_g1": 127,
+          "n_g2": 109,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        },
+        "stroke_cardio emobolic_vs_stroke_atherotrombotic": {
+          "n_g1": 127,
+          "n_g2": 18,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        },
+        "CE_vs_stroke_atherotrombotic": {
+          "n_g1": 109,
+          "n_g2": 18,
+          "caggiano": {
+            "dendritic": null,
+            "endothelial": null,
+            "eosinophil": null,
+            "erythroblast": null,
+            "macrophage": null,
+            "monocyte": null,
+            "neutrophil": null,
+            "placenta": null,
+            "tcell": null,
+            "adipose": null,
+            "brain": null,
+            "fibroblast": null,
+            "heart": null,
+            "hepatocyte": null,
+            "lung": null,
+            "mammary": null,
+            "megakaryocyte": null,
+            "skeletal": null,
+            "small_intestine": null
+          }
+        }
+      }
+    }
+  }
+}

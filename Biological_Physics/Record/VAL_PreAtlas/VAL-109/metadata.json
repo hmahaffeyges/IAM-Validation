@@ -1,0 +1,158 @@
+[
+  {
+    "geo": "GSM2232981",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232982",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232983",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2232984",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2232985",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2232986",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232987",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232988",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2232989",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2232990",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2232991",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232992",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232993",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2232994",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2232995",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2232996",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232997",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2232998",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2232999",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233000",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2233001",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233002",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233003",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233004",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233005",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233006",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233007",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2233008",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2233009",
+    "status": "hPAH"
+  },
+  {
+    "geo": "GSM2233010",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233011",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233012",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233013",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233014",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233015",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233016",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233017",
+    "status": "iPAH"
+  },
+  {
+    "geo": "GSM2233018",
+    "status": "control"
+  },
+  {
+    "geo": "GSM2233019",
+    "status": "control"
+  }
+]

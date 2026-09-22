@@ -1,0 +1,76 @@
+==============================================================================
+Jeong 2026 cross-species kidney atlas → HM450 HG19 CpG bridge
+==============================================================================
+
+[1] Loading Jeong 2026 Table S3 (consensus reference panel)
+  Rows: 2180, columns: ['GroupID', 'OrthoBinID', 'hg38_recip_chrom', 'hg38_recip_start', 'hg38_recip_end', 'mm39_chrom', 'mm39_start', 'mm39_end', 'AvgMethyl_Human_Target', 'AvgMethyl_Mouse_Target', 'AvgMethyl_Human_Rest', 'AvgMethyl_Mouse_Rest', 'Direction_Human_Overall', 'Direction_Mouse_Overall', 'scores_H', 'pvals_adj_H', 'logfoldchanges_H', 'scores_M', 'pvals_adj_M', 'logfoldchanges_M']
+  Source SHA-256: c468ba9f37cd764df73f59a2200afb69bdfa4389a80b548bbc48073f82075440
+  GroupID counts:
+    PT: 99
+    POD: 259
+    DCT: 58
+    TAL: 18
+    PC: 55
+    CNT_IC: 20
+    PEC: 16
+    FIB: 469
+    EC: 324
+    Myeloid: 291
+    B: 571
+
+[2] LiftOver hg38 → hg19
+  LiftOver attempts: 2180
+  Failed (no hg19 mapping): 2
+  Split mapping (different chromosomes): 0
+  Successfully lifted: 2178
+  Retained for bridging: 2178
+  Per-cell-type retention after liftOver:
+    PT: 99 → 99 (100.0% retained)
+    POD: 259 → 258 (99.6% retained)
+    DCT: 58 → 58 (100.0% retained)
+    TAL: 18 → 18 (100.0% retained)
+    PC: 55 → 55 (100.0% retained)
+    CNT_IC: 20 → 20 (100.0% retained)
+    PEC: 16 → 16 (100.0% retained)
+    FIB: 469 → 469 (100.0% retained)
+    EC: 324 → 324 (100.0% retained)
+    Myeloid: 291 → 291 (100.0% retained)
+    B: 571 → 570 (99.8% retained)
+
+[3] Loading HM450 hg19 manifest
+  Manifest CpGs: 485512
+  Manifest SHA-256: a4c987458d0128311c6b74ae2fa6db64c2ed6b5a1a789d07247af86cf116598a
+
+[4] Intersecting hg19 regions with HM450 CpGs
+  Regions with ≥1 array CpG: 1459 / 2178
+  Total CpG hits (pre-dedup): 6966
+
+[5] Assembling KidneyRef v2 matrix
+  Unique CpGs with any data: 5587
+  Matrix shape: (5587, 11)
+  CHK-3.1C: zero duplicate CpG rows ✓
+  Per-cell-type marker CpG count (where CT is the discriminating owner):
+    PT: 395
+    POD: 700
+    DCT: 175
+    TAL: 98
+    PC: 327
+    CNT_IC: 74
+    PEC: 108
+    FIB: 1206
+    EC: 1056
+    Myeloid: 1187
+    B: 1640
+
+[6] CHK-3.1A bimodality on bridged matrix
+  Total non-NaN β values: 61457
+  f_extreme (<0.1 or >0.9): 0.0759
+  f_middle ([0.4, 0.6]):    0.2351
+  mean β: 0.5275
+  median β: 0.5391
+  CHK-3.1A substrate class: self-cal class
+
+[7] Writing outputs
+  Wrote: /home/claude/kidney_sprint/atlas_build/jeong2026_kidneyref_v2_HM450_v1.csv
+  Bridged SHA-256: 6fbe0b52e34fc4754e3faf5db1b16b8e960883a719934972ec97acaaf1d6908c
+  Wrote: /home/claude/kidney_sprint/atlas_build/jeong2026_kidneyref_v2_INVENTORY.json

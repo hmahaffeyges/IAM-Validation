@@ -1,0 +1,59 @@
+VAL-059 Pre-Registration Seal
+==============================
+
+Prereg file: VAL_059_PREREG.md
+Prereg SHA-256: f06fcd3fc91ae0ca9f212f029577357dfc69abc31e9fd97cc1c67a6f5aae4c90
+Seal timestamp: 2026-04-24 06:50:36 UTC
+
+This seal is created BEFORE:
+- GSE281691 series matrix download
+- GSE298812 series matrix download
+- Any beta-value extraction from either cohort
+- Any computation on either cohort
+
+Target cohorts:
+- GSE281691 (PRIMARY): Metabolic HCC multicenter, EPIC 850K, whole-blood leukocyte DNA, n=481 (272 HCC + 316 metabolic-liver-disease controls)
+- GSE298812 (REPLICATION): Nigerian HIV-positive HCC, EPIC 850K, ccfDNA plasma, n=245 spanning HCC / cirrhosis / fibrosis / HCC-free
+
+Instrument frozen:
+- Xu-538 immune panel, SHA ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6
+- H_min(immune) = 0.838889, H_min(secretory) = 0.843264 (G-003b MCMC)
+- Moss 2018 Table S1 healthy hepatocyte reference beta = 0.742
+- VAL-041 HCC case beta ~ 0.598 (Liu 2020 Table S3, direction and magnitude)
+
+Target tier: cross_platform_validated (if both cohorts pass O1 criteria)
+
+Full pre-registration discipline per PL-001:
+- Primary pooled A-score (M1, M2, M3) with 5-outcome decision matrix locked
+- Per-CpG directional preservation check locked per cohort
+- 80-cell age anchor applicable to GSE281691 (whole-blood); NOT applicable to GSE298812 (ccfDNA) per CCL-004
+- Cohort batch offset check against Moss Table S1 locked per cohort
+- Sex stratification locked per cohort (HCC is male-predominant; expect ~3:1 M:F)
+- Cross-cohort consistency score locked
+
+RNG seed: 20260420 (matches VAL-047 / VAL-051 / VAL-052 / VAL-056 / VAL-057 / VAL-058)
+
+Author: Heath W. Mahaffey, IAMPerformance Inter-Domain Research Institute
+
+===============================================
+AMENDMENT — 2026-04-24 before any data access
+===============================================
+
+Amendment file: VAL_059_PREREG_AMENDMENT.md
+Amendment SHA-256: b669a4c87db545b054e8f8aa87cdab30e22130a4cf072fc00ae767a9c89b3191
+Amendment seal timestamp: 2026-04-24 06:54:50 UTC
+
+Change: M2 and M3 (Moss per-CpG hepatocyte reference metrics) removed
+because Moss per-CpG reference panels are NDA-gated. M1 (Xu-538 pooled
+immune A-score) remains as PRIMARY metric across both cohorts.
+
+Per-CpG directional preservation check on Xu-538 retained.
+Per-cohort separate analysis, sex stratification, age regression,
+80-cell age anchor on GSE281691 only (per CCL-004), cohort batch
+offset check, and cross-cohort consistency metric all retained.
+
+GSE281691 and GSE298812 series matrices have NOT been downloaded,
+opened, parsed, or computed on as of this timestamp.
+
+Original pre-reg SHA: f06fcd3fc91ae0ca9f212f029577357dfc69abc31e9fd97cc1c67a6f5aae4c90
+Amendment SHA:        b669a4c87db545b054e8f8aa87cdab30e22130a4cf072fc00ae767a9c89b3191

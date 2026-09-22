@@ -1,0 +1,27 @@
+VAL-057 Pre-Registration Seal
+==============================
+
+Prereg file: VAL_057_PREREG.md
+Prereg SHA-256: cf94a712dd85d4e837c60a9d3e550b3c4d7fb7c70f6ab0c8d3e42a6be4e4c7e9
+Seal timestamp: 2026-04-24 05:44:28 UTC
+
+This seal is created BEFORE:
+- GSE53740 series matrix download
+- Any GSE53740 β-value extraction
+- Any computation on GSE53740 data
+
+Panel frozen from VAL_051_SEAL.txt (2026-04-23 07:23:53 UTC):
+- 7 CpGs, Rule A directions
+- cg16867657 (+1), cg25809905 (-1), cg22454769 (+1)
+- cg09809672 (-1), cg26614073 (-1), cg00431549 (-1), cg02228185 (-1)
+
+H_min(immune): 0.838889 (G-003b MCMC posterior, frozen)
+
+Cohort external to training/replication:
+- AIBL used in VAL-051 training
+- AddNeuroMed used in VAL-052 cross-platform replication
+- GSE53740 is independent of both — true external specificity test
+
+RNG seed: 20260420 (matches VAL-047 / VAL-051 / VAL-052 / VAL-056)
+
+Author: Heath W. Mahaffey, IAMPerformance Inter-Domain Research Institute

@@ -1,0 +1,429 @@
+{
+  "val_id": "VAL-098",
+  "sealed_at": "2026-04-28T16:45:32.098197Z",
+  "prereg_sha256": "57d830d6c7ba64482b5da7c1c942aceeeeba3f9d1cf76b22f12f416562247d49",
+  "rng_seed": 20260428,
+  "cohort": {
+    "cohort": "TCGA-READ",
+    "description": "TCGA-READ paired tumor/adjacent-normal HM450 sesame level3 betas",
+    "platform": "Illumina HumanMethylation450 (HM450, GPL13534)",
+    "preprocessing_pipeline": "sesame level3 (GDC public)",
+    "access_tier": 1,
+    "access_url": "https://api.gdc.cancer.gov/data/{file_id}",
+    "manifest_path": "/home/claude/edear_working/VAL-098/VAL-098/READ_matched_manifest.json",
+    "n_pairs_total": 7,
+    "n_pairs_qc_passed": 7,
+    "cohort_size_age_under_50": 1,
+    "cohort_size_age_50_plus": 6,
+    "pre_locked_underpower_flags": {
+      "under_50_stratum": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7"
+    }
+  },
+  "data_integrity": {
+    "health_stats": [
+      {
+        "sample": "TCGA-AG-3725_tumor",
+        "pct_extreme": 71.10771395986508,
+        "pct_middle": 8.362573099415204,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-3725_normal",
+        "pct_extreme": 70.98124838224157,
+        "pct_middle": 8.814985955460115,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-3731_tumor",
+        "pct_extreme": 58.24975413167001,
+        "pct_middle": 17.26320294897721,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-3731_normal",
+        "pct_extreme": 71.79420790180285,
+        "pct_middle": 8.357546988876102,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A01W_tumor",
+        "pct_extreme": 65.38973782971425,
+        "pct_middle": 10.463765092318777,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A01W_normal",
+        "pct_extreme": 68.04447401295164,
+        "pct_middle": 10.332837156764674,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A01Y_tumor",
+        "pct_extreme": 68.78256317564731,
+        "pct_middle": 8.480623830194922,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A01Y_normal",
+        "pct_extreme": 70.99738855765814,
+        "pct_middle": 8.747371756098966,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A020_tumor",
+        "pct_extreme": 70.62241214827345,
+        "pct_middle": 8.399392192924655,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A020_normal",
+        "pct_extreme": 70.9013005488643,
+        "pct_middle": 8.616256380187055,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A02N_tumor",
+        "pct_extreme": 69.54241742469792,
+        "pct_middle": 8.822659477491806,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A02N_normal",
+        "pct_extreme": 72.84203972653584,
+        "pct_middle": 7.183343111313323,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A036_tumor",
+        "pct_extreme": 66.8913758417559,
+        "pct_middle": 9.782558937972077,
+        "pass": true
+      },
+      {
+        "sample": "TCGA-AG-A036_normal",
+        "pct_extreme": 71.64359080296319,
+        "pct_middle": 7.893674875332686,
+        "pass": true
+      }
+    ]
+  },
+  "primary_cycling_class_paired_d": {
+    "d": 0.6116144258462833,
+    "ci_lo_95": 0.22714102410164946,
+    "ci_hi_95": 1.8821674891040676,
+    "t_stat": 1.618179669048821,
+    "p_value": 0.15675122934073404,
+    "n_pairs": 7,
+    "method": "paired Cohen's d on (A_tumor \u2212 A_normal) per patient, A_cycling = mean(H(\u03b2)/0.856055) on all valid HM450 CpGs (\u2265400K per sample)",
+    "comparison_to_val_062": {
+      "val_062_d": 0.7241,
+      "val_062_cohort": "TCGA-COAD n=26 paired pairs",
+      "difference": -0.11248557415371663
+    }
+  },
+  "run_everything_per_tile_paired_d": [
+    {
+      "tile": "Cortical_neurons",
+      "class": "terminal",
+      "paired_d": 0.07603654241507243,
+      "ci_lo_95": -1.4352750389313504,
+      "ci_hi_95": 0.8354746179753273,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Left_atrium",
+      "class": "terminal",
+      "paired_d": -0.49477102250424615,
+      "ci_lo_95": -1.9721948853247917,
+      "ci_hi_95": 0.22206443976775198,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Hepatocytes",
+      "class": "secretory",
+      "paired_d": 2.0939780532432746,
+      "ci_lo_95": 1.597602607323676,
+      "ci_hi_95": 4.7496956018094485,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Breast",
+      "class": "secretory",
+      "paired_d": 0.25494623302758346,
+      "ci_lo_95": -0.5765171704970657,
+      "ci_hi_95": 1.224265686919312,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Prostate",
+      "class": "secretory",
+      "paired_d": 0.4666588166220662,
+      "ci_lo_95": -0.22775655134146344,
+      "ci_hi_95": 2.9129190108708154,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Pancreatic_acinar_cells",
+      "class": "secretory",
+      "paired_d": 0.9274049257241954,
+      "ci_lo_95": 0.17585581039685463,
+      "ci_hi_95": 3.2386982388122805,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Pancreatic_duct_cells",
+      "class": "secretory",
+      "paired_d": 1.0499533382562447,
+      "ci_lo_95": 0.29198285503670607,
+      "ci_hi_95": 3.241043046896305,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Pancreatic_beta_cells",
+      "class": "secretory",
+      "paired_d": 2.1362988010460806,
+      "ci_lo_95": 1.5914405673770855,
+      "ci_hi_95": 4.544482826126633,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Thyroid",
+      "class": "secretory",
+      "paired_d": 0.48250484506614905,
+      "ci_lo_95": -0.25271928370722796,
+      "ci_hi_95": 1.7927456915805668,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Bladder",
+      "class": "cycling",
+      "paired_d": 1.1621726833446608,
+      "ci_lo_95": 0.6162079161083382,
+      "ci_hi_95": 2.706462510749748,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Colon_epithelial_cells",
+      "class": "cycling",
+      "paired_d": -2.5010472309733522,
+      "ci_lo_95": -9.30684828278355,
+      "ci_hi_95": -1.5835717837111616,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Lung_cells",
+      "class": "cycling",
+      "paired_d": 1.5986178186094575,
+      "ci_lo_95": 0.9732053373545312,
+      "ci_hi_95": 3.9633066763281337,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Head_and_neck_larynx",
+      "class": "cycling",
+      "paired_d": 1.5458400974740638,
+      "ci_lo_95": 1.035709230742833,
+      "ci_hi_95": 5.494096538273735,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Upper_GI",
+      "class": "cycling",
+      "paired_d": 0.9322984476834036,
+      "ci_lo_95": 0.3749810255790005,
+      "ci_hi_95": 2.2111716156557244,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Uterus_cervix",
+      "class": "cycling",
+      "paired_d": -0.9447205545668006,
+      "ci_lo_95": -2.0264408264588827,
+      "ci_hi_95": -0.5058149810517258,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Kidney",
+      "class": "cycling",
+      "paired_d": 0.2169046893891435,
+      "ci_lo_95": -0.8719986966251904,
+      "ci_hi_95": 1.0696669197190487,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Adipocytes",
+      "class": "stromal",
+      "paired_d": -0.4172161833565581,
+      "ci_lo_95": -3.6774888196652267,
+      "ci_hi_95": 0.28221445108257964,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Vascular_endothelial_cells",
+      "class": "stromal",
+      "paired_d": -0.44568905080172416,
+      "ci_lo_95": -1.7827154315358877,
+      "ci_hi_95": 0.28407016686939407,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Erythrocyte_progenitors",
+      "class": "progenitor",
+      "paired_d": 0.37426318382056784,
+      "ci_lo_95": -0.5735206446508909,
+      "ci_hi_95": 0.9876466839601663,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Monocytes_EPIC",
+      "class": "immune",
+      "paired_d": 1.07167860630301,
+      "ci_lo_95": 0.5003260677906533,
+      "ci_hi_95": 3.085450260448994,
+      "n_pairs": 7
+    },
+    {
+      "tile": "B-cells_EPIC",
+      "class": "immune",
+      "paired_d": 0.3850773039677393,
+      "ci_lo_95": -0.35379653394341276,
+      "ci_hi_95": 1.6991830275613757,
+      "n_pairs": 7
+    },
+    {
+      "tile": "CD4T-cells_EPIC",
+      "class": "immune",
+      "paired_d": 0.59944252904231,
+      "ci_lo_95": -0.10699252403719324,
+      "ci_hi_95": 2.637157673933849,
+      "n_pairs": 7
+    },
+    {
+      "tile": "NK-cells_EPIC",
+      "class": "immune",
+      "paired_d": 0.5502412038683824,
+      "ci_lo_95": -0.18062121038604673,
+      "ci_hi_95": 2.4244138192510656,
+      "n_pairs": 7
+    },
+    {
+      "tile": "CD8T-cells_EPIC",
+      "class": "immune",
+      "paired_d": 0.39584661815219335,
+      "ci_lo_95": -0.3524081340830445,
+      "ci_hi_95": 2.134048865152867,
+      "n_pairs": 7
+    },
+    {
+      "tile": "Neutrophils_EPIC",
+      "class": "immune",
+      "paired_d": 1.064096581073642,
+      "ci_lo_95": 0.38584555435098317,
+      "ci_hi_95": 4.096833895134217,
+      "n_pairs": 7
+    }
+  ],
+  "top1_distribution": {
+    "Colon_epithelial_cells": 3,
+    "Upper_GI": 3,
+    "Bladder": 1
+  },
+  "top1_per_patient": [
+    {
+      "patient": "TCGA-AG-3725",
+      "top1_tile": "Colon_epithelial_cells",
+      "top1_class": "cycling",
+      "top1_delta": -0.3244098112912738
+    },
+    {
+      "patient": "TCGA-AG-3731",
+      "top1_tile": "Upper_GI",
+      "top1_class": "cycling",
+      "top1_delta": 0.4044166481792461
+    },
+    {
+      "patient": "TCGA-AG-A01W",
+      "top1_tile": "Upper_GI",
+      "top1_class": "cycling",
+      "top1_delta": 0.29298941251453237
+    },
+    {
+      "patient": "TCGA-AG-A01Y",
+      "top1_tile": "Colon_epithelial_cells",
+      "top1_class": "cycling",
+      "top1_delta": -0.26165435596536313
+    },
+    {
+      "patient": "TCGA-AG-A020",
+      "top1_tile": "Upper_GI",
+      "top1_class": "cycling",
+      "top1_delta": 0.38520707976841967
+    },
+    {
+      "patient": "TCGA-AG-A02N",
+      "top1_tile": "Colon_epithelial_cells",
+      "top1_class": "cycling",
+      "top1_delta": -0.27252646301169425
+    },
+    {
+      "patient": "TCGA-AG-A036",
+      "top1_tile": "Bladder",
+      "top1_class": "cycling",
+      "top1_delta": 0.25813653160656086
+    }
+  ],
+  "stratified_analysis": {
+    "by_age": {
+      "under_50": {
+        "n": 1,
+        "cycling_delta_a": 0.015856928103048507,
+        "note": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7"
+      },
+      "age_50_plus": {
+        "n": 6,
+        "cycling_d": 0.5773139821822424,
+        "ci": [
+          0.030398512330257064,
+          1.6077035856786428
+        ],
+        "p": 0.21646182331227326
+      }
+    },
+    "by_sex": {
+      "female": {
+        "n": 4,
+        "cycling_d": 0.3218029926224841,
+        "ci": [
+          -0.9552294186725735,
+          2.0675687180470415
+        ]
+      },
+      "male": {
+        "n": 3,
+        "cycling_d": 1.0064745245614983,
+        "ci": [
+          0.0,
+          4.093444059525469
+        ]
+      }
+    },
+    "by_subsite": {
+      "Rectosigmoid junction": {
+        "n": 1,
+        "note": "underpowered or n=1, direction-only"
+      },
+      "Rectum, NOS": {
+        "n": 6,
+        "cycling_d": 0.7503809288939332,
+        "ci": [
+          0.5641731024778791,
+          2.9412763999224443
+        ]
+      }
+    }
+  },
+  "outcome_label": "O1_CYCLING_CLASS_RECTAL_CONFIRMED",
+  "outcome_reason": "Paired d=0.612 [95% CI 0.227,1.882], extends VAL-062 (+0.724) to rectal subsite",
+  "edear_commercial_deployment_unaffected": "Per CCL-037: cookbook validation cohort coverage gaps and underpowered strata do not affect EDEAR single-pipeline patient-vs-internal-reference deployment",
+  "runtime_seconds": 31.213459730148315
+}

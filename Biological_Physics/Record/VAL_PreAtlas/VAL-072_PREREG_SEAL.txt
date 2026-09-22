@@ -1,0 +1,10 @@
+VAL-072 Pre-Registration Seal
+================================
+Sealed:               2026-04-25 (UTC, before any β-value access)
+Pre-reg file SHA-256: 5a72e1ec4f3379f1406c747457b00a74952e27c57c598622612ddb43c35a5aaf
+Manifest file SHA-256: 434c9f2b10570bfc1d92ae2ea0b83cce3218ed9b82898909d7b3f0625d0dd6d9
+Panel SHA-256:        ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6
+RNG seed:             20260425
+
+This seal locks the analysis plan, cohort manifest, and panel BEFORE any β values are accessed.
+After this seal, deviations require an amendment file with its own SHA seal.

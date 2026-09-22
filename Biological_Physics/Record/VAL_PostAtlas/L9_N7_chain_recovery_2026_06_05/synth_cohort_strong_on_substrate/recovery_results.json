@@ -1,0 +1,65 @@
+{
+  "condition_label": "STRONG_ON_SUBSTRATE",
+  "purpose": "N7 v2 \u2014 disease panel injected ON cell-type marker substrate to test chain detectability when signal hits where the chain measures",
+  "n_case": 50,
+  "n_hc": 200,
+  "injected_signal_strength": 2.0,
+  "panel_substrate_overlap_pct": 100.0,
+  "runtime_seconds": 61.19521880149841,
+  "R1_walther_fraction_recovery": {
+    "overall_mean_abs_error": 0.007600484445104424,
+    "criterion": "MAE \u2264 0.10",
+    "PASS": true,
+    "per_class": {
+      "stem_pluri": {
+        "mean_abs_error": 0.003543295659946704,
+        "true_mean": 0.007998220395722174,
+        "recovered_mean": 0.010479200000000001
+      },
+      "stem_adult": {
+        "mean_abs_error": 0.013607354735535447,
+        "true_mean": 0.006518621842169109,
+        "recovered_mean": 0.0168396
+      },
+      "stromal": {
+        "mean_abs_error": 0.0024464869825604695,
+        "true_mean": 0.012384140484707025,
+        "recovered_mean": 0.0127884
+      },
+      "progenitor": {
+        "mean_abs_error": 0.014362548158209509,
+        "true_mean": 0.0605361616413758,
+        "recovered_mean": 0.054172399999999996
+      },
+      "cycling": {
+        "mean_abs_error": 0.008758174164410956,
+        "true_mean": 0.06051883720083919,
+        "recovered_mean": 0.0563976
+      },
+      "secretory": {
+        "mean_abs_error": 0.006628409798603493,
+        "true_mean": 0.05988170643295882,
+        "recovered_mean": 0.06252880000000001
+      },
+      "terminal": {
+        "mean_abs_error": 0.004167618169152329,
+        "true_mean": 0.05992760879215933,
+        "recovered_mean": 0.0574776
+      },
+      "immune": {
+        "mean_abs_error": 0.007289987892416484,
+        "true_mean": 0.7322347032100682,
+        "recovered_mean": 0.7293188
+      }
+    }
+  },
+  "R3_mahalanobis_case_vs_hc": {
+    "case_mean_distance": 91.8042000614887,
+    "case_sd_distance": 1.7386337691093319,
+    "hc_mean_distance": 93.19961033540312,
+    "hc_sd_distance": 1.471352014552709,
+    "cohens_d": -0.913302677486862,
+    "criterion": "d \u2265 0.5 AND d/signal_strength \u2265 0.3",
+    "PASS": false
+  }
+}

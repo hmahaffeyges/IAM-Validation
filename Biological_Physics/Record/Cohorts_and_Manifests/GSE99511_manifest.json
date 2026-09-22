@@ -1,0 +1,30 @@
+{
+  "val_id": "VAL-073",
+  "card": "cervical-epic",
+  "manifest_date": "2026-04-25",
+  "source": "GEO public access",
+  "geo_accession": "GSE99511",
+  "study_citation": "Verlaat et al. 2018, Oncotarget. DOI: 10.18632/oncotarget.20454",
+  "platform": "GPL13534 Illumina HumanMethylation450 BeadChip",
+  "platform_short": "HM450",
+  "n_total": 68,
+  "composition": {
+    "normal_cervical_tissue": {
+      "n": 28,
+      "gsm_range": "GSM2644971-GSM2644998"
+    },
+    "CIN3_lesion": {
+      "n": 36,
+      "gsm_range": "GSM2644999-GSM2645034"
+    },
+    "SCC_tumor": {
+      "n": 4,
+      "gsm_range": "GSM2645035-GSM2645038"
+    }
+  },
+  "design": "Three-group cross-sectional (Normal vs CIN3 vs SCC); no paired-sample structure",
+  "series_matrix_file": "GSE99511_series_matrix.txt",
+  "series_matrix_size_bytes": 300494239,
+  "platform_caveat": "GPL13534 HM450 \u2014 same platform as TCGA-PAAD/CESC/LIHC. Xu-538 panel coverage expected to be \u226598% per prior cohorts.",
+  "n_caveats": "n=4 SCC arm limits Normal-vs-SCC and CIN3-vs-SCC CI precision. Primary statistical anchor is Normal-vs-CIN3 (n=28+36=64) and Normal-vs-lesion-pooled (n=28+40=68)."
+}

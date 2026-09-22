@@ -1,0 +1,16 @@
+{
+  "cohort": "TCGA-READ",
+  "description": "TCGA-READ paired tumor/adjacent-normal HM450 sesame level3 betas",
+  "platform": "Illumina HumanMethylation450 (HM450, GPL13534)",
+  "preprocessing_pipeline": "sesame level3 (GDC public)",
+  "access_tier": 1,
+  "access_url": "https://api.gdc.cancer.gov/data/{file_id}",
+  "manifest_path": "/home/claude/edear_working/VAL-098/VAL-098/READ_matched_manifest.json",
+  "n_pairs_total": 7,
+  "n_pairs_qc_passed": 7,
+  "cohort_size_age_under_50": 1,
+  "cohort_size_age_50_plus": 6,
+  "pre_locked_underpower_flags": {
+    "under_50_stratum": "n=1 \u2014 direction-only, descriptive-only per CHK-2.7"
+  }
+}

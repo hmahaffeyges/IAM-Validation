@@ -1,0 +1,64 @@
+{
+  "val_id": "VAL-100",
+  "sealed_at": "2026-04-28T18:43:05.231275+00:00",
+  "prereg_sha256": "4017913d31b31e031ab01d2c0a016374334658ab9f526d99d90642d0f3f8bf67",
+  "rng_seed": 20260428,
+  "cohort": {
+    "name": "GSE282666 (Kumar 2024) under-50 buffy coat polyp EPIC v2.0",
+    "n_pnp_pos": 16,
+    "n_pnp_neg": 35,
+    "platform": "GPL33022 / Illumina EPIC v2.0",
+    "all_under_age_50": true
+  },
+  "panel": {
+    "name": "Xu-538",
+    "n_cpgs": 538,
+    "panel_sha256": "9f67df0d1ac6e218..."
+  },
+  "coverage": {
+    "matched_cpgs": 484,
+    "panel_size": 538,
+    "coverage_pct": 89.96282527881041,
+    "coverage_drop_pct": 10.037174721189592,
+    "coverage_flag_triggered": true
+  },
+  "beta_distribution_check_chk_3_1": {
+    "n_betas": 24684,
+    "fraction_extreme_lt0.05_or_gt0.95": 0.0390941500567169,
+    "fraction_middle_0.4_to_0.6": 0.0677361853832442,
+    "bimodal_raw_beta_signature": false,
+    "note": "Bimodal raw \u03b2 signature confirms raw \u03b2 values; failure flags residual M-values per CHK-3.1."
+  },
+  "pnp_pos_summary": {
+    "n": 16,
+    "mean_a_immune": 0.8256555464239211,
+    "sd_a_immune": 0.08415801846806424,
+    "min": 0.7178537322352629,
+    "max": 0.9946397141643364
+  },
+  "pnp_neg_summary": {
+    "n": 35,
+    "mean_a_immune": 0.8074554319630896,
+    "sd_a_immune": 0.07404340079983553,
+    "min": 0.6907097233204468,
+    "max": 0.9973707782233614
+  },
+  "cohens_d_unpaired_pnp_pos_vs_pnp_neg": 0.23550739303985294,
+  "ci_95": [
+    -0.3628005944693642,
+    0.9186379401400715
+  ],
+  "t_stat": 0.7434494527990166,
+  "p_approx": 0.4572096135325059,
+  "cross_cohort_baseline_check_chk_3_2": {
+    "pnp_neg_mean": 0.8074554319630896,
+    "italian_healthy_anchor_mean": 0.4384,
+    "italian_healthy_anchor_sd": 0.0244,
+    "offset_in_anchor_sd": 15.125222621438095,
+    "within_1_anchor_sd": false
+  },
+  "outcome_label": "O5_DATA_INTEGRITY_FLAG",
+  "outcome_reason": "Beta distribution check failed (CHK-3.1): extreme 3.9%, middle 6.8%. Likely residual M-values or processed-not-raw betas.",
+  "edear_commercial_deployment_unaffected": true,
+  "runtime_seconds": 9.0
+}

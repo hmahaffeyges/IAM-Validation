@@ -1,0 +1,352 @@
+[
+  {
+    "patient": "TCGA-ES-A2HT",
+    "tumor_file_id": "7c9d24b1-0bcf-4df7-b4fd-10592ef18703",
+    "tumor_file_name": "344e4836-9c13-416e-a87f-856594c0a91d.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "6305e29e-20df-4cec-ac42-210554c2dfdd",
+    "normal_file_name": "49fc376d-afad-4e23-b12d-a10bfe41d5bf.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A3A1",
+    "tumor_file_id": "cd579894-c9df-496c-bbf6-69c6f214cb4c",
+    "tumor_file_name": "b94f8497-4482-4ce8-9272-5329ee38a968.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "5577b4be-41ec-496b-a4c7-37aeba6207ea",
+    "normal_file_name": "6c3c904a-6f09-4453-84d6-62ff800bc482.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A116",
+    "tumor_file_id": "35f51fdb-023e-49e5-978a-a288a0597abc",
+    "tumor_file_name": "90671e99-9b68-4c11-a8bc-1b87068a5802.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "98ba89b7-5448-4f0f-b085-76bc5b0d253b",
+    "normal_file_name": "216bed19-7a29-4217-ab47-400a5b53b4ca.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-EP-A12J",
+    "tumor_file_id": "7f5edfff-22ed-46ec-befe-87cb8db15c1a",
+    "tumor_file_name": "a04717d1-0912-4a6c-a5ba-9b867661ec2d.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "f294a8b7-78c4-4233-8222-88f0d85c1c27",
+    "normal_file_name": "921429aa-6126-4d8e-81c4-3cf008ad5d44.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A113",
+    "tumor_file_id": "3d6f543e-3a49-4081-ba1f-a893e75b41fc",
+    "tumor_file_name": "7d990a65-cbef-4a6d-b5e4-68a79dba7968.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "51ad7b9b-58f0-4cef-b6c7-2b5079c98cf2",
+    "normal_file_name": "740e4c5c-0526-4a6a-8fc6-2811893fa1cf.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EH",
+    "tumor_file_id": "79baf3a8-e89d-43f4-9f77-654b72cd895c",
+    "tumor_file_name": "3dd1432f-783e-40f6-94af-efc994e2006f.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "9114b0a3-584d-49e8-809e-ff40dbf1d4da",
+    "normal_file_name": "eb51d023-8d48-4724-9694-0b10055d582e.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A39V",
+    "tumor_file_id": "7c300762-aa26-49ca-bfeb-6b1c488f1076",
+    "tumor_file_name": "1a59d5e4-ec53-44c5-a0e3-5c38761361ac.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "2ef958b4-4af9-47f1-9065-0f9802e4d8d5",
+    "normal_file_name": "8d30bfde-8486-4b27-8027-9bdd80142937.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-FV-A2QR",
+    "tumor_file_id": "594fd047-04dc-4374-b213-eb92681b8cd6",
+    "tumor_file_name": "896d8c9c-ed5a-402c-8824-9c50a75acf5c.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "db5c3a50-5f19-4dc3-9b66-27e7603c9276",
+    "normal_file_name": "d59f7f17-3c62-4339-9314-085201abf94b.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BD-A3EP",
+    "tumor_file_id": "cc32e83d-b2d0-4717-962b-d32982321aa9",
+    "tumor_file_name": "cddb7674-f8ec-4fc2-aae8-b2c9a75038f0.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "4f266c8c-7267-41a9-a224-54b871e57baf",
+    "normal_file_name": "f6037d22-2e1d-4c47-8acb-85367e627e2d.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-FV-A23B",
+    "tumor_file_id": "fb73372d-ec8a-4989-a549-8086db3a9c4f",
+    "tumor_file_name": "531ffd9c-bc99-44c0-b4f9-c9a5d0b8e467.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "b17719af-fd80-440f-877b-2be86c6d919f",
+    "normal_file_name": "a58914f2-773e-4368-8e60-ba8e24a7e62c.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A11C",
+    "tumor_file_id": "af82b6fd-c55e-411e-898c-7127de0ca564",
+    "tumor_file_name": "cd730d6c-2da4-4276-9b3d-0d943b018242.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "a4fefe3b-84ab-4377-9fad-e667d0e96b01",
+    "normal_file_name": "9e93993b-ad03-4aba-bc95-349e68e57398.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A110",
+    "tumor_file_id": "cc792a81-9eaa-4290-aceb-a79a0930ad71",
+    "tumor_file_name": "fe44fd02-aa86-48f3-b09f-0f999fe132af.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "a535a7f9-10bd-4ed1-97f5-547383c5f22d",
+    "normal_file_name": "e6319faa-d8e0-46e3-b3d2-707b6f206a98.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-G3-A25W",
+    "tumor_file_id": "35158f72-fe52-4990-a768-41ce14e9f267",
+    "tumor_file_name": "18cd56a1-19c1-4e4b-99a3-3e7da719f8b3.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "c69234f0-a9e0-4638-b19e-956b4e0039c9",
+    "normal_file_name": "9b9ef843-9554-4749-9a79-ccc770d171ec.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EB",
+    "tumor_file_id": "c05a0c36-f092-48b7-877b-96ad454be489",
+    "tumor_file_name": "4744c43f-2d56-4098-9d09-61c2431c4924.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "0c941cbd-4307-4249-aba9-44c601bfd91b",
+    "normal_file_name": "6f786be2-59fe-4acd-a7cc-7f3689fb9c6d.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A39X",
+    "tumor_file_id": "d24e56f7-9156-438d-8b61-45d87e7fa1d3",
+    "tumor_file_name": "3c375739-84b0-4027-a538-adbf1637ec40.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "3194982c-f2c2-4e43-b78a-e5068044c82f",
+    "normal_file_name": "9de97058-1342-400c-82eb-e983a04f8105.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10U",
+    "tumor_file_id": "36d11839-e4d8-40e5-93f0-a8d07395af23",
+    "tumor_file_name": "006925eb-27f4-4c58-bd32-b9107f7fe7d1.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "c68a3155-b0ca-43f9-b9aa-f072566b7e9d",
+    "normal_file_name": "500f2b50-ef8c-4d53-a935-a572ed74f43f.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A114",
+    "tumor_file_id": "bc4480a2-625c-4016-8017-f8dac07e04cd",
+    "tumor_file_name": "217fc155-71f1-4c7d-b4f9-10eb71775e50.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "54160ec6-3538-409e-a1b5-516581bef9a9",
+    "normal_file_name": "e8efa1d9-4e8a-4e26-b650-15d34f0d8fa0.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EC",
+    "tumor_file_id": "a0a999b1-e590-47be-a757-690643872c7f",
+    "tumor_file_name": "d96e2485-5340-4e48-83a7-426828f9ada4.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "9fec9f99-41c5-48fb-a63b-f4bcd82c354d",
+    "normal_file_name": "207c6a37-76d5-46df-9d49-06b8aa2bc9fd.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-ES-A2HS",
+    "tumor_file_id": "c7de770f-ab54-4616-b26b-47711f7fc9eb",
+    "tumor_file_name": "706d57cb-677d-487d-b92f-67bab8696352.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "16a5ee99-9a17-4de6-ba98-804e31c9435a",
+    "normal_file_name": "6c5af31d-3c9e-47ce-b717-27e7b8e585b5.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-G3-A25X",
+    "tumor_file_id": "127fe9c5-3b27-42f2-bcff-5f7deec72a1d",
+    "tumor_file_name": "1629a0a0-99c5-4c7a-af23-aaaae86a2e18.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "f80ece71-1df7-419f-9ba2-56b4fed013e3",
+    "normal_file_name": "e3aa7182-5338-49a2-8352-e94d18007c6e.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10R",
+    "tumor_file_id": "fdba74ae-2f58-455a-a7b1-0c7bedd5eb82",
+    "tumor_file_name": "df7a9704-e22e-4223-8d40-ba5f4e8d4e4d.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "ec478706-9c72-4528-84d5-daaa4927124e",
+    "normal_file_name": "7d3dc1d5-35e5-4c39-9ebe-e16ceb389cb8.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BD-A2L6",
+    "tumor_file_id": "615ce8e9-4aea-4eff-b959-ea8d20f06129",
+    "tumor_file_name": "64ba8200-baa4-4116-86d2-e295bb417ec1.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "82ac2fda-cc60-44fd-a893-57157b628051",
+    "normal_file_name": "06e02a6e-c599-4b3c-9ff6-3fa06498e663.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EL",
+    "tumor_file_id": "5ac02edb-58f3-4d8f-bbff-c52899c3375d",
+    "tumor_file_name": "9d1a5128-75d6-49b1-9e6d-e7d3222bbfdf.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "6ee0ce22-8af6-4ee9-9154-b8827697eee2",
+    "normal_file_name": "47779d4c-8de4-4278-ac2f-16df9a624777.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A3A2",
+    "tumor_file_id": "a55aa46c-9cf8-45b3-b7b5-29e29f83caeb",
+    "tumor_file_name": "2c7a3e1a-0d97-44d0-a25a-de5a6f67f29f.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "d93277b0-ea3f-4362-84a2-b8a37c8fb429",
+    "normal_file_name": "587c6fe7-dd76-4cb8-9fad-ff3969c493d4.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10Q",
+    "tumor_file_id": "4ecba129-4578-4419-b1d4-7a7e4edfc4fb",
+    "tumor_file_name": "2686419f-73a8-471b-b71e-ce0245878434.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "9be80731-d582-4fad-8845-f223f8ce8d21",
+    "normal_file_name": "f7e5f0c3-738d-472d-a837-65ab2a678430.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A39Z",
+    "tumor_file_id": "2455ad92-1c50-4843-a7bf-68163a01067e",
+    "tumor_file_name": "37ab905a-43c4-4ce5-95db-01b2b65d9d5c.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "9128be45-bd0d-406c-9d70-db7c0ee0e31b",
+    "normal_file_name": "3f3c4283-8386-4489-8722-1699e4937614.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A115",
+    "tumor_file_id": "828d5078-3ac5-4ce0-af31-d53d7fb32e78",
+    "tumor_file_name": "759c2c78-531e-478d-8238-3ca5ba78eaac.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "757d83c3-5f4b-4d21-8a2f-9fe85f1e07c3",
+    "normal_file_name": "815825ea-5a92-48ab-a753-bedbe677182a.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A39W",
+    "tumor_file_id": "99c02156-b33b-438e-b90e-cc44b6b70ea0",
+    "tumor_file_name": "bbc7b9f2-19ca-4a26-a46b-0978913433ab.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "a3acb842-c7bc-46f4-9879-2d2d5480791c",
+    "normal_file_name": "3f396ff8-5ae0-4e94-b270-427be3bbf797.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EJ",
+    "tumor_file_id": "f3353d31-b6ae-4402-83e7-8a672be1ac4f",
+    "tumor_file_name": "8f698617-4fdc-410f-8748-dde3c482cc8f.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "bf6c3e34-d5e9-4a49-9fe6-e9e35af4cbb4",
+    "normal_file_name": "d5c7b613-155c-42c8-a899-2c6ab0ec0739.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10S",
+    "tumor_file_id": "5ac7c36e-0d08-469c-8c7d-2e7cbeaa1414",
+    "tumor_file_name": "e37d0876-beaf-4f8a-8795-479f346966db.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "458ceb98-7fca-4dee-86bd-c2944d8470e6",
+    "normal_file_name": "ed6be4e2-b632-481e-8d33-d3b49de48e72.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EE",
+    "tumor_file_id": "05c1a316-6a3c-4610-8ea2-6b64b76461dd",
+    "tumor_file_name": "0032d6ae-c593-49fc-9963-87523b25f5ca.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "df97a070-84dc-4200-af23-3815888b3fb5",
+    "normal_file_name": "2ad51b20-f985-4a6a-83ac-02d6e87e21bb.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EG",
+    "tumor_file_id": "028b168f-fb6a-412a-89ee-685ac9128f5a",
+    "tumor_file_name": "b93f2486-8774-4213-aac6-ba5b051f18a9.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "6129e04f-6618-4dcc-bfc6-be99aaa472f2",
+    "normal_file_name": "2afbc911-901e-403b-8e75-09adceaf0ba9.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10Y",
+    "tumor_file_id": "cbe0d672-1400-4609-987c-454838a8f18e",
+    "tumor_file_name": "b9adebd9-c873-4c3b-9cb8-2bd1c82a96c4.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "3f74b7b6-194a-47d8-bdbc-86ea753e0a70",
+    "normal_file_name": "8d1c725d-08a2-4ba1-8df2-c5a1cb383150.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1ED",
+    "tumor_file_id": "c178f9d8-b484-4e92-9e3a-665774e3b1b2",
+    "tumor_file_name": "2803c67e-2a12-4d45-acbc-80fb7bd9f96c.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "90f52a0d-6d8b-47c6-9e87-5a90f1677ed6",
+    "normal_file_name": "1bf3349f-605b-4038-bbd0-4a095653808f.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10W",
+    "tumor_file_id": "93331bd3-19f4-44a5-ac65-d37cef7c481b",
+    "tumor_file_name": "0140b33f-beea-43d1-b0d4-d331845f0b17.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "c84c5ca8-8d6f-4452-8efc-b29fd1d645e1",
+    "normal_file_name": "f3d1a993-7cc2-4b20-a73a-7171c69d200e.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10X",
+    "tumor_file_id": "420ef28e-04ef-45c8-b333-f5b0722353dc",
+    "tumor_file_name": "69a6bf0f-8c87-45ab-a136-b83d8741c38c.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "43e26a89-fe53-48df-8edf-7b44a275207f",
+    "normal_file_name": "478878e3-78e2-4584-af86-edf4a87b0d64.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A216",
+    "tumor_file_id": "02bba8fb-a994-43a3-8911-b61b2d55c2db",
+    "tumor_file_name": "84104303-61d6-4bb2-98bd-698b6fb29e59.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "72cedc05-752c-4bb4-9cf5-eb10831a5609",
+    "normal_file_name": "b425f901-ba4a-47ce-8825-cbb4fec1eab2.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A119",
+    "tumor_file_id": "4de0d4af-a399-4b1f-aef9-5ebdd48da3be",
+    "tumor_file_name": "ecdfd1da-0f49-4979-af8e-a1adc503f432.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "ba66d237-2a70-410a-9fb1-1ef1a66d4afd",
+    "normal_file_name": "d4919809-da22-4d05-81b4-8f72d3c00d01.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1E9",
+    "tumor_file_id": "8f7cc7ce-0387-43b3-bf0e-2679aa7e774f",
+    "tumor_file_name": "f765b657-7b24-47ee-a521-10be43b1006a.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "f42c8244-7de5-49bf-a6d7-35097f0ecca7",
+    "normal_file_name": "113936c3-5c8a-4575-9593-e441552737a2.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A11A",
+    "tumor_file_id": "e92b476f-c71f-4bd9-968e-df2846a1b3cc",
+    "tumor_file_name": "4d3bb6d7-0b4d-421f-9568-34486528f767.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "7c9ad84d-b2ed-4d2c-8659-01407511c8ff",
+    "normal_file_name": "45f4a017-85d0-4488-b04b-dec6771dc6ec.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10Z",
+    "tumor_file_id": "1ebe3629-c55e-46e8-a791-49b6eca08c4f",
+    "tumor_file_name": "9a737c16-ab12-49cc-9bf8-2c9dc74661c1.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "c6edb29d-5916-49df-b935-2ad50f2ab726",
+    "normal_file_name": "4547334b-f9ef-48df-bfd9-1f1b73c1d0f2.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A118",
+    "tumor_file_id": "97a63662-6a44-4eeb-8440-3b5d3247c66a",
+    "tumor_file_name": "983e2b16-ac54-4c00-8020-713e50f57983.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "2e3c4885-da2f-4b6a-b362-20f8689abf96",
+    "normal_file_name": "fe8988a5-49ae-4948-ade6-bf140320a7fc.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A10T",
+    "tumor_file_id": "ce7ef5af-0658-4b15-a39c-c7ab2b3b4c72",
+    "tumor_file_name": "ab90ef06-f4cc-4ffe-a8b3-4065cad716a4.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "584a3fac-e013-4d2f-a255-9321881e9990",
+    "normal_file_name": "d19df316-6a68-40c7-a8db-9ae0295ec0e6.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A11D",
+    "tumor_file_id": "c1692182-1fdb-475d-8e38-a1d7573612f9",
+    "tumor_file_name": "2a96eb2c-70a9-46ba-8134-9f07365a211e.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "212b4e93-b94c-4a55-bd4a-39af2429c374",
+    "normal_file_name": "25b18021-e749-4374-b033-8463dd9bff73.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EF",
+    "tumor_file_id": "aca49ec7-01b4-43ef-bc4b-50bd53f7211d",
+    "tumor_file_name": "6aad85c2-f77e-47ed-aba2-932dfb3e5fb4.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "2164085b-be2a-4e0a-9541-6a55ccef3d0c",
+    "normal_file_name": "c7378d4e-fed0-439c-a8c7-de6fb9c4eaac.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-BC-A112",
+    "tumor_file_id": "e6597f1d-3fa5-4f90-80c5-7f3334f49af4",
+    "tumor_file_name": "d64ac20b-651c-4a43-a1cb-ecc84eba085d.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "70c9e596-08da-4f04-970f-24b755270f5a",
+    "normal_file_name": "deba8d6c-3942-4d4f-a5d7-f73fcd94e785.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A3A3",
+    "tumor_file_id": "5e3da26e-f71e-4983-8fcb-cb3b862a7576",
+    "tumor_file_name": "e0135c0c-efe0-4482-91ee-156e718af32e.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "7b184f41-a74e-49b6-a2a7-fac70bf48611",
+    "normal_file_name": "15b52eec-12a4-4381-bb85-617561283854.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A11B",
+    "tumor_file_id": "d3582d45-3bf3-4f39-a01a-a3c3eb86da93",
+    "tumor_file_name": "112a584e-4160-4a09-b5d3-bdfd3e2da406.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "b4cff34e-33e4-44d1-8548-36c92760804a",
+    "normal_file_name": "cd143bed-56ce-4da7-a9eb-528c5e2d3e07.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-DD-A1EI",
+    "tumor_file_id": "d4148f7d-6526-48c3-bbbd-12b40b89ad2a",
+    "tumor_file_name": "3aa5f04b-2a5f-453b-b00b-0fce6b1d295b.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "7e3cfa6c-7da5-4dd6-b6ec-c40f9609d891",
+    "normal_file_name": "c9c2bc6f-b1f4-4efa-8f47-7f87cb570707.methylation_array.sesame.level3betas.txt"
+  },
+  {
+    "patient": "TCGA-EP-A26S",
+    "tumor_file_id": "1520aa29-ade6-43ba-9244-307e1ac9078a",
+    "tumor_file_name": "42b7bb35-3d7c-43ba-bc81-3cf96c2dea59.methylation_array.sesame.level3betas.txt",
+    "normal_file_id": "fe9bf7f6-797c-41c9-96dd-e1a47ac23672",
+    "normal_file_name": "df66b6f9-98d1-4b11-8025-b07d70c8485c.methylation_array.sesame.level3betas.txt"
+  }
+]

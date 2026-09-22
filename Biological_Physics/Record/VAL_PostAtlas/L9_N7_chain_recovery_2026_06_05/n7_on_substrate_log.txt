@@ -1,0 +1,50 @@
+========================================================================
+CONDITION: STRONG_ON_SUBSTRATE — N7 v2 with panel-on-marker-substrate injection
+========================================================================
+
+Cell-type marker substrate: 6,802 unique CpGs across 115 cells
+
+[Phase 1] Generating synthetic cohort with panel-on-substrate injection...
+[SyntheticCohort] Atlas loaded: 22,542 CpGs × 8 classes
+[MarkerSubstrateCohort] Disease panel: 500 CpGs ON MARKER SUBSTRATE (436 hypo, 64 hyper)
+[SyntheticCohort] Generating 250 patients...
+[SyntheticCohort] Done. β matrix: (250, 22542), range [0.000, 1.000]
+[SyntheticCohort] Exported to /home/claude/IAM-Validation/Biological_Physics/validation_runs/L9_N7_chain_recovery_2026_06_05/synth_cohort_strong_on_substrate/generated
+             773 B  MANIFEST.json
+      30,229,074 B  beta_matrix.parquet
+          20,042 B  disease_panel_truth.json
+         968,214 B  foreground_axes_truth.npz
+          62,318 B  truth_table.csv
+   ✓ Generated in 2.3s
+
+   OVERLAP check: 500/500 panel CpGs on marker substrate = 100.0% (target: 100%)
+
+[Phase 2] Loading chain modules...
+   ✓ Modules loaded in 19.8s
+
+[Phase 3] Running chain on 250 patients...
+   ...50/250 patients (8.2s)
+   ...100/250 patients (15.8s)
+   ...150/250 patients (23.5s)
+   ...200/250 patients (31.2s)
+   ...250/250 patients (39.1s)
+   ✓ Chain complete in 39.1s
+
+[Phase 4] Recovery tests...
+
+------------------------------------------------------------------------
+RECOVERY RESULTS — STRONG_ON_SUBSTRATE
+------------------------------------------------------------------------
+  R1 Walther MAE = 0.0076 → ✓ PASS
+     stem_pluri   true=0.0080 recov=0.0105 MAE=0.0035
+     stem_adult   true=0.0065 recov=0.0168 MAE=0.0136
+     stromal      true=0.0124 recov=0.0128 MAE=0.0024
+     progenitor   true=0.0605 recov=0.0542 MAE=0.0144
+     cycling      true=0.0605 recov=0.0564 MAE=0.0088
+     secretory    true=0.0599 recov=0.0625 MAE=0.0066
+     terminal     true=0.0599 recov=0.0575 MAE=0.0042
+     immune       true=0.7322 recov=0.7293 MAE=0.0073
+  R3 Cohen's d = -0.9133 → ✗ FAIL
+     case  mean=91.804 sd=1.739  n=50
+     hc    mean=93.200 sd=1.471  n=200
+     d/signal_strength = -0.457 (target ≥ 0.3)

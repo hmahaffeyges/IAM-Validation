@@ -1,0 +1,142 @@
+{
+  "GSE50660": {
+    "n_samples": 464,
+    "arm_counts": {
+      "hc": "464"
+    },
+    "A_score_summary": {
+      "A_stem_pluri": {
+        "mean": 1.0135511750876351,
+        "sd": 0.0014554278658899201,
+        "median": 1.0135982341337484
+      },
+      "A_stem_adult": {
+        "mean": 1.0831468131520092,
+        "sd": 0.019608892847273938,
+        "median": 1.0839403552107028
+      },
+      "A_stromal": {
+        "mean": 0.6339117425517694,
+        "sd": 0.01957938271632962,
+        "median": 0.6280738188530273
+      },
+      "A_progenitor": {
+        "mean": 0.9969084102017985,
+        "sd": 0.025625884481476506,
+        "median": 0.9965203753301906
+      },
+      "A_cycling": {
+        "mean": 0.706147897323652,
+        "sd": 0.01133178633576228,
+        "median": 0.704028344885409
+      },
+      "A_secretory": {
+        "mean": 0.7695899141590826,
+        "sd": 0.010981172366742597,
+        "median": 0.7668397851116826
+      },
+      "A_immune": {
+        "mean": 1.059041441907047,
+        "sd": 0.00775700710445737,
+        "median": 1.058012973669005
+      },
+      "A_terminal": {
+        "mean": 0.42781687260713486,
+        "sd": 0.022285532956445097,
+        "median": 0.4241236149963452
+      }
+    },
+    "a_dir_immune_summary": {
+      "mean": -0.9736903465130453,
+      "sd": 0.4645968578867991
+    },
+    "mahalanobis_summary": {
+      "mean": 2.6869295664334585,
+      "max": 6.332136612198129
+    },
+    "tier_distribution_immune": {
+      "ELEVATED": "417",
+      "WARBURG_TRANSITION": "45",
+      "NORMAL": "2"
+    }
+  },
+  "GSE40279": {
+    "n_samples": 656,
+    "arm_counts": {
+      "hc": "656"
+    },
+    "A_score_summary": {
+      "A_stem_pluri": {
+        "mean": 1.0150595000256348,
+        "sd": 0.0021322559171851004,
+        "median": 1.0153988443720843
+      },
+      "A_stem_adult": {
+        "mean": 1.085627477358423,
+        "sd": 0.029799272850404297,
+        "median": 1.0892942780363664
+      },
+      "A_stromal": {
+        "mean": 0.5992563292064426,
+        "sd": 0.02793026920463045,
+        "median": 0.6001279024900061
+      },
+      "A_progenitor": {
+        "mean": 0.9994485943696687,
+        "sd": 0.04121068027824606,
+        "median": 1.0016289696287326
+      },
+      "A_cycling": {
+        "mean": 0.6692970051899123,
+        "sd": 0.022333484128891006,
+        "median": 0.6683750205890475
+      },
+      "A_secretory": {
+        "mean": 0.7185887003670619,
+        "sd": 0.01814646106772201,
+        "median": 0.7184594589916443
+      },
+      "A_immune": {
+        "mean": 1.0389385352847345,
+        "sd": 0.0122712068466222,
+        "median": 1.0385136418329393
+      },
+      "A_terminal": {
+        "mean": 0.35193374023002566,
+        "sd": 0.03497722686817164,
+        "median": 0.3493930580379228
+      }
+    },
+    "a_dir_immune_summary": {
+      "mean": -0.5589726349584412,
+      "sd": 0.9003623382445755
+    },
+    "mahalanobis_summary": {
+      "mean": 2.609099797235411,
+      "max": 15.110980010255854
+    },
+    "tier_distribution_immune": {
+      "NORMAL": "368",
+      "ELEVATED": "280",
+      "WARBURG_TRANSITION": "7",
+      "BREACH": "1"
+    }
+  },
+  "AIBL": {
+    "n_samples": 726,
+    "arm_counts": {
+      "hc": "471",
+      "case": "161",
+      "mci": "94"
+    },
+    "n_AD": 161,
+    "n_HC": 471,
+    "n_MCI": 94,
+    "chain_depth": "PARTIAL \u2014 Stage 4 immune A-score + Stage 4.5 bidirectional only (18-CpG IMM panel; full \u03b2 not available)",
+    "A_immune_panel_AD_vs_HC_d": 0.07682335519752884,
+    "a_dir_immune_AD_vs_HC_d": 0.6155968968804308,
+    "tier_distribution_immune_panel": {
+      "BREACH": "726"
+    }
+  }
+}

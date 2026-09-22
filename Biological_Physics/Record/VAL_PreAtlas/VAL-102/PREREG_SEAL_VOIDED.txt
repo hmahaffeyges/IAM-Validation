@@ -1,0 +1,6 @@
+prereg_path: /home/claude/edear_working/VAL-102/VAL-102/prereg.md
+sha256: 2b77ad9d3b69554a0658260756db0f08722e2be3fa96eb48aad9213974f4717c
+sealed_at: 2026-04-28T20:31:23.247899+00:00
+rng_seed: 20260428
+supersedes_for_biology_propagation: VAL-101 (O5_DATA_INTEGRITY_FLAG due to CHK-3.1 raw-EPIC threshold misspecification per CCL-041)
+ccl_041_threshold_change: extreme >20% AND middle <10% (TCGA HM450 sesame Level 3 platform)

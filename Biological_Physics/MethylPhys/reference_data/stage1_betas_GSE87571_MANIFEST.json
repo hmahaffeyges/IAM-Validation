@@ -1,0 +1,578 @@
+{
+ "gse": "GSE87571",
+ "selection_seed": 2029,
+ "rule": null,
+ "panel": [
+  "GSM2334282",
+  "GSM2334022",
+  "GSM2333973",
+  "GSM2334360",
+  "GSM2334615",
+  "GSM2334567",
+  "GSM2334044",
+  "GSM2334454",
+  "GSM2334164",
+  "GSM2334113",
+  "GSM2334327",
+  "GSM2334540",
+  "GSM2334047",
+  "GSM2333958",
+  "GSM2333966",
+  "GSM2333986",
+  "GSM2334608",
+  "GSM2334248",
+  "GSM2333902",
+  "GSM2334449",
+  "GSM2334043",
+  "GSM2334477",
+  "GSM2334368",
+  "GSM2333907",
+  "GSM2334193",
+  "GSM2334147",
+  "GSM2334586",
+  "GSM2334184",
+  "GSM2334203",
+  "GSM2334201",
+  "GSM2334186",
+  "GSM2334180",
+  "GSM2334317",
+  "GSM2334611",
+  "GSM2334422",
+  "GSM2333930",
+  "GSM2334140",
+  "GSM2334064",
+  "GSM2334249",
+  "GSM2334132"
+ ],
+ "test": [
+  "GSM2334375",
+  "GSM2334572",
+  "GSM2334366",
+  "GSM2334560",
+  "GSM2334120",
+  "GSM2334085",
+  "GSM2334009",
+  "GSM2334592",
+  "GSM2334206",
+  "GSM2334030",
+  "GSM2333957",
+  "GSM2334175",
+  "GSM2333947",
+  "GSM2334626",
+  "GSM2334415",
+  "GSM2334268",
+  "GSM2334276",
+  "GSM2334396",
+  "GSM2334429",
+  "GSM2334605",
+  "GSM2334133",
+  "GSM2334455",
+  "GSM2334212",
+  "GSM2334380",
+  "GSM2334392",
+  "GSM2334049",
+  "GSM2334177",
+  "GSM2334204",
+  "GSM2334624",
+  "GSM2334254",
+  "GSM2334484",
+  "GSM2334289",
+  "GSM2334404",
+  "GSM2333904",
+  "GSM2334533",
+  "GSM2334046",
+  "GSM2334269",
+  "GSM2334099",
+  "GSM2333970",
+  "GSM2334114"
+ ],
+ "n_arrays": 80,
+ "n_loci": 125323,
+ "loci_filter": "handoff/keep_loci.json (identity loci + celltype markers, 153,444)",
+ "stage1": "stage_1_idat_calibration.calibrate_idat_to_beta (methylprep noob)",
+ "chars": {
+  "GSM2334282": [
+   "gender: Female",
+   "age: 18",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334022": [
+   "gender: Female",
+   "age: 22",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333973": [
+   "gender: Male",
+   "age: 44",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334360": [
+   "gender: Female",
+   "age: 48",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334615": [
+   "gender: Female",
+   "age: 38",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334567": [
+   "gender: Female",
+   "age: 60",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334044": [
+   "gender: Male",
+   "age: 63",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334454": [
+   "gender: Female",
+   "age: 45",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334164": [
+   "gender: Male",
+   "age: 70",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334113": [
+   "gender: Female",
+   "age: 34",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334327": [
+   "gender: Female",
+   "age: 28",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334540": [
+   "gender: Male",
+   "age: 79",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334047": [
+   "gender: Male",
+   "age: 65",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333958": [
+   "gender: Male",
+   "age: 69",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333966": [
+   "gender: Male",
+   "age: 82",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333986": [
+   "gender: Female",
+   "age: 18",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334608": [
+   "gender: Female",
+   "age: 44",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334248": [
+   "gender: Male",
+   "age: 79",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333902": [
+   "gender: Male",
+   "age: 55",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334449": [
+   "gender: Male",
+   "age: 56",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334043": [
+   "gender: Female",
+   "age: 56",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334477": [
+   "gender: Female",
+   "age: 40",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334368": [
+   "gender: Male",
+   "age: 25",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333907": [
+   "gender: Male",
+   "age: 18",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334193": [
+   "gender: Male",
+   "age: 71",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334147": [
+   "gender: Female",
+   "age: 17",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334586": [
+   "gender: Female",
+   "age: 70",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334184": [
+   "gender: Male",
+   "age: 63",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334203": [
+   "gender: Female",
+   "age: 47",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334201": [
+   "gender: Female",
+   "age: 33",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334186": [
+   "gender: Female",
+   "age: 34",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334180": [
+   "gender: Male",
+   "age: 28",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334317": [
+   "gender: Male",
+   "age: 40",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334611": [
+   "gender: Female",
+   "age: 15",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334422": [
+   "gender: Female",
+   "age: 35",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333930": [
+   "gender: Female",
+   "age: 64",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334140": [
+   "gender: Male",
+   "age: 59",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334064": [
+   "gender: Male",
+   "age: 79",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334249": [
+   "gender: Female",
+   "age: 31",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334132": [
+   "gender: Female",
+   "age: 72",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334375": [
+   "gender: Female",
+   "age: 46",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334572": [
+   "gender: Male",
+   "age: 20",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334366": [
+   "gender: Female",
+   "age: 94",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334560": [
+   "gender: Male",
+   "age: 31",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334120": [
+   "gender: Male",
+   "age: 18",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334085": [
+   "gender: Female",
+   "age: 86",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334009": [
+   "gender: Female",
+   "age: 62",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334592": [
+   "gender: Male",
+   "age: 77",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334206": [
+   "gender: Female",
+   "age: 31",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334030": [
+   "gender: Male",
+   "age: 80",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333957": [
+   "gender: Female",
+   "age: 37",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334175": [
+   "gender: Female",
+   "age: 21",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333947": [
+   "gender: Male",
+   "age: 48",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334626": [
+   "gender: Male",
+   "age: 16",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334415": [
+   "gender: Male",
+   "age: 52",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334268": [
+   "gender: Male",
+   "age: 69",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334276": [
+   "gender: Male",
+   "age: 79",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334396": [
+   "gender: Female",
+   "age: 56",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334429": [
+   "gender: Female",
+   "age: 23",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334605": [
+   "gender: Male",
+   "age: 65",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334133": [
+   "gender: Male",
+   "age: 47",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334455": [
+   "gender: Male",
+   "age: 80",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334212": [
+   "gender: Male",
+   "age: 16",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334380": [
+   "gender: Female",
+   "age: 85",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334392": [
+   "gender: Female",
+   "age: 33",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334049": [
+   "gender: Male",
+   "age: 26",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334177": [
+   "gender: Male",
+   "age: 50",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334204": [
+   "gender: Male",
+   "age: 19",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334624": [
+   "gender: Female",
+   "age: 25",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334254": [
+   "gender: Male",
+   "age: 49",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334484": [
+   "gender: Female",
+   "age: 16",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334289": [
+   "gender: Female",
+   "age: 69",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334404": [
+   "gender: Female",
+   "age: 70",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333904": [
+   "gender: Male",
+   "age: 86",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334533": [
+   "gender: Female",
+   "age: 53",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334046": [
+   "gender: Female",
+   "age: 75",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334269": [
+   "gender: Male",
+   "age: 36",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334099": [
+   "gender: Female",
+   "age: 43",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2333970": [
+   "gender: Male",
+   "age: 42",
+   "tissue: whole blood",
+   "disease state: normal"
+  ],
+  "GSM2334114": [
+   "gender: Male",
+   "age: 77",
+   "tissue: whole blood",
+   "disease state: normal"
+  ]
+ },
+ "errors": {},
+ "sha256_pickle": "cf705250b14933ce1442de9cc62d443454a1ed902d09c6d71ba2035c43d24af6",
+ "built": "2026-09-21 23:17"
+}

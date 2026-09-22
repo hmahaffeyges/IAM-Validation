@@ -1,0 +1,258 @@
+{
+  "val_id": "CPG-VAL-016",
+  "title": "Cross-disease universal alarm via A_immune",
+  "card": "Immune universal v1.0",
+  "execution_date": "2026-06-07",
+  "outcome_code": "DIRECTIONAL",
+  "n_immune_celltypes_averaged": 51,
+  "per_cohort_results": {
+    "AIBL_AD_anchored": {
+      "n_case": 161,
+      "n_hc": 471,
+      "platform": "EPIC 850K",
+      "per_class_d": {
+        "cycling": {
+          "cohens_d": -0.083,
+          "p_welch": 0.39895557424946615,
+          "case_mean": 0.46742,
+          "hc_mean": 0.46853
+        },
+        "immune": {
+          "cohens_d": -0.364,
+          "p_welch": 0.0004038609096542991,
+          "case_mean": 0.76605,
+          "hc_mean": 0.77828
+        },
+        "progenitor": {
+          "cohens_d": -0.3159,
+          "p_welch": 0.0017226172545830739,
+          "case_mean": 0.68358,
+          "hc_mean": 0.68815
+        },
+        "secretory": {
+          "cohens_d": -0.0612,
+          "p_welch": 0.5335346691026999,
+          "case_mean": 0.4457,
+          "hc_mean": 0.44649
+        },
+        "stem_adult": {
+          "cohens_d": -0.3292,
+          "p_welch": 0.0006066377237558858,
+          "case_mean": 0.87053,
+          "hc_mean": 0.8757
+        },
+        "stem_pluri": {
+          "cohens_d": -0.0993,
+          "p_welch": 0.2934129593086489,
+          "case_mean": 0.30655,
+          "hc_mean": 0.30736
+        },
+        "stromal": {
+          "cohens_d": -0.0949,
+          "p_welch": 0.3141888189352853,
+          "case_mean": 0.47032,
+          "hc_mean": 0.47135
+        },
+        "terminal": {
+          "cohens_d": -0.1339,
+          "p_welch": 0.16451322657006892,
+          "case_mean": 0.51786,
+          "hc_mean": 0.51943
+        }
+      }
+    },
+    "GSE51057_breast": {
+      "n_case": 11,
+      "n_hc": 177,
+      "platform": "HM450",
+      "per_class_d": {
+        "cycling": {
+          "cohens_d": 0.8747,
+          "p_welch": 0.04084230562791501,
+          "case_mean": 0.41545,
+          "hc_mean": 0.39878
+        },
+        "immune": {
+          "cohens_d": 0.6883,
+          "p_welch": 0.1013855195154424,
+          "case_mean": 0.7627,
+          "hc_mean": 0.74201
+        },
+        "progenitor": {
+          "cohens_d": 1.1233,
+          "p_welch": 0.005887685792998964,
+          "case_mean": 0.66384,
+          "hc_mean": 0.64471
+        },
+        "secretory": {
+          "cohens_d": 1.0241,
+          "p_welch": 0.025390793985117965,
+          "case_mean": 0.3897,
+          "hc_mean": 0.36934
+        },
+        "stem_adult": {
+          "cohens_d": 0.6443,
+          "p_welch": 0.032038559317776924,
+          "case_mean": 0.86601,
+          "hc_mean": 0.85366
+        },
+        "stem_pluri": {
+          "cohens_d": 0.1695,
+          "p_welch": 0.6145450205647488,
+          "case_mean": 0.13438,
+          "hc_mean": 0.13211
+        },
+        "stromal": {
+          "cohens_d": 1.1963,
+          "p_welch": 0.003256916436891822,
+          "case_mean": 0.39193,
+          "hc_mean": 0.36324
+        },
+        "terminal": {
+          "cohens_d": 1.1331,
+          "p_welch": 0.00576436418007839,
+          "case_mean": 0.42025,
+          "hc_mean": 0.39717
+        }
+      }
+    },
+    "GSE51032_breast": {
+      "n_case": 36,
+      "n_hc": 424,
+      "platform": "HM450",
+      "per_class_d": {
+        "cycling": {
+          "cohens_d": 0.4315,
+          "p_welch": 0.08450813320993739,
+          "case_mean": 0.40435,
+          "hc_mean": 0.395
+        },
+        "immune": {
+          "cohens_d": 0.2172,
+          "p_welch": 0.2773202541261872,
+          "case_mean": 0.74257,
+          "hc_mean": 0.73568
+        },
+        "progenitor": {
+          "cohens_d": 0.3887,
+          "p_welch": 0.10702297854853499,
+          "case_mean": 0.64772,
+          "hc_mean": 0.63998
+        },
+        "secretory": {
+          "cohens_d": 0.5718,
+          "p_welch": 0.024272729140717132,
+          "case_mean": 0.37795,
+          "hc_mean": 0.36499
+        },
+        "stem_adult": {
+          "cohens_d": -0.2291,
+          "p_welch": 0.18251281248571613,
+          "case_mean": 0.84891,
+          "hc_mean": 0.8534
+        },
+        "stem_pluri": {
+          "cohens_d": 1.0629,
+          "p_welch": 0.0017638926886656588,
+          "case_mean": 0.17409,
+          "hc_mean": 0.13951
+        },
+        "stromal": {
+          "cohens_d": 0.5875,
+          "p_welch": 0.012406760723834318,
+          "case_mean": 0.37385,
+          "hc_mean": 0.35938
+        },
+        "terminal": {
+          "cohens_d": 0.8427,
+          "p_welch": 0.0024045563979948384,
+          "case_mean": 0.41656,
+          "hc_mean": 0.39533
+        }
+      }
+    }
+  },
+  "meta_analysis_immune_class": {
+    "method": "inverse_variance_weighted_cohens_d",
+    "cohort_ds": [
+      -0.364,
+      0.6883,
+      0.2172
+    ],
+    "cohort_ses": [
+      0.0919,
+      0.3128,
+      0.1737
+    ],
+    "meta_d": -0.1786,
+    "meta_se": 0.0786,
+    "meta_z": -2.272,
+    "meta_p_two_sided": 0.023101414316456514
+  },
+  "specificity_check": {
+    "AIBL": {
+      "immune_abs_d": 0.364,
+      "n_other_classes_weaker": 7,
+      "n_other_classes_total": 7,
+      "other_class_abs_ds": {
+        "cycling": 0.083,
+        "progenitor": 0.3159,
+        "secretory": 0.0612,
+        "stem_adult": 0.3292,
+        "stem_pluri": 0.0993,
+        "stromal": 0.0949,
+        "terminal": 0.1339
+      },
+      "immune_stronger_than_majority": true
+    },
+    "GSE51057": {
+      "immune_abs_d": 0.6883,
+      "n_other_classes_weaker": 2,
+      "n_other_classes_total": 7,
+      "other_class_abs_ds": {
+        "cycling": 0.8747,
+        "progenitor": 1.1233,
+        "secretory": 1.0241,
+        "stem_adult": 0.6443,
+        "stem_pluri": 0.1695,
+        "stromal": 1.1963,
+        "terminal": 1.1331
+      },
+      "immune_stronger_than_majority": false
+    },
+    "GSE51032": {
+      "immune_abs_d": 0.2172,
+      "n_other_classes_weaker": 0,
+      "n_other_classes_total": 7,
+      "other_class_abs_ds": {
+        "cycling": 0.4315,
+        "progenitor": 0.3887,
+        "secretory": 0.5718,
+        "stem_adult": 0.2291,
+        "stem_pluri": 1.0629,
+        "stromal": 0.5875,
+        "terminal": 0.8427
+      },
+      "immune_stronger_than_majority": false
+    }
+  },
+  "pass_conditions": {
+    "condition_1_immune_fires_in_both_diseases": {
+      "criterion": "|d_immune| >= 0.20 in AIBL AND (in at least one of GSE51057/GSE51032)",
+      "passed": true,
+      "AIBL_d": -0.364,
+      "GSE51057_d": 0.6883,
+      "GSE51032_d": 0.2172
+    },
+    "condition_2_direction_disease_specific_allowed": {
+      "criterion": "Signs may differ across diseases (universality = shifts, not same-direction)",
+      "passed": true
+    },
+    "condition_3_meta_d_significant": {
+      "criterion": "|d_meta| >= 0.20 AND p < 0.01",
+      "passed": false,
+      "observed_d_meta": -0.1786,
+      "observed_p": 0.023101414316456514
+    }
+  }
+}

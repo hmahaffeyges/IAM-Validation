@@ -1,0 +1,26 @@
+{
+  "N1_with_subtraction": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "Label permutation",
+    "passed": false,
+    "observed": 0.005027445673793466,
+    "null_mean": -0.007806310256960889,
+    "null_std": 0.22896714453140404,
+    "p_value": 0.983,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05"
+  },
+  "N1_without_subtraction": {
+    "null_id": "N1_hc_label_permutation",
+    "null_name": "Label permutation",
+    "passed": false,
+    "observed": -0.0631006583571434,
+    "null_mean": -0.007702321745455265,
+    "null_std": 0.2292223423719406,
+    "p_value": 0.775,
+    "n_permutations": 1000,
+    "pass_condition": "two-sided permutation p < 0.05"
+  },
+  "delta_abs_d_with_minus_without": 0.05807321268334994,
+  "interpretation": "Positive \u0394|d| means smoking subtraction reduces the never-vs-current contrast, which is the desired effect (signal correctly attributed to smoking, not biology). Observed \u0394|d| = 0.058."
+}

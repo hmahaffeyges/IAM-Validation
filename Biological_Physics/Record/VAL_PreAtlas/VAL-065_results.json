@@ -1,0 +1,139 @@
+{
+  "val_id": "VAL-065",
+  "card": "prostate-epic",
+  "date": "2026-04-25",
+  "cohort": "GSE119260 (Brikun 2018) \u2014 within-patient urine vs plasma vs tumor specimen comparison",
+  "platform": "Illumina EPIC 850K (GPL21145)",
+  "n_patients": 4,
+  "n_specimens_per_patient": 4,
+  "n_samples_total": 16,
+  "n_samples_qc_passed": 16,
+  "panel": "Xu-538 immune",
+  "panel_sha": "ada6729605639138fb1d9128b5d708aea009b8ac98a49d0fd9e8d7343334a6d6",
+  "panel_cpgs_total": 538,
+  "panel_cpgs_measured_in_all_samples": 435,
+  "H_min_immune": 0.838889,
+  "prereg_sha": "f1d1a99770396f217d636dd4e04e9d2162b1ee186bcacb8841b96e95ffcf437d",
+  "beta_matrix_sha": "a3ac95192ff2ab64a104e9e1dbbb61aa299ca12b0d85be73dfc3d77bde8d003a",
+  "rng_seed": 20260425,
+  "patient_metadata": {
+    "1": {
+      "age": 58,
+      "gleason": "4+4",
+      "psa_ngml": 1400.0,
+      "metastases": "bone"
+    },
+    "2": {
+      "age": 66,
+      "gleason": "5+4 LHS / 4+5 RHS",
+      "psa_ngml": 10.9,
+      "metastases": "bone"
+    },
+    "3": {
+      "age": 76,
+      "gleason": "4+5 RHS",
+      "psa_ngml": 144.0,
+      "metastases": "bone"
+    },
+    "4": {
+      "age": 68,
+      "gleason": "5+5 LHS and RHS",
+      "psa_ngml": 38.98,
+      "metastases": "bone"
+    }
+  },
+  "M1_per_sample_a_scores": {
+    "P1_benign": 0.8018817743565895,
+    "P2_benign": 0.8049970747679849,
+    "P3_benign": 0.7807934384911694,
+    "P4_benign": 0.60357342512357,
+    "P1_tumor": 0.8051894823570749,
+    "P2_tumor": 0.7414343316916725,
+    "P3_tumor": 0.7266318017970669,
+    "P4_tumor": 0.7129029975463999,
+    "P1_plasma": 0.7684109412791201,
+    "P2_plasma": 0.6361861781369675,
+    "P3_plasma": 0.8412197199386909,
+    "P4_plasma": 0.7442837635169255,
+    "P1_urine": 0.6731096432189715,
+    "P2_urine": 0.6290302924733775,
+    "P3_urine": 0.5233420853037791,
+    "P4_urine": 0.5046797497595866
+  },
+  "M2_within_patient_distance": {
+    "urine_closer_to_tumor_in_patients": 0,
+    "plasma_closer_to_tumor_in_patients": 4,
+    "tied": 0,
+    "mean_dist_urine_tumor": 0.16399921065912484,
+    "mean_dist_plasma_tumor": 0.07199884468620235,
+    "urine_distance_reduction_vs_plasma": -0.0920003659729225,
+    "per_patient_distances": {
+      "P1": {
+        "urine_to_tumor": 0.1320798391381034,
+        "plasma_to_tumor": 0.03677854107795475
+      },
+      "P2": {
+        "urine_to_tumor": 0.112404039218295,
+        "plasma_to_tumor": 0.10524815355470496
+      },
+      "P3": {
+        "urine_to_tumor": 0.20328971649328775,
+        "plasma_to_tumor": 0.11458791814162406
+      },
+      "P4": {
+        "urine_to_tumor": 0.20822324778681323,
+        "plasma_to_tumor": 0.03138076597052564
+      }
+    }
+  },
+  "M3_urine_vs_benign_paired_d": {
+    "n": 4,
+    "paired_d": -2.389655630135072,
+    "paired_d_hedges": -1.7379313673709615,
+    "paired_d_ci_95": [
+      -4.313859368181417,
+      -0.46545189208872717
+    ],
+    "mean": -0.16527098549589977,
+    "sd": 0.06916100521419401
+  },
+  "M4_plasma_vs_benign_paired_d": {
+    "n": 4,
+    "paired_d": -0.002152445476767838,
+    "paired_d_hedges": -0.0015654148921947914,
+    "paired_d_ci_95": [
+      -0.9821535805663855,
+      0.9778486896128498
+    ],
+    "mean": -0.00028627746690243483,
+    "sd": 0.13300103068455685
+  },
+  "tumor_vs_benign_paired_d_reference": {
+    "n": 4,
+    "paired_d": -0.0160096768014576,
+    "paired_d_hedges": -0.01164340131015098,
+    "paired_d_ci_95": [
+      -0.996072470678752,
+      0.9640531170758369
+    ],
+    "mean": -0.0012717748367749304,
+    "sd": 0.07943788325940108
+  },
+  "M5_per_cpg_direction_preservation": {
+    "n_cpgs_evaluated": 306,
+    "urine_preservation_rate_pct": 51.307189542483655,
+    "plasma_preservation_rate_pct": 47.385620915032675,
+    "urine_minus_plasma_pct": 3.9215686274509807,
+    "brikun_2018_reported_urine_pct": 78.63,
+    "brikun_2018_reported_plasma_pct": 62.21
+  },
+  "outcome": "O5_UNEXPECTED",
+  "hypothesis_results": {
+    "H1_urine_closer_in_3_of_4": false,
+    "H2_urine_vs_benign_d_above_0_3": false,
+    "H3_urine_direction_preservation_ge_plasma": true
+  },
+  "outcome_rationale": "Pre-reg H2 was framed as positive direction (urine A > benign A, d > 0.3). Observed: urine A is dramatically LOWER than benign tissue A (mean \u0394A = \u22120.165, paired d = \u22122.39 across all 4 patients). |d|=2.39 is among the largest effect sizes measured anywhere in the EDEAR validation record. The pre-reg explicitly anticipated this case under O5_UNEXPECTED: \"urine vs benign d > 0.3 but in NEGATIVE direction (urine A-score LOWER than benign tissue, suggesting clearance of disrupted cells rather than retention).\" Convening with Heath before deciding card update direction. Numbers reported honestly. Reclassified from O4_URINE_NULL.",
+  "observed_pattern": "urine_lower_than_benign_tissue_in_all_4_patients",
+  "secondary_observation": "Tumor vs benign paired d = -0.016 in this n=4 cohort \u2014 the expected tumor > benign signal from VAL-058 (n=238, paired d = +0.497) is not visible here. This is consistent with the n=4 sample size precluding stable per-patient tumor signal. However, the urine signal magnitude is 150x larger than the tumor-tissue signal in this same cohort, which is the framework-relevant observation."
+}

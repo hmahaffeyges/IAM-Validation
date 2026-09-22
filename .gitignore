@@ -78,3 +78,6 @@ _gape_constants_private.py
 # N7 synthetic β matrices — regenerable from seed via orchestrator scripts (option B)
 Biological_Physics/validation_runs/L9_N7_chain_recovery_*/synth_cohort_*/generated/beta_matrix.parquet
 Biological_Physics/validation_runs/L9_N7_chain_recovery_*/synth_cohort_*/generated/foreground_axes_truth.npz
+Biological_Physics/MethylPhys/atlas/external_manifests/*.csv
+# the atlas ships compressed (.csv.xz); the decompressed copy is a build artifact - see MethylPhys/README.md
+Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv

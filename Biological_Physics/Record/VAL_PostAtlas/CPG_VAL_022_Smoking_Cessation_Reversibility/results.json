@@ -1,0 +1,148 @@
+{
+  "val_id": "CPG-VAL-022",
+  "title": "Lifestyle reversibility via smoking cessation",
+  "card": "Immune universal v1.0",
+  "execution_date": "2026-06-07",
+  "outcome_code": "NULL",
+  "cohort": "GSE50660 Tsaprouni 2014 (UK, HM450, whole blood)",
+  "n_samples": 464,
+  "group_n": {
+    "never": 179,
+    "former": 263,
+    "current": 22
+  },
+  "A_immune_means": {
+    "never": 0.82548,
+    "former": 0.83147,
+    "current": 0.82836
+  },
+  "pairwise_cohens_d": {
+    "current_vs_never": 0.1079,
+    "former_vs_never": 0.2355,
+    "current_vs_former": -0.1244
+  },
+  "pairwise_p_values": {
+    "current_vs_never": 0.6549540120404306,
+    "former_vs_never": 0.016989173954503316,
+    "current_vs_former": 0.6233700589030735
+  },
+  "reversibility": {
+    "raw_ratio": 2.0785,
+    "former_intermediate": false,
+    "percent_back_to_baseline": -107.8
+  },
+  "age_adjusted": {
+    "predicted_never": 0.82557,
+    "predicted_former": 0.83158,
+    "predicted_current": 0.82816,
+    "adjusted_reversibility_ratio": 2.3172,
+    "adjusted_intermediate": false
+  },
+  "pass_conditions": {
+    "p1_smoking_effect_detectable": {
+      "criterion": "|d(current-never)|>=0.30 AND p<0.05",
+      "passed": false,
+      "observed_d": 0.1079,
+      "observed_p": 0.6549540120404306
+    },
+    "p2_former_intermediate": {
+      "criterion": "former mean between never and current",
+      "passed": false
+    },
+    "p3_reversibility_ratio": {
+      "criterion": "reversibility ratio <= 0.7",
+      "passed": false,
+      "observed_ratio": 2.0785
+    },
+    "p4_age_adjusted_intermediate": {
+      "criterion": "age-adjusted former intermediate AND ratio <=0.8",
+      "passed": false
+    },
+    "p5_immune_specificity": {
+      "criterion": "immune class shows reversibility stronger than majority of other classes",
+      "passed": false
+    }
+  },
+  "per_class_reversibility": {
+    "cycling": {
+      "d_current_vs_never": 0.1761,
+      "reversibility_ratio": 2.374,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.48287,
+        "former": 0.48887,
+        "current": 0.4854
+      }
+    },
+    "immune": {
+      "d_current_vs_never": 0.1079,
+      "reversibility_ratio": 2.078,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.82548,
+        "former": 0.83147,
+        "current": 0.82836
+      }
+    },
+    "progenitor": {
+      "d_current_vs_never": 0.1881,
+      "reversibility_ratio": 1.691,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.71903,
+        "former": 0.7233,
+        "current": 0.72156
+      }
+    },
+    "secretory": {
+      "d_current_vs_never": 0.2201,
+      "reversibility_ratio": 1.892,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.46035,
+        "former": 0.46671,
+        "current": 0.46371
+      }
+    },
+    "stem_adult": {
+      "d_current_vs_never": 0.1403,
+      "reversibility_ratio": 0.658,
+      "intermediate": "True",
+      "group_means": {
+        "never": 0.91156,
+        "former": 0.91275,
+        "current": 0.91336
+      }
+    },
+    "stem_pluri": {
+      "d_current_vs_never": 0.0331,
+      "reversibility_ratio": 6.987,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.24986,
+        "former": 0.25344,
+        "current": 0.25037
+      }
+    },
+    "stromal": {
+      "d_current_vs_never": 0.0998,
+      "reversibility_ratio": 3.203,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.48812,
+        "former": 0.4941,
+        "current": 0.48999
+      }
+    },
+    "terminal": {
+      "d_current_vs_never": 0.1066,
+      "reversibility_ratio": 3.505,
+      "intermediate": "False",
+      "group_means": {
+        "never": 0.52416,
+        "former": 0.53129,
+        "current": 0.52619
+      }
+    }
+  }
+}
