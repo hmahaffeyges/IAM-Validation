@@ -183,3 +183,34 @@ cell-type covariance; the brightness/brilliance lineage as the first CMB-derived
 paragraph verbatim with the measured table; the sphere question answered with the locality numbers plus the linear-track / Hilbert-curve
 recommendation for clinical reading; an **Acknowledgement** section crediting the cosmology community ('we are the messenger, not the inventor');
 and a new **Roadmap** tab, 20 items from the translation map and this chain's own measurements, banana degeneracy included.
+
+### 2026-09-22 - the composition question answered across 40 donors, and the departure statistic named
+
+**"62.6 per cent neutrophils - is it always that way, and where are the other immune cells?"** (author). Answered by running the composition step
+over all 40 healthy Uppsala build-panel arrays rather than defending one array. Placed-entry distribution, with the textbook white-cell
+differential beside it:
+
+| atlas entry | donors placing it | median % | range | textbook differential |
+|---|---|---|---|---|
+| Neutrophils | 40/40 | 47.0 | 31.9-68.7 | 40-70 |
+| CD4 T cells | 38/40 | 18.7 | 1.2-34.3 | lymphocytes 20-45 total |
+| CD8 T cells | 32/40 | 6.3 | 0.6-30.2 | " |
+| CD19 B cells | 34/40 | 2.3 | 0.4-7.2 | " |
+| CD56 NK cells | 40/40 | 13.4 | 4.3-32.5 | 2-10 |
+| CD14 monocytes | 40/40 | 8.4 | 3.5-14.3 | 2-10 |
+| GMP | 25/40 | 4.6 | 0.1-16.2 | not counted clinically |
+
+Median 7 entries placed per donor (range 5-9 of 115). **So the other immune cells are all there** - the single array the author was reading (62.6 %)
+is a high-normal donor inside a 31.9-68.7 % range, not a solver with one answer. Two honest departures now stated on the Reading tab: **NK reads
+high** (median 13 % vs textbook 2-10), most likely the lymphoid non-separability PROC-SEP-03 measured, i.e. an NK panel absorbing T-cell signal -
+a limit of the reference, not a finding about the donor; and a minority of donors place a **trace of something implausible** (gastric or glial
+entries under 2 %, in 1-15 of 40 donors) - the conservative solver's false placements at its evidence threshold, reported rather than hidden.
+Eosinophils and basophils have **no atlas entry at all**, so they are missing from the reference rather than from the sample.
+
+**The departure statistic is now named and explained on its own tab.** It is a **Mahalanobis distance**: distance measured in units of how much
+healthy people vary, accounting for the fact that the axes move together. Provenance stated honestly - **P. C. Mahalanobis, Indian Statistical
+Institute, 1936, on skull measurements; not from cosmology.** But cosmology is among its heaviest users under another name: every parameter fit's
+chi-squared, (d-m)^T C^-1 (d-m), *is* a squared Mahalanobis distance, so what cosmology contributed is the discipline of building it on a properly
+measured covariance and not trusting it until the covariance itself is measured - the same pattern as HEALPix, which also came from outside
+cosmology before cosmology made it standard. The tab also states what is thin about it today: with one commissioned class band the distance is just
+|z| of that class and the covariance has nothing to act on.

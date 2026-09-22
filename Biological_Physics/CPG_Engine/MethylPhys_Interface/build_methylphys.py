@@ -172,6 +172,38 @@ def tab_reading(o, R, sid):
             why=(rec or {}).get("reason") or ("present in the sample; no commissioned healthy band for this class on this specimen yet" if frac>=0.02 else "not present above the presence floor in this specimen")
             A=(rec or {}).get("A_mapped"); H.append(f"<div class='gauge muted'><div class='gl'><b>{label}</b> · fraction {100*frac:.1f} %"+(f" · A_mapped {A}" if A else "")+f" <span class='tier' style='background:#444'>NOT REPORTABLE</span></div>"+ruler_svg(None,R["tier_bands"],muted=True,ceiling=ceiling)+f"<div class='m'>{_e(why)}. A gauge without a commissioned band prints no placement and no tier.</div></div>")
     H.append(GAUGE_EXPLAINER); H.append(deepdive(R,"the gauge"))
+    H.append("<h3>Is this composition plausible? Measured across 40 healthy donors of this laboratory</h3>"
+      "<p>A haematologist's first instinct on seeing one number - <i>62.6 per cent neutrophils?</i> - is to ask whether the solver just says that "
+      "every time. It does not, and the way to show it is the distribution across donors rather than one array. Every one of the 40 healthy "
+      "Uppsala panel arrays was put through the composition step; this is what came out, beside the textbook differential white-cell count a "
+      "clinical laboratory would report on the same tube:</p>"
+      "<table class='t'><tr><th>atlas entry</th><th>donors placing it</th><th>median % when placed</th><th>range across donors</th>"
+      "<th>textbook differential (% of white cells)</th></tr>"
+      "<tr><td>Neutrophils</td><td class='n'>40 / 40</td><td class='n'>47.0</td><td class='n'>31.9 - 68.7</td><td class='n'>40 - 70</td></tr>"
+      "<tr><td>CD4 T cells</td><td class='n'>38 / 40</td><td class='n'>18.7</td><td class='n'>1.2 - 34.3</td><td class='n'rowspan='3'>lymphocytes 20 - 45 in total</td></tr>"
+      "<tr><td>CD8 T cells</td><td class='n'>32 / 40</td><td class='n'>6.3</td><td class='n'>0.6 - 30.2</td></tr>"
+      "<tr><td>CD19 B cells</td><td class='n'>34 / 40</td><td class='n'>2.3</td><td class='n'>0.4 - 7.2</td></tr>"
+      "<tr><td>CD56 NK cells</td><td class='n'>40 / 40</td><td class='n'>13.4</td><td class='n'>4.3 - 32.5</td><td class='n'>2 - 10</td></tr>"
+      "<tr><td>CD14 monocytes</td><td class='n'>40 / 40</td><td class='n'>8.4</td><td class='n'>3.5 - 14.3</td><td class='n'>2 - 10</td></tr>"
+      "<tr><td>GMP (granulocyte-monocyte progenitor)</td><td class='n'>25 / 40</td><td class='n'>4.6</td><td class='n'>0.1 - 16.2</td><td class='n'>not counted clinically</td></tr></table>"
+      "<p><b>What that shows.</b> Neutrophils dominate every healthy donor, which is correct - they are the most abundant white cell in blood - and "
+      "the solver's median of 47 per cent sits inside the textbook range, with donor-to-donor variation of 32 to 69 per cent. <b>The other immune "
+      "cells are all there:</b> T cells in 38 of 40 donors, NK and monocytes in all 40, B cells in 34. A single array showing 62.6 per cent "
+      "neutrophils is a high-normal donor, not a solver that only knows one answer. Summing this report's own placed cells reproduces the immune "
+      "class fraction the gauge is read on, which is the internal consistency check that matters.</p>"
+      "<p><b>Two honest departures from the clinical count, both worth a reader's attention.</b> First, <b>NK cells read high</b> - a median of 13 "
+      "per cent against a textbook 2 to 10 - and the most likely reason is the one PROC-SEP-03 measured directly: the atlas cannot fully separate "
+      "the lymphoid entries, so an NK panel absorbs signal that belongs to T cells. That is a known limit of the reference, not a finding about the "
+      "donor, and it is why per-cell readings inside one lineage are not scored against each other. Second, a minority of donors place a trace of "
+      "something implausible - gastric or glial entries at under 2 per cent in 1 to 15 of 40 donors. Those are the conservative solver's "
+      "false placements at the edge of its evidence threshold; they are reported rather than hidden, and their size is the reason they do not "
+      "change a class reading. Eosinophils and basophils, which a clinical count reports at a few per cent, have no atlas entry at all - so they "
+      "are not missing from this sample, they are missing from the reference, which the Coverage tab states.</p>"
+      "<p class='m'>Measured 2026-09-22 on the 40 build-panel arrays of GSE87571 (raw IDAT through Stage 1, this laboratory only); median 7 atlas "
+      "entries placed per donor, range 5 to 9 of 115. The textbook differential ranges are the standard clinical reference intervals for a white-cell "
+      "differential and are shown for orientation, not as a validation target - a methylation-based composition and a microscope count are "
+      "different measurements of the same tube.</p>")
+
     return guard("".join(H),"Reading")
 
 def tab_cells(o, R, percell_ref=None):
@@ -279,6 +311,32 @@ def tab_departure(o, R):
                  f"{_e(d.get('lab_false_alarm_sentence',''))}</p><p class='m'>Reference: {_e(d.get('reference'))}. Status: {_e(d.get('status'))}. With one commissioned class band, the departure is simply |z| of that class; as further class bands are commissioned the distance becomes a true multi-axis Mahalanobis distance over all assessable classes.</p>")
         H.append("<table class='t'><tr><th>axis</th><th>patient A''</th><th>healthy centre</th><th>spread (sigma)</th><th>z</th></tr>"+"".join(f"<tr><td>{_e(c['class'])}</td><td class='n'>{c['patient_A']:.4f}</td><td class='n'>{c['age_matched_mean']:.3f}</td><td class='n'>{c['sigma']:.4f}</td><td class='n'>{c['z']:+.2f}</td></tr>" for c in d.get("top_axis_contributions",[]))+"</table>")
     else: H.append(f"<p class='pend'>NOT REPORTABLE - {_e(d.get('status'))}</p>")
+    H.append("<h3>What this number is, and where it comes from</h3>"
+      "<p>The number on the dial is a <b>Mahalanobis distance</b>. It deserves its name on the page, because a reader who recognises it knows "
+      "immediately what kind of object it is, and a reader who does not is entitled to a plain explanation.</p>"
+      "<p><b>The idea.</b> Suppose you want to say how unusual a person is on two measurements at once - height and weight, say. Raw distance is "
+      "useless: 10 kg and 10 cm are not comparable quantities, and in any case tall people weigh more, so the two measurements are not "
+      "independent. Mahalanobis' answer, in 1936, was to measure distance in units of <i>how much healthy people vary</i>, and to account for "
+      "the fact that the measurements move together. A distance of 1 means one typical spread away from the centre; 2 means twice that. It "
+      "converts incommensurable units into one number that means <i>how surprising is this</i>.</p>"
+      "<p><b>Why that is the right tool here.</b> A patient has one reading per architecture class. Asking whether they are unusual is exactly the "
+      "two-measurement problem multiplied: the classes have different spreads, and they move together (a sample rich in progenitors is poorer in "
+      "something else, by construction - the fractions sum to one). A per-class table cannot answer <i>is this person unusual overall</i> without "
+      "some rule for combining, and combining z-scores by eye is how a reader talks themselves into a pattern. One number, with a stated alarm "
+      "line, is the honest form.</p>"
+      "<p><b>Where it comes from - and no, not from cosmology.</b> Prasanta Chandra Mahalanobis introduced it at the Indian Statistical Institute "
+      "in 1936, measuring human skulls: he needed to say how far one population sat from another on several correlated measurements at once. It is "
+      "a statistician's invention, not a physicist's. <b>But cosmology is one of its heaviest users</b>, and under a different name: every "
+      "cosmological parameter fit computes a chi-squared of the form (data minus model) transposed, times the inverse covariance matrix, times "
+      "(data minus model) - and that quadratic form <i>is</i> a squared Mahalanobis distance. When a Planck likelihood reports how well a model "
+      "fits the sky, that is the number it is computing. So the honest lineage is: the statistic is Mahalanobis' from 1936, the discipline of "
+      "building it on a properly measured covariance matrix - and of never trusting it until the covariance itself is measured - is what "
+      "cosmology contributed. The same pattern as HEALPix, which also came from outside cosmology before cosmology made it standard.</p>"
+      "<p><b>What is honest about this number today.</b> With one commissioned class band it is not yet doing the work it is built for: with a "
+      "single axis the distance is simply the absolute value of that class's z-score, and the covariance has nothing to act on. It becomes a true "
+      "multi-axis distance when further class bands are commissioned - and the covariance it will then need is the same one the atlas already "
+      "carries and the chain does not yet use (see the Sky tab). The number below is correct and it is thin; the report says which.</p>")
+
     return guard("".join(H),"Departure")
 
 SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist</h2>"
