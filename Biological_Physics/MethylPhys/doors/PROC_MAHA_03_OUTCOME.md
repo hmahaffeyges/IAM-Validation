@@ -116,3 +116,70 @@ honest statement is the one above: one cohort in four, and it is the worst one.
 **Recommendation to the author, not a commissioning:** if a laboratory is to spend arrays on chip control, spend
 them in pairs — two panel arrays per chip, never one — and only where the chip term has been measured for that
 laboratory. A single control array per chip would make its readings worse than no chip correction at all.
+
+
+---
+
+# Deep-chip arm, 2026-09-22 — the chip term IS real at depth, and the correction still does not pay
+
+The outcome above named the measurement that would settle row 5b: Stage 1 on the GSE87571 IDATs, where the chips
+carry 9–12 arrays each instead of two. It has now been run on **23 complete chips, 268 arrays**, all on the
+commissioned scale. The remaining 39 chips are a continuation, not a different experiment: the calibration caches
+per array and resumes where it stopped.
+
+## B1 — met, and the thin panel was simply underpowered
+
+| | 80-array panel (28 chips, ~2 arrays each) | 23 deep chips (9–12 each) |
+|---|---|---|
+| chip ICC | 0.193 | **0.197** |
+| between-chip SD | 0.0114 | 0.0100 |
+| within-chip SD | 0.0232 | 0.0201 |
+| F | 1.565 | **3.862** |
+| p (2,000 shuffles) | 0.0975 | **0.0005** |
+
+The effect size barely moved — 0.193 to 0.197 — while the p-value fell by more than two orders of magnitude.
+That is what a power problem looks like when you fix it: the panel had the right answer and could not prove it.
+
+**B1's bar is therefore met**: p < 0.01 in two cohorts (GSE42861 at shallow depth, GSE87571 at depth).
+
+The tail also lands closer to the published value with depth — 0.0597 here against 0.0561 on the full cohort,
+where the 80-array panel read 0.0625. The median sits at 0.9968.
+
+## B2/B3 — still not met, and the k = 1 row shows why the bar needed its second clause
+
+| k | tail on the band σ | tail on a σ re-derived from the corrected values | σ re-derived |
+|---|---|---|---|
+| uncorrected | 0.0597 | — | 0.02084 |
+| 1 | 0.1306 | **0.0485** | **0.02816** |
+| 2 | 0.0896 | 0.0560 | 0.02408 |
+| 3 | 0.0597 | 0.0597 | 0.02033 |
+| 5 | 0.0597 | 0.0709 | 0.01955 |
+
+**The k = 1 row reads as a pass and is not one.** Correcting each array by a single held-out reference on its chip
+makes the tail on the band σ more than twice as bad (0.0597 → 0.1306) while *inflating the spread by 38 per cent*
+(0.0208 → 0.0282). Re-deriving σ from that inflated distribution divides the departures by a larger number, and
+the tail duly falls under 0.05. Nothing improved: the yardstick grew with the noise.
+
+That is a flaw in how B6 was written, and it is recorded rather than exploited. B6 required the bar to be met
+against a re-derived σ, to stop a corrected reading being judged against a σ narrower than its own distribution.
+It did not also require that the correction **not inflate** the spread. The complete rule, for any future
+procedure of this kind:
+
+> A correction may be credited only if the tail falls **and** the spread does not grow. A tail computed against a
+> σ that the correction itself widened is not evidence of anything.
+
+Under that rule no k passes. k = 3 and k = 5 hold the spread roughly constant and leave the tail at 0.0597 —
+exactly where it started. The arithmetic is visible in the two SD columns of the B1 table: the offset being
+removed (0.0100) is half the noise within a chip (0.0201), so an estimate of it from a handful of arrays
+contributes about as much error as it subtracts.
+
+## Decision — unchanged verdict, inverted reason
+
+**Row 5b remains NOT COMMISSIONED.** But the reason is no longer that the chip term cannot be demonstrated: at
+depth it is demonstrated decisively, p = 0.0005 in the largest cohort. The reason is now that **correcting for it
+does not reduce the false-alarm tail**, at any panel size this data can test, once the spread is held honest.
+
+The four laboratories' false-alarm rates stand as published and continue to be printed per laboratory beside
+every departure. The bench recommendation from the first arm is withdrawn rather than strengthened: spending
+arrays on chip control is not supported by this measurement at any k, and a single control array per chip is
+actively harmful.
