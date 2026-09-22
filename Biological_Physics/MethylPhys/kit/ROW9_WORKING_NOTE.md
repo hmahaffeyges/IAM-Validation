@@ -518,3 +518,46 @@ Three defects in the script were caught by reading its output rather than trusti
 - the first boundary was too strict (`(?<![\w./-])`) and refused every name that appears inside a path, which is
   most of them - the occurrence count fell from 193 to 66 and 20 names were silently left dead;
 - the header's five superseded-version lines survived the first pass because they sit above the changelog blocks.
+
+## 2026-09-22 - the tree moved, and three things broke that only running found
+
+**The move** (author's choice of layout): `Biological_Physics/MethylPhys/` is the instrument - `chain/` (the engine, its
+`Runtime Matrices`, the deconvolvers, the generator, the null runner, `MethylPhys_Interface/`), `atlas/`,
+`reference_data/` (the four laboratories' calibrated betas, now published beside the constants fitted on them),
+`kit/`, `sop/`, `manual/`, `papers/`, `plates/`, `doors/`, `hmin_calibration/`. `Testing_and_Code` -> `Record/`.
+`RETIRED` -> `RETIRED_2026-09/`. All `git mv`; 1,181 path references rewritten across 83 files in the same commit.
+
+**What broke, and why reading would not have caught it.**
+
+| defect | cause | fix |
+|---|---|---|
+| four scripts stopped finding `Record/` | they derived the root by counting `dirname()` calls; the move changed every script's depth by one, so the chain resolved to `MethylPhys` instead of `Biological_Physics` - and resolved *successfully*, just one level shallow | `_bio_root()` ascends until it finds a directory containing `MethylPhys` |
+| the inventory swelled to 704 files, 551 undescribed | with the root corrected it walked all of `Biological_Physics`, sweeping in the whole evidence tree | scoped to `MethylPhys`; `Record/` has its own index |
+| eight files could not find the atlas | their base was already `MethylPhys`-level, so the path substitution produced `MethylPhys/MethylPhys/atlas` | each now tries both layouts |
+| the push was rejected | `git add -A` swept the 577 MB decompressed atlas, whose `.gitignore` rule named the old path | rule re-added for the new path |
+
+Verified after: `test_tiers`, `test_gauge_switch`, `test_patient_sky`, `test_lab_zero` PASS, detection scan PASS, and
+`run_sample.py` returns the identical reading (immune A'' 0.9951, IN_BAND, NORMAL).
+
+## 2026-09-22 - the manual's duplicate cards, found and removed
+
+The author said he was "pretty certain there are duplicates in issue003 of the cards." He was right, and it was
+larger than cards: the rebuilt 311-page manual had **155 near-duplicate page pairs, most byte-identical**.
+
+**Located by instrumenting, not by reading.** Wrapping `render_card` and `render_cascade_section` to record their
+callers showed each of the eight cards rendered **twice** - once from `build()` and once from
+`blk_bodytemp_saturation`. Four greps of the section renderers had found nothing, because the second emission was in
+the tail of a function named for something else: in Issue 002 that block led into the cards, so it emitted them.
+
+**Fix:** the emission is now behind `EMIT_CARDS_AFTER_SATURATION`, default `True` so the Issue 002 reproduction is
+unchanged, and Issue 003's build sets it `False` - it renders the cards itself, each followed by its Issue 003
+addendum, which the duplicate copy did not carry.
+
+**Result: 311 -> 227 pages, 155 -> 18 near-duplicate pairs**, each of the eight cards on exactly one page, cascade
+once. The 18 that remain are the per-card explanatory preambles (SUBSTRATE-BY-SUBSTRATE BREAKDOWN, INTERVENTION
+LEVERS) which recur once per card with different numbers - the same prose over different data, a judgement call for
+the author rather than a defect.
+
+**Also repaired to make the manual build at all:** `data003.py`'s `T` defaulted to a scratch folder
+(`trial/CPG_TRIAL_CODE`) that no longer exists. It now defaults to `MethylPhys/chain`, with `_tfile()` resolving a
+name across the `Runtime Matrices` subdirectories, the deconvolver directory and the sibling `atlas/`.
