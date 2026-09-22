@@ -31,7 +31,7 @@ python "MethylPhys/atlas/healpix_mapping/generate_cpg_healpix_mapping.py"
 
 ## 1 · Entry points
 ```python
-import walther_clinical as WC
+import cpg_conductor as WC
 # A) from raw IDAT (production): Stage 1 noob calibration -> chain -> bundle -> report
 bundle = WC.run_from_folder(idat_folder, patient_id="...", config=None)
 # B) from an already-calibrated beta (Series indexed by cg-id):
@@ -83,7 +83,6 @@ noob Stage-1 path is the calibrated route.
 | `MethylPhys/chain/Crown Jewel and Patient Strawman/strawman_data_v2.json` · `render_patient_wall.py` · `render_strawman_v2.py` | patient straw man |
 | `Crown Jewel and Patient Strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html` | crown-jewel wall (v3) |
 | `MethylPhys/atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy` (+ provenance) | CMB pixel map |
-| `Runtime Matrices/Mollweide & Brightness Comparison/…` (plates, whole_atlas_reference.npz, patient_brightness_comparison.py) | Cosmic Methylome Background (Stage 4.6) |
 | `CPG_AstroGenetics_explainer_section.html` | "How CPG works" explainer |
 | `A1_reference_gauge.png` · `star_gauge.png` | gauge images (cpg_gauge regenerates from tier_breakpoints if absent) |
 
