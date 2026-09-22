@@ -194,7 +194,7 @@ def sec2_atlas(story):
         'Two files with this name exist at different sizes (RECON M1); the one in the trial bundle is 200,311 B, the one at repo HEAD 237,545 B. Which is current must be stated before either is cited.', sBodySm))
     story.append(Paragraph('2.4  The deconvolver', sSect2))
     story.append(Paragraph('walther_iam_deconvolver.py: non-negative least squares over the atlas, one streaming pass selecting class markers (7,114 on the 2026-09-19 runs) '
-        'and cell-type markers, returning class fractions, cell-type fractions and a residual MAE. NILC, the second deconvolver of SOP §9, was cut on 2026-07-02 (commit c1be0c3). '
+        'and cell-type markers, returning class fractions, cell-type fractions and a residual MAE. NILC, the second deconvolver of SOP s9, was cut on 2026-07-02 (commit c1be0c3) and reinstated on 2026-09-22 as the class-level second opinion (PROC-NILC-01). '
         'Validation: N7 on synthetic Dirichlet mixtures, MAE 0.0076–0.0093 across eight classes; conformance against the project answer key on three real EPIC tissue samples, '
         'MAE 0.0004/0.0002/0.0002 (PROC-DECON-01, §8). It has not been validated against real tissue of known composition. LESSON-DECONV-01 (§9) governs how sparse cell-level output is read.', sBodySm))
 
@@ -593,7 +593,7 @@ def secVI_translation_map(story):
     story.append(Paragraph('APPENDIX VI — THE CMB → METHYLOME TRANSLATION MAP, SCORED', sSect))
     story.append(Paragraph('Written by the author before the chain was built: the 32-section CMB-analysis curriculum walked module by module, each assigned a methylome analog and a status '
         '(HAVE · ROADMAP · ADD = should add · REINTERP = translates with reinterpretation · NO = does not translate). The last column was added on 2026-09-19 and records what the chain actually did. '
-        'Two rows went <i>against</i> the map and are the most instructive: a second deconvolver (row 20, built then cut) and de-aging (row 47, built then refused). '
+        'Two rows went <i>against</i> the map and are the most instructive: a second deconvolver (row 20, built, cut, then reinstated on the evidence) and de-aging (row 47, built then refused). '
         'Row 1 is the frame for the whole chain: the 115 cell types are the harmonic basis, and the deconvolver is the projection onto it. '
         'This appendix exists so that a geneticist can see where each tool came from, and a cosmologist can see where the methylome stops behaving like the sky.', sBodySm))
     for sec_ in D.TRANSLATION_MAP:

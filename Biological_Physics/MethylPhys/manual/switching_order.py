@@ -65,7 +65,7 @@ SWITCHING_ORDER = [
   command="cd Biological_Physics/MethylPhys/kit && CPG_KIT_DATA=<data dir> python3 PROC_DECON_01.py",
   expected="GSM8772491 (adenoma EPIC) class MAE 0.0004 vs TEST_DATA_MANIFEST; healthy whole blood 83-93% immune, epithelial 0.0000; 648-sample breast anchor r = 1.00000 (PROC-ANCHOR-01).",
   lessons=[("LESSON-DECONV-01","the deconvolver gates no call; composition and gauge stay separable."),
-           ("PROC-NILC-01","the Atlas cannot split immune / progenitor / stem_adult in blood (κ 30.6, r +0.99) - Walther's stem_adult share is constraint-chosen. NILC said so in June and was cut for it."),
+           ("PROC-NILC-01","the Atlas cannot split immune / progenitor / stem_adult in blood (κ 30.6, r +0.99) - Walther's stem_adult share is constraint-chosen. NILC said so in June and was cut for it - and was right: it was rerun and reinstated in September as the class-level second opinion."),
            ("RUNBOOK §11","a check that can be switched off when it trips is not a check.")],
   defects=["blood haematopoietic sub-problem ill-conditioned at field markers (by design report progenitor+stem_adult jointly - Stage 2b)"],
   procedures=["PROC-DECON-01","PROC-ANCHOR-01","PROC-PLASMA-MIX-01","PROC-N7-01 (R1 pass)"], rules=["SOP §10-§12","§108 reporting rule"],

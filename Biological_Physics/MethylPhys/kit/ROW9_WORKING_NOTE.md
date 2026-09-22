@@ -655,3 +655,33 @@ Negative control: adding one broken link makes the checker exit 1; removing it r
 **The lesson, recorded because it was mine:** I verified the move by running the code - guards, runner, release
 check - and reported it verified. Code paths and document paths are different claims, and only one of them was
 checked.
+
+### 2026-09-22 - the author asked whether NILC is in the live chain. It is; five live documents still said it was cut
+
+He had seen `RETIRED_2026-09/NILC_Deconvolver_cut_from_chain_2026-07-02/` - a folder whose *name* asserts a cut that
+was reversed - and asked whether the solver had been moved into the chain at all.
+
+**It had.** `MethylPhys/chain/nilc_celltype_deconvolver.py` is live, and `stage_2b_second_opinion` in
+`cpg_conductor.py` loads it, compares with Walther's NNLS at class level, applies an agreement bar of L1 <= 0.10 and
+returns `available: False` rather than failing if the module or its marker file is missing. It is a function inside
+the conductor rather than its own file, which is why a filename search for "second_opinion" finds nothing.
+
+**But the question exposed five live documents still asserting the July cut as current** - including the manual I
+have been delivering:
+
+| file | what it said |
+|---|---|
+| `manual/data003.py` | "The Walther NNLS deconvolver is **the one method in the chain**; NILC ... was tried as a second and cut" - and a table cell reading "BUILT (NILC cut 2026-07-02)" |
+| `manual/build_gape_issue003.py` | "NILC ... **was cut** on 2026-07-02 (commit c1be0c3)" and "a second deconvolver (row 20, built then cut)" |
+| `kit/switching_order.py`, `manual/switching_order.py` | "NILC said so in June and was cut for it" |
+| the retired folder's own name | `NILC_Deconvolver_cut_from_chain_2026-07-02` |
+
+All corrected to state the full arc - cut, rerun, vindicated, reinstated as the class-level second opinion - and the
+retired folder is renamed `NILC_Deconvolver_cut_2026-07-02_REINSTATED_2026-09-22` with a README pointing at the live
+file and naming the misreading: the module's own docstring said the divergence marks where composition is genuinely
+ill-defined by the atlas, so it was a diagnostic to read, not a defect to remove. Verified by scanning the rendered
+manual: the three stale sentences are gone and the reinstatement is stated on the page.
+
+**The pattern, twice in one day:** a reversed decision leaves assertions behind in every document that mentioned it,
+and the SOP fix on its own was not enough. When a decision reverses, grep the live tree for the old claim - the
+directory names too, because a path is a claim.
