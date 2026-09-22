@@ -23,8 +23,14 @@ numbers have been re-derived on the identity gauge. Four things a reader must kn
 
 **Two copies of `evidence_summary.json` exist and this is the complete one.** The other, generated without
 network access, carries empty `gdc_availability` (`{}`), `gdc_total_cases` 0 and `geo_catalogued` 0. This copy has
-them populated — 11,428 GDC cases available and 10 GEO datasets catalogued at generation time. The `results`
-block is **byte-identical between the two**, so no measured value depends on which copy a reader has.
+them populated — 11,428 GDC cases available and 10 GEO datasets catalogued at generation time.
+
+The `results` block is **not** byte-identical between the two copies, and the difference was checked field by
+field rather than assumed: all 39 result entries differ in exactly one field, `last_updated_utc` (2026-04-07
+in this copy, 2026-04-06 in the other). Every other field is identical in every entry — `beta_normal`,
+`beta_tumor`, `H_normal`, `H_tumor`, `H_min_class`, `A_normal`, `A_tumor`, `delta_A`, `n_pairs`,
+`p1_confirmed`, the detection tiers, the version fields and `prov_hash`. So **no measured value depends on
+which copy a reader has**, but the reason is a timestamp, not byte equality.
 
 **What the summary contains**, in its own words: 28 cancer datasets, 4,304 matched tumour–normal pairs, and the
 P1 comparison (A_tumour > A_normal) confirmed in 27 of 28 with a mean ΔA of 0.1589 ± 0.0721. Those are the
