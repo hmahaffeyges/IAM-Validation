@@ -10,7 +10,7 @@ The chain that scores a sample. Formerly `AstroGenetics/CPG_KISS_Commercial_Engi
 | 4 class gauge + 7 tier | `cpg_gauge_engine.py` (the 40-cell `H_MIN_TABLE`, age band, tiers), `cpg_gauge.py`, `Runtime Matrices/` |
 | 4.6 patient CMB | `cpg_patient_cmb.py` — z-departure sky against the atlas posterior; uses `../MethylPhys/atlas/healpix_mapping/` |
 | 5 second chain | `stage_5_second_chain.py` (Mahalanobis hull) |
-| orchestrator | **`cpg_conductor.py`** (2026-07; replaces `cpg_conductor.py`, kept for reference) |
+| orchestrator | **`cpg_conductor.py`** |
 | nulls (sealing) | `CPG_Null_Runner/cpg_null_runner.py` — the eight nulls N1–N8; a VAL is sealed only when its declared nulls pass |
 | report | `cpg_report_builder.py`, `report_builders/` (strawman, patient wall, synthetic-patient harness), `build_dashboard_v1.py` |
 | runtime constants | `Runtime Matrices/` — identity loci, discriminative markers (chrX-removed, canonical), age reference, tiers, Mahalanobis reference, directional panels |

@@ -59,6 +59,26 @@ def references(text):
     return out
 
 
+
+def _self_reference(docs, R):
+    """A line may not say that a file replaces, supersedes or stands instead of itself.
+
+    Added 2026-09-22: a blanket rename of one filename to another turned "X (replaces Y)" into
+    "X (replaces X)" in a README table, and the checks in place at the time - leftover old names, unresolved
+    filenames - all passed on it. A rename can corrupt a sentence without leaving a bad path behind.
+    """
+    import re as _re
+    pat = _re.compile(r"`([^`]+)`.{0,60}?\b(?:replaces|supersedes|instead of|rather than)\b.{0,60}?`\1`")
+    bad = []
+    for f in docs:
+        try:
+            for i, line in enumerate(open(os.path.join(R, f), encoding="utf-8"), 1):
+                if pat.search(line):
+                    bad.append((f, i, line.strip()[:120]))
+        except OSError:
+            continue
+    return bad
+
 def main():
     show_all = "--all" in sys.argv
     # Tracked AND untracked-but-present files. A new document is exactly where broken links live, and until
@@ -106,6 +126,9 @@ def main():
             candidates = tuple(os.path.join(b, ref) for b in BASES)
             if not any(os.path.exists(c) for c in candidates):
                 bad.append((f, ref))
+    selfref = _self_reference(docs, R)
+    for f, i, line in selfref:
+        bad.append((f, "line %d says a file replaces itself: %s" % (i, line)))
     scope = "all documents" if show_all else "live documentation set"
     print("link_check (%s): %d relative references checked in %d documents" % (scope, checked, len(docs)))
     if bad:
