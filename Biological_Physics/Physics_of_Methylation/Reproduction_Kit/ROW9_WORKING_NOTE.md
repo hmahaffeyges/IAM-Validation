@@ -483,7 +483,7 @@ entries the atlas cannot separate *in profile*; exclusivity says which panels ar
 entries the atlas has too few addresses to characterise at all.
 
 **Written as `iamatlas_celltype_markers_v0_3_TRIAL.json`, NOT adopted.** The sealed anchors reproduce on v0_2, and
-only 2,572 of the 11,369 old marker slots survive the new criterion, so the anchors will not reproduce on v0_3.
+only 3,154 of the 11,369 old marker slots survive the new criterion (the 3,154 is read from the adopted file's own per-entry retained_from_v0_2 field; an earlier figure of 2,572 in this note came from the abandoned N<=100 run and was wrong for the panel actually built), so the anchors will not reproduce on v0_3.
 Adoption needs, in order: (1) recompute the two foundation-cohort anchors from raw GEO on v0_3 and seal them as a
 new anchor set, keeping the v0_2 anchors as the historical seal; (2) re-measure the per-entry healthy references
 on v0_3 from the four laboratory panels; (3) re-run the kit guards; (4) only then switch the report to v0_3, with
