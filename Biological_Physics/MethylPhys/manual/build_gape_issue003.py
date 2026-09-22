@@ -733,6 +733,8 @@ def build(out_path):
     L.EMIT_CARDS_AFTER_SATURATION = False
     L.EMIT_CARD_DISEASE_BLOCKS = False
     L.CARD_NUMBER_BY_POSITION = True
+    L.EMIT_CARD_CELL_ROSTER = True
+    L.EMIT_CARD_NBIO = False
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
     # The multi-class drift cascade (VAL-037..046) and its healthy baseline reference tables are Issue 002's
@@ -740,6 +742,8 @@ def build(out_path):
     # L.render_cascade_section(story)
     for card in L.CARDS:
         L.render_card(story, card); card_addendum(story, card['key'])
+    import part3_indepth as P3
+    P3.render(story, L, tbl, SP, PageBreak, Paragraph)   # Part III - chain, atlas, toolkit, refusals
     sec5a_tools(story)
     # §5 the physics, as it stands now
     sec5_physics(story)

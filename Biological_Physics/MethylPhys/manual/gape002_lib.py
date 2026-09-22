@@ -1051,6 +1051,17 @@ EMIT_CARDS_AFTER_SATURATION = True
 # Issue 002 reads '#3 IMMUNE' on its first card. Issue 003 sets this True and prints the position in the book
 # instead; Issue 002 keeps its own numbering (author, 2026-09-22).
 CARD_NUMBER_BY_POSITION = False
+# Issue 003 prints each class's ATLAS CELL TYPES on its card with the per-entry reference numbers: the cover
+# claims the cards list their cell types, and Issue 002's 'Includes' field is a prose list of tissues, not the
+# atlas's entries (immune names 5 lineages; the atlas holds 51). Default False so Issue 002 is unchanged.
+EMIT_CARD_CELL_ROSTER = False
+# n_bio: the record's own ruling (RECON M2, author 2026-09-19) is that n_bio 'was an early (QAPE-era) form of
+# the ratio and is NO LONGER USED', superseded by the Mahaffey number - which is ONE number for the cell
+# (20.94 = dG_ATP/(R T_body)), not one per class, and is not H_min. Issue 002 printed a per-class n_bio in
+# every card header and in CORE METRICS as 'PRELIMINARY - absolute pending G-007', a run the history record
+# shows was never made. Issue 003 sets this False: the header drops it and the metrics row states the ruled
+# quantity instead. Default True so Issue 002 reproduces exactly (author, 2026-09-22).
+EMIT_CARD_NBIO = True
 EMIT_CARD_DISEASE_BLOCKS = True   # the per-card disease reference, signature comparison, post-breach trajectory and
                                   # intervention levers. Issue 002 publishes them; Issue 003 sets this False (author,
                                   # 2026-09-22) and Issue 004 will carry disease evidence measured on this chain.   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
@@ -4834,7 +4845,7 @@ def render_card(story, card):
                   S('CH', fontName='Helvetica-Bold', fontSize=12, textColor=WHITE, leading=14)),
         Paragraph(f'<font color="#{MUTED2.hexval()[2:]}" size="7">'
                   f'cfDNA = {card["cfdna_pct"]:.1f}%  ·  H_min(methyl) = {hm:.4f}  ·  '
-                  f'n_bio = {card["n_bio"]}  ·  drift {card["gen_rate"]*100:.1f}%/gen</font>',
+                  f'{("n_bio = " + str(card["n_bio"]) + "  ·  ") if EMIT_CARD_NBIO else ""}drift {card["gen_rate"]*100:.1f}%/gen</font>',
                   S('CM', fontSize=7, textColor=MUTED2, leading=10)),
     ]], colWidths=[PW*0.58, PW*0.42],
     style=[('TOPPADDING',(0,0),(-1,-1),0),('BOTTOMPADDING',(0,0),(-1,-1),0),
@@ -4864,6 +4875,39 @@ def render_card(story, card):
                         ('LINEBEFORE',(0,0),(0,-1),3,col)])
     story.append(id_t)
     story.append(Spacer(1, 6))
+
+    # ── Section 1b (Issue 003): THE ATLAS CELL TYPES IN THIS CLASS ────────────
+    if EMIT_CARD_CELL_ROSTER:
+        try:
+            import part3_indepth as _P3
+            _rows = _P3.cell_roster_rows(card['key'])
+        except Exception:
+            _rows = []
+        if _rows:
+            _res = sum(1 for r in _rows if r[2] == 'yes')
+            _noref = sum(1 for r in _rows if r[1] == '-')
+            story.append(Spacer(1, 6))
+            story.append(Paragraph('THE ATLAS CELL TYPES IN THIS CLASS (%d)' % len(_rows), sLabel))
+            story.append(Paragraph(
+                'These are the entries IAMAtlasREBUILD can speak about for this class - what the deconvolver places, '
+                'and what a per-cell reading would be read against. <b>Markers</b> is the range of panel markers '
+                'actually found across the reference laboratories; <b>individually resolvable</b> is whether this '
+                'atlas can separate the entry from its neighbours at all, and where it cannot the chain reports the '
+                'group and never the member; <b>exclusivity</b> is the fraction of the entry\'s markers not shared '
+                'with another entry; <b>healthy A range</b> spans the per-laboratory 10th to 90th percentiles on the '
+                'v0_3 trial panel. %d of %d entries are individually resolvable%s.' % (_res, len(_rows),
+                    ('; %d carry no per-entry reference yet and are reported at class level only' % _noref) if _noref else ''),
+                sMut))
+            _hdr = ['atlas entry', 'markers', 'individually resolvable', 'exclusivity', 'healthy A range']
+            _data = [[PH(h) for h in _hdr]] + [[P(str(c)) for c in r] for r in _rows]
+            _t = Table(_data, colWidths=[PW * w for w in (0.30, 0.12, 0.27, 0.13, 0.18)], repeatRows=1)
+            _t.setStyle(tbl_style(6.6))
+            story.append(_t)
+            story.append(Paragraph(
+                'The same lineage can appear under more than one entry above, because different reference panels '
+                'defined their markers; entries differing only by label are not yet merged, which is why no reading '
+                'in this document is quoted as "which cell moved".', sDisc))
+            story.append(Spacer(1, 6))
 
     # ── Section 2: COMMENTARY (the paper-depth prose) ─────────────────────────
     story.append(Paragraph('COMMENTARY', sLabel))
@@ -5354,10 +5398,13 @@ def render_card(story, card):
     story.append(Paragraph(
         f'Read this table as the "audit trail" for every number shown anywhere else in this card. '
         f'When the framework says A_healthy = {Ah:.4f}, you can see exactly which β value produced '
-        f'it, which H_min was used, and where both came from. The n_bio field is currently marked '
-        f'PRELIMINARY because absolute n_bio values await the G-007 MCMC run; the class ordering '
-        f'has been confirmed (Spearman ρ = 0.905, p = 0.002 against commitment level) but the '
-        f'absolute values carry that caveat transparently.',
+        + ((f'it, which H_min was used, and where both came from. The n_bio field is currently marked '
+            f'PRELIMINARY because absolute n_bio values await the G-007 MCMC run; the class ordering '
+            f'has been confirmed (Spearman ρ = 0.905, p = 0.002 against commitment level) but the '
+            f'absolute values carry that caveat transparently.') if EMIT_CARD_NBIO else
+           ('it, which H_min was used, and where both came from. The per-class n_bio row of Issue 002 is '
+            'withdrawn here and replaced by the Mahaffey number, which is one number for the cell and not '
+            'one per class (see §5A.1 and the glossary note).')),
         sBodySm))
     story.append(Spacer(1, 4))
     cm_rows = [
@@ -5371,9 +5418,16 @@ def render_card(story, card):
         [P('H_min methylation σ (MCMC)'),
          Paragraph(f'<font name="Courier">±{H_MIN_SIGMA_METHYL[key]:.6f}</font>', sCode),
          P('<link href="https://github.com/hmahaffeyges/IAM-Validation" color="#A78BFA"><u>G-002 17-chain MCMC R-hat&lt;1.001</u></link> — DERIVED')],
-        [P('n_bio (class-specific)'),
+        ([P('n_bio (class-specific)'),
          Paragraph(f'<font name="Courier">{card["n_bio"]}</font>', sCode),
-         P('PRELIMINARY — ordering confirmed (ρ=0.905, p=0.002); absolute pending G-007')],
+         P('PRELIMINARY — ordering confirmed (ρ=0.905, p=0.002); absolute pending G-007')]
+         if EMIT_CARD_NBIO else
+         [P('Mahaffey number M — one number for the cell, not one per class'),
+          Paragraph('<font name="Courier">20.94</font>', sCode),
+          P('FIXED — ΔG_ATP/(R·T_body) at 310.15 K; §5A.1. Issue 002\'s per-class n_bio is WITHDRAWN: an '
+            'early QAPE-era form of the same ratio, superseded by M, whose absolute values awaited a '
+            'G-007 run the history record shows was never made. H_min is a different quantity — the '
+            'per-class entropy floor in bits.')]),
         [P('Healthy drift rate'),
          Paragraph(f'<font name="Courier">{card["gen_rate"]*100:.1f}% / generation</font>', sCode),
          P('DNMT1 fidelity loss under turnover — DERIVED')],

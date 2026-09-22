@@ -708,3 +708,44 @@ Verification is now a scan rather than a list of strings: every rendered sentenc
 deconvolver together with a cut is checked against its neighbouring sentences for the reversal. **Zero remain.**
 
 **Method note:** editing guessed strings verifies nothing. The check has to enumerate the claim in the output.
+
+### 2026-09-22 - Part III added, the cards now list their atlas cells, and the retired n_bio is off the cards
+
+Author: *"Do we discuss the cells that we detect with IAM-Atlas? Does each card mention the cells in their class? ...
+everything in the interface we just added should be in this with the full chain and and stage detailed in depth.
+This is the place to do it. The interface is the shorter condensed version. ... Did you check and make sure all the
+cards carry the correct updated info?"*
+
+**The cards did not list their cells, and the cover said they did.** Page 1 has claimed "Every class card now lists
+its cell types" while the cards carried Issue 002's `Includes` field - a prose list of tissues (immune: five
+lineages named; the atlas holds **51 immune entries**). Each card now carries a roster of its atlas entries, built
+from `IAMAtlasREBUILD_celltype_to_class.json` and `percell_reference_v0_3.json` at build time: entry, markers found
+across the reference laboratories, whether it is individually resolvable, exclusivity, and the per-laboratory 10th
+to 90th percentile healthy A range. Counts as rendered: immune 51, cycling 19, secretory 18, progenitor 11,
+terminal 9, stromal 5, adult stem 1, pluripotent stem 1 = **115**, and 106 of the 115 carry a per-entry reference.
+The claim on page 1 is now true.
+
+**PART III - THE COMMISSIONED CHAIN, IN DEPTH** (new module `part3_indepth.py`), four chapters, two of them
+generated so they cannot drift:
+
+| chapter | source |
+|---|---|
+| III.1 the chain, stage by stage | **generated**: parses `cpg_conductor.py` for the stage list, the call order inside `run_full()` and each stage's own docstring. 11 stages called, `stage_8_matching` named as defined-but-not-called, which is the standing decision |
+| III.2 the atlas and the cells it can speak about | **generated** from the cell-to-class map and the per-entry reference; states the two different limits on a per-cell claim and the duplicate-label blocker |
+| III.3 the cosmology toolkit, tool by tool | authored: ten tools, each with what it does in cosmology, what it does here, and its status - every number traceable (locality 511 bp median and 196,608/196,608 contiguous pixels; agreement bar L1 <= 0.10; difference-map limits from the 0.0089 bound; the unused cell-type covariance named as the largest piece of unspent evidence) |
+| III.4 what the chain refuses, and the cosmology twin of each refusal | authored from the guards in code |
+
+**The card audit found one real defect: `n_bio`.** The record's own ruling (RECON M2, author 2026-09-19) is that
+n_bio "was an early (QAPE-era) form of the ratio and is NO LONGER USED", superseded by the Mahaffey number - which
+is **one number for the cell**, 20.94, not one per class, and is not H_min. Issue 002 printed a per-class n_bio in
+every card header and a CORE METRICS row marked "PRELIMINARY - absolute pending G-007", a run the history record
+shows was never made. Issue 003 now drops it from the header and prints the ruled quantity in its place, with the
+withdrawal stated. Verified in the render: **zero live n_bio references remain** - all 16 occurrences are the
+withdrawal statement itself.
+
+Also checked and found correct: every card states its class floor (the stromal card's 0.86295 and the runtime's
+0.863 are the same number at different precision - my first audit's string match was too strict), every card states
+its identity loci count, and no card carries the retired derivation language.
+
+**Flags, all defaulting to Issue 002 behaviour:** `CARD_NUMBER_BY_POSITION`, `EMIT_CARD_CELL_ROSTER`,
+`EMIT_CARD_NBIO`. 164 -> 175 pages.
