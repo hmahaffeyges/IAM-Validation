@@ -8,7 +8,7 @@ Three places, three jobs. Nothing should exist in two of them without this file 
 | **KIT** `CPG_Issue003_ReproductionKit.zip` | frozen snapshot of exactly what Issue 003 used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
 | **YOUR FOLDER** (local, not in git) | large inputs and private material | test IDATs, `betas_cache.pkl`, GEO matrices, decompressed atlas CSV, `_gape_constants_private.py`, Recipe, patents, correspondence |
 
-Kit path prefixes below are relative to the kit root. Repo paths are relative to the repo root; `MethylPhys/chain/` = `Biological_Physics/MethylPhys/chain/`, `VAULT/` = `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/`.
+Kit path prefixes below are relative to the kit root. Repo paths are relative to the repo root; `MethylPhys/chain/` = `Biological_Physics/MethylPhys/chain/`, `VAULT/` = `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/`.
 
 ---
 
@@ -16,19 +16,19 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 
 | component | canonical location | in kit as | status 2026-09-19 |
 |---|---|---|---|
-| IAM Atlas (483,092 CpGs × 8 classes + 115 cells) | REPO `ENGINE/MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` | **not shipped** — `data/IAMAtlasREBUILD.csv` (decompress; sha256 in `DATA_CHECKSUMS.sha256`) | canonical |
-| atlas provenance + build | REPO `ENGINE/MethylPhys/atlas/IAMAtlasREBUILD_provenance.json` | `runtime/` | canonical |
-| cell type → class map (115 → 8) | REPO `ENGINE/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json` | `runtime/` | canonical |
-| Walther deconvolver (Stage 2) | REPO `ENGINE/Walther_iam_deconvolver/walther_iam_deconvolver.py` | `engine/` | canonical; PROC-DECON-01 PASS |
-| NILC deconvolver (cross-method check) | REPO `ENGINE/NILC Deconvolver/` | not in kit | **CUT from chain 2026-07-02**; code retained; OPEN whether it returns |
-| gauge identity loci (8 panels, H_min, H_min_β, band) | REPO `ENGINE/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json` | `runtime/` | canonical |
-| cell-type markers v0_2 (115 × 100) | **YOUR FOLDER** (chrX-removed copy) → **must be committed to REPO** `ENGINE/Runtime Matrices/Celltype_Marker/` | `runtime/iamatlas_celltype_markers_v0_2.json` (canonical, RULING M1b) + `..._REPO_HEAD_prechrX.json` (what the v1 seal used) | **repo is stale on this file** |
-| 40-cell H_MIN_TABLE, HEALTHY_BASELINE, tiers | REPO `ENGINE/cpg_gauge_engine.py` | `engine/` | canonical; byte-identical to Issue 002 |
+| IAM Atlas (483,092 CpGs × 8 classes + 115 cells) | REPO `MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` | **not shipped** — `MethylPhys/atlas/IAMAtlasREBUILD.csv` (decompress; sha256 in `DATA_CHECKSUMS.sha256`) | canonical |
+| atlas provenance + build | REPO `MethylPhys/atlas/IAMAtlasREBUILD_provenance.json` | `runtime/` | canonical |
+| cell type → class map (115 → 8) | REPO `MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json` | `runtime/` | canonical |
+| Walther deconvolver (Stage 2) | REPO `MethylPhys/chain/Walther_iam_deconvolver/walther_iam_deconvolver.py` | `MethylPhys/chain/` | canonical; PROC-DECON-01 PASS |
+| NILC deconvolver (cross-method check) | REPO `MethylPhys/chain/NILC Deconvolver/` | not in kit | **CUT from chain 2026-07-02**; code retained; OPEN whether it returns |
+| gauge identity loci (8 panels, H_min, H_min_β, band) | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json` | `runtime/` | canonical |
+| cell-type markers v0_2 (115 × 100) | **YOUR FOLDER** (chrX-removed copy) → **must be committed to REPO** `MethylPhys/chain/Runtime Matrices/Celltype_Marker/` | `MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json` (canonical, RULING M1b) + `..._REPO_HEAD_prechrX.json` (what the v1 seal used) | **repo is stale on this file** |
+| 40-cell H_MIN_TABLE, HEALTHY_BASELINE, tiers | REPO `MethylPhys/chain/cpg_gauge_engine.py` | `MethylPhys/chain/` | canonical; byte-identical to Issue 002 |
 | age reference band (8 classes × 10 decades) | REPO `MethylPhys/chain/` (trial bundle copy identical) `age_reference_matrix.json` | `runtime/` | canonical; compiled as H(β̄)/H_min |
 | tier breakpoints v1.3 | REPO `tier_breakpoints.json` (last commit 66f37fe) | `runtime/` | canonical; two vocabularies remain (RECON T3) |
-| Stage 1 calibrator | REPO `ENGINE/stage_1_idat_calibration.py` | `engine/` | canonical; PROC-CAL-01 PASS 11/11 |
-| conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces walther_clinical.py', 2026-07) | **YOUR FOLDER only** — supplied to this session four times as an upload; **NOT in the repo at 66f37fe, NOT in CPG_TRIAL_CODE.zip** → **must be committed to REPO** `MethylPhys/chain/` | `engine/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
-| runtime A-scoring module + canonical test | REPO `ENGINE/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, `test_a_score_canonical.py` | `engine/` | separation surface (mean-of-H); guard docstring to be amended per RULING A3 |
+| Stage 1 calibrator | REPO `MethylPhys/chain/stage_1_idat_calibration.py` | `MethylPhys/chain/` | canonical; PROC-CAL-01 PASS 11/11 |
+| conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces walther_clinical.py', 2026-07) | **YOUR FOLDER only** — supplied to this session four times as an upload; **NOT in the repo at 66f37fe, NOT in CPG_TRIAL_CODE.zip** → **must be committed to REPO** `MethylPhys/chain/` | `MethylPhys/chain/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
+| runtime A-scoring module + canonical test | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, `test_a_score_canonical.py` | `MethylPhys/chain/` | separation surface (mean-of-H); guard docstring to be amended per RULING A3 |
 | kit scoring helpers (gauge_A with presence + Jensen guard, separation_A) | **KIT** `cpg_kit.py` | `cpg_kit.py` | new 2026-09-19; **should be promoted into REPO** next to cpg_conductor.py |
 
 ## B. Sealed references and anchors
@@ -37,9 +37,9 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 |---|---|---|---|
 | foundation-cohort anchors v1 (GSE51032 n=460, GSE51057 n=188, 115 cells) | REPO `Biological_Physics/Record/VAL_PostAtlas/foundation_cohort/` | `anchors_v1/` | SUPERSEDED by v2 (RULING M1b); keep |
 | anchors v2 (chrX-removed markers) | **KIT** `anchors_v2/` → **must be committed to REPO** beside v1 | `anchors_v2/` + `RESEAL_REPORT.json` | new 2026-09-19 |
-| Mahalanobis HC hull v0_5 (n=2,523; d≥13.62 / 18.43) | REPO `ENGINE/Runtime Matrices/` (`mahalanobis_healthy_reference_*`) | not in kit | specified in Issue 003 §5A.7; **PROC-HULL-01 not yet written** |
-| disease-signature matrix v1.13 (81 rows) | REPO `ENGINE/Disease Matrix/` | not in kit | Stage 8; not exercised in Issue 003 |
-| disease cards + residual maps (breast-epic, ad-immune, …) | REPO `ENGINE/Disease Cards : Residual Maps/` | not in kit | Stage 8; not exercised |
+| Mahalanobis HC hull v0_5 (n=2,523; d≥13.62 / 18.43) | REPO `MethylPhys/chain/Runtime Matrices/` (`mahalanobis_healthy_reference_*`) | not in kit | specified in Issue 003 §5A.7; **PROC-HULL-01 not yet written** |
+| disease-signature matrix v1.13 (81 rows) | REPO `MethylPhys/chain/Disease Matrix/` | not in kit | Stage 8; not exercised in Issue 003 |
+| disease cards + residual maps (breast-epic, ad-immune, …) | REPO `MethylPhys/chain/Disease Cards : Residual Maps/` | not in kit | Stage 8; not exercised |
 | brightness files (8 per-class per-CpG μ/σ/CI) | REPO `VAULT/IAMAtlas_v0_1/class_archives/{class}_v0_1_REBUILD.tar.xz` | not in kit | Stage 4.6 input |
 
 ## C. Visualization / CMB toolkit (the two folders you zipped)
@@ -49,7 +49,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | Plates 1–4 + README | REPO `VAULT/IAMAtlas_v0_1/plates/` | `Mollweide & Brightness Comparison/Plates/` | no | canonical in repo; your zip has two extra plate variants (`_Cosmic_Methylome_Background`, `_Methylome_CMB_vs_Microwave_CMB`) **not in the repo** — commit or discard |
 | HEALPix mapping (NSIDE 128, generator, provenance, .npy) | REPO `VAULT/IAMAtlas_v0_1/healpix_mapping/` | `cpg healpix mapping/` | no | canonical in repo (your zip lacks the .npy) |
 | patient_brightness_comparison.py (Stage 4.6 module) | REPO `VAULT/walther_clinical_runtime/Brightness_Comparison/` | `Mollweide & Brightness Comparison/` | no | canonical in repo |
-| cpg_patient_cmb.py (Stage 4.6, engine version, z-map with assessability mask) | REPO `ENGINE/cpg_patient_cmb.py` | — | no | canonical; supersedes the vault module for the running chain |
+| cpg_patient_cmb.py (Stage 4.6, engine version, z-map with assessability mask) | REPO `MethylPhys/chain/cpg_patient_cmb.py` | — | no | canonical; supersedes the vault module for the running chain |
 | brilliance_map.py, patient_brilliance_map_GSM1051533.png | **YOUR FOLDER only** | root of zip | no | **not in repo** — the PNG is a raw-β map, not the Stage-4.6 z-map; decide whether it ships |
 
 ## D. Documents
@@ -59,7 +59,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | Issue 003 build chain (build, data003, gape002_lib, 002 script) | **KIT** `issue003_build/` → **should be committed to REPO** `MethylPhys/manual/` | yes | new |
 | Issue 003 PDF | KIT `issue003_build/` | yes | v8 |
 | SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
-| LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `ENGINE/README's/` | no | canonical |
+| LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `MethylPhys/chain/README's/` | no | canonical |
 | Recipe, `_gape_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_gape_constants_private.py` still names the constant `n_bio` (retired name; the value 20.94 is the Mahaffey number) |
 | GAPE_EDEAR_Reproduction_Paper_v3, IAM_for_physicists, Hubble2GAPE, Cellular Margin, Astro-Genetics | REPO `docs/papers/` or `Biological_Physics/papers/` (check each) | no | verify each is committed |
 

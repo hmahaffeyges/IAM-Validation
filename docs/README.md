@@ -16,9 +16,9 @@ With the BBN prior removed and Ω_b h² free across a prior four times wider tha
 
 **All chains, config files, and scripts publicly available. Anyone is free to verify without obligation.**
 
-→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/iam_planck_chains/)
+→ Chain: [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/chains/)
 
-→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
+→ Config: [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/)
 
 → Result paper: [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
 
@@ -773,8 +773,8 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 - **MCMC result and full derivation (March 20, 2026):** BBN prior removed, Ω_b h² free across a prior four times wider than standard — Planck 2018 CMB likelihood alone returns η = (6.115 ± 0.037)×10⁻¹⁰ against observed 6.137×10⁻¹⁰. 0.36% agreement. Zero free parameters. No nuclear physics input. Chain converged R-1 = 0.009273, 22,400 steps.
 - **This is the first derivation of the baryon asymmetry from thermodynamic first principles.**
 - **Result paper:** [The Baryon Asymmetry as a Derived Quantity: CMB Evidence Without BBN Prior](papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
-- **Chain:** [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/iam_planck_chains/)
-- **Config:** [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/iam_baryon_test.yaml)
+- **Chain:** [`mgcamb_validation/iam_planck_chains/iam_baryon_test`](../mgcamb_validation/chains/)
+- **Config:** [`mgcamb_validation/yaml_configs/iam_baryon_test.yaml`](../mgcamb_validation/yaml_configs/)
 
 </details>
 
@@ -823,7 +823,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 
 These papers are archived and superseded. Not part of the active corpus.
 
-- [Retired(V1)IAM_Manuscript.pdf](Retired(V1)IAM_Manuscript.pdf) — First version of the IAM manuscript, superseded by the Theory Paper
+- [Retired_V1_IAM_Manuscript.pdf](Retired_V1_IAM_Manuscript.pdf) — First version of the IAM manuscript, superseded by the Theory Paper
 - [Retired_IAM_Technical_Clarifications_Guide.pdf](Retired_IAM_Technical_Clarifications_Guide.pdf) — Early clarifications document, content incorporated into later papers
 
 ---

@@ -2,7 +2,7 @@
 """PROC-DECON-01 — deconvolver conformance against the project's documented outputs (TEST_DATA_MANIFEST.md),
 plus PROC-WB-COMP-01 (whole blood: epithelial fraction ~0) and the presence-gated gauge read (PROC-WB-IMMUNE-01).
 
-Input   : data/IAMAtlasREBUILD.csv  (decompress from the repo's MethylPhys/atlas/IAMAtlasREBUILD.csv.xz; 605 MB; 483,092 rows)
+Input   : MethylPhys/atlas/IAMAtlasREBUILD.csv  (decompress from the repo's MethylPhys/atlas/IAMAtlasREBUILD.csv.xz; 605 MB; 483,092 rows)
           runtime/IAMAtlasREBUILD_celltype_to_class.json ; data/betas_cache.pkl
 Expected: class-fraction MAE <= 0.001 vs manifest on GSM8772491, GSM5065990, GSM5065985; whole-blood epithelial sum < 0.02
 Usage   : python PROC_DECON_01.py

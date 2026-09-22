@@ -1,3 +1,5 @@
+> **Retired 2026-09-22.** This described the layout of a reproduction-kit *zip bundle* (`runtime/`, `figures/`, `issue003_build/`, `docs/`), not this repository, so every path in it resolves to nothing here. The current entry points are `MethylPhys/README.md` and `MethylPhys/doors/RUNBOOK.md`. Kept for provenance.
+
 # READ ME FIRST — everything from the 2026-09-18/19 sessions, in one folder
 
 Heath — this folder is the complete record of what was produced and what was run. Nothing has been pushed to
@@ -23,12 +25,12 @@ Read in this order: this file → `RUNBOOK.md` (how to run the tests) → `COMPO
 | `PROC_ANCHOR_01.py` | written | **sealed 115-cell anchors** recomputed from raw GEO (GSE51032, GSE51057). Observed r = 1.00000 both |
 | `PROC_FORMULA_01.py` | written | the two aggregations × two loci sets on the 11 test samples — the measurement behind RULING A3 |
 | `PROC_PLASMA_MIX_01.py` | written | deconvolver vs Moss 2018 known in-vitro mixtures (GSE122126). terminal PASS; hepatocyte, colon FAIL |
-| `engine/walther_iam_deconvolver.py` | repo 66f37fe | Stage 2 deconvolver — **run** |
-| `engine/stage_1_idat_calibration.py` | repo 66f37fe | Stage 1 — **run** |
-| `engine/cpg_gauge_engine.py` | repo 66f37fe | the 40-cell H_MIN_TABLE, HEALTHY_BASELINE, tiers — **read; constants extracted** |
-| `engine/cpg_gauge.py` | repo 66f37fe | gauge wrapper — read, not run |
-| `engine/iamatlas_a_scoring.py`, `engine/test_a_score_canonical.py` | repo 66f37fe | separation-surface scorer and its guard — read; the formula was re-implemented in `cpg_kit.separation_A` and matched the seal |
-| `engine/cpg_conductor.py` | **your upload** (not in repo) | the 2026-07 orchestrator — **read, not run**; must be committed (COMPONENT_MAP action 8) |
+| `MethylPhys/chain/walther_iam_deconvolver.py` | repo 66f37fe | Stage 2 deconvolver — **run** |
+| `MethylPhys/chain/stage_1_idat_calibration.py` | repo 66f37fe | Stage 1 — **run** |
+| `MethylPhys/chain/cpg_gauge_engine.py` | repo 66f37fe | the 40-cell H_MIN_TABLE, HEALTHY_BASELINE, tiers — **read; constants extracted** |
+| `MethylPhys/chain/cpg_gauge.py` | repo 66f37fe | gauge wrapper — read, not run |
+| `MethylPhys/chain/iamatlas_a_scoring.py`, `MethylPhys/chain/test_a_score_canonical.py` | repo 66f37fe | separation-surface scorer and its guard — read; the formula was re-implemented in `cpg_kit.separation_A` and matched the seal |
+| `MethylPhys/chain/cpg_conductor.py` | **your upload** (not in repo) | the 2026-07 orchestrator — **read, not run**; must be committed (COMPONENT_MAP action 8) |
 | `runtime/iamatlas_gauge_identity_loci_v1_0.json` | repo | 8 identity panels, H_min, H_min_β, band — run |
 | `runtime/iamatlas_celltype_markers_v0_2.json` | **your upload** (chrX-removed) | canonical markers (RULING M1b) — run |
 | `runtime/iamatlas_celltype_markers_v0_2_REPO_HEAD_prechrX.json` | repo | the pre-fix copy the 2026-05-29 seal used — run, for the v1 comparison only |
@@ -60,7 +62,7 @@ Read in this order: this file → `RUNBOOK.md` (how to run the tests) → `COMPO
 
 | file | put at | source | sha256 |
 |---|---|---|---|
-| IAM Atlas, decompressed | `data/IAMAtlasREBUILD.csv` (605 MB) | repo `Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` → `xz -dk` | `52ff4ccb35752ba0337f45c9563d7309c6fe9c4bdb8720daa196ab30f4596985` |
+| IAM Atlas, decompressed | `MethylPhys/atlas/IAMAtlasREBUILD.csv` (605 MB) | repo `Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` → `xz -dk` | `52ff4ccb35752ba0337f45c9563d7309c6fe9c4bdb8720daa196ab30f4596985` |
 | Stage-1 calibrated betas, 11 samples | `data/betas_cache.pkl` (140 MB) | your `10_TEST_DATA.zip` | `764a8731f0fb72fc690f42f155cf5facb55639855668205725b1a95c0b6a6860` |
 | raw IDATs, 11 pairs | `data/idats/` | your `10_TEST_DATA.zip` (`idats/` incl. `CPG_test_IDATs/`) | — |
 | GSE51032 series matrix | `data/GSE51032_series_matrix.txt.gz` (3.0 GB) | `https://ftp.ncbi.nlm.nih.gov/geo/series/GSE51nnn/GSE51032/matrix/` | prereg-locked value in VAL-047 |

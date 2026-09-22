@@ -26,7 +26,7 @@ corrected copy. `CHECKSUMS.sha256` covers every file in this kit; verify with `s
    The gauge in `cpg_kit.gauge_A` refuses absent classes and bimodal panels.
 4. **Substrate decides what can be read.** Whole blood carries immune architecture only (epithelial fraction ≈ 0 in
    healthy donors, by biology). Plasma cfDNA carries shed tissue. Bulk tissue is a mixture and inflates `H(mean β)`.
-   Every H_min is per (class, substrate): the 40-cell table is in `engine/cpg_gauge_engine.py::H_MIN_TABLE`.
+   Every H_min is per (class, substrate): the 40-cell table is in `MethylPhys/chain/cpg_gauge_engine.py::H_MIN_TABLE`.
 
 ---
 
@@ -75,7 +75,7 @@ Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mec
 ## 4. Rulings recorded in this kit (Issue 003 §1.5)
 
 - **A3** — one aggregation per surface (rule 2 above). `SOP v1.4.0 §105` is amended to scope its "never H(β_mean)" to marker panels.
-- **M1b** — `runtime/iamatlas_celltype_markers_v0_2.json` is the **chrX-removed** file (131 chrX markers dropped 2026-06-11 for
+- **M1b** — `MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json` is the **chrX-removed** file (131 chrX markers dropped 2026-06-11 for
   derived sex-invariance). The repo HEAD copy is kept as `..._REPO_HEAD_prechrX.json` because the 2026-05-29 seal (`anchors_v1/`)
   was made with it. `anchors_v2/` are the re-sealed values under the canonical file: 32/115 cells shift, max 0.059 (Mela),
   r = 0.9996 to v1. **Author action:** commit the chrX-removed file to the repo; mark `anchors_v1` SUPERSEDED.
@@ -134,7 +134,7 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 
 ## 10. RULE — the cosmology-evidence ledger (added 2026-09-19)
 
-Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `Issue003/data003.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
+Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `MethylPhys/manual/data003.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
 
 ## 11. RULE — a safeguard that can be switched off when it disagrees is not a safeguard (added 2026-09-19)
 
@@ -145,7 +145,7 @@ Two safeguards built in spring 2026 were switched off because their first real f
 
 ## 12. RULE — map β onto the floor's scale before any absolute reading (added 2026-09-20)
 
-**BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (`Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json`). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: `Record/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md`; Issue 003 RECON S1, §1.6.
+**BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (`chain/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json`). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: `Record/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md`; Issue 003 RECON S1, §1.6.
 
 Pre-flight check: for every cohort, compute healthy-immune β̄ on the identity loci and compare to 0.737 (Roadmap). A departure > 0.01 without a matching entry in `beta_scale_maps_v1.json` halts absolute reporting for that cohort.
 
@@ -154,7 +154,7 @@ Pre-flight check: for every cohort, compute healthy-immune β̄ on the identity 
 Do not download `GSExxxxx_RAW.tar`. GEO serves it single-stream at ~0.7 MB/s and it carries every sample in the study; a 5.7 GB tar for 210 controls out of 699 took 2.5 h. Instead:
 
 ```
-python3 Biological_Physics/MethylPhys/chain/tools/geo_fetch_idats.py GSE125105 idats/GSE125105 --field diagnosis --value control --workers 8
+MethylPhys/chain/tools/geo_fetch_idats.py GSE125105 idats/GSE125105 --field diagnosis --value control --workers 8
 ```
 
 reads the series-matrix header by range request, selects samples on a characteristics field, and fetches only their `_Grn/_Red.idat.gz` from `geo/samples/GSMnnn/GSM/suppl/` with 8 threads: 210 controls, 1.7 GB, **6 minutes at ~5–7 MB/s**. Idempotent; writes `selected.json`. Then run Stage 1 with a process pool (6 workers on 8 cores, ~6×) — `band_v2_test_run.py::calibrate_all` is the template. The per-sample code path is identical to PROC-CAL-01; only the scheduling changes.
@@ -170,14 +170,14 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 | step | do | where | check |
 |---|---|---|---|
 | 1 | **Seal the record.** OUTCOME.md with the sealed PREREG it answers, sha256 at the foot. Post-seal changes are labelled ADDENDUM/CORRECTION, never edits. | `Record/VAL_PostAtlas/<ID>/` | file exists, checksum line present |
-| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep `Issue003/build_gape_issue003.py`, `Issue003/data003.py`, `SOP/*.md`, `Reproduction_Kit/*.md`, `HANDOFF.md`. Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
+| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep `MethylPhys/manual/build_gape_issue003.py`, `MethylPhys/manual/data003.py`, `SOP/*.md`, `MethylPhys/kit/*.md`, `HANDOFF.md`. Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
 | 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | `data003.py`, `CHAIN_COMMISSIONING.md`, `switching_order.py` | the ID appears in each register the finding touches |
 | 4 | **Close it in code** if it is a lesson. A label, a guard, a refusal to report (`scale=UNMAPPED → reportable=False` is the model). A lesson that lives only in prose is re-learned. | `MethylPhys/chain/` | the guard has a test in the kit |
 | 5 | **Teach it.** ONE canonical paragraph, identical text, in every door a reader opens first: HANDOFF.md, root/Engine/Testing/Atlas READMEs, SOP (new §), RUNBOOK (new § or pre-flight), CPG_Lessons_Learned, README_FOR_FUTURE_AI, and the module docstring it bites. | the door list | the ID appears in every door |
 | 6 | **Rebuild and READ.** Page 1, page 2, §11 (coverage), and every touched section — by eye. Assertions catch strings; only reading catches a stale sentence that uses new words. | PDF | page count, ID rendered, retired phrases absent, visual check of touched pages |
 | 7 | **Push with copies.** Commit names the ID. `push_copies_<date>_<from>_to_HEAD.zip` + the OUTCOME as a plain file + the RC PDF saved as artifacts. Update `STATUS_*.md` in place. | repo + artifacts | the user has the copies |
 
-`Reproduction_Kit/finding_check.py <ID> --retires "phrase" ...` runs steps 2, 3, 5 and 6's string checks as assertions and exits non-zero on any miss. It does not replace step 6's reading.
+`MethylPhys/kit/finding_check.py <ID> --retires "phrase" ...` runs steps 2, 3, 5 and 6's string checks as assertions and exits non-zero on any miss. It does not replace step 6's reading.
 
 **What is NOT a finding:** a typo, a layout fix, a renamed variable. Those get a commit and copies, nothing else.
 
@@ -194,7 +194,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 **THE VALIDATION COUNT, CORRECTED (PROC-HISTORY-01, 2026-09-21).** The record, not the tree: 3 G-series calibrations; **119 pre-Atlas VALs (VAL-001..128; 107 executed)** incl. the **T1–T15** cross-population series of VAL-049 (12 executed, 6 populations); **22 post-Atlas CPG-VALs (001..022; 21 executed)**; the Mahalanobis hull v0_1→v0_5 (n=2,523, four populations incl. Han Chinese n=42); L9 N7; the September PROCs. The 2026-09-19 index said 103 — it keyed on bare numbers (VAL-001 collided with CPG-VAL-001) and counted folders. `Record/VAL_INDEX.csv` is rebuilt (175 rows, unique keys by series); AD folders CPG-VAL-008..014 moved to `VAL_PostAtlas/`. Record: `Record/PROC_data/PROC-HISTORY-01/`.
 
-**THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on `iamatlas_gauge_identity_loci_v1_0.json`, on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero (`lab_zero.py`), placed in `identity_band_v3.json` (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: `Reproduction_Kit/test_gauge_switch.py`. **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
+**THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on `iamatlas_gauge_identity_loci_v1_0.json`, on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero (`lab_zero.py`), placed in `identity_band_v3.json` (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: `MethylPhys/kit/test_gauge_switch.py`. **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
 
 **STAGE 5 RE-BASED (PROC-MAHA-01, 2026-09-21; row 5 BUILT, not commissioned).** The departure now reads the identity gauge: z = (A″ − 1)/σ, σ = 0.0204 from `identity_band_v3`; on whole blood one banded axis, so the number is |z_immune| against 1.960 / 2.576; `bundle['mahalanobis']` carries the long keys the report builder reads plus the short aliases; UNSET → not reportable. The eight-class derived hull is `diagnostic_hull_marker_union`. **M2 failed as sealed:** Karolinska 9.8 % of healthy beyond p95 (bar 7 %). **Cause measured — the Sentrix chip:** per-chip median SD 0.020 there vs 0.012 elsewhere; chip-centring cuts every lab to 2–4 %. A laboratory constant cannot touch it; row 5b (chip term) is open and the acceptable false-alarm rate is the author's decision (PROC-MAHA-02). Record: `Record/PROC_data/PROC-MAHA-01/`.
 
@@ -206,7 +206,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 **DETECTION RULE (author, 2026-09-21).** No definitive statement about what the commissioned chain can or cannot detect until it has been run on that question under seal. 'Not yet tested', never 'cannot'. Measured defects stay (they are measurements). `finding_check.py --detection-scan` flags the vocabulary in the live documents; each hit must cite a PROC on the commissioned chain or be reworded.
 
-- **Row 4.6 — the patient's sky — COMMISSIONED (PROC-CMB-05, 2026-09-21, five seals; C2′ 4/4 on the restated bar [0.025, 0.08]).** `cpg_conductor.run_full` bundle key `patient_sky`: z = (β − Σ f_c μ_c − m_lab)/s_lab on the mapped β, class panels gated by measured presence floors (`Runtime Matrices/Patient_CMB/`), HEALPix NSIDE 128 genomic order. NOT AVAILABLE without the laboratory's residual scale (built from the same 40-array healthy panel as the lab zero). Calibration constant stated on every sky: healthy held-out tail 2.6–3.2 %, not 5 % (C2′ failed as sealed by ≤ 0.004; recorded). The retired `patient_brightness_comparison.py` formula read 61 % of a healthy genome as anomalous (C1) and is closed. Kit test `test_patient_sky.py`.
+- **Row 4.6 — the patient's sky — COMMISSIONED (PROC-CMB-05, 2026-09-21, five seals; C2′ 4/4 on the restated bar [0.025, 0.08]).** `cpg_conductor.run_full` bundle key `patient_sky`: z = (β − Σ f_c μ_c − m_lab)/s_lab on the mapped β, class panels gated by measured presence floors (`chain/Runtime Matrices/Patient_CMB/`), HEALPix NSIDE 128 genomic order. NOT AVAILABLE without the laboratory's residual scale (built from the same 40-array healthy panel as the lab zero). Calibration constant stated on every sky: healthy held-out tail 2.6–3.2 %, not 5 % (C2′ failed as sealed by ≤ 0.004; recorded). The retired `patient_brightness_comparison.py` formula read 61 % of a healthy genome as anomalous (C1) and is closed. Kit test `test_patient_sky.py`.
 
 - **Lesson (2026-09-21, PROC-CMB-04 push):** a checker run as `check && next` under `set -e` does NOT stop the script when it fails — the push went out with the doors unlit. The gate must be its own statement (`python3 finding_check.py … || exit 1`). Fixed the same commit.
 

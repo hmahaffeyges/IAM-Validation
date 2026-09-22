@@ -479,7 +479,11 @@ def sec5_physics(story):
     story.append(Paragraph('5.0.7  Filter and ruler', sSub)); story.append(Paragraph(P["filter_vs_ruler"], sBodySm)); story.append(SP(0.06))
     story.append(Paragraph('5.0.8  Ledger: physics, measured, claimed', sSub))
     story.append(tbl([("quantity","status","how")]+[tuple(r) for r in P["ledger"]],[0.30,0.22,0.48], fs=6.2)); story.append(SP(0.06))
-    story.append(Paragraph('What follows (5.1b onward) is reproduced from Issue 002 as the historical record of the substrates, saturation, inversions, decomposition and post-breach physics. Issue 002\'s s2.1 (\'H_min Derivation\') and s2.1a (\'the physical chain\') are not reproduced: section 5.0.4 above states why, and what of them stands.', sMut))
+    story.append(Paragraph('The Issue 002 physics section is not reproduced in this document - Section 5 replaces it, and 5.0.4 '
+        'above states what of Issue 002\'s s2.1 (\'H_min Derivation\') and s2.1a (\'the physical chain\') stands and what is retired. '
+        'Issue 002\'s original text - its substrates, saturation, inversions, decomposition and post-breach physics as written in '
+        'April 2026 - stands in Issue 002 as published (MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf, section 2). The ledger '
+        'above gives the provenance of every quantity the present chain uses.', sMut))
 
 def _render_002_physics_without_derivation(story):
     tmp=[]; L.render_section_2_physics(tmp)

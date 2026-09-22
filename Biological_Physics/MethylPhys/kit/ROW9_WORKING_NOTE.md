@@ -533,7 +533,7 @@ Three defects in the script were caught by reading its output rather than trusti
 |---|---|---|
 | four scripts stopped finding `Record/` | they derived the root by counting `dirname()` calls; the move changed every script's depth by one, so the chain resolved to `MethylPhys` instead of `Biological_Physics` - and resolved *successfully*, just one level shallow | `_bio_root()` ascends until it finds a directory containing `MethylPhys` |
 | the inventory swelled to 704 files, 551 undescribed | with the root corrected it walked all of `Biological_Physics`, sweeping in the whole evidence tree | scoped to `MethylPhys`; `Record/` has its own index |
-| eight files could not find the atlas | their base was already `MethylPhys`-level, so the path substitution produced `MethylPhys/MethylPhys/atlas` | each now tries both layouts |
+| eight files could not find the atlas | their base was already `MethylPhys`-level, so the path substitution produced `MethylPhys/atlas` | each now tries both layouts |
 | the push was rejected | `git add -A` swept the 577 MB decompressed atlas, whose `.gitignore` rule named the old path | rule re-added for the new path |
 
 Verified after: `test_tiers`, `test_gauge_switch`, `test_patient_sky`, `test_lab_zero` PASS, detection scan PASS, and
@@ -627,3 +627,31 @@ line count would have shown:
 
 Verified after: 5,384 lines, 128 file names cited, **zero unaccounted**, all 18 chain files named, zero old-tree
 paths, no commit pinned in the header, the stale NILC claim gone and the second-opinion statement present.
+
+### 2026-09-22 - the tree move was verified for code and never for document links; 149 were broken
+
+The author clicked a link and got a 404. His URL had an extra directory level, but answering him exposed a real
+breakage: **RUNBOOK.md had landed in `kit/` while both front pages pointed at `doors/RUNBOOK.md`**, and
+COMPONENT_MAP.md was in `kit/` too. Both are doors; both moved to `doors/`, and every reference was repointed.
+
+Then the honest question - what else? `link_check.py` (new, in `kit/`) checks that **every relative path a document
+points at exists**, on the principle that a path in a document is a claim. Trying four bases (the document, the
+repository root, `Biological_Physics/`, and the instrument's own directories) and resolving a bare filename by
+basename anywhere in the tree, because prose in this corpus legitimately names files without linking them. Scoped
+to the live documentation set - the front pages, `doors/`, `kit/`, `sop/`, `manual/`, `papers/` and the top-level
+atlas and chain notes - with `--all` for everything including the pre-build card folders whose internal links have
+been broken since long before this tree.
+
+**First clean run: 149 broken references in the live set.** Nearly all were move-induced directory prefixes
+(`Reproduction_Kit/`, `Issue003/`, `CPG_Engine/`, `Testing_and_Code/`, `IAM_Atlas/`, `Physics_of_Methylation/`)
+plus `ENGINE/` placeholders in COMPONENT_MAP that were never real paths. Repaired by substitution; the SOP's
+remaining June/July-layout references are now resolved generically in `sop_repoint.py` - one tracked file with that
+basename means repoint, none or several means mark `(historical path)` so nobody tries to follow it. `README_FIRST.md`
+described a reproduction-kit *zip* layout rather than this repository, so it is retired with a header saying so.
+`Retired(V1)IAM_Manuscript.pdf` was renamed - parentheses in a filename cannot be linked in markdown.
+
+Negative control: adding one broken link makes the checker exit 1; removing it returns to PASS.
+
+**The lesson, recorded because it was mine:** I verified the move by running the code - guards, runner, release
+check - and reported it verified. Code paths and document paths are different claims, and only one of them was
+checked.
