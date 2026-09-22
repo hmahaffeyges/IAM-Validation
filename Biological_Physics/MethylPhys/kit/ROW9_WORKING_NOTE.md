@@ -749,3 +749,14 @@ its identity loci count, and no card carries the retired derivation language.
 
 **Flags, all defaulting to Issue 002 behaviour:** `CARD_NUMBER_BY_POSITION`, `EMIT_CARD_CELL_ROSTER`,
 `EMIT_CARD_NBIO`. 164 -> 175 pages.
+
+**The glossary had the same defect, one level down.** `GLOSSARY_NOTE_MAHAFFEY` was rendered *after*
+`blk_glossary()` - i.e. pages away from the entry it corrects - so the Mahaffey Number entry still read
+"Absolute class-specific values await G-007 MCMC" in place. The entry itself is now conditional: Issue 003 prints
+M = 20.94 as one number for the cell, states that the per-class n_bio is no longer used and that its class-specific
+values awaited a run never made, and distinguishes M from H_min. **Zero live n_bio references remain in the
+document** - the only survivors are the G-series run name in the validation history, which is what that run was
+called, and the withdrawal statements themselves.
+
+**Method note:** a correction placed after a long block is not a correction of the block. It has to sit where the
+reader meets the claim.
