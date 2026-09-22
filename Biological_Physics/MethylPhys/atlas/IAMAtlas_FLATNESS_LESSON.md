@@ -182,7 +182,7 @@ in a fraction of a day. Stage the code edit then, not before.
 
 ## WHEN PUSHING TO THE REPO (checklist)
 
-- Fold sections 1-3 into `MCMC_BUILD_LESSONS.md` and reference from the atlas README.
+- Fold sections 1-3 into `MCMC_BUILD_LESSONS.md (not in this repository - the atlas build notes were never committed; the MCMC build is described in the SOP's atlas section)` and reference from the atlas README.
 - CORRECT the prior claim in MCMC_BUILD_LESSONS that the 7 old-script classes are
   "valid as-is, converged cleanly, not re-run." They were FLAT and have been rebuilt
   with the FIXED script. State that plainly so it is never repeated.
