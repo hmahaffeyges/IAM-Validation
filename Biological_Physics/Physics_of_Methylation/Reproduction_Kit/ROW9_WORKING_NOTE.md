@@ -434,3 +434,57 @@ value" and blocked the Reading tab; fixed with a lookbehind.
 
 The division of labour is now explicit and enforced: **this log carries the construction history; the report
 states what is true now.**
+
+## 2026-09-22 - the marker repair, measured. A trial panel, and a finding about the atlas rather than the criterion.
+
+The plan was: replace the one-vs-rest mean criterion with a nearest-rival margin, cap how many panels a marker may
+serve, re-select, re-seal, re-measure. The selection is built and measured. **The measurement found something
+larger than the criterion.**
+
+**The atlas is sparse per address, and wildly uneven per cell type.** No address carries all 115 cell-type means -
+the median address has **25 of 115** measured (range 6-84). And the pool per cell type runs from **252 addresses**
+(megakaryocyte, eosinophil, monocyte, neutrophil, erythroblast, small_intestine and three others) to **482,421**
+(HSC, GMP, L-MPP, stem_pluri). A cell type with 252 known addresses cannot have a 100-marker exclusive panel: the
+panel would be 40 % of everything the atlas knows about it. **That, and not only the selection rule, is why the
+old panels overlapped.**
+
+**The nearest-rival margins are small.** Computed against the rivals measured at each address: median **0.0016**,
+90th percentile 0.0126, 99th 0.1006. At a 5-point beta margin only **74 of 115** cell types have 100 candidate
+addresses; at 0.10, 53; at 0.15, 35. There is no threshold at which all 115 entries get a clean panel.
+
+**The sweep, on 40 healthy Uppsala arrays (real betas, Stage 1, 125,323 loci):**
+
+| panel | entries scored | median size | exclusivity | duplicate-lineage disagreement | healthy spread | spread > band |
+|---|---|---|---|---|---|---|
+| v0_2 (current, sealed) | 115 | 100 | **0.37** | **0.3548** | 0.0657 | 20/115 |
+| nearest-rival, cap 2, N<=100 | 102 | 100 | 0.94 | 0.1765 | 0.0807 | 37/102 |
+| **nearest-rival, cap 2, N<=300** | **106** | **159** | **0.83** | **0.1204** | **0.0741** | **32/106** |
+| nearest-rival, cap 2, N<=1000 | 106 | 159 | 0.72 | 0.1437 | 0.0734 | 31/106 |
+
+**The duplicate-lineage test is the one that matters** - it is the author's question, "which cell moved", made
+measurable: two atlas entries naming the same lineage should read the same on the same array. Median disagreement
+falls from **0.355 to 0.120**, and the individual pairs are stark: Mono vs CD14_monocytes 0.452 -> 0.074,
+eosinophil vs Eosinophils_reinius 0.580 -> 0.158, neutrophil vs Neutrophils_reinius 0.604 -> 0.292, CD8T vs
+CD8_T-cells 0.224 -> 0.098. One pair got worse (Bcell vs CD19_B-cells, 0.086 -> 0.167).
+
+**The honest cost:** per-entry healthy spread widens from 0.066 to 0.074, and entries whose spread exceeds the
+class NORMAL band go from 20 to 32. Part of v0_2's apparent tightness was an artefact of sharing - correlated
+panels produce correlated readings, which look tighter without being more about the cell. N<=300 recovers most of
+the loss; N<=1000 buys nothing and costs exclusivity.
+
+**Chosen parameters: margin >= 0.05 against the nearest measured rival, at most 2 panels per marker, up to 300
+markers, 20 minimum to be individually resolvable.** Result: 93 of 115 entries individually resolvable, median
+panel 159, median exclusivity 0.83, no marker serving more than 2 panels by construction.
+
+**22 entries are not individually resolvable at this margin** - Kera_undiff and Neutro get zero markers;
+Epi_basal, Leu, Eosino, Epi_suprabasal, BE, erythroblast, tcell under six. Only 6 of the 22 are in a multi-member
+collinearity group, so this is a **third, independent** limit on a per-cell claim: the June grouping says which
+entries the atlas cannot separate *in profile*; exclusivity says which panels are shared; and this says which
+entries the atlas has too few addresses to characterise at all.
+
+**Written as `iamatlas_celltype_markers_v0_3_TRIAL.json`, NOT adopted.** The sealed anchors reproduce on v0_2, and
+only 2,572 of the 11,369 old marker slots survive the new criterion, so the anchors will not reproduce on v0_3.
+Adoption needs, in order: (1) recompute the two foundation-cohort anchors from raw GEO on v0_3 and seal them as a
+new anchor set, keeping the v0_2 anchors as the historical seal; (2) re-measure the per-entry healthy references
+on v0_3 from the four laboratory panels; (3) re-run the kit guards; (4) only then switch the report to v0_3, with
+the 22 unresolvable entries printing their number and withholding the individual claim.
