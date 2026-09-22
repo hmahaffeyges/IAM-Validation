@@ -335,8 +335,14 @@ def render_engine_spec(story, L, tbl, SP, PageBreak, Paragraph):
             f"something different in Karolinska ({coh.get('GSE42861_Karolinska',{}).get('tail_p95','')}) than in UCLA "
             f"({coh.get('GSE111629_UCLA',{}).get('tail_p95','')}), and the chain prints the sample's own laboratory "
             f"rate beside the distance rather than a single number. Centring on the chip recovers a good part of it "
-            f"(the <font name='Courier'>tail_p95_if_chip_centred</font> column of the same file), which is why chip "
-            f"position is on the roadmap as a covariate.", L.sBodySm))
+            f"(the <font name='Courier'>tail_p95_if_chip_centred</font> column of the same file reads 0.0196-0.0413). "
+            f"<b>PROC-MAHA-03 (2026-09-22) does not reproduce that improvement under held-out estimation, and row 5b "
+            f"closed NOT COMMISSIONED.</b> Correcting an array by a single control array on its chip makes every "
+            f"laboratory's tail worse, because it adds that reference's own within-chip error (0.019-0.023) to "
+            f"remove an offset of 0.000-0.016. The chip term is measurable in one cohort of four - GSE42861, the one "
+            f"with the worst tail: ICC 0.409, p 0.003, and two held-out panel arrays per chip take its tail from "
+            f"0.115 to 0.031. Chip position stays on the roadmap, with the measurement that would settle it named "
+            f"there.", L.sBodySm))
 
     story.append(SP(0.05))
     story.append(Paragraph("<b>6. The departure</b> (<font name='Courier'>stage_5_mahalanobis</font>, PROC-MAHA-01; "

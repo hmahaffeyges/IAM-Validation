@@ -1,0 +1,109 @@
+{
+ "_meta": {
+  "procedure": "PROC-MAHA-03",
+  "arm": "outcome (commissioned scale)",
+  "run": "2026-09-22",
+  "n_arrays": 318,
+  "band_sigma": 0.02044,
+  "threshold": 1.959964,
+  "scale_map": "stage1_noob_450K slope 1.0127 intercept 0.0662, applied before H per the map's own rule",
+  "published_tail_p95": {
+   "GSE111629": 0.0441,
+   "GSE125105": 0.0647,
+   "GSE42861": 0.0984,
+   "GSE87571": 0.0561
+  }
+ },
+ "B1_per_cohort": {
+  "GSE111629": {
+   "chips_used": 24,
+   "arrays_used": 57,
+   "icc": 0.0,
+   "sd_between": 0.0,
+   "sd_within": 0.01973,
+   "F": 0.969,
+   "p_perm": 0.5272
+  },
+  "GSE125105": {
+   "chips_used": 26,
+   "arrays_used": 59,
+   "icc": 0.1534,
+   "sd_between": 0.00786,
+   "sd_within": 0.01845,
+   "F": 1.411,
+   "p_perm": 0.1794
+  },
+  "GSE42861": {
+   "chips_used": 24,
+   "arrays_used": 64,
+   "icc": 0.4086,
+   "sd_between": 0.01602,
+   "sd_within": 0.01927,
+   "F": 2.843,
+   "p_perm": 0.003
+  },
+  "GSE87571": {
+   "chips_used": 28,
+   "arrays_used": 66,
+   "icc": 0.1933,
+   "sd_between": 0.01136,
+   "sd_within": 0.0232,
+   "F": 1.565,
+   "p_perm": 0.0975
+  }
+ },
+ "B1_pooled": {
+  "chips_used": 102,
+  "arrays_used": 246,
+  "icc": 0.2075,
+  "sd_between": 0.01039,
+  "sd_within": 0.02031,
+  "F": 1.631,
+  "p_perm": 0.005
+ },
+ "B2_B3": {
+  "GSE111629|k=1": {
+   "n": 57,
+   "tail_before_band_sigma": 0.0625,
+   "tail_after_band_sigma": 0.0877,
+   "tail_after_rederived": 0.0877,
+   "sigma_rederived": 0.02356
+  },
+  "GSE111629|k=2": null,
+  "GSE111629|k=3": null,
+  "GSE125105|k=1": {
+   "n": 59,
+   "tail_before_band_sigma": 0.0375,
+   "tail_after_band_sigma": 0.1186,
+   "tail_after_rederived": 0.1017,
+   "sigma_rederived": 0.0252
+  },
+  "GSE125105|k=2": null,
+  "GSE125105|k=3": null,
+  "GSE42861|k=1": {
+   "n": 64,
+   "tail_before_band_sigma": 0.1154,
+   "tail_after_band_sigma": 0.1719,
+   "tail_after_rederived": 0.0625,
+   "sigma_rederived": 0.02851
+  },
+  "GSE42861|k=2": {
+   "n": 32,
+   "tail_before_band_sigma": 0.1154,
+   "tail_after_band_sigma": 0.1562,
+   "tail_after_rederived": 0.0312,
+   "sigma_rederived": 0.02373
+  },
+  "GSE42861|k=3": null,
+  "GSE87571|k=1": {
+   "n": 66,
+   "tail_before_band_sigma": 0.0625,
+   "tail_after_band_sigma": 0.2273,
+   "tail_after_rederived": 0.1061,
+   "sigma_rederived": 0.02976
+  },
+  "GSE87571|k=2": null,
+  "GSE87571|k=3": null
+ },
+ "B4": "preserved exactly by construction; the forbidden estimator was not used"
+}

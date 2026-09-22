@@ -836,3 +836,51 @@ the NILC cut in five live documents, the retired n_bio, and the contents page ma
 
 The pattern is also saved as a skill (`render-verified-docs`) with working helpers, so it does not depend on
 anyone remembering it.
+
+### 2026-09-22 - row 5b closed NOT COMMISSIONED (PROC-MAHA-03), and two errors of mine caught in the doing
+
+Pre-registered before the run, run the same day, closed by its own decision rule. The chip term is real in **one
+cohort of four - and it is the one with the worst false-alarm tail**: GSE42861 Karolinska, ICC 0.409, p 0.003,
+measured tail 0.115. UCLA, whose tail is lowest, has no measurable chip term at all (ICC 0.000, p 0.53). Pooled
+with chip nested in cohort the term is there (ICC 0.208, p 0.005), but that was not the pre-registered test and is
+reported as post-hoc.
+
+**The useful finding is negative and specific: one control array per chip is the WRONG protocol.** Correcting an
+array by a single held-out reference on its chip made every laboratory's tail worse (0.0625 -> 0.0877,
+0.0375 -> 0.1186, 0.0625 -> 0.2273, 0.1154 -> 0.1719 on the band sigma), because a single reference contributes
+its own within-chip error of 0.019-0.023 to remove an offset of 0.000-0.016. With k=2 held-out panel arrays,
+Karolinska's tail fell 0.115 -> 0.031 - under the bar, in the only cohort with the chip depth to test it.
+Recommendation recorded, not commissioned: if arrays are spent on chip control, spend them in pairs.
+
+**B4 was ill-posed and the record says so.** A held-out additive offset cannot contain the array's own departure,
+so a +2 sigma injection survives exactly - 100 per cent at every k is arithmetic, not evidence. The erasure risk
+belongs to the estimator B5 forbids (a chip median including the array being read), and that estimator is not
+used. B5 is structural protection; B4 measured nothing.
+
+**A discrepancy now on the record rather than assumed away.** `identity_band_v3.json`'s
+`tail_p95_if_chip_centred` column (0.0196-0.0413) is where "chip-centring halves the tail" came from. Held-out
+estimation does not reproduce it. A chip median computed *including* the array being read would produce exactly
+that apparent improvement; whether that is what the column did is not recorded in the file, so it is not
+asserted - but the column is no longer read as what a bench protocol can deliver, and III.5 of the manual now
+says so.
+
+**My two errors, both caught by checks rather than by review.**
+
+1. **I skipped the scale map.** The first run computed A'' from Stage 1 betas without applying
+   `beta_scale_maps_v1.json` - whose own rule, which I had printed one cell earlier, says
+   `beta_roadmap = (beta - intercept)/slope` must be applied BEFORE H for any absolute reading. Every tail in that
+   run read 1.0000 (every array outside the band), which is what made it obvious. With the map applied, all four
+   cohort medians land on the line (1.0052, 1.0000, 0.9985, 0.9981) and the measured tails track the published
+   ones - the path validating itself.
+2. **Two cells raced on the same download.** A background fetch of the GSE87571 supplementary matrices was still
+   running when a second cell fetched the same paths, and both wrote to the same files - the one-writer rule in my
+   own notes. Both copies ended truncated and had to be discarded.
+
+**And one arm was rejected by its own verification.** The deep-chip arm (732 arrays, 62 chips at 9-12) would have
+given B1 real power, but the supplementary matrices' column order does not match the series-matrix sample order:
+r = 0.032 against 0.065 for deliberately shuffled columns, offset -0.41, within-chip spread 0.44 against 0.02.
+Discarded unused. Without that check a plausible ICC from mis-aligned columns would have gone into the outcome.
+
+**What settles row 5b, with its cost:** Stage 1 on all 732 GSE87571 IDATs - 62 chips at 9-12 arrays each on the
+commissioned scale, about 2.5 GB of IDATs and a few hours. Chip depth is the binding limit: these 80-array panels
+give a median of 2 arrays per chip where 8-12 are needed.
