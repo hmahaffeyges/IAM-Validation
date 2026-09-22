@@ -111,31 +111,12 @@ def cover(story):
         'sample sizes in the new runs are small and are printed beside every number.', sBodySm))
 
 def toc(story):
-    story.append(PageBreak()); story.append(Paragraph('TABLE OF CONTENTS', sSect))
-    rows = [("Front", "Cover · What's new · What this paper is not · Contents"),
-            ("§1", "Reconciliation — Issue 002 → repo HEAD, every changed constant and rule"),
-            ("§2", "The IAM Atlas — 115 cell types, eight classes, provenance, identity loci, markers"),
-            ("§3", "Two Instruments and the Presence Rule"),
-            ("§4", "Framework (from Issue 002) — global ranking, five substrates, MCMC↔bootstrap, saturation"),
-            ("Cards", "Eight architecture-class cards (from Issue 002) — each with its atlas addendum: cell types, identity loci, age band"),
-            ("§1.7", "NEW — The reporting rule (extends the §3.2 presence gate): a class gauge is put on the report only where the class is determined and present; whole blood reports immune plus one haematopoietic-progenitor component. stem_adult has carried no finding in nine VALs"),
-            ("§1.6", "NEW — What the cosmology tools found that cohorts could not: the standing evidence ledger (nine rows to date, N7 first) that pre-empts the circularity objection"),
-            ("App. VI–IX", "NEW — the CMB→methylome translation map (79 rows, scored: what got built, what was cut, what was refused); the completion sprint scored, with the lesson that the bones must be trusted first; Future Goals — the CMB items worth the effort, in gated order; the Part II outline"),
-            ("Glossary", "NEW — CMB and Chain Terms (Cosmic Methylome Background, brilliance, HEALPix, component separation, matched filter, Mahalanobis Option A, the eight nulls, synthetic patients, PREREG/seal, Jensen gap, flatness ...) and Chain Links: one line per runtime file, tagged FLOOR / RULER / BAND / CODE / DATA"),
-            ("App. V", "NEW — Validation index: all 175 validation records (G, VAL-001..128, T1..T15, CPG-VAL-001..022, hull, N7, September PROCs; unique keys by series) in the repository with title, date, cohort, stated decision, record completeness and path"),
-            ("§5A", "NEW — Where the tools come from: Mahaffey number 20.94, forty MCMC floors, the atlas posterior, the CMB toolkit, not a cohort method"),
-            ("§5", "Physics & Methodology (Issue 002 Section 2) — H_min derivation, substrates, saturation, inversions, C1/C2/C3"),
-            ("§6", "Evidence, Baselines, Scenarios, Predictions (Issue 002 Sections 3–6)"),
-            ("§7", "NEW — Substrate Characterization: the substrate × class grid"),
-            ("§8", "NEW — Procedures: PROC entries, one per verified cell of the grid"),
-            ("§9", "NEW — Operating Rules: the lessons as rules, dated and sourced"),
-            ("§10", "NEW — Falsification Record"),
-            ("§11", "NEW — Engine Map: every stage of the running chain and whether this issue covers it"),
-            ("§12", "NEW — For the clinician: the instrument in plain terms"),
-            ("Back", "Master predictions · Data sources · Glossary · A final note")]
-    story.append(tbl([("", "")] + rows, [0.10, 0.90], head=False))
+    # 2026-09-22: generated against the rendered document (part3_indepth.render_toc) - exact chapter names,
+    # grouped, with the page each one starts on, filled in by the second build pass.
+    import part3_indepth as P3
+    story.append(PageBreak())
+    P3.render_toc(story, L, D, tbl, SP, PageBreak, Paragraph)
 
-# ═══════════════════════════════════════════════════════════════════════════════
 def sec1_recon(story):
     opener(story, 'SECTION 1', 'RECONCILIATION — ISSUE 002 → REPO HEAD',
         'Issue 002 was written in April 2026, before the atlas and before the engine was rebuilt (commits 2026-06-25 to 2026-07-03). '
@@ -735,6 +716,7 @@ def build(out_path):
     L.CARD_NUMBER_BY_POSITION = True
     L.EMIT_CARD_CELL_ROSTER = True
     L.EMIT_CARD_NBIO = False
+    L.CORRECT_SUBSTRATE_COMBINATION = True
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
     # The multi-class drift cascade (VAL-037..046) and its healthy baseline reference tables are Issue 002's
@@ -744,6 +726,7 @@ def build(out_path):
         L.render_card(story, card); card_addendum(story, card['key'])
     import part3_indepth as P3
     P3.render(story, L, tbl, SP, PageBreak, Paragraph)   # Part III - chain, atlas, toolkit, refusals
+    P3.render_engine_spec(story, L, tbl, SP, PageBreak, Paragraph)   # III.5 - the formulas, from the runtime
     sec5a_tools(story)
     # §5 the physics, as it stands now
     sec5_physics(story)

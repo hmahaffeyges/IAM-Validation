@@ -253,3 +253,187 @@ def render(story, L, tbl, SP, PageBreak, Paragraph):
     story.append(SP(0.05))
     story.append(Paragraph("NOT REPORTABLE is a result. It is printed with the reason and the number that "
         "triggered it, so a reader can see what would have to change for the reading to become available.", L.sMut))
+
+
+# ── III.5  the engine, exactly: every formula the chain computes, read from the runtime ──────────────────────────
+def runtime(name):
+    import glob
+    g = glob.glob(os.path.join(CHAIN, "**", name), recursive=True)
+    return json.load(open(g[0], encoding="utf-8")) if g else {}
+
+
+def render_engine_spec(story, L, tbl, SP, PageBreak, Paragraph):
+    """The formulas as the code computes them, with the four-laboratory constants they are read against.
+
+    Every number here is loaded from the runtime matrices at build time, so the page is a specification of the
+    engine rather than a description of it: if a constant changes, this page changes with it.
+    """
+    band = runtime("identity_band_v3.json"); meta = band.get("_meta", {})
+    pooled = band.get("pooled", {}); age01 = runtime("age01_results.json")
+    curve = runtime("reference_age_curve_v1.json"); cmeta = curve.get("_meta", {})
+    coh = meta.get("cohorts", {})
+    if isinstance(coh, str):
+        import ast as _a; coh = _a.literal_eval(coh)
+    sigma = (pooled.get("p90", 0) - pooled.get("p10", 0)) / (2 * 1.2816) if pooled else None
+
+    story.append(PageBreak())
+    story.append(Paragraph("III.5 &nbsp; The engine, exactly - every formula the chain computes", L.sSect))
+    story.append(Paragraph("Loaded from the runtime matrices at build time, so this page is the specification and "
+                           "not a description of one: if a constant changes, this page changes with it.", L.sSub))
+
+    story.append(Paragraph("<b>1. The entropy of a methylation fraction.</b> For a mean beta value on a locus set, "
+        "the chain computes the binary Shannon entropy in bits, with beta clamped to (1e-12, 1 - 1e-12):", L.sBody))
+    story.append(Paragraph("H(&#946;) = -&#946; log<sub>2</sub>&#946; - (1-&#946;) log<sub>2</sub>(1-&#946;)", L.sSect2))
+
+    story.append(Paragraph("<b>2. The reported gauge</b> (<font name='Courier'>stage_b_identity</font>, "
+        "PROC-SWITCH-01; SOP s41/s106). Beta is averaged over the class's IDENTITY loci - not a marker union - and "
+        "divided by that class's MCMC floor. The haematopoietic-progenitor joint component uses the progenitor "
+        "floor (PREREG s3):", L.sBody))
+    story.append(Paragraph("A_mapped = H(&#946;&#772;) / H_min(class),&nbsp;&nbsp; &#946;&#772; = mean &#946; over "
+                           "the class identity loci", L.sSect2))
+    story.append(Paragraph("<b>3. The two corrections that make it absolute.</b> The donor's decade and the "
+        "laboratory's own zero are subtracted, which is what turns a relative reading into one that can be compared "
+        "against a fixed line:", L.sBody))
+    story.append(Paragraph("A_abs = A_mapped - c(decade) - z_lab", L.sSect2))
+    story.append(Paragraph(f"c(decade) comes from <font name='Courier'>reference_age_curve_v1.json</font> "
+        f"(PROC-PANEL-03: per-decade median of mapped immune identity-loci A about the grand median, decades with "
+        f"n &gt;= 30 only, n = {cmeta.get('n', '1,379')}). z_lab is the laboratory's own median on its 40-array "
+        f"healthy panel (<font name='Courier'>lab_zero.py</font>). <b>With no laboratory zero the chain refuses:</b> "
+        f"A_mapped is still returned, A_abs and the placement are None, and the reading is marked not reportable.",
+        L.sBodySm))
+
+    story.append(SP(0.05))
+    story.append(Paragraph("<b>4. The healthy line and the band it is read against</b> "
+        f"(<font name='Courier'>identity_band_v3.json</font>, four zeroed healthy cohorts, n = {meta.get('n','')}):",
+        L.sBody))
+    story.append(tbl([["quantity", "value", "what it is"],
+        ["p10", f"{pooled.get('p10','')}", "lower edge of the healthy band"],
+        ["p50", f"{pooled.get('p50','')}", "the healthy line - A_abs = 1.000 by construction"],
+        ["p90", f"{pooled.get('p90','')}", "upper edge"],
+        ["width", f"{pooled.get('width','')}", "p90 - p10, one band width"],
+        ["sigma", f"{sigma:.5f}" if sigma else "-", "(p90 - p10) / (2 x 1.2816) - the band read as a normal spread"]],
+        [0.16, 0.16, 0.68], fs=7.5))
+    story.append(Paragraph("Placement is BELOW_BAND below p10, ABOVE_BAND above p90, IN_BAND between; the tier word "
+        "comes from <font name='Courier'>cpg_tiers.tier_of(A_abs, H_min)</font> (Stage 7, PROC-TIER-01).", L.sBodySm))
+
+    story.append(SP(0.05))
+    story.append(Paragraph("<b>5. The four laboratories the line is built from</b> - each contributes its own zero, "
+        "and its own measured false-alarm rate is what a departure is judged against:", L.sBody))
+    rows = [["laboratory", "n", "z_lab (full cohort)", "false alarm at p95", "at p99", "chip median SD"]]
+    for k in sorted(coh):
+        v = coh[k]
+        rows.append([k.replace("_", " "), str(v.get("n", "")), f"{v.get('z_lab_full_cohort', '')}",
+                     f"{v.get('tail_p95', '')}", f"{v.get('tail_p99', '')}", f"{v.get('chip_median_sd', '')}"])
+    story.append(tbl(rows, [0.28, 0.10, 0.18, 0.16, 0.12, 0.16], fs=7.2))
+    tr = meta.get("four_lab_tail_range_p95", [])
+    if tr:
+        story.append(Paragraph(f"<b>The false-alarm rate is a measured property of the laboratory, not a constant.</b> "
+            f"Across the four it ranges from {tr[0]} to {tr[1]} at p95 - so a departure just past the threshold means "
+            f"something different in Karolinska ({coh.get('GSE42861_Karolinska',{}).get('tail_p95','')}) than in UCLA "
+            f"({coh.get('GSE111629_UCLA',{}).get('tail_p95','')}), and the chain prints the sample's own laboratory "
+            f"rate beside the distance rather than a single number. Centring on the chip recovers a good part of it "
+            f"(the <font name='Courier'>tail_p95_if_chip_centred</font> column of the same file), which is why chip "
+            f"position is on the roadmap as a covariate.", L.sBodySm))
+
+    story.append(SP(0.05))
+    story.append(Paragraph("<b>6. The departure</b> (<font name='Courier'>stage_5_mahalanobis</font>, PROC-MAHA-01; "
+        "SOP s47-51). Each assessable component is standardised against the healthy line, and the components are "
+        "combined as a distance:", L.sBody))
+    story.append(Paragraph("z = (A_abs - 1.000) / &#963;,&nbsp;&nbsp; D = &#8730;(&#931; z&#178;) over the n "
+                           "assessable components", L.sSect2))
+    story.append(Paragraph("Thresholds are the chi-square quantiles for n degrees of freedom - D<sub>95</sub> = "
+        "&#8730;&#967;&#178;(0.95, n), D<sub>99</sub> = &#8730;&#967;&#178;(0.99, n) - so the bar rises with the "
+        "number of axes and a distance cannot be inflated by adding components. A component with no commissioned "
+        "band is not assessable: the haematopoietic-progenitor joint and every non-blood class today. <b>On whole "
+        "blood n = 1</b>, so the distance is |z| on the immune axis and the report says so in those words. The "
+        "chain also prints <font name='Courier'>band_widths_from_line</font> = (A_abs - 1.000) / (p90 - p10), "
+        "because a reader wants the departure in units of the healthy spread as well as in sigmas.", L.sBodySm))
+
+    story.append(SP(0.05))
+    story.append(Paragraph("<b>7. What the same four laboratories forbid: cellular age in years</b> "
+        f"(<font name='Courier'>stage_6_cellular_age</font>, PROC-AGE-01). The healthy immune gauge rises "
+        f"{age01.get('slope_per_yr', 0)*1000:.2f} mA per year against a within-laboratory spread of "
+        f"{age01.get('sd_A', 0):.4f}, so inverting the curve resolves age to about "
+        f"{round(age01.get('resolution_yr', 0))} years for one array: {age01.get('A1_within10', 0)*100:.1f} per cent "
+        f"of healthy donors land within ten years of their own age (Spearman rho = {age01.get('A3_rho', 0):.3f} on "
+        f"n = {meta.get('n','')}). The trajectory is real and reproduced - it IS the reference curve above - but it "
+        f"is a population measurement, and the stage reports the resolution rather than an age.", L.sBodySm))
+    story.append(Paragraph("<b>8. The second opinion</b> (<font name='Courier'>stage_2b_second_opinion</font>): the "
+        "needlet ILC solver runs beside the constrained NNLS, both folded to classes, and the chain reports "
+        "agreement when the class-level L1 difference is at or below 0.10. Cell-level disagreement inside one "
+        "lineage is expected and is not scored.", L.sBodySm))
+
+
+# ── the table of contents, generated against the rendered document ───────────────────────────────────────────────
+TOC_PAGES_FILE = os.path.join(HERE, "toc_pages.json")
+
+
+def toc_entries(L, D):
+    """(group, exact heading as it renders, probe text) - the probe is what is searched for in the built PDF."""
+    e = [("Front matter", "What's new in this issue", "WHAT'S NEW"),
+         ("Front matter", "What this paper is not", "WHAT THIS PAPER IS NOT"),
+         ("Front matter", "What this document claims, and what it does not", "WHAT THIS DOCUMENT CLAIMS, AND WHAT IT DOES NOT"),
+         ("Front matter", "Prior art - the door into the conversation", "PRIOR ART"),
+         ("Part I - the instrument", "s1 Reconciliation: Issue 002 to repository HEAD", "RECONCILIATION"),
+         ("Part I - the instrument", "s2 The IAM Atlas: 115 cell types, eight classes", "THE IAM ATLAS"),
+         ("Part I - the instrument", "s3 Two instruments and the presence rule", "TWO INSTRUMENTS"),
+         ("Part I - the instrument", "s4 Framework from Issue 002: ranking, substrates, saturation", "FIVE-SUBSTRATE FRAMEWORK"),
+         ("Part I - the instrument", "s5 The physics: Landauer, the Mahaffey number, the reference, the gauge", "SECTION 5 THE PHYSICS"),
+         ("Part I - the instrument", "s5A Where the tools come from", "SECTION 5A WHERE THE TOOLS COME FROM"),
+         ]
+    for c in L.CARDS:
+        e.append(("The eight architecture-class cards",
+                  f"#{c['pos']} {c['name']}", f"#{c['pos']} · {c['name'].upper()}"))
+    e += [("Part III - the chain in depth", "III.1 The chain, stage by stage", "The chain, stage by stage"),
+          ("Part III - the chain in depth", "III.2 The atlas, and the cells it can speak about", "The atlas, and the cells it can speak about"),
+          ("Part III - the chain in depth", "III.3 The cosmology toolkit, tool by tool", "The cosmology toolkit, tool by tool"),
+          ("Part III - the chain in depth", "III.4 What the chain refuses, and its cosmology twin", "What the chain refuses, and the cosmology twin"),
+          ("Part III - the chain in depth", "III.5 The engine, exactly - every formula the chain computes", "The engine, exactly - every formula the chain computes"),
+          ("Record and appendices", "s7 Substrate characterisation: the substrate x class grid", "SUBSTRATE CHARACTERIZATION"),
+          ("Record and appendices", "s8 Procedures", "SECTION 8 PROCEDURES"),
+          ("Record and appendices", "s9 Operating rules", "OPERATING RULES"),
+          ("Record and appendices", "s10 Falsification record", "FALSIFICATION RECORD"),
+          ("Record and appendices", "s11 Engine map: every stage, and whether this issue covers it", "ENGINE MAP"),
+          ("Record and appendices", "s12 For the clinician: the instrument in plain terms", "FOR THE CLINICIAN"),
+          ("Record and appendices", "Appendix V - the validation index", "APPENDIX V"),
+          ("Record and appendices", "Appendix VI - the CMB to methylome translation map", "APPENDIX VI"),
+          ("Record and appendices", "Appendix VII - the completion sprint, scored", "APPENDIX VII"),
+          ("Record and appendices", "Future goals - what is worth the effort, in order", "FUTURE GOALS — WHAT IS WORTH THE EFFORT"),
+          ("Record and appendices", "Glossary", "GLOSSARY"),
+          ]
+    return e
+
+
+def render_toc(story, L, D, tbl, SP, PageBreak, Paragraph):
+    pages = {}
+    if os.path.exists(TOC_PAGES_FILE):
+        pages = json.load(open(TOC_PAGES_FILE, encoding="utf-8"))
+    story.append(Paragraph("CONTENTS", L.sSect))
+    story.append(Paragraph("Every chapter by its exact name, with the page it starts on. Generated against the "
+                           "rendered document, so a page number here is the page the section is on.", L.sSub))
+    last = None
+    for group, label, probe in toc_entries(L, D):
+        if group != last:
+            story.append(SP(0.045)); story.append(Paragraph(group.upper(), L.sSect2)); last = group
+        pg = pages.get(probe)
+        dots = "&nbsp;.&nbsp;" * 2
+        story.append(Paragraph(
+            f"{label}{dots}<b>{pg}</b>" if pg else f"{label}{dots}<font color='#666'>-</font>", L.sBodySm))
+    if not pages:
+        story.append(Paragraph("(page numbers are filled in by the second pass: build once, then again)", L.sMut))
+
+
+def collect_toc_pages(pdf_path, L, D):
+    """Search the built PDF for each probe and write toc_pages.json for the next build."""
+    import pypdfium2 as pdfium
+    d = pdfium.PdfDocument(pdf_path)
+    texts = [re.sub(r"\s+", " ", d[i].get_textpage().get_text_range()) for i in range(len(d))]
+    # the contents page lists every chapter name, so it matches every probe: exclude it by its own subtitle
+    texts = ["" if "Generated against the rendered document" in t else t for t in texts]
+    out, missing = {}, []
+    for _g, _label, probe in toc_entries(L, D):
+        hit = next((i + 1 for i, t in enumerate(texts) if probe in t), None)
+        if hit: out[probe] = hit
+        else: missing.append(probe)
+    json.dump(out, open(TOC_PAGES_FILE, "w", encoding="utf-8"), indent=1)
+    return out, missing

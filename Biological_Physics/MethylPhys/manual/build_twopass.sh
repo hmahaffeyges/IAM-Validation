@@ -1,0 +1,17 @@
+#!/bin/sh
+# Two passes. The first renders the document with the contents page numbers blank; part3_indepth then locates each
+# chapter in the rendered PDF and writes toc_pages.json; the second pass renders the contents with real numbers.
+# A page number in the contents is therefore a measurement of the document, not a hand-maintained list.
+set -e
+OUT="$1"
+python3 build_gape_issue003.py "$OUT" >/dev/null
+python3 - "$OUT" <<'PY'
+import sys
+sys.path.insert(0, ".")
+import gape002_lib as L, data003 as D, part3_indepth as P3
+L.CARD_NUMBER_BY_POSITION = True
+pages, missing = P3.collect_toc_pages(sys.argv[1], L, D)
+print("toc: %d of %d chapters located%s" % (len(pages), len(pages) + len(missing),
+      ("; NOT FOUND: " + ", ".join(missing)) if missing else ""))
+PY
+python3 build_gape_issue003.py "$OUT" | tail -1

@@ -1062,6 +1062,12 @@ EMIT_CARD_CELL_ROSTER = False
 # shows was never made. Issue 003 sets this False: the header drops it and the metrics row states the ruled
 # quantity instead. Default True so Issue 002 reproduces exactly (author, 2026-09-22).
 EMIT_CARD_NBIO = True
+# The Issue 002 formulas page states that five substrates 'reduce noise by roughly sqrt(n) - the theoretical
+# limit for noise-reduction on correlated measurements of the same underlying quantity'. That bound is for
+# INDEPENDENT measurements; for positively correlated ones the achievable gain is strictly smaller and is set
+# by the residual correlation. Issue 003 sets this True, states the correct relation, and states that the
+# commissioned chain reads methylation only and computes no combined score (author, 2026-09-22).
+CORRECT_SUBSTRATE_COMBINATION = False
 EMIT_CARD_DISEASE_BLOCKS = True   # the per-card disease reference, signature comparison, post-breach trajectory and
                                   # intervention levers. Issue 002 publishes them; Issue 003 sets this False (author,
                                   # 2026-09-22) and Issue 004 will carry disease evidence measured on this chain.   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
@@ -1321,7 +1327,9 @@ CARDS = [
             "develops, the tumor expands an existing gap rather than creating one from zero. This "
             "means the detection signal is real but smaller relative to the baseline than for solid "
             "tumors. The five-substrate framework partially compensates: even if any single substrate's "
-            "signal is small, combining four or five substrates reduces noise by roughly √n — "
+            "signal is small, combining four or five substrates reduces noise - by less than the √n of "
+             "independent measurements, since the substrates are correlated readings of one pattern, but enough "
+             "to be worth having - "
             "recovering most of the detection power that single-substrate methylation loses to "
             "baseline plasticity.\n\n"
             "The cancers in this class separate cleanly by lineage. AML (myeloid, TCGA 2013 NEJM "
@@ -9310,13 +9318,26 @@ def blk_framework(story):
         'Shannon entropy, H_min lookup, individual A-score, AUC weight, combined A.',
         sBody))
     story.append(Paragraph(
-        'The scientific point is the <b>MESA trial result</b>: combining 4 independent substrates in '
-        'plasma cfDNA produced detection AUC substantially above any single substrate. The '
-        'framework reproduces this mathematically. Five independent physical windows on the same '
-        'Landauer floor reduce noise by roughly √n — the theoretical limit for noise-reduction on '
-        'correlated measurements of the same underlying quantity. At 5 substrates, the combined '
-        'A-score approaches the theoretical ceiling. This is the "less blurry" advantage stated '
-        'in Issue 002\'s cover callout.',
+        ('The scientific point is the <b>MESA trial result</b>: combining 4 independent substrates in '
+         'plasma cfDNA produced detection AUC substantially above any single substrate. The '
+         'framework reproduces this mathematically. Five independent physical windows on the same '
+         'Landauer floor reduce noise by roughly √n — the theoretical limit for noise-reduction on '
+         'correlated measurements of the same underlying quantity. At 5 substrates, the combined '
+         'A-score approaches the theoretical ceiling. This is the "less blurry" advantage stated '
+         'in Issue 002\'s cover callout.') if not CORRECT_SUBSTRATE_COMBINATION else
+        ('The scientific point is the <b>MESA trial result</b>: combining four substrates in plasma cfDNA '
+         'reported an AUC above any single substrate, and the framework reproduces that arithmetic. <b>The '
+         'gain is not √n, and Issue 002 overstated it.</b> Averaging n measurements divides the standard '
+         'error by √n only when they are independent. These are five physical windows on the same underlying '
+         'pattern, so they are positively correlated, and for a residual correlation ρ the variance of their '
+         'mean is σ²[1 + (n-1)ρ]/n — which falls towards σ²ρ, not towards zero. The achievable gain is '
+         'therefore strictly less than √n and is set by ρ, which for these substrates has not been measured: '
+         'no cohort held here carries more than one substrate on the same specimen. Until it is, the '
+         'combination is a framework result and not an instrument specification.<br/><br/>'
+         '<b>What the commissioned chain does.</b> An array carries methylation and nothing else, so the '
+         'chain reads one substrate and computes no combined A-score. The five-substrate grid is the '
+         'framework this issue inherits and the ceiling measurement it still uses; the running engine\'s own '
+         'formulas are specified in III.5.'),
         sBody))
 
     # ══════════════════════════════════════════════════════════════════════════

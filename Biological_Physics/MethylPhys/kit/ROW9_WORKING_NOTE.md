@@ -740,8 +740,12 @@ n_bio "was an early (QAPE-era) form of the ratio and is NO LONGER USED", superse
 is **one number for the cell**, 20.94, not one per class, and is not H_min. Issue 002 printed a per-class n_bio in
 every card header and a CORE METRICS row marked "PRELIMINARY - absolute pending G-007", a run the history record
 shows was never made. Issue 003 now drops it from the header and prints the ruled quantity in its place, with the
-withdrawal stated. Verified in the render: **zero live n_bio references remain** - all 16 occurrences are the
-withdrawal statement itself.
+withdrawal stated. Verified in the render at this point: **on the card pages every remaining occurrence is the
+withdrawal statement itself** (16 of them, two per card). The same check found **two live references still
+outside the cards** - the G-series run name in the validation history, which is what that run was called, and
+the glossary entry, which was still Issue 002's and still read "Absolute class-specific values await G-007
+MCMC". The glossary is dealt with immediately below; this sentence originally claimed zero live references
+document-wide, which was not true when it was written.
 
 Also checked and found correct: every card states its class floor (the stromal card's 0.86295 and the runtime's
 0.863 are the same number at different precision - my first audit's string match was too strict), every card states
@@ -760,3 +764,40 @@ called, and the withdrawal statements themselves.
 
 **Method note:** a correction placed after a long block is not a correction of the block. It has to sit where the
 reader meets the claim.
+
+### 2026-09-22 - III.5 the engine exactly, the contents generated, and a wrong noise bound corrected
+
+Author: *"It should be a true spec of the running engine like the cover says. Also, the Table of Contents really
+needs work ... Lets make sure all the formulas are up to date as well ... we should really make sure all the numbers
+now that we confirmed with the four labs we used are utilized and that we explain the exact screens with the
+departures and mahalanobis and CI and distance from."*
+
+**III.5 - the engine, exactly.** Every formula the chain computes, with the constants LOADED FROM THE RUNTIME at
+build time so the page is a specification and not a description: H(beta); A_mapped = H(beta_mean)/H_min over the
+class IDENTITY loci (progenitor's floor for the haematopoietic joint, PREREG s3); A_abs = A_mapped - c(decade) -
+z_lab with the file each correction comes from; the band (p10 0.9724, p50 1.0000, p90 1.0248, width 0.0524) and
+sigma = width/(2 x 1.2816) = 0.02044; the four laboratories with their own zeros and their own measured
+false-alarm rates (UCLA n=204 z=-0.0673 tail 0.0441; Munich n=201 z=-0.0346 tail 0.0647; Karolinska n=315
+z=+0.0084 tail 0.0984; Uppsala n=659 z=-0.0117 tail 0.0561), and the point that the false-alarm rate is a measured
+property of the laboratory, not a constant; the departure z = (A_abs - 1.000)/sigma with D = sqrt(sum z^2) and
+thresholds sqrt(chi2(0.95|0.99, n)) - so the bar rises with the number of axes and a distance cannot be inflated by
+adding components - with n = 1 on whole blood and band_widths_from_line printed beside it; why cellular age in
+years is refused (0.47 mA/yr against a within-laboratory 0.0235 -> ~50 yr, 15.9% within ten years, rho 0.271); and
+the class-level agreement bar of 0.10 on the second opinion.
+
+**The contents are now generated against the rendered document** (`build_twopass.sh`): pass one renders with the
+page column blank, `part3_indepth.collect_toc_pages` locates each chapter in the built PDF, pass two renders the
+numbers. 34 chapters, each by its exact name, grouped front matter / Part I / the eight cards / Part III / record
+and appendices - the eight cards are listed individually, which is what the author asked for. Two defects the
+first run exposed: the contents page matches every probe because it lists every name (excluded by its own
+subtitle), and a prose cross-reference to "III.5" matched before the heading did (probes are now the headings
+themselves). Verified by checking every entry's page against where the heading really renders.
+
+**A wrong bound, corrected.** The Issue 002 formulas page states that five substrates "reduce noise by roughly
+sqrt(n) - the theoretical limit for noise-reduction on correlated measurements of the same underlying quantity".
+That is the bound for INDEPENDENT measurements. For positively correlated ones the variance of the mean is
+sigma^2[1 + (n-1)rho]/n, which falls towards sigma^2 x rho and not towards zero, so the achievable gain is strictly
+less than sqrt(n) and is set by rho - which for these substrates has never been measured, because no cohort held
+here carries two substrates on the same specimen. The page now says that, and says plainly that the commissioned
+chain reads methylation only and computes no combined A-score. The same phrase in the immune card commentary is
+corrected too. Behind `CORRECT_SUBSTRATE_COMBINATION`, default False, so Issue 002 still reproduces exactly.
