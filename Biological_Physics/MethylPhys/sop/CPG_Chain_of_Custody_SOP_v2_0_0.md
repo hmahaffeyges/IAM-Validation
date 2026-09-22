@@ -16,7 +16,7 @@ its outcome and its seal.
 | | |
 |---|---|
 | engine commit | `e696462` |
-| stages the conductor runs | Stage 0 intake, Stage 1 calibration, Stage 2 composition (with a second opinion), Stage B identity gauge, Stage 4.5 directional decomposition, Stage 4.6 the patient's sky, Stage 5 departure, Stage 7 tiers, Stage 9 the report |
+| stages the conductor runs | `cpg_conductor.run_full` takes **calibrated betas** and runs 11 stages, beginning at composition: per-cell A, the second opinion, the class gauge, the pipeline map, the identity gauge, direction, the sky, departure, the marker-union hull, and the two age steps. It does **not** read an IDAT and does **not** run intake: Stage 1 calibration is called by `MethylPhys_Interface/run_sample.py` before it, and Stage 0's gates (§11-§19) are implemented in `stage_0_intake.py` but not called by any path in this tree. `doors/CHAIN_SEQUENCE.md` is generated from the code and is the authority on the order. |
 | what it reports | whether this sample's cellular write process is operating within the healthy range for its age, by architecture class, against a fixed physical zero |
 | the healthy reference | three measured layers: the frozen class floor (physics, universal), the pipeline scale map (one per processing pipeline), and the laboratory zero (40 healthy arrays of that laboratory, read against the age curve) |
 | what it does not do | it names no condition, matches no pattern to any signature, and states no age in years |

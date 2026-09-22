@@ -225,3 +225,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 ## Checking this work
 
 [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) is the download list: every file a reviewer could want, resolved from the tree rather than typed, with an explicit statement of what is not published and why.
+
+## The order of steps
+
+[`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) is generated from the code: every call each path makes, in order, and every file named as chain that no path calls.
