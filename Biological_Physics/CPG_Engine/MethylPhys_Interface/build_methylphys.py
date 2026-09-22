@@ -281,8 +281,69 @@ def tab_departure(o, R):
     else: H.append(f"<p class='pend'>NOT REPORTABLE - {_e(d.get('status'))}</p>")
     return guard("".join(H),"Departure")
 
+SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist</h2>"
+ "<p>This page is not an analogy. Every step below is a measurement problem cosmologists had to solve before the microwave "
+ "background could be read at all, and each has a counterpart this chain already runs. The point of putting a methylome on a "
+ "sphere is not that the picture resembles theirs - it is that <b>thirty years of machinery for reading a noisy field on a "
+ "sphere becomes available</b>, with the names changed.</p>"
+
+ "<h3>A sky map is not a photograph</h3>"
+ "<p>This is the first thing cosmology had to unlearn. What Planck delivers is not a picture of the sky; it is <i>the residual "
+ "left after a model is subtracted from a measurement</i>, at a declared resolution, with a mask over the parts that cannot be "
+ "measured, and a noise level quoted per pixel. The famous image is the last step of a long pipeline, and every step of that "
+ "pipeline had to be invented. Two of those steps decide everything: the monopole (2.725 K) and the dipole (the Earth's own "
+ "motion through the radiation) are real, enormous, and <i>not the signal</i>. Remove them wrongly and the anisotropy - one part "
+ "in 100,000 - is buried a thousand times over. That is not a subtlety; it is the measurement.</p>"
+
+ "<h3>The correspondence, step by step</h3>"
+ "<table class='t'><tr><th>what cosmology had to learn</th><th>why it mattered</th><th>what it is in this chain</th></tr>"
+ "<tr><td>Subtract the monopole and dipole before anything else</td><td>they are real and they are not the signal</td>"
+ "<td>the <b>laboratory zero</b> and the <b>age term</b>, each measured - 40 healthy arrays of that laboratory, and the "
+ "four-laboratory age curve - and subtracted before any reading is placed</td></tr>"
+ "<tr><td>Mask the galaxy</td><td>part of the sky cannot be measured; do not guess it</td>"
+ "<td>the <b>presence floors</b>. A class below its measured floor is masked black, never estimated. PROC-CEIL-01 measured the "
+ "consequence of not masking: absent classes read at or past their ceiling purely because their addresses carry other cells' DNA</td></tr>"
+ "<tr><td>Component separation - dust, synchrotron, free-free</td><td>you cannot read the sky until you separate what lies in "
+ "front of it</td><td><b>Stage 2, the composition step.</b> Not a loose parallel: the second solver in this chain <i>is</i> NILC, "
+ "the needlet internal linear combination Planck used, pointed at cell types instead of foregrounds</td></tr>"
+ "<tr><td>Deconvolve the instrument beam</td><td>resolution is finite and must be declared, not assumed</td>"
+ "<td>about 2.2 CpG addresses per pixel at NSIDE 128 is this instrument's beam. The smoothed panel in the figure below is the "
+ "beam-smoothed map, which is the only fair comparison to a published CMB image</td></tr>"
+ "<tr><td>A noise covariance per pixel, not one number for the map</td><td>pixels are not equally trustworthy</td>"
+ "<td>that laboratory's <b>measured per-address spread</b> from its own healthy panel - the denominator of every z on this page</td></tr>"
+ "<tr><td>Score anomalies against simulations, never an analytic null</td><td>a real sky carries built-in correlations, so a "
+ "Gaussian null is simply the wrong null</td><td>the <b>spatially-shuffled null</b> - and this chain has now measured exactly why "
+ "it is required (the warning further down)</td></tr>"
+ "<tr><td>Then, and only then, the angular power spectrum</td><td>the <i>scale</i> of the structure is where the physics lives</td>"
+ "<td><b>not built - this is the frontier.</b> What it would be worth is the next paragraph</td></tr></table>"
+
+ "<h3>What this buys a geneticist that a list of differentially methylated regions does not</h3>"
+ "<p>Epigenomics today answers <i>which CpGs moved</i>: per-site tests with a false-discovery correction, or differentially "
+ "methylated regions found in windows whose size is chosen in advance. Both force you to pick a scale before you look. A spectrum "
+ "asks a different question - <b>at what genomic scale does this departure live?</b> - and answers it at every scale at once with "
+ "no window chosen. The multiple-comparison problem comes with it: cosmology calls it the <i>look-elsewhere effect</i> and has "
+ "spent decades on it, and its answer is simulation rather than dividing an alpha by a large number.</p>"
+ "<p>The spatial correlation measured here is the first point of that spectrum. A healthy methylome has a characteristic "
+ "correlation scale. <b>If a condition changes that scale rather than the value at any single address, a spectrum sees it and no "
+ "per-site test can.</b> That is a new and falsifiable observable, and it is the reason this is a method rather than a picture.</p>"
+
+ "<h3>One thing a geneticist has that a cosmologist would trade almost anything for</h3>"
+ "<p>There is one microwave sky. It cannot be re-observed, it will not change, and every cosmological anomaly argument is limited "
+ "by that single realisation. <b>A methylome sky can be measured again on the same person.</b> Two draws six months apart give a "
+ "difference map - and a difference map is where this whole toolkit is strongest, because the static structure (the genomic "
+ "correlation, the laboratory's own character, that individual's baseline) cancels and only what changed survives. That is not a "
+ "metaphor; it is an experimental design a clinic can execute, and it is the strongest argument for treating a methylome this way.</p>"
+
+ "<p class='m'><b>On precedence, stated the way a referee will read it.</b> We are not aware of prior work that projects a methylome "
+ "onto a sphere and applies component-separation and sky-statistics machinery to it. A literature search run 2026-09-22 returned no "
+ "hits for HEALPix with methylation, spherical harmonics with methylome, angular power spectrum with epigenome, or needlets with "
+ "genome, in either Europe PMC or arXiv. Sanchez &amp; Mackenzie brought the Landauer bound to methylation but no sky; CMB pipelines "
+ "have not been pointed at a genome. One detail worth knowing, because it shows the pixelisation is not alien to biology: <b>HEALPix "
+ "is already used in structural biology</b> as the angular-sampling scheme for particle orientations in cryo-electron microscopy. "
+ "The scheme is in the toolbox already; this is a different use of it.</p>")
+
 def tab_sky(o, R, sid, workdir):
-    s=o["patient_sky"]; H=["<h2>The patient's sky - Stage 4.6</h2>"]
+    s=o["patient_sky"]; H=[SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
     H.append("<p>Every CpG the chain reads is placed on a sphere in genomic order (HEALPix, NSIDE 128 - the projection Planck used for the microwave background). At each address the chain computes what this sample's <i>own composition</i> predicts (the Stage 2 fractions mixed over the atlas class means), subtracts the laboratory's per-address zero, and divides by the laboratory's healthy spread at that address - both measured from the same 40 healthy arrays that set the laboratory zero. "
              "The plate shows that residual z. A healthy sky is <b>quiet</b>: 2.6-3.2 % of addresses beyond |z| = 2 on the four commissioned laboratories (the Gaussian expectation is 5 %; the scale is ~1.1x conservative and that constant is printed on every plate). A class panel renders only when Stage 2 places the class above its measured presence floor; masked panels say so.</p>")
     if s.get("available") and s.get("_sky") is not None:
