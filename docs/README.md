@@ -69,7 +69,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - **The derivation of IAM from first principles**
 - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
@@ -101,7 +101,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Thermodynamic Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf](papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
 
 - **The derivation of what K physically is — unanswered for 154 years since Clausius**
 - Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
@@ -123,7 +123,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - **Root paper — every other paper in this library builds on this derivation**
 - Formal derivation chain: Jacobson (1995) → Cai-Kim (2005) → IAM (2026)
@@ -318,7 +318,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Core Identity Paper</strong> — The Thermodynamic Identity Governing the Virial Theorem: Derivation from First Principles and Evidence Across 37 Orders of Magnitude</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf](papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
 
 - Derives K = Q = TΔS = E_Landauer: the kinetic energy in the virial theorem is identically the Landauer cost of virialization
 - Derived from the first law, second law, Landauer's principle, and the equilibrium condition of the 1/r potential — no additional assumptions
@@ -331,7 +331,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>37 Orders Paper</strong> — The Virial Partition Across Wide Range of Physical Scales: Cross-Domain Validation of IAM</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [Virial_Partitian_Across_Wide_Domains.pdf](papers/Virial_Partitian_Across_Wide_Domains.pdf)
 
 - Demonstrates that β_m = Ω_m/2 is not a numerological coincidence but a mathematical necessity
 - Verified computationally for 20 atoms (H through Xe) and 10 molecules at machine precision
@@ -344,7 +344,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>n = 5/2 N-body Confirmation Paper</strong> — Virial Efficiency and Effective Nonlinear Exponent in IAM: Published N-body Confirmation of β_m = Ω_m/2</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf](papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
 
 - Shows that independent N-body confirmation of IAM's two key derived quantities already exists in the published literature — IAM did not need to run new simulations
 - **The n = 5/2 quantum-to-cosmological bridge** — arrived at from two completely independent directions:
@@ -373,7 +373,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [Quantum_Darwinism_at_Cosmological_Scales.pdf](papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 
 - Also in [Category VII: Quantum Foundations](#vii-quantum-foundations)
 - Connects the thermodynamic identity to the quantum mechanical language of decoherence: the cosmic horizon is the ultimate environment accumulating the Landauer costs of 13.8 billion years of decoherence events
@@ -385,7 +385,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the virial partition as the universal quantum-classical connector across 37 orders of magnitude; the 1/2 partition as the mechanism by which quantum superpositions become classical structure at every scale from hydrogen to galaxies
@@ -395,7 +395,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: derivation of β_m = Ω_m/2 from the virial theorem; derivation of E(a) from horizon thermodynamics; the n = 5/2 analytical prediction
@@ -428,7 +428,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the holographic encoding framework that connects Landauer costs to horizon thermodynamics
@@ -470,7 +470,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the derived arrow of time from irreversible Landauer transactions; E(a) as the accumulated ledger of decoherence events; the distinction between coordinate time, proper time, and duration; engagement with Rovelli's thermal time program
@@ -499,7 +499,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - The arrow of time and the persistence of classical structure share a common physical mechanism: the irreversible partition of gravitational binding energy into geometric and informational channels
 - The geometric half deposits into spacetime curvature; the informational half (Landauer cost of quantum-to-classical transition) writes to an available encoding surface
@@ -528,7 +528,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the virial theorem derivation of β_m = Ω_m/2 and its physical interpretation as a partition of gravitational energy
@@ -544,7 +544,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the black hole as mandatory local encoding vault; the saturation condition for BH formation; the minimum velocity dispersion σ_crit ≈ 4 km/s derived from first principles
@@ -629,7 +629,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the two-horizon framework; the Landauer cost derivation; the BH as mandatory encoding surface
@@ -645,7 +645,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Non-Locality Paper</strong> — Non-Locality and the Boundary of Reality: Quantum Potential, Irreversible Actualization, and the Thermodynamic Origin of Classical Existence</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [Non_Locality_and_the_Boundary_of_Reality.pdf](papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
 
 - **States IAM's foundational result explicitly for the first time:** the thermodynamic cost of irreversible information production from gravitational decoherence, paid to the cosmic horizon — classical existence is continuously purchased, one decoherence event at a time
 - "Particle" is a post-actualization concept — applying the word to a pre-measurement quantum system is a category error that has generated a century of apparent paradoxes
@@ -663,7 +663,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: England's dissipation-driven adaptation as the general thermodynamic principle of which virial partition closure is a gravitational instance; Rovelli's thermal time program and the derived duration variable E(a)
@@ -673,7 +673,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Quantum Darwinism Paper</strong> — Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [Quantum_Darwinism_at_Cosmological_Scales.pdf](papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 
 - Also in [Category II: Thermodynamic Identity & Virial Theorem](#ii-thermodynamic-identity--virial-theorem)
 - Extends Zurek's quantum Darwinism from local to cosmic scales — the cosmic horizon is the ultimate redundant record of all decoherence events
@@ -724,7 +724,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the decoherence mechanism; the Landauer cost; the connection between quantum-to-classical transition and cosmological observables
@@ -787,7 +787,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the minimum velocity dispersion σ_crit ≈ 4 km/s below which halos cannot close their virial partition and do not form galaxies; the two-mechanism account of the missing satellites problem
@@ -810,7 +810,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>IAM Theory Paper</strong> — Horizon Thermodynamics and Gravitational Decoherence: Theoretical Foundations</summary>
 
-*[Full derivation available on request — contact heath@iamperformance.net]*
+**Paper:** [IAM_Theory_Paper.pdf](papers/IAM_Theory_Paper.pdf)
 
 - See [Category I](#i-cosmological-model) for full description
 - Relevant here for: the activation function E(a) and its role in structure formation; the saturation condition
