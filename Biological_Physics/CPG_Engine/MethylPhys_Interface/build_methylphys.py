@@ -46,6 +46,12 @@ def load_runtime():
     R["hmin_table"]=_G.H_MIN_TABLE; R["sub_order"]=_G.SUB_ORDER; R["auc"]=_G.AUC_W
     _ts=R["tiers"]["tier_system_v1_2"]; R["warburg"]=next(x for x in _ts["tiers"] if x["tier_id"]=="WARBURG_TRANSITION")
     R["breach_line"]=_ts["breach_line_value"]; R["warburg_line"]=_ts["warburg_line_value"]
+    try: R["inv"]=_j(_find("chain_inventory_v1.json"))
+    except FileNotFoundError: R["inv"]=None
+    try:
+        _cg=_j(_find("iamatlas_collinearity_groups_v0_1.json")); R["cgroup"]=_cg["cell_to_group"]
+        R["cgmembers"]={g:m for g,m in _cg["groups"].items()}
+    except FileNotFoundError: R["cgroup"]={}; R["cgmembers"]={}
     try: R["excl"]=_j(_find("percell_exclusivity_v0.json"))["entries"]
     except FileNotFoundError: R["excl"]={}
     try: R["release"]=_j(_find("release_check.json"))
@@ -1076,6 +1082,48 @@ def tab_roadmap(R):
     return guard("".join(H),"Roadmap")
 
 
+
+def tab_inventory(R):
+    """Every live file of the chain, enumerated by build_chain_inventory.py rather than hand-listed, so a file
+    cannot be silently omitted. Added 2026-09-22 after the author asked whether the Chain tab lists everything:
+    an audit found 20 load-bearing files linked nowhere, including the atlas itself."""
+    inv=R.get("inv")
+    if not inv: return guard("<h2>Chain inventory</h2><p class='pend'>chain_inventory_v1.json not found - run build_chain_inventory.py</p>","Files")
+    m=inv["_meta"]; rows=inv["files"]
+    ROLE=[("chain","In the chain","Executed on every run, in stage order. The conductor resolves each of these by name and fails loudly if one is missing."),
+          ("reference","Reference and calibration data","The files the chain reads: the atlas, the floors, the identity loci, the maps, the bands, the age curve, the sky scales. These are what make a reading absolute."),
+          ("interface","Interface","This report and the commands that drive it."),
+          ("guard","Guards, procedures and doors","The conformance tests, the sealed procedures, the protocol gate, and the documents a reader should start from."),
+          ("record","Present but NOT in the chain","Callable and kept for the record - most of it from the preliminary era. run_full() does not read any of it. The disease matrix is here because the author removed disease matching from the chain on 2026-09-21."),
+          ("superseded","Superseded","A later file does the job; kept so the lineage is visible.")]
+    H=["<h2>Every file the chain uses</h2>",
+       f"<p>Enumerated from the live tree by <code>build_chain_inventory.py</code> at commit <code>{_e(m.get('commit',''))}</code> - "
+       f"<b>{m['n_files']} files</b>, each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: "
+       f"any file without a description is emitted as <b>UNDESCRIBED</b> and counted here, so a gap is visible rather than silent. "
+       f"Undescribed at this build: <b>{m['n_undescribed']}</b>.</p>",
+       "<p class='m'>Roles are measured, not asserted: <i>in the chain</i> means resolved by <code>cpg_conductor._find()</code> or loaded by a module "
+       "that is; <i>not in the chain</i> means present and callable but never reached from <code>run_full()</code>.</p>"]
+    for role,label,blurb in ROLE:
+        rs=[r for r in rows if r["role"]==role]
+        if not rs: continue
+        H.append(f"<h3>{_e(label)} <span class='m'>({len(rs)})</span></h3><p class='m'>{_e(blurb)}</p>")
+        H.append("<table class='t'><tr><th>file</th><th>stage</th><th>what it is and why it is there</th><th>size</th><th>sha256</th></tr>")
+        for r in rs:
+            nm=_link(R,r["file"]) if r["file"] in R["files"] else _e(r["file"])
+            sz=f"{r['bytes']/1e6:.1f} MB" if r["bytes"]>1e6 else f"{r['bytes']//1000} KB" if r["bytes"]>1500 else f"{r['bytes']} B"
+            H.append(f"<tr><td>{nm}<br><span class='m'>{_e(r['path'])}</span></td><td class='m'>{_e(r['stage'])}</td>"
+                     f"<td>{_e(r['description'])}</td><td class='n'>{sz}</td><td class='m'><code>{_e(r['sha256_12'])}</code></td></tr>")
+        H.append("</table>")
+    if m.get("undescribed"):
+        H.append("<div class='warn'><b>Undescribed at this build:</b> "+", ".join(f"<code>{_e(x)}</code>" for x in m["undescribed"])+
+                 " - present in the tree with no description in the generator. Listed here rather than omitted.</div>")
+    H.append(deepdive(R,"the chain and its files"))
+    # EXEMPT from the vocabulary guard, for the same reason the Healthy-reference tab is: an inventory that cannot
+    # name disease_cell_signature_matrix_v1_13.csv is a false inventory. The guard still applies to every
+    # measurement tab. Nothing here is a statement about this sample - it is a list of files on disk.
+    return "".join(H)
+
+
 def tab_run(R):
     """Run it yourself. Every file named here is linked at this commit, and every command is one that
     actually works - the earlier version advertised an IDAT entry point that did not exist (fixed 2026-09-22
@@ -1199,7 +1247,7 @@ TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = res
  ("reading","Reading",True,"c"),("howto","How to read",True,"c"),("cells","Every cell",True,"c"),
  ("departure","Departure",True,"c"),("sky","Sky",True,"c"),("physics","Physics",False,"c"),("story","Story",False,"c"),
  ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("safeguards","Safeguards",False,"r"),
- ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("roadmap","Roadmap",False,"r"),
+ ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("files","Files",False,"r"),("roadmap","Roadmap",False,"r"),
  ("record","Record",False,"r"),("run","Run",False,"r")]
 
 def refusals_from(o):
@@ -1215,10 +1263,10 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
-    _rprint={"reading","howto","cells","departure","sky","reference","safeguards","integrity","chain","coverage"}
+    _rprint={"reading","howto","cells","departure","sky","reference","safeguards","integrity","chain","files","coverage"}
     body="".join(f"<section class='tab{' print' if p else ''}{' printr' if i in _rprint else ''}"
                  f"{' resr' if a=='r' else ''}' id='{i}'>{sec[i]}</section>" for i,n,p,a in TABS)
     page=f"""<!doctype html><html><head><meta charset='utf-8'><title>MethylPhys CPG - {_e(sample_id)}</title><style>{CSS}</style><script>{JS}</script></head><body>

@@ -295,3 +295,38 @@ a re-seal - the same situation as the chrX-removed trial copy in September.
 **The repair, for the roadmap.** Replace `|target - mean(others)|` with a **nearest-rival margin**: require each marker to beat its
 closest competing cell type by a stated margin, and cap how many panels a marker may serve. Then re-select, re-seal the anchors, and re-measure the
 per-entry references. Until that is done, per-cell readings are honest for 79 entries and explicitly withheld for 36.
+
+## 2026-09-22 - the author asked whether the Chain tab lists everything the chain uses. It did not.
+
+**Audited rather than answered.** The conductor *was* linked on the Chain tab (not on the Run tab), but an audit of the live tree against the
+rendered page found **20 load-bearing files linked nowhere** - including `IAMAtlasREBUILD.csv` itself, which engine code names seven times, plus the
+array manifest, the four per-laboratory sky residual scales, the Mahalanobis healthy reference, `walther_clinical.py` (named eight times),
+`idat_parse.py`, `stage_0_intake.py` and the exclusivity file written an hour earlier.
+
+**Fixed by generating the list instead of maintaining one.** `MethylPhys_Interface/build_chain_inventory.py` enumerates the whole live tree,
+classifies each file, and writes `Runtime Matrices/chain_inventory_v1.json`; a new **Files** tab renders it. Roles are measured, not asserted:
+*in the chain* = resolved by `cpg_conductor._find()` or loaded by a module that is; *not in the chain* = present and callable but never reached from
+`run_full()`. **152 files**, each with what it is, why it is there, its size and its SHA-256: 18 chain, 47 reference and calibration, 5 interface,
+40 guards and doors, 28 record-side, 13 superseded. Anything without a description is emitted as **UNDESCRIBED and counted on the page**, so a gap
+is visible rather than silent - the first run showed 81, which is why the descriptions were written from each file's own header rather than guessed.
+
+**Two things the audit settled.** `run_full()` does **not** call `stage_8_matching` - confirmed by reading its body, so the removal holds - but the
+conductor's own module docstring still lists the disease matrix as "(Stage C)", a stale line to fix. And the **Files tab is exempt from the
+vocabulary guard**, deliberately and for the same reason the Healthy-reference tab is: an inventory that cannot name
+`disease_cell_signature_matrix_v1_13.csv` is a false inventory. Every measurement tab stays guarded.
+
+## The lineage grouping the author asked for already exists, and the chain does not read it
+
+`Runtime Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json`, built **2026-06-26**: complete-linkage clustering at centred-cosine
+0.95 in departure-from-consensus space, 111 cells to **94 groups, 10 of them multi-member**, with a `low_confidence` flag for groups spanning more
+than one tissue super-family. Its own note states the point exactly: *cells within a group are methylation-collinear and not individually
+identifiable by deconvolution.* The multi-member groups are the biologically sensible ones - the six gastric entries; CD4T with CD8T (three times
+over, in different naming conventions); HSC/L-MPP/MPP; CMP/MEP; dendritic/macrophage; eosinophil/monocyte/neutrophil; CM/Hep/neuron.
+
+**This is a different problem from the marker non-exclusivity measured earlier today, and both matter:**
+- **Atlas collinearity** (this file): the reference genuinely cannot separate these entries. The honest unit of a per-cell claim is the *group*.
+- **Marker non-exclusivity** (percell_exclusivity_v0): the *panel* is not discriminative even where the atlas profiles differ.
+  Cortical_neurons and stem_pluri share 91 markers but sit in different collinearity groups - the atlas can tell them apart; their panels cannot.
+
+So the answer to "which cell moved" is: **you can say which group moved, and within a group you cannot** - and separately, for 36 entries the panel
+is too shared to carry an individual claim at all. Wiring the group column into the per-cell table is the next step, and it needs no re-seal.
