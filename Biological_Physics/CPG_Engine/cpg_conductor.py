@@ -272,7 +272,11 @@ def stage_5_mahalanobis(identity_out, cfg=None):
                "reference": "identity_band_v3 (four zeroed labs, n=1,379); mu = 1.000; sigma from p10-p90"}
     # PROC-MAHA-02: the laboratory's empirical false-alarm rate travels with the number (row 5b = the chip term behind it)
     band_meta = json.load(open(_find("identity_band_v3.json")))["_meta"]
-    lab_key = (cfg or {}).get("lab"); rec = band_meta.get("cohorts", {}).get(lab_key) if lab_key else None
+    lab_key = (cfg or {}).get("lab"); _coh = band_meta.get("cohorts", {})
+    if isinstance(_coh, str):
+        import ast as _ast; _coh = _ast.literal_eval(_coh)
+    # 2026-09-22 (row 9 build): band cohorts are keyed "GSE87571_Uppsala"; cfg["lab"] may be the bare accession - match on prefix
+    rec = (_coh.get(lab_key) or next((v for k, v in _coh.items() if lab_key and (k.startswith(lab_key) or lab_key.startswith(k))), None)) if lab_key else None
     if rec and "tail_p95" in rec:
         out.update({"lab_false_alarm_p95": rec["tail_p95"], "lab_false_alarm_p99": rec["tail_p99"], "lab_false_alarm_source": f"measured on {rec['n']} healthy arrays at {lab_key}",
                     "lab_false_alarm_sentence": f"At this laboratory {round(100*rec['tail_p95'])} of 100 healthy donors read beyond p95 on this axis ({round(100*rec['tail_p99'])} of 100 beyond p99); the excess over 5 is the chip term (row 5b)."})
@@ -441,6 +445,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
+        "cells_all": a["cells"],                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
