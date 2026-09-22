@@ -56,3 +56,21 @@ entries must be merged to one lineage before any statement about 'which cell mov
   map, the calibration provenance, the CpG->HEALPix mapping, the RUNBOOK, CHAIN_COMMISSIONING and HANDOFF are all linked; NILC is linked with its vindication stated; Issue 003 is a deep-dive link at the
   bottom of six tabs. **The sky mapping was verified against the atlas plate mapping: 483,092 of 483,092 CpGs to the same pixel** - the patient's plate and Plates 1-4 are on one projection, and the
   plates are embedded on the Sky tab as the reference skies. The brightness CSVs are described as superseded (the sky now weights the expectation by the sample's own composition) rather than retired.
+
+### 2026-09-22 - the gauge semantics corrected from the author's two gauge figures (figB cell, figC cosmic)
+
+My wording had **A = 1.00 'sitting on the floor'**. Wrong, and the author corrected it: A = 1.00 is the **healthy reference, the ideal baseline in the middle of the NORMAL band** - not an edge of
+anything. Three distinct things, now stated as a table on How-to-read and consistent with both of his gauge figures, which are embedded there (`Plates/CPG_Gauge_Cell.png`, `Plates/CPG_Gauge_Cosmic.png`):
+1. **A = 1.00** - the calibration point. (His cell gauge: BELOW NORMAL/suppressed < 0.95, NORMAL 0.95-1.05, MARGINAL 1.05-1.07, Warburg line 1.07, DETECTABLE 1.07-1.10, BREACH >= 1.10. Our measured
+   commissioned band, central 95 % of 1,379 healthy donors = 0.954-1.041, sits inside his canonical NORMAL band - worth noting as independent agreement.)
+2. **H_min(class)** - the constant in the denominator, in bits: the entropy level below which that architecture cannot hold the pattern that makes it that cell type. It is **not a mark on the A axis**;
+   it is the unit the axis is drawn in. Readings well below 1.00 are the suppressed / inverted direction (his figure puts post-chemo and immunosuppressed near 0.90) - a direction the report had been
+   under-representing relative to the drift direction.
+3. **1/H_min** - the ceiling, saturation. Class- **and** substrate-specific, and it may sit either above or below breach.
+**The consequence, which his cosmic gauge teaches better than any prose: the ceiling can sit BELOW breach.** An isolated white dwarf reads above healthy yet is structurally capped below breach because it
+has no mechanism to gain mass; only a collapse-capable core reaches A_IAM = 1 (Chandrasekhar / TOV / Schwarzschild), which is why his figure rescales gravitational saturation onto cellular breach at 1.10.
+**Measured from the frozen 40-value table: 15 of the 40 class-substrate combinations have a ceiling below breach 1.10** - nucleosome occupancy caps 7 of 8 classes (floors all 0.98-0.99); fuzziness and WPS
+cap the three stem/progenitor classes; and on methylation, the one lit column, **pluripotent stem is capped at 1.018**, so a pluripotent-stem breach cannot be read on methylation at all. The chart now
+flags every capped cell. Ceiling-capped is not safe and not healthy: it means *that substrate cannot tell you*, which is the five-substrate argument as a structural limit rather than a preference.
+**Open question raised by the same arithmetic:** the breakpoints file carries reference clusters past breach - senescent 1.24-1.27, malignant 1.28-1.32 - which exceed every class's methylation ceiling
+except terminal (1.294). Which class (and which surface) those clusters were measured on should be stated wherever they are quoted; they are carried here as corpus reference values, not re-measured.
