@@ -5,12 +5,24 @@ Runtime files: CPG_TRIAL_CODE.zip (user-supplied 2026-09-19) == repo HEAD 66f37f
 file except iamatlas_celltype_markers_v0_2.json (see RECON row M1).
 """
 import json, re, ast, os, collections
-T = os.environ.get("CPG_TRIAL", "trial/CPG_TRIAL_CODE")
+# The engine source this manual quotes. It used to default to a scratch working folder (CPG_TRIAL_CODE.zip,
+# user-supplied 2026-09-19 and byte-identical to the engine at repo HEAD). Since the 2026-09-22 move the chain is
+# in the repository, so default to it and keep the env var as an override. Runtime files sit in subdirectories of
+# the chain, so resolve by name rather than assuming a flat folder.
+T = os.environ.get("CPG_TRIAL") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "chain")
+_TSEARCH = [T] + [os.path.join(T, "Runtime Matrices", d) for d in
+                  ("A_Scoring_Module","Celltype_Marker","Directional Panel","Tier_breakpoints","Cellular_Age",
+                   "Mahalanobis_healthy_reference","Patient_CMB")] + [_tfile("Walther_iam_deconvolver")]
+def _tfile(name):
+    for d in _TSEARCH:
+        q = os.path.join(d, name)
+        if os.path.exists(q): return q
+    raise FileNotFoundError(f"{name}: not found under {T} or its Runtime Matrices subdirectories")
 
 def _j(name): return json.load(open(os.path.join(T, name)))
 
 # ── engine constants (cpg_gauge_engine.py @ HEAD) ─────────────────────────────
-_eng = open(os.path.join(T, "cpg_gauge_engine.py"), encoding="utf-8").read()
+_eng = open(_tfile("cpg_gauge_engine.py"), encoding="utf-8").read()
 def _lit(name):
     m = re.search(rf"^{name}\s*=\s*(\{{[^\n]*\}})\s*(#.*)?$", _eng, re.M)          # one-line dict
     if not m: m = re.search(rf"^{name}\s*=\s*(\{{.*?^\}})", _eng, re.M | re.S)   # multi-line dict
@@ -48,7 +60,7 @@ IDENTITY_PROV = _loci.get("_provenance", {})
 # ── markers (separation) ──────────────────────────────────────────────────────
 _mk = _j("iamatlas_celltype_markers_v0_2.json")
 MARKERS_META = {k: v for k, v in _mk.items() if k.startswith("_") or k in ("meta", "version")}
-MARKERS_SIZE_TRIAL = os.path.getsize(os.path.join(T, "iamatlas_celltype_markers_v0_2.json"))
+MARKERS_SIZE_TRIAL = os.path.getsize(_tfile("iamatlas_celltype_markers_v0_2.json"))
 
 # ── derived helpers ───────────────────────────────────────────────────────────
 import math
