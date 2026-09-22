@@ -486,7 +486,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 <details>
 <summary><strong>Virial Partners Paper</strong> — Dark Matter and Dark Energy as Virial Partners</summary>
 
-*[Available on request — contact heath@iamperformance.net]*
+**Paper:** [Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf](papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
 
 - Dark matter = geometric potential half of the virial partition; dark energy = kinetic informational half
 - These are two expressions of 2K + V = 0 at cosmological scales — not two independent phenomena

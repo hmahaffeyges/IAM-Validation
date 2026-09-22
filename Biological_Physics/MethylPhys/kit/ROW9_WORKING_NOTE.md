@@ -561,3 +561,38 @@ the author rather than a defect.
 **Also repaired to make the manual build at all:** `data003.py`'s `T` defaulted to a scratch folder
 (`trial/CPG_TRIAL_CODE`) that no longer exists. It now defaults to `MethylPhys/chain`, with `_tfile()` resolving a
 name across the `Runtime Matrices` subdirectories, the deconvolver directory and the sibling `atlas/`.
+
+## 2026-09-22 - Issue 003 cut to the instrument and its record: 311 -> 173 pages
+
+Author: *"I would remove all that since it exists in 002 and we dont want anything in the issue003 that doesnt
+belong right now. issue004 can include the evidence of the diseases after we do all the testing with our new
+chain."* Then, on the physics and the record: *"yes keep all that, just make sure its up to date, if we still
+reference it or use it we keep it."*
+
+**Removed** - Issue 002 publishes all of it, and none of it is produced by the commissioned chain:
+
+| | what it was |
+|---|---|
+| per-card disease reference bars, signature comparisons | cohort disease signatures on the pre-atlas surface |
+| per-card post-breach trajectories | modelled progression past the no-return line |
+| per-card intervention levers, cancer panels | ranked treatment recommendations |
+| the multi-class drift cascade and its healthy baseline tables | VAL-037..046 disease predictions; the baseline tables are the typed April values, superseded by the measured reference age curve |
+| §3 research evidence, §4 baseline tables, §5 clinical scenarios, §6 dated predictions with priority treatment, the master predictions table | the same 002 material at document level |
+
+Done as two module flags rather than deletions - `EMIT_CARDS_AFTER_SATURATION` and `EMIT_CARD_DISEASE_BLOCKS`, both
+defaulting to `True` - so `build_gape_issue002.py` still reproduces Issue 002 exactly. Issue 003's build sets both
+`False`.
+
+**Kept, and verified current rather than assumed:** the corrected physics section (§5, p96: Landauer, the Mahaffey
+number, the reference and the gauge as three quantities that must not be confused), the statement of what Issue 002
+said and what is retired (p97), the preface (p99) and the reproduced Issue 002 §2 with its §2.1/§2.1a *derivation*
+of H_min dropped (p100). Checked by scanning the rendered text: no page describes A = 1.00 as sitting on the floor,
+no page equates the Mahaffey number with H_min, and the only occurrences of the old derivation language are inside
+the sentence that retires it. Also kept: the saturation measurement and wall chart (the ceiling the chain uses, and
+the author's April figure, which reproduces against the live table), Appendix V the validation index, the
+falsification record, the procedures, prior art, future goals and the glossaries.
+
+**Result: 173 pages from 311.** Near-duplicate pairs 155 -> 26, and all 26 are now per-card explanatory preambles -
+SUBSTRATE-BY-SUBSTRATE BREAKDOWN (15 pairs) and VERTEBRATE LIFESPAN CONTEXT (12) - the same prose over eight
+different data sets. Stating each once before the cards would remove them; that is a presentation choice, not a
+defect.

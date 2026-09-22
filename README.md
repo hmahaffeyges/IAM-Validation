@@ -100,6 +100,7 @@ The instrument: [`MethylPhys/`](Biological_Physics/MethylPhys/). The evidence:
 - [Dark energy evolution and the far future of an IAM universe](docs/papers/wz_far_future.pdf)
 - [Falsifiable predictions for Euclid, DESI and next-generation surveys](docs/papers/IAM_Survey_Predictions_Paper.pdf)
 - [Missing satellites: the virial partition closure condition and the two mechanisms](docs/papers/Missing_Satellites.pdf)
+- [Dark matter and dark energy as virial partners](docs/papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
 - [Virial efficiency and the effective nonlinear exponent - published N-body confirmation](docs/papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
 - [Lensing-dynamics mass discrepancy as a redshift-dependent signature](docs/papers/IAM_Lensing_Dynamics_Paper.pdf)
 - [Three-way mass discrepancy in galaxy clusters: eROSITA, Planck SZ, DES](docs/papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)

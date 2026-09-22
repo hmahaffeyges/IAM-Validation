@@ -1044,7 +1044,10 @@ CLASS_CANCERS = {
 # All representative values calibrated from published healthy reference cells
 # and the most validated cancer for each class.
 
-EMIT_CARDS_AFTER_SATURATION = True   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
+EMIT_CARDS_AFTER_SATURATION = True
+EMIT_CARD_DISEASE_BLOCKS = True   # the per-card disease reference, signature comparison, post-breach trajectory and
+                                  # intervention levers. Issue 002 publishes them; Issue 003 sets this False (author,
+                                  # 2026-09-22) and Issue 004 will carry disease evidence measured on this chain.   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
 
 CARDS = [
     # ─── #1: IMMUNE (70% of cfDNA — the dominant signal in blood) ──────────────
@@ -4946,8 +4949,9 @@ def render_card(story, card):
     story.append(Spacer(1, 4))
     story.append(SubstrateABar(key, card['sv_healthy'], f"HEALTHY REFERENCE — {card['cancer_label_h']}"))
     story.append(Spacer(1, 6))
-    story.append(SubstrateABar(key, card['sv_cancer'], f"DISEASE REFERENCE — {card['cancer_label_c']}",
-                               split_saturated=True))
+    if EMIT_CARD_DISEASE_BLOCKS:   # the disease-labelled bar inside the healthy substrate section
+            story.append(SubstrateABar(key, card['sv_cancer'], f"DISEASE REFERENCE — {card['cancer_label_c']}",
+                                       split_saturated=True))
     story.append(Spacer(1, 6))
 
     # Combined A delta — now with saturation-aware active version for monitoring
@@ -5006,30 +5010,33 @@ def render_card(story, card):
         sBodySm))
     story.append(Spacer(1, 6))
 
-    # ── Section 4b (optional): DISEASE SIGNATURE COMPARISON ───────────────────
-    sig = card.get('disease_signature')
-    if sig:
-        story.append(CondPageBreak(4.5*inch))
-        story.append(Paragraph(sig['title'], sLabel))
-        story.append(Paragraph(sig['subtitle'], sMut))
-        story.append(Spacer(1, 4))
-        story.append(DiseaseSignatureChart(key, sig['conditions'], ''))
-        story.append(Spacer(1, 6))
+    if EMIT_CARD_DISEASE_BLOCKS:
+        # Disease reference, signature comparison, post-breach trajectory, intervention levers and the cancer
+        # panel. Issue 002 publishes these; Issue 003 carries the instrument only (author, 2026-09-22).
+            # ── Section 4b (optional): DISEASE SIGNATURE COMPARISON ───────────────────
+            sig = card.get('disease_signature')
+            if sig:
+                story.append(CondPageBreak(4.5*inch))
+                story.append(Paragraph(sig['title'], sLabel))
+                story.append(Paragraph(sig['subtitle'], sMut))
+                story.append(Spacer(1, 4))
+                story.append(DiseaseSignatureChart(key, sig['conditions'], ''))
+                story.append(Spacer(1, 6))
 
-    # ── Section 4c: Post-breach Trajectory (if card has post_breach data) ────
-    if card.get('post_breach'):
-        story.append(Paragraph(
-            'What happens past the ceiling is condition-specific. The A-score magnitude alone '
-            'does not track severity once the ceiling is crossed — different diseases take '
-            'different post-breach paths that the full five-substrate divergence pattern '
-            'reveals. The subsection below walks through this class\'s post-breach trajectory: '
-            'which substrates keep carrying signal, where the Warburg metabolic lock-in happens, '
-            'where the glucose inversion point sits, and where the framework currently has '
-            'high confidence versus where the open research questions remain.',
-            sBodySm))
-        story.append(Spacer(1, 6))
-        _render_post_breach(story, card)
-        story.append(Spacer(1, 6))
+            # ── Section 4c: Post-breach Trajectory (if card has post_breach data) ────
+            if card.get('post_breach'):
+                story.append(Paragraph(
+                    'What happens past the ceiling is condition-specific. The A-score magnitude alone '
+                    'does not track severity once the ceiling is crossed — different diseases take '
+                    'different post-breach paths that the full five-substrate divergence pattern '
+                    'reveals. The subsection below walks through this class\'s post-breach trajectory: '
+                    'which substrates keep carrying signal, where the Warburg metabolic lock-in happens, '
+                    'where the glucose inversion point sits, and where the framework currently has '
+                    'high confidence versus where the open research questions remain.',
+                    sBodySm))
+                story.append(Spacer(1, 6))
+                _render_post_breach(story, card)
+                story.append(Spacer(1, 6))
 
     # ── Section 5: THREE-COMPONENT DECOMPOSITION PER SUBSTRATE ────────────────
     story.append(Paragraph('THREE-COMPONENT DECOMPOSITION (C1/C2/C3) — PER SUBSTRATE', sLabel))
@@ -5233,94 +5240,97 @@ def render_card(story, card):
     story.append(vert_t)
     story.append(Spacer(1, 6))
 
-    # ── Section 10: INTERVENTION LEVERS (ranked) ──────────────────────────────
-    levers = INTERVENTION_LEVERS.get(key)
-    if levers:
-        story.append(CondPageBreak(3.0*inch))
-        story.append(Paragraph('INTERVENTION LEVERS — RANKED BY EXPECTED IMPACT', sLabel))
-        story.append(Paragraph(
-            f'If a patient\'s A-score is elevated — MARGINAL, DETECTABLE, or URGENT — the '
-            f'clinical question is what can be done. The GAPE framework does not prescribe '
-            f'treatment; that remains the physician\'s judgment. But the framework does identify '
-            f'which intervention categories have the mechanistic strength to move this particular '
-            f'class\'s A-score back toward the floor. The five categories below are the standard '
-            f'anti-aging and cancer-adjacent interventions: senolytics (clearing senescent cells), '
-            f'metabolic restoration (NAD+, caloric restriction, exercise), epigenetic restoration '
-            f'(DNMT/TET modulators, HDAC inhibitors), reprogramming (cyclic Yamanaka factors), '
-            f'and checkpoint stringency (cell cycle control, immune checkpoint blockade).',
-            sBodySm))
-        story.append(Spacer(1, 3))
-        story.append(Paragraph(
-            f'The ranking below is specifically for the {card["short"].lower()} class and its '
-            f'primary failure mode ({card["inversion"]}). Impact Level 1 (Dominant) means the '
-            f'intervention directly addresses the class\'s failure mechanism and is the first '
-            f'lever to try. Level 2 (Strong) means substantial mechanistic support for A-score '
-            f'restoration in this class. Level 3 (Moderate) means helpful but not addressing the '
-            f'binding constraint. Level 4 (Limited) means the intervention works for other classes '
-            f'but does not target this class\'s specific biology. Level 5 (Not applicable) means '
-            f'the intervention category is biologically incompatible with this class — e.g., '
-            f'senolytics cannot act on post-mitotic terminal cells that do not become classically '
-            f'senescent, and reprogramming cannot be applied to terminal cells without losing the '
-            f'identity that defines them.',
-            sBodySm))
-        story.append(Spacer(1, 4))
-        # Sort by impact score ascending (1 first)
-        sorted_levers = sorted(levers, key=lambda x: x[0])
-        lev_rows = [[PH('Impact'), PH('Category'), PH('Mechanism'), PH('Rationale')]]
-        for impact, cat_key, cat_name, rationale in sorted_levers:
-            impact_lbl, impact_col = impact_label(impact)
-            lev_rows.append([
-                Paragraph(f'<b>{impact}</b> <font size="6">{impact_lbl}</font>',
-                          S('ilv', fontSize=8, textColor=impact_col,
-                            fontName='Helvetica-Bold', leading=11, alignment=TA_CENTER)),
-                Paragraph(f'<b>{cat_name}</b>',
-                          S('icn', fontSize=7.5, textColor=INT_COLS[cat_key],
-                            fontName='Helvetica-Bold', leading=11)),
-                P(cat_key.replace('_', ' ')),
-                P(rationale),
-            ])
-        lev_t = Table(lev_rows, colWidths=[PW*0.11, PW*0.19, PW*0.13, PW*0.57], repeatRows=1)
-        lev_t.setStyle(tbl_style(7))
-        story.append(lev_t)
-        story.append(Spacer(1, 6))
+    if EMIT_CARD_DISEASE_BLOCKS:
+        # Disease reference, signature comparison, post-breach trajectory, intervention levers and the cancer
+        # panel. Issue 002 publishes these; Issue 003 carries the instrument only (author, 2026-09-22).
+            # ── Section 10: INTERVENTION LEVERS (ranked) ──────────────────────────────
+            levers = INTERVENTION_LEVERS.get(key)
+            if levers:
+                story.append(CondPageBreak(3.0*inch))
+                story.append(Paragraph('INTERVENTION LEVERS — RANKED BY EXPECTED IMPACT', sLabel))
+                story.append(Paragraph(
+                    f'If a patient\'s A-score is elevated — MARGINAL, DETECTABLE, or URGENT — the '
+                    f'clinical question is what can be done. The GAPE framework does not prescribe '
+                    f'treatment; that remains the physician\'s judgment. But the framework does identify '
+                    f'which intervention categories have the mechanistic strength to move this particular '
+                    f'class\'s A-score back toward the floor. The five categories below are the standard '
+                    f'anti-aging and cancer-adjacent interventions: senolytics (clearing senescent cells), '
+                    f'metabolic restoration (NAD+, caloric restriction, exercise), epigenetic restoration '
+                    f'(DNMT/TET modulators, HDAC inhibitors), reprogramming (cyclic Yamanaka factors), '
+                    f'and checkpoint stringency (cell cycle control, immune checkpoint blockade).',
+                    sBodySm))
+                story.append(Spacer(1, 3))
+                story.append(Paragraph(
+                    f'The ranking below is specifically for the {card["short"].lower()} class and its '
+                    f'primary failure mode ({card["inversion"]}). Impact Level 1 (Dominant) means the '
+                    f'intervention directly addresses the class\'s failure mechanism and is the first '
+                    f'lever to try. Level 2 (Strong) means substantial mechanistic support for A-score '
+                    f'restoration in this class. Level 3 (Moderate) means helpful but not addressing the '
+                    f'binding constraint. Level 4 (Limited) means the intervention works for other classes '
+                    f'but does not target this class\'s specific biology. Level 5 (Not applicable) means '
+                    f'the intervention category is biologically incompatible with this class — e.g., '
+                    f'senolytics cannot act on post-mitotic terminal cells that do not become classically '
+                    f'senescent, and reprogramming cannot be applied to terminal cells without losing the '
+                    f'identity that defines them.',
+                    sBodySm))
+                story.append(Spacer(1, 4))
+                # Sort by impact score ascending (1 first)
+                sorted_levers = sorted(levers, key=lambda x: x[0])
+                lev_rows = [[PH('Impact'), PH('Category'), PH('Mechanism'), PH('Rationale')]]
+                for impact, cat_key, cat_name, rationale in sorted_levers:
+                    impact_lbl, impact_col = impact_label(impact)
+                    lev_rows.append([
+                        Paragraph(f'<b>{impact}</b> <font size="6">{impact_lbl}</font>',
+                                  S('ilv', fontSize=8, textColor=impact_col,
+                                    fontName='Helvetica-Bold', leading=11, alignment=TA_CENTER)),
+                        Paragraph(f'<b>{cat_name}</b>',
+                                  S('icn', fontSize=7.5, textColor=INT_COLS[cat_key],
+                                    fontName='Helvetica-Bold', leading=11)),
+                        P(cat_key.replace('_', ' ')),
+                        P(rationale),
+                    ])
+                lev_t = Table(lev_rows, colWidths=[PW*0.11, PW*0.19, PW*0.13, PW*0.57], repeatRows=1)
+                lev_t.setStyle(tbl_style(7))
+                story.append(lev_t)
+                story.append(Spacer(1, 6))
 
-    # ── Section 11: CANCER PANEL (if any cancers for this class) ──────────────
-    if CLASS_CANCERS.get(key):
-        story.append(Paragraph('CANCER PANEL — ΔA RANKED', sLabel))
-        story.append(Paragraph(
-            f'The TCGA cancer validation is where the framework earns its keep. For every cancer '
-            f'type in this class, we compute two numbers from published TCGA methylation data: '
-            f'A_healthy (from matched normal tissue) and A_tumor (from cancer samples in the same '
-            f'study). The ΔA = A_tumor − A_healthy is the signal the framework predicts should '
-            f'appear — and it does. Thresholds for tier assignment: A = 1.05 DETECT, A = 1.07 '
-            f'URGENT, A = 1.10 FLOOR BREACH. These thresholds are not fit to the cancer data; '
-            f'they were derived from the healthy-vs-age statistics and happen to align with '
-            f'the cancer validation cleanly. The bars below are ordered by |ΔA| descending so the '
-            f'cancers with the largest signal appear first.',
-            sBodySm))
-        story.append(Spacer(1, 3))
-        story.append(Paragraph(
-            f'Note that ΔA ranges typical for this class matter. Terminal-class cancers (glioma, '
-            f'glioblastoma) show ΔA ≈ 0.22–0.27 — the largest in the entire 28-cancer TCGA '
-            f'dataset. Cycling epithelial cancers show ΔA ≈ 0.13–0.19 — moderate but clearly '
-            f'detectable. Stromal and progenitor-lineage cancers show ΔA ≈ 0.10–0.17. Each '
-            f'cancer below is cited to its primary TCGA publication and shows sample size. '
-            f'Direct links from A-score to TCGA evidence — no black boxes between physics and '
-            f'clinical data.',
-            sBodySm))
-        story.append(Spacer(1, 4))
-        # Sort by |ΔA| descending
-        entries = []
-        for (name, bn, bt, n, src) in CLASS_CANCERS[key]:
-            # Only include cancers whose class in our cancer rosters matches
-            An_c = H_ent(bn) / hm
-            At_c = H_ent(bt) / hm
-            entries.append((name, bn, bt, n, src, At_c - An_c))
-        entries.sort(key=lambda x: -abs(x[5]))
-        for i, (name, bn, bt, n, src, _) in enumerate(entries):
-            story.append(CancerPanelBar(i+1, name, bn, bt, key, n, src))
-            story.append(Spacer(1, 1))
-        story.append(Spacer(1, 6))
+            # ── Section 11: CANCER PANEL (if any cancers for this class) ──────────────
+            if CLASS_CANCERS.get(key):
+                story.append(Paragraph('CANCER PANEL — ΔA RANKED', sLabel))
+                story.append(Paragraph(
+                    f'The TCGA cancer validation is where the framework earns its keep. For every cancer '
+                    f'type in this class, we compute two numbers from published TCGA methylation data: '
+                    f'A_healthy (from matched normal tissue) and A_tumor (from cancer samples in the same '
+                    f'study). The ΔA = A_tumor − A_healthy is the signal the framework predicts should '
+                    f'appear — and it does. Thresholds for tier assignment: A = 1.05 DETECT, A = 1.07 '
+                    f'URGENT, A = 1.10 FLOOR BREACH. These thresholds are not fit to the cancer data; '
+                    f'they were derived from the healthy-vs-age statistics and happen to align with '
+                    f'the cancer validation cleanly. The bars below are ordered by |ΔA| descending so the '
+                    f'cancers with the largest signal appear first.',
+                    sBodySm))
+                story.append(Spacer(1, 3))
+                story.append(Paragraph(
+                    f'Note that ΔA ranges typical for this class matter. Terminal-class cancers (glioma, '
+                    f'glioblastoma) show ΔA ≈ 0.22–0.27 — the largest in the entire 28-cancer TCGA '
+                    f'dataset. Cycling epithelial cancers show ΔA ≈ 0.13–0.19 — moderate but clearly '
+                    f'detectable. Stromal and progenitor-lineage cancers show ΔA ≈ 0.10–0.17. Each '
+                    f'cancer below is cited to its primary TCGA publication and shows sample size. '
+                    f'Direct links from A-score to TCGA evidence — no black boxes between physics and '
+                    f'clinical data.',
+                    sBodySm))
+                story.append(Spacer(1, 4))
+                # Sort by |ΔA| descending
+                entries = []
+                for (name, bn, bt, n, src) in CLASS_CANCERS[key]:
+                    # Only include cancers whose class in our cancer rosters matches
+                    An_c = H_ent(bn) / hm
+                    At_c = H_ent(bt) / hm
+                    entries.append((name, bn, bt, n, src, At_c - An_c))
+                entries.sort(key=lambda x: -abs(x[5]))
+                for i, (name, bn, bt, n, src, _) in enumerate(entries):
+                    story.append(CancerPanelBar(i+1, name, bn, bt, key, n, src))
+                    story.append(Spacer(1, 1))
+                story.append(Spacer(1, 6))
 
     # ── Section 11: CORE METRICS TABLE (Published/Derived) ───────────────────
     story.append(Paragraph('CORE METRICS — PUBLISHED AND DERIVED', sLabel))

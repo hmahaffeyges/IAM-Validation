@@ -704,6 +704,12 @@ def secV_val_index(story):
     story.append(Paragraph("175 rows. Path prefix <font face=\"Courier\">BP/</font> = <font face=\"Courier\">Biological_Physics/</font>; an empty path means the record lives in the RETIRED evidence report / inventory and the Zenodo deposit, not in a repository folder. Verdicts are recorded from each OUTCOME, not re-verified.", sMut)); story.append(SP(0.04))
     story.append(tbl(rows,[0.075,0.11,0.30,0.07,0.245,0.20], fs=5.2))
 
+# Issue 003 carries the instrument and its record only (author, 2026-09-22): "I would remove all that since it
+# exists in 002 and we dont want anything in the issue003 that doesnt belong right now. issue004 can include the
+# evidence of the diseases after we do all the testing with our new chain." Removed here: 002's research-evidence
+# cohorts, its baseline reference tables (typed April values, superseded by the measured age curve), its clinical
+# scenarios, its priority-treatment predictions and the master predictions table. Kept: the reproduced 002 physics
+# with its preface, the saturation measurement, and the validation index.
 def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)
     story = []
@@ -714,9 +720,12 @@ def build(out_path):
     # Issue 003 renders the cascade and the cards itself, each followed by its addendum; the inherited
     # saturation block would otherwise emit a second, addendum-less copy of both (84 duplicate pages).
     L.EMIT_CARDS_AFTER_SATURATION = False
+    L.EMIT_CARD_DISEASE_BLOCKS = False
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
-    L.render_cascade_section(story)
+    # The multi-class drift cascade (VAL-037..046) and its healthy baseline reference tables are Issue 002's
+    # disease-prediction evidence on the pre-atlas surface; Issue 004 carries disease evidence measured on this chain.
+    # L.render_cascade_section(story)
     for card in L.CARDS:
         L.render_card(story, card); card_addendum(story, card['key'])
     sec5a_tools(story)
@@ -727,12 +736,12 @@ def build(out_path):
     story.append(Paragraph('Sections 5.1b-5.6 are reproduced from Issue 002 as written (April 2026). Its s2.1 and s2.1a - the \'derivation\' of H_min from Landauer and the seven-step chain - are NOT reproduced: '
         'section 5.0.4 states what of them stands and what is retired, and the ledger in 5.0.8 gives every quantity\'s provenance. The forty H_min values the engine carries are the G-002/G-003b MCMC posteriors, frozen; see 5.0.4 and PROC-HMIN-BOOT-01.', sBodySm))
     _render_002_physics_without_derivation(story)
-    L.render_section_3_evidence(story); L.render_section_4_baselines(story); L.render_section_5_scenarios(story); L.render_section_6_predictions(story)
+    
     # new sections
     sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
     # back matter from 002
     secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
-    L.blk_master_predictions(story); L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
+    L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)
     doc.build(story, onFirstPage=make_canvas, onLaterPages=make_canvas)
