@@ -236,3 +236,21 @@ whose mass bends nothing measurable.
 
 Also added: a 'two names' note - **astro-genetics** is the programme (cosmology's tools pointed at the epigenome); **physics of methylation:
 Landauer metrology** is the narrower field name the manual and the methods paper carry, because a methods paper should claim only what it measures.
+
+### 2026-09-22 - the author inspected the interface's three controls; all three were broken
+
+He asked what the Clinician/Researcher toggle changes, what the print button produces, and whether the Run tab links what a researcher needs.
+I checked instead of answering, and the answers were: nothing, not enough, and no.
+
+| control | what it did | fixed to |
+|---|---|---|
+| audience toggle | set a `researcher` class on `<body>` and stored it in localStorage - **and no CSS rule or element ever referenced it.** Decorative. | the tab table gained an audience column; 8 of 15 tabs (Healthy reference, Coverage, Safeguards, Integrity, Chain, Roadmap, Record, Run) and all provenance/SHA material are `.resr` and hidden in clinician view by a real CSS rule. Nothing is hidden from the researcher. |
+| print | printed the five measurement tabs (the third column of the tab table was already a print flag, so my first reading of this as 'one tab' was wrong) - but **no provenance, and `<details>` folds printed collapsed** | print is audience-aware: clinician gets the five measurement tabs, researcher additionally gets Healthy reference, Safeguards, Integrity, Chain and Coverage; all folds forced open; tables/figures/gauges given `page-break-inside:avoid`; and every external link prints its URL after the text, so a paper copy is still traceable |
+| Run tab | **zero links**, and it advertised `build_methylphys.py --idat-grn ... --idat-red ...` - **a command that did not exist**; the builder only ever took `--bundle` | 25 linked files at this commit with SHA badges (the kit guards, the RUNBOOK, lab_zero, the atlas and its provenance, the manifest, the band, the age curve, the per-cell reference), and `MethylPhys_Interface/run_sample.py` written so the advertised command is real: IDAT pair or a `cpg_id,beta` CSV -> Stage 1 -> run_full -> report, with the commissioning requirement and the refusal behaviour stated in a table |
+
+**Tested before pushing, because this is the second time I have advertised a command:** `run_sample.py --betas` on a cached array returns immune
+A'' 0.9951 IN_BAND NORMAL - identical to the conductor's own reading for that array - and the same call without `--lab` returns 5 refusals and no
+placement, which is the fail-closed path working from the entry point a stranger would use.
+
+**Lesson:** a control on a page is a claim. The toggle, the print button and the command block were all claims I had not checked, and two of the
+three were false. Any interactive element ships with a check that it does what its label says.
