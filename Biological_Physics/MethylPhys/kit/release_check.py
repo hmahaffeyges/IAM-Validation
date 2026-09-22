@@ -74,6 +74,15 @@ def verdict(rc, out):
     if rc!=0: return "FAIL"
     return "INCONCLUSIVE"   # ran, exited 0, said nothing a machine can read - not a pass
 
+def check_links():
+    """Every relative path in the live documentation set must resolve (link_check.py, 2026-09-22)."""
+    import subprocess, sys, os
+    r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "link_check.py")],
+                       capture_output=True, text=True)
+    print(r.stdout.strip().split("\n")[-1])
+    return r.returncode == 0
+
+
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--only",default=""); a=ap.parse_args()
     want=set(x.strip() for x in a.only.split(",") if x.strip())
