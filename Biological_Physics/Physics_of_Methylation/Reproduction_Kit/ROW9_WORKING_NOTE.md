@@ -26,8 +26,10 @@ Every laboratory's Stage 1 beta matrix is a checkpointed artifact with its GSM l
 1. *Plain mean propagated NaN.* The first build used `numpy.mean` over the per-CpG entropies, so a single missing marker voided the whole array; `dropna` then silently dropped most arrays and only
    24 of 115 entries got a reference from one laboratory. `nanmean` fixed it: 115/115 entries, all four laboratories.
 2. *The reference was on the wrong beta scale.* I applied the Stage 1s pipeline map when building it. `cpg_conductor.stage_a_cells` scores the per-cell surface on the **RAW** calibrated betas -
-   only the class gauge receives the mapped ones. The mismatch manufactured spurious 'below range' calls: on one healthy Uppsala array 14 of 115 cells read below range with the map, and the
-   diagnosis was visible only because *most unplaced cells* read below, which cannot be true of a typical healthy array. Without the map: **101 of 115 within, 14 below**. Recorded in the builder's header.
+   only the class gauge receives the mapped ones. The mismatch manufactured spurious 'below range' calls. The diagnosis came from the printed immune block of one healthy
+   Uppsala array: **13 of the 20 immune rows printed read 'below'** their own healthy range, including every T-cell and NK entry - which cannot be true of a typical healthy array. The pre-fix
+   total across all 115 cells was **not counted** (only the immune block was printed), so no pre-fix total is claimed here; it necessarily exceeded 13. Post-fix, measured over all 115:
+   **101 within, 14 below**, with cells including CD14_monocytes and CD56_NK-cells flipping from 'below' to 'within'. Recorded in the builder's header.
    RULE: a reference is built on exactly the scale the stage that consumes it receives.
 
 **Held out**: a held-out array falls inside its entry's own p10-p90 with median 0.75 (IQR 0.70-0.82; nominal 0.80; >= 0.80 in 35 % of entry-laboratory cells). Not yet at the bar. Before this is sealed
