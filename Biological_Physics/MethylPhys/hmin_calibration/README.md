@@ -1,5 +1,9 @@
 # H_min calibration — the MCMC that produced the floors, published for inspection
 
+Deposited, with a verified reproduction: [10.5281/zenodo.22905819](https://doi.org/10.5281/zenodo.22905819) — samplers, the 37 reference cells as a table,
+the reproduction log and `reproduce.sh`. Re-running the calibration returns every floor inside its own
+posterior standard deviation (largest difference 0.000245; R-hat < 1.001).
+
 Every file here is the calibration behind the constants the chain divides by. If a reviewer wants to check
 H_min, this is the directory.
 

@@ -104,7 +104,7 @@ disagree.
 
 | not published | why, and what to do instead |
 |---|---|
-| **Raw MCMC posterior chains** (G-002, G-003b, G-008) | The samplers, their priors, the 37-cell reference database and the convergence summaries are all above - the samples themselves are a Zenodo-scale deposit rather than a repository file. Ask and they will be deposited. |
+| Raw MCMC posterior chains | The samplers never wrote them to disk, so no run produced a sample archive. What a reviewer can do instead is re-run the calibration in about fifteen seconds and compare: [10.5281/zenodo.22905819](https://doi.org/10.5281/zenodo.22905819) carries the samplers, the 37 reference cells, `reproduce.sh` and the 2026-09-22 reproduction (every floor inside its own posterior SD, largest difference 0.000245, R-hat < 1.001). |
 | **Raw IDATs for the commissioned cohorts** | Public at their accessions (GSE87571, GSE42861, GSE111629, GSE125105) and not mirrored here; every script names the accession it reads. |
 | **Controlled-access cohorts** | The cfDNA and fragmentomics cohorts named as Future Goals (DELFI, Mouliere) are controlled access. Nothing here depends on them; they are listed as requirements, not as data held. |
 | **Disease evidence from the commissioned chain** | It does not exist yet. By decision it belongs in Issue 004, after sealed runs against pre-registered bars. The April 2026 database above is the *pre-atlas* chain's and is labelled as history. |
