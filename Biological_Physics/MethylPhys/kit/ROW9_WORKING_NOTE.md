@@ -646,7 +646,7 @@ been broken since long before this tree.
 (`Reproduction_Kit/`, `Issue003/`, `CPG_Engine/`, `Testing_and_Code/`, `IAM_Atlas/`, `Physics_of_Methylation/`)
 plus `ENGINE/` placeholders in COMPONENT_MAP that were never real paths. Repaired by substitution; the SOP's
 remaining June/July-layout references are now resolved generically in `sop_repoint.py` - one tracked file with that
-basename means repoint, none or several means mark `(historical path)` so nobody tries to follow it. `README_FIRST.md`
+basename means repoint, none or several means mark `(historical path)` so nobody tries to follow it. `RETIRED_2026-09/README_FIRST_kit_bundle_2026-09.md`
 described a reproduction-kit *zip* layout rather than this repository, so it is retired with a header saying so.
 `Retired(V1)IAM_Manuscript.pdf` was renamed - parentheses in a filename cannot be linked in markdown.
 
