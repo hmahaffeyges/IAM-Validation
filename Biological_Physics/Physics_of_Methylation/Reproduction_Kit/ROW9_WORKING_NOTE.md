@@ -370,3 +370,30 @@ contributes nothing, and the record says "nothing - this finding names no condit
 
 A new **Findings** tab reads these records and explains each block; it is exempt from the vocabulary guard for the
 same reason the Files tab is - a finding must be able to name the condition it measured.
+
+## 2026-09-22 - the June cards and the straw-man wall read, and the findings schema extended to v1.1
+
+The author asked that the old disease matrix, the cards and the residual maps be read before the findings schema
+is settled, so we look for the right things. Read in full: `IAM_Disease_Wall_CROWN_JEWEL_v1_12.html`,
+`ad-immune_card_v3_1.json`, `breast-epic_card_v3_1.json`, `immune-atlas_card_v2_0.json`, and the residual /
+bimodality / PCA map column structures.
+
+**Nothing numeric was imported.** Their effect sizes are case-versus-control Cohen's d on the pre-atlas surface -
+the statistic this chain does not use. What was taken is the *vocabulary of observations*: the kinds of thing
+worth recording. Eight fields were added because of what those files record:
+
+| field added | why - what the old set recorded |
+|---|---|
+| `window` | the wall's rows are disease x PHASE x substrate (">10 yr pre-dx", "5-10 yr", "0-2 yr", at dx) and its headline is a trajectory across them. Without a window field, findings at different distances from diagnosis pool into one number and the trajectory cannot be reconstructed |
+| class `direction` | **the sharpest thing in the whole set.** The AD card's specificity arm: on the SAME Mahalanobis metric, Alzheimer's departed outward, PSP/CBD departed inward ("BELOW_NORMAL architectural compaction direction"), FTD sat between. *Direction, not magnitude, separated three conditions* |
+| `compartments` + opposition | the wall splits immune into lymphoid and myeloid because they "move in opposite directions near diagnosis". A pooled immune number averages that away |
+| `per_cpg` residual map | every card carried one (cpg, d per cohort, concordant_strong, mean_abs_d, CHR, MAPINFO). Ours is the same object on an absolute footing: per-CpG mean residual z against the healthy reference per arm |
+| `per_cpg` bimodality | their breast map decomposed each CpG into bc_hc, bc_case, delta_bc, mean/sd beta, delta_var, loss_of_bimodality. A locus can hold its mean while splitting into two populations - a different event from a mean shift |
+| `coverage` | the cards refused to match below 80 % coverage of their residual map (INSUFFICIENT_COVERAGE) |
+| `covariates` | the immune-atlas card carries age, smoking and sex foreground layers - and discloses that smoking subtraction was NOT applied at beta level. Smoking is a large blood methylation effect; a finding that does not say whether it was handled invites a confounded comparison |
+| `specificity_arm`, `cell_of_origin`, `conjunction_rule`, `honest_limitations` | the cards' own devices: the contrast conditions run on the same instrument, the declared cell of origin (the wall's gold ring), "card never fires on one tile", and a limitations list at the end |
+
+**Three defects in my own code, caught on the dry runs rather than reasoned about:**
+1. The sky residual arrives as a **pandas Series indexed by CpG id**, not a bare array - my `isinstance(list, ndarray)` check silently skipped it, so the whole per-CpG layer was empty while reporting no error. Now aligned on the CpG index so samples with different coverage still stack.
+2. The **opposition flag fired on healthy noise**: the first run reported opposite lymphoid/myeloid signs in *both* arms with the sides swapped - which is what sampling scatter looks like. It now carries the arm size, the member-magnitude IQR, and a `separation_clears_member_scatter` test; on these healthy arms it correctly reports **false** in both.
+3. Ranked by |mean z| alone the top CpGs were **mean 30.8 with sd 42.6** - high-variance probes, not consistent departures. A second ranking by |mean z| / sd was added; that is the list to carry into a candidate panel, and with two cohorts the intersection of the two consistency lists is this chain's equivalent of the cards' `concordant_strong`.
