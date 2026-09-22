@@ -5,7 +5,7 @@ Author's verdict, 2026-09-19: **"Too ambitious too quick. It ended up harming ra
 
 | phase | deliverable | what happened |
 |---|---|---|
-| A1 | `cpg_null_runner.py`, nulls N1–N8 | **BUILT, live** (`MethylPhys/chain/CPG_Null_Runner/`). Every post-Atlas CPG-VAL carries `null_results.json`. The one phase built on trusted bones; still the best-engineered part of the chain. |
+| A1 | [`cpg_null_runner.py`](../chain/CPG_Null_Runner/cpg_null_runner.py), nulls N1–N8 | **BUILT, live** (`MethylPhys/chain/CPG_Null_Runner/`). Every post-Atlas CPG-VAL carries `null_results.json`. The one phase built on trusted bones; still the best-engineered part of the chain. |
 | A2 | synthetic patient generator | **BUILT** (`RETIRED/…/Synthetic_Patient_Generator/`; harness in `MethylPhys/chain/report_builders/`). N7 depends on it — to be restored beside the null runner. |
 | A3 | Family A VALs through the nulls | **DONE** (CPG-VAL-001…007 all carry null results). |
 | B1 | foreground registry | never built |

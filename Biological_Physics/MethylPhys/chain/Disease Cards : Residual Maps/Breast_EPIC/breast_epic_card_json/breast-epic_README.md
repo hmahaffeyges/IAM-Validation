@@ -2,7 +2,7 @@
 
 **Card version:** v3.0
 **Card date:** 2026-06-02 (initial v3.0) + 2026-06-03 (full SOP retrofit)
-**Card location:** `breast-epic_card_v3_1.json` (this folder)
+**Card location:** [`breast-epic_card_v3_1.json`](breast-epic_card_v3_1.json) (this folder)
 **Card README (this file):** v3.0 — clean rewrite 2026-06-04 with current methodology
 **Maintained by:** IAMPerformance Inter-Domain Research Institute, Entiat WA / iamperformance.net
 
@@ -160,4 +160,4 @@ For complete validation detail, see the evidence report `post_build_evidence/v5_
 
 ---
 
-*Companion documents in this card folder: `breast-epic_card_v3_1.json` (card spec), `breast-epic_v3_1_release_notes.md` (technical changelog for v3.1 rewrite). `breast-epic_v3_0_release_notes.md` (v3.0 historical release notes). Companion documents in card parent folder: `BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `WORK_IN_PROGRESS.md`, `breast_epic_residual_maps/`.*
+*Companion documents in this card folder: [`breast-epic_card_v3_1.json`](breast-epic_card_v3_1.json) (card spec), [`breast-epic_v3_1_release_notes.md`](breast-epic_v3_1_release_notes.md) (technical changelog for v3.1 rewrite). [`breast-epic_v3_0_release_notes.md`](breast-epic_v3_0_release_notes.md) (v3.0 historical release notes). Companion documents in card parent folder: `BREAST_EPIC_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, [`WORK_IN_PROGRESS.md`](../../AD_EPIC/AD_immune_card_json/WORK_IN_PROGRESS.md), `breast_epic_residual_maps/`.*

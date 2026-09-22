@@ -12,6 +12,7 @@ Three bases are tried for each reference: relative to the document, to the repos
 Biological_Physics - the corpus writes repo-relative paths both with and without that prefix.
 """
 import os
+from urllib.parse import unquote
 import re
 import subprocess
 import sys
@@ -123,6 +124,7 @@ def main():
             # a file of that name exists anywhere in the tree
             if "/" not in ref and ref in basenames:
                 continue
+            ref = unquote(ref)   # %20 is how a space reaches a markdown link
             candidates = tuple(os.path.join(b, ref) for b in BASES)
             if not any(os.path.exists(c) for c in candidates):
                 bad.append((f, ref))

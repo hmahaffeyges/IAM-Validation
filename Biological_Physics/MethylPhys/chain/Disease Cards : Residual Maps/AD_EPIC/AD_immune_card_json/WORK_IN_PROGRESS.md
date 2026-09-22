@@ -52,9 +52,9 @@
 - [x] Card v3.0 JSON (`ad_immune_card_json/ad-immune_card_v3_0.json`) — strict additive over v2.2
 - [x] Release notes (`ad_immune_card_json/ad-immune_v3_0_release_notes.md`)
 - [x] Residual maps folder (`ad_immune_residual_maps/`)
-  - [x] `ad_immune_residual_map_chr_annotated.csv` (6,018 CpGs, cross-cohort)
-  - [x] `ad_immune_pca_projections.csv` (AIBL PC1-PC10)
-  - [x] `ad_immune_bimodality_map.csv` (placeholder, deferred to v3.2)
+  - [x] [`ad_immune_residual_map_chr_annotated.csv`](../AD_immune_residual_maps/ad_immune_residual_map_chr_annotated.csv) (6,018 CpGs, cross-cohort)
+  - [x] [`ad_immune_pca_projections.csv`](../AD_immune_residual_maps/ad_immune_pca_projections.csv) (AIBL PC1-PC10)
+  - [x] [`ad_immune_bimodality_map.csv`](../AD_immune_residual_maps/ad_immune_bimodality_map.csv) (placeholder, deferred to v3.2)
   - [x] `README_AD_residual_maps.md`
 
 ### Disease matrix v1.5 → v1.6

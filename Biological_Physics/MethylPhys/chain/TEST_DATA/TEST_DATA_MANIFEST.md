@@ -2,7 +2,7 @@
 
 All testing used real, public GEO IDAT files run through the full chain. Calibration
 (Stage 1) used methylprep 1.7.1. In this development container (Python 3.12) a small
-pandas-compatibility shim (`pdshim.py`) is required because methylprep 1.7.1 predates
+pandas-compatibility shim ([`pdshim.py`](harness/pdshim.py)) is required because methylprep 1.7.1 predates
 pandas 2.x; the doctor's Python 3.11 environment runs methylprep natively with no shim.
 The chain logic is identical either way. Calibrated betas are cached in
 `betas_cache.pkl` so the chain can be re-run without re-calibrating.
