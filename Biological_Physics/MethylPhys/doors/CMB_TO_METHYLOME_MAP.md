@@ -149,7 +149,7 @@
 | # | CMB module | CPG analog | status (author) | notes (author) | **2026-09-19 status** |
 |---|---|---|---|---|---|
 | 70 | BAO combination | Multi-substrate combination (RNA-seq, fragmentomics, ATAC-seq, proteomics) as the methylome's BAO — breaks degeneracies CMB-only / methylation-only cannot resolve. | ⟳ | Tier 5. |  |
-| 71 | Supernovae (distance ladder) | Cellular age clock as the distance ladder — calibrate biological age via known-age reference cohorts. | ⟳ | TODO 2.4. |  |
+| 71 | Supernovae (distance ladder) | Cellular age clock as the distance ladder - calibrate biological age via known-age reference cohorts. MEASURED AND PARTLY CLOSED: PROC-PANEL-03 built the per-decade reference curve on 1,379 healthy donors from four laboratories, and it is now the curve every reading is corrected by. PROC-AGE-01 then measured what inverting it buys for one array: 0.47 mA per year against a within-laboratory spread of 0.0235, about 50 years - the rungs are wider than the ladder, so cellular age in years is refused. What remains is the calibration cohort the analogy actually needs: known ages WITH repeat draws, so the technical term cancels. | ◐ | Curve in use (PROC-PANEL-03); per-array inversion refused (PROC-AGE-01). |  |
 | 72 | BBN cross-check | Mendelian inheritance + germline methylation cross-checks — early-life patterns set bounds on later patterns. | ◐ | Niche but principled. |  |
 | 73 | Large-scale structure | Cross-cohort population structure. UK Biobank scale eventually. | ⟳ | Far future. |  |
 | 74 | Joint likelihoods (handle shared covariance) | Joint likelihood across cards for one patient — handle covariance between immune-class drift detected by breast-epic AND immune-epic. | ➕ | Stage 5 architecture. |  |

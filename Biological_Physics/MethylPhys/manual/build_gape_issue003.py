@@ -725,6 +725,7 @@ def build(out_path):
     L.EMIT_CARD_CELL_ROSTER = True
     L.EMIT_CARD_NBIO = False
     L.CORRECT_SUBSTRATE_COMBINATION = True
+    L.EMIT_FINAL_NOTE_002 = False
     L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
     # cards
     # The multi-class drift cascade (VAL-037..046) and its healthy baseline reference tables are Issue 002's
@@ -754,6 +755,7 @@ def build(out_path):
     L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)
+    P3.render_closing(story, L, SP, PageBreak, Paragraph)          # the Issue 003 closing - the LAST page, after the appendices and glossary
     doc.build(story, onFirstPage=make_canvas, onLaterPages=make_canvas)
     return out_path
 

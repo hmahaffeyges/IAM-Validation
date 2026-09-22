@@ -501,7 +501,11 @@ def render_screens(story, L, tbl, SP, PageBreak, Paragraph):
         "not scored.", L.sBodySm))
     story.append(Paragraph("<b>What it does not mean.</b> A fraction is not a cell count. It is the mixture that "
         "best explains this specimen's methylation given the atlas, and for the blood classes the members of a "
-        "group are interchangeable within it.", L.sMut))
+        "group are interchangeable within it. The atlas calls such a set a <i>collinearity group</i>; in plain "
+        "terms it is a set of entries the atlas cannot tell apart, because their marker profiles are so similar "
+        "that many different mixtures of them explain the same specimen equally well. PROC-SEP-03 measured which "
+        "blood entries fall into that condition, which is why this chain reports at class level and treats "
+        "cell-level disagreement between the two solvers as expected rather than as a fault.", L.sMut))
 
     story.append(Paragraph("<b>Screen 2 - the class gauge.</b> For each reportable class: A_mapped, the two "
         "corrections, and A_abs with its placement against the healthy band "
@@ -588,6 +592,14 @@ def render_coverage(story, L, tbl, SP, PageBreak, Paragraph):
      [f"atlas entries with a per-entry reference", f"{len(ref)} of {sum(len(v) for v in by.values())}",
       "the duplicate-label merge, then a re-measured per-entry reference"]],
      [0.28, 0.20, 0.52], fs=7.4))
+    story.append(Paragraph("<b>A note on cfDNA plasma weighting, because it is not applied and should not be.</b> "
+        "The familiar plasma weights - immune about 70 per cent, cycling epithelial about 12, secretory about 8 - "
+        "describe what a PLASMA draw contains, since cell-free DNA arrives weighted by tissue turnover. This chain "
+        "reads a whole-blood array, where the cells are the specimen rather than shed fragments, and Stage 2 "
+        "MEASURES the composition instead of assuming it. Those weights therefore appear here only as context for "
+        "why the immune class dominates a blood reading. When a plasma cohort arrives they do not become a "
+        "correction applied to the gauge: they become the prior against which the presence floors have to be "
+        "re-measured, which is a commissioning run of its own.", L.sBodySm))
     story.append(Paragraph("A cell of that grid is lit when four things exist together: a floor from the MCMC "
         "build, a healthy reference on the same measurement scale, a laboratory zero, and a null that comes back "
         "empty. Three of the four are cheap; the healthy reference is not, and it is what gates every row.",
@@ -664,3 +676,59 @@ def render_run(story, L, tbl, SP, PageBreak, Paragraph):
         "still printed, because a relative number honestly labelled is more use than a fabricated absolute one. "
         "Commissioning your own laboratory means measuring that zero on 40 healthy arrays and a null that comes "
         "back empty; the procedure is in the runbook.", L.sBodySm))
+
+
+# ── the closing page (Issue 003) ─────────────────────────────────────────────────────────────────────────────────
+def render_closing(story, L, SP, PageBreak, Paragraph):
+    """Issue 003's closing, to the author's instruction of 2026-09-22: not about him, and not a cancer paper."""
+    story.append(PageBreak())
+    story.append(Paragraph("IN CLOSING", L.sSect))
+    story.append(Paragraph("What we hope this is for", L.sSub))
+    story.append(Paragraph(
+        "Almost nothing in this document was invented here. The pixelisation of a sphere, the needlet and "
+        "internal-linear-combination methods, the beam and mask discipline, the shuffled-sky null, the difference "
+        "map, the habit of publishing what an instrument cannot see beside what it can - all of it was built by "
+        "the cosmology community over thirty years, on data far harder to come by than a methylation array, and "
+        "tested until it could be trusted. What is done here is to point those tools at a different sphere. The "
+        "hope is that this is the useful direction of travel: where two fields have each spent decades solving the "
+        "same measurement problem in isolation, the answer is to learn each other's methods rather than to "
+        "reinvent them. A geneticist should not have to derive a spherical harmonic transform, and a cosmologist "
+        "should not have to learn deconvolution from scratch. The wheel is already round in both places.", L.sBody))
+    story.append(Paragraph("Where this could matter", L.sSect2))
+    story.append(Paragraph(
+        "<b>Other species.</b> The gauge is a ratio of two physical quantities rather than a fit to human data, so "
+        "it carries to any animal whose floors can be measured. Dogs are the obvious next cohort: the public data "
+        "exists, veterinary medicine has fewer barriers to a new measurement than human medicine does, and a "
+        "companion animal ages beside its owner several times faster - which makes it the natural place to test a "
+        "trajectory that takes a human lifetime to trace.", L.sBodySm))
+    story.append(Paragraph(
+        "<b>Clinical trials.</b> A trial spends much of its money on patients who were never going to respond. If "
+        "a reading of cellular fidelity can help choose who enters one, and then show draw by draw whether the "
+        "treated tissue is holding its pattern or losing it, that is time and money returned to the trial - and "
+        "fewer patients carrying the burden of a treatment that was not going to work for them.", L.sBodySm))
+    story.append(Paragraph(
+        "<b>End-of-life care.</b> The hardest question a family asks is how much time there is, and the honest "
+        "answer today is usually a guess with a wide interval. A measurement of how much ordered capacity a tissue "
+        "still holds would not answer it either - but it might narrow it, and a doctor with a narrower interval "
+        "can help a family spend what is left better.", L.sBodySm))
+    story.append(Paragraph(
+        "<b>Early detection, in its place.</b> A fidelity gauge that reads below its healthy line before symptoms "
+        "appear is where clinical value would ultimately sit, for cancer and for much else. That work is not in "
+        "this document, the chain commissioned here names no condition, and the evidence for it will arrive - if "
+        "it arrives - as sealed runs against pre-registered bars in a later issue. It belongs on the list, not at "
+        "the front of it.", L.sBodySm))
+    story.append(Paragraph("And for geneticists, whatever they make of the physics", L.sSect2))
+    story.append(Paragraph(
+        "Set the Landauer floor aside entirely and there is still a toolkit here that was not available before. A "
+        "methylome projected onto a sphere, where a whole array is one image instead of hundreds of thousands of "
+        "rows, and where the structure is genomic: every pixel holds a contiguous run of CpGs on one chromosome. "
+        "An angular power spectrum that says at what genomic scale a pattern lives. A null that has to come back "
+        "empty before a map is believed. A mask that refuses to report where the instrument cannot see. And the "
+        "one we would put first: the <b>difference map</b> - the same patient measured twice, where the technical "
+        "floor is common to both draws and cancels, so an island-scale change resolves an order of magnitude below "
+        "the effects the literature reports from single readings. Cosmology has taken that idea about as far as it "
+        "can go on one sky it cannot revisit. In a clinic, the sky can be measured again next year.", L.sBody))
+    story.append(Paragraph(
+        "None of these tools depend on whether the entropy ratio in this document survives review. They are "
+        "borrowed, they work, and they are now pointed at a methylome. What anyone does with them next is the "
+        "interesting part.", L.sMut))

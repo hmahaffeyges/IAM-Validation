@@ -1068,6 +1068,10 @@ EMIT_CARD_NBIO = True
 # by the residual correlation. Issue 003 sets this True, states the correct relation, and states that the
 # commissioned chain reads methylation only and computes no combined score (author, 2026-09-22).
 CORRECT_SUBSTRATE_COMBINATION = False
+# Issue 002 closes with 'A FINAL NOTE' in the author's voice, dated April 2026. Issue 003 closes differently
+# at his instruction (2026-09-22): "I dont want to make this about me or make it seem like the research is
+# all about detecting cancer, at least not in the beginning." Default True so Issue 002 is unchanged.
+EMIT_FINAL_NOTE_002 = True
 EMIT_CARD_DISEASE_BLOCKS = True   # the per-card disease reference, signature comparison, post-breach trajectory and
                                   # intervention levers. Issue 002 publishes them; Issue 003 sets this False (author,
                                   # 2026-09-22) and Issue 004 will carry disease evidence measured on this chain.   # Issue 002 behaviour; Issue 003's build sets this False (it renders the cards itself, with addenda)
@@ -10885,6 +10889,8 @@ def blk_data_index(story):
 
 
 def blk_final_note(story):
+    if not EMIT_FINAL_NOTE_002:
+        return
     # ══════════════════════════════════════════════════════════════════════════
     # A FINAL NOTE — in Heath's voice, committed verbatim as approved
     # ══════════════════════════════════════════════════════════════════════════
