@@ -50,14 +50,8 @@
   "pass": true
  },
  "B5": {
-  "header_cols": 862601,
-  "rows_in_file": 726,
-  "matched_samples": 726,
-  "cpgs_found": 18,
-  "values_compared": 13068,
-  "missing": 0,
-  "max_abs_diff": 0.0,
-  "pass": true
+  "pass": null,
+  "note": "GSE153712_normalized_average_betas.txt.gz not in CPG_KIT_DATA - B5 not run; row 4.5 NOT commissioned"
  },
- "row_4_5_commissioned": true
+ "row_4_5_commissioned": false
 }
