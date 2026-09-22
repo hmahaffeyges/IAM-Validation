@@ -1,0 +1,346 @@
+{
+ "live_path": [
+  {
+   "step": "Stage 1 - IDAT calibration",
+   "where": "stage_1_idat_calibration.py",
+   "implements": "Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5)",
+   "note": "called by run_sample.py when given --grn/--red; skipped when given --betas"
+  },
+  {
+   "step": "stage_a_cells",
+   "implements": "Stage A \u2014 find the cell types in the sample, their ratios, and their A-scores",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_2b_second_opinion",
+   "implements": "Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_b_classes",
+   "implements": "Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_1s_scale_map",
+   "implements": "Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_b_identity",
+   "implements": "THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_4_5_bidirectional",
+   "implements": "Stage 4.5 (SOP \u00a746.5) - bidirectional decomposition. Signed directional",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_4_6_patient_sky",
+   "implements": "Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_5_mahalanobis",
+   "implements": "Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B)",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_5_hull_marker_union",
+   "implements": "DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_6_cellular_age",
+   "implements": "Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21)",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "stage_6_cellular_age_marker_union",
+   "implements": "DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported",
+   "where": "cpg_conductor.py"
+  },
+  {
+   "step": "Report",
+   "where": "MethylPhys_Interface/build_methylphys.py",
+   "implements": "one self-contained HTML from the bundle"
+  }
+ ],
+ "batch_path": [
+  {
+   "step": "calibrate_idat_to_beta",
+   "where": "stage_1_idat_calibration.py",
+   "implements": ""
+  },
+  {
+   "step": "build_report",
+   "where": "walther_clinical.py",
+   "implements": ""
+  },
+  {
+   "step": "stage_2_deconvolution",
+   "where": "walther_clinical.py",
+   "implements": "Stage 2 per SOP \u2014 returns {class_fractions, celltype_fractions, walther_diagnostics,"
+  },
+  {
+   "step": "stage_4_a_score",
+   "where": "walther_clinical.py",
+   "implements": "Stage 4 per BUILD_SPEC v1.3 \u2014 consumes cleaned_beta (foreground-removed)"
+  },
+  {
+   "step": "stage_7_tiers",
+   "where": "walther_clinical.py",
+   "implements": "Stage 7 per BUILD_SPEC v1.3 \u2014 classify each class + cell-type A-score into the customer"
+  },
+  {
+   "step": "stage_8_dual_matching",
+   "where": "walther_clinical.py",
+   "implements": "Stage 8 (L6) \u2014 Route B disease-pattern concordance is the detector. Routes A"
+  },
+  {
+   "step": "run_second_chain",
+   "where": "walther_clinical.py",
+   "implements": ""
+  }
+ ],
+ "not_in_live_path": [
+  {
+   "step": "stage_8_matching",
+   "where": "cpg_conductor.py",
+   "implements": "NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix",
+   "status": "defined in the conductor; run_full does not call it"
+  },
+  {
+   "step": "stage_0_intake.py",
+   "where": "stage_0_intake.py",
+   "implements": "Stage 0 \u2014 Sample intake (L1)",
+   "status": "module present; neither run_sample.py nor cpg_conductor.py calls it"
+  },
+  {
+   "step": "stage_1_calibration.py",
+   "where": "stage_1_calibration.py",
+   "implements": "Stage 1 \u2014 Calibration & beta computation (L2 + L3)",
+   "status": "module present; neither run_sample.py nor cpg_conductor.py calls it"
+  },
+  {
+   "step": "stage_5_second_chain.py",
+   "where": "stage_5_second_chain.py",
+   "implements": "Stage 5 \u2014 Second chain (confirmation). Fires ONLY when Stage 8 Route B flags",
+   "status": "module present; neither run_sample.py nor cpg_conductor.py calls it"
+  }
+ ],
+ "roles": {
+  "cpg_conductor.py": "chain",
+  "stage_0_intake.py": "chain",
+  "idat_decoder_pure.py": "chain",
+  "idat_parse.py": "chain",
+  "stage_1_idat_calibration.py": "chain",
+  "walther_iam_deconvolver.py": "chain",
+  "lineage_splitter.py": "chain",
+  "nilc_celltype_deconvolver.py": "chain",
+  "bidirectional_decomposition.py": "chain",
+  "build_healpix_mapping.py": "chain",
+  "generate_cpg_healpix_mapping.py": "chain",
+  "stage_4_6_patient_cmb.py": "chain",
+  "iamatlas_mahalanobis_scoring.py": "chain",
+  "iam_cellular_age_scoring.py": "chain",
+  "cpg_tiers.py": "chain",
+  "iamatlas_a_scoring.py": "chain",
+  "cpg_gauge_engine.py": "chain",
+  "lab_zero.py": "chain",
+  "PART_II_CHAPTER_NOTES.md": "UNDESCRIBED",
+  "README_CPG_Plates.md": "UNDESCRIBED",
+  "appendix_vi_vii.json": "UNDESCRIBED",
+  "build_gape_issue002.py": "UNDESCRIBED",
+  "build_gape_issue003.py": "UNDESCRIBED",
+  "data003.py": "UNDESCRIBED",
+  "gape002_lib.py": "UNDESCRIBED",
+  "iamatlas_celltype_markers_v0_3_TRIAL.json": "UNDESCRIBED",
+  "make_figures.py": "UNDESCRIBED",
+  "percell_reference_v0_3.json": "UNDESCRIBED",
+  "sop_repoint.py": "UNDESCRIBED",
+  "stage1_betas_GSE111629.pkl.xz": "UNDESCRIBED",
+  "stage1_betas_GSE111629_MANIFEST.json": "UNDESCRIBED",
+  "stage1_betas_GSE125105.pkl.xz": "UNDESCRIBED",
+  "stage1_betas_GSE125105_MANIFEST.json": "UNDESCRIBED",
+  "stage1_betas_GSE42861.pkl.xz": "UNDESCRIBED",
+  "stage1_betas_GSE42861_MANIFEST.json": "UNDESCRIBED",
+  "stage1_betas_GSE87571.pkl.xz": "UNDESCRIBED",
+  "stage1_betas_GSE87571_MANIFEST.json": "UNDESCRIBED",
+  "val_index.json": "UNDESCRIBED",
+  "README_atlas_v0_1_vault.md": "reference",
+  "compact_atlas.py": "reference",
+  "cycling_v0_1_REBUILD.tar.xz": "reference",
+  "iamatlas_v0_1_mcmc_batched_FIXED.py": "reference",
+  "immune_v0_1_REBUILD.tar.xz": "reference",
+  "progenitor_v0_1_REBUILD.tar.xz": "reference",
+  "secretory_v0_1_REBUILD.tar.xz": "reference",
+  "stem_adult_v0_1_REBUILD.tar.xz": "reference",
+  "stem_pluri_v0_1_REBUILD.tar.xz": "reference",
+  "stromal_v0_1_REBUILD.tar.xz": "reference",
+  "terminal_v0_1_REBUILD.tar.xz": "reference",
+  "gape_bootstrap_comparison.py": "reference",
+  "gape_mcmc_e_a_bio.py": "record",
+  "gape_mcmc_g002.py": "reference",
+  "gape_mcmc_g003b.py": "reference",
+  "gape_mcmc_g008.py": "record",
+  "gape_mcmc_nbio_ordering.py": "record",
+  "literature_anchors.json": "reference",
+  "methyl_bootstrap_PROC-HMIN-BOOT-01.json": "reference",
+  "CHAIN_COMMISSIONING.md": "guard",
+  "CHANGELOG.md": "guard",
+  "CMB_TO_METHYLOME_MAP.md": "guard",
+  "COMPLETION_SPRINT_scored.md": "guard",
+  "COMPONENT_MAP.md": "guard",
+  "CPG_Chain_of_Custody_SOP_v2_0_0.md": "guard",
+  "CPG_Lessons_Learned_2026-06-29.md": "guard",
+  "HANDOFF.md": "guard",
+  "IAMAtlas_FLATNESS_LESSON.md": "guard",
+  "README.md": "guard",
+  "README_FIRST.md": "guard",
+  "README_FOR_FUTURE_AI.md": "guard",
+  "README_STATUS.md": "guard",
+  "ROADMAP_TaskTracker.md": "guard",
+  "ROW9_WORKING_NOTE.md": "guard",
+  "RUNBOOK.md": "guard",
+  "RUN_MANIFEST_and_README.md": "guard",
+  "WORK_IN_PROGRESS.md": "guard",
+  "switching_order.py": "guard",
+  "PROC_ANCHOR_01.py": "guard",
+  "PROC_BIDIR_01.py": "guard",
+  "PROC_CMB_05.py": "guard",
+  "PROC_DECON_01.py": "guard",
+  "PROC_FORMULA_01.py": "guard",
+  "PROC_PLASMA_MIX_01.py": "guard",
+  "PROC_SEP_03.py": "guard",
+  "cpg_kit.py": "guard",
+  "cpg_null_runner.py": "guard",
+  "finding_check.py": "guard",
+  "geo_fetch_idats.py": "guard",
+  "preflight.py": "guard",
+  "recordside_test_disease_matrix_gate.py": "guard",
+  "release_check.py": "guard",
+  "synthetic_patient_generator.py": "guard",
+  "synthetic_patient_harness.py": "guard",
+  "test_a_score_canonical.py": "guard",
+  "test_gauge_switch.py": "guard",
+  "test_lab_zero.py": "guard",
+  "test_patient_sky.py": "guard",
+  "test_tiers.py": "guard",
+  "build_chain_inventory.py": "interface",
+  "build_methylphys.py": "interface",
+  "build_percell_reference.py": "interface",
+  "chain_inventory_v1.json": "reference",
+  "run_batch.py": "interface",
+  "run_sample.py": "interface",
+  "val_finding.py": "interface",
+  "AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md": "record",
+  "ad-immune_README.md": "record",
+  "ad-immune_card_v3_1.json": "record",
+  "ad-immune_v3_1_release_notes.md": "record",
+  "ad_immune_bimodality_map.csv": "record",
+  "ad_immune_pca_projections.csv": "record",
+  "ad_immune_residual_map_chr_annotated.csv": "record",
+  "breast-epic_README.md": "record",
+  "breast-epic_card_v3_1.json": "record",
+  "breast-epic_v3_0_release_notes.md": "record",
+  "breast-epic_v3_1_release_notes.md": "record",
+  "breast_epic_bimodality_map.csv": "record",
+  "breast_epic_pca_projections.csv": "record",
+  "breast_epic_residual_map_chr_annotated.csv": "record",
+  "build_dashboard_v1.py": "superseded",
+  "build_patient_wall.py": "superseded",
+  "build_strawman.py": "superseded",
+  "cpg_patient_cmb.py": "superseded",
+  "cpg_report_builder.py": "superseded",
+  "cpg_report_v3.py": "superseded",
+  "disease_cell_signature_matrix_v1_13.csv": "record",
+  "disease_cell_signature_matrix_v1_8.csv": "record",
+  "disease_origin_cells.json": "record",
+  "enrich_strawman.py": "superseded",
+  "iamatlas_115_to_matrix_v0_2_mapping.json": "record",
+  "immune-atlas_card_v2_0.json": "record",
+  "immune_atlas_cross_disease_universal_alarm_bimodality_map.csv": "record",
+  "immune_atlas_cross_disease_universal_alarm_pca_projections.csv": "record",
+  "immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.csv": "record",
+  "immune_atlas_cross_disease_universal_alarm_residual_map_v0_1.provenance.json": "record",
+  "render_patient_wall.py": "superseded",
+  "render_strawman_v2.py": "superseded",
+  "strawman_data_v2.json": "superseded",
+  "walther_clinical.py": "record",
+  "stage_1_calibration.py": "superseded",
+  "beta_scale_maps_v1.json": "reference",
+  "scale_map_addendum.json": "reference",
+  "IAMAtlasREBUILD.csv": "reference",
+  "IAMAtlasREBUILD.csv.xz": "reference",
+  "IAMAtlasREBUILD_celltype_to_class.json": "reference",
+  "IAMAtlasREBUILD_provenance.json": "reference",
+  "iamatlas_collinearity_groups_v0_1.json": "reference",
+  "directional_panels_v1_0.json": "reference",
+  "EPIC_plus_HM450_combined_manifest_normalized.csv": "reference",
+  "EPIC_v1_B4_manifest_normalized.csv": "reference",
+  "README_HEALPix_Mapping.md": "reference",
+  "README_external_manifests.md": "reference",
+  "iamatlas_cpg_to_healpix_nside128.npy": "reference",
+  "iamatlas_cpg_to_healpix_nside128.npz": "reference",
+  "iamatlas_cpg_to_healpix_nside128.provenance.json": "reference",
+  "presence_floors_v1.json": "reference",
+  "residual_scale_GSE111629.npz": "reference",
+  "residual_scale_GSE125105.npz": "reference",
+  "residual_scale_GSE42861.npz": "reference",
+  "residual_scale_GSE87571.npz": "reference",
+  "mahalanobis_healthy_reference_v2_0_age_matched_derived.json": "reference",
+  "stage_5_second_chain.py": "record",
+  "age01_results.json": "reference",
+  "age_reference_matrix.csv": "reference",
+  "age_reference_matrix.json": "reference",
+  "tier_breakpoints.json": "reference",
+  "iamatlas_celltype_markers_v0_2.json": "reference",
+  "percell_exclusivity_v0.json": "reference",
+  "percell_reference_v0.json": "reference",
+  "cpg_gauge.py": "superseded",
+  "iamatlas_gauge_identity_loci_v1_0.json": "reference",
+  "identity_band_v2_PROVISIONAL.json": "superseded",
+  "identity_band_v3.json": "reference",
+  "reference_age_curve_v1.json": "reference"
+ },
+ "role_gaps": [
+  {
+   "file": "stage_0_intake.py",
+   "role": "chain",
+   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
+  },
+  {
+   "file": "idat_decoder_pure.py",
+   "role": "chain",
+   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
+  },
+  {
+   "file": "idat_parse.py",
+   "role": "chain",
+   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
+  },
+  {
+   "file": "lineage_splitter.py",
+   "role": "chain",
+   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
+  },
+  {
+   "file": "build_healpix_mapping.py",
+   "role": "chain",
+   "status": "build-time tool: makes a runtime file once, not a per-sample step"
+  },
+  {
+   "file": "generate_cpg_healpix_mapping.py",
+   "role": "chain",
+   "status": "build-time tool: makes a runtime file once, not a per-sample step"
+  }
+ ],
+ "counts": {
+  "live": 13,
+  "batch": 7,
+  "not_wired": 4,
+  "role_gaps": 6
+ }
+}

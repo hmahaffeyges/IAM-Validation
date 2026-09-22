@@ -114,3 +114,7 @@ disagree.
 
 1. **The bootstrap comparison does not cover methylation.** It is 8 classes x 4 substrates - nucleosome occupancy, fuzziness, WPS, fragment size. The eight methylation floors the chain actually divides by rest on G-002's own convergence (R-hat < 1.001 on every methylation chain) and its 37-cell reference database.
 2. **The April 2026 evidence database is a different surface.** Marker-union, not identity loci - and the two move in opposite directions with age (RECON D2). Its numbers must never be quoted beside Issue 003's.
+
+## The order of steps
+
+[`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) is generated from the code: every call each path makes, in order, and every file named as chain that no path calls.

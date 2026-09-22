@@ -670,57 +670,85 @@ CHAIN=[
    "why":"every later constant is specimen-specific and laboratory-specific. If the specimen is not declared, the presence floors and the healthy band do not apply, and the chain must not guess.",
    "refuses":"an undeclared specimen, or an array type the pipeline map was not fitted on","commissioned":"row 1 of the commissioning table"}),
  ("1","Calibration","IDAT (Red + Grn) -> beta, methylprep noob","stage_1_idat_calibration.py",
-  {"in":"the raw two-channel intensity files the scanner writes","out":"one beta value per CpG (413,058 on 450K), beta = methylated / (methylated + unmethylated)",
+  {"impl":"calibrate_idat_to_beta","in":"the raw two-channel intensity files the scanner writes","out":"one beta value per CpG (413,058 on 450K), beta = methylated / (methylated + unmethylated)",
    "why":"raw intensities carry dye bias (the two colour channels are not equally efficient) and probe-type bias (the array has two chemistries). noob normalisation removes both using the array's own out-of-band control probes. Author-processed matrices published on GEO are deliberately NOT used: each laboratory normalises differently, and the offset between two pipelines is larger than the whole healthy band (LESSON-SCALE-01, measured).",
    "refuses":"nothing - it either produces betas or errors","commissioned":"PROC-CAL-01: raw IDAT through this stage reproduced the cached betas the conformance tests were built on, exactly"}),
  ("1s","Pipeline map","beta -> the reference scale (one slope, one intercept)","beta_scale_maps_v1.json",
-  {"in":"this pipeline's betas","out":"betas on the scale the class floors were calibrated on",
+  {"impl":"stage_1s_scale_map","in":"this pipeline's betas","out":"betas on the scale the class floors were calibrated on",
    "why":"the floors were measured on published reference methylomes processed a particular way. A sample processed differently sits at a different zero. The map is an affine fit on the identity loci, measured once per pipeline - the same operation as cross-calibrating two detectors before comparing their readings.",
    "refuses":"a pipeline with no fitted map: the reading is marked NOT REPORTABLE rather than placed on someone else's scale","commissioned":"PHASE 1 / 1c; transfer verified on a second laboratory"}),
  ("2","Composition","constrained fit against the atlas -> which cell types, and in what proportion","walther_iam_deconvolver.py",
-  {"in":"the mapped betas and the atlas","out":"a fraction for each of the 115 atlas cell types and each of the 8 architecture classes",
+  {"impl":"stage_a_cells","in":"the mapped betas and the atlas","out":"a fraction for each of the 115 atlas cell types and each of the 8 architecture classes",
    "why":"a blood tube is a mixture. Before anything can be said about how well a class holds its pattern, you have to know how much of that class is in the tube. The solver is a constrained non-negative fit and is deliberately conservative: it places a cell only when the evidence forces it, so the composition the rest of the report stands on is not inflated. That is why whole blood typically shows a handful of placed cells rather than all 115 - it is the specification, not a defect. Every one of the 115 is still scored (see Every cell).",
    "refuses":"a class below its measured presence floor is not carried forward into the gauge or the sky","commissioned":"PROC-DECON-01: reproduced the answer key shipped with the test package to the manifest's precision"}),
  ("2","The atlas","IAMAtlasREBUILD: per-CpG, per-cell-type posterior mean and SD - 483,092 CpGs x 115 cell types","IAMAtlasREBUILD.csv.xz",
-  {"in":"open published reference methylation measurements, reconciled to one set of cell-type definitions","out":"a full posterior at every position for every cell type, with a credible interval attached",
+  {"impl":"stage_a_cells","in":"open published reference methylation measurements, reconciled to one set of cell-type definitions","out":"a full posterior at every position for every cell type, with a credible interval attached",
    "why":"published reference panels are built by different laboratories, on different arrays, with different definitions of the same cell type, and they carry no statement of their own uncertainty and no concept of a healthy floor. Run a sample through them separately and you get fractions that do not live on a common scale. The atlas is a hierarchical Bayesian reconciliation sampled by MCMC - the same class of inference cosmology runs against the Planck likelihood - which is what produces an uncertainty at every pixel. That uncertainty is the point: it is the difference between 'inside or outside a line' and 'this far from the floor, give or take this much'.",
    "refuses":"nothing - it is data; but only 4.9 % of stromal CpGs have a converged posterior, and the sky masks what has not converged","commissioned":"the reference the whole chain reads; provenance file linked below"}),
  ("2","115 cells -> 8 classes","the map from every atlas cell type to its architecture class","IAMAtlasREBUILD_celltype_to_class.json",
-  {"in":"a cell-type name","out":"one of the eight architecture classes, which selects that cell's H_min",
+  {"impl":"stage_a_cells","in":"a cell-type name","out":"one of the eight architecture classes, which selects that cell's H_min",
    "why":"the floors are per class, not per cell type, because the floor follows from how much information that architecture must protect (the eight sandcastles). This file is the only place the assignment lives.",
    "refuses":"an unmapped cell type is not scored","commissioned":"shipped with the atlas"}),
  ("2b","Second opinion (NILC)","variance-weighted component separation - the Planck method. VINDICATED, not yet re-wired","nilc_celltype_deconvolver.py",
-  {"in":"the same mapped betas","out":"an independent set of fractions, computed with opposite biases: sensitive where the constrained solver is conservative",
+  {"impl":"stage_2b_second_opinion","in":"the same mapped betas","out":"an independent set of fractions, computed with opposite biases: sensitive where the constrained solver is conservative",
    "why":"in cosmology you never separate components one way only. NILC (needlet internal linear combination) is what Planck uses. Here it was switched off in July 2026 because it disagreed with the constrained solver on every blood sample - which looked like a defect in NILC. PROC-NILC-01 found the disagreement WAS the finding: NILC was reporting that the atlas cannot split the blood classes, which PROC-SEP-03 then measured directly (7 of 7 blood classes inseparable, and the separability statistic quantified). The tool was right and was cut for being right. It is commissioning row 2b and is not in this run.",
    "refuses":"n/a - not currently in the chain","commissioned":"NOT commissioned. Row 2b is open: the decision is whether its output ships as a second column or as a disagreement flag"}),
  ("A","Per-cell A","mean of per-CpG H over each cell's discriminative markers, divided by H_min(class) - all 115 cells","iamatlas_a_scoring.py",
-  {"in":"the mapped betas and each cell type's ~100 discriminative marker CpGs","out":"one A per atlas cell type, with marker coverage",
+  {"impl":"stage_a_cells","in":"the mapped betas and each cell type's ~100 discriminative marker CpGs","out":"one A per atlas cell type, with marker coverage",
    "why":"this is the surface on which 'which cell moved, and in which direction' can be read, because the markers are chosen to differ between cell types. It is also the surface the sealed cohort anchors were computed on. The formula must be the mean of the per-CpG entropies: marker CpGs are extreme and opposite, so the entropy of their mean beta would read maximal disorder on a healthy sample. The module asserts against that mistake on every import.",
    "refuses":"a cell with fewer than the minimum matched markers is not scored","commissioned":"PROC-ANCHOR-01: the sealed 648-sample foundation-cohort per-cell scores reproduced from raw public data at r = 1.00000, max difference 0.00004"}),
  ("B","Class gauge","H(mean beta over identity loci) / H_min, minus the age term, minus the laboratory zero; placed in the band","cpg_gauge_engine.py",
-  {"in":"the mapped betas, the identity loci for each class, the frozen H_min, the age curve, the laboratory zero","out":"A'' per class with its band placement and tier - the reported reading",
+  {"impl":"stage_b_classes","in":"the mapped betas, the identity loci for each class, the frozen H_min, the age curve, the laboratory zero","out":"A'' per class with its band placement and tier - the reported reading",
    "why":"identity loci are the addresses where a healthy class all sits at one level, so their mean carries meaning and the entropy of that mean is the right statistic here (the opposite of the per-cell surface, deliberately). This stage replaced an earlier version that computed the class gauge over the marker union - which a synthetic-patient test caught reading every healthy patient far above band (PROC-N7-01). The retired statistic still runs, labelled diagnostic, and is not shown on this report.",
    "refuses":"no laboratory zero, or no commissioned band for that class on that specimen -> no placement, no tier, NOT REPORTABLE with the reason printed","commissioned":"PROC-SWITCH-01 -> PROC-SWITCH-02; held-out synthetic healthy read 1.001 with 100 % in band, against 1.125 and 0 % on the retired statistic"}),
  ("4.5","Direction","signed directional composite on sealed panels","bidirectional_decomposition.py",
-  {"in":"the mapped betas and a sealed directional panel (per-CpG healthy mean and expected direction)","out":"a signed composite per class: which way the departure points",
+  {"impl":"stage_4_5_bidirectional","in":"the mapped betas and a sealed directional panel (per-CpG healthy mean and expected direction)","out":"a signed composite per class: which way the departure points",
    "why":"pooled entropy folds hyper- and hypo-methylation together - two opposite movements can average to 'normal'. Keeping the sign is how a class that is drifting in a structured way is distinguished from one that is genuinely quiet. Panels exist only where one has been sealed (immune); the other classes say so rather than guessing.",
    "refuses":"a class with no sealed panel returns no composite","commissioned":"PROC-BIDIR-01, all five bars, including re-extraction of the 726-sample cohort from the raw 5.1 GB GEO file with zero difference"}),
  ("4.6","Sky","composition-residual z at every address, on the laboratory's own zero and spread, projected on a sphere","stage_4_6_patient_cmb.py",
-  {"in":"the mapped betas, the Stage 2 fractions, the laboratory's per-address zero and spread, the presence floors, the CpG-to-pixel mapping","out":"a residual map - one z per address - and per-class panels with their beyond-|z|=2 fractions",
+  {"impl":"stage_4_6_patient_sky","in":"the mapped betas, the Stage 2 fractions, the laboratory's per-address zero and spread, the presence floors, the CpG-to-pixel mapping","out":"a residual map - one z per address - and per-class panels with their beyond-|z|=2 fractions",
    "why":"a single number per class cannot say WHERE in the genome a departure lives. The sky can. The expectation at each address is what this sample's own composition predicts, so the map is a residual in the cosmologist's sense: data minus model. A healthy sky is quiet at 2.6-3.2 % beyond |z| = 2 on the four commissioned laboratories.",
    "refuses":"a laboratory with no measured residual scale -> the sky is not rendered at all; a class below its presence floor -> that panel is masked, and says so","commissioned":"PROC-CMB-01 through 05. The retired brightness formula it replaced divided by the atlas posterior spread of a class mean and compared whole blood against a pure-class mean, reading most of a healthy genome as anomalous - that is closed"}),
  ("4.6","CpG -> sky mapping","every atlas CpG to one of 196,608 pixels in genomic order","iamatlas_cpg_to_healpix_nside128.npy",
-  {"in":"chromosome and position for each CpG","out":"a HEALPix pixel index, NSIDE 128",
+  {"impl":"stage_4_6_patient_sky","in":"chromosome and position for each CpG","out":"a HEALPix pixel index, NSIDE 128",
    "why":"HEALPix is the projection Planck used: equal-area pixels, so no part of the map is visually over-weighted. Genomic order means neighbouring addresses are neighbouring pixels, which is what makes a structured departure look structured.",
    "refuses":"an unannotated CpG goes to a sentinel pixel and is excluded","commissioned":"deterministic across builds, and verified to assign all 483,092 CpGs to exactly the same pixels as the mapping built with the atlas for the reference plates"}),
  ("5","Departure","distance over the banded class axes, with chi-square lines and the laboratory's false-alarm rate","cpg_conductor.py",
-  {"in":"each reportable class's A'' and the healthy band","out":"one distance, the p95 and p99 lines, and this laboratory's measured healthy false-alarm rate",
+  {"impl":"stage_5_mahalanobis","in":"each reportable class's A'' and the healthy band","out":"one distance, the p95 and p99 lines, and this laboratory's measured healthy false-alarm rate",
    "why":"a clinician needs one number for 'how unusual is this sample overall', and it has to come with how often healthy people trip it. With one commissioned class band the distance is just |z| of that class; as further class bands are commissioned it becomes a true multi-axis distance. The laboratory's own false-alarm rate travels with the number because it differs measurably between laboratories - the residual cause is the Sentrix chip term, which is its own open row (5b).",
    "refuses":"no banded axis -> no distance","commissioned":"PROC-MAHA-01 -> PROC-MAHA-02, with one laboratory's healthy tail exceeding the sealed bar recorded as a failure and the false-alarm rate printed on every report as the remedy"}),
  ("7","Tiers","one tier function, read from one file; AT_CEILING at 1/H_min","cpg_tiers.py",
-  {"in":"A'', whether the reading is reportable, and the class H_min","out":"one tier word and a note, or nothing",
+  {"impl":"stage_b_identity","in":"A'', whether the reading is reportable, and the class H_min","out":"one tier word and a note, or nothing",
    "why":"before this stage the engine carried three disagreeing definitions of where NORMAL ends. Now every tier word in the chain - including the colours on this page - comes from one function reading one file. NORMAL is the healthy central 95 %; 1.07 and 1.10 are the physics lines; above 1/H_min the arithmetic cannot go, so the report prints AT_CEILING with the ceiling value rather than a number above it.",
    "refuses":"a non-reportable reading gets no tier at all - a tier without a commissioned band would be a fabrication","commissioned":"PROC-TIER-01, with a kit test that exercises every boundary from the file, both sides, and fails if a literal breakpoint reappears in engine code"}),
+ ("B","The reported gauge","identity loci -> A, then the decade curve and the laboratory zero -> A''","iamatlas_gauge_identity_loci_v1_0.json",
+  {"impl":"stage_b_identity",
+   "in":"the mapped betas, the class's identity loci and its floor, the donor's declared age, the laboratory's zero",
+   "out":"A'' - the number this report leads with: entropy over the floor, corrected to the healthy line for that decade and to this laboratory's own zero",
+   "why":"this is the surface the gauge reports on. Identity loci sit near beta = 0.73 in every healthy donor of the class, so a departure is a departure of the class's own pattern rather than of a marker panel chosen to separate two groups",
+   "refuses":"without a laboratory zero the placement, the tier and the departure are all withheld and only A_mapped prints; without a declared age the absolute reading is withheld",
+   "commissioned":"PROC-MAHA-01 and PROC-MAHA-02 (the zero and the band); the chip term was measured and NOT commissioned (PROC-MAHA-03)"}),
+ ("5d","Marker-union hull (diagnostic)","the same departure computed on the marker-union surface","iamatlas_mahalanobis_scoring.py",
+  {"impl":"stage_5_hull_marker_union",
+   "in":"the mapped betas and the age-matched healthy reference",
+   "out":"a Mahalanobis distance on the marker-union surface, carried in the bundle as a diagnostic",
+   "why":"the marker-union surface is what the pre-atlas work measured. Keeping it beside the reported gauge lets the two be compared deliberately",
+   "refuses":"it is never reported beside the identity gauge: the two surfaces move in opposite directions with age (RECON D2), so quoting them together would invite a false comparison",
+   "commissioned":"diagnostic only - no procedure commissions it for reporting"}),
+ ("6","Age reference","where the healthy line for that decade sits","reference_age_curve_v1.json",
+  {"impl":"stage_6_cellular_age",
+   "in":"the donor's declared age and the reference curve measured on 1,379 healthy donors from four laboratories",
+   "out":"the decade correction subtracted from A before the reading is placed",
+   "why":"fidelity falls with age on this surface at 0.47 mA/yr, so a reading must be judged against the healthy line for that decade rather than against a single population mean",
+   "refuses":"a cellular age in years for one patient is NOT reportable: a lifetime of drift is 0.047 against a within-laboratory healthy spread of 0.0235 (PROC-AGE-01). The curve corrects a reading; it does not date a person",
+   "commissioned":"PROC-AGE-01 - the trajectory is reproduced on four laboratories, the per-patient inversion is closed"}),
+ ("6d","Age on the marker union (diagnostic)","the same age arithmetic on the marker-union surface","iam_cellular_age_scoring.py",
+  {"impl":"stage_6_cellular_age_marker_union",
+   "in":"the mapped betas and the marker-union age reference",
+   "out":"a diagnostic age statistic on the pre-atlas surface",
+   "why":"it is the quantity the earlier work reported, kept for comparison",
+   "refuses":"not reported, and never quoted beside the identity-gauge age arithmetic - the sign differs by surface",
+   "commissioned":"diagnostic only"}),
  ("9","Report","this page, rendered from the bundle","build_methylphys.py",
   {"in":"the conductor's output bundle and the runtime files listed on Integrity","out":"this document",
    "why":"the report is part of the instrument, not decoration: it decides what is shown and what is withheld. A vocabulary guard refuses to write the measurement tabs if they name a condition, a verdict, or an age in years - it has caught the author's own wording more than once.",
@@ -731,17 +759,72 @@ DOCS=[("RUNBOOK.md","how to run the chain, and how to commission a new laborator
  ("HANDOFF.md","the state of the work, for the next reader"),("README_CPG_Plates.md","the reference plates and their conventions"),
  ("README_HEALPix_Mapping.md","how every CpG was placed on the sphere")]
 
+
+def _chain_sequence():
+    """The step order as derived from the code by chain/build_chain_sequence.py.
+
+    Added 2026-09-23. The CHAIN table below is written by hand, which is why it carries what each stage refuses
+    and which procedure commissioned it - but a hand-written table can drift from what the code calls, and by
+    that date three drifts had accumulated. This loads the derivation so the page can say which entries are in
+    the live path and which are not, and so the build fails if a step the code runs is missing from the table.
+    """
+    import json, os
+    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "chain_sequence.json")
+    try:
+        d = json.load(open(p))
+    except Exception:
+        return None
+    live, stages = set(), []
+    for st in d["live_path"]:
+        live.add(st["step"]); live.add(st["where"])
+        # a stage is a measured step: the conductor's stage functions and the calibration module, not the report
+        if st["step"].startswith("stage_"):
+            stages.append(st["step"])
+    notwired = {}
+    for st in d["not_in_live_path"]:
+        notwired[st["step"]] = st["status"]; notwired[st["where"]] = st["status"]
+    fns = [st["step"] for st in d["live_path"] if st["step"].startswith("stage_")]
+    fns.append("calibrate_idat_to_beta")   # the calibration step, named by the function run_sample.py calls
+    return {"live": live, "stages": stages, "fns": fns, "not_wired": notwired,
+            "gaps": [g for g in d.get("role_gaps", []) if "NO path calls it" in g["status"]],
+            "n_live": len(d["live_path"])}
+
 def tab_chain(R):
     H=["<h2>The chain - every stage this report came from</h2>",
        "<p>Orchestrated by <code>cpg_conductor.run_full</code>. Open any stage for what goes in, what comes out, why it exists, what it refuses to do, and which sealed procedure commissioned it. Stage 6 (an age in years) and Stage 8 (matching a pattern to a condition) are <b>not</b> chain stages: single-array age resolution is about 50 years, and naming a condition is not this instrument's job. The retired marker-union class statistic runs as a diagnostic only and is not shown.</p>"]
+    SEQ=_chain_sequence()
+    if SEQ:
+        H.append(f"<p class='m'>The order below is the order the code calls: {SEQ['n_live']} steps, derived from "
+                 f"<code>run_sample.py</code> and <code>cpg_conductor.run_full</code> by "
+                 f"<code>chain/build_chain_sequence.py</code> and cross-checked against this table at build time. "
+                 f"An entry marked NOT IN THE LIVE PATH is implemented in the tree but not called by a run - it "
+                 f"has to be invoked deliberately.</p>")
     for st,nm,what,f,d in CHAIN:
         link=_link(R,f) if f in R["files"] else f"<span class='m'>{_e(f)}</span>"
-        H.append(f"<details class='stage'><summary><span class='stg'>{_e(st)}</span> <b>{_e(nm)}</b> - {what} &nbsp; {link}</summary>"
+        flag=""
+        if SEQ and f in SEQ["not_wired"]:
+            flag=(f" <span style='color:#c0392b;font-weight:600'>NOT IN THE LIVE PATH</span> "
+                  f"<span class='m'>({_e(SEQ['not_wired'][f])})</span>")
+        H.append(f"<details class='stage'><summary><span class='stg'>{_e(st)}</span> <b>{_e(nm)}</b> - {what} &nbsp; {link}{flag}</summary>"
                  f"<table class='kv'><tr><td>goes in</td><td>{d['in']}</td></tr><tr><td>comes out</td><td>{d['out']}</td></tr>"
                  f"<tr><td>why it exists</td><td>{d['why']}</td></tr><tr><td>what it refuses</td><td>{d['refuses']}</td></tr>"
                  f"<tr><td>commissioned by</td><td>{d['commissioned']}</td></tr></table></details>")
     H.append("<h3>The documents the chain is governed by</h3><table class='t'><tr><th>document</th><th>what it is</th></tr>"+"".join(f"<tr><td>{_link(R,n)}</td><td>{d}</td></tr>" for n,d in DOCS if n in R["files"])+"</table>")
     H.append("<p class='m'>The June manifest (CPG_KISS_Chain_Files.md) described the pre-switch chain and must not be used: it names the identity-loci gauge a 'false road' (reversed by PROC-N7-01 and PROC-SWITCH-02) and calls the eight H_min values 'Mahaffey numbers' (they are measured class entropy references; the Mahaffey number is E_drive/k_BT).</p>")
+    if SEQ:
+        # the table describes the measurement stages, not the renderer that draws this page
+        declared = {d.get("impl") for _, _, _, _, d in CHAIN if d.get("impl")}
+        absent = [st for st in SEQ["fns"] if st not in declared]
+        assert not absent, "a stage the code runs has no row in the CHAIN table: %s" % absent
+        stale = [d for d in declared if d not in SEQ["fns"] and d not in SEQ["not_wired"]]
+        assert not stale, "the CHAIN table claims a step the code does not run: %s" % stale
+    if SEQ and SEQ.get("gaps"):
+        H.append("<h3>Named as chain, called by nothing</h3><p>The chain inventory gives these files "
+                 "<code>role=chain</code>, and no path in the tree calls them. They are listed because a report "
+                 "that presents a step the instrument does not perform is worse than one that omits it.</p>"
+                 "<table class='t'><tr><th>file</th><th>status</th></tr>"
+                 + "".join(f"<tr><td class='m'>{_e(g['file'])}</td><td>{_e(g['status'])}</td></tr>"
+                           for g in SEQ["gaps"]) + "</table>")
     H.append(deepdive(R,"any stage above"))
     return "".join(H)
 

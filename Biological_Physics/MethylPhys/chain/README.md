@@ -52,3 +52,22 @@ Known: `report_builders/render_strawman_v2.py` and `render_patient_wall.py` use 
 - **Row 8 — disease matching — REMOVED FROM THE CHAIN (author, 2026-09-21).** The signature matrix and cards come from the preliminary VAL record; the report shows cells detected, fractions, A per cell and class, placement and flags, and names no disease. The matrix is record-side (see `Disease Matrix/DISEASE_MATRIX/README_STATUS.md`). PROC-MATCH-01's fixes (fail-closed origin gate, firewall, surface = seal) stand. **Sealing rule:** we seal a built tool against a bar; building it is exploration with a working note, not a seal.
 
 - **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` is record-side.
+## The order of steps
+
+[`doors/CHAIN_SEQUENCE.md`](../doors/CHAIN_SEQUENCE.md) is generated from the code by
+`chain/build_chain_sequence.py` and is the authority: it lists every call each path makes, in order.
+
+Two interfaces exist and they do not run the same steps.
+
+- **`MethylPhys_Interface/run_sample.py`** — one sample. Calls `stage_1_idat_calibration.py` for the
+  IDAT pair, then `cpg_conductor.run_full`, which runs 11 stages beginning at composition, then the
+  report. Every number in the commissioning record and in Issue 003 comes from this path.
+- **`run_batch.py`** — a folder of patient visits. Drives `walther_clinical.py`, which runs its own
+  stage functions (`stage_2_deconvolution`, `stage_4_a_score`, `stage_7_tiers`, `stage_8_dual_matching`, `run_second_chain`), not the conductor.
+
+**Named as chain, called by nothing** — 4 files carry `role=chain` in the inventory and are
+not called by either path: `stage_0_intake.py`, `idat_decoder_pure.py`, `idat_parse.py`, `lineage_splitter.py`. `stage_0_intake.py` is the one that matters: it
+implements the SOP's §11-§19 gates, including the integrity hash and the PROCEED / QUARANTINE decision,
+and it is commissioned (PROC-STAGE0-01, 11 of 11 test IDATs PASS, fail-open defect fixed). A run today
+does not call it.
+
