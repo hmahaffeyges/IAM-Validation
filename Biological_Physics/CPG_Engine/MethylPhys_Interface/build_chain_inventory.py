@@ -93,7 +93,7 @@ DESC={
  "RUNBOOK.md":("guard","How to run the chain, how to commission a laboratory, and the seven-step finding protocol.","door"),
  "CHAIN_COMMISSIONING.md":("guard","Which stage is commissioned, by which sealed procedure, and what is still open.","door"),
  "HANDOFF.md":("guard","The state of the work, for the next reader.","door"),
- "ROW9_WORKING_NOTE.md":("guard","The build log for the report and interface: every defect found while building, including the ones in my own output.","door"),
+ "ROW9_WORKING_NOTE.md":("guard","Engineering log for the report and interface: what was measured while building it, what failed, and what each failure changed. Read it for the construction history; nothing in it is needed to read a result.","door"),
 }
 
 # ---- second pass 2026-09-22: every remaining live file, described from its own header rather than guessed ----
@@ -170,6 +170,8 @@ DESC.update({
  "breast-epic_v3_0_release_notes.md":("record","Card release notes.","not in chain"),
  "breast-epic_v3_1_release_notes.md":("record","Card release notes.","not in chain"),
  # --- doors ---
+ "chain_inventory_v1.json":("reference","This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.","interface"),
+ "val_finding.py":("interface","Writes the structured record of one validation run - instrument fingerprint, per-sample absolute readings, per-entry and per-group direction and magnitude, the pre-registered bars and their outcome. The Findings tab reads these.","interface"),
  "README.md":("guard","Repository entry point.","door"),
  "README_FIRST.md":("guard","Where a new reader should start.","door"),
  "README_FOR_FUTURE_AI.md":("guard","Standing instructions and house rules for anyone - human or assistant - picking this up.","door"),

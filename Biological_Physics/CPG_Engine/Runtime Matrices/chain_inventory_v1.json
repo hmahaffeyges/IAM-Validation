@@ -1,12 +1,10 @@
 {
  "_meta": {
-  "built": "2026-09-22 04:44",
-  "commit": "5a9a711",
-  "n_files": 152,
-  "n_undescribed": 1,
-  "undescribed": [
-   "chain_inventory_v1.json"
-  ],
+  "built": "2026-09-22 05:44",
+  "commit": "f7dd164",
+  "n_files": 153,
+  "n_undescribed": 0,
+  "undescribed": [],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
   "note": "a file with role UNDESCRIBED is a gap in this table, not a file that does nothing - the count is printed on the Chain tab so the gap is visible"
  },
@@ -172,15 +170,6 @@
    "description": "The laboratory zero: median of 40 healthy arrays of that laboratory, age-referenced. Refuses panels under 40 and marks a reading without a zero as NOT REPORTABLE.",
    "bytes": 2132,
    "sha256_12": "5c75783d4499"
-  },
-  {
-   "file": "chain_inventory_v1.json",
-   "path": "Biological_Physics/CPG_Engine/Runtime Matrices/chain_inventory_v1.json",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 51236,
-   "sha256_12": "b49e4ecc906f"
   },
   {
    "file": "README_atlas_v0_1_vault.md",
@@ -484,9 +473,9 @@
    "path": "Biological_Physics/Physics_of_Methylation/Reproduction_Kit/ROW9_WORKING_NOTE.md",
    "role": "guard",
    "stage": "door",
-   "description": "The build log for the report and interface: every defect found while building, including the ones in my own output.",
-   "bytes": 35138,
-   "sha256_12": "0f6fe29bf5e8"
+   "description": "Engineering log for the report and interface: what was measured while building it, what failed, and what each failure changed. Read it for the construction history; nothing in it is needed to read a result.",
+   "bytes": 46549,
+   "sha256_12": "222c17169218"
   },
   {
    "file": "RUNBOOK.md",
@@ -719,8 +708,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 27570,
-   "sha256_12": "ff47b4a09ce9"
+   "bytes": 28101,
+   "sha256_12": "c4291c120db1"
   },
   {
    "file": "build_methylphys.py",
@@ -728,8 +717,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 176281,
-   "sha256_12": "84a8158841e9"
+   "bytes": 192307,
+   "sha256_12": "889f89608b16"
   },
   {
    "file": "build_percell_reference.py",
@@ -739,6 +728,15 @@
    "description": "Builds percell_reference_v0.json: each entry's own healthy range, per laboratory, from that laboratory's build panel.",
    "bytes": 6123,
    "sha256_12": "4638a78f7d0e"
+  },
+  {
+   "file": "chain_inventory_v1.json",
+   "path": "Biological_Physics/CPG_Engine/Runtime Matrices/chain_inventory_v1.json",
+   "role": "reference",
+   "stage": "interface",
+   "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
+   "bytes": 55695,
+   "sha256_12": "7104f3da03a9"
   },
   {
    "file": "run_batch.py",
@@ -757,6 +755,15 @@
    "description": "One command: IDAT pair or a cpg_id,beta CSV -> Stage 1 -> run_full -> this report.",
    "bytes": 4050,
    "sha256_12": "048edd5e7454"
+  },
+  {
+   "file": "val_finding.py",
+   "path": "Biological_Physics/CPG_Engine/val_finding.py",
+   "role": "interface",
+   "stage": "interface",
+   "description": "Writes the structured record of one validation run - instrument fingerprint, per-sample absolute readings, per-entry and per-group direction and magnitude, the pre-registered bars and their outcome. The Findings tab reads these.",
+   "bytes": 33119,
+   "sha256_12": "53461f056723"
   },
   {
    "file": "AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md",
