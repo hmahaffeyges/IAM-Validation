@@ -790,13 +790,121 @@ def tab_howto(R):
     H.append(deepdive(R,"reading the gauge, the tiers and the healthy reference"))
     return "".join(H)
 
-def tab_story():
-    return """<h2>The story - what the physics of methylation is, and how it was found</h2>
-<p>This instrument did not begin in a biology laboratory. It began with a question about why bound systems - stars, galaxies, the expanding universe - hold the states they hold at finite thermodynamic cost, and with the measurement toolkit cosmology built to answer questions like it: calibrate a reference by Markov-chain Monte Carlo, freeze it, and read every new observation as a departure from it, with the analysis pre-registered so the answer cannot be tuned after the fact. The same fidelity ratio was then read on quantum processors (where the thermal quantum is the only scale left) and on semiconductor logic (where it is a Landauer efficiency), and finally on the cell, whose methylome is a written surface held against thermal noise at 310 K.</p>
-<p>The premise that the methylome obeys Landauer's bound was already in the peer-reviewed literature (Sanchez &amp; Mackenzie 2016) - reached from biology, and read here for the first time in September 2026, after the chain existed. Two independent arrivals at the same constant are the best thing that can happen to a premise. What is added here is a fixed zero (the class floors), a single-sample absolute reading with no control group, composition read first, and the cosmology toolkit applied as a set of fail-safes: pipeline map, laboratory zero, age curve, residual sky, presence floors, blind analysis.</p>
-<p>The work was done between March and September 2026 by an independent researcher with no formal training in physics or genetics, in the open, in a public repository, with every validation - 175 index rows, pre-atlas and post-atlas - pre-registered and sealed, and with every failure kept on the record. Those validations were the design record: run to learn how to build the chain this report comes from. They are cited for what they found and for the history; the tests that will be declared with full confidence are the ones the commissioned chain runs under seal, and only those will be submitted for peer review.</p>
-<p>The positioning is deliberately narrow. Not the largest atlas, not all diseases, not early detection, not a claim that one atlas is the right structure. Only this: cells compute and write to a two-dimensional surface, the physics of that writing is known, and the healthy range for it can be calculated and read against a fixed zero. <i>We don't lose because we can't detect everything; we only lose if we can't detect anything.</i></p>
-<p>Field name: <b>Physics of Methylation: Landauer Metrology</b>. Instrument: <b>MethylPhys CPG</b> - the Cellular Performance Gauge. The full engineering manual is GAPE Issue 003; the short methods paper is <i>Landauer Metrology of the Methylome</i>. Both are linked from the Record tab.</p>"""
+def tab_story(R=None):
+    """The story, taken from the author's own explainer (What_Is_Astro_Genetics.tex, Zenodo 10.5281/zenodo.18702042,
+    May 2026) because it is better written than any paraphrase - with three places where this chain's later
+    measurements supersede it flagged inline rather than silently edited."""
+    H=["<h2>What is astro-genetics?</h2>",
+       "<p class='m'>This section is the author's own, from <i>What Is Astro-Genetics? Reading Cellular Health with the Tools of Cosmology</i> "
+       "(Zenodo 10.5281/zenodo.18702042, May 2026). It is reproduced because it says this better than a paraphrase would. Three passages have been "
+       "superseded by measurements made while commissioning this chain; each is marked <b>[updated]</b> where it occurs rather than quietly "
+       "rewritten, which is the same discipline the rest of this report follows.</p>",
+
+       "<h3>Who this is for</h3>",
+       "<p>The oncologist, the molecular biologist, the lab director, the informed patient. You do not need to follow a single line of cosmology to "
+       "use what follows. The point is not to teach you astrophysics. The point is to explain why a cellular-health measurement is built on the same "
+       "mathematics that describes stars and galaxies, and why that is a practical advantage rather than a poetic flourish. Where a number from "
+       "cosmology appears, it is there so that a colleague who does know cosmology can check it independently and tell you whether it is right. The "
+       "cosmology has already been checked by the field that owns it. What is new is the use of those same checked tools on cells.</p>",
+
+       "<h3>The one-sentence version</h3>",
+       "<p><b>Biology has a measurement problem that cosmology solved the tooling for more than twenty years ago, and astro-genetics is what happens "
+       "when you hand biology that tooling.</b> Cosmologists were forced, by the data, to build a precise toolkit for reading the state of a system "
+       "against a calibrated reference and saying how far it sits from a transition. They built it to measure the universe; it turns out to be "
+       "exactly what reading a cell requires. Astro-genetics points that toolkit at the cell. The tools transfer directly because the underlying "
+       "accounting is the same. That is the whole idea.</p>",
+
+       "<h3>Stargazers and trailblazers</h3>",
+       "<p>The work applies the discipline of cosmic cartography to the human epigenome. Cartography is the right word, and it is chosen carefully: "
+       "<b>we map what is there.</b> We do not invent the territory; we find it, chart it, and put the chart in the hands of people who can use it. "
+       "The CpG sites of the genome are already there. The healthy floor of each cell class is already there, as a physical quantity waiting to be "
+       "measured. The work is to produce the chart that lets a clinician find their way around it.</p>",
+       "<p>What makes the transfer more than borrowed vocabulary is that two specific correspondences hold, observable to observable, not as "
+       "metaphors but as the same kind of inference run on the same kind of object.</p>",
+       "<p><b>The first correspondence</b> is between the microwave background and architectural drift. The microwave background is a snapshot of "
+       "the universe at one moment, with tiny temperature variations encoding the structure of everything that came after; the cosmological community "
+       "spent thirty years learning to extract that structure. A cell's methylation pattern is the same kind of snapshot: a frozen record at the "
+       "moment of measurement, with tiny entropy variations encoding the architectural state that came before and the trajectory that is coming. The "
+       "observable differs - microkelvin temperature against Shannon entropy of methylation - but the structure of the inference is the same. Both "
+       "are readings of redundantly encoded classical information, the kind of encoding Zurek's quantum Darwinism describes: a system's state "
+       "written redundantly across an environment, recoverable by an observer reading any sufficient fragment. The microwave background and the "
+       "methylation landscape are both that environmental record, at two scales.</p>",
+       "<p><b>The second correspondence is the mechanism, and it is the load-bearing one.</b> Inhomogeneous decoherence at the cosmic horizon "
+       "corresponds to inhomogeneous floor crossings at the epigenome. The horizon writes information at the Landauer cost of k_B T ln 2 per bit; "
+       "the epigenome writes information at the chemical cost of maintaining a methylation mark, which sits at a fixed multiple of the same Landauer "
+       "floor. The writing is irreversible at both scales. Where the horizon shows uneven, structured encoding as matter clusters unevenly, the "
+       "epigenome shows uneven, structured floor crossings as some cell compartments saturate before others. The same irreversible "
+       "writing-to-a-surface process governs both. <b>That is why the same instrument reads both.</b></p>",
+       "<p><i>Stargazers see what is there; trailblazers go where no one has been.</i> The framework is built by doing both at once: reading the "
+       "chart the universe already wrote, and being first to read it at the cellular scale. Astro-genetics is the name for that second reading.</p>",
+
+       "<h3>Why your cells follow the same rule as the stars</h3>",
+       "<p>There is an old idea, older than physics, that the universe runs on balance. When something gains, something gives. The Greeks called it "
+       "the principle of opposites; Aristotle wrote about it twenty-five centuries ago. Modern physics rediscovered it in the 1800s and gave it a "
+       "name that hides how simple it is: the <b>virial theorem</b>. In any stable, bound system the energy of motion and the energy of position "
+       "settle into a fixed ratio. Half and half.</p>",
+       "<p>Until recently this was thought to apply only to things held together by gravity. The position taken here is that the same balance applies "
+       "everywhere - not because something enforces it, but because anything that violates the balance cannot be sustained at finite cost and "
+       "therefore does not persist. What we see when we look around, from galaxies to cells, is what the balance allows to exist. Everything that did "
+       "not balance has already come and gone.</p>",
+       "<p><b>Here is the part that connects the cosmos to the clinic.</b> Every time a physical system does something irreversible it pays a cost in "
+       "information. This is not a metaphor; it is Landauer's principle, an established result: writing or erasing one bit at temperature T costs at "
+       "least k_B T ln 2. When a star burns, that cost is paid in two halves - one shows up as motion, which we see as heat and light; the other as "
+       "the way the star bends space around itself, which we feel as gravity. A cell does the same thing. Every time it reads its genes, builds "
+       "proteins or divides, it pays the same kind of cost, split into the same two halves. One half is metabolism, the moment-to-moment work. The "
+       "other is written into the DNA - not into the genes themselves, but into small chemical tags placed at specific sites along the strand. "
+       "<b>The methylation pattern is the cell's running ledger of what it has been doing and what it is meant to do next.</b></p>",
+       "<p>In other words, the cell uses its DNA as a notebook and writes the receipt for every action. The pattern of receipts in a healthy cell "
+       "looks one way. The pattern in a cell drifting toward trouble looks different. Reading those patterns is what this instrument does.</p>",
+       "<p>The balance that keeps a star from collapsing is the same balance that keeps a cell healthy. When a cell's pattern drifts too far from its "
+       "balance point, the cell is in trouble for the same structural reason a star past a certain mass is in trouble: both have run out of capacity "
+       "to keep paying their costs in the normal way. <b>We did not invent this rule; we learned to read it.</b></p>",
+
+       "<h3>The ceiling is informational, not gravitational - and that is why it travels</h3>",
+       "<p>It is worth being precise about what this re-description does and does not claim. Consider how a black hole forms. The conventional "
+       "account, the one every astronomer uses, is gravitational: mass concentrates until gravity is intense enough that nothing escapes, and a "
+       "horizon forms. The framework here tells the same story in a different language: a region of space can only record so much information on its "
+       "boundary before that boundary is full, and when the local accounting saturates that limit a new surface must form for the writing to "
+       "continue. <b>These are not competing claims.</b> They predict the identical threshold at the identical radius; one is the other stated in the "
+       "language of information rather than force. The gravity an astronomer measures is, in this reading, the stored record of the accounting rather "
+       "than a separate cause.</p>",
+       "<p><b>The reason it matters is that it travels where the gravitational language cannot follow.</b> A single cell is far too small for its mass "
+       "to bend space measurably, so the gravitational account has nothing to say about it. The saturation account does. A cell maintains its identity "
+       "by writing its ledger onto the surface available to it - not spacetime, but its own chromatin. A healthy cell sits comfortably below the limit "
+       "of what that surface can hold. A cell drifting toward failure is one whose accounting is climbing toward saturation, writing more and more "
+       "onto a surface with only so much room, until it can no longer maintain its identity on its existing terms. The ceiling is informational, not "
+       "gravitational, which is exactly why the same law reads the star - where we used to call the ceiling gravity - and the cell, where there is no "
+       "gravity to speak of but the ceiling is just as real.</p>",
+
+       "<h3>Three places where this chain's own measurements supersede the May 2026 text</h3>",
+       "<div class='warn'><p><b>[updated] \"At A = 1.0 the system sits exactly at its floor.\"</b> The author corrected this himself on 2026-09-22, and "
+       "the correction is now everywhere in this report: A = 1.00 is the <i>healthy reference</i>, in the middle of the NORMAL band - not an edge and "
+       "not the floor. H_min is the constant in the denominator, the unit the axis is drawn in, and losing it is the failure event; the ceiling "
+       "(1/H_min) is saturation, a third thing again. See <b>How to read</b>.</p>"
+       "<p><b>[updated] \"the class-specific H_min anchor is held internal.\"</b> No longer true and no longer desirable. The eight floors, the "
+       "calibration code and the leave-one-out bootstrap that cross-checks them are all public - they were in the author's own Zenodo deposit under an "
+       "open licence from April 2026, so the withholding had never actually been in force. The floors are on the <b>Healthy reference</b> tab with "
+       "their provenance.</p>"
+       "<p><b>[updated] the 27-of-28 TCGA figure, and the cosmological ratios.</b> Those were produced on the pre-atlas surface and at cohort level, "
+       "before the gauge switch, the pipeline map, the laboratory zero and the presence floors existed. They are part of the record and they are not "
+       "results of the chain described in this report - reproducing them on the commissioned chain is a named item on the <b>Roadmap</b>. Quoting "
+       "them as this instrument's performance would be the exact stale-data failure this report's protocol exists to prevent.</p></div>",
+
+       "<h3>Two names, and which is which</h3>",
+       "<p><b>Astro-genetics</b> is the programme: cosmology's measurement tools pointed at the epigenome. <b>Physics of methylation: Landauer "
+       "metrology</b> is the narrower field name for the metrology itself - the fixed zero, the single-sample absolute reading, the three-layer "
+       "reference - and it is the title the engineering manual and the methods paper carry, because a methods paper should claim only what it "
+       "measures. Both names are the author's; they describe different scopes of the same work.</p>"]
+    plates=[("CPG_Gauge_Cosmic.png","The same gauge read on a star. The cellular and cosmic readings are one instrument at two scales - the author's figure.")
+]   # the CMB comparison figure lives on the Sky tab; embedding it twice doubled the file
+    for fn,cap in plates:
+        pth=R["files"].get(fn) if R else None
+        if pth and os.path.exists(pth):
+            H.append(f"<figure><img src='data:image/png;base64,{base64.b64encode(open(pth,'rb').read()).decode()}' style='width:100%'/>"
+                     f"<figcaption>{_e(cap)}</figcaption></figure>")
+    if R: H.append(deepdive(R,"the framework and its lineage"))
+    return guard("".join(H),"Story")
+
 
 def tab_record(R):
     H=["<h2>Record - every validation and every sealed procedure, linked</h2>"]
@@ -1010,7 +1118,7 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(),"record":tab_record(R),"run":tab_run(R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_ in TABS)
     body="".join(f"<section class='tab{' print' if p else ''}' id='{i}'>{sec[i]}</section>" for i,n,p in TABS)
