@@ -214,3 +214,25 @@ chi-squared, (d-m)^T C^-1 (d-m), *is* a squared Mahalanobis distance, so what co
 measured covariance and not trusting it until the covariance itself is measured - the same pattern as HEALPix, which also came from outside
 cosmology before cosmology made it standard. The tab also states what is thin about it today: with one commissioned class band the distance is just
 |z| of that class and the covariance has nothing to act on.
+
+### 2026-09-22 - the Story tab replaced by the author's own explainer, with three supersessions flagged
+
+The author judged `What_Is_Astro_Genetics.tex` (Zenodo 10.5281/zenodo.18702042, May 2026) better than the Story tab I had written, and he is right -
+it is his voice and the two correspondences are stated far more precisely than my paraphrase. The tab is now his text: who this is for; the
+one-sentence version ('biology has a measurement problem that cosmology solved the tooling for'); stargazers and trailblazers with the two
+correspondences (CMB <-> architectural drift as redundantly encoded classical information, Zurek; and the load-bearing one, inhomogeneous horizon
+decoherence <-> inhomogeneous floor crossings, both writing irreversibly to a surface at a fixed multiple of the Landauer cost); the virial/balance
+argument and the DNA-as-ledger passage; and the ceiling-is-informational-not-gravitational argument, which is what lets the account travel to a cell
+whose mass bends nothing measurable.
+
+**Three passages superseded by this chain's own measurements, flagged [updated] in place rather than silently edited:**
+1. *'At A = 1.0 the system sits exactly at its floor'* - the author corrected this himself today: A = 1.00 is the healthy reference in the MIDDLE of
+   the NORMAL band; H_min is the denominator constant and losing it is the failure event; the ceiling 1/H_min is saturation, a third thing.
+2. *'the class-specific H_min anchor is held internal'* - no longer true or desirable: the floors, the calibration code and the bootstrap
+   cross-check are public, and were in the author's own Zenodo deposit under an open licence from April 2026, so the withholding was never in force.
+3. *the 27-of-28 TCGA figure and the cosmological ratios* - pre-atlas surface, cohort level, before the gauge switch / pipeline map / lab zero /
+   presence floors existed. Part of the record, not results of the commissioned chain; reproducing them is a Roadmap item. Quoting them as this
+   instrument's performance would be the exact stale-data failure the protocol exists to prevent.
+
+Also added: a 'two names' note - **astro-genetics** is the programme (cosmology's tools pointed at the epigenome); **physics of methylation:
+Landauer metrology** is the narrower field name the manual and the methods paper carry, because a methods paper should claim only what it measures.
