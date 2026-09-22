@@ -685,3 +685,26 @@ manual: the three stale sentences are gone and the reinstatement is stated on th
 **The pattern, twice in one day:** a reversed decision leaves assertions behind in every document that mentioned it,
 and the SOP fix on its own was not enough. When a decision reverses, grep the live tree for the old claim - the
 directory names too, because a path is a claim.
+
+### 2026-09-22 - card numbers, and the NILC sweep finished properly
+
+**Card numbering (author, reading the book).** *"the first class card is immune and its number 3 and the very next
+one is number 5?"* Both numbers were real and they were different things. `CARDS` in `gape002_lib.py` is ordered by
+descending share of cell-free DNA in blood - immune 70 per cent, cycling 12, secretory 8, stromal 4, stem_adult 3,
+progenitor 2, terminal 0.5, pluripotent 0.5 - and its own source comment calls immune "#1". But the printed header
+used each card's `order` field, which is its index in Issue 002's `CLASS_ORDER` (terminal 1 ... stem_pluri 8). Two
+schemes in one header. New flag `CARD_NUMBER_BY_POSITION`, default False so Issue 002 still reproduces exactly;
+Issue 003 sets it True and the cards now read #1 IMMUNE through #8 PLURIPOTENT in the order they appear, with the
+ordering rationale stated in the lib.
+
+**The NILC sweep, finished.** The earlier pass edited strings I had guessed at, and an audit found two survivors in
+the files I had just edited: RECON row D3 still read "CUT from Stage 2; Walther alone" in the very status column the
+reconciliation table exists to keep current, and an Appendix VI row read "the cross-method discipline is no longer
+enforced in the chain" with a paragraph recording its return as OPEN. Fixing those and then scanning the *rendered*
+pages found two more that no source grep of the build would have caught: they live in `manual/appendix_vi_vii.json`
+and in `doors/CMB_TO_METHYLOME_MAP.md` / `doors/COMPLETION_SPRINT_scored.md`.
+
+Verification is now a scan rather than a list of strings: every rendered sentence mentioning NILC or the second
+deconvolver together with a cut is checked against its neighbouring sentences for the reversal. **Zero remain.**
+
+**Method note:** editing guessed strings verifies nothing. The check has to enumerate the claim in the output.
