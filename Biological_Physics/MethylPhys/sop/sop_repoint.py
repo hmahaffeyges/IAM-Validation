@@ -105,6 +105,32 @@ def commit():
                               capture_output=True,text=True).stdout.strip() or "unknown"
     except Exception: return "unknown"
 
+HEADER_FIXES = [
+    # The title pinned an engine commit (66f37fe, July). A procedure that names a commit is stale the moment the
+    # engine moves; the same defect was removed from the manual's page one. State the version, point at git.
+    (re.compile(r"^# CPG Chain-of-Custody Standard Operating Procedure \\(SOP\\) — v2\\.0\\.0[^\\n]*$", re.M),
+     "# CPG Chain-of-Custody Standard Operating Procedure (SOP) — v2.0.0"),
+    (re.compile(r"^\\*\\*Document version:\\*\\* v2\\.0\\.0[^\\n]*$", re.M),
+     "**Document version:** v2.0.0, matched to the engine in this repository at the commit this file was last "
+     "regenerated from (see `git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions are in git "
+     "history; this document states the current procedure."),
+]
+
+HEADER_TITLE = "# CPG Chain-of-Custody Standard Operating Procedure (SOP) \u2014 v2.0.0"
+HEADER_VERSION = ("**Document version:** v2.0.0, matched to the engine in this repository at the commit this file "
+                  "was last regenerated from (`git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions "
+                  "are in git history; this document states the current procedure.")
+
+def _fix_header(text):
+    """The title used to pin an engine commit (66f37fe, July). A procedure that names a commit is stale the
+    moment the engine moves - the same defect was removed from the manual's page one. State the version and
+    point at git instead."""
+    lines = text.split("\n")
+    if lines and lines[0].startswith("# CPG Chain-of-Custody"): lines[0] = HEADER_TITLE
+    for i in range(1, min(10, len(lines))):
+        if lines[i].startswith("**Document version:**"): lines[i] = HEADER_VERSION; break
+    return "\n".join(lines)
+
 def main():
     s=open(SOP,encoding="utf-8").read(); orig=s
     # 1a. the header: one line for what this is, not five for what it replaced
@@ -150,6 +176,9 @@ def main():
     m=s.find("\n# Reference - the files of the chain")
     if m>0: s=s[:m]
     s=s.rstrip()+"".join(tbl)
+    for pat,rep in HEADER_FIXES:
+        s=pat.sub(rep,s,count=1)
+    s=_fix_header(s)
     open(SOP,"w",encoding="utf-8").write(s)
     print(f"SOP: {orig.count(chr(10))} -> {s.count(chr(10))} lines")
     for k2 in ("RENAME","RECORD_SIDE","NOT_IN_CHAIN","DROP"):
