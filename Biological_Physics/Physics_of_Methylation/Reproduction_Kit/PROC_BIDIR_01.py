@@ -81,4 +81,11 @@ else:
     res["B5"]={"header_cols":len(cols),"rows_in_file":nrow,"matched_samples":len(want),"cpgs_found":len(idx),"values_compared":cnt,"missing":nan,"max_abs_diff":md,"pass":bool(len(want)==len(betas) and len(idx)==len(cpgs) and md<1e-4)}
     print(f"B5 raw GEO: rows {nrow}, samples matched {len(want)}/{len(betas)}, cpgs {len(idx)}/{len(cpgs)}, values {cnt}, max|diff| {md:.2e} -> {'PASS' if res['B5']['pass'] else 'FAIL'}")
 res["row_4_5_commissioned"]=bool(all(res[b]["pass"] for b in ("B1","B2","B3","B4")) and res["B5"]["pass"] is True)
-json.dump(res,open(os.path.join(OUT,"proc_bidir_01.json"),"w"),indent=1,default=str); print("row 4.5 commissioned:",res["row_4_5_commissioned"])
+json.dump(res,open(os.path.join(OUT,"proc_bidir_01.json"),"w"),indent=1,default=str)
+# Report the guard's own state in a form a machine can read without inferring from an exit code (2026-09-22):
+# four bars passing with the raw-data bar unavailable is a SKIP, not a failure, and must not read as either a pass.
+_bars={k:res[k]["pass"] for k in ("B1","B2","B3","B4") if k in res}
+_b5=res.get("B5",{}).get("pass")
+if all(_bars.values()) and _b5 is True: print("PROC-BIDIR-01: all bars pass -> row 4.5 commissioned: True")
+elif all(_bars.values()) and _b5 is None: print("PROC-BIDIR-01: B1-B4 pass, B5 SKIPPED - needs the GSE153712 supplementary matrix (5.1 GB) -> not commissioned in this run")
+else: print("PROC-BIDIR-01: -> FAIL", {k:v for k,v in _bars.items() if not v} or {"B5":_b5})

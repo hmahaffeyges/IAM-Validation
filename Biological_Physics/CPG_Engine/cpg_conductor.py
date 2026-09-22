@@ -81,11 +81,32 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     scores = asc.score_per_celltype(beta_dict, ct_markers, c2c, h_min)
 
     # 3. Pair A with fraction — presence comes from the ratio, not the A-score
+    # Uncertainty ON THE READING (2026-09-22): resample this cell's own marker CpGs, 500 draws, 95 % interval.
+    # This is the error bar on A for THIS sample - a different quantity from the healthy range for that cell, and
+    # from the atlas posterior SD of a class mean. The June reports conflated the third with the second: they printed
+    # "95 % CI" that was mean +/- 1.96 x the posterior SD OF THE MEAN, an uncertainty-of-an-average used as a
+    # population spread, which is why healthy cells appeared to sit 10 sigma out. Never that quantity again.
+    import numpy as _np
+    _rng = _np.random.default_rng(20260922)
+    def _H1(b):
+        b = _np.clip(_np.asarray(b, float), 1e-12, 1 - 1e-12)
+        return -b * _np.log2(b) - (1 - b) * _np.log2(1 - b)
+    _boot = {}
+    for _ct, _mk in ct_markers.items():
+        _cl = c2c.get(_ct); _hm = h_min.get(_cl) if _cl else None
+        _v = [beta_dict[c] for c in _mk if c in beta_dict] if isinstance(_mk, (list, tuple)) else []
+        if not _hm or len(_v) < 10: continue
+        _h = _H1(_v) / _hm; _n = len(_h)
+        _d = _h[_rng.integers(0, _n, size=(500, _n))].mean(axis=1)
+        _boot[_ct] = {"ci_lo": float(_np.percentile(_d, 2.5)), "ci_hi": float(_np.percentile(_d, 97.5)),
+                      "n_markers_found": int(_n), "n_markers_panel": int(len(_mk))}
+
     cells = {}
     for ct, r in scores.items():
         frac = float(ct_fr.get(ct, 0.0))
         cells[ct] = {
             "A": r.get("A"),
+            "reading_ci": _boot.get(ct),
             "coverage": r.get("coverage"),
             "confidence": r.get("confidence"),
             "status": r.get("status"),
@@ -415,6 +436,51 @@ def stage_8_matching(stage_a_out, cfg=None):
             "n_present_cells": len(out.patient_departure), "patient_departure": out.patient_departure,
             "route_B_top": out.route_B_concordance[:5], "n_scored": len(out.route_B_all_scored)}
 
+
+def stage_2b_second_opinion(beta_dict, stage_a_out, atlas_csv, cfg=None):
+    """Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation
+    method) run beside Walther's constrained NNLS and compared AT THE CLASS LEVEL, which is where PROC-SEP-03
+    showed the atlas is separable. Ships as a second column plus an agreement flag, never as the composition the
+    report stands on: Walther is conservative and commissioned, NILC is variance-weighted and deliberately
+    sensitive, and the disagreement is information (PROC-NILC-01 - the disagreement WAS the finding). Cell-level
+    disagreement inside one lineage is EXPECTED, not a defect, because the atlas cannot split the blood classes.
+    Returns {} if the module or the marker file is unavailable, so the chain never depends on it.
+    """
+    import importlib.util, os, numpy as np
+    try:
+        mp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "nilc_celltype_deconvolver.py")
+        if not os.path.exists(mp): return {"available": False, "reason": "nilc_celltype_deconvolver.py not present"}
+        spec = importlib.util.spec_from_file_location("nilc_mod", mp); nl = importlib.util.module_from_spec(spec); spec.loader.exec_module(nl)
+        d = nl.NILCCelltypeDeconvolver(str(atlas_csv), _find("iamatlas_celltype_markers_v0_2.json"))
+        out = d.deconvolve(beta_dict)
+        nf = out.get("fractions", out) if isinstance(out, dict) else out
+        nf = {k: float(v) for k, v in dict(nf).items()}
+    except Exception as e:
+        return {"available": False, "reason": f"{type(e).__name__}: {e}"[:200]}
+    c2c = json.load(open(_find("IAMAtlasREBUILD_celltype_to_class.json")))
+    wf = stage_a_out.get("celltype_fractions", {})
+    def by_class(frac):
+        out = {}
+        for cell, v in frac.items():
+            cl = c2c.get(cell)
+            if cl: out[cl] = out.get(cl, 0.0) + float(v)
+        return out
+    W, N = by_class(wf), by_class(nf)
+    classes = sorted(set(W) | set(N))
+    rows = {c: {"walther": round(W.get(c, 0.0), 4), "nilc": round(N.get(c, 0.0), 4),
+                "abs_diff": round(abs(W.get(c, 0.0) - N.get(c, 0.0)), 4)} for c in classes}
+    L1c = sum(r["abs_diff"] for r in rows.values())
+    L1cell = sum(abs(wf.get(k, 0.0) - nf.get(k, 0.0)) for k in set(wf) | set(nf))
+    # agreement bar: class-level L1 <= 0.10 is agreement; above it the two methods are telling different stories
+    agree = L1c <= 0.10
+    return {"available": True, "by_class": rows, "L1_class": round(L1c, 4), "L1_cell": round(L1cell, 4),
+            "agreement": "AGREE" if agree else "DISAGREE", "bar": "class-level L1 <= 0.10",
+            "note": ("the two solvers agree on the architecture-class composition the report stands on; cell-level "
+                     "differences inside a lineage are expected and are not scored") if agree else
+                    ("the two solvers disagree at the class level - per PROC-NILC-01 that is information, not a "
+                     "defect in either: read the class table and treat the composition as uncertain"),
+            "reported_composition": "Walther (constrained NNLS) - NILC is a second opinion only"}
+
 def run_full(beta_dict, atlas_csv, cfg=None):
     """Full conductor: Stage A -> B (wired) -> 1s scale map -> B-identity -> 4.5 -> 5 -> 6, one bundle
     in the shape build_dashboard_v1.py consumes. Present-gated throughout.
@@ -423,6 +489,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     cfg = cfg or {}
     age = cfg.get("age", 60)
     a = stage_a_cells(beta_dict, atlas_csv, cfg)
+    so = stage_2b_second_opinion(beta_dict, a, atlas_csv, cfg) if (cfg or {}).get("second_opinion", True) else {"available": False, "reason": "not requested"}
     b = stage_b_classes(beta_dict, a, cfg={"age": age})                         # marker-union statistic: DIAGNOSTIC ONLY since PROC-SWITCH-01 (feeds Stages 5/6 pending their recalibration)
     beta_rm, scale_label = stage_1s_scale_map(beta_dict, cfg.get("pipeline"))   # Stage 1s: calibration scale for the gauge
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
@@ -445,7 +512,8 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
-        "cells_all": a["cells"],                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them
+        "cells_all": a["cells"],
+        "second_opinion": so,                        # row 2b: NILC beside Walther, class-level agreement flag                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
