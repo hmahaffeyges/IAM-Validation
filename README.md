@@ -18,7 +18,6 @@ This repository contains the derivation, implementation, and validation of IAM a
 
 **Complete Test Ledger (IAM):** [IAM Validation Scorecard](docs/papers/IAM_Official_Score_Card.pdf)
 
-**Biological Physics — IAM applied to cellular systems:** [Biological_Physics/README.md](Biological_Physics/README.md)
 
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9)
@@ -29,6 +28,64 @@ This repository contains the derivation, implementation, and validation of IAM a
 [![MGCAMB](https://img.shields.io/badge/MGCAMB-v1.5.2-green)](https://github.com/sfu-cosmo/MGCAMB)
 
 ---
+
+## Two programmes, one measurement principle
+
+Landauer's bound says that writing or erasing one bit of information costs at least `k_B T ln 2` of energy. That
+bound is not a statement about computers; it is a statement about any physical system that holds a state against
+thermal noise. This repository applies it in two places, with the same arithmetic and two entirely different
+instruments.
+
+<table>
+<tr><th align="left" width="50%">Cosmology and particle physics</th><th align="left" width="50%">Cellular systems</th></tr>
+<tr valign="top">
+<td>
+
+**Informational Actualization Model (IAM)**<br>
+*GR's own thermodynamic derivation, completed*
+
+The informational entropy of gravitational decoherence, entering the Jacobson–Cai-Kim entropy functional through
+the matter sector alone. Zero free parameters beyond ΛCDM; 17 converged MCMC chains against the full Planck 2018
+likelihood; `Δχ² = +0.54` best-fit versus ΛCDM.
+
+Everything below on this page, plus the paper library in [`docs/`](docs/README.md).
+
+</td>
+<td>
+
+**[AstroGenetics — Physics of Methylation: Landauer Metrology · Cellular Performance Gauge](Biological_Physics/MethylPhys/)**
+
+The same bound read at the epigenome, with cosmology's measurement tooling: a fixed physical zero per architecture
+class, a single-sample absolute reading, HEALPix projection of the per-CpG residual, and an internal-linear-
+combination solver for cellular composition.
+
+The instrument, its SOP, its reproduction kit, the calibrated reference data and the researcher interface:
+[`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/). The evidence:
+[`Biological_Physics/Record/`](Biological_Physics/Record/).
+
+</td>
+</tr>
+</table>
+
+**For a physicist arriving from the cosmology side:** the cellular work is metrology, not a new theory. It uses the
+Landauer bound as a *unit* — the measured quantity is a dimensionless ratio of an observed entropy to a fitted
+per-class reference — and it states plainly which of its constants are derived and which are measured. The
+[methods paper](Biological_Physics/MethylPhys/papers/) carries only that claim.
+
+**For a geneticist or biophysicist arriving from the biology side:** you need no cosmology to use it. The
+instrument reports whether a sample's cellular write process is operating within the healthy range for its age, by
+architecture class, against a fixed zero. It names no condition and states no age in years. Start at
+[`MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md), then `doors/RUNBOOK.md`.
+
+
+<details>
+<summary><h2 style="display:inline">Cosmology and particle physics — the parent programme</h2></summary>
+
+_Jacobson showed in 1995 that Einstein's equations are an equation of state; Cai and Kim showed in 2005 that the
+Friedmann equations follow from the same argument applied to the apparent horizon. IAM identifies the missing term
+in that entropy functional. Everything in this section is the cosmological and particle-physics programme: the
+derivation, the MCMC validation against Planck 2018, the dual-sector mechanism, the datasets and the predictions.
+Expand it for the full record._
 
 ## Methodological Distinction
 
@@ -668,6 +725,9 @@ All 9 figures generated successfully!
 </details>
 
 ---
+
+
+</details>
 
 ## Repository Structure
 
