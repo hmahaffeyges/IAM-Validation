@@ -65,71 +65,40 @@ Every path below was resolved from the repository tree when this page was genera
 | [`evidence_summary.json`](../evidence_pre_atlas_2026-04/evidence_summary.json) | the April 2026 evidence database - PRE-ATLAS chain, marker-union surface | 49 KB |
 | [`evidence_summary.tsv`](../evidence_pre_atlas_2026-04/evidence_summary.tsv) | the same, as a table | 14 KB |
 
-## Every sealed procedure — 137 documents, 12 result files
+## Every sealed procedure — 27 procedures, 92 files
 
-Each names its bars **before** the run and its outcome against them. The failures are in here too: row 5b
-closed NOT COMMISSIONED, and PROC-RECORD-02 reclassified four PASS rows to modelled predictions.
+Each names its bars **before** the run and its outcome against them. The failures are here too: row 5b closed
+NOT COMMISSIONED (PROC-MAHA-03), and PROC-RECORD-02 reclassified four PASS rows to modelled predictions.
+Every procedure in the tree is listed; the count above is generated from it, so the list and the number cannot
+disagree.
 
-- [`PROC_MAHA_03_OUTCOME.md`](PROC_MAHA_03_OUTCOME.md)
-- [`PROC_MAHA_03_PREREG.md`](PROC_MAHA_03_PREREG.md)
-- [`PROC_ANCHOR_01.py`](../kit/PROC_ANCHOR_01.py)
-- [`PROC_BIDIR_01.py`](../kit/PROC_BIDIR_01.py)
-- [`PROC_CAL_01.py`](../kit/PROC_CAL_01.py)
-- [`PROC_CMB_05.py`](../kit/PROC_CMB_05.py)
-- [`PROC_DECON_01.py`](../kit/PROC_DECON_01.py)
-- [`PROC_FORMULA_01.py`](../kit/PROC_FORMULA_01.py)
-- [`PROC_MAHA_03.py`](../kit/PROC_MAHA_03.py)
-- [`PROC_MAHA_03_stage1_table.py`](../kit/PROC_MAHA_03_stage1_table.py)
-- [`PROC_PLASMA_MIX_01.py`](../kit/PROC_PLASMA_MIX_01.py)
-- [`PROC_SEP_03.py`](../kit/PROC_SEP_03.py)
-- [`PROC_ANCHOR_01_GSE51057.json`](../kit/results/PROC_ANCHOR_01_GSE51057.json)
-- [`PROC_MAHA_03.json`](../kit/results/PROC_MAHA_03.json)
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-AGE-01/OUTCOME.md) — PROC-AGE-01
-- [`PREREG.md`](../../Record/PROC_data/PROC-AGE-01/PREREG.md) — PROC-AGE-01
-- [`age01_a4.json`](../../Record/PROC_data/PROC-AGE-01/age01_a4.json) — PROC-AGE-01
-- [`age01_results.json`](../../Record/PROC_data/PROC-AGE-01/age01_results.json) — PROC-AGE-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-BIDIR-01/OUTCOME.md) — PROC-BIDIR-01
-- [`PREREG.md`](../../Record/PROC_data/PROC-BIDIR-01/PREREG.md) — PROC-BIDIR-01
-- [`PROC_BIDIR_01_as_run.py`](../../Record/PROC_data/PROC-BIDIR-01/PROC_BIDIR_01_as_run.py) — PROC-BIDIR-01
-- [`VAL_050_RESULTS_rerun_2026-09-21.json`](../../Record/PROC_data/PROC-BIDIR-01/VAL_050_RESULTS_rerun_2026-09-21.json) — PROC-BIDIR-01
-- [`VAL_051_RESULTS_rerun_2026-09-21.json`](../../Record/PROC_data/PROC-BIDIR-01/VAL_051_RESULTS_rerun_2026-09-21.json) — PROC-BIDIR-01
-- [`b4_engine_vs_seal.json`](../../Record/PROC_data/PROC-BIDIR-01/b4_engine_vs_seal.json) — PROC-BIDIR-01
-- [`proc_bidir_01.json`](../../Record/PROC_data/PROC-BIDIR-01/proc_bidir_01.json) — PROC-BIDIR-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-CEIL-01/OUTCOME.md) — PROC-CEIL-01
-- [`tceil_results.json`](../../Record/PROC_data/PROC-CEIL-01/tceil_results.json) — PROC-CEIL-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-01/OUTCOME.md) — PROC-CMB-01
-- [`PREREG.md`](../../Record/PROC_data/PROC-CMB-01/PREREG.md) — PROC-CMB-01
-- [`PROC_CMB_01_as_run.py`](../../Record/PROC_data/PROC-CMB-01/PROC_CMB_01_as_run.py) — PROC-CMB-01
-- [`plate_GSM2334327_CMB01_no_zero.png`](../../Record/PROC_data/PROC-CMB-01/plate_GSM2334327_CMB01_no_zero.png) — PROC-CMB-01
-- [`proc_cmb_01.json`](../../Record/PROC_data/PROC-CMB-01/proc_cmb_01.json) — PROC-CMB-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-02/OUTCOME.md) — PROC-CMB-02
-- [`PREREG.md`](../../Record/PROC_data/PROC-CMB-02/PREREG.md) — PROC-CMB-02
-- [`PROC_CMB_02_as_run.py`](../../Record/PROC_data/PROC-CMB-02/PROC_CMB_02_as_run.py) — PROC-CMB-02
-- [`proc_cmb_02.json`](../../Record/PROC_data/PROC-CMB-02/proc_cmb_02.json) — PROC-CMB-02
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-03/OUTCOME.md) — PROC-CMB-03
-- [`PREREG.md`](../../Record/PROC_data/PROC-CMB-03/PREREG.md) — PROC-CMB-03
-- [`PROC_CMB_03_as_run.py`](../../Record/PROC_data/PROC-CMB-03/PROC_CMB_03_as_run.py) — PROC-CMB-03
-- [`proc_cmb_03.json`](../../Record/PROC_data/PROC-CMB-03/proc_cmb_03.json) — PROC-CMB-03
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-04/OUTCOME.md) — PROC-CMB-04
-- [`PREREG.md`](../../Record/PROC_data/PROC-CMB-04/PREREG.md) — PROC-CMB-04
-- [`PROC_CMB_04_as_run.py`](../../Record/PROC_data/PROC-CMB-04/PROC_CMB_04_as_run.py) — PROC-CMB-04
-- [`plate_GSM2333901_healthy_GSE87571.png`](../../Record/PROC_data/PROC-CMB-04/plate_GSM2333901_healthy_GSE87571.png) — PROC-CMB-04
-- [`proc_cmb_04.json`](../../Record/PROC_data/PROC-CMB-04/proc_cmb_04.json) — PROC-CMB-04
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-05/OUTCOME.md) — PROC-CMB-05
-- [`PREREG.md`](../../Record/PROC_data/PROC-CMB-05/PREREG.md) — PROC-CMB-05
-- [`PROC_CMB_05_as_run.py`](../../Record/PROC_data/PROC-CMB-05/PROC_CMB_05_as_run.py) — PROC-CMB-05
-- [`proc_cmb_05.json`](../../Record/PROC_data/PROC-CMB-05/proc_cmb_05.json) — PROC-CMB-05
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-HISTORY-01/OUTCOME.md) — PROC-HISTORY-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-HMIN-BOOT-01/OUTCOME.md) — PROC-HMIN-BOOT-01
-- [`hmin_methyl_bootstrap.json`](../../Record/PROC_data/PROC-HMIN-BOOT-01/hmin_methyl_bootstrap.json) — PROC-HMIN-BOOT-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-MAHA-01/OUTCOME.md) — PROC-MAHA-01
-- [`PREREG.md`](../../Record/PROC_data/PROC-MAHA-01/PREREG.md) — PROC-MAHA-01
-- [`maha01_chip_diag.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_chip_diag.json) — PROC-MAHA-01
-- [`maha01_m145.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_m145.json) — PROC-MAHA-01
-- [`maha01_m23.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_m23.json) — PROC-MAHA-01
-- [`OUTCOME.md`](../../Record/PROC_data/PROC-MAHA-02/OUTCOME.md) — PROC-MAHA-02
-- [`PREREG.md`](../../Record/PROC_data/PROC-MAHA-02/PREREG.md) — PROC-MAHA-02
-- [`maha02_results.json`](../../Record/PROC_data/PROC-MAHA-02/maha02_results.json) — PROC-MAHA-02
+- **PROC-AGE-01** — [OUTCOME.md](../../Record/PROC_data/PROC-AGE-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-AGE-01/PREREG.md), [age01_a4.json](../../Record/PROC_data/PROC-AGE-01/age01_a4.json), [age01_results.json](../../Record/PROC_data/PROC-AGE-01/age01_results.json)
+- **PROC-ANCHOR-01** — [PROC_ANCHOR_01.py](../kit/PROC_ANCHOR_01.py), [PROC_ANCHOR_01_GSE51057.json](../kit/results/PROC_ANCHOR_01_GSE51057.json)
+- **PROC-BIDIR-01** — [PROC_BIDIR_01.py](../kit/PROC_BIDIR_01.py), [OUTCOME.md](../../Record/PROC_data/PROC-BIDIR-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-BIDIR-01/PREREG.md), [PROC_BIDIR_01_as_run.py](../../Record/PROC_data/PROC-BIDIR-01/PROC_BIDIR_01_as_run.py), [VAL_050_RESULTS_rerun_2026-09-21.json](../../Record/PROC_data/PROC-BIDIR-01/VAL_050_RESULTS_rerun_2026-09-21.json), [VAL_051_RESULTS_rerun_2026-09-21.json](../../Record/PROC_data/PROC-BIDIR-01/VAL_051_RESULTS_rerun_2026-09-21.json), [b4_engine_vs_seal.json](../../Record/PROC_data/PROC-BIDIR-01/b4_engine_vs_seal.json), [proc_bidir_01.json](../../Record/PROC_data/PROC-BIDIR-01/proc_bidir_01.json)
+- **PROC-CAL-01** — [PROC_CAL_01.py](../kit/PROC_CAL_01.py)
+- **PROC-CEIL-01** — [OUTCOME.md](../../Record/PROC_data/PROC-CEIL-01/OUTCOME.md), [tceil_results.json](../../Record/PROC_data/PROC-CEIL-01/tceil_results.json)
+- **PROC-CMB-01** — [OUTCOME.md](../../Record/PROC_data/PROC-CMB-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-CMB-01/PREREG.md), [PROC_CMB_01_as_run.py](../../Record/PROC_data/PROC-CMB-01/PROC_CMB_01_as_run.py), [plate_GSM2334327_CMB01_no_zero.png](../../Record/PROC_data/PROC-CMB-01/plate_GSM2334327_CMB01_no_zero.png), [proc_cmb_01.json](../../Record/PROC_data/PROC-CMB-01/proc_cmb_01.json)
+- **PROC-CMB-02** — [OUTCOME.md](../../Record/PROC_data/PROC-CMB-02/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-CMB-02/PREREG.md), [PROC_CMB_02_as_run.py](../../Record/PROC_data/PROC-CMB-02/PROC_CMB_02_as_run.py), [proc_cmb_02.json](../../Record/PROC_data/PROC-CMB-02/proc_cmb_02.json)
+- **PROC-CMB-03** — [OUTCOME.md](../../Record/PROC_data/PROC-CMB-03/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-CMB-03/PREREG.md), [PROC_CMB_03_as_run.py](../../Record/PROC_data/PROC-CMB-03/PROC_CMB_03_as_run.py), [proc_cmb_03.json](../../Record/PROC_data/PROC-CMB-03/proc_cmb_03.json)
+- **PROC-CMB-04** — [OUTCOME.md](../../Record/PROC_data/PROC-CMB-04/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-CMB-04/PREREG.md), [PROC_CMB_04_as_run.py](../../Record/PROC_data/PROC-CMB-04/PROC_CMB_04_as_run.py), [plate_GSM2333901_healthy_GSE87571.png](../../Record/PROC_data/PROC-CMB-04/plate_GSM2333901_healthy_GSE87571.png), [proc_cmb_04.json](../../Record/PROC_data/PROC-CMB-04/proc_cmb_04.json)
+- **PROC-CMB-05** — [PROC_CMB_05.py](../kit/PROC_CMB_05.py), [OUTCOME.md](../../Record/PROC_data/PROC-CMB-05/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-CMB-05/PREREG.md), [PROC_CMB_05_as_run.py](../../Record/PROC_data/PROC-CMB-05/PROC_CMB_05_as_run.py), [proc_cmb_05.json](../../Record/PROC_data/PROC-CMB-05/proc_cmb_05.json)
+- **PROC-DECON-01** — [PROC_DECON_01.py](../kit/PROC_DECON_01.py)
+- **PROC-FORMULA-01** — [PROC_FORMULA_01.py](../kit/PROC_FORMULA_01.py)
+- **PROC-HISTORY-01** — [OUTCOME.md](../../Record/PROC_data/PROC-HISTORY-01/OUTCOME.md)
+- **PROC-MAHA-01** — [OUTCOME.md](../../Record/PROC_data/PROC-MAHA-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-MAHA-01/PREREG.md), [maha01_chip_diag.json](../../Record/PROC_data/PROC-MAHA-01/maha01_chip_diag.json), [maha01_m145.json](../../Record/PROC_data/PROC-MAHA-01/maha01_m145.json), [maha01_m23.json](../../Record/PROC_data/PROC-MAHA-01/maha01_m23.json)
+- **PROC-MAHA-02** — [OUTCOME.md](../../Record/PROC_data/PROC-MAHA-02/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-MAHA-02/PREREG.md), [maha02_results.json](../../Record/PROC_data/PROC-MAHA-02/maha02_results.json)
+- **PROC-MAHA-03** — [PROC_MAHA_03_OUTCOME.md](PROC_MAHA_03_OUTCOME.md), [PROC_MAHA_03_PREREG.md](PROC_MAHA_03_PREREG.md), [PROC_MAHA_03.py](../kit/PROC_MAHA_03.py), [PROC_MAHA_03_stage1_table.py](../kit/PROC_MAHA_03_stage1_table.py), [PROC_MAHA_03.json](../kit/results/PROC_MAHA_03.json)
+- **PROC-MATCH-01** — [OUTCOME.md](../../Record/PROC_data/PROC-MATCH-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-MATCH-01/PREREG.md), [m5_cached_arrays.json](../../Record/PROC_data/PROC-MATCH-01/m5_cached_arrays.json), [test_disease_matching_gate.py](../../Record/PROC_data/PROC-MATCH-01/test_disease_matching_gate.py)
+- **PROC-PANEL-01** — [OUTCOME.md](../../Record/PROC_data/PROC-PANEL-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-PANEL-01/PREREG.md), [panel01_results.json](../../Record/PROC_data/PROC-PANEL-01/panel01_results.json), [per_sample_input.csv](../../Record/PROC_data/PROC-PANEL-01/per_sample_input.csv)
+- **PROC-PANEL-02** — [OUTCOME.md](../../Record/PROC_data/PROC-PANEL-02/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-PANEL-02/PREREG.md), [panel02_results.json](../../Record/PROC_data/PROC-PANEL-02/panel02_results.json)
+- **PROC-PANEL-03** — [OUTCOME.md](../../Record/PROC_data/PROC-PANEL-03/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-PANEL-03/PREREG.md), [panel03_results.json](../../Record/PROC_data/PROC-PANEL-03/panel03_results.json)
+- **PROC-RECORD-02** — [OUTCOME.md](../../Record/PROC_data/PROC-RECORD-02/OUTCOME.md), [val025_028_aging_ZENODO_COPY.py](../../Record/PROC_data/PROC-RECORD-02/val025_028_aging_ZENODO_COPY.py)
+- **PROC-RECORD-03** — [OUTCOME.md](../../Record/PROC_data/PROC-RECORD-03/OUTCOME.md), [age_matrix_provenance_check.json](../../Record/PROC_data/PROC-RECORD-03/age_matrix_provenance_check.json)
+- **PROC-SEP-03** — [PROC_SEP_03.py](../kit/PROC_SEP_03.py)
+- **PROC-SWITCH-01** — [OUTCOME.md](../../Record/PROC_data/PROC-SWITCH-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-SWITCH-01/PREREG.md), [switch01_s123.json](../../Record/PROC_data/PROC-SWITCH-01/switch01_s123.json), [switch01_s4.json](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4.json), [switch01_s4_diag.json](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4_diag.json), [switch01_s6.json](../../Record/PROC_data/PROC-SWITCH-01/switch01_s6.json)
+- **PROC-SWITCH-02** — [OUTCOME.md](../../Record/PROC_data/PROC-SWITCH-02/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-SWITCH-02/PREREG.md), [switch02_results.json](../../Record/PROC_data/PROC-SWITCH-02/switch02_results.json)
+- **PROC-TIER-01** — [OUTCOME.md](../../Record/PROC_data/PROC-TIER-01/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-TIER-01/PREREG.md), [test_tiers_as_run.py](../../Record/PROC_data/PROC-TIER-01/test_tiers_as_run.py), [tier01_healthy_tiers.csv](../../Record/PROC_data/PROC-TIER-01/tier01_healthy_tiers.csv)
+- **PROC-TIER-02** — [OUTCOME.md](../../Record/PROC_data/PROC-TIER-02/OUTCOME.md), [PREREG.md](../../Record/PROC_data/PROC-TIER-02/PREREG.md), [test_tiers_as_run.py](../../Record/PROC_data/PROC-TIER-02/test_tiers_as_run.py), [u2_occupancy.json](../../Record/PROC_data/PROC-TIER-02/u2_occupancy.json)
 
 ## What is NOT published, and why
 
