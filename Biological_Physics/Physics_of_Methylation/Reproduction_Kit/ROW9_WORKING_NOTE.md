@@ -330,3 +330,43 @@ over, in different naming conventions); HSC/L-MPP/MPP; CMP/MEP; dendritic/macrop
 
 So the answer to "which cell moved" is: **you can say which group moved, and within a group you cannot** - and separately, for 36 entries the panel
 is too shared to carry an individual claim at all. Wiring the group column into the per-cell table is the next step, and it needs no re-seal.
+
+## 2026-09-22 - the lineage group column, and the VAL findings schema written BEFORE the first run
+
+**Group column wired (no re-seal needed).** Every per-cell row now prints its collinearity group. Measured on the
+115 entries: **27 rows belong to a multi-member group** and say so ("not separable; read at group level"),
+**84 are singletons** (separable in the atlas), and 4 are absent from the grouping. The tab now states the two
+limits separately, because they are independent: the *atlas* cannot separate the members of a group, and *panels*
+can be non-exclusive even where the atlas separates fine - Cortical_neurons and stem_pluri share 91 markers while
+sitting in different groups. A per-cell claim needs both a single-member group (or a group-level claim) and an
+exclusive enough panel. One bug caught by reading the output: the group values are dicts carrying
+members/classes/singleton, so my first version printed the dict *keys* as the member list and flagged all 111
+rows as group-level. Reading the rendered row is what caught it.
+
+**VAL findings schema, written before the first run (`CPG_Engine/val_finding.py`, schema `val_finding_v1`).**
+The author asked for this now: capture everything a researcher will want, and exactly what a future disease
+matrix would need - which cells, which direction, what magnitude, per condition. A record designed after the runs
+is shaped by whatever was convenient to save, so this one is designed first.
+
+| block | holds | why |
+|---|---|---|
+| instrument | sha256 of all **14** reference layers plus the repo commit | a reading is only meaningful against a stated instrument; a re-seal changes these hashes, so two findings are comparable only if the fingerprints match - checkable rather than assumed |
+| samples | one row per array: arm, age, class readings, departure, sky, refusals | the unit is a per-sample absolute reading; storing samples means an arm difference can never quietly become the result |
+| cells / groups | per entry and per group: placement, median by arm, **direction**, **magnitude in units of that entry's healthy spread**, **prevalence**, exclusivity, claim level | the answer to "which cells are doing what, how much, how often". Magnitude in healthy spreads so a loose entry and a tight one compare; prevalence separates "most moved a little" from "a few moved a lot" |
+| bars | each pre-registered bar with threshold, measured value, PASS / FAIL AS SEALED | scored against what was written before the run |
+| not_assessable | what could not be read, and why | a class below its presence floor is absent, not normal |
+| matrix_evidence | per-group direction/magnitude/prevalence for this condition, tagged with the instrument fingerprint | the disease-matrix precursor. **Accumulating evidence, not a matching rule** - the chain never reads it back to classify |
+
+Two rules are in the writer rather than left to the operator: a finding cannot be written without its instrument
+fingerprint, and the claim level per entry comes from the reference (individual / group_only /
+withheld_panel_shared), not from the operator's choice.
+
+**Exercised end to end** on the eleven commissioning arrays (`VAL-DRYRUN_finding.json`): 11 samples, 115 entries,
+94 groups, 14 layers fingerprinted, direction and magnitude computed per entry per arm. **A flaw in my own filter
+caught on the dry run:** the first version carried all 94 groups as matrix evidence for a run with no condition
+at all, because it tested for a non-zero magnitude and every group has one. Now two conditions are required - the
+finding must name a condition, and a group must show an actual departure - so a healthy or technical run
+contributes nothing, and the record says "nothing - this finding names no condition".
+
+A new **Findings** tab reads these records and explains each block; it is exempt from the vocabulary guard for the
+same reason the Files tab is - a finding must be able to name the condition it measured.
