@@ -46,6 +46,8 @@ def load_runtime():
     R["hmin_table"]=_G.H_MIN_TABLE; R["sub_order"]=_G.SUB_ORDER; R["auc"]=_G.AUC_W
     _ts=R["tiers"]["tier_system_v1_2"]; R["warburg"]=next(x for x in _ts["tiers"] if x["tier_id"]=="WARBURG_TRANSITION")
     R["breach_line"]=_ts["breach_line_value"]; R["warburg_line"]=_ts["warburg_line_value"]
+    try: R["excl"]=_j(_find("percell_exclusivity_v0.json"))["entries"]
+    except FileNotFoundError: R["excl"]={}
     try: R["release"]=_j(_find("release_check.json"))
     except FileNotFoundError: R["release"]=None
     try: R["percell"]=_j(_find("percell_reference_v0.json"))
@@ -242,13 +244,14 @@ def tab_cells(o, R, percell_ref=None):
        "where every healthy cell of the class sits at one level - and it is the surface the floor was calibrated against and the reference layers were fitted on. "
        "The two answer different questions: the class gauge asks whether this architecture is holding its pattern; the per-cell reading asks which cell type, and "
        "therefore which organ, is where the departure sits.</p>"]
+    H.append("<div class='warn'><b>Read the exclusivity column before believing any single row.</b> The marker panels were selected one-vs-rest against the <i>mean</i> of the other cell types - a criterion that scores a globally extreme CpG highly for every cell type in which it is extreme. Measured 2026-09-22: <b>33.8 % of the 6,738 marker CpGs belong to more than one entry's panel</b> (one serves 11 of them), and the median entry's panel is only <b>37 % exclusive</b> to it. At the extreme, <b>macrophage's panel is 0 % exclusive</b> - every marker it has also belongs to another entry - and Cortical_neurons, dendritic, erythroblast, small_intestine and tcell are all near 1 %. Twenty-six of the 115 entries sit in pairs sharing at least half their markers, and 28 of those pairs span <i>different architecture classes</i>: Cortical_neurons and stem_pluri share 91 markers, small_intestine and tcell share 82. Where a panel is mostly shared, the number below reads a shared block rather than that cell type, so <b>the individual direction claim is withheld for the 36 entries under 25 % exclusivity</b> and the number is printed with its exclusivity beside it. This is a property of the reference, not of any sample. The runtime marker file is deliberately unchanged - the sealed foundation-cohort anchors reproduce on it, so repairing the selection criterion requires a re-seal, and that is on the Roadmap.</div>")
     by={}; 
     for cell,r in cells.items(): by.setdefault(r.get("class","?"),[]).append((cell,r))
     for c in CLASSES:
         rows=sorted(by.get(c,[]), key=lambda kv:-(kv[1].get("A") or 0))
         hm=R["ident"].get(c,{}).get("H_min")
         if not rows: continue
-        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>placed</th><th>fraction</th><th>A (marker surface)</th><th>95 % interval on the reading</th><th>healthy range (own markers)</th><th>markers found</th><th>on the gauge (cell-zeroed)</th><th>position vs healthy</th></tr>")
+        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>placed</th><th>fraction</th><th>A (marker surface)</th><th>95 % interval on the reading</th><th>healthy range (own markers)</th><th>markers found</th><th>panel exclusive to this entry</th><th>on the gauge (cell-zeroed)</th><th>position vs healthy</th></tr>")
         for cell,r in rows:
             A=r.get("A"); fr=r.get("fraction") or 0; e=((percell_ref or {}).get("entries") or {}).get(cell)
             ref=None; src=""
@@ -263,7 +266,18 @@ def tab_cells(o, R, percell_ref=None):
             ci=r.get("reading_ci") or {}
             cis=("%.3f - %.3f"%(ci["ci_lo"],ci["ci_hi"])) if ci.get("ci_lo") is not None else "<span class='m'>too few markers</span>"
             mf=("%d of %d"%(ci["n_markers_found"],ci["n_markers_panel"])) if ci.get("n_markers_found") else ("%.2f"%(r.get('coverage') or 0))
-            bar=posbar(A,(ref or {}).get("p10"),(ref or {}).get("p90"))
+            # PANEL EXCLUSIVITY GUARD (2026-09-22). The marker panels were selected one-vs-rest against the MEAN of
+            # the other cell types, a criterion that scores a globally extreme CpG highly for every cell type in
+            # which it is extreme. Measured: 33.8 % of the 6,738 marker CpGs serve more than one entry, and the
+            # median entry's panel is only 37 % exclusive. Where a panel is mostly shared, the number is a reading
+            # of a shared block rather than of that cell type: print it, withhold the individual direction claim,
+            # and show the exclusivity so the reader can see why.
+            ex=(R.get("excl") or {}).get(cell) or {}
+            exf=ex.get("exclusivity"); ex_ok=bool(ex.get("individual_claim_ok", True))
+            exs="" if exf is None else (f"{100*exf:.0f} %" if ex_ok else f"<span style='color:#d68910'>{100*exf:.0f} %</span>")
+            bar=(posbar(A,(ref or {}).get("p10"),(ref or {}).get("p90")) if ex_ok
+                 else "<span class='m'>claim withheld - panel mostly shared</span>")
+            if not ex_ok: dirn=""
             # ON THE GAUGE, per cell. A is shifted by this entry's own measured healthy zero so that a healthy
             # reading of THIS entry sits at 1.000; the gauge landmarks (0.95 / 1.05 / 1.07 Warburg / 1.10 breach
             # / 1/H_min ceiling) are properties of the ratio and then apply to the cell exactly as to the class.
@@ -288,7 +302,7 @@ def tab_cells(o, R, percell_ref=None):
             elif A is not None:
                 gt="<span class='m'>no measured zero for this entry</span>"
             gcell=(f"<span class='n'>{gA:.3f}</span> {gt}" if gA is not None else gt)
-            H.append(f"<tr class='{'placed' if fr>0 else ''}'><td>{_e(cell)}</td><td>{'yes' if fr>0 else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{'' if A is None else f'{A:.3f}'}</td><td class='n'>{cis}</td><td>{rng}</td><td class='n'>{mf}</td><td>{gcell}</td><td>{bar} {dirn}</td></tr>")
+            H.append(f"<tr class='{'placed' if fr>0 else ''}'><td>{_e(cell)}</td><td>{'yes' if fr>0 else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{'' if A is None else f'{A:.3f}'}</td><td class='n'>{cis}</td><td>{rng}</td><td class='n'>{mf}</td><td class='n'>{exs}</td><td>{gcell}</td><td>{bar} {dirn}</td></tr>")
         H.append("</table>")
     bd=o.get("bidirectional",{}); H.append("<h3>Direction - Stage 4.5 bidirectional composite</h3><p>Pooled entropy folds hypo- and hyper-methylation together; the signed composite keeps the sign, per sealed panel. Panels exist only where one was sealed (immune, VAL-051 / CPG-VAL-019); the other classes say so.</p><table class='t'><tr><th>class</th><th>signed composite</th><th>pooled A on the panel</th><th>panel</th><th>reading</th></tr>")
     for c in CLASSES:

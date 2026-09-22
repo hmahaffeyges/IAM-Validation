@@ -254,3 +254,44 @@ placement, which is the fail-closed path working from the entry point a stranger
 
 **Lesson:** a control on a page is a claim. The toggle, the print button and the command block were all claims I had not checked, and two of the
 three were false. Any interactive element ships with a check that it does what its label says.
+
+## 2026-09-22 - item 1 was not an alias problem. The marker panels are not exclusive, and the cause is the selection criterion.
+
+The author's item 1 was "merge the atlas's duplicate labels to one lineage per entry, so we can say which cell moved." Measuring it first changed
+what the item is.
+
+**What the marker file says about itself.** `iamatlas_celltype_markers_v0_2.json` records its own method:
+`selection_method: one_vs_rest_top_N`, criterion `|target_celltype_mean - mean(other_celltype_means)|`, top 100 per cell type, 115 cell types.
+That criterion compares each cell type against the **mean of all the others**. A CpG that is extreme in a handful of cell types therefore scores
+highly for **every** one of them, because the mean of the rest is dragged toward the middle. The criterion selects globally extreme CpGs
+repeatedly, rather than uniquely distinguishing ones.
+
+**Measured consequence.**
+
+| quantity | value |
+|---|---|
+| distinct marker CpGs / panel slots | 6,738 / 11,369 |
+| markers belonging to more than one entry's panel | **2,278 (33.8 %)** |
+| most panels one marker serves | **11** |
+| median fraction of an entry's panel exclusive to it | **0.37** (10th percentile 0.06) |
+| entries with a panel under 25 % exclusive | **36 of 115** |
+| worst | **macrophage 0.0 %** - every marker it has also belongs to another entry; Cortical_neurons, dendritic, erythroblast, small_intestine, tcell all ~1 % |
+| pairs sharing >= half their markers | 50, involving 26 of 115 entries |
+| ...of those, pairs spanning DIFFERENT architecture classes | **28** - e.g. Cortical_neurons/stem_pluri share 91 markers; small_intestine/tcell share 82; erythroblast/tcell 81 |
+
+**Why a name-based merge would have been wrong.** The name-normalised groups (10 of them) are not the pairs that share markers. `Neu` and
+`neutrophil` are both immune neutrophil entries and share **zero** markers; `Neutrophils_EPIC` and `Neutrophils_reinius` share 49. Merging by name
+would have pooled panels that measure different things, and left the cross-class overlaps untouched. The earlier note attributing the neutrophil
+spread to "which reference panel defined the entry" was directionally right and mechanistically wrong: the spread is driven by panel
+**non-exclusivity** (those entries measure 17-18 % exclusive panels), not by which laboratory named the cell.
+
+**What was done, and what deliberately was not.** Measured and published as
+`CPG_Engine/Runtime Matrices/Celltype_Marker/percell_exclusivity_v0.json` (per entry: n markers, n exclusive, exclusivity, the most panels any of
+its markers serves, and an `individual_claim_ok` flag at a 0.25 threshold). The report now prints an **exclusivity column** for all 115 entries and
+**withholds the individual direction claim for the 36 entries under the threshold**, printing the number with its exclusivity in amber beside it
+and saying why. **The runtime marker file is unchanged**: the sealed foundation-cohort anchors reproduce on it, so repairing the criterion requires
+a re-seal - the same situation as the chrX-removed trial copy in September.
+
+**The repair, for the roadmap.** Replace `|target - mean(others)|` with a **nearest-rival margin**: require each marker to beat its
+closest competing cell type by a stated margin, and cap how many panels a marker may serve. Then re-select, re-seal the anchors, and re-measure the
+per-entry references. Until that is done, per-cell readings are honest for 79 entries and explicitly withheld for 36.
