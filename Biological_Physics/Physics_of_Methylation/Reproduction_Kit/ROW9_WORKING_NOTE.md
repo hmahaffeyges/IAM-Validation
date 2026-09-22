@@ -78,3 +78,58 @@ terminal at 1.294. So the senescent range sits entirely below that one ceiling a
 only, and **1.294-1.32 exceeds every methylation ceiling there is** - no class can produce those readings on this surface. (My first wording said malignant was 'reachable on the terminal class and on no
 other', which is wrong for its upper part; corrected.) Which class and which surface those clusters were measured on must be stated wherever they are quoted - the marker-union surface has a different
 denominator and different limits. Carried here as corpus reference values, not re-measured.
+
+### 2026-09-22 - Issue 002 read on the clusters and the ceilings (author: 'I would read the section in Issue002 to be sure')
+
+Read `Papers/IAMPerformance_GAPEIssue002.pdf` pp. 12, 21, 22, 27, 28, 33, 62.
+
+**1. The saturation chart is his, from April, and it reproduces exactly.** Issue 002 p12 is the SATURATION WALL CHART - all 40 class-by-substrate combinations, each with its ceiling
+`1/H_min`, flagged **SAT** (saturates below BREACH 1.10), **TGT** (tight ceiling, A_max < 1.15) or unflagged (full headroom). Parsed from the PDF and compared against
+`cpg_gauge_engine.H_MIN_TABLE`: **40 rows, every ceiling equal to 1/H_min to three decimals, 15 SAT, 2 TGT, zero mismatches** - the same cells and the same flags I had derived this
+afternoon. His framing is the better one and the report now uses his vocabulary and credits the source: the direct analogue of the Dennard scaling walls (frequency, power, cost) in
+semiconductor physics. The 2 TGT cells are adult-stem methylation (1.145) and pluripotent-stem WPS (1.105).
+
+**2. The malignant cluster is terminal-class and measured.** pp. 21/22/27: lower-grade glioma **A = 1.2846** and glioblastoma **A = 1.256** on methylation, both Ceccarelli 2016 TCGA
+(n = 516, n = 149), against a healthy frontal-cortex neuron reference at A = 0.9692; terminal-class cancers carry the largest departures in the 28-cancer panel (dA ~ 0.22-0.27). So the
+breakpoints file's `malignant_cells` 1.28-1.32 has a real source at its lower end, on the one class whose methylation ceiling (1.294) can host it. The consequence is sharper than
+'inconsistent': **the largest cancer signal in the panel sits within 0.01 of its own class ceiling** - the regime where a second substrate stops being a refinement and becomes the only
+way to keep measuring. Issue 002 says exactly this on p22, and discloses that its own LGG/GBM nucleosome and WPS values are placeholders at the class ceilings pending reanalysis of the
+Corces 2018 bigWigs (G-2026-P023).
+
+**3. A = 1.00 is 'the architectural commitment point, not a mathematical floor'** (p22, his words), and under the unfloored formula his healthy references sit slightly *below* it, at
+A ~ 0.97, because the healthy beta gives an entropy just under the MCMC central estimate of H_min. On this chain healthy reads 1.00 - not because the formula changed, but because the
+laboratory zero and the age term are measured from healthy donors of that laboratory and decade, which places the healthy population at 1.00 by construction. Same instrument, same floor;
+one quotes the raw ratio, the other quotes it after two measured offsets. **Any A quoted from Issue 002 must say which of the two it is.** Now stated on the report.
+
+**TWO RECONCILIATION ITEMS RAISED (for the Issue 003 register):**
+- **RECON W1 - two different 'Warburg' numbers.** `tier_breakpoints.json` carries `WARBURG_TRANSITION` as a boundary line at **1.07**, pre-breach, described as where metabolic support
+  can start to accelerate rather than correct the drift. Issue 002 pp. 33/62 use the same word for a **post-breach zone boundary at ~1.15** ('Ceiling 1.10 -> Warburg ~1.15 -> glucose
+  inversion ~1.25 -> no return ~1.40+'), explicitly flagged there as qualitative therapeutic-window boundaries pending G-2026-P025, not diagnostic tiers. Two objects, one name. The report
+  currently prints only the 1.07 line, with its provenance and the statement that it has not been re-derived on this chain. The naming must be resolved before both documents are read together.
+- **RECON W2 - two different 'ceiling' quantities in Issue 002.** p12's wall chart equals 1/H_min exactly. The per-class post-breach tables on pp. 33 and 62 print a column also called
+  'Ceiling (A)' whose values do **not** equal 1/H_min except for nucleosome occupancy: secretory methylation 1.27 (1/H_min = 1.186), cycling methylation 1.30 (1.168), cycling fuzziness
+  1.28 (1.221), WPS 1.18 (1.594). Whatever those numbers are, they are not the saturation ceiling. Not carried onto the report until identified.
+
+### TEST PLAN - what to run on the commissioned chain to settle this ourselves (author: 'we need to plan on testing some of this out ourselves with the finished trusted chain')
+
+Ordered so that each step is runnable when it is reached, cheapest first. None of it is started.
+
+1. **T-CEIL - the ceiling conformance test. Runnable today, costs nothing, and it is the sharpest falsifiable statement in the whole framework.** The claim is that no reading can exceed
+   1/H_min for its class and substrate. Run the commissioned identity gauge over every array we hold - the 1,379 healthy donors, the 318 Stage 1 rebuild arrays, the commissioning arrays -
+   and assert that no A ever exceeds its class ceiling. A single reading above it falsifies either the floor value or the formula. Expected: none, because the arithmetic forbids it; the
+   test's real value is that it turns an arithmetic identity into a standing regression test that any future change to a floor or a scale has to pass.
+2. **T-TISSUE - commission solid tissue, which every remaining test needs.** Today tissue runs end to end and reads plausible composition, but no tissue laboratory has a pipeline map, a
+   laboratory zero or a healthy band, so every class prints NOT REPORTABLE. TCGA solid-tissue normals are public, one processing pipeline, hundreds of arrays per tissue: enough for the
+   three layers. This is the gate on T-GLIOMA, T-SAT and T-CLUSTER.
+3. **T-GLIOMA - reproduce the largest claim in the panel on the commissioned chain.** Ceccarelli 2016 LGG (n = 516) and GBM (n = 149) methylation arrays are public through GDC. Prediction
+   to seal *before* running: terminal-class A on the identity gauge, with the tissue map and a TCGA laboratory zero, lands above breach and near the Issue 002 values (1.285 / 1.256).
+   This is the cleanest available test of whether the pre-atlas cohort-mean instrument and the commissioned identity gauge agree on the biggest signal in the corpus - and if they disagree,
+   the size and direction of the disagreement is the finding.
+4. **T-CLUSTER - place the senescent and malignant clusters properly.** Re-measure both ranges on the commissioned chain and state, for each, the class and the surface. Closes the open
+   question of the 1.32 upper bound, which exceeds every class's methylation ceiling and therefore cannot be a methylation reading.
+5. **T-SAT - the saturation ordering test, which is the five-substrate argument made falsifiable on one substrate.** Within methylation alone the ceilings differ by class: terminal 1.294
+   against pluripotent stem 1.018. Prediction: in a tissue where both classes are present, a departure large enough to breach on the terminal class will read as saturated (pinned at 1.018)
+   on the pluripotent-stem component of the same array. If the stem component instead reads freely above its ceiling, the floor table is wrong.
+6. **T-WARBURG - parked, and honestly.** Testing 1.07 as a metabolic-intervention boundary needs a cohort with metabolic intervention and outcome, which no public methylation dataset
+   provides. Until then the line is reported with its provenance and the statement that it has not been re-derived here. RECON W1 must be closed first anyway, since the two documents
+   currently disagree about which number the word names.
