@@ -19,12 +19,6 @@ the same arithmetic then applies wherever a system pays to stay ordered — a ho
 
 <table>
 
-**The law itself, before any application:**
-
-- [IAM's Law: the thermodynamic cost of classical existence - the law itself; the cosmological model is one derived implementation of it](docs/papers/IAM_Law.pdf)
-- [The thermodynamic identity governing the virial theorem - physical identification of K, with evidence across domains](docs/papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
-- [The virial partition across a wide range of physical scales - the cross-domain validation](docs/papers/Virial_Partitian_Across_Wide_Domains.pdf)
-
 ---
 
 **The three domains. Each section holds its own papers, instruments and evidence — expand the one you came for.**
