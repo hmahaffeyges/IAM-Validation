@@ -39,7 +39,9 @@ def load_runtime():
                "iamatlas_cpg_to_healpix_nside128.npz","cpg_conductor.py","cpg_gauge_engine.py","lab_zero.py","cpg_tiers.py","stage_4_6_patient_cmb.py","walther_iam_deconvolver.py",
                "bidirectional_decomposition.py","iamatlas_a_scoring.py","stage_1_idat_calibration.py","IAMAtlasREBUILD_provenance.json",
                "IAMAtlasREBUILD.csv.xz","IAMAtlasREBUILD_celltype_to_class.json","iamatlas_cpg_to_healpix_nside128.npy","iamatlas_cpg_to_healpix_nside128.provenance.json",
-               "RUNBOOK.md","CHAIN_COMMISSIONING.md","HANDOFF.md","nilc_celltype_deconvolver.py","lineage_splitter.py","README_CPG_Plates.md","README_HEALPix_Mapping.md","CPG_Gauge_Cell.png","CPG_Gauge_Cosmic.png","healthy_sky_vs_cmb.png"] if _exists(n)}
+               "RUNBOOK.md","CHAIN_COMMISSIONING.md","HANDOFF.md","nilc_celltype_deconvolver.py","run_sample.py","release_check.py",
+               "test_gauge_switch.py","test_tiers.py","test_patient_sky.py","test_lab_zero.py","PROC_ANCHOR_01.py","PROC_FORMULA_01.py",
+               "PROC_DECON_01.py","PROC_SEP_03.py","PROC_BIDIR_01.py","finding_check.py","percell_reference_v0.json","reference_age_curve_v1.json","lineage_splitter.py","README_CPG_Plates.md","README_HEALPix_Mapping.md","CPG_Gauge_Cell.png","CPG_Gauge_Cosmic.png","healthy_sky_vs_cmb.png"] if _exists(n)}
     sys.path.insert(0,ENGINE); import cpg_gauge_engine as _G
     R["hmin_table"]=_G.H_MIN_TABLE; R["sub_order"]=_G.SUB_ORDER; R["auc"]=_G.AUC_W
     _ts=R["tiers"]["tier_system_v1_2"]; R["warburg"]=next(x for x in _ts["tiers"] if x["tier_id"]=="WARBURG_TRANSITION")
@@ -1061,17 +1063,81 @@ def tab_roadmap(R):
 
 
 def tab_run(R):
-    return f"""<h2>Run it yourself</h2><p>The chain is open. Clone the repository, verify it on the eleven commissioning arrays, then run your own IDATs. A local server (in build) will drive this same page live, stage by stage.</p>
-<pre>git clone {GH}.git
-cd IAM-Validation/Biological_Physics
-# environment: python 3.11, numpy, pandas, scipy, methylprep (Stage 1)
-python3 -c "import lzma,shutil; shutil.copyfileobj(lzma.open('IAM_Atlas/IAMAtlasREBUILD.csv.xz','rb'), open('IAM_Atlas/IAMAtlasREBUILD.csv','wb'))"   # 605 MB atlas
-cd Physics_of_Methylation/Reproduction_Kit && python3 test_gauge_switch.py && python3 test_tiers.py && python3 test_patient_sky.py   # conformance on the commissioning arrays
-# your sample: Red + Grn IDAT pair -> Stage 1 -> run_full -> this report
-python3 CPG_Engine/MethylPhys_Interface/build_methylphys.py --idat-grn SAMPLE_Grn.idat.gz --idat-red SAMPLE_Red.idat.gz --age 58 --lab NEW --out report.html</pre>
-<p><b>Inputs the chain needs:</b> the IDAT pair (or a calibrated beta vector), declared age, specimen (whole blood today; plasma cfDNA, tissue, CSF, urine, stool reserved - each needs its own pipeline map, laboratory zero and healthy band before it reads), substrate (methylation today; nucleosome occupancy, fuzziness, WPS and fragment size reserved with their own floors), and the laboratory. A laboratory the chain has not seen prints NOT REPORTABLE until 40 of its healthy arrays have been run to set its zero and sky scale - the instructions for that are in the RUNBOOK (linked on the Chain tab).</p>
-<p><b>Cohort mode</b> (for validation runs): every sample is read absolutely as above, then the report adds the distribution of readings by arm and the sealed pre-registration bars. This is how tests on the commissioned chain will be reported.</p>
-<p>Documents: the RUNBOOK (how to run the chain and commission a laboratory), the commissioning table, and the reproduction kit's conformance tests are all linked on the <b>Chain</b> tab. Repository commit for this page: <code>{_e(R['sha'])}</code>.</p>"""
+    """Run it yourself. Every file named here is linked at this commit, and every command is one that
+    actually works - the earlier version advertised an IDAT entry point that did not exist (fixed 2026-09-22
+    by writing run_sample.py)."""
+    def L(name, label=None):
+        return _link(R, name, label)
+    H=["<h2>Run it yourself</h2>",
+       "<p>The chain is open. Clone the repository, verify it against the eleven commissioning arrays, then run your own sample. Every file below "
+       "is linked at the exact commit this report was built from, with its SHA-256, so you can check you are running what this page describes.</p>",
+       "<h3>1. Clone and prepare</h3>",
+       "<pre>git clone https://github.com/hmahaffeyges/IAM-Validation.git\n"
+       "cd IAM-Validation/Biological_Physics\n"
+       "# python 3.11 with numpy, pandas, scipy; add methylprep only if you will calibrate raw IDATs\n"
+       "# the atlas ships compressed - decompress it once (605 MB). There is no system xz dependency:\n"
+       "python3 -c \"import lzma,shutil; shutil.copyfileobj(lzma.open('IAM_Atlas/IAMAtlasREBUILD.csv.xz','rb'), open('IAM_Atlas/IAMAtlasREBUILD.csv','wb'))\"</pre>",
+       "<h3>2. Verify the chain before trusting it on your data</h3>",
+       "<pre>cd Physics_of_Methylation/Reproduction_Kit\npython3 release_check.py            # every guard, one command, writes results/release_check.json</pre>",
+       "<p>That is the same command whose output the <b>Safeguards</b> tab prints. It exits non-zero if any guard fails; a guard that cannot run for "
+       "want of data is reported as skipped with what it needs, never as a pass. The individual guards, if you want them one at a time:</p>",
+       "<table class='t'><tr><th>file</th><th>what it checks</th></tr>"]
+    for n,d in [("release_check.py","all guards in one command; the Safeguards tab reads its output"),
+                ("test_gauge_switch.py","the commissioned identity gauge reproduces on the cached commissioning arrays"),
+                ("test_tiers.py","every tier boundary in tier_breakpoints.json, both sides, through the one tier function"),
+                ("test_patient_sky.py","the sky stage: deterministic mapping, presence floors, refusal without a laboratory scale"),
+                ("test_lab_zero.py","recovers a synthetic laboratory offset; refuses panels under 40 arrays"),
+                ("PROC_ANCHOR_01.py","the sealed foundation-cohort anchors reproduce from raw GEO betas"),
+                ("PROC_FORMULA_01.py","the A-score formula self-test, including the form the module refuses"),
+                ("PROC_DECON_01.py","the composition solver against its answer key"),
+                ("PROC_SEP_03.py","atlas separability by class - the measurement behind the blood caveat"),
+                ("PROC_BIDIR_01.py","the directional detector, including re-extraction from the raw 5.1 GB GEO matrix"),
+                ("finding_check.py","the protocol gate: every finding registered, every door taught, no unqualified detection claim")]:
+        if n in R["files"]: H.append(f"<tr><td>{L(n)}</td><td>{_e(d)}</td></tr>")
+    H.append("</table>")
+    H.append("<h3>3. Run your own sample</h3>"
+       "<pre># an Illumina IDAT pair (Stage 1 needs methylprep):\npython3 CPG_Engine/MethylPhys_Interface/run_sample.py \\\n"
+       "    --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz \\\n    --age 58 --lab MYLAB --specimen \"whole blood\" --out report.html\n\n"
+       "# or a beta table you calibrated yourself - a CSV of cpg_id,beta:\npython3 CPG_Engine/MethylPhys_Interface/run_sample.py \\\n"
+       "    --betas mysample.csv --age 58 --lab MYLAB --out report.html</pre>")
+    if "run_sample.py" in R["files"]: H.append(f"<p>The runner: {L('run_sample.py')} - it calls Stage 1, then the conductor, then this report builder. "
+       f"The builder can also be driven directly from a saved bundle: {L('build_methylphys.py')} <code>--bundle out.pkl</code>.</p>")
+    H.append("<h3>4. What the chain needs from you, and what it will refuse</h3>"
+       "<table class='t'><tr><th>input</th><th>why</th><th>if you omit it</th></tr>"
+       "<tr><td>the IDAT pair, or a calibrated beta vector</td><td>the measurement</td><td>nothing runs</td></tr>"
+       "<tr><td>declared age</td><td>healthy A rises about 0.47 milli-A per year; the decade term is subtracted before placement</td>"
+       "<td>the age term cannot be removed and the class reading is not placed</td></tr>"
+       "<tr><td>specimen</td><td>presence floors and the healthy band are specimen-specific</td><td>the run is refused - the chain will not guess</td></tr>"
+       "<tr><td>laboratory identity</td><td>each laboratory has its own measured zero and residual scale</td>"
+       "<td>lab_zero reads UNSET and every class prints NOT REPORTABLE with the reason</td></tr>"
+       "<tr><td>pipeline name</td><td>a beta from a different normalisation sits on a different scale (LESSON-SCALE-01)</td>"
+       "<td>the conductor refuses an unmapped reading rather than placing it</td></tr></table>")
+    H.append("<h3>5. Commissioning your own laboratory</h3>"
+       "<p>A laboratory the chain has not seen prints NOT REPORTABLE until its zero and sky scale are measured: <b>40 healthy arrays of that "
+       "laboratory</b>, any age mix, through Stage 1, then the lab-zero procedure. That is the whole requirement, and it is a one-off per "
+       "laboratory-and-pipeline, not per patient.</p><table class='t'><tr><th>file</th><th>what it is</th></tr>")
+    for n,d in [("RUNBOOK.md","how to run the chain and how to commission a laboratory, step by step"),
+                ("lab_zero.py","computes the zero from a 40-array healthy panel; refuses smaller panels"),
+                ("CHAIN_COMMISSIONING.md","which stage is commissioned, by which sealed procedure, and what is still open"),
+                ("HANDOFF.md","the state of the work, for the next reader"),
+                ("reference_age_curve_v1.json","the four-laboratory age curve the decade term comes from"),
+                ("identity_band_v3.json","the healthy band, pooled and per decade, with each laboratory's zero"),
+                ("beta_scale_maps_v1.json","the pipeline maps"),
+                ("iamatlas_gauge_identity_loci_v1_0.json","the identity loci and the eight frozen class floors"),
+                ("percell_reference_v0.json","the per-entry healthy reference (exploration, unsealed)"),
+                ("IAMAtlasREBUILD.csv.xz","the atlas: 483,092 CpGs x 115 cell types, posterior mean, SD and interval"),
+                ("IAMAtlasREBUILD_provenance.json","how the atlas was built"),
+                ("EPIC_plus_HM450_combined_manifest_normalized.csv","the array manifest with chromosome and position")]:
+        if n in R["files"]: H.append(f"<tr><td>{L(n)}</td><td>{_e(d)}</td></tr>")
+    H.append("</table>")
+    H.append("<h3>6. Cohort mode</h3><p>For a validation run, every sample is read absolutely as above and the report then adds the distribution of "
+       "readings by arm beside the sealed pre-registration bars. The protocol - seal before you run, register the finding, close it in code, teach "
+       "every door, rebuild, read, push with copies - is in the RUNBOOK, and the gate that enforces it is <code>finding_check.py</code>.</p>")
+    H.append(f"<p class='m'>Repository commit for this page: <code>{_e(R['sha'])}</code>. Every link above resolves at that commit, so a file that has "
+       f"changed since will not silently substitute itself.</p>")
+    H.append(deepdive(R,"running the chain"))
+    return guard("".join(H),"Run")
+
 
 # ======================= shell =======================
 CSS="""
@@ -1096,14 +1162,31 @@ details.stage{background:var(--pn);border:1px solid var(--ln);border-radius:6px;
 div.warn{background:#241a14;border-left:3px solid #d68910;padding:12px 16px;margin:16px 0;font-size:13px}
 div.dd{background:#0f1420;border-left:3px solid #6a8;padding:10px 16px;margin:20px 0 4px;font-size:13px}
 footer{padding:14px 28px;border-top:1px solid var(--ln);color:var(--mu);font-size:12px}
-@media print{body{background:#fff;color:#000}header,nav,footer,.aud{display:none}section.tab{display:none}section.tab.print{display:block;page-break-after:always}.gauge{border:1px solid #999;background:#fff}h3{color:#000}table.t th{color:#333}.m{color:#444}svg text{fill:#000}}
+/* the audience toggle (2026-09-22): it previously set a class nothing listened to. Researcher-only
+   material - provenance hashes, the optional formula folds, and the record/engineering tabs - is hidden
+   in clinician view; nothing is hidden from the researcher. */
+body:not(.researcher) .resr{display:none !important}
+body:not(.researcher) nav button.resr{display:none !important}
+body.researcher .clin-only-note{display:none}
+@media print{body{background:#fff;color:#000}header,nav,footer,.aud{display:none}section.tab{display:none}section.tab.print{display:block;page-break-after:always}
+  body.researcher section.tab.printr{display:block;page-break-after:always}
+  body.researcher .resr{display:block !important}
+  details{display:block !important}details>*{display:revert}details:not([open])>*:not(summary){display:block}
+  table,figure,div.gauge,details.stage{page-break-inside:avoid}
+  h2,h3{page-break-after:avoid}
+  a[href^='http']:after{content:' [' attr(href) ']';font-size:8pt;color:#555;word-break:break-all}.gauge{border:1px solid #999;background:#fff}h3{color:#000}table.t th{color:#333}.m{color:#444}svg text{fill:#000}}
 """
 JS="""
 function tab(id){document.querySelectorAll('section.tab').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===id));location.hash=id}
 function aud(a){document.body.classList.toggle('researcher',a==='researcher');document.querySelectorAll('.aud button').forEach(b=>b.classList.toggle('on',b.dataset.a===a));localStorage.setItem('mp_aud',a)}
 window.addEventListener('DOMContentLoaded',()=>{aud(localStorage.getItem('mp_aud')||'researcher');tab((location.hash||'#reading').slice(1))});
 """
-TABS=[("reading","Reading",True),("howto","How to read",True),("cells","Every cell",True),("departure","Departure",True),("sky","Sky",True),("reference","Healthy reference",False),("coverage","Coverage",False),("safeguards","Safeguards",False),("roadmap","Roadmap",False),("integrity","Integrity",False),("chain","Chain",False),("physics","Physics",False),("story","Story",False),("record","Record",False),("run","Run",False)]
+TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = researcher only)
+ ("reading","Reading",True,"c"),("howto","How to read",True,"c"),("cells","Every cell",True,"c"),
+ ("departure","Departure",True,"c"),("sky","Sky",True,"c"),("physics","Physics",False,"c"),("story","Story",False,"c"),
+ ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("safeguards","Safeguards",False,"r"),
+ ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("roadmap","Roadmap",False,"r"),
+ ("record","Record",False,"r"),("run","Run",False,"r")]
 
 def refusals_from(o):
     r=[]
@@ -1120,8 +1203,10 @@ def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in 
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
          "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
-    nav="".join(f"<button data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_ in TABS)
-    body="".join(f"<section class='tab{' print' if p else ''}' id='{i}'>{sec[i]}</section>" for i,n,p in TABS)
+    nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
+    _rprint={"reading","howto","cells","departure","sky","reference","safeguards","integrity","chain","coverage"}
+    body="".join(f"<section class='tab{' print' if p else ''}{' printr' if i in _rprint else ''}"
+                 f"{' resr' if a=='r' else ''}' id='{i}'>{sec[i]}</section>" for i,n,p,a in TABS)
     page=f"""<!doctype html><html><head><meta charset='utf-8'><title>MethylPhys CPG - {_e(sample_id)}</title><style>{CSS}</style><script>{JS}</script></head><body>
 <header><h1>MethylPhys <span style='color:var(--ac)'>CPG</span> <small>Physics of Methylation: Landauer Metrology · Cellular Performance Gauge · the physics of methylation, read against a fixed zero</small></h1>
 <div><div class='aud'>view: <button data-a='clinician' onclick="aud('clinician')">Clinician</button><button data-a='researcher' onclick="aud('researcher')">Researcher</button> <button onclick='window.print()'>Print report</button></div>
