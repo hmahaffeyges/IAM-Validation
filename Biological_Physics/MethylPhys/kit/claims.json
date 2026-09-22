@@ -1,0 +1,109 @@
+{
+ "_meta": {
+  "what": "Claims the delivered documents must NOT assert, and content they MUST carry. Checked against the RENDERED output, not the source, because a claim survives in places a source grep cannot reach: a JSON data file the build reads, a markdown document it embeds, a table cell assembled at render time, a docstring, a directory name.",
+  "written": "2026-09-22",
+  "why": "Three defects shipped or nearly shipped before this gate existed: the NILC cut asserted in five live documents after the decision was reversed; the retired per-class n_bio printed as a live metric with its correction pages away in the glossary; and the contents page matching its own entries. Each was found by reading the render, none by reading the source."
+ },
+ "must_not_assert": [
+  {
+   "id": "nilc-cut",
+   "why": "PROC-NILC-01 reinstated the second deconvolver on 2026-09-22; any sentence still calling it cut, without the reversal beside it, contradicts the running chain.",
+   "terms": [
+    "NILC",
+    "second deconvolver"
+   ],
+   "contradict": [
+    "cut",
+    "CUT",
+    "no longer enforced",
+    "records as OPEN",
+    "Single-method today",
+    "Single method today"
+   ],
+   "exculpate": [
+    "reinstat",
+    "REINSTAT",
+    "RESTORED",
+    "vindicat",
+    "SUPERSEDED",
+    "was right",
+    "rerun",
+    "came back"
+   ]
+  },
+  {
+   "id": "nbio-live",
+   "why": "RECON M2: n_bio is an early QAPE-era form, no longer used, superseded by the Mahaffey number. It may appear only inside a statement that says so.",
+   "terms": [
+    "n_bio"
+   ],
+   "contradict": [
+    "n_bio"
+   ],
+   "exculpate": [
+    "withdrawn",
+    "WITHDRAWN",
+    "no longer used",
+    "superseded",
+    "retired",
+    "G-series",
+    "G-008"
+   ]
+  },
+  {
+   "id": "root-n-bound",
+   "why": "sqrt(n) is the bound for INDEPENDENT measurements; these substrates are correlated readings of one pattern.",
+   "terms": [
+    "\u221an",
+    "sqrt(n)"
+   ],
+   "contradict": [
+    "theoretical limit"
+   ],
+   "exculpate": [
+    "strictly less",
+    "not \u221an",
+    "overstated",
+    "less than the \u221an"
+   ]
+  },
+  {
+   "id": "age-in-years",
+   "why": "PROC-AGE-01: cellular age is not reportable at single-array resolution.",
+   "terms": [
+    "cellular age"
+   ],
+   "contradict": [
+    "is reported",
+    "we report",
+    "reportable at"
+   ],
+   "exculpate": [
+    "not report",
+    "NOT REPORTABLE",
+    "refus",
+    "is not reported"
+   ]
+  }
+ ],
+ "must_contain": [
+  {
+   "id": "card-cell-rosters",
+   "text": "THE ATLAS CELL TYPES IN THIS CLASS",
+   "at_least": 8,
+   "why": "the cover claims every class card lists its cell types - one roster per card"
+  },
+  {
+   "id": "engine-spec",
+   "text": "A_abs = A_mapped - c(decade) - z_lab",
+   "at_least": 1,
+   "why": "the cover calls this a spec of the running engine; the reported gauge's formula must be in it"
+  },
+  {
+   "id": "lab-false-alarm",
+   "text": "false alarm",
+   "at_least": 1,
+   "why": "a departure is meaningless without the laboratory's own false-alarm rate beside it"
+  }
+ ]
+}

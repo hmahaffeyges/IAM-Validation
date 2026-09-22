@@ -7,6 +7,14 @@ runs of 2026-09-19) + the new sections written here.
 
 Run:  CPG_TRIAL=<path to CPG_TRIAL_CODE> python build_gape_issue003.py [out.pdf]
 """
+import os as _os, sys as _sys
+if _os.environ.get('IAM_TWOPASS') != '1':
+    _sys.stderr.write(
+        'build_gape_issue003.py must be run through build_twopass.sh.\n'
+        'A single pass renders the contents page with no page numbers, because they are measured from the\n'
+        'rendered PDF between the two passes. Run:  sh build_twopass.sh <out.pdf>\n'
+        '(set IAM_TWOPASS=1 only if you deliberately want a draft with a blank contents page.)\n')
+    raise SystemExit(2)
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gape002_lib as L
@@ -727,6 +735,12 @@ def build(out_path):
     import part3_indepth as P3
     P3.render(story, L, tbl, SP, PageBreak, Paragraph)   # Part III - chain, atlas, toolkit, refusals
     P3.render_engine_spec(story, L, tbl, SP, PageBreak, Paragraph)   # III.5 - the formulas, from the runtime
+    P3.render_screens(story, L, tbl, SP, PageBreak, Paragraph)     # III.6 - the screens
+    P3.render_reference(story, L, tbl, SP, PageBreak, Paragraph)   # III.7 - the healthy reference
+    P3.render_coverage(story, L, tbl, SP, PageBreak, Paragraph)    # III.8 - coverage
+    P3.render_guards(story, L, tbl, SP, PageBreak, Paragraph)      # III.9 - the guards, from release_check.json
+    P3.render_files(story, L, tbl, SP, PageBreak, Paragraph)       # III.10 - the inventory
+    P3.render_run(story, L, tbl, SP, PageBreak, Paragraph)         # III.11 - running it, from the CLI
     sec5a_tools(story)
     # §5 the physics, as it stands now
     sec5_physics(story)

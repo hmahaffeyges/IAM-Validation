@@ -187,6 +187,9 @@ def render(story, L, tbl, SP, PageBreak, Paragraph):
         "reads the cell-to-class map and the per-entry reference. A stage that is not in the conductor cannot "
         "appear here, and a cell count printed here is the one the chain will use.", L.sMut))
 
+    story.append(SP(0.08))
+    render_tab_map(story, L, tbl, SP, Paragraph)
+
     # chapter 1 - the stages
     story.append(SP(0.10))
     story.append(Paragraph("III.1 &nbsp; The chain, stage by stage", L.sSect2))
@@ -389,6 +392,12 @@ def toc_entries(L, D):
           ("Part III - the chain in depth", "III.3 The cosmology toolkit, tool by tool", "The cosmology toolkit, tool by tool"),
           ("Part III - the chain in depth", "III.4 What the chain refuses, and its cosmology twin", "What the chain refuses, and the cosmology twin"),
           ("Part III - the chain in depth", "III.5 The engine, exactly - every formula the chain computes", "The engine, exactly - every formula the chain computes"),
+          ("Part III - the chain in depth", "III.6 The screens, in the order the report prints them", "The screens, in the order the report prints them"),
+          ("Part III - the chain in depth", "III.7 The healthy reference - who it is, and what is not in it", "The healthy reference - who it is, and what is not in it"),
+          ("Part III - the chain in depth", "III.8 Coverage - what is lit, and what lighting one cell requires", "Coverage - what is lit, and what lighting one cell requires"),
+          ("Part III - the chain in depth", "III.9 The guards - what each refuses, and its last result", "The guards - what each one refuses, and its last result"),
+          ("Part III - the chain in depth", "III.10 The files of the chain, by role", "The files of the chain, by role"),
+          ("Part III - the chain in depth", "III.11 Running it on your own sample", "Running it on your own sample"),
           ("Record and appendices", "s7 Substrate characterisation: the substrate x class grid", "SUBSTRATE CHARACTERIZATION"),
           ("Record and appendices", "s8 Procedures", "SECTION 8 PROCEDURES"),
           ("Record and appendices", "s9 Operating rules", "OPERATING RULES"),
@@ -437,3 +446,215 @@ def collect_toc_pages(pdf_path, L, D):
         else: missing.append(probe)
     json.dump(out, open(TOC_PAGES_FILE, "w", encoding="utf-8"), indent=1)
     return out, missing
+
+
+# ── the interface's tabs, and the chapter that carries each one's long form ──────────────────────────────────────
+TAB_MAP = [
+ ("Reading", "III.6 - the screens, in the order the report prints them"),
+ ("How to read", "III.6, and s12 for the clinician's plain-terms version"),
+ ("Every cell", "III.2 (the atlas), and each class card's own cell roster"),
+ ("Departure", "III.5 s6 (the formula) and III.6 (what the screen shows)"),
+ ("Sky", "III.3 (the toolkit, tool by tool)"),
+ ("Physics", "s5 The physics, and s5A where the tools come from"),
+ ("Story", "s12 For the clinician, in plain terms"),
+ ("Healthy reference", "III.7 - the four cohorts, and what is not in the reference"),
+ ("Coverage", "III.8 - the substrate x class grid"),
+ ("Safeguards", "III.9 - every guard, what it refuses, and its last result"),
+ ("Integrity", "III.9 and III.10 - the guards, and the files a run reads"),
+ ("Chain", "III.1 (the stages) and III.10 (the files)"),
+ ("Files", "III.10 - the inventory by role"),
+ ("Findings", "s8 Procedures, and Appendix V the validation index"),
+ ("Roadmap", "Future goals - what is worth the effort, in order"),
+ ("Record", "Appendix V, and s10 the falsification record"),
+ ("Run", "III.11 - running it on your own sample"),
+]
+
+
+def render_tab_map(story, L, tbl, SP, Paragraph):
+    story.append(Paragraph("Every tab of the researcher interface, and where its long form lives here", L.sSect2))
+    story.append(Paragraph("The interface is the condensed form of this document. This table is the correspondence, "
+        "so a reader who has seen a report can find the full treatment of any screen in it.", L.sBodySm))
+    story.append(tbl([["interface tab", "the long form in this document"]] + [list(r) for r in TAB_MAP],
+                     [0.28, 0.72], fs=7.2))
+
+
+# ── III.6  the screens, in the order the report prints them ──────────────────────────────────────────────────────
+def render_screens(story, L, tbl, SP, PageBreak, Paragraph):
+    band = runtime("identity_band_v3.json"); meta = band.get("_meta", {}); pooled = band.get("pooled", {})
+    sigma = (pooled.get("p90", 0) - pooled.get("p10", 0)) / (2 * 1.2816) if pooled else 0
+    story.append(PageBreak())
+    story.append(Paragraph("III.6 &nbsp; The screens, in the order the report prints them", L.sSect))
+    story.append(Paragraph("What each number on a report is, where it comes from, and what it does not mean.", L.sSub))
+
+    story.append(Paragraph("<b>Screen 1 - what is in the sample.</b> Stage 2 places the specimen against the "
+        "115-entry atlas and reports the fractions, folded to the eight architecture classes. A class whose "
+        "estimated presence falls below its detection floor is masked and nothing is reported for it. Beside the "
+        "composition the report prints the second opinion: the same specimen solved by the needlet ILC method, "
+        "compared at class level, with AGREE when the L1 difference is at or below 0.10. Cell-level disagreement "
+        "within one lineage is expected - the atlas cannot separate the members of a collinearity group - and is "
+        "not scored.", L.sBodySm))
+    story.append(Paragraph("<b>What it does not mean.</b> A fraction is not a cell count. It is the mixture that "
+        "best explains this specimen's methylation given the atlas, and for the blood classes the members of a "
+        "group are interchangeable within it.", L.sMut))
+
+    story.append(Paragraph("<b>Screen 2 - the class gauge.</b> For each reportable class: A_mapped, the two "
+        "corrections, and A_abs with its placement against the healthy band "
+        f"(p10 {pooled.get('p10','')}, line {pooled.get('p50','')}, p90 {pooled.get('p90','')}). The tier word "
+        "comes from the breakpoints file and is withheld wherever the component's own band is wider than the "
+        "gauge's normal band. With no laboratory zero the screen prints NOT REPORTABLE and the reason, and "
+        "A_mapped alone.", L.sBodySm))
+
+    story.append(Paragraph("<b>Screen 3 - the departure.</b> Three numbers that answer three different questions, "
+        "and the report prints all three because each alone misleads:", L.sBodySm))
+    story.append(tbl([["what is printed", "the question it answers", "how to read it"],
+     ["z on each axis", "how far is this class from the healthy line, in units of the healthy spread",
+      f"z = (A_abs - 1.000)/sigma with sigma = {sigma:.5f}; a z of 2 is two healthy spreads"],
+     ["band widths from the line", "the same distance in the units a clinician can see on the band",
+      "(A_abs - 1.000)/(p90 - p10); useful because the band is what is drawn"],
+     ["D, the Mahalanobis distance", "taking every assessable class together, how unusual is this specimen",
+      "D = sqrt(sum z^2) against sqrt(chi2(0.95, n)) and sqrt(chi2(0.99, n)); the bar rises with n"],
+     ["the laboratory's own false-alarm rate", "how often a healthy donor from THIS laboratory exceeds that bar",
+      f"measured per cohort, {meta.get('four_lab_tail_range_p95',['',''])[0]} to "
+      f"{meta.get('four_lab_tail_range_p95',['',''])[-1]} at p95 across the four - printed beside D, never assumed"],
+     ["n assessable", "how many axes the distance was computed on",
+      "on whole blood n = 1, so D is |z| on the immune axis and the report says so"]],
+     [0.22, 0.34, 0.44], fs=7.0))
+    story.append(Paragraph("<b>The confidence statement is not a p-value on disease.</b> The thresholds are "
+        "quantiles of the healthy distribution: crossing D95 means this specimen sits where about five per cent "
+        "of healthy donors sit - and the laboratory-specific rate printed beside it says how close to five per "
+        "cent that really is for this laboratory. It is a statement about rarity against a healthy reference, not "
+        "a probability of any condition, and the chain names no condition.", L.sBodySm))
+
+    story.append(Paragraph("<b>Screen 4 - the sky.</b> The per-address residual projected onto the sphere, with "
+        "the shuffled-sky null beside it. Structure in the map is genomic: every pixel holds a contiguous run of "
+        "CpGs on one chromosome (III.3). The map is a way of seeing where a departure lives, not a second "
+        "measurement of it.", L.sBodySm))
+    story.append(Paragraph("<b>Screen 5 - what this run refused.</b> Every masked class, every withheld tier "
+        "word, every unavailable stage, each with the number that triggered it. A refusal is a result: it names "
+        "what would have to change for the reading to become available.", L.sBodySm))
+
+
+# ── III.7 the healthy reference · III.8 coverage · III.9 guards · III.10 files · III.11 running it ────────────────
+def render_reference(story, L, tbl, SP, PageBreak, Paragraph):
+    band = runtime("identity_band_v3.json"); meta = band.get("_meta", {})
+    curve = runtime("reference_age_curve_v1.json"); cmeta = curve.get("_meta", {})
+    coh = meta.get("cohorts", {})
+    if isinstance(coh, str):
+        import ast as _a; coh = _a.literal_eval(coh)
+    story.append(PageBreak())
+    story.append(Paragraph("III.7 &nbsp; The healthy reference - who it is, and what is not in it", L.sSect))
+    story.append(Paragraph(f"<b>Who.</b> {len(coh)} public whole-blood cohorts, {meta.get('n','')} donors, each "
+        f"cohort zeroed by its own full-cohort median before pooling. Controls only where the cohort is a "
+        f"case-control study.", L.sBody))
+    story.append(tbl([["cohort", "donors", "its zero", "role in the reference"]] +
+        [[k.replace("_", " "), str(coh[k].get("n", "")), f"{coh[k].get('z_lab_full_cohort','')}",
+          "band + age curve + its own false-alarm rate"] for k in sorted(coh)],
+        [0.30, 0.14, 0.16, 0.40], fs=7.4))
+    story.append(Paragraph(f"<b>How processed.</b> {cmeta.get('scale','stage1_noob_450K mapped')}; the age curve "
+        f"is the per-decade median of mapped immune identity-loci A about the grand median, decades with n &gt;= 30 "
+        f"only ({cmeta.get('from','PROC-PANEL-03')}).", L.sBodySm))
+    story.append(Paragraph("<b>What is measured from them, in order:</b> each laboratory's zero; the pooled "
+        "healthy band; the per-decade age reference; each laboratory's false-alarm rate at p95 and p99; and the "
+        "age resolution that makes cellular age in years unreportable.", L.sBodySm))
+    story.append(Paragraph("<b>What is NOT in the reference, stated so nobody assumes it is.</b> No disease "
+        "cohort - the reference is healthy donors only, and the chain never compares a specimen to a disease "
+        "group. No repeat draws, so the technical floor is an upper bound inferred from cross-sectional spread "
+        "(III.3, difference maps). No tissue other than whole blood, which is why every non-blood class is "
+        "unassessable today. No non-European ancestry breakdown: the four cohorts are European, the reference "
+        "inherits whatever that implies, and that is a limitation to be closed rather than a caveat to be "
+        "restated.", L.sBodySm))
+
+
+def render_coverage(story, L, tbl, SP, PageBreak, Paragraph):
+    by, ref = atlas_cells()
+    story.append(PageBreak())
+    story.append(Paragraph("III.8 &nbsp; Coverage - what is lit, and what lighting one cell requires", L.sSect))
+    story.append(Paragraph("The framework spans five substrates and eight classes: forty cells, each needing its "
+        "own floor and its own healthy reference. The commissioned chain reads one substrate - methylation - "
+        "because that is what an array carries, and one specimen type. This is the honest coverage statement.",
+        L.sBody))
+    story.append(tbl([["what", "lit today", "what lighting the rest requires"],
+     ["substrates", "1 of 5 (methylation)", "nucleosome occupancy, fuzziness, WPS and fragment size need cfDNA "
+      "sequencing on the same specimen; no cohort held here carries two substrates on one sample"],
+     ["classes with a commissioned band", "1 of 8 (immune)", "a healthy cohort of that tissue, zeroed the same "
+      "way, at n sufficient for a p10-p90 band"],
+     ["specimen types", "whole blood", "any other tissue needs its own zero and its own band"],
+     [f"atlas entries with a per-entry reference", f"{len(ref)} of {sum(len(v) for v in by.values())}",
+      "the duplicate-label merge, then a re-measured per-entry reference"]],
+     [0.28, 0.20, 0.52], fs=7.4))
+    story.append(Paragraph("A cell of that grid is lit when four things exist together: a floor from the MCMC "
+        "build, a healthy reference on the same measurement scale, a laboratory zero, and a null that comes back "
+        "empty. Three of the four are cheap; the healthy reference is not, and it is what gates every row.",
+        L.sBodySm))
+
+
+def render_guards(story, L, tbl, SP, PageBreak, Paragraph):
+    rc = {}
+    p = os.path.normpath(os.path.join(HERE, "..", "kit", "results", "release_check.json"))
+    if os.path.exists(p): rc = json.load(open(p, encoding="utf-8"))
+    story.append(PageBreak())
+    story.append(Paragraph("III.9 &nbsp; The guards - what each one refuses, and its last result", L.sSect))
+    if rc:
+        story.append(Paragraph(f"Last run {rc.get('run_at','')} at commit {rc.get('commit','')}: "
+            f"<b>{rc.get('n_pass',0)} pass, {rc.get('n_fail',0)} fail, {rc.get('n_skipped',0)} skipped</b>. "
+            f"A guard that did not run prints SKIPPED with its reason - never a pass. The verdict below is read "
+            f"from <font name='Courier'>release_check.json</font> at build time, so this page cannot claim a guard "
+            f"passed when the file says otherwise.", L.sBody))
+        rows = [["guard", "what it refuses", "last result"]]
+        for g in rc.get("guards", []):
+            det = (g.get("detail") or "").split("\n")[0]
+            if g.get("status") == "SKIPPED" and det:
+                det = "SKIPPED - " + (det[:90] + "..." if len(det) > 90 else det)
+            else:
+                det = g.get("status", "")
+            rows.append([g.get("name", g.get("key", "")), (g.get("guards", "") or "")[:220], det])
+        story.append(tbl(rows, [0.22, 0.54, 0.24], fs=6.8))
+    else:
+        story.append(Paragraph("release_check.json is not present in this build: no verdict is printed here "
+                               "rather than a claim that the guards passed.", L.sMut))
+
+
+def render_files(story, L, tbl, SP, PageBreak, Paragraph):
+    inv = runtime("chain_inventory_v1.json"); files = inv.get("files", [])
+    story.append(PageBreak())
+    story.append(Paragraph("III.10 &nbsp; The files of the chain, by role", L.sSect))
+    if not files:
+        story.append(Paragraph("chain_inventory_v1.json not found.", L.sMut)); return
+    import collections
+    counts = collections.Counter(f.get("role") for f in files)
+    story.append(Paragraph(f"{len(files)} files are inventoried. The counts are the inventory's own, read at build "
+        f"time: " + ", ".join(f"<b>{counts[r]}</b> {r}" for r in sorted(counts)) + ".", L.sBody))
+    story.append(Paragraph("The eighteen files in the chain - the ones a reading actually depends on:", L.sSect2))
+    rows = [["file", "stage", "what it does"]]
+    for f in [x for x in files if x.get("role") == "chain"]:
+        rows.append([f.get("file", ""), f.get("stage", ""), (f.get("description", "") or "")[:190]])
+    story.append(tbl(rows, [0.26, 0.12, 0.62], fs=6.6))
+    story.append(Paragraph("Twenty files are inventoried as UNDESCRIBED: present in the tree, not yet given a role. "
+        "They are listed as such rather than quietly counted as part of the chain.", L.sMut))
+
+
+def render_run(story, L, tbl, SP, PageBreak, Paragraph):
+    import re as _re
+    p = os.path.join(CHAIN, "MethylPhys_Interface", "run_sample.py")
+    args = []
+    if os.path.exists(p):
+        src = open(p, encoding="utf-8").read()
+        for m in _re.finditer(r'add_argument\(\s*"(--[a-z\-]+)"(.*?)\)', src, _re.S):
+            flag, rest = m.group(1), m.group(2)
+            h = _re.search(r'help\s*=\s*"([^"]*)"', rest)
+            d = _re.search(r'default\s*=\s*([^,\)]+)', rest)
+            args.append((flag, h.group(1) if h else "", d.group(1).strip() if d else ""))
+    story.append(PageBreak())
+    story.append(Paragraph("III.11 &nbsp; Running it on your own sample", L.sSect))
+    story.append(Paragraph("One command, and the flags are read from the script's own argument parser at build "
+        "time, so this page cannot advertise an option the tool does not have.", L.sSub))
+    story.append(Paragraph("<font name='Courier'>python3 MethylPhys_Interface/run_sample.py --grn X_Grn.idat "
+        "--red X_Red.idat --age 61 --lab GSE87571 --lab-zero -0.0117 --out report.html</font>", L.sBodySm))
+    if args:
+        story.append(tbl([["flag", "what it is", "default"]] + [list(a) for a in args], [0.16, 0.66, 0.18], fs=7.0))
+    story.append(Paragraph("<b>What it will refuse.</b> Without <font name='Courier'>--age</font> the age term "
+        "cannot be removed and the absolute reading is withheld. Without <font name='Courier'>--lab-zero</font> "
+        "the laboratory zero reads UNSET and the placement, tier and departure are all withheld - A_mapped is "
+        "still printed, because a relative number honestly labelled is more use than a fabricated absolute one. "
+        "Commissioning your own laboratory means measuring that zero on 40 healthy arrays and a null that comes "
+        "back empty; the procedure is in the runbook.", L.sBodySm))

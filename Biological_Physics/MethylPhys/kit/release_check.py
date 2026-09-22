@@ -18,6 +18,9 @@ ENG=os.path.join(BIO,"MethylPhys/chain")
 
 # (key, human name, what it guards, argv, needs)
 GUARDS=[
+ ("claims","Rendered-claim scan",
+  "no delivered document asserts a claim the record has reversed, and every passage the cover promises is present - checked against the RENDERED PDF, because a claim survives in data files, embedded markdown, render-time table cells and directory names that a source grep does not reach",
+  [sys.executable,"claim_scan.py","../manual/IAMPerformance_GAPEIssue003_RC1.pdf"],"the built manual"),
  ("formula","A-score formula self-test","the per-cell surface is mean_i H(beta_i)/H_min and the module refuses H(beta_mean) - the N7 defect cannot come back",
   [sys.executable,"PROC_FORMULA_01.py"],None),
  ("anchor","Sealed cohort anchors","the sealed 648-sample foundation-cohort per-cell scores still reproduce from raw public data (r = 1.00000)",

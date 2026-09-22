@@ -801,3 +801,38 @@ less than sqrt(n) and is set by rho - which for these substrates has never been 
 here carries two substrates on the same specimen. The page now says that, and says plainly that the commissioned
 chain reads methylation only and computes no combined A-score. The same phrase in the immune card commentary is
 corrected too. Behind `CORRECT_SUBSTRATE_COMBINATION`, default False, so Issue 002 still reproduces exactly.
+
+### 2026-09-22 - the interface ported tab by tab, and two gates so today's defects cannot ship again
+
+**III.6 to III.11 added; 177 -> 185 pages.** Every tab of the researcher interface now has its long form here,
+and the Part III opener carries the correspondence table so a reader who has seen a report can find the full
+treatment of any screen:
+
+| chapter | content | source |
+|---|---|---|
+| III.6 the screens, in the order the report prints them | composition and the second opinion; the class gauge; the departure as three numbers that answer three different questions; the sky; what the run refused | authored, constants from the runtime |
+| III.7 the healthy reference | the four cohorts with their own zeros, how processed, what is measured from them in order, and **what is not in it** - no disease cohort, no repeat draws, no tissue but whole blood, no ancestry breakdown | generated from identity_band_v3 + reference_age_curve_v1 |
+| III.8 coverage | 1 substrate of 5, 1 class of 8 with a commissioned band, whole blood only, 106 of 115 entries with a per-entry reference, and the four things a grid cell needs to be lit | generated |
+| III.9 the guards | every guard, what it refuses, and its last result read from release_check.json at build time - so the page cannot claim a guard passed when the file says SKIPPED | generated |
+| III.10 the files of the chain | 173 inventoried, by role, with the 18 chain files and their stages; the 20 UNDESCRIBED are named as such | generated from chain_inventory_v1.json |
+| III.11 running it on your own sample | the command, every flag read from run_sample.py's own parser, and what it refuses without --age or --lab-zero | generated from the CLI |
+
+**The departure screen** now states the three numbers separately, because each alone misleads: z per axis
+(A_abs - 1.000)/sigma; band widths from the line, which is what the drawn band shows; and D = sqrt(sum z^2)
+against sqrt(chi2(0.95|0.99, n)), with **the laboratory's own false-alarm rate printed beside it** (0.0441 to
+0.0984 at p95 across the four). And it says plainly that crossing D95 is a statement about rarity against a
+healthy reference - where about five per cent of healthy donors sit - not a probability of any condition.
+
+**GATE 1 - the single-pass build now refuses to run.** `build_gape_issue003.py` exits 2 unless IAM_TWOPASS=1,
+which only `build_twopass.sh` sets, because a single pass renders the contents page with blank page numbers and
+nothing previously stopped that from shipping.
+
+**GATE 2 - the rendered-claim scan is now a release guard.** `kit/claim_scan.py` + `kit/claims.json` check the
+RENDERED PDF for claims the record has reversed and for passages the cover promises. Registered in
+release_check.py as guard `claims`; verdict now 6 pass, 0 fail, 6 skipped (the six need data not on this machine
+and print SKIPPED with the reason, never a pass). Negative control: breaking a claim fails the gate, restoring it
+passes. Registered because three defects today were found by reading the render and none by grepping the source -
+the NILC cut in five live documents, the retired n_bio, and the contents page matching its own entries.
+
+The pattern is also saved as a skill (`render-verified-docs`) with working helpers, so it does not depend on
+anyone remembering it.

@@ -3,6 +3,7 @@
 # chapter in the rendered PDF and writes toc_pages.json; the second pass renders the contents with real numbers.
 # A page number in the contents is therefore a measurement of the document, not a hand-maintained list.
 set -e
+export IAM_TWOPASS=1   # the single-pass build refuses to run without this: see the gate in build_gape_issue003.py
 OUT="$1"
 python3 build_gape_issue003.py "$OUT" >/dev/null
 python3 - "$OUT" <<'PY'
