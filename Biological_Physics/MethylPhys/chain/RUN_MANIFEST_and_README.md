@@ -31,17 +31,28 @@ python "MethylPhys/atlas/healpix_mapping/generate_cpg_healpix_mapping.py"
 
 ## 1 · Entry points
 ```python
-import cpg_conductor as WC
-# A) from raw IDAT (production): Stage 1 noob calibration -> chain -> bundle -> report
-bundle = WC.run_from_folder(idat_folder, patient_id="...", config=None)
-# B) from an already-calibrated beta (Series indexed by cg-id):
-bundle = WC.run_pipeline(beta, patient_id="...", config=None, nilc_rescue=False)
-# then:
-import cpg_report_builder_KISS as RB
-RB.build_report(bundle, out_path="report.html")
+# A) from raw IDAT (production): Stage 1 noob calibration, then the chain
+from stage_1_idat_calibration import calibrate_idat_to_beta
+import cpg_conductor as C
+
+beta, meta = calibrate_idat_to_beta(grn_path, red_path)      # one array, a Series indexed by cg-id
+bundle = C.run_full(beta.dropna().to_dict(),
+                    "../atlas/IAMAtlasREBUILD.csv",            # decompress the .xz first
+                    cfg={"age": 72, "pipeline": "stage1_noob_450K",
+                         "lab_zero": -0.0117, "lab": "GSE87571"})
+
+# B) the report
+import sys; sys.path.insert(0, "MethylPhys_Interface")
+import build_methylphys as B
+B.build(bundle, "report.html", "GSM2333901")
 ```
-Note: cached/raw β can trip the input-scale guard (LESSON-DECONV-01) — production IDAT through the
-noob Stage-1 path is the calibrated route.
+Or from the command line, which does both:
+```bash
+python "MethylPhys_Interface/run_sample.py" --grn <Grn.idat.gz> --red <Red.idat.gz> \
+       --age 72 --lab GSE87571 --lab-zero -0.0117 --out report.html --id GSM2333901
+```
+Without `--lab-zero` the laboratory zero reads UNSET and the placement, tier and departure are withheld;
+without `--age` the absolute reading is withheld. A_mapped is still printed in both cases.
 
 ## 2 · The dependency tree (every file the chain reads, by role)
 
