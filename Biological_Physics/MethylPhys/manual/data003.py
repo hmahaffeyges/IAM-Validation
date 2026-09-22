@@ -1183,7 +1183,7 @@ PHYSICS = {
    "once. One filters, one calibrates. Their background model is the first extension we intend to test on the identity loci (Future Goals, GATE 2); our transfer discipline applies to any absolute "
    "methylation measurement, including one built on their divergences, because a divergence from a control pool inherits that pool's laboratory offset."),
  "ledger": [  # (quantity, physics or measured, how)
-  ("k_B T ln 2 at 310 K", "physics", "constant; 2.97e-21 J"),
+  ("k_B T ln 2 at 310 K The Issue 002 physics section is not reproduced in this document: Section 5 replaces it, and its original text stands in Issue 002 as published (MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf, section 2). What is retired is named here so a reader holding both knows which is current.", "physics", "constant; 2.97e-21 J"),
   ("M_cell = 20.9", "physics + biochemistry", "Delta G_ATP / RT; not fitted"),
   ("H(beta) binary entropy", "physics", "definition"),
   ("H_min(c), eight values", "MEASURED reference", "MCMC on 37 healthy reference methylomes; bootstrap; frozen April 2026"),

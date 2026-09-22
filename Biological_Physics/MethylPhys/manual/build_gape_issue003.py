@@ -48,7 +48,10 @@ def status_p(s):
 # ═══════════════════════════════════════════════════════════════════════════════
 def cover(story):
     story.append(Paragraph('IAMPerformance', sTitle))
-    story.append(Paragraph('PHYSICS OF METHYLATION: LANDAUER METROLOGY', sSub)); story.append(SP(0.02))
+    # the cover subtitle in white so it carries against the dark page, rather than sSub's muted lavender
+    story.append(Paragraph('PHYSICS OF METHYLATION: LANDAUER METROLOGY',
+        S('cvsub', fontSize=13, textColor=colors.white, fontName='Helvetica-Bold', leading=17,
+          spaceBefore=2, spaceAfter=2))); story.append(SP(0.02))
     story.append(Paragraph('GAPE Issue 003  ·  measuring how far above the thermal noise quantum each cell class writes and holds its state, against a fixed physical zero', sMut)); story.append(SP(0.06))
     story.append(HRFlowable(width='100%', thickness=1, color=LAV, spaceAfter=5))
     story.append(Paragraph(f'<b>{ISSUE}  ·  {DATE}</b>  ·  The Healthy Range of the Cellular Write Process — '
@@ -729,13 +732,10 @@ def build(out_path):
     for card in L.CARDS:
         L.render_card(story, card); card_addendum(story, card['key'])
     sec5a_tools(story)
-    # §5 physics (002 §2) with a one-paragraph preface
+    # §5 the physics, as it stands now
     sec5_physics(story)
-    story.append(PageBreak())
-    story.append(Paragraph('PREFACE TO THE ISSUE 002 PHYSICS REPRODUCED BELOW', sLabel))
-    story.append(Paragraph('Sections 5.1b-5.6 are reproduced from Issue 002 as written (April 2026). Its s2.1 and s2.1a - the \'derivation\' of H_min from Landauer and the seven-step chain - are NOT reproduced: '
-        'section 5.0.4 states what of them stands and what is retired, and the ledger in 5.0.8 gives every quantity\'s provenance. The forty H_min values the engine carries are the G-002/G-003b MCMC posteriors, frozen; see 5.0.4 and PROC-HMIN-BOOT-01.', sBodySm))
-    _render_002_physics_without_derivation(story)
+    # Issue 002's physics section is NOT reproduced here - Section 5 replaces it, and its original text stands in
+    # Issue 002 as published. Section 5.0.4 states what is retired and where the original is.
     
     # new sections
     sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)

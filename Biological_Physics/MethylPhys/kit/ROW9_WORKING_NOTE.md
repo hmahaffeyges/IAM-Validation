@@ -596,3 +596,15 @@ falsification record, the procedures, prior art, future goals and the glossaries
 SUBSTRATE-BY-SUBSTRATE BREAKDOWN (15 pairs) and VERTEBRATE LIFESPAN CONTEXT (12) - the same prose over eight
 different data sets. Stating each once before the cards would remove them; that is a presentation choice, not a
 defect.
+
+### 2026-09-22 - the replaced Issue 002 physics removed as well: 173 -> 164 pages
+
+Author: *"I dont want the old stuff that we replaced in the book, its in 002 and you can say that too, just dont
+clutter the book with stuff that is not necessary."* Section 5 replaces Issue 002's section 2, so reproducing that
+section - even with its H_min derivation dropped and a preface attached - was carrying the thing it replaced.
+Removed: the preface page and `_render_002_physics_without_derivation`. What remains is s5.0.4, which names what
+Issue 002 said, what is retired and why, and now ends with one sentence pointing at
+`MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf` section 2 for the original text.
+
+Cover: the subtitle under IAMPerformance is now white rather than muted lavender, at the author's request. Checked
+by rendering page 1 and reading it.
