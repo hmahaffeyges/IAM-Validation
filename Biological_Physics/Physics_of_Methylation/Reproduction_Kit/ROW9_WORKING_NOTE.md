@@ -397,3 +397,40 @@ worth recording. Eight fields were added because of what those files record:
 1. The sky residual arrives as a **pandas Series indexed by CpG id**, not a bare array - my `isinstance(list, ndarray)` check silently skipped it, so the whole per-CpG layer was empty while reporting no error. Now aligned on the CpG index so samples with different coverage still stack.
 2. The **opposition flag fired on healthy noise**: the first run reported opposite lymphoid/myeloid signs in *both* arms with the sides swapped - which is what sampling scatter looks like. It now carries the arm size, the member-magnitude IQR, and a `separation_clears_member_scatter` test; on these healthy arms it correctly reports **false** in both.
 3. Ranked by |mean z| alone the top CpGs were **mean 30.8 with sd 42.6** - high-variance probes, not consistent departures. A second ranking by |mean z| / sd was added; that is the list to carry into a candidate panel, and with two cohorts the intersection of the two consistency lists is this chain's equivalent of the cards' `concordant_strong`.
+
+## 2026-09-22 - the report is not a change log. Author's correction, and a guard so it cannot recur.
+
+**What he objected to, correctly:** "why are you adding stuff like this on the freaking interface we are presenting
+to researchers??? I dont need a log of all the changes. We are handing them a finished product not a log of my
+mistakes or changes."
+
+He is right, and the reasoning I had used for it was already void: I marked three passages of the imported story
+text `[updated]` on the argument that the source document is public and a reader might hold both - and he had
+already told me that paper is **not** public. Even if it were, a researcher handed an instrument wants the
+instrument, not its construction history.
+
+**Scanned all 17 tabs** for the same voice rather than only fixing the three he quoted: nine patterns
+(`[updated]` markers, "my first/earlier version", "the author corrected", "no longer true", dated change
+narrative, "found independently", "withdrawn", "stale-data failure", first-person error references). **13 hits
+across 5 tabs.** Three were real:
+
+| where | was | now |
+|---|---|---|
+| Story | a block headed "Three places where this chain's own measurements supersede the May 2026 text", with three `[updated]` passages, one of them dated and attributed | two plain statements of what is true: where A = 1.00, H_min and the ceiling sit; and that the floors, the calibration code and the bootstrap are public and linked |
+| Files | the build log described as "every defect found while building, including the ones in my own output" | "Engineering log for the report and interface: what was measured while building it, what failed, and what each failure changed. Read it for the construction history; nothing in it is needed to read a result." |
+| Physics | "A report generated in June 2026 printed ... ; the same error, found independently, was the defect in the retired sky formula" | the same point as a principle: using the posterior SD of a mean as a normal range is a category error, and here is what it costs. No incident, no date |
+
+The remaining hits were false positives and stay: "the **corrected** value A''" is the name of the age- and
+laboratory-corrected reading; the detection rule is a policy of the instrument; and one file's description quotes
+its own title.
+
+**The guard.** A rule in a document does not survive; the fix is in the builder. `no_changelog()` runs on **every
+tab, including the two exempt from the vocabulary guard** - those exemptions are for naming conditions and files,
+not for telling a reader about earlier drafts - and refuses to write the report if that voice appears. Tested both
+ways before pushing: it fires on `[updated]`, on "the author corrected this himself" and on "my first version was
+wrong", and does **not** fire on "The corrected value A'' is placed in the band" or on the flatness lesson's own
+title. One boundary bug was caught in that test: the first pattern matched "he corrected" inside "**the** corrected
+value" and blocked the Reading tab; fixed with a lookbehind.
+
+The division of labour is now explicit and enforced: **this log carries the construction history; the report
+states what is true now.**

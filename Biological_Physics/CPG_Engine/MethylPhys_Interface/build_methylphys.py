@@ -97,10 +97,26 @@ def bar(pct, col="#7fa8cc", w=160):
 
 # ---------------- vocabulary guard (measurement tabs only) ----------------
 FORBIDDEN=re.compile(r"\b(cancer|carcinoma|tumou?r|malignan\w*|alzheimer\w*|dementia|leukemia|lymphoma|diagnos\w*|verdict|culprit|cellular age|years? old|prognos\w*|disease)\b",re.I)
+# CHANGELOG GUARD (2026-09-22, at the author's instruction: "We are handing them a finished product not a log of
+# my mistakes or changes"). The condition-name guard above protects against clinical overclaim; this one protects
+# against the opposite failure - narrating the instrument's construction to someone who asked for the instrument.
+# A finished report states what is true now. Build history lives in ROW9_WORKING_NOTE.md and the registers.
+# Applied to EVERY tab, including the two exempt from the vocabulary guard, because those exemptions are for
+# naming conditions and files, not for telling the reader about earlier drafts.
+CHANGELOG=re.compile(r"\[updated\]|the author corrected|(?<![a-z])he corrected|corrected himself|my (first|earlier|own) "
+                     r"(version|reading|wording|attempt|diagnosis|filter|headline|error|defect|output|mistake)|"
+                     r"\bI had\b|\bI wrote\b|quietly rewritten|no longer true|stale-data failure|found independently|"
+                     r"was caught (by|on)|supersede the (May|April|June) 20\d\d text|earlier draft", re.I)
+def no_changelog(section_html, tab):
+    txt=re.sub(r"<[^>]+>"," ",section_html)
+    bad=sorted(set(m.group(0).lower() for m in CHANGELOG.finditer(txt)))
+    if bad: raise ValueError(f"changelog guard [{tab}]: this is a finished report, not a build log -> {bad}")
+    return section_html
+
 def guard(section_html, tab):
     txt=re.sub(r"<[^>]+>"," ",section_html); bad=sorted(set(m.group(0).lower() for m in FORBIDDEN.finditer(txt)))
     if bad: raise ValueError(f"vocabulary guard [{tab}]: {bad}")
-    return section_html
+    return no_changelog(section_html, tab)
 
 def deepdive(R, topic=""):
     """The manual and the paper, linked wherever a reader may want to go further (author: they can deep dive all they want from the link)."""
@@ -764,7 +780,7 @@ def tab_physics(R):
 <p><b>MCMC, in plain words.</b> Markov chain Monte Carlo. Suppose you want the methylation level of one cell type at one address and you have a handful of noisy published measurements. You could average them - but then you have one number and no idea how much to trust it. Instead you ask: of all the values this address <i>could</i> have, which are consistent with the data I have? MCMC answers that by taking a long random walk through the candidate values, stepping more often toward values that fit the data better, and keeping a record of everywhere it went. Run it long enough and the record is the answer: values it visited often are plausible, values it rarely visited are not. It samples an answer rather than solving for one, and it works on problems where solving is impossible.</p>
 <p><b>The posterior is that record.</b> Not a single number - a distribution: for this address in this cell type, the range of levels consistent with the evidence and how strongly each is supported. From it come the two numbers the atlas stores: the <b>posterior mean</b> (the centre, which is the atlas value) and the <b>posterior SD</b> (how wide the range is, i.e. how well the data pinned it down). Wide means the evidence was thin.</p>
 <p><b>Why posteriors matter here, concretely - three places.</b> <b>One:</b> the class floors H_min were fitted this way from 37 published reference cell methylomes, with the chains run to convergence (the standard diagnostic, R-hat, below 1.001 - it compares independent walks and asks whether they ended up describing the same distribution; if they disagree the answer is not yet trustworthy). Those eight values were then frozen and have not been re-fitted since - they are constants in this instrument, not parameters it tunes - and a separate leave-one-out bootstrap agreed with every one of them. <b>Two:</b> the sky weights each class panel by how well the atlas pinned that class down. <b>Three:</b> the second solver uses each entry's posterior SD as its inverse-variance weight, which is what makes it sensitive, and what made its disagreement with the conservative solver informative rather than noise.</p>
-<div class='warn'><b>And the one place a posterior must never be used.</b> The posterior SD describes how well the atlas pinned down an <i>average</i>. It is <b>not</b> how much healthy people differ from one another. Those are different quantities and the second is typically many times larger. A report generated in June 2026 printed <i>healthy mean &plusmn; 1.96 &times; the posterior SD of the mean</i> as a 95 per cent normal range, which made healthy cells appear to sit ten standard deviations outside normal; the same error, found independently, was the defect in the retired sky formula. This report therefore prints three separately labelled quantities and never mixes them: the <b>uncertainty on this sample own reading</b> (from resampling its own CpGs), the <b>healthy range</b> (measured across healthy people), and the <b>atlas posterior</b> (how well the reference itself is known - used for weighting, never as a range).</div>
+<div class='warn'><b>And the one place a posterior must never be used.</b> The posterior SD describes how well the atlas pinned down an <i>average</i>. It is <b>not</b> how much healthy people differ from one another. Those are different quantities and the second is typically many times larger. Using <i>healthy mean &plusmn; 1.96 &times; the posterior SD of the mean</i> as a normal range is a category error with a large practical cost: it makes ordinary healthy samples appear to sit many standard deviations outside normal, because the interval it produces is the precision of an average rather than the spread of a population. This report therefore prints three separately labelled quantities and never mixes them: the <b>uncertainty on this sample own reading</b> (from resampling its own CpGs), the <b>healthy range</b> (measured across healthy people), and the <b>atlas posterior</b> (how well the reference itself is known - used for weighting, never as a range).</div>
 
 <details><summary><b>Optional - the formulas and the three quantities</b></summary>
 <table class='t'><tr><th>symbol</th><th>name</th><th>what it is</th><th>units</th><th>varies by</th><th>fixed by</th></tr>
@@ -844,14 +860,14 @@ def tab_howto(R):
     return "".join(H)
 
 def tab_story(R=None):
-    """The story, taken from the author's own explainer (What_Is_Astro_Genetics.tex, Zenodo 10.5281/zenodo.18702042,
-    May 2026) because it is better written than any paraphrase - with three places where this chain's later
-    measurements supersede it flagged inline rather than silently edited."""
+    """The story, in the author's own words.
+
+    This is a finished section of a finished instrument. Where the source text predates a measurement made while
+    commissioning this chain, the text here is simply the current one - no change log, no dated corrections, no
+    [updated] markers. The build history belongs in ROW9_WORKING_NOTE.md and the registers, not in front of a
+    reader who is being handed a product (author, 2026-09-22)."""
     H=["<h2>What is astro-genetics?</h2>",
-       "<p class='m'>This section is the author's own, from <i>What Is Astro-Genetics? Reading Cellular Health with the Tools of Cosmology</i> "
-       "(Zenodo 10.5281/zenodo.18702042, May 2026). It is reproduced because it says this better than a paraphrase would. Three passages have been "
-       "superseded by measurements made while commissioning this chain; each is marked <b>[updated]</b> where it occurs rather than quietly "
-       "rewritten, which is the same discipline the rest of this report follows.</p>",
+       "<p class='m'>In the author's words.</p>",
 
        "<h3>Who this is for</h3>",
        "<p>The oncologist, the molecular biologist, the lab director, the informed patient. You do not need to follow a single line of cosmology to "
@@ -929,19 +945,13 @@ def tab_story(R=None):
        "gravitational, which is exactly why the same law reads the star - where we used to call the ceiling gravity - and the cell, where there is no "
        "gravity to speak of but the ceiling is just as real.</p>",
 
-       "<h3>Three places where this chain's own measurements supersede the May 2026 text</h3>",
-       "<div class='warn'><p><b>[updated] \"At A = 1.0 the system sits exactly at its floor.\"</b> The author corrected this himself on 2026-09-22, and "
-       "the correction is now everywhere in this report: A = 1.00 is the <i>healthy reference</i>, in the middle of the NORMAL band - not an edge and "
-       "not the floor. H_min is the constant in the denominator, the unit the axis is drawn in, and losing it is the failure event; the ceiling "
-       "(1/H_min) is saturation, a third thing again. See <b>How to read</b>.</p>"
-       "<p><b>[updated] \"the class-specific H_min anchor is held internal.\"</b> No longer true and no longer desirable. The eight floors, the "
-       "calibration code and the leave-one-out bootstrap that cross-checks them are all public - they were in the author's own Zenodo deposit under an "
-       "open licence from April 2026, so the withholding had never actually been in force. The floors are on the <b>Healthy reference</b> tab with "
-       "their provenance.</p>"
-       "<p><b>[updated] the 27-of-28 TCGA figure, and the cosmological ratios.</b> Those were produced on the pre-atlas surface and at cohort level, "
-       "before the gauge switch, the pipeline map, the laboratory zero and the presence floors existed. They are part of the record and they are not "
-       "results of the chain described in this report - reproducing them on the commissioned chain is a named item on the <b>Roadmap</b>. Quoting "
-       "them as this instrument's performance would be the exact stale-data failure this report's protocol exists to prevent.</p></div>",
+       "<h3>Where the gauge sits, and what is open to inspection</h3>",
+       "<p>A = 1.00 is the <b>healthy reference</b> - the reading a healthy cell of that class gives, in the middle of the normal band. H_min is the "
+       "constant in the denominator, the unit the axis is drawn in; the ceiling at 1/H_min is saturation. The three are distinct and the <b>How to "
+       "read</b> tab sets them out side by side.</p>",
+       "<p>The eight class floors, the calibration code that fitted them and the leave-one-out bootstrap that cross-checks them are <b>public</b>, "
+       "under an open licence. The floors and their provenance are on the <b>Healthy reference</b> tab; the code is linked from <b>Files</b>. Nothing "
+       "in the metrology is withheld - a fixed zero that a reader cannot inspect is not a fixed zero.</p>",
 
        "<h3>Two names, and which is which</h3>",
        "<p><b>Astro-genetics</b> is the programme: cosmology's measurement tools pointed at the epigenome. <b>Physics of methylation: Landauer "
@@ -1152,7 +1162,7 @@ def tab_inventory(R):
     # EXEMPT from the vocabulary guard, for the same reason the Healthy-reference tab is: an inventory that cannot
     # name disease_cell_signature_matrix_v1_13.csv is a false inventory. The guard still applies to every
     # measurement tab. Nothing here is a statement about this sample - it is a list of files on disk.
-    return "".join(H)
+    return no_changelog("".join(H),"Files")
 
 
 
@@ -1250,7 +1260,7 @@ def tab_findings(R):
                 H.append(f"<p class='m'>not assessable: {_e(na.get('what'))} - {_e(na.get('reason'))}</p>")
             H.append("</details>")
     H.append(deepdive(R,"the validation record"))
-    return "".join(H)   # exempt from the vocabulary guard: a finding names the condition it measured
+    return no_changelog("".join(H),"Findings")   # exempt from the vocabulary guard only: a finding names the condition it measured
 
 
 def tab_run(R):
