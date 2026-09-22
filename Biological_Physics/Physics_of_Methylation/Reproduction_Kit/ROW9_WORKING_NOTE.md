@@ -133,3 +133,17 @@ Ordered so that each step is runnable when it is reached, cheapest first. None o
 6. **T-WARBURG - parked, and honestly.** Testing 1.07 as a metabolic-intervention boundary needs a cohort with metabolic intervention and outcome, which no public methylation dataset
    provides. Until then the line is reported with its provenance and the statement that it has not been re-derived here. RECON W1 must be closed first anyway, since the two documents
    currently disagree about which number the word names.
+
+### 2026-09-22 - precedence paragraph corrected: a summary of a search is not the search
+
+**What went wrong.** The Europe PMC query `HEALPix AND methylation` returned **2 records** (and `HEALPix AND genome` returned **4**) - all structural-biology papers where
+HEALPix is the cryo-EM orientation-sampling scheme and methylation appears incidentally. I read them as irrelevant, which they are, and then wrote *"returned no hits for
+HEALPix with methylation"* into the Sky tab and into a memory note. Irrelevant is not zero. A review caught it against the tool's own hitCount, and it was caught on the one
+paragraph explicitly framed as written *the way a referee will read it* - the worst possible place for a count that does not match the retrieved data.
+
+**Corrected.** The paragraph now prints the counts per query pair (0, 0, 0, 2, 4, and the >1,500 abbreviation collision on CMB), says what the non-zero hits actually are, and
+states plainly that this is **a bounded search, not a proof of absence**. The two HEALPix hits earn their place: they are how we know the pixelisation is already used in
+biology, which is a better sentence than a zero would have been.
+
+**Rule.** When a precedence or absence claim rests on a search, the document carries the **counts and the queries**, never a characterisation of them. "We found nothing
+relevant" and "the query returned nothing" are different claims and only one of them is checkable.
