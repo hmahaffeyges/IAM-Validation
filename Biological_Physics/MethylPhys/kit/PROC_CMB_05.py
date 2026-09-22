@@ -2,7 +2,7 @@
 """PROC-CMB-05 (supersedes CMB-01, which failed C2/C4 as sealed) — CHAIN_COMMISSIONING row 4.6: the patient's sky, commissioned against held-out healthy arrays (PREREG sealed 2026-09-21).
 Inputs (CPG_KIT_DATA): stage2_fractions.json (selection + Stage 2 class fractions, 80 arrays x 4 labs, seed 2028) and the four
 laboratory beta matrices (Stage 1 noob): betas_GSE87571.pkl, betas_GSE42861_controls.pkl, betas_GSE111629_controls.pkl, betas_GSE125105_controls.pkl.
-Outputs: results/proc_cmb_01.json, per-lab residual scales (Runtime Matrices/Patient_CMB/residual_scale_<lab>.npz), plates for C6.
+Outputs: results/proc_cmb_01.json, per-lab residual scales (MethylPhys/chain/Runtime Matrices/Patient_CMB/residual_scale_<lab>.npz), plates for C6.
 """
 import os, sys, json, pickle, hashlib, math, numpy as np, pandas as pd, warnings; warnings.filterwarnings("ignore")
 HERE=os.path.dirname(os.path.abspath(__file__)); BP=os.path.abspath(os.path.join(HERE,"..","..")); ENG=os.path.join(BP,"MethylPhys/chain")

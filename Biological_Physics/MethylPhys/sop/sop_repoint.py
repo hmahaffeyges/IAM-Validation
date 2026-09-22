@@ -94,7 +94,7 @@ its outcome and its seal.
 | the healthy reference | three measured layers: the frozen class floor (physics, universal), the pipeline scale map (one per processing pipeline), and the laboratory zero (40 healthy arrays of that laboratory, read against the age curve) |
 | what it does not do | it names no condition, matches no pattern to any signature, and states no age in years |
 | file inventory | generated, not hand-listed: `MethylPhys/chain/Runtime Matrices/chain_inventory_v1.json`, built from the tree by `build_chain_inventory.py`. The reference table at the end of this document is generated from it |
-| the rule for a finding | seal the procedure before running it, register the outcome as found, close it in code, teach every door, rebuild, read, push. `Reproduction_Kit/finding_check.py` gates the push |
+| the rule for a finding | seal the procedure before running it, register the outcome as found, close it in code, teach every door, rebuild, read, push. `MethylPhys/kit/finding_check.py` gates the push |
 
 """
 
@@ -120,6 +120,47 @@ HEADER_TITLE = "# CPG Chain-of-Custody Standard Operating Procedure (SOP) \u2014
 HEADER_VERSION = ("**Document version:** v2.0.0, matched to the engine in this repository at the commit this file "
                   "was last regenerated from (`git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions "
                   "are in git history; this document states the current procedure.")
+
+PATH_FIXES = [('Runtime Matrices/Bidirectional_Decomposition/bidirectional_decomposition.py', 'Runtime Matrices/Directional Panel/bidirectional_decomposition.py'), ('Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py', 'Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py')] + [('pipeline_runtime_matrices/iamatlas_a_scoring.py', 'Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py'), ('Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/chain_inventory_v1.json', 'Runtime Matrices/chain_inventory_v1.json'), ('Runtime Matrices/Brightness_Comparison/stage_4_6_patient_cmb.py', 'stage_4_6_patient_cmb.py'), ('Biological_Physics/chain_of_custody/L9_null_suite/synthetic_patient_generator.py', 'Synthetic_Patient_Generator/synthetic_patient_generator.py')]   # directory-qualified references that named an old or wrong location
+
+
+def _repoint_stale_dirs(text):
+    """Directory-qualified references written against the June/July layout.
+
+    Added 2026-09-22 after link_check.py found eight of them. The rule is general and idempotent rather than a
+    list of special cases: for a reference of the form `dir/.../name.ext` whose path does not resolve, if exactly
+    one tracked file in the live tree has that basename, repoint to it; if none or several do, leave the text and
+    mark it as a historical path so a reader does not try to follow it.
+    """
+    import subprocess, collections
+    root = os.path.dirname(BIO)   # the repository root: Biological_Physics' parent
+    tracked = [f for f in subprocess.run(["git", "-C", root, "ls-files"], capture_output=True, text=True).stdout.split("\n")
+               if f and "RETIRED" not in f]
+    by_base = collections.defaultdict(list)
+    for f in tracked:
+        by_base[f.split("/")[-1]].append(f)
+    pat = re.compile(r"(?<![\w/])([A-Za-z0-9_][A-Za-z0-9_.\- ]*(?:/[A-Za-z0-9_.\- ]+)+\.(?:py|json|csv|md|npz|npy|tsv))")
+    fixed = 0
+    marked = 0
+    out = []
+    pos = 0
+    for m in pat.finditer(text):
+        ref = m.group(1)
+        if os.path.exists(os.path.join(root, ref)) or os.path.exists(os.path.join(root, "Biological_Physics", ref)):
+            continue
+        base = ref.split("/")[-1]
+        cands = by_base.get(base, [])
+        out.append((m.start(), m.end(), ref, cands))
+    for start, end, ref, cands in reversed(out):
+        if len(cands) == 1:
+            new = cands[0].replace("Biological_Physics/", "")
+            text = text[:start] + new + text[end:]
+            fixed += 1
+        elif " (historical path" not in text[end:end + 20]:
+            text = text[:end] + " (historical path)" + text[end:]
+            marked += 1
+    print("  stale dirs: %d repointed, %d marked historical" % (fixed, marked))
+    return text
 
 def _fix_header(text):
     """The title used to pin an engine commit (66f37fe, July). A procedure that names a commit is stale the
@@ -178,6 +219,8 @@ def main():
     s=s.rstrip()+"".join(tbl)
     for pat,rep in HEADER_FIXES:
         s=pat.sub(rep,s,count=1)
+    for _a,_b in PATH_FIXES: s=s.replace(_a,_b)
+    s=_repoint_stale_dirs(s)
     s=_fix_header(s)
     open(SOP,"w",encoding="utf-8").write(s)
     print(f"SOP: {orig.count(chr(10))} -> {s.count(chr(10))} lines")

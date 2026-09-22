@@ -2,7 +2,7 @@
 """PROC-PLASMA-MIX-01 — deconvolver against real known mixtures (Moss et al. 2018, Nat Commun, Supplementary Data 1 Table 6).
 
 Input   : data/GSE122126-GPL21145_series_matrix.txt.gz (EPIC; in_vitro_mix_9..17 = Table 6 Mix 1..9 by order)
-          data/IAMAtlasREBUILD.csv ; runtime/IAMAtlasREBUILD_celltype_to_class.json
+          MethylPhys/atlas/IAMAtlasREBUILD.csv ; runtime/IAMAtlasREBUILD_celltype_to_class.json
 Declared: leukocytes 85-96% + hepatocytes / lung / cortical neurons / colon at 3.5-10% (Table 6, reproduced below)
 Expected: each spiked tissue rises in its atlas class (Hepatocytes->secretory, Cortical_neurons->terminal, Colon_epithelial_cells->cycling)
 Observed 2026-09-19: total non-leukocyte r=0.945 (bias +0.07); neurons->terminal r=+0.945 PASS; hepatocytes->secretory r=+0.19 FAIL; colon->cycling r=+0.10 FAIL

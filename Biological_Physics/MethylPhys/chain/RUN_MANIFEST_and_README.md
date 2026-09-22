@@ -18,7 +18,7 @@ export CPG_ENGINE_ROOT="/path/to/CPG_CMB_v5"
 export CPG_ROOT="$CPG_ENGINE_ROOT"
 
 # 2. decompress the atlas (ships compressed; ~605 MB .xz -> ~578 MB .csv)
-xz -dk "$CPG_ENGINE_ROOT/MethylPhys/atlas/IAMAtlasREBUILD.csv.xz"   # -k keeps the .xz
+xz -dk "$CPG_ENGINE_ROOT/MethylPhys/atlas/IAMAtlasREBUILD.csv (historical path).xz"   # -k keeps the .xz
 
 # 3. python deps
 pip install numpy pandas scipy healpy pillow reportlab --break-system-packages
@@ -26,7 +26,7 @@ pip install numpy pandas scipy healpy pillow reportlab --break-system-packages
 pip install methylprep --break-system-packages      # + the EPIC/HM450 manifest it pulls
 
 # 4. (optional) regenerate the cpg->HEALPix mapping if the .npy is absent:
-python "Runtime Matrices/cpg healpix mapping/generate_cpg_healpix_mapping.py"
+python "MethylPhys/atlas/healpix_mapping/generate_cpg_healpix_mapping.py"
 ```
 
 ## 1 · Entry points
@@ -74,7 +74,7 @@ noob Stage-1 path is the calibrated route.
 |---|---|
 | `Runtime Matrices/Tier_breakpoints/tier_breakpoints.json` | gauge breakpoints (1.07 Warburg, 1.10 breach) |
 | `Runtime Matrices/Literature_anchors_Report building/literature_anchors.json` | published anchors |
-| `Runtime Matrices/Cancer_prior/cancer_prior.json` · `Family_history_multiplier/family_history_multiplier.json` | priors |
+| `Runtime Matrices/Cancer_prior/cancer_prior.json (historical path)` · `Family_history_multiplier/family_history_multiplier.json (historical path)` | priors |
 | `Runtime Matrices/Mahalanobis_healthy_reference/…_v1_0_derived.json` (+ scorer) | derived-hull verdict (Layer 0) |
 | `Runtime Matrices/Directional Panel/…` | AD sealed 7-CpG directional panel |
 | `Runtime Matrices/Celltype_Marker/…` · `Collinearity_Groups/…` | markers (NILC collinearity = deferred/shelf) |
@@ -82,9 +82,9 @@ noob Stage-1 path is the calibrated route.
 ### Report assets (Stage 9)
 | File | Role |
 |---|---|
-| `builders/strawman_data_v2.json` · `render_patient_wall.py` · `render_strawman_v2.py` | patient straw man |
+| `MethylPhys/chain/Crown Jewel and Patient Strawman/strawman_data_v2.json` · `render_patient_wall.py` · `render_strawman_v2.py` | patient straw man |
 | `Crown Jewel and Patient Strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html` | crown-jewel wall (v3) |
-| `Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy` (+ provenance) | CMB pixel map |
+| `MethylPhys/atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy` (+ provenance) | CMB pixel map |
 | `Runtime Matrices/Mollweide & Brightness Comparison/…` (plates, whole_atlas_reference.npz, patient_brightness_comparison.py) | Cosmic Methylome Background (Stage 4.6) |
 | `CPG_AstroGenetics_explainer_section.html` | "How CPG works" explainer |
 | `A1_reference_gauge.png` · `star_gauge.png` | gauge images (cpg_gauge regenerates from tier_breakpoints if absent) |
