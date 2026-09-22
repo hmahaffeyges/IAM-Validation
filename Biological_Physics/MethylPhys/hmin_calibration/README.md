@@ -28,6 +28,8 @@ chain) and the 37-cell reference database inside `gape_mcmc_g002.py`.
 
 ## What is not in this directory
 
-The **raw posterior chains** are not published here — these are the scripts, the priors, the reference database
-and the convergence summaries, not the samples. A reviewer who wants the chains themselves should ask; they are a
-Zenodo-scale deposit rather than a repository file, and that is the honest place for them.
+The **posterior chains themselves do not exist**: the samplers hold their samples in memory and print the
+posterior summaries — no run wrote an `.h5` or `.npy`, and there is no chain file to deposit anywhere. What
+replaces a sample archive is a re-run: the deposit above carries `reproduce.sh`, and re-running the
+calibration unmodified on 2026-09-22 returned all eight floors inside their own posterior standard
+deviations (largest difference 0.000245, R-hat < 1.001 across five chains, thirteen seconds).
