@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SCAPE — Semiconductor Analytical &amp; Performance Engine · Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070C12;--surf:#0D1520;--surf2:#111B28;--border:#1A2A3A;
+  --accent:#FF6B35;--accent2:#FF8C5A;
+  --teal:#00C9B1;--green:#0d9b5e;--green2:#12c97a;
+  --amber:#d4900a;--red:#c0392b;--blue:#1565C0;
+  --text:#dde5ee;--muted:#4a6a8a;--muted2:#7a9ab8;
+  --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;overflow-x:hidden}
+
+/* BANNER */
+.banner{background:linear-gradient(90deg,#0c1f1a,#0d1525);border-bottom:2px solid var(--accent);padding:10px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300}
+.pill{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.35);padding:4px 12px}
+.btext{font-size:12px;color:var(--muted2);margin-left:14px}
+.btext strong{color:var(--text)}
+.abtn{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;border:none;padding:9px 22px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+.abtn:hover{background:var(--accent2)}
+
+/* HEADER */
+.hdr{background:var(--surf);border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:54px}
+.logo{font-family:var(--mono);font-size:13px;letter-spacing:3px;color:var(--accent);text-transform:uppercase}
+.logo-sub{font-size:11px;color:var(--muted);margin-left:14px}
+.rdonly{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:3px 9px}
+
+/* LAYOUT */
+.wrap{display:flex;min-height:calc(100vh - 108px)}
+.lp{width:290px;flex-shrink:0;background:var(--surf);border-right:1px solid var(--border);padding:20px;display:flex;flex-direction:column;gap:14px}
+.rp{flex:1;padding:28px 32px;background:var(--bg)}
+
+/* FORM */
+.slbl{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+.fld{display:flex;flex-direction:column;gap:4px}
+.fld label{font-size:11px;color:var(--muted2)}
+.fld .h{font-size:10px;color:var(--muted);margin-top:2px}
+select,input[type=number],input[type=text]{background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:13px;padding:9px 11px;width:100%;opacity:.8;pointer-events:none}
+.divdr{border:none;border-top:1px solid var(--border)}
+.runbtn{background:var(--border);color:var(--muted);border:none;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:14px;width:100%;cursor:not-allowed}
+.runbtn::after{content:'DEMO · Request live access';display:block;font-size:10px;margin-top:3px;color:var(--accent);font-weight:400}
+
+/* RESULTS */
+.rh{border-bottom:2px solid var(--accent);padding-bottom:14px;margin-bottom:24px}
+.rchip{font-size:22px;font-weight:600;margin-bottom:4px}
+.rmeta{font-size:11px;color:var(--muted2);font-family:var(--mono)}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.card{background:var(--surf);border:1px solid var(--border);padding:18px}
+.ct{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+.big{font-size:34px;font-family:var(--mono);font-weight:600;color:var(--accent);margin-bottom:5px}
+.sn{font-size:11px;color:var(--muted);line-height:1.5}
+.tbdge{display:inline-block;padding:5px 14px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:1px;margin-bottom:8px;background:rgba(13,155,94,.12);color:var(--green2);border:1px solid rgba(13,155,94,.3)}
+.rl{list-style:none}
+.ri{display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid rgba(26,42,58,.5);font-size:11px;font-family:var(--mono)}
+.ri:last-child{border-bottom:none}
+.rn{color:var(--muted);width:18px;text-align:right;flex-shrink:0}
+.rs{color:var(--muted2);width:72px;flex-shrink:0}
+.rm{color:var(--text);flex:1}
+.ri.th .rs,.ri.th .rm{color:var(--accent);font-weight:600}
+
+.sf{background:var(--surf);border:1px solid var(--border);padding:18px;margin-bottom:14px}
+.tt{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--mono)}
+.tt th{color:var(--muted);font-weight:400;text-align:right;padding:5px 7px;border-bottom:1px solid var(--border);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.tt th:first-child{text-align:left}
+.tt td{text-align:right;padding:5px 7px;border-bottom:1px solid rgba(26,42,58,.5)}
+.tt td:first-child{text-align:left}
+.tt .anc td{color:var(--accent)}
+.tt .tgt td{color:var(--green2)}
+.ap{font-size:13px;color:var(--text);line-height:1.7;padding:12px 15px;background:var(--surf2);border-left:3px solid var(--accent);margin-bottom:9px}
+.ap.rec{border-left-color:var(--green)}
+
+/* SCI */
+.stgl{background:var(--surf);border:1px solid var(--border);color:var(--muted2);font-family:var(--mono);font-size:10px;letter-spacing:1px;padding:9px 14px;cursor:pointer;width:100%;text-align:left;margin-bottom:10px}
+.sp{background:var(--surf);border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.ss{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin:12px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.sr{display:grid;grid-template-columns:2fr 1.2fr 1.8fr;gap:4px;padding:5px 0;border-bottom:1px solid rgba(26,42,58,.4);font-size:12px}
+.sk{color:var(--muted2)}.sv{font-family:var(--mono);font-weight:600;color:var(--teal)}.snt{font-size:10px;color:var(--muted)}
+.pub{color:var(--accent)!important}.grn{color:var(--green2)!important}.amb{color:var(--amber)!important}
+
+/* ENGINE PANELS */
+.ep{background:#fff;color:#263238;border:1px solid #CFD8DC;border-radius:8px;padding:20px;margin-bottom:16px}
+.eph{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.ept{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.tg{display:grid;gap:10px;margin-bottom:14px}
+.tg3{grid-template-columns:1fr 1fr 1fr}
+.tg4{grid-template-columns:1fr 1fr 1fr 1fr}
+.tg24{grid-template-columns:1fr 3fr}
+.tl{background:#F8F9FA;border:1px solid #E0E0E0;border-radius:6px;padding:10px;text-align:center}
+.tlbl{font-size:9px;color:#78909C;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.tv{font-size:20px;font-weight:800;font-family:monospace}
+.tn{font-size:10px;color:#90A4AE;margin-top:3px}
+.er{display:grid;grid-template-columns:2fr 1.2fr 2fr;gap:4px;padding:5px 0;border-bottom:1px solid #ECEFF1;font-size:12px}
+.ek{color:#546E7A}.ev{font-family:monospace;font-weight:600}.en{font-size:10px;color:#90A4AE}
+.es{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#FF6B35;margin:12px 0 6px}
+.lv{border-left:3px solid #E0E0E0;padding:8px 12px;margin-bottom:8px;background:#F8F9FA;border-radius:0 4px 4px 0}
+.lv-t{font-size:11px;font-weight:600;margin-bottom:3px;color:#263238}
+.lv-n{font-size:12px;color:#37474F;line-height:1.5}
+.badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-left:8px}
+.bh{background:rgba(198,40,40,.12);color:#C62828}.bm{background:rgba(230,81,0,.1);color:#E65100}.bl{background:rgba(84,110,122,.1);color:#546E7A}
+.cbox{background:#FFF8E1;border:1px solid #FFB74D;border-radius:6px;padding:14px;font-size:12px;color:#37474F;line-height:1.7;margin-top:10px}
+.es2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.eb-old{background:#FFF3E0;border:1px solid #FFB74D;border-radius:6px;padding:12px}
+.eb-new{background:#E8F5E9;border:1px solid #66BB6A;border-radius:6px;padding:12px}
+.ebtt{font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px}
+.panel-ok{background:#E8F5E9;border:1px solid #66BB6A;border-radius:6px;padding:12px;margin-bottom:14px;font-size:12px;color:#1B5E20;line-height:1.6}
+.panel-warn{background:#FFF3E0;border:1px solid #E65100;border-radius:6px;padding:12px;margin-bottom:12px;font-size:12px;color:#37474F;line-height:1.6}
+.panel-err{background:#FFEBEE;border:1px solid #EF9A9A;border-radius:6px;padding:12px;margin-bottom:14px;font-size:12px;color:#37474F;line-height:1.6}
+.ftr{font-size:10px;color:#90A4AE;margin-top:12px;border-top:1px solid #ECEFF1;padding-top:10px}
+.diag-hdr{background:#263238;color:#fff;border-radius:6px;padding:14px;margin-bottom:14px}
+
+.res-footer{margin-top:28px;padding-top:18px;border-top:1px solid var(--border);font-size:10px;color:var(--muted);font-family:var(--mono);line-height:1.9}
+canvas{background:#fff;padding:8px;border:1px solid #cfd8dc;width:100%!important}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div style="display:flex;align-items:center">
+    <span class="pill">Live Demo</span>
+    <span class="btext" style="margin-left:14px">SCAPE Engine · AMD Ryzen 9 9950X pre-loaded · 20 chips in database · <strong>Read-only</strong> · Live analysis requires access</span>
+  </div>
+  <a href="/cdn-cgi/l/email-protection#e48c89858c858282819d838197a48389858d88ca878b89db9791868e818790d9b7a7a5b4a1c4a88d9281c4a58787819797c4b6819591819790" class="abtn">Request Live Access</a>
+</div>
+
+<div class="hdr">
+  <div style="display:flex;align-items:baseline">
+    <span class="logo">SCAPE</span>
+    <span class="logo-sub">Semiconductor Analytical &amp; Performance Engine · Mahaffey (2026)</span>
+  </div>
+  <span class="rdonly">Demo Mode</span>
+</div>
+
+<div class="wrap">
+  <div class="lp">
+    <div>
+      <div class="slbl">Chip Selection</div>
+      <div class="fld">
+        <label>Select a chip</label>
+        <select id="chip-select" onchange="onChipSelect(this.value)" style="pointer-events:auto;opacity:1;cursor:pointer">
+          <optgroup label="AMD x86 — Post-Dennard">
+            <option value="1" selected>1 · AMD Ryzen 9 9950X (Zen5, 4nm, 2024) — 576×</option>
+            <option value="2">2 · AMD Ryzen 9 7950X (Zen4, 5nm, 2022) — 863×</option>
+            <option value="3">3 · AMD Ryzen 9 5950X (Zen3, 7nm, 2020) — 946×</option>
+            <option value="4">4 · AMD Ryzen 9 3900X (Zen2, 7nm, 2019) — 839×</option>
+            <option value="5">5 · AMD Ryzen 7 1800X (Zen, 14nm, 2017) — 1,650×</option>
+          </optgroup>
+          <optgroup label="Intel x86 — Post-Dennard">
+            <option value="6">6 · Intel Core Ultra 9 285K (Arrow Lake, 3nm, 2024) — 570×</option>
+            <option value="7">7 · Intel Core i9-13900K (Raptor Lake, 10nm, 2022) — 1,947×</option>
+            <option value="8">8 · Intel Core i9-12900K (Alder Lake, 10nm, 2021) — 2,260×</option>
+            <option value="9">9 · Intel Core i9-9900KS (14nm, 2019) — 2,376×</option>
+            <option value="10">10 · Intel Core i7-6700 (Skylake, 14nm, 2015) — 2,787×</option>
+          </optgroup>
+          <optgroup label="Apple Silicon — ARM">
+            <option value="21">21 · Apple M5 (3nm N3P, 2025) — 66×</option>
+            <option value="11">11 · Apple M4 (3nm N3E, 2024) — 68×</option>
+            <option value="12">12 · Apple M3 (3nm N3B, 2023) — 65×</option>
+            <option value="13">13 · Apple M2 (5nm, 2022) — 69×</option>
+            <option value="14">14 · Apple M1 (5nm, 2020) — 95×</option>
+          </optgroup>
+          <optgroup label="Qualcomm ARM">
+            <option value="15">15 · Snapdragon X Elite (4nm, 2024) — 316×</option>
+            <option value="16">16 · Snapdragon 8cx Gen 3 (4nm, 2023) — 333×</option>
+          </optgroup>
+          <optgroup label="NVIDIA GPU — Throughput">
+            <option value="22">22 · NVIDIA B200 SXM (4nm 4NP, 2025) — 641×  · Blackwell — P004 CONFIRMED</option>
+            <option value="17">17 · NVIDIA H200 SXM (4nm, 2024) — 1,326×</option>
+            <option value="18">18 · NVIDIA H100 SXM5 (4nm, 2022) — 1,435×</option>
+          </optgroup>
+          <optgroup label="Historical — Pre-Dennard">
+            <option value="19">19 · AMD Athlon 64 3400+ (130nm, 2003) — 105,002×</option>
+            <option value="20">20 · Intel Pentium 4 3.2GHz (130nm, 2003) — 151,776×</option>
+          </optgroup>
+        </select>
+        <div class="h">20 chips in database. Select to view — results below show AMD Ryzen 9 9950X. Live analysis computes all outputs in real time.</div>
+      </div>
+    </div>
+    <div class="fld"><label>Junction temperature anchor (°C)</label><input type="number" value="75"><div class="h">Default 75°C for most chips.</div></div>
+    <hr class="divdr">
+    <div class="fld"><label>Process node</label><input type="text" placeholder="4nm"></div>
+    <div class="fld"><label>Company</label><input type="text" placeholder="AMD"></div>
+    <button class="runbtn">RUN SCAPE ANALYSIS</button>
+  </div>
+
+  <div class="rp">
+    <div id="demo-note" style="display:none;background:rgba(255,107,53,.12);border:1px solid var(--accent);border-radius:4px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--text);line-height:1.6"></div>
+
+    <div class="rh">
+      <div class="rchip">AMD Ryzen 9 9950X</div>
+      <div class="rmeta">Post-Dennard AMD (7nm–4nm) · 75°C · TDP 170W · 20.6B trans · 4.3GHz · 4nm · AMD.com; Vortez Aug 2024; TechPowerUp</div>
+    </div>
+
+    <!-- TOP CARDS -->
+    <div class="g2">
+      <div class="card">
+        <div class="ct">SCAPE Efficiency Index</div>
+        <div class="big">576×</div>
+        <div class="sn">Lower = more efficient.<br>World best: ~65× (Apple M3). x86 best: ~570× (Intel 285K, 2024).</div>
+      </div>
+      <div class="card">
+        <div class="ct">Efficiency Class</div>
+        <div class="tbdge">STANDARD</div>
+        <div style="font-size:12px;color:var(--muted2);margin-top:6px">Current x86 flagship class</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--muted2)">Global rank: 5 of 7 chips in database</div>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <div class="ct">SCAPE Competitive Index</div>
+        <ul class="rl">
+          <li class="ri"><span class="rn">1</span><span class="rs">65×</span><span class="rm">Apple M3 (2023)</span></li>
+          <li class="ri"><span class="rn">2</span><span class="rs">68×</span><span class="rm">Apple M4 (2024)</span></li>
+          <li class="ri"><span class="rn">3</span><span class="rs">316×</span><span class="rm">Snapdragon X Elite (2024)</span></li>
+          <li class="ri"><span class="rn">4</span><span class="rs">570×</span><span class="rm">Intel Core Ultra 9 285K (2024)</span></li>
+          <li class="ri th"><span class="rn">5</span><span class="rs">576×</span><span class="rm">AMD Ryzen 9 9950X ◀</span></li>
+          <li class="ri"><span class="rn">6</span><span class="rs">1,326×</span><span class="rm">NVIDIA H200 SXM (2024)</span></li>
+          <li class="ri"><span class="rn">7</span><span class="rs">1,435×</span><span class="rm">NVIDIA H100 SXM5 (2022)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RANKING CHART -->
+    <div class="sf"><div class="ct" style="margin-bottom:12px">Global Ranking — All Platforms</div><canvas id="cr" height="200"></canvas></div>
+
+    <!-- THERMAL TABLE -->
+    <div class="sf">
+      <div class="ct" style="margin-bottom:4px">SCAPE Thermal Analysis — Efficiency Across Full Junction Temperature Range</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:12px">n = [proprietary]. Derived from published specifications only. Internal thermal data can verify each row independently.</div>
+      <table class="tt">
+        <thead><tr><th>Tj (°C)</th><th>SCAPE Index</th><th>p/transistor (fJ)</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>20°C</td><td>543.3×</td><td>0.001524</td><td></td></tr>
+          <tr><td>40°C</td><td>555.6×</td><td>0.001665</td><td></td></tr>
+          <tr class="tgt"><td>55°C</td><td>564.5×</td><td>0.001773</td><td>← target Tj</td></tr>
+          <tr><td>70°C</td><td>573.2×</td><td>0.001882</td><td></td></tr>
+          <tr class="anc"><td>75°C</td><td>576×</td><td>0.001919</td><td>← published anchor</td></tr>
+          <tr><td>85°C</td><td>581.6×</td><td>0.001993</td><td></td></tr>
+          <tr><td>95°C</td><td>587.1×</td><td>0.002068</td><td></td></tr>
+          <tr><td>100°C</td><td>589.8×</td><td>0.002106</td><td></td></tr>
+          <tr><td>105°C</td><td>592.4×</td><td>0.002144</td><td>TjMax</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- THERMAL CHART (AMD vs Intel) -->
+    <div class="sf"><div class="ct" style="margin-bottom:12px">Thermal Curve — A(T) = A_ref × (T/T_ref)^n · AMD n = [proprietary] vs Intel n = [proprietary] · Crossover ~82°C</div><canvas id="ct2" height="210"></canvas></div>
+
+    <!-- CROSSOVER -->
+    <div class="sf">
+      <div class="ct" style="margin-bottom:10px">AMD vs Intel Crossover Analysis</div>
+      <div class="cbox">
+        <strong>AMD 9950X vs Intel 285K — Published anchor: 75°C</strong><br><br>
+        At <strong>75°C (nominal)</strong>: AMD 576× vs Intel 570× — gap &lt; 1%<br>
+        At <strong>40°C (excellent cooling)</strong>: AMD 556× vs Intel 516× — <strong>Intel leads by 8%</strong><br>
+        At <strong>105°C (TjMax, sustained load)</strong>: AMD 592× vs Intel 616× — <strong>AMD leads by 4%</strong><br><br>
+        <strong>Crossover: ~82°C</strong> — Intel more efficient below, AMD more efficient above.<br>
+        Data center AI inference runs at 80–100°C under sustained load. <strong>AMD wins that regime.</strong><br>
+        <span style="font-size:11px;color:#78909C">Derived from three published numbers. Does not appear in any published benchmark.</span>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="sf">
+      <div style="margin-bottom:14px">
+        <div class="ct" style="margin-bottom:10px">SCAPE Technical Assessment</div>
+        <div class="ap">CURRENT X86 FRONTIER: SCAPE index 576×. This chip is in the x86 flagship efficiency class — where AMD Zen5 and Intel Arrow Lake converge in 2024. The AMD-Intel efficiency lead that existed from 2017 to 2022 has closed to less than 1% at the 4nm node.</div>
+        <div class="ap">Architecture class: Post-Dennard AMD. Chiplet architecture enables faster efficiency improvement than Intel at the same foundry node. AMD held a 3.7× efficiency lead over Intel at peak (2020) — that lead has closed to less than 1% at 4nm. SCAPE projects Intel overtaking AMD at 2nm (~2027).</div>
+      </div>
+      <div>
+        <div class="ct" style="margin-bottom:10px">SCAPE Recommendations</div>
+        <div class="ap rec">DENNARD TRANSITION: The SCAPE framework predicts the next regime change at 2026–2028. Per-node efficiency improvement at 2nm will be materially below the Arrow Lake 70.7% step. SCAPE quantifies the four levers available when node shrinks stop delivering: architecture redesign, chiplet specialization, thermal operating regime optimization, and workload-specific scheduler tuning.</div>
+        <div class="ap rec">AMD THERMAL ADVANTAGE: At 105°C TjMax AMD leads Intel by 4%. The crossover is 82°C. Most sustained data center AI inference runs above 80°C. AMD already wins that workload.</div>
+      </div>
+    </div>
+
+    <!-- SCIENTIFIC SUMMARY -->
+    <button class="stgl" onclick="var p=document.getElementById('sp');var v=p.style.display==='none';p.style.display=v?'block':'none';this.textContent=v?'▾ SCAPE Technical Data Summary — collapse':'▸ SCAPE Technical Data Summary — for technical review'">▸ SCAPE Technical Data Summary — for technical review</button>
+    <div class="sp" id="sp" style="display:none">
+      <div class="ss">SCAPE Core Metrics</div>
+      <div class="sr"><span class="sk">SCAPE Index (A)</span><span class="sv">576×</span><span class="snt">dimensionless; lower = better</span></div>
+      <div class="sr"><span class="sk">TDP</span><span class="sv pub">170 W</span><span class="snt">published</span></div>
+      <div class="sr"><span class="sk">Transistor count</span><span class="sv pub">20.6 B</span><span class="snt">published</span></div>
+      <div class="sr"><span class="sk">Base clock frequency</span><span class="sv pub">4.3 GHz</span><span class="snt">published</span></div>
+      <div class="sr"><span class="sk">Junction temperature (anchor)</span><span class="sv pub">75°C</span><span class="snt">nominal operating</span></div>
+      <div class="ss">Derived Values</div>
+      <div class="sr"><span class="sk">Switching energy / transistor</span><span class="sv">0.001919 fJ</span><span class="snt">at anchor Tj</span></div>
+      <div class="sr"><span class="sk">Thermodynamic floor at Tj</span><span class="sv">[proprietary]</span><span class="snt">IAM reference floor at operating temperature</span></div>
+      <div class="sr"><span class="sk">Global SCAPE rank</span><span class="sv">5 of 7</span><span class="snt"></span></div>
+      <div class="ss">Temperature Predictions</div>
+      <div class="sr"><span class="sk">SCAPE index at 40°C</span><span class="sv">555.6×</span><span class="snt">IAM prediction</span></div>
+      <div class="sr"><span class="sk">SCAPE index at 75°C</span><span class="sv">576×</span><span class="snt">published anchor</span></div>
+      <div class="sr"><span class="sk">SCAPE index at 105°C</span><span class="sv">592.4×</span><span class="snt">IAM prediction — TjMax</span></div>
+      <div class="ss">Trajectory &amp; Roadmap</div>
+      <div class="sr"><span class="sk">Improvement rate (per node)</span><span class="sv">33.5%</span><span class="snt">validated from 20-yr dataset</span></div>
+      <div class="sr"><span class="sk">Projected index — 2028</span><span class="sv">112.6×</span><span class="snt">at current rate</span></div>
+      <div class="sr"><span class="sk">Projected index — 2032</span><span class="sv">22×</span><span class="snt">at current rate</span></div>
+      <div class="sr"><span class="sk">Apple-class parity year</span><span class="sv amb">2029.2</span><span class="snt">projected at current rate</span></div>
+      <div class="ss">Workload Suitability Ranking</div>
+      <div class="sr"><span class="sk" style="color:var(--green2)">● Video / Media Encode</span><span class="sv grn">Rank 1</span><span class="snt">Excellent — low branch misprediction penalty</span></div>
+      <div class="sr"><span class="sk" style="color:var(--green2)">● AI Inference</span><span class="sv grn">Rank 2</span><span class="snt">Strong — AMD sustained load advantage above 80°C</span></div>
+      <div class="sr"><span class="sk" style="color:var(--green2)">● Database / Transactional</span><span class="sv grn">Rank 2</span><span class="snt">Strong — high memory bandwidth, good sustained efficiency</span></div>
+      <div class="sr"><span class="sk" style="color:var(--amber)">◐ AI Training</span><span class="sv amb">Rank 3</span><span class="snt">Moderate — burst load profile suits chiplet architecture</span></div>
+      <div class="sr"><span class="sk" style="color:var(--muted)">○ Edge AI</span><span class="sv" style="color:var(--muted)">Rank 4</span><span class="snt">Limited — TDP floor too high for edge</span></div>
+      <div class="ss">Architectural Headroom</div>
+      <div class="sr"><span class="sk">Architectural floor (ISA class)</span><span class="sv">[proprietary]</span><span class="snt">proprietary</span></div>
+      <div class="sr"><span class="sk">Distance above floor</span><span class="sv grn">8.23×</span><span class="snt">floor concern: LOW</span></div>
+      <div class="sr"><span class="sk">ISA overhead fraction</span><span class="sv">12.2%</span><span class="snt">irreducible by node shrink — 87.8% node-accessible</span></div>
+      <div class="sr"><span class="sk">Node scaling regime</span><span class="sv grn">FREE</span><span class="snt">8.23× above floor · ~5.2 node steps to constraint</span></div>
+      <div class="sr"><span class="sk">Dennard Amplifier (g)</span><span class="sv amb">2.15× — GAP OPENING</span><span class="snt">Dennard promised 72% · delivers 33.5%</span></div>
+      <div class="ss">Efficiency Gap — Three Components</div>
+      <div style="font-size:10px;color:var(--muted2);margin-bottom:7px;line-height:1.5">Every chip&#39;s total efficiency gap separates into three independent portions. Only one is reachable by engineering investment. Patent Applications 64/012,720 and 64/014,568.</div>
+      <div style="display:flex;width:100%;height:26px;border-radius:3px;overflow:hidden;margin-bottom:8px;border:1px solid var(--border)">
+        <div style="width:12.2%;background:rgba(212,144,10,.25);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--amber);border-right:1px solid var(--border);white-space:nowrap;padding:0 4px">Locked 12.2%</div>
+        <div style="width:87.8%;background:rgba(18,201,122,.15);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--green2);white-space:nowrap;padding:0 4px">Engineering-Accessible 87.8%</div>
+      </div>
+      <div class="sr"><span class="sk" style="color:var(--amber)">Architecture-locked</span><span class="sv amb">12.2%  (70×)</span><span class="snt">ISA overhead — only ISA redesign moves this</span></div>
+      <div class="sr"><span class="sk" style="color:var(--green2)">Engineering-accessible</span><span class="sv grn">87.8%  (506×)</span><span class="snt">What every node shrink, chiplet, and micro-arch improvement addresses</span></div>
+    </div>
+
+    <!-- ═══════════ ENGINE 1: SWITCHING ENERGY RESERVE ═══════════ -->
+    <div class="ep">
+      <div class="eph"><div class="ept" style="color:#1565C0">⬡ Switching Energy Reserve — AMD Ryzen 9 9950X</div></div>
+      <div class="tg tg4">
+        <div class="tl" style="border-top:3px solid #FF6B35"><div class="tlbl">SCAPE Index</div><div class="tv" style="color:#FF6B35">576×</div><div class="tn">switching energy ratio</div></div>
+        <div class="tl" style="border-top:3px solid #2E7D32;background:#F1F8E9"><div class="tlbl">SER Tier</div><div class="tv" style="color:#2E7D32;font-size:14px">OPEN RUNWAY</div><div class="tn">substantial runway remains</div></div>
+        <div class="tl" style="border-top:3px solid #E65100"><div class="tlbl">Quadrant</div><div class="tv" style="color:#E65100;font-size:13px">FAB OPPORTUNITY</div><div class="tn">physics has room</div></div>
+        <div class="tl"><div class="tlbl">E_sw / transistor</div><div class="tv" style="color:#546E7A;font-size:15px">0.001919 fJ</div><div class="tn">Floor: 0.000003 fJ</div></div>
+      </div>
+      <div class="panel-ok"><strong>FAB OPPORTUNITY:</strong> Behind on competitive index but with significant physical runway remaining. The physics still has room. The gap to the leader is closeable. Node shrinks and architectural improvements both move the needle here. Priority: accelerate per-node efficiency improvement rate.</div>
+      <div class="es">Projected Index at Future Nodes</div>
+      <table class="tt" style="background:#fff">
+        <thead><tr><th style="text-align:left">Year</th><th>Node</th><th>Projected SCAPE Index</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr style="color:#FF6B35;font-weight:600"><td>2024 ← now</td><td style="text-align:right">4nm</td><td style="text-align:right">576×</td><td style="text-align:right"></td></tr>
+          <tr><td>2026</td><td style="text-align:right">2nm</td><td style="text-align:right">383×</td><td style="text-align:right"></td></tr>
+          <tr><td>2027</td><td style="text-align:right">2nm</td><td style="text-align:right">255×</td><td style="text-align:right"></td></tr>
+          <tr><td>2028</td><td style="text-align:right">1.5nm</td><td style="text-align:right">169×</td><td style="text-align:right;color:#E65100">★ Dennard signal?</td></tr>
+          <tr><td>2030</td><td style="text-align:right">1nm</td><td style="text-align:right">113×</td><td style="text-align:right"></td></tr>
+          <tr><td>2032</td><td style="text-align:right">0.7nm</td><td style="text-align:right">75×</td><td style="text-align:right;color:#C62828">approaching floor</td></tr>
+        </tbody>
+      </table>
+      <div class="es" style="margin-top:14px">Efficiency Levers — When Node Shrinks Are Not Enough</div>
+      <div class="lv" style="border-left-color:#E65100"><div class="lv-t">Architecture Efficiency <span class="badge bm">MODERATE</span></div><div class="lv-n">SCAPE index moves from 576× to ~489×. Pipeline and ISA optimisation independent of node shrink.</div></div>
+      <div class="lv" style="border-left-color:#C62828"><div class="lv-t">Next Node Shrink <span class="badge bh">HIGH</span></div><div class="lv-n">SCAPE index moves from 576× to 383×. Derived from validated 33.5% per-node improvement rate.</div></div>
+      <div class="lv" style="border-left-color:#546E7A"><div class="lv-t">Thermal Regime — Sustained 85°C <span class="badge bl">LOW–MOD</span></div><div class="lv-n">At 85°C: 581.6×. At 105°C: 592.4×. Architecture-specific thermal response n = [proprietary].</div></div>
+      <div class="lv" style="border-left-color:#E65100"><div class="lv-t">Chiplet Specialisation <span class="badge bm">MODERATE</span></div><div class="lv-n">System-level SCAPE index moves from 576× to 518×. Estimated 10% system gain from separating compute and I/O dies at optimal nodes.</div></div>
+      <div class="ftr">SER derived from published specifications. Trajectory from validated per-node improvement rate. Patent Applications 64/012,720 and 64/014,568.</div>
+    </div>
+
+    <!-- ═══════════ ENGINE 2: TRANSITION DETECTION ═══════════ -->
+    <div class="ep">
+      <div class="eph"><div class="ept" style="color:#B71C1C">⚡ Transition Detection — AMD Ryzen 9 9950X</div></div>
+      <div class="tg tg3">
+        <div class="tl" style="border-top:3px solid #E65100;background:#FFF3E0"><div class="tlbl">Regime Status</div><div class="tv" style="color:#E65100;font-size:16px">APPROACHING</div><div class="tn">transition window opening</div></div>
+        <div class="tl"><div class="tlbl">Actual per-node improvement</div><div class="tv" style="color:#263238">33.2%</div><div class="tn">Dennard baseline: 72%</div></div>
+        <div class="tl"><div class="tlbl">% of Dennard delivered</div><div class="tv" style="color:#263238">46.2%</div><div class="tn">5nm → 4nm</div></div>
+      </div>
+      <div class="tg tg24">
+        <div class="tl" style="background:#FFF8E1;border:1px solid #FFC107;border-top:3px solid #E65100">
+          <div class="tlbl">Dennard Amplifier</div>
+          <div style="font-size:24px;font-weight:800;color:#E65100;font-family:monospace">g = 2.17×</div>
+          <div class="tn">DENNARD GAP OPENING</div>
+        </div>
+        <div style="background:#F8F9FA;border:1px solid #E0E0E0;border-radius:6px;padding:14px;font-size:12px;color:#37474F;line-height:1.6">
+          <strong>What this means:</strong> Dennard scaling promised 72% improvement per node step. This architecture delivered 33.2%. Each successive node step now requires <strong>2.17×</strong> the engineering effort of the pre-2005 era to match the original Dennard efficiency trajectory. The Amplifier quantifies how far the industry has drifted from the free-scaling era.
+        </div>
+      </div>
+      <div class="panel-warn" style="margin-top:10px">Efficiency improvement this node (33.2%) is 46% of the Dennard baseline. Improvement rate is decelerating. The transition window is opening. The SCAPE framework identified the 2005 transition at this same signal level.</div>
+      <div style="background:#F3F4F6;border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#546E7A">
+        <strong>Transition window:</strong> 1–2 node generations. Projected 2026–2028.<br>
+        SCAPE index: 4nm node <strong>576×</strong> vs prior 5nm node <strong>862.9×</strong>. Dennard scaling would have predicted <strong>241.6×</strong>. Efficiency gap: <strong>2.39×</strong> — the improvement Dennard promised that did not arrive.
+      </div>
+      <div class="es">Escape Routes — What To Do When Node Shrinks Stop Delivering</div>
+      <div class="lv" style="border-left-color:#C62828"><div class="lv-t">Architecture Redesign <span class="badge bh">HIGH</span></div><div class="lv-n">Adopting ARM-class instruction efficiency moves index from 576× to approximately 334×. Apple Silicon architecture class: 65–68×. Independent of process node — AMD and Apple share the same TSMC foundry at 3nm.</div></div>
+      <div class="lv" style="border-left-color:#E65100"><div class="lv-t">Thermal Operating Regime <span class="badge bm">MODERATE</span></div><div class="lv-n">At 40°C: 556×. At 105°C: 592×. Workload routing to the correct thermal regime delivers measurable gains. AI inference at sustained high temperature favours architectures with lower hot-side degradation.</div></div>
+      <div class="lv" style="border-left-color:#E65100"><div class="lv-t">Chiplet Specialisation <span class="badge bm">MODERATE</span></div><div class="lv-n">Separating compute and I/O dies at optimised nodes projects system-level index to approximately 507×. Each die operates at its own efficiency optimum rather than the monolithic compromise.</div></div>
+      <div class="lv" style="border-left-color:#546E7A"><div class="lv-t">Workload-Specific Scheduling <span class="badge bl">LOW–MOD</span></div><div class="lv-n">x86 overhead is largest in irregular workloads with high branch misprediction. Dense compute — matrix operations, large-batch AI inference — minimises this overhead. Directing the right workloads to the right cores at the right thermal point turns a SCAPE measurement into a scheduling specification.</div></div>
+      <div class="ftr">Detection derived from published specifications at two node generations. Prior generation pre-populated from verified dataset. Patent Applications 64/012,720 and 64/014,568.</div>
+    </div>
+
+    <!-- ═══════════ ENGINE 3: SIGNAL INTEGRITY ═══════════ -->
+    <div class="ep">
+      <div class="eph"><div class="ept" style="color:#1B5E20">◈ Signal Integrity Analysis — AMD Ryzen 9 9950X</div></div>
+      <div class="tg tg3">
+        <div class="tl" style="border-top:3px solid #2E7D32;background:#F1F8E9"><div class="tlbl">Signal Integrity Tier</div><div class="tv" style="color:#2E7D32;font-size:16px">ROBUST</div><div class="tn">SNM at TjMax: 175.7 mV (97.6%)</div></div>
+        <div class="tl" style="border-top:3px solid #1565C0"><div class="tlbl">PI / SI Bottleneck</div><div class="tv" style="color:#1565C0;font-size:13px">POWER LIMITED</div><div class="tn">SCAPE Index: 576×</div></div>
+        <div class="tl" style="border-top:3px solid #2E7D32"><div class="tlbl">Low-Frequency Noise</div><div class="tv" style="color:#2E7D32;font-size:14px">NEGLIGIBLE</div><div class="tn">4.3 GHz operating</div></div>
+      </div>
+      <div class="panel-ok"><strong>POWER LIMITED:</strong> Signal integrity is healthy but switching efficiency is the constraint. The bottleneck is Power Integrity, not Signal Integrity. Priority: architectural efficiency improvements — instruction pipeline, voltage scaling, clock gating strategy.<br><br>Operating frequency 4300 MHz is well above the 1/f corner frequency range. Thermal noise dominates. Low-frequency noise is not the primary signal integrity concern at this operating point.</div>
+      <div class="es">Static Noise Margin vs Junction Temperature</div>
+      <div style="font-size:11px;color:#546E7A;margin-bottom:10px">Nominal SNM: 180 mV · VDD: 1.1 V · Node: 4nm</div>
+      <table class="tt" style="background:#fff">
+        <thead><tr><th style="text-align:left">Junction Temp</th><th>Static Noise Margin</th><th>Budget Remaining</th></tr></thead>
+        <tbody>
+          <tr><td>20°C</td><td style="text-align:right">180 mV</td><td style="text-align:right">100%</td></tr>
+          <tr><td>40°C</td><td style="text-align:right">180 mV</td><td style="text-align:right">100%</td></tr>
+          <tr><td>55°C</td><td style="text-align:right">180 mV</td><td style="text-align:right">100%</td></tr>
+          <tr style="background:#FFF8E1"><td>75°C ★ anchor</td><td style="text-align:right">180 mV</td><td style="text-align:right">100%</td></tr>
+          <tr><td>85°C</td><td style="text-align:right">178.6 mV</td><td style="text-align:right">99.2%</td></tr>
+          <tr><td>95°C</td><td style="text-align:right">177.1 mV</td><td style="text-align:right">98.4%</td></tr>
+          <tr><td>100°C</td><td style="text-align:right">176.4 mV</td><td style="text-align:right">98.0%</td></tr>
+          <tr><td>105°C</td><td style="text-align:right">175.7 mV</td><td style="text-align:right">97.6%</td></tr>
+        </tbody>
+      </table>
+      <div class="ftr">Signal integrity analysis derived from published VDD and process node specifications. Johnson-Nyquist thermal noise model. Patent Applications 64/012,720 and 64/014,568.</div>
+    </div>
+
+    <!-- ═══════════ ENGINE 4: STRATEGIC TARGET ═══════════ -->
+    <div class="ep">
+      <div class="eph"><div class="ept" style="color:#00695C">◎ Strategic Target — AI Inference vs Intel Core Ultra 9 285K by 2028</div></div>
+      <div class="tg tg3">
+        <div class="tl" style="border-top:3px solid #C62828;background:#FFEBEE"><div class="tlbl">Trajectory Status</div><div class="tv" style="color:#C62828;font-size:14px">BEHIND</div><div class="tn">Intel improving faster</div></div>
+        <div class="tl"><div class="tlbl">Gap to lead (2028)</div><div class="tv" style="color:#C62828">50.5×</div><div class="tn">you: 112.6× · Intel: 62.1×</div></div>
+        <div class="tl"><div class="tlbl">Gap closes</div><div class="tv" style="color:#E65100;font-size:16px">2029.5</div><div class="tn">at current rates</div></div>
+      </div>
+      <div class="panel-err">Intel's 41% per-node improvement rate outpaces AMD's 33.5% at 2nm. At current rates, Intel leads AMD by 2028 for AI Inference. Below 82°C Intel's higher temperature sensitivity (n = [proprietary]) gives it an edge in cold-running deployments. To lead Intel by 2028 for AI Inference at sustained load, AMD would need to reach A ≈ 62× — achievable only through ISA redesign or node acceleration.<br><br>AMD retains the thermal advantage above 82°C — the regime where AI inference workloads actually run at scale.</div>
+      <div class="es">Capital Allocation — Escape Routes Ranked by Impact</div>
+      <div class="lv" style="border-left-color:#C62828"><div class="lv-t">Junction Load Optimisation <span class="badge bh">HIGH</span></div><div class="lv-n">Sustained &gt;80°C operating regime favours AMD architecture class. Scheduler and workload routing changes. Lowest capital requirement.</div></div>
+      <div class="lv" style="border-left-color:#C62828"><div class="lv-t">Architecture Pipeline Redesign <span class="badge bh">HIGH</span></div><div class="lv-n">Instruction fetch reduction and speculative execution pruning. Medium capital, 18–24 month cycle.</div></div>
+      <div class="lv" style="border-left-color:#E65100"><div class="lv-t">Process Node Acceleration <span class="badge bm">MEDIUM</span></div><div class="lv-n">Node shrink delivers improvement per validated rate. High capital, 24–36 month cycle.</div></div>
+      <div class="lv" style="border-left-color:#E65100"><div class="lv-t">Chiplet Integration Strategy <span class="badge bm">MEDIUM</span></div><div class="lv-n">Disaggregation of compute and memory dies. Addresses memory bandwidth ceiling for inference batch size.</div></div>
+      <div class="ftr">Analysis derived from published specifications and validated improvement rates. Patent Applications 64/012,720 and 64/014,568.</div>
+    </div>
+
+    <!-- ═══════════ ENGINE 5: ENGINEERING DIAGNOSTIC ═══════════ -->
+    <div class="ep" style="border-top:3px solid #FF6B35">
+      <div class="eph"><div class="ept" style="color:#FF6B35">⚙ Engineering Diagnostic — AMD Ryzen 9 9950X</div></div>
+      <div class="diag-hdr">
+        <div style="font-size:13px;font-weight:700;margin-bottom:3px">AMD Ryzen 9 9950X</div>
+        <div style="font-size:11px;color:#90A4AE">Post-Dennard AMD · 4nm · AMD · Published: 2024-08-15</div>
+        <div style="font-size:10px;color:#78909C;margin-top:3px">Source: AMD.com; Vortez Aug 2024; TechPowerUp</div>
+      </div>
+      <!-- 8-tile overview -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+        <div class="tl" style="border-top:2px solid #FF6B35"><div class="tlbl">SCAPE Index</div><div class="tv" style="color:#FF6B35">576×</div><div class="tn">lower = more efficient</div></div>
+        <div class="tl" style="border-top:2px solid #E65100"><div class="tlbl">Arch. Floor</div><div class="tv" style="color:#E65100">70×</div><div class="tn">ISA class minimum</div></div>
+        <div class="tl" style="border-top:2px solid #2E7D32"><div class="tlbl">Floor Ratio</div><div class="tv" style="color:#2E7D32">8.23×</div><div class="tn">concern: LOW</div></div>
+        <div class="tl" style="border-top:2px solid #2E7D32"><div class="tlbl">Node Regime</div><div class="tv" style="color:#2E7D32;font-size:14px">FREE</div><div class="tn">5.2 steps to floor</div></div>
+        <div class="tl" style="border-top:2px solid #546E7A"><div class="tlbl">ISA Overhead</div><div class="tv" style="color:#546E7A">12.2%</div><div class="tn">87.8% node-accessible</div></div>
+        <div class="tl" style="border-top:2px solid #E65100"><div class="tlbl">Dennard Amp. g</div><div class="tv" style="color:#E65100;font-size:14px">2.15×</div><div class="tn">vs 72% baseline</div></div>
+        <div class="tl" style="border-top:2px solid #546E7A"><div class="tlbl">n (temp. exp.)</div><div class="tv" style="color:#546E7A">[proprietary]</div><div class="tn">low temp sensitivity</div></div>
+        <div class="tl" style="border-top:2px solid #546E7A"><div class="tlbl">SCAPE / IAM floor</div><div class="tv" style="color:#546E7A;font-size:13px">576× above floor</div><div class="tn">IAM reference floor at 75°C</div></div>
+      </div>
+      <!-- Published inputs verification -->
+      <div class="es">Published Inputs — Verification Record</div>
+      <div class="er"><span class="ek">TDP (all-core sustained)</span><span class="ev" style="color:#FF6B35">170 W</span><span class="en">PUBLISHED</span></div>
+      <div class="er"><span class="ek">Transistor count</span><span class="ev" style="color:#FF6B35">20.6 B</span><span class="en">PUBLISHED</span></div>
+      <div class="er"><span class="ek">All-core sustained frequency</span><span class="ev" style="color:#FF6B35">4.3 GHz</span><span class="en">PUBLISHED</span></div>
+      <div class="er"><span class="ek">Junction temperature anchor</span><span class="ev" style="color:#FF6B35">75°C</span><span class="en">PUBLISHED</span></div>
+      <div class="er"><span class="ek">Process node</span><span class="ev" style="color:#FF6B35">4nm</span><span class="en">PUBLISHED</span></div>
+      <div class="er"><span class="ek">Switching energy / transistor</span><span class="ev">0.001919 fJ</span><span class="en">DERIVED — IAM</span></div>
+      <div class="er"><span class="ek">IAM reference floor (E_min)</span><span class="ev">0.000003 fJ</span><span class="en">DERIVED — IAMPerformance (physical minimum at operating temperature)</span></div>
+      <div class="er"><span class="ek">SCAPE Index</span><span class="ev" style="color:#FF6B35">576×</span><span class="en">DERIVED — IAM</span></div>
+      <div class="er"><span class="ek">Architectural floor (ISA class)</span><span class="ev">[proprietary]</span><span class="en">DERIVED — IAMPerformance (x86 ISA minimum)</span></div>
+      <div class="er"><span class="ek">Distance above floor</span><span class="ev" style="color:#2E7D32">8.23× — LOW concern</span><span class="en">DERIVED</span></div>
+      <div class="er"><span class="ek">ISA overhead fraction</span><span class="ev">12.2%</span><span class="en">irreducible by any node shrink</span></div>
+      <div class="er"><span class="ek">Node-accessible improvement</span><span class="ev" style="color:#2E7D32">87.8%</span><span class="en">recoverable through foundry + engineering</span></div>
+      <div class="er"><span class="ek">Node scaling regime</span><span class="ev" style="color:#2E7D32">FREE · 5.2 steps remaining</span><span class="en">at current class rate</span></div>
+      <div class="er"><span class="ek">Dennard Amplifier g</span><span class="ev" style="color:#E65100">2.15× — DENNARD GAP OPENING</span><span class="en">Dennard promised 72% · delivered 33.5%</span></div>
+
+      <!-- Three-component breakdown -->
+      <div class="es" style="margin-top:14px">Efficiency Gap — Three Components</div>
+      <div style="font-size:10px;color:#546E7A;margin-bottom:8px;line-height:1.5">Every chip&#39;s total efficiency gap separates into three independent portions. Only one is reachable by engineering investment. Patent Applications 64/012,720 and 64/014,568.</div>
+      <div style="display:flex;width:100%;height:28px;border-radius:4px;overflow:hidden;margin-bottom:10px;border:1px solid #E0E0E0">
+        <div style="width:12.2%;background:rgba(212,144,10,.2);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#E65100;border-right:1px solid #E0E0E0;white-space:nowrap;padding:0 4px">Locked 12.2%</div>
+        <div style="width:87.8%;background:rgba(18,201,122,.12);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#2E7D32;white-space:nowrap;padding:0 4px">Engineering-Accessible 87.8%</div>
+      </div>
+      <div class="er"><span class="ek" style="color:#E65100">Architecture-locked</span><span class="ev" style="color:#E65100">12.2%  (70×)</span><span class="en">ISA overhead — only ISA redesign moves this</span></div>
+      <div class="er"><span class="ek" style="color:#2E7D32">Engineering-accessible</span><span class="ev" style="color:#2E7D32">87.8%  (506×)</span><span class="en">What every node shrink, chiplet, and micro-arch improvement addresses</span></div>
+
+      <!-- Dennard analysis -->
+      <div class="es" style="margin-top:16px">Dennard Transition Analysis — 5nm → 4nm</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
+        <div class="tl"><div class="tlbl">Prior SCAPE</div><div class="tv" style="color:#546E7A">862.9×</div><div class="tn">5nm prior gen</div></div>
+        <div class="tl"><div class="tlbl">Current SCAPE</div><div class="tv" style="color:#FF6B35">576×</div><div class="tn">4nm this gen</div></div>
+        <div class="tl"><div class="tlbl">Actual step rate</div><div class="tv" style="color:#E65100">33.2%</div><div class="tn">vs Dennard 72%</div></div>
+        <div class="tl" style="background:#FFF3E0;border:1px solid #FFB74D"><div class="tlbl">Regime</div><div class="tv" style="color:#E65100;font-size:13px">APPROACHING</div><div class="tn">46% of baseline</div></div>
+      </div>
+      <div class="er"><span class="ek">Dennard predicted index</span><span class="ev" style="color:#2E7D32">241.6×</span><span class="en">what 72% improvement would give</span></div>
+      <div class="er"><span class="ek">Actual achieved index</span><span class="ev" style="color:#FF6B35">576×</span><span class="en">what was delivered</span></div>
+      <div class="er"><span class="ek">Efficiency gap (actual ÷ predicted)</span><span class="ev" style="color:#C62828">2.39×</span><span class="en">improvement Dennard promised that did not arrive</span></div>
+      <div class="er"><span class="ek">Observed Dennard Amplifier g</span><span class="ev" style="color:#E65100">2.17× — this specific transition</span><span class="en">DERIVED from 5nm→4nm step</span></div>
+      <!-- Temperature -->
+      <div class="es" style="margin-top:16px">Temperature Analysis — Target Tj: 55°C</div>
+      <table class="tt" style="background:#fff;margin-bottom:14px">
+        <thead><tr><th style="text-align:left">Tj (°C)</th><th>SCAPE Index</th><th>vs anchor</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>20°C</td><td style="text-align:right">543.3×</td><td style="text-align:right">-5.7%</td><td></td></tr>
+          <tr><td>40°C</td><td style="text-align:right">555.6×</td><td style="text-align:right">-3.5%</td><td></td></tr>
+          <tr style="background:#E8F5E9;font-weight:600"><td>55°C</td><td style="text-align:right;color:#2E7D32">564.5×</td><td style="text-align:right">-2.0%</td><td style="color:#2E7D32">← target Tj</td></tr>
+          <tr style="background:#FFF8E1;font-weight:600"><td>75°C</td><td style="text-align:right;color:#FF6B35">576×</td><td style="text-align:right">—</td><td style="color:#FF6B35">← anchor</td></tr>
+          <tr><td>85°C</td><td style="text-align:right">581.6×</td><td style="text-align:right">+1.0%</td><td></td></tr>
+          <tr><td>105°C</td><td style="text-align:right">592.4×</td><td style="text-align:right">+2.9%</td><td>TjMax</td></tr>
+        </tbody>
+      </table>
+      <!-- Forward translation -->
+      <div class="es">Forward Translation — What Specifications Reach SCAPE 300×?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">
+        <div class="tl"><div class="tlbl">Gap to target</div><div class="tv" style="color:#E65100">1.92×</div><div class="tn">current ÷ target</div></div>
+        <div class="tl"><div class="tlbl">Required TDP</div><div class="tv" style="color:#1565C0">88.5 W</div><div class="tn">at current trans + freq</div></div>
+        <div class="tl"><div class="tlbl">Required transistors</div><div class="tv" style="color:#2E7D32">39.5 B</div><div class="tn">at current TDP + freq</div></div>
+      </div>
+      <div style="background:#F8F9FA;border-radius:4px;padding:8px;font-size:11px;color:#546E7A;margin-bottom:14px">These are the published specifications that would need to be achieved to reach SCAPE 300×, holding all other inputs constant. Each result is independently verifiable from the three published inputs alone. Not a projection — a constraint equation. ~1.6 node steps at current improvement rate.</div>
+      <!-- ISA escape -->
+      <div class="es">ISA Escape Scenario — ARM ISA (data-center class)</div>
+      <div class="es2" style="margin-bottom:14px">
+        <div class="eb-old">
+          <div class="ebtt" style="color:#E65100">Current — x86</div>
+          <div class="er" style="border-color:#FFB74D"><span class="ek">Architectural floor</span><span class="ev" style="color:#E65100">[proprietary]</span><span class="en">ISA minimum</span></div>
+          <div class="er" style="border-color:#FFB74D"><span class="ek">Distance above floor</span><span class="ev">8.23×</span><span class="en">concern: LOW</span></div>
+          <div class="er" style="border-color:#FFB74D"><span class="ek">ISA overhead fraction</span><span class="ev">12.2%</span><span class="en">irreducible</span></div>
+        </div>
+        <div class="eb-new">
+          <div class="ebtt" style="color:#2E7D32">After ISA Change — ARM</div>
+          <div class="er" style="border-color:#66BB6A"><span class="ek">New architectural floor</span><span class="ev" style="color:#2E7D32">[proprietary]</span><span class="en">ARM minimum</span></div>
+          <div class="er" style="border-color:#66BB6A"><span class="ek">New distance above floor</span><span class="ev" style="color:#2E7D32">16.46×</span><span class="en">concern: LOW</span></div>
+          <div class="er" style="border-color:#66BB6A"><span class="ek">New ISA overhead fraction</span><span class="ev">6.1%</span><span class="en">half of current overhead</span></div>
+        </div>
+      </div>
+      <!-- Chiplet -->
+      <div class="es">Chiplet Separation Scenario</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+        <div class="tl"><div class="tlbl">Current SCAPE</div><div class="tv" style="color:#FF6B35">576×</div><div class="tn">monolithic die</div></div>
+        <div class="tl"><div class="tlbl">After chiplet</div><div class="tv" style="color:#2E7D32">518×</div><div class="tn">I/O + compute separated</div></div>
+        <div class="tl"><div class="tlbl">New floor ratio</div><div class="tv" style="color:#2E7D32">7.4×</div><div class="tn">same architectural floor</div></div>
+      </div>
+      <div style="font-size:11px;color:#546E7A;background:#F8F9FA;border-radius:4px;padding:8px;margin-bottom:14px">Estimated 10% system-level efficiency gain from separating I/O and compute dies at their optimal process nodes. Architecture-agnostic — applies at any node. Does not move the architectural floor.</div>
+      <div class="ftr">SCAPE Engineering Diagnostic · Informational Actualization Model (IAM) · Mahaffey (2026)<br>All derived values computed from published inputs only. IAM reference floor and architectural floors are proprietary.<br>Patent Applications 64/012,720 and 64/014,568. All commercial terms through legal counsel.</div>
+    </div>
+
+    <div class="res-footer">
+      IAM SCAPE v1.0 · Mahaffey (2026) · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab2bfbbaeb29ab3bbb7aabfa8bcb5a8b7bbb4b9bff4b4bfae">[email&#160;protected]</a><br>
+      All outputs derived from publicly available published specifications.<br>
+      Methodology and underlying derivation are proprietary.<br>
+      Patent Applications 64/012,720 and 64/014,568. All commercial terms through legal counsel.
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+Chart.defaults.color='#4a6a8a';
+Chart.defaults.font.family="'IBM Plex Mono',monospace";
+Chart.defaults.font.size=10;
+
+// Chip selection in demo — shows access prompt for non-AMD chips
+var DEMO_CHIP = '1'; // AMD 9950X
+function onChipSelect(val) {
+  if (val !== DEMO_CHIP) {
+    var note = document.getElementById('demo-note');
+    note.style.display = 'block';
+    note.innerHTML = '⚡ Live analysis for this chip requires access. The outputs below show AMD Ryzen 9 9950X as the demo reference. <a href="mailto:hmahaffeyges@gmail.com?subject=SCAPE Live Access Request" style="color:#FF6B35;font-weight:700">Request live access →</a>';
+  } else {
+    document.getElementById('demo-note').style.display = 'none';
+  }
+}
+
+// Ranking
+var RL=['M3','M4','Snapdragon','Intel 285K','AMD 9950X','H200','H100'];
+var RA=[65,68,316,570,576,1326,1435];
+var RC=RA.map(function(v,i){return i===4?'rgba(255,107,53,.85)':i<=1?'rgba(0,201,177,.6)':i===3?'rgba(30,136,229,.6)':'rgba(26,42,58,.8)';});
+var RB=RA.map(function(v,i){return i===4?'#FF6B35':i<=1?'#00C9B1':i===3?'#1e88e5':'#2a4a6a';});
+new Chart(document.getElementById('cr'),{
+  type:'bar',
+  data:{labels:RL,datasets:[{label:'SCAPE Index',data:RA,backgroundColor:RC,borderColor:RB,borderWidth:1}]},
+  options:{
+    indexAxis:'y',responsive:true,
+    plugins:{legend:{display:false},title:{display:true,text:'SCAPE Competitive Index — lower is more efficient',color:'#7a9ab8',font:{size:11}}},
+    scales:{x:{type:'logarithmic',ticks:{callback:function(v){return v+'x'}},grid:{color:'#1a2a3a'}},y:{grid:{color:'#1a2a3a'}}}
+  }
+});
+
+// Thermal: AMD vs Intel
+var TT=[20,40,55,70,75,85,95,100,105];
+var TA=[543.3,555.6,564.5,573.2,576.0,581.6,587.0,589.7,592.4];  /* pre-computed — exponent held privately */
+var TI=[485.3,516.2,539.3,562.3,570.0,585.3,600.6,608.2,615.9];
+new Chart(document.getElementById('ct2'),{
+  type:'line',
+  data:{
+    labels:TT.map(function(t){return t+'C'}),
+    datasets:[
+      {label:'AMD 9950X n = [proprietary]',data:TA,borderColor:'#FF6B35',backgroundColor:'rgba(255,107,53,.08)',tension:.4,pointBackgroundColor:'#FF6B35',pointRadius:4},
+      {label:'Intel 285K n = [proprietary]',data:TI,borderColor:'#1e88e5',backgroundColor:'rgba(30,136,229,.06)',tension:.4,pointBackgroundColor:'#1e88e5',pointRadius:4,borderDash:[4,3]}
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{title:{display:true,text:'A(T) — AMD vs Intel · Crossover at ~82C · AMD wins',color:'#7a9ab8',font:{size:11}},legend:{display:true,position:'top',labels:{color:'#4a6a8a',font:{size:10}}}},scales:{x:{title:{display:true,text:'Junction temperature (°C)',color:'#4a6a8a'},grid:{color:'#1a2a3a'}},y:{title:{display:true,text:'A (relative)',color:'#4a6a8a'},grid:{color:'#1a2a3a'}}}}});
+</script>
+</body>
+</html>

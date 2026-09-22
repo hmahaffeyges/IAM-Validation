@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAM QAPE — Interactive Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070C12;--surface:#0D1520;--surface2:#111B28;--border:#1A2A3A;
+  --accent:#00C9B1;--accent2:#00E5CC;--text:#e8edf2;--muted:#5A7A8A;--muted2:#7a9ab8;
+  --green:#3fb950;--green2:#12c97a;--amber:#d29922;--red:#f85149;
+  --blue:#58a6ff;--purple:#bc8cff;--mono:'JetBrains Mono',monospace;
+}
+html,body{height:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;
+     display:flex;flex-direction:column;line-height:1.5;overflow-y:auto}
+
+/* ── SCIENTIFIC SUMMARY PANEL ── */
+.sci-toggle{background:none;border:1px solid var(--border);color:var(--muted2);
+  font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  padding:10px 16px;cursor:pointer;width:100%;text-align:left;margin-top:8px;
+  transition:all .2s}
+.sci-toggle:hover{border-color:var(--muted);color:var(--text)}
+.sci-panel{display:none;background:var(--surface);border:1px solid var(--border);
+  border-top:none;padding:20px;font-family:var(--mono);font-size:12px}
+.sci-panel.open{display:block}
+.sci-row{display:flex;justify-content:space-between;padding:6px 0;
+  border-bottom:1px solid rgba(26,42,58,.5);gap:16px;align-items:baseline}
+.sci-row:last-child{border-bottom:none}
+.sci-key{color:var(--muted2);flex:1.5;font-size:12px}
+.sci-val{color:var(--text);font-weight:600;min-width:130px;text-align:right;font-size:12px}
+.sci-note{color:var(--muted);font-size:11px;min-width:200px;text-align:right}
+.sci-section{margin:16px 0 8px;font-size:10px;letter-spacing:2px;
+  color:var(--accent);text-transform:uppercase}
+.demo-banner{background:linear-gradient(90deg,#0c2d2d,#0d1a2d);
+  border-bottom:2px solid var(--accent);padding:10px 24px;
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:200}
+.demo-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;
+  color:var(--accent);text-transform:uppercase;
+  background:rgba(0,201,177,0.1);border:1px solid rgba(0,201,177,0.3);
+  padding:4px 10px;border-radius:2px}
+.demo-text{font-size:12px;color:var(--muted2)}
+.demo-text strong{color:var(--text)}
+.access-btn{font-family:var(--mono);font-size:11px;letter-spacing:1px;
+  text-transform:uppercase;background:var(--accent);color:var(--bg);
+  border:none;padding:8px 20px;cursor:pointer;font-weight:600;
+  text-decoration:none;display:inline-block;transition:background .2s}
+.access-btn:hover{background:var(--accent2)}
+
+/* ── HEADER ── */
+.header{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:0 24px;display:flex;align-items:center;justify-content:space-between;
+  height:52px;flex-shrink:0}
+.logo{font-family:var(--mono);font-size:11px;letter-spacing:3px;
+  color:var(--accent);text-transform:uppercase}
+.hsub{font-size:11px;color:var(--muted);margin-left:16px}
+.readonly-badge{font-family:var(--mono);font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);
+  padding:3px 8px;opacity:.7}
+
+/* ── TABS ── */
+.tabs{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:0 24px;display:flex;flex-shrink:0}
+.tab{padding:14px 24px;font-size:12px;font-weight:500;letter-spacing:.5px;
+  color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;
+  transition:all .2s;user-select:none;display:flex;align-items:center;gap:8px}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.badge{background:#0c2d2d;color:var(--accent);border:1px solid #1a5a50;
+  border-radius:3px;font-size:9px;padding:2px 7px;
+  font-family:var(--mono);letter-spacing:1px}
+
+/* ── PANES ── */
+.content{flex:1;overflow:visible;position:relative}
+.pane{display:none;background:var(--bg)}
+.pane.active{display:block}
+
+/* Tab 1 uses full-viewport split layout */
+#pane1{height:calc(100vh - 166px);overflow:hidden}
+
+/* ── TAB 1 LAYOUT ── */
+.t1-main{display:flex;height:calc(100vh - 166px);min-height:600px}
+.panel-left{width:380px;flex-shrink:0;background:var(--surface);
+  border-right:1px solid var(--border);overflow-y:auto;
+  padding:28px 24px;display:flex;flex-direction:column;gap:24px}
+.panel-right{flex:1;overflow-y:auto;padding:28px 32px;background:var(--bg)}
+
+/* ── FORM ELEMENTS (read-only styling) ── */
+.section-label{font-size:10px;letter-spacing:3px;color:var(--accent);
+  text-transform:uppercase;font-family:var(--mono);margin-bottom:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:11px;color:var(--muted2);font-weight:500;letter-spacing:.5px}
+.field .hint{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+select,input{background:var(--bg);border:1px solid var(--border);color:var(--text);
+  font-family:'Inter',sans-serif;font-size:13px;padding:10px 12px;
+  width:100%;-webkit-appearance:none;pointer-events:none;opacity:.85}
+select{cursor:default}
+
+.run-btn-demo{background:var(--border);color:var(--muted);border:none;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:14px;
+  letter-spacing:1.5px;text-transform:uppercase;padding:16px;
+  width:100%;cursor:not-allowed;position:relative}
+.run-btn-demo::after{content:'DEMO MODE — Request live access above';
+  display:block;font-size:10px;letter-spacing:1px;margin-top:4px;
+  color:var(--accent);font-weight:400}
+
+/* ── RESULTS ── */
+.results-header{border-bottom:2px solid var(--accent);padding-bottom:16px;margin-bottom:28px}
+.results-platform{font-size:20px;font-weight:600;margin-bottom:4px}
+.results-meta{font-size:12px;color:var(--muted2);font-family:var(--mono)}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);padding:20px}
+.card-title{font-size:10px;letter-spacing:3px;color:var(--muted);
+  text-transform:uppercase;font-family:var(--mono);margin-bottom:14px}
+.big-score{font-size:32px;font-family:var(--mono);font-weight:600;
+  color:var(--text);margin-bottom:6px}
+.score-note{font-size:11px;color:var(--muted)}
+.tier-badge{display:inline-block;padding:6px 14px;font-size:12px;
+  font-family:var(--mono);font-weight:600;letter-spacing:1px;margin-bottom:8px;
+  background:rgba(13,155,94,0.15);color:var(--green2);
+  border:1px solid rgba(13,155,94,0.3)}
+.threshold-row{display:flex;justify-content:space-between;align-items:center;
+  padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.threshold-row:last-child{border-bottom:none}
+.thresh-name{color:var(--muted2)}
+.thresh-pass{color:var(--green2);font-family:var(--mono)}
+.thresh-fail{color:var(--muted);font-family:var(--mono)}
+.thresh-year{color:var(--amber);font-size:12px}
+.rank-list{list-style:none}
+.rank-item{display:flex;align-items:center;gap:12px;padding:7px 0;
+  border-bottom:1px solid rgba(26,42,58,.5);font-size:12px;font-family:var(--mono)}
+.rank-item:last-child{border-bottom:none}
+.rank-num{color:var(--muted);width:20px;text-align:right;flex-shrink:0}
+.rank-score{color:var(--muted2);width:90px;flex-shrink:0}
+.rank-name{color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-item.this{color:var(--accent2)}
+.rank-item.this .rank-name,.rank-item.this .rank-score{color:var(--accent2);font-weight:600}
+.badge-ec{background:rgba(13,155,94,.2);color:var(--green2);font-size:9px;padding:2px 5px}
+.badge-ft{background:rgba(0,168,255,.2);color:var(--accent2);font-size:9px;padding:2px 5px}
+.section-full{background:var(--surface);border:1px solid var(--border);
+  padding:20px;margin-bottom:16px}
+.temp-table{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--mono)}
+.temp-table th{color:var(--muted);font-weight:400;text-align:right;padding:6px 8px;
+  border-bottom:1px solid var(--border);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.temp-table th:first-child{text-align:left}
+.temp-table td{text-align:right;padding:6px 8px;border-bottom:1px solid rgba(26,42,58,.5)}
+.temp-table td:first-child{text-align:left}
+.temp-table tr.op-row td{color:var(--accent2)}
+.temp-table tr.qec-row td:last-child{color:var(--green2)}
+.traj-table{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--mono)}
+.traj-table th{color:var(--muted);font-weight:400;text-align:left;padding:6px 8px;
+  border-bottom:1px solid var(--border);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.traj-table td{text-align:left;padding:6px 8px;border-bottom:1px solid rgba(26,42,58,.5)}
+.traj-table tr.cur td{color:var(--accent2)}
+.milestone{color:var(--green2);font-size:11px}
+.assess-block{margin-bottom:20px}
+.assess-block h3{font-size:10px;letter-spacing:3px;color:var(--muted);
+  text-transform:uppercase;font-family:var(--mono);margin-bottom:12px}
+.assess-para{font-size:13px;color:var(--text);line-height:1.7;padding:14px 16px;
+  background:var(--surface2);border-left:3px solid var(--accent);margin-bottom:10px}
+.assess-para.rec{border-left-color:var(--green)}
+.results-footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:11px;color:var(--muted);font-family:var(--mono);line-height:1.8}
+canvas{border-radius:8px;background:#fff;padding:8px;
+  border:1px solid #cfd8dc;width:100%!important}
+
+/* ── TAB 2 ── */
+#pane2{padding:24px 24px 60px;background:var(--bg);overflow-y:auto}
+.selector-card{background:var(--surface);border:1px solid var(--border);
+  border-top:2px solid var(--accent);border-radius:8px;
+  padding:24px;max-width:800px;margin:0 auto 24px}
+.selector-card h2{font-size:13px;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.sel-row{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:end}
+.run-btn-t2-demo{padding:12px 32px;background:var(--border);border:none;border-radius:5px;
+  color:var(--muted);font-size:13px;font-weight:700;letter-spacing:.5px;
+  text-transform:uppercase;cursor:not-allowed;width:100%;margin-bottom:4px}
+.demo-note{font-size:10px;color:var(--accent);text-align:center;font-family:var(--mono)}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;
+  max-width:800px;margin-left:auto;margin-right:auto}
+.tool-btn{padding:8px 14px;background:var(--surface);border-radius:4px;
+  font-size:11px;font-weight:600;cursor:default;letter-spacing:.04em;
+  pointer-events:none}
+.gap-box{background:var(--surface);border:1px solid var(--amber);border-radius:8px;
+  padding:20px;margin-bottom:20px;max-width:800px;margin-left:auto;margin-right:auto}
+.gap-title{font-size:11px;font-weight:600;color:var(--amber);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.gap-situation{font-size:18px;font-weight:700;margin-bottom:8px}
+.gap-text{font-size:12px;color:#8b949e;line-height:1.7}
+.gap-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px}
+.gap-metric{background:var(--bg);border:1px solid var(--border);
+  border-radius:5px;padding:10px;text-align:center}
+.gv{font-size:16px;font-weight:700;font-family:var(--mono)}
+.gl{font-size:10px;color:var(--muted);margin-top:3px}
+.engines-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  margin-bottom:20px;max-width:800px;margin-left:auto;margin-right:auto}
+.engine-card{background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:18px}
+.engine-title{font-size:12px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ebadge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700}
+.e1{background:#0c2d6b;color:var(--blue);border:1px solid #1f6feb}
+.e2{background:#0d2c0d;color:var(--green);border:1px solid #238636}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.metric{background:var(--bg);border:1px solid var(--border);
+  border-radius:5px;padding:10px;text-align:center}
+.mv{font-size:17px;font-weight:700;font-family:var(--mono)}
+.ml{font-size:10px;color:var(--muted);margin-top:3px}
+.c-blue{color:var(--blue)}.c-green{color:var(--green)}
+.c-amber{color:var(--amber)}.c-red{color:var(--red)}
+.strat-item{background:var(--bg);border-left:3px solid var(--accent);
+  border-radius:0 5px 5px 0;padding:10px 14px;margin-bottom:8px;
+  font-size:12px;line-height:1.6;color:#8b949e}
+.strat-item strong{color:var(--text)}
+.t2-full{max-width:800px;margin:0 auto 20px}
+.panel-section{background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:24px;max-width:800px;margin:0 auto 16px}
+.panel-section h3{font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:16px}
+.proximity-row{display:flex;align-items:center;gap:12px;padding:8px 0;
+  border-bottom:1px solid rgba(26,42,58,.5);font-size:12px}
+.proximity-row:last-child{border-bottom:none}
+.prox-rank{color:var(--muted);width:24px;font-family:var(--mono)}
+.prox-name{flex:1;color:var(--text)}
+.prox-A{font-family:var(--mono);color:var(--muted2);width:90px}
+.prox-qec,.prox-ft{font-family:var(--mono);width:70px;text-align:right}
+.prox-wall{font-size:10px;padding:2px 7px;border-radius:3px;width:60px;text-align:center}
+.w-stall{background:rgba(248,81,73,.15);color:var(--red);border:1px solid rgba(248,81,73,.3)}
+.w-high{background:rgba(210,153,34,.12);color:var(--amber);border:1px solid rgba(210,153,34,.3)}
+.w-med{background:rgba(88,166,255,.1);color:var(--blue);border:1px solid rgba(88,166,255,.2)}
+.w-low{background:rgba(63,185,80,.1);color:var(--green);border:1px solid rgba(63,185,80,.2)}
+table.t2{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+table.t2 th{background:var(--bg);color:var(--muted);padding:6px 8px;
+  text-align:left;border-bottom:1px solid var(--border);font-weight:500}
+table.t2 td{padding:6px 8px;border-bottom:1px solid #21262d}
+.decomp-bar{height:6px;border-radius:3px;margin-top:3px}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+  z-index:999;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--surface);border:1px solid var(--border);
+  border-top:2px solid var(--accent);padding:48px;width:420px;text-align:center}
+.modal-box h2{font-size:20px;margin-bottom:12px}
+.modal-box p{font-size:13px;color:var(--muted2);margin-bottom:28px;line-height:1.6}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;
+  color:var(--muted);font-size:18px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- ── DEMO BANNER ── -->
+<div class="demo-banner">
+  <div style="display:flex;align-items:center;gap:16px">
+    <span class="demo-label">Live Demo</span>
+    <span class="demo-text">Pre-loaded with real platform data · <strong>Read-only</strong> · Run Analysis requires access</span>
+  </div>
+  <a href="mailto:hmahaffeyges@gmail.com?subject=QAPE Live Access Request" class="access-btn">Request Live Access</a>
+</div>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div style="display:flex;align-items:center">
+    <span class="logo">IAM · Quantum</span>
+    <span class="hsub">Intelligence Platform · Mahaffey (2026)</span>
+  </div>
+  <span class="readonly-badge">Demo Mode</span>
+</div>
+
+<!-- ── TABS ── -->
+<div class="tabs">
+  <div class="tab active" id="tab1" onclick="sw(1)">
+    Strategic Intelligence <span class="badge">BOARDROOM</span>
+  </div>
+  <div class="tab" id="tab2" onclick="sw(2)">
+    Engineering Analysis <span class="badge">DUAL ENGINE</span>
+  </div>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="content">
+
+<!-- ════════════════════════ TAB 1 ════════════════════════ -->
+<div class="pane active" id="pane1">
+<div class="t1-main">
+
+  <!-- LEFT PANEL -->
+  <div class="panel-left">
+    <div>
+      <div class="section-label">Platform Selection</div>
+      <div class="field">
+        <label>Select a known platform</label>
+        <select>
+          <option>4 · Quantinuum Helios 98Q</option>
+        </select>
+        <div class="hint">Select a platform to load published data. Active platforms are pre-filled and ready to run.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Published Gate Error</div>
+      <div class="field">
+        <label>Published gate error (pre-filled — override with your own data if needed)</label>
+        <input type="text" value="0.00079" readonly>
+        <div class="hint">Published value pre-filled. Click Run Analysis to use this, or clear and enter your own value.</div>
+      </div>
+    </div>
+
+    <hr style="border:none;border-top:1px solid var(--border)">
+
+    <div>
+      <div class="section-label" style="color:var(--muted)">▸ Optional Data (improves analysis)</div>
+      <div class="field" style="margin-bottom:12px">
+        <label>T1 — qubit lifetime (microseconds)</label>
+        <input type="text" placeholder="e.g. 68" readonly>
+        <div class="hint">How long a qubit holds its state.</div>
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <label>T2 — phase stability (microseconds)</label>
+        <input type="text" placeholder="e.g. 89" readonly>
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <label>Prior chip result (for improvement rate)</label>
+        <input type="text" placeholder="e.g. 0.00757, 15, 2024" readonly>
+        <div class="hint">Gate error, temperature (mK), year — of an older chip from the same company.</div>
+      </div>
+      <div class="field" style="margin-bottom:16px">
+        <label>Improvement Rate — halving years</label>
+        <input type="text" placeholder="e.g. 2.0" readonly>
+        <div class="hint">IBM: 2.0 · Google: 3.3 · Quantinuum: 6.5 · Oxford: 0.1. Leave blank to use class default.</div>
+      </div>
+    </div>
+
+    <button class="run-btn-demo">RUN ANALYSIS</button>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="panel-right">
+
+    <div class="results-header">
+      <div class="results-platform">Quantinuum Helios 98Q</div>
+      <div class="results-meta">Ion Trap Class A (Quantinuum, IonQ) · 1 mK · p₂Q = 7.900e-4 · Ransford et al., arXiv:2511.05465, Nov 2025. Quantinuum commercial launch Nov 6 2025.</div>
+    </div>
+
+    <div class="result-grid">
+
+      <!-- A Score -->
+      <div class="card">
+        <div class="card-title">IAM Performance Metric</div>
+        <div class="big-score">7.9030e-04</div>
+        <div class="score-note">Lower is better. World best 2Q gate: 8.40e-05 (Oxford Ionics / IonQ, 2025)</div>
+      </div>
+
+      <!-- Status -->
+      <div class="card">
+        <div class="card-title">Status</div>
+        <div class="tier-badge">QEC NOW</div>
+        <div style="font-size:12px;color:var(--muted2);margin-bottom:14px">
+          At A = 7.903e-4, this platform has crossed the QEC threshold and can deploy quantum error correction today. Fault-tolerance target ~6.6 yr away at current pace.
+        </div>
+        <div class="threshold-row">
+          <span class="thresh-name">Error correction (score &lt; 0.001000)</span>
+          <span class="thresh-pass">✓ CROSSED</span>
+        </div>
+        <div class="threshold-row">
+          <span class="thresh-name">Fault tolerance (score &lt; 0.000100)</span>
+          <span class="thresh-year">~6.6 yr (2033)</span>
+        </div>
+      </div>
+
+      <!-- Competitive Index -->
+      <div class="card">
+        <div class="card-title">IAM Competitive Index</div>
+        <ul class="rank-list">
+          <li class="rank-item" style="justify-content:space-between"><span class="rank-num">1</span><span class="rank-score">8.400e-05</span><span class="rank-name">Oxford Ionics EQC (2025)</span><span><span class="badge-ec">EC</span> <span class="badge-ft">FT</span></span></li>
+          <li class="rank-item this" style="justify-content:space-between"><span class="rank-num">2</span><span class="rank-score">7.903e-04</span><span class="rank-name">Quantinuum Helios 98Q</span><span><span class="badge-ec">EC</span></span></li>
+          <li class="rank-item"><span class="rank-num">3</span><span class="rank-score">1.501e-03</span><span class="rank-name">Google Willow 105Q (2024)</span></li>
+          <li class="rank-item"><span class="rank-num">4</span><span class="rank-score">2.002e-03</span><span class="rank-name">Quantinuum H2 56Q (2024)</span></li>
+          <li class="rank-item"><span class="rank-num">5</span><span class="rank-score">2.152e-03</span><span class="rank-name">IBM Nighthawk 120Q (2026)</span></li>
+          <li class="rank-item"><span class="rank-num">6</span><span class="rank-score">3.005e-03</span><span class="rank-name">IonQ Forte 36Q (2024)</span></li>
+          <li class="rank-item"><span class="rank-num">7</span><span class="rank-score">3.005e-03</span><span class="rank-name">QuEra Gemini 3000Q (2025)</span></li>
+          <li class="rank-item"><span class="rank-num">8</span><span class="rank-score">7.025e-03</span><span class="rank-name">Rigetti Ankaa-3 84Q (2024)</span></li>
+          <li class="rank-item"><span class="rank-num">9</span><span class="rank-score">7.599e-03</span><span class="rank-name">IBM Heron R2 156Q (2024)</span></li>
+          <li class="rank-item"><span class="rank-num">10</span><span class="rank-score">8.032e-03</span><span class="rank-name">QuEra Gemini 260Q (2025)</span></li>
+        </ul>
+      </div>
+
+      <!-- Ranking Chart -->
+      <div class="card" style="grid-column:1/-1">
+        <canvas id="chart-ranking" height="220"></canvas>
+      </div>
+
+      <!-- Cooling -->
+      <div class="card" style="grid-column:1/-1">
+        <div class="card-title">IAM Cooling Assessment</div>
+        <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:14px">
+          <div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px">At 1 mK → 0.5 mK</div>
+            <div style="font-size:36px;font-weight:700;font-family:var(--mono);color:var(--text);line-height:1">1.53×</div>
+            <div style="font-size:12px;color:var(--muted2);margin-top:4px">improvement in error rate</div>
+            <div style="font-size:11px;color:var(--amber);font-weight:600;margin-top:6px;letter-spacing:.5px">Sensitivity: LOW</div>
+          </div>
+        </div>
+        <div style="padding:10px 14px;background:rgba(210,153,34,.06);border-left:3px solid var(--amber);
+          font-size:13px;color:var(--muted2);line-height:1.6">
+          Architecture is weakly sensitive to temperature. Gate design is the primary lever.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Cooling chart -->
+    <div class="section-full">
+      <canvas id="chart-cooling" height="200"></canvas>
+    </div>
+
+    <!-- Temperature sweep -->
+    <div class="section-full">
+      <div class="card-title" style="margin-bottom:14px">IAM Thermal Analysis — What Cooling Does to Performance</div>
+      <table class="temp-table">
+        <thead><tr>
+          <th>Temp (mK)</th><th>Error rate</th><th>vs. current</th><th>Status</th>
+        </tr></thead>
+        <tbody>
+          <tr class="qec-row"><td>0.5</td><td>5.1696e-04</td><td>1.53×</td><td>✓ EC viable</td></tr>
+          <tr class="op-row"><td>1.0</td><td>7.9000e-04</td><td>baseline</td><td>← your operating point</td></tr>
+          <tr><td>2.0</td><td>1.2072e-03</td><td>0.65×</td><td></td></tr>
+          <tr><td>5.0</td><td>2.1140e-03</td><td>0.37×</td><td></td></tr>
+          <tr><td>8.0</td><td>2.8176e-03</td><td>0.28×</td><td></td></tr>
+          <tr><td>10.0</td><td>3.2292e-03</td><td>0.24×</td><td></td></tr>
+          <tr><td>12.0</td><td>3.6097e-03</td><td>0.22×</td><td></td></tr>
+          <tr><td>20.0</td><td>4.9312e-03</td><td>0.16×</td><td></td></tr>
+          <tr><td>25.0</td><td>5.6508e-03</td><td>0.14×</td><td></td></tr>
+          <tr><td>50.0</td><td>8.6236e-03</td><td>0.09×</td><td></td></tr>
+          <tr><td>100.0</td><td>1.3150e-02</td><td>0.06×</td><td></td></tr>
+          <tr><td>300.0</td><td>2.5596e-02</td><td>0.03×</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Thermal chart -->
+    <div class="section-full">
+      <canvas id="chart-thermal" height="240"></canvas>
+    </div>
+
+    <!-- Trajectory -->
+    <div class="section-full">
+      <div class="card-title" style="margin-bottom:14px">IAM Trajectory Analysis — Where This Platform is Heading</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">
+        Improvement rate: IAM Performance Metric halves every 0.75 years (Ion A class default — Quantinuum observed pace).
+      </div>
+      <table class="traj-table">
+        <thead><tr>
+          <th>Year</th><th>IAM Performance Metric</th><th>IAM Competitive Index</th><th>Milestone</th>
+        </tr></thead>
+        <tbody>
+          <tr class="cur"><td>2026</td><td>0.000790</td><td>3 of 10</td><td></td></tr>
+          <tr><td>2027</td><td>0.000312</td><td>2 of 10</td><td></td></tr>
+          <tr><td>2028</td><td>0.000123</td><td>2 of 10</td><td></td></tr>
+          <tr><td>2029</td><td>4.862e-05</td><td>1 of 10</td><td class="milestone">★ Fault-tolerance target reached</td></tr>
+          <tr><td>2031</td><td>7.577e-06</td><td>1 of 10</td><td></td></tr>
+          <tr><td>2036</td><td>7.263e-08</td><td>1 of 10</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Trajectory chart -->
+    <div class="section-full">
+      <canvas id="chart-trajectory" height="260"></canvas>
+    </div>
+
+    <!-- Assessment -->
+    <div class="section-full">
+      <div class="assess-block">
+        <h3>IAM Technical Assessment — Plain Language</h3>
+        <div class="assess-para">
+          ERROR CORRECTION VIABLE: This platform has crossed the error correction threshold.
+          Quantum error correction algorithms can be deployed today.
+          The next milestone — full fault-tolerant operation — is projected around 2033 at current pace.
+        </div>
+        <div class="assess-para">
+          Hardware type: ion trap (motional-mode gates) — used by Quantinuum and IonQ.
+          This architecture is largely insensitive to temperature.
+          Gate design, laser control, and sympathetic cooling implementation are the primary improvement levers.
+        </div>
+        <div class="assess-para arch">
+          Ba+ ion trap · QCCD topology · n = 0.612 (low thermal sensitivity) ·
+          Material floor: 1.0e-4 (IAMPerformance-derived) · Wall headroom: 7.9x ·
+          Scaling regime: FREE (α ≈ 0.02, QCCD log(N), no TLS ceiling)
+        </div>
+      </div>
+      <div class="assess-block">
+        <h3>IAM Recommendations</h3>
+        <div class="assess-para rec">
+          ERROR CORRECTION IS VIABLE on this platform right now. The next milestone is full
+          fault-tolerant operation, projected around 2033. Focus: scaling up error-corrected
+          logical qubits and improving the software stack.
+        </div>
+        <div class="assess-para rec">
+          COMPETITIVE STATUS: Top-tier platform (ranked #2 globally). The gap to the leader
+          (Oxford Ionics EQC, A = 8.4e-5) is 9.4x — closeable through sustained Ba+ program
+          investment or Ca+ substrate transition.
+        </div>
+        <div class="assess-para rec">
+          PRIMARY LEVER: Laser system precision and sympathetic cooling maintenance.
+          Temperature reduction provides only 1.53x improvement per halving — not the dominant
+          path for Ion A architecture. Do not divert engineering resources to cryogenic upgrades.
+        </div>
+      </div>
+
+      <!-- Quantum Dennard Transition -->
+      <div class="assess-block" style="border-left:3px solid var(--accent);padding-left:12px">
+        <h3>Quantum Dennard Transition</h3>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-size:13px;color:var(--text);font-weight:600">Motional Heating Inversion</span>
+          <span style="font-size:10px;font-weight:700;color:#60a5fa;border:1px solid #60a5fa;padding:1px 6px;border-radius:2px">MONITORED</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted2);margin-bottom:10px">~2030 no cooling &nbsp;·&nbsp; ~2035 w/ Helios sympathetic cooling</div>
+        <div style="font-size:12px;color:var(--muted2);line-height:1.7;margin-bottom:12px">
+          No solid-state substrate. T1 is a coherence validator, not a ceiling.
+          Substrate Inversion does not apply. See architecture's own Dennard transition.
+        </div>
+        <div style="padding:10px 14px;background:var(--surface2);border-top:1px solid var(--border);font-size:11px;color:var(--muted2);line-height:1.7">
+          <strong style="color:var(--accent);font-size:10px;letter-spacing:.05em">MOTIONAL HEATING INVERSION · IAM-ION-P001</strong><br>
+          CM mode (29 ± 4 q/s): <span style="color:#ef4444">ACTIVE without sympathetic cooling</span><br>
+          Stretch mode (3 q/s): <span style="color:#f59e0b">~2030 without cooling</span><br>
+          With sympathetic cooling: <span style="color:#22c55e">~2033–2037 with Helios Yb+ sympathetic cooling</span><br>
+          Escape route: Sympathetic cooling (Yb+) — in Helios 2025 · Source: arXiv:2206.11888
+        </div>
+        <div style="margin-top:10px;padding:10px 14px;background:var(--surface2);font-size:11px;color:var(--muted2);line-height:1.7">
+          <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.06em;margin-bottom:3px">QUBIT COUNT SCALING LAW</div>
+          <span style="color:#22c55e;font-weight:600">FREE</span> — alpha~0.02, QCCD log(N), no T1 ceiling<br>
+          +75% qubits (H2-1 → Helios) produced −57% gate error. Scaling confirmed free.<br>
+          <span style="color:#22c55e">Escape: No substrate change needed — architecture is structurally immune</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scientific summary — OPEN by default -->
+    <div id="sci-section">
+      <button class="sci-toggle" onclick="toggleSci()" id="sci-toggle-btn">
+        ▸ IAM Technical Data Summary — for technical review
+      </button>
+      <div class="sci-panel" id="sci-panel">
+        <div class="sci-section">IAM Core Metrics</div>
+        <div class="sci-row"><span class="sci-key">IAM Performance Metric (A)</span><span class="sci-val">0.000790</span><span class="sci-note">dimensionless; lower = better</span></div>
+        <div class="sci-row"><span class="sci-key">Published p₂Q</span><span class="sci-val">7.9000e-4</span><span class="sci-note">median; dimensionless</span></div>
+        <div class="sci-row"><span class="sci-key">Operating temperature (T_op)</span><span class="sci-val">1 mK</span><span class="sci-note">millikelvin</span></div>
+
+        <div class="sci-section">IAM Threshold Analysis</div>
+        <div class="sci-row"><span class="sci-key">QEC threshold (surface code)</span><span class="sci-val">1.000×10⁻³</span><span class="sci-note">A must be below this</span></div>
+        <div class="sci-row"><span class="sci-key">Fault-tolerance target</span><span class="sci-val">1.000×10⁻⁴</span><span class="sci-note">A must be below this</span></div>
+        <div class="sci-row"><span class="sci-key">Distance to QEC</span><span class="sci-val">0.790× <span style="color:var(--green2)">(BELOW)</span></span><span class="sci-note">EC viable</span></div>
+        <div class="sci-row"><span class="sci-key">Distance to FT target</span><span class="sci-val">7.903× above</span><span class="sci-note">above target</span></div>
+
+        <div class="sci-section">Trajectory</div>
+        <div class="sci-row"><span class="sci-key">Improvement IAM Improvement Rate</span><span class="sci-val">0.75 years</span><span class="sci-note">Ion A class default — Quantinuum observed</span></div>
+        <div class="sci-row"><span class="sci-key">Years to QEC threshold</span><span class="sci-val">0.0</span><span class="sci-note">already crossed</span></div>
+        <div class="sci-row"><span class="sci-key">Years to FT target</span><span class="sci-val">2.2</span><span class="sci-note">at current rate → 2029</span></div>
+        <div class="sci-row"><span class="sci-key">IAM Competitive Index</span><span class="sci-val">3 of 10</span><span class="sci-note"></span></div>
+
+        <div class="sci-section">Temperature Predictions</div>
+        <div class="sci-row"><span class="sci-key">Predicted p₂Q at 1 mK</span><span class="sci-val">7.9000e-4</span><span class="sci-note">IAM prediction (current operating point)</span></div>
+        <div class="sci-row"><span class="sci-key">Predicted p₂Q at 5 mK</span><span class="sci-val">2.1140e-3</span><span class="sci-note">IAM prediction</span></div>
+        <div class="sci-row"><span class="sci-key">Predicted p₂Q at 10 mK</span><span class="sci-val">3.2292e-3</span><span class="sci-note">IAM prediction</span></div>
+        <div class="sci-row"><span class="sci-key">Architecture parameter n</span><span class="sci-val">0.612</span><span class="sci-note">Ion Trap Class A — low thermal sensitivity</span></div>
+        <div class="sci-row"><span class="sci-key">Material A-floor</span><span class="sci-val">1.0×10⁻⁴</span><span class="sci-note">Ba+ ion trap — IAMPerformance-derived, not published by manufacturer</span></div>
+        <div class="sci-row"><span class="sci-key">Wall proximity</span><span class="sci-val">7.903×</span><span class="sci-note">LOW concern — substantial runway remaining</span></div>
+        <div class="sci-row"><span class="sci-key">Substrate Inversion status</span><span class="sci-val" style="color:var(--green2)">NOT APPLICABLE</span><span class="sci-note">Ion trap — no solid-state substrate</span></div>
+        <div class="sci-row"><span class="sci-key">MHI status</span><span class="sci-val" style="color:#60a5fa">MONITORED</span><span class="sci-note">CM mode active · sympathetic cooling suppresses · see IAM-ION-P001</span></div>
+
+        <div style="margin-top:16px;font-size:11px;color:var(--muted);">
+          Framework: Informational Actualization Model (IAM) · Mahaffey (2026)<br>
+          Methodology protected under Patent Applications 64/012,720 and 64/014,568.
+        </div>
+      </div>
+    </div>
+      Informational Actualization Model v2.1 · Mahaffey (2026)<br>
+      All outputs are projections derived from publicly available input data.<br>
+      Results are analytical predictions, not experimental measurements.<br>
+      Methodology and underlying derivation are proprietary.<br>
+      Patent Applications 64/012,720 and 64/014,568 · Contact through legal counsel for licensing inquiries.
+    </div>
+
+  </div><!-- end panel-right -->
+</div><!-- end t1-main -->
+</div><!-- end pane1 -->
+
+<!-- ════════════════════════ TAB 2 ════════════════════════ -->
+<div class="pane" id="pane2">
+
+  <!-- Platform Selector + Manual Entry OPEN -->
+  <div class="selector-card">
+    <h2>Platform Analysis</h2>
+    <div class="sel-row">
+      <div>
+        <label>Select Platform</label>
+        <select style="pointer-events:none;opacity:.85">
+          <option>Quantinuum Helios 98Q</option>
+        </select>
+      </div>
+      <div>
+        <button class="run-btn-t2-demo">Run Analysis</button>
+        <div class="demo-note">Demo mode · request live access</div>
+      </div>
+    </div>
+
+    <!-- Custom entry section — OPEN and filled -->
+    <span class="custom-toggle">▲ Hide custom data entry</span>
+    <div class="custom-section open" style="margin-top:12px">
+
+      <div class="section-label">Gate Error Rate (Engine 1)</div>
+      <div class="row2" style="margin-bottom:12px">
+        <div>
+          <label>Architecture class</label>
+          <select style="pointer-events:none;opacity:.85">
+            <option>Ion Trap Class A (Quantinuum, IonQ)</option>
+          </select>
+        </div>
+        <div>
+          <label>2Q gate error rate (p₂Q)</label>
+          <input type="text" value="0.00079" readonly>
+        </div>
+      </div>
+      <div class="row2" style="margin-bottom:12px">
+        <div>
+          <label>Operating temperature (mK)</label>
+          <input type="text" value="1" readonly>
+          <div class="hint">mK for SC qubits · 295000 for ion traps at room temp</div>
+        </div>
+        <div>
+          <label>Platform name</label>
+          <input type="text" value="Quantinuum Helios 98Q" readonly>
+        </div>
+      </div>
+
+      <div class="section-label">Materials Decoherence (Engine 2 — SC only)</div>
+      <div class="row3" style="margin-bottom:12px">
+        <div>
+          <label>Junction class</label>
+          <select style="pointer-events:none;opacity:.6">
+            <option>Not applicable — Ion trap architecture</option>
+          </select>
+        </div>
+        <div>
+          <label>T1 relaxation (µs)</label>
+          <input type="text" value="—" readonly style="opacity:.5">
+        </div>
+        <div>
+          <label>Qubit frequency (GHz)</label>
+          <input type="text" value="—" readonly style="opacity:.5">
+        </div>
+      </div>
+      <div class="row2" style="margin-bottom:12px">
+        <div>
+          <label>Operating temp (mK)</label>
+          <input type="text" value="1" readonly>
+        </div>
+        <div>
+          <label>Source</label>
+          <input type="text" value="arXiv:2511.05465, Ransford et al. (Quantinuum), Nov 2025" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toolbar — all buttons shown active -->
+  <div class="toolbar">
+    <span class="tool-btn" style="border:1px solid #7c3aed;color:#7c3aed">Benchmark Translation</span>
+    <span class="tool-btn" style="border:1px solid #0891b2;color:#0891b2">Reverse Solver</span>
+    <span class="tool-btn" style="border:1px solid #059669;color:#059669">Portfolio Analysis</span>
+    <span class="tool-btn" style="border:1px solid #d97706;color:#d97706">Acquisition Analysis</span>
+    <span class="tool-btn" style="border:1px solid #64748b;color:#94a3b8">Methodology</span>
+    <span class="tool-btn" style="background:#ff6b35;border:1px solid #ff6b35;color:#fff;font-weight:700">⚗ Engineering Diagnostic</span>
+    <span class="tool-btn" style="border:1px solid #22c55e;color:#22c55e;font-weight:700">🎯 Threshold Proximity</span>
+    <span class="tool-btn" style="border:1px solid #38bdf8;color:#38bdf8;font-weight:700">🌡 Temperature Sweep</span>
+    <span class="tool-btn" style="border:1px solid #a78bfa;color:#a78bfa;font-weight:700">🧱 Substrate Runway</span>
+  </div>
+
+  <!-- Gap Analysis — matches live engine output -->
+  <div class="gap-box" style="max-width:1100px;margin:0 auto 20px">
+    <div class="gap-title">Gap Analysis — Unified Picture</div>
+    <div class="gap-situation" style="color:var(--red)">DUAL BOTTLENECK</div>
+    <div class="gap-text">
+      Both gate error rate and TLS materials loss are significant. Improvements are needed on both fronts
+      simultaneously. Neither engineering nor fabrication alone will close the gap. Priority:
+      coordinated materials + control improvement program.
+    </div>
+    <div class="gap-metrics">
+      <div class="gap-metric"><div class="gv" style="color:var(--blue)">2.152e-3</div><div class="gl">Gate Metric A above QEC</div></div>
+      <div class="gap-metric"><div class="gv" style="color:var(--amber)">0.880</div><div class="gl">TLS Metric A</div></div>
+      <div class="gap-metric"><div class="gv" style="color:var(--purple)">12%</div><div class="gl">Materials headroom</div></div>
+    </div>
+  </div>
+
+  <!-- Engine Results — IBM Nighthawk with full tables matching live -->
+  <div class="engines-grid" style="max-width:1100px;margin:0 auto 20px">
+    <div class="engine-card">
+      <div class="engine-title"><span class="ebadge e1">ENGINE 1</span> Gate Error Rate — IBM Nighthawk</div>
+      <div class="metric-grid">
+        <div class="metric"><div class="mv c-blue">2.152e-3</div><div class="ml">IAM Metric A</div></div>
+        <div class="metric"><div class="mv c-amber">5 of 13</div><div class="ml">Global Rank</div></div>
+        <div class="metric"><div class="mv c-red">NOT EC</div><div class="ml">Threshold</div></div>
+      </div>
+      <table class="t2" style="margin-bottom:10px">
+        <thead><tr><th>Temperature</th><th>Predicted p₂Q</th><th>QEC Status</th></tr></thead>
+        <tbody>
+          <tr><td>7.5 mK</td><td style="font-family:var(--mono)">9.440e-4</td><td style="color:var(--green)">✓ QEC viable</td></tr>
+          <tr><td>11.2 mK</td><td style="font-family:var(--mono)">1.528e-3</td><td style="color:var(--red)">✗</td></tr>
+          <tr class="anchor"><td>15 mK ★</td><td style="font-family:var(--mono)">2.150e-3</td><td style="color:var(--red)">✗</td></tr>
+          <tr><td>22.5 mK</td><td style="font-family:var(--mono)">3.480e-3</td><td style="color:var(--red)">✗</td></tr>
+          <tr><td>30 mK</td><td style="font-family:var(--mono)">4.895e-3</td><td style="color:var(--red)">✗</td></tr>
+          <tr><td>45 mK</td><td style="font-family:var(--mono)">7.916e-3</td><td style="color:var(--red)">✗</td></tr>
+          <tr><td>75 mK</td><td style="font-family:var(--mono)">1.448e-2</td><td style="color:var(--red)">✗</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--muted)">
+        Years to QEC: <strong>2</strong> &middot; Years to FT: <strong>8</strong> &middot; Halving time: <strong>1.8 yr</strong>
+      </div>
+      <div style="font-size:10px;color:#484f58;margin-top:6px">Source: IBM Quantum Technology Atlas, April 2025</div>
+    </div>
+
+    <div class="engine-card">
+      <div class="engine-title"><span class="ebadge e2">ENGINE 2</span> Materials Decoherence — IBM Nighthawk</div>
+      <div style="display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;
+        background:#1a1a0d;color:var(--amber);border:1px solid #9e6a03;margin-bottom:12px">TLS DOMINATED</div>
+      <div class="metric-grid">
+        <div class="metric"><div class="mv c-green">600 µs</div><div class="ml">T1 Measured</div></div>
+        <div class="metric"><div class="mv c-amber">0.880</div><div class="ml">TLS Metric A</div></div>
+        <div class="metric"><div class="mv c-purple">12%</div><div class="ml">Materials Headroom</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px">
+        T1 almost entirely TLS limited<br>
+        TLS loss: <strong>4400 µs</strong> &middot; T1 free limit: <strong>5000 µs</strong> &middot; f = <strong>5 GHz</strong>
+      </div>
+      <table class="t2" style="margin-bottom:10px">
+        <thead><tr><th>Temperature</th><th>Predicted T1</th><th>Ratio vs ref</th></tr></thead>
+        <tbody>
+          <tr><td>10 mK</td><td>600 µs</td><td>1.000×</td></tr>
+          <tr class="anchor"><td>15 mK ★</td><td>600 µs</td><td>1.000×</td></tr>
+          <tr><td>20 mK</td><td>600 µs</td><td>1.000×</td></tr>
+          <tr><td>30 mK</td><td>600 µs</td><td>0.999×</td></tr>
+          <tr><td>50 mK</td><td>590 µs</td><td>0.984×</td></tr>
+          <tr><td>75 mK</td><td>553 µs</td><td>0.922×</td></tr>
+          <tr><td>100 mK</td><td>500 µs</td><td>0.834×</td></tr>
+          <tr><td>150 mK</td><td>398 µs</td><td>0.664×</td></tr>
+          <tr><td>200 mK</td><td>322 µs</td><td>0.537×</td></tr>
+          <tr><td>300 mK</td><td>228 µs</td><td>0.380×</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:#484f58">Source: IBM Quantum Technology Atlas, April 2025</div>
+    </div>
+  </div>
+
+  <!-- Charts row — dark background matching live engine -->
+  <div class="engines-grid" style="max-width:1100px;margin:0 auto 20px">
+    <div class="engine-card">
+      <div class="engine-title" style="margin-bottom:10px">Global Competitive Ranking</div>
+      <canvas id="t2-chart-ranking" height="220"></canvas>
+    </div>
+    <div class="engine-card">
+      <div class="engine-title" style="margin-bottom:10px">Trajectory to Fault Tolerance</div>
+      <canvas id="t2-chart-traj" height="220"></canvas>
+    </div>
+  </div>
+
+  <!-- ── BENCHMARK TRANSLATION ── -->
+  <div class="panel-section" style="border-top:2px solid #7c3aed">
+    <h3 style="color:#7c3aed">Benchmark Translation</h3>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:14px">Enter any published benchmark — gate error rate, quantum volume, or algorithmic qubits — and get the normalized IAMPerformance score.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px">
+      <div>
+        <label>Input Type</label>
+        <select style="pointer-events:none;opacity:.85"><option>Gate Error Rate (p₂Q)</option></select>
+      </div>
+      <div>
+        <label>Value</label>
+        <input type="text" value="0.00079" readonly>
+      </div>
+      <div>
+        <label>Architecture Class</label>
+        <select style="pointer-events:none;opacity:.85"><option>Ion Trap Class A (Quantinuum, IonQ)</option></select>
+      </div>
+    </div>
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+        <div class="metric"><div class="mv c-blue">2.152e-3</div><div class="ml">Performance Score A</div></div>
+        <div class="metric"><div class="mv c-amber">ABOVE</div><div class="ml">QEC Threshold (Surface code)</div></div>
+        <div class="metric"><div class="mv c-amber">5 of 13</div><div class="ml">Global Rank</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--muted)">Gate error rate 0.00215 → p₂Q = 0.00215 → A = 2.152e-3</div>
+    </div>
+  </div>
+
+  <!-- ── REVERSE SOLVER ── -->
+  <div class="panel-section" style="border-top:2px solid #0891b2">
+    <h3 style="color:#0891b2">Reverse Solver</h3>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:14px">What gate error rate do you need to beat a competitor by a target year?</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div>
+        <label>Your Architecture</label>
+        <select style="pointer-events:none;opacity:.85"><option>SC Transmon — CZ gates (IBM)</option></select>
+      </div>
+      <div>
+        <label>Your Current Gate Error Rate</label>
+        <input type="text" value="0.00215" readonly>
+      </div>
+      <div>
+        <label>Competitor Platform</label>
+        <select style="pointer-events:none;opacity:.85"><option>Quantinuum Helios 98Q</option></select>
+      </div>
+      <div>
+        <label>Target Year</label>
+        <select style="pointer-events:none;opacity:.85"><option>2028</option></select>
+      </div>
+    </div>
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+        <div class="metric"><div class="mv c-red">GAP IDENTIFIED</div><div class="ml">Trajectory Status</div></div>
+        <div class="metric">
+          <div class="mv c-blue">1.520e-4</div>
+          <div class="ml">Required Score to Lead Quantinuum Helios 98Q</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px">Your projected: 9.960e-4</div>
+        </div>
+        <div class="metric">
+          <div class="mv c-amber">1.8 yr</div>
+          <div class="ml">Your Halving Interval</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px">vs Quantinuum Helios 98Q: 0.9 yr</div>
+        </div>
+      </div>
+      <div style="background:var(--surface2);border-radius:4px;padding:10px;font-size:12px;color:var(--muted);margin-bottom:10px">
+        Gap: 8.440e-4 above required index. Closure year: 2032.9.
+      </div>
+      <div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Improvement Levers Ranked</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead><tr style="background:var(--surface2)">
+          <th style="padding:6px;text-align:left;color:var(--muted)">Lever</th>
+          <th style="padding:6px;color:var(--muted)">Impact</th>
+          <th style="padding:6px;text-align:left;color:var(--muted)">Note</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;padding:6px">1. Gate Calibration &amp; Control</td><td style="padding:6px;color:var(--green);font-weight:700;font-size:11px">HIGH</td><td style="padding:6px;font-size:11px;color:var(--muted)">Reduces systematic errors in two-qubit gate sequences. Lowest capital, fastest cycle.</td></tr>
+          <tr><td style="font-weight:600;padding:6px">2. Junction Process Improvement</td><td style="padding:6px;color:var(--green);font-weight:700;font-size:11px">HIGH</td><td style="padding:6px;font-size:11px;color:var(--muted)">Reduces material loss at the junction interface. Medium capital, 12-18 month cycle.</td></tr>
+          <tr><td style="font-weight:600;padding:6px">3. Qubit Connectivity Architecture</td><td style="padding:6px;color:var(--amber);font-weight:700;font-size:11px">MEDIUM</td><td style="padding:6px;font-size:11px;color:var(--muted)">Higher connectivity reduces gate overhead per algorithm. Architecture redesign required.</td></tr>
+          <tr><td style="font-weight:600;padding:6px">4. Operating Point Optimization</td><td style="padding:6px;color:var(--amber);font-weight:700;font-size:11px">MEDIUM</td><td style="padding:6px;font-size:11px;color:var(--muted)">Tuning operating frequency reduces crosstalk. Low capital, medium cycle.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Reverse solver trajectory chart -->
+    <canvas id="rev-chart" height="180" style="margin-top:14px"></canvas>
+  </div>
+
+  <!-- ── PORTFOLIO ANALYSIS ── -->
+  <div class="panel-section" style="border-top:2px solid #059669">
+    <h3 style="color:#059669">Portfolio Analysis</h3>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:14px">Score a company's full architecture mix. Is their strategy optimally hedged?</div>
+    <div style="margin-bottom:14px">
+      <div style="font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Platforms in Portfolio</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:var(--bg);border:1px solid #059669;border-radius:5px;padding:10px">
+          <div style="font-size:11px;font-weight:600;color:#059669;margin-bottom:6px">Quantinuum Helios 98Q</div>
+          <div style="font-size:11px;color:var(--muted2)">Ion A · A=7.903e-4 · QEC NOW</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:10px">
+          <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:6px">Google Willow 105Q</div>
+          <div style="font-size:11px;color:var(--muted2)">SC CZ · A=1.501e-3 · HIGH</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:10px">
+          <div style="font-size:11px;font-weight:600;color:var(--accent2);margin-bottom:6px">Oxford Ionics EQC</div>
+          <div style="font-size:11px;color:var(--muted2)">Ion B · A=8.4e-5 · FT CROSSED</div>
+        </div>
+      </div>
+    </div>
+    <canvas id="portfolio-chart" height="180"></canvas>
+    <div style="background:var(--bg);border:1px solid #059669;border-radius:6px;padding:16px;margin-top:14px">
+      <div style="font-size:16px;font-weight:700;color:#059669;margin-bottom:10px">OPTIMAL HEDGE</div>
+      <div style="font-size:12px;color:var(--muted2);margin-bottom:14px;line-height:1.6">
+        Portfolio combines a fast architecture for near-term advantage with an open-runway architecture for long-term scaling. This is the strongest strategic position — speed today, ceiling protection tomorrow.
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px">
+        <thead><tr style="background:var(--surface2)">
+          <th style="padding:6px;text-align:left;color:var(--muted)">Platform</th>
+          <th style="padding:6px;text-align:left;color:var(--muted)">Architecture</th>
+          <th style="padding:6px;text-align:left;color:var(--muted)">Score A</th>
+          <th style="padding:6px;text-align:left;color:var(--muted)">QEC Status</th>
+          <th style="padding:6px;text-align:left;color:var(--muted)">Runway</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Willow</td><td style="padding:6px;color:var(--muted)">SC Transmon — CZ gates (Google)</td><td style="padding:6px;font-family:var(--mono)">2.002e-3</td><td style="padding:6px;color:var(--amber)">above threshold</td><td style="padding:6px;color:var(--amber)">MODERATE</td></tr>
+          <tr><td style="padding:6px">Quantinuum</td><td style="padding:6px;color:var(--muted)">Ion Trap Class A (Quantinuum, IonQ)</td><td style="padding:6px;font-family:var(--mono)">2.002e-3</td><td style="padding:6px;color:var(--amber)">above threshold</td><td style="padding:6px;color:var(--green)">OPEN</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px">Architecture classes: ion_a, sc_cz &middot; Diversity score: 2</div>
+    </div>
+  </div>
+
+  <!-- ── ACQUISITION ANALYSIS ── -->
+  <div class="panel-section" style="border-top:2px solid #d97706">
+    <h3 style="color:#d97706">Acquisition Analysis</h3>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:14px">Does this acquisition target complement or compete with your platform?</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:4px;padding:12px">
+        <div style="font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.06em;margin-bottom:8px">YOUR PLATFORM</div>
+        <div style="margin-bottom:6px"><label>Architecture</label><select style="pointer-events:none;opacity:.85"><option>SC Transmon — CZ gates (IBM)</option></select></div>
+        <div><label>Gate Error Rate</label><input type="text" value="0.00215" readonly></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid #d97706;border-radius:4px;padding:12px">
+        <div style="font-size:10px;font-weight:700;color:#d97706;letter-spacing:.06em;margin-bottom:8px">ACQUISITION TARGET</div>
+        <div style="margin-bottom:6px"><label>Architecture</label><select style="pointer-events:none;opacity:.85"><option>Ion Trap Class A (Quantinuum)</option></select></div>
+        <div style="margin-bottom:6px"><label>Gate Error Rate</label><input type="text" value="0.00079" readonly></div>
+        <div><label>Target Name</label><input type="text" value="Quantinuum Helios 98Q" readonly></div>
+      </div>
+    </div>
+    <div style="background:var(--bg);border:1px solid #d97706;border-radius:6px;padding:16px">
+      <div style="font-size:16px;font-weight:700;color:#059669;margin-bottom:10px">STRATEGIC HEDGE</div>
+      <div style="font-size:12px;color:var(--muted2);margin-bottom:16px;line-height:1.6">
+        Acquisition Target brings an open-runway architecture that complements your primary platform.
+        This is the Google/QuEra model — speed today, scaling tomorrow. Integration complexity is
+        higher but strategic value is significant.
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:14px">
+          <div style="font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.06em;margin-bottom:10px">YOUR PLATFORM</div>
+          <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--red);margin-bottom:6px">2.152e-3</div>
+          <div style="font-size:11px;color:var(--muted)">HIGH ceiling · MODERATE runway</div>
+        </div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:14px">
+          <div style="font-size:10px;font-weight:700;color:#d97706;letter-spacing:.06em;margin-bottom:10px">TARGET: ACQUISITION TARGET</div>
+          <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:var(--green);margin-bottom:6px">8.400e-4</div>
+          <div style="font-size:11px;color:var(--muted)">MEDIUM ceiling · OPEN runway</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── METHODOLOGY ── -->
+  <div class="panel-section" style="border-top:2px solid #64748b">
+    <h3 style="color:#94a3b8">Methodology</h3>
+    <div style="font-size:12px;color:var(--muted);line-height:1.8">
+      <p style="margin-bottom:10px"><strong style="color:var(--text)">What we measure:</strong> Gate error rate — the probability that a two-qubit gate operation produces a wrong answer. Every company in this database publishes this number. It directly determines whether a platform can perform error-corrected computation.</p>
+      <p style="margin-bottom:10px"><strong style="color:var(--text)">How we convert it:</strong> The IAM Performance Metric A = −ln(1 − p). The architecture coupling parameter n is derived from first principles — not fitted to historical data. It does not change between chip generations.</p>
+      <p style="margin-bottom:10px"><strong style="color:var(--text)">Why this is fair across architectures:</strong> The parameter n normalizes for the physical differences between SC, trapped ion, neutral atom, and topological platforms. A superconducting qubit and a trapped ion qubit are brought to the same scale through n. The comparison is architecture-independent.</p>
+      <p style="margin-bottom:10px"><strong style="color:var(--text)">Why QEC thresholds differ:</strong> SC and ion trap systems use surface codes requiring A &lt; 0.001. Neutral atom systems with any-to-any connectivity use color codes — threshold is A &lt; 0.005.</p>
+      <p style="margin-bottom:10px"><strong style="color:var(--text)">If you disagree with a ranking:</strong> Publish a lower gate error rate. Your position updates in 30 seconds. The methodology never changes.</p>
+      <p style="font-size:10px;color:#484f58;margin-top:12px">Full technical derivation available under separate NDA to qualified research partners. Patent Applications 64/012,720 and 64/014,568.</p>
+    </div>
+  </div>
+
+  <!-- ── ENGINEERING DIAGNOSTIC ── -->
+  <div class="panel-section" style="border-top:2px solid #ff6b35;background:#060b10">
+    <h2 style="color:#ff6b35;margin-bottom:4px">⚗ IAMPerformance Engineering Diagnostic</h2>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:18px;line-height:1.6">
+      Enter any data you have. Leave fields blank if unpublished — the framework derives everything it can from what you provide.
+      Engineering levers let you model substrate changes, temperature scenarios, acceleration programs, or any combination
+      before spending a dollar in the lab. Every output is a dated, falsifiable IAMPerformance prediction.
+    </div>
+
+    <!-- Input form sections -->
+    <div style="background:#0d1117;border:1px solid #1e2a1e;border-left:3px solid #ff6b35;border-radius:4px;padding:16px;margin-bottom:12px">
+      <div style="font-size:10px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Section 1 — Platform Identity</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><label>Platform</label><select style="pointer-events:none;opacity:.85"><option>Google Willow</option></select></div>
+        <div><label>Platform name</label><input type="text" value="Google Willow" readonly></div>
+        <div><label>Architecture class *</label><select style="pointer-events:none;opacity:.85"><option>SC Transmon — CZ gates (Google)</option></select></div>
+        <div><label>Year published</label><select style="pointer-events:none;opacity:.85"><option>2025</option></select></div>
+      </div>
+    </div>
+
+    <div style="background:#0d1117;border:1px solid #1e2a1e;border-left:3px solid #ff6b35;border-radius:4px;padding:16px;margin-bottom:12px">
+      <div style="font-size:10px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Section 2 — Published Gate Data</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:10px">
+        <div><label>Two-qubit gate error rate p(2Q) *</label><input type="text" value="0.0015" readonly></div>
+        <div><label>Operating temperature (mK)</label><input type="text" value="7.5" readonly></div>
+        <div><label>Improvement rate — halving years</label><input type="text" value="2.5" readonly></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px">
+        <div><label>T1 — relaxation time (µs)</label><input type="text" value="350" readonly></div>
+        <div><label>T2 — phase coherence time (µs)</label><input type="text" placeholder="not entered" readonly style="opacity:.5"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div><label>Qubit count</label><input type="text" value="125" readonly></div>
+        <div><label>Publication date</label><input type="text" placeholder="e.g. 2026-04-03" readonly style="opacity:.5"></div>
+        <div><label>Source / citation</label><input type="text" placeholder="not entered" readonly style="opacity:.5"></div>
+      </div>
+    </div>
+
+    <div style="background:#0d1117;border:1px solid #1e2a1e;border-left:3px solid #ff6b35;border-radius:4px;padding:16px;margin-bottom:12px">
+      <div style="font-size:10px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Section 2b — Prior Generation</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div><label>Prior platform name</label><input type="text" value="Google" readonly></div>
+        <div><label>Prior p(2Q)</label><input type="text" value="0.00020" readonly></div>
+        <div><label>Prior year</label><select style="pointer-events:none;opacity:.85"><option>2023</option></select></div>
+      </div>
+    </div>
+
+    <div style="background:#0d1117;border:1px solid #1e2a1e;border-left:3px solid #ff6b35;border-radius:4px;padding:16px;margin-bottom:14px">
+      <div style="font-size:10px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Section 3 — Engineering Scenario</div>
+      <div style="margin-bottom:12px"><label>Engineering lever</label><select style="pointer-events:none;opacity:.85"><option>⚗ Combined levers — multiple changes simultaneously</option></select></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px">
+        <div><label>Target temperature (mK)</label><input type="text" value="10" readonly></div>
+        <div><label>Target substrate</label><select style="pointer-events:none;opacity:.85"><option>Ba+ ion trap — floor ~1e-4</option></select></div>
+        <div><label>PR factor (0–1)</label><input type="text" value=".5" readonly></div>
+        <div><label>Target halving rate (yr)</label><input type="text" value="1.35" readonly></div>
+      </div>
+    </div>
+
+    <!-- RUN DIAGNOSTIC button (demo) -->
+    <div style="background:#ff6b35;color:#fff;text-align:center;padding:14px;font-weight:700;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;margin-bottom:20px;opacity:.7;cursor:not-allowed">
+      RUN IAMPERFORMANCE DIAGNOSTIC &nbsp;·&nbsp; DEMO MODE
+    </div>
+
+    <!-- ── DIAGNOSTIC OUTPUT ── -->
+    <div style="border-top:1px solid #1e293b;padding-top:16px">
+
+      <!-- Current State -->
+      <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:14px;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Current State Analysis · 125 qubits</div>
+
+        <!-- THEN/NOW -->
+        <div style="background:#060b10;border:1px solid #1e293b;border-radius:3px;padding:10px 14px;margin-bottom:12px">
+          <div style="font-size:10px;color:#6b7280;font-weight:600;letter-spacing:.06em;margin-bottom:6px">THEN / NOW</div>
+          <div style="font-size:12px;color:#94a3b8">
+            <strong style="color:#6b7280">Google (2023)</strong> p = 2.000e-4 &nbsp;→&nbsp;
+            <strong style="color:#e2e8f0">Google Willow</strong> p = 1.500e-3
+            &nbsp;&nbsp;<span style="color:#ef4444;font-weight:700">↑ 650.0% REGRESSION</span>
+          </div>
+        </div>
+
+        <!-- 8-metric grid -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px">
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">A Score (IAMPerformance)</div>
+            <div style="font-size:15px;font-weight:700;color:#e2e8f0;font-family:monospace">1.5011e-3</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">from p(2Q) = 0.1500%</div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">Architecture · n</div>
+            <div style="font-size:12px;font-weight:700;color:#e2e8f0">SC Transmon — CZ gates (Google)</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">n = 1.449 · cooling exponent</div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">Material A-floor</div>
+            <div style="font-size:15px;font-weight:700;color:#e2e8f0;font-family:monospace">1.0e-3</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">IAMPerformance-derived · not published by mfr</div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">Wall proximity · concern</div>
+            <div style="font-size:15px;font-weight:700;color:#ef4444;font-family:monospace">1.5x</div>
+            <div style="font-size:10px;color:#ef4444;font-weight:700;margin-top:2px">STALL</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px">
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">QEC threshold status</div>
+            <div style="font-size:13px;font-weight:700;color:#f59e0b">1.5 yr away</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">A &lt; 1e-3 · 2027</div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">Fault-tolerance status</div>
+            <div style="font-size:13px;font-weight:700;color:#94a3b8">9.8 yr away</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">A &lt; 1e-4 · 2035</div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">Global rank</div>
+            <div style="font-size:15px;font-weight:700;color:#e2e8f0">#3 of 13</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">vs IAMPerformance tracked platforms</div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">Cooling sensitivity</div>
+            <div style="font-size:15px;font-weight:700;color:#e2e8f0">2.73x</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">error reduction per temp halving</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 3fr;gap:10px;margin-bottom:10px">
+          <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:10px;text-align:center">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:3px">T1 relaxation</div>
+            <div style="font-size:15px;font-weight:700;color:#e2e8f0">350 µs</div>
+            <div style="font-size:10px;color:#4b5563;margin-top:2px">published</div>
+          </div>
+        </div>
+
+        <!-- Gate decomposition -->
+        <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:12px 14px;margin-bottom:10px">
+          <div style="font-size:10px;color:#6b7280;font-weight:600;letter-spacing:.06em;margin-bottom:8px">GATE ERROR DECOMPOSITION · p(2Q) = p_coh + p_mat + p_ctrl</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+            <div>
+              <div style="font-size:10px;color:#60a5fa;font-weight:600">p_coh (coherence)</div>
+              <div style="font-family:monospace;font-size:13px;color:#e2e8f0">214 ppm</div>
+              <div style="font-size:10px;color:#6b7280">14% of total · T1/T2 limited</div>
+              <div style="height:6px;border-radius:3px;background:#60a5fa;width:14%;margin-top:3px"></div>
+            </div>
+            <div>
+              <div style="font-size:10px;color:#f59e0b;font-weight:600">p_mat (substrate TLS)</div>
+              <div style="font-family:monospace;font-size:13px;color:#e2e8f0">167 ppm</div>
+              <div style="font-size:10px;color:#6b7280">11% of total · T1_free deficit</div>
+              <div style="height:6px;border-radius:3px;background:#f59e0b;width:11%;margin-top:3px"></div>
+            </div>
+            <div>
+              <div style="font-size:10px;color:#a78bfa;font-weight:600">p_ctrl (architecture floor)</div>
+              <div style="font-family:monospace;font-size:13px;color:#e2e8f0">1119 ppm</div>
+              <div style="font-size:10px;color:#6b7280">75% of total · irreducible</div>
+              <div style="height:6px;border-radius:3px;background:#a78bfa;width:75%;margin-top:3px"></div>
+            </div>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:#6b7280">
+            Fixable error: <span style="color:#22c55e;font-weight:600">950 ppm</span> · Irreducible floor: <span style="color:#a78bfa">550 ppm</span> · T1_free ceiling: <span style="color:#f59e0b">500 µs</span>
+          </div>
+          <!-- Substrate Inversion -->
+          <div style="margin-top:10px;font-size:10px;color:#6b7280;font-weight:600;letter-spacing:.06em">SUBSTRATE INVERSION STATUS</div>
+          <div style="margin-top:4px;font-size:12px">
+            <span style="color:#f59e0b;font-weight:700">PAST T1* — IN TRANSITION</span>
+            <span style="color:#6b7280"> · T1/T1* = 1.077x · T1* = 325 µs (0.65 × T1_free 500 µs)</span>
+          </div>
+        </div>
+
+        <!-- QDT -->
+        <div style="background:#06100a;border:1px solid #1e293b;border-radius:4px;padding:10px 14px;margin-bottom:10px">
+          <div style="font-size:10px;color:#6b7280;font-weight:600;letter-spacing:.06em;margin-bottom:4px">QUANTUM DENNARD TRANSITION</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="color:#e2e8f0;font-size:12px;font-weight:600">Substrate Inversion</span>
+            <span style="color:#f59e0b;font-size:10px;font-weight:700;border:1px solid #f59e0b;padding:1px 6px;border-radius:2px">APPROACHING</span>
+          </div>
+          <div style="font-size:11px;color:#6b7280;margin-top:3px">Google ~2028</div>
+        </div>
+
+        <!-- Commentary -->
+        <div style="font-size:12px;color:#94a3b8;line-height:1.7;border-top:1px solid #1e293b;padding-top:10px">
+          At A = 1.5011e-3, this platform has not yet crossed the QEC threshold of 1e-3. Error correction is not yet viable. At the current improvement rate, QEC is 1.5 yr away (2027). Temperature sensitivity is high (n = 1.449, 2.73x improvement per temperature halving). Cooling has above-average return for this architecture. A thermal lever scenario will show the specific threshold-crossing temperature.
+        </div>
+      </div>
+
+      <!-- Temperature Analysis -->
+      <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:14px;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Temperature Analysis</div>
+        <div style="background:#120a05;border:1px solid #7c2d12;border-radius:3px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:#f97316">
+          <strong>At 10 mK:</strong> predicted A = 2.2775e-3 · p(2Q) = 0.2275% · 0.66x improvement
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px">
+          <thead><tr style="border-bottom:1px solid #1e293b"><th style="color:#ff8c5a;text-align:left;padding:4px 8px">Temperature</th><th style="color:#ff8c5a;padding:4px 8px">Predicted A</th><th style="color:#ff8c5a;padding:4px 8px">p(2Q)</th><th style="color:#ff8c5a;padding:4px 8px">QEC?</th><th style="color:#ff8c5a;padding:4px 8px">FT?</th></tr></thead>
+          <tbody>
+            <tr style="color:#22c55e;font-weight:700"><td style="padding:4px 8px">0.75 mK</td><td style="padding:4px 8px;font-family:monospace">5.3401e-5</td><td style="padding:4px 8px">0.0053%</td><td style="padding:4px 8px;color:#22c55e">YES</td><td style="padding:4px 8px;color:#22c55e">YES</td></tr>
+            <tr style="color:#22c55e"><td style="padding:4px 8px">1.875 mK</td><td style="padding:4px 8px;font-family:monospace">2.0142e-4</td><td style="padding:4px 8px">0.0201%</td><td style="padding:4px 8px;color:#22c55e">YES</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+            <tr style="color:#22c55e"><td style="padding:4px 8px">3.75 mK</td><td style="padding:4px 8px;font-family:monospace">5.4985e-4</td><td style="padding:4px 8px">0.0550%</td><td style="padding:4px 8px;color:#22c55e">YES</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+            <tr style="color:#22c55e"><td style="padding:4px 8px">5.625 mK</td><td style="padding:4px 8px;font-family:monospace">9.8939e-4</td><td style="padding:4px 8px">0.0989%</td><td style="padding:4px 8px;color:#22c55e">YES</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+            <tr style="color:#e2e8f0;font-weight:700;background:#0a0f14"><td style="padding:4px 8px">7.5 mK ← current</td><td style="padding:4px 8px;font-family:monospace">1.5011e-3</td><td style="padding:4px 8px">0.1500%</td><td style="padding:4px 8px;color:#6b7280">—</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+            <tr style="color:#f97316;font-weight:700;background:#120a05"><td style="padding:4px 8px">10 mK ← query</td><td style="padding:4px 8px;font-family:monospace">2.2775e-3</td><td style="padding:4px 8px">0.2275%</td><td style="padding:4px 8px;color:#6b7280">—</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+            <tr style="color:#94a3b8"><td style="padding:4px 8px">11.25 mK</td><td style="padding:4px 8px;font-family:monospace">2.7013e-3</td><td style="padding:4px 8px">0.2698%</td><td style="padding:4px 8px;color:#6b7280">—</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+            <tr style="color:#94a3b8"><td style="padding:4px 8px">15 mK</td><td style="padding:4px 8px;font-family:monospace">4.0984e-3</td><td style="padding:4px 8px">0.4090%</td><td style="padding:4px 8px;color:#6b7280">—</td><td style="padding:4px 8px;color:#6b7280">—</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:12px;color:#94a3b8;line-height:1.7">At 10 mK, the predicted performance is A = 2.2775e-3 — 0.66x better than current, but neither QEC nor FT thresholds are crossed at this temperature for this architecture.</div>
+      </div>
+
+      <!-- Substrate Change Scenario -->
+      <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:14px;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Substrate / Material Change Scenario</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+          <div style="background:#060b10;border:1px solid #374151;border-radius:3px;padding:10px 12px">
+            <div style="font-size:10px;color:#6b7280;font-weight:600;margin-bottom:6px">CURRENT STATE</div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Substrate</span><span style="color:#e2e8f0;font-family:monospace">SC Transmon — CZ gates (Google)</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">A-floor</span><span style="color:#e2e8f0;font-family:monospace">1.0e-3</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Wall proximity</span><span style="color:#e2e8f0">1.5x</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Wall concern</span><span style="color:#ef4444;font-weight:700">STALL</span></div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e2a1e;border-radius:3px;padding:10px 12px">
+            <div style="font-size:10px;color:#ff8c5a;font-weight:600;margin-bottom:6px">AFTER SUBSTRATE CHANGE</div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Substrate</span><span style="color:#22c55e;font-family:monospace">Ba+ ion trap (laser motional)</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">A-floor</span><span style="color:#22c55e;font-family:monospace">1.0e-4</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Wall proximity</span><span style="color:#22c55e">15.01x (+13.5x)</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Wall concern</span><span style="color:#22c55e;font-weight:700">LOW</span></div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#94a3b8;line-height:1.7">
+          Switching to Ba+ ion trap (laser motional) drops the material floor from 1.0e-3 to 1.0e-4 — a 10x improvement. The gate error rate does not change — the current published A score is unchanged. What changes is the ceiling above the platform. Wall proximity goes from 1.5x to 15.01x, and the concern level shifts from STALL to LOW. The new material floor is below the FT target — meaning fault-tolerant operation is physically accessible on this substrate. Quantinuum H-series / Helios class.
+        </div>
+      </div>
+
+      <!-- Improvement Rate Scenario -->
+      <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:14px;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Improvement Rate Scenario</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+          <div style="background:#060b10;border:1px solid #374151;border-radius:3px;padding:10px 12px">
+            <div style="font-size:10px;color:#6b7280;font-weight:600;margin-bottom:6px">CURRENT PACE</div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Halving rate</span><span style="color:#e2e8f0">2.5 yr</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">QEC crossing</span><span style="color:#e2e8f0">2027</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">FT crossing</span><span style="color:#e2e8f0">2035</span></div>
+          </div>
+          <div style="background:#060b10;border:1px solid #1e2a1e;border-radius:3px;padding:10px 12px">
+            <div style="font-size:10px;color:#ff8c5a;font-weight:600;margin-bottom:6px">ACCELERATED PACE</div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">Halving rate</span><span style="color:#22c55e">1.35 yr</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">QEC crossing</span><span style="color:#22c55e">2026</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 0"><span style="color:#6b7280">FT crossing</span><span style="color:#22c55e">2030</span></div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#94a3b8;line-height:1.7">
+          Accelerating from a 2.5-year halving rate to 1.35 years pulls the QEC crossing 0.7 yr sooner (to 2026). The FT target is reached 4.5 yr sooner (to 2030). The halving rate is the one quantity in the IAMPerformance framework calibrated from observed engineering pace, not first principles.
+        </div>
+      </div>
+
+      <!-- Improvement Trajectory Table -->
+      <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:14px;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Improvement Trajectory</div>
+        <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:8px">
+          <thead><tr><th style="color:#ff8c5a;text-align:left;padding:4px 8px">Year</th><th style="color:#ff8c5a;text-align:left;padding:4px 8px">A Score</th><th style="color:#ff8c5a;text-align:left;padding:4px 8px">Milestone</th></tr></thead>
+          <tbody>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2025</td><td style="padding:4px 8px;font-family:monospace">1.5011e-3</td><td></td></tr>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2026</td><td style="padding:4px 8px;font-family:monospace">1.1376e-3</td><td></td></tr>
+            <tr style="color:#ff8c5a;font-weight:600"><td style="padding:4px 8px">2027</td><td style="padding:4px 8px;font-family:monospace">1.0000e-3</td><td style="padding:4px 8px;font-size:10px;color:#ff8c5a">← Material floor reached</td></tr>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2028</td><td style="padding:4px 8px;font-family:monospace">1.0000e-3</td><td></td></tr>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2029</td><td style="padding:4px 8px;font-family:monospace">1.0000e-3</td><td></td></tr>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2030</td><td style="padding:4px 8px;font-family:monospace">1.0000e-3</td><td></td></tr>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2031</td><td style="padding:4px 8px;font-family:monospace">1.0000e-3</td><td></td></tr>
+            <tr style="color:#6b7280"><td style="padding:4px 8px">2032–2040</td><td style="padding:4px 8px;font-family:monospace">1.0000e-3</td><td style="padding:4px 8px;font-size:10px;color:#4b5563">substrate change required</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:11px;color:#6b7280;margin-bottom:8px">Material floor reached: <strong style="color:#ff8c5a">2027</strong> — further improvement requires substrate change.</div>
+        <div style="font-size:12px;color:#94a3b8;line-height:1.7">Year-by-year projection at the 2.5-year halving rate. Milestones are QEC threshold crossing, FT target crossing, and material floor reached. Every milestone year is a specific falsifiable prediction — if the platform publishes data for that year, the prediction can be checked. The material floor year is the hard physical ceiling: once reached, engineering improvements stop and a substrate change is required to continue.</div>
+      </div>
+
+      <!-- Auto-Generated Predictions -->
+      <div style="background:#060b10;border:1px solid #1e293b;border-radius:4px;padding:14px;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;color:#ff8c5a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Auto-Generated Predictions</div>
+        <div style="font-size:11px;color:#6b7280;margin-bottom:12px;line-height:1.6">
+          These predictions are derived automatically from the inputs and the IAMPerformance framework. Each is dated, numbered, and specific — copy them directly into the next issue as falsifiable predictions. When the platform publishes new data, the record shows whether the prediction held.
+        </div>
+        <div style="background:#060b10;border:1px solid #1e293b;border-left:3px solid #ff6b35;border-radius:3px;padding:12px 14px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-family:monospace;font-size:11px;color:#ff8c5a;font-weight:700">IAM-DIAG-P001</span>
+            <span style="font-size:10px;color:#6b7280">2025-01-01</span>
+            <span style="font-size:10px;font-weight:700;color:#f59e0b;background:#1c1500;padding:2px 8px;border-radius:2px">PENDING</span>
+          </div>
+          <div style="font-size:12px;color:#e2e8f0;line-height:1.6;margin-bottom:6px">Google Willow has reached the material design ceiling on its current substrate. A &lt; 1.0e-03 is not achievable without a substrate change. Current A = 1.501e-03, floor = 1.0e-03, wall proximity = 1.50x.</div>
+          <div style="font-size:10px;color:#4b5563;line-height:1.5"><strong style="color:#6b7280">Basis:</strong> Wall status: STALL. A-floor for sc_cz class: 1.0e-03 (IAMPerformance-derived).</div>
+        </div>
+        <div style="background:#060b10;border:1px solid #1e293b;border-left:3px solid #ff6b35;border-radius:3px;padding:12px 14px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-family:monospace;font-size:11px;color:#ff8c5a;font-weight:700">IAM-DIAG-P002</span>
+            <span style="font-size:10px;color:#6b7280">2025-01-01</span>
+            <span style="font-size:10px;font-weight:700;color:#f59e0b;background:#1c1500;padding:2px 8px;border-radius:2px">PENDING</span>
+          </div>
+          <div style="font-size:12px;color:#e2e8f0;line-height:1.6;margin-bottom:6px">Google Willow will cross the QEC threshold (A &lt; 1e-03) around 2026 at the current improvement pace (2.5-year halving rate).</div>
+          <div style="font-size:10px;color:#4b5563;line-height:1.5"><strong style="color:#6b7280">Basis:</strong> Current A = 1.501e-03. QEC threshold = 1e-03. Years to QEC at current pace: 1.5.</div>
+        </div>
+        <div style="background:#060b10;border:1px solid #1e293b;border-left:3px solid #ff6b35;border-radius:3px;padding:12px 14px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-family:monospace;font-size:11px;color:#ff8c5a;font-weight:700">IAM-DIAG-P003</span>
+            <span style="font-size:10px;color:#6b7280">2025-01-01</span>
+            <span style="font-size:10px;font-weight:700;color:#f59e0b;background:#1c1500;padding:2px 8px;border-radius:2px">PENDING</span>
+          </div>
+          <div style="font-size:12px;color:#e2e8f0;line-height:1.6;margin-bottom:6px">Google Willow will reach the fault-tolerance target (A &lt; 1e-4) around 2035 at the current pace.</div>
+          <div style="font-size:10px;color:#4b5563;line-height:1.5"><strong style="color:#6b7280">Basis:</strong> Current A = 1.501e-03. Years to FT: 9.8. Halving rate: 2.5 yr.</div>
+        </div>
+        <div style="background:#060b10;border:1px solid #1e293b;border-left:3px solid #ff6b35;border-radius:3px;padding:12px 14px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-family:monospace;font-size:11px;color:#ff8c5a;font-weight:700">IAM-DIAG-P004</span>
+            <span style="font-size:10px;color:#6b7280">2025-01-01</span>
+            <span style="font-size:10px;font-weight:700;color:#f59e0b;background:#1c1500;padding:2px 8px;border-radius:2px">PENDING</span>
+          </div>
+          <div style="font-size:12px;color:#e2e8f0;line-height:1.6;margin-bottom:6px">Google Willow shows a gate error regression from Google (2.000e-04 → 1.500e-03). This is consistent with the platform operating past its material ceiling — more connectivity pushed TLS coupling up, not down.</div>
+          <div style="font-size:10px;color:#4b5563;line-height:1.5"><strong style="color:#6b7280">Basis:</strong> Prior p(2Q) = 2.000e-04. Current p(2Q) = 1.500e-03. Regression = 650.0% worse.</div>
+        </div>
+        <!-- Punchline -->
+        <div style="background:#0a0f05;border:1px solid #1e2a1e;border-left:3px solid #22c55e;border-radius:4px;padding:12px 16px;margin-top:14px;font-size:13px;color:#e2e8f0;line-height:1.6;font-style:italic">
+          <strong style="color:#22c55e;font-style:normal">IAMPerformance read:</strong> The combined scenario shows what is physically achievable if this platform pulls every available lever simultaneously. No production team currently does this — which means there is unrealized upside in the existing architecture if the engineering investment is made.
+        </div>
+      </div>
+
+    </div><!-- end diagnostic output -->
+  </div>
+
+
+  <!-- ── THRESHOLD PROXIMITY ── -->
+  <div class="panel-section" style="border-top:2px solid #22c55e;background:var(--surface)">
+    <h3 style="color:#22c55e;margin-bottom:4px">🎯 Error Correction Threshold Proximity</h3>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;line-height:1.6">
+      Every active platform ranked by distance to its architecture-specific QEC threshold and fault-tolerance target.
+      The left bar shows current A score. Wall concern tells you whether the platform can get there on its current substrate.
+    </div>
+    <canvas id="proximity-chart" height="360" style="margin-bottom:16px"></canvas>
+    <table style="width:100%;border-collapse:collapse;font-size:11px">
+      <thead><tr style="border-bottom:1px solid #1e293b">
+        <th style="text-align:left;padding:6px 8px;color:#ff8c5a;font-size:10px;letter-spacing:.06em">PLATFORM</th>
+        <th style="text-align:left;padding:6px 8px;color:#ff8c5a;font-size:10px;letter-spacing:.06em">A SCORE</th>
+        <th style="text-align:left;padding:6px 8px;color:#ff8c5a;font-size:10px;letter-spacing:.06em">TO QEC</th>
+        <th style="text-align:left;padding:6px 8px;color:#ff8c5a;font-size:10px;letter-spacing:.06em">TO FT</th>
+        <th style="text-align:left;padding:6px 8px;color:#ff8c5a;font-size:10px;letter-spacing:.06em">WALL</th>
+        <th style="text-align:left;padding:6px 8px;color:#ff8c5a;font-size:10px;letter-spacing:.06em">ARCHITECTURE</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">Oxford Ionics EQC (2025)</td><td style="padding:6px 8px;font-family:monospace;color:#22c55e">8.400e-05</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">CROSSED</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">CROSSED</td><td style="padding:6px 8px;color:#38bdf8;font-weight:700">MEDIUM</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Ion Trap Class B (Oxford Ionics)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117;background:rgba(0,201,177,.04)"><td style="padding:6px 8px;color:#00e5cc;font-size:11px;font-weight:700">Quantinuum Helios 98Q (2025)</td><td style="padding:6px 8px;font-family:monospace;color:#00e5cc">7.903e-04</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">CROSSED</td><td style="padding:6px 8px;color:#f59e0b">2.7 yr</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Ion Trap Class A (Quantinuum, IonQ)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">Google Willow 105Q (2024)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">1.501e-03</td><td style="padding:6px 8px;color:#f59e0b">0.9 yr</td><td style="padding:6px 8px;color:#94a3b8">5.9 yr</td><td style="padding:6px 8px;color:#ef4444;font-weight:700">STALL</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">SC Transmon — CZ gates (Google)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">Quantinuum H2 56Q (2024)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">2.002e-03</td><td style="padding:6px 8px;color:#f59e0b">0.9 yr</td><td style="padding:6px 8px;color:#94a3b8">3.9 yr</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Ion Trap Class A (Quantinuum, IonQ)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">IBM Nighthawk 120Q (2026)</td><td style="padding:6px 8px;font-family:monospace;color:#ef4444">2.152e-03</td><td style="padding:6px 8px;color:#f59e0b">2.0 yr</td><td style="padding:6px 8px;color:#94a3b8">8.0 yr</td><td style="padding:6px 8px;color:#f59e0b;font-weight:700">HIGH</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">SC Transmon — ECR gates (IBM, Rigetti)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">IBM Eagle 127Q (2022)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">2.974e-03</td><td style="padding:6px 8px;color:#f59e0b">2.8 yr</td><td style="padding:6px 8px;color:#94a3b8">8.8 yr</td><td style="padding:6px 8px;color:#38bdf8;font-weight:700">MEDIUM</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">SC Transmon — ECR gates (IBM, Rigetti)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">QuEra Gemini 3000Q (2025)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">3.004e-03</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">CROSSED</td><td style="padding:6px 8px;color:#94a3b8">20.1 yr</td><td style="padding:6px 8px;color:#ef4444;font-weight:700">STALL</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Neutral Atom / Rydberg (QuEra)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">IonQ Forte 36Q (2023)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">4.309e-03</td><td style="padding:6px 8px;color:#f59e0b">1.9 yr</td><td style="padding:6px 8px;color:#94a3b8">4.9 yr</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Ion Trap Class A (Quantinuum, IonQ)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">QuEra Aquila 256Q (2023)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">5.012e-03</td><td style="padding:6px 8px;color:#22c55e">0.0 yr</td><td style="padding:6px 8px;color:#94a3b8">23.2 yr</td><td style="padding:6px 8px;color:#ef4444;font-weight:700">STALL</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Neutral Atom / Rydberg (QuEra)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">Google Sycamore 53Q (2019)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">6.219e-03</td><td style="padding:6px 8px;color:#94a3b8">4.0 yr</td><td style="padding:6px 8px;color:#94a3b8">8.9 yr</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">SC Transmon — CZ gates (Google)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">Rigetti Ankaa-3 84Q (2024)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">7.025e-03</td><td style="padding:6px 8px;color:#94a3b8">5.1 yr</td><td style="padding:6px 8px;color:#94a3b8">11.0 yr</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">SC Transmon — ECR gates (IBM, Rigetti)</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">IBM Heron R2 156Q (2024)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">7.599e-03</td><td style="padding:6px 8px;color:#94a3b8">5.3 yr</td><td style="padding:6px 8px;color:#94a3b8">11.2 yr</td><td style="padding:6px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">SC Transmon — ECR gates (IBM, Rigetti)</td></tr>
+        <tr><td style="padding:6px 8px;color:#e2e8f0;font-size:11px">QuEra Gemini 260Q (2025)</td><td style="padding:6px 8px;font-family:monospace;color:#38bdf8">8.032e-03</td><td style="padding:6px 8px;color:#94a3b8">2.8 yr</td><td style="padding:6px 8px;color:#94a3b8">25.9 yr</td><td style="padding:6px 8px;color:#f59e0b;font-weight:700">HIGH</td><td style="padding:6px 8px;font-size:10px;color:#6b7280">Neutral Atom / Rydberg (QuEra)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── TEMPERATURE SWEEP ── -->
+  <div class="panel-section" style="border-top:2px solid #38bdf8">
+    <h3 style="color:#38bdf8;margin-bottom:4px">🌡 Temperature Sweep — A(T) Comparison</h3>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;line-height:1.6">
+      How does performance change as temperature drops? The curve shows predicted A score at every temperature. Threshold crossing points are marked automatically. The architecture parameter n governs the slope.
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
+      <div style="background:#0a0f14;border:1px solid #1e293b;border-left:3px solid #38bdf8;border-radius:4px;padding:12px">
+        <div style="font-size:10px;font-weight:700;color:#38bdf8;letter-spacing:.06em;margin-bottom:10px">PLATFORM A</div>
+        <div style="margin-bottom:6px"><label>Architecture class</label><select style="pointer-events:none;opacity:.85"><option>SC Transmon — ECR gates (IBM, Rigetti)</option></select></div>
+        <div style="margin-bottom:6px"><label>p(2Q) gate error rate</label><input type="text" value="0.00215" readonly></div>
+        <div style="margin-bottom:6px"><label>Operating temperature (mK)</label><input type="text" value="15" readonly></div>
+        <div><label>Platform name</label><input type="text" value="IBM Nighthawk 120Q" readonly></div>
+      </div>
+      <div style="background:#0a0f14;border:1px solid #1e293b;border-left:3px solid #f59e0b;border-radius:4px;padding:12px">
+        <div style="font-size:10px;font-weight:700;color:#f59e0b;letter-spacing:.06em;margin-bottom:10px">PLATFORM B</div>
+        <div style="margin-bottom:6px"><label>Architecture class</label><select style="pointer-events:none;opacity:.85"><option>SC Transmon — CZ gates (Google)</option></select></div>
+        <div style="margin-bottom:6px"><label>p(2Q) gate error rate</label><input type="text" value="0.0015" readonly></div>
+        <div style="margin-bottom:6px"><label>Operating temperature (mK)</label><input type="text" value="15" readonly></div>
+        <div><label>Platform name</label><input type="text" value="Google Willow" readonly></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px">
+      <div><label>Min temperature (mK)</label><input type="text" value="1" readonly></div>
+      <div><label>Max temperature (mK)</label><input type="text" value="25" readonly></div>
+    </div>
+
+    <!-- Crossing callouts -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:#0a0f14;border:1px solid #38bdf8;border-radius:4px;padding:12px">
+        <div style="font-size:11px;font-weight:600;color:#38bdf8;margin-bottom:8px">IBM Nighthawk 120Q</div>
+        <div style="font-size:11px;color:#94a3b8;margin-bottom:4px">n = 1.189 · high cooling sensitivity</div>
+        <div style="font-size:11px;color:#22c55e">QEC crossed at <strong>7.94 mK</strong></div>
+        <div style="font-size:11px;color:#22c55e">FT crossed at <strong>1.15 mK</strong></div>
+      </div>
+      <div style="background:#0a0f14;border:1px solid #f59e0b;border-radius:4px;padding:12px">
+        <div style="font-size:11px;font-weight:600;color:#f59e0b;margin-bottom:8px">Google Willow</div>
+        <div style="font-size:11px;color:#94a3b8;margin-bottom:4px">n = 1.449 · high cooling sensitivity</div>
+        <div style="font-size:11px;color:#6b7280">QEC not crossed in range</div>
+        <div style="font-size:11px;color:#6b7280">FT not crossed in range</div>
+      </div>
+    </div>
+
+    <canvas id="tempsweep-chart" height="300" style="margin-bottom:14px"></canvas>
+
+    <div style="font-size:12px;color:#94a3b8;line-height:1.7;border-top:1px solid #1e293b;padding-top:10px">
+      IBM Nighthawk 120Q has moderate temperature sensitivity (n = 1.189). The QEC threshold is crossed at <strong style="color:#22c55e">7.94 mK</strong> for IBM Nighthawk 120Q. That is a specific falsifiable prediction: cool this hardware to that temperature and error correction becomes viable without a new processor generation.
+    </div>
+  </div>
+  <!-- ── SUBSTRATE RUNWAY ── -->
+  <div class="panel-section" style="border-top:2px solid #a78bfa">
+    <h3 style="color:#a78bfa;margin-bottom:4px">🧱 Substrate Runway — How Much Headroom Remains?</h3>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;line-height:1.6">
+      Every platform positioned relative to its material A-floor. The gap is the remaining engineering runway.
+      All A-floor values are IAMPerformance-derived from first principles, not published by manufacturers.
+      <span style="color:#ef4444">Red = STALL</span> · <span style="color:#f59e0b">Amber = HIGH</span> · <span style="color:#22c55e">Green = LOW</span>
+    </div>
+    <canvas id="runway-chart" height="360" style="margin-bottom:16px"></canvas>
+    <table style="width:100%;border-collapse:collapse;font-size:11px">
+      <thead><tr style="border-bottom:1px solid #1e293b;background:var(--surface)">
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">PLATFORM</th>
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">SUBSTRATE</th>
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">CURRENT A</th>
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">A-FLOOR</th>
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">WALL RATIO</th>
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">CONCERN</th>
+        <th style="padding:6px 8px;text-align:left;color:#ff8c5a;font-size:10px">HEADROOM</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">QuEra Gemini 3000Q (2025)</td><td style="padding:5px 8px;color:#6b7280">Rb neutral atom</td><td style="padding:5px 8px;font-family:monospace">3.004e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">5.0e-3</td><td style="padding:5px 8px">0.60x</td><td style="padding:5px 8px;color:#ef4444;font-weight:700">STALL</td><td style="padding:5px 8px;color:#ef4444">AT FLOOR</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">QuEra Aquila 256Q (2023)</td><td style="padding:5px 8px;color:#6b7280">Rb neutral atom</td><td style="padding:5px 8px;font-family:monospace">5.012e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">5.0e-3</td><td style="padding:5px 8px">1.00x</td><td style="padding:5px 8px;color:#ef4444;font-weight:700">STALL</td><td style="padding:5px 8px;color:#ef4444">AT FLOOR</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">Google Willow 105Q (2024)</td><td style="padding:5px 8px;color:#6b7280">Al/AlOx + PR eng</td><td style="padding:5px 8px;font-family:monospace">1.501e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-3</td><td style="padding:5px 8px">1.50x</td><td style="padding:5px 8px;color:#ef4444;font-weight:700">STALL</td><td style="padding:5px 8px;color:#ef4444">0.50x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">QuEra Gemini 260Q (2025)</td><td style="padding:5px 8px;color:#6b7280">Rb neutral atom</td><td style="padding:5px 8px;font-family:monospace">8.032e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">5.0e-3</td><td style="padding:5px 8px">1.61x</td><td style="padding:5px 8px;color:#f59e0b;font-weight:700">HIGH</td><td style="padding:5px 8px;color:#f59e0b">0.61x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">IBM Nighthawk 120Q (2026)</td><td style="padding:5px 8px;color:#6b7280">Nb+AlOx</td><td style="padding:5px 8px;font-family:monospace;color:#ef4444">2.152e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-3</td><td style="padding:5px 8px">2.15x</td><td style="padding:5px 8px;color:#f59e0b;font-weight:700">HIGH</td><td style="padding:5px 8px;color:#f59e0b">1.15x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">Oxford Ionics EQC (2025)</td><td style="padding:5px 8px;color:#6b7280">Ca+ EQC</td><td style="padding:5px 8px;font-family:monospace;color:#22c55e">8.400e-5</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">3.0e-5</td><td style="padding:5px 8px">2.80x</td><td style="padding:5px 8px;color:#38bdf8;font-weight:700">MEDIUM</td><td style="padding:5px 8px;color:#38bdf8">1.80x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">IBM Eagle 127Q (2022)</td><td style="padding:5px 8px;color:#6b7280">Nb+AlOx</td><td style="padding:5px 8px;font-family:monospace">2.974e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-3</td><td style="padding:5px 8px">2.97x</td><td style="padding:5px 8px;color:#38bdf8;font-weight:700">MEDIUM</td><td style="padding:5px 8px;color:#38bdf8">1.97x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">Google Sycamore 53Q (2019)</td><td style="padding:5px 8px;color:#6b7280">Al/AlOx + PR eng</td><td style="padding:5px 8px;font-family:monospace">6.219e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-3</td><td style="padding:5px 8px">6.22x</td><td style="padding:5px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:5px 8px;color:#22c55e">5.22x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">Rigetti Ankaa-3 84Q (2024)</td><td style="padding:5px 8px;color:#6b7280">Nb+AlOx</td><td style="padding:5px 8px;font-family:monospace">7.025e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-3</td><td style="padding:5px 8px">7.02x</td><td style="padding:5px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:5px 8px;color:#22c55e">6.02x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">IBM Heron R2 156Q (2024)</td><td style="padding:5px 8px;color:#6b7280">Nb+AlOx</td><td style="padding:5px 8px;font-family:monospace">7.599e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-3</td><td style="padding:5px 8px">7.60x</td><td style="padding:5px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:5px 8px;color:#22c55e">6.60x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117;background:rgba(0,201,177,.04)"><td style="padding:5px 8px;color:#00e5cc;font-weight:700">Quantinuum Helios 98Q (2025)</td><td style="padding:5px 8px;color:#6b7280">Ba+ ion trap</td><td style="padding:5px 8px;font-family:monospace;color:#00e5cc">7.903e-4</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-4</td><td style="padding:5px 8px">7.90x</td><td style="padding:5px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:5px 8px;color:#22c55e">6.90x above</td></tr>
+        <tr style="border-bottom:1px solid #0d1117"><td style="padding:5px 8px">Quantinuum H2 56Q (2024)</td><td style="padding:5px 8px;color:#6b7280">Ba+ ion trap</td><td style="padding:5px 8px;font-family:monospace">2.002e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-4</td><td style="padding:5px 8px">20.02x</td><td style="padding:5px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:5px 8px;color:#22c55e">19.02x above</td></tr>
+        <tr><td style="padding:5px 8px">IonQ Forte 36Q (2023)</td><td style="padding:5px 8px;color:#6b7280">Ba+ ion trap</td><td style="padding:5px 8px;font-family:monospace">4.309e-3</td><td style="padding:5px 8px;font-family:monospace;color:#6b7280">1.0e-4</td><td style="padding:5px 8px">43.09x</td><td style="padding:5px 8px;color:#22c55e;font-weight:700">LOW</td><td style="padding:5px 8px;color:#22c55e">42.09x above</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="text-align:center;padding:32px;font-size:11px;color:var(--muted);font-family:var(--mono);line-height:1.8;border-top:1px solid var(--border);max-width:1100px;margin:0 auto">
+    Informational Actualization Model v2.1 · Mahaffey (2026)<br>
+    Methodology protected under Patent Applications 64/012,720 and 64/014,568<br>
+    All inputs from publicly available published sources.
+  </div>
+
+</div><!-- end pane2 -->
+
+</div><!-- end content -->
+
+<script>
+// ── TAB SWITCHING ──
+function sw(n) {
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pane'+n).classList.add('active');
+  document.getElementById('tab'+n).classList.add('active');
+  // Tab 1: body scroll locked (panels scroll internally)
+  // Tab 2: body scrolls normally
+  document.body.style.overflowY = n===1 ? 'hidden' : 'auto';
+  window.scrollTo(0,0);
+  if(n===2 && !window._t2built){ buildT2Charts(); window._t2built=true; }
+}
+
+function toggleSci() {
+  const p = document.getElementById('sci-panel');
+  const btn = document.getElementById('sci-toggle-btn');
+  const open = p.classList.toggle('open');
+  if(btn) btn.textContent = (open ? '▾' : '▸') + ' IAM Technical Data Summary — for technical review';
+}
+
+// ── CHART DEFAULTS ──
+Chart.defaults.color='#5A7A8A';
+Chart.defaults.font.family="'JetBrains Mono', monospace";
+Chart.defaults.font.size=11;
+
+// ── TAB 1 CHARTS ──
+const RANK_LABELS=['EQC','Helios','Willow','H2 56Q','Nighthawk','Forte','Gemini 3000','Ankaa-3','Heron R2','Gemini 260'];
+const RANK_A=[8.4e-5,7.903e-4,1.501e-3,2.002e-3,2.152e-3,3.005e-3,3.005e-3,7.025e-3,7.599e-3,8.032e-3];
+
+// White boardroom chart defaults (matching live engine)
+const IAM_TURQ='#00BCD4', IAM_DARK='#00838F', GRAY_BAR='#B0BEC5';
+const QEC_CLR='#E65100', FT_CLR='#2E7D32';
+const CHART_FONT="'Inter','Segoe UI',Arial,sans-serif";
+
+// Tab 1 ranking chart uses per-platform colors (same as Tab 2) — visible on dark bg
+const RANK_COLS=RANK_LABELS.map((name,i)=>{
+  const colorMap={'EQC':'#1b5e20','Helios':'#2e7d32','Willow':'#e65100',
+    'H2 56Q':'#66bb6a','Nighthawk':'#1565c0','Forte':'#c2185b',
+    'Gemini 3000':'#6a1b9a','Ankaa-3':'#78909c','Heron R2':'#42a5f5','Gemini 260':'#ce93d8'};
+  return colorMap[name] || '#7d8590';
+});
+
+new Chart(document.getElementById('chart-ranking'),{
+  type:'bar',
+  data:{
+    labels:RANK_LABELS,
+    datasets:[{
+      label:'_bars',
+      data:RANK_A,
+      backgroundColor:RANK_COLS,
+      borderColor:RANK_COLS,
+      borderWidth:0,
+      borderRadius:3,
+      barThickness:18,
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    plugins:{
+      legend:{display:false},
+      title:{display:true,text:'IAM Competitive Index — A Score (lower = better)',
+        color:'#7a9ab8',font:{size:12,family:"'Inter',sans-serif"}}
+    },
+    scales:{
+      x:{type:'logarithmic',
+        ticks:{callback:v=>{const s=v.toExponential(0);return ['1e-5','1e-4','1e-3','1e-2'].includes(s)?s:'';},
+          color:'#6b7280',font:{size:9}},
+        grid:{color:'rgba(255,255,255,0.05)'}},
+      y:{grid:{color:'rgba(255,255,255,0.05)'},
+        ticks:{color:'#dde5ee',font:{size:10}}}
+    }
+  }
+});
+
+// Cooling comparison — white boardroom style
+new Chart(document.getElementById('chart-cooling'),{
+  type:'bar',
+  data:{
+    labels:['0.5 mK (halved)','1.0 mK (current)'],
+    datasets:[{
+      label:'_bars',
+      data:[5.17e-4,7.9e-4],
+      backgroundColor:['#2e7d32','#00C9B1'],
+      borderColor:['#2e7d32','#00C9B1'],
+      borderWidth:0,borderRadius:4
+    }]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{display:false},
+      title:{display:true,text:'Quantinuum Helios 98Q — Cooling 1mK → 0.5 mK',
+        color:'#7a9ab8',font:{size:12}}
+    },
+    scales:{
+      y:{type:'logarithmic',
+        ticks:{callback:v=>v.toExponential(0),color:'#6b7280'},
+        grid:{color:'rgba(255,255,255,0.05)'},
+        title:{display:true,text:'IAM A Score',color:'#6b7280'}},
+      x:{ticks:{color:'#dde5ee'},grid:{display:false}}
+    }
+  }
+});
+
+// Thermal curve
+const thermalT=[0.1,0.25,0.5,0.75,1.0,1.25,1.5,2.0,3.0,5.0,8.0,10.0,15.0,20.0,30.0,50.0,100.0,200.0,300.0];
+const thermalA=thermalT.map(T=>7.9031e-4*Math.pow(T/1.0,0.612));
+new Chart(document.getElementById('chart-thermal'),{
+  type:'line',
+  data:{
+    labels:thermalT.map(t=>t+'mK'),
+    datasets:[
+      {label:'Quantinuum Helios 98Q',data:thermalA,borderColor:'#00C9B1',
+        backgroundColor:'rgba(0,188,212,.08)',tension:.4,pointRadius:0,fill:true,borderWidth:2},
+      {label:'Error correction threshold (1e-3)',data:thermalT.map(()=>1e-3),
+        borderColor:'#E65100',borderDash:[5,3],pointRadius:0,borderWidth:1.5},
+      {label:'Fault tolerance target (1e-4)',data:thermalT.map(()=>1e-4),
+        borderColor:'#2E7D32',borderDash:[5,3],pointRadius:0,borderWidth:1.5}
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      title:{display:true,text:'Quantinuum Helios 98Q — Full Temperature Curve',
+        color:'#7a9ab8',font:{size:12}},
+      legend:{labels:{color:'#94a3b8',font:{size:10}}}
+    },
+    scales:{
+      y:{type:'logarithmic',
+        ticks:{callback:v=>v.toExponential(0),color:'#6b7280'},
+        grid:{color:'rgba(255,255,255,0.05)'},
+        title:{display:true,text:'IAM Performance Metric (A)',color:'#6b7280'}},
+      x:{ticks:{color:'#6b7280',font:{size:9},maxTicksLimit:10},
+        grid:{color:'rgba(255,255,255,0.05)'},
+        title:{display:true,text:'Operating Temperature (mK)',color:'#6b7280'}}
+    }
+  }
+});
+
+// Trajectory
+const trajYears=[2026,2027,2028,2029,2031,2036];
+const trajA=[7.9031e-4,3.1364e-4,1.2447e-4,4.9395e-5,7.779e-6,7.657e-8];
+new Chart(document.getElementById('chart-trajectory'),{
+  type:'line',
+  data:{
+    labels:trajYears,
+    datasets:[
+      {label:'Quantinuum Helios 98Q',data:trajA,borderColor:'#00C9B1',
+        backgroundColor:'rgba(0,188,212,.08)',tension:.3,pointRadius:4,
+        pointBackgroundColor:'#00C9B1',fill:true,borderWidth:2},
+      {label:'Google Willow',data:trajYears.map((_,i)=>1.501e-3*(0.5)**(i/3.3)),
+        borderColor:'#e65100',borderDash:[3,3],pointRadius:0,borderWidth:1},
+      {label:'IBM Nighthawk',data:trajYears.map(()=>2.152e-3),
+        borderColor:'#1565c0',borderDash:[3,3],pointRadius:0,borderWidth:1},
+      {label:'FT target (1e-4)',data:trajYears.map(()=>1e-4),
+        borderColor:'#2e7d32',borderDash:[6,3],pointRadius:0,borderWidth:1.5},
+      {label:'QEC threshold (1e-3)',data:trajYears.map(()=>1e-3),
+        borderColor:'#E65100',borderDash:[6,3],pointRadius:0,borderWidth:1}
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      title:{display:true,text:'Quantinuum Helios 98Q — Projected Trajectory vs Field',
+        color:'#7a9ab8',font:{size:12}},
+      legend:{labels:{color:'#94a3b8',font:{size:10}}}
+    },
+    scales:{
+      y:{type:'logarithmic',
+        ticks:{callback:v=>v.toExponential(0),color:'#6b7280'},
+        grid:{color:'rgba(255,255,255,0.05)'},
+        title:{display:true,text:'IAM A Score',color:'#6b7280'}},
+      x:{ticks:{color:'#6b7280'},
+        grid:{color:'rgba(255,255,255,0.05)'}}
+    }
+  }
+});
+
+// ── TAB 2 CHARTS — built immediately on load since pane2 panels are always visible ──
+function buildT2Charts() {
+
+  // ── Ranking — per-platform colors matching live engine ──
+  const t2PlatNames=['Oxford Ionics EQC','Quantinuum Helios','Google Willow','Quantinuum H2',
+    'IBM Nighthawk','IonQ Forte','QuEra Gemini 3000','Rigetti Ankaa-3','IBM Heron R2','QuEra Gemini 260'];
+  const t2PlatA=[8.4e-5,7.9e-4,1.501e-3,2.002e-3,2.152e-3,3.005e-3,3.005e-3,7.025e-3,7.599e-3,8.032e-3];
+  const t2PlatColors=['#1b5e20','#2e7d32','#e65100','#66bb6a','#1565c0',
+    '#c2185b','#6a1b9a','#78909c','#42a5f5','#ce93d8'];
+  new Chart(document.getElementById('t2-chart-ranking'),{
+    type:'bar',
+    data:{labels:t2PlatNames,
+      datasets:[{label:'Performance Score A',data:t2PlatA,
+        backgroundColor:t2PlatColors,borderColor:t2PlatColors,borderWidth:1}]},
+    options:{indexAxis:'y',responsive:true,
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>' A = '+ctx.raw.toExponential(3)}},
+        title:{display:false}},
+      scales:{
+        x:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},
+          ticks:{callback:v=>v.toExponential(1),color:'#7d8590',font:{size:9}},
+          title:{display:true,text:'Performance Score A (lower = better)',color:'#7d8590',font:{size:10}}},
+        y:{grid:{color:'rgba(255,255,255,0.05)'},
+          ticks:{color:'#dde5ee',font:{size:9}}}}}
+  });
+
+  // ── Trajectory — dark style matching live engine ──
+  const t2Years=[2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
+  const t2NH=t2Years.map(yr=>2.152e-3*Math.pow(0.5,(yr-2026)/1.8));
+  new Chart(document.getElementById('t2-chart-traj'),{
+    type:'line',
+    data:{labels:t2Years,
+      datasets:[
+        {label:'IBM Nighthawk',data:t2NH,borderColor:'#00C9B1',
+          backgroundColor:'rgba(0,201,177,0.1)',borderWidth:2,pointRadius:3,fill:false},
+        {label:'QEC threshold',data:t2Years.map(()=>1e-3),
+          borderColor:'#f85149',borderWidth:1,borderDash:[6,4],pointRadius:0,fill:false}
+      ]},
+    options:{responsive:true,
+      plugins:{legend:{labels:{color:'#7d8590',font:{size:10}}},
+        tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw.toExponential(3)}}},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#7d8590',font:{size:9}}},
+        y:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},
+          ticks:{callback:v=>v.toExponential(1),color:'#7d8590',font:{size:9}},
+          title:{display:true,text:'Score A (log scale)',color:'#7d8590',font:{size:10}}}}}
+  });
+
+  // ── Reverse solver trajectory chart ──
+  const revYears=[2026,2027,2028,2029,2030];
+  const revOwn=revYears.map(yr=>2.152e-3*Math.pow(0.5,(yr-2026)/1.8));
+  const revHel=revYears.map(yr=>7.9e-4*Math.pow(0.5,(yr-2026)/0.9));
+  const revReq=revYears.map(()=>1.52e-4);
+  if(document.getElementById('rev-chart')){
+    new Chart(document.getElementById('rev-chart'),{
+      type:'line',
+      data:{labels:revYears,datasets:[
+        {label:'Your Platform',data:revOwn,borderColor:'#00C9B1',borderWidth:2,pointRadius:3,fill:false},
+        {label:'Quantinuum Helios 98Q',data:revHel,borderColor:'#f85149',borderWidth:2,pointRadius:3,fill:false},
+        {label:'Required Score',data:revReq,borderColor:'#d29922',borderWidth:1,borderDash:[6,4],pointRadius:0,fill:false}
+      ]},
+      options:{responsive:true,
+        plugins:{legend:{labels:{color:'#7d8590',font:{size:10}}}},
+        scales:{
+          x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#7d8590',font:{size:9}}},
+          y:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},
+            ticks:{callback:v=>v.toExponential(1),color:'#7d8590',font:{size:9}},
+            title:{display:true,text:'Score A (lower = better)',color:'#7d8590',font:{size:10}}}}}
+    });
+  }
+
+  // ── Portfolio chart — colored boxes matching live ──
+  new Chart(document.getElementById('portfolio-chart'),{
+    type:'bar',
+    data:{
+      labels:['willow','Quantinuum'],
+      datasets:[{
+        label:'Performance Score A',
+        data:[2.002e-3,2.002e-3],
+        backgroundColor:['#1565c0','#2e7d32'],
+        borderColor:['#1565c0','#2e7d32'],
+        borderWidth:1
+      }]
+    },
+    options:{responsive:true,
+      plugins:{legend:{display:false},
+        title:{display:false}},
+      scales:{
+        y:{type:'logarithmic',grid:{color:'rgba(255,255,255,0.05)'},
+          ticks:{callback:v=>v.toExponential(1),color:'#7d8590',font:{size:9}}},
+        x:{grid:{display:false},ticks:{color:'#dde5ee',font:{size:11}}}}}
+  });
+
+  // ── Threshold Proximity — 13 platforms with per-arch colors ──
+  const proxNames13=['Oxford Ionics EQC','Helios 98Q','Willow 105Q','H2 56Q','Nighthawk','Eagle 127Q',
+    'Gemini 3000Q','Forte 36Q','Aquila 256Q','Sycamore 53Q','Ankaa-3','Heron R2','Gemini 260Q'];
+  const proxA13=[8.4e-5,7.903e-4,1.501e-3,2.002e-3,2.152e-3,2.974e-3,
+    3.004e-3,4.309e-3,5.012e-3,6.219e-3,7.025e-3,7.599e-3,8.032e-3];
+  const proxColors13=['#1b5e20','#2e7d32','#e65100','#66bb6a','#1565c0','#42a5f5',
+    '#6a1b9a','#c2185b','#ab47bc','#ff8f00','#78909c','#1976d2','#ce93d8'];
+  new Chart(document.getElementById('proximity-chart'),{
+    type:'bar',
+    data:{labels:proxNames13,datasets:[{label:'A Score',data:proxA13,
+      backgroundColor:proxColors13,borderColor:proxColors13,borderWidth:1}]},
+    options:{indexAxis:'y',responsive:true,
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>' A = '+ctx.raw.toExponential(4)}}},
+      scales:{
+        x:{type:'logarithmic',min:1e-5,max:2e-2,
+          ticks:{callback:v=>{const s=v.toExponential(0);return ['1e-5','1e-4','1e-3','1e-2'].includes(s)?s:'';},color:'#6b7280',font:{size:9}},
+          grid:{color:'rgba(255,255,255,0.04)'},
+          title:{display:true,text:'Performance Score A (lower = better)',color:'#6b7280',font:{size:10}}},
+        y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#dde5ee',font:{size:9}}}}}
+  });
+
+  // ── Temperature Sweep — Nighthawk vs Willow, 1-25 mK ──
+  const tsT=[1,2,3,5,7,7.94,10,11,15,17.5,20,22.5,25];
+  const tsNHa=tsT.map(T=>2.1523e-3*Math.pow(T/15,1.189));
+  const tsWa=tsT.map(T=>1.5011e-3*Math.pow(T/15,1.449));
+  if(document.getElementById('tempsweep-chart')){
+    new Chart(document.getElementById('tempsweep-chart'),{
+      type:'line',
+      data:{labels:tsT.map(t=>t+'mK'),datasets:[
+        {label:'IBM Nighthawk 120Q (n=1.189)',data:tsNHa,borderColor:'#38bdf8',
+          backgroundColor:'rgba(56,189,248,.08)',tension:.4,pointRadius:2,fill:true,borderWidth:2},
+        {label:'Google Willow (n=1.449)',data:tsWa,borderColor:'#f59e0b',
+          backgroundColor:'rgba(245,158,11,.06)',tension:.4,pointRadius:2,fill:true,borderWidth:2},
+        {label:'QEC 1e-3',data:tsT.map(()=>1e-3),borderColor:'#f59e0b',
+          borderDash:[5,3],pointRadius:0,borderWidth:1},
+        {label:'FT 1e-4',data:tsT.map(()=>1e-4),borderColor:'#22c55e',
+          borderDash:[5,3],pointRadius:0,borderWidth:1}
+      ]},
+      options:{responsive:true,
+        plugins:{title:{display:true,text:'A(T) = A_ref × (T/T_ref)^n — Nighthawk (blue) vs Willow (amber), 1–25 mK',color:'#7a9ab8',font:{size:11}}},
+        scales:{
+          y:{type:'logarithmic',ticks:{callback:v=>v.toExponential(0),color:'#6b7280'},
+            grid:{color:'rgba(255,255,255,0.05)'},
+            title:{display:true,text:'A Score',color:'#6b7280',font:{size:10}}},
+          x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#6b7280',font:{size:9}},
+            title:{display:true,text:'Temperature (mK)',color:'#6b7280',font:{size:10}}}}}
+    });
+  }
+
+  // ── Substrate Runway — 13 platforms, sorted by wall ratio ascending ──
+  const rw13Names=['Gemini 3000Q','Aquila 256Q','Willow 105Q','Gemini 260Q','Nighthawk',
+    'EQC','Eagle 127Q','Sycamore 53Q','Ankaa-3','Heron R2','Helios 98Q','H2 56Q','Forte 36Q'];
+  const rw13A=[3.004e-3,5.012e-3,1.501e-3,8.032e-3,2.152e-3,
+    8.4e-5,2.974e-3,6.219e-3,7.025e-3,7.599e-3,7.903e-4,2.002e-3,4.309e-3];
+  const rw13Floors=[5e-3,5e-3,1e-3,5e-3,1e-3,
+    3e-5,1e-3,1e-3,1e-3,1e-3,1e-4,1e-4,1e-4];
+  const rw13Status=['STALL','STALL','STALL','HIGH','HIGH','MEDIUM','MEDIUM','LOW','LOW','LOW','LOW','LOW','LOW'];
+  const rw13Colors=rw13Status.map(s=>s==='STALL'?'rgba(239,68,68,.8)':s==='HIGH'?'rgba(245,158,11,.8)':s==='MEDIUM'?'rgba(56,189,248,.7)':'rgba(34,197,94,.75)');
+  new Chart(document.getElementById('runway-chart'),{
+    type:'bar',
+    data:{labels:rw13Names,
+      datasets:[
+        {label:'Current A score',data:rw13A,backgroundColor:rw13Colors,borderColor:rw13Colors,borderWidth:1},
+        {label:'Material floor (IAMPerformance-derived)',data:rw13Floors,
+          backgroundColor:'rgba(188,140,255,.2)',borderColor:'#bc8cff',borderWidth:1.5}
+      ]},
+    options:{indexAxis:'y',responsive:true,
+      plugins:{title:{display:true,text:'Substrate Runway — Current A vs Material Floor',color:'#7a9ab8',font:{size:12}}},
+      scales:{
+        x:{type:'logarithmic',ticks:{callback:v=>v.toExponential(0),color:'#6b7280'},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#dde5ee',font:{size:9}}}}}
+  });
+}
+</script>
+
+</body>
+</html>
