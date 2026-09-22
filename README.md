@@ -809,6 +809,8 @@ per-class reference — and it states plainly which of its constants are derived
 cellular write process is operating within the healthy range for its age, by architecture class, against a fixed
 zero. It names no condition and states no age in years.
 
+The H_min calibration the gauge divides by is deposited with a verified reproduction: [10.5281/zenodo.22905819](https://doi.org/10.5281/zenodo.22905819).
+
 The complete annotated library, with an abstract for every paper, is in [`docs/README.md`](docs/README.md).
 
 
