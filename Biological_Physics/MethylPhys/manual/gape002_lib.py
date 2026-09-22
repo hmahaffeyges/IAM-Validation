@@ -10270,8 +10270,14 @@ def blk_glossary(story):
              'E = k_B × T × ln(2). At 37°C (310.15 K): 2.97 × 10<super>-21</super> J per bit. '
              'Landauer 1961 IBM J Res Dev.'),
             ('Mahaffey Number',
-             'Dimensionless metabolic sensitivity parameter n_bio = ΔG_ATP / (R·T_body). '
-             'Value 20.94 at 37°C. Absolute class-specific values await G-007 MCMC.'),
+             ('Dimensionless metabolic sensitivity parameter n_bio = ΔG_ATP / (R·T_body). '
+              'Value 20.94 at 37°C. Absolute class-specific values await G-007 MCMC.') if EMIT_CARD_NBIO else
+             ('M = ΔG_ATP / (R·T_body) = 20.94 at 37°C - the ATP ordering budget the cell pays per '
+              'irreversible write, in units of the thermal quantum. <b>One number for the cell, not one per '
+              'class.</b> The per-class n_bio of Issue 002 was an early QAPE-era form of the same ratio and is '
+              'no longer used; its class-specific values awaited a G-007 MCMC run that was never made. M is not '
+              'H_min: H_min is the per-class entropy floor in bits, forty values across eight classes and five '
+              'substrates. See §5A.1.')),
             ('Reserve (clinical meaning)',
              'The C3 headroom remaining between a cell\'s current A-score and its '
              'class-substrate ceiling. Declining reserve under treatment indicates the '
