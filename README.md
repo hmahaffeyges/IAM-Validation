@@ -4,6 +4,9 @@
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+**Checking this work?** [`doors/REVIEWER_MANIFEST.md`](Biological_Physics/MethylPhys/doors/REVIEWER_MANIFEST.md) lists every file a reviewer can download - the chain, the H_min MCMC calibration, the runtime matrices, the atlas, every sealed procedure including the ones that failed - and states plainly what is *not* published and why.
+
 ---
 
 Landauer's bound says that writing or erasing one bit of information costs at least `k_B T ln 2` of energy. That is

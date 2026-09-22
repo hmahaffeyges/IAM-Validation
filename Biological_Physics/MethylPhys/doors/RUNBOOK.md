@@ -221,3 +221,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 **RENDER CHECK LESSON (2026-09-21).** A page render placed after an `assert` in the same script does not run when the assert fails - the on-disk image is then the STALE previous render, and text extraction does not see split words inside table cells. Render unconditionally (before any assert, or in its own statement), then READ the image; write 'verified visually' only after that read. An auditor caught a stale chk_phys1.png presented as verified.
 
 - **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` is record-side.
+
+## Checking this work
+
+[`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) is the download list: every file a reviewer could want, resolved from the tree rather than typed, with an explicit statement of what is not published and why.
