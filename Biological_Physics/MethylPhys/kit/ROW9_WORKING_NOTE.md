@@ -884,3 +884,38 @@ Discarded unused. Without that check a plausible ICC from mis-aligned columns wo
 **What settles row 5b, with its cost:** Stage 1 on all 732 GSE87571 IDATs - 62 chips at 9-12 arrays each on the
 commissioned scale, about 2.5 GB of IDATs and a few hours. Chip depth is the binding limit: these 80-array panels
 give a median of 2 arrays per chip where 8-12 are needed.
+
+### 2026-09-22 - the closing page rewritten, and three questions answered in the document
+
+**The closing.** Author: *"I dont want to make this about me or make it seem like the research is all about
+detecting cancer, at least not in the beginning."* Issue 002's `A FINAL NOTE` (his voice, dated April 2026, signed)
+is off in Issue 003 behind `EMIT_FINAL_NOTE_002`, default True so 002 reproduces unchanged. The new last page,
+`IN CLOSING`, leads on the borrowing and credits the cosmology community, then the breadth in his order: other
+species (dogs first - public data, fewer barriers, faster ageing), clinical trials (selection and draw-by-draw
+monitoring - time and money returned, and fewer patients carrying a treatment that was not going to work),
+end-of-life care (not an answer to how much time, but possibly a narrower interval), and early detection **on the
+list rather than at the front of it**, with the reminder that the commissioned chain names no condition. Its own
+section then makes the point that the toolkit stands whatever happens to the entropy ratio, with the difference
+map put first: the same patient twice, technical floor cancelling, an island-scale change an order of magnitude
+below published single-reading effects - and the line that cosmology has taken that as far as one unrepeatable
+sky allows, while a clinic can measure again next year. First build put it on page 108 (immediately after III.11,
+where I had wired the call); moved after the back matter, verified as page 185 of 185.
+
+**Collinearity group - the term he did not recognise, now explained where it is used.** III.6 says it in plain
+terms: a set of entries the atlas cannot tell apart, because their marker profiles are so similar that many
+different mixtures explain the same specimen equally well - which is why the chain reports at class level and
+treats cell-level disagreement between the two solvers as expected rather than as a fault (PROC-SEP-03).
+
+**cfDNA plasma weighting - asked whether it is needed; answered NO, in III.8, so nobody later assumes it was
+silently applied.** The plasma weights (immune ~70 per cent, cycling ~12, secretory ~8) describe what a PLASMA
+draw contains, because cfDNA arrives weighted by tissue turnover. This chain reads a whole-blood array, where the
+cells are the specimen rather than shed fragments, and Stage 2 MEASURES composition instead of assuming it. When a
+plasma cohort arrives the weights are not a correction to the gauge - they are the prior against which the
+presence floors must be re-measured, a commissioning run of its own.
+
+**Translation-map row 71, supernovae as the distance ladder.** It read ROADMAP / TODO 2.4 as though untouched. It
+is now MEASURED AND PARTLY CLOSED in both the map and the appendix data: PROC-PANEL-03 built the per-decade
+reference curve on 1,379 donors from four laboratories and it IS the curve every reading is corrected by;
+PROC-AGE-01 measured what inverting it buys for one array (0.47 mA/yr against a within-laboratory 0.0235, about
+50 years - the rungs are wider than the ladder). What remains is the cohort the analogy actually needs: known ages
+WITH repeat draws.
