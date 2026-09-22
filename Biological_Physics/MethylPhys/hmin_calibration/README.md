@@ -1,15 +1,29 @@
-# H_min calibration — the code that set the eight methylation floors and the 32 substrate floors
+# H_min calibration — the MCMC that produced the floors, published for inspection
 
-**Restored to HEAD 2026-09-20** (author's decision). These files were removed from the public tree on 2026-04-19 (commit 538667d, "remove commercial calibration layer") but remained in public git history (commit 22749f0) and in the author's CC-BY-4.0 Zenodo deposit of 2026-04-17 (DOI 10.5281/zenodo.19633499, which carries `gape_mcmc_g002.py`). They are restored here unchanged, byte-for-byte from 22749f0, so that Paper 1 and Issue 003 can cite them at a live path.
+Every file here is the calibration behind the constants the chain divides by. If a reviewer wants to check
+H_min, this is the directory.
 
-| file | what |
+| file | what it is |
 |---|---|
-| `gape_mcmc_g002.py` | **G-002** — the eight methylation H_min values. emcee ensemble MCMC, 32 walkers × 5 chains × 5,000 production steps, on 37 published reference cell methylomes (4–6 per class; Roadmap/ENCODE/Lister; sources and DOIs in the header). Every chain R-hat < 1.001. |
-| `gape_mcmc_g003b.py` | **G-003b** — the 32 non-methylation floors (nucleosome occupancy, fuzziness, WPS, fragment size × 8 classes). |
-| `gape_bootstrap_comparison.py` / `bootstrap_vs_mcmc_comparison.tsv` | the April bootstrap cross-check of the **32 G-003b floors**: 0.168 % mean relative difference, 24/32 within the bootstrap 95 % CI. **Contains no methylation rows.** |
-| `methyl_bootstrap_PROC-HMIN-BOOT-01.json` | the methylation cross-check, run 2026-09-20 with the same reference data and bootstrap function: **8/8 frozen values in CI, 0.060 % mean, 0.095 % max.** Record: `Record/PROC_data/PROC-HMIN-BOOT-01/`. |
-| `gape_mcmc_g008.py`, `gape_mcmc_e_a_bio.py`, `gape_mcmc_nbio_ordering.py` | later MCMC studies from the same period (G-008 TCGA ordering; E_A,bio; n_bio ordering), restored for completeness. |
+| `gape_mcmc_g002.py` | **G-002** — the calibration that produced the eight methylation floors. emcee ensemble, 32 walkers, 5 independent chains, 500 burn-in and 5,000 production steps, SIGMA_A = 0.020, and its own reference database (`_RAW_DB`) of **37 published reference cells**, 4–6 per class, all FACS-sorted or microdissected (Roadmap/ENCODE/Lister). Every methylation chain converged with R-hat < 1.001. The immune floor moved 0.795 → **0.838889 ± 0.0012** during this calibration, when six immune cell types replaced neutrophils alone. |
+| `gape_mcmc_g003b.py` | **G-003b** — the follow-on sampler. |
+| `g003_mcmc_framework.py` | the framework G-003b runs on (added 2026-09-22; it had not been committed). |
+| `gape_mcmc_g008.py` | **G-008**. |
+| `gape_mcmc_e_a_bio.py` | the E/A_bio sampler. |
+| `gape_mcmc_nbio_ordering.py` | the class **ordering** of the retired per-class n_bio (ρ = 0.905, p = 0.002). The ordering is all that was ever established; the absolute per-class values awaited a G-007 run that **was never made** (PROC-HISTORY-01), and the quantity itself is retired — superseded by the Mahaffey number M = 20.94, one number for the cell. See Issue 003 §5.0.4. |
+| `gape_bootstrap_comparison.py` | the script that produced the comparison below (added 2026-09-22; the table was committed without it). |
+| `bootstrap_vs_mcmc_comparison.tsv` | bootstrap against MCMC, 32 rows. |
 
-**Scale.** G-002 was run on GenomicStudio-normalised Roadmap β. The author's April evidence report already stated that a systematic offset to other pipelines was expected and that absolute thresholds would need cross-pipeline validation; that offset was measured in September (+0.066 on the identity loci for noob-normalised 450K IDATs) and is removed by the pipeline map (LESSON-SCALE-01, PHASE 1c).
+## Read the comparison table's scope before citing it
 
-The frozen values consumed by the engine are in `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json`; they byte-match the G-002 posteriors.
+`bootstrap_vs_mcmc_comparison.tsv` has 32 rows: **8 classes × 4 substrates — nucleosome occupancy, fuzziness,
+WPS and fragment size.** **Methylation is not in it.** The title invites the opposite reading, so it is stated
+plainly here: the eight methylation floors the commissioned chain actually uses were **not** cross-checked
+against a bootstrap by this file. Their support is G-002's own convergence (R-hat < 1.001 on every methylation
+chain) and the 37-cell reference database inside `gape_mcmc_g002.py`.
+
+## What is not in this directory
+
+The **raw posterior chains** are not published here — these are the scripts, the priors, the reference database
+and the convergence summaries, not the samples. A reviewer who wants the chains themselves should ask; they are a
+Zenodo-scale deposit rather than a repository file, and that is the honest place for them.
