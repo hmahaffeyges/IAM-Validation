@@ -7,9 +7,26 @@
 
 318 healthy arrays from the four commissioned cohorts, Stage 1 noob-calibrated from IDATs, on the commissioned
 scale — `beta_roadmap = (beta − 0.0662)/1.0127` applied before H per `beta_scale_maps_v1.json`'s own rule — then
-A″ = H(β̄)/0.838889 − c(decade) − z_lab. Sentrix chip from the IDAT filenames. The path validates itself: all
-four cohort medians land on the healthy line (1.0052, 1.0000, 0.9985, 0.9981) and the measured tails track the
-published ones (0.0625/0.0375/0.1154/0.0625 against 0.0441/0.0647/0.0984/0.0561 on the full cohorts).
+A″ = H(β̄)/0.838889 − c(decade) − z_lab. Sentrix chip from the IDAT filenames. **What validates the path:** all four cohort medians land on the healthy line - 1.0052, 1.0000, 0.9985, 0.9981 -
+which is the check that the scale map, the age curve and each laboratory's zero are wired correctly.
+
+**What does not:** the tails measured on these 80-array panels do NOT reproduce the published ones, and the
+ordering inverts.
+
+| cohort | tail on this panel (n=78-80) | published tail (full cohort, n=204-659) |
+|---|---|---|
+| GSE42861 Karolinska | 0.1154 | 0.0984 |
+| GSE111629 UCLA | 0.0625 | 0.0441 |
+| GSE87571 Uppsala | 0.0625 | 0.0561 |
+| GSE125105 Munich | 0.0375 | 0.0647 |
+
+Munich goes from second-highest published to lowest here, and UCLA and Munich differ from their published
+values by about 40 per cent of them. A tail is the fraction beyond p95, so on 80 arrays it is roughly four
+arrays: the binomial standard error at 0.05 is about 0.024, which is half the whole spread between these four
+laboratories. All four differences are within about one standard error, so the panels are not inconsistent
+with the published rates - but they cannot resolve them either, and nothing here should be read as the
+measured tails confirming the published ones. Only Karolinska's excess is large enough to survive that noise,
+which is the one place this run draws a conclusion from a tail.
 
 **Deviation from the pre-registration, and it is an improvement:** the run uses Stage 1 betas from IDATs rather
 than the GEO series matrices, because those matrices are header-only for these cohorts. IDAT filenames carry the

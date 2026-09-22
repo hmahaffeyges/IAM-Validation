@@ -870,8 +870,11 @@ says so.
    `beta_scale_maps_v1.json` - whose own rule, which I had printed one cell earlier, says
    `beta_roadmap = (beta - intercept)/slope` must be applied BEFORE H for any absolute reading. Every tail in that
    run read 1.0000 (every array outside the band), which is what made it obvious. With the map applied, all four
-   cohort medians land on the line (1.0052, 1.0000, 0.9985, 0.9981) and the measured tails track the published
-   ones - the path validating itself.
+   cohort medians land on the line (1.0052, 1.0000, 0.9985, 0.9981), which is the check that the map, the age
+   curve and the laboratory zeros are wired right. The TAILS do not track the published ones and the ordering
+   inverts (Munich 0.0375 here against 0.0647 published, second-highest to lowest): a tail on 80 arrays is
+   about four arrays, binomial SE ~0.024 at 0.05, half the spread between these four laboratories. Corrected
+   in the outcome document - only Karolinska's excess survives that noise.
 2. **Two cells raced on the same download.** A background fetch of the GSE87571 supplementary matrices was still
    running when a second cell fetched the same paths, and both wrote to the same files - the one-writer rule in my
    own notes. Both copies ended truncated and had to be discarded.
