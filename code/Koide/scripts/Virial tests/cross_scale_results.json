@@ -1,0 +1,54 @@
+{
+  "run_date": "2026-02-25T05:38:19.459220",
+  "cosmological_parameters": {
+    "Om": 0.3153,
+    "H0": 67.36,
+    "sigma8": 0.8111,
+    "beta_m": 0.15765
+  },
+  "iam_predictions": {
+    "H0_photon": 67.36,
+    "H0_matter": 72.48,
+    "sigma8": 0.8,
+    "mu0": 0.8638,
+    "Sigma": 1.0
+  },
+  "test_results": {
+    "H0_sector_split": {
+      "chi2_IAM": 5.57,
+      "chi2_LCDM": 55.2,
+      "n_points": 7
+    },
+    "S8_suppression": {
+      "chi2_IAM": 24.65,
+      "chi2_LCDM": 36.11,
+      "n_points": 5
+    },
+    "fsig8_growth": {
+      "chi2_IAM": 5.94,
+      "chi2_LCDM": 6.04,
+      "n_points": 10
+    },
+    "cluster_lensing_dynamics": {
+      "chi2_vs_mu": 4.26,
+      "n_catalogs": 6
+    },
+    "M_sigma_slope": {
+      "alpha_fit": 4.05,
+      "alpha_err": 0.07,
+      "predicted": 4.0
+    },
+    "photon_sector": {
+      "n_confirmations": 12,
+      "PPN_gamma": 1.000021,
+      "PPN_gamma_err": 2.3e-05
+    }
+  },
+  "combined": {
+    "total_chi2_IAM": 36.16,
+    "total_chi2_LCDM": 97.35,
+    "delta_chi2": 61.2,
+    "n_quantitative_points": 22,
+    "n_total_domains": 8
+  }
+}
