@@ -1,0 +1,124 @@
+{
+  "val_id": "CPG-VAL-017",
+  "title": "Inflammaging in pooled hull HC",
+  "card": "Immune universal v1.0",
+  "execution_date": "2026-06-07",
+  "outcome_code": "NULL",
+  "n_pooled_samples": 1763,
+  "cohorts_used": [
+    [
+      "GSE40279_Hannum_US",
+      656
+    ],
+    [
+      "GSE141682_HanChinese",
+      42
+    ],
+    [
+      "GSE50660_Tsaprouni_UK",
+      464
+    ],
+    [
+      "GSE51057_EPIC_Italy",
+      177
+    ],
+    [
+      "GSE51032_EPIC_Italy",
+      424
+    ]
+  ],
+  "pooled_A_immune_vs_age": {
+    "pearson_r": 0.03429,
+    "pearson_p": 0.15015379810369237,
+    "slope_per_year": 0.00013669,
+    "slope_p": 0.15015379810369478,
+    "slope_se": 9.495e-05
+  },
+  "per_cohort": {
+    "GSE40279_Hannum_US": {
+      "n": 656,
+      "age_range": [
+        19,
+        101
+      ],
+      "pearson_r": -0.1969,
+      "pearson_p": 3.688496971815972e-07,
+      "slope_per_year": -0.00052362,
+      "slope_p": 3.6884969718159374e-07
+    },
+    "GSE141682_HanChinese": {
+      "n": 42,
+      "age_range": [
+        18,
+        62
+      ],
+      "pearson_r": -0.1424,
+      "pearson_p": 0.36818491710067763,
+      "slope_per_year": -0.00028113,
+      "slope_p": 0.36818491710067786
+    },
+    "GSE50660_Tsaprouni_UK": {
+      "n": 464,
+      "age_range": [
+        38,
+        67
+      ],
+      "pearson_r": -0.0563,
+      "pearson_p": 0.22616768856842162,
+      "slope_per_year": -0.00021723,
+      "slope_p": 0.2261676885684211
+    },
+    "GSE51057_EPIC_Italy": {
+      "n": 177,
+      "age_range": [
+        34,
+        65
+      ],
+      "pearson_r": 0.2101,
+      "pearson_p": 0.005014104805061428,
+      "slope_per_year": 0.00088456,
+      "slope_p": 0.005014104805061458
+    },
+    "GSE51032_EPIC_Italy": {
+      "n": 424,
+      "age_range": [
+        34,
+        71
+      ],
+      "pearson_r": 0.0608,
+      "pearson_p": 0.2115224776185687,
+      "slope_per_year": 0.00026469,
+      "slope_p": 0.2115224776185693
+    }
+  },
+  "late_life_acceleration": {
+    "pre_50_slope": 0.00030051,
+    "pre_50_n": 434,
+    "post_70_slope": -0.00065929,
+    "post_70_n": 244,
+    "acceleration_ratio": 2.194
+  },
+  "standardized_z_at_decade_anchors": {
+    "z_age_30": 0.151,
+    "z_age_80": -0.1,
+    "abs_dz": 0.252
+  },
+  "pass_conditions": {
+    "pass_1_pooled_signal": {
+      "criterion": "r<-0.15, p<0.001",
+      "passed": false,
+      "r": 0.03429,
+      "p": 0.15015379810369237
+    },
+    "pass_2_per_cohort_consistency": {
+      "criterion": "\u22653 cohorts neg slope",
+      "passed": true,
+      "n_neg_cohorts": 3
+    },
+    "pass_3_late_life_acceleration": {
+      "criterion": "|slope_late|/|slope_early| >= 1.5",
+      "passed": true,
+      "observed_ratio": 2.194
+    }
+  }
+}

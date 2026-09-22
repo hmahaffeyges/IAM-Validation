@@ -1,0 +1,111 @@
+{
+  "val_id": "CPG-VAL-018",
+  "title": "Menarche-age effect on female immune architecture",
+  "card": "Immune universal v1.0",
+  "execution_date": "2026-06-07",
+  "scope_pivot_note": "Pivoted from HRT scope (HRT field not in available cohort metadata); menarche-age tested instead as cleaner reproductive-axis variable.",
+  "n_total_HC_women": 513,
+  "outcome_code": "NULL",
+  "pooled_partial_correlation": {
+    "method": "partial Pearson r(menarche_age, A_immune | age + cohort)",
+    "partial_r": 0.01003,
+    "partial_p": 0.8207180419029312,
+    "slope_per_menarche_year": 0.00018723,
+    "slope_per_age_year": 0.00071985,
+    "n": 513
+  },
+  "per_cohort": {
+    "GSE51057": {
+      "n": 177,
+      "partial_r_menarche_given_age": 0.02234,
+      "partial_p": 0.7685056069348883,
+      "raw_r_menarche_A_immune": 0.06531,
+      "raw_p": 0.3877752007197995,
+      "slope_per_menarche_year_with_age_covariate": 0.00040731,
+      "slope_per_age_year_with_menarche_covariate": 0.00085817
+    },
+    "GSE51032": {
+      "n": 336,
+      "partial_r_menarche_given_age": 0.00296,
+      "partial_p": 0.9570208650376286,
+      "raw_r_menarche_A_immune": 0.03572,
+      "raw_p": 0.5140398481360942,
+      "slope_per_menarche_year_with_age_covariate": 5.585e-05,
+      "slope_per_age_year_with_menarche_covariate": 0.00065445
+    }
+  },
+  "per_class_specificity_pooled": {
+    "cycling": {
+      "partial_r": -0.02263,
+      "partial_p": 0.6090709325632444,
+      "n_valid": 513
+    },
+    "immune": {
+      "partial_r": 0.01003,
+      "partial_p": 0.8207180419029312,
+      "n_valid": 513
+    },
+    "progenitor": {
+      "partial_r": -0.01972,
+      "partial_p": 0.6559572884994018,
+      "n_valid": 513
+    },
+    "secretory": {
+      "partial_r": -0.01577,
+      "partial_p": 0.7215861535063519,
+      "n_valid": 513
+    },
+    "stem_adult": {
+      "partial_r": -0.04739,
+      "partial_p": 0.28403623733911504,
+      "n_valid": 513
+    },
+    "stem_pluri": {
+      "partial_r": 0.03451,
+      "partial_p": 0.4359168531372623,
+      "n_valid": 512
+    },
+    "stromal": {
+      "partial_r": -0.03372,
+      "partial_p": 0.44600942844558517,
+      "n_valid": 513
+    },
+    "terminal": {
+      "partial_r": -0.01834,
+      "partial_p": 0.6785268978464043,
+      "n_valid": 513
+    }
+  },
+  "pass_conditions": {
+    "condition_1_pooled_partial_significant": {
+      "criterion": "|partial r| >= 0.10 AND p < 0.01",
+      "observed_r": 0.01003,
+      "observed_p": 0.8207180419029312,
+      "passed": false
+    },
+    "condition_2_sign_concordance_across_cohorts": {
+      "criterion": "Same-sign in both cohorts",
+      "signs": {
+        "GSE51057": 1,
+        "GSE51032": 1
+      },
+      "passed": true
+    },
+    "condition_3_distinct_from_zero": {
+      "criterion": "Effect direction-specific (covered by condition 1)",
+      "passed": false
+    },
+    "condition_4_magnitude_per_menarche_year": {
+      "criterion": "|\u0394A_immune / \u0394 menarche year| >= 0.002",
+      "observed_abs_slope": 0.00018723,
+      "passed": false
+    },
+    "condition_5_specificity_immune_vs_other_classes": {
+      "criterion": "|partial_r_immune| >= mean(|partial_r_other_classes|)",
+      "observed_abs_partial_r_immune": 0.01003,
+      "mean_abs_partial_r_other_classes": 0.02744,
+      "n_valid_other_classes": 7,
+      "passed": false
+    }
+  }
+}

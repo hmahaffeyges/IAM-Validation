@@ -1,0 +1,20 @@
+{
+ "GSE51032": {
+  "n": 460,
+  "head_vs_sealed_maxdiff": 3.6508615438801684e-05,
+  "cells_changed": 32,
+  "max_shift": 0.059498392079317175,
+  "max_cell": "Mela",
+  "r_trial_vs_sealed": 0.9995671730922728,
+  "sha256": "212775a846b0f1a2acfdcf9faba37b8e0a79af21301d3e3d04cadbf1edabcd9b"
+ },
+ "GSE51057": {
+  "n": 188,
+  "head_vs_sealed_maxdiff": 3.546066717818874e-05,
+  "cells_changed": 32,
+  "max_shift": 0.05790015652632047,
+  "max_cell": "Mela",
+  "r_trial_vs_sealed": 0.9995095687668437,
+  "sha256": "b4b854a3d39e5d2915e340f0cd682dff4679d4ab696a94e80fc86f703ee93597"
+ }
+}

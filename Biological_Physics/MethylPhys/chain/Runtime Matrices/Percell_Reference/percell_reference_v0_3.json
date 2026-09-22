@@ -1,0 +1,5443 @@
+{
+ "_meta": {
+  "built": "2026-09-22 06:08",
+  "panel": "iamatlas_celltype_markers_v0_3_TRIAL.json",
+  "panel_sha256": "76b8f82a2b3da5787f1cb3bf161b352403337bf2804646f039e6809bd4fb850d",
+  "what": "per-entry healthy reference on the v0_3 trial panel: each entry's own healthy range, per laboratory, from that laboratory's 40-array build panel, with the held-out 40 scored against it",
+  "cohorts": {
+   "SE111629": {
+    "n_panel": 40,
+    "n_test": 40,
+    "n_loci": 123913,
+    "sha256_betas": "fb339fbd0c08a522808eb31f5e16042a3404dbbb7a7e4c7dafc1e0f21b073a3c"
+   },
+   "SE125105": {
+    "n_panel": 40,
+    "n_test": 40,
+    "n_loci": 115691,
+    "sha256_betas": "5c8bf55e71f36dd5e905aa575863ab365018dbea364c98cb835680718933edee"
+   },
+   "SE42861": {
+    "n_panel": 38,
+    "n_test": 40,
+    "n_loci": 125263,
+    "sha256_betas": "3efdb2e12041148968d61f19c8ecff6a49251028b27ba7947ab7c8237083bb30"
+   },
+   "SE87571": {
+    "n_panel": 40,
+    "n_test": 40,
+    "n_loci": 125323,
+    "sha256_betas": "cf705250b14933ce1442de9cc62d443454a1ed902d09c6d71ba2035c43d24af6"
+   }
+  },
+  "nominal_heldout_coverage": 0.8
+ },
+ "entries": {
+  "Acinar": {
+   "class": "secretory",
+   "n_markers_panel": 123,
+   "individually_resolvable": true,
+   "exclusivity": 0.9512,
+   "atlas_pool": 2348,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 87,
+     "n_panel": 40,
+     "A_p10": 0.5085,
+     "A_p50": 0.5353,
+     "A_p90": 0.5675,
+     "heldout_p50": 0.541,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 84,
+     "n_panel": 40,
+     "A_p10": 0.5819,
+     "A_p50": 0.596,
+     "A_p90": 0.6324,
+     "heldout_p50": 0.5989,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE42861": {
+     "n_markers_found": 87,
+     "n_panel": 38,
+     "A_p10": 0.5847,
+     "A_p50": 0.622,
+     "A_p90": 0.6455,
+     "heldout_p50": 0.6154,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 87,
+     "n_panel": 40,
+     "A_p10": 0.548,
+     "A_p50": 0.5844,
+     "A_p90": 0.6326,
+     "heldout_p50": 0.5795,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0599,
+    "between_lab_median_range": 0.0867,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Antrum_diff": {
+   "class": "secretory",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8567,
+   "atlas_pool": 380467,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 159,
+     "n_panel": 40,
+     "A_p10": 0.5464,
+     "A_p50": 0.5726,
+     "A_p90": 0.6005,
+     "heldout_p50": 0.5809,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 129,
+     "n_panel": 40,
+     "A_p10": 0.5942,
+     "A_p50": 0.6241,
+     "A_p90": 0.657,
+     "heldout_p50": 0.6292,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 165,
+     "n_panel": 38,
+     "A_p10": 0.606,
+     "A_p50": 0.6347,
+     "A_p90": 0.6728,
+     "heldout_p50": 0.6344,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 166,
+     "n_panel": 40,
+     "A_p10": 0.5548,
+     "A_p50": 0.5811,
+     "A_p90": 0.6245,
+     "heldout_p50": 0.5819,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0648,
+    "between_lab_median_range": 0.0621,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Antrum_undiff": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.86,
+   "atlas_pool": 380467,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 159,
+     "n_panel": 40,
+     "A_p10": 0.5624,
+     "A_p50": 0.5973,
+     "A_p90": 0.638,
+     "heldout_p50": 0.6048,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 133,
+     "n_panel": 40,
+     "A_p10": 0.6329,
+     "A_p50": 0.6566,
+     "A_p90": 0.6796,
+     "heldout_p50": 0.6505,
+     "heldout_frac_in_panel_band": 0.6
+    },
+    "SE42861": {
+     "n_markers_found": 162,
+     "n_panel": 38,
+     "A_p10": 0.6224,
+     "A_p50": 0.665,
+     "A_p90": 0.7067,
+     "heldout_p50": 0.6553,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 163,
+     "n_panel": 40,
+     "A_p10": 0.5755,
+     "A_p50": 0.6195,
+     "A_p90": 0.6816,
+     "heldout_p50": 0.6246,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.08,
+    "between_lab_median_range": 0.0677,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "B": {
+   "class": "immune",
+   "n_markers_panel": 79,
+   "individually_resolvable": true,
+   "exclusivity": 0.7848,
+   "atlas_pool": 2123,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 51,
+     "n_panel": 40,
+     "A_p10": 0.5522,
+     "A_p50": 0.5715,
+     "A_p90": 0.6204,
+     "heldout_p50": 0.5819,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 51,
+     "n_panel": 40,
+     "A_p10": 0.6027,
+     "A_p50": 0.6362,
+     "A_p90": 0.6726,
+     "heldout_p50": 0.6448,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 52,
+     "n_panel": 38,
+     "A_p10": 0.6127,
+     "A_p50": 0.6461,
+     "A_p90": 0.6728,
+     "heldout_p50": 0.6491,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE87571": {
+     "n_markers_found": 52,
+     "n_panel": 40,
+     "A_p10": 0.5941,
+     "A_p50": 0.6191,
+     "A_p90": 0.6611,
+     "heldout_p50": 0.6328,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0676,
+    "between_lab_median_range": 0.0746,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "B-cells_EPIC": {
+   "class": "immune",
+   "n_markers_panel": 69,
+   "individually_resolvable": true,
+   "exclusivity": 0.8986,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 32,
+     "n_panel": 40,
+     "A_p10": 0.4787,
+     "A_p50": 0.5236,
+     "A_p90": 0.5669,
+     "heldout_p50": 0.5371,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 32,
+     "n_panel": 40,
+     "A_p10": 0.4869,
+     "A_p50": 0.5515,
+     "A_p90": 0.6114,
+     "heldout_p50": 0.5533,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE42861": {
+     "n_markers_found": 33,
+     "n_panel": 38,
+     "A_p10": 0.5525,
+     "A_p50": 0.6056,
+     "A_p90": 0.653,
+     "heldout_p50": 0.6261,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 33,
+     "n_panel": 40,
+     "A_p10": 0.532,
+     "A_p50": 0.5607,
+     "A_p90": 0.6167,
+     "heldout_p50": 0.586,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0943,
+    "between_lab_median_range": 0.082,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "Basal": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9667,
+   "atlas_pool": 9180,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 181,
+     "n_panel": 40,
+     "A_p10": 0.5135,
+     "A_p50": 0.5385,
+     "A_p90": 0.5616,
+     "heldout_p50": 0.5385,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 176,
+     "n_panel": 40,
+     "A_p10": 0.5633,
+     "A_p50": 0.5943,
+     "A_p90": 0.6218,
+     "heldout_p50": 0.592,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE42861": {
+     "n_markers_found": 181,
+     "n_panel": 38,
+     "A_p10": 0.5761,
+     "A_p50": 0.6167,
+     "A_p90": 0.633,
+     "heldout_p50": 0.6115,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 181,
+     "n_panel": 40,
+     "A_p10": 0.5349,
+     "A_p50": 0.5726,
+     "A_p90": 0.6062,
+     "heldout_p50": 0.5698,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0577,
+    "between_lab_median_range": 0.0782,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "Baso": {
+   "class": "immune",
+   "n_markers_panel": 161,
+   "individually_resolvable": true,
+   "exclusivity": 0.795,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 90,
+     "n_panel": 40,
+     "A_p10": 0.4148,
+     "A_p50": 0.4447,
+     "A_p90": 0.4707,
+     "heldout_p50": 0.4457,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE125105": {
+     "n_markers_found": 79,
+     "n_panel": 40,
+     "A_p10": 0.519,
+     "A_p50": 0.5401,
+     "A_p90": 0.5595,
+     "heldout_p50": 0.5423,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 90,
+     "n_panel": 38,
+     "A_p10": 0.466,
+     "A_p50": 0.5073,
+     "A_p90": 0.5333,
+     "heldout_p50": 0.5043,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 91,
+     "n_panel": 40,
+     "A_p10": 0.4128,
+     "A_p50": 0.4477,
+     "A_p90": 0.4821,
+     "heldout_p50": 0.4433,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0616,
+    "between_lab_median_range": 0.0954,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Bcell": {
+   "class": "immune",
+   "n_markers_panel": 86,
+   "individually_resolvable": true,
+   "exclusivity": 0.6512,
+   "atlas_pool": 740,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 16,
+     "n_panel": 40,
+     "A_p10": 0.6365,
+     "A_p50": 0.7156,
+     "A_p90": 0.7873,
+     "heldout_p50": 0.7103,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 16,
+     "n_panel": 40,
+     "A_p10": 0.6653,
+     "A_p50": 0.726,
+     "A_p90": 0.8065,
+     "heldout_p50": 0.7394,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 16,
+     "n_panel": 38,
+     "A_p10": 0.7272,
+     "A_p50": 0.7817,
+     "A_p90": 0.8321,
+     "heldout_p50": 0.7983,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 16,
+     "n_panel": 40,
+     "A_p10": 0.7284,
+     "A_p50": 0.7873,
+     "A_p90": 0.8469,
+     "heldout_p50": 0.805,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1298,
+    "between_lab_median_range": 0.0717,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Bladder": {
+   "class": "cycling",
+   "n_markers_panel": 221,
+   "individually_resolvable": true,
+   "exclusivity": 0.6063,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 91,
+     "n_panel": 40,
+     "A_p10": 0.2867,
+     "A_p50": 0.3123,
+     "A_p90": 0.3372,
+     "heldout_p50": 0.3177,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 91,
+     "n_panel": 40,
+     "A_p10": 0.3032,
+     "A_p50": 0.3262,
+     "A_p90": 0.3438,
+     "heldout_p50": 0.3256,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 93,
+     "n_panel": 38,
+     "A_p10": 0.3241,
+     "A_p50": 0.3592,
+     "A_p90": 0.3836,
+     "heldout_p50": 0.3549,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 93,
+     "n_panel": 40,
+     "A_p10": 0.2963,
+     "A_p50": 0.3283,
+     "A_p90": 0.3583,
+     "heldout_p50": 0.3201,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.055,
+    "between_lab_median_range": 0.0469,
+    "heldout_coverage_median": 0.812
+   }
+  },
+  "Bmem": {
+   "class": "immune",
+   "n_markers_panel": 203,
+   "individually_resolvable": true,
+   "exclusivity": 0.7291,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 113,
+     "n_panel": 40,
+     "A_p10": 0.412,
+     "A_p50": 0.4302,
+     "A_p90": 0.4569,
+     "heldout_p50": 0.4317,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 102,
+     "n_panel": 40,
+     "A_p10": 0.4825,
+     "A_p50": 0.5099,
+     "A_p90": 0.5295,
+     "heldout_p50": 0.5062,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE42861": {
+     "n_markers_found": 113,
+     "n_panel": 38,
+     "A_p10": 0.4792,
+     "A_p50": 0.5133,
+     "A_p90": 0.5396,
+     "heldout_p50": 0.5123,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 113,
+     "n_panel": 40,
+     "A_p10": 0.4327,
+     "A_p50": 0.4627,
+     "A_p90": 0.4993,
+     "heldout_p50": 0.4672,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0537,
+    "between_lab_median_range": 0.0831,
+    "heldout_coverage_median": 0.65
+   }
+  },
+  "Bnv": {
+   "class": "immune",
+   "n_markers_panel": 131,
+   "individually_resolvable": true,
+   "exclusivity": 0.6183,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 66,
+     "n_panel": 40,
+     "A_p10": 0.6,
+     "A_p50": 0.6262,
+     "A_p90": 0.6808,
+     "heldout_p50": 0.6256,
+     "heldout_frac_in_panel_band": 0.925
+    },
+    "SE125105": {
+     "n_markers_found": 65,
+     "n_panel": 40,
+     "A_p10": 0.6503,
+     "A_p50": 0.6808,
+     "A_p90": 0.7109,
+     "heldout_p50": 0.6862,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 67,
+     "n_panel": 38,
+     "A_p10": 0.6631,
+     "A_p50": 0.691,
+     "A_p90": 0.7174,
+     "heldout_p50": 0.6946,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 67,
+     "n_panel": 40,
+     "A_p10": 0.6436,
+     "A_p50": 0.6679,
+     "A_p90": 0.7108,
+     "heldout_p50": 0.6873,
+     "heldout_frac_in_panel_band": 0.55
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0639,
+    "between_lab_median_range": 0.0648,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "Breast": {
+   "class": "secretory",
+   "n_markers_panel": 278,
+   "individually_resolvable": true,
+   "exclusivity": 0.7554,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 91,
+     "n_panel": 40,
+     "A_p10": 0.3215,
+     "A_p50": 0.3461,
+     "A_p90": 0.3786,
+     "heldout_p50": 0.353,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE125105": {
+     "n_markers_found": 90,
+     "n_panel": 40,
+     "A_p10": 0.3373,
+     "A_p50": 0.3606,
+     "A_p90": 0.3888,
+     "heldout_p50": 0.3559,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 95,
+     "n_panel": 38,
+     "A_p10": 0.3669,
+     "A_p50": 0.3969,
+     "A_p90": 0.4145,
+     "heldout_p50": 0.383,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 94,
+     "n_panel": 40,
+     "A_p10": 0.343,
+     "A_p50": 0.3779,
+     "A_p90": 0.4197,
+     "heldout_p50": 0.376,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0543,
+    "between_lab_median_range": 0.0508,
+    "heldout_coverage_median": 0.788
+   }
+  },
+  "CD14_monocytes": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9233,
+   "atlas_pool": 482420,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 203,
+     "n_panel": 40,
+     "A_p10": 0.808,
+     "A_p50": 0.8524,
+     "A_p90": 0.8779,
+     "heldout_p50": 0.8527,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE125105": {
+     "n_markers_found": 188,
+     "n_panel": 40,
+     "A_p10": 0.8109,
+     "A_p50": 0.8515,
+     "A_p90": 0.9042,
+     "heldout_p50": 0.8598,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 207,
+     "n_panel": 38,
+     "A_p10": 0.846,
+     "A_p50": 0.9188,
+     "A_p90": 0.9497,
+     "heldout_p50": 0.902,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE87571": {
+     "n_markers_found": 207,
+     "n_panel": 40,
+     "A_p10": 0.8638,
+     "A_p50": 0.9212,
+     "A_p90": 0.9482,
+     "heldout_p50": 0.9078,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0889,
+    "between_lab_median_range": 0.0697,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "CD19_B-cells": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9867,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 189,
+     "n_panel": 40,
+     "A_p10": 0.5664,
+     "A_p50": 0.6176,
+     "A_p90": 0.6802,
+     "heldout_p50": 0.6234,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 185,
+     "n_panel": 40,
+     "A_p10": 0.6541,
+     "A_p50": 0.688,
+     "A_p90": 0.7514,
+     "heldout_p50": 0.6931,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 191,
+     "n_panel": 38,
+     "A_p10": 0.6838,
+     "A_p50": 0.718,
+     "A_p90": 0.7806,
+     "heldout_p50": 0.7287,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 191,
+     "n_panel": 40,
+     "A_p10": 0.6445,
+     "A_p50": 0.6906,
+     "A_p90": 0.7478,
+     "heldout_p50": 0.7175,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1003,
+    "between_lab_median_range": 0.1004,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "CD4T": {
+   "class": "immune",
+   "n_markers_panel": 115,
+   "individually_resolvable": true,
+   "exclusivity": 0.3739,
+   "atlas_pool": 2781,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 40,
+     "n_panel": 40,
+     "A_p10": 0.5869,
+     "A_p50": 0.6351,
+     "A_p90": 0.6632,
+     "heldout_p50": 0.6281,
+     "heldout_frac_in_panel_band": 0.6
+    },
+    "SE125105": {
+     "n_markers_found": 36,
+     "n_panel": 40,
+     "A_p10": 0.6534,
+     "A_p50": 0.7137,
+     "A_p90": 0.7492,
+     "heldout_p50": 0.7001,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 40,
+     "n_panel": 38,
+     "A_p10": 0.6814,
+     "A_p50": 0.7321,
+     "A_p90": 0.7993,
+     "heldout_p50": 0.728,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 40,
+     "n_panel": 40,
+     "A_p10": 0.6326,
+     "A_p50": 0.6841,
+     "A_p90": 0.7348,
+     "heldout_p50": 0.6867,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.099,
+    "between_lab_median_range": 0.097,
+    "heldout_coverage_median": 0.65
+   }
+  },
+  "CD4T-cells_EPIC": {
+   "class": "immune",
+   "n_markers_panel": 45,
+   "individually_resolvable": true,
+   "exclusivity": 0.8444,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 29,
+     "n_panel": 40,
+     "A_p10": 0.5818,
+     "A_p50": 0.6809,
+     "A_p90": 0.7551,
+     "heldout_p50": 0.6741,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 28,
+     "n_panel": 40,
+     "A_p10": 0.6449,
+     "A_p50": 0.7332,
+     "A_p90": 0.8039,
+     "heldout_p50": 0.7215,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 30,
+     "n_panel": 38,
+     "A_p10": 0.724,
+     "A_p50": 0.8164,
+     "A_p90": 0.8959,
+     "heldout_p50": 0.8351,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 30,
+     "n_panel": 40,
+     "A_p10": 0.6844,
+     "A_p50": 0.751,
+     "A_p90": 0.8173,
+     "heldout_p50": 0.7563,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1654,
+    "between_lab_median_range": 0.1355,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "CD4Tmem": {
+   "class": "immune",
+   "n_markers_panel": 147,
+   "individually_resolvable": true,
+   "exclusivity": 0.4762,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 75,
+     "n_panel": 40,
+     "A_p10": 0.5115,
+     "A_p50": 0.5627,
+     "A_p90": 0.6015,
+     "heldout_p50": 0.5611,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 70,
+     "n_panel": 40,
+     "A_p10": 0.6073,
+     "A_p50": 0.6492,
+     "A_p90": 0.6769,
+     "heldout_p50": 0.6402,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 75,
+     "n_panel": 38,
+     "A_p10": 0.6036,
+     "A_p50": 0.6722,
+     "A_p90": 0.7233,
+     "heldout_p50": 0.6595,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 75,
+     "n_panel": 40,
+     "A_p10": 0.5546,
+     "A_p50": 0.6082,
+     "A_p90": 0.6602,
+     "heldout_p50": 0.6045,
+     "heldout_frac_in_panel_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0978,
+    "between_lab_median_range": 0.1095,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "CD4Tnv": {
+   "class": "immune",
+   "n_markers_panel": 118,
+   "individually_resolvable": true,
+   "exclusivity": 0.5593,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 56,
+     "n_panel": 40,
+     "A_p10": 0.5891,
+     "A_p50": 0.6381,
+     "A_p90": 0.6895,
+     "heldout_p50": 0.633,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 51,
+     "n_panel": 40,
+     "A_p10": 0.668,
+     "A_p50": 0.7232,
+     "A_p90": 0.796,
+     "heldout_p50": 0.7256,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 56,
+     "n_panel": 38,
+     "A_p10": 0.6865,
+     "A_p50": 0.7369,
+     "A_p90": 0.8376,
+     "heldout_p50": 0.7528,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 56,
+     "n_panel": 40,
+     "A_p10": 0.6157,
+     "A_p50": 0.6917,
+     "A_p90": 0.7514,
+     "heldout_p50": 0.7001,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1318,
+    "between_lab_median_range": 0.0988,
+    "heldout_coverage_median": 0.7
+   }
+  },
+  "CD4_T-cells": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8733,
+   "atlas_pool": 482419,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 155,
+     "n_panel": 40,
+     "A_p10": 0.6884,
+     "A_p50": 0.756,
+     "A_p90": 0.8241,
+     "heldout_p50": 0.7503,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 144,
+     "n_panel": 40,
+     "A_p10": 0.7397,
+     "A_p50": 0.8004,
+     "A_p90": 0.8579,
+     "heldout_p50": 0.7908,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 156,
+     "n_panel": 38,
+     "A_p10": 0.7921,
+     "A_p50": 0.8669,
+     "A_p90": 0.9633,
+     "heldout_p50": 0.8786,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 156,
+     "n_panel": 40,
+     "A_p10": 0.7631,
+     "A_p50": 0.8251,
+     "A_p90": 0.9033,
+     "heldout_p50": 0.8307,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.138,
+    "between_lab_median_range": 0.1109,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "CD56_NK-cells": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.7033,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 170,
+     "n_panel": 40,
+     "A_p10": 0.6185,
+     "A_p50": 0.6684,
+     "A_p90": 0.7807,
+     "heldout_p50": 0.682,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 166,
+     "n_panel": 40,
+     "A_p10": 0.6408,
+     "A_p50": 0.7177,
+     "A_p90": 0.7767,
+     "heldout_p50": 0.7147,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 172,
+     "n_panel": 38,
+     "A_p10": 0.7517,
+     "A_p50": 0.8176,
+     "A_p90": 0.866,
+     "heldout_p50": 0.7847,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE87571": {
+     "n_markers_found": 171,
+     "n_panel": 40,
+     "A_p10": 0.6831,
+     "A_p50": 0.7655,
+     "A_p90": 0.8727,
+     "heldout_p50": 0.7695,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.149,
+    "between_lab_median_range": 0.1492,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "CD8T": {
+   "class": "immune",
+   "n_markers_panel": 148,
+   "individually_resolvable": true,
+   "exclusivity": 0.3378,
+   "atlas_pool": 2781,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 45,
+     "n_panel": 40,
+     "A_p10": 0.5866,
+     "A_p50": 0.6526,
+     "A_p90": 0.7071,
+     "heldout_p50": 0.644,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 43,
+     "n_panel": 40,
+     "A_p10": 0.6493,
+     "A_p50": 0.7112,
+     "A_p90": 0.7649,
+     "heldout_p50": 0.7082,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 45,
+     "n_panel": 38,
+     "A_p10": 0.7088,
+     "A_p50": 0.7811,
+     "A_p90": 0.8639,
+     "heldout_p50": 0.7898,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 45,
+     "n_panel": 40,
+     "A_p10": 0.687,
+     "A_p50": 0.7499,
+     "A_p90": 0.8128,
+     "heldout_p50": 0.7482,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1231,
+    "between_lab_median_range": 0.1285,
+    "heldout_coverage_median": 0.7
+   }
+  },
+  "CD8T-cells_EPIC": {
+   "class": "immune",
+   "n_markers_panel": 47,
+   "individually_resolvable": true,
+   "exclusivity": 0.7872,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 25,
+     "n_panel": 40,
+     "A_p10": 0.5264,
+     "A_p50": 0.6215,
+     "A_p90": 0.6771,
+     "heldout_p50": 0.6086,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 26,
+     "n_panel": 40,
+     "A_p10": 0.5598,
+     "A_p50": 0.6762,
+     "A_p90": 0.7389,
+     "heldout_p50": 0.667,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 26,
+     "n_panel": 38,
+     "A_p10": 0.6667,
+     "A_p50": 0.7273,
+     "A_p90": 0.8226,
+     "heldout_p50": 0.7386,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 26,
+     "n_panel": 40,
+     "A_p10": 0.5931,
+     "A_p50": 0.6685,
+     "A_p90": 0.7107,
+     "heldout_p50": 0.6641,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1533,
+    "between_lab_median_range": 0.1058,
+    "heldout_coverage_median": 0.675
+   }
+  },
+  "CD8Tmem": {
+   "class": "immune",
+   "n_markers_panel": 210,
+   "individually_resolvable": true,
+   "exclusivity": 0.5952,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 110,
+     "n_panel": 40,
+     "A_p10": 0.5469,
+     "A_p50": 0.6083,
+     "A_p90": 0.7096,
+     "heldout_p50": 0.612,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 102,
+     "n_panel": 40,
+     "A_p10": 0.6298,
+     "A_p50": 0.6811,
+     "A_p90": 0.7242,
+     "heldout_p50": 0.6679,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 110,
+     "n_panel": 38,
+     "A_p10": 0.6583,
+     "A_p50": 0.7496,
+     "A_p90": 0.803,
+     "heldout_p50": 0.7298,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 110,
+     "n_panel": 40,
+     "A_p10": 0.607,
+     "A_p50": 0.6945,
+     "A_p90": 0.7862,
+     "heldout_p50": 0.6935,
+     "heldout_frac_in_panel_band": 0.9
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1537,
+    "between_lab_median_range": 0.1413,
+    "heldout_coverage_median": 0.812
+   }
+  },
+  "CD8Tnv": {
+   "class": "immune",
+   "n_markers_panel": 143,
+   "individually_resolvable": true,
+   "exclusivity": 0.5594,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 78,
+     "n_panel": 40,
+     "A_p10": 0.5809,
+     "A_p50": 0.6135,
+     "A_p90": 0.6585,
+     "heldout_p50": 0.6092,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 72,
+     "n_panel": 40,
+     "A_p10": 0.6509,
+     "A_p50": 0.6966,
+     "A_p90": 0.7334,
+     "heldout_p50": 0.682,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE42861": {
+     "n_markers_found": 78,
+     "n_panel": 38,
+     "A_p10": 0.6785,
+     "A_p50": 0.7202,
+     "A_p90": 0.7791,
+     "heldout_p50": 0.7121,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 78,
+     "n_panel": 40,
+     "A_p10": 0.6172,
+     "A_p50": 0.6842,
+     "A_p90": 0.7234,
+     "heldout_p50": 0.6808,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0916,
+    "between_lab_median_range": 0.1067,
+    "heldout_coverage_median": 0.675
+   }
+  },
+  "CD8_T-cells": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.73,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 164,
+     "n_panel": 40,
+     "A_p10": 0.6325,
+     "A_p50": 0.7166,
+     "A_p90": 0.8196,
+     "heldout_p50": 0.7166,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 161,
+     "n_panel": 40,
+     "A_p10": 0.6871,
+     "A_p50": 0.7621,
+     "A_p90": 0.8263,
+     "heldout_p50": 0.7476,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 167,
+     "n_panel": 38,
+     "A_p10": 0.7776,
+     "A_p50": 0.8663,
+     "A_p90": 0.9199,
+     "heldout_p50": 0.8534,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 168,
+     "n_panel": 40,
+     "A_p10": 0.7213,
+     "A_p50": 0.8053,
+     "A_p90": 0.9019,
+     "heldout_p50": 0.8153,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1615,
+    "between_lab_median_range": 0.1497,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "CM": {
+   "class": "terminal",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9233,
+   "atlas_pool": 3726,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 198,
+     "n_panel": 40,
+     "A_p10": 0.4931,
+     "A_p50": 0.5229,
+     "A_p90": 0.5499,
+     "heldout_p50": 0.5268,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 194,
+     "n_panel": 40,
+     "A_p10": 0.5612,
+     "A_p50": 0.587,
+     "A_p90": 0.6081,
+     "heldout_p50": 0.5824,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE42861": {
+     "n_markers_found": 199,
+     "n_panel": 38,
+     "A_p10": 0.5744,
+     "A_p50": 0.6117,
+     "A_p90": 0.6353,
+     "heldout_p50": 0.6086,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 199,
+     "n_panel": 40,
+     "A_p10": 0.5287,
+     "A_p50": 0.564,
+     "A_p90": 0.6124,
+     "heldout_p50": 0.5629,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0589,
+    "between_lab_median_range": 0.0888,
+    "heldout_coverage_median": 0.688
+   }
+  },
+  "CMP": {
+   "class": "progenitor",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.7733,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 200,
+     "n_panel": 40,
+     "A_p10": 0.5873,
+     "A_p50": 0.6137,
+     "A_p90": 0.6288,
+     "heldout_p50": 0.6094,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 195,
+     "n_panel": 40,
+     "A_p10": 0.6183,
+     "A_p50": 0.6455,
+     "A_p90": 0.673,
+     "heldout_p50": 0.6498,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE42861": {
+     "n_markers_found": 202,
+     "n_panel": 38,
+     "A_p10": 0.647,
+     "A_p50": 0.6794,
+     "A_p90": 0.7068,
+     "heldout_p50": 0.6714,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 202,
+     "n_panel": 40,
+     "A_p10": 0.6135,
+     "A_p50": 0.6535,
+     "A_p90": 0.6881,
+     "heldout_p50": 0.6484,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0573,
+    "between_lab_median_range": 0.0657,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "Chol": {
+   "class": "secretory",
+   "n_markers_panel": 16,
+   "individually_resolvable": false,
+   "exclusivity": 0.8125,
+   "atlas_pool": 2220,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.504,
+     "A_p50": 0.5514,
+     "A_p90": 0.5834,
+     "heldout_p50": 0.5515,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.5096,
+     "A_p50": 0.5578,
+     "A_p90": 0.5969,
+     "heldout_p50": 0.5525,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE42861": {
+     "n_markers_found": 14,
+     "n_panel": 38,
+     "A_p10": 0.5664,
+     "A_p50": 0.6202,
+     "A_p90": 0.6502,
+     "heldout_p50": 0.6121,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.5464,
+     "A_p50": 0.5965,
+     "A_p90": 0.6467,
+     "heldout_p50": 0.5823,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0855,
+    "between_lab_median_range": 0.0688,
+    "heldout_coverage_median": 0.788
+   }
+  },
+  "Colon_epithelial_cells": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.7333,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 115,
+     "n_panel": 40,
+     "A_p10": 0.2563,
+     "A_p50": 0.2738,
+     "A_p90": 0.292,
+     "heldout_p50": 0.2759,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 114,
+     "n_panel": 40,
+     "A_p10": 0.2829,
+     "A_p50": 0.2975,
+     "A_p90": 0.3196,
+     "heldout_p50": 0.3009,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 115,
+     "n_panel": 38,
+     "A_p10": 0.2848,
+     "A_p50": 0.3108,
+     "A_p90": 0.3325,
+     "heldout_p50": 0.31,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 115,
+     "n_panel": 40,
+     "A_p10": 0.24,
+     "A_p50": 0.2703,
+     "A_p90": 0.2984,
+     "heldout_p50": 0.2643,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0422,
+    "between_lab_median_range": 0.0405,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "Corpus_diff": {
+   "class": "secretory",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9233,
+   "atlas_pool": 380467,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 123,
+     "n_panel": 40,
+     "A_p10": 0.5669,
+     "A_p50": 0.6012,
+     "A_p90": 0.629,
+     "heldout_p50": 0.5976,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 96,
+     "n_panel": 40,
+     "A_p10": 0.5814,
+     "A_p50": 0.6266,
+     "A_p90": 0.6587,
+     "heldout_p50": 0.6284,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 125,
+     "n_panel": 38,
+     "A_p10": 0.6079,
+     "A_p50": 0.6468,
+     "A_p90": 0.6932,
+     "heldout_p50": 0.6401,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 125,
+     "n_panel": 40,
+     "A_p10": 0.5647,
+     "A_p50": 0.6154,
+     "A_p90": 0.662,
+     "heldout_p50": 0.6163,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0813,
+    "between_lab_median_range": 0.0456,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "Corpus_undiff": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9467,
+   "atlas_pool": 380467,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 149,
+     "n_panel": 40,
+     "A_p10": 0.5386,
+     "A_p50": 0.5678,
+     "A_p90": 0.5948,
+     "heldout_p50": 0.5681,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 125,
+     "n_panel": 40,
+     "A_p10": 0.5704,
+     "A_p50": 0.6049,
+     "A_p90": 0.6378,
+     "heldout_p50": 0.5998,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 153,
+     "n_panel": 38,
+     "A_p10": 0.5752,
+     "A_p50": 0.6124,
+     "A_p90": 0.6665,
+     "heldout_p50": 0.6118,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 153,
+     "n_panel": 40,
+     "A_p10": 0.515,
+     "A_p50": 0.5553,
+     "A_p90": 0.5946,
+     "heldout_p50": 0.5538,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0735,
+    "between_lab_median_range": 0.0571,
+    "heldout_coverage_median": 0.787
+   }
+  },
+  "Cortical_neurons": {
+   "class": "terminal",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 1.0,
+   "atlas_pool": 478848,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.5094,
+     "A_p50": 0.5462,
+     "A_p90": 0.5842,
+     "heldout_p50": 0.5508,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE125105": {
+     "n_markers_found": 19,
+     "n_panel": 40,
+     "A_p10": 0.5586,
+     "A_p50": 0.5993,
+     "A_p90": 0.6378,
+     "heldout_p50": 0.5992,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE42861": {
+     "n_markers_found": 21,
+     "n_panel": 38,
+     "A_p10": 0.5856,
+     "A_p50": 0.6258,
+     "A_p90": 0.6573,
+     "heldout_p50": 0.6143,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.5367,
+     "A_p50": 0.5586,
+     "A_p90": 0.6028,
+     "heldout_p50": 0.5659,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0733,
+    "between_lab_median_range": 0.0796,
+    "heldout_coverage_median": 0.65
+   }
+  },
+  "Ductal": {
+   "class": "cycling",
+   "n_markers_panel": 19,
+   "individually_resolvable": false,
+   "exclusivity": 1.0,
+   "atlas_pool": 2476,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 10,
+     "n_panel": 40,
+     "A_p10": 0.6184,
+     "A_p50": 0.6646,
+     "A_p90": 0.6916,
+     "heldout_p50": 0.6585,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE125105": {
+     "n_markers_found": 9,
+     "n_panel": 40,
+     "A_p10": 0.6503,
+     "A_p50": 0.6994,
+     "A_p90": 0.7756,
+     "heldout_p50": 0.7128,
+     "heldout_frac_in_panel_band": 0.925
+    },
+    "SE42861": {
+     "n_markers_found": 10,
+     "n_panel": 38,
+     "A_p10": 0.6639,
+     "A_p50": 0.7026,
+     "A_p90": 0.7534,
+     "heldout_p50": 0.7078,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 10,
+     "n_panel": 40,
+     "A_p10": 0.6231,
+     "A_p50": 0.6664,
+     "A_p90": 0.7195,
+     "heldout_p50": 0.6676,
+     "heldout_frac_in_panel_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0929,
+    "between_lab_median_range": 0.038,
+    "heldout_coverage_median": 0.838
+   }
+  },
+  "Endocrine": {
+   "class": "secretory",
+   "n_markers_panel": 22,
+   "individually_resolvable": true,
+   "exclusivity": 1.0,
+   "atlas_pool": 2392,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 13,
+     "n_panel": 40,
+     "A_p10": 0.4278,
+     "A_p50": 0.4621,
+     "A_p90": 0.5107,
+     "heldout_p50": 0.4584,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 11,
+     "n_panel": 40,
+     "A_p10": 0.495,
+     "A_p50": 0.5461,
+     "A_p90": 0.5892,
+     "heldout_p50": 0.5485,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 13,
+     "n_panel": 38,
+     "A_p10": 0.4933,
+     "A_p50": 0.5403,
+     "A_p90": 0.5784,
+     "heldout_p50": 0.5298,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 13,
+     "n_panel": 40,
+     "A_p10": 0.4271,
+     "A_p50": 0.4776,
+     "A_p90": 0.55,
+     "heldout_p50": 0.4856,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0896,
+    "between_lab_median_range": 0.084,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "Eos": {
+   "class": "immune",
+   "n_markers_panel": 164,
+   "individually_resolvable": true,
+   "exclusivity": 0.7256,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 84,
+     "n_panel": 40,
+     "A_p10": 0.5526,
+     "A_p50": 0.5852,
+     "A_p90": 0.6147,
+     "heldout_p50": 0.5836,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 72,
+     "n_panel": 40,
+     "A_p10": 0.583,
+     "A_p50": 0.6238,
+     "A_p90": 0.6679,
+     "heldout_p50": 0.6163,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE42861": {
+     "n_markers_found": 84,
+     "n_panel": 38,
+     "A_p10": 0.6124,
+     "A_p50": 0.6613,
+     "A_p90": 0.6879,
+     "heldout_p50": 0.6373,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE87571": {
+     "n_markers_found": 84,
+     "n_panel": 40,
+     "A_p10": 0.5874,
+     "A_p50": 0.6251,
+     "A_p90": 0.6546,
+     "heldout_p50": 0.6182,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0713,
+    "between_lab_median_range": 0.0761,
+    "heldout_coverage_median": 0.713
+   }
+  },
+  "Eosinophils_reinius": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.97,
+   "atlas_pool": 482420,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 168,
+     "n_panel": 40,
+     "A_p10": 0.651,
+     "A_p50": 0.6914,
+     "A_p90": 0.724,
+     "heldout_p50": 0.6926,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 153,
+     "n_panel": 40,
+     "A_p10": 0.661,
+     "A_p50": 0.7186,
+     "A_p90": 0.7759,
+     "heldout_p50": 0.7195,
+     "heldout_frac_in_panel_band": 1.0
+    },
+    "SE42861": {
+     "n_markers_found": 172,
+     "n_panel": 38,
+     "A_p10": 0.7172,
+     "A_p50": 0.7847,
+     "A_p90": 0.8183,
+     "heldout_p50": 0.7501,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 172,
+     "n_panel": 40,
+     "A_p10": 0.7078,
+     "A_p50": 0.7621,
+     "A_p90": 0.7932,
+     "heldout_p50": 0.7473,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0933,
+    "between_lab_median_range": 0.0933,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "Epi": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8667,
+   "atlas_pool": 7288,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 199,
+     "n_panel": 40,
+     "A_p10": 0.4327,
+     "A_p50": 0.4532,
+     "A_p90": 0.4792,
+     "heldout_p50": 0.456,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 192,
+     "n_panel": 40,
+     "A_p10": 0.4969,
+     "A_p50": 0.508,
+     "A_p90": 0.5219,
+     "heldout_p50": 0.5062,
+     "heldout_frac_in_panel_band": 0.6
+    },
+    "SE42861": {
+     "n_markers_found": 202,
+     "n_panel": 38,
+     "A_p10": 0.4847,
+     "A_p50": 0.5289,
+     "A_p90": 0.5466,
+     "heldout_p50": 0.5189,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 202,
+     "n_panel": 40,
+     "A_p10": 0.4479,
+     "A_p50": 0.4805,
+     "A_p90": 0.5193,
+     "heldout_p50": 0.4797,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0542,
+    "between_lab_median_range": 0.0757,
+    "heldout_coverage_median": 0.7
+   }
+  },
+  "Epi_stratified": {
+   "class": "cycling",
+   "n_markers_panel": 16,
+   "individually_resolvable": false,
+   "exclusivity": 1.0,
+   "atlas_pool": 2464,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 12,
+     "n_panel": 40,
+     "A_p10": 0.3921,
+     "A_p50": 0.4368,
+     "A_p90": 0.4942,
+     "heldout_p50": 0.4439,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 12,
+     "n_panel": 40,
+     "A_p10": 0.458,
+     "A_p50": 0.516,
+     "A_p90": 0.5616,
+     "heldout_p50": 0.5042,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 12,
+     "n_panel": 38,
+     "A_p10": 0.5006,
+     "A_p50": 0.5527,
+     "A_p90": 0.596,
+     "heldout_p50": 0.5352,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE87571": {
+     "n_markers_found": 12,
+     "n_panel": 40,
+     "A_p10": 0.4555,
+     "A_p50": 0.5181,
+     "A_p90": 0.5657,
+     "heldout_p50": 0.5159,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1028,
+    "between_lab_median_range": 0.1159,
+    "heldout_coverage_median": 0.762
+   }
+  },
+  "Epi_upper": {
+   "class": "terminal",
+   "n_markers_panel": 151,
+   "individually_resolvable": true,
+   "exclusivity": 0.9934,
+   "atlas_pool": 2464,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 93,
+     "n_panel": 40,
+     "A_p10": 0.6263,
+     "A_p50": 0.6494,
+     "A_p90": 0.6811,
+     "heldout_p50": 0.6539,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 89,
+     "n_panel": 40,
+     "A_p10": 0.6896,
+     "A_p50": 0.7114,
+     "A_p90": 0.7406,
+     "heldout_p50": 0.7095,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 94,
+     "n_panel": 38,
+     "A_p10": 0.6835,
+     "A_p50": 0.7212,
+     "A_p90": 0.7556,
+     "heldout_p50": 0.717,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 95,
+     "n_panel": 40,
+     "A_p10": 0.6565,
+     "A_p50": 0.6873,
+     "A_p90": 0.7112,
+     "heldout_p50": 0.6852,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0548,
+    "between_lab_median_range": 0.0718,
+    "heldout_coverage_median": 0.85
+   }
+  },
+  "Erythrocyte_progenitors": {
+   "class": "progenitor",
+   "n_markers_panel": 21,
+   "individually_resolvable": true,
+   "exclusivity": 0.7619,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 17,
+     "n_panel": 40,
+     "A_p10": 0.5345,
+     "A_p50": 0.5617,
+     "A_p90": 0.5935,
+     "heldout_p50": 0.562,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 15,
+     "n_panel": 40,
+     "A_p10": 0.5719,
+     "A_p50": 0.634,
+     "A_p90": 0.6859,
+     "heldout_p50": 0.6348,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 18,
+     "n_panel": 38,
+     "A_p10": 0.5613,
+     "A_p50": 0.6085,
+     "A_p90": 0.6477,
+     "heldout_p50": 0.6124,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 18,
+     "n_panel": 40,
+     "A_p10": 0.5355,
+     "A_p50": 0.5711,
+     "A_p90": 0.605,
+     "heldout_p50": 0.5793,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.078,
+    "between_lab_median_range": 0.0723,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Fundus_diff": {
+   "class": "secretory",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.83,
+   "atlas_pool": 380467,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 159,
+     "n_panel": 40,
+     "A_p10": 0.5333,
+     "A_p50": 0.5688,
+     "A_p90": 0.5939,
+     "heldout_p50": 0.5672,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 132,
+     "n_panel": 40,
+     "A_p10": 0.5887,
+     "A_p50": 0.6186,
+     "A_p90": 0.6443,
+     "heldout_p50": 0.6154,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 161,
+     "n_panel": 38,
+     "A_p10": 0.5883,
+     "A_p50": 0.6301,
+     "A_p90": 0.6659,
+     "heldout_p50": 0.6267,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 161,
+     "n_panel": 40,
+     "A_p10": 0.5414,
+     "A_p50": 0.5788,
+     "A_p90": 0.6255,
+     "heldout_p50": 0.5745,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0691,
+    "between_lab_median_range": 0.0613,
+    "heldout_coverage_median": 0.762
+   }
+  },
+  "Fundus_undiff": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.81,
+   "atlas_pool": 380467,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 162,
+     "n_panel": 40,
+     "A_p10": 0.5305,
+     "A_p50": 0.5648,
+     "A_p90": 0.5893,
+     "heldout_p50": 0.5641,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 141,
+     "n_panel": 40,
+     "A_p10": 0.5757,
+     "A_p50": 0.6037,
+     "A_p90": 0.6312,
+     "heldout_p50": 0.6064,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE42861": {
+     "n_markers_found": 168,
+     "n_panel": 38,
+     "A_p10": 0.5711,
+     "A_p50": 0.6159,
+     "A_p90": 0.6468,
+     "heldout_p50": 0.6067,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 168,
+     "n_panel": 40,
+     "A_p10": 0.5341,
+     "A_p50": 0.5718,
+     "A_p90": 0.6163,
+     "heldout_p50": 0.5751,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0673,
+    "between_lab_median_range": 0.0511,
+    "heldout_coverage_median": 0.713
+   }
+  },
+  "GMP": {
+   "class": "progenitor",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8667,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 181,
+     "n_panel": 40,
+     "A_p10": 0.8964,
+     "A_p50": 0.9307,
+     "A_p90": 0.9533,
+     "heldout_p50": 0.9352,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 164,
+     "n_panel": 40,
+     "A_p10": 0.8826,
+     "A_p50": 0.9332,
+     "A_p90": 0.9624,
+     "heldout_p50": 0.93,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE42861": {
+     "n_markers_found": 194,
+     "n_panel": 38,
+     "A_p10": 0.9278,
+     "A_p50": 0.9592,
+     "A_p90": 0.9792,
+     "heldout_p50": 0.9526,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 195,
+     "n_panel": 40,
+     "A_p10": 0.9356,
+     "A_p50": 0.9773,
+     "A_p90": 0.9933,
+     "heldout_p50": 0.9788,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0573,
+    "between_lab_median_range": 0.0466,
+    "heldout_coverage_median": 0.812
+   }
+  },
+  "Gland": {
+   "class": "secretory",
+   "n_markers_panel": 84,
+   "individually_resolvable": true,
+   "exclusivity": 0.9524,
+   "atlas_pool": 5652,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 55,
+     "n_panel": 40,
+     "A_p10": 0.5006,
+     "A_p50": 0.5208,
+     "A_p90": 0.5477,
+     "heldout_p50": 0.5238,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 55,
+     "n_panel": 40,
+     "A_p10": 0.5232,
+     "A_p50": 0.5457,
+     "A_p90": 0.5666,
+     "heldout_p50": 0.5503,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 56,
+     "n_panel": 38,
+     "A_p10": 0.5424,
+     "A_p50": 0.58,
+     "A_p90": 0.5968,
+     "heldout_p50": 0.5733,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 56,
+     "n_panel": 40,
+     "A_p10": 0.5164,
+     "A_p50": 0.547,
+     "A_p90": 0.5811,
+     "heldout_p50": 0.5463,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0507,
+    "between_lab_median_range": 0.0592,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "Glia": {
+   "class": "terminal",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 1.0,
+   "atlas_pool": 478819,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 6,
+     "n_panel": 40,
+     "A_p10": 0.241,
+     "A_p50": 0.2746,
+     "A_p90": 0.3079,
+     "heldout_p50": 0.2766,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 6,
+     "n_panel": 40,
+     "A_p10": 0.2368,
+     "A_p50": 0.2786,
+     "A_p90": 0.334,
+     "heldout_p50": 0.2707,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 6,
+     "n_panel": 38,
+     "A_p10": 0.2739,
+     "A_p50": 0.311,
+     "A_p90": 0.3477,
+     "heldout_p50": 0.3144,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 6,
+     "n_panel": 40,
+     "A_p10": 0.2289,
+     "A_p50": 0.2467,
+     "A_p90": 0.2948,
+     "heldout_p50": 0.2559,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0704,
+    "between_lab_median_range": 0.0643,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "Gran": {
+   "class": "immune",
+   "n_markers_panel": 72,
+   "individually_resolvable": true,
+   "exclusivity": 0.8611,
+   "atlas_pool": 5355,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 46,
+     "n_panel": 40,
+     "A_p10": 0.6022,
+     "A_p50": 0.6322,
+     "A_p90": 0.6547,
+     "heldout_p50": 0.6344,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 43,
+     "n_panel": 40,
+     "A_p10": 0.635,
+     "A_p50": 0.665,
+     "A_p90": 0.6905,
+     "heldout_p50": 0.6667,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 47,
+     "n_panel": 38,
+     "A_p10": 0.6645,
+     "A_p50": 0.703,
+     "A_p90": 0.7242,
+     "heldout_p50": 0.6912,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 47,
+     "n_panel": 40,
+     "A_p10": 0.6314,
+     "A_p50": 0.6677,
+     "A_p90": 0.69,
+     "heldout_p50": 0.6538,
+     "heldout_frac_in_panel_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.057,
+    "between_lab_median_range": 0.0708,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "HSC": {
+   "class": "stem_adult",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.88,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 170,
+     "n_panel": 40,
+     "A_p10": 0.6971,
+     "A_p50": 0.7208,
+     "A_p90": 0.7379,
+     "heldout_p50": 0.7124,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 163,
+     "n_panel": 40,
+     "A_p10": 0.7136,
+     "A_p50": 0.7464,
+     "A_p90": 0.7805,
+     "heldout_p50": 0.7552,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 174,
+     "n_panel": 38,
+     "A_p10": 0.7223,
+     "A_p50": 0.7636,
+     "A_p90": 0.7949,
+     "heldout_p50": 0.7636,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 175,
+     "n_panel": 40,
+     "A_p10": 0.7247,
+     "A_p50": 0.763,
+     "A_p90": 0.7793,
+     "heldout_p50": 0.7562,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0607,
+    "between_lab_median_range": 0.0428,
+    "heldout_coverage_median": 0.825
+   }
+  },
+  "Head_and_neck_larynx": {
+   "class": "cycling",
+   "n_markers_panel": 204,
+   "individually_resolvable": true,
+   "exclusivity": 0.6275,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 68,
+     "n_panel": 40,
+     "A_p10": 0.3316,
+     "A_p50": 0.3579,
+     "A_p90": 0.3832,
+     "heldout_p50": 0.3638,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 67,
+     "n_panel": 40,
+     "A_p10": 0.3532,
+     "A_p50": 0.3797,
+     "A_p90": 0.4096,
+     "heldout_p50": 0.3727,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 69,
+     "n_panel": 38,
+     "A_p10": 0.3895,
+     "A_p50": 0.422,
+     "A_p90": 0.4483,
+     "heldout_p50": 0.4164,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE87571": {
+     "n_markers_found": 69,
+     "n_panel": 40,
+     "A_p10": 0.3517,
+     "A_p50": 0.3742,
+     "A_p90": 0.4175,
+     "heldout_p50": 0.3676,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0576,
+    "between_lab_median_range": 0.0641,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "Hep": {
+   "class": "secretory",
+   "n_markers_panel": 254,
+   "individually_resolvable": true,
+   "exclusivity": 0.9685,
+   "atlas_pool": 2225,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 175,
+     "n_panel": 40,
+     "A_p10": 0.5326,
+     "A_p50": 0.5506,
+     "A_p90": 0.5763,
+     "heldout_p50": 0.5521,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 169,
+     "n_panel": 40,
+     "A_p10": 0.5896,
+     "A_p50": 0.6125,
+     "A_p90": 0.6315,
+     "heldout_p50": 0.6084,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 175,
+     "n_panel": 38,
+     "A_p10": 0.593,
+     "A_p50": 0.6237,
+     "A_p90": 0.6418,
+     "heldout_p50": 0.6242,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 175,
+     "n_panel": 40,
+     "A_p10": 0.5489,
+     "A_p50": 0.5782,
+     "A_p90": 0.615,
+     "heldout_p50": 0.5833,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0463,
+    "between_lab_median_range": 0.0731,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Hepatocytes": {
+   "class": "secretory",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.66,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 115,
+     "n_panel": 40,
+     "A_p10": 0.2353,
+     "A_p50": 0.2533,
+     "A_p90": 0.2754,
+     "heldout_p50": 0.2572,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 114,
+     "n_panel": 40,
+     "A_p10": 0.2515,
+     "A_p50": 0.2726,
+     "A_p90": 0.2917,
+     "heldout_p50": 0.2663,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 115,
+     "n_panel": 38,
+     "A_p10": 0.2686,
+     "A_p50": 0.3033,
+     "A_p90": 0.3254,
+     "heldout_p50": 0.2963,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 115,
+     "n_panel": 40,
+     "A_p10": 0.2345,
+     "A_p50": 0.2666,
+     "A_p90": 0.2972,
+     "heldout_p50": 0.2607,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0485,
+    "between_lab_median_range": 0.05,
+    "heldout_coverage_median": 0.825
+   }
+  },
+  "IC": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8233,
+   "atlas_pool": 7049,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 187,
+     "n_panel": 40,
+     "A_p10": 0.5035,
+     "A_p50": 0.5318,
+     "A_p90": 0.5546,
+     "heldout_p50": 0.5327,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 185,
+     "n_panel": 40,
+     "A_p10": 0.5559,
+     "A_p50": 0.5725,
+     "A_p90": 0.5931,
+     "heldout_p50": 0.5719,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 187,
+     "n_panel": 38,
+     "A_p10": 0.5646,
+     "A_p50": 0.6055,
+     "A_p90": 0.6203,
+     "heldout_p50": 0.5962,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 187,
+     "n_panel": 40,
+     "A_p10": 0.5289,
+     "A_p50": 0.562,
+     "A_p90": 0.5948,
+     "heldout_p50": 0.5665,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0534,
+    "between_lab_median_range": 0.0737,
+    "heldout_coverage_median": 0.713
+   }
+  },
+  "Kera_diff": {
+   "class": "terminal",
+   "n_markers_panel": 18,
+   "individually_resolvable": false,
+   "exclusivity": 1.0,
+   "atlas_pool": 1831,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 17,
+     "n_panel": 40,
+     "A_p10": 0.6491,
+     "A_p50": 0.7056,
+     "A_p90": 0.7659,
+     "heldout_p50": 0.7127,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE125105": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.7853,
+     "A_p50": 0.8274,
+     "A_p90": 0.8718,
+     "heldout_p50": 0.817,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 17,
+     "n_panel": 38,
+     "A_p10": 0.7344,
+     "A_p50": 0.7886,
+     "A_p90": 0.8384,
+     "heldout_p50": 0.7733,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 17,
+     "n_panel": 40,
+     "A_p10": 0.6974,
+     "A_p50": 0.7469,
+     "A_p90": 0.8234,
+     "heldout_p50": 0.7478,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1104,
+    "between_lab_median_range": 0.1218,
+    "heldout_coverage_median": 0.812
+   }
+  },
+  "Kidney": {
+   "class": "cycling",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.5933,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 132,
+     "n_panel": 40,
+     "A_p10": 0.2631,
+     "A_p50": 0.2779,
+     "A_p90": 0.2896,
+     "heldout_p50": 0.2781,
+     "heldout_frac_in_panel_band": 0.6
+    },
+    "SE125105": {
+     "n_markers_found": 131,
+     "n_panel": 40,
+     "A_p10": 0.2998,
+     "A_p50": 0.3172,
+     "A_p90": 0.3366,
+     "heldout_p50": 0.3149,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 133,
+     "n_panel": 38,
+     "A_p10": 0.3042,
+     "A_p50": 0.3306,
+     "A_p90": 0.3493,
+     "heldout_p50": 0.3327,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE87571": {
+     "n_markers_found": 133,
+     "n_panel": 40,
+     "A_p10": 0.2506,
+     "A_p50": 0.2748,
+     "A_p90": 0.2892,
+     "heldout_p50": 0.2714,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0377,
+    "between_lab_median_range": 0.0558,
+    "heldout_coverage_median": 0.712
+   }
+  },
+  "Kup": {
+   "class": "immune",
+   "n_markers_panel": 21,
+   "individually_resolvable": true,
+   "exclusivity": 0.8571,
+   "atlas_pool": 2056,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 11,
+     "n_panel": 40,
+     "A_p10": 0.6293,
+     "A_p50": 0.6693,
+     "A_p90": 0.6936,
+     "heldout_p50": 0.6684,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 11,
+     "n_panel": 40,
+     "A_p10": 0.7084,
+     "A_p50": 0.7393,
+     "A_p90": 0.7722,
+     "heldout_p50": 0.7429,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 12,
+     "n_panel": 38,
+     "A_p10": 0.6717,
+     "A_p50": 0.7308,
+     "A_p90": 0.7563,
+     "heldout_p50": 0.7107,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 12,
+     "n_panel": 40,
+     "A_p10": 0.6467,
+     "A_p50": 0.6939,
+     "A_p90": 0.7411,
+     "heldout_p50": 0.6979,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0745,
+    "between_lab_median_range": 0.07,
+    "heldout_coverage_median": 0.712
+   }
+  },
+  "L-MPP": {
+   "class": "progenitor",
+   "n_markers_panel": 273,
+   "individually_resolvable": true,
+   "exclusivity": 0.9267,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 146,
+     "n_panel": 40,
+     "A_p10": 0.8135,
+     "A_p50": 0.8367,
+     "A_p90": 0.8508,
+     "heldout_p50": 0.8314,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 126,
+     "n_panel": 40,
+     "A_p10": 0.8382,
+     "A_p50": 0.8622,
+     "A_p90": 0.8914,
+     "heldout_p50": 0.8614,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 153,
+     "n_panel": 38,
+     "A_p10": 0.8383,
+     "A_p50": 0.864,
+     "A_p90": 0.8784,
+     "heldout_p50": 0.8621,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 153,
+     "n_panel": 40,
+     "A_p10": 0.8412,
+     "A_p50": 0.8596,
+     "A_p90": 0.8796,
+     "heldout_p50": 0.8627,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0393,
+    "between_lab_median_range": 0.0273,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "LE": {
+   "class": "secretory",
+   "n_markers_panel": 30,
+   "individually_resolvable": true,
+   "exclusivity": 0.9333,
+   "atlas_pool": 2101,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.502,
+     "A_p50": 0.5473,
+     "A_p90": 0.6004,
+     "heldout_p50": 0.5453,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.5677,
+     "A_p50": 0.6174,
+     "A_p90": 0.6579,
+     "heldout_p50": 0.626,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 21,
+     "n_panel": 38,
+     "A_p10": 0.5846,
+     "A_p50": 0.6419,
+     "A_p90": 0.6697,
+     "heldout_p50": 0.6167,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE87571": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.5341,
+     "A_p50": 0.5935,
+     "A_p90": 0.6367,
+     "heldout_p50": 0.5703,
+     "heldout_frac_in_panel_band": 0.55
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0943,
+    "between_lab_median_range": 0.0946,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Left_atrium": {
+   "class": "terminal",
+   "n_markers_panel": 238,
+   "individually_resolvable": true,
+   "exclusivity": 0.7479,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 98,
+     "n_panel": 40,
+     "A_p10": 0.3188,
+     "A_p50": 0.3403,
+     "A_p90": 0.3572,
+     "heldout_p50": 0.3367,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 97,
+     "n_panel": 40,
+     "A_p10": 0.3333,
+     "A_p50": 0.3619,
+     "A_p90": 0.3872,
+     "heldout_p50": 0.361,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 99,
+     "n_panel": 38,
+     "A_p10": 0.3531,
+     "A_p50": 0.3792,
+     "A_p90": 0.4078,
+     "heldout_p50": 0.378,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 99,
+     "n_panel": 40,
+     "A_p10": 0.3034,
+     "A_p50": 0.3325,
+     "A_p90": 0.3557,
+     "heldout_p50": 0.3269,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0531,
+    "between_lab_median_range": 0.0467,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "Luminal": {
+   "class": "secretory",
+   "n_markers_panel": 141,
+   "individually_resolvable": true,
+   "exclusivity": 0.9716,
+   "atlas_pool": 6908,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 71,
+     "n_panel": 40,
+     "A_p10": 0.4993,
+     "A_p50": 0.5178,
+     "A_p90": 0.5352,
+     "heldout_p50": 0.5202,
+     "heldout_frac_in_panel_band": 0.6
+    },
+    "SE125105": {
+     "n_markers_found": 65,
+     "n_panel": 40,
+     "A_p10": 0.5243,
+     "A_p50": 0.5575,
+     "A_p90": 0.5851,
+     "heldout_p50": 0.562,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 72,
+     "n_panel": 38,
+     "A_p10": 0.5435,
+     "A_p50": 0.5796,
+     "A_p90": 0.5988,
+     "heldout_p50": 0.5743,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 72,
+     "n_panel": 40,
+     "A_p10": 0.4998,
+     "A_p50": 0.5349,
+     "A_p90": 0.5586,
+     "heldout_p50": 0.5338,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.057,
+    "between_lab_median_range": 0.0618,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "Lung_cells": {
+   "class": "cycling",
+   "n_markers_panel": 227,
+   "individually_resolvable": true,
+   "exclusivity": 0.5286,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 119,
+     "n_panel": 40,
+     "A_p10": 0.2967,
+     "A_p50": 0.3132,
+     "A_p90": 0.3303,
+     "heldout_p50": 0.3146,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 117,
+     "n_panel": 40,
+     "A_p10": 0.3315,
+     "A_p50": 0.3534,
+     "A_p90": 0.3669,
+     "heldout_p50": 0.3545,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 120,
+     "n_panel": 38,
+     "A_p10": 0.3354,
+     "A_p50": 0.3753,
+     "A_p90": 0.3993,
+     "heldout_p50": 0.3709,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE87571": {
+     "n_markers_found": 120,
+     "n_panel": 40,
+     "A_p10": 0.2939,
+     "A_p50": 0.3226,
+     "A_p90": 0.3433,
+     "heldout_p50": 0.3176,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0424,
+    "between_lab_median_range": 0.0621,
+    "heldout_coverage_median": 0.712
+   }
+  },
+  "Lym": {
+   "class": "immune",
+   "n_markers_panel": 159,
+   "individually_resolvable": true,
+   "exclusivity": 0.8553,
+   "atlas_pool": 8813,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 119,
+     "n_panel": 40,
+     "A_p10": 0.6319,
+     "A_p50": 0.6623,
+     "A_p90": 0.6931,
+     "heldout_p50": 0.665,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 113,
+     "n_panel": 40,
+     "A_p10": 0.6749,
+     "A_p50": 0.7192,
+     "A_p90": 0.7469,
+     "heldout_p50": 0.725,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 119,
+     "n_panel": 38,
+     "A_p10": 0.7247,
+     "A_p50": 0.7595,
+     "A_p90": 0.7787,
+     "heldout_p50": 0.7544,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE87571": {
+     "n_markers_found": 119,
+     "n_panel": 40,
+     "A_p10": 0.6747,
+     "A_p50": 0.702,
+     "A_p90": 0.7499,
+     "heldout_p50": 0.7037,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0666,
+    "between_lab_median_range": 0.0972,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "MEP": {
+   "class": "progenitor",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.83,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 206,
+     "n_panel": 40,
+     "A_p10": 0.5282,
+     "A_p50": 0.5494,
+     "A_p90": 0.5794,
+     "heldout_p50": 0.5522,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 203,
+     "n_panel": 40,
+     "A_p10": 0.5953,
+     "A_p50": 0.6171,
+     "A_p90": 0.6363,
+     "heldout_p50": 0.6151,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE42861": {
+     "n_markers_found": 208,
+     "n_panel": 38,
+     "A_p10": 0.5899,
+     "A_p50": 0.6306,
+     "A_p90": 0.6443,
+     "heldout_p50": 0.6193,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE87571": {
+     "n_markers_found": 208,
+     "n_panel": 40,
+     "A_p10": 0.5479,
+     "A_p50": 0.5968,
+     "A_p90": 0.6359,
+     "heldout_p50": 0.5952,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0528,
+    "between_lab_median_range": 0.0812,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "MP": {
+   "class": "immune",
+   "n_markers_panel": 226,
+   "individually_resolvable": true,
+   "exclusivity": 0.854,
+   "atlas_pool": 8562,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 94,
+     "n_panel": 40,
+     "A_p10": 0.5059,
+     "A_p50": 0.5267,
+     "A_p90": 0.5449,
+     "heldout_p50": 0.5304,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 92,
+     "n_panel": 40,
+     "A_p10": 0.5204,
+     "A_p50": 0.549,
+     "A_p90": 0.5745,
+     "heldout_p50": 0.5549,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 96,
+     "n_panel": 38,
+     "A_p10": 0.5408,
+     "A_p50": 0.5787,
+     "A_p90": 0.5963,
+     "heldout_p50": 0.575,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 96,
+     "n_panel": 40,
+     "A_p10": 0.523,
+     "A_p50": 0.5464,
+     "A_p90": 0.5722,
+     "heldout_p50": 0.5464,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0517,
+    "between_lab_median_range": 0.052,
+    "heldout_coverage_median": 0.762
+   }
+  },
+  "MPP": {
+   "class": "progenitor",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8533,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 151,
+     "n_panel": 40,
+     "A_p10": 0.5308,
+     "A_p50": 0.5596,
+     "A_p90": 0.5912,
+     "heldout_p50": 0.5605,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 110,
+     "n_panel": 40,
+     "A_p10": 0.601,
+     "A_p50": 0.653,
+     "A_p90": 0.6862,
+     "heldout_p50": 0.6565,
+     "heldout_frac_in_panel_band": 0.925
+    },
+    "SE42861": {
+     "n_markers_found": 157,
+     "n_panel": 38,
+     "A_p10": 0.5545,
+     "A_p50": 0.598,
+     "A_p90": 0.6437,
+     "heldout_p50": 0.5965,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 157,
+     "n_panel": 40,
+     "A_p10": 0.4894,
+     "A_p50": 0.5241,
+     "A_p90": 0.5701,
+     "heldout_p50": 0.5268,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.083,
+    "between_lab_median_range": 0.1289,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "Macro": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9933,
+   "atlas_pool": 8373,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 214,
+     "n_panel": 40,
+     "A_p10": 0.447,
+     "A_p50": 0.4673,
+     "A_p90": 0.4793,
+     "heldout_p50": 0.4699,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 208,
+     "n_panel": 40,
+     "A_p10": 0.5165,
+     "A_p50": 0.5365,
+     "A_p90": 0.5631,
+     "heldout_p50": 0.5419,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 215,
+     "n_panel": 38,
+     "A_p10": 0.4959,
+     "A_p50": 0.5373,
+     "A_p90": 0.5519,
+     "heldout_p50": 0.5323,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 215,
+     "n_panel": 40,
+     "A_p10": 0.4511,
+     "A_p50": 0.4819,
+     "A_p90": 0.5108,
+     "heldout_p50": 0.4814,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0513,
+    "between_lab_median_range": 0.07,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "Mela": {
+   "class": "secretory",
+   "n_markers_panel": 18,
+   "individually_resolvable": false,
+   "exclusivity": 1.0,
+   "atlas_pool": 2080,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 15,
+     "n_panel": 40,
+     "A_p10": 0.4963,
+     "A_p50": 0.5315,
+     "A_p90": 0.5808,
+     "heldout_p50": 0.5336,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.5206,
+     "A_p50": 0.5618,
+     "A_p90": 0.6023,
+     "heldout_p50": 0.5591,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 15,
+     "n_panel": 38,
+     "A_p10": 0.5398,
+     "A_p50": 0.6027,
+     "A_p90": 0.6301,
+     "heldout_p50": 0.5951,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 15,
+     "n_panel": 40,
+     "A_p10": 0.514,
+     "A_p50": 0.5705,
+     "A_p90": 0.6294,
+     "heldout_p50": 0.5661,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0874,
+    "between_lab_median_range": 0.0712,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "Microglia": {
+   "class": "immune",
+   "n_markers_panel": 36,
+   "individually_resolvable": true,
+   "exclusivity": 0.8889,
+   "atlas_pool": 2545,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 31,
+     "n_panel": 40,
+     "A_p10": 0.5151,
+     "A_p50": 0.5405,
+     "A_p90": 0.5639,
+     "heldout_p50": 0.5456,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 24,
+     "n_panel": 40,
+     "A_p10": 0.499,
+     "A_p50": 0.5523,
+     "A_p90": 0.6071,
+     "heldout_p50": 0.5601,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 31,
+     "n_panel": 38,
+     "A_p10": 0.5416,
+     "A_p50": 0.6026,
+     "A_p90": 0.6307,
+     "heldout_p50": 0.5868,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE87571": {
+     "n_markers_found": 31,
+     "n_panel": 40,
+     "A_p10": 0.5246,
+     "A_p50": 0.5503,
+     "A_p90": 0.5917,
+     "heldout_p50": 0.5555,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0781,
+    "between_lab_median_range": 0.0621,
+    "heldout_coverage_median": 0.787
+   }
+  },
+  "Mono": {
+   "class": "immune",
+   "n_markers_panel": 159,
+   "individually_resolvable": true,
+   "exclusivity": 0.5849,
+   "atlas_pool": 6879,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 33,
+     "n_panel": 40,
+     "A_p10": 0.7478,
+     "A_p50": 0.7775,
+     "A_p90": 0.8135,
+     "heldout_p50": 0.7826,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 30,
+     "n_panel": 40,
+     "A_p10": 0.736,
+     "A_p50": 0.7847,
+     "A_p90": 0.8285,
+     "heldout_p50": 0.7858,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE42861": {
+     "n_markers_found": 33,
+     "n_panel": 38,
+     "A_p10": 0.7849,
+     "A_p50": 0.8519,
+     "A_p90": 0.8785,
+     "heldout_p50": 0.839,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 33,
+     "n_panel": 40,
+     "A_p10": 0.7886,
+     "A_p50": 0.8335,
+     "A_p90": 0.8643,
+     "heldout_p50": 0.8267,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0841,
+    "between_lab_median_range": 0.0744,
+    "heldout_coverage_median": 0.812
+   }
+  },
+  "Monocytes_EPIC": {
+   "class": "immune",
+   "n_markers_panel": 27,
+   "individually_resolvable": true,
+   "exclusivity": 0.6667,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.6403,
+     "A_p50": 0.6858,
+     "A_p90": 0.7302,
+     "heldout_p50": 0.6794,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 20,
+     "n_panel": 40,
+     "A_p10": 0.6835,
+     "A_p50": 0.7444,
+     "A_p90": 0.793,
+     "heldout_p50": 0.7398,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE42861": {
+     "n_markers_found": 21,
+     "n_panel": 38,
+     "A_p10": 0.7052,
+     "A_p50": 0.759,
+     "A_p90": 0.7943,
+     "heldout_p50": 0.7502,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.6525,
+     "A_p50": 0.7029,
+     "A_p90": 0.7525,
+     "heldout_p50": 0.7033,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0949,
+    "between_lab_median_range": 0.0732,
+    "heldout_coverage_median": 0.762
+   }
+  },
+  "Mye": {
+   "class": "immune",
+   "n_markers_panel": 95,
+   "individually_resolvable": true,
+   "exclusivity": 0.9895,
+   "atlas_pool": 1631,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 46,
+     "n_panel": 40,
+     "A_p10": 0.4018,
+     "A_p50": 0.4309,
+     "A_p90": 0.4517,
+     "heldout_p50": 0.4321,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 46,
+     "n_panel": 40,
+     "A_p10": 0.4598,
+     "A_p50": 0.4834,
+     "A_p90": 0.5158,
+     "heldout_p50": 0.4885,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 47,
+     "n_panel": 38,
+     "A_p10": 0.4561,
+     "A_p50": 0.5031,
+     "A_p90": 0.5316,
+     "heldout_p50": 0.504,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE87571": {
+     "n_markers_found": 47,
+     "n_panel": 40,
+     "A_p10": 0.4169,
+     "A_p50": 0.455,
+     "A_p90": 0.4903,
+     "heldout_p50": 0.4532,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0647,
+    "between_lab_median_range": 0.0722,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "NK": {
+   "class": "immune",
+   "n_markers_panel": 292,
+   "individually_resolvable": true,
+   "exclusivity": 0.6541,
+   "atlas_pool": 3386,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 126,
+     "n_panel": 40,
+     "A_p10": 0.5614,
+     "A_p50": 0.6084,
+     "A_p90": 0.6857,
+     "heldout_p50": 0.615,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 124,
+     "n_panel": 40,
+     "A_p10": 0.6517,
+     "A_p50": 0.7042,
+     "A_p90": 0.7454,
+     "heldout_p50": 0.6902,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 126,
+     "n_panel": 38,
+     "A_p10": 0.6728,
+     "A_p50": 0.7315,
+     "A_p90": 0.7757,
+     "heldout_p50": 0.7087,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 126,
+     "n_panel": 40,
+     "A_p10": 0.6067,
+     "A_p50": 0.6773,
+     "A_p90": 0.7567,
+     "heldout_p50": 0.683,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1136,
+    "between_lab_median_range": 0.1231,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "NK-cells_EPIC": {
+   "class": "immune",
+   "n_markers_panel": 127,
+   "individually_resolvable": true,
+   "exclusivity": 0.7717,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 73,
+     "n_panel": 40,
+     "A_p10": 0.5478,
+     "A_p50": 0.5972,
+     "A_p90": 0.6785,
+     "heldout_p50": 0.6007,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 71,
+     "n_panel": 40,
+     "A_p10": 0.592,
+     "A_p50": 0.6427,
+     "A_p90": 0.6974,
+     "heldout_p50": 0.6382,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 73,
+     "n_panel": 38,
+     "A_p10": 0.6609,
+     "A_p50": 0.7259,
+     "A_p90": 0.7688,
+     "heldout_p50": 0.7025,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 73,
+     "n_panel": 40,
+     "A_p10": 0.5864,
+     "A_p50": 0.6537,
+     "A_p90": 0.7259,
+     "heldout_p50": 0.6653,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1193,
+    "between_lab_median_range": 0.1287,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "Neu": {
+   "class": "immune",
+   "n_markers_panel": 178,
+   "individually_resolvable": true,
+   "exclusivity": 0.4719,
+   "atlas_pool": 3192,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 33,
+     "n_panel": 40,
+     "A_p10": 1.0352,
+     "A_p50": 1.085,
+     "A_p90": 1.111,
+     "heldout_p50": 1.0786,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 30,
+     "n_panel": 40,
+     "A_p10": 0.981,
+     "A_p50": 1.0641,
+     "A_p90": 1.1128,
+     "heldout_p50": 1.0601,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 34,
+     "n_panel": 38,
+     "A_p10": 1.0552,
+     "A_p50": 1.1084,
+     "A_p90": 1.1225,
+     "heldout_p50": 1.0869,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE87571": {
+     "n_markers_found": 34,
+     "n_panel": 40,
+     "A_p10": 1.0671,
+     "A_p50": 1.104,
+     "A_p90": 1.1329,
+     "heldout_p50": 1.0993,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0716,
+    "between_lab_median_range": 0.0443,
+    "heldout_coverage_median": 0.675
+   }
+  },
+  "NeuIm": {
+   "class": "progenitor",
+   "n_markers_panel": 93,
+   "individually_resolvable": true,
+   "exclusivity": 0.9677,
+   "atlas_pool": 4668,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 60,
+     "n_panel": 40,
+     "A_p10": 0.446,
+     "A_p50": 0.4722,
+     "A_p90": 0.4929,
+     "heldout_p50": 0.4686,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 54,
+     "n_panel": 40,
+     "A_p10": 0.5183,
+     "A_p50": 0.5413,
+     "A_p90": 0.5616,
+     "heldout_p50": 0.534,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE42861": {
+     "n_markers_found": 60,
+     "n_panel": 38,
+     "A_p10": 0.4975,
+     "A_p50": 0.5342,
+     "A_p90": 0.5672,
+     "heldout_p50": 0.534,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 60,
+     "n_panel": 40,
+     "A_p10": 0.4545,
+     "A_p50": 0.4876,
+     "A_p90": 0.5305,
+     "heldout_p50": 0.4939,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0583,
+    "between_lab_median_range": 0.0691,
+    "heldout_coverage_median": 0.762
+   }
+  },
+  "NeuMa": {
+   "class": "terminal",
+   "n_markers_panel": 62,
+   "individually_resolvable": true,
+   "exclusivity": 0.9839,
+   "atlas_pool": 4622,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 40,
+     "n_panel": 40,
+     "A_p10": 0.5046,
+     "A_p50": 0.526,
+     "A_p90": 0.545,
+     "heldout_p50": 0.53,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 40,
+     "n_panel": 40,
+     "A_p10": 0.5662,
+     "A_p50": 0.5959,
+     "A_p90": 0.6215,
+     "heldout_p50": 0.607,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE42861": {
+     "n_markers_found": 40,
+     "n_panel": 38,
+     "A_p10": 0.5636,
+     "A_p50": 0.6127,
+     "A_p90": 0.625,
+     "heldout_p50": 0.5991,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 40,
+     "n_panel": 40,
+     "A_p10": 0.5336,
+     "A_p50": 0.5656,
+     "A_p90": 0.5979,
+     "heldout_p50": 0.5588,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0584,
+    "between_lab_median_range": 0.0867,
+    "heldout_coverage_median": 0.663
+   }
+  },
+  "Neutrophils_EPIC": {
+   "class": "immune",
+   "n_markers_panel": 30,
+   "individually_resolvable": true,
+   "exclusivity": 0.6667,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 17,
+     "n_panel": 40,
+     "A_p10": 0.9445,
+     "A_p50": 0.9911,
+     "A_p90": 1.0299,
+     "heldout_p50": 0.9804,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 16,
+     "n_panel": 40,
+     "A_p10": 0.8554,
+     "A_p50": 0.9404,
+     "A_p90": 1.002,
+     "heldout_p50": 0.9583,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 19,
+     "n_panel": 38,
+     "A_p10": 0.9669,
+     "A_p50": 1.0532,
+     "A_p90": 1.0907,
+     "heldout_p50": 1.0368,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 19,
+     "n_panel": 40,
+     "A_p10": 0.9968,
+     "A_p50": 1.0351,
+     "A_p90": 1.0826,
+     "heldout_p50": 1.0346,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1048,
+    "between_lab_median_range": 0.1128,
+    "heldout_coverage_median": 0.688
+   }
+  },
+  "Neutrophils_reinius": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.68,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 134,
+     "n_panel": 40,
+     "A_p10": 1.0171,
+     "A_p50": 1.0705,
+     "A_p90": 1.0903,
+     "heldout_p50": 1.0717,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 119,
+     "n_panel": 40,
+     "A_p10": 0.9926,
+     "A_p50": 1.0615,
+     "A_p90": 1.095,
+     "heldout_p50": 1.0692,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE42861": {
+     "n_markers_found": 144,
+     "n_panel": 38,
+     "A_p10": 1.0262,
+     "A_p50": 1.1047,
+     "A_p90": 1.1224,
+     "heldout_p50": 1.0892,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE87571": {
+     "n_markers_found": 144,
+     "n_panel": 40,
+     "A_p10": 1.0679,
+     "A_p50": 1.0936,
+     "A_p90": 1.1185,
+     "heldout_p50": 1.09,
+     "heldout_frac_in_panel_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0847,
+    "between_lab_median_range": 0.0432,
+    "heldout_coverage_median": 0.688
+   }
+  },
+  "OPC": {
+   "class": "progenitor",
+   "n_markers_panel": 15,
+   "individually_resolvable": false,
+   "exclusivity": 0.8,
+   "atlas_pool": 2545,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.6323,
+     "A_p50": 0.6879,
+     "A_p90": 0.7649,
+     "heldout_p50": 0.6929,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.5889,
+     "A_p50": 0.7028,
+     "A_p90": 0.8002,
+     "heldout_p50": 0.7045,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE42861": {
+     "n_markers_found": 7,
+     "n_panel": 38,
+     "A_p10": 0.7276,
+     "A_p50": 0.7841,
+     "A_p90": 0.846,
+     "heldout_p50": 0.7817,
+     "heldout_frac_in_panel_band": 0.6
+    },
+    "SE87571": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.6925,
+     "A_p50": 0.7901,
+     "A_p90": 0.8631,
+     "heldout_p50": 0.7838,
+     "heldout_frac_in_panel_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1516,
+    "between_lab_median_range": 0.1022,
+    "heldout_coverage_median": 0.787
+   }
+  },
+  "Oligo": {
+   "class": "terminal",
+   "n_markers_panel": 117,
+   "individually_resolvable": true,
+   "exclusivity": 1.0,
+   "atlas_pool": 2545,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 92,
+     "n_panel": 40,
+     "A_p10": 0.5127,
+     "A_p50": 0.5444,
+     "A_p90": 0.563,
+     "heldout_p50": 0.5408,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 90,
+     "n_panel": 40,
+     "A_p10": 0.5711,
+     "A_p50": 0.5933,
+     "A_p90": 0.631,
+     "heldout_p50": 0.6012,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 92,
+     "n_panel": 38,
+     "A_p10": 0.5654,
+     "A_p50": 0.6098,
+     "A_p90": 0.6364,
+     "heldout_p50": 0.605,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 92,
+     "n_panel": 40,
+     "A_p10": 0.5213,
+     "A_p50": 0.564,
+     "A_p90": 0.6102,
+     "heldout_p50": 0.5627,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0654,
+    "between_lab_median_range": 0.0654,
+    "heldout_coverage_median": 0.825
+   }
+  },
+  "PBMC": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8733,
+   "atlas_pool": 482417,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 164,
+     "n_panel": 40,
+     "A_p10": 0.7785,
+     "A_p50": 0.8898,
+     "A_p90": 0.9871,
+     "heldout_p50": 0.8846,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 159,
+     "n_panel": 40,
+     "A_p10": 0.821,
+     "A_p50": 0.9195,
+     "A_p90": 0.9892,
+     "heldout_p50": 0.8854,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE42861": {
+     "n_markers_found": 171,
+     "n_panel": 38,
+     "A_p10": 0.9197,
+     "A_p50": 1.0164,
+     "A_p90": 1.0923,
+     "heldout_p50": 1.0245,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 172,
+     "n_panel": 40,
+     "A_p10": 0.8762,
+     "A_p50": 0.9864,
+     "A_p90": 1.0589,
+     "heldout_p50": 0.9869,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1777,
+    "between_lab_median_range": 0.1266,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "Pancreatic_acinar_cells": {
+   "class": "secretory",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.6467,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 114,
+     "n_panel": 40,
+     "A_p10": 0.2592,
+     "A_p50": 0.2745,
+     "A_p90": 0.2941,
+     "heldout_p50": 0.2783,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 113,
+     "n_panel": 40,
+     "A_p10": 0.268,
+     "A_p50": 0.2893,
+     "A_p90": 0.3105,
+     "heldout_p50": 0.2828,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE42861": {
+     "n_markers_found": 115,
+     "n_panel": 38,
+     "A_p10": 0.2739,
+     "A_p50": 0.3042,
+     "A_p90": 0.3297,
+     "heldout_p50": 0.3034,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 115,
+     "n_panel": 40,
+     "A_p10": 0.2451,
+     "A_p50": 0.2765,
+     "A_p90": 0.3126,
+     "heldout_p50": 0.2708,
+     "heldout_frac_in_panel_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0491,
+    "between_lab_median_range": 0.0297,
+    "heldout_coverage_median": 0.837
+   }
+  },
+  "Pancreatic_beta_cells": {
+   "class": "secretory",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.5967,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 131,
+     "n_panel": 40,
+     "A_p10": 0.2751,
+     "A_p50": 0.286,
+     "A_p90": 0.3044,
+     "heldout_p50": 0.2872,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 132,
+     "n_panel": 40,
+     "A_p10": 0.2944,
+     "A_p50": 0.3172,
+     "A_p90": 0.3418,
+     "heldout_p50": 0.3118,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 133,
+     "n_panel": 38,
+     "A_p10": 0.2909,
+     "A_p50": 0.3237,
+     "A_p90": 0.3492,
+     "heldout_p50": 0.3256,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE87571": {
+     "n_markers_found": 133,
+     "n_panel": 40,
+     "A_p10": 0.264,
+     "A_p50": 0.2865,
+     "A_p90": 0.3065,
+     "heldout_p50": 0.2775,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0449,
+    "between_lab_median_range": 0.0377,
+    "heldout_coverage_median": 0.812
+   }
+  },
+  "Pancreatic_duct_cells": {
+   "class": "secretory",
+   "n_markers_panel": 209,
+   "individually_resolvable": true,
+   "exclusivity": 0.5598,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 109,
+     "n_panel": 40,
+     "A_p10": 0.3048,
+     "A_p50": 0.3236,
+     "A_p90": 0.341,
+     "heldout_p50": 0.3246,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE125105": {
+     "n_markers_found": 107,
+     "n_panel": 40,
+     "A_p10": 0.3551,
+     "A_p50": 0.3724,
+     "A_p90": 0.388,
+     "heldout_p50": 0.3719,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 109,
+     "n_panel": 38,
+     "A_p10": 0.3271,
+     "A_p50": 0.3626,
+     "A_p90": 0.3929,
+     "heldout_p50": 0.3648,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE87571": {
+     "n_markers_found": 109,
+     "n_panel": 40,
+     "A_p10": 0.2822,
+     "A_p50": 0.309,
+     "A_p90": 0.3369,
+     "heldout_p50": 0.3075,
+     "heldout_frac_in_panel_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0454,
+    "between_lab_median_range": 0.0634,
+    "heldout_coverage_median": 0.788
+   }
+  },
+  "Plasma": {
+   "class": "immune",
+   "n_markers_panel": 37,
+   "individually_resolvable": true,
+   "exclusivity": 0.9459,
+   "atlas_pool": 4109,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.4936,
+     "A_p50": 0.5229,
+     "A_p90": 0.5566,
+     "heldout_p50": 0.5258,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 19,
+     "n_panel": 40,
+     "A_p10": 0.5493,
+     "A_p50": 0.5827,
+     "A_p90": 0.6047,
+     "heldout_p50": 0.5773,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 21,
+     "n_panel": 38,
+     "A_p10": 0.5665,
+     "A_p50": 0.5862,
+     "A_p90": 0.6107,
+     "heldout_p50": 0.5908,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE87571": {
+     "n_markers_found": 21,
+     "n_panel": 40,
+     "A_p10": 0.5181,
+     "A_p50": 0.5453,
+     "A_p90": 0.5798,
+     "heldout_p50": 0.5519,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0585,
+    "between_lab_median_range": 0.0633,
+    "heldout_coverage_median": 0.675
+   }
+  },
+  "Prostate": {
+   "class": "secretory",
+   "n_markers_panel": 278,
+   "individually_resolvable": true,
+   "exclusivity": 0.518,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 112,
+     "n_panel": 40,
+     "A_p10": 0.2992,
+     "A_p50": 0.3195,
+     "A_p90": 0.3425,
+     "heldout_p50": 0.3257,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 111,
+     "n_panel": 40,
+     "A_p10": 0.3076,
+     "A_p50": 0.3274,
+     "A_p90": 0.3481,
+     "heldout_p50": 0.3254,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 114,
+     "n_panel": 38,
+     "A_p10": 0.3186,
+     "A_p50": 0.3478,
+     "A_p90": 0.3728,
+     "heldout_p50": 0.3442,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 114,
+     "n_panel": 40,
+     "A_p10": 0.286,
+     "A_p50": 0.3197,
+     "A_p90": 0.3649,
+     "heldout_p50": 0.3135,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0488,
+    "between_lab_median_range": 0.0283,
+    "heldout_coverage_median": 0.762
+   }
+  },
+  "Tcell": {
+   "class": "immune",
+   "n_markers_panel": 14,
+   "individually_resolvable": false,
+   "exclusivity": 0.7857,
+   "atlas_pool": 4940,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 9,
+     "n_panel": 40,
+     "A_p10": 0.5137,
+     "A_p50": 0.5522,
+     "A_p90": 0.5703,
+     "heldout_p50": 0.5441,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.5503,
+     "A_p50": 0.5864,
+     "A_p90": 0.6257,
+     "heldout_p50": 0.5581,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE42861": {
+     "n_markers_found": 10,
+     "n_panel": 38,
+     "A_p10": 0.5542,
+     "A_p50": 0.5918,
+     "A_p90": 0.6201,
+     "heldout_p50": 0.6049,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 10,
+     "n_panel": 40,
+     "A_p10": 0.5243,
+     "A_p50": 0.564,
+     "A_p90": 0.5952,
+     "heldout_p50": 0.5622,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0684,
+    "between_lab_median_range": 0.0396,
+    "heldout_coverage_median": 0.625
+   }
+  },
+  "Thyroid": {
+   "class": "secretory",
+   "n_markers_panel": 253,
+   "individually_resolvable": true,
+   "exclusivity": 0.664,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 115,
+     "n_panel": 40,
+     "A_p10": 0.3042,
+     "A_p50": 0.3208,
+     "A_p90": 0.3396,
+     "heldout_p50": 0.3212,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 110,
+     "n_panel": 40,
+     "A_p10": 0.3334,
+     "A_p50": 0.35,
+     "A_p90": 0.3744,
+     "heldout_p50": 0.3504,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE42861": {
+     "n_markers_found": 116,
+     "n_panel": 38,
+     "A_p10": 0.3413,
+     "A_p50": 0.3775,
+     "A_p90": 0.3991,
+     "heldout_p50": 0.3744,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE87571": {
+     "n_markers_found": 116,
+     "n_panel": 40,
+     "A_p10": 0.3036,
+     "A_p50": 0.3252,
+     "A_p90": 0.3455,
+     "heldout_p50": 0.323,
+     "heldout_frac_in_panel_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0415,
+    "between_lab_median_range": 0.0567,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "Treg": {
+   "class": "immune",
+   "n_markers_panel": 174,
+   "individually_resolvable": true,
+   "exclusivity": 0.5632,
+   "atlas_pool": 2543,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 85,
+     "n_panel": 40,
+     "A_p10": 0.5175,
+     "A_p50": 0.5637,
+     "A_p90": 0.603,
+     "heldout_p50": 0.5679,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE125105": {
+     "n_markers_found": 76,
+     "n_panel": 40,
+     "A_p10": 0.6362,
+     "A_p50": 0.6639,
+     "A_p90": 0.6985,
+     "heldout_p50": 0.6598,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 85,
+     "n_panel": 38,
+     "A_p10": 0.593,
+     "A_p50": 0.6401,
+     "A_p90": 0.6894,
+     "heldout_p50": 0.635,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 85,
+     "n_panel": 40,
+     "A_p10": 0.5358,
+     "A_p50": 0.5808,
+     "A_p90": 0.6258,
+     "heldout_p50": 0.5879,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0877,
+    "between_lab_median_range": 0.1002,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "Upper_GI": {
+   "class": "cycling",
+   "n_markers_panel": 146,
+   "individually_resolvable": true,
+   "exclusivity": 0.6301,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 87,
+     "n_panel": 40,
+     "A_p10": 0.2745,
+     "A_p50": 0.2951,
+     "A_p90": 0.3099,
+     "heldout_p50": 0.2983,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 85,
+     "n_panel": 40,
+     "A_p10": 0.2839,
+     "A_p50": 0.3072,
+     "A_p90": 0.3245,
+     "heldout_p50": 0.3057,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE42861": {
+     "n_markers_found": 89,
+     "n_panel": 38,
+     "A_p10": 0.3147,
+     "A_p50": 0.3449,
+     "A_p90": 0.365,
+     "heldout_p50": 0.3424,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 89,
+     "n_panel": 40,
+     "A_p10": 0.2707,
+     "A_p50": 0.2997,
+     "A_p90": 0.3292,
+     "heldout_p50": 0.2975,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0455,
+    "between_lab_median_range": 0.0498,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "Uterus_cervix": {
+   "class": "cycling",
+   "n_markers_panel": 166,
+   "individually_resolvable": true,
+   "exclusivity": 0.7169,
+   "atlas_pool": 6105,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 75,
+     "n_panel": 40,
+     "A_p10": 0.2877,
+     "A_p50": 0.3071,
+     "A_p90": 0.3304,
+     "heldout_p50": 0.3059,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 73,
+     "n_panel": 40,
+     "A_p10": 0.2879,
+     "A_p50": 0.3092,
+     "A_p90": 0.3272,
+     "heldout_p50": 0.3092,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 76,
+     "n_panel": 38,
+     "A_p10": 0.324,
+     "A_p50": 0.3659,
+     "A_p90": 0.3784,
+     "heldout_p50": 0.3603,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE87571": {
+     "n_markers_found": 76,
+     "n_panel": 40,
+     "A_p10": 0.2899,
+     "A_p50": 0.3243,
+     "A_p90": 0.3538,
+     "heldout_p50": 0.3172,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0486,
+    "between_lab_median_range": 0.0588,
+    "heldout_coverage_median": 0.738
+   }
+  },
+  "adipocyte": {
+   "class": "stromal",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 1.0,
+   "atlas_pool": 12577,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 170,
+     "n_panel": 40,
+     "A_p10": 0.365,
+     "A_p50": 0.3869,
+     "A_p90": 0.4037,
+     "heldout_p50": 0.3862,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 162,
+     "n_panel": 40,
+     "A_p10": 0.4031,
+     "A_p50": 0.4268,
+     "A_p90": 0.451,
+     "heldout_p50": 0.4282,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 170,
+     "n_panel": 38,
+     "A_p10": 0.4159,
+     "A_p50": 0.463,
+     "A_p90": 0.4782,
+     "heldout_p50": 0.455,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 170,
+     "n_panel": 40,
+     "A_p10": 0.3811,
+     "A_p50": 0.4091,
+     "A_p90": 0.435,
+     "heldout_p50": 0.4114,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0509,
+    "between_lab_median_range": 0.0761,
+    "heldout_coverage_median": 0.7
+   }
+  },
+  "dendritic": {
+   "class": "immune",
+   "n_markers_panel": 9,
+   "individually_resolvable": false,
+   "exclusivity": 0.5556,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.6996,
+     "A_p50": 0.7765,
+     "A_p90": 0.8588,
+     "heldout_p50": 0.7499,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.7275,
+     "A_p50": 0.805,
+     "A_p90": 0.9172,
+     "heldout_p50": 0.8606,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 7,
+     "n_panel": 38,
+     "A_p10": 0.7217,
+     "A_p50": 0.8991,
+     "A_p90": 0.9317,
+     "heldout_p50": 0.883,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE87571": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.7331,
+     "A_p50": 0.8233,
+     "A_p90": 0.9083,
+     "heldout_p50": 0.7925,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1825,
+    "between_lab_median_range": 0.1226,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "endothelial": {
+   "class": "stromal",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9633,
+   "atlas_pool": 21614,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 226,
+     "n_panel": 40,
+     "A_p10": 0.4609,
+     "A_p50": 0.4844,
+     "A_p90": 0.5046,
+     "heldout_p50": 0.4854,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 220,
+     "n_panel": 40,
+     "A_p10": 0.5161,
+     "A_p50": 0.5373,
+     "A_p90": 0.5611,
+     "heldout_p50": 0.5383,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 226,
+     "n_panel": 38,
+     "A_p10": 0.5168,
+     "A_p50": 0.5521,
+     "A_p90": 0.5736,
+     "heldout_p50": 0.5463,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 226,
+     "n_panel": 40,
+     "A_p10": 0.4685,
+     "A_p50": 0.5003,
+     "A_p90": 0.5359,
+     "heldout_p50": 0.5068,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0509,
+    "between_lab_median_range": 0.0677,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "eosinophil": {
+   "class": "immune",
+   "n_markers_panel": 22,
+   "individually_resolvable": true,
+   "exclusivity": 0.5455,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.4542,
+     "A_p50": 0.5,
+     "A_p90": 0.5513,
+     "heldout_p50": 0.5047,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE125105": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.4975,
+     "A_p50": 0.5449,
+     "A_p90": 0.6283,
+     "heldout_p50": 0.5677,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE42861": {
+     "n_markers_found": 14,
+     "n_panel": 38,
+     "A_p10": 0.503,
+     "A_p50": 0.5699,
+     "A_p90": 0.6126,
+     "heldout_p50": 0.5663,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 14,
+     "n_panel": 40,
+     "A_p10": 0.4849,
+     "A_p50": 0.526,
+     "A_p90": 0.5687,
+     "heldout_p50": 0.5162,
+     "heldout_frac_in_panel_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1034,
+    "between_lab_median_range": 0.0699,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "fibroblast": {
+   "class": "stromal",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9867,
+   "atlas_pool": 13798,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 183,
+     "n_panel": 40,
+     "A_p10": 0.4587,
+     "A_p50": 0.4855,
+     "A_p90": 0.5009,
+     "heldout_p50": 0.4837,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 160,
+     "n_panel": 40,
+     "A_p10": 0.5263,
+     "A_p50": 0.5415,
+     "A_p90": 0.56,
+     "heldout_p50": 0.5403,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 184,
+     "n_panel": 38,
+     "A_p10": 0.5078,
+     "A_p50": 0.5498,
+     "A_p90": 0.569,
+     "heldout_p50": 0.5425,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 184,
+     "n_panel": 40,
+     "A_p10": 0.4618,
+     "A_p50": 0.4955,
+     "A_p90": 0.5365,
+     "heldout_p50": 0.4989,
+     "heldout_frac_in_panel_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0517,
+    "between_lab_median_range": 0.0643,
+    "heldout_coverage_median": 0.713
+   }
+  },
+  "granulocytes": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.7267,
+   "atlas_pool": 482420,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 165,
+     "n_panel": 40,
+     "A_p10": 1.0755,
+     "A_p50": 1.1076,
+     "A_p90": 1.1194,
+     "heldout_p50": 1.1093,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 144,
+     "n_panel": 40,
+     "A_p10": 1.0713,
+     "A_p50": 1.1178,
+     "A_p90": 1.1301,
+     "heldout_p50": 1.1179,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE42861": {
+     "n_markers_found": 173,
+     "n_panel": 38,
+     "A_p10": 1.0796,
+     "A_p50": 1.123,
+     "A_p90": 1.1353,
+     "heldout_p50": 1.1194,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 173,
+     "n_panel": 40,
+     "A_p10": 1.0976,
+     "A_p50": 1.1167,
+     "A_p90": 1.1294,
+     "heldout_p50": 1.117,
+     "heldout_frac_in_panel_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0498,
+    "between_lab_median_range": 0.0154,
+    "heldout_coverage_median": 0.7
+   }
+  },
+  "macrophage": {
+   "class": "immune",
+   "n_markers_panel": 8,
+   "individually_resolvable": false,
+   "exclusivity": 0.5,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.3689,
+     "A_p50": 0.4495,
+     "A_p90": 0.5829,
+     "heldout_p50": 0.4417,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE125105": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.4529,
+     "A_p50": 0.5048,
+     "A_p90": 0.6147,
+     "heldout_p50": 0.4974,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 7,
+     "n_panel": 38,
+     "A_p10": 0.4748,
+     "A_p50": 0.5456,
+     "A_p90": 0.6206,
+     "heldout_p50": 0.519,
+     "heldout_frac_in_panel_band": 0.8
+    },
+    "SE87571": {
+     "n_markers_found": 7,
+     "n_panel": 40,
+     "A_p10": 0.4348,
+     "A_p50": 0.502,
+     "A_p90": 0.6106,
+     "heldout_p50": 0.4707,
+     "heldout_frac_in_panel_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1688,
+    "between_lab_median_range": 0.0961,
+    "heldout_coverage_median": 0.775
+   }
+  },
+  "megakaryocyte": {
+   "class": "progenitor",
+   "n_markers_panel": 9,
+   "individually_resolvable": false,
+   "exclusivity": 0.6667,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 8,
+     "n_panel": 40,
+     "A_p10": 0.4381,
+     "A_p50": 0.4732,
+     "A_p90": 0.5132,
+     "heldout_p50": 0.4723,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 8,
+     "n_panel": 40,
+     "A_p10": 0.4974,
+     "A_p50": 0.5451,
+     "A_p90": 0.5991,
+     "heldout_p50": 0.5329,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE42861": {
+     "n_markers_found": 8,
+     "n_panel": 38,
+     "A_p10": 0.5159,
+     "A_p50": 0.5698,
+     "A_p90": 0.6096,
+     "heldout_p50": 0.5575,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 8,
+     "n_panel": 40,
+     "A_p10": 0.4783,
+     "A_p50": 0.5169,
+     "A_p90": 0.5436,
+     "heldout_p50": 0.5011,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0844,
+    "between_lab_median_range": 0.0966,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "monocyte": {
+   "class": "immune",
+   "n_markers_panel": 13,
+   "individually_resolvable": false,
+   "exclusivity": 0.7692,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 11,
+     "n_panel": 40,
+     "A_p10": 0.3728,
+     "A_p50": 0.4014,
+     "A_p90": 0.4439,
+     "heldout_p50": 0.4065,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE125105": {
+     "n_markers_found": 11,
+     "n_panel": 40,
+     "A_p10": 0.4004,
+     "A_p50": 0.4374,
+     "A_p90": 0.4809,
+     "heldout_p50": 0.4338,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 11,
+     "n_panel": 38,
+     "A_p10": 0.4109,
+     "A_p50": 0.4574,
+     "A_p90": 0.4841,
+     "heldout_p50": 0.4498,
+     "heldout_frac_in_panel_band": 0.9
+    },
+    "SE87571": {
+     "n_markers_found": 11,
+     "n_panel": 40,
+     "A_p10": 0.4188,
+     "A_p50": 0.4521,
+     "A_p90": 0.4823,
+     "heldout_p50": 0.4436,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0721,
+    "between_lab_median_range": 0.056,
+    "heldout_coverage_median": 0.825
+   }
+  },
+  "nRBC": {
+   "class": "progenitor",
+   "n_markers_panel": 74,
+   "individually_resolvable": true,
+   "exclusivity": 0.8514,
+   "atlas_pool": 1906,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 61,
+     "n_panel": 40,
+     "A_p10": 0.3721,
+     "A_p50": 0.3851,
+     "A_p90": 0.4079,
+     "heldout_p50": 0.3882,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE125105": {
+     "n_markers_found": 60,
+     "n_panel": 40,
+     "A_p10": 0.4293,
+     "A_p50": 0.4528,
+     "A_p90": 0.4796,
+     "heldout_p50": 0.4533,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 62,
+     "n_panel": 38,
+     "A_p10": 0.428,
+     "A_p50": 0.4547,
+     "A_p90": 0.4732,
+     "heldout_p50": 0.4476,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 62,
+     "n_panel": 40,
+     "A_p10": 0.3854,
+     "A_p50": 0.4105,
+     "A_p90": 0.44,
+     "heldout_p50": 0.4127,
+     "heldout_frac_in_panel_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0478,
+    "between_lab_median_range": 0.0696,
+    "heldout_coverage_median": 0.8
+   }
+  },
+  "neuron": {
+   "class": "terminal",
+   "n_markers_panel": 213,
+   "individually_resolvable": true,
+   "exclusivity": 0.9812,
+   "atlas_pool": 2741,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 129,
+     "n_panel": 40,
+     "A_p10": 0.5114,
+     "A_p50": 0.543,
+     "A_p90": 0.5704,
+     "heldout_p50": 0.5383,
+     "heldout_frac_in_panel_band": 0.7
+    },
+    "SE125105": {
+     "n_markers_found": 113,
+     "n_panel": 40,
+     "A_p10": 0.5843,
+     "A_p50": 0.6058,
+     "A_p90": 0.6365,
+     "heldout_p50": 0.603,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE42861": {
+     "n_markers_found": 130,
+     "n_panel": 38,
+     "A_p10": 0.5604,
+     "A_p50": 0.5985,
+     "A_p90": 0.6365,
+     "heldout_p50": 0.5958,
+     "heldout_frac_in_panel_band": 0.85
+    },
+    "SE87571": {
+     "n_markers_found": 130,
+     "n_panel": 40,
+     "A_p10": 0.5098,
+     "A_p50": 0.5453,
+     "A_p90": 0.5996,
+     "heldout_p50": 0.5564,
+     "heldout_frac_in_panel_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0675,
+    "between_lab_median_range": 0.0628,
+    "heldout_coverage_median": 0.712
+   }
+  },
+  "neutrophil": {
+   "class": "immune",
+   "n_markers_panel": 7,
+   "individually_resolvable": false,
+   "exclusivity": 0.5714,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 6,
+     "n_panel": 40,
+     "A_p10": 0.673,
+     "A_p50": 0.7317,
+     "A_p90": 0.7822,
+     "heldout_p50": 0.7376,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE125105": {
+     "n_markers_found": 6,
+     "n_panel": 40,
+     "A_p10": 0.7474,
+     "A_p50": 0.8012,
+     "A_p90": 0.8555,
+     "heldout_p50": 0.7875,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE42861": {
+     "n_markers_found": 6,
+     "n_panel": 38,
+     "A_p10": 0.7485,
+     "A_p50": 0.8022,
+     "A_p90": 0.8342,
+     "heldout_p50": 0.7958,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE87571": {
+     "n_markers_found": 6,
+     "n_panel": 40,
+     "A_p10": 0.7291,
+     "A_p50": 0.7759,
+     "A_p90": 0.8384,
+     "heldout_p50": 0.7767,
+     "heldout_frac_in_panel_band": 0.875
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.1087,
+    "between_lab_median_range": 0.0705,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "small_intestine": {
+   "class": "cycling",
+   "n_markers_panel": 8,
+   "individually_resolvable": false,
+   "exclusivity": 0.75,
+   "atlas_pool": 252,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 8,
+     "n_panel": 40,
+     "A_p10": 0.4219,
+     "A_p50": 0.4414,
+     "A_p90": 0.4724,
+     "heldout_p50": 0.4404,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 8,
+     "n_panel": 40,
+     "A_p10": 0.438,
+     "A_p50": 0.4754,
+     "A_p90": 0.511,
+     "heldout_p50": 0.4766,
+     "heldout_frac_in_panel_band": 0.775
+    },
+    "SE42861": {
+     "n_markers_found": 8,
+     "n_panel": 38,
+     "A_p10": 0.4784,
+     "A_p50": 0.5211,
+     "A_p90": 0.5616,
+     "heldout_p50": 0.5082,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 8,
+     "n_panel": 40,
+     "A_p10": 0.4529,
+     "A_p50": 0.4834,
+     "A_p90": 0.5143,
+     "heldout_p50": 0.4922,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0672,
+    "between_lab_median_range": 0.0797,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "smooth_muscle": {
+   "class": "stromal",
+   "n_markers_panel": 55,
+   "individually_resolvable": true,
+   "exclusivity": 0.8545,
+   "atlas_pool": 4933,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 28,
+     "n_panel": 40,
+     "A_p10": 0.5099,
+     "A_p50": 0.5319,
+     "A_p90": 0.556,
+     "heldout_p50": 0.536,
+     "heldout_frac_in_panel_band": 0.65
+    },
+    "SE125105": {
+     "n_markers_found": 27,
+     "n_panel": 40,
+     "A_p10": 0.5357,
+     "A_p50": 0.5694,
+     "A_p90": 0.6067,
+     "heldout_p50": 0.5681,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE42861": {
+     "n_markers_found": 28,
+     "n_panel": 38,
+     "A_p10": 0.5648,
+     "A_p50": 0.5954,
+     "A_p90": 0.6258,
+     "heldout_p50": 0.5955,
+     "heldout_frac_in_panel_band": 0.75
+    },
+    "SE87571": {
+     "n_markers_found": 28,
+     "n_panel": 40,
+     "A_p10": 0.5384,
+     "A_p50": 0.5629,
+     "A_p90": 0.6025,
+     "heldout_p50": 0.5696,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0626,
+    "between_lab_median_range": 0.0635,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "stem_pluri": {
+   "class": "stem_pluri",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.9967,
+   "atlas_pool": 482421,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 23,
+     "n_panel": 40,
+     "A_p10": 0.3248,
+     "A_p50": 0.3407,
+     "A_p90": 0.3599,
+     "heldout_p50": 0.3442,
+     "heldout_frac_in_panel_band": 0.675
+    },
+    "SE125105": {
+     "n_markers_found": 23,
+     "n_panel": 40,
+     "A_p10": 0.3521,
+     "A_p50": 0.3734,
+     "A_p90": 0.3985,
+     "heldout_p50": 0.3731,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 23,
+     "n_panel": 38,
+     "A_p10": 0.372,
+     "A_p50": 0.4119,
+     "A_p90": 0.429,
+     "heldout_p50": 0.405,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE87571": {
+     "n_markers_found": 23,
+     "n_panel": 40,
+     "A_p10": 0.3299,
+     "A_p50": 0.3463,
+     "A_p90": 0.3753,
+     "heldout_p50": 0.3512,
+     "heldout_frac_in_panel_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0459,
+    "between_lab_median_range": 0.0712,
+    "heldout_coverage_median": 0.75
+   }
+  },
+  "stromal_other": {
+   "class": "stromal",
+   "n_markers_panel": 49,
+   "individually_resolvable": true,
+   "exclusivity": 0.9592,
+   "atlas_pool": 4450,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 23,
+     "n_panel": 40,
+     "A_p10": 0.6085,
+     "A_p50": 0.6264,
+     "A_p90": 0.6512,
+     "heldout_p50": 0.6295,
+     "heldout_frac_in_panel_band": 0.625
+    },
+    "SE125105": {
+     "n_markers_found": 22,
+     "n_panel": 40,
+     "A_p10": 0.6949,
+     "A_p50": 0.7301,
+     "A_p90": 0.7611,
+     "heldout_p50": 0.7176,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE42861": {
+     "n_markers_found": 23,
+     "n_panel": 38,
+     "A_p10": 0.6413,
+     "A_p50": 0.6902,
+     "A_p90": 0.7025,
+     "heldout_p50": 0.6865,
+     "heldout_frac_in_panel_band": 0.725
+    },
+    "SE87571": {
+     "n_markers_found": 23,
+     "n_panel": 40,
+     "A_p10": 0.6147,
+     "A_p50": 0.651,
+     "A_p90": 0.6832,
+     "heldout_p50": 0.6509,
+     "heldout_frac_in_panel_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0637,
+    "between_lab_median_range": 0.1037,
+    "heldout_coverage_median": 0.725
+   }
+  },
+  "whole_blood": {
+   "class": "immune",
+   "n_markers_panel": 300,
+   "individually_resolvable": true,
+   "exclusivity": 0.8333,
+   "atlas_pool": 482419,
+   "labs": {
+    "SE111629": {
+     "n_markers_found": 191,
+     "n_panel": 40,
+     "A_p10": 1.0694,
+     "A_p50": 1.1137,
+     "A_p90": 1.1358,
+     "heldout_p50": 1.114,
+     "heldout_frac_in_panel_band": 0.875
+    },
+    "SE125105": {
+     "n_markers_found": 171,
+     "n_panel": 40,
+     "A_p10": 0.9982,
+     "A_p50": 1.0914,
+     "A_p90": 1.1203,
+     "heldout_p50": 1.0842,
+     "heldout_frac_in_panel_band": 0.825
+    },
+    "SE42861": {
+     "n_markers_found": 198,
+     "n_panel": 38,
+     "A_p10": 1.0782,
+     "A_p50": 1.1359,
+     "A_p90": 1.1576,
+     "heldout_p50": 1.1258,
+     "heldout_frac_in_panel_band": 0.95
+    },
+    "SE87571": {
+     "n_markers_found": 198,
+     "n_panel": 40,
+     "A_p10": 1.096,
+     "A_p50": 1.1368,
+     "A_p90": 1.1519,
+     "heldout_p50": 1.1285,
+     "heldout_frac_in_panel_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0729,
+    "between_lab_median_range": 0.0454,
+    "heldout_coverage_median": 0.85
+   }
+  }
+ }
+}

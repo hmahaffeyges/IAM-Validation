@@ -1,0 +1,744 @@
+{
+ "gse": "GSE42861",
+ "selection_seed": 2029,
+ "rule": [
+  "disease state",
+  "normal"
+ ],
+ "panel": [
+  "GSM1051570",
+  "GSM1051714",
+  "GSM1051607",
+  "GSM1051632",
+  "GSM1051584",
+  "GSM1051771",
+  "GSM1051770",
+  "GSM1051564",
+  "GSM1051851",
+  "GSM1051660",
+  "GSM1052102",
+  "GSM1051967",
+  "GSM1051602",
+  "GSM1051656",
+  "GSM1051544",
+  "GSM1051751",
+  "GSM1051760",
+  "GSM1051765",
+  "GSM1051761",
+  "GSM1052038",
+  "GSM1051635",
+  "GSM1052135",
+  "GSM1051625",
+  "GSM1051713",
+  "GSM1051565",
+  "GSM1051553",
+  "GSM1051536",
+  "GSM1052188",
+  "GSM1051831",
+  "GSM1051754",
+  "GSM1051865",
+  "GSM1051844",
+  "GSM1052018",
+  "GSM1052210",
+  "GSM1051710",
+  "GSM1052126",
+  "GSM1051842",
+  "GSM1051758",
+  "GSM1051571",
+  "GSM1051827"
+ ],
+ "test": [
+  "GSM1051805",
+  "GSM1051604",
+  "GSM1052015",
+  "GSM1052211",
+  "GSM1051562",
+  "GSM1051727",
+  "GSM1052137",
+  "GSM1052035",
+  "GSM1051631",
+  "GSM1051814",
+  "GSM1051652",
+  "GSM1051717",
+  "GSM1051595",
+  "GSM1051752",
+  "GSM1051550",
+  "GSM1051668",
+  "GSM1051545",
+  "GSM1051675",
+  "GSM1052130",
+  "GSM1052022",
+  "GSM1051787",
+  "GSM1052051",
+  "GSM1051822",
+  "GSM1051597",
+  "GSM1051569",
+  "GSM1051715",
+  "GSM1051655",
+  "GSM1052019",
+  "GSM1051927",
+  "GSM1051535",
+  "GSM1051924",
+  "GSM1051572",
+  "GSM1051773",
+  "GSM1051790",
+  "GSM1051653",
+  "GSM1051650",
+  "GSM1052101",
+  "GSM1051855",
+  "GSM1051860",
+  "GSM1051730"
+ ],
+ "n_arrays": 78,
+ "n_loci": 125263,
+ "loci_filter": "handoff/keep_loci.json (identity loci + celltype markers, 153,444)",
+ "stage1": "stage_1_idat_calibration.calibrate_idat_to_beta (methylprep noob)",
+ "chars": {
+  "GSM1051570": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 58",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051714": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 69",
+   "gender: f",
+   "smoking status: occasional"
+  ],
+  "GSM1051607": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 54",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051632": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 44",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051584": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 62",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051771": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 47",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051770": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 31",
+   "gender: f",
+   "smoking status: occasional"
+  ],
+  "GSM1051564": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 54",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051851": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 45",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051660": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 43",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1052102": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 68",
+   "gender: m",
+   "smoking status: never"
+  ],
+  "GSM1051967": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 68",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051602": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 51",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051656": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 53",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051544": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 62",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051751": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 50",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051760": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 22",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051765": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 62",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051761": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 55",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1052038": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 56",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051635": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 47",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1052135": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 61",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051625": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 70",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051713": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 61",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051565": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 51",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051553": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 62",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051536": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 59",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1052188": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 54",
+   "gender: f",
+   "smoking status: occasional"
+  ],
+  "GSM1051831": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 45",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051754": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 34",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051865": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 54",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051844": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 41",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1052018": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 54",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1052210": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 63",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051710": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 40",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1052126": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 60",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051842": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 59",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051758": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 51",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051571": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 36",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051827": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 59",
+   "gender: m",
+   "smoking status: current"
+  ],
+  "GSM1051805": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 59",
+   "gender: m",
+   "smoking status: current"
+  ],
+  "GSM1051604": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 24",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1052015": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 57",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1052211": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 46",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051562": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 55",
+   "gender: f",
+   "smoking status: occasional"
+  ],
+  "GSM1051727": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 55",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1052137": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 28",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1052035": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 48",
+   "gender: m",
+   "smoking status: occasional"
+  ],
+  "GSM1051631": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 55",
+   "gender: m",
+   "smoking status: occasional"
+  ],
+  "GSM1051814": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 51",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051652": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 60",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051717": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 68",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051595": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 53",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051752": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 67",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051550": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 58",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051668": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 46",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051545": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 53",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051675": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 51",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1052130": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 58",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1052022": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 47",
+   "gender: m",
+   "smoking status: never"
+  ],
+  "GSM1051787": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 58",
+   "gender: f",
+   "smoking status: occasional"
+  ],
+  "GSM1052051": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 70",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051822": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 60",
+   "gender: m",
+   "smoking status: never"
+  ],
+  "GSM1051597": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 33",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051569": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 31",
+   "gender: f",
+   "smoking status: occasional"
+  ],
+  "GSM1051715": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 57",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051655": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 36",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1052019": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 55",
+   "gender: m",
+   "smoking status: ex"
+  ],
+  "GSM1051927": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 60",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051535": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 31",
+   "gender: m",
+   "smoking status: na"
+  ],
+  "GSM1051924": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 64",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051572": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 69",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051773": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 53",
+   "gender: m",
+   "smoking status: current"
+  ],
+  "GSM1051790": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 66",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051653": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 32",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1051650": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 59",
+   "gender: f",
+   "smoking status: ex"
+  ],
+  "GSM1052101": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 66",
+   "gender: m",
+   "smoking status: never"
+  ],
+  "GSM1051855": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 36",
+   "gender: f",
+   "smoking status: never"
+  ],
+  "GSM1051860": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 33",
+   "gender: f",
+   "smoking status: current"
+  ],
+  "GSM1051730": [
+   "cell type: PBL",
+   "disease state: Normal",
+   "subject: Normal",
+   "age: 37",
+   "gender: f",
+   "smoking status: ex"
+  ]
+ },
+ "errors": {
+  "GSM1051770": "UnicodeDecodeError('utf-8', b'\\x1f\\x8b\\x08\\x08', 1, 2, 'invalid start byte')",
+  "GSM1051564": "UnicodeDecodeError('utf-8', b'\\x1f\\x8b\\x08\\x08', 1, 2, 'invalid start byte')"
+ },
+ "sha256_pickle": "3efdb2e12041148968d61f19c8ecff6a49251028b27ba7947ab7c8237083bb30",
+ "built": "2026-09-21 23:33"
+}

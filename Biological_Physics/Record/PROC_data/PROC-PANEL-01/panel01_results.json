@@ -1,0 +1,145 @@
+{
+ "P1_sd_of_z_by_k": {
+  "10": {
+   "GSE111629_UCLA": 0.007,
+   "GSE125105_Munich": 0.0063,
+   "GSE42861_Karolinska": 0.0081,
+   "GSE87571_Uppsala": 0.0091
+  },
+  "15": {
+   "GSE111629_UCLA": 0.006,
+   "GSE125105_Munich": 0.0053,
+   "GSE42861_Karolinska": 0.0069,
+   "GSE87571_Uppsala": 0.008
+  },
+  "20": {
+   "GSE111629_UCLA": 0.0051,
+   "GSE125105_Munich": 0.0044,
+   "GSE42861_Karolinska": 0.0056,
+   "GSE87571_Uppsala": 0.007
+  },
+  "25": {
+   "GSE111629_UCLA": 0.0045,
+   "GSE125105_Munich": 0.004,
+   "GSE42861_Karolinska": 0.0053,
+   "GSE87571_Uppsala": 0.0064
+  },
+  "30": {
+   "GSE111629_UCLA": 0.0039,
+   "GSE125105_Munich": 0.0034,
+   "GSE42861_Karolinska": 0.0046,
+   "GSE87571_Uppsala": 0.0057
+  },
+  "40": {
+   "GSE111629_UCLA": 0.0034,
+   "GSE125105_Munich": 0.003,
+   "GSE42861_Karolinska": 0.0041,
+   "GSE87571_Uppsala": 0.0049
+  },
+  "50": {
+   "GSE111629_UCLA": 0.0029,
+   "GSE125105_Munich": 0.0026,
+   "GSE42861_Karolinska": 0.0036,
+   "GSE87571_Uppsala": 0.0043
+  }
+ },
+ "P1_smallest_k_all_sd_le_0.005": 40,
+ "P2": {
+  "GSE111629_UCLA": {
+   "frac_within_0_010": 0.95,
+   "median_Aprime": 0.9998,
+   "sd": 0.0053
+  },
+  "GSE125105_Munich": {
+   "frac_within_0_010": 0.988,
+   "median_Aprime": 1.0005,
+   "sd": 0.0043
+  },
+  "GSE42861_Karolinska": {
+   "frac_within_0_010": 0.93,
+   "median_Aprime": 0.9996,
+   "sd": 0.0055
+  },
+  "GSE87571_Uppsala": {
+   "frac_within_0_010": 0.852,
+   "median_Aprime": 1.0001,
+   "sd": 0.0067
+  }
+ },
+ "P2_pass": false,
+ "P3_LOO_lab_zeroed_band": {
+  "GSE111629_UCLA": {
+   "median_in_band": 0.788,
+   "p5": 0.648,
+   "p95": 0.855
+  },
+  "GSE125105_Munich": {
+   "median_in_band": 0.841,
+   "p5": 0.733,
+   "p95": 0.869
+  },
+  "GSE42861_Karolinska": {
+   "median_in_band": 0.766,
+   "p5": 0.669,
+   "p95": 0.793
+  },
+  "GSE87571_Uppsala": {
+   "median_in_band": 0.717,
+   "p5": 0.594,
+   "p95": 0.772
+  }
+ },
+ "P3_pass": true,
+ "P3_reference_no_lab_zero_in_band": {
+  "GSE111629_UCLA": 0.142,
+  "GSE125105_Munich": 0.861,
+  "GSE42861_Karolinska": 0.502,
+  "GSE87571_Uppsala": 0.75
+ },
+ "P4_single_decade_panel": {
+  "GSE111629_UCLA": {
+   "decade": 70,
+   "n_in_decade": 82,
+   "frac_within_0_010": 0.731
+  },
+  "GSE125105_Munich": {
+   "decade": 50,
+   "n_in_decade": 59,
+   "frac_within_0_010": 0.798
+  },
+  "GSE42861_Karolinska": {
+   "decade": 50,
+   "n_in_decade": 115,
+   "frac_within_0_010": 0.858
+  },
+  "GSE87571_Uppsala": {
+   "decade": 40,
+   "n_in_decade": 121,
+   "frac_within_0_010": 0.785
+  }
+ },
+ "P4_pass": false,
+ "P5_UCLA_zeroed_with_Uppsala_panel_median_Aprime": 0.9551,
+ "N_chip_before_(unchanged_by_a_constant)": {
+  "GSE111629_UCLA": {
+   "n_chips": 38,
+   "F": 1.79,
+   "p": 0.008871259117521083
+  },
+  "GSE125105_Munich": {
+   "n_chips": 53,
+   "F": 1.07,
+   "p": 0.37004580063375125
+  },
+  "GSE42861_Karolinska": {
+   "n_chips": 43,
+   "F": 4.81,
+   "p": 7.935197503604223e-16
+  },
+  "GSE87571_Uppsala": {
+   "n_chips": 62,
+   "F": 4.08,
+   "p": 1.752240009265118e-19
+  }
+ }
+}

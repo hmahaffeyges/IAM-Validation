@@ -1,0 +1,661 @@
+{
+ "gse": "GSE111629",
+ "selection_seed": 2029,
+ "rule": [
+  "disease state",
+  "pd-free control"
+ ],
+ "panel": [
+  "GSM3035423",
+  "GSM3035960",
+  "GSM3035584",
+  "GSM3035430",
+  "GSM3035428",
+  "GSM3035821",
+  "GSM3035649",
+  "GSM3035920",
+  "GSM3035746",
+  "GSM3035404",
+  "GSM3035918",
+  "GSM3035912",
+  "GSM3035738",
+  "GSM3035771",
+  "GSM3035480",
+  "GSM3035622",
+  "GSM3035504",
+  "GSM3035875",
+  "GSM3035545",
+  "GSM3035450",
+  "GSM3035765",
+  "GSM3035559",
+  "GSM3035482",
+  "GSM3035832",
+  "GSM3035558",
+  "GSM3035744",
+  "GSM3035473",
+  "GSM3035626",
+  "GSM3035793",
+  "GSM3035537",
+  "GSM3035740",
+  "GSM3035518",
+  "GSM3035756",
+  "GSM3035781",
+  "GSM3035405",
+  "GSM3035872",
+  "GSM3035948",
+  "GSM3035867",
+  "GSM3035865",
+  "GSM3035595"
+ ],
+ "test": [
+  "GSM3035524",
+  "GSM3035815",
+  "GSM3035735",
+  "GSM3035906",
+  "GSM3035652",
+  "GSM3035639",
+  "GSM3035605",
+  "GSM3035896",
+  "GSM3035597",
+  "GSM3035925",
+  "GSM3035890",
+  "GSM3035637",
+  "GSM3035598",
+  "GSM3035754",
+  "GSM3035498",
+  "GSM3035618",
+  "GSM3035570",
+  "GSM3035602",
+  "GSM3035471",
+  "GSM3035767",
+  "GSM3035667",
+  "GSM3035571",
+  "GSM3035451",
+  "GSM3035527",
+  "GSM3035882",
+  "GSM3035937",
+  "GSM3035419",
+  "GSM3035475",
+  "GSM3035942",
+  "GSM3035902",
+  "GSM3035866",
+  "GSM3035789",
+  "GSM3035788",
+  "GSM3035496",
+  "GSM3035627",
+  "GSM3035615",
+  "GSM3035874",
+  "GSM3035465",
+  "GSM3035472",
+  "GSM3035785"
+ ],
+ "n_arrays": 80,
+ "n_loci": 123913,
+ "loci_filter": "handoff/keep_loci.json (identity loci + celltype markers, 153,444)",
+ "stage1": "stage_1_idat_calibration.calibrate_idat_to_beta (methylprep noob)",
+ "chars": {
+  "GSM3035423": [
+   "disease state: PD-free control",
+   "age: 41",
+   "gender: Male",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035960": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035584": [
+   "disease state: PD-free control",
+   "age: 36",
+   "gender: Male",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035430": [
+   "disease state: PD-free control",
+   "age: 63",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035428": [
+   "disease state: PD-free control",
+   "age: 42",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035821": [
+   "disease state: PD-free control",
+   "age: 78",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035649": [
+   "disease state: PD-free control",
+   "age: 42",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035920": [
+   "disease state: PD-free control",
+   "age: 65",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035746": [
+   "disease state: PD-free control",
+   "age: 80",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035404": [
+   "disease state: PD-free control",
+   "age: 72",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035918": [
+   "disease state: PD-free control",
+   "age: 61",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035912": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035738": [
+   "disease state: PD-free control",
+   "age: 53",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035771": [
+   "disease state: PD-free control",
+   "age: 81",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035480": [
+   "disease state: PD-free control",
+   "age: 82",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035622": [
+   "disease state: PD-free control",
+   "age: 67",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035504": [
+   "disease state: PD-free control",
+   "age: 41",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035875": [
+   "disease state: PD-free control",
+   "age: 62",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035545": [
+   "disease state: PD-free control",
+   "age: 77",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035450": [
+   "disease state: PD-free control",
+   "age: 67",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035765": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035559": [
+   "disease state: PD-free control",
+   "age: 87",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035482": [
+   "disease state: PD-free control",
+   "age: 73",
+   "gender: Male",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035832": [
+   "disease state: PD-free control",
+   "age: 75",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035558": [
+   "disease state: PD-free control",
+   "age: 68",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035744": [
+   "disease state: PD-free control",
+   "age: 73",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035473": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035626": [
+   "disease state: PD-free control",
+   "age: 72",
+   "gender: Female",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035793": [
+   "disease state: PD-free control",
+   "age: 80",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035537": [
+   "disease state: PD-free control",
+   "age: 44",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035740": [
+   "disease state: PD-free control",
+   "age: 64",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035518": [
+   "disease state: PD-free control",
+   "age: 67",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035756": [
+   "disease state: PD-free control",
+   "age: 68",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035781": [
+   "disease state: PD-free control",
+   "age: 75",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035405": [
+   "disease state: PD-free control",
+   "age: 72",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035872": [
+   "disease state: PD-free control",
+   "age: 51",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035948": [
+   "disease state: PD-free control",
+   "age: 81",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035867": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035865": [
+   "disease state: PD-free control",
+   "age: 71",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035595": [
+   "disease state: PD-free control",
+   "age: 92",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035524": [
+   "disease state: PD-free control",
+   "age: 71",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035815": [
+   "disease state: PD-free control",
+   "age: 58",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035735": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035906": [
+   "disease state: PD-free control",
+   "age: 77",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035652": [
+   "disease state: PD-free control",
+   "age: 48",
+   "gender: Female",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035639": [
+   "disease state: PD-free control",
+   "age: 44",
+   "gender: Female",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035605": [
+   "disease state: PD-free control",
+   "age: 86",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035896": [
+   "disease state: PD-free control",
+   "age: 69",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035597": [
+   "disease state: PD-free control",
+   "age: 56",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035925": [
+   "disease state: PD-free control",
+   "age: 72",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035890": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035637": [
+   "disease state: PD-free control",
+   "age: 43",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035598": [
+   "disease state: PD-free control",
+   "age: 86",
+   "gender: Male",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035754": [
+   "disease state: PD-free control",
+   "age: 82",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035498": [
+   "disease state: PD-free control",
+   "age: 46",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035618": [
+   "disease state: PD-free control",
+   "age: 81",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035570": [
+   "disease state: PD-free control",
+   "age: 86",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035602": [
+   "disease state: PD-free control",
+   "age: 79",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035471": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035767": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035667": [
+   "disease state: PD-free control",
+   "age: 71",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035571": [
+   "disease state: PD-free control",
+   "age: 80",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035451": [
+   "disease state: PD-free control",
+   "age: 51",
+   "gender: Female",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035527": [
+   "disease state: PD-free control",
+   "age: 69",
+   "gender: Male",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035882": [
+   "disease state: PD-free control",
+   "age: 75",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035937": [
+   "disease state: PD-free control",
+   "age: 62",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035419": [
+   "disease state: PD-free control",
+   "age: 46",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035475": [
+   "disease state: PD-free control",
+   "age: 83",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035942": [
+   "disease state: PD-free control",
+   "age: 74",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035902": [
+   "disease state: PD-free control",
+   "age: 72",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035866": [
+   "disease state: PD-free control",
+   "age: 67",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035789": [
+   "disease state: PD-free control",
+   "age: 69",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035788": [
+   "disease state: PD-free control",
+   "age: 64",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035496": [
+   "disease state: PD-free control",
+   "age: 46",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035627": [
+   "disease state: PD-free control",
+   "age: 68",
+   "gender: Male",
+   "ethnicity: Hispanic",
+   "tissue: whole blood"
+  ],
+  "GSM3035615": [
+   "disease state: PD-free control",
+   "age: 78",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035874": [
+   "disease state: PD-free control",
+   "age: 87",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035465": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Female",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035472": [
+   "disease state: PD-free control",
+   "age: 83",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ],
+  "GSM3035785": [
+   "disease state: PD-free control",
+   "age: 76",
+   "gender: Male",
+   "ethnicity: Caucasian",
+   "tissue: whole blood"
+  ]
+ },
+ "errors": {},
+ "sha256_pickle": "fb339fbd0c08a522808eb31f5e16042a3404dbbb7a7e4c7dafc1e0f21b073a3c",
+ "built": "2026-09-21 23:54"
+}

@@ -1,0 +1,26 @@
+{
+  "cohort_name": "n7_strong_on_substrate",
+  "n_case": 50,
+  "n_hc": 200,
+  "n_cpgs": 22542,
+  "disease_signal_strength": 2.0,
+  "disease_panel_size": 500,
+  "disease_panel_chromosomes": null,
+  "age_range": [
+    40,
+    70
+  ],
+  "age_effect_strength": 0.05,
+  "sex_imbalance": 0.6,
+  "batch_count": 3,
+  "batch_effect_strength": 0.02,
+  "noise_sigma": 0.03,
+  "random_seed": 7,
+  "files": {
+    "truth_table": "truth_table.csv",
+    "beta_matrix": "beta_matrix.parquet",
+    "disease_panel": "disease_panel_truth.json",
+    "foreground_axes": "foreground_axes_truth.npz"
+  },
+  "protocol": "Feed beta_matrix.parquet through CPG chain L1-L8. Check chain output against truth_table.csv columns. Recovery thresholds defined in synthetic_patient_generator.py docstring."
+}

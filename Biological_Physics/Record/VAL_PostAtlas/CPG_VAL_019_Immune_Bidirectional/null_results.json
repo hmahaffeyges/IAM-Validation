@@ -1,0 +1,9 @@
+{
+  "null_type": "random_direction_shuffle_within_panel",
+  "n_permutations": 1000,
+  "rng_seed": 42,
+  "observed_d_signed_AIBL": 0.5991,
+  "null_distribution_mean": 0.00808,
+  "null_distribution_std": 0.31218,
+  "p_two_sided_abs": 0.0
+}

@@ -1,0 +1,936 @@
+{
+ "_meta": {
+  "what": "per-entry marker-panel exclusivity, measured from iamatlas_celltype_markers_v0_2.json",
+  "why": "the panel selection criterion is one-vs-rest against the MEAN of the other cell types, which scores a globally extreme CpG highly for every cell type in which it is extreme. 33.8% of the 6,738 marker CpGs therefore belong to more than one entry's panel (one belongs to 11), and the median entry's panel is only 37% exclusive to it. A per-cell reading taken on a panel that is largely shared is not a reading of that cell type; it is a reading of a shared block.",
+  "rule": "the report prints the number for every entry, and WITHHOLDS the individual per-cell claim (direction against its own healthy range) where exclusivity < 0.25 - the number is shown with the exclusivity beside it so a reader can see why",
+  "does_not_touch": "the runtime marker file is unchanged: the sealed foundation-cohort anchors reproduce on it, so changing the selection criterion requires a re-seal (registered as a Roadmap item, not done here)",
+  "measured": "2026-09-22",
+  "n_entries": 115,
+  "n_distinct_markers": 6738,
+  "pct_markers_in_more_than_one_panel": 33.8,
+  "max_panels_one_marker_serves": 11,
+  "threshold": 0.25
+ },
+ "entries": {
+  "HSC": {
+   "class": "stem_adult",
+   "n_markers": 99,
+   "n_exclusive": 33,
+   "exclusivity": 0.3333,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "CMP": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 11,
+   "exclusivity": 0.11,
+   "max_shared_by": 8,
+   "individual_claim_ok": false
+  },
+  "Erythrocyte_progenitors": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 29,
+   "exclusivity": 0.29,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "GMP": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 26,
+   "exclusivity": 0.26,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "L-MPP": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 15,
+   "exclusivity": 0.15,
+   "max_shared_by": 10,
+   "individual_claim_ok": false
+  },
+  "MEP": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 35,
+   "exclusivity": 0.35,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "MPP": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 8,
+   "exclusivity": 0.08,
+   "max_shared_by": 8,
+   "individual_claim_ok": false
+  },
+  "NeuIm": {
+   "class": "progenitor",
+   "n_markers": 99,
+   "n_exclusive": 33,
+   "exclusivity": 0.3333,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "OPC": {
+   "class": "progenitor",
+   "n_markers": 97,
+   "n_exclusive": 46,
+   "exclusivity": 0.4742,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "erythroblast": {
+   "class": "progenitor",
+   "n_markers": 91,
+   "n_exclusive": 1,
+   "exclusivity": 0.011,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "megakaryocyte": {
+   "class": "progenitor",
+   "n_markers": 91,
+   "n_exclusive": 3,
+   "exclusivity": 0.033,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "nRBC": {
+   "class": "progenitor",
+   "n_markers": 100,
+   "n_exclusive": 82,
+   "exclusivity": 0.82,
+   "max_shared_by": 7,
+   "individual_claim_ok": true
+  },
+  "adipocyte": {
+   "class": "stromal",
+   "n_markers": 100,
+   "n_exclusive": 98,
+   "exclusivity": 0.98,
+   "max_shared_by": 2,
+   "individual_claim_ok": true
+  },
+  "endothelial": {
+   "class": "stromal",
+   "n_markers": 91,
+   "n_exclusive": 75,
+   "exclusivity": 0.8242,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "fibroblast": {
+   "class": "stromal",
+   "n_markers": 100,
+   "n_exclusive": 46,
+   "exclusivity": 0.46,
+   "max_shared_by": 3,
+   "individual_claim_ok": true
+  },
+  "smooth_muscle": {
+   "class": "stromal",
+   "n_markers": 100,
+   "n_exclusive": 40,
+   "exclusivity": 0.4,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "stromal_other": {
+   "class": "stromal",
+   "n_markers": 100,
+   "n_exclusive": 65,
+   "exclusivity": 0.65,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Antrum_undiff": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 6,
+   "exclusivity": 0.06,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "BE": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 32,
+   "exclusivity": 0.32,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Basal": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 45,
+   "exclusivity": 0.45,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Bladder": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 52,
+   "exclusivity": 0.52,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Colon_epithelial_cells": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 86,
+   "exclusivity": 0.86,
+   "max_shared_by": 7,
+   "individual_claim_ok": true
+  },
+  "Corpus_undiff": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 7,
+   "exclusivity": 0.07,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Ductal": {
+   "class": "cycling",
+   "n_markers": 93,
+   "n_exclusive": 39,
+   "exclusivity": 0.4194,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Epi": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 89,
+   "exclusivity": 0.89,
+   "max_shared_by": 3,
+   "individual_claim_ok": true
+  },
+  "Epi_basal": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 48,
+   "exclusivity": 0.48,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Epi_stratified": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 36,
+   "exclusivity": 0.36,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Epi_suprabasal": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 30,
+   "exclusivity": 0.3,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Fundus_undiff": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 9,
+   "exclusivity": 0.09,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Head_and_neck_larynx": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 56,
+   "exclusivity": 0.56,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "Kera_undiff": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 2,
+   "exclusivity": 0.02,
+   "max_shared_by": 5,
+   "individual_claim_ok": false
+  },
+  "Kidney": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 59,
+   "exclusivity": 0.59,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "Lung_cells": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 68,
+   "exclusivity": 0.68,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "Upper_GI": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 45,
+   "exclusivity": 0.45,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "Uterus_cervix": {
+   "class": "cycling",
+   "n_markers": 100,
+   "n_exclusive": 44,
+   "exclusivity": 0.44,
+   "max_shared_by": 6,
+   "individual_claim_ok": true
+  },
+  "small_intestine": {
+   "class": "cycling",
+   "n_markers": 91,
+   "n_exclusive": 1,
+   "exclusivity": 0.011,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "Acinar": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 74,
+   "exclusivity": 0.74,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Antrum_diff": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 6,
+   "exclusivity": 0.06,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Breast": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 45,
+   "exclusivity": 0.45,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "Chol": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 30,
+   "exclusivity": 0.3,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Corpus_diff": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 11,
+   "exclusivity": 0.11,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Endocrine": {
+   "class": "secretory",
+   "n_markers": 99,
+   "n_exclusive": 57,
+   "exclusivity": 0.5758,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Fundus_diff": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 7,
+   "exclusivity": 0.07,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Gland": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 54,
+   "exclusivity": 0.54,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Hep": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 82,
+   "exclusivity": 0.82,
+   "max_shared_by": 2,
+   "individual_claim_ok": true
+  },
+  "Hepatocytes": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 82,
+   "exclusivity": 0.82,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "LE": {
+   "class": "secretory",
+   "n_markers": 93,
+   "n_exclusive": 53,
+   "exclusivity": 0.5699,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Luminal": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 32,
+   "exclusivity": 0.32,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Mela": {
+   "class": "secretory",
+   "n_markers": 89,
+   "n_exclusive": 34,
+   "exclusivity": 0.382,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Pancreatic_acinar_cells": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 74,
+   "exclusivity": 0.74,
+   "max_shared_by": 7,
+   "individual_claim_ok": true
+  },
+  "Pancreatic_beta_cells": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 63,
+   "exclusivity": 0.63,
+   "max_shared_by": 7,
+   "individual_claim_ok": true
+  },
+  "Pancreatic_duct_cells": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 66,
+   "exclusivity": 0.66,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "Prostate": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 31,
+   "exclusivity": 0.31,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "Thyroid": {
+   "class": "secretory",
+   "n_markers": 100,
+   "n_exclusive": 68,
+   "exclusivity": 0.68,
+   "max_shared_by": 7,
+   "individual_claim_ok": true
+  },
+  "B": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 33,
+   "exclusivity": 0.33,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "B-cells_EPIC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 38,
+   "exclusivity": 0.38,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "Baso": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 92,
+   "exclusivity": 0.92,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "Bcell": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 78,
+   "exclusivity": 0.78,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "Bmem": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 99,
+   "exclusivity": 0.99,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Bnv": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 72,
+   "exclusivity": 0.72,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "CD14_monocytes": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 30,
+   "exclusivity": 0.3,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "CD19_B-cells": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 37,
+   "exclusivity": 0.3737,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "CD4T": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 17,
+   "exclusivity": 0.1717,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "CD4T-cells_EPIC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 10,
+   "exclusivity": 0.1,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "CD4Tmem": {
+   "class": "immune",
+   "n_markers": 97,
+   "n_exclusive": 30,
+   "exclusivity": 0.3093,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "CD4Tnv": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 18,
+   "exclusivity": 0.18,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "CD4_T-cells": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 41,
+   "exclusivity": 0.41,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "CD56_NK-cells": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 45,
+   "exclusivity": 0.4545,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "CD8T": {
+   "class": "immune",
+   "n_markers": 98,
+   "n_exclusive": 14,
+   "exclusivity": 0.1429,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "CD8T-cells_EPIC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 8,
+   "exclusivity": 0.08,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "CD8Tmem": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 60,
+   "exclusivity": 0.6,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "CD8Tnv": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 27,
+   "exclusivity": 0.2727,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "CD8_T-cells": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 31,
+   "exclusivity": 0.3131,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "Eos": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 70,
+   "exclusivity": 0.7,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "Eosino": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 16,
+   "exclusivity": 0.16,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Eosinophils_reinius": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 32,
+   "exclusivity": 0.3232,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "Gran": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 50,
+   "exclusivity": 0.5,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "IC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 59,
+   "exclusivity": 0.59,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Kup": {
+   "class": "immune",
+   "n_markers": 98,
+   "n_exclusive": 29,
+   "exclusivity": 0.2959,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Leu": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 30,
+   "exclusivity": 0.3,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Lym": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 48,
+   "exclusivity": 0.48,
+   "max_shared_by": 7,
+   "individual_claim_ok": true
+  },
+  "MP": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 49,
+   "exclusivity": 0.4949,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Macro": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 57,
+   "exclusivity": 0.57,
+   "max_shared_by": 3,
+   "individual_claim_ok": true
+  },
+  "Microglia": {
+   "class": "immune",
+   "n_markers": 95,
+   "n_exclusive": 24,
+   "exclusivity": 0.2526,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Mono": {
+   "class": "immune",
+   "n_markers": 99,
+   "n_exclusive": 64,
+   "exclusivity": 0.6465,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Monocytes_EPIC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 26,
+   "exclusivity": 0.26,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "Mye": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 45,
+   "exclusivity": 0.45,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "NK": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 61,
+   "exclusivity": 0.61,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "NK-cells_EPIC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 37,
+   "exclusivity": 0.37,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "Neu": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 62,
+   "exclusivity": 0.62,
+   "max_shared_by": 9,
+   "individual_claim_ok": true
+  },
+  "Neutro": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 8,
+   "exclusivity": 0.08,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Neutrophils_EPIC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 18,
+   "exclusivity": 0.18,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "Neutrophils_reinius": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 17,
+   "exclusivity": 0.17,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "PBMC": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 16,
+   "exclusivity": 0.16,
+   "max_shared_by": 8,
+   "individual_claim_ok": false
+  },
+  "Plasma": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 48,
+   "exclusivity": 0.48,
+   "max_shared_by": 5,
+   "individual_claim_ok": true
+  },
+  "Tcell": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 20,
+   "exclusivity": 0.2,
+   "max_shared_by": 10,
+   "individual_claim_ok": false
+  },
+  "Treg": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 65,
+   "exclusivity": 0.65,
+   "max_shared_by": 11,
+   "individual_claim_ok": true
+  },
+  "dendritic": {
+   "class": "immune",
+   "n_markers": 96,
+   "n_exclusive": 1,
+   "exclusivity": 0.0104,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "eosinophil": {
+   "class": "immune",
+   "n_markers": 92,
+   "n_exclusive": 4,
+   "exclusivity": 0.0435,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "granulocytes": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 13,
+   "exclusivity": 0.13,
+   "max_shared_by": 9,
+   "individual_claim_ok": false
+  },
+  "macrophage": {
+   "class": "immune",
+   "n_markers": 96,
+   "n_exclusive": 0,
+   "exclusivity": 0.0,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "monocyte": {
+   "class": "immune",
+   "n_markers": 95,
+   "n_exclusive": 2,
+   "exclusivity": 0.0211,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "neutrophil": {
+   "class": "immune",
+   "n_markers": 96,
+   "n_exclusive": 4,
+   "exclusivity": 0.0417,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "tcell": {
+   "class": "immune",
+   "n_markers": 91,
+   "n_exclusive": 1,
+   "exclusivity": 0.011,
+   "max_shared_by": 11,
+   "individual_claim_ok": false
+  },
+  "whole_blood": {
+   "class": "immune",
+   "n_markers": 100,
+   "n_exclusive": 15,
+   "exclusivity": 0.15,
+   "max_shared_by": 8,
+   "individual_claim_ok": false
+  },
+  "CM": {
+   "class": "terminal",
+   "n_markers": 97,
+   "n_exclusive": 78,
+   "exclusivity": 0.8041,
+   "max_shared_by": 2,
+   "individual_claim_ok": true
+  },
+  "Cortical_neurons": {
+   "class": "terminal",
+   "n_markers": 100,
+   "n_exclusive": 1,
+   "exclusivity": 0.01,
+   "max_shared_by": 4,
+   "individual_claim_ok": false
+  },
+  "Epi_upper": {
+   "class": "terminal",
+   "n_markers": 100,
+   "n_exclusive": 59,
+   "exclusivity": 0.59,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Glia": {
+   "class": "terminal",
+   "n_markers": 100,
+   "n_exclusive": 15,
+   "exclusivity": 0.15,
+   "max_shared_by": 3,
+   "individual_claim_ok": false
+  },
+  "Kera_diff": {
+   "class": "terminal",
+   "n_markers": 100,
+   "n_exclusive": 21,
+   "exclusivity": 0.21,
+   "max_shared_by": 5,
+   "individual_claim_ok": false
+  },
+  "Left_atrium": {
+   "class": "terminal",
+   "n_markers": 100,
+   "n_exclusive": 62,
+   "exclusivity": 0.62,
+   "max_shared_by": 8,
+   "individual_claim_ok": true
+  },
+  "NeuMa": {
+   "class": "terminal",
+   "n_markers": 99,
+   "n_exclusive": 57,
+   "exclusivity": 0.5758,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "Oligo": {
+   "class": "terminal",
+   "n_markers": 94,
+   "n_exclusive": 65,
+   "exclusivity": 0.6915,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "neuron": {
+   "class": "terminal",
+   "n_markers": 100,
+   "n_exclusive": 53,
+   "exclusivity": 0.53,
+   "max_shared_by": 4,
+   "individual_claim_ok": true
+  },
+  "stem_pluri": {
+   "class": "stem_pluri",
+   "n_markers": 100,
+   "n_exclusive": 9,
+   "exclusivity": 0.09,
+   "max_shared_by": 3,
+   "individual_claim_ok": false
+  }
+ }
+}
