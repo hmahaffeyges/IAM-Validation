@@ -46,11 +46,18 @@ def load_runtime():
     R["hmin_table"]=_G.H_MIN_TABLE; R["sub_order"]=_G.SUB_ORDER; R["auc"]=_G.AUC_W
     _ts=R["tiers"]["tier_system_v1_2"]; R["warburg"]=next(x for x in _ts["tiers"] if x["tier_id"]=="WARBURG_TRANSITION")
     R["breach_line"]=_ts["breach_line_value"]; R["warburg_line"]=_ts["warburg_line_value"]
+    import glob as _glob
+    R["findings"]=[]
+    for _fp in sorted(_glob.glob(os.path.join(BIO,"Testing_and_Code","VAL_FINDINGS","*_finding.json"))):
+        try: R["findings"].append(_j(_fp))
+        except Exception: pass
     try: R["inv"]=_j(_find("chain_inventory_v1.json"))
     except FileNotFoundError: R["inv"]=None
     try:
         _cg=_j(_find("iamatlas_collinearity_groups_v0_1.json")); R["cgroup"]=_cg["cell_to_group"]
-        R["cgmembers"]={g:m for g,m in _cg["groups"].items()}
+        # each group value is a dict carrying members / classes / singleton - take the member list, not the keys
+        R["cgmembers"]={g:(m.get("members") if isinstance(m,dict) else m) for g,m in _cg["groups"].items()}
+        R["cgmeta"]=_cg.get("_metadata",{})
     except FileNotFoundError: R["cgroup"]={}; R["cgmembers"]={}
     try: R["excl"]=_j(_find("percell_exclusivity_v0.json"))["entries"]
     except FileNotFoundError: R["excl"]={}
@@ -250,6 +257,18 @@ def tab_cells(o, R, percell_ref=None):
        "where every healthy cell of the class sits at one level - and it is the surface the floor was calibrated against and the reference layers were fitted on. "
        "The two answer different questions: the class gauge asks whether this architecture is holding its pattern; the per-cell reading asks which cell type, and "
        "therefore which organ, is where the departure sits.</p>"]
+    H.append("<h3>Two different limits on a per-cell claim, and they are not the same limit</h3>"
+      "<p><b>1. The atlas cannot separate some entries from each other.</b> That was measured in June and is in the chain's own files: "
+      "<code>iamatlas_collinearity_groups_v0_1.json</code> clusters the 115 entries at centred-cosine 0.95 in departure-from-consensus space and gets "
+      "<b>94 groups, 10 of them multi-member</b>. Its own note is the right statement of the limit: cells within a group are methylation-collinear and "
+      "<i>not individually identifiable by deconvolution</i>. The groups are the ones a haematologist would predict - the six gastric entries together; "
+      "CD4 with CD8 T cells (in three different naming conventions); HSC with L-MPP and MPP; CMP with MEP; dendritic with macrophage; eosinophil with "
+      "monocyte and neutrophil. Where a row belongs to a multi-member group, <b>the honest unit of the claim is the group</b>, and the column says so.</p>"
+      "<p><b>2. Some marker panels are not exclusive to their entry.</b> A separate and independent problem, measured 2026-09-22. "
+      "Cortical_neurons and stem_pluri share 91 of ~100 markers yet sit in <i>different</i> collinearity groups - the atlas can tell them apart; their "
+      "panels cannot. So a row can be separable in the atlas and still carry a number that reads a shared block.</p>"
+      "<p class='m'>A per-cell claim therefore needs both: a group that is a single member (or a claim made at group level), and a panel exclusive "
+      "enough to be about that entry. Neither is a property of your sample; both are properties of the reference, and both are printed.</p>")
     H.append("<div class='warn'><b>Read the exclusivity column before believing any single row.</b> The marker panels were selected one-vs-rest against the <i>mean</i> of the other cell types - a criterion that scores a globally extreme CpG highly for every cell type in which it is extreme. Measured 2026-09-22: <b>33.8 % of the 6,738 marker CpGs belong to more than one entry's panel</b> (one serves 11 of them), and the median entry's panel is only <b>37 % exclusive</b> to it. At the extreme, <b>macrophage's panel is 0 % exclusive</b> - every marker it has also belongs to another entry - and Cortical_neurons, dendritic, erythroblast, small_intestine and tcell are all near 1 %. Twenty-six of the 115 entries sit in pairs sharing at least half their markers, and 28 of those pairs span <i>different architecture classes</i>: Cortical_neurons and stem_pluri share 91 markers, small_intestine and tcell share 82. Where a panel is mostly shared, the number below reads a shared block rather than that cell type, so <b>the individual direction claim is withheld for the 36 entries under 25 % exclusivity</b> and the number is printed with its exclusivity beside it. This is a property of the reference, not of any sample. The runtime marker file is deliberately unchanged - the sealed foundation-cohort anchors reproduce on it, so repairing the selection criterion requires a re-seal, and that is on the Roadmap.</div>")
     by={}; 
     for cell,r in cells.items(): by.setdefault(r.get("class","?"),[]).append((cell,r))
@@ -257,7 +276,7 @@ def tab_cells(o, R, percell_ref=None):
         rows=sorted(by.get(c,[]), key=lambda kv:-(kv[1].get("A") or 0))
         hm=R["ident"].get(c,{}).get("H_min")
         if not rows: continue
-        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>placed</th><th>fraction</th><th>A (marker surface)</th><th>95 % interval on the reading</th><th>healthy range (own markers)</th><th>markers found</th><th>panel exclusive to this entry</th><th>on the gauge (cell-zeroed)</th><th>position vs healthy</th></tr>")
+        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>placed</th><th>fraction</th><th>A (marker surface)</th><th>95 % interval on the reading</th><th>healthy range (own markers)</th><th>markers found</th><th>panel exclusive to this entry</th><th>lineage group</th><th>on the gauge (cell-zeroed)</th><th>position vs healthy</th></tr>")
         for cell,r in rows:
             A=r.get("A"); fr=r.get("fraction") or 0; e=((percell_ref or {}).get("entries") or {}).get(cell)
             ref=None; src=""
@@ -278,6 +297,18 @@ def tab_cells(o, R, percell_ref=None):
             # median entry's panel is only 37 % exclusive. Where a panel is mostly shared, the number is a reading
             # of a shared block rather than of that cell type: print it, withhold the individual direction claim,
             # and show the exclusivity so the reader can see why.
+            # LINEAGE GROUP (iamatlas_collinearity_groups_v0_1, built 2026-06-26): entries inside one group are
+            # methylation-collinear - the atlas cannot separate them, so the honest unit of a per-cell claim is
+            # the GROUP, not the member. Independent of panel exclusivity: two entries can be separable in the
+            # atlas and still share most of their marker panel.
+            gid=(R.get("cgroup") or {}).get(cell)
+            mem=(R.get("cgmembers") or {}).get(gid) or []
+            if len(mem)>1:
+                others=[m for m in mem if m!=cell]
+                gtxt=(f"<span style='color:#d68910'>{_e(gid)}</span> <span class='m'>with {_e(', '.join(others[:3]))}"
+                      f"{' +%d'%(len(others)-3) if len(others)>3 else ''} - not separable; read at group level</span>")
+            elif gid: gtxt=f"<span class='m'>{_e(gid)} (alone - separable)</span>"
+            else: gtxt="<span class='m'>not in the grouping</span>"
             ex=(R.get("excl") or {}).get(cell) or {}
             exf=ex.get("exclusivity"); ex_ok=bool(ex.get("individual_claim_ok", True))
             exs="" if exf is None else (f"{100*exf:.0f} %" if ex_ok else f"<span style='color:#d68910'>{100*exf:.0f} %</span>")
@@ -308,7 +339,7 @@ def tab_cells(o, R, percell_ref=None):
             elif A is not None:
                 gt="<span class='m'>no measured zero for this entry</span>"
             gcell=(f"<span class='n'>{gA:.3f}</span> {gt}" if gA is not None else gt)
-            H.append(f"<tr class='{'placed' if fr>0 else ''}'><td>{_e(cell)}</td><td>{'yes' if fr>0 else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{'' if A is None else f'{A:.3f}'}</td><td class='n'>{cis}</td><td>{rng}</td><td class='n'>{mf}</td><td class='n'>{exs}</td><td>{gcell}</td><td>{bar} {dirn}</td></tr>")
+            H.append(f"<tr class='{'placed' if fr>0 else ''}'><td>{_e(cell)}</td><td>{'yes' if fr>0 else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{'' if A is None else f'{A:.3f}'}</td><td class='n'>{cis}</td><td>{rng}</td><td class='n'>{mf}</td><td class='n'>{exs}</td><td>{gtxt}</td><td>{gcell}</td><td>{bar} {dirn}</td></tr>")
         H.append("</table>")
     bd=o.get("bidirectional",{}); H.append("<h3>Direction - Stage 4.5 bidirectional composite</h3><p>Pooled entropy folds hypo- and hyper-methylation together; the signed composite keeps the sign, per sealed panel. Panels exist only where one was sealed (immune, VAL-051 / CPG-VAL-019); the other classes say so.</p><table class='t'><tr><th>class</th><th>signed composite</th><th>pooled A on the panel</th><th>panel</th><th>reading</th></tr>")
     for c in CLASSES:
@@ -1124,6 +1155,104 @@ def tab_inventory(R):
     return "".join(H)
 
 
+
+def tab_findings(R):
+    """Every validation run on the commissioned chain, from its structured finding record (val_finding.py,
+    schema val_finding_v1). Written 2026-09-22, before the first run, so that every run is comparable to every
+    other and nothing has to be reconstructed afterwards."""
+    fs=R.get("findings") or []
+    H=["<h2>Validation findings</h2>",
+       "<p>Each run on this chain writes a structured record - <code>val_finding.py</code>, schema "
+       "<code>val_finding_v1</code> - and this tab reads those records. The schema was written <i>before</i> the first "
+       "run, on the principle that a record designed afterwards is shaped by whatever was convenient to save.</p>",
+       "<h3>What a finding record holds, and why each part is there</h3>",
+       "<table class='t'><tr><th>block</th><th>what it holds</th><th>why a researcher needs it</th></tr>",
+       "<tr><td><b>instrument</b></td><td>the SHA-256 of all 14 reference layers - floors, identity loci, markers, "
+       "exclusivity, collinearity groups, pipeline maps, age curve, band, tiers, presence floors, sky mapping, "
+       "directional panels, healthy reference, atlas provenance - plus the repository commit</td>"
+       "<td>a reading is only meaningful against a stated instrument. When a layer is re-sealed these hashes change, "
+       "so two findings can be compared only if their fingerprints match - and the record makes that checkable "
+       "rather than assumed</td></tr>",
+       "<tr><td><b>samples</b></td><td>one row per array: arm, age, every class reading, the departure, the sky "
+       "summary, and the refusals that applied</td><td>the unit of this instrument is a per-sample absolute "
+       "reading. Storing the samples means every summary above them can be recomputed, and an arm difference can "
+       "never quietly become the result</td></tr>",
+       "<tr><td><b>cells</b> and <b>groups</b></td><td>per atlas entry and per lineage group: where it was placed, "
+       "the median reading by arm, the <b>direction</b> (above / below / within its own healthy range), the "
+       "<b>magnitude</b> in units of that entry's healthy spread, the <b>prevalence</b> (what fraction of the arm "
+       "departed), its panel exclusivity, and the claim level this permits</td>"
+       "<td>this is the answer to <i>which cells are doing what, in which direction, by how much</i>. Magnitude is "
+       "in healthy spreads rather than raw A so that a loose entry and a tight one are comparable; prevalence "
+       "separates 'most of the arm moved a little' from 'a few moved a lot'</td></tr>",
+       "<tr><td><b>bars</b></td><td>every pre-registered bar with its threshold, its measured value, and PASS or "
+       "FAIL AS SEALED</td><td>the outcome is scored against what was written before the run, not after it</td></tr>",
+       "<tr><td><b>not_assessable</b></td><td>what could not be read, and why</td><td>the honest half of any "
+       "result - a class below its presence floor is absent, not normal</td></tr>",
+       "<tr><td><b>matrix_evidence</b></td><td>for this condition and specimen: the per-group direction, magnitude "
+       "and prevalence, tagged with the instrument fingerprint</td>"
+       "<td>the disease-matrix precursor. <b>Accumulating evidence, not a matching rule:</b> a matrix becomes "
+       "possible only once several conditions have been measured on the same instrument, and the chain does not "
+       "read this block back to classify anything. A finding that names no condition carries none of it</td></tr>",
+       "</table>",
+       "<p class='m'>Two rules are built into the writer rather than left to the operator. A finding cannot be "
+       "written without its instrument fingerprint. And the per-cell claim level is taken from the reference, not "
+       "chosen per run: <code>individual</code> where the entry is separable and its panel exclusive, "
+       "<code>group_only</code> where the atlas cannot separate it from its group, <code>withheld_panel_shared</code> "
+       "where the marker panel is mostly shared with other entries.</p>"]
+    if not fs:
+        H.append("<div class='warn'><b>No findings recorded yet.</b> The schema and its writer are in place and "
+                 "exercised end to end on the eleven commissioning arrays; the first real run will appear here. "
+                 "Records live in <code>Testing_and_Code/VAL_FINDINGS/</code> and are linked from the Record tab.</div>")
+    else:
+        H.append("<h3>Recorded runs</h3><table class='t'><tr><th>VAL</th><th>title</th><th>condition</th>"
+                 "<th>specimen</th><th>arms</th><th>bars</th><th>entries with a departure</th><th>instrument commit</th></tr>")
+        for f in fs:
+            arms=f.get("cohort",{}).get("arms") or {}
+            dep=sum(1 for c in (f.get("cells") or {}).values()
+                    if any((v or {}).get("direction") in ("above","below") for v in (c.get("by_arm") or {}).values()))
+            bars=f.get("bars") or []
+            bp=sum(1 for b in bars if b.get("passed") is True)
+            H.append(f"<tr><td><b>{_e(f.get('val_id',''))}</b></td><td>{_e(f.get('title',''))}</td>"
+                     f"<td>{_e(f.get('condition') or '-')}</td><td>{_e(f.get('specimen') or '-')}</td>"
+                     f"<td class='m'>{_e(', '.join(f'{k} n={v}' for k,v in arms.items()))}</td>"
+                     f"<td class='n'>{bp} / {len(bars)} passed</td><td class='n'>{dep}</td>"
+                     f"<td class='m'><code>{_e((f.get('instrument') or {}).get('_commit','')[:8])}</code></td></tr>")
+        H.append("</table>")
+        for f in fs:
+            cells=f.get("cells") or {}
+            rows=[(k,v) for k,v in cells.items()
+                  if any((x or {}).get("direction") in ("above","below") for x in (v.get("by_arm") or {}).values())]
+            rows.sort(key=lambda kv: -abs(max((abs((x or {}).get("magnitude_in_healthy_spreads") or 0)
+                                                for x in (kv[1].get("by_arm") or {}).values()), default=0)))
+            H.append(f"<details><summary><b>{_e(f.get('val_id',''))}</b> - {_e(f.get('title',''))} "
+                     f"<span class='m'>({len(rows)} entries departed)</span></summary>")
+            if f.get("bars"):
+                H.append("<table class='t'><tr><th>bar</th><th>pre-registered statement</th><th>threshold</th>"
+                         "<th>measured</th><th>as sealed</th></tr>")
+                for b in f["bars"]:
+                    v="PASS" if b.get("passed") is True else "FAIL AS SEALED" if b.get("passed") is False else "not scored"
+                    H.append(f"<tr><td>{_e(b.get('bar',''))}</td><td>{_e(b.get('statement',''))}</td>"
+                             f"<td class='n'>{_e(b.get('threshold'))}</td><td class='n'>{_e(b.get('measured'))}</td>"
+                             f"<td><b>{v}</b></td></tr>")
+                H.append("</table>")
+            if rows:
+                H.append("<table class='t'><tr><th>entry</th><th>claim level</th><th>arm</th><th>direction</th>"
+                         "<th>magnitude (healthy spreads)</th><th>prevalence</th><th>n placed</th></tr>")
+                for k,v in rows[:60]:
+                    for a,x in (v.get("by_arm") or {}).items():
+                        if (x or {}).get("direction") not in ("above","below"): continue
+                        pv=x.get("prevalence_above") if x["direction"]=="above" else x.get("prevalence_below")
+                        H.append(f"<tr><td>{_e(k)}</td><td class='m'>{_e(v.get('claim_level'))}</td><td>{_e(a)}</td>"
+                                 f"<td><b>{_e(x['direction'])}</b></td><td class='n'>{_e(x.get('magnitude_in_healthy_spreads'))}</td>"
+                                 f"<td class='n'>{_e(pv)}</td><td class='n'>{_e(x.get('n_placed'))}</td></tr>")
+                H.append("</table>")
+            for na in (f.get("not_assessable") or []):
+                H.append(f"<p class='m'>not assessable: {_e(na.get('what'))} - {_e(na.get('reason'))}</p>")
+            H.append("</details>")
+    H.append(deepdive(R,"the validation record"))
+    return "".join(H)   # exempt from the vocabulary guard: a finding names the condition it measured
+
+
 def tab_run(R):
     """Run it yourself. Every file named here is linked at this commit, and every command is one that
     actually works - the earlier version advertised an IDAT entry point that did not exist (fixed 2026-09-22
@@ -1247,7 +1376,7 @@ TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = res
  ("reading","Reading",True,"c"),("howto","How to read",True,"c"),("cells","Every cell",True,"c"),
  ("departure","Departure",True,"c"),("sky","Sky",True,"c"),("physics","Physics",False,"c"),("story","Story",False,"c"),
  ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("safeguards","Safeguards",False,"r"),
- ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("files","Files",False,"r"),("roadmap","Roadmap",False,"r"),
+ ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("files","Files",False,"r"),("findings","Findings",False,"r"),("roadmap","Roadmap",False,"r"),
  ("record","Record",False,"r"),("run","Run",False,"r")]
 
 def refusals_from(o):
@@ -1263,7 +1392,7 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
     _rprint={"reading","howto","cells","departure","sky","reference","safeguards","integrity","chain","files","coverage"}
