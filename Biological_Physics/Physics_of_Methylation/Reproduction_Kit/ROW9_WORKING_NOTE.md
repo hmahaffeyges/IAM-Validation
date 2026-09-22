@@ -488,3 +488,33 @@ Adoption needs, in order: (1) recompute the two foundation-cohort anchors from r
 new anchor set, keeping the v0_2 anchors as the historical seal; (2) re-measure the per-entry healthy references
 on v0_3 from the four laboratory panels; (3) re-run the kit guards; (4) only then switch the report to v0_3, with
 the 22 unresolvable entries printing their number and withholding the individual claim.
+
+## 2026-09-22 - the SOP brought onto the files that exist, by a script rather than by hand
+
+**Audited first.** Of the 108 file names the SOP cited: **55 were live, 30 existed only under `RETIRED/`, and 23
+existed nowhere.** And **8 of the 18 files the chain actually resolves were not named in it at all** - including
+`stage_0_intake.py`, `stage_1_idat_calibration.py`, `stage_4_6_patient_cmb.py`, `nilc_celltype_deconvolver.py`,
+`lineage_splitter.py` and the HEALPix mapping builder. A procedure that does not mention the calibration stage or
+the sky stage is not the procedure for this chain.
+
+**Fixed by `SOP/sop_repoint.py`**, which is idempotent and re-runnable after any file move:
+
+1. **The history came off the front.** Six changelog blocks, a 167-line supersession ledger and five
+   `Previous:`/`Supersedes:` header lines are replaced by one **What this version is** block: the engine commit,
+   the stages the conductor runs, what the instrument reports, the three reference layers, what it does not do,
+   and where the generated inventory lives. Git holds every earlier version; a procedure states what to do now.
+2. **Every dead reference is repointed by an explicit map, each entry carrying why** - RENAME (same thing, current
+   name: 16 names, 40 occurrences), RECORD_SIDE (real file, `run_full` does not call it: 11 / 17), NOT_IN_CHAIN
+   (the step is not in the chain: 16 / 101), DROP (never named a file here: 8 / 20).
+3. **The reference table is generated** from `chain_inventory_v1.json` - 72 files with role, stage and purpose -
+   so it cannot drift again. The inventory is itself generated from the tree.
+
+**Verified after:** 127 cited names, **0 unaccounted** (live, or annotated with why not), **18 of 18 chain files
+named**, no nested annotations, no double substitutions, and the script is idempotent on a second run.
+
+Three defects in the script were caught by reading its output rather than trusting it:
+- a plain `str.replace` turned `provenance.json` into `IAMAtlasREBUILD_IAMAtlasREBUILD_provenance.json`, because
+  the short name is a substring of the long one - fixed with a word-boundary pattern;
+- the first boundary was too strict (`(?<![\w./-])`) and refused every name that appears inside a path, which is
+  most of them - the occurrence count fell from 193 to 66 and 20 names were silently left dead;
+- the header's five superseded-version lines survived the first pass because they sit above the changelog blocks.
