@@ -335,12 +335,19 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "metaphor; it is an experimental design a clinic can execute, and it is the strongest argument for treating a methylome this way.</p>"
 
  "<p class='m'><b>On precedence, stated the way a referee will read it.</b> We are not aware of prior work that projects a methylome "
- "onto a sphere and applies component-separation and sky-statistics machinery to it. A literature search run 2026-09-22 returned no "
- "hits for HEALPix with methylation, spherical harmonics with methylome, angular power spectrum with epigenome, or needlets with "
- "genome, in either Europe PMC or arXiv. Sanchez &amp; Mackenzie brought the Landauer bound to methylation but no sky; CMB pipelines "
- "have not been pointed at a genome. One detail worth knowing, because it shows the pixelisation is not alien to biology: <b>HEALPix "
- "is already used in structural biology</b> as the angular-sampling scheme for particle orientations in cryo-electron microscopy. "
- "The scheme is in the toolbox already; this is a different use of it.</p>")
+ "onto a sphere and applies component-separation and sky-statistics machinery to it. The search behind that sentence, run 2026-09-22, with its "
+ "actual counts rather than a summary: in <b>Europe PMC</b>, <i>spherical harmonic</i> + <i>methylome</i> returned <b>0</b>, "
+ "<i>angular power spectrum</i> + <i>(methylation OR epigenome)</i> returned <b>0</b>, and <i>needlet</i> + <i>(genome OR methylation)</i> returned "
+ "<b>0</b>; <i>HEALPix</i> + <i>methylation</i> returned <b>2</b> records and <i>HEALPix</i> + <i>genome</i> returned <b>4</b>, all of them "
+ "structural-biology papers (cryo-EM structures of a vesicular stomatitis virus polymerase complex, human IAPP fibrils, and others) in which HEALPix "
+ "appears as the orientation-sampling scheme and methylation only incidentally - none projects a methylome. A query pairing <i>cosmic microwave "
+ "background</i> with <i>methylation</i> returns over 1,500 records and is pure abbreviation collision (CMB is also conditioned medium, chronic mountain "
+ "sickness), which is why it is not evidence either way. In <b>arXiv</b>, five query forms - HEALPix + methylation, power spectrum + methylome, cosmic "
+ "microwave background + epigenome, needlet + biological, spherical harmonics + DNA methylation - each returned <b>0</b>. Sanchez &amp; Mackenzie brought "
+ "the Landauer bound to methylation but no sky; CMB pipelines have not been pointed at a genome. <b>This is a bounded search, not a proof of absence</b>, "
+ "and a reader who knows of prior work should say so. One detail worth keeping, because those two HEALPix hits make the point better than a zero would "
+ "have: <b>HEALPix is already used in biology</b>, as the angular-sampling scheme for particle orientations in cryo-electron microscopy. The "
+ "pixelisation is in the toolbox already; this is a different use of it.</p>")
 
 def tab_sky(o, R, sid, workdir):
     s=o["patient_sky"]; H=[SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
