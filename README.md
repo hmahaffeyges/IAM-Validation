@@ -166,11 +166,11 @@ The same encoding surface saturation that produces the Dennard wall in semicondu
 
 **→ Full Biological Physics derivations and validation:** [Biological_Physics/README.md](Biological_Physics/README.md)
 
-**→ Cell thermodynamics paper:** [Biological_Physics/Physics_of_Methylation/Papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/Physics_of_Methylation/Papers/Mahaffey_2026_cell_thermodynamics.pdf)
+**→ Cell thermodynamics paper:** [Biological_Physics/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.pdf)
 
-**→ GAPE Issue 003 (September 2026) — current cellular report, with reproduction kit:** [Biological_Physics/Physics_of_Methylation/](Biological_Physics/Physics_of_Methylation/)
+**→ GAPE Issue 003 (September 2026) — current cellular report, with reproduction kit:** [Biological_Physics/MethylPhys/](Biological_Physics/MethylPhys/)
 
-**→ GAPE Issue 002 (April 2026, pre-Atlas):** [Biological_Physics/Physics_of_Methylation/Papers/IAMPerformance_GAPEIssue002.pdf](Biological_Physics/Physics_of_Methylation/Papers/IAMPerformance_GAPEIssue002.pdf)
+**→ GAPE Issue 002 (April 2026, pre-Atlas):** [Biological_Physics/MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf](Biological_Physics/MethylPhys/papers/IAMPerformance_GAPEIssue002.pdf)
 
 ---
 
@@ -759,6 +759,22 @@ IAM-Validation/
 ├── code/                                      # Supplementary code (Koide paper scripts)
 ├── development/                               # Archived development documents and early manuscripts
 └── data/                                      # Observational datasets (Pantheon+, BAO)
+├── Biological_Physics/                        # *** THE CELLULAR APPLICATION ***
+│   ├── MethylPhys/                            # THE INSTRUMENT - start here (README.md inside)
+│   │   ├── chain/                             # cpg_conductor.py orchestrates 18 files in stage order
+│   │   │   ├── Runtime Matrices/              # 48 reference and calibration files (floors, bands, maps, panels)
+│   │   │   ├── MethylPhys_Interface/          # the researcher interface + run_sample.py (one command)
+│   │   │   ├── Walther_iam_deconvolver/       # composition solver (+ nilc_celltype_deconvolver.py, second opinion)
+│   │   │   └── Synthetic_Patient_Generator/   # known-truth patients for the null suite
+│   │   ├── atlas/                             # IAMAtlasREBUILD: 483,092 CpGs x 115 cell types, MCMC posterior
+│   │   ├── reference_data/                    # the calibrated betas every measured constant was fitted on
+│   │   ├── kit/                               # reproduction kit: guards, release_check.py, finding_check.py
+│   │   ├── sop/                               # chain-of-custody SOP (references generated from the inventory)
+│   │   ├── manual/                            # the engineering manual (Issue 003) and its build
+│   │   ├── papers/ · plates/ · doors/         # methods paper and explainers · figures · RUNBOOK and commissioning
+│   │   └── hmin_calibration/                  # the floor calibration: MCMC chains and bootstrap cross-check
+│   ├── Record/                                # THE EVIDENCE - VAL folders, sealed procedures, cohorts, manifests
+│   └── RETIRED_2026-09/                       # superseded material, kept for provenance
 ```
 
 **For referees:** Level 1 results (mu-Sigma perturbation validation via MGCAMB): [`mgcamb_validation/`](mgcamb_validation/). Level 2 results (dual-sector perturbation validation via modified CAMB): [`camb_validation/`](camb_validation/).

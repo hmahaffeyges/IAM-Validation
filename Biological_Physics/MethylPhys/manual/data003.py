@@ -12,7 +12,7 @@ import json, re, ast, os, collections
 T = os.environ.get("CPG_TRIAL") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "chain")
 _TSEARCH = [T] + [os.path.join(T, "Runtime Matrices", d) for d in
                   ("A_Scoring_Module","Celltype_Marker","Directional Panel","Tier_breakpoints","Cellular_Age",
-                   "Mahalanobis_healthy_reference","Patient_CMB")] + [_tfile("Walther_iam_deconvolver")]
+                   "Mahalanobis_healthy_reference","Patient_CMB")] + [os.path.join(T, "Walther_iam_deconvolver")]
 def _tfile(name):
     for d in _TSEARCH:
         q = os.path.join(d, name)
