@@ -46,14 +46,14 @@ entries must be merged to one lineage before any statement about 'which cell mov
   ceiling varies by class **and by substrate**.
 - **Saturation chart added**: the frozen 40-value H_min table (8 classes x 5 substrates) rendered from `cpg_gauge_engine.H_MIN_TABLE`, each cell showing the floor and the ceiling it implies. Read across
   a row and the argument for five substrates is visible (terminal: WPS floor 0.959 -> ceiling 1.043, almost no range; fragment size 0.625 -> 1.600).
-- **Warburg line at 1.07 explained** from `tier_breakpoints.json`'s own `physics_meaning` and `customer_paragraph`: a boundary LINE, not a tier band, past which adding metabolic fuel can accelerate
+- **Warburg line at 1.07 explained** from [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json)'s own `physics_meaning` and `customer_paragraph`: a boundary LINE, not a tier band, past which adding metabolic fuel can accelerate
   rather than correct the drift. Stated with its provenance: inherited from the Issue 002 tier system and **not re-derived on the commissioned chain** - a named open item.
 - **Coverage tab added**: the five substrates (with their published single-substrate AUCs and the specimen each requires) x seven specimens, as a grid. One cell is lit - methylation x whole blood -
   and every other cell prints what it needs (pipeline map, laboratory zero, healthy band). With the statement that a reserved cell is 'not yet tested', never 'cannot'.
 - **Benign well-differentiated growths**: the astro-genetics passage is on How-to-read (identity vs cell number; lipoma/fibroid/nevus; shape-independence), with the colorectal/breast progression series
   marked design-record history rather than a result of this chain.
 - **Links**: every chain stage now has a collapsible fold (goes in / comes out / why it exists / what it refuses / commissioned by) with the live file, hash and GitHub link; the atlas, the 115->8 class
-  map, the calibration provenance, the CpG->HEALPix mapping, the RUNBOOK, CHAIN_COMMISSIONING and HANDOFF are all linked; NILC is linked with its vindication stated; Issue 003 is a deep-dive link at the
+  map, the calibration provenance, the CpG->HEALPix mapping, the RUNBOOK, CHAIN_COMMISSIONING and HANDOFF are all linked; NILC is linked with its vindication stated; [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) is a deep-dive link at the
   bottom of six tabs. **The sky mapping was verified against the atlas plate mapping: 483,092 of 483,092 CpGs to the same pixel** - the patient's plate and Plates 1-4 are on one projection, and the
   plates are embedded on the Sky tab as the reference skies. The brightness CSVs are described as superseded (the sky now weights the expectation by the sample's own composition) rather than retired.
 
@@ -102,7 +102,7 @@ laboratory zero and the age term are measured from healthy donors of that labora
 one quotes the raw ratio, the other quotes it after two measured offsets. **Any A quoted from Issue 002 must say which of the two it is.** Now stated on the report.
 
 **TWO RECONCILIATION ITEMS RAISED (for the Issue 003 register):**
-- **RECON W1 - two different 'Warburg' numbers.** `tier_breakpoints.json` carries `WARBURG_TRANSITION` as a boundary line at **1.07**, pre-breach, described as where metabolic support
+- **RECON W1 - two different 'Warburg' numbers.** [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) carries `WARBURG_TRANSITION` as a boundary line at **1.07**, pre-breach, described as where metabolic support
   can start to accelerate rather than correct the drift. Issue 002 pp. 33/62 use the same word for a **post-breach zone boundary at ~1.15** ('Ceiling 1.10 -> Warburg ~1.15 -> glucose
   inversion ~1.25 -> no return ~1.40+'), explicitly flagged there as qualitative therapeutic-window boundaries pending G-2026-P025, not diagnostic tiers. Two objects, one name. The report
   currently prints only the 1.07 line, with its provenance and the statement that it has not been re-derived on this chain. The naming must be resolved before both documents are read together.
@@ -260,7 +260,7 @@ three were false. Any interactive element ships with a check that it does what i
 The author's item 1 was "merge the atlas's duplicate labels to one lineage per entry, so we can say which cell moved." Measuring it first changed
 what the item is.
 
-**What the marker file says about itself.** `iamatlas_celltype_markers_v0_2.json` records its own method:
+**What the marker file says about itself.** [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) records its own method:
 `selection_method: one_vs_rest_top_N`, criterion `|target_celltype_mean - mean(other_celltype_means)|`, top 100 per cell type, 115 cell types.
 That criterion compares each cell type against the **mean of all the others**. A CpG that is extreme in a handful of cell types therefore scores
 highly for **every** one of them, because the mean of the rest is dragged toward the middle. The criterion selects globally extreme CpGs
@@ -300,8 +300,8 @@ per-entry references. Until that is done, per-cell readings are honest for 79 en
 
 **Audited rather than answered.** The conductor *was* linked on the Chain tab (not on the Run tab), but an audit of the live tree against the
 rendered page found **20 load-bearing files linked nowhere** - including `IAMAtlasREBUILD.csv` itself, which engine code names seven times, plus the
-array manifest, the four per-laboratory sky residual scales, the Mahalanobis healthy reference, `walther_clinical.py` (named eight times),
-`idat_parse.py`, `stage_0_intake.py` and the exclusivity file written an hour earlier.
+array manifest, the four per-laboratory sky residual scales, the Mahalanobis healthy reference, [`walther_clinical.py`](../chain/walther_clinical.py) (named eight times),
+[`idat_parse.py`](../chain/idat_parse.py), [`stage_0_intake.py`](../chain/stage_0_intake.py) and the exclusivity file written an hour earlier.
 
 **Fixed by generating the list instead of maintaining one.** `MethylPhys_Interface/build_chain_inventory.py` enumerates the whole live tree,
 classifies each file, and writes `Runtime Matrices/chain_inventory_v1.json`; a new **Files** tab renders it. Roles are measured, not asserted:
@@ -313,7 +313,7 @@ is visible rather than silent - the first run showed 81, which is why the descri
 **Two things the audit settled.** `run_full()` does **not** call `stage_8_matching` - confirmed by reading its body, so the removal holds - but the
 conductor's own module docstring still lists the disease matrix as "(Stage C)", a stale line to fix. And the **Files tab is exempt from the
 vocabulary guard**, deliberately and for the same reason the Healthy-reference tab is: an inventory that cannot name
-`disease_cell_signature_matrix_v1_13.csv` is a false inventory. Every measurement tab stays guarded.
+[`disease_cell_signature_matrix_v1_13.csv`](../chain/Disease%20Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv) is a false inventory. Every measurement tab stays guarded.
 
 ## The lineage grouping the author asked for already exists, and the chain does not read it
 
@@ -361,7 +361,7 @@ Two rules are in the writer rather than left to the operator: a finding cannot b
 fingerprint, and the claim level per entry comes from the reference (individual / group_only /
 withheld_panel_shared), not from the operator's choice.
 
-**Exercised end to end** on the eleven commissioning arrays (`VAL-DRYRUN_finding.json`): 11 samples, 115 entries,
+**Exercised end to end** on the eleven commissioning arrays ([`VAL-DRYRUN_finding.json`](../../Record/VAL_FINDINGS/VAL-DRYRUN_finding.json)): 11 samples, 115 entries,
 94 groups, 14 layers fingerprinted, direction and magnitude computed per entry per arm. **A flaw in my own filter
 caught on the dry run:** the first version carried all 94 groups as matrix evidence for a run with no condition
 at all, because it tested for a non-zero magnitude and every group has one. Now two conditions are required - the
@@ -375,7 +375,7 @@ same reason the Files tab is - a finding must be able to name the condition it m
 
 The author asked that the old disease matrix, the cards and the residual maps be read before the findings schema
 is settled, so we look for the right things. Read in full: `IAM_Disease_Wall_CROWN_JEWEL_v1_12.html`,
-`ad-immune_card_v3_1.json`, `breast-epic_card_v3_1.json`, `immune-atlas_card_v2_0.json`, and the residual /
+[`ad-immune_card_v3_1.json`](../chain/Disease%20Cards%20:%20Residual%20Maps/AD_EPIC/AD_immune_card_json/ad-immune_card_v3_1.json), [`breast-epic_card_v3_1.json`](../chain/Disease%20Cards%20:%20Residual%20Maps/Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_1.json), [`immune-atlas_card_v2_0.json`](../chain/Disease%20Cards%20:%20Residual%20Maps/Immune_Atlas/Immune_Atlas_Card_json/immune-atlas_card_v2_0.json), and the residual /
 bimodality / PCA map column structures.
 
 **Nothing numeric was imported.** Their effect sizes are case-versus-control Cohen's d on the pre-atlas surface -
@@ -482,7 +482,7 @@ collinearity group, so this is a **third, independent** limit on a per-cell clai
 entries the atlas cannot separate *in profile*; exclusivity says which panels are shared; and this says which
 entries the atlas has too few addresses to characterise at all.
 
-**Written as `iamatlas_celltype_markers_v0_3_TRIAL.json`, NOT adopted.** The sealed anchors reproduce on v0_2, and
+**Written as [`iamatlas_celltype_markers_v0_3_TRIAL.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_3_TRIAL.json), NOT adopted.** The sealed anchors reproduce on v0_2, and
 only 3,154 of the 11,369 old marker slots survive the new criterion (the 3,154 is read from the adopted file's own per-entry retained_from_v0_2 field; an earlier figure of 2,572 in this note came from the abandoned N<=100 run and was wrong for the panel actually built), so the anchors will not reproduce on v0_3.
 Adoption needs, in order: (1) recompute the two foundation-cohort anchors from raw GEO on v0_3 and seal them as a
 new anchor set, keeping the v0_2 anchors as the historical seal; (2) re-measure the per-entry healthy references
@@ -493,8 +493,8 @@ the 22 unresolvable entries printing their number and withholding the individual
 
 **Audited first.** Of the 108 file names the SOP cited: **55 were live, 30 existed only under `RETIRED/`, and 23
 existed nowhere.** And **8 of the 18 files the chain actually resolves were not named in it at all** - including
-`stage_0_intake.py`, `stage_1_idat_calibration.py`, `stage_4_6_patient_cmb.py`, `nilc_celltype_deconvolver.py`,
-`lineage_splitter.py` and the HEALPix mapping builder. A procedure that does not mention the calibration stage or
+[`stage_0_intake.py`](../chain/stage_0_intake.py), [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py), [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py), [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py),
+[`lineage_splitter.py`](../chain/Lineage_Splitter/lineage_splitter.py) and the HEALPix mapping builder. A procedure that does not mention the calibration stage or
 the sky stage is not the procedure for this chain.
 
 **Fixed by `SOP/sop_repoint.py`**, which is idempotent and re-runnable after any file move:
@@ -506,7 +506,7 @@ the sky stage is not the procedure for this chain.
 2. **Every dead reference is repointed by an explicit map, each entry carrying why** - RENAME (same thing, current
    name: 16 names, 40 occurrences), RECORD_SIDE (real file, `run_full` does not call it: 11 / 17), NOT_IN_CHAIN
    (the step is not in the chain: 16 / 101), DROP (never named a file here: 8 / 20).
-3. **The reference table is generated** from `chain_inventory_v1.json` - 72 files with role, stage and purpose -
+3. **The reference table is generated** from [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) - 72 files with role, stage and purpose -
    so it cannot drift again. The inventory is itself generated from the tree.
 
 **Verified after:** 127 cited names, **0 unaccounted** (live, or annotated with why not), **18 of 18 chain files
@@ -537,7 +537,7 @@ Three defects in the script were caught by reading its output rather than trusti
 | the push was rejected | `git add -A` swept the 577 MB decompressed atlas, whose `.gitignore` rule named the old path | rule re-added for the new path |
 
 Verified after: `test_tiers`, `test_gauge_switch`, `test_patient_sky`, `test_lab_zero` PASS, detection scan PASS, and
-`run_sample.py` returns the identical reading (immune A'' 0.9951, IN_BAND, NORMAL).
+[`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) returns the identical reading (immune A'' 0.9951, IN_BAND, NORMAL).
 
 ## 2026-09-22 - the manual's duplicate cards, found and removed
 
@@ -558,7 +558,7 @@ once. The 18 that remain are the per-card explanatory preambles (SUBSTRATE-BY-SU
 LEVERS) which recur once per card with different numbers - the same prose over different data, a judgement call for
 the author rather than a defect.
 
-**Also repaired to make the manual build at all:** `data003.py`'s `T` defaulted to a scratch folder
+**Also repaired to make the manual build at all:** [`data003.py`](../manual/data003.py)'s `T` defaulted to a scratch folder
 (`trial/CPG_TRIAL_CODE`) that no longer exists. It now defaults to `MethylPhys/chain`, with `_tfile()` resolving a
 name across the `Runtime Matrices` subdirectories, the deconvolver directory and the sibling `atlas/`.
 
@@ -580,7 +580,7 @@ reference it or use it we keep it."*
 | §3 research evidence, §4 baseline tables, §5 clinical scenarios, §6 dated predictions with priority treatment, the master predictions table | the same 002 material at document level |
 
 Done as two module flags rather than deletions - `EMIT_CARDS_AFTER_SATURATION` and `EMIT_CARD_DISEASE_BLOCKS`, both
-defaulting to `True` - so `build_gape_issue002.py` still reproduces Issue 002 exactly. Issue 003's build sets both
+defaulting to `True` - so [`build_gape_issue002.py`](../papers/build_gape_issue002.py) still reproduces Issue 002 exactly. Issue 003's build sets both
 `False`.
 
 **Kept, and verified current rather than assumed:** the corrected physics section (§5, p96: Landauer, the Mahaffey
@@ -618,7 +618,7 @@ line count would have shown:
 1. **The title pinned an engine commit** - "matched to the engine at repo commit 66f37fe, 2026-07-03" - which is the
    same defect removed from the manual's page one in September. A procedure that names a commit is stale the moment
    the engine moves. The title now states the version only and the version line points at
-   `git log -1 -- Biological_Physics/MethylPhys/chain`. The fix is in `sop_repoint.py`, so a regeneration cannot put
+   `git log -1 -- Biological_Physics/MethylPhys/chain`. The fix is in [`sop_repoint.py`](../sop/sop_repoint.py), so a regeneration cannot put
    it back.
 2. **Section 9 said the NILC solver "was cut"** - written in July and true then. It was rerun in September against
    the same arrays, vindicated, and is now wired as `stage_2b_second_opinion`, compared at class level and reported
@@ -634,7 +634,7 @@ The author clicked a link and got a 404. His URL had an extra directory level, b
 breakage: **RUNBOOK.md had landed in `kit/` while both front pages pointed at `doors/RUNBOOK.md`**, and
 COMPONENT_MAP.md was in `kit/` too. Both are doors; both moved to `doors/`, and every reference was repointed.
 
-Then the honest question - what else? `link_check.py` (new, in `kit/`) checks that **every relative path a document
+Then the honest question - what else? [`link_check.py`](link_check.py) (new, in `kit/`) checks that **every relative path a document
 points at exists**, on the principle that a path in a document is a claim. Trying four bases (the document, the
 repository root, `Biological_Physics/`, and the instrument's own directories) and resolving a bare filename by
 basename anywhere in the tree, because prose in this corpus legitimately names files without linking them. Scoped
@@ -645,7 +645,7 @@ been broken since long before this tree.
 **First clean run: 149 broken references in the live set.** Nearly all were move-induced directory prefixes
 (`Reproduction_Kit/`, `Issue003/`, `CPG_Engine/`, `Testing_and_Code/`, `IAM_Atlas/`, `Physics_of_Methylation/`)
 plus `ENGINE/` placeholders in COMPONENT_MAP that were never real paths. Repaired by substitution; the SOP's
-remaining June/July-layout references are now resolved generically in `sop_repoint.py` - one tracked file with that
+remaining June/July-layout references are now resolved generically in [`sop_repoint.py`](../sop/sop_repoint.py) - one tracked file with that
 basename means repoint, none or several means mark `(historical path)` so nobody tries to follow it. `RETIRED_2026-09/README_FIRST_kit_bundle_2026-09.md`
 described a reproduction-kit *zip* layout rather than this repository, so it is retired with a header saying so.
 `Retired(V1)IAM_Manuscript.pdf` was renamed - parentheses in a filename cannot be linked in markdown.
@@ -662,7 +662,7 @@ He had seen `RETIRED_2026-09/NILC_Deconvolver_cut_from_chain_2026-07-02/` - a fo
 was reversed - and asked whether the solver had been moved into the chain at all.
 
 **It had.** `MethylPhys/chain/nilc_celltype_deconvolver.py` is live, and `stage_2b_second_opinion` in
-`cpg_conductor.py` loads it, compares with Walther's NNLS at class level, applies an agreement bar of L1 <= 0.10 and
+[`cpg_conductor.py`](../chain/cpg_conductor.py) loads it, compares with Walther's NNLS at class level, applies an agreement bar of L1 <= 0.10 and
 returns `available: False` rather than failing if the module or its marker file is missing. It is a function inside
 the conductor rather than its own file, which is why a filename search for "second_opinion" finds nothing.
 
@@ -689,7 +689,7 @@ directory names too, because a path is a claim.
 ### 2026-09-22 - card numbers, and the NILC sweep finished properly
 
 **Card numbering (author, reading the book).** *"the first class card is immune and its number 3 and the very next
-one is number 5?"* Both numbers were real and they were different things. `CARDS` in `gape002_lib.py` is ordered by
+one is number 5?"* Both numbers were real and they were different things. `CARDS` in [`gape002_lib.py`](../manual/gape002_lib.py) is ordered by
 descending share of cell-free DNA in blood - immune 70 per cent, cycling 12, secretory 8, stromal 4, stem_adult 3,
 progenitor 2, terminal 0.5, pluripotent 0.5 - and its own source comment calls immune "#1". But the printed header
 used each card's `order` field, which is its index in Issue 002's `CLASS_ORDER` (terminal 1 ... stem_pluri 8). Two
@@ -719,18 +719,18 @@ cards carry the correct updated info?"*
 **The cards did not list their cells, and the cover said they did.** Page 1 has claimed "Every class card now lists
 its cell types" while the cards carried Issue 002's `Includes` field - a prose list of tissues (immune: five
 lineages named; the atlas holds **51 immune entries**). Each card now carries a roster of its atlas entries, built
-from `IAMAtlasREBUILD_celltype_to_class.json` and `percell_reference_v0_3.json` at build time: entry, markers found
+from [`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json) and [`percell_reference_v0_3.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0_3.json) at build time: entry, markers found
 across the reference laboratories, whether it is individually resolvable, exclusivity, and the per-laboratory 10th
 to 90th percentile healthy A range. Counts as rendered: immune 51, cycling 19, secretory 18, progenitor 11,
 terminal 9, stromal 5, adult stem 1, pluripotent stem 1 = **115**, and 106 of the 115 carry a per-entry reference.
 The claim on page 1 is now true.
 
-**PART III - THE COMMISSIONED CHAIN, IN DEPTH** (new module `part3_indepth.py`), four chapters, two of them
+**PART III - THE COMMISSIONED CHAIN, IN DEPTH** (new module [`part3_indepth.py`](../manual/part3_indepth.py)), four chapters, two of them
 generated so they cannot drift:
 
 | chapter | source |
 |---|---|
-| III.1 the chain, stage by stage | **generated**: parses `cpg_conductor.py` for the stage list, the call order inside `run_full()` and each stage's own docstring. 11 stages called, `stage_8_matching` named as defined-but-not-called, which is the standing decision |
+| III.1 the chain, stage by stage | **generated**: parses [`cpg_conductor.py`](../chain/cpg_conductor.py) for the stage list, the call order inside `run_full()` and each stage's own docstring. 11 stages called, `stage_8_matching` named as defined-but-not-called, which is the standing decision |
 | III.2 the atlas and the cells it can speak about | **generated** from the cell-to-class map and the per-entry reference; states the two different limits on a per-cell claim and the duplicate-label blocker |
 | III.3 the cosmology toolkit, tool by tool | authored: ten tools, each with what it does in cosmology, what it does here, and its status - every number traceable (locality 511 bp median and 196,608/196,608 contiguous pixels; agreement bar L1 <= 0.10; difference-map limits from the 0.0089 bound; the unused cell-type covariance named as the largest piece of unspent evidence) |
 | III.4 what the chain refuses, and the cosmology twin of each refusal | authored from the guards in code |
@@ -823,7 +823,7 @@ against sqrt(chi2(0.95|0.99, n)), with **the laboratory's own false-alarm rate p
 0.0984 at p95 across the four). And it says plainly that crossing D95 is a statement about rarity against a
 healthy reference - where about five per cent of healthy donors sit - not a probability of any condition.
 
-**GATE 1 - the single-pass build now refuses to run.** `build_gape_issue003.py` exits 2 unless IAM_TWOPASS=1,
+**GATE 1 - the single-pass build now refuses to run.** [`build_gape_issue003.py`](../manual/build_gape_issue003.py) exits 2 unless IAM_TWOPASS=1,
 which only `build_twopass.sh` sets, because a single pass renders the contents page with blank page numbers and
 nothing previously stopped that from shipping.
 
@@ -857,7 +857,7 @@ so a +2 sigma injection survives exactly - 100 per cent at every k is arithmetic
 belongs to the estimator B5 forbids (a chip median including the array being read), and that estimator is not
 used. B5 is structural protection; B4 measured nothing.
 
-**A discrepancy now on the record rather than assumed away.** `identity_band_v3.json`'s
+**A discrepancy now on the record rather than assumed away.** [`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json)'s
 `tail_p95_if_chip_centred` column (0.0196-0.0413) is where "chip-centring halves the tail" came from. Held-out
 estimation does not reproduce it. A chip median computed *including* the array being read would produce exactly
 that apparent improvement; whether that is what the column did is not recorded in the file, so it is not
@@ -867,7 +867,7 @@ says so.
 **My two errors, both caught by checks rather than by review.**
 
 1. **I skipped the scale map.** The first run computed A'' from Stage 1 betas without applying
-   `beta_scale_maps_v1.json` - whose own rule, which I had printed one cell earlier, says
+   [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) - whose own rule, which I had printed one cell earlier, says
    `beta_roadmap = (beta - intercept)/slope` must be applied BEFORE H for any absolute reading. Every tail in that
    run read 1.0000 (every array outside the band), which is what made it obvious. With the map applied, all four
    cohort medians land on the line (1.0052, 1.0000, 0.9985, 0.9981), which is the check that the map, the age

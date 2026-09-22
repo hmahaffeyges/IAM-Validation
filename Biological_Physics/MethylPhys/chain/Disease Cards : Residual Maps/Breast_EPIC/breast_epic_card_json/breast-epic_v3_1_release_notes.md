@@ -1,9 +1,9 @@
 # Breast-EPIC Card v3.1 — Release Notes
 
 **Release date:** 2026-06-05
-**Card file:** `breast-epic_card_v3_1.json` (406 lines)
+**Card file:** [`breast-epic_card_v3_1.json`](breast-epic_card_v3_1.json) (406 lines)
 **Supersedes:** v3.0 (2026-06-02), 1,012 lines — archived at `OLD/breast-epic_card_v3_0.json`
-**Companion:** `breast-epic_v3_0_release_notes.md` (v3.0 historical release notes, preserved)
+**Companion:** [`breast-epic_v3_0_release_notes.md`](breast-epic_v3_0_release_notes.md) (v3.0 historical release notes, preserved)
 
 ---
 
@@ -23,9 +23,9 @@ Per SOP v1.2 chain-of-custody stages, in order:
 |---|---|---|
 | Stage 2 (Deconvolution) | Walther IAM Deconvolver (primary) + NILC v2 (cross-method) | `stage_2_deconvolution` |
 | Stage 3 (Age foreground) | `age_axis_foreground.py` (mandatory when age available) | `stage_3_age_foreground_subtraction` |
-| Stage 4 (A-scoring) | `iamatlas_a_scoring.py` — A = H(β) / H_min(class), 8 classes + 115 cell fan-out | `stage_4_a_scoring` |
-| Stage 5 (Mahalanobis) | `iamatlas_mahalanobis_scoring.py` — Ledoit-Wolf shrinkage 0.00875, n_hc=601 | `stage_5_mahalanobis` |
-| Stage 6 (Cellular age) | `iam_cellular_age_scoring.py` — 80-cell baseline, SAT handling | `stage_6_cellular_age` |
+| Stage 4 (A-scoring) | [`iamatlas_a_scoring.py`](../../../Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) — A = H(β) / H_min(class), 8 classes + 115 cell fan-out | `stage_4_a_scoring` |
+| Stage 5 (Mahalanobis) | [`iamatlas_mahalanobis_scoring.py`](../../../Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) — Ledoit-Wolf shrinkage 0.00875, n_hc=601 | `stage_5_mahalanobis` |
+| Stage 6 (Cellular age) | [`iam_cellular_age_scoring.py`](../../../Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) — 80-cell baseline, SAT handling | `stage_6_cellular_age` |
 | Stage 7 (Tier breakpoints) | Universal screen — BELOW_NORMAL/NORMAL/MARGINAL/DETECTABLE/FLOOR_BREACH | `stage_7_tier_breakpoints` |
 | Stage 8 (Card matching) | Two-route Boolean matching logic | `stage_8_card_matching` |
 
@@ -43,7 +43,7 @@ Either route fires the card with `phase_emitted = "long_pre_dx"`.
 | v3.0 field | v3.1 field | Replacement |
 |---|---|---|
 | `stage_1_immune_flag.panel` (Xu-538) | `stage_2_deconvolution.primary_deconvolver` | Walther IAM Deconvolver on IAMAtlas REBUILD |
-| `stage_2_localization.method` (Moss 2018 NNLS) | `stage_2_deconvolution.primary_deconvolver` + `stage_4_a_scoring.fanout_115_cell` | Walther IAM Deconvolver with 115-cell fan-out via `iamatlas_a_scoring.py` |
+| `stage_2_localization.method` (Moss 2018 NNLS) | `stage_2_deconvolution.primary_deconvolver` + `stage_4_a_scoring.fanout_115_cell` | Walther IAM Deconvolver with 115-cell fan-out via [`iamatlas_a_scoring.py`](../../../Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) |
 | `stage_3_subcomposition` (Salas + UniLIFE) | `stage_2_deconvolution.secondary_deconvolver_for_cross_method_check` | NILC v2 cross-method check (NOT used for primary scoring) |
 | `universal_stage_2_moss_deconvolution` | `stage_2_deconvolution` | — |
 | `universal_stage_3_epidish_subcomposition` | `stage_2_deconvolution.secondary_deconvolver_for_cross_method_check` | — |
@@ -76,9 +76,9 @@ v3.0 had `validation_evidence_summary` array with 9 entries mixing pre-build and
 
 ## Companion document updates
 
-- `breast-epic_README.md` — added v3.1 entry to version log, updated carry-forward header to v3.2
+- [`breast-epic_README.md`](breast-epic_README.md) — added v3.1 entry to version log, updated carry-forward header to v3.2
 - `breast_epic_residual_maps/README_Breast_residual_maps.md` — rewritten with Stage 8 §66 consumption pattern documentation
-- `WORK_IN_PROGRESS.md` — updated for v3.1 status; v3.0 archived at `OLD/`
+- [`WORK_IN_PROGRESS.md`](../../AD_EPIC/AD_immune_card_json/WORK_IN_PROGRESS.md) — updated for v3.1 status; v3.0 archived at `OLD/`
 - `disease_cell_signature_matrix_v1_6.csv` → `v1_7.csv` — added clean `breast_cancer / long_pre_dx_post_build_v3_0` row mirroring AD v1.6 pattern; original row 1 retained as audit lineage
 - Cross-references v1.6 → v1.7 synced across evidence report + inventory reports + matrix README
 
@@ -96,7 +96,7 @@ v3.0 had `validation_evidence_summary` array with 9 entries mixing pre-build and
 
 ## Carry-forward to v3.2
 
-Per `WORK_IN_PROGRESS.md` Outstanding section:
+Per [`WORK_IN_PROGRESS.md`](../../AD_EPIC/AD_immune_card_json/WORK_IN_PROGRESS.md) Outstanding section:
 
 1. CPG_breast_panel_v1 (1,392 concordant CpGs from CPG-VAL-003) — formal seal + holdout validation
 2. CHR/MAPINFO genomic annotation on residual map

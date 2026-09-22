@@ -59,10 +59,10 @@ without `--age` the absolute reading is withheld. A_mapped is still printed in b
 ### Core engine (Python)
 | File | Role |
 |---|---|
-| `cpg_conductor.py` | the chain: all stages in call order, the entry point |
+| [`cpg_conductor.py`](cpg_conductor.py) | the chain: all stages in call order, the entry point |
 | `Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py` | A = H(β)/H_min per cell |
 | `Walther_iam_deconvolver/walther_iam_deconvolver.py` | composition/presence (gates no call) |
-| `cpg_gauge.py` | reference bar gauge + star gauge renderer |
+| [`cpg_gauge.py`](cpg_gauge.py) | reference bar gauge + star gauge renderer |
 
 ### The atlas (decompress first)
 | File | Role |
@@ -91,7 +91,7 @@ without `--age` the absolute reading is withheld. A_mapped is still printed in b
 ### Report assets (Stage 9)
 | File | Role |
 |---|---|
-| `MethylPhys/chain/Crown Jewel and Patient Strawman/strawman_data_v2.json` · `render_patient_wall.py` · `render_strawman_v2.py` | patient straw man |
+| `MethylPhys/chain/Crown Jewel and Patient Strawman/strawman_data_v2.json` · [`render_patient_wall.py`](report_builders/render_patient_wall.py) · [`render_strawman_v2.py`](report_builders/render_strawman_v2.py) | patient straw man |
 | `Crown Jewel and Patient Strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html` | crown-jewel wall (v3) |
 | `MethylPhys/atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy` (+ provenance) | CMB pixel map |
 | `CPG_AstroGenetics_explainer_section.html` | "How CPG works" explainer |
@@ -114,4 +114,4 @@ IDAT decode only: `methylprep` (+ array manifest). Standard library: `csv`, `jso
 - [ ] the `.npy` HEALPix mapping if not shipped (regenerate via the script above)
 - [ ] `methylprep` + array manifest for IDAT decode (Stage 1)
 - [ ] confirm `iamatlas_class_archives/*.tar.xz` are present (CI + reliability + CMB depend on them)
-- [ ] `disease_origin_cells.json` present in `Disease Matrix/DISEASE_MATRIX/` (patient-safety gate)
+- [ ] [`disease_origin_cells.json`](Disease%20Matrix/DISEASE_MATRIX/disease_origin_cells.json) present in `Disease Matrix/DISEASE_MATRIX/` (patient-safety gate)

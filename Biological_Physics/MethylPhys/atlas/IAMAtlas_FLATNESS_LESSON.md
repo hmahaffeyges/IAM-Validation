@@ -66,7 +66,7 @@ They were not — they were flat.
 
 ## 2. THE FIX (CONFIRMED)
 
-Use **`iamatlas_v0_1_mcmc_batched_FIXED.py`** for every build/rebuild. Its model:
+Use **[`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py)** for every build/rebuild. Its model:
 
 - Defines parameters only over OBSERVED (cpg, celltype) pairs — kills the swamp.
 - Replaces the z / sigma_class_logit construction with a DIRECT per-pair prior:
@@ -145,7 +145,7 @@ the per-CpG signal spans the full range (std ~0.3, NOT ~0.005) and signal/noise 
 
 ## REBUILD SETTINGS USED (for reproducibility)
 
-- Script: `iamatlas_v0_1_mcmc_batched_FIXED.py`
+- Script: [`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py)
 - batch_size 5000 for all classes EXCEPT immune, which uses **1500** (63 cell types /
   ~5M observations; OOMs at 5000 — a hard lesson the first time).
 - tune 1000, draws 1000, chains 4, cores 4 (hard-coded), target_accept 0.95.

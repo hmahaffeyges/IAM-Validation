@@ -31,7 +31,7 @@ These files are external dependencies (not produced by the framework) — public
 | MAPINFO | int | Genomic position (hg19) |
 | platform | string | EPIC or HM450 (combined manifest only) |
 
-**Used by:** `Biological_Physics/MethylPhys/atlas/healpix_mapping/generate_cpg_healpix_mapping.py` — the one-time generator for `iamatlas_cpg_to_healpix_nside128.npy` (the Stage 4.6 patient Mollweide projection mapping).
+**Used by:** `Biological_Physics/MethylPhys/atlas/healpix_mapping/generate_cpg_healpix_mapping.py` — the one-time generator for [`iamatlas_cpg_to_healpix_nside128.npy`](../healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy) (the Stage 4.6 patient Mollweide projection mapping).
 
 **Versioning:** hg19 (the genome build the IAMAtlas was constructed against). If/when the IAMAtlas migrates to hg38 or to EPIC v2 (~937K probes), corresponding hg38/v2 manifests are acquired and the mapping regenerated.
 

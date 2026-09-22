@@ -2,7 +2,7 @@
 
 **Card version:** v3.0
 **Card date:** 2026-06-02 (initial v3.0) + 2026-06-03 (Phase 2 SOP completion)
-**Card location:** `ad-immune_card_v3_1.json` (this folder)
+**Card location:** [`ad-immune_card_v3_1.json`](ad-immune_card_v3_1.json) (this folder)
 **Card README (this file):** v3.0 — clean rewrite 2026-06-04 with current methodology
 **Maintained by:** IAMPerformance Inter-Domain Research Institute, Entiat WA / iamperformance.net
 
@@ -148,7 +148,7 @@ Be honest with the patient about these:
 | **Cross-method check** | Walther vs NILC v2: ρ = +0.93 immune / +0.86 progenitor (AIBL); +0.84 / +0.78 (AddNeuroMed); +0.80 / +0.92 (GIFT) |
 | **Per-VAL bundles** | `validation_runs/CPG_VAL_NNN_AD_*/` — each with PREREG.md + per_sample.csv + null_results.json + cohort_manifest.json + OUTCOME.md |
 | **Cohort folders** | `validation_runs/ad_immune_cohorts/{GSE153712_AIBL,GSE144858_AddNeuroMed,GSE53740_GIFT}/` |
-| **SOP audit** | `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md` (this folder's parent) |
+| **SOP audit** | [`AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`](AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md) (this folder's parent) |
 | **Status** | ✅ Operational — full SOP coverage stages 2–7 + Stage 8 Path A. Stage 8 Path B engine wiring deferred. |
 
 For complete validation detail, see the evidence report `post_build_evidence/v5_CPG_IAMAtlas_Evidence_Report.html` Section 4.2.
@@ -181,4 +181,4 @@ For the 13-item AD-specific Lessons Learned section (insights that don't fit in 
 
 ---
 
-*Companion documents in this card folder: `ad-immune_card_v3_1.json` (card spec), `ad-immune_v3_1_release_notes.md` (technical changelog for v3.1 rewrite). `ad-immune_v3_0_release_notes.md` (v3.0 historical release notes + 13-item AD-specific Lessons Learned). Companion documents in card parent folder: `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`, `ad_immune_residual_maps/`.*
+*Companion documents in this card folder: [`ad-immune_card_v3_1.json`](ad-immune_card_v3_1.json) (card spec), [`ad-immune_v3_1_release_notes.md`](ad-immune_v3_1_release_notes.md) (technical changelog for v3.1 rewrite). `ad-immune_v3_0_release_notes.md` (v3.0 historical release notes + 13-item AD-specific Lessons Learned). Companion documents in card parent folder: [`AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`](AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md), `ad_immune_residual_maps/`.*

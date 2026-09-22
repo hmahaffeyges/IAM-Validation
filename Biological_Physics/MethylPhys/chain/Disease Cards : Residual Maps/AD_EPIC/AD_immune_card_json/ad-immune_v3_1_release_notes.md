@@ -1,7 +1,7 @@
 # AD-immune Card v3.1 — Release Notes
 
 **Release date:** 2026-06-05
-**Card file:** `ad-immune_card_v3_1.json` (453 lines)
+**Card file:** [`ad-immune_card_v3_1.json`](ad-immune_card_v3_1.json) (453 lines)
 **Supersedes:** v3.0 (2026-06-02), 751 lines — archived at `OLD/ad-immune_card_v3_0.json`
 **Companion:** `ad-immune_v3_0_release_notes.md` (v3.0 historical release notes + 13-item Lessons Learned, preserved)
 
@@ -23,10 +23,10 @@ In v3.1 Rule A is documented as `ad_disease_trained_panel` in operational sectio
 |---|---|---|
 | Stage 2 (Deconvolution) | Walther IAM Deconvolver (primary) + NILC v2 (cross-method) | `stage_2_deconvolution` |
 | Stage 3 (Age foreground) | `age_axis_foreground.py` (MANDATORY for AD — Rule A panel has R²=0.26 with age) | `stage_3_age_foreground_subtraction` |
-| Stage 4 (A-scoring) | `iamatlas_a_scoring.py` — 8 classes + 115 cell fan-out | `stage_4_a_scoring` |
+| Stage 4 (A-scoring) | [`iamatlas_a_scoring.py`](../../../Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) — 8 classes + 115 cell fan-out | `stage_4_a_scoring` |
 | AD-specific | 7-CpG Rule A directional panel — age-adjusted Z output | `ad_disease_trained_panel` |
-| Stage 5 (Mahalanobis) | `iamatlas_mahalanobis_scoring.py` | `stage_5_mahalanobis` |
-| Stage 6 (Cellular age) | `iam_cellular_age_scoring.py` — AD immune class ~9y "younger" finding | `stage_6_cellular_age` |
+| Stage 5 (Mahalanobis) | [`iamatlas_mahalanobis_scoring.py`](../../../Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) | `stage_5_mahalanobis` |
+| Stage 6 (Cellular age) | [`iam_cellular_age_scoring.py`](../../../Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) — AD immune class ~9y "younger" finding | `stage_6_cellular_age` |
 | Stage 7 (Tier breakpoints) | Universal screen + AD-specific operational notes | `stage_7_tier_breakpoints` |
 | Stage 8 (Card matching) | Three-route Boolean matching logic (AD / PSP-CBD / FTD) | `stage_8_card_matching` |
 
@@ -68,7 +68,7 @@ This three-way differential structure reflects the CPG-VAL-014 GIFT cohort findi
 - `val_series: "CPG-VAL-008 through CPG-VAL-014"` (7 VALs)
 - Three cohorts with full breakdowns (AIBL 726, AddNeuroMed 300, GIFT 384) + Stage 1 reproductions PASS on all three
 - `headline_findings` array with 9 specific factual findings
-- `sop_chain_of_custody_audit` pointer to `AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md` (still applies — v3.1 didn't change computation)
+- `sop_chain_of_custody_audit` pointer to [`AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md`](AD_IMMUNE_v3_0_SOP_CHAIN_OF_CUSTODY_AUDIT.md) (still applies — v3.1 didn't change computation)
 
 ---
 
@@ -88,9 +88,9 @@ This is the strongest single piece of evidence in the AD card that the IAM-archi
 
 ## Companion document updates
 
-- `ad-immune_README.md` — added v3.1 entry to version log; emphasizes the Rule A operational distinction from breast
+- [`ad-immune_README.md`](ad-immune_README.md) — added v3.1 entry to version log; emphasizes the Rule A operational distinction from breast
 - `ad_immune_residual_maps/README_AD_residual_maps.md` — rewritten with three-route Stage 8 consumption + PC1-vs-PC2 rank explanation (same biology, different cohort composition)
-- `WORK_IN_PROGRESS.md` — updated for v3.1 status; v3.0 archived at `OLD/`
+- [`WORK_IN_PROGRESS.md`](WORK_IN_PROGRESS.md) — updated for v3.1 status; v3.0 archived at `OLD/`
 
 ---
 

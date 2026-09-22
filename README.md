@@ -225,7 +225,7 @@ The Landauer cost of irreversible DNA methylation maintenance at physiological t
 
 | Result | Value |
 |--------|-------|
-| Class floors H_min (8 classes × 5 substrates) | MCMC-confirmed; table published in GAPE Issue 003 |
+| Class floors H_min (8 classes × 5 substrates) | MCMC-confirmed; table published in GAPE [Issue 003](Biological_Physics/MethylPhys/manual/IAMPerformance_GAPEIssue003_RC1.pdf) |
 | Cancer types confirmed (direction) | 27/28 TCGA types, n = 4,304 matched pairs |
 | Zero free parameters | No cancer data used in calibration |
 | DunedinPACE biological aging fit | t_max = 120.3 ± 7.1 yr (MCMC) |
@@ -662,7 +662,7 @@ python iam_derivation_tests.py
 
 **Expected runtime:** ~90 seconds total for both scripts
 
-**Observational Validation (`iam_validation.py`) -- Expected output:**
+**Observational Validation ([`iam_validation.py`](tests/iam_validation.py)) -- Expected output:**
 ```
 ==============================================================================
  INFORMATIONAL ACTUALIZATION MODEL (IAM)
@@ -1121,7 +1121,7 @@ This repository presents the final validated framework. Complete development his
 - **Tests 1-26:** Early exploration (growth mechanisms, various parameterizations)
 - **Tests 27-29:** Dual-sector identification (empirical sector separation)
 - **Test 30:** Final synthesis (consolidated validation)
-- **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
+- **Current:** 9 tests in [`iam_validation.py`](tests/iam_validation.py) with full MCMC analysis
 - **MGCAMB:** Full Boltzmann validation via modified Einstein-Boltzmann solver (7/7 tests passed)
 - **Planck MCMC (Level 1):** 12 independent chains across 4 dataset combinations (Planck only: Runs A/B/C; Planck + RSD: Runs D/E/F; Planck + BAO: Runs G/H/I; Planck + Pantheon+: Runs J/K/L) -- IAM compatible with Planck across all datasets (Delta-chi2 = +1.43 to +2.32, all below exclusion threshold). Raw chain data: [`mgcamb_validation/chains/`](mgcamb_validation/chains/)
 - **Level 2:** Dual-sector perturbation split via modified CAMB equations.f90 -- Delta-chi2 = +0.54 best-fit vs ΛCDM (Planck), +2.92 apples-to-apples (Planck+RSD), sigma_8 = 0.800, H0(matter) = 72.26 (all 3 chains converged: Runs A, C, D). Raw chain data: [`camb_validation/chains/`](camb_validation/chains/)

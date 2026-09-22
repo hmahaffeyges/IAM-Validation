@@ -2,7 +2,7 @@
 
 The unified IAM cell-type methylation reference atlas. This is the single artifact the EDEAR cellular-fidelity tool (the **Cellular Performance Gauge / CPG**) and the deconvolver consume at runtime.
 
-**This folder contains the REBUILD edition** of IAMAtlas v0.1. The earlier collapsed build was retired in May 2026 after the flatness problem was identified and fixed. See `IAMAtlas_FLATNESS_LESSON.md` in this folder for the full account; the one-sentence summary is below.
+**This folder contains the REBUILD edition** of IAMAtlas v0.1. The earlier collapsed build was retired in May 2026 after the flatness problem was identified and fixed. See [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) in this folder for the full account; the one-sentence summary is below.
 
 ---
 
@@ -10,7 +10,7 @@ The unified IAM cell-type methylation reference atlas. This is the single artifa
 
 In the original v0.1 build, all eight class-MCMCs converged cleanly (R-hat ~ 1.01, ESS in the hundreds, zero divergences) — but the model had a latent identifiability ridge that collapsed per-cell-type estimates onto the class mean. The result was an atlas in which the cell types within each class came out nearly identical to each other in the output, even though their inputs were genuinely different. The class-level brightness was usable; the per-cell-type layer was not. The collapse was invisible to every standard convergence check, because the chains genuinely converged — to a flattened answer.
 
-The REBUILD edition was produced by running the FIXED MCMC script (`iamatlas_v0_1_mcmc_batched_FIXED.py`) on all eight classes, replacing the collapsed output entirely. Every class was independently distinctness-tested on its output (pairwise mean-absolute-difference between cells within a class) before being accepted into this folder. The full record of what went wrong, why diagnostics didn't catch it, and what to watch for in any future rebuild lives in `IAMAtlas_FLATNESS_LESSON.md`. **Read that file before re-running any class.**
+The REBUILD edition was produced by running the FIXED MCMC script ([`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py)) on all eight classes, replacing the collapsed output entirely. Every class was independently distinctness-tested on its output (pairwise mean-absolute-difference between cells within a class) before being accepted into this folder. The full record of what went wrong, why diagnostics didn't catch it, and what to watch for in any future rebuild lives in [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md). **Read that file before re-running any class.**
 
 ---
 
@@ -18,15 +18,15 @@ The REBUILD edition was produced by running the FIXED MCMC script (`iamatlas_v0_
 
 | File | What it is |
 |---|---|
-| `IAMAtlasREBUILD.csv.xz` | The atlas matrix, xz-compressed (Git LFS). Decompress before use. |
-| `IAMAtlasREBUILD_celltype_to_class.json` | Maps each cell type to its architecture class. The deconvolver needs this for class-level aggregation. |
-| `IAMAtlasREBUILD_provenance.json` | Full build metadata: dates, pipeline steps, H_min values, per-class distinctness test outcomes. |
-| `IAMAtlas_FLATNESS_LESSON.md` | **READ BEFORE ANY REBUILD.** The flatness problem, the fix, the diagnostic trap to avoid, the rebuild settings. |
+| [`IAMAtlasREBUILD.csv.xz`](IAMAtlasREBUILD.csv.xz) | The atlas matrix, xz-compressed (Git LFS). Decompress before use. |
+| [`IAMAtlasREBUILD_celltype_to_class.json`](IAMAtlasREBUILD_celltype_to_class.json) | Maps each cell type to its architecture class. The deconvolver needs this for class-level aggregation. |
+| [`IAMAtlasREBUILD_provenance.json`](IAMAtlasREBUILD_provenance.json) | Full build metadata: dates, pipeline steps, H_min values, per-class distinctness test outcomes. |
+| [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) | **READ BEFORE ANY REBUILD.** The flatness problem, the fix, the diagnostic trap to avoid, the rebuild settings. |
 | `class_archives/` | Eight per-class `.tar.xz` archives (LFS). Each contains that class's `per_celltype.csv` (post-reconciliation), `brightness.csv`, and `result.json`, plus the raw pre-reconciliation `per_celltype.csv` under `/raw/` for provenance. **Use these when re-running a single class** without rebuilding the others. |
-| `iamatlas_v0_1_mcmc_batched_FIXED.py` | The canonical MCMC build script. Use this for any rebuild. The OLD `iamatlas_v0_1_mcmc_batched.py` is retired and not in this folder. |
+| [`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py) | The canonical MCMC build script. Use this for any rebuild. The OLD `iamatlas_v0_1_mcmc_batched.py` is retired and not in this folder. |
 | `reconcile_duplicates.py` | Resolves the duplicate-named cell types that the rebuild surfaced. Run between the per-class MCMC and the merge. See "How REBUILD was produced" below. |
 | `merge_iamatlas_v0_1_REBUILD.py` | Combines the 8 per-class outputs into the unified `IAMAtlasREBUILD.csv`. Reads the reconciled inputs from the previous step. |
-| `compact_atlas.py` | xz-compacts the merged atlas and tarballs each class's three files into `class_archives/`. |
+| [`compact_atlas.py`](compact_atlas.py) | xz-compacts the merged atlas and tarballs each class's three files into `class_archives/`. |
 | `README.md` | This file. |
 
 To decompress the atlas:
@@ -66,7 +66,7 @@ The cell-type count dropped from 133 in the retired collapsed build to 115 in th
 | stem_pluri | 1 | 0.9822 | Single collapsed pluripotent cell type. |
 | stem_adult | 1 | 0.8737 | HSC. |
 
-Total: 115 cell types. Per-class membership is given exactly by `IAMAtlasREBUILD_celltype_to_class.json`.
+Total: 115 cell types. Per-class membership is given exactly by [`IAMAtlasREBUILD_celltype_to_class.json`](IAMAtlasREBUILD_celltype_to_class.json).
 
 H_min values frozen 2026-04-06; same values as the retired build (the MCMC re-run did not affect H_min, which is derived from first principles, not fit).
 
@@ -74,7 +74,7 @@ H_min values frozen 2026-04-06; same values as the retired build (the MCMC re-ru
 
 ## Per-class distinctness verification
 
-Each rebuilt class was verified by pairwise mean-absolute-difference between cell columns on shared CpGs (≥200 shared per pair). The test is the judge, not R-hat — see `IAMAtlas_FLATNESS_LESSON.md`.
+Each rebuilt class was verified by pairwise mean-absolute-difference between cell columns on shared CpGs (≥200 shared per pair). The test is the judge, not R-hat — see [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md).
 
 | Class | Distinctness result |
 |---|---|
@@ -95,11 +95,11 @@ The convergence-diagnostic profile of the rebuild is documented at length in `IA
 
 The end-to-end rebuild used a three-stage pipeline. Each script in this folder corresponds to one stage and is fully reproducible.
 
-**Stage 1 — Per-class MCMC** (`iamatlas_v0_1_mcmc_batched_FIXED.py`): each of the eight classes was independently fit by hierarchical Bayesian MCMC against the long-format observations in `iamatlas_mcmc_inputs.csv`. Settings: tune 1000, draws 1000, chains 4, target_accept 0.95. Batch size 5000 for all classes except immune (1500 — at 5000 it OOMs on 32 GB). Output per class: `<class>_brightness.csv` (class-level β per CpG), `<class>_per_celltype.csv` (per-cell-type β per CpG), `<class>_result.json` (convergence metadata).
+**Stage 1 — Per-class MCMC** ([`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py)): each of the eight classes was independently fit by hierarchical Bayesian MCMC against the long-format observations in `iamatlas_mcmc_inputs.csv`. Settings: tune 1000, draws 1000, chains 4, target_accept 0.95. Batch size 5000 for all classes except immune (1500 — at 5000 it OOMs on 32 GB). Output per class: `<class>_brightness.csv` (class-level β per CpG), `<class>_per_celltype.csv` (per-cell-type β per CpG), `<class>_result.json` (convergence metadata).
 
 **Stage 2 — Duplicate reconciliation** (`reconcile_duplicates.py`): a step the original v0.1 pipeline didn't include. The rebuild's distinctness tests surfaced duplicate-named cell types — particularly the 12 a-prefix variants in immune (aCD8Tmem vs CD8Tmem etc.) which were Salas-atlas naming variants of the same biological cells (corr = 1.000, mean\|diff\| < 0.005 on tested CpGs). The reconciliation step merges those pairs via coverage-weighted inverse-variance pooling, and drops thin lowercase variants whose better-covered capitalized twins exist. The policy is encoded in the script itself (constants at the top). Output: `<class>_per_celltype.RECONCILED.csv` for each class, plus `RECONCILIATION_REPORT.json` summarizing the decisions.
 
-**Stage 3 — Merge and compact** (`merge_iamatlas_v0_1_REBUILD.py` then `compact_atlas.py`): the merge step reads the reconciled per-cell-type files plus the original brightness files and builds the unified `IAMAtlasREBUILD.csv` (32 class columns + 230 per-cell columns + meta). The compact step then xz-compresses the merged atlas and tarballs each class's three files into `class_archives/` for re-runnability.
+**Stage 3 — Merge and compact** (`merge_iamatlas_v0_1_REBUILD.py` then [`compact_atlas.py`](compact_atlas.py)): the merge step reads the reconciled per-cell-type files plus the original brightness files and builds the unified `IAMAtlasREBUILD.csv` (32 class columns + 230 per-cell columns + meta). The compact step then xz-compresses the merged atlas and tarballs each class's three files into `class_archives/` for re-runnability.
 
 To run the entire pipeline from the eight raw per-class outputs:
 ```
@@ -118,9 +118,9 @@ The rebuild procedure for a single class is:
 
 1. Extract `class_archives/<class>_v0_1_REBUILD.tar.xz`.
 2. Add new observation rows to `iamatlas_mcmc_inputs.csv` (in the production-data area of the repo) for the class being re-run.
-3. Run `iamatlas_v0_1_mcmc_batched_FIXED.py --classes <class> --inputs iamatlas_mcmc_inputs.csv --out_dir <new_output_folder> --batch_size 5000` (or `1500` for immune). The settings are documented in `IAMAtlas_FLATNESS_LESSON.md` "REBUILD SETTINGS USED."
+3. Run `iamatlas_v0_1_mcmc_batched_FIXED.py --classes <class> --inputs iamatlas_mcmc_inputs.csv --out_dir <new_output_folder> --batch_size 5000` (or `1500` for immune). The settings are documented in [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) "REBUILD SETTINGS USED."
 4. Distinctness-test the new `per_celltype.csv` against the prior class results before merging. The test procedure is in `IAMAtlas_FLATNESS_LESSON.md`.
-5. Re-run `reconcile_duplicates.py` (if any new duplicates surface), `merge_iamatlas_v0_1_REBUILD.py`, and `compact_atlas.py`.
+5. Re-run `reconcile_duplicates.py` (if any new duplicates surface), `merge_iamatlas_v0_1_REBUILD.py`, and [`compact_atlas.py`](compact_atlas.py).
 6. Version the new atlas in this vault with a new SHA. Bump to `IAMAtlas_v0_2/` etc. when the change is significant.
 
 ---
@@ -137,7 +137,7 @@ Practical consequences:
 
 ## How the deconvolver uses this atlas
 
-See `../deconvolver/`. In brief: the deconvolver loads `IAMAtlasREBUILD.csv` and `IAMAtlasREBUILD_celltype_to_class.json`, filters informative (high-discrimination) CpGs, intersects them with a customer's CpGs, solves a constrained non-negative least-squares for cell-type fractions, and aggregates to per-class fractions. The class-level reading is the load-bearing wellness output (the CPG / thermometer). The per-cell-type breakdown is the indicative tier — reliable where coverage is good, lower-confidence where the source atlas was thin.
+See `../deconvolver/`. In brief: the deconvolver loads `IAMAtlasREBUILD.csv` and [`IAMAtlasREBUILD_celltype_to_class.json`](IAMAtlasREBUILD_celltype_to_class.json), filters informative (high-discrimination) CpGs, intersects them with a customer's CpGs, solves a constrained non-negative least-squares for cell-type fractions, and aggregates to per-class fractions. The class-level reading is the load-bearing wellness output (the CPG / thermometer). The per-cell-type breakdown is the indicative tier — reliable where coverage is good, lower-confidence where the source atlas was thin.
 
 ---
 
@@ -145,8 +145,8 @@ See `../deconvolver/`. In brief: the deconvolver loads `IAMAtlasREBUILD.csv` and
 
 - Stage 1 (per-class MCMC) run dates: 2026-05-25 to 2026-05-28 on Heath's son's 16-core / 32 GB workstation.
 - Stage 2 (reconciliation) and Stage 3 (merge + compact): 2026-05-28.
-- SHA-256 of `IAMAtlasREBUILD.csv.xz`: `41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee` (see `../INVENTORY.json` for full SHA inventory).
+- SHA-256 of [`IAMAtlasREBUILD.csv.xz`](IAMAtlasREBUILD.csv.xz): `41b7c16f043bce96e085a2b8b4e709efd2b862af9de8dbe9a8646e9fb94c32ee` (see `../INVENTORY.json` for full SHA inventory).
 - Source atlases: see the per-atlas folders under `../stage2_cell_of_origin/` and `../stage3_immune_fraction/` and their entries in `../INVENTORY.json`.
 - Repository: `hmahaffeyges/IAM-Validation`.
 
-The retired collapsed v0.1 atlas (`IAMAtlas.csv.xz`, sha256 `a11f62b0…`) has been removed from this folder. The corresponding `MCMC_BUILD_LESSONS.md (not in this repository - the atlas build notes were never committed; the MCMC build is described in the SOP's atlas section)` (which incorrectly stated that the seven non-stromal classes were "valid as-is and not re-run") has been replaced by `IAMAtlas_FLATNESS_LESSON.md`. Both removed artifacts remain in the repository's git history at any commit before this REBUILD push, should they ever need to be inspected.
+The retired collapsed v0.1 atlas (`IAMAtlas.csv.xz`, sha256 `a11f62b0…`) has been removed from this folder. The corresponding `MCMC_BUILD_LESSONS.md (not in this repository - the atlas build notes were never committed; the MCMC build is described in the SOP's atlas section)` (which incorrectly stated that the seven non-stromal classes were "valid as-is and not re-run") has been replaced by [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md). Both removed artifacts remain in the repository's git history at any commit before this REBUILD push, should they ever need to be inspected.

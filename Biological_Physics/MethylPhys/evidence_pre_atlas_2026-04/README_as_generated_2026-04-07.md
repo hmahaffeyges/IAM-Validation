@@ -46,8 +46,8 @@ python3 gape_evidence_engine.py --run
 
 | File | Description |
 |------|-------------|
-| `evidence_summary.json` | Master database, full provenance, all results |
-| `evidence_summary.tsv` | Flat table for spreadsheet / statistical analysis |
+| [`evidence_summary.json`](evidence_summary.json) | Master database, full provenance, all results |
+| [`evidence_summary.tsv`](evidence_summary.tsv) | Flat table for spreadsheet / statistical analysis |
 | `README.md` | This file (auto-generated) |
 
 ## H_min Registry (G-002 MCMC Posterior)

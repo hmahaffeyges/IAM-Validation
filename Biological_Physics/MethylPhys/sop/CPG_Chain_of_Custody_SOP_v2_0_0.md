@@ -16,11 +16,11 @@ its outcome and its seal.
 | | |
 |---|---|
 | engine commit | `e696462` |
-| stages the conductor runs | `cpg_conductor.run_full` takes **calibrated betas** and runs 11 stages, beginning at composition: per-cell A, the second opinion, the class gauge, the pipeline map, the identity gauge, direction, the sky, departure, the marker-union hull, and the two age steps. It does **not** read an IDAT and does **not** run intake: Stage 1 calibration is called by `MethylPhys_Interface/run_sample.py` before it, and Stage 0's gates (§11-§19) are implemented in `stage_0_intake.py` but not called by any path in this tree. `doors/CHAIN_SEQUENCE.md` is generated from the code and is the authority on the order. |
+| stages the conductor runs | `cpg_conductor.run_full` takes **calibrated betas** and runs 11 stages, beginning at composition: per-cell A, the second opinion, the class gauge, the pipeline map, the identity gauge, direction, the sky, departure, the marker-union hull, and the two age steps. It does **not** read an IDAT and does **not** run intake: Stage 1 calibration is called by `MethylPhys_Interface/run_sample.py` before it, and Stage 0's gates (§11-§19) are implemented in [`stage_0_intake.py`](../chain/stage_0_intake.py) but not called by any path in this tree. `doors/CHAIN_SEQUENCE.md` is generated from the code and is the authority on the order. |
 | what it reports | whether this sample's cellular write process is operating within the healthy range for its age, by architecture class, against a fixed physical zero |
 | the healthy reference | three measured layers: the frozen class floor (physics, universal), the pipeline scale map (one per processing pipeline), and the laboratory zero (40 healthy arrays of that laboratory, read against the age curve) |
 | what it does not do | it names no condition, matches no pattern to any signature, and states no age in years |
-| file inventory | generated, not hand-listed: `MethylPhys/chain/Runtime Matrices/chain_inventory_v1.json`, built from the tree by `build_chain_inventory.py`. The reference table at the end of this document is generated from it |
+| file inventory | generated, not hand-listed: `MethylPhys/chain/Runtime Matrices/chain_inventory_v1.json`, built from the tree by [`build_chain_inventory.py`](../chain/MethylPhys_Interface/build_chain_inventory.py). The reference table at the end of this document is generated from it |
 | the rule for a finding | seal the procedure before running it, register the outcome as found, close it in code, teach every door, rebuild, read, push. `MethylPhys/kit/finding_check.py` gates the push |
 
 ## How to use this document
@@ -70,7 +70,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 ### Part II — The step-by-step chain of custody
 
-> **Orchestrator note (v2.0.0).** Wherever this Part names `walther_clinical.py` as the script that runs a stage, read `MethylPhys/chain/cpg_conductor.py` (2026-07; its docstring: "replaces the confusing walther_clinical.py"). The conductor pairs every per-cell A with its deconvolved fraction and treats a class below DETECT_FLOOR = 0.01 as absent. `walther_clinical.py` remains in `MethylPhys/chain/` for reference only.
+> **Orchestrator note (v2.0.0).** Wherever this Part names [`walther_clinical.py`](../chain/walther_clinical.py) as the script that runs a stage, read `MethylPhys/chain/cpg_conductor.py` (2026-07; its docstring: "replaces the confusing walther_clinical.py"). The conductor pairs every per-cell A with its deconvolved fraction and treats a class below DETECT_FLOOR = 0.01 as absent. `walther_clinical.py` remains in `MethylPhys/chain/` for reference only.
 
 **Stage 0 — Sample intake (L1)**
 - §11  Step 0.1 — IDAT file arrival on server
@@ -95,7 +95,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 **Stage 2 — Deconvolution (L4 component separation, primary)**
 - §28  Step 2.1 — IAMAtlas REBUILD load (the calibrated instrument enters)
-- §29  Step 2.2 — Per-class marker pool extraction from `iamatlas_celltype_markers_v0_2.json`
+- §29  Step 2.2 — Per-class marker pool extraction from [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json)
 - §30  Step 2.3 — Walther IAM Deconvolver — Path 1 (NNLS)
 - §31  Step 2.4 — Walther per-class confidence + status codes
 - §32  Step 2.5 — NILC v2 deconvolver — Path 2 (departure-from-consensus GLS)
@@ -114,20 +114,20 @@ A reader executing this document by hand should arrive at the same readout the e
 - §41  Step 4.1 — Per-class marker panel assembly (per-CpG β, NOT pre-averaged)
 - §42  Step 4.2 — Per-CpG Shannon entropy H(β_i) calculation
 - §43  Step 4.3 — Per-class A-score: A = mean_i( H(β_i) / H_min(class) )
-- §44  Step 4.4 — Per-cell-type A-score (115 cell types) via `iamatlas_a_scoring.py`
+- §44  Step 4.4 — Per-cell-type A-score (115 cell types) via [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py)
 - §45  Step 4.5 — Disease panel A-score (when card has a curated panel)
 - §46  Step 4.6 — Stage 4 output: 8 class A-scores + 115 cell-type A-scores
 
 **Stage 5 — Multi-D departure (Mahalanobis hyper-volume)**
 - §47  Step 5.1 — Patient 115-cell-type A-score vector assembly
-- §48  Step 5.2 — HC centroid load (`mahalanobis_healthy_reference_v2_0_age_matched_derived.json` current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
+- §48  Step 5.2 — HC centroid load ([`mahalanobis_healthy_reference_v2_0_age_matched_derived.json`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json) current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
 - §49  Step 5.3 — Inverse-covariance distance computation
 - §50  Step 5.4 — Top-10 axis contribution decomposition
 - §51  Step 5.5 — Stage 5 output: Mahalanobis distance + per-axis explainability
 
 **Stage 6 — Cellular age inversion**
 - §52  Step 6.1 — Per-class A-score input (from Stage 4)
-- §53  Step 6.2 — Age reference matrix load (`age_reference_matrix.json`)
+- §53  Step 6.2 — Age reference matrix load ([`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json))
 - §54  Step 6.3 — Per-class A inversion against the 80-cell baseline curve
 - §55  Step 6.4 — Saturation handling (SAT_HIGH / SAT_LOW / OK / INSUFFICIENT_CPGS)
 - §56  Step 6.5 — Eight per-class cellular ages — never collapsed by default
@@ -135,7 +135,7 @@ A reader executing this document by hand should arrive at the same readout the e
 - §58  Step 6.7 — Stage 6 output: per-class cellular age vector + optional summary
 
 **Stage 7 — Tier breakpoint detection**
-- §59  Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json`)
+- §59  Step 7.1 — Per-class A-score tier call ([`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json))
 - §60  Step 7.2 — Per-cell-type A-score tier call
 - §61  Step 7.3 — cfDNA branch (when substrate is plasma) — `cfdna_weight.json (not part of the chain - a placeholder that was never derived)`
 - §62  Step 7.4 — FLOOR_BREACH detection
@@ -151,7 +151,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 **Stage 9 — Report assembly (Stage 6 reporting layer)**
 - §70  Step 9.1 — Customer-facing language collapse
-- §71  Step 9.2 — Literature anchors (`literature_anchors.json`) — reporting-layer translator
+- §71  Step 9.2 — Literature anchors ([`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json)) — reporting-layer translator
 - §72  Step 9.3 — Cancer prior context (`cancer_prior.json (not part of the chain - the chain applies no disease prior)`)
 - §73  Step 9.4 — Family history multiplier (`family_history_multiplier.json (not part of the chain - the chain applies no risk multiplier)`)
 - §74  Step 9.5 — Sex-specific risk adjustment (engine-inline)
@@ -165,7 +165,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 ### Part III — Chain-integrity scaffolding (runs ABOVE, not inside, the chain)
 
-- §80  L9.0 — The 8-null suite framework (`cpg_null_runner.py`)
+- §80  L9.0 — The 8-null suite framework ([`cpg_null_runner.py`](../chain/CPG_Null_Runner/cpg_null_runner.py))
 - §81  L9.1 — N1 HC label permutation
 - §82  L9.2 — N2 Age-strata permutation
 - §83  L9.3 — N3 Sex-strata permutation
@@ -174,7 +174,7 @@ A reader executing this document by hand should arrive at the same readout the e
 - §86  L9.6 — N6 Injection-recovery null
 - §87  L9.7 — N7 End-to-end synthetic-patient simulation
 - §88  L9.8 — N8 Look-elsewhere correction
-- §89  L9.9 — Synthetic patient generator (`synthetic_patient_generator.py`)
+- §89  L9.9 — Synthetic patient generator ([`synthetic_patient_generator.py`](../chain/Synthetic_Patient_Generator/synthetic_patient_generator.py))
 - §90  L9.10 — VAL sealing protocol (PREREG → OUTCOME → SEALED / RESTATE / RETRACT)
 - §91  L9.11 — Null-suite invocation order (when to run; how to declare)
 
@@ -209,7 +209,7 @@ A reader executing this document by hand should arrive at the same readout the e
 > The H-of-the-mean form is the regression that silently broke every sealed VAL. By Jensen's inequality H(mean β) ≥ mean(H(β)), so it inflates every score; on a real marker panel — which is bimodal by construction (some loci locked high, some locked low) — averaging β first manufactures a fake ~0.5 that entropy reads as maximal disorder, pinning healthy cells at false BREACH. A patient's real HSC panel: 11 loci β<0.2, 24 loci β>0.8 → β_mean 0.600 → H(β_mean)/H_min = **1.111 (breach)** while mean(H(β_i))/H_min = **0.864 (at floor, healthy)**.
 > - **The validated formula reproduces the sealed numbers exactly:** GSE51032 → 115/115 A-scores and 460/460 Mahalanobis distances at corr 1.0000 / maxdiff 0.0000, case-vs-hc Cohen's d **+2.088** (the hull anchor). Any formula that does not reproduce +2.088 is wrong by definition.
 > - **Reconciles §103:** §103 correctly saw the all-breach and even wrote the symptom ("panel MEAN collapses to ~0.5; H(0.5)=1.0 → A=1/H_min") — but attributed it to scoring discriminative markers, when that symptom is the signature of the H(β_mean) aggregation order. Under mean(H(β_i)) the all-breach cannot occur with ANY marker set; the marker convention becomes a separate baseline-placement choice (§105), not a guard against breach.
-> - **Guard:** `iamatlas_a_scoring.py` carries a unit test that scores a known bimodal panel and asserts the mean-of-per-CpG value. See §105 for the full record and the open convention/Recipe items.
+> - **Guard:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) carries a unit test that scores a known bimodal panel and asserts the mean-of-per-CpG value. See §105 for the full record and the open convention/Recipe items.
 
 > **LESSON-DECONV-01 — The global NNLS is correct. Cell-tier sparsity is reference mismatch, NOT solver conditioning. Hierarchical refinement invents signal and fails validation.** _(established 2026-06-21, composition-recovery + null validation)_
 >
@@ -322,8 +322,8 @@ The CPG operational system is **three independently updatable components**, even
 
 | Component | Role | Independently updatable | V1 status |
 |---|---|---|---|
-| **(1) Orchestration runtime** — `walther_clinical.py` | Loads the startup artifacts. Runs Stages 0–8 of this SOP. Calls real modules in `walther_clinical_runtime/`. Outputs structured Stage-8 result. | ✓ Restart picks up new card JSONs without code change. Deconvolver / scoring modules swappable. H_min anchors recalibrate without touching orchestrator code. | Built in V1 as a single CLI script. |
-| **(2) Doctor report builder** — internal module within V1 | Reads Stage-8 outputs + the lookup JSONs + literature anchors. Assembles doctor-facing Markdown → PDF (Stage 9). Owns the engine-tier → clinical-language translation. | ✓ Report template changes are content updates, not code structure changes. | Built in V1 as an internal module of `walther_clinical.py` with a clear internal boundary, ready to lift into a standalone `cpg_report_v3.py` in V2. |
+| **(1) Orchestration runtime** — [`walther_clinical.py`](../chain/walther_clinical.py) | Loads the startup artifacts. Runs Stages 0–8 of this SOP. Calls real modules in `walther_clinical_runtime/`. Outputs structured Stage-8 result. | ✓ Restart picks up new card JSONs without code change. Deconvolver / scoring modules swappable. H_min anchors recalibrate without touching orchestrator code. | Built in V1 as a single CLI script. |
+| **(2) Doctor report builder** — internal module within V1 | Reads Stage-8 outputs + the lookup JSONs + literature anchors. Assembles doctor-facing Markdown → PDF (Stage 9). Owns the engine-tier → clinical-language translation. | ✓ Report template changes are content updates, not code structure changes. | Built in V1 as an internal module of `walther_clinical.py` with a clear internal boundary, ready to lift into a standalone [`cpg_report_v3.py`](../chain/cpg_report_v3.py) in V2. |
 | **(3) Patient-facing destination** — iamperformance.net + a future `cpg_report_v3.py` | Customer report; per-class pages; per-cell pages with cell-function descriptions; vigilance content per tier; deep links from card `educational_page_url` + matrix `organ_pages_to_link` fields. | ✓ Website content team updates pages without touching code. Per-cell descriptions are content, not algorithm. | **NOT in V1.** Deferred to V2 after doctor feedback informs the framing. |
 
 **Why the discipline matters for the SOP:** Stages 0–8 produce structured outputs. Stage 9 reads those outputs and assembles a report. Stage 10 delivers. The boundary between components 1 and 2 lives at the Stage 8 → Stage 9 interface — Stage 8 produces `stage_8_outputs` as a single structured object; Stage 9 reads it without re-running any chain step. Operators editing this SOP should preserve that boundary. Stage 9 is permitted to call lookup JSONs (literature anchors, cancer prior, family history, cfDNA weight) but is forbidden from re-invoking deconvolvers, A-score scoring, Mahalanobis, or cellular age scoring — those are component-1 work.
@@ -392,7 +392,7 @@ The current production version is **IAMAtlas REBUILD** (frozen 2026-04-06), comp
 The full atlas posterior is at `IAMAtlasREBUILD.csv` (605 MB, 483,093 CpGs × 8 classes × {mean, sd, ci_lo, ci_hi}). The full file is NOT in the public repository — it's the proprietary core. What IS in the repo:
 
 - `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json` — per-cell-type marker CpGs derived from the atlas (115 × 100 markers)
-- `IAMAtlasREBUILD_provenance.json` — the H_min values and convergence diagnostics
+- [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) — the H_min values and convergence diagnostics
 - `Biological_Physics/MethylPhys/chain/Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json` (current production) + v0_2 + v0_1 (lineage) — HC centroid + covariance in 115-cell-type A-score space
 - `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/pipeline_runtime_matrices/age_reference_matrix.{json,csv,py}` — 80-cell age × class baseline
 
@@ -405,11 +405,11 @@ The atlas is consulted at every stage that requires a reference comparison or a 
 | Stage | What consults the atlas | What it pulls |
 |-------|--------------------------|---------------|
 | Stage 2 (deconvolution) | Walther + NILC | Per-class marker CpG posteriors → reference matrix for NNLS / GLS |
-| Stage 3 (age foreground) | `age_axis_foreground.py (not part of the chain - superseded by the measured age curve)` | Per-CpG age-drift slopes (`reference_age_curve_v1.json`) |
-| Stage 4 (A-score) | `iamatlas_a_scoring.py` | Per-class marker CpGs + H_min per class |
-| Stage 4 (per-cell-type A-score) | `iamatlas_a_scoring.py` | Per-cell-type marker CpGs from `iamatlas_celltype_markers_v0_2.json` |
-| Stage 5 (Mahalanobis) | `iamatlas_mahalanobis_scoring.py` | HC centroid + covariance from `mahalanobis_healthy_reference_v2_0_age_matched_derived.json` (current production, n=1,721; v0_1/v0_2/v0_3/v0_4 retained for lineage) |
-| Stage 6 (cellular age) | `iam_cellular_age_scoring.py` | 80-cell age × class baseline curve |
+| Stage 3 (age foreground) | `age_axis_foreground.py (not part of the chain - superseded by the measured age curve)` | Per-CpG age-drift slopes ([`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json)) |
+| Stage 4 (A-score) | [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) | Per-class marker CpGs + H_min per class |
+| Stage 4 (per-cell-type A-score) | `iamatlas_a_scoring.py` | Per-cell-type marker CpGs from [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) |
+| Stage 5 (Mahalanobis) | [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) | HC centroid + covariance from [`mahalanobis_healthy_reference_v2_0_age_matched_derived.json`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json) (current production, n=1,721; v0_1/v0_2/v0_3/v0_4 retained for lineage) |
+| Stage 6 (cellular age) | [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) | 80-cell age × class baseline curve |
 
 **Every step section in Part II carries an explicit "Atlas reference" line.** If a step does NOT consult the atlas, that line says so. If it does, the line names which slice of the atlas, in which file, at which path.
 
@@ -432,7 +432,7 @@ The H_min values are the architectural floor entropies — the minimum Shannon e
 
 **Where they live in the codebase:**
 
-`IAMAtlasREBUILD_provenance.json` under the key `h_min_values_frozen_2026_04_06`. ONE source of truth. Any runtime artifact that needs an H_min reads it from here. If the value ever needs to change (e.g., new MCMC convergence with denser cohort), the change happens in `IAMAtlasREBUILD_provenance.json` first and all downstream artifacts are re-derived from it.
+[`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) under the key `h_min_values_frozen_2026_04_06`. ONE source of truth. Any runtime artifact that needs an H_min reads it from here. If the value ever needs to change (e.g., new MCMC convergence with denser cohort), the change happens in `IAMAtlasREBUILD_provenance.json` first and all downstream artifacts are re-derived from it.
 
 **Why "Mahaffey Number" matters:**
 
@@ -601,7 +601,7 @@ What CPG CANNOT say:
 - "You should take [medication]."
 - "You should not [activity]."
 
-This boundary is **enforced at Stage 9 (report assembly).** Every word that goes into the rendered report is checked against the Stage 6 language collapse (`tier_breakpoints.json` engine → customer mapping) and the literature anchors. No engine-internal language ("FLOOR_BREACH", "URGENT") appears in the customer report. The customer sees "SIGNIFICANTLY_ELEVATED" with literature context.
+This boundary is **enforced at Stage 9 (report assembly).** Every word that goes into the rendered report is checked against the Stage 6 language collapse ([`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) engine → customer mapping) and the literature anchors. No engine-internal language ("FLOOR_BREACH", "URGENT") appears in the customer report. The customer sees "SIGNIFICANTLY_ELEVATED" with literature context.
 
 **The literature_anchors.json, cancer_prior.json (not part of the chain - the chain applies no disease prior), and family_history_multiplier.json (not part of the chain - the chain applies no risk multiplier) artifacts are NOT measurement.** They are reporting-layer translators that wrap the IAM physics measurement in language a non-clinician can act on. The measurement is the A-score and the cellular age. The report is the legally-permissible translation of that measurement into clinical context.
 
@@ -628,11 +628,11 @@ The walkthrough names 13 disciplines the CPG operational system must obey withou
 
 1. **Wellness-first positioning.** Cellular health and cellular age are the lead. Disease detection is secondary. (V1 doctor report applies this — wellness panel first, disease findings labeled secondary.)
 2. **Single IAMAtlas at runtime — only IAMAtlas.** No external atlases queried at runtime, ever. No Moss-NNLS, no Loyfer-NNLS, no EpiDISH-via-rpy2, no Salas-QC calls at runtime. Source atlases were ingested at IAMAtlas BUILD time; the orchestrator queries only IAMAtlas REBUILD.
-3. **No customer-facing physics terminology in commercial code.** Boltzmann, Landauer, Arrhenius, Bose-Einstein, decoherence, k_B, ln2, coth, "thermal", "activation energy", "Mahaffey Number" — none of these in `walther_clinical.py` source code, docstrings, comments, API outputs, or HTML. Internal variable names neutral. This protects the Recipe.
+3. **No customer-facing physics terminology in commercial code.** Boltzmann, Landauer, Arrhenius, Bose-Einstein, decoherence, k_B, ln2, coth, "thermal", "activation energy", "Mahaffey Number" — none of these in [`walther_clinical.py`](../chain/walther_clinical.py) source code, docstrings, comments, API outputs, or HTML. Internal variable names neutral. This protects the Recipe.
 4. **Recipe stays in the vault forever.** Never disclosed under any NDA. Full acquisition is the only scenario where the Recipe transfers. The orchestrator consumes only operational artifacts (atlas, H_min anchors, deconvolver source, cards, schema), never Recipe content.
 5. **Screening-language rule.** EDEAR never specifies screening tests, ages, intervals, or follow-up workups. Vigilance language defers to "the screening recommendations your clinician has discussed with you." (V1 doctor report has slightly more flexibility — but even there, no specific test names are prescribed.)
 6. **Per-class A-score aggregation discipline.** Each class has its own H_min anchor. Customer report shows class-level + cell-level scores separately (never silently combined).
-7. **Class assignments non-negotiable.** Megakaryocyte → progenitor (NOT immune). Cortical neurons → terminal (NOT stromal). The orchestrator consumes `IAMAtlasREBUILD_celltype_to_class.json` as the single source of truth; no per-cell-type re-classification anywhere.
+7. **Class assignments non-negotiable.** Megakaryocyte → progenitor (NOT immune). Cortical neurons → terminal (NOT stromal). The orchestrator consumes [`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json) as the single source of truth; no per-cell-type re-classification anywhere.
 8. **Empty cells in the disease matrix mean "no documented signature" — NOT zero.** The Stage 8 match function treats blank cells as missing data, not as zero signal. Honest research-in-progress state.
 9. **Run-everything doctrine.** Every IDAT runs Stages 0–10 with the FULL deconvolution and the FULL per-class + per-cell-type A-score computation, regardless of any single stage's result. No gating on "first signal that crosses threshold" — compute every measurement, let the anomaly stack tell the story.
 10. **Disease severity class describes the row's phase, NOT the customer match.** The matrix's `disease_severity_class` column is a property of the (disease, phase, substrate) tuple — not a property of the customer. The customer's tier is computed at runtime from match × phase × severity × evidence.
@@ -647,7 +647,7 @@ These rules are stable; they do not change between SOP versions. They live here 
 > **v1.1 note (2026-06-02).** v1 contained fabricated `cpg_MethylPhys/chain/...` module paths
 > that did not correspond to real files in the IAM-Validation repo. This v1.1 pass
 > stripped them. Where a step's logic currently lives inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)` (the
-> production engine — see `chain_inventory_v1.json`), the SOP now says so honestly. Where
+> production engine — see [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json)), the SOP now says so honestly. Where
 > a step's runtime artifact or output file location was invented, the SOP now reads
 > "TBD per orchestrator design" — that orchestrator (working name `web.commercial.py (no such file in this repository)`)
 > is a separate conversation Heath and Walther will have. All real paths in this v1.1
@@ -667,9 +667,13 @@ These rules are stable; they do not change between SOP versions. They live here 
 
 ## Stage 0 — Sample intake (L1)
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
+
 ---
 
 ### §11. Step 0.1 — IDAT file arrival on server
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
 
 **What this step does.** An Illumina methylation array sample arrives at the EDEAR server as a pair of IDAT files — one for the Cy3 (green) channel, one for the Cy5 (red) channel. The pair is keyed by Sentrix Barcode + Sentrix Position (e.g., `200123456789_R01C01_Grn.idat` + `200123456789_R01C01_Red.idat`). This step receives the upload, verifies the pair is complete, and stamps the arrival into the intake log.
 
@@ -719,6 +723,8 @@ These rules are stable; they do not change between SOP versions. They live here 
 ---
 
 ### §12. Step 0.2 — Sample manifest creation
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
 
 **What this step does.** Cross-references the IDAT file pair with the intake manifest to construct the canonical per-sample record. Every downstream step reads from this record. Once written, the record is immutable for that sample run — re-intakes get new run IDs.
 
@@ -776,6 +782,8 @@ These rules are stable; they do not change between SOP versions. They live here 
 
 ### §13. Step 0.3 — IDAT integrity hash check
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
+
 **What this step does.** Computes SHA-256 hashes of both IDAT files in the pair. Compares against any prior intake of the same Sentrix ID (re-run detection) and registers the new hashes in the integrity log. This is the formal L1 integrity protocol the Roadmap §10.1.1 grades B+ today.
 
 **Inputs.** The staged IDAT file pair from §11.
@@ -816,6 +824,8 @@ These rules are stable; they do not change between SOP versions. They live here 
 ---
 
 ### §14. Step 0.4 — Control probe validation
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
 
 **What this step does.** Illumina arrays include ~600 control probes whose intended responses are known (positive controls, negative controls, hybridization controls, bisulfite conversion controls, extension controls, target removal controls, etc.). This step reads the control probe intensities from the IDAT pair and verifies each control class is within expected bounds. Out-of-bounds controls indicate a chemistry problem with the array — the patient sample is technically unreliable regardless of the biological signal.
 
@@ -867,6 +877,8 @@ Each control class has a manufacturer-specified pass range. Failure of any class
 
 ### §15. Step 0.5 — Detection p-value QC per probe
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
+
 **What this step does.** For each of the ~485,000 (HM450K) or ~865,000 (EPIC) probes on the array, computes a detection p-value: the probability that the observed intensity is distinguishable from the array's background (negative-control distribution). Probes with detection p > 0.01 are flagged as "undetected" — their β value is unreliable.
 
 **Inputs.** Decoded IDAT files + Illumina negative-control probe set.
@@ -916,6 +928,8 @@ The Illumina default uses a slightly different formulation (the `minfi` R packag
 
 ### §16. Step 0.6 — Bead count QC
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
+
 **What this step does.** Each methylation probe is represented on the array by multiple beads (Illumina bead chemistry replicates each probe ~15-20 times per sample for redundancy). The bead count per probe is reported in the IDAT file. Probes with very low bead count have unreliable β values regardless of detection p-value.
 
 **Inputs.** Decoded IDAT files.
@@ -955,6 +969,8 @@ The Illumina default uses a slightly different formulation (the `minfi` R packag
 ---
 
 ### §17. Step 0.7 — Sample-level call rate
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
 
 **What this step does.** Aggregates §15 (detection p-value) and §16 (bead count) into a single sample-level call rate: the fraction of probes that passed BOTH detection and bead count thresholds. This is the headline quality metric for the array as a whole.
 
@@ -1000,6 +1016,8 @@ Threshold: call_rate ≥ 0.98 to proceed.
 
 ### §18. Step 0.8 — Sex check vs metadata
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
+
 **What this step does.** Computes the predicted sex of the sample from chrY-specific and chrX-specific probe intensities, then compares it to the declared sex in the manifest. A mismatch indicates either a sample-swap (catastrophic — patient identity is wrong) or a true biological discordance (rare — XXY, XX male, etc.).
 
 **Inputs.** Decoded IDAT files + manifest's declared sex.
@@ -1043,6 +1061,8 @@ Threshold: call_rate ≥ 0.98 to proceed.
 ---
 
 ### §19. Step 0.9 — Stage 0 decision gate
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **no path in this tree calls it, so a run performs none of these gates (register row 0)**
 
 **What this step does.** Consolidates all Stage 0 outputs into a single proceed/quarantine/reject decision. This is the formal end of L1 — every QC check has been run, and the sample either advances to Stage 1 (β computation) or it does not.
 
@@ -1097,9 +1117,13 @@ Any single FAIL routes to quarantine. Any BORDERLINE proceeds with downstream co
 
 ## Stage 1 — Calibration & β computation (L2 + L3)
 
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py)
+
 ---
 
 ### §20. Step 1.1 — Dye-bias correction
+
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 **What this step does.** Illumina's methylation arrays use two dye colors (Cy3 green, Cy5 red) to distinguish methylated and unmethylated DNA. The two dyes have slightly different intensity characteristics that vary across arrays, batches, and even within a single chip. Dye-bias correction normalizes these differences so that downstream β values reflect actual methylation, not dye chemistry artifacts.
 
@@ -1145,6 +1169,8 @@ For Type II probes (where both methylated and unmethylated states are measured i
 ---
 
 ### §21. Step 1.2 — Probe-type normalization
+
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 **What this step does.** Illumina's HM450K and EPIC arrays have two probe chemistries: Type I (two beads per CpG, one for methylated, one for unmethylated) and Type II (one bead per CpG, distinguishing methylation by dye color). The two chemistries produce subtly different β distributions for the same biological methylation level. Probe-type normalization brings them to a common distribution.
 
@@ -1196,6 +1222,8 @@ For Type II probes (where both methylated and unmethylated states are measured i
 
 ### §22. Step 1.3 — Batch correction (ComBat)
 
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
+
 **What this step does.** When a card processes patients from multiple batches (different intake dates, different lab runs, different plate-positions on the same chip), inter-batch variation can dwarf biological signal. ComBat is the standard empirical-Bayes batch correction that removes additive and multiplicative batch effects while preserving the biological signal of interest. This step is conditional — it only runs when multi-batch data is being processed together.
 
 **Inputs.** Normalized β-equivalent intensities from §21 across multiple samples in the current run.
@@ -1241,6 +1269,8 @@ where γ_batch is the additive batch shift, δ_batch is the multiplicative batch
 
 ### §23. Step 1.4 — Bisulfite conversion efficiency check
 
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
+
 **What this step does.** Methylation array chemistry requires bisulfite-treating the DNA before hybridization. Bisulfite converts unmethylated cytosines to uracil while leaving methylated cytosines intact. If the conversion is incomplete, β values are biased toward false hypermethylation. This step computes the conversion efficiency from internal control probes and either confirms it's adequate or flags the sample.
 
 **Inputs.** Bisulfite conversion control probe intensities (from the §14 control probe extraction).
@@ -1283,6 +1313,8 @@ A fully-converted sample reaches efficiency ≈ 1.0. A failed conversion drops b
 ---
 
 ### §24. Step 1.5 — β-value computation
+
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 **What this step does.** This is the formal map-making step — converting calibrated fluorescence intensities into the methylation level β at each CpG. β = M / (M + U + 100), where M is the methylated-state intensity, U is the unmethylated-state intensity, and 100 is the standard stabilization offset (prevents division by zero at very low intensities; cosmetic at high intensities). β is the canonical per-CpG measurement that every downstream step consumes.
 
@@ -1333,6 +1365,8 @@ The β formula is the methylome's exact analog of:
 
 ### §25. Step 1.6 — β-value sanity checks
 
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
+
 **What this step does.** Before β values feed into the deconvolver, run final sanity checks on the per-sample β matrix: distribution shape, modality, range coverage. This catches catastrophic failures of upstream calibration that didn't trip per-probe flags but produced an entire β matrix that doesn't look biologically plausible.
 
 **Inputs.** β matrix from §24.
@@ -1377,6 +1411,8 @@ The β formula is the methylome's exact analog of:
 
 ### §26. Step 1.7 — Probe response function (provisional)
 
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
+
 **What this step does.** Marks where the L3 chain link needs further work per the Roadmap §10.1.1 grading. Each probe has a slightly different response function (how raw fluorescence scales to true methylation fraction). The standard β formula assumes uniform response across probes; in reality, probe-specific calibration would refine the β estimate. This is currently NOT implemented in production — the SOP declares it as a known L3 gap to be filled.
 
 **Inputs.** Per-probe β values from §24.
@@ -1408,6 +1444,8 @@ The β formula is the methylome's exact analog of:
 ---
 
 ### §27. Step 1.8 — Stage 1 output: per-CpG β matrix
+
+**Implemented in:** [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py); called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 **What this step does.** Packages the calibrated β matrix and its provenance into the canonical Stage 1 output: a per-sample β file ready for Stage 2 deconvolution.
 
@@ -1448,9 +1486,13 @@ Location: `<β matrix output — emitted internally by `GAPE_WEB_v13.py (not par
 
 ## Stage 2 — Deconvolution (L4 component separation, primary)
 
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
+
 ---
 
 ### §28. Step 2.1 — IAMAtlas REBUILD load
+
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Loads the proprietary IAMAtlas REBUILD reference matrix into memory. This is the first moment in the chain where the calibrated instrument enters. Every subsequent step that consults IAMAtlas reads from this loaded reference (or from a runtime-matrix derivative of it).
 
@@ -1461,7 +1503,7 @@ Location: `<β matrix output — emitted internally by `GAPE_WEB_v13.py (not par
 **Files invoked.**
 - Atlas loader: `<atlas-loading logic inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)`>`
 - Source data: `IAMAtlasREBUILD.csv` (proprietary)
-- Provenance: `IAMAtlasREBUILD_provenance.json` (H_min values frozen 2026-04-06)
+- Provenance: [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) (H_min values frozen 2026-04-06)
 
 **The math.** None. Memory-resident table indexed by CpG ID, with per-class posterior columns (mean, sd, ci_lo, ci_hi).
 
@@ -1494,7 +1536,9 @@ Location: `<β matrix output — emitted internally by `GAPE_WEB_v13.py (not par
 
 ### §29. Step 2.2 — Per-class marker pool extraction
 
-**What this step does.** From the loaded atlas, extract the per-class marker CpG lists — the subset of CpGs that are maximally informative for each architectural class. These are pre-computed (delivered as the runtime artifact `iamatlas_celltype_markers_v0_2.json`); this step loads them and pairs them with the patient's β values at the corresponding CpGs.
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
+
+**What this step does.** From the loaded atlas, extract the per-class marker CpG lists — the subset of CpGs that are maximally informative for each architectural class. These are pre-computed (delivered as the runtime artifact [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json)); this step loads them and pairs them with the patient's β values at the corresponding CpGs.
 
 **Inputs.** The loaded IAMAtlas object from §28 + the per-sample β matrix from §27.
 
@@ -1540,6 +1584,8 @@ Computed at atlas build time, frozen in the artifact. At runtime, this step is p
 ---
 
 ### §30. Step 2.3 — Walther IAM Deconvolver (Path 1, NNLS)
+
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Runs the production deconvolver — Walther — on the patient's β values at the marker pool. Walther solves a constrained non-negative least-squares (NNLS) problem to estimate the per-class cellular fractions that best explain the observed β values, given the IAMAtlas reference matrix. This is the production answer that feeds Stages 3, 4, 8.
 
@@ -1595,13 +1641,15 @@ Walther also runs streaming-mode: if the input contains >10K CpGs, it processes 
 
 ### §31. Step 2.4 — Walther per-class confidence + status codes
 
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Walther emits per-class confidence indicators alongside each fraction estimate. Confidence is bounded [0, 1] and is NOT a calibrated probability — it's a coverage × fit-quality composite. Status codes flag specific failure modes (insufficient markers, no overlap, etc.) so downstream stages can route appropriately.
 
 **Inputs.** NNLS solution from §30 + the per-class marker coverage metrics.
 
 **Atlas reference.** Not consulted further at this step — uses outputs from §30.
 
-**Files invoked.** Same module as §30 (`walther_iam_deconvolver.py`).
+**Files invoked.** Same module as §30 ([`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py)).
 
 **The math.** Per class:
 > **confidence_class = coverage_class × max(0, 1 − dispersion_class / 0.20)**
@@ -1650,6 +1698,8 @@ Confidence is conservative — designed to fail loudly when something is wrong r
 
 ### §32. Step 2.5 — NILC v2 deconvolver (Path 2, departure-from-consensus GLS)
 
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Runs the cross-method check — NILC v2 — on the same patient β values, same marker pool, same atlas reference. NILC uses a fundamentally different inversion algorithm (departure-from-consensus generalized least squares with simplex projection) to produce an independent per-class fraction estimate. This is the methylome's Commander/NILC/SMICA discipline.
 
 **Inputs.** Same as §30: marker pool table from §29.
@@ -1696,6 +1746,8 @@ where X_dep is the departure-form reference matrix, β_dep is the departure-form
 
 ### §33. Step 2.6 — Cross-method gate check
 
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Compares Walther's and NILC's per-class fraction estimates to verify they agree at the biological-inference layer (sign and rough magnitude of effects). Substrate-level disagreement (Walther vs NILC fractions differ by ~12 percentage points in median L1 on EPIC-Italy) is EXPECTED — that's the inductive-bias difference between NNLS and GLS. Inference-level disagreement (the two methods give opposite signs for the disease-relevant class) is a problem.
 
 **Inputs.** Walther fractions from §30 + NILC fractions from §32.
@@ -1703,7 +1755,7 @@ where X_dep is the departure-form reference matrix, β_dep is the departure-form
 **Atlas reference.** Not consulted at this step — operates on the two deconvolvers' outputs.
 
 **Files invoked.**
-- Gate logic: built into `nilc_celltype_deconvolver.py` as the cross-method comparison routine.
+- Gate logic: built into [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py) as the cross-method comparison routine.
 
 **The math.** Two-level comparison:
 - **Substrate level (informational, not gating):** per-class L1 distance |f_Walther − f_NILC|; cohort median expected ≈ 0.10-0.25. Reported but does not gate.
@@ -1744,6 +1796,8 @@ In production for a single patient (no case/HC labels available), the gate uses 
 
 ### §34. Step 2.7 — Stage 2 output
 
+**Implemented in:** [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Packages the Stage 2 outputs into the canonical structure consumed by Stage 3 and beyond.
 
 **Inputs.** Walther fractions + NILC fractions + cross-method gate verdict.
@@ -1783,9 +1837,13 @@ Location: `<Stage 2 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 ## Stage 3 — Foreground subtraction (L4 component separation, secondary)
 
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
+
 ---
 
 ### §35. Step 3.1 — Age-axis foreground subtraction
+
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 **What this step does.** Removes the per-CpG age-drift component from the patient's β values before downstream A-score computation. Methylation drifts predictably with age at many CpGs (the basis of all methylation clocks); this drift is a foreground in the same sense that galactic dust is a foreground for CMB cosmology. Subtracting it cleans the disease-signal component.
 
@@ -1830,6 +1888,8 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 
 ### §36. Step 3.2 — Sex-axis foreground subtraction (when present)
 
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
+
 > **RETIRED FROM PRODUCTION — 2026-06-11 (SOP §104 foreground firewall).** The production chain subtracts NO foregrounds. Sex-driven methylation is handled at the loci level (the 64 chrX markers are dropped from the panels), not by subtracting a sex component from the score. Patient sex is a REPORT ANNOTATION, never a score operand. The module and layer below are retained as TEST-ONLY tooling. The description that follows documents the retired method.
 
 **What this step does.** Removes the per-CpG sex-specific methylation component. Methylation patterns differ systematically between males and females at many autosomal CpGs (not just chrX/chrY). For multi-sex cohorts, subtracting this foreground prevents sex from contaminating the disease signal.
@@ -1871,6 +1931,8 @@ Special handling of sex chromosomes:
 
 ### §37. Step 3.3 — Batch/plate foreground subtraction (when present)
 
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
+
 **What this step does.** Removes per-CpG systematic shifts due to plate position, intake batch, or processing date. ComBat (§22) handles this at the calibration level when multi-batch data is being processed together; this step would handle residual batch effects at the post-deconvolution level.
 
 **Inputs.** β_corrected from §36 + batch metadata from the per-sample record.
@@ -1903,6 +1965,8 @@ Special handling of sex chromosomes:
 
 ### §38. Step 3.4 — Ancestry-axis foreground subtraction (when present)
 
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
+
 **What this step does.** Removes per-CpG ancestry-specific methylation differences. Genetic ancestry correlates with methylation at thousands of CpGs (some via mQTL effects, some via developmental differences); separating ancestry signal from disease signal requires this foreground subtraction for diverse cohorts.
 
 **Inputs.** β_corrected from §37 + patient's inferred or declared ancestry.
@@ -1934,6 +1998,8 @@ Special handling of sex chromosomes:
 ---
 
 ### §39. Step 3.5 — Smoking-axis foreground subtraction
+
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 > **RETIRED FROM PRODUCTION — 2026-06-11 (SOP §104 foreground firewall).** The production chain subtracts NO foregrounds. Smoking-driven methylation change is part of the cellular departure the A-score is built to detect — subtracting it (or absorbing it via the §59 `tier_by_smoking_bin` floor shift, also retired) deletes real loss-of-fidelity signal and would hide a smoker's epigenetic injury. Smoking status is a REPORT ANNOTATION for the clinician, never a score or tier operand. The module and layer below are retained as TEST-ONLY tooling. The description that follows documents the retired method.
 
@@ -1979,6 +2045,8 @@ Intercept α_i NOT subtracted — preserves per-CpG baseline. For never-smokers,
 
 ### §40. Step 3.6 — Stage 3 output: cleaned β matrix
 
+**Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
+
 **What this step does.** Packages the foreground-subtracted β matrix into the canonical Stage 3 output: a β matrix with age (and, when modules are implemented, sex/batch/ancestry/smoking) components removed, ready for Stage 4 A-score computation.
 
 **Inputs.** β_corrected from §35-§39.
@@ -2017,9 +2085,13 @@ Location: `<Stage 3 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 ## Stage 4 — A-score computation (entropy scoring)
 
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
+
 ---
 
 ### §41. Step 4.1 — Per-class marker panel assembly (per-CpG β, NOT pre-averaged)
+
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** For each of the 8 architectural classes, assembles the per-CpG β values across the class's marker CpGs (~2,978 markers per class for the 8-class scoring). The β values are kept **per locus** — they are NOT averaged here. Stage 4 scores the entropy of each locus and then averages those entropies (§42–§43); averaging β first is the H(β_mean) regression recorded in §105.
 
@@ -2061,13 +2133,15 @@ Location: `<Stage 3 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 ### §42. Step 4.2 — Per-CpG Shannon entropy H(β_i) calculation
 
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** For each marker locus i in the class panel, computes the binary Shannon entropy of that locus's β. One entropy value per CpG — the loci are NOT collapsed.
 
 **Inputs.** Per-class per-locus β panel from §41.
 
 **Atlas reference.** Not consulted at this step.
 
-**Files invoked.** Same module as §41 (`iamatlas_a_scoring.py`).
+**Files invoked.** Same module as §41 ([`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py)).
 
 **The math.** For each marker locus i:
 > **H_i = −β_i · log₂(β_i) − (1 − β_i) · log₂(1 − β_i)**
@@ -2097,13 +2171,15 @@ Location: `<Stage 3 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 ### §43. Step 4.3 — Per-class A-score: A = mean_i( H(β_i) / H_min(class) )
 
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Divides each marker locus's entropy (from §42) by the class's H_min (the Mahaffey Number), then averages those ratios across the panel to produce the canonical A-score: a dimensionless ratio measuring departure from the architectural floor.
 
 **Inputs.** Per-class per-locus entropies from §42 + H_min values for each class.
 
-**Atlas reference.** **H_min values consulted** from `IAMAtlasREBUILD_provenance.json` (one source of truth, frozen 2026-04-06).
+**Atlas reference.** **H_min values consulted** from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) (one source of truth, frozen 2026-04-06).
 
-**Files invoked.** Same module as §41 (`iamatlas_a_scoring.py`).
+**Files invoked.** Same module as §41 ([`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py)).
 
 **The math.** For each class c, averaged over its marker loci i:
 > **A_c = mean_i ( H(β_i) / H_min(c) )**
@@ -2148,13 +2224,15 @@ The Mahaffey Numbers (frozen 2026-04-06):
 
 ### §44. Step 4.4 — Per-cell-type A-score (115 cell types)
 
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Same operation as §41-§43 but at finer granularity — 115 cell types rather than 8 architectural classes. The cell type's H_min is looked up via its class membership (each cell type inherits its class's H_min). This produces the per-cell-type A-score surface that the Mahalanobis distance (§47-§50) operates on.
 
-**Inputs.** Cleaned β matrix from §40 + per-cell-type marker CpG lists from `iamatlas_celltype_markers_v0_2.json` + the `celltype_to_class` mapping from the same artifact.
+**Inputs.** Cleaned β matrix from §40 + per-cell-type marker CpG lists from [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) + the `celltype_to_class` mapping from the same artifact.
 
-**Atlas reference.** **IAMAtlas consulted.** Per-cell-type markers + class assignment from `MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json`. H_min values still read from `IAMAtlasREBUILD_provenance.json`.
+**Atlas reference.** **IAMAtlas consulted.** Per-cell-type markers + class assignment from `MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json`. H_min values still read from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json).
 
-**Files invoked.** `iamatlas_a_scoring.py` (specifically: `score_per_celltype()`).
+**Files invoked.** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) (specifically: `score_per_celltype()`).
 
 **The math.** For each cell type ct (115 total):
 1. Take the per-locus β values over the cell type's ~100 marker CpGs (do NOT average β)
@@ -2187,6 +2265,8 @@ The class assignment is necessary because H_min is per-class (the architectural 
 
 ### §45. Step 4.5 — Disease panel A-score (when card has a curated panel)
 
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** When a specific disease card includes a curated CpG panel (e.g., the Xu-538 immune panel used for breast pre-dx), compute the A-score on that panel using the same H(β)/H_min formula but restricted to the panel's CpGs and using the class H_min that the panel anchors to.
 
 **Inputs.** Cleaned β matrix from §40 + the card's panel CpG list + the class H_min the panel anchors to.
@@ -2194,7 +2274,7 @@ The class assignment is necessary because H_min is per-class (the architectural 
 **Atlas reference.** Indirectly — the H_min anchor comes from IAMAtlas. The panel itself is card-specific (defined by the card author per the card spec).
 
 **Files invoked.**
-- Same module: `iamatlas_a_scoring.py`
+- Same module: [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py)
 - Card-specific panel artifact: e.g., `<card-specific panel CpG list — currently embedded in card config inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)`>`
 
 **The math.** Same as §43, but over the card-specific panel loci:
@@ -2227,6 +2307,8 @@ For the Xu-538 panel anchored to immune class: A_panel = mean over the 538 loci 
 ---
 
 ### §46. Step 4.6 — Stage 4 output
+
+**Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Packages all A-scores (per-class, per-cell-type, per-card panel) into the canonical Stage 4 output.
 
@@ -2268,7 +2350,11 @@ Location: `<Stage 4 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 ## Stage 4.5 — Bidirectional decomposition (NEW v1.3 / L4 cont.)
 
+**Implemented in:** [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%20Panel/bidirectional_decomposition.py); called by [`cpg_conductor.stage_4_5_bidirectional`](../chain/cpg_conductor.py) - runs in the live path
+
 ### §46.5. Step 4.5.1 — Bidirectional pattern detection
+
+**Implemented in:** [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%20Panel/bidirectional_decomposition.py); called by [`cpg_conductor.stage_4_5_bidirectional`](../chain/cpg_conductor.py) - runs in the live path
 
 > **⚠ v1.4.0 REVIEW FLAG (do not silently rewrite — Heath's decision).** This step's stated premise — that the §43 A-score "cancels" bidirectional signal because "the pooled β_mean barely moves" — is true ONLY under the old H(β_mean) formula. Under the corrected §43 formula A = mean_i(H(β_i)/H_min), a locus drifting toward 0.5 raises *its own* entropy regardless of direction, so bidirectional changes ADD into the primary A-score rather than cancel; there is no pooled-β_mean to barely move. This step may still add value as a *signed directional* readout (the primary A-score is unsigned), but its "recovers the cancelled signal" rationale needs re-derivation against the corrected formula. The VAL-050/051 numbers below were measured under the old pooled comparator and must be re-checked. Left intact pending review; see §105.
 
@@ -2278,7 +2364,7 @@ Location: `<Stage 4 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 **Inputs.** Stage 4 output (per-class A-scores) + foreground-cleaned β vector from Stage 3 + the frozen directional panels artifact.
 
-**Atlas reference.** `directional_panels_v1_0.json` at `walther_clinical_runtime/Bidirectional_Decomposition/`. Schema: per-class panels with CpG-level (cpg_id, direction±1, mean_hc_train, sd_hc_train) + the pooled-entropy parent panel CpG list. **v1.0 coverage: immune class only** (VAL-051 Rule A 7-CpG AD-direction-anchored panel, SHA-anchored to sealed `val051_panel_ruleA.json` SHA-256 `52061285...`). 7 other classes return `NO_PANEL` honestly until future sealed VALs populate them. The immune-class pooled-entropy comparator uses the 18-CpG VAL-050 IMM_CPGS_EPIC parent panel.
+**Atlas reference.** [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%20Panel/directional_panels_v1_0.json) at `walther_clinical_runtime/Bidirectional_Decomposition/`. Schema: per-class panels with CpG-level (cpg_id, direction±1, mean_hc_train, sd_hc_train) + the pooled-entropy parent panel CpG list. **v1.0 coverage: immune class only** (VAL-051 Rule A 7-CpG AD-direction-anchored panel, SHA-anchored to sealed [`val051_panel_ruleA.json`](../../Record/VAL_PreAtlas/val_051_ad_directional/val051_panel_ruleA.json) SHA-256 `52061285...`). 7 other classes return `NO_PANEL` honestly until future sealed VALs populate them. The immune-class pooled-entropy comparator uses the 18-CpG VAL-050 IMM_CPGS_EPIC parent panel.
 
 **Files invoked.** `Biological_Physics/MethylPhys/chain/Runtime Matrices/Directional Panel/bidirectional_decomposition.py` — mirrors the sealed `val051_analyze.py:112-121` `a_dir_score` formula exactly. Public surface: `load_directional_panels`, `score_directional_composite`, `score_pooled_entropy`, `bidirectional_flag`, `compute_per_class_bidirectional_decomposition`, `save_bidirectional_report`.
 
@@ -2331,7 +2417,11 @@ Location: `reports/{patient_id}/stage_4_5/{patient_id}directional_panels_v1_0.js
 
 ## Stage 4.6 — Patient brightness comparison (NEW v1.3 / L4 cont.)
 
+**Implemented in:** [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py); called by [`cpg_conductor.stage_4_6_patient_sky`](../chain/cpg_conductor.py) - runs in the live path
+
 ### §46.6. Step 4.6.1 — Per-class z-score departure + Mollweide projection
+
+**Implemented in:** [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py); called by [`cpg_conductor.stage_4_6_patient_sky`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Computes per-CpG z-score departure of the patient β from each of 8 frozen healthy class brightness references, then projects the departure pattern onto a HEALPix NSIDE=128 grid for Mollweide rendering. Produces the patient's personal Cosmic Methylome Background — the customer-facing analog of CPG Plate 1.
 
@@ -2341,7 +2431,7 @@ Location: `reports/{patient_id}/stage_4_5/{patient_id}directional_panels_v1_0.js
 
 **Atlas reference.**
 - 8 class brightness CSVs at `IAMAtlas_v0_1/class_archives/{class}.tar.xz (no such file in this repository)` (inner `{class}/iamatlas_v0_1_{class}_brightness.csv (no such file in this repository)`); each has per-CpG mean β + SD β over the healthy class reference + per-CpG MCMC posterior CI.
-- `iamatlas_cpg_to_healpix_nside128.npy` at `IAMAtlas_v0_1/healpix_mapping/` (1.93 MB, 483,092 entries, int32 pixel indices in atlas row order). 450,192 CpGs annotated to real HEALPix pixels; 32,900 CpGs (HM450-only probes not in EPIC manifest) mapped to sentinel pixel that renders as the framework's galactic mask analog.
+- [`iamatlas_cpg_to_healpix_nside128.npy`](../atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy) at `IAMAtlas_v0_1/healpix_mapping/` (1.93 MB, 483,092 entries, int32 pixel indices in atlas row order). 450,192 CpGs annotated to real HEALPix pixels; 32,900 CpGs (HM450-only probes not in EPIC manifest) mapped to sentinel pixel that renders as the framework's galactic mask analog.
 - CPG Plate 1 at `IAMAtlas_v0_1/plates/CPG_Plate_01_Cosmic_Methylome_Background.png` — the binding contract for the projection grid.
 
 **Files invoked.** `Biological_Physics/MethylPhys/chain/stage_4_6_patient_cmb.py`. Public surface: `load_all_8_class_references`, `compute_all_8_class_departures`, `render_patient_cosmic_methylome`, `save_brightness_report`.
@@ -2393,7 +2483,7 @@ Location: `reports/{patient_id}/stage_4_6/{patient_id}_personal_cosmic_methylome
 > **v1.1 note (2026-06-02).** v1 contained fabricated `cpg_MethylPhys/chain/...` module paths
 > that did not correspond to real files in the IAM-Validation repo. This v1.1 pass
 > stripped them. Where a step's logic currently lives inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)` (the
-> production engine — see `chain_inventory_v1.json`), the SOP now says so honestly. Where
+> production engine — see [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json)), the SOP now says so honestly. Where
 > a step's runtime artifact or output file location was invented, the SOP now reads
 > "TBD per orchestrator design" — that orchestrator (working name `web.commercial.py (no such file in this repository)`)
 > is a separate conversation Heath and Walther will have. All real paths in this v1.1
@@ -2417,13 +2507,15 @@ The cleanest framing: the per-class A-score (Stage 4) answers "how far is each c
 
 ## §47. Step 5.1 — Patient 115-cell-type A-score vector assembly
 
+**Implemented in:** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py); called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Takes the patient's 115 per-cell-type A-scores from Stage 4 (§44) and assembles them into a single 115-element feature vector ready for Mahalanobis distance computation. Handles per-cell-type imputation when QC flagged some cell types as `INSUFFICIENT_MARKERS`.
 
-**Inputs.** Per-sample per-cell-type A-scores + status codes from <A-score output — emitted by `iamatlas_a_scoring.py` (real module per inventory)>.
+**Inputs.** Per-sample per-cell-type A-scores + status codes from <A-score output — emitted by [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) (real module per inventory)>.
 
 **Atlas reference.** Indirect — the 115 cell-type ordering is fixed by the atlas's celltype_to_class mapping.
 
-**Files invoked.** `iamatlas_mahalanobis_scoring.py` — class `MahalanobisHealthyHull`, method `_assemble_patient_vector(per_celltype_a)`.
+**Files invoked.** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) — class `MahalanobisHealthyHull`, method `_assemble_patient_vector(per_celltype_a)`.
 
 **The math.** Order the 115 cell types in canonical sequence (defined in the current production Mahalanobis reference; v0_3 uses 112 valid features with 3 dropped: Cortical_neurons, Glia, stem_pluri). For each cell type:
 - If status `OK`: use the A-score as-is.
@@ -2458,7 +2550,9 @@ The imputation count is tracked separately. Patients with > 5 imputations get a 
 
 ---
 
-## §48. Step 5.2 — HC centroid load (`mahalanobis_healthy_reference_v2_0_age_matched_derived.json` current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
+## §48. Step 5.2 — HC centroid load ([`mahalanobis_healthy_reference_v2_0_age_matched_derived.json`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json) current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
+
+**Implemented in:** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py); called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Loads the pre-computed healthy-control reference object — the centroid (mean) and inverse-covariance matrix in 115-cell-type A-score space — into memory. This is the **calibrated healthy reference** the patient's vector will be measured against. Loaded once per session at engine startup; pinned in memory thereafter.
 
@@ -2475,7 +2569,7 @@ Build versions never rebuild on patient β. Patient runtime queries the FROZEN c
 
 **Atlas reference.** The reference object is built from IAMAtlas-A-scored healthy controls. **The reference itself IS the atlas's HC posture in 115-cell-type A-score space** — it is not an external comparison atlas.
 
-**Files invoked.** `iamatlas_mahalanobis_scoring.py` — `MahalanobisHealthyHull(reference_path)`.
+**Files invoked.** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) — `MahalanobisHealthyHull(reference_path)`.
 
 **The math.** The reference carries:
 - `centroid`: 112-element mean vector (pooled-HC mean A-score per cell type; 3 features dropped: Cortical_neurons, Glia, stem_pluri).
@@ -2519,13 +2613,15 @@ Loaded with SHA-256 verification. If hash mismatches the pinned value, halt and 
 
 ## §49. Step 5.3 — Inverse-covariance distance computation
 
+**Implemented in:** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py); called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Computes the **Mahalanobis distance** of the patient's 115-element A-score vector from the HC centroid in the inverse-covariance-weighted metric. This is the single headline number.
 
 **Inputs.** Patient vector from §47 + HC reference object from §48.
 
 **Atlas reference.** Indirect.
 
-**Files invoked.** `iamatlas_mahalanobis_scoring.py` — `MahalanobisHealthyHull.score(patient_vector)`.
+**Files invoked.** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) — `MahalanobisHealthyHull.score(patient_vector)`.
 
 **The math.** Per patient:
 ```
@@ -2568,13 +2664,15 @@ where `Σ⁻¹` is the inverse-covariance matrix from §48.
 
 ## §50. Step 5.4 — Top-10 axis contribution decomposition
 
+**Implemented in:** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py); called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Decomposes the patient's Mahalanobis distance into per-cell-type contributions. **A single distance number is uninterpretable without knowing which directions in the 115-D space drove it.** Step 5.4 produces the top-10 cell types whose departures most contributed to the patient's distance.
 
 **Inputs.** Patient vector + HC centroid + inverse-covariance + computed Mahalanobis distance from §49.
 
 **Atlas reference.** Indirect.
 
-**Files invoked.** `iamatlas_mahalanobis_scoring.py` — `MahalanobisHealthyHull._decompose_axes(patient_vector)`.
+**Files invoked.** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) — `MahalanobisHealthyHull._decompose_axes(patient_vector)`.
 
 **The math.** For each cell type `j`:
 ```
@@ -2616,6 +2714,8 @@ Sort by `|contribution|`, take top 10. Each top-axis entry reports:
 
 ## §51. Step 5.5 — Stage 5 output: Mahalanobis distance + per-axis explainability
 
+**Implemented in:** [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py); called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Consolidates Stage 5 outputs into the per-cohort artifact.
 
 **Inputs.** Outputs of §49 + §50.
@@ -2632,7 +2732,7 @@ Sort by `|contribution|`, take top 10. Each top-axis entry reports:
 
 **How it's the same in principle.** Multi-D measurement summarized as scalar + decomposition.
 
-**Outputs.** <Mahalanobis output — emitted by `iamatlas_mahalanobis_scoring.py` (real module per inventory)> carrying:
+**Outputs.** <Mahalanobis output — emitted by [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) (real module per inventory)> carrying:
 - `mahalanobis_distance` per patient
 - `n_features_used` per patient
 - `n_features_imputed` per patient
@@ -2666,13 +2766,15 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 ## §52. Step 6.1 — Per-class A-score input (from Stage 4)
 
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Receives the patient's 8 per-class A-scores from Stage 4 (§43). These are the inputs to the inversion.
 
-**Inputs.** Stage 4 output (<A-score output — emitted by `iamatlas_a_scoring.py` (real module per inventory)>).
+**Inputs.** Stage 4 output (<A-score output — emitted by [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) (real module per inventory)>).
 
 **Atlas reference.** Indirect.
 
-**Files invoked.** `iam_cellular_age_scoring.py` — class `IAMCellularAge`, method `score_patient(per_class_a)`.
+**Files invoked.** [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) — class `IAMCellularAge`, method `score_patient(per_class_a)`.
 
 **The math.** Loading only.
 
@@ -2696,7 +2798,9 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 ---
 
-## §53. Step 6.2 — Age reference matrix load (`age_reference_matrix.json`)
+## §53. Step 6.2 — Age reference matrix load ([`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json))
+
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Loads the 80-cell age × class baseline reference matrix into memory. This is the calibrated instrument the per-class A-score is inverted against.
 
@@ -2704,7 +2808,7 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 **Atlas reference.** **THIS IS the age slice of IAMAtlas.** The 80 cells (8 classes × 10 decadal age bins from 4 to 95) each carry `(age_midpoint, A_mean, A_sd, β_mean, β_sd, n_samples, A_p10, A_p25, A_p50, A_p75, A_p90, source_citation)` measured from the IAMAtlas reference cohort.
 
-**Files invoked.** `iam_cellular_age_scoring.py` — `IAMCellularAge.load_reference()`. Or directly via `reference_age_curve_v1.json`'s helpers `age_ref_A()`, `age_ref_sd()`, `age_ref_percentiles()`.
+**Files invoked.** [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) — `IAMCellularAge.load_reference()`. Or directly via [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json)'s helpers `age_ref_A()`, `age_ref_sd()`, `age_ref_percentiles()`.
 
 **The math.** Loading only. SHA-256 verification.
 
@@ -2732,13 +2836,15 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 ## §54. Step 6.3 — Per-class A inversion against the 80-cell baseline curve
 
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** For each architectural class, finds the chronological age at which the baseline A_mean curve crosses the patient's A-score for that class. **This is the canonical Recipe §6.3 inversion — the framework operation that turns an A-score into a cellular age.**
 
 **Inputs.** Patient per-class A from §52 + age reference matrix from §53.
 
 **Atlas reference.** Via the age reference matrix (atlas's age slice).
 
-**Files invoked.** `iam_cellular_age_scoring.py` — method `_invert_per_class(a_class, class_name)`.
+**Files invoked.** [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) — method `_invert_per_class(a_class, class_name)`.
 
 **The math.** Per class `c`:
 
@@ -2778,13 +2884,15 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 ## §55. Step 6.4 — Saturation handling (SAT_HIGH / SAT_LOW / OK / INSUFFICIENT_CPGS)
 
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Documents the patient's saturation pattern across classes. The saturation pattern itself is a measurement.
 
 **Inputs.** Per-class status codes from §54.
 
 **Atlas reference.** None.
 
-**Files invoked.** `iam_cellular_age_scoring.py` — method `_analyze_saturation(per_class_status)`.
+**Files invoked.** [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) — method `_analyze_saturation(per_class_status)`.
 
 **The math.** Count and report:
 - `n_sat_high` = number of classes with status SAT_HIGH.
@@ -2817,6 +2925,8 @@ Patient `saturation_signature` = a labeled 8-class vector (e.g., "SAT_HIGH on te
 ---
 
 ## §56. Step 6.5 — Eight per-class cellular ages — never collapsed by default
+
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Records the eight per-class cellular ages as **the framework's headline cellular age output**. **They are never collapsed to a single number by default.** Each class carries its own age because each architecture's relationship to age is biologically distinct.
 
@@ -2852,13 +2962,15 @@ Patient `saturation_signature` = a labeled 8-class vector (e.g., "SAT_HIGH on te
 
 ## §57. Step 6.6 — Percentile rank at patient's chronological age
 
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** For each class, compute the patient's **percentile within the age-matched healthy distribution**. This is the readout most directly interpretable by a clinician: "your immune cellular age is at the 78th percentile for your chronological age."
 
 **Inputs.** Per-class A from Stage 4 + patient's chronological age + age reference matrix percentiles (A_p10, A_p25, A_p50, A_p75, A_p90).
 
 **Atlas reference.** Via age reference matrix.
 
-**Files invoked.** `reference_age_curve_v1.json` — helper `age_ref_percentiles(class, age)` returns the 5-percentile vector for the patient's age.
+**Files invoked.** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json) — helper `age_ref_percentiles(class, age)` returns the 5-percentile vector for the patient's age.
 
 **The math.** Per class `c`:
 1. Linearly interpolate the 5 percentile points (A_p10, A_p25, A_p50, A_p75, A_p90) at the patient's chronological age between adjacent decade midpoints.
@@ -2890,6 +3002,8 @@ Example: patient A = 1.08 for immune class at age 52. At age 52, immune A_p50 = 
 
 ## §58. Step 6.7 — Stage 6 output: per-class cellular age vector + optional summary
 
+**Implemented in:** [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py); called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Consolidates Stage 6 outputs into the per-cohort artifact.
 
 **Inputs.** Outputs of §54 + §55 + §56 + §57.
@@ -2906,7 +3020,7 @@ Example: patient A = 1.08 for immune class at age 52. At age 52, immune A_p50 = 
 
 **How it's the same in principle.** Multi-parameter measurement output with context.
 
-**Outputs.** <cellular-age output — emitted by `iam_cellular_age_scoring.py` (real module per inventory)> carrying per patient:
+**Outputs.** <cellular-age output — emitted by [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) (real module per inventory)> carrying per patient:
 - 8 per-class cellular ages.
 - 8 per-class status codes (OK / SAT_HIGH / SAT_LOW / INSUFFICIENT).
 - 8 per-class percentile ranks at chronological age.
@@ -2934,7 +3048,9 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 
 ---
 
-## §59. Step 7.1 — Per-class A-score tier call (`tier_breakpoints.json`, tier_system_v1_2, onset corrected 2026-07-03)
+## §59. Step 7.1 — Per-class A-score tier call ([`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json), tier_system_v1_2, onset corrected 2026-07-03)
+
+**Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
 > **NOTE — `tier_by_smoking_bin` RETIRED 2026-06-11 (SOP §104).** The smoking-bin ELEVATED-floor shift (current → 1.10, former_0_5y → 1.08, …) is removed from production: raising a smoker's floor absorbs the very tobacco departure the A-score is meant to detect. The block is retired to a `_RETIRED` marker in `tier_breakpoints.json`. Smoking status is a report annotation, not a tier operand. All other §59 breakpoints and override modes are unchanged.
 
@@ -3005,9 +3121,11 @@ Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.
 
 ## §60. Step 7.2 — Per-cell-type A-score tier call
 
+**Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Same operation as §59, but for the 115 per-cell-type A-scores. Cell-type tier calls feed Stage 8 card matching.
 
-**Inputs.** Per-cell-type A from Stage 4 (§46) + cell-type-specific breakpoints (inherit from parent class breakpoints, with optional cell-type-specific overrides in `tier_breakpoints.json`).
+**Inputs.** Per-cell-type A from Stage 4 (§46) + cell-type-specific breakpoints (inherit from parent class breakpoints, with optional cell-type-specific overrides in [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json)).
 
 **Atlas reference.** Indirect.
 
@@ -3036,6 +3154,8 @@ Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.
 ---
 
 ## §61. Step 7.3 — cfDNA branch (when substrate is plasma) — `cfdna_weight.json (not part of the chain - a placeholder that was never derived)`
+
+**Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** **Activates only when the patient's substrate is plasma cfDNA.** When activated, compares the patient's per-class fractions to the expected healthy-blood cfDNA tissue-of-origin weights (Snyder 2016 + Moss 2018) and flags departures as pan-tissue context. **This is the only Stage 7 step that conditionally activates.**
 
@@ -3088,6 +3208,8 @@ Positive departure = elevated representation of that tissue-of-origin in plasma;
 
 ## §62. Step 7.4 — FLOOR_BREACH detection
 
+**Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Cross-class detection of patients whose A-scores exceed expected ranges in **multiple** classes simultaneously. A single FLOOR_BREACH in one class is informative; multiple FLOOR_BREACH-es across uncorrelated classes indicates a global pathology (or massive batch effect, or substrate misidentification).
 
 **Inputs.** Per-class engine tiers from §59.
@@ -3134,13 +3256,15 @@ The orchestrator's Stage 7 emits the `bidirectional_flag` field for every class 
 
 ## §63. Step 7.5 — Engine-to-customer language mapping
 
+**Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
+
 **What this step does.** Translates engine-tier vocabulary into customer-facing vocabulary. Customer reports never see engine-internal labels like FLOOR_BREACH or URGENT.
 
 **Inputs.** Per-class engine tiers from §59 + per-cell-type engine tiers from §60.
 
 **Atlas reference.** None.
 
-**Files invoked.** `tier_breakpoints.json` — its `customer_label_map` section.
+**Files invoked.** [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) — its `customer_label_map` section.
 
 **The math.** Per engine tier:
 
@@ -3176,6 +3300,8 @@ The customer label DOES NOT distinguish DETECTABLE from URGENT from FLOOR_BREACH
 ---
 
 ## §64. Step 7.6 — Stage 7 output: per-class tier vector + customer labels
+
+**Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
 **What this step does.** Consolidates Stage 7 outputs into the per-cohort artifact.
 
@@ -3223,7 +3349,7 @@ SHA-256 hashed.
 > **v1.1 note (2026-06-02).** v1 contained fabricated `cpg_MethylPhys/chain/...` module paths
 > that did not correspond to real files in the IAM-Validation repo. This v1.1 pass
 > stripped them. Where a step's logic currently lives inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)` (the
-> production engine — see `chain_inventory_v1.json`), the SOP now says so honestly. Where
+> production engine — see [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json)), the SOP now says so honestly. Where
 > a step's runtime artifact or output file location was invented, the SOP now reads
 > "TBD per orchestrator design" — that orchestrator (working name `web.commercial.py (no such file in this repository)`)
 > is a separate conversation Heath and Walther will have. All real paths in this v1.1
@@ -3250,6 +3376,8 @@ The chain-of-custody discipline here is strict: a card-specific tier call is a *
 ---
 
 ## §65. Step 8.1 — Disease signature matrix v1.5 lookup
+
+**Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 > **CRITICAL — Stage 8 runs TWO parallel matching paths, NOT sequential.** Both consume the same Stage 4 + Stage 5 + Stage 7 outputs; both produce verdicts; both flow into Stage 9 report assembly. They are complementary, not redundant. (Walkthrough §4 Stage 5.)
 >
@@ -3305,6 +3433,8 @@ Stored in-memory for Stage 8.2 (residual map application). Not persisted as a se
 
 ## §66. Step 8.2 — Per-card residual map application
 
+**Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
+
 **What this step does.** For cards that ship with a **per-card residual map** (breast-epic has one at `breast_epic_residual_map_v0_1.csv (not part of the chain; use breast_epic_residual_map_chr_annotated.csv - the maps are record-side)`, 1,392 concordant CpGs with signed Cohen's d derived from CPG-VAL-003), apply the residual map to the patient's foreground-cleaned β matrix from Stage 3.
 
 The residual map is a card's empirical per-CpG signal-direction blueprint at the disease's relevant phase. Applying it produces a **patient-level signal-overlap score** — how much of the card's expected residual pattern is present in this patient's β profile.
@@ -3345,7 +3475,7 @@ A patient with a **reversed** signal (signal exists but pointing the opposite di
 - **CpG coverage mismatch.** Residual map declares 1,392 CpGs; patient may have <90% coverage due to EPIC vs 450K mismatch or QC failures. Default policy: require ≥80% CpG coverage of the residual map; below that, residual-overlap channel is marked INSUFFICIENT and matching falls back to per-class-tier-only matching at 8.3.
 - **All-zero patient departure.** A patient whose foreground-cleaned β matrix is essentially flat (e.g., no decoherence above noise floor) will have undefined overlap_score (zero numerator and zero denominator in the Pearson form). Caught with an explicit zero-variance check; reported as NO_SIGNAL.
 
-**Canonical cross-references.** Recipe §8.2. VAL-003 outcome (residual map source). breast-epic card README at `breast-epic_README.md`.
+**Canonical cross-references.** Recipe §8.2. VAL-003 outcome (residual map source). breast-epic card README at [`breast-epic_README.md`](../chain/Disease%20Cards%20:%20Residual%20Maps/Breast_EPIC/breast_epic_card_json/breast-epic_README.md).
 
 **CPG Plate references.** **Plate 2** (Breast Pre-Diagnostic Anisotropy) shows the residual map for breast-epic rendered as a sky map. Every dot on Plate 2 is one CpG with its signed Cohen's d coloring; the patient overlap calculation here is, conceptually, "how aligned is this patient's per-CpG signal sky with the breast-epic anisotropy sky." **Plate 4 Panel F** shows the same data with the cyan-shifted (hypomethylated) field effect made explicit.
 
@@ -3354,6 +3484,8 @@ A patient with a **reversed** signal (signal exists but pointing the opposite di
 ---
 
 ## §67. Step 8.3 — Multi-class pattern matching
+
+**Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 **What this step does.** Combine the per-class and per-cell-type tier vector from Stage 7 with the residual-overlap scores from Step 8.2 to produce a card-level tier call. The matching rule is encoded in each card's JSON; the engine reads the rule and applies it mechanically — it does not invent new matching rules.
 
@@ -3419,6 +3551,8 @@ Stored in-memory; flows to §68.
 
 ## §68. Step 8.4 — Card-specific covariate adjustment
 
+**Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
+
 **What this step does.** Some cards declare covariates that need to be applied **inside the card** rather than as engine-wide foregrounds. Smoking history is the prototypical example: lung-epic adjusts for smoking pack-years as a within-card covariate because smoking is part of the disease's causal pathway, not an external nuisance. Subtracting smoking as a global foreground would erase real lung-disease signal.
 
 The card's JSON declares which covariates are within-card. Engine reads the declaration and applies the adjustment locally before finalizing the card's tier call.
@@ -3470,6 +3604,8 @@ The transfer functions are **per-card declared** in the JSON. The engine does no
 ---
 
 ## §69. Step 8.5 — Stage 8 output: card verdict package
+
+**Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 **What this step does.** Consolidate Steps 8.1-8.4 into a Stage 8 output file. One file per cohort run, hashed.
 
@@ -3523,6 +3659,8 @@ Stage 9 has seven steps (§70-§76). They run **in order**: the language collaps
 
 ## §70. Step 9.1 — Customer-facing language collapse
 
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
+
 **What this step does.** Apply the Stage 6 engine-to-customer language mapping (introduced at §63 in Part II-B) to every engine tier in the patient's Stage 7 output. After this step, no engine vocabulary survives into the report.
 
 **Inputs.** Stage 7 per-class and per-cell-type tier vector for this patient.
@@ -3531,7 +3669,7 @@ Stage 9 has seven steps (§70-§76). They run **in order**: the language collaps
 
 **Files invoked.**
 - Module: `<engine-to-customer language collapse inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)`>`
-- Lookup: `tier_breakpoints.json` (engine-to-customer mapping block, same file used at §63).
+- Lookup: [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) (engine-to-customer mapping block, same file used at §63).
 
 **The math.** Pure lookup.
 
@@ -3566,11 +3704,13 @@ Engine → Customer:
 
 ## §71. Step 9.2 — Literature anchors (the reporting-layer translator)
 
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
+
 **What this step does.** For each card that fired in Stage 8, attach the literature anchor that gives the patient's reading clinical context — phrased as "in published studies, patients with [your reading range] had outcome [X]" rather than "you have outcome X."
 
 The literature anchor is **not measurement.** It is a reporting-layer translator. The measurement is the A-score and the card verdict. The literature anchor is a legally-permissible language wrapper that lets a customer understand what the measurement means in clinical terms used by their physician.
 
-This is **the only place in the chain** where information from external (non-IAMAtlas, non-IAM-derived) sources enters the customer-facing output. The discipline: literature anchors come from peer-reviewed publications cited in `literature_anchors.json`, with explicit DOI and effect-size mapping. Never paraphrased from secondary sources. Never invented.
+This is **the only place in the chain** where information from external (non-IAMAtlas, non-IAM-derived) sources enters the customer-facing output. The discipline: literature anchors come from peer-reviewed publications cited in [`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json), with explicit DOI and effect-size mapping. Never paraphrased from secondary sources. Never invented.
 
 **Inputs.**
 - Stage 8 card verdict package from §69.
@@ -3615,6 +3755,8 @@ Stored in-memory; flows to §72.
 
 ## §72. Step 9.3 — Cancer prior context
 
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
+
 **What this step does.** Attach population-base-rate context for every card that fires. The cancer prior is the published lifetime incidence (US SEER + age-stratified) for the disease the card targets. It is presented as base-rate context — "US lifetime incidence of breast cancer is approximately 13% in women; your reading places you at the [P] percentile of women your age" — not as a personalized risk number.
 
 **Inputs.**
@@ -3654,6 +3796,8 @@ Stored in-memory; flows to §72.
 ---
 
 ## §73. Step 9.4 — Family history multiplier
+
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
 **What this step does.** Apply the family-history multiplier to the cancer prior when the patient's Stage 0 manifest declares first-degree relative history of the disease.
 
@@ -3714,6 +3858,8 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 
 ## §74. Step 9.5 — Sex-specific risk adjustment
 
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
+
 **What this step does.** Some cards are sex-conditioned (breast-epic primarily female; prostate-epic male-only; cervical-secretory female-only). The sex adjustment ensures cards do not report on the wrong sex with population-level context that doesn't apply.
 
 **Inputs.**
@@ -3754,6 +3900,8 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 
 ## §75. Step 9.6 — Report rendering pass
 
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
+
 **What this step does.** Compose the final report from the per-card blocks assembled by §70-§74. The renderer is **template-driven** — each card has a declared report template; the renderer fills slots in the template with the patient's specific values. The renderer does not invent language. Every customer-facing word is either a template literal or a slot value from one of the upstream steps.
 
 **Inputs.** All per-card blocks from §70-§74.
@@ -3790,6 +3938,8 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 ---
 
 ## §76. Step 9.7 — Legal boundary check (the gate)
+
+**Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
 **What this step does.** The final check before a report ships. The DRAFT report from §75 is scanned for any language that violates the CANNOT_SAY list. A report that contains forbidden language **does not ship**. The patient's run is flagged for manual review; the engine does not silently degrade.
 
@@ -3850,6 +4000,8 @@ Stage 10 is the smallest stage. The report has been cleared by §76; the engine 
 
 ## §77. Step 10.1 — Report packaging
 
+**Implemented in:** delivery is not part of the commissioned path; the report itself is Stage 9
+
 **What this step does.** Wrap the cleared Markdown report into the delivery format the customer or partner expects. Default is PDF via the LaTeX→PDF rendering pipeline. Some lab partners receive HTML.
 
 **Inputs.** Cleared report from §76.
@@ -3879,6 +4031,8 @@ Stage 10 is the smallest stage. The report has been cleared by §76; the engine 
 ---
 
 ## §78. Step 10.2 — Delivery channel routing
+
+**Implemented in:** delivery is not part of the commissioned path; the report itself is Stage 9
 
 **What this step does.** Route the packaged report to the configured delivery channel (customer portal, lab partner API, secure email, etc.). The channel is per-customer or per-partner; the engine reads the delivery configuration and sends.
 
@@ -3913,6 +4067,8 @@ Stage 10 is the smallest stage. The report has been cleared by §76; the engine 
 ---
 
 ## §79. Step 10.3 — Audit trail capture (the chain closes)
+
+**Implemented in:** delivery is not part of the commissioned path; the report itself is Stage 9
 
 **What this step does.** The final step. Every output from every stage for this patient — Stage 0 manifest hash, Stage 1-3 β matrix hashes, Stage 4 A-scores, Stage 5 Mahalanobis, Stage 6 cellular ages, Stage 7 tiers, Stage 8 card verdicts, Stage 9 cleared report hash, Stage 10 delivery confirmation — is captured into an audit-trail record.
 
@@ -3973,7 +4129,7 @@ Part III follows with the chain-integrity scaffolding (L9 null suite, synthetic 
 > stripped them across all parts; this particular part (Foundations / L9 machinery)
 > was already clean of fabricated paths in v1, so the disclaimer is included here
 > only for version-consistency across the SOP. All real paths in v1.1 are documented
-> in `chain_inventory_v1.json`; any path NOT in that inventory should be treated as
+> in [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json); any path NOT in that inventory should be treated as
 > not-yet-existing until verified against the repo.
 
 ---
@@ -3997,7 +4153,7 @@ The L9 grade lifted from D (no null framework) to A- (framework live, 5 of 7 sea
 
 ---
 
-## §80. L9.0 — The 8-null suite framework (`cpg_null_runner.py`)
+## §80. L9.0 — The 8-null suite framework ([`cpg_null_runner.py`](../chain/CPG_Null_Runner/cpg_null_runner.py))
 
 **What this step does.** The L9 framework is the orchestration layer that runs the eight standard nulls against any sealed VAL artifact. A VAL provides its `per_sample.csv` (per-patient reconstructed quantities), its `results.json` (declared headline + declared nulls), and its PREREG (declared statistical test). The framework runs each declared null, returns PASS/FAIL + p-value + 95% CI, and produces a `null_results.json` artifact that gets bundled with the VAL.
 
@@ -4068,7 +4224,7 @@ The L9 grade lifted from D (no null framework) to A- (framework live, 5 of 7 sea
 
 **How it's the same in principle.** Both ask: is the headline statistic explained by the property the analyst calls signal-bearing, or would any random property of the data produce the same statistic? If the latter, the headline is an artifact.
 
-**Outputs.** `N1_verdict ∈ {PASS, FAIL}`, `N1_pvalue`, `N1_95CI`, `cpg_null_runner.py` (the full distribution, for downstream verification).
+**Outputs.** `N1_verdict ∈ {PASS, FAIL}`, `N1_pvalue`, `N1_95CI`, [`cpg_null_runner.py`](../chain/CPG_Null_Runner/cpg_null_runner.py) (the full distribution, for downstream verification).
 
 **Decision points.** PASS → contribute to SEALED. FAIL → contribute to RESTATE/RETRACT.
 
@@ -4104,7 +4260,7 @@ The L9 grade lifted from D (no null framework) to A- (framework live, 5 of 7 sea
 
 **How it's the same in principle.** Both protect headline statistics from being driven by an unmodeled covariate that correlates with both the "signal" axis and a potential confounder.
 
-**Outputs.** `N2_verdict`, `N2_pvalue`, `N2_95CI`, `cpg_null_runner.py`.
+**Outputs.** `N2_verdict`, `N2_pvalue`, `N2_95CI`, [`cpg_null_runner.py`](../chain/CPG_Null_Runner/cpg_null_runner.py).
 
 **Decision points.** Same as N1.
 
@@ -4246,7 +4402,7 @@ Two sub-tests run jointly:
 
 **Atlas reference.** Indirect — the injection signal is built relative to the IAMAtlas reference posterior so the chain treats it as a biological signal rather than a numerical artifact.
 
-**Files invoked.** `cpg_null_runner.py::run_N6_injection_recovery()`. Calls `synthetic_patient_generator.py` to construct the injected β matrix.
+**Files invoked.** `cpg_null_runner.py::run_N6_injection_recovery()`. Calls [`synthetic_patient_generator.py`](../chain/Synthetic_Patient_Generator/synthetic_patient_generator.py) to construct the injected β matrix.
 
 **The math.**
 1. Start with a HC-only β matrix (n=N_HC patients).
@@ -4292,7 +4448,7 @@ This is structurally equivalent to Planck's **FFP10 (Full Focal Plane 10) simula
 
 **Inputs.** A truth specification: declared per-class fractions, declared per-cell-type fractions, declared cellular age per class, declared cohort design (n_case, n_HC, age distribution, sex distribution, disease signal strength). Optional: declared plate-position structure, declared batch structure.
 
-**Atlas reference.** Indirect. The synthetic patient generator (`synthetic_patient_generator.py`) consults IAMAtlas to draw per-class posterior β values, modulates them by the declared truth, and outputs synthetic β matrices.
+**Atlas reference.** Indirect. The synthetic patient generator ([`synthetic_patient_generator.py`](../chain/Synthetic_Patient_Generator/synthetic_patient_generator.py)) consults IAMAtlas to draw per-class posterior β values, modulates them by the declared truth, and outputs synthetic β matrices.
 
 **Files invoked.** `cpg_null_runner.py::run_N7_end_to_end_simulation()`. Calls `synthetic_patient_generator.py`. Drives the full chain.
 
@@ -4374,7 +4530,7 @@ Default for CPG-VALs: **option 2 (permutation-based FWE)** because Bonferroni is
 
 ---
 
-## §89. L9.9 — Synthetic patient generator (`synthetic_patient_generator.py`)
+## §89. L9.9 — Synthetic patient generator ([`synthetic_patient_generator.py`](../chain/Synthetic_Patient_Generator/synthetic_patient_generator.py))
 
 **What this step does.** The companion module to the null framework. Produces synthetic β matrices, manifests, and IDAT-equivalent data for N6 (injection-recovery) and N7 (end-to-end simulation). The synthetic generator IS the chain-of-custody's claim to having an FFP10/NPIPE-equivalent — without it, the chain cannot be tested at the end-to-end level.
 
@@ -4497,7 +4653,7 @@ The PREREG is SHA-256 hashed and committed to the repo at `Biological_Physics/va
 3. **N3 (Sex-stratified permutation)** — runs third; independent of others.
 4. **N4 (Cohort-split replication)** — runs fourth; uses random 50/50 split independent of N1-N3.
 5. **N5 (Plate/array-position null)** — runs fifth; requires position metadata; independent of others.
-6. **N6 (Injection-recovery)** — runs sixth; invokes `synthetic_patient_generator.py`; CPU-intensive.
+6. **N6 (Injection-recovery)** — runs sixth; invokes [`synthetic_patient_generator.py`](../chain/Synthetic_Patient_Generator/synthetic_patient_generator.py); CPU-intensive.
 7. **N7 (End-to-end synthetic-patient simulation)** — runs seventh; the most CPU-intensive null; full chain run on synthetic cohort.
 8. **N8 (Look-elsewhere correction)** — runs LAST because it consumes the N1 permutation distribution for FWE estimation.
 
@@ -4545,7 +4701,7 @@ Part IV follows with failure modes and decision trees (§92-§96). Part V with r
 > **v1.1 note (2026-06-02).** v1 contained fabricated `cpg_MethylPhys/chain/...` module paths
 > that did not correspond to real files in the IAM-Validation repo. This v1.1 pass
 > stripped them. Where a step's logic currently lives inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)` (the
-> production engine — see `chain_inventory_v1.json`), the SOP now says so honestly. Where
+> production engine — see [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json)), the SOP now says so honestly. Where
 > a step's runtime artifact or output file location was invented, the SOP now reads
 > "TBD per orchestrator design" — that orchestrator (working name `web.commercial.py (no such file in this repository)`)
 > is a separate conversation Heath and Walther will have. All real paths in this v1.1
@@ -4899,12 +5055,12 @@ Authoritative inventory: `MethylPhys/chain/Runtime Matrices/chain_inventory_v1.j
 
 If an operator is looking for a path that this SOP names anywhere from §11 to §96, this is the table that says whether it is a real file (A), embedded logic (B), or pending (C).
 
-### §97.A — Real files / modules per `chain_inventory_v1.json`
+### §97.A — Real files / modules per [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json)
 
 | Artifact | Path | Used at SOP § | Role |
 |---|---|---|---|
 | **IAMAtlas REBUILD** | `IAMAtlasREBUILD.csv` (proprietary; not in repo) | §28 + all atlas-consulting steps | The calibrated instrument |
-| Atlas provenance | `IAMAtlasREBUILD_provenance.json` | §28, §43, §99 | H_min source of truth (frozen 2026-04-06) |
+| Atlas provenance | [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) | §28, §43, §99 | H_min source of truth (frozen 2026-04-06) |
 | **Walther deconvolver** | `Biological_Physics/MethylPhys/chain/Walther_iam_deconvolver/walther_iam_deconvolver.py` | §30, §31 | Production NNLS deconvolution |
 | Walther README | `Biological_Physics/MethylPhys/chain/Walther_iam_deconvolver/README.md (historical path)` | §30, §31 | Deconvolver-specific docs |
 | **NILC v2 deconvolver** | `MethylPhys/chain/nilc_celltype_deconvolver.py` | §32 | Cross-method GLS deconvolution |
@@ -4947,12 +5103,12 @@ The following operations described in §11–§79 are performed by the productio
 
 | SOP § | Operation | Notes |
 |---|---|---|
-| §11–§19 | Stage 0 — IDAT intake, control probes, detection-p, bead count, call rate, sex check, decision gate | Stage 0 QC runs inside Walther per `chain_inventory_v1.json` §1; the wider intake/manifest layer is engine-internal. |
+| §11–§19 | Stage 0 — IDAT intake, control probes, detection-p, bead count, call rate, sex check, decision gate | Stage 0 QC runs inside Walther per [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) §1; the wider intake/manifest layer is engine-internal. |
 | §20–§27 | Stage 1 — dye bias, probe-type normalization, ComBat, BS conversion, β computation, β sanity | Wraps `minfi`/`methylprep` upstream; β values come into the deconvolver pre-computed. |
-| §28, §29 | Atlas loading + marker-pool extraction | Engine loads `IAMAtlasREBUILD.csv` and `iamatlas_celltype_markers_v0_2.json` at startup. |
+| §28, §29 | Atlas loading + marker-pool extraction | Engine loads `IAMAtlasREBUILD.csv` and [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) at startup. |
 | §34 | Stage 2 output consolidation | Engine bookkeeping; no separate packager file. |
 | §40 | Stage 3 output consolidation | Same — engine bookkeeping. |
-| §46 | Stage 4 output consolidation | Same. The scoring module (`iamatlas_a_scoring.py`) is real and standalone; the consolidation is engine-internal. |
+| §46 | Stage 4 output consolidation | Same. The scoring module ([`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py)) is real and standalone; the consolidation is engine-internal. |
 | §65, §67–§68 | Stage 8 card matching — disease-signature lookup, multi-class rule eval, within-card covariate adjustment | All inside the engine; card registry and disease-signature matrix v1.5 are embedded constants. |
 | §66 | Residual-overlap (breast-epic) | Logic inside engine; the residual-map CSV will live at `pipeline_runtime_matrices/card_residual_maps/breast-epic/` once VAL-003 locks. |
 | §70–§76 | Stage 9 report assembly — language collapse, literature lookup, prior lookup, family history, sex adjustment, renderer, legal-boundary gate | All inside the engine. Lookup JSONs (anchors, prior, multiplier) are real files; the orchestration is engine-internal. |
@@ -5042,7 +5198,7 @@ The two-way translation between cosmology vocabulary and methylome vocabulary. U
 | stem_adult | 0.873718 | R̂ < 1.001 |
 | stem_pluri | 0.982166 | R̂ < 1.001 |
 
-**Single source of truth:** `IAMAtlasREBUILD_provenance.json`, key `h_min_values_frozen_2026_04_06`.
+**Single source of truth:** [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json), key `h_min_values_frozen_2026_04_06`.
 
 **Plain-language interpretation (from The Cellular Margin):**
 - terminal class (H_min=0.7728) is most-committed (lowest entropy floor); a fully differentiated neuron carries the tightest specification.
@@ -5119,13 +5275,13 @@ The four plates are the visual anchor of the framework. Each plate illustrates s
 
 ## §102. Change log
 
-- **v2.0.0 — 2026-09-19.** Supersession ledger added; §9 retired in place (NILC cut c1be0c3); Stage 4 two-surface wiring, Mahalanobis Option A, cellular age and tier onset 1.01 recorded (§107); `cpg_conductor.py` named as orchestrator; all repository paths rewritten to the 2026-09-19 layout; §5/§99 retitled (H_min ≠ Mahaffey number). Author's text otherwise unchanged.
+- **v2.0.0 — 2026-09-19.** Supersession ledger added; §9 retired in place (NILC cut c1be0c3); Stage 4 two-surface wiring, Mahalanobis Option A, cellular age and tier onset 1.01 recorded (§107); [`cpg_conductor.py`](../chain/cpg_conductor.py) named as orchestrator; all repository paths rewritten to the 2026-09-19 layout; §5/§99 retitled (H_min ≠ Mahaffey number). Author's text otherwise unchanged.
 - **v1.5.0 — 2026-09-19.** §106 RULING A3.
 
 | Date | Version | Change | Authority |
 |---|---|---|---|
 | 2026-05-31 | v1 | Initial release. Parts I-V complete: §1-§102. Foundations + step-by-step + audit machinery + failure modes + reference. | Heath W. Mahaffey |
-| 2026-06-11 | v1.3.2 | **§103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, after the first real-IDAT end-to-end run. Code: `walther_clinical.stage_4_a_score` now reads frozen H_min from `IAMAtlasREBUILD_provenance.json` and refuses to run on mismatch (enforces §99 in code); permanent A-SCORE LOCI GUARD added. | Heath W. Mahaffey + Walther |
+| 2026-06-11 | v1.3.2 | **§103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, after the first real-IDAT end-to-end run. Code: `walther_clinical.stage_4_a_score` now reads frozen H_min from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) and refuses to run on mismatch (enforces §99 in code); permanent A-SCORE LOCI GUARD added. | Heath W. Mahaffey + Walther |
 | 2026-06-11 | v1.3.3 | **§104 NEW — foreground firewall.** Production chain subtracts NO foregrounds (age/sex/smoking/batch); these are the cellular departure the A-score measures, not contamination. `stage_3_foreground_fork` made a zero-foreground pass-through (`cleaned_beta == beta_raw`); foreground config keys + apply flags removed (no dormant wiring); `tier_by_smoking_bin` retired (§59). Intake facts become report annotations, never score operands. §36/§39 banner-marked retired-from-production (test-only tooling retained). | Heath W. Mahaffey + Walther |
 
 **Change discipline.** Every future modification to this SOP creates a new version entry. The previous version is archived (not overwritten). Changes that modify CANNOT-SAY language, H_min values, atlas references, or VAL sealing protocols require Heath's explicit authority. Changes that update file paths, add new failure modes catalog entries, or expand the glossary can be made by Walther under standing instruction. The change log is the chain-of-custody for the SOP itself.
@@ -5140,16 +5296,16 @@ Recorded after the first real-IDAT end-to-end run (real EPIC IDAT GSM3228562, wh
 
 ### §103.1 — The A-score scores MOST-METHYLATED loci, NEVER discriminative markers
 
-Stage 4 (A-score) must score each class's **most-methylated loci** from the IAMAtlas — the CpGs where the class reference is methylated (β ≈ 0.72–0.78 healthy, walking toward 0.5 under disorder; Recipe Part 4 / line 884). It must NEVER score the discriminative one-vs-rest deconvolution markers (`iamatlas_celltype_markers_v0_2.json`).
+Stage 4 (A-score) must score each class's **most-methylated loci** from the IAMAtlas — the CpGs where the class reference is methylated (β ≈ 0.72–0.78 healthy, walking toward 0.5 under disorder; Recipe Part 4 / line 884). It must NEVER score the discriminative one-vs-rest deconvolution markers ([`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json)).
 
 - **Symptom of the violation:** all-BREACH — every A-score pinned at the ceiling 1/H_min. Discriminative markers are mixed-direction by construction, so their panel MEAN collapses to ~0.5 in any cell mixture; H(0.5)=1.0 → A=1/H_min for every cell. This was confirmed against the frozen GAPE engine (`_derive_A` scores a single representative β) and the Recipe.
 - **Two CpG sets, two jobs:** discriminative → Stage 1 deconvolution ONLY; most-methylated → Stage 4 A-score. NEVER cross them.
-- **Enforcement (in code):** `iamatlas_gauge_identity_loci_v1_0.json` holds the per-class most-methylated loci (derived from the atlas, ref β > class β_floor − 0.08); `walther_clinical.stage_4_a_score` loads it via `a_score_loci_json` and carries a permanent **A-SCORE LOCI GUARD** that hard-fails if Stage 4 is ever pointed at the discriminative markers again.
+- **Enforcement (in code):** [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) holds the per-class most-methylated loci (derived from the atlas, ref β > class β_floor − 0.08); `walther_clinical.stage_4_a_score` loads it via `a_score_loci_json` and carries a permanent **A-SCORE LOCI GUARD** that hard-fails if Stage 4 is ever pointed at the discriminative markers again.
 - **Bulk vs pure substrate:** on a BULK sample the honest A-score unit is the class — a fine subtype's order cannot be isolated from a mixed tube — so each cell inherits its class most-methylated loci. Sharp per-cell-type loci (`loci_by_celltype_sharp`) are for PURE substrates. On bulk, cell-type *differentiation* comes from deconvolution fractions + Stage 4.5 bidirectional, not from per-cell A magnitude.
 
 ### §103.2 — Atlas `<class>_mean` ≈ 0.5 is correct bimodal methylation, NOT a scale problem
 
-The IAMAtlas REBUILD `<class>_mean` columns have a genome-wide mean ≈ 0.5 with **std ≈ 0.34** and mass at BOTH ends (~35% of CpGs > 0.8, ~35% < 0.2). This is correct bimodal methylation — confirmed against `IAMAtlasREBUILD_provenance.json` and `IAMAtlas_FLATNESS_LESSON.md`. Do NOT mistake the ~0.5 mean for a flat atlas or a "scale offset" against H_min.
+The IAMAtlas REBUILD `<class>_mean` columns have a genome-wide mean ≈ 0.5 with **std ≈ 0.34** and mass at BOTH ends (~35% of CpGs > 0.8, ~35% < 0.2). This is correct bimodal methylation — confirmed against [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) and [`IAMAtlas_FLATNESS_LESSON.md`](../atlas/IAMAtlas_FLATNESS_LESSON.md). Do NOT mistake the ~0.5 mean for a flat atlas or a "scale offset" against H_min.
 
 - The OLD collapsed build was flat at ~0.47 with std ≈ 0.005 (signal below noise); the REBUILD fixed it (FLATNESS_LESSON).
 - H_min is the frozen MCMC posterior (§99), **not** H(atlas global mean). `atlas global mean ≠ H(β_floor)` is expected, not a contradiction. There is nothing to "anchor" or "re-derive" against the atlas global mean.
@@ -5158,7 +5314,7 @@ The IAMAtlas REBUILD `<class>_mean` columns have a genome-wide mean ≈ 0.5 with
 
 Before theorizing about the atlas or flagging a scale/anchor problem, READ in this order: `MethylPhys/atlas/IAMAtlasREBUILD_provenance.json`, `MethylPhys/atlas/README.md`, `MethylPhys/atlas/IAMAtlas_FLATNESS_LESSON.md`. The frozen H_min, the build pipeline, the distinctness-test outcomes, and the bimodal-not-flat fact are all documented there. Re-deriving from the atlas global mean produced the 2026-06-11 false-alarm; reading the provenance first prevents it.
 
-**Code linkage:** `walther_clinical.stage_4_a_score` now reads `h_min_values_frozen_2026_04_06` from `IAMAtlasREBUILD_provenance.json` (the §99 single source of truth) and refuses to run if the runtime H_min disagrees — implementing §99's "engine refuses to deploy" rule in code.
+**Code linkage:** `walther_clinical.stage_4_a_score` now reads `h_min_values_frozen_2026_04_06` from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) (the §99 single source of truth) and refuses to run if the runtime H_min disagrees — implementing §99's "engine refuses to deploy" rule in code.
 
 ---
 
@@ -5197,7 +5353,7 @@ The fake 0.5-ish mean is an artifact of averaging in the wrong order. The per-lo
 
 **Reproduction proof (the only acceptable standard).** The validated instrument is whatever reproduces the sealed VAL anchors. With the build-time vault A-scoring module and markers (the mean-of-per-CpG form), the GSE51032 breast pre-dx cohort reproduces, end to end:
 - 115/115 per-cell A-scores vs the sealed `GSE51032_115celltype_ascores.csv` — corr 1.0000, maxdiff 0.0000.
-- 460/460 per-sample Mahalanobis distances vs the sealed `GSE51032_mahalanobis.csv` — corr 1.0000, maxdiff 0.0000.
+- 460/460 per-sample Mahalanobis distances vs the sealed [`GSE51032_mahalanobis.csv`](../../Record/Cohorts_and_Manifests/breast_epic_cohorts/GSE51032_EPIC_Italy/GSE51032_mahalanobis.csv) — corr 1.0000, maxdiff 0.0000.
 - case(36)-vs-hc(424) Cohen's d = **+2.088** — identical to the hull's baked-in `validation_anchor.cohens_d` (CI [1.502, 2.735]).
 
 **Why mean-of-H is correct, in IAM's law.** H_min is a *per-locus* architectural floor — the minimum Shannon entropy (the Landauer information cost) a marker locus must carry to remain that class. The unit of measurement is the locus, so each locus is read against its floor and the readings are averaged. Averaging β first blends distinct loci into one number and destroys the per-locus information the score exists to read. The CMB analog is exact: the power spectrum C_ℓ is the *mean of per-mode power* (coefficients squared, then averaged), never the power of the mean coefficient — which vanishes by isotropy. Averaging β before entropy is the methylome equivalent of averaging the a_ℓm before squaring.
@@ -5209,19 +5365,19 @@ The fake 0.5-ish mean is an artifact of averaging in the wrong order. The per-lo
 2. **Marker convention** is a separate baseline-placement choice, independent of the formula: the sealed VALs and the +2.088 anchor used the v0_2 discriminative panel (healthy A ≈ 0.52); §103 prescribes the most-methylated loci (healthy A ≈ 1.0, "walking toward 0.5 under disorder"). Either is internally coherent under mean-of-H, but they set the healthy baseline in different places and the tier breakpoints must match whichever is chosen. The convention choice must be re-validated against the +2.088 anchor before production.
 3. **§46.5 bidirectional recovery** assumed the primary A-score cancels bidirectional signal — true only under H(β_mean). Its rationale needs re-derivation now that the primary formula adds bidirectional signal rather than cancelling it.
 
-**Guard (binding).** `iamatlas_a_scoring.py` carries a unit test that scores a known bimodal panel and asserts the mean-of-per-CpG value; any build computing H(β_mean) fails it. The reproduction standard is permanent: **any A-score formula that does not reproduce the +2.088 GSE51032 anchor is wrong by definition.** Before changing anything in Stage 4, re-run the GSE51032 reproduction and confirm corr 1.0 / maxdiff 0.0 against the sealed artifacts.
+**Guard (binding).** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) carries a unit test that scores a known bimodal panel and asserts the mean-of-per-CpG value; any build computing H(β_mean) fails it. The reproduction standard is permanent: **any A-score formula that does not reproduce the +2.088 GSE51032 anchor is wrong by definition.** Before changing anything in Stage 4, re-run the GSE51032 reproduction and confirm corr 1.0 / maxdiff 0.0 against the sealed artifacts.
 
 
 ## §106. RULING A3 — One aggregation per surface, fixed by the reference each was built with (2026-09-19)
 
-**Why this section exists.** At repo HEAD (66f37fe) two modules committed one day apart each called the other the regression: `iamatlas_a_scoring.py` + `test_a_score_canonical.py` (2026-06-30) assert mean_i(H(β_i))/H_min and declare any other build wrong by definition; `cpg_gauge_engine.py` + the Stage-4 wiring (2026-07-01) compute H(β_mean)/H_min over the class **identity loci** and declare that it supersedes §105. Both were run on the same eleven Stage-1-calibrated samples (PROC-FORMULA-01, Issue 003 §3.3) and against the sealed references (PROC-ANCHOR-01). The result is that **both are correct, each on its own surface**, and the conflict was a scoping error in §105, not a formula error in either module.
+**Why this section exists.** At repo HEAD (66f37fe) two modules committed one day apart each called the other the regression: [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) + [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py) (2026-06-30) assert mean_i(H(β_i))/H_min and declare any other build wrong by definition; [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py) + the Stage-4 wiring (2026-07-01) compute H(β_mean)/H_min over the class **identity loci** and declare that it supersedes §105. Both were run on the same eleven Stage-1-calibrated samples (PROC-FORMULA-01, [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) §3.3) and against the sealed references (PROC-ANCHOR-01). The result is that **both are correct, each on its own surface**, and the conflict was a scoping error in §105, not a formula error in either module.
 
 **The ruling.**
 
 | surface | loci | statistic | reference it is read against | why |
 |---|---|---|---|---|
-| **GAUGE** (8 classes; the detection call) | identity loci (`iamatlas_gauge_identity_loci_v1_0.json`, ~20–32k per class, selected where the class sits at its characteristic β, unimodal) | **A = H(β_mean)/H_min(class)** | H_min (G-002/G-003b: H of a mean β) and `age_reference_matrix.json` (compiled as H(β_mean), verified to 5 decimals) | the reference is itself H of a mean; Jensen inflation on a unimodal panel is bounded (measured 0.033 on whole blood) |
-| **SEPARATION** (115 cell types; disease direction) | discriminative markers (`iamatlas_celltype_markers_v0_2.json`, ~100 per cell, bimodal by construction) | **A = mean_i(H(β_i))/H_min(class)** | the sealed anchors `GSE51032/GSE51057_115celltype_ascores.csv (historical path)` | §105 exactly: bimodal panels make H(β_mean) manufacture ≈0.5; reproduced r = 1.00000 on 648 samples |
+| **GAUGE** (8 classes; the detection call) | identity loci ([`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json), ~20–32k per class, selected where the class sits at its characteristic β, unimodal) | **A = H(β_mean)/H_min(class)** | H_min (G-002/G-003b: H of a mean β) and [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) (compiled as H(β_mean), verified to 5 decimals) | the reference is itself H of a mean; Jensen inflation on a unimodal panel is bounded (measured 0.033 on whole blood) |
+| **SEPARATION** (115 cell types; disease direction) | discriminative markers ([`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json), ~100 per cell, bimodal by construction) | **A = mean_i(H(β_i))/H_min(class)** | the sealed anchors `GSE51032/GSE51057_115celltype_ascores.csv (historical path)` | §105 exactly: bimodal panels make H(β_mean) manufacture ≈0.5; reproduced r = 1.00000 on 648 samples |
 
 **§105 is amended, not reversed.** Its one-sentence rule now reads: *on marker panels, never H(β_mean)*. Its worked HSC guard (GSM1235534) and its reproduction proof stand unchanged.
 
@@ -5241,8 +5397,8 @@ The fake 0.5-ish mean is an artifact of averaging in the wrong order. The per-lo
 
 Fifteen commits between 2026-07-01 and 07-03 changed the chain after this SOP was last written from the code. In order:
 
-1. **Canonical gauge engine** (536c0e9, a892086, 8cdf352). `cpg_gauge_engine.py` carries the forty `H_min` values (8 classes × 5 substrates, byte-identical to Issue 002), the age-matched two-axis readout, and the Issue-002 severity vocabulary. Healthy is a **band at the patient's age**, not the point A = 1.
-2. **Identity loci frozen** (7b74f36). `iamatlas_gauge_identity_loci_v1_0.json`: per-class loci selected where the class sits at its characteristic β (unimodal), with `H_min_beta` and a ±0.05 band. Counts read from the file: terminal 57,247, progenitor 54,704, stem_adult 46,907, immune 42,134, secretory 29,617, cycling 29,181, stem_pluri 21,710, stromal 2,294 — i.e. 2,294 (stromal) to 57,247 (terminal); stromal's small panel is why it is a structural zero on several substrates.
+1. **Canonical gauge engine** (536c0e9, a892086, 8cdf352). [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py) carries the forty `H_min` values (8 classes × 5 substrates, byte-identical to Issue 002), the age-matched two-axis readout, and the Issue-002 severity vocabulary. Healthy is a **band at the patient's age**, not the point A = 1.
+2. **Identity loci frozen** (7b74f36). [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json): per-class loci selected where the class sits at its characteristic β (unimodal), with `H_min_beta` and a ±0.05 band. Counts read from the file: terminal 57,247, progenitor 54,704, stem_adult 46,907, immune 42,134, secretory 29,617, cycling 29,181, stem_pluri 21,710, stromal 2,294 — i.e. 2,294 (stromal) to 57,247 (terminal); stromal's small panel is why it is a structural zero on several substrates.
 3. **Input offset frozen, then retired** (143704d → d7b0e1f). A 0.055 atlas-to-healthy-blood offset was frozen on the immune identity loci, then removed the same day: the age-matched band absorbs it, and the offset file was deleted so no future session re-wires it. *Issue 003 §6a measures the same offset (+0.054 … +0.090 in seven Stage-1 whole-blood samples) and records the closing test: re-derive `H_min_beta` and the band from ≥30 public healthy blood IDATs through Stage 1.*
 4. **Stage 4 wired to the gauge** (d7b0e1f). `class_ascores` = H(β̄)/H_min over identity loci, placed in the age band, superseding §41's discriminative-marker formula for the *class* call. Below-floor on identity loci means **absence or inversion**, disambiguated by the presence gate.
 5. **Two surfaces kept** (b40ffbd). `celltype_ascores` reverted to per-cell mean-of-H on discriminative markers — the SEPARATION surface feeding the disease matcher — after inheriting the gauge collapsed the matcher's per-cell axes. Patient age threaded into Stage 4 so the band is exact; the commit records that healthy blood read **IN_BAND at the true age** where it had read BELOW_BAND at the age-44 default. Flagged and left open there: the Mahalanobis reference μ = 1.0 did not match the separation scale (~0.56 healthy).
@@ -5251,7 +5407,7 @@ Fifteen commits between 2026-07-01 and 07-03 changed the chain after this SOP wa
 8. **Report builder v2 and dashboard** (555994b, 3744909, aa248e6, c39ca44).
 9. **Tier onset** (66f37fe). ELEVATED begins at 1.01, not 1.04, matching the gauge's MARGINAL onset.
 
-**What v2.0.0 does not do.** It does not rewrite Parts II–IV stage by stage against the code; it corrects the parts list, marks the retired design, and states the current one. A stage-by-stage re-derivation of this SOP from `cpg_conductor.py` is the next revision. The reproduction kit (`MethylPhys/kit/`) verifies the links that matter — Stage 1, the deconvolver, both scoring surfaces against their sealed references — and is the check that any future SOP text must pass.
+**What v2.0.0 does not do.** It does not rewrite Parts II–IV stage by stage against the code; it corrects the parts list, marks the retired design, and states the current one. A stage-by-stage re-derivation of this SOP from [`cpg_conductor.py`](../chain/cpg_conductor.py) is the next revision. The reproduction kit (`MethylPhys/kit/`) verifies the links that matter — Stage 1, the deconvolver, both scoring surfaces against their sealed references — and is the check that any future SOP text must pass.
 
 ---
 
@@ -5278,7 +5434,7 @@ The presence gate (DETECT_FLOOR = 1%) decides whether a class is *in the sample*
 
 **BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (`MethylPhys/chain/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json`). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: `Record/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md`; Issue 003 RECON S1, §1.6.
 
-**Operating rule.** Stage 4 / Stage B computes A = H(β̄)/H_min on identity loci. Before that step, β is mapped onto the Roadmap scale with the entry in `beta_scale_maps_v1.json` matching the pipeline that produced it (Stage-1 noob → `stage1_noob_450K`; a GEO series matrix → the author-processed entry once fit). If no map exists for the pipeline, the reading is labelled `scale=UNMAPPED` and is not reported as a tier. This section supersedes any earlier text implying A can be read directly from any β.
+**Operating rule.** Stage 4 / Stage B computes A = H(β̄)/H_min on identity loci. Before that step, β is mapped onto the Roadmap scale with the entry in [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) matching the pipeline that produced it (Stage-1 noob → `stage1_noob_450K`; a GEO series matrix → the author-processed entry once fit). If no map exists for the pipeline, the reading is labelled `scale=UNMAPPED` and is not reported as a tier. This section supersedes any earlier text implying A can be read directly from any β.
 
 **Implementation (2026-09-20).** `stage_1_idat_calibration.calibrate_idat_to_beta` stamps `meta['pipeline']` (e.g. `stage1_noob_450K`). `cpg_conductor.run_full(beta, atlas, cfg={'age':..., 'pipeline': meta['pipeline']})` applies `stage_1s_scale_map` and emits `classes_identity` (identity-loci gauge, mapped β, PROVISIONAL band) with `scale`, `gauge_surface`, `band_status`, `reportable` on every reading, alongside the wired marker-union `classes`. Omitting `pipeline` yields `scale=UNMAPPED`, `reportable=False`. Verified: GSM2333901 0.8066 BELOW_BAND unmapped → 0.9748 IN_BAND mapped.
 
@@ -5286,98 +5442,98 @@ The presence gate (DETECT_FLOOR = 1%) decides whether a class is *in the sample*
 
 **H_min CROSS-CHECK (PROC-HMIN-BOOT-01, 2026-09-20).** The eight methylation floors were calibrated by G-002 MCMC (37 reference cells, R-hat < 1.001). The April bootstrap cross-check (0.168 %, 24/32 in CI) covered the 32 non-methylation floors only; the methylation eight were bootstrapped for the first time on 2026-09-20 — 8/8 inside the 95 % CI, 0.060 % mean / 0.095 % max relative difference. Values unchanged. The calibration scripts are not at HEAD (removed 2026-04-19 as commercial) but are in public history at 22749f0 — a disclosure decision for the author. Record: `Record/PROC_data/PROC-HMIN-BOOT-01/`.
 
-**LAB ZERO — PANEL SPECIFICATION (PROC-PANEL-01 → PROC-PANEL-03, 2026-09-20; supersedes the '20–30 arrays' wording above).** A laboratory's zero is measured once on **40** healthy arrays of any age mix through the same Stage 1 and map: z = median[A − c(decade)] − 1, where c is the reference healthy age curve (`reference_age_curve_v1.json`; healthy immune A rises ≈0.045 from the teens to the eighties within a lab, while between-lab offsets are parallel). A patient reads A″ = A − c(decade) − z. Tested leave-one-lab-out on four labs: a band built on three holds 75–84 % of the fourth's healthy donors. In code: `MethylPhys/chain/lab_zero.py` — panels under 40 are refused and `lab_zero=UNSET` is not reportable. Record: `Record/PROC_data/PROC-PANEL-01 → PROC-PANEL-03/`.
+**LAB ZERO — PANEL SPECIFICATION (PROC-PANEL-01 → PROC-PANEL-03, 2026-09-20; supersedes the '20–30 arrays' wording above).** A laboratory's zero is measured once on **40** healthy arrays of any age mix through the same Stage 1 and map: z = median[A − c(decade)] − 1, where c is the reference healthy age curve ([`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json); healthy immune A rises ≈0.045 from the teens to the eighties within a lab, while between-lab offsets are parallel). A patient reads A″ = A − c(decade) − z. Tested leave-one-lab-out on four labs: a band built on three holds 75–84 % of the fourth's healthy donors. In code: `MethylPhys/chain/lab_zero.py` — panels under 40 are refused and `lab_zero=UNSET` is not reportable. Record: `Record/PROC_data/PROC-PANEL-01 → PROC-PANEL-03/`.
 
 **THE VALIDATION COUNT, CORRECTED (PROC-HISTORY-01, 2026-09-21).** The record, not the tree: 3 G-series calibrations; **119 pre-Atlas VALs (VAL-001..128; 107 executed)** incl. the **T1–T15** cross-population series of VAL-049 (12 executed, 6 populations); **22 post-Atlas CPG-VALs (001..022; 21 executed)**; the Mahalanobis hull v0_1→v0_5 (n=2,523, four populations incl. Han Chinese n=42); L9 N7; the September PROCs. The 2026-09-19 index said 103 — it keyed on bare numbers (VAL-001 collided with CPG-VAL-001) and counted folders. `Record/VAL_INDEX.csv` is rebuilt (175 rows, unique keys by series); AD folders CPG-VAL-008..014 moved to `VAL_PostAtlas/`. Record: `Record/PROC_data/PROC-HISTORY-01/`.
 
-**THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on `iamatlas_gauge_identity_loci_v1_0.json`, on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero (`lab_zero.py`), placed in `identity_band_v3.json` (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: `MethylPhys/kit/test_gauge_switch.py`. **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
+**THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json), on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero ([`lab_zero.py`](../chain/lab_zero.py)), placed in [`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: `MethylPhys/kit/test_gauge_switch.py`. **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
 
 **STAGE 5 RE-BASED (PROC-MAHA-01, 2026-09-21; row 5 BUILT, not commissioned).** The departure now reads the identity gauge: z = (A″ − 1)/σ, σ = 0.0204 from `identity_band_v3`; on whole blood one banded axis, so the number is |z_immune| against 1.960 / 2.576; `bundle['mahalanobis']` carries the long keys the report builder reads plus the short aliases; UNSET → not reportable. The eight-class derived hull is `diagnostic_hull_marker_union`. **M2 failed as sealed:** Karolinska 9.8 % of healthy beyond p95 (bar 7 %). **Cause measured — the Sentrix chip:** per-chip median SD 0.020 there vs 0.012 elsewhere; chip-centring cuts every lab to 2–4 %. A laboratory constant cannot touch it; row 5b (chip term) is open and the acceptable false-alarm rate is the author's decision (PROC-MAHA-02). Record: `Record/PROC_data/PROC-MAHA-01/`.
 
 **ROW 6 CLOSED — CELLULAR AGE NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21).** Inverting the healthy immune identity-gauge curve (`reference_age_curve_v1`) for one array resolves age to ~50 years: the curve moves 0.47 mA/yr and the within-laboratory spread is 0.0235; leave-one-lab-out on 1,379 healthy donors, 15.9 % within ±10 yr (bar 80 %), Spearman 0.27; a healthy 58-year-old inverts to 23. **The population aging trajectory stands and is reproduced** (0.47 mA/yr, monotone by decade, four labs = CPG-VAL-015's slope on Hannum; it is now the reference age curve). What is below resolution is one person's position on it. Sign differs by surface: marker-union A falls with age, identity-gauge A rises (RECON D2). `stage_6_cellular_age` returns `reportable=False` with the resolution sentence, which the report prints in place of an age; the marker-union inversion is `diagnostic_cellular_age`. With this, **no reported number in the chain reads the marker-union statistic.** Record: `Record/PROC_data/PROC-AGE-01/`.
 
-- **Row 4.6 — the patient's sky — COMMISSIONED (PROC-CMB-05, 2026-09-21, five seals; C2′ 4/4 on the restated bar [0.025, 0.08]).** `cpg_conductor.run_full` bundle key `patient_sky`: z = (β − Σ f_c μ_c − m_lab)/s_lab on the mapped β, class panels gated by measured presence floors (`Runtime Matrices/Patient_CMB/`), HEALPix NSIDE 128 genomic order. NOT AVAILABLE without the laboratory's residual scale (built from the same 40-array healthy panel as the lab zero). Calibration constant stated on every sky: healthy held-out tail 2.6–3.2 %, not 5 % (C2′ failed as sealed by ≤ 0.004; recorded). The retired `stage_4_6_patient_cmb.py` formula read 61 % of a healthy genome as anomalous (C1) and is closed. Kit test `test_patient_sky.py`.
+- **Row 4.6 — the patient's sky — COMMISSIONED (PROC-CMB-05, 2026-09-21, five seals; C2′ 4/4 on the restated bar [0.025, 0.08]).** `cpg_conductor.run_full` bundle key `patient_sky`: z = (β − Σ f_c μ_c − m_lab)/s_lab on the mapped β, class panels gated by measured presence floors (`Runtime Matrices/Patient_CMB/`), HEALPix NSIDE 128 genomic order. NOT AVAILABLE without the laboratory's residual scale (built from the same 40-array healthy panel as the lab zero). Calibration constant stated on every sky: healthy held-out tail 2.6–3.2 %, not 5 % (C2′ failed as sealed by ≤ 0.004; recorded). The retired [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py) formula read 61 % of a healthy genome as anomalous (C1) and is closed. Kit test [`test_patient_sky.py`](../kit/test_patient_sky.py).
 
-- **Row 7 — tiers — COMMISSIONED (PROC-TIER-01, 2026-09-21).** One tier function, `MethylPhys/chain/cpg_tiers.py`, reads `tier_breakpoints.json`; no tier word on a non-reportable gauge (§108 / UNMAPPED / lab_zero UNSET); A ≥ 1/H_min → AT_CEILING. Measured, not moved: under the July 1.01 onset 30 % of 1,379 healthy donors read ELEVATED on the identity gauge (1.07 admits 1; 1.10 none; healthy central 95 % = 0.954–1.041). PROC-TIER-02 set NORMAL to the healthy central 95 % → `tier_breakpoints.json` v1.4 [0.95, 1.04): 2.5 % of healthy read ELEVATED. Kit test `test_tiers.py`.
+- **Row 7 — tiers — COMMISSIONED (PROC-TIER-01, 2026-09-21).** One tier function, `MethylPhys/chain/cpg_tiers.py`, reads [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); no tier word on a non-reportable gauge (§108 / UNMAPPED / lab_zero UNSET); A ≥ 1/H_min → AT_CEILING. Measured, not moved: under the July 1.01 onset 30 % of 1,379 healthy donors read ELEVATED on the identity gauge (1.07 admits 1; 1.10 none; healthy central 95 % = 0.954–1.041). PROC-TIER-02 set NORMAL to the healthy central 95 % → `tier_breakpoints.json` v1.4 [0.95, 1.04): 2.5 % of healthy read ELEVATED. Kit test [`test_tiers.py`](../kit/test_tiers.py).
 
 - **Row 8 — disease matching — REMOVED FROM THE CHAIN (author, 2026-09-21).** The signature matrix and cards come from the preliminary VAL record; the report shows cells detected, fractions, A per cell and class, placement and flags, and names no disease. The matrix is record-side (see `MethylPhys/chain/Disease Matrix/DISEASE_MATRIX/README_STATUS.md`). PROC-MATCH-01's fixes (fail-closed origin gate, firewall, surface = seal) stand. **Sealing rule:** we seal a built tool against a bar; building it is exploration with a working note, not a seal.
 
-- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` is record-side.
+- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old [`cpg_report_builder.py`](../chain/cpg_report_builder.py) is record-side.
 
 # Reference - the files of the chain
-_Generated from `chain_inventory_v1.json` (built 2026-09-22 06:42, commit `a8f7ee8`) by `sop_repoint.py`. Do not hand-edit: re-run the script after any file move._
+_Generated from [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) (built 2026-09-22 06:42, commit `a8f7ee8`) by [`sop_repoint.py`](sop_repoint.py). Do not hand-edit: re-run the script after any file move._
 
 | file | role | stage | what it is |
 |---|---|---|---|
-| `cpg_conductor.py` | chain | stage 0 | THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently |
-| `stage_0_intake.py` | chain | stage 0 | Stage 0. Sample intake and chain of custody: IDAT arrival, manifest creation, identity checks. Built step by step against the SOP; four QC checks are still deferred because Stage 0 is not ye |
-| `idat_decoder_pure.py` | chain | stage 1 | Pure-Python IDAT to beta - needs only idat_parse plus a static array manifest, no methylprep or minfi at runtime. This is what lets a reader reproduce Stage 1 without the R/Bioconductor stac |
-| `idat_parse.py` | chain | stage 1 | Low-level IDAT binary reader used by Stage 1 when methylprep is not driving the parse. |
-| `stage_1_idat_calibration.py` | chain | stage 1 | Stage 1. Raw Illumina IDAT pair -> beta per CpG (methylprep, noob background/dye correction). The only step that touches instrument output. |
-| `walther_iam_deconvolver.py` | chain | stage 2 | Stage 2. Constrained non-negative least squares: which cell types are present and in what fraction. Sparse by design - it reports only what it has evidence for. |
-| `lineage_splitter.py` | chain | stage 2b | Helper for Stage 2b: splits a lineage signal across its member entries. |
-| `nilc_celltype_deconvolver.py` | chain | stage 2b | Stage 2b. The second, independent solver (inverse-variance weighted, atlas posterior SD as the weight). Reported ONLY as an agreement flag at class level, never as the composition. |
-| `bidirectional_decomposition.py` | chain | stage 4.5 | Stage 4.5. Splits a departure into its hyper- and hypo-methylated halves, so direction is reported rather than magnitude only. |
-| `build_healpix_mapping.py` | chain | stage 4.6 | Builds the CpG -> pixel mapping from the array manifest in genomic order. Deterministic: same atlas + manifest -> byte-identical output. |
-| `generate_cpg_healpix_mapping.py` | chain | stage 4.6 | One-time generator for the mapping: lays the CpGs on the sphere in genomic order so every patient projection sits on the same grid as the archival plates. |
-| `stage_4_6_patient_cmb.py` | chain | stage 4.6 | Stage 4.6. The patient's sky: residual z per CpG against the sample's own composition expectation, on the laboratory's zero and scale, projected onto the sphere in genomic order. |
-| `iamatlas_mahalanobis_scoring.py` | chain | stage 5 | Stage 5. The departure: distance from the healthy centre in units of healthy spread over the assessable class axes (Mahalanobis, 1936). |
-| `iam_cellular_age_scoring.py` | chain | stage 6 | Stage 6. Inverts the healthy age curve. Reports the RESOLUTION, never an age in years: one array cannot place a person to better than ~50 yr (PROC-AGE-01). |
-| `cpg_tiers.py` | chain | stage 7 | THE ONLY tier function. Reads tier_breakpoints.json; the engine previously carried three disagreeing definitions. Returns no tier when a reading is not reportable, and AT_CEILING at 1/H_min. |
-| `iamatlas_a_scoring.py` | chain | stage A | The A-score itself: A = mean_i H(beta_i) / H_min(class). Asserts against the wrong aggregation (entropy of the mean beta), which is the defect PROC-N7-01 caught. |
-| `cpg_gauge_engine.py` | chain | stage B | The class gauge: the eight frozen H_min floors and the per-substrate table. Holds the saturation ceilings (1/H_min). |
-| `lab_zero.py` | chain | stage B | The laboratory zero: median of 40 healthy arrays of that laboratory, age-referenced. Refuses panels under 40 and marks a reading without a zero as NOT REPORTABLE. |
-| `README_atlas_v0_1_vault.md` | reference | atlas build | What the per-class archives contain and how to unpack them. |
-| `compact_atlas.py` | reference | atlas build | Packages the rebuild outputs into the repo-ready atlas (.csv.xz) and the per-class archives. |
-| `cycling_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (cycling). |
-| `iamatlas_v0_1_mcmc_batched_FIXED.py` | reference | atlas build | The atlas build: a hierarchical Beta-Binomial MCMC run per architecture class, producing the posterior mean, SD and interval for every CpG-by-cell-type entry. |
-| `immune_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (immune). |
-| `progenitor_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (progenitor). |
-| `secretory_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (secretory). |
-| `stem_adult_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (adult stem). |
-| `stem_pluri_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (pluripotent stem) - the raw MCMC output the merged atlas was assembled from. |
-| `stromal_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (stromal). |
-| `terminal_v0_1_REBUILD.tar.xz` | reference | atlas build | Per-class atlas rebuild archive (terminal). |
-| `gape_bootstrap_comparison.py` | reference | calibration | The leave-one-out bootstrap cross-check of the floors. Its function was rerun on the eight methylation floors in September (PROC-HMIN-BOOT-01); every frozen floor fell inside its interval. |
-| `gape_mcmc_g002.py` | reference | calibration | CHAIN G-002: the MCMC that calibrated the eight methylation H_min floors against 37 published reference cell methylomes. This is the provenance of every floor on the report. |
-| `gape_mcmc_g003b.py` | reference | calibration | CHAIN G-003b: H_min posteriors for the four non-methylation substrates (nucleosome occupancy, fuzziness, windowed protection, fragment size). |
-| `literature_anchors.json` | reference | calibration | Published reference A-score anchors per class (healthy / disease / cancer), extracted from the April web build. Orientation values from the literature, not measurements of this chain. |
-| `methyl_bootstrap_PROC-HMIN-BOOT-01.json` | reference | calibration | The result of that bootstrap: per class, the frozen floor beside its bootstrap interval. |
-| `build_chain_inventory.py` | interface | interface | Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file. |
-| `build_methylphys.py` | interface | interface | THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a  |
-| `build_percell_reference.py` | interface | interface | Builds percell_reference_v0.json: each entry's own healthy range, per laboratory, from that laboratory's build panel. |
+| [`cpg_conductor.py`](../chain/cpg_conductor.py) | chain | stage 0 | THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently |
+| [`stage_0_intake.py`](../chain/stage_0_intake.py) | chain | stage 0 | Stage 0. Sample intake and chain of custody: IDAT arrival, manifest creation, identity checks. Built step by step against the SOP; four QC checks are still deferred because Stage 0 is not ye |
+| [`idat_decoder_pure.py`](../chain/idat_decoder_pure.py) | chain | stage 1 | Pure-Python IDAT to beta - needs only idat_parse plus a static array manifest, no methylprep or minfi at runtime. This is what lets a reader reproduce Stage 1 without the R/Bioconductor stac |
+| [`idat_parse.py`](../chain/idat_parse.py) | chain | stage 1 | Low-level IDAT binary reader used by Stage 1 when methylprep is not driving the parse. |
+| [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py) | chain | stage 1 | Stage 1. Raw Illumina IDAT pair -> beta per CpG (methylprep, noob background/dye correction). The only step that touches instrument output. |
+| [`walther_iam_deconvolver.py`](../chain/Walther_iam_deconvolver/walther_iam_deconvolver.py) | chain | stage 2 | Stage 2. Constrained non-negative least squares: which cell types are present and in what fraction. Sparse by design - it reports only what it has evidence for. |
+| [`lineage_splitter.py`](../chain/Lineage_Splitter/lineage_splitter.py) | chain | stage 2b | Helper for Stage 2b: splits a lineage signal across its member entries. |
+| [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py) | chain | stage 2b | Stage 2b. The second, independent solver (inverse-variance weighted, atlas posterior SD as the weight). Reported ONLY as an agreement flag at class level, never as the composition. |
+| [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%20Panel/bidirectional_decomposition.py) | chain | stage 4.5 | Stage 4.5. Splits a departure into its hyper- and hypo-methylated halves, so direction is reported rather than magnitude only. |
+| [`build_healpix_mapping.py`](../chain/Runtime%20Matrices/Patient_CMB/build_healpix_mapping.py) | chain | stage 4.6 | Builds the CpG -> pixel mapping from the array manifest in genomic order. Deterministic: same atlas + manifest -> byte-identical output. |
+| [`generate_cpg_healpix_mapping.py`](../atlas/healpix_mapping/generate_cpg_healpix_mapping.py) | chain | stage 4.6 | One-time generator for the mapping: lays the CpGs on the sphere in genomic order so every patient projection sits on the same grid as the archival plates. |
+| [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py) | chain | stage 4.6 | Stage 4.6. The patient's sky: residual z per CpG against the sample's own composition expectation, on the laboratory's zero and scale, projected onto the sphere in genomic order. |
+| [`iamatlas_mahalanobis_scoring.py`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) | chain | stage 5 | Stage 5. The departure: distance from the healthy centre in units of healthy spread over the assessable class axes (Mahalanobis, 1936). |
+| [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) | chain | stage 6 | Stage 6. Inverts the healthy age curve. Reports the RESOLUTION, never an age in years: one array cannot place a person to better than ~50 yr (PROC-AGE-01). |
+| [`cpg_tiers.py`](../chain/cpg_tiers.py) | chain | stage 7 | THE ONLY tier function. Reads tier_breakpoints.json; the engine previously carried three disagreeing definitions. Returns no tier when a reading is not reportable, and AT_CEILING at 1/H_min. |
+| [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) | chain | stage A | The A-score itself: A = mean_i H(beta_i) / H_min(class). Asserts against the wrong aggregation (entropy of the mean beta), which is the defect PROC-N7-01 caught. |
+| [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py) | chain | stage B | The class gauge: the eight frozen H_min floors and the per-substrate table. Holds the saturation ceilings (1/H_min). |
+| [`lab_zero.py`](../chain/lab_zero.py) | chain | stage B | The laboratory zero: median of 40 healthy arrays of that laboratory, age-referenced. Refuses panels under 40 and marks a reading without a zero as NOT REPORTABLE. |
+| [`README_atlas_v0_1_vault.md`](../atlas/README_atlas_v0_1_vault.md) | reference | atlas build | What the per-class archives contain and how to unpack them. |
+| [`compact_atlas.py`](../atlas/compact_atlas.py) | reference | atlas build | Packages the rebuild outputs into the repo-ready atlas (.csv.xz) and the per-class archives. |
+| [`cycling_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/cycling_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (cycling). |
+| [`iamatlas_v0_1_mcmc_batched_FIXED.py`](../atlas/iamatlas_v0_1_mcmc_batched_FIXED.py) | reference | atlas build | The atlas build: a hierarchical Beta-Binomial MCMC run per architecture class, producing the posterior mean, SD and interval for every CpG-by-cell-type entry. |
+| [`immune_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/immune_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (immune). |
+| [`progenitor_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/progenitor_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (progenitor). |
+| [`secretory_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/secretory_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (secretory). |
+| [`stem_adult_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/stem_adult_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (adult stem). |
+| [`stem_pluri_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/stem_pluri_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (pluripotent stem) - the raw MCMC output the merged atlas was assembled from. |
+| [`stromal_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/stromal_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (stromal). |
+| [`terminal_v0_1_REBUILD.tar.xz`](../atlas/iamatlas_class_archives/terminal_v0_1_REBUILD.tar.xz) | reference | atlas build | Per-class atlas rebuild archive (terminal). |
+| [`gape_bootstrap_comparison.py`](../hmin_calibration/gape_bootstrap_comparison.py) | reference | calibration | The leave-one-out bootstrap cross-check of the floors. Its function was rerun on the eight methylation floors in September (PROC-HMIN-BOOT-01); every frozen floor fell inside its interval. |
+| [`gape_mcmc_g002.py`](../hmin_calibration/gape_mcmc_g002.py) | reference | calibration | CHAIN G-002: the MCMC that calibrated the eight methylation H_min floors against 37 published reference cell methylomes. This is the provenance of every floor on the report. |
+| [`gape_mcmc_g003b.py`](../hmin_calibration/gape_mcmc_g003b.py) | reference | calibration | CHAIN G-003b: H_min posteriors for the four non-methylation substrates (nucleosome occupancy, fuzziness, windowed protection, fragment size). |
+| [`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json) | reference | calibration | Published reference A-score anchors per class (healthy / disease / cancer), extracted from the April web build. Orientation values from the literature, not measurements of this chain. |
+| [`methyl_bootstrap_PROC-HMIN-BOOT-01.json`](../hmin_calibration/methyl_bootstrap_PROC-HMIN-BOOT-01.json) | reference | calibration | The result of that bootstrap: per class, the frozen floor beside its bootstrap interval. |
+| [`build_chain_inventory.py`](../chain/MethylPhys_Interface/build_chain_inventory.py) | interface | interface | Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file. |
+| [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py) | interface | interface | THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a  |
+| [`build_percell_reference.py`](../chain/MethylPhys_Interface/build_percell_reference.py) | interface | interface | Builds percell_reference_v0.json: each entry's own healthy range, per laboratory, from that laboratory's build panel. |
 | `chain_inventory_v1.json` | reference | interface | This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree. |
-| `run_batch.py` | interface | interface | Batch runner: processes every patient visit that does not yet have a report, over a patients/visit folder layout. |
-| `run_sample.py` | interface | interface | One command: IDAT pair or a cpg_id,beta CSV -> Stage 1 -> run_full -> this report. |
-| `val_finding.py` | interface | interface | Writes the structured record of one validation run - instrument fingerprint, per-sample absolute readings, per-entry and per-group direction and magnitude, the pre-registered bars and their  |
-| `beta_scale_maps_v1.json` | reference | stage 1s | Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline the conductor REFUSES to place a reading (LESSON- |
+| [`run_batch.py`](../chain/run_batch.py) | interface | interface | Batch runner: processes every patient visit that does not yet have a report, over a patients/visit folder layout. |
+| [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) | interface | interface | One command: IDAT pair or a cpg_id,beta CSV -> Stage 1 -> run_full -> this report. |
+| [`val_finding.py`](../chain/val_finding.py) | interface | interface | Writes the structured record of one validation run - instrument fingerprint, per-sample absolute readings, per-entry and per-group direction and magnitude, the pre-registered bars and their  |
+| [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) | reference | stage 1s | Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline the conductor REFUSES to place a reading (LESSON- |
 | `scale_map_addendum.json` | reference | stage 1s | The fitted gain and affine terms of a pipeline scale map, with the mapped band it produces - the measurement behind LESSON-SCALE-01. |
 | `IAMAtlasREBUILD.csv` | reference | stage 2 | THE ATLAS. 483,092 CpGs x 115 cell types, each entry a posterior mean with an SD and credible interval from the MCMC build. Every comparison on the report is against this file. Ships compres |
-| `IAMAtlasREBUILD.csv.xz` | reference | stage 2 | The atlas as shipped (compressed). Decompress with Python's lzma - no system xz needed. |
-| `IAMAtlasREBUILD_celltype_to_class.json` | reference | stage 2 | Which of the 8 architecture classes each of the 115 cell types belongs to. The bridge between per-cell and per-class reporting. |
-| `IAMAtlasREBUILD_provenance.json` | reference | stage 2 | How the atlas was built: sources, sample counts, MCMC settings, checksums. |
-| `iamatlas_collinearity_groups_v0_1.json` | reference | stage 2 | Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group should not be scored against eac |
-| `directional_panels_v1_0.json` | reference | stage 4.5 | The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today. |
-| `EPIC_plus_HM450_combined_manifest_normalized.csv` | reference | stage 4.6 | The Illumina array manifest (IlmnID, CHR, MAPINFO). Supplies the genomic coordinates the sky projection and the locality measurement need. |
-| `EPIC_v1_B4_manifest_normalized.csv` | reference | stage 4.6 | The EPIC v1 B4 array manifest (alternative to the combined manifest). |
-| `README_HEALPix_Mapping.md` | reference | stage 4.6 | What the mapping is, how it was generated, and its determinism guarantee. |
-| `README_external_manifests.md` | reference | stage 4.6 | Where the array manifests came from and how they were normalised. |
-| `iamatlas_cpg_to_healpix_nside128.npy` | reference | stage 4.6 | The mapping array itself (the .npz is the packaged form). 483,092 CpGs to 196,608 pixels in genomic order. |
+| [`IAMAtlasREBUILD.csv.xz`](../atlas/IAMAtlasREBUILD.csv.xz) | reference | stage 2 | The atlas as shipped (compressed). Decompress with Python's lzma - no system xz needed. |
+| [`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json) | reference | stage 2 | Which of the 8 architecture classes each of the 115 cell types belongs to. The bridge between per-cell and per-class reporting. |
+| [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) | reference | stage 2 | How the atlas was built: sources, sample counts, MCMC settings, checksums. |
+| [`iamatlas_collinearity_groups_v0_1.json`](../chain/Runtime%20Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json) | reference | stage 2 | Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group should not be scored against eac |
+| [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%20Panel/directional_panels_v1_0.json) | reference | stage 4.5 | The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today. |
+| [`EPIC_plus_HM450_combined_manifest_normalized.csv`](../atlas/external_manifests/EPIC_plus_HM450_combined_manifest_normalized.csv) | reference | stage 4.6 | The Illumina array manifest (IlmnID, CHR, MAPINFO). Supplies the genomic coordinates the sky projection and the locality measurement need. |
+| [`EPIC_v1_B4_manifest_normalized.csv`](../atlas/external_manifests/EPIC_v1_B4_manifest_normalized.csv) | reference | stage 4.6 | The EPIC v1 B4 array manifest (alternative to the combined manifest). |
+| [`README_HEALPix_Mapping.md`](../atlas/healpix_mapping/README_HEALPix_Mapping.md) | reference | stage 4.6 | What the mapping is, how it was generated, and its determinism guarantee. |
+| [`README_external_manifests.md`](../atlas/external_manifests/README_external_manifests.md) | reference | stage 4.6 | Where the array manifests came from and how they were normalised. |
+| [`iamatlas_cpg_to_healpix_nside128.npy`](../atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy) | reference | stage 4.6 | The mapping array itself (the .npz is the packaged form). 483,092 CpGs to 196,608 pixels in genomic order. |
 | `iamatlas_cpg_to_healpix_nside128.npz` | reference | stage 4.6 | The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one chromosome, median span 511 bp. |
-| `iamatlas_cpg_to_healpix_nside128.provenance.json` | reference | stage 4.6 | Provenance and checksum of the mapping. |
-| `presence_floors_v1.json` | reference | stage 4.6 | The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored. |
+| [`iamatlas_cpg_to_healpix_nside128.provenance.json`](../atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.provenance.json) | reference | stage 4.6 | Provenance and checksum of the mapping. |
+| [`presence_floors_v1.json`](../chain/Runtime%20Matrices/Patient_CMB/presence_floors_v1.json) | reference | stage 4.6 | The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored. |
 | `residual_scale_GSE111629.npz` | reference | stage 4.6 | UCLA's per-address residual scale for the sky. |
 | `residual_scale_GSE125105.npz` | reference | stage 4.6 | Munich's per-address residual scale for the sky. |
 | `residual_scale_GSE42861.npz` | reference | stage 4.6 | Karolinska's per-address residual scale for the sky. |
 | `residual_scale_GSE87571.npz` | reference | stage 4.6 | Uppsala's per-address healthy residual scale for the sky - the denominator that makes a patient's z a z. One per commissioned laboratory. |
-| `mahalanobis_healthy_reference_v2_0_age_matched_derived.json` | reference | stage 5 | The healthy centre and spread per class and age the departure is measured against. |
+| [`mahalanobis_healthy_reference_v2_0_age_matched_derived.json`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json) | reference | stage 5 | The healthy centre and spread per class and age the departure is measured against. |
 | `age01_results.json` | reference | stage 6 | The PROC-AGE-01 measurement: the slope, the within-laboratory spread, and the resolution that follows. |
-| `age_reference_matrix.csv` | reference | stage 6 | The April age table in CSV form (same typed content as the JSON). |
-| `age_reference_matrix.json` | reference | stage 6 | The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. The live age term comes from reference_age_curve_v1. |
-| `tier_breakpoints.json` | reference | stage 7 | The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report. |
-| `iamatlas_celltype_markers_v0_2.json` | reference | stage A | The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation-cohort anchors reproduce on THIS file, so it cannot be changed without a  |
-| `percell_exclusivity_v0.json` | reference | stage A | How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual per-cell claim for the 36 ent |
-| `percell_reference_v0.json` | reference | stage A | Per-entry healthy reference: for each of the 115 entries, the healthy range of its own per-cell reading, per laboratory. Exploration, unsealed. |
-| `iamatlas_gauge_identity_loci_v1_0.json` | reference | stage B | THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gauge reads (row B). H_min per class lives here. |
-| `identity_band_v3.json` | reference | stage B | The commissioned healthy band, pooled and per decade, with each laboratory's measured zero. Placement (IN_BAND / above / below) is read from here. |
-| `reference_age_curve_v1.json` | reference | stage B | The healthy age curve: about +0.47 milli-A per year, built leave-one-laboratory-out from four cohorts (n=1,379). The decade term is subtracted before a sample is placed. |
+| [`age_reference_matrix.csv`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.csv) | reference | stage 6 | The April age table in CSV form (same typed content as the JSON). |
+| [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) | reference | stage 6 | The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. The live age term comes from reference_age_curve_v1. |
+| [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) | reference | stage 7 | The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report. |
+| [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) | reference | stage A | The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation-cohort anchors reproduce on THIS file, so it cannot be changed without a  |
+| [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) | reference | stage A | How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual per-cell claim for the 36 ent |
+| [`percell_reference_v0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0.json) | reference | stage A | Per-entry healthy reference: for each of the 115 entries, the healthy range of its own per-cell reading, per laboratory. Exploration, unsealed. |
+| [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) | reference | stage B | THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gauge reads (row B). H_min per class lives here. |
+| [`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) | reference | stage B | The commissioned healthy band, pooled and per decade, with each laboratory's measured zero. Placement (IN_BAND / above / below) is read from here. |
+| [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json) | reference | stage B | The healthy age curve: about +0.47 milli-A per year, built leave-one-laboratory-out from four cohorts (n=1,379). The decade term is subtracted before a sample is placed. |

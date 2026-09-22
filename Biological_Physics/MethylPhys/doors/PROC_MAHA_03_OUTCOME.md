@@ -1,12 +1,12 @@
 # PROC-MAHA-03 — outcome: the chip term is real where it matters most, and a control array per chip is the wrong protocol
 
-**Run 2026-09-22 against the bars pre-registered the same day** (`PROC_MAHA_03_PREREG.md`). Row 5b closes
+**Run 2026-09-22 against the bars pre-registered the same day** ([`PROC_MAHA_03_PREREG.md`](PROC_MAHA_03_PREREG.md)). Row 5b closes
 **NOT COMMISSIONED** by its own decision rule, and the run says something more useful than that sentence alone.
 
 ## What was measured
 
 318 healthy arrays from the four commissioned cohorts, Stage 1 noob-calibrated from IDATs, on the commissioned
-scale — `beta_roadmap = (beta − 0.0662)/1.0127` applied before H per `beta_scale_maps_v1.json`'s own rule — then
+scale — `beta_roadmap = (beta − 0.0662)/1.0127` applied before H per [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json)'s own rule — then
 A″ = H(β̄)/0.838889 − c(decade) − z_lab. Sentrix chip from the IDAT filenames. **What validates the path:** all four cohort medians land on the healthy line - 1.0052, 1.0000, 0.9985, 0.9981 -
 which is the check that the scale map, the age curve and each laboratory's zero are wired correctly.
 
@@ -84,7 +84,7 @@ against erasure, and it is structural rather than measured.
 
 ## A discrepancy to resolve, stated rather than resolved
 
-`identity_band_v3.json` carries a column `tail_p95_if_chip_centred` reading 0.0196–0.0413, which is where the
+[`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) carries a column `tail_p95_if_chip_centred` reading 0.0196–0.0413, which is where the
 expectation of "chip-centring halves the tail" came from. **This run does not reproduce that improvement under
 held-out estimation** — with k = 1 the tail rises in all four cohorts. A chip median computed *including* the array
 being read would produce exactly that kind of apparent improvement, because each array is then partly centred on

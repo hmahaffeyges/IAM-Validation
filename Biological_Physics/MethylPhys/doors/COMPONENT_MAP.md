@@ -5,7 +5,7 @@ Three places, three jobs. Nothing should exist in two of them without this file 
 | place | job | rule |
 |---|---|---|
 | **REPO** `github.com/hmahaffeyges/IAM-Validation` | canonical engine, atlas, runtime constants, sealed anchors, lessons | the only place code is edited; one commit per change; the kit records the commit hash it was cut from |
-| **KIT** `CPG_Issue003_ReproductionKit.zip` | frozen snapshot of exactly what Issue 003 used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
+| **KIT** `CPG_Issue003_ReproductionKit.zip` | frozen snapshot of exactly what [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
 | **YOUR FOLDER** (local, not in git) | large inputs and private material | test IDATs, `betas_cache.pkl`, GEO matrices, decompressed atlas CSV, `_gape_constants_private.py`, Recipe, patents, correspondence |
 
 Kit path prefixes below are relative to the kit root. Repo paths are relative to the repo root; `MethylPhys/chain/` = `Biological_Physics/MethylPhys/chain/`, `VAULT/` = `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/`.
@@ -24,19 +24,19 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | gauge identity loci (8 panels, H_min, H_min_β, band) | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json` | `runtime/` | canonical |
 | cell-type markers v0_2 (115 × 100) | **YOUR FOLDER** (chrX-removed copy) → **must be committed to REPO** `MethylPhys/chain/Runtime Matrices/Celltype_Marker/` | `MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json` (canonical, RULING M1b) + `..._REPO_HEAD_prechrX.json` (what the v1 seal used) | **repo is stale on this file** |
 | 40-cell H_MIN_TABLE, HEALTHY_BASELINE, tiers | REPO `MethylPhys/chain/cpg_gauge_engine.py` | `MethylPhys/chain/` | canonical; byte-identical to Issue 002 |
-| age reference band (8 classes × 10 decades) | REPO `MethylPhys/chain/` (trial bundle copy identical) `age_reference_matrix.json` | `runtime/` | canonical; compiled as H(β̄)/H_min |
-| tier breakpoints v1.3 | REPO `tier_breakpoints.json` (last commit 66f37fe) | `runtime/` | canonical; two vocabularies remain (RECON T3) |
+| age reference band (8 classes × 10 decades) | REPO `MethylPhys/chain/` (trial bundle copy identical) [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) | `runtime/` | canonical; compiled as H(β̄)/H_min |
+| tier breakpoints v1.3 | REPO [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) (last commit 66f37fe) | `runtime/` | canonical; two vocabularies remain (RECON T3) |
 | Stage 1 calibrator | REPO `MethylPhys/chain/stage_1_idat_calibration.py` | `MethylPhys/chain/` | canonical; PROC-CAL-01 PASS 11/11 |
 | conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces walther_clinical.py', 2026-07) | **YOUR FOLDER only** — supplied to this session four times as an upload; **NOT in the repo at 66f37fe, NOT in CPG_TRIAL_CODE.zip** → **must be committed to REPO** `MethylPhys/chain/` | `MethylPhys/chain/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
-| runtime A-scoring module + canonical test | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, `test_a_score_canonical.py` | `MethylPhys/chain/` | separation surface (mean-of-H); guard docstring to be amended per RULING A3 |
-| kit scoring helpers (gauge_A with presence + Jensen guard, separation_A) | **KIT** `cpg_kit.py` | `cpg_kit.py` | new 2026-09-19; **should be promoted into REPO** next to cpg_conductor.py |
+| runtime A-scoring module + canonical test | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py) | `MethylPhys/chain/` | separation surface (mean-of-H); guard docstring to be amended per RULING A3 |
+| kit scoring helpers (gauge_A with presence + Jensen guard, separation_A) | **KIT** [`cpg_kit.py`](../kit/cpg_kit.py) | `cpg_kit.py` | new 2026-09-19; **should be promoted into REPO** next to cpg_conductor.py |
 
 ## B. Sealed references and anchors
 
 | component | canonical location | in kit as | status |
 |---|---|---|---|
 | foundation-cohort anchors v1 (GSE51032 n=460, GSE51057 n=188, 115 cells) | REPO `Biological_Physics/Record/VAL_PostAtlas/foundation_cohort/` | `anchors_v1/` | SUPERSEDED by v2 (RULING M1b); keep |
-| anchors v2 (chrX-removed markers) | **KIT** `anchors_v2/` → **must be committed to REPO** beside v1 | `anchors_v2/` + `RESEAL_REPORT.json` | new 2026-09-19 |
+| anchors v2 (chrX-removed markers) | **KIT** `anchors_v2/` → **must be committed to REPO** beside v1 | `anchors_v2/` + [`RESEAL_REPORT.json`](../../Record/VAL_PostAtlas/foundation_cohort/anchors_v2_chrXremoved/RESEAL_REPORT.json) | new 2026-09-19 |
 | Mahalanobis HC hull v0_5 (n=2,523; d≥13.62 / 18.43) | REPO `MethylPhys/chain/Runtime Matrices/` (`mahalanobis_healthy_reference_*`) | not in kit | specified in Issue 003 §5A.7; **PROC-HULL-01 not yet written** |
 | disease-signature matrix v1.13 (81 rows) | REPO `MethylPhys/chain/Disease Matrix/` | not in kit | Stage 8; not exercised in Issue 003 |
 | disease cards + residual maps (breast-epic, ad-immune, …) | REPO `MethylPhys/chain/Disease Cards : Residual Maps/` | not in kit | Stage 8; not exercised |
@@ -77,20 +77,20 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 ## F. To run any future test, a machine needs exactly
 
 1. the **REPO** at a named commit (engine, atlas `.xz`, runtime JSONs, anchors, lessons);
-2. the **KIT** cut from that commit (runbook, PROC scripts, `cpg_kit.py`, checksums) — or, once promoted, the same files inside the repo;
+2. the **KIT** cut from that commit (runbook, PROC scripts, [`cpg_kit.py`](../kit/cpg_kit.py), checksums) — or, once promoted, the same files inside the repo;
 3. from **YOUR FOLDER**: the decompressed atlas, `betas_cache.pkl`, the IDATs, and whichever GEO matrices the test names;
 4. two environments per `RUNBOOK.md §1`.
 
 ## G. Repo actions this map implies (in order)
 
-1. commit the chrX-removed `iamatlas_celltype_markers_v0_2.json` (RULING M1b)
+1. commit the chrX-removed [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) (RULING M1b)
 2. commit `anchors_v2/` beside `foundation_cohort/`, mark v1 SUPERSEDED in `cohort_manifest.json`
 3. commit SOP v2.0.0 to `VAULT/walther_clinical_runtime/`, then amend §105 per RULING A3
 4. commit the two extra plates from your zip (or delete them locally)
-5. promote `cpg_kit.py` and the five `PROC_*.py` into `MethylPhys/kit/`, and `issue003_build/` into `MethylPhys/manual/`
-6. amend `test_a_score_canonical.py`'s guard to name its surface and add a gauge-surface test
-7. rename `n_bio` -> Mahaffey number (20.94) in `cpg_gauge_engine.py`, `_gape_constants_private.py`, and the 002 card text; reconcile IAM_Hubble2GAPE l.2192 (ln2 form, ~30 - wrong)
-8. **commit `cpg_conductor.py` (289-line, 2026-07) to `MethylPhys/chain/`** — the running chain's orchestrator exists only in your folder
+5. promote [`cpg_kit.py`](../kit/cpg_kit.py) and the five `PROC_*.py` into `MethylPhys/kit/`, and `issue003_build/` into `MethylPhys/manual/`
+6. amend [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py)'s guard to name its surface and add a gauge-surface test
+7. rename `n_bio` -> Mahaffey number (20.94) in [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py), `_gape_constants_private.py`, and the 002 card text; reconcile IAM_Hubble2GAPE l.2192 (ln2 form, ~30 - wrong)
+8. **commit [`cpg_conductor.py`](../chain/cpg_conductor.py) (289-line, 2026-07) to `MethylPhys/chain/`** — the running chain's orchestrator exists only in your folder
 
 
 ---

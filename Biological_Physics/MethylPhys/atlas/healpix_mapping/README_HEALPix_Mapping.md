@@ -1,8 +1,8 @@
 # IAMAtlas HEALPix Mapping — Stage 4.6 grid contract
 
 **Date:** 2026-06-06
-**Module:** `generate_cpg_healpix_mapping.py`
-**Output:** `iamatlas_cpg_to_healpix_nside128.npy` (to be generated; see Production Run below)
+**Module:** [`generate_cpg_healpix_mapping.py`](generate_cpg_healpix_mapping.py)
+**Output:** [`iamatlas_cpg_to_healpix_nside128.npy`](iamatlas_cpg_to_healpix_nside128.npy) (to be generated; see Production Run below)
 **Reference:** CPG Plate 1 — `Biological_Physics/MethylPhys/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
 
 ## What this folder contains
@@ -44,8 +44,8 @@ python generate_cpg_healpix_mapping.py \
 ```
 
 Output:
-- `iamatlas_cpg_to_healpix_nside128.npy` — np.ndarray shape (483,093,) dtype int32; pixel index per CpG in atlas row order
-- `iamatlas_cpg_to_healpix_nside128.provenance.json` — provenance metadata (inputs, npix, n_cpgs_annotated, sentinel pixel for unannotated CpGs)
+- [`iamatlas_cpg_to_healpix_nside128.npy`](iamatlas_cpg_to_healpix_nside128.npy) — np.ndarray shape (483,093,) dtype int32; pixel index per CpG in atlas row order
+- [`iamatlas_cpg_to_healpix_nside128.provenance.json`](iamatlas_cpg_to_healpix_nside128.provenance.json) — provenance metadata (inputs, npix, n_cpgs_annotated, sentinel pixel for unannotated CpGs)
 
 Expected runtime: 10–60 seconds depending on disk speed (most of the time is reading the EPIC manifest CSV).
 
@@ -82,7 +82,7 @@ Some atlas CpGs may not appear in the Illumina manifest (rare — typically <0.5
 ## Versioning
 
 The `.npy` mapping file is versioned by the IAMAtlas it was built against:
-- Current: `iamatlas_cpg_to_healpix_nside128.npy` (built against IAMAtlas REBUILD v0_2, canonical SHA `41b7c16f...`)
+- Current: [`iamatlas_cpg_to_healpix_nside128.npy`](iamatlas_cpg_to_healpix_nside128.npy) (built against IAMAtlas REBUILD v0_2, canonical SHA `41b7c16f...`)
 - When the IAMAtlas is rebuilt with a different CpG list (e.g., EPIC v2 → EPIC v3 transition), the mapping is regenerated.
 
 The `provenance.json` file records the atlas SHA + manifest version used to generate the mapping; the engine verifies these at session startup.

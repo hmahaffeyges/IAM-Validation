@@ -67,7 +67,7 @@ def cover(story):
         'Specification of the Running Engine', S('cv', fontSize=10.5, textColor=TEXT, leading=15)))
     story.append(SP(0.08))
     story.append(Paragraph('Heath W. Mahaffey  ·  IAMPerformance  ·  Entiat, Washington', sMut))
-    story.append(Paragraph('Repository: github.com/hmahaffeyges/IAM-Validation  ·  engine as of the commit this PDF was built from (see git log; the chain has been rebuilt through 2026-09-21)', sMut))
+    story.append(Paragraph('Repository: ' + _a('repo', 'github.com/hmahaffeyges/IAM-Validation') + '  ·  the instrument: ' + _a('interface', 'build_methylphys.py') + ', ' + _a('conductor', 'cpg_conductor.py') + '  ·  step order: ' + _a('sequence', 'CHAIN_SEQUENCE.md') + '  ·  procedure: ' + _a('sop', 'the SOP') + '  ·  file list: ' + _a('manifest', 'REVIEWER_MANIFEST.md') + '  ·  engine as of the commit this PDF was built from (see git log; the chain has been rebuilt through 2026-09-21)', sMut))
     story.append(Paragraph('Prepared with Claude Science, 2026-09-19. <b>Release candidate 1.</b> Every number is loaded from the runtime '
         'files or from a dated run named in the text. Rows marked OPEN are unresolved and are printed as such.', sMut))
     story.append(SP(0.12))

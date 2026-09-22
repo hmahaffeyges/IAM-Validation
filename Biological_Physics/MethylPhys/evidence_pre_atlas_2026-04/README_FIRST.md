@@ -5,7 +5,7 @@
 full, unedited, because the validation history should be inspectable by anyone checking this work — and because
 the record is the authority when the record and a later document disagree.
 
-**What it is not.** It is **not** evidence produced by the chain commissioned in Issue 003, and none of its
+**What it is not.** It is **not** evidence produced by the chain commissioned in [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf), and none of its
 numbers have been re-derived on the identity gauge. Four things a reader must know before quoting anything here:
 
 1. **Different surface.** These A-scores were computed on the marker-union surface. The commissioned chain reads
@@ -16,12 +16,12 @@ numbers have been re-derived on the identity gauge. Four things a reader must kn
    **0.838889 ± 0.0012** during calibration, when six immune cell types replaced neutrophils alone.
 3. **The "detection threshold A > 1.05" in the generated README is that era's working threshold.** It is not a
    commissioned claim of this chain. Issue 003 states no detection threshold for any condition, and its
-   tier breakpoints are a separate, sealed file (`tier_breakpoints.json`).
+   tier breakpoints are a separate, sealed file ([`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json)).
 4. **Disease evidence for the commissioned chain does not exist yet.** By the author's instruction it belongs in
    **Issue 004**, after sealed runs on the commissioned chain against pre-registered bars. Nothing here
    anticipates that result.
 
-**Two copies of `evidence_summary.json` exist and this is the complete one.** The other, generated without
+**Two copies of [`evidence_summary.json`](evidence_summary.json) exist and this is the complete one.** The other, generated without
 network access, carries empty `gdc_availability` (`{}`), `gdc_total_cases` 0 and `geo_catalogued` 0. This copy has
 them populated — 11,428 GDC cases available and 10 GEO datasets catalogued at generation time.
 

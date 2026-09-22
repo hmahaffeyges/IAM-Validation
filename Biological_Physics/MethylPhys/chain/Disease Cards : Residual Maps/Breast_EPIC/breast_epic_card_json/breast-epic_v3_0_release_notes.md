@@ -42,7 +42,7 @@ Full detail in the card JSON's `validation_evidence_summary` (entries 5 through 
 | ID | Headline | Tool | Null suite |
 |---|---|---|---|
 | CPG-VAL-001 | Per-cell-type fan-out — Baso d=+1.577/+1.010, BE +1.281/+0.614 tissue-of-origin at 10yr+ | `iamatlas_a_scoring.score_per_celltype()` | 7/7 PASS Sealed |
-| CPG-VAL-002 | Mahalanobis hyper-volume d=+1.871/+2.088 (universal, not breast-trained) | `iamatlas_mahalanobis_scoring.py` | 7/7 PASS Sealed |
+| CPG-VAL-002 | Mahalanobis hyper-volume d=+1.871/+2.088 (universal, not breast-trained) | [`iamatlas_mahalanobis_scoring.py`](../../../Runtime%20Matrices/Mahalanobis_healthy_reference/iamatlas_mahalanobis_scoring.py) | 7/7 PASS Sealed |
 | CPG-VAL-003 | 1,392 concordant CpGs (5.4:1 hypomethylation field-effect) | Walther + per-CpG residual map | 7/7 PASS Sealed |
 | CPG-VAL-005 | PC2 T-cell suppression axis d=−0.67/−0.58 | sklearn PCA on 115-cell HC covariance | 7/7 PASS Sealed |
 | CPG-VAL-007 | Mahalanobis improves +0.255 GSE51032 after age-axis subtraction | `age_axis_foreground.py` | 7/7 PASS Sealed |
