@@ -8,24 +8,24 @@ Legend: [x] done · [~] in progress · [ ] open · [B] blocked-on-Heath-go
 - [x] Map the v5 chain against real code; verify A-score core reproduces documented numbers.
 - [x] Diagnose the false-fire (deconvolver-free per-cell = bulk-mixture artifact, sd~0.25).
 - [x] Corrected design: Walther-alone presence + derived-hull verdict (gates no call). Verified healthy→within-band.
-- [x] Conductor `cpg_cmb_kiss.py` rewritten + verified (healthy clean, departure flagged & named).
+- [x] Conductor rewritten + verified (healthy clean, departure flagged & named).
 - [x] Presence rule locked: Mode-1 (3% composition gate, hull) vs Mode-2 (A-score-driven shed, NOT fraction-gated; 1.292% cortical neuron).
-- [x] **Noise fix found + built**: low-rep cells = wide MCMC posterior sd → `atlas_cell_reliability.py` (Microglia/Kupffer/aliases rel≈0, clean cells rel=1.0).
-- [B] Repoint pipeline v1_8 → v1_13: `walther_clinical.py:158`, `build_strawman.py:3`, `enrich_strawman.py:8` (one line each).
+- [x] **Noise fix found + built**: low-rep cells = wide MCMC posterior sd → (Microglia/Kupffer/aliases rel≈0, clean cells rel=1.0).
+- [B] Repoint pipeline v1_8 → v1_13: `cpg_conductor.py:158`, `build_strawman.py:3`, `enrich_strawman.py:8` (one line each).
 
-## TRACK 2 — Report builder → `cpg_report_builder_KISS.py` (built + verified end-to-end)
+## TRACK 2 — Report builder → (built + verified end-to-end)
 - [x] Wire CI/reliability noise fix into the per-cell readout. Per-cell 95% CI renders ([lo, hi]); a wide CI (>0.05) auto-tags "indicative · thin reference" (correctly quiet on well-constrained cells). Uses the bundle's existing brightness CI — no archive re-read.
 - [x] Fold Cosmic Methylome Background back in as **Stage 4.6** — collapsible with the reference plate thumbnail + the per-patient projection note (full 8-panel sky map renders on the production box: healpy + the cpg→HEALPix mapping).
 - [x] Surgical cuts verified clean: cfDNA (self-gates off for whole blood) · deconvolver-disagreement collapsible removed · NILC/two-deconvolver intro+footer reframed to **one deconvolver (composition/presence, gates no call)** · footer→vKISS. (Only "NILC" left in output is random chars inside a base64 gauge image — not text.)
 - [x] Run end-to-end: built `CPG_report_DEMO_vKISS.html` (full readout, CI rendering, Stage 4.6, machine-readable snapshot) and `CPG_report_SAMPLE_healthy_43M_vKISS.html` (scale guard correctly withheld on the cached healthy β — see gap below).
-- [x] **v1_13 repoint** (3 one-line edits): `walther_clinical.py:158`, `builders/build_strawman.py:3`, `builders/enrich_strawman.py:8` → v1_13.
+- [x] **v1_13 repoint** (3 one-line edits): `cpg_conductor.py:158`, `builders/build_strawman.py:3`, `builders/enrich_strawman.py:8` → v1_13.
 - [x] **Strawman LIT UP**: fixed path resolution (find engine assets via `CPG_ENGINE_ROOT`) + the age/sex `None`→`""` bug (`html.escape(None)` crash). Patient wall (81 cols) + crown-jewel wall (81×81) render in iframes. `strawman_data_v2.json` (builders/) is the live one.
 - [x] **Full whole-blood report**: `CPG_report_WHOLEBLOOD_RA_vKISS.html` — GSM1051525 (RA), passes scale guard (0/3 below floor), all sections, 28 per-cell CIs, Stage 4.6, strawman, honest Mode-1 resemblance (lung_cancer 100% shape resemblance — resemblance, not probability).
 - [x] **healpix provenance cleaned**: removed external manifest/Zhou-lab mentions; hg19-genomic-order framing + explicit "no external atlas/reference/matrix, ever" statement. (Production copy on Heath's box needs the same one-time edit.)
 - [ ] **DECISION (Heath):** embedded crown-jewel wall carries cfDNA/NILC mentions = honest provenance (HCC/glioma cfDNA-detected rows; one Walther-vs-NILC validation rho) in curated `strawman_data_v2.json`. Keep as-is (a, recommended) / filter to whole-blood diseases (b) / reword tooltips (c). Not touched without go.
 - [ ] Cached healthy whole-blood β trips the scale guard (LESSON-DECONV-01, raw vs noob) — production IDAT path doesn't; verify "healthy reads healthy" once a noob-calibrated whole-blood sample is available.
 - [ ] Assets to wire into the running dir: `cpg_gauge.py`, `A1_reference_gauge.png`, `star_gauge.png`, `iamatlas_cpg_to_healpix_nside128.npy`.
-- Note: `atlas_cell_reliability.py` is the standalone proof of the noise finding; the report itself uses the bundle's per-cell CI (same brightness posteriors) for the "thin reference" tag, so the signal is already in the report. Wire the explicit reliability multiplier only if a separate number is wanted.
+- Note: is the standalone proof of the noise finding; the report itself uses the bundle's per-cell CI (same brightness posteriors) for the "thin reference" tag, so the signal is already in the report. Wire the explicit reliability multiplier only if a separate number is wanted.
 
 ## TRACK 3 — Docs (after the report)
 - [x] `flowchart_vKISS.html` (cfDNA removed, hull verdict, Mode-2 A-score, NILC→shelf, v1_13).

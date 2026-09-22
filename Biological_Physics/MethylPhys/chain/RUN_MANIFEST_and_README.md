@@ -1,6 +1,6 @@
 # CPG_CMB — Run Manifest & Cold-Start README
 **Goal:** a future AI (or a fresh session) can clone this, decompress the atlas, and run real IDAT
-files immediately. Every path below maps to a key in `walther_clinical.py : DEFAULT_CONFIG`. The
+files immediately. Every path below maps to a key in `cpg_conductor.py : DEFAULT_CONFIG`. The
 engine root is set once via the env var **`CPG_ENGINE_ROOT`** (and `CPG_ROOT`, kept equal).
 
 ---
@@ -13,7 +13,7 @@ working version, decompresses the atlas, and checks the HEALPix mapping. Safe to
 ```
 The manual equivalent (what bootstrap.sh automates):
 ```bash
-# 1. set the engine root (the folder that holds walther_clinical.py)
+# 1. set the engine root (the folder that holds cpg_conductor.py)
 export CPG_ENGINE_ROOT="/path/to/CPG_CMB_v5"
 export CPG_ROOT="$CPG_ENGINE_ROOT"
 
@@ -48,8 +48,7 @@ noob Stage-1 path is the calibrated route.
 ### Core engine (Python)
 | File | Role |
 |---|---|
-| `walther_clinical.py` | the chain (all stages, DEFAULT_CONFIG, entry points) |
-| `cpg_report_builder_KISS.py` | the vKISS report builder |
+| `cpg_conductor.py` | the chain: all stages in call order, the entry point |
 | `Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py` | A = H(β)/H_min per cell |
 | `Walther_iam_deconvolver/walther_iam_deconvolver.py` | composition/presence (gates no call) |
 | `cpg_gauge.py` | reference bar gauge + star gauge renderer |
@@ -74,7 +73,6 @@ noob Stage-1 path is the calibrated route.
 |---|---|
 | `Runtime Matrices/Tier_breakpoints/tier_breakpoints.json` | gauge breakpoints (1.07 Warburg, 1.10 breach) |
 | `Runtime Matrices/Literature_anchors_Report building/literature_anchors.json` | published anchors |
-| `Runtime Matrices/Cancer_prior/cancer_prior.json (historical path)` · `Family_history_multiplier/family_history_multiplier.json (historical path)` | priors |
 | `Runtime Matrices/Mahalanobis_healthy_reference/…_v1_0_derived.json` (+ scorer) | derived-hull verdict (Layer 0) |
 | `Runtime Matrices/Directional Panel/…` | AD sealed 7-CpG directional panel |
 | `Runtime Matrices/Celltype_Marker/…` · `Collinearity_Groups/…` | markers (NILC collinearity = deferred/shelf) |
