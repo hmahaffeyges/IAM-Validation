@@ -1,0 +1,143 @@
+nice: setpriority: Operation not permitted
+=================================================================
+GAPE MCMC — G-002: H_min Validation
+=================================================================
+
+Database: 37 cells | Parameters: 8 H_min values
+
+Published H_min calibration (initial guess):
+  stem_pluri     : 0.987775  [beta_ref = 0.416 approx]
+  stem_adult     : 0.855451  [beta_ref = 0.439 approx]
+  progenitor     : 0.841465  [beta_ref = 0.441 approx]
+  terminal       : 0.756499  [beta_ref = 0.456 approx]
+  cycling        : 0.841465  [beta_ref = 0.441 approx]
+  immune         : 0.795040  [beta_ref = 0.449 approx]
+  secretory      : 0.826746  [beta_ref = 0.444 approx]
+  stromal        : 0.844320  [beta_ref = 0.441 approx]
+
+MCMC Configuration:
+  Walkers:          32
+  Burn-in steps:    500
+  Production steps: 5000
+  Independent chains for R-hat: 5
+  Total likelihood calls: 880,000
+
+Running 5 independent chains...
+  Chain 1/5: 160,000 samples | acceptance=0.452 | 2.6s
+  Chain 2/5: 160,000 samples | acceptance=0.455 | 2.5s
+  Chain 3/5: 160,000 samples | acceptance=0.455 | 2.6s
+  Chain 4/5: 160,000 samples | acceptance=0.453 | 2.5s
+  Chain 5/5: 160,000 samples | acceptance=0.455 | 2.9s
+
+Total runtime: 13.1s
+
+=================================================================
+CONVERGENCE DIAGNOSTICS
+=================================================================
+
+R-hat (target: < 1.01 for convergence, < 1.05 acceptable):
+  stem_pluri     : R-hat = 1.00058 ✓
+  stem_adult     : R-hat = 1.00013 ✓
+  progenitor     : R-hat = 1.00066 ✓
+  terminal       : R-hat = 1.00019 ✓
+  cycling        : R-hat = 1.00025 ✓
+  immune         : R-hat = 1.00005 ✓
+  secretory      : R-hat = 1.00032 ✓
+  stromal        : R-hat = 1.00005 ✓
+
+Acceptance fractions: ['0.452', '0.455', '0.455', '0.453', '0.455']
+  (Target: 0.20-0.50 for emcee EnsembleSampler)
+
+Overall convergence: CONVERGED ✓
+
+=================================================================
+POSTERIOR RESULTS — G-002: H_min per Architecture Class
+=================================================================
+
+Total posterior samples: 800,000
+
+Class            Published   Post. mean   Post. 1σ    Δ (σ)  Status
+---------------------------------------------------------------------------
+stem_pluri        0.987775     0.982189   0.008822    -0.63σ  ✓ CONSISTENT
+stem_adult        0.855451     0.873857   0.007796     2.36σ  ✗ TENSION
+progenitor        0.841465     0.852184   0.008593     1.25σ  ~ MARGINAL
+terminal          0.756499     0.772950   0.006895     2.39σ  ✗ TENSION
+cycling           0.841465     0.855928   0.007685     1.88σ  ~ MARGINAL
+immune            0.795040     0.838855   0.006874     6.37σ  ✗ TENSION
+secretory         0.826746     0.843321   0.008435     1.96σ  ~ MARGINAL
+stromal           0.844320     0.862755   0.008658     2.13σ  ✗ TENSION
+
+=================================================================
+A-SCORE VALIDATION — Published H_min vs Posterior H_min
+=================================================================
+
+For each cell: A_pub = H(beta)/H_min_pub  vs  A_post = H(beta)/H_min_post
+
+Cell                             Class          A_pub   A_post       Δ
+---------------------------------------------------------------------------
+H1 ESC                           stem_pluri    0.9936   0.9993  0.0057
+H9 ESC                           stem_pluri    0.9886   0.9942  0.0056
+iPSC Yamanaka P3-5               stem_pluri    1.0000   1.0057  0.0057
+iPSC sendai P10                  stem_pluri    0.9972   1.0029  0.0057
+HSC CD34+ young                  stem_adult    1.0155   0.9941 -0.0214 ←
+HSC CD34+ old                    stem_adult    1.0507   1.0286 -0.0221 ←
+Neural stem cell NSC             stem_adult    1.0000   0.9789 -0.0211 ←
+Intestinal stem LGR5+            stem_adult    1.0302   1.0085 -0.0217 ←
+Muscle satellite cell            stem_adult    1.0079   0.9866 -0.0212 ←
+CMP myeloid progenitor           progenitor    1.0166   1.0038 -0.0128 ←
+GMP granulocyte prog             progenitor    1.0000   0.9874 -0.0126 ←
+Neural progenitor NPC            progenitor    1.0246   1.0117 -0.0129 ←
+Erythroid progenitor             progenitor    1.0084   0.9957 -0.0127 ←
+Cortical neuron mature           terminal      1.0048   0.9835 -0.0214 ←
+Frontal cortex neuron            terminal      1.0000   0.9787 -0.0213 ←
+Cerebellum neuron                terminal      1.0168   0.9951 -0.0216 ←
+Cardiomyocyte adult              terminal      1.0330   1.0110 -0.0220 ←
+Skeletal muscle type I           terminal      1.0509   1.0286 -0.0224 ←
+Colon epithelial normal          cycling       1.0000   0.9831 -0.0169 ←
+Small intestine epith            cycling       1.0084   0.9914 -0.0170 ←
+Keratinocyte basal               cycling       1.0166   0.9994 -0.0172 ←
+Bronchial epithelial             cycling       1.0034   0.9864 -0.0170 ←
+Colon epithelial inflam          cycling       1.0545   1.0367 -0.0178 ←
+CD4+ T naive                     immune        1.0584   1.0031 -0.0553 ←
+CD8+ T memory                    immune        1.0399   0.9856 -0.0543 ←
+CD4+ T effector                  immune        1.1085   1.0506 -0.0579 ←
+NK cell                          immune        1.0493   0.9944 -0.0548 ←
+B cell naive                     immune        1.0673   1.0116 -0.0557 ←
+Neutrophil                       immune        1.0000   0.9478 -0.0522 ←
+Hepatocyte primary               secretory     1.0000   0.9803 -0.0197 ←
+Hepatocyte NAFLD                 secretory     1.0508   1.0301 -0.0207 ←
+Pancreatic beta cell             secretory     1.0090   0.9892 -0.0198 ←
+Acinar cell pancreas             secretory     1.0178   0.9978 -0.0200 ←
+Fibroblast IMR90 P4              stromal       1.0132   0.9915 -0.0216 ←
+Fibroblast IMR90 P16             stromal       1.0509   1.0285 -0.0225 ←
+Aortic endothelial               stromal       1.0000   0.9786 -0.0214 ←
+Lung fibroblast normal           stromal       1.0211   0.9993 -0.0218 ←
+
+=================================================================
+SUMMARY — G-002 MCMC RESULTS
+=================================================================
+
+Convergence:    ACHIEVED
+Max |Δ| (σ):    6.374σ
+All consistent: NO — see TENSION flags above
+
+INTERPRETATION: Tensions exist. Check which classes show the largest
+posterior deviation from published calibration. Those classes may need
+revised reference cell selection or have insufficient data.
+
+Posterior H_min values (use to update GAPE_WEB_v4.py if consistent):
+
+_H_MIN_REGISTRY_POSTERIOR = {
+    'stem_pluri': 0.982189,  # 0.982189 ± 0.008822  (pub: 0.987775, Δ=-0.63σ)
+    'stem_adult': 0.873857,  # 0.873857 ± 0.007796  (pub: 0.855451, Δ=+2.36σ)
+    'progenitor': 0.852184,  # 0.852184 ± 0.008593  (pub: 0.841465, Δ=+1.25σ)
+    'terminal': 0.772950,  # 0.772950 ± 0.006895  (pub: 0.756499, Δ=+2.39σ)
+    'cycling': 0.855928,  # 0.855928 ± 0.007685  (pub: 0.841465, Δ=+1.88σ)
+    'immune': 0.838855,  # 0.838855 ± 0.006874  (pub: 0.795040, Δ=+6.37σ)
+    'secretory': 0.843321,  # 0.843321 ± 0.008435  (pub: 0.826746, Δ=+1.96σ)
+    'stromal': 0.862755,  # 0.862755 ± 0.008658  (pub: 0.844320, Δ=+2.13σ)
+}
+
+Runtime: 13.1s
+
+Next: run gape_mcmc_g008.py (cancer gap prediction)

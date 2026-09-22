@@ -1,0 +1,63 @@
+{
+ "rerun_utc": "2026-09-22",
+ "max_abs_diff": 0.0002449999999999397,
+ "all_within_one_posterior_sd": true,
+ "rows": [
+  {
+   "class": "cycling",
+   "runtime_floor": 0.8561,
+   "rerun_mean": 0.855928,
+   "rerun_sd": 0.007685,
+   "difference": -0.00017199999999994997
+  },
+  {
+   "class": "immune",
+   "runtime_floor": 0.838889,
+   "rerun_mean": 0.838855,
+   "rerun_sd": 0.006874,
+   "difference": -3.399999999997849e-05
+  },
+  {
+   "class": "progenitor",
+   "runtime_floor": 0.8522,
+   "rerun_mean": 0.852184,
+   "rerun_sd": 0.008593,
+   "difference": -1.599999999990498e-05
+  },
+  {
+   "class": "secretory",
+   "runtime_floor": 0.8433,
+   "rerun_mean": 0.843321,
+   "rerun_sd": 0.008435,
+   "difference": 2.0999999999937735e-05
+  },
+  {
+   "class": "stem_adult",
+   "runtime_floor": 0.8737,
+   "rerun_mean": 0.873857,
+   "rerun_sd": 0.007796,
+   "difference": 0.00015699999999996272
+  },
+  {
+   "class": "stem_pluri",
+   "runtime_floor": 0.9822,
+   "rerun_mean": 0.982189,
+   "rerun_sd": 0.008822,
+   "difference": -1.0999999999983245e-05
+  },
+  {
+   "class": "stromal",
+   "runtime_floor": 0.863,
+   "rerun_mean": 0.862755,
+   "rerun_sd": 0.008658,
+   "difference": -0.0002449999999999397
+  },
+  {
+   "class": "terminal",
+   "runtime_floor": 0.7728,
+   "rerun_mean": 0.77295,
+   "rerun_sd": 0.006895,
+   "difference": 0.00014999999999998348
+  }
+ ]
+}
