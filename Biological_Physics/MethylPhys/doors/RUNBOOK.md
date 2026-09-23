@@ -249,7 +249,7 @@ Every run now writes three things, not one:
 |---|---|---|
 | the report | `--out` | the reading, for a human |
 | the bundle | beside the report, `_bundle.json` (`--no-bundle` to suppress) | every stage's output: per-class A with the floor, age term, laboratory zero and scale map applied and its z against the band; all 115 per-cell readings with a credible interval and marker coverage each; the departure axes; the sky statistics per class; the whole Stage 0 record including both file hashes |
-| one ledger row | `evidence_ledger.jsonl` beside the report (`--ledger` to place it) | 273 flat columns - one line per run, so a cross-sample matrix is a file read rather than a re-run |
+| one ledger row | `evidence_ledger.jsonl` beside the report (`--ledger` to place it) | one flat line per run, so a cross-sample matrix is a file read rather than a re-run. **The column set is not fixed** - it grows with the classes that are gauged and the covariates you pass - so read the keys, do not assume a count. The example row shipped in `chain/example_runs/` has **268 columns**: 22 run-level scalars, 115 per-cell A values with 115 coverages, 2 per-class A with their z and band terms, 3 composition percentages and 5 covariate fields |
 
 **Covariates are recorded, not reported.** `--covariate key=value` (repeatable, or `--covariates file.json`)
 goes into the custody record, the bundle and the ledger row. It never reaches report prose: the report states
