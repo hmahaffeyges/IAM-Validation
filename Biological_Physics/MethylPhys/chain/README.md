@@ -1,6 +1,6 @@
 # CPG Engine — the running code
 
-The chain that scores a sample. Start at [`../doors/RUNBOOK.md`](../doors/RUNBOOK.md) to run one, [`../doors/TROUBLESHOOTING.md`](../doors/TROUBLESHOOTING.md) when a run refuses, and [`../doors/CHAIN_SEQUENCE.md`](../doors/CHAIN_SEQUENCE.md) for the step order as the code calls it.
+The chain that scores a sample. Start at [`../doors/RUNBOOK.md`](../doors/RUNBOOK.md) to run one and [`../doors/CHAIN_SEQUENCE.md`](../doors/CHAIN_SEQUENCE.md) for the step order as the code calls it. When a run refuses, the cause and the fix are under the step that refused it in [`../sop/CPG_Chain_of_Custody_SOP_v2_0_0.md`](../sop/CPG_Chain_of_Custody_SOP_v2_0_0.md) (§11-§19), in Issue 003 section 3b, and on the report's own Troubleshooting tab.
 
 | stage | file(s) |
 |---|---|
@@ -59,7 +59,7 @@ Known: `report_builders/render_strawman_v2.py` and [`render_patient_wall.py`](re
 
 Two interfaces exist and they do not run the same steps.
 
-- **`MethylPhys_Interface/run_sample.py`** — one sample, 23 steps. Runs the ten Stage 0 gates on the IDAT
+- **`MethylPhys_Interface/run_sample.py`** — one sample, 23 steps. Runs the ten Stage 0 steps (nine checks and the decision) on the IDAT
   pair first (arrival, manifest, integrity hash, control probes, detection p, bead count, call rate, platform
   coverage, sex, decision); stops at the first refusal and exits without scoring on QUARANTINE. Then
   [`stage_1_idat_calibration.py`](stage_1_idat_calibration.py), then `cpg_conductor.run_full` for the 11
@@ -77,11 +77,10 @@ IDAT decoder; the chain reads IDATs through methylprep instead) and
 [`lineage_splitter.py`](Lineage_Splitter/lineage_splitter.py). [`build_chain_sequence.py`](build_chain_sequence.py) prints this list from
 the code, so it cannot drift from the tree.
 
-**Stage 0 is in the live path (PROC-STAGE0-02, 2026-09-23).** All nine gates run: the intensity-dependent
+**Stage 0 is in the live path (PROC-STAGE0-02, 2026-09-23).** All ten steps run - nine checks and the decision: the intensity-dependent
 ones read the array's own control probes, negative controls, bead counts and chrX/chrY through
 [`stage_0_1_qc_handoff.py`](stage_0_1_qc_handoff.py). Measured on 732 healthy arrays — the sex call agrees
 with the depositors' own labels on 729 of 731. The bisulfite threshold is reported and not applied until it
 is calibrated on healthy data ([`../doors/PROC_STAGE0_04_PREREG.md`](../doors/PROC_STAGE0_04_PREREG.md));
-every other gate applies. What each refusal means, and what to do about it:
-[`../doors/TROUBLESHOOTING.md`](../doors/TROUBLESHOOTING.md).
+every other gate applies. What each refusal means, and what to do about it: under the step that refused it in the SOP (§11-§19), in Issue 003 section 3b, and on the report's Troubleshooting tab.
 

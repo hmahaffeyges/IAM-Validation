@@ -32,7 +32,8 @@ _LINKS = {"repo": "https://github.com/hmahaffeyges/IAM-Validation",
           "conductor": _GH + "chain/cpg_conductor.py",
           "sequence": _GH + "doors/CHAIN_SEQUENCE.md",
           "sop": _GH + "sop/CPG_Chain_of_Custody_SOP_v2_0_0.md",
-          "manifest": _GH + "doors/REVIEWER_MANIFEST.md"}
+          "manifest": _GH + "doors/REVIEWER_MANIFEST.md",
+          "handoff": _GH + "chain/stage_0_1_qc_handoff.py"}
 
 
 def _a(key, text):
@@ -119,7 +120,7 @@ def cover(story):
     story.append(Paragraph('COVERAGE OF THE CHAIN, BY STAGE (as of this RC)', sLabel))
     story.append(Paragraph('Issue 003 is the one document for this work; there is no "next issue". Every stage of the chain at HEAD is described in the switching order (Part II) '
         'and carries a status in CHAIN_COMMISSIONING.md. As of this RC: <b>commissioned</b> - Stage 1 calibration (PROC-CAL-01), Stage 1s scale map (PHASE 1c), Stage 2 deconvolution '
-        '(PROC-DECON-01, PROC-ANCHOR-01, N7), Stage 0 intake with its intensity hand-off (PROC-STAGE0-02: all nine gates run, the sex call agrees with the published labels on 729 of 731 arrays, and a QUARANTINE stops the chain before calibration; the bisulfite threshold is reported, not applied, until PROC-STAGE0-04). <b>Run and recorded with open defects</b> - Stage 2b lineage splitter '
+        '(PROC-DECON-01, PROC-ANCHOR-01, N7), Stage 0 intake with its intensity hand-off (PROC-STAGE0-02: all ten steps run (nine checks and the decision), the sex call agrees with the published labels on 729 of 731 arrays, and a QUARANTINE stops the chain before calibration; the bisulfite threshold is reported, not applied, until PROC-STAGE0-04). <b>Run and recorded with open defects</b> - Stage 2b lineage splitter '
         '(PROC-SEP-03), Stage B class gauge (identity-loci statistic emitted alongside the wired marker-union gauge; band gated on the lab zero), Stage 4.6 patient CMB (four-skies plate; '
         'assessability gate to fix), Stage 5 Mahalanobis (driven by the stem_adult false alarm; key names reconciled), Stage 6 cellular age (pinned at the curve floor; not reportable), '
         'Stage 7 tiers, Stage 8 disease matching (separation surface reproduces the sealed anchor), Stage 9 report. <b>Built, not re-run this cycle</b> - Stage 4.5 bidirectional. '
@@ -271,6 +272,213 @@ def card_addendum(story, key):
     story.append(tbl(rows, [0.14, 0.07, 0.12, 0.12, 0.12, 0.12, 0.31], fs=7))
 
 # ═══════════════════════════════════════════════════════════════════════════════
+def sec3b_stage0(story):
+    """Stage 0 in detail - the gate that decides whether a specimen is measured at all (PROC-STAGE0-02)."""
+    story.append(PageBreak())
+    opener(story, 'SECTION 3b', 'STAGE 0 - THE GATE BEFORE THE MEASUREMENT',
+           'Every check the chain makes before a specimen is calibrated, what healthy arrays measure against '
+           'it, and what each refusal means at the bench')
+    story.append(Paragraph(
+        'A reading is only as good as the specimen behind it, and the chain refuses to measure a specimen it '
+        'cannot vouch for. Stage 0 runs <b>before calibration</b>: ten steps, nine checks and a decision. A '
+        'QUARANTINE stops the chain - no report is written and nothing is scored - so a report in a reader\'s '
+        'hands means these checks were cleared or explicitly deferred, and the report names which. '
+        'The procedure is ' + _a('sop', 'SOP sections 11 to 19') + '. Every refusal below is '
+        'reproduced with its fix in 3b.5, and the report prints the same table beside each reading.', sBody))
+    story.append(SP(0.08))
+    story.append(Paragraph('<b>3b.1 The ten steps, as the code applies them</b>', sSect2))
+    rows = [['step', 'what it decides', 'threshold in code', 'refusal'],
+            ['0.1 arrival', 'manifest complete, both channels, size, array type from the header',
+             'file ≥ 1 MB; type read from nSNPsRead (450K = 622,399 addresses)',
+             'QUARANTINE_INCOMPLETE_MANIFEST / _MISSING_CHANNEL / _TRUNCATED_UPLOAD / _ARRAY_TYPE_MISMATCH'],
+            ['0.2 manifest', 'the array type token is exact and the patient identifier is hashed',
+             'HM450K | EPIC_v1 | EPIC_v2; id ≥ 16 alphanumeric characters',
+             'QUARANTINE_MANIFEST_INVALID (UNKNOWN_ARRAY_TYPE / CLEARTEXT_PII)'],
+            ['0.3 integrity', 'SHA-256 of both files against every prior intake of that Sentrix ID',
+             'identical hashes = held; different hashes = a fresh array, advances',
+             'RE_TRANSMISSION_DETECTED (hold for an operator)'],
+            ['0.4 control probes', 'bisulfite conversion, hybridisation, extension balance',
+             'BS ≥ 0.95 (reported, not applied); hyb ratio ≥ 2.0; extension in [0.2, 5.0]',
+             'FAIL_HYB_FAIL / FAIL_EXT_FAIL; bisulfite → PROVISIONAL'],
+            ['0.5 detection p', 'probes distinguishable from this array’s own background',
+             'p < 0.01 on ≥ 99 % of probes; ≥ 95 % is borderline',
+             'FAIL_LOW_DETECTION'],
+            ['0.6 bead count', 'how much of the array was measured with enough beads',
+             '≥ 3 beads on ≥ 99.5 % of probes', 'WARN_LOW_BEAD_COUNT (penalty, not refusal)'],
+            ['0.7 call rate', 'probes passing detection and beads together',
+             '≥ 0.98; ≥ 0.95 borderline', 'CALL_RATE_FAIL'],
+            ['0.7b coverage', 'how much of the reference the calibrated array covers',
+             '≥ 80 % of the reference CpGs', 'coverage FAIL'],
+            ['0.8 sex', 'chrX and chrY intensities against the declared sex',
+             'log2(Y) − log2(X) < −2.0 → female', 'MISMATCH'],
+            ['0.9 decision', 'sorts every status into hard / borderline / deferred',
+             'any hard failure → QUARANTINE; borderline only → PROCEED_WITH_PENALTY',
+             'QUARANTINE - the chain stops, nothing is scored']]
+    story.append(tbl(rows, [0.15, 0.25, 0.28, 0.32]))
+    story.append(SP(0.08))
+    story.append(Paragraph('<b>3b.2 The hand-off that makes four of these checks possible</b>', sSect2))
+    story.append(Paragraph(
+        'Five of the nine checks need intensities, and Stage 0 runs before calibration - which is why they '
+        'reported DEFERRED for months. ' + _a('handoff', 'stage_0_1_qc_handoff.py') + ' closes that: it '
+        'decodes the pair with the same decoder Stage 1 uses and reads the control addresses out of the '
+        'array\'s own manifest. Nothing but the patient\'s own array enters - no cohort, no reference panel, '
+        'no other specimen - which is what makes these checks legitimate as a clinical intake step.', sBody))
+    story.append(Paragraph(
+        '<b>The construction matters more than the thresholds.</b> A probe\'s total intensity is built by '
+        'Infinium design: a Type II probe is read at address A in both channels, a Type I probe at addresses '
+        'A and B <i>within its own colour channel</i>, because the other channel carries only background '
+        'there. Summing both channels for a Type I probe understates its signal: on the same array the naive '
+        'construction reads a detection pass fraction of 0.979 and the design-aware one 0.9998. Bisulfite '
+        'conversion is computed per matched control pair, C/(C+U) in green, and the array\'s value is the '
+        'median over the six pairs - dividing one group median by another mixes pairs of different '
+        'brightness. The background is the array\'s own 613 NEGATIVE control probes.', sBodySm))
+    story.append(SP(0.08))
+    story.append(Paragraph('<b>3b.3 What healthy specimens measure, so an operator can tell a bad array '
+                           'from a bad configuration</b>', sSect2))
+    story.append(Paragraph(
+        'Measured on 732 healthy whole-blood arrays from four Sentrix-chip years (PROC-STAGE0-02). These are '
+        'the numbers to compare a specimen against: a result far from them is the array, a result at zero or '
+        'one is the configuration.', sBodySm))
+    rows2 = [['check', 'threshold', 'healthy median', '5th percentile', 'worst', 'outside the threshold'],
+             ['detection p', '≥ 0.99', '0.9994', '0.9990', '0.9951', '0 of 731'],
+             ['call rate', '≥ 0.98', '0.9983', '0.9961', '0.9889', '0 of 731'],
+             ['bead count', '≥ 0.995', '0.9988', '0.9969', '0.9900', '9 of 731 (warn)'],
+             ['bisulfite conversion', '≥ 0.95', '0.7979', '0.7400', '0.6354', '731 of 731'],
+             ['sex call', 'agreement', '729 of 731 agree with the published label', '-', '-',
+              '2 - both published as NA']]
+    story.append(tbl(rows2, [0.19, 0.12, 0.26, 0.13, 0.11, 0.19]))
+    story.append(Paragraph(
+        '<b>Two readings of that table.</b> The sex call is the evidence that the hand-off decodes what it '
+        'claims to: made from chrX and chrY intensities alone, with no cohort information, it recovers the '
+        'depositors\' own labels on 729 consecutive arrays. The bisulfite row is the opposite - a threshold '
+        'that refuses 731 of 731 healthy specimens is not measuring specimen quality, so the chain prints the '
+        'value and does not refuse on it, and the decision gate records it as deferred rather than passed. '
+        'The threshold will be set from the healthy distribution across several cohorts and the calibration '
+        'flag flipped in the same commit; until then no specimen is passed that a calibrated gate would fail, '
+        'and none is refused on a number nobody has measured.', sBodySm))
+    story.append(SP(0.08))
+    story.append(Paragraph('<b>3b.4 The result this section rests on</b>', sSect2))
+    story.append(Paragraph(
+        'Stage 0 was run retrospectively over all 732 pairs after it was wired, against bars fixed before any '
+        'array was read: 720 PROCEED, 8 PROCEED_WITH_PENALTY (all borderline on bead count), 3 QUARANTINE, '
+        '1 decode error. All three refusals are donors whose age the depositors do not publish; the decode '
+        'error is one file truncated inside its compressed stream while passing the 1 MB size floor - which '
+        'is why a size check is not an integrity check. <b>Zero of the 268 arrays behind the sealed chip '
+        'result would have been quarantined</b>, so that result stands unchanged and now carries intake '
+        'evidence it did not have when it was sealed.', sBody))
+    story.append(Paragraph(
+        '<b>Four defects found by running it, stated as patterns because they generalise.</b> A gate that '
+        'cannot read its input never fires - the header reader opened IDAT files raw and public downloads are '
+        'gzipped, so the array-type gate had silently never run on public data; it did not error, it returned '
+        '"unreadable" and everything continued. A value that fails to propagate looks like a value that is '
+        'wrong - an identifier dropped between two steps made the next step refuse every array in the cohort, '
+        'and the message blamed the data. A refusal that does not stop the run is reported as something else '
+        'downstream - a quarantine allowed to continue was overwritten, and an array-type mismatch surfaced '
+        'two gates later as a detection failure. And a failure logged as "deferred" is worse than no check at '
+        'all: a decode failure caught and recorded as deferred would have scored a corrupt array with six '
+        'checks unmeasured. All four are closed, each with a negative control that stops the chain and names '
+        'its own cause.', sBodySm))
+    story.append(PageBreak())
+    story.append(Paragraph('<b>3b.5 Every refusal, what it found, and what to do about it</b>', sSect2))
+    story.append(Paragraph(
+        'The chain has three different ways of not giving an answer and they mean different things. '
+        '<b>QUARANTINE</b> means Stage 0 refused the specimen: nothing is scored, no report is written, the '
+        'run exits with code 2. <b>NOT REPORTABLE</b> (also UNSET, NOT ASSESSABLE) means the measurement was '
+        'made and the chain will not place a number on it because a reference it needs does not exist - the '
+        'value is unplaced, not wrong. <b>DEFERRED</b> means a check could not be made, and a deferred check '
+        'is never a pass. A fourth, <b>PROVISIONAL</b>, means a threshold exists in the procedure but has '
+        'never been measured against healthy specimens, so the chain reports the value and does not refuse '
+        'on it; there is exactly one today, in 3b.3.', sBody))
+    rows3 = [['what the chain printed', 'what it found', 'what to do'],
+             ['QUARANTINE_INCOMPLETE_MANIFEST', 'a required manifest field is missing or empty',
+              'the seven fields are exact: sentrix_id, array_type, patient_id, intake_date, substrate, '
+              'declared_sex, declared_chronological_age. Pass --sex and --age; a donor with no published age '
+              'cannot clear this gate'],
+             ['QUARANTINE_MANIFEST_INVALID', 'a field is present but not acceptable; the flag says which',
+              'array_type must be HM450K, EPIC_v1 or EPIC_v2 - "450k" is rejected. patient_id must be a '
+              'hashed token of at least 16 alphanumeric characters; run_sample.py hashes it for you'],
+             ['QUARANTINE_MISSING_CHANNEL', 'one of the two IDAT files is absent',
+              'both --grn and --red are required; a missing Red channel cannot be recovered from the Grn'],
+             ['QUARANTINE_TRUNCATED_UPLOAD', 'an IDAT is smaller than 1 MB',
+              'the transfer did not finish - re-fetch. The flag prints the size it found'],
+             ['QUARANTINE_ARRAY_TYPE_MISMATCH', 'the declared type and the file header disagree',
+              'believe the header: omit --array-type and the chain reads it. Declaring the wrong platform is '
+              'the commonest way to get nonsense from a good specimen'],
+             ['QUARANTINE_CORRUPT_IDAT', 'the decoder reached the file and failed on it',
+              're-fetch. A file can pass the 1 MB floor and still be truncated inside its compressed stream'],
+             ['RE_TRANSMISSION_DETECTED', 'these exact bytes were already taken in against this custody log',
+              'for a legitimate re-run use a different --intake-log, or none. If a duplicate was not '
+              'expected, find out who submitted the first one'],
+             ['sex MISMATCH', 'chrX and chrY disagree with the declared sex',
+              'check the paperwork first - the array is right about 99.7 % of the time. A donor of unknown '
+              'sex cannot clear this gate'],
+             ['FAIL_LOW_DETECTION / CALL_RATE_FAIL', 'too many probes are indistinguishable from background',
+              'a specimen or hybridisation problem, not a configuration one: healthy arrays clear these '
+              'thresholds with two decimal places to spare (3b.3)'],
+             ['coverage FAIL', 'under 80 % of the reference CpGs survived calibration',
+              'usually the wrong array type - check the platform before the specimen'],
+             ['WARN_LOW_BEAD_COUNT → PROCEED_WITH_PENALTY', 'a borderline flag, not a refusal',
+              'nothing for one array; a plate where many warn together is a scanning pattern worth raising '
+              'with the core facility']]
+    story.append(tbl(rows3, [0.26, 0.26, 0.48]))
+    story.append(SP(0.08))
+    story.append(Paragraph('<b>3b.6 It ran, but the chain will not place a number</b>', sSect2))
+    rows4 = [['the reason printed', 'why', 'what to do'],
+             ['no laboratory zero → no placement, no tier',
+              'this laboratory has never been measured, and between-laboratory offsets reach 0.046 in A - '
+              'larger than most effects anyone wants to see',
+              'commission the laboratory once: 40 healthy arrays of any age mix through the same Stage 1, '
+              'then lab_zero.py. Panels under 40 are refused by design'],
+             ['sky: no commissioned residual scale → not rendered', 'same cause, same panel',
+              'same fix'],
+             ['UNMAPPED', 'no pipeline map was applied, so the values are not on the scale the floors were '
+              'calibrated on',
+              'pass --pipeline with a map that exists in beta_scale_maps_v1.json; stage1_noob_450K is the '
+              'right one for raw IDATs through this chain'],
+             ['no band for this component yet', 'that class has no measured healthy band',
+              'nothing to fix - the fraction and A are still printed'],
+             ['cellular age in years: not reported', 'one array resolves age to about 50 years',
+              'nothing to fix; the age-matched healthy reference is what the chain uses instead'],
+             ['NOT ASSESSABLE · f below the presence floor',
+              'that class is below its measured presence floor in this specimen',
+              'nothing to fix - below its floor a class is not there']]
+    story.append(tbl(rows4, [0.28, 0.32, 0.40]))
+    story.append(SP(0.08))
+    story.append(Paragraph('<b>3b.7 It will not start, and how to check the installation</b>', sSect2))
+    rows5 = [['symptom', 'cause', 'fix'],
+             ['calibration hangs with no output, or fails on a manifest download',
+              'the decoder wants to download the array manifest into a home directory it cannot write',
+              'point HOME at a writable cache for the run. The first run fetches the manifest once; after '
+              'that calibration is about 26 s per array'],
+             ['atlas not found: IAMAtlasREBUILD.csv.xz', 'the atlas is stored compressed',
+              'nothing to do - the runner decompresses it once (605 MB) and says so'],
+             ["Missing optional dependency 'pyarrow'", 'the synthetic generator writes parquet',
+              'pip install pyarrow'],
+             ['a batch script dies with a process-pool error', 'some environments forbid process pools',
+              'use threads, as the published batch scripts do'],
+             ['ModuleNotFoundError on a stage module', 'the chain directory is not on the path',
+              'run run_sample.py from its own directory; if files were moved, build_chain_sequence.py names '
+              'what is no longer reachable']]
+    story.append(tbl(rows5, [0.28, 0.30, 0.42]))
+    story.append(Paragraph(
+        '<b>Four checks that fail loudly, if the installation is the suspect.</b> '
+        '<font name="Courier">build_chain_sequence.py</font> prints the step order derived from the code, both '
+        'interfaces, and anything documented as a chain step that nothing calls - if a document disagrees '
+        'with that output, the document is wrong. <font name="Courier">link_check.py</font> resolves every '
+        'relative path in every live document. <font name="Courier">release_check.py</font> prints each guard '
+        'with its result, and a guard that could not run prints NOT RUN rather than a pass. '
+        '<font name="Courier">test_tiers.py</font>, <font name="Courier">test_gauge_switch.py</font>, '
+        '<font name="Courier">test_patient_sky.py</font> and <font name="Courier">test_lab_zero.py</font> '
+        'check that the tier boundaries, the reported gauge, the sky and the panel rule behave as sealed.',
+        sBodySm))
+    story.append(Paragraph(
+        '<b>And the check that catches a mis-scaled reading in one line:</b> run a handful of your own healthy '
+        'specimens. Their median A″ should land near 1.00. On the four commissioned cohorts it does, and '
+        'that is how the pipeline map and the laboratory zero were verified in the first place. If your '
+        'healthy controls do not sit near 1, one of those two is missing - and the chain will have printed '
+        'which.', sBody))
+
+
 def sec7_substrates(story):
     opener(story, 'SECTION 7', 'SUBSTRATE CHARACTERIZATION',
         'Replaces Issue 002 Sections 7–8. Every (substrate, class) pair has its own floor and its own healthy range. This section is the grid: what each substrate '
@@ -764,7 +972,7 @@ def build(out_path):
     # Issue 002 as published. Section 5.0.4 states what is retired and where the original is.
     
     # new sections
-    sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
+    sec3b_stage0(story); sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
     # back matter from 002
     secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
     L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)

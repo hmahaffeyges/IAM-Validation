@@ -1153,7 +1153,7 @@ def _intake_block(o):
         return ("<h3>Stage 0 - chain of custody</h3>"
                 "<p class='pend'>NOT RUN - " + why + ". The reading below is unaffected in value, but this "
                 "specimen carries no arrival gate, no integrity hash and no QC decision.</p>" +
-                "<p class='m'>Every refusal this chain can print, with its cause and what to do about it, is in <code>doors/TROUBLESHOOTING.md</code> - including the thresholds above and what healthy specimens measure against them.</p>")
+                "<p class='m'>What each refusal means and what to do about it is on the Troubleshooting tab of this report.</p>")
     rows = [("Stage 0 decision", rec.get("stage0_verdict") or "-"),
             ("hard failures", ", ".join(rec.get("stage0_hard_fail") or []) or "none"),
             ("borderline", ", ".join(rec.get("stage0_borderline") or []) or "none"),
@@ -1178,13 +1178,155 @@ def _intake_block(o):
     for k, v in rows:
         H.append(f"<tr><td class='m'>{k}</td><td>{v}</td></tr>")
     H.append("</table>")
-    H.append("<p class='m'>Every refusal this chain can print, with its cause and what to do about it, is in "
-             "<code>doors/TROUBLESHOOTING.md</code> - including the thresholds above and what healthy "
-             "specimens measure against them.</p>")
+    H.append("<p class='m'>What each refusal means and what to do about it is on the Troubleshooting "
+             "tab of this report, under the step that refused it in the SOP (sections 11 to 19), and "
+             "in Issue 003 section 3b with the healthy distribution behind every threshold.</p>")
     if rec.get("stage0_deferred_qc"):
         H.append("<p class='m'><b>Deferred means not measured.</b> A deferred gate is neither a pass nor a "
                  "failure - it is a check this run could not make, named so that nobody reads its silence as "
                  "consent.</p>")
+    return "".join(H)
+
+
+def tab_troubleshooting(o, R):
+    """What to do when the chain refuses - the same content as the SOP's step sections and Issue 003 s3b.
+
+    A reader holding one reading should not have to open the procedure to find out what a refusal means, so
+    the refusals live here too, keyed by the exact string the chain prints. Added 2026-09-23 at the author's
+    instruction that this belongs in the report, the SOP and the manual rather than in a document beside them.
+    """
+    SOP = ("https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/sop/"
+           "CPG_Chain_of_Custody_SOP_v2_0_0.md")
+    MAN = ("https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/manual/"
+           "IAMPerformance_GAPEIssue003_RC1.pdf")
+    OUT = ("https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/doors/"
+           "PROC_STAGE0_02_OUTCOME.md")
+    H = ["<h2>Troubleshooting - what each refusal means, and what to do</h2>",
+         "<p>The chain has three ways of not giving you an answer and they mean different things. "
+         "<b>QUARANTINE</b>: Stage 0 refused the specimen - nothing is scored, no report is written, the run "
+         "exits with code 2. <b>NOT REPORTABLE</b> (also UNSET, NOT ASSESSABLE): the measurement was made and "
+         "the chain will not place a number on it, because a reference it needs does not exist - the value is "
+         "unplaced, not wrong. <b>DEFERRED</b>: a check could not be made, and a deferred check is never a "
+         "pass. A fourth, <b>PROVISIONAL</b>, means a threshold exists in the procedure but has never been "
+         "measured against healthy specimens, so the value is printed and not refused on.</p>",
+         "<p class='m'>Full detail under the step that refused: <a href='" + SOP + "'>the SOP, sections 11 to "
+         "19</a>. The same material with the healthy distributions: <a href='" + MAN + "'>Issue 003, section "
+         "3b</a>. The 732-array run these numbers come from: <a href='" + OUT + "'>PROC-STAGE0-02</a>.</p>",
+         "<h3>Stage 0 refused the specimen</h3>",
+         "<table><tr><th>what was printed</th><th>what it found</th><th>what to do</th></tr>"]
+    for a, b, c in (
+        ("QUARANTINE_INCOMPLETE_MANIFEST", "a required manifest field is missing or empty",
+         "the seven fields are exact: sentrix_id, array_type, patient_id, intake_date, substrate, "
+         "declared_sex, declared_chronological_age. Pass --sex and --age; a donor with no recorded age "
+         "cannot clear this gate"),
+        ("QUARANTINE_MANIFEST_INVALID", "a field is present but not acceptable; the flag names it",
+         "array_type must be HM450K, EPIC_v1 or EPIC_v2 - '450k' is rejected. patient_id must be a hashed "
+         "token of at least 16 alphanumeric characters; run_sample.py hashes it for you"),
+        ("QUARANTINE_MISSING_CHANNEL", "one of the two IDAT files is absent",
+         "both --grn and --red are required; a missing Red channel cannot be recovered from the Grn"),
+        ("QUARANTINE_TRUNCATED_UPLOAD", "an IDAT is smaller than 1 MB",
+         "the transfer did not finish - re-fetch. The flag prints the size it found"),
+        ("QUARANTINE_ARRAY_TYPE_MISMATCH", "the declared type and the file's own header disagree",
+         "believe the header: omit --array-type and the chain reads it from the file. A 450K array reports "
+         "622,399 addresses, an EPIC v1 about 1,051,943"),
+        ("QUARANTINE_CORRUPT_IDAT", "the decoder reached the file and failed on it",
+         "re-fetch. A file can pass the 1 MB floor and still be truncated inside its compressed stream, so a "
+         "size check is not an integrity check"),
+        ("RE_TRANSMISSION_DETECTED", "these exact bytes were already taken in against this custody log",
+         "for a legitimate re-run use a different intake log, or none. If a duplicate was not expected, find "
+         "out who submitted the first one"),
+        ("sex MISMATCH", "chrX and chrY intensities disagree with the declared sex",
+         "check the paperwork first - this call agrees with published labels on 729 of 731 healthy arrays. A "
+         "donor of unknown sex cannot clear this gate"),
+        ("FAIL_LOW_DETECTION / CALL_RATE_FAIL", "too many probes are indistinguishable from background",
+         "a specimen or hybridisation problem, not a configuration one: healthy arrays clear these with two "
+         "decimal places to spare (table below)"),
+        ("coverage FAIL", "under 80 per cent of the reference CpGs survived calibration",
+         "usually the wrong array type - check the platform before the specimen"),
+        ("WARN_LOW_BEAD_COUNT", "a borderline flag, not a refusal: the sample is scored with a penalty",
+         "nothing for one array; a plate where many warn together is a scanning pattern worth raising with "
+         "the core facility")):
+        H.append("<tr><td class='m'>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>")
+    H.append("</table>")
+    H.append("<h3>What healthy specimens measure, so you can tell a bad array from a bad configuration</h3>")
+    H.append("<p class='m'>731 healthy whole-blood arrays, four Sentrix-chip years. A result far from these "
+             "is the array; a result at zero or one is the configuration.</p>")
+    H.append("<table><tr><th>check</th><th>threshold</th><th>healthy median</th><th>worst</th>"
+             "<th>outside the threshold</th></tr>")
+    for a, b, c, d, e in (("detection p", "&ge; 0.99", "0.9994", "0.9951", "0 of 731"),
+                          ("call rate", "&ge; 0.98", "0.9983", "0.9889", "0 of 731"),
+                          ("bead count", "&ge; 0.995", "0.9988", "0.9900", "9 of 731 (warn)"),
+                          ("bisulfite conversion", "&ge; 0.95", "0.7979", "0.6354", "731 of 731"),
+                          ("sex call", "agreement", "729 of 731 agree", "-", "2, both recorded as NA")):
+        H.append("<tr><td>" + a + "</td><td>" + b + "</td><td>" + c + "</td><td>" + d + "</td><td>" + e +
+                 "</td></tr>")
+    H.append("</table>")
+    H.append("<p class='m'><b>The bisulfite row is why one gate is PROVISIONAL.</b> A threshold that refuses "
+             "731 of 731 healthy specimens is not measuring specimen quality, so the chain prints the value "
+             "and does not refuse on it, and the decision records it as deferred rather than passed. No "
+             "specimen is passed that a calibrated gate would fail, and none is refused on a number nobody "
+             "has measured.</p>")
+    H.append("<h3>It ran, but no number was placed</h3>")
+    H.append("<table><tr><th>the reason printed</th><th>why</th><th>what to do</th></tr>")
+    for a, b, c in (
+        ("no laboratory zero &rarr; no placement, no tier",
+         "this laboratory has never been measured, and between-laboratory offsets reach 0.046 in A - larger "
+         "than most effects anyone wants to see",
+         "commission the laboratory once: 40 healthy arrays of any age mix through the same Stage 1, then "
+         "lab_zero.py. Panels under 40 are refused by design"),
+        ("sky: no commissioned residual scale", "same cause, same panel", "same fix"),
+        ("UNMAPPED", "no pipeline map was applied, so the values are not on the scale the floors were "
+         "calibrated on",
+         "pass a pipeline that exists in beta_scale_maps_v1.json; stage1_noob_450K is the right one for raw "
+         "IDATs through this chain"),
+        ("no band for this component yet", "that class has no measured healthy band",
+         "nothing to fix - the fraction and A are still printed"),
+        ("cellular age in years: not reported", "one array resolves age to about 50 years",
+         "nothing to fix; the age-matched healthy reference is what the chain uses instead"),
+        ("NOT ASSESSABLE, f below the presence floor",
+         "that class is below its measured presence floor in this specimen",
+         "nothing to fix - below its floor a class is not there")):
+        H.append("<tr><td class='m'>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>")
+    H.append("</table>")
+    H.append("<h3>It will not start</h3>")
+    H.append("<table><tr><th>symptom</th><th>cause</th><th>fix</th></tr>")
+    for a, b, c in (
+        ("calibration hangs with no output, or fails on a manifest download",
+         "the decoder wants to download the array manifest into a home directory it cannot write",
+         "point HOME at a writable cache for the run; the first run fetches the manifest once, after which "
+         "calibration is about 26 s per array"),
+        ("atlas not found: IAMAtlasREBUILD.csv.xz", "the atlas is stored compressed",
+         "nothing to do - the runner decompresses it once (605 MB) and says so"),
+        ("Missing optional dependency 'pyarrow'", "the synthetic generator writes parquet",
+         "pip install pyarrow"),
+        ("a batch script dies with a process-pool error", "some environments forbid process pools",
+         "use threads, as the published batch scripts do"),
+        ("ModuleNotFoundError on a stage module", "the chain directory is not on the path",
+         "run run_sample.py from its own directory; if files were moved, build_chain_sequence.py names what "
+         "is no longer reachable")):
+        H.append("<tr><td>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>")
+    H.append("</table>")
+    H.append("<h3>The reading itself looks wrong</h3>")
+    H.append("<p>Three layers make a reading absolute and they are separate on purpose: the <b>floor</b> "
+             "(H_min per class, calibrated by MCMC, never re-derived per pipeline), the <b>pipeline map</b> "
+             "(the same healthy blood reads 0.737 on the reference scale and 0.815 through Stage 1 noob from "
+             "raw IDATs - a within-pipeline comparison cancels that offset and never sees it, an absolute "
+             "reading does not), and the <b>laboratory zero</b> (measured on 40 healthy arrays; four cohorts "
+             "on one scale sit at 0, +0.024, -0.021 and -0.046 in A). A reading that skips either of the last "
+             "two is not slightly wrong.</p>")
+    H.append("<p><b>The check that catches it in one line:</b> run a handful of your own healthy specimens. "
+             "Their median A&Prime; should land near 1.00 - that is how the map and the zero were verified in "
+             "the first place. If they do not, one of the two is missing, and the chain will have printed "
+             "which.</p>")
+    H.append("<h3>How these were found, which is how to look for yours</h3>")
+    H.append("<p class='m'>A gate that cannot read its input never fires - the header reader opened IDAT "
+             "files raw while public downloads are gzipped, so the array-type check silently never ran on "
+             "public data; it did not error, it returned 'unreadable' and everything continued. A value that "
+             "fails to propagate looks like a value that is wrong - an identifier dropped between two steps "
+             "made the next step refuse every array in a 732-array cohort, and the message blamed the data. A "
+             "refusal that does not stop the run is reported as something else downstream. And a failure "
+             "logged as 'deferred' is worse than no check at all. If a check has never reported a failure, "
+             "test it with input you know is bad.</p>")
     return "".join(H)
 
 
@@ -1539,7 +1681,7 @@ window.addEventListener('DOMContentLoaded',()=>{aud(localStorage.getItem('mp_aud
 TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = researcher only)
  ("reading","Reading",True,"c"),("howto","How to read",True,"c"),("cells","Every cell",True,"c"),
  ("departure","Departure",True,"c"),("sky","Sky",True,"c"),("physics","Physics",False,"c"),("story","Story",False,"c"),
- ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("safeguards","Safeguards",False,"r"),
+ ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("safeguards","Safeguards",False,"r"),("trouble","Troubleshooting",False,"r"),
  ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("files","Files",False,"r"),("findings","Findings",False,"r"),("roadmap","Roadmap",False,"r"),
  ("record","Record",False,"r"),("run","Run",False,"r")]
 
@@ -1556,10 +1698,10 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"trouble":tab_troubleshooting(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
-    _rprint={"reading","howto","cells","departure","sky","reference","safeguards","integrity","chain","files","coverage"}
+    _rprint={"reading","howto","cells","departure","sky","reference","safeguards","trouble","integrity","chain","files","coverage"}
     body="".join(f"<section class='tab{' print' if p else ''}{' printr' if i in _rprint else ''}"
                  f"{' resr' if a=='r' else ''}' id='{i}'>{sec[i]}</section>" for i,n,p,a in TABS)
     page=f"""<!doctype html><html><head><meta charset='utf-8'><title>MethylPhys CPG - {_e(sample_id)}</title><style>{CSS}</style><script>{JS}</script></head><body>

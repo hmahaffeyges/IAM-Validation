@@ -86,6 +86,6 @@ recorded because the next person to wire a gate will be tempted by both.
 
 ## What this does not claim
 
-It does not claim the cohort is clean because Stage 0 passed it: four of the nine gates ran for the first time
+It does not claim the cohort is clean because Stage 0 passed it: four of the ten steps (nine checks and the decision) ran for the first time
 today, and the bisulfite threshold is still uncalibrated. It does not re-open PROC-MAHA-03, which stands
 unchanged. And it says nothing about any cohort but this one.
