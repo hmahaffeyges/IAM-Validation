@@ -230,3 +230,35 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) is generated from the code: every call each path makes, in order, and every file named as chain that no path calls.
 
+## Recording a run so it can be pooled later
+
+A reading is only half of what a run should leave behind. The other half is what the specimen was declared to
+be and what produced the number, and neither can be recovered afterwards from an HTML file.
+
+```
+python3 chain/MethylPhys_Interface/run_sample.py \
+  --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz \
+  --age 61 --sex M --lab GSE87571 --lab-zero -0.0117 --specimen "whole blood" \
+  --covariate diagnosis=case --covariate stage=II --covariate cohort=YOUR_COHORT \
+  --intake-log custody/intake.jsonl --out reports/SAMPLE.html --id SAMPLE
+```
+
+Every run now writes three things, not one:
+
+| what | where | why it matters |
+|---|---|---|
+| the report | `--out` | the reading, for a human |
+| the bundle | beside the report, `_bundle.json` (`--no-bundle` to suppress) | every stage's output: per-class A with the floor, age term, laboratory zero and scale map applied and its z against the band; all 115 per-cell readings with a credible interval and marker coverage each; the departure axes; the sky statistics per class; the whole Stage 0 record including both file hashes |
+| one ledger row | `evidence_ledger.jsonl` beside the report (`--ledger` to place it) | 273 flat columns - one line per run, so a cross-sample matrix is a file read rather than a re-run |
+
+**Covariates are recorded, not reported.** `--covariate key=value` (repeatable, or `--covariates file.json`)
+goes into the custody record, the bundle and the ledger row. It never reaches report prose: the report states
+the number of covariate fields captured and nothing more, because a reading states what was measured and the
+phenotype a specimen was declared with is not a measurement. The vocabulary guard enforces this - it refused
+the key name `diagnosis` on a page, which is the behaviour we want.
+
+**Provenance is on the page.** The Run tab now opens with what produced this reading: the run timestamp, the
+chain commit (and whether the working tree was clean), the decoder version, and a SHA-256 of all fourteen
+inputs the chain read - atlas, identity loci, band, scale maps, age curve, tier table, and the chain modules
+themselves. Two readings are comparable only if those hashes match, and a reader can now check that without
+opening a bundle.

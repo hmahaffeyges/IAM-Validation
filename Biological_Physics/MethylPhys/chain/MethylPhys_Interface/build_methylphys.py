@@ -1559,13 +1559,60 @@ def tab_findings(R):
     return no_changelog("".join(H),"Findings")   # exempt from the vocabulary guard only: a finding names the condition it measured
 
 
-def tab_run(R):
+def _provenance_block(o):
+    """What produced THIS reading: the chain commit, the decoder version, and a hash of every input read.
+
+    Added 2026-09-23. The run already recorded this in its bundle, but a reader holding the report could not
+    see which atlas or which band produced the number in front of them - and two readings from different
+    months are only comparable if that is on the page. Covariate KEYS are listed without their values: the
+    phenotype belongs in the custody record, not in a reading's prose.
+    """
+    v = o.get("versions") or {}
+    if not v:
+        return ["<h3>What produced this reading</h3>",
+                "<p class='m'>This report was built from a bundle with no version block - it predates the "
+                "2026-09-23 capture, so the input hashes were not recorded at run time.</p>"]
+    H = ["<h3>What produced this reading</h3>",
+         "<p>Two readings are comparable only if they came from the same inputs. Everything this run read is "
+         "hashed below, so a reviewer can tell at a glance whether this reading and another used the same "
+         "atlas, the same band and the same age curve.</p>",
+         "<table><tr><th>run timestamp (UTC)</th><td class='m'>%s</td></tr>"
+         "<tr><th>chain commit</th><td class='m'>%s%s</td></tr>"
+         "<tr><th>decoder</th><td class='m'>methylprep %s, Python %s</td></tr></table>"
+         % (v.get("run_timestamp_utc", "-"), v.get("chain_commit", "-"),
+            " <b>(working tree had uncommitted changes)</b>" if v.get("chain_dirty") else "",
+            v.get("methylprep", "-"), v.get("python", "-"))]
+    ins = v.get("inputs") or {}
+    if ins:
+        H.append("<table><tr><th>input the chain read</th><th>SHA-256 (first 12)</th><th>size</th></tr>")
+        for k in sorted(ins):
+            d = ins[k] or {}
+            H.append("<tr><td class='m'>%s</td><td class='m'>%s</td><td class='m'>%.1f MB</td></tr>"
+                     % (k, d.get("sha256_12", "-"), (d.get("bytes") or 0) / 1e6))
+        H.append("</table>")
+    cov = ((o.get("intake") or {}).get("covariates") or {})
+    if cov:
+        # Not even the KEYS are printed: the vocabulary guard refused "diagnosis" on 2026-09-23, and it was
+        # right to - a key name carries the phenotype as surely as its value does. The count tells a reader
+        # the capture happened; the custody record tells them what it captured.
+        H.append("<p><b>%d covariate field%s recorded with this run</b>, held in the custody record and the "
+                 "bundle rather than here. A reading states what was measured; what the specimen was "
+                 "declared to be is not a measurement, and naming it on this page would invite the number "
+                 "to be read as a finding about it.</p>" % (len(cov), "" if len(cov) == 1 else "s"))
+    else:
+        H.append("<p class='m'>No covariates were recorded with this run. A run intended for a later "
+                 "cross-sample analysis should pass them (<code>--covariate diagnosis=case</code>), because "
+                 "nothing downstream can recover a phenotype the run did not capture.</p>")
+    return H
+
+
+def tab_run(o, R):
     """Run it yourself. Every file named here is linked at this commit, and every command is one that
     actually works - the earlier version advertised an IDAT entry point that did not exist (fixed 2026-09-22
     by writing run_sample.py)."""
     def L(name, label=None):
         return _link(R, name, label)
-    H=["<h2>Run it yourself</h2>",
+    H=["<h2>Run it yourself</h2>"] + _provenance_block(o) + [
        "<p>The chain is open. Clone the repository, verify it against the eleven commissioning arrays, then run your own sample. Every file below "
        "is linked at the exact commit this report was built from, with its SHA-256, so you can check you are running what this page describes.</p>",
        "<h3>1. Clone and prepare</h3>",
@@ -1698,7 +1745,7 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"trouble":tab_troubleshooting(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"trouble":tab_troubleshooting(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(o,R)}
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
     _rprint={"reading","howto","cells","departure","sky","reference","safeguards","trouble","integrity","chain","files","coverage"}

@@ -10,7 +10,7 @@ whether it still reproduces what the record says it produced.
 
 Nine IDAT pairs, four cohorts, two platforms, three substrates — whole blood (healthy and rheumatoid
 arthritis), colon adenoma tissue, and colorectal carcinoma tissue at two stages. Every array runs through
-`run_sample.py`: the ten intake steps, Stage 1 calibration from the raw IDAT pair, the eleven conductor
+[`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py): the ten intake steps, Stage 1 calibration from the raw IDAT pair, the eleven conductor
 stages, and the report.
 
 ## Metadata correction, recorded before the run
