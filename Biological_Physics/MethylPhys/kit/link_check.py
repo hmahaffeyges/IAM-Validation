@@ -101,6 +101,10 @@ def main():
         text = open(path, encoding="utf-8", errors="replace").read()
         base = os.path.dirname(path)
         for ref in references(text):
+            # a regex character class or quantifier inside parentheses is a pattern in source code, not
+            # a path: build_reviewer_manifest.py's own PROC-id regex read as two broken links (2026-09-23)
+            if any(c in ref for c in "[]\\+*?^") and not ref.endswith((".md", ".py", ".json", ".csv")):
+                continue
             if ref.startswith(("http", "mailto:", "#", "/")):
                 continue
             # a shell command inside link parentheses is not a path
