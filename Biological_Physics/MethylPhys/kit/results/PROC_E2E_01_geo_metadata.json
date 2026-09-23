@@ -1,0 +1,71 @@
+{
+ "GSM1051525": {
+  "gse": "GSE42861",
+  "cell type": "PBL",
+  "disease state": "rheumatoid arthritis",
+  "subject": "Patient",
+  "age": "67",
+  "gender": "f",
+  "smoking status": "current"
+ },
+ "GSM1051533": {
+  "gse": "GSE42861",
+  "cell type": "PBL",
+  "disease state": "Normal",
+  "subject": "Normal",
+  "age": "55",
+  "gender": "m",
+  "smoking status": "current"
+ },
+ "GSM2333901": {
+  "gse": "GSE87571",
+  "gender": "Male",
+  "age": "72",
+  "tissue": "whole blood",
+  "disease state": "normal"
+ },
+ "GSM2333905": {
+  "gse": "GSE87571",
+  "gender": "Male",
+  "age": "74",
+  "tissue": "whole blood",
+  "disease state": "normal"
+ },
+ "GSM2333950": {
+  "gse": "GSE87571",
+  "gender": "Male",
+  "age": "81",
+  "tissue": "whole blood",
+  "disease state": "normal"
+ },
+ "GSM8772491": {
+  "gse": "GSE288652",
+  "tissue": "colon adenoma",
+  "sex": "Female",
+  "age": "74",
+  "laterality": "Right",
+  "disease state": "high-grade colon adenoma"
+ },
+ "GSM8772492": {
+  "gse": "GSE288652",
+  "tissue": "colon adenoma",
+  "sex": "Female",
+  "age": "52",
+  "laterality": "Right",
+  "disease state": "high-grade colon adenoma"
+ },
+ "GSM5065990": {
+  "gse": "GSE166212",
+  "tissue": "colorectal tumor bulk",
+  "tumor type (stage)": "Carcinoma (1)",
+  "patient age": "55",
+  "patient sex": "M"
+ },
+ "GSM5065985": {
+  "gse": "GSE166212",
+  "tissue": "colorectal tumor bulk",
+  "tumor type (stage)": "Carcinoma (4)",
+  "patient age": "45",
+  "patient sex": "M"
+ }
+}

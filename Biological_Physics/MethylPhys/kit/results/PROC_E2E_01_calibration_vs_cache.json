@@ -1,0 +1,80 @@
+{
+ "GSM1051525": {
+  "shared": 415863,
+  "cached": 415863,
+  "fresh": 415863,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM1051526": {
+  "status": "IDAT not in the package"
+ },
+ "GSM1051533": {
+  "shared": 417933,
+  "cached": 417933,
+  "fresh": 417933,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM1051534": {
+  "status": "IDAT not in the package"
+ },
+ "GSM2333901": {
+  "shared": 417814,
+  "cached": 417814,
+  "fresh": 417814,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM2333905": {
+  "shared": 417039,
+  "cached": 417039,
+  "fresh": 417039,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM2333950": {
+  "shared": 416583,
+  "cached": 416583,
+  "fresh": 416583,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM5065985": {
+  "shared": 736924,
+  "cached": 736924,
+  "fresh": 736924,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM5065990": {
+  "shared": 757003,
+  "cached": 757003,
+  "fresh": 757003,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM8772491": {
+  "shared": 490390,
+  "cached": 490390,
+  "fresh": 490390,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ },
+ "GSM8772492": {
+  "shared": 601825,
+  "cached": 601825,
+  "fresh": 601825,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "within_1e9": true
+ }
+}

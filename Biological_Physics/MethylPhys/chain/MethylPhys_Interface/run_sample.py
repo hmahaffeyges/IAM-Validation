@@ -46,15 +46,42 @@ def _atlas():
         with lzma.open(xz,"rb") as f, open(csv,"wb") as g: shutil.copyfileobj(f,g,1<<24)
     return csv
 
+SUBSTRATE_TOKENS = ("whole_blood", "plasma_cfDNA", "tissue", "unknown")
+
+
+def substrate_token(text):
+    """Map a laboratory's own specimen description to the controlled token the report renders.
+
+    The custody record keeps what the laboratory wrote; the report gets a token. `--specimen "colorectal
+    tumour tissue"` crashed the report's vocabulary guard on 2026-09-23 - correctly, because a condition name
+    has no place in a reading - and the fix is not to forbid the description but to keep free text out of
+    report prose.
+    """
+    t = (text or "").strip().lower().replace("-", "_").replace(" ", "_")
+    if not t:
+        return "unknown"
+    if t in SUBSTRATE_TOKENS:
+        return t
+    if "blood" in t or "buffy" in t:
+        return "whole_blood"
+    if "cfdna" in t or "plasma" in t or "cell_free" in t:
+        return "plasma_cfDNA"
+    if any(k in t for k in ("tissue", "biopsy", "tumour", "tumor", "adenoma", "carcinoma", "colon",
+                            "breast", "lung", "resection")):
+        return "tissue"
+    return "unknown"
+
+
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
-    ap.add_argument("--age", type=int, help="declared age in years; without it the age term cannot be removed")
+    ap.add_argument("--age", type=float, help="declared age in years; without it the age term cannot be removed. Float because cohorts publish decimal ages (GEO carries 72.0 and 54.5 as readily as 72)")
     ap.add_argument("--lab", help="laboratory / pipeline identity, e.g. GSE87571 for a commissioned one")
     ap.add_argument("--pipeline", default="stage1_noob_450K", help="pipeline map name from beta_scale_maps_v1.json")
     ap.add_argument("--specimen", default="whole blood")
     ap.add_argument("--lab-zero", type=float, default=None, help="this laboratory's measured zero; omit to read UNSET")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
+    ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
     ap.add_argument("--sex", default=None, help="declared sex (F/M); Stage 0.8 compares it with the array")
     ap.add_argument("--patient-id", default=None, help="already-hashed identifier; a cleartext one is hashed here")
     ap.add_argument("--array-type", default="HM450K", choices=("HM450K", "EPIC_v1", "EPIC_v2"))
@@ -185,7 +212,7 @@ def main():
             sys.exit(2)
 
     import cpg_conductor as C, build_methylphys as B
-    cfg={"age":a.age,"pipeline":a.pipeline,"lab_zero":a.lab_zero,"substrate":a.specimen,
+    cfg={"age":a.age,"pipeline":a.pipeline,"lab_zero":a.lab_zero,"substrate":substrate_token(a.specimen), "substrate_as_declared":a.specimen,
          "intake": intake, "intake_skipped": bool(a.no_intake)}
     if a.lab: cfg["lab"]=a.lab
     print(f"running the chain on {len(beta):,} CpGs", flush=True)
@@ -193,6 +220,10 @@ def main():
     o["intake"] = intake          # the report prints the Stage 0 record, or NOT RUN when there is none
     o["intake_skipped"] = bool(a.no_intake)
     r=B.build(o, a.out, sid)
+    if a.bundle:
+        import json as _json
+        _json.dump(o, open(a.bundle, "w"), default=str)
+        print(f"bundle: {a.bundle}", flush=True)
     imm=o["classes"].get("immune",{})
     print(f"\n{sid}: immune A'' {imm.get('A_abs')}  placement {imm.get('placement')}  tier {imm.get('tier')}")
     print(f"refusals: {len(r['refusals'])}" + (f" -> {r['refusals'][:3]}" if r["refusals"] else ""))

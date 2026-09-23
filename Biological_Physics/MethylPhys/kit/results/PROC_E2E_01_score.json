@@ -1,0 +1,66 @@
+{
+ "verdict": {
+  "B1": true,
+  "B2": true,
+  "B3": true,
+  "B4": true,
+  "B5": true,
+  "B6": true
+ },
+ "arrays": {
+  "GSM1051525": {
+   "exit": 0,
+   "secs": 51.1,
+   "age": "67",
+   "gse": "GSE42861"
+  },
+  "GSM1051533": {
+   "exit": 0,
+   "secs": 50.0,
+   "age": "55",
+   "gse": "GSE42861"
+  },
+  "GSM2333901": {
+   "exit": 0,
+   "secs": 49.8,
+   "age": "72",
+   "gse": "GSE87571"
+  },
+  "GSM2333905": {
+   "exit": 0,
+   "secs": 50.2,
+   "age": "74",
+   "gse": "GSE87571"
+  },
+  "GSM2333950": {
+   "exit": 0,
+   "secs": 49.9,
+   "age": "81",
+   "gse": "GSE87571"
+  },
+  "GSM5065985": {
+   "exit": 2,
+   "secs": 0.1,
+   "age": null,
+   "gse": "GSE166212"
+  },
+  "GSM5065990": {
+   "exit": 2,
+   "secs": 0.1,
+   "age": null,
+   "gse": "GSE166212"
+  },
+  "GSM8772491": {
+   "exit": 0,
+   "secs": 71.0,
+   "age": "74",
+   "gse": "GSE288652"
+  },
+  "GSM8772492": {
+   "exit": 0,
+   "secs": 71.7,
+   "age": "52",
+   "gse": "GSE288652"
+  }
+ }
+}
