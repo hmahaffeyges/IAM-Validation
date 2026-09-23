@@ -1,6 +1,66 @@
 {
  "live_path": [
   {
+   "step": "step_0_1_idat_arrival",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.1_idat_arrival",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_2_manifest_creation",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.2_manifest_creation",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_3_integrity_hash",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.3_integrity_hash",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_4_control_probe_validation",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.4_control_probe_validation",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_5_detection_pvalue_qc",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.5_detection_pvalue_qc",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_6_bead_count_qc",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.6_bead_count_qc",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_7_call_rate",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.7_call_rate",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_7b_platform_coverage",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.7b_platform_coverage",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_8_sex_check",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.8_sex_check",
+   "status": "runs in the live path, before calibration"
+  },
+  {
+   "step": "step_0_9_decision_gate",
+   "where": "stage_0_intake.py",
+   "implements": "SOP section 0.9_decision_gate",
+   "status": "runs in the live path, before calibration"
+  },
+  {
    "step": "Stage 1 - IDAT calibration",
    "where": "stage_1_idat_calibration.py",
    "implements": "Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5)",
@@ -110,12 +170,6 @@
    "where": "cpg_conductor.py",
    "implements": "NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix",
    "status": "defined in the conductor; run_full does not call it"
-  },
-  {
-   "step": "stage_0_intake.py",
-   "where": "stage_0_intake.py",
-   "implements": "Stage 0 \u2014 Sample intake (L1)",
-   "status": "module present; neither run_sample.py nor cpg_conductor.py calls it"
   },
   {
    "step": "stage_1_calibration.py",
@@ -307,11 +361,6 @@
  },
  "role_gaps": [
   {
-   "file": "stage_0_intake.py",
-   "role": "chain",
-   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
-  },
-  {
    "file": "idat_decoder_pure.py",
    "role": "chain",
    "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
@@ -338,9 +387,9 @@
   }
  ],
  "counts": {
-  "live": 13,
+  "live": 23,
   "batch": 7,
-  "not_wired": 4,
-  "role_gaps": 6
+  "not_wired": 3,
+  "role_gaps": 5
  }
 }
