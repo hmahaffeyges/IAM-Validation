@@ -72,6 +72,148 @@ def substrate_token(text):
     return "unknown"
 
 
+def _covariates(a):
+    """Phenotype and covariates for this run: --covariates JSON first, then --covariate key=value on top."""
+    import json as _json
+    cov = {}
+    if getattr(a, "covariates", None):
+        with open(a.covariates, encoding="utf-8") as f:
+            loaded = _json.load(f)
+        if not isinstance(loaded, dict):
+            raise SystemExit("--covariates must contain a JSON object of key/value pairs")
+        cov.update({str(k): loaded[k] for k in loaded})
+    for kv in getattr(a, "covariate", None) or []:
+        if "=" not in kv:
+            raise SystemExit(f"--covariate expects KEY=VALUE, got {kv!r}")
+        k, v = kv.split("=", 1)
+        cov[k.strip()] = v.strip()
+    return cov
+
+
+def _sha12(path):
+    import hashlib as _h
+    try:
+        h = _h.sha256()
+        with open(path, "rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()[:12]
+    except OSError:
+        return None
+
+
+def _versions(chain_dir):
+    """Every input that can change a reading, with a short hash - so runs months apart are poolable.
+
+    A matrix row that does not say which atlas and which band produced it cannot be pooled with one that
+    used different files, and nothing in the reading itself reveals the difference.
+    """
+    import glob as _glob
+    import json as _json
+    import platform as _plat
+    import subprocess as _sub
+    import time as _time
+    out = {"run_timestamp_utc": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime()),
+           "python": _plat.python_version()}
+    try:
+        import methylprep as _mp
+        out["methylprep"] = getattr(_mp, "__version__", "unknown")
+    except Exception:
+        out["methylprep"] = "not importable"
+    try:
+        out["chain_commit"] = _sub.run(["git", "-C", chain_dir, "rev-parse", "--short", "HEAD"],
+                                       capture_output=True, text=True, timeout=10).stdout.strip() or "unknown"
+        out["chain_dirty"] = bool(_sub.run(["git", "-C", chain_dir, "status", "--porcelain"],
+                                           capture_output=True, text=True, timeout=20).stdout.strip())
+    except Exception:
+        out["chain_commit"] = "unknown"
+    files = {}
+    for pat in ("**/iamatlas_gauge_identity_loci_v1_0.json", "**/identity_band_v3.json",
+                "**/beta_scale_maps_v1.json", "**/reference_age_curve_v1.json", "**/tier_breakpoints.json",
+                "**/percell_reference_v0_3.json", "../atlas/IAMAtlasREBUILD.csv",
+                "../atlas/IAMAtlasREBUILD.csv.xz", "../atlas/IAMAtlasREBUILD_celltype_to_class.json",
+                "cpg_conductor.py", "iamatlas_a_scoring.py", "stage_0_intake.py",
+                "stage_0_1_qc_handoff.py", "stage_1_idat_calibration.py",
+                "MethylPhys_Interface/build_methylphys.py"):
+        for p in _glob.glob(os.path.join(chain_dir, pat), recursive=True):
+            if "RETIRED" in p:
+                continue
+            files[os.path.relpath(p, chain_dir)] = {"sha256_12": _sha12(p), "bytes": os.path.getsize(p)}
+    out["inputs"] = files
+    return out
+
+
+def _class_z(o, chain_dir=None):
+    """Put the z the chain already computed onto each class record, with the reference it was measured against.
+
+    Stage 5 computes z per class in departure["top_axis_contributions"] - patient A, the age-matched mean and
+    the sigma it used - but that list only carries the axes it reported, and a matrix wants the number on the
+    class row it belongs to. identity_band_v3.json is a POOLED percentile band (p10/p50/p90 plus per-decade),
+    not a per-class mean and sigma, so nothing here re-derives a band: the sigma is the one Stage 5 used, and
+    the per-locus sky statistics are carried across as they are.
+    """
+    dep = o.get("departure") or {}
+    by_class = {}
+    for ax in (dep.get("top_axis_contributions") or []):
+        if isinstance(ax, dict) and ax.get("class"):
+            by_class[ax["class"]] = ax
+    sky = ((o.get("patient_sky") or {}).get("classes") or {})
+    for cls, rec in (o.get("classes") or {}).items():
+        if not isinstance(rec, dict):
+            continue
+        ax = by_class.get(cls)
+        if ax:
+            rec["z"] = ax.get("z")
+            rec["age_matched_mean"] = ax.get("age_matched_mean")
+            rec["band_sigma"] = ax.get("sigma")
+            rec["band_widths_from_line"] = ax.get("band_widths_from_line")
+        sk = sky.get(cls)
+        if isinstance(sk, dict):
+            rec["sky_median_z"] = sk.get("median_z")
+            rec["sky_frac_abs_z_gt2"] = sk.get("frac_abs_z_gt2")
+            rec["sky_n_loci"] = sk.get("n")
+
+
+def _ledger_row(o, sample_id, out_path):
+    """One flat row per run: everything a disease matrix needs from this specimen, without opening the bundle."""
+    intake = o.get("intake") or {}
+    dep = o.get("departure") or {}
+    row = {"sample_id": sample_id, "report": os.path.basename(out_path),
+           "run_timestamp_utc": (o.get("versions") or {}).get("run_timestamp_utc"),
+           "chain_commit": (o.get("versions") or {}).get("chain_commit"),
+           "sample_run_id": intake.get("sample_run_id"), "sentrix_id": intake.get("sentrix_id"),
+           "array_type": intake.get("array_type"), "substrate": o.get("context", {}).get("substrate"),
+           "declared_age": intake.get("declared_chronological_age"),
+           "declared_sex": intake.get("declared_sex"), "predicted_sex": intake.get("predicted_sex"),
+           "stage0_verdict": intake.get("stage0_verdict"),
+           "detection_pct": intake.get("pct_probes_detected_p_le_01"),
+           "call_rate": intake.get("call_rate"), "lab": (o.get("patient_sky") or {}).get("lab"),
+           "lab_zero": o.get("lab_zero"), "scale": o.get("scale"),
+           "mahalanobis_d": dep.get("mahalanobis_distance"),
+           "beyond_band": dep.get("mahalanobis_beyond_band"),
+           "lab_false_alarm_p95": dep.get("lab_false_alarm_p95"),
+           "second_opinion_agreement": (o.get("second_opinion") or {}).get("agreement"),
+           "cellular_age_reportable": (o.get("cellular_age") or {}).get("reportable")}
+    for cls, rec in sorted((o.get("classes") or {}).items()):
+        row[f"A_abs.{cls}"] = rec.get("A_abs")
+        row[f"z.{cls}"] = rec.get("z")
+        row[f"placement.{cls}"] = rec.get("placement")
+        row[f"band_sigma.{cls}"] = rec.get("band_sigma")
+        row[f"age_matched_mean.{cls}"] = rec.get("age_matched_mean")
+        row[f"sky_median_z.{cls}"] = rec.get("sky_median_z")
+        row[f"sky_frac_abs_z_gt2.{cls}"] = rec.get("sky_frac_abs_z_gt2")
+        row[f"tier.{cls}"] = rec.get("tier")
+    for cls, pct in sorted(((o.get("composition") or {}).get("class") or {}).items()):
+        row[f"pct.{cls}"] = pct
+    for cell, rec in sorted((o.get("cells_all") or {}).items()):
+        if isinstance(rec, dict):
+            row[f"cellA.{cell}"] = rec.get("A")
+            row[f"cellCov.{cell}"] = rec.get("coverage")
+    for k, v in ((o.get("intake") or {}).get("covariates") or {}).items():
+        row[f"cov.{k}"] = v
+    return row
+
+
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
@@ -82,6 +224,11 @@ def main():
     ap.add_argument("--lab-zero", type=float, default=None, help="this laboratory's measured zero; omit to read UNSET")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
     ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
+    ap.add_argument("--covariate", action="append", default=[], metavar="KEY=VALUE",
+                    help="a phenotype or covariate to record with this run, repeatable - e.g. --covariate diagnosis=case --covariate stage=II --covariate cohort=EPIC_Italy. Kept in the custody record and the bundle; never printed in report prose")
+    ap.add_argument("--covariates", help="a JSON object of covariates, merged with any --covariate flags")
+    ap.add_argument("--no-bundle", action="store_true", help="do not write the machine-readable bundle beside the report (it is written by default: a run that leaves only HTML cannot be pooled later)")
+    ap.add_argument("--ledger", default=None, help="append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report")
     ap.add_argument("--sex", default=None, help="declared sex (F/M); Stage 0.8 compares it with the array")
     ap.add_argument("--patient-id", default=None, help="already-hashed identifier; a cleartext one is hashed here")
     ap.add_argument("--array-type", default="HM450K", choices=("HM450K", "EPIC_v1", "EPIC_v2"))
@@ -219,11 +366,27 @@ def main():
     o=C.run_full(beta, _atlas(), cfg=cfg)
     o["intake"] = intake          # the report prints the Stage 0 record, or NOT RUN when there is none
     o["intake_skipped"] = bool(a.no_intake)
+    # Everything a disease matrix will need from this specimen, captured at the moment of the run: the
+    # phenotype it was declared with, and every input version that could change the reading. A run that
+    # records neither cannot be pooled with one from another month (2026-09-23).
+    cov = _covariates(a)
+    intake.setdefault("covariates", {}).update(cov)
+    o["intake"] = intake
+    o["versions"] = _versions(os.path.dirname(os.path.abspath(__file__)) + "/..")
+    _class_z(o, os.path.dirname(os.path.abspath(__file__)) + "/..")
+    if cov:
+        print(f"covariates recorded: {cov}", flush=True)
     r=B.build(o, a.out, sid)
-    if a.bundle:
+    # The bundle is written by default: a run that leaves only a 6 MB HTML cannot be pooled later.
+    bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
+    if not a.no_bundle:
         import json as _json
-        _json.dump(o, open(a.bundle, "w"), default=str)
-        print(f"bundle: {a.bundle}", flush=True)
+        _json.dump(o, open(bundle_path, "w"), default=str)
+        print(f"bundle: {bundle_path}", flush=True)
+        led = a.ledger or os.path.join(os.path.dirname(os.path.abspath(a.out)) or ".", "evidence_ledger.jsonl")
+        with open(led, "a", encoding="utf-8") as f:
+            f.write(_json.dumps(_ledger_row(o, sid, a.out), default=str) + "\n")
+        print(f"evidence ledger: {led} (one row appended)", flush=True)
     imm=o["classes"].get("immune",{})
     print(f"\n{sid}: immune A'' {imm.get('A_abs')}  placement {imm.get('placement')}  tier {imm.get('tier')}")
     print(f"refusals: {len(r['refusals'])}" + (f" -> {r['refusals'][:3]}" if r["refusals"] else ""))
