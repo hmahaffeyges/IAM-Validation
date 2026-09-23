@@ -25,6 +25,21 @@ from gape002_lib import (Paragraph, Table, Spacer, PageBreak, HRFlowable, KeepTo
                          sMut, sDisc, sCode, LAV, LAV_M, LAV_D, MUTED, MUTED2, TEXT, WHITE, TEAL,
                          GREEN, AMBER, RED_C, ORANGE, SURF, SURF2, BORDER, BG, W, H, CLS_COLS, FillRect)
 
+# Absolute URLs: this document travels as a PDF away from the repository.
+_GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/"
+_LINKS = {"repo": "https://github.com/hmahaffeyges/IAM-Validation",
+          "interface": _GH + "chain/MethylPhys_Interface/build_methylphys.py",
+          "conductor": _GH + "chain/cpg_conductor.py",
+          "sequence": _GH + "doors/CHAIN_SEQUENCE.md",
+          "sop": _GH + "sop/CPG_Chain_of_Custody_SOP_v2_0_0.md",
+          "manifest": _GH + "doors/REVIEWER_MANIFEST.md"}
+
+
+def _a(key, text):
+    """A clickable reference in the PDF."""
+    return "<a href='%s' color='#1a5fb4'>%s</a>" % (_LINKS[key], text)
+
+
 ISSUE = "Issue 003 RC1"; DATE = "September 2026"
 
 def make_canvas(canvas, doc):
@@ -104,7 +119,7 @@ def cover(story):
     story.append(Paragraph('COVERAGE OF THE CHAIN, BY STAGE (as of this RC)', sLabel))
     story.append(Paragraph('Issue 003 is the one document for this work; there is no "next issue". Every stage of the chain at HEAD is described in the switching order (Part II) '
         'and carries a status in CHAIN_COMMISSIONING.md. As of this RC: <b>commissioned</b> - Stage 1 calibration (PROC-CAL-01), Stage 1s scale map (PHASE 1c), Stage 2 deconvolution '
-        '(PROC-DECON-01, PROC-ANCHOR-01, N7). <b>Run and recorded with open defects</b> - Stage 0 intake (fail-open closed; intensity QC hand-off unwired), Stage 2b lineage splitter '
+        '(PROC-DECON-01, PROC-ANCHOR-01, N7), Stage 0 intake with its intensity hand-off (PROC-STAGE0-02: all nine gates run, the sex call agrees with the published labels on 729 of 731 arrays, and a QUARANTINE stops the chain before calibration; the bisulfite threshold is reported, not applied, until PROC-STAGE0-04). <b>Run and recorded with open defects</b> - Stage 2b lineage splitter '
         '(PROC-SEP-03), Stage B class gauge (identity-loci statistic emitted alongside the wired marker-union gauge; band gated on the lab zero), Stage 4.6 patient CMB (four-skies plate; '
         'assessability gate to fix), Stage 5 Mahalanobis (driven by the stem_adult false alarm; key names reconciled), Stage 6 cellular age (pinned at the curve floor; not reportable), '
         'Stage 7 tiers, Stage 8 disease matching (separation surface reproduces the sealed anchor), Stage 9 report. <b>Built, not re-run this cycle</b> - Stage 4.5 bidirectional. '

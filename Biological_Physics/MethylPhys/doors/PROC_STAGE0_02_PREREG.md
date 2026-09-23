@@ -13,7 +13,7 @@ never run on them. This procedure runs it now and reports the answer against bar
 
 ## What runs
 
-`stage_0_intake.py` steps 0.1 → 0.9 on all 732 GSE87571 IDAT pairs in `idats_gse87571/`, with each manifest
+[`stage_0_intake.py`](../chain/stage_0_intake.py) steps 0.1 → 0.9 on all 732 GSE87571 IDAT pairs in `idats_gse87571/`, with each manifest
 entry built from the cohort's own GEO metadata (accession, Sentrix barcode and position from the file name,
 declared age and sex from the series matrix). The steps that execute on file evidence alone:
 
@@ -37,14 +37,14 @@ not counted as a pass** — the outcome will state how many gates actually ran.
 2. **B2 — platform.** All 732 must verify as 450K from the IDAT header. Any other verdict is reported, not
    corrected.
 3. **B3 — the sealed set.** The 268 arrays are reconstructed by the rule the analysis used: every chip with
-   ≥ 9 calibrated arrays in `results/percell/stage1_betamean_GSE87571.json`. The count of those 268 whose
+   ≥ 9 calibrated arrays in [`PROC_STAGE0_02_betamean_GSE87571.json`](../kit/results/PROC_STAGE0_02_betamean_GSE87571.json). The count of those 268 whose
    verdict is QUARANTINE is the headline of this procedure.
 4. **B4 — the decision rule, fixed now.**
    - **0 quarantined** → the sealed chip result stands, and it gains intake evidence it did not have.
    - **1 to 13 (≤ 5 %)** → the deep arm is recomputed with the quarantined arrays removed, and the new ICC, F,
      permutation p and tail are reported beside the sealed ones **whether or not the verdict changes**.
    - **more than 13** → the deep arm is re-run on the surviving arrays and PROC-MAHA-03 is re-sealed.
-5. **B5 — no threshold moves after the fact.** Every gate keeps the threshold already in `stage_0_intake.py`
+5. **B5 — no threshold moves after the fact.** Every gate keeps the threshold already in [`stage_0_intake.py`](../chain/stage_0_intake.py)
    and the SOP. If a threshold looks wrong once verdicts are visible, that is a finding for a separate
    procedure, not an edit to this one.
 6. **B6 — quarantine is reported per cause.** The outcome names which step produced each quarantine, so a
@@ -52,5 +52,5 @@ not counted as a pass** — the outcome will state how many gates actually ran.
 
 ## What this procedure does not do
 
-It does not wire intake into the chain. Whether `run_sample.py` should refuse a sample that fails a gate is a
+It does not wire intake into the chain. Whether [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) should refuse a sample that fails a gate is a
 change to what the instrument refuses, and the author commissions that separately.

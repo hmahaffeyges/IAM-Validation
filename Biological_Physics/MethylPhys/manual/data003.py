@@ -266,7 +266,7 @@ ENGINE_MAP = [  # stage, files, status at HEAD, what it does (from source), cove
  ("Stage 7 — Tier", "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json", "BUILT (edge 1.04->1.01, 2026-07-03)", "continuous A -> customer tiers", "YES — §3.1, RECON T1-T3"),
  ("Stage 8 — Disease matching", "Disease Matrix/disease_cell_signature_matrix_v1_13.csv (81 rows, 49 VAL-anchored), disease_origin_cells.json, iamatlas_115_to_matrix_v0_2_mapping.json, Collinearity_Groups/*", "BUILT", "Route B directional concordance (weighted matcher over SIGNAL cells |d|>=0.20; STRONG needs dc>=0.70, coverage>=0.40, >=3 cells); Mode 2 cell-of-origin presence; Mode 3 systemic-stress wellness read (never a disease call); specificity gate (NLR axis = NON_SPECIFIC_GENERIC). Patient-match loop verified on 381 breast + 142 colon (VAL-093)", "NO"),
  ("Stage 9 — Report", "cpg_report_builder.py, cpg_report_builder_v2.py, build_dashboard_v1.py, cpg_gauge.py (Appendix A1 gauge), Crown Jewel and Patient Strawman/*", "BUILT", "clinician report; patient straw man on the eight-class grid; crown-jewel reference wall; dashboard", "NO"),
- ("Orchestration", "cpg_conductor.py (2026-07, replaces walther_clinical.py), walther_clinical.py (still the wired chain), run_batch.py, preflight.py, bootstrap.sh", "BOTH present", "conductor = Stage A pure functions; walther_clinical = the full wired chain the report builders still call", "PARTIAL — conductor's presence rule only. walther_clinical.py origin-gate fail-open (bare except disables specificity rule) NOT in this issue"),
+ ("Orchestration", "cpg_conductor.py, run_sample.py, run_batch.py, walther_clinical.py, preflight.py, bootstrap.sh", "BOTH present", "conductor = Stage A pure functions; walther_clinical = the full wired chain the report builders still call", "PARTIAL — conductor's presence rule only. walther_clinical.py origin-gate fail-open (bare except disables specificity rule) NOT in this issue"),
  ("Test data", "TEST_DATA/TEST_DATA_MANIFEST.md, harness/*, N7", "present", "11 public IDATs with expected outputs; synthetic harness; N7 chain-integrity", "YES — §2.4, PROC-DECON-01"),
 ]
 RECON_EXTRA = [
@@ -595,7 +595,7 @@ STAGE0_01 = {
   ("0.9", "PROCEED_WITH_PENALTY 11/11 (from the borderline detection)"),
  ],
  "defect_fixed": "the decision gate did not read Step 0.1's status, so QUARANTINE_INCOMPLETE_MANIFEST / QUARANTINE_MISSING_CHANNEL samples fell through to PROCEED. Guard added; module self-tests pass. Same fail-open class as the origin-gate finding of the first read.",
- "open": "the Stage 0 <-> Stage 1 intensity hand-off (control probes, detection-p from negative controls, call rate, X/Y for sex) is designed but not wired; until it is, those QCs report DEFERRED and Stage 0 is an integrity-and-manifest gate only.",
+ "open": "SOP s14 bisulfite threshold. The Stage 0 to Stage 1 intensity hand-off is built (stage_0_1_qc_handoff.py, PROC-STAGE0-02): control probes, detection p from the negative controls on the patient own array, bead counts, call rate and chrX/chrY for sex are measured from the same decoder Stage 1 uses, and run_sample.py runs intake before calibration so a QUARANTINE stops the chain with nothing scored. Measured on 732 healthy arrays: the sex call agrees with the published labels on 729 of 731, detection and call rate clear their thresholds on every array. What remains open is the 0.95 bisulfite threshold, which every healthy array in the cohort sits below (median 0.798); it is reported and not applied until PROC-STAGE0-04 sets it from the healthy distribution.",
  "verdict": "RUNS. Every stage of the chain (0, 1, 2, 4, 4.5, 5, 6) has now executed from the repository on the same eleven samples.",
 }
 
@@ -655,7 +655,7 @@ SPRINT_VERDICT="Too ambitious too quick. It ended up harming rather than helping
 PART_II_OUTLINE=[
  ("Opening — the translation map", "Appendix VI as narrative: what the CMB gave us, row by row, and the two places we stopped taking it (a second deconvolver; de-aging)."),
  ("Three kinds of file", "FLOOR (H_min: physics, 40 numbers) / RULER (identity loci: where the gauge reads) / BAND (age reference: a cohort statistic). Every 'healthy reads wrong' case of 2026 traced to a band."),
- ("Stage 0 — intake", "Array type from the IDAT header; SHA-256 with re-transmission detection; the fail-open we closed."),
+ ("Stage 0 — intake", "Array type read from the IDAT header; SHA-256 with re-transmission detection; control probes, negative controls, bead counts and chrX/chrY intensities decoded by stage_0_1_qc_handoff.py; and a decision gate that stops the chain."),
  ("Stage 1 — calibration", "noob via methylprep; bit-identical on 11/11; the 6-7% normalisation gain between atlas-source betas and Stage 1 output and why the band absorbs it."),
  ("Stage 2 — component separation", "Walther NNLS against the Atlas; presence, not gating; why NILC was cut, and why it came back."),
  ("Stage 3 — the foreground we refused to subtract", "Built age/sex/smoking layers; SOP s104; a galactic foreground is a separate source, the methylome's is the patient."),

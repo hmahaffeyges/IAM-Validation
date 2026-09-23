@@ -14,7 +14,7 @@ these notes collect the material as it is learned so nothing is lost.
   Every "healthy reads wrong" case of 2026-09-19 traced to a BAND, never a FLOOR (RECON B1). Phase 1 rebuilds all eight bands
   from one cohort (GSE87571) through one pipeline (Stage 1).
 
-## Stage 0 — intake. Lesson 2026-09-19: the decision gate did not read Step 0.1's quarantine status (fail-open); fixed.
+## Stage 0 — intake. The gate that decides whether a specimen is measured at all: arrival, manifest, integrity hash, control probes, negative controls, bead counts, call rate, platform coverage, sex from chrX/chrY, and the decision. Two lessons worth the chapter: a gate that cannot read a gzipped file never fires, and a gate whose failure is caught and logged as deferred is worse than no gate at all.
    Array type is verified from the IDAT header. Intensity QC (detection-p, call rate, sex) awaits the Stage 0↔1 hand-off.
 ## Stage 1 — calibration. PROC-CAL-01: 11/11 bit-identical to the cache. methylprep noob; needs pandas < 2. The +0.05–0.09
    identity-loci β offset vs the Atlas is a normalization gain (6–7 % multiplicative, zero at β=0, max at 0.7–0.8) — absorbed by the band.

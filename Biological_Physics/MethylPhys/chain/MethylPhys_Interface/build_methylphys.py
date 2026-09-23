@@ -1143,10 +1143,51 @@ def tab_coverage(R):
     return "".join(H)
 
 
+def _intake_block(o):
+    """Stage 0's record for this specimen, or NOT RUN. A gate that did not run is never shown as a pass."""
+    rec = o.get("intake")
+    if not rec:
+        why = ("intake was skipped with --no-intake" if o.get("intake_skipped") else
+               "this bundle was built from a beta table, so the file-level gates have nothing to read"
+               if o.get("from_betas") else "no Stage 0 record was supplied with this bundle")
+        return ("<h3>Stage 0 - chain of custody</h3>"
+                "<p class='pend'>NOT RUN - " + why + ". The reading below is unaffected in value, but this "
+                "specimen carries no arrival gate, no integrity hash and no QC decision.</p>")
+    rows = [("Stage 0 decision", rec.get("stage0_verdict") or "-"),
+            ("hard failures", ", ".join(rec.get("stage0_hard_fail") or []) or "none"),
+            ("borderline", ", ".join(rec.get("stage0_borderline") or []) or "none"),
+            ("deferred", ", ".join(rec.get("stage0_deferred_qc") or []) or "none"),
+            ("array type", f"{rec.get('array_type')} declared, {rec.get('array_type_detected')} read from the header"),
+            ("control probes (0.4)", rec.get("ctrl_qc") or "-"),
+            ("detection p (0.5)", rec.get("detection_qc") or "-"),
+            ("bead count (0.6)", rec.get("bead_qc") or "-"),
+            ("call rate (0.7)", f"{rec.get('call_rate')} - {rec.get('call_rate_status')}"),
+            ("reference coverage (0.7b)", f"{rec.get('hm450_reference_coverage')} - {rec.get('hm450_coverage_gate')}"),
+            ("sex check (0.8)", f"{rec.get('sex_check')} (predicted {rec.get('predicted_sex')}, "
+                                f"declared {rec.get('declared_sex')})"),
+            ("integrity", rec.get("integrity_status") or "-"),
+            ("Grn sha256", (rec.get("grn_sha256") or "")[:24] + "..."),
+            ("Red sha256", (rec.get("red_sha256") or "")[:24] + "..."),
+            ("sample run id", rec.get("sample_run_id") or "-")]
+    H = ["<h3>Stage 0 - chain of custody, this specimen</h3>",
+         "<p class='m'>The gates the specimen passed before anything was calibrated or scored, as recorded by "
+         "<code>stage_0_intake.py</code> (SOP sections 11-19). A QUARANTINE decision stops the chain: no report "
+         "is written at all, so a report in your hands means these gates were cleared or explicitly deferred.</p>",
+         "<table class='t'>"]
+    for k, v in rows:
+        H.append(f"<tr><td class='m'>{k}</td><td>{v}</td></tr>")
+    H.append("</table>")
+    if rec.get("stage0_deferred_qc"):
+        H.append("<p class='m'><b>Deferred means not measured.</b> A deferred gate is neither a pass nor a "
+                 "failure - it is a check this run could not make, named so that nobody reads its silence as "
+                 "consent.</p>")
+    return "".join(H)
+
+
 def tab_safeguards(o, R):
     """Every guard the chain has, with its result. Written by release_check.py (one command, commissioning row N)
     and read here - a guard that has not been run prints NOT RUN, never a pass."""
-    rel=R.get("release"); H=["<h2>Safeguards - every guard, and whether it passed</h2>",
+    rel=R.get("release"); H=["<h2>Safeguards - every guard, and whether it passed</h2>", _intake_block(o),
       "<p>The chain's guarantee is not that it is clever; it is that the things that could make it wrong are each checked by something that fails loudly. "
       "This page is written by one command - <code>release_check.py</code> - and read here. A guard that could not run prints what it needs. "
       "<b>A guard that has not been run prints NOT RUN and is never shown as a pass.</b></p>"]

@@ -5,29 +5,39 @@ Do not edit by hand: re-run the generator. Every step below is a call the code a
 order it makes it, and every stage module or function that is **not** in that path is listed underneath
 rather than left out.
 
-## The live path — 13 steps, in order
+## The live path — 23 steps, in order
 
 | # | step | implemented in | what it does |
 |---|---|---|---|
-| 1 | `Stage 1 - IDAT calibration` | [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py) | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) _called by run_sample.py when given --grn/--red; skipped when given --betas_ |
-| 2 | `stage_a_cells` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | Stage A — find the cell types in the sample, their ratios, and their A-scores |
-| 3 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation |
-| 4 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
-| 5 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
-| 6 | `stage_b_identity` | `cpg_conductor.py` | THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the |
-| 7 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
-| 8 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped |
-| 9 | `stage_5_mahalanobis` | `cpg_conductor.py` | Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B) |
-| 10 | `stage_5_hull_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure |
-| 11 | `stage_6_cellular_age` | `cpg_conductor.py` | Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21) |
-| 12 | `stage_6_cellular_age_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported |
-| 13 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
+| 1 | `step_0_1_idat_arrival` | [`stage_0_intake.py`](../chain/stage_0_intake.py) | SOP section 0.1_idat_arrival |
+| 2 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation |
+| 3 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash |
+| 4 | `step_0_4_control_probe_validation` | `stage_0_intake.py` | SOP section 0.4_control_probe_validation |
+| 5 | `step_0_5_detection_pvalue_qc` | `stage_0_intake.py` | SOP section 0.5_detection_pvalue_qc |
+| 6 | `step_0_6_bead_count_qc` | `stage_0_intake.py` | SOP section 0.6_bead_count_qc |
+| 7 | `step_0_7_call_rate` | `stage_0_intake.py` | SOP section 0.7_call_rate |
+| 8 | `step_0_7b_platform_coverage` | `stage_0_intake.py` | SOP section 0.7b_platform_coverage |
+| 9 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check |
+| 10 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate |
+| 11 | `Stage 1 - IDAT calibration` | [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py) | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) _called by run_sample.py when given --grn/--red; skipped when given --betas_ |
+| 12 | `stage_a_cells` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | Stage A — find the cell types in the sample, their ratios, and their A-scores |
+| 13 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation |
+| 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
+| 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
+| 16 | `stage_b_identity` | `cpg_conductor.py` | THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the |
+| 17 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
+| 18 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped |
+| 19 | `stage_5_mahalanobis` | `cpg_conductor.py` | Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B) |
+| 20 | `stage_5_hull_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure |
+| 21 | `stage_6_cellular_age` | `cpg_conductor.py` | Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21) |
+| 22 | `stage_6_cellular_age_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported |
+| 23 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
 
 ## The batch path — 7 steps, in order
 
 [`run_batch.py`](../chain/run_batch.py) processes a folder of patient visits. It does **not** call `cpg_conductor`: it drives
 [`walther_clinical.py`](../chain/walther_clinical.py), which runs its own stage functions. The numbers in the commissioning record and
-in [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) come from the path above, not from this one.
+in [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) come from the path above, not from this one.
 
 | # | step | implemented in | what it does |
 |---|---|---|---|
@@ -46,7 +56,6 @@ that presents them as a step the chain performs is wrong until they are wired.
 
 | file | status |
 |---|---|
-| [`stage_0_intake.py`](../chain/stage_0_intake.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`idat_decoder_pure.py`](../chain/idat_decoder_pure.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`idat_parse.py`](../chain/idat_parse.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`lineage_splitter.py`](../chain/Lineage_Splitter/lineage_splitter.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
@@ -61,6 +70,5 @@ steps of the chain is wrong; a reader who needs them must call them deliberately
 | step | in | what it implements | status |
 |---|---|---|---|
 | `stage_8_matching` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix | defined in the conductor; run_full does not call it |
-| [`stage_0_intake.py`](../chain/stage_0_intake.py) | `stage_0_intake.py` | Stage 0 — Sample intake (L1) | module present; neither run_sample.py nor cpg_conductor.py calls it |
 | [`stage_1_calibration.py`](../chain/stage_1_calibration.py) | `stage_1_calibration.py` | Stage 1 — Calibration & beta computation (L2 + L3) | module present; neither run_sample.py nor cpg_conductor.py calls it |
 | [`stage_5_second_chain.py`](../chain/stage_5_second_chain.py) | `stage_5_second_chain.py` | Stage 5 — Second chain (confirmation). Fires ONLY when Stage 8 Route B flags | module present; neither run_sample.py nor cpg_conductor.py calls it |

@@ -147,6 +147,21 @@ def derive():
                     for lit in _re.findall(r"[\w./-]+\.(?:py|json|csv|npy)", c.value):
                         called.add(os.path.basename(lit))
         # run_sample.py's module level is its main
+        # A step invoked as S0.step_0_1_idat_arrival(...) is an attribute call on an imported module and
+        # the module's filename appears nowhere as a literal, so a name-only scan called stage_0_intake.py
+        # uncalled on the day it was wired in. Resolve imports to their module file.
+        for _text in (rs, cond_src):
+            try:
+                _t = ast.parse(_text)
+            except SyntaxError:
+                continue
+            for _n in ast.walk(_t):
+                if isinstance(_n, ast.Import):
+                    for _al in _n.names:
+                        called.add(_al.name.split('.')[0] + '.py')
+                elif isinstance(_n, ast.ImportFrom) and _n.module:
+                    called.add(_n.module.split('.')[0] + '.py')
+
         for lit in _re.findall(r"[\w./-]+\.(?:py|json|csv|npy)", rs):
             called.add(os.path.basename(lit))
         BUILD_TIME = ("build_", "generate_")   # tools that make a runtime file once, not per-sample steps
@@ -159,6 +174,26 @@ def derive():
                     gaps.append({"file": f, "role": role,
                                  "status": "role=chain in the inventory, and NO path calls it - a step the chain "
                                            "is documented as performing does not run"})
+    # Stage 0's steps, in the order run_sample.py calls them, ahead of everything else in the live path.
+    # They are attribute calls on an imported module (S0.step_0_1_idat_arrival), which a name-only scan cannot
+    # see - that is why the derivation reported stage_0_intake.py as uncalled on the day it was wired in.
+    intake = []
+    try:
+        # ordered by SOP step number, not by line number: the decision gate is called twice in the source
+        # (once in the early-refusal branch) and a line-ordered list would show it fourth
+        def _key(nm):
+            t = nm.split("step_0_")[1].split("_")[0]
+            return (int(t[0]), t)
+        for nm in sorted({n.func.attr for n in ast.walk(ast.parse(rs))
+                          if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)
+                          and n.func.attr.startswith("step_0_")}, key=_key):
+            if nm not in [x["step"] for x in intake]:
+                intake.append({"step": nm, "where": "stage_0_intake.py",
+                               "implements": "SOP " + nm.replace("step_0_", "section 0."),
+                               "status": "runs in the live path, before calibration"})
+    except SyntaxError:
+        pass
+    before = intake + before
     return {"live_path": before + inside + after, "batch_path": batch, "not_in_live_path": not_wired,
             "roles": roles, "role_gaps": gaps,
             "counts": {"live": len(before + inside + after), "batch": len(batch),
