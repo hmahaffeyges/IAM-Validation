@@ -257,11 +257,51 @@ def tab_reading(o, R, sid):
 
     return guard("".join(H),"Reading")
 
+def _trace_block(o):
+    """Stage 2c - trace-class detection. Presence only: no fraction, no A, no tier below the attribution
+    limit, because a trace class cannot be scored in this substrate at any fraction a blood draw presents."""
+    td = o.get("trace_detection") or {}
+    m = td.get("_meta") or {}
+    if not m.get("available"):
+        return ["<h3>Trace-class detection</h3>",
+                "<p class='m'>Not run for this specimen: %s</p>" % (m.get("reason") or "no panel")]
+    H = ["<h3>Trace-class detection - is there any epithelial-like material here at all?</h3>",
+         "<p>The composition solve above cannot answer this. It is a non-negative fit, and a non-negativity "
+         "constraint pins a component that small at exactly zero - measured on 48 mixtures of real healthy "
+         "blood, a spike below 5 % returned 0.00 on two of three donors. This panel asks the question the "
+         "other way round: fit the specimen <i>without</i> the class, then test whether the class's own "
+         "profile explains what is left over, weighting each address by how well the atlas pinned it down. "
+         "A healthy donor sits at t &asymp; -16; the threshold is the 95th percentile of 38 healthy donors "
+         "who played no part in choosing the method.</p>"]
+    if not m.get("calibrated_for_this_substrate", True):
+        H.append("<p class='warn'><b>Uncalibrated on this substrate.</b> The thresholds are a whole-blood "
+                 "measurement (declared here: %s). The statistic is printed for reference and no verdict is "
+                 "given.</p>" % (m.get("substrate_declared") or "not declared"))
+    H.append("<table><tr><th>class</th><th>t</th><th>threshold</th><th>healthy median</th>"
+             "<th>what this says</th></tr>")
+    for c in ("secretory", "cycling"):
+        r = td.get(c) or {}
+        if not r:
+            continue
+        H.append("<tr><td class='m'>%s</td><td class='m'>%s</td><td class='m'>%s</td><td class='m'>%s</td>"
+                 "<td>%s</td></tr>" % (c, r.get("t"), r.get("threshold"), r.get("null_median_t"),
+                                       r.get("verdict", "-")))
+    H.append("</table>")
+    H.append("<p class='m'>Limits, measured: material of this kind is detectable from about <b>%s %%</b>, and "
+             "naming <i>which</i> class requires about <b>%s %%</b> - at the lower limit a cycling component "
+             "lifts the secretory statistic marginally over its own threshold, so the two are not separable "
+             "there. No fraction and no A are reported for a detected trace class: at 20 %% admixture a "
+             "class's own identity loci still read 0.85 against 0.99 for a pure specimen, so the entropy "
+             "measured there is the background's, not the class's.</p>"
+             % (100 * m.get("detection_limit", 0.02), 100 * m.get("attribution_requires", 0.05)))
+    return H
+
+
 def tab_cells(o, R, percell_ref=None):
     sys.path.insert(0,ENGINE); import cpg_tiers as T
     lab=(o.get('patient_sky') or {}).get('lab') or (o.get('cfg') or {}).get('lab')
     cells=o.get("cells_all") or {}; comp_cells={r["cell"]:r for r in o["composition"]["celltype"]}
-    H=[COLS_LEGEND,"<h2>Every cell - all 115 atlas cell types, on the gauge</h2>",
+    H=[COLS_LEGEND,"<h2>Every cell - all 115 atlas cell types, on the gauge</h2>"] + _trace_block(o) + [
        "<p><b>Per-cell A</b> = the mean over that cell's ~100 discriminative marker CpGs of H(beta at that CpG), divided by H_min for its class - "
        "the mean of the per-CpG entropies, <i>not</i> the entropy of the mean beta (the scoring module refuses the second form by assertion: marker CpGs "
        "are chosen to be extreme and opposite, so their mean beta lands near a coin flip and would read maximal disorder on a healthy sample). "

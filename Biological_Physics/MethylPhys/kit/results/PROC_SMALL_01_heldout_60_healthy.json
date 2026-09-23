@@ -1,0 +1,602 @@
+{
+ "GSM2333941": {
+  "secretory": {
+   "t": -9.771,
+   "detected": false
+  },
+  "cycling": {
+   "t": -9.978,
+   "detected": false
+  }
+ },
+ "GSM2333942": {
+  "secretory": {
+   "t": -3.647,
+   "detected": false
+  },
+  "cycling": {
+   "t": -3.665,
+   "detected": false
+  }
+ },
+ "GSM2333943": {
+  "secretory": {
+   "t": -14.16,
+   "detected": false
+  },
+  "cycling": {
+   "t": -14.155,
+   "detected": false
+  }
+ },
+ "GSM2333944": {
+  "secretory": {
+   "t": -9.936,
+   "detected": false
+  },
+  "cycling": {
+   "t": -10.109,
+   "detected": false
+  }
+ },
+ "GSM2333945": {
+  "secretory": {
+   "t": -9.632,
+   "detected": false
+  },
+  "cycling": {
+   "t": -9.574,
+   "detected": false
+  }
+ },
+ "GSM2333946": {
+  "secretory": {
+   "t": -15.514,
+   "detected": false
+  },
+  "cycling": {
+   "t": -15.547,
+   "detected": false
+  }
+ },
+ "GSM2333947": {
+  "secretory": {
+   "t": -28.966,
+   "detected": false
+  },
+  "cycling": {
+   "t": -29.138,
+   "detected": false
+  }
+ },
+ "GSM2333948": {
+  "secretory": {
+   "t": -21.489,
+   "detected": false
+  },
+  "cycling": {
+   "t": -21.729,
+   "detected": false
+  }
+ },
+ "GSM2333949": {
+  "secretory": {
+   "t": -8.396,
+   "detected": false
+  },
+  "cycling": {
+   "t": -8.324,
+   "detected": false
+  }
+ },
+ "GSM2333950": {
+  "secretory": {
+   "t": -1.734,
+   "detected": false
+  },
+  "cycling": {
+   "t": -1.905,
+   "detected": false
+  }
+ },
+ "GSM2333951": {
+  "secretory": {
+   "t": -12.589,
+   "detected": false
+  },
+  "cycling": {
+   "t": -12.567,
+   "detected": false
+  }
+ },
+ "GSM2333952": {
+  "secretory": {
+   "t": -20.57,
+   "detected": false
+  },
+  "cycling": {
+   "t": -20.537,
+   "detected": false
+  }
+ },
+ "GSM2333953": {
+  "secretory": {
+   "t": -17.823,
+   "detected": false
+  },
+  "cycling": {
+   "t": -17.885,
+   "detected": false
+  }
+ },
+ "GSM2333954": {
+  "secretory": {
+   "t": -22.069,
+   "detected": false
+  },
+  "cycling": {
+   "t": -22.114,
+   "detected": false
+  }
+ },
+ "GSM2333955": {
+  "secretory": {
+   "t": -19.831,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.999,
+   "detected": false
+  }
+ },
+ "GSM2333956": {
+  "secretory": {
+   "t": -18.696,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.948,
+   "detected": false
+  }
+ },
+ "GSM2333957": {
+  "secretory": {
+   "t": -16.71,
+   "detected": false
+  },
+  "cycling": {
+   "t": -16.649,
+   "detected": false
+  }
+ },
+ "GSM2333958": {
+  "secretory": {
+   "t": -9.517,
+   "detected": false
+  },
+  "cycling": {
+   "t": -9.721,
+   "detected": false
+  }
+ },
+ "GSM2333959": {
+  "secretory": {
+   "t": -20.857,
+   "detected": false
+  },
+  "cycling": {
+   "t": -21.15,
+   "detected": false
+  }
+ },
+ "GSM2333960": {
+  "secretory": {
+   "t": -6.146,
+   "detected": false
+  },
+  "cycling": {
+   "t": -6.241,
+   "detected": false
+  }
+ },
+ "GSM2333961": {
+  "secretory": {
+   "t": -15.802,
+   "detected": false
+  },
+  "cycling": {
+   "t": -15.823,
+   "detected": false
+  }
+ },
+ "GSM2333962": {
+  "secretory": {
+   "t": -19.083,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.318,
+   "detected": false
+  }
+ },
+ "GSM2333963": {
+  "secretory": {
+   "t": -13.243,
+   "detected": false
+  },
+  "cycling": {
+   "t": -13.561,
+   "detected": false
+  }
+ },
+ "GSM2333964": {
+  "secretory": {
+   "t": -19.388,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.674,
+   "detected": false
+  }
+ },
+ "GSM2333965": {
+  "secretory": {
+   "t": -19.592,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.881,
+   "detected": false
+  }
+ },
+ "GSM2333966": {
+  "secretory": {
+   "t": -14.073,
+   "detected": false
+  },
+  "cycling": {
+   "t": -14.125,
+   "detected": false
+  }
+ },
+ "GSM2333967": {
+  "secretory": {
+   "t": -11.016,
+   "detected": false
+  },
+  "cycling": {
+   "t": -11.109,
+   "detected": false
+  }
+ },
+ "GSM2333968": {
+  "secretory": {
+   "t": 1.543,
+   "detected": true
+  },
+  "cycling": {
+   "t": -1.476,
+   "detected": false
+  }
+ },
+ "GSM2333969": {
+  "secretory": {
+   "t": -12.789,
+   "detected": false
+  },
+  "cycling": {
+   "t": -13.023,
+   "detected": false
+  }
+ },
+ "GSM2333970": {
+  "secretory": {
+   "t": -15.53,
+   "detected": false
+  },
+  "cycling": {
+   "t": -15.786,
+   "detected": false
+  }
+ },
+ "GSM2333971": {
+  "secretory": {
+   "t": -3.997,
+   "detected": false
+  },
+  "cycling": {
+   "t": -4.219,
+   "detected": false
+  }
+ },
+ "GSM2333972": {
+  "secretory": {
+   "t": -15.9,
+   "detected": false
+  },
+  "cycling": {
+   "t": -15.904,
+   "detected": false
+  }
+ },
+ "GSM2333973": {
+  "secretory": {
+   "t": -14.376,
+   "detected": false
+  },
+  "cycling": {
+   "t": -14.52,
+   "detected": false
+  }
+ },
+ "GSM2333974": {
+  "secretory": {
+   "t": -19.845,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.846,
+   "detected": false
+  }
+ },
+ "GSM2333975": {
+  "secretory": {
+   "t": -18.096,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.32,
+   "detected": false
+  }
+ },
+ "GSM2333976": {
+  "secretory": {
+   "t": -12.667,
+   "detected": false
+  },
+  "cycling": {
+   "t": -12.569,
+   "detected": false
+  }
+ },
+ "GSM2333977": {
+  "secretory": {
+   "t": -11.852,
+   "detected": false
+  },
+  "cycling": {
+   "t": -11.966,
+   "detected": false
+  }
+ },
+ "GSM2333978": {
+  "secretory": {
+   "t": -19.541,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.701,
+   "detected": false
+  }
+ },
+ "GSM2333979": {
+  "secretory": {
+   "t": -10.628,
+   "detected": false
+  },
+  "cycling": {
+   "t": -10.644,
+   "detected": false
+  }
+ },
+ "GSM2333980": {
+  "secretory": {
+   "t": -16.157,
+   "detected": false
+  },
+  "cycling": {
+   "t": -16.159,
+   "detected": false
+  }
+ },
+ "GSM2333981": {
+  "secretory": {
+   "t": -16.024,
+   "detected": false
+  },
+  "cycling": {
+   "t": -16.031,
+   "detected": false
+  }
+ },
+ "GSM2333982": {
+  "secretory": {
+   "t": -18.13,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.155,
+   "detected": false
+  }
+ },
+ "GSM2333983": {
+  "secretory": {
+   "t": -18.649,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.72,
+   "detected": false
+  }
+ },
+ "GSM2333984": {
+  "secretory": {
+   "t": -21.317,
+   "detected": false
+  },
+  "cycling": {
+   "t": -21.31,
+   "detected": false
+  }
+ },
+ "GSM2333985": {
+  "secretory": {
+   "t": -19.157,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.33,
+   "detected": false
+  }
+ },
+ "GSM2333986": {
+  "secretory": {
+   "t": -14.4,
+   "detected": false
+  },
+  "cycling": {
+   "t": -14.467,
+   "detected": false
+  }
+ },
+ "GSM2333987": {
+  "secretory": {
+   "t": -18.406,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.592,
+   "detected": false
+  }
+ },
+ "GSM2333988": {
+  "secretory": {
+   "t": -18.408,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.43,
+   "detected": false
+  }
+ },
+ "GSM2333989": {
+  "secretory": {
+   "t": -19.727,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.937,
+   "detected": false
+  }
+ },
+ "GSM2333990": {
+  "secretory": {
+   "t": -15.409,
+   "detected": false
+  },
+  "cycling": {
+   "t": -15.471,
+   "detected": false
+  }
+ },
+ "GSM2333991": {
+  "secretory": {
+   "t": -3.319,
+   "detected": false
+  },
+  "cycling": {
+   "t": -3.33,
+   "detected": false
+  }
+ },
+ "GSM2333992": {
+  "secretory": {
+   "t": -17.874,
+   "detected": false
+  },
+  "cycling": {
+   "t": -17.899,
+   "detected": false
+  }
+ },
+ "GSM2333993": {
+  "secretory": {
+   "t": -18.162,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.09,
+   "detected": false
+  }
+ },
+ "GSM2333994": {
+  "secretory": {
+   "t": -18.879,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.888,
+   "detected": false
+  }
+ },
+ "GSM2333995": {
+  "secretory": {
+   "t": -16.012,
+   "detected": false
+  },
+  "cycling": {
+   "t": -16.23,
+   "detected": false
+  }
+ },
+ "GSM2333996": {
+  "secretory": {
+   "t": -16.042,
+   "detected": false
+  },
+  "cycling": {
+   "t": -16.094,
+   "detected": false
+  }
+ },
+ "GSM2333997": {
+  "secretory": {
+   "t": -18.186,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.394,
+   "detected": false
+  }
+ },
+ "GSM2333998": {
+  "secretory": {
+   "t": -18.259,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.344,
+   "detected": false
+  }
+ },
+ "GSM2333999": {
+  "secretory": {
+   "t": -18.071,
+   "detected": false
+  },
+  "cycling": {
+   "t": -18.291,
+   "detected": false
+  }
+ },
+ "GSM2334000": {
+  "secretory": {
+   "t": -19.632,
+   "detected": false
+  },
+  "cycling": {
+   "t": -19.531,
+   "detected": false
+  }
+ }
+}

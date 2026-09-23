@@ -1,0 +1,3486 @@
+{
+ "_config": {
+  "BASE": {
+   "n_addresses": 7114
+  },
+  "GLS": {
+   "n_addresses": 7114
+  },
+  "CONTRAST": {
+   "n_addresses": 7351
+  },
+  "BOTH": {
+   "n_addresses": 7351
+  }
+ },
+ "nulls": {
+  "BASE": {
+   "GSM2333902": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.843664098406816,
+     "cycling": -8.796001849986073
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88057
+    }
+   },
+   "GSM2333903": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -25.464656524862793,
+     "cycling": -24.744225150448408
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.72244
+    }
+   },
+   "GSM2333904": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -7.11490526981012,
+     "cycling": -6.058866698293884
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92778
+    }
+   },
+   "GSM2333906": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 1.9320402046136045
+    },
+    "t": {
+     "secretory": -1.4260615676616115,
+     "cycling": 1.9913320956667857
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.00435,
+     "immune": 0.97056
+    }
+   },
+   "GSM2333907": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.727585241631662,
+     "cycling": -14.873067031294081
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.81918
+    }
+   },
+   "GSM2333908": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -8.39255935815097,
+     "cycling": -7.516491814497193
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86196
+    }
+   },
+   "GSM2333909": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -2.0997198273159023,
+     "cycling": -1.4004861787095877
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94451
+    }
+   },
+   "GSM2333910": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.135312003579552,
+     "cycling": -10.308333806392262
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.81789
+    }
+   },
+   "GSM2333911": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.309552748259208,
+     "cycling": -9.772962955783932
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87432
+    }
+   },
+   "GSM2333912": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -14.16552406136111,
+     "cycling": -13.555333350648604
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.79319
+    }
+   },
+   "GSM2333913": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.548835320309628,
+     "cycling": -10.37625626145502
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87135
+    }
+   },
+   "GSM2333914": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -1.6918890228495351,
+     "cycling": -0.5112213444277093
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95536
+    }
+   },
+   "GSM2333915": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -16.548055592695583,
+     "cycling": -15.97411799953396
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8024
+    }
+   },
+   "GSM2333916": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -8.30517476272824,
+     "cycling": -7.245195097058536
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87875
+    }
+   },
+   "GSM2333917": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.75822373138644,
+     "cycling": -10.077553080822256
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87813
+    }
+   },
+   "GSM2333918": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 4.002932826107811
+    },
+    "t": {
+     "secretory": -4.247456704625787,
+     "cycling": 4.693779322437166
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0035,
+     "immune": 0.96541
+    }
+   },
+   "GSM2333919": {
+    "F": {
+     "secretory": 1.1920700195973904e-12,
+     "cycling": 1.1920700195973904e-12
+    },
+    "t": {
+     "secretory": -7.615067821609099,
+     "cycling": -6.888121477548904
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86534
+    }
+   },
+   "GSM2333920": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -6.385183620146448,
+     "cycling": -5.426025315960734
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.91704
+    }
+   },
+   "GSM2333921": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -5.827760951184184,
+     "cycling": -4.759016511029998
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92368
+    }
+   },
+   "GSM2333922": {
+    "F": {
+     "secretory": -1.24988477812083e-12,
+     "cycling": -1.24988477812083e-12
+    },
+    "t": {
+     "secretory": -3.705140269494838,
+     "cycling": -3.0662480665136767
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8913
+    }
+   },
+   "GSM2333923": {
+    "F": {
+     "secretory": -2.604532443135045e-12,
+     "cycling": -2.604532443135045e-12
+    },
+    "t": {
+     "secretory": -13.654864285986475,
+     "cycling": -12.72720398607312
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.85719
+    }
+   },
+   "GSM2333924": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.86937764355317,
+     "cycling": -12.318698672412093
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83874
+    }
+   },
+   "GSM2333925": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.414216919213304,
+     "cycling": -3.5208753853908163
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.90388
+    }
+   },
+   "GSM2333926": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.359356425512196,
+     "cycling": -14.362355400843565
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83545
+    }
+   },
+   "GSM2333927": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -1.842334188535958,
+     "cycling": -1.256393778091236
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94301
+    }
+   },
+   "GSM2333928": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -2.3672061321439455,
+     "cycling": -1.7999756755208376
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92514
+    }
+   },
+   "GSM2333929": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.250779079078688,
+     "cycling": -11.584453157408998
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.82064
+    }
+   },
+   "GSM2333930": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.284922156163631,
+     "cycling": -3.7015030202225705
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.9374
+    }
+   },
+   "GSM2333931": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 6.698226293558253
+    },
+    "t": {
+     "secretory": -0.5820918418864481,
+     "cycling": 2.6519676428443457
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.01565,
+     "immune": 0.95568
+    }
+   },
+   "GSM2333932": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.919362540208551,
+     "cycling": -15.17811849454376
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.79877
+    }
+   },
+   "GSM2333933": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 9.539121714042128
+    },
+    "t": {
+     "secretory": -0.8171945297694296,
+     "cycling": 3.1931705636321692
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.02002,
+     "immune": 0.93462
+    }
+   },
+   "GSM2333934": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.756846419930847,
+     "cycling": -11.997128236421815
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8405
+    }
+   },
+   "GSM2333935": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -3.6368656340360315,
+     "cycling": -2.3122343959974696
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95628
+    }
+   },
+   "GSM2333936": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.059420699682872,
+     "cycling": -3.193642051144277
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92322
+    }
+   },
+   "GSM2333937": {
+    "F": {
+     "secretory": 0.13286473825148687,
+     "cycling": 5.486844147374556
+    },
+    "t": {
+     "secretory": 0.3645862173850614,
+     "cycling": 2.341955389801394
+    },
+    "frac": {
+     "secretory": 0.00293,
+     "cycling": 0.01891,
+     "immune": 0.94454
+    }
+   },
+   "GSM2333938": {
+    "F": {
+     "secretory": -1.0921924632619043e-12,
+     "cycling": -1.0921924632619043e-12
+    },
+    "t": {
+     "secretory": -18.75201125132779,
+     "cycling": -18.074861500477056
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.79321
+    }
+   },
+   "GSM2333939": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.593417061886946,
+     "cycling": -9.925747065707805
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84529
+    }
+   },
+   "GSM2333940": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.924144133752162,
+     "cycling": -4.256179142120773
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.90995
+    }
+   }
+  },
+  "GLS": {
+   "GSM2333902": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.729130297491363,
+     "cycling": -13.872333485318059
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84011
+    }
+   },
+   "GSM2333903": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -23.198635558837353,
+     "cycling": -23.399398679082093
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87158
+    }
+   },
+   "GSM2333904": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.07096416293469,
+     "cycling": -15.233586234211732
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95463
+    }
+   },
+   "GSM2333906": {
+    "F": {
+     "secretory": -7.904750637713716e-13,
+     "cycling": -7.904750637713716e-13
+    },
+    "t": {
+     "secretory": -4.605591327343986,
+     "cycling": -4.684489674644332
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94863
+    }
+   },
+   "GSM2333907": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -22.306774331875303,
+     "cycling": -22.54762978145964
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.79692
+    }
+   },
+   "GSM2333908": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.099774023491083,
+     "cycling": -12.208214318990999
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87568
+    }
+   },
+   "GSM2333909": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.631824991089493,
+     "cycling": -9.652616708334104
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87984
+    }
+   },
+   "GSM2333910": {
+    "F": {
+     "secretory": -8.642769573054055e-13,
+     "cycling": -8.642769573054055e-13
+    },
+    "t": {
+     "secretory": -13.27876777204804,
+     "cycling": -13.226220439478263
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.78678
+    }
+   },
+   "GSM2333911": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.000050961175525,
+     "cycling": -9.921519041100625
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95547
+    }
+   },
+   "GSM2333912": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -19.475376717014015,
+     "cycling": -19.4874487228559
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.80773
+    }
+   },
+   "GSM2333913": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -18.878250808065815,
+     "cycling": -19.044538260373375
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87639
+    }
+   },
+   "GSM2333914": {
+    "F": {
+     "secretory": -1.2943429453364333e-12,
+     "cycling": -1.2943429453364333e-12
+    },
+    "t": {
+     "secretory": -8.752615918770658,
+     "cycling": -8.888063811914272
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.98789
+    }
+   },
+   "GSM2333915": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -17.004395685093854,
+     "cycling": -16.92195069628468
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83628
+    }
+   },
+   "GSM2333916": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.66033974799936,
+     "cycling": -15.856032983381096
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.85873
+    }
+   },
+   "GSM2333917": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.088332048005078,
+     "cycling": -12.992377373313728
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.9216
+    }
+   },
+   "GSM2333918": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -7.927358200957848,
+     "cycling": -8.180719768080063
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.98501
+    }
+   },
+   "GSM2333919": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.450883032053818,
+     "cycling": -9.520620351985928
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88004
+    }
+   },
+   "GSM2333920": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -14.537140828937245,
+     "cycling": -14.72921614204087
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92823
+    }
+   },
+   "GSM2333921": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.41958469417739,
+     "cycling": -15.741424059591138
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.9015
+    }
+   },
+   "GSM2333922": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.005646306091633,
+     "cycling": -8.99093360827194
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92913
+    }
+   },
+   "GSM2333923": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -20.99398232376554,
+     "cycling": -21.22027036599463
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88352
+    }
+   },
+   "GSM2333924": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -19.900726159319724,
+     "cycling": -19.967463866596056
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84658
+    }
+   },
+   "GSM2333925": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.525777974542127,
+     "cycling": -9.47616000392641
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.90083
+    }
+   },
+   "GSM2333926": {
+    "F": {
+     "secretory": 1.0320971330190006e-12,
+     "cycling": 1.0320971330190006e-12
+    },
+    "t": {
+     "secretory": -23.840804163621296,
+     "cycling": -24.028094395378744
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.85547
+    }
+   },
+   "GSM2333927": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -6.151141635344601,
+     "cycling": -6.1922450148673445
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.91772
+    }
+   },
+   "GSM2333928": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -5.437834013985895,
+     "cycling": -5.506098302646844
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88518
+    }
+   },
+   "GSM2333929": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.814876094963093,
+     "cycling": -15.802449082330995
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.82597
+    }
+   },
+   "GSM2333930": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.866030503769181,
+     "cycling": -11.934748242018701
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94973
+    }
+   },
+   "GSM2333931": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -0.09009118752976905,
+     "cycling": -0.29601965907715366
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.9807
+    }
+   },
+   "GSM2333932": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -16.26737539330862,
+     "cycling": -16.238484323616763
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8242
+    }
+   },
+   "GSM2333933": {
+    "F": {
+     "secretory": 1.0402043907868903,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": 1.6621552887707824,
+     "cycling": -1.3124472339666122
+    },
+    "frac": {
+     "secretory": 0.00366,
+     "cycling": 0.0,
+     "immune": 0.96207
+    }
+   },
+   "GSM2333934": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -17.519796268915776,
+     "cycling": -17.472999893016247
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.81569
+    }
+   },
+   "GSM2333935": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.308964702278379,
+     "cycling": -9.448058189130316
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.97014
+    }
+   },
+   "GSM2333936": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.687394615053748,
+     "cycling": -11.68454543026124
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.93115
+    }
+   },
+   "GSM2333937": {
+    "F": {
+     "secretory": 0.08025467286726637,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": 1.1433346316941306,
+     "cycling": -1.1076726004652078
+    },
+    "frac": {
+     "secretory": 0.00038,
+     "cycling": 0.0,
+     "immune": 0.97954
+    }
+   },
+   "GSM2333938": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -20.94268460815763,
+     "cycling": -20.96948006252862
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.82865
+    }
+   },
+   "GSM2333939": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.124549083578117,
+     "cycling": -13.187916319683206
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86394
+    }
+   },
+   "GSM2333940": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.194953521773378,
+     "cycling": -11.399173986210863
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.96028
+    }
+   }
+  },
+  "CONTRAST": {
+   "GSM2333902": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.590648997861402,
+     "cycling": -8.56611604313198
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8789
+    }
+   },
+   "GSM2333903": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -26.263474575275055,
+     "cycling": -25.570833698407917
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.7284
+    }
+   },
+   "GSM2333904": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -7.2385478951205675,
+     "cycling": -6.2133109889161044
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92717
+    }
+   },
+   "GSM2333906": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 2.0168342128223773
+    },
+    "t": {
+     "secretory": -1.2352634884776579,
+     "cycling": 1.8820855611817668
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.00478,
+     "immune": 0.96995
+    }
+   },
+   "GSM2333907": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.900123185333335,
+     "cycling": -15.045301957377706
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.81935
+    }
+   },
+   "GSM2333908": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -8.428158712356153,
+     "cycling": -7.588238608968899
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86149
+    }
+   },
+   "GSM2333909": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -1.5467804808043473,
+     "cycling": -0.8710735990756655
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94119
+    }
+   },
+   "GSM2333910": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.155678264889321,
+     "cycling": -10.345355612628026
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.81769
+    }
+   },
+   "GSM2333911": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.694030549327803,
+     "cycling": -10.160201233884376
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87614
+    }
+   },
+   "GSM2333912": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -14.452544379523411,
+     "cycling": -13.86364339785344
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.79413
+    }
+   },
+   "GSM2333913": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.623964657587598,
+     "cycling": -10.485775464361774
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87103
+    }
+   },
+   "GSM2333914": {
+    "F": {
+     "secretory": 1.3438459530027737e-12,
+     "cycling": 1.3438459530027737e-12
+    },
+    "t": {
+     "secretory": -1.8002290831447432,
+     "cycling": -0.6494323444523437
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95583
+    }
+   },
+   "GSM2333915": {
+    "F": {
+     "secretory": 1.1139004215170886e-12,
+     "cycling": 1.1139004215170886e-12
+    },
+    "t": {
+     "secretory": -16.856030225523217,
+     "cycling": -16.30730471533405
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.80392
+    }
+   },
+   "GSM2333916": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -8.15191231148409,
+     "cycling": -7.109961001061313
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87751
+    }
+   },
+   "GSM2333917": {
+    "F": {
+     "secretory": -1.0051622687563101e-12,
+     "cycling": -1.0051622687563101e-12
+    },
+    "t": {
+     "secretory": -11.073770714119632,
+     "cycling": -10.408216258128789
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87897
+    }
+   },
+   "GSM2333918": {
+    "F": {
+     "secretory": 1.3965415214488976e-12,
+     "cycling": 4.126729591206522
+    },
+    "t": {
+     "secretory": -4.083613562909346,
+     "cycling": 4.559735199209829
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.00355,
+     "immune": 0.96525
+    }
+   },
+   "GSM2333919": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -7.774294914315998,
+     "cycling": -7.077916089278987
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86594
+    }
+   },
+   "GSM2333920": {
+    "F": {
+     "secretory": 1.0684136192383606e-12,
+     "cycling": 1.0684136192383606e-12
+    },
+    "t": {
+     "secretory": -6.383553790632829,
+     "cycling": -5.4497238850345555
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.9162
+    }
+   },
+   "GSM2333921": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -5.523449446237971,
+     "cycling": -4.486163146539407
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92151
+    }
+   },
+   "GSM2333922": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -3.8572692136827404,
+     "cycling": -3.2547025756601897
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.89114
+    }
+   },
+   "GSM2333923": {
+    "F": {
+     "secretory": -1.341601140439625e-12,
+     "cycling": -1.341601140439625e-12
+    },
+    "t": {
+     "secretory": -13.92253047395675,
+     "cycling": -13.003059764531573
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.85805
+    }
+   },
+   "GSM2333924": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.161435057631875,
+     "cycling": -12.636992433506753
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83982
+    }
+   },
+   "GSM2333925": {
+    "F": {
+     "secretory": 1.1232221083847778e-12,
+     "cycling": 1.1232221083847778e-12
+    },
+    "t": {
+     "secretory": -4.279327070808891,
+     "cycling": -3.4006488688847707
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.90213
+    }
+   },
+   "GSM2333926": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.64777505603592,
+     "cycling": -14.656603807165718
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83652
+    }
+   },
+   "GSM2333927": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -1.615272898170235,
+     "cycling": -1.0551988064395605
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94233
+    }
+   },
+   "GSM2333928": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -2.1195768219989777,
+     "cycling": -1.5893817353062023
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92256
+    }
+   },
+   "GSM2333929": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.48936364224727,
+     "cycling": -11.83252490696462
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.82147
+    }
+   },
+   "GSM2333930": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.3305810189312,
+     "cycling": -3.7883134349221246
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.93757
+    }
+   },
+   "GSM2333931": {
+    "F": {
+     "secretory": 8.619111000498154e-13,
+     "cycling": 6.384973925449352
+    },
+    "t": {
+     "secretory": -0.44366138564079166,
+     "cycling": 2.5648472446613857
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.01559,
+     "immune": 0.95591
+    }
+   },
+   "GSM2333932": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -16.298619846523856,
+     "cycling": -15.572875324901743
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.80007
+    }
+   },
+   "GSM2333933": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 9.206342134715404
+    },
+    "t": {
+     "secretory": -0.6529970954855608,
+     "cycling": 3.102203228069161
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.02008,
+     "immune": 0.93486
+    }
+   },
+   "GSM2333934": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.9343659038318,
+     "cycling": -12.193657703481403
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84108
+    }
+   },
+   "GSM2333935": {
+    "F": {
+     "secretory": 1.0654635918398853e-12,
+     "cycling": 1.0654635918398853e-12
+    },
+    "t": {
+     "secretory": -3.5743664682956937,
+     "cycling": -2.3012160526635923
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95632
+    }
+   },
+   "GSM2333936": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.063163554615362,
+     "cycling": -3.2325378753448253
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92249
+    }
+   },
+   "GSM2333937": {
+    "F": {
+     "secretory": 0.2526613924288403,
+     "cycling": 5.040472491674206
+    },
+    "t": {
+     "secretory": 0.502756474815905,
+     "cycling": 2.244761052679851
+    },
+    "frac": {
+     "secretory": 0.00394,
+     "cycling": 0.01768,
+     "immune": 0.94488
+    }
+   },
+   "GSM2333938": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -19.179653760312455,
+     "cycling": -18.516512250757636
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.79517
+    }
+   },
+   "GSM2333939": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.804988041525888,
+     "cycling": -10.16486819137496
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84615
+    }
+   },
+   "GSM2333940": {
+    "F": {
+     "secretory": 1.0769078572339185e-12,
+     "cycling": 1.0769078572339185e-12
+    },
+    "t": {
+     "secretory": -5.0944651965031,
+     "cycling": -4.453329046278801
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.91039
+    }
+   }
+  },
+  "BOTH": {
+   "GSM2333902": {
+    "F": {
+     "secretory": 8.196041519490952e-13,
+     "cycling": 8.196041519490952e-13
+    },
+    "t": {
+     "secretory": -14.133398046493046,
+     "cycling": -14.279401686763824
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84263
+    }
+   },
+   "GSM2333903": {
+    "F": {
+     "secretory": 8.628422571997484e-13,
+     "cycling": 8.628422571997484e-13
+    },
+    "t": {
+     "secretory": -23.965222340545477,
+     "cycling": -24.171016790949693
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87889
+    }
+   },
+   "GSM2333904": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.560905964688262,
+     "cycling": -15.729297353025073
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.957
+    }
+   },
+   "GSM2333906": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -4.764687629013002,
+     "cycling": -4.848587010404961
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.94798
+    }
+   },
+   "GSM2333907": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -22.88701774531739,
+     "cycling": -23.12866447988134
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.80036
+    }
+   },
+   "GSM2333908": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.458227450908842,
+     "cycling": -12.56901457843887
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87765
+    }
+   },
+   "GSM2333909": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.868830350661181,
+     "cycling": -9.889695395947742
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88026
+    }
+   },
+   "GSM2333910": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.711618578502206,
+     "cycling": -13.658165794253076
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.78999
+    }
+   },
+   "GSM2333911": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -10.457474484677848,
+     "cycling": -10.379673678581453
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95944
+    }
+   },
+   "GSM2333912": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -20.08608463048987,
+     "cycling": -20.101646064776176
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8124
+    }
+   },
+   "GSM2333913": {
+    "F": {
+     "secretory": -1.0635918666928375e-12,
+     "cycling": -1.0635918666928375e-12
+    },
+    "t": {
+     "secretory": -19.423138495445354,
+     "cycling": -19.594640894245135
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.87935
+    }
+   },
+   "GSM2333914": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.154811918958886,
+     "cycling": -9.292541107128034
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.98783
+    }
+   },
+   "GSM2333915": {
+    "F": {
+     "secretory": -8.241918547089177e-13,
+     "cycling": -8.241918547089177e-13
+    },
+    "t": {
+     "secretory": -17.51198289757862,
+     "cycling": -17.43109737497301
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.84091
+    }
+   },
+   "GSM2333916": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -16.085107568066867,
+     "cycling": -16.282051595765903
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86068
+    }
+   },
+   "GSM2333917": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.540120544573519,
+     "cycling": -13.44596372903741
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92452
+    }
+   },
+   "GSM2333918": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -8.263444927920316,
+     "cycling": -8.523851430142253
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.98497
+    }
+   },
+   "GSM2333919": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.880509339233582,
+     "cycling": -9.954668979559678
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88404
+    }
+   },
+   "GSM2333920": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -14.92093360500606,
+     "cycling": -15.115712484171356
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.92931
+    }
+   },
+   "GSM2333921": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -15.876345137662511,
+     "cycling": -16.20402842788038
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.90364
+    }
+   },
+   "GSM2333922": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.432812414369208,
+     "cycling": -9.422260076387868
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.93201
+    }
+   },
+   "GSM2333923": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -21.59413685664865,
+     "cycling": -21.823259636624698
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.8872
+    }
+   },
+   "GSM2333924": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -20.542796634107226,
+     "cycling": -20.61370360566372
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.85186
+    }
+   },
+   "GSM2333925": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.84884060876749,
+     "cycling": -9.797835285129413
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.90284
+    }
+   },
+   "GSM2333926": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -24.51437196205051,
+     "cycling": -24.704980949240305
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.85992
+    }
+   },
+   "GSM2333927": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -6.393256699710182,
+     "cycling": -6.43478358221025
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.91831
+    }
+   },
+   "GSM2333928": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -5.7023808139991985,
+     "cycling": -5.7731540507319465
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.88649
+    }
+   },
+   "GSM2333929": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -16.32636225161188,
+     "cycling": -16.314566353914955
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83028
+    }
+   },
+   "GSM2333930": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.302191633785112,
+     "cycling": -12.376430039212075
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.95203
+    }
+   },
+   "GSM2333931": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -0.2833933657580256,
+     "cycling": -0.49635359588937433
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.98074
+    }
+   },
+   "GSM2333932": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -16.80477561429262,
+     "cycling": -16.778642356751345
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.82842
+    }
+   },
+   "GSM2333933": {
+    "F": {
+     "secretory": 1.043732421835187,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": 1.6994737306175043,
+     "cycling": -1.3581094068346025
+    },
+    "frac": {
+     "secretory": 0.00351,
+     "cycling": 0.0,
+     "immune": 0.96226
+    }
+   },
+   "GSM2333934": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -18.050518595148777,
+     "cycling": -18.004040750521344
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.81951
+    }
+   },
+   "GSM2333935": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -9.626325655061228,
+     "cycling": -9.769777862379165
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.97181
+    }
+   },
+   "GSM2333936": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -12.10663578114769,
+     "cycling": -12.105569566951834
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.93397
+    }
+   },
+   "GSM2333937": {
+    "F": {
+     "secretory": 0.03677356426568904,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": 1.191071586465719,
+     "cycling": -1.1755293945620602
+    },
+    "frac": {
+     "secretory": 0.00021,
+     "cycling": 0.0,
+     "immune": 0.97972
+    }
+   },
+   "GSM2333938": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -21.581398383112646,
+     "cycling": -21.610899399438296
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.83367
+    }
+   },
+   "GSM2333939": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -13.583468817001876,
+     "cycling": -13.650627247347767
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.86749
+    }
+   },
+   "GSM2333940": {
+    "F": {
+     "secretory": 0.0,
+     "cycling": 0.0
+    },
+    "t": {
+     "secretory": -11.61368071679012,
+     "cycling": -11.82303634994087
+    },
+    "frac": {
+     "secretory": 0.0,
+     "cycling": 0.0,
+     "immune": 0.96241
+    }
+   }
+  }
+ },
+ "mixtures": {
+  "BASE": {
+   "GSM2333901|secretory|0.0": {
+    "F": 0.0,
+    "t": -12.613725629350537,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83363
+   },
+   "GSM2333901|secretory|0.0025": {
+    "F": 0.0,
+    "t": -10.921101172172877,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83525
+   },
+   "GSM2333901|secretory|0.005": {
+    "F": 0.0,
+    "t": -9.205310370874937,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83687
+   },
+   "GSM2333901|secretory|0.01": {
+    "F": 1.0643967805620529e-12,
+    "t": -5.712347511814746,
+    "frac_pct": 0.0,
+    "immune_frac": 0.84012
+   },
+   "GSM2333901|secretory|0.02": {
+    "F": 0.0,
+    "t": -1.8988927170788084,
+    "frac_pct": 0.0,
+    "immune_frac": 0.84293
+   },
+   "GSM2333901|secretory|0.05": {
+    "F": 11.063080612154117,
+    "t": 3.324071858080589,
+    "frac_pct": 2.155,
+    "immune_frac": 0.81983
+   },
+   "GSM2333901|secretory|0.1": {
+    "F": 160.8046857876848,
+    "t": 12.530558244637632,
+    "frac_pct": 7.873,
+    "immune_frac": 0.78075
+   },
+   "GSM2333901|secretory|0.2": {
+    "F": 1119.3564411256775,
+    "t": 31.043432551426164,
+    "frac_pct": 17.689,
+    "immune_frac": 0.70148
+   },
+   "GSM2333901|cycling|0.0": {
+    "F": 0.0,
+    "t": -11.820629516565242,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83363
+   },
+   "GSM2333901|cycling|0.0025": {
+    "F": 0.0,
+    "t": -10.12103819923547,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83527
+   },
+   "GSM2333901|cycling|0.005": {
+    "F": 0.0,
+    "t": -8.39946701855073,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83692
+   },
+   "GSM2333901|cycling|0.01": {
+    "F": 0.0,
+    "t": -4.898719779952053,
+    "frac_pct": 0.0,
+    "immune_frac": 0.84022
+   },
+   "GSM2333901|cycling|0.02": {
+    "F": 3.917145510446559,
+    "t": 5.9067304590204435,
+    "frac_pct": 0.303,
+    "immune_frac": 0.84233
+   },
+   "GSM2333901|cycling|0.05": {
+    "F": 81.88335223958174,
+    "t": 10.858375818894164,
+    "frac_pct": 3.206,
+    "immune_frac": 0.81881
+   },
+   "GSM2333901|cycling|0.1": {
+    "F": 344.8026516005296,
+    "t": 19.376248961300355,
+    "frac_pct": 8.057,
+    "immune_frac": 0.77949
+   },
+   "GSM2333901|cycling|0.2": {
+    "F": 1501.5736917386016,
+    "t": 35.91652418413211,
+    "frac_pct": 17.815,
+    "immune_frac": 0.70041
+   },
+   "GSM2333905|secretory|0.0": {
+    "F": 0.0,
+    "t": -7.402461204133259,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88809
+   },
+   "GSM2333905|secretory|0.0025": {
+    "F": 0.0,
+    "t": -5.695119984535206,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88906
+   },
+   "GSM2333905|secretory|0.005": {
+    "F": 1.2662809618413874e-12,
+    "t": -3.9717283418892104,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89004
+   },
+   "GSM2333905|secretory|0.01": {
+    "F": 0.0,
+    "t": -4.320229775506117,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89111
+   },
+   "GSM2333905|secretory|0.02": {
+    "F": 0.0,
+    "t": -2.4830341225769463,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88321
+   },
+   "GSM2333905|secretory|0.05": {
+    "F": 10.580194919373321,
+    "t": 3.250585297715095,
+    "frac_pct": 1.924,
+    "immune_frac": 0.85904
+   },
+   "GSM2333905|secretory|0.1": {
+    "F": 182.45672055701837,
+    "t": 13.324711023284177,
+    "frac_pct": 7.666,
+    "immune_frac": 0.81801
+   },
+   "GSM2333905|secretory|0.2": {
+    "F": 1318.2527114042687,
+    "t": 33.14539631026096,
+    "frac_pct": 18.585,
+    "immune_frac": 0.73526
+   },
+   "GSM2333905|cycling|0.0": {
+    "F": 0.0,
+    "t": -6.181635423307163,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88809
+   },
+   "GSM2333905|cycling|0.0025": {
+    "F": 0.0,
+    "t": -4.472457183461608,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88908
+   },
+   "GSM2333905|cycling|0.005": {
+    "F": 0.0,
+    "t": -2.749050589140874,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89008
+   },
+   "GSM2333905|cycling|0.01": {
+    "F": 0.5346452529419652,
+    "t": 0.7313325116204515,
+    "frac_pct": 0.102,
+    "immune_frac": 0.8908
+   },
+   "GSM2333905|cycling|0.02": {
+    "F": 23.23364857931285,
+    "t": 8.059993639689688,
+    "frac_pct": 1.077,
+    "immune_frac": 0.88259
+   },
+   "GSM2333905|cycling|0.05": {
+    "F": 135.36996997213635,
+    "t": 13.460031304600312,
+    "frac_pct": 4.006,
+    "immune_frac": 0.85792
+   },
+   "GSM2333905|cycling|0.1": {
+    "F": 485.26046861771596,
+    "t": 22.61822878526205,
+    "frac_pct": 8.904,
+    "immune_frac": 0.81668
+   },
+   "GSM2333905|cycling|0.2": {
+    "F": 1946.955688356494,
+    "t": 39.730060845528904,
+    "frac_pct": 18.731,
+    "immune_frac": 0.73375
+   },
+   "GSM1051533|secretory|0.0": {
+    "F": 0.0,
+    "t": -6.71106865988443,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93177
+   },
+   "GSM1051533|secretory|0.0025": {
+    "F": 0.0,
+    "t": -5.823523251896003,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93278
+   },
+   "GSM1051533|secretory|0.005": {
+    "F": 0.0,
+    "t": -4.10876236678716,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93367
+   },
+   "GSM1051533|secretory|0.01": {
+    "F": 0.0,
+    "t": -2.89302203238127,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93542
+   },
+   "GSM1051533|secretory|0.02": {
+    "F": 0.0,
+    "t": -1.074513991205249,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92696
+   },
+   "GSM1051533|secretory|0.05": {
+    "F": 21.128282891263908,
+    "t": 4.5898530740140995,
+    "frac_pct": 2.785,
+    "immune_frac": 0.90087
+   },
+   "GSM1051533|secretory|0.1": {
+    "F": 217.49750951917272,
+    "t": 14.510984185214511,
+    "frac_pct": 8.553,
+    "immune_frac": 0.85703
+   },
+   "GSM1051533|secretory|0.2": {
+    "F": 1379.7537765533216,
+    "t": 33.84805606383776,
+    "frac_pct": 18.656,
+    "immune_frac": 0.769
+   },
+   "GSM1051533|cycling|0.0": {
+    "F": 0.0,
+    "t": -5.932855152964608,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93177
+   },
+   "GSM1051533|cycling|0.0025": {
+    "F": 0.0,
+    "t": -4.941472155225247,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9328
+   },
+   "GSM1051533|cycling|0.005": {
+    "F": 0.0,
+    "t": -3.226912222176907,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9337
+   },
+   "GSM1051533|cycling|0.01": {
+    "F": 0.056591106031570935,
+    "t": 0.2379423209859137,
+    "frac_pct": 0.034,
+    "immune_frac": 0.9351
+   },
+   "GSM1051533|cycling|0.02": {
+    "F": 17.453309410244174,
+    "t": 6.511787197410948,
+    "frac_pct": 1.027,
+    "immune_frac": 0.92631
+   },
+   "GSM1051533|cycling|0.05": {
+    "F": 112.96730878254836,
+    "t": 11.8780487329451,
+    "frac_pct": 4.008,
+    "immune_frac": 0.89991
+   },
+   "GSM1051533|cycling|0.1": {
+    "F": 430.8771100852137,
+    "t": 21.053775640518758,
+    "frac_pct": 8.986,
+    "immune_frac": 0.85584
+   },
+   "GSM1051533|cycling|0.2": {
+    "F": 1807.49599784711,
+    "t": 38.40033094200243,
+    "frac_pct": 18.776,
+    "immune_frac": 0.76786
+   }
+  },
+  "GLS": {
+   "GSM2333901|secretory|0.0": {
+    "F": 0.0,
+    "t": -13.738321184451923,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89563
+   },
+   "GSM2333901|secretory|0.0025": {
+    "F": 0.0,
+    "t": -11.039051259042237,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89744
+   },
+   "GSM2333901|secretory|0.005": {
+    "F": 0.0,
+    "t": -8.286299479305612,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89925
+   },
+   "GSM2333901|secretory|0.01": {
+    "F": 0.0,
+    "t": -2.6559932419577685,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9029
+   },
+   "GSM2333901|secretory|0.02": {
+    "F": 5.980120614004973,
+    "t": 3.598594488559719,
+    "frac_pct": 0.751,
+    "immune_frac": 0.89821
+   },
+   "GSM2333901|secretory|0.05": {
+    "F": 56.42610613017115,
+    "t": 8.17444807483172,
+    "frac_pct": 3.692,
+    "immune_frac": 0.87317
+   },
+   "GSM2333901|secretory|0.1": {
+    "F": 245.9367980687825,
+    "t": 16.007391665698375,
+    "frac_pct": 8.606,
+    "immune_frac": 0.83134
+   },
+   "GSM2333901|secretory|0.2": {
+    "F": 1025.401433397476,
+    "t": 30.427711519887318,
+    "frac_pct": 18.489,
+    "immune_frac": 0.7496
+   },
+   "GSM2333901|cycling|0.0": {
+    "F": 0.0,
+    "t": -13.894653631251153,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89563
+   },
+   "GSM2333901|cycling|0.0025": {
+    "F": 0.0,
+    "t": -11.19572364691765,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89744
+   },
+   "GSM2333901|cycling|0.005": {
+    "F": 0.0,
+    "t": -8.442706593023011,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89925
+   },
+   "GSM2333901|cycling|0.01": {
+    "F": 0.0,
+    "t": -2.8099315067933044,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9029
+   },
+   "GSM2333901|cycling|0.02": {
+    "F": 0.6844203283380023,
+    "t": 0.8274435431280647,
+    "frac_pct": 0.639,
+    "immune_frac": 0.89836
+   },
+   "GSM2333901|cycling|0.05": {
+    "F": 31.044065109769523,
+    "t": 5.60498796546264,
+    "frac_pct": 3.688,
+    "immune_frac": 0.87313
+   },
+   "GSM2333901|cycling|0.1": {
+    "F": 193.38766718053594,
+    "t": 13.879631579242691,
+    "frac_pct": 8.613,
+    "immune_frac": 0.83098
+   },
+   "GSM2333901|cycling|0.2": {
+    "F": 955.5696890384439,
+    "t": 29.289345219938465,
+    "frac_pct": 18.51,
+    "immune_frac": 0.74762
+   },
+   "GSM2333905|secretory|0.0": {
+    "F": 0.0,
+    "t": -13.566260519586686,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90628
+   },
+   "GSM2333905|secretory|0.0025": {
+    "F": 0.0,
+    "t": -10.673643330344603,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90812
+   },
+   "GSM2333905|secretory|0.005": {
+    "F": 0.0,
+    "t": -7.72206019234904,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90997
+   },
+   "GSM2333905|secretory|0.01": {
+    "F": 0.0,
+    "t": -1.6865430387549938,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91367
+   },
+   "GSM2333905|secretory|0.02": {
+    "F": 7.6083084069431095,
+    "t": 3.872579147542525,
+    "frac_pct": 0.844,
+    "immune_frac": 0.90745
+   },
+   "GSM2333905|secretory|0.05": {
+    "F": 65.64838322966875,
+    "t": 8.754639636786266,
+    "frac_pct": 3.784,
+    "immune_frac": 0.88219
+   },
+   "GSM2333905|secretory|0.1": {
+    "F": 281.4942045421863,
+    "t": 17.04434172671983,
+    "frac_pct": 8.698,
+    "immune_frac": 0.83999
+   },
+   "GSM2333905|secretory|0.2": {
+    "F": 1135.519144325614,
+    "t": 31.712674261449234,
+    "frac_pct": 18.575,
+    "immune_frac": 0.75516
+   },
+   "GSM2333905|cycling|0.0": {
+    "F": 0.0,
+    "t": -13.72954880660364,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90628
+   },
+   "GSM2333905|cycling|0.0025": {
+    "F": 0.0,
+    "t": -10.837359180587617,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90812
+   },
+   "GSM2333905|cycling|0.005": {
+    "F": 0.0,
+    "t": -7.885435095552125,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90997
+   },
+   "GSM2333905|cycling|0.01": {
+    "F": 0.0,
+    "t": -1.8467758224235986,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91367
+   },
+   "GSM2333905|cycling|0.02": {
+    "F": 0.9768573013188669,
+    "t": 0.988514107403146,
+    "frac_pct": 0.714,
+    "immune_frac": 0.90759
+   },
+   "GSM2333905|cycling|0.05": {
+    "F": 36.84508802990096,
+    "t": 6.098680221060571,
+    "frac_pct": 3.781,
+    "immune_frac": 0.88211
+   },
+   "GSM2333905|cycling|0.1": {
+    "F": 223.7993437817777,
+    "t": 14.890557573008937,
+    "frac_pct": 8.706,
+    "immune_frac": 0.83953
+   },
+   "GSM2333905|cycling|0.2": {
+    "F": 1076.0662915749617,
+    "t": 30.832215072742024,
+    "frac_pct": 18.6,
+    "immune_frac": 0.75401
+   },
+   "GSM1051533|secretory|0.0": {
+    "F": 0.0,
+    "t": -13.769779321568395,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92436
+   },
+   "GSM1051533|secretory|0.0025": {
+    "F": 0.0,
+    "t": -10.75664663050723,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92613
+   },
+   "GSM1051533|secretory|0.005": {
+    "F": 0.0,
+    "t": -7.679502932107848,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9279
+   },
+   "GSM1051533|secretory|0.01": {
+    "F": 0.0,
+    "t": -1.3834756718296328,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93146
+   },
+   "GSM1051533|secretory|0.02": {
+    "F": 8.20610978986635,
+    "t": 3.918661475278133,
+    "frac_pct": 0.883,
+    "immune_frac": 0.92448
+   },
+   "GSM1051533|secretory|0.05": {
+    "F": 70.16456110995269,
+    "t": 8.992898968651508,
+    "frac_pct": 3.859,
+    "immune_frac": 0.89834
+   },
+   "GSM1051533|secretory|0.1": {
+    "F": 302.89080563079364,
+    "t": 17.610040555416692,
+    "frac_pct": 8.826,
+    "immune_frac": 0.85471
+   },
+   "GSM1051533|secretory|0.2": {
+    "F": 1234.7779010667005,
+    "t": 32.86947017307795,
+    "frac_pct": 18.794,
+    "immune_frac": 0.76844
+   },
+   "GSM1051533|cycling|0.0": {
+    "F": 0.0,
+    "t": -13.92586293727004,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92436
+   },
+   "GSM1051533|cycling|0.0025": {
+    "F": 0.0,
+    "t": -10.91324609143246,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92612
+   },
+   "GSM1051533|cycling|0.005": {
+    "F": 0.0,
+    "t": -7.835795700797108,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92789
+   },
+   "GSM1051533|cycling|0.01": {
+    "F": 0.0,
+    "t": -1.536508906336675,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93145
+   },
+   "GSM1051533|cycling|0.02": {
+    "F": 1.297550174603246,
+    "t": 1.1392486630844196,
+    "frac_pct": 0.8,
+    "immune_frac": 0.92458
+   },
+   "GSM1051533|cycling|0.05": {
+    "F": 40.70871758617906,
+    "t": 6.409042979607718,
+    "frac_pct": 3.856,
+    "immune_frac": 0.89822
+   },
+   "GSM1051533|cycling|0.1": {
+    "F": 242.91704140344882,
+    "t": 15.479514937160667,
+    "frac_pct": 8.834,
+    "immune_frac": 0.85423
+   },
+   "GSM1051533|cycling|0.2": {
+    "F": 1163.2097022773487,
+    "t": 31.842646806056056,
+    "frac_pct": 18.817,
+    "immune_frac": 0.76626
+   }
+  },
+  "CONTRAST": {
+   "GSM2333901|secretory|0.0": {
+    "F": 0.0,
+    "t": -12.847913369444955,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83485
+   },
+   "GSM2333901|secretory|0.0025": {
+    "F": 1.0597929356779452e-12,
+    "t": -11.117841623229648,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83627
+   },
+   "GSM2333901|secretory|0.005": {
+    "F": 0.0,
+    "t": -9.364027799318325,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83768
+   },
+   "GSM2333901|secretory|0.01": {
+    "F": 0.0,
+    "t": -5.793548208293385,
+    "frac_pct": 0.0,
+    "immune_frac": 0.84053
+   },
+   "GSM2333901|secretory|0.02": {
+    "F": -1.1166499288352112e-12,
+    "t": -1.7459781392700844,
+    "frac_pct": 0.0,
+    "immune_frac": 0.8427
+   },
+   "GSM2333901|secretory|0.05": {
+    "F": 13.086865639539806,
+    "t": 3.6148865360826314,
+    "frac_pct": 2.293,
+    "immune_frac": 0.81938
+   },
+   "GSM2333901|secretory|0.1": {
+    "F": 174.7380971791202,
+    "t": 13.0549922978555,
+    "frac_pct": 7.952,
+    "immune_frac": 0.77998
+   },
+   "GSM2333901|secretory|0.2": {
+    "F": 1190.9415499930537,
+    "t": 31.981287124093914,
+    "frac_pct": 17.71,
+    "immune_frac": 0.7001
+   },
+   "GSM2333901|cycling|0.0": {
+    "F": 0.0,
+    "t": -12.072109828578094,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83485
+   },
+   "GSM2333901|cycling|0.0025": {
+    "F": 0.0,
+    "t": -10.335209747245479,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83629
+   },
+   "GSM2333901|cycling|0.005": {
+    "F": 0.0,
+    "t": -8.57573623684091,
+    "frac_pct": 0.0,
+    "immune_frac": 0.83774
+   },
+   "GSM2333901|cycling|0.01": {
+    "F": 1.0875854082613597e-12,
+    "t": -4.997654357757554,
+    "frac_pct": 0.0,
+    "immune_frac": 0.84064
+   },
+   "GSM2333901|cycling|0.02": {
+    "F": 4.032561073482916,
+    "t": 5.857168686276122,
+    "frac_pct": 0.305,
+    "immune_frac": 0.84216
+   },
+   "GSM2333901|cycling|0.05": {
+    "F": 83.87058432748894,
+    "t": 10.91530414555409,
+    "frac_pct": 3.209,
+    "immune_frac": 0.8185
+   },
+   "GSM2333901|cycling|0.1": {
+    "F": 355.54383665701005,
+    "t": 19.620229578774342,
+    "frac_pct": 8.065,
+    "immune_frac": 0.77895
+   },
+   "GSM2333901|cycling|0.2": {
+    "F": 1557.8442155248947,
+    "t": 36.53341309791572,
+    "frac_pct": 17.83,
+    "immune_frac": 0.69939
+   },
+   "GSM2333905|secretory|0.0": {
+    "F": 0.0,
+    "t": -7.505974145631277,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88802
+   },
+   "GSM2333905|secretory|0.0025": {
+    "F": -1.2958524434747918e-12,
+    "t": -5.748253188237366,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88877
+   },
+   "GSM2333905|secretory|0.005": {
+    "F": -1.3054316201545395e-12,
+    "t": -3.9739922006591706,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88953
+   },
+   "GSM2333905|secretory|0.01": {
+    "F": -1.3211219999414476e-12,
+    "t": -4.221999006793512,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89013
+   },
+   "GSM2333905|secretory|0.02": {
+    "F": 0.0,
+    "t": -2.329632250809083,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88219
+   },
+   "GSM2333905|secretory|0.05": {
+    "F": 12.79154289724452,
+    "t": 3.573676156878546,
+    "frac_pct": 2.063,
+    "immune_frac": 0.85788
+   },
+   "GSM2333905|secretory|0.1": {
+    "F": 199.7622611008306,
+    "t": 13.931475110625415,
+    "frac_pct": 7.82,
+    "immune_frac": 0.81675
+   },
+   "GSM2333905|secretory|0.2": {
+    "F": 1411.9678237309868,
+    "t": 34.21919249864518,
+    "frac_pct": 18.6,
+    "immune_frac": 0.73368
+   },
+   "GSM2333905|cycling|0.0": {
+    "F": 0.0,
+    "t": -6.301025781874818,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88802
+   },
+   "GSM2333905|cycling|0.0025": {
+    "F": 0.0,
+    "t": -4.54198519840642,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88879
+   },
+   "GSM2333905|cycling|0.005": {
+    "F": 0.0,
+    "t": -2.7682436128992474,
+    "frac_pct": 0.0,
+    "immune_frac": 0.88957
+   },
+   "GSM2333905|cycling|0.01": {
+    "F": 0.6619520630384816,
+    "t": 0.8137450379107609,
+    "frac_pct": 0.11,
+    "immune_frac": 0.88986
+   },
+   "GSM2333905|cycling|0.02": {
+    "F": 24.108487990085703,
+    "t": 8.081128443695619,
+    "frac_pct": 1.085,
+    "immune_frac": 0.88164
+   },
+   "GSM2333905|cycling|0.05": {
+    "F": 140.18723973438347,
+    "t": 13.615775352678426,
+    "frac_pct": 4.015,
+    "immune_frac": 0.85694
+   },
+   "GSM2333905|cycling|0.1": {
+    "F": 504.6874773632277,
+    "t": 23.002286049962905,
+    "frac_pct": 8.915,
+    "immune_frac": 0.81563
+   },
+   "GSM2333905|cycling|0.2": {
+    "F": 2034.0033344553635,
+    "t": 40.52567820016189,
+    "frac_pct": 18.742,
+    "immune_frac": 0.73253
+   },
+   "GSM1051533|secretory|0.0": {
+    "F": 0.0,
+    "t": -6.751804776852016,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9302
+   },
+   "GSM1051533|secretory|0.0025": {
+    "F": 0.0,
+    "t": -5.745837320971086,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93106
+   },
+   "GSM1051533|secretory|0.005": {
+    "F": 0.0,
+    "t": -3.982961975614471,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93174
+   },
+   "GSM1051533|secretory|0.01": {
+    "F": 0.0,
+    "t": -2.722899935148723,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93277
+   },
+   "GSM1051533|secretory|0.02": {
+    "F": 0.0,
+    "t": -0.8540262759223198,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92425
+   },
+   "GSM1051533|secretory|0.05": {
+    "F": 24.72622714197504,
+    "t": 4.964238042252695,
+    "frac_pct": 2.944,
+    "immune_frac": 0.89811
+   },
+   "GSM1051533|secretory|0.1": {
+    "F": 237.1455141081461,
+    "t": 15.140086424147965,
+    "frac_pct": 8.726,
+    "immune_frac": 0.85428
+   },
+   "GSM1051533|secretory|0.2": {
+    "F": 1471.0925790766235,
+    "t": 34.88310618340301,
+    "frac_pct": 18.684,
+    "immune_frac": 0.76586
+   },
+   "GSM1051533|cycling|0.0": {
+    "F": 0.0,
+    "t": -5.996313572700268,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9302
+   },
+   "GSM1051533|cycling|0.0025": {
+    "F": 0.0,
+    "t": -4.894073536509702,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93108
+   },
+   "GSM1051533|cycling|0.005": {
+    "F": 0.0,
+    "t": -3.1320750418098924,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93178
+   },
+   "GSM1051533|cycling|0.01": {
+    "F": 0.18318738010278124,
+    "t": 0.42809283302106726,
+    "frac_pct": 0.059,
+    "immune_frac": 0.93249
+   },
+   "GSM1051533|cycling|0.02": {
+    "F": 18.17789043394102,
+    "t": 6.477384265395918,
+    "frac_pct": 1.052,
+    "immune_frac": 0.92371
+   },
+   "GSM1051533|cycling|0.05": {
+    "F": 116.28378663418671,
+    "t": 11.963511757224017,
+    "frac_pct": 4.034,
+    "immune_frac": 0.89734
+   },
+   "GSM1051533|cycling|0.1": {
+    "F": 445.43469366180886,
+    "t": 21.347068690965592,
+    "frac_pct": 9.003,
+    "immune_frac": 0.8533
+   },
+   "GSM1051533|cycling|0.2": {
+    "F": 1876.850045860942,
+    "t": 39.07663152912089,
+    "frac_pct": 18.798,
+    "immune_frac": 0.76509
+   }
+  },
+  "BOTH": {
+   "GSM2333901|secretory|0.0": {
+    "F": 8.544048436718344e-13,
+    "t": -14.219278905541461,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89914
+   },
+   "GSM2333901|secretory|0.0025": {
+    "F": 0.0,
+    "t": -11.471446301495483,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90064
+   },
+   "GSM2333901|secretory|0.005": {
+    "F": 0.0,
+    "t": -8.668279260193723,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90214
+   },
+   "GSM2333901|secretory|0.01": {
+    "F": 0.0,
+    "t": -2.9321380042136114,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90515
+   },
+   "GSM2333901|secretory|0.02": {
+    "F": 6.051746445107125,
+    "t": 3.65881964442741,
+    "frac_pct": 0.733,
+    "immune_frac": 0.9004
+   },
+   "GSM2333901|secretory|0.05": {
+    "F": 58.239404985526654,
+    "t": 8.316597498690914,
+    "frac_pct": 3.675,
+    "immune_frac": 0.8752
+   },
+   "GSM2333901|secretory|0.1": {
+    "F": 254.51413419768707,
+    "t": 16.292025242003962,
+    "frac_pct": 8.591,
+    "immune_frac": 0.83308
+   },
+   "GSM2333901|secretory|0.2": {
+    "F": 1062.9476228812011,
+    "t": 30.98329350173973,
+    "frac_pct": 18.479,
+    "immune_frac": 0.75044
+   },
+   "GSM2333901|cycling|0.0": {
+    "F": 8.544048436718344e-13,
+    "t": -14.378874204145882,
+    "frac_pct": 0.0,
+    "immune_frac": 0.89914
+   },
+   "GSM2333901|cycling|0.0025": {
+    "F": 0.0,
+    "t": -11.631132562765664,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90063
+   },
+   "GSM2333901|cycling|0.005": {
+    "F": 0.0,
+    "t": -8.827429517479308,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90213
+   },
+   "GSM2333901|cycling|0.01": {
+    "F": 0.0,
+    "t": -3.088218742016302,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90514
+   },
+   "GSM2333901|cycling|0.02": {
+    "F": 0.6703537584149839,
+    "t": 0.8188921865195268,
+    "frac_pct": 0.622,
+    "immune_frac": 0.90052
+   },
+   "GSM2333901|cycling|0.05": {
+    "F": 31.846935080119962,
+    "t": 5.677301363971814,
+    "frac_pct": 3.671,
+    "immune_frac": 0.87513
+   },
+   "GSM2333901|cycling|0.1": {
+    "F": 199.4285420682945,
+    "t": 14.095166080452035,
+    "frac_pct": 8.598,
+    "immune_frac": 0.83269
+   },
+   "GSM2333901|cycling|0.2": {
+    "F": 988.570014717684,
+    "t": 29.791738849367412,
+    "frac_pct": 18.5,
+    "immune_frac": 0.74855
+   },
+   "GSM2333905|secretory|0.0": {
+    "F": 0.0,
+    "t": -14.040335720688908,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90969
+   },
+   "GSM2333905|secretory|0.0025": {
+    "F": 0.0,
+    "t": -11.093409102671187,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91121
+   },
+   "GSM2333905|secretory|0.005": {
+    "F": 0.0,
+    "t": -8.085378847964884,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91274
+   },
+   "GSM2333905|secretory|0.01": {
+    "F": 0.0,
+    "t": -1.9313726713986172,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91581
+   },
+   "GSM2333905|secretory|0.02": {
+    "F": 7.721952540064238,
+    "t": 3.9272745383528416,
+    "frac_pct": 0.828,
+    "immune_frac": 0.90961
+   },
+   "GSM2333905|secretory|0.05": {
+    "F": 67.74408375673421,
+    "t": 8.900190132450458,
+    "frac_pct": 3.77,
+    "immune_frac": 0.88418
+   },
+   "GSM2333905|secretory|0.1": {
+    "F": 291.41482245464204,
+    "t": 17.346539934533503,
+    "frac_pct": 8.686,
+    "immune_frac": 0.84169
+   },
+   "GSM2333905|secretory|0.2": {
+    "F": 1178.0878512542467,
+    "t": 32.29876493546811,
+    "frac_pct": 18.567,
+    "immune_frac": 0.75628
+   },
+   "GSM2333905|cycling|0.0": {
+    "F": 0.0,
+    "t": -14.205606794656344,
+    "frac_pct": 0.0,
+    "immune_frac": 0.90969
+   },
+   "GSM2333905|cycling|0.0025": {
+    "F": 0.0,
+    "t": -11.258821798455457,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91121
+   },
+   "GSM2333905|cycling|0.005": {
+    "F": 0.0,
+    "t": -8.250143805018094,
+    "frac_pct": 0.0,
+    "immune_frac": 0.91273
+   },
+   "GSM2333905|cycling|0.01": {
+    "F": 0.0,
+    "t": -2.0923282761837934,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9158
+   },
+   "GSM2333905|cycling|0.02": {
+    "F": 0.995714049072141,
+    "t": 0.9980026186577972,
+    "frac_pct": 0.708,
+    "immune_frac": 0.90971
+   },
+   "GSM2333905|cycling|0.05": {
+    "F": 38.03817948197584,
+    "t": 6.198172521732438,
+    "frac_pct": 3.767,
+    "immune_frac": 0.88407
+   },
+   "GSM2333905|cycling|0.1": {
+    "F": 231.54436637565217,
+    "t": 15.147394777567248,
+    "frac_pct": 8.694,
+    "immune_frac": 0.84121
+   },
+   "GSM2333905|cycling|0.2": {
+    "F": 1115.2390733215252,
+    "t": 31.386672829549237,
+    "frac_pct": 18.592,
+    "immune_frac": 0.75511
+   },
+   "GSM1051533|secretory|0.0": {
+    "F": 0.0,
+    "t": -14.136842328416972,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92489
+   },
+   "GSM1051533|secretory|0.0025": {
+    "F": 0.0,
+    "t": -11.069783379945704,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92634
+   },
+   "GSM1051533|secretory|0.005": {
+    "F": 0.0,
+    "t": -7.9369933087058095,
+    "frac_pct": 0.0,
+    "immune_frac": 0.9278
+   },
+   "GSM1051533|secretory|0.01": {
+    "F": 0.0,
+    "t": -1.525367781647951,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93073
+   },
+   "GSM1051533|secretory|0.02": {
+    "F": 8.474464001079443,
+    "t": 4.009483569005802,
+    "frac_pct": 0.875,
+    "immune_frac": 0.92372
+   },
+   "GSM1051533|secretory|0.05": {
+    "F": 72.74346023547982,
+    "t": 9.169956832988927,
+    "frac_pct": 3.851,
+    "immune_frac": 0.89751
+   },
+   "GSM1051533|secretory|0.1": {
+    "F": 313.858961379725,
+    "t": 17.93558681420926,
+    "frac_pct": 8.82,
+    "immune_frac": 0.85375
+   },
+   "GSM1051533|secretory|0.2": {
+    "F": 1280.3709324070999,
+    "t": 33.47550491307714,
+    "frac_pct": 18.792,
+    "immune_frac": 0.76718
+   },
+   "GSM1051533|cycling|0.0": {
+    "F": 0.0,
+    "t": -14.29848701299069,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92489
+   },
+   "GSM1051533|cycling|0.0025": {
+    "F": 0.0,
+    "t": -11.231690372193421,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92634
+   },
+   "GSM1051533|cycling|0.005": {
+    "F": 0.0,
+    "t": -8.09830367900663,
+    "frac_pct": 0.0,
+    "immune_frac": 0.92779
+   },
+   "GSM1051533|cycling|0.01": {
+    "F": 0.0,
+    "t": -1.6827371668214475,
+    "frac_pct": 0.0,
+    "immune_frac": 0.93071
+   },
+   "GSM1051533|cycling|0.02": {
+    "F": 1.251327655385701,
+    "t": 1.118771775664431,
+    "frac_pct": 0.773,
+    "immune_frac": 0.9238
+   },
+   "GSM1051533|cycling|0.05": {
+    "F": 41.5688571475833,
+    "t": 6.473649558766349,
+    "frac_pct": 3.849,
+    "immune_frac": 0.89737
+   },
+   "GSM1051533|cycling|0.1": {
+    "F": 249.80853136517362,
+    "t": 15.695258130144891,
+    "frac_pct": 8.828,
+    "immune_frac": 0.85325
+   },
+   "GSM1051533|cycling|0.2": {
+    "F": 1200.8635925687286,
+    "t": 32.356983495900124,
+    "frac_pct": 18.814,
+    "immune_frac": 0.76509
+   }
+  }
+ },
+ "_threshold": {
+  "BASE": {
+   "secretory": -0.7819291265869828,
+   "cycling": 2.7331480809625184
+  },
+  "GLS": {
+   "secretory": 0.09492268535381412,
+   "cycling": -1.2817310389414018
+  },
+  "CONTRAST": {
+   "secretory": -0.6215967390088457,
+   "cycling": 2.6454506421725514
+  },
+  "BOTH": {
+   "secretory": -0.06222362292446598,
+   "cycling": -1.3307224049937214
+  }
+ }
+}
