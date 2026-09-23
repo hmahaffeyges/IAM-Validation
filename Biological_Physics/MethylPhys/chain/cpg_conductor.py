@@ -58,6 +58,15 @@ def _load_module(name, path):
     return mod
 
 
+def _trace_detect(betas, substrate=None):
+    """Stage 2c. Never raises into a reading: a missing panel reports unavailable and the chain proceeds."""
+    try:
+        mod = _load_module("stage_2c_trace_detection", _find("stage_2c_trace_detection.py"))
+        return mod.detect(betas if isinstance(betas, dict) else dict(betas), substrate=substrate)
+    except Exception as e:
+        return {"_meta": {"available": False, "reason": f"{type(e).__name__}: {e}"}}
+
+
 def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     """Stage A — find the cell types in the sample, their ratios, and their A-scores.
 
@@ -515,7 +524,15 @@ def run_full(beta_dict, atlas_csv, cfg=None):
                         "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
         "cells": cells,
         "cells_all": a["cells"],
-        "second_opinion": so,                        # row 2b: NILC beside Walther, class-level agreement flag                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them
+        "second_opinion": so,
+        # Stage 2c (PROC-SMALL-01, 2026-09-23): trace-class DETECTION, a side channel that changes no
+        # existing number. The composition solve pins a trace component at the non-negativity boundary, so a
+        # score test with inverse-variance weights answers presence where the point estimate cannot. Its
+        # verdict may name a class only at about 5 %; below that it reports epithelial-like material.
+        "trace_detection": _trace_detect(beta_dict, (cfg or {}).get("substrate")),   # RAW betas: the panel was calibrated on the same
+                                                      # input the composition solver receives, and the
+                                                      # mapped scale shifts the statistic by ~24 units
+                        # row 2b: NILC beside Walther, class-level agreement flag                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],

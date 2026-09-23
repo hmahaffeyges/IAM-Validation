@@ -77,7 +77,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 31 procedures, 111 files
+## Every sealed procedure — 32 procedures, 120 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -106,6 +106,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-RECORD-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-02/OUTCOME.md), [`val025_028_aging_ZENODO_COPY.py`](../../Record/PROC_data/PROC-RECORD-02/val025_028_aging_ZENODO_COPY.py)
 - **PROC-RECORD-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-03/OUTCOME.md), [`age_matrix_provenance_check.json`](../../Record/PROC_data/PROC-RECORD-03/age_matrix_provenance_check.json)
 - **PROC-SEP-03** — [`PROC_SEP_03.py`](../kit/PROC_SEP_03.py)
+- **PROC-SMALL-01** — [`PROC_SMALL_01_OUTCOME.md`](PROC_SMALL_01_OUTCOME.md), [`PROC_SMALL_01_PREREG.md`](PROC_SMALL_01_PREREG.md), [`PROC_SMALL_01_compare.py`](../kit/PROC_SMALL_01_compare.py), [`PROC_SMALL_01_figure.py`](../kit/PROC_SMALL_01_figure.py), [`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py), [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py), [`PROC_SMALL_01_configurations.json`](../kit/results/PROC_SMALL_01_configurations.json), [`PROC_SMALL_01_detection.png`](../kit/results/PROC_SMALL_01_detection.png), [`PROC_SMALL_01_heldout_60_healthy.json`](../kit/results/PROC_SMALL_01_heldout_60_healthy.json)
 - **PROC-STAGE0-02** — [`PROC_STAGE0_02_OUTCOME.md`](PROC_STAGE0_02_OUTCOME.md), [`PROC_STAGE0_02_PREREG.md`](PROC_STAGE0_02_PREREG.md), [`PROC_STAGE0_02_arrival.py`](../kit/PROC_STAGE0_02_arrival.py), [`PROC_STAGE0_02_seal.py`](../kit/PROC_STAGE0_02_seal.py), [`PROC_STAGE0_02_sweep.py`](../kit/PROC_STAGE0_02_sweep.py), [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json), [`PROC_STAGE0_02_betamean_GSE87571.json`](../kit/results/PROC_STAGE0_02_betamean_GSE87571.json)
 - **PROC-STAGE0-04** — [`PROC_STAGE0_04_PREREG.md`](PROC_STAGE0_04_PREREG.md)
 - **PROC-SWITCH-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-SWITCH-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-SWITCH-01/PREREG.md), [`switch01_s123.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s123.json), [`switch01_s4.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4.json), [`switch01_s4_diag.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4_diag.json), [`switch01_s6.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s6.json)
@@ -121,7 +122,7 @@ A reviewer should learn this from the page, not by hunting.
 |---|---|
 | Raw MCMC posterior chains | they do not exist: the samplers hold their samples in memory and print summaries, so no run wrote an .h5 or .npy. What exists instead is a re-run that returns every floor inside its own posterior SD (10.5281/zenodo.22905819) |
 | Controlled-access cohort data | named as requirements, not held: the fragmentomics cohorts are controlled access and the chain's predictions for them are filed against data nobody here has |
-| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) |
+| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside Issue 003 |
 | Per-cell reporting below class level | withheld by the instrument. Per-entry resolvability is published so a reader sees which entries are affected and why |
 | The bisulfite threshold | not set: every healthy array in the reference cohort sits below the SOP's 0.95, so the gate reports its measured value and does not refuse on it until the threshold is calibrated (PROC-STAGE0-04) |
 
