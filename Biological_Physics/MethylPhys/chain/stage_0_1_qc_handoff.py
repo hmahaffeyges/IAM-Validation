@@ -108,7 +108,19 @@ def decode_qc_inputs(grn_path, red_path, array_type="HM450K"):
     }
     neg = ctl_addr("NEGATIVE")
     nv = (gm.reindex(neg).fillna(0) + rm.reindex(neg).fillna(0)).dropna()
-    neg_control_stats = {"mu_bg": float(np.mean(nv)), "sigma_bg": float(np.std(nv, ddof=1))}
+    # Robust background (2026-09-23, PROC-E2E-01). A few EPIC negative-control addresses carry real signal -
+    # median 134 with a maximum of 29,110 on GSM8772491 - so mean/sd puts sigma at 1,676 and fails HALF the
+    # probes on a good array: detection read 0.5041 where the robust estimate reads 0.9999. On a clean 450K
+    # array the two agree (0.9998 vs 1.0000), so this fixes the estimator and moves no threshold. Both are
+    # returned: nothing is discarded silently.
+    _med = float(np.median(nv))
+    _mad = float(np.median(np.abs(nv - _med)) * 1.4826)
+    neg_control_stats = {"mu_bg": _med,
+                        "sigma_bg": _mad if _mad > 0 else float(np.std(nv, ddof=1)),
+                        "estimator": "median/MAD",
+                        "n_negatives": int(len(nv)),
+                        "mu_bg_mean": float(np.mean(nv)),
+                        "sigma_bg_sd": float(np.std(nv, ddof=1))}
 
     # Per-probe total intensity and bead count, by Infinium design - the same construction minfi's
     # detectionP uses. A Type II probe is read at address A in both channels. A Type I probe is read at
