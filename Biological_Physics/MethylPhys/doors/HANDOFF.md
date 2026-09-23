@@ -76,4 +76,3 @@ Not the largest atlas, not an atlas for sale, not detection of all diseases or a
 
 - **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old [`cpg_report_builder.py`](../chain/cpg_report_builder.py) is record-side.
 
-**Troubleshooting:** [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) — what each refusal means and what to do about it.

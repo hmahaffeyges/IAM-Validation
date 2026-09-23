@@ -37,7 +37,9 @@ MAP = {
     "Stage 10":  ([], None),
 }
 NOTE = {
-    "Stage 0": "no path in this tree calls it, so a run performs none of these gates (register row 0)",
+    "Stage 0": "runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); "
+               "the intensity-dependent checks read the array's own controls through "
+               "`stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored",
     "Stage 3": "the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage",
     "Stage 8": "not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor "
                "and `run_full` does not call it",

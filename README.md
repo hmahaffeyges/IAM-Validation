@@ -7,7 +7,6 @@
 
 **Checking this work?** [`doors/REVIEWER_MANIFEST.md`](Biological_Physics/MethylPhys/doors/REVIEWER_MANIFEST.md) lists every file a reviewer can download - the chain, the H_min MCMC calibration, the runtime matrices, the atlas, every sealed procedure including the ones that failed - and states plainly what is *not* published and why.
 
-- [`TROUBLESHOOTING.md`](Biological_Physics/MethylPhys/doors/TROUBLESHOOTING.md) — every refusal the chain can print, its cause and the fix
 
 ---
 
