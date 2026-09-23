@@ -121,7 +121,7 @@ A reviewer should learn this from the page, not by hunting.
 |---|---|
 | Raw MCMC posterior chains | they do not exist: the samplers hold their samples in memory and print summaries, so no run wrote an .h5 or .npy. What exists instead is a re-run that returns every floor inside its own posterior SD (10.5281/zenodo.22905819) |
 | Controlled-access cohort data | named as requirements, not held: the fragmentomics cohorts are controlled access and the chain's predictions for them are filed against data nobody here has |
-| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside Issue 003 |
+| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) |
 | Per-cell reporting below class level | withheld by the instrument. Per-entry resolvability is published so a reader sees which entries are affected and why |
 | The bisulfite threshold | not set: every healthy array in the reference cohort sits below the SOP's 0.95, so the gate reports its measured value and does not refuse on it until the threshold is calibrated (PROC-STAGE0-04) |
 
