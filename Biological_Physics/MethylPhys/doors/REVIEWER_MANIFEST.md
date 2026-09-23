@@ -118,3 +118,7 @@ disagree.
 ## The order of steps
 
 [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) is generated from the code: every call each path makes, in order, and every file named as chain that no path calls.
+
+## If a run refuses
+
+[`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) — every refusal string, its cause, and the fix, with the healthy distribution behind each threshold.

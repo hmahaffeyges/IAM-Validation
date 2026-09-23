@@ -1,10 +1,10 @@
 # CPG Engine — the running code
 
-The chain that scores a sample. Formerly `AstroGenetics/CPG_KISS_Commercial_Engine/`; renamed 2026-09-19, contents unchanged except where noted in the CHANGELOG.
+The chain that scores a sample. Start at [`../doors/RUNBOOK.md`](../doors/RUNBOOK.md) to run one, [`../doors/TROUBLESHOOTING.md`](../doors/TROUBLESHOOTING.md) when a run refuses, and [`../doors/CHAIN_SEQUENCE.md`](../doors/CHAIN_SEQUENCE.md) for the step order as the code calls it.
 
 | stage | file(s) |
 |---|---|
-| 0 intake | [`stage_0_intake.py`](stage_0_intake.py), `cpg_intake_form.html`, [`preflight.py`](preflight.py) |
+| 0 intake — runs **before** calibration; a QUARANTINE stops the chain and nothing is scored | [`stage_0_intake.py`](stage_0_intake.py) (the SOP §11–§19 gates and the decision), [`stage_0_1_qc_handoff.py`](stage_0_1_qc_handoff.py) (decodes the control probes, negative controls, bead counts and chrX/chrY the QC gates read), `cpg_intake_form.html`, [`preflight.py`](preflight.py) |
 | 1 calibration (raw IDAT → β, methylprep noob) | [`stage_1_idat_calibration.py`](stage_1_idat_calibration.py) ([`stage_1_calibration.py`](stage_1_calibration.py), [`idat_decoder_pure.py`](idat_decoder_pure.py), [`idat_parse.py`](idat_parse.py) are the pure-Python path) |
 | 2 deconvolution (composition, presence) | `Walther_iam_deconvolver/walther_iam_deconvolver.py` — reads `../MethylPhys/atlas/IAMAtlasREBUILD.csv` |
 | 4 class gauge + 7 tier | [`cpg_gauge_engine.py`](cpg_gauge_engine.py) (the 40-cell `H_MIN_TABLE`, age band, tiers), [`cpg_gauge.py`](cpg_gauge.py), `Runtime Matrices/` |
@@ -39,7 +39,7 @@ Known: `report_builders/render_strawman_v2.py` and [`render_patient_wall.py`](re
 
 **THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on [`iamatlas_gauge_identity_loci_v1_0.json`](Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json), on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero ([`lab_zero.py`](lab_zero.py)), placed in [`identity_band_v3.json`](Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: `MethylPhys/kit/test_gauge_switch.py`. **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
 
-**STAGE 5 RE-BASED (PROC-MAHA-01, 2026-09-21; row 5 BUILT, not commissioned).** The departure now reads the identity gauge: z = (A″ − 1)/σ, σ = 0.0204 from `identity_band_v3`; on whole blood one banded axis, so the number is |z_immune| against 1.960 / 2.576; `bundle['mahalanobis']` carries the long keys the report builder reads plus the short aliases; UNSET → not reportable. The eight-class derived hull is `diagnostic_hull_marker_union`. **M2 failed as sealed:** Karolinska 9.8 % of healthy beyond p95 (bar 7 %). **Cause measured — the Sentrix chip:** per-chip median SD 0.020 there vs 0.012 elsewhere; chip-centring cuts every lab to 2–4 %. A laboratory constant cannot touch it; row 5b (chip term) is open and the acceptable false-alarm rate is the author's decision (PROC-MAHA-02). Record: `Record/PROC_data/PROC-MAHA-01/`.
+**STAGE 5 RE-BASED (PROC-MAHA-01, 2026-09-21; row 5 BUILT, not commissioned).** The departure now reads the identity gauge: z = (A″ − 1)/σ, σ = 0.0204 from `identity_band_v3`; on whole blood one banded axis, so the number is |z_immune| against 1.960 / 2.576; `bundle['mahalanobis']` carries the long keys the report builder reads plus the short aliases; UNSET → not reportable. The eight-class derived hull is `diagnostic_hull_marker_union`. **M2 failed as sealed:** Karolinska 9.8 % of healthy beyond p95 (bar 7 %). **Cause measured — the Sentrix chip:** per-chip median SD 0.020 there vs 0.012 elsewhere; chip-centring cuts every lab to 2–4 %. A laboratory constant cannot touch it. Row 5b was then measured on 23 complete chips at 9–12 arrays each (PROC-MAHA-03): the chip term is real (ICC 0.197, F 3.862, permutation p 0.0005) and **no panel size reduces the false-alarm tail** — a single held-out reference per chip doubles it, because the offset being removed is smaller than the error in estimating it. Sealed NOT COMMISSIONED; the four laboratories' rates stand as published and print beside every departure. Record: `Record/PROC_data/PROC-MAHA-01/`.
 
 **ROW 6 CLOSED — CELLULAR AGE NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21).** Inverting the healthy immune identity-gauge curve (`reference_age_curve_v1`) for one array resolves age to ~50 years: the curve moves 0.47 mA/yr and the within-laboratory spread is 0.0235; leave-one-lab-out on 1,379 healthy donors, 15.9 % within ±10 yr (bar 80 %), Spearman 0.27; a healthy 58-year-old inverts to 23. **The population aging trajectory stands and is reproduced** (0.47 mA/yr, monotone by decade, four labs = CPG-VAL-015's slope on Hannum; it is now the reference age curve). What is below resolution is one person's position on it. Sign differs by surface: marker-union A falls with age, identity-gauge A rises (RECON D2). `stage_6_cellular_age` returns `reportable=False` with the resolution sentence, which the report prints in place of an age; the marker-union inversion is `diagnostic_cellular_age`. With this, **no reported number in the chain reads the marker-union statistic.** Record: `Record/PROC_data/PROC-AGE-01/`.
 
@@ -51,7 +51,7 @@ Known: `report_builders/render_strawman_v2.py` and [`render_patient_wall.py`](re
 
 - **Row 8 — disease matching — REMOVED FROM THE CHAIN (author, 2026-09-21).** The signature matrix and cards come from the preliminary VAL record; the report shows cells detected, fractions, A per cell and class, placement and flags, and names no disease. The matrix is record-side (see `Disease Matrix/DISEASE_MATRIX/README_STATUS.md`). PROC-MATCH-01's fixes (fail-closed origin gate, firewall, surface = seal) stand. **Sealing rule:** we seal a built tool against a bar; building it is exploration with a working note, not a seal.
 
-- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` is record-side.
+- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report:** [`MethylPhys_Interface/build_methylphys.py`](MethylPhys_Interface/build_methylphys.py) renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` is record-side.
 ## The order of steps
 
 [`doors/CHAIN_SEQUENCE.md`](../doors/CHAIN_SEQUENCE.md) is generated from the code by
@@ -59,15 +59,29 @@ Known: `report_builders/render_strawman_v2.py` and [`render_patient_wall.py`](re
 
 Two interfaces exist and they do not run the same steps.
 
-- **`MethylPhys_Interface/run_sample.py`** — one sample. Calls [`stage_1_idat_calibration.py`](stage_1_idat_calibration.py) for the
-  IDAT pair, then `cpg_conductor.run_full`, which runs 11 stages beginning at composition, then the
-  report. Every number in the commissioning record and in Issue 003 comes from this path.
+- **`MethylPhys_Interface/run_sample.py`** — one sample, 23 steps. Runs the ten Stage 0 gates on the IDAT
+  pair first (arrival, manifest, integrity hash, control probes, detection p, bead count, call rate, platform
+  coverage, sex, decision); stops at the first refusal and exits without scoring on QUARANTINE. Then
+  [`stage_1_idat_calibration.py`](stage_1_idat_calibration.py), then `cpg_conductor.run_full` for the 11
+  stages beginning at composition, then the report. Every number in the commissioning record and in Issue 003
+  comes from this path.
+  Intake needs two things from you that the files do not carry: `--sex` and `--age`. `--intake-log` and
+  `--manifest-dir` keep the custody record; `--array-type` is read from the file's header unless you override
+  it; `--no-intake` skips the gates and the report says so.
 - **[`run_batch.py`](run_batch.py)** — a folder of patient visits. Drives [`walther_clinical.py`](walther_clinical.py), which runs its own
   stage functions (`stage_2_deconvolution`, `stage_4_a_score`, `stage_7_tiers`, `stage_8_dual_matching`, `run_second_chain`), not the conductor.
 
-**Named as chain, called by nothing** — 4 files carry `role=chain` in the inventory and are
-not called by either path: [`stage_0_intake.py`](stage_0_intake.py), [`idat_decoder_pure.py`](idat_decoder_pure.py), [`idat_parse.py`](idat_parse.py), [`lineage_splitter.py`](Lineage_Splitter/lineage_splitter.py). `stage_0_intake.py` is the one that matters: it
-implements the SOP's §11-§19 gates, including the integrity hash and the PROCEED / QUARANTINE decision,
-and it is commissioned (PROC-STAGE0-01, 11 of 11 test IDATs PASS, fail-open defect fixed). A run today
-does not call it.
+**Named as chain, called by nothing** — 3 files carry `role=chain` in the inventory and are not called by
+either path: [`idat_decoder_pure.py`](idat_decoder_pure.py), [`idat_parse.py`](idat_parse.py) (a pure-Python
+IDAT decoder; the chain reads IDATs through methylprep instead) and
+[`lineage_splitter.py`](Lineage_Splitter/lineage_splitter.py). [`build_chain_sequence.py`](build_chain_sequence.py) prints this list from
+the code, so it cannot drift from the tree.
+
+**Stage 0 is in the live path (PROC-STAGE0-02, 2026-09-23).** All nine gates run: the intensity-dependent
+ones read the array's own control probes, negative controls, bead counts and chrX/chrY through
+[`stage_0_1_qc_handoff.py`](stage_0_1_qc_handoff.py). Measured on 732 healthy arrays — the sex call agrees
+with the depositors' own labels on 729 of 731. The bisulfite threshold is reported and not applied until it
+is calibrated on healthy data ([`../doors/PROC_STAGE0_04_PREREG.md`](../doors/PROC_STAGE0_04_PREREG.md));
+every other gate applies. What each refusal means, and what to do about it:
+[`../doors/TROUBLESHOOTING.md`](../doors/TROUBLESHOOTING.md).
 
