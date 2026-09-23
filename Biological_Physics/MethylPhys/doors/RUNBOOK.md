@@ -229,3 +229,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 ## The order of steps
 
 [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) is generated from the code: every call each path makes, in order, and every file named as chain that no path calls.
+
+## When a run refuses
+
+[`TROUBLESHOOTING.md`](TROUBLESHOOTING.md) lists every refusal the chain can print — each Stage 0 quarantine, each NOT REPORTABLE reason, the environment failures, and the thresholds with what healthy looks like against them.

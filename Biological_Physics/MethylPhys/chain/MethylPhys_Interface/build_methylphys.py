@@ -1152,7 +1152,8 @@ def _intake_block(o):
                if o.get("from_betas") else "no Stage 0 record was supplied with this bundle")
         return ("<h3>Stage 0 - chain of custody</h3>"
                 "<p class='pend'>NOT RUN - " + why + ". The reading below is unaffected in value, but this "
-                "specimen carries no arrival gate, no integrity hash and no QC decision.</p>")
+                "specimen carries no arrival gate, no integrity hash and no QC decision.</p>" +
+                "<p class='m'>Every refusal this chain can print, with its cause and what to do about it, is in <code>doors/TROUBLESHOOTING.md</code> - including the thresholds above and what healthy specimens measure against them.</p>")
     rows = [("Stage 0 decision", rec.get("stage0_verdict") or "-"),
             ("hard failures", ", ".join(rec.get("stage0_hard_fail") or []) or "none"),
             ("borderline", ", ".join(rec.get("stage0_borderline") or []) or "none"),
@@ -1177,6 +1178,9 @@ def _intake_block(o):
     for k, v in rows:
         H.append(f"<tr><td class='m'>{k}</td><td>{v}</td></tr>")
     H.append("</table>")
+    H.append("<p class='m'>Every refusal this chain can print, with its cause and what to do about it, is in "
+             "<code>doors/TROUBLESHOOTING.md</code> - including the thresholds above and what healthy "
+             "specimens measure against them.</p>")
     if rec.get("stage0_deferred_qc"):
         H.append("<p class='m'><b>Deferred means not measured.</b> A deferred gate is neither a pass nor a "
                  "failure - it is a check this run could not make, named so that nobody reads its silence as "
