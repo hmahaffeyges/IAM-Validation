@@ -56,7 +56,14 @@ STAGE7_TIERS = [(t["tier_id"], t.get("a_score_range"), t.get("line_value")) for 
 
 # ── identity loci (gauge) ─────────────────────────────────────────────────────
 _loci = _j("iamatlas_gauge_identity_loci_v1_0.json")
-IDENTITY = {c: {"n_loci": len(v["loci"]), "H_min": v["H_min"], "H_min_beta": v["H_min_beta"], "band": v["band"]}
+# 2026-09-23: v["band"] in the identity-loci file is a typed 0.05, identical for all eight classes, and no
+# stage of the chain reads it. Printing it as "band" put an unmeasured tolerance in a table a reader takes
+# for measurement. Only immune has a measured band (identity_band_v3, four zeroed labs, n=1,379).
+IDENTITY = {c: {"n_loci": len(v["loci"]), "H_min": v["H_min"], "H_min_beta": v["H_min_beta"],
+                "band": (v["band"] if c == "immune" else None),
+                "band_status": ("measured: identity_band_v3, four zeroed labs, n=1,379, pooled p10-p90 "
+                                "0.9724-1.0248" if c == "immune" else "not measured - this class has no "
+                                "healthy band; it is not scored on the reported gauge")}
             for c, v in _loci.items() if not c.startswith("_")}
 IDENTITY_PROV = _loci.get("_provenance", {})
 
