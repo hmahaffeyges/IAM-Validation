@@ -35,3 +35,5 @@ which copy a reader has**, but the reason is a timestamp, not byte equality.
 **What the summary contains**, in its own words: 28 cancer datasets, 4,304 matched tumour–normal pairs, and the
 P1 comparison (A_tumour > A_normal) confirmed in 27 of 28 with a mean ΔA of 0.1589 ± 0.0721. Those are the
 pre-atlas chain's figures on the pre-atlas surface, stated here so a reader knows what they are looking at.
+
+**How the summary was produced**, in the generator's own words at the time: [`README_as_generated_2026-04-07.md`](README_as_generated_2026-04-07.md). Kept unedited - it is a record of what was run, not documentation of what is true now.

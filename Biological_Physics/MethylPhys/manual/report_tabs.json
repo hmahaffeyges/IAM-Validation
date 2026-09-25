@@ -1,0 +1,554 @@
+{
+ "_meta": {
+  "generated_from": "../../../results/e2e_final/REPORT.html",
+  "commit": "bbb8a18",
+  "n_tabs": 19,
+  "report_mb": 7.42,
+  "n_specimen": 9,
+  "n_reference": 10,
+  "figures_are_screenshots": false
+ },
+ "tabs": [
+  {
+   "tab": "reading",
+   "label": "Reading",
+   "kind": "SPECIMEN",
+   "purpose": "The reading itself: the class gauge value, where it sits against the healthy band for this age, its tier word, and the composition that produced it. If a clinician reads one tab, it is this one.",
+   "kb": 27,
+   "tables": 4,
+   "rows": 24,
+   "headings": [
+    "Reading - GSM2333901",
+    "1. What is in the sample (Stage 2 - Walther deconvolver against the 115-cell atlas)",
+    "2. The class gauge - A'' on the identity loci, against the healthy band",
+    "What the class gauge is, in plain words",
+    "Is this composition plausible? Measured across 40 healthy donors of this laboratory"
+   ],
+   "opens": "Reading - GSM2333901 Specimen whole_blood Substrate DNA methylation (450K/EPIC beta) \u00b7 Declared age 72.0 Pipeline MAPPED(stage1_noob_450K->roadmap; slope 1.0127, intercept 0.0662; v1 COMMISSIONED 2026-09-20 (Phase 1c)) \u00b7 Laboratory GSE87571",
+   "figure": "../manual/report_tab_figures/reading.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "howto",
+   "label": "How to read",
+   "kind": "REFERENCE",
+   "purpose": "How to read the report: what each number means, what it does not mean, and the vocabulary the chain is allowed to use.",
+   "kb": 633,
+   "tables": 4,
+   "rows": 29,
+   "headings": [
+    "How to read the gauge",
+    "What A is measuring",
+    "Where the locker analogy helps",
+    "The levels",
+    "The band is age-referenced - here it is, decade by decade",
+    "Three different things, and none of them is A = 1.00 sitting on a floor",
+    "The saturation wall chart - 8 classes x 5 substrates",
+    "The Warburg line at 1.07",
+    "What a high reading does not mean",
+    "Would a well-differentiated benign growth read high?",
+    "Two things the gauge is not"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. How to read the gauge A thermometer is only useful if its reading means something definite. This tab sets out what A means at each level,",
+   "figure": "../manual/report_tab_figures/howto.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "cells",
+   "label": "Cells",
+   "kind": "SPECIMEN",
+   "purpose": "Every atlas cell type scored for this specimen - all of them, placed or not - each with its 95 per cent interval, the healthy range on its own markers, how many of its markers were found, and its position against healthy.",
+   "kb": 91,
+   "tables": 11,
+   "rows": 143,
+   "headings": [
+    "Every cell - all 115 atlas cell types, on the gauge",
+    "Trace-class detection - is there any epithelial-like material here at all?",
+    "Two different limits on a per-cell claim, and they are not the same limit",
+    "Stem (pluripotent) (1 cells; H_min 0.9822)",
+    "Stem (adult) (1 cells; H_min 0.8737)",
+    "Progenitor (11 cells; H_min 0.8522)",
+    "Cycling epithelial (19 cells; H_min 0.8561)",
+    "Secretory / glandular (18 cells; H_min 0.8433)",
+    "Immune & haematopoietic (51 cells; H_min 0.838889)",
+    "Terminal / post-mitotic (9 cells; H_min 0.7728)",
+    "Stromal & connective (5 cells; H_min 0.863)",
+    "Direction - Stage 4.5 bidirectional composite"
+   ],
+   "opens": "What each column means - three of them are easy to confuse, so they are defined here column what it is what it is NOT \u00b7 placed the composition solver found enough evidence to give this sample some fraction of this cell type a blank is not '",
+   "figure": "../manual/report_tab_figures/cells.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "departure",
+   "label": "Departure",
+   "kind": "SPECIMEN",
+   "purpose": "How far this specimen sits from the healthy centre in the banded space, which axes drove it, the patient value against the age-matched mean and the sigma used, and this laboratory's own measured false-alarm rate beside them.",
+   "kb": 4,
+   "tables": 1,
+   "rows": 2,
+   "headings": [
+    "Departure - how far this sample sits from the healthy centre",
+    "What this number is, and where it comes from"
+   ],
+   "opens": "Departure - how far this sample sits from the healthy centre 1.12 p95 1.96 p99 2.58 0 4+ In words: the distance is 1.12 healthy spreads over 1 banded class axis (immune). The alarm line at 1.96 is where 5 of 100 healthy people sit by chance",
+   "figure": "../manual/report_tab_figures/departure.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "sky",
+   "label": "Sky",
+   "kind": "SPECIMEN",
+   "purpose": "The residual sky: a Mollweide plate of this specimen's own residuals, per class, plus the statistics behind each plate. Opens with what a plate is compared to, because it is never compared to a healthy picture.",
+   "kb": 5998,
+   "tables": 3,
+   "rows": 23,
+   "headings": [
+    "The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist",
+    "A sky map is not a photograph",
+    "The correspondence, step by step",
+    "What this buys a geneticist that a list of differentially methylated regions does not",
+    "One thing a geneticist has that a cosmologist would trade almost anything for",
+    "What else the MCMC gives us, and what we are not yet using",
+    "Brilliance - the first tool taken from cosmology, and where it went",
+    "Two maps from one patient - the difference map",
+    "Is the sphere necessary? A straight answer",
+    "Acknowledgement - whose tools these are",
+    "This sample's sky - Stage 4.6",
+    "The comparison figure",
+    "How to read a plate"
+   ],
+   "opens": "What this sky is compared to. Not to a healthy picture - there is no reference image anywhere in this comparison. Every pixel is z = (\u03b2 \u2212 \u03a3 c f c \u03bc c \u2212 m lab ) / s lab : this specimen's own methylation at that address, minus what its own co",
+   "figure": "../manual/report_tab_figures/sky.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "physics",
+   "label": "Physics",
+   "kind": "REFERENCE",
+   "purpose": "The physics under the gauge: Landauer's bound, the Mahaffey number, the entropy floor and why the zero is fixed rather than a control group.",
+   "kb": 18,
+   "tables": 4,
+   "rows": 16,
+   "headings": [
+    "The physics, in plain language",
+    "1. The one idea",
+    "2. Where the number comes from - and why you will recognise every piece",
+    "3. Why this is NOT metabolism - the distinction that matters most",
+    "4. Three things, not two",
+    "5. Eight sandcastles on one beach",
+    "6. Tidiness has a number, and the reading is a ratio",
+    "7. The same floor appears far outside biology - which is why we trust it",
+    "8. What is measured, and what is not derived",
+    "9. The atlas, and what MCMC and a posterior actually mean"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. The physics, in plain language Who this is for. The oncologist, the molecular biologist, the lab director, the informed reader. You do no",
+   "figure": "../manual/report_tab_figures/physics.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "story",
+   "label": "Story",
+   "kind": "REFERENCE",
+   "purpose": "What astro-genetics is, in the author's words - the introduction that now also opens Issue 003.",
+   "kb": 379,
+   "tables": 0,
+   "rows": 0,
+   "headings": [
+    "What is astro-genetics?",
+    "Who this is for",
+    "The one-sentence version",
+    "Stargazers and trailblazers",
+    "Why your cells follow the same rule as the stars",
+    "The ceiling is informational, not gravitational - and that is why it travels",
+    "Where the gauge sits, and what is open to inspection",
+    "Two names, and which is which"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. What is astro-genetics? In the author's words. Who this is for The oncologist, the molecular biologist, the lab director, the informed pa",
+   "figure": "../manual/report_tab_figures/story.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "reference",
+   "label": "Reference",
+   "kind": "REFERENCE",
+   "purpose": "Every constant the reading was corrected by, with where each came from - the floor, the age term, the laboratory zero, the scale map, and the calibration DOI.",
+   "kb": 9,
+   "tables": 2,
+   "rows": 14,
+   "headings": [
+    "The healthy reference - who, how many, processed how, and what was measured from them",
+    "1. Who",
+    "2. How processed",
+    "3. What was measured from them, in order",
+    "4. The data itself",
+    "The floors, and how to check them yourself",
+    "5. What is NOT in the reference"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. The healthy reference - who, how many, processed how, and what was measured from them Every constant a reading is corrected by was measur",
+   "figure": "../manual/report_tab_figures/reference.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "coverage",
+   "label": "Coverage",
+   "kind": "SPECIMEN",
+   "purpose": "What was measurable on this specimen's platform and what was not: marker coverage per class, and which atlas entries the array could not reach.",
+   "kb": 7,
+   "tables": 3,
+   "rows": 22,
+   "headings": [
+    "Coverage - what is lit, what is reserved, and what each one needs",
+    "The five substrates",
+    "The specimens",
+    "The grid",
+    "What lighting one cell requires"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. Coverage - what is lit, what is reserved, and what each one needs The instrument is one law read on a surface, and it generalises in two ",
+   "figure": "../manual/report_tab_figures/coverage.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "flags",
+   "label": "Red flags",
+   "kind": "SPECIMEN",
+   "purpose": "Red flags: everything this run refused, withheld or could not measure, in one place, ordered by severity - STOP, WITHHELD, CAUTION, NOTE. A failing CMB tool arrives here as CMB_TOOL_FAIL.",
+   "kb": 3,
+   "tables": 1,
+   "rows": 5,
+   "headings": [
+    "Red flags - everything this run refused, withheld or could not measure"
+   ],
+   "opens": "Red flags - everything this run refused, withheld or could not measure One place, so nothing has to be noticed in the middle of a long tab. Ordered by severity. STOP means nothing was scored; WITHHELD means a number exists but the reference",
+   "figure": "../manual/report_tab_figures/flags.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "safeguards",
+   "label": "Safeguards",
+   "kind": "SPECIMEN",
+   "purpose": "Every guard and whether it passed on this specimen, including the register of all 17 methods borrowed from CMB analysis with PASS, FAIL, NOT_RUN, NOT_APPLICABLE or NOT_BUILT for this run.",
+   "kb": 17,
+   "tables": 4,
+   "rows": 55,
+   "headings": [
+    "Safeguards - every guard, and whether it passed",
+    "Stage 0 - chain of custody, this specimen",
+    "Second opinion on the composition - NILC beside the constrained solver",
+    "The cosmology toolkit, and what it did on this specimen"
+   ],
+   "opens": "Safeguards - every guard, and whether it passed Stage 0 - chain of custody, this specimen The gates the specimen passed before anything was calibrated or scored, as recorded by stage_0_intake.py (SOP sections 11-19). A QUARANTINE decision s",
+   "figure": "../manual/report_tab_figures/safeguards.png",
+   "is_screenshot": false,
+   "cmb": [
+    {
+     "state": "PASS",
+     "tool": "HEALPix pixelisation"
+    },
+    {
+     "state": "PASS",
+     "tool": "inverse-variance weighting"
+    },
+    {
+     "state": "PASS",
+     "tool": "Mahalanobis distance in the banded space"
+    },
+    {
+     "state": "PASS",
+     "tool": "masking what the instrument cannot see"
+    },
+    {
+     "state": "PASS",
+     "tool": "needlet internal linear combination"
+    },
+    {
+     "state": "PASS",
+     "tool": "Mollweide plate of the residual sky"
+    },
+    {
+     "state": "PASS",
+     "tool": "residual against a measured zero and scale"
+    },
+    {
+     "state": "NOT_RUN",
+     "tool": "surface brightness"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "apodised mask instead of a binary presence floor"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "beam smoothing"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "angular power spectrum of the residual sky"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "full cell-type covariance in the separation"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "difference map between two draws"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "degeneracy and Fisher analysis of the composition"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "internal linear combination on the residual sky"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "per-patient posterior for the composition"
+    },
+    {
+     "state": "NOT_BUILT",
+     "tool": "cross-spectra between class panels"
+    }
+   ]
+  },
+  {
+   "tab": "trouble",
+   "label": "Troubleshooting",
+   "kind": "REFERENCE",
+   "purpose": "Troubleshooting: every refusal string the chain can print, what it means, and what the operator does about it.",
+   "kb": 9,
+   "tables": 4,
+   "rows": 31,
+   "headings": [
+    "Troubleshooting - what each refusal means, and what to do",
+    "Stage 0 refused the specimen",
+    "What healthy specimens measure, so you can tell a bad array from a bad configuration",
+    "It ran, but no number was placed",
+    "It will not start",
+    "The reading itself looks wrong",
+    "How these were found, which is how to look for yours"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. Troubleshooting - what each refusal means, and what to do The chain has three ways of not giving you an answer and they mean different th",
+   "figure": "../manual/report_tab_figures/trouble.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "integrity",
+   "label": "Integrity",
+   "kind": "SPECIMEN",
+   "purpose": "The fail-safes that kept this reading honest: the Stage 0 custody record for this specimen, both file hashes, and each intake gate's own result.",
+   "kb": 18,
+   "tables": 3,
+   "rows": 64,
+   "headings": [
+    "Integrity - the fail-safes that kept this reading honest, and what each one measured",
+    "1. What this run refused, and why",
+    "2. The safeguards, with their cosmology twins",
+    "3. Constants applied to this sample",
+    "4. Files read by this run (repository at commit 3d9bcb9)",
+    "5. Two rules this report obeys"
+   ],
+   "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
+   "figure": "../manual/report_tab_figures/integrity.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "chain",
+   "label": "Chain",
+   "kind": "REFERENCE",
+   "purpose": "The chain that produced the reading, stage by stage, derived from the code rather than described - so a stage cannot be claimed that the code does not call.",
+   "kb": 29,
+   "tables": 21,
+   "rows": 105,
+   "headings": [
+    "The chain - every stage this report came from",
+    "The documents the chain is governed by",
+    "Named as chain, called by nothing"
+   ],
+   "opens": "The chain - every stage this report came from Orchestrated by cpg_conductor.run_full . Open any stage for what goes in, what comes out, why it exists, what it refuses to do, and which sealed procedure commissioned it. Stage 6 (an age in yea",
+   "figure": "../manual/report_tab_figures/chain.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "files",
+   "label": "Files",
+   "kind": "REFERENCE",
+   "purpose": "Every file the chain uses, enumerated from the live tree with its role.",
+   "kb": 67,
+   "tables": 6,
+   "rows": 159,
+   "headings": [
+    "Every file the chain uses",
+    "In the chain (18)",
+    "Reference and calibration data (48)",
+    "Interface (6)",
+    "Guards, procedures and doors (40)",
+    "Present but NOT in the chain (28)",
+    "Superseded (13)"
+   ],
+   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit a8f7ee8 - 173 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
+   "figure": "../manual/report_tab_figures/files.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "findings",
+   "label": "Findings",
+   "kind": "REFERENCE",
+   "purpose": "Findings that changed a reported number, with the procedure that sealed each.",
+   "kb": 12,
+   "tables": 3,
+   "rows": 53,
+   "headings": [
+    "Validation findings",
+    "What a finding record holds, and why each part is there",
+    "Recorded runs"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. Validation findings Each run on this chain writes a structured record - val_finding.py , schema val_finding_v1 - and this tab reads those",
+   "figure": "../manual/report_tab_figures/findings.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "roadmap",
+   "label": "Roadmap",
+   "kind": "REFERENCE",
+   "purpose": "What is not built yet and what it would buy - the same list ENHANCEMENTS.md ranks.",
+   "kb": 8,
+   "tables": 1,
+   "rows": 21,
+   "headings": [
+    "What is being considered next"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. What is being considered next Everything on this list is either named in the translation map between the microwave background and the met",
+   "figure": "../manual/report_tab_figures/roadmap.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "record",
+   "label": "Record",
+   "kind": "REFERENCE",
+   "purpose": "The validation record: every series and what it found.",
+   "kb": 52,
+   "tables": 2,
+   "rows": 200,
+   "headings": [
+    "Record - every validation and every sealed procedure, linked",
+    "Sealed procedures on the commissioned chain (PROC-*)",
+    "Documents"
+   ],
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. Record - every validation and every sealed procedure, linked 175 index rows (series G, T, VAL pre-atlas, CPG-VAL post-atlas), rebuilt fro",
+   "figure": "../manual/report_tab_figures/record.png",
+   "is_screenshot": false,
+   "cmb": []
+  },
+  {
+   "tab": "run",
+   "label": "Run",
+   "kind": "SPECIMEN",
+   "purpose": "How to run it yourself, what produced this reading (chain commit, decoder version, a hash of every input read), and whether every derived document was current when this report was built.",
+   "kb": 16,
+   "tables": 6,
+   "rows": 58,
+   "headings": [
+    "Run it yourself",
+    "What produced this reading",
+    "1. Clone and prepare",
+    "2. Verify the chain before trusting it on your data",
+    "3. Run your own sample",
+    "4. What the chain needs from you, and what it will refuse",
+    "5. Commissioning your own laboratory",
+    "6. Cohort mode",
+    "Repository state when this report was built"
+   ],
+   "opens": "Run it yourself What produced this reading Two readings are comparable only if they came from the same inputs. Everything this run read is hashed below, so a reviewer can tell at a glance whether this reading and another used the same atlas",
+   "figure": "../manual/report_tab_figures/run.png",
+   "is_screenshot": false,
+   "cmb": []
+  }
+ ],
+ "cmb_registry": [
+  {
+   "state": "PASS",
+   "tool": "HEALPix pixelisation"
+  },
+  {
+   "state": "PASS",
+   "tool": "inverse-variance weighting"
+  },
+  {
+   "state": "PASS",
+   "tool": "Mahalanobis distance in the banded space"
+  },
+  {
+   "state": "PASS",
+   "tool": "masking what the instrument cannot see"
+  },
+  {
+   "state": "PASS",
+   "tool": "needlet internal linear combination"
+  },
+  {
+   "state": "PASS",
+   "tool": "Mollweide plate of the residual sky"
+  },
+  {
+   "state": "PASS",
+   "tool": "residual against a measured zero and scale"
+  },
+  {
+   "state": "NOT_RUN",
+   "tool": "surface brightness"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "apodised mask instead of a binary presence floor"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "beam smoothing"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "angular power spectrum of the residual sky"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "full cell-type covariance in the separation"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "difference map between two draws"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "degeneracy and Fisher analysis of the composition"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "internal linear combination on the residual sky"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "per-patient posterior for the composition"
+  },
+  {
+   "state": "NOT_BUILT",
+   "tool": "cross-spectra between class panels"
+  }
+ ]
+}

@@ -30,3 +30,7 @@ Related: the atlas itself is in [`../MethylPhys/atlas/`](../atlas/), the running
 
 - [`ENHANCEMENTS.md`](ENHANCEMENTS.md) - everything that would make the chain more sensitive, ranked by impact on the mission, with effort and blockers. Two lists: chain enhancements and the cosmology methods still on the shelf.
 - [`REPO_INVENTORY.md`](REPO_INVENTORY.md) - what is in this repository, measured, and what should not be.
+
+## Part II
+
+[`PART_II_CHAPTER_NOTES.md`](../manual/PART_II_CHAPTER_NOTES.md) is the outline for Part II - the chapters, including the biological write-head, that are written after the instrument is commissioned. It had no reader in the tree until 2026-09-25.

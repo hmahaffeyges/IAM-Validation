@@ -759,7 +759,7 @@ def sec5a_tools(story):
         'showed its divergence was marking exactly what it was built to mark - where the atlas does not separately determine the '
         'composition - so the cut had removed the instrument that was reporting the problem. It was reinstated on 2026-09-22 as a '
         'class-level second opinion, and RUNBOOK s11 now forbids disabling either relay.', sDisc))
-    from reportlab.platypus import Image as RLImage
+    from reportlab.platypus import Image, Image as RLImage
     _fp=os.path.join(os.path.dirname(os.path.abspath(__file__)),"fig_four_skies.png")
     if os.path.exists(_fp):
         story.append(RLImage(_fp, width=PW, height=PW*0.66)); story.append(Paragraph(D.FOUR_SKIES_CAP, sDisc)); story.append(SP(0.10))
@@ -880,6 +880,92 @@ def sec_proc_log(story):
     for head, body in D.REPORT_CHANGES_2026_09_25:
         story.append(Paragraph('<b>%s.</b> %s' % (head, body), sBodySm))
         story.append(Spacer(1, 3))
+
+
+def sec_report_tabs(story):
+    """The report the chain produces, tab by tab, with a figure of each tab.
+
+    Author 2026-09-25: "Make sure they both describe the report generated in detail with every tab described
+    and explained and the CMB pass/fails etc ... Its literally the operating manual."
+
+    Generated from manual/report_tabs.json, which kit/build_report_tab_reference.py writes by reading a real
+    report - so this section cannot describe a tab the report does not have, or miss one it does. The figures
+    are rendered from each tab's own HTML rather than photographed: no headless browser can be installed in
+    the build environment. A PNG dropped into manual/report_screenshots/<tab>.png is preferred over the
+    rendered figure if it exists.
+    """
+    import json as _json
+    jp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "report_tabs.json")
+    if not os.path.exists(jp):
+        return
+    d = _json.load(open(jp, encoding="utf-8"))
+    m, tabs, reg = d["_meta"], d["tabs"], d["cmb_registry"]
+    story.append(PageBreak())
+    story.append(Paragraph("THE REPORT THIS CHAIN PRODUCES, TAB BY TAB", sSect))
+    story.append(Paragraph("Every tab, what it carries, and which of them say anything about the patient",
+                           sSub))
+    story.append(Paragraph(
+        "One run writes <b>one self-contained HTML file of %s MB with %d tabs</b>. %d of them carry this "
+        "specimen's own measurements; %d carry reference material that is identical in every report. That "
+        "distinction is the most important thing on this page: a reference tab tells a reader how the "
+        "instrument works, and only a specimen tab tells them anything about the person whose array it is. "
+        "Every tab is labelled in the report itself." % (m["report_mb"], m["n_tabs"], m["n_specimen"],
+                                                         m["n_reference"]), sBodySm))
+    story.append(Paragraph(
+        "This section is generated from <font name='Courier'>manual/report_tabs.json</font>, which is written "
+        "by reading a finished report (%s, commit %s). It cannot describe a tab the report does not have, and "
+        "it cannot miss one it does - a hand-written tab list went stale twice in September. <b>The figures "
+        "are rendered from each tab's own HTML, not photographed</b>: no headless browser can be installed in "
+        "the build environment, and each figure says so in its own caption." %
+        (m["generated_from"].replace("_", " "), m["commit"]), sMut))
+    rows = [[Paragraph("<b>tab</b>", sBodySm), Paragraph("<b>kind</b>", sBodySm),
+             Paragraph("<b>what it carries</b>", sBodySm)]]
+    for t in tabs:
+        rows.append([Paragraph("<b>%s</b>" % t["label"], sBodySm),
+                     Paragraph(t["kind"], sBodySm), Paragraph(t["purpose"], sBodySm)])
+    story.append(tbl(rows, [0.13, 0.12, 0.75], fs=7))
+    if reg:
+        npass = sum(1 for c in reg if c["state"] == "PASS")
+        nb = sum(1 for c in reg if c["state"] == "NOT_BUILT")
+        story.append(PageBreak())
+        story.append(Paragraph("The register of borrowed methods, and what a failure does", sSub))
+        story.append(Paragraph(
+            "The Safeguards tab carries every method this chain borrowed from CMB analysis, each with a check "
+            "that runs on the finished bundle and returns its state <i>for that specimen</i>: <b>%d methods, "
+            "%d PASS on the commissioning array, %d NOT_BUILT</b>. A FAIL is also emitted to the Red flags "
+            "tab as <font name='Courier'>CMB_TOOL_FAIL</font>, so a borrowed method that stopped working "
+            "cannot be missed in the middle of a long tab. The NOT_BUILT entries are listed deliberately - "
+            "the shelf is part of the record, and the roadmap ranks them." % (len(reg), npass, nb), sBodySm))
+        rr = [[Paragraph("<b>state</b>", sBodySm), Paragraph("<b>method</b>", sBodySm)]]
+        for c in sorted(reg, key=lambda c: (c["state"] != "FAIL", c["state"], c["tool"])):
+            rr.append([Paragraph("<font name='Courier'>%s</font>" % c["state"], sBodySm),
+                       Paragraph(c["tool"], sBodySm)])
+        story.append(tbl(rr, [0.22, 0.78], fs=7.5))
+        story.append(Paragraph("<b>To add a method:</b> append one entry to TOOLS in chain/cmb_tools.py with "
+                               "a check(bundle). The table, the counts and the red-flag routing follow from "
+                               "it; nothing else needs editing.", sMut))
+    HERE = os.path.dirname(os.path.abspath(__file__))
+    for t in tabs:
+        fp = os.path.join(HERE, "..", "doors", t["figure"].replace("%20", " "))
+        fp = os.path.normpath(fp)
+        if not os.path.exists(fp):
+            continue
+        story.append(PageBreak())
+        story.append(Paragraph("%s &mdash; %s" % (t["label"], t["kind"].lower()), sSub))
+        story.append(Paragraph(t["purpose"], sBodySm))
+        try:
+            img = Image(fp)
+            iw, ih = img.imageWidth, img.imageHeight
+            w = 510.0
+            img.drawWidth, img.drawHeight = w, ih * w / iw
+            story.append(img)
+        except Exception as e:
+            story.append(Paragraph("[figure unavailable: %s]" % e, sMut))
+        story.append(Paragraph("<b>%s</b> &middot; %d KB, %d tables. Sections: %s" %
+                               ("Browser screenshot" if t["is_screenshot"] else
+                                "Rendered from this tab's own HTML, not a browser screenshot",
+                                t["kb"], t["tables"],
+                                "; ".join(t["headings"][:6]) or "none"), sMut))
 
 
 def sec_intro(story):
@@ -1028,6 +1114,7 @@ def build(out_path):
     
     # new sections
     sec3b_stage0(story); sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
+    sec_report_tabs(story)   # the operating reference: the report tab by tab, read off a real run
     # back matter from 002
     secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
     L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
