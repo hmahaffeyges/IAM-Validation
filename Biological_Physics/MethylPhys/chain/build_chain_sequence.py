@@ -72,40 +72,11 @@ def derive():
             if not (called_by_runner or called_by_cond):
                 not_wired.append({"step": f, "where": f, "implements": _module_doc(os.path.join(HERE, f)),
                                   "status": "module present; neither run_sample.py nor cpg_conductor.py calls it"})
-    # the second interface: run_batch.py drives walther_clinical.py, which runs its own stages
+    # 2026-09-25: there is no second interface. The v1 conductor and the run_batch.py that drove it were
+    # retired to RETIRED_2026-09/v1_conductor_2026-09/ once the only function the live chain called -
+    # stage_8_dual_matching - had been extracted to disease_matching.py. A cohort is run by looping
+    # run_sample.py, so the single-specimen path IS the batch path and this derivation reports one path.
     batch = []
-    wc_path = os.path.join(HERE, "walther_clinical.py")
-    rb_path = os.path.join(HERE, "run_batch.py")
-    if os.path.exists(rb_path) and os.path.exists(wc_path):
-        rb = open(rb_path, encoding="utf-8").read()
-        wc_src = open(wc_path, encoding="utf-8").read()
-        wc = ast.parse(wc_src)
-        wdefs = {n.name: n for n in wc.body if isinstance(n, ast.FunctionDef)}
-        driver = "walther_clinical" if "walther_clinical" in rb else None
-        if driver:
-            def _ordered(fn):
-                out = []
-                for node in ast.walk(wdefs[fn]):
-                    if isinstance(node, ast.Call):
-                        nm = node.func.id if isinstance(node.func, ast.Name) else getattr(node.func, "attr", "")
-                        if nm.startswith(("stage_", "calibrate_", "run_second", "build_report")):
-                            out.append((node.lineno, nm))
-                out.sort()
-                seq, seen = [], set()
-                for _, nm in out:
-                    if nm not in seen:
-                        seen.add(nm); seq.append(nm)
-                return seq
-            for step in _ordered("run_from_folder"):
-                if step == "run_pipeline":
-                    continue
-                batch.append({"step": step, "where": "walther_clinical.py", "implements": ""})
-                if step == "calibrate_idat_to_beta":
-                    batch[-1]["where"] = "stage_1_idat_calibration.py"
-            for step in _ordered("run_pipeline"):
-                batch.append({"step": step, "where": "walther_clinical.py",
-                              "implements": _doc(wdefs[step]) if step in wdefs else ""})
-
     # the record's own role for each file, and anything role=chain that no interface calls
     roles, gaps = {}, []
     inv = os.path.join(HERE, "Runtime Matrices", "chain_inventory_v1.json")
@@ -119,10 +90,10 @@ def derive():
         # literal inside it. Collect those too, or a file the chain genuinely runs looks uncalled: the first
         # version of this check reported 16 gaps of which 15 were dynamic loads.
         called = {st["where"] for st in before + inside + after + batch} | {st["step"] for st in before + inside + after + batch}
-        called |= {"cpg_conductor.py", "run_sample.py", "run_batch.py"}
+        called |= {"cpg_conductor.py", "run_sample.py"}
         # Scan literals ONLY inside functions that are actually on a path. Scanning whole modules counts a file
         # whose path sits in a config constant as called - which is exactly the case of the intake module: its
-        # path is in walther_clinical's DEFAULT_CONFIG, while nothing on either path invokes it.
+        # path was in the retired v1 conductor's DEFAULT_CONFIG, while nothing on the live path invokes it.
         import re as _re
         onpath = []
         for fname in [st["step"] for st in inside]:
@@ -134,12 +105,6 @@ def derive():
                 onpath += [n for n in ast.walk(mtree) if isinstance(n, ast.FunctionDef) and n.name in names]
             except SyntaxError:
                 pass
-        if os.path.exists(wc_path):
-            wtree = ast.parse(open(wc_path, encoding="utf-8").read())
-            wd = {n.name: n for n in wtree.body if isinstance(n, ast.FunctionDef)}
-            for fname in ["run_from_folder", "run_pipeline"] + [st["step"] for st in batch]:
-                if fname in wd:
-                    onpath.append(wd[fname])
         onpath.append(defs["run_full"])
         for node in onpath:
             for c in ast.walk(node):
@@ -216,8 +181,8 @@ def write(d):
         L.append(f"| {i} | `{s['step']}` | `{s['where']}` | {s['implements']}{note} |")
     if d.get("batch_path"):
         L += ["", f"## The batch path — {len(d['batch_path'])} steps, in order", "",
-              "`run_batch.py` processes a folder of patient visits. It does **not** call `cpg_conductor`: it drives",
-              "`walther_clinical.py`, which runs its own stage functions. The numbers in the commissioning record and",
+              "Retired 2026-09-25: the v1 conductor and the run_batch.py that drove it are in",
+              "RETIRED_2026-09/v1_conductor_2026-09/. A cohort is a loop over run_sample.py. The numbers in the record and",
               "in Issue 003 come from the path above, not from this one.", "",
               "| # | step | implemented in | what it does |", "|---|---|---|---|"]
         for i, st in enumerate(d["batch_path"], 1):

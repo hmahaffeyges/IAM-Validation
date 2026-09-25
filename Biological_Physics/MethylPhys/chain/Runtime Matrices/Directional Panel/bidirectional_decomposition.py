@@ -527,7 +527,7 @@ def save_bidirectional_report(
 def _cli_main():
     """Smoke test — loads panels + runs against a tiny synthetic patient.
 
-    Production invocation comes from walther_clinical.py at Stage 4.5:
+    Production invocation comes from disease_matching.py (v1 conductor retired 2026-09-25) at Stage 4.5:
 
         from bidirectional_decomposition import (
             load_directional_panels,

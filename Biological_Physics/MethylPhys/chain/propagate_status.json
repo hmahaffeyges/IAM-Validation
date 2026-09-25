@@ -1,17 +1,17 @@
 {
- "when": "2026-09-25 19:55 UTC",
- "commit": "c5a3f79",
- "pass": true,
+ "when": "2026-09-25 20:16 UTC",
+ "commit": "b0517e9",
+ "pass": false,
  "rules": [
   {
    "rule": "every live chain module is named in the SOP",
    "ok": true,
-   "detail": "5 modules"
+   "detail": "4 modules"
   },
   {
    "rule": "every live chain module is in the reviewer manifest",
    "ok": true,
-   "detail": "5 modules"
+   "detail": "4 modules"
   },
   {
    "rule": "every sealed procedure has a row in CHAIN_COMMISSIONING",
@@ -37,6 +37,11 @@
    "rule": "the run index covers every ledger row",
    "ok": true,
    "detail": "3 rows for 3 ledger lines"
+  },
+  {
+   "rule": "every live mention of the retired v1 conductor says so",
+   "ok": true,
+   "detail": "checked, exempting historical provenance records"
   },
   {
    "rule": "matplotlib is a stated dependency (the plate needs it)",

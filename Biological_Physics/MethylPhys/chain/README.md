@@ -68,7 +68,7 @@ Two interfaces exist and they do not run the same steps.
   Intake needs two things from you that the files do not carry: `--sex` and `--age`. `--intake-log` and
   `--manifest-dir` keep the custody record; `--array-type` is read from the file's header unless you override
   it; `--no-intake` skips the gates and the report says so.
-- **[`run_batch.py`](run_batch.py)** — a folder of patient visits. Drives [`walther_clinical.py`](walther_clinical.py), which runs its own
+- **[`run_batch.py`](run_batch.py)** — a folder of patient visits. Drives [`chain/disease_matching.py` (the v1 conductor ``chain/disease_matching.py` (the v1 conductor [`walther_clinical.py`](walther_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called)` was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called)](`chain/disease_matching.py` (the v1 conductor `walther_clinical.py` was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called)), which runs its own
   stage functions (`stage_2_deconvolution`, `stage_4_a_score`, `stage_7_tiers`, `stage_8_dual_matching`, `run_second_chain`), not the conductor.
 
 **Named as chain, called by nothing** — 3 files carry `role=chain` in the inventory and are not called by

@@ -115,7 +115,7 @@ RECON = [
  ("I1", "Two instruments", "one A-score", "GAUGE = H(beta_mean)/H_min over per-class IDENTITY loci; SEPARATION = mean_i(H(beta_i))/H_min over per-cell DISCRIMINATIVE markers",
   "feeding the gauge discriminative markers produced the all-BREACH bug of 2026-06-11", "cpg_gauge_engine.py lines 16-25; iamatlas_a_scoring.py"),
  ("D1", "Deconvolver role", "not in 002", "Walther NNLS on IAMAtlasREBUILD -> class + cell-type fractions; PRESENCE gate: a cell/class below DETECT_FLOOR is absent and its A is not a reading",
-  "cpg_conductor.py 2026-07 'Replaces the confusing walther_clinical.py'", "cpg_conductor.py DETECT_FLOOR = 0.01"),
+  "cpg_conductor.py 2026-07 'Replaces the confusing disease_matching.py (v1 conductor retired 2026-09-25)'", "cpg_conductor.py DETECT_FLOOR = 0.01"),
  ("D2", "Presence floor value", "-", "1% (cpg_conductor.py) vs 3% (README_FOR_FUTURE_AI Mahalanobis adjudicator gate)",
   "OPEN - two floors give different answers on plasma terminal class", "both files at HEAD; run 2026-09-19"),
  ("D3", "NILC second deconvolver", "-", "CUT from Stage 2 on 2026-07-02; REINSTATED 2026-09-22 as the class-level second opinion (stage_2b_second_opinion in the conductor: compared with Walther by class, agreement bar L1 <= 0.10, reported as a flag and never as the composition)", "per flowchart, then reversed on the evidence", "commit c1be0c3 2026-07-02; PROC-NILC-01 2026-09-19; reinstated 2026-09-22"),
@@ -273,7 +273,7 @@ ENGINE_MAP = [  # stage, files, status at HEAD, what it does (from source), cove
  ("Stage 7 — Tier", "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json", "BUILT (edge 1.04->1.01, 2026-07-03)", "continuous A -> customer tiers", "YES — §3.1, RECON T1-T3"),
  ("Stage 8 — Disease matching", "Disease Matrix/disease_cell_signature_matrix_v1_13.csv (81 rows, 49 VAL-anchored), disease_origin_cells.json, iamatlas_115_to_matrix_v0_2_mapping.json, Collinearity_Groups/*", "BUILT", "Route B directional concordance (weighted matcher over SIGNAL cells |d|>=0.20; STRONG needs dc>=0.70, coverage>=0.40, >=3 cells); Mode 2 cell-of-origin presence; Mode 3 systemic-stress wellness read (never a disease call); specificity gate (NLR axis = NON_SPECIFIC_GENERIC). Patient-match loop verified on 381 breast + 142 colon (VAL-093)", "NO"),
  ("Stage 9 — Report", "cpg_report_builder.py, cpg_report_builder_v2.py, build_dashboard_v1.py, cpg_gauge.py (Appendix A1 gauge), Crown Jewel and Patient Strawman/*", "BUILT", "clinician report; patient straw man on the eight-class grid; crown-jewel reference wall; dashboard", "NO"),
- ("Orchestration", "cpg_conductor.py, run_sample.py, run_batch.py, walther_clinical.py, preflight.py, bootstrap.sh", "BOTH present", "conductor = Stage A pure functions; walther_clinical = the full wired chain the report builders still call", "PARTIAL — conductor's presence rule only. walther_clinical.py origin-gate fail-open (bare except disables specificity rule) NOT in this issue"),
+ ("Orchestration", "cpg_conductor.py, run_sample.py, run_batch.py, disease_matching.py (v1 conductor retired 2026-09-25), preflight.py, bootstrap.sh", "BOTH present", "conductor = Stage A pure functions; disease_matching = the full wired chain the report builders still call", "PARTIAL — conductor's presence rule only. disease_matching.py (v1 conductor retired 2026-09-25) origin-gate fail-open (bare except disables specificity rule) NOT in this issue"),
  ("Test data", "TEST_DATA/TEST_DATA_MANIFEST.md, harness/*, N7", "present", "11 public IDATs with expected outputs; synthetic harness; N7 chain-integrity", "YES — §2.4, PROC-DECON-01"),
 ]
 RECON_EXTRA = [
@@ -281,8 +281,8 @@ RECON_EXTRA = [
   "no code exists; every A in this issue is un-subtracted for smoking", "flowchart_vKISS.html; iamatlas_celltype_markers_v0_2.json _sex_marker_removal"),
  ("F2", "Stage 6 cellular age module", "not in 002", "iam_cellular_age_scoring.py present in CPG_TRIAL_CODE.zip, ABSENT from repo engine directory",
   "OPEN — the canonical repo does not carry a file the trial bundle does", "sha256 listing 2026-09-19"),
- ("F3", "walther_clinical.py origin gate", "not in 002", "disease_origin_cells.json loaded inside a bare except; on failure the cell-of-origin specificity rule is silently disabled",
-  "OPEN — patient-safety gate fails open; three-line fix", "walther_clinical.py ~lines 972-996 (CPG_first_read.md finding 3)"),
+ ("F3", "disease_matching.py (v1 conductor retired 2026-09-25) origin gate", "not in 002", "disease_origin_cells.json loaded inside a bare except; on failure the cell-of-origin specificity rule is silently disabled",
+  "OPEN — patient-safety gate fails open; three-line fix", "disease_matching.py (v1 conductor retired 2026-09-25) ~lines 972-996 (CPG_first_read.md finding 3)"),
  ("F4", "Stale strings describing the retired mean-of-entropies gauge", "—", "cpg_conductor.py Stage A comment '(mean-of-per-CpG H/H_min)'; cpg_gauge.py line 158 axis label prints on the patient report figure",
   "OPEN — neither changes a number; both are how the 2026-06-11 bug gets reintroduced", "CPG_first_read.md finding 2"),
  ("F5", "Gauge carries no sign", "—", "A(beta)=A(1-beta); INVERSION below band is degenerate between hyper- and hypo-methylation. beta_mean is computed one line before A and not reported",
@@ -306,7 +306,7 @@ FALSIFICATION += [
 # ═══════════════════════════════════════════════════════════════════════════════
 # PROC-FORMULA-01 — the A-score formula conflict at HEAD, settled empirically 2026-09-19
 #   iamatlas_a_scoring.py + test_a_score_canonical.py (2f758ba 06-30): A = mean_i H(beta_i)/H_min, "any other build is wrong by definition"
-#   cpg_gauge_engine.py + walther_clinical.stage_4 (536c0e9/d7b0e1f 07-01): A = H(beta_mean)/H_min over IDENTITY loci, "supersedes SOP §41"
+#   cpg_gauge_engine.py + disease_matching.stage_4 (536c0e9/d7b0e1f 07-01): A = H(beta_mean)/H_min over IDENTITY loci, "supersedes SOP §41"
 # All four (formula x loci) combinations computed on the 11 Stage-1-calibrated TEST_DATA samples.
 # ═══════════════════════════════════════════════════════════════════════════════
 _f2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Record", "PROC_data", "formula_2x2.json")  # PROC-FORMULA-01 data, in the repo
@@ -618,7 +618,7 @@ CHAIN_LINKS = [
  ("tier_breakpoints.json", "BAND", "The severity ladder: NORMAL 0.95-1.01, ELEVATED 1.01-1.07, SIGNIFICANTLY_ELEVATED 1.07-1.10, BREACH >= 1.10; Warburg line 1.07. Onset moved 1.04 -> 1.01 on 2026-07-03."),
  ("mahalanobis_healthy_reference_v2_0_age_matched_derived.json", "BAND", "Stage 5's reference: derived from the age band (mu = A_mean(class, age), sigma from p10). v0_5 / v1_0 retired and refused by the module."),
  ("walther_iam_deconvolver.py", "CODE", "Stage 2: NNLS composition against the Atlas. Returns cell and class fractions and a residual. Gates nothing; presence (fraction >= DETECT_FLOOR) decides which classes may be scored."),
- ("cpg_conductor.py", "CODE", "The orchestrator (2026-07; replaces walther_clinical.py). Pairs every per-cell A with its deconvolved fraction; a class below DETECT_FLOOR 0.01 is absent, not a reading. Runs Stages 2 -> 4 -> 4.5 -> 5 -> 6."),
+ ("cpg_conductor.py", "CODE", "The orchestrator (2026-07; replaces disease_matching.py (v1 conductor retired 2026-09-25)). Pairs every per-cell A with its deconvolved fraction; a class below DETECT_FLOOR 0.01 is absent, not a reading. Runs Stages 2 -> 4 -> 4.5 -> 5 -> 6."),
  ("iamatlas_a_scoring.py", "CODE", "The separation statistic: mean_i H(beta_i)/H_min over each cell type's discriminative markers -> 115 per-cell A's for the disease matcher. Guarded by test_a_score_canonical.py (separation surface only)."),
  ("cpg_gauge_engine.py", "CODE", "Stage 4: A = H(beta_mean)/H_min over identity loci, placed in the age band (BELOW/IN/ABOVE) and on the severity ladder. Carries the FLOOR table and the SATURATION_MARGIN."),
  ("bidirectional_decomposition.py + directional_panels_v1_0.json", "CODE", "Stage 4.5, the fix for entropy's symmetry: H is symmetric about 0.5, so a disease pushing CpGs both ways leaves beta_mean unmoved and the gauge reads null (VAL-050 d=+0.08). Scores direction per CpG with the sealed VAL-051 composite (d=+0.62). Immune panel only in v1.0."),

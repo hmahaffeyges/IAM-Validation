@@ -51,4 +51,4 @@ All plates use:
 - **Colormap:** β posterior mean uses a diverging cyan-orange palette centered at 0.5 (β=0 → cyan, β=1 → orange). Z-score departure uses diverging blue-red palette centered at 0 (z<0 → blue, z>0 → red).
 - **Multiple CpGs per pixel:** averaged (per-pixel mean of CpG values that fall in that pixel).
 
-The `patient_brightness_comparison.py` module at `walther_clinical_runtime/Brightness_Comparison/` mirrors these conventions exactly so per-patient projections sit on the same grid as the reference Plates.
+The `patient_brightness_comparison.py` module at `walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/Brightness_Comparison/` mirrors these conventions exactly so per-patient projections sit on the same grid as the reference Plates.

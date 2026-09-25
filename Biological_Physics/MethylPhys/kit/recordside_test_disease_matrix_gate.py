@@ -16,7 +16,7 @@ print("M1 origin map missing -> NOT AVAILABLE, 0 candidates: ok")
 o=C.stage_8_matching(a); assert o["available"] and o["status"]=="OK" and o["reportable"] is False; print(f"M1 origin map present -> OK; reportable=False (row 8 OPEN); present cells {o['n_present_cells']}, scored {o['n_scored']}: ok")
 rows=list(csv.DictReader(open(os.path.join(ENG,"Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv")))); sub={r["disease_id"]+"|"+r.get("phase",""):r["substrate"] for r in rows}; bysub={}
 for r in rows: bysub.setdefault(r["disease_id"],set()).add(r["substrate"])
-W=C._load_module("walther_clinical",str(C._find("walther_clinical.py")))
+W=C._load_module("disease_matching",str(C._find("disease_matching.py")))
 for psub,forbidden in (("whole_blood",{"plasma_cfDNA","tumor_tissue","tumor_tissue_normalized","tumor_tissue_paired","aortic_tissue","cultured_pulmonary_endothelial"}),("plasma_cfDNA",{"whole_blood","whole_blood_buffy_coat","whole_blood_sorted"})):
     o=C.stage_8_matching(a,cfg={"substrate":psub}); scored=[s for s in (o["route_B_top"])]
     # every scored disease must have at least one signature row in an allowed substrate and none of its scored rows in a forbidden one

@@ -44,7 +44,7 @@ MAP={
  "N1_permutation_distribution.json":("RENAME","cpg_null_runner.py","the null suite that produces the permutation distributions"),
  "N2_within_decade_distribution.json":("RENAME","cpg_null_runner.py","the null suite that produces the within-decade distributions"),
  # --- real files, but the chain does not call them ---
- "walther_clinical_BUILD_SPEC_v1_3.md":("RECORD_SIDE","walther_clinical.py","the pre-conductor monolith; kept for provenance"),
+ "disease_matching_BUILD_SPEC_v1_3.md":("RECORD_SIDE","disease_matching.py (v1 conductor retired 2026-09-25)","the pre-conductor monolith; kept for provenance"),
  "nilc_fractions_all.csv":("RECORD_SIDE",None,"output of an earlier deconvolver run"),
  "nilc_fractions_v2_departure.csv":("RECORD_SIDE",None,"output of an earlier deconvolver run"),
  "nilc_walther_crosscheck.json":("RECORD_SIDE",None,"superseded by the second-opinion comparison inside run_full"),

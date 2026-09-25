@@ -667,7 +667,7 @@ def sec11_engine_map(story):
         rows.append((Pb(st),Ps(f),P(status),Ps(what),Pb(cov) if cov.startswith("YES") else P(cov)))
     story.append(tbl(rows,[0.14,0.22,0.12,0.34,0.18],fs=6.8))
     story.append(SP(0.08)); story.append(Paragraph('Findings from the 2026-09 review that are recorded here only as reconciliation rows, not yet as sections', sSect2))
-    story.append(Paragraph('The origin-gate fail-open in walther_clinical.py (F3); two stale strings describing the retired gauge, one on the patient report (F4); the gauge\'s missing sign (F5); '
+    story.append(Paragraph('The origin-gate fail-open in disease_matching.py (v1 conductor retired 2026-09-25) (F3); two stale strings describing the retired gauge, one on the patient report (F4); the gauge\'s missing sign (F5); '
         'two inequivalent A-score definitions (F6); the immune H_min revision history (F7); the seminoma value carried as both 0.67 and 0.755 in different files; the breast pre-diagnostic result '
         '(n = 47 cases / 601 controls across GSE51032 + GSE51057; matched-filter ρ = +0.058, CI [+0.001, +0.114]) and its unrun plate-position null; the colorectal cohort test CPG-NEW-001 in full '
         '(its P1/P4 failures are in §10, its method and N-random/N-comp results are not here); the two-observables test on GSE48684/GSE139404; and the disease-signature matrix v1.13 with its 81 rows. '

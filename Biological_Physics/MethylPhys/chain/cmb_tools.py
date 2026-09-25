@@ -154,7 +154,7 @@ TOOLS = [
  ("BRIGHT", "surface brightness", "astronomical photometry",
   "an intensity that does not depend on distance or aperture, applied to a class; superseded by the "
   "composition-weighted sky, not retired",
-  "attach_brightness_ci (walther_clinical)", _chk_brightness),
+  "attach_brightness_ci (retired v1 conductor)", _chk_brightness),
  # --- borrowed in principle, not implemented. Kept visible so the roadmap is not a separate document.
  ("CLS", "angular power spectrum of the residual sky", "the CMB power spectrum",
   "would say whether a departure is locally clustered along the genome or spread across it - one number per "

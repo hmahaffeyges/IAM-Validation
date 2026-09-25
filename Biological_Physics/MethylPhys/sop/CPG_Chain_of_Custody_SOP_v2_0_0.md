@@ -2,7 +2,7 @@
 
 **Document version:** v2.0.0, matched to the engine in this repository at the commit this file was last regenerated from (`git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions are in git history; this document states the current procedure.
 **Authors:** Heath W. Mahaffey + Walther (Claude)
-**Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_3.md (not called by run_full; use walther_clinical.py - the pre-conductor monolith; kept for provenance)`, `Biological_Physics/MethylPhys/chain/Runtime Matrices/README.md (historical path)`
+**Authoritative companions:** `walther_clinical_BUILD_SPEC_v1_3.md (not called by run_full; use walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path)) - the pre-conductor monolith; kept for provenance)`, `Biological_Physics/MethylPhys/chain/Runtime Matrices/README.md (historical path)`
 
 ---
 
@@ -151,7 +151,7 @@ A reader executing this document by hand should arrive at the same readout the e
 
 ### Part II — The step-by-step chain of custody
 
-> **Orchestrator note (v2.0.0).** Wherever this Part names [`walther_clinical.py`](../chain/walther_clinical.py) as the script that runs a stage, read `MethylPhys/chain/cpg_conductor.py` (2026-07; its docstring: "replaces the confusing walther_clinical.py"). The conductor pairs every per-cell A with its deconvolved fraction and treats a class below DETECT_FLOOR = 0.01 as absent. `walther_clinical.py` remains in `MethylPhys/chain/` for reference only.
+> **Orchestrator note (v2.0.0).** Wherever this Part names [`walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path))`](../chain/walther_clinical.py) as the script that runs a stage, read `MethylPhys/chain/cpg_conductor.py` (2026-07; its docstring: "replaces the confusing walther_clinical.py"). The conductor pairs every per-cell A with its deconvolved fraction and treats a class below DETECT_FLOOR = 0.01 as absent. [`walther_clinical.py`](../chain/walther_clinical.py) remains in `MethylPhys/chain/` for reference only.
 
 **Stage 0 — Sample intake (L1)**
 - §11  Step 0.1 — IDAT file arrival on server
@@ -403,8 +403,8 @@ The CPG operational system is **three independently updatable components**, even
 
 | Component | Role | Independently updatable | V1 status |
 |---|---|---|---|
-| **(1) Orchestration runtime** — [`walther_clinical.py`](../chain/walther_clinical.py) | Loads the startup artifacts. Runs Stages 0–8 of this SOP. Calls real modules in `walther_clinical_runtime/`. Outputs structured Stage-8 result. | ✓ Restart picks up new card JSONs without code change. Deconvolver / scoring modules swappable. H_min anchors recalibrate without touching orchestrator code. | Built in V1 as a single CLI script. |
-| **(2) Doctor report builder** — internal module within V1 | Reads Stage-8 outputs + the lookup JSONs + literature anchors. Assembles doctor-facing Markdown → PDF (Stage 9). Owns the engine-tier → clinical-language translation. | ✓ Report template changes are content updates, not code structure changes. | Built in V1 as an internal module of `walther_clinical.py` with a clear internal boundary, ready to lift into a standalone [`cpg_report_v3.py`](../chain/cpg_report_v3.py) in V2. |
+| **(1) Orchestration runtime** — [`walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path))`](../chain/walther_clinical.py) | Loads the startup artifacts. Runs Stages 0–8 of this SOP. Calls real modules in `walther_clinical_runtime/`. Outputs structured Stage-8 result. | ✓ Restart picks up new card JSONs without code change. Deconvolver / scoring modules swappable. H_min anchors recalibrate without touching orchestrator code. | Built in V1 as a single CLI script. |
+| **(2) Doctor report builder** — internal module within V1 | Reads Stage-8 outputs + the lookup JSONs + literature anchors. Assembles doctor-facing Markdown → PDF (Stage 9). Owns the engine-tier → clinical-language translation. | ✓ Report template changes are content updates, not code structure changes. | Built in V1 as an internal module of `walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path))` with a clear internal boundary, ready to lift into a standalone [`cpg_report_v3.py`](../chain/cpg_report_v3.py) in V2. |
 | **(3) Patient-facing destination** — iamperformance.net + a future `cpg_report_v3.py` | Customer report; per-class pages; per-cell pages with cell-function descriptions; vigilance content per tier; deep links from card `educational_page_url` + matrix `organ_pages_to_link` fields. | ✓ Website content team updates pages without touching code. Per-cell descriptions are content, not algorithm. | **NOT in V1.** Deferred to V2 after doctor feedback informs the framing. |
 
 **Why the discipline matters for the SOP:** Stages 0–8 produce structured outputs. Stage 9 reads those outputs and assembles a report. Stage 10 delivers. The boundary between components 1 and 2 lives at the Stage 8 → Stage 9 interface — Stage 8 produces `stage_8_outputs` as a single structured object; Stage 9 reads it without re-running any chain step. Operators editing this SOP should preserve that boundary. Stage 9 is permitted to call lookup JSONs (literature anchors, cancer prior, family history, cfDNA weight) but is forbidden from re-invoking deconvolvers, A-score scoring, Mahalanobis, or cellular age scoring — those are component-1 work.
@@ -709,7 +709,7 @@ The walkthrough names 13 disciplines the CPG operational system must obey withou
 
 1. **Wellness-first positioning.** Cellular health and cellular age are the lead. Disease detection is secondary. (V1 doctor report applies this — wellness panel first, disease findings labeled secondary.)
 2. **Single IAMAtlas at runtime — only IAMAtlas.** No external atlases queried at runtime, ever. No Moss-NNLS, no Loyfer-NNLS, no EpiDISH-via-rpy2, no Salas-QC calls at runtime. Source atlases were ingested at IAMAtlas BUILD time; the orchestrator queries only IAMAtlas REBUILD.
-3. **No customer-facing physics terminology in commercial code.** Boltzmann, Landauer, Arrhenius, Bose-Einstein, decoherence, k_B, ln2, coth, "thermal", "activation energy", "Mahaffey Number" — none of these in [`walther_clinical.py`](../chain/walther_clinical.py) source code, docstrings, comments, API outputs, or HTML. Internal variable names neutral. This protects the Recipe.
+3. **No customer-facing physics terminology in commercial code.** Boltzmann, Landauer, Arrhenius, Bose-Einstein, decoherence, k_B, ln2, coth, "thermal", "activation energy", "Mahaffey Number" — none of these in [`walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path))`](../chain/walther_clinical.py) source code, docstrings, comments, API outputs, or HTML. Internal variable names neutral. This protects the Recipe.
 4. **Recipe stays in the vault forever.** Never disclosed under any NDA. Full acquisition is the only scenario where the Recipe transfers. The orchestrator consumes only operational artifacts (atlas, H_min anchors, deconvolver source, cards, schema), never Recipe content.
 5. **Screening-language rule.** EDEAR never specifies screening tests, ages, intervals, or follow-up workups. Vigilance language defers to "the screening recommendations your clinician has discussed with you." (V1 doctor report has slightly more flexibility — but even there, no specific test names are prescribed.)
 6. **Per-class A-score aggregation discipline.** Each class has its own H_min anchor. Customer report shows class-level + cell-level scores separately (never silently combined).
@@ -787,6 +787,21 @@ calibrated but cannot be placed.
 _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors/PROC_STAGE0_02_OUTCOME.md) — Stage 0 run over 732 healthy whole-blood arrays (GSE87571), per-array results in [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json)._
 
 <!-- END OPERATIONAL DETAIL -->
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
 
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
@@ -886,6 +901,21 @@ a field is not propagated between the two, this gate sees it as absent and refus
 _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors/PROC_STAGE0_02_OUTCOME.md) — Stage 0 run over 732 healthy whole-blood arrays (GSE87571), per-array results in [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json)._
 
 <!-- END OPERATIONAL DETAIL -->
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
 
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
@@ -1011,6 +1041,21 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py), and a QUARANTINE stops the chain with nothing scored**
 
 
@@ -1082,6 +1127,21 @@ a refusal. Read a hybridisation or extension failure as a run to repeat.
 _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors/PROC_STAGE0_02_OUTCOME.md) — Stage 0 run over 732 healthy whole-blood arrays (GSE87571), per-array results in [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json)._
 
 <!-- END OPERATIONAL DETAIL -->
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
 
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
@@ -1201,6 +1261,21 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py), and a QUARANTINE stops the chain with nothing scored**
 
 
@@ -1295,6 +1370,21 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py), and a QUARANTINE stops the chain with nothing scored**
 
 
@@ -1363,6 +1453,21 @@ where one test is marginal.
 _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors/PROC_STAGE0_02_OUTCOME.md) — Stage 0 run over 732 healthy whole-blood arrays (GSE87571), per-array results in [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json)._
 
 <!-- END OPERATIONAL DETAIL -->
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
 
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
@@ -1474,6 +1579,21 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
 
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py), and a QUARANTINE stops the chain with nothing scored**
 
 
@@ -1555,6 +1675,21 @@ to a specimen the chain misjudged.
 _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors/PROC_STAGE0_02_OUTCOME.md) — Stage 0 run over 732 healthy whole-blood arrays (GSE87571), per-array results in [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json)._
 
 <!-- END OPERATIONAL DETAIL -->
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
+
+**Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
+
 
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
@@ -2411,7 +2546,7 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 
 **Atlas reference.** `IAMAtlas_sex_layer.csv (not part of the chain - no foreground layer is subtracted; sex is recorded, not adjusted)` — per-CpG (α, ψ_male, R², n_samples, is_chr_x, is_chr_y, x_inactivation_flag). Built once via `SexAxisForeground.fit()` on the n_hc=601 HC cohort with sex-at-birth metadata; cached as a frozen runtime artifact. **Module BUILT and layer CSV FIT (v1.2, 2026-06-06 on GSE50660 n=464).**
 
-**Files invoked.** `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_Cellular_Age/sex_axis_foreground.py (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction)` — `class SexAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, sex_at_birth)`.
+**Files invoked.** `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_Cellular_Age/sex_axis_foreground.py (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction)` — `class SexAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, sex_at_birth)`.
 
 **The math.** Per CpG i:
 > **β_corrected[i] = β_observed[i] − ψ_i × indicator_male**
@@ -2522,7 +2657,7 @@ Special handling of sex chromosomes:
 
 **Atlas reference.** `IAMAtlas_smoking_layer.csv (not part of the chain - no foreground layer is subtracted; smoking is measured as a null on this gauge)` — per-CpG (α, δ_current_smoker, φ_recency, R², n_samples). Built once via `SmokingAxisForeground.fit()` on the n_hc=601 HC cohort with smoking-status metadata; cached as a frozen runtime artifact. **Module BUILT and layer CSV FIT (v1.2, 2026-06-06 on GSE50660 n=464).**
 
-**Files invoked.** `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_Cellular_Age/smoking_axis_foreground.py (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction)` — `class SmokingAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, smoking_bin)`.
+**Files invoked.** `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_Cellular_Age/smoking_axis_foreground.py (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction) (historical path) (not part of the chain - no foreground subtraction)` — `class SmokingAxisForeground` (mirrors `AgeAxisForeground` interface). API: `.load_layer(path)`, `.subtract_from_single_patient(patient_beta, smoking_bin)`.
 
 **The math.** Per CpG i:
 > **β_corrected[i] = β_observed[i] − δ_i × indicator_current − φ_i × recency_score**
@@ -2877,7 +3012,7 @@ Location: `<Stage 4 output — emitted internally by `GAPE_WEB_v13.py (not part 
 
 **Inputs.** Stage 4 output (per-class A-scores) + foreground-cleaned β vector from Stage 3 + the frozen directional panels artifact.
 
-**Atlas reference.** [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%MethylPhys/chain/Runtime Matrices/Directional Panel/directional_panels_v1_0.json) at `walther_clinical_runtime/Bidirectional_Decomposition/`. Schema: per-class panels with CpG-level (cpg_id, direction±1, mean_hc_train, sd_hc_train) + the pooled-entropy parent panel CpG list. **v1.0 coverage: immune class only** (VAL-051 Rule A 7-CpG AD-direction-anchored panel, SHA-anchored to sealed [`val051_panel_ruleA.json`](../../Record/VAL_PreAtlas/val_051_ad_directional/val051_panel_ruleA.json) SHA-256 `52061285...`). 7 other classes return `NO_PANEL` honestly until future sealed VALs populate them. The immune-class pooled-entropy comparator uses the 18-CpG VAL-050 IMM_CPGS_EPIC parent panel.
+**Atlas reference.** [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%MethylPhys/chain/Runtime Matrices/Directional Panel/directional_panels_v1_0.json) at `walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path))_runtime/Bidirectional_Decomposition/`. Schema: per-class panels with CpG-level (cpg_id, direction±1, mean_hc_train, sd_hc_train) + the pooled-entropy parent panel CpG list. **v1.0 coverage: immune class only** (VAL-051 Rule A 7-CpG AD-direction-anchored panel, SHA-anchored to sealed [`val051_panel_ruleA.json`](../../Record/VAL_PreAtlas/val_051_ad_directional/val051_panel_ruleA.json) SHA-256 `52061285...`). 7 other classes return `NO_PANEL` honestly until future sealed VALs populate them. The immune-class pooled-entropy comparator uses the 18-CpG VAL-050 IMM_CPGS_EPIC parent panel.
 
 **Files invoked.** `Biological_Physics/MethylPhys/chain/Runtime Matrices/Directional Panel/bidirectional_decomposition.py` — mirrors the sealed `val051_analyze.py:112-121` `a_dir_score` formula exactly. Public surface: `load_directional_panels`, `score_directional_composite`, `score_pooled_entropy`, `bidirectional_flag`, `compute_per_class_bidirectional_decomposition`, `save_bidirectional_report`.
 
@@ -3988,7 +4123,7 @@ A patient with a **reversed** signal (signal exists but pointing the opposite di
 - **CpG coverage mismatch.** Residual map declares 1,392 CpGs; patient may have <90% coverage due to EPIC vs 450K mismatch or QC failures. Default policy: require ≥80% CpG coverage of the residual map; below that, residual-overlap channel is marked INSUFFICIENT and matching falls back to per-class-tier-only matching at 8.3.
 - **All-zero patient departure.** A patient whose foreground-cleaned β matrix is essentially flat (e.g., no decoherence above noise floor) will have undefined overlap_score (zero numerator and zero denominator in the Pearson form). Caught with an explicit zero-variance check; reported as NO_SIGNAL.
 
-**Canonical cross-references.** Recipe §8.2. VAL-003 outcome (residual map source). breast-epic card README at [`breast-epic_README.md`](../chain/Disease%20Cards%20:%20Residual%MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : Residual Maps/Breast_EPIC/breast_epic_card_json/breast-epic_README.md).
+**Canonical cross-references.** Recipe §8.2. VAL-003 outcome (residual map source). breast-epic card README at [`breast-epic_README.md`](../chain/Disease%20Cards%20:%20Residual%MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : MethylPhys/chain/Disease Cards : Residual Maps/Breast_EPIC/breast_epic_card_json/breast-epic_README.md).
 
 **CPG Plate references.** **Plate 2** (Breast Pre-Diagnostic Anisotropy) shows the residual map for breast-epic rendered as a sky map. Every dot on Plate 2 is one CpG with its signed Cohen's d coloring; the patient overlap calculation here is, conceptually, "how aligned is this patient's per-CpG signal sky with the breast-epic anisotropy sky." **Plate 4 Panel F** shows the same data with the cyan-shifted (hypomethylated) field effect made explicit.
 
@@ -5453,7 +5588,7 @@ Specifically for the Walther vs NILC cross-method gate at §33 — the most comm
 
 **Step 94.3 — Document.**
 
-Every cross-method disagreement, regardless of severity, gets a row in `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck_v2.json (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full)`. The log is the running audit trail of inter-method behavior across all production patients. It is the empirical foundation for any future Phase B5 work on disagreement-resolution (e.g., adding SMICA-style and SEVEM-style methylome variants if the cross-method discipline ever needs more than two voices).
+Every cross-method disagreement, regardless of severity, gets a row in `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck_v2.json (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full)`. The log is the running audit trail of inter-method behavior across all production patients. It is the empirical foundation for any future Phase B5 work on disagreement-resolution (e.g., adding SMICA-style and SEVEM-style methylome variants if the cross-method discipline ever needs more than two voices).
 
 **CMB equivalent.** Planck's **Commander vs NILC vs SMICA vs SEVEM comparison logs** drive Phase-Z calibration adjustments. When the four methods disagree at the per-pixel level by more than expected, Planck doesn't pick a "right" method — Planck publishes all four and notes the disagreement as a propagated systematic. CPG follows the same discipline at the patient-report level.
 
@@ -5577,11 +5712,11 @@ If an operator is looking for a path that this SOP names anywhere from §11 to �
 | **Walther deconvolver** | `Biological_Physics/MethylPhys/chain/Walther_iam_deconvolver/walther_iam_deconvolver.py` | §30, §31 | Production NNLS deconvolution |
 | Walther README | `Biological_Physics/MethylPhys/chain/Walther_iam_deconvolver/README.md (historical path)` | §30, §31 | Deconvolver-specific docs |
 | **NILC v2 deconvolver** | `MethylPhys/chain/nilc_celltype_deconvolver.py` | §32 | Cross-method GLS deconvolution |
-| NILC v1 fractions | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_fractions_all.csv (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run)` | (audit) | Historical v1 output |
-| NILC v2 fractions | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_fractions_v2_departure.csv (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run)` | (audit) | Current v2 output |
-| NILC v1 crosscheck | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck.json (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full)` | (audit) | Historical v1 gate report |
-| NILC v2 crosscheck | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck_v2.json (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full)` | §33, §94 | Current cross-method gate report |
-| Phase B2 finding | `Biological_Physics/chain_of_custody/L4_component_separation/Phase_B2_FINDING.md (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record)` | (historical) | Initial NILC+Walther cross-check |
+| NILC v1 fractions | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_fractions_all.csv (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run)` | (audit) | Historical v1 output |
+| NILC v2 fractions | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_fractions_v2_departure.csv (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run) (historical path) (not called by run_full - output of an earlier deconvolver run)` | (audit) | Current v2 output |
+| NILC v1 crosscheck | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck.json (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full)` | (audit) | Historical v1 gate report |
+| NILC v2 crosscheck | `Biological_Physics/chain_of_custody/L4_component_separation/nilc_walther_crosscheck_v2.json (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full) (historical path) (not called by run_full - superseded by the second-opinion comparison inside run_full)` | §33, §94 | Current cross-method gate report |
+| Phase B2 finding | `Biological_Physics/chain_of_custody/L4_component_separation/Phase_B2_FINDING.md (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record) (historical path) (not called by run_full - a pre-build finding, kept in the record)` | (historical) | Initial NILC+Walther cross-check |
 | Phase B2.1 finding | `Biological_Physics/chain_of_custody/L4_component_separation/Phase_B2_1_FINDING.md (historical path) (not called by run_full - a pre-build finding, kept in the record)` | §33 | Current cross-method gate documentation |
 | **Age-axis foreground** | `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/components/age_axis_foreground.py (not part of the chain - superseded by the measured age curve)` | §35 | Per-CpG age regression / β subtraction (Phase B3) |
 | Age layer matrix | `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/reference_age_curve_v1.json` | §35 | Per-CpG (α, γ, R², n) — 8,199 CpGs, 100% convergence |
@@ -5612,7 +5747,7 @@ If an operator is looking for a path that this SOP names anywhere from §11 to �
 
 ### §97.B — Logic currently embedded inside `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)`
 
-The following operations described in §11–§79 are performed by the production engine `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)` directly, not as separate module files. v1 of this SOP fabricated module paths for each (e.g. `cpg_MethylPhys/chain/qc/sex_check.py (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository)`, `cpg_MethylPhys/chain/calibration/dye_bias.py (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository)`); those were wrong. The real situation: one engine, one file, no per-stage module isolation yet.
+The following operations described in §11–§79 are performed by the production engine `GAPE_WEB_v13.py (not part of the chain - a report generator from the preliminary era)` directly, not as separate module files. v1 of this SOP fabricated module paths for each (e.g. `cpg_MethylPhys/chain/qc/sex_check.py (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository)`, `cpg_MethylPhys/chain/calibration/dye_bias.py (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository) (historical path) (no such file in this repository)`); those were wrong. The real situation: one engine, one file, no per-stage module isolation yet.
 
 | SOP § | Operation | Notes |
 |---|---|---|
@@ -5794,7 +5929,7 @@ The four plates are the visual anchor of the framework. Each plate illustrates s
 | Date | Version | Change | Authority |
 |---|---|---|---|
 | 2026-05-31 | v1 | Initial release. Parts I-V complete: §1-§102. Foundations + step-by-step + audit machinery + failure modes + reference. | Heath W. Mahaffey |
-| 2026-06-11 | v1.3.2 | **§103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, after the first real-IDAT end-to-end run. Code: `walther_clinical.stage_4_a_score` now reads frozen H_min from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) and refuses to run on mismatch (enforces §99 in code); permanent A-SCORE LOCI GUARD added. | Heath W. Mahaffey + Walther |
+| 2026-06-11 | v1.3.2 | **§103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, after the first real-IDAT end-to-end run. Code: `walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path)).stage_4_a_score` now reads frozen H_min from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) and refuses to run on mismatch (enforces §99 in code); permanent A-SCORE LOCI GUARD added. | Heath W. Mahaffey + Walther |
 | 2026-06-11 | v1.3.3 | **§104 NEW — foreground firewall.** Production chain subtracts NO foregrounds (age/sex/smoking/batch); these are the cellular departure the A-score measures, not contamination. `stage_3_foreground_fork` made a zero-foreground pass-through (`cleaned_beta == beta_raw`); foreground config keys + apply flags removed (no dormant wiring); `tier_by_smoking_bin` retired (§59). Intake facts become report annotations, never score operands. §36/§39 banner-marked retired-from-production (test-only tooling retained). | Heath W. Mahaffey + Walther |
 
 **Change discipline.** Every future modification to this SOP creates a new version entry. The previous version is archived (not overwritten). Changes that modify CANNOT-SAY language, H_min values, atlas references, or VAL sealing protocols require Heath's explicit authority. Changes that update file paths, add new failure modes catalog entries, or expand the glossary can be made by Walther under standing instruction. The change log is the chain-of-custody for the SOP itself.
@@ -5813,7 +5948,7 @@ Stage 4 (A-score) must score each class's **most-methylated loci** from the IAMA
 
 - **Symptom of the violation:** all-BREACH — every A-score pinned at the ceiling 1/H_min. Discriminative markers are mixed-direction by construction, so their panel MEAN collapses to ~0.5 in any cell mixture; H(0.5)=1.0 → A=1/H_min for every cell. This was confirmed against the frozen GAPE engine (`_derive_A` scores a single representative β) and the Recipe.
 - **Two CpG sets, two jobs:** discriminative → Stage 1 deconvolution ONLY; most-methylated → Stage 4 A-score. NEVER cross them.
-- **Enforcement (in code):** [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) holds the per-class most-methylated loci (derived from the atlas, ref β > class β_floor − 0.08); `walther_clinical.stage_4_a_score` loads it via `a_score_loci_json` and carries a permanent **A-SCORE LOCI GUARD** that hard-fails if Stage 4 is ever pointed at the discriminative markers again.
+- **Enforcement (in code):** [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) holds the per-class most-methylated loci (derived from the atlas, ref β > class β_floor − 0.08); `walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path)).stage_4_a_score` loads it via `a_score_loci_json` and carries a permanent **A-SCORE LOCI GUARD** that hard-fails if Stage 4 is ever pointed at the discriminative markers again.
 - **Bulk vs pure substrate:** on a BULK sample the honest A-score unit is the class — a fine subtype's order cannot be isolated from a mixed tube — so each cell inherits its class most-methylated loci. Sharp per-cell-type loci (`loci_by_celltype_sharp`) are for PURE substrates. On bulk, cell-type *differentiation* comes from deconvolution fractions + Stage 4.5 bidirectional, not from per-cell A magnitude.
 
 ### §103.2 — Atlas `<class>_mean` ≈ 0.5 is correct bimodal methylation, NOT a scale problem
@@ -5827,7 +5962,7 @@ The IAMAtlas REBUILD `<class>_mean` columns have a genome-wide mean ≈ 0.5 with
 
 Before theorizing about the atlas or flagging a scale/anchor problem, READ in this order: `MethylPhys/atlas/IAMAtlasREBUILD_provenance.json`, `MethylPhys/atlas/README.md`, `MethylPhys/atlas/IAMAtlas_FLATNESS_LESSON.md`. The frozen H_min, the build pipeline, the distinctness-test outcomes, and the bimodal-not-flat fact are all documented there. Re-deriving from the atlas global mean produced the 2026-06-11 false-alarm; reading the provenance first prevents it.
 
-**Code linkage:** `walther_clinical.stage_4_a_score` now reads `h_min_values_frozen_2026_04_06` from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) (the §99 single source of truth) and refuses to run if the runtime H_min disagrees — implementing §99's "engine refuses to deploy" rule in code.
+**Code linkage:** `walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py (historical path)).stage_4_a_score` now reads `h_min_values_frozen_2026_04_06` from [`IAMAtlasREBUILD_provenance.json`](../atlas/IAMAtlasREBUILD_provenance.json) (the §99 single source of truth) and refuses to run if the runtime H_min disagrees — implementing §99's "engine refuses to deploy" rule in code.
 
 ---
 

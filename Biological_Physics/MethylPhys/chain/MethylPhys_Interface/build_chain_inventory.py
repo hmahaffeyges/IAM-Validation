@@ -76,7 +76,7 @@ DESC={
  "age_reference_matrix.json":("reference","The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. The live age term comes from reference_age_curve_v1.json.","stage 6"),
  "age01_results.json":("reference","The PROC-AGE-01 measurement: the slope, the within-laboratory spread, and the resolution that follows.","stage 6"),
  # ---- not in the chain ----
- "walther_clinical.py":("record","The pre-conductor monolith. Its stage_8_dual_matching (disease-pattern concordance) is still callable for the record but IS NOT CALLED BY run_full - the author removed disease matching from the chain on 2026-09-21. Everything else here was superseded by cpg_conductor.py.","not in chain"),
+ "disease_matching.py (v1 conductor retired 2026-09-25)":("record","The pre-conductor monolith. Its stage_8_dual_matching (disease-pattern concordance) is still callable for the record but IS NOT CALLED BY run_full - the author removed disease matching from the chain on 2026-09-21. Everything else here was superseded by cpg_conductor.py.","not in chain"),
  "disease_cell_signature_matrix_v1_13.csv":("record","The disease-pattern signature matrix, from the preliminary record. Not read by run_full.","not in chain"),
  "disease_origin_cells.json":("record","Cell-of-origin gate for the removed matching stage. Not read by run_full.","not in chain"),
  "iamatlas_115_to_matrix_v0_2_mapping.json":("record","Maps atlas entries onto the signature matrix. Not read by run_full.","not in chain"),

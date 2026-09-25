@@ -127,43 +127,7 @@
    "implements": "one self-contained HTML from the bundle"
   }
  ],
- "batch_path": [
-  {
-   "step": "calibrate_idat_to_beta",
-   "where": "stage_1_idat_calibration.py",
-   "implements": ""
-  },
-  {
-   "step": "build_report",
-   "where": "walther_clinical.py",
-   "implements": ""
-  },
-  {
-   "step": "stage_2_deconvolution",
-   "where": "walther_clinical.py",
-   "implements": "Stage 2 per SOP \u2014 returns {class_fractions, celltype_fractions, walther_diagnostics,"
-  },
-  {
-   "step": "stage_4_a_score",
-   "where": "walther_clinical.py",
-   "implements": "Stage 4 per BUILD_SPEC v1.3 \u2014 consumes cleaned_beta (foreground-removed)"
-  },
-  {
-   "step": "stage_7_tiers",
-   "where": "walther_clinical.py",
-   "implements": "Stage 7 per BUILD_SPEC v1.3 \u2014 classify each class + cell-type A-score into the customer"
-  },
-  {
-   "step": "stage_8_dual_matching",
-   "where": "walther_clinical.py",
-   "implements": "Stage 8 (L6) \u2014 Route B disease-pattern concordance is the detector. Routes A"
-  },
-  {
-   "step": "run_second_chain",
-   "where": "walther_clinical.py",
-   "implements": ""
-  }
- ],
+ "batch_path": [],
  "not_in_live_path": [
   {
    "step": "stage_8_matching",
@@ -388,7 +352,7 @@
  ],
  "counts": {
   "live": 23,
-  "batch": 7,
+  "batch": 0,
   "not_wired": 3,
   "role_gaps": 5
  }

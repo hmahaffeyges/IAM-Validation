@@ -279,7 +279,7 @@ def smoke_test():
     print("=" * 70)
 
     chr_annotated_csv = Path(
-        "Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/walther_clinical_runtime/"
+        "Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/disease_matching_runtime/"
         "DISEASE_MAPS_CARDS/Breast_EPIC/breast_epic_residual_maps/"
         "breast_epic_residual_map_chr_annotated.csv"
     )

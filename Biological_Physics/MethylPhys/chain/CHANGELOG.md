@@ -1,6 +1,6 @@
 # CPG pipeline update — disease-wall matcher + RUN-everything sweep
 
-## 1. Per-cell directional matcher  (walther_clinical.py, 1521 -> 1554 lines)
+## 1. Per-cell directional matcher  (`chain/disease_matching.py` (the v1 conductor [`walther_clinical.py`](walther_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called), 1521 -> 1554 lines)
 Replaced the absolute-magnitude cosine (whose |dep|>=0.15 floor gated out subtle
 pre-dx directional signal) with a weighted directional matcher over each disease's
 SIGNAL cells (|Cohen d| >= 0.20). 'cosine' now carries directional concordance in
@@ -47,7 +47,7 @@ correctly leaves it quiet and the matched filter must screen it on its own.
 - healthy control (GSM1235534): second chain gate closed, no false flag.
 - positive control (injected MM): flags multiple_myeloma, confirmed.
 
-## 5. Systemic stress / inflammatory wellness signal  (walther_clinical.py + report)
+## 5. Systemic stress / inflammatory wellness signal  (`chain/disease_matching.py` (the v1 conductor [`walther_clinical.py`](walther_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called) + report)
 New detect_systemic_stress_pattern(patient_departure): a wellness-level read (NONE / MILD /
 NOTABLE) of the neutrophil-to-lymphocyte axis (myeloid + progenitor up, lymphoid down). It is
 NEVER a disease call. Fires only on a coherent, real-magnitude pattern (n>=4 axis cells, mean
@@ -92,7 +92,7 @@ but Route C stood down in lean v1 and the module files were never placed.
 CHANGES:
 - Runtime Matrices/Directional Panel/: placed bidirectional_decomposition.py +
   directional_panels_v1_0.json (sealed VAL-051 Rule A 7-CpG immune panel).
-- walther_clinical.py: Stage 4.5 wired into run_pipeline (computes per-class directional
+- `chain/disease_matching.py` (the v1 conductor [`walther_clinical.py`](walther_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called): Stage 4.5 wired into run_pipeline (computes per-class directional
   composite after Stage 4, feeds stage_8); config path -> Directional Panel.
 - stage_5_second_chain.py: AD removed from _RESIDUAL_SWEEP_DISEASES (breast + immune-alarm
   only); AD directional read surfaced; gate fires on composite > 0.40 (the directional

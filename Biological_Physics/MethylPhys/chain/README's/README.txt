@@ -45,7 +45,7 @@ b) Put the patient's IDAT pair in this folder:
        <sample>_Grn.idat   and   <sample>_Red.idat
 
 c) From this folder, with the cpg environment active:
-       python walther_clinical.py
+       python walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)
 
 The report is written here as  CPG_report_<patient>_<timestamp>.html.
 
@@ -79,7 +79,7 @@ and the conductor picks them up. Nothing in this current folder changes.
 ------------------------------------------------------------------
 FOLDER MAP (do not rename or move)
 ------------------------------------------------------------------
-walther_clinical.py            <- run this
+walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)            <- run this
 cpg_report_builder.py
 stage_1_idat_calibration.py    <- Stage 1 per-sample noob calibration
 cpg_intake_form.html           <- office intake form (makes questionnaire.json)

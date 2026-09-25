@@ -6,7 +6,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 
 - [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) — one sample end to end: the intake steps, calibration, the eleven conductor stages, the report
 - [`cmb_tools.py`](../chain/cmb_tools.py) — the register of every method borrowed from CMB analysis, with a check per tool that returns its state on a finished bundle
-- [`walther_clinical.py`](../chain/walther_clinical.py) — the batch path: its own stage functions, used for a cohort rather than a single specimen
+- [`disease_matching.py`](../chain/disease_matching.py) — Stage 8 disease-pattern concordance - FUTURE work (Issue 004), extracted 2026-09-25 from the retired v1 conductor; the only part of it the live chain ever called
 - [`cpg_conductor.py`](../chain/cpg_conductor.py) — the orchestrator - every stage in call order
 - [`stage_0_intake.py`](../chain/stage_0_intake.py) — the intake steps (SOP 11-19) and the decision that stops the chain
 - [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py) — decodes the control probes, negative controls, bead counts and chrX/chrY the intake QC steps read

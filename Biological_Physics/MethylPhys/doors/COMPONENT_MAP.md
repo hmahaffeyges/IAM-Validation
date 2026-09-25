@@ -27,7 +27,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | age reference band (8 classes × 10 decades) | REPO `MethylPhys/chain/` (trial bundle copy identical) [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) | `runtime/` | canonical; compiled as H(β̄)/H_min |
 | tier breakpoints v1.3 | REPO [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) (last commit 66f37fe) | `runtime/` | canonical; two vocabularies remain (RECON T3) |
 | Stage 1 calibrator | REPO `MethylPhys/chain/stage_1_idat_calibration.py` | `MethylPhys/chain/` | canonical; PROC-CAL-01 PASS 11/11 |
-| conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces walther_clinical.py', 2026-07) | REPO `MethylPhys/chain/cpg_conductor.py` - committed 2026-09; this row said 'YOUR FOLDER only, must be committed' until 2026-09-25, which was true when written and is not now | `MethylPhys/chain/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
+| conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces `chain/disease_matching.py` (the v1 conductor [`walther_clinical.py`](../chain/walther_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called)', 2026-07) | REPO `MethylPhys/chain/cpg_conductor.py` - committed 2026-09; this row said 'YOUR FOLDER only, must be committed' until 2026-09-25, which was true when written and is not now | `MethylPhys/chain/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
 | runtime A-scoring module + canonical test | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py) | `MethylPhys/chain/` | separation surface (mean-of-H); guard docstring to be amended per RULING A3 |
 | kit scoring helpers (gauge_A with presence + Jensen guard, separation_A) | **KIT** [`cpg_kit.py`](../kit/cpg_kit.py) | `cpg_kit.py` | new 2026-09-19; **should be promoted into REPO** next to cpg_conductor.py |
 
@@ -48,7 +48,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 |---|---|---|---|---|
 | Plates 1–4 + README | REPO `VAULT/IAMAtlas_v0_1/plates/` | `Mollweide & Brightness Comparison/Plates/` | no | canonical in repo; your zip has two extra plate variants (`_Cosmic_Methylome_Background`, `_Methylome_CMB_vs_Microwave_CMB`) **not in the repo** — commit or discard |
 | HEALPix mapping (NSIDE 128, generator, provenance, .npy) | REPO `VAULT/IAMAtlas_v0_1/healpix_mapping/` | `cpg healpix mapping/` | no | canonical in repo (your zip lacks the .npy) |
-| patient_brightness_comparison.py (Stage 4.6 module) | REPO `VAULT/walther_clinical_runtime/Brightness_Comparison/` | `Mollweide & Brightness Comparison/` | no | canonical in repo |
+| patient_brightness_comparison.py (Stage 4.6 module) | REPO `VAULT/walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/Brightness_Comparison/` | `Mollweide & Brightness Comparison/` | no | canonical in repo |
 | cpg_patient_cmb.py (Stage 4.6, engine version, z-map with assessability mask) | REPO `MethylPhys/chain/cpg_patient_cmb.py` | — | no | canonical; supersedes the vault module for the running chain |
 | brilliance_map.py, patient_brilliance_map_GSM1051533.png | REPO `MethylPhys/chain/cpg_conductor.py` - committed 2026-09; this row said 'YOUR FOLDER only, must be committed' until 2026-09-25, which was true when written and is not now | root of zip | no | **not in repo** — the PNG is a raw-β map, not the Stage-4.6 z-map; decide whether it ships |
 
@@ -58,7 +58,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 |---|---|---|---|
 | Issue 003 build chain (build, data003, gape002_lib, 002 script) | **KIT** `issue003_build/` → **should be committed to REPO** `MethylPhys/manual/` | yes | new |
 | Issue 003 PDF | KIT `issue003_build/` | yes | v8 |
-| SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
+| SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
 | LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `MethylPhys/chain/README's/` | no | canonical |
 | Recipe, `_gape_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_gape_constants_private.py` still names the constant `n_bio` (retired name; the value 20.94 is the Mahaffey number) |
 | GAPE_EDEAR_Reproduction_Paper_v3, IAM_for_physicists, Hubble2GAPE, Cellular Margin, Astro-Genetics | REPO `docs/papers/` or `Biological_Physics/papers/` (check each) | no | verify each is committed |
@@ -85,7 +85,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 
 1. commit the chrX-removed [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) (RULING M1b)
 2. commit `anchors_v2/` beside `foundation_cohort/`, mark v1 SUPERSEDED in `cohort_manifest.json`
-3. commit SOP v2.0.0 to `VAULT/walther_clinical_runtime/`, then amend §105 per RULING A3
+3. commit SOP v2.0.0 to `VAULT/walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/`, then amend §105 per RULING A3
 4. commit the two extra plates from your zip (or delete them locally)
 5. promote [`cpg_kit.py`](../kit/cpg_kit.py) and the five `PROC_*.py` into `MethylPhys/kit/`, and `issue003_build/` into `MethylPhys/manual/`
 6. amend [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py)'s guard to name its surface and add a gauge-surface test

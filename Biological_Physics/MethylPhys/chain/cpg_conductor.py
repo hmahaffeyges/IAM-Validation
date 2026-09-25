@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """CPG Conductor — clean from-scratch orchestrator (2026-07).
 
-Replaces the confusing walther_clinical.py. Wires the KISS files in the order
+Replaces the v1 conductor, which was retired on 2026-09-25 after its one live function (stage_8_dual_matching) was extracted to disease_matching.py. Wires the KISS files in the order
 Heath specified, each stage a small pure function, per-cell A always paired with
 its deconvolved fraction so presence and score are read together.
 
@@ -436,7 +436,7 @@ def stage_8_matching(stage_a_out, cfg=None):
     (healthy per-cell level from the four-lab panels) before any match is reported. Until then the output is DIAGNOSTIC and not reportable.
     Origin gate fails CLOSED (missing/unreadable disease_origin_cells.json -> status NOT AVAILABLE, zero candidates)."""
     cfg = cfg or {}
-    W = _load_module("walther_clinical", _find("walther_clinical.py"))
+    W = _load_module("disease_matching", _find("disease_matching.py"))
     md = HERE / "Disease Matrix" / "DISEASE_MATRIX"
     c2c = json.load(open(_find("IAMAtlasREBUILD_celltype_to_class.json"))); HM = json.load(open(_find("iamatlas_celltype_markers_v0_2.json"))).get("H_min_by_class", {})
     s4 = {"celltype_ascores": {cell: {"A": r.get("A"), "below_floor": bool(r.get("A") is not None and r["A"] < HM.get(c2c.get(cell), 0)),

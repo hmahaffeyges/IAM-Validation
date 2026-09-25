@@ -33,22 +33,6 @@ rather than left out.
 | 22 | `stage_6_cellular_age_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported |
 | 23 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
 
-## The batch path — 7 steps, in order
-
-[`run_batch.py`](../chain/run_batch.py) processes a folder of patient visits. It does **not** call `cpg_conductor`: it drives
-[`walther_clinical.py`](../chain/walther_clinical.py), which runs its own stage functions. The numbers in the commissioning record and
-in [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) come from the path above, not from this one.
-
-| # | step | implemented in | what it does |
-|---|---|---|---|
-| 1 | `calibrate_idat_to_beta` | [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py) |  |
-| 2 | `build_report` | `walther_clinical.py` |  |
-| 3 | `stage_2_deconvolution` | `walther_clinical.py` | Stage 2 per SOP — returns {class_fractions, celltype_fractions, walther_diagnostics, |
-| 4 | `stage_4_a_score` | `walther_clinical.py` | Stage 4 per BUILD_SPEC v1.3 — consumes cleaned_beta (foreground-removed) |
-| 5 | `stage_7_tiers` | `walther_clinical.py` | Stage 7 per BUILD_SPEC v1.3 — classify each class + cell-type A-score into the customer |
-| 6 | `stage_8_dual_matching` | `walther_clinical.py` | Stage 8 (L6) — Route B disease-pattern concordance is the detector. Routes A |
-| 7 | `run_second_chain` | `walther_clinical.py` |  |
-
 ## Named as chain, called by nothing
 
 The inventory gives these files `role=chain`, and no interface in this tree calls them. Every document

@@ -2,7 +2,7 @@
 """
 cpg_report_builder.py — CPG v1 LEAN report builder.
 
-Consumes the bundle from walther_clinical.run_pipeline and renders one HTML report that
+Consumes the bundle from disease_matching.run_pipeline and renders one HTML report that
 answers the only question v1 is built to answer: do any of the 17 core diseases show, in
 which of the two detection modes, and how strongly. Every value carries its CI. The whole
 methodology is written out in plain language for the clinician AND for a future AI, so no

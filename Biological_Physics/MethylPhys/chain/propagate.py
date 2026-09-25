@@ -139,6 +139,27 @@ def rules():
     R.append(("the run index covers every ledger row",
               n_rows == n_runs, "%d rows for %d ledger lines" % (n_rows, n_runs)))
 
+    # 8. the retired v1 conductor: a live DOCUMENT OR SCRIPT may name it only in a sentence that says it
+    # is retired. Historical provenance records (the disease-card JSONs) are exempt: they state what
+    # actually ran at the time, and editing them would be falsifying a record. Added 2026-09-25 - after
+    # the retirement, every unannotated mention is by definition stale information.
+    import subprocess as _sp
+    bad_lines = []
+    for ln in _sp.run(["grep", "-rn", "walther_clinical", MP], capture_output=True,
+                      text=True).stdout.split("\n"):
+        if not ln or ":" not in ln:
+            continue
+        fn = ln.split(":")[0]
+        if any(k in fn for k in ("__pycache__", ".zip", ".html", "RETIRED", "disease_matching.py",
+                                 "Disease Cards", "chain_sequence.json", "chain_inventory_v1.json",
+                                 "propagate.py", "propagate_status.json")):   # this gate itself names the module it checks for
+            continue
+        if not re.search(r"retired|RETIRED", ln):
+            bad_lines.append(fn.replace(MP + "/", ""))
+    R.append(("every live mention of the retired v1 conductor says so",
+              not bad_lines, ("unannotated in: %s" % ", ".join(sorted(set(bad_lines))[:4]))
+              if bad_lines else "checked, exempting historical provenance records"))
+
     # 8. nothing claims a dependency the environment does not state
     req = read(os.path.join(HERE, "requirements.txt"))
     R.append(("matplotlib is a stated dependency (the plate needs it)",

@@ -25,7 +25,7 @@ From the second draw on, a per-cell trajectory tracks change against the patient
      `TEST_DATA/harness/pdshim.py` (it restores DataFrame.append). On 3.11 no shim is needed.
 2. Per-patient run: `python run_batch.py --patients /path/to/patients` where each patient is
    `patients/<ID>/<YYYY-MM-DD>/` containing the IDAT pair + `questionnaire.json`.
-   Single visit: `python walther_clinical.py --folder <visit_folder> --out <visit_folder>`.
+   Single visit: `python walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py) --folder <visit_folder> --out <visit_folder>`.
 3. The conductor auto-resolves the engine root by locating `MethylPhys/atlas/` and auto-decompresses
    `MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` on first run.
 
@@ -39,7 +39,7 @@ archives are in `MethylPhys/atlas/iamatlas_class_archives/`. These are identical
   >= 3%) AND outside the NORMAL band [0.95, 1.04). Stops suppressed non-substrate classes
   (stem_pluri, terminal in blood) from inflating the distance. (stage_5_second_chain.py)
 - Per-cell trajectory: per-cell deltas (not class scores) + rotation-toward-signature, led by
-  deconvolver-resolved cells; bulk pseudo-cells excluded. (walther_clinical.py `_compute_trajectory`)
+  deconvolver-resolved cells; bulk pseudo-cells excluded. (walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py) `_compute_trajectory`)
 - Report: trajectory section, two-deconvolver explainer, Mahalanobis callout. (cpg_report_builder.py)
 - Flowchart updated to match (flowchart_v4.html).
 
