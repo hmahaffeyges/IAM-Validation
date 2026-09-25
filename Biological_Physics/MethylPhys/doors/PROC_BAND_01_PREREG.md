@@ -16,6 +16,30 @@ So: **do progenitor and stem_adult, measured on the same four healthy cohorts th
 band, support a band of their own?** If they do, the departure statistic becomes three axes with a measured
 threshold. If they do not, they stay unbanded, their tier stays withheld, and this document says why.
 
+## Amendment, 2026-09-25, before any array was read
+
+Reading `stage_b_identity` rather than the enhancement description changed what this procedure can ask, so
+the target is corrected here rather than quietly:
+
+**The chain does not read progenitor and stem_adult separately on whole blood — it reads them jointly.** Its
+own rule, in the function's docstring: *"s108 reporting rule: on whole blood only immune and the joint
+haematopoietic-progenitor component are read."* The two classes' identity loci are pooled and scored against
+progenitor's floor as one surface. So the achievable result is **two axes, not three**, and the cost estimate
+I wrote in [`ENHANCEMENTS.md`](ENHANCEMENTS.md) ("converts the departure statistic from one banded axis into three") was written
+from the description instead of the code. It is corrected there too.
+
+**And the joint component has no reference layers.** In the live code the age term and the laboratory zero are
+applied `if name == "immune"` only, so the joint component returns `A_mapped` and nothing absolute. A band
+needs `A_abs = A_mapped - c(decade) - z_lab`, which means this procedure must **derive an age term and a
+per-laboratory zero for the joint component** — neither of which exists — before a band can be measured at
+all. That is real work, not the two to three hours the list claimed.
+
+**How that is kept honest.** The age term and the laboratory zero are derived **inside each
+leave-one-laboratory-out fold, from the three laboratories in that fold**, and the held-out laboratory's
+coverage is measured against them. A curve and a band fitted on the same arrays that then judge the false-alarm
+rate would be measuring themselves; this is the only design that avoids it with 318 arrays. B7 below is
+restated accordingly.
+
 ## What enters, and what does not
 
 | | |
@@ -30,8 +54,9 @@ threshold. If they do not, they stay unbanded, their tier stays withheld, and th
 
 ## The bars, fixed now
 
-**B1 — the class is present.** Each class must sit **above its presence floor in ≥ 95 % of the 318 arrays**.
-A band measured where the class is not detectable is a band on noise.
+**B1 — the component is present.** The joint haematopoietic-progenitor fraction must be **≥ 0.01 in ≥ 95 % of
+the 318 arrays** - the same presence test the chain itself applies before it will score the surface at all. A
+band measured where the component is not detectable is a band on noise.
 
 **B2 — it reproduces across laboratories.** Leave-one-laboratory-out: build the band on three, measure what
 fraction of the held-out laboratory's arrays fall inside the nominal 80 % interval. Every held-out fraction
@@ -43,7 +68,7 @@ to the standard the commissioned one passed.
 must be **≤ 0.10 in every laboratory and ≤ 0.06 pooled**. The immune band's own per-laboratory rates run
 0.044–0.098, so this permits no worse than the axis already in service.
 
-**B4 — the axis adds something.** At least one new class must have **|Pearson r| < 0.9 against immune A″**
+**B4 — the axis adds something.** The joint component's A″ must have **|Pearson r| < 0.9 against immune A″**
 across the 318 arrays. Two axes that move together are one axis with extra arithmetic, and the honest outcome
 in that case is to keep reporting one.
 
@@ -56,21 +81,28 @@ stated on the page.
 all 318 arrays**. An improvement that shifts the number already in service is rejected whatever it does for
 the new classes.
 
-**B7 — the band is not fitted on the arrays that judge it.** The leave-one-out fractions of B2 are the only
-evidence for B2; the pooled band of B3 is built once, on all four laboratories, and B3 is then a property of
-that band rather than a search over candidate bands. No band is chosen by comparing false-alarm rates.
+**B7 — nothing is fitted on the arrays that judge it.** The joint component's age term, laboratory zero and
+band are derived **inside each fold from that fold's three laboratories**, and the held-out laboratory is
+scored against them; the leave-one-out fractions are the only evidence for B2. The pooled band reported at the
+end is built once, on all four laboratories, and B3 is a property of that band rather than a search over
+candidates. No band is chosen by comparing false-alarm rates.
 
 ## Decision rule
 
-- **Both classes clear B1–B4:** the departure statistic becomes three axes, the threshold from B5 is adopted,
-  the two tiers stop being withheld, and the register row for the departure statistic is rewritten.
-- **One clears:** that one is banded, the statistic becomes two axes, and the other stays withheld with its
-  failing bar named.
-- **Neither clears:** row unchanged, the statistic stays `|z_immune|`, and the measured reason is published —
-  a negative outcome here is worth as much as a positive one, because it tells the next reader not to try it.
+- **The joint component clears B1-B4:** the departure statistic becomes **two axes** with the measured
+  threshold from B5, the joint component's tier stops being withheld, and the register row for the departure
+  statistic is rewritten to say two.
+- **It fails B2 or B3:** it stays unbanded, the statistic stays `|z_immune|`, and the failing number is
+  published - that tells the next reader whether the obstacle is the component or the cohort count.
+- **It fails B4:** the component is measurable but redundant. The band is published as a diagnostic and the
+  reported statistic stays one axis, because two names for one measurement is how a reader is misled.
 - **B6 fails:** the work is discarded entirely and the cause found before anything else is attempted.
 
-Nothing in this procedure reports on a patient. Its only product is whether two more axes can be trusted.
+Whether progenitor and stem_adult can be **separated** on whole blood is a different question, not asked here:
+it would need the atlas's duplicate-label merge (roadmap item 2) and a reason the chain's own s108 rule should
+be overturned. If the joint band succeeds, that separation becomes the next question rather than this one.
+
+Nothing in this procedure reports on a patient. Its only product is whether one more axis can be trusted.
 
 ---
 
