@@ -728,7 +728,7 @@ def _tissue_of_origin_section(bundle):
             f"<th>direction</th></tr></thead><tbody>{body}</tbody></table>")
 
 
-_CARD_DIR = Path(__file__).resolve().parent / "Disease Cards : Residual Maps"
+_CARD_DIR = Path(__file__).resolve().parent / "Record/disease_cards_residual_maps"
 _DISEASE_CARD_FILES = {   # substring of the flagged route-B disease_id -> card json (relative to _CARD_DIR)
     "breast": "Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_1.json",
     "alzheim": "AD_EPIC/AD_immune_card_json/ad-immune_card_v3_1.json",
@@ -907,7 +907,7 @@ def _strawman_section(bundle):
                     if p.exists():
                         return p
             return None
-        cj_path  = _find("builders/strawman_data_v2.json", "Crown Jewel and Patient Strawman/strawman_data_v2.json")
+        cj_path  = _find("builders/strawman_data_v2.json", "Record/crown_jewel_and_patient_strawman/strawman_data_v2.json")
         map_path = _find("Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json")
         rp_wall  = _find("builders/render_patient_wall.py")
         rp_crown = _find("builders/render_strawman_v2.py")
@@ -978,7 +978,7 @@ def _strawman_section(bundle):
             'D=json.load(open("/home/claude/patient_wall_data.json"))',
             'open("/home/claude/IAM_Patient_StrawMan.html","w").write(HTML)'])
         crown_wall = ""
-        crown_v3 = _find("Crown Jewel and Patient Strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html",
+        crown_v3 = _find("Record/crown_jewel_and_patient_strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html",
                          "outputs/IAM_Disease_Wall_CROWN_JEWEL_v3.html",
                          "IAM_Disease_Wall_CROWN_JEWEL_v3.html")
         if crown_v3:

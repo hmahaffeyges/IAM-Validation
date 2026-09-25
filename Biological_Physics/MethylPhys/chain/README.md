@@ -15,8 +15,8 @@ The chain that scores a sample. Start at [`../doors/RUNBOOK.md`](../doors/RUNBOO
 | report | [`cpg_report_builder.py`](cpg_report_builder.py), `report_builders/` (strawman, patient wall, synthetic-patient harness), [`build_dashboard_v1.py`](build_dashboard_v1.py) |
 | runtime constants | `Runtime Matrices/` — identity loci, discriminative markers (chrX-removed, canonical), age reference, tiers, Mahalanobis reference, directional panels |
 | test data | `TEST_DATA/` — 11 IDAT pairs + [`TEST_DATA_MANIFEST.md`](TEST_DATA/TEST_DATA_MANIFEST.md) (documented expected outputs); `betas_cache.pkl` is not in git (see the Reproduction Kit) |
-| disease side | `Disease Matrix/`, `Disease Cards : Residual Maps/`, `Crown Jewel and Patient Strawman/` |
-| documents | `flowchart_vKISS.html` (stage map), `CPG_Doctor_Workflow_KISS.html`, `CPG_AstroGenetics_explainer_section.html`, `README's/README_FOR_FUTURE_AI.md`, [`CHANGELOG.md`](CHANGELOG.md), [`ROADMAP_TaskTracker.md`](ROADMAP_TaskTracker.md), [`RUN_MANIFEST_and_README.md`](RUN_MANIFEST_and_README.md), [`CPG_Lessons_Learned_2026-06-29.md`](CPG_Lessons_Learned_2026-06-29.md) |
+| disease side | `Disease Matrix/`, `Record/disease_cards_residual_maps/`, `Record/crown_jewel_and_patient_strawman/` |
+| documents | `flowchart_vKISS.html` (stage map), `CPG_Doctor_Workflow_KISS.html`, `CPG_AstroGenetics_explainer_section.html`, `Record/chain_readme_archive/README_FOR_FUTURE_AI.md`, [`CHANGELOG.md`](CHANGELOG.md), [`ROADMAP_TaskTracker.md`](ROADMAP_TaskTracker.md), [`RUN_MANIFEST_and_README.md`](RUN_MANIFEST_and_README.md), [`CPG_Lessons_Learned_2026-06-29.md`](CPG_Lessons_Learned_2026-06-29.md) |
 
 **Two scoring surfaces, one rule each** (SOP §106): the class **gauge** on identity loci is `H(β̄)/H_min`; the 115-cell **separation** statistic on discriminative markers is the mean of per-CpG entropies. `Runtime Matrices/A_Scoring_Module/test_a_score_canonical.py` guards the separation surface; the gauge's Jensen-gap guard is in the Reproduction Kit's [`cpg_kit.py`](../kit/cpg_kit.py).
 

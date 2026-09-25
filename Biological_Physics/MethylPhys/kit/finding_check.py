@@ -8,10 +8,10 @@ import sys, os, re, argparse, glob
 HERE = os.path.dirname(os.path.abspath(__file__)); BP = os.path.abspath(os.path.join(HERE, "..", ".."))
 I3 = os.path.join(BP, "MethylPhys", "Issue003")
 REG = {"RECON": ("data003.py", r"RECON\s*(\+=|=)"), "FALSIFICATION": ("data003.py", r"FALSIFICATION\s*(\+=|=)"), "COSMO": ("data003.py", r"COSMO_EVIDENCE"),
-       "COMMISSIONING": (os.path.join(BP, "MethylPhys", "CHAIN_COMMISSIONING.md"), None), "SWITCHING": ("switching_order.py", None), "FUTURE": ("data003.py", r"FUTURE_GOALS")}
+       "COMMISSIONING": (os.path.join(BP, "MethylPhys", "CHAIN_COMMISSIONING.md"), None), "SWITCHING": ("../manual/switching_order.py", None), "FUTURE": ("data003.py", r"FUTURE_GOALS")}
 DOORS = [os.path.join(BP, "HANDOFF.md"), os.path.join(BP, "README.md"), os.path.join(BP, "MethylPhys/chain", "README.md"), os.path.join(BP, "Record", "README.md"),
          os.path.join(BP, "MethylPhys/atlas", "README.md"), os.path.join(HERE, "RUNBOOK.md"), os.path.join(BP, "MethylPhys/chain", "CPG_Lessons_Learned_2026-06-29.md"),
-         os.path.join(BP, "MethylPhys/chain", "README's", "README_FOR_FUTURE_AI.md")] + glob.glob(os.path.join(BP, "MethylPhys", "SOP", "CPG_Chain_of_Custody_SOP_v2*.md"))
+         os.path.join(BP, "MethylPhys/chain", "Record/chain_readme_archive", "README_FOR_FUTURE_AI.md")] + glob.glob(os.path.join(BP, "MethylPhys", "SOP", "CPG_Chain_of_Custody_SOP_v2*.md"))
 def read(p): return open(p, encoding="utf-8", errors="replace").read() if os.path.exists(p) else ""
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("id"); ap.add_argument("--retires", nargs="*", default=[]); ap.add_argument("--registers", nargs="*", default=[]); ap.add_argument("--doors", action="store_true"); ap.add_argument("--pdf", default=os.path.join(I3, "IAMPerformance_GAPEIssue003_RC1.pdf"))

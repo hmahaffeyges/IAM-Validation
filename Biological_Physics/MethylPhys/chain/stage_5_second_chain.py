@@ -97,7 +97,7 @@ def _literature_anchor(stage4, flagged_disease, cfg):
 # flagged disease -> (residual map csv, direction-sign column, baseline cell mean)
 def _residual_map_spec(flagged_disease, cfg):
     root = Path(cfg["brightness_archives_dir"]).parents[1]   # CPG_ROOT
-    cards = root / "Disease Cards : Residual Maps"
+    cards = root / "Record/disease_cards_residual_maps"
     breast = (cards / "Breast_EPIC/breast_epic_residual_maps/"
               "breast_epic_residual_map_chr_annotated.csv")
     ad = None

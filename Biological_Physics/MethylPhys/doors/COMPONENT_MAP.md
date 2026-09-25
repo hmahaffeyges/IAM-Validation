@@ -5,7 +5,7 @@ Three places, three jobs. Nothing should exist in two of them without this file 
 | place | job | rule |
 |---|---|---|
 | **REPO** `github.com/hmahaffeyges/IAM-Validation` | canonical engine, atlas, runtime constants, sealed anchors, lessons | the only place code is edited; one commit per change; the kit records the commit hash it was cut from |
-| **KIT** `CPG_Issue003_ReproductionKit.zip` | frozen snapshot of exactly what [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
+| **KIT** `the chain bundle, generated on demand by kit/build_chain_bundle.py` | frozen snapshot of exactly what [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
 | **YOUR FOLDER** (local, not in git) | large inputs and private material | test IDATs, `betas_cache.pkl`, GEO matrices, decompressed atlas CSV, `_gape_constants_private.py`, Recipe, patents, correspondence |
 
 Kit path prefixes below are relative to the kit root. Repo paths are relative to the repo root; `MethylPhys/chain/` = `Biological_Physics/MethylPhys/chain/`, `VAULT/` = `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/`.
@@ -39,7 +39,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | anchors v2 (chrX-removed markers) | **KIT** `anchors_v2/` → **must be committed to REPO** beside v1 | `anchors_v2/` + [`RESEAL_REPORT.json`](../../Record/VAL_PostAtlas/foundation_cohort/anchors_v2_chrXremoved/RESEAL_REPORT.json) | new 2026-09-19 |
 | Mahalanobis HC hull v0_5 (n=2,523; d≥13.62 / 18.43) | REPO `MethylPhys/chain/Runtime Matrices/` (`mahalanobis_healthy_reference_*`) | not in kit | specified in Issue 003 §5A.7; **PROC-HULL-01 not yet written** |
 | disease-signature matrix v1.13 (81 rows) | REPO `MethylPhys/chain/Disease Matrix/` | not in kit | Stage 8; not exercised in Issue 003 |
-| disease cards + residual maps (breast-epic, ad-immune, …) | REPO `MethylPhys/chain/Disease Cards : Residual Maps/` | not in kit | Stage 8; not exercised |
+| disease cards + residual maps (breast-epic, ad-immune, …) | REPO `MethylPhys/Record/disease_cards_residual_maps/` | not in kit | Stage 8; not exercised |
 | brightness files (8 per-class per-CpG μ/σ/CI) | REPO `VAULT/IAMAtlas_v0_1/class_archives/{class}_v0_1_REBUILD.tar.xz` | not in kit | Stage 4.6 input |
 
 ## C. Visualization / CMB toolkit (the two folders you zipped)
@@ -59,7 +59,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | Issue 003 build chain (build, data003, gape002_lib, 002 script) | **KIT** `issue003_build/` → **should be committed to REPO** `MethylPhys/manual/` | yes | new |
 | Issue 003 PDF | KIT `issue003_build/` | yes | v8 |
 | SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
-| LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `MethylPhys/chain/README's/` | no | canonical |
+| LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `MethylPhys/Record/chain_readme_archive/` | no | canonical |
 | Recipe, `_gape_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_gape_constants_private.py` still names the constant `n_bio` (retired name; the value 20.94 is the Mahaffey number) |
 | GAPE_EDEAR_Reproduction_Paper_v3, IAM_for_physicists, Hubble2GAPE, Cellular Margin, Astro-Genetics | REPO `docs/papers/` or `Biological_Physics/papers/` (check each) | no | verify each is committed |
 

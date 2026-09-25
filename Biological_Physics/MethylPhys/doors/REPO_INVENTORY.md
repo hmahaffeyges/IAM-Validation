@@ -25,7 +25,7 @@ Inside the chain itself, the weight is data rather than code:
 | `atlas/IAMAtlasREBUILD.csv.xz` | 101 | the atlas; irreducible |
 | `chain/example_runs` | 46 | run reports — grows with every run, see below |
 | `atlas/external_manifests` | 44 | Illumina manifests; the vendor host is unreachable from the sandbox, so these must stay |
-| `kit/CPG_Issue003_ReproductionKit.zip` | 44 | **a zip of files that are already in the tree** |
+| `kit/the chain bundle, generated on demand by kit/build_chain_bundle.py` | 44 | **a zip of files that are already in the tree** |
 | `reference_data/stage1_betas_*.pkl.xz` (4) | 117 | the four laboratories' healthy betas — the calibration inputs; keep |
 
 ## Two corrections to my first pass (measured 2026-09-25)
@@ -50,14 +50,14 @@ folder shape and same-name-different-content, listed below.
 generated index at its root - which VAL, what the file is, which live document supersedes it if any - turns
 1,121 files from a heap into an archive. Nothing moves.
 
-**3. Delete `CPG_Issue003_ReproductionKit.zip` — 44 MB.**
+**3. Delete `the chain bundle, generated on demand by kit/build_chain_bundle.py` — 44 MB.**
 It is a zip of files the repository already contains. A reproduction kit that duplicates the tree is a second
 copy to keep in sync, which is the exact failure mode you are worried about. If a single downloadable bundle
 is wanted, generate it on demand — the delta bundles already work this way.
 
-**4. Rename `chain/Disease Cards : Residual Maps`.**
+**4. Rename `Record/disease_cards_residual_maps`.**
 A colon in a directory name is not portable — it breaks on Windows checkouts and inside URLs. Also
-`chain/README's` (an apostrophe) and the directories with spaces, which already forced percent-encoding into
+`Record/chain_readme_archive` (an apostrophe) and the directories with spaces, which already forced percent-encoding into
 every generated link.
 
 **5. Thin `Record/` rather than move it.**
@@ -66,7 +66,7 @@ disagree the record wins. What can go: the `OLD/` sub-folders of superseded evid
 intermediates that the sealed outcome documents already quote.
 
 **6. Two folders that are neither chain nor record.**
-`chain/Crown Jewel and Patient Strawman` (2.7 MB) and `chain/Disease Cards : Residual Maps` (7 MB) are
+`Record/crown_jewel_and_patient_strawman` (2.7 MB) and `Record/disease_cards_residual_maps` (7 MB) are
 presentation material from the pre-atlas era, sitting inside the live chain directory where a reader will
 take them for chain components. They belong under `Record/` or in the retired archive.
 
@@ -77,11 +77,11 @@ take them for chain components. They belong under `Record/` or in the retired ar
 | problem | what | fix |
 |---|---|---|
 | **six `__pycache__` directories are committed** | `MethylPhys_Interface/`, four under `Runtime Matrices/`, one more | delete and add to `.gitignore`; nothing should ever have tracked them |
-| **a colon in a directory name** | `chain/Disease Cards : Residual Maps` (20 files, 7 MB, nested four deep) | rename - a colon breaks Windows checkouts and URLs |
-| **an apostrophe in a directory name** | `chain/README's` (2 files) | rename to `chain/readme_archive/`, or fold both files into `chain/README.md` |
-| **presentation material inside the live chain** | `chain/Crown Jewel and Patient Strawman` (2.7 MB), `chain/Disease Cards : Residual Maps` | move under `Record/` - a reader takes anything in `chain/` for a chain component |
-| **two files with the same name and different content** | `VAL_INDEX.csv` (19.5 KB in `kit/`, 52.9 KB in `kit/results/`) and `switching_order.py` (21.5 KB in `kit/`, 26.4 KB in `manual/`) | resolve each: one is current, the other is either a subset or stale |
-| **a zip of the tree** | `kit/CPG_Issue003_ReproductionKit.zip`, 44 MB | delete; generate bundles on demand |
+| **a colon in a directory name** | `Record/disease_cards_residual_maps` (20 files, 7 MB, nested four deep) | rename - a colon breaks Windows checkouts and URLs |
+| **an apostrophe in a directory name** | `Record/chain_readme_archive` (2 files) | rename to `chain/readme_archive/`, or fold both files into `chain/README.md` |
+| **presentation material inside the live chain** | `Record/crown_jewel_and_patient_strawman` (2.7 MB), `Record/disease_cards_residual_maps` | move under `Record/` - a reader takes anything in `chain/` for a chain component |
+| **two files with the same name and different content** | `VAL_INDEX.csv` (19.5 KB in `kit/`, 52.9 KB in `kit/results/`) and [`switching_order.py`](../manual/switching_order.py) (21.5 KB in `kit/`, 26.4 KB in `manual/`) | resolve each: one is current, the other is either a subset or stale |
+| **a zip of the tree** | `kit/the chain bundle, generated on demand by kit/build_chain_bundle.py`, 44 MB | delete; generate bundles on demand |
 | **nine `README.md` files** | one per folder | this one is *fine* - each describes its own directory, which is the pattern that works |
 
 That is the whole list. The folder count is high but most of it is `Runtime Matrices/` holding one

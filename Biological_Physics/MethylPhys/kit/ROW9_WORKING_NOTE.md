@@ -375,7 +375,7 @@ same reason the Files tab is - a finding must be able to name the condition it m
 
 The author asked that the old disease matrix, the cards and the residual maps be read before the findings schema
 is settled, so we look for the right things. Read in full: `IAM_Disease_Wall_CROWN_JEWEL_v1_12.html`,
-[`ad-immune_card_v3_1.json`](../chain/Disease%20Cards%20:%20Residual%20Maps/AD_EPIC/AD_immune_card_json/ad-immune_card_v3_1.json), [`breast-epic_card_v3_1.json`](../chain/Disease%20Cards%20:%20Residual%20Maps/Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_1.json), [`immune-atlas_card_v2_0.json`](../chain/Disease%20Cards%20:%20Residual%20Maps/Immune_Atlas/Immune_Atlas_Card_json/immune-atlas_card_v2_0.json), and the residual /
+[`ad-immune_card_v3_1.json`](../../Record/disease_cards_residual_maps/AD_EPIC/AD_immune_card_json/ad-immune_card_v3_1.json), [`breast-epic_card_v3_1.json`](../../Record/disease_cards_residual_maps/Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_1.json), [`immune-atlas_card_v2_0.json`](../../Record/disease_cards_residual_maps/Immune_Atlas/Immune_Atlas_Card_json/immune-atlas_card_v2_0.json), and the residual /
 bimodality / PCA map column structures.
 
 **Nothing numeric was imported.** Their effect sizes are case-versus-control Cohen's d on the pre-atlas surface -
@@ -673,7 +673,7 @@ have been delivering:
 |---|---|
 | `manual/data003.py` | "The Walther NNLS deconvolver is **the one method in the chain**; NILC ... was tried as a second and cut" - and a table cell reading "BUILT (NILC cut 2026-07-02)" |
 | `manual/build_gape_issue003.py` | "NILC ... **was cut** on 2026-07-02 (commit c1be0c3)" and "a second deconvolver (row 20, built then cut)" |
-| `kit/switching_order.py`, `manual/switching_order.py` | "NILC said so in June and was cut for it" |
+| `manual/switching_order.py`, `manual/switching_order.py` | "NILC said so in June and was cut for it" |
 | the retired folder's own name | `NILC_Deconvolver_cut_from_chain_2026-07-02` |
 
 All corrected to state the full arc - cut, rerun, vindicated, reinstated as the class-level second opinion - and the

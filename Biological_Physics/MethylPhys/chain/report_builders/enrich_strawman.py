@@ -4,7 +4,7 @@ D=json.load(open("/home/claude/strawman_data.json"))
 C2C=json.load(open(f"{ROOT}/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"))
 MAP=json.load(open(f"{ROOT}/Disease Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json"))
 mapping=MAP["mapping"]
-lens=json.load(open(f"{ROOT}/Disease Cards : Residual Maps/Immune_Atlas/immune-atlas_card_v2_0.json"))["disease_immune_lens"]["entries"]
+lens=json.load(open(f"{ROOT}/Record/disease_cards_residual_maps/Immune_Atlas/immune-atlas_card_v2_0.json"))["disease_immune_lens"]["entries"]
 mrows=list(csv.DictReader(open(f"{ROOT}/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv")))
 
 # index lens + matrix meta by matrix_row_id (1-based row order == disease_rows order)
