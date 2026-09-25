@@ -47,12 +47,27 @@ existence. It is the obvious next procedure.
 | **B3** leave-one-laboratory-out coverage | Uppsala 0.754 · Karolinska 0.765 · **UCLA 0.906** · **Munich 0.650**; worst band 0.500 | **NOT MET** |
 | **B4** not the scalar in disguise (\|r\| < 0.9 vs \|z_immune\|) | every candidate 0.18–0.58 | MET |
 | **B5** not measuring the mask (\|r\| < 0.5 vs f_sky) | band powers 0.01–0.29; **high/low ratio −0.478**, inside the bar but close to it | MET, narrowly for the ratio |
-| **B6** nothing in service moves | no chain file touched; no reading recomputed | MET |
+| **B6** nothing in service moves | immune A″ recomputed on all 318 arrays and compared with PROC-BAND-01: **largest difference 0.000e+00**, 318 of 318 compared | MET |
 
 **Decision rule, applied.** B3 fails, so: *"the spectrum is real but not yet transferable; it is published as
 a diagnostic and not as a reference."* No band-power reference is adopted, the report gains no spectrum
 panel, and `CLS` stays `NOT_BUILT` in the CMB tool register — now with a measurement behind that state
 instead of an absence.
+
+### A correction to this document, 2026-09-25
+
+The row above first read *"no chain file touched; no reading recomputed"* — an informal assertion standing in
+for a bar the pre-registration had fixed as a number (*"immune A″ on these arrays must be unchanged from
+PROC-BAND-01 to 1e-9"*). That is a deferred check reported as a pass, which this project's own rule forbids,
+and an auditor caught it. Worse, the informal half was false in the same sitting: sealing this procedure
+edited `chain/cmb_tools.py` to record the register note, so a chain file *was* touched.
+
+B6 has now been run as written — [`PROC_CLS_01_b6.py`](../kit/PROC_CLS_01_b6.py),
+[`PROC_CLS_01_b6.json`](../kit/results/PROC_CLS_01_b6.json) — recomputing immune A″ for all 318 arrays
+through the same path and differencing against PROC-BAND-01. The largest difference is exactly zero, so the
+bar is met on its own terms rather than by assertion. What the earlier wording should have said, and now
+does: the only chain file this procedure changed is the CMB tool register's **note text**, which no
+computation reads.
 
 ## On B1, which failed for a reason that is mine
 
