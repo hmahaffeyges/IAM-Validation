@@ -83,3 +83,6 @@ Biological_Physics/MethylPhys/atlas/external_manifests/*.csv
 Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv
 
 .propagate_last_run.txt
+
+pw_browsers/
+*.propagate_last_run.txt

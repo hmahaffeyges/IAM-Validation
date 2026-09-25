@@ -166,6 +166,72 @@ def _repoint_stale_dirs(text):
     print("  stale dirs: %d repointed, %d marked historical" % (fixed, marked))
     return text
 
+
+def _report_tab_section(text):
+    """The report, tab by tab, generated from manual/report_tabs.json (author 2026-09-25: "it should have
+    every tab described and explained and the CMB pass/fails etc ... its literally the operating manual").
+
+    Generated rather than written: a hand-written tab list went stale twice in September. The source is the
+    JSON that kit/build_report_tab_reference.py writes from a real report, so this section cannot describe a
+    tab the report does not have, or miss one it does.
+    """
+    import json as _json
+    jp = os.path.join(BIO, "MethylPhys", "manual", "report_tabs.json")
+    if not os.path.exists(jp):
+        return text
+    d = _json.load(open(jp, encoding="utf-8"))
+    m, tabs, reg = d["_meta"], d["tabs"], d["cmb_registry"]
+    L = ["", "## The report this chain produces, tab by tab", "",
+         "_Generated from `manual/report_tabs.json` by `kit/build_report_tab_reference.py`, read off a real "
+         "report (`%s`, commit `%s`). Re-run it after any change to the report builder._" %
+         (m["generated_from"], m["commit"]), "",
+         "One run writes **one self-contained HTML file of %s MB with %d tabs** - %d carry this specimen's "
+         "own measurements and %d carry reference material identical in every report. A reference tab tells "
+         "you how the instrument works; only a specimen tab tells you anything about the patient." %
+         (m["report_mb"], m["n_tabs"], m["n_specimen"], m["n_reference"]), "",
+         "| tab | kind | what it carries | size |", "|---|---|---|---|"]
+    for t in tabs:
+        L.append("| **%s** (`%s`) | %s | %s | %d KB, %d tables |" %
+                 (t["label"], t["tab"], t["kind"], t["purpose"].replace("|", "/"), t["kb"], t["tables"]))
+    L += ["", "Figures of every tab, with the sections each one contains, are in "
+              "[`REPORT_TAB_REFERENCE.md`](../doors/REPORT_TAB_REFERENCE.md).", ""]
+    if reg:
+        npass = sum(1 for c in reg if c["state"] == "PASS")
+        nb = sum(1 for c in reg if c["state"] == "NOT_BUILT")
+        L += ["### The CMB tool register, and what a FAIL does", "",
+              "The Safeguards tab carries every method borrowed from CMB analysis with a check that runs on "
+              "the finished bundle: **%d methods, %d PASS on the commissioning specimen, %d NOT_BUILT**. A "
+              "FAIL is also emitted to the Red flags tab as `CMB_TOOL_FAIL`, so a borrowed method that "
+              "stopped working cannot be missed in the middle of a long tab. NOT_BUILT entries are listed on "
+              "purpose - the shelf is part of the record." % (len(reg), npass, nb), "",
+              "| state | method |", "|---|---|"]
+        for c in sorted(reg, key=lambda c: (c["state"] != "FAIL", c["state"], c["tool"])):
+            L.append("| `%s` | %s |" % (c["state"], c["tool"]))
+        L += ["", "**To add a tool:** append one entry to `TOOLS` in `chain/cmb_tools.py` with a "
+                  "`check(bundle) -> (status, evidence)`. The table, the counts and the red-flag routing all "
+                  "follow from it; nothing else needs editing.", ""]
+    L += ["### The three gates that keep this document true", "",
+          "| gate | what it refuses |", "|---|---|",
+          "| `chain/propagate.py` | regenerates every derived document, then checks the rules a human wrote "
+          "(every live module named here and in the reviewer manifest, every sealed procedure in the "
+          "commissioning table, every relative reference resolving). Exits non-zero on drift. |",
+          "| `kit/link_check.py` | every relative path in the live documentation set must resolve - a path in "
+          "a document is a claim like any other. |",
+          "| `chain/guarded_push.sh` | runs `propagate.py` **without a pipe** and refuses to commit or push "
+          "if it fails. A pipe hands the shell the pipe's exit status, not the gate's, which is how a push "
+          "once proceeded over a printed failure. |", "",
+          "Every report prints the first gate's verdict on its own Run tab, so a reading whose documents had "
+          "drifted says so on the page.", ""]
+    marker = "\n## The report this chain produces, tab by tab\n"
+    if marker in text:
+        i = text.index(marker)
+        j = text.find("\n## ", i + len(marker))
+        text = text[:i] + "\n".join(L) + (text[j:] if j > 0 else "")
+    else:
+        text = text.rstrip() + "\n" + "\n".join(L)
+    print("  report tab section: %d tabs, %d CMB tools" % (len(tabs), len(reg)))
+    return text
+
 def _fix_header(text):
     """The title used to pin an engine commit (66f37fe, July). A procedure that names a commit is stale the
     moment the engine moves - the same defect was removed from the manual's page one. State the version and
@@ -224,6 +290,7 @@ def main():
     for pat,rep in HEADER_FIXES:
         s=pat.sub(rep,s,count=1)
     for _a,_b in PATH_FIXES: s=s.replace(_a,_b)
+    s=_report_tab_section(s)
     s=_repoint_stale_dirs(s)
     s=_fix_header(s)
     open(SOP,"w",encoding="utf-8").write(s)
