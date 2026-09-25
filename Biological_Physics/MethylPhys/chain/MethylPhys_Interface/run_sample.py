@@ -72,6 +72,27 @@ def substrate_token(text):
     return "unknown"
 
 
+def _assign_run_id(ledger_path):
+    """RUN-YYYYMMDD-NN, sequential within the day, read from the ledger this run is about to append to.
+
+    A run is not a test: it makes no claim and passes no bar, so it is not a VAL and not a PROC. It is one
+    execution of the chain on one specimen, and it needs an identifier so a reading can be pointed at a year
+    from now. Assigned here, at the moment of the run, and written into the bundle, the ledger row and the
+    report header (author's question, 2026-09-25).
+    """
+    import datetime
+    day = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d")
+    n = 0
+    try:
+        with open(ledger_path, encoding="utf-8") as f:
+            for line in f:
+                if '"run_id": "RUN-' + day in line or '"run_id":"RUN-' + day in line:
+                    n += 1
+    except OSError:
+        pass
+    return "RUN-%s-%02d" % (day, n + 1)
+
+
 def _covariates(a):
     """Phenotype and covariates for this run: --covariates JSON first, then --covariate key=value on top."""
     import json as _json
@@ -179,6 +200,7 @@ def _ledger_row(o, sample_id, out_path):
     intake = o.get("intake") or {}
     dep = o.get("departure") or {}
     row = {"sample_id": sample_id, "report": os.path.basename(out_path),
+        "run_id": o.get("run_id"),
            "run_timestamp_utc": (o.get("versions") or {}).get("run_timestamp_utc"),
            "chain_commit": (o.get("versions") or {}).get("chain_commit"),
            "sample_run_id": intake.get("sample_run_id"), "sentrix_id": intake.get("sentrix_id"),
@@ -194,6 +216,12 @@ def _ledger_row(o, sample_id, out_path):
            "lab_false_alarm_p95": dep.get("lab_false_alarm_p95"),
            "second_opinion_agreement": (o.get("second_opinion") or {}).get("agreement"),
            "cellular_age_reportable": (o.get("cellular_age") or {}).get("reportable")}
+    # Stage 2c, so a cross-sample matrix can ask which runs showed trace material without opening
+    # a bundle (2026-09-25)
+    for _c in ("secretory", "cycling"):
+        _t = (o.get("trace_detection") or {}).get(_c) or {}
+        row["trace." + _c] = _t.get("detected")
+        row["trace_t." + _c] = _t.get("t")
     for cls, rec in sorted((o.get("classes") or {}).items()):
         row[f"A_abs.{cls}"] = rec.get("A_abs")
         row[f"z.{cls}"] = rec.get("z")
@@ -212,6 +240,19 @@ def _ledger_row(o, sample_id, out_path):
     for k, v in ((o.get("intake") or {}).get("covariates") or {}).items():
         row[f"cov.{k}"] = v
     return row
+
+
+def _plate_dependency_check():
+    """The specimen's own sky plate needs matplotlib. Without it the report silently showed only reference
+    figures for months (found 2026-09-25), so the run says it out loud."""
+    try:
+        import matplotlib  # noqa: F401
+        return True
+    except ImportError:
+        print("  WARNING: matplotlib is not installed in this environment, so this specimen's own sky plate "
+              "cannot be drawn. The report will say so on the Sky tab. Install it with "
+              "`pip install matplotlib` and re-run to get the plate.", flush=True)
+        return False
 
 
 def main():
@@ -370,8 +411,13 @@ def main():
     # phenotype it was declared with, and every input version that could change the reading. A run that
     # records neither cannot be pooled with one from another month (2026-09-23).
     cov = _covariates(a)
+    # --no-intake leaves this None, and a run without a custody record must still record its covariates
+    intake = intake if isinstance(intake, dict) else {}
     intake.setdefault("covariates", {}).update(cov)
+    _plate_dependency_check()
     o["intake"] = intake
+    _led = a.ledger or (os.path.splitext(a.out)[0].rsplit("/", 1)[0] + "/evidence_ledger.jsonl")
+    o["run_id"] = _assign_run_id(_led)
     o["versions"] = _versions(os.path.dirname(os.path.abspath(__file__)) + "/..")
     _class_z(o, os.path.dirname(os.path.abspath(__file__)) + "/..")
     if cov:

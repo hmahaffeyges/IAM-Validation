@@ -1,0 +1,13 @@
+# The chain's runtime dependencies, pinned to major versions rather than exact ones.
+#
+# matplotlib is NOT optional. Without it the specimen's own sky plate cannot be drawn, and until 2026-09-25
+# the report degraded silently: it fell back to the reference illustrations, which are the same picture in
+# every report, and said so only in a small grey note. The author found it by noticing that every report
+# looked alike. The runner now warns at the start of the run and the Sky tab opens with a warning box, but
+# the real fix is to have it installed.
+methylprep>=1.7
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+pyarrow>=14

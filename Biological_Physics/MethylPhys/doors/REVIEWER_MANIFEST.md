@@ -28,7 +28,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`reference_cells_37.csv`](../hmin_calibration/reference_cells_37.csv) — the 37 reference cells the floors were fitted on
 - [`REPRODUCTION.md`](../hmin_calibration/reproduction/REPRODUCTION.md) — re-run it and compare: every floor lands inside its own posterior SD
 - [`reproduce.sh`](../hmin_calibration/reproduce.sh) — the runner
-- [`requirements.txt`](../hmin_calibration/requirements.txt) — the pinned environment
+- [`requirements.txt`](../chain/requirements.txt) — the pinned environment
 
 ## The runtime matrices every reading is corrected by
 

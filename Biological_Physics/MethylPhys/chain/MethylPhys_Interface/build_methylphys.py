@@ -190,6 +190,29 @@ toward coin-flip, entropy rises and A climbs toward the ceiling. <b>A is how wel
 sits at its own constant offset (the <i>laboratory zero</i>, measured from 40 of its healthy arrays); and healthy A rises slowly with age (the <i>age curve</i>, measured on 1,379 healthy
 donors). The corrected value A'' is placed in the healthy band (the middle 80% of healthy donors, four laboratories) and given its tier. <b>BREACH at 1.10</b> means the class has lost its floor - the level that defines it. It is a reading on this ruler, like a temperature of 104 F, and not a comparison to any prior cohort. It is not the ceiling: the ceiling is saturation, 1/H_min, and it is a different limit (see How to read).</p></div>"""
 
+def _trace_one_liner(o):
+    """One line on the Reading tab. A reader who opens one tab should see what Stage 2c found."""
+    td = o.get("trace_detection") or {}
+    m = td.get("_meta") or {}
+    if not m.get("available"):
+        return ""
+    if not m.get("calibrated_for_this_substrate", True):
+        return ("<p class='m'><b>Trace-class detection:</b> not calibrated for this substrate "
+                "(the thresholds are a whole-blood measurement), so no call is made here. The statistics "
+                "are on the Every cell tab.</p>")
+    hits = [c for c in ("secretory", "cycling") if (td.get(c) or {}).get("detected")]
+    if hits:
+        return ("<p class='warn'><b>Trace-class detection: evidence of epithelial-like material</b> "
+                "(statistic above the healthy threshold for %s). At this limit the class cannot be named - "
+                "attribution needs about 5 %%. No fraction and no A are reported for it. Full numbers on the "
+                "Every cell tab.</p>" % ", ".join(hits))
+    return ("<p class='m'><b>Trace-class detection:</b> no evidence of secretory or cycling material above "
+            "the healthy null (%s). This is a separate test from the composition above, which cannot see a "
+            "component this small. Full numbers on the Every cell tab.</p>"
+            % ", ".join("%s t=%s vs %s" % (c, (td.get(c) or {}).get("t"), (td.get(c) or {}).get("threshold"))
+                        for c in ("secretory", "cycling") if c in td))
+
+
 def tab_reading(o, R, sid):
     H=[]; comp=o["composition"]["class"]; tot=sum(comp.values()) or 1.0; sc=(0.01 if tot>1.5 else 1.0)   # class composition is stored in percent (open conductor item)
     ctx=o.get("context",{}); cls=o["classes"]
@@ -205,6 +228,7 @@ def tab_reading(o, R, sid):
         H.append(f"<tr><td>{_e(r['cell'])}{' <span class=flag>not expected in this specimen</span>' if r.get('flag') else ''}</td><td>{bar(r['pct']/100 if r['pct']>1.5 else r['pct'],'#a0c8a0')}</td><td class='n'>{(r['pct'] if r['pct']>1.5 else r['pct']*100):.1f} %</td></tr>")
     H.append("</table><p class='m'>Only cells the constrained fit was forced to place appear here; every one of the 115 atlas cells is scored on the <b>Every cell</b> tab.</p></div></div>")
     # class gauges
+    H.append(_trace_one_liner(o))
     H.append("<h3>2. The class gauge - A'' on the identity loci, against the healthy band</h3>")
     # the conductor reads stem_adult + progenitor as ONE joint component (haematopoietic_progenitor) on shared identity loci - one gauge row, not two
     order=[c for c in CLASSES if c not in ("stem_adult","progenitor")]; order.insert(1,"haematopoietic_progenitor")
@@ -275,8 +299,8 @@ def _trace_block(o):
          "who played no part in choosing the method.</p>"]
     if not m.get("calibrated_for_this_substrate", True):
         H.append("<p class='warn'><b>Uncalibrated on this substrate.</b> The thresholds are a whole-blood "
-                 "measurement (declared here: %s). The statistic is printed for reference and no verdict is "
-                 "given.</p>" % (m.get("substrate_declared") or "not declared"))
+                 "measurement (declared here: %s). The statistic is printed for reference only and no "
+                 "call is made here.</p>" % (m.get("substrate_declared") or "not declared"))
     H.append("<table><tr><th>class</th><th>t</th><th>threshold</th><th>healthy median</th>"
              "<th>what this says</th></tr>")
     for c in ("secretory", "cycling"):
@@ -609,14 +633,33 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
 
 def tab_sky(o, R, sid, workdir):
     s=o["patient_sky"]; H=[SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
+    # 2026-09-25: say it at the top, not in the refusal list at the back.
+    if not (s.get("available") and s.get("_sky") is not None):
+        H.insert(0, "<p class='warn'><b>No sky was rendered for this specimen.</b> " +
+                 html.escape(str(s.get("reason") or "this laboratory has no commissioned residual scale, so "
+                                  "there is no zero to take residuals against")) +
+                 ". Every figure on this page is a reference illustration, identical in every report - none "
+                 "of them is this specimen.</p>")
     H.append("<p>Every CpG the chain reads is placed on a sphere in genomic order (HEALPix, NSIDE 128 - the projection Planck used for the microwave background). At each address the chain computes what this sample's <i>own composition</i> predicts (the Stage 2 fractions mixed over the atlas class means), subtracts the laboratory's per-address zero, and divides by the laboratory's healthy spread at that address - both measured from the same 40 healthy arrays that set the laboratory zero. "
              "The plate shows that residual z. A healthy sky is <b>quiet</b>: 2.6-3.2 % of addresses beyond |z| = 2 on the four commissioned laboratories (the Gaussian expectation is 5 %; the scale is ~1.1x conservative and that constant is printed on every plate). A class panel renders only when Stage 2 places the class above its measured presence floor; masked panels say so.</p>")
     if s.get("available") and s.get("_sky") is not None:
         try:
             sys.path.insert(0,ENGINE); import stage_4_6_patient_cmb as S
             png=os.path.join(workdir,f"sky_{sid}.png"); S.render_plate(s["_sky"],png,f"{sid} - residual z on the laboratory's own zero and scale ({s.get('lab')}, panel n={s.get('scale_panel_n')})")
-            H.append(f"<img class='plate' src='data:image/png;base64,{base64.b64encode(open(png,'rb').read()).decode()}' alt='patient sky plate'/>")
-        except Exception as e: H.append(f"<p class='pend'>plate not rendered: {_e(e)}</p>")
+            H.append("<figure><img class='plate' src='data:image/png;base64," +
+                     base64.b64encode(open(png, 'rb').read()).decode() +
+                     "' alt='this specimen&#39;s sky plate'/><figcaption><b>THIS SPECIMEN: " +
+                     html.escape(str(sid)) + ".</b> Rendered from this specimen's own residuals "
+                     "at this run. It is the only image on this page that is about this "
+                     "specimen; every other figure below is a reference illustration."
+                     "</figcaption></figure>")
+        except Exception as e:
+            # 2026-09-25: this used to be a small grey note under four reference pictures, so a
+            # reader saw a sky that was not theirs and had no way to know. It is a warning now.
+            H.insert(0, "<p class='warn'><b>This specimen's own sky plate was NOT drawn.</b> "
+                     "Reason: " + _e(e) + ". Every figure on this page is therefore a reference "
+                     "illustration, identical in every report - none of them is this specimen. "
+                     "The per-class statistics below ARE this specimen's.</p>")
         a=s["all"]; H.append(f"<p><b>Whole sky:</b> {a['n']:,} addresses; {100*a['frac_abs_z_gt2']:.1f} % beyond |z| = 2 (healthy 2.6-3.2 %); median z {a['median_z']:+.3f}; mean |z| {a['mean_abs_z']:.3f}.</p><table class='t'><tr><th>class panel</th><th>Stage 2 fraction</th><th>presence floor</th><th>status</th><th>addresses</th><th>% beyond |z|=2</th><th>median z</th></tr>")
         for c in CLASSES:
             r=s["classes"].get(c,{}); H.append(f"<tr><td>{CLASS_LABEL[c]}</td><td class='n'>{100*r.get('fraction',0):.1f} %</td><td class='n'>{100*r.get('presence_floor',0):.0f} %</td><td>{_e(r.get('status'))}</td><td class='n'>{r.get('n','') if r.get('assessable') else ''}</td><td class='n'>{('%.1f'%(100*r['frac_abs_z_gt2'])) if r.get('assessable') else ''}</td><td class='n'>{('%+.3f'%r['median_z']) if r.get('assessable') else ''}</td></tr>")
@@ -629,7 +672,7 @@ def tab_sky(o, R, sid, workdir):
         H.append("<h3>The comparison figure</h3><figure><img src='data:image/png;base64,"+base64.b64encode(open(cmp_png,'rb').read()).decode()+"' style='width:100%'/>"
           "<figcaption>Top: the author's photograph of the Planck CMB temperature residual. Below it, a healthy methylome sky from this chain at full "
           "resolution and beam-smoothed, same projection, same colour convention. The comparison is a difference, not a resemblance, and the difference is "
-          "what makes the cellular map readable.</figcaption></figure>")
+          "what makes the cellular map readable. <b>Reference figure</b> - the same in every report, not this specimen.</figcaption></figure>")
     H.append("<div class='warn'><b>If you are going to look for a patch, a band or a region in one of these maps, read this first.</b> "
       "A healthy sky is <b>not</b> spatially featureless. Beam-smoothing a healthy sky on the sphere (32 nearest pixels) leaves a spread of 0.171, against "
       "0.131 &plusmn; 0.001 for the same values spatially shuffled - <b>1.31&times;, 57&sigma;</b>. That mottling is real: methylation is correlated along the "
@@ -965,7 +1008,7 @@ def tab_howto(R):
     for fn,cap in (("CPG_Gauge_Cell.png","<b>The cellular gauge.</b> A = 1.00 is the healthy reference, in the middle of the NORMAL band - not an edge. Below it is the suppressed / inverted direction (post-chemotherapy and immunosuppressed samples sit near 0.90); above it the loosening runs through MARGINAL, the Warburg line at 1.07, DETECTABLE, and BREACH at 1.10. Author's figure."),
                    ("CPG_Gauge_Cosmic.png","<b>The same gauge on a star</b>, which is where the ceiling becomes obvious. A main-sequence star sits healthy; an isolated white dwarf reads above healthy but is <i>ceiling-capped below breach</i> - it has no mechanism to gain mass, so it cannot reach the no-return event however spent it looks. Only a collapse-capable core reaches A = 1 in the gravitational sense, where the Chandrasekhar and TOV limits and the Schwarzschild condition all land. Author's figure.")):
         pth=R["files"].get(fn)
-        if pth: H.append(f"<figure><img src='data:image/png;base64,{base64.b64encode(open(pth,'rb').read()).decode()}' style='width:100%;max-width:860px;border:1px solid var(--ln);border-radius:6px'><figcaption class='m'>{cap}</figcaption></figure>")
+        if pth: H.append(f"<figure><img src='data:image/png;base64,{base64.b64encode(open(pth,'rb').read()).decode()}' style='width:100%;max-width:860px;border:1px solid var(--ln);border-radius:6px'><figcaption class='m'>{cap} <b>Reference figure</b> - the same in every report, not this specimen.</figcaption></figure>")
     w=R["warburg"]; BR=R["breach_line"]
     H.append("<h3>Three different things, and none of them is A = 1.00 sitting on a floor</h3>"
       "<p>This is worth getting exactly right, because two of these are physical limits and one is a calibration point, and they are easy to conflate.</p>"
@@ -1113,7 +1156,7 @@ def tab_story(R=None):
         pth=R["files"].get(fn) if R else None
         if pth and os.path.exists(pth):
             H.append(f"<figure><img src='data:image/png;base64,{base64.b64encode(open(pth,'rb').read()).decode()}' style='width:100%'/>"
-                     f"<figcaption>{_e(cap)}</figcaption></figure>")
+                     f"<figcaption>{_e(cap)} <b>Reference figure</b> - the same in every report, not this specimen.</figcaption></figure>")
     if R: H.append(deepdive(R,"the framework and its lineage"))
     return guard("".join(H),"Story")
 
@@ -1641,7 +1684,7 @@ def _provenance_block(o):
                  "to be read as a finding about it.</p>" % (len(cov), "" if len(cov) == 1 else "s"))
     else:
         H.append("<p class='m'>No covariates were recorded with this run. A run intended for a later "
-                 "cross-sample analysis should pass them (<code>--covariate diagnosis=case</code>), because "
+                 "cross-sample analysis should pass them (<code>--covariate cohort=NAME</code>), because "
                  "nothing downstream can recover a phenotype the run did not capture.</p>")
     return H
 
@@ -1765,6 +1808,14 @@ function tab(id){document.querySelectorAll('section.tab').forEach(s=>s.classList
 function aud(a){document.body.classList.toggle('researcher',a==='researcher');document.querySelectorAll('.aud button').forEach(b=>b.classList.toggle('on',b.dataset.a===a));localStorage.setItem('mp_aud',a)}
 window.addEventListener('DOMContentLoaded',()=>{aud(localStorage.getItem('mp_aud')||'researcher');tab((location.hash||'#reading').slice(1))});
 """
+# Measured 2026-09-25 by diffing every tab between a healthy blood donor and an adenoma tissue specimen:
+# these nine were byte-identical, i.e. they are reference material and carry nothing about the specimen in
+# front of you. Seven tabs do carry it: reading, cells, departure, sky, integrity, safeguards, run.
+REFERENCE_TABS = ("howto", "story", "physics", "findings", "trouble", "reference", "roadmap", "coverage",
+                  "record")
+REFERENCE_BANNER = ("<p class='m' style='border-left:3px solid #bbb;padding-left:8px'>Reference material - "
+                    "this tab is the same in every report and carries no measurement of this specimen.</p>")
+
 TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = researcher only)
  ("reading","Reading",True,"c"),("howto","How to read",True,"c"),("cells","Every cell",True,"c"),
  ("departure","Departure",True,"c"),("sky","Sky",True,"c"),("physics","Physics",False,"c"),("story","Story",False,"c"),
@@ -1786,6 +1837,9 @@ def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in 
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
          "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"trouble":tab_troubleshooting(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(o,R)}
+    for _rt in REFERENCE_TABS:
+        if _rt in sec:
+            sec[_rt] = REFERENCE_BANNER + sec[_rt]
     imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
     nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
     _rprint={"reading","howto","cells","departure","sky","reference","safeguards","trouble","integrity","chain","files","coverage"}

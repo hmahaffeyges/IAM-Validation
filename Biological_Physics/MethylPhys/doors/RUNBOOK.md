@@ -12,6 +12,33 @@ corrected copy. `CHECKSUMS.sha256` covers every file in this kit; verify with `s
 
 ---
 
+## What to call a test, what to call a run, and where each one lives
+
+Three series, three different things. The distinction matters because a run that is filed as a test implies a
+claim nobody made, and a test that is filed as a run loses its bars.
+
+| prefix | what it is | where it lives |
+|---|---|---|
+| `VAL-###` | the pre-atlas validation record | [`Record/`](../../Record/) - historical and frozen; nothing new joins it |
+| `PROC-XXX-##` | a **test** of the instrument: a question, bars fixed in a pre-registration *before* any data is read, and a sealed outcome that scores each bar | [`doors/`](.) - `PROC_X_PREREG.md` then `PROC_X_OUTCOME.md`, evidence in [`kit/results/`](../kit/results/), one row in [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) |
+| `RUN-YYYYMMDD-NN` | one **execution** of the chain on one specimen | the run's own ledger row; exemplars committed to [`example_runs/`](../chain/example_runs/) and collected in [`RUN_INDEX.csv`](../chain/example_runs/RUN_INDEX.csv) |
+
+A run makes no claim and passes no bar, so it is neither a VAL nor a PROC. It is evidence, and it has to be
+findable a year from now - which is what the identifier is for. [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) assigns it at the moment of
+the run (sequential within the UTC day, read from the ledger it is about to append to) and writes it into the
+bundle, the ledger row and the report.
+
+`RUN_INDEX.csv` is **generated** by [`build_run_index.py`](../chain/build_run_index.py) from every ledger
+under the tree - never typed. Re-run it after adding runs.
+
+```
+python3 chain/build_run_index.py
+```
+
+So: the nine-array end-to-end exercise is **PROC-E2E-01**, a test with bars. The individual reports it
+produced are **runs**, and the example in the repository is one of them - not a VAL.
+
+
 ## 0. Read this first — the four rules that took a day to learn
 
 1. **The physics measures; cohorts only point.** Never compute a group statistic (Cohen's d, AUC, Mann-Whitney)
