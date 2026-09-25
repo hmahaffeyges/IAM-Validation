@@ -646,6 +646,7 @@ def tab_sky(o, R, sid, workdir):
         try:
             sys.path.insert(0,ENGINE); import stage_4_6_patient_cmb as S
             png=os.path.join(workdir,f"sky_{sid}.png"); S.render_plate(s["_sky"],png,f"{sid} - residual z on the laboratory's own zero and scale ({s.get('lab')}, panel n={s.get('scale_panel_n')})")
+            s["_plate_drawn"] = True
             H.append("<figure><img class='plate' src='data:image/png;base64," +
                      base64.b64encode(open(png, 'rb').read()).decode() +
                      "' alt='this specimen&#39;s sky plate'/><figcaption><b>THIS SPECIMEN: " +
@@ -654,6 +655,7 @@ def tab_sky(o, R, sid, workdir):
                      "specimen; every other figure below is a reference illustration."
                      "</figcaption></figure>")
         except Exception as e:
+            s["_plate_drawn"] = False; s["_plate_error"] = _e(e)
             # 2026-09-25: this used to be a small grey note under four reference pictures, so a
             # reader saw a sky that was not theirs and had no way to know. It is a warning now.
             H.insert(0, "<p class='warn'><b>This specimen's own sky plate was NOT drawn.</b> "
@@ -1689,6 +1691,190 @@ def _provenance_block(o):
     return H
 
 
+SEVERITY = {"STOP": 0, "WITHHELD": 1, "CAUTION": 2, "NOTE": 3}
+
+
+def red_flags(o, R=None):
+    """Every red flag in one list, so none of them can hide in the middle of a tab.
+
+    Each entry: code (stable, for a program), severity, where (which tab it came from), what happened, and
+    what to do about it. Added 2026-09-25 after a missing dependency silently removed the specimen's own sky
+    plate from every report and said so only in a grey note.
+    """
+    F = []
+
+    def add(code, sev, where, what, todo):
+        F.append({"code": code, "severity": sev, "where": where, "what": what, "what_to_do": todo})
+
+    # 1. intake
+    intake = o.get("intake") or {}
+    v = intake.get("stage0_verdict")
+    if v and str(v).upper().startswith("QUARANTINE"):
+        add("STAGE0_QUARANTINE", "STOP", "Safeguards",
+            "Stage 0 refused this specimen: %s" % v,
+            "Nothing was scored. The cause is in the intake record; re-submit the specimen once it is fixed.")
+    for k in (intake.get("stage0_deferred_qc") or []):
+        add("STAGE0_DEFERRED", "CAUTION", "Safeguards",
+            "An intake check could not be measured and was DEFERRED: %s" % k,
+            "A deferred check is not a pass. Supply what it needs (usually the array's own control probes) "
+            "or read the run knowing that gate did not fire.")
+    if intake and not intake.get("integrity"):
+        add("NO_INTEGRITY_HASH", "CAUTION", "Integrity",
+            "No integrity hash was recorded for the raw files.",
+            "Run with --intake-log so the custody record carries both file hashes.")
+    if o.get("intake_skipped"):
+        add("INTAKE_SKIPPED", "CAUTION", "Safeguards",
+            "Stage 0 was skipped for this run (--no-intake).",
+            "Every file-level gate is unmeasured. Use --no-intake only for a beta-file path where there are "
+            "no IDATs to check.")
+
+    # 2. the gauge: what was withheld and why
+    for c, rec in (o.get("classes") or {}).items():
+        if not rec.get("reportable"):
+            add("GAUGE_WITHHELD", "WITHHELD", "Reading",
+                "Class '%s': %s" % (c, rec.get("reason") or "no commissioned band"),
+                "No placement and no tier are printed for this class. The number, where present, is the "
+                "measurement; the missing piece is the healthy reference to judge it against.")
+    if o.get("lab_zero") is None:
+        add("NO_LAB_ZERO", "WITHHELD", "Reading",
+            "This laboratory has no commissioned zero, so no absolute reading is possible on any class.",
+            "Commission the laboratory (PROC-MAHA-01) on its own healthy arrays, or read this run only for "
+            "composition.")
+
+    # 3. the laboratory's own false-alarm rate against the call that was made
+    dep = o.get("departure") or {}
+    fa = dep.get("lab_false_alarm_p95")
+    for c, rec in (o.get("classes") or {}).items():
+        pl = rec.get("placement")
+        if pl and pl != "IN_BAND" and rec.get("reportable"):
+            z = rec.get("z")
+            bound = _lab_bound(fa)
+            if bound and z is not None and abs(float(z)) < bound:
+                add("CALL_INSIDE_LAB_NOISE", "CAUTION", "Reading",
+                    "Class '%s' reads %s at z = %s, but this laboratory's own healthy arrays cross the "
+                    "commissioned band %.1f %% of the time (nominal 5 %%), which puts its own 95 %% bound at "
+                    "|z| = %.2f. This reading is inside that bound." % (c, pl, z, 100 * float(fa), bound),
+                    "Do not read this as a departure. It is not distinguishable from this laboratory's own "
+                    "healthy spread. A per-laboratory band would settle it (candidate procedure).")
+            elif bound:
+                add("CALL_OUTSIDE_LAB_NOISE", "NOTE", "Reading",
+                    "Class '%s' reads %s at z = %s, outside this laboratory's own bound of |z| = %.2f "
+                    "(its false-alarm rate is %.1f %%)." % (c, pl, z, bound, 100 * float(fa)),
+                    "The call survives the laboratory's own noise. It is still a single array.")
+    if fa is not None and float(fa) > 0.06:
+        add("LAB_FALSE_ALARM_HIGH", "CAUTION", "Departure",
+            "This laboratory's measured false-alarm rate is %.1f %% at p95, against a nominal 5 %%."
+            % (100 * float(fa)),
+            "Every departure from this laboratory is judged against a band its own healthy arrays cross "
+            "more often than they should. Weigh accordingly.")
+
+    # 4. the sky
+    sky = o.get("patient_sky") or {}
+    if not sky.get("available"):
+        add("NO_SKY", "WITHHELD", "Sky",
+            "No sky was rendered: %s" % (sky.get("reason") or "no commissioned residual scale for this "
+                                         "laboratory"),
+            "Every figure on the Sky tab is a reference illustration, not this specimen.")
+    elif not sky.get("_plate_drawn", True):
+        add("NO_PLATE", "CAUTION", "Sky",
+            "The specimen's own plate could not be drawn: %s" % sky.get("_plate_error", "unknown"),
+            "Install matplotlib (chain/requirements.txt) and re-run. Until then the Sky tab shows reference "
+            "figures only, and the per-class |z| statistics are readable only in the bundle.")
+
+    # 5. the second opinion
+    so = o.get("second_opinion") or {}
+    if so.get("available") and so.get("agreement") == "DISAGREE":
+        add("SOLVERS_DISAGREE", "CAUTION", "Every cell",
+            "The two deconvolvers disagree at class level (L1 = %s)." % so.get("L1_class"),
+            "The composition is less certain than a single solver suggests. Look at which class carries the "
+            "disagreement before quoting any fraction.")
+
+    # 6. trace detection
+    td = o.get("trace_detection") or {}
+    tm = td.get("_meta") or {}
+    if not tm.get("available"):
+        add("NO_TRACE_PANEL", "NOTE", "Every cell",
+            "Trace-class detection did not run: %s" % (tm.get("reason") or "panel unavailable"),
+            "Presence of a trace class was not tested on this specimen either way.")
+    elif not tm.get("calibrated_for_this_substrate", True):
+        add("TRACE_UNCALIBRATED", "CAUTION", "Every cell",
+            "Trace-class detection is calibrated for whole blood; this specimen is declared '%s'."
+            % (tm.get("substrate_declared") or "not declared"),
+            "The statistic is printed but no call is made. Do not read it as a negative.")
+    else:
+        for c in ("secretory", "cycling"):
+            if (td.get(c) or {}).get("detected"):
+                add("TRACE_DETECTED", "NOTE", "Every cell",
+                    "Evidence of epithelial-like material (%s statistic above the healthy threshold)." % c,
+                    "At this limit the class cannot be named - attribution needs about 5 %. No fraction and "
+                    "no A are reportable for it.")
+
+    # 7. age
+    ca = o.get("cellular_age") or {}
+    if ca and not ca.get("reportable"):
+        add("NO_CELLULAR_AGE", "WITHHELD", "Reading",
+            "Cellular age in years is not reported: %s" % (ca.get("reason") or "single-array resolution"),
+            "The age-matched healthy reference is what the chain uses instead.")
+
+    F.sort(key=lambda x: (SEVERITY.get(x["severity"], 9), x["code"]))
+    return F
+
+
+def _lab_bound(fa):
+    """The |z| this laboratory's own healthy arrays reach 5 % of the time.
+
+    The commissioned band is pooled over four laboratories. A laboratory whose healthy arrays cross it at a
+    rate fa (rather than the nominal 0.05) is wider than the pool by the factor that maps its own tail onto
+    the nominal one; under a normal approximation that is 1.96 / z(1 - fa/2), and the laboratory's own 95 %
+    bound is 1.96 times it. Approximation, and labelled as one wherever it is printed.
+    """
+    if fa is None:
+        return None
+    try:
+        fa = float(fa)
+    except (TypeError, ValueError):
+        return None
+    if not (0 < fa < 0.5):
+        return None
+    try:
+        from statistics import NormalDist
+        z_at_fa = NormalDist().inv_cdf(1 - fa / 2.0)
+    except Exception:
+        return None
+    if z_at_fa <= 0:
+        return None
+    return 1.959964 * (1.959964 / z_at_fa)
+
+
+def tab_redflags(o, R=None):
+    """Everything that went wrong, was withheld, or could not be measured - in one place."""
+    F = o.get("red_flags") if isinstance(o.get("red_flags"), list) else red_flags(o, R)
+    H = ["<h2>Red flags - everything this run refused, withheld or could not measure</h2>",
+         "<p>One place, so nothing has to be noticed in the middle of a long tab. Ordered by severity. "
+         "<b>STOP</b> means nothing was scored; <b>WITHHELD</b> means a number exists but the reference to "
+         "judge it against does not; <b>CAUTION</b> means read the result differently because of something "
+         "about this run; <b>NOTE</b> is a statement of fact worth carrying.</p>"]
+    if not F:
+        H.append("<p class='ok'><b>No red flags.</b> Every gate fired, every component the chain reports "
+                 "had its reference, and nothing was withheld.</p>")
+    else:
+        counts = {}
+        for f in F:
+            counts[f["severity"]] = counts.get(f["severity"], 0) + 1
+        H.append("<p>" + " &nbsp;·&nbsp; ".join("<b>%d %s</b>" % (n, k) for k, n in
+                 sorted(counts.items(), key=lambda kv: SEVERITY.get(kv[0], 9))) + "</p>")
+        H.append("<table><tr><th>severity</th><th>code</th><th>tab</th><th>what happened</th>"
+                 "<th>what to do</th></tr>")
+        for f in F:
+            H.append("<tr><td class='m'><b>%s</b></td><td class='m'>%s</td><td class='m'>%s</td><td>%s</td>"
+                     "<td>%s</td></tr>" % (f["severity"], f["code"], f["where"],
+                                           html.escape(str(f["what"])), html.escape(str(f["what_to_do"]))))
+        H.append("</table>")
+    H.append("<details><summary>The same list as JSON, for a reader that is a program</summary>"
+             "<pre><code>" + html.escape(json.dumps({"red_flags": F}, indent=1)) + "</code></pre></details>")
+    return "".join(H)
+
+
 def tab_run(o, R):
     """Run it yourself. Every file named here is linked at this commit, and every command is one that
     actually works - the earlier version advertised an IDAT entry point that did not exist (fixed 2026-09-22
@@ -1819,7 +2005,7 @@ REFERENCE_BANNER = ("<p class='m' style='border-left:3px solid #bbb;padding-left
 TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = researcher only)
  ("reading","Reading",True,"c"),("howto","How to read",True,"c"),("cells","Every cell",True,"c"),
  ("departure","Departure",True,"c"),("sky","Sky",True,"c"),("physics","Physics",False,"c"),("story","Story",False,"c"),
- ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("safeguards","Safeguards",False,"r"),("trouble","Troubleshooting",False,"r"),
+ ("reference","Healthy reference",False,"r"),("coverage","Coverage",False,"r"),("flags","Red flags",True,"c"),("safeguards","Safeguards",False,"r"),("trouble","Troubleshooting",False,"r"),
  ("integrity","Integrity",False,"r"),("chain","Chain",False,"r"),("files","Files",False,"r"),("findings","Findings",False,"r"),("roadmap","Roadmap",False,"r"),
  ("record","Record",False,"r"),("run","Run",False,"r")]
 
@@ -1836,7 +2022,7 @@ def refusals_from(o):
 def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in build - 80 healthy arrays per laboratory through Stage 1 (started 2026-09-22)"):
     R=load_runtime(); wd=os.path.dirname(os.path.abspath(out_html)) or "."; os.makedirs(wd,exist_ok=True)
     sec={"reading":tab_reading(o,R,sample_id),"cells":tab_cells(o,R,percell_ref if percell_ref is not None else R.get("percell")),"departure":tab_departure(o,R),"sky":tab_sky(o,R,sample_id,wd),
-         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"trouble":tab_troubleshooting(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(o,R)}
+         "reference":tab_reference(R,percell_status),"integrity":tab_integrity(o,R,refusals_from(o)),"chain":tab_chain(R),"files":tab_inventory(R),"findings":tab_findings(R),"physics":tab_physics(R),"howto":tab_howto(R),"coverage":tab_coverage(R),"safeguards":tab_safeguards(o,R),"flags":tab_redflags(o,R),"trouble":tab_troubleshooting(o,R),"roadmap":tab_roadmap(R),"story":tab_story(R),"record":tab_record(R),"run":tab_run(o,R)}
     for _rt in REFERENCE_TABS:
         if _rt in sec:
             sec[_rt] = REFERENCE_BANNER + sec[_rt]
