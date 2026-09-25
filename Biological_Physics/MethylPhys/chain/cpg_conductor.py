@@ -230,6 +230,16 @@ def stage_b_identity(beta_mapped, stage_a_out, age, scale_label, lab_zero=None):
         A = H(sum(vals) / len(vals)) / hm
         rec = {"present": True, "fraction": round(frac, 4), "A_mapped": round(A, 4), "n_loci": len(vals),
                "gauge_surface": "identity_loci", "scale": scale_label, "H_min": hm}
+        # PROC-FOREIGN-01: attach the composition check on EVERY path, so a reader sees the foreign
+        # fraction even when the tier is withheld for an earlier reason - the adenoma is withheld for a
+        # missing laboratory zero, and the guard's own field was simply absent from its record.
+        try:
+            _g = json.load(open(_find('composition_guard_v1.json')))
+            _fgn = 1.0 - sum(float(fr.get(_c, 0.0)) for _c in _g['blood_lineage'])
+            rec['foreign_fraction'] = round(_fgn, 4)
+            rec['composition_verified'] = bool(_fgn <= _g['foreign_fraction_max'])
+        except FileNotFoundError:
+            pass                       # no guard file: withhold nothing, claim nothing
         if name == "immune":
             c = lz.age_reference(age, curve) if age is not None else None
             rec["age_reference_c"] = None if c is None else round(c, 4)
@@ -243,6 +253,25 @@ def stage_b_identity(beta_mapped, stage_a_out, age, scale_label, lab_zero=None):
                             "placement": "BELOW_BAND" if A_abs < band["pooled"]["p10"] else "ABOVE_BAND" if A_abs > band["pooled"]["p90"] else "IN_BAND",
                             "reportable": True, "band_status": "identity_band_v3 (four zeroed labs, n=1,379; LOO 0.75-0.84, PROC-PANEL-03)"})
                 _t,_n=_load_module("cpg_tiers", HERE/"cpg_tiers.py").tier_of(A_abs, True, rec.get("H_min")); rec.update({"tier": _t, "tier_note": _n})   # Stage 7 (PROC-TIER-01): one JSON-driven tier
+                # PROC-FOREIGN-01 (2026-09-25): the gauge is commissioned on WHOLE BLOOD. A specimen carrying
+                # material outside the blood lineage still gets an honest reading, but no tier word - measured
+                # on 318 healthy arrays mixed with atlas stromal, secretory and terminal material: at every
+                # level where a tenth of hosts changed tier, this threshold caught at least 95.9 % of them.
+                try:
+                    _g = json.load(open(_find('composition_guard_v1.json')))
+                    _foreign = 1.0 - sum(float(fr.get(_c, 0.0)) for _c in _g['blood_lineage'])
+                    rec['foreign_fraction'] = round(_foreign, 4)
+                    rec['composition_verified'] = bool(_foreign <= _g['foreign_fraction_max'])
+                    if not rec['composition_verified']:
+                        rec.update({'tier': None, 'tier_note': None, 'reportable': False,
+                                    'reason': ('composition unverified: %.1f%% of this specimen is assigned '
+                                               'outside the blood lineage, above the %.1f%% the gauge was '
+                                               'commissioned for. The reading stands; no tier is printed '
+                                               '(PROC-FOREIGN-01).')
+                                              % (100 * _foreign, 100 * _g['foreign_fraction_max'])})
+                except FileNotFoundError:
+                    rec['composition_verified'] = None      # no guard file: withhold nothing, say nothing
+
         else:
             rec.update({"A_abs": None, "placement": None, "reportable": False, "tier": None, "reason": "no band for this component yet (s108)"})
         out[name] = rec
