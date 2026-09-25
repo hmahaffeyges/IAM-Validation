@@ -20,7 +20,7 @@ claim nobody made, and a test that is filed as a run loses its bars.
 | prefix | what it is | where it lives |
 |---|---|---|
 | `VAL-###` | the pre-atlas validation record | [`Record/`](../../Record/) - historical and frozen; nothing new joins it |
-| `PROC-XXX-##` | a **test** of the instrument: a question, bars fixed in a pre-registration *before* any data is read, and a sealed outcome that scores each bar | [`doors/`](.) - `PROC_X_PREREG.md` then `PROC_X_OUTCOME.md`, evidence in [`kit/results/`](../kit/results/), one row in [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) |
+| `PROC-XXX-##` | a **test** of the instrument: a question, bars fixed in a pre-registration *before* any data is read, and a sealed outcome that scores each bar | [`doors/`](.) - PROC_&lt;name&gt;_PREREG.md then PROC_&lt;name&gt;_OUTCOME.md, evidence in [`kit/results/`](../kit/results/), one row in [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) |
 | `RUN-YYYYMMDD-NN` | one **execution** of the chain on one specimen | the run's own ledger row; exemplars committed to [`example_runs/`](../chain/example_runs/) and collected in [`RUN_INDEX.csv`](../chain/example_runs/RUN_INDEX.csv) |
 
 A run makes no claim and passes no bar, so it is neither a VAL nor a PROC. It is evidence, and it has to be
