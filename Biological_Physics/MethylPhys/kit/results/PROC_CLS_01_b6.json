@@ -1,0 +1,8 @@
+{
+ "n_compared": 318,
+ "n_missing": 0,
+ "max_abs_diff": 0.0,
+ "worst_gsm": null,
+ "bar": 1e-09,
+ "met": true
+}
