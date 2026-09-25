@@ -16,6 +16,7 @@ if _os.environ.get('IAM_TWOPASS') != '1':
         '(set IAM_TWOPASS=1 only if you deliberately want a draft with a blank contents page.)\n')
     raise SystemExit(2)
 import sys, os
+from reportlab.platypus import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gape002_lib as L
 import data003 as D
@@ -970,7 +971,10 @@ def sec_report_tabs(story):
             img.drawWidth, img.drawHeight = w, ih * w / iw
             story.append(img)
         except Exception as e:
-            story.append(Paragraph("[figure unavailable: %s]" % e, sMut))
+            # A missing figure used to print a caption and nothing else, which is how 19 of them went
+            # missing unnoticed on 2026-09-25: the check counted captions, not images. Say it loudly.
+            print("FIGURE FAILED for tab %s: %s" % (t["tab"], e))
+            story.append(Paragraph("[figure unavailable: %s - THIS IS A BUILD DEFECT]" % e, sMut))
         story.append(Paragraph("<b>%s</b> &middot; %d KB, %d tables. Sections: %s" %
                                ("Browser screenshot" if t["is_screenshot"] else
                                 "Rendered from this tab's own HTML, not a browser screenshot",
