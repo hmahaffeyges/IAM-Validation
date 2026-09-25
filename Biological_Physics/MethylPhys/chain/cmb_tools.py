@@ -159,7 +159,7 @@ TOOLS = [
  ("CLS", "angular power spectrum of the residual sky", "the CMB power spectrum",
   "would say whether a departure is locally clustered along the genome or spread across it - one number per "
   "specimen, computable on data already on disk",
-  "not implemented", _not_built("no implementation; roadmap - needs no new data")),
+  "not implemented", _not_built("MEASURED 2026-09-25 (PROC-CLS-01): the sky IS structured, 3.5x its permutation null at l 2-8, dying by l~200 - but the healthy reference does not transfer across laboratories (B3), so nothing is reported. Original note: no implementation; roadmap - needs no new data")),
  ("COV", "full cell-type covariance in the separation", "generalised least squares on the CMB covariance",
   "the atlas carries the covariance between cell types at each address and the chain treats every "
   "uncertainty as independent - the largest piece of unspent evidence in the chain",
