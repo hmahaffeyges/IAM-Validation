@@ -227,5 +227,26 @@ def main():
     for k2 in ("RENAME","RECORD_SIDE","NOT_IN_CHAIN","DROP"):
         got=[(n,c) for n,(kk,c) in counts.items() if kk==k2]
         print(f"  {k2:<13} {len(got):>2} names, {sum(c for _,c in got):>3} occurrences")
+    # 2026-09-25: a runtime file that nothing reads must still be NAMED, with its status, or a reader
+    # who finds it assumes it is live. propagate.py fails if one is missing from this table.
+    import glob as _glob, os as _os
+    _known = " ".join(r if isinstance(r, str) else " ".join(map(str, r)) for r in rows)
+    _extra = []
+    for _f in sorted(_glob.glob(_os.path.join(BIO, "MethylPhys", "chain", "Runtime Matrices", "**", "*.json"), recursive=True)):
+        _b = _os.path.basename(_f)
+        if _b not in _known and _b not in s:
+            _extra.append(_b)
+    if _extra:
+        s += ("\n\n## Runtime files present but NOT READ BY THE CHAIN\n\n"
+              "Generated. Named so a reader who finds them knows their status rather than assuming\n"
+              "they are live; nothing in the live path resolves them.\n\n")
+        for _b in _extra:
+            _why = ("a TRIAL panel: the adoption and anchor re-seal it needs have not been done, so the "
+                    "chain still reads v0_2" if "TRIAL" in _b else
+                    "superseded by identity_band_v3.json, the commissioned band; kept because sealed "
+                    "records cite it" if "PROVISIONAL" in _b else "present in the tree, read by nothing")
+            s += "- `%s` - %s\n" % (_b, _why)
+        open(SOP, "w", encoding="utf-8").write(s)
+        print("  runtime files named but not read: %d" % len(_extra))
     print(f"  reference table: {len(rows)} files")
 if __name__=="__main__": main()
