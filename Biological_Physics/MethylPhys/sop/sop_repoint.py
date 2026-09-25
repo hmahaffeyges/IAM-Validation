@@ -121,7 +121,11 @@ HEADER_VERSION = ("**Document version:** v2.0.0, matched to the engine in this r
                   "was last regenerated from (`git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions "
                   "are in git history; this document states the current procedure.")
 
-PATH_FIXES = [('Runtime Matrices/Bidirectional_Decomposition/bidirectional_decomposition.py', 'Runtime Matrices/Directional Panel/bidirectional_decomposition.py'), ('Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py', 'Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py')] + [('pipeline_runtime_matrices/iamatlas_a_scoring.py', 'Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py'), ('Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/chain_inventory_v1.json', 'Runtime Matrices/chain_inventory_v1.json'), ('Runtime Matrices/Brightness_Comparison/stage_4_6_patient_cmb.py', 'stage_4_6_patient_cmb.py'), ('Biological_Physics/chain_of_custody/L9_null_suite/synthetic_patient_generator.py', 'Synthetic_Patient_Generator/synthetic_patient_generator.py')]   # directory-qualified references that named an old or wrong location
+PATH_FIXES = [
+    # 2026-09-25: the v1 conductor and its batch driver were retired; the SOP still cites them
+    # as history, so the citation points at where they actually are.
+    ("../chain/walther_clinical.py", "../../RETIRED_2026-09/v1_conductor_2026-09/walther_clinical.py"),
+    ("../chain/run_batch.py", "../../RETIRED_2026-09/v1_conductor_2026-09/dependents/run_batch.py"),('Runtime Matrices/Bidirectional_Decomposition/bidirectional_decomposition.py', 'Runtime Matrices/Directional Panel/bidirectional_decomposition.py'), ('Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py', 'Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py')] + [('pipeline_runtime_matrices/iamatlas_a_scoring.py', 'Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py'), ('Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/chain_inventory_v1.json', 'Runtime Matrices/chain_inventory_v1.json'), ('Runtime Matrices/Brightness_Comparison/stage_4_6_patient_cmb.py', 'stage_4_6_patient_cmb.py'), ('Biological_Physics/chain_of_custody/L9_null_suite/synthetic_patient_generator.py', 'Synthetic_Patient_Generator/synthetic_patient_generator.py')]   # directory-qualified references that named an old or wrong location
 
 
 def _repoint_stale_dirs(text):

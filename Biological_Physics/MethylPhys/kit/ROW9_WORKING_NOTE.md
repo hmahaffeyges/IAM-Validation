@@ -300,7 +300,7 @@ per-entry references. Until that is done, per-cell readings are honest for 79 en
 
 **Audited rather than answered.** The conductor *was* linked on the Chain tab (not on the Run tab), but an audit of the live tree against the
 rendered page found **20 load-bearing files linked nowhere** - including `IAMAtlasREBUILD.csv` itself, which engine code names seven times, plus the
-array manifest, the four per-laboratory sky residual scales, the Mahalanobis healthy reference, [`walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)`](../chain/walther_clinical.py) (named eight times),
+array manifest, the four per-laboratory sky residual scales, the Mahalanobis healthy reference, [`walther_clinical.py (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)`](../../RETIRED_2026-09/v1_conductor_2026-09/walther_clinical.py) (named eight times),
 [`idat_parse.py`](../chain/idat_parse.py), [`stage_0_intake.py`](../chain/stage_0_intake.py) and the exclusivity file written an hour earlier.
 
 **Fixed by generating the list instead of maintaining one.** `MethylPhys_Interface/build_chain_inventory.py` enumerates the whole live tree,

@@ -18,7 +18,6 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py) — the report: every tab, including Troubleshooting
 - [`build_chain_sequence.py`](../chain/build_chain_sequence.py) — derives the step order from the code - run it if you move a file
 - [`chain_sequence.json`](../chain/chain_sequence.json) — that derivation, machine-readable; the report and the SOP read it
-- [`run_batch.py`](../chain/run_batch.py) — the second interface, a folder at a time
 
 ## The constants it divides by, and the MCMC that produced them
 
