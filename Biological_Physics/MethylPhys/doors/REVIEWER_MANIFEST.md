@@ -84,12 +84,13 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 32 procedures, 120 files
+## Every sealed procedure — 33 procedures, 121 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
 - **PROC-AGE-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-AGE-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-AGE-01/PREREG.md), [`age01_a4.json`](../../Record/PROC_data/PROC-AGE-01/age01_a4.json), [`age01_results.json`](../../Record/PROC_data/PROC-AGE-01/age01_results.json)
 - **PROC-ANCHOR-01** — [`PROC_ANCHOR_01.py`](../kit/PROC_ANCHOR_01.py), [`PROC_ANCHOR_01_GSE51057.json`](../kit/results/PROC_ANCHOR_01_GSE51057.json)
+- **PROC-BAND-01** — [`PROC_BAND_01_PREREG.md`](PROC_BAND_01_PREREG.md)
 - **PROC-BIDIR-01** — [`PROC_BIDIR_01.py`](../kit/PROC_BIDIR_01.py), [`OUTCOME.md`](../../Record/PROC_data/PROC-BIDIR-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-BIDIR-01/PREREG.md), [`PROC_BIDIR_01_as_run.py`](../../Record/PROC_data/PROC-BIDIR-01/PROC_BIDIR_01_as_run.py), [`VAL_050_RESULTS_rerun_2026-09-21.json`](../../Record/PROC_data/PROC-BIDIR-01/VAL_050_RESULTS_rerun_2026-09-21.json), [`VAL_051_RESULTS_rerun_2026-09-21.json`](../../Record/PROC_data/PROC-BIDIR-01/VAL_051_RESULTS_rerun_2026-09-21.json), [`b4_engine_vs_seal.json`](../../Record/PROC_data/PROC-BIDIR-01/b4_engine_vs_seal.json), [`proc_bidir_01.json`](../../Record/PROC_data/PROC-BIDIR-01/proc_bidir_01.json)
 - **PROC-CAL-01** — [`PROC_CAL_01.py`](../kit/PROC_CAL_01.py)
 - **PROC-CEIL-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-CEIL-01/OUTCOME.md), [`tceil_results.json`](../../Record/PROC_data/PROC-CEIL-01/tceil_results.json)
