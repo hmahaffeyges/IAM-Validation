@@ -1,0 +1,19 @@
+{
+ "_provenance": {
+  "procedure": "PROC-FOREIGN-01",
+  "built": "2026-09-25",
+  "what": "The largest share of a specimen that may be assigned OUTSIDE the blood lineage before the immune tier is withheld. The gauge is commissioned on whole blood; beyond this the reading is still reported but no tier word is printed.",
+  "detector": "1 - (immune + progenitor + stem_adult), from the composition the chain already computes",
+  "calibrated_on": "the 318 healthy whole-blood arrays of PROC-BAND-01, four laboratories; the threshold is the largest value firing on at most 15 of 318 (0.0472), which is the <= 0.05 false-positive rate the pre-registration fixed",
+  "measured": "at every mixing fraction where >= 10 % of hosts changed tier, this threshold caught >= 95.9 % of those hosts (PROC_FOREIGN_01.json)",
+  "fallback": "a specimen whose composition cannot be computed is NOT withheld by this guard"
+ },
+ "blood_lineage": [
+  "immune",
+  "progenitor",
+  "stem_adult"
+ ],
+ "foreign_fraction_max": 0.0207,
+ "healthy_false_positive_rate": 0.0472,
+ "n_calibration_arrays": 318
+}
