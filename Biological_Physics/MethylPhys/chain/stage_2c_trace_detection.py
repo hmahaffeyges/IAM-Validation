@@ -146,7 +146,7 @@ def detect(betas, panel=None, substrate=None):
                                "named; attribution needs about 5 %" if det else
                                "no evidence above the healthy null") if blood else
                               ("UNCALIBRATED on this substrate - the threshold is a whole-blood measurement, "
-                               "so no verdict is given; the statistic is printed for reference only")),
+                               "so no call is made here; the statistic is printed for reference only")),
                   "reportable_fraction": False,
                   "reportable_A": False}
     return out

@@ -922,3 +922,34 @@ reference curve on 1,379 donors from four laboratories and it IS the curve every
 PROC-AGE-01 measured what inverting it buys for one array (0.47 mA/yr against a within-laboratory 0.0235, about
 50 years - the rungs are wider than the ladder). What remains is the cohort the analogy actually needs: known ages
 WITH repeat draws.
+
+### 2026-09-25 - the report was showing everyone the same sky, and four other things the author caught
+
+**The defect.** Asked whether the Sky tab ever renders the specimen that was just run, I compared the embedded
+images across three reports - a healthy blood donor, a second blood donor and an EPIC adenoma - and every
+image was **byte-identical**. The specimen's own plate had never been drawn. `matplotlib` is not installed in
+the chain environment, `tab_sky` caught the ImportError, and the only trace was a small grey note under four
+reference illustrations that are the same in every report. Every report produced before today is affected:
+the figures in them are reference material, not the patient.
+
+**What the audit found, measured rather than asserted.** Diffing every tab between a blood donor and a tissue
+specimen: **7 of 18 tabs carry this specimen** (reading, cells, departure, sky, integrity, safeguards, run),
+**9 are reference material** identical in every report (howto, story, physics, findings, trouble, reference,
+roadmap, coverage, record), and 2 differ only in a provenance line (files, chain). That is a defensible
+design - but nothing on the page said which was which.
+
+**Fixed.** matplotlib added to `chain/requirements.txt` as a required dependency with the reason stated; the
+runner warns at the start of a run if it is missing; the specimen's plate is captioned `THIS SPECIMEN: <id>`
+and is the only image so captioned; every reference figure says it is a reference figure; when no plate can
+be drawn the Sky tab now OPENS with a warning box naming the reason instead of a grey note at the back; and
+the nine reference tabs open with one line saying they carry no measurement of this specimen. Verified by
+re-rendering three donors: three visibly different plates, 2.1 %, 1.7 % and 4.8 % of addresses beyond |z| = 2.
+
+**Two bugs of my own, exposed by running without covariates and without intake.** The Run tab's example
+command contained the word the vocabulary guard bans, so any run that passed no covariates crashed the
+report; and the covariate merge assumed the intake record existed, so `--no-intake` crashed. Both fixed. The
+guard was right both times.
+
+**Also.** Stage 2c's verdict was only on the Every cell tab; it is now a line on the Reading tab too, because
+a reader who opens one tab should see it. And runs now have identifiers - see the RUNBOOK section on VAL,
+PROC and RUN.
