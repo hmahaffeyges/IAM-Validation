@@ -1,3 +1,9 @@
+# 2026-09-25: S1 expected a tier on every healthy blood array. PROC-FOREIGN-01 commissioned the
+# composition guard, which withholds the tier word when more than 2.07 % of a specimen is assigned
+# outside the blood lineage - a rate the pre-registration fixed at no more than 5 % of healthy
+# arrays. GSM2333950 is one such array (foreign 0.0282, immune fraction 0.9663): its tier is now
+# withheld BY DESIGN, not by defect. This test therefore accepts a withheld tier when
+# composition_verified is False, and still requires one whenever it is True.
 #!/usr/bin/env python3
 """PROC-SWITCH-01 conformance: the conductor REPORTS the identity-loci gauge with the three-layer reference.
 Runs on the kit's cached whole-blood betas; no download. Exit non-zero on any failure.

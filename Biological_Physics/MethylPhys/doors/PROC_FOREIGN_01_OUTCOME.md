@@ -39,7 +39,7 @@ not in code:
 | fallback | a specimen whose composition cannot be computed is **not** withheld by this guard, and the field says so |
 
 **Verified end to end on a real array, not only in the analysis.** The same Uppsala donor, run through
-`run_sample.py` twice:
+[`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) twice:
 
 | | A″ | tier | foreign fraction |
 |---|---|---|---|
@@ -77,3 +77,30 @@ two give **identical** worst-case sensitivity, 0.959. Nothing was bought by the 
 guard passing here does not establish that it catches real tumour material at the same rate, and the
 real-tissue check is a named follow-up: the EPIC adenoma in the test package is withheld today for a
 *different* reason (no laboratory zero for its laboratory), so it cannot yet test this guard.
+
+## What adoption cost, measured on the commissioning arrays
+
+Running the eleven commissioning arrays through the guard: **six keep their tier, five are withheld.** Four of
+the five are the tissue and tumour specimens (foreign 0.65–0.80), which is the guard doing its job. The fifth
+is **GSM2333950 — a blood array, 96.6 % immune, foreign 0.0282** — withheld because it sits just above the
+threshold. That is not a defect: it is one instance of the ≤ 5 % healthy false-positive rate the
+pre-registration fixed and B5 measured at 0.0472. It does mean the sealed gauge-switch conformance test,
+which expected a tier on every healthy blood array, now accepts a withheld tier when
+`composition_verified` is False — the change is recorded in that test file with this procedure named, and it
+still demands a tier whenever the composition *is* verified.
+
+### The one judgement left open, with its price
+
+| threshold | healthy arrays withheld | worst detection of hosts whose tier would misread |
+|---|---|---|
+| **0.0207 (commissioned)** | 4.72 % | **0.959** |
+| 0.0300 | 1.89 % | 0.811 |
+| 0.0500 | 0 % | 0.358 |
+| 0.0800 | 0 % | 0.038 |
+
+A threshold of 0.03 would keep GSM2333950's tier and withhold from only one healthy array in fifty — but it
+catches 81.1 % of the specimens that misread, **below the 0.90 that B4 fixed**. So 0.03 cannot be adopted
+under this pre-registration: it would need a new one with B4 set at 0.80, and that is a clinical judgement
+about which error is worse, not an analytical one. The commissioned value stands at 0.0207 until the author
+decides otherwise, and moving it is a one-number change in
+[`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json).
