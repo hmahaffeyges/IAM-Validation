@@ -44,4 +44,4 @@ The **Run** tab states whether every canonical document was current when the rep
 python3 chain/build_run_index.py
 ```
 
-`RUN_INDEX.csv` is generated from every evidence ledger in the tree - never typed.
+[`RUN_INDEX.csv`](RUN_INDEX.csv) is generated from every evidence ledger in the tree - never typed.
