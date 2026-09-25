@@ -28,19 +28,27 @@ Inside the chain itself, the weight is data rather than code:
 | `kit/CPG_Issue003_ReproductionKit.zip` | 44 | **a zip of files that are already in the tree** |
 | `reference_data/stage1_betas_*.pkl.xz` (4) | 117 | the four laboratories' healthy betas — the calibration inputs; keep |
 
+## Two corrections to my first pass (measured 2026-09-25)
+
+**The cosmology chains stay.** The author's instruction: they are there for any cosmologist to pull. Removed
+from the recommendations below.
+
+**I was wrong about `RETIRED_2026-09`.** I recommended retiring it out of the repository. Measured: of its
+1,121 files, 493 are VAL-named and **63 of those have no same-named file anywhere live** - including
+`val_111_prereg.md`, `val_111_outcome.md`, `VAL-112_113_outcome.md` and the VAL-119 to VAL-122 bladder
+artifacts. Those are pre-registrations and outcomes for early VALs that exist nowhere else. The rule is that
+when the tree and the record disagree the record wins, and this folder *is* record. **Keep it.** What it
+needs is an index, not an exit.
+
+**And the duplication is not where I implied.** Byte-identical duplicates inside MethylPhys: **3 groups,
+4.3 MB** - a figure shared with a plate, and two pairs of test-run plates. That is all. The real mess is
+folder shape and same-name-different-content, listed below.
+
 ## Recommendations, in the order I would do them
 
-**1. Retire `RETIRED_2026-09` out of the repository entirely — 1,121 files, 377 MB.**
-It is the single largest cleanup and the lowest risk: nothing live reads it, and the link checker already
-excludes it because its internal links have been broken since before the current tree. Two honest options:
-publish it as one Zenodo archive with a DOI and leave a one-line pointer, or keep it as a git tag and delete
-the working copy. Either way the history is preserved and a reviewer cloning the repository stops downloading
-a third of a gigabyte of superseded material.
-
-**2. Move the cosmology MCMC chains off — 513 MB across `camb_validation/` and `mgcamb_validation/`.**
-Chains are exactly what a data archive is for, and they are already described by the papers that used them.
-The scripts and the convergence summaries stay in the repository; the samples go to Zenodo, beside the
-H_min calibration deposit that is already there.
+**1. Index `RETIRED_2026-09` rather than removing it.** It holds 63 VAL files that exist nowhere else. One
+generated index at its root - which VAL, what the file is, which live document supersedes it if any - turns
+1,121 files from a heap into an archive. Nothing moves.
 
 **3. Delete `CPG_Issue003_ReproductionKit.zip` — 44 MB.**
 It is a zip of files the repository already contains. A reproduction kit that duplicates the tree is a second
@@ -61,6 +69,23 @@ intermediates that the sealed outcome documents already quote.
 `chain/Crown Jewel and Patient Strawman` (2.7 MB) and `chain/Disease Cards : Residual Maps` (7 MB) are
 presentation material from the pre-atlas era, sitting inside the live chain directory where a reader will
 take them for chain components. They belong under `Record/` or in the retired archive.
+
+## The MethylPhys folders, which is what you actually asked about
+
+67 directories. What is wrong with them, measured:
+
+| problem | what | fix |
+|---|---|---|
+| **six `__pycache__` directories are committed** | `MethylPhys_Interface/`, four under `Runtime Matrices/`, one more | delete and add to `.gitignore`; nothing should ever have tracked them |
+| **a colon in a directory name** | `chain/Disease Cards : Residual Maps` (20 files, 7 MB, nested four deep) | rename - a colon breaks Windows checkouts and URLs |
+| **an apostrophe in a directory name** | `chain/README's` (2 files) | rename to `chain/readme_archive/`, or fold both files into `chain/README.md` |
+| **presentation material inside the live chain** | `chain/Crown Jewel and Patient Strawman` (2.7 MB), `chain/Disease Cards : Residual Maps` | move under `Record/` - a reader takes anything in `chain/` for a chain component |
+| **two files with the same name and different content** | `VAL_INDEX.csv` (19.5 KB in `kit/`, 52.9 KB in `kit/results/`) and `switching_order.py` (21.5 KB in `kit/`, 26.4 KB in `manual/`) | resolve each: one is current, the other is either a subset or stale |
+| **a zip of the tree** | `kit/CPG_Issue003_ReproductionKit.zip`, 44 MB | delete; generate bundles on demand |
+| **nine `README.md` files** | one per folder | this one is *fine* - each describes its own directory, which is the pattern that works |
+
+That is the whole list. The folder count is high but most of it is `Runtime Matrices/` holding one
+subdirectory per runtime file, which is legible; the actual defects are the seven rows above.
 
 ## What the repository should be, stated positively
 

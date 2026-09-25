@@ -1,0 +1,210 @@
+{
+ "story": [
+  [
+   "h2",
+   "What is astro-genetics?"
+  ],
+  [
+   "h3",
+   "Who this is for"
+  ],
+  [
+   "p",
+   "The oncologist, the molecular biologist, the lab director, the informed patient. You do not need to follow a single line of cosmology to use what follows. The point is not to teach you astrophysics. The point is to explain why a cellular-health measurement is built on the same mathematics that describes stars and galaxies, and why that is a practical advantage rather than a poetic flourish. Where a number from cosmology appears, it is there so that a colleague who does know cosmology can check it independently and tell you whether it is right. The cosmology has already been checked by the field that owns it. What is new is the use of those same checked tools on cells."
+  ],
+  [
+   "h3",
+   "The one-sentence version"
+  ],
+  [
+   "p",
+   "<b>Biology has a measurement problem that cosmology solved the tooling for more than twenty years ago, and astro-genetics is what happens when you hand biology that tooling.</b> Cosmologists were forced, by the data, to build a precise toolkit for reading the state of a system against a calibrated reference and saying how far it sits from a transition. They built it to measure the universe; it turns out to be exactly what reading a cell requires. Astro-genetics points that toolkit at the cell. The tools transfer directly because the underlying accounting is the same. That is the whole idea."
+  ],
+  [
+   "h3",
+   "Stargazers and trailblazers"
+  ],
+  [
+   "p",
+   "The work applies the discipline of cosmic cartography to the human epigenome. Cartography is the right word, and it is chosen carefully: <b>we map what is there.</b> We do not invent the territory; we find it, chart it, and put the chart in the hands of people who can use it. The CpG sites of the genome are already there. The healthy floor of each cell class is already there, as a physical quantity waiting to be measured. The work is to produce the chart that lets a clinician find their way around it."
+  ],
+  [
+   "p",
+   "What makes the transfer more than borrowed vocabulary is that two specific correspondences hold, observable to observable, not as metaphors but as the same kind of inference run on the same kind of object."
+  ],
+  [
+   "p",
+   "<b>The first correspondence</b> is between the microwave background and architectural drift. The microwave background is a snapshot of the universe at one moment, with tiny temperature variations encoding the structure of everything that came after; the cosmological community spent thirty years learning to extract that structure. A cell's methylation pattern is the same kind of snapshot: a frozen record at the moment of measurement, with tiny entropy variations encoding the architectural state that came before and the trajectory that is coming. The observable differs - microkelvin temperature against Shannon entropy of methylation - but the structure of the inference is the same. Both are readings of redundantly encoded classical information, the kind of encoding Zurek's quantum Darwinism describes: a system's state written redundantly across an environment, recoverable by an observer reading any sufficient fragment. The microwave background and the methylation landscape are both that environmental record, at two scales."
+  ],
+  [
+   "p",
+   "<b>The second correspondence is the mechanism, and it is the load-bearing one.</b> Inhomogeneous decoherence at the cosmic horizon corresponds to inhomogeneous floor crossings at the epigenome. The horizon writes information at the Landauer cost of k_B T ln 2 per bit; the epigenome writes information at the chemical cost of maintaining a methylation mark, which sits at a fixed multiple of the same Landauer floor. The writing is irreversible at both scales. Where the horizon shows uneven, structured encoding as matter clusters unevenly, the epigenome shows uneven, structured floor crossings as some cell compartments saturate before others. The same irreversible writing-to-a-surface process governs both. <b>That is why the same instrument reads both.</b>"
+  ],
+  [
+   "p",
+   "<i>Stargazers see what is there; trailblazers go where no one has been.</i> The framework is built by doing both at once: reading the chart the universe already wrote, and being first to read it at the cellular scale. Astro-genetics is the name for that second reading."
+  ],
+  [
+   "h3",
+   "Why your cells follow the same rule as the stars"
+  ],
+  [
+   "p",
+   "There is an old idea, older than physics, that the universe runs on balance. When something gains, something gives. The Greeks called it the principle of opposites; Aristotle wrote about it twenty-five centuries ago. Modern physics rediscovered it in the 1800s and gave it a name that hides how simple it is: the <b>virial theorem</b>. In any stable, bound system the energy of motion and the energy of position settle into a fixed ratio. Half and half."
+  ],
+  [
+   "p",
+   "Until recently this was thought to apply only to things held together by gravity. The position taken here is that the same balance applies everywhere - not because something enforces it, but because anything that violates the balance cannot be sustained at finite cost and therefore does not persist. What we see when we look around, from galaxies to cells, is what the balance allows to exist. Everything that did not balance has already come and gone."
+  ],
+  [
+   "p",
+   "<b>Here is the part that connects the cosmos to the clinic.</b> Every time a physical system does something irreversible it pays a cost in information. This is not a metaphor; it is Landauer's principle, an established result: writing or erasing one bit at temperature T costs at least k_B T ln 2. When a star burns, that cost is paid in two halves - one shows up as motion, which we see as heat and light; the other as the way the star bends space around itself, which we feel as gravity. A cell does the same thing. Every time it reads its genes, builds proteins or divides, it pays the same kind of cost, split into the same two halves. One half is metabolism, the moment-to-moment work. The other is written into the DNA - not into the genes themselves, but into small chemical tags placed at specific sites along the strand. <b>The methylation pattern is the cell's running ledger of what it has been doing and what it is meant to do next.</b>"
+  ],
+  [
+   "p",
+   "In other words, the cell uses its DNA as a notebook and writes the receipt for every action. The pattern of receipts in a healthy cell looks one way. The pattern in a cell drifting toward trouble looks different. Reading those patterns is what this instrument does."
+  ],
+  [
+   "p",
+   "The balance that keeps a star from collapsing is the same balance that keeps a cell healthy. When a cell's pattern drifts too far from its balance point, the cell is in trouble for the same structural reason a star past a certain mass is in trouble: both have run out of capacity to keep paying their costs in the normal way. <b>We did not invent this rule; we learned to read it.</b>"
+  ],
+  [
+   "h3",
+   "The ceiling is informational, not gravitational - and that is why it travels"
+  ],
+  [
+   "p",
+   "It is worth being precise about what this re-description does and does not claim. Consider how a black hole forms. The conventional account, the one every astronomer uses, is gravitational: mass concentrates until gravity is intense enough that nothing escapes, and a horizon forms. The framework here tells the same story in a different language: a region of space can only record so much information on its boundary before that boundary is full, and when the local accounting saturates that limit a new surface must form for the writing to continue. <b>These are not competing claims.</b> They predict the identical threshold at the identical radius; one is the other stated in the language of information rather than force. The gravity an astronomer measures is, in this reading, the stored record of the accounting rather than a separate cause."
+  ],
+  [
+   "p",
+   "<b>The reason it matters is that it travels where the gravitational language cannot follow.</b> A single cell is far too small for its mass to bend space measurably, so the gravitational account has nothing to say about it. The saturation account does. A cell maintains its identity by writing its ledger onto the surface available to it - not spacetime, but its own chromatin. A healthy cell sits comfortably below the limit of what that surface can hold. A cell drifting toward failure is one whose accounting is climbing toward saturation, writing more and more onto a surface with only so much room, until it can no longer maintain its identity on its existing terms. The ceiling is informational, not gravitational, which is exactly why the same law reads the star - where we used to call the ceiling gravity - and the cell, where there is no gravity to speak of but the ceiling is just as real."
+  ],
+  [
+   "h3",
+   "Where the gauge sits, and what is open to inspection"
+  ],
+  [
+   "p",
+   "A = 1.00 is the <b>healthy reference</b> - the reading a healthy cell of that class gives, in the middle of the normal band. H_min is the constant in the denominator, the unit the axis is drawn in; the ceiling at 1/H_min is saturation. The three are distinct and the <b>How to read</b> tab sets them out side by side."
+  ],
+  [
+   "p",
+   "The eight class floors, the calibration code that fitted them and the leave-one-out bootstrap that cross-checks them are <b>public</b>, under an open licence. The floors and their provenance are on the <b>Healthy reference</b> tab; the code is linked from <b>Files</b>. Nothing in the metrology is withheld - a fixed zero that a reader cannot inspect is not a fixed zero."
+  ],
+  [
+   "h3",
+   "Two names, and which is which"
+  ],
+  [
+   "p",
+   "<b>Astro-genetics</b> is the programme: cosmology's measurement tools pointed at the epigenome. <b>Physics of methylation: Landauer metrology</b> is the narrower field name for the metrology itself - the fixed zero, the single-sample absolute reading, the three-layer reference - and it is the title the engineering manual and the methods paper carry, because a methods paper should claim only what it measures. Both names are the author's; they describe different scopes of the same work."
+  ]
+ ],
+ "sky": [
+  [
+   "h2",
+   "The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist"
+  ],
+  [
+   "p",
+   "This page is not an analogy. Every step below is a measurement problem cosmologists had to solve before the microwave background could be read at all, and each has a counterpart this chain already runs. The point of putting a methylome on a sphere is not that the picture resembles theirs - it is that <b>thirty years of machinery for reading a noisy field on a sphere becomes available</b>, with the names changed."
+  ],
+  [
+   "h3",
+   "A sky map is not a photograph"
+  ],
+  [
+   "p",
+   "This is the first thing cosmology had to unlearn. What Planck delivers is not a picture of the sky; it is <i>the residual left after a model is subtracted from a measurement</i>, at a declared resolution, with a mask over the parts that cannot be measured, and a noise level quoted per pixel. The famous image is the last step of a long pipeline, and every step of that pipeline had to be invented. Two of those steps decide everything: the monopole (2.725 K) and the dipole (the Earth's own motion through the radiation) are real, enormous, and <i>not the signal</i>. Remove them wrongly and the anisotropy - one part in 100,000 - is buried a thousand times over. That is not a subtlety; it is the measurement."
+  ],
+  [
+   "h3",
+   "The correspondence, step by step"
+  ],
+  [
+   "h3",
+   "What this buys a geneticist that a list of differentially methylated regions does not"
+  ],
+  [
+   "p",
+   "Epigenomics today answers <i>which CpGs moved</i>: per-site tests with a false-discovery correction, or differentially methylated regions found in windows whose size is chosen in advance. Both force you to pick a scale before you look. A spectrum asks a different question - <b>at what genomic scale does this departure live?</b> - and answers it at every scale at once with no window chosen. The multiple-comparison problem comes with it: cosmology calls it the <i>look-elsewhere effect</i> and has spent decades on it, and its answer is simulation rather than dividing an alpha by a large number."
+  ],
+  [
+   "p",
+   "The spatial correlation measured here is the first point of that spectrum. A healthy methylome has a characteristic correlation scale. <b>If a condition changes that scale rather than the value at any single address, a spectrum sees it and no per-site test can.</b> That is a new and falsifiable observable, and it is the reason this is a method rather than a picture."
+  ],
+  [
+   "h3",
+   "One thing a geneticist has that a cosmologist would trade almost anything for"
+  ],
+  [
+   "p",
+   "There is one microwave sky. It cannot be re-observed, it will not change, and every cosmological anomaly argument is limited by that single realisation. <b>A methylome sky can be measured again on the same person.</b> Two draws six months apart give a difference map - and a difference map is where this whole toolkit is strongest, because the static structure (the genomic correlation, the laboratory's own character, that individual's baseline) cancels and only what changed survives. That is not a metaphor; it is an experimental design a clinic can execute, and it is the strongest argument for treating a methylome this way."
+  ],
+  [
+   "h3",
+   "What else the MCMC gives us, and what we are not yet using"
+  ],
+  [
+   "p",
+   "The atlas does not store one number per cell type per address. It stores the <b>posterior mean, the posterior SD and the credible-interval bounds</b> - 123 standard-deviation columns with interval columns beside them - because MCMC produces a distribution, and keeping only its centre throws away most of what was computed. Three uses are live: the floors were fitted this way and frozen; the sky weights each class panel by how well the atlas pinned that class down; and the second solver uses each entry's posterior SD as its inverse-variance weight, which is what makes it sensitive to faint components."
+  ],
+  [
+   "p",
+   "<b>What is not yet used - the largest piece of unspent evidence in the chain.</b> MCMC also gives the <i>covariance between cell types at the same address</i>: if two cell types are hard to tell apart there, the chains wander together, and that correlation is exactly what a proper generalised-least-squares separation needs. The chain currently treats each entry's uncertainty as independent - the conservative choice, and the wasteful one. A full covariance would let the composition step say <i>these two are individually uncertain but their sum is well determined</i>, which is precisely the situation PROC-SEP-03 found in blood. The credible intervals are also asymmetric near the ends of the scale and are currently summarised by a symmetric SD. Both are on the list below."
+  ],
+  [
+   "h3",
+   "Brilliance - the first tool taken from cosmology, and where it went"
+  ],
+  [
+   "p",
+   "The first CMB-derived instrument in this work was not the sky; it was <b>brightness</b>. Surface brightness is how astronomy states an intensity that does not depend on the distance to the source or the size of the telescope, and the brightness layer built alongside the atlas applied that idea to an architecture class: how strongly does this class shine at its own addresses, on a scale that does not depend on how much of it happens to be in the tube. That was the right instinct, and it is why a per-class expectation exists at all. It has been <b>superseded rather than retired</b>: the sky now builds its expectation from <i>this sample's own composition</i>, which a precomputed per-class file cannot do. The lineage is worth stating, because the first import from cosmology is still load-bearing one layer down."
+  ],
+  [
+   "h3",
+   "Two maps from one patient - the difference map"
+  ],
+  [
+   "p",
+   "In the author's words, and it is the strongest argument on this page: <i>a methylome sky can be re-measured on the same patient. Two draws six months apart gives a difference map - and difference maps are where cosmology's entire toolkit is most powerful, because the static foregrounds cancel. That is not a metaphor, it is an experimental design a clinic can execute, and it is the strongest reason the analogy is a method rather than a decoration.</i>"
+  ],
+  [
+   "p",
+   "<b>Is it sensitive enough to see a change in one island? Measured, not asserted.</b> On the Uppsala panel the between-person spread per address is 0.029 in beta units (IQR 0.018-0.046). The quietest addresses - 5th percentile, 0.0089 - bound the purely technical part from above, since nothing can be quieter than the noise. A paired difference of two draws from one person removes that person's baseline, the laboratory zero and the genomic correlation, leaving technical noise times root two:"
+  ],
+  [
+   "p",
+   "Reported effects at a CpG island typically run from several to twenty points. <b>So yes: at island scale and above, a paired difference map should resolve changes an order of magnitude smaller than effects already in the literature</b>, and the limit is set by array noise rather than by anything in this chain. Two caveats travel with that. The technical term is an <i>upper bound inferred from cross-sectional data</i>, because <b>no repeat draws of the same person exist in anything held here</b> - the EPIC-Italy foundation cohort is 460 distinct participants with no second sample - so a real serial test must re-measure it from actual replicates. And a difference map cancels the laboratory only if both draws went through the same laboratory and pipeline; otherwise the pipeline map and laboratory zero must be applied to each before differencing. Finding a serial cohort is the first item on the list below."
+  ],
+  [
+   "h3",
+   "Is the sphere necessary? A straight answer"
+  ],
+  [
+   "p",
+   "<b>For the measurement, no. For the toolkit, yes.</b> The residual is a one-dimensional sequence along the genome; the sphere is a space-filling reindexing of it. What makes that legitimate rather than ornamental is that the reindexing <b>preserves locality</b> - measurable, not assumed: every one of the 196,608 pixels holds CpGs that are genomically contiguous and on a single chromosome, with a median span of <b>511 base pairs</b> (90th percentile 20 kb); a quarter of all neighbouring-pixel pairs sit within 10 CpGs of each other in genomic order and fewer than 1 per cent are more than 10,000 apart, against about 161,000 for a random assignment. Angular distance therefore tracks genomic distance at the scales that matter, which is what makes needlets, a harmonic decomposition and a power spectrum mean anything here - and it is why the correlation noted below is genomic rather than an artefact of the projection."
+  ],
+  [
+   "p",
+   "<b>For a clinician reading one patient, a sphere is probably the wrong picture,</b> and this page would rather say so than defend it. A geneticist thinks in chromosome coordinates and an ellipse has no chromosomes on it. Better formats for the clinical read: a <b>per-chromosome linear track</b> - immediately interpretable, the format every genome browser already uses - or a <b>Hilbert-curve layout</b>, a space-filling curve in the plane already used in genomics, which keeps locality about as well as the sphere while staying rectangular and printable. The sphere earns its place where the <i>statistics</i> are spherical. The intended end state is both: the sphere for the spectral analysis, a linear or Hilbert track for what a clinician sees, and the same residual underneath so the two cannot disagree."
+  ],
+  [
+   "h3",
+   "Acknowledgement - whose tools these are"
+  ],
+  [
+   "p",
+   "Everything on this page except the biology was built by the cosmology community over some thirty years, out of necessity, because they had one noisy sky and no way to obtain another. HEALPix; the internal-linear-combination and needlet methods that make component separation work; beam deconvolution; per-pixel noise covariances; simulation-based nulls, and the discipline of scoring an anomaly against a null rather than against intuition - none of it was invented here. The contribution is the recognition that a methylome is the same kind of object and can be measured with the same instruments. <b>We are the messenger, not the inventor</b>, and the right response to a cosmologist reading this page is thanks."
+  ],
+  [
+   "p",
+   "What is handed over is also more than a ruler for cellular fidelity. It is a <b>toolkit, and a different way of seeing the methylome</b> - as a field on a manifold with a model, a mask, a beam and a noise budget, rather than as a list of sites with p-values attached. What a geneticist builds with that is not ours to predict, which is rather the point of handing it over."
+  ],
+  [
+   "p",
+   "<b>On precedence, stated the way a referee will read it.</b> We are not aware of prior work that projects a methylome onto a sphere and applies component-separation and sky-statistics machinery to it. The search behind that sentence, run 2026-09-22, with its actual counts rather than a summary: in <b>Europe PMC</b>, <i>spherical harmonic</i> + <i>methylome</i> returned <b>0</b>, <i>angular power spectrum</i> + <i>(methylation OR epigenome)</i> returned <b>0</b>, and <i>needlet</i> + <i>(genome OR methylation)</i> returned <b>0</b>; <i>HEALPix</i> + <i>methylation</i> returned <b>2</b> records and <i>HEALPix</i> + <i>genome</i> returned <b>4</b>, all of them structural-biology papers (cryo-EM structures of a vesicular stomatitis virus polymerase complex, human IAPP fibrils, and others) in which HEALPix appears as the orientation-sampling scheme and methylation only incidentally - none projects a methylome. A query pairing <i>cosmic microwave background</i> with <i>methylation</i> returns over 1,500 records and is pure abbreviation collision (CMB is also conditioned medium, chronic mountain sickness), which is why it is not evidence either way. In <b>arXiv</b>, five query forms - HEALPix + methylation, power spectrum + methylome, cosmic microwave background + epigenome, needlet + biological, spherical harmonics + DNA methylation - each returned <b>0</b>. Sanchez &amp; Mackenzie brought the Landauer bound to methylation but no sky; CMB pipelines have not been pointed at a genome. <b>This is a bounded search, not a proof of absence</b>, and a reader who knows of prior work should say so. One detail worth keeping, because those two HEALPix hits make the point better than a zero would have: <b>HEALPix is already used in biology</b>, as the angular-sampling scheme for particle orientations in cryo-electron microscopy. The pixelisation is in the toolbox already; this is a different use of it."
+  ]
+ ]
+}

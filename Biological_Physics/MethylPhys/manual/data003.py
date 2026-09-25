@@ -1,3 +1,4 @@
+import os
 """data003.py — every number Issue 003 prints, loaded from the runtime files or from
 a dated, sourced run. Nothing here is typed from memory. Each block names its source.
 
@@ -1287,4 +1288,38 @@ REPORT_CHANGES_2026_09_25 += [
  ("Every report states whether the documents were current when it was built",
   "The Run tab prints what chain/propagate.py last reported: whether every derived document was regenerated "
   "and every rule passed. A reading whose SOP has drifted from the code says so on its own page."),
+]
+
+
+# ---------------------------------------------------------------------------------------------------
+# The introduction (author's instruction 2026-09-25: the issue "just goes directly into the weeds").
+# Organised as he asked: astro-genetics first, then the second thing this work brings - the cosmology
+# toolkit and what it offers genetics and epigenetics generally - and then, inside that, the field this
+# document is about: the Physics of Methylation, Landauer Metrology.
+#
+# The text is the report's own Story and Sky tabs, verbatim, loaded from intro_blocks.json so the manual and
+# the report cannot drift: regenerate the file from the builder rather than editing prose in two places.
+INTRO_BLOCKS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                           "intro_blocks.json"), encoding="utf-8"))
+
+INTRO_BRIDGE = [
+ ("h2", "And inside it: the Physics of Methylation - Landauer Metrology"),
+ ("p", "Astro-genetics is the wider claim: that the rule which sets what a star can hold, what a horizon can "
+       "hold and what a chip can hold also sets what a cell can hold. This document is about one substrate "
+       "of it, and it is the one that can be measured in a clinic today."),
+ ("p", "<b>Landauer metrology</b> is the name for the method. Landauer's principle fixes the minimum energy "
+       "an irreversible write costs: k<sub>B</sub>T ln 2 per bit. A cell writing and holding a methylation "
+       "mark against thermal noise at 310 K pays that cost, and the Mahaffey number M = &Delta;G<sub>ATP</sub> "
+       "/ k<sub>B</sub>T = 20.94 says how many thermal quanta it spends per irreversible operation. Divide the "
+       "entropy a cell actually carries at its identity loci by the floor that budget implies and the result "
+       "is a dimensionless fidelity - the A-score - with a fixed zero rather than a comparison to a control "
+       "group. That is what makes a single patient's array readable on its own."),
+ ("p", "So the difference from information-thermodynamic work already in the literature is not the physics; "
+       "Landauer in methylation is peer-reviewed and cited in the prior-art section that follows. It is that "
+       "the floor is used as a <b>reference level</b> rather than as a noise model - one filters, one "
+       "calibrates - and that the instrument is built to read one specimen against it."),
+ ("p", "What follows is that instrument: the scope of what it may and may not say, the prior art it stands "
+       "on, the physics, the chain stage by stage, what it refuses and why, and every procedure that "
+       "commissioned it. A reader who wants only the reading should start at the scope statement; a reader "
+       "who wants to check the reading should start at the reviewer manifest."),
 ]

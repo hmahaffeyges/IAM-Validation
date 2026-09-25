@@ -882,6 +882,44 @@ def sec_proc_log(story):
         story.append(Spacer(1, 3))
 
 
+def sec_intro(story):
+    """The introduction: astro-genetics, the cosmology toolkit, and then this field.
+
+    Added 2026-09-25 on the author's instruction - the issue opened on the scope statement and went straight
+    into the weeds. The prose is the report's own Story and Sky tabs verbatim (manual/intro_blocks.json), so
+    the two cannot drift apart.
+    """
+    def emit(blocks, first_head=None):
+        for kind, text in blocks:
+            if kind == "h2":
+                story.append(PageBreak())
+                story.append(Paragraph(text.upper(), sSect))
+            elif kind == "h3":
+                story.append(Paragraph(text, sSub))
+            elif kind == "li":
+                story.append(Paragraph("&bull; " + text, sBodySm))
+            else:
+                story.append(Paragraph(text, sBodySm))
+            story.append(Spacer(1, 3))
+
+    emit(D.INTRO_BLOCKS["story"])
+    story.append(PageBreak())
+    story.append(Paragraph("THE SECOND THING THIS WORK BRINGS: THE TOOLKIT OF COSMOLOGY", sSect))
+    story.append(Paragraph("What CMB analysis offers genetics and epigenetics generally, not only this gauge",
+                           sSub))
+    story.append(Paragraph("Aside from the physics - IAM's law, and the floor it puts under a cell - this "
+                           "work brings a second thing, and it may travel further than the first. Cosmology "
+                           "spent thirty years solving a measurement problem genetics has never framed as "
+                           "one: a single sky, many superposed components, an instrument with a beam, "
+                           "foregrounds that cannot be switched off, and no second universe to check "
+                           "against. That is a methylome from one patient, exactly. Every method below is "
+                           "borrowed from that effort, and every one of them applies to any epigenetic "
+                           "measurement made on a mixed sample - which is nearly all of them.", sBodySm))
+    story.append(Spacer(1, 4))
+    emit([(k, v) for k, v in D.INTRO_BLOCKS["sky"] if k != "h2"])
+    emit(D.INTRO_BRIDGE)
+
+
 def sec0b_prior_art(story):
     story.append(PageBreak())
     story.append(Paragraph('PRIOR ART - THE DOOR INTO THE CONVERSATION', sSect))
@@ -953,6 +991,7 @@ def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)
     story = []
     cover(story); toc(story)
+    sec_intro(story)
     story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story); sec_proc_log(story)
     sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
