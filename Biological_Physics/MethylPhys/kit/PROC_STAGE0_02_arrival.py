@@ -6,7 +6,7 @@ file name, declared age and sex from the series matrix. Nothing is invented - a 
 publish is left absent, which is exactly what the manifest gate is there to catch.
 """
 import gzip, hashlib, json, os, re, sys, glob, collections, time
-sys.path.insert(0, "iamrepo/Biological_Physics/MethylPhys/chain")
+sys.path.insert(0, "Biological_Physics/MethylPhys/chain")
 import stage_0_intake as S0
 
 IDAT = "idats_gse87571"

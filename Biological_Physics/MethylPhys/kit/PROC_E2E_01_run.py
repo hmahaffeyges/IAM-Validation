@@ -6,7 +6,7 @@ manifest, whose sample descriptions disagree with GEO for the three Uppsala arra
 """
 import json, os, re, subprocess, sys, time
 
-CHAIN = "iamrepo/Biological_Physics/MethylPhys/chain"
+CHAIN = "Biological_Physics/MethylPhys/chain"
 RUN = f"{CHAIN}/MethylPhys_Interface/run_sample.py"
 meta = json.load(open("handoff/test11_meta.json"))
 ZERO = {"GSE87571": -0.0117, "GSE42861": 0.0084}          # commissioned; tissue cohorts have none

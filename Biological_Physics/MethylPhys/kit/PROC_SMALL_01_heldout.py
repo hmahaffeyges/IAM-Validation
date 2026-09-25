@@ -5,7 +5,7 @@
 frozen panel on 60 Uppsala donors never used for anything, which is the only number worth quoting.
 """
 import glob, json, os, re, sys, time, warnings; warnings.filterwarnings("ignore")
-sys.path.insert(0,"stage1"); CH="iamrepo/Biological_Physics/MethylPhys/chain"; sys.path.insert(0,CH)
+sys.path.insert(0,"stage1"); CH="Biological_Physics/MethylPhys/chain"; sys.path.insert(0,CH)
 import numpy as np
 from stage_1_idat_calibration import calibrate_idat_to_beta
 import stage_2c_trace_detection as T

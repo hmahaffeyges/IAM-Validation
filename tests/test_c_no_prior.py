@@ -15,7 +15,7 @@ print("="*80)
 print()
 
 # Load data
-data_file = '/Users/hmahaffeyges/Desktop/IAM-Validation/data/pantheon_repo/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat'
+data_file = '~/Desktop/IAM-Validation/data/pantheon_repo/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat'
 
 data = []
 with open(data_file, 'r') as f:

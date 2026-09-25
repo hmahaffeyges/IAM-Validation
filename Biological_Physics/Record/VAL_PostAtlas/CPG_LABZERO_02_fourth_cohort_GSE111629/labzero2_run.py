@@ -2,7 +2,7 @@
 """LAB-ZERO-02 — fourth lab (GSE111629 UCLA controls). Executes PREREG.md as sealed; nothing is fit on UCLA.
 Runs in the methylprep env. Stage 1 via subprocess workers (stage1_worker.py), control probes via ctrl_worker.py."""
 import os, sys, json, glob, time, subprocess, numpy as np, pandas as pd
-ROOT = os.path.dirname(os.path.abspath(__file__)); E = os.path.join(ROOT, "iamrepo/Biological_Physics/MethylPhys/chain")
+ROOT = os.path.dirname(os.path.abspath(__file__)); E = os.path.join(ROOT, "Biological_Physics/MethylPhys/chain")
 OUT = os.path.join(ROOT, "results/labzero2"); os.makedirs(OUT, exist_ok=True)
 IDAT = os.path.join(ROOT, "idats/GSE111629/idats"); SEL = json.load(open(os.path.join(ROOT, "idats/GSE111629/selected.json")))
 def log(*a): print(*a, flush=True)

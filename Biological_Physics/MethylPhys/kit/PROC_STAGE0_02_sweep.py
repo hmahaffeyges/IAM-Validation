@@ -5,7 +5,7 @@ Written for PROC-STAGE0-02: the retrospective intake run. Caches per array so it
 """
 import gzip, json, os, re, sys, glob, time, hashlib
 import numpy as np
-sys.path.insert(0, "iamrepo/Biological_Physics/MethylPhys/chain")
+sys.path.insert(0, "Biological_Physics/MethylPhys/chain")
 import stage_0_intake as S0
 from stage_0_1_qc_handoff import decode_qc_inputs
 

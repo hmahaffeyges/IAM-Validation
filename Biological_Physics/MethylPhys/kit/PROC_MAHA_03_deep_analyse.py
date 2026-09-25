@@ -6,7 +6,7 @@ half-written file. Only chips with at least 9 arrays are used, so B1 is always a
 """
 import json, glob, math, random, collections, gzip, re, os, sys
 import numpy as np
-CH="iamrepo/Biological_Physics/MethylPhys/chain"
+CH="Biological_Physics/MethylPhys/chain"
 ident=json.load(open(glob.glob(CH+"/**/iamatlas_gauge_identity_loci_v1_0.json",recursive=True)[0]))["immune"]
 HMIN=float(ident["H_min"])
 band=json.load(open(glob.glob(CH+"/**/identity_band_v3.json",recursive=True)[0]))

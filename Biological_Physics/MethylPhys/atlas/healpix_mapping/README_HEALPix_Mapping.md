@@ -85,7 +85,7 @@ The `.npy` mapping file is versioned by the IAMAtlas it was built against:
 - Current: [`iamatlas_cpg_to_healpix_nside128.npy`](iamatlas_cpg_to_healpix_nside128.npy) (built against IAMAtlas REBUILD v0_2, canonical SHA `41b7c16f...`)
 - When the IAMAtlas is rebuilt with a different CpG list (e.g., EPIC v2 → EPIC v3 transition), the mapping is regenerated.
 
-The `provenance.json` file records the atlas SHA + manifest version used to generate the mapping; the engine verifies these at session startup.
+The `provenance.json` (written by a run, not stored) file records the atlas SHA + manifest version used to generate the mapping; the engine verifies these at session startup.
 
 ## Cross-references
 

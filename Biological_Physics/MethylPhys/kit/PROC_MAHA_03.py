@@ -3,7 +3,7 @@
 import json, math, random, collections
 import numpy as np
 rows = json.load(open("handoff/maha03_rows_mapped.json"))
-CH = "iamrepo/Biological_Physics/MethylPhys/chain"
+CH = "Biological_Physics/MethylPhys/chain"
 import glob
 band = json.load(open(glob.glob(CH + "/**/identity_band_v3.json", recursive=True)[0]))
 P = band["pooled"]; SB = (P["p90"] - P["p10"]) / (2 * 1.2816)

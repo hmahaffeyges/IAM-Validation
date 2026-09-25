@@ -53,7 +53,7 @@ from iamatlas_a_scoring import score_per_celltype, load_artifact
 from iamatlas_mahalanobis_scoring import MahalanobisHealthyHull
 
 # ----- Reference paths (atlas + runtime artifacts) -----
-ATLAS_CSV = Path("/home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv")
+ATLAS_CSV = Path("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
 CELLTYPE_CLASS_MAP = Path("/mnt/user-data/uploads/IAMAtlasREBUILD_celltype_to_class.json")
 MARKER_ARTIFACT = REPO_ROOT / "Biological_Physics/atlas_vault/pipeline_runtime_matrices/iamatlas_celltype_markers_v0_2.json"
 MAHAL_REF = REPO_ROOT / "Biological_Physics/atlas_vault/pipeline_runtime_matrices/mahalanobis_healthy_reference_v0_1.json"

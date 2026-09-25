@@ -23,26 +23,26 @@ import warnings
 
 warnings.filterwarnings("ignore")
 sys.path.insert(0, "stage1")
-sys.path.insert(0, "iamrepo/Biological_Physics/MethylPhys/chain")
+sys.path.insert(0, "Biological_Physics/MethylPhys/chain")
 
 import numpy as np
 import pandas as pd
 from stage_1_idat_calibration import calibrate_idat_to_beta
 import cpg_conductor as C
 
-ATLAS = os.path.abspath("iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
-CH = "iamrepo/Biological_Physics/MethylPhys/chain"
+ATLAS = os.path.abspath("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
+CH = "Biological_Physics/MethylPhys/chain"
 IDAT = f"{CH}/TEST_DATA/idats"
 # Read the class columns straight from the atlas (about 6 s). A pickle written by another environment's
 # pandas/numpy cannot be read here - the methylprep environment carries numpy 1.x and the cache was written
 # by 2.x, which fails on numpy._core. Cross-environment handoffs go through CSV or parquet, never pickle.
 _CLS = ["stem_pluri", "stem_adult", "progenitor", "stromal", "cycling", "secretory", "terminal", "immune"]
-PROF = pd.read_csv(os.path.abspath("iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv"),
+PROF = pd.read_csv(os.path.abspath("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv"),
                    usecols=["cpg_id"] + [f"{c}_mean" for c in _CLS] + [f"{c}_sd" for c in _CLS],
                    low_memory=False).set_index("cpg_id")
 IDENT = json.load(open([p for p in __import__("glob").glob(
     CH + "/**/iamatlas_gauge_identity_loci_v1_0.json", recursive=True) if "RETIRED" not in p][0]))
-CMAP = json.load(open("iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"))
+CMAP = json.load(open("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"))
 
 HOSTS = {"GSM2333901": {"age": 72.0, "lab": "GSE87571", "zero": -0.0117},
          "GSM2333905": {"age": 74.0, "lab": "GSE87571", "zero": -0.0117},

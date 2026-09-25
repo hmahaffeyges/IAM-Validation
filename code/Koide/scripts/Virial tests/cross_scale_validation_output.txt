@@ -274,7 +274,7 @@ Conservative estimate of accidental consistency:
   
   But these aren't just "consistent" — they follow a SPECIFIC PATTERN
   (matter sector modified, photon sector unmodified) from a SINGLE MECHANISM
-  with ZE/Users/hmahaffeyges/Desktop/IAM-Validation/IAM Theoretical and future papers/Virial Theoreom Tests /Virial tests/cross_scale_validation_output.txtRO free parameters.
+  with ZE~/Desktop/IAM-Validation/IAM Theoretical and future papers/Virial Theoreom Tests /Virial tests/cross_scale_validation_output.txtRO free parameters.
   
   Accounting for the specific pattern prediction:
   P(correct sector split across all domains) ≈ 10⁻⁸ to 10⁻¹²

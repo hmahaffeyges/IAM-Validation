@@ -38,7 +38,7 @@ At Stage 4.6 (per-class healthy brightness comparison + patient Mollweide projec
 
 1. For each of 8 architectural classes, compute per-CpG z-score: z[i] = (β_patient[i] − μ_class[i]) / σ_class[i]
 2. Project the 8 z-vectors onto the same HEALPix NSIDE=128 Mollweide grid as Plate 1
-3. Generate `patient_id_cosmic_methylome.png` — 8-panel personal CMM where red = significantly hypermethylated departures, blue = significantly hypomethylated departures, neutral = within healthy variance
+3. Generate `patient_id_cosmic_methylome.png` (drawn by a run for its own specimen, not stored) — 8-panel personal CMM where red = significantly hypermethylated departures, blue = significantly hypomethylated departures, neutral = within healthy variance
 
 The customer's personal CMM ships in the report as the visualization endpoint of their immune-class A-score + immune cellular age + Mahalanobis distance — the same data, mapped to a sphere.
 
