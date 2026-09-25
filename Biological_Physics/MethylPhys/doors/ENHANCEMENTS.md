@@ -23,7 +23,7 @@ no amount of cleverness substitutes.
 |---|---|---|---|---|
 | **A1** | **Use the atlas's full cell-type covariance in the separation** (generalised least squares instead of independent uncertainties) | **Highest.** Changes every fraction and therefore every A. It is what lets the solver say *these two components are individually uncertain but their sum is well determined* — which is the blood-separability situation exactly, and the reason five classes currently read 0.0 %. Also the most likely route to per-cell reporting. | 2–4 days | The covariance must be recovered from the per-class MCMC archives (165 MB, present in the repo). Nothing else is missing. |
 | **A2** | **Band the joint haematopoietic-progenitor component** — *attempted 2026-09-25, [NOT COMMISSIONED](PROC_BAND_01_OUTCOME.md): B1, B3, B4 met (r=0.534 against immune, so it IS a second axis), B2 failed on one laboratory in four (Uppsala 0.646 against a bar of 0.70-0.90). Cause measured: the joint age curve was fitted on 234 arrays where immune's had 1,379, and Uppsala is the only cohort spanning the decades where that curve is worst* | **High.** Converts the departure statistic from *one* banded axis into two (corrected 2026-09-25: the chain reads progenitor and stem_adult JOINTLY on whole blood by its own s108 rule, so three was wrong), with proper chi-square thresholds. That is what the Mahalanobis design was for: catching a specimen that moves one component while another holds steady. Also removes a refusal printed on every report today. | 1 day, not the 2-3 h first estimated: the joint component has no age term and no laboratory zero, and both must be derived | None. Both classes sit above their presence floor in blood (12.8 % and 3.8 % on GSM2333901) and all four laboratories' healthy arrays are on disk. **This is the cheapest high-impact item on the list.** |
-| **A3** | **Per-laboratory bands** | **High.** Today one pooled band is used for every laboratory, and the laboratories differ: false-alarm rates run 4.4 % to 9.8 % against a nominal 5 %. That is why GSM1051533, a healthy control, reads ELEVATED. A per-laboratory band converts a caveat into a correct threshold. | 1–2 days | None — the same four cohorts. Needs a pre-registration because it changes a reported tier. |
+| **A3** | **Per-laboratory bands** — *measured 2026-09-25, [NOT COMMISSIONED](PROC_LABBAND_01_OUTCOME.md): at 80 arrays per laboratory a 1.40x width ratio is ORDINARY (permutation p = 0.123, null median 1.245), and applying per-laboratory widths makes the out-of-sample tail WORSE for three laboratories of four. Needs the full cohorts* | **High.** Today one pooled band is used for every laboratory, and the laboratories differ: false-alarm rates run 4.4 % to 9.8 % against a nominal 5 %. That is why GSM1051533, a healthy control, reads ELEVATED. A per-laboratory band converts a caveat into a correct threshold. | 1–2 days | None — the same four cohorts. Needs a pre-registration because it changes a reported tier. |
 | **A4** | **Withhold the immune tier when the specimen carries foreign material** | **High, and it is a correctness fix.** Measured: immune A″ rises ~0.003 per 1 % of non-haematopoietic material — 0.15 σ of the healthy band per 1 %. At 20 % foreign, every healthy donor read ABOVE_BAND on a gauge that is supposed to report immune fidelity. A tumour-bearing specimen is exactly the case. | 1 day | The bound above which to withhold has not been measured. Needs one dilution series and a pre-registration. |
 | **A5** | **Merge the atlas's duplicate lineage labels** | **High for per-cell reporting, nil before it.** The same lineage appears under several atlas entries whose per-cell readings differ by more than anything biological — purely by which reference panel defined their markers. Until they are merged, nobody can answer *which cell moved*. | 3–5 days | A merge rule plus a re-measured per-entry reference. |
 | **A6** | **Per-entry healthy bands wide enough to carry a tier word** | Moderate. 20 % of atlas entries have a healthy spread wider than the gauge's NORMAL band, so their tier is withheld and only the number is printed. | 2–3 days | Depends on A5. |
@@ -53,6 +53,18 @@ visible on every run rather than living in a document.
 | **B9** | **Degeneracy / Fisher analysis of the composition** | the banana degeneracy in cosmological parameter space | Which composition solutions are genuinely distinguishable, rather than assuming the reported one is unique. Turns "the solvers disagree" into "these two are degenerate along this direction". | 3 days | none |
 
 ---
+
+## The prerequisite three items share (measured 2026-09-25)
+
+PROC-BAND-01, PROC-CLS-01 and PROC-LABBAND-01 asked three different questions and failed for one reason:
+**the published 80-array panels are too thin**, and the full-cohort Stage 1 output they replaced was never
+preserved. The joint age curve came out non-monotone on 234 arrays where immune's was fitted on 1,379; the
+sky reference failed on per-laboratory residual scales each built from 40 arrays; and a 1.40x width ratio
+at n=80 is indistinguishable from four identical laboratories.
+
+**One input unblocks three items: Stage 1 on the full four cohorts, 1,379 arrays.** About 1,400 IDAT pairs,
+~15 GB and a day of calibration. Nothing else on either list has that leverage, and A2, A3 and B2 should all
+wait behind it rather than be retried on the panels that have now refused them three times.
 
 ## What to do now, and what to do later
 
