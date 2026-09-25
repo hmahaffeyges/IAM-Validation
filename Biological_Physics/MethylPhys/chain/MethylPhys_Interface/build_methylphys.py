@@ -632,7 +632,7 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "pixelisation is in the toolbox already; this is a different use of it.</p>")
 
 def tab_sky(o, R, sid, workdir):
-    s=o["patient_sky"]; H=[SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
+    s=o["patient_sky"]; H=["<div class='callout'><b>What this sky is compared to.</b> Not to a healthy picture - there is no reference image anywhere in this comparison. Every pixel is <span class='m'>z = (&beta; &minus; &Sigma;<sub>c</sub> f<sub>c</sub>&mu;<sub>c</sub> &minus; m<sub>lab</sub>) / s<sub>lab</sub></span>: this specimen's own methylation at that address, minus what <b>its own composition</b> predicts for it (the atlas mean of each class, weighted by the fractions Stage 2 measured in <i>this</i> specimen), minus this laboratory's measured zero, divided by this laboratory's measured per-address spread across its own healthy donors. So the comparison is to a healthy cohort's <b>statistics</b>, and the number to read is the fraction of addresses beyond |z| = 2 against the healthy range of 2.6-3.2 per cent. Red is above the composition expectation, blue below, black not assessable. Two plates are comparable only within one laboratory, because m<sub>lab</sub> and s<sub>lab</sub> are that laboratory's own.</div>", SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
     # 2026-09-25: say it at the top, not in the refusal list at the back.
     if not (s.get("available") and s.get("_sky") is not None):
         H.insert(0, "<p class='warn'><b>No sky was rendered for this specimen.</b> " +
@@ -1415,6 +1415,51 @@ def tab_troubleshooting(o, R):
     return "".join(H)
 
 
+def _cmb_tools(o):
+    """The CMB tool registry, evaluated on this bundle."""
+    try:
+        sys.path.insert(0, ENGINE)
+        import cmb_tools as CT
+        return CT.evaluate(o)
+    except Exception as e:
+        return [{"id": "REGISTRY", "tool": "the CMB tool registry itself", "borrowed_from": "-",
+                 "what_it_does_here": "-", "where": "cmb_tools.py", "status": "FAIL",
+                 "evidence": "the registry could not be evaluated: %s" % _e(e)}]
+
+
+def _cmb_tool_table(o):
+    """Every tool borrowed from cosmology, with its state on this run. A FAIL is also a red flag.
+
+    Added 2026-09-25 on the author's instruction: the borrowings will multiply, so they are a register with a
+    status per run rather than a paragraph. NOT_BUILT entries are listed on purpose - the shelf is part of
+    the record.
+    """
+    T = _cmb_tools(o)
+    if not T:
+        return ""
+    order = {"FAIL": 0, "PASS": 1, "NOT_RUN": 2, "NOT_APPLICABLE": 3, "NOT_BUILT": 4}
+    T = sorted(T, key=lambda t: (order.get(t["status"], 9), t["id"]))
+    counts = {}
+    for t in T:
+        counts[t["status"]] = counts.get(t["status"], 0) + 1
+    H = ["<h3>The cosmology toolkit, and what it did on this specimen</h3>",
+         "<p>Every method this chain borrowed from CMB analysis, with its state on this run. "
+         "<b>NOT_BUILT</b> means borrowed in principle and not implemented yet - listed on purpose. A "
+         "<b>FAIL</b> is carried to the Red flags tab as well.</p>",
+         "<p>" + " &nbsp;&middot;&nbsp; ".join("<b>%d %s</b>" % (n, k) for k, n in
+                 sorted(counts.items(), key=lambda kv: order.get(kv[0], 9))) + "</p>",
+         "<table><tr><th>state</th><th>tool</th><th>borrowed from</th><th>what it does here</th>"
+         "<th>implemented in</th><th>evidence on this run</th></tr>"]
+    for t in T:
+        H.append("<tr><td class='m'><b>%s</b></td><td>%s</td><td class='m'>%s</td><td>%s</td>"
+                 "<td class='m'>%s</td><td>%s</td></tr>"
+                 % (t["status"], html.escape(t["tool"]), html.escape(t["borrowed_from"]),
+                    html.escape(t["what_it_does_here"]), html.escape(t["where"]),
+                    html.escape(str(t["evidence"]))))
+    H.append("</table>")
+    return "".join(H)
+
+
 def tab_safeguards(o, R):
     """Every guard the chain has, with its result. Written by release_check.py (one command, commissioning row N)
     and read here - a guard that has not been run prints NOT RUN, never a pass."""
@@ -1461,6 +1506,7 @@ def tab_safeguards(o, R):
                  "blood classes, which PROC-SEP-03 then measured directly. It is back, as a second column and an agreement flag - never as the reported "
                  "composition. Cell-level disagreement <i>inside</i> one lineage is expected and is not scored; class-level disagreement is.</p>")
     H.append(deepdive(R,"the guards and the null suite"))
+    H.append(_cmb_tool_table(o))   # the register, 2026-09-25
     return guard("".join(H),"Safeguards")
 
 
@@ -1809,7 +1855,19 @@ def red_flags(o, R=None):
                     "At this limit the class cannot be named - attribution needs about 5 %. No fraction and "
                     "no A are reportable for it.")
 
-    # 7. age
+    # 7. the cosmology toolkit: a borrowed method that ran and failed its own condition
+    try:
+        sys.path.insert(0, ENGINE)
+        import cmb_tools as _CT
+        for _t in _CT.failures(o):
+            add("CMB_TOOL_FAIL", "CAUTION", "Safeguards",
+                "%s (%s) failed its own check: %s" % (_t["tool"], _t["id"], _t["evidence"]),
+                "A borrowed method that ran and did not hold. See the cosmology-toolkit table "
+                "on the Safeguards tab.")
+    except Exception:
+        pass
+
+    # 8. age
     ca = o.get("cellular_age") or {}
     if ca and not ca.get("reportable"):
         add("NO_CELLULAR_AGE", "WITHHELD", "Reading",
@@ -1873,6 +1931,42 @@ def tab_redflags(o, R=None):
     H.append("<details><summary>The same list as JSON, for a reader that is a program</summary>"
              "<pre><code>" + html.escape(json.dumps({"red_flags": F}, indent=1)) + "</code></pre></details>")
     return "".join(H)
+
+
+def _propagate_state():
+    """What propagate.py last reported, so a report says whether the documents were current when it was built.
+
+    The author's point, 2026-09-25: the record of how a result was produced matters as much as the result.
+    propagate.py writes chain/propagate_status.json; if it is absent or stale this says so rather than
+    implying the documents were checked.
+    """
+    p = os.path.join(ENGINE, "propagate_status.json")
+    try:
+        with open(p, encoding="utf-8") as f:
+            st = json.load(f)
+    except Exception:
+        return ("<h3>Repository state when this report was built</h3><p class='warn'>No propagation status "
+                "was found. Nobody has run <span class='m'>chain/propagate.py</span> in this working tree, "
+                "so it is not known whether the SOP, the manual, the register and the reviewer manifest were "
+                "current for this chain.</p>")
+    ok = st.get("pass") is True
+    rows = "".join("<tr><td class='m'>%s</td><td>%s</td><td>%s</td></tr>"
+                   % ("PASS" if r.get("ok") else "FAIL", html.escape(str(r.get("rule"))),
+                      html.escape(str(r.get("detail"))))
+                   for r in st.get("rules", []))
+    return ("<h3>Repository state when this report was built</h3>"
+            "<p>%s <span class='m'>chain/propagate.py</span> last ran <b>%s</b> at commit "
+            "<span class='m'>%s</span>: it regenerated every derived document and checked %d rules that "
+            "cannot be generated because a human wrote them. %s</p>"
+            "<table><tr><th>state</th><th>rule</th><th>detail</th></tr>%s</table>"
+            "<p class='m'>A rule that fails means a document has drifted from the tree - the SOP, the Issue "
+            "003 manual, the commissioning register or the reviewer manifest no longer describes the code "
+            "that produced this reading.</p>"
+            % ("<b class='ok'>Every document was current.</b>" if ok else
+               "<b class='warn'>At least one document had drifted.</b>",
+               html.escape(str(st.get("when") or "?")), html.escape(str(st.get("commit") or "?")),
+               len(st.get("rules", [])),
+               "" if ok else "The failures are listed below.", rows))
 
 
 def tab_run(o, R):
@@ -1949,6 +2043,7 @@ def tab_run(o, R):
     H.append(f"<p class='m'>Repository commit for this page: <code>{_e(R['sha'])}</code>. Every link above resolves at that commit, so a file that has "
        f"changed since will not silently substitute itself.</p>")
     H.append(deepdive(R,"running the chain"))
+    H.append(_propagate_state())   # how we got here, 2026-09-25
     return guard("".join(H),"Run")
 
 

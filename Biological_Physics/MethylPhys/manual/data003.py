@@ -1265,3 +1265,26 @@ REPORT_CHANGES_2026_09_25 = [
   "RUN-YYYYMMDD-NN, assigned at the moment of the run and written into the bundle, the ledger row and the "
   "report. A run is not a test: it makes no claim and passes no bar, so it is neither a VAL nor a PROC."),
 ]
+
+
+# What the plate is compared to, stated where a reader meets it (author's instruction 2026-09-25: "can you
+# please make sure this information is very clear in the SOP/Issue003 and on the report itself on the sky tab").
+REPORT_CHANGES_2026_09_25 += [
+ ("WHAT THE SKY IS COMPARED TO - now the first thing on the Sky tab",
+  "A plate is never compared to a healthy picture; there is no reference image anywhere in the comparison. "
+  "Every pixel is z = (beta - sum_c f_c mu_c - m_lab) / s_lab: this specimen's own methylation at that "
+  "address, minus what ITS OWN composition predicts there (each class's atlas mean weighted by the fraction "
+  "Stage 2 measured in this specimen), minus this laboratory's measured zero, divided by this laboratory's "
+  "measured per-address spread across its own healthy donors. The comparison is therefore to a healthy "
+  "cohort's STATISTICS, and the quantity to read is the fraction of addresses beyond |z| = 2 against the "
+  "healthy range of 2.6 to 3.2 per cent. Red is above the composition expectation, blue below, black not "
+  "assessable. Two plates are comparable only within one laboratory, because m_lab and s_lab are that "
+  "laboratory's own."),
+ ("A register of the cosmology toolkit, with a state per run",
+  "The Safeguards tab carries all 17 methods borrowed from CMB analysis with PASS, FAIL, NOT_RUN, "
+  "NOT_APPLICABLE or NOT_BUILT on this specimen, and a FAIL is also carried to Red flags. Nine are "
+  "NOT_BUILT and listed on purpose - the shelf is part of the record, and ENHANCEMENTS.md ranks them."),
+ ("Every report states whether the documents were current when it was built",
+  "The Run tab prints what chain/propagate.py last reported: whether every derived document was regenerated "
+  "and every rule passed. A reading whose SOP has drifted from the code says so on its own page."),
+]
