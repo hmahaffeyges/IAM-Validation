@@ -529,7 +529,9 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         # existing number. The composition solve pins a trace component at the non-negativity boundary, so a
         # score test with inverse-variance weights answers presence where the point estimate cannot. Its
         # verdict may name a class only at about 5 %; below that it reports epithelial-like material.
-        "trace_detection": _trace_detect(beta_dict, (cfg or {}).get("substrate")),   # RAW betas: the panel was calibrated on the same
+        "trace_detection": _trace_detect(beta_dict, (cfg or {}).get("substrate")),
+        # 2026-09-25: the flags are data, not presentation - so a batch run, a ledger and a program can all
+        # ask "did anything go wrong" without parsing HTML.   # RAW betas: the panel was calibrated on the same
                                                       # input the composition solver receives, and the
                                                       # mapped scale shifts the statistic by ~24 units
                         # row 2b: NILC beside Walther, class-level agreement flag                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them

@@ -16,7 +16,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 
 | component | canonical location | in kit as | status 2026-09-19 |
 |---|---|---|---|
-| IAM Atlas (483,092 CpGs × 8 classes + 115 cells) | REPO `MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` | **not shipped** — `MethylPhys/atlas/IAMAtlasREBUILD.csv` (decompress; sha256 in `DATA_CHECKSUMS.sha256`) | canonical |
+| IAM Atlas (483,092 CpGs × 8 classes + 115 cells) | REPO `MethylPhys/atlas/IAMAtlasREBUILD.csv.xz` | the compressed `.xz` IS in the repository; the 605 MB decompressed `MethylPhys/atlas/IAMAtlasREBUILD.csv` is not, and is produced locally (decompress; sha256 in `DATA_CHECKSUMS.sha256`) | canonical |
 | atlas provenance + build | REPO `MethylPhys/atlas/IAMAtlasREBUILD_provenance.json` | `runtime/` | canonical |
 | cell type → class map (115 → 8) | REPO `MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json` | `runtime/` | canonical |
 | Walther deconvolver (Stage 2) | REPO `MethylPhys/chain/Walther_iam_deconvolver/walther_iam_deconvolver.py` | `MethylPhys/chain/` | canonical; PROC-DECON-01 PASS |
@@ -27,7 +27,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | age reference band (8 classes × 10 decades) | REPO `MethylPhys/chain/` (trial bundle copy identical) [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) | `runtime/` | canonical; compiled as H(β̄)/H_min |
 | tier breakpoints v1.3 | REPO [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) (last commit 66f37fe) | `runtime/` | canonical; two vocabularies remain (RECON T3) |
 | Stage 1 calibrator | REPO `MethylPhys/chain/stage_1_idat_calibration.py` | `MethylPhys/chain/` | canonical; PROC-CAL-01 PASS 11/11 |
-| conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces walther_clinical.py', 2026-07) | **YOUR FOLDER only** — supplied to this session four times as an upload; **NOT in the repo at 66f37fe, NOT in CPG_TRIAL_CODE.zip** → **must be committed to REPO** `MethylPhys/chain/` | `MethylPhys/chain/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
+| conductor (presence-paired scoring, DETECT_FLOOR 0.01; 'replaces walther_clinical.py', 2026-07) | REPO `MethylPhys/chain/cpg_conductor.py` - committed 2026-09; this row said 'YOUR FOLDER only, must be committed' until 2026-09-25, which was true when written and is not now | `MethylPhys/chain/cpg_conductor.py` (289-line version; a 95-line stub also circulates — discard it) | repo is missing the file the chain is defined by (RECON D2 for the 3% second floor) |
 | runtime A-scoring module + canonical test | REPO `MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py) | `MethylPhys/chain/` | separation surface (mean-of-H); guard docstring to be amended per RULING A3 |
 | kit scoring helpers (gauge_A with presence + Jensen guard, separation_A) | **KIT** [`cpg_kit.py`](../kit/cpg_kit.py) | `cpg_kit.py` | new 2026-09-19; **should be promoted into REPO** next to cpg_conductor.py |
 
@@ -50,7 +50,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | HEALPix mapping (NSIDE 128, generator, provenance, .npy) | REPO `VAULT/IAMAtlas_v0_1/healpix_mapping/` | `cpg healpix mapping/` | no | canonical in repo (your zip lacks the .npy) |
 | patient_brightness_comparison.py (Stage 4.6 module) | REPO `VAULT/walther_clinical_runtime/Brightness_Comparison/` | `Mollweide & Brightness Comparison/` | no | canonical in repo |
 | cpg_patient_cmb.py (Stage 4.6, engine version, z-map with assessability mask) | REPO `MethylPhys/chain/cpg_patient_cmb.py` | — | no | canonical; supersedes the vault module for the running chain |
-| brilliance_map.py, patient_brilliance_map_GSM1051533.png | **YOUR FOLDER only** | root of zip | no | **not in repo** — the PNG is a raw-β map, not the Stage-4.6 z-map; decide whether it ships |
+| brilliance_map.py, patient_brilliance_map_GSM1051533.png | REPO `MethylPhys/chain/cpg_conductor.py` - committed 2026-09; this row said 'YOUR FOLDER only, must be committed' until 2026-09-25, which was true when written and is not now | root of zip | no | **not in repo** — the PNG is a raw-β map, not the Stage-4.6 z-map; decide whether it ships |
 
 ## D. Documents
 

@@ -1210,3 +1210,58 @@ BIDIR_PROC = [("question","Does the Stage 4.5 bidirectional detector reproduce i
  ("standing","Row 4.5 COMMISSIONED (a built tool against sealed bars). Detection in a new cohort on the commissioned chain: not yet tested.")]
 FALSIFICATION += [("PROC-BIDIR-01 B5 (2026-09-21)", "sealed AIBL IMM betas match the raw GEO file for 726 samples x 18 CpGs", "PASS, max diff 0.00")]
 ROW9_NOTE = ("ROW 9 - THE REPORT - IN BUILD (working note, unsealed). cpg_report_v3.py renders the author's specification from run_full: cells detected and percentages; A per class on the three-layer reference with placement and tier; A per cell with no band; Stage 5 departure with the laboratory's false-alarm sentence; the sky; flags; scope. A vocabulary guard refuses any forbidden word. 11 cached arrays render; three with a commissioned laboratory read fully (immune A'' 0.977-1.024, IN_BAND, NORMAL), eight print NOT REPORTABLE where their laboratory has no panel. First read caught a percent/fraction unit mismatch in Stage 2 and an unsupported footnote. Sealed when the author has read one.")
+
+
+# ---------------------------------------------------------------------------------------------------
+# Procedures sealed after the first printing of this issue, and the report changes they caused.
+# Added 2026-09-25 because propagate.py found that three sealed procedures had never reached this module:
+# a procedure that changes what the chain reports has to change the manual that documents the report.
+PROC_LOG_2026_09 = [
+ ("PROC-E2E-01", "the commissioned chain reproduces its own test package",
+  "Nine IDAT pairs - five whole blood, two adenoma, two carcinoma - each through run_sample.py. Stage 1 is "
+  "bit-identical to the cached betas on 9 of 9 (max abs diff 0.000e+00 over 415,863 to 757,003 loci). All "
+  "eleven documented class fractions reproduce to 0.0 percentage points. The two specimens whose cohort "
+  "publishes no age quarantine at intake, which is correct. NOT ASSESSABLE and stated as such: the "
+  "documented stem_adult elevation (no commissioned band for that class) and seven of eight documented "
+  "A-scores (the tissue cohorts have no laboratory zero)."),
+ ("PROC-MAHA-03", "the Sentrix-chip term: correcting by one held-out reference makes tails WORSE",
+  "A single held-out reference array contributes its own within-chip error while removing a smaller offset. "
+  "One bar was withdrawn as ill-posed: a held-out additive offset cannot contain the array's own departure, "
+  "so full recovery would be arithmetic rather than evidence. The per-laboratory false-alarm rates stand."),
+ ("PROC-SMALL-01", "trace-class detection in whole blood: the limit is 2 per cent, down from 5",
+  "Bought entirely by weighting each address with the inverse of its atlas posterior variance - evidence the "
+  "atlas has carried since the MCMC and the chain was discarding. The statistic is an added-variable score "
+  "test, because the composition solve is a non-negative fit and pins a trace component at exactly zero: a "
+  "healthy donor sits at t = -16, not at the boundary. Specificity on 60 held-out healthy donors: 1/60 "
+  "secretory, 0/60 cycling. PRESENCE ONLY - no fraction, no A, no tier; 2 per cent detects but 5 per cent "
+  "names; whole blood only, every other substrate reads UNCALIBRATED."),
+]
+
+# What the report itself gained, 2026-09-25, and why. Each of these is a change a reader of a report will
+# see, so the manual that describes the report has to carry them.
+REPORT_CHANGES_2026_09_25 = [
+ ("Stage 2c on the Reading tab",
+  "The trace-detection result is a line on the first tab, not only in the per-cell table. A reader who opens "
+  "one tab sees what Stage 2c found."),
+ ("A Red flags tab",
+  "Every refusal, every withheld number, every uncalibrated component, every intake check that was deferred "
+  "and every guard that tripped, in one place, ordered by severity - STOP, WITHHELD, CAUTION, NOTE - with "
+  "the same list as JSON underneath for a reader that is a program. It exists because a missing dependency "
+  "removed the specimen's own sky plate from every report for weeks and said so only in a grey note in the "
+  "middle of a long tab."),
+ ("The plate is the specimen's, and says so",
+  "matplotlib is a required dependency (chain/requirements.txt). Without it the specimen's own plate cannot "
+  "be drawn and the report fell back to reference illustrations that are identical in every report. The "
+  "specimen's plate is now captioned THIS SPECIMEN and is the only image so captioned; every reference "
+  "figure says it is one; and when no plate can be drawn the Sky tab OPENS with a warning naming the reason."),
+ ("A tier word carries its laboratory",
+  "A placement outside the band is now printed beside the laboratory's own measured false-alarm rate and the "
+  "bound that rate implies. GSM1051533 reads ABOVE_BAND at z = 2.372 on a laboratory whose healthy arrays "
+  "cross the commissioned band 9.8 per cent of the time, which puts its own 95 per cent bound at |z| = 2.32: "
+  "the call survives, barely, and the report says so instead of leaving the reader to find the rate on "
+  "another tab. A reading INSIDE that bound is flagged as not distinguishable from the laboratory's own "
+  "healthy spread."),
+ ("Every run has an identifier",
+  "RUN-YYYYMMDD-NN, assigned at the moment of the run and written into the bundle, the ledger row and the "
+  "report. A run is not a test: it makes no claim and passes no bar, so it is neither a VAL nor a PROC."),
+]

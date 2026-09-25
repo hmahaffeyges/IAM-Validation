@@ -866,6 +866,22 @@ def sec_presence(story):
     for k in ("statement","scope","whole blood","myeloid check","rationale","path back","keep"):
         story.append(Paragraph(f'<b>{k}.</b> {D.PRESENCE_RULE[k]}', sBodySm))
 
+def sec_proc_log(story):
+    """Procedures sealed after the first printing, and what changed in the report because of them."""
+    story.append(PageBreak())
+    story.append(Paragraph('PROCEDURES SEALED AFTER THE FIRST PRINTING', sSect))
+    story.append(Paragraph('What was tested, what it found, and what a reader of a report sees differently', sSub))
+    for pid, title, body in D.PROC_LOG_2026_09:
+        story.append(Paragraph('<b>%s - %s</b>' % (pid, title), sBodySm))
+        story.append(Paragraph(body, sBodySm))
+        story.append(Spacer(1, 4))
+    story.append(Spacer(1, 6))
+    story.append(Paragraph('<b>What the report gained on 2026-09-25</b>', sBodySm))
+    for head, body in D.REPORT_CHANGES_2026_09_25:
+        story.append(Paragraph('<b>%s.</b> %s' % (head, body), sBodySm))
+        story.append(Spacer(1, 3))
+
+
 def sec0b_prior_art(story):
     story.append(PageBreak())
     story.append(Paragraph('PRIOR ART - THE DOOR INTO THE CONVERSATION', sSect))
@@ -937,7 +953,7 @@ def build(out_path):
     doc = SimpleDocTemplate(out_path, pagesize=letter, leftMargin=0.5*inch, rightMargin=0.5*inch, topMargin=0.45*inch, bottomMargin=0.55*inch)
     story = []
     cover(story); toc(story)
-    story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story)
+    story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story); sec_proc_log(story)
     sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
     # Issue 003 renders the cascade and the cards itself, each followed by its addendum; the inherited

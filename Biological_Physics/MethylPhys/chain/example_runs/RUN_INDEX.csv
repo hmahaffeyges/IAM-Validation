@@ -1,5 +1,4 @@
 run_id,specimen,cohort,substrate,platform,run_timestamp_utc,chain_commit,immune_A_abs,immune_placement,trace_secretory,trace_cycling,stage0,report,ledger
-RUN-20260925-01,GSM2333901,GSE87571,whole_blood,HM450K,2026-09-25T18:22:54Z,d7e39b4,0.9771,IN_BAND,False,False,PROCEED,GSM2333901.html,example_runs/evidence_ledger_example.jsonl
-RUN-20260925-02,GSM2333905,GSE87571,whole_blood,HM450K,2026-09-25T18:23:48Z,d7e39b4,0.9951,IN_BAND,False,False,PROCEED,GSM2333905.html,example_runs/evidence_ledger_example.jsonl
-RUN-20260925-03,GSM1051533,GSE42861,whole_blood,HM450K,2026-09-25T18:24:44Z,d7e39b4,1.0485,ABOVE_BAND,False,False,PROCEED,GSM1051533.html,example_runs/evidence_ledger_example.jsonl
-RUN-20260925-04,GSM8772491,,tissue,,2026-09-25T18:25:55Z,d7e39b4,,,,,,GSM8772491.html,example_runs/evidence_ledger_example.jsonl
+RUN-20260925-01,GSM2333901,GSE87571,whole_blood,HM450K,2026-09-25T18:44:54Z,577ef2b,0.9771,IN_BAND,False,False,PROCEED,GSM2333901.html,example_runs/evidence_ledger_example.jsonl
+RUN-20260925-02,GSM1051533,GSE42861,whole_blood,HM450K,2026-09-25T18:45:48Z,577ef2b,1.0485,ABOVE_BAND,False,False,PROCEED,GSM1051533.html,example_runs/evidence_ledger_example.jsonl
+RUN-20260925-03,GSM8772491,,tissue,,2026-09-25T18:46:59Z,577ef2b,,,,,,GSM8772491.html,example_runs/evidence_ledger_example.jsonl

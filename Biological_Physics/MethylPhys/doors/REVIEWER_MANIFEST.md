@@ -5,6 +5,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 ## The instrument a reviewer would run
 
 - [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) — one sample end to end: the intake steps, calibration, the eleven conductor stages, the report
+- [`walther_clinical.py`](../chain/walther_clinical.py) — the batch path: its own stage functions, used for a cohort rather than a single specimen
 - [`cpg_conductor.py`](../chain/cpg_conductor.py) — the orchestrator - every stage in call order
 - [`stage_0_intake.py`](../chain/stage_0_intake.py) — the intake steps (SOP 11-19) and the decision that stops the chain
 - [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py) — decodes the control probes, negative controls, bead counts and chrX/chrY the intake QC steps read
@@ -122,7 +123,7 @@ A reviewer should learn this from the page, not by hunting.
 |---|---|
 | Raw MCMC posterior chains | they do not exist: the samplers hold their samples in memory and print summaries, so no run wrote an .h5 or .npy. What exists instead is a re-run that returns every floor inside its own posterior SD (10.5281/zenodo.22905819) |
 | Controlled-access cohort data | named as requirements, not held: the fragmentomics cohorts are controlled access and the chain's predictions for them are filed against data nobody here has |
-| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside Issue 003 |
+| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) |
 | Per-cell reporting below class level | withheld by the instrument. Per-entry resolvability is published so a reader sees which entries are affected and why |
 | The bisulfite threshold | not set: every healthy array in the reference cohort sits below the SOP's 0.95, so the gate reports its measured value and does not refuse on it until the threshold is calibrated (PROC-STAGE0-04) |
 

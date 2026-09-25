@@ -29,6 +29,8 @@ OUT = os.path.join(ROOT, B, "doors/REVIEWER_MANIFEST.md")
 GROUPS = [
  ("The instrument a reviewer would run", [
   ("run_sample.py", "one sample end to end: the intake steps, calibration, the eleven conductor stages, the report"),
+   ("walther_clinical.py", "the batch path: its own stage functions, used for a cohort "
+    "rather than a single specimen"),
   ("cpg_conductor.py", "the orchestrator - every stage in call order"),
   ("stage_0_intake.py", "the intake steps (SOP 11-19) and the decision that stops the chain"),
   ("stage_0_1_qc_handoff.py", "decodes the control probes, negative controls, bead counts and chrX/chrY the intake QC steps read"),
