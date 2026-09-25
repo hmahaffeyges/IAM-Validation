@@ -9,7 +9,7 @@ Sentrix barcode - so GSE42861 Karolinska, which the pre-registration excluded fo
 import json, glob, lzma, pickle, re, os, math, random, collections
 import numpy as np
 
-CH = "iamrepo/Biological_Physics/MethylPhys/chain"
+CH = "Biological_Physics/MethylPhys/chain"
 ident = json.load(open(glob.glob(CH + "/**/iamatlas_gauge_identity_loci_v1_0.json", recursive=True)[0]))["immune"]
 LOCI = set(ident["loci"]); HMIN = float(ident["H_min"])
 band = json.load(open(glob.glob(CH + "/**/identity_band_v3.json", recursive=True)[0]))

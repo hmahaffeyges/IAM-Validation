@@ -44,7 +44,7 @@ Read in this order: this file → `RUNBOOK.md` (how to run the tests) → `COMPO
 | `issue003_build/IAMPerformance_GAPEIssue003_RC1.pdf` | written | **Issue 003 draft, 263 pages** |
 | `issue003_build/build_gape_issue003.py`, `data003.py`, `gape002_lib.py`, `val_index.json`, `fig_four_skies.*` | written | regenerates the PDF: `CPG_TRIAL=../runtime python build_gape_issue003.py out.pdf` |
 | `issue003_build/FullVersion_build_gape_issue002.py` | your upload | the Issue 002 script the 003 build reuses verbatim |
-| `figures/fig_four_skies.png/.pdf` | written | Fig 5A-1: Planck CMB / atlas immune posterior mean / posterior sd / patient z — made with your `cpg_patient_cmb.py` |
+| `figures/../plates/CPG_Plate_05_Four_Skies_Issue003.png/.pdf` | written | Fig 5A-1: Planck CMB / atlas immune posterior mean / posterior sd / patient z — made with your `cpg_patient_cmb.py` |
 | `figures/fig1_predictions`, `fig3_cosmology`, `fig4_ascore` | written | figures of `IAM_for_physicists` |
 | `figures/cfdna_substrate`, `cpg_new_001_results` | written | plasma substrate result; the CPG-NEW-001 test (recorded as a domain violation — see docs) |
 | `docs/IAM_for_physicists.md` / `.tex` | written | the physicist-facing reference (Overleaf-ready) |

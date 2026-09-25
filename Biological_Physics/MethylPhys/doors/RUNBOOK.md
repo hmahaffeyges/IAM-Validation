@@ -1,4 +1,4 @@
-# CPG / GAPE [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) — Reproduction Kit
+# CPG / GAPE [[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) — Reproduction Kit
 
 **See also [`COMPONENT_MAP.md`](COMPONENT_MAP.md)** — what lives in the repo, what lives in the kit, what lives only in the author's folder, and the repo commits this kit implies.
 
@@ -113,7 +113,7 @@ Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mec
 
 ```
 cd issue003_build
-CPG_TRIAL=../runtime python build_gape_issue003.py IAMPerformance_GAPEIssue003_RC1.pdf
+CPG_TRIAL=../runtime python build_gape_issue003.py MethylPhys_CPG_Operations_Manual.pdf
 ```
 [`data003.py`](../manual/data003.py) holds every number printed in the document; change a value there and rebuild. [`gape002_lib.py`](../manual/gape002_lib.py) is the Issue 002
 script with its `build()` cut into page functions — every 002 primitive, card and section reused verbatim.
@@ -289,3 +289,21 @@ chain commit (and whether the working tree was clean), the decoder version, and 
 inputs the chain read - atlas, identity loci, band, scale maps, age curve, tier table, and the chain modules
 themselves. Two readings are comparable only if those hashes match, and a reader can now check that without
 opening a bundle.
+
+## The gates and generators you will actually run
+
+Nothing here is part of a reading. These are the programs that check the chain and keep every derived document true, and the first two are the ones to run before any push.
+
+| run this | what it does |
+|---|---|
+| [`guarded_push.sh`](../chain/guarded_push.sh) | the only sanctioned push - runs propagate.py without a pipe and refuses to commit or push if it fails |
+| [`propagate.py`](../chain/propagate.py) | the gate: regenerates every derived document, then checks the rules a human wrote; exits non-zero on drift |
+| [`link_check.py`](../kit/link_check.py) | every relative path in the live documentation set must resolve - a path in a document is a claim |
+| [`evaluate_necessity.py`](../kit/evaluate_necessity.py) | answers whether a file is necessary, from the tree: runs, imported, named in code, named in a document, or a generator |
+| [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) | generates the tab-by-tab report reference and one figure per tab by reading a finished report |
+| [`build_run_index.py`](../chain/build_run_index.py) | regenerates the run index from every evidence ledger in the tree |
+| [`build_reviewer_manifest.py`](../kit/build_reviewer_manifest.py) | regenerates the reviewer download list, resolving every path by basename from the tree |
+| [`build_chain_sequence.py`](../chain/build_chain_sequence.py) | derives the step order from the code by AST, so a document cannot claim a stage the code does not call |
+| [`add_doc_links.py`](../kit/add_doc_links.py) | links code names in prose to the files they name, idempotently |
+
+The report prints the gate's verdict on its own Run tab, so a reading whose documents had drifted says so on the page.

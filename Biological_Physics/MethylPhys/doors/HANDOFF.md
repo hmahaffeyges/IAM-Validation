@@ -1,14 +1,14 @@
 # HANDOFF — the physics of methylation, for whoever picks this up
 
-**What this field is called (2026-09-20): Physics of Methylation: Landauer Metrology** — measuring how far above the thermal noise quantum an information-writing process operates, against a fixed physical zero (H_min per cell class). Thermal noise is the unit (M = E_drive / k_B T), not the nuisance. Prior art: Sanchez & Mackenzie 2016 established that the methylome obeys Landauer's bound; Landauer metrology measures how far above it each cell class operates ([[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) §0b).
+**What this field is called (2026-09-20): Physics of Methylation: Landauer Metrology** — measuring how far above the thermal noise quantum an information-writing process operates, against a fixed physical zero (H_min per cell class). Thermal noise is the unit (M = E_drive / k_B T), not the nuisance. Prior art: Sanchez & Mackenzie 2016 established that the methylome obeys Landauer's bound; Landauer metrology measures how far above it each cell class operates ([[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) §0b).
 
 
 **Written 2026-09-19 at commit `46f9b77`.** This file is for a researcher arriving cold. It says where to start, what is sealed, what is open, and what not to do. It does not repeat the science; it points at where the science is.
 
 ## Start here, in this order
-1. `MethylPhys/manual/IAMPerformance_GAPEIssue003_RC1.pdf` — **page 4 first** ("What this document claims, and what it does not"). Then §1.6 (what the cosmology tools found that cohorts could not) and §1.7 (the reporting rule). Everything else in the 280+ pages is reference.
+1. `MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf` — **page 4 first** ("What this document claims, and what it does not"). Then §1.6 (what the cosmology tools found that cohorts could not) and §1.7 (the reporting rule). Everything else in the 280+ pages is reference.
 2. `MethylPhys/doors/RUNBOOK.md` → [`RUNBOOK.md`](RUNBOOK.md). Run [`PROC_DECON_01.py`](../kit/PROC_DECON_01.py) first. If it passes on your machine, the atlas and deconvolver are working; if it does not, stop and open an issue — nothing downstream is meaningful.
-3. `MethylPhys/sop/CPG_Chain_of_Custody_SOP_v2_0_0.md` — read the **SUPERSESSION LEDGER** before any stage section; stale sections are marked, not deleted.
+3. `MethylPhys/sop/MethylPhys_CPG_SOP.md` — read the **SUPERSESSION LEDGER** before any stage section; stale sections are marked, not deleted.
 4. `Record/VAL_INDEX.csv` — every validation ever run, with its path and stated verdict where one exists. Verdicts are *recorded*, not re-verified.
 
 ## What is sealed (reproduces from raw public data, on a machine that had never seen the project)

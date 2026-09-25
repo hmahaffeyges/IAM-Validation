@@ -1,5 +1,5 @@
 import os
-"""data003.py — every number Issue 003 prints, loaded from the runtime files or from
+"""data003.py — every number Edition 003 prints, loaded from the runtime files or from
 a dated, sourced run. Nothing here is typed from memory. Each block names its source.
 
 Runtime files: CPG_TRIAL_CODE.zip (user-supplied 2026-09-19) == repo HEAD 66f37fe for every
@@ -261,7 +261,7 @@ MIX_T8_R = (+0.725, 0.166)
 # ENGINE MAP — every stage of the running chain (flowchart_vKISS + CHANGELOG + file docstrings at HEAD)
 # and whether THIS ISSUE covers it. Written so the reader can see what is not here.
 # ═══════════════════════════════════════════════════════════════════════════════
-ENGINE_MAP = [  # stage, files, status at HEAD, what it does (from source), covered in Issue 003?
+ENGINE_MAP = [  # stage, files, status at HEAD, what it does (from source), covered in Edition 003?
  ("Stage 0 — Intake", "stage_0_intake.py, cpg_intake_form.html, questionnaire.json", "BUILT", "patient folder, questionnaire, substrate declaration", "NO"),
  ("Stage 1 — Calibration", "stage_1_idat_calibration.py, stage_1_calibration.py, idat_parse.py, idat_decoder_pure.py", "BUILT", "raw IDAT pair -> noob-normalised beta (methylprep 1.7.1; pure-python IDAT decoder shipped)", "PROC-CAL-01 written, NOT RUN"),
  ("Stage 2 — Deconvolution", "Walther_iam_deconvolver/walther_iam_deconvolver.py, MethylPhys/atlas/*", "BUILT (NILC reinstated 2026-09-22 as the class-level second opinion)", "NNLS class + cell fractions; composition/presence; gates no call", "YES — §2.4, §3.2, PROC-DECON-01, PROC-PLASMA-MIX-01"),
@@ -532,8 +532,8 @@ RECON += [
   "IAM_Hubble2GAPE (l.2192): M = E_drive/(k_B T_local ln2); 'for chemical systems M ~ 30'. The Cellular Margin (~21) and the 002 glossary (20.94) omit the ln2. SCAPE's 117x and the transmon's exact M = 1 both carry the ln2.",
   "RECOMMENDED: M carries the ln2 everywhere (cell M = 30.21) so the three applications share one denominator and the transmon identity survives; n_bio = 20.94 keeps its own name, 'metabolic sensitivity parameter', exactly as the glossary calls it. Author to confirm. H_min is a different quantity in either case: the per-class floor in bits, 8 (40 with substrates); M is one energy ratio for the cell.", "002 glossary p251; H2G l.2192-2215; Cellular Margin l.14-28"),
 ]
-GLOSSARY_NOTE_MAHAFFEY = ("[Issue 003 note, RECON M2] The entry above is Issue 002's and defines the name as n_bio = dG_ATP/(RT) = 20.94. IAM_Hubble2GAPE defines M = E_drive/(k_B T ln2), which gives 30.21 for the cell and is the form under which SCAPE reads 117x and the Al transmon reads exactly 1. "
-  "Issue 003 s5A.1 uses the ln2 form. Neither is H_min: H_min is the per-class floor in bits; M is the cell's energy budget in units of one Landauer bit. Author to confirm which name attaches to which number.")
+GLOSSARY_NOTE_MAHAFFEY = ("[Edition 003 note, RECON M2] The entry above is Issue 002's and defines the name as n_bio = dG_ATP/(RT) = 20.94. IAM_Hubble2GAPE defines M = E_drive/(k_B T ln2), which gives 30.21 for the cell and is the form under which SCAPE reads 117x and the Al transmon reads exactly 1. "
+  "Edition 003 s5A.1 uses the ln2 form. Neither is H_min: H_min is the per-class floor in bits; M is the cell's energy budget in units of one Landauer bit. Author to confirm which name attaches to which number.")
 
 # AUTHOR RULING 2026-09-19 on the Mahaffey number (supersedes RECON M2 recommendation above)
 MAHAFFEY = {
@@ -546,10 +546,10 @@ MAHAFFEY = {
 RECON = [r if r[0]!="M2" else ("M2", "'Mahaffey number' - definition and value", "glossary: 'n_bio = dG_ATP/(RT) = 20.94'",
   "author 2026-09-19: M = 20.94, one fixed number, no ln2; n_bio is an early QAPE-era form, no longer used; H_min is a separate per-class quantity",
   "RULED BY AUTHOR. Open: Hubble2GAPE l.2192 ln2 form (~30) to be reconciled.", "author statement; 002 glossary p251; H2G l.2192, l.3504") for r in RECON]
-GLOSSARY_NOTE_MAHAFFEY = ("[Issue 003 note, RECON M2] The entry above is Issue 002's and is superseded. The Mahaffey number of the cell is 20.94 (author, 2026-09-19), defined as the ATP ordering budget per event over k_B T at body temperature; "
+GLOSSARY_NOTE_MAHAFFEY = ("[Edition 003 note, RECON M2] The entry above is Issue 002's and is superseded. The Mahaffey number of the cell is 20.94 (author, 2026-09-19), defined as the ATP ordering budget per event over k_B T at body temperature; "
   "n_bio was an early QAPE-era form of the ratio and is no longer used. H_min is not the Mahaffey number: H_min is the per-class entropy floor in bits, forty values across eight classes and five substrates.")
 _GL_TAIL=("")
-FALSIFICATION += [("Issue 003 draft v3-v8 s5A.1 claim", "'M_cell = n_bio/ln2 = 30.21; Al transmon M = 1 exactly; one statistic across three substrates' - computed with a ln2 denominator the author does not use; withdrawn", "WITHDRAWN")]
+FALSIFICATION += [("Edition 003 draft v3-v8 s5A.1 claim", "'M_cell = n_bio/ln2 = 30.21; Al transmon M = 1 exactly; one statistic across three substrates' - computed with a ln2 denominator the author does not use; withdrawn", "WITHDRAWN")]
 
 # APPENDIX V — VAL index built mechanically from the repository at 66f37fe (2026-09-19)
 _vi=os.path.join(os.path.dirname(os.path.abspath(__file__)),"val_index.json")
@@ -701,7 +701,7 @@ FUTURE_GOALS = [
  ("after the anchor", "Per-card likelihood, marginalised, with MCMC posteriors", "map rows 28, 37; sprint E2/E3",
   "Replace threshold-plus-band scoring with a proper posterior over per-card parameters, nuisance-marginalised. emcee is already in the toolchain from the Atlas build. This is what a Planck reader will expect L7 to be.", "1–2 sessions; everything above"),
  ("after the anchor", "Formal blinding for confirmation VALs", "map row 78", "Apply the pipeline before case labels are seen; unblind only after the seal. PREREG already does half of this; the other half is a procedural rule and a script flag.", "a checklist change"),
- ("substrates", "Urine, CSF, and the within-patient tissue/plasma/urine trio", "Issue 003 §7",
+ ("substrates", "Urine, CSF, and the within-patient tissue/plasma/urine trio", "Edition 003 §7",
   "Cohorts already located and partly downloaded (GSE119260 four men × three substrates; GSE292312 and GSE269403 CSF). Each is one experiment with a declared prediction: the class present in the shed tissue should appear in its fluid and be absent from the same patient's blood.", "data in hand; PREREG each"),
  ("not now", "Bispectrum / trispectrum; Minkowski functionals; isotropy and alignment tests; spectral distortions", "map rows 45, 53–60, 69",
   "Real analogs, genuinely novel, and every one of them needs a trusted two-point function first. Listed so they are not forgotten; not scheduled.", "after C(d)"),
@@ -1101,7 +1101,7 @@ SCOPE["what_it_reports"] = ("In the author's words (2026-09-21): CPG reports whe
  "the room: one patient against the class band and the laboratory zero. Today one axis (immune, whole blood) carries a band; per-class bands and the absolute breast and CRC "
  "readings (paper two) are the gates, in order.")
 
-DETECTION_RULE = ("RULE (author, 2026-09-21). Issue 003 describes what the chain IS and what has been MEASURED through it. A statement about what the "
+DETECTION_RULE = ("RULE (author, 2026-09-21). Edition 003 describes what the chain IS and what has been MEASURED through it. A statement about what the "
  "commissioned chain can or cannot detect is made only from a sealed procedure that ran the chain on that question. Until then the language is "
  "'not yet tested', never 'cannot'. Recording a measured DEFECT (e.g. the retired sky formula reading 61% of a healthy genome as anomalous, PROC-CMB-01 C1) is a "
  "measurement and stays. Retired the same day by this rule: 'only breast has a pre-diagnostic window' (the record holds VAL-046 2-5 yr multi-cancer, VAL-032 2 yr fragment size, VAL-083 CLL queued); "
@@ -1140,7 +1140,7 @@ REPORT_SPEC = ("WHAT THE REPORT SAYS (author, 2026-09-21). Cells detected and th
  "with band placement and tier; the Stage 5 departure with the laboratory's false-alarm rate; the patient's sky; every flag, logged. It names no disease and gives no age in years. "
  "The disease matrix and its cards, compiled from the preliminary record, are record-side: cohort cellular behaviour is logged as trusted-chain cohorts accumulate. Our job is not to say 'the pattern in this patient's immune cells looks like colon cancer'.")
 
-# ═══ ISSUE 003 PHYSICS (written 2026-09-21 from Paper 1, Landauer_Metrology_of_the_Methylome.tex; supersedes 002 s2.1 and s2.1a) ═══
+# ═══ EDITION 003 PHYSICS (written 2026-09-21 from Paper 1, Landauer_Metrology_of_the_Methylome.tex; supersedes 002 s2.1 and s2.1a) ═══
 _kB=1.380649e-23; _T=310.15; _R=8.314462618
 PHYSICS = {
  "E_landauer_J": _kB*_T*math.log(2),          # 2.968e-21 J per bit at 310.15 K

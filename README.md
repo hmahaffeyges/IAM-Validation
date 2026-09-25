@@ -226,7 +226,7 @@ The Landauer cost of irreversible DNA methylation maintenance at physiological t
 
 | Result | Value |
 |--------|-------|
-| Class floors H_min (8 classes × 5 substrates) | MCMC-confirmed; table published in GAPE [Issue 003](Biological_Physics/MethylPhys/manual/IAMPerformance_GAPEIssue003_RC1.pdf) |
+| Class floors H_min (8 classes × 5 substrates) | MCMC-confirmed; table published in GAPE [Issue 003](Biological_Physics/MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf) |
 | Cancer types confirmed (direction) | 27/28 TCGA types, n = 4,304 matched pairs |
 | Zero free parameters | No cancer data used in calibration |
 | DunedinPACE biological aging fit | t_max = 120.3 ± 7.1 yr (MCMC) |

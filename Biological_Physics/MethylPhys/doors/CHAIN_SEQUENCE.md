@@ -40,6 +40,7 @@ that presents them as a step the chain performs is wrong until they are wired.
 
 | file | status |
 |---|---|
+| [`stage_2c_trace_detection.py`](../chain/stage_2c_trace_detection.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`idat_decoder_pure.py`](../chain/idat_decoder_pure.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`idat_parse.py`](../chain/idat_parse.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`lineage_splitter.py`](../chain/Lineage_Splitter/lineage_splitter.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |

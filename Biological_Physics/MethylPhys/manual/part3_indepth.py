@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Part III of Issue 003 - the commissioned chain, the atlas and the cosmology toolkit, in depth.
+"""Part III of Edition 003 - the commissioned chain, the atlas and the cosmology toolkit, in depth.
 
 Written 2026-09-22 on the author's instruction: *"everything in the interface we just added should be in this with
 the full chain and and stage detailed in depth. This is the place to do it. The interface is the shorter condensed
@@ -678,9 +678,9 @@ def render_run(story, L, tbl, SP, PageBreak, Paragraph):
         "back empty; the procedure is in the runbook.", L.sBodySm))
 
 
-# ── the closing page (Issue 003) ─────────────────────────────────────────────────────────────────────────────────
+# ── the closing page (Edition 003) ─────────────────────────────────────────────────────────────────────────────────
 def render_closing(story, L, SP, PageBreak, Paragraph):
-    """Issue 003's closing, to the author's instruction of 2026-09-22: not about him, and not a cancer paper."""
+    """Edition 003's closing, to the author's instruction of 2026-09-22: not about him, and not a cancer paper."""
     story.append(PageBreak())
     story.append(Paragraph("IN CLOSING", L.sSect))
     story.append(Paragraph("What we hope this is for", L.sSub))

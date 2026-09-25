@@ -30,10 +30,10 @@ import pandas as pd
 # PATHS — confirmed
 # ============================================================================
 
-DOWN = Path("/Users/hmahaffeyges/Downloads/4-21-26")
+DOWN = Path("~/Downloads/4-21-26")
 CSV_57 = DOWN / "VAL047_samples_GSE51057.csv"
 CSV_32 = DOWN / "VAL047_samples_GSE51032.csv"
-HEALTHY_BASELINES_PATH = Path("/Users/hmahaffeyges/Downloads/GAPE Work 4-17-26/Evidece 4-18-26/HEALTHY_BASELINES.json")
+HEALTHY_BASELINES_PATH = Path("~/Downloads/GAPE Work 4-17-26/Evidece 4-18-26/HEALTHY_BASELINES.json")
 
 OUT_57 = DOWN / "VAL047_samples_GSE51057_fixed.csv"
 OUT_32 = DOWN / "VAL047_samples_GSE51032_fixed.csv"

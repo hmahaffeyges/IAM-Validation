@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """claim_scan.py - the claims in claims.json, checked against the RENDERED document.
 
-    python3 claim_scan.py ../manual/IAMPerformance_GAPEIssue003_RC1.pdf
+    python3 claim_scan.py ../manual/MethylPhys_CPG_Operations_Manual.pdf
 
 Exit 0 when no forbidden claim is asserted and every required passage is present; exit 1 otherwise, naming the
 page and the sentence. Written 2026-09-22 after three defects were found this way and none by grepping the source.

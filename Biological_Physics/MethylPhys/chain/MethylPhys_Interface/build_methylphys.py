@@ -138,7 +138,7 @@ def guard(section_html, tab):
 
 def deepdive(R, topic=""):
     """The manual and the paper, linked wherever a reader may want to go further (author: they can deep dive all they want from the link)."""
-    pdf="Biological_Physics/MethylPhys/manual/IAMPerformance_GAPEIssue003_RC1.pdf"
+    pdf="Biological_Physics/MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf"
     tex="Biological_Physics/MethylPhys/papers/Landauer_Metrology_of_the_Methylome.tex"
     t=f" on {topic}" if topic else ""
     return (f"<div class='dd'><b>Go deeper{t}.</b> Everything on this tab is treated at full length in the engineering manual - <a href='{GH}/blob/{R['sha']}/{pdf}' target='_blank'>GAPE Issue 003</a> "
@@ -1281,9 +1281,9 @@ def tab_troubleshooting(o, R):
     instruction that this belongs in the report, the SOP and the manual rather than in a document beside them.
     """
     SOP = ("https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/sop/"
-           "CPG_Chain_of_Custody_SOP_v2_0_0.md")
+           "MethylPhys_CPG_SOP.md")
     MAN = ("https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/manual/"
-           "IAMPerformance_GAPEIssue003_RC1.pdf")
+           "MethylPhys_CPG_Operations_Manual.pdf")
     OUT = ("https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/doors/"
            "PROC_STAGE0_02_OUTCOME.md")
     H = ["<h2>Troubleshooting - what each refusal means, and what to do</h2>",

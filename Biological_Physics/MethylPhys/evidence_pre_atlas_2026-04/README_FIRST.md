@@ -5,7 +5,7 @@
 full, unedited, because the validation history should be inspectable by anyone checking this work — and because
 the record is the authority when the record and a later document disagree.
 
-**What it is not.** It is **not** evidence produced by the chain commissioned in [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf), and none of its
+**What it is not.** It is **not** evidence produced by the chain commissioned in [[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf), and none of its
 numbers have been re-derived on the identity gauge. Four things a reader must know before quoting anything here:
 
 1. **Different surface.** These A-scores were computed on the marker-union surface. The commissioned chain reads

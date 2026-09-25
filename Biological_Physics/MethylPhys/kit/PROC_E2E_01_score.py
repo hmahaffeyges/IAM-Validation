@@ -6,7 +6,7 @@ import pickle
 import re
 import sys
 
-CHAIN = "iamrepo/Biological_Physics/MethylPhys/chain"
+CHAIN = "Biological_Physics/MethylPhys/chain"
 runs = json.load(open("handoff/e2e_runs.json"))
 meta = json.load(open("handoff/test11_meta.json"))
 

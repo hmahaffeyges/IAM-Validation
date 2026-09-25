@@ -7,12 +7,12 @@ below the presence floor, which the report masks. A distribution measurement, no
 the answer decides whether a healthy band is possible for the small classes at all.
 """
 import gzip, json, os, re, glob, sys, time, warnings; warnings.filterwarnings("ignore")
-sys.path.insert(0, "stage1"); sys.path.insert(0, "iamrepo/Biological_Physics/MethylPhys/chain")
+sys.path.insert(0, "stage1"); sys.path.insert(0, "Biological_Physics/MethylPhys/chain")
 from stage_1_idat_calibration import calibrate_idat_to_beta
 import cpg_conductor as C
 
-ATLAS = os.path.abspath("iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
-CMAP = json.load(open("iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"))
+ATLAS = os.path.abspath("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
+CMAP = json.load(open("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"))
 
 ages = {}
 with gzip.open("geo/GSE87571_series_matrix.txt.gz", "rt", errors="replace") as f:

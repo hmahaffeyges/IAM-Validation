@@ -13,7 +13,7 @@ import numpy as np, pandas as pd
 from scipy import stats
 
 RUNTIME = Path("/home/claude/IAM-Validation/Biological_Physics/atlas_vault/walther_clinical_runtime")
-ATLAS_CSV = "/home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv"
+ATLAS_CSV = "Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv"
 HC_REF = RUNTIME / "Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v0_1.json"
 MARKERS = RUNTIME / "Celltype_Marker/iamatlas_celltype_markers_v0_2.json"
 AGE_REF = RUNTIME / "Age_Reference_Matrix_80_cells/age_reference_matrix.json"

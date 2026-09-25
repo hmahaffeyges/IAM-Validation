@@ -34,10 +34,10 @@ import pandas as pd
 # CONFIG — paths confirmed via find on 2026-04-21
 # ============================================================================
 
-GSE51032_MATRIX = Path("/Users/hmahaffeyges/IAMPerformance/GSE51032_replication/GSE51032_series_matrix.txt.gz")
-GSE51057_MATRIX = Path("/Users/hmahaffeyges/IAMPerformance/VAL047 Testing Suite (10 Year detection)/GSE51057_series_matrix.txt.gz")
-HEALTHY_BASELINES_PATH = Path("/Users/hmahaffeyges/Downloads/GAPE Work 4-17-26/Evidece 4-18-26/HEALTHY_BASELINES.json")
-KRESOVICH_PANEL_PATH   = Path("/Users/hmahaffeyges/IAMPerformance/VAL047 Testing Suite (10 Year detection)/kresovich_100_cpgs.json")
+GSE51032_MATRIX = Path("~/IAMPerformance/GSE51032_replication/GSE51032_series_matrix.txt.gz")
+GSE51057_MATRIX = Path("~/IAMPerformance/VAL047 Testing Suite (10 Year detection)/GSE51057_series_matrix.txt.gz")
+HEALTHY_BASELINES_PATH = Path("~/Downloads/GAPE Work 4-17-26/Evidece 4-18-26/HEALTHY_BASELINES.json")
+KRESOVICH_PANEL_PATH   = Path("~/IAMPerformance/VAL047 Testing Suite (10 Year detection)/kresovich_100_cpgs.json")
 
 OUT_DIR = Path.home() / "Downloads"
 OUT_DIR.mkdir(parents=True, exist_ok=True)

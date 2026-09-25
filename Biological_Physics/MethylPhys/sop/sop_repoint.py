@@ -20,7 +20,7 @@ Run it after any file move; it is idempotent.
 import os, re, json, sys, hashlib, time
 
 HERE=os.path.dirname(os.path.abspath(__file__)); PM=os.path.dirname(HERE); BIO=os.path.dirname(PM)
-SOP=os.path.join(HERE,"CPG_Chain_of_Custody_SOP_v2_0_0.md")
+SOP=os.path.join(HERE,"MethylPhys_CPG_SOP.md")
 INV=os.path.join(BIO,"MethylPhys/chain","Runtime Matrices","chain_inventory_v1.json")
 
 # name -> (kind, replacement_or_None, note)
@@ -109,7 +109,7 @@ HEADER_FIXES = [
     # The title pinned an engine commit (66f37fe, July). A procedure that names a commit is stale the moment the
     # engine moves; the same defect was removed from the manual's page one. State the version, point at git.
     (re.compile(r"^# CPG Chain-of-Custody Standard Operating Procedure \\(SOP\\) — v2\\.0\\.0[^\\n]*$", re.M),
-     "# CPG Chain-of-Custody Standard Operating Procedure (SOP) — v2.0.0"),
+     "# MethylPhys CPG SOP\n\n## Standard Operating Procedure: Cellular Performance Gauge Chain of Custody"),
     (re.compile(r"^\\*\\*Document version:\\*\\* v2\\.0\\.0[^\\n]*$", re.M),
      "**Document version:** v2.0.0, matched to the engine in this repository at the commit this file was last "
      "regenerated from (see `git log -1 -- Biological_Physics/MethylPhys/chain`). Earlier versions are in git "

@@ -46,7 +46,10 @@ GENERATORS = {"propagate.py", "build_chain_sequence.py", "build_reviewer_manifes
 # Files whose whole purpose is to be a record of something that happened. Nothing links to a sealed outcome's
 # raw evidence, and nothing should have to.
 RECORD_DIRS = ("evidence_pre_atlas", "hmin_calibration", "kit/results", "example_runs", "Record/",
-               "author_copies", "reference_data")
+               "author_copies", "reference_data",
+               # The commissioning arrays are named by GSM accession in prose and on the
+               # command line, never by filename, so a name scan cannot see their readers.
+               "TEST_DATA")
 
 
 def main(argv):

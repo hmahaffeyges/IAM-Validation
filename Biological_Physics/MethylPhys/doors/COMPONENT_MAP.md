@@ -5,7 +5,7 @@ Three places, three jobs. Nothing should exist in two of them without this file 
 | place | job | rule |
 |---|---|---|
 | **REPO** `github.com/hmahaffeyges/IAM-Validation` | canonical engine, atlas, runtime constants, sealed anchors, lessons | the only place code is edited; one commit per change; the kit records the commit hash it was cut from |
-| **KIT** `the chain bundle, generated on demand by kit/build_chain_bundle.py` | frozen snapshot of exactly what [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
+| **KIT** `the chain bundle, generated on demand by kit/build_chain_bundle.py` | frozen snapshot of exactly what [[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) used + the PROC scripts + the runbook | regenerated from the repo at a named commit; never hand-edited; if it disagrees with the repo, the repo wins and the kit is re-cut |
 | **YOUR FOLDER** (local, not in git) | large inputs and private material | test IDATs, `betas_cache.pkl`, GEO matrices, decompressed atlas CSV, `_gape_constants_private.py`, Recipe, patents, correspondence |
 
 Kit path prefixes below are relative to the kit root. Repo paths are relative to the repo root; `MethylPhys/chain/` = `Biological_Physics/MethylPhys/chain/`, `VAULT/` = `Biological_Physics/RETIRED_2026-09/PostBuild_atlas_vault_snapshot_2026-06/`.
@@ -96,3 +96,21 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 ---
 
 **BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (`Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json`). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: `Record/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md`; Issue 003 RECON S1, §1.6.
+
+## The gates and generators
+
+Nothing here is part of a reading. These are the programs that check the chain and keep every derived document true, and the first two are the ones to run before any push.
+
+| run this | what it does |
+|---|---|
+| [`guarded_push.sh`](../chain/guarded_push.sh) | the only sanctioned push - runs propagate.py without a pipe and refuses to commit or push if it fails |
+| [`propagate.py`](../chain/propagate.py) | the gate: regenerates every derived document, then checks the rules a human wrote; exits non-zero on drift |
+| [`link_check.py`](../kit/link_check.py) | every relative path in the live documentation set must resolve - a path in a document is a claim |
+| [`evaluate_necessity.py`](../kit/evaluate_necessity.py) | answers whether a file is necessary, from the tree: runs, imported, named in code, named in a document, or a generator |
+| [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) | generates the tab-by-tab report reference and one figure per tab by reading a finished report |
+| [`build_run_index.py`](../chain/build_run_index.py) | regenerates the run index from every evidence ledger in the tree |
+| [`build_reviewer_manifest.py`](../kit/build_reviewer_manifest.py) | regenerates the reviewer download list, resolving every path by basename from the tree |
+| [`build_chain_sequence.py`](../chain/build_chain_sequence.py) | derives the step order from the code by AST, so a document cannot claim a stage the code does not call |
+| [`add_doc_links.py`](../kit/add_doc_links.py) | links code names in prose to the files they name, idempotently |
+
+The report prints the gate's verdict on its own Run tab, so a reading whose documents had drifted says so on the page.

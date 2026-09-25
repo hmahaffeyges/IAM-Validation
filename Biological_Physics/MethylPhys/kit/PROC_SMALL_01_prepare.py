@@ -19,7 +19,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 sys.path.insert(0, "stage1")
-CH = "iamrepo/Biological_Physics/MethylPhys/chain"
+CH = "Biological_Physics/MethylPhys/chain"
 sys.path.insert(0, CH)
 sys.path.insert(0, f"{CH}/Walther_iam_deconvolver")
 
@@ -28,8 +28,8 @@ import pandas as pd
 from stage_1_idat_calibration import calibrate_idat_to_beta
 import walther_iam_deconvolver as WD
 
-ATLAS = os.path.abspath("iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
-CMAP = "iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"
+ATLAS = os.path.abspath("Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv")
+CMAP = "Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"
 HOSTS = {"GSM2333901": 72.0, "GSM2333905": 74.0, "GSM1051533": 55.0}
 IDAT_TEST = f"{CH}/TEST_DATA/idats"
 

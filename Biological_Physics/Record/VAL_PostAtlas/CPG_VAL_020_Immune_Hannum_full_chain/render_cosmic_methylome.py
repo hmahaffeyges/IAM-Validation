@@ -17,7 +17,7 @@ from pathlib import Path
 
 RUNTIME = Path("/home/claude/IAM-Validation/Biological_Physics/atlas_vault/walther_clinical_runtime")
 HEALPIX_NPY = "/home/claude/IAM-Validation/Biological_Physics/atlas_vault/IAMAtlas_v0_1/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy"
-ATLAS_CSV = "/home/claude/iamatlas_rebuild/IAMAtlasREBUILD.csv"
+ATLAS_CSV = "Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv"
 
 CLASSES = ["stem_pluri","stem_adult","stromal","progenitor","cycling","secretory","immune","terminal"]
 NSIDE = 128

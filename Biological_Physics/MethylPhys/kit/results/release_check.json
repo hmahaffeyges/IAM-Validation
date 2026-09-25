@@ -15,7 +15,7 @@
    "seconds": 0.3,
    "detail": "claim_scan: PASS - no forbidden claim asserted, every required passage present",
    "needs": null,
-   "argv": "python3 claim_scan.py IAMPerformance_GAPEIssue003_RC1.pdf"
+   "argv": "python3 claim_scan.py MethylPhys_CPG_Operations_Manual.pdf"
   },
   {
    "key": "formula",
@@ -23,7 +23,7 @@
    "guards": "the per-cell surface is mean_i H(beta_i)/H_min and the module refuses H(beta_mean) - the N7 defect cannot come back",
    "status": "SKIPPED",
    "seconds": 1.5,
-   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_celltype_markers_v0_2.json'",
+   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '~/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_celltype_markers_v0_2.json'",
    "needs": null,
    "argv": "python3 PROC_FORMULA_01.py"
   },
@@ -33,7 +33,7 @@
    "guards": "the sealed 648-sample foundation-cohort per-cell scores still reproduce from raw public data (r = 1.00000)",
    "status": "SKIPPED",
    "seconds": 0.4,
-   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_celltype_markers_v0_2_REPO_HEA",
+   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '~/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_celltype_markers_v0_2_REPO_HEA",
    "needs": "GSE51032/GSE51057 series matrices",
    "argv": "python3 PROC_ANCHOR_01.py"
   },
@@ -43,7 +43,7 @@
    "guards": "the composition solver reproduces the answer key shipped with the test package",
    "status": "SKIPPED",
    "seconds": 0.7,
-   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/IAMAtlasREBUILD_celltype_to_class.json'",
+   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '~/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/IAMAtlasREBUILD_celltype_to_class.json'",
    "needs": "10_TEST_DATA",
    "argv": "python3 PROC_DECON_01.py"
   },
@@ -53,7 +53,7 @@
    "guards": "the measured separability of the blood classes - the finding NILC reported and the atlas confirmed",
    "status": "SKIPPED",
    "seconds": 0.5,
-   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/chain/IAMAtlasREBUILD_celltype_to_class.json'",
+   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '~/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/Biological_Physics/MethylPhys/chain/IAMAtlasREBUILD_celltype_to_class.json'",
    "needs": null,
    "argv": "python3 PROC_SEP_03.py"
   },
@@ -103,7 +103,7 @@
    "guards": "PROC-CMB-05: a healthy sky is quiet at the measured level in every commissioned laboratory",
    "status": "SKIPPED",
    "seconds": 0.4,
-   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/kitdata/stage2_fractions.json'",
+   "detail": "FileNotFoundError: [Errno 2] No such file or directory: '~/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/kitdata/stage2_fractions.json'",
    "needs": "four laboratories' Stage 1 betas",
    "argv": "python3 PROC_CMB_05.py"
   },

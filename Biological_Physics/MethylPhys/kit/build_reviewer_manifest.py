@@ -87,7 +87,7 @@ GROUPS = [
   ("MethylPhys_GSM2333905_with_intake.html", "one real run end to end, intake record included"),
  ]),
  ("The procedure, and the documents that keep it honest", [
-  ("CPG_Chain_of_Custody_SOP_v2_0_0.md", "the procedure: every stage and step links its code, and the intake steps carry their thresholds, refusal strings and healthy distributions"),
+  ("MethylPhys_CPG_SOP.md", "the procedure: every stage and step links its code, and the intake steps carry their thresholds, refusal strings and healthy distributions"),
   ("sop_stage_links.py", "writes the implemented-in line under every stage and step section"),
   ("sop_step_detail.py", "writes the operational detail under each intake step"),
   ("sop_repoint.py", "regenerates the SOP and resolves paths from earlier layouts"),

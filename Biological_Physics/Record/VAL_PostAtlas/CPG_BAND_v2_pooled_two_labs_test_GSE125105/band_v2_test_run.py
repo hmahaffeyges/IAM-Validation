@@ -5,7 +5,7 @@ pass-condition table. Every value tested against the sealed prereg; nothing tune
 import os, sys, json, re, tarfile, gzip, time, glob, hashlib, io
 import numpy as np, pandas as pd
 ROOT = os.path.dirname(os.path.abspath(__file__))
-E = os.path.join(ROOT, "iamrepo/Biological_Physics/MethylPhys/chain")
+E = os.path.join(ROOT, "Biological_Physics/MethylPhys/chain")
 sys.path.insert(0, E); sys.path.insert(0, os.path.join(E, "Walther_iam_deconvolver")); sys.path.insert(0, os.path.join(ROOT, "stage1"))
 os.environ.setdefault("HOME", os.path.join(ROOT, "stage1/mp_home"))
 TAR = os.path.join(ROOT, "idats/GSE125105/GSE125105_RAW.tar"); OUT = os.path.join(ROOT, "results/band_v2_test"); os.makedirs(OUT, exist_ok=True)
@@ -65,7 +65,7 @@ def calibrate_all(pairs, workers=6):
 def score(df, ident):
     from walther_iam_deconvolver import WaltherIAMDeconvolver
     W = WaltherIAMDeconvolver(os.path.join(ROOT, "atlasrun/IAMAtlas.csv"),
-                              celltype_class_map=os.path.join(ROOT, "iamrepo/Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"), verbose=False)
+                              celltype_class_map=os.path.join(ROOT, "Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json"), verbose=False)
     IMM = [c for c in ident["immune"]["loci"] if c in df.index]
     JOINT = [c for c in set(ident["progenitor"]["loci"]) | set(ident["stem_adult"]["loci"]) if c in df.index]
     hm_imm = ident["immune"]["H_min"]; hm_joint = ident["progenitor"]["H_min"]      # prereg §3: progenitor's floor for the joint component

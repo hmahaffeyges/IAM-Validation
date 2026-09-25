@@ -16,7 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"],
                       capture_output=True, text=True).stdout.strip()
 CHAIN = os.path.normpath(os.path.join(HERE, "..", "chain"))
-SOP = os.path.join(HERE, "CPG_Chain_of_Custody_SOP_v2_0_0.md")
+SOP = os.path.join(HERE, "MethylPhys_CPG_SOP.md")
 MARK = "**Implemented in:**"
 
 # stage (and step-range) -> the files that implement it, and the conductor function when there is one.

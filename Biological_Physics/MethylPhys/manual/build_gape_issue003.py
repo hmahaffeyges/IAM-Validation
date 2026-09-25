@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""build_gape_issue003.py — GAPE Issue 003 (September 2026).
+"""build_gape_issue003.py — MethylPhys CPG OM, the Operations Manual (Edition 003, September 2026).
 
 Composed from: gape002_lib.py (every Issue 002 rendering primitive, card, and section, extracted
 verbatim) + data003.py (every constant loaded from the runtime files at repo HEAD, plus the dated
@@ -31,7 +31,7 @@ _LINKS = {"repo": "https://github.com/hmahaffeyges/IAM-Validation",
           "interface": _GH + "chain/MethylPhys_Interface/build_methylphys.py",
           "conductor": _GH + "chain/cpg_conductor.py",
           "sequence": _GH + "doors/CHAIN_SEQUENCE.md",
-          "sop": _GH + "sop/CPG_Chain_of_Custody_SOP_v2_0_0.md",
+          "sop": _GH + "sop/MethylPhys_CPG_SOP.md",
           "manifest": _GH + "doors/REVIEWER_MANIFEST.md",
           "handoff": _GH + "chain/stage_0_1_qc_handoff.py"}
 
@@ -41,14 +41,14 @@ def _a(key, text):
     return "<a href='%s' color='#1a5fb4'>%s</a>" % (_LINKS[key], text)
 
 
-ISSUE = "Issue 003 RC1"; DATE = "September 2026"
+ISSUE = "Edition 003"; DATE = "September 2026"
 
 def make_canvas(canvas, doc):
     canvas.saveState(); canvas.setFillColor(BG); canvas.rect(0, 0, W, H, fill=1, stroke=0)
     canvas.setStrokeColor(LAV_D); canvas.setLineWidth(0.5)
     canvas.line(0.5*inch, 0.45*inch, W - 0.5*inch, 0.45*inch)
     canvas.setFillColor(MUTED2); canvas.setFont('Helvetica', 7)
-    canvas.drawString(0.5*inch, 0.30*inch, f'Physics of Methylation: Landauer Metrology  ·  GAPE {ISSUE}')
+    canvas.drawString(0.5*inch, 0.30*inch, f'MethylPhys CPG OM  ·  Operations Manual for the Cellular Performance Gauge  ·  {ISSUE}')
     canvas.drawRightString(W - 0.5*inch, 0.30*inch, f'Patents pending 64/012,720 and 64/014,568  ·  Page {canvas.getPageNumber()}')
     canvas.restoreState()
 
@@ -73,10 +73,20 @@ def status_p(s):
 def cover(story):
     story.append(Paragraph('IAMPerformance', sTitle))
     # the cover subtitle in white so it carries against the dark page, rather than sSub's muted lavender
-    story.append(Paragraph('PHYSICS OF METHYLATION: LANDAUER METROLOGY',
-        S('cvsub', fontSize=13, textColor=colors.white, fontName='Helvetica-Bold', leading=17,
-          spaceBefore=2, spaceAfter=2))); story.append(SP(0.02))
-    story.append(Paragraph('GAPE Issue 003  ·  measuring how far above the thermal noise quantum each cell class writes and holds its state, against a fixed physical zero', sMut)); story.append(SP(0.06))
+    # The title block the author specified 2026-09-25: what the document IS, then what it is an
+    # introduction to. The edition lives here and in the running header, never in the filename - a version
+    # in a filename is how a second copy gets made.
+    story.append(Paragraph('MethylPhys CPG OM',
+        S('cvsub', fontSize=20, textColor=colors.white, fontName='Helvetica-Bold', leading=24,
+          spaceBefore=2, spaceAfter=3)))
+    story.append(Paragraph('An Operations Manual for the Cellular Performance Gauge',
+        S('cvsub2', fontSize=13, textColor=colors.white, fontName='Helvetica-Bold', leading=17,
+          spaceAfter=3)))
+    story.append(Paragraph('An Introduction to the Physics of Methylation and AstroGenetics:<br/>'
+        'Landauer Metrology and the CMB Applied to the Methylome',
+        S('cvsub3', fontSize=11.5, textColor=colors.white, fontName='Helvetica', leading=15,
+          spaceAfter=2))); story.append(SP(0.02))
+    story.append(Paragraph('Edition 003 (formerly GAPE Edition 003; the edition before it is GAPE Issue 002, whose references point at this document)  ·  measuring how far above the thermal noise quantum each cell class writes and holds its state, against a fixed physical zero', sMut)); story.append(SP(0.06))
     story.append(HRFlowable(width='100%', thickness=1, color=LAV, spaceAfter=5))
     story.append(Paragraph(f'<b>{ISSUE}  ·  {DATE}</b>  ·  The Healthy Range of the Cellular Write Process — '
         'Eight Architecture Classes, Forty H_min Values, One Atlas of 115 Cell Types, and the First Written '
@@ -87,7 +97,7 @@ def cover(story):
     story.append(Paragraph('Prepared with Claude Science, 2026-09-19. <b>Release candidate 1.</b> Every number is loaded from the runtime '
         'files or from a dated run named in the text. Rows marked OPEN are unresolved and are printed as such.', sMut))
     story.append(SP(0.12))
-    story.append(Paragraph("WHAT'S NEW IN ISSUE 003", sSect))
+    story.append(Paragraph("WHAT'S NEW IN EDITION 003", sSect))
     news = [
      ("The claim, restated.", "This is not a detection tool and not a treatment. Cells compute and write to a two-dimensional "
       "surface as a semiconductor or a quantum processor does; the physics of that write process has a healthy operating range "
@@ -118,7 +128,7 @@ def cover(story):
         story.append(Paragraph(f'<b>{h}</b> {b}', sBodySm))
     story.append(SP(0.1)); story.append(HR())
     story.append(Paragraph('COVERAGE OF THE CHAIN, BY STAGE (as of this RC)', sLabel))
-    story.append(Paragraph('Issue 003 is the one document for this work; there is no "next issue". Every stage of the chain at HEAD is described in the switching order (Part II) '
+    story.append(Paragraph('Edition 003 is the one document for this work; there is no "next issue". Every stage of the chain at HEAD is described in the switching order (Part II) '
         'and carries a status in CHAIN_COMMISSIONING.md. As of this RC: <b>commissioned</b> - Stage 1 calibration (PROC-CAL-01), Stage 1s scale map (PHASE 1c), Stage 2 deconvolution '
         '(PROC-DECON-01, PROC-ANCHOR-01, N7), Stage 0 intake with its intensity hand-off (PROC-STAGE0-02: all ten steps run (nine checks and the decision), the sex call agrees with the published labels on 729 of 731 arrays, and a QUARANTINE stops the chain before calibration; the bisulfite threshold is reported, not applied, until PROC-STAGE0-04). <b>Run and recorded with open defects</b> - Stage 2b lineage splitter '
         '(PROC-SEP-03), Stage B class gauge (identity-loci statistic emitted alongside the wired marker-union gauge; band gated on the lab zero), Stage 4.6 patient CMB (four-skies plate; '
@@ -260,14 +270,14 @@ def sec3_instruments(story):
 def card_addendum(story, key):
     cells = D.CELLS_BY_CLASS[key]; idl = D.IDENTITY[key]; hm = D.H_MIN_TABLE[key]
     story.append(KeepTogether([
-        Paragraph(f'ISSUE 003 ADDENDUM — {key.upper()} IN THE ATLAS', sLabel),
+        Paragraph(f'EDITION 003 ADDENDUM — {key.upper()} IN THE ATLAS', sLabel),
         Paragraph(f'<b>{len(cells)} cell types:</b> {", ".join(cells)}', sBodySm),
         Paragraph(f'<b>Identity loci:</b> {idl["n_loci"]:,} (methyl)  ·  <b>H_min by substrate:</b> methyl {hm[0]:.6f} · nucl {hm[1]:.6f} · fuzz {hm[2]:.6f} · wps {hm[3]:.6f} · frag {hm[4]:.6f}  ·  '
                   f'<b>methyl ceiling</b> {D.ceiling(key):.4f}{"  — cannot reach BREACH on methylation alone" if D.ceiling(key) < 1.10 else ""}', sBodySm)]))
     rows = [("Age (midpoint)", "n", "A mean", "p10", "p90", "β mean", "Source")]
     for e in D.AGE_REF[key]:
         rows.append((str(e["age_midpoint"]), str(e["n_samples"]), f'{e["A_mean"]:.4f}', f'{e["A_p10"]:.4f}', f'{e["A_p90"]:.4f}', f'{e["beta_mean"]:.3f}', e["source_citation"]))
-    story.append(Paragraph('Healthy age-matched band. A = 1.0 is the commitment line; healthy reads on a band above it. [Issue 003: the age_reference_matrix.json shown here was compiled on the marker union and is SUPERSEDED (PROC-N7-01); the commissioned band is band_v2 on the identity loci with the three-layer reference of s3.5.]', sMut))
+    story.append(Paragraph('Healthy age-matched band. A = 1.0 is the commitment line; healthy reads on a band above it. [Edition 003: the age_reference_matrix.json shown here was compiled on the marker union and is SUPERSEDED (PROC-N7-01); the commissioned band is band_v2 on the identity loci with the three-layer reference of s3.5.]', sMut))
 
     story.append(tbl(rows, [0.14, 0.07, 0.12, 0.12, 0.12, 0.12, 0.31], fs=7))
 
@@ -662,7 +672,7 @@ def sec11_engine_map(story):
         'The flowchart at HEAD (flowchart_vKISS.html) lists the twelve stages below (0 through 9, with 4.5 and 4.6 as separate wired stages), plus orchestration and test data. Issue 002 had no chain at all — it was class cards and physics — so every stage is new territory for 003, '
         'and this issue documents only the stages that were executed with the canonical files during its preparation. The right-hand column says so, stage by stage. '
         'A reader who needs Stage 4.5, 5, 6, 8 or 9 will not find them here; they are the next issue\'s work, and the files that implement them are named so they can be read now.')
-    rows=[("Stage","Files at HEAD","Status","What it does (from source)","In Issue 003?")]
+    rows=[("Stage","Files at HEAD","Status","What it does (from source)","In Edition 003?")]
     for st,f,status,what,cov in D.ENGINE_MAP:
         rows.append((Pb(st),Ps(f),P(status),Ps(what),Pb(cov) if cov.startswith("YES") else P(cov)))
     story.append(tbl(rows,[0.14,0.22,0.12,0.34,0.18],fs=6.8))
@@ -675,7 +685,7 @@ def sec11_engine_map(story):
 
 # ═══════════════════════════════════════════════════════════════════════════════
 def sec5_physics(story):
-    """Issue 003 physics, written from Paper 1 (2026-09-21). Supersedes 002 s2.1 / s2.1a, which are dropped from the 002 render below."""
+    """Edition 003 physics, written from Paper 1 (2026-09-21). Supersedes 002 s2.1 / s2.1a, which are dropped from the 002 render below."""
     P=D.PHYSICS
     story.append(PageBreak()); opener(story, 'SECTION 5', 'THE PHYSICS - LANDAUER, THE MAHAFFEY NUMBER, THE REFERENCE, THE GAUGE', 'Three quantities that must not be confused, and what is physics versus what is measured')
     story.append(Paragraph('5.0.1  Premise: the methylome obeys Landauer\'s bound', sSub)); story.append(Paragraph(P["premise"], sBodySm)); story.append(SP(0.06))
@@ -760,7 +770,7 @@ def sec5a_tools(story):
         'composition - so the cut had removed the instrument that was reporting the problem. It was reinstated on 2026-09-22 as a '
         'class-level second opinion, and RUNBOOK s11 now forbids disabling either relay.', sDisc))
     from reportlab.platypus import Image, Image as RLImage
-    _fp=os.path.join(os.path.dirname(os.path.abspath(__file__)),"fig_four_skies.png")
+    _fp=os.path.join(os.path.dirname(os.path.abspath(__file__)),"../plates/CPG_Plate_05_Four_Skies_Issue003.png")
     if os.path.exists(_fp):
         story.append(RLImage(_fp, width=PW, height=PW*0.66)); story.append(Paragraph(D.FOUR_SKIES_CAP, sDisc)); story.append(SP(0.10))
     # 5A.5 not cohort people
@@ -831,7 +841,7 @@ def secVII_sprint(story):
 def secVIII_part2(story):
     story.append(PageBreak())
     story.append(Paragraph('PART II — THE CHAIN, STAGE BY STAGE (FORTHCOMING)', sSect))
-    story.append(Paragraph('Issue 003 documents the engine and its evidence. Part II, written once the chain carries its seal, will teach it: one chapter per stage, each giving the purpose, the cosmology it borrows, '
+    story.append(Paragraph('Edition 003 documents the engine and its evidence. Part II, written once the chain carries its seal, will teach it: one chapter per stage, each giving the purpose, the cosmology it borrows, '
         'what was tried first and why it failed, the runtime files it reads, the procedure that confirms it, and what a researcher trained on bootstrapping needs to know before touching MCMC output or a Mahalanobis distance. '
         'The outline as it stands:', sBodySm))
     rows=[("chapter","content")]+[tuple(r) for r in D.PART_II_OUTLINE]
@@ -1067,7 +1077,7 @@ def secV_val_index(story):
     story.append(Paragraph("175 rows. Path prefix <font face=\"Courier\">BP/</font> = <font face=\"Courier\">Biological_Physics/</font>; an empty path means the record lives in the RETIRED evidence report / inventory and the Zenodo deposit, not in a repository folder. Verdicts are recorded from each OUTCOME, not re-verified.", sMut)); story.append(SP(0.04))
     story.append(tbl(rows,[0.075,0.11,0.30,0.07,0.245,0.20], fs=5.2))
 
-# Issue 003 carries the instrument and its record only (author, 2026-09-22): "I would remove all that since it
+# Edition 003 carries the instrument and its record only (author, 2026-09-22): "I would remove all that since it
 # exists in 002 and we dont want anything in the issue003 that doesnt belong right now. issue004 can include the
 # evidence of the diseases after we do all the testing with our new chain." Removed here: 002's research-evidence
 # cohorts, its baseline reference tables (typed April values, superseded by the measured age curve), its clinical
@@ -1081,7 +1091,7 @@ def build(out_path):
     story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story); sec_proc_log(story)
     sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002
-    # Issue 003 renders the cascade and the cards itself, each followed by its addendum; the inherited
+    # Edition 003 renders the cascade and the cards itself, each followed by its addendum; the inherited
     # saturation block would otherwise emit a second, addendum-less copy of both (84 duplicate pages).
     L.EMIT_CARDS_AFTER_SATURATION = False
     L.EMIT_CARD_DISEASE_BLOCKS = False
@@ -1120,10 +1130,10 @@ def build(out_path):
     L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)
-    P3.render_closing(story, L, SP, PageBreak, Paragraph)          # the Issue 003 closing - the LAST page, after the appendices and glossary
+    P3.render_closing(story, L, SP, PageBreak, Paragraph)          # the Edition 003 closing - the LAST page, after the appendices and glossary
     doc.build(story, onFirstPage=make_canvas, onLaterPages=make_canvas)
     return out_path
 
 if __name__ == '__main__':
-    out = sys.argv[1] if len(sys.argv) > 1 else 'IAMPerformance_GAPEIssue003_RC1.pdf'
+    out = sys.argv[1] if len(sys.argv) > 1 else 'MethylPhys_CPG_Operations_Manual.pdf'
     print(build(out))

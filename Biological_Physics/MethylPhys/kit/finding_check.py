@@ -14,7 +14,7 @@ DOORS = [os.path.join(BP, "HANDOFF.md"), os.path.join(BP, "README.md"), os.path.
          os.path.join(BP, "MethylPhys/chain", "Record/chain_readme_archive", "README_FOR_FUTURE_AI.md")] + glob.glob(os.path.join(BP, "MethylPhys", "SOP", "CPG_Chain_of_Custody_SOP_v2*.md"))
 def read(p): return open(p, encoding="utf-8", errors="replace").read() if os.path.exists(p) else ""
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("id"); ap.add_argument("--retires", nargs="*", default=[]); ap.add_argument("--registers", nargs="*", default=[]); ap.add_argument("--doors", action="store_true"); ap.add_argument("--pdf", default=os.path.join(I3, "IAMPerformance_GAPEIssue003_RC1.pdf"))
+    ap = argparse.ArgumentParser(); ap.add_argument("id"); ap.add_argument("--retires", nargs="*", default=[]); ap.add_argument("--registers", nargs="*", default=[]); ap.add_argument("--doors", action="store_true"); ap.add_argument("--pdf", default=os.path.join(I3, "MethylPhys_CPG_Operations_Manual.pdf"))
     a = ap.parse_args(); fails = []
     VAR = {"RECON": "RECON", "FALSIFICATION": "FALSIFICATION", "COSMO": "COSMO_EVIDENCE", "FUTURE": "FUTURE_GOALS"}
     def scoped_blocks(txt, name):

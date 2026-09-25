@@ -34,7 +34,7 @@ ROOT = subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"],
                       capture_output=True, text=True).stdout.strip() or os.path.dirname(os.path.dirname(MP))
 
 DOORS = os.path.join(MP, "doors")
-SOP = os.path.join(MP, "sop", "CPG_Chain_of_Custody_SOP_v2_0_0.md")
+SOP = os.path.join(MP, "sop", "MethylPhys_CPG_SOP.md")
 MANUAL_DATA = os.path.join(MP, "manual", "data003.py")
 REGISTER = os.path.join(DOORS, "CHAIN_COMMISSIONING.md")
 RUNBOOK = os.path.join(DOORS, "RUNBOOK.md")

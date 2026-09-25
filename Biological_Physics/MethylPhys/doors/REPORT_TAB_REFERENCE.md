@@ -60,7 +60,7 @@ The physics under the gauge: Landauer's bound, the Mahaffey number, the entropy 
 
 ### Story  ·  `story`  ·  REFERENCE
 
-What astro-genetics is, in the author's words - the introduction that now also opens [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf).
+What astro-genetics is, in the author's words - the introduction that now also opens [Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf).
 
 ![Story tab](../manual/report_tab_figures/story.png)
 

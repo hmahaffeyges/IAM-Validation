@@ -66,7 +66,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 
 ## The procedure, and the documents that keep it honest
 
-- [`CPG_Chain_of_Custody_SOP_v2_0_0.md`](../sop/CPG_Chain_of_Custody_SOP_v2_0_0.md) — the procedure: every stage and step links its code, and the intake steps carry their thresholds, refusal strings and healthy distributions
+- [`MethylPhys_CPG_SOP.md`](../sop/MethylPhys_CPG_SOP.md) — the procedure: every stage and step links its code, and the intake steps carry their thresholds, refusal strings and healthy distributions
 - [`sop_stage_links.py`](../sop/sop_stage_links.py) — writes the implemented-in line under every stage and step section
 - [`sop_step_detail.py`](../sop/sop_step_detail.py) — writes the operational detail under each intake step
 - [`sop_repoint.py`](../sop/sop_repoint.py) — regenerates the SOP and resolves paths from earlier layouts
@@ -129,7 +129,7 @@ A reviewer should learn this from the page, not by hunting.
 |---|---|
 | Raw MCMC posterior chains | they do not exist: the samplers hold their samples in memory and print summaries, so no run wrote an .h5 or .npy. What exists instead is a re-run that returns every floor inside its own posterior SD (10.5281/zenodo.22905819) |
 | Controlled-access cohort data | named as requirements, not held: the fragmentomics cohorts are controlled access and the chain's predictions for them are filed against data nobody here has |
-| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) |
+| Disease evidence from the commissioned chain | it does not exist yet - Issue 004, after sealed runs. The April 2026 evidence database is published unedited but measures a different surface and must not be quoted beside [Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf) |
 | Per-cell reporting below class level | withheld by the instrument. Per-entry resolvability is published so a reader sees which entries are affected and why |
 | The bisulfite threshold | not set: every healthy array in the reference cohort sits below the SOP's 0.95, so the gate reports its measured value and does not refuse on it until the threshold is calibrated (PROC-STAGE0-04) |
 

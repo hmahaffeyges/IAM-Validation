@@ -13,7 +13,7 @@ The canonical atlas: **483,092 CpGs × 115 cell types**, built 2026-05-28 by per
 | [`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py), [`compact_atlas.py`](compact_atlas.py) | the build scripts |
 | [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) | why the pre-build atlas was flat and what the rebuild changed |
 
-The eight class floors `H_min` are derived from this atlas's healthy-reference posteriors (G-002/G-003b chains) and are printed in [[Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf)](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) with their provenance. The identity loci the gauge reads (`MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json`) and the discriminative markers the separation surface reads (`…/Celltype_Marker/`) are both selected from this atlas.
+The eight class floors `H_min` are derived from this atlas's healthy-reference posteriors (G-002/G-003b chains) and are printed in [[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) with their provenance. The identity loci the gauge reads (`MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json`) and the discriminative markers the separation surface reads (`…/Celltype_Marker/`) are both selected from this atlas.
 
 Code that loads the atlas resolves it as `Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv` relative to `MethylPhys/chain/`.
 

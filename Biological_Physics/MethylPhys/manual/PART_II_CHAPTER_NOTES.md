@@ -1,4 +1,4 @@
-# Part II — The Chain, Stage by Stage (working notes for [[Issue 003](IAMPerformance_GAPEIssue003_RC1.pdf)](IAMPerformance_GAPEIssue003_RC1.pdf) / 004)
+# Part II — The Chain, Stage by Stage (working notes for [[Issue 003](MethylPhys_CPG_Operations_Manual.pdf)](MethylPhys_CPG_Operations_Manual.pdf) / 004)
 
 Purpose: one chapter per stage, written for a researcher who knows bootstrapping but not MCMC and has never met a
 Mahalanobis hull. Each chapter: purpose · the cosmology it borrows · what was tried first and why it failed · the runtime

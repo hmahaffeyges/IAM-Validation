@@ -10,7 +10,7 @@ ENVIRONMENT:
   NumPy:      2.4.2
   SciPy:      1.17.0
   CAMB/MGCAMB: 1.5.2
-  CAMB path:  /Users/hmahaffeyges/IAM-Validation/MGCAMB/camb
+  CAMB path:  ~/IAM-Validation/MGCAMB/camb
 
 ========================================================================
   1. IAM MODEL PARAMETERS

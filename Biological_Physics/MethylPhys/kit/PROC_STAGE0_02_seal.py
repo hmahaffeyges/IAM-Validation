@@ -6,7 +6,7 @@ Stage 0 have quarantined?
 """
 import json, os, sys, collections
 import numpy as np
-sys.path.insert(0, "iamrepo/Biological_Physics/MethylPhys/chain")
+sys.path.insert(0, "Biological_Physics/MethylPhys/chain")
 import stage_0_intake as S0
 
 qc = json.load(open("results/stage0_retro/qc_metrics.json"))

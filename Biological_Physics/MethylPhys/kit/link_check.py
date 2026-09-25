@@ -103,7 +103,7 @@ def main():
         for ref in references(text):
             # a regex character class or quantifier inside parentheses is a pattern in source code, not
             # a path: build_reviewer_manifest.py's own PROC-id regex read as two broken links (2026-09-23)
-            if any(c in ref for c in "[]\\+*?^") and not ref.endswith((".md", ".py", ".json", ".csv")):
+            if any(c in ref for c in "[]\\+*?^") and not ref.endswith((".md", ".py", ".json", ".csv")) or "%s" in ref or "%d" in ref:
                 continue
             if ref.startswith(("http", "mailto:", "#", "/")):
                 continue

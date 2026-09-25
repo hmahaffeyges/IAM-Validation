@@ -84,7 +84,7 @@ def link_file(path, by_base, extra=()):
 
 def main(paths=None):
     by = _tracked()
-    MANUAL = "Biological_Physics/MethylPhys/manual/IAMPerformance_GAPEIssue003_RC1.pdf"
+    MANUAL = "Biological_Physics/MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf"
     IFACE = "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/build_methylphys.py"
     extra = (("Issue 003", MANUAL), ("MethylPhys report", IFACE))
     if not paths:

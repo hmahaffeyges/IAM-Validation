@@ -6,7 +6,7 @@ C_ell^TT for IAM (Run A) and ΛCDM (Run C) via CAMB, and plots both
 against the Planck 2018 binned bandpowers with a residual panel.
 
 Usage (on gaming PC):
-    cd /Users/hmahaffeyges/IAM-Validation
+    cd ~/IAM-Validation
     python plot_cl_comparison.py
 
 Output:

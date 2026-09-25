@@ -12,7 +12,7 @@ sys.path.insert(0, "stage1")
 from concurrent.futures import ThreadPoolExecutor
 from stage_1_idat_calibration import calibrate_idat_to_beta
 
-CH = "iamrepo/Biological_Physics/MethylPhys/chain"
+CH = "Biological_Physics/MethylPhys/chain"
 LOCI = set(json.load(open(glob.glob(CH + "/**/iamatlas_gauge_identity_loci_v1_0.json", recursive=True)[0]))["immune"]["loci"])
 CACHE = "results/percell/stage1_betamean_GSE87571.json"
 os.makedirs("results/percell", exist_ok=True)
