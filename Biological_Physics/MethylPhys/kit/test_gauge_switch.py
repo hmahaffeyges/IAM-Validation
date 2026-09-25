@@ -28,7 +28,14 @@ for k,(age,arm,lab) in WB.items():
     b=cache[k]; b=b.to_dict() if hasattr(b,"to_dict") else dict(b)
     im=C.run_full(b,ATLAS,cfg={"age":age,"pipeline":"stage1_noob_450K","lab_zero":lab})["classes"]["immune"]
     im0=C.run_full(b,ATLAS,cfg={"age":age,"pipeline":"stage1_noob_450K"})["classes"]["immune"]
-    if not (im["gauge_surface"]=="identity_loci" and im["scale"].startswith("MAPPED") and im["reportable"] and im["A_abs"] is not None): fails.append(("S1",k,im))
+    # PROC-FOREIGN-01 (commissioned 2026-09-25): the composition guard withholds the tier and sets
+    # reportable False when more than 2.07 % of a specimen is assigned outside the blood lineage, at a
+    # rate the pre-registration fixed at no more than 5 % of healthy arrays. GSM2333950 is one such
+    # array (immune fraction 0.9663, foreign 0.0282): withheld BY DESIGN. S1 therefore exempts a
+    # guard-withheld array and still requires the full surface whenever the composition IS verified.
+    if im.get("composition_verified") is False:
+        assert im["tier"] is None and im["gauge_surface"]=="identity_loci", ("S1-guard",k,im)
+    elif not (im["gauge_surface"]=="identity_loci" and im["scale"].startswith("MAPPED") and im["reportable"] and im["A_abs"] is not None): fails.append(("S1",k,im))
     if not (im0["lab_zero"]=="UNSET" and im0["reportable"] is False and im0["A_abs"] is None): fails.append(("S2",k,im0))
     if arm=="healthy": nh+=1; inband+= im["placement"]=="IN_BAND"
     print(f"{k} {arm:<8} A_mapped {im['A_mapped']:.4f} A_abs {im['A_abs']:.4f} {im['placement']:<10} | UNSET -> reportable {im0['reportable']}")
