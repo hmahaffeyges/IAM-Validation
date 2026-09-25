@@ -70,7 +70,7 @@ runs only when the disease matrix flags something. When we wire it in, the new
 files go under:
 
     Runtime Matrices/Mahalanobis_healthy_reference/
-    Disease Cards : Residual Maps/
+    Record/disease_cards_residual_maps/
 
 You will be told the exact filenames and folders at that time; just drop them in
 and the conductor picks them up. Nothing in this current folder changes.

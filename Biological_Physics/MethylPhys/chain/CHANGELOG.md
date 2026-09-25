@@ -130,7 +130,7 @@ CHANGES:
   and render_strawman_v2.py WITHOUT modifying them -- strips their file-I/O, injects data,
   captures HTML) and _strawman_section (builds the patient wall from the EXISTING bundle,
   no chain re-run; embeds both walls collapsed in iframes). 1097 -> 1229.
-- Crown Jewel and Patient Strawman/strawman_data_v2.json: NEW. The crown-jewel data,
+- Record/crown_jewel_and_patient_strawman/strawman_data_v2.json: NEW. The crown-jewel data,
   generated from disease_cell_signature_matrix_v1_8.csv (build_strawman + enrich_strawman).
   81 disease rows, 49 VAL-anchored. Shipped so the report builder needs no regeneration.
 
