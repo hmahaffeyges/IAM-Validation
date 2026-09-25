@@ -175,6 +175,15 @@ def main():
         bad += 0 if ok else 1
         print("  %-4s %-58s %s" % ("PASS" if ok else "FAIL", name, detail[:80]))
 
+    # The report prints this, so a reader of a reading can see whether the documents were current when it
+    # was produced (author, 2026-09-25: the record of how we got a result matters as much as the result).
+    import datetime
+    commit = subprocess.run(["git", "-C", HERE, "rev-parse", "--short", "HEAD"],
+                            capture_output=True, text=True).stdout.strip()
+    json.dump({"when": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+               "commit": commit, "pass": bad == 0,
+               "rules": [{"rule": n, "ok": bool(o), "detail": d} for n, o, d in rules()]},
+              open(os.path.join(HERE, "propagate_status.json"), "w"), indent=1)
     print("\n%s" % ("propagate: PASS - every derived document is current and no rule failed" if not bad else
                     "propagate: %d FAILURE(S) - fix these before pushing" % bad))
     return 1 if bad else 0

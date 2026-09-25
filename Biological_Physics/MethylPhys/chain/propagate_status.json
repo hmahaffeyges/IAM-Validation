@@ -1,0 +1,47 @@
+{
+ "when": "2026-09-25 19:54 UTC",
+ "commit": "2abacfe",
+ "pass": false,
+ "rules": [
+  {
+   "rule": "every live chain module is named in the SOP",
+   "ok": true,
+   "detail": "5 modules"
+  },
+  {
+   "rule": "every live chain module is in the reviewer manifest",
+   "ok": true,
+   "detail": "5 modules"
+  },
+  {
+   "rule": "every sealed procedure has a row in CHAIN_COMMISSIONING",
+   "ok": true,
+   "detail": "4 procedures"
+  },
+  {
+   "rule": "every sealed procedure is in the reviewer manifest",
+   "ok": true,
+   "detail": "4 procedures"
+  },
+  {
+   "rule": "procedures that changed a reported number are in the Issue 003 data module",
+   "ok": true,
+   "detail": "4 procedures"
+  },
+  {
+   "rule": "every runtime matrix is named in the SOP or the manifest",
+   "ok": true,
+   "detail": "21 files"
+  },
+  {
+   "rule": "the run index covers every ledger row",
+   "ok": true,
+   "detail": "3 rows for 3 ledger lines"
+  },
+  {
+   "rule": "matplotlib is a stated dependency (the plate needs it)",
+   "ok": true,
+   "detail": "requirements.txt"
+  }
+ ]
+}

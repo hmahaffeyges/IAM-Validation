@@ -25,3 +25,8 @@ This folder is the researcher-facing entry to the cellular track of the Informat
 Related: the atlas itself is in [`../MethylPhys/atlas/`](../atlas/), the running code in [`../MethylPhys/chain/`](../chain/), and every validation run in [`../Record/`](../../Record/).
 
 *Research stage. Nothing here is clinical validation.*
+
+## Planning and housekeeping
+
+- [`ENHANCEMENTS.md`](ENHANCEMENTS.md) - everything that would make the chain more sensitive, ranked by impact on the mission, with effort and blockers. Two lists: chain enhancements and the cosmology methods still on the shelf.
+- [`REPO_INVENTORY.md`](REPO_INVENTORY.md) - what is in this repository, measured, and what should not be.
