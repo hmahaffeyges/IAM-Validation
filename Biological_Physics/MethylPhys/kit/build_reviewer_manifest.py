@@ -29,6 +29,8 @@ OUT = os.path.join(ROOT, B, "doors/REVIEWER_MANIFEST.md")
 GROUPS = [
  ("The instrument a reviewer would run", [
   ("run_sample.py", "one sample end to end: the intake steps, calibration, the eleven conductor stages, the report"),
+   ("cmb_tools.py", "the register of every method borrowed from CMB analysis, with a check per tool "
+    "that returns its state on a finished bundle"),
    ("walther_clinical.py", "the batch path: its own stage functions, used for a cohort "
     "rather than a single specimen"),
   ("cpg_conductor.py", "the orchestrator - every stage in call order"),

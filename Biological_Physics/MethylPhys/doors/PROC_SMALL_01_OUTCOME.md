@@ -11,7 +11,7 @@ Scripts: [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py),
 [`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py).
 Implementation: [`stage_2c_trace_detection.py`](../chain/stage_2c_trace_detection.py) with the frozen panel
 `chain/Runtime Matrices/trace_detection_panel_v1.json`. Example run:
-[`MethylPhys_GSM2333901_trace_detection.html`](../chain/example_runs/MethylPhys_GSM2333901_trace_detection.html).
+[`MethylPhys_GSM2333901_trace_detection.html`](../chain/example_runs/RUN-20260925-01/MethylPhys_GSM2333901_with_provenance.html).
 
 ![Where the limit went](../kit/results/PROC_SMALL_01_detection.png)
 

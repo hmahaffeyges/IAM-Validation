@@ -67,7 +67,7 @@ take them for chain components. They belong under `Record/` or in the retired ar
 Four things, and nothing else at the top of the chain directory:
 
 1. **The chain** — the modules a run executes, their runtime matrices, and the test package that proves it.
-2. **The two canonical documents** — the Chain of Custody SOP and the Issue 003 operator manual. Every other
+2. **The two canonical documents** — the Chain of Custody SOP and the [Issue 003](../manual/IAMPerformance_GAPEIssue003_RC1.pdf) operator manual. Every other
    document in `doors/` is either generated from the tree or is a procedure's pre-registration and outcome.
 3. **The record** — procedures, their evidence, and the runs.
 4. **The paper library.**
@@ -75,5 +75,5 @@ Four things, and nothing else at the top of the chain directory:
 Everything else is either derived (and should be generated), superseded (and should be archived with a DOI),
 or large data (and belongs in a data archive with a citation).
 
-`propagate.py` already enforces the second point: a document that drifts from the tree fails the gate. The
+[`propagate.py`](../chain/propagate.py) already enforces the second point: a document that drifts from the tree fails the gate. The
 cleanups above are what make the first, third and fourth honest.
