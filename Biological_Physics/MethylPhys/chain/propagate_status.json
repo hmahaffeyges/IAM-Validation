@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 14:15 UTC",
- "commit": "695d1c8",
+ "when": "2026-09-26 15:01 UTC",
+ "commit": "e7d2f9d",
  "pass": true,
  "rules": [
   {
@@ -57,6 +57,11 @@
    "rule": "per-cell A on the commissioned physics surface (test_percell_physics)",
    "ok": true,
    "detail": "test_percell_physics: PASS - four root causes checked, none present"
+  },
+  {
+   "rule": "every runtime file the code reads is in every component list; none is mislabelled unread",
+   "ok": true,
+   "detail": "24 runtime files checked against measured readership"
   }
  ]
 }

@@ -26,6 +26,29 @@ ROOT = subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"],
 B = "Biological_Physics/MethylPhys"
 OUT = os.path.join(ROOT, B, "doors/REVIEWER_MANIFEST.md")
 
+def _runtime_from_readership():
+    """Runtime matrices ENUMERATED from what the chain's code reads, described from the inventory - never a typed
+    list (2026-09-26: the typed list lacked trace_detection_panel_v1.json, composition_guard_v1.json and both
+    per-cell files while the code read all four)."""
+    import glob as _g, json as _j, os as _o, re as _re
+    ch = _o.path.join(_o.path.dirname(_o.path.dirname(_o.path.abspath(__file__))), "chain")
+    srcs = {q: open(q, encoding="utf-8", errors="replace").read() for q in _g.glob(_o.path.join(ch, "**", "*.py"), recursive=True)
+            if "RETIRED" not in q and not _o.path.basename(q).startswith("build_")}
+    inv = {f["file"]: f for f in _j.load(open(_o.path.join(ch, "Runtime Matrices", "chain_inventory_v1.json"), encoding="utf-8"))["files"]}
+    rows = []
+    for f in sorted(_g.glob(_o.path.join(ch, "Runtime Matrices", "**", "*.*"), recursive=True)):
+        b = _o.path.basename(f)
+        if b == "chain_inventory_v1.json" or b.endswith((".md", ".py")):
+            continue
+        ext = _re.escape(b.rsplit(".", 1)[-1]) if "." in b else None
+        read = any(b in t for t in srcs.values()) or (ext is not None and any(
+            _re.match("^" + _re.sub(r"\\\{[^}]*\\\}|%s", ".+", _re.escape(tpl)) + "$", b)
+            for t in srcs.values() for tpl in _re.findall(r"[\w\-]+(?:\{[^}]*\}|%s)[\w\-]*\." + ext + r"\b", t)))
+        if read:
+            rows.append((b, (inv.get(b) or {}).get("description", "runtime file read by the chain")[:160]))
+    return rows
+
+
 GROUPS = [
  ("The instrument a reviewer would run", [
   ("run_sample.py", "one sample end to end: the intake steps, calibration, the eleven conductor stages, the report"),
@@ -63,13 +86,7 @@ GROUPS = [
   ("requirements.txt", "the pinned environment"),
  ]),
  ("The runtime matrices every reading is corrected by", [
-  ("iamatlas_gauge_identity_loci_v1_0.json", "the identity loci per class, with the floor each divides by"),
-  ("beta_scale_maps_v1.json", "one affine map per pipeline; without it a reading is UNMAPPED and not reportable"),
-  ("reference_age_curve_v1.json", "the age reference every reading is corrected against"),
-  ("tier_breakpoints.json", "the tier boundaries"),
-  ("identity_band_v3.json", "the healthy band per class, with each laboratory's own false-alarm rate"),
-  ("percell_reference_v0_3.json", "the per-entry reference, with which entries are resolvable"),
- ]),
+     ] + _runtime_from_readership() + []),
  ("The atlas", [
   ("IAMAtlasREBUILD.csv.xz", "the atlas itself, compressed"),
   ("IAMAtlasREBUILD_celltype_to_class.json", "cell type to class"),

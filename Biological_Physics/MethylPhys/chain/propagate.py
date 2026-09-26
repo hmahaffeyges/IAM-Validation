@@ -89,6 +89,26 @@ def procedures():
     return out
 
 
+
+def _names_code_reads(_b, _srcs):
+    """Readers of a runtime file. A literal match, OR an f-string / %-template in the source that names the file
+    up to a placeholder: f"residual_scale_{lab}.npz" reads residual_scale_GSE87571.npz. Only templates that end
+    in a file extension count, so docstring braces do not. A literal-only scan called the four residual scales
+    'read by nothing' on 2026-09-26 and a greedy one matched prose."""
+    import re as _re
+    out = []
+    _ext = _re.escape(_b.rsplit(".", 1)[-1]) if "." in _b else None
+    for _q, _t in _srcs.items():
+        if _b in _t:
+            out.append(_q); continue
+        if not _ext: continue
+        for _tpl in _re.findall(r"[\w\-]+(?:\{[^}]*\}|%s)[\w\-]*\." + _ext + r"\b", _t):
+            _pat = "^" + _re.sub(r"\\\{[^}]*\\\}|%s", ".+", _re.escape(_tpl)) + "$"
+            if _re.match(_pat, _b):
+                out.append(_q); break
+    return out
+
+
 def rules():
     """Each rule: (name, ok, detail). A rule that fails names the document that drifted."""
     R = []
@@ -209,6 +229,32 @@ def rules():
     _tail = [l for l in (_r.stdout or '').split('\n') if l.strip().startswith(('FAIL', 'test_percell'))]
     R.append(('per-cell A on the commissioned physics surface (test_percell_physics)', _r.returncode == 0,
                 ' | '.join(_tail[-3:]) or (_r.stderr or '')[-200:]))
+
+    # RULE 12 (2026-09-26, author: components the chain reads must be "included in every list where the chain
+    # components are described and laid out"). Readership is MEASURED from the live modules' source. A runtime
+    # file the code reads must be in the inventory, the SOP's reference table, the reviewer manifest and
+    # COMPONENT_MAP; a runtime file nothing reads must not be described as live.
+    _srcs = {_q: open(_q, encoding="utf-8", errors="replace").read() for _q in
+             glob.glob(os.path.join(HERE, "**", "*.py"), recursive=True)
+             if "RETIRED" not in _q and not os.path.basename(_q).startswith("build_")}
+    _inv = json.load(open(os.path.join(HERE, "Runtime Matrices", "chain_inventory_v1.json"), encoding="utf-8"))
+    _inv_names = {f["file"] for f in _inv["files"]}
+    _cmap = read(os.path.join(os.path.dirname(HERE), "doors", "COMPONENT_MAP.md"))
+    _bad = []
+    for _f in glob.glob(os.path.join(HERE, "Runtime Matrices", "**", "*.json"), recursive=True):
+        _b = os.path.basename(_f)
+        if _b.endswith("chain_inventory_v1.json"):
+            continue
+        _readers = [os.path.basename(q) for q in _names_code_reads(_b, _srcs)]
+        if _readers:
+            for _doc, _txt in (("inventory", " ".join(_inv_names)), ("SOP", sop), ("manifest", manifest), ("COMPONENT_MAP", _cmap)):
+                if _b not in _txt:
+                    _bad.append("%s read by %s but absent from %s" % (_b, _readers[0], _doc))
+            if ("`%s` - present in the tree, read by nothing" % _b) in sop:
+                _bad.append("%s is read by %s but the SOP says 'read by nothing'" % (_b, _readers[0]))
+    R.append(("every runtime file the code reads is in every component list; none is mislabelled unread",
+              not _bad, "; ".join(_bad[:4]) if _bad else "%d runtime files checked against measured readership"
+              % len(glob.glob(os.path.join(HERE, "Runtime Matrices", "**", "*.json"), recursive=True))))
 
     return R
 

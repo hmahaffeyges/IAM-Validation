@@ -305,7 +305,17 @@ def main():
     _extra = []
     for _f in sorted(_glob.glob(_os.path.join(BIO, "MethylPhys", "chain", "Runtime Matrices", "**", "*.json"), recursive=True)):
         _b = _os.path.basename(_f)
-        if _b not in _known and _b not in s:
+        # 2026-09-26: READ is decided by the CODE, not by the inventory. percell_reference_identity_v1_0.json was
+        # loaded by cpg_conductor and this rule called it "read by nothing" because the inventory lagged. A status
+        # derived from a list is only as current as the list.
+        _srcs = [open(_q, encoding="utf-8", errors="replace").read() for _q in
+                 _glob.glob(_os.path.join(BIO, "MethylPhys", "chain", "**", "*.py"), recursive=True)
+                 if "RETIRED" not in _q and not _os.path.basename(_q).startswith("build_")]
+        _ext = re.escape(_b.rsplit(".", 1)[-1]) if "." in _b else None
+        _read = any(_b in _t for _t in _srcs) or (_ext is not None and any(
+            re.match("^" + re.sub(r"\\\{[^}]*\\\}|%s", ".+", re.escape(_tpl)) + "$", _b)
+            for _t in _srcs for _tpl in re.findall(r"[\w\-]+(?:\{[^}]*\}|%s)[\w\-]*\." + _ext + r"\b", _t)))
+        if not _read and _b not in _known and _b not in s:
             _extra.append(_b)
     if _extra:
         s += ("\n\n## Runtime files present but NOT READ BY THE CHAIN\n\n"
