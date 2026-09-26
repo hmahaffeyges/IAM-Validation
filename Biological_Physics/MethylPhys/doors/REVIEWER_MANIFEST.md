@@ -84,7 +84,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 36 procedures, 144 files
+## Every sealed procedure — 37 procedures, 145 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -114,6 +114,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-PANEL-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-01/PREREG.md), [`panel01_results.json`](../../Record/PROC_data/PROC-PANEL-01/panel01_results.json), [`per_sample_input.csv`](../../Record/PROC_data/PROC-PANEL-01/per_sample_input.csv)
 - **PROC-PANEL-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-02/PREREG.md), [`panel02_results.json`](../../Record/PROC_data/PROC-PANEL-02/panel02_results.json)
 - **PROC-PANEL-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-03/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-03/PREREG.md), [`panel03_results.json`](../../Record/PROC_data/PROC-PANEL-03/panel03_results.json)
+- **PROC-PARTIAL-01** — [`PROC_PARTIAL_01_PREREG.md`](PROC_PARTIAL_01_PREREG.md)
 - **PROC-RECORD-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-02/OUTCOME.md), [`val025_028_aging_ZENODO_COPY.py`](../../Record/PROC_data/PROC-RECORD-02/val025_028_aging_ZENODO_COPY.py)
 - **PROC-RECORD-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-03/OUTCOME.md), [`age_matrix_provenance_check.json`](../../Record/PROC_data/PROC-RECORD-03/age_matrix_provenance_check.json)
 - **PROC-SEP-03** — [`PROC_SEP_03.py`](../kit/PROC_SEP_03.py)
