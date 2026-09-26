@@ -1,0 +1,57 @@
+{
+ "b1": {
+  "n": 22,
+  "d": -0.32408593117589907,
+  "p": 0.9268146370725855,
+  "median_A_prime": 0.8936,
+  "met": false
+ },
+ "b2": {
+  "d_by_stratum": {
+   "0-2y": -0.2372,
+   "2-5y": -0.3476,
+   "5-8y": -0.4583,
+   ">8y": -0.1915
+  },
+  "n_by_stratum": {
+   "0-2y": 8,
+   "2-5y": 16,
+   "5-8y": 18,
+   ">8y": 36
+  },
+  "met": true
+ },
+ "b3": {
+  "n": 40,
+  "d": 0.6040356878469278,
+  "p": 0.0003999200159968006,
+  "met": true
+ },
+ "b4": {
+  "median_abs_d": 0.10936099607287464,
+  "p95": 0.31776583883077125,
+  "met": true
+ },
+ "b5": {
+  "cases": {
+   "withheld": 6,
+   "n": 150,
+   "rate": 0.04
+  },
+  "controls": {
+   "withheld": 6,
+   "n": 163,
+   "rate": 0.03680981595092025
+  },
+  "ratio": 1.0866666666666667,
+  "met": true
+ },
+ "b6": {
+  "substituted": true,
+  "source": "kit/results/PROC_BAND_01_arrays.json",
+  "n": 318,
+  "max_abs_delta_A_mapped": 0.0,
+  "met": true,
+  "note": "the pre-registration named PROC-E2E-01's sealed file, which records exit codes and timings but NO per-array readings - so the bar as written could not be run. This is the equivalent check against the readings PROC-BAND-01 did publish, reported as a substitution."
+ }
+}
