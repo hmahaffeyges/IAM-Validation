@@ -5,7 +5,7 @@ Do not edit by hand: re-run the generator. Every step below is a call the code a
 order it makes it, and every stage module or function that is **not** in that path is listed underneath
 rather than left out.
 
-## The live path — 23 steps, in order
+## The live path — 24 steps, in order
 
 | # | step | implemented in | what it does |
 |---|---|---|---|
@@ -25,13 +25,14 @@ rather than left out.
 | 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
 | 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
 | 16 | `stage_b_identity` | `cpg_conductor.py` | THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the |
-| 17 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
-| 18 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped |
-| 19 | `stage_5_mahalanobis` | `cpg_conductor.py` | Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B) |
-| 20 | `stage_5_hull_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure |
-| 21 | `stage_6_cellular_age` | `cpg_conductor.py` | Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21) |
-| 22 | `stage_6_cellular_age_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported |
-| 23 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
+| 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a |
+| 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
+| 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped |
+| 20 | `stage_5_mahalanobis` | `cpg_conductor.py` | Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B) |
+| 21 | `stage_5_hull_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure |
+| 22 | `stage_6_cellular_age` | `cpg_conductor.py` | Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21) |
+| 23 | `stage_6_cellular_age_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported |
+| 24 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
 
 ## Named as chain, called by nothing
 
