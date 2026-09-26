@@ -538,3 +538,59 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# CELL-LEVEL COMPOSER (2026-09-26). The cohort generator above composes from the EIGHT CLASS MEANS, so it cannot
+# construct a patient with known PER-CELL fractions - and the per-cell A is the product (author: "our bread and
+# butter is the A score per individual cell type"). This composes from the 115 CELL-TYPE MEANS over EVERY atlas
+# address (483,092), so the chain sees every locus it reads and the truth is exact by construction. It is what the
+# presence floor per cell is measured with: healthy blood never lets neutrophils or CD4 become scarce, so the
+# fraction below which a cell's A depends on fraction cannot be measured on blood at all (measured 2026-09-26).
+# ----------------------------------------------------------------------------------------------------------------
+_CELL_ATLAS = {}
+
+
+def _cell_means(atlas_csv=None):
+    """The 115 cell-type mean columns of the atlas, indexed by CpG - loaded once."""
+    import pandas as _pd
+    path = atlas_csv or ATLAS_PATH
+    if path not in _CELL_ATLAS:
+        head = _pd.read_csv(path, nrows=0).columns.tolist()
+        cols = [c for c in head if c.endswith("_mean")]
+        df = _pd.read_csv(path, usecols=[head[0]] + cols).set_index(head[0])
+        df.index = df.index.map(str)
+        df.columns = [c[:-5] for c in df.columns]
+        _CELL_ATLAS[path] = df.astype("float32")
+    return _CELL_ATLAS[path]
+
+
+def compose_cells(fractions: dict, noise_sigma: float = 0.03, seed: int = 0, atlas_csv=None,
+                  exclude_class_columns: bool = True):
+    """A synthetic specimen with KNOWN cell-type fractions: beta = sum_c f_c * mu_c + N(0, sigma), clipped to
+    (0, 1), over every atlas address. `fractions` maps cell-type name -> fraction; they are renormalised to 1.
+    Returns (pandas.Series beta indexed by CpG, dict of the fractions actually used)."""
+    import numpy as _np
+    import pandas as _pd
+    mu = _cell_means(atlas_csv)
+    if exclude_class_columns:
+        mu = mu[[c for c in mu.columns if c not in CLASSES]]
+    f = {k: float(v) for k, v in fractions.items() if k in mu.columns and v > 0}
+    missing = [k for k in fractions if k not in mu.columns]
+    if missing:
+        raise KeyError("not atlas cell types: %s" % missing)
+    tot = sum(f.values())
+    f = {k: v / tot for k, v in f.items()}
+    beta = _np.zeros(len(mu), dtype="float64")
+    for k, v in f.items():
+        beta += v * mu[k].to_numpy(dtype="float64")
+    rng = _np.random.default_rng(seed)
+    beta += rng.normal(0.0, noise_sigma, len(beta))
+    beta = _np.clip(beta, 1e-4, 1 - 1e-4)
+    return _pd.Series(beta, index=mu.index, name="beta"), f
+
+
+def write_specimen(beta, path):
+    """Write in the one-column CSV form run_sample.py --betas reads (index = CpG, first column = beta)."""
+    beta.to_frame().to_csv(path)
+    return path

@@ -1,0 +1,66 @@
+{
+ "CD14_monocytes": {
+  "floor": 0.0144,
+  "kind": "lowest observed",
+  "f_observed_min": 0.0144,
+  "f_observed_max": 0.1374,
+  "A_spread_across_bins": 0.0095,
+  "A_slope_per_10pct": -0.0049
+ },
+ "CD19_B-cells": {
+  "floor": 0.0024,
+  "kind": "lowest observed",
+  "f_observed_min": 0.0024,
+  "f_observed_max": 0.0513,
+  "A_spread_across_bins": 0.0127,
+  "A_slope_per_10pct": 0.0018
+ },
+ "CD4_T-cells": {
+  "floor": 0.12,
+  "kind": "measured",
+  "f_observed_min": 0.0764,
+  "f_observed_max": 0.3294,
+  "A_spread_across_bins": 0.0281,
+  "A_slope_per_10pct": -0.009
+ },
+ "CD56_NK-cells": {
+  "floor": 0.0825,
+  "kind": "measured",
+  "f_observed_min": 0.052,
+  "f_observed_max": 0.2457,
+  "A_spread_across_bins": 0.026,
+  "A_slope_per_10pct": 0.0117
+ },
+ "CD8_T-cells": {
+  "floor": 0.006,
+  "kind": "lowest observed (upper bound)",
+  "f_observed_min": 0.006,
+  "f_observed_max": 0.2784,
+  "A_spread_across_bins": 0.0225,
+  "A_slope_per_10pct": 0.0084
+ },
+ "Corpus_undiff": {
+  "floor": 0.0005,
+  "kind": "lowest observed",
+  "f_observed_min": 0.0005,
+  "f_observed_max": 0.0198,
+  "A_spread_across_bins": 0.0149,
+  "A_slope_per_10pct": 0.0375
+ },
+ "GMP": {
+  "floor": 0.1297,
+  "kind": "measured",
+  "f_observed_min": 0.0086,
+  "f_observed_max": 0.1812,
+  "A_spread_across_bins": 0.0564,
+  "A_slope_per_10pct": 0.0271
+ },
+ "Neutrophils_reinius": {
+  "floor": 0.332,
+  "kind": "lowest observed",
+  "f_observed_min": 0.332,
+  "f_observed_max": 0.6162,
+  "A_spread_across_bins": 0.0071,
+  "A_slope_per_10pct": -0.0015
+ }
+}
