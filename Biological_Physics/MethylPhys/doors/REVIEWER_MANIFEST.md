@@ -103,7 +103,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 44 procedures, 196 files
+## Every sealed procedure — 45 procedures, 197 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -135,6 +135,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-MAHA-03** — [`PROC_MAHA_03_OUTCOME.md`](PROC_MAHA_03_OUTCOME.md), [`PROC_MAHA_03_PREREG.md`](PROC_MAHA_03_PREREG.md), [`PROC_MAHA_03.py`](../kit/PROC_MAHA_03.py), [`PROC_MAHA_03_deep_analyse.py`](../kit/PROC_MAHA_03_deep_analyse.py), [`PROC_MAHA_03_deep_calibrate.py`](../kit/PROC_MAHA_03_deep_calibrate.py), [`PROC_MAHA_03_stage1_table.py`](../kit/PROC_MAHA_03_stage1_table.py), [`PROC_MAHA_03.json`](../kit/results/PROC_MAHA_03.json), [`PROC_MAHA_03_deep.json`](../kit/results/PROC_MAHA_03_deep.json)
 - **PROC-MATCH-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-MATCH-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-MATCH-01/PREREG.md), [`m5_cached_arrays.json`](../../Record/PROC_data/PROC-MATCH-01/m5_cached_arrays.json), [`test_disease_matching_gate.py`](../../Record/PROC_data/PROC-MATCH-01/test_disease_matching_gate.py)
 - **PROC-MF-01** — [`PROC_MF_01_OUTCOME.md`](PROC_MF_01_OUTCOME.md), [`PROC_MF_01_PREREG.md`](PROC_MF_01_PREREG.md), [`PROC_MF_01.py`](../kit/PROC_MF_01.py), [`PROC_MF_01.json`](../kit/results/PROC_MF_01.json), [`PROC_MF_01_null.json`](../kit/results/PROC_MF_01_null.json), [`PROC_MF_01.png`](../plates/PROC_MF_01.png)
+- **PROC-MF-02** — [`PROC_MF_02_PREREG.md`](PROC_MF_02_PREREG.md)
 - **PROC-PANEL-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-01/PREREG.md), [`panel01_results.json`](../../Record/PROC_data/PROC-PANEL-01/panel01_results.json), [`per_sample_input.csv`](../../Record/PROC_data/PROC-PANEL-01/per_sample_input.csv)
 - **PROC-PANEL-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-02/PREREG.md), [`panel02_results.json`](../../Record/PROC_data/PROC-PANEL-02/panel02_results.json)
 - **PROC-PANEL-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-03/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-03/PREREG.md), [`panel03_results.json`](../../Record/PROC_data/PROC-PANEL-03/panel03_results.json)
