@@ -29,6 +29,20 @@ def _sky(o):
     return o.get("patient_sky") or {}
 
 
+def _chk_detection(o):
+    """Stage 2d - inverse-variance foreign-cell detection (PROC-MF-01/02/03; adopted by the author 2026-09-26, scoped to
+    commissioned laboratories). PASS when the stage ran and its status is one the report can act on; NOT_RUN when the
+    bundle has no stage-2d record; NOT_APPLICABLE when the laboratory has no panel; FAIL when it ran but returned no
+    per-cell rows (the stage promised a table and did not deliver one)."""
+    fd = o.get("foreign_detection")
+    if fd is None: return "NOT_RUN", "bundle has no foreign_detection record"
+    st = fd.get("status") or ""
+    if st.startswith("NOT_COMMISSIONED"): return "NOT_APPLICABLE", st
+    if st.startswith("NOT_RUN") or st.startswith("WITHHELD"): return "NOT_RUN", st
+    if not fd.get("cells"): return "FAIL", "status %r but no per-cell rows" % st
+    return "PASS", "%d foreign columns scored; %d above the laboratory line; %s" % (len(fd["cells"]), len(fd.get("detected") or []), st)
+
+
 def _chk_healpix(o):
     s = _sky(o)
     if not s.get("available"):
@@ -144,6 +158,11 @@ TOOLS = [
  ("NILC", "needlet internal linear combination", "CMB component separation",
   "an independent second solve of the composition, compared with the primary fit class by class",
   "nilc_celltype_deconvolver.py", _chk_nilc),
+ ("DETECT", "inverse-variance matched-template detection of a foreign cell", "point-source / cluster detection in a noisy map",
+  "Stage 2d: each foreign cell's atlas profile, minus the specimen's own blood background, fitted to the residual with per-locus 1/variance "
+  "weights from commissioned healthy blood; centred and lined per laboratory. Detection limit 0.5-1 % on four 450K laboratories (PROC-MF-02/03); "
+  "the full-covariance matched filter was tried first and tied NNLS (PROC-MF-01: 1,506 markers vs 36 arrays).",
+  "cpg_conductor.py stage_2d_foreign_detection; Runtime Matrices/A_Scoring_Module/detection_panel_v1.json", _chk_detection),
  ("INVVAR", "inverse-variance weighting", "optimal map-making",
   "each address weighted by the inverse of its atlas posterior variance - what brought the trace-class "
   "detection limit from 5 % to 2 %",

@@ -91,7 +91,7 @@ without `--age` the absolute reading is withheld. A_mapped is still printed in b
 ### Report assets (Stage 9)
 | File | Role |
 |---|---|
-| ../../Record/crown_jewel_and_patient_strawman/strawman_data_v2.json` · [`render_patient_wall.py`](report_builders/render_patient_wall.py) · [`render_strawman_v2.py`](report_builders/render_strawman_v2.py) | patient straw man |
+| ../../Record/crown_jewel_and_patient_strawman/strawman_data_v2.json` · `render_patient_wall.py` (retired, RETIRED_2026-09/report_builders_v1_retired_2026-09-26) · `render_strawman_v2.py` (retired, RETIRED_2026-09/report_builders_v1_retired_2026-09-26) | patient straw man |
 | `Record/crown_jewel_and_patient_strawman/IAM_Disease_Wall_CROWN_JEWEL_v3.html` | crown-jewel wall (v3) |
 | `MethylPhys/atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy` (+ provenance) | CMB pixel map |
 | `CPG_AstroGenetics_explainer_section.html` | "How CPG works" explainer |

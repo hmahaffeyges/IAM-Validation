@@ -1,4 +1,4 @@
-# PROC-MF-03 — outcome: NOT COMMISSIONED. B1–B6 met again; B7 failed on the fifth laboratory — its healthy null is 6–25× wider than the four (by cell and laboratory), and its Breast and Prostate lines were set by two controls elevated on both cells at once.
+# PROC-MF-03 — outcome: NOT COMMISSIONED. B1–B6 met again; B7 failed on the fifth laboratory — its healthy null is 4–25× wider than the four (by cell and laboratory), and its Breast and Prostate lines were set by two controls elevated on both cells at once.
 
 **Sealed 2026-09-26** against [`PROC_MF_03_PREREG.md`](PROC_MF_03_PREREG.md), fixed before the EPIC-Italy markers were
 extracted. Four 450K laboratories as before (48 arrays, 768 spikes); GSE51032 re-extracted from the raw series matrix
@@ -36,7 +36,7 @@ betas rather than our stage-1 calibration — which, in the chain's terms, is wh
 
 ## What the fifth laboratory shows — measured
 
-1. **Its healthy null is 6–25× wider than the four, at full marker resolution.** MAD of f̂ for Breast: the
+1. **Its healthy null is 4–25× wider than the four, at full marker resolution.** MAD of f̂ for Breast: the
    four laboratories 0.0010–0.0014, GSE51032 **0.0084** (6–8×); colon 0.0002–0.0006 vs **0.0043** (7–22×); neurons
    0.0004–0.0014 vs **0.0099** (7–25×); prostate 0.0013–0.0030 vs **0.0132** (4–10×). Against the median of the four:
    6.7×, 10.0×, 8.5×, 6.3×. This is the bulk of the distribution, not a tail.

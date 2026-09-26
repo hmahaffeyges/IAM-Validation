@@ -39,8 +39,6 @@ PURPOSE = {
                      "they are used, which is why a filename scan cannot see their readers."),
  "chain/TEST_DATA/idats": ("Raw two-channel intensity files for the eleven commissioning arrays - the input "
                            "the chain is designed to take."),
- "chain/report_builders": ("Pre-atlas report builders, kept because the record cites them. A run does not "
-                           "call any of them; the live report is built by MethylPhys_Interface."),
  "chain/example_runs": ("One folder per execution of the chain, with the report it produced. A run makes no "
                         "claim and passes no bar - it is not a test."),
  "chain/tools": ("Fetchers and helpers used to assemble cohorts. Not part of a reading."),

@@ -95,7 +95,7 @@ network access to `https://array-manifest-files.s3.amazonaws.com/` for the Illum
 
 Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mechanical index of all 175 validation records (G, VAL-001..128, T1..T15, CPG-VAL-001..022, hull, N7, September PROCs; unique keys by series) in the repo (Issue 003 Appendix V).
 
-`PROC_SKIES_01` (not a script yet): Issue 003 Fig. 5A-1 'Four skies' was produced by the repo's own [`cpg_patient_cmb.py`](../chain/cpg_patient_cmb.py) on GSM1051533 + `IAMAtlasREBUILD.csv` immune_mean/immune_sd + CAMB Planck-2018 → `healpy.synfast`; needs `healpy`, `camb`, and `HOME`/`XDG_CONFIG_HOME` pointed at a writable dir (astropy config). A PROC that prints FAIL is a finding, not an error — record it.
+`PROC_SKIES_01` (not a script yet): Issue 003 Fig. 5A-1 'Four skies' was produced by the repo's own `cpg_patient_cmb.py` (retired 2026-09-26) on GSM1051533 + `IAMAtlasREBUILD.csv` immune_mean/immune_sd + CAMB Planck-2018 → `healpy.synfast`; needs `healpy`, `camb`, and `HOME`/`XDG_CONFIG_HOME` pointed at a writable dir (astropy config). A PROC that prints FAIL is a finding, not an error — record it.
 
 ---
 
@@ -247,7 +247,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 **RENDER CHECK LESSON (2026-09-21).** A page render placed after an `assert` in the same script does not run when the assert fails - the on-disk image is then the STALE previous render, and text extraction does not see split words inside table cells. Render unconditionally (before any assert, or in its own statement), then READ the image; write 'verified visually' only after that read. An auditor caught a stale chk_phys1.png presented as verified.
 
-- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old [`cpg_report_builder.py`](../chain/cpg_report_builder.py) is record-side.
+- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — the interface is `MethylPhys/chain/MethylPhys_Interface/build_methylphys.py`:** 19 tabs read from the bundle - 9 for the specimen, 10 reference; the tab reference is generated from a finished report; Stage 2d added 2026-09-26. Not sealed: the report is commissioned when the stages it prints are, and it prints NOT RUN / WITHHELD rather than a pass for any that are not. 
 
 ## Checking this work
 

@@ -26,7 +26,7 @@ correctly leaves it quiet and the matched filter must screen it on its own.
 - The confirmation verdict now flags only the top SPECIFIC, concern-worthy per-cell match;
   non-specific generic-axis matches are handled by the report's Mode 1 line, never escalated.
 
-## 3. Report  (cpg_report_builder.py)
+## 3. Report  (`cpg_report_builder.py` (retired 2026-09-26))
 - New 'C - RUN-everything residual sweep' table in the Confirmation section (per-map rho, CI,
   CpGs, detection). None-safe for the no-per-cell-flag case.
 - Updated the non-specific Mode 1 line to the generic-axis wording (was myeloid/lymphoid).
@@ -97,7 +97,7 @@ CHANGES:
 - stage_5_second_chain.py: AD removed from _RESIDUAL_SWEEP_DISEASES (breast + immune-alarm
   only); AD directional read surfaced; gate fires on composite > 0.40 (the directional
   threshold), independent of the module's narrower cancellation flag.
-- cpg_report_builder.py: AD directional subsection + machine-readable snapshot keys.
+- `cpg_report_builder.py` (retired 2026-09-26): AD directional subsection + machine-readable snapshot keys.
 - flowchart_v4.html: Stage 4.5 node (what/why/the-trouble); matched-filter node corrected
   (offset-robust only vs UNIFORM shifts, never patterned composition shifts).
 
@@ -117,7 +117,7 @@ yet render the strawman / reference wall (separate pipeline). Both next.
 
 ## Patient straw man + crown-jewel reference wall wired into the report
 
-cpg_report_builder.py now renders the pattern-recognition straw man: the patient's own
+`cpg_report_builder.py` (retired 2026-09-26) now renders the pattern-recognition straw man: the patient's own
 per-cell A-score architecture on the eight-class grid, the disease rows it flagged pulled
 from the crown jewel for side-by-side comparison, and the full reference disease-signature
 wall (crown jewel, 81 rows) collapsed beneath it. The patient is measured by physics
@@ -126,8 +126,8 @@ disease moves each cell -- the demarcation line. No per-disease derived panels: 
 v1.8 / crown jewel IS the reference, and the patient pattern is matched against it.
 
 CHANGES:
-- cpg_report_builder.py: added _exec_render (runs the sealed builders/render_patient_wall.py
-  and render_strawman_v2.py WITHOUT modifying them -- strips their file-I/O, injects data,
+- `cpg_report_builder.py` (retired 2026-09-26): added _exec_render (runs the sealed builders/render_patient_wall.py
+  and `render_strawman_v2.py` (retired 2026-09-26) WITHOUT modifying them -- strips their file-I/O, injects data,
   captures HTML) and _strawman_section (builds the patient wall from the EXISTING bundle,
   no chain re-run; embeds both walls collapsed in iframes). 1097 -> 1229.
 - Record/crown_jewel_and_patient_strawman/strawman_data_v2.json: NEW. The crown-jewel data,

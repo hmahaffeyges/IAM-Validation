@@ -26,7 +26,7 @@ these notes collect the material as it is learned so nothing is lost.
    Lesson: four formula/loci combinations shipped in three weeks (2026-06-11 … 07-01); settled by measurement (PROC-FORMULA-01, PROC-ANCHOR-01).
 ## Stage 4.5 — bidirectional. H is symmetric about 0.5, so up-and-down disease patterns cancel in β̄ (VAL-050 d=+0.08); VAL-051's
    directional composite recovered d=+0.62. [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%20Panel/bidirectional_decomposition.py) runs that sealed formula per patient.
-## Stage 4.6 — patient CMB. [`cpg_patient_cmb.py`](../chain/cpg_patient_cmb.py); the four-skies plate. Assessability by median|z| wrongly admits absent classes — the
+## Stage 4.6 — patient CMB. `cpg_patient_cmb.py` (retired 2026-09-26); the four-skies plate. Assessability by median|z| wrongly admits absent classes — the
    deconvolver presence gate is the right gate.
 ## Stage 5 — Mahalanobis Option A. Eight class-gauge A's against the band, n-adaptive χ². Defect: `run_full` emits {distance, beyond}
    while the report reads mahalanobis_distance — key mismatch (PROC-CHAIN-01). Distance on healthy donors driven by the stem_adult band.

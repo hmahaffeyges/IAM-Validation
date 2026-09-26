@@ -1,6 +1,6 @@
 # Row 9 — the report — WORKING NOTE (exploration; not sealed — sealing rule 2026-09-21)
 
-**2026-09-21, first end-to-end run.** `MethylPhys/chain/cpg_report_v3.py` written to the author's specification (Issue 003 p4): cells detected + percentages; A per class on the three-layer reference with band placement and tier; A per cell (separation surface, no band); Stage 5 departure with the laboratory's false-alarm sentence; the sky; flags; a scope paragraph. It names no condition and gives no age in years; a vocabulary guard refuses to write the file if any forbidden word appears — it caught the author's own scope sentence twice before the wording was clean.
+**2026-09-21, first end-to-end run.** `cpg_report_v3.py` (retired 2026-09-26) written to the author's specification (Issue 003 p4): cells detected + percentages; A per class on the three-layer reference with band placement and tier; A per cell (separation surface, no band); Stage 5 departure with the laboratory's false-alarm sentence; the sky; flags; a scope paragraph. It names no condition and gives no age in years; a vocabulary guard refuses to write the file if any forbidden word appears — it caught the author's own scope sentence twice before the wording was clean.
 
 The old `cpg_report_builder.py` (Stage 8 concordance, disease cards, straw-man wall, cellular age; 125 disease/age references) is record-side and is not called by the chain.
 

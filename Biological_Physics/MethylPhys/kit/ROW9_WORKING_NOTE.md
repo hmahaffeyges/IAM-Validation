@@ -1,6 +1,6 @@
 # Row 9 working note - the report (unsealed build)
 
-## 2026-09-22 - MethylPhys CPG builder (MethylPhys/chain/MethylPhys_Interface/build_methylphys.py) replaces cpg_report_v3.py
+## 2026-09-22 - MethylPhys CPG builder (MethylPhys/chain/MethylPhys_Interface/build_methylphys.py) replaces `cpg_report_v3.py` (retired 2026-09-26)
 Author's direction: the v3 table was 'very blah'; the report is now the researcher interface - dark, tabbed, printable, Clinician/Researcher toggle, eleven tabs
 (Reading, Every cell, Departure, Sky, Healthy reference, Integrity, Chain, Physics, Story, Record, Run). BREACH stays as a gauge reading on the CLASS gauge (a temperature);
 no comparison to any prior cohort; no condition named; no years. Vocabulary guard on the four measurement tabs.

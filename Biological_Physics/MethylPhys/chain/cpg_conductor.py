@@ -598,7 +598,7 @@ def stage_2b_second_opinion(beta_dict, stage_a_out, atlas_csv, cfg=None):
 
 def stage_2d_foreign_detection(beta_mapped, stage_a_out, lab, bi=None):
     """Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a
-    commissioned panel in detection_panel_v1.json (PROC-MF-01/02/03: 0.5-1 % of Breast / colon / neurons / prostate
+    commissioned panel in detection_panel_v1.json (PROC-MF-02/03: 0.5-1 % of Breast / colon / neurons / prostate
     in blood on four 450K laboratories, honest sigma, no bias; the fifth-laboratory bar failed each time, so a
     laboratory not in the panel gets NO line and says so).
 
@@ -703,7 +703,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "pending_recalibration": {"stage_5_mahalanobis": False, "stage_6_cellular_age": False,
                                   "note": "Stage 5 re-based on the identity gauge (PROC-MAHA-01/02); Stage 6 closed as NOT REPORTABLE at single-array resolution (PROC-AGE-01) - no reported path reads the marker-union statistics"},
         "departure": dep,                                # identity-gauge departure; long keys + short aliases (PROC-MAHA-01)
-        "mahalanobis": dep,                              # the key cpg_report_builder._departure_section reads
+        "mahalanobis": dep,                              # the key the report interface's departure tab readsure_section reads
         "diagnostic_hull_marker_union": m_diag["departure"],
         "bidirectional": bd["bidirectional"],
         "cellular_age": ag,                              # reportable False; resolution + sentence (PROC-AGE-01)

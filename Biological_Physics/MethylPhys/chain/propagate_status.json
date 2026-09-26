@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 19:14 UTC",
- "commit": "dfefc43",
+ "when": "2026-09-26 20:10 UTC",
+ "commit": "3f1d5c5",
  "pass": true,
  "rules": [
   {
@@ -24,7 +24,7 @@
    "detail": "17 procedures"
   },
   {
-   "rule": "procedures that changed a reported number are in the Issue 003 data module",
+   "rule": "procedures that changed a reported number are in the Operations Manual data module",
    "ok": true,
    "detail": "4 procedures"
   },

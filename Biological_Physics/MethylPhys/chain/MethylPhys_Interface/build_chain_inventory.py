@@ -37,6 +37,14 @@ def _bio_root(start=None):
 HERE=os.path.dirname(os.path.abspath(__file__)); ENG=os.path.dirname(HERE); BIO=_bio_root()
 
 DESC={
+ "detection_panel_v1.json": ('reference', "Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that laboratory's own healthy panel; the 1,506 markers and the blood/foreign reference columns (PROC-MF-02/03; adopted by the author 2026-09-26)", '2d'),
+ "commission_detection_lab.py": ('guard', 'commissions a laboratory for Stage 2d from >= 36 of its own healthy whole-blood arrays: maps them, drops any the composition guard does not verify as blood-like, writes centre/weights/line into detection_panel_v1.json; produces no reading', ''),
+ "file_run.py": ('interface', "the loop's return path: files one run's report, bundle and ledger row into example_runs/<run_id>/ (and kit/results when it is evidence for a procedure), rebuilds the run index, runs the gate, pushes only if it passes; the report's Run tab prints the same plan", ''),
+ "DECONVOLVER_REPAIR_2026-09-26.md": ('record', 'the four causes behind Breast reading 0.000 in breast tissue and what was changed, each measured before it was made', ''),
+ "FRACTION_AND_A.md": ('record', "constructed dilution: how a cell's A moves with its fraction, where the mixture is invertible, and why fraction is a detection gate and not a correction to A", ''),
+ "sync_components.py": ('guard', "keeps COMPONENT_MAP's runtime-file section in step with what the code reads", ''),
+ "BLOOD_bundle.json": ('record', "an example run's machine-readable bundle (example_runs/<run_id>/): every stage's output for one specimen; not a test", ''),
+
  "stage1_betas_GSE125105_MANIFEST.json":('reference','sha256 and provenance of stage1_betas_GSE125105.pkl.xz.','reference_data'),
  "stage1_betas_GSE125105.pkl.xz":('reference',"Stage-1 calibrated betas for the 80-array healthy panel of GSE125105 (the laboratory's commissioning panel; lab_zero and the per-cell calibration record are built from it).",'reference_data'),
  "stage1_betas_GSE111629_MANIFEST.json":('reference','sha256 and provenance of stage1_betas_GSE111629.pkl.xz.','reference_data'),
@@ -234,7 +242,7 @@ DESC.update({
  # --- guards and harnesses ---
  "synthetic_patient_harness.py":("guard","Harness around the synthetic patient generator for repeated runs.","guard"),
  "recordside_test_disease_matrix_gate.py":("guard","Proves the removed disease-matching stage fails closed when its files are absent - kept so the removal stays honest.","guard"),
- "switching_order.py":("guard","THE SWITCHING ORDER: one record per stage with everything that touches it clipped to it. The master cross-reference Issue 003 Part II prints from.","door"),
+ "switching_order.py":("guard","THE SWITCHING ORDER: one record per stage with everything that touches it clipped to it. The master cross-reference the Operations Manual prints from.","door"),
  # --- superseded builders ---
  "build_patient_wall.py":("superseded","Earlier multi-visit wall renderer.","not in chain"),
  "render_patient_wall.py":("superseded","Renderer for the patient wall.","not in chain"),
