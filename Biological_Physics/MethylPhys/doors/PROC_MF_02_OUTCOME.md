@@ -29,6 +29,8 @@ Evidence: [`PROC_MF_02.json`](../kit/results/PROC_MF_02.json) · [`PROC_MF_02_nu
 
 ## Why B7 failed — measured, not argued
 
+> **Superseded diagnosis (PROC-MF-03, 2026-09-26).** The attribution below — that the marker set explains most of the failure — rested on restricting the *450K* null to 783 markers, which widened it 7×. At full marker resolution the GSE51032 null narrowed only 1.6× (0.0138 → 0.0084 for Breast) and remains **4–11× wider than any of the four laboratories**. The laboratory, not the marker set, is the dominant factor. Also: GSE51032 is a **450K** array; "EPIC-Italy" is the cohort name, not the platform. See [`PROC_MF_03_OUTCOME.md`](PROC_MF_03_OUTCOME.md). The text below is left as written because it is the record of what was concluded at the time.
+
 The EPIC-Italy null is **11× wider** than the 450K null (MAD 0.0138 vs 0.0012 for Breast). Two causes, separated:
 
 1. **The marker set.** The EPIC-Italy matrix on disk is the *chain-loci* reduction built for PROC-EPIC-01 — the
