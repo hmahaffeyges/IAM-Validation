@@ -596,6 +596,55 @@ def stage_2b_second_opinion(beta_dict, stage_a_out, atlas_csv, cfg=None):
                      "defect in either: read the class table and treat the composition as uncertain"),
             "reported_composition": "Walther (constrained NNLS) - NILC is a second opinion only"}
 
+def stage_2d_foreign_detection(beta_mapped, stage_a_out, lab, bi=None):
+    """Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a
+    commissioned panel in detection_panel_v1.json (PROC-MF-01/02/03: 0.5-1 % of Breast / colon / neurons / prostate
+    in blood on four 450K laboratories, honest sigma, no bias; the fifth-laboratory bar failed each time, so a
+    laboratory not in the panel gets NO line and says so).
+
+    Inverse-variance weighted template amplitude against the specimen's own blood background:
+        b = blood-only NNLS reconstruction on the panel's markers; r = v - b; t = mu_cell - b / sum(f_blood)
+        f_hat = sum w t r / sum w t^2 - centre_lab ;  detected iff f_hat > line_lab(cell)
+    Gate: runs only when the composition guard verified the specimen as blood-like (a control reading 0.2 on every
+    foreign cell at once is substrate mismatch, PROC-MF-03 - it must never reach a line). Reports per foreign cell
+    (f_hat, sigma, line, detected, measured_detection_limit). Never changes the blood composition (MF-02/03 B6).
+    """
+    import numpy as _np
+    from scipy.optimize import nnls as _nnls
+    out = {"status": None, "laboratory": lab, "cells": {}, "detected": []}
+    try:
+        P = json.load(open(_find("detection_panel_v1.json")))
+    except Exception as e:
+        out["status"] = "NOT_RUN: detection_panel_v1.json not found (%s)" % type(e).__name__; return out
+    if lab not in P["laboratories"]:
+        out["status"] = "NOT_COMMISSIONED: detection is not commissioned for laboratory %r - no line is borrowed" % lab
+        out["commissioned_laboratories"] = sorted(P["laboratories"]); return out
+    imm = ((bi or {}).get("immune") or {})
+    if imm.get("composition_verified") is False:
+        out["status"] = "WITHHELD: the composition guard did not verify this specimen as blood-like (foreign fraction %s); a line is not applied to a specimen that is not blood" % imm.get("foreign_fraction")
+        return out
+    M = P["markers"]; v = _np.array([beta_mapped.get(m, _np.nan) for m in M], dtype=float); ok = ~_np.isnan(v)
+    if ok.sum() < 0.8 * len(M):
+        out["status"] = "NOT_RUN: only %d of %d panel markers present (need 80 %%)" % (int(ok.sum()), len(M)); return out
+    Ab = _np.array([P["blood_ref"][c] for c in P["_meta"]["blood_columns"]]).T[ok]
+    Lp = P["laboratories"][lab]; w = _np.array(Lp["weights"])[ok]
+    fb, _ = _nnls(Ab, v[ok]); b = Ab @ fb; r = v[ok] - b; bg = b / max(fb.sum(), 1e-9)
+    for c, ref in P["foreign_ref"].items():
+        t = _np.array(ref)[ok] - bg
+        a = float(_np.sum(w * t * r) / _np.sum(w * t * t)); cp = Lp["cells"][c]
+        f = a - cp["centre"]
+        rec = {"f_hat": round(f, 5), "sigma": cp["sigma"], "z": round(f / cp["sigma"], 2) if cp["sigma"] else None, "line": cp["line"],
+               "detected": bool(f > cp["line"]), "measured_detection_limit": cp["measured_detection_limit"]}
+        out["cells"][c] = rec
+        if rec["detected"]: out["detected"].append(c)
+    out["status"] = "OK"; out["n_markers_used"] = int(ok.sum()); out["panel_n"] = Lp["n_panel"]
+    out["line_rule"] = P["_meta"]["line_rule"]
+    # specificity note (PROC-MF-03): every foreign cell rising together is substrate mismatch, not detection
+    if len(out["detected"]) >= max(3, len(P["foreign_ref"]) // 2):
+        out["status"] = "OK_BUT_UNSPECIFIC: %d of %d foreign cells detected together - substrate-mismatch signature, not a detection of any one cell" % (len(out["detected"]), len(P["foreign_ref"]))
+    return out
+
+
 def run_full(beta_dict, atlas_csv, cfg=None):
     """Full conductor: Stage A -> B (wired) -> 1s scale map -> B-identity -> 4.5 -> 5 -> 6, one bundle
     in the shape build_dashboard_v1.py consumes. Present-gated throughout.
@@ -608,6 +657,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     b = stage_b_classes(beta_dict, a, cfg={"age": age})                         # marker-union statistic: DIAGNOSTIC ONLY since PROC-SWITCH-01 (feeds Stages 5/6 pending their recalibration)
     beta_rm, scale_label = stage_1s_scale_map(beta_dict, cfg.get("pipeline"))   # Stage 1s: calibration scale for the gauge
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
+    fd = stage_2d_foreign_detection(beta_rm, a, cfg.get("lab"), bi)                  # Stage 2d: foreign-cell detection (author-adopted 2026-09-26, PROC-MF-01/02/03)
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
     sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6 built, commissioning WITHHELD - PROC-CMB-04 C2')
@@ -643,6 +693,7 @@ def run_full(beta_dict, atlas_csv, cfg=None):
                                                       # mapped scale shifts the statistic by ~24 units
                         # row 2b: NILC beside Walther, class-level agreement flag                     # 2026-09-22 (row 9): every one of the 115 atlas cells scored, placed or not - the report shows all of them
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
+        "foreign_detection": fd,                          # Stage 2d: per foreign cell f_hat, sigma, line, detected - only for commissioned laboratories
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
         "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
                         "fraction": round(v["fraction"], 4), "present": v["present"], "band": v.get("band"), "gauge_surface": "marker_union",

@@ -92,6 +92,11 @@
    "where": "cpg_conductor.py"
   },
   {
+   "step": "stage_2d_foreign_detection",
+   "implements": "Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a",
+   "where": "cpg_conductor.py"
+  },
+  {
    "step": "stage_4_5_bidirectional",
    "implements": "Stage 4.5 (SOP \u00a746.5) - bidirectional decomposition. Signed directional",
    "where": "cpg_conductor.py"
@@ -386,7 +391,7 @@
   }
  ],
  "counts": {
-  "live": 23,
+  "live": 24,
   "batch": 0,
   "not_wired": 3,
   "role_gaps": 6

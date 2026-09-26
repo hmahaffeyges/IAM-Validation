@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 17:49 UTC",
- "commit": "8b8abad",
+ "when": "2026-09-26 18:03 UTC",
+ "commit": "b1330b6",
  "pass": true,
  "rules": [
   {
@@ -31,7 +31,7 @@
   {
    "rule": "every runtime matrix is named in the SOP or the manifest",
    "ok": true,
-   "detail": "24 files"
+   "detail": "25 files"
   },
   {
    "rule": "the run index covers every ledger row",
@@ -61,7 +61,7 @@
   {
    "rule": "every runtime file the code reads is in every component list; none is mislabelled unread",
    "ok": true,
-   "detail": "24 runtime files checked against measured readership"
+   "detail": "25 runtime files checked against measured readership"
   }
  ]
 }
