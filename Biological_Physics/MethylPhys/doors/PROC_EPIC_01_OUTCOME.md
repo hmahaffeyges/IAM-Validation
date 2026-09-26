@@ -1,8 +1,10 @@
 # PROC-EPIC-01 — outcome: the colorectal signal replicates in held-out blood. The breast signal does not.
 
 **Sealed 2026-09-26** against the bars fixed in [`PROC_EPIC_01_PREREG.md`](PROC_EPIC_01_PREREG.md) before any
-array was scored. 845 EPIC-Italy arrays scored through the commissioned chain; **only the 516 held-out**
-samples analysed — 78 breast, 72 colorectal, 163 female controls.
+array was scored. 845 EPIC-Italy arrays scored through the commissioned chain. 516 samples are held out; **313 of them
+enter the analysis** — 78 breast, 72 colorectal and 163 female controls. The remaining 203 are the 84
+male controls excluded by design (every case is female) and 119 held-out cases of other cancer types,
+which no bar tests.
 Evidence: [`PROC_EPIC_01.json`](../kit/results/PROC_EPIC_01.json) ·
 [`PROC_EPIC_01_scored.json`](../kit/results/PROC_EPIC_01_scored.json) (every array) ·
 scripts [`PROC_EPIC_01_score.py`](../kit/PROC_EPIC_01_score.py) ·
