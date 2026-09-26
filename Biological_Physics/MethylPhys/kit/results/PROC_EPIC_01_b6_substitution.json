@@ -1,0 +1,6 @@
+{
+ "n": 318,
+ "max_abs_delta_A_mapped": 0.0,
+ "source": "kit/results/PROC_BAND_01_arrays.json",
+ "note": "the pre-registration named PROC-E2E-01's sealed file, which records exit codes and timings but NO per-array readings - so the bar as written could not be run. This is the equivalent check against the readings PROC-BAND-01 did publish, reported as a substitution."
+}
