@@ -18,11 +18,28 @@ not physically meaningful — so this is a calibration defect, not a reading.
 
 ## The cause, and it is arithmetic
 
-The per-cell path scores each cell on its **discriminative marker panel**. Those panels are selected to
-separate that cell from every other, so they are **near-binary in the cell**: 77 % to 100 % of their
-addresses sit below 0.1 or above 0.9. Mean per-CpG entropy over binary addresses is ≈ 0 by construction.
-Divide by a floor of ~0.8 and you get ≈ 0. **The number was measuring how sharply the markers were chosen,
-not how well the cell holds its state.**
+The per-cell path scores each cell on its **discriminative marker panel**, and mean per-CpG entropy over
+near-binary addresses is ≈ 0 by construction. **How near-binary a panel is varies widely between cells,
+and that variation is the defect** — it is not a constant property of marker panels.
+
+Fraction of a cell's marker addresses below 0.1 or above 0.9, measured across all 115 cells:
+
+| min | p25 | median | p75 | max |
+|---|---|---|---|---|
+| 0.01 | 0.44 | 0.70 | 0.98 | 1.00 |
+
+**corr(extreme fraction, A on markers) = -0.961** — the tightest relationship in
+this audit. The 76 cells at or above 50 % extreme have median A **0.3173**;
+the 39 below it, **0.6605**. So the number was measuring how sharply each
+cell's markers happened to be chosen, not how well the cell holds its state — and cells with unusually
+mild panels (Breast, 0.01) read plausibly by luck, which is why this stayed invisible until every cell
+was audited.
+
+**Correction, 2026-09-26:** the first version of this document said marker panels are "77 % to 100 %"
+near-binary. That was generalised from the twelve worst cells and is contradicted by this document's own
+comparison table below, which lists values down to 0.01. The distribution above is the measured one. The
+same wrong figure reached the CHAIN_COMMISSIONING B-11 row, corrected with it, and the commit message of
+`695d1c8`, which stands wrong in the record.
 
 ## The same cells, scored on identity loci instead
 
@@ -64,4 +81,4 @@ Identity loci exist **per class only**. Using a cell's class loci would give A �
 every cell in a class would share one surface and one observed value, so all 51 immune cells would read
 identically — which destroys the per-cell resolution that is the point. **Per-cell identity loci must be
 constructed**, the same way the eight class panels were, and the class panels' provenance is in
-`iamatlas_gauge_identity_loci_v1_0.json` to mirror. That is the author's call to commission.
+[`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) to mirror. That is the author's call to commission.

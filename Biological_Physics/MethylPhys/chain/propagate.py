@@ -199,6 +199,17 @@ def rules():
               "bypassing: %s" % ", ".join(bypass) if bypass
               else "%d grandfathered, the rest clean" % len(GRANDFATHERED)))
 
+    # RULE 11 (2026-09-26, author: 'The drift is real ... we need failsafes!'): the per-cell A must be on the
+    # commissioned physics surface. kit/test_percell_physics.py checks the four root causes found that day -
+    # wrong surface, unmapped betas, crossed formula, unreachable reference - plus the A <= 1/H_min ceiling and
+    # the fraction-0 gate, by scoring a real healthy array through the chain. A sentence in a document did not
+    # prevent any of the four; this does.
+    _r = subprocess.run([sys.executable, os.path.join(os.path.dirname(HERE), 'kit', 'test_percell_physics.py')],
+                        capture_output=True, text=True)
+    _tail = [l for l in (_r.stdout or '').split('\n') if l.strip().startswith(('FAIL', 'test_percell'))]
+    R.append(('per-cell A on the commissioned physics surface (test_percell_physics)', _r.returncode == 0,
+                ' | '.join(_tail[-3:]) or (_r.stderr or '')[-200:]))
+
     return R
 
 

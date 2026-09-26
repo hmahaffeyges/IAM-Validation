@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 13:00 UTC",
- "commit": "3e5214e",
+ "when": "2026-09-26 14:15 UTC",
+ "commit": "695d1c8",
  "pass": true,
  "rules": [
   {
@@ -31,7 +31,7 @@
   {
    "rule": "every runtime matrix is named in the SOP or the manifest",
    "ok": true,
-   "detail": "22 files"
+   "detail": "24 files"
   },
   {
    "rule": "the run index covers every ledger row",
@@ -52,6 +52,11 @@
    "rule": "every new procedure script invokes the chain rather than its internals",
    "ok": true,
    "detail": "19 grandfathered, the rest clean"
+  },
+  {
+   "rule": "per-cell A on the commissioned physics surface (test_percell_physics)",
+   "ok": true,
+   "detail": "test_percell_physics: PASS - four root causes checked, none present"
   }
  ]
 }

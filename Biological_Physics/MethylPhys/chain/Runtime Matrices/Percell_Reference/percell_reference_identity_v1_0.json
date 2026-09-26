@@ -1,0 +1,6880 @@
+{
+ "_meta": {
+  "built": "2026-09-26 14:00 UTC",
+  "surface": "identity_loci (iamatlas_percell_identity_loci_v1_0.json)",
+  "formula": "A = H(mean beta over the cell's identity loci) / H_min[class(cell)] - RULING A3, the commissioned identity form used by stage_b_identity; betas scale-mapped to the atlas (stage_1s_scale_map) before scoring, as the class gauge does",
+  "jensen_gap_median_per_cell": {
+   "Acinar": 0.37018,
+   "Antrum_diff": 0.10782,
+   "Antrum_undiff": 0.11552,
+   "B-cells_EPIC": 0.2688,
+   "BE": 0.43635,
+   "Basal": 0.43549,
+   "Baso": 0.05552,
+   "Bladder": 0.21224,
+   "Bmem": 0.07601,
+   "Bnv": 0.11042,
+   "Breast": 0.22974,
+   "CD14_monocytes": 0.02243,
+   "CD19_B-cells": 0.03731,
+   "CD4T": 0.11605,
+   "CD4T-cells_EPIC": 0.28099,
+   "CD4Tmem": 0.08116,
+   "CD4Tnv": 0.09934,
+   "CD4_T-cells": 0.04645,
+   "CD56_NK-cells": 0.03793,
+   "CD8T": 0.29007,
+   "CD8T-cells_EPIC": 0.24981,
+   "CD8Tmem": 0.07448,
+   "CD8Tnv": 0.09244,
+   "CD8_T-cells": 0.04618,
+   "CM": 0.3798,
+   "CMP": 0.03935,
+   "Chol": 0.48379,
+   "Colon_epithelial_cells": 0.39322,
+   "Corpus_diff": 0.11277,
+   "Corpus_undiff": 0.11066,
+   "Cortical_neurons": 0.14507,
+   "Ductal": 0.36219,
+   "Endocrine": 0.37386,
+   "Eos": 0.05527,
+   "Eosinophils_reinius": 0.02413,
+   "Epi": 0.43481,
+   "Epi_basal": 0.39752,
+   "Epi_stratified": 0.43346,
+   "Epi_suprabasal": 0.39056,
+   "Epi_upper": 0.49658,
+   "Erythrocyte_progenitors": 0.07385,
+   "Fundus_diff": 0.1097,
+   "Fundus_undiff": 0.11247,
+   "GMP": 0.04001,
+   "Gland": 0.44737,
+   "Glia": 0.15783,
+   "Gran": 0.40008,
+   "HSC": 0.04608,
+   "Head_and_neck_larynx": 0.19749,
+   "Hep": 0.45789,
+   "Hepatocytes": 0.31936,
+   "IC": 0.39105,
+   "Kera_diff": 0.41828,
+   "Kera_undiff": 0.46365,
+   "Kidney": 0.19383,
+   "Kup": 0.44715,
+   "L-MPP": 0.04412,
+   "LE": 0.45596,
+   "Left_atrium": 0.10686,
+   "Leu": 0.31751,
+   "Luminal": 0.43269,
+   "Lung_cells": 0.25443,
+   "Lym": 0.42281,
+   "MEP": 0.04792,
+   "MP": 0.38607,
+   "MPP": 0.04306,
+   "Macro": 0.41076,
+   "Mela": 0.39174,
+   "Microglia": 0.45492,
+   "Mono": 0.3642,
+   "Monocytes_EPIC": 0.05743,
+   "Mye": 0.38273,
+   "NK": 0.08653,
+   "NK-cells_EPIC": 0.09538,
+   "Neu": 0.02686,
+   "NeuIm": 0.44533,
+   "NeuMa": 0.4552,
+   "Neutrophils_EPIC": 0.03512,
+   "Neutrophils_reinius": 0.01838,
+   "OPC": 0.47671,
+   "Oligo": 0.26268,
+   "PBMC": 0.02337,
+   "Pancreatic_acinar_cells": 0.38142,
+   "Pancreatic_beta_cells": 0.18051,
+   "Pancreatic_duct_cells": 0.3508,
+   "Plasma": 0.43739,
+   "Prostate": 0.29958,
+   "Tcell": 0.43415,
+   "Thyroid": 0.49413,
+   "Treg": 0.07891,
+   "Upper_GI": 0.15558,
+   "Uterus_cervix": 0.23834,
+   "adipocyte": 0.42592,
+   "endothelial": 0.34824,
+   "fibroblast": 0.40917,
+   "granulocytes": 0.01767,
+   "nRBC": 0.08076,
+   "neuron": 0.47172,
+   "smooth_muscle": 0.36347,
+   "stem_pluri": 0.24017,
+   "stromal_other": 0.46691,
+   "whole_blood": 0.01307
+  },
+  "scorer": "iamatlas_a_scoring._score_one_identity - the chain's own, not a re-implementation",
+  "supersedes_for_scoring": "percell_reference_v0_3.json, which is on the MARKER surface and cannot judge identity-surface readings",
+  "design": "per laboratory: random disjoint build/held-out split (seed 20260926); band = p10-p90 of A on build; held-out scored against it, nominal in-band 0.80",
+  "not_done": [
+   "age adjustment",
+   "laboratory zero",
+   "fraction conditioning (fraction is a detection gate, author's ruling)"
+  ],
+  "cohorts": {
+   "GSE87571": {
+    "n_arrays": 732,
+    "n_build": 366,
+    "n_held_out": 366,
+    "n_loci": 418624
+   },
+   "GSE42861": {
+    "n_arrays": 78,
+    "n_build": 39,
+    "n_held_out": 39,
+    "n_loci": 125263
+   },
+   "GSE111629": {
+    "n_arrays": 80,
+    "n_build": 40,
+    "n_held_out": 40,
+    "n_loci": 123913
+   },
+   "GSE125105": {
+    "n_arrays": 80,
+    "n_build": 40,
+    "n_held_out": 40,
+    "n_loci": 115691
+   }
+  },
+  "splits": {
+   "GSE87571": {
+    "build": [
+     "GSM2334486",
+     "GSM2334359",
+     "GSM2334365",
+     "GSM2333911",
+     "GSM2334494",
+     "GSM2333912",
+     "GSM2334373",
+     "GSM2334598",
+     "GSM2334203",
+     "GSM2334573",
+     "GSM2333929",
+     "GSM2333980",
+     "GSM2334090",
+     "GSM2334234",
+     "GSM2334008",
+     "GSM2334602",
+     "GSM2334544",
+     "GSM2333993",
+     "GSM2334212",
+     "GSM2334033",
+     "GSM2333955",
+     "GSM2334082",
+     "GSM2334209",
+     "GSM2334386",
+     "GSM2334381",
+     "GSM2334613",
+     "GSM2334393",
+     "GSM2334026",
+     "GSM2334253",
+     "GSM2334166",
+     "GSM2334323",
+     "GSM2334223",
+     "GSM2334003",
+     "GSM2334395",
+     "GSM2334375",
+     "GSM2334281",
+     "GSM2334567",
+     "GSM2334148",
+     "GSM2334355",
+     "GSM2334496",
+     "GSM2334443",
+     "GSM2334019",
+     "GSM2334383",
+     "GSM2334012",
+     "GSM2333966",
+     "GSM2334232",
+     "GSM2334288",
+     "GSM2334011",
+     "GSM2334301",
+     "GSM2334363",
+     "GSM2334499",
+     "GSM2333927",
+     "GSM2334093",
+     "GSM2334225",
+     "GSM2334404",
+     "GSM2334358",
+     "GSM2334034",
+     "GSM2333903",
+     "GSM2334543",
+     "GSM2334085",
+     "GSM2334157",
+     "GSM2334189",
+     "GSM2334563",
+     "GSM2334412",
+     "GSM2334428",
+     "GSM2334160",
+     "GSM2334125",
+     "GSM2334260",
+     "GSM2334271",
+     "GSM2334402",
+     "GSM2334089",
+     "GSM2334341",
+     "GSM2334529",
+     "GSM2334548",
+     "GSM2334255",
+     "GSM2333937",
+     "GSM2334346",
+     "GSM2334014",
+     "GSM2334601",
+     "GSM2334182",
+     "GSM2334183",
+     "GSM2334592",
+     "GSM2334579",
+     "GSM2334296",
+     "GSM2334079",
+     "GSM2333957",
+     "GSM2334470",
+     "GSM2333905",
+     "GSM2334591",
+     "GSM2334347",
+     "GSM2334115",
+     "GSM2333916",
+     "GSM2334155",
+     "GSM2334451",
+     "GSM2334419",
+     "GSM2334294",
+     "GSM2334422",
+     "GSM2333949",
+     "GSM2334114",
+     "GSM2333906",
+     "GSM2334142",
+     "GSM2334173",
+     "GSM2334017",
+     "GSM2334433",
+     "GSM2334000",
+     "GSM2334020",
+     "GSM2334587",
+     "GSM2334063",
+     "GSM2334060",
+     "GSM2334410",
+     "GSM2334263",
+     "GSM2334569",
+     "GSM2334165",
+     "GSM2333970",
+     "GSM2334553",
+     "GSM2334348",
+     "GSM2333939",
+     "GSM2334206",
+     "GSM2334325",
+     "GSM2334562",
+     "GSM2334024",
+     "GSM2334336",
+     "GSM2334221",
+     "GSM2334612",
+     "GSM2334635",
+     "GSM2334197",
+     "GSM2334194",
+     "GSM2334319",
+     "GSM2334597",
+     "GSM2334332",
+     "GSM2334407",
+     "GSM2334004",
+     "GSM2334405",
+     "GSM2334603",
+     "GSM2334056",
+     "GSM2334484",
+     "GSM2334315",
+     "GSM2334295",
+     "GSM2334423",
+     "GSM2334459",
+     "GSM2334589",
+     "GSM2333923",
+     "GSM2334122",
+     "GSM2334218",
+     "GSM2334571",
+     "GSM2334537",
+     "GSM2334088",
+     "GSM2334091",
+     "GSM2334247",
+     "GSM2334179",
+     "GSM2334349",
+     "GSM2334551",
+     "GSM2334534",
+     "GSM2334278",
+     "GSM2334126",
+     "GSM2334101",
+     "GSM2334441",
+     "GSM2334430",
+     "GSM2333979",
+     "GSM2334463",
+     "GSM2334078",
+     "GSM2334064",
+     "GSM2334321",
+     "GSM2334083",
+     "GSM2333952",
+     "GSM2334099",
+     "GSM2334364",
+     "GSM2334256",
+     "GSM2334100",
+     "GSM2334220",
+     "GSM2334154",
+     "GSM2334021",
+     "GSM2334450",
+     "GSM2334299",
+     "GSM2334631",
+     "GSM2334528",
+     "GSM2334415",
+     "GSM2334624",
+     "GSM2334600",
+     "GSM2333914",
+     "GSM2333940",
+     "GSM2333985",
+     "GSM2333971",
+     "GSM2334055",
+     "GSM2334261",
+     "GSM2334087",
+     "GSM2334604",
+     "GSM2334394",
+     "GSM2334036",
+     "GSM2334577",
+     "GSM2334475",
+     "GSM2334109",
+     "GSM2334516",
+     "GSM2334448",
+     "GSM2334054",
+     "GSM2334272",
+     "GSM2334561",
+     "GSM2333973",
+     "GSM2334073",
+     "GSM2334462",
+     "GSM2334237",
+     "GSM2333975",
+     "GSM2333938",
+     "GSM2334576",
+     "GSM2334133",
+     "GSM2334236",
+     "GSM2333961",
+     "GSM2334526",
+     "GSM2334071",
+     "GSM2334512",
+     "GSM2333931",
+     "GSM2334229",
+     "GSM2333951",
+     "GSM2334620",
+     "GSM2334372",
+     "GSM2333924",
+     "GSM2334507",
+     "GSM2334586",
+     "GSM2334303",
+     "GSM2334449",
+     "GSM2333943",
+     "GSM2334446",
+     "GSM2334514",
+     "GSM2334177",
+     "GSM2334242",
+     "GSM2334396",
+     "GSM2334533",
+     "GSM2334338",
+     "GSM2334356",
+     "GSM2334435",
+     "GSM2334473",
+     "GSM2334132",
+     "GSM2334500",
+     "GSM2333902",
+     "GSM2334555",
+     "GSM2334350",
+     "GSM2334027",
+     "GSM2334248",
+     "GSM2334076",
+     "GSM2334634",
+     "GSM2334040",
+     "GSM2334005",
+     "GSM2334050",
+     "GSM2334068",
+     "GSM2334632",
+     "GSM2334251",
+     "GSM2334254",
+     "GSM2334390",
+     "GSM2334245",
+     "GSM2334002",
+     "GSM2334175",
+     "GSM2334043",
+     "GSM2334105",
+     "GSM2334032",
+     "GSM2333910",
+     "GSM2334524",
+     "GSM2333986",
+     "GSM2334290",
+     "GSM2334279",
+     "GSM2334191",
+     "GSM2334215",
+     "GSM2334257",
+     "GSM2333995",
+     "GSM2334545",
+     "GSM2334010",
+     "GSM2333967",
+     "GSM2334285",
+     "GSM2334480",
+     "GSM2334559",
+     "GSM2334074",
+     "GSM2334208",
+     "GSM2334280",
+     "GSM2334495",
+     "GSM2333945",
+     "GSM2334541",
+     "GSM2333987",
+     "GSM2334205",
+     "GSM2334222",
+     "GSM2334069",
+     "GSM2333950",
+     "GSM2333976",
+     "GSM2334489",
+     "GSM2334013",
+     "GSM2334170",
+     "GSM2334493",
+     "GSM2334159",
+     "GSM2334051",
+     "GSM2334107",
+     "GSM2333997",
+     "GSM2334141",
+     "GSM2334037",
+     "GSM2334438",
+     "GSM2334320",
+     "GSM2334127",
+     "GSM2334476",
+     "GSM2334238",
+     "GSM2334389",
+     "GSM2334067",
+     "GSM2334022",
+     "GSM2334387",
+     "GSM2334322",
+     "GSM2333964",
+     "GSM2334044",
+     "GSM2334269",
+     "GSM2334467",
+     "GSM2334045",
+     "GSM2334427",
+     "GSM2334513",
+     "GSM2333930",
+     "GSM2334096",
+     "GSM2334123",
+     "GSM2334077",
+     "GSM2334588",
+     "GSM2334046",
+     "GSM2334030",
+     "GSM2333907",
+     "GSM2334084",
+     "GSM2334609",
+     "GSM2334283",
+     "GSM2334216",
+     "GSM2334041",
+     "GSM2333996",
+     "GSM2334442",
+     "GSM2334611",
+     "GSM2334380",
+     "GSM2334409",
+     "GSM2334053",
+     "GSM2334418",
+     "GSM2334414",
+     "GSM2334330",
+     "GSM2334140",
+     "GSM2334061",
+     "GSM2334116",
+     "GSM2334207",
+     "GSM2334065",
+     "GSM2334578",
+     "GSM2333921",
+     "GSM2334508",
+     "GSM2333956",
+     "GSM2334311",
+     "GSM2334461",
+     "GSM2334593",
+     "GSM2334344",
+     "GSM2334464",
+     "GSM2333977",
+     "GSM2334357",
+     "GSM2334392",
+     "GSM2334535",
+     "GSM2334335",
+     "GSM2334202",
+     "GSM2334292",
+     "GSM2334623",
+     "GSM2334120",
+     "GSM2334144",
+     "GSM2334411",
+     "GSM2334128",
+     "GSM2334501",
+     "GSM2334268",
+     "GSM2334550",
+     "GSM2334265",
+     "GSM2334015",
+     "GSM2334385",
+     "GSM2333936",
+     "GSM2334326",
+     "GSM2333928",
+     "GSM2334454"
+    ],
+    "held_out": [
+     "GSM2334334",
+     "GSM2334305",
+     "GSM2334607",
+     "GSM2334156",
+     "GSM2334106",
+     "GSM2334289",
+     "GSM2334001",
+     "GSM2334304",
+     "GSM2334136",
+     "GSM2334616",
+     "GSM2334509",
+     "GSM2334297",
+     "GSM2334119",
+     "GSM2334329",
+     "GSM2334549",
+     "GSM2334180",
+     "GSM2334554",
+     "GSM2334575",
+     "GSM2334121",
+     "GSM2334547",
+     "GSM2334150",
+     "GSM2334145",
+     "GSM2334006",
+     "GSM2334536",
+     "GSM2334200",
+     "GSM2334009",
+     "GSM2334235",
+     "GSM2334474",
+     "GSM2334161",
+     "GSM2334487",
+     "GSM2334596",
+     "GSM2334621",
+     "GSM2334199",
+     "GSM2333922",
+     "GSM2333994",
+     "GSM2333944",
+     "GSM2334497",
+     "GSM2334379",
+     "GSM2334531",
+     "GSM2334239",
+     "GSM2334306",
+     "GSM2334023",
+     "GSM2334086",
+     "GSM2334515",
+     "GSM2334250",
+     "GSM2333953",
+     "GSM2334376",
+     "GSM2334066",
+     "GSM2334094",
+     "GSM2334287",
+     "GSM2334048",
+     "GSM2333933",
+     "GSM2334231",
+     "GSM2334400",
+     "GSM2333981",
+     "GSM2334353",
+     "GSM2334259",
+     "GSM2334546",
+     "GSM2334504",
+     "GSM2334241",
+     "GSM2334369",
+     "GSM2334605",
+     "GSM2334246",
+     "GSM2334582",
+     "GSM2334038",
+     "GSM2334445",
+     "GSM2334139",
+     "GSM2334618",
+     "GSM2334313",
+     "GSM2334511",
+     "GSM2334360",
+     "GSM2334282",
+     "GSM2333972",
+     "GSM2334192",
+     "GSM2334102",
+     "GSM2334117",
+     "GSM2334630",
+     "GSM2334366",
+     "GSM2333982",
+     "GSM2334080",
+     "GSM2334028",
+     "GSM2334564",
+     "GSM2334098",
+     "GSM2334565",
+     "GSM2334523",
+     "GSM2334072",
+     "GSM2334168",
+     "GSM2334266",
+     "GSM2334327",
+     "GSM2334214",
+     "GSM2334039",
+     "GSM2334532",
+     "GSM2334520",
+     "GSM2334502",
+     "GSM2334491",
+     "GSM2334367",
+     "GSM2334104",
+     "GSM2334530",
+     "GSM2334505",
+     "GSM2334539",
+     "GSM2334614",
+     "GSM2334585",
+     "GSM2334184",
+     "GSM2333926",
+     "GSM2334421",
+     "GSM2334420",
+     "GSM2334439",
+     "GSM2333909",
+     "GSM2334147",
+     "GSM2334210",
+     "GSM2334267",
+     "GSM2333962",
+     "GSM2334314",
+     "GSM2334108",
+     "GSM2334343",
+     "GSM2334169",
+     "GSM2334377",
+     "GSM2333920",
+     "GSM2334397",
+     "GSM2334498",
+     "GSM2334270",
+     "GSM2334016",
+     "GSM2334483",
+     "GSM2333974",
+     "GSM2334401",
+     "GSM2334465",
+     "GSM2334300",
+     "GSM2334384",
+     "GSM2334075",
+     "GSM2334429",
+     "GSM2334413",
+     "GSM2334252",
+     "GSM2333963",
+     "GSM2333965",
+     "GSM2334163",
+     "GSM2334626",
+     "GSM2334193",
+     "GSM2334195",
+     "GSM2334354",
+     "GSM2334164",
+     "GSM2334417",
+     "GSM2334460",
+     "GSM2334092",
+     "GSM2334049",
+     "GSM2334129",
+     "GSM2333948",
+     "GSM2334113",
+     "GSM2334149",
+     "GSM2334595",
+     "GSM2334568",
+     "GSM2333968",
+     "GSM2334424",
+     "GSM2334371",
+     "GSM2334152",
+     "GSM2334284",
+     "GSM2334629",
+     "GSM2334228",
+     "GSM2334018",
+     "GSM2334362",
+     "GSM2334151",
+     "GSM2333947",
+     "GSM2334095",
+     "GSM2334224",
+     "GSM2334249",
+     "GSM2333969",
+     "GSM2334440",
+     "GSM2334619",
+     "GSM2333917",
+     "GSM2334178",
+     "GSM2334328",
+     "GSM2334538",
+     "GSM2334506",
+     "GSM2334276",
+     "GSM2334468",
+     "GSM2334025",
+     "GSM2334243",
+     "GSM2334031",
+     "GSM2334324",
+     "GSM2334081",
+     "GSM2334455",
+     "GSM2334581",
+     "GSM2334185",
+     "GSM2334525",
+     "GSM2334312",
+     "GSM2334342",
+     "GSM2334432",
+     "GSM2333988",
+     "GSM2334302",
+     "GSM2334557",
+     "GSM2334110",
+     "GSM2334244",
+     "GSM2334172",
+     "GSM2334309",
+     "GSM2334447",
+     "GSM2333983",
+     "GSM2334485",
+     "GSM2334057",
+     "GSM2334572",
+     "GSM2334437",
+     "GSM2334456",
+     "GSM2334522",
+     "GSM2333904",
+     "GSM2334388",
+     "GSM2334471",
+     "GSM2334351",
+     "GSM2334368",
+     "GSM2334488",
+     "GSM2334029",
+     "GSM2334519",
+     "GSM2334625",
+     "GSM2334518",
+     "GSM2334584",
+     "GSM2334570",
+     "GSM2334399",
+     "GSM2334633",
+     "GSM2334542",
+     "GSM2334187",
+     "GSM2333946",
+     "GSM2334143",
+     "GSM2334308",
+     "GSM2334124",
+     "GSM2334130",
+     "GSM2334490",
+     "GSM2333998",
+     "GSM2334510",
+     "GSM2334190",
+     "GSM2333913",
+     "GSM2334167",
+     "GSM2334047",
+     "GSM2334204",
+     "GSM2334416",
+     "GSM2334286",
+     "GSM2334146",
+     "GSM2334594",
+     "GSM2334058",
+     "GSM2333959",
+     "GSM2334370",
+     "GSM2333915",
+     "GSM2334059",
+     "GSM2334458",
+     "GSM2334527",
+     "GSM2334277",
+     "GSM2334331",
+     "GSM2334425",
+     "GSM2334558",
+     "GSM2334472",
+     "GSM2333978",
+     "GSM2334310",
+     "GSM2334137",
+     "GSM2334307",
+     "GSM2334457",
+     "GSM2333990",
+     "GSM2334318",
+     "GSM2334615",
+     "GSM2334398",
+     "GSM2334482",
+     "GSM2334103",
+     "GSM2334070",
+     "GSM2333918",
+     "GSM2334583",
+     "GSM2334226",
+     "GSM2333908",
+     "GSM2334298",
+     "GSM2334610",
+     "GSM2333935",
+     "GSM2334258",
+     "GSM2334352",
+     "GSM2334171",
+     "GSM2334188",
+     "GSM2333932",
+     "GSM2334606",
+     "GSM2333919",
+     "GSM2334339",
+     "GSM2334627",
+     "GSM2334580",
+     "GSM2333992",
+     "GSM2333989",
+     "GSM2334134",
+     "GSM2334186",
+     "GSM2334316",
+     "GSM2334566",
+     "GSM2334391",
+     "GSM2334340",
+     "GSM2334135",
+     "GSM2333999",
+     "GSM2334097",
+     "GSM2334176",
+     "GSM2333925",
+     "GSM2334479",
+     "GSM2334112",
+     "GSM2334406",
+     "GSM2334158",
+     "GSM2334540",
+     "GSM2334317",
+     "GSM2334291",
+     "GSM2334274",
+     "GSM2334374",
+     "GSM2334403",
+     "GSM2334042",
+     "GSM2334131",
+     "GSM2334478",
+     "GSM2334560",
+     "GSM2334262",
+     "GSM2334431",
+     "GSM2334174",
+     "GSM2334293",
+     "GSM2333942",
+     "GSM2334408",
+     "GSM2334211",
+     "GSM2333960",
+     "GSM2334574",
+     "GSM2334382",
+     "GSM2334466",
+     "GSM2334138",
+     "GSM2334361",
+     "GSM2333984",
+     "GSM2334477",
+     "GSM2334453",
+     "GSM2334469",
+     "GSM2334556",
+     "GSM2334201",
+     "GSM2334434",
+     "GSM2333991",
+     "GSM2334337",
+     "GSM2334007",
+     "GSM2334426",
+     "GSM2334599",
+     "GSM2334492",
+     "GSM2334333",
+     "GSM2333954",
+     "GSM2334345",
+     "GSM2334196",
+     "GSM2334590",
+     "GSM2334198",
+     "GSM2334628",
+     "GSM2333941",
+     "GSM2334517",
+     "GSM2334452",
+     "GSM2334378",
+     "GSM2334264",
+     "GSM2334230",
+     "GSM2334444",
+     "GSM2334608",
+     "GSM2334233",
+     "GSM2334240",
+     "GSM2334481",
+     "GSM2334273",
+     "GSM2334181",
+     "GSM2334052",
+     "GSM2333934",
+     "GSM2334436",
+     "GSM2334162",
+     "GSM2334521",
+     "GSM2334153",
+     "GSM2334111",
+     "GSM2334617",
+     "GSM2334622",
+     "GSM2334552",
+     "GSM2334062",
+     "GSM2334118",
+     "GSM2333901",
+     "GSM2334275",
+     "GSM2334503",
+     "GSM2333958",
+     "GSM2334227",
+     "GSM2334035"
+    ]
+   },
+   "GSE42861": {
+    "build": [
+     "GSM1051822",
+     "GSM1051536",
+     "GSM1052126",
+     "GSM1051727",
+     "GSM1052035",
+     "GSM1051844",
+     "GSM1051751",
+     "GSM1051635",
+     "GSM1051851",
+     "GSM1051604",
+     "GSM1051814",
+     "GSM1052210",
+     "GSM1051655",
+     "GSM1051602",
+     "GSM1051553",
+     "GSM1052018",
+     "GSM1052022",
+     "GSM1051842",
+     "GSM1051650",
+     "GSM1051675",
+     "GSM1051758",
+     "GSM1051584",
+     "GSM1052211",
+     "GSM1051544",
+     "GSM1051760",
+     "GSM1051710",
+     "GSM1051865",
+     "GSM1052101",
+     "GSM1051860",
+     "GSM1051827",
+     "GSM1051597",
+     "GSM1051668",
+     "GSM1051652",
+     "GSM1052051",
+     "GSM1051773",
+     "GSM1051717",
+     "GSM1051570",
+     "GSM1051632",
+     "GSM1051545"
+    ],
+    "held_out": [
+     "GSM1051535",
+     "GSM1052130",
+     "GSM1051730",
+     "GSM1051771",
+     "GSM1051713",
+     "GSM1051565",
+     "GSM1052015",
+     "GSM1051967",
+     "GSM1051660",
+     "GSM1051761",
+     "GSM1051805",
+     "GSM1051569",
+     "GSM1052188",
+     "GSM1051752",
+     "GSM1051631",
+     "GSM1052135",
+     "GSM1052102",
+     "GSM1051855",
+     "GSM1051831",
+     "GSM1051790",
+     "GSM1051927",
+     "GSM1051656",
+     "GSM1051607",
+     "GSM1051595",
+     "GSM1051924",
+     "GSM1051625",
+     "GSM1051550",
+     "GSM1051571",
+     "GSM1051715",
+     "GSM1051653",
+     "GSM1051572",
+     "GSM1051714",
+     "GSM1052137",
+     "GSM1052038",
+     "GSM1052019",
+     "GSM1051754",
+     "GSM1051787",
+     "GSM1051765",
+     "GSM1051562"
+    ]
+   },
+   "GSE111629": {
+    "build": [
+     "GSM3035598",
+     "GSM3035615",
+     "GSM3035451",
+     "GSM3035896",
+     "GSM3035405",
+     "GSM3035865",
+     "GSM3035504",
+     "GSM3035937",
+     "GSM3035597",
+     "GSM3035765",
+     "GSM3035480",
+     "GSM3035527",
+     "GSM3035667",
+     "GSM3035584",
+     "GSM3035771",
+     "GSM3035948",
+     "GSM3035912",
+     "GSM3035821",
+     "GSM3035754",
+     "GSM3035570",
+     "GSM3035602",
+     "GSM3035756",
+     "GSM3035605",
+     "GSM3035404",
+     "GSM3035622",
+     "GSM3035626",
+     "GSM3035735",
+     "GSM3035498",
+     "GSM3035571",
+     "GSM3035639",
+     "GSM3035902",
+     "GSM3035767",
+     "GSM3035465",
+     "GSM3035867",
+     "GSM3035524",
+     "GSM3035649",
+     "GSM3035738",
+     "GSM3035482",
+     "GSM3035430",
+     "GSM3035472"
+    ],
+    "held_out": [
+     "GSM3035942",
+     "GSM3035793",
+     "GSM3035652",
+     "GSM3035637",
+     "GSM3035740",
+     "GSM3035496",
+     "GSM3035559",
+     "GSM3035906",
+     "GSM3035890",
+     "GSM3035874",
+     "GSM3035872",
+     "GSM3035960",
+     "GSM3035925",
+     "GSM3035558",
+     "GSM3035537",
+     "GSM3035781",
+     "GSM3035744",
+     "GSM3035423",
+     "GSM3035471",
+     "GSM3035866",
+     "GSM3035832",
+     "GSM3035815",
+     "GSM3035475",
+     "GSM3035618",
+     "GSM3035788",
+     "GSM3035627",
+     "GSM3035789",
+     "GSM3035918",
+     "GSM3035875",
+     "GSM3035882",
+     "GSM3035785",
+     "GSM3035920",
+     "GSM3035428",
+     "GSM3035545",
+     "GSM3035595",
+     "GSM3035419",
+     "GSM3035518",
+     "GSM3035746",
+     "GSM3035473",
+     "GSM3035450"
+    ]
+   },
+   "GSE125105": {
+    "build": [
+     "GSM3562874",
+     "GSM3563125",
+     "GSM3563437",
+     "GSM3563329",
+     "GSM3562936",
+     "GSM3562938",
+     "GSM3563263",
+     "GSM3563163",
+     "GSM3563341",
+     "GSM3562891",
+     "GSM3563459",
+     "GSM3563008",
+     "GSM3563348",
+     "GSM3563284",
+     "GSM3563465",
+     "GSM3563067",
+     "GSM3562879",
+     "GSM3562870",
+     "GSM3563273",
+     "GSM3563340",
+     "GSM3563469",
+     "GSM3563225",
+     "GSM3563372",
+     "GSM3562855",
+     "GSM3562834",
+     "GSM3562975",
+     "GSM3562943",
+     "GSM3563068",
+     "GSM3563004",
+     "GSM3563449",
+     "GSM3563346",
+     "GSM3563378",
+     "GSM3563303",
+     "GSM3563304",
+     "GSM3563286",
+     "GSM3563190",
+     "GSM3563221",
+     "GSM3562886",
+     "GSM3563296",
+     "GSM3563443"
+    ],
+    "held_out": [
+     "GSM3563422",
+     "GSM3563421",
+     "GSM3562882",
+     "GSM3563398",
+     "GSM3563514",
+     "GSM3563105",
+     "GSM3562923",
+     "GSM3562953",
+     "GSM3563036",
+     "GSM3562971",
+     "GSM3563233",
+     "GSM3563039",
+     "GSM3563175",
+     "GSM3562839",
+     "GSM3562842",
+     "GSM3563480",
+     "GSM3563017",
+     "GSM3563205",
+     "GSM3563216",
+     "GSM3563088",
+     "GSM3563199",
+     "GSM3563113",
+     "GSM3563415",
+     "GSM3562925",
+     "GSM3563114",
+     "GSM3563326",
+     "GSM3563228",
+     "GSM3562959",
+     "GSM3562928",
+     "GSM3562892",
+     "GSM3563512",
+     "GSM3562908",
+     "GSM3563048",
+     "GSM3563391",
+     "GSM3563135",
+     "GSM3563414",
+     "GSM3563360",
+     "GSM3563374",
+     "GSM3563053",
+     "GSM3563516"
+    ]
+   }
+  },
+  "laboratory_offset": {
+   "what": "ONE offset per laboratory, applied to every cell's A as the class gauge applies z_lab. Derived from the per-cell readings: median over the eight present blood cells of (that laboratory's median A for the cell - the four-laboratory median for the cell). One number per laboratory so the per-cell ordering is preserved.",
+   "agrees_with_class_gauge": "sign and order match identity_band_v3 z_lab (UCLA lowest, Karolinska highest)",
+   "effect": "between-laboratory range of per-cell medians: MEDIAN over the eight blood cells 0.0552 -> 0.0073. Not uniform: myeloid cells and B cells agree to 0.003-0.010 after the offset; the lymphoid effectors still carry laboratory disagreement of 0.023 (CD4), 0.014 (CD8) and 0.025 (NK), which one offset per laboratory does not remove.",
+   "values": {
+    "GSE87571": 0.0108,
+    "GSE42861": 0.0276,
+    "GSE111629": -0.0287,
+    "GSE125105": -0.0108
+   },
+   "unknown_laboratory": "no offset -> A reported as A_raw with lab_offset UNSET; the per-cell A is still shown, its placement is not (fail-closed, as the class gauge)",
+   "per_cell_lab_range_after": {
+    "Neutrophils_reinius": 0.0043,
+    "CD4_T-cells": 0.0226,
+    "CD8_T-cells": 0.0144,
+    "CD14_monocytes": 0.0046,
+    "CD19_B-cells": 0.01,
+    "CD56_NK-cells": 0.0245,
+    "Eosinophils_reinius": 0.003,
+    "granulocytes": 0.0044
+   }
+  },
+  "percell_centres_after_offset": {
+   "Acinar": 1.1031,
+   "Antrum_diff": 0.9641,
+   "Antrum_undiff": 0.9663,
+   "B-cells_EPIC": 1.1599,
+   "BE": 1.1073,
+   "Basal": 1.13,
+   "Baso": 1.0856,
+   "Bladder": 1.0259,
+   "Bmem": 1.0124,
+   "Bnv": 1.1087,
+   "Breast": 1.0436,
+   "CD14_monocytes": 1.0176,
+   "CD19_B-cells": 0.9955,
+   "CD4T": 1.0984,
+   "CD4T-cells_EPIC": 1.1799,
+   "CD4Tmem": 1.0035,
+   "CD4Tnv": 1.0581,
+   "CD4_T-cells": 1.027,
+   "CD56_NK-cells": 0.9692,
+   "CD8T": 1.1783,
+   "CD8T-cells_EPIC": 1.1665,
+   "CD8Tmem": 0.9929,
+   "CD8Tnv": 1.0597,
+   "CD8_T-cells": 0.9756,
+   "CM": 1.0928,
+   "CMP": 0.9496,
+   "Chol": 1.1812,
+   "Colon_epithelial_cells": 1.0583,
+   "Corpus_diff": 0.9648,
+   "Corpus_undiff": 0.9457,
+   "Cortical_neurons": 1.1039,
+   "Ductal": 1.1127,
+   "Endocrine": 1.0946,
+   "Eos": 1.0503,
+   "Eosinophils_reinius": 1.009,
+   "Epi": 1.164,
+   "Epi_basal": 1.1022,
+   "Epi_stratified": 1.0955,
+   "Epi_suprabasal": 1.0917,
+   "Epi_upper": 1.0493,
+   "Erythrocyte_progenitors": 1.0753,
+   "Fundus_diff": 0.9617,
+   "Fundus_undiff": 0.9514,
+   "GMP": 0.9599,
+   "Gland": 1.1758,
+   "Glia": 1.1099,
+   "Gran": 1.1827,
+   "HSC": 0.9402,
+   "Head_and_neck_larynx": 1.0284,
+   "Hep": 1.1729,
+   "Hepatocytes": 0.9868,
+   "IC": 1.1123,
+   "Kera_diff": 1.1931,
+   "Kera_undiff": 1.0838,
+   "Kidney": 0.9741,
+   "Kup": 1.1406,
+   "L-MPP": 0.9556,
+   "LE": 1.1222,
+   "Left_atrium": 1.0041,
+   "Leu": 1.0708,
+   "Luminal": 1.1434,
+   "Lung_cells": 1.0271,
+   "Lym": 1.1517,
+   "MEP": 0.9498,
+   "MP": 1.101,
+   "MPP": 0.9298,
+   "Macro": 1.1604,
+   "Mela": 1.093,
+   "Microglia": 1.0049,
+   "Mono": 1.186,
+   "Monocytes_EPIC": 1.0744,
+   "Mye": 1.0781,
+   "NK": 1.0683,
+   "NK-cells_EPIC": 1.0615,
+   "Neu": 1.0204,
+   "NeuIm": 1.1669,
+   "NeuMa": 1.2845,
+   "Neutrophils_EPIC": 0.9933,
+   "Neutrophils_reinius": 1.0077,
+   "OPC": 1.0089,
+   "Oligo": 1.1208,
+   "PBMC": 0.9965,
+   "Pancreatic_acinar_cells": 1.1268,
+   "Pancreatic_beta_cells": 0.9619,
+   "Pancreatic_duct_cells": 1.1091,
+   "Plasma": 1.1814,
+   "Prostate": 1.0738,
+   "Tcell": 1.1366,
+   "Thyroid": 1.1553,
+   "Treg": 1.0336,
+   "Upper_GI": 0.9668,
+   "Uterus_cervix": 1.0286,
+   "adipocyte": 1.1189,
+   "endothelial": 1.1042,
+   "fibroblast": 1.1286,
+   "granulocytes": 1.0048,
+   "nRBC": 1.0387,
+   "neuron": 1.053,
+   "smooth_muscle": 1.0613,
+   "stem_pluri": 1.0164,
+   "stromal_other": 1.1516,
+   "whole_blood": 0.9869
+  },
+  "percell_centres_note": "median over laboratories of (lab median A - lab offset), for every banded cell. A cell's NORMAL is judged against ITS OWN centre - CD4 sits at 1.027 and GMP at 0.960 in every laboratory; a universal ceiling would call healthy CD4 ELEVATED and healthy GMP SUPPRESSED."
+ },
+ "entries": {
+  "Acinar": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 186,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 173,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1494,
+     "A_p50": 1.1581,
+     "A_p90": 1.1645,
+     "held_out_p50": 1.158,
+     "held_out_frac_in_band": 0.735
+    },
+    "GSE42861": {
+     "n_loci_found": 133,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0933,
+     "A_p50": 1.1088,
+     "A_p90": 1.1203,
+     "held_out_p50": 1.1095,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 131,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0625,
+     "A_p50": 1.078,
+     "A_p90": 1.0884,
+     "held_out_p50": 1.0812,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 120,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0766,
+     "A_p50": 1.0886,
+     "A_p90": 1.1071,
+     "held_out_p50": 1.0879,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0265,
+    "between_lab_median_range": 0.0801,
+    "held_out_coverage_median": 0.7393,
+    "grand_median_A": 1.0987
+   }
+  },
+  "Antrum_diff": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 29635,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 27569,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9432,
+     "A_p50": 0.9643,
+     "A_p90": 0.9823,
+     "held_out_p50": 0.9617,
+     "held_out_frac_in_band": 0.8169
+    },
+    "GSE42861": {
+     "n_loci_found": 23448,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9561,
+     "A_p50": 0.9852,
+     "A_p90": 1.0005,
+     "held_out_p50": 0.9893,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 22533,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9253,
+     "A_p50": 0.9419,
+     "A_p90": 0.9571,
+     "held_out_p50": 0.9407,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 19264,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9644,
+     "A_p50": 0.9764,
+     "A_p90": 0.9942,
+     "held_out_p50": 0.9778,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0354,
+    "between_lab_median_range": 0.0433,
+    "held_out_coverage_median": 0.8059,
+    "grand_median_A": 0.9704
+   }
+  },
+  "Antrum_undiff": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 25711,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 23783,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9518,
+     "A_p50": 0.9712,
+     "A_p90": 0.9898,
+     "held_out_p50": 0.9692,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 20307,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9602,
+     "A_p50": 0.9882,
+     "A_p90": 0.9997,
+     "held_out_p50": 0.9923,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 19635,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9271,
+     "A_p50": 0.9432,
+     "A_p90": 0.9609,
+     "held_out_p50": 0.9421,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 17010,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9616,
+     "A_p50": 0.9737,
+     "A_p90": 0.9925,
+     "held_out_p50": 0.9748,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0359,
+    "between_lab_median_range": 0.045,
+    "held_out_coverage_median": 0.8141,
+    "grand_median_A": 0.9725
+   }
+  },
+  "B-cells_EPIC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 192,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 181,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.8544,
+     "A_p50": 0.9095,
+     "A_p90": 0.9866,
+     "held_out_p50": 0.8994,
+     "held_out_frac_in_band": 0.7459
+    },
+    "GSE42861": {
+     "n_loci_found": 49,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1546,
+     "A_p50": 1.1653,
+     "A_p90": 1.1748,
+     "held_out_p50": 1.1632,
+     "held_out_frac_in_band": 0.6923
+    },
+    "GSE111629": {
+     "n_loci_found": 45,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1816,
+     "A_p50": 1.1883,
+     "A_p90": 1.192,
+     "held_out_p50": 1.1879,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 40,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1612,
+     "A_p50": 1.1713,
+     "A_p90": 1.178,
+     "held_out_p50": 1.1783,
+     "held_out_frac_in_band": 0.4
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0185,
+    "between_lab_median_range": 0.2788,
+    "held_out_coverage_median": 0.7191,
+    "grand_median_A": 1.1683
+   }
+  },
+  "BE": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 148,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 132,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1555,
+     "A_p50": 1.1616,
+     "A_p90": 1.1658,
+     "held_out_p50": 1.1614,
+     "held_out_frac_in_band": 0.7186
+    },
+    "GSE42861": {
+     "n_loci_found": 77,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.097,
+     "A_p50": 1.1195,
+     "A_p90": 1.1332,
+     "held_out_p50": 1.1195,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 74,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0599,
+     "A_p50": 1.0801,
+     "A_p90": 1.0933,
+     "held_out_p50": 1.0843,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 59,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0843,
+     "A_p50": 1.0951,
+     "A_p90": 1.1158,
+     "held_out_p50": 1.097,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0324,
+    "between_lab_median_range": 0.0815,
+    "held_out_coverage_median": 0.7728,
+    "grand_median_A": 1.1073
+   }
+  },
+  "Basal": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 1095,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 987,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1576,
+     "A_p50": 1.1604,
+     "A_p90": 1.1626,
+     "held_out_p50": 1.1604,
+     "held_out_frac_in_band": 0.7923
+    },
+    "GSE42861": {
+     "n_loci_found": 742,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1166,
+     "A_p50": 1.1276,
+     "A_p90": 1.1333,
+     "held_out_p50": 1.1291,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 720,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.097,
+     "A_p50": 1.1036,
+     "A_p90": 1.1119,
+     "held_out_p50": 1.104,
+     "held_out_frac_in_band": 0.875
+    },
+    "GSE125105": {
+     "n_loci_found": 653,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1105,
+     "A_p50": 1.1168,
+     "A_p90": 1.1222,
+     "held_out_p50": 1.1159,
+     "held_out_frac_in_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0133,
+    "between_lab_median_range": 0.0568,
+    "held_out_coverage_median": 0.8064,
+    "grand_median_A": 1.1222
+   }
+  },
+  "Baso": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 161,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 151,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.074,
+     "A_p50": 1.099,
+     "A_p90": 1.1216,
+     "held_out_p50": 1.1003,
+     "held_out_frac_in_band": 0.7377
+    },
+    "GSE42861": {
+     "n_loci_found": 124,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0665,
+     "A_p50": 1.1053,
+     "A_p90": 1.131,
+     "held_out_p50": 1.1097,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 114,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.044,
+     "A_p50": 1.0622,
+     "A_p90": 1.0861,
+     "held_out_p50": 1.066,
+     "held_out_frac_in_band": 0.875
+    },
+    "GSE125105": {
+     "n_loci_found": 99,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0498,
+     "A_p50": 1.0721,
+     "A_p90": 1.0966,
+     "held_out_p50": 1.0647,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0472,
+    "between_lab_median_range": 0.0431,
+    "held_out_coverage_median": 0.8048,
+    "grand_median_A": 1.0856
+   }
+  },
+  "Bladder": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 206,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 191,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9683,
+     "A_p50": 0.9824,
+     "A_p90": 0.9937,
+     "held_out_p50": 0.9826,
+     "held_out_frac_in_band": 0.7459
+    },
+    "GSE42861": {
+     "n_loci_found": 148,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0323,
+     "A_p50": 1.0514,
+     "A_p90": 1.0593,
+     "held_out_p50": 1.0511,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 143,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9885,
+     "A_p50": 0.9994,
+     "A_p90": 1.0129,
+     "held_out_p50": 1.001,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 136,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0035,
+     "A_p50": 1.0205,
+     "A_p90": 1.0422,
+     "held_out_p50": 1.0181,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0262,
+    "between_lab_median_range": 0.069,
+    "held_out_coverage_median": 0.8,
+    "grand_median_A": 1.0099
+   }
+  },
+  "Bmem": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 216,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 195,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9963,
+     "A_p50": 1.0212,
+     "A_p90": 1.0452,
+     "held_out_p50": 1.0189,
+     "held_out_frac_in_band": 0.7814
+    },
+    "GSE42861": {
+     "n_loci_found": 148,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0024,
+     "A_p50": 1.0355,
+     "A_p90": 1.053,
+     "held_out_p50": 1.0382,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 141,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9669,
+     "A_p50": 0.9866,
+     "A_p90": 1.0075,
+     "held_out_p50": 0.9853,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 118,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9907,
+     "A_p50": 1.0035,
+     "A_p90": 1.0282,
+     "held_out_p50": 1.003,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0448,
+    "between_lab_median_range": 0.0489,
+    "held_out_coverage_median": 0.7721,
+    "grand_median_A": 1.0124
+   }
+  },
+  "Bnv": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 110,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 108,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0986,
+     "A_p50": 1.1147,
+     "A_p90": 1.1294,
+     "held_out_p50": 1.1134,
+     "held_out_frac_in_band": 0.8142
+    },
+    "GSE42861": {
+     "n_loci_found": 89,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0981,
+     "A_p50": 1.1228,
+     "A_p90": 1.1362,
+     "held_out_p50": 1.1258,
+     "held_out_frac_in_band": 0.9487
+    },
+    "GSE111629": {
+     "n_loci_found": 84,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0757,
+     "A_p50": 1.0909,
+     "A_p90": 1.1043,
+     "held_out_p50": 1.0913,
+     "held_out_frac_in_band": 0.75
+    },
+    "GSE125105": {
+     "n_loci_found": 80,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0812,
+     "A_p50": 1.1027,
+     "A_p90": 1.1229,
+     "held_out_p50": 1.095,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0344,
+    "between_lab_median_range": 0.0319,
+    "held_out_coverage_median": 0.7821,
+    "grand_median_A": 1.1087
+   }
+  },
+  "Breast": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 287,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 267,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9521,
+     "A_p50": 0.966,
+     "A_p90": 0.9763,
+     "held_out_p50": 0.9658,
+     "held_out_frac_in_band": 0.7596
+    },
+    "GSE42861": {
+     "n_loci_found": 189,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0554,
+     "A_p50": 1.0664,
+     "A_p90": 1.0744,
+     "held_out_p50": 1.0687,
+     "held_out_frac_in_band": 0.6667
+    },
+    "GSE111629": {
+     "n_loci_found": 181,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0092,
+     "A_p50": 1.0197,
+     "A_p90": 1.0355,
+     "held_out_p50": 1.023,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 164,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0426,
+     "A_p50": 1.0538,
+     "A_p90": 1.0702,
+     "held_out_p50": 1.0522,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0252,
+    "between_lab_median_range": 0.1004,
+    "held_out_coverage_median": 0.7798,
+    "grand_median_A": 1.0368
+   }
+  },
+  "CD14_monocytes": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 32268,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 23688,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0014,
+     "A_p50": 1.0303,
+     "A_p90": 1.0577,
+     "held_out_p50": 1.0287,
+     "held_out_frac_in_band": 0.8142
+    },
+    "GSE42861": {
+     "n_loci_found": 20921,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0048,
+     "A_p50": 1.0453,
+     "A_p90": 1.0617,
+     "held_out_p50": 1.0496,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 20491,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9689,
+     "A_p50": 0.9888,
+     "A_p90": 1.0193,
+     "held_out_p50": 0.9891,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 18839,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9818,
+     "A_p50": 1.0041,
+     "A_p90": 1.0329,
+     "held_out_p50": 1.0003,
+     "held_out_frac_in_band": 0.875
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0537,
+    "between_lab_median_range": 0.0565,
+    "held_out_coverage_median": 0.8071,
+    "grand_median_A": 1.0172
+   }
+  },
+  "CD19_B-cells": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 38127,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 29179,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.972,
+     "A_p50": 1.0006,
+     "A_p90": 1.0313,
+     "held_out_p50": 0.9974,
+     "held_out_frac_in_band": 0.806
+    },
+    "GSE42861": {
+     "n_loci_found": 23006,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9805,
+     "A_p50": 1.0219,
+     "A_p90": 1.0409,
+     "held_out_p50": 1.028,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 22451,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9458,
+     "A_p50": 0.968,
+     "A_p90": 0.996,
+     "held_out_p50": 0.9657,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 20105,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9703,
+     "A_p50": 0.9889,
+     "A_p90": 1.0183,
+     "held_out_p50": 0.988,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0548,
+    "between_lab_median_range": 0.0539,
+    "held_out_coverage_median": 0.803,
+    "grand_median_A": 0.9948
+   }
+  },
+  "CD4T": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 154,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 128,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0899,
+     "A_p50": 1.1085,
+     "A_p90": 1.1247,
+     "held_out_p50": 1.1066,
+     "held_out_frac_in_band": 0.7978
+    },
+    "GSE42861": {
+     "n_loci_found": 92,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0882,
+     "A_p50": 1.1121,
+     "A_p90": 1.1278,
+     "held_out_p50": 1.1172,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 89,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0504,
+     "A_p50": 1.0704,
+     "A_p90": 1.0915,
+     "held_out_p50": 1.0672,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 69,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0747,
+     "A_p50": 1.0999,
+     "A_p90": 1.1145,
+     "held_out_p50": 1.0909,
+     "held_out_frac_in_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0397,
+    "between_lab_median_range": 0.0417,
+    "held_out_coverage_median": 0.7835,
+    "grand_median_A": 1.1042
+   }
+  },
+  "CD4T-cells_EPIC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 167,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 158,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0364,
+     "A_p50": 1.0598,
+     "A_p90": 1.0885,
+     "held_out_p50": 1.059,
+     "held_out_frac_in_band": 0.8005
+    },
+    "GSE42861": {
+     "n_loci_found": 55,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1731,
+     "A_p50": 1.1865,
+     "A_p90": 1.1909,
+     "held_out_p50": 1.1881,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 50,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1839,
+     "A_p50": 1.1898,
+     "A_p90": 1.192,
+     "held_out_p50": 1.1904,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 42,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1839,
+     "A_p50": 1.1901,
+     "A_p90": 1.192,
+     "held_out_p50": 1.1895,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.013,
+    "between_lab_median_range": 0.1303,
+    "held_out_coverage_median": 0.7875,
+    "grand_median_A": 1.1882
+   }
+  },
+  "CD4Tmem": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 246,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 209,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9685,
+     "A_p50": 0.9934,
+     "A_p90": 1.0187,
+     "held_out_p50": 0.9912,
+     "held_out_frac_in_band": 0.7896
+    },
+    "GSE42861": {
+     "n_loci_found": 155,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0005,
+     "A_p50": 1.0277,
+     "A_p90": 1.0496,
+     "held_out_p50": 1.0344,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 146,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9547,
+     "A_p50": 0.9782,
+     "A_p90": 1.0053,
+     "held_out_p50": 0.9758,
+     "held_out_frac_in_band": 0.95
+    },
+    "GSE125105": {
+     "n_loci_found": 117,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9978,
+     "A_p50": 1.0163,
+     "A_p90": 1.036,
+     "held_out_p50": 1.0125,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0497,
+    "between_lab_median_range": 0.0495,
+    "held_out_coverage_median": 0.8307,
+    "grand_median_A": 1.0049
+   }
+  },
+  "CD4Tnv": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 130,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 118,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0422,
+     "A_p50": 1.0639,
+     "A_p90": 1.0833,
+     "held_out_p50": 1.0627,
+     "held_out_frac_in_band": 0.776
+    },
+    "GSE42861": {
+     "n_loci_found": 86,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0485,
+     "A_p50": 1.0765,
+     "A_p90": 1.0971,
+     "held_out_p50": 1.0804,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 83,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0166,
+     "A_p50": 1.0345,
+     "A_p90": 1.0628,
+     "held_out_p50": 1.0322,
+     "held_out_frac_in_band": 0.725
+    },
+    "GSE125105": {
+     "n_loci_found": 74,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0351,
+     "A_p50": 1.0619,
+     "A_p90": 1.086,
+     "held_out_p50": 1.0596,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0474,
+    "between_lab_median_range": 0.042,
+    "held_out_coverage_median": 0.7721,
+    "grand_median_A": 1.0629
+   }
+  },
+  "CD4_T-cells": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 37031,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 28156,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.026,
+     "A_p50": 1.0526,
+     "A_p90": 1.0803,
+     "held_out_p50": 1.0506,
+     "held_out_frac_in_band": 0.8197
+    },
+    "GSE42861": {
+     "n_loci_found": 22718,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0072,
+     "A_p50": 1.0468,
+     "A_p90": 1.0699,
+     "held_out_p50": 1.0559,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 22200,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9742,
+     "A_p50": 0.9988,
+     "A_p90": 1.0278,
+     "held_out_p50": 0.9957,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 19902,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9949,
+     "A_p50": 1.0157,
+     "A_p90": 1.0442,
+     "held_out_p50": 1.0117,
+     "held_out_frac_in_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.054,
+    "between_lab_median_range": 0.0538,
+    "held_out_coverage_median": 0.7974,
+    "grand_median_A": 1.0312
+   }
+  },
+  "CD56_NK-cells": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 45540,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 35806,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9398,
+     "A_p50": 0.9677,
+     "A_p90": 0.9975,
+     "held_out_p50": 0.9659,
+     "held_out_frac_in_band": 0.8333
+    },
+    "GSE42861": {
+     "n_loci_found": 25562,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9577,
+     "A_p50": 0.9953,
+     "A_p90": 1.0134,
+     "held_out_p50": 1.0041,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 24926,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9232,
+     "A_p50": 0.9421,
+     "A_p90": 0.9679,
+     "held_out_p50": 0.9406,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 22191,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9526,
+     "A_p50": 0.9705,
+     "A_p90": 0.9959,
+     "held_out_p50": 0.9704,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0502,
+    "between_lab_median_range": 0.0532,
+    "held_out_coverage_median": 0.8292,
+    "grand_median_A": 0.9691
+   }
+  },
+  "CD8T": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 144,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 117,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1734,
+     "A_p50": 1.18,
+     "A_p90": 1.1842,
+     "held_out_p50": 1.1797,
+     "held_out_frac_in_band": 0.8251
+    },
+    "GSE42861": {
+     "n_loci_found": 75,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1829,
+     "A_p50": 1.1889,
+     "A_p90": 1.1918,
+     "held_out_p50": 1.1892,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 74,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1601,
+     "A_p50": 1.1673,
+     "A_p90": 1.1786,
+     "held_out_p50": 1.1686,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 66,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1658,
+     "A_p50": 1.1765,
+     "A_p90": 1.1829,
+     "held_out_p50": 1.1755,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.014,
+    "between_lab_median_range": 0.0216,
+    "held_out_coverage_median": 0.8099,
+    "grand_median_A": 1.1783
+   }
+  },
+  "CD8T-cells_EPIC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 195,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 181,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.8742,
+     "A_p50": 0.9159,
+     "A_p90": 0.9788,
+     "held_out_p50": 0.9121,
+     "held_out_frac_in_band": 0.7787
+    },
+    "GSE42861": {
+     "n_loci_found": 52,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1494,
+     "A_p50": 1.1655,
+     "A_p90": 1.1788,
+     "held_out_p50": 1.1672,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 47,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1872,
+     "A_p50": 1.1911,
+     "A_p90": 1.192,
+     "held_out_p50": 1.1909,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 44,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.173,
+     "A_p50": 1.1844,
+     "A_p90": 1.1898,
+     "held_out_p50": 1.1848,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0231,
+    "between_lab_median_range": 0.2752,
+    "held_out_coverage_median": 0.7518,
+    "grand_median_A": 1.1749
+   }
+  },
+  "CD8Tmem": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 215,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 196,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9788,
+     "A_p50": 1.0001,
+     "A_p90": 1.0191,
+     "held_out_p50": 1.0001,
+     "held_out_frac_in_band": 0.8087
+    },
+    "GSE42861": {
+     "n_loci_found": 137,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.983,
+     "A_p50": 1.0195,
+     "A_p90": 1.0346,
+     "held_out_p50": 1.0212,
+     "held_out_frac_in_band": 0.9231
+    },
+    "GSE111629": {
+     "n_loci_found": 127,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9503,
+     "A_p50": 0.9653,
+     "A_p90": 0.9783,
+     "held_out_p50": 0.9685,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 101,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9954,
+     "A_p50": 1.0066,
+     "A_p90": 1.0226,
+     "held_out_p50": 0.9998,
+     "held_out_frac_in_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0341,
+    "between_lab_median_range": 0.0542,
+    "held_out_coverage_median": 0.7918,
+    "grand_median_A": 1.0033
+   }
+  },
+  "CD8Tnv": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 141,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 123,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0526,
+     "A_p50": 1.0743,
+     "A_p90": 1.0983,
+     "held_out_p50": 1.0734,
+     "held_out_frac_in_band": 0.765
+    },
+    "GSE42861": {
+     "n_loci_found": 96,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0444,
+     "A_p50": 1.0731,
+     "A_p90": 1.0993,
+     "held_out_p50": 1.0813,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 95,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0126,
+     "A_p50": 1.0319,
+     "A_p90": 1.0639,
+     "held_out_p50": 1.0306,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 80,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0277,
+     "A_p50": 1.048,
+     "A_p90": 1.0758,
+     "held_out_p50": 1.0412,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0497,
+    "between_lab_median_range": 0.0424,
+    "held_out_coverage_median": 0.7977,
+    "grand_median_A": 1.0606
+   }
+  },
+  "CD8_T-cells": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 44949,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 35196,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9592,
+     "A_p50": 0.9861,
+     "A_p90": 1.014,
+     "held_out_p50": 0.985,
+     "held_out_frac_in_band": 0.8388
+    },
+    "GSE42861": {
+     "n_loci_found": 24643,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9616,
+     "A_p50": 0.9995,
+     "A_p90": 1.0172,
+     "held_out_p50": 1.0085,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 24007,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9287,
+     "A_p50": 0.9472,
+     "A_p90": 0.9727,
+     "held_out_p50": 0.9464,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 21440,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9579,
+     "A_p50": 0.9755,
+     "A_p90": 1.0028,
+     "held_out_p50": 0.9761,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0498,
+    "between_lab_median_range": 0.0523,
+    "held_out_coverage_median": 0.8125,
+    "grand_median_A": 0.9808
+   }
+  },
+  "CM": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 246,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 222,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.2371,
+     "A_p50": 1.2435,
+     "A_p90": 1.2497,
+     "held_out_p50": 1.2436,
+     "held_out_frac_in_band": 0.8415
+    },
+    "GSE42861": {
+     "n_loci_found": 159,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.087,
+     "A_p50": 1.1038,
+     "A_p90": 1.1228,
+     "held_out_p50": 1.1115,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 147,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.048,
+     "A_p50": 1.0576,
+     "A_p90": 1.0781,
+     "held_out_p50": 1.0593,
+     "held_out_frac_in_band": 0.675
+    },
+    "GSE125105": {
+     "n_loci_found": 122,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0693,
+     "A_p50": 1.0886,
+     "A_p90": 1.1038,
+     "held_out_p50": 1.087,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0323,
+    "between_lab_median_range": 0.1859,
+    "held_out_coverage_median": 0.76,
+    "grand_median_A": 1.0962
+   }
+  },
+  "CMP": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 53690,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 42158,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9175,
+     "A_p50": 0.9434,
+     "A_p90": 0.9691,
+     "held_out_p50": 0.9411,
+     "held_out_frac_in_band": 0.806
+    },
+    "GSE42861": {
+     "n_loci_found": 36922,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9432,
+     "A_p50": 0.9707,
+     "A_p90": 0.9988,
+     "held_out_p50": 0.9765,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 34508,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9096,
+     "A_p50": 0.9275,
+     "A_p90": 0.9502,
+     "held_out_p50": 0.9305,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 25592,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9652,
+     "A_p50": 0.9792,
+     "A_p90": 0.9988,
+     "held_out_p50": 0.9814,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0461,
+    "between_lab_median_range": 0.0517,
+    "held_out_coverage_median": 0.803,
+    "grand_median_A": 0.957
+   }
+  },
+  "Chol": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 255,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 232,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1762,
+     "A_p50": 1.179,
+     "A_p90": 1.1819,
+     "held_out_p50": 1.179,
+     "held_out_frac_in_band": 0.7923
+    },
+    "GSE42861": {
+     "n_loci_found": 172,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1837,
+     "A_p50": 1.1854,
+     "A_p90": 1.1858,
+     "held_out_p50": 1.1854,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 163,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1752,
+     "A_p50": 1.1793,
+     "A_p90": 1.1823,
+     "held_out_p50": 1.1797,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 143,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1815,
+     "A_p50": 1.1833,
+     "A_p90": 1.1851,
+     "held_out_p50": 1.1836,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0047,
+    "between_lab_median_range": 0.0064,
+    "held_out_coverage_median": 0.8086,
+    "grand_median_A": 1.1813
+   }
+  },
+  "Colon_epithelial_cells": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 145,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 133,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.6741,
+     "A_p50": 0.6921,
+     "A_p90": 0.7204,
+     "held_out_p50": 0.69,
+     "held_out_frac_in_band": 0.7814
+    },
+    "GSE42861": {
+     "n_loci_found": 31,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0516,
+     "A_p50": 1.0632,
+     "A_p90": 1.0803,
+     "held_out_p50": 1.0629,
+     "held_out_frac_in_band": 0.8974
+    },
+    "GSE111629": {
+     "n_loci_found": 29,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0853,
+     "A_p50": 1.0922,
+     "A_p90": 1.1093,
+     "held_out_p50": 1.0951,
+     "held_out_frac_in_band": 0.9
+    },
+    "GSE125105": {
+     "n_loci_found": 26,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0438,
+     "A_p50": 1.0702,
+     "A_p90": 1.0941,
+     "held_out_p50": 1.064,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0375,
+    "between_lab_median_range": 0.4001,
+    "held_out_coverage_median": 0.8394,
+    "grand_median_A": 1.0667
+   }
+  },
+  "Corpus_diff": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 27382,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 25384,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9507,
+     "A_p50": 0.97,
+     "A_p90": 0.9884,
+     "held_out_p50": 0.968,
+     "held_out_frac_in_band": 0.7923
+    },
+    "GSE42861": {
+     "n_loci_found": 22781,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9598,
+     "A_p50": 0.9876,
+     "A_p90": 1.0,
+     "held_out_p50": 0.9915,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 22099,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9257,
+     "A_p50": 0.9409,
+     "A_p90": 0.9583,
+     "held_out_p50": 0.9402,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 19186,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9618,
+     "A_p50": 0.9732,
+     "A_p90": 0.9915,
+     "held_out_p50": 0.9759,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0352,
+    "between_lab_median_range": 0.0467,
+    "held_out_coverage_median": 0.7962,
+    "grand_median_A": 0.9716
+   }
+  },
+  "Corpus_undiff": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 30484,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 28368,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9255,
+     "A_p50": 0.9455,
+     "A_p90": 0.963,
+     "held_out_p50": 0.943,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 24325,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9394,
+     "A_p50": 0.9672,
+     "A_p90": 0.9821,
+     "held_out_p50": 0.971,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 23424,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9077,
+     "A_p50": 0.9231,
+     "A_p90": 0.9389,
+     "held_out_p50": 0.922,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 20087,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9463,
+     "A_p50": 0.9578,
+     "A_p90": 0.9738,
+     "held_out_p50": 0.9595,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0343,
+    "between_lab_median_range": 0.0441,
+    "held_out_coverage_median": 0.816,
+    "grand_median_A": 0.9516
+   }
+  },
+  "Cortical_neurons": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 57350,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 46213,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0959,
+     "A_p50": 1.1146,
+     "A_p90": 1.1326,
+     "held_out_p50": 1.1135,
+     "held_out_frac_in_band": 0.7923
+    },
+    "GSE42861": {
+     "n_loci_found": 33715,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0902,
+     "A_p50": 1.1224,
+     "A_p90": 1.1357,
+     "held_out_p50": 1.1279,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 32725,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0614,
+     "A_p50": 1.0754,
+     "A_p90": 1.093,
+     "held_out_p50": 1.0729,
+     "held_out_frac_in_band": 0.75
+    },
+    "GSE125105": {
+     "n_loci_found": 29204,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0876,
+     "A_p50": 1.1041,
+     "A_p90": 1.124,
+     "held_out_p50": 1.1035,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0366,
+    "between_lab_median_range": 0.047,
+    "held_out_coverage_median": 0.7808,
+    "grand_median_A": 1.1094
+   }
+  },
+  "Ductal": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 198,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 175,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1341,
+     "A_p50": 1.1427,
+     "A_p90": 1.1492,
+     "held_out_p50": 1.1424,
+     "held_out_frac_in_band": 0.7077
+    },
+    "GSE42861": {
+     "n_loci_found": 139,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0947,
+     "A_p50": 1.1111,
+     "A_p90": 1.1227,
+     "held_out_p50": 1.1113,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 136,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0743,
+     "A_p50": 1.085,
+     "A_p90": 1.0945,
+     "held_out_p50": 1.0892,
+     "held_out_frac_in_band": 0.65
+    },
+    "GSE125105": {
+     "n_loci_found": 125,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0883,
+     "A_p50": 1.101,
+     "A_p90": 1.1137,
+     "held_out_p50": 1.0976,
+     "held_out_frac_in_band": 0.5
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0228,
+    "between_lab_median_range": 0.0577,
+    "held_out_coverage_median": 0.6788,
+    "grand_median_A": 1.106
+   }
+  },
+  "Endocrine": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 219,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 194,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1455,
+     "A_p50": 1.1546,
+     "A_p90": 1.1615,
+     "held_out_p50": 1.1544,
+     "held_out_frac_in_band": 0.7077
+    },
+    "GSE42861": {
+     "n_loci_found": 151,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0822,
+     "A_p50": 1.0994,
+     "A_p90": 1.1148,
+     "held_out_p50": 1.103,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 149,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0528,
+     "A_p50": 1.0686,
+     "A_p90": 1.077,
+     "held_out_p50": 1.0722,
+     "held_out_frac_in_band": 0.65
+    },
+    "GSE125105": {
+     "n_loci_found": 134,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0643,
+     "A_p50": 1.0811,
+     "A_p90": 1.1002,
+     "held_out_p50": 1.074,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0284,
+    "between_lab_median_range": 0.086,
+    "held_out_coverage_median": 0.6788,
+    "grand_median_A": 1.0902
+   }
+  },
+  "Eos": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 185,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 171,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0347,
+     "A_p50": 1.0579,
+     "A_p90": 1.0802,
+     "held_out_p50": 1.0578,
+     "held_out_frac_in_band": 0.7705
+    },
+    "GSE42861": {
+     "n_loci_found": 139,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0393,
+     "A_p50": 1.0713,
+     "A_p90": 1.0979,
+     "held_out_p50": 1.081,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 132,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0077,
+     "A_p50": 1.0249,
+     "A_p90": 1.0473,
+     "held_out_p50": 1.0267,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 109,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0327,
+     "A_p50": 1.0527,
+     "A_p90": 1.0756,
+     "held_out_p50": 1.0481,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0442,
+    "between_lab_median_range": 0.0464,
+    "held_out_coverage_median": 0.7853,
+    "grand_median_A": 1.0553
+   }
+  },
+  "Eosinophils_reinius": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 33546,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 24916,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9881,
+     "A_p50": 1.0172,
+     "A_p90": 1.0453,
+     "held_out_p50": 1.015,
+     "held_out_frac_in_band": 0.8197
+    },
+    "GSE42861": {
+     "n_loci_found": 21189,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9966,
+     "A_p50": 1.037,
+     "A_p90": 1.0538,
+     "held_out_p50": 1.0403,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 20766,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9606,
+     "A_p50": 0.9805,
+     "A_p90": 1.01,
+     "held_out_p50": 0.9795,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 19013,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.976,
+     "A_p50": 0.998,
+     "A_p90": 1.028,
+     "held_out_p50": 0.9939,
+     "held_out_frac_in_band": 0.85
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0546,
+    "between_lab_median_range": 0.0565,
+    "held_out_coverage_median": 0.8098,
+    "grand_median_A": 1.0076
+   }
+  },
+  "Epi": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 663,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 601,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1665,
+     "A_p50": 1.1674,
+     "A_p90": 1.168,
+     "held_out_p50": 1.1675,
+     "held_out_frac_in_band": 0.7842
+    },
+    "GSE42861": {
+     "n_loci_found": 460,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1581,
+     "A_p50": 1.1609,
+     "A_p90": 1.1634,
+     "held_out_p50": 1.1615,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 441,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1465,
+     "A_p50": 1.1498,
+     "A_p90": 1.154,
+     "held_out_p50": 1.151,
+     "held_out_frac_in_band": 0.9
+    },
+    "GSE125105": {
+     "n_loci_found": 396,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1583,
+     "A_p50": 1.1606,
+     "A_p90": 1.1632,
+     "held_out_p50": 1.161,
+     "held_out_frac_in_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0051,
+    "between_lab_median_range": 0.0176,
+    "held_out_coverage_median": 0.7767,
+    "grand_median_A": 1.1608
+   }
+  },
+  "Epi_basal": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 357,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 298,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1627,
+     "A_p50": 1.1651,
+     "A_p90": 1.1669,
+     "held_out_p50": 1.1652,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 204,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.082,
+     "A_p50": 1.0997,
+     "A_p90": 1.1144,
+     "held_out_p50": 1.1053,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 194,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0599,
+     "A_p50": 1.0778,
+     "A_p90": 1.0891,
+     "held_out_p50": 1.0781,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 168,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0708,
+     "A_p50": 1.0871,
+     "A_p90": 1.1007,
+     "held_out_p50": 1.0847,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0295,
+    "between_lab_median_range": 0.0873,
+    "held_out_coverage_median": 0.8016,
+    "grand_median_A": 1.0934
+   }
+  },
+  "Epi_stratified": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 344,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 284,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1675,
+     "A_p50": 1.168,
+     "A_p90": 1.1681,
+     "held_out_p50": 1.168,
+     "held_out_frac_in_band": 0.8197
+    },
+    "GSE42861": {
+     "n_loci_found": 181,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0771,
+     "A_p50": 1.0974,
+     "A_p90": 1.1127,
+     "held_out_p50": 1.1037,
+     "held_out_frac_in_band": 0.9487
+    },
+    "GSE111629": {
+     "n_loci_found": 173,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0536,
+     "A_p50": 1.0734,
+     "A_p90": 1.0861,
+     "held_out_p50": 1.0723,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 150,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0622,
+     "A_p50": 1.0782,
+     "A_p90": 1.0939,
+     "held_out_p50": 1.0732,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0321,
+    "between_lab_median_range": 0.0946,
+    "held_out_coverage_median": 0.8223,
+    "grand_median_A": 1.0878
+   }
+  },
+  "Epi_suprabasal": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 344,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 292,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1602,
+     "A_p50": 1.1633,
+     "A_p90": 1.1657,
+     "held_out_p50": 1.1634,
+     "held_out_frac_in_band": 0.806
+    },
+    "GSE42861": {
+     "n_loci_found": 204,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0713,
+     "A_p50": 1.0924,
+     "A_p90": 1.1089,
+     "held_out_p50": 1.0993,
+     "held_out_frac_in_band": 0.8974
+    },
+    "GSE111629": {
+     "n_loci_found": 194,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.05,
+     "A_p50": 1.0682,
+     "A_p90": 1.0819,
+     "held_out_p50": 1.0689,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 169,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0588,
+     "A_p50": 1.0758,
+     "A_p90": 1.0895,
+     "held_out_p50": 1.0714,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0313,
+    "between_lab_median_range": 0.0951,
+    "held_out_coverage_median": 0.803,
+    "grand_median_A": 1.0841
+   }
+  },
+  "Epi_upper": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 168,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 137,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.2864,
+     "A_p50": 1.2911,
+     "A_p90": 1.2937,
+     "held_out_p50": 1.2908,
+     "held_out_frac_in_band": 0.8361
+    },
+    "GSE42861": {
+     "n_loci_found": 62,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0223,
+     "A_p50": 1.0433,
+     "A_p90": 1.0587,
+     "held_out_p50": 1.0454,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 62,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9949,
+     "A_p50": 1.0116,
+     "A_p90": 1.0214,
+     "held_out_p50": 1.0105,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 60,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0315,
+     "A_p50": 1.0474,
+     "A_p90": 1.0674,
+     "held_out_p50": 1.0487,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0312,
+    "between_lab_median_range": 0.2795,
+    "held_out_coverage_median": 0.8305,
+    "grand_median_A": 1.0454
+   }
+  },
+  "Erythrocyte_progenitors": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 106,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 90,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0447,
+     "A_p50": 1.0688,
+     "A_p90": 1.0869,
+     "held_out_p50": 1.0659,
+     "held_out_frac_in_band": 0.8279
+    },
+    "GSE42861": {
+     "n_loci_found": 71,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0723,
+     "A_p50": 1.0983,
+     "A_p90": 1.1176,
+     "held_out_p50": 1.104,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 65,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0224,
+     "A_p50": 1.0511,
+     "A_p90": 1.0745,
+     "held_out_p50": 1.0486,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 49,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0554,
+     "A_p50": 1.0781,
+     "A_p90": 1.0997,
+     "held_out_p50": 1.078,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0448,
+    "between_lab_median_range": 0.0472,
+    "held_out_coverage_median": 0.8014,
+    "grand_median_A": 1.0735
+   }
+  },
+  "Fundus_diff": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 29065,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 26986,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9405,
+     "A_p50": 0.9606,
+     "A_p90": 0.978,
+     "held_out_p50": 0.9584,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 22778,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9556,
+     "A_p50": 0.9833,
+     "A_p90": 0.9992,
+     "held_out_p50": 0.9883,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 21944,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9241,
+     "A_p50": 0.939,
+     "A_p90": 0.9547,
+     "held_out_p50": 0.9379,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 18718,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9621,
+     "A_p50": 0.9737,
+     "A_p90": 0.9904,
+     "held_out_p50": 0.9749,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.034,
+    "between_lab_median_range": 0.0443,
+    "held_out_coverage_median": 0.8119,
+    "grand_median_A": 0.9671
+   }
+  },
+  "Fundus_undiff": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 28034,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 26013,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9348,
+     "A_p50": 0.9539,
+     "A_p90": 0.9712,
+     "held_out_p50": 0.9515,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 22329,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9457,
+     "A_p50": 0.9729,
+     "A_p90": 0.9885,
+     "held_out_p50": 0.9771,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 21537,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.914,
+     "A_p50": 0.9288,
+     "A_p90": 0.9451,
+     "held_out_p50": 0.9277,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 18538,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9513,
+     "A_p50": 0.9623,
+     "A_p90": 0.9788,
+     "held_out_p50": 0.964,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0338,
+    "between_lab_median_range": 0.0441,
+    "held_out_coverage_median": 0.8119,
+    "grand_median_A": 0.9581
+   }
+  },
+  "GMP": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 47460,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 36685,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9323,
+     "A_p50": 0.9556,
+     "A_p90": 0.9813,
+     "held_out_p50": 0.9537,
+     "held_out_frac_in_band": 0.7951
+    },
+    "GSE42861": {
+     "n_loci_found": 31814,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9553,
+     "A_p50": 0.9802,
+     "A_p90": 1.0107,
+     "held_out_p50": 0.9839,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 29299,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9222,
+     "A_p50": 0.9385,
+     "A_p90": 0.9625,
+     "held_out_p50": 0.9425,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 20635,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9864,
+     "A_p50": 0.9984,
+     "A_p90": 1.0164,
+     "held_out_p50": 1.0001,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0446,
+    "between_lab_median_range": 0.0599,
+    "held_out_coverage_median": 0.7851,
+    "grand_median_A": 0.9679
+   }
+  },
+  "Gland": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 605,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 520,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1843,
+     "A_p50": 1.1853,
+     "A_p90": 1.1858,
+     "held_out_p50": 1.1853,
+     "held_out_frac_in_band": 0.8169
+    },
+    "GSE42861": {
+     "n_loci_found": 404,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1641,
+     "A_p50": 1.1718,
+     "A_p90": 1.1765,
+     "held_out_p50": 1.1729,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 385,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1492,
+     "A_p50": 1.1575,
+     "A_p90": 1.1649,
+     "held_out_p50": 1.1589,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 333,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1616,
+     "A_p50": 1.1663,
+     "A_p90": 1.1707,
+     "held_out_p50": 1.1653,
+     "held_out_frac_in_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0108,
+    "between_lab_median_range": 0.0278,
+    "held_out_coverage_median": 0.8187,
+    "grand_median_A": 1.169
+   }
+  },
+  "Glia": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 49996,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 39575,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1094,
+     "A_p50": 1.1265,
+     "A_p90": 1.1423,
+     "held_out_p50": 1.1254,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 28393,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0935,
+     "A_p50": 1.121,
+     "A_p90": 1.1342,
+     "held_out_p50": 1.1248,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 27453,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0619,
+     "A_p50": 1.0753,
+     "A_p90": 1.0923,
+     "held_out_p50": 1.074,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 24407,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0935,
+     "A_p50": 1.1069,
+     "A_p90": 1.1257,
+     "held_out_p50": 1.1066,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0326,
+    "between_lab_median_range": 0.0512,
+    "held_out_coverage_median": 0.8016,
+    "grand_median_A": 1.1139
+   }
+  },
+  "Gran": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 700,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 654,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1904,
+     "A_p50": 1.1915,
+     "A_p90": 1.192,
+     "held_out_p50": 1.1915,
+     "held_out_frac_in_band": 0.8005
+    },
+    "GSE42861": {
+     "n_loci_found": 470,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1684,
+     "A_p50": 1.176,
+     "A_p90": 1.1802,
+     "held_out_p50": 1.1771,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 457,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.156,
+     "A_p50": 1.1608,
+     "A_p90": 1.1666,
+     "held_out_p50": 1.1618,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 404,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.171,
+     "A_p50": 1.1739,
+     "A_p90": 1.178,
+     "held_out_p50": 1.1745,
+     "held_out_frac_in_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0088,
+    "between_lab_median_range": 0.0307,
+    "held_out_coverage_median": 0.7877,
+    "grand_median_A": 1.1749
+   }
+  },
+  "HSC": {
+   "class": "stem_adult",
+   "H_min": 0.8737,
+   "n_loci_panel": 46904,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 36389,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9105,
+     "A_p50": 0.9341,
+     "A_p90": 0.9595,
+     "held_out_p50": 0.9325,
+     "held_out_frac_in_band": 0.8005
+    },
+    "GSE42861": {
+     "n_loci_found": 32692,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9342,
+     "A_p50": 0.9598,
+     "A_p90": 0.9883,
+     "held_out_p50": 0.9651,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 30536,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9032,
+     "A_p50": 0.9195,
+     "A_p90": 0.9413,
+     "held_out_p50": 0.9238,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 23094,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.957,
+     "A_p50": 0.9693,
+     "A_p90": 0.9881,
+     "held_out_p50": 0.9713,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0436,
+    "between_lab_median_range": 0.0498,
+    "held_out_coverage_median": 0.8003,
+    "grand_median_A": 0.9469
+   }
+  },
+  "Head_and_neck_larynx": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 246,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 216,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9518,
+     "A_p50": 0.9682,
+     "A_p90": 0.9801,
+     "held_out_p50": 0.968,
+     "held_out_frac_in_band": 0.7869
+    },
+    "GSE42861": {
+     "n_loci_found": 158,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0274,
+     "A_p50": 1.051,
+     "A_p90": 1.0594,
+     "held_out_p50": 1.0549,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 154,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9931,
+     "A_p50": 1.0048,
+     "A_p90": 1.0208,
+     "held_out_p50": 1.0072,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 138,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0099,
+     "A_p50": 1.0262,
+     "A_p90": 1.0439,
+     "held_out_p50": 1.0242,
+     "held_out_frac_in_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0301,
+    "between_lab_median_range": 0.0828,
+    "held_out_coverage_median": 0.7781,
+    "grand_median_A": 1.0155
+   }
+  },
+  "Hep": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 185,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 167,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1262,
+     "A_p50": 1.1351,
+     "A_p90": 1.1461,
+     "held_out_p50": 1.1349,
+     "held_out_frac_in_band": 0.765
+    },
+    "GSE42861": {
+     "n_loci_found": 112,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1726,
+     "A_p50": 1.1777,
+     "A_p90": 1.1834,
+     "held_out_p50": 1.1774,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 106,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1841,
+     "A_p50": 1.1855,
+     "A_p90": 1.1858,
+     "held_out_p50": 1.1854,
+     "held_out_frac_in_band": 0.65
+    },
+    "GSE125105": {
+     "n_loci_found": 94,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1819,
+     "A_p50": 1.185,
+     "A_p90": 1.1857,
+     "held_out_p50": 1.1849,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0073,
+    "between_lab_median_range": 0.0504,
+    "held_out_coverage_median": 0.7075,
+    "grand_median_A": 1.1814
+   }
+  },
+  "Hepatocytes": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 197,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 178,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0569,
+     "A_p50": 1.0672,
+     "A_p90": 1.0761,
+     "held_out_p50": 1.0671,
+     "held_out_frac_in_band": 0.8197
+    },
+    "GSE42861": {
+     "n_loci_found": 122,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9796,
+     "A_p50": 1.0118,
+     "A_p90": 1.0239,
+     "held_out_p50": 1.0157,
+     "held_out_frac_in_band": 0.6923
+    },
+    "GSE111629": {
+     "n_loci_found": 118,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9451,
+     "A_p50": 0.957,
+     "A_p90": 0.9751,
+     "held_out_p50": 0.9529,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 100,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.955,
+     "A_p50": 0.9771,
+     "A_p90": 1.0028,
+     "held_out_p50": 0.9813,
+     "held_out_frac_in_band": 0.9
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0371,
+    "between_lab_median_range": 0.1102,
+    "held_out_coverage_median": 0.8348,
+    "grand_median_A": 0.9945
+   }
+  },
+  "IC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 696,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 584,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1733,
+     "A_p50": 1.1779,
+     "A_p90": 1.1818,
+     "held_out_p50": 1.1782,
+     "held_out_frac_in_band": 0.7842
+    },
+    "GSE42861": {
+     "n_loci_found": 422,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0933,
+     "A_p50": 1.1081,
+     "A_p90": 1.1208,
+     "held_out_p50": 1.1125,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 408,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0724,
+     "A_p50": 1.0848,
+     "A_p90": 1.0942,
+     "held_out_p50": 1.0846,
+     "held_out_frac_in_band": 0.75
+    },
+    "GSE125105": {
+     "n_loci_found": 361,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0919,
+     "A_p50": 1.1004,
+     "A_p90": 1.1125,
+     "held_out_p50": 1.0985,
+     "held_out_frac_in_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0212,
+    "between_lab_median_range": 0.0931,
+    "held_out_coverage_median": 0.7671,
+    "grand_median_A": 1.1042
+   }
+  },
+  "Kera_diff": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 195,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 177,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.2778,
+     "A_p50": 1.2828,
+     "A_p90": 1.2865,
+     "held_out_p50": 1.2825,
+     "held_out_frac_in_band": 0.7842
+    },
+    "GSE42861": {
+     "n_loci_found": 136,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1895,
+     "A_p50": 1.2058,
+     "A_p90": 1.2138,
+     "held_out_p50": 1.208,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 129,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1521,
+     "A_p50": 1.1649,
+     "A_p90": 1.1771,
+     "held_out_p50": 1.1645,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 118,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1692,
+     "A_p50": 1.1819,
+     "A_p90": 1.194,
+     "held_out_p50": 1.1804,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0245,
+    "between_lab_median_range": 0.1179,
+    "held_out_coverage_median": 0.7671,
+    "grand_median_A": 1.1938
+   }
+  },
+  "Kera_undiff": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 235,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 205,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1672,
+     "A_p50": 1.1679,
+     "A_p90": 1.1681,
+     "held_out_p50": 1.1679,
+     "held_out_frac_in_band": 0.7486
+    },
+    "GSE42861": {
+     "n_loci_found": 138,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0744,
+     "A_p50": 1.0979,
+     "A_p90": 1.1124,
+     "held_out_p50": 1.1002,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 131,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0413,
+     "A_p50": 1.0609,
+     "A_p90": 1.0714,
+     "held_out_p50": 1.0624,
+     "held_out_frac_in_band": 0.75
+    },
+    "GSE125105": {
+     "n_loci_found": 113,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0568,
+     "A_p50": 1.0673,
+     "A_p90": 1.0847,
+     "held_out_p50": 1.0636,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.029,
+    "between_lab_median_range": 0.107,
+    "held_out_coverage_median": 0.7493,
+    "grand_median_A": 1.0826
+   }
+  },
+  "Kidney": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 236,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 219,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9031,
+     "A_p50": 0.9217,
+     "A_p90": 0.9367,
+     "held_out_p50": 0.9217,
+     "held_out_frac_in_band": 0.8251
+    },
+    "GSE42861": {
+     "n_loci_found": 149,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9697,
+     "A_p50": 1.0015,
+     "A_p90": 1.0141,
+     "held_out_p50": 1.0055,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 148,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9296,
+     "A_p50": 0.9455,
+     "A_p90": 0.9596,
+     "held_out_p50": 0.9442,
+     "held_out_frac_in_band": 0.925
+    },
+    "GSE125105": {
+     "n_loci_found": 133,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9642,
+     "A_p50": 0.9773,
+     "A_p90": 0.9928,
+     "held_out_p50": 0.9737,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0318,
+    "between_lab_median_range": 0.0798,
+    "held_out_coverage_median": 0.8228,
+    "grand_median_A": 0.9614
+   }
+  },
+  "Kup": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 239,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 208,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1894,
+     "A_p50": 1.191,
+     "A_p90": 1.1918,
+     "held_out_p50": 1.191,
+     "held_out_frac_in_band": 0.7732
+    },
+    "GSE42861": {
+     "n_loci_found": 144,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1311,
+     "A_p50": 1.1491,
+     "A_p90": 1.1568,
+     "held_out_p50": 1.1521,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 133,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1035,
+     "A_p50": 1.1166,
+     "A_p90": 1.127,
+     "held_out_p50": 1.1177,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 121,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1124,
+     "A_p50": 1.1252,
+     "A_p90": 1.1386,
+     "held_out_p50": 1.1219,
+     "held_out_frac_in_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0246,
+    "between_lab_median_range": 0.0744,
+    "held_out_coverage_median": 0.7866,
+    "grand_median_A": 1.1372
+   }
+  },
+  "L-MPP": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 51525,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 40387,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9266,
+     "A_p50": 0.9509,
+     "A_p90": 0.977,
+     "held_out_p50": 0.9492,
+     "held_out_frac_in_band": 0.8087
+    },
+    "GSE42861": {
+     "n_loci_found": 35454,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9493,
+     "A_p50": 0.9756,
+     "A_p90": 1.0049,
+     "held_out_p50": 0.9817,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 32971,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9182,
+     "A_p50": 0.9345,
+     "A_p90": 0.9577,
+     "held_out_p50": 0.9388,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 24237,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9771,
+     "A_p50": 0.9895,
+     "A_p90": 1.0095,
+     "held_out_p50": 0.9909,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0449,
+    "between_lab_median_range": 0.055,
+    "held_out_coverage_median": 0.8044,
+    "grand_median_A": 0.9632
+   }
+  },
+  "LE": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 178,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 156,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1768,
+     "A_p50": 1.1813,
+     "A_p90": 1.1842,
+     "held_out_p50": 1.1811,
+     "held_out_frac_in_band": 0.776
+    },
+    "GSE42861": {
+     "n_loci_found": 89,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1021,
+     "A_p50": 1.1335,
+     "A_p90": 1.1456,
+     "held_out_p50": 1.1322,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 84,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0801,
+     "A_p50": 1.0959,
+     "A_p90": 1.1087,
+     "held_out_p50": 1.0991,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 74,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0945,
+     "A_p50": 1.109,
+     "A_p90": 1.125,
+     "held_out_p50": 1.107,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0295,
+    "between_lab_median_range": 0.0854,
+    "held_out_coverage_median": 0.813,
+    "grand_median_A": 1.1212
+   }
+  },
+  "Left_atrium": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 381,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 351,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9292,
+     "A_p50": 0.9485,
+     "A_p90": 0.9646,
+     "held_out_p50": 0.9466,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 256,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9994,
+     "A_p50": 1.0335,
+     "A_p90": 1.0446,
+     "held_out_p50": 1.0388,
+     "held_out_frac_in_band": 0.6667
+    },
+    "GSE111629": {
+     "n_loci_found": 246,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9597,
+     "A_p50": 0.9736,
+     "A_p90": 0.9888,
+     "held_out_p50": 0.9722,
+     "held_out_frac_in_band": 0.875
+    },
+    "GSE125105": {
+     "n_loci_found": 217,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.989,
+     "A_p50": 1.0049,
+     "A_p90": 1.0251,
+     "held_out_p50": 1.0034,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0357,
+    "between_lab_median_range": 0.085,
+    "held_out_coverage_median": 0.7933,
+    "grand_median_A": 0.9892
+   }
+  },
+  "Leu": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 123,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 109,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1536,
+     "A_p50": 1.1645,
+     "A_p90": 1.1733,
+     "held_out_p50": 1.1641,
+     "held_out_frac_in_band": 0.7978
+    },
+    "GSE42861": {
+     "n_loci_found": 75,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0485,
+     "A_p50": 1.081,
+     "A_p90": 1.0979,
+     "held_out_p50": 1.0836,
+     "held_out_frac_in_band": 0.8974
+    },
+    "GSE111629": {
+     "n_loci_found": 70,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0273,
+     "A_p50": 1.0472,
+     "A_p90": 1.0669,
+     "held_out_p50": 1.0455,
+     "held_out_frac_in_band": 0.9
+    },
+    "GSE125105": {
+     "n_loci_found": 67,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0406,
+     "A_p50": 1.055,
+     "A_p90": 1.0718,
+     "held_out_p50": 1.0599,
+     "held_out_frac_in_band": 0.7
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0354,
+    "between_lab_median_range": 0.1173,
+    "held_out_coverage_median": 0.8476,
+    "grand_median_A": 1.068
+   }
+  },
+  "Luminal": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 613,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 549,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1766,
+     "A_p50": 1.1795,
+     "A_p90": 1.1814,
+     "held_out_p50": 1.1795,
+     "held_out_frac_in_band": 0.8005
+    },
+    "GSE42861": {
+     "n_loci_found": 407,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1305,
+     "A_p50": 1.1418,
+     "A_p90": 1.1473,
+     "held_out_p50": 1.1432,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 391,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1104,
+     "A_p50": 1.1176,
+     "A_p90": 1.1242,
+     "held_out_p50": 1.1166,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 357,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1233,
+     "A_p50": 1.1298,
+     "A_p90": 1.1361,
+     "held_out_p50": 1.1294,
+     "held_out_frac_in_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0133,
+    "between_lab_median_range": 0.0619,
+    "held_out_coverage_median": 0.7721,
+    "grand_median_A": 1.1358
+   }
+  },
+  "Lung_cells": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 174,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 158,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9869,
+     "A_p50": 1.0107,
+     "A_p90": 1.0253,
+     "held_out_p50": 1.01,
+     "held_out_frac_in_band": 0.8279
+    },
+    "GSE42861": {
+     "n_loci_found": 124,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0135,
+     "A_p50": 1.0569,
+     "A_p90": 1.0682,
+     "held_out_p50": 1.0598,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 120,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9879,
+     "A_p50": 1.0082,
+     "A_p90": 1.0237,
+     "held_out_p50": 1.0081,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 110,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9996,
+     "A_p50": 1.0141,
+     "A_p90": 1.0275,
+     "held_out_p50": 1.014,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0371,
+    "between_lab_median_range": 0.0487,
+    "held_out_coverage_median": 0.785,
+    "grand_median_A": 1.0124
+   }
+  },
+  "Lym": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 1089,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 981,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1861,
+     "A_p50": 1.1886,
+     "A_p90": 1.1905,
+     "held_out_p50": 1.1887,
+     "held_out_frac_in_band": 0.7923
+    },
+    "GSE42861": {
+     "n_loci_found": 688,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1322,
+     "A_p50": 1.1453,
+     "A_p90": 1.1537,
+     "held_out_p50": 1.1469,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 666,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1169,
+     "A_p50": 1.125,
+     "A_p90": 1.1339,
+     "held_out_p50": 1.1248,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 607,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1317,
+     "A_p50": 1.139,
+     "A_p90": 1.145,
+     "held_out_p50": 1.1377,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0151,
+    "between_lab_median_range": 0.0636,
+    "held_out_coverage_median": 0.7836,
+    "grand_median_A": 1.1421
+   }
+  },
+  "MEP": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 48900,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 38348,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9112,
+     "A_p50": 0.9334,
+     "A_p90": 0.9585,
+     "held_out_p50": 0.9323,
+     "held_out_frac_in_band": 0.7842
+    },
+    "GSE42861": {
+     "n_loci_found": 32022,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9462,
+     "A_p50": 0.9711,
+     "A_p90": 1.0029,
+     "held_out_p50": 0.972,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 29416,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9127,
+     "A_p50": 0.9274,
+     "A_p90": 0.9515,
+     "held_out_p50": 0.9316,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 18729,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9902,
+     "A_p50": 1.0016,
+     "A_p90": 1.0139,
+     "held_out_p50": 1.0091,
+     "held_out_frac_in_band": 0.45
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0431,
+    "between_lab_median_range": 0.0742,
+    "held_out_coverage_median": 0.7921,
+    "grand_median_A": 0.9523
+   }
+  },
+  "MP": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 799,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 720,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1643,
+     "A_p50": 1.1698,
+     "A_p90": 1.1739,
+     "held_out_p50": 1.1696,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 509,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0852,
+     "A_p50": 1.1022,
+     "A_p90": 1.1114,
+     "held_out_p50": 1.1047,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 489,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0614,
+     "A_p50": 1.0712,
+     "A_p90": 1.0826,
+     "held_out_p50": 1.0714,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 439,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0826,
+     "A_p50": 1.0914,
+     "A_p90": 1.0992,
+     "held_out_p50": 1.0893,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0189,
+    "between_lab_median_range": 0.0986,
+    "held_out_coverage_median": 0.8057,
+    "grand_median_A": 1.0968
+   }
+  },
+  "MPP": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 64288,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 52204,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.8722,
+     "A_p50": 0.8977,
+     "A_p90": 0.9241,
+     "held_out_p50": 0.8952,
+     "held_out_frac_in_band": 0.8005
+    },
+    "GSE42861": {
+     "n_loci_found": 40053,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9236,
+     "A_p50": 0.9516,
+     "A_p90": 0.976,
+     "held_out_p50": 0.9569,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 38036,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.8887,
+     "A_p50": 0.9068,
+     "A_p90": 0.931,
+     "held_out_p50": 0.9082,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 27860,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9496,
+     "A_p50": 0.9619,
+     "A_p90": 0.9796,
+     "held_out_p50": 0.9672,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0471,
+    "between_lab_median_range": 0.0642,
+    "held_out_coverage_median": 0.8003,
+    "grand_median_A": 0.9292
+   }
+  },
+  "Macro": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 703,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 622,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1766,
+     "A_p50": 1.1803,
+     "A_p90": 1.1829,
+     "held_out_p50": 1.1801,
+     "held_out_frac_in_band": 0.7705
+    },
+    "GSE42861": {
+     "n_loci_found": 499,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.147,
+     "A_p50": 1.1572,
+     "A_p90": 1.1617,
+     "held_out_p50": 1.1575,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 479,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.127,
+     "A_p50": 1.1345,
+     "A_p90": 1.142,
+     "held_out_p50": 1.1342,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 430,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1404,
+     "A_p50": 1.1468,
+     "A_p90": 1.152,
+     "held_out_p50": 1.1455,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0131,
+    "between_lab_median_range": 0.0458,
+    "held_out_coverage_median": 0.7698,
+    "grand_median_A": 1.152
+   }
+  },
+  "Mela": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 238,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 215,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.163,
+     "A_p50": 1.1698,
+     "A_p90": 1.1744,
+     "held_out_p50": 1.1696,
+     "held_out_frac_in_band": 0.7787
+    },
+    "GSE42861": {
+     "n_loci_found": 168,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0798,
+     "A_p50": 1.1069,
+     "A_p90": 1.118,
+     "held_out_p50": 1.1093,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 160,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0516,
+     "A_p50": 1.0667,
+     "A_p90": 1.079,
+     "held_out_p50": 1.0666,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 145,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0662,
+     "A_p50": 1.0797,
+     "A_p90": 1.0919,
+     "held_out_p50": 1.0742,
+     "held_out_frac_in_band": 0.525
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0265,
+    "between_lab_median_range": 0.1031,
+    "held_out_coverage_median": 0.7868,
+    "grand_median_A": 1.0933
+   }
+  },
+  "Microglia": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 152,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 134,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1271,
+     "A_p50": 1.1368,
+     "A_p90": 1.148,
+     "held_out_p50": 1.1348,
+     "held_out_frac_in_band": 0.7896
+    },
+    "GSE42861": {
+     "n_loci_found": 48,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9855,
+     "A_p50": 1.0041,
+     "A_p90": 1.0234,
+     "held_out_p50": 1.0105,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 48,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9489,
+     "A_p50": 0.9677,
+     "A_p90": 0.9884,
+     "held_out_p50": 0.967,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 44,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9806,
+     "A_p50": 1.0026,
+     "A_p90": 1.0249,
+     "held_out_p50": 1.0047,
+     "held_out_frac_in_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0387,
+    "between_lab_median_range": 0.1691,
+    "held_out_coverage_median": 0.7948,
+    "grand_median_A": 1.0033
+   }
+  },
+  "Mono": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 701,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 641,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1883,
+     "A_p50": 1.1903,
+     "A_p90": 1.1915,
+     "held_out_p50": 1.1903,
+     "held_out_frac_in_band": 0.776
+    },
+    "GSE42861": {
+     "n_loci_found": 494,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1771,
+     "A_p50": 1.1831,
+     "A_p90": 1.1873,
+     "held_out_p50": 1.1841,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 479,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1658,
+     "A_p50": 1.1715,
+     "A_p90": 1.1763,
+     "held_out_p50": 1.1722,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 434,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1788,
+     "A_p50": 1.1817,
+     "A_p90": 1.1858,
+     "held_out_p50": 1.1821,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0086,
+    "between_lab_median_range": 0.0188,
+    "held_out_coverage_median": 0.7854,
+    "grand_median_A": 1.1824
+   }
+  },
+  "Monocytes_EPIC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 137,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 128,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0549,
+     "A_p50": 1.0782,
+     "A_p90": 1.0981,
+     "held_out_p50": 1.0767,
+     "held_out_frac_in_band": 0.7814
+    },
+    "GSE42861": {
+     "n_loci_found": 105,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0817,
+     "A_p50": 1.1094,
+     "A_p90": 1.1248,
+     "held_out_p50": 1.1126,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 99,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.014,
+     "A_p50": 1.0371,
+     "A_p90": 1.0646,
+     "held_out_p50": 1.0386,
+     "held_out_frac_in_band": 0.975
+    },
+    "GSE125105": {
+     "n_loci_found": 82,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0532,
+     "A_p50": 1.0706,
+     "A_p90": 1.0926,
+     "held_out_p50": 1.0665,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0432,
+    "between_lab_median_range": 0.0723,
+    "held_out_coverage_median": 0.8138,
+    "grand_median_A": 1.0744
+   }
+  },
+  "Mye": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 172,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 158,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1406,
+     "A_p50": 1.147,
+     "A_p90": 1.1532,
+     "held_out_p50": 1.1467,
+     "held_out_frac_in_band": 0.8169
+    },
+    "GSE42861": {
+     "n_loci_found": 132,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0704,
+     "A_p50": 1.0875,
+     "A_p90": 1.0974,
+     "held_out_p50": 1.0915,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 127,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0387,
+     "A_p50": 1.055,
+     "A_p90": 1.0661,
+     "held_out_p50": 1.0575,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 113,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0415,
+     "A_p50": 1.0617,
+     "A_p90": 1.0752,
+     "held_out_p50": 1.0568,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0272,
+    "between_lab_median_range": 0.092,
+    "held_out_coverage_median": 0.8187,
+    "grand_median_A": 1.0746
+   }
+  },
+  "NK": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 183,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 155,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0579,
+     "A_p50": 1.0776,
+     "A_p90": 1.0936,
+     "held_out_p50": 1.0754,
+     "held_out_frac_in_band": 0.7869
+    },
+    "GSE42861": {
+     "n_loci_found": 115,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0585,
+     "A_p50": 1.0975,
+     "A_p90": 1.1154,
+     "held_out_p50": 1.1002,
+     "held_out_frac_in_band": 0.9231
+    },
+    "GSE111629": {
+     "n_loci_found": 109,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0139,
+     "A_p50": 1.0321,
+     "A_p90": 1.0515,
+     "held_out_p50": 1.0332,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 87,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0481,
+     "A_p50": 1.0709,
+     "A_p90": 1.0953,
+     "held_out_p50": 1.0616,
+     "held_out_frac_in_band": 0.675
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0424,
+    "between_lab_median_range": 0.0654,
+    "held_out_coverage_median": 0.8059,
+    "grand_median_A": 1.0742
+   }
+  },
+  "NK-cells_EPIC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 163,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 142,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0488,
+     "A_p50": 1.0717,
+     "A_p90": 1.0898,
+     "held_out_p50": 1.0714,
+     "held_out_frac_in_band": 0.7923
+    },
+    "GSE42861": {
+     "n_loci_found": 115,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0573,
+     "A_p50": 1.0928,
+     "A_p90": 1.1067,
+     "held_out_p50": 1.0931,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 110,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0061,
+     "A_p50": 1.0232,
+     "A_p90": 1.0502,
+     "held_out_p50": 1.0267,
+     "held_out_frac_in_band": 0.925
+    },
+    "GSE125105": {
+     "n_loci_found": 94,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0325,
+     "A_p50": 1.0512,
+     "A_p90": 1.0721,
+     "held_out_p50": 1.0489,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0426,
+    "between_lab_median_range": 0.0696,
+    "held_out_coverage_median": 0.8193,
+    "grand_median_A": 1.0615
+   }
+  },
+  "Neu": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 206,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 162,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0013,
+     "A_p50": 1.0297,
+     "A_p90": 1.0521,
+     "held_out_p50": 1.027,
+     "held_out_frac_in_band": 0.7842
+    },
+    "GSE42861": {
+     "n_loci_found": 128,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0179,
+     "A_p50": 1.0495,
+     "A_p90": 1.0657,
+     "held_out_p50": 1.0515,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 122,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9613,
+     "A_p50": 0.9806,
+     "A_p90": 1.0177,
+     "held_out_p50": 0.9855,
+     "held_out_frac_in_band": 0.75
+    },
+    "GSE125105": {
+     "n_loci_found": 101,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9964,
+     "A_p50": 1.0264,
+     "A_p90": 1.0422,
+     "held_out_p50": 1.0224,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0493,
+    "between_lab_median_range": 0.0689,
+    "held_out_coverage_median": 0.7796,
+    "grand_median_A": 1.028
+   }
+  },
+  "NeuIm": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 394,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 340,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1714,
+     "A_p50": 1.1726,
+     "A_p90": 1.1733,
+     "held_out_p50": 1.1725,
+     "held_out_frac_in_band": 0.7486
+    },
+    "GSE42861": {
+     "n_loci_found": 270,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1612,
+     "A_p50": 1.1665,
+     "A_p90": 1.1701,
+     "held_out_p50": 1.1675,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 254,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1483,
+     "A_p50": 1.1549,
+     "A_p90": 1.1599,
+     "held_out_p50": 1.156,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 214,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1573,
+     "A_p50": 1.1612,
+     "A_p90": 1.1652,
+     "held_out_p50": 1.1602,
+     "held_out_frac_in_band": 0.775
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0084,
+    "between_lab_median_range": 0.0177,
+    "held_out_coverage_median": 0.8,
+    "grand_median_A": 1.1639
+   }
+  },
+  "NeuMa": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 600,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 535,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.2921,
+     "A_p50": 1.2931,
+     "A_p90": 1.2938,
+     "held_out_p50": 1.2932,
+     "held_out_frac_in_band": 0.7814
+    },
+    "GSE42861": {
+     "n_loci_found": 437,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.2751,
+     "A_p50": 1.2796,
+     "A_p90": 1.2834,
+     "held_out_p50": 1.2808,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 416,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.2577,
+     "A_p50": 1.2634,
+     "A_p90": 1.2694,
+     "held_out_p50": 1.2642,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 358,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.2733,
+     "A_p50": 1.2759,
+     "A_p90": 1.2788,
+     "held_out_p50": 1.2766,
+     "held_out_frac_in_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0069,
+    "between_lab_median_range": 0.0297,
+    "held_out_coverage_median": 0.7782,
+    "grand_median_A": 1.2778
+   }
+  },
+  "Neutrophils_EPIC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 137,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 126,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9643,
+     "A_p50": 0.9966,
+     "A_p90": 1.0244,
+     "held_out_p50": 0.9951,
+     "held_out_frac_in_band": 0.7978
+    },
+    "GSE42861": {
+     "n_loci_found": 101,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9917,
+     "A_p50": 1.0444,
+     "A_p90": 1.0651,
+     "held_out_p50": 1.0463,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 95,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.928,
+     "A_p50": 0.9518,
+     "A_p90": 0.9964,
+     "held_out_p50": 0.9564,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 84,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9524,
+     "A_p50": 0.99,
+     "A_p90": 1.023,
+     "held_out_p50": 0.9877,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0695,
+    "between_lab_median_range": 0.0926,
+    "held_out_coverage_median": 0.7989,
+    "grand_median_A": 0.9933
+   }
+  },
+  "Neutrophils_reinius": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 32642,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 24148,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9902,
+     "A_p50": 1.0193,
+     "A_p90": 1.048,
+     "held_out_p50": 1.0168,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 20728,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9972,
+     "A_p50": 1.0376,
+     "A_p90": 1.0555,
+     "held_out_p50": 1.0415,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 20327,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9551,
+     "A_p50": 0.9782,
+     "A_p90": 1.0093,
+     "held_out_p50": 0.9783,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 18728,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9733,
+     "A_p50": 0.9949,
+     "A_p90": 1.0249,
+     "held_out_p50": 0.9927,
+     "held_out_frac_in_band": 0.875
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.056,
+    "between_lab_median_range": 0.0594,
+    "held_out_coverage_median": 0.8141,
+    "grand_median_A": 1.0071
+   }
+  },
+  "OPC": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 169,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 151,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1087,
+     "A_p50": 1.1171,
+     "A_p90": 1.1268,
+     "held_out_p50": 1.1156,
+     "held_out_frac_in_band": 0.7732
+    },
+    "GSE42861": {
+     "n_loci_found": 56,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9948,
+     "A_p50": 1.0107,
+     "A_p90": 1.0265,
+     "held_out_p50": 1.0156,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 56,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9598,
+     "A_p50": 0.9765,
+     "A_p90": 0.9929,
+     "held_out_p50": 0.9764,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 51,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9774,
+     "A_p50": 1.0017,
+     "A_p90": 1.0221,
+     "held_out_p50": 0.9999,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0324,
+    "between_lab_median_range": 0.1406,
+    "held_out_coverage_median": 0.7741,
+    "grand_median_A": 1.0062
+   }
+  },
+  "Oligo": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 233,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 217,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1171,
+     "A_p50": 1.131,
+     "A_p90": 1.1458,
+     "held_out_p50": 1.1308,
+     "held_out_frac_in_band": 0.7869
+    },
+    "GSE42861": {
+     "n_loci_found": 205,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1075,
+     "A_p50": 1.1249,
+     "A_p90": 1.1369,
+     "held_out_p50": 1.1276,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 200,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0812,
+     "A_p50": 1.0926,
+     "A_p90": 1.1039,
+     "held_out_p50": 1.0885,
+     "held_out_frac_in_band": 0.725
+    },
+    "GSE125105": {
+     "n_loci_found": 164,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1147,
+     "A_p50": 1.1255,
+     "A_p90": 1.1418,
+     "held_out_p50": 1.1297,
+     "held_out_frac_in_band": 0.725
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0279,
+    "between_lab_median_range": 0.0384,
+    "held_out_coverage_median": 0.7343,
+    "grand_median_A": 1.1252
+   }
+  },
+  "PBMC": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 39925,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 30697,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9838,
+     "A_p50": 1.0144,
+     "A_p90": 1.047,
+     "held_out_p50": 1.0119,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 27031,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9791,
+     "A_p50": 1.0239,
+     "A_p90": 1.0473,
+     "held_out_p50": 1.0316,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 26429,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9424,
+     "A_p50": 0.9678,
+     "A_p90": 0.9999,
+     "held_out_p50": 0.9653,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 23744,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9645,
+     "A_p50": 0.9856,
+     "A_p90": 1.0151,
+     "held_out_p50": 0.9808,
+     "held_out_frac_in_band": 0.825
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0603,
+    "between_lab_median_range": 0.0561,
+    "held_out_coverage_median": 0.7933,
+    "grand_median_A": 1.0
+   }
+  },
+  "Pancreatic_acinar_cells": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 261,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 241,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0905,
+     "A_p50": 1.0996,
+     "A_p90": 1.1062,
+     "held_out_p50": 1.0996,
+     "held_out_frac_in_band": 0.8224
+    },
+    "GSE42861": {
+     "n_loci_found": 186,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1294,
+     "A_p50": 1.1378,
+     "A_p90": 1.142,
+     "held_out_p50": 1.138,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 182,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.108,
+     "A_p50": 1.1148,
+     "A_p90": 1.1211,
+     "held_out_p50": 1.1134,
+     "held_out_frac_in_band": 0.8
+    },
+    "GSE125105": {
+     "n_loci_found": 168,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1278,
+     "A_p50": 1.1346,
+     "A_p90": 1.1429,
+     "held_out_p50": 1.1352,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0141,
+    "between_lab_median_range": 0.0382,
+    "held_out_coverage_median": 0.8,
+    "grand_median_A": 1.1247
+   }
+  },
+  "Pancreatic_beta_cells": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 266,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 240,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9326,
+     "A_p50": 0.9533,
+     "A_p90": 0.9669,
+     "held_out_p50": 0.9513,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 194,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9632,
+     "A_p50": 0.9908,
+     "A_p90": 1.001,
+     "held_out_p50": 0.9941,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 189,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9219,
+     "A_p50": 0.9319,
+     "A_p90": 0.944,
+     "held_out_p50": 0.9334,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 169,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9347,
+     "A_p50": 0.9543,
+     "A_p90": 0.9706,
+     "held_out_p50": 0.9573,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0351,
+    "between_lab_median_range": 0.0589,
+    "held_out_coverage_median": 0.7808,
+    "grand_median_A": 0.9538
+   }
+  },
+  "Pancreatic_duct_cells": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 158,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 142,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1173,
+     "A_p50": 1.1261,
+     "A_p90": 1.134,
+     "held_out_p50": 1.126,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 117,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.099,
+     "A_p50": 1.1116,
+     "A_p90": 1.1168,
+     "held_out_p50": 1.1137,
+     "held_out_frac_in_band": 0.641
+    },
+    "GSE111629": {
+     "n_loci_found": 114,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0695,
+     "A_p50": 1.0803,
+     "A_p90": 1.0914,
+     "held_out_p50": 1.0795,
+     "held_out_frac_in_band": 0.9
+    },
+    "GSE125105": {
+     "n_loci_found": 101,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0877,
+     "A_p50": 1.0984,
+     "A_p90": 1.1102,
+     "held_out_p50": 1.0984,
+     "held_out_frac_in_band": 0.625
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0199,
+    "between_lab_median_range": 0.0458,
+    "held_out_coverage_median": 0.7263,
+    "grand_median_A": 1.105
+   }
+  },
+  "Plasma": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 496,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 425,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1914,
+     "A_p50": 1.192,
+     "A_p90": 1.192,
+     "held_out_p50": 1.1919,
+     "held_out_frac_in_band": 0.7568
+    },
+    "GSE42861": {
+     "n_loci_found": 329,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1725,
+     "A_p50": 1.1787,
+     "A_p90": 1.1829,
+     "held_out_p50": 1.179,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 315,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1569,
+     "A_p50": 1.1641,
+     "A_p90": 1.1714,
+     "held_out_p50": 1.1652,
+     "held_out_frac_in_band": 0.9
+    },
+    "GSE125105": {
+     "n_loci_found": 281,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1665,
+     "A_p50": 1.1708,
+     "A_p90": 1.177,
+     "held_out_p50": 1.1697,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0104,
+    "between_lab_median_range": 0.0279,
+    "held_out_coverage_median": 0.7759,
+    "grand_median_A": 1.1747
+   }
+  },
+  "Prostate": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 212,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 194,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0203,
+     "A_p50": 1.033,
+     "A_p90": 1.0425,
+     "held_out_p50": 1.0329,
+     "held_out_frac_in_band": 0.8415
+    },
+    "GSE42861": {
+     "n_loci_found": 155,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0847,
+     "A_p50": 1.0949,
+     "A_p90": 1.1002,
+     "held_out_p50": 1.0973,
+     "held_out_frac_in_band": 0.6667
+    },
+    "GSE111629": {
+     "n_loci_found": 147,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0479,
+     "A_p50": 1.0587,
+     "A_p90": 1.0675,
+     "held_out_p50": 1.0573,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 127,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0593,
+     "A_p50": 1.0695,
+     "A_p90": 1.0858,
+     "held_out_p50": 1.0663,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0209,
+    "between_lab_median_range": 0.0619,
+    "held_out_coverage_median": 0.7541,
+    "grand_median_A": 1.0641
+   }
+  },
+  "Tcell": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 699,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 606,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1861,
+     "A_p50": 1.1889,
+     "A_p90": 1.1905,
+     "held_out_p50": 1.1888,
+     "held_out_frac_in_band": 0.806
+    },
+    "GSE42861": {
+     "n_loci_found": 443,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1243,
+     "A_p50": 1.1375,
+     "A_p90": 1.1472,
+     "held_out_p50": 1.138,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 427,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.101,
+     "A_p50": 1.1119,
+     "A_p90": 1.1214,
+     "held_out_p50": 1.1114,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 376,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1136,
+     "A_p50": 1.1219,
+     "A_p90": 1.1326,
+     "held_out_p50": 1.1217,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0197,
+    "between_lab_median_range": 0.077,
+    "held_out_coverage_median": 0.8005,
+    "grand_median_A": 1.1297
+   }
+  },
+  "Thyroid": {
+   "class": "secretory",
+   "H_min": 0.8433,
+   "n_loci_panel": 159,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 151,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0963,
+     "A_p50": 1.1084,
+     "A_p90": 1.1241,
+     "held_out_p50": 1.1065,
+     "held_out_frac_in_band": 0.7869
+    },
+    "GSE42861": {
+     "n_loci_found": 71,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1584,
+     "A_p50": 1.1695,
+     "A_p90": 1.1753,
+     "held_out_p50": 1.1708,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 69,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1297,
+     "A_p50": 1.142,
+     "A_p90": 1.1499,
+     "held_out_p50": 1.1451,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 64,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1507,
+     "A_p50": 1.158,
+     "A_p90": 1.1661,
+     "held_out_p50": 1.1553,
+     "held_out_frac_in_band": 0.525
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0185,
+    "between_lab_median_range": 0.0611,
+    "held_out_coverage_median": 0.781,
+    "grand_median_A": 1.15
+   }
+  },
+  "Treg": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 210,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 184,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9903,
+     "A_p50": 1.0111,
+     "A_p90": 1.0316,
+     "held_out_p50": 1.0112,
+     "held_out_frac_in_band": 0.8115
+    },
+    "GSE42861": {
+     "n_loci_found": 138,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0202,
+     "A_p50": 1.0555,
+     "A_p90": 1.0778,
+     "held_out_p50": 1.0617,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 136,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9962,
+     "A_p50": 1.0106,
+     "A_p90": 1.0343,
+     "held_out_p50": 1.0126,
+     "held_out_frac_in_band": 0.825
+    },
+    "GSE125105": {
+     "n_loci_found": 113,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0132,
+     "A_p50": 1.0288,
+     "A_p90": 1.0499,
+     "held_out_p50": 1.0261,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0397,
+    "between_lab_median_range": 0.0449,
+    "held_out_coverage_median": 0.8182,
+    "grand_median_A": 1.02
+   }
+  },
+  "Upper_GI": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 204,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 190,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9318,
+     "A_p50": 0.9488,
+     "A_p90": 0.9623,
+     "held_out_p50": 0.9474,
+     "held_out_frac_in_band": 0.776
+    },
+    "GSE42861": {
+     "n_loci_found": 155,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9711,
+     "A_p50": 0.9956,
+     "A_p90": 1.0074,
+     "held_out_p50": 0.9991,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 156,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9228,
+     "A_p50": 0.937,
+     "A_p90": 0.9551,
+     "held_out_p50": 0.9387,
+     "held_out_frac_in_band": 0.95
+    },
+    "GSE125105": {
+     "n_loci_found": 135,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9445,
+     "A_p50": 0.9659,
+     "A_p90": 0.9914,
+     "held_out_p50": 0.9647,
+     "held_out_frac_in_band": 0.875
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0343,
+    "between_lab_median_range": 0.0586,
+    "held_out_coverage_median": 0.8734,
+    "grand_median_A": 0.9573
+   }
+  },
+  "Uterus_cervix": {
+   "class": "cycling",
+   "H_min": 0.8561,
+   "n_loci_panel": 180,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 167,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9969,
+     "A_p50": 1.0121,
+     "A_p90": 1.0243,
+     "held_out_p50": 1.0133,
+     "held_out_frac_in_band": 0.8306
+    },
+    "GSE42861": {
+     "n_loci_found": 135,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0342,
+     "A_p50": 1.0488,
+     "A_p90": 1.0583,
+     "held_out_p50": 1.0507,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 131,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9955,
+     "A_p50": 1.0073,
+     "A_p90": 1.0168,
+     "held_out_p50": 1.0063,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 122,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0221,
+     "A_p50": 1.03,
+     "A_p90": 1.0441,
+     "held_out_p50": 1.0295,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0231,
+    "between_lab_median_range": 0.0415,
+    "held_out_coverage_median": 0.7977,
+    "grand_median_A": 1.0211
+   }
+  },
+  "adipocyte": {
+   "class": "stromal",
+   "H_min": 0.863,
+   "n_loci_panel": 1299,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 1161,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1419,
+     "A_p50": 1.1457,
+     "A_p90": 1.1484,
+     "held_out_p50": 1.1454,
+     "held_out_frac_in_band": 0.8361
+    },
+    "GSE42861": {
+     "n_loci_found": 898,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1019,
+     "A_p50": 1.113,
+     "A_p90": 1.1184,
+     "held_out_p50": 1.1144,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 867,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0857,
+     "A_p50": 1.0905,
+     "A_p90": 1.0988,
+     "held_out_p50": 1.0919,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 797,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1041,
+     "A_p50": 1.1079,
+     "A_p90": 1.1136,
+     "held_out_p50": 1.1103,
+     "held_out_frac_in_band": 0.6
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0113,
+    "between_lab_median_range": 0.0552,
+    "held_out_coverage_median": 0.843,
+    "grand_median_A": 1.1105
+   }
+  },
+  "endothelial": {
+   "class": "stromal",
+   "H_min": 0.863,
+   "n_loci_panel": 2816,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 2518,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0966,
+     "A_p50": 1.1038,
+     "A_p90": 1.1107,
+     "held_out_p50": 1.1038,
+     "held_out_frac_in_band": 0.8033
+    },
+    "GSE42861": {
+     "n_loci_found": 2175,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0994,
+     "A_p50": 1.1087,
+     "A_p90": 1.1138,
+     "held_out_p50": 1.1105,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 2110,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0822,
+     "A_p50": 1.0877,
+     "A_p90": 1.0958,
+     "held_out_p50": 1.0878,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 1950,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1004,
+     "A_p50": 1.1047,
+     "A_p90": 1.1104,
+     "held_out_p50": 1.1062,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0139,
+    "between_lab_median_range": 0.021,
+    "held_out_coverage_median": 0.8119,
+    "grand_median_A": 1.1042
+   }
+  },
+  "fibroblast": {
+   "class": "stromal",
+   "H_min": 0.863,
+   "n_loci_panel": 1919,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 1700,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.135,
+     "A_p50": 1.1395,
+     "A_p90": 1.1435,
+     "held_out_p50": 1.1397,
+     "held_out_frac_in_band": 0.806
+    },
+    "GSE42861": {
+     "n_loci_found": 1383,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1143,
+     "A_p50": 1.1229,
+     "A_p90": 1.1281,
+     "held_out_p50": 1.1241,
+     "held_out_frac_in_band": 0.7949
+    },
+    "GSE111629": {
+     "n_loci_found": 1327,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0968,
+     "A_p50": 1.1032,
+     "A_p90": 1.1106,
+     "held_out_p50": 1.1031,
+     "held_out_frac_in_band": 0.875
+    },
+    "GSE125105": {
+     "n_loci_found": 1191,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.114,
+     "A_p50": 1.1178,
+     "A_p90": 1.123,
+     "held_out_p50": 1.1179,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0114,
+    "between_lab_median_range": 0.0363,
+    "held_out_coverage_median": 0.8005,
+    "grand_median_A": 1.1203
+   }
+  },
+  "granulocytes": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 33485,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 24789,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9863,
+     "A_p50": 1.0163,
+     "A_p90": 1.0456,
+     "held_out_p50": 1.0131,
+     "held_out_frac_in_band": 0.8087
+    },
+    "GSE42861": {
+     "n_loci_found": 21537,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9932,
+     "A_p50": 1.0351,
+     "A_p90": 1.053,
+     "held_out_p50": 1.0379,
+     "held_out_frac_in_band": 0.7436
+    },
+    "GSE111629": {
+     "n_loci_found": 21089,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9518,
+     "A_p50": 0.9753,
+     "A_p90": 1.0061,
+     "held_out_p50": 0.9755,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 19355,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9707,
+     "A_p50": 0.9922,
+     "A_p90": 1.0225,
+     "held_out_p50": 0.99,
+     "held_out_frac_in_band": 0.875
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0568,
+    "between_lab_median_range": 0.0598,
+    "held_out_coverage_median": 0.7918,
+    "grand_median_A": 1.0042
+   }
+  },
+  "nRBC": {
+   "class": "progenitor",
+   "H_min": 0.8522,
+   "n_loci_panel": 267,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 265,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0245,
+     "A_p50": 1.0466,
+     "A_p90": 1.0674,
+     "held_out_p50": 1.0469,
+     "held_out_frac_in_band": 0.7732
+    },
+    "GSE42861": {
+     "n_loci_found": 210,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0237,
+     "A_p50": 1.0585,
+     "A_p90": 1.0787,
+     "held_out_p50": 1.0684,
+     "held_out_frac_in_band": 0.8205
+    },
+    "GSE111629": {
+     "n_loci_found": 203,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.996,
+     "A_p50": 1.0135,
+     "A_p90": 1.0342,
+     "held_out_p50": 1.013,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 163,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.011,
+     "A_p50": 1.0307,
+     "A_p90": 1.0493,
+     "held_out_p50": 1.025,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0406,
+    "between_lab_median_range": 0.045,
+    "held_out_coverage_median": 0.7969,
+    "grand_median_A": 1.0387
+   }
+  },
+  "neuron": {
+   "class": "terminal",
+   "H_min": 0.7728,
+   "n_loci_panel": 145,
+   "branch": "low",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 135,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.2911,
+     "A_p50": 1.2927,
+     "A_p90": 1.2938,
+     "held_out_p50": 1.2926,
+     "held_out_frac_in_band": 0.8607
+    },
+    "GSE42861": {
+     "n_loci_found": 69,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0323,
+     "A_p50": 1.0544,
+     "A_p90": 1.0738,
+     "held_out_p50": 1.0587,
+     "held_out_frac_in_band": 0.6923
+    },
+    "GSE111629": {
+     "n_loci_found": 69,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0072,
+     "A_p50": 1.0219,
+     "A_p90": 1.046,
+     "held_out_p50": 1.0221,
+     "held_out_frac_in_band": 0.725
+    },
+    "GSE125105": {
+     "n_loci_found": 61,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0108,
+     "A_p50": 1.0446,
+     "A_p90": 1.0712,
+     "held_out_p50": 1.0424,
+     "held_out_frac_in_band": 0.8
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0402,
+    "between_lab_median_range": 0.2708,
+    "held_out_coverage_median": 0.7625,
+    "grand_median_A": 1.0495
+   }
+  },
+  "smooth_muscle": {
+   "class": "stromal",
+   "H_min": 0.863,
+   "n_loci_panel": 858,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 780,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1063,
+     "A_p50": 1.1135,
+     "A_p90": 1.1192,
+     "held_out_p50": 1.1128,
+     "held_out_frac_in_band": 0.8333
+    },
+    "GSE42861": {
+     "n_loci_found": 572,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.046,
+     "A_p50": 1.062,
+     "A_p90": 1.0689,
+     "held_out_p50": 1.0641,
+     "held_out_frac_in_band": 0.7179
+    },
+    "GSE111629": {
+     "n_loci_found": 558,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0219,
+     "A_p50": 1.0324,
+     "A_p90": 1.042,
+     "held_out_p50": 1.0335,
+     "held_out_frac_in_band": 0.85
+    },
+    "GSE125105": {
+     "n_loci_found": 503,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0431,
+     "A_p50": 1.0507,
+     "A_p90": 1.0612,
+     "held_out_p50": 1.0527,
+     "held_out_frac_in_band": 0.75
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0191,
+    "between_lab_median_range": 0.0811,
+    "held_out_coverage_median": 0.7916,
+    "grand_median_A": 1.0564
+   }
+  },
+  "stem_pluri": {
+   "class": "stem_pluri",
+   "H_min": 0.9822,
+   "n_loci_panel": 21714,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 15369,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.0142,
+     "A_p50": 1.0165,
+     "A_p90": 1.0178,
+     "held_out_p50": 1.0165,
+     "held_out_frac_in_band": 0.8497
+    },
+    "GSE42861": {
+     "n_loci_found": 14838,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.0165,
+     "A_p50": 1.0178,
+     "A_p90": 1.0181,
+     "held_out_p50": 1.0179,
+     "held_out_frac_in_band": 0.8718
+    },
+    "GSE111629": {
+     "n_loci_found": 14195,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0118,
+     "A_p50": 1.0131,
+     "A_p90": 1.0165,
+     "held_out_p50": 1.0139,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 13156,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.0149,
+     "A_p50": 1.0162,
+     "A_p90": 1.0176,
+     "held_out_p50": 1.0159,
+     "held_out_frac_in_band": 0.65
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0032,
+    "between_lab_median_range": 0.0047,
+    "held_out_coverage_median": 0.8124,
+    "grand_median_A": 1.0164
+   }
+  },
+  "stromal_other": {
+   "class": "stromal",
+   "H_min": 0.863,
+   "n_loci_panel": 835,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 768,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 1.1436,
+     "A_p50": 1.1463,
+     "A_p90": 1.149,
+     "held_out_p50": 1.1463,
+     "held_out_frac_in_band": 0.7896
+    },
+    "GSE42861": {
+     "n_loci_found": 645,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 1.1534,
+     "A_p50": 1.1549,
+     "A_p90": 1.1571,
+     "held_out_p50": 1.1546,
+     "held_out_frac_in_band": 0.8462
+    },
+    "GSE111629": {
+     "n_loci_found": 619,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1582,
+     "A_p50": 1.1586,
+     "A_p90": 1.1587,
+     "held_out_p50": 1.1586,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 577,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 1.1559,
+     "A_p50": 1.1568,
+     "A_p90": 1.1574,
+     "held_out_p50": 1.1566,
+     "held_out_frac_in_band": 0.575
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0026,
+    "between_lab_median_range": 0.0123,
+    "held_out_coverage_median": 0.7823,
+    "grand_median_A": 1.1559
+   }
+  },
+  "whole_blood": {
+   "class": "immune",
+   "H_min": 0.838889,
+   "n_loci_panel": 38798,
+   "branch": "high",
+   "labs": {
+    "GSE87571": {
+     "n_loci_found": 29520,
+     "n_build": 366,
+     "n_held_out": 366,
+     "A_p10": 0.9669,
+     "A_p50": 0.9999,
+     "A_p90": 1.0315,
+     "held_out_p50": 0.9957,
+     "held_out_frac_in_band": 0.7869
+    },
+    "GSE42861": {
+     "n_loci_found": 26746,
+     "n_build": 39,
+     "n_held_out": 39,
+     "A_p10": 0.9718,
+     "A_p50": 1.0178,
+     "A_p90": 1.0385,
+     "held_out_p50": 1.0199,
+     "held_out_frac_in_band": 0.7692
+    },
+    "GSE111629": {
+     "n_loci_found": 26160,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.9282,
+     "A_p50": 0.9559,
+     "A_p90": 0.9891,
+     "held_out_p50": 0.954,
+     "held_out_frac_in_band": 0.775
+    },
+    "GSE125105": {
+     "n_loci_found": 23751,
+     "n_build": 40,
+     "n_held_out": 40,
+     "A_p10": 0.951,
+     "A_p50": 0.9731,
+     "A_p90": 1.0055,
+     "held_out_p50": 0.9711,
+     "held_out_frac_in_band": 0.875
+    }
+   },
+   "pooled": {
+    "n_labs": 4,
+    "median_within_lab_spread": 0.0628,
+    "between_lab_median_range": 0.0619,
+    "held_out_coverage_median": 0.781,
+    "grand_median_A": 0.9865
+   }
+  }
+ }
+}
