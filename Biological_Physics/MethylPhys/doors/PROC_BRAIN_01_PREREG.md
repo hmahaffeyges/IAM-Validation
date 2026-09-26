@@ -75,3 +75,37 @@ be compared.
 
 No clinical claim follows, no patient is involved, and nothing in the chain changes on the basis of this
 procedure.
+
+## Run log, 2026-09-26 — the first attempt is VOID and must be redone
+
+Recorded because a discarded run is part of the record, and because the reason was operator error rather
+than anything about the cohort or the instrument.
+
+**What went wrong, in order:**
+
+1. The scoring script reduced the specimen to "the loci the chain reads" — and its marker lookup guessed
+   the markers artifact's JSON shape, returning **zero** markers. Every cell-type marker CpG was therefore
+   dropped from the streaming pass. The deconvolver still worked, because it selects markers itself from
+   the atlas, so the **fractions were right**; but every per-cell A came back `nan` with status
+   `INSUFFICIENT_MARKERS`, and B3 was unscoreable. Fixed by reading the artifact with its own loader and
+   by not reducing the locus set at all — all 370,346 submitted CpGs are passed per specimen.
+2. The deconvolver cache was added to [`cpg_conductor.py`](../chain/cpg_conductor.py) **while the run was in flight**, so specimens
+   scored before and after the edit went through different code. The cache was subsequently shown to change
+   no reported reading ([`PROC_CACHE_01.py`](../kit/PROC_CACHE_01.py)), but that was not known at the time.
+3. The corrected run was started into the **same output directory and the same handoff file** while the
+   first run was still alive. Two processes wrote both. The result — 19 of 24 CSF specimens present with no
+   error row, and five stray tissue bundles — is mixed provenance and cannot support a bar.
+
+**What survives from it:** nothing is quoted as a result. The fraction measurements were consistent and
+encouraging across both attempts, and they are the reason this is worth redoing rather than abandoning —
+but an encouraging number from a contaminated run is not evidence, and no bar is scored here.
+
+**What the redo requires:** one process, a fresh output path, no edit to the chain while it runs, and an
+uncontended machine. Each specimen costs about five minutes at full locus coverage, so the 24-specimen CSF
+arm is roughly two hours and the 157-array tissue arm about sixteen — which is why the tissue arm is a
+separate run, to be recorded as not yet done rather than partially done.
+
+**The lesson, generalised beyond this procedure:** never edit the chain while a procedure is scoring, and
+never point two runs at one output path. Both are the same failure as the calibration loss of 2026-09-25 —
+concurrent writers to a single artefact — and the rule from that day (immutable per-unit outputs, combined
+once) applies to procedure runs and not only to long calibrations.

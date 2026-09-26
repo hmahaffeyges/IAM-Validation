@@ -34,6 +34,9 @@ HERE = Path(__file__).resolve().parent
 # ── Resolve chain files whether laid out flat (the CPG_TRIAL_CODE working folder) or in the
 #    repository tree (Biological_Physics/MethylPhys/chain/{Runtime Matrices/*, Walther_iam_deconvolver/} and
 #    Biological_Physics/MethylPhys/atlas/). Added 2026-09-19; first run of the conductor from the repo.
+# One deconvolver per (atlas, class-map) pair, per process. See stage_a_cells for why this is safe.
+_DEC_CACHE = {}
+
 _SEARCH = [HERE, HERE / "Walther_iam_deconvolver", HERE / "Runtime Matrices" / "A_Scoring_Module",
            HERE / "Runtime Matrices" / "Celltype_Marker", HERE / "Runtime Matrices" / "Directional Panel",
            HERE / "Runtime Matrices" / "Mahalanobis_healthy_reference", HERE / "Runtime Matrices" / "Tier_breakpoints",
@@ -82,7 +85,18 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     markers_path = _find("iamatlas_celltype_markers_v0_2.json")
 
     # 1. Deconvolve -> the ratio of each class and cell type present
-    dec = dec_mod.WaltherIAMDeconvolver(str(atlas_csv), celltype_class_map=str(c2c_path))
+    # The deconvolver re-reads the 605 MB atlas on construction, and this line ran on EVERY specimen -
+    # about two minutes per array, which makes panel-scale work (318 to 732 healthy arrays) impossible
+    # through the chain entry point, and the entry point is now the only permitted route (propagate rule
+    # 10). It holds NO per-specimen state - deconvolve(beta_dict) takes the specimen as an argument - so
+    # caching it by reference path cannot change a reading. Proven by invariance check, not asserted:
+    # kit/PROC_CACHE_01.py recomputes bundles produced BEFORE this change and requires every reported
+    # value to be identical. 2026-09-26.
+    _ck = (str(atlas_csv), str(c2c_path))
+    dec = _DEC_CACHE.get(_ck)
+    if dec is None:
+        dec = dec_mod.WaltherIAMDeconvolver(str(atlas_csv), celltype_class_map=str(c2c_path))
+        _DEC_CACHE[_ck] = dec
     result = dec.deconvolve(beta_dict)
     class_fr = dict(result.class_fractions)
     ct_fr = dict(result.celltype_fractions)
