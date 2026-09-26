@@ -36,3 +36,5 @@ then `chain/lab_zero.py`; the procedure is in `doors/RUNBOOK.md`.
 Whether this sample's cellular write process is operating within the healthy range for its age, by architecture
 class, against a fixed physical zero. It names no condition, matches no pattern to any signature, and states no
 age in years.
+
+**Which substrate can this instrument read, and what is tested next:** [`doors/SUBSTRATE_STRATEGY.md`](doors/SUBSTRATE_STRATEGY.md).

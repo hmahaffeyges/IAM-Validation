@@ -95,3 +95,7 @@ better is how a tool starts lying.
 **The binding limit is now cohorts, not method.** The > 8 year question rests on 12 held-out colorectal arrays; no analysis of this cohort can settle it.
 
 [PROC-PARTIAL-01](PROC_PARTIAL_01_OUTCOME.md) closes the question of scoring a non-blood class's FIDELITY from an ordinary blood draw: NOT COMMISSIONED, and not close. At a 2 % fraction the recovered profile is a mean beta of 12.4, where a beta must lie between 0 and 1. The estimator's arithmetic is exact (machine-precision recovery on a synthetic host); what fails is the composition model, which reconstructs real blood at the identity loci with a +0.067 bias that 1/f amplification turns into 3.35 at f = 0.02. Averaging over 30,000 loci reduces noise by root n and does nothing to a bias. Detection and quantification are unaffected: presence to ~2 %, fraction above ~5 %.
+
+## Which substrate next, 2026-09-26
+
+[SUBSTRATE_STRATEGY.md](SUBSTRATE_STRATEGY.md) answers it from the rule PROC-PARTIAL-01 measured: a class is scoreable when the reference reconstructs the specimen at its identity loci to within about f x (the class's signal). That makes the substrate question a question about FRACTION. Tissue (tumour lineage 0.5-0.9) is the decisive case and needs no new calibration, because a paired tumour-versus-adjacent-normal comparison cancels the laboratory zero, the age term and the donor. Stool is out (bacterial-dominated, low human fraction). Plasma cfDNA can carry the IMMUNE reading but not the tumour one, and needs a scale map for fragmented DNA.
