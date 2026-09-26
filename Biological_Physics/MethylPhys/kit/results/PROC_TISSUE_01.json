@@ -1,0 +1,108 @@
+{
+ "scored_class": "immune",
+ "n": {
+  "mucosa": 48,
+  "adjacent_normal": 95,
+  "tumour": 95
+ },
+ "b6": {
+  "median_epithelial_fraction": {
+   "mucosa": 0.22965,
+   "adjacent_normal": 0.2404,
+   "tumour": 0.2284
+  },
+  "median_immune_fraction": {
+   "mucosa": 0.382,
+   "adjacent_normal": 0.3423,
+   "tumour": 0.3583
+  },
+  "met": false
+ },
+ "b1": {
+  "medians": {
+   "mucosa": 1.1683623187464214,
+   "adjacent_normal": 1.1639089680642982,
+   "tumour": 1.1864139165281768
+  },
+  "order": [
+   "mucosa",
+   "adjacent_normal",
+   "tumour"
+  ],
+  "met": false
+ },
+ "b2": {
+  "d": -0.5199190958623638,
+  "p": 0.003599280143971206,
+  "met": false
+ },
+ "b3": {
+  "d": 1.20916285591436,
+  "p": 0.0001999600079984003,
+  "met": true
+ },
+ "b4": {
+  "median_abs_d": 0.1888431666049847,
+  "p95": 0.5781344518146017,
+  "met": true
+ },
+ "b2_matched": {
+  "n_pairs": 36,
+  "d": -0.4641653637687676,
+  "p": 0.05558888222355529
+ },
+ "within_patient": {
+  "n": 91,
+  "median_delta": 0.02106366414302352,
+  "mean_delta": 0.01806208845245701,
+  "frac_positive": 0.9010989010989011,
+  "d_paired": 1.1314604036591156
+ },
+ "class_spread": {
+  "cycling": {
+   "adj_vs_healthy_d": -0.4967059469003572,
+   "tumour_vs_healthy_d": 1.7936347625296065
+  },
+  "immune": {
+   "adj_vs_healthy_d": -0.5199190958623638,
+   "tumour_vs_healthy_d": 1.20916285591436
+  },
+  "progenitor": {
+   "adj_vs_healthy_d": -0.579834032986114,
+   "tumour_vs_healthy_d": 1.4630481180977777
+  },
+  "secretory": {
+   "adj_vs_healthy_d": -0.4930060486123201,
+   "tumour_vs_healthy_d": 1.7789715268191437
+  },
+  "stem_adult": {
+   "adj_vs_healthy_d": -0.5716962085006155,
+   "tumour_vs_healthy_d": 1.416384100725757
+  },
+  "stem_pluri": {
+   "adj_vs_healthy_d": 0.11157074534137446,
+   "tumour_vs_healthy_d": -1.133619235905352
+  },
+  "stromal": {
+   "adj_vs_healthy_d": -0.6337657162533867,
+   "tumour_vs_healthy_d": 1.6851275599622428
+  },
+  "terminal": {
+   "adj_vs_healthy_d": -0.606079325418659,
+   "tumour_vs_healthy_d": 1.6133890650403977
+  }
+ },
+ "classes_displaced": [
+  "immune",
+  "progenitor",
+  "stem_adult",
+  "stromal",
+  "terminal"
+ ],
+ "b7": {
+  "n": 318,
+  "max_abs_delta_A_mapped": 0.0,
+  "met": true,
+  "source": "kit/results/PROC_BAND_01_arrays.json"
+ }
+}

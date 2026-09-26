@@ -153,7 +153,7 @@ large enough to support one.
 
 ## The order
 
-1. **PROC-TISSUE-01 — the ordering, on GSE131013.** Healthy < adjacent normal < tumour on one absolute scale, with the direction pre-specified and nothing trained on the data. Tests the field effect and the ordering in a single series.
+1. ~~**PROC-TISSUE-01 — the ordering, on GSE131013.**~~ **RUN AND SEALED 2026-09-26: gating bar failed** — the cohort is bulk mucosa (23 % epithelial), no field effect, and the displacement moves seven of eight classes. See [`PROC_TISSUE_01_OUTCOME.md`](PROC_TISSUE_01_OUTCOME.md). The stool step below is NOT licensed by it. Healthy < adjacent normal < tumour on one absolute scale, with the direction pre-specified and nothing trained on the data. Tests the field effect and the ordering in a single series.
 2. **PROC-TISSUE-02 — the adenoma rung, on GSE48684.** Does the reading place a pre-malignant lesion between normal and carcinoma without being told it exists?
 3. **PROC-TISSUE-03 — the intervention, on GSE142257.** Does the reading move when drift is suppressed?
 4. **PROC-EPIC-02** — the 119 held-out other-cancer cases already scored: is the 2-8 year immune signal colorectal-specific?
