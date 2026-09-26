@@ -35,9 +35,11 @@ The EPIC-Italy null is **11× wider** than the 450K null (MAD 0.0138 vs 0.0012 f
    identity loci, not the deconvolver's markers. Only 783 of the detector's 1,506 markers are in it, and a median of
    705 per array. Restricting the **450K** null to those same 783 markers widens it **7×** on its own (MAD 0.0012 →
    0.0089). The missing 723 markers carry most of the detector's power.
-2. **Laboratory and platform.** On the same 783 markers, EPIC-Italy is a further **1.5×** wider than the 450K
-   laboratories (0.0138 vs 0.0089). That part is the fifth laboratory and the EPIC platform, and it is the part a
-   per-laboratory commissioning panel exists to absorb.
+2. **Laboratory and platform — for Breast only.** On the same 783 markers, EPIC-Italy is a further **1.5×** wider
+   than the 450K laboratories for Breast (0.0138 vs 0.0089); for Cortical_neurons it is **not wider at all**
+   (0.0105 vs 0.0111). So the marker set explains the whole neuron failure and most of the breast one; the
+   laboratory/platform factor is cell-dependent and, where present, is what a per-laboratory commissioning panel
+   exists to absorb.
 
 A threshold set on 1,506 markers applied to 705 is not the same detector. B7 as pre-registered was the right test
 and it was run on the only EPIC-Italy matrix that exists; it failed for a reason the pre-registration did not
@@ -53,8 +55,8 @@ establish: that a threshold travels between marker sets or platforms. Nothing he
 says the *threshold* is a laboratory-commissioned quantity, exactly as the laboratory zero already is.
 
 **PROC-MF-03, if the author commissions it:** the same detector with (a) the detection threshold set on **each
-laboratory's own commissioning panel** (the EPIC-Italy p99.5 on its own 424 controls is 0.035, ten times the
-450K threshold), (b) B7 run on the **full** EPIC-Italy matrix — the 845 arrays re-extracted at the deconvolver's
+laboratory's own commissioning panel** (the EPIC-Italy p99.5 on its own 424 controls is 0.035 for Breast — ten times the 450K threshold — and 0.020
+for Cortical_neurons, four times), (b) B7 run on the **full** EPIC-Italy matrix — the 845 arrays re-extracted at the deconvolver's
 markers, not the identity loci — and (c) the same B1–B6. A detector whose threshold is per-laboratory is
 consistent with everything else the chain does; a universal threshold was the wrong ask, and it was mine.
 
