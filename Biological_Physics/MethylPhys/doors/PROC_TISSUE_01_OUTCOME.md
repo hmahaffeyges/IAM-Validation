@@ -13,7 +13,7 @@ scripts [`PROC_TISSUE_01_score.py`](../kit/PROC_TISSUE_01_score.py) ·
 
 | bar | result | |
 |---|---|---|
-| **B6** the specimens are what they claim | **epithelial fraction 0.23 / 0.24 / 0.23** | **FAILED — gating** |
+| **B6** the specimens are what they claim | epithelium-containing fraction **0.446 / 0.465 / 0.479** (corrected — see below) | **FAILED — gating** (bar > 0.50) |
 | **B1** the ordering | healthy 1.1684, adjacent **1.1639**, tumour 1.1864 — the first rung goes the wrong way | **FAILED** |
 | **B2** the field effect | **d = −0.520**, p = 0.0036 — adjacent normal reads *below* healthy | **FAILED (direction reversed)** |
 | B3 the disease contrast | d = +1.209, p = 0.0002 | met — but see below |
@@ -26,8 +26,19 @@ ordering is not."*** That rule was written before the data was seen and it gover
 
 ## What the specimens turned out to be
 
-The series title says "colon cells". The deconvolution says otherwise: the **median epithelial fraction is
-0.23** in all three groups, while the immune fraction is 0.34–0.38. These are **bulk mucosa**, not sorted
+The series title says "colon cells". The deconvolution says otherwise.
+
+**Corrected 2026-09-26 by the atlas readability audit.** This outcome first reported the epithelial
+fraction as **0.23**, computed as `secretory + terminal`. That was wrong: in this atlas **colon
+epithelium is classified in `cycling`**, not `secretory`. Recomputed per sample with every
+epithelium-containing class, the fractions are **0.446 / 0.465 / 0.479** (healthy / adjacent / tumour) —
+roughly 45 % epithelial, not 23 %. **B6 still fails**, since the bar was > 0.50, and the scored class is
+still immune, since immune (0.382) remains the largest single class — so no verdict below changes. But
+the specimens are much closer to the bar than first reported, and the stated reason was wrong.
+See [`ATLAS_READABILITY.md`](ATLAS_READABILITY.md) §3 and
+[`PROC_TISSUE_01_b6_recheck.json`](../kit/results/PROC_TISSUE_01_b6_recheck.json).
+
+The median epithelium-containing fraction is **0.45** against an immune fraction of 0.34–0.38. These are **bulk mucosa**, not sorted
 epithelium — and colonic lamina propria is genuinely lymphocyte-rich, so that is a plausible composition for
 bulk tissue rather than a processing failure.
 

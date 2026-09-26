@@ -1,0 +1,17 @@
+{
+ "mucosa": {
+  "sec_term": 0.22965000000000002,
+  "cycling": 0.21405000000000002,
+  "cyc_sec_term": 0.4464
+ },
+ "adjacent_normal": {
+  "sec_term": 0.2404,
+  "cycling": 0.2223,
+  "cyc_sec_term": 0.46519999999999995
+ },
+ "tumour": {
+  "sec_term": 0.2284,
+  "cycling": 0.25,
+  "cyc_sec_term": 0.4788
+ }
+}
