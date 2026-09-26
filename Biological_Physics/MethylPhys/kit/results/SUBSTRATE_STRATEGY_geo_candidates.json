@@ -1,0 +1,268 @@
+{
+ "colorectal tissue, tumour + matched normal": [
+  {
+   "gse": "GSE151732",
+   "n": 256,
+   "title": "Racial Disparities in Epigenetic Aging of the Right versus the Left Colon",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE199057",
+   "n": 229,
+   "title": "Epi-genomewide study identifies epigenetic outliers in normal mucosa of colorectal cancer patien",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE233854",
+   "n": 59,
+   "title": "Genome-wide DNA methylation profiling of colorectal tumours from MLH1 epimutation carriers",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE210018",
+   "n": 58,
+   "title": "Multi-omic colon organoid analysis highlight MSH4 as a marker of Lynch syndrome and microsatelli",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE279030",
+   "n": 34,
+   "title": "The effect of methylation on the let-7-BCL2L1-BCL2 axis and the potential use of hypomethylating",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE309002",
+   "n": 32,
+   "title": "Methylation profiling in colorectal cancer: colorectal cancers vs. adjacent normal colon tissues",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE149282",
+   "n": 24,
+   "title": "Genome-wide open chromatin methylome profiles in colorectal cancer",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE232680",
+   "n": 23,
+   "title": "Genome-wide analysis of DNA methylation in pseudomyxoma peritonei originated from appendiceal ca",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE197646",
+   "n": 23,
+   "title": "DNA methylation analysis of normal colon organoids from familial adenomatous polyposis patients ",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE255123",
+   "n": 20,
+   "title": "Cancer-associated fibroblasts reveal aberrant DNA methylation across different types of cancer [",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE308712",
+   "n": 12,
+   "title": "Effects of overexpression of HKDC1 on gene expression in two colon cancer cells.",
+   "platform": "24676"
+  },
+  {
+   "gse": "GSE110274",
+   "n": 8,
+   "title": "Epigenome analysis of normal PBMC and co-cultured PBMC with human colorectal adenocarcinoma cell",
+   "platform": "21145"
+  }
+ ],
+ "plasma / cfDNA methylation": [
+  {
+   "gse": "GSE240704",
+   "n": 363,
+   "title": "A prognostic neural epigenetic signature in high-grade glioma",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE298750",
+   "n": 270,
+   "title": "Predicting immune responsiveness in ER-positive breast cancer",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE327701",
+   "n": 188,
+   "title": "Methylation profiling of brain metastasis tissue, cerebrospinal spinal (CSF) and plasma from pat",
+   "platform": "24676"
+  },
+  {
+   "gse": "GSE268635",
+   "n": 90,
+   "title": "Identification of differentially methylated sites in COPD by exposure to biomass smoke",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE307029",
+   "n": 80,
+   "title": "Multi-omics reveals heterogeneity in  advanced small cell lung cancers",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE287261",
+   "n": 77,
+   "title": "Longitudinal Methylomic changes in PTSD following Sub-Anaesthetic Oral Ketamine Administration",
+   "platform": "33022"
+  },
+  {
+   "gse": "GSE303824",
+   "n": 61,
+   "title": "Identification and validation of liquid biopsy-based methylation biomarkers for germ cell tumor ",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE303825",
+   "n": 54,
+   "title": "Identification and validation of liquid biopsy-based methylation biomarkers for germ cell tumor ",
+   "platform": "13534"
+  },
+  {
+   "gse": "GSE274821",
+   "n": 31,
+   "title": "Prior chemotherapy deteriorates T-cell quality for CAR T-cell therapy in B-cell non-Hodgkin\u2019s ly",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE303826",
+   "n": 17,
+   "title": "Identification and validation of liquid biopsy-based methylation biomarkers for germ cell tumor ",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE220160",
+   "n": 16,
+   "title": "Genome-wide DNA methylation analysis of colorectal cancer and polyp",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE289988",
+   "n": 9,
+   "title": "Comparative DNA methylation profiling of human and murine ALK-positive B-cell neoplasms [EPIC]",
+   "platform": "21145"
+  }
+ ],
+ "stool methylation": [
+  {
+   "gse": "GSE240184",
+   "n": 128,
+   "title": "The Microbiome, Epigenome, and Diet in Adults with Obesity During Behavioral Weight Loss",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE159495",
+   "n": 93,
+   "title": "Immune and Metabolic Pathogenesis of Environmental Enteric Dysfunction in Childhood Undernutriti",
+   "platform": "24676;18573;16791"
+  },
+  {
+   "gse": "GSE271601",
+   "n": 56,
+   "title": "New perspective to facioscapulohumeral dystrophy: the gut microbiome association with D4Z4 methy",
+   "platform": "23934"
+  },
+  {
+   "gse": "GSE217164",
+   "n": 53,
+   "title": "Integrative genome-wide DNA methylome and transcriptome data reveals key genes involved in the d",
+   "platform": "21145;16791"
+  },
+  {
+   "gse": "GSE131461",
+   "n": 40,
+   "title": "Association between gut microbiota and global DNA methylation pattern in subjects with obesity",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE212997",
+   "n": 37,
+   "title": "Neonatal necrotizing enterocolitis-associated DNA methylation signatures in the colon are eviden",
+   "platform": "16791;20795"
+  },
+  {
+   "gse": "GSE217163",
+   "n": 28,
+   "title": "Integrative genome-wide DNA methylome and transcriptome data reveals key genes involved in the d",
+   "platform": "16791"
+  },
+  {
+   "gse": "GSE217124",
+   "n": 25,
+   "title": "Integrative genome-wide DNA methylome and transcriptome data reveals key genes involved in the d",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE207528",
+   "n": 24,
+   "title": "Gut bacterial-derived 12,13-diHOME promotes M1-like inflammatory macrophage polarization and tra",
+   "platform": "18573"
+  },
+  {
+   "gse": "GSE153475",
+   "n": 12,
+   "title": "NTF3 as a biomarker for prediction allergic diseases in children postnatal or adolescence",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE207491",
+   "n": 12,
+   "title": "Gut bacterial-derived 12,13-diHOME promotes M1-like inflammatory macrophage polarization and tra",
+   "platform": "24676"
+  },
+  {
+   "gse": "GSE208164",
+   "n": 2,
+   "title": "Colonic TRPV4 overexpression is related to constipation severity",
+   "platform": "21185"
+  }
+ ],
+ "prospective blood, years before diagnosis": [
+  {
+   "gse": "GSE314261",
+   "n": 5013,
+   "title": "Epigenome-wide DNA Methylation Profiling in the Investigation of Treatment and Life-Course Expos",
+   "platform": "23976"
+  },
+  {
+   "gse": "GSE90496",
+   "n": 2801,
+   "title": "DNA methylation-based classification of human central nervous system tumors [reference set]",
+   "platform": "13534"
+  },
+  {
+   "gse": "GSE142512",
+   "n": 395,
+   "title": "Longitudinal DNA methylation differences precede type 1 diabetes",
+   "platform": "13534;21145"
+  },
+  {
+   "gse": "GSE318177",
+   "n": 142,
+   "title": "DNA methylation in episodic migraine and medication overuse headache.",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE190164",
+   "n": 48,
+   "title": "DNA methylation profiling in blood of OSA patients and controls",
+   "platform": "13534"
+  },
+  {
+   "gse": "GSE291053",
+   "n": 32,
+   "title": "Genome wide DNA methylation analysis in a prospective observational study identifies several epi",
+   "platform": "21145"
+  },
+  {
+   "gse": "GSE268074",
+   "n": 16,
+   "title": "Creation and Validation of the First Infinium DNA Methylation Array for the Human Imprintome [co",
+   "platform": "34511"
+  }
+ ]
+}
