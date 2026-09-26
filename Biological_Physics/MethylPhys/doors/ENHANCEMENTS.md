@@ -105,3 +105,9 @@ better is how a tool starts lying.
 ## What the instrument can read, measured
 
 [ATLAS_READABILITY.md](ATLAS_READABILITY.md) stops treating the recurring reference failure as a surprise and measures it. The atlas is an IMMUNE atlas with eight labels on it: immune holds 51 of the 115 cell types; stem_adult and stem_pluri hold ONE each. Three class pairs are collinear - stem_adult vs progenitor at r = +0.989, progenitor vs immune at +0.958, cycling vs secretory at +0.955 - which is the cosmologist's situation exactly and the argument for spending the covariance: two components at r = 0.989 are individually unidentifiable while their SUM is well determined, and the chain already hand-codes that one case in section 108 instead of getting it from the off-diagonal terms.
+
+## Correction, 2026-09-26: the covariance is NOT recoverable from the MCMC archives
+
+This list has said that the full cell-type covariance is recoverable from the per-class MCMC archives. **It is not, and this was checked rather than assumed.** The archives hold only marginals (`cpg_id, mean, sd, ci_lo, ci_hi`); the build script's own correctness note states that *each CpG's posterior is INDEPENDENT in the model*; and the eight classes were run as separate jobs. There are no joint draws, so **no cross-class covariance at an address was ever estimated**. Any plan that budgeted days for mining it was budgeting for a quantity that does not exist.
+
+What replaces it is better aimed anyway. The covariance that governs the composition fit is the **residual** covariance on real specimens - reference error, biological variation, technical noise and **model misspecification** - and it is the last term that closed PROC-PARTIAL-01 (+0.067 beta), which a posterior covariance would not have contained at all. It is estimable today from the 318 calibrated healthy arrays already on disk. See [PROC_COV_01_PREREG.md](PROC_COV_01_PREREG.md).
