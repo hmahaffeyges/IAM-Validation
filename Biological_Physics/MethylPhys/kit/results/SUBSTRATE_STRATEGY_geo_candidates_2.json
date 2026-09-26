@@ -1,0 +1,250 @@
+{
+ "colorectal PROGRESSION normal-adenoma-carcinoma": [
+  {
+   "gse": "GSE28094",
+   "n": 1628,
+   "title": "A DNA Methylation Fingerprint of  1,628 Human Samples",
+   "gpl": "9183"
+  },
+  {
+   "gse": "GSE132804",
+   "n": 334,
+   "title": "Dysfunctional epigenetic aging of the normal colon and colorectal cancer risk",
+   "gpl": "21145;13534"
+  },
+  {
+   "gse": "GSE29505",
+   "n": 290,
+   "title": "Custom Illumina array DNA methylation analysis of 384 CpGs across five cancer types",
+   "gpl": "13645"
+  },
+  {
+   "gse": "GSE151732",
+   "n": 256,
+   "title": "Racial Disparities in Epigenetic Aging of the Right versus the Left Colon",
+   "gpl": "23976"
+  },
+  {
+   "gse": "GSE53051",
+   "n": 220,
+   "title": "Large hypomethylated blocks related to large heterochromatin regions as a universal defining epigene",
+   "gpl": "13534"
+  },
+  {
+   "gse": "GSE48988",
+   "n": 178,
+   "title": "Epigenome analysis of normal colon mucosa samples",
+   "gpl": "8490"
+  },
+  {
+   "gse": "GSE48684",
+   "n": 147,
+   "title": "Global DNA methylation alterations reveal multiple pathways in the initiation and progression of col",
+   "gpl": "13534"
+  },
+  {
+   "gse": "GSE216024",
+   "n": 140,
+   "title": "Race-specific patterns of epigenetic aging and age-associated differential methylation in normal rec",
+   "gpl": "21145"
+  },
+  {
+   "gse": "GSE47592",
+   "n": 137,
+   "title": "5-hydroxymethylcytosine marks promoters in colon that resist hypermethylation in cancer",
+   "gpl": "13534;8490;10999;154"
+  },
+  {
+   "gse": "GSE47071",
+   "n": 89,
+   "title": "5-hydroxymethylcytosine marks promoters in colon that resist hypermethylation in cancer [Methylation",
+   "gpl": "8490"
+  },
+  {
+   "gse": "GSE89076",
+   "n": 80,
+   "title": "DNA microarray analysis of human colorectal cancer specimens",
+   "gpl": "16699"
+  },
+  {
+   "gse": "GSE40055",
+   "n": 42,
+   "title": "Non-CpG island promoter hypomethylation and miR-149 regulate the expression of SRPX2 in colorectal c",
+   "gpl": "8490"
+  },
+  {
+   "gse": "GSE197646",
+   "n": 23,
+   "title": "DNA methylation analysis of normal colon organoids from familial adenomatous polyposis patients reve",
+   "gpl": "21145"
+  }
+ ],
+ "exfoliated colonocytes / stool-derived human cells": [
+  {
+   "gse": "GSE217164",
+   "n": 53,
+   "title": "Integrative genome-wide DNA methylome and transcriptome data reveals key genes involved in the dysre",
+   "gpl": "21145;16791"
+  },
+  {
+   "gse": "GSE212997",
+   "n": 37,
+   "title": "Neonatal necrotizing enterocolitis-associated DNA methylation signatures in the colon are evident in",
+   "gpl": "16791;20795"
+  },
+  {
+   "gse": "GSE217163",
+   "n": 28,
+   "title": "Integrative genome-wide DNA methylome and transcriptome data reveals key genes involved in the dysre",
+   "gpl": "16791"
+  },
+  {
+   "gse": "GSE217124",
+   "n": 25,
+   "title": "Integrative genome-wide DNA methylome and transcriptome data reveals key genes involved in the dysre",
+   "gpl": "21145"
+  },
+  {
+   "gse": "GSE110536",
+   "n": 13,
+   "title": "Active BRAF-V600E is the key player in generation of a sessile serrated polyp-specific DNA methylati",
+   "gpl": "11154"
+  },
+  {
+   "gse": "GSE110535",
+   "n": 12,
+   "title": "Active BRAF-V600E is the key player in generation of a sessile serrated polyp-specific DNA methylati",
+   "gpl": "11154"
+  },
+  {
+   "gse": "GSE110537",
+   "n": 3,
+   "title": "Active BRAF-V600E is the key player in generation of a sessile serrated polyp-specific DNA methylati",
+   "gpl": "11154"
+  },
+  {
+   "gse": "GSE208164",
+   "n": 2,
+   "title": "Colonic TRPV4 overexpression is related to constipation severity",
+   "gpl": "21185"
+  }
+ ],
+ "normal mucosa field effect": [
+  {
+   "gse": "GSE131013",
+   "n": 240,
+   "title": "Methylation data from healthy, adjacent normal and tumor colon cells",
+   "gpl": "13534"
+  },
+  {
+   "gse": "GSE199057",
+   "n": 229,
+   "title": "Epi-genomewide study identifies epigenetic outliers in normal mucosa of colorectal cancer patients",
+   "gpl": "21145"
+  },
+  {
+   "gse": "GSE142257",
+   "n": 124,
+   "title": "Aspirin Suppresses Age-Related Methylation Drift in Healthy Colon by Targeting Epigenetic Regulators",
+   "gpl": "23976"
+  },
+  {
+   "gse": "GSE88821",
+   "n": 75,
+   "title": "Methylation dataset of multi regional colorectal carcinoma.",
+   "gpl": "13534"
+  },
+  {
+   "gse": "GSE129364",
+   "n": 72,
+   "title": "Genome-wide DNA methylation analysis of colorectal adenomas with and without recurrence reveals an a",
+   "gpl": "13534"
+  },
+  {
+   "gse": "GSE64109",
+   "n": 60,
+   "title": "Patterns of somatic uniparental disomy identify novel tumor suppressor genes in colorectal cancer",
+   "gpl": "3720"
+  },
+  {
+   "gse": "GSE233854",
+   "n": 59,
+   "title": "Genome-wide DNA methylation profiling of colorectal tumours from MLH1 epimutation carriers",
+   "gpl": "21145"
+  },
+  {
+   "gse": "GSE64112",
+   "n": 58,
+   "title": "Patterns of somatic uniparental disomy identify novel tumor suppressor genes in colorectal cancer",
+   "gpl": "9183"
+  },
+  {
+   "gse": "GSE284238",
+   "n": 44,
+   "title": "Epigenome-wide association study of differential DNA-methylation in background mucosa among adults w",
+   "gpl": "33022"
+  },
+  {
+   "gse": "GSE95654",
+   "n": 40,
+   "title": "DNA methylation analysisof KRAS mutated colorectal tumors and adjacent tissues from cancer patinets ",
+   "gpl": "16791"
+  },
+  {
+   "gse": "GSE77635",
+   "n": 39,
+   "title": "Genetic and Epigenetic Landscapes of Laterally Spreading Tumors of the Colorectum",
+   "gpl": "10999;11154"
+  },
+  {
+   "gse": "GSE95132",
+   "n": 31,
+   "title": "Coding and noncoding transcriptome sequencing of KRAS mutated colorectal tumors and adjacent tissues",
+   "gpl": "16791"
+  },
+  {
+   "gse": "GSE64110",
+   "n": 30,
+   "title": "Patterns of somatic uniparental disomy identify novel tumor suppressor genes in colorectal cancer",
+   "gpl": "4091"
+  },
+  {
+   "gse": "GSE106556",
+   "n": 20,
+   "title": "Genome-wide DNA methylation profiling of primary colorectal laterally spreading tumors identifies di",
+   "gpl": "13534"
+  }
+ ],
+ "rectal / sigmoid biopsy healthy panel": [
+  {
+   "gse": "GSE16256",
+   "n": 878,
+   "title": "UCSD Human Reference Epigenome Mapping Project",
+   "gpl": "13393;16791;9115;905"
+  },
+  {
+   "gse": "GSE151732",
+   "n": 256,
+   "title": "Racial Disparities in Epigenetic Aging of the Right versus the Left Colon",
+   "gpl": "23976"
+  },
+  {
+   "gse": "GSE77718",
+   "n": 192,
+   "title": "Genome-wide methylation analysis identifies core set of hypermethylated genes in CIMP-H colorectal c",
+   "gpl": "13534"
+  },
+  {
+   "gse": "GSE142257",
+   "n": 124,
+   "title": "Aspirin Suppresses Age-Related Methylation Drift in Healthy Colon by Targeting Epigenetic Regulators",
+   "gpl": "23976"
+  },
+  {
+   "gse": "GSE132668",
+   "n": 37,
+   "title": "DNA methylation-based classifier to predict pathological complete response to neoadjuvant chemoradio",
+   "gpl": "23976"
+  }
+ ]
+}

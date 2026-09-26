@@ -24,11 +24,51 @@ fraction does the class of interest occupy in X?**
 | plasma cfDNA | tumour | 0.001–0.1 | no, except late-stage disease |
 | stool | colonocyte | low and variable, bacterial-dominated | **no** |
 
-**Stool is out, and it is worth saying why rather than leaving it open.** Stool DNA is overwhelmingly
-bacterial; the human colonocyte fraction is small and varies with transit, diet and collection. The clinical
-stool tests work because they ask a *yes/no* question about a handful of marker loci — which is a detection
-problem, not a fidelity measurement. This instrument measures entropy across tens of thousands of loci
-against a physical floor; it needs the class to dominate the specimen. Stool does not provide that.
+**Stool — corrected 2026-09-26.** The first version of this document ruled stool out. That was an error, and
+it came from answering about the wrong specimen: **bulk stool DNA** is bacterial-dominated with a small,
+variable human fraction, and that is what the table row above describes. But stool is not interesting as bulk
+DNA. It is interesting as the **non-invasive route to exfoliated colonocytes** — epithelial cells shed from
+the entire colonic surface. Enrich those (immunocapture on an epithelial surface marker is the standard
+approach) and the fraction inverts: the specimen becomes *dominated by the very epithelium the gauge needs to
+read*, which is the regime where this instrument works rather than the one it fails in.
+
+| stool, read two ways | colonocyte fraction | scoreable |
+|---|---|---|
+| bulk stool DNA | low, variable, bacterial-dominated | no |
+| **enriched exfoliated colonocytes** | **high after capture** | **yes, in principle** |
+
+That makes stool the *sampling* answer, not a substrate to dismiss — and it is the reason the tissue work
+below matters, because it is what would license it.
+
+## What has to be demonstrated — and it is not that Landauer holds in the methylome
+
+**The author's correction, 2026-09-26: "I dont need to prove Landauer in the methylome, we need to show what
+it means when we use Landauer Metrology."** That rules out the obvious first experiment. *Tumour reads
+higher than normal* is a result every method in the field already has; producing it again on a physical
+scale demonstrates the scale works, not that it is worth having.
+
+What a Landauer measurement has that a marker panel does not:
+
+| | a trained marker panel | a fidelity reading against a physical floor |
+|---|---|---|
+| what it returns | a **label** — like / unlike the training set | a **distance** — how far from the identity floor |
+| what it needs | a cohort per disease, per platform | the floor, which is physics, and one scale map |
+| comparability | to its own training set only | across laboratories, platforms and years |
+| resolution | one answer | per architecture class — *which* compartment drifted |
+| new disease | retrain | the same reading already covers it |
+
+So the demonstrations that show *meaning* are the ones only a distance-measuring, class-resolved, absolutely
+scaled instrument can produce:
+
+1. **An ordering along a progression, on one scale, with nothing trained on any of it.** Healthy mucosa <
+   adjacent normal < adenoma < carcinoma. A panel can separate two classes it was trained on; a distance
+   should place all four in order without being shown the order. That is the claim worth making.
+2. **Field effect — a reading at a distance from the lesion.** If *normal-looking* mucosa from a patient
+   already sits above mucosa from someone without disease, then sampling the accessible surface tells you
+   about a lesion elsewhere. **This is the result that licenses the stool route**, and without it, stool
+   colonocytes are just a harder way to biopsy.
+3. **Response to an intervention.** If the reading moves when something known to reduce risk is
+   administered, it is a monitorable quantity rather than a classifier — and that is what "metrology" claims.
 
 ## Tier 1 — tissue. The decisive demonstration, and it is available now.
 
@@ -46,17 +86,29 @@ fidelity relative to the tissue it came from, so its A-score should be higher th
 If that does not hold in tissue, where the measurement is cleanest, the framework has a problem; if it holds,
 it holds without any of the caveats that attach to a blood result.
 
-| candidate | n | what it is |
-|---|---|---|
-| **GSE199057** | 229 | normal mucosa of colorectal cancer patients vs controls — the **field-effect** test |
-| **GSE309002** | 32 | colorectal cancers vs adjacent normal colon — the **paired** test |
-| GSE151732 | 256 | right vs left colon, epigenetic ageing — a within-tissue control surface |
-| GSE233854 | 59 | colorectal tumours from MLH1 epimutation carriers |
+| candidate | n | platform | what it gives |
+|---|---|---|---|
+| **GSE131013** | 240 | 450K | **healthy · adjacent normal · tumour colon cells, in one series** — the ordering test and the field-effect test at once |
+| **GSE48684** | 147 | 450K | normal · **adenoma** · carcinoma — the missing rung of the progression |
+| GSE199057 | 229 | EPIC | epigenetic outliers in normal mucosa of CRC patients — field effect, independent platform |
+| GSE132804 | 334 | EPIC/450K | normal colon and colorectal cancer *risk* |
+| GSE142257 | 124 | EPIC | aspirin against age-related drift in healthy colon — an **intervention** series |
 
-**Run GSE309002 first** (paired, simplest, tests the core claim), then **GSE199057**, which is the more
-interesting of the two: if *normal-looking* mucosa from a cancer patient already reads degraded, that is the
-tissue-level analogue of the blood finding, and a much stronger statement than tumour-versus-normal, which
-every method in the field can already do.
+**GSE131013 is the one to run first**, because it carries all three groups in a single series and laboratory:
+healthy colon cells from people without disease, adjacent normal from patients, and tumour. That is the
+field-effect ladder with the laboratory held fixed, so no new calibration panel is needed and the comparison
+is internal. **GSE48684 adds the adenoma rung**, which turns an ordering of three into an ordering of four.
+
+Neither is scored by anything trained on them: the identity loci, the floors and the scale map are all
+already commissioned, so the prediction — healthy lowest, then adjacent normal, then adenoma, then carcinoma —
+is made by the instrument as it stands, and is fixed in the pre-registration before the first array is read.
+
+**On the stool route.** A GEO search for exfoliated colonocytes or stool-derived human methylation returns
+eight series, none of them an array cohort of captured colonocytes — the hits are biopsy, organoid and
+microbiome work. So there is no public dataset to test the stool step on today: it needs either a
+collaboration or samples collected for the purpose. That is not a reason to drop it. It is the reason to
+establish the field effect in tissue first, since a field effect is exactly what makes a whole-surface
+sample like stool informative, and it is the result that would justify asking anyone to collect.
 
 ## Tier 2 — the 2–8 year blood window. The result worth defending, and the data is scarce.
 
@@ -101,7 +153,8 @@ large enough to support one.
 
 ## The order
 
-1. **PROC-TISSUE-01** — paired tumour vs adjacent normal, GSE309002. Tests the core physical claim where the instrument is strongest, and needs no new calibration.
-2. **PROC-TISSUE-02** — field effect, GSE199057. Normal mucosa from cancer patients vs controls.
-3. **PROC-EPIC-02** — the 119 held-out other-cancer cases already scored: is the 2–8 year immune signal colorectal-specific?
-4. Then, and only with a tissue result in hand, the cohort applications and the cfDNA scale map.
+1. **PROC-TISSUE-01 — the ordering, on GSE131013.** Healthy < adjacent normal < tumour on one absolute scale, with the direction pre-specified and nothing trained on the data. Tests the field effect and the ordering in a single series.
+2. **PROC-TISSUE-02 — the adenoma rung, on GSE48684.** Does the reading place a pre-malignant lesion between normal and carcinoma without being told it exists?
+3. **PROC-TISSUE-03 — the intervention, on GSE142257.** Does the reading move when drift is suppressed?
+4. **PROC-EPIC-02** — the 119 held-out other-cancer cases already scored: is the 2-8 year immune signal colorectal-specific?
+5. **The stool step**, once the field effect is established: captured colonocytes, which needs collected samples rather than a download.
