@@ -58,8 +58,8 @@ does not find it below 20 % in blood.
 2. **Above the gate, report the unmixed A** — the cell's own A, with its uncertainty set by (background
    misfit)/f. Where that uncertainty exceeds the NORMAL half-width, print the A and withhold the tier word, and
    say why in one line: *not enough of this cell to score it confidently.*
-3. **No per-cell "healthy band."** The physics defines healthy at A = 1.0. `percell_reference_identity_v1_0.json`
+3. **No per-cell "healthy band."** The physics defines healthy at A = 1.0. [`percell_reference_identity_v1_0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_identity_v1_0.json)
    is the calibration record — the instrument's noise floor per cell and its scale check — and stays that.
 
-Evidence: `kit/results/PRESENCE_FLOOR_synthetic_dilution.json`, `UNMIX_TEST.json`,
-`PRESENCE_FLOOR_blood_observed_range.json`; example run `chain/example_runs/MethylPhys_SYNTH_CELLS_HC.html`.
+Evidence: `kit/results/PRESENCE_FLOOR_synthetic_dilution.json`, [`UNMIX_TEST.json`](../kit/results/UNMIX_TEST.json),
+[`PRESENCE_FLOOR_blood_observed_range.json`](../kit/results/PRESENCE_FLOOR_blood_observed_range.json); example run `chain/example_runs/MethylPhys_SYNTH_CELLS_HC.html`.

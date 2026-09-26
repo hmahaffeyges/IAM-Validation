@@ -1,10 +1,14 @@
 {
  "_meta": {
-  "built": "2026-09-26 07:57",
-  "commit": "e7d2f9d",
-  "n_files": 200,
-  "n_undescribed": 0,
-  "undescribed": [],
+  "built": "2026-09-26 09:34",
+  "commit": "2e09c11",
+  "n_files": 203,
+  "n_undescribed": 3,
+  "undescribed": [
+   "DECONVOLVER_REPAIR_2026-09-26.md",
+   "FRACTION_AND_A.md",
+   "sync_components.py"
+  ],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
   "note": "a file with role UNDESCRIBED is a gap in this table, not a file that does nothing - the count is printed on the Chain tab so the gap is visible"
  },
@@ -33,8 +37,8 @@
    "role": "chain",
    "stage": "stage 0",
    "description": "THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently defaulting. Everything else in this table is reached from here.",
-   "bytes": 50857,
-   "sha256_12": "74a8c7b44628"
+   "bytes": 53043,
+   "sha256_12": "ae8e473bc5b5"
   },
   {
    "file": "stage_0_intake.py",
@@ -78,8 +82,8 @@
    "role": "chain",
    "stage": "stage 2",
    "description": "Stage 2. Constrained non-negative least squares: which cell types are present and in what fraction. Sparse by design - it reports only what it has evidence for.",
-   "bytes": 25598,
-   "sha256_12": "3291f9a0ed2d"
+   "bytes": 41602,
+   "sha256_12": "3d8ac7d2c20a"
   },
   {
    "file": "lineage_splitter.py",
@@ -199,13 +203,31 @@
    "sha256_12": "131eb9d80aa7"
   },
   {
+   "file": "DECONVOLVER_REPAIR_2026-09-26.md",
+   "path": "Biological_Physics/MethylPhys/doors/DECONVOLVER_REPAIR_2026-09-26.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4672,
+   "sha256_12": "0e0abcf32a7d"
+  },
+  {
    "file": "ENHANCEMENTS.md",
    "path": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
    "role": "reference",
    "stage": "",
    "description": "what would make the chain more sensitive, ranked by whether it changes a reported number",
-   "bytes": 22710,
-   "sha256_12": "c4bf7dd1bd51"
+   "bytes": 24012,
+   "sha256_12": "57f0171b7ec7"
+  },
+  {
+   "file": "FRACTION_AND_A.md",
+   "path": "Biological_Physics/MethylPhys/doors/FRACTION_AND_A.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4243,
+   "sha256_12": "a6418286c0f7"
   },
   {
    "file": "PART_II_CHAPTER_NOTES.md",
@@ -402,8 +424,8 @@
    "role": "interface",
    "stage": "",
    "description": "the manual's data module: every constant, table and section text it renders",
-   "bytes": 222385,
-   "sha256_12": "f5e02fbfceb9"
+   "bytes": 225065,
+   "sha256_12": "f91dc3397179"
   },
   {
    "file": "disease_matching.py",
@@ -511,7 +533,7 @@
    "stage": "",
    "description": "the gate's last verdict, printed on every report's Run tab",
    "bytes": 1752,
-   "sha256_12": "65ab3ae275e8"
+   "sha256_12": "625ab29ab42a"
   },
   {
    "file": "reference_cells_37.csv",
@@ -557,6 +579,15 @@
    "description": "writes the per-step operational blocks - thresholds, refusal strings, what the operator does",
    "bytes": 16597,
    "sha256_12": "42ca37926c33"
+  },
+  {
+   "file": "sync_components.py",
+   "path": "Biological_Physics/MethylPhys/kit/sync_components.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 9804,
+   "sha256_12": "03d338e863d7"
   },
   {
    "file": "toc_pages.json",
@@ -861,8 +892,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 787633,
-   "sha256_12": "251470d68253"
+   "bytes": 812436,
+   "sha256_12": "54e997f1a176"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1041,8 +1072,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 14571,
-   "sha256_12": "6ca2a3318ef4"
+   "bytes": 14648,
+   "sha256_12": "8fc49c445b54"
   },
   {
    "file": "cpg_kit.py",
@@ -1113,8 +1144,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "Builds synthetic patients with known composition and known truth. This is what caught the gauge reading the wrong loci (PROC-N7-01) - the most valuable single guard in the kit.",
-   "bytes": 26685,
-   "sha256_12": "8c121c83a22b"
+   "bytes": 29606,
+   "sha256_12": "a33e157e6272"
   },
   {
    "file": "test_a_score_canonical.py",
@@ -1185,8 +1216,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 242482,
-   "sha256_12": "f9ca97c86452"
+   "bytes": 244091,
+   "sha256_12": "55dd50a00fa3"
   },
   {
    "file": "build_percell_reference.py",
@@ -1203,8 +1234,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 71248,
-   "sha256_12": "adc321f9d264"
+   "bytes": 71743,
+   "sha256_12": "7bb3aef8e2c6"
   },
   {
    "file": "run_sample.py",
@@ -1743,8 +1774,8 @@
    "role": "reference",
    "stage": "stage A",
    "description": "THE PER-CELL CALIBRATION RECORD (2026-09-26). For each of 102 cells: p10/p50/p90 of A on the cell's identity loci, per laboratory (four labs, ~970 arrays, disjoint held-out split, coverage 0.797), one laboratory offset per lab, and each cell's centre after the offset. A cell's NORMAL is judged against ITS OWN centre. Read by cpg_conductor.stage_a_cells. Built by kit/build_percell_reference_identity.py on the commissioned H(beta_mean)/H_min form.",
-   "bytes": 151003,
-   "sha256_12": "c905ed4b5d34"
+   "bytes": 153611,
+   "sha256_12": "b20978602b0f"
   },
   {
    "file": "percell_reference_v0.json",
