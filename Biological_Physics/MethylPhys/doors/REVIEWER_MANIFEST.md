@@ -84,7 +84,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 42 procedures, 185 files
+## Every sealed procedure — 43 procedures, 186 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -93,6 +93,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-BAND-01** — [`PROC_BAND_01_OUTCOME.md`](PROC_BAND_01_OUTCOME.md), [`PROC_BAND_01_PREREG.md`](PROC_BAND_01_PREREG.md), [`PROC_BAND_01_analyse.py`](../kit/PROC_BAND_01_analyse.py), [`PROC_BAND_01_measure.py`](../kit/PROC_BAND_01_measure.py), [`PROC_BAND_01.json`](../kit/results/PROC_BAND_01.json), [`PROC_BAND_01_arrays.json`](../kit/results/PROC_BAND_01_arrays.json)
 - **PROC-BIDIR-01** — [`PROC_BIDIR_01.py`](../kit/PROC_BIDIR_01.py), [`OUTCOME.md`](../../Record/PROC_data/PROC-BIDIR-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-BIDIR-01/PREREG.md), [`PROC_BIDIR_01_as_run.py`](../../Record/PROC_data/PROC-BIDIR-01/PROC_BIDIR_01_as_run.py), [`VAL_050_RESULTS_rerun_2026-09-21.json`](../../Record/PROC_data/PROC-BIDIR-01/VAL_050_RESULTS_rerun_2026-09-21.json), [`VAL_051_RESULTS_rerun_2026-09-21.json`](../../Record/PROC_data/PROC-BIDIR-01/VAL_051_RESULTS_rerun_2026-09-21.json), [`b4_engine_vs_seal.json`](../../Record/PROC_data/PROC-BIDIR-01/b4_engine_vs_seal.json), [`proc_bidir_01.json`](../../Record/PROC_data/PROC-BIDIR-01/proc_bidir_01.json)
 - **PROC-BRAIN-01** — [`PROC_BRAIN_01_PREREG.md`](PROC_BRAIN_01_PREREG.md)
+- **PROC-CACHE-01** — [`PROC_CACHE_01.py`](../kit/PROC_CACHE_01.py)
 - **PROC-CAL-01** — [`PROC_CAL_01.py`](../kit/PROC_CAL_01.py)
 - **PROC-CEIL-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-CEIL-01/OUTCOME.md), [`tceil_results.json`](../../Record/PROC_data/PROC-CEIL-01/tceil_results.json)
 - **PROC-CLS-01** — [`PROC_CLS_01_OUTCOME.md`](PROC_CLS_01_OUTCOME.md), [`PROC_CLS_01_PREREG.md`](PROC_CLS_01_PREREG.md), [`PROC_CLS_01_analyse.py`](../kit/PROC_CLS_01_analyse.py), [`PROC_CLS_01_b6.py`](../kit/PROC_CLS_01_b6.py), [`PROC_CLS_01_measure.py`](../kit/PROC_CLS_01_measure.py), [`PROC_CLS_01.json`](../kit/results/PROC_CLS_01.json), [`PROC_CLS_01_b6.json`](../kit/results/PROC_CLS_01_b6.json)
