@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# INSTRUMENT-TEST: compares a CANDIDATE detector (covariance-weighted matched filter) against the chain's own
+# solver (block NNLS) on spiked specimens. Cannot go through run_sample because the candidate is not in the
+# chain. Produces detection limits and bars only - no A-score, tier or report for any specimen.
 """PROC-MF-01: does a covariance-weighted matched filter lower the minimum detectable fraction of a foreign cell
 in blood? Every construction is the one fixed in doors/PROC_MF_01_PREREG.md before this file was written.
 

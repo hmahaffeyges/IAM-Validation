@@ -207,17 +207,34 @@ def rules():
     INTERNALS = ("stage_a_cells", "stage_b_identity", "stage_1s_scale_map", "run_full",
                  "WaltherIAMDeconvolver")
     bypass = []
+    instrument = []
     for fn in sorted(_glob.glob(_os.path.join(MP, "kit", "PROC_*.py"))):
         base = _os.path.basename(fn)
         if base in GRANDFATHERED:
             continue
         txt = read(fn)
+        # INSTRUMENT TEST (2026-09-26): a script that measures a CANDIDATE component against the chain's own -
+        # a detector, a solver, a covariance estimator - cannot go through run_sample, because the thing under
+        # test is not in the chain yet. It declares itself on its first lines, names the component and the
+        # reason, and MUST NOT report a reading: no A-score, tier, placement or report is produced. The
+        # declaration is printed by this gate so a reader sees which procedures used it. This is not the
+        # grandfather list: it is a visible, checked class, and a scoring procedure cannot hide in it.
+        head = "\n".join(txt.split("\n")[:12])
+        declared = "INSTRUMENT-TEST:" in head
+        reads = any(k in txt for k in ("A_abs", "A_zeroed", "tier_of", "placement", "build_methylphys", "GAUGE_WITHHELD"))
+        if declared and not reads:
+            instrument.append(base)
+            continue
+        if declared and reads:
+            bypass.append(base + " (declares INSTRUMENT-TEST but produces a reading)")
+            continue
         if any(k in txt for k in INTERNALS) and "run_sample" not in txt:
             bypass.append(base)
     R.append(("every new procedure script invokes the chain rather than its internals",
               not bypass,
               "bypassing: %s" % ", ".join(bypass) if bypass
-              else "%d grandfathered, the rest clean" % len(GRANDFATHERED)))
+              else "%d grandfathered; instrument tests (declared, no reading produced): %s; the rest clean"
+                   % (len(GRANDFATHERED), ", ".join(instrument) or "none")))
 
     # RULE 11 (2026-09-26, author: 'The drift is real ... we need failsafes!'): the per-cell A must be on the
     # commissioned physics surface. kit/test_percell_physics.py checks the four root causes found that day -
