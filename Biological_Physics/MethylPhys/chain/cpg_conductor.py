@@ -101,7 +101,16 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     if dec is None:
         dec = dec_mod.WaltherIAMDeconvolver(str(atlas_csv), celltype_class_map=str(c2c_path))
         _DEC_CACHE[_ck] = dec
-    result = dec.deconvolve(beta_dict)
+    # 2026-09-26: the deconvolver reads MAPPED betas, as the class gauge always did. Raw stage-1 betas sit ~0.07
+    # above the atlas; with solid-tissue columns now solvable that offset landed on tissue (4.1% -> 2.4% -> 0.0%
+    # median non-blood in healthy blood once mapped and twins were merged). Mapping therefore happens FIRST.
+    _pipeline = (cfg or {}).get('pipeline', 'stage1_noob_450K') if isinstance(cfg, dict) else 'stage1_noob_450K'
+    try:
+        _beta_mapped, _ = stage_1s_scale_map(beta_dict, _pipeline)
+    except Exception as _e:   # a pipeline with no map falls back to raw, and SAYS so in the record
+        _beta_mapped = beta_dict
+        print('  per-cell scoring on RAW betas - no scale map for pipeline %r (%s)' % (_pipeline, _e))
+    result = dec.deconvolve(_beta_mapped)
     class_fr = dict(result.class_fractions)
     ct_fr = dict(result.celltype_fractions)
 
@@ -124,12 +133,6 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     # scale before it reads them; this path never did, and read RAW betas that sit ~0.07 above the atlas
     # at the identity loci (the offset PROC-COV-01 measured). Raw, every present cell in healthy blood
     # read SUPPRESSED (Neutrophils 0.87, NK 0.80); mapped, the same arrays read 0.968-1.053 = NORMAL.
-    _pipeline = (cfg or {}).get('pipeline', 'stage1_noob_450K') if isinstance(cfg, dict) else 'stage1_noob_450K'
-    try:
-        _beta_mapped, _ = stage_1s_scale_map(beta_dict, _pipeline)
-    except Exception as _e:   # a pipeline with no map falls back to raw, and SAYS so in the record
-        _beta_mapped = beta_dict
-        print('  per-cell scoring on RAW betas - no scale map for pipeline %r (%s)' % (_pipeline, _e))
     scores = asc.score_per_celltype(_beta_mapped, ct_markers, c2c, h_min, celltype_identity_loci=_pci)
 
     # 3. Pair A with fraction — presence comes from the ratio, not the A-score
@@ -174,7 +177,30 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
             "fraction": frac,
             "present": frac >= DETECT_FLOOR,
         }
-    return {"class_fractions": class_fr, "celltype_fractions": ct_fr, "cells": cells}
+    # 2026-09-26 RESOLVABILITY, carried so the report never shows a family as several measurements and never shows
+    # a sub-floor cell as 'fraction 0': shared -> the family a cell's fraction belongs to; unresolvable -> cells the
+    # array cannot resolve (defined on < 1% of loci); twins_dropped -> lower-coverage copies of a solved cell.
+    _shared = dict(getattr(result, "celltype_shared", {}) or {})
+    _unres = list(getattr(result, "celltype_unresolvable", []) or [])
+    _twins = dict(getattr(result, "celltype_twins_dropped", {}) or {})
+    _excl = dict(getattr(result, "celltype_exclusive_n", {}) or {})
+    for _ct, _rec in cells.items():
+        if not isinstance(_rec, dict):
+            continue
+        if _ct in _shared:
+            _rec["shared_with"] = _shared[_ct]
+        if _ct in _unres:
+            _rec["resolvable"] = False; _rec["fraction"] = None
+            _rec["status"] = (_rec.get("status") or "") + "|NOT_RESOLVABLE_ON_PLATFORM"
+        elif _ct in _twins:
+            _rec["resolvable"] = False; _rec["fraction"] = None
+            _rec["status"] = (_rec.get("status") or "") + "|TWIN_OF:" + _twins[_ct]
+        else:
+            _rec["resolvable"] = True
+        _rec["exclusive_markers"] = _excl.get(_shared.get(_ct, _ct))
+    return {"class_fractions": class_fr, "celltype_fractions": ct_fr, "cells": cells,
+            "celltype_shared": _shared, "celltype_unresolvable": _unres, "celltype_twins_dropped": _twins,
+            "celltype_families": dict(getattr(result, "celltype_families", {}) or {}), "celltype_exclusive_n": _excl}
 
 
 
@@ -599,7 +625,10 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     return {
         "context": {"age": age, "substrate": cfg.get("substrate", "whole blood")},
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
-                        "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells]},
+                        "celltype": [{"cell": c["cell"], "pct": c["fraction"] * 100, "flag": False} for c in cells],
+                    "resolvability": {"shared": a.get("celltype_shared", {}), "families": a.get("celltype_families", {}),
+                                      "unresolvable": a.get("celltype_unresolvable", []), "twins_dropped": a.get("celltype_twins_dropped", {}),
+                                      "exclusive_markers": a.get("celltype_exclusive_n", {})}},
         "cells": cells,
         "cells_all": a["cells"],
         "second_opinion": so,

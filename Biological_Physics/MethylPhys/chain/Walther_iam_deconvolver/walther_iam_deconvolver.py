@@ -72,6 +72,11 @@ class DeconvolutionResult:
     # at the cell level (IAMAtlas_FLATNESS_LESSON.md), so these carry their own
     # bootstrap presence gate (celltype_present) rather than riding the class call.
     celltype_fractions: dict = field(default_factory=dict)
+    celltype_unresolvable: list = field(default_factory=list)
+    celltype_twins_dropped: dict = field(default_factory=dict)
+    celltype_families: dict = field(default_factory=dict)
+    celltype_shared: dict = field(default_factory=dict)
+    celltype_exclusive_n: dict = field(default_factory=dict)
     # diagnostics
     diagnostics: dict = field(default_factory=dict)
     status: str = "OK"
@@ -94,6 +99,8 @@ class WaltherIAMDeconvolver:
     def __init__(self, matrix_path, celltype_class_map=None,
                  n_class_markers_per_class=600,
                  max_celltype_markers=4000,
+                 n_celltype_markers_per_celltype=60,
+                 min_celltype_coverage=0.01,
                  verbose=True,
                  contrast_pairs=None,
                  n_contrast_markers_per_pair=300):
@@ -114,6 +121,22 @@ class WaltherIAMDeconvolver:
         self.verbose = verbose
         self.n_class_markers_per_class = n_class_markers_per_class
         self.max_celltype_markers = max_celltype_markers
+        # 2026-09-26: EVERY CELL GETS MARKERS. The cell-type reference was one global top-N by between-cell
+        # variance, which five stomach entries dominated (2,400 of 4,000) while 26 cells - Breast, Prostate,
+        # Kidney, Lung, Bladder, Uterus and 14 immune labels - had NONE, so the solver could not return them for
+        # any specimen: pure breast tissue read as neurons and stomach. The class level already keeps a per-class
+        # heap 'so every class is represented'; this is the same rule one level down (author's greenlit repair).
+        self.n_celltype_markers_per_celltype = n_celltype_markers_per_celltype
+        # 2026-09-26 COVERAGE: the atlas is twelve source families defined on 252 to 482,421 loci. A cell defined
+        # at 252 loci was being FILLED with the grand mean at every other marker, so it absorbed mass from every
+        # specimen (the 'erythroblast hub'); a cell defined at 6,105 loci (Breast, Colon, Prostate, Kidney, Lung,
+        # Liver ...) could never win a marker ranked over 483k loci and so was unfindable in its own tissue.
+        # Now: only cells defined on >= min_celltype_coverage of the atlas enter the cell-level solve, and cell
+        # markers are drawn only from loci where EVERY candidate cell is defined - no filling. Sub-floor cells stay
+        # in the atlas as reference and are reported as 'not resolvable on this platform', not as fraction 0.
+        self.min_celltype_coverage = min_celltype_coverage
+        self.celltype_coverage = {}
+        self.celltype_unresolvable = []
         # PROC-SEP-01 (2026-09-19): optional pairwise-contrast markers. The default per-class
         # criterion sep = |class mean - field mean| never selects a CpG where two classes differ
         # from EACH OTHER but both sit near the field mean - which is exactly the HSC / progenitor
@@ -143,7 +166,10 @@ class WaltherIAMDeconvolver:
         self.celltype_ref = {}
 
         self._scan_header()
+        self._scan_coverage()
         self._select_markers()
+        self._resolve_twins()
+        self._add_exclusive_markers()
 
     # ------------------------------------------------------------------
     def _scan_header(self):
@@ -183,6 +209,199 @@ class WaltherIAMDeconvolver:
         m = sum(values) / n
         return sum((v - m) ** 2 for v in values) / n
 
+    def _scan_coverage(self):
+        """Find the SOLVE BLOCK: the cells and loci that are mutually defined, so the cell solve never fills.
+        Pass 1: coverage per cell; candidates = cells defined on >= min_celltype_coverage of the atlas.
+        Pass 2: a locus enters the block if >= 80% of candidates are defined there; a candidate stays if it is
+        defined at >= 90% of block loci. The intersection-of-everyone rule left 12 loci (2026-09-26): entries
+        from small sources at 1-2% coverage do not overlap the 6,105-locus solid-tissue family, and the block
+        must be the largest mutually-covered set, not everyone's intersection."""
+        counts = {ct: 0 for ct in self.celltype_cols}
+        n = 0
+        with open(self.matrix_path) as f:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                n += 1
+                for ct, (mcol, _) in self.celltype_cols.items():
+                    if row[mcol] not in ("", "NA"):
+                        counts[ct] += 1
+        self.n_atlas_loci = n
+        self.celltype_coverage = {ct: c / n for ct, c in counts.items()} if n else {}
+        _BULK_NAMES = ("pbmc", "whole_blood", "buffy", "leukocyte", "_blood", "blood_", "plasma", "granulocytes",
+                       "mononuclear", "wbc", "bulk")
+        cand = [ct for ct, c in self.celltype_coverage.items() if c >= self.min_celltype_coverage
+                and not any(b in ct.lower() for b in _BULK_NAMES)]   # aggregates are not cells; out before families form
+        # pass 2: per-locus count of defined candidates -> block mask; then candidates' coverage within the block
+        # choose the block by MAXIMISING THE NUMBER OF CELLS resolvable together (>= 2,000 shared loci), not a fixed 80%:
+        # a fixed fraction collapsed from 5,343 loci to 518 when three aggregates left the candidate list (2026-09-26)
+        per_locus = []   # (cpg, frozenset of defined candidates)
+        with open(self.matrix_path) as f:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                defined = tuple(ct for ct in cand if row[self.celltype_cols[ct][0]] not in ("", "NA"))
+                if len(defined) >= 3:
+                    per_locus.append((row[0], defined))
+        best = ((0, 0), None, None)
+        for need in range(3, len(cand) + 1):
+            loci = [(c, d) for c, d in per_locus if len(d) >= need]
+            if len(loci) < 200:
+                break
+            cnt = {ct: 0 for ct in cand}
+            for _, d in loci:
+                for ct in d:
+                    cnt[ct] += 1
+            kept = [ct for ct in cand if cnt[ct] / len(loci) >= 0.9]
+            # objective: the MOST CELLS the array can resolve together, given at least 2,000 mutually-defined loci;
+            # cells x loci picked 384k loci x 21 blood/brain/stomach cells and lost every solid tissue (2026-09-26)
+            score = (len(kept) if len(loci) >= 2000 else 0, len(loci))
+            if score > best[0]:
+                best = (score, need, kept)
+        _, need, kept = best
+        self._block = {c for c, d in per_locus if len(d) >= need}
+        incount = {ct: 0 for ct in cand}
+        for c, d in per_locus:
+            if len(d) >= need:
+                for ct in d:
+                    incount[ct] += 1
+        nb = max(1, len(self._block))
+        self.celltype_candidates = sorted(kept)
+        self.celltype_unresolvable = sorted(ct for ct in self.celltype_cols if ct not in self.celltype_candidates)
+        self.celltype_block_coverage = {ct: incount.get(ct, 0) / nb for ct in cand}
+        if self.verbose:
+            print(f"  coverage: solve block = {len(self._block):,} loci x {len(self.celltype_candidates)} cells "
+                  f"(mutually defined); {len(self.celltype_unresolvable)} cells are reference-only on this platform")
+
+    def _resolve_twins(self, twin_r=0.985):
+        """Cells the array cannot tell apart are not solved apart (2026-09-26). Single-linkage on marker-profile
+        correlation r > twin_r within one architecture class. Within a cluster: a member from a LOWER-coverage source is
+        the same cell measured on 1% of the array and is dropped; members of EQUAL coverage (same source) become a
+        RESOLUTION FAMILY solved as one column, whose fraction is reported to every member flagged as shared."""
+        import numpy as np
+        cand = list(self.celltype_candidates)
+        if not self.celltype_ref or len(cand) < 2:
+            self.celltype_families = {}; self.celltype_twins_dropped = {}; return
+        cpgs = list(self.celltype_ref)
+        M = np.array([[self.celltype_ref[c][ct][0] for ct in cand] for c in cpgs], dtype=float)
+        # CORRELATION, not |delta beta|: a cross-platform copy of the same cell is offset by 0.02-0.04 in beta but
+        # keeps the pattern (EPIC copies r 0.988-0.998 to their 450K originals; granulocytes/neutrophils 0.999),
+        # while genuinely different cells sit at r <= 0.978 (CD4 vs CD8; neutrophil vs monocyte). Same class required.
+        Mc = M - np.nanmean(M, axis=0, keepdims=True)
+        Mc = np.nan_to_num(Mc)
+        nrm = np.linalg.norm(Mc, axis=0); nrm[nrm == 0] = 1.0
+        Rm = (Mc / nrm).T @ (Mc / nrm)
+        cls = {ct: self.celltype_to_class.get(ct) for ct in cand}
+        # single linkage
+        parent = list(range(len(cand)))
+        def find(i):
+            while parent[i] != i:
+                parent[i] = parent[parent[i]]; i = parent[i]
+            return i
+        for i in range(len(cand)):
+            for j in range(i + 1, len(cand)):
+                # cross-SOURCE pair (one member on < 5% of the array, the other on > 50%) is the same cell measured on
+                # another platform: merge at r > 0.98 (NK-cells_EPIC sat at 0.984 and took 72% of the 'non-blood' mass
+                # in healthy blood, 2026-09-26). Equal-coverage pairs keep the stricter bar: CD4 vs CD8 is 0.978.
+                ci, cj = self.celltype_coverage.get(cand[i], 0), self.celltype_coverage.get(cand[j], 0)
+                cross = (min(ci, cj) < 0.05 and max(ci, cj) > 0.5)
+                thr = 0.98 if cross else twin_r
+                if Rm[i, j] > thr and cls[cand[i]] == cls[cand[j]]:
+                    parent[find(i)] = find(j)
+        clusters = {}
+        for i, ct in enumerate(cand):
+            clusters.setdefault(find(i), []).append(ct)
+        self.celltype_families = {}; self.celltype_twins_dropped = {}
+        keep = set(cand)
+        for members in clusters.values():
+            if len(members) < 2:
+                continue
+            cov = {m: round(self.celltype_coverage.get(m, 0.0), 3) for m in members}
+            top = max(cov.values())
+            high = [m for m in members if cov[m] >= top - 0.05]
+            low = [m for m in members if m not in high]
+            for m in low:
+                keep.discard(m); self.celltype_twins_dropped[m] = high[0]
+            if len(high) > 1:
+                fam = "family:" + "+".join(sorted(high))
+                self.celltype_families[fam] = sorted(high)
+                for m in high:
+                    keep.discard(m)
+                keep.add(fam)
+                for c in cpgs:
+                    d = self.celltype_ref[c]
+                    ms = [d[m][0] for m in high if m in d]; sds = [d[m][1] for m in high if m in d]
+                    if ms:
+                        d[fam] = (sum(ms) / len(ms), max(sds) if sds else 0.0)
+        self.celltype_solve_columns = sorted(keep)
+        if self.verbose:
+            print(f"  twins: {len(self.celltype_twins_dropped)} lower-coverage twins dropped "
+                  f"{sorted(self.celltype_twins_dropped)}; {len(self.celltype_families)} resolution families: "
+                  + "; ".join(f"{k}={v}" for k, v in self.celltype_families.items()))
+
+    def _add_exclusive_markers(self, margin=0.15):
+        """UNIQUENESS markers (author, 2026-09-26: 'filter them based on their uniqueness rather than their
+        similarity'). For every solve column, block loci where the column beats its NEAREST RIVAL by > margin are
+        added to the cell-type reference. Measured: on constructed mixtures these cut the maximum composition error
+        from 0.06 to 0.04 with no spurious cell; alone they leave the blood background unpinned (9.7% non-blood in
+        healthy blood), so they are a UNION with the variance-ranked set (2.4%), never a replacement."""
+        import numpy as np
+        cols = list(getattr(self, "celltype_solve_columns", []))
+        cand = list(self.celltype_candidates)
+        if len(cols) < 3:
+            self.n_exclusive_added = 0; return
+        fam = self.celltype_families
+        added = 0
+        self.exclusive_markers = {c: [] for c in cols}
+        with open(self.matrix_path) as f:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                cpg = row[0]
+                if cpg not in self._block:
+                    continue
+                d = {}
+                ok = True
+                for ct in cand:
+                    mcol, scol = self.celltype_cols[ct]
+                    v = row[mcol]
+                    if v in ("", "NA"):
+                        ok = False; break
+                    sd = 0.0
+                    if scol is not None and row[scol] not in ("", "NA"):
+                        try: sd = float(row[scol])
+                        except ValueError: sd = 0.0
+                    d[ct] = (float(v), sd)
+                if not ok:
+                    continue
+                prof = {}
+                for c in cols:
+                    if c in fam:
+                        ms = [d[m][0] for m in fam[c] if m in d]
+                        prof[c] = (sum(ms) / len(ms), max(d[m][1] for m in fam[c] if m in d)) if ms else None
+                    else:
+                        prof[c] = d.get(c)
+                if any(v is None for v in prof.values()):
+                    continue
+                vals = np.array([prof[c][0] for c in cols])
+                for j, c in enumerate(cols):
+                    others = np.delete(vals, j)
+                    if np.min(np.abs(others - vals[j])) > margin:
+                        self.exclusive_markers[c].append(cpg)
+                        if cpg not in self.celltype_ref:
+                            entry = dict(d)
+                            for fc in fam:
+                                if prof.get(fc) is not None:
+                                    entry[fc] = prof[fc]
+                            self.celltype_ref[cpg] = entry
+                            added += 1
+                        break
+        self.n_exclusive_added = added
+        if self.verbose:
+            thin = sorted((c, len(v)) for c, v in self.exclusive_markers.items() if len(v) < 20)
+            print(f"  exclusive markers: {added} added (union with the variance set -> {len(self.celltype_ref)}); "
+                  f"columns with < 20 exclusive loci: {thin}")
+
     def _select_markers(self):
         """
         ONE streaming pass over the matrix. For every CpG, compute:
@@ -201,10 +420,12 @@ class WaltherIAMDeconvolver:
             print("Selecting markers (one streaming pass, bounded memory)...")
 
         global_quota = self.n_class_markers_per_class * len(CLASSES)
+        self._cand_set = set(getattr(self, 'celltype_candidates', list(self.celltype_cols)))
         # min-heaps of (key, tiebreak, payload); smallest key is heap[0], so we
         # pop the smallest when over capacity -> heap retains the top-N largest.
         class_heap = []           # key=class_var, payload=(cpg, cls_means)
         ct_heap = []              # key=ct_var,    payload=(cpg, ct_data)
+        per_ct_heap = {}          # key=one-vs-rest separation, payload=(cpg, ct_data); one heap per cell type
         per_class_heap = {c: [] for c in CLASSES}  # key=separation, payload=(cpg, cls_means)
         pair_heap = {pr: [] for pr in self.contrast_pairs}  # key=|mean_a - mean_b|
         tie = 0
@@ -212,6 +433,8 @@ class WaltherIAMDeconvolver:
         def push_bounded(heap, key, payload, cap):
             nonlocal tie
             tie += 1
+            if cap <= 0:
+                return
             if len(heap) < cap:
                 heapq.heappush(heap, (key, tie, payload))
             elif key > heap[0][0]:
@@ -275,11 +498,22 @@ class WaltherIAMDeconvolver:
                             except ValueError:
                                 sd = 0.0
                     ct_data[ct] = (fv, sd)
-                if len(ct_data) >= 3:
+                # coverage rule: candidates only, and every candidate must be defined here (no filling)
+                ct_data = {ct: v for ct, v in ct_data.items() if ct in self._cand_set}
+                if cpg in self._block and len(ct_data) == len(self._cand_set) and len(ct_data) >= 3:
                     cvar = self._between_var([m for m, _ in ct_data.values()])
                     if cvar > 0:
                         push_bounded(ct_heap, cvar, (cpg, ct_data),
                                      self.max_celltype_markers)
+                        # per-cell quota: this cell's separation from the mean of ALL OTHER cells at this locus
+                        if self.n_celltype_markers_per_celltype > 0:
+                            _tot = sum(m for m, _ in ct_data.values()); _n = len(ct_data)
+                            for _ct, (_m, _) in ct_data.items():
+                                _rest = (_tot - _m) / (_n - 1)
+                                _sep = abs(_m - _rest)
+                                if _sep > 0:
+                                    push_bounded(per_ct_heap.setdefault(_ct, []), _sep, (cpg, ct_data),
+                                                 self.n_celltype_markers_per_celltype)
 
         # ---- assemble class marker reference ----
         chosen = {}
@@ -297,10 +531,15 @@ class WaltherIAMDeconvolver:
 
         # ---- assemble cell-type marker reference ----
         self.celltype_ref = {cpg: data for _, _, (cpg, data) in ct_heap}
+        self.n_celltype_quota_added = 0
+        for _ct, _h in per_ct_heap.items():
+            for _, _, (cpg, data) in _h:
+                if cpg not in self.celltype_ref:
+                    self.celltype_ref[cpg] = data; self.n_celltype_quota_added += 1
 
         if self.verbose:
             print(f"  class markers: {len(self.class_ref)} CpGs" + (f" (incl. {self.n_contrast_added} contrast markers for {self.contrast_pairs})" if self.contrast_pairs else ""))
-            print(f"  cell-type markers: {len(self.celltype_ref)} CpGs")
+            print(f"  cell-type markers: {len(self.celltype_ref)} CpGs (incl. {self.n_celltype_quota_added} from the per-cell quota of {self.n_celltype_markers_per_celltype})")
 
     # ------------------------------------------------------------------
     def _solve_nnls(self, R, y, weights=None):
@@ -453,6 +692,10 @@ class WaltherIAMDeconvolver:
                          "blood_", "plasma", "granulocytes", "mononuclear", "wbc", "bulk")
                 use_ct = [ct for ct, c in ctcov.items() if c >= ct_thr
                           and not any(b in ct.lower() for b in _BULK)]
+                # coverage/twin rule (2026-09-26): only the solve columns - dropped twins and family members are
+                # not solved as separate columns; a family column is solved once and its fraction shared out below
+                _solve_cols = set(getattr(self, 'celltype_solve_columns', use_ct))
+                use_ct = [ct for ct in use_ct if ct in _solve_cols]
                 if len(use_ct) >= 2:
                     nn = len(ct_usable)
                     kk = len(use_ct)
@@ -472,6 +715,20 @@ class WaltherIAMDeconvolver:
                              for j, ct in enumerate(use_ct) if fc[j] > 1e-4}
                     result.celltype_fractions = dict(
                         sorted(ct_fr.items(), key=lambda x: -x[1]))
+                    result.celltype_unresolvable = list(self.celltype_unresolvable)
+                    result.celltype_twins_dropped = dict(self.celltype_twins_dropped)
+                    result.celltype_families = dict(self.celltype_families)
+                    result.celltype_exclusive_n = {c: len(v) for c, v in getattr(self, 'exclusive_markers', {}).items()}
+                    # every family member receives the family fraction, flagged shared - never five measurements
+                    _exp = {}
+                    for k, v in result.celltype_fractions.items():
+                        if k in self.celltype_families:
+                            for m in self.celltype_families[k]:
+                                _exp[m] = v
+                        else:
+                            _exp[k] = v
+                    result.celltype_fractions = dict(sorted(_exp.items(), key=lambda x: -x[1]))
+                    result.celltype_shared = {m: k for k, ms in self.celltype_families.items() for m in ms}
 
                     # --- cell-level presence gate (bootstrap marker resample) ---
                     ct_ci = {}

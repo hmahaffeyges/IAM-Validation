@@ -326,10 +326,11 @@ def tab_cells(o, R, percell_ref=None):
     lab=(o.get('patient_sky') or {}).get('lab') or (o.get('cfg') or {}).get('lab')
     cells=o.get("cells_all") or {}; comp_cells={r["cell"]:r for r in o["composition"]["celltype"]}
     H=[COLS_LEGEND,"<h2>Every cell - all 115 atlas cell types, on the gauge</h2>"] + _trace_block(o) + [
-       "<p><b>Per-cell A</b> = the mean over that cell's ~100 discriminative marker CpGs of H(beta at that CpG), divided by H_min for its class - "
-       "the mean of the per-CpG entropies, <i>not</i> the entropy of the mean beta (the scoring module refuses the second form by assertion: marker CpGs "
-       "are chosen to be extreme and opposite, so their mean beta lands near a coin flip and would read maximal disorder on a healthy sample). "
-       "This is the same ratio the gauge is drawn in - the cellular gauge figure's own axis reads <i>mean of H(beta)/H_min(class) over panel CpGs</i>.</p>",
+       ("<p><b>Per-cell A</b> = H(mean beta over that cell's IDENTITY loci) / H_min of its architecture class - the commissioned gauge's form, "
+        "on the identity surface (RULING A3; LESSON-SURFACE-01). A healthy cell of any type reads 1.0 on its own reference; the only difference "
+        "between cells is the H_min of their class. Where a row's surface is not identity_loci the row says so.</p>" if any((r.get('surface')=='identity_loci') for r in cells.values()) else
+        "<p><b>Per-cell A</b> = the mean over that cell's discriminative marker CpGs of H(beta at that CpG), divided by H_min for its class - the MARKER surface. "
+        "This run did not score on identity loci; see LESSON-SURFACE-01.</p>"),
        "<p><b>Why there are two columns and not one.</b> Raw per-cell A has no common zero: measured across the four laboratories' healthy panels, the healthy "
        "median of this ratio runs from about 0.55 to 1.15 depending on the atlas entry, because each entry's marker panel has its own natural entropy and in bulk "
        "blood a rare cell's markers mostly carry other cells' DNA. So the landmarks cannot be read off the raw number. They can be read off it once each entry is "
@@ -368,6 +369,14 @@ def tab_cells(o, R, percell_ref=None):
       "<p class='m'>A per-cell claim therefore needs both: a group that is a single member (or a claim made at group level), and a panel exclusive "
       "enough to be about that entry. Neither is a property of your sample; both are properties of the reference, and both are printed.</p>")
     H.append("<div class='warn'><b>Read the exclusivity column before believing any single row.</b> The marker panels were selected one-vs-rest against the <i>mean</i> of the other cell types - a criterion that scores a globally extreme CpG highly for every cell type in which it is extreme. Measured 2026-09-22: <b>33.8 % of the 6,738 marker CpGs belong to more than one entry's panel</b> (one serves 11 of them), and the median entry's panel is only <b>37 % exclusive</b> to it. At the extreme, <b>macrophage's panel is 0 % exclusive</b> - every marker it has also belongs to another entry - and Cortical_neurons, dendritic, erythroblast, small_intestine and tcell are all near 1 %. Twenty-six of the 115 entries sit in pairs sharing at least half their markers, and 28 of those pairs span <i>different architecture classes</i>: Cortical_neurons and stem_pluri share 91 markers, small_intestine and tcell share 82. Where a panel is mostly shared, the number below reads a shared block rather than that cell type, so <b>the individual direction claim is withheld for the 36 entries under 25 % exclusivity</b> and the number is printed with its exclusivity beside it. This is a property of the reference, not of any sample. The runtime marker file is deliberately unchanged - the sealed foundation-cohort anchors reproduce on it, so repairing the selection criterion requires a re-seal, and that is on the Roadmap.</div>")
+    # 2026-09-26 RESOLVABILITY: a resolution family (cells the array cannot tell apart) is ONE measurement, never several;
+    # a cell defined on < 1% of the platform's loci is 'not resolvable', never 'fraction 0'; a lower-coverage copy of a
+    # solved cell is named as that cell's twin.
+    _res=(o.get('composition') or {}).get('resolvability') or {}
+    _unres=set(_res.get('unresolvable') or []); _twins=_res.get('twins_dropped') or {}; _fams=_res.get('families') or {}; _shared=_res.get('shared') or {}
+    H.append("<p class='m'><b>Resolvability.</b> "+(f"{len(_unres)} atlas entries are defined on under 1 % of this platform's loci and are not solved for (listed at the end); " if _unres else '')
+             +(f"{len(_twins)} lower-coverage copies of solved cells were folded into their originals ({', '.join(f'{k} = {v}' for k,v in sorted(_twins.items()))}); " if _twins else '')
+             +(('<b>resolution families</b>, solved as one column with one fraction shared by every member: '+'; '.join(' + '.join(v) for v in _fams.values())) if _fams else 'no resolution families')+'.</p>')
     by={}; 
     for cell,r in cells.items(): by.setdefault(r.get("class","?"),[]).append((cell,r))
     for c in CLASSES:
@@ -376,6 +385,7 @@ def tab_cells(o, R, percell_ref=None):
         if not rows: continue
         H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>placed</th><th>fraction</th><th>A (marker surface)</th><th>95 % interval on the reading</th><th>healthy range (own markers)</th><th>markers found</th><th>panel exclusive to this entry</th><th>lineage group</th><th>on the gauge (cell-zeroed)</th><th>position vs healthy</th></tr>")
         for cell,r in rows:
+            if cell in _unres or cell in _twins: continue   # listed separately below, never as fraction 0
             A=r.get("A"); fr=r.get("fraction") or 0; e=((percell_ref or {}).get("entries") or {}).get(cell)
             ref=None; src=""
             if e:
@@ -439,6 +449,8 @@ def tab_cells(o, R, percell_ref=None):
             gcell=(f"<span class='n'>{gA:.3f}</span> {gt}" if gA is not None else gt)
             H.append(f"<tr class='{'placed' if fr>0 else ''}'><td>{_e(cell)}</td><td>{'yes' if fr>0 else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{'' if A is None else f'{A:.3f}'}</td><td class='n'>{cis}</td><td>{rng}</td><td class='n'>{mf}</td><td class='n'>{exs}</td><td>{gtxt}</td><td>{gcell}</td><td>{bar} {dirn}</td></tr>")
         H.append("</table>")
+    if _unres:
+        H.append("<details><summary class='m'>"+f"{len(_unres)} atlas entries not resolvable on this platform (defined on under 1 % of its loci) - kept in the atlas as reference, not solved for"+"</summary><p class='m'>"+', '.join(sorted(_unres))+"</p></details>")
     bd=o.get("bidirectional",{}); H.append("<h3>Direction - Stage 4.5 bidirectional composite</h3><p>Pooled entropy folds hypo- and hyper-methylation together; the signed composite keeps the sign, per sealed panel. Panels exist only where one was sealed (immune, VAL-051 / CPG-VAL-019); the other classes say so.</p><table class='t'><tr><th>class</th><th>signed composite</th><th>pooled A on the panel</th><th>panel</th><th>reading</th></tr>")
     for c in CLASSES:
         b=bd.get(c,{}); ad=b.get('a_directional'); ap=b.get('a_pooled'); ads=('' if ad is None else '%+.3f'%float(ad)); aps=('' if ap is None else '%.3f'%float(ap))

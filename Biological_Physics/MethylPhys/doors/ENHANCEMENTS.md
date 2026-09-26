@@ -146,3 +146,9 @@ inventory, and the report itself. **The report restructure leads with the physic
 class floor and band on the front page; cohort-relative surfaces (Mahalanobis departure, cellular age, hull,
 marker union) demoted to a labelled section or removed. The A-score is the instrument; nothing in the report
 is to be phrased in another group's methodology.
+
+## Deconvolver repair, 2026-09-26
+
+Breast read 0.000 in breast tissue. Four causes found and fixed by measurement - no per-cell marker quota, grand-mean filling across twelve source families of wildly different coverage, duplicate cells solved as separate columns, and raw (unmapped) betas into the solve - plus the author's uniqueness markers as a union with the variance set. Healthy blood now reads median 0.000 non-blood (p90 0.023) across 48 arrays and four laboratories; 10 % spiked Breast is recovered at 0.102. Record: [`DECONVOLVER_REPAIR_2026-09-26.md`](DECONVOLVER_REPAIR_2026-09-26.md). Two questions closed by measurement: unclassified blood subtypes are NOT the leak (an unmerged NK twin was), and a substrate-only atlas is NOT less noisy (fit residual 0.073 vs 0.063) and cannot detect shed tissue at all.
+
+**Next (author, 2026-09-26): the MATCHED FILTER as a detection stage.** Component separation today weights every locus equally; the healthy-blood residual is a reproducible, structured misfit (PROC-COV-01), which is exactly what a covariance-weighted template filter is built against. Test as a pre-registered detection-limit measurement on constructed spikes (0.5-5 %) against the 48-array healthy null, matched filter vs NNLS, at a fixed false-positive rate. No cohort needed.
