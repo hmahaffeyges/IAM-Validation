@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 01:26 UTC",
- "commit": "2e8d02b",
+ "when": "2026-09-26 01:31 UTC",
+ "commit": "5fef510",
  "pass": true,
  "rules": [
   {
@@ -16,12 +16,12 @@
   {
    "rule": "every sealed procedure has a row in CHAIN_COMMISSIONING",
    "ok": true,
-   "detail": "9 procedures"
+   "detail": "10 procedures"
   },
   {
    "rule": "every sealed procedure is in the reviewer manifest",
    "ok": true,
-   "detail": "9 procedures"
+   "detail": "10 procedures"
   },
   {
    "rule": "procedures that changed a reported number are in the Issue 003 data module",
