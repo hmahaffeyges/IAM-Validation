@@ -159,6 +159,13 @@ Breast read 0.000 in breast tissue. Four causes found and fixed by measurement -
 
 The report and its documents FOLLOW the chain; nothing here is done until it is read on the rendered page.
 
+
+**0. The tare, and the physics front page — ordered by the author 2026-09-26 evening, ahead of the SOP and OM so they are written once**
+0a. **PROC-TARE-01** — can the array's own SNP probes (β = 0 / 0.5 / 1 by genotype) tare the instrument per array, so no healthy panel defines where A = 1.0 sits? The laboratory zero as built is `median(A − c(age)) − 1.0` over a panel — a population defining zero. Pre-registered; running. If met, [`lab_zero.py`](../chain/lab_zero.py) is retired and the panel of 40 is needed only for the Stage 2d noise floor.
+0b. **Report restructure** — Reading tab leads with cells found + fractions, then per-cell A against its class H_min with healthy = A 1.00 ± 5 % (tier NORMAL) and departure = each cell's distance from 1.0; pooled class A never printed as a reading; Mahalanobis / cellular age / marker union / hull / second opinion out of the report as readings (bundle block `cohort_diagnostics`); per-class bands out of Coverage and Reference. Sky keeps its composition-weighted atlas expectation (Σ f_c μ_c) and drops the cohort scaling.
+0c. **Serial mode** — `run_sample.py --prior <bundle>` for the same patient: per-cell ΔA, Δfraction, difference sky; change-noise-floor pre-registered before any repeat-draw data is read. The primary use of the sky.
+Then the SOP and OM, written once from the chain as it stands after 0a–0c.
+
 **A. Detection stage**
 1. ~~PROC-MF-02~~ **sealed NOT COMMISSIONED** (B1-B6 met, limits 0.5-1 %; B7 failed - the threshold does not transfer to a 783-marker EPIC matrix). ~~PROC-MF-03~~ **sealed NOT COMMISSIONED** (B1-B6 met again; B7 failed: the fifth laboratory's null is 4-25x wider at full markers, and its Breast/Prostate lines were set by two controls elevated on both those cells - overturns MF-02's marker-set clinical statement). **PROC-MF-04** if commissioned: per-laboratory WEIGHTS from the lab's own panel, the chain's composition gate ahead of the panel, p99 line rule with minimum n. See [`PROC_MF_03_OUTCOME.md`](PROC_MF_03_OUTCOME.md). See [`PROC_MF_02_OUTCOME.md`](PROC_MF_02_OUTCOME.md). Original item: inverse-variance (diagonal) weighted detection, leave-one-laboratory-out, null-median centred, σ from the null spread; the six MF-01 bars applied to *this* detector. Passes → detection stage ahead of the per-cell A, reporting (f̂, σ, detected yes/no at ≤ 1 FP in 48) per foreign cell.
 

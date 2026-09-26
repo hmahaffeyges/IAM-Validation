@@ -104,7 +104,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 46 procedures, 212 files
+## Every sealed procedure — 47 procedures, 213 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -151,6 +151,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-SWITCH-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-SWITCH-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-SWITCH-01/PREREG.md), [`switch01_s123.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s123.json), [`switch01_s4.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4.json), [`switch01_s4_diag.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4_diag.json), [`switch01_s6.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s6.json)
 - **PROC-SWITCH-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-SWITCH-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-SWITCH-02/PREREG.md), [`switch02_results.json`](../../Record/PROC_data/PROC-SWITCH-02/switch02_results.json)
 - **PROC-SYNTH-01** — [`PROC_SYNTH_01_OUTCOME.md`](PROC_SYNTH_01_OUTCOME.md), [`PROC_SYNTH_01.py`](../kit/PROC_SYNTH_01.py), [`PROC_SYNTH_01_cells.py`](../kit/PROC_SYNTH_01_cells.py), [`PROC_SYNTH_01.json`](../kit/results/PROC_SYNTH_01.json), [`PROC_SYNTH_01_cells.json`](../kit/results/PROC_SYNTH_01_cells.json), [`PROC_SYNTH_01_fraction.json`](../kit/results/PROC_SYNTH_01_fraction.json)
+- **PROC-TARE-01** — [`PROC_TARE_01_PREREG.md`](PROC_TARE_01_PREREG.md)
 - **PROC-TIER-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-TIER-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-TIER-01/PREREG.md), [`test_tiers_as_run.py`](../../Record/PROC_data/PROC-TIER-01/test_tiers_as_run.py), [`tier01_healthy_tiers.csv`](../../Record/PROC_data/PROC-TIER-01/tier01_healthy_tiers.csv)
 - **PROC-TIER-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-TIER-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-TIER-02/PREREG.md), [`test_tiers_as_run.py`](../../Record/PROC_data/PROC-TIER-02/test_tiers_as_run.py), [`u2_occupancy.json`](../../Record/PROC_data/PROC-TIER-02/u2_occupancy.json)
 - **PROC-TISSUE-01** — [`PROC_TISSUE_01_OUTCOME.md`](PROC_TISSUE_01_OUTCOME.md), [`PROC_TISSUE_01_PREREG.md`](PROC_TISSUE_01_PREREG.md), [`PROC_TISSUE_01_analyse.py`](../kit/PROC_TISSUE_01_analyse.py), [`PROC_TISSUE_01_score.py`](../kit/PROC_TISSUE_01_score.py), [`PROC_TISSUE_01.json`](../kit/results/PROC_TISSUE_01.json), [`PROC_TISSUE_01_b6_recheck.json`](../kit/results/PROC_TISSUE_01_b6_recheck.json), [`PROC_TISSUE_01_groups_frozen.json`](../kit/results/PROC_TISSUE_01_groups_frozen.json), [`PROC_TISSUE_01_scored.json`](../kit/results/PROC_TISSUE_01_scored.json), [`PROC_TISSUE_01.png`](../plates/PROC_TISSUE_01.png)

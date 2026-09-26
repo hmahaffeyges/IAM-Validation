@@ -213,72 +213,95 @@ def _trace_one_liner(o):
                         for c in ("secretory", "cycling") if c in td))
 
 
-def tab_reading(o, R, sid):
-    H=[]; comp=o["composition"]["class"]; tot=sum(comp.values()) or 1.0; sc=(0.01 if tot>1.5 else 1.0)   # class composition is stored in percent (open conductor item)
-    ctx=o.get("context",{}); cls=o["classes"]
-    H.append(f"<h2>Reading - {_e(sid)}</h2><table class='kv'><tr><td>Specimen</td><td>{_e(ctx.get('substrate','whole blood'))}</td><td>Substrate</td><td>DNA methylation (450K/EPIC beta)</td></tr>"
-             f"<tr><td>Declared age</td><td>{_e(ctx.get('age','-'))}</td><td>Pipeline</td><td>{_e(o.get('scale','-'))}</td></tr>"
-             f"<tr><td>Laboratory</td><td>{_e(o['patient_sky'].get('lab') or (o.get('cfg') or {}).get('lab','-'))}</td><td>Laboratory zero</td><td>{o.get('lab_zero')!s}</td></tr></table>")
-    # composition
-    H.append("<h3>1. What is in the sample (Stage 2 - Walther deconvolver against the 115-cell atlas)</h3><div class='cols'><div><h4>By architecture class</h4><table class='t'>")
-    for c in CLASSES:
-        f=comp.get(c,0)*sc; H.append(f"<tr><td>{CLASS_LABEL[c]}</td><td>{bar(f)}</td><td class='n'>{100*f:.1f} %</td></tr>")
-    H.append("</table></div><div><h4>By cell type (every cell the deconvolver placed)</h4><table class='t'>")
-    for r in sorted(o["composition"]["celltype"], key=lambda r:-r["pct"]):
-        H.append(f"<tr><td>{_e(r['cell'])}{' <span class=flag>not expected in this specimen</span>' if r.get('flag') else ''}</td><td>{bar(r['pct']/100 if r['pct']>1.5 else r['pct'],'#a0c8a0')}</td><td class='n'>{(r['pct'] if r['pct']>1.5 else r['pct']*100):.1f} %</td></tr>")
-    H.append("</table><p class='m'>Only cells the constrained fit was forced to place appear here; every one of the 115 atlas cells is scored on the <b>Every cell</b> tab.</p></div></div>")
-    # class gauges
-    H.append(_trace_one_liner(o))
-    H.append("<h3>2. The class gauge - A'' on the identity loci, against the healthy band</h3>")
-    # the conductor reads stem_adult + progenitor as ONE joint component (haematopoietic_progenitor) on shared identity loci - one gauge row, not two
-    order=[c for c in CLASSES if c not in ("stem_adult","progenitor")]; order.insert(1,"haematopoietic_progenitor")
-    for c in order:
-        if c=="haematopoietic_progenitor":
-            rec=cls.get("haematopoietic_progenitor",{}); label="Haematopoietic progenitor (stem_adult + progenitor, joint identity loci)"; frac=(comp.get("stem_adult",0)+comp.get("progenitor",0))*sc; hm=R["ident"].get("progenitor",{}).get("H_min")
-        else:
-            rec=cls.get(c,{}); label=CLASS_LABEL[c]; frac=comp.get(c,0)*sc; hm=R["ident"].get(c,{}).get("H_min")
-        ceiling=(1.0/hm) if hm else None
-        if rec and rec.get("reportable"):
-            b=rec.get("band") or {}; H.append(f"<div class='gauge'><div class='gl'><b>{label}</b> · fraction {100*rec.get('fraction',0):.1f} % · {rec.get('n_loci','?'):,} identity loci · H_min {rec.get('H_min')}"
-                     f"<span class='tier' style='background:{TIER_COL.get(rec.get('tier'),'#555')}'>{_e(rec.get('tier'))}</span> <span class='pl'>{_e(rec.get('placement'))}</span></div>"
-                     +ruler_svg(rec["A_abs"],R["tier_bands"],b.get("p10"),b.get("p90"),ceiling=ceiling)+
-                     f"<div class='m'>A_mapped {rec.get('A_mapped')} - age term {rec.get('age_reference_c')} - laboratory zero {rec.get('lab_zero')} = <b>A'' {rec.get('A_abs')}</b>; band {b.get('p10')}-{b.get('p90')} ({_e(rec.get('band_status'))}); tiers {_e(rec.get('tier_note'))}</div></div>")
-        else:
-            why=(rec or {}).get("reason") or ("present in the sample; no commissioned healthy band for this class on this specimen yet" if frac>=0.02 else "not present above the presence floor in this specimen")
-            A=(rec or {}).get("A_mapped"); H.append(f"<div class='gauge muted'><div class='gl'><b>{label}</b> · fraction {100*frac:.1f} %"+(f" · A_mapped {A}" if A else "")+f" <span class='tier' style='background:#444'>NOT REPORTABLE</span></div>"+ruler_svg(None,R["tier_bands"],muted=True,ceiling=ceiling)+f"<div class='m'>{_e(why)}. A gauge without a commissioned band prints no placement and no tier.</div></div>")
-    H.append(GAUGE_EXPLAINER); H.append(deepdive(R,"the gauge"))
-    H.append("<h3>Is this composition plausible? Measured across 40 healthy donors of this laboratory</h3>"
-      "<p>A haematologist's first instinct on seeing one number - <i>62.6 per cent neutrophils?</i> - is to ask whether the solver just says that "
-      "every time. It does not, and the way to show it is the distribution across donors rather than one array. Every one of the 40 healthy "
-      "Uppsala panel arrays was put through the composition step; this is what came out, beside the textbook differential white-cell count a "
-      "clinical laboratory would report on the same tube:</p>"
-      "<table class='t'><tr><th>atlas entry</th><th>donors placing it</th><th>median % when placed</th><th>range across donors</th>"
-      "<th>textbook differential (% of white cells)</th></tr>"
-      "<tr><td>Neutrophils</td><td class='n'>40 / 40</td><td class='n'>47.0</td><td class='n'>31.9 - 68.7</td><td class='n'>40 - 70</td></tr>"
-      "<tr><td>CD4 T cells</td><td class='n'>38 / 40</td><td class='n'>18.7</td><td class='n'>1.2 - 34.3</td><td class='n'rowspan='3'>lymphocytes 20 - 45 in total</td></tr>"
-      "<tr><td>CD8 T cells</td><td class='n'>32 / 40</td><td class='n'>6.3</td><td class='n'>0.6 - 30.2</td></tr>"
-      "<tr><td>CD19 B cells</td><td class='n'>34 / 40</td><td class='n'>2.3</td><td class='n'>0.4 - 7.2</td></tr>"
-      "<tr><td>CD56 NK cells</td><td class='n'>40 / 40</td><td class='n'>13.4</td><td class='n'>4.3 - 32.5</td><td class='n'>2 - 10</td></tr>"
-      "<tr><td>CD14 monocytes</td><td class='n'>40 / 40</td><td class='n'>8.4</td><td class='n'>3.5 - 14.3</td><td class='n'>2 - 10</td></tr>"
-      "<tr><td>GMP (granulocyte-monocyte progenitor)</td><td class='n'>25 / 40</td><td class='n'>4.6</td><td class='n'>0.1 - 16.2</td><td class='n'>not counted clinically</td></tr></table>"
-      "<p><b>What that shows.</b> Neutrophils dominate every healthy donor, which is correct - they are the most abundant white cell in blood - and "
-      "the solver's median of 47 per cent sits inside the textbook range, with donor-to-donor variation of 32 to 69 per cent. <b>The other immune "
-      "cells are all there:</b> T cells in 38 of 40 donors, NK and monocytes in all 40, B cells in 34. A single array showing 62.6 per cent "
-      "neutrophils is a high-normal donor, not a solver that only knows one answer. Summing this report's own placed cells reproduces the immune "
-      "class fraction the gauge is read on, which is the internal consistency check that matters.</p>"
-      "<p><b>Two honest departures from the clinical count, both worth a reader's attention.</b> First, <b>NK cells read high</b> - a median of 13 "
-      "per cent against a textbook 2 to 10 - and the most likely reason is the one PROC-SEP-03 measured directly: the atlas cannot fully separate "
-      "the lymphoid entries, so an NK panel absorbs signal that belongs to T cells. That is a known limit of the reference, not a finding about the "
-      "donor, and it is why per-cell readings inside one lineage are not scored against each other. Second, a minority of donors place a trace of "
-      "something implausible - gastric or glial entries at under 2 per cent in 1 to 15 of 40 donors. Those are the conservative solver's "
-      "false placements at the edge of its evidence threshold; they are reported rather than hidden, and their size is the reason they do not "
-      "change a class reading. Eosinophils and basophils, which a clinical count reports at a few per cent, have no atlas entry at all - so they "
-      "are not missing from this sample, they are missing from the reference, which the Coverage tab states.</p>"
-      "<p class='m'>Measured 2026-09-22 on the 40 build-panel arrays of GSE87571 (raw IDAT through Stage 1, this laboratory only); median 7 atlas "
-      "entries placed per donor, range 5 to 9 of 115. The textbook differential ranges are the standard clinical reference intervals for a white-cell "
-      "differential and are shown for orientation, not as a validation target - a methylation-based composition and a microscope count are "
-      "different measurements of the same tube.</p>")
+try:
+    import cpg_tiers as T
+except Exception:
+    T=None
 
+def tab_reading(o, R, sid):
+    """THE PHYSICS FRONT PAGE (author, 2026-09-26). What is in the sample and how much of each cell; then each detected
+    cell's A against its architecture class's H_min. Healthy is A = 1.00 by the physics and the tier scale's NORMAL
+    (0.95-1.04) is the tolerance; departure from healthy is each cell's distance from 1.00. No pooled class A is printed
+    as a reading: the class gauge runs as an internal gate (is this specimen blood-like?) and is named as such in one
+    sentence. Nothing on this page places the patient among other people."""
+    H=[]; ctx=o.get("context",{}); cls=o.get("classes") or {}; cells=o.get("cells_all") or {}
+    fd=o.get("foreign_detection") or {}; lab=o["patient_sky"].get("lab") or (o.get("cfg") or {}).get("lab","-")
+    det_state=("commissioned" if str(fd.get("status","")).startswith("OK") else ("not commissioned" if str(fd.get("status","")).startswith("NOT_COMMISSIONED") else _e(fd.get("status") or "not run")))
+    H.append(f"<h2>Reading - {_e(sid)}</h2><table class='kv'><tr><td>Specimen</td><td>{_e(ctx.get('substrate','whole blood'))}</td><td>Substrate</td><td>DNA methylation (450K/EPIC beta)</td></tr>"
+             f"<tr><td>Declared age</td><td>{_e(ctx.get('age','-'))}</td><td>Pipeline map</td><td>{_e(o.get('scale','-'))}</td></tr>"
+             f"<tr><td>Laboratory</td><td>{_e(lab)}</td><td>Foreign-cell detection</td><td>{det_state} for this laboratory</td></tr></table>")
+    H.append("<p><b>Healthy is A = 1.00.</b> Every cell type has one physical floor, the H_min of its architecture class, and a healthy cell of any type reads "
+             "A = H / H_min = 1.00 on it. NORMAL is 0.95-1.04; below 0.95 is SUPPRESSED; 1.04-1.07 ELEVATED; the 1.07 Warburg line and the 1.10 breach line are "
+             "the physics' two inflection points. The reading below is each cell in this sample against its own floor. No population defines any number on this page.</p>")
+    # ---- 1. cells found, and each one's A
+    fam_seen=set(); rows=[]; sub=[]; unres=[]
+    for name,v in cells.items():
+        if not isinstance(v,dict): continue
+        if v.get("resolvable") is False: unres.append(name); continue
+        fr=v.get("fraction") or 0.0
+        key=v.get("shared_with") or name
+        if key in fam_seen: continue
+        if not v.get("present"):
+            if fr>0: sub.append((name,fr))
+            continue
+        fam_seen.add(key); rows.append((key,name,v,fr))
+    rows.sort(key=lambda r:-r[3])
+    H.append("<h3>1. What is in the sample, and how each cell reads</h3>")
+    if not rows:
+        H.append("<p class='pend'>No cell cleared its presence floor - nothing is scored.</p>")
+    else:
+        H.append("<table class='t'><tr><th>cell</th><th>class</th><th>fraction</th><th>A</th><th>departure from 1.00</th><th>tier</th><th>95 % interval</th><th class='m'>after laboratory offset</th></tr>")
+        outside=[]
+        for key,name,v,fr in rows:
+            A=v.get("A"); cl=v.get("class"); hm=(R.get("ident") or {}).get(cl,{}).get("H_min")
+            try: tier,_=T.tier_of(A, True, hm) if A is not None else (None,None)
+            except Exception: tier=None
+            d=(A-1.0) if A is not None else None
+            ci=v.get("reading_ci"); ci_s=(f"{ci[0]:.3f} - {ci[1]:.3f}" if isinstance(ci,(list,tuple)) and len(ci)==2 and None not in ci else "-")
+            label=_e(key.replace("family:","family: ")) if key!=name else _e(name)
+            if v.get("shared_with"): label+=" <span class='m'>(resolution family)</span>"
+            az=v.get("A_zeroed")
+            H.append(f"<tr><td>{label}</td><td class='m'>{_e(CLASS_LABEL.get(cl,cl))}</td><td class='n'>{100*fr:.1f} %</td>"
+                     f"<td class='n'><b>{A:.4f}</b></td>" if A is not None else f"<tr><td>{label}</td><td class='m'>{_e(CLASS_LABEL.get(cl,cl))}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>-</td>")
+            H.append((f"<td class='n'>{d:+.4f}</td>" if d is not None else "<td>-</td>")
+                     +(f"<td><span class='tier' style='background:{TIER_COL.get(tier,'#555')}'>{_e(tier)}</span></td>" if tier else "<td class='m'>not scored</td>")
+                     +f"<td class='n m'>{ci_s}</td><td class='n m'>{(f'{az:.4f}' if isinstance(az,(int,float)) else '-')}</td></tr>")
+            if tier and tier!="NORMAL": outside.append((key,A,tier))
+        H.append("</table>")
+        n_normal=sum(1 for k,n,v,fr in rows if v.get("A") is not None)-len(outside)
+        H.append(f"<p><b>{len(rows)} cell{'s' if len(rows)!=1 else ''} found above the presence floor.</b> {n_normal} read NORMAL. "
+                 +(("Outside NORMAL: "+"; ".join(f"<b>{_e(k)}</b> at A = {a:.4f} ({_e(t)}, {'below' if a<1 else 'above'} 1.00 by {abs(a-1):.4f})" for k,a,t in outside)+".") if outside else "None outside NORMAL.")+"</p>")
+    H.append(f"<p class='m'>{len(sub)} atlas cell{'s' if len(sub)!=1 else ''} placed below the presence floor - detected in trace amounts, not scored (a cell must be present to be measured; fraction is a detection gate, not a correction to A). "
+             f"{len(unres)} entr{'ies' if len(unres)!=1 else 'y'} not resolvable on this platform. Every cell, scored or not, is on the <b>Every cell</b> tab. "
+             "A is H(mean beta over the cell's identity loci) / H_min of its class, on scale-mapped betas, with no laboratory zero applied. The muted column applies the per-cell "
+             "laboratory offset from the four-laboratory calibration record; whether that offset stands or is replaced by the array's own tare is PROC-TARE-01's question, and until it "
+             "is answered the tier is read on A.</p>")
+    # ---- 2. foreign cells (Stage 2d)
+    H.append("<h3>2. Foreign cells - is there anything in this blood that is not blood?</h3>")
+    st=str(fd.get("status") or "")
+    if st=="OK":
+        det=fd.get("detected") or []
+        H.append(("<p><b>Detected above this laboratory's own line: "+_e(", ".join(det))+".</b> A presence statement, not a clinical statement; the cell's A is read only where it clears its presence floor.</p>") if det
+                 else "<p><b>No foreign cell above this laboratory's line.</b> Limits measured 0.5-1 % for Breast, colon epithelium, cortical neurons and prostate on four 450K laboratories (PROC-MF-02/03).</p>")
+    elif st.startswith("OK_BUT_UNSPECIFIC"):
+        H.append(f"<p class='pend'><b>Unspecific.</b> {_e(st.split(': ',1)[-1])} Every foreign column rising together is what a specimen that is not blood-like looks like; no single detection is read.</p>")
+    elif st.startswith("NOT_COMMISSIONED"):
+        H.append("<p class='pend'>Detection is <b>not commissioned</b> for this laboratory: no line is borrowed from another. The composition table above is the only statement about foreign cells. "
+                 "Commission it on &ge; 36 of this laboratory's own healthy whole-blood arrays (kit/commission_detection_lab.py).</p>")
+    else:
+        H.append(f"<p class='pend'>{_e(st or 'Stage 2d not run on this bundle.')}</p>")
+    H.append(_trace_one_liner(o))
+    # ---- 3. the instrument
+    z=o.get("lab_zero"); imm=cls.get("immune") or {}
+    H.append("<h3>3. The instrument</h3>")
+    H.append(f"<p><b>Laboratory {_e(lab)}</b> &middot; pipeline map <code>{_e(o.get('scale','-'))}</code> (this laboratory's processing route onto the atlas scale, fitted on paired reads) &middot; "
+             f"foreign-cell detection {det_state}"+(f" (panel n = {fd.get('panel_n')})" if fd.get("panel_n") else "")+". "
+             "The commissioning panel calibrates the instrument - what this scanner and this processing do to a known input - and never the definition of healthy. "
+             f"Laboratory zero on record: <code>{z!s}</code>; it is <b>not applied</b> to any A on this page (PROC-TARE-01 decides whether the array's own SNP-probe tare replaces it).</p>")
+    H.append(f"<p class='m'>Internal gate: the pooled class gauge runs only to ask whether this specimen is blood-like (composition verified: <b>{_e(imm.get('composition_verified'))}</b>"
+             +(f", foreign fraction {imm.get('foreign_fraction')}" if imm.get("foreign_fraction") is not None else "")+"). "
+             "A pooled class A is not a reading and is not printed; the cells are.</p>")
+    H.append(deepdive(R,"the gauge"))
     return guard("".join(H),"Reading")
 
 def _trace_block(o):
