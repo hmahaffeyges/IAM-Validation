@@ -84,7 +84,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 38 procedures, 163 files
+## Every sealed procedure — 39 procedures, 164 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -126,6 +126,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-SWITCH-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-SWITCH-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-SWITCH-02/PREREG.md), [`switch02_results.json`](../../Record/PROC_data/PROC-SWITCH-02/switch02_results.json)
 - **PROC-TIER-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-TIER-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-TIER-01/PREREG.md), [`test_tiers_as_run.py`](../../Record/PROC_data/PROC-TIER-01/test_tiers_as_run.py), [`tier01_healthy_tiers.csv`](../../Record/PROC_data/PROC-TIER-01/tier01_healthy_tiers.csv)
 - **PROC-TIER-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-TIER-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-TIER-02/PREREG.md), [`test_tiers_as_run.py`](../../Record/PROC_data/PROC-TIER-02/test_tiers_as_run.py), [`u2_occupancy.json`](../../Record/PROC_data/PROC-TIER-02/u2_occupancy.json)
+- **PROC-TISSUE-01** — [`PROC_TISSUE_01_PREREG.md`](PROC_TISSUE_01_PREREG.md)
 
 ## What is NOT published, and why
 
