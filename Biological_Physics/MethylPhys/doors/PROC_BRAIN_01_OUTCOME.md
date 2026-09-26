@@ -4,7 +4,7 @@
 amended — before any array was scored — to record that the CSF arm is 24 specimens rather than 181.
 **This is the second run.** The first is recorded as VOID in the pre-registration, for operator reasons set
 out there; nothing from it is quoted here. This run was one process, a fresh output path, no edit to the
-chain while it ran, and every specimen through `run_sample.py`.
+chain while it ran, and every specimen through [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py).
 Evidence: [`PROC_BRAIN_01.json`](../kit/results/PROC_BRAIN_01.json) ·
 [`PROC_BRAIN_01_scored.json`](../kit/results/PROC_BRAIN_01_scored.json) ·
 script [`PROC_BRAIN_01.py`](../kit/PROC_BRAIN_01.py).

@@ -42,7 +42,11 @@ _SEARCH = [HERE, HERE / "Walther_iam_deconvolver", HERE / "Runtime Matrices" / "
            HERE / "Runtime Matrices" / "Mahalanobis_healthy_reference", HERE / "Runtime Matrices" / "Tier_breakpoints",
            HERE / "Runtime Matrices" / "Cellular_Age",
            # the atlas: HERE is MethylPhys/chain, so its sibling; the second form covers a flat working folder
-           HERE.parent / "atlas", HERE.parent.parent / "MethylPhys" / "atlas"]
+           HERE.parent / "atlas", HERE.parent.parent / "MethylPhys" / "atlas",
+           HERE / 'Runtime Matrices' / 'Percell_Reference',   # 2026-09-26: percell_reference_v0_3.json has lived here since 09-22 and _find could not see it,
+           # so the per-cell healthy reference (A' = H/H_ref, 1.0 healthy by construction, with
+           # per-lab p10/p90 bands and a held-out check) was unreachable from the chain
+           ]
 def _find(name, required=True):
     for d in _SEARCH:
         p = d / name
@@ -103,7 +107,30 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
 
     # 2. Per-cell A-scores via the v0_2 discriminative markers (mean-of-per-CpG H/H_min)
     _meta, ct_markers, c2c, h_min = asc.load_artifact(str(markers_path))
-    scores = asc.score_per_celltype(beta_dict, ct_markers, c2c, h_min)
+    # PER-CELL IDENTITY LOCI (2026-09-26). The per-cell A was computed on discriminative marker
+    # panels, which the reference audit disqualified: a cell's own atlas mean read far below 1.0.
+    # This artifact gives 102 of 115 cells a panel of loci sitting AT their class floor, built by
+    # the same criterion as the eight class panels; each cell's own reference reads 0.9362-1.0204.
+    _pci_path = _find("iamatlas_percell_identity_loci_v1_0.json", required=False)
+    _pci = asc.load_percell_identity(str(_pci_path)) if _pci_path else None
+    # PER-CELL LABORATORY OFFSET (2026-09-26): one number per laboratory from the calibration record,
+    # applied to every cell's A as stage_b_identity applies z_lab. Without it four laboratories
+    # disagree on every cell by ~0.055; with it, by 0.007. Unknown laboratory -> UNSET, fail-closed.
+    _pcr_path = _find("percell_reference_identity_v1_0.json", required=False)
+    _pcr_meta = json.load(open(_pcr_path)).get("_meta", {}) if _pcr_path else {}
+    _lab = (cfg or {}).get("lab") if isinstance(cfg, dict) else None
+    _lab_off = (_pcr_meta.get("laboratory_offset") or {}).get("values", {}).get(_lab)
+    # SCALE MAP BEFORE PER-CELL SCORING (2026-09-26). The class gauge maps stage-1 betas onto the atlas
+    # scale before it reads them; this path never did, and read RAW betas that sit ~0.07 above the atlas
+    # at the identity loci (the offset PROC-COV-01 measured). Raw, every present cell in healthy blood
+    # read SUPPRESSED (Neutrophils 0.87, NK 0.80); mapped, the same arrays read 0.968-1.053 = NORMAL.
+    _pipeline = (cfg or {}).get('pipeline', 'stage1_noob_450K') if isinstance(cfg, dict) else 'stage1_noob_450K'
+    try:
+        _beta_mapped, _ = stage_1s_scale_map(beta_dict, _pipeline)
+    except Exception as _e:   # a pipeline with no map falls back to raw, and SAYS so in the record
+        _beta_mapped = beta_dict
+        print('  per-cell scoring on RAW betas - no scale map for pipeline %r (%s)' % (_pipeline, _e))
+    scores = asc.score_per_celltype(_beta_mapped, ct_markers, c2c, h_min, celltype_identity_loci=_pci)
 
     # 3. Pair A with fraction — presence comes from the ratio, not the A-score
     # Uncertainty ON THE READING (2026-09-22): resample this cell's own marker CpGs, 500 draws, 95 % interval.
@@ -135,6 +162,14 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
             "coverage": r.get("coverage"),
             "confidence": r.get("confidence"),
             "status": r.get("status"),
+            # which surface and which formula produced this A - so the failsafe can SEE a reversion to marker
+            # panels or to the wrong form, instead of a reader having to remember (2026-09-26)
+            "A_raw": r.get("A"),
+            "lab_offset": (round(_lab_off, 4) if _lab_off is not None else "UNSET"),
+            "A_zeroed": (round(r["A"] - _lab_off, 4) if (_lab_off is not None and r.get("A") is not None and r.get("A") == r.get("A")) else None),
+            "surface": r.get("surface"),
+            "formula": r.get("formula"),
+            "jensen_gap": r.get("jensen_gap"),
             "class": c2c.get(ct),
             "fraction": frac,
             "present": frac >= DETECT_FLOOR,

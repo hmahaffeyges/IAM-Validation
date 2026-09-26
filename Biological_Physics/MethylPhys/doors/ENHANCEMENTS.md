@@ -127,3 +127,22 @@ What replaces it is better aimed anyway. The covariance that governs the composi
 ## The per-cell A is on the wrong surface, 2026-09-26
 
 [REFERENCE_AUDIT.md](REFERENCE_AUDIT.md) is the highest-priority item on this list and it displaces the fraction-conditioned bands proposed the night before. Every cell's own atlas mean must read A = 1.0 by design; only 11 of 115 do, and 65 read below 0.5. The cause is that the per-cell path scores each cell on its DISCRIMINATIVE MARKER panel, which is 77-100 per cent near-binary, so mean per-CpG entropy is ~0 by construction. On identity loci the same references read 0.89-1.14, median 0.9876. The fix is a CONSTRUCTION - per-cell identity loci, mirroring how the eight class panels were built - because a cell's class loci would make all 51 immune cells read identically.
+
+## Documentation catch-up after the per-cell surface, 2026-09-26 — author: "not yet, but keep it on the list"
+
+Parts of the chain found today that no document names, to be written into every place that lists the
+chain's parts once the per-cell bands are rebuilt on the identity surface:
+
+| found | where it lives | what it is |
+|---|---|---|
+| [`percell_reference_v0_3.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0_3.json) | `chain/Runtime Matrices/Percell_Reference/` | per-cell per-laboratory healthy bands with a held-out check, built 2026-09-22; the folder was NOT on the chain's search path, so the chain never loaded it |
+| `iamatlas_percell_identity_loci_v1_0.json` | `chain/Runtime Matrices/A_Scoring_Module/` | 102 per-cell identity panels at the class floor, the surface the per-cell A is now read on |
+| `_score_one_identity` | [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) | the per-cell A on identity loci with the class gauge's formula |
+| `percell_reference_identity_v1_0.json` | `chain/Runtime Matrices/Percell_Reference/` | the per-cell bands rebuilt on the identity surface |
+
+Documents to update: the SOP (`sop/MethylPhys_CPG_SOP.md`), the OM (`manual/MethylPhys_CPG_Operations_Manual.pdf`
+via its build), [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md), [`COMPONENT_MAP.md`](COMPONENT_MAP.md), [`RUNBOOK.md`](RUNBOOK.md), [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md), the chain
+inventory, and the report itself. **The report restructure leads with the physics**: per-cell A, fraction,
+class floor and band on the front page; cohort-relative surfaces (Mahalanobis departure, cellular age, hull,
+marker union) demoted to a labelled section or removed. The A-score is the instrument; nothing in the report
+is to be phrased in another group's methodology.

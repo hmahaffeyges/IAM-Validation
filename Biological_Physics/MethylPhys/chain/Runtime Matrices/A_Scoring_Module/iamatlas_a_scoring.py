@@ -20,6 +20,7 @@ Author: WaltherMayer + Heath W. Mahaffey
 Build session: EDEAR_Physics_Roadmap TODO 1.1 (2026-05-29)
 """
 
+import math
 import json
 import numpy as np
 import pandas as pd
@@ -131,10 +132,65 @@ def score_per_class(customer_betas: Dict[str, float],
     return out
 
 
+def _score_one_identity(beta_series: pd.Series,
+                        loci: List[str],
+                        h_min: float) -> Dict:
+    """Score one cell type on its IDENTITY loci, with the class gauge's own formula.
+
+    A = H(mean beta over the loci) / H_min    <- RULING A3, the commissioned identity form; see the note below
+
+    This replaces scoring a cell on its DISCRIMINATIVE MARKER panel, which was measured on 2026-09-26 to be
+    77-100 per cent near-binary: mean per-CpG entropy over binary addresses is ~0 by construction, so every
+    cell's own atlas reference read far below 1.0 (Cortical_neurons 0.0099). On identity loci the same
+    references read 0.89-1.14, median 0.9876. The repository's Jensen-bound rule already disqualified marker
+    panels for this computation; this path is what holds the per-cell surface to it.
+    See doors/REFERENCE_AUDIT.md and the artifact's own _provenance.
+    """
+    n_expected = len(loci)
+    matched = [c for c in loci if c in beta_series.index]
+    vals = beta_series.loc[matched].dropna().astype(float).values if matched else []
+    n_usable = len(vals)
+    if n_usable < MIN_MARKERS_FOR_SCORING:
+        return {"A": float("nan"), "n_markers_expected": n_expected, "n_markers_matched": n_usable,
+                "coverage": (n_usable / n_expected) if n_expected else 0.0, "confidence": 0.0,
+                "status": STATUS_NO_MARKER_OVERLAP if n_usable == 0 else "INSUFFICIENT_MARKERS",
+                "surface": "identity_loci"}
+    # THE COMMISSIONED FORM: A = H(beta_mean) / H_min on IDENTITY loci - RULING A3, PROC-SWITCH-01, SOP s41/s106,
+    # the same arithmetic as stage_b_identity, the reported class gauge (95.21 per cent of 1,379 healthy donors
+    # NORMAL). Two rules in the SOP govern two surfaces and MUST NOT be crossed:
+    #   * LESSON-ASCORE-02 - mean_i(H(beta_i))/H_min, NEVER H of the mean - governs DISCRIMINATIVE MARKER panels,
+    #     which are bimodal, so H of the mean inflates toward 1/H_min there.
+    #   * RULING A3 - H(beta_mean)/H_min - governs IDENTITY loci, and is the commissioned gauge.
+    # On 2026-09-26 this function was briefly switched to the marker-panel form by a reader who had one rule in
+    # view and not the other; on real blood the two forms differ by a Jensen gap of 0.25 median at these loci,
+    # and the marker-panel form read every present healthy cell SUPPRESSED. Reverted the same day. The gap is
+    # recorded per reading; test_percell_physics.py asserts this function agrees with stage_b_identity's H().
+    vals = np.asarray(vals, float)
+    mean_beta = float(np.mean(vals))
+    bm = min(max(mean_beta, 1e-12), 1 - 1e-12)
+    H_of_mean = -bm * math.log2(bm) - (1 - bm) * math.log2(1 - bm)
+    b = np.clip(vals, 1e-12, 1 - 1e-12)
+    mean_H = float(np.mean(-b * np.log2(b) - (1 - b) * np.log2(1 - b)))
+    A = float(H_of_mean / h_min)
+    assert A <= 1.0 / h_min + 1e-9, "A above 1/H_min is arithmetically impossible - a bug, not a reading"
+    cov = n_usable / n_expected if n_expected else 0.0
+    return {"A": A, "n_markers_expected": n_expected, "n_markers_matched": n_usable,
+            "coverage": float(cov), "confidence": float(min(1.0, cov)), "status": "OK",
+            "surface": "identity_loci", "formula": "H(beta_mean)/H_min (RULING A3)",
+            "mean_beta": mean_beta, "mean_H": mean_H, "jensen_gap": float(H_of_mean - mean_H)}
+
+
+def load_percell_identity(artifact_path: str) -> Dict[str, Dict]:
+    """Load iamatlas_percell_identity_loci_v1_0.json -> {celltype: {loci, H_min, class, branch}}."""
+    with open(artifact_path) as f:
+        return json.load(f).get("cells", {})
+
+
 def score_per_celltype(customer_betas: Dict[str, float],
                        celltype_markers: Dict[str, List[str]],
                        celltype_to_class: Dict[str, str],
-                       h_min_by_class: Dict[str, float]) -> Dict[str, Dict]:
+                       h_min_by_class: Dict[str, float],
+                       celltype_identity_loci: Dict[str, Dict] = None) -> Dict[str, Dict]:
     """Score all 115 cell-type A-scores for one patient.
 
     Each cell type's H_min is looked up via its class membership.
@@ -145,7 +201,16 @@ def score_per_celltype(customer_betas: Dict[str, float],
         cls = celltype_to_class.get(ct)
         if cls is None or cls not in h_min_by_class:
             continue
-        result = _score_one(beta_series, markers, h_min_by_class[cls])
+        ident = (celltype_identity_loci or {}).get(ct)
+        if ident and ident.get("loci"):
+            # the identity surface is primary from 2026-09-26; the marker surface is kept only for cells
+            # with no identity panel (13 of 115 have fewer than 100 loci at the floor) and is labelled
+            result = _score_one_identity(beta_series, ident["loci"], float(ident.get("H_min", h_min_by_class[cls])))
+        else:
+            result = _score_one(beta_series, markers, h_min_by_class[cls])
+            result["surface"] = "marker_panel"
+            result["surface_note"] = ("no identity panel for this cell; a marker-panel A is not on the same "
+                                      "scale as an identity-panel A - see doors/REFERENCE_AUDIT.md")
         result["class"] = cls
         out[ct] = result
     return out
