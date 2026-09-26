@@ -1,0 +1,65 @@
+{
+ "Cortical_neurons": {
+  "class": "terminal",
+  "A_markers": 0.0098750348526929,
+  "A_identity": 1.0123386390035225,
+  "jensen_gap_markers": 1.3511432521480342e-05,
+  "extreme_frac_markers": 1.0,
+  "n_markers": 100,
+  "n_identity": 57245
+ },
+ "Colon_epithelial_cells": {
+  "class": "cycling",
+  "A_markers": 0.36543772559736887,
+  "A_identity": 0.9597199242600382,
+  "jensen_gap_markers": 0.5524056683904328,
+  "extreme_frac_markers": 0.77,
+  "n_markers": 100,
+  "n_identity": 215
+ },
+ "Breast": {
+  "class": "secretory",
+  "A_markers": 1.0637840658477393,
+  "A_identity": 0.8942430823354124,
+  "jensen_gap_markers": 0.09342687923663306,
+  "extreme_frac_markers": 0.01,
+  "n_markers": 100,
+  "n_identity": 295
+ },
+ "CD4_T-cells": {
+  "class": "immune",
+  "A_markers": 0.7446690455957248,
+  "A_identity": 0.9548531492513298,
+  "jensen_gap_markers": 0.3427749948332133,
+  "extreme_frac_markers": 0.1,
+  "n_markers": 100,
+  "n_identity": 42024
+ },
+ "Acinar": {
+  "class": "secretory",
+  "A_markers": 0.13745182172093043,
+  "A_identity": 1.142696929973481,
+  "jensen_gap_markers": 0.04617822772588907,
+  "extreme_frac_markers": 0.99,
+  "n_markers": 100,
+  "n_identity": 195
+ },
+ "fibroblast": {
+  "class": "stromal",
+  "A_markers": 0.287536695654143,
+  "A_identity": 0.9937383454087528,
+  "jensen_gap_markers": 0.0017598897547780046,
+  "extreme_frac_markers": 1.0,
+  "n_markers": 100,
+  "n_identity": 1362
+ },
+ "HSC": {
+  "class": "stem_adult",
+  "A_markers": 0.5976082689800173,
+  "A_identity": 0.9875862323951052,
+  "jensen_gap_markers": 0.44297000757541916,
+  "extreme_frac_markers": 0.42424242424242425,
+  "n_markers": 99,
+  "n_identity": 46907
+ }
+}

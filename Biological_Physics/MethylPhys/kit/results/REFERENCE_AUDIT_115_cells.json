@@ -1,0 +1,1152 @@
+[
+ {
+  "cell": "HSC",
+  "class": "stem_adult",
+  "n_markers": 99,
+  "A": 0.5976082689800173,
+  "mean_H": 0.5221411015566827,
+  "h_min": 0.873718,
+  "mean_beta": 0.39048388888888896,
+  "frac_extreme": 0.42424242424242425
+ },
+ {
+  "cell": "CMP",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.6138354645508571,
+  "mean_H": 0.5231204042576733,
+  "h_min": 0.852216,
+  "mean_beta": 0.47661991,
+  "frac_extreme": 0.48
+ },
+ {
+  "cell": "Erythrocyte_progenitors",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.6591579253340754,
+  "mean_H": 0.5617449304965043,
+  "h_min": 0.852216,
+  "mean_beta": 0.22471854,
+  "frac_extreme": 0.32
+ },
+ {
+  "cell": "GMP",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.5662741673129326,
+  "mean_H": 0.48258790577075816,
+  "h_min": 0.852216,
+  "mean_beta": 0.48901693,
+  "frac_extreme": 0.47
+ },
+ {
+  "cell": "L-MPP",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.5476292664955926,
+  "mean_H": 0.466698422975808,
+  "h_min": 0.852216,
+  "mean_beta": 0.5890039699999999,
+  "frac_extreme": 0.5
+ },
+ {
+  "cell": "MEP",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.7196297873583751,
+  "mean_H": 0.613280018863405,
+  "h_min": 0.852216,
+  "mean_beta": 0.17582161,
+  "frac_extreme": 0.16
+ },
+ {
+  "cell": "MPP",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.5927793276897446,
+  "mean_H": 0.5051760275264434,
+  "h_min": 0.852216,
+  "mean_beta": 0.46913155,
+  "frac_extreme": 0.4
+ },
+ {
+  "cell": "NeuIm",
+  "class": "progenitor",
+  "n_markers": 99,
+  "A": 0.1721714854390406,
+  "mean_H": 0.1467272946349174,
+  "h_min": 0.852216,
+  "mean_beta": 0.021124717171717173,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "OPC",
+  "class": "progenitor",
+  "n_markers": 97,
+  "A": 0.20805198022942153,
+  "mean_H": 0.1773052263831967,
+  "h_min": 0.852216,
+  "mean_beta": 0.14170388659793814,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "erythroblast",
+  "class": "progenitor",
+  "n_markers": 91,
+  "A": 0.5025433359299767,
+  "mean_H": 0.428275471572901,
+  "h_min": 0.852216,
+  "mean_beta": 0.3884498241758242,
+  "frac_extreme": 0.6373626373626373
+ },
+ {
+  "cell": "megakaryocyte",
+  "class": "progenitor",
+  "n_markers": 91,
+  "A": 0.43594465374912944,
+  "mean_H": 0.3715190090394681,
+  "h_min": 0.852216,
+  "mean_beta": 0.43858925274725274,
+  "frac_extreme": 0.6703296703296703
+ },
+ {
+  "cell": "nRBC",
+  "class": "progenitor",
+  "n_markers": 100,
+  "A": 0.9812593783203348,
+  "mean_H": 0.8362449423546424,
+  "h_min": 0.852216,
+  "mean_beta": 0.49949969000000005,
+  "frac_extreme": 0.06
+ },
+ {
+  "cell": "adipocyte",
+  "class": "stromal",
+  "n_markers": 100,
+  "A": 0.3412506001779494,
+  "mean_H": 0.2944822054235614,
+  "h_min": 0.86295,
+  "mean_beta": 0.07742113999999999,
+  "frac_extreme": 0.98
+ },
+ {
+  "cell": "endothelial",
+  "class": "stromal",
+  "n_markers": 91,
+  "A": 0.3150203013904834,
+  "mean_H": 0.27184676908491767,
+  "h_min": 0.86295,
+  "mean_beta": 0.047066263736263735,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "fibroblast",
+  "class": "stromal",
+  "n_markers": 100,
+  "A": 0.287536695654143,
+  "mean_H": 0.24812979151474274,
+  "h_min": 0.86295,
+  "mean_beta": 0.04166829999999999,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "smooth_muscle",
+  "class": "stromal",
+  "n_markers": 100,
+  "A": 0.33175117680391875,
+  "mean_H": 0.28628467802294166,
+  "h_min": 0.86295,
+  "mean_beta": 0.062046899999999995,
+  "frac_extreme": 0.98
+ },
+ {
+  "cell": "stromal_other",
+  "class": "stromal",
+  "n_markers": 100,
+  "A": 0.30466863784135334,
+  "mean_H": 0.26291380102519585,
+  "h_min": 0.86295,
+  "mean_beta": 0.04482281,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Antrum_undiff",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.3830777548475053,
+  "mean_H": 0.32793562742598115,
+  "h_min": 0.856055,
+  "mean_beta": 0.47507798,
+  "frac_extreme": 0.85
+ },
+ {
+  "cell": "BE",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.15120458305126078,
+  "mean_H": 0.12943943934394705,
+  "h_min": 0.856055,
+  "mean_beta": 0.03349068999999999,
+  "frac_extreme": 0.98
+ },
+ {
+  "cell": "Basal",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.22504881910729727,
+  "mean_H": 0.19265416684089737,
+  "h_min": 0.856055,
+  "mean_beta": 0.030670319999999997,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Bladder",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 1.0774547676268222,
+  "mean_H": 0.9223605411007793,
+  "h_min": 0.856055,
+  "mean_beta": 0.50301727,
+  "frac_extreme": 0.02
+ },
+ {
+  "cell": "Colon_epithelial_cells",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.36543772559736887,
+  "mean_H": 0.3128347921862556,
+  "h_min": 0.856055,
+  "mean_beta": 0.28732485,
+  "frac_extreme": 0.77
+ },
+ {
+  "cell": "Corpus_undiff",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.33714479536402275,
+  "mean_H": 0.2886144877953485,
+  "h_min": 0.856055,
+  "mean_beta": 0.26406584,
+  "frac_extreme": 0.92
+ },
+ {
+  "cell": "Ductal",
+  "class": "cycling",
+  "n_markers": 93,
+  "A": 0.24236240324161054,
+  "mean_H": 0.20747554710699692,
+  "h_min": 0.856055,
+  "mean_beta": 0.13145303225806454,
+  "frac_extreme": 0.8709677419354839
+ },
+ {
+  "cell": "Epi",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.15264603619581993,
+  "mean_H": 0.13067340251561263,
+  "h_min": 0.856055,
+  "mean_beta": 0.02014345,
+  "frac_extreme": 0.99
+ },
+ {
+  "cell": "Epi_basal",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.18647978854738137,
+  "mean_H": 0.15963695538492856,
+  "h_min": 0.856055,
+  "mean_beta": 0.17544848,
+  "frac_extreme": 0.84
+ },
+ {
+  "cell": "Epi_stratified",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.09330776295462971,
+  "mean_H": 0.07987657701612554,
+  "h_min": 0.856055,
+  "mean_beta": 0.026636490000000002,
+  "frac_extreme": 0.99
+ },
+ {
+  "cell": "Epi_suprabasal",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.091630871842356,
+  "mean_H": 0.07844106599500807,
+  "h_min": 0.856055,
+  "mean_beta": 0.01798773,
+  "frac_extreme": 0.99
+ },
+ {
+  "cell": "Fundus_undiff",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.3290461011382235,
+  "mean_H": 0.28168156010988193,
+  "h_min": 0.856055,
+  "mean_beta": 0.28138459,
+  "frac_extreme": 0.95
+ },
+ {
+  "cell": "Head_and_neck_larynx",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 1.094270729055926,
+  "mean_H": 0.9367559289619707,
+  "h_min": 0.856055,
+  "mean_beta": 0.47768566999999995,
+  "frac_extreme": 0.02
+ },
+ {
+  "cell": "Kera_undiff",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.14483086033284226,
+  "mean_H": 0.1239831821422313,
+  "h_min": 0.856055,
+  "mean_beta": 0.01708181,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Kidney",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 1.035212043674986,
+  "mean_H": 0.8861984460481902,
+  "h_min": 0.856055,
+  "mean_beta": 0.39984913,
+  "frac_extreme": 0.04
+ },
+ {
+  "cell": "Lung_cells",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 0.8764196437448302,
+  "mean_H": 0.7502634181259806,
+  "h_min": 0.856055,
+  "mean_beta": 0.31951225,
+  "frac_extreme": 0.03
+ },
+ {
+  "cell": "Upper_GI",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 1.0076191544819355,
+  "mean_H": 0.8625774152900333,
+  "h_min": 0.856055,
+  "mean_beta": 0.43248850000000005,
+  "frac_extreme": 0.05
+ },
+ {
+  "cell": "Uterus_cervix",
+  "class": "cycling",
+  "n_markers": 100,
+  "A": 1.0085034575069978,
+  "mean_H": 0.8633344273161531,
+  "h_min": 0.856055,
+  "mean_beta": 0.4071730900000001,
+  "frac_extreme": 0.02
+ },
+ {
+  "cell": "small_intestine",
+  "class": "cycling",
+  "n_markers": 91,
+  "A": 0.4997650420789901,
+  "mean_H": 0.42782636309692984,
+  "h_min": 0.856055,
+  "mean_beta": 0.4943813956043956,
+  "frac_extreme": 0.6483516483516484
+ },
+ {
+  "cell": "Acinar",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.13745182172093043,
+  "mean_H": 0.11590817299167867,
+  "h_min": 0.843264,
+  "mean_beta": 0.023764780000000006,
+  "frac_extreme": 0.99
+ },
+ {
+  "cell": "Antrum_diff",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.35458680431940304,
+  "mean_H": 0.29901028695759707,
+  "h_min": 0.843264,
+  "mean_beta": 0.41032901999999993,
+  "frac_extreme": 0.89
+ },
+ {
+  "cell": "Breast",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 1.0637840658477393,
+  "mean_H": 0.8970508065030282,
+  "h_min": 0.843264,
+  "mean_beta": 0.55738393,
+  "frac_extreme": 0.01
+ },
+ {
+  "cell": "Chol",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.22926605638981112,
+  "mean_H": 0.1933318117754977,
+  "h_min": 0.843264,
+  "mean_beta": 0.06694656,
+  "frac_extreme": 0.95
+ },
+ {
+  "cell": "Corpus_diff",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.35280692670409164,
+  "mean_H": 0.29750938024019913,
+  "h_min": 0.843264,
+  "mean_beta": 0.32760484999999995,
+  "frac_extreme": 0.92
+ },
+ {
+  "cell": "Endocrine",
+  "class": "secretory",
+  "n_markers": 99,
+  "A": 0.3041539611327983,
+  "mean_H": 0.25648208588068805,
+  "h_min": 0.843264,
+  "mean_beta": 0.2227056666666667,
+  "frac_extreme": 0.7575757575757576
+ },
+ {
+  "cell": "Fundus_diff",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.3477702829350113,
+  "mean_H": 0.29326215986890936,
+  "h_min": 0.843264,
+  "mean_beta": 0.27401083,
+  "frac_extreme": 0.93
+ },
+ {
+  "cell": "Gland",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.13841979015381473,
+  "mean_H": 0.11672442592426643,
+  "h_min": 0.843264,
+  "mean_beta": 0.03273606,
+  "frac_extreme": 0.98
+ },
+ {
+  "cell": "Hep",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.19982992112492404,
+  "mean_H": 0.16850937860748794,
+  "h_min": 0.843264,
+  "mean_beta": 0.025201700000000004,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Hepatocytes",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.4519729197447256,
+  "mean_H": 0.3811324921956163,
+  "h_min": 0.843264,
+  "mean_beta": 0.27253405,
+  "frac_extreme": 0.65
+ },
+ {
+  "cell": "LE",
+  "class": "secretory",
+  "n_markers": 93,
+  "A": 0.16135653096853572,
+  "mean_H": 0.1360661537306513,
+  "h_min": 0.843264,
+  "mean_beta": 0.03580793548387096,
+  "frac_extreme": 0.978494623655914
+ },
+ {
+  "cell": "Luminal",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.18993976025918535,
+  "mean_H": 0.16016936199520168,
+  "h_min": 0.843264,
+  "mean_beta": 0.023508619999999997,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Mela",
+  "class": "secretory",
+  "n_markers": 89,
+  "A": 0.18286781969223234,
+  "mean_H": 0.1542058491049506,
+  "h_min": 0.843264,
+  "mean_beta": 0.022517629213483145,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Pancreatic_acinar_cells",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.829908397793822,
+  "mean_H": 0.6998318751572095,
+  "h_min": 0.843264,
+  "mean_beta": 0.44094204,
+  "frac_extreme": 0.13
+ },
+ {
+  "cell": "Pancreatic_beta_cells",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.9166027220266993,
+  "mean_H": 0.7729380777871226,
+  "h_min": 0.843264,
+  "mean_beta": 0.45525962999999997,
+  "frac_extreme": 0.13
+ },
+ {
+  "cell": "Pancreatic_duct_cells",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 0.6847511376759498,
+  "mean_H": 0.5774259833611721,
+  "h_min": 0.843264,
+  "mean_beta": 0.27982546999999997,
+  "frac_extreme": 0.21
+ },
+ {
+  "cell": "Prostate",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 1.0107598286613408,
+  "mean_H": 0.852337376156277,
+  "h_min": 0.843264,
+  "mean_beta": 0.46213839000000007,
+  "frac_extreme": 0.02
+ },
+ {
+  "cell": "Thyroid",
+  "class": "secretory",
+  "n_markers": 100,
+  "A": 1.017948402650142,
+  "mean_H": 0.8583992418123693,
+  "h_min": 0.843264,
+  "mean_beta": 0.40770970999999995,
+  "frac_extreme": 0.01
+ },
+ {
+  "cell": "B",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5521752857111313,
+  "mean_H": 0.4632137732549252,
+  "h_min": 0.838889,
+  "mean_beta": 0.16591286,
+  "frac_extreme": 0.61
+ },
+ {
+  "cell": "B-cells_EPIC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.616733376364312,
+  "mean_H": 0.5173708453648813,
+  "h_min": 0.838889,
+  "mean_beta": 0.18489078,
+  "frac_extreme": 0.47
+ },
+ {
+  "cell": "Baso",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5954382829439284,
+  "mean_H": 0.49950662574054916,
+  "h_min": 0.838889,
+  "mean_beta": 0.11701476,
+  "frac_extreme": 0.48
+ },
+ {
+  "cell": "Bcell",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4741250080227556,
+  "mean_H": 0.3977382538552014,
+  "h_min": 0.838889,
+  "mean_beta": 0.19437543,
+  "frac_extreme": 0.76
+ },
+ {
+  "cell": "Bmem",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4726410301274916,
+  "mean_H": 0.3964933611226213,
+  "h_min": 0.838889,
+  "mean_beta": 0.0822603,
+  "frac_extreme": 0.72
+ },
+ {
+  "cell": "Bnv",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5742157314669678,
+  "mean_H": 0.48170326075459313,
+  "h_min": 0.838889,
+  "mean_beta": 0.11652502999999999,
+  "frac_extreme": 0.47
+ },
+ {
+  "cell": "CD14_monocytes",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.6063433617310651,
+  "mean_H": 0.5086547763792114,
+  "h_min": 0.838889,
+  "mean_beta": 0.11625912,
+  "frac_extreme": 0.41
+ },
+ {
+  "cell": "CD19_B-cells",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.5990652798028759,
+  "mean_H": 0.5025492735085548,
+  "h_min": 0.838889,
+  "mean_beta": 0.12171859595959596,
+  "frac_extreme": 0.41414141414141414
+ },
+ {
+  "cell": "CD4T",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.615989706233807,
+  "mean_H": 0.5167469886727721,
+  "h_min": 0.838889,
+  "mean_beta": 0.17383956565656566,
+  "frac_extreme": 0.3939393939393939
+ },
+ {
+  "cell": "CD4T-cells_EPIC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.640939272748858,
+  "mean_H": 0.5376769055770168,
+  "h_min": 0.838889,
+  "mean_beta": 0.23211190000000007,
+  "frac_extreme": 0.39
+ },
+ {
+  "cell": "CD4Tmem",
+  "class": "immune",
+  "n_markers": 97,
+  "A": 0.6605473866269305,
+  "mean_H": 0.554125936620079,
+  "h_min": 0.838889,
+  "mean_beta": 0.1883226701030928,
+  "frac_extreme": 0.4020618556701031
+ },
+ {
+  "cell": "CD4Tnv",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4192179446742818,
+  "mean_H": 0.3516773223898636,
+  "h_min": 0.838889,
+  "mean_beta": 0.07405327,
+  "frac_extreme": 0.79
+ },
+ {
+  "cell": "CD4_T-cells",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.7446690455957248,
+  "mean_H": 0.6246946709907519,
+  "h_min": 0.838889,
+  "mean_beta": 0.39422118000000006,
+  "frac_extreme": 0.1
+ },
+ {
+  "cell": "CD56_NK-cells",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.8452779427441535,
+  "mean_H": 0.7090943681107001,
+  "h_min": 0.838889,
+  "mean_beta": 0.2394053131313131,
+  "frac_extreme": 0.050505050505050504
+ },
+ {
+  "cell": "CD8T",
+  "class": "immune",
+  "n_markers": 98,
+  "A": 0.5677896435154327,
+  "mean_H": 0.4763124862590178,
+  "h_min": 0.838889,
+  "mean_beta": 0.1431487244897959,
+  "frac_extreme": 0.5102040816326531
+ },
+ {
+  "cell": "CD8T-cells_EPIC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.59392677218093,
+  "mean_H": 0.49823863598808826,
+  "h_min": 0.838889,
+  "mean_beta": 0.24882197,
+  "frac_extreme": 0.48
+ },
+ {
+  "cell": "CD8Tmem",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.6198949751406783,
+  "mean_H": 0.5200230758007884,
+  "h_min": 0.838889,
+  "mean_beta": 0.13147968000000002,
+  "frac_extreme": 0.43
+ },
+ {
+  "cell": "CD8Tnv",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.6167648139938686,
+  "mean_H": 0.5173972180465024,
+  "h_min": 0.838889,
+  "mean_beta": 0.12706527272727272,
+  "frac_extreme": 0.45454545454545453
+ },
+ {
+  "cell": "CD8_T-cells",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.4996778317363932,
+  "mean_H": 0.41917423658751113,
+  "h_min": 0.838889,
+  "mean_beta": 0.1834843232323233,
+  "frac_extreme": 0.6868686868686869
+ },
+ {
+  "cell": "Eos",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.3420722216140926,
+  "mean_H": 0.28696062391762456,
+  "h_min": 0.838889,
+  "mean_beta": 0.05443433,
+  "frac_extreme": 0.88
+ },
+ {
+  "cell": "Eosino",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4201971290335327,
+  "mean_H": 0.35249874937781117,
+  "h_min": 0.838889,
+  "mean_beta": 0.14014331,
+  "frac_extreme": 0.69
+ },
+ {
+  "cell": "Eosinophils_reinius",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.42960995678203523,
+  "mean_H": 0.36039506703492474,
+  "h_min": 0.838889,
+  "mean_beta": 0.0736819595959596,
+  "frac_extreme": 0.7575757575757576
+ },
+ {
+  "cell": "Gran",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4573509467909723,
+  "mean_H": 0.383666678402532,
+  "h_min": 0.838889,
+  "mean_beta": 0.17404617000000003,
+  "frac_extreme": 0.69
+ },
+ {
+  "cell": "IC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.2417399558972509,
+  "mean_H": 0.2027929898626889,
+  "h_min": 0.838889,
+  "mean_beta": 0.22078130999999995,
+  "frac_extreme": 0.91
+ },
+ {
+  "cell": "Kup",
+  "class": "immune",
+  "n_markers": 98,
+  "A": 0.25625883251766524,
+  "mean_H": 0.21497271575191165,
+  "h_min": 0.838889,
+  "mean_beta": 0.22820060204081635,
+  "frac_extreme": 0.8061224489795918
+ },
+ {
+  "cell": "Leu",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.19352171556232933,
+  "mean_H": 0.1623432384463669,
+  "h_min": 0.838889,
+  "mean_beta": 0.039003449999999995,
+  "frac_extreme": 0.98
+ },
+ {
+  "cell": "Lym",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.17670758715466886,
+  "mean_H": 0.14823805108059301,
+  "h_min": 0.838889,
+  "mean_beta": 0.11331474999999999,
+  "frac_extreme": 0.94
+ },
+ {
+  "cell": "MP",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.12206543449260988,
+  "mean_H": 0.10239935027607101,
+  "h_min": 0.838889,
+  "mean_beta": 0.057256242424242446,
+  "frac_extreme": 0.9797979797979798
+ },
+ {
+  "cell": "Macro",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.15822225833995432,
+  "mean_H": 0.13273091207654594,
+  "h_min": 0.838889,
+  "mean_beta": 0.01975834,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Microglia",
+  "class": "immune",
+  "n_markers": 95,
+  "A": 0.19319623934486135,
+  "mean_H": 0.1620702000277714,
+  "h_min": 0.838889,
+  "mean_beta": 0.13104313684210525,
+  "frac_extreme": 0.9894736842105263
+ },
+ {
+  "cell": "Mono",
+  "class": "immune",
+  "n_markers": 99,
+  "A": 0.4169379836911235,
+  "mean_H": 0.3497646882006629,
+  "h_min": 0.838889,
+  "mean_beta": 0.07217655555555556,
+  "frac_extreme": 0.7777777777777778
+ },
+ {
+  "cell": "Monocytes_EPIC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5803992717174775,
+  "mean_H": 0.486890564651803,
+  "h_min": 0.838889,
+  "mean_beta": 0.12926460999999997,
+  "frac_extreme": 0.47
+ },
+ {
+  "cell": "Mye",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.205168682013421,
+  "mean_H": 0.17211375048555674,
+  "h_min": 0.838889,
+  "mean_beta": 0.07986253,
+  "frac_extreme": 0.95
+ },
+ {
+  "cell": "NK",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5941494535856001,
+  "mean_H": 0.49842544096897046,
+  "h_min": 0.838889,
+  "mean_beta": 0.11532843999999999,
+  "frac_extreme": 0.49
+ },
+ {
+  "cell": "NK-cells_EPIC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.681206609292707,
+  "mean_H": 0.5714567312629497,
+  "h_min": 0.838889,
+  "mean_beta": 0.15987993,
+  "frac_extreme": 0.31
+ },
+ {
+  "cell": "Neu",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5385073534270889,
+  "mean_H": 0.45174789520909714,
+  "h_min": 0.838889,
+  "mean_beta": 0.10691836,
+  "frac_extreme": 0.53
+ },
+ {
+  "cell": "Neutro",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.6763054284866943,
+  "mean_H": 0.5673451845977745,
+  "h_min": 0.838889,
+  "mean_beta": 0.22474092999999995,
+  "frac_extreme": 0.45
+ },
+ {
+  "cell": "Neutrophils_EPIC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5558878005636577,
+  "mean_H": 0.4663281611270462,
+  "h_min": 0.838889,
+  "mean_beta": 0.11609892000000002,
+  "frac_extreme": 0.55
+ },
+ {
+  "cell": "Neutrophils_reinius",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.6365702842863166,
+  "mean_H": 0.5340118092146638,
+  "h_min": 0.838889,
+  "mean_beta": 0.12470393000000002,
+  "frac_extreme": 0.21
+ },
+ {
+  "cell": "PBMC",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4696427716881141,
+  "mean_H": 0.39397815509867035,
+  "h_min": 0.838889,
+  "mean_beta": 0.77673652,
+  "frac_extreme": 0.6
+ },
+ {
+  "cell": "Plasma",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.31959758418058914,
+  "mean_H": 0.26810689779567026,
+  "h_min": 0.838889,
+  "mean_beta": 0.29811119999999997,
+  "frac_extreme": 0.77
+ },
+ {
+  "cell": "Tcell",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.2781416758949233,
+  "mean_H": 0.23332999234981627,
+  "h_min": 0.838889,
+  "mean_beta": 0.21890968000000005,
+  "frac_extreme": 0.81
+ },
+ {
+  "cell": "Treg",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.5701267575471334,
+  "mean_H": 0.4782730655119572,
+  "h_min": 0.838889,
+  "mean_beta": 0.11674689,
+  "frac_extreme": 0.51
+ },
+ {
+  "cell": "dendritic",
+  "class": "immune",
+  "n_markers": 96,
+  "A": 0.5085070187615287,
+  "mean_H": 0.4265809444618401,
+  "h_min": 0.838889,
+  "mean_beta": 0.4210278229166666,
+  "frac_extreme": 0.6979166666666666
+ },
+ {
+  "cell": "eosinophil",
+  "class": "immune",
+  "n_markers": 92,
+  "A": 0.5261315731493216,
+  "mean_H": 0.44136598926766124,
+  "h_min": 0.838889,
+  "mean_beta": 0.3134391739130435,
+  "frac_extreme": 0.5978260869565217
+ },
+ {
+  "cell": "granulocytes",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.6396408388190264,
+  "mean_H": 0.5365876636360543,
+  "h_min": 0.838889,
+  "mean_beta": 0.12551519,
+  "frac_extreme": 0.23
+ },
+ {
+  "cell": "macrophage",
+  "class": "immune",
+  "n_markers": 96,
+  "A": 0.5136117570894919,
+  "mean_H": 0.4308632532930468,
+  "h_min": 0.838889,
+  "mean_beta": 0.3964972395833333,
+  "frac_extreme": 0.6666666666666666
+ },
+ {
+  "cell": "monocyte",
+  "class": "immune",
+  "n_markers": 95,
+  "A": 0.49369262113375534,
+  "mean_H": 0.4141533092502749,
+  "h_min": 0.838889,
+  "mean_beta": 0.4005610105263159,
+  "frac_extreme": 0.6947368421052632
+ },
+ {
+  "cell": "neutrophil",
+  "class": "immune",
+  "n_markers": 96,
+  "A": 0.5343252097753236,
+  "mean_H": 0.44823954090321144,
+  "h_min": 0.838889,
+  "mean_beta": 0.4049035833333334,
+  "frac_extreme": 0.6979166666666666
+ },
+ {
+  "cell": "tcell",
+  "class": "immune",
+  "n_markers": 91,
+  "A": 0.44247988750513473,
+  "mean_H": 0.371191510349295,
+  "h_min": 0.838889,
+  "mean_beta": 0.4851500329670329,
+  "frac_extreme": 0.8351648351648352
+ },
+ {
+  "cell": "whole_blood",
+  "class": "immune",
+  "n_markers": 100,
+  "A": 0.4897541480728599,
+  "mean_H": 0.41084936752269335,
+  "h_min": 0.838889,
+  "mean_beta": 0.7103352,
+  "frac_extreme": 0.58
+ },
+ {
+  "cell": "CM",
+  "class": "terminal",
+  "n_markers": 97,
+  "A": 0.3103287312377106,
+  "mean_H": 0.23982204350050276,
+  "h_min": 0.7728,
+  "mean_beta": 0.039853123711340206,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Cortical_neurons",
+  "class": "terminal",
+  "n_markers": 100,
+  "A": 0.0098750348526929,
+  "mean_H": 0.007631426934161073,
+  "h_min": 0.7728,
+  "mean_beta": 0.00063357,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Epi_upper",
+  "class": "terminal",
+  "n_markers": 100,
+  "A": 0.24693455615199114,
+  "mean_H": 0.19083102499425877,
+  "h_min": 0.7728,
+  "mean_beta": 0.02961452,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Glia",
+  "class": "terminal",
+  "n_markers": 100,
+  "A": 0.0644102220316692,
+  "mean_H": 0.049776219586073964,
+  "h_min": 0.7728,
+  "mean_beta": 0.052650449999999994,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Kera_diff",
+  "class": "terminal",
+  "n_markers": 100,
+  "A": 0.16272917350396696,
+  "mean_H": 0.12575710528386566,
+  "h_min": 0.7728,
+  "mean_beta": 0.0173894,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Left_atrium",
+  "class": "terminal",
+  "n_markers": 100,
+  "A": 1.0801619385249295,
+  "mean_H": 0.8347491460920655,
+  "h_min": 0.7728,
+  "mean_beta": 0.43973881,
+  "frac_extreme": 0.06
+ },
+ {
+  "cell": "NeuMa",
+  "class": "terminal",
+  "n_markers": 99,
+  "A": 0.17183565404004822,
+  "mean_H": 0.13279459344214928,
+  "h_min": 0.7728,
+  "mean_beta": 0.018651727272727268,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "Oligo",
+  "class": "terminal",
+  "n_markers": 94,
+  "A": 0.22564809737107766,
+  "mean_H": 0.17438084964836884,
+  "h_min": 0.7728,
+  "mean_beta": 0.11427851063829787,
+  "frac_extreme": 0.9468085106382979
+ },
+ {
+  "cell": "neuron",
+  "class": "terminal",
+  "n_markers": 100,
+  "A": 0.16598210871845823,
+  "mean_H": 0.12827097361762452,
+  "h_min": 0.7728,
+  "mean_beta": 0.01777894,
+  "frac_extreme": 1.0
+ },
+ {
+  "cell": "stem_pluri",
+  "class": "stem_pluri",
+  "n_markers": 100,
+  "A": 0.3850471374762814,
+  "mean_H": 0.37818020682652936,
+  "h_min": 0.982166,
+  "mean_beta": 0.9237592199999999,
+  "frac_extreme": 0.83
+ }
+]
