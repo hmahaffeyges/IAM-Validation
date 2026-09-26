@@ -154,3 +154,37 @@ Breast read 0.000 in breast tissue. Four causes found and fixed by measurement -
 **Next (author, 2026-09-26): the MATCHED FILTER as a detection stage.** Component separation today weights every locus equally; the healthy-blood residual is a reproducible, structured misfit (PROC-COV-01), which is exactly what a covariance-weighted template filter is built against. Test as a pre-registered detection-limit measurement on constructed spikes (0.5-5 %) against the 48-array healthy null, matched filter vs NNLS, at a fixed false-positive rate. No cohort needed.
 
 **PROC-MF-01 outcome (2026-09-26): NOT COMMISSIONED.** The full-covariance matched filter cannot be estimated from 36 arrays x 1,506 markers and ties NNLS; per-locus inverse-variance weighting (the diagonal control) lowers the detection limit 2-10x on all four cells but detects without estimating (constant -0.03 offset = the structured misfit on the template). **Next: PROC-MF-02** - inverse-variance detection with the null median subtracted and sigma from the null spread, same six bars applied to it. See [`PROC_MF_01_OUTCOME.md`](PROC_MF_01_OUTCOME.md).
+
+## Standing to-do, 2026-09-26 — the author: "I dont want to forget something"
+
+The report and its documents FOLLOW the chain; nothing here is done until it is read on the rendered page.
+
+**A. Detection stage**
+1. **PROC-MF-02** — inverse-variance (diagonal) weighted detection, leave-one-laboratory-out, null-median centred, σ from the null spread; the six MF-01 bars applied to *this* detector. Passes → detection stage ahead of the per-cell A, reporting (f̂, σ, detected yes/no at ≤ 1 FP in 48) per foreign cell.
+
+**B. Report, PDF, SOP — following the deconvolver repair**
+2. HTML Cells tab: tag family members inline in the class-table rows; print a family's A once; show `exclusive_markers` per cell; detection column once MF-02 passes.
+3. Red Flags tab: `NOT_RESOLVABLE_ON_PLATFORM` (informational); a family reported as several cells (must be impossible — flag it); a foreign cell detected above the pre-registered false-positive rate (the shedding flag).
+4. Troubleshooting tab: "cell reads fraction 0 — is it resolvable on this platform?"; "two cells show identical fractions — a resolution family"; "tissue cell found in blood — check detection significance before reading its A".
+5. Safeguards / [`cmb_tools.py`](../chain/cmb_tools.py): `INVVAR_DETECT` (after MF-02) with a per-run check; `ILC_SKY` re-aimed or retired now that the solve block does the separation; a check that the deconvolver's solve block matches the commissioned one.
+6. Operations Manual PDF: rebuild via `build_twopass.sh`, then READ the rendered pages — per-tab figures and `data003.py RULES` must carry the four deconvolver causes and the resolvability rules.
+7. SOP: LESSON-DECON-01 (coverage, filling, twins, mapped input) beside LESSON-SURFACE-01; pre-registration convention that future evidence files are plain names, not paths.
+8. Documentation catch-up ("not yet" on 2026-09-26): SOP, OM, REVIEWER_MANIFEST, COMPONENT_MAP, RUNBOOK, CHAIN_SEQUENCE naming the per-cell identity surface, [`percell_reference_identity_v1_0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_identity_v1_0.json), the Percell_Reference path, the solve block and twin rules. When the deconvolver stops moving.
+
+**C. Chain**
+9. CD4/CD8 — r 0.978, 33 and 8 exclusive loci; needs loci this block lacks (the 2,543-locus immune-subset source, second block).
+10. Second-block solve for the nine finer blood subsets (~9 % of an array).
+11. Twin/family thresholds (0.98 / 0.985 / margin 0.15 / 1 % coverage / 2,000 loci) as a runtime matrix, not constants.
+12. Per-cell A on a family printed once.
+13. Coverage floor on any class-selection rule (PROC-TISSUE-01's lesson).
+14. EPIC platform block — today's block is 450K; GSE292312 and EPIC-Italy need the same measurement on 865k loci.
+
+**D. Procedures waiting on the chain settling**
+15. PROC-BRAIN-01 redo — clean single-provenance CSF run, uncontended machine, repaired deconvolver.
+16. Gastric — six stomach entries, never tested; now two resolution families (diff / undiff).
+17. Breast shedding in real patient blood — needs the detection stage first.
+18. Per-cell bands on the identity surface rebuilt on the 732-array Uppsala calibration.
+
+**E. Housekeeping**
+19. Data bundles in the store: `MethylPhys_data_2026-09-26.zip` (2.57 GB) and `_part2.zip` (3.06 GB) — the author keeps them at `~/MethylPhys_data/`.
+20. `guarded_push.sh` lives at `chain/`, not `kit/` — the run-book should say so.
