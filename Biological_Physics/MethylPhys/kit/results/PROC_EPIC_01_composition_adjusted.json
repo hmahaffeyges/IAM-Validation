@@ -1,0 +1,13 @@
+{
+ "slope_controls_only": 0.20136675571511517,
+ "d_raw": 0.6040356878469278,
+ "d_adjusted": 0.47588623777749245,
+ "p_raw": 0.0008,
+ "p_adjusted": 0.0062,
+ "null_p95_raw": 0.3380355919227064,
+ "null_p95_adjusted": 0.34341221247250125,
+ "pct_effect_from_composition": 21.21554283095778,
+ "n_cases": 40,
+ "n_controls": 163,
+ "n_permutations": 5000
+}

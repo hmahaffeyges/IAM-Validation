@@ -1,0 +1,150 @@
+{
+ "pure": {
+  "immune": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "progenitor": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "stem_adult": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "stem_pluri": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "cycling": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "stromal": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "secretory": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  },
+  "terminal": {
+   "f_self": 1.0,
+   "largest_other": [
+    "-",
+    0.0
+   ],
+   "A_abs": null,
+   "n_cells_scored": 115
+  }
+ },
+ "mixture": {
+  "mix0": {
+   "true": {
+    "immune": 0.9,
+    "progenitor": 0.07,
+    "stem_adult": 0.03
+   },
+   "recovered": {
+    "stem_adult": 0.03,
+    "progenitor": 0.07,
+    "immune": 0.9
+   },
+   "error": {
+    "immune": 0.0,
+    "progenitor": 0.0,
+    "stem_adult": 0.0
+   },
+   "spurious": {}
+  },
+  "mix1": {
+   "true": {
+    "immune": 0.7,
+    "secretory": 0.2,
+    "stromal": 0.1
+   },
+   "recovered": {
+    "stromal": 0.1,
+    "secretory": 0.2,
+    "immune": 0.7
+   },
+   "error": {
+    "immune": 0.0,
+    "secretory": 0.0,
+    "stromal": 0.0
+   },
+   "spurious": {}
+  },
+  "mix2": {
+   "true": {
+    "immune": 0.5,
+    "terminal": 0.3,
+    "cycling": 0.2
+   },
+   "recovered": {
+    "cycling": 0.2,
+    "immune": 0.5,
+    "terminal": 0.3
+   },
+   "error": {
+    "immune": 0.0,
+    "terminal": 0.0,
+    "cycling": 0.0
+   },
+   "spurious": {}
+  },
+  "mix3": {
+   "true": {
+    "secretory": 0.6,
+    "cycling": 0.25,
+    "stromal": 0.15
+   },
+   "recovered": {
+    "stromal": 0.15,
+    "cycling": 0.25,
+    "secretory": 0.6
+   },
+   "error": {
+    "secretory": 0.0,
+    "cycling": 0.0,
+    "stromal": 0.0
+   },
+   "spurious": {}
+  }
+ }
+}
