@@ -84,7 +84,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 37 procedures, 145 files
+## Every sealed procedure — 38 procedures, 146 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -102,6 +102,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-CMB-05** — [`PROC_CMB_05.py`](../kit/PROC_CMB_05.py), [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-05/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-CMB-05/PREREG.md), [`PROC_CMB_05_as_run.py`](../../Record/PROC_data/PROC-CMB-05/PROC_CMB_05_as_run.py), [`proc_cmb_05.json`](../../Record/PROC_data/PROC-CMB-05/proc_cmb_05.json)
 - **PROC-DECON-01** — [`PROC_DECON_01.py`](../kit/PROC_DECON_01.py)
 - **PROC-E2E-01** — [`PROC_E2E_01_OUTCOME.md`](PROC_E2E_01_OUTCOME.md), [`PROC_E2E_01_PREREG.md`](PROC_E2E_01_PREREG.md), [`PROC_E2E_01_run.py`](../kit/PROC_E2E_01_run.py), [`PROC_E2E_01_score.py`](../kit/PROC_E2E_01_score.py), [`PROC_E2E_01_calibration_vs_cache.json`](../kit/results/PROC_E2E_01_calibration_vs_cache.json), [`PROC_E2E_01_geo_metadata.json`](../kit/results/PROC_E2E_01_geo_metadata.json), [`PROC_E2E_01_score.json`](../kit/results/PROC_E2E_01_score.json)
+- **PROC-EPIC-01** — [`PROC_EPIC_01_PREREG.md`](PROC_EPIC_01_PREREG.md)
 - **PROC-FOREIGN-01** — [`PROC_FOREIGN_01_OUTCOME.md`](PROC_FOREIGN_01_OUTCOME.md), [`PROC_FOREIGN_01_PREREG.md`](PROC_FOREIGN_01_PREREG.md), [`PROC_FOREIGN_01.py`](../kit/PROC_FOREIGN_01.py), [`PROC_FOREIGN_01_analyse.py`](../kit/PROC_FOREIGN_01_analyse.py), [`PROC_FOREIGN_01.json`](../kit/results/PROC_FOREIGN_01.json), [`PROC_FOREIGN_01_mixtures.json`](../kit/results/PROC_FOREIGN_01_mixtures.json), [`PROC_FOREIGN_01_threshold_options.json`](../kit/results/PROC_FOREIGN_01_threshold_options.json)
 - **PROC-FORMULA-01** — [`PROC_FORMULA_01.py`](../kit/PROC_FORMULA_01.py)
 - **PROC-HISTORY-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-HISTORY-01/OUTCOME.md)
