@@ -558,7 +558,7 @@ once. The 18 that remain are the per-card explanatory preambles (SUBSTRATE-BY-SU
 LEVERS) which recur once per card with different numbers - the same prose over different data, a judgement call for
 the author rather than a defect.
 
-**Also repaired to make the manual build at all:** [`data003.py`](../manual/data003.py)'s `T` defaulted to a scratch folder
+**Also repaired to make the manual build at all:** [`om_data.py`](../manual/om_data.py)'s `T` defaulted to a scratch folder
 (`trial/CPG_TRIAL_CODE`) that no longer exists. It now defaults to `MethylPhys/chain`, with `_tfile()` resolving a
 name across the `Runtime Matrices` subdirectories, the deconvolver directory and the sibling `atlas/`.
 
@@ -671,8 +671,8 @@ have been delivering:
 
 | file | what it said |
 |---|---|
-| `manual/data003.py` | "The Walther NNLS deconvolver is **the one method in the chain**; NILC ... was tried as a second and cut" - and a table cell reading "BUILT (NILC cut 2026-07-02)" |
-| `manual/build_gape_issue003.py` | "NILC ... **was cut** on 2026-07-02 (commit c1be0c3)" and "a second deconvolver (row 20, built then cut)" |
+| `manual/om_data.py` | "The Walther NNLS deconvolver is **the one method in the chain**; NILC ... was tried as a second and cut" - and a table cell reading "BUILT (NILC cut 2026-07-02)" |
+| `manual/build_operations_manual.py` | "NILC ... **was cut** on 2026-07-02 (commit c1be0c3)" and "a second deconvolver (row 20, built then cut)" |
 | `manual/switching_order.py`, `manual/switching_order.py` | "NILC said so in June and was cut for it" |
 | the retired folder's own name | `NILC_Deconvolver_cut_from_chain_2026-07-02` |
 
@@ -725,7 +725,7 @@ to 90th percentile healthy A range. Counts as rendered: immune 51, cycling 19, s
 terminal 9, stromal 5, adult stem 1, pluripotent stem 1 = **115**, and 106 of the 115 carry a per-entry reference.
 The claim on page 1 is now true.
 
-**PART III - THE COMMISSIONED CHAIN, IN DEPTH** (new module [`part3_indepth.py`](../manual/part3_indepth.py)), four chapters, two of them
+**PART III - THE COMMISSIONED CHAIN, IN DEPTH** (new module [`om_part3.py`](../manual/om_part3.py)), four chapters, two of them
 generated so they cannot drift:
 
 | chapter | source |
@@ -785,8 +785,8 @@ adding components - with n = 1 on whole blood and band_widths_from_line printed 
 years is refused (0.47 mA/yr against a within-laboratory 0.0235 -> ~50 yr, 15.9% within ten years, rho 0.271); and
 the class-level agreement bar of 0.10 on the second opinion.
 
-**The contents are now generated against the rendered document** (`build_twopass.sh`): pass one renders with the
-page column blank, `part3_indepth.collect_toc_pages` locates each chapter in the built PDF, pass two renders the
+**The contents are now generated against the rendered document** (`build_om.sh`): pass one renders with the
+page column blank, `om_part3.collect_toc_pages` locates each chapter in the built PDF, pass two renders the
 numbers. 34 chapters, each by its exact name, grouped front matter / Part I / the eight cards / Part III / record
 and appendices - the eight cards are listed individually, which is what the author asked for. Two defects the
 first run exposed: the contents page matches every probe because it lists every name (excluded by its own
@@ -823,8 +823,8 @@ against sqrt(chi2(0.95|0.99, n)), with **the laboratory's own false-alarm rate p
 0.0984 at p95 across the four). And it says plainly that crossing D95 is a statement about rarity against a
 healthy reference - where about five per cent of healthy donors sit - not a probability of any condition.
 
-**GATE 1 - the single-pass build now refuses to run.** [`build_gape_issue003.py`](../manual/build_gape_issue003.py) exits 2 unless IAM_TWOPASS=1,
-which only `build_twopass.sh` sets, because a single pass renders the contents page with blank page numbers and
+**GATE 1 - the single-pass build now refuses to run.** [`build_operations_manual.py`](../manual/build_operations_manual.py) exits 2 unless IAM_TWOPASS=1,
+which only `build_om.sh` sets, because a single pass renders the contents page with blank page numbers and
 nothing previously stopped that from shipping.
 
 **GATE 2 - the rendered-claim scan is now a release guard.** `kit/claim_scan.py` + `kit/claims.json` check the

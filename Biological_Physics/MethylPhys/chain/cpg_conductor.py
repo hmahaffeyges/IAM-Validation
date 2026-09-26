@@ -379,7 +379,7 @@ def stage_5_mahalanobis(identity_out, cfg=None):
     Components without a band (haematopoietic-progenitor joint; all non-blood classes) are not assessable.
     On whole blood today n = 1: the departure is how many band-widths from the healthy line the immune
     reading sits, and the report says so. Not reportable when the gauge is not (UNSET / UNMAPPED).
-    Keys: both the long names cpg_report_builder reads and the short aliases run_full exposed."""
+    Keys: the long names the report interface (build_methylphys.py) reads and the short aliases run_full exposes."""
     import math
     try:
         from scipy.stats import chi2

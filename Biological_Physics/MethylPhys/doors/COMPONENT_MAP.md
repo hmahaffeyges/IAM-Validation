@@ -56,7 +56,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 
 | component | canonical location | in kit | status |
 |---|---|---|---|
-| Issue 003 build chain (build, data003, gape002_lib, 002 script) | **KIT** `issue003_build/` → **should be committed to REPO** `MethylPhys/manual/` | yes | new |
+| Issue 003 build chain (build, om_data, gape002_lib, 002 script) | **KIT** `issue003_build/` → **should be committed to REPO** `MethylPhys/manual/` | yes | new |
 | Issue 003 PDF | KIT `issue003_build/` | yes | v8 |
 | SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/walther_clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
 | LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `MethylPhys/Record/chain_readme_archive/` | no | canonical |

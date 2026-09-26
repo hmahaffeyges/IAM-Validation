@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
-"""build_gape_issue003.py — MethylPhys CPG OM, the Operations Manual (Edition 003, September 2026).
+"""build_operations_manual.py — MethylPhys CPG OM, the Operations Manual (Edition 003, September 2026).
 
 Composed from: gape002_lib.py (every Issue 002 rendering primitive, card, and section, extracted
-verbatim) + data003.py (every constant loaded from the runtime files at repo HEAD, plus the dated
+verbatim) + om_data.py (every constant loaded from the runtime files at repo HEAD, plus the dated
 runs of 2026-09-19) + the new sections written here.
 
-Run:  CPG_TRIAL=<path to CPG_TRIAL_CODE> python build_gape_issue003.py [out.pdf]
+Run:  CPG_TRIAL=<path to CPG_TRIAL_CODE> python build_operations_manual.py [out.pdf]
 """
 import os as _os, sys as _sys
 if _os.environ.get('IAM_TWOPASS') != '1':
     _sys.stderr.write(
-        'build_gape_issue003.py must be run through build_twopass.sh.\n'
+        'build_operations_manual.py must be run through build_om.sh.\n'
         'A single pass renders the contents page with no page numbers, because they are measured from the\n'
-        'rendered PDF between the two passes. Run:  sh build_twopass.sh <out.pdf>\n'
+        'rendered PDF between the two passes. Run:  sh build_om.sh <out.pdf>\n'
         '(set IAM_TWOPASS=1 only if you deliberately want a draft with a blank contents page.)\n')
     raise SystemExit(2)
 import sys, os
 from reportlab.platypus import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gape002_lib as L
-import data003 as D
+import om_data as D
 from gape002_lib import (Paragraph, Table, Spacer, PageBreak, HRFlowable, KeepTogether,
                          S, P, PH, Pb, Ps, SP, HR, tbl_style, PW, inch, colors, letter,
                          SimpleDocTemplate, sTitle, sSub, sSect, sSect2, sLabel, sBody, sBodySm,
@@ -71,6 +71,10 @@ def status_p(s):
     return Paragraph(f'<font color="{c.hexval()}"><b>{s}</b></font>', L._sTD)
 
 # ═══════════════════════════════════════════════════════════════════════════════
+import subprocess as _sp, datetime as _dt
+_BUILD_COMMIT = _sp.run(['git','rev-parse','--short','HEAD'],capture_output=True,text=True).stdout.strip() or 'uncommitted'
+_BUILD_DATE = _dt.date.today().isoformat()
+
 def cover(story):
     story.append(Paragraph('IAMPerformance', sTitle))
     # the cover subtitle in white so it carries against the dark page, rather than sSub's muted lavender
@@ -87,18 +91,28 @@ def cover(story):
         'Landauer Metrology and the CMB Applied to the Methylome',
         S('cvsub3', fontSize=11.5, textColor=colors.white, fontName='Helvetica', leading=15,
           spaceAfter=2))); story.append(SP(0.02))
-    story.append(Paragraph('Edition 003 (formerly GAPE Edition 003; the edition before it is GAPE Issue 002, whose references point at this document)  ·  measuring how far above the thermal noise quantum each cell class writes and holds its state, against a fixed physical zero', sMut)); story.append(SP(0.06))
+    story.append(Paragraph('Edition 003  ·  measuring how far above the thermal noise quantum each cell class writes and holds its state, against a fixed physical zero', S('cvsub4', fontSize=10, textColor=colors.white, leading=13, spaceAfter=2)))
     story.append(HRFlowable(width='100%', thickness=1, color=LAV, spaceAfter=5))
-    story.append(Paragraph(f'<b>{ISSUE}  ·  {DATE}</b>  ·  The Healthy Range of the Cellular Write Process — '
-        'Eight Architecture Classes, Forty H_min Values, One Atlas of 115 Cell Types, and the First Written '
-        'Specification of the Running Engine', S('cv', fontSize=10.5, textColor=TEXT, leading=15)))
+    story.append(Paragraph(f'<b>{ISSUE}  ·  {DATE}</b>', S('cv', fontSize=10.5, textColor=TEXT, leading=15)))
     story.append(SP(0.08))
     story.append(Paragraph('Heath W. Mahaffey  ·  IAMPerformance  ·  Entiat, Washington', sMut))
-    story.append(Paragraph('Repository: ' + _a('repo', 'github.com/hmahaffeyges/IAM-Validation') + '  ·  the instrument: ' + _a('interface', 'build_methylphys.py') + ', ' + _a('conductor', 'cpg_conductor.py') + '  ·  step order: ' + _a('sequence', 'CHAIN_SEQUENCE.md') + '  ·  procedure: ' + _a('sop', 'the SOP') + '  ·  file list: ' + _a('manifest', 'REVIEWER_MANIFEST.md') + '  ·  engine as of the commit this PDF was built from (see git log; the chain has been rebuilt through 2026-09-21)', sMut))
-    story.append(Paragraph('Prepared with Claude Science, 2026-09-19. <b>Release candidate 1.</b> Every number is loaded from the runtime '
+    story.append(Paragraph('Repository: ' + _a('repo', 'github.com/hmahaffeyges/IAM-Validation') + '  ·  the instrument: ' + _a('interface', 'build_methylphys.py') + ', ' + _a('conductor', 'cpg_conductor.py') + '  ·  step order: ' + _a('sequence', 'CHAIN_SEQUENCE.md') + '  ·  procedure: ' + _a('sop', 'the SOP') + '  ·  file list: ' + _a('manifest', 'REVIEWER_MANIFEST.md') + '  ·  built from commit ' + _BUILD_COMMIT + ' on ' + _BUILD_DATE + '', sMut))
+    story.append(Paragraph('Every number is loaded from the runtime '
         'files or from a dated run named in the text. Rows marked OPEN are unresolved and are printed as such.', sMut))
     story.append(SP(0.12))
-    story.append(Paragraph("WHAT'S NEW IN EDITION 003", sSect))
+    story.append(Paragraph('WHAT THIS MANUAL IS NOT', sLabel))
+    story.append(Paragraph('Not clinical validation. Not a diagnostic. Nothing here should inform patient care. The instrument is at a research stage; '
+        'any clinical use requires prospective validation, regulatory review and qualified clinical oversight. Public retrospective cohorts only; '
+        'sample sizes in the new runs are small and are printed beside every number.', sBodySm))
+
+def sec_edition_record(story):
+    """Back matter (author, 2026-09-26: 'this needs to be removed from the cover ... if anything it should be in the back
+    of the book'). What changed between Issue 002 and this edition. It is a record, not the manual; the manual is what
+    the chain IS, and the generated engine map (s11) is the statement of what the chain contains - the hand-typed
+    'coverage by stage' block that used to follow this text is gone for that reason."""
+    story.append(PageBreak())
+    story.append(Paragraph('EDITION RECORD - WHAT CHANGED FROM ISSUE 002 TO EDITION 003', sSect))
+    story.append(Paragraph('A record of the changes this edition made, kept at the back. The state of the chain is stated in s11 (generated from the code) and in CHAIN_COMMISSIONING.md, not here.', sBodySm))
     news = [
      ("The claim, restated.", "This is not a detection tool and not a treatment. Cells compute and write to a two-dimensional "
       "surface as a semiconductor or a quantum processor does; the physics of that write process has a healthy operating range "
@@ -128,27 +142,12 @@ def cover(story):
     for h, b in news:
         story.append(Paragraph(f'<b>{h}</b> {b}', sBodySm))
     story.append(SP(0.1)); story.append(HR())
-    story.append(Paragraph('COVERAGE OF THE CHAIN, BY STAGE (as of this RC)', sLabel))
-    story.append(Paragraph('Edition 003 is the one document for this work; there is no "next issue". Every stage of the chain at HEAD is described in the switching order (Part II) '
-        'and carries a status in CHAIN_COMMISSIONING.md. As of this RC: <b>commissioned</b> - Stage 1 calibration (PROC-CAL-01), Stage 1s scale map (PHASE 1c), Stage 2 deconvolution '
-        '(PROC-DECON-01, PROC-ANCHOR-01, N7), Stage 0 intake with its intensity hand-off (PROC-STAGE0-02: all ten steps run (nine checks and the decision), the sex call agrees with the published labels on 729 of 731 arrays, and a QUARANTINE stops the chain before calibration; the bisulfite threshold is reported, not applied, until PROC-STAGE0-04). <b>Run and recorded with open defects</b> - Stage 2b lineage splitter '
-        '(PROC-SEP-03), Stage B class gauge (identity-loci statistic emitted alongside the wired marker-union gauge; band gated on the lab zero), Stage 4.6 patient CMB (four-skies plate; '
-        'assessability gate to fix), Stage 5 Mahalanobis (driven by the stem_adult false alarm; key names reconciled), Stage 6 cellular age (pinned at the curve floor; not reportable), '
-        'Stage 7 tiers, Stage 8 disease matching (separation surface reproduces the sealed anchor), Stage 9 report. <b>Built, not re-run this cycle</b> - Stage 4.5 bidirectional. '
-        '<b>Not wired by decision</b> - Stage 3 foreground (SOP s104). Row N (nulls and simulation) is verified and runs on every release (RUNBOOK s11).', sBodySm))
-    story.append(Paragraph('<b>Described only by reference in this RC:</b> the disease-signature matrix v1.13 (read in s3 for the myeloid rows; the full matrix is a repo file), '
-        'the crown-jewel disease wall, the directional AD detector (Stage 4.5, VAL-050/051 - reproduce from the kit is an open commissioning row), and the report builders '
-        '(Stage 9 - the report is commissioned only when Stages 5 and 6 are). These are open rows, not deferred chapters.', sBodySm))
-    story.append(SP(0.06))
-    story.append(Paragraph('WHAT THIS PAPER IS NOT', sLabel))
-    story.append(Paragraph('Not clinical validation. Not a diagnostic. Nothing here should inform patient care. The instrument is at a research stage; '
-        'any clinical use requires prospective validation, regulatory review and qualified clinical oversight. Public retrospective cohorts only; '
-        'sample sizes in the new runs are small and are printed beside every number.', sBodySm))
+
 
 def toc(story):
-    # 2026-09-22: generated against the rendered document (part3_indepth.render_toc) - exact chapter names,
+    # 2026-09-22: generated against the rendered document (om_part3.render_toc) - exact chapter names,
     # grouped, with the page each one starts on, filled in by the second build pass.
-    import part3_indepth as P3
+    import om_part3 as P3
     story.append(PageBreak())
     P3.render_toc(story, L, D, tbl, SP, PageBreak, Paragraph)
 
@@ -669,20 +668,15 @@ def sec10_falsification(story):
 
 
 def sec11_engine_map(story):
-    opener(story, 'SECTION 11', 'ENGINE MAP — WHAT THE RUNNING CHAIN CONTAINS, AND ITS COMMISSIONING STATUS',
-        'The flowchart at HEAD (flowchart_vKISS.html) lists the twelve stages below (0 through 9, with 4.5 and 4.6 as separate wired stages), plus orchestration and test data. Issue 002 had no chain at all — it was class cards and physics — so every stage is new territory for 003, '
-        'and this issue documents only the stages that were executed with the canonical files during its preparation. The right-hand column says so, stage by stage. '
-        'A reader who needs Stage 4.5, 5, 6, 8 or 9 will not find them here; they are the next issue\'s work, and the files that implement them are named so they can be read now.')
-    rows=[("Stage","Files at HEAD","Status","What it does (from source)","In Edition 003?")]
-    for st,f,status,what,cov in D.ENGINE_MAP:
-        rows.append((Pb(st),Ps(f),P(status),Ps(what),Pb(cov) if cov.startswith("YES") else P(cov)))
-    story.append(tbl(rows,[0.14,0.22,0.12,0.34,0.18],fs=6.8))
-    story.append(SP(0.08)); story.append(Paragraph('Findings from the 2026-09 review that are recorded here only as reconciliation rows, not yet as sections', sSect2))
-    story.append(Paragraph('The origin-gate fail-open in disease_matching.py (v1 conductor retired 2026-09-25) (F3); two stale strings describing the retired gauge, one on the patient report (F4); the gauge\'s missing sign (F5); '
-        'two inequivalent A-score definitions (F6); the immune H_min revision history (F7); the seminoma value carried as both 0.67 and 0.755 in different files; the breast pre-diagnostic result '
-        '(n = 47 cases / 601 controls across GSE51032 + GSE51057; matched-filter ρ = +0.058, CI [+0.001, +0.114]) and its unrun plate-position null; the colorectal cohort test CPG-NEW-001 in full '
-        '(its P1/P4 failures are in §10, its method and N-random/N-comp results are not here); the two-observables test on GSE48684/GSE139404; and the disease-signature matrix v1.13 with its 81 rows. '
-        'Each is in the project record (CPG_first_read.md, CPG_LEDGER.md, CPG_breast_CRC_learned.md, OUTCOME_CPG-NEW-001.md) and none has been re-verified for this issue.', sBodySm))
+    opener(story, 'SECTION 11', 'ENGINE MAP - WHAT THE RUNNING CHAIN CONTAINS, AND ITS COMMISSIONING STATUS',
+        'This table is generated at build time from cpg_conductor.run_full - every stage it calls, in call order - with the runtime files '
+        'each stage reads, its commissioning status from CHAIN_COMMISSIONING.md, its own docstring, and the SOP steps it implements from '
+        'chain_sequence.json. It is not typed. A stage that is not in this table is not in the chain; a file that is not in this table is not '
+        'read by a stage.')
+    rows=[("Stage (call order)","Runtime files it reads","Status","What it does (its docstring)","SOP steps")]
+    for st,f,status,what,sop in D.ENGINE_MAP:
+        rows.append((Pb(st),Ps(f),P(status),Ps(what),Ps(sop)))
+    story.append(tbl(rows,[0.17,0.22,0.13,0.33,0.15],fs=6.4))
 
 # ═══════════════════════════════════════════════════════════════════════════════
 def sec5_physics(story):
@@ -840,13 +834,8 @@ def secVII_sprint(story):
         story.append(Paragraph(para.replace("**","").replace("`",""), sBodySm)); story.append(SP(0.05))
 
 def secVIII_part2(story):
-    story.append(PageBreak())
-    story.append(Paragraph('PART II — THE CHAIN, STAGE BY STAGE (FORTHCOMING)', sSect))
-    story.append(Paragraph('Edition 003 documents the engine and its evidence. Part II, written once the chain carries its seal, will teach it: one chapter per stage, each giving the purpose, the cosmology it borrows, '
-        'what was tried first and why it failed, the runtime files it reads, the procedure that confirms it, and what a researcher trained on bootstrapping needs to know before touching MCMC output or a Mahalanobis distance. '
-        'The outline as it stands:', sBodySm))
-    rows=[("chapter","content")]+[tuple(r) for r in D.PART_II_OUTLINE]
-    story.append(tbl(rows,[0.30,0.70], fs=6.4))
+    """Removed 2026-09-26: a 'FORTHCOMING' placeholder is a promise, not a document. Part III covers the chain in depth."""
+    return
 
 def secIX_future(story):
     story.append(PageBreak())
@@ -1111,7 +1100,7 @@ def build(out_path):
     # L.render_cascade_section(story)
     for card in L.CARDS:
         L.render_card(story, card); card_addendum(story, card['key'])
-    import part3_indepth as P3
+    import om_part3 as P3
     P3.render(story, L, tbl, SP, PageBreak, Paragraph)   # Part III - chain, atlas, toolkit, refusals
     P3.render_engine_spec(story, L, tbl, SP, PageBreak, Paragraph)   # III.5 - the formulas, from the runtime
     P3.render_screens(story, L, tbl, SP, PageBreak, Paragraph)     # III.6 - the screens
@@ -1131,6 +1120,7 @@ def build(out_path):
     sec_report_tabs(story)   # the operating reference: the report tab by tab, read off a real run
     # back matter from 002
     secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
+    sec_edition_record(story)
     L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)

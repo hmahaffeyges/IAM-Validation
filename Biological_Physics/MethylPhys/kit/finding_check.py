@@ -7,8 +7,8 @@ renders in the PDF outside a sentence containing WITHDRAWN/CORRECTED/SUPERSEDED/
 import sys, os, re, argparse, glob
 HERE = os.path.dirname(os.path.abspath(__file__)); BP = os.path.abspath(os.path.join(HERE, "..", ".."))
 I3 = os.path.join(BP, "MethylPhys", "Issue003")
-REG = {"RECON": ("data003.py", r"RECON\s*(\+=|=)"), "FALSIFICATION": ("data003.py", r"FALSIFICATION\s*(\+=|=)"), "COSMO": ("data003.py", r"COSMO_EVIDENCE"),
-       "COMMISSIONING": (os.path.join(BP, "MethylPhys", "CHAIN_COMMISSIONING.md"), None), "SWITCHING": ("../manual/switching_order.py", None), "FUTURE": ("data003.py", r"FUTURE_GOALS")}
+REG = {"RECON": ("om_data.py", r"RECON\s*(\+=|=)"), "FALSIFICATION": ("om_data.py", r"FALSIFICATION\s*(\+=|=)"), "COSMO": ("om_data.py", r"COSMO_EVIDENCE"),
+       "COMMISSIONING": (os.path.join(BP, "MethylPhys", "CHAIN_COMMISSIONING.md"), None), "SWITCHING": ("../manual/switching_order.py", None), "FUTURE": ("om_data.py", r"FUTURE_GOALS")}
 DOORS = [os.path.join(BP, "HANDOFF.md"), os.path.join(BP, "README.md"), os.path.join(BP, "MethylPhys/chain", "README.md"), os.path.join(BP, "Record", "README.md"),
          os.path.join(BP, "MethylPhys/atlas", "README.md"), os.path.join(HERE, "RUNBOOK.md"), os.path.join(BP, "MethylPhys/chain", "CPG_Lessons_Learned_2026-06-29.md"),
          os.path.join(BP, "MethylPhys/chain", "Record/chain_readme_archive", "README_FOR_FUTURE_AI.md")] + glob.glob(os.path.join(BP, "MethylPhys", "SOP", "CPG_Chain_of_Custody_SOP_v2*.md"))
@@ -50,7 +50,7 @@ def main():
 # ---- detection-language scan (author's rule 2026-09-21) ----
 def detection_scan(root):
     import re, os
-    files=["MethylPhys/manual/data003.py","MethylPhys/manual/build_gape_issue003.py","HANDOFF.md","README.md","MethylPhys/papers/Landauer_Metrology_of_the_Methylome.tex"]
+    files=["MethylPhys/manual/om_data.py","MethylPhys/manual/build_operations_manual.py","HANDOFF.md","README.md","MethylPhys/papers/Landauer_Metrology_of_the_Methylome.tex"]
     pat=re.compile(r"[^.\n]{0,100}\b(cannot (?:resolve|detect|tell|distinguish|determine|name|read)|no [a-z-]* ?claim is supported|only (?:breast|immune) (?:has|carries)|never (?:carries|shows|contains)|\bdetects\b|validated (?:for|on|in) (?!patient care))\b[^.\n]{0,100}",re.I)
     ok=re.compile(r"not yet tested|PROC-[A-Z]+-\d+|prior art|MethylIT|Sanchez|Planck|cohort comparison|cohort-only|cohort-relative|Cohort validation|A cohort cannot|by construction|retired|withdrawn|superseded|Convergence diagnostics|C1 |DETECTION_RULE|no definitive statement|run on that question|calibrated on cohorts|the absolute reading is not yet|sealed procedure that ran the chain",re.I)
     hits=[]

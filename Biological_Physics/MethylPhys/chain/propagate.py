@@ -37,7 +37,7 @@ ROOT = subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"],
 
 DOORS = os.path.join(MP, "doors")
 SOP = os.path.join(MP, "sop", "MethylPhys_CPG_SOP.md")
-MANUAL_DATA = os.path.join(MP, "manual", "data003.py")
+MANUAL_DATA = os.path.join(MP, "manual", "om_data.py")
 REGISTER = os.path.join(DOORS, "CHAIN_COMMISSIONING.md")
 RUNBOOK = os.path.join(DOORS, "RUNBOOK.md")
 MANIFEST = os.path.join(DOORS, "REVIEWER_MANIFEST.md")

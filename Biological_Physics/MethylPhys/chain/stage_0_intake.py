@@ -1,6 +1,6 @@
 """Stage 0 — Sample intake (L1).
 
-Built one step at a time against CPG_Chain_of_Custody_SOP_v1_3.md.
+Built one step at a time against MethylPhys_CPG_SOP.md.
 Implemented so far:
   Step 0.1 (SOP §11) — IDAT file arrival on server.
   Step 0.2 (SOP §12) — Sample manifest creation (patient_manifest.json + covariates).

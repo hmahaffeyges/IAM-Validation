@@ -9,7 +9,7 @@ This folder is the researcher-facing entry to the cellular track of the Informat
 
 | | file | what it is |
 |---|---|---|
-| **Report** | [`MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf`](MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf) | GAPE Issue 003 (September 2026, 263 pp). Supersedes Issue 002 (April 2026, pre-Atlas, in `Papers/`). Regenerate: `python MethylPhys/manual/build_gape_issue003.py out.pdf (historical path)` with `CPG_TRIAL` pointing at the runtime JSONs |
+| **Report** | [`MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf`](MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf) | GAPE Issue 003 (September 2026, 263 pp). Supersedes Issue 002 (April 2026, pre-Atlas, in `Papers/`). Regenerate: `python MethylPhys/manual/build_operations_manual.py out.pdf (historical path)` with `CPG_TRIAL` pointing at the runtime JSONs |
 | **Verify it yourself** | [`MethylPhys/doors/RUNBOOK.md`](MethylPhys/doors/RUNBOOK.md) → [`RUNBOOK.md`](RUNBOOK.md) | five scripts, each printing input / operation / expected / observed / verdict. Every link of the chain from raw IDAT to the sealed anchors reproduces on a machine that had never seen the project |
 | **Where every component lives** | [`MethylPhys/doors/COMPONENT_MAP.md`](MethylPhys/doors/COMPONENT_MAP.md) | repo vs. large local inputs vs. vault IP |
 | **Operating procedure** | [`SOP/MethylPhys_CPG_SOP.md`](../sop/MethylPhys_CPG_SOP.md) | the chain stage by stage. **Read the SUPERSESSION LEDGER at the top first** — it maps every section superseded by the July 2026 commits to the file that is now authoritative. §105–§107 carry the scoring rulings and the July wiring |

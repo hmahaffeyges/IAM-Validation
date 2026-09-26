@@ -379,8 +379,7 @@ TOC_PAGES_FILE = os.path.join(HERE, "toc_pages.json")
 
 def toc_entries(L, D):
     """(group, exact heading as it renders, probe text) - the probe is what is searched for in the built PDF."""
-    e = [("Front matter", "What's new in this issue", "WHAT'S NEW"),
-         ("Front matter", "What this paper is not", "WHAT THIS PAPER IS NOT"),
+    e = [("Front matter", "What this manual is not", "WHAT THIS MANUAL IS NOT"),
          ("Front matter", "What this document claims, and what it does not", "WHAT THIS DOCUMENT CLAIMS, AND WHAT IT DOES NOT"),
          ("Front matter", "Prior art - the door into the conversation", "PRIOR ART"),
          ("Part I - the instrument", "s1 Reconciliation: Issue 002 to repository HEAD", "RECONCILIATION"),
@@ -405,6 +404,7 @@ def toc_entries(L, D):
           ("Part III - the chain in depth", "III.10 The files of the chain, by role", "The files of the chain, by role"),
           ("Part III - the chain in depth", "III.11 Running it on your own sample", "Running it on your own sample"),
           ("Record and appendices", "s7 Substrate characterisation: the substrate x class grid", "SUBSTRATE CHARACTERIZATION"),
+          ("Record and appendices", "Edition record - what changed from Issue 002", "EDITION RECORD - WHAT CHANGED"),
           ("Record and appendices", "s8 Procedures", "SECTION 8 PROCEDURES"),
           ("Record and appendices", "s9 Operating rules", "OPERATING RULES"),
           ("Record and appendices", "s10 Falsification record", "FALSIFICATION RECORD"),

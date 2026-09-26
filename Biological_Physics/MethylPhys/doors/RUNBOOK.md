@@ -113,11 +113,11 @@ Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mec
 
 ```
 cd issue003_build
-CPG_TRIAL=../runtime python build_gape_issue003.py MethylPhys_CPG_Operations_Manual.pdf
+CPG_TRIAL=../runtime python build_operations_manual.py MethylPhys_CPG_Operations_Manual.pdf
 ```
-[`data003.py`](../manual/data003.py) holds every number printed in the document; change a value there and rebuild. [`gape002_lib.py`](../manual/gape002_lib.py) is the Issue 002
+[`om_data.py`](../manual/om_data.py) holds every number printed in the document; change a value there and rebuild. [`gape002_lib.py`](../manual/gape002_lib.py) is the Issue 002
 script with its `build()` cut into page functions — every 002 primitive, card and section reused verbatim.
-Note: `data003.py` reads `handoff/*.json` relative to its parent for the live-run tables; in this kit those live in `results/` —
+Note: `om_data.py` reads `handoff/*.json` relative to its parent for the live-run tables; in this kit those live in `results/` —
 set `CPG_HANDOFF=../results` or copy them.
 
 ---
@@ -161,7 +161,7 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 
 ## 10. RULE — the cosmology-evidence ledger (added 2026-09-19)
 
-Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `MethylPhys/manual/data003.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
+Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `MethylPhys/manual/om_data.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
 
 ## 11. RULE — a safeguard that can be switched off when it disagrees is not a safeguard (added 2026-09-19)
 
@@ -197,8 +197,8 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 | step | do | where | check |
 |---|---|---|---|
 | 1 | **Seal the record.** OUTCOME.md with the sealed PREREG it answers, sha256 at the foot. Post-seal changes are labelled ADDENDUM/CORRECTION, never edits. | `Record/VAL_PostAtlas/<ID>/` | file exists, checksum line present |
-| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep `MethylPhys/manual/build_gape_issue003.py`, `MethylPhys/manual/data003.py`, `SOP/*.md`, `MethylPhys/kit/*.md`, [`HANDOFF.md`](HANDOFF.md). Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
-| 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | [`data003.py`](../manual/data003.py), [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md), [`switching_order.py`](../manual/switching_order.py) | the ID appears in each register the finding touches |
+| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep `MethylPhys/manual/build_operations_manual.py`, `MethylPhys/manual/om_data.py`, `SOP/*.md`, `MethylPhys/kit/*.md`, [`HANDOFF.md`](HANDOFF.md). Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
+| 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | [`om_data.py`](../manual/om_data.py), [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md), [`switching_order.py`](../manual/switching_order.py) | the ID appears in each register the finding touches |
 | 4 | **Close it in code** if it is a lesson. A label, a guard, a refusal to report (`scale=UNMAPPED → reportable=False` is the model). A lesson that lives only in prose is re-learned. | `MethylPhys/chain/` | the guard has a test in the kit |
 | 5 | **Teach it.** ONE canonical paragraph, identical text, in every door a reader opens first: HANDOFF.md, root/Engine/Testing/Atlas READMEs, SOP (new §), RUNBOOK (new § or pre-flight), CPG_Lessons_Learned, README_FOR_FUTURE_AI, and the module docstring it bites. | the door list | the ID appears in every door |
 | 6 | **Rebuild and READ.** Page 1, page 2, §11 (coverage), and every touched section — by eye. Assertions catch strings; only reading catches a stale sentence that uses new words. | PDF | page count, ID rendered, retired phrases absent, visual check of touched pages |

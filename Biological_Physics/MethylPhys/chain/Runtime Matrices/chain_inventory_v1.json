@@ -356,11 +356,11 @@
    "sha256_12": "ffe9a0903a61"
   },
   {
-   "file": "build_gape_issue003.py",
-   "path": "Biological_Physics/MethylPhys/manual/build_gape_issue003.py",
+   "file": "build_operations_manual.py",
+   "path": "Biological_Physics/MethylPhys/manual/build_operations_manual.py",
    "role": "interface",
    "stage": "",
-   "description": "builds the operations manual; run through build_twopass.sh so the contents page carries measured page numbers",
+   "description": "builds the operations manual; run through build_om.sh so the contents page carries measured page numbers",
    "bytes": 125827,
    "sha256_12": "3c5ba08aa2ca"
   },
@@ -419,8 +419,8 @@
    "sha256_12": "60fbbe590b40"
   },
   {
-   "file": "data003.py",
-   "path": "Biological_Physics/MethylPhys/manual/data003.py",
+   "file": "om_data.py",
+   "path": "Biological_Physics/MethylPhys/manual/om_data.py",
    "role": "interface",
    "stage": "",
    "description": "the manual's data module: every constant, table and section text it renders",
@@ -500,8 +500,8 @@
    "sha256_12": "8402a106af41"
   },
   {
-   "file": "part3_indepth.py",
-   "path": "Biological_Physics/MethylPhys/manual/part3_indepth.py",
+   "file": "om_part3.py",
+   "path": "Biological_Physics/MethylPhys/manual/om_part3.py",
    "role": "interface",
    "stage": "",
    "description": "the manual's Part III sections",

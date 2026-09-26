@@ -4891,7 +4891,7 @@ def render_card(story, card):
     # ── Section 1b (Issue 003): THE ATLAS CELL TYPES IN THIS CLASS ────────────
     if EMIT_CARD_CELL_ROSTER:
         try:
-            import part3_indepth as _P3
+            import om_part3 as _P3
             _rows = _P3.cell_roster_rows(card['key'])
         except Exception:
             _rows = []

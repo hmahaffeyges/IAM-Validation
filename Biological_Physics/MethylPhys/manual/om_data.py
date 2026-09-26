@@ -1,5 +1,5 @@
 import os
-"""data003.py — every number Edition 003 prints, loaded from the runtime files or from
+"""om_data.py — every number Edition 003 prints, loaded from the runtime files or from
 a dated, sourced run. Nothing here is typed from memory. Each block names its source.
 
 Runtime files: CPG_TRIAL_CODE.zip (user-supplied 2026-09-19) == repo HEAD 66f37fe for every
@@ -266,22 +266,76 @@ MIX_T8_R = (+0.725, 0.166)
 # ENGINE MAP — every stage of the running chain (flowchart_vKISS + CHANGELOG + file docstrings at HEAD)
 # and whether THIS ISSUE covers it. Written so the reader can see what is not here.
 # ═══════════════════════════════════════════════════════════════════════════════
-ENGINE_MAP = [  # stage, files, status at HEAD, what it does (from source), covered in Edition 003?
- ("Stage 0 — Intake", "stage_0_intake.py, cpg_intake_form.html, questionnaire.json", "BUILT", "patient folder, questionnaire, substrate declaration", "NO"),
- ("Stage 1 — Calibration", "stage_1_idat_calibration.py, stage_1_calibration.py, idat_parse.py, idat_decoder_pure.py", "BUILT", "raw IDAT pair -> noob-normalised beta (methylprep 1.7.1; pure-python IDAT decoder shipped)", "PROC-CAL-01 written, NOT RUN"),
- ("Stage 2 — Deconvolution", "Walther_iam_deconvolver/walther_iam_deconvolver.py, MethylPhys/atlas/*", "BUILT (NILC reinstated 2026-09-22 as the class-level second opinion)", "NNLS class + cell fractions; composition/presence; gates no call", "YES — §2.4, §3.2, PROC-DECON-01, PROC-PLASMA-MIX-01"),
- ("Stage 3 — Foreground subtraction", "—", "NOT BUILT (flowchart)", "age / sex / smoking foregrounds; sex handled instead by chrX marker removal 2026-06-11; age by the reference band", "YES as a RECON row (F1); nothing to run"),
- ("Stage 4 — A-score gauge", "cpg_gauge_engine.py, Runtime Matrices/A_Scoring_Module/*, test_a_score_canonical.py", "BUILT", "H(beta_mean)/H_min over identity loci; placement vs age band; severity ladder; brightness CI", "YES — §3; brightness CI NOT described"),
- ("Stage 4.5 — Bidirectional decomposition", "Runtime Matrices/Directional Panel/bidirectional_decomposition.py, directional_panels_v1_0.json", "BUILT (wired 2026-06-27)", "composition-independent directional composite; AD detector (sealed VAL-051 Rule A, 7-CpG immune panel); gate composite > 0.40; AIBL-trained, does not transfer to GIFT", "NO"),
- ("Stage 4.6 — Patient CMB", "cpg_patient_cmb.py, Runtime Matrices/cpg healpix mapping/*", "BUILT (2026-06-29)", "per-class departure z=(beta-mu)/sd_class on a HEALPix sky; absent-tissue panels self-masked", "NO"),
- ("Stage 5 — Second chain", "stage_5_second_chain.py, Mahalanobis_healthy_reference/*, Literature_anchors_Report building/literature_anchors.json", "BUILT", "fires only on a flag; Mahalanobis adjudicator Option A (age-matched class gauge, presence gate >=3% AND outside [0.95,1.04)); RUN-everything residual matched-filter sweep (breast + immune-alarm maps; AD removed); literature anchors", "NO — only the 3% floor is mentioned (RECON D2)"),
- ("Stage 6 — Cellular age", "iam_cellular_age_scoring.py (in CPG_TRIAL_CODE; NOT in repo engine)", "BUILT 2026-06-30, calibration pending", "cellular age from class A vs age_reference_matrix", "NO — and the file is not in the repository (RECON F2)"),
- ("Stage 7 — Tier", "Runtime Matrices/Tier_breakpoints/tier_breakpoints.json", "BUILT (edge 1.04->1.01, 2026-07-03)", "continuous A -> customer tiers", "YES — §3.1, RECON T1-T3"),
- ("Stage 8 — Disease matching", "Disease Matrix/disease_cell_signature_matrix_v1_13.csv (81 rows, 49 VAL-anchored), disease_origin_cells.json, iamatlas_115_to_matrix_v0_2_mapping.json, Collinearity_Groups/*", "BUILT", "Route B directional concordance (weighted matcher over SIGNAL cells |d|>=0.20; STRONG needs dc>=0.70, coverage>=0.40, >=3 cells); Mode 2 cell-of-origin presence; Mode 3 systemic-stress wellness read (never a disease call); specificity gate (NLR axis = NON_SPECIFIC_GENERIC). Patient-match loop verified on 381 breast + 142 colon (VAL-093)", "NO"),
- ("Stage 9 — Report", "cpg_report_builder.py, cpg_report_builder_v2.py, build_dashboard_v1.py, cpg_gauge.py (Appendix A1 gauge), Record/crown_jewel_and_patient_strawman/*", "BUILT", "clinician report; patient straw man on the eight-class grid; crown-jewel reference wall; dashboard", "NO"),
- ("Orchestration", "cpg_conductor.py, run_sample.py, run_batch.py, disease_matching.py (v1 conductor retired 2026-09-25), preflight.py, bootstrap.sh", "BOTH present", "conductor = Stage A pure functions; disease_matching = the full wired chain the report builders still call", "PARTIAL — conductor's presence rule only. disease_matching.py (v1 conductor retired 2026-09-25) origin-gate fail-open (bare except disables specificity rule) NOT in this issue"),
- ("Test data", "TEST_DATA/TEST_DATA_MANIFEST.md, harness/*, N7", "present", "11 public IDATs with expected outputs; synthetic harness; N7 chain-integrity", "YES — §2.4, PROC-DECON-01"),
-]
+def _engine_map_from_chain():
+    """The engine map is GENERATED from the running chain at build time (2026-09-26), never typed: the author found
+    the typed table describing a strawman, a dashboard and cpg_report_builder_v2.py - the retired v1 line - as
+    'Stage 9'. Rows: every stage_* function cpg_conductor.run_full calls, in call order, with the runtime files its
+    body reads (from _find(...) literals), its SOP steps (chain_sequence.json), and its commissioning status
+    (CHAIN_COMMISSIONING.md, matched by the stage name or its procedure id in the row text)."""
+    import re as _re, os as _os, json as _json
+    here = _os.path.dirname(_os.path.abspath(__file__)); ch = _os.path.join(_os.path.dirname(here), "chain")
+    src = open(_os.path.join(ch, "cpg_conductor.py"), encoding="utf-8").read()
+    rf = src[src.index("def run_full("):]
+    rf = rf[:rf.index("\ndef ", 10)] if "\ndef " in rf[10:] else rf
+    calls = [m.group(1) for m in _re.finditer(r"\b(stage_[a-z0-9_]+)\(", rf)]
+    # run_sample.py runs intake, the QC hand-off and calibration BEFORE run_full; they are stages of the chain too
+    try:
+        rs = open(_os.path.join(ch, "MethylPhys_Interface", "run_sample.py"), encoding="utf-8").read()
+        pre = [m.group(1) for m in _re.finditer(r"\b(stage_[a-z0-9_]+)\b", rs) if m.group(1) not in calls]
+        pre_u = []; [pre_u.append(c) for c in pre if c not in pre_u]
+        calls = pre_u + calls
+    except Exception:
+        pass
+    seen = []; [seen.append(c) for c in calls if c not in seen]
+    bodies = {m.group(1): m for m in _re.finditer(r"\ndef (stage_[a-z0-9_]+)\(", src)}
+    def body(name):
+        m = bodies.get(name)
+        if not m:
+            mp = _os.path.join(ch, name + ".py")
+            return open(mp, encoding="utf-8").read()[:6000] if _os.path.exists(mp) else ""
+        rest = src[m.end():]; nxt = rest.find("\ndef "); return rest[:nxt] if nxt > 0 else rest
+    def docline(name):
+        b = body(name); d = _re.search(r'"""(.*?)"""', b, _re.S)
+        return _re.sub(r"\s+", " ", d.group(1)).strip()[:220] if d else ""
+    def files(name):
+        b = body(name)
+        f = sorted(set(_re.findall(r"_find\([\"']([^\"']+)[\"']\)", b)) | set(_re.findall(r"_load_module\([\"']\w+[\"'],\s*_find\([\"']([^\"']+)", b)))
+        return ", ".join(f) if f else "-"
+    try:
+        seq = _json.load(open(_os.path.join(ch, "chain_sequence.json")))
+        steps = {}
+        for e in seq.get("live_path", []):
+            steps.setdefault(_os.path.splitext(_os.path.basename(e.get("where", "")))[0], []).append(e.get("implements", ""))
+    except Exception:
+        steps = {}
+    try:
+        cc = open(_os.path.join(_os.path.dirname(here), "doors", "CHAIN_COMMISSIONING.md"), encoding="utf-8").read()
+        rows_cc = [l for l in cc.split("\n") if l.startswith("|") and "**" in l]
+    except Exception:
+        rows_cc = []
+    def status(name):
+        # EXACT function name, or a procedure id the stage's OWN docstring/comments cite (PROC-XXX-NN). A loose match
+        # by row letter paired stage_b_identity with register row B-11 (2026-09-26) - a wrong sentence in the one
+        # section that exists to prevent wrong sentences - so nothing looser than these two is used.
+        hits = [l for l in rows_cc if _re.search(r"\b" + _re.escape(name) + r"\b", l)]
+        via = "function"
+        if not hits:
+            procs = sorted(set(_re.findall(r"PROC-[A-Z0-9]+-\d+", body(name))))
+            hits = [l for pr in procs for l in rows_cc if pr in l]; via = "its procedures " + ", ".join(procs) if procs else ""
+        if not hits: return "no register row names this function or a procedure it cites"
+        sts = []
+        for l in hits:
+            m = _re.search(r"\*\*([^*]+)\*\*", l)
+            if m and m.group(1)[:44] not in sts: sts.append(m.group(1)[:44])
+        return (" / ".join(sts[:3]) or "listed") + " (via " + via + ")"
+    out = []
+    for k, name in enumerate(seen):
+        sopsteps = steps.get(name, []) or steps.get(name.replace("stage_", "stage_") , [])
+        out.append((f"{k}. {name}", files(name), status(name), docline(name) or "(no docstring)",
+                    "; ".join(x.replace("SOP section ", "") for x in sopsteps[:4]) if sopsteps else "-"))
+    return out
+
+ENGINE_MAP = _engine_map_from_chain()   # (stage, runtime files it reads, commissioning status, what it does, SOP steps)
 RECON_EXTRA = [
  ("F1", "Stage 3 foreground subtraction", "not in 002", "NOT BUILT (flowchart_vKISS). Sex: 131 chrX markers removed 2026-06-11 (derived invariance). Age: handled by the reference band, not subtraction. Smoking: nothing.",
   "no code exists; every A in this issue is un-subtracted for smoking", "flowchart_vKISS.html; iamatlas_celltype_markers_v0_2.json _sex_marker_removal"),
