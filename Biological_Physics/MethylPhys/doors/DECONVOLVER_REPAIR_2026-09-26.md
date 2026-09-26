@@ -23,7 +23,8 @@ rival by > 0.15 β — added as a *union* with the variance set. Alone they cut 
 | specimen | result |
 |---|---|
 | 48 healthy bloods, 4 laboratories, mapped | non-blood mass median **0.000**, p90 0.023, max 0.061 — the false-positive floor for any shedding claim |
-| constructed 10 % Breast in blood | Breast 0.102; CD4 0.179 (true 0.20) |
+| constructed 10 % Breast in blood — **through the chain** ([`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py), synthetic mixture seed 2, noise σ 0.044) | Breast **0.079**; tier withheld (foreign 0.057) — `MethylPhys_SYNTH_BREAST10_repaired_deconvolver.html` |
+| constructed 10 % Breast in blood — solver dissection (fixed mixture, seed 5, block NNLS outside the chain) | Breast 0.102; CD4 0.179 (true 0.20) — an under-read of 2 % on the chain path is the difference between the two backgrounds, not two solvers |
 | constructed 5 % Colon / 5 % Prostate in blood | 0.045 / 0.023–0.040 |
 | breast tumour tissue (GSE69914) | Breast 0.55–0.65, immune 0.01–0.21 |
 | breast normal tissue | Breast 0.09–0.64 with **adipocyte 0.09–0.66** where expected |
