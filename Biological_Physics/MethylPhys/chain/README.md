@@ -11,11 +11,11 @@ The chain that scores a sample. Start at [`../doors/RUNBOOK.md`](../doors/RUNBOO
 | 1 calibration (raw IDAT → β, methylprep noob) | [`stage_1_idat_calibration.py`](stage_1_idat_calibration.py) ([`stage_1_calibration.py`](stage_1_calibration.py), [`idat_decoder_pure.py`](idat_decoder_pure.py), [`idat_parse.py`](idat_parse.py) are the pure-Python path) |
 | 2 deconvolution (composition, presence) | `Walther_iam_deconvolver/walther_iam_deconvolver.py` — reads `../MethylPhys/atlas/IAMAtlasREBUILD.csv` |
 | 4 class gauge + 7 tier | [`cpg_gauge_engine.py`](cpg_gauge_engine.py) (the 40-cell `H_MIN_TABLE`, age band, tiers), [`cpg_gauge.py`](cpg_gauge.py), `Runtime Matrices/` |
-| 4.6 patient CMB | [`cpg_patient_cmb.py`](cpg_patient_cmb.py) — z-departure sky against the atlas posterior; uses `../MethylPhys/atlas/healpix_mapping/` |
+| 4.6 patient CMB | [`stage_4_6_patient_cmb.py`](stage_4_6_patient_cmb.py) — z-departure sky against the atlas posterior; uses `../MethylPhys/atlas/healpix_mapping/` |
 | 5 second chain | [`stage_5_second_chain.py`](stage_5_second_chain.py) (Mahalanobis hull) |
 | orchestrator | **[`cpg_conductor.py`](cpg_conductor.py)** |
 | nulls (sealing) | `CPG_Null_Runner/cpg_null_runner.py` — the eight nulls N1–N8; a VAL is sealed only when its declared nulls pass |
-| report | [`cpg_report_builder.py`](cpg_report_builder.py), `report_builders/` (strawman, patient wall, synthetic-patient harness), [`build_dashboard_v1.py`](build_dashboard_v1.py) |
+| report | [`MethylPhys_Interface/build_methylphys.py`](MethylPhys_Interface/build_methylphys.py) - the report interface, 19 tabs read from the bundle; [`MethylPhys_Interface/run_sample.py`](MethylPhys_Interface/run_sample.py) runs one specimen and writes the report, the bundle and a ledger row |
 | runtime constants | `Runtime Matrices/` — identity loci, discriminative markers (chrX-removed, canonical), age reference, tiers, Mahalanobis reference, directional panels |
 | test data | `TEST_DATA/` — 11 IDAT pairs + [`TEST_DATA_MANIFEST.md`](TEST_DATA/TEST_DATA_MANIFEST.md) (documented expected outputs); `betas_cache.pkl` is not in git (see the Reproduction Kit) |
 | disease side | `Disease Matrix/`, `Record/disease_cards_residual_maps/`, `Record/crown_jewel_and_patient_strawman/` |
@@ -25,7 +25,6 @@ The chain that scores a sample. Start at [`../doors/RUNBOOK.md`](../doors/RUNBOO
 
 Verification of this code against known answers: [`../MethylPhys/kit/`](../MethylPhys/kit/).
 
-Known: `report_builders/render_strawman_v2.py` and [`render_patient_wall.py`](report_builders/render_patient_wall.py) use Python ≥ 3.12 f-string syntax.
 
 
 ---
@@ -54,7 +53,7 @@ Known: `report_builders/render_strawman_v2.py` and [`render_patient_wall.py`](re
 
 - **Row 8 — disease matching — REMOVED FROM THE CHAIN (author, 2026-09-21).** The signature matrix and cards come from the preliminary VAL record; the report shows cells detected, fractions, A per cell and class, placement and flags, and names no disease. The matrix is record-side (see `Disease Matrix/DISEASE_MATRIX/README_STATUS.md`). PROC-MATCH-01's fixes (fail-closed origin gate, firewall, surface = seal) stand. **Sealing rule:** we seal a built tool against a bar; building it is exploration with a working note, not a seal.
 
-- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report:** [`MethylPhys_Interface/build_methylphys.py`](MethylPhys_Interface/build_methylphys.py) renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` is record-side.
+- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report:** [`MethylPhys_Interface/build_methylphys.py`](MethylPhys_Interface/build_methylphys.py) renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` (retired 2026-09-26) is record-side.
 ## The order of steps
 
 [`doors/CHAIN_SEQUENCE.md`](../doors/CHAIN_SEQUENCE.md) is generated from the code by

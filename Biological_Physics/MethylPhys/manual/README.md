@@ -9,11 +9,11 @@ The operations manual and everything it is built from. One live version, edited 
 | [`MethylPhys_CPG_Operations_Manual.pdf`](MethylPhys_CPG_Operations_Manual.pdf) |  |
 | [`PART_II_CHAPTER_NOTES.md`](PART_II_CHAPTER_NOTES.md) | the outline for Part II, written after the instrument is commissioned |
 | [`appendix_vi_vii.json`](appendix_vi_vii.json) | appendix content for the manual |
-| [`build_operations_manual.py`](build_operations_manual.py) | builds the operations manual; run through build_om.sh so the contents page carries measured page numbers |
 | [`build_om.sh`](build_om.sh) |  |
-| [`om_data.py`](om_data.py) | the manual's data module: every constant, table and section text it renders |
+| [`build_operations_manual.py`](build_operations_manual.py) | builds the operations manual; run through build_om.sh so the contents page carries measured page numbers |
 | [`gape002_lib.py`](gape002_lib.py) | the shared renderer both editions of the manual are built with |
 | [`intro_blocks.json`](intro_blocks.json) | the manual's introduction, generated from the report's Story and Sky tabs so the two cannot drift |
+| [`om_data.py`](om_data.py) | the manual's data module: every constant, table and section text it renders |
 | [`om_part3.py`](om_part3.py) | the manual's Part III sections |
 | [`report_tabs.json`](report_tabs.json) | the tab descriptions as data, read by both the SOP generator and the manual build |
 | [`switching_order.py`](switching_order.py) | THE SWITCHING ORDER: one record per stage with everything that touches it clipped to it. The master cross-reference Issue 003 Part II prints from. |

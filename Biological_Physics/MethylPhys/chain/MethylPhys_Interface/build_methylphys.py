@@ -5,7 +5,7 @@ Renders ONE self-contained HTML from cpg_conductor.run_full's bundle plus the ru
 Tabs: Reading | Every cell | Departure | Sky | Healthy reference | Integrity | Chain | Physics | Story | Record | Run.
 Two audiences (Clinician / Researcher) toggle on one run. Print reflows Reading + Every cell + Departure + Sky.
 Vocabulary guard: the measurement tabs may not carry a disease name, a diagnosis, a verdict, or an age in years.
-Author's report specification (Issue 003 p4): cells detected and %, A per cell and per class with placement and tier
+Author's report specification (Operations Manual, report chapter): cells detected and %, A per cell and per class with placement and tier
 (tiers on the CLASS gauge, where they are commissioned), the Stage 5 departure with the laboratory's false-alarm rate,
 the patient's sky, every flag; BREACH is a gauge reading (a temperature), not a comparison to any disease record.
 """
@@ -141,7 +141,7 @@ def deepdive(R, topic=""):
     pdf="Biological_Physics/MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf"
     tex="Biological_Physics/MethylPhys/papers/Landauer_Metrology_of_the_Methylome.tex"
     t=f" on {topic}" if topic else ""
-    return (f"<div class='dd'><b>Go deeper{t}.</b> Everything on this tab is treated at full length in the engineering manual - <a href='{GH}/blob/{R['sha']}/{pdf}' target='_blank'>GAPE Issue 003</a> "
+    return (f"<div class='dd'><b>Go deeper{t}.</b> Everything on this tab is treated at full length in the Operations Manual - <a href='{GH}/blob/{R['sha']}/{pdf}' target='_blank'>MethylPhys CPG Operations Manual</a> "
             f"(~300 pages: the physics section, every sealed procedure with its outcome as found, the complete validation history, the reconciliation tables, the falsification register and the future-goals list) - and in the short methods paper, "
             f"<a href='{GH}/blob/{R['sha']}/{tex}' target='_blank'>Landauer Metrology of the Methylome</a>. Both live in the same repository as the code that produced this page, at the same commit.</div>")
 
@@ -321,6 +321,43 @@ def _trace_block(o):
     return H
 
 
+def _detection_block(o):
+    """Stage 2d, foreign-cell detection - read from the bundle, never recomputed here. Adopted by the author's decision
+    2026-09-26 and scoped to laboratories with a commissioned panel; the status string says exactly why nothing is
+    printed when nothing is."""
+    fd=o.get("foreign_detection")
+    H=["<h3>Foreign-cell detection (Stage 2d)</h3>"]
+    if not fd:
+        H.append("<p class='pend'>NOT RUN - this bundle predates Stage 2d.</p>"); return "".join(H)
+    st=fd.get("status") or ""
+    H.append("<p class='m'>A foreign cell is one that does not belong to whole blood. For each, the chain fits the specimen's own blood background, "
+             "takes the residual, and asks how much of that cell's atlas profile is in it, weighting every locus by how quiet it is in healthy blood "
+             "at commissioned laboratories. The reading is f&#770; (an estimated fraction), with the laboratory's own line above which the chain says "
+             "<b>detected</b>. The line is drawn from that laboratory's healthy panel and from nothing else; a laboratory without a panel gets no line.</p>")
+    if not st.startswith("OK"):
+        H.append(f"<p class='pend'>{_e(st)}</p>")
+        if fd.get("commissioned_laboratories"): H.append(f"<p class='m'>Laboratories with a commissioned detection panel: {_e(', '.join(fd['commissioned_laboratories']))}.</p>")
+        return "".join(H)
+    if st.startswith("OK_BUT_UNSPECIFIC"):
+        H.append(f"<p class='pend'><b>Unspecific.</b> {_e(st.split(': ',1)[-1])} No single cell is reported as detected from this pattern.</p>")
+    det=fd.get("detected") or []
+    H.append(f"<p>Laboratory <b>{_e(fd.get('laboratory'))}</b> &middot; panel n = {fd.get('panel_n')} &middot; {fd.get('n_markers_used')} markers &middot; line rule: {_e(fd.get('line_rule') or '')}. "
+             + (f"<b>Detected: {_e(', '.join(det))}</b>." if det and not st.startswith("OK_BUT_UNSPECIFIC") else "<b>No foreign cell above its line.</b>") + "</p>")
+    H.append("<table class='t'><tr><th>foreign cell</th><th>f&#770;</th><th>&sigma;</th><th>z</th><th>line</th><th>detected</th><th>measured detection limit</th></tr>")
+    cells=fd.get("cells") or {}
+    order=sorted(cells, key=lambda c: -(cells[c].get("f_hat") or 0))
+    for c in order:
+        r=cells[c]; lim=r.get("measured_detection_limit")
+        lim_s=(f"{100*lim:.1f} %" if isinstance(lim,(int,float)) else "not measured")
+        H.append(f"<tr><td>{_e(c.replace('family:','family: '))}</td><td class='n'>{r.get('f_hat'):+.4f}</td><td class='n'>{r.get('sigma'):.4f}</td><td class='n'>{r.get('z')}</td>"
+                 f"<td class='n'>{r.get('line'):.4f}</td><td>{'<b>yes</b>' if r.get('detected') else 'no'}</td><td class='m'>{lim_s}</td></tr>")
+    H.append("</table>")
+    H.append("<p class='m'>The measured detection limit is the smallest spiked fraction the detector found in at least 90 % of trials at this false-positive rate "
+             "(PROC-MF-02/03, four 450K laboratories). A cell without one has a line but no measured sensitivity; a detection on it is a reading to follow up, not a result. "
+             "A detection of a foreign cell is a statement about <i>presence</i>; the cell's A-score is a separate reading and is printed only where the cell clears its presence floor.</p>")
+    return "".join(H)
+
+
 def tab_cells(o, R, percell_ref=None):
     sys.path.insert(0,ENGINE); import cpg_tiers as T
     lab=(o.get('patient_sky') or {}).get('lab') or (o.get('cfg') or {}).get('lab')
@@ -377,6 +414,8 @@ def tab_cells(o, R, percell_ref=None):
     H.append("<p class='m'><b>Resolvability.</b> "+(f"{len(_unres)} atlas entries are defined on under 1 % of this platform's loci and are not solved for (listed at the end); " if _unres else '')
              +(f"{len(_twins)} lower-coverage copies of solved cells were folded into their originals ({', '.join(f'{k} = {v}' for k,v in sorted(_twins.items()))}); " if _twins else '')
              +(('<b>resolution families</b>, solved as one column with one fraction shared by every member: '+'; '.join(' + '.join(v) for v in _fams.values())) if _fams else 'no resolution families')+'.</p>')
+    H.append(_detection_block(o))   # Stage 2d, 2026-09-26
+
     by={}; 
     for cell,r in cells.items(): by.setdefault(r.get("class","?"),[]).append((cell,r))
     for c in CLASSES:
@@ -790,7 +829,7 @@ CHAIN=[
   {"impl":"stage_2b_second_opinion","in":"the same mapped betas","out":"an independent set of fractions, computed with opposite biases: sensitive where the constrained solver is conservative",
    "why":"in cosmology you never separate components one way only. NILC (needlet internal linear combination) is what Planck uses. Here it was switched off in July 2026 because it disagreed with the constrained solver on every blood sample - which looked like a defect in NILC. PROC-NILC-01 found the disagreement WAS the finding: NILC was reporting that the atlas cannot split the blood classes, which PROC-SEP-03 then measured directly (7 of 7 blood classes inseparable, and the separability statistic quantified). The tool was right and was cut for being right. It is commissioning row 2b and is not in this run.",
    "refuses":"n/a - not currently in the chain","commissioned":"NOT commissioned. Row 2b is open: the decision is whether its output ships as a second column or as a disagreement flag"}),
- ("A","Per-cell A","mean of per-CpG H over each cell's discriminative markers, divided by H_min(class) - all 115 cells","iamatlas_a_scoring.py",
+ ("A","Per-cell A","H(mean beta over each cell's IDENTITY loci) / H_min of its architecture class - the commissioned gauge's form on the identity surface (RULING A3, LESSON-SURFACE-01); a healthy cell of any type reads 1.0 on its own reference","iamatlas_a_scoring.py",
   {"impl":"stage_a_cells","in":"the mapped betas and each cell type's ~100 discriminative marker CpGs","out":"one A per atlas cell type, with marker coverage",
    "why":"this is the surface on which 'which cell moved, and in which direction' can be read, because the markers are chosen to differ between cell types. It is also the surface the sealed cohort anchors were computed on. The formula must be the mean of the per-CpG entropies: marker CpGs are extreme and opposite, so the entropy of their mean beta would read maximal disorder on a healthy sample. The module asserts against that mistake on every import.",
    "refuses":"a cell with fewer than the minimum matched markers is not scored","commissioned":"PROC-ANCHOR-01: the sealed 648-sample foundation-cohort per-cell scores reproduced from raw public data at r = 1.00000, max difference 0.00004"}),
@@ -818,6 +857,13 @@ CHAIN=[
   {"impl":"stage_b_identity","in":"A'', whether the reading is reportable, and the class H_min","out":"one tier word and a note, or nothing",
    "why":"before this stage the engine carried three disagreeing definitions of where NORMAL ends. Now every tier word in the chain - including the colours on this page - comes from one function reading one file. NORMAL is the healthy central 95 %; 1.07 and 1.10 are the physics lines; above 1/H_min the arithmetic cannot go, so the report prints AT_CEILING with the ceiling value rather than a number above it.",
    "refuses":"a non-reportable reading gets no tier at all - a tier without a commissioned band would be a fabrication","commissioned":"PROC-TIER-01, with a kit test that exercises every boundary from the file, both sides, and fails if a literal breakpoint reappears in engine code"}),
+ ("2d","Foreign-cell detection","inverse-variance matched-template amplitude per foreign cell, against the laboratory's own line","detection_panel_v1.json",
+  {"impl":"stage_2d_foreign_detection",
+   "in":"the mapped betas at the panel's 1,506 markers; the laboratory name; the composition guard's verdict",
+   "out":"per foreign cell: f-hat (estimated fraction), sigma, z, the laboratory's line, detected yes/no, and the measured detection limit where a procedure measured one",
+   "why":"the deconvolver's constrained fit is pinned at exactly zero for a trace component and cannot respond to half a percent of a foreign cell (PROC-MF-01: NNLS limits 2-5 %). Borrowed from CMB point-source detection: fit the cell's profile, minus the specimen's own blood background, to the residual with each locus weighted by how quiet it is in commissioned healthy blood (inverse-variance weighting, the map-maker's weight). Limits 0.5-1 % for Breast, colon, neurons and prostate on four 450K laboratories (PROC-MF-02/03). The full-covariance matched filter was tried first and tied NNLS - 1,506 markers against 36 arrays is under-determined forty-fold (PROC-MF-01).",
+   "refuses":"any laboratory without a commissioned detection panel - a line set on four laboratories fired on 43-46 % of a fifth laboratory's healthy controls at full marker resolution (PROC-MF-03 B8), so no line is ever borrowed; a specimen the composition guard did not verify as blood-like; and it reports every-cell-rising-together as substrate mismatch rather than as a detection",
+   "commissioned":"ADOPTED BY THE AUTHOR'S DECISION 2026-09-26 (register row B-12), scoped to the four laboratories in detection_panel_v1.json; PROC-MF-01 (full-covariance matched filter) FAILED B1-B5 and was not adopted; PROC-MF-02 and PROC-MF-03 (this inverse-variance detector) met B1-B6 on four 450K laboratories and failed the fifth-laboratory bar each time. A new laboratory is commissioned by kit/commission_detection_lab.py on >= 36 of its own healthy arrays: centre, per-locus weights and a p99 line from its own panel, stored beside its laboratory zero."}),
  ("B","The reported gauge","identity loci -> A, then the decade curve and the laboratory zero -> A''","iamatlas_gauge_identity_loci_v1_0.json",
   {"impl":"stage_b_identity",
    "in":"the mapped betas, the class's identity loci and its floor, the donor's declared age, the laboratory's zero",
@@ -907,7 +953,6 @@ def tab_chain(R):
                  f"<tr><td>why it exists</td><td>{d['why']}</td></tr><tr><td>what it refuses</td><td>{d['refuses']}</td></tr>"
                  f"<tr><td>commissioned by</td><td>{d['commissioned']}</td></tr></table></details>")
     H.append("<h3>The documents the chain is governed by</h3><table class='t'><tr><th>document</th><th>what it is</th></tr>"+"".join(f"<tr><td>{_link(R,n)}</td><td>{d}</td></tr>" for n,d in DOCS if n in R["files"])+"</table>")
-    H.append("<p class='m'>The June manifest (CPG_KISS_Chain_Files.md) described the pre-switch chain and must not be used: it names the identity-loci gauge a 'false road' (reversed by PROC-N7-01 and PROC-SWITCH-02) and calls the eight H_min values 'Mahaffey numbers' (they are measured class entropy references; the Mahaffey number is E_drive/k_BT).</p>")
     if SEQ:
         # the table describes the measurement stages, not the renderer that draws this page
         declared = {d.get("impl") for _, _, _, _, d in CHAIN if d.get("impl")}
@@ -1040,7 +1085,7 @@ def tab_howto(R):
              else f"<td class='n'>{v:.4f} <span class='m'>[{1.0/v:.3f}]</span></td>")
             for v in R["hmin_table"][c])+"</tr>" for c in CLASSES if c in R["hmin_table"])
       + "</table>"
-      f"<p class='m'><b>This chart is not new here.</b> It is the author's saturation wall chart (GAPE Issue 002, April 2026, p12), rebuilt from the engine's live floor table and reproducing it exactly: 40 rows, every ceiling equal to 1/H_min to three decimals, <b>15 SAT and 2 TGT</b> - the same cells, the same flags. Issue 002 frames it as the direct analogue of the Dennard scaling walls in semiconductor physics: the frequency, power and cost walls beyond which a technology stops improving. <b>15 of the 40 combinations saturate below breach.</b> Nucleosome occupancy caps 7 of the 8 classes (its floors are all near 0.98-0.99, so there is almost no range above healthy before saturation). Fuzziness caps the three stem and progenitor classes (pluripotent stem, adult stem, progenitor). WPS caps a different three - <b>terminal</b>, adult stem and progenitor - and notably does <i>not</i> cap pluripotent stem, whose WPS ceiling is {1.0/R['hmin_table']['stem_pluri'][3]:.3f}, just above the line. On methylation - the one lit column - <b>pluripotent stem is capped at {1.0/R['hmin_table']['stem_pluri'][0]:.3f}</b>, which is below breach and barely above the healthy band, so a pluripotent-stem breach cannot be read on methylation at all.</p>"
+      f"<p class='m'><b>This chart is not new here.</b> It is the author's saturation wall chart (Issue 002, April 2026, p12), rebuilt from the engine's live floor table and reproducing it exactly: 40 rows, every ceiling equal to 1/H_min to three decimals, <b>15 SAT and 2 TGT</b> - the same cells, the same flags. Issue 002 frames it as the direct analogue of the Dennard scaling walls in semiconductor physics: the frequency, power and cost walls beyond which a technology stops improving. <b>15 of the 40 combinations saturate below breach.</b> Nucleosome occupancy caps 7 of the 8 classes (its floors are all near 0.98-0.99, so there is almost no range above healthy before saturation). Fuzziness caps the three stem and progenitor classes (pluripotent stem, adult stem, progenitor). WPS caps a different three - <b>terminal</b>, adult stem and progenitor - and notably does <i>not</i> cap pluripotent stem, whose WPS ceiling is {1.0/R['hmin_table']['stem_pluri'][3]:.3f}, just above the line. On methylation - the one lit column - <b>pluripotent stem is capped at {1.0/R['hmin_table']['stem_pluri'][0]:.3f}</b>, which is below breach and barely above the healthy band, so a pluripotent-stem breach cannot be read on methylation at all.</p>"
       f"<p class='m'><b>The reference clusters past breach, and where they come from.</b> The breakpoints file carries senescent cells at {R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['senescent_cells']['a_low']}-{R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['senescent_cells']['a_high']} and malignant cells at {R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['malignant_cells']['a_low']}-{R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['malignant_cells']['a_high']}. Issue 002 identifies the malignant end as <b>terminal-class</b> measurements: lower-grade glioma at A = 1.2846 and glioblastoma at A = 1.256, both from Ceccarelli 2016 (TCGA, n = 516 and n = 149), with terminal-class cancers showing the largest departures in the 28-cancer panel. That is consistent with the ceilings - the terminal class has the highest methylation ceiling of any class at {1.0/R['hmin_table']['terminal'][0]:.3f} - and it makes the arithmetic striking rather than loose: <b>the largest cancer signal in the panel sits within 0.01 of its own class ceiling</b>, which is exactly the regime where a second substrate stops being a refinement and becomes the only way to keep measuring. The cluster's upper bound of {R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['malignant_cells']['a_high']} is above even that ceiling, so it cannot be a methylation reading for any class; it is carried here as a corpus reference range, not re-measured on this chain, and the two open items it raises are listed on the Record tab.</p>"
       f"<p class='m'><b>And one refinement from Issue 002 worth stating precisely.</b> In its own words, the A = 1.00 line 'represents the architectural commitment point, not a mathematical floor' - and under the unfloored formula its healthy reference cells sit slightly <i>below</i> it, around A = 0.97, because the healthy beta produces an entropy slightly under the MCMC central estimate of H_min. On this chain healthy reads 1.00 rather than 0.97, and not because the formula changed: the laboratory zero and the age term are measured from healthy donors of that laboratory and that decade, which places the healthy population on 1.00 by construction. The two are the same instrument reading the same floor - one quotes the raw ratio, the other quotes it after the two measured offsets - and any number quoted from Issue 002 has to say which of the two it is.</p>")
 
@@ -1162,7 +1207,7 @@ def tab_story(R=None):
        "<h3>Two names, and which is which</h3>",
        "<p><b>Astro-genetics</b> is the programme: cosmology's measurement tools pointed at the epigenome. <b>Physics of methylation: Landauer "
        "metrology</b> is the narrower field name for the metrology itself - the fixed zero, the single-sample absolute reading, the three-layer "
-       "reference - and it is the title the engineering manual and the methods paper carry, because a methods paper should claim only what it "
+       "reference - and it is the title the Operations Manual and the methods paper carry, because a methods paper should claim only what it "
        "measures. Both names are the author's; they describe different scopes of the same work.</p>"]
     plates=[("CPG_Gauge_Cosmic.png","The same gauge read on a star. The cellular and cosmic readings are one instrument at two scales - the author's figure.")
 ]   # the CMB comparison figure lives on the Sky tab; embedding it twice doubled the file
@@ -1190,7 +1235,7 @@ def tab_record(R):
             p=os.path.join(pd_,d)
             if os.path.isdir(p): H.append(f"<tr><td>{_e(d)}</td><td>{', '.join(sorted(os.listdir(p)))[:120]}</td><td><a href='{GH}/tree/{R['sha']}/Biological_Physics/Record/PROC_data/{d}' target='_blank'>open</a></td></tr>")
         H.append("</table>")
-    H.append(f"<h3>Documents</h3><ul><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/manual' target='_blank'>GAPE Issue 003</a> - the engineering manual (RC1)</li><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/papers' target='_blank'>Landauer Metrology of the Methylome</a> - the methods paper (draft)</li><li><a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/RUNBOOK.md' target='_blank'>RUNBOOK</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md' target='_blank'>CHAIN_COMMISSIONING</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/HANDOFF.md' target='_blank'>HANDOFF</a></li></ul>")
+    H.append(f"<h3>Documents</h3><ul><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/manual' target='_blank'>MethylPhys CPG Operations Manual</a></li><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/papers' target='_blank'>Landauer Metrology of the Methylome</a> - the methods paper (draft)</li><li><a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/RUNBOOK.md' target='_blank'>RUNBOOK</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md' target='_blank'>CHAIN_COMMISSIONING</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/HANDOFF.md' target='_blank'>HANDOFF</a></li></ul>")
     return "".join(H)
 
 SPECIMENS=[("whole blood","450K / EPIC array","immune-dominant by construction; the only specimen with a commissioned band today","lit"),
@@ -1277,7 +1322,7 @@ def _intake_block(o):
     H.append("</table>")
     H.append("<p class='m'>What each refusal means and what to do about it is on the Troubleshooting "
              "tab of this report, under the step that refused it in the SOP (sections 11 to 19), and "
-             "in Issue 003 section 3b with the healthy distribution behind every threshold.</p>")
+             "in the Operations Manual section 3b with the healthy distribution behind every threshold.</p>")
     if rec.get("stage0_deferred_qc"):
         H.append("<p class='m'><b>Deferred means not measured.</b> A deferred gate is neither a pass nor a "
                  "failure - it is a check this run could not make, named so that nobody reads its silence as "
@@ -1286,7 +1331,7 @@ def _intake_block(o):
 
 
 def tab_troubleshooting(o, R):
-    """What to do when the chain refuses - the same content as the SOP's step sections and Issue 003 s3b.
+    """What to do when the chain refuses - the same content as the SOP's step sections and the Operations Manual s3b.
 
     A reader holding one reading should not have to open the procedure to find out what a refusal means, so
     the refusals live here too, keyed by the exact string the chain prints. Added 2026-09-23 at the author's
@@ -1307,7 +1352,7 @@ def tab_troubleshooting(o, R):
          "pass. A fourth, <b>PROVISIONAL</b>, means a threshold exists in the procedure but has never been "
          "measured against healthy specimens, so the value is printed and not refused on.</p>",
          "<p class='m'>Full detail under the step that refused: <a href='" + SOP + "'>the SOP, sections 11 to "
-         "19</a>. The same material with the healthy distributions: <a href='" + MAN + "'>Issue 003, section "
+         "19</a>. The same material with the healthy distributions: <a href='" + MAN + "'>the Operations Manual, section "
          "3b</a>. The 732-array run these numbers come from: <a href='" + OUT + "'>PROC-STAGE0-02</a>.</p>",
          "<h3>Stage 0 refused the specimen</h3>",
          "<table><tr><th>what was printed</th><th>what it found</th><th>what to do</th></tr>"]
@@ -1415,6 +1460,24 @@ def tab_troubleshooting(o, R):
              "Their median A&Prime; should land near 1.00 - that is how the map and the zero were verified in "
              "the first place. If they do not, one of the two is missing, and the chain will have printed "
              "which.</p>")
+    H.append("<h3>Foreign-cell detection (Stage 2d) printed something you did not expect</h3>")
+    H.append("<table><tr><th>what was printed</th><th>what it means</th><th>what to do</th></tr>")
+    for a, b, c in (
+        ("DETECTION_NOT_COMMISSIONED", "this laboratory has no detection panel in detection_panel_v1.json",
+         "commission it on >= 36 of the laboratory's own healthy whole-blood arrays; the chain never borrows another laboratory's line, "
+         "because a line set on four laboratories fired on 43-46 % of a fifth laboratory's healthy controls at full marker resolution (PROC-MF-03 B8)"),
+        ("FOREIGN_UNSPECIFIC - N of 21 foreign cells detected together", "the specimen is not blood-like to the detector: every solid-tissue column rises at once",
+         "check the substrate, the pipeline flag (--pipeline) and whether this laboratory's panel was commissioned on data processed the same way; "
+         "do not read any one detection"),
+        ("FOREIGN_CELL_DETECTED with 'not measured' in the limit column", "the cell has a line from the null but its sensitivity was never measured by a procedure",
+         "treat it as a reading to follow up; only Breast, Colon_epithelial_cells, Cortical_neurons and Prostate carry a measured limit today"),
+        ("a detected cell whose A-score is not printed", "detection is presence; the A needs the cell above its presence floor in the deconvolution",
+         "this is correct behaviour - a fraction of 0.5 % can be detected and still be too small to score"),
+        ("a family: row in the detection table", "cells the array cannot tell apart (stomach diff / undiff, the progenitors) are detected as one column",
+         "the fraction belongs to the family; no member is singled out"),
+    ):
+        H.append(f"<tr><td><code>{_e(a)}</code></td><td>{_e(b)}</td><td>{_e(c)}</td></tr>")
+    H.append("</table>")
     H.append("<h3>How these were found, which is how to look for yours</h3>")
     H.append("<p class='m'>A gate that cannot read its input never fires - the header reader opened IDAT "
              "files raw while public downloads are gzipped, so the array-type check silently never ran on "
@@ -1539,26 +1602,35 @@ ROADMAP=[
  ("after the anchor","Per-card likelihood, marginalised, with MCMC posteriors","a proper likelihood per class rather than a point reading against a band","map rows 28, 37; sprint E2/E3"),
  ("after the anchor","Formal blinding for confirmation runs","the analyst should not know the arm; the pre-registration protocol allows it, the tooling does not enforce it","map row 78"),
  ("clinical format","A per-chromosome linear track and a Hilbert-curve layout","a sphere is the right object for spherical statistics and the wrong picture for a clinician; the same residual should be renderable in chromosome coordinates","see 'Is the sphere necessary' on the Sky tab"),
- ("substrates","Urine, CSF, and the within-patient tissue / plasma / urine trio","each needs its own pipeline map, laboratory zero and healthy band before it can read; the trio would test whether one person's classes agree across specimens","Issue 003 section 7; see Coverage"),
+ ("substrates","Urine, CSF, and the within-patient tissue / plasma / urine trio","each needs its own pipeline map, laboratory zero and healthy band before it can read; the trio would test whether one person's classes agree across specimens","the Operations Manual section 7; see Coverage"),
  ("not now","Bispectrum and trispectrum; Minkowski functionals; isotropy and alignment tests","higher-order sky statistics; they need the power spectrum first and a reason to look","map rows 45, 53-60, 69"),
  ("not now","5mC / 5hmC as an E/B-mode separation; multi-omics cross-correlation","a genuinely deep parallel - two components of one field - but it needs oxidative-bisulphite data the chain has never seen","map rows 4, 49, 70"),
  ("does not translate","Rees-Sciama; Rayleigh scattering","recorded so nobody spends a week on them: the analogy breaks, and saying so is part of the map","map rows 63, 68"),
 ]
 
 def tab_roadmap(R):
-    H=["<h2>What is being considered next</h2>",
-       "<p>Everything on this list is either named in the translation map between the microwave background and the methylome, or came out of a "
-       "measurement made while building this chain. It is ordered by what has to happen first, not by how interesting it is. <b>Nothing here is a "
-       "claim</b> - an item on this list has not been done, and several are listed precisely so that nobody spends a week rediscovering why they "
-       "do not work.</p>",
-       "<table class='t'><tr><th>when</th><th>item</th><th>why it matters</th><th>what it needs / where it comes from</th></tr>"]
-    for when,item,why,needs in ROADMAP:
-        H.append(f"<tr><td class='m'>{_e(when)}</td><td><b>{_e(item)}</b></td><td>{_e(why)}</td><td class='m'>{_e(needs)}</td></tr>")
-    H.append("</table>")
-    H.append("<p class='m'>The ordering rule is the author's, from the day an earlier version of this list was attempted all at once: "
-             "<i>too ambitious too quick - these should have been worked on long after the bones were trusted.</i> The bones are the commissioning "
-             "table; the Safeguards tab says which of them currently hold.</p>")
-    H.append(deepdive(R,"any item on this list"))
+    """What is being considered next - READ from doors/ENHANCEMENTS.md's standing to-do list, never typed here
+    (2026-09-26): the list the author asked for lives in one place and every document that shows it reads it."""
+    import os as _os, re as _re
+    H=["<h2>Roadmap - what is being considered next</h2>", "",
+       "<p class='m'>This is the standing to-do list in <code>doors/ENHANCEMENTS.md</code>, as it stands at the commit this report was built from. "
+       "Nothing here is a claim: an item on this list has not been done.</p>"]
+    p=_os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))),"doors","ENHANCEMENTS.md")
+    try:
+        txt=open(p,encoding="utf-8").read()
+        i=txt.find("## Standing to-do"); j=txt.find("\n## ", i+10) if i>=0 else -1
+        block=txt[i:j if j>0 else None] if i>=0 else ""
+        if not block: H.append("<p class='pend'>ENHANCEMENTS.md carries no 'Standing to-do' section at this commit.</p>")
+        else:
+            for line in block.split("\n")[1:]:
+                l=line.strip()
+                if not l: continue
+                l=_re.sub(r"`([^`]+)`", r"<code>\1</code>", _e(l)); l=_re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", l)
+                if l.startswith("<b>") and l.endswith("</b>") and len(l)<90: H.append(f"<h3>{l[3:-4]}</h3>")
+                else: H.append(f"<p class='m'>{l}</p>")
+    except OSError:
+        H.append("<p class='pend'>ENHANCEMENTS.md not found beside this build.</p>")
+    H.append(deepdive(R,"the roadmap"))
     return guard("".join(H),"Roadmap")
 
 
@@ -1793,6 +1865,27 @@ def red_flags(o, R=None):
                 "Class '%s': %s" % (c, rec.get("reason") or "no commissioned band"),
                 "No placement and no tier are printed for this class. The number, where present, is the "
                 "measurement; the missing piece is the healthy reference to judge it against.")
+    # 2b. foreign-cell detection (Stage 2d, 2026-09-26)
+    fd = o.get("foreign_detection") or {}
+    _st = fd.get("status") or ""
+    if _st.startswith("NOT_COMMISSIONED"):
+        add("DETECTION_NOT_COMMISSIONED", "WITHHELD", "Cells",
+            "Foreign-cell detection has no commissioned panel for this laboratory; no line is borrowed from another.",
+            "Commission the laboratory's detection panel on >= 36 of its own healthy whole-blood arrays (kit/commission_detection_lab.py); "
+            "until then the composition is the only statement about foreign cells.")
+    elif _st.startswith("OK_BUT_UNSPECIFIC"):
+        add("FOREIGN_UNSPECIFIC", "CHECK", "Cells",
+            _st.split(": ", 1)[-1],
+            "Every foreign cell rising together is what a specimen that is not blood-like looks like to the detector - substrate, "
+            "processing, or a platform the panel was not commissioned on. Do not read any single detection from this run.")
+    elif _st == "OK" and fd.get("detected"):
+        add("FOREIGN_CELL_DETECTED", "CHECK", "Cells",
+            "Above the laboratory's own line: %s" % ", ".join(fd["detected"]),
+            "A presence statement, not a diagnosis. Confirm on a second draw; read the cell's A only if it clears its presence floor. "
+            "Cells with no measured detection limit are readings to follow up, not results.")
+    elif _st.startswith("WITHHELD"):
+        add("DETECTION_WITHHELD", "WITHHELD", "Cells", _st.split(": ", 1)[-1],
+            "The composition guard did not verify the specimen as blood-like, so no detection line is applied.")
     if o.get("lab_zero") is None:
         add("NO_LAB_ZERO", "WITHHELD", "Reading",
             "This laboratory has no commissioned zero, so no absolute reading is possible on any class.",
@@ -1981,6 +2074,32 @@ def _propagate_state():
                "" if ok else "The failures are listed below.", rows))
 
 
+def _repository_section(o, out_path=None):
+    """The loop's return path: what THIS run produced, where each file belongs in the repository, and whether it is
+    already there. Read from kit/file_run.py's own plan(), so the page and the command cannot disagree (2026-09-26)."""
+    H=["<h3>7. Repository - what this run should add to the tree, and where</h3>",
+       "<p class='m'>The repository writes the documents; a run writes back to the repository. Every file below has one destination. "
+       "<code>python3 kit/file_run.py --report &lt;this report&gt; [--procedure PROC-XXX-NN] [--commit]</code> files them, rebuilds the run index, "
+       "runs the documentation gate, and pushes only if the gate passes. A run that is evidence for a sealed procedure names the procedure and lands in kit/results as well.</p>"]
+    try:
+        import importlib.util, os as _os
+        kp=_os.path.join(_os.path.dirname(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))),"kit","file_run.py")
+        spec=importlib.util.spec_from_file_location("file_run",kp); fr=importlib.util.module_from_spec(spec); spec.loader.exec_module(fr)
+        rep=out_path or (o.get("context") or {}).get("report_path")
+        if not rep or not _os.path.exists(rep):
+            H.append("<p class='pend'>The report path was not known at build time; run file_run.py on the saved report to see the plan.</p>"); return "".join(H)
+        rid,sid,rows=fr.plan(rep, o.get("run_id"), sid=(o.get("context") or {}).get("sample_id"))
+        H.append(f"<p>Run <b>{_e(rid)}</b> &middot; specimen <b>{_e(sid)}</b></p><table class='t'><tr><th>file</th><th>belongs at</th><th>why</th><th>state</th></tr>")
+        for r in rows:
+            col={"committed":"#3fa45b","on disk, not committed":"#d68910","not filed":"#c0392b"}.get(r["state"],"#888")
+            H.append(f"<tr><td class='m'>{_e(_os.path.basename(r['source']))}</td><td><code>{_e(r['destination'])}</code></td><td class='m'>{_e(r['why'])}</td><td><b style='color:{col}'>{_e(r['state'])}</b></td></tr>")
+        H.append("</table>")
+        H.append("<p class='m'>Also updated by the same command: <code>chain/example_runs/RUN_INDEX.csv</code> (rebuilt from the run folders) and, through the gate, every generated document that lists runs.</p>")
+    except Exception as e:
+        H.append(f"<p class='pend'>Plan not available: {_e(type(e).__name__)} - {_e(str(e)[:120])}</p>")
+    return "".join(H)
+
+
 def tab_run(o, R):
     """Run it yourself. Every file named here is linked at this commit, and every command is one that
     actually works - the earlier version advertised an IDAT entry point that did not exist (fixed 2026-09-22
@@ -2055,6 +2174,7 @@ def tab_run(o, R):
     H.append(f"<p class='m'>Repository commit for this page: <code>{_e(R['sha'])}</code>. Every link above resolves at that commit, so a file that has "
        f"changed since will not silently substitute itself.</p>")
     H.append(deepdive(R,"running the chain"))
+    H.append(_repository_section(o, (o.get("context") or {}).get("report_path")))   # the loop's return path, 2026-09-26
     H.append(_propagate_state())   # how we got here, 2026-09-25
     return guard("".join(H),"Run")
 

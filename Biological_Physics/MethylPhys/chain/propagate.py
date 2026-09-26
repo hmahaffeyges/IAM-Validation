@@ -142,7 +142,7 @@ def rules():
     # 5. a procedure that changed what the chain REPORTS must be in the manual's data module
     reporting = [p for p in procs if p.split("-")[1] in ("SMALL", "STAGE0", "E2E", "MAHA")]
     missing = [p for p in reporting if p not in manual]
-    R.append(("procedures that changed a reported number are in the Issue 003 data module",
+    R.append(("procedures that changed a reported number are in the Operations Manual data module",
               not missing, "missing: %s" % ", ".join(sorted(missing)) if missing else
               "%d procedures" % len(reporting)))
 

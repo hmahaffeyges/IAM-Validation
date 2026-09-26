@@ -89,6 +89,6 @@ The `provenance.json` (written by a run, not stored) file records the atlas SHA 
 
 ## Cross-references
 
-- Stage 4.6 module: `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/walther_clinical_runtime/Brightness_Comparison/  (current: MethylPhys/chain/cpg_patient_cmb.py)patient_brightness_comparison.py`
+- Stage 4.6 module: `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/walther_clinical_runtime/Brightness_Comparison/  (current: `cpg_patient_cmb.py` (retired 2026-09-26))patient_brightness_comparison.py`
 - Plate 1 reference: `Biological_Physics/MethylPhys/plates/CPG_Plate_01_Cosmic_Microwave_Methylome.png`
 - BUILD_SPEC: `Biological_Physics/RETIRED/PostBuild_atlas_vault_snapshot_2026-06/walther_clinical_runtime/walther_clinical_BUILD_SPEC_v1_2.md` §3.5b + §5 Stage 4.6

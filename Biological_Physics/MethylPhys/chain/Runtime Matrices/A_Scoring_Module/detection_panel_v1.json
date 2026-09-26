@@ -1,7 +1,7 @@
 {
  "_meta": {
   "built": "2026-09-26 17:57 UTC",
-  "adopted_by": "author's decision 2026-09-26, scoped to laboratories with a commissioned panel; PROC-MF-01/02/03 met B1-B6 on these four labs and failed the fifth-lab bar",
+  "adopted_by": "author's decision 2026-09-26, scoped to laboratories with a commissioned panel; PROC-MF-02 and PROC-MF-03 (this detector) met B1-B6 on these four labs and failed the fifth-lab bar; PROC-MF-01 (full-covariance matched filter) failed B1-B5 and is a different detector",
   "procedures": [
    "PROC-MF-01",
    "PROC-MF-02",

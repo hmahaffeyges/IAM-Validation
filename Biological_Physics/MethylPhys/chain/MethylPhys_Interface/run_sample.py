@@ -418,6 +418,7 @@ def main():
     o["intake"] = intake
     _led = a.ledger or (os.path.splitext(a.out)[0].rsplit("/", 1)[0] + "/evidence_ledger.jsonl")
     o["run_id"] = _assign_run_id(_led)
+    o.setdefault("context", {})["report_path"] = os.path.abspath(a.out); o["context"]["sample_id"] = sid   # so the report prints its own filing plan (2026-09-26)
     o["versions"] = _versions(os.path.dirname(os.path.abspath(__file__)) + "/..")
     _class_z(o, os.path.dirname(os.path.abspath(__file__)) + "/..")
     if cov:

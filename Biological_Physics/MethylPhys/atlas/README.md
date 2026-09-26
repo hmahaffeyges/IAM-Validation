@@ -8,7 +8,7 @@ The canonical atlas: **483,092 CpGs × 115 cell types**, built 2026-05-28 by per
 | [`IAMAtlasREBUILD_provenance.json`](IAMAtlasREBUILD_provenance.json) | build record — sources, sampler settings, date |
 | [`IAMAtlasREBUILD_celltype_to_class.json`](IAMAtlasREBUILD_celltype_to_class.json) | 115 cell types → 8 architecture classes |
 | `iamatlas_class_archives/` | per-class MCMC archives (`*_v0_1_REBUILD.tar.xz`) |
-| `healpix_mapping/` | CpG → HEALPix pixel (NSIDE 128, 196,608 pixels, atlas row order) used by every plate and by `MethylPhys/chain/cpg_patient_cmb.py` |
+| `healpix_mapping/` | CpG → HEALPix pixel (NSIDE 128, 196,608 pixels, atlas row order) used by every plate and by `cpg_patient_cmb.py` (retired 2026-09-26) |
 | `external_manifests/` | Illumina 450K/EPIC manifests used to annotate the atlas |
 | [`iamatlas_v0_1_mcmc_batched_FIXED.py`](iamatlas_v0_1_mcmc_batched_FIXED.py), [`compact_atlas.py`](compact_atlas.py) | the build scripts |
 | [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) | why the pre-build atlas was flat and what the rebuild changed |
@@ -42,4 +42,4 @@ Code that loads the atlas resolves it as `Biological_Physics/MethylPhys/atlas/IA
 
 - **Row 8 — disease matching — REMOVED FROM THE CHAIN (author, 2026-09-21).** The signature matrix and cards come from the preliminary VAL record; the report shows cells detected, fractions, A per cell and class, placement and flags, and names no disease. The matrix is record-side (see `Disease Matrix/DISEASE_MATRIX/README_STATUS.md`). PROC-MATCH-01's fixes (fail-closed origin gate, firewall, surface = seal) stand. **Sealing rule:** we seal a built tool against a bar; building it is exploration with a working note, not a seal.
 
-- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `MethylPhys/chain/cpg_report_v3.py` renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old [`cpg_report_builder.py`](../chain/cpg_report_builder.py) is record-side.
+- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — IN BUILD, unsealed:** `cpg_report_v3.py` (retired 2026-09-26) renders the author's spec (cells, %, A per class with placement/tier, A per cell, departure + false-alarm rate, sky, flags; no condition named, no years; vocabulary guard); old `cpg_report_builder.py` (retired 2026-09-26) is record-side.
