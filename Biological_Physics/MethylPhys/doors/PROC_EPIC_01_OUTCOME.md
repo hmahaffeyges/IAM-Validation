@@ -25,8 +25,9 @@ whether that refusal can be lifted.
 | **B5** guard not confounded with disease | cases 6/150 (4.0 %), controls 6/163 (3.7 %), ratio **1.09** | MET |
 | **B6** instrument unchanged | max \|ΔA\| = **0.000e+00** on 318 published arrays | MET, **substituted source** |
 
-**Decision rule, applied** — the pre-registration's "B3 met but B1 not" branch: *the cross-cancer arm stands
-alone and the breast claim is withdrawn pending more cases.*
+**Decision rule, applied** — the pre-registration's "B3 met but B1 not" branch: *the cross-cancer arm stands alone.
+Nothing is being withdrawn: work predating the commissioned chain is education, not a claim on this record,
+and the official test of a cohort starts here. There is simply no breast result to report.*
 
 ## What replicates: colorectal, and not where the old analysis said
 
@@ -84,3 +85,7 @@ reading is actionable. Disease evidence for the commissioned chain remains Issue
 
 **The obvious next step is not more analysis of this cohort.** It is a second colorectal cohort with long
 lead times, which would settle the > 8 year question that 12 arrays cannot.
+
+## Three rendered runs
+
+[`PROC_EPIC_01_runs/`](PROC_EPIC_01_runs/README.md) carries one report per group — a colorectal case 6.8 years before diagnosis, a healthy control, and a breast case 10.4 years before — each the median member of its group rather than its most extreme. All three withhold the tier, since EPIC-Italy has no commissioned laboratory zero.

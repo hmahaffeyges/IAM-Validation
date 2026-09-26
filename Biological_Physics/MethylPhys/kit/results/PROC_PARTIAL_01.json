@@ -1,0 +1,116 @@
+{
+ "per_cell": {
+  "secretory@0.02": {
+   "n": 51,
+   "median_abs_err": 0.9936955501453316,
+   "p10_p90": 0.0,
+   "iqr": 0.0,
+   "median_naive_abs_err": 0.20251633089316823,
+   "beats_naive": false,
+   "b1": false,
+   "b2": true
+  },
+  "secretory@0.05": {
+   "n": 317,
+   "median_abs_err": 0.9936955501453316,
+   "p10_p90": 0.0,
+   "iqr": 0.0,
+   "median_naive_abs_err": 0.18219820044289914,
+   "beats_naive": false,
+   "b1": false,
+   "b2": true
+  },
+  "secretory@0.10": {
+   "n": 318,
+   "median_abs_err": 0.9936955501453316,
+   "p10_p90": 0.0,
+   "iqr": 0.0,
+   "median_naive_abs_err": 0.1707523459717991,
+   "beats_naive": false,
+   "b1": false,
+   "b2": true
+  },
+  "secretory@0.20": {
+   "n": 318,
+   "median_abs_err": 0.9936955501453316,
+   "p10_p90": 0.38569462033710467,
+   "iqr": 0.21250121030490102,
+   "median_naive_abs_err": 0.14844100311880049,
+   "beats_naive": false,
+   "b1": false,
+   "b2": false
+  },
+  "secretory@0.35": {
+   "n": 318,
+   "median_abs_err": 0.28280065097524726,
+   "p10_p90": 0.1807523176469259,
+   "iqr": 0.08942608809916597,
+   "median_naive_abs_err": 0.11662924610390085,
+   "beats_naive": false,
+   "b1": false,
+   "b2": false
+  },
+  "terminal@0.02": {
+   "n": 268,
+   "median_abs_err": 0.9872285156763713,
+   "p10_p90": 0.0,
+   "iqr": 0.0,
+   "median_naive_abs_err": 0.06471876605388466,
+   "beats_naive": false,
+   "b1": false,
+   "b2": true
+  },
+  "terminal@0.05": {
+   "n": 318,
+   "median_abs_err": 0.9872285156763713,
+   "p10_p90": 0.0,
+   "iqr": 0.0,
+   "median_naive_abs_err": 0.06251849209780214,
+   "beats_naive": false,
+   "b1": false,
+   "b2": true
+  },
+  "terminal@0.10": {
+   "n": 318,
+   "median_abs_err": 0.9872285156763713,
+   "p10_p90": 0.0,
+   "iqr": 0.0,
+   "median_naive_abs_err": 0.05912663890481473,
+   "beats_naive": false,
+   "b1": false,
+   "b2": true
+  },
+  "terminal@0.20": {
+   "n": 318,
+   "median_abs_err": 0.9872285156763713,
+   "p10_p90": 0.31517809426153154,
+   "iqr": 0.10207593150875977,
+   "median_naive_abs_err": 0.05240188807247492,
+   "beats_naive": false,
+   "b1": false,
+   "b2": false
+  },
+  "terminal@0.35": {
+   "n": 318,
+   "median_abs_err": 0.35072061221225254,
+   "p10_p90": 0.23429856470716792,
+   "iqr": 0.11529183034184975,
+   "median_naive_abs_err": 0.042460725230345386,
+   "beats_naive": false,
+   "b1": false,
+   "b2": false
+  }
+ },
+ "qualifying": {
+  "secretory": null,
+  "terminal": null,
+  "stromal": null
+ },
+ "b4": {},
+ "b5": {
+  "max_abs_delta_A_mapped": 0.0,
+  "n": 318,
+  "met": true,
+  "note": "this procedure is an offline estimator and changes nothing in the chain; the figure is the recomputation run today on PROC-BAND-01's published arrays"
+ }
+}
