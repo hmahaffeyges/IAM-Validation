@@ -38,7 +38,7 @@ single cell types wearing a class label.
 ## The actual gap
 
 **The per-cell A-scores have no healthy band.** Only immune has a measured band (width 0.0524, pooled
-p10–p90); every other entry in `iamatlas_gauge_identity_loci_v1_0.json` carries
+p10–p90); every other entry in [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) carries
 `band_status: "UNMEASURED PLACEHOLDER"`. A per-cell A can therefore be computed but not *placed* — there is
 no healthy distribution to say whether a given cell's reading is ordinary or not.
 

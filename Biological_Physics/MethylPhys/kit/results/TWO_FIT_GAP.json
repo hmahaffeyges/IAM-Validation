@@ -1,0 +1,57 @@
+{
+ "n": 48,
+ "per_class": {
+  "cycling": {
+   "pooled_median": 0.0,
+   "summed_median": 0.00035,
+   "median_diff": 0.0,
+   "max_abs_diff": 0.0184
+  },
+  "immune": {
+   "pooled_median": 0.8233,
+   "summed_median": 0.9136,
+   "median_diff": 0.08474999999999999,
+   "max_abs_diff": 0.23939999999999995
+  },
+  "progenitor": {
+   "pooled_median": 0.15645,
+   "summed_median": 0.08645,
+   "median_diff": -0.06319999999999998,
+   "max_abs_diff": 0.22799999999999998
+  },
+  "secretory": {
+   "pooled_median": 0.0,
+   "summed_median": 0.0,
+   "median_diff": 0.0,
+   "max_abs_diff": 0.0138
+  },
+  "stem_adult": {
+   "pooled_median": 0.0173,
+   "summed_median": 0.0,
+   "median_diff": -0.0173,
+   "max_abs_diff": 0.08
+  },
+  "stem_pluri": {
+   "pooled_median": 0.0,
+   "summed_median": 0.0,
+   "median_diff": 0.0,
+   "max_abs_diff": 0.0028
+  },
+  "stromal": {
+   "pooled_median": 0.0,
+   "summed_median": 0.0,
+   "median_diff": 0.0,
+   "max_abs_diff": 0.0
+  },
+  "terminal": {
+   "pooled_median": 0.0,
+   "summed_median": 0.0,
+   "median_diff": 0.0,
+   "max_abs_diff": 0.0292
+  }
+ },
+ "foreign_pooled_median": 5.551115123125783e-17,
+ "foreign_summed_median": 0.0018500000000000183,
+ "withheld_pooled": 2,
+ "withheld_summed": 1
+}
