@@ -90,6 +90,6 @@ better is how a tool starts lying.
 
 ## Held-out disease test, 2026-09-26
 
-[PROC-EPIC-01](PROC_EPIC_01_OUTCOME.md) is the first test of the commissioned chain against disease data. The colorectal arm replicated on genuinely held-out EPIC-Italy blood (d = +0.60, p = 0.0004 at > 5 years; loudest at 2-8 years); the breast arm did not (d = -0.32, p = 0.93), and the pre-atlas 'replication' that reported it had re-used 146 of its 224 breast cases from its own discovery set. The composition guard adopted the day before was shown not to be confounded with disease status (4.0 % of cases withheld against 3.7 % of controls).
+[PROC-EPIC-01](PROC_EPIC_01_OUTCOME.md) is the first test of the commissioned chain against disease data. The colorectal arm replicated on genuinely held-out EPIC-Italy blood (313 arrays entered the bars, of 516 held out) (d = +0.60, p = 0.0004 at > 5 years; loudest at 2-8 years); the breast arm did not (d = -0.32, p = 0.93), and the pre-atlas 'replication' that reported it had re-used 146 of its 224 breast cases from its own discovery set. The composition guard adopted the day before was shown not to be confounded with disease status (4.0 % of cases withheld against 3.7 % of controls).
 
 **The binding limit is now cohorts, not method.** The > 8 year question rests on 12 held-out colorectal arrays; no analysis of this cohort can settle it.
