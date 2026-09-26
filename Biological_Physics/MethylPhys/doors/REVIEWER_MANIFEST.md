@@ -84,7 +84,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 40 procedures, 173 files
+## Every sealed procedure — 40 procedures, 176 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -100,7 +100,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-CMB-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-03/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-CMB-03/PREREG.md), [`PROC_CMB_03_as_run.py`](../../Record/PROC_data/PROC-CMB-03/PROC_CMB_03_as_run.py), [`proc_cmb_03.json`](../../Record/PROC_data/PROC-CMB-03/proc_cmb_03.json)
 - **PROC-CMB-04** — [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-04/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-CMB-04/PREREG.md), [`PROC_CMB_04_as_run.py`](../../Record/PROC_data/PROC-CMB-04/PROC_CMB_04_as_run.py), [`plate_GSM2333901_healthy_GSE87571.png`](../../Record/PROC_data/PROC-CMB-04/plate_GSM2333901_healthy_GSE87571.png), [`proc_cmb_04.json`](../../Record/PROC_data/PROC-CMB-04/proc_cmb_04.json)
 - **PROC-CMB-05** — [`PROC_CMB_05.py`](../kit/PROC_CMB_05.py), [`OUTCOME.md`](../../Record/PROC_data/PROC-CMB-05/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-CMB-05/PREREG.md), [`PROC_CMB_05_as_run.py`](../../Record/PROC_data/PROC-CMB-05/PROC_CMB_05_as_run.py), [`proc_cmb_05.json`](../../Record/PROC_data/PROC-CMB-05/proc_cmb_05.json)
-- **PROC-COV-01** — [`PROC_COV_01_PREREG.md`](PROC_COV_01_PREREG.md)
+- **PROC-COV-01** — [`PROC_COV_01_OUTCOME.md`](PROC_COV_01_OUTCOME.md), [`PROC_COV_01_PREREG.md`](PROC_COV_01_PREREG.md), [`PROC_COV_01.py`](../kit/PROC_COV_01.py), [`PROC_COV_01.json`](../kit/results/PROC_COV_01.json)
 - **PROC-DECON-01** — [`PROC_DECON_01.py`](../kit/PROC_DECON_01.py)
 - **PROC-E2E-01** — [`PROC_E2E_01_OUTCOME.md`](PROC_E2E_01_OUTCOME.md), [`PROC_E2E_01_PREREG.md`](PROC_E2E_01_PREREG.md), [`PROC_E2E_01_run.py`](../kit/PROC_E2E_01_run.py), [`PROC_E2E_01_score.py`](../kit/PROC_E2E_01_score.py), [`PROC_E2E_01_calibration_vs_cache.json`](../kit/results/PROC_E2E_01_calibration_vs_cache.json), [`PROC_E2E_01_geo_metadata.json`](../kit/results/PROC_E2E_01_geo_metadata.json), [`PROC_E2E_01_score.json`](../kit/results/PROC_E2E_01_score.json)
 - **PROC-EPIC-01** — [`PROC_EPIC_01_OUTCOME.md`](PROC_EPIC_01_OUTCOME.md), [`PROC_EPIC_01_PREREG.md`](PROC_EPIC_01_PREREG.md), [`MethylPhys_GSM1235738_methylation_RUN-20260925-02.html`](PROC_EPIC_01_runs/MethylPhys_GSM1235738_methylation_RUN-20260925-02.html), [`MethylPhys_GSM1235762_methylation_RUN-20260925-01.html`](PROC_EPIC_01_runs/MethylPhys_GSM1235762_methylation_RUN-20260925-01.html), [`MethylPhys_GSM1236129_methylation_RUN-20260925-03.html`](PROC_EPIC_01_runs/MethylPhys_GSM1236129_methylation_RUN-20260925-03.html), [`README.md`](PROC_EPIC_01_runs/README.md), [`PROC_EPIC_01_analyse.py`](../kit/PROC_EPIC_01_analyse.py), [`PROC_EPIC_01_score.py`](../kit/PROC_EPIC_01_score.py), [`PROC_EPIC_01.json`](../kit/results/PROC_EPIC_01.json), [`PROC_EPIC_01_b6_substitution.json`](../kit/results/PROC_EPIC_01_b6_substitution.json), [`PROC_EPIC_01_scored.json`](../kit/results/PROC_EPIC_01_scored.json), [`PROC_EPIC_01.png`](../plates/PROC_EPIC_01.png)
