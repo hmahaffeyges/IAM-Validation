@@ -1,4 +1,4 @@
-# PROC-TISSUE-01 — outcome: the gating bar failed. No field effect; adjacent normal reads BELOW healthy, and every class moves together.
+# PROC-TISSUE-01 — outcome: the gating bar failed. No field effect; adjacent normal reads BELOW healthy, and seven of eight classes move together.
 
 **Sealed 2026-09-26** against the bars fixed in [`PROC_TISSUE_01_PREREG.md`](PROC_TISSUE_01_PREREG.md)
 before the series was downloaded. GSE131013, 238 of 240 arrays scored (two have no column in the submitted
@@ -44,7 +44,11 @@ direction as *above*. Three separate checks say this displacement should not be 
 
 1. **It is inside the noise.** Splitting the 48 healthy mucosae at random gives \|d\| up to **0.578** at the 95th percentile. The observed 0.520 is smaller than that.
 2. **It does not survive matching.** On 36 pairs matched for sex, colon side and age, d = −0.464 with **p = 0.056**.
-3. **It is not specific to one class.** Adjacent-vs-healthy is negative in **seven of eight** architecture classes, from −0.49 to −0.63. A biological field effect displaces the compartment that is changing; a substrate or batch difference displaces everything at once.
+3. **It is not specific to one class.** Adjacent-vs-healthy is negative in **seven of eight** architecture
+   classes, from −0.49 to −0.63. The exception is `stem_pluri` (+0.112 adjacent, −1.134 tumour), which moves
+   opposite to the other seven in both comparisons — worth naming rather than rounding away, though a single
+   class inverting does not rescue the seven that move together. A biological field effect displaces the
+   compartment that is changing; a substrate or batch difference displaces nearly everything at once.
 
 Point 3 is the author's own documented artifact: **DISC-BLADDER-003** records that bulk atlases on *mucosal*
 substrates inflate cross-tile A-scores from substrate-distribution mismatch alone. The same reasoning
