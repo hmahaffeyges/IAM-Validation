@@ -89,3 +89,27 @@ lead times, which would settle the > 8 year question that 12 arrays cannot.
 ## Three rendered runs
 
 [`PROC_EPIC_01_runs/`](PROC_EPIC_01_runs/README.md) carries one report per group — a colorectal case 6.8 years before diagnosis, a healthy control, and a breast case 10.4 years before — each the median member of its group rather than its most extreme. All three withhold the tier, since EPIC-Italy has no commissioned laboratory zero.
+
+## Qualification, 2026-09-26 — 21 % of this effect is composition
+
+Re-examined because the author doubted the result, and he was partly right.
+
+[PROC-SYNTH-01](PROC_SYNTH_01_OUTCOME.md) established that the reported reading is confounded with the
+immune **fraction**: corr(fraction, A') = **+0.440** (p = 8.05e-26) across the 516 held-out arrays, so
+fraction explains **19.3 %** of the variance in the reading. Colorectal cases in this cohort do have a
+higher immune fraction than controls — **0.9070 vs 0.8925, d = +0.438, p = 0.019** — so part of the sealed
+effect is composition rather than fidelity.
+
+Adjusted properly: the fraction trend was fitted **on controls only**, so it cannot absorb the case effect,
+and the permutation null was **re-run on the adjusted values** so an adjusted effect is never compared
+against an unadjusted null.
+
+| | Cohen's d | permutation p (5,000 shuffles) |
+|---|---|---|
+| as sealed above | +0.6040 | 0.0008 |
+| **composition-adjusted** | **+0.4759** | **0.0062** |
+
+**The colorectal finding survives, at a smaller effect than sealed.** 21 % of it was composition. The
+headline above is left as it was recorded and this qualification sits beneath it, because the sealed
+numbers were correctly computed for what they measured — the correction is to their interpretation, not
+their arithmetic. Evidence: [`PROC_EPIC_01_composition_adjusted.json`](../kit/results/PROC_EPIC_01_composition_adjusted.json).

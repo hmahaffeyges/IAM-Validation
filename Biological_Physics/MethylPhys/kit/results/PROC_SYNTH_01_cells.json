@@ -1,0 +1,110 @@
+[
+ {
+  "cell": "CD4_T-cells",
+  "class": "immune",
+  "f_read": 1.0,
+  "A_read": 0.7446690455957247,
+  "A_expected": 0.744669045595725,
+  "n_markers_present": 100,
+  "top_called": [
+   "CD4_T-cells",
+   1.0
+  ]
+ },
+ {
+  "cell": "Neutrophils_reinius",
+  "class": "immune",
+  "f_read": 1.0,
+  "A_read": 0.6365702842863167,
+  "A_expected": 0.6365702842863168,
+  "n_markers_present": 100,
+  "top_called": [
+   "Neutrophils_reinius",
+   1.0
+  ]
+ },
+ {
+  "cell": "HSC",
+  "class": "stem_adult",
+  "f_read": 1.0,
+  "A_read": 0.5976082689800174,
+  "A_expected": 0.5976082689800175,
+  "n_markers_present": 99,
+  "top_called": [
+   "HSC",
+   1.0
+  ]
+ },
+ {
+  "cell": "GMP",
+  "class": "progenitor",
+  "f_read": 1.0,
+  "A_read": 0.5662741673129326,
+  "A_expected": 0.5662741673129328,
+  "n_markers_present": 100,
+  "top_called": [
+   "GMP",
+   1.0
+  ]
+ },
+ {
+  "cell": "Breast",
+  "class": "secretory",
+  "f_read": 1.0,
+  "A_read": 1.0637840658477393,
+  "A_expected": 1.0637840658477398,
+  "n_markers_present": 100,
+  "top_called": [
+   "Breast",
+   1.0
+  ]
+ },
+ {
+  "cell": "Colon_epithelial_cells",
+  "class": "cycling",
+  "f_read": 1.0,
+  "A_read": 0.36543772559736887,
+  "A_expected": 0.3654377255973688,
+  "n_markers_present": 100,
+  "top_called": [
+   "Colon_epithelial_cells",
+   1.0
+  ]
+ },
+ {
+  "cell": "fibroblast",
+  "class": "stromal",
+  "f_read": 1.0,
+  "A_read": 0.2875366956541431,
+  "A_expected": 0.2875366956541431,
+  "n_markers_present": 100,
+  "top_called": [
+   "fibroblast",
+   1.0
+  ]
+ },
+ {
+  "cell": "Cortical_neurons",
+  "class": "terminal",
+  "f_read": 1.0,
+  "A_read": 0.0098750348526929,
+  "A_expected": 0.0098750348526929,
+  "n_markers_present": 100,
+  "top_called": [
+   "Cortical_neurons",
+   1.0
+  ]
+ },
+ {
+  "cell": "stem_pluri",
+  "class": "stem_pluri",
+  "f_read": 0.0,
+  "A_read": 0.38504713747628144,
+  "A_expected": 0.3850471374762814,
+  "n_markers_present": 100,
+  "top_called": [
+   "Cortical_neurons",
+   0.1934
+  ]
+ }
+]
