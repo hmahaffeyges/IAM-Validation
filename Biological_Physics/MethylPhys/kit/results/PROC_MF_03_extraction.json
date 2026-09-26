@@ -1,0 +1,9 @@
+{
+ "source": "/Users/hmahaffeyges/early_gape_evidence/GSE130748_RAW_GSE51057:51032_VAL047_VAL048/GSE51032_replication/GSE51032_series_matrix.txt.gz",
+ "arrays": 845,
+ "loci_kept": 11482,
+ "celltype_ref_markers": 4444,
+ "celltype_ref_present": 4444,
+ "median_present_per_array": 3898.0,
+ "out": "results/mf03/GSE51032_deconvolver_markers.parquet"
+}

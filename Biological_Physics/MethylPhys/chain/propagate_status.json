@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 17:38 UTC",
- "commit": "f2b5697",
+ "when": "2026-09-26 17:49 UTC",
+ "commit": "8b8abad",
  "pass": true,
  "rules": [
   {
@@ -16,12 +16,12 @@
   {
    "rule": "every sealed procedure has a row in CHAIN_COMMISSIONING",
    "ok": true,
-   "detail": "16 procedures"
+   "detail": "17 procedures"
   },
   {
    "rule": "every sealed procedure is in the reviewer manifest",
    "ok": true,
-   "detail": "16 procedures"
+   "detail": "17 procedures"
   },
   {
    "rule": "procedures that changed a reported number are in the Issue 003 data module",
@@ -51,7 +51,7 @@
   {
    "rule": "every new procedure script invokes the chain rather than its internals",
    "ok": true,
-   "detail": "19 grandfathered; instrument tests (declared, no reading produced): PROC_MF_01.py, PROC_MF_02.py; the rest clean"
+   "detail": "19 grandfathered; instrument tests (declared, no reading produced): PROC_MF_01.py, PROC_MF_02.py, PROC_MF_03.py, PROC_MF_03_extract.py; the rest clean"
   },
   {
    "rule": "per-cell A on the commissioned physics surface (test_percell_physics)",
