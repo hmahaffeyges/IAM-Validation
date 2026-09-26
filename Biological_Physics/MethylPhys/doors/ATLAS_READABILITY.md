@@ -70,8 +70,12 @@ it.*
 
 ## 4. What is on the shelf, re-ranked by what this audit now shows
 
-1. **The full cell-type covariance at one address.** Recoverable from the per-class MCMC archives; no new
-   data. It converts a hand-written pooling rule into a general result, attaches real uncertainties to every
+1. **The residual covariance on real specimens.** *Corrected the same day this document was written:* the
+   cross-class covariance at an address is **not** recoverable from the per-class MCMC archives - they hold
+   only marginals, each CpG's posterior is independent by model construction, and the classes were run as
+   separate jobs, so no joint draws exist. The estimable and better-aimed quantity is the residual
+   covariance on real specimens, which uniquely contains the model-misspecification term that closed
+   PROC-PARTIAL-01; no new data. It converts a hand-written pooling rule into a general result, attaches real uncertainties to every
    fraction, and is the named fix for the PROC-PARTIAL-01 bias. **Highest value, and the measurement above is
    the argument for it.**
 2. **Degeneracy analysis** — which composition solutions are genuinely distinguishable, rather than assuming
