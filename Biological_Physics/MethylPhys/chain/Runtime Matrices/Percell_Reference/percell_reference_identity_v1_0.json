@@ -1263,7 +1263,70 @@
    "stromal_other": 1.1516,
    "whole_blood": 0.9869
   },
-  "percell_centres_note": "median over laboratories of (lab median A - lab offset), for every banded cell. A cell's NORMAL is judged against ITS OWN centre - CD4 sits at 1.027 and GMP at 0.960 in every laboratory; a universal ceiling would call healthy CD4 ELEVATED and healthy GMP SUPPRESSED."
+  "percell_centres_note": "median over laboratories of (lab median A - lab offset), for every banded cell. A cell's NORMAL is judged against ITS OWN centre - CD4 sits at 1.027 and GMP at 0.960 in every laboratory; a universal ceiling would call healthy CD4 ELEVATED and healthy GMP SUPPRESSED.",
+  "percell_centre_hypothesis_test": {
+   "question": "is CD4's +0.027 (and CD8/NK's -0.025..-0.031) heterogeneity of the circulating compartment, or calibration?",
+   "prediction": "heterogeneity: CD4 A rises with age (memory-T accumulation) and with CD4 fraction; CD8/NK the opposite. calibration: flat.",
+   "measured_2026_09_26": {
+    "CD4_T-cells": {
+     "r_age": 0.5116,
+     "p_age": 0.0,
+     "slope_per_decade": 0.0054,
+     "r_fraction": -0.5763,
+     "p_fraction": 0.0,
+     "sex_diff": NaN,
+     "centre": 1.0403
+    },
+    "CD8_T-cells": {
+     "r_age": 0.4832,
+     "p_age": 0.0,
+     "slope_per_decade": 0.0053,
+     "r_fraction": 0.3539,
+     "p_fraction": 0.0184,
+     "sex_diff": NaN,
+     "centre": 0.9748
+    },
+    "CD56_NK-cells": {
+     "r_age": 0.4751,
+     "p_age": 0.0,
+     "slope_per_decade": 0.0054,
+     "r_fraction": 0.439,
+     "p_fraction": 0.0,
+     "sex_diff": NaN,
+     "centre": 0.9556
+    },
+    "CD14_monocytes": {
+     "r_age": 0.4618,
+     "p_age": 0.0,
+     "slope_per_decade": 0.0052,
+     "r_fraction": -0.186,
+     "p_fraction": 0.1205,
+     "sex_diff": NaN,
+     "centre": 1.0164
+    },
+    "Neutrophils_reinius": {
+     "r_age": 0.4609,
+     "p_age": 0.0,
+     "slope_per_decade": 0.0054,
+     "r_fraction": 0.1114,
+     "p_fraction": 0.3251,
+     "sex_diff": NaN,
+     "centre": 1.0056
+    },
+    "CD19_B-cells": {
+     "r_age": 0.5018,
+     "p_age": 0.0,
+     "slope_per_decade": 0.0058,
+     "r_fraction": 0.0289,
+     "p_fraction": 0.8237,
+     "sex_diff": NaN,
+     "centre": 0.9878
+    }
+   },
+   "reading": "NEITHER prediction. A rises with age for EVERY cell at the same slope (+0.005/decade, r 0.46-0.51, all p<2e-5) - that is the commissioned age term c(age), shared, not a per-cell effect. The per-cell ORDERING does not move with age. The only cell-specific signal is with the cell's own fraction, and it is NEGATIVE for CD4 (r -0.576, p 3e-8) and POSITIVE for CD8 (+0.354) and NK (+0.439): the more of a cell there is, the closer its A sits to 1.0. That is the fraction confound PROC-SYNTH-01 measured, from the other direction - a cell's identity loci read the rest of the specimen in proportion to what the cell is not. It is neither biology nor a floor error; it is DETECTION, exactly as the author said: 'it doesnt matter the fraction that is a detection issue'. Consequence: the presence gate per cell should sit where A stops depending on fraction, and the per-cell centre is a property of the cell AT typical healthy fraction.",
+   "n": 80,
+   "source": "80 published PROC-BAND-01 arrays with ages; GSE87571 series matrix not on disk"
+  }
  },
  "entries": {
   "Acinar": {

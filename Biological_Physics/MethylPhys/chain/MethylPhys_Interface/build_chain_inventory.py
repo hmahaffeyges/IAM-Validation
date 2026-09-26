@@ -37,6 +37,33 @@ def _bio_root(start=None):
 HERE=os.path.dirname(os.path.abspath(__file__)); ENG=os.path.dirname(HERE); BIO=_bio_root()
 
 DESC={
+ "stage1_betas_GSE125105_MANIFEST.json":('reference','sha256 and provenance of stage1_betas_GSE125105.pkl.xz.','reference_data'),
+ "stage1_betas_GSE125105.pkl.xz":('reference',"Stage-1 calibrated betas for the 80-array healthy panel of GSE125105 (the laboratory's commissioning panel; lab_zero and the per-cell calibration record are built from it).",'reference_data'),
+ "stage1_betas_GSE111629_MANIFEST.json":('reference','sha256 and provenance of stage1_betas_GSE111629.pkl.xz.','reference_data'),
+ "stage1_betas_GSE111629.pkl.xz":('reference',"Stage-1 calibrated betas for the 80-array healthy panel of GSE111629 (the laboratory's commissioning panel; lab_zero and the per-cell calibration record are built from it).",'reference_data'),
+ "stage1_betas_GSE42861_MANIFEST.json":('reference','sha256 and provenance of stage1_betas_GSE42861.pkl.xz.','reference_data'),
+ "stage1_betas_GSE42861.pkl.xz":('reference',"Stage-1 calibrated betas for the 80-array healthy panel of GSE42861 (the laboratory's commissioning panel; lab_zero and the per-cell calibration record are built from it).",'reference_data'),
+ "stage1_betas_GSE87571_MANIFEST.json":('reference','sha256 and provenance of stage1_betas_GSE87571.pkl.xz.','reference_data'),
+ "stage1_betas_GSE87571.pkl.xz":('reference',"Stage-1 calibrated betas for the 80-array healthy panel of GSE87571 (the laboratory's commissioning panel; lab_zero and the per-cell calibration record are built from it).",'reference_data'),
+ "README_as_generated_2026-04-07.md":('record','Snapshot of a generated README from April, kept as record.','not in chain'),
+ "evidence_summary.json":('record','Evidence summary, record side.','not in chain'),
+ "comparison.json":('record','Comparison output, record side.','not in chain'),
+ "dilution.py":('record','Dilution-series scoring (record side).','not in chain'),
+ "floor_lod_analyse.py":('record','Limit-of-detection analysis for the presence floors (record side).','not in chain'),
+ "floor_scan.py":('record','Scan of per-class presence floors (record side).','not in chain'),
+ "build_delta_bundle.py":('guard',"Builds the chain delta bundle (changed files since a commit) for the author's offline copies.",'kit'),
+ "SUBSTRATE_STRATEGY.md":('record','Which specimens the instrument can read, derived from the fraction rule, and the demonstration plan built on Landauer Metrology rather than on proving Landauer.','door'),
+ "ATLAS_READABILITY.md":('record','What the atlas can and cannot resolve, measured: class collinearity, organ resolution, and each borrowed cosmology method paired with the ordinary check it does not replace.','door'),
+ "TWO_FIT_FINDING.md":('record','The deconvolver runs two independent NNLS solves (8 pooled class columns; 114 cell-type columns) not related by summation; the reported composition consumes the pooled one.','door'),
+ "PER_CELL_SCORING.md":('record',"The per-cell architecture as verified from code: each cell type's H_min via its class membership; nothing pooled before deconvolution.",'door'),
+ "REFERENCE_AUDIT.md":('record',"Every cell's own atlas mean scored through the chain (2026-09-26): the audit that found the per-cell A was computed on the wrong surface.",'door'),
+ "test_percell_physics.py":('guard','THE FAILSAFE for the per-cell A - propagate rule 11, runs on every push. Checks the four root causes of 2026-09-26 (wrong surface, unmapped betas, crossed formula, unreachable reference), the A <= 1/H_min ceiling and the fraction-0 gate, by scoring a real healthy array through the chain. Negative control: a lying surface tag -> exit 1.','guard'),
+ "build_percell_reference_identity.py":('interface','Builds percell_reference_identity_v1_0.json: per-cell per-lab A bands on the identity surface, commissioned form, mapped betas, disjoint held-out split, laboratory offsets (kit).','builder'),
+ "build_percell_identity.py":('interface',"Builds iamatlas_percell_identity_loci_v1_0.json from the atlas by the class panels' criterion (kit).",'builder'),
+ "chain_sequence.json":('guard','The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.','guard'),
+ "composition_guard_v1.json":('reference','THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune tier is withheld, 0.0207, set on 318 healthy arrays alone. Read by cpg_conductor.stage_b_identity.','stage B'),
+ "iamatlas_percell_identity_loci_v1_0.json":('reference',"PER-CELL IDENTITY LOCI (2026-09-26): the class panels' own criterion (|mean - H_min_beta| <= 0.05, one entropy branch per cell) applied to 102 of 115 cells, MIN_LOCI 100. THE SURFACE the per-cell A is computed on; every cell's own atlas mean reads 0.936-1.020 on its panel. Read by iamatlas_a_scoring._score_one_identity via cpg_conductor. Built by kit/build_percell_identity.py.",'stage A'),
+ "percell_reference_identity_v1_0.json":('reference',"THE PER-CELL CALIBRATION RECORD (2026-09-26). For each of 102 cells: p10/p50/p90 of A on the cell's identity loci, per laboratory (four labs, ~970 arrays, disjoint held-out split, coverage 0.797), one laboratory offset per lab, and each cell's centre after the offset. A cell's NORMAL is judged against ITS OWN centre. Read by cpg_conductor.stage_a_cells. Built by kit/build_percell_reference_identity.py on the commissioned H(beta_mean)/H_min form.",'stage A'),
     "CHAIN_SEQUENCE.md": ("reference", "the step order as the code calls it, derived by AST - never typed", ""),
     "REPORT_TAB_REFERENCE.md": ("reference", "the report described tab by tab with a figure of each, generated from a finished report", ""),
     "report_tabs.json": ("reference", "the tab descriptions as data, read by both the SOP generator and the manual build", ""),
@@ -261,6 +288,39 @@ def sha(p):
     with open(p,"rb") as f:
         for b in iter(lambda: f.read(1<<20), b""): h.update(b)
     return h.hexdigest()
+def _component_map_runtime_section(rows):
+    """Append (or replace) a GENERATED section in doors/COMPONENT_MAP.md listing every runtime file the chain's
+    code reads, with its readers - so the map can never lag the code (2026-09-26). Hand-written parts untouched."""
+    import os, re, glob
+    here=os.path.dirname(os.path.abspath(__file__)); ch=os.path.dirname(here)
+    cm=os.path.join(os.path.dirname(ch),"doors","COMPONENT_MAP.md")
+    if not os.path.exists(cm): return
+    srcs={q:open(q,encoding="utf-8",errors="replace").read() for q in glob.glob(os.path.join(ch,"**","*.py"),recursive=True)
+          if "RETIRED" not in q and not os.path.basename(q).startswith("build_")}
+    lines=["\n\n## Runtime files the chain reads — GENERATED by build_chain_inventory.py, do not hand-edit\n\n",
+           "Readership is measured from the live modules' source (literal names and f-string templates). ",
+           "A file here is loaded by the code named beside it; propagate.py fails the push if any is missing from the SOP, the manifest or this table.\n\n",
+           "| runtime file | read by | what it is |\n|---|---|---|\n"]
+    n=0
+    for f in sorted(glob.glob(os.path.join(ch,"Runtime Matrices","**","*.*"),recursive=True)):
+        b=os.path.basename(f)
+        if b=="chain_inventory_v1.json" or b.endswith((".md",".py")): continue
+        ext=re.escape(b.rsplit(".",1)[-1]) if "." in b else None
+        readers=[os.path.basename(q) for q,t in srcs.items() if b in t]
+        if not readers and ext:
+            for q,t in srcs.items():
+                for tpl in re.findall(r"[\w\-]+(?:\{[^}]*\}|%s)[\w\-]*\."+ext+r"\b", t):
+                    if re.match("^"+re.sub(r"\\\{[^}]*\\\}|%s",".+",re.escape(tpl))+"$", b): readers.append(os.path.basename(q)); break
+        if not readers: continue
+        desc=next((r["description"] for r in rows if r["file"]==b),"")
+        lines.append(f"| `{b}` | {', '.join(sorted(set(readers))[:3])} | {desc[:140]} |\n"); n+=1
+    t=open(cm,encoding="utf-8").read()
+    i=t.find("\n\n## Runtime files the chain reads")
+    if i>0: t=t[:i]
+    open(cm,"w",encoding="utf-8").write(t.rstrip()+"".join(lines))
+    print(f"COMPONENT_MAP: generated runtime section, {n} files")
+
+
 def main():
     try: commit=subprocess.run(["git","-C",BIO,"rev-parse","--short","HEAD"],capture_output=True,text=True).stdout.strip()
     except Exception: commit=""
@@ -288,6 +348,7 @@ def main():
          "note":"a file with role UNDESCRIBED is a gap in this table, not a file that does nothing - the count is printed on the Chain tab so the gap is visible"},
          "files":sorted(rows,key=lambda r:(r["role"]!="chain",r["stage"],r["file"]))}
     dst=os.path.join(ENG,"Runtime Matrices","chain_inventory_v1.json")
+    _component_map_runtime_section(rows)
     json.dump(out,open(dst,"w"),indent=1)
     print(f"{len(rows)} files inventoried -> {dst.split('Biological_Physics/')[1]}")
     by=collections.Counter(r["role"] for r in rows) if (collections:=__import__("collections")) else {}

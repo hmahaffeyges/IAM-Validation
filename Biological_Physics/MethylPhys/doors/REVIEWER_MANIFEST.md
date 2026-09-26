@@ -39,12 +39,31 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 
 ## The runtime matrices every reading is corrected by
 
-- [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) — the identity loci per class, with the floor each divides by
-- [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) — one affine map per pipeline; without it a reading is UNMAPPED and not reportable
-- [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json) — the age reference every reading is corrected against
-- [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) — the tier boundaries
-- [`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) — the healthy band per class, with each laboratory's own false-alarm rate
-- [`percell_reference_v0_3.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0_3.json) — the per-entry reference, with which entries are resolvable
+- [`age01_results.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age01_results.json) — The PROC-AGE-01 measurement: the slope, the within-laboratory spread, and the resolution that follows.
+- [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) — The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. The live age term come
+- [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) — Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline the conductor REFUS
+- [`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json) — THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune tier is withheld, 0
+- [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) — THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gauge reads (row B). H_m
+- [`iamatlas_percell_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json) — PER-CELL IDENTITY LOCI (2026-09-26): the class panels' own criterion (|mean - H_min_beta| <= 0.05, one entropy branch per cell) applied to 102 of 115 cells, MIN
+- [`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) — The commissioned healthy band, pooled and per decade, with each laboratory's measured zero. Placement (IN_BAND / above / below) is read from here.
+- [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json) — The healthy age curve: about +0.47 milli-A per year, built leave-one-laboratory-out from four cohorts (n=1,379). The decade term is subtracted before a sample i
+- [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) — The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation-cohort anchors reproduce on THIS file, so i
+- [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) — How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual
+- [`iamatlas_collinearity_groups_v0_1.json`](../chain/Runtime%20Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json) — Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group sh
+- [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%20Panel/directional_panels_v1_0.json) — The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today.
+- [`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json) — Published reference A-score anchors per class (healthy / disease / cancer), extracted from the April web build. Orientation values from the literature, not meas
+- [`mahalanobis_healthy_reference_v2_0_age_matched_derived.json`](../chain/Runtime%20Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json) — The healthy centre and spread per class and age the departure is measured against.
+- [`iamatlas_cpg_to_healpix_nside128.npz`](../chain/Runtime%20Matrices/Patient_CMB/iamatlas_cpg_to_healpix_nside128.npz) — The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one chromosome, median 
+- [`presence_floors_v1.json`](../chain/Runtime%20Matrices/Patient_CMB/presence_floors_v1.json) — The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored.
+- [`residual_scale_GSE111629.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE111629.npz) — UCLA's per-address residual scale for the sky.
+- [`residual_scale_GSE125105.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE125105.npz) — Munich's per-address residual scale for the sky.
+- [`residual_scale_GSE42861.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE42861.npz) — Karolinska's per-address residual scale for the sky.
+- [`residual_scale_GSE87571.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE87571.npz) — Uppsala's per-address healthy residual scale for the sky - the denominator that makes a patient's z a z. One per commissioned laboratory.
+- [`percell_reference_identity_v1_0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_identity_v1_0.json) — THE PER-CELL CALIBRATION RECORD (2026-09-26). For each of 102 cells: p10/p50/p90 of A on the cell's identity loci, per laboratory (four labs, ~970 arrays, disjo
+- [`percell_reference_v0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0.json) — Per-entry healthy reference: for each of the 115 entries, the healthy range of its own per-cell reading, per laboratory. Exploration, unsealed.
+- [`percell_reference_v0_3.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0_3.json) — the per-entry healthy references the per-cell columns are zeroed on
+- [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) — The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report.
+- [`trace_detection_panel_v1.json`](../chain/Runtime%20Matrices/trace_detection_panel_v1.json) — the frozen panel and thresholds for Stage 2c trace detection
 
 ## The atlas
 
