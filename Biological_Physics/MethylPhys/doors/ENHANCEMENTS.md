@@ -160,7 +160,7 @@ Breast read 0.000 in breast tissue. Four causes found and fixed by measurement -
 The report and its documents FOLLOW the chain; nothing here is done until it is read on the rendered page.
 
 **A. Detection stage**
-1. **PROC-MF-02** — inverse-variance (diagonal) weighted detection, leave-one-laboratory-out, null-median centred, σ from the null spread; the six MF-01 bars applied to *this* detector. Passes → detection stage ahead of the per-cell A, reporting (f̂, σ, detected yes/no at ≤ 1 FP in 48) per foreign cell.
+1. ~~PROC-MF-02~~ **sealed NOT COMMISSIONED** (B1-B6 met, limits 0.5-1 %; B7 failed - the threshold does not transfer to a 783-marker EPIC matrix). **PROC-MF-03** if commissioned: per-laboratory threshold on each lab's own panel; B7 on the FULL EPIC-Italy matrix at the deconvolver's markers. See [`PROC_MF_02_OUTCOME.md`](PROC_MF_02_OUTCOME.md). Original item: inverse-variance (diagonal) weighted detection, leave-one-laboratory-out, null-median centred, σ from the null spread; the six MF-01 bars applied to *this* detector. Passes → detection stage ahead of the per-cell A, reporting (f̂, σ, detected yes/no at ≤ 1 FP in 48) per foreign cell.
 
 **B. Report, PDF, SOP — following the deconvolver repair**
 2. HTML Cells tab: tag family members inline in the class-table rows; print a family's A once; show `exclusive_markers` per cell; detection column once MF-02 passes.
@@ -188,3 +188,5 @@ The report and its documents FOLLOW the chain; nothing here is done until it is 
 **E. Housekeeping**
 19. Data bundles in the store: `MethylPhys_data_2026-09-26.zip` (2.57 GB) and `_part2.zip` (3.06 GB) — the author keeps them at `~/MethylPhys_data/`.
 20. `guarded_push.sh` lives at `chain/`, not `kit/` — the run-book should say so.
+
+**PROC-MF-02 outcome (2026-09-26): NOT COMMISSIONED on B7 alone.** See the register row B-10 and the outcome document.
