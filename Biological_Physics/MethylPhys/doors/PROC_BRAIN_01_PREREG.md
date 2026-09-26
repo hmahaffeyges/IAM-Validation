@@ -17,7 +17,31 @@ and a maximum of **0.0312**, with only 7 of 845 exceeding 1 %.
 ## What is being tested, and what is not
 
 **GSE292312** (n = 181, EPIC / GPL21145), *"Robust classification of pediatric brain tumors from cell-free
-DNA methylomes"* — **cerebrospinal fluid** cfDNA.
+DNA methylomes"*.
+
+> ### Amendment, 2026-09-26, before any array was scored
+>
+> **As first written this section described the whole series as cerebrospinal-fluid cfDNA. That is wrong.**
+> Reading the series metadata gives `source_name`: **157 primary tumour tissue and 24 CSF** — so the CSF
+> arm is **24 specimens, not 181**, and the original text overstated it roughly sevenfold.
+>
+> **No threshold and no bar changes.** The presence gate stays at 0.0312 and the A bar at 1.05, both fixed
+> before this cohort was chosen. What changes is the declared arm sizes:
+>
+> - **B1 and B2 are the CSF arm, n = 24.** At n = 24 the B2 requirement that at least half of specimens
+>   clear the gate means **12 or more**, and a proportion from 24 carries a 95 % interval of roughly
+>   ±0.20 — so B2 can distinguish "most patients" from "a handful" but not much finer than that. This is
+>   stated now rather than discovered in the outcome.
+> - **The 157 primary tumour tissue arrays are a separate declared arm**, and they are the stronger
+>   positive control: brain tumour *tissue* should be dominated by terminal-class material, so if terminal
+>   cannot be found there it cannot be found anywhere, and B1's failure in CSF would be uninterpretable.
+>   **The tissue arm is reported but is not a bar** — it was not pre-registered as one, and a tissue result
+>   does not bear on whether a *liquid* specimen can be read.
+> - **The series contains no healthy controls of either substrate.** The comparator therefore remains the
+>   845-blood null as written, and the substrate difference between CSF cfDNA and whole-blood leukocyte DNA
+>   is a limitation of that comparison, not a property of the finding. It is recorded here so the outcome
+>   cannot claim otherwise.
+
 
 **CSF is inside the barrier.** This procedure therefore tests whether the instrument can **find and score
 brain-derived cells in a liquid specimen at all** — a necessary precondition. It does **not** test the
@@ -28,8 +52,8 @@ evidence for the plasma hypothesis.
 
 | | bar | met when |
 |---|---|---|
-| **B1** | terminal is **found** | median terminal fraction in tumour CSF **> 0.0312**, the maximum observed in 845 non-CNS bloods — a threshold at which that cohort gives **0 of 845** false positives |
-| **B2** | it is found in most patients, not a few | **≥ 50 %** of tumour CSF specimens exceed the gate |
+| **B1** | terminal is **found** | median terminal fraction in the **24 CSF** specimens **> 0.0312**, the maximum observed in 845 non-CNS bloods — a threshold at which that cohort gives **0 of 845** false positives |
+| **B2** | it is found in most patients, not a few | **≥ 50 %** of the 24 CSF specimens exceed the gate (**≥ 12 of 24**) |
 | **B3** | the author's April rule holds | among specimens passing B1, median terminal **A > 1.05** |
 | **B4** | it is not the absence artefact | in specimens **failing** the presence gate, terminal A is reported separately and is **not** used to support B3 — per PROC-CEIL-01, a class below its presence floor reads high because it is absent |
 | **B5** | it is specific | terminal is elevated **more** than the median of the other six non-haematopoietic classes; if everything rises together it is substrate mismatch, per the DISC-BLADDER-003 signature that disqualified PROC-TISSUE-01 |
