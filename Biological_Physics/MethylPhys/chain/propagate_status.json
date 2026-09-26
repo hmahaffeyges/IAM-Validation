@@ -1,6 +1,6 @@
 {
- "when": "2026-09-26 04:47 UTC",
- "commit": "fd618b4",
+ "when": "2026-09-26 04:50 UTC",
+ "commit": "113afef",
  "pass": true,
  "rules": [
   {
@@ -47,6 +47,11 @@
    "rule": "matplotlib is a stated dependency (the plate needs it)",
    "ok": true,
    "detail": "requirements.txt"
+  },
+  {
+   "rule": "every new procedure script invokes the chain rather than its internals",
+   "ok": true,
+   "detail": "19 grandfathered, the rest clean"
   }
  ]
 }

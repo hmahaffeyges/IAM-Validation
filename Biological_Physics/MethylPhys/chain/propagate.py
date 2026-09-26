@@ -1,3 +1,4 @@
+import os as _os
 #!/usr/bin/env python3
 """One command to run after ANY change to the chain, and before ANY push.
 
@@ -24,6 +25,7 @@ import argparse
 import glob
 import json
 import os
+import glob as _glob
 import re
 import subprocess
 import sys
@@ -164,6 +166,39 @@ def rules():
     req = read(os.path.join(HERE, "requirements.txt"))
     R.append(("matplotlib is a stated dependency (the plate needs it)",
               "matplotlib" in req, "requirements.txt" if "matplotlib" in req else "ABSENT"))
+    # 10. a procedure must invoke the chain, not reimplement it (author's ruling 2026-09-26).
+    #     Reaching into stage functions or the deconvolver skips every guard the chain owns - the presence
+    #     floor, the composition guard, the intake log, the ceiling check - and each of those exists because
+    #     something went wrong once. Four defects in one day came from exactly this: an epithelial fraction
+    #     summed over the wrong classes, pooled class fractions consumed without noticing there were two
+    #     solves, a cohort scored with no report rendered, and an age truncated where the chain rounds.
+    #     The scripts below PREDATE the ruling and are the record of what was actually run, so rewriting them
+    #     would falsify that record - the same reason a sealed pre-registration is never edited. They are
+    #     grandfathered by name. THE LIST MAY NOT GROW: any new procedure script must go through run_sample.
+    GRANDFATHERED = frozenset({
+        "PROC_BAND_01_measure.py", "PROC_BAND_01_analyse.py", "PROC_CLS_01_measure.py",
+        "PROC_CLS_01_analyse.py", "PROC_CLS_01_b6.py", "PROC_LABBAND_01.py", "PROC_FOREIGN_01.py",
+        "PROC_FOREIGN_01_analyse.py", "PROC_EPIC_01_score.py", "PROC_EPIC_01_analyse.py",
+        "PROC_PARTIAL_01.py", "PROC_PARTIAL_01_analyse.py", "PROC_TISSUE_01_score.py",
+        "PROC_TISSUE_01_analyse.py", "PROC_COV_01.py",
+        # found by this rule on its first run - they predate the ruling for the same reason as the rest
+        "PROC_DECON_01.py", "PROC_PLASMA_MIX_01.py", "PROC_SEP_03.py", "PROC_SMALL_01_prepare.py",
+    })
+    INTERNALS = ("stage_a_cells", "stage_b_identity", "stage_1s_scale_map", "run_full",
+                 "WaltherIAMDeconvolver")
+    bypass = []
+    for fn in sorted(_glob.glob(_os.path.join(MP, "kit", "PROC_*.py"))):
+        base = _os.path.basename(fn)
+        if base in GRANDFATHERED:
+            continue
+        txt = read(fn)
+        if any(k in txt for k in INTERNALS) and "run_sample" not in txt:
+            bypass.append(base)
+    R.append(("every new procedure script invokes the chain rather than its internals",
+              not bypass,
+              "bypassing: %s" % ", ".join(bypass) if bypass
+              else "%d grandfathered, the rest clean" % len(GRANDFATHERED)))
+
     return R
 
 
