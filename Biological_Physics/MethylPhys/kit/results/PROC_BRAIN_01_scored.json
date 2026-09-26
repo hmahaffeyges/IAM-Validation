@@ -1,0 +1,1536 @@
+[
+ {
+  "gsm": "GSM9290273",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.053,
+  "terminal_cells_sum": 0.1065,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.8108538226017086,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.6830245319392352,
+    "f": 0.0746,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.8689381508504744,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.7251985420844285,
+    "f": 0.0319,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.9253031194975266,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.7626803422594658,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.7752674236492026,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.7934957950019451,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.8086867657749716,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.107,
+   "cycling": 0.074,
+   "immune": 0.767,
+   "terminal": 0.053
+  }
+ },
+ {
+  "gsm": "GSM9290258",
+  "substrate": "CSF",
+  "genotype": "ATRT_SHH",
+  "n_betas": 370346,
+  "terminal_pooled": 0.221,
+  "terminal_cells_sum": 0.3407,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 1.019391103639418,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.9679740787178124,
+    "f": 0.2224,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0491573801387588,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 1.0137265491323275,
+    "f": 0.1183,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.0594335142568905,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 1.0505569518250153,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0645048871896878,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.9754680249808972,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 1.0125090511051091,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.271,
+   "stem_adult": 0.027,
+   "cycling": 0.19,
+   "secretory": 0.025,
+   "immune": 0.266,
+   "terminal": 0.221
+  }
+ },
+ {
+  "gsm": "GSM9290254",
+  "substrate": "CSF",
+  "genotype": "MB_G4",
+  "n_betas": 370346,
+  "terminal_pooled": 0.154,
+  "terminal_cells_sum": 0.3169,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9608329070313277,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.8578997868746143,
+    "f": 0.2223,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.9914771776537753,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9247434202606558,
+    "f": 0.0946,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.0266029759720918,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 1.0194907429006355,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0326318629839053,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8798048474914879,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.934089438578846,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.183,
+   "stem_adult": 0.086,
+   "cycling": 0.162,
+   "secretory": 1.2,
+   "immune": 0.403,
+   "terminal": 0.154
+  }
+ },
+ {
+  "gsm": "GSM9290271",
+  "substrate": "CSF",
+  "genotype": "MB_G3",
+  "n_betas": 370346,
+  "terminal_pooled": 0.213,
+  "terminal_cells_sum": 0.45909999999999995,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.6730789023113516,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.6184340843086807,
+    "f": 0.3015,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.8724967837175521,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.6293855282560447,
+    "f": 0.1576,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.8904381988237675,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.7560670958379756,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.799780691869551,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.7442197816521106,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7353989527039801,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.209,
+   "stem_adult": 0.063,
+   "progenitor": 0.058,
+   "cycling": 0.089,
+   "secretory": 0.099,
+   "immune": 0.269,
+   "terminal": 0.213
+  }
+ },
+ {
+  "gsm": "GSM9290256",
+  "substrate": "CSF",
+  "genotype": "MB_G3",
+  "n_betas": 370346,
+  "terminal_pooled": 0.16,
+  "terminal_cells_sum": 0.3067,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.7799505678863149,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.7805149307721411,
+    "f": 0.1485,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.8626354524810982,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.7864235524502631,
+    "f": 0.1582,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.8965038259106006,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.7303223838572372,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.8109783182611431,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8332260599381851,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7270470881919504,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.206,
+   "progenitor": 0.089,
+   "cycling": 1.1,
+   "secretory": 0.181,
+   "immune": 0.352,
+   "terminal": 0.16
+  }
+ },
+ {
+  "gsm": "GSM9290265",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.037000000000000005,
+  "terminal_cells_sum": 0.1084,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.590368330845448,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.45511234507759957,
+    "f": 0.1084,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.7297898746191025,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.4565238358537272,
+    "f": 0.0,
+    "present": false
+   },
+   "Kera_diff": {
+    "A": 0.7878333853989363,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.6249004210480501,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.6499039090900536,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.6530578674728857,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.6341737245730638,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.101,
+   "progenitor": 0.214,
+   "cycling": 0.042,
+   "immune": 0.606,
+   "terminal": 0.037
+  }
+ },
+ {
+  "gsm": "GSM9290253",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.081,
+  "terminal_cells_sum": 0.1949,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.7393668672493665,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.5821587468152863,
+    "f": 0.1949,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.8324020059815646,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.5988634793353544,
+    "f": 0.0,
+    "present": false
+   },
+   "Kera_diff": {
+    "A": 0.7461933245441875,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.6435874287604876,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.7694525978013257,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8377842041746097,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7166718282317749,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.215,
+   "stem_adult": 0.069,
+   "progenitor": 0.135,
+   "cycling": 0.092,
+   "immune": 0.408,
+   "terminal": 0.081
+  }
+ },
+ {
+  "gsm": "GSM9290262",
+  "substrate": "CSF",
+  "genotype": "MB_G3",
+  "n_betas": 370346,
+  "terminal_pooled": 0.17300000000000001,
+  "terminal_cells_sum": 0.2713,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9680283504008212,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.9137564652337583,
+    "f": 0.1884,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0599173105463289,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9471761164902306,
+    "f": 0.0829,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.049086226433439,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.937641378636522,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.9820903458525946,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.9531162092958947,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.8338305157646491,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.17,
+   "progenitor": 0.092,
+   "cycling": 0.111,
+   "secretory": 0.102,
+   "immune": 0.352,
+   "terminal": 0.173
+  }
+ },
+ {
+  "gsm": "GSM9290270",
+  "substrate": "CSF",
+  "genotype": "ATRT_MYC",
+  "n_betas": 370346,
+  "terminal_pooled": 0.11699999999999999,
+  "terminal_cells_sum": 0.1293,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9951292272768382,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 1.006637777496873,
+    "f": 0.0673,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0646050684507584,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 1.048186355707004,
+    "f": 0.062,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.1238322123744275,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 1.0097515607764929,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0502256902129206,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 1.0454984027030392,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 1.060342661262458,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.2,
+   "stem_adult": 0.024,
+   "progenitor": 0.057,
+   "cycling": 0.113,
+   "secretory": 0.036,
+   "immune": 0.452,
+   "terminal": 0.117
+  }
+ },
+ {
+  "gsm": "GSM9290255",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.162,
+  "terminal_cells_sum": 0.0802,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.987846752284268,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.8554222816079592,
+    "f": 0.0358,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0075775941777863,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.8668596432153068,
+    "f": 0.0444,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.0462699317920945,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.9529386561060513,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0227724925885533,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 1.0909061869988392,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 1.042732908437264,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.336,
+   "progenitor": 0.049,
+   "cycling": 1.2,
+   "secretory": 0.182,
+   "immune": 0.258,
+   "terminal": 0.162
+  }
+ },
+ {
+  "gsm": "GSM9290275",
+  "substrate": "CSF",
+  "genotype": "MB_G4",
+  "n_betas": 370346,
+  "terminal_pooled": 0.256,
+  "terminal_cells_sum": 0.5164,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9891538937891773,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.9075419644327928,
+    "f": 0.3331,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.039560862883124,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9180688229402106,
+    "f": 0.1833,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.9828370339731328,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.8454436909468038,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.9559239614123871,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8905608093416774,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.9514527813373271,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.298,
+   "stem_adult": 0.038,
+   "cycling": 0.185,
+   "secretory": 0.055,
+   "immune": 0.168,
+   "terminal": 0.256
+  }
+ },
+ {
+  "gsm": "GSM9290261",
+  "substrate": "CSF",
+  "genotype": "ATRT_SHH",
+  "n_betas": 370346,
+  "terminal_pooled": 0.209,
+  "terminal_cells_sum": 0.29569999999999996,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.8652372219910436,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.7810754523784894,
+    "f": 0.1565,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.8895905148069477,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.8062403059302148,
+    "f": 0.1392,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.8849311204826402,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.8353834123291918,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.8223059376049628,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.7993875539978922,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7729917827127917,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.319,
+   "progenitor": 0.068,
+   "cycling": 0.143,
+   "secretory": 0.032,
+   "immune": 0.229,
+   "terminal": 0.209
+  }
+ },
+ {
+  "gsm": "GSM9290259",
+  "substrate": "CSF",
+  "genotype": "MB_G4",
+  "n_betas": 370346,
+  "terminal_pooled": 0.259,
+  "terminal_cells_sum": 0.629,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9735841254243792,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.9307475626494013,
+    "f": 0.4677,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0020625858924073,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9176866803170401,
+    "f": 0.1613,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.9854391070457423,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.7689089962987963,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.989950743289615,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.935150469665271,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.9395186575065565,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.294,
+   "stem_adult": 0.054,
+   "cycling": 0.217,
+   "secretory": 0.049,
+   "immune": 0.127,
+   "terminal": 0.259
+  }
+ },
+ {
+  "gsm": "GSM9290263",
+  "substrate": "CSF",
+  "genotype": "MB_G4",
+  "n_betas": 370346,
+  "terminal_pooled": 0.255,
+  "terminal_cells_sum": 0.5133,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 1.034020867600743,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.9629354885989027,
+    "f": 0.3508,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0494867075916672,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9571775530098147,
+    "f": 0.1625,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.0808188248596209,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.8580899074368055,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0117825804732967,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.9150897876733095,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.9758777873978431,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.219,
+   "stem_adult": 0.07,
+   "cycling": 0.229,
+   "secretory": 0.021,
+   "immune": 0.206,
+   "terminal": 0.255
+  }
+ },
+ {
+  "gsm": "GSM9290268",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.14,
+  "terminal_cells_sum": 0.48550000000000004,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 1.0371147502513745,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 1.011297535534852,
+    "f": 0.4444,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0341695599433915,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9910587023670614,
+    "f": 0.0411,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.0532162825524671,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.802145302991937,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0304162187317092,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.9610766133626377,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 1.0106126266982556,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.538,
+   "cycling": 0.101,
+   "secretory": 0.071,
+   "immune": 0.15,
+   "terminal": 0.14
+  }
+ },
+ {
+  "gsm": "GSM9290274",
+  "substrate": "CSF",
+  "genotype": "MB_SHH",
+  "n_betas": 370346,
+  "terminal_pooled": 0.201,
+  "terminal_cells_sum": 0.4183,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9809111551497421,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.8847810576118559,
+    "f": 0.2847,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.0430558425104186,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.9394374851133326,
+    "f": 0.1336,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.021905513310718,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.9400999260480785,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.9681363314542998,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.952331638907032,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.9416048710448419,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.249,
+   "stem_adult": 0.044,
+   "cycling": 0.14,
+   "secretory": 0.058,
+   "immune": 0.309,
+   "terminal": 0.201
+  }
+ },
+ {
+  "gsm": "GSM9290264",
+  "substrate": "CSF",
+  "genotype": "MB_G3",
+  "n_betas": 370346,
+  "terminal_pooled": 0.18100000000000002,
+  "terminal_cells_sum": 0.2731,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.8849438260735616,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.8401894170578306,
+    "f": 0.1381,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.9883148110796423,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.8089116002697677,
+    "f": 0.135,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.0090436129055205,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.887508780623946,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.8935101498717786,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8812157628652335,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.8337989383629074,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.286,
+   "progenitor": 0.04,
+   "cycling": 0.027,
+   "secretory": 0.201,
+   "immune": 0.265,
+   "terminal": 0.181
+  }
+ },
+ {
+  "gsm": "GSM9290272",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.031,
+  "terminal_cells_sum": 0.1069,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.736772165688592,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.648684482130696,
+    "f": 0.0883,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.8537438764500427,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.5844286581369766,
+    "f": 0.0186,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.8359861027690763,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.6450619091352754,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.7940953043983852,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.7550987190357448,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7450365871951037,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.082,
+   "stem_adult": 0.023,
+   "progenitor": 0.156,
+   "secretory": 0.018,
+   "immune": 0.69,
+   "terminal": 0.031
+  }
+ },
+ {
+  "gsm": "GSM9290257",
+  "substrate": "CSF",
+  "genotype": "MB_SHH",
+  "n_betas": 370346,
+  "terminal_pooled": 0.259,
+  "terminal_cells_sum": 0.5507,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.7905296595573337,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.6585767824750527,
+    "f": 0.4573,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.9014436140201548,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.676561948094535,
+    "f": 0.0934,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.8609042748195586,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.7228493660770151,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.7438771579151786,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8690857169054782,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7641120253120484,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.24,
+   "stem_adult": 0.066,
+   "secretory": 0.197,
+   "immune": 0.238,
+   "terminal": 0.259
+  }
+ },
+ {
+  "gsm": "GSM9290276",
+  "substrate": "CSF",
+  "genotype": "MB_G3",
+  "n_betas": 370346,
+  "terminal_pooled": 0.18,
+  "terminal_cells_sum": 0.2901,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 1.072248396350675,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 1.0056493610917685,
+    "f": 0.1781,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.1390816997106268,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 1.0604839861422082,
+    "f": 0.112,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.1531290064811734,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 1.1146013535635326,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.056708281101673,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 1.0069478009927042,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 1.0535843729418122,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.205,
+   "stem_adult": 0.066,
+   "progenitor": 0.4,
+   "cycling": 0.2,
+   "secretory": 0.016,
+   "immune": 0.33,
+   "terminal": 0.18
+  }
+ },
+ {
+  "gsm": "GSM9290267",
+  "substrate": "CSF",
+  "genotype": "MB_G4",
+  "n_betas": 370346,
+  "terminal_pooled": 0.11,
+  "terminal_cells_sum": 0.20739999999999997,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.746919582478205,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.7527770140531274,
+    "f": 0.142,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.9347603588628485,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.8329147837396911,
+    "f": 0.0654,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.9690713527101793,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.9970581774216409,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.8514494157950757,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.796550437206878,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.8564777432129926,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.138,
+   "stem_adult": 0.095,
+   "progenitor": 1.1,
+   "cycling": 0.096,
+   "secretory": 0.029,
+   "immune": 0.522,
+   "terminal": 0.11
+  }
+ },
+ {
+  "gsm": "GSM9290266",
+  "substrate": "CSF",
+  "genotype": "ETMR",
+  "n_betas": 370346,
+  "terminal_pooled": 0.128,
+  "terminal_cells_sum": 0.25239999999999996,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.7070555551994047,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.691226959954448,
+    "f": 0.2229,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.819213874115354,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.7426610680576949,
+    "f": 0.0295,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.8675749440002377,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.6482080323814488,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.7686578033114435,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.7617533952258742,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.7589724384260094,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.249,
+   "progenitor": 0.093,
+   "cycling": 0.065,
+   "secretory": 0.065,
+   "immune": 0.4,
+   "terminal": 0.128
+  }
+ },
+ {
+  "gsm": "GSM9290260",
+  "substrate": "CSF",
+  "genotype": "PIN_T_PB",
+  "n_betas": 370346,
+  "terminal_pooled": 0.203,
+  "terminal_cells_sum": 0.33140000000000003,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 0.9259303651305897,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 0.8404829796671697,
+    "f": 0.1378,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 0.9551548734347952,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 0.872988260727803,
+    "f": 0.1936,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 0.9652144766784063,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.867815559322671,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 0.9733509435336488,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.8745154050611408,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 0.8573749898540942,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.355,
+   "progenitor": 0.053,
+   "cycling": 0.042,
+   "secretory": 0.174,
+   "immune": 0.173,
+   "terminal": 0.203
+  }
+ },
+ {
+  "gsm": "GSM9290269",
+  "substrate": "CSF",
+  "genotype": "MB_SHH",
+  "n_betas": 370346,
+  "terminal_pooled": 0.22899999999999998,
+  "terminal_cells_sum": 0.5017,
+  "terminal_A_class": null,
+  "terminal_cells": {
+   "CM": {
+    "A": 1.0824673396487063,
+    "f": 0.0,
+    "present": false
+   },
+   "Cortical_neurons": {
+    "A": 1.0291401623891383,
+    "f": 0.3459,
+    "present": true
+   },
+   "Epi_upper": {
+    "A": 1.060202074040936,
+    "f": 0.0,
+    "present": false
+   },
+   "Glia": {
+    "A": 1.031731521101516,
+    "f": 0.1558,
+    "present": true
+   },
+   "Kera_diff": {
+    "A": 1.1212099063912815,
+    "f": 0.0,
+    "present": false
+   },
+   "Left_atrium": {
+    "A": 0.9885039803326023,
+    "f": 0.0,
+    "present": false
+   },
+   "NeuMa": {
+    "A": 1.0645905383839607,
+    "f": 0.0,
+    "present": false
+   },
+   "Oligo": {
+    "A": 0.9684255639478477,
+    "f": 0.0,
+    "present": false
+   },
+   "neuron": {
+    "A": 1.04829589294587,
+    "f": 0.0,
+    "present": false
+   }
+  },
+  "all_class_fractions": {
+   "stem_pluri": 0.247,
+   "cycling": 0.163,
+   "secretory": 0.034,
+   "immune": 0.327,
+   "terminal": 0.229
+  }
+ }
+]

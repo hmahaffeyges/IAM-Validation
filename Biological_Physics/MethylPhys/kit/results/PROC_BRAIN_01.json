@@ -1,0 +1,47 @@
+{
+ "n": 24,
+ "b1": {
+  "median": 0.30119999999999997,
+  "min": 0.0802,
+  "max": 0.629,
+  "gate": 0.0312,
+  "met": true
+ },
+ "b2": {
+  "n_clearing": 24,
+  "n": 24,
+  "bar": 12,
+  "met": true
+ },
+ "b3": {
+  "met": null,
+  "status": "NOT ASSESSABLE ON THE COMMISSIONED SURFACE",
+  "reason": "the bar names the terminal A, and the per-cell A is computed on the cell's DISCRIMINATIVE MARKER panel. Measured 2026-09-26: those panels are 77-100 per cent near-binary, so mean per-CpG entropy is ~0 by construction and every cell's OWN atlas reference reads far below 1.0 (Cortical_neurons 0.0099). On identity loci the same references read 0.89-1.14, median 0.9876. The repo's own Jensen-bound rule disqualifies marker panels for this computation. The bar is left exactly as pre-registered and recorded as not assessable; it becomes assessable when per-cell identity loci exist."
+ },
+ "b4": {
+  "n_failing_gate": 0,
+  "met": true,
+  "note": "no specimen failed the gate, so no absence-artefact reading could contaminate B3"
+ },
+ "b5": {
+  "per_class": {
+   "terminal": 0.1765,
+   "secretory": 0.052000000000000005,
+   "cycling": 0.112,
+   "stromal": 0.0,
+   "stem_pluri": 0.22949999999999998
+  },
+  "terminal": 0.1765,
+  "other_median": 0.082,
+  "met": true
+ },
+ "b6": {
+  "max_abs_delta_A_mapped": 0.0,
+  "n": 318,
+  "met": true
+ },
+ "tumour_arm": {
+  "status": "NOT RUN",
+  "reason": "~5 min/specimen x 157 = ~16 h; a separate run, recorded as not done rather than partially done"
+ }
+}
