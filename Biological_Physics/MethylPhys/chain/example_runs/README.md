@@ -1,6 +1,6 @@
 # Runs, and what every kind of report in this repository is
 
-One folder per run. Each folder is `RUN-YYYYMMDD-NN/` and holds that run's report plus a `RUN.md` naming the
+One folder per run. Each folder is `RUN-YYYYMMDD-NN/` and holds that run's report plus a [`RUN.md`](RUN-20260926-14/RUN.md) naming the
 specimen, the cohort and what the chain reported.
 
 ## The three things that get a number, and why they are different

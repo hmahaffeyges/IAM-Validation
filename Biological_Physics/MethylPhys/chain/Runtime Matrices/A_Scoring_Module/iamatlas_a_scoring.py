@@ -174,10 +174,20 @@ def _score_one_identity(beta_series: pd.Series,
     A = float(H_of_mean / h_min)
     assert A <= 1.0 / h_min + 1e-9, "A above 1/H_min is arithmetically impossible - a bug, not a reading"
     cov = n_usable / n_expected if n_expected else 0.0
+    # 95 % interval ON THIS READING, on THIS surface (2026-09-26): resample the identity loci with replacement 500
+    # times and recompute A. Until today the interval beside a per-cell A came from the retired marker surface and
+    # did not contain the number it stood next to (HSC: A 0.917, interval 0.750-0.881).
+    _rng = np.random.default_rng(0)
+    _draws = []
+    for _ in range(500):
+        _m = float(np.mean(vals[_rng.integers(0, n_usable, n_usable)])); _m = min(max(_m, 1e-12), 1 - 1e-12)
+        _draws.append((-_m * math.log2(_m) - (1 - _m) * math.log2(1 - _m)) / h_min)
+    ci = {"ci_lo": float(np.percentile(_draws, 2.5)), "ci_hi": float(np.percentile(_draws, 97.5)),
+          "n_loci_found": int(n_usable), "n_loci_panel": int(n_expected), "surface": "identity_loci_resampled"}
     return {"A": A, "n_markers_expected": n_expected, "n_markers_matched": n_usable,
             "coverage": float(cov), "confidence": float(min(1.0, cov)), "status": "OK",
             "surface": "identity_loci", "formula": "H(beta_mean)/H_min (RULING A3)",
-            "mean_beta": mean_beta, "mean_H": mean_H, "jensen_gap": float(H_of_mean - mean_H)}
+            "mean_beta": mean_beta, "mean_H": mean_H, "jensen_gap": float(H_of_mean - mean_H), "reading_ci": ci}
 
 
 def load_percell_identity(artifact_path: str) -> Dict[str, Dict]:
@@ -190,7 +200,8 @@ def score_per_celltype(customer_betas: Dict[str, float],
                        celltype_markers: Dict[str, List[str]],
                        celltype_to_class: Dict[str, str],
                        h_min_by_class: Dict[str, float],
-                       celltype_identity_loci: Dict[str, Dict] = None) -> Dict[str, Dict]:
+                       celltype_identity_loci: Dict[str, Dict] = None,
+                       percell_reference: Dict = None) -> Dict[str, Dict]:
     """Score all 115 cell-type A-scores for one patient.
 
     Each cell type's H_min is looked up via its class membership.
@@ -206,6 +217,13 @@ def score_per_celltype(customer_betas: Dict[str, float],
             # the identity surface is primary from 2026-09-26; the marker surface is kept only for cells
             # with no identity panel (13 of 115 have fewer than 100 loci at the floor) and is labelled
             result = _score_one_identity(beta_series, ident["loci"], float(ident.get("H_min", h_min_by_class[cls])))
+        # the MCMC reference (percell_reference_mcmc_v1.json): where THIS cell's own A = 1 sits on these loci, and the
+        # atlas's 95 % on it. Departure is read from the reference, the tier from A (the tier file's scale).
+        _ref = ((percell_reference or {}).get("entries") or {}).get(ct) if percell_reference else None
+        if _ref and _ref.get("status") == "OK":
+            result["reference"] = {"A": _ref["ref_A"], "ci95_lo": _ref["ci95_lo"], "ci95_hi": _ref["ci95_hi"], "n_loci": _ref["n_loci"], "source": "MCMC atlas posterior"}
+            if result.get("A") is not None and result["A"] == result["A"]:
+                result["departure_from_reference"] = float(result["A"] - _ref["ref_A"])
         else:
             result = _score_one(beta_series, markers, h_min_by_class[cls])
             result["surface"] = "marker_panel"

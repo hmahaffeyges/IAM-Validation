@@ -125,12 +125,12 @@ def _chk_mahalanobis(o):
 
 
 def _chk_brightness(o):
-    # superseded, not retired: the sky weights by the sample's own composition, which no precomputed
+    # diagnostic beside the live sky: the sky weights by the sample's own composition, which no precomputed
     # brightness file can. Kept in the registry so the lineage is visible.
     cl = o.get("classes") or {}
     any_ci = any((v or {}).get("A_ci_lo") is not None for v in cl.values())
     return ("PASS" if any_ci else "NOT_RUN",
-            "surface brightness was the first borrowing; superseded by the composition-weighted sky. "
+            "surface brightness was the first borrowing; it runs as a check beside the composition-weighted sky. "
             "Credible intervals on the class readings are its surviving use." if any_ci else
             "no brightness credible intervals on this run")
 
@@ -171,8 +171,8 @@ TOOLS = [
   "how far this specimen sits from the healthy centre, in units of the healthy spread",
   "cpg_conductor stage 5", _chk_mahalanobis),
  ("BRIGHT", "surface brightness", "astronomical photometry",
-  "an intensity that does not depend on distance or aperture, applied to a class; superseded by the "
-  "composition-weighted sky, not retired",
+  "an intensity that does not depend on distance or aperture, applied to a class; runs as a check beside the "
+  "composition-weighted sky",
   "attach_brightness_ci (retired v1 conductor)", _chk_brightness),
  # --- borrowed in principle, not implemented. Kept visible so the roadmap is not a separate document.
  ("CLS", "angular power spectrum of the residual sky", "the CMB power spectrum",

@@ -122,6 +122,10 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     # the same criterion as the eight class panels; each cell's own reference reads 0.9362-1.0204.
     _pci_path = _find("iamatlas_percell_identity_loci_v1_0.json", required=False)
     _pci = asc.load_percell_identity(str(_pci_path)) if _pci_path else None
+    try:
+        _pref = json.load(open(str(_find("percell_reference_mcmc_v1.json"))))   # MCMC reference per cell (2026-09-26)
+    except Exception:
+        _pref = None
     # PER-CELL LABORATORY OFFSET (2026-09-26): one number per laboratory from the calibration record,
     # applied to every cell's A as stage_b_identity applies z_lab. Without it four laboratories
     # disagree on every cell by ~0.055; with it, by 0.007. Unknown laboratory -> UNSET, fail-closed.
@@ -133,35 +137,20 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     # scale before it reads them; this path never did, and read RAW betas that sit ~0.07 above the atlas
     # at the identity loci (the offset PROC-COV-01 measured). Raw, every present cell in healthy blood
     # read SUPPRESSED (Neutrophils 0.87, NK 0.80); mapped, the same arrays read 0.968-1.053 = NORMAL.
-    scores = asc.score_per_celltype(_beta_mapped, ct_markers, c2c, h_min, celltype_identity_loci=_pci)
+    scores = asc.score_per_celltype(_beta_mapped, ct_markers, c2c, h_min, celltype_identity_loci=_pci, percell_reference=_pref)
 
     # 3. Pair A with fraction — presence comes from the ratio, not the A-score
-    # Uncertainty ON THE READING (2026-09-22): resample this cell's own marker CpGs, 500 draws, 95 % interval.
-    # This is the error bar on A for THIS sample - a different quantity from the healthy range for that cell, and
-    # from the atlas posterior SD of a class mean. The June reports conflated the third with the second: they printed
-    # "95 % CI" that was mean +/- 1.96 x the posterior SD OF THE MEAN, an uncertainty-of-an-average used as a
-    # population spread, which is why healthy cells appeared to sit 10 sigma out. Never that quantity again.
-    import numpy as _np
-    _rng = _np.random.default_rng(20260922)
-    def _H1(b):
-        b = _np.clip(_np.asarray(b, float), 1e-12, 1 - 1e-12)
-        return -b * _np.log2(b) - (1 - b) * _np.log2(1 - b)
-    _boot = {}
-    for _ct, _mk in ct_markers.items():
-        _cl = c2c.get(_ct); _hm = h_min.get(_cl) if _cl else None
-        _v = [beta_dict[c] for c in _mk if c in beta_dict] if isinstance(_mk, (list, tuple)) else []
-        if not _hm or len(_v) < 10: continue
-        _h = _H1(_v) / _hm; _n = len(_h)
-        _d = _h[_rng.integers(0, _n, size=(500, _n))].mean(axis=1)
-        _boot[_ct] = {"ci_lo": float(_np.percentile(_d, 2.5)), "ci_hi": float(_np.percentile(_d, 97.5)),
-                      "n_markers_found": int(_n), "n_markers_panel": int(len(_mk))}
-
+    # 2026-09-26: the interval on a reading is computed by the scorer ON THE SAME SURFACE as the reading (identity loci,
+    # resampled) and travels with it, together with the cell's MCMC reference. The marker-CpG bootstrap that lived here
+    # produced an interval on the retired surface that did not contain the A it stood beside (HSC 0.917 vs 0.750-0.881).
     cells = {}
     for ct, r in scores.items():
         frac = float(ct_fr.get(ct, 0.0))
         cells[ct] = {
             "A": r.get("A"),
-            "reading_ci": _boot.get(ct),
+            "reading_ci": r.get("reading_ci"),
+            "reference": r.get("reference"),
+            "departure_from_reference": r.get("departure_from_reference"),
             "coverage": r.get("coverage"),
             "confidence": r.get("confidence"),
             "status": r.get("status"),
