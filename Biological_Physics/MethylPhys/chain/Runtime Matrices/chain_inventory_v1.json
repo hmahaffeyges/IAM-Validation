@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "built": "2026-09-27 05:54",
-  "commit": "bee2e8a",
+  "built": "2026-09-27 05:57",
+  "commit": "3d0c4f3",
   "n_files": 200,
   "n_undescribed": 4,
   "undescribed": [
@@ -227,8 +227,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 3671,
-   "sha256_12": "9abbb3c47da9"
+   "bytes": 3760,
+   "sha256_12": "5de84a202ea1"
   },
   {
    "file": "README_CPG_Plates.md",
@@ -254,8 +254,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11920,
-   "sha256_12": "f5696e9ae0c7"
+   "bytes": 11970,
+   "sha256_12": "da458ed25e80"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -264,7 +264,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2822,
-   "sha256_12": "5ec1dcc099ea"
+   "sha256_12": "1ed141ac6962"
   },
   {
    "file": "REPRODUCTION.md",
@@ -281,8 +281,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 30977,
-   "sha256_12": "ef3d0fa2601e"
+   "bytes": 31027,
+   "sha256_12": "91d30a1dfc47"
   },
   {
    "file": "RUN.md",
@@ -560,8 +560,8 @@
    "role": "record",
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
-   "bytes": 1931,
-   "sha256_12": "0f64e76b5c99"
+   "bytes": 1950,
+   "sha256_12": "0c61db03a62f"
   },
   {
    "file": "reference_cells_37.csv",
@@ -579,7 +579,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "3646931c27c7"
+   "sha256_12": "79c6e9d0d0de"
   },
   {
    "file": "sop_repoint.py",
@@ -866,8 +866,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 22250,
-   "sha256_12": "8331b6e4af62"
+   "bytes": 22248,
+   "sha256_12": "43e7b3193bac"
   },
   {
    "file": "build_all.py",
@@ -929,8 +929,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 17747,
-   "sha256_12": "cee708fd6a11"
+   "bytes": 18897,
+   "sha256_12": "7962ef0f570c"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -965,8 +965,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1422175,
-   "sha256_12": "3bef82af19c1"
+   "bytes": 1444492,
+   "sha256_12": "9579fce3f633"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -983,8 +983,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 6997,
-   "sha256_12": "f8ca23dc8fff"
+   "bytes": 7061,
+   "sha256_12": "cfab65af8ec0"
   },
   {
    "file": "README_FIRST.md",
@@ -1037,8 +1037,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43079,
-   "sha256_12": "56cdf5a2a629"
+   "bytes": 43178,
+   "sha256_12": "505f6b56ba80"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1091,8 +1091,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 4705,
-   "sha256_12": "7497f0c78566"
+   "bytes": 4897,
+   "sha256_12": "1344322060d6"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1271,8 +1271,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The sky: deterministic mapping, presence-floor masking, and refusal without a commissioned laboratory scale.",
-   "bytes": 2150,
-   "sha256_12": "30931e689c1e"
+   "bytes": 2293,
+   "sha256_12": "bd3de992f1c3"
   },
   {
    "file": "test_percell_physics.py",
@@ -1326,7 +1326,7 @@
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
    "bytes": 72464,
-   "sha256_12": "c7a5c2b3ec20"
+   "sha256_12": "80b13208c3cd"
   },
   {
    "file": "run_sample.py",

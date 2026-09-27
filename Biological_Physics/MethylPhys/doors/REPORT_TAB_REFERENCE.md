@@ -1,6 +1,6 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `bee2e8a`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `3d0c4f3`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
 One run produces **one self-contained HTML file of 6.49 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
@@ -104,7 +104,7 @@ The fail-safes that kept this reading honest: the Stage 0 custody record for thi
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit bee2e8a)**, **5. Two rules this report obeys**
+*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 3d0c4f3)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 
