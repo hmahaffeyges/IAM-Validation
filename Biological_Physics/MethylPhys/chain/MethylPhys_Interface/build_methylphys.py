@@ -1042,7 +1042,9 @@ def tab_story(R=None):
        "<h3>Two names, and which is which</h3>",
        "<p><b>Astro-genetics</b> is the programme: cosmology's measurement tools pointed at the epigenome. <b>Physics of methylation: Landauer "
        "metrology</b> is the narrower field name for the metrology itself - the frozen floors, the single-sample absolute reading - and it is the title the Operations Manual and the methods paper carry, because a methods paper should claim only what it "
-       "measures. Both names are the author's; they describe different scopes of the same work.</p>"]
+       "measures. Both names are the author's; they describe different scopes of the same work. The programme document is "
+       f"<a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/papers/IAM_for_physicists/The_Informational_Actualization_Model___A_Technical_Reference_for_Physicists.pdf' target='_blank'>The Informational Actualization Model - A Technical Reference for Physicists</a> "
+       "(PDF; source and figures beside it); the methods paper is linked under the gauge above.</p>"]
     plates=[("CPG_Gauge_Cosmic.png","The same gauge read on a star. The cellular and cosmic readings are one instrument at two scales - the author's figure.")
 ]   # the CMB comparison figure lives on the Sky tab; embedding it twice doubled the file
     for fn,cap in plates:
@@ -1070,7 +1072,7 @@ def tab_record(R):
             p=os.path.join(pd_,d)
             if os.path.isdir(p): H.append(f"<tr><td>{_e(d)}</td><td>{', '.join(sorted(os.listdir(p)))[:120]}</td><td><a href='{GH}/tree/{R['sha']}/Biological_Physics/Record/PROC_data/{d}' target='_blank'>open</a></td></tr>")
         H.append("</table>")
-    H.append(f"<h3>Documents</h3><ul><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/manual' target='_blank'>MethylPhys CPG Operations Manual</a></li><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/papers' target='_blank'>Landauer Metrology of the Methylome</a> - the methods paper (draft)</li><li><a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/RUNBOOK.md' target='_blank'>RUNBOOK</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md' target='_blank'>CHAIN_COMMISSIONING</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/HANDOFF.md' target='_blank'>HANDOFF</a></li></ul>")
+    H.append(f"<h3>Documents</h3><ul><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/manual' target='_blank'>MethylPhys CPG Operations Manual</a></li><li><a href='{GH}/tree/{R['sha']}/Biological_Physics/MethylPhys/papers' target='_blank'>Landauer Metrology of the Methylome</a> - the methods paper (draft)</li><li><a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/papers/IAM_for_physicists/The_Informational_Actualization_Model___A_Technical_Reference_for_Physicists.pdf' target='_blank'>The Informational Actualization Model - A Technical Reference for Physicists</a> (programme document, PDF; <code>papers/IAM_for_physicists/</code>)</li><li><a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/RUNBOOK.md' target='_blank'>RUNBOOK</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md' target='_blank'>CHAIN_COMMISSIONING</a> · <a href='{GH}/blob/{R['sha']}/Biological_Physics/HANDOFF.md' target='_blank'>HANDOFF</a></li></ul>")
     return "".join(H)
 
 SPECIMENS=[("whole blood","450K / EPIC array","immune-dominant by construction; the only specimen with a commissioned pipeline map and detection panel today","lit"),

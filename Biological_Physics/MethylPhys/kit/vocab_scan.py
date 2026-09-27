@@ -117,6 +117,12 @@ def main():
                 for m in rx.finditer(line):
                     st = "RECORD" if (rec or ALLOW_LINE.search(line) or re.search(r"REMOVED|RETIRED|removed|retired|record|since removed|\\cite", line)) else "LIVE"
                     hits.append({"doc": "PAPER", "line": i + 1, "kind": kind, "word": m.group(0), "status": st, "text": line.strip()[:220]})
+    tex2 = os.path.join(MP, "papers", "IAM_for_physicists", "IAM_for_physicists.tex")
+    if os.path.exists(tex2):   # the programme document: scanned for the record, never a gate (it is not a document that reports this chain)
+        for i, line in enumerate(open(tex2, encoding="utf-8").read().split("\n")):
+            if line.lstrip().startswith(("%", "\\bibitem")): continue
+            for rx, kind in ((FORBIDDEN, "FORBIDDEN"), (COHORT, "COHORT")):
+                for m in rx.finditer(line): hits.append({"doc": "PAPER-IAM", "line": i + 1, "kind": kind, "word": m.group(0), "status": "RECORD", "text": line.strip()[:220]})
     live = [h for h in hits if h["status"] == "LIVE"]
     os.makedirs(os.path.join(HERE, "results"), exist_ok=True)
     json.dump({"n_hits": len(hits), "n_live": len(live), "hits": hits}, open(os.path.join(HERE, "results", "vocab_scan.json"), "w"), indent=1)
