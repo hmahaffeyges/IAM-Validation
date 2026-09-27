@@ -6,12 +6,12 @@ launcher, and nothing edits the chain while a procedure is scoring.
 
 ## Now (in flight)
 
-- (items 1 and 2 done 2026-09-27: audit round 3 pushed a48230e; PROC-TARE-01 sealed NOT COMMISSIONED; tier_breakpoints v1.5 makes NORMAL [0.95, 1.05) about the fixed point)
+- (items 1, 2 and 3 done 2026-09-27: audit round 3 pushed a48230e; PROC-TARE-01 sealed NOT COMMISSIONED; tier_breakpoints v1.5 makes NORMAL [0.95, 1.05) about the fixed point)
 
 
 ## Chain — after TARE-01 finishes, one at a time
 
-3. **Deferred chain patch** — four cohort stages out of `run_full`; `Patient_CMB` onto the search path.
+3. ~~Deferred chain patch~~ **DONE 2026-09-27, c09e9ef** — folded into the MEASURE-DON'T-COMPARE removal: stage 5/6 cohort stages deleted from the conductor (not just their calls), Patient_CMB on the search path, Percell_Reference / Cellular_Age / Mahalanobis_healthy_reference off it.
 4. **PROC-UNMIX-01** — re-zero the identity loci so the standard reads 1.000, then invert the dilution line per present cell; six bars pre-registered.
 5. **Sky zero and spread from the atlas posterior** — a constructed atlas specimen must read quiet; the four panels must stay at 2.6-3.2 %.
 6. **Held-out Stage 2d** — per-array shards, run alone, then register row B-12 says verified or not.
