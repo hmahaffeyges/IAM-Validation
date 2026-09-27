@@ -1,9 +1,9 @@
 {
  "_meta": {
   "generated_from": "kit/results/reference_report/reference.html",
-  "commit": "3a9a6b5",
+  "commit": "e19824d",
   "n_tabs": 17,
-  "report_mb": 6.48,
+  "report_mb": 6.49,
   "n_specimen": 8,
   "n_reference": 9,
   "figures_are_screenshots": false
@@ -59,7 +59,7 @@
    "label": "Cells",
    "kind": "SPECIMEN",
    "purpose": "Every atlas cell type scored for this specimen - all of them, placed or not - each with its 95 per cent interval, the healthy range on its own markers, how many of its markers were found, and its position against healthy.",
-   "kb": 27,
+   "kb": 32,
    "tables": 12,
    "rows": 90,
    "headings": [
@@ -74,7 +74,8 @@
     "Secretory / glandular (18 cells; H_min 0.8433)",
     "Immune & haematopoietic (51 cells; H_min 0.838889)",
     "Terminal / post-mitotic (9 cells; H_min 0.7728)",
-    "Stromal & connective (5 cells; H_min 0.863)"
+    "Stromal & connective (5 cells; H_min 0.863)",
+    "What the cells found in this specimen are"
    ],
    "opens": "Every cell - all 115 atlas cell types Trace-class detection - is there any epithelial-like material here at all? The composition solve above cannot answer this. It is a non-negative fit, and a non-negativity constraint pins a component that",
    "figure": "../manual/report_tab_figures/cells.png",
@@ -334,7 +335,7 @@
     "1. What this run refused, and why",
     "2. The safeguards, with their cosmology twins",
     "3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)",
-    "4. Files read by this run (repository at commit 3a9a6b5)",
+    "4. Files read by this run (repository at commit e19824d)",
     "5. Two rules this report obeys"
    ],
    "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
@@ -365,19 +366,19 @@
    "label": "Files",
    "kind": "REFERENCE",
    "purpose": "Every file the chain uses, enumerated from the live tree with its role.",
-   "kb": 76,
+   "kb": 80,
    "tables": 6,
-   "rows": 192,
+   "rows": 201,
    "headings": [
     "Every file the chain uses",
     "In the chain (17)",
-    "Reference and calibration data (64)",
-    "Interface (14)",
-    "Guards, procedures and doors (57)",
-    "Present but NOT in the chain (30)",
+    "Reference and calibration data (65)",
+    "Interface (15)",
+    "Guards, procedures and doors (63)",
+    "Present but NOT in the chain (31)",
     "Superseded (4)"
    ],
-   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit 3a9a6b5 - 196 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
+   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit e19824d - 197 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
    "figure": "../manual/report_tab_figures/files.png",
    "is_screenshot": false,
    "cmb": []

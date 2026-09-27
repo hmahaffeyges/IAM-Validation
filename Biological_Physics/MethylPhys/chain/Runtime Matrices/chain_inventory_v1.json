@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "built": "2026-09-27 03:11",
-  "commit": "bee46fd",
+  "built": "2026-09-27 03:16",
+  "commit": "e19824d",
   "n_files": 197,
   "n_undescribed": 1,
   "undescribed": [
@@ -233,8 +233,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11970,
-   "sha256_12": "0a792e1127ad"
+   "bytes": 11920,
+   "sha256_12": "9828458d6cb8"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -243,7 +243,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2780,
-   "sha256_12": "09039dc1cc07"
+   "sha256_12": "a3936f1c3fe4"
   },
   {
    "file": "REPRODUCTION.md",
@@ -531,7 +531,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1931,
-   "sha256_12": "b92c65d62a02"
+   "sha256_12": "ea2c038571d2"
   },
   {
    "file": "reference_cells_37.csv",
@@ -548,8 +548,8 @@
    "role": "reference",
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
-   "bytes": 19816,
-   "sha256_12": "e0404ee29d53"
+   "bytes": 19865,
+   "sha256_12": "eb7704f31b8e"
   },
   {
    "file": "sop_repoint.py",
@@ -837,7 +837,7 @@
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
    "bytes": 21920,
-   "sha256_12": "1e2720c62bb0"
+   "sha256_12": "c4a81148cec1"
   },
   {
    "file": "build_all.py",
@@ -935,8 +935,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1333791,
-   "sha256_12": "752ab7ab0ed7"
+   "bytes": 1362695,
+   "sha256_12": "91b3be72a05e"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1277,8 +1277,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 223789,
-   "sha256_12": "bf7ae0cfc2f2"
+   "bytes": 223777,
+   "sha256_12": "eb9ac647cab1"
   },
   {
    "file": "build_percell_reference.py",
@@ -1296,7 +1296,7 @@
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
    "bytes": 71288,
-   "sha256_12": "327e6f9060dd"
+   "sha256_12": "4abd11fdbb56"
   },
   {
    "file": "run_sample.py",

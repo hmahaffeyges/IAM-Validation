@@ -366,10 +366,8 @@ def _detection_block(o):
 
 def tab_cells(o, R, percell_ref=None):
     # 2026-09-27: what each present cell IS (the author's biology, guarded) - one line under the table, from the runtime file
-    _cd_path=_find("cell_descriptions_v1.json", required=False) if "_find" in globals() else None
-    try:
-        _CD=json.load(open(_cd_path))["cells"] if _cd_path else {}
-    except Exception: _CD={}
+    try: _CD=_j(_find("cell_descriptions_v1.json"))["cells"]
+    except Exception as _ex: _CD={}; print("cells tab: cell_descriptions_v1.json not loaded:", type(_ex).__name__, str(_ex)[:80])
     sys.path.insert(0,ENGINE); import cpg_tiers as T
     lab=(o.get('patient_sky') or {}).get('lab') or (o.get('cfg') or {}).get('lab')
     cells=o.get("cells_all") or {}; comp_cells={r["cell"]:r for r in o["composition"]["celltype"]}

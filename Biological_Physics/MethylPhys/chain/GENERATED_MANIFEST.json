@@ -1,5 +1,5 @@
 {
- "built": "2026-09-27 03:12:54",
+ "built": "2026-09-27 03:17:58",
  "python": "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.venv/methylprep/bin/python3",
  "generated": [
   {
@@ -61,7 +61,7 @@
  ],
  "inputs": {
   "chain/MethylPhys_Interface/build_chain_inventory.py": "fb0ab3e8137e107083a8a73390edb75974b2ae3bfc384ef322f54f03fb13eb31",
-  "chain/MethylPhys_Interface/build_methylphys.py": "bf7ae0cfc2f2ca85a78f78bdf91560ff6bf5a94dad1c9ef4ebea008f4554296a",
+  "chain/MethylPhys_Interface/build_methylphys.py": "eb9ac647cab118f8f567b75932f063fe252823773471caa34073bf6542debf5b",
   "chain/MethylPhys_Interface/build_percell_reference.py": "39863645f533571aec95ab1750d4e635b3506c910dd8aeb6b10b70ca52d94c59",
   "chain/MethylPhys_Interface/run_sample.py": "faa26fa19e8558605a0fca2891bb733a9877539e799d0b6c5e62bc4bcd267ee8",
   "chain/Runtime Matrices/A_Scoring_Module/age_reference_matrix.json": "54232a5d1e269acbaacfa629d21d9c42fc77b5e1cf3af5289f2bd7450c5ef56a",
@@ -85,7 +85,7 @@
   "chain/Runtime Matrices/Patient_CMB/build_healpix_mapping.py": "497d82801d033b00af60b6eff7a029fd2188d9813753367e2eed954a178e1c5c",
   "chain/Runtime Matrices/Patient_CMB/presence_floors_v1.json": "8028199c8ffbd981ad5b864242db886d97785234144ebcee736befce41b6589f",
   "chain/Runtime Matrices/Tier_breakpoints/tier_breakpoints.json": "f9bfb3c2e476c936a09e9be45eb8ac222deb3299337a8b31112ba40bc83a3979",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "327e6f9060dd7b5d3b6360aeb0d245e34be622d75d2e8276c83f92d07cb41c9c",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "4abd11fdbb562630b97c22016070bfddc1d7874d6123a7e1a5f65756f5585c83",
   "chain/Runtime Matrices/trace_detection_panel_v1.json": "c660883f2e07710234affc5809492efe533c58a1123e5bc0ab7c931bec4d1018",
   "chain/build_all.py": "2c2909a0a30d56925f12acfec9cbd984f03c26d0def41c501facd283d47d2ed7",
   "chain/build_chain_sequence.py": "1a283dc05c971748a6db93eb4fd2cdd756e632832ac090f7d02f735aa22da5cd",
@@ -242,15 +242,15 @@
  "outputs": {
   "chain/chain_sequence.json": "d987153eb257d9a87509d51188c91394561ff7a550698347f8f52472addc3d70",
   "doors/CHAIN_SEQUENCE.md": "79479176daab1119b2b1d17a4ad539ed401d26e5599f03a2776fa77b321641ba",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "3c7118ff6e320d59d7cddb90a6cdf40e43219e0d9e29988496079d037adc9077",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "eed2e201801ed3dabe3c4d9db8aa0cfa3ef8262100f1223e2bae3ab1d4b48a4e",
   "doors/COMPONENT_MAP.md": "c488ac2511e1cfb29261edbfd026a9ae063dd864a21b8831fb66baa02e984cf5",
   "chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json": "0e3767e3ffd8cc46764bfbbf9f239df53f56bd1b5606ce5e9da4c447d2596eca",
   "chain/example_runs/RUN_INDEX.csv": "e81c849a9161af769894c96a8ba70ece8c2890f3286c8935ff34df58ebd8eaab",
-  "sop/MethylPhys_CPG_SOP.md": "8fc1faeead8dfc9971d72d3de3f2f41bc58a8b7fa3ec2deb8df11761143d75d4",
-  "manual/MethylPhys_CPG_Operations_Manual.pdf": "f1205b48a6ade8ff96350a05638f253bb976773ba6b321183dd760369fa02e40",
+  "sop/MethylPhys_CPG_SOP.md": "8213e7b9d95e0b9dd0f1c1b042f24e903f76f28474df34a2e4fbd435a938d7cc",
+  "manual/MethylPhys_CPG_Operations_Manual.pdf": "b45da344d2900594c1135e29f3ca69b0a36dd9dbca617c02b8aa538b3ddf08dd",
   "doors/REVIEWER_MANIFEST.md": "fc9a28cabccca2935845a682b282d29ebfc4849b454273b9cda17e4fe40bd44b",
-  "doors/REPORT_TAB_REFERENCE.md": "0a792e1127adc60263b592d2ae1b32d59c164db05e8b0acb285a88be4c6c9831",
-  "doors/REPO_INVENTORY.md": "608634f5e146e957de7c44885605e1ccbc1e063687c46699a81fff317672d47b",
+  "doors/REPORT_TAB_REFERENCE.md": "9828458d6cb825e75ed9aa2d264209d0e1112eb5944a87d6cd50ad601f0b5c1e",
+  "doors/REPO_INVENTORY.md": "e81d6189bb4de87c90c2b712c4003da0bd560bead91ca3a21f739783c537b99e",
   "doors/RUNBOOK.md": "56cdf5a2a6299916f91e09573180bdadb6536728ce7ae53dfd8c3da87293ecf7",
   "README.md": "60b514c4f765a41a6dab9c0b822c9610fc61a06d04c0c4e933de67f8a1663757"
  },
