@@ -1,8 +1,8 @@
 {
  "_meta": {
-  "built": "2026-09-27 06:26",
-  "commit": "dee0340",
-  "n_files": 202,
+  "built": "2026-09-27 06:40",
+  "commit": "cac64c5",
+  "n_files": 203,
   "n_undescribed": 6,
   "undescribed": [
    "FINDING_DETECTION_PANEL_HELDOUT.md",
@@ -85,8 +85,8 @@
    "role": "chain",
    "stage": "stage 2",
    "description": "Stage 2. Constrained non-negative least squares: which cell types are present and in what fraction. Sparse by design - it reports only what it has evidence for.",
-   "bytes": 42455,
-   "sha256_12": "e35fa6622178"
+   "bytes": 43570,
+   "sha256_12": "d11982c4d865"
   },
   {
    "file": "lineage_splitter.py",
@@ -211,8 +211,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 3477,
-   "sha256_12": "490c2d80dd6e"
+   "bytes": 3648,
+   "sha256_12": "50fb0613c2ae"
   },
   {
    "file": "FRACTION_AND_A.md",
@@ -275,7 +275,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11970,
-   "sha256_12": "3ae65eb6c465"
+   "sha256_12": "78fcf950b19f"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -284,7 +284,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2822,
-   "sha256_12": "bb8636d963f6"
+   "sha256_12": "1565020ce6d6"
   },
   {
    "file": "REPRODUCTION.md",
@@ -301,8 +301,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 31027,
-   "sha256_12": "91d30a1dfc47"
+   "bytes": 31176,
+   "sha256_12": "755a09325335"
   },
   {
    "file": "RUN.md",
@@ -581,7 +581,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1950,
-   "sha256_12": "61542901a485"
+   "sha256_12": "81559d7de679"
   },
   {
    "file": "reference_cells_37.csv",
@@ -599,7 +599,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "4a641b6fcd7f"
+   "sha256_12": "53950c5d211e"
   },
   {
    "file": "sop_repoint.py",
@@ -886,8 +886,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 22248,
-   "sha256_12": "3f644b60316d"
+   "bytes": 22339,
+   "sha256_12": "a998d7557a9f"
   },
   {
    "file": "build_all.py",
@@ -985,8 +985,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1472538,
-   "sha256_12": "0f434d699911"
+   "bytes": 1500584,
+   "sha256_12": "cba65d060c57"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1111,8 +1111,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 5220,
-   "sha256_12": "d1bb6621521d"
+   "bytes": 4762,
+   "sha256_12": "4e0cc16509b5"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1192,8 +1192,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13533,
-   "sha256_12": "0fd20f5129a1"
+   "bytes": 13622,
+   "sha256_12": "ec9bb2ada1d7"
   },
   {
    "file": "cpg_kit.py",
@@ -1318,8 +1318,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 45515,
-   "sha256_12": "7334246599d1"
+   "bytes": 45868,
+   "sha256_12": "2847dae1edcd"
   },
   {
    "file": "build_methylphys.py",
@@ -1345,8 +1345,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 72464,
-   "sha256_12": "ee1249393133"
+   "bytes": 72993,
+   "sha256_12": "4cd219ab5274"
   },
   {
    "file": "run_sample.py",
@@ -1653,6 +1653,15 @@
    "description": "Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group should not be scored against each other.",
    "bytes": 28087,
    "sha256_12": "5be2ce33f57d"
+  },
+  {
+   "file": "twin_family_thresholds_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Celltype_Marker/twin_family_thresholds_v1.json",
+   "role": "reference",
+   "stage": "stage 2",
+   "description": "TWIN / FAMILY / COVERAGE constants for the composition solver (PLAN item 6, 2026-09-27): twin_r 0.985, cross-source r 0.98, 30 separating loci at 0.2 beta, coverage floor 1 %, 60 markers per cell - each with the measurement that set it in _meta. Values unchanged from the code they replaced.",
+   "bytes": 1259,
+   "sha256_12": "a3e0c371f4da"
   },
   {
    "file": "directional_panels_v1_0.json",

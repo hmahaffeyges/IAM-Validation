@@ -11,8 +11,8 @@ Order rule: chain before documents, documents before launcher, and nothing edits
 
 ## Chain — one at a time
 
-3. **PROC-SKY-01 follow-up** — re-run the sky script with Munich refused at intake. The sky is currently DRAWN on the no-population σ (atlas posterior + this array's SNP noise) — my call under the development-stage ruling, not the author's explicit pick. **Author's open decision**: keep it drawn as z on that σ, or draw the raw residual in β units with no σ at all (plus the serial difference map, item 8).
-4. **Stage 2d rebuilt** — FINDING_DETECTION_PANEL_HELDOUT.md (732 arrays: 48 % false alarms, 24 % 'substrate mismatch', σ 2.6× too small). Pre-register: per-array common-mode removal; lines re-measured on the admitted set with a stated quantile — **author's decision: is a noise floor measured on arrays known to lack the cell acceptable, or must the line come from the array itself (SNP noise)?**; thin-source cells print NOT DETECTABLE until atlas v2. Until then the detector is not trusted on any specimen and the report says so.
+3. **Sky — decided 2026-09-27 (author): drawn as z on the atlas-posterior σ**; the off-identity-loci offset is drawn and labelled, never re-centred. Remaining: the label on the plate, and the offset's cause (items 7, 20).
+4. **Stage 2d rebuilt — PROC-STAGE2D-02** (pre-registered 2026-09-27; author decided a noise floor from arrays known to lack the cell is acceptable): common-mode removal, lines on all admitted arrays at a stated quantile, thin-source templates NOT DETECTABLE. Run next.
 5. **Stage 2d kit test** — contract from the finding: per-cell FP ≤ 1 % on OK arrays, UNSPECIFIC ≤ 1 % of healthy arrays, thin-source cells 'not detectable'.
 6. **Twin/family thresholds as a runtime matrix** — no constants in code (same move as the intake thresholds).
 7. **Chip term** — the SNP tare did not remove it (TARE-01 B6); the control-probe model (0.002–0.018 on the clean laboratories) is the recorded route. Pre-register; run on the 768 calibrated arrays.

@@ -310,6 +310,7 @@
   "IAMAtlasREBUILD_celltype_to_class.json": "reference",
   "IAMAtlasREBUILD_provenance.json": "reference",
   "iamatlas_collinearity_groups_v0_1.json": "reference",
+  "twin_family_thresholds_v1.json": "reference",
   "directional_panels_v1_0.json": "reference",
   "EPIC_plus_HM450_combined_manifest_normalized.csv": "reference",
   "EPIC_v1_B4_manifest_normalized.csv": "reference",
