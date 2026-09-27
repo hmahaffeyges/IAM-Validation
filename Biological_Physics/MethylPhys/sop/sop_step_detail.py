@@ -123,13 +123,13 @@ a refusal. Read a hybridisation or extension failure as a run to repeat.""",
 "§15": """**As applied in code.** `step_0_5_detection_pvalue_qc(record, probe_intensities, neg_control_stats)`, with
 both inputs from the hand-off. Detection p per probe is
 `1 − Φ((I − μ_bg)/σ_bg)` — the SOP's stated formula — where μ_bg and σ_bg come from the **613 NEGATIVE control
-probes on the patient's own array**, not from a cohort.
+probes on the patient's own array**, from no one else's.
 
 | quantity | value |
 |---|---|
 | p threshold | `DETECTION_P_THRESHOLD` = 0.01 |
 | pass fraction required | `DETECTION_PASS_FRACTION` = 0.99 → `PASS` |
-| borderline band | ≥ `DETECTION_BORDERLINE_FRACTION` = 0.95 → `DETECTION_BORDERLINE` |
+| borderline band | ≥ `DETECTION_BORDERLINE_FRACTION` = 0.93 → `DETECTION_BORDERLINE` (intake_thresholds_v1.json) |
 | below that | `FAIL_LOW_DETECTION` — hard failure |
 | healthy median (n=731) | **0.9994**, p05 0.9990, worst **0.9951** |
 
@@ -167,7 +167,7 @@ probes passing **both** the detection and the bead test.
 | quantity | value |
 |---|---|
 | pass | `CALL_RATE_PASS` = 0.98 |
-| borderline | ≥ `CALL_RATE_BORDERLINE` = 0.95 → `CALL_RATE_BORDERLINE` |
+| borderline | ≥ `CALL_RATE_BORDERLINE` = 0.93 → `CALL_RATE_BORDERLINE` / PROCEED_WITH_PENALTY (intake_thresholds_v1.json; the author's line, 2026-09-27, PROC-INTAKE-01) |
 | below | `CALL_RATE_FAIL` — hard failure |
 | healthy median (n=731) | **0.9983**, p05 0.9961, worst 0.9889 |
 

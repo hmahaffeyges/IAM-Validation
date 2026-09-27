@@ -8,7 +8,7 @@ Implemented so far:
   Step 0.4 (SOP §14) — Control probe validation (BS conversion / hybridization / extension gates).
   Step 0.5 (SOP §15) — Detection p-value QC per probe (detected-fraction gate).
   Step 0.6 (SOP §16) — Bead count QC (>= 3 beads/probe, warn-only gate).
-  Step 0.7 (SOP §17) — Sample-level call rate (detection AND bead, 0.98/0.95 gates).
+  Step 0.7 (SOP §17) — Sample-level call rate (detection AND bead; 0.98 / 0.93 lines from intake_thresholds_v1.json).
   Step 0.7b           — HM450 >= 80% reference-CpG coverage gate + platform tag (VAL-091).
   Step 0.8 (SOP §18) — Sex check vs metadata (minfi getSex; mismatch -> quarantine).
   Step 0.9 (SOP §19) — Stage 0 decision gate (PROCEED / PROCEED_WITH_PENALTY / QUARANTINE).
@@ -31,6 +31,18 @@ import os
 import struct
 import uuid
 from datetime import datetime, timezone, timedelta
+
+# 2026-09-27 PROC-INTAKE-01: thresholds are runtime constants (Runtime Matrices/Intake/intake_thresholds_v1.json), not
+# numbers in code. The QUARANTINE line is the author's 0.93 - see the file's _meta for the 48-array measurement behind it.
+def _intake_thresholds():
+    import json as _j, os as _o
+    here=_o.path.dirname(_o.path.abspath(__file__))
+    for root in (here, _o.path.join(here,"Runtime Matrices","Intake")):
+        for dp,_,fs in _o.walk(root):
+            if "RETIRED" in dp: continue
+            if "intake_thresholds_v1.json" in fs: return _j.load(open(_o.path.join(dp,"intake_thresholds_v1.json")))
+    raise FileNotFoundError("intake_thresholds_v1.json (Runtime Matrices/Intake) - the intake gate has no thresholds without it")
+_TH=_intake_thresholds()
 
 # --- SOP §11 spec constants -------------------------------------------------
 
@@ -565,8 +577,8 @@ def step_0_4_control_probe_validation(record, grn_path, red_path,
 # ============================================================================
 
 DETECTION_P_THRESHOLD = 0.01
-DETECTION_PASS_FRACTION = 0.99
-DETECTION_BORDERLINE_FRACTION = 0.95
+DETECTION_PASS_FRACTION = float(_TH["detection"]["pass_fraction"])
+DETECTION_BORDERLINE_FRACTION = float(_TH["detection"]["borderline_fraction"])
 
 
 def _normal_sf(z):
@@ -665,10 +677,10 @@ def step_0_6_bead_count_qc(record, bead_counts=None) -> dict:
 
 # ============================================================================
 # Step 0.7 (SOP §17) — Sample-level call rate = fraction passing BOTH detection
-# and bead thresholds. >=0.98 proceed; 0.95-0.98 borderline (penalty); <0.95 fail.
+# and bead thresholds. >=0.98 proceed; 0.93-0.98 borderline (penalty); <0.93 QUARANTINE (author, 2026-09-27).
 # ============================================================================
-CALL_RATE_PASS = 0.98
-CALL_RATE_BORDERLINE = 0.95
+CALL_RATE_PASS = float(_TH["call_rate"]["proceed_at_or_above"])
+CALL_RATE_BORDERLINE = float(_TH["call_rate"]["quarantine_below"])
 
 
 def validate_call_rate(n_passing_both: int, n_total: int) -> dict:

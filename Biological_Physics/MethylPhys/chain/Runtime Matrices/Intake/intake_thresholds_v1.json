@@ -1,0 +1,26 @@
+{
+ "_meta": {
+  "version": "v1",
+  "built": "2026-09-27",
+  "provenance": "PROC-INTAKE-01. The call-rate QUARANTINE line was the SOP's 0.95, written for a different detection statistic. Measured on 48 panel arrays (12 per commissioning laboratory) with poobah p<=0.05 against each array's own negative controls: Uppsala 0.985 (min 0.979), Karolinska 0.975 (min 0.891), UCLA 0.953 (min 0.932), Munich 0.878 (max 0.928). Signal-to-background does not separate the laboratories (an Uppsala array at s2b 7.1 detects 99.4 %); the detected fraction does, with a gap 0.894 -> 0.928 -> 0.932. The author set the line at 0.93 (2026-09-27): refuses 12/12 Munich and one Karolinska array at 0.891; 0 UCLA, 0 Uppsala. These are instrument constants read by stage_0_intake; they describe the array, never a person.",
+  "author": "Heath W. Mahaffey",
+  "decision": "call_rate_quarantine_below = 0.93 (2026-09-27)"
+ },
+ "call_rate": {
+  "proceed_at_or_above": 0.98,
+  "quarantine_below": 0.93,
+  "note": "0.93 <= call rate < 0.98 -> PROCEED_WITH_PENALTY, flag printed on the Reading tab"
+ },
+ "detection": {
+  "pass_fraction": 0.99,
+  "borderline_fraction": 0.93,
+  "note": "per-probe detection poobah p<=0.05 against this array's negative controls; probes failing are removed before any stage reads a beta"
+ },
+ "bead": {
+  "pass_fraction": 0.995
+ },
+ "bisulfite_conversion": {
+  "min": 0.95,
+  "status": "PROVISIONAL - printed, not refused on (refuses 731/731 healthy arrays as written)"
+ }
+}

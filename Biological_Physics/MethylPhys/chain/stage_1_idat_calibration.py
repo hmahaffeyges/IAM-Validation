@@ -85,7 +85,7 @@ def _detect_array_type(grn_path):
     return at, str(at), barcode, n
 
 
-def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True):
+def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, mask_detection=True):
     """Calibrate one IDAT pair to noob-normalized beta.
 
     Returns (beta_series, meta). beta_series is a pd.Series indexed by IlmnID
@@ -141,7 +141,7 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True):
             pv = df[pcol[0]].astype(float)
             detected = (pv <= 0.05)                       # poobah p (per probe vs THIS array's negatives) at its own 0.05; the SOP's 0.01 was written for minfi's detectionP, a different statistic - 2026-09-27
             n_cg = int(is_cg.sum()); n_det = int((detected & is_cg).sum())
-            beta = allb[is_cg & detected.values].dropna()
+            beta = allb[is_cg & detected.values].dropna() if mask_detection else allb[is_cg].dropna()   # mask_detection=False is a TEST switch (PROC-INTAKE-01 B3); the chain always masks
             qc = {"detection_available": True, "n_probes": n_cg, "n_detected": n_det, "pct_detected": n_det / max(n_cg, 1),
                   "n_masked": n_cg - n_det}
         else:
@@ -177,7 +177,7 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True):
         "array_type": at_str,
         "pipeline": f"stage1_noob_{'450K' if at_str=='450k' else at_str.upper()}",   # LESSON-SCALE-01: the tag beta_scale_maps_v1.json is keyed by
         "n_cpgs": int(len(beta)),
-        "calibration": "noob (dye-bias + probe-type normalization), per-sample; probes at background (poobah p > 0.05) removed",
+        "calibration": "noob (dye-bias + probe-type normalization), per-sample; probes at background (poobah p > 0.05) removed" if mask_detection else "noob; DETECTION MASK WITHHELD (test only)",
         "stage": "SOP Stage 1 steps 1.1-1.2 + 1.5",
         "detection": qc, "controls": ctrl, "snp_noise": snp,
     }

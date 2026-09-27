@@ -1,7 +1,7 @@
 # Runs, and what every kind of report in this repository is
 
 One folder per run. Each folder is `RUN-YYYYMMDD-NN/` and holds that run's report plus a [`RUN.md`](RUN-20260926-14/RUN.md) naming the
-specimen, the cohort and what the chain reported.
+specimen, the procedure it belongs to, and what the chain reported.
 
 ## The three things that get a number, and why they are different
 
@@ -14,16 +14,16 @@ specimen, the cohort and what the chain reported.
 A run is evidence, not a test. It cannot pass or fail, because nothing was pre-registered about it - it is
 the chain doing its job on one array. Filing a run as a VAL would imply a claim nobody made.
 
-## A cohort test, when we get there
+## A test over many arrays, when we get there
 
-A test across a cohort is a **procedure**, not a pile of runs: it gets a `PROC-` identifier, a
+A test across many arrays is a **procedure**, not a pile of runs: it gets a `PROC-` identifier, a
 pre-registration with its bar fixed before the first array is read, and an outcome document that scores that
-bar. The runs it produces live here and are cited by the outcome. So the answer to "what will the cohort
-tests be called" is: `PROC-<COHORT>-##`, with the runs underneath it.
+bar. The runs it produces live here and are cited by the outcome. So the answer to "what will the multi-array
+tests be called" is: `PROC-<NAME>-##`, with the runs underneath it.
 
 ## What the report itself contains
 
-18 tabs. Seven carry **this specimen** - Reading, Every cell, Departure, Sky, Integrity, Safeguards, Run.
+18 tabs. Eight carry **this specimen** - Reading, Every cell, Direction, Sky, Integrity, Safeguards, Files, Run.
 Nine are **reference material** identical in every report and say so at the top. Two differ only in a
 provenance line. The Sky tab's plate is the only image drawn from this specimen's own data, and it is
 captioned `THIS SPECIMEN`.

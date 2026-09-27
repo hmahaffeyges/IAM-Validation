@@ -1,30 +1,33 @@
-# Physics of Methylation — start here
+# doors/ — the record of how the chain was built, and what is next
 
-**What this field is called (2026-09-20): Physics of Methylation: Landauer Metrology** — measuring how far above the thermal noise quantum an information-writing process operates, against a fixed physical zero (H_min per cell class). Thermal noise is the unit (M = E_drive / k_B T), not the nuisance. Prior art: Sanchez & Mackenzie 2016 established that the methylome obeys Landauer's bound; Landauer metrology measures how far above it each cell class operates ([[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) §0b).
+This folder holds the procedures (one pre-registration and one outcome each), the findings, the register, the ledger, the plan and
+the runbook. **New to the project? Read [`../START_HERE.md`](../START_HERE.md) first**; it says which document is canonical for what.
 
+**The claim, in one paragraph.** A cell maintains its methylation pattern by irreversible information writing, and at body
+temperature that writing has a thermodynamic cost. For each of eight cellular architecture classes there is a floor entropy
+`H_min` below which a cell of that class does not keep its identity; it was fitted once by MCMC on 37 published reference cell
+methylomes (April 2026) and is frozen. A cell's reading is `A = H(mean β over its identity loci) / H_min`. Healthy is A = 1.00 by
+the physics; the tier scale is the tolerance. Nothing about any other person enters a reading.
 
-This folder is the researcher-facing entry to the cellular track of the Informational Actualization Model: the claim, the current report, the kit that lets you verify the measurement chain on your own machine, the operating procedure, the papers, and the plates that show why the methylome is treated as a sky.
+| | file |
+|---|---|
+| **What is next** | [`PLAN.md`](PLAN.md) — one line per item, done items come off |
+| **The ledger** | [`ENHANCEMENTS.md`](ENHANCEMENTS.md) — what was found, decided, closed and why |
+| **The register** | [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) — every row of the chain and the procedure that commissioned, sealed or removed it |
+| **Run one specimen** | [`RUNBOOK.md`](RUNBOOK.md) |
+| **The step order, as the code calls it** | [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) (generated) |
+| **Where every file lives and what reads it** | [`COMPONENT_MAP.md`](COMPONENT_MAP.md), [`REPO_INVENTORY.md`](REPO_INVENTORY.md) (generated) |
+| **What each report tab says and where it comes from** | [`REPORT_TAB_REFERENCE.md`](REPORT_TAB_REFERENCE.md) (generated from a fresh render on every build) |
+| **For a reviewer** | [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) (generated) |
+| **Procedures** | `PROC_*_PREREG.md` (written before data is read; never moves after) and `PROC_*_OUTCOME.md` (written after the render is read) |
+| **Findings** | `FINDING_*.md` — e.g. [`FINDING_GSE125105_LOW_SIGNAL.md`](FINDING_GSE125105_LOW_SIGNAL.md) |
+| **The translation map** | [`CMB_TO_METHYLOME_MAP.md`](CMB_TO_METHYLOME_MAP.md) — the CMB-analysis modules mapped to their methylome analogs, with what was built and what was reversed |
 
-**The claim, in one paragraph.** A cell maintains its methylation pattern by irreversible information writing, and at body temperature that writing has a thermodynamic cost. For each of eight cellular architecture classes there is a floor entropy `H_min` below which a healthy cell of that class does not operate; it is calibrated once on healthy reference cells (an MCMC posterior, frozen before any disease sample is scored) and never re-fitted. A sample's reading is `A = H(β̄)/H_min` — the binary Shannon entropy of its mean methylation at the class's identity loci, over the class floor — read against an age-matched healthy band. Cohorts are used only to establish which *direction* a disease moves; they are never the baseline. This is the same measurement made in semiconductors (energy per switch over the Landauer floor) and in superconducting qubits, which is why the Mahaffey number `M = E_drive/(k_B T)` appears in all three.
+**Why a sky.** The atlas is a reference map with a per-pixel uncertainty (posterior mean and sd at every CpG); a specimen is one
+observation whose residual against what its own composition predicts is read pixel by pixel. That is the Planck workflow, and it
+is why the CMB toolkit — HEALPix, Mollweide, matched filters, residual maps — transfers.
 
-| | file | what it is |
-|---|---|---|
-| **Report** | [`MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf`](MethylPhys/manual/MethylPhys_CPG_Operations_Manual.pdf) | the methylation report Issue 003 (September 2026, 263 pp). Supersedes Issue 002 (April 2026, pre-Atlas, in `Papers/`). Regenerate: `python MethylPhys/manual/build_operations_manual.py out.pdf (historical path)` with `CPG_TRIAL` pointing at the runtime JSONs |
-| **Verify it yourself** | [`MethylPhys/doors/RUNBOOK.md`](MethylPhys/doors/RUNBOOK.md) → [`RUNBOOK.md`](RUNBOOK.md) | five scripts, each printing input / operation / expected / observed / verdict. Every link of the chain from raw IDAT to the sealed anchors reproduces on a machine that had never seen the project |
-| **Where every component lives** | [`MethylPhys/doors/COMPONENT_MAP.md`](MethylPhys/doors/COMPONENT_MAP.md) | repo vs. large local inputs vs. vault IP |
-| **Operating procedure** | [`SOP/MethylPhys_CPG_SOP.md`](../sop/MethylPhys_CPG_SOP.md) | the chain stage by stage. **Read the SUPERSESSION LEDGER at the top first** — it maps every section superseded by the July 2026 commits to the file that is now authoritative. §105–§107 carry the scoring rulings and the July wiring |
-| **Papers** | [`Papers/`](../papers/) | the cell-thermodynamics paper, Issue 002, the Hubble→the methylation report derivation chain (`IAM_Hubble2Methyl_Alpha_Omega_5.tex`), and figures |
-| **The translation map** | [`CMB_TO_METHYLOME_MAP.md`](CMB_TO_METHYLOME_MAP.md) | 79 CMB-analysis modules mapped to their methylome analogs by the author before the chain was built, with a 2026-09-19 status column: what got built, what was reversed (a second deconvolver; de-aging) and why |
-| **The completion sprint, scored** | [`COMPLETION_SPRINT_scored.md`](COMPLETION_SPRINT_scored.md) | the spring-2026 plan (A: nulls → B: foregrounds → C: correlation → D: covariance → E: likelihood) against what was built, cut, refused, or never started — and why the order was wrong |
-| **Plates** | [`Plates/`](../plates/) | Plate 01 Cosmic Methylome Background · 02 Breast anisotropy · 03 Methylome CMB vs microwave CMB · 04 Patterns · **05 Four skies** (Issue 003: Planck realization, Atlas immune posterior mean and sd, one patient's z-departure, one HEALPix grid) |
-
-**Why a sky.** The atlas is a reference map with a per-pixel uncertainty (posterior mean and sd at every CpG); a patient is one observation whose residual against that map is read pixel by pixel. That is the Planck workflow, and it is why the CMB toolkit — HEALPix, Mollweide, matched filters, residual maps — transfers. Plate 05 shows the four skies side by side.
-
-**What is derived and what is calibrated** is stated per quantity in Issue 003 §1 (reconciliation table) and §9 (the ledger). The floors are calibrated on healthy references, not fitted to disease data; the physical interpretation is stated as such.
-
-Related: the atlas itself is in [`../MethylPhys/atlas/`](../atlas/), the running code in [`../MethylPhys/chain/`](../chain/), and every validation run in [`../Record/`](../../Record/).
-
-*Research stage. Nothing here is clinical validation.*
+*Research and development stage. Nothing here is clinical validation.*
 
 ## Planning and housekeeping
 

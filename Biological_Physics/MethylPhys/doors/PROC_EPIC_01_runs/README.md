@@ -1,4 +1,6 @@
-# PROC-EPIC-01 — three rendered runs
+# [RECORD] PROC-EPIC-01 — three rendered runs (2026-09, on the chain as it then was)
+
+> Record. The quantities named below (laboratory zero, age term, A′) were removed from the chain on 2026-09-27; these renders are kept as the procedure's evidence, not as a description of the chain today.
 
 One execution of the commissioned chain per specimen, rendered through the report interface rather than
 scored through the stage functions, so a reader can see what the procedure's arrays actually look like.

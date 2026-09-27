@@ -1,0 +1,39 @@
+# The per-cell standard re-zeroed to 1.000 (PLAN item 4, first step) — 2026-09-27
+
+**What was measured.** Each cell's own atlas profile, read on its own identity loci with the chain's statistic
+A = H(mean β over the loci) / H_min of its class, is the standard the instrument reads a specimen's cell against. On
+[`iamatlas_percell_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json) (every atlas locus within ±0.05 in β of H_min_β) the standard does **not** read
+1.000: 102 cells, median **0.9904**, IQR 0.986–0.994, range 0.936 (Oligo, 233 loci) to 1.020 (Microglia, 152 loci). The seven
+whole-blood cells read 0.989–0.992 ([`../kit/results/percell_self_reading.csv`](../kit/results/percell_self_reading.csv); the v1.1 loci counts in [`../kit/results/percell_rezero_v1_1.csv`](../kit/results/percell_rezero_v1_1.csv)).
+
+**Why.** The window is symmetric in β about H_min_β but the atlas's locus density is not; the mean β inside the window sits below
+the target, so H(mean β) sits below H_min. A 1 % offset built into the ruler.
+
+**The change.** `iamatlas_percell_identity_loci_v1_1.json`: start from the same ±0.05 window on the cell's own atlas mean, then trim
+loci from the far tail on whichever side pulls the mean off H_min_β, until the cell's own profile reads A = 1.000 (±1e-4). No
+specimen, no person, no laboratory enters the file; it is the atlas read against the floor. H_min is untouched. Blood cells keep
+88 % of their v1.0 loci (Neutrophils 32,642 → 28,344; CD4 37,031 → 32,625; CD8 44,949 → 40,493; NK 45,540 → 41,276; monocytes
+32,268 → 27,844; B 38,127 → 34,266; eosinophils 33,546 → 29,102). A_self on v1.1: median 1.00000, range 0.99976–1.00793 (the
+high tail is thin-family cells with < 100 loci where trimming runs out of loci; 14 cells — they wait for atlas v2's imputation).
+
+**What it does to a reading.** On the reference blood array (RUN-20260926-14) every present cell moves by +0.0066 to +0.0092
+(Neutrophils 1.0037 → 1.0126; CD4 1.0454 → 1.0527; NK 0.9607 → 0.9673; monocytes 1.0190 → 1.0282). The shift is the standard's
+offset removed, uniform across cells.
+
+**Consistency check, unplanned.** PROC-TARE-01 recorded the raw immune reading per laboratory on the v1.0 standard: Uppsala
+0.992 (732 arrays), Karolinska 1.016, UCLA 0.961. The pipeline map ([`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json), stage1_noob_450K → Roadmap) was
+fitted on Uppsala. With the standard at 1.000 the Uppsala median moves to **1.000**: the laboratory the map was fitted on reads
+the fixed point exactly once the ruler itself reads 1.000. Karolinska ~1.024 and UCLA ~0.969 remain the per-laboratory
+constants of order 0.03 that LAB-ZERO-01/02 measured; they are the instrument's, not the standard's.
+
+**What it does NOT fix.** The CD4 row at 9.4 % still reads above 1.05 — the fraction confound (FRACTION_AND_A.md): a minority cell's
+identity loci carry the majority cell's β. PROC-UNMIX-01 showed the inversion is exact when the fractions are, and that the
+composition solver's fraction error (±3.5 points) is what breaks it. That is item 4's second step and needs the covariance-weighted
+solver (atlas v2 by-product), not another loci file.
+
+**State (2026-09-27, 11:15 UTC).** The re-zeroed file exists as
+`Runtime Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1_CANDIDATE.json` and **is not yet read by the chain**:
+the conductor and scorer still resolve `iamatlas_percell_identity_loci_v1_0.json`. The switch (rename to v1_1, v1.0 to
+`RETIRED_2026-09/percell_identity_v1_0/`, conductor and scorer read v1.1 by name, kit tests re-run, build_all) is made only
+after PROC-INTAKE-01 has finished scoring on the chain — never edit the chain while a procedure scores. This paragraph is
+replaced by the commit hash when that is done.

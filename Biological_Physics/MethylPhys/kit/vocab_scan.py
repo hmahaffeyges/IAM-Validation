@@ -123,6 +123,22 @@ def main():
             if line.lstrip().startswith(("%", "\\bibitem")): continue
             for rx, kind in ((FORBIDDEN, "FORBIDDEN"), (COHORT, "COHORT")):
                 for m in rx.finditer(line): hits.append({"doc": "PAPER-IAM", "line": i + 1, "kind": kind, "word": m.group(0), "status": "RECORD", "text": line.strip()[:220]})
+    # ---- every live README in Biological_Physics (author, 2026-09-27: "YOU DID NOT UPDATE THE READMEs"). A README describes a
+    #      folder as it is; it is LIVE text unless a line is itself marked record. Record/ and RETIRED_ trees are record by folder.
+    import subprocess as _sp
+    _bp = os.path.dirname(MP)
+    _files = [f for f in _sp.run(["git", "ls-files"], cwd=_bp, capture_output=True, text=True).stdout.split("\n")
+              if f and os.path.basename(f).lower().startswith("readme") and f.endswith(".md")
+              and "RETIRED" not in f and not f.startswith("Record/") and "/Record/" not in f and "evidence_pre_atlas" not in f]
+    for f in sorted(_files):
+        try: L = open(os.path.join(_bp, f), encoding="utf-8", errors="replace").read().split("\n")
+        except OSError: continue
+        rec_doc = "[RECORD]" in "\n".join(L[:5])
+        for i, line in enumerate(L):
+            for rx, kind in ((FORBIDDEN, "FORBIDDEN"), (COHORT, "COHORT")):
+                for m in rx.finditer(line):
+                    st = "RECORD" if (rec_doc or ALLOW_LINE.search(line) or re.search(r"REMOVED|RETIRED|removed 2026|retired 2026|\[RECORD|record\b|never (applied|enters|reaches)|no (cohort|healthy band|age curve|laboratory zero)|not against", line, re.I)) else "LIVE"
+                    hits.append({"doc": "README:" + f.replace("Biological_Physics/", ""), "line": i + 1, "kind": kind, "word": m.group(0), "status": st, "text": line.strip()[:220]})
     live = [h for h in hits if h["status"] == "LIVE"]
     os.makedirs(os.path.join(HERE, "results"), exist_ok=True)
     json.dump({"n_hits": len(hits), "n_live": len(live), "hits": hits}, open(os.path.join(HERE, "results", "vocab_scan.json"), "w"), indent=1)

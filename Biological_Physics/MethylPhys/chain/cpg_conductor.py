@@ -43,6 +43,7 @@ _SEARCH = [HERE, HERE / "legacy_iam_deconvolver", HERE / "Runtime Matrices" / "A
            HERE.parent / "atlas", HERE.parent.parent / "MethylPhys" / "atlas",
            HERE / 'Runtime Matrices' / 'Percell_Reference',
            HERE / 'Runtime Matrices' / 'Patient_CMB',   # 2026-09-27: presence_floors_v1.json and the residual scales live here; off the path until today   # 2026-09-26: percell_reference_v0_3.json has lived here since 09-22 and _find could not see it,
+           HERE / 'Runtime Matrices' / 'Intake',   # 2026-09-27: intake_thresholds_v1.json
            # so the per-cell healthy reference (A' = H/H_ref, 1.0 healthy by construction, with
            # per-lab p10/p90 bands and a held-out check) was unreachable from the chain
            ]

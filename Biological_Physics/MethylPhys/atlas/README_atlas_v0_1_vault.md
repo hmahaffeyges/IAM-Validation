@@ -1,4 +1,6 @@
-# IAMAtlas v0.1 — REBUILD edition (May 2026)
+# [RECORD] IAMAtlas v0.1 — REBUILD edition (May 2026)
+
+> Record. Written in May 2026 for the atlas as built; the product names in it (the cell-reading engine, CPG) and the pre-chain validation references are of that time. The atlas itself is current; the live description is `README.md` beside this file.
 
 The unified IAM cell-type methylation reference atlas. This is the single artifact the the cell-reading engine cellular-fidelity tool (the **Cellular Performance Gauge / CPG**) and the deconvolver consume at runtime.
 

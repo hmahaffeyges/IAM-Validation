@@ -56,14 +56,14 @@ cd chain/MethylPhys_Interface
 python3 run_sample.py --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz --age 58 --lab MYLAB --out report.html
 ```
 
-A laboratory the chain has not commissioned has no zero and no sky scale, so the report prints NOT REPORTABLE with
-the reason rather than a number. Commissioning one takes 40 healthy arrays of that laboratory through Stage 1 and
-then `RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py`; the procedure is in `doors/RUNBOOK.md`.
+`--lab` names the laboratory in the custody record. The instrument's calibration is the pipeline map (one slope and intercept
+onto the atlas scale, [`beta_scale_maps_v1.json`](chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json)); an IDAT pipeline the map has not been measured for renders with the class gauge
+withheld and the reason printed. Intake runs on the array's own numbers first; a QUARANTINE produces no report.
 
 ## What it reports
 
-Whether this sample's cellular write process is operating within the healthy range for its age, by architecture
-class, against a fixed physical zero. It names no condition, matches no pattern to any signature, and states no
-age in years.
+For every cell type the specimen is found to contain: its fraction, its A = H(mean β over its identity loci) / H_min, and the
+tier that A falls in. Healthy is A = 1.00 by the physics; the tier scale is the tolerance. It names no condition, matches no
+pattern to any signature, states no age in years, and reads nothing against any other person.
 
 **Which substrate can this instrument read, and what is tested next:** [`doors/SUBSTRATE_STRATEGY.md`](doors/SUBSTRATE_STRATEGY.md).

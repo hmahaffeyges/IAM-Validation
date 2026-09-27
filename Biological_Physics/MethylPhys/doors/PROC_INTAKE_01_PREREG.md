@@ -27,3 +27,13 @@
 B1–B5 met → adopted; the Troubleshooting tab's "three ways of not giving you an answer" gains the intake line. B2 failed →
 adopted anyway for B1/B3/B4/B5 but the call-rate thresholds are flagged UNCALIBRATED on the report (printed, not refused on),
 exactly as the bisulfite row is today, and the distribution is recorded for the author's decision.
+
+## Decision on the line (author, 2026-09-27 - after B2 was measured, before the bars were scored under it)
+
+B2 as written (0.95) failed on the 48-array panel: it refused 5 of 12 UCLA arrays whose control-probe signal equals Uppsala's.
+Recorded distribution (detected fraction, poobah p ≤ 0.05): Uppsala 0.985 (min 0.979), Karolinska 0.975 (min 0.891), UCLA 0.953
+(min 0.932), Munich 0.878 (max 0.928). Signal-to-background alone does not separate the laboratories (an Uppsala array at 7.1
+detects 99.4 %). The detected fraction does, with a gap at 0.894 → 0.928 → 0.932. **The author set the QUARANTINE line at 0.93**
+(runtime matrix `Runtime Matrices/Intake/intake_thresholds_v1.json`, not code): 12/12 Munich and one Karolinska array (0.891)
+refused; 0 UCLA, 0 Uppsala. PROCEED_WITH_PENALTY for 0.93–0.98. The bars below are scored under this line; B2 is scored on the
+first 100 GSE87571 IDAT pairs as written.
