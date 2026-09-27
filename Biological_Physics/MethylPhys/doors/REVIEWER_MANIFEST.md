@@ -95,7 +95,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 53 procedures, 248 files
+## Every sealed procedure — 54 procedures, 249 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -138,6 +138,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-RECORD-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-02/OUTCOME.md), [`val025_028_aging_ZENODO_COPY.py`](../../Record/PROC_data/PROC-RECORD-02/val025_028_aging_ZENODO_COPY.py)
 - **PROC-RECORD-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-03/OUTCOME.md), [`age_matrix_provenance_check.json`](../../Record/PROC_data/PROC-RECORD-03/age_matrix_provenance_check.json)
 - **PROC-SEP-03** — [`PROC_SEP_03.py`](../kit/PROC_SEP_03.py)
+- **PROC-SERIAL-01** — [`PROC_SERIAL_01_PREREG.md`](PROC_SERIAL_01_PREREG.md)
 - **PROC-SKY-01** — [`PROC_SKY_01_FOLLOWUP.md`](PROC_SKY_01_FOLLOWUP.md), [`PROC_SKY_01_OUTCOME.md`](PROC_SKY_01_OUTCOME.md), [`PROC_SKY_01_PREREG.md`](PROC_SKY_01_PREREG.md), [`PROC_SKY_01.py`](../kit/PROC_SKY_01.py), [`PROC_SKY_01.json`](../kit/results/PROC_SKY_01.json), [`PROC_SKY_01_diag.json`](../kit/results/PROC_SKY_01_diag.json), [`PROC_SKY_01_followup_intake_gate.csv`](../kit/results/PROC_SKY_01_followup_intake_gate.csv), [`PROC_SKY_01_plate.png`](../plates/PROC_SKY_01_plate.png)
 - **PROC-SMALL-01** — [`PROC_SMALL_01_OUTCOME.md`](PROC_SMALL_01_OUTCOME.md), [`PROC_SMALL_01_PREREG.md`](PROC_SMALL_01_PREREG.md), [`PROC_SMALL_01_compare.py`](../kit/PROC_SMALL_01_compare.py), [`PROC_SMALL_01_figure.py`](../kit/PROC_SMALL_01_figure.py), [`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py), [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py), [`PROC_SMALL_01_configurations.json`](../kit/results/PROC_SMALL_01_configurations.json), [`PROC_SMALL_01_detection.png`](../kit/results/PROC_SMALL_01_detection.png), [`PROC_SMALL_01_heldout_60_healthy.json`](../kit/results/PROC_SMALL_01_heldout_60_healthy.json)
 - **PROC-STAGE0-02** — [`PROC_STAGE0_02_OUTCOME.md`](PROC_STAGE0_02_OUTCOME.md), [`PROC_STAGE0_02_PREREG.md`](PROC_STAGE0_02_PREREG.md), [`PROC_STAGE0_02_arrival.py`](../kit/PROC_STAGE0_02_arrival.py), [`PROC_STAGE0_02_seal.py`](../kit/PROC_STAGE0_02_seal.py), [`PROC_STAGE0_02_sweep.py`](../kit/PROC_STAGE0_02_sweep.py), [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json), [`PROC_STAGE0_02_betamean_GSE87571.json`](../kit/results/PROC_STAGE0_02_betamean_GSE87571.json)

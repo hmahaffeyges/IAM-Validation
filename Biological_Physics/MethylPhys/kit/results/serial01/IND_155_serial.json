@@ -1,0 +1,77 @@
+{
+ "individual": "IND_155",
+ "ages": [
+  72.6228358536051,
+  79.6310541310541,
+  82.611909650924,
+  88.4161533196441
+ ],
+ "delta_cells": {
+  "cells": [
+   {
+    "cell": "CD14_monocytes",
+    "class": "immune",
+    "A_prior": 1.0121,
+    "A_now": 1.0247,
+    "dA": 0.0126,
+    "f_prior": 0.075,
+    "f_now": 0.0626,
+    "floor": null,
+    "beyond_floor": null,
+    "tier_prior": null,
+    "tier_now": null
+   },
+   {
+    "cell": "CD4_T-cells",
+    "class": "immune",
+    "A_prior": 1.041,
+    "A_now": 1.0525,
+    "dA": 0.0115,
+    "f_prior": 0.2408,
+    "f_now": 0.1779,
+    "floor": null,
+    "beyond_floor": null,
+    "tier_prior": null,
+    "tier_now": null
+   },
+   {
+    "cell": "CD56_NK-cells",
+    "class": "immune",
+    "A_prior": 0.9644,
+    "A_now": 0.975,
+    "dA": 0.0105,
+    "f_prior": 0.0788,
+    "f_now": 0.044,
+    "floor": null,
+    "beyond_floor": null,
+    "tier_prior": null,
+    "tier_now": null
+   },
+   {
+    "cell": "Neutrophils_reinius",
+    "class": "immune",
+    "A_prior": 1.0069,
+    "A_now": 1.0182,
+    "dA": 0.0113,
+    "f_prior": 0.6031,
+    "f_now": 0.6978,
+    "floor": null,
+    "beyond_floor": null,
+    "tier_prior": null,
+    "tier_now": null
+   }
+  ],
+  "appeared": [],
+  "disappeared": []
+ },
+ "delta_sky": {
+  "n_addresses": 400249,
+  "median_dbeta": 0.0,
+  "mean_abs_dbeta": 0.03355018985622696,
+  "q99_abs_dbeta": 0.21605608768638296,
+  "floor_beta": null,
+  "frac_beyond_floor": null,
+  "n_only_now": 28062,
+  "n_only_prior": 5440
+ }
+}
