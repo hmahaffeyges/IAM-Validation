@@ -1,10 +1,11 @@
 {
  "_meta": {
-  "built": "2026-09-27 08:39",
-  "commit": "483bbbb",
-  "n_files": 203,
-  "n_undescribed": 7,
+  "built": "2026-09-27 08:57",
+  "commit": "ae7dd43",
+  "n_files": 204,
+  "n_undescribed": 8,
   "undescribed": [
+   "ATLAS_V2_SPEC.md",
    "FINDING_DETECTION_PANEL_HELDOUT.md",
    "HELDOUT_2D.py",
    "PERCELL_STANDARD_REZERO_2026-09-27.md",
@@ -171,6 +172,15 @@
    "sha256_12": "95d7df95c651"
   },
   {
+   "file": "ATLAS_V2_SPEC.md",
+   "path": "Biological_Physics/MethylPhys/doors/ATLAS_V2_SPEC.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 6803,
+   "sha256_12": "e3a5a00af503"
+  },
+  {
    "file": "BLOOD_bundle.json",
    "path": "Biological_Physics/MethylPhys/chain/example_runs/RUN-20260926-14/BLOOD_bundle.json",
    "role": "record",
@@ -275,8 +285,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11920,
-   "sha256_12": "7ebbd1a73946"
+   "bytes": 11970,
+   "sha256_12": "c00ddada0231"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -285,7 +295,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "1c16a59c90af"
+   "sha256_12": "91cf8e50bcae"
   },
   {
    "file": "REPRODUCTION.md",
@@ -582,7 +592,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1970,
-   "sha256_12": "4c1bab6c83f2"
+   "sha256_12": "49fd8e771eab"
   },
   {
    "file": "reference_cells_37.csv",
@@ -878,8 +888,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 23110,
-   "sha256_12": "6023f15dffe3"
+   "bytes": 23109,
+   "sha256_12": "03b3b32564b1"
   },
   {
    "file": "build_all.py",
@@ -977,8 +987,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1620240,
-   "sha256_12": "b622aa747a64"
+   "bytes": 1649094,
+   "sha256_12": "84487fbba3cc"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -995,8 +1005,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7004,
-   "sha256_12": "6aa6e6aad536"
+   "bytes": 7068,
+   "sha256_12": "a4316aa11983"
   },
   {
    "file": "README_FIRST.md",
@@ -1049,8 +1059,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43086,
-   "sha256_12": "f528176b769e"
+   "bytes": 43185,
+   "sha256_12": "a04ef42bd9c7"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1103,8 +1113,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 4776,
-   "sha256_12": "70a12b3f26b1"
+   "bytes": 4876,
+   "sha256_12": "62454d0c31dd"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1184,8 +1194,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13680,
-   "sha256_12": "6ab10e25992b"
+   "bytes": 13717,
+   "sha256_12": "2c97f0817ace"
   },
   {
    "file": "cpg_kit.py",
@@ -1337,8 +1347,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 73657,
-   "sha256_12": "a3fc02c5fe95"
+   "bytes": 73900,
+   "sha256_12": "f74803004675"
   },
   {
    "file": "run_sample.py",

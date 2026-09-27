@@ -145,6 +145,7 @@
   "cpg_tiers.py": "chain",
   "iamatlas_a_scoring.py": "chain",
   "cpg_gauge_engine.py": "chain",
+  "ATLAS_V2_SPEC.md": "UNDESCRIBED",
   "BLOOD_bundle.json": "record",
   "CHAIN_SEQUENCE.md": "reference",
   "DECONVOLVER_REPAIR_2026-09-26.md": "record",
