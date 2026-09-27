@@ -50,7 +50,7 @@ Stage 1:
 | B7 | the commissioned reading is **unchanged where it should be**: on the 11 commissioning arrays, the tared per-cell A differs from the untared by no more than the tare itself predicts (no other path touched) | the instrument-unchanged check |
 
 **Decision rule.** B1–B4 met → the laboratory zero is **retired as a construction**: Stage 1s applies the per-array
-tare, `stage_b_identity` receives `lab_zero=None` by design, [`lab_zero.py`](../chain/lab_zero.py) is retired, and the healthy panel of 40 is
+tare, `stage_b_identity` receives `lab_zero=None` by design, [`lab_zero.py`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py) is retired, and the healthy panel of 40 is
 required **only** for the Stage 2d detection noise floor. A laboratory whose panel median falls outside NORMAL after
 taring is **flagged** (`LAB_OFFSET_UNEXPLAINED`) and never re-centred. B2 met but B3 failed → the tare is adopted as a
 partial correction and the remainder is reported per laboratory as an unexplained offset, not corrected. B2 failed →

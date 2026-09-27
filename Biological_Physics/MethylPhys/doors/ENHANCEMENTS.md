@@ -135,10 +135,10 @@ chain's parts once the per-cell bands are rebuilt on the identity surface:
 
 | found | where it lives | what it is |
 |---|---|---|
-| [`percell_reference_v0_3.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0_3.json) | `chain/Runtime Matrices/Percell_Reference/` | per-cell per-laboratory healthy bands with a held-out check, built 2026-09-22; the folder was NOT on the chain's search path, so the chain never loaded it |
+| [`percell_reference_v0_3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_v0_3.json) | `chain/Runtime Matrices/Percell_Reference/` | per-cell per-laboratory healthy bands with a held-out check, built 2026-09-22; the folder was NOT on the chain's search path, so the chain never loaded it |
 | [`iamatlas_percell_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json) | `chain/Runtime Matrices/A_Scoring_Module/` | 102 per-cell identity panels at the class floor, the surface the per-cell A is now read on |
 | `_score_one_identity` | [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) | the per-cell A on identity loci with the class gauge's formula |
-| [`percell_reference_identity_v1_0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_identity_v1_0.json) | `chain/Runtime Matrices/Percell_Reference/` | the per-cell bands rebuilt on the identity surface |
+| [`percell_reference_identity_v1_0.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_identity_v1_0.json) | `chain/Runtime Matrices/Percell_Reference/` | the per-cell bands rebuilt on the identity surface |
 
 Documents to update: the SOP (`sop/MethylPhys_CPG_SOP.md`), the OM (`manual/MethylPhys_CPG_Operations_Manual.pdf`
 via its build), [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md), [`COMPONENT_MAP.md`](COMPONENT_MAP.md), [`RUNBOOK.md`](RUNBOOK.md), [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md), the chain
@@ -163,7 +163,7 @@ The report and its documents FOLLOW the chain; nothing here is done until it is 
 
 
 **0. The tare, and the physics front page — ordered by the author 2026-09-26 evening, ahead of the SOP and OM so they are written once**
-0a. **PROC-TARE-01** — can the array's own SNP probes (β = 0 / 0.5 / 1 by genotype) tare the instrument per array, so no healthy panel defines where A = 1.0 sits? The laboratory zero as built is `median(A − c(age)) − 1.0` over a panel — a population defining zero. Pre-registered; running. If met, [`lab_zero.py`](../chain/lab_zero.py) is retired and the panel of 40 is needed only for the Stage 2d noise floor.
+0a. **PROC-TARE-01** — can the array's own SNP probes (β = 0 / 0.5 / 1 by genotype) tare the instrument per array, so no healthy panel defines where A = 1.0 sits? The laboratory zero as built is `median(A − c(age)) − 1.0` over a panel — a population defining zero. Pre-registered; running. If met, [`lab_zero.py`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py) is retired and the panel of 40 is needed only for the Stage 2d noise floor.
 0b. **Report restructure** — Reading tab leads with cells found + fractions, then per-cell A against its class H_min with healthy = A 1.00 ± 5 % (tier NORMAL) and departure = each cell's distance from 1.0; pooled class A never printed as a reading; Mahalanobis, the age-clock surface, marker union, hull and second opinion out of the report as readings (bundle block `cohort_diagnostics`); per-class bands out of Coverage and Reference. Sky keeps its composition-weighted atlas expectation (Σ f_c μ_c) and drops the cohort scaling.
 0c. **Serial mode** — `run_sample.py --prior <bundle>` for the same patient: per-cell ΔA, Δfraction, difference sky; change-noise-floor pre-registered before any repeat-draw data is read. The primary use of the sky.
 Then the SOP and OM, written once from the chain as it stands after 0a–0c.
@@ -197,7 +197,7 @@ Then the SOP and OM, written once from the chain as it stands after 0a–0c.
 5. Safeguards / [`cmb_tools.py`](../chain/cmb_tools.py): `INVVAR_DETECT` (after MF-02) with a per-run check; `ILC_SKY` re-aimed or retired now that the solve block does the separation; a check that the deconvolver's solve block matches the commissioned one.
 6. Operations Manual PDF: rebuild via `build_om.sh`, then READ the rendered pages — per-tab figures and `om_data.py RULES` must carry the four deconvolver causes and the resolvability rules.
 7. SOP: LESSON-DECON-01 (coverage, filling, twins, mapped input) beside LESSON-SURFACE-01; pre-registration convention that future evidence files are plain names, not paths.
-8. Documentation catch-up ("not yet" on 2026-09-26): SOP, OM, REVIEWER_MANIFEST, COMPONENT_MAP, RUNBOOK, CHAIN_SEQUENCE naming the per-cell identity surface, [`percell_reference_identity_v1_0.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_identity_v1_0.json), the Percell_Reference path, the solve block and twin rules. When the deconvolver stops moving.
+8. Documentation catch-up ("not yet" on 2026-09-26): SOP, OM, REVIEWER_MANIFEST, COMPONENT_MAP, RUNBOOK, CHAIN_SEQUENCE naming the per-cell identity surface, [`percell_reference_identity_v1_0.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_identity_v1_0.json), the Percell_Reference path, the solve block and twin rules. When the deconvolver stops moving.
 
 **C. Chain**
 9. CD4/CD8 — r 0.978, 33 and 8 exclusive loci; needs loci this block lacks (the 2,543-locus immune-subset source, second block).

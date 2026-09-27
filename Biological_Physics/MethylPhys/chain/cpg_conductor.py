@@ -9,7 +9,7 @@ Inputs it needs (all in the working dir or repo):
   - IAMAtlasREBUILD.csv                 (decompressed atlas, the deconvolver reference)
   - IAMAtlasREBUILD_celltype_to_class.json
   - iamatlas_celltype_markers_v0_2.json (per-cell discriminative markers + H_min_by_class)
-  - iamatlas_gauge_identity_loci_v1_0.json, reference_age_curve_v1.json, identity_band_v3.json, lab_zero.py  (Stage B, the reported gauge; age_reference_matrix.json is diagnostic only)
+  - iamatlas_gauge_identity_loci_v1_0.json  (Stage B, the class gauge - internal gate; the age curve, band and lab zero were retired 2026-09-27; age_reference_matrix.json is diagnostic only)
   - iamatlas_mahalanobis_scoring.py + mahalanobis_healthy_reference_v2_0_*.json (Stage C)
   - directional_panels_v1_0.json, bidirectional_decomposition.py       (Stage C)
   - tier_breakpoints.json, disease_cell_signature_matrix_v1_13.csv,
@@ -38,12 +38,11 @@ HERE = Path(__file__).resolve().parent
 _DEC_CACHE = {}
 
 _SEARCH = [HERE, HERE / "legacy_iam_deconvolver", HERE / "Runtime Matrices" / "A_Scoring_Module",
-           HERE / "Runtime Matrices" / "Celltype_Marker", HERE / "Runtime Matrices" / "Directional Panel",
-           HERE / "Runtime Matrices" / "Mahalanobis_healthy_reference", HERE / "Runtime Matrices" / "Tier_breakpoints",
-           HERE / "Runtime Matrices" / "Cellular_Age",
+           HERE / "Runtime Matrices" / "Celltype_Marker", HERE / "Runtime Matrices" / "Directional Panel", HERE / "Runtime Matrices" / "Tier_breakpoints",
            # the atlas: HERE is MethylPhys/chain, so its sibling; the second form covers a flat working folder
            HERE.parent / "atlas", HERE.parent.parent / "MethylPhys" / "atlas",
-           HERE / 'Runtime Matrices' / 'Percell_Reference',   # 2026-09-26: percell_reference_v0_3.json has lived here since 09-22 and _find could not see it,
+           HERE / 'Runtime Matrices' / 'Percell_Reference',
+           HERE / 'Runtime Matrices' / 'Patient_CMB',   # 2026-09-27: presence_floors_v1.json and the residual scales live here; off the path until today   # 2026-09-26: percell_reference_v0_3.json has lived here since 09-22 and _find could not see it,
            # so the per-cell healthy reference (A' = H/H_ref, 1.0 healthy by construction, with
            # per-lab p10/p90 bands and a held-out check) was unreachable from the chain
            ]
@@ -123,16 +122,11 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     _pci_path = _find("iamatlas_percell_identity_loci_v1_0.json", required=False)
     _pci = asc.load_percell_identity(str(_pci_path)) if _pci_path else None
     try:
-        _pref = json.load(open(str(_find("percell_reference_mcmc_v1.json"))))   # MCMC reference per cell (2026-09-26)
+        _pref = None   # 2026-09-27: the per-cell atlas 'reference' was removed by the author's ruling - the only reference is A = 1.00
     except Exception:
         _pref = None
-    # PER-CELL LABORATORY OFFSET (2026-09-26): one number per laboratory from the calibration record,
-    # applied to every cell's A as stage_b_identity applies z_lab. Without it four laboratories
-    # disagree on every cell by ~0.055; with it, by 0.007. Unknown laboratory -> UNSET, fail-closed.
-    _pcr_path = _find("percell_reference_identity_v1_0.json", required=False)
-    _pcr_meta = json.load(open(_pcr_path)).get("_meta", {}) if _pcr_path else {}
-    _lab = (cfg or {}).get("lab") if isinstance(cfg, dict) else None
-    _lab_off = (_pcr_meta.get("laboratory_offset") or {}).get("values", {}).get(_lab)
+    # 2026-09-27: the per-cell laboratory offset (a per-lab zero from healthy arrays, percell_reference_identity_v1_0.json)
+    # was removed from the record by the author's ruling - no zero from any population is attached to a cell's A.
     # SCALE MAP BEFORE PER-CELL SCORING (2026-09-26). The class gauge maps stage-1 betas onto the atlas
     # scale before it reads them; this path never did, and read RAW betas that sit ~0.07 above the atlas
     # at the identity loci (the offset PROC-COV-01 measured). Raw, every present cell in healthy blood
@@ -150,15 +144,12 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
             "A": r.get("A"),
             "reading_ci": r.get("reading_ci"),
             "reference": r.get("reference"),
-            "departure_from_reference": r.get("departure_from_reference"),
             "coverage": r.get("coverage"),
             "confidence": r.get("confidence"),
             "status": r.get("status"),
             # which surface and which formula produced this A - so the failsafe can SEE a reversion to marker
             # panels or to the wrong form, instead of a reader having to remember (2026-09-26)
             "A_raw": r.get("A"),
-            "lab_offset": (round(_lab_off, 4) if _lab_off is not None else "UNSET"),
-            "A_zeroed": (round(r["A"] - _lab_off, 4) if (_lab_off is not None and r.get("A") is not None and r.get("A") == r.get("A")) else None),
             "surface": r.get("surface"),
             "formula": r.get("formula"),
             "jensen_gap": r.get("jensen_gap"),
@@ -265,25 +256,28 @@ def stage_1s_scale_map(beta_dict, pipeline):
     return {k: min(1.0, max(0.0, (v - b) / a)) for k, v in beta_dict.items()}, f"MAPPED({pipeline}->roadmap; slope {a}, intercept {b}; {maps and json.load(open(_find('beta_scale_maps_v1.json')))['_meta']['version']})"
 
 
-def stage_b_identity(beta_mapped, stage_a_out, age, scale_label, lab_zero=None):
-    """THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the
-    class IDENTITY loci on mapped beta, then the three-layer reference (Issue 003 s3.5):
-        A_abs = A_mapped - c(decade) - z_lab
-    c from reference_age_curve_v1.json (PROC-PANEL-03), z_lab from the laboratory's 40-array healthy panel
-    (lab_zero.py). Placement in identity_band_v3.json (pooled p10-p90 of A_abs over four zeroed healthy cohorts).
-    lab_zero None -> 'UNSET': A_mapped is still returned, but A_abs/placement are None and reportable=False.
-    s108 reporting rule: on whole blood only immune and the joint haematopoietic-progenitor component are read."""
+def stage_b_identity(beta_mapped, stage_a_out, age=None, scale_label="", lab_zero=None):
+    """THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27).
+    A = H(beta_mean) / H_min over the class IDENTITY loci on mapped beta. Healthy is A = 1.00 by the physics; the tier
+    scale is the tolerance. Nothing is subtracted from A and no population places it.
+
+    2026-09-27: the three-layer reference (A_abs = A - c(decade) - z_lab, placed in identity_band_v3) was REMOVED. The
+    age curve, the laboratory zero and the band were cohort statistics - where healthy donors sat on the gauge - and the
+    author ruled that where people sit is never a correction to a cell. reference_age_curve_v1.json, identity_band_v3.json
+    and lab_zero.py moved to RETIRED_2026-09. `age` and `lab_zero` are accepted and ignored so old callers do not break;
+    age is carried as context in the bundle by run_full, never used here.
+
+    What this stage still does on the live path: the class reading (printed nowhere; the report reads cells), and the
+    PROC-FOREIGN-01 composition check that decides whether the specimen is whole blood - the tier on a cell is withheld
+    when it is not. s108: on whole blood only immune and the joint haematopoietic-progenitor component are read."""
     import math
     ident = json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json")))
     ident = {k: v for k, v in ident.items() if isinstance(v, dict) and "loci" in v}
-    band = json.load(open(_find("identity_band_v3.json")))
-    lz = _load_module("lab_zero", _find("lab_zero.py"))
-    curve = lz.load_curve(_find("reference_age_curve_v1.json"))
     def H(b): b = min(max(b, 1e-12), 1 - 1e-12); return -b * math.log2(b) - (1 - b) * math.log2(1 - b)
     fr = stage_a_out["class_fractions"]
     out = {}
     groups = {"immune": ["immune"], "haematopoietic_progenitor": ["progenitor", "stem_adult"]}
-    mapped = scale_label.startswith("MAPPED")
+    mapped = str(scale_label).startswith("MAPPED")
     for name, members in groups.items():
         loci = [c for cls in members for c in ident[cls]["loci"]]
         vals = [beta_mapped[c] for c in loci if c in beta_mapped]
@@ -292,52 +286,22 @@ def stage_b_identity(beta_mapped, stage_a_out, age, scale_label, lab_zero=None):
             out[name] = {"present": False, "fraction": round(frac, 4)}; continue
         hm = ident["progenitor" if name != "immune" else "immune"]["H_min"]        # joint uses progenitor's floor (PREREG s3)
         A = H(sum(vals) / len(vals)) / hm
-        rec = {"present": True, "fraction": round(frac, 4), "A_mapped": round(A, 4), "n_loci": len(vals),
-               "gauge_surface": "identity_loci", "scale": scale_label, "H_min": hm}
-        # PROC-FOREIGN-01: attach the composition check on EVERY path, so a reader sees the foreign
-        # fraction even when the tier is withheld for an earlier reason - the adenoma is withheld for a
-        # missing laboratory zero, and the guard's own field was simply absent from its record.
+        rec = {"present": True, "fraction": round(frac, 4), "A": round(A, 4), "A_mapped": round(A, 4), "n_loci": len(vals),
+               "gauge_surface": "identity_loci", "scale": scale_label, "H_min": hm,
+               "reportable": bool(mapped), "internal_gate": True,
+               "reason": None if mapped else "beta not on the calibration scale (UNMAPPED)"}
+        # PROC-FOREIGN-01: the composition check, on every path
         try:
             _g = json.load(open(_find('composition_guard_v1.json')))
             _fgn = 1.0 - sum(float(fr.get(_c, 0.0)) for _c in _g['blood_lineage'])
             rec['foreign_fraction'] = round(_fgn, 4)
             rec['composition_verified'] = bool(_fgn <= _g['foreign_fraction_max'])
+            if not rec['composition_verified']:
+                rec['reason'] = ('composition unverified: %.1f%% of this specimen is assigned outside the blood lineage, '
+                                 'above the %.1f%% the gauge was commissioned for. Cell tiers are withheld (PROC-FOREIGN-01).'
+                                 % (100 * _fgn, 100 * _g['foreign_fraction_max']))
         except FileNotFoundError:
-            pass                       # no guard file: withhold nothing, claim nothing
-        if name == "immune":
-            c = lz.age_reference(age, curve) if age is not None else None
-            rec["age_reference_c"] = None if c is None else round(c, 4)
-            if lab_zero is None or c is None or not mapped:
-                rec.update({"lab_zero": "UNSET" if lab_zero is None else round(lab_zero, 4), "A_abs": None, "placement": None,
-                            "band": band["pooled"], "reportable": False, "tier": None,
-                            "reason": ("no laboratory zero (Issue 003 s3.5; lab_zero.py)" if lab_zero is None else "beta not on the calibration scale" if not mapped else "no age")})
-            else:
-                A_abs = A - c - lab_zero
-                rec.update({"lab_zero": round(lab_zero, 4), "A_abs": round(A_abs, 4), "band": band["pooled"],
-                            "placement": "BELOW_BAND" if A_abs < band["pooled"]["p10"] else "ABOVE_BAND" if A_abs > band["pooled"]["p90"] else "IN_BAND",
-                            "reportable": True, "band_status": "identity_band_v3 (four zeroed labs, n=1,379; LOO 0.75-0.84, PROC-PANEL-03)"})
-                _t,_n=_load_module("cpg_tiers", HERE/"cpg_tiers.py").tier_of(A_abs, True, rec.get("H_min")); rec.update({"tier": _t, "tier_note": _n})   # Stage 7 (PROC-TIER-01): one JSON-driven tier
-                # PROC-FOREIGN-01 (2026-09-25): the gauge is commissioned on WHOLE BLOOD. A specimen carrying
-                # material outside the blood lineage still gets an honest reading, but no tier word - measured
-                # on 318 healthy arrays mixed with atlas stromal, secretory and terminal material: at every
-                # level where a tenth of hosts changed tier, this threshold caught at least 95.9 % of them.
-                try:
-                    _g = json.load(open(_find('composition_guard_v1.json')))
-                    _foreign = 1.0 - sum(float(fr.get(_c, 0.0)) for _c in _g['blood_lineage'])
-                    rec['foreign_fraction'] = round(_foreign, 4)
-                    rec['composition_verified'] = bool(_foreign <= _g['foreign_fraction_max'])
-                    if not rec['composition_verified']:
-                        rec.update({'tier': None, 'tier_note': None, 'reportable': False,
-                                    'reason': ('composition unverified: %.1f%% of this specimen is assigned '
-                                               'outside the blood lineage, above the %.1f%% the gauge was '
-                                               'commissioned for. The reading stands; no tier is printed '
-                                               '(PROC-FOREIGN-01).')
-                                              % (100 * _foreign, 100 * _g['foreign_fraction_max'])})
-                except FileNotFoundError:
-                    rec['composition_verified'] = None      # no guard file: withhold nothing, say nothing
-
-        else:
-            rec.update({"A_abs": None, "placement": None, "reportable": False, "tier": None, "reason": "no band for this component yet (s108)"})
+            rec['composition_verified'] = None      # no guard file: withhold nothing, say nothing
         out[name] = rec
     return out
 
@@ -360,58 +324,7 @@ def stage_4_5_bidirectional(beta_dict, cfg=None):
     return {"bidirectional": out, "any_flagged": getattr(report, "any_bidirectional_flagged", False)}
 
 
-def stage_5_mahalanobis(identity_out, cfg=None):
-    """Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B).
-    Input is the REPORTED gauge (stage_b_identity): for each component with a commissioned band,
-        z = (A_abs - 1.000) / sigma,   sigma = (p90 - p10) / (2 * 1.2816)  from identity_band_v3
-    distance = sqrt(sum z^2) over the n assessable components; thresholds sqrt(chi2(0.95|0.99, n)).
-    Components without a band (haematopoietic-progenitor joint; all non-blood classes) are not assessable.
-    On whole blood today n = 1: the departure is how many band-widths from the healthy line the immune
-    reading sits, and the report says so. Not reportable when the gauge is not (UNSET / UNMAPPED).
-    Keys: the long names the report interface (build_methylphys.py) reads and the short aliases run_full exposes."""
-    import math
-    try:
-        from scipy.stats import chi2
-        thr = lambda n: (math.sqrt(chi2.ppf(0.95, n)), math.sqrt(chi2.ppf(0.99, n)))
-    except Exception:
-        thr = lambda n: (math.sqrt(n + 2.0 * math.sqrt(2.0 * n)), math.sqrt(n + 3.0 * math.sqrt(2.0 * n)))
-    contribs = []; unreportable = []
-    for name, v in identity_out.items():
-        if not v.get("present") or not v.get("band"): continue
-        if not v.get("reportable"): unreportable.append(name); continue
-        b = v["band"]; sigma = (b["p90"] - b["p10"]) / (2 * 1.2816); z = (v["A_abs"] - 1.0) / sigma
-        contribs.append({"class": name, "patient_A": v["A_abs"], "age_matched_mean": 1.0, "sigma": round(sigma, 5), "z": round(z, 3),
-                         "band_widths_from_line": round((v["A_abs"] - 1.0) / (b["p90"] - b["p10"]), 3)})
-    n = len(contribs)
-    if n == 0:
-        status = ("gauge not reportable (" + ", ".join(unreportable) + ")") if unreportable else "no assessable component with a commissioned band"
-        out = {"mahalanobis_distance": None, "n_features_assessable": 0, "n_assessable": 0, "reportable": False, "status": status,
-               "alarm_threshold_p95": None, "alarm_threshold_p99": None, "mahalanobis_beyond_band": None, "top_axis_contributions": []}
-    else:
-        d = math.sqrt(sum(c["z"] ** 2 for c in contribs)); t95, t99 = thr(n)
-        contribs.sort(key=lambda c: -abs(c["z"]))
-        out = {"mahalanobis_distance": round(d, 4), "n_features_assessable": n, "n_assessable": n, "reportable": True,
-               "alarm_threshold_p95": round(t95, 4), "alarm_threshold_p99": round(t99, 4),
-               "mahalanobis_beyond_band": bool(d > t95), "beyond_p99": bool(d > t99), "top_axis_contributions": contribs,
-               "status": "one banded axis (immune) - the distance is |z_immune|" if n == 1 else f"{n} banded axes",
-               "reference": "identity_band_v3 (four zeroed labs, n=1,379); mu = 1.000; sigma from p10-p90"}
-    # PROC-MAHA-02: the laboratory's empirical false-alarm rate travels with the number (row 5b = the chip term behind it)
-    band_meta = json.load(open(_find("identity_band_v3.json")))["_meta"]
-    lab_key = (cfg or {}).get("lab"); _coh = band_meta.get("cohorts", {})
-    if isinstance(_coh, str):
-        import ast as _ast; _coh = _ast.literal_eval(_coh)
-    # 2026-09-22 (row 9 build): band cohorts are keyed "GSE87571_Uppsala"; cfg["lab"] may be the bare accession - match on prefix
-    rec = (_coh.get(lab_key) or next((v for k, v in _coh.items() if lab_key and (k.startswith(lab_key) or lab_key.startswith(k))), None)) if lab_key else None
-    if rec and "tail_p95" in rec:
-        out.update({"lab_false_alarm_p95": rec["tail_p95"], "lab_false_alarm_p99": rec["tail_p99"], "lab_false_alarm_source": f"measured on {rec['n']} healthy arrays at {lab_key}",
-                    "lab_false_alarm_sentence": f"At this laboratory {round(100*rec['tail_p95'])} of 100 healthy donors read beyond p95 on this axis ({round(100*rec['tail_p99'])} of 100 beyond p99); the excess over 5 is the chip term (row 5b)."})
-    else:
-        lo, hi = band_meta.get("four_lab_tail_range_p95", [0.044, 0.098])
-        out.update({"lab_false_alarm_p95": None, "lab_false_alarm_p99": None, "lab_false_alarm_source": "not measured for this laboratory",
-                    "lab_false_alarm_sentence": f"This laboratory's healthy false-alarm rate is not measured; across four commissioned laboratories {round(100*lo)}-{round(100*hi)} of 100 healthy donors read beyond p95 on this axis (chip term, row 5b)."})
-    out.update({"distance": out["mahalanobis_distance"], "beyond": out["mahalanobis_beyond_band"],
-                "driver": contribs[0]["class"] if contribs else None})
-    return {"departure": out, "class_ascores_scored": {c["class"]: c["patient_A"] for c in contribs}}
+# stage_5_mahalanobis: REMOVED 2026-09-27 (author's ruling - a cohort statistic; the code is in RETIRED_2026-09/cohort_gauge_layers_2026-09-27/README.md's list)
 
 def stage_5_hull_marker_union(stage_b_out, cfg=None):
     """DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure.
@@ -448,51 +361,9 @@ def stage_5_hull_marker_union(stage_b_out, cfg=None):
 
 
 
-def stage_6_cellular_age(identity_out, cfg=None):
-    """Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21).
-    The healthy immune identity-gauge curve rises 0.47 mA per year against a within-laboratory SD of 0.0235:
-    inverting it resolves age to ~50 years per array (1,379 healthy donors, four labs: 15.9% within +/-10 yr,
-    Spearman rho 0.27). The population aging trajectory (CPG-VAL-015, mammalian paper) is REPRODUCED by this curve; what is below resolution is one person's
-    position on it. This stage reports the resolution, not an age; the inversion
-    is available as diagnostic_cellular_age for lineage only."""
-    r = json.load(open(_find("age01_results.json"))) if _find("age01_results.json", required=False) else {"resolution_yr": 50, "A1_within10": 0.159, "A3_rho": 0.271}
-    im = identity_out.get("immune", {})
-    return {"reportable": False, "cellular_age": None, "chronological_age": (cfg or {}).get("age"),
-            "resolution_yr": round(r["resolution_yr"]), "healthy_within_10yr": r["A1_within10"], "spearman_rho": r["A3_rho"],
-            "sentence": (f"Cellular age is not reported: on the immune identity gauge the healthy age curve moves 0.47 mA/yr against a "
-                         f"within-laboratory spread of 0.0235, so one array resolves age to about {round(r['resolution_yr'])} years "
-                         f"({round(100*r['A1_within10'])} of 100 healthy donors within +/-10 yr; PROC-AGE-01). The healthy aging TRAJECTORY itself is real and "
-                         f"reproduced here (0.47 mA/yr, monotone by decade, four laboratories; CPG-VAL-015 found the same slope on Hannum) - it is a population "
-                         f"measurement, and one array cannot resolve a person's position on it."),
-            "gauge_A_abs": im.get("A_abs")}
+# stage_6_cellular_age: REMOVED 2026-09-27 (author's ruling - a cohort statistic; the code is in RETIRED_2026-09/cohort_gauge_layers_2026-09-27/README.md's list)
 
-def stage_6_cellular_age_marker_union(beta_dict, cfg=None):
-    """DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported.
-    Stage 6 (SOP §Stage 6) - per-class cellular age by IAM inversion of the
-    age_reference_matrix: the age at which population beta_mean equals the patient's
-    beta_mean, per class. iam_cellular_age_scoring.py."""
-    cfg = cfg or {}
-    ca = _load_module("iam_cellular_age_scoring", _find("iam_cellular_age_scoring.py"))
-    cls_name = [n for n in dir(ca) if n.lower().startswith("iamcellularage")][0]
-    # beta_mean SOURCE = IDENTITY loci (the axis the age curve is built on), NOT discriminative markers
-    loci = json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json")))
-    markers_per_class = {c: v["loci"] for c, v in loci.items()
-                         if isinstance(v, dict) and "loci" in v}
-    clock = getattr(ca, cls_name)(
-        ref_matrix_path=str(_find("age_reference_matrix.json")),
-        markers_per_class=markers_per_class)
-    res = clock.score_patient(beta_dict, chronological_age=cfg.get("age"))
-    per_class = dict(getattr(res, "cellular_age_per_class", {}))
-    # present-gate: absent classes invert background noise -> summarize PRESENT only
-    present = cfg.get("present_classes")
-    if present:
-        vals = [per_class[c] for c in present if c in per_class and isinstance(per_class[c], (int, float))]
-        summary = round(sum(vals) / len(vals), 1) if vals else None
-    else:
-        summary = getattr(res, "summary_cellular_age", None)
-    return {"cellular_age_per_class": per_class, "summary_cellular_age_present": summary,
-            "summary_cellular_age_all": getattr(res, "summary_cellular_age", None),
-            "present_classes": present, "chronological_age": getattr(res, "chronological_age", cfg.get("age"))}
+# stage_6_cellular_age_marker_union: REMOVED 2026-09-27 (author's ruling - a cohort statistic; the code is in RETIRED_2026-09/cohort_gauge_layers_2026-09-27/README.md's list)
 
 
 def stage_4_6_patient_sky(beta_rm, stage_a_out, cfg=None, atlas_csv=None):
@@ -650,17 +521,15 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
     sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6 built, commissioning WITHHELD - PROC-CMB-04 C2')
-    m = stage_5_mahalanobis(bi, cfg={"age": age, "lab": cfg.get("lab")})                            # THE REPORTED DEPARTURE on the identity gauge (row 5, PROC-MAHA-01)
-    m_diag = stage_5_hull_marker_union(b, cfg={"age": age})                    # diagnostic only
-    reliable_cls = [c for c, v in b["class_gauge"].items() if v.get("fraction", 0) >= 0.15]
-    ag = stage_6_cellular_age(bi, cfg={"age": age})                                     # NOT REPORTABLE at single-array resolution (PROC-AGE-01); prints the resolution
-    ag_diag = stage_6_cellular_age_marker_union(beta_dict, cfg={"age": age, "present_classes": reliable_cls})   # diagnostic only
+    # 2026-09-26: stage_5_mahalanobis, stage_5_hull_marker_union, stage_6_cellular_age and
+    # stage_6_cellular_age_marker_union are NO LONGER CALLED on the live path. They computed cohort statistics
+    # (a Mahalanobis distance against a healthy panel, an age clock) that the author ruled irrelevant to an A-score
+    # and that no tab printed. The functions remain defined for the sealed procedures that reference them.
     # per-cell separation, present cells only, with class
     cells = [{"cell": ct, "class": v["class"], "A": round(v["A"], 3) if v["A"] is not None else None,
               "fraction": round(v["fraction"], 4)}
              for ct, v in a["cells"].items() if v["present"] and v["A"] is not None]
     cells.sort(key=lambda c: -c["fraction"])
-    dep = m["departure"]
     return {
         "context": {"age": age, "substrate": cfg.get("substrate", "whole blood")},
         "composition": {"class": {c: round(f * 100, 1) for c, f in a["class_fractions"].items() if f > 0.001},
@@ -684,20 +553,8 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         "patient_sky": sky,                              # Stage 4.6 (row 4.6): NOT AVAILABLE without the lab's residual scale
         "foreign_detection": fd,                          # Stage 2d: per foreign cell f_hat, sigma, line, detected - only for commissioned laboratories
         "classes": bi,                                   # THE REPORTED GAUGE: identity loci, mapped, age-referenced, lab-zeroed (Issue 003 s3.5)
-        "diagnostic_marker_union": {c: {"A": v["A"], "tier": v["tier"], "placement": v["placement"],
-                        "fraction": round(v["fraction"], 4), "present": v["present"], "band": v.get("band"), "gauge_surface": "marker_union",
-                        "status": "DIAGNOSTIC ONLY - not the reported A (PROC-N7-01, PROC-SWITCH-01)"}
-                    for c, v in b["class_gauge"].items() if v.get("A") is not None},
         "scale": scale_label, "lab_zero": ("UNSET" if cfg.get("lab_zero") is None else cfg.get("lab_zero")),
-        "pending_recalibration": {"stage_5_mahalanobis": False, "stage_6_cellular_age": False,
-                                  "note": "Stage 5 re-based on the identity gauge (PROC-MAHA-01/02); Stage 6 closed as NOT REPORTABLE at single-array resolution (PROC-AGE-01) - no reported path reads the marker-union statistics"},
-        "departure": dep,                                # identity-gauge departure; long keys + short aliases (PROC-MAHA-01)
-        "mahalanobis": dep,                              # the key the report interface's departure tab readsure_section reads
-        "diagnostic_hull_marker_union": m_diag["departure"],
         "bidirectional": bd["bidirectional"],
-        "cellular_age": ag,                              # reportable False; resolution + sentence (PROC-AGE-01)
-        "diagnostic_cellular_age": {"summary": ag_diag["summary_cellular_age_present"], "chrono": age, "per_class": ag_diag["cellular_age_per_class"],
-                                    "status": "DIAGNOSTIC ONLY - marker-union age matrix inversion; never reported (PROC-AGE-01)"},
     }
 
 
@@ -737,17 +594,4 @@ if __name__ == "__main__":
                   ("%.3f" % r["a_pooled"] if r["a_pooled"] is not None else "-"), r["flag_bidirectional"]))
     print("  any bidirectional flagged:", bd["any_flagged"])
     print()
-    m = stage_5_mahalanobis(b, cfg={"age": 60})
-    dep = m["departure"]
-    dist = dep.get("mahalanobis_distance") if isinstance(dep, dict) else dep
-    beyond = dep.get("mahalanobis_beyond_band") if isinstance(dep, dict) else None
-    print("STAGE 5 - Mahalanobis Option A (age-matched class-gauge departure):")
-    print("  classes scored:", list(m["class_ascores_scored"].keys()))
-    print("  departure=%s  beyond age band=%s" % (
-          ("%.2f" % dist if dist is not None else "-"), beyond))
-    print()
-    ag = stage_6_cellular_age(beta_dict, cfg={"age": 60})
-    print("STAGE 6 - cellular age (IAM inversion, chrono=60):")
-    print("  summary cellular age:", ag["summary_cellular_age"])
-    for cls, yr in list(ag["cellular_age_per_class"].items())[:5]:
-        print("    %-11s %s yr" % (cls, round(yr,1) if isinstance(yr,(int,float)) else yr))
+    # (2026-09-27: the self-test's Stage 5 / Stage 6 blocks were removed with the stages - cohort statistics no tab prints)

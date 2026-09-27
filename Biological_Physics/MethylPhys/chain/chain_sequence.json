@@ -88,7 +88,7 @@
   },
   {
    "step": "stage_b_identity",
-   "implements": "THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the",
+   "implements": "THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27)",
    "where": "cpg_conductor.py"
   },
   {
@@ -107,26 +107,6 @@
    "where": "cpg_conductor.py"
   },
   {
-   "step": "stage_5_mahalanobis",
-   "implements": "Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B)",
-   "where": "cpg_conductor.py"
-  },
-  {
-   "step": "stage_5_hull_marker_union",
-   "implements": "DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure",
-   "where": "cpg_conductor.py"
-  },
-  {
-   "step": "stage_6_cellular_age",
-   "implements": "Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21)",
-   "where": "cpg_conductor.py"
-  },
-  {
-   "step": "stage_6_cellular_age_marker_union",
-   "implements": "DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported",
-   "where": "cpg_conductor.py"
-  },
-  {
    "step": "Report",
    "where": "MethylPhys_Interface/build_methylphys.py",
    "implements": "one self-contained HTML from the bundle"
@@ -134,6 +114,12 @@
  ],
  "batch_path": [],
  "not_in_live_path": [
+  {
+   "step": "stage_5_hull_marker_union",
+   "where": "cpg_conductor.py",
+   "implements": "DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure",
+   "status": "defined in the conductor; run_full does not call it"
+  },
   {
    "step": "stage_8_matching",
    "where": "cpg_conductor.py",
@@ -168,12 +154,10 @@
   "build_healpix_mapping.py": "chain",
   "generate_cpg_healpix_mapping.py": "chain",
   "stage_4_6_patient_cmb.py": "chain",
-  "iamatlas_mahalanobis_scoring.py": "chain",
-  "iam_cellular_age_scoring.py": "chain",
   "cpg_tiers.py": "chain",
   "iamatlas_a_scoring.py": "chain",
   "cpg_gauge_engine.py": "chain",
-  "lab_zero.py": "chain",
+  "BLOOD_bundle.json": "record",
   "CHAIN_SEQUENCE.md": "reference",
   "DECONVOLVER_REPAIR_2026-09-26.md": "record",
   "ENHANCEMENTS.md": "reference",
@@ -211,7 +195,6 @@
   "make_figures.py": "record",
   "om_data.py": "interface",
   "om_part3.py": "interface",
-  "percell_reference_v0_3.json": "reference",
   "propagate.py": "guard",
   "propagate_status.json": "record",
   "reference_cells_37.csv": "reference",
@@ -268,6 +251,8 @@
   "SUBSTRATE_STRATEGY.md": "record",
   "TWO_FIT_FINDING.md": "record",
   "switching_order.py": "guard",
+  "PLAN.md": "guard",
+  "REPORT_LINE_AUDIT_2026-09-26.md": "guard",
   "PROC_ANCHOR_01.py": "guard",
   "PROC_BIDIR_01.py": "guard",
   "PROC_CMB_05.py": "guard",
@@ -286,7 +271,6 @@
   "synthetic_patient_generator.py": "guard",
   "test_a_score_canonical.py": "guard",
   "test_gauge_switch.py": "guard",
-  "test_lab_zero.py": "guard",
   "test_patient_sky.py": "guard",
   "test_percell_physics.py": "guard",
   "test_tiers.py": "guard",
@@ -336,24 +320,17 @@
   "residual_scale_GSE125105.npz": "reference",
   "residual_scale_GSE42861.npz": "reference",
   "residual_scale_GSE87571.npz": "reference",
-  "mahalanobis_healthy_reference_v2_0_age_matched_derived.json": "reference",
   "stage_5_second_chain.py": "record",
-  "age01_results.json": "reference",
   "age_reference_matrix.csv": "reference",
   "age_reference_matrix.json": "reference",
   "tier_breakpoints.json": "reference",
   "iamatlas_celltype_markers_v0_2.json": "reference",
   "iamatlas_percell_identity_loci_v1_0.json": "reference",
   "percell_exclusivity_v0.json": "reference",
-  "percell_reference_identity_v1_0.json": "reference",
-  "percell_reference_mcmc_v1.json": "reference",
-  "percell_reference_v0.json": "reference",
   "composition_guard_v1.json": "reference",
   "cpg_gauge.py": "superseded",
   "iamatlas_gauge_identity_loci_v1_0.json": "reference",
-  "identity_band_v2_PROVISIONAL.json": "superseded",
-  "identity_band_v3.json": "reference",
-  "reference_age_curve_v1.json": "reference"
+  "identity_band_v2_PROVISIONAL.json": "superseded"
  },
  "role_gaps": [
   {
@@ -380,12 +357,17 @@
    "file": "generate_cpg_healpix_mapping.py",
    "role": "chain",
    "status": "build-time tool: makes a runtime file once, not a per-sample step"
+  },
+  {
+   "file": "cpg_tiers.py",
+   "role": "chain",
+   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
   }
  ],
  "counts": {
-  "live": 24,
+  "live": 20,
   "batch": 0,
-  "not_wired": 3,
-  "role_gaps": 5
+  "not_wired": 4,
+  "role_gaps": 6
  }
 }

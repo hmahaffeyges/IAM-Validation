@@ -1,9 +1,9 @@
 {
  "_meta": {
   "generated_from": "chain/example_runs/RUN-20260926-14/BLOOD.html",
-  "commit": "a48230e",
+  "commit": "b7be755",
   "n_tabs": 17,
-  "report_mb": 7.33,
+  "report_mb": 6.69,
   "n_specimen": 8,
   "n_reference": 9,
   "figures_are_screenshots": false
@@ -14,7 +14,7 @@
    "label": "Reading",
    "kind": "SPECIMEN",
    "purpose": "The reading itself: the class gauge value, where it sits against the healthy band for this age, its tier word, and the composition that produced it. If a clinician reads one tab, it is this one.",
-   "kb": 5,
+   "kb": 4,
    "tables": 2,
    "rows": 8,
    "headings": [
@@ -33,16 +33,16 @@
    "label": "How to read",
    "kind": "REFERENCE",
    "purpose": "How to read the report: what each number means, what it does not mean, and the vocabulary the chain is allowed to use.",
-   "kb": 632,
+   "kb": 14,
    "tables": 3,
-   "rows": 20,
+   "rows": 18,
    "headings": [
     "How to read the gauge",
     "What A is measuring",
     "Where the locker analogy helps",
     "The levels",
-    "Age, and why no age term is applied to a cell",
-    "Three different things, and none of them is A = 1.00 sitting on a floor",
+    "Age",
+    "Two different things, and neither is A = 1.00 sitting on a floor",
     "The saturation wall chart - 8 classes x 5 substrates",
     "The Warburg line at 1.07",
     "What a high reading does not mean",
@@ -59,9 +59,9 @@
    "label": "Cells",
    "kind": "SPECIMEN",
    "purpose": "Every atlas cell type scored for this specimen - all of them, placed or not - each with its 95 per cent interval, the healthy range on its own markers, how many of its markers were found, and its position against healthy.",
-   "kb": 31,
+   "kb": 28,
    "tables": 12,
-   "rows": 91,
+   "rows": 90,
    "headings": [
     "Every cell - all 115 atlas cell types",
     "Trace-class detection - is there any epithelial-like material here at all?",
@@ -86,7 +86,7 @@
    "label": "Sky",
    "kind": "SPECIMEN",
    "purpose": "The residual sky: a Mollweide plate of this specimen's own residuals, per class, plus the statistics behind each plate. Opens with what a plate is compared to, because it is never compared to a healthy picture.",
-   "kb": 5998,
+   "kb": 5993,
    "tables": 3,
    "rows": 23,
    "headings": [
@@ -114,7 +114,7 @@
    "label": "Physics",
    "kind": "REFERENCE",
    "purpose": "The physics under the gauge: Landauer's bound, the Mahaffey number, the entropy floor and why the zero is fixed rather than a control group.",
-   "kb": 20,
+   "kb": 19,
    "tables": 4,
    "rows": 16,
    "headings": [
@@ -139,7 +139,7 @@
    "label": "Story",
    "kind": "REFERENCE",
    "purpose": "What astro-genetics is, in the author's words - the introduction that now also opens Issue 003.",
-   "kb": 379,
+   "kb": 377,
    "tables": 0,
    "rows": 0,
    "headings": [
@@ -148,7 +148,6 @@
     "The one-sentence version",
     "Stargazers and trailblazers",
     "Why your cells follow the same rule as the stars",
-    "The ceiling is informational, not gravitational - and that is why it travels",
     "Where the gauge sits, and what is open to inspection",
     "Two names, and which is which"
    ],
@@ -162,17 +161,15 @@
    "label": "Reference",
    "kind": "REFERENCE",
    "purpose": "Every constant the reading was corrected by, with where each came from - the floor, the age term, the laboratory zero, the scale map, and the calibration DOI.",
-   "kb": 11,
-   "tables": 3,
-   "rows": 20,
+   "kb": 6,
+   "tables": 2,
+   "rows": 15,
    "headings": [
-    "The instrument - its constants, its calibration, and the arrays it was calibrated on",
-    "1. Physical constants - the floors and the per-cell references",
-    "2. Instrument calibration - what a laboratory's array needs before a cell can be read",
-    "3. The healthy arrays the calibration was measured on",
-    "4. What is NOT on this page"
+    "The instrument - its constants and its calibration",
+    "1. Physical constants - the floors",
+    "2. Instrument calibration - what a laboratory's array needs before a cell can be read"
    ],
-   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. The instrument - its constants, its calibration, and the arrays it was calibrated on A reading on this report is A = H(mean beta over a c",
+   "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. https://github.com/hmahaffeyges/IAM-Validation The instrument - its constants and its calibration A reading on this report is A = H(mean ",
    "figure": "../manual/report_tab_figures/reference.png",
    "is_screenshot": false,
    "cmb": []
@@ -218,9 +215,9 @@
    "label": "Safeguards",
    "kind": "SPECIMEN",
    "purpose": "Every guard and whether it passed on this specimen, including the register of all 17 methods borrowed from CMB analysis with PASS, FAIL, NOT_RUN, NOT_APPLICABLE or NOT_BUILT for this run.",
-   "kb": 18,
+   "kb": 17,
    "tables": 4,
-   "rows": 56,
+   "rows": 54,
    "headings": [
     "Safeguards - every guard, and whether it passed",
     "Stage 0 - chain of custody, this specimen",
@@ -242,10 +239,6 @@
     {
      "state": "PASS",
      "tool": "inverse-variance weighting"
-    },
-    {
-     "state": "PASS",
-     "tool": "Mahalanobis distance in the banded space"
     },
     {
      "state": "PASS",
@@ -316,7 +309,7 @@
    "headings": [
     "Troubleshooting - what each refusal means, and what to do",
     "Stage 0 refused the specimen",
-    "What healthy specimens measure, so you can tell a bad array from a bad configuration",
+    "What whole-blood arrays measure at intake, so you can tell a bad array from a bad configuration",
     "It ran, but no number was placed",
     "It will not start",
     "The reading itself looks wrong",
@@ -333,15 +326,15 @@
    "label": "Integrity",
    "kind": "SPECIMEN",
    "purpose": "The fail-safes that kept this reading honest: the Stage 0 custody record for this specimen, both file hashes, and each intake gate's own result.",
-   "kb": 18,
+   "kb": 16,
    "tables": 3,
-   "rows": 64,
+   "rows": 53,
    "headings": [
     "Integrity - the fail-safes that kept this reading honest, and what each one measured",
     "1. What this run refused, and why",
     "2. The safeguards, with their cosmology twins",
-    "3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)",
-    "4. Files read by this run (repository at commit a48230e)",
+    "3. Constants read for this laboratory (the pipeline map, the tier file, the sky scale only; no constant is applied to any cell's A)",
+    "4. Files read by this run (repository at commit b7be755)",
     "5. Two rules this report obeys"
    ],
    "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
@@ -354,9 +347,9 @@
    "label": "Chain",
    "kind": "REFERENCE",
    "purpose": "The chain that produced the reading, stage by stage, derived from the code rather than described - so a stage cannot be claimed that the code does not call.",
-   "kb": 32,
-   "tables": 22,
-   "rows": 110,
+   "kb": 26,
+   "tables": 18,
+   "rows": 91,
    "headings": [
     "The chain - every stage this report came from",
     "The documents the chain is governed by",
@@ -372,19 +365,19 @@
    "label": "Files",
    "kind": "REFERENCE",
    "purpose": "Every file the chain uses, enumerated from the live tree with its role.",
-   "kb": 82,
+   "kb": 77,
    "tables": 6,
-   "rows": 205,
+   "rows": 196,
    "headings": [
     "Every file the chain uses",
-    "In the chain (20)",
-    "Reference and calibration data (76)",
+    "In the chain (17)",
+    "Reference and calibration data (68)",
     "Interface (14)",
-    "Guards, procedures and doors (56)",
-    "Present but NOT in the chain (29)",
+    "Guards, procedures and doors (57)",
+    "Present but NOT in the chain (30)",
     "Superseded (4)"
    ],
-   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit 6b8fb33 - 200 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
+   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit b7be755 - 191 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
    "figure": "../manual/report_tab_figures/files.png",
    "is_screenshot": false,
    "cmb": []
@@ -429,9 +422,9 @@
    "label": "Run",
    "kind": "SPECIMEN",
    "purpose": "How to run it yourself, what produced this reading (chain commit, decoder version, a hash of every input read), and whether every derived document was current when this report was built.",
-   "kb": 17,
+   "kb": 16,
    "tables": 7,
-   "rows": 65,
+   "rows": 59,
    "headings": [
     "Run it yourself",
     "What produced this reading",
@@ -463,10 +456,6 @@
   {
    "state": "PASS",
    "tool": "inverse-variance weighting"
-  },
-  {
-   "state": "PASS",
-   "tool": "Mahalanobis distance in the banded space"
   },
   {
    "state": "PASS",

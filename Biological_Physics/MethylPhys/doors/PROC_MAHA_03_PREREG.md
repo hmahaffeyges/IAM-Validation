@@ -29,8 +29,8 @@ measurement and is to be stated in the outcome, not worked around.
 
 Measurement path — the existing scoring path, nothing new: per array, β̄ over the 42,134 immune identity loci of
 [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json); A_mapped = H(β̄)/H_min with H_min = 0.838889; then
-A″ = A_mapped − c(decade) − z_lab with c from [`reference_age_curve_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/reference_age_curve_v1.json) and z_lab from
-[`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json). One axis (immune), so the p95 threshold is |z| > √χ²(0.95, 1) = 1.95996 with
+A″ = A_mapped − c(decade) − z_lab with c from [`reference_age_curve_v1.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/reference_age_curve_v1.json) and z_lab from
+[`identity_band_v3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/identity_band_v3.json). One axis (immune), so the p95 threshold is |z| > √χ²(0.95, 1) = 1.95996 with
 z = (A″ − 1.000)/σ.
 
 ## Bars, fixed now

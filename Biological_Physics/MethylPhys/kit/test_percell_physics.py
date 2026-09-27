@@ -17,7 +17,7 @@ remember. This file is the machine check. It is run by propagate.py on every pus
                             for marker panels) and RULING A3 (H of the mean beta, for identity loci, the
                             commissioned gauge). Applying the first to the second read healthy cells SUPPRESSED.
        CHECK: the per-cell scorer and stage_b_identity give the SAME A on the same loci and betas, to 1e-9.
-  RC4  UNREACHABLE REFERENCE. percell_reference_v0_3.json sat in a folder the chain's search path did not
+  RC4  (inverted 2026-09-27) the retired per-cell reference files must NOT be reachable; a cell record carries no reference, no zero
                             include, so the per-cell bands existed and were never loaded.
        CHECK: the per-cell reference resolves through _find and covers >= 100 cells.
 
@@ -63,20 +63,15 @@ def main():
     import cpg_conductor as C
     asc = C._load_module("iamatlas_a_scoring", C._find("iamatlas_a_scoring.py"))
 
-    # ---------------------------------------------------------------- RC4 the reference resolves
-    try:
-        ref_p = C._find("percell_reference_identity_v1_0.json")
-        ref = json.load(open(ref_p))["entries"]
-        n_ref = sum(1 for e in ref.values() if "pooled" in e)
-        (ok if n_ref >= 100 else fail)("RC4", "per-cell reference resolves via _find, %d cells banded" % n_ref)
-    except Exception as e:
-        fail("RC4", "per-cell reference NOT reachable from the chain: %s" % e)
-        ref = {}
-    try:
-        C._find("percell_reference_v0_3.json")
-        ok("RC4", "Percell_Reference folder is on the search path")
-    except Exception as e:
-        fail("RC4", "Percell_Reference folder is NOT on the search path: %s" % e)
+    # ---------------------------------------------------------------- RC4 (inverted 2026-09-27): no per-cell 'reference' is reachable
+    # The per-cell atlas reference and the per-lab p10/p90 layer were retired by the author's ruling (MEASURE, DON'T
+    # COMPARE). The chain must NOT find them; a cell record must carry reference None and no A_zeroed / lab_offset.
+    ref = {}
+    for nm in ("percell_reference_identity_v1_0.json", "percell_reference_v0_3.json", "percell_reference_mcmc_v1.json", "identity_band_v3.json", "reference_age_curve_v1.json"):
+        try:
+            C._find(nm); fail("RC4", "%s is still reachable from the chain's search path" % nm)
+        except Exception:
+            ok("RC4", "%s not reachable (retired)" % nm)
 
     # ---------------------------------------------------------------- RC2 the source maps before it scores
     src = inspect.getsource(C.stage_a_cells)
@@ -142,16 +137,11 @@ def main():
         if not present:
             fail("RC2", "no present cell (fraction >= 0.02) scored on healthy array %s" % gsm)
         else:
-            centres = json.load(open(C._find("percell_reference_identity_v1_0.json")))["_meta"].get("percell_centres_after_offset", {})
             def judged(k, v):
-                a = v.get("A_zeroed") if v.get("A_zeroed") is not None else v["A"]
-                c = centres.get(k, 1.0)
-                # NORMAL for THIS cell: its own centre, with the universal half-widths (0.05 below, 0.04 above)
-                return a, (c - 0.05 <= a <= c + 0.04)
+                a = v["A"]
+                # 2026-09-27: NORMAL is [0.95, 1.05) about the fixed point A = 1.00 for every cell - no per-cell centre
+                return a, (0.95 <= a < 1.05)
             bad = {k: round(judged(k, v)[0], 4) for k, v in present.items() if not judged(k, v)[1]}
-            unset = [k for k, v in present.items() if v.get("lab_offset") == "UNSET"]
-            if unset:
-                fail("RC2", "laboratory offset UNSET for present cells %s - the lab did not reach the per-cell path" % unset[:4])
             wrong_surface = [k for k, v in present.items() if v.get("surface") != "identity_loci"]
             if wrong_surface:
                 fail("RC1", "present cells scored off the identity surface: %s" % wrong_surface[:5])

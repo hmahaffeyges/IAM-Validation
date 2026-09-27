@@ -16,7 +16,7 @@ no comparison to any prior cohort; no condition named; no years. Vocabulary guar
 
 ## 2026-09-22, later - the per-cell healthy reference exists; four author corrections; two of my own errors found by reading output
 
-**Per-cell healthy reference built** (`MethylPhys/chain/Runtime Matrices/Percell_Reference/percell_reference_v0.json`, builder `MethylPhys_Interface/build_percell_reference.py`).
+**Per-cell healthy reference built** (`../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_v0.json`, builder `MethylPhys_Interface/build_percell_reference.py`).
 All **115 atlas entries x 4 laboratories = 460 entry-laboratory cells**, from 318 healthy arrays (Uppsala 80, UCLA 80, Munich 80, Karolinska 78; seed 2029, 40 build + 40 held out per laboratory),
 raw IDAT -> Stage 1 noob. Per entry: H_ref = median of mean_i H(beta_i) over that entry's markers on the build panel, with p10/p90, and A percentiles against the class H_min.
 Every laboratory's Stage 1 beta matrix is a checkpointed artifact with its GSM list, seed, Stage 1 version and SHA-256 - the rule from this morning is now satisfied for this layer.
@@ -719,7 +719,7 @@ cards carry the correct updated info?"*
 **The cards did not list their cells, and the cover said they did.** Page 1 has claimed "Every class card now lists
 its cell types" while the cards carried Issue 002's `Includes` field - a prose list of tissues (immune: five
 lineages named; the atlas holds **51 immune entries**). Each card now carries a roster of its atlas entries, built
-from [`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json) and [`percell_reference_v0_3.json`](../chain/Runtime%20Matrices/Percell_Reference/percell_reference_v0_3.json) at build time: entry, markers found
+from [`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json) and [`percell_reference_v0_3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_v0_3.json) at build time: entry, markers found
 across the reference laboratories, whether it is individually resolvable, exclusivity, and the per-laboratory 10th
 to 90th percentile healthy A range. Counts as rendered: immune 51, cycling 19, secretory 18, progenitor 11,
 terminal 9, stromal 5, adult stem 1, pluripotent stem 1 = **115**, and 106 of the 115 carry a per-entry reference.
@@ -857,7 +857,7 @@ so a +2 sigma injection survives exactly - 100 per cent at every k is arithmetic
 belongs to the estimator B5 forbids (a chip median including the array being read), and that estimator is not
 used. B5 is structural protection; B4 measured nothing.
 
-**A discrepancy now on the record rather than assumed away.** [`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json)'s
+**A discrepancy now on the record rather than assumed away.** [`identity_band_v3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/identity_band_v3.json)'s
 `tail_p95_if_chip_centred` column (0.0196-0.0413) is where "chip-centring halves the tail" came from. Held-out
 estimation does not reproduce it. A chip median computed *including* the array being read would produce exactly
 that apparent improvement; whether that is what the column did is not recorded in the file, so it is not

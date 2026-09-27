@@ -29,7 +29,7 @@ python3 run_sample.py --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz --age 58
 
 A laboratory the chain has not commissioned has no zero and no sky scale, so the report prints NOT REPORTABLE with
 the reason rather than a number. Commissioning one takes 40 healthy arrays of that laboratory through Stage 1 and
-then `chain/lab_zero.py`; the procedure is in `doors/RUNBOOK.md`.
+then `RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py`; the procedure is in `doors/RUNBOOK.md`.
 
 ## What it reports
 

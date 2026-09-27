@@ -84,7 +84,7 @@ against erasure, and it is structural rather than measured.
 
 ## A discrepancy to resolve, stated rather than resolved
 
-[`identity_band_v3.json`](../chain/Runtime%20Matrices/A_Scoring_Module/identity_band_v3.json) carries a column `tail_p95_if_chip_centred` reading 0.0196–0.0413, which is where the
+[`identity_band_v3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/identity_band_v3.json) carries a column `tail_p95_if_chip_centred` reading 0.0196–0.0413, which is where the
 expectation of "chip-centring halves the tail" came from. **This run does not reproduce that improvement under
 held-out estimation** — with k = 1 the tail rises in all four cohorts. A chip median computed *including* the array
 being read would produce exactly that kind of apparent improvement, because each array is then partly centred on

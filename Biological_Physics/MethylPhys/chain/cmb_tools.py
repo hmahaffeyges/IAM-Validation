@@ -167,9 +167,6 @@ TOOLS = [
   "each address weighted by the inverse of its atlas posterior variance - what brought the trace-class "
   "detection limit from 5 % to 2 %",
   "stage_2c_trace_detection.py", _chk_inverse_variance),
- ("MAHAL", "Mahalanobis distance in the banded space", "CMB parameter likelihoods",
-  "how far this specimen sits from the healthy centre, in units of the healthy spread",
-  "cpg_conductor stage 5", _chk_mahalanobis),
  ("BRIGHT", "surface brightness", "astronomical photometry",
   "an intensity that does not depend on distance or aperture, applied to a class; runs as a check beside the "
   "composition-weighted sky",
@@ -178,7 +175,7 @@ TOOLS = [
  ("CLS", "angular power spectrum of the residual sky", "the CMB power spectrum",
   "would say whether a departure is locally clustered along the genome or spread across it - one number per "
   "specimen, computable on data already on disk",
-  "not implemented", _not_built("MEASURED 2026-09-25 (PROC-CLS-01): the sky IS structured, 3.5x its permutation null at l 2-8, dying by l~200 - but the healthy reference does not transfer across laboratories (B3), so nothing is reported. Original note: no implementation; roadmap - needs no new data")),
+  "not implemented", _not_built("MEASURED 2026-09-25 (PROC-CLS-01): the sky IS structured, 3.5x its permutation null at l 2-8, dying by l~200 - but a per-address reference from a panel is a population layer and was retired 2026-09-27; the sky's zero and spread are to come from the atlas posterior (PLAN item 5)")),
  ("COV", "full cell-type covariance in the separation", "generalised least squares on the CMB covariance",
   "the atlas carries the covariance between cell types at each address and the chain treats every "
   "uncertainty as independent - the largest piece of unspent evidence in the chain",
@@ -186,7 +183,7 @@ TOOLS = [
  ("DIFFMAP", "difference map between two draws", "CMB difference maps between detectors",
   "two draws from one person, subtracted: the technical term cancels and the detection limit drops by an "
   "order of magnitude",
-  "not implemented", _not_built("blocked: no serial cohort with two draws from the same person")),
+  "not implemented", _not_built("blocked: no data set with two draws from the same person")),
  ("BEAM", "beam smoothing", "the instrument beam",
   "smoothing the residual sky to the scale at which genomic correlation is interpretable",
   "stage_4_6_patient_cmb.py (fixed smoothing)", _not_built(

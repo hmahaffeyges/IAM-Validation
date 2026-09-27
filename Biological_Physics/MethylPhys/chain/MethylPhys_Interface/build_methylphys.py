@@ -48,18 +48,17 @@ def _rel(p): return os.path.relpath(p, REPO)
 # ---------------- runtime constants (the report reads the same files the chain did) ----------------
 def load_runtime():
     R={}
-    R["band"]=_j(_find("identity_band_v3.json")); m=R["band"]["_meta"]; coh=m["cohorts"]; R["cohorts"]=ast.literal_eval(coh) if isinstance(coh,str) else coh
-    R["maps"]=_j(_find("beta_scale_maps_v1.json")); R["age"]=_j(_find("reference_age_curve_v1.json")); R["tiers"]=_j(_find("tier_breakpoints.json"))
+    R["maps"]=_j(_find("beta_scale_maps_v1.json")); R["tiers"]=_j(_find("tier_breakpoints.json"))
     R["floors"]=_j(_find("presence_floors_v1.json")); R["ident"]=_j(_find("iamatlas_gauge_identity_loci_v1_0.json"))
     R["c2c"]=_j(_find("IAMAtlasREBUILD_celltype_to_class.json")); R["panels"]=_j(_find("directional_panels_v1_0.json"))
-    R["files"]={n:_find(n, allow_retired=True) for n in ["identity_band_v3.json","beta_scale_maps_v1.json","reference_age_curve_v1.json","tier_breakpoints.json","presence_floors_v1.json",
+    R["files"]={n:_find(n, allow_retired=True) for n in ["beta_scale_maps_v1.json","tier_breakpoints.json","presence_floors_v1.json",
                "iamatlas_gauge_identity_loci_v1_0.json","iamatlas_celltype_markers_v0_2.json","IAMAtlasREBUILD_celltype_to_class.json","directional_panels_v1_0.json",
-               "iamatlas_cpg_to_healpix_nside128.npz","cpg_conductor.py","cpg_gauge_engine.py","lab_zero.py","cpg_tiers.py","stage_4_6_patient_cmb.py","legacy_iam_deconvolver.py",
+               "iamatlas_cpg_to_healpix_nside128.npz","cpg_conductor.py","cpg_gauge_engine.py","cpg_tiers.py","stage_4_6_patient_cmb.py","legacy_iam_deconvolver.py",
                "bidirectional_decomposition.py","iamatlas_a_scoring.py","stage_1_idat_calibration.py","IAMAtlasREBUILD_provenance.json",
                "IAMAtlasREBUILD.csv.xz","IAMAtlasREBUILD_celltype_to_class.json","iamatlas_cpg_to_healpix_nside128.npy","iamatlas_cpg_to_healpix_nside128.provenance.json",
                "RUNBOOK.md","CHAIN_COMMISSIONING.md","HANDOFF.md","nilc_celltype_deconvolver.py","run_sample.py","release_check.py",
-               "test_gauge_switch.py","test_tiers.py","test_patient_sky.py","test_lab_zero.py","PROC_ANCHOR_01.py","PROC_FORMULA_01.py",
-               "PROC_DECON_01.py","PROC_SEP_03.py","PROC_BIDIR_01.py","finding_check.py","percell_reference_v0.json","reference_age_curve_v1.json","lineage_splitter.py","README_CPG_Plates.md","README_HEALPix_Mapping.md","CPG_Gauge_Cell.png","CPG_Gauge_Cosmic.png","healthy_sky_vs_cmb.png"] if _exists(n)}
+               "test_gauge_switch.py","test_tiers.py","test_patient_sky.py","PROC_ANCHOR_01.py","PROC_FORMULA_01.py",
+               "PROC_DECON_01.py","PROC_SEP_03.py","PROC_BIDIR_01.py","finding_check.py","lineage_splitter.py","README_CPG_Plates.md","README_HEALPix_Mapping.md","CPG_Gauge_Cell.png","CPG_Gauge_Cosmic.png","healthy_sky_vs_cmb.png"] if _exists(n)}
     sys.path.insert(0,ENGINE); import cpg_gauge_engine as _G
     R["hmin_table"]=_G.H_MIN_TABLE; R["sub_order"]=_G.SUB_ORDER; R["auc"]=_G.AUC_W
     _ts=R["tiers"]["tier_system_v1_2"]; R["warburg"]=next(x for x in _ts["tiers"] if x["tier_id"]=="WARBURG_TRANSITION")
@@ -81,7 +80,6 @@ def load_runtime():
     except FileNotFoundError: R["excl"]={}
     try: R["release"]=_j(_find("release_check.json"))
     except FileNotFoundError: R["release"]=None
-    try: R["percell"]=_j(_find("percell_reference_v0.json"))
     except FileNotFoundError: R["percell"]=None
     R["sha"]=_git_head()
     sys.path.insert(0,ENGINE); import cpg_tiers as T; sch=T.scheme(); R["tier_bands"]=sch["bands"]; R["tier_version"]=sch.get("version")   # ONE tier definition (PROC-TIER-01)
@@ -89,7 +87,7 @@ def load_runtime():
 def _exists(n, allow_retired=True):
     try: _find(n, allow_retired=allow_retired); return True
     except FileNotFoundError: return False
-TIER_COL={"SUPPRESSED":"#8fb3e6","NORMAL":"#86c28b","ELEVATED":"#f2d27a","SIGNIFICANTLY_ELEVATED":"#f0b04a","BREACH":"#d9736a","AT_CEILING":"#b2182b"}
+TIER_COL={"SUPPRESSED":"#8fb3e6","NORMAL":"#86c28b","ELEVATED":"#f2d27a","SIGNIFICANTLY_ELEVATED":"#f0b04a","BREACH":"#d9736a"}
 CLASSES=["stem_pluri","stem_adult","progenitor","cycling","secretory","immune","terminal","stromal"]
 CLASS_LABEL={"stem_pluri":"Stem (pluripotent)","stem_adult":"Stem (adult)","progenitor":"Progenitor","cycling":"Cycling epithelial","secretory":"Secretory / glandular","immune":"Immune & haematopoietic","terminal":"Terminal / post-mitotic","stromal":"Stromal & connective"}
 
@@ -115,6 +113,10 @@ def bar(pct, col="#7fa8cc", w=160):
 
 # ---------------- vocabulary guard (measurement tabs only) ----------------
 FORBIDDEN=re.compile(r"\b(cancer|carcinoma|tumou?r|malignan\w*|alzheimer\w*|dementia|leukemia|lymphoma|diagnos\w*|verdict|culprit|cellular age|years? old|prognos\w*|disease)\b",re.I)
+# MEASURE, DON'T COMPARE (author, 2026-09-27): the report describes this specimen's reading, the frozen constants and the
+# calibration files by name. Nothing about any population. These words fail the render on the measurement tabs.
+COHORT=re.compile(r"\b(cohorts?|donors?|healthy (band|range|reference|people|person|population)|reference range|population (band|range)|central 95|percentiles?|p10|p90|middle 80|"
+                  r"age (term|curve)|age-referenced|laboratory zero|lab zero|z_lab|placement|placed in|in_band|above_band|below_band|mahalanobis|a little under 1|compared with a healthy|against a healthy|ceiling|at_ceiling)\b",re.I)
 # CHANGELOG GUARD (2026-09-22, at the author's instruction: "We are handing them a finished product not a log of
 # my mistakes or changes"). The condition-name guard above protects against clinical overclaim; this one protects
 # against the opposite failure - narrating the instrument's construction to someone who asked for the instrument.
@@ -134,6 +136,8 @@ def no_changelog(section_html, tab):
 def guard(section_html, tab):
     txt=re.sub(r"<[^>]+>"," ",section_html); bad=sorted(set(m.group(0).lower() for m in FORBIDDEN.finditer(txt)))
     if bad: raise ValueError(f"vocabulary guard [{tab}]: {bad}")
+    coh=sorted(set(m.group(0).lower() for m in COHORT.finditer(txt)))
+    if coh: raise ValueError(f"MEASURE, DON'T COMPARE guard [{tab}]: population vocabulary on a measurement tab -> {coh}")
     return no_changelog(section_html, tab)
 
 def deepdive(R, topic=""):
@@ -159,36 +163,10 @@ def posbar(A, lo, hi, w=150):
             f"<line x1='{X(mid):.1f}' y1='0' x2='{X(mid):.1f}' y2='14' stroke='#3fa45b' stroke-width='1'/>"
             f"<circle cx='{X(A):.1f}' cy='7' r='4.2' fill='{col}'/></svg>")
 
-COLS_LEGEND=("<details class='legend' open><summary><b>What each column means</b> - three of them are easy to confuse, so they are defined here</summary><table class='t'>"
- "<tr><th>column</th><th>what it is</th><th>what it is NOT</th></tr>"
- "<tr><td><b>placed</b></td><td>the composition solver found enough evidence to give this sample some fraction of this cell type</td>"
- "<td>a blank is not 'absent' - a lineage's whole fraction often lands on one representative entry, so its aliases read 0 %</td></tr>"
- "<tr><td><b>fraction</b></td><td>how much of the sample's DNA the solver attributes to this cell type</td><td>not a cell count</td></tr>"
- "<tr><td><b>A (marker surface)</b></td><td>this cell's reading: the mean of the per-CpG entropies over its own marker addresses, divided by its class's frozen floor H_min</td>"
- "<td>not the class gauge - that is on the Reading tab, computed on identity loci, and it is the only surface carrying tiers</td></tr>"
- "<tr><td><b>95 % interval on the reading</b></td><td><b>the error bar on THIS number</b>, from resampling this cell's own marker CpGs 500 times. Narrow means the markers agree with each other</td>"
- "<td><b>not</b> the healthy range and <b>not</b> the atlas posterior spread. The June reports printed the atlas posterior SD of a class <i>mean</i> as a '95 % CI' - the uncertainty of an average used as a population spread - which is why healthy cells there appeared to sit 10 sigma out. Three different quantities; this report labels each one</td></tr>"
- "<tr><td><b>healthy range (own markers)</b></td><td>the 10th-90th percentile of this same reading across 40 healthy arrays from <b>this patient's own laboratory</b> (or the four pooled if that laboratory has no panel)</td>"
- "<td>not a decision threshold - no tier is assigned on this surface</td></tr>"
- "<tr><td><b>markers found</b></td><td>how many of that cell's panel CpGs were present and finite on this array, out of the panel total</td>"
- "<td><b>not</b> a confidence interval - it is panel coverage. A low count is what widens the interval to its left</td></tr>"
- "<tr><td><b>position vs healthy</b></td><td>the picture of the two middle columns: green band = that cell's healthy range, dot = this sample, drawn over +/-2 band-widths. Green inside, amber within half a band-width outside, red beyond</td>"
- "<td>not a tier and not a severity</td></tr></table></details>")
+# (COLS_LEGEND, the June marker-surface column legend, removed 2026-09-27: unused, and it described a healthy range)
 
 # ======================= measurement tabs =======================
-GAUGE_EXPLAINER="""<div class="explain"><h3>What the class gauge is, in plain words</h3>
-<p><b>Loci.</b> <i>Locus</i> is Latin for "place"; <i>loci</i> is the plural. In genetics a locus is an address on the DNA - chromosome 6, position 31,400,000, say.
-A CpG locus is an address where a C is followed by a G and the cell can attach a methyl tag or not. Your genome has about 28 million of them; the array reads about 480,000.</p>
-<p><b>Identity loci.</b> Think of a school with eight grades, every student with a locker. Most lockers tell you nothing about the grade. Some are characteristic: every ninth-grader's
-holds the same geometry book. Those are the identity lockers for that grade. For each of the eight cell classes we found the CpG addresses where healthy cells of that class all sit at
-about the same methylation level - the addresses that say "I am an immune cell." For immune that is about 42,000 addresses.</p>
-<p><b>The gauge.</b> Go to those addresses in this sample and average how methylated they are. A healthy immune cell holds that average at a characteristic level (about 0.73 on a
-0-to-1 scale). Turn the average into an entropy - how disordered the pattern is: 0 if every address is fully on or off, 1 bit if every address is a coin flip - and divide by the entropy
-a healthy immune cell holds (H_min, measured once from 37 reference cells and frozen). Healthy divides to 1.0. If the class is losing its grip on its identity pattern the addresses drift
-toward coin-flip, entropy rises and A climbs toward the ceiling. <b>A is how well this class of cells is still holding its own identity pattern, compared with a healthy one.</b></p>
-<p><b>Three corrections before the number is placed.</b> The laboratory's pipeline shifts every beta a little (a measured slope and intercept, the <i>pipeline map</i>); each laboratory
-sits at its own constant offset (the <i>laboratory zero</i>, measured from 40 of its healthy arrays); and healthy A rises slowly with age (the <i>age curve</i>, measured on 1,379 healthy
-donors). The corrected value A'' is placed in the healthy band (the middle 80% of healthy donors, four laboratories) and given its tier. <b>BREACH at 1.10</b> means the class has lost its floor - the level that defines it. It is a reading on this ruler, like a temperature of 104 F, and not a comparison to any prior cohort. It is not the ceiling: the ceiling is saturation, 1/H_min, and it is a different limit (see How to read).</p></div>"""
+# (GAUGE_EXPLAINER, the class-gauge ruler explainer with the three corrections, removed 2026-09-27: unused, and it described the retired layers)
 
 def _trace_one_liner(o):
     """One line on the Reading tab. A reader who opens one tab should see what Stage 2c found."""
@@ -232,7 +210,7 @@ def tab_reading(o, R, sid):
              f"<tr><td>Laboratory</td><td>{_e(lab)}</td><td>Foreign-cell detection</td><td>{det_state} for this laboratory</td></tr></table>")
     H.append("<p><b>Healthy is A = 1.00.</b> Every cell type has one physical floor, the H_min of its architecture class, and a healthy cell of any type reads "
              "A = H / H_min = 1.00 on it. NORMAL is 0.95-1.05; below 0.95 is SUPPRESSED; 1.05-1.07 ELEVATED; the 1.07 Warburg line and the 1.10 breach line are "
-             "the physics' two inflection points. The reading below is each cell in this sample against its own floor. No population defines any number on this page.</p>")
+             "the physics' two inflection points. The reading below is each cell in this sample against its own floor. Nothing about any population is part of any number on this page.</p>")
     # ---- 1. cells found, and each one's A
     fam_seen=set(); rows=[]; sub=[]; unres=[]
     for name,v in cells.items():
@@ -262,10 +240,7 @@ def tab_reading(o, R, sid):
             except Exception: tier=None
             d=(A-1.0) if A is not None else None
             ci=v.get("reading_ci") or {}; ci_s=(f"{ci['ci_lo']:.4f} - {ci['ci_hi']:.4f}" if ci.get("ci_lo") is not None else "-")
-            ref=v.get("reference") or {}; ref_s=(f"{ref['A']:.4f} <span class='m'>[{ref['ci95_lo']:.4f}-{ref['ci95_hi']:.4f}]</span>" if ref.get("A") is not None else "-")
-            dref=v.get("departure_from_reference"); dref_s=(f"{dref:+.4f}" if isinstance(dref,(int,float)) else "-")
             label=(_e(name)+f" <span class='m'>(in family {_e(str(v.get('shared_with')).replace('family:',''))} - one shared fraction, own A)</span>") if v.get("shared_with") else _e(name)
-            az=v.get("A_zeroed")
             H.append(f"<tr><td>{label}</td><td class='m'>{_e(CLASS_LABEL.get(cl,cl))}</td><td class='n'>{100*fr:.1f} %</td>"
                      f"<td class='n'><b>{A:.4f}</b></td>" if A is not None else f"<tr><td>{label}</td><td class='m'>{_e(CLASS_LABEL.get(cl,cl))}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>-</td>")
             H.append(f"<td class='n m'>{ci_s}</td>"
@@ -278,7 +253,7 @@ def tab_reading(o, R, sid):
     H.append(f"<p class='m'>{len(sub)} atlas cell{'s' if len(sub)!=1 else ''} placed below the presence floor - detected in trace amounts, not scored (a cell must be present to be measured; fraction is a detection gate, not a correction to A). "
              f"{len(unres)} entr{'ies' if len(unres)!=1 else 'y'} not resolvable on this platform. Every cell, scored or not, is on the <b>Every cell</b> tab. "
              "A is H(mean beta over the cell's identity loci) / H_min of its class, on scale-mapped betas. Nothing is added to or subtracted from it. "
-             "The tier is read on A against 1.00 on the tier scale (NORMAL 0.95-1.05). Each cell's 95 % interval, atlas profile and identifiability are on the <b>Every cell</b> tab.</p>")
+             "The tier is read on A against 1.00 on the tier scale (NORMAL 0.95-1.05). Each cell's 95 % interval and identifiability are on the <b>Every cell</b> tab.</p>")
     # ---- 2. foreign cells (Stage 2d)
     H.append("<h3>2. Foreign cells - is there anything in this blood that is not blood?</h3>")
     st=str(fd.get("status") or "")
@@ -295,12 +270,11 @@ def tab_reading(o, R, sid):
         H.append(f"<p class='pend'>{_e(st or 'Stage 2d not run on this bundle.')}</p>")
     H.append(_trace_one_liner(o))
     # ---- 3. the instrument
-    z=o.get("lab_zero"); imm=cls.get("immune") or {}
+    imm=cls.get("immune") or {}
     H.append("<h3>3. The instrument</h3>")
     H.append(f"<p><b>Laboratory {_e(lab)}</b> &middot; pipeline map <code>{_e(o.get('scale','-'))}</code> (this laboratory's processing route onto the atlas scale, fitted on paired reads) &middot; "
              f"foreign-cell detection {det_state}"+(f" (panel n = {fd.get('panel_n')})" if fd.get("panel_n") else "")+". "
-             "The commissioning panel calibrates the instrument - what this scanner and this processing do to a known input - and never the definition of healthy. "
-             f"Laboratory zero on record: <code>{z!s}</code>; it is <b>not applied</b> to any A on this page (PROC-TARE-01 decides whether the array's own SNP-probe tare replaces it).</p>")
+             "The commissioning panel calibrates the instrument - what this scanner and this processing do to a known input - and never the definition of healthy.</p>")
     H.append(f"<p class='m'>Internal gate: the pooled class gauge runs only to ask whether this specimen is blood-like (composition verified: <b>{_e(imm.get('composition_verified'))}</b>"
              +(f", foreign fraction {imm.get('foreign_fraction')}" if imm.get("foreign_fraction") is not None else "")+"). "
              "A pooled class A is not a reading and is not printed; the cells are.</p>")
@@ -317,17 +291,16 @@ def _trace_block(o):
                 "<p class='m'>Not run for this specimen: %s</p>" % (m.get("reason") or "no panel")]
     H = ["<h3>Trace-class detection - is there any epithelial-like material here at all?</h3>",
          "<p>The composition solve above cannot answer this. It is a non-negative fit, and a non-negativity "
-         "constraint pins a component that small at exactly zero - measured on 48 mixtures of real healthy "
-         "blood, a spike below 5 % returned 0.00 on two of three donors. This panel asks the question the "
+         "constraint pins a component that small at exactly zero (PROC-TRACE-01: a spike below 5 % returned 0.00 "
+         "on two of three constructed mixtures). This panel asks the question the "
          "other way round: fit the specimen <i>without</i> the class, then test whether the class's own "
          "profile explains what is left over, weighting each address by how well the atlas pinned it down. "
-         "A healthy donor sits at t &asymp; -16; the threshold is the 95th percentile of 38 healthy donors "
-         "who played no part in choosing the method.</p>"]
+         "The threshold per class is a detector constant from the trace panel file, set before the method was chosen (PROC-TRACE-01).</p>"]
     if not m.get("calibrated_for_this_substrate", True):
         H.append("<p class='warn'><b>Uncalibrated on this substrate.</b> The thresholds are a whole-blood "
                  "measurement (declared here: %s). The statistic is printed for reference only and no "
                  "call is made here.</p>" % (m.get("substrate_declared") or "not declared"))
-    H.append("<table><tr><th>class</th><th>t</th><th>threshold</th><th>healthy median</th>"
+    H.append("<table><tr><th>class</th><th>t</th><th>threshold</th><th>panel median</th>"
              "<th>what this says</th></tr>")
     for c in ("secretory", "cycling"):
         r = td.get(c) or {}
@@ -359,7 +332,7 @@ def _detection_block(o):
     H.append("<p class='m'>A foreign cell is one that does not belong to whole blood. For each, the chain fits the specimen's own blood background, "
              "takes the residual, and asks how much of that cell's atlas profile is in it, weighting every locus by how quiet it is in healthy blood "
              "at commissioned laboratories. The reading is f&#770; (an estimated fraction), with the laboratory's own line above which the chain says "
-             "<b>detected</b>. The line is drawn from that laboratory's healthy panel and from nothing else; a laboratory without a panel gets no line.</p>")
+             "<b>detected</b>. The line is drawn from that laboratory's commissioning panel and from nothing else; a laboratory without a panel gets no line.</p>")
     if not st.startswith("OK"):
         H.append(f"<p class='pend'>{_e(st)}</p>")
         if fd.get("commissioned_laboratories"): H.append(f"<p class='m'>Laboratories with a commissioned detection panel: {_e(', '.join(fd['commissioned_laboratories']))}.</p>")
@@ -392,7 +365,7 @@ def tab_cells(o, R, percell_ref=None):
        "<p><b>One surface, one formula, one gauge.</b> A = H(mean beta over the cell's IDENTITY loci) / H_min of its architecture class "
        "(RULING A3; LESSON-SURFACE-01). H_min is the minimum entropy a cell of that class must hold to keep its identity; A is where the cell sits on that bar - "
        "its informational fidelity against its own minimum requirement. The gauge reads 1.00 when the cell holds exactly what its identity costs; the tier scale "
-       "(NORMAL 0.95-1.05) is the tolerance about that point. <b>No healthy person, sick person or cohort is part of this number.</b> Where people of a given age "
+       "(NORMAL 0.95-1.05) is the tolerance about that point. Nothing about any person or group is part of this number. Where people of a given age "
        "sit on the gauge is a separate observation about people, reported as such and never applied to a cell.</p>",
        "<details open><summary><b>What each column is, and why an instrument prints it</b></summary><table class='t'><tr><th>column</th><th>what it is</th><th>why it is on the page</th></tr>"
        "<tr><td>cell type</td><td>one of the 115 atlas cell types</td><td>the object being measured - a gauge reads one object at a time</td></tr>"
@@ -400,7 +373,7 @@ def tab_cells(o, R, percell_ref=None):
        "<tr><td>fraction</td><td>the deconvolved share of the sample's DNA that is this cell</td><td>how much of the object is on the scale - so the reading is known to be OF this cell. Never a correction to A</td></tr>"
        "<tr><td>A</td><td>H(mean beta over the cell's identity loci) / H_min of its class</td><td>the measurement. Landauer floor in the denominator, measured entropy in the numerator; absolute and dimensionless</td></tr>"
        "<tr><td>95 % interval on the reading</td><td>resample THIS array's identity loci for the cell</td><td>repeatability of this reading - how far A moves if the cell's loci had been sampled differently. From the specimen, not from anyone else</td></tr>"
-       "<tr><td>atlas profile on these loci [MCMC 95 %]</td><td>where the atlas's own reference cell reads on the same loci, with the G-002 posterior interval</td><td>the calibration standard's own position. It should read 1.00 and sits a little under by construction (identity loci are chosen within &plusmn;0.05 of H_min_beta); the interval is how well the atlas knows that cell. Informational - the tier is NOT read against it</td></tr>"
+       ""
        "<tr><td>tier</td><td>A against 1.00 on the tier scale (tier_breakpoints.json)</td><td>the tolerance about the fixed point, one file, one function</td></tr>"
        "<tr><td>identity loci on this platform</td><td>how many of the cell's identity addresses exist on this array type (450K or EPIC), out of the atlas's list for the cell</td><td>coverage of the instrument, NOT a finding: every address reads something whether or not the cell is in the sample. Presence is the separate question answered by the fraction</td></tr>"
        "<tr><td>identifiability</td><td>exclusive loci against the nearest rival cell, and whether the cell is solved alone, as a family, or not at all on this platform</td><td>what the detector can and cannot distinguish. Says whether 'this is a CD4 T-cell' is a defensible statement or a shared reading</td></tr>"
@@ -426,24 +399,13 @@ def tab_cells(o, R, percell_ref=None):
         rows=sorted(by.get(c,[]), key=lambda kv:-(kv[1].get("A") or 0))
         hm=R["ident"].get(c,{}).get("H_min")
         if not rows: continue
-        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>present</th><th>fraction</th><th>A</th>""<th>95 % interval on the reading</th><th>atlas profile on these loci [MCMC 95 %]</th><th>tier</th><th>identity loci on this platform</th><th>identifiability</th></tr>")
+        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>present</th><th>fraction</th><th>A</th>""<th>95 % interval on the reading</th><th>tier</th><th>identity loci on this platform</th><th>identifiability</th></tr>")
         for cell,r in rows:
             if cell in _unres or cell in _twins: continue   # listed separately below, never as fraction 0
-            A=r.get("A"); fr=r.get("fraction") or 0; e=((percell_ref or {}).get("entries") or {}).get(cell)
-            ref=None; src=""
-            if e:
-                lr=(e.get("labs") or {}).get(lab)
-                if lr: ref={"p10":lr["A_p10"],"p50":lr.get("A_p50"),"p90":lr["A_p90"],"n":lr["n_panel"]}; src="this lab"
-                elif e.get("pooled"): ref={"p10":e["pooled"].get("A_p10"),"p50":e["pooled"].get("A_p50"),"p90":e["pooled"].get("A_p90"),"n":e["pooled"]["n"]}; src="4 labs pooled"
-            if ref and ref.get("p10") is not None and A is not None:
-                rng=f"{ref['p10']:.3f}-{ref['p90']:.3f} <span class='m'>(n={ref['n']}, {src})</span>"
-                dirn=("<b>above</b>" if A>ref["p90"] else "<b>below</b>" if A<ref["p10"] else "within")
-            else: rng="<span class='pend'>no reference for this entry</span>"; dirn="-"
+            A=r.get("A"); fr=r.get("fraction") or 0
             ci=r.get("reading_ci") or {}
             cis=("%.3f - %.3f"%(ci["ci_lo"],ci["ci_hi"])) if ci.get("ci_lo") is not None and str(ci.get("surface","")).startswith("identity") else "<span class='m'>-</span>"
             nf=("%d of %d"%(ci["n_loci_found"],ci["n_loci_panel"])) if ci.get("n_loci_found") else ("%d of %d"%(r.get("n_markers_matched",0),r.get("n_markers_expected",0)) if r.get("n_markers_expected") else "-")
-            ref=r.get("reference") or {}
-            refs=(f"{ref['A']:.4f} <span class='m'>[{ref['ci95_lo']:.4f}-{ref['ci95_hi']:.4f}]</span>" if ref.get("A") is not None else "<span class='m'>no MCMC reference</span>")
             present=bool(r.get("present"))
             if present and A is not None:
                 gt,_=T.tier_of(A, True, hm); tier=f"<span class='tier' style='background:{TIER_COL.get(gt,'#555')}'>{_e(gt)}</span>"
@@ -454,7 +416,7 @@ def tab_cells(o, R, percell_ref=None):
             res=(f"family: {_e(str(_shared[cell]).replace('family:',''))}" if cell in _shared else (("not separable from "+_e(", ".join(m for m in mem if m!=cell)[:60])) if len(mem)>1 else "solved alone"))
             ident=(f"{exs} &middot; {res}" if exs else (res if in_block else "not in this platform's solve block (defined on too few of its loci) - fraction is not solved for"))
             Ashow=(f"{A:.4f}" if present and A is not None else "<span class='m'>-</span>")
-            H.append(f"<tr class='{'placed' if present else ''}'><td>{_e(cell)}</td><td>{'yes' if present else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{Ashow}</td>"f"<td class='n'>{cis if present else '-'}</td><td class='n'>{refs}</td><td>{tier}</td><td class='n'>{nf}</td><td class='m'>{ident}</td></tr>")
+            H.append(f"<tr class='{'placed' if present else ''}'><td>{_e(cell)}</td><td>{'yes' if present else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{Ashow}</td>"f"<td class='n'>{cis if present else '-'}</td><td>{tier}</td><td class='n'>{nf}</td><td class='m'>{ident}</td></tr>")
         H.append("</table>")
     if _unres:
         H.append("<details><summary class='m'>"+f"{len(_unres)} atlas entries not resolvable on this platform (defined on under 1 % of its loci) - kept in the atlas as reference, not solved for"+"</summary><p class='m'>"+', '.join(sorted(_unres))+"</p></details>")
@@ -493,8 +455,8 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "<td>the <b>presence floors</b>. <b>Below its floor a class is not there</b> - the specimen holds no detectable amount of it - so the chain "
  "masks it black and reports nothing about it. <i>The analogy is close but not exact, and the difference is worth stating:</i> the galaxy hides a "
  "sky that really is behind it, whereas an absent class has nothing behind the mask. Both are refusals to report where the instrument cannot see, "
- "for different reasons. PROC-CEIL-01 measured what happens without the refusal: on healthy whole blood the absent classes read at or past their "
- "ceiling, because their identity addresses carry other cells' DNA and average near a coin flip - so an unmasked healthy sample would report two "
+ "for different reasons. PROC-CEIL-01 measured what happens without the refusal: on whole blood the absent classes read high by artefact, "
+ "because their identity addresses carry other cells' DNA and average near a coin flip - so an unmasked healthy sample would report two "
  "classes past breach</td></tr>"
  "<tr><td>Component separation - dust, synchrotron, free-free</td><td>you cannot read the sky until you separate what lies in "
  "front of it</td><td><b>Stage 2, the composition step.</b> Not a loose parallel: the second solver in this chain <i>is</i> NILC, "
@@ -531,8 +493,7 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "<h3>What else the MCMC gives us, and what we are not yet using</h3>"
  "<p>The atlas does not store one number per cell type per address. It stores the <b>posterior mean, the posterior SD and the credible-interval "
  "bounds</b> - 122 standard-deviation columns with interval columns beside them - because MCMC produces a distribution, and keeping only its "
- "centre throws away most of what was computed. Three uses are live: the floors were fitted this way and frozen; each cell's atlas profile carries the atlas's 95 % interval on it, "
- "drawn from these posteriors; and a second, posterior-weighted solver cross-checks the composition.</p>"
+ "centre throws away most of what was computed. Two uses are live: the floors were fitted this way and frozen; and a second, posterior-weighted solver cross-checks the composition.</p>"
  "<p><b>What the atlas does not carry, measured.</b> A cross-class covariance at an address would let the composition step say <i>these two are individually uncertain but their sum is well determined</i>. PROC-COV-01 (2026-09-26) checked the MCMC archives: only marginal summaries were written, each locus's posterior is independent by model construction, and the classes were run as separate jobs - so no cross-class covariance was ever estimated and none can be recovered. The residual covariance on real specimens was measured instead and found to be a reproducible reference misfit, mostly removable; that is recorded in PROC_COV_01_OUTCOME.md.</p>"
 
  "<h3>Brilliance - the first tool taken from cosmology, and where it went</h3>"
@@ -549,8 +510,8 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "foregrounds cancel. That is not a metaphor, it is an experimental design a clinic can execute, and it is the strongest reason the analogy is a "
  "method rather than a decoration.</i></p>"
  "<p><b>Is it sensitive enough to see a change in one island? Measured, not asserted.</b> On the Uppsala panel the between-person spread per "
- "address is 0.029 in beta units (IQR 0.018-0.046). The quietest addresses - 5th percentile, 0.0089 - bound the purely technical part from above, "
- "since nothing can be quieter than the noise. A paired difference of two draws from one person removes that person's baseline, the laboratory zero "
+ "address is 0.029 in beta units (IQR 0.018-0.046). The quietest 5 % of addresses - spread 0.0089 - bound the purely technical part from above, "
+ "since nothing can be quieter than the noise. A paired difference of two draws from one person removes that person's baseline "
  "and the genomic correlation, leaving technical noise times root two:</p>"
  "<table class='t'><tr><th>addresses averaged</th><th>what that is</th><th>detectable change in methylation (2 sigma, paired)</th></tr>"
  "<tr><td class='n'>1</td><td>one CpG</td><td class='n'>2.5 percentage points</td></tr>"
@@ -562,14 +523,14 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "should resolve changes an order of magnitude smaller than effects already in the literature</b>, and the limit is set by array noise rather than "
  "by anything in this chain. Two caveats travel with that. The technical term is an <i>upper bound inferred from cross-sectional data</i>, because "
  "<b>no repeat draws of the same person exist in anything held here</b> - the EPIC-Italy foundation arrays carry no subject identifier, so no second draw can be linked - and a real serial test must re-measure it from actual replicates. And a difference map cancels the laboratory only if both draws "
- "went through the same laboratory and pipeline; otherwise the pipeline map and laboratory zero must be applied to each before differencing. "
+ "went through the same laboratory and pipeline; otherwise the pipeline map must be applied to each before differencing. "
  "A serial mode - the same patient read twice, with the difference printed - is a named next step of the chain.</p>"
 
  "<h3>Is the sphere necessary? A straight answer</h3>"
  "<p><b>For the measurement, no. For the toolkit, yes.</b> The residual is a one-dimensional sequence along the genome; the sphere is a "
  "space-filling reindexing of it. What makes that legitimate rather than ornamental is that the reindexing <b>preserves locality</b> - measurable, "
  "not assumed: every one of the 196,608 pixels holds CpGs that are genomically contiguous and on a single chromosome, with a median span of "
- "<b>511 base pairs</b> (90th percentile 20 kb); a quarter of all neighbouring-pixel pairs sit within 10 CpGs of each other in genomic order and "
+ "<b>511 base pairs</b> (nine in ten under 20 kb); a quarter of all neighbouring-pixel pairs sit within 10 CpGs of each other in genomic order and "
  "fewer than 1 per cent are more than 10,000 apart, against about 161,000 for a random assignment. Angular distance therefore tracks genomic "
  "distance at the scales that matter, which is what makes needlets, a harmonic decomposition and a power spectrum mean anything here - and it is "
  "why the correlation noted below is genomic rather than an artefact of the projection.</p>"
@@ -605,7 +566,7 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "pixelisation is in the toolbox already; this is a different use of it.</p>")
 
 def tab_sky(o, R, sid, workdir):
-    s=o["patient_sky"]; H=["<div class='callout'><b>What this sky is compared to.</b> Not to a healthy picture - there is no reference image anywhere in this comparison. Every pixel is <span class='m'>z = (&beta; &minus; &Sigma;<sub>c</sub> f<sub>c</sub>&mu;<sub>c</sub> &minus; m<sub>lab</sub>) / s<sub>lab</sub></span>: this specimen's own methylation at that address, minus what <b>its own composition</b> predicts for it (the atlas mean of each class, weighted by the fractions Stage 2 measured in <i>this</i> specimen), minus this laboratory's measured zero, divided by this laboratory's measured per-address spread across its own healthy donors. So z is the departure from this specimen's own composition expectation, in units of the laboratory's per-address spread. The number to read is the fraction of addresses beyond |z| = 2; the four commissioned laboratories' panels read 2.6-3.2 %, the instrument's quiet level. The per-address zero m_lab is measured on the laboratory's panel; a constructed specimen composed from the atlas itself reads far from quiet against it, so replacing that zero and spread with the atlas's own per-address posterior is a queued chain change (ENHANCEMENTS 0g).  Red is above the composition expectation, blue below, black not assessable. Two plates are comparable only within one laboratory, because m<sub>lab</sub> and s<sub>lab</sub> are that laboratory's own.</div>", SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
+    s=o["patient_sky"]; H=["<div class='callout'><b>What this sky is compared to.</b> Not to a healthy picture - there is no reference image anywhere in this comparison. Every pixel is <span class='m'>z = (&beta; &minus; &Sigma;<sub>c</sub> f<sub>c</sub>&mu;<sub>c</sub> &minus; m<sub>lab</sub>) / s<sub>lab</sub></span>: this specimen's own methylation at that address, minus what <b>its own composition</b> predicts for it (the atlas mean of each class, weighted by the fractions Stage 2 measured in <i>this</i> specimen), minus this laboratory's measured zero, divided by this laboratory's measured per-address spread across its panel arrays. So z is the departure from this specimen's own composition expectation, in units of the laboratory's per-address spread. The number to read is the fraction of addresses beyond |z| = 2; the four commissioned laboratories' panels read 2.6-3.2 %, the instrument's quiet level. The per-address zero m_lab is measured on the laboratory's panel; a constructed specimen composed from the atlas itself reads far from quiet against it, so replacing that zero and spread with the atlas's own per-address posterior is a queued chain change (ENHANCEMENTS 0g).  Red is above the composition expectation, blue below, black not assessable. Two plates are comparable only within one laboratory, because m<sub>lab</sub> and s<sub>lab</sub> are that laboratory's own.</div>", SKY_WHY, "<h3>This sample's sky - Stage 4.6</h3>"]
     # 2026-09-25: say it at the top, not in the refusal list at the back.
     if not (s.get("available") and s.get("_sky") is not None):
         H.insert(0, "<p class='warn'><b>No sky was rendered for this specimen.</b> " +
@@ -613,12 +574,12 @@ def tab_sky(o, R, sid, workdir):
                                   "there is no zero to take residuals against")) +
                  ". Every figure on this page is a reference illustration, identical in every report - none "
                  "of them is this specimen.</p>")
-    H.append("<p>Every CpG the chain reads is placed on a sphere in genomic order (HEALPix, NSIDE 128 - the projection Planck used for the microwave background). At each address the chain computes what this sample's <i>own composition</i> predicts (the Stage 2 fractions mixed over the atlas class means), subtracts the laboratory's per-address zero, and divides by the laboratory's healthy spread at that address - both measured on the laboratory's healthy panel. "
+    H.append("<p>Every CpG the chain reads is placed on a sphere in genomic order (HEALPix, NSIDE 128 - the projection Planck used for the microwave background). At each address the chain computes what this sample's <i>own composition</i> predicts (the Stage 2 fractions mixed over the atlas class means), subtracts the laboratory's per-address zero, and divides by the laboratory's healthy spread at that address - both measured on the laboratory's commissioning panel. "
              "The plate shows that residual z. A healthy sky is <b>quiet</b>: 2.6-3.2 % of addresses beyond |z| = 2 on the four commissioned laboratories (the Gaussian expectation is 5 %; the scale is ~1.1x conservative and that constant is printed on every plate). A class panel renders only when Stage 2 places the class above its measured presence floor; masked panels say so.</p>")
     if s.get("available") and s.get("_sky") is not None:
         try:
             sys.path.insert(0,ENGINE); import stage_4_6_patient_cmb as S
-            png=os.path.join(workdir,f"sky_{sid}.png"); S.render_plate(s["_sky"],png,f"{sid} - residual z on the laboratory's own zero and scale ({s.get('lab')}, panel n={s.get('scale_panel_n')})")
+            png=os.path.join(workdir,f"sky_{sid}.png"); S.render_plate(s["_sky"],png,f"{sid} - residual z on the laboratory's per-address scale ({s.get('lab')}, panel n={s.get('scale_panel_n')})")
             s["_plate_drawn"] = True
             H.append("<figure><img class='plate' src='data:image/png;base64," +
                      base64.b64encode(open(png, 'rb').read()).decode() +
@@ -639,7 +600,7 @@ def tab_sky(o, R, sid, workdir):
         for c in CLASSES:
             r=s["classes"].get(c,{}); H.append(f"<tr><td>{CLASS_LABEL[c]}</td><td class='n'>{100*r.get('fraction',0):.1f} %</td><td class='n'>{100*r.get('presence_floor',0):.0f} %</td><td>{_e(r.get('status'))}</td><td class='n'>{r.get('n','') if r.get('assessable') else ''}</td><td class='n'>{('%.1f'%(100*r['frac_abs_z_gt2'])) if r.get('assessable') else ''}</td><td class='n'>{('%+.3f'%r['median_z']) if r.get('assessable') else ''}</td></tr>")
         H.append(f"</table><p class='m'>{_e(s.get('calibration_note',''))}</p>")
-    else: H.append(f"<p class='pend'>SKY NOT AVAILABLE - {_e(s.get('reason') or 'this laboratory has no commissioned residual scale (40 healthy arrays through Stage 1 are required; see Healthy reference)')}</p>")
+    else: H.append(f"<p class='pend'>SKY NOT AVAILABLE - {_e(s.get('reason') or 'this laboratory has no commissioned residual scale (40 whole-blood arrays through Stage 1 are required; see Instrument)')}</p>")
     # Archival reference plates removed at the author's direction 2026-09-22: this tab carries only the sky THIS run
     # generated, plus the one standing comparison figure.
     cmp_png=R["files"].get("healthy_sky_vs_cmb.png")
@@ -668,78 +629,44 @@ def _link(R, path_or_name, label=None):
 def tab_reference(R, percell_status):
     """THE INSTRUMENT (author, 2026-09-26: measuring, not comparing). Three things a measuring instrument publishes:
     its physical constants, its calibration, and the arrays the calibration was done on. No band, no zero applied to
-    any A, no age term - those were the comparison layer and are not on this page."""
-    m=R["band"]["_meta"]; coh=R["cohorts"]; mp=R["maps"]["maps"]["stage1_noob_450K"]
-    pref=None
-    try:
-        pref=json.load(open(str(_find("percell_reference_mcmc_v1.json"))))
-    except Exception:
-        pass
-    H=["<h2>The instrument - its constants, its calibration, and the arrays it was calibrated on</h2>",
+    any A - nothing on this page is a comparison layer."""
+    mp=R["maps"]["maps"]["stage1_noob_450K"]
+    H=[GH, "<h2>The instrument - its constants and its calibration</h2>",
        "<p>A reading on this report is A = H(mean beta over a cell's identity loci) / H_min of its architecture class. Healthy is A = 1.00 by the physics. "
-       "This page lists what that measurement depends on, in three layers that are never mixed: <b>physical constants</b> (frozen, from reference cell methylomes - no patient, no cohort), "
-       "<b>instrument calibration</b> (how a laboratory's array is brought onto the atlas scale, where a cell counts as present, how quiet the foreign-cell detector is), and "
-       "<b>the healthy arrays</b> those calibrations were measured on. Nothing on this page adds to or subtracts from any cell's A. No number here comes from a disease sample.</p>"]
-    # ---- 1. physical constants
+       "This page lists what that measurement depends on, in two layers that are never mixed: physical constants (frozen, from reference cell methylomes) and instrument calibration "
+       "(how a laboratory's array is brought onto the atlas scale, where a cell counts as present, how quiet the foreign-cell detector is). Nothing on this page adds to or subtracts from any cell's A.</p>"]
+    # ---- 1. constants
     SUBL={"methyl":"methylation","nucl":"nucleosome occupancy","fuzz":"nucleosome fuzziness","wps":"WPS","frag":"DELFI fragment size"}
     subs=list(R.get("sub_order") or ["methyl"]); hm_tab=R.get("hmin_table") or {}
-    H.append("<h3>1. Physical constants - the floors and the per-cell references</h3>"
-             "<p>H_min is the minimum entropy a cell of that class must hold to keep its identity; A = H / H_min, and H cannot exceed 1 bit (a coin flip at every locus), so "
-             "<b>1/H_min is the ceiling</b> - where the gauge saturates, total loss of the identity pattern. One floor per class per substrate. Only the methylation column is read on this "
-             "report; the other four substrates have frozen floors and no pipeline map, so they are RESERVED (see Coverage).</p>"
-             "<table class='t'><tr><th>architecture class</th><th>H_min (methylation)</th><th>ceiling 1/H_min</th>"+"".join(f"<th class='m'>H_min {SUBL.get(k,k)}<br>RESERVED</th>" for k in subs[1:])+"</tr>")
-    # the floors the identity gauge divides by, read from the identity-loci file (methylation substrate) - not the
-    # five-substrate table, which rendered as a tuple on 2026-09-26
+    H.append("<h3>1. Physical constants - the floors</h3>"
+             "<p>H_min is the minimum entropy a cell of that class must hold to keep its identity; A = H / H_min. One floor per class per substrate. Only the methylation column is read on this report; the other four substrates have frozen floors and no pipeline map, so they are RESERVED (see Coverage).</p>"
+             "<table class='t'><tr><th>architecture class</th><th>H_min (methylation)</th>"+"".join(f"<th class='m'>H_min {SUBL.get(x,x)} <span class='pend'>RESERVED</span></th>" for x in subs if x!="methyl")+"</tr>")
     for cl,ent in sorted((R.get("ident") or {}).items()):
         if not isinstance(ent,dict) or ent.get("H_min") is None: continue
-        hm=float(ent["H_min"]); row=hm_tab.get(cl) or ()
-        extra="".join(f"<td class='n m'>{float(row[i]):.4f}</td>" if i<len(row) else "<td class='m'>-</td>" for i in range(1,len(subs)))
-        H.append(f"<tr><td>{_e(cl)}</td><td class='n'>{hm:.4f}</td><td class='n'>{1/hm:.4f}</td>{extra}</tr>")
-    H.append("</table><p class='m'>Methylation floors: eight class floors fitted by MCMC on 37 published reference cell methylomes (G-002, April 2026; 32 walkers, 500 burn-in, 5,000 production steps, five chains, R-hat below 1.001) and frozen. "
-             "Re-run 2026-09-22: every floor inside its own posterior SD (largest difference 0.000245 against SDs of 0.0069-0.0088). Samplers, the 37-cell table and a fifteen-second re-run script: "
-             "<a href='https://doi.org/10.5281/zenodo.22905819'>10.5281/zenodo.22905819</a>. A cell's A cannot exceed 1/H_min of its class; the scorer asserts it.</p>")
-    if pref and pref.get("entries"):
-        E=pref["entries"]; ok=[v for v in E.values() if v.get("status")=="OK" and v.get("ref_A") is not None]
-        if ok:
-            import statistics as _st
-            ra=[v["ref_A"] for v in ok]; hw=[(v["ci95_hi"]-v["ci95_lo"])/2 for v in ok if v.get("ci95_hi") is not None]
-            H.append(f"<p><b>Per-cell references.</b> Each of the {len(ok)} scoreable cell types has its own reference: where its atlas profile reads on its own identity loci, with the 95 % interval from the G-002 per-locus posterior. "
-                     f"Across cells the reference sits at A {min(ra):.4f}-{max(ra):.4f} (median {_st.median(ra):.4f}) - a little under 1.00 by construction, because identity loci are chosen within &plusmn;0.05 of H_min_beta - "
-                     f"with a median half-width of &plusmn;{_st.median(hw):.4f}. This is the atlas's own uncertainty about a cell's fixed point, printed beside every reading on the Cells tab. File: {_link(R,'percell_reference_mcmc_v1.json')}. "
-                     f"Identity loci per cell: {_link(R,'iamatlas_percell_identity_loci_v1_0.json')}; per class: {_link(R,'iamatlas_gauge_identity_loci_v1_0.json')}.</p>")
+        hm=float(ent["H_min"]); row=hm_tab.get(cl) or []
+        extra="".join(f"<td class='n m'>{float(v):.4f}</td>" for x,v in zip(subs,row) if x!="methyl") if row else ""
+        H.append(f"<tr><td>{_e(cl)}</td><td class='n'>{hm:.4f}</td>{extra}</tr>")
+    H.append("</table><p class='m'>Methylation floors: eight class floors fitted by MCMC on 37 published reference cell methylomes (G-002, April 2026) and frozen. Samplers, the 37-cell table and a re-run script: <a href='https://doi.org/10.5281/zenodo.22905819'>10.5281/zenodo.22905819</a>.</p>")
     # ---- 2. calibration
     fl={k:v for k,v in (R.get("floors") or {}).items() if not str(k).startswith("_")}
     H.append("<h3>2. Instrument calibration - what a laboratory's array needs before a cell can be read</h3>"
-             "<table class='t'><tr><th>calibration</th><th>what it does</th><th>measured on</th><th>file</th></tr>"
-             f"<tr><td>Pipeline map</td><td>beta_atlas = (beta - {mp['intercept']}) / {mp['slope']}: puts a laboratory's Stage 1 betas on the atlas scale. Without it every cell reads SUPPRESSED on raw betas (LESSON-SURFACE-01 RC2).</td><td>{_e(mp['fit_cohort'])}, {mp['n_loci']} identity loci; transfer: {_e(mp['transfer_test'])}</td><td>{_link(R,'beta_scale_maps_v1.json')}</td></tr>"
-             f"<tr><td>Presence floors</td><td>a class or cell below its floor is not scored - an absent cell's loci carry the specimen's other cells and read by artefact (PROC-CEIL-01). Floors: {_e(', '.join(f'{k} {float(v):.3f}' for k,v in sorted(((fl.get('floors') or fl) if isinstance(fl,dict) else {}).items()) if not str(k).startswith('_')))}</td><td>{_e(((R.get('floors') or {}).get('_meta') or {}).get('rule','160 healthy panel arrays'))} ({_e(((R.get('floors') or {}).get('_meta') or {}).get('proc',''))})</td><td>{_link(R,'presence_floors_v1.json')}</td></tr>"
-             f"<tr><td>Foreign-cell detector panel</td><td>per-laboratory noise floor and detection line for each foreign cell (Stage 2d). A laboratory without a commissioned panel reports 'detection not commissioned', never a borrowed line.</td><td>12 arrays per laboratory on the four commissioning laboratories (the 48-array null of PROC-MF-02/03); a new laboratory is commissioned on 36 or more of its own (kit/commission_detection_lab.py refuses fewer)</td><td>{_link(R,'detection_panel_v1.json')}</td></tr>"
-             f"<tr><td>Sky per-address scale</td><td>the spread of the composition residual at each address, so the Sky tab can draw z; the sky is a picture, not a reading</td><td>the laboratory's panel</td><td>{_link(R,'stage_4_6_patient_cmb.py')}</td></tr>"
-             f"<tr><td>Tier scale</td><td>NORMAL [0.95, 1.05) - symmetric about the fixed point A = 1.00 (v1.5, 2026-09-27; v1.4's 1.04 edge was a cohort's central-95 % bound and is retired); ELEVATED to 1.07 (Warburg line); BREACH at 1.10. One file, one function.</td><td>the 1,379 healthy donors read 0.954-1.041 on the pooled gauge - an observation about people, not the definition</td><td>{_link(R,'tier_breakpoints.json')}</td></tr>"
-             "</table>"
-             "<p class='m'>A laboratory zero is on record for the four laboratories below and is <b>not applied to any cell's A</b> on this report. Whether the array can be tared on its own SNP probes instead of on a panel is PROC-TARE-01, running. The class band and the age curve are read by the internal blood-like gate only and place nothing.</p>")
-    # ---- 3. the arrays
-    H.append("<h3>3. The healthy arrays the calibration was measured on</h3><table class='t'><tr><th>laboratory</th><th>GEO accession</th><th>country</th><th>healthy-arm rule</th><th>n arrays</th></tr>")
-    LAB={"GSE87571_Uppsala":("Uppsala","Sweden","all arrays: disease state = normal"),"GSE42861_Karolinska":("Karolinska","Sweden","disease state = Normal (controls of an RA study)"),"GSE111629_UCLA":("UCLA","USA","disease state = PD-free control"),"GSE125105_Munich":("Munich","Germany","diagnosis = control")}
-    for k,v in coh.items():
-        lab,cty,rule=LAB.get(k,(k,"","")); acc=k.split("_")[0]
-        H.append(f"<tr><td>{lab}</td><td><a href='https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={acc}' target='_blank'>{acc}</a></td><td>{cty}</td><td>{rule}</td><td class='n'>{v['n']}</td></tr>")
-    H.append(f"</table><p class='m'>Raw IDAT pairs from GEO through Stage 1 (methylprep <i>noob</i>) to beta - never the authors' processed matrices, whose scales differ by more than the NORMAL tolerance (LESSON-SCALE-01). Stage 1 code: {_link(R,'stage_1_idat_calibration.py')}. "
-             "Calibrated arrays: 80 per laboratory in reference_data/ beside the constants fitted on them; the full 732-array GSE87571 calibration (2026-09-26) is the detector's commissioning panel.</p>")
-    H.append("<h3>4. What is NOT on this page</h3><ul><li>No healthy band, no population range: healthy is A = 1.00 by the physics and the tier scale is the tolerance.</li>"
-             "<li>No zero or age term applied to a cell's A.</li><li>No disease sample, no case arm of any cohort.</li>"
-             "<li>No author-processed beta and no typed literature values (PROC-RECORD-03).</li></ul>")
-    H.append(deepdive(R,"the instrument: its constants, its calibration and the arrays"))
-    return "".join(H)   # not a measurement tab: quotes GEO characteristic fields verbatim ("disease state: normal")
+             "<p>Each file below is a constant of the instrument. What it was fitted on is in the file's own <code>_meta</code>, not on this page.</p>"
+             "<table class='t'><tr><th>calibration</th><th>what it does</th><th>file</th></tr>"
+             f"<tr><td>Pipeline map</td><td>beta_atlas = (beta - {mp['intercept']}) / {mp['slope']}: puts a laboratory's Stage 1 betas on the atlas scale - a scale transfer between two measuring pipelines, applied to every address alike.</td><td>{_link(R,'beta_scale_maps_v1.json')}</td></tr>"
+             f"<tr><td>Presence floors</td><td>a class or cell below its floor is not scored - an absent cell's loci carry the specimen's other cells and read by artefact (PROC-CEIL-01). Floors: {_e(', '.join(f'{k} {float(v):.3f}' for k,v in sorted(fl.items()) if isinstance(v,(int,float))))}</td><td>{_link(R,'presence_floors_v1.json')}</td></tr>"
+             f"<tr><td>Foreign-cell detector panel</td><td>per-laboratory noise floor and detection line for each foreign cell (Stage 2d). A laboratory without a commissioned panel reports 'detection not commissioned', never a borrowed line.</td><td>{_link(R,'detection_panel_v1.json')}</td></tr>"
+             f"<tr><td>Sky per-address scale</td><td>the spread of the composition residual at each address, so the Sky tab can draw z; the sky is a picture, not a reading.</td><td>{_link(R,'stage_4_6_patient_cmb.py')}</td></tr>"
+             f"<tr><td>Tier scale</td><td>NORMAL [0.95, 1.05) about the fixed point A = 1.00; ELEVATED to 1.07 (Warburg line); BREACH at 1.10. One file, one function.</td><td>{_link(R,'tier_breakpoints.json')}</td></tr>"
+             "</table>")
+    H.append(deepdive(R,"the instrument: its constants and its calibration"))
+    return "".join(H)
 
 CMB_TWINS=[("MCMC atlas calibration","Cosmological parameter estimation (Planck likelihood chains)","Posterior mean and SD per CpG per class; class floors H_min with R-hat < 1.001 on 37 reference cells","G-002 / G-003b, IAMAtlasREBUILD"),
  ("Pipeline map","Instrument calibration transfer (cross-calibrating detectors)","affine beta map, fit on 32,688 identity loci; transfers to a second laboratory at median A 1.0097","beta_scale_maps_v1.json"),
- ("Laboratory zero","Monopole / dipole removal","one constant per laboratory from a healthy panel; on record, applied to the internal blood-like gate and the sky only - never to a cell's A (PROC-TARE-01 decides its fate)","lab_zero.py, identity_band_v3.json"),
- ("Age curve","Foreground subtraction","decade offsets measured on four laboratories; read by the internal gate only - no age term is applied to a cell's A","reference_age_curve_v1.json"),
  ("Composition solver (legacy)","Constrained component fitting","conservative NNLS against the atlas: a cell is placed only when the evidence forces it, so the composition the report stands on is not inflated","legacy_iam_deconvolver.py"),
  ("Composition cross-check (NILC) - runs as the cross-check column on Safeguards","Needlet internal linear combination: the Planck component-separation method","variance-weighted and deliberately sensitive. Switched off in July 2026 because it disagreed with legacy on every blood sample; PROC-NILC-01 found the disagreement WAS the finding - NILC was reporting that the atlas cannot split the blood classes, which PROC-SEP-03 then measured (7/7 blood SPLIT, kappa < 10). It is commissioning row 2b and is not in this run; the implementation is linked below","nilc_celltype_deconvolver.py"),
  ("Residual sky","The anisotropy map / residual map after model subtraction","z per address on the laboratory's own zero and spread; healthy 2.6-3.2 % beyond |z|=2","stage_4_6_patient_cmb.py"),
- ("Presence floors","Galactic mask","a class panel renders only above the floor measured on 160 healthy arrays","presence_floors_v1.json"),
+ ("Presence floors","Galactic mask","a class panel renders only above its presence floor","presence_floors_v1.json"),
  ("Pre-registration and the falsification register","Blind analysis","every bar written and hashed before the run; failures kept on the record as sealed","Record/PROC_data")]
 
 def tab_integrity(o, R, refusals):
@@ -748,8 +675,8 @@ def tab_integrity(o, R, refusals):
        "<h3>1. What this run refused, and why</h3>"+("<ul>"+"".join(f"<li>{_e(r)}</li>" for r in refusals)+"</ul>" if refusals else "<p>Nothing was refused on this sample.</p>"),
        "<h3>2. The safeguards, with their cosmology twins</h3><table class='t'><tr><th>safeguard</th><th>cosmology twin</th><th>what it measured / does here</th><th>where</th></tr>"]
     for a,b,c,d in CMB_TWINS: H.append(f"<tr><td><b>{a}</b></td><td>{b}</td><td>{c}</td><td class='m'>{_e(d)}</td></tr>")
-    H.append("</table><h3>3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)</h3><table class='kv'>")
-    imm=o["classes"].get("immune",{}); H.append(f"<tr><td>pipeline</td><td>{_e(o.get('scale'))}</td></tr><tr><td>laboratory zero</td><td>{o.get('lab_zero')}</td></tr><tr><td>age term c(decade)</td><td>{imm.get('age_reference_c')}</td></tr><tr><td>band</td><td>{_e(imm.get('band_status'))}</td></tr><tr><td>tiers</td><td>{_e(imm.get('tier_note'))}</td></tr><tr><td>false-alarm rate, this laboratory</td><td>{_e(o['departure'].get('lab_false_alarm_source'))}</td></tr><tr><td>sky scale</td><td>{'panel n=%s'%o['patient_sky'].get('scale_panel_n') if o['patient_sky'].get('available') else 'not available'}</td></tr></table>")
+    H.append("</table><h3>3. Constants read for this laboratory (the pipeline map, the tier file, the sky scale only; no constant is applied to any cell's A)</h3><table class='kv'>")
+    imm=o["classes"].get("immune",{}); H.append(f"<tr><td>pipeline</td><td>{_e(o.get('scale'))}</td></tr><tr><td>tiers</td><td>tier_breakpoints.json {_e(R['tiers']['_meta'].get('version'))}</td></tr><tr><td>sky scale</td><td>{'panel n=%s'%o['patient_sky'].get('scale_panel_n') if o['patient_sky'].get('available') else 'not available'}</td></tr></table>")
     H.append("<h3>4. Files read by this run (repository at commit "+_e(R["sha"])+")</h3><table class='t'><tr><th>file</th><th>sha256</th></tr>"+"".join(f"<tr><td><a href='{_gh(_rel(p),R['sha'])}' target='_blank'>{_e(n)}</a></td><td class='sha'>{_sha(p)}</td></tr>" for n,p in sorted(R["files"].items()))+"</table>")
     H.append("<h3>5. Two rules this report obeys</h3><ul><li><b>Detection rule.</b> No definitive statement about what the chain can or cannot detect appears until the chain has been run on that question under seal - 'not yet tested', never 'cannot'. A vocabulary guard refuses to write the measurement tabs if they name a condition, a verdict, or an age in years.</li><li><b>Sealing rule.</b> A pre-registration is written only for a built tool tested against a bar; building is exploration recorded in a dated working note. This report generator is in build and unsealed.</li></ul>")
     return "".join(H)
@@ -784,74 +711,47 @@ CHAIN=[
    "why":"in cosmology you never separate components one way only. NILC (needlet internal linear combination) is what Planck uses. Here it was switched off in July 2026 because it disagreed with the constrained solver on every blood sample - which looked like a defect in NILC. PROC-NILC-01 found the disagreement WAS the finding: NILC was reporting that the atlas cannot split the blood classes, which PROC-SEP-03 then measured directly (7 of 7 blood classes inseparable, and the separability statistic quantified). The tool was right and was cut for being right. It is commissioning row 2b and is not in this run.",
    "refuses":"n/a - not currently in the chain","commissioned":"NOT commissioned. Row 2b is open: the decision is whether its output ships as a second column or as a disagreement flag"}),
  ("A","Per-cell A","H(mean beta over each cell's IDENTITY loci) / H_min of its architecture class - the commissioned gauge's form on the identity surface (RULING A3, LESSON-SURFACE-01); a healthy cell of any type reads 1.00","iamatlas_a_scoring.py",
-  {"impl":"stage_a_cells","in":"the mapped betas, each cell type's identity loci, its class's frozen H_min, and the cell's Stage 2 fraction as the presence gate","out":"one A per PRESENT cell with its 95 % interval on the identity loci; the cell's atlas profile and its MCMC interval travel with it as the calibration standard's position; ",
+  {"impl":"stage_a_cells","in":"the mapped betas, each cell type's identity loci, its class's frozen H_min, and the cell's Stage 2 fraction as the presence gate","out":"one A per PRESENT cell with its 95 % interval on the identity loci;  ",
    "why":"this is the reading: one A per present cell, on that cell's own identity addresses, against its class floor. Deconvolution comes first so a cell is read only where it is present (PROC-CEIL-01: an absent cell's addresses read other cells' bytes). The form is H(mean beta)/H_min - RULING A3, the same arithmetic as the class gauge; the marker-panel form (mean of per-CpG H) governs the retired discriminative surface and is never crossed with it (LESSON-SURFACE-01). test_percell_physics.py asserts surface, form and scale on every push",
-   "refuses":"a cell with fewer than the minimum matched markers is not scored","commissioned":"PROC-ANCHOR-01: the sealed 648-sample foundation-cohort per-cell scores reproduced from raw public data at r = 1.00000, max difference 0.00004"}),
- ("B","Class gauge","H(mean beta over identity loci) / H_min, minus the age term, minus the laboratory zero; placed in the band","cpg_gauge_engine.py",
-  {"impl":"stage_b_classes","in":"the mapped betas, the identity loci for each class, the frozen H_min, the age curve, the laboratory zero","out":"A'' per class with its band placement - an INTERNAL GATE (is this specimen blood-like?), never printed as a reading; tier words on this report belong to cells",
-   "why":"identity loci are the addresses where a healthy class all sits at one level, so their mean carries meaning and the entropy of that mean is the right statistic here (the opposite of the per-cell surface, deliberately). This stage replaced an earlier version that computed the class gauge over the marker union - which a synthetic-patient test caught reading every healthy patient far above band (PROC-N7-01). The retired statistic still runs, labelled diagnostic, and is not shown on this report.",
-   "refuses":"no laboratory zero, or no commissioned band for that class on that specimen -> no placement, no tier, NOT REPORTABLE with the reason printed","commissioned":"PROC-SWITCH-01 -> PROC-SWITCH-02; held-out synthetic healthy read 1.001 with 100 % in band, against 1.125 and 0 % on the retired statistic"}),
+   "refuses":"a cell with fewer than the minimum matched markers is not scored","commissioned":"PROC-ANCHOR-01: the sealed 648-array foundation per-cell scores reproduced from raw public data at r = 1.00000, max difference 0.00004"}),
+ ("B","Class gauge - internal gate","H(mean beta over identity loci) / H_min per class; the composition check (PROC-FOREIGN-01)","cpg_conductor.py",
+  {"impl":"stage_b_classes","in":"the mapped betas, the identity loci for each class, the frozen H_min, the Stage 2 class fractions","out":"the class reading (printed nowhere - the report reads cells) and the composition check: the fraction of the specimen outside the blood lineage, against the PROC-FOREIGN-01 bound","why":"the gauge is commissioned on whole blood; a specimen that is not whole blood gets its cell readings and no tier word","refuses":"a tier on any cell when the composition is not verified as blood","commissioned":"PROC-SWITCH-01 (the identity surface); PROC-FOREIGN-01 (the composition check)"}),
  ("4.5","Direction","signed directional composite on sealed panels","bidirectional_decomposition.py",
-  {"impl":"stage_4_5_bidirectional","in":"the mapped betas and a sealed directional panel (per-CpG healthy mean and expected direction)","out":"a signed composite per class: which way the departure points",
+  {"impl":"stage_4_5_bidirectional","in":"the mapped betas and a sealed directional panel (per-CpG reference mean and expected direction)","out":"a signed composite per class: which way the departure points",
    "why":"pooled entropy folds hyper- and hypo-methylation together - two opposite movements can average to 'normal'. Keeping the sign is how a class that is drifting in a structured way is distinguished from one that is genuinely quiet. Panels exist only where one has been sealed (immune); the other classes say so rather than guessing.",
-   "refuses":"a class with no sealed panel returns no composite","commissioned":"PROC-BIDIR-01, all five bars, including re-extraction of the 726-sample cohort from the raw 5.1 GB GEO file with zero difference"}),
+   "refuses":"a class with no sealed panel returns no composite","commissioned":"PROC-BIDIR-01, all five bars, including re-extraction of the 726-array set from the raw 5.1 GB GEO file with zero difference"}),
  ("4.6","Sky","composition-residual z at every address, on the laboratory's own zero and spread, projected on a sphere","stage_4_6_patient_cmb.py",
   {"impl":"stage_4_6_patient_sky","in":"the mapped betas, the Stage 2 fractions, the laboratory's per-address zero and spread, the presence floors, the CpG-to-pixel mapping","out":"a residual map - one z per address - and per-class panels with their beyond-|z|=2 fractions",
-   "why":"a single number per class cannot say WHERE in the genome a departure lives. The sky can. The expectation at each address is what this sample's own composition predicts, so the map is a residual in the cosmologist's sense: data minus model. A healthy sky is quiet at 2.6-3.2 % beyond |z| = 2 on the four commissioned laboratories.",
+   "why":"a single number per class cannot say WHERE in the genome a departure lives. The sky can. The expectation at each address is what this sample's own composition predicts, so the map is a residual in the cosmologist's sense: data minus model. A whole-blood sky is quiet at 2.6-3.2 % beyond |z| = 2 on the four commissioned laboratories.",
    "refuses":"a laboratory with no measured residual scale -> the sky is not rendered at all; a class below its presence floor -> that panel is masked, and says so","commissioned":"PROC-CMB-01 through 05. The retired brightness formula it replaced divided by the atlas posterior spread of a class mean and compared whole blood against a pure-class mean, reading most of a healthy genome as anomalous - that is closed"}),
  ("4.6","CpG -> sky mapping","every atlas CpG to one of 196,608 pixels in genomic order","iamatlas_cpg_to_healpix_nside128.npy",
   {"impl":"stage_4_6_patient_sky","in":"chromosome and position for each CpG","out":"a HEALPix pixel index, NSIDE 128",
    "why":"HEALPix is the projection Planck used: equal-area pixels, so no part of the map is visually over-weighted. Genomic order means neighbouring addresses are neighbouring pixels, which is what makes a structured departure look structured.",
    "refuses":"an unannotated CpG goes to a sentinel pixel and is excluded","commissioned":"deterministic across builds, and verified to assign all 483,092 CpGs to exactly the same pixels as the mapping built with the atlas for the reference plates"}),
- ("5","Departure (cohort distance - RUNS, NOT SHOWN; scheduled for removal from run_full)","a Mahalanobis distance over the pooled class gauges against a healthy panel - a cohort statistic the author ruled irrelevant to an A-score on 2026-09-26; it still executes and is carried in the bundle, and is removed from the live path once PROC-TARE-01 has finished scoring","cpg_conductor.py",
-  {"impl":"stage_5_mahalanobis","in":"each reportable class's A'' and the healthy band","out":"one distance, the p95 and p99 lines, and this laboratory's measured healthy false-alarm rate",
-   "why":"a clinician needs one number for 'how unusual is this sample overall', and it has to come with how often healthy people trip it. With one commissioned class band the distance is just |z| of that class; as further class bands are commissioned it becomes a true multi-axis distance. The laboratory's own false-alarm rate travels with the number because it differs measurably between laboratories - the residual cause is the Sentrix chip term, which is its own open row (5b).",
-   "refuses":"no banded axis -> no distance","commissioned":"PROC-MAHA-01 -> PROC-MAHA-02, with one laboratory's healthy tail exceeding the sealed bar recorded as a failure and the false-alarm rate printed on every report as the remedy"}),
- ("7","Tiers","one tier function, read from one file; AT_CEILING at 1/H_min","cpg_tiers.py",
+ ("7","Tiers","one tier function, read from one file","cpg_tiers.py",
   {"impl":"stage_b_identity","in":"a present cell's A and its class H_min","out":"one tier word and a note, or nothing",
-   "why":"before this stage the engine carried three disagreeing definitions of where NORMAL ends. Now every tier word in the chain - including the colours on this page - comes from one function reading one file. NORMAL is [0.95, 1.05) about the fixed point (v1.5 - the earlier central-95 % edge was a cohort's and is retired); 1.07 and 1.10 are the physics lines; above 1/H_min the arithmetic cannot go, so the report prints AT_CEILING with the ceiling value rather than a number above it.",
+   "why":"before this stage the engine carried three disagreeing definitions of where NORMAL ends. Now every tier word in the chain - including the colours on this page - comes from one function reading one file. NORMAL is [0.95, 1.05) about the fixed point; 1.07 and 1.10 are the physics lines.",
    "refuses":"a non-reportable reading gets no tier at all - a tier without a commissioned band would be a fabrication","commissioned":"PROC-TIER-01, with a kit test that exercises every boundary from the file, both sides, and fails if a literal breakpoint reappears in engine code"}),
  ("2d","Foreign-cell detection","inverse-variance matched-template amplitude per foreign cell, against the laboratory's own line","detection_panel_v1.json",
   {"impl":"stage_2d_foreign_detection",
    "in":"the mapped betas at the panel's 1,506 markers; the laboratory name; the composition guard's verdict",
    "out":"per foreign cell: f-hat (estimated fraction), sigma, z, the laboratory's line, detected yes/no, and the measured detection limit where a procedure measured one",
    "why":"the deconvolver's constrained fit is pinned at exactly zero for a trace component and cannot respond to half a percent of a foreign cell (PROC-MF-01: NNLS limits 2-5 %). Borrowed from CMB point-source detection: fit the cell's profile, minus the specimen's own blood background, to the residual with each locus weighted by how quiet it is in commissioned healthy blood (inverse-variance weighting, the map-maker's weight). Limits 0.5-1 % for Breast, colon, neurons and prostate on four 450K laboratories (PROC-MF-02/03). The full-covariance matched filter was tried first and tied NNLS - 1,506 markers against 36 arrays is under-determined forty-fold (PROC-MF-01).",
-   "refuses":"any laboratory without a commissioned detection panel - a line set on four laboratories fired on 43-46 % of a fifth laboratory's healthy controls at full marker resolution (PROC-MF-03 B8), so no line is ever borrowed; a specimen the composition guard did not verify as blood-like; and it reports every-cell-rising-together as substrate mismatch rather than as a detection",
-   "commissioned":"ADOPTED BY THE AUTHOR'S DECISION 2026-09-26 (register row B-12), scoped to the four laboratories in detection_panel_v1.json; PROC-MF-01 (full-covariance matched filter) FAILED B1-B5 and was not adopted; PROC-MF-02 and PROC-MF-03 (this inverse-variance detector) met B1-B6 on four 450K laboratories and failed the fifth-laboratory bar each time. A new laboratory is commissioned by kit/commission_detection_lab.py on >= 36 of its own healthy arrays: centre, per-locus weights and a p99 line from its own panel, stored beside its laboratory zero."}),
- ("B","The class gauge - INTERNAL GATE","identity loci -> A, then the decade curve and the laboratory zero -> A''","iamatlas_gauge_identity_loci_v1_0.json",
+   "refuses":"any laboratory without a commissioned detection panel - a line set on four laboratories fired on 43-46 % of a fifth laboratory's whole-blood arrays at full marker resolution (PROC-MF-03 B8), so no line is ever borrowed; a specimen the composition guard did not verify as blood-like; and it reports every-cell-rising-together as substrate mismatch rather than as a detection",
+   "commissioned":"ADOPTED BY THE AUTHOR'S DECISION 2026-09-26 (register row B-12), scoped to the four laboratories in detection_panel_v1.json; PROC-MF-01 (full-covariance matched filter) FAILED B1-B5 and was not adopted; PROC-MF-02 and PROC-MF-03 (this inverse-variance detector) met B1-B6 on four 450K laboratories and failed the fifth-laboratory bar each time. A new laboratory is commissioned by kit/commission_detection_lab.py on >= 36 of its own whole-blood arrays: centre, per-locus weights and a detection line from its own panel."}),
+ ("B","The class gauge - INTERNAL GATE","identity loci -> A per class; foreign fraction against the PROC-FOREIGN-01 bound","iamatlas_gauge_identity_loci_v1_0.json",
   {"impl":"stage_b_identity",
-   "in":"the mapped betas, the class's identity loci and its floor, the donor's declared age, the laboratory's zero",
-   "out":"A'' for the pooled class - used only to decide whether the specimen is blood-like and its composition plausible; not printed as a reading. The report leads with the per-cell A (stage A)",
-   "why":"this is the surface the gauge reports on. Identity loci sit near beta = 0.73 in every healthy donor of the class, so a departure is a departure of the class's own pattern rather than of a marker panel chosen to separate two groups",
-   "refuses":"without a laboratory zero the placement, the tier and the departure are all withheld and only A_mapped prints; without a declared age the absolute reading is withheld",
-   "commissioned":"PROC-MAHA-01 and PROC-MAHA-02 (the zero and the band); the chip term was measured and NOT commissioned (PROC-MAHA-03)"}),
- ("5d","Marker-union hull (RUNS, NOT SHOWN; scheduled for removal)","the same cohort distance on the retired marker-union surface - executes, is not printed, and comes out of the live path with row 5","iamatlas_mahalanobis_scoring.py",
-  {"impl":"stage_5_hull_marker_union",
-   "in":"the mapped betas and the age-matched healthy reference",
-   "out":"a Mahalanobis distance on the marker-union surface, carried in the bundle as a diagnostic",
-   "why":"the marker-union surface is what the pre-atlas work measured. Keeping it beside the reported gauge lets the two be compared deliberately",
-   "refuses":"it is never reported beside the identity gauge: the two surfaces move in opposite directions with age (RECON D2), so quoting them together would invite a false comparison",
-   "commissioned":"diagnostic only - no procedure commissions it for reporting"}),
- ("6","Age reference","where the healthy line for that decade sits","reference_age_curve_v1.json",
-  {"impl":"stage_6_cellular_age",
-   "in":"the donor's declared age and the reference curve measured on 1,379 healthy donors from four laboratories",
-   "out":"the decade offset for the internal blood-like gate only; no age term touches a cell's A",
-   "why":"fidelity falls with age on this surface at 0.47 mA/yr, so a reading must be judged against the healthy line for that decade rather than against a single population mean",
-   "refuses":"a cellular age in years for one patient is NOT reportable: a lifetime of drift is 0.047 against a within-laboratory healthy spread of 0.0235 (PROC-AGE-01). The curve corrects a reading; it does not date a person",
-   "commissioned":"PROC-AGE-01 - the trajectory is reproduced on four laboratories, the per-patient inversion is closed"}),
- ("6d","Age on the marker union (RUNS, NOT SHOWN; scheduled for removal)","an age-clock statistic on the retired marker-union surface - executes, is not printed, and comes out of the live path with row 5","iam_cellular_age_scoring.py",
-  {"impl":"stage_6_cellular_age_marker_union",
-   "in":"the mapped betas and the marker-union age reference",
-   "out":"a diagnostic age statistic on the pre-atlas surface",
-   "why":"it is the quantity the earlier work reported, kept for comparison",
-   "refuses":"not reported, and never quoted beside the identity-gauge age arithmetic - the sign differs by surface",
-   "commissioned":"diagnostic only"}),
+   "in":"the mapped betas, the class's identity loci and its floor, the Stage 2 class fractions",
+   "out":"A for the pooled class - used only to decide whether the specimen is whole blood (the foreign fraction against the PROC-FOREIGN-01 bound); not printed as a reading. The report leads with the per-cell A (stage A)",
+   "why":"this is the surface the gauge reports on. Identity loci sit near beta = 0.73 for the class, so a reading is a reading of the class's own pattern rather than of a marker panel chosen to separate two groups",
+   "refuses":"a tier on any cell when the composition is not verified as whole blood; a reading on unmapped beta",
+   "commissioned":"PROC-SWITCH-01 (the identity surface); PROC-FOREIGN-01 (the composition check)"}),
  ("9","Report","this page, rendered from the bundle","build_methylphys.py",
   {"in":"the conductor's output bundle and the runtime files listed on Integrity","out":"this document",
    "why":"the report is part of the instrument, not decoration: it decides what is shown and what is withheld. A vocabulary guard refuses to write the measurement tabs if they name a condition, a verdict, or an age in years - it has caught the author's own wording more than once.",
    "refuses":"writing the file at all if the guard trips","commissioned":"row 9 - IN BUILD, UNSEALED. It seals when a report has been read line by line against the commissioning table"}),
 ]
-DOCS=[("RUNBOOK.md","how to run the chain, and how to commission a new laboratory (a healthy panel -> its pipeline map, sky scale and foreign-cell detection line)"),
+DOCS=[("RUNBOOK.md","how to run the chain, and how to commission a new laboratory (a whole-blood commissioning panel -> its pipeline map, sky scale and foreign-cell detection line)"),
  ("CHAIN_COMMISSIONING.md","the commissioning table: which stage is commissioned, by which sealed procedure, and what is still open"),
  ("HANDOFF.md","the state of the work, for the next reader"),("README_CPG_Plates.md","the reference plates and their conventions"),
  ("README_HEALPix_Mapping.md","how every CpG was placed on the sphere")]
@@ -925,9 +825,9 @@ def tab_chain(R):
     return "".join(H)
 
 def tab_physics(R):
+    hm=R["ident"]["immune"]["H_min"]
     kB=1.380649e-23; T=310.15; Rg=8.314462618; EL=kB*T*math.log(2); M=54000/(Rg*T)
     nloci={c:len(v.get("loci",[])) for c,v in R["ident"].items() if isinstance(v,dict) and "loci" in v}
-    b=R["band"].get("immune",{}); hm=R["ident"]["immune"]["H_min"]
     return f"""<h2>The physics, in plain language</h2>
 <p class='m'><b>Who this is for.</b> The oncologist, the molecular biologist, the lab director, the informed reader. You do not need to follow a single line of physics to use what follows, and nothing in the first seven sections needs a formula. Where a constant appears it is a textbook constant, shown so that you can check it. The formulas are at the end, marked optional.</p>
 
@@ -964,7 +864,7 @@ def tab_physics(R):
 
 <h3>6. Tidiness has a number, and the reading is a ratio</h3>
 <p>Look at the tags at a set of addresses and ask: how predictable are they? If every address is definitely on or definitely off, the pattern is perfectly tidy - you could guess any one of them. If every address is a coin flip, it is maximally scrambled. Information theory gives this a number called <b>entropy</b>, from 0 (perfectly tidy) to 1 (pure coin flip); it is the same quantity a physicist uses for disorder in a gas and an engineer for noise on a line, and it is computed from the array data alone.</p>
-<p><b>In what order, and for what.</b> Take a sample. <b>First</b> calibrate the raw array to the atlas's scale (the laboratory's pipeline map - what this scanner and this processing do to a known input). <b>Second</b>, find out what is in it: the deconvolver fits the sample as a mixture of the atlas's cell types and returns a fraction for each. A cell below its presence floor is not there to be read, and is not read - fraction is a detection gate, never a correction. <b>Third</b>, for each cell that is present: go to that cell's identity addresses, compute the entropy of the mean methylation there, and divide by the frozen floor of its architecture class ({hm} for every immune cell). The answer is <b>A</b>, one per cell present. A = 1.00 means that cell holds its identity pattern exactly as tidily as a healthy one does; NORMAL is 0.95 to 1.05 on the tier scale. A = 1.10 means the pattern is 10 % more scrambled than healthy - the cell is losing its grip on who it is; 1.07 is the Warburg line and 1.10 the breach line, the physics' two inflection points. Below 0.95 is SUPPRESSED. Because the floor is a frozen constant and the reference is the cell's own atlas profile, <b>one sample can be read on its own</b> - no control group in the room, no cohort required. Deconvolution comes before scoring, always: a pooled reading over a whole class is not a reading of any cell, and this report prints none; the class gauge runs only as an internal gate that asks whether a blood sample is blood-like.</p>
+<p><b>In what order, and for what.</b> Take a sample. <b>First</b> calibrate the raw array to the atlas's scale (the laboratory's pipeline map - what this scanner and this processing do to a known input). <b>Second</b>, find out what is in it: the deconvolver fits the sample as a mixture of the atlas's cell types and returns a fraction for each. A cell below its presence floor is not there to be read, and is not read - fraction is a detection gate, never a correction. <b>Third</b>, for each cell that is present: go to that cell's identity addresses, compute the entropy of the mean methylation there, and divide by the frozen floor of its architecture class ({hm} for every immune cell). The answer is <b>A</b>, one per cell present. A = 1.00 means that cell holds exactly the entropy its identity costs; NORMAL is 0.95 to 1.05 on the tier scale. A = 1.10 means the pattern is 10 % more scrambled than its identity requires - the cell is losing its grip on who it is; 1.07 is the Warburg line and 1.10 the breach line, the physics' two inflection points. Below 0.95 is SUPPRESSED. Because the floor is a frozen constant and the fixed point is A = 1.00, <b>one sample can be read on its own</b>. Deconvolution comes before scoring, always: a pooled reading over a whole class is not a reading of any cell, and this report prints none; the class gauge runs only as an internal gate that asks whether a blood sample is blood-like.</p>
 
 <h3>7. The same floor appears far outside biology - which is why we trust it</h3>
 <p>The reason to have confidence that this floor is real, and not a biological coincidence, is that the identical ratio governs systems with no biology in them at all. The same form - ordering energy divided by the minimum cost set by temperature - describes:</p>
@@ -984,27 +884,25 @@ def tab_physics(R):
 <p><b>Why an atlas entry needs an uncertainty and not just a value.</b> A reference built from six published samples of a rare cell type is not as trustworthy as one built from sixty, and a plain average hides which is which. Carrying an uncertainty per entry is what lets the chain refuse to place a cell on weak evidence instead of guessing; a second, posterior-weighted solver runs as a cross-check on the composition and is never a reading.</p>
 <p><b>MCMC, in plain words.</b> Markov chain Monte Carlo. Suppose you want the methylation level of one cell type at one address and you have a handful of noisy published measurements. You could average them - but then you have one number and no idea how much to trust it. Instead you ask: of all the values this address <i>could</i> have, which are consistent with the data I have? MCMC answers that by taking a long random walk through the candidate values, stepping more often toward values that fit the data better, and keeping a record of everywhere it went. Run it long enough and the record is the answer: values it visited often are plausible, values it rarely visited are not. It samples an answer rather than solving for one, and it works on problems where solving is impossible.</p>
 <p><b>The posterior is that record.</b> Not a single number - a distribution: for this address in this cell type, the range of levels consistent with the evidence and how strongly each is supported. From it come the two numbers the atlas stores: the <b>posterior mean</b> (the centre, which is the atlas value) and the <b>posterior SD</b> (how wide the range is, i.e. how well the data pinned it down). Wide means the evidence was thin.</p>
-<p><b>Why posteriors matter here, concretely - three places.</b> <b>One:</b> the class floors H_min were fitted this way from 37 published reference cell methylomes, with the chains run to convergence (the standard diagnostic, R-hat, below 1.001 - it compares independent walks and asks whether they ended up describing the same distribution; if they disagree the answer is not yet trustworthy). Those eight values were then frozen and have not been re-fitted since - they are constants in this instrument, not parameters it tunes - and a separate bootstrap cross-check (PROC-HMIN-BOOT-01, 2026-09-20) placed all eight inside their intervals. <b>Two:</b> each cell's <b>reference</b> - where its own atlas profile reads on its identity addresses - is printed with the atlas's 95 % interval on it, obtained by drawing the atlas means from their posteriors and recomputing A; this is how well the fixed point itself is known, and for a well-covered cell it is a few ten-thousandths. <b>Three:</b> a second, posterior-weighted solver runs as a cross-check on the composition.</p>
+<p><b>Why posteriors matter here, concretely - two places.</b> <b>One:</b> the class floors H_min were fitted this way from 37 published reference cell methylomes, with the chains run to convergence (the standard diagnostic, R-hat, below 1.001 - it compares independent walks and asks whether they ended up describing the same distribution; if they disagree the answer is not yet trustworthy). Those eight values were then frozen and have not been re-fitted since - they are constants in this instrument, not parameters it tunes - and a separate bootstrap cross-check (PROC-HMIN-BOOT-01, 2026-09-20) placed all eight inside their intervals. <b>Two:</b> a second, posterior-weighted solver runs as a cross-check on the composition.</p>
 <div class='warn'><b>And the one place a posterior must never be used.</b> The posterior SD describes how well the atlas pinned down an <i>average</i>. It is <b>not</b> how much healthy people differ from one another. Those are different quantities and the second is typically many times larger. Using <i>healthy mean &plusmn; 1.96 &times; the posterior SD of the mean</i> as a normal range is a category error with a large practical cost: it makes ordinary healthy samples appear to sit many standard deviations outside normal, because the interval it produces is the precision of an average rather than the spread of a population. This report therefore prints two separately labelled intervals and never a population range: the <b>95 % interval on this sample's own reading</b> (from resampling the cell's identity addresses on this array) and the <b>95 % interval on the cell's reference</b> (from the atlas posterior - how well the fixed point itself is known). Neither is a healthy range, and no healthy range is printed: healthy is A = 1.00 by the physics, with NORMAL 0.95 to 1.05 as the tolerance.</div>
 
 <details><summary><b>Optional - the formulas and the three quantities</b></summary>
 <table class='t'><tr><th>symbol</th><th>name</th><th>what it is</th><th>units</th><th>varies by</th><th>fixed by</th></tr>
 <tr><td>M</td><td>Mahaffey number (the cellular margin)</td><td>E_drive / k_B T - how many thermal quanta the writing process spends per irreversible operation</td><td>none (ratio)</td><td>substrate</td><td>biochemistry / device physics</td></tr>
-<tr><td>H_min(c)</td><td>class entropy reference</td><td>the binary entropy a healthy cell of class c holds at its identity loci</td><td>bits</td><td>class (8)</td><td>healthy reference cells, MCMC-calibrated once, frozen</td></tr>
+<tr><td>H_min(c)</td><td>class entropy reference</td><td>the binary entropy a healthy cell of class c holds at its identity loci</td><td>bits</td><td>class (8)</td><td>reference cell methylomes, MCMC-calibrated once, frozen</td></tr>
 <tr><td>A</td><td>the gauge</td><td>H(beta_mean at identity loci) / H_min(c)</td><td>none (ratio)</td><td>class x sample</td><td>the sample, over the frozen reference</td></tr></table>
 <p>Binary entropy: H(&beta;) = -&beta; log&#8322;&beta; - (1-&beta;) log&#8322;(1-&beta;). Landauer bound at body temperature: E &ge; k_B T ln 2 = {EL:.3e} J.</p>
-<p><b>Why identity loci and not marker loci.</b> H is concave, so H(mean &beta;) over a set of addresses is largest when the addresses average to a coin flip. Marker loci are deliberately chosen to be extreme and opposite between cell types; averaged over a mixture they read as disorder that is not there - a real defect this chain had and that a synthetic-patient test caught (PROC-N7-01). Identity loci are the addresses where a healthy class sits at one level, so the mean carries meaning and A = 1 is healthy by construction. The gauge is two-to-one in &beta; (H is symmetric about 0.5) and has a structural ceiling at 1/H_min.</p>
+<p><b>Why identity loci and not marker loci.</b> H is concave, so H(mean &beta;) over a set of addresses is largest when the addresses average to a coin flip. Marker loci are deliberately chosen to be extreme and opposite between cell types; averaged over a mixture they read as disorder that is not there - a real defect this chain had and that a synthetic-patient test caught (PROC-N7-01). Identity loci are the addresses where a healthy class sits at one level, so the mean carries meaning and A = 1 is healthy by construction. The gauge is two-to-one in &beta; (H is symmetric about 0.5).</p>
 <p><b>Filter and ruler.</b> Sanchez &amp; Mackenzie (2016) used k_B T ln 2 to model the thermal <i>background</i> and remove it, so regulatory signal stands out against a control centroid - the premise that the methylome obeys Landauer's bound is theirs and is peer-reviewed. Here the same constant sets the <i>unit</i>, and the healthy level is a statement of how far above it a class holds its pattern. One filters, one calibrates. This work reached the constant independently (cosmology &rarr; quantum hardware &rarr; semiconductors &rarr; cells) and read their papers on 2026-09-20; they are cited, not built upon.</p></details>"""+deepdive(R,"the physics")
 
 HOWTO_LEVELS=[("SUPPRESSED - below 0.95","A below 0.95","the cell is holding its pattern more tightly than its identity requires. Real, and not automatically good: strongly hypomethylated states read here (post-chemotherapy and immunosuppressed samples sit near 0.90 in the design record)."),
  ("NORMAL - 0.95 to 1.05","A within 5 % of 1.00","the cell is holding its identity pattern within five per cent of the entropy its identity costs. Symmetric about the fixed point; no population defines the edges."),
- ("ELEVATED - 1.05 to 1.07","A above 1.05","the pattern is measurably looser than healthy. The cell is drifting. This is the regime where a reading is worth a second sample or a closer look, and where nothing has failed yet."),
+ ("ELEVATED - 1.05 to 1.07","A above 1.05","the pattern is measurably looser than its identity requires. The cell is drifting. This is the regime where a reading is worth a second sample or a closer look, and where nothing has failed yet."),
  ("at 1.07 - the Warburg line","WARBURG_TRANSITION (a line, not a band)","the cell has flipped toward aerobic glycolysis. This is a boundary in the intervention strategy, not in the arithmetic - see below."),
- ("at 1.10","BREACH","the no-return line. The cell is no longer holding its identity pattern at the level that defines it. It is not the ceiling: on several class-and-substrate combinations the ceiling sits BELOW this line, so breach cannot be reached there at all."),
- ("at the ceiling (1/H_min for that class and substrate)","AT_CEILING","saturation: the entropy of the identity loci has reached its structural maximum, so the ratio cannot go higher. The report prints the ceiling value, never a number above it, and says which class hit it.")]
+ ("at 1.10","BREACH","the no-return line. The cell is no longer holding its identity pattern at the level that defines it.")]
 
 def tab_howto(R):
-    b=R["band"]["pooled"]   # identity_band_v3 is keyed pooled / per_decade, class named in _meta - as cpg_conductor reads it
     H=[f"""<h2>How to read the gauge</h2>
 <p>A thermometer is only useful if its reading means something definite. This tab sets out what A means at each level, where the lines are, and - just as important - what the reading does not claim. <b>The instrument reports a cellular state; the clinician decides what to do about it.</b> The roles are distinct and kept distinct on purpose.</p>
 <h3>What A is measuring</h3>
@@ -1014,35 +912,26 @@ def tab_howto(R):
 <h3>The levels</h3><p>Every reading on this report is <b>one cell type's A</b>: the entropy of the mean methylation over that cell's identity addresses, divided by the frozen floor H_min of its architecture class. Healthy is A = 1.00 by the physics; the tier scale below is the tolerance around it, read from one file (<code>tier_breakpoints.json</code>) by one function.</p><table class='t'><tr><th>level</th><th>on the gauge</th><th>what it means</th></tr>"""]
     for a,c,d in HOWTO_LEVELS:
         H.append(f"<tr><td><b>{a}</b></td><td>{c}</td><td>{d}</td></tr>")
-    H.append(f"""</table><p class='m'>No population band is drawn on this report. NORMAL (0.95-1.05) is the tier file's tolerance about the physical fixed point A = 1.00; where a healthy panel is quoted anywhere in the chain it calibrates the <i>instrument</i> (a laboratory's pipeline map, a detector's noise floor) and never defines healthy. The tier onsets come from one file (<code>tier_breakpoints.json</code> {_sha(R['files']['tier_breakpoints.json'])[:12] if R['files'].get('tier_breakpoints.json') else ''}) read by one function.</p>""")
-    H.append("<h3>Age, and why no age term is applied to a cell</h3>"
-      + "<p class='m'>Across 1,379 healthy donors the pooled immune gauge rises about 0.47 milli-A per year - a whole lifetime of that drift is about 0.047, comparable to the NORMAL tolerance itself. That curve is measured on the pooled class, not on any one cell type; no per-cell age curve has been measured, so <b>no age term is subtracted from a cell's A</b> and the declared age is carried as context. Whether a cell's healthy A moves with age is a named open measurement, not an assumption built into the reading.</p>"
-      
-      )
-    for fn,cap in (("CPG_Gauge_Cell.png","<b>The cellular gauge.</b> A = 1.00 is the physical fixed point - not an edge. Below 0.95 is the suppressed / inverted direction (post-chemotherapy and immunosuppressed samples sit near 0.90 in the design record); above it the loosening runs through ELEVATED, the Warburg line at 1.07, and BREACH at 1.10. <i>Author's figure.</i>"),
-                   ("CPG_Gauge_Cosmic.png","<b>The same gauge on a star</b>, which is where the ceiling becomes obvious. A main-sequence star sits healthy; an isolated white dwarf reads above healthy but is <i>ceiling-capped below breach</i> - it has no mechanism to gain mass, so it cannot reach the no-return event however spent it looks. Only a collapse-capable core reaches A = 1 in the gravitational sense, where the Chandrasekhar and TOV limits and the Schwarzschild condition all land. Author's figure.")):
-        pth=R["files"].get(fn)
-        if pth: H.append(f"<figure><img src='data:image/png;base64,{base64.b64encode(open(pth,'rb').read()).decode()}' style='width:100%;max-width:860px;border:1px solid var(--ln);border-radius:6px'><figcaption class='m'>{cap} <b>Reference figure</b> - the same in every report, not this specimen.</figcaption></figure>")
+    H.append(f"""</table><p class='m'>NORMAL (0.95-1.05) is the tier file's tolerance about the physical fixed point A = 1.00.<i>instrument</i> (a laboratory's pipeline map, a detector's noise floor) and never defines healthy. The tier onsets come from one file (<code>tier_breakpoints.json</code> {_sha(R['files']['tier_breakpoints.json'])[:12] if R['files'].get('tier_breakpoints.json') else ''}) read by one function.</p>""")
+    H.append("<h3>Age</h3><p>The declared age is carried as context on the record and is not an operand of any reading.</p>")
     w=R["warburg"]; BR=R["breach_line"]
-    H.append("<h3>Three different things, and none of them is A = 1.00 sitting on a floor</h3>"
-      "<p>This is worth getting exactly right, because two of these are physical limits and one is a calibration point, and they are easy to conflate.</p>"
+    H.append("<h3>Two different things, and neither is A = 1.00 sitting on a floor</h3>"
+      "<p>This is worth getting exactly right, because one is a physical constant and one is the fixed point, and they are easy to conflate.</p>"
       "<table class='t'><tr><th></th><th>what it is</th><th>where it sits</th><th>what crossing it means</th></tr>"
-      "<tr><td><b>A = 1.00</b><br><span class='m'>the fixed point</span></td><td>a cell holding exactly the entropy its identity costs. It is the <i>middle of the green band</i>, not an edge of anything.</td><td>mid-NORMAL. NORMAL (0.95-1.05) is the tolerance about it. Where 1,379 healthy people sit on the gauge is an observation about people, reported on the Instrument tab; it is not the definition.</td><td>nothing - it is the point everything else is measured from.</td></tr>"
+      "<tr><td><b>A = 1.00</b><br><span class='m'>the fixed point</span></td><td>a cell holding exactly the entropy its identity costs. It is the <i>middle of the green band</i>, not an edge of anything.</td><td>mid-NORMAL. NORMAL (0.95-1.05) is the tolerance about it.</td><td>nothing - it is the point everything else is measured from.</td></tr>"
       "<tr><td><b>H_min(class)</b><br><span class='m'>the class entropy reference</span></td><td>a <b>constant in the denominator</b>, in bits: the entropy level below which that architecture cannot hold the pattern that makes it that kind of cell. It is what makes A dimensionless.</td><td>it is <i>not a mark on the A axis at all</i>. It is the unit the axis is drawn in.</td><td>a reading that falls well below 1.00 is the suppressed / inverted direction - the pattern is over-ordered or erased rather than loosened (post-chemotherapy and immunosuppressed samples sit near 0.90).</td></tr>"
-      "<tr><td><b>1/H_min</b><br><span class='m'>the ceiling - saturation</span></td><td>the arithmetic limit: the entropy of those addresses has reached its structural maximum, so the ratio cannot go higher. It differs by class <b>and</b> by substrate.</td><td>anywhere. For some class-and-substrate combinations it sits <b>above</b> breach; for others <b>below</b> it (see the chart).</td><td>the instrument has run out of scale - not the cell out of identity. Reported as AT_CEILING with the value, never as a number above it.</td></tr></table>"
-      f"<p><b>And the consequence that matters.</b> Where the ceiling sits below the breach line at {BR}, that class <i>cannot reach breach on that substrate at all</i> - it saturates first. A system can be far above healthy, visibly spent, and still be structurally incapable of the no-return event on the surface you happen to be measuring. The author's cosmic gauge makes the point on a star: an isolated white dwarf reads above healthy and is ceiling-capped below breach, because it has no mechanism to gain mass; only a collapse-capable core reaches A = 1 in the gravitational sense, where the Chandrasekhar and TOV limits and the Schwarzschild condition all land. <b>Ceiling-capped is not the same as safe, and it is not the same as healthy - it means this substrate cannot tell you.</b> That is the argument for five substrates stated as a limit rather than a preference.</p>")
+      "</table>")
     H.append("<h3>The saturation wall chart - 8 classes x 5 substrates</h3>"
-      f"<p>Each cell shows the class's frozen floor H_min on that substrate and, in brackets, the ceiling 1/H_min it implies; the flags are the author's own from the Issue 002 saturation wall chart: <b>SAT</b> = saturates below the breach line at {BR}, so that substrate cannot register a floor breach for that class; <b>TGT</b> = tight ceiling (below 1.15), where severe disease approaches saturation; unflagged = full headroom past breach. The floors come from the frozen 40-value table (methylation from the G-002 calibration, the four cfDNA/chromatin substrates from G-003b). Only the methylation column is lit today - see Coverage.</p>"
+      f"<p>Each cell shows the class's frozen floor H_min on that substrate; the flags are the author's own from the Issue 002 saturation wall chart: <b>SAT</b> = saturates below the breach line at {BR}, so that substrate cannot register a floor breach for that class; <b>TGT</b> = tight headroom (saturates below 1.15), where severe disease approaches saturation; unflagged = full headroom past breach. The floors come from the frozen 40-value table (methylation from the G-002 calibration, the four cfDNA/chromatin substrates from G-003b). Only the methylation column is lit today - see Coverage.</p>"
       "<table class='t'><tr><th>class</th>" + "".join(f"<th>{sub}{' (lit)' if sub=='methyl' else ''}</th>" for sub in R["sub_order"]) + "</tr>"
       + "".join("<tr><td>"+CLASS_LABEL.get(c,c)+"</td>"+"".join(
-            (f"<td class='n' style='background:#2a1d1d'>{v:.4f} <span class='m'>[{1.0/v:.3f}]</span> <b>SAT</b></td>" if 1.0/v < BR
-             else f"<td class='n' style='background:#2a2a1d'>{v:.4f} <span class='m'>[{1.0/v:.3f}]</span> <b>TGT</b></td>" if 1.0/v < 1.15
-             else f"<td class='n'>{v:.4f} <span class='m'>[{1.0/v:.3f}]</span></td>")
+            (f"<td class='n' style='background:#2a1d1d'>{v:.4f} <b>SAT</b></td>" if 1.0/v < BR
+             else f"<td class='n' style='background:#2a2a1d'>{v:.4f} <b>TGT</b></td>" if 1.0/v < 1.15
+             else f"<td class='n'>{v:.4f}</td>")
             for v in R["hmin_table"][c])+"</tr>" for c in CLASSES if c in R["hmin_table"])
       + "</table>"
-      f"<p class='m'><b>This chart is not new here.</b> It is the author's saturation wall chart (Issue 002, April 2026, p12), rebuilt from the engine's live floor table and reproducing it exactly: 40 rows, every ceiling equal to 1/H_min to three decimals, <b>15 SAT and 2 TGT</b> - the same cells, the same flags. Issue 002 frames it as the direct analogue of the Dennard scaling walls in semiconductor physics: the frequency, power and cost walls beyond which a technology stops improving. <b>15 of the 40 combinations saturate below breach.</b> Nucleosome occupancy caps 7 of the 8 classes (its floors are all near 0.98-0.99, so there is almost no range above healthy before saturation). Fuzziness caps the three stem and progenitor classes (pluripotent stem, adult stem, progenitor). WPS caps a different three - <b>terminal</b>, adult stem and progenitor - and notably does <i>not</i> cap pluripotent stem, whose WPS ceiling is {1.0/R['hmin_table']['stem_pluri'][3]:.3f}, just above the line. On methylation - the one lit column - <b>pluripotent stem is capped at {1.0/R['hmin_table']['stem_pluri'][0]:.3f}</b>, which is below breach and barely above NORMAL, so a pluripotent-stem breach cannot be read on methylation at all.</p>"
-      f"<p class='m'><b>The reference clusters past breach, and where they come from.</b> The breakpoints file carries senescent cells at {R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['senescent_cells']['a_low']}-{R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['senescent_cells']['a_high']} and malignant cells at {R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['malignant_cells']['a_low']}-{R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['malignant_cells']['a_high']}. Issue 002 identifies the malignant end as <b>terminal-class</b> measurements: lower-grade glioma at A = 1.2846 and glioblastoma at A = 1.256, both from Ceccarelli 2016 (TCGA, n = 516 and n = 149), with terminal-class cancers showing the largest departures in the 28-cancer panel. That is consistent with the ceilings - the terminal class has the highest methylation ceiling of any class at {1.0/R['hmin_table']['terminal'][0]:.3f} - and it makes the arithmetic striking rather than loose: <b>the largest cancer signal in the panel sits within 0.01 of its own class ceiling</b>, which is exactly the regime where a second substrate stops being a refinement and becomes the only way to keep measuring. The cluster's upper bound of {R['tiers']['tier_system_v1_2']['reference_clusters_past_breach']['malignant_cells']['a_high']} is above even that ceiling, so it cannot be a methylation reading for any class; it is carried here as a corpus reference range, not re-measured on this chain, and the two open items it raises are listed on the Record tab.</p>"
-      f"<p class='m'><b>And one refinement from Issue 002 worth stating precisely.</b> In its own words, the A = 1.00 line 'represents the architectural commitment point, not a mathematical floor' - and under the raw ratio its healthy reference cells sit slightly <i>below</i> it, around A = 0.97, because a healthy beta produces an entropy slightly under the MCMC central estimate of H_min. On this chain the same is true and is printed rather than corrected away: each cell's own <b>reference</b> (its atlas profile read on its identity loci) sits a little under 1.00 - across cells 0.936-1.020, median 0.990, from percell_reference_mcmc_v1.json; re-zeroing the identity loci so the standard reads 1.000 is PROC-UNMIX-01's first step - and is shown beside the reading with the atlas's 95 % interval on it. No laboratory zero is applied to any cell's A. Whether the array's own known-value probes can tare the instrument is PROC-TARE-01's question.</p>")
+      f"<p class='m'><b>This chart is not new here.</b> It is the author's saturation wall chart (Issue 002, April 2026, p12), rebuilt from the engine's live floor table: 40 rows, <b>15 SAT and 2 TGT</b> - the same cells, the same flags. Issue 002 frames it as the direct analogue of the Dennard scaling walls in semiconductor physics: the frequency, power and cost walls beyond which a technology stops improving. <b>15 of the 40 combinations saturate below breach.</b> Nucleosome occupancy caps 7 of the 8 classes (its floors are all near 0.98-0.99, so there is almost no range above healthy before saturation). Fuzziness caps the three stem and progenitor classes (pluripotent stem, adult stem, progenitor). WPS caps a different three - <b>terminal</b>, adult stem and progenitor - and notably does <i>not</i> cap pluripotent stem, whose WPS ceiling is {1.0/R['hmin_table']['stem_pluri'][3]:.3f}, just above the line. On methylation - the one lit column - <b>pluripotent stem is capped at {1.0/R['hmin_table']['stem_pluri'][0]:.3f}</b>, which is below breach and barely above NORMAL, so a pluripotent-stem breach cannot be read on methylation at all.</p>"
+      )
 
 
     H.append(f"<h3>The Warburg line at {R['warburg_line']}</h3><p>{_e(w['physics_meaning'])}</p>"
@@ -1057,12 +946,12 @@ def tab_howto(R):
 <li><b>It is not a grade of any lesion.</b> A tracks epigenomic fidelity, which correlates with histological grade but is its own axis. It does not replace histology. What it does is tell you <i>which compartments have drifted and by how much</i>, so that attention goes where the cells have actually changed.</li></ul>
 <p>The honest reading of a high value is therefore: <i>a population of cells in this compartment has lost structural fidelity, and this compartment warrants a closer look.</i> A prompt, not a verdict.</p>
 <h3>Would a well-differentiated benign growth read high?</h3>
-<p>In general it should not, and that is the question that reveals what the instrument measures. A lipoma, a fibroid or a simple nevus is made of cells that are still recognisably their own type - they have lost growth control, not identity. Because A reads identity fidelity rather than cell number, a well-differentiated benign lesion is expected to read at or near the healthy reference. <b>The instrument is not tripped by the presence of extra cells; it responds to the loss of what makes a cell that kind of cell.</b> The corollary is that a reading is independent of a lesion's shape - a flat lesion produces the same reading as a raised one, because the instrument reads methylation entropy rather than looking for a shape.</p>
+<p>In general it should not, and that is the question that reveals what the instrument measures. A lipoma, a fibroid or a simple nevus is made of cells that are still recognisably their own type - they have lost growth control, not identity. Because A reads identity fidelity rather than cell number, a well-differentiated benign lesion is expected to read at or near 1.00. <b>The instrument is not tripped by the presence of extra cells; it responds to the loss of what makes a cell that kind of cell.</b> The corollary is that a reading is independent of a lesion's shape - a flat lesion produces the same reading as a raised one, because the instrument reads methylation entropy rather than looking for a shape.</p>
 <p class='m'>An ordered series - normal, benign neoplasm, dysplasia, established disease - read on the commissioned chain is a named next test; until it has been run this report claims nothing about it.</p>
 <h3>Two things the gauge is not</h3>
-<ul><li><b>Not a clock.</b> The pooled immune gauge drifts upward with age by about 0.047 over a lifetime - about the size of the scatter between two healthy people. No age term is applied to any cell's A; one array cannot place a person on that curve, and this report never prints an age.</li>
+<ul><li><b>Not a clock.</b> Age is not an operand of any reading and this report never prints an age.</li>
 <li><b>Not a fuel measurement.</b> The energy the cell spends holding its pattern is real, but A measures the pattern, not the fuel. A cell can be starving with a tidy pattern or well fed with a scrambled one.</li></ul>""")
-    H.append(deepdive(R,"reading the gauge, the tiers and the healthy reference"))
+    H.append(deepdive(R,"reading the gauge and the tiers"))
     return "".join(H)
 
 def tab_story(R=None):
@@ -1135,25 +1024,9 @@ def tab_story(R=None):
        "balance point, the cell is in trouble for the same structural reason a star past a certain mass is in trouble: both have run out of capacity "
        "to keep paying their costs in the normal way. <b>We did not invent this rule; we learned to read it.</b></p>",
 
-       "<h3>The ceiling is informational, not gravitational - and that is why it travels</h3>",
-       "<p>It is worth being precise about what this re-description does and does not claim. Consider how a black hole forms. The conventional "
-       "account, the one every astronomer uses, is gravitational: mass concentrates until gravity is intense enough that nothing escapes, and a "
-       "horizon forms. The framework here tells the same story in a different language: a region of space can only record so much information on its "
-       "boundary before that boundary is full, and when the local accounting saturates that limit a new surface must form for the writing to "
-       "continue. <b>These are not competing claims.</b> They predict the identical threshold at the identical radius; one is the other stated in the "
-       "language of information rather than force. The gravity an astronomer measures is, in this reading, the stored record of the accounting rather "
-       "than a separate cause.</p>",
-       "<p><b>The reason it matters is that it travels where the gravitational language cannot follow.</b> A single cell is far too small for its mass "
-       "to bend space measurably, so the gravitational account has nothing to say about it. The saturation account does. A cell maintains its identity "
-       "by writing its ledger onto the surface available to it - not spacetime, but its own chromatin. A healthy cell sits comfortably below the limit "
-       "of what that surface can hold. A cell drifting toward failure is one whose accounting is climbing toward saturation, writing more and more "
-       "onto a surface with only so much room, until it can no longer maintain its identity on its existing terms. The ceiling is informational, not "
-       "gravitational, which is exactly why the same law reads the star - where we used to call the ceiling gravity - and the cell, where there is no "
-       "gravity to speak of but the ceiling is just as real.</p>",
-
        "<h3>Where the gauge sits, and what is open to inspection</h3>",
        "<p>A = 1.00 is the <b>fixed point</b> - a cell holding exactly the entropy its identity costs, in the middle of the normal band. H_min is the "
-       "constant in the denominator, the unit the axis is drawn in; the ceiling at 1/H_min is saturation. The three are distinct and the <b>How to "
+       "constant in the denominator, the unit the axis is drawn in. The two are distinct and the <b>How to "
        "read</b> tab sets them out side by side.</p>",
        "<p>The eight class floors, the calibration code that fitted them and the bootstrap cross-check (PROC-HMIN-BOOT-01) that agrees with them are <b>public</b>, "
        "under an open licence. The floors and their provenance are on the <b>Instrument</b> tab; the code is linked from <b>Files</b>. Nothing "
@@ -1212,7 +1085,7 @@ def tab_coverage(R):
        "<h3>The five substrates</h3><table class='t'><tr><th>substrate</th><th>what it measures</th><th>published single-substrate discrimination (AUC)</th><th>specimen it requires</th><th>status here</th></tr>"]
     for k in R["sub_order"]:
         nm,d=SUBSTRATE_DESC[k]; req="any DNA" if k=="methyl" else ("plasma cfDNA" if k in ("wps","frag") else "plasma cfDNA (or chromatin assay)")
-        st="<b>LIT</b> - commissioned on whole blood" if k=="methyl" else "<span class='pend'>RESERVED</span> - floor frozen, no pipeline map / laboratory zero / band"
+        st="<b>LIT</b> - commissioned on whole blood" if k=="methyl" else "<span class='pend'>RESERVED</span> - floor frozen, no pipeline map"
         H.append(f"<tr><td><b>{k}</b></td><td>{nm} - {d}</td><td class='n'>{R['auc'].get(k,'-')}</td><td>{req}</td><td>{st}</td></tr>")
     H.append("</table><p class='m'>Each substrate has its own frozen floor for each of the eight classes (the 40-value table on the How-to-read tab), so a reading on one substrate is never compared against another's floor. The AUC column is the published single-substrate discrimination from the source literature, carried in the engine as a weight for combining substrates once more than one is lit; it is not a result of this chain.</p>")
     H.append("<h3>The specimens</h3><table class='t'><tr><th>specimen</th><th>measured on</th><th>what is known</th><th>status</th></tr>")
@@ -1233,7 +1106,7 @@ def tab_coverage(R):
     H.append("""<h3>What lighting one cell requires</h3>"
       "<p><b>A pipeline map.</b> One affine fit taking that specimen-and-substrate's values onto the scale the floors were calibrated on. Measured once per processing pipeline, on identity loci.</p>"
       "<p><b>Presence floors and a detection panel.</b> Healthy specimens of that kind through the same Stage 1, so the deconvolver's presence floors and the foreign-cell detector's line are that specimen's and that laboratory's own (36 or more arrays for a line). This calibrates what the instrument does to a known input; it does not define healthy.</p>"
-      "<p><b>No healthy band.</b> A cell's A is read against 1.00 on every specimen and substrate; the tolerance is the tier scale. Nothing about healthy transfers from whole blood because nothing about healthy is measured from it.</p>"
+      "<p>A cell's A is read against 1.00 on every specimen and substrate; the tolerance is the tier scale."
       "<p class='m'>The frozen floors, by contrast, do transfer - they are a property of the cell class, not of the specimen or the laboratory.</p>
 <p class='m'>The honest position, stated the way the record requires: for every reserved cell above, the chain has <b>not yet been tested</b> on that combination. That is not a statement that it cannot read it.</p>""")
     H.append(deepdive(R,"the substrates, their floors and the saturation argument"))
@@ -1345,10 +1218,10 @@ def tab_troubleshooting(o, R):
          "the core facility")):
         H.append("<tr><td class='m'>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>")
     H.append("</table>")
-    H.append("<h3>What healthy specimens measure, so you can tell a bad array from a bad configuration</h3>")
-    H.append("<p class='m'>731 healthy whole-blood arrays, four Sentrix-chip years. A result far from these "
+    H.append("<h3>What whole-blood arrays measure at intake, so you can tell a bad array from a bad configuration</h3>")
+    H.append("<p class='m'>731 whole-blood arrays, four Sentrix-chip years. A result far from these "
              "is the array; a result at zero or one is the configuration.</p>")
-    H.append("<table><tr><th>check</th><th>threshold</th><th>healthy median</th><th>worst</th>"
+    H.append("<table><tr><th>check</th><th>threshold</th><th>panel median</th><th>worst</th>"
              "<th>outside the threshold</th></tr>")
     for a, b, c, d, e in (("detection p", "&ge; 0.99", "0.9994", "0.9951", "0 of 731"),
                           ("call rate", "&ge; 0.98", "0.9983", "0.9889", "0 of 731"),
@@ -1391,7 +1264,7 @@ def tab_troubleshooting(o, R):
     for a, b, c in (
         ("DETECTION_NOT_COMMISSIONED", "this laboratory has no detection panel in detection_panel_v1.json",
          "commission it on >= 36 of the laboratory's own healthy whole-blood arrays; the chain never borrows another laboratory's line, "
-         "because a line set on four laboratories fired on 43-46 % of a fifth laboratory's healthy controls at full marker resolution (PROC-MF-03 B8)"),
+         "because a line set on four laboratories fired on 43-46 % of a fifth laboratory's whole-blood arrays at full marker resolution (PROC-MF-03 B8)"),
         ("FOREIGN_UNSPECIFIC - N of 21 foreign cells detected together", "the specimen is not blood-like to the detector: every solid-tissue column rises at once",
          "check the substrate, the pipeline flag (--pipeline) and whether this laboratory's panel was commissioned on data processed the same way; "
          "do not read any one detection"),
@@ -1409,7 +1282,7 @@ def tab_troubleshooting(o, R):
              "files raw while public downloads are gzipped, so the array-type check silently never ran on "
              "public data; it did not error, it returned 'unreadable' and everything continued. A value that "
              "fails to propagate looks like a value that is wrong - an identifier dropped between two steps "
-             "made the next step refuse every array in a 732-array cohort, and the message blamed the data. A "
+             "made the next step refuse every array in a 732-array set, and the message blamed the data. A "
              "refusal that does not stop the run is reported as something else downstream. And a failure "
              "logged as 'deferred' is worse than no check at all. If a check has never reported a failure, "
              "test it with input you know is bad.</p>")
@@ -1485,7 +1358,7 @@ def tab_safeguards(o, R):
                      f"<td class='m'>{_e(g['guards'])}</td><td class='m'>{_e(det)}</td></tr>")
         H.append("</table>")
         H.append("<p class='m'><b>How to read a SKIPPED.</b> It means the guard exists and runs, but the data it checks against is not on this machine - "
-                 "a multi-gigabyte public cohort, or the test package. It is not a pass and it is not a failure; it is a statement that this particular "
+                 "a multi-gigabyte public data set, or the test package. It is not a pass and it is not a failure; it is a statement that this particular "
                  "run could not exercise it. A reader who downloads the named data gets the result.</p>")
     # the second opinion, per sample
     so=o.get("second_opinion") or {}
@@ -1514,7 +1387,6 @@ def tab_safeguards(o, R):
 ROADMAP=[
  ("now","Find a serial cohort - two draws, same person","the difference map is the strongest design on the Sky tab and nothing held here has a repeat draw; the technical noise term is currently an upper bound inferred from cross-sectional data","EPIC-Italy and the Uppsala follow-up arms are the candidates; needs repeat-draw metadata, which the public extracts do not carry"),
  ("now","Merge the atlas's duplicate labels to one lineage per entry","the same lineage appears under several atlas entries whose per-cell readings differ by more than anything biological, purely by which reference panel defined the markers; until they are merged nobody can say 'which cell moved'","a merge rule plus a re-measured per-entry reference; it is the blocker on per-cell reporting"),
- ("now","Per-entry healthy bands wide enough to carry a tier word","20 per cent of atlas entries have a healthy spread wider than the gauge's NORMAL band, so their tier word is withheld and only the number is printed","the T-cell and NK entries are the widest; needs a per-entry band rather than the class band"),
  ("gate 0","Rebuild the eight class bands from one healthy cohort through one pipeline","RECON B1 - the bands still carry the history of how they were assembled","the four-laboratory panel exists; this is the re-fit"),
  ("gate 0","Wire the Stage 0 to Stage 1 intensity hand-off","four QC checks are deferred rather than running, because Stage 0 never sees the raw intensities","PROC-STAGE0-01; map rows 10-11"),
  ("gate 0","Reproduce the breast pre-symptomatic-window anchor from raw IDATs","the sealed anchor reproduces from processed betas; from raw IDATs it has not been run end to end","sprint F1"),
@@ -1528,7 +1400,7 @@ ROADMAP=[
  ("after the anchor","Per-card likelihood, marginalised, with MCMC posteriors","a proper likelihood per class rather than a point reading against a band","map rows 28, 37; sprint E2/E3"),
  ("after the anchor","Formal blinding for confirmation runs","the analyst should not know the arm; the pre-registration protocol allows it, the tooling does not enforce it","map row 78"),
  ("clinical format","A per-chromosome linear track and a Hilbert-curve layout","a sphere is the right object for spherical statistics and the wrong picture for a clinician; the same residual should be renderable in chromosome coordinates","see 'Is the sphere necessary' on the Sky tab"),
- ("substrates","Urine, CSF, and the within-patient tissue / plasma / urine trio","each needs its own pipeline map, laboratory zero and healthy band before it can read; the trio would test whether one person's classes agree across specimens","the Operations Manual section 7; see Coverage"),
+ ("substrates","Urine, CSF, and the within-patient tissue / plasma / urine trio","each needs its own pipeline map and presence floors before it can read; the trio would test whether one person's classes agree across specimens","the Operations Manual section 7; see Coverage"),
  ("not now","Bispectrum and trispectrum; Minkowski functionals; isotropy and alignment tests","higher-order sky statistics; they need the power spectrum first and a reason to look","map rows 45, 53-60, 69"),
  ("not now","5mC / 5hmC as an E/B-mode separation; multi-omics cross-correlation","a genuinely deep parallel - two components of one field - but it needs oxidative-bisulphite data the chain has never seen","map rows 4, 49, 70"),
  ("does not translate","Rees-Sciama; Rayleigh scattering","recorded so nobody spends a week on them: the analogy breaks, and saying so is part of the map","map rows 63, 68"),
@@ -1592,8 +1464,8 @@ def tab_findings(R):
        "<h3>What a finding record holds, and why each part is there</h3>",
        "<table class='t'><tr><th>block</th><th>what it holds</th><th>why a researcher needs it</th></tr>",
        "<tr><td><b>instrument</b></td><td>the SHA-256 of all 14 reference layers - floors, identity loci, markers, "
-       "exclusivity, collinearity groups, pipeline maps, age curve, band, tiers, presence floors, sky mapping, "
-       "directional panels, healthy reference, atlas provenance - plus the repository commit</td>"
+       "exclusivity, collinearity groups, pipeline maps, tiers, presence floors, sky mapping, "
+       "directional panels, atlas provenance - plus the repository commit</td>"
        "<td>a reading is only meaningful against a stated instrument. When a layer is re-sealed these hashes change, "
        "so two findings can be compared only if their fingerprints match - and the record makes that checkable "
        "rather than assumed</td></tr>",
@@ -1719,7 +1591,7 @@ def _provenance_block(o):
                  "to be read as a finding about it.</p>" % (len(cov), "" if len(cov) == 1 else "s"))
     else:
         H.append("<p class='m'>No covariates were recorded with this run. A run intended for a later "
-                 "cross-sample analysis should pass them (<code>--covariate cohort=NAME</code>), because "
+                 "cross-sample analysis should pass them (<code>--covariate study=NAME</code>), because "
                  "nothing downstream can recover a phenotype the run did not capture.</p>")
     return H
 
@@ -1789,38 +1661,11 @@ def red_flags(o, R=None):
     elif _st.startswith("WITHHELD"):
         add("DETECTION_WITHHELD", "WITHHELD", "Cells", _st.split(": ", 1)[-1],
             "The composition guard did not verify the specimen as blood-like, so no detection line is applied.")
-    if o.get("lab_zero") is None:
         add("NO_LAB_ZERO", "WITHHELD", "Reading",
             "This laboratory has no commissioned zero, so no absolute reading is possible on any class.",
             "Commission the laboratory (PROC-MAHA-01) on its own healthy arrays, or read this run only for "
             "composition.")
 
-    # 3. the laboratory's own false-alarm rate against the call that was made
-    dep = o.get("departure") or {}
-    fa = dep.get("lab_false_alarm_p95")
-    for c, rec in (o.get("classes") or {}).items():
-        pl = rec.get("placement")
-        if pl and pl != "IN_BAND" and rec.get("reportable"):
-            z = rec.get("z")
-            bound = _lab_bound(fa)
-            if bound and z is not None and abs(float(z)) < bound:
-                add("CALL_INSIDE_LAB_NOISE", "CAUTION", "Reading",
-                    "Class '%s' reads %s at z = %s, but this laboratory's own healthy arrays cross the "
-                    "commissioned band %.1f %% of the time (nominal 5 %%), which puts its own 95 %% bound at "
-                    "|z| = %.2f. This reading is inside that bound." % (c, pl, z, 100 * float(fa), bound),
-                    "Do not read this as a departure. It is not distinguishable from this laboratory's own "
-                    "healthy spread. A per-laboratory band would settle it (candidate procedure).")
-            elif bound:
-                add("CALL_OUTSIDE_LAB_NOISE", "NOTE", "Reading",
-                    "Class '%s' reads %s at z = %s, outside this laboratory's own bound of |z| = %.2f "
-                    "(its false-alarm rate is %.1f %%)." % (c, pl, z, bound, 100 * float(fa)),
-                    "The call survives the laboratory's own noise. It is still a single array.")
-    if fa is not None and float(fa) > 0.06:
-        add("LAB_FALSE_ALARM_HIGH", "CAUTION", "Departure",
-            "This laboratory's measured false-alarm rate is %.1f %% at p95, against a nominal 5 %%."
-            % (100 * float(fa)),
-            "Every departure from this laboratory is judged against a band its own healthy arrays cross "
-            "more often than they should. Weigh accordingly.")
 
     # 4. the sky
     sky = o.get("patient_sky") or {}
@@ -1876,11 +1721,7 @@ def red_flags(o, R=None):
         pass
 
     # 8. age
-    ca = o.get("cellular_age") or {}
-    if ca and not ca.get("reportable"):
-        add("NO_CELLULAR_AGE", "WITHHELD", "Reading",
-            "Cellular age in years is not reported: %s" % (ca.get("reason") or "single-array resolution"),
-            "The age-matched healthy reference is what the chain uses instead.")
+    # (age-clock flag removed 2026-09-26 with the stage)
 
     F.sort(key=lambda x: (SEVERITY.get(x["severity"], 9), x["code"]))
     F=[f for f in F if not (isinstance(f,dict) and f.get('code') in _FLAGS_NOT_SHOWN)]
@@ -2095,7 +1936,7 @@ def tab_run(o, R):
     H.append("<h3>4. What the chain needs from you, and what it will refuse</h3>"
        "<table class='t'><tr><th>input</th><th>why</th><th>if you omit it</th></tr>"
        "<tr><td>the IDAT pair, or a calibrated beta vector</td><td>the measurement</td><td>nothing runs</td></tr>"
-       "<tr><td>declared age</td><td>carried as context on every cell's row; no age term is applied to a cell's A</td><td>the internal blood-like gate cannot place the pooled class; every present cell is still read</td></tr>"
+       "<tr><td>declared age</td><td>carried as context on the record; not an operand of any reading</td><td>-</td></tr>"
        "<tr><td>specimen</td><td>presence floors are specimen-specific</td><td>the run is refused - the chain will not guess</td></tr>"
        "<tr><td>laboratory identity</td><td>the pipeline map, the sky's per-address scale and the foreign-cell detection line are the laboratory's own</td><td>every present cell is still read; the sky and foreign-cell detection print 'not commissioned for this laboratory' with the reason</td></tr>"
        "<tr><td>pipeline name</td><td>a beta from a different normalisation sits on a different scale (LESSON-SCALE-01)</td>"
@@ -2190,7 +2031,7 @@ def build(o, out_html, sample_id="sample", percell_ref=None, percell_status="in 
     for _rt in REFERENCE_TABS:
         if _rt in sec:
             sec[_rt] = REFERENCE_BANNER + sec[_rt]
-    imm=o["classes"].get("immune",{}); head=(f"immune A'' {imm.get('A_abs')} · {imm.get('placement')} · {imm.get('tier')}" if imm.get("reportable") else "class gauge not reportable on this sample")
+    imm=o["classes"].get("immune",{}); head=("composition verified: whole blood" if imm.get("composition_verified") else ("composition not verified as whole blood - cell tiers withheld" if imm.get("composition_verified") is False else "composition check not run"))
     nav="".join(f"<button class='{'resr' if a=='r' else ''}' data-t='{i}' onclick=\"tab('{i}')\">{n}</button>" for i,n,_,a in TABS)
     _rprint={"reading","howto","cells","sky","reference","safeguards","trouble","integrity","chain","files","coverage"}
     body="".join(f"<section class='tab{' print' if p else ''}{' printr' if i in _rprint else ''}"

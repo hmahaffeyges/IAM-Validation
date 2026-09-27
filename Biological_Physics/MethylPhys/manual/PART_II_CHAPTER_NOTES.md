@@ -30,7 +30,7 @@ these notes collect the material as it is learned so nothing is lost.
    deconvolver presence gate is the right gate.
 ## Stage 5 — Mahalanobis Option A. Eight class-gauge A's against the band, n-adaptive χ². Defect: `run_full` emits {distance, beyond}
    while the report reads mahalanobis_distance — key mismatch (PROC-CHAIN-01). Distance on healthy donors driven by the stem_adult band.
-## Stage 6 — cellular age. [`iam_cellular_age_scoring.py`](../chain/Runtime%20Matrices/Cellular_Age/iam_cellular_age_scoring.py) v3: invert the band's β_mean(age) curve per class. v1 was a trained clock
+## Stage 6 — cellular age. [`iam_cellular_age_scoring.py`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/iam_cellular_age_scoring.py) v3: invert the band's β_mean(age) curve per class. v1 was a trained clock
    (wrong), v2 inverted the wrong formula (Jensen). Reads 4 yr for adults today — the band curves are too flat/thin to invert. Not reportable.
 ## Stage 7 — tiers. NORMAL 0.95–1.01, ELEVATED 1.01–1.07, SIGNIFICANTLY_ELEVATED 1.07–1.10, BREACH ≥1.10 (onset moved 1.04→1.01, 66f37fe).
 ## The Atlas — several chapters: build (per-class MCMC, 115 cells, 262 columns), the flatness lesson, the brightness posterior

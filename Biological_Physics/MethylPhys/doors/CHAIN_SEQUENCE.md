@@ -5,7 +5,7 @@ Do not edit by hand: re-run the generator. Every step below is a call the code a
 order it makes it, and every stage module or function that is **not** in that path is listed underneath
 rather than left out.
 
-## The live path — 24 steps, in order
+## The live path — 20 steps, in order
 
 | # | step | implemented in | what it does |
 |---|---|---|---|
@@ -24,15 +24,11 @@ rather than left out.
 | 13 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation |
 | 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
 | 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
-| 16 | `stage_b_identity` | `cpg_conductor.py` | THE REPORTED GAUGE (PROC-SWITCH-01, 2026-09-21; SOP s41/s106; RULING A3): A = H(beta_mean)/H_min over the |
+| 16 | `stage_b_identity` | `cpg_conductor.py` | THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27) |
 | 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a |
 | 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
 | 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped |
-| 20 | `stage_5_mahalanobis` | `cpg_conductor.py` | Stage 5 - THE REPORTED DEPARTURE (PROC-MAHA-01, 2026-09-21; SOP s47-51 re-based on row B) |
-| 21 | `stage_5_hull_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure |
-| 22 | `stage_6_cellular_age` | `cpg_conductor.py` | Stage 6 - CELLULAR AGE IS NOT REPORTABLE AT SINGLE-ARRAY RESOLUTION (PROC-AGE-01, 2026-09-21) |
-| 23 | `stage_6_cellular_age_marker_union` | `cpg_conductor.py` | DIAGNOSTIC ONLY since PROC-AGE-01 (2026-09-21): inverts the superseded marker-union age matrix. Never reported |
-| 24 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
+| 20 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
 
 ## Named as chain, called by nothing
 
@@ -46,6 +42,7 @@ that presents them as a step the chain performs is wrong until they are wired.
 | [`lineage_splitter.py`](../chain/Lineage_Splitter/lineage_splitter.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 | [`build_healpix_mapping.py`](../chain/Runtime%20Matrices/Patient_CMB/build_healpix_mapping.py) | build-time tool: makes a runtime file once, not a per-sample step |
 | [`generate_cpg_healpix_mapping.py`](../atlas/healpix_mapping/generate_cpg_healpix_mapping.py) | build-time tool: makes a runtime file once, not a per-sample step |
+| [`cpg_tiers.py`](../chain/cpg_tiers.py) | role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run |
 
 ## Implemented, but not in the live path
 
@@ -54,6 +51,7 @@ steps of the chain is wrong; a reader who needs them must call them deliberately
 
 | step | in | what it implements | status |
 |---|---|---|---|
-| `stage_8_matching` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix | defined in the conductor; run_full does not call it |
+| `stage_5_hull_marker_union` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure | defined in the conductor; run_full does not call it |
+| `stage_8_matching` | `cpg_conductor.py` | NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix | defined in the conductor; run_full does not call it |
 | [`stage_1_calibration.py`](../chain/stage_1_calibration.py) | `stage_1_calibration.py` | Stage 1 — Calibration & beta computation (L2 + L3) | module present; neither run_sample.py nor cpg_conductor.py calls it |
 | [`stage_5_second_chain.py`](../chain/stage_5_second_chain.py) | `stage_5_second_chain.py` | Stage 5 — Second chain (confirmation). Fires ONLY when Stage 8 Route B flags | module present; neither run_sample.py nor cpg_conductor.py calls it |

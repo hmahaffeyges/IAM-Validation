@@ -45,12 +45,12 @@ before the pipeline map, and read the immune identity gauge raw and tared.
 - **It does not predict A.** corr(T_scale, A_raw) = −0.14; corr(T_offset, A_raw) = −0.07 on 732 arrays. Compression at β = 0
   and β = 1 says little about the array's response at β ≈ 0.7, where the identity loci sit.
 
+**Not measured: why the shift is −0.044.** The procedure establishes that the linear SNP-probe tare is a constant offset unrelated to where the array sits; it does not establish the mechanism. Any statement about saturation near the identity-locus beta is a hypothesis for a future procedure, not a finding of this one.
+
 ## What this decides
 
 The question was whether the instrument can be zeroed on a known input carried by every array, instead of on a healthy panel.
-With a **linear** tare from the **SNP probes**, no. Two routes remain and are recorded, not started: (i) a nonlinear response
-model - the compression is a saturation and a straight rescale is the wrong form for it; the tri-modal SNP clusters constrain
-only three points of a curve, so this needs the array's control probes as well; (ii) a physical reference material run
+With a **linear** tare from the **SNP probes**, no. Two routes remain and are recorded, not started: (i) a nonlinear response model using the array's control probes as well as the SNP clusters (the SNP clusters constrain only three points of a curve; whether the compression is a saturation was NOT measured here); (ii) a physical reference material run
 through the laboratory's own pipeline. Until one of these is measured, the pipeline map onto the atlas scale is the instrument's
 calibration, and a laboratory zero remains on record and unapplied.
 

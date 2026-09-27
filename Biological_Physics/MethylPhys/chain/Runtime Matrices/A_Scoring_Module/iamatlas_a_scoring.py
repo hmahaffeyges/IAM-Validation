@@ -217,13 +217,8 @@ def score_per_celltype(customer_betas: Dict[str, float],
             # the identity surface is primary from 2026-09-26; the marker surface is kept only for cells
             # with no identity panel (13 of 115 have fewer than 100 loci at the floor) and is labelled
             result = _score_one_identity(beta_series, ident["loci"], float(ident.get("H_min", h_min_by_class[cls])))
-        # the MCMC reference (percell_reference_mcmc_v1.json): where THIS cell's own A = 1 sits on these loci, and the
-        # atlas's 95 % on it. Departure is read from the reference, the tier from A (the tier file's scale).
-        _ref = ((percell_reference or {}).get("entries") or {}).get(ct) if percell_reference else None
-        if _ref and _ref.get("status") == "OK":
-            result["reference"] = {"A": _ref["ref_A"], "ci95_lo": _ref["ci95_lo"], "ci95_hi": _ref["ci95_hi"], "n_loci": _ref["n_loci"], "source": "MCMC atlas posterior"}
-            if result.get("A") is not None and result["A"] == result["A"]:
-                result["departure_from_reference"] = float(result["A"] - _ref["ref_A"])
+        # 2026-09-27: the per-cell atlas 'reference' block was removed (author's ruling: the only reference is A = 1.00);
+        # the percell_reference argument is accepted and ignored.
         else:
             result = _score_one(beta_series, markers, h_min_by_class[cls])
             result["surface"] = "marker_panel"

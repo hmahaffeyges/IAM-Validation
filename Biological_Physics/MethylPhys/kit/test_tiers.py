@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Kit test, row 7 (PROC-TIER-01): (T1) every tier boundary in tier_breakpoints.json, both sides +/-1e-6, through cpg_tiers.tier_of and
 the report builder's _tier - same answer; no literal breakpoints remain in tier code. (T3) not reportable -> tier None; on the cached
-whole-blood arrays only reportable identity components carry a tier word. (T4) A at/above 1/H_min -> AT_CEILING."""
+whole-blood arrays only reportable identity components carry a tier word. (T4) h_min is accepted and ignored by tier_of: no AT_CEILING word exists (author, 2026-09-27)."""
 import os, sys, json, re, pickle, warnings; warnings.filterwarnings("ignore")
 HERE=os.path.dirname(os.path.abspath(__file__)); BP=os.path.abspath(os.path.join(HERE,"..","..")); ENG=os.path.join(BP,"MethylPhys/chain"); sys.path.insert(0,ENG)
 import cpg_tiers as T, cpg_conductor as C
@@ -18,10 +18,14 @@ assert not lits, lits; print(f"T1 one definition: {len(bounds)} boundaries x 2 s
 assert T.tier_of(1.2, reportable=False)[0] is None and T.tier_of(None)[0] is None
 DATA=os.environ.get("CPG_KIT_DATA",os.path.join(HERE,"data")); c=pickle.load(open(os.path.join(DATA,"betas_cache.pkl"),"rb")); ATLAS=os.path.join(BP,"MethylPhys/atlas/IAMAtlasREBUILD.csv")
 b=c["GSM2333901"].dropna().to_dict(); out=C.run_full(b,ATLAS,cfg={"age":72,"pipeline":"stage1_noob_450K","lab_zero":-0.0117,"lab":"GSE87571"})
-cl=out["classes"]; bad=[(k,v.get("tier")) for k,v in cl.items() if isinstance(v,dict) and not v.get("reportable") and v.get("tier") is not None]; assert not bad, bad
-rep=[(k,v["tier"],v["A_abs"]) for k,v in cl.items() if isinstance(v,dict) and v.get("reportable")]; assert rep and all(t for _,t,_ in rep), rep
-print(f"T3 s108: reportable -> tier {rep}; {sum(1 for k,v in cl.items() if isinstance(v,dict) and not v.get('reportable'))} non-reportable components carry tier None: ok")
-out2=C.run_full(b,ATLAS,cfg={"age":72,"pipeline":"stage1_noob_450K","lab_zero":None,"lab":"GSE87571"}); assert all(v.get("tier") is None for v in out2["classes"].values() if isinstance(v,dict)); print("T3 lab_zero UNSET -> every tier None: ok")
+# T3 (rewritten 2026-09-27): the class gauge is an internal gate and carries NO tier word (MEASURE, DON'T COMPARE);
+# every tier on the report is a present cell's, from tier_of on that cell's A. On whole blood the composition check passes.
+cl=out["classes"]; assert all(v.get("tier") is None for v in cl.values() if isinstance(v,dict)), [(k,v.get("tier")) for k,v in cl.items() if isinstance(v,dict)]
+assert cl["immune"].get("composition_verified") is True, cl["immune"]
+cells=out.get("cells_all") or {}
+present=[(k,T.tier_of(v.get("A"))[0],v.get("A")) for k,v in cells.items() if isinstance(v,dict) and v.get("present") and v.get("A") is not None and v.get("status")=="OK"]
+assert present and all(t for _,t,_ in present), present[:5]
+print(f"T3 class gauge carries no tier; {len(present)} present cells each carry tier_of(A): ok")
 hm=json.load(open(os.path.join(ENG,"Runtime Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json")))["immune"]["H_min"]
-t,n=T.tier_of(1.0/hm+0.01,h_min=hm); assert t=="AT_CEILING" and f"{1.0/hm:.4f}" in n; t2,_=T.tier_of(1.0/hm-0.01,h_min=hm); assert t2=="BREACH"
-print(f"T4 ceiling 1/H_min(immune)={1.0/hm:.4f}: above -> AT_CEILING, just below -> BREACH: ok"); print("test_tiers: PASS")
+t,n=T.tier_of(1.0/hm+0.01,h_min=hm); assert t=="BREACH" and "AT_CEILING" not in (t or ""); t2,_=T.tier_of(1.0/hm-0.01,h_min=hm); assert t2=="BREACH"
+print("T4 no ceiling word: values at or past 1/H_min read BREACH like any other: ok"); print("test_tiers: PASS")

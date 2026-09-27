@@ -111,5 +111,5 @@ def render_plate(sky, out_png, title="", nside=NSIDE, vlim=3.0, dpi=110):
             ax.set_title(f"{name}  ·  f={summ.get('fraction',1.0):.2f}  ·  |z|>2: {100*summ['frac_abs_z_gt2']:.1f}%  ·  median z {summ['median_z']:+.2f}",color="white",fontsize=9); stack.append(np.nan_to_num(px,nan=-99.0))
         else:
             ax.set_title(f"{name}  ·  {summ.get('status','')}",color="#888",fontsize=9); stack.append(np.full(NPIX,-99.0))
-    fig.suptitle(title,color="white",fontsize=13); fig.text(0.5,0.01,"z = (beta - sum_c f_c mu_c - m_lab) / s_lab   ·   red = above the composition expectation, blue = below   ·   black = not assessable (Stage 2 fraction below the measured healthy presence floor)",color="#aaa",ha="center",fontsize=9)
+    fig.suptitle(title,color="white",fontsize=13); fig.text(0.5,0.01,"z = (beta - sum_c f_c mu_c - m_lab) / s_lab   ·   red = above the composition expectation, blue = below   ·   black = not assessable (Stage 2 fraction below the presence floor)",color="#aaa",ha="center",fontsize=9)
     fig.savefig(out_png,dpi=dpi,facecolor="black",bbox_inches="tight"); plt.close(fig); return np.vstack(stack)
