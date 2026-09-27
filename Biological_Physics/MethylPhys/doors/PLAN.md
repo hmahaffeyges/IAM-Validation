@@ -12,7 +12,7 @@ launcher, and nothing edits the chain while a procedure is scoring.
 ## Chain — after TARE-01 finishes, one at a time
 
 3. ~~Deferred chain patch~~ **DONE 2026-09-27, c09e9ef** — folded into the MEASURE-DON'T-COMPARE removal: stage 5/6 cohort stages deleted from the conductor (not just their calls), Patient_CMB on the search path, Percell_Reference / Cellular_Age / Mahalanobis_healthy_reference off it.
-4. **PROC-UNMIX-01** — re-zero the identity loci so the standard reads 1.000, then invert the dilution line per present cell; six bars pre-registered.
+4. ~~PROC-UNMIX-01~~ **SEALED NOT ADOPTED 2026-09-27** — 5 of 6 bars failed; the inversion is exact with true fractions and reads the solver's ±0.03 error otherwise. Fraction stays a gate. Re-test only after a more precise solver (item 27).
 5. **Sky zero and spread from the atlas posterior** — a constructed atlas specimen must read quiet; the four panels must stay at 2.6-3.2 %.
 6. **Held-out Stage 2d** — per-array shards, run alone, then register row B-12 says verified or not.
 7. **Stage 2d kit test** — commissioned panels never fire more than 1-in-n; no panel → "not commissioned", nothing else.
