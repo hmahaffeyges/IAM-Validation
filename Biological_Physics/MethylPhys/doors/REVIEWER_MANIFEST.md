@@ -42,9 +42,10 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) — The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. No age term is applied
 - [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) — Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline the conductor REFUS
 - [`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json) — THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune tier is withheld, 0
-- [`detection_panel_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/detection_panel_v1.json) — Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that laboratory'
+- [`detection_panel_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/detection_panel_v1.json) — 
 - [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) — THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gauge reads (row B). H_m
 - [`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json) — PER-CELL IDENTITY LOCI v1.1 (2026-09-27): per cell, the atlas loci within +/-0.05 of H_min_beta trimmed until the cell's OWN atlas profile reads A = 1.000 - the
+- [`detection_panel_v3.json`](../chain/Runtime%20Matrices/Celltype_Marker/detection_panel_v3.json) — FOREIGN-CELL DETECTOR v3 (PROC-STAGE2D-03, 2026-09-27): one joint NNLS of the panel markers on blood + 21 templates; per-template noise floor = 0.99 quantile ov
 - [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) — The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation anchors reproduce on THIS file, so it canno
 - [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) — How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual
 - [`twin_family_thresholds_v1.json`](../chain/Runtime%20Matrices/Celltype_Marker/twin_family_thresholds_v1.json) — TWIN / FAMILY / COVERAGE constants for the composition solver (PLAN item 6, 2026-09-27): twin_r 0.985, cross-source r 0.98, 30 separating loci at 0.2 beta, cove
@@ -55,7 +56,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`iamatlas_cpg_to_healpix_nside128.npz`](../chain/Runtime%20Matrices/Patient_CMB/iamatlas_cpg_to_healpix_nside128.npz) — The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one chromosome, median 
 - [`presence_floors_v1.json`](../chain/Runtime%20Matrices/Patient_CMB/presence_floors_v1.json) — The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored.
 - [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) — The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report.
-- [`trace_detection_panel_v1.json`](../chain/Runtime%20Matrices/trace_detection_panel_v1.json) — the frozen panel and thresholds for Stage 2c trace detection
+- [`trace_detection_panel_v1.json`](../chain/Runtime%20Matrices/trace_detection_panel_v1.json) — 
 
 ## The atlas
 
@@ -95,7 +96,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 51 procedures, 239 files
+## Every sealed procedure — 52 procedures, 247 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -141,7 +142,8 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-SMALL-01** — [`PROC_SMALL_01_OUTCOME.md`](PROC_SMALL_01_OUTCOME.md), [`PROC_SMALL_01_PREREG.md`](PROC_SMALL_01_PREREG.md), [`PROC_SMALL_01_compare.py`](../kit/PROC_SMALL_01_compare.py), [`PROC_SMALL_01_figure.py`](../kit/PROC_SMALL_01_figure.py), [`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py), [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py), [`PROC_SMALL_01_configurations.json`](../kit/results/PROC_SMALL_01_configurations.json), [`PROC_SMALL_01_detection.png`](../kit/results/PROC_SMALL_01_detection.png), [`PROC_SMALL_01_heldout_60_healthy.json`](../kit/results/PROC_SMALL_01_heldout_60_healthy.json)
 - **PROC-STAGE0-02** — [`PROC_STAGE0_02_OUTCOME.md`](PROC_STAGE0_02_OUTCOME.md), [`PROC_STAGE0_02_PREREG.md`](PROC_STAGE0_02_PREREG.md), [`PROC_STAGE0_02_arrival.py`](../kit/PROC_STAGE0_02_arrival.py), [`PROC_STAGE0_02_seal.py`](../kit/PROC_STAGE0_02_seal.py), [`PROC_STAGE0_02_sweep.py`](../kit/PROC_STAGE0_02_sweep.py), [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json), [`PROC_STAGE0_02_betamean_GSE87571.json`](../kit/results/PROC_STAGE0_02_betamean_GSE87571.json)
 - **PROC-STAGE0-04** — [`PROC_STAGE0_04_PREREG.md`](PROC_STAGE0_04_PREREG.md)
-- **PROC-STAGE2D-02** — [`PROC_STAGE2D_02_PREREG.md`](PROC_STAGE2D_02_PREREG.md)
+- **PROC-STAGE2D-02** — [`PROC_STAGE2D_02_OUTCOME.md`](PROC_STAGE2D_02_OUTCOME.md), [`PROC_STAGE2D_02_PREREG.md`](PROC_STAGE2D_02_PREREG.md)
+- **PROC-STAGE2D-03** — [`PROC_STAGE2D_03_OUTCOME.md`](PROC_STAGE2D_03_OUTCOME.md), [`PROC_STAGE2D_03_PREREG.md`](PROC_STAGE2D_03_PREREG.md), [`PROC_STAGE2D_03.py`](../kit/PROC_STAGE2D_03.py), [`PROC_STAGE2D_03.json`](../kit/results/PROC_STAGE2D_03.json), [`PROC_STAGE2D_03_B56.json`](../kit/results/PROC_STAGE2D_03_B56.json), [`PROC_STAGE2D_03_null_732.csv`](../kit/results/PROC_STAGE2D_03_null_732.csv), [`PROC_STAGE2D_03_spikes.csv`](../kit/results/PROC_STAGE2D_03_spikes.csv)
 - **PROC-SWITCH-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-SWITCH-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-SWITCH-01/PREREG.md), [`switch01_s123.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s123.json), [`switch01_s4.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4.json), [`switch01_s4_diag.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s4_diag.json), [`switch01_s6.json`](../../Record/PROC_data/PROC-SWITCH-01/switch01_s6.json)
 - **PROC-SWITCH-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-SWITCH-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-SWITCH-02/PREREG.md), [`switch02_results.json`](../../Record/PROC_data/PROC-SWITCH-02/switch02_results.json)
 - **PROC-SYNTH-01** — [`PROC_SYNTH_01_OUTCOME.md`](PROC_SYNTH_01_OUTCOME.md), [`PROC_SYNTH_01.py`](../kit/PROC_SYNTH_01.py), [`PROC_SYNTH_01_cells.py`](../kit/PROC_SYNTH_01_cells.py), [`PROC_SYNTH_01.json`](../kit/results/PROC_SYNTH_01.json), [`PROC_SYNTH_01_cells.json`](../kit/results/PROC_SYNTH_01_cells.json), [`PROC_SYNTH_01_fraction.json`](../kit/results/PROC_SYNTH_01_fraction.json)

@@ -1,16 +1,19 @@
 {
  "_meta": {
-  "built": "2026-09-27 06:40",
-  "commit": "cac64c5",
-  "n_files": 203,
-  "n_undescribed": 6,
+  "built": "2026-09-27 08:21",
+  "commit": "32cde21",
+  "n_files": 205,
+  "n_undescribed": 9,
   "undescribed": [
    "FINDING_DETECTION_PANEL_HELDOUT.md",
    "HELDOUT_2D.py",
    "PERCELL_STANDARD_REZERO_2026-09-27.md",
    "README_LOG_2026-09-20_to_21_RECORD.md",
    "START_HERE.md",
-   "intake_thresholds_v1.json"
+   "detection_panel_v1.json",
+   "detection_panel_v2.json",
+   "intake_thresholds_v1.json",
+   "trace_detection_panel_v1.json"
   ],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
   "note": "a file with role UNDESCRIBED is a gap in this table, not a file that does nothing - the count is printed on the Chain tab so the gap is visible"
@@ -40,8 +43,8 @@
    "role": "chain",
    "stage": "stage 0",
    "description": "THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently defaulting. Everything else in this table is reached from here.",
-   "bytes": 38909,
-   "sha256_12": "9b364ec801bd"
+   "bytes": 41094,
+   "sha256_12": "5dcacd846819"
   },
   {
    "file": "stage_0_intake.py",
@@ -184,8 +187,8 @@
    "role": "reference",
    "stage": "",
    "description": "the step order as the code calls it, derived by AST - never typed",
-   "bytes": 4583,
-   "sha256_12": "79479176daab"
+   "bytes": 4590,
+   "sha256_12": "74435aff74dd"
   },
   {
    "file": "DECONVOLVER_REPAIR_2026-09-26.md",
@@ -275,7 +278,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11970,
-   "sha256_12": "78fcf950b19f"
+   "sha256_12": "7e755ca1c5d3"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -284,7 +287,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2822,
-   "sha256_12": "1565020ce6d6"
+   "sha256_12": "4b105850a4bf"
   },
   {
    "file": "REPRODUCTION.md",
@@ -301,8 +304,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 31176,
-   "sha256_12": "755a09325335"
+   "bytes": 31784,
+   "sha256_12": "ff0dd1afcc7e"
   },
   {
    "file": "RUN.md",
@@ -453,9 +456,27 @@
    "path": "Biological_Physics/MethylPhys/kit/commission_detection_lab.py",
    "role": "guard",
    "stage": "",
-   "description": "commissions a laboratory for Stage 2d from >= 36 of its own healthy whole-blood arrays: maps them, drops any the composition guard does not verify as blood-like, writes centre/weights/line into detection_panel_v1.json; produces no reading",
+   "description": "commissions a laboratory for Stage 2d from >= 36 of its own healthy whole-blood arrays: maps them, drops any the composition guard does not verify as blood-like, writes centre/weights/line into detection_panel_v3.json; produces no reading",
    "bytes": 5867,
    "sha256_12": "f280d28f233d"
+  },
+  {
+   "file": "detection_panel_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/detection_panel_v1.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 646875,
+   "sha256_12": "448a4d511f4b"
+  },
+  {
+   "file": "detection_panel_v2.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Celltype_Marker/detection_panel_v2.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 571049,
+   "sha256_12": "47031ba09130"
   },
   {
    "file": "disease_matching.py",
@@ -580,8 +601,8 @@
    "role": "record",
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
-   "bytes": 1950,
-   "sha256_12": "81559d7de679"
+   "bytes": 1980,
+   "sha256_12": "4b30882c18ca"
   },
   {
    "file": "reference_cells_37.csv",
@@ -599,7 +620,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "53950c5d211e"
+   "sha256_12": "2046b21aa0d8"
   },
   {
    "file": "sop_repoint.py",
@@ -649,9 +670,9 @@
   {
    "file": "trace_detection_panel_v1.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/trace_detection_panel_v1.json",
-   "role": "reference",
+   "role": "UNDESCRIBED",
    "stage": "",
-   "description": "the frozen panel and thresholds for Stage 2c trace detection",
+   "description": "",
    "bytes": 2685457,
    "sha256_12": "c660883f2e07"
   },
@@ -663,15 +684,6 @@
    "description": "the validation index as data",
    "bytes": 82143,
    "sha256_12": "676cc035232d"
-  },
-  {
-   "file": "detection_panel_v1.json",
-   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/detection_panel_v1.json",
-   "role": "reference",
-   "stage": "2d",
-   "description": "Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that laboratory's own commissioning panel; the 1,506 markers and the blood/foreign reference columns (PROC-MF-02/03; adopted by the author 2026-09-26)",
-   "bytes": 646875,
-   "sha256_12": "448a4d511f4b"
   },
   {
    "file": "cell_descriptions_v1.json",
@@ -886,8 +898,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 22339,
-   "sha256_12": "a998d7557a9f"
+   "bytes": 22934,
+   "sha256_12": "3bc8b2c28043"
   },
   {
    "file": "build_all.py",
@@ -913,8 +925,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which stage is commissioned, by which sealed procedure, and what is still open.",
-   "bytes": 25338,
-   "sha256_12": "70e9edc72c30"
+   "bytes": 26079,
+   "sha256_12": "609330c47138"
   },
   {
    "file": "CHANGELOG.md",
@@ -949,8 +961,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 18897,
-   "sha256_12": "7962ef0f570c"
+   "bytes": 19289,
+   "sha256_12": "467b431c6e62"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -985,8 +997,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1500584,
-   "sha256_12": "cba65d060c57"
+   "bytes": 1556992,
+   "sha256_12": "d0bf14de1156"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1003,8 +1015,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7061,
-   "sha256_12": "cfab65af8ec0"
+   "bytes": 7047,
+   "sha256_12": "b57997d48cf1"
   },
   {
    "file": "README_FIRST.md",
@@ -1057,8 +1069,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43178,
-   "sha256_12": "505f6b56ba80"
+   "bytes": 43164,
+   "sha256_12": "69162d5774de"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1192,8 +1204,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13622,
-   "sha256_12": "ec9bb2ada1d7"
+   "bytes": 13722,
+   "sha256_12": "ffd2d865ccf0"
   },
   {
    "file": "cpg_kit.py",
@@ -1318,8 +1330,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 45868,
-   "sha256_12": "2847dae1edcd"
+   "bytes": 46322,
+   "sha256_12": "91d1401c820f"
   },
   {
    "file": "build_methylphys.py",
@@ -1327,8 +1339,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 224277,
-   "sha256_12": "8dd9dfe219c0"
+   "bytes": 224236,
+   "sha256_12": "8aa14b188c19"
   },
   {
    "file": "build_percell_reference.py",
@@ -1345,8 +1357,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 72993,
-   "sha256_12": "4cd219ab5274"
+   "bytes": 73869,
+   "sha256_12": "a2de81d80bee"
   },
   {
    "file": "run_sample.py",
@@ -1644,6 +1656,15 @@
    "description": "How the atlas was built: sources, sample counts, MCMC settings, checksums.",
    "bytes": 1757,
    "sha256_12": "91b688f173b6"
+  },
+  {
+   "file": "detection_panel_v3.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Celltype_Marker/detection_panel_v3.json",
+   "role": "reference",
+   "stage": "stage 2",
+   "description": "FOREIGN-CELL DETECTOR v3 (PROC-STAGE2D-03, 2026-09-27): one joint NNLS of the panel markers on blood + 21 templates; per-template noise floor = 0.99 quantile over 732 healthy arrays; standing bias and measured detection limit per template; gastric-undiff NOT DETECTABLE. v1/v2 (blood-first, residual projection) retired: they absorbed real foreign material and were commissioned on a circular spike.",
+   "bytes": 552100,
+   "sha256_12": "30b3f774a286"
   },
   {
    "file": "iamatlas_collinearity_groups_v0_1.json",

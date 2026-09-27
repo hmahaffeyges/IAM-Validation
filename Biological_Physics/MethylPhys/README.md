@@ -41,7 +41,7 @@ in `../RETIRED_2026-09/`. If you are reading this to run something, start at `do
 | 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
 | 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
 | 16 | `stage_b_identity` | `cpg_conductor.py` | THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27) |
-| 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a |
+| 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION as ONE JOINT FIT (PROC-STAGE2D-03, adopted 2026-09-27 by the author's ruling: B1's |
 | 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
 | 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky. z_i = (beta_i - sum_c f_c mu_ci) / sigma_i on the mapped beta, where |
 | 20 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |

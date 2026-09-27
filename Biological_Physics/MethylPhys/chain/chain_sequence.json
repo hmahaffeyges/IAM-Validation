@@ -93,7 +93,7 @@
   },
   {
    "step": "stage_2d_foreign_detection",
-   "implements": "Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a",
+   "implements": "Stage 2d - FOREIGN-CELL DETECTION as ONE JOINT FIT (PROC-STAGE2D-03, adopted 2026-09-27 by the author's ruling: B1's",
    "where": "cpg_conductor.py"
   },
   {
@@ -177,6 +177,8 @@
   "claims.json": "record",
   "cmb_tools.py": "guard",
   "commission_detection_lab.py": "guard",
+  "detection_panel_v1.json": "UNDESCRIBED",
+  "detection_panel_v2.json": "UNDESCRIBED",
   "disease_matching.py": "not in the chain",
   "evaluate_necessity.py": "guard",
   "file_run.py": "interface",
@@ -198,9 +200,8 @@
   "sop_step_detail.py": "guard",
   "sync_components.py": "guard",
   "toc_pages.json": "interface",
-  "trace_detection_panel_v1.json": "reference",
+  "trace_detection_panel_v1.json": "UNDESCRIBED",
   "val_index.json": "record",
-  "detection_panel_v1.json": "reference",
   "cell_descriptions_v1.json": "reference",
   "README_atlas_v0_1_vault.md": "reference",
   "compact_atlas.py": "reference",
@@ -309,6 +310,7 @@
   "IAMAtlasREBUILD.csv.xz": "reference",
   "IAMAtlasREBUILD_celltype_to_class.json": "reference",
   "IAMAtlasREBUILD_provenance.json": "reference",
+  "detection_panel_v3.json": "reference",
   "iamatlas_collinearity_groups_v0_1.json": "reference",
   "twin_family_thresholds_v1.json": "reference",
   "directional_panels_v1_0.json": "reference",

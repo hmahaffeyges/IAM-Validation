@@ -1,0 +1,13 @@
+{
+ "B5": {
+  "max_diff": 0.0,
+  "met": true
+ },
+ "B6": {
+  "n": 100,
+  "undetected_scored": 0,
+  "unspecific": 2,
+  "ref_glia_present": false,
+  "met": true
+ }
+}

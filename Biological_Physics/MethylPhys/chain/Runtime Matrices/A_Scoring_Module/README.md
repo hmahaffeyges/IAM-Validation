@@ -10,7 +10,7 @@ The identity loci and the per-class floors the gauge divides by, with the band t
 | [`age_reference_matrix.json`](age_reference_matrix.json) | The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. No age term  |
 | [`beta_scale_maps_v1.json`](beta_scale_maps_v1.json) | Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline the condu |
 | [`composition_guard_v1.json`](composition_guard_v1.json) | THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune tier is w |
-| [`detection_panel_v1.json`](detection_panel_v1.json) | Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that l |
+| [`detection_panel_v1.json`](detection_panel_v1.json) |  |
 | [`iamatlas_a_scoring.py`](iamatlas_a_scoring.py) | The A-score itself: A = mean_i H(beta_i) / H_min(class). Asserts against the wrong aggregation (entropy of the mean beta), which is the defect PROC-N7 |
 | [`iamatlas_gauge_identity_loci_v1_0.json`](iamatlas_gauge_identity_loci_v1_0.json) | THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gauge reads (r |
 | [`iamatlas_percell_identity_loci_v1_1.json`](iamatlas_percell_identity_loci_v1_1.json) | PER-CELL IDENTITY LOCI v1.1 (2026-09-27): per cell, the atlas loci within +/-0.05 of H_min_beta trimmed until the cell's OWN atlas profile reads A = 1 |

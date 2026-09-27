@@ -411,28 +411,26 @@ def stage_2b_second_opinion(beta_dict, stage_a_out, atlas_csv, cfg=None):
             "reported_composition": "legacy (constrained NNLS) - NILC is a second opinion only"}
 
 def stage_2d_foreign_detection(beta_mapped, stage_a_out, lab, bi=None):
-    """Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a
-    commissioned panel in detection_panel_v1.json (PROC-MF-02/03: 0.5-1 % of Breast / colon / neurons / prostate
-    in blood on four 450K laboratories, honest sigma, no bias; the fifth-laboratory bar failed each time, so a
-    laboratory not in the panel gets NO line and says so).
+    """Stage 2d - FOREIGN-CELL DETECTION as ONE JOINT FIT (PROC-STAGE2D-03, adopted 2026-09-27 by the author's ruling: B1's
+    UNSPECIFIC bar failed as written (1.9 % vs 1 %) and the author ruled the 1.9 % a measurement, not a false alarm -
+    doors/PROC_STAGE2D_03_OUTCOME.md).
 
-    Inverse-variance weighted template amplitude against the specimen's own blood background:
-        b = blood-only NNLS reconstruction on the panel's markers; r = v - b; t = mu_cell - b / sum(f_blood)
-        f_hat = sum w t r / sum w t^2 - centre_lab ;  detected iff f_hat > line_lab(cell)
-    Gate: runs only when the composition guard verified the specimen as blood-like (a control reading 0.2 on every
-    foreign cell at once is substrate mismatch, PROC-MF-03 - it must never reach a line). Reports per foreign cell
-    (f_hat, sigma, line, detected, measured_detection_limit). Never changes the blood composition (MF-02/03 B6).
+    One NNLS of the specimen's panel markers (mapped) on [blood reference columns | all 21 foreign templates];
+    f_hat_cell = coef_cell / sum(coef). The earlier design (blood fitted FIRST, template read in the residual) let the blood
+    fit absorb foreign material: with honest spikes it responded at 2-13 % of a 5 % spike (PROC_STAGE2D_02_OUTCOME.md), and
+    the 0.5 % limits of PROC-MF-03 came from injecting the panel's own template. The joint fit responds at 0.6-1.0 of f.
+    Line: the instrument's NOISE FLOOR - 0.99 quantile over 732 arrays known to lack the cell (author's decision 2026-09-27),
+    printed with N; a standing bias on blood is printed beside it. >= 3 templates above their floors = 'epithelial-like
+    material, cell not resolved' (1.9 % of healthy arrays, the oldest). A template not resolved on this block prints NOT
+    DETECTABLE. Gate: composition check verified blood-like. Never changes the blood composition.
     """
     import numpy as _np
     from scipy.optimize import nnls as _nnls
-    out = {"status": None, "laboratory": lab, "cells": {}, "detected": []}
+    out = {"status": None, "laboratory": lab, "cells": {}, "detected": [], "not_detectable": {}}
     try:
-        P = json.load(open(_find("detection_panel_v1.json")))
+        P = json.load(open(_find("detection_panel_v3.json")))
     except Exception as e:
-        out["status"] = "NOT_RUN: detection_panel_v1.json not found (%s)" % type(e).__name__; return out
-    if lab not in P["laboratories"]:
-        out["status"] = "NOT_COMMISSIONED: detection is not commissioned for laboratory %r - no line is borrowed" % lab
-        out["commissioned_laboratories"] = sorted(P["laboratories"]); return out
+        out["status"] = "NOT_RUN: detection_panel_v3.json not found (%s)" % type(e).__name__; return out
     imm = ((bi or {}).get("immune") or {})
     if imm.get("composition_verified") is False:
         out["status"] = "WITHHELD: the composition guard did not verify this specimen as blood-like (foreign fraction %s); a line is not applied to a specimen that is not blood" % imm.get("foreign_fraction")
@@ -440,22 +438,28 @@ def stage_2d_foreign_detection(beta_mapped, stage_a_out, lab, bi=None):
     M = P["markers"]; v = _np.array([beta_mapped.get(m, _np.nan) for m in M], dtype=float); ok = ~_np.isnan(v)
     if ok.sum() < 0.8 * len(M):
         out["status"] = "NOT_RUN: only %d of %d panel markers present (need 80 %%)" % (int(ok.sum()), len(M)); return out
-    Ab = _np.array([P["blood_ref"][c] for c in P["_meta"]["blood_columns"]]).T[ok]
-    Lp = P["laboratories"][lab]; w = _np.array(Lp["weights"])[ok]
-    fb, _ = _nnls(Ab, v[ok]); b = Ab @ fb; r = v[ok] - b; bg = b / max(fb.sum(), 1e-9)
-    for c, ref in P["foreign_ref"].items():
-        t = _np.array(ref)[ok] - bg
-        a = float(_np.sum(w * t * r) / _np.sum(w * t * t)); cp = Lp["cells"][c]
-        f = a - cp["centre"]
-        rec = {"f_hat": round(f, 5), "sigma": cp["sigma"], "z": round(f / cp["sigma"], 2) if cp["sigma"] else None, "line": cp["line"],
-               "detected": bool(f > cp["line"]), "measured_detection_limit": cp["measured_detection_limit"]}
+    cells = list(P["foreign_ref"])
+    Ab = _np.array([P["blood_ref"][c] for c in P["blood_columns"]]).T[ok]
+    T = _np.array([P["foreign_ref"][c] for c in cells]).T[ok]
+    coef, _ = _nnls(_np.column_stack([Ab, T]), v[ok]); tot = max(float(coef.sum()), 1e-9)
+    fb = coef[:Ab.shape[1]]; ff = coef[Ab.shape[1]:]
+    out["foreign_mass_total"] = round(float(ff.sum() / tot), 5)
+    NF = P["noise_floor"]["cells"]; ND = P["not_detectable"]
+    for c, a in zip(cells, ff):
+        f = float(a / tot)
+        if c in ND:
+            out["not_detectable"][c] = {"f_hat": round(f, 5), "reason": ND[c]["reason"]}; continue
+        cp = NF[c]
+        rec = {"f_hat": round(f, 5), "line": cp["line"], "standing_bias": cp["standing_bias"], "detected": bool(f > cp["line"]),
+               "measured_detection_limit": cp["measured_detection_limit_90pct"]}
         out["cells"][c] = rec
         if rec["detected"]: out["detected"].append(c)
-    out["status"] = "OK"; out["n_markers_used"] = int(ok.sum()); out["panel_n"] = Lp["n_panel"]
-    out["line_rule"] = P["_meta"]["line_rule"]
-    # specificity note (PROC-MF-03): every foreign cell rising together is substrate mismatch, not detection
-    if len(out["detected"]) >= max(3, len(P["foreign_ref"]) // 2):
-        out["status"] = "OK_BUT_UNSPECIFIC: %d of %d foreign cells detected together - substrate-mismatch signature, not a detection of any one cell" % (len(out["detected"]), len(P["foreign_ref"]))
+    out["status"] = "OK"; out["n_markers_used"] = int(ok.sum())
+    out["noise_floor"] = {"measured_on": P["noise_floor"]["laboratory_measured_on"], "n_arrays": P["noise_floor"]["n_arrays"], "quantile": P["_meta"]["quantile"]}
+    out["panel_n"] = P["noise_floor"]["n_arrays"]; out["line_rule"] = P["_meta"]["line_rule"]
+    if len(out["detected"]) >= 3:
+        out["status"] = ("OK_BUT_UNSPECIFIC: %d templates above their floors (foreign-like mass %.1f %%) - epithelial-like material, cell not resolved"
+                         % (len(out["detected"]), out["foreign_mass_total"] * 100))
     return out
 
 
@@ -472,6 +476,28 @@ def run_full(beta_dict, atlas_csv, cfg=None):
     beta_rm, scale_label = stage_1s_scale_map(beta_dict, cfg.get("pipeline"))   # Stage 1s: calibration scale for the gauge
     bi = stage_b_identity(beta_rm, a, age, scale_label, lab_zero=cfg.get("lab_zero"))   # THE REPORTED GAUGE (row B, commissioned PROC-SWITCH-01)
     fd = stage_2d_foreign_detection(beta_rm, a, cfg.get("lab"), bi)                  # Stage 2d: foreign-cell detection (author-adopted 2026-09-26, PROC-MF-01/02/03)
+    # 2026-09-27 (PROC-STAGE2D-02 B7; author caught a Glia BREACH on a healthy blood reference array): in a whole-blood
+    # specimen a cell from a NON-BLOOD class is scored only when Stage 2d DETECTS it. The solver's fraction crossing the
+    # 1 % cell floor is not presence for a foreign cell - at 1 % the cell's identity loci carry the other 99 % of the
+    # specimen and read a false tier (FRACTION_AND_A). The detector is the presence test; its noise floor was measured on
+    # arrays known to lack the cell. A template the detector cannot read (not_detectable) is likewise not scored.
+    _blood_specimen = str(cfg.get("substrate", "whole blood")).lower().startswith("whole blood")
+    if _blood_specimen and isinstance(fd, dict) and fd.get("status", "").startswith("OK"):
+        _det = set(fd.get("detected") or [])
+        _c2c_path = _find("IAMAtlasREBUILD_celltype_to_class.json", required=False)
+        _c2c = json.load(open(_c2c_path)) if _c2c_path else {}
+        _c2c = _c2c.get("celltype_to_class", _c2c)
+        for _ct, _v in a["cells"].items():
+            if not _v.get("present"): continue
+            _cls = _v.get("class") or _c2c.get(_ct)
+            if _cls in ("immune", "progenitor", "stem_adult"): continue           # the blood architecture
+            if _ct in _det: continue
+            _v["present"] = False; _v["A_solver_only"] = _v.get("A"); _v["A"] = None
+            _v["status"] = ("NOT_DETECTED: solver fraction %.4f in a whole-blood specimen, Stage 2d %s - not scored"
+                            % (_v.get("fraction") or 0, "cannot read this template (not detectable on this block)" if _ct in (fd.get("not_detectable") or {}) else "below its noise floor"))
+    # every present cell under 5 % carries its fraction beside the tier: a minority cell's reading is the fraction confound
+    for _ct, _v in a["cells"].items():
+        if _v.get("present") and (_v.get("fraction") or 0) < 0.05: _v["minority_cell"] = True
     present_cls = [c for c, v in b["class_gauge"].items() if v.get("present")]
     bd = stage_4_5_bidirectional(beta_dict, cfg)
     sky = stage_4_6_patient_sky(beta_rm, a, cfg=cfg, atlas_csv=atlas_csv)                              # Stage 4.6: the patient's sky (row 4.6 built, commissioning WITHHELD - PROC-CMB-04 C2')

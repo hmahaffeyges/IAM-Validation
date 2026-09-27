@@ -267,7 +267,7 @@ def tab_reading(o, R, sid):
     if st=="OK":
         det=fd.get("detected") or []
         H.append(("<p><b>Detected above this laboratory's own line: "+_e(", ".join(det))+".</b> A presence statement, not a clinical statement; the cell's A is read only where it clears its presence floor.</p>") if det
-                 else "<p><b>No foreign cell above this laboratory's line.</b> Held out on 732 healthy arrays this detector false-alarms on 48 %; its result is printed and NOT trusted until it is rebuilt (FINDING_DETECTION_PANEL_HELDOUT.md).</p>")
+                 else "<p><b>No foreign template above its noise floor.</b></p>")
     elif st.startswith("OK_BUT_UNSPECIFIC"):
         H.append(f"<p class='pend'><b>Unspecific.</b> {_e(st.split(': ',1)[-1])} Every foreign column rising together is what a specimen that is not blood-like looks like; no single detection is read.</p>")
     elif st.startswith("NOT_COMMISSIONED"):
@@ -332,7 +332,7 @@ def _detection_block(o):
     2026-09-26 and scoped to laboratories with a commissioned panel; the status string says exactly why nothing is
     printed when nothing is."""
     fd=o.get("foreign_detection")
-    H=["<h3>Foreign-cell detection (Stage 2d)</h3>", "<p class='pend'><b>Held out on 732 healthy blood arrays (2026-09-27), this detector fires on 48 % of them and calls 24 % a 'substrate mismatch' - its lines were set on 12 arrays and its &sigma; is 2.6&times; too small (FINDING_DETECTION_PANEL_HELDOUT.md). Nothing in this section is trusted until the detector is rebuilt (per-array common-mode removal, lines re-measured, thin-source cells marked not detectable). The composition check above is unaffected.</p>"]
+    H=["<h3>Foreign-cell detection (Stage 2d)</h3>", "<p>One joint fit of this specimen's panel markers on the blood reference and all 21 foreign templates; each template's floor is the instrument's noise floor, the 0.99 quantile over "+str((fd.get('noise_floor') or {}).get('n_arrays') or '')+" arrays known to lack the cell (PROC-STAGE2D-03). A cell is named when one template clears its floor; three or more together read as epithelial-like material with the cell not resolved (measured on 1.9 % of healthy arrays, the oldest). A detected foreign cell prints its fraction; its A is not read below a scoring floor still to be tested.</p>"]
     if not fd:
         H.append("<p class='pend'>NOT RUN - this bundle predates Stage 2d.</p>"); return "".join(H)
     st=fd.get("status") or ""
