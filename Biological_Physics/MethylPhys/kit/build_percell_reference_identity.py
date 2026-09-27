@@ -47,7 +47,7 @@ def main():
     sys.path.insert(0, CH)
     import cpg_conductor as C
     asc = C._load_module("iamatlas_a_scoring", C._find("iamatlas_a_scoring.py"))
-    pci = asc.load_percell_identity(str(C._find("iamatlas_percell_identity_loci_v1_0.json")))
+    pci = asc.load_percell_identity(str(C._find("iamatlas_percell_identity_loci_v1_1.json")))
     cells = sorted(pci)
     print(f"cells with identity panels: {len(cells)}", flush=True)
 
@@ -120,7 +120,7 @@ def main():
                 "grand_median_A": round(float(np.median([v["A_p50"] for v in ok])), 4)}
 
     meta = {"built": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()),
-            "surface": "identity_loci (iamatlas_percell_identity_loci_v1_0.json)",
+            "surface": "identity_loci (iamatlas_percell_identity_loci_v1_1.json)",
             "formula": "A = H(mean beta over the cell's identity loci) / H_min[class(cell)] - RULING A3, the commissioned identity form used by stage_b_identity; betas scale-mapped to the atlas (stage_1s_scale_map) before scoring, as the class gauge does",
             "jensen_gap_median_per_cell": {ct: round(float(np.median(v)), 5) for ct, v in JG.items()},
             "scorer": "iamatlas_a_scoring._score_one_identity - the chain's own, not a re-implementation",

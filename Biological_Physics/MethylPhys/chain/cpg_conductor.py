@@ -120,7 +120,7 @@ def stage_a_cells(beta_dict, atlas_csv, cfg=None):
     # panels, which the reference audit disqualified: a cell's own atlas mean read far below 1.0.
     # This artifact gives 102 of 115 cells a panel of loci sitting AT their class floor, built by
     # the same criterion as the eight class panels; each cell's own reference reads 0.9362-1.0204.
-    _pci_path = _find("iamatlas_percell_identity_loci_v1_0.json", required=False)
+    _pci_path = _find("iamatlas_percell_identity_loci_v1_1.json", required=False)
     _pci = asc.load_percell_identity(str(_pci_path)) if _pci_path else None
     try:
         _pref = None   # 2026-09-27: the per-cell atlas 'reference' was removed by the author's ruling - the only reference is A = 1.00

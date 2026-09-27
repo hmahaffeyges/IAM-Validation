@@ -44,7 +44,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json) — THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune tier is withheld, 0
 - [`detection_panel_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/detection_panel_v1.json) — Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that laboratory'
 - [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) — THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gauge reads (row B). H_m
-- [`iamatlas_percell_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json) — PER-CELL IDENTITY LOCI (2026-09-26): the class panels' own criterion (|mean - H_min_beta| <= 0.05, one entropy branch per cell) applied to 102 of 115 cells, MIN
+- [`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json) — PER-CELL IDENTITY LOCI v1.1 (2026-09-27): per cell, the atlas loci within +/-0.05 of H_min_beta trimmed until the cell's OWN atlas profile reads A = 1.000 - the
 - [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) — The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation anchors reproduce on THIS file, so it canno
 - [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) — How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual
 - [`iamatlas_collinearity_groups_v0_1.json`](../chain/Runtime%20Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json) — Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group sh
@@ -94,7 +94,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 50 procedures, 232 files
+## Every sealed procedure — 50 procedures, 236 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -119,7 +119,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-FOREIGN-01** — [`PROC_FOREIGN_01_OUTCOME.md`](PROC_FOREIGN_01_OUTCOME.md), [`PROC_FOREIGN_01_PREREG.md`](PROC_FOREIGN_01_PREREG.md), [`PROC_FOREIGN_01.py`](../kit/PROC_FOREIGN_01.py), [`PROC_FOREIGN_01_analyse.py`](../kit/PROC_FOREIGN_01_analyse.py), [`PROC_FOREIGN_01.json`](../kit/results/PROC_FOREIGN_01.json), [`PROC_FOREIGN_01_mixtures.json`](../kit/results/PROC_FOREIGN_01_mixtures.json), [`PROC_FOREIGN_01_threshold_options.json`](../kit/results/PROC_FOREIGN_01_threshold_options.json)
 - **PROC-FORMULA-01** — [`PROC_FORMULA_01.py`](../kit/PROC_FORMULA_01.py), [`PROC_FORMULA_01.json`](../kit/results/PROC_FORMULA_01.json)
 - **PROC-HISTORY-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-HISTORY-01/OUTCOME.md)
-- **PROC-INTAKE-01** — [`PROC_INTAKE_01_PREREG.md`](PROC_INTAKE_01_PREREG.md)
+- **PROC-INTAKE-01** — [`PROC_INTAKE_01_OUTCOME.md`](PROC_INTAKE_01_OUTCOME.md), [`PROC_INTAKE_01_PREREG.md`](PROC_INTAKE_01_PREREG.md), [`PROC_INTAKE_01.py`](../kit/PROC_INTAKE_01.py), [`PROC_INTAKE_01.json`](../kit/results/PROC_INTAKE_01.json), [`PROC_INTAKE_01_48_array_measurement.csv`](../kit/results/PROC_INTAKE_01_48_array_measurement.csv)
 - **PROC-LABBAND-01** — [`PROC_LABBAND_01_OUTCOME.md`](PROC_LABBAND_01_OUTCOME.md), [`PROC_LABBAND_01_PREREG.md`](PROC_LABBAND_01_PREREG.md), [`PROC_LABBAND_01.py`](../kit/PROC_LABBAND_01.py), [`PROC_LABBAND_01.json`](../kit/results/PROC_LABBAND_01.json)
 - **PROC-LOD-01** — [`PROC_LOD_01_detection_limit.png`](../kit/results/PROC_LOD_01_detection_limit.png)
 - **PROC-MAHA-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-MAHA-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-MAHA-01/PREREG.md), [`maha01_chip_diag.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_chip_diag.json), [`maha01_m145.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_m145.json), [`maha01_m23.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_m23.json)

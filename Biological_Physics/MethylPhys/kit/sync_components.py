@@ -60,7 +60,7 @@ DESCRIBE = {
         "per laboratory (four labs, ~970 arrays, held-out split, coverage 0.797), one laboratory offset per lab, "
         "and each cell's centre after the offset. NORMAL for a cell is judged against ITS OWN centre. Built by "
         "kit/build_percell_reference_identity.py on the commissioned H(beta_mean)/H_min form.",
-    "iamatlas_percell_identity_loci_v1_0.json":
+    "iamatlas_percell_identity_loci_v1_1.json":
         "PER-CELL IDENTITY LOCI - the class panels' own criterion (|mean - H_min_beta| <= 0.05, one entropy "
         "branch) applied to each of 102 cells. The surface the per-cell A is computed on. Every cell's own atlas "
         "mean reads 0.936-1.020 on its panel. Built by kit/build_percell_identity.py.",
@@ -76,7 +76,7 @@ KIT_NEW = [
      "surface, unmapped betas, crossed formula, unreachable reference - plus A <= 1/H_min and the fraction-0 "
      "gate, by scoring a real healthy array through the chain. Exit 1 refuses the push."),
     ("kit/build_percell_identity.py", "kit", "builder",
-     "Builds iamatlas_percell_identity_loci_v1_0.json from the atlas by the class panels' criterion."),
+     "Builds iamatlas_percell_identity_loci_v1_1.json from the atlas by the class panels' criterion."),
     ("kit/build_percell_reference_identity.py", "kit", "builder",
      "Builds percell_reference_identity_v1_0.json: per-cell per-lab A bands on the identity surface, "
      "commissioned form, mapped betas, disjoint held-out split, laboratory offsets."),

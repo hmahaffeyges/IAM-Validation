@@ -1,7 +1,7 @@
 {
  "_meta": {
   "built": "2026-09-27",
-  "from": "Webpage Drafts.zip (author) - biology sections only; atlas facts from IAMAtlasREBUILD_celltype_to_class.json, iamatlas_gauge_identity_loci_v1_0.json, iamatlas_percell_identity_loci_v1_0.json, iamatlas_celltype_markers_v0_2.json",
+  "from": "Webpage Drafts.zip (author) - biology sections only; atlas facts from IAMAtlasREBUILD_celltype_to_class.json, iamatlas_gauge_identity_loci_v1_0.json, iamatlas_percell_identity_loci_v1_1.json, iamatlas_celltype_markers_v0_2.json",
   "rule": "what a cell IS, never what a reading means for anyone; the report's vocabulary guards were run over every field",
   "drafts_used": [
    "B_cells",
@@ -46,7 +46,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 38127,
+   "cell_identity_loci": 34266,
    "markers": 99,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -62,7 +62,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 192,
+   "cell_identity_loci": 102,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -110,7 +110,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 37031,
+   "cell_identity_loci": 32625,
    "markers": 100,
    "atlas_loci_defined": 482419,
    "atlas_coverage": 0.9986068906129681
@@ -126,7 +126,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 167,
+   "cell_identity_loci": 115,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -142,7 +142,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 154,
+   "cell_identity_loci": 138,
    "markers": 99,
    "atlas_loci_defined": 2781,
    "atlas_coverage": 0.0057566674670663145
@@ -158,7 +158,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 44949,
+   "cell_identity_loci": 40493,
    "markers": 99,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -174,7 +174,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 195,
+   "cell_identity_loci": 91,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -190,7 +190,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 144,
+   "cell_identity_loci": 126,
    "markers": 98,
    "atlas_loci_defined": 2781,
    "atlas_coverage": 0.0057566674670663145
@@ -206,7 +206,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 45540,
+   "cell_identity_loci": 41276,
    "markers": 99,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -222,7 +222,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 163,
+   "cell_identity_loci": 131,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -238,7 +238,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 183,
+   "cell_identity_loci": 150,
    "markers": 100,
    "atlas_loci_defined": 3386,
    "atlas_coverage": 0.007009016916032557
@@ -254,7 +254,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 161,
+   "cell_identity_loci": 126,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -286,7 +286,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 33546,
+   "cell_identity_loci": 29102,
    "markers": 99,
    "atlas_loci_defined": 482420,
    "atlas_coverage": 0.9986089606120573
@@ -302,7 +302,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 185,
+   "cell_identity_loci": 125,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -350,7 +350,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 239,
+   "cell_identity_loci": 200,
    "markers": 98,
    "atlas_loci_defined": 2056,
    "atlas_coverage": 0.004255918127396024
@@ -366,7 +366,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 703,
+   "cell_identity_loci": 537,
    "markers": 100,
    "atlas_loci_defined": 8373,
    "atlas_coverage": 0.017332102373874954
@@ -398,7 +398,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 799,
+   "cell_identity_loci": 614,
    "markers": 99,
    "atlas_loci_defined": 8562,
    "atlas_coverage": 0.017723332201733832
@@ -414,7 +414,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 216,
+   "cell_identity_loci": 195,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -430,7 +430,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 246,
+   "cell_identity_loci": 166,
    "markers": 97,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -446,7 +446,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 215,
+   "cell_identity_loci": 171,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -462,7 +462,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 152,
+   "cell_identity_loci": 50,
    "markers": 95,
    "atlas_loci_defined": 2545,
    "atlas_coverage": 0.00526814768201502
@@ -478,7 +478,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 32268,
+   "cell_identity_loci": 27844,
    "markers": 100,
    "atlas_loci_defined": 482420,
    "atlas_coverage": 0.9986089606120573
@@ -494,7 +494,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 137,
+   "cell_identity_loci": 84,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -510,7 +510,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 701,
+   "cell_identity_loci": 644,
    "markers": 99,
    "atlas_loci_defined": 6879,
    "atlas_coverage": 0.014239523734609556
@@ -542,7 +542,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 110,
+   "cell_identity_loci": 50,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -558,7 +558,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 130,
+   "cell_identity_loci": 115,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -574,7 +574,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 141,
+   "cell_identity_loci": 50,
    "markers": 99,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -590,7 +590,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 32642,
+   "cell_identity_loci": 28344,
    "markers": 100,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -606,7 +606,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 137,
+   "cell_identity_loci": 96,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -622,7 +622,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 206,
+   "cell_identity_loci": 164,
    "markers": 100,
    "atlas_loci_defined": 3192,
    "atlas_coverage": 0.0066074370927276796
@@ -670,7 +670,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 496,
+   "cell_identity_loci": 395,
    "markers": 100,
    "atlas_loci_defined": 4109,
    "atlas_coverage": 0.008505626257524447
@@ -686,7 +686,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 210,
+   "cell_identity_loci": 185,
    "markers": 100,
    "atlas_loci_defined": 2543,
    "atlas_coverage": 0.0052640076838366195
@@ -702,7 +702,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 51525,
+   "cell_identity_loci": 41324,
    "markers": 100,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -718,7 +718,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 48900,
+   "cell_identity_loci": 42500,
    "markers": 100,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -734,7 +734,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 64288,
+   "cell_identity_loci": 55079,
    "markers": 100,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -750,7 +750,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 394,
+   "cell_identity_loci": 318,
    "markers": 99,
    "atlas_loci_defined": 4668,
    "atlas_coverage": 0.00966275574838747
@@ -766,7 +766,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 169,
+   "cell_identity_loci": 63,
    "markers": 97,
    "atlas_loci_defined": 2545,
    "atlas_coverage": 0.00526814768201502
@@ -782,7 +782,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 106,
+   "cell_identity_loci": 76,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -814,7 +814,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 267,
+   "cell_identity_loci": 226,
    "markers": 100,
    "atlas_loci_defined": 1906,
    "atlas_coverage": 0.003945418264015964
@@ -846,7 +846,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 53690,
+   "cell_identity_loci": 43442,
    "markers": 100,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -862,7 +862,7 @@
    "class": "progenitor",
    "H_min": 0.8522,
    "class_identity_loci": 54704,
-   "cell_identity_loci": 47460,
+   "cell_identity_loci": 38581,
    "markers": 100,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -878,7 +878,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 186,
+   "cell_identity_loci": 134,
    "markers": 100,
    "atlas_loci_defined": 2348,
    "atlas_coverage": 0.004860357861442541
@@ -894,7 +894,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 29635,
+   "cell_identity_loci": 26776,
    "markers": 100,
    "atlas_loci_defined": 380467,
    "atlas_coverage": 0.7875663434708089
@@ -910,7 +910,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 25711,
+   "cell_identity_loci": 23510,
    "markers": 100,
    "atlas_loci_defined": 380467,
    "atlas_coverage": 0.7875663434708089
@@ -926,7 +926,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 148,
+   "cell_identity_loci": 133,
    "markers": 100,
    "atlas_loci_defined": 2025,
    "atlas_coverage": 0.0041917481556308115
@@ -942,7 +942,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 1095,
+   "cell_identity_loci": 1006,
    "markers": 100,
    "atlas_loci_defined": 9180,
    "atlas_coverage": 0.01900259163885968
@@ -958,7 +958,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 206,
+   "cell_identity_loci": 161,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -974,7 +974,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 287,
+   "cell_identity_loci": 228,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -990,7 +990,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 246,
+   "cell_identity_loci": 192,
    "markers": 97,
    "atlas_loci_defined": 3726,
    "atlas_coverage": 0.007712816606360693
@@ -1006,7 +1006,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 255,
+   "cell_identity_loci": 246,
    "markers": 100,
    "atlas_loci_defined": 2220,
    "atlas_coverage": 0.00459539797802489
@@ -1022,7 +1022,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 145,
+   "cell_identity_loci": 101,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1038,7 +1038,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 27382,
+   "cell_identity_loci": 25084,
    "markers": 100,
    "atlas_loci_defined": 380467,
    "atlas_coverage": 0.7875663434708089
@@ -1054,7 +1054,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 30484,
+   "cell_identity_loci": 27925,
    "markers": 100,
    "atlas_loci_defined": 380467,
    "atlas_coverage": 0.7875663434708089
@@ -1070,7 +1070,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 57350,
+   "cell_identity_loci": 49743,
    "markers": 100,
    "atlas_loci_defined": 478848,
    "atlas_coverage": 0.9912149238654335
@@ -1086,7 +1086,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 198,
+   "cell_identity_loci": 50,
    "markers": 93,
    "atlas_loci_defined": 2476,
    "atlas_coverage": 0.0051253177448601925
@@ -1102,7 +1102,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 219,
+   "cell_identity_loci": 132,
    "markers": 99,
    "atlas_loci_defined": 2392,
    "atlas_coverage": 0.004951437821367358
@@ -1118,7 +1118,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 663,
+   "cell_identity_loci": 598,
    "markers": 100,
    "atlas_loci_defined": 7288,
    "atlas_coverage": 0.01508615336209252
@@ -1134,7 +1134,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 357,
+   "cell_identity_loci": 309,
    "markers": 100,
    "atlas_loci_defined": 2464,
    "atlas_coverage": 0.0051004777557897875
@@ -1150,7 +1150,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 344,
+   "cell_identity_loci": 293,
    "markers": 100,
    "atlas_loci_defined": 2464,
    "atlas_coverage": 0.0051004777557897875
@@ -1166,7 +1166,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 344,
+   "cell_identity_loci": 301,
    "markers": 100,
    "atlas_loci_defined": 2464,
    "atlas_coverage": 0.0051004777557897875
@@ -1182,7 +1182,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 168,
+   "cell_identity_loci": 118,
    "markers": 100,
    "atlas_loci_defined": 2464,
    "atlas_coverage": 0.0051004777557897875
@@ -1198,7 +1198,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 29065,
+   "cell_identity_loci": 26536,
    "markers": 100,
    "atlas_loci_defined": 380467,
    "atlas_coverage": 0.7875663434708089
@@ -1214,7 +1214,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 28034,
+   "cell_identity_loci": 25603,
    "markers": 100,
    "atlas_loci_defined": 380467,
    "atlas_coverage": 0.7875663434708089
@@ -1230,7 +1230,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 605,
+   "cell_identity_loci": 490,
    "markers": 100,
    "atlas_loci_defined": 5652,
    "atlas_coverage": 0.011699634852160665
@@ -1246,7 +1246,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 49996,
+   "cell_identity_loci": 42066,
    "markers": 100,
    "atlas_loci_defined": 478819,
    "atlas_coverage": 0.9911548938918466
@@ -1262,7 +1262,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 700,
+   "cell_identity_loci": 628,
    "markers": 100,
    "atlas_loci_defined": 5355,
    "atlas_coverage": 0.011084845122668146
@@ -1278,7 +1278,7 @@
    "class": "stem_adult",
    "H_min": 0.8737,
    "class_identity_loci": 46907,
-   "cell_identity_loci": 46904,
+   "cell_identity_loci": 37987,
    "markers": 99,
    "atlas_loci_defined": 482421,
    "atlas_coverage": 0.9986110306111465
@@ -1294,7 +1294,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 246,
+   "cell_identity_loci": 201,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1310,7 +1310,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 185,
+   "cell_identity_loci": 173,
    "markers": 100,
    "atlas_loci_defined": 2225,
    "atlas_coverage": 0.004605747973470892
@@ -1326,7 +1326,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 197,
+   "cell_identity_loci": 157,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1342,7 +1342,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 696,
+   "cell_identity_loci": 495,
    "markers": 100,
    "atlas_loci_defined": 7049,
    "atlas_coverage": 0.014591423579773624
@@ -1358,7 +1358,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 195,
+   "cell_identity_loci": 149,
    "markers": 100,
    "atlas_loci_defined": 1831,
    "atlas_coverage": 0.0037901683323259337
@@ -1374,7 +1374,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 235,
+   "cell_identity_loci": 100,
    "markers": 100,
    "atlas_loci_defined": 1870,
    "atlas_coverage": 0.0038708982968047494
@@ -1390,7 +1390,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 236,
+   "cell_identity_loci": 199,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1406,7 +1406,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 178,
+   "cell_identity_loci": 100,
    "markers": 93,
    "atlas_loci_defined": 2101,
    "atlas_coverage": 0.004349068086410042
@@ -1422,7 +1422,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 381,
+   "cell_identity_loci": 322,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1438,7 +1438,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 123,
+   "cell_identity_loci": 74,
    "markers": 100,
    "atlas_loci_defined": 2178,
    "atlas_coverage": 0.004508458016278473
@@ -1454,7 +1454,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 613,
+   "cell_identity_loci": 416,
    "markers": 100,
    "atlas_loci_defined": 6908,
    "atlas_coverage": 0.01429955370819637
@@ -1470,7 +1470,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 174,
+   "cell_identity_loci": 120,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1486,7 +1486,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 1089,
+   "cell_identity_loci": 1001,
    "markers": 100,
    "atlas_loci_defined": 8813,
    "atlas_coverage": 0.018242901973123133
@@ -1502,7 +1502,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 238,
+   "cell_identity_loci": 179,
    "markers": 89,
    "atlas_loci_defined": 2080,
    "atlas_coverage": 0.0043055981055368335
@@ -1518,7 +1518,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 172,
+   "cell_identity_loci": 75,
    "markers": 100,
    "atlas_loci_defined": 1631,
    "atlas_coverage": 0.003376168514485854
@@ -1534,7 +1534,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 600,
+   "cell_identity_loci": 501,
    "markers": 99,
    "atlas_loci_defined": 4622,
    "atlas_coverage": 0.009567535790284252
@@ -1550,7 +1550,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 233,
+   "cell_identity_loci": 70,
    "markers": 94,
    "atlas_loci_defined": 2545,
    "atlas_coverage": 0.00526814768201502
@@ -1566,7 +1566,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 39925,
+   "cell_identity_loci": 35246,
    "markers": 100,
    "atlas_loci_defined": 482417,
    "atlas_coverage": 0.9986027506147898
@@ -1582,7 +1582,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 261,
+   "cell_identity_loci": 242,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1598,7 +1598,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 266,
+   "cell_identity_loci": 220,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1614,7 +1614,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 158,
+   "cell_identity_loci": 114,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1630,7 +1630,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 212,
+   "cell_identity_loci": 182,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1646,7 +1646,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 699,
+   "cell_identity_loci": 534,
    "markers": 100,
    "atlas_loci_defined": 4940,
    "atlas_coverage": 0.01022579550064998
@@ -1662,7 +1662,7 @@
    "class": "secretory",
    "H_min": 0.8433,
    "class_identity_loci": 29617,
-   "cell_identity_loci": 159,
+   "cell_identity_loci": 78,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1678,7 +1678,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 204,
+   "cell_identity_loci": 125,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1694,7 +1694,7 @@
    "class": "cycling",
    "H_min": 0.8561,
    "class_identity_loci": 29181,
-   "cell_identity_loci": 180,
+   "cell_identity_loci": 127,
    "markers": 100,
    "atlas_loci_defined": 6105,
    "atlas_coverage": 0.012637344439568446
@@ -1710,7 +1710,7 @@
    "class": "stromal",
    "H_min": 0.863,
    "class_identity_loci": 2294,
-   "cell_identity_loci": 1299,
+   "cell_identity_loci": 1214,
    "markers": 100,
    "atlas_loci_defined": 12577,
    "atlas_coverage": 0.026034378544873442
@@ -1726,7 +1726,7 @@
    "class": "stromal",
    "H_min": 0.863,
    "class_identity_loci": 2294,
-   "cell_identity_loci": 2816,
+   "cell_identity_loci": 2402,
    "markers": 91,
    "atlas_loci_defined": 21614,
    "atlas_coverage": 0.044740960313977465
@@ -1742,7 +1742,7 @@
    "class": "stromal",
    "H_min": 0.863,
    "class_identity_loci": 2294,
-   "cell_identity_loci": 1919,
+   "cell_identity_loci": 1602,
    "markers": 100,
    "atlas_loci_defined": 13798,
    "atlas_coverage": 0.02856184743278713
@@ -1758,7 +1758,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 33485,
+   "cell_identity_loci": 28695,
    "markers": 100,
    "atlas_loci_defined": 482420,
    "atlas_coverage": 0.9986089606120573
@@ -1774,7 +1774,7 @@
    "class": "terminal",
    "H_min": 0.7728,
    "class_identity_loci": 57247,
-   "cell_identity_loci": 145,
+   "cell_identity_loci": 73,
    "markers": 100,
    "atlas_loci_defined": 2741,
    "atlas_coverage": 0.005673867503498299
@@ -1806,7 +1806,7 @@
    "class": "stromal",
    "H_min": 0.863,
    "class_identity_loci": 2294,
-   "cell_identity_loci": 858,
+   "cell_identity_loci": 758,
    "markers": 100,
    "atlas_loci_defined": 4933,
    "atlas_coverage": 0.010211305507025576
@@ -1822,7 +1822,7 @@
    "class": "stem_pluri",
    "H_min": 0.9822,
    "class_identity_loci": 21710,
-   "cell_identity_loci": 21714,
+   "cell_identity_loci": 19505,
    "markers": 100,
    "atlas_loci_defined": null,
    "atlas_coverage": null
@@ -1838,7 +1838,7 @@
    "class": "stromal",
    "H_min": 0.863,
    "class_identity_loci": 2294,
-   "cell_identity_loci": 835,
+   "cell_identity_loci": 782,
    "markers": 100,
    "atlas_loci_defined": 4450,
    "atlas_coverage": 0.009211495946941784
@@ -1870,7 +1870,7 @@
    "class": "immune",
    "H_min": 0.838889,
    "class_identity_loci": 42134,
-   "cell_identity_loci": 38798,
+   "cell_identity_loci": 33513,
    "markers": 100,
    "atlas_loci_defined": 482419,
    "atlas_coverage": 0.9986068906129681

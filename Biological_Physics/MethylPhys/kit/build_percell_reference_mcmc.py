@@ -15,7 +15,7 @@ HERE=os.path.dirname(os.path.abspath(__file__)); CH=os.path.join(os.path.dirname
 import cpg_conductor as C  # noqa
 def H(b): b=min(max(b,1e-12),1-1e-12); return -b*math.log2(b)-(1-b)*math.log2(1-b)
 def main(atlas_csv, n_draws=2000, seed=0):
-    pci=json.load(open(C._find("iamatlas_percell_identity_loci_v1_0.json"))); pci=pci.get("cells",pci)
+    pci=json.load(open(C._find("iamatlas_percell_identity_loci_v1_1.json"))); pci=pci.get("cells",pci)
     ident=json.load(open(C._find("iamatlas_gauge_identity_loci_v1_0.json")))
     head=pd.read_csv(atlas_csv,nrows=0).columns.tolist(); cells=[c for c in pci if isinstance(pci[c],dict) and pci[c].get("loci") and c+"_mean" in head and c+"_sd" in head]
     cols=[head[0]]+[c+s for c in cells for s in ("_mean","_sd")]
@@ -29,7 +29,7 @@ def main(atlas_csv, n_draws=2000, seed=0):
         draws=np.array([H(float(np.mean(np.clip(rng.normal(mu,sd),0,1))))/hm for _ in range(n_draws)])
         out[c]={"class":cl,"H_min":hm,"n_loci":int(len(sub)),"ref_A":H(float(mu.mean()))/hm,"ref_A_median":float(np.median(draws)),
                 "ci95_lo":float(np.percentile(draws,2.5)),"ci95_hi":float(np.percentile(draws,97.5)),"median_locus_sd":float(np.median(sd)),"status":"OK"}
-    meta={"built":"2026-09-26","source":"IAMAtlasREBUILD.csv per-locus posterior mean and sd (G-002 MCMC); identity loci iamatlas_percell_identity_loci_v1_0.json; H_min iamatlas_gauge_identity_loci_v1_0.json",
+    meta={"built":"2026-09-26","source":"IAMAtlasREBUILD.csv per-locus posterior mean and sd (G-002 MCMC); identity loci iamatlas_percell_identity_loci_v1_1.json; H_min iamatlas_gauge_identity_loci_v1_0.json",
           "definition":"reference A = H(mean over the cell's identity loci of the atlas mean)/H_min[class]; ci95 from 2,000 draws of the atlas means from N(mu, sd) per locus",
           "what_it_is":"the atlas's own uncertainty about where this cell's A = 1 reference sits - a physics tolerance, not a population spread","n_draws":n_draws,"seed":seed}
     p=os.path.join(CH,"Runtime Matrices","Percell_Reference","percell_reference_mcmc_v1.json"); os.makedirs(os.path.dirname(p),exist_ok=True)

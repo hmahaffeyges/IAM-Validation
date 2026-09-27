@@ -1,14 +1,13 @@
 {
  "_meta": {
-  "built": "2026-09-27 04:52",
-  "commit": "c1de859",
-  "n_files": 201,
-  "n_undescribed": 5,
+  "built": "2026-09-27 05:54",
+  "commit": "bee2e8a",
+  "n_files": 200,
+  "n_undescribed": 4,
   "undescribed": [
    "PERCELL_STANDARD_REZERO_2026-09-27.md",
    "README_LOG_2026-09-20_to_21_RECORD.md",
    "START_HERE.md",
-   "iamatlas_percell_identity_loci_v1_1_CANDIDATE.json",
    "intake_thresholds_v1.json"
   ],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
@@ -40,7 +39,7 @@
    "stage": "stage 0",
    "description": "THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently defaulting. Everything else in this table is reached from here.",
    "bytes": 38909,
-   "sha256_12": "0fc02868388f"
+   "sha256_12": "9b364ec801bd"
   },
   {
    "file": "stage_0_intake.py",
@@ -48,8 +47,8 @@
    "role": "chain",
    "stage": "stage 0",
    "description": "Stage 0. Sample intake and chain of custody: IDAT arrival, manifest creation, identity checks. Built step by step against the SOP; four QC checks are still deferred because Stage 0 is not yet handed the raw intensities (open item, row 0).",
-   "bytes": 47414,
-   "sha256_12": "ed0d1700204f"
+   "bytes": 48058,
+   "sha256_12": "63014cc564f5"
   },
   {
    "file": "idat_decoder_pure.py",
@@ -157,7 +156,7 @@
    "stage": "stage A",
    "description": "The A-score itself: A = mean_i H(beta_i) / H_min(class). Asserts against the wrong aggregation (entropy of the mean beta), which is the defect PROC-N7-01 caught.",
    "bytes": 15316,
-   "sha256_12": "2c28b074b7ec"
+   "sha256_12": "ea018d7fddaa"
   },
   {
    "file": "cpg_gauge_engine.py",
@@ -202,7 +201,7 @@
    "stage": "",
    "description": "what would make the chain more sensitive, ranked by whether it changes a reported number",
    "bytes": 42733,
-   "sha256_12": "6f7c6da36a70"
+   "sha256_12": "0fceaf69697c"
   },
   {
    "file": "FRACTION_AND_A.md",
@@ -228,8 +227,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 3756,
-   "sha256_12": "703694a271e8"
+   "bytes": 3671,
+   "sha256_12": "9abbb3c47da9"
   },
   {
    "file": "README_CPG_Plates.md",
@@ -246,8 +245,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 10666,
-   "sha256_12": "0926d8cdea03"
+   "bytes": 10716,
+   "sha256_12": "2c595b8b5d97"
   },
   {
    "file": "REPORT_TAB_REFERENCE.md",
@@ -256,7 +255,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11920,
-   "sha256_12": "b4fd74831839"
+   "sha256_12": "f5696e9ae0c7"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -264,8 +263,8 @@
    "role": "reference",
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
-   "bytes": 2780,
-   "sha256_12": "f72705f53b07"
+   "bytes": 2822,
+   "sha256_12": "5ec1dcc099ea"
   },
   {
    "file": "REPRODUCTION.md",
@@ -282,8 +281,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 30708,
-   "sha256_12": "4978a80c360b"
+   "bytes": 30977,
+   "sha256_12": "ef3d0fa2601e"
   },
   {
    "file": "RUN.md",
@@ -493,15 +492,6 @@
    "sha256_12": "76b8f82a2b3d"
   },
   {
-   "file": "iamatlas_percell_identity_loci_v1_1_CANDIDATE.json",
-   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1_CANDIDATE.json",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 12358475,
-   "sha256_12": "5700bb413987"
-  },
-  {
    "file": "intake_thresholds_v1.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json",
    "role": "UNDESCRIBED",
@@ -571,7 +561,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1931,
-   "sha256_12": "c4a5998ffa15"
+   "sha256_12": "0f64e76b5c99"
   },
   {
    "file": "reference_cells_37.csv",
@@ -589,7 +579,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "47562ea3f9ca"
+   "sha256_12": "3646931c27c7"
   },
   {
    "file": "sop_repoint.py",
@@ -625,7 +615,7 @@
    "stage": "",
    "description": "keeps COMPONENT_MAP's runtime-file section in step with what the code reads",
    "bytes": 9804,
-   "sha256_12": "03d338e863d7"
+   "sha256_12": "7528e76df898"
   },
   {
    "file": "toc_pages.json",
@@ -669,8 +659,8 @@
    "role": "reference",
    "stage": "Runtime Matrices/Cell_Descriptions",
    "description": "What each atlas cell IS - biology from the author's drafts (52 of 115 cells) plus the atlas facts for all 115: class, H_min, identity loci, coverage, markers. Read by the report's Cells tab and the Operations Manual's cells chapter. Nothing in it is a reading.",
-   "bytes": 121007,
-   "sha256_12": "0e3767e3ffd8"
+   "bytes": 120993,
+   "sha256_12": "5c8beea78804"
   },
   {
    "file": "README_atlas_v0_1_vault.md",
@@ -776,9 +766,9 @@
    "path": "Biological_Physics/MethylPhys/kit/build_percell_identity.py",
    "role": "interface",
    "stage": "builder",
-   "description": "Builds iamatlas_percell_identity_loci_v1_0.json from the atlas by the class panels' criterion (kit).",
+   "description": "Builds iamatlas_percell_identity_loci_v1_1.json from the atlas by the class panels' criterion (kit).",
    "bytes": 8516,
-   "sha256_12": "ab6a45e02492"
+   "sha256_12": "9f0792bb9863"
   },
   {
    "file": "build_percell_reference_identity.py",
@@ -787,7 +777,7 @@
    "stage": "builder",
    "description": "Builds percell_reference_identity_v1_0.json: per-cell per-lab A bands on the identity surface, commissioned form, mapped betas, disjoint held-out split, laboratory offsets (kit).",
    "bytes": 9085,
-   "sha256_12": "9926c3aae968"
+   "sha256_12": "2dce7de72cf9"
   },
   {
    "file": "build_percell_reference_mcmc.py",
@@ -796,7 +786,7 @@
    "stage": "calibration",
    "description": "RETIRED 2026-09-27: built a per-cell atlas reference with a posterior interval - the only reference is A = 1.00; kept as record",
    "bytes": 3742,
-   "sha256_12": "4c596c488b4c"
+   "sha256_12": "02ff2cd583db"
   },
   {
    "file": "mphys_bootstrap_comparison.py",
@@ -876,8 +866,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 22213,
-   "sha256_12": "2f4bc365911a"
+   "bytes": 22250,
+   "sha256_12": "8331b6e4af62"
   },
   {
    "file": "build_all.py",
@@ -903,8 +893,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which stage is commissioned, by which sealed procedure, and what is still open.",
-   "bytes": 24336,
-   "sha256_12": "d99b6c63f71d"
+   "bytes": 24928,
+   "sha256_12": "868179080d34"
   },
   {
    "file": "CHANGELOG.md",
@@ -940,7 +930,7 @@
    "stage": "door",
    "description": "Which component lives where.",
    "bytes": 17747,
-   "sha256_12": "5ef206ef4c64"
+   "sha256_12": "cee708fd6a11"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -975,8 +965,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1393487,
-   "sha256_12": "c9906685343f"
+   "bytes": 1422175,
+   "sha256_12": "3bef82af19c1"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -993,8 +983,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 6928,
-   "sha256_12": "7954f0f3ff83"
+   "bytes": 6997,
+   "sha256_12": "f8ca23dc8fff"
   },
   {
    "file": "README_FIRST.md",
@@ -1101,8 +1091,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 7050,
-   "sha256_12": "c9e03c1d56b6"
+   "bytes": 4705,
+   "sha256_12": "7497f0c78566"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1111,7 +1101,7 @@
    "stage": "doors",
    "description": "Sentence-by-sentence audit of every report tab against code, file and record (2026-09-26/27): verdict OK / FIXED / REMOVED / UNVERIFIED per line.",
    "bytes": 17288,
-   "sha256_12": "65f6cf46f93e"
+   "sha256_12": "c71995f30123"
   },
   {
    "file": "PROC_ANCHOR_01.py",
@@ -1182,8 +1172,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13604,
-   "sha256_12": "420f662d98ec"
+   "bytes": 13533,
+   "sha256_12": "0fd20f5129a1"
   },
   {
    "file": "cpg_kit.py",
@@ -1281,8 +1271,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The sky: deterministic mapping, presence-floor masking, and refusal without a commissioned laboratory scale.",
-   "bytes": 1975,
-   "sha256_12": "4f9582f76ff4"
+   "bytes": 2150,
+   "sha256_12": "30931e689c1e"
   },
   {
    "file": "test_percell_physics.py",
@@ -1290,8 +1280,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "THE FAILSAFE for the per-cell A - propagate rule 11, runs on every push. Checks the four root causes of 2026-09-26 (wrong surface, unmapped betas, crossed formula, a reachable per-cell reference), the fraction-0 gate, by scoring a real healthy array through the chain. Negative control: a lying surface tag -> exit 1.",
-   "bytes": 10146,
-   "sha256_12": "4a543188b2a4"
+   "bytes": 10739,
+   "sha256_12": "c35a8f23b9b3"
   },
   {
    "file": "test_tiers.py",
@@ -1308,8 +1298,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 45246,
-   "sha256_12": "fb0ab3e8137e"
+   "bytes": 45515,
+   "sha256_12": "7334246599d1"
   },
   {
    "file": "build_methylphys.py",
@@ -1335,8 +1325,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 72578,
-   "sha256_12": "4aabe98291f7"
+   "bytes": 72464,
+   "sha256_12": "c7a5c2b3ec20"
   },
   {
    "file": "run_sample.py",
@@ -1363,7 +1353,7 @@
    "stage": "kit",
    "description": "Builds Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json from the author's webpage drafts (biology sections only; product, population and comparison sentences dropped by rule) joined to the atlas facts per cell (class, floor, identity loci, coverage, markers). The report's vocabulary guards run over every field.",
    "bytes": 8908,
-   "sha256_12": "b6c32102f613"
+   "sha256_12": "d5eba4bdd7a5"
   },
   {
    "file": "build_delta_bundle.py",
@@ -1398,8 +1388,8 @@
    "role": "guard",
    "stage": "kit",
    "description": "The report's own FORBIDDEN and COHORT guards, imported from build_methylphys.py and run over the SOP (banner-aware), the OM at source, every tab of the fresh reference report and the papers. Any LIVE hit fails the build.",
-   "bytes": 13285,
-   "sha256_12": "e3e4f1e49a54"
+   "bytes": 13583,
+   "sha256_12": "c67f2b52af9b"
   },
   {
    "file": "README_as_generated_2026-04-07.md",
@@ -1570,7 +1560,7 @@
    "stage": "sop",
    "description": "The SOP mirrors the code: a STATUS banner (LIVE / RECORD / NOT IN CHAIN / NOT BUILT / KIT) under every numbered section from a code-derived status table, a generated Part II-A from chain_sequence.json, and a reconciliation that every live step is named by a LIVE section (--check is a build gate).",
    "bytes": 19056,
-   "sha256_12": "ee7ad7fd1936"
+   "sha256_12": "ba9dd53ebdf6"
   },
   {
    "file": "stage_1_calibration.py",
@@ -1771,13 +1761,13 @@
    "sha256_12": "e63d518f7cb0"
   },
   {
-   "file": "iamatlas_percell_identity_loci_v1_0.json",
-   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json",
+   "file": "iamatlas_percell_identity_loci_v1_1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json",
    "role": "reference",
    "stage": "stage A",
-   "description": "PER-CELL IDENTITY LOCI (2026-09-26): the class panels' own criterion (|mean - H_min_beta| <= 0.05, one entropy branch per cell) applied to 102 of 115 cells, MIN_LOCI 100. THE SURFACE the per-cell A is computed on; every cell's own atlas mean reads 0.936-1.020 on its panel. Read by iamatlas_a_scoring._score_one_identity via cpg_conductor. Built by kit/build_percell_identity.py.",
-   "bytes": 14261906,
-   "sha256_12": "f798fb4fb1b3"
+   "description": "PER-CELL IDENTITY LOCI v1.1 (2026-09-27): per cell, the atlas loci within +/-0.05 of H_min_beta trimmed until the cell's OWN atlas profile reads A = 1.000 - the standard reads 1.000 by construction (v1.0 read 0.990). H_min untouched; no specimen or person in the file. PER-CELL IDENTITY LOCI (2026-09-26): the class panels' own criterion (|mean - H_min_beta| <= 0.05, one entropy branch per cell) applied to 102 of 115 cells, MIN_LOCI 100. THE SURFACE the per-cell A is computed on; every cell's own atlas mean reads 0.936-1.020 on its panel. Read by iamatlas_a_scoring._score_one_identity via cpg_conductor. Built by kit/build_percell_identity.py.",
+   "bytes": 12358561,
+   "sha256_12": "ce8a6102ace8"
   },
   {
    "file": "percell_exclusivity_v0.json",

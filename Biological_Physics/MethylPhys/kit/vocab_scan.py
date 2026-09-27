@@ -20,6 +20,8 @@ RECORD_MARK = re.compile(r"\[RECORD\]|REMOVED|RETIRED|historical|superseded|SUPE
 # words that are legitimately in procedure text when they name the thing being REFUSED or the file it lives in
 ALLOW_LINE = re.compile(r"MEASURE, DON'T COMPARE|never a correction|no population|no laboratory zero|no age term|no band|not procedure|were removed|was removed|removed 2026|retired 2026|RETIRED_2026|is gone|are gone|taken out|came off|banned|guard|vocabulary|forbidden|"
                         r"Not a diagnostic|not a diagnostic|no disease|not claim|does not claim|no diagnostic|is not how|never a |Neither is a|no healthy range is printed|Disease Matrix|DISEASE_MATRIX|disease_cell_signature|disease_origin_cells|not in chain|Not read by run_full|record side|record-side|pre-atlas|Pre-atlas|preliminary|not a cohort method|only point|never as a baseline|Never compare|never a truth|cannot see|no cohort|not disease|not a tumour|names no|is not a detection|cohort comparison could not|structurally cannot|'cohorts, circular'|does not do it|not in the chain|no longer", re.I)
+# senses that are not the banned ones (author, 2026-09-27): the universe's age; MCMC convergence diagnostics
+_NOT_BANNED = re.compile(r"(\d[\d,]* years old|[Cc]onvergence diagnostics)")
 
 def scan_text(lines, label):
     hits = []; sect_status = "LIVE"
@@ -137,6 +139,7 @@ def main():
         for i, line in enumerate(L):
             for rx, kind in ((FORBIDDEN, "FORBIDDEN"), (COHORT, "COHORT")):
                 for m in rx.finditer(line):
+                    if _NOT_BANNED.search(line) and m.group(0).lower() in ("years old","diagnostics"): continue
                     st = "RECORD" if (rec_doc or ALLOW_LINE.search(line) or re.search(r"REMOVED|RETIRED|removed 2026|retired 2026|\[RECORD|record\b|never (applied|enters|reaches)|no (cohort|healthy band|age curve|laboratory zero)|not against", line, re.I)) else "LIVE"
                     hits.append({"doc": "README:" + f.replace("Biological_Physics/", ""), "line": i + 1, "kind": kind, "word": m.group(0), "status": st, "text": line.strip()[:220]})
     live = [h for h in hits if h["status"] == "LIVE"]

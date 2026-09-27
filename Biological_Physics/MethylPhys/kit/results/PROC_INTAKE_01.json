@@ -1,0 +1,228 @@
+{
+ "line": 0.93,
+ "started": "2026-09-27T11:28:36Z",
+ "B1": {
+  "n": 12,
+  "quarantined": 12,
+  "report_written_despite_quarantine": 0,
+  "rows": [
+   {
+    "gsm": "GSM3562870",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8774,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage']"
+   },
+   {
+    "gsm": "GSM3562874",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8941,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'sex']"
+   },
+   {
+    "gsm": "GSM3562908",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.831,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage', 'sex']"
+   },
+   {
+    "gsm": "GSM3562953",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8803,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate']"
+   },
+   {
+    "gsm": "GSM3563036",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.7940999999999999,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage', 'sex']"
+   },
+   {
+    "gsm": "GSM3563105",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.764,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage', 'sex']"
+   },
+   {
+    "gsm": "GSM3563190",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8901,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate']"
+   },
+   {
+    "gsm": "GSM3563233",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.9281999999999999,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'sex']"
+   },
+   {
+    "gsm": "GSM3563304",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.9281,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'sex']"
+   },
+   {
+    "gsm": "GSM3563360",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8779,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage', 'sex']"
+   },
+   {
+    "gsm": "GSM3563415",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8367,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage']"
+   },
+   {
+    "gsm": "GSM3563465",
+    "exit": 2,
+    "report_written": false,
+    "call_rate": 0.8454999999999999,
+    "quarantined": true,
+    "penalty_flag": false,
+    "hard_failures": "['detection', 'call_rate', 'hm450_coverage', 'sex']"
+   }
+  ],
+  "met": true
+ },
+ "B2": {
+  "n": 100,
+  "advance": 100,
+  "min_call_rate": 0.972845294877296,
+  "median_call_rate": 0.9876985040037644,
+  "status_counts": {
+   "PASS": 92,
+   "CALL_RATE_BORDERLINE": 8
+  },
+  "met": true
+ },
+ "B3": {
+  "rows": [
+   {
+    "gsm": "GSM2333901",
+    "n_present": 5,
+    "max_dA": 0.002530799398334005
+   },
+   {
+    "gsm": "GSM2333902",
+    "n_present": 6,
+    "max_dA": 0.004622053500570766
+   },
+   {
+    "gsm": "GSM2333903",
+    "n_present": 4,
+    "max_dA": 0.001892138953652256
+   },
+   {
+    "gsm": "GSM2333904",
+    "n_present": 5,
+    "max_dA": 0.0018365833754767635
+   },
+   {
+    "gsm": "GSM2333905",
+    "n_present": 5,
+    "max_dA": 0.002563839233766463
+   },
+   {
+    "gsm": "GSM2333906",
+    "n_present": 8,
+    "max_dA": 0.0041359219780940926
+   },
+   {
+    "gsm": "GSM2333907",
+    "n_present": 5,
+    "max_dA": 0.004991785091991274
+   },
+   {
+    "gsm": "GSM2333908",
+    "n_present": 7,
+    "max_dA": 0.0047811216878327345
+   },
+   {
+    "gsm": "GSM2333909",
+    "n_present": 7,
+    "max_dA": 0.003696650490923159
+   },
+   {
+    "gsm": "GSM2333910",
+    "n_present": 6,
+    "max_dA": 0.0048518379584846505
+   },
+   {
+    "gsm": "GSM2333911",
+    "n_present": 6,
+    "max_dA": 0.0066435858890391275
+   },
+   {
+    "gsm": "GSM2333912",
+    "n_present": 6,
+    "max_dA": 0.004787672436954105
+   }
+  ],
+  "max_dA_over_arrays": 0.0066435858890391275,
+  "met": false,
+  "assessed": true
+ },
+ "B4": {
+  "exit": 0,
+  "intake_verified": false,
+  "line_printed": true,
+  "met": true
+ },
+ "B5": {
+  "call_rate_status": "DEFERRED_PENDING_STAGE1_DECODER",
+  "verdict": "PROCEED",
+  "advance": true,
+  "met": false
+ },
+ "finished": "2026-09-27T12:32:06Z",
+ "B5_retest_after_fix": {
+  "call_rate_status": "DEFERRED_PENDING_STAGE1_DECODER",
+  "verdict": "QUARANTINE",
+  "advance": false,
+  "hard_fail": [
+   "intake_deferred:call_rate"
+  ],
+  "met": true
+ },
+ "B3_signed_diagnostic": {
+  "note": "3 Uppsala arrays, per present cell: dA = A_masked - A_unmasked is NEGATIVE on every cell (-0.0010 to -0.0046), proportional to the fraction of identity loci masked (0.5 % -> ~-0.001 to -0.0025; 2 % -> -0.0025 to -0.0046). Masked probes' unmasked beta: median 0.33-0.42 (noise toward 0.5), identity loci sit at ~0.74.",
+  "arrays": [
+   "GSM2333901",
+   "GSM2333902",
+   "GSM2333903"
+  ]
+ }
+}

@@ -1,6 +1,6 @@
 {
- "commit": "6ffb045",
- "run_at": "2026-09-27 02:35",
+ "commit": "3942f8b",
+ "run_at": "2026-09-27 05:47",
  "host_note": "run wherever the chain is run; the report prints this verdict and its commit",
  "n_pass": 4,
  "n_fail": 1,
@@ -22,7 +22,7 @@
    "name": "A-score formula self-test",
    "guards": "the per-cell surface is mean_i H(beta_i)/H_min and the module refuses H(beta_mean) - the N7 defect cannot come back",
    "status": "INCONCLUSIVE",
-   "seconds": 3.2,
+   "seconds": 3.1,
    "detail": "  result       MEASURED - see RULING A3 (SOP \u00a70.9, Operations Manual \u00a79) for the decision this supports",
    "needs": null,
    "argv": "python3 PROC_FORMULA_01.py"
@@ -42,7 +42,7 @@
    "name": "Deconvolver conformance",
    "guards": "the composition solver reproduces the answer key shipped with the test package",
    "status": "SKIPPED",
-   "seconds": 0.8,
+   "seconds": 0.9,
    "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/IAMAtlasREBUILD_celltype_to_class.json'",
    "needs": "10_TEST_DATA",
    "argv": "python3 PROC_DECON_01.py"
@@ -62,7 +62,7 @@
    "name": "Gauge switch",
    "guards": "run_full reports the identity-loci gauge, not the retired marker-union statistic",
    "status": "PASS",
-   "seconds": 139.9,
+   "seconds": 129.4,
    "detail": "GAUGE SWITCH CONFORMANCE: PASS",
    "needs": null,
    "argv": "python3 test_gauge_switch.py"
@@ -72,7 +72,7 @@
    "name": "One tier definition",
    "guards": "every tier word in the chain comes from tier_breakpoints.json; no literal breakpoint survives in engine code",
    "status": "PASS",
-   "seconds": 54.0,
+   "seconds": 51.3,
    "detail": "test_tiers: PASS",
    "needs": null,
    "argv": "python3 test_tiers.py"
@@ -82,7 +82,7 @@
    "name": "Patient sky",
    "guards": "the sky refuses a laboratory with no measured residual scale and masks classes below their presence floor",
    "status": "FAIL",
-   "seconds": 45.2,
+   "seconds": 43.0,
    "detail": "              nan])}, 'secretory': {'assessable': False, 'fraction': 0.0, 'presence_floor': 0.02, 'status': 'NOT ASSESSABLE \u00b7 f=0.000 < 0.020'}, 'stromal': {'assessable': False, 'fraction': 0.0, 'presence_floor': 0.02, 'status': 'NOT ASSESSABLE \u00b7 f=0.000 < 0.020'}}, 'sigma_median': 0.013045077567517",
    "needs": null,
    "argv": "python3 test_patient_sky.py"
@@ -102,7 +102,7 @@
    "name": "Bidirectional detector",
    "guards": "PROC-BIDIR-01: the sealed directional panel reproduces, including re-extraction from raw GEO",
    "status": "SKIPPED",
-   "seconds": 11.4,
+   "seconds": 11.3,
    "detail": "PROC-BIDIR-01: B1-B4 pass, B5 SKIPPED - needs the GSE153712 supplementary matrix (5.1 GB) -> not commissioned in this run",
    "needs": "GSE153712 supplementary matrix",
    "argv": "python3 PROC_BIDIR_01.py"

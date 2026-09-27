@@ -12,7 +12,9 @@ a=C.stage_a_cells(b.to_dict(),ATLAS); beta_rm,_=C.stage_1s_scale_map(b.to_dict()
 import glob as _g, pandas as _pd
 for lab in (None,"GSE87571"):
     o=C.stage_4_6_patient_sky(beta_rm,a,cfg={"lab":lab},atlas_csv=ATLAS)
-    assert o["available"] is False and o.get("withheld") is True and "WITHHELD" in o["status"], o
+    # 2026-09-27: the sky is DRAWN (restored under the author's development-stage ruling, archive 12108/12109 - not an explicit
+    # author pick between withhold / draw-in-beta; that question is PLAN item 3). On a betas-only input sigma is the atlas posterior alone.
+    assert o["available"] is True and "atlas posterior" in str(o.get("sigma","")), {k:o.get(k) for k in ("available","sigma","snp_noise","status")}
 assert not _g.glob(os.path.join(os.path.dirname(C.__file__),"Runtime Matrices","Patient_CMB","residual_scale_*.npz")), "panel scales still in the chain"
 r_,E=S.residual(_pd.Series(beta_rm,dtype=float),S.load_atlas_means(ATLAS),a["class_fractions"]); assert len(r_.dropna())>100000, "residual machinery broken"
 print("1 sky WITHHELD for every laboratory, no panel scale in the tree, residual machinery intact: ok"); print("test_patient_sky: PASS")

@@ -191,7 +191,7 @@ def _score_one_identity(beta_series: pd.Series,
 
 
 def load_percell_identity(artifact_path: str) -> Dict[str, Dict]:
-    """Load iamatlas_percell_identity_loci_v1_0.json -> {celltype: {loci, H_min, class, branch}}."""
+    """Load iamatlas_percell_identity_loci_v1_1.json -> {celltype: {loci, H_min, class, branch}}."""
     with open(artifact_path) as f:
         return json.load(f).get("cells", {})
 

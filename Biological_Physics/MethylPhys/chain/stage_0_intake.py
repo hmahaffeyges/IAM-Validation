@@ -845,6 +845,12 @@ def step_0_9_decision_gate(record, verdict_log_path=None) -> dict:
     elif sc.startswith("DEFERRED"):
         deferred.append("sex")
 
+    # 2026-09-27 PROC-INTAKE-01 B5: a DEFERRED detection or call-rate check is not a pass. The gate had recorded 'deferred'
+    # and advanced for months, which is how a low-signal laboratory was read (FINDING_GSE125105_LOW_SIGNAL.md). Now a
+    # deferred detection or call rate quarantines the specimen (QUARANTINE_INTAKE_DEFERRED). Bead count (not extracted by
+    # Stage 1) and the provisional bisulfite threshold remain recorded-deferred, as the SOP states for them.
+    if "detection" in deferred or "call_rate" in deferred:
+        hard_fail.append("intake_deferred:" + "+".join(x for x in ("detection", "call_rate") if x in deferred))
     if hard_fail:
         verdict, advance = "QUARANTINE", False
     elif borderline:

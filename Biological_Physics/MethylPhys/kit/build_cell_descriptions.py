@@ -84,7 +84,7 @@ c2c = json.load(open(C._find("IAMAtlasREBUILD_celltype_to_class.json"))); c2c = 
 ident = json.load(open(C._find("iamatlas_gauge_identity_loci_v1_0.json")))
 hmin = {k: v["H_min"] for k, v in ident.items() if isinstance(v, dict) and "H_min" in v}
 n_ident = {k: len(v["loci"]) for k, v in ident.items() if isinstance(v, dict) and "loci" in v}
-pci_path = C._find("iamatlas_percell_identity_loci_v1_0.json", required=False)
+pci_path = C._find("iamatlas_percell_identity_loci_v1_1.json", required=False)
 pci = json.load(open(pci_path)) if pci_path else {}
 pci_n = {k: (v.get("n_loci") or len(v.get("loci", []))) for k, v in (pci.get("cells") or pci).items() if isinstance(v, dict)}
 cov = {}
@@ -126,7 +126,7 @@ for cell, e in entries.items():
             hit = rx.search(t)
             if hit: bad.append((cell, k, nm, hit.group(0)))
 assert not bad, bad[:8]
-out = {"_meta": {"built": "2026-09-27", "from": "Webpage Drafts.zip (author) - biology sections only; atlas facts from IAMAtlasREBUILD_celltype_to_class.json, iamatlas_gauge_identity_loci_v1_0.json, iamatlas_percell_identity_loci_v1_0.json, iamatlas_celltype_markers_v0_2.json",
+out = {"_meta": {"built": "2026-09-27", "from": "Webpage Drafts.zip (author) - biology sections only; atlas facts from IAMAtlasREBUILD_celltype_to_class.json, iamatlas_gauge_identity_loci_v1_0.json, iamatlas_percell_identity_loci_v1_1.json, iamatlas_celltype_markers_v0_2.json",
                   "rule": "what a cell IS, never what a reading means for anyone; the report's vocabulary guards were run over every field",
                   "drafts_used": sorted(used_drafts), "draft_cells_not_in_atlas": [f"{s} -> {c}" for s, c in candidates]},
        "cells": entries}

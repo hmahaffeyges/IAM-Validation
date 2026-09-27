@@ -76,7 +76,7 @@ STATUS = {
  "§41.": (R, "-", "per-CpG marker panels for A: superseded by RULING A3 - A is read on the identity loci"),
  "§42.": (R, "-", "per-CpG entropy: the gauge is the entropy of the MEAN beta (H(beta_mean)/H_min), one number per cell"),
  "§43.": (L, "stage_b_classes (class A on the marker union) and stage_b_identity (class A on the identity loci) - both INTERNAL gates; neither carries a tier word; the mean-of-per-CpG-H construction described below is superseded (RULING A3)", "the class A is not a reading"),
- "§44.": (L, "stage_a_cells -> iamatlas_a_scoring._score_one_identity on iamatlas_percell_identity_loci_v1_0.json", "the per-cell A - THE reading"),
+ "§44.": (L, "stage_a_cells -> iamatlas_a_scoring._score_one_identity on iamatlas_percell_identity_loci_v1_1.json", "the per-cell A - THE reading"),
  "§45.": (N, "-", "disease-panel A: the chain applies no disease panel"),
  "§46.": (L, "run_full bundle: cells_all[cell].A", ""),
  "§46.5.": (L, "stage_4_5_bidirectional (cpg_conductor.py)", ""),

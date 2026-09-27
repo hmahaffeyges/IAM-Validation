@@ -136,7 +136,7 @@ chain's parts once the per-cell bands are rebuilt on the identity surface:
 | found | where it lives | what it is |
 |---|---|---|
 | [`percell_reference_v0_3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_v0_3.json) | `chain/Runtime Matrices/Percell_Reference/` | per-cell per-laboratory healthy bands with a held-out check, built 2026-09-22; the folder was NOT on the chain's search path, so the chain never loaded it |
-| [`iamatlas_percell_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json) | `chain/Runtime Matrices/A_Scoring_Module/` | 102 per-cell identity panels at the class floor, the surface the per-cell A is now read on |
+| [`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json) | `chain/Runtime Matrices/A_Scoring_Module/` | 102 per-cell identity panels at the class floor, the surface the per-cell A is now read on |
 | `_score_one_identity` | [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py) | the per-cell A on identity loci with the class gauge's formula |
 | [`percell_reference_identity_v1_0.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/percell_reference_identity_v1_0.json) | `chain/Runtime Matrices/Percell_Reference/` | the per-cell bands rebuilt on the identity surface |
 

@@ -1,5 +1,5 @@
 {
- "n_hits": 1000,
+ "n_hits": 1007,
  "n_live": 0,
  "hits": [
   {
@@ -628,7 +628,7 @@
   },
   {
    "doc": "SOP",
-   "line": 895,
+   "line": 899,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -636,7 +636,7 @@
   },
   {
    "doc": "SOP",
-   "line": 897,
+   "line": 901,
    "kind": "COHORT",
    "word": "donors",
    "status": "RECORD",
@@ -644,7 +644,7 @@
   },
   {
    "doc": "SOP",
-   "line": 897,
+   "line": 901,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -652,7 +652,7 @@
   },
   {
    "doc": "SOP",
-   "line": 900,
+   "line": 904,
    "kind": "COHORT",
    "word": "age term",
    "status": "RECORD",
@@ -660,7 +660,7 @@
   },
   {
    "doc": "SOP",
-   "line": 5538,
+   "line": 5577,
    "kind": "COHORT",
    "word": "donors",
    "status": "RECORD",
@@ -668,7 +668,7 @@
   },
   {
    "doc": "SOP",
-   "line": 5542,
+   "line": 5581,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -676,7 +676,7 @@
   },
   {
    "doc": "SOP",
-   "line": 5547,
+   "line": 5586,
    "kind": "COHORT",
    "word": "donor",
    "status": "RECORD",
@@ -684,7 +684,7 @@
   },
   {
    "doc": "SOP",
-   "line": 6171,
+   "line": 6215,
    "kind": "FORBIDDEN",
    "word": "Tumor",
    "status": "RECORD",
@@ -692,7 +692,7 @@
   },
   {
    "doc": "SOP",
-   "line": 6837,
+   "line": 6886,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -700,7 +700,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7093,
+   "line": 7158,
    "kind": "FORBIDDEN",
    "word": "diagnostic",
    "status": "RECORD",
@@ -708,7 +708,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7294,
+   "line": 7371,
    "kind": "COHORT",
    "word": "healthy reference",
    "status": "RECORD",
@@ -716,7 +716,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7302,
+   "line": 7379,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -724,7 +724,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7302,
+   "line": 7379,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -732,7 +732,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7322,
+   "line": 7399,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -740,7 +740,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7322,
+   "line": 7399,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -748,15 +748,7 @@
   },
   {
    "doc": "SOP",
-   "line": 7905,
-   "kind": "FORBIDDEN",
-   "word": "disease",
-   "status": "RECORD",
-   "text": "**What this step does.** Compares legacy's and NILC's per-class fraction estimates to verify they agree at the biological-inference layer (sign and rough magnitude of effects). Substrate-level disagr"
-  },
-  {
-   "doc": "SOP",
-   "line": 8001,
+   "line": 8118,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -764,7 +756,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8080,
+   "line": 8205,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -772,7 +764,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8087,
+   "line": 8212,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -780,7 +772,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8097,
+   "line": 8222,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -788,7 +780,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8111,
+   "line": 8236,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -796,7 +788,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8153,
+   "line": 8282,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -804,7 +796,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8153,
+   "line": 8282,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -812,7 +804,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8157,
+   "line": 8286,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -820,7 +812,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8168,
+   "line": 8297,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -828,7 +820,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8224,
+   "line": 8357,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -836,7 +828,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8228,
+   "line": 8361,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -844,7 +836,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8280,
+   "line": 8417,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -852,7 +844,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8280,
+   "line": 8417,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -860,7 +852,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8342,
+   "line": 8483,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -868,7 +860,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8346,
+   "line": 8487,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -876,7 +868,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8667,
+   "line": 8828,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -884,7 +876,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8752,
+   "line": 8917,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -892,7 +884,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8758,
+   "line": 8923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -900,7 +892,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8760,
+   "line": 8925,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -908,7 +900,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8760,
+   "line": 8925,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -916,7 +908,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8764,
+   "line": 8929,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -924,7 +916,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8764,
+   "line": 8929,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -932,7 +924,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8768,
+   "line": 8933,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -940,7 +932,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8768,
+   "line": 8933,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -948,7 +940,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8772,
+   "line": 8937,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -956,7 +948,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8772,
+   "line": 8937,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -964,7 +956,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8776,
+   "line": 8941,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -972,7 +964,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8776,
+   "line": 8941,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -980,7 +972,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8780,
+   "line": 8945,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -988,7 +980,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8780,
+   "line": 8945,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -996,7 +988,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8784,
+   "line": 8949,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1004,7 +996,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8784,
+   "line": 8949,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1012,27 +1004,19 @@
   },
   {
    "doc": "SOP",
-   "line": 8788,
+   "line": 8953,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
-   "text": "**What this step does.** When a specific disease card includes a curated CpG panel (e.g., the Xu-538 immune panel used for breast pre-dx), compute the A-score on that panel using the same H(\u03b2)/H_min f"
+   "text": "> **STATUS: NOT IN CHAIN**. disease-panel A: the chain applies no disease panel *(2026-09-27, build_sop_mirror.py)*"
   },
   {
    "doc": "SOP",
-   "line": 8806,
+   "line": 8953,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
-   "text": "**How the methylome differs in implementation.** Panels are typically card-specific and disease-specific (e.g., Xu-538 is breast-pre-dx-specific). CMB targeted windows are typically question-specific "
-  },
-  {
-   "doc": "SOP",
-   "line": 8810,
-   "kind": "FORBIDDEN",
-   "word": "disease",
-   "status": "RECORD",
-   "text": "**Outputs.** A per-card disease panel A-score: 1 value per card per patient."
+   "text": "> **STATUS: NOT IN CHAIN**. disease-panel A: the chain applies no disease panel *(2026-09-27, build_sop_mirror.py)*"
   },
   {
    "doc": "SOP",
@@ -1040,11 +1024,35 @@
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
+   "text": "**What this step does.** When a specific disease card includes a curated CpG panel (e.g., the Xu-538 immune panel used for breast pre-dx), compute the A-score on that panel using the same H(\u03b2)/H_min f"
+  },
+  {
+   "doc": "SOP",
+   "line": 8975,
+   "kind": "FORBIDDEN",
+   "word": "disease",
+   "status": "RECORD",
+   "text": "**How the methylome differs in implementation.** Panels are typically card-specific and disease-specific (e.g., Xu-538 is breast-pre-dx-specific). CMB targeted windows are typically question-specific "
+  },
+  {
+   "doc": "SOP",
+   "line": 8979,
+   "kind": "FORBIDDEN",
+   "word": "disease",
+   "status": "RECORD",
+   "text": "**Outputs.** A per-card disease panel A-score: 1 value per card per patient."
+  },
+  {
+   "doc": "SOP",
+   "line": 9138,
+   "kind": "FORBIDDEN",
+   "word": "disease",
+   "status": "RECORD",
    "text": "**What this step does.** Decomposes each class's signal into a signed directional composite that catches bidirectional methylation patterns at patient runtime. The pooled-entropy A-score from \u00a743 is *"
   },
   {
    "doc": "SOP",
-   "line": 8959,
+   "line": 9140,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1052,7 +1060,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8971,
+   "line": 9152,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1060,7 +1068,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8971,
+   "line": 9152,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1068,7 +1076,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8984,
+   "line": 9165,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1076,7 +1084,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8986,
+   "line": 9167,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1084,7 +1092,7 @@
   },
   {
    "doc": "SOP",
-   "line": 8988,
+   "line": 9169,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1092,7 +1100,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9046,
+   "line": 9231,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1100,7 +1108,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9050,
+   "line": 9235,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1108,7 +1116,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9054,
+   "line": 9239,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1116,7 +1124,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9058,
+   "line": 9243,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1124,7 +1132,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9062,
+   "line": 9247,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1132,7 +1140,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9066,
+   "line": 9251,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1140,7 +1148,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9070,
+   "line": 9255,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -1148,7 +1156,15 @@
   },
   {
    "doc": "SOP",
-   "line": 9144,
+   "line": 9259,
+   "kind": "COHORT",
+   "word": "laboratory zero",
+   "status": "RECORD",
+   "text": "> **STATUS: LIVE** \u2014 implemented by `stage_4_6_patient_sky (cpg_conductor.py) + stage_4_6_patient_cmb.py`. sigma from the atlas posterior + this array's SNP-probe noise; no laboratory zero or spread *"
+  },
+  {
+   "doc": "SOP",
+   "line": 9333,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1156,7 +1172,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9148,
+   "line": 9337,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1164,7 +1180,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9154,
+   "line": 9343,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1172,7 +1188,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9160,
+   "line": 9349,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1180,7 +1196,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9164,
+   "line": 9353,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1188,7 +1204,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9168,
+   "line": 9357,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1196,7 +1212,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9172,
+   "line": 9361,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1204,7 +1220,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9176,
+   "line": 9365,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1212,7 +1228,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9180,
+   "line": 9369,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1220,7 +1236,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9184,
+   "line": 9373,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1228,7 +1244,15 @@
   },
   {
    "doc": "SOP",
-   "line": 9199,
+   "line": 9377,
+   "kind": "COHORT",
+   "word": "Mahalanobis",
+   "status": "RECORD",
+   "text": "> **STATUS: RECORD**. Stage 5 Mahalanobis REMOVED 2026-09-27 - a distance from a population's centroid *(2026-09-27, build_sop_mirror.py)*"
+  },
+  {
+   "doc": "SOP",
+   "line": 9392,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1236,7 +1260,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9217,
+   "line": 9410,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -1244,7 +1268,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9217,
+   "line": 9410,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1252,7 +1276,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9259,
+   "line": 9456,
    "kind": "COHORT",
    "word": "healthy reference",
    "status": "RECORD",
@@ -1260,7 +1284,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9261,
+   "line": 9458,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -1268,7 +1292,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9263,
+   "line": 9460,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1276,7 +1300,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9281,
+   "line": 9478,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -1284,7 +1308,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9282,
+   "line": 9479,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1292,7 +1316,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9282,
+   "line": 9479,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1300,7 +1324,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9289,
+   "line": 9486,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1308,7 +1332,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9370,
+   "line": 9571,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1316,7 +1340,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9370,
+   "line": 9571,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1324,7 +1348,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9387,
+   "line": 9588,
    "kind": "FORBIDDEN",
    "word": "Diagnostic",
    "status": "RECORD",
@@ -1332,7 +1356,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9469,
+   "line": 9674,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -1340,7 +1364,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9499,
+   "line": 9708,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1348,7 +1372,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9524,
+   "line": 9733,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1356,7 +1380,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9524,
+   "line": 9733,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -1364,7 +1388,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9533,
+   "line": 9742,
    "kind": "FORBIDDEN",
    "word": "Diagnostic",
    "status": "RECORD",
@@ -1372,7 +1396,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9539,
+   "line": 9748,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -1380,7 +1404,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9543,
+   "line": 9752,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1388,7 +1412,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9543,
+   "line": 9752,
    "kind": "COHORT",
    "word": "healthy person",
    "status": "RECORD",
@@ -1396,7 +1420,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9551,
+   "line": 9760,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1404,7 +1428,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9555,
+   "line": 9764,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1412,7 +1436,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9559,
+   "line": 9768,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1420,7 +1444,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9563,
+   "line": 9772,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1428,7 +1452,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9567,
+   "line": 9776,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1436,7 +1460,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9571,
+   "line": 9780,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1444,7 +1468,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9575,
+   "line": 9784,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1452,7 +1476,15 @@
   },
   {
    "doc": "SOP",
-   "line": 9605,
+   "line": 9788,
+   "kind": "FORBIDDEN",
+   "word": "cellular age",
+   "status": "RECORD",
+   "text": "> **STATUS: RECORD**. Stage 6 cellular age REMOVED 2026-09-27 - an age read back from a curve of people *(2026-09-27, build_sop_mirror.py)*"
+  },
+  {
+   "doc": "SOP",
+   "line": 9818,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1460,7 +1492,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9643,
+   "line": 9860,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1468,7 +1500,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9701,
+   "line": 9922,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1476,7 +1508,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9714,
+   "line": 9935,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1484,7 +1516,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9715,
+   "line": 9936,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1492,7 +1524,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9716,
+   "line": 9937,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -1500,7 +1532,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9720,
+   "line": 9941,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -1508,7 +1540,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9722,
+   "line": 9943,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -1516,7 +1548,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9726,
+   "line": 9947,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1524,7 +1556,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9731,
+   "line": 9952,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1532,7 +1564,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9791,
+   "line": 10016,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1540,7 +1572,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9791,
+   "line": 10016,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1548,7 +1580,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9791,
+   "line": 10016,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1556,7 +1588,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9843,
+   "line": 10072,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1564,7 +1596,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9845,
+   "line": 10074,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1572,7 +1604,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9853,
+   "line": 10082,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1580,7 +1612,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9855,
+   "line": 10084,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1588,7 +1620,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9875,
+   "line": 10104,
    "kind": "COHORT",
    "word": "Percentile",
    "status": "RECORD",
@@ -1596,7 +1628,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9905,
+   "line": 10138,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1604,7 +1636,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9905,
+   "line": 10138,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1612,7 +1644,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9905,
+   "line": 10138,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1620,7 +1652,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9907,
+   "line": 10140,
    "kind": "COHORT",
    "word": "percentiles",
    "status": "RECORD",
@@ -1628,7 +1660,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9911,
+   "line": 10144,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1636,7 +1668,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9914,
+   "line": 10147,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1644,7 +1676,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9915,
+   "line": 10148,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1652,7 +1684,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9916,
+   "line": 10149,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1660,7 +1692,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9918,
+   "line": 10151,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1668,7 +1700,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9920,
+   "line": 10153,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1676,7 +1708,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9920,
+   "line": 10153,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1684,7 +1716,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9920,
+   "line": 10153,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1692,7 +1724,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9922,
+   "line": 10155,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1700,7 +1732,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9924,
+   "line": 10157,
    "kind": "COHORT",
    "word": "Percentile",
    "status": "RECORD",
@@ -1708,7 +1740,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9931,
+   "line": 10164,
    "kind": "COHORT",
    "word": "reference range",
    "status": "RECORD",
@@ -1716,7 +1748,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9931,
+   "line": 10164,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1724,7 +1756,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9941,
+   "line": 10174,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -1732,7 +1764,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9971,
+   "line": 10208,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -1740,7 +1772,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9981,
+   "line": 10218,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1748,7 +1780,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9990,
+   "line": 10227,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1756,7 +1788,7 @@
   },
   {
    "doc": "SOP",
-   "line": 9997,
+   "line": 10234,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -1764,7 +1796,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10053,
+   "line": 10294,
    "kind": "COHORT",
    "word": "ceiling",
    "status": "RECORD",
@@ -1772,7 +1804,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10053,
+   "line": 10294,
    "kind": "COHORT",
    "word": "percentiles",
    "status": "RECORD",
@@ -1780,7 +1812,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10055,
+   "line": 10296,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -1788,7 +1820,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10066,
+   "line": 10307,
    "kind": "FORBIDDEN",
    "word": "malignancy",
    "status": "RECORD",
@@ -1796,7 +1828,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10066,
+   "line": 10307,
    "kind": "FORBIDDEN",
    "word": "diagnosis",
    "status": "RECORD",
@@ -1804,7 +1836,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10068,
+   "line": 10309,
    "kind": "COHORT",
    "word": "ceiling",
    "status": "RECORD",
@@ -1812,7 +1844,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10068,
+   "line": 10309,
    "kind": "COHORT",
    "word": "ceiling",
    "status": "RECORD",
@@ -1820,7 +1852,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10068,
+   "line": 10309,
    "kind": "COHORT",
    "word": "ceiling",
    "status": "RECORD",
@@ -1828,7 +1860,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10068,
+   "line": 10309,
    "kind": "COHORT",
    "word": "ceiling",
    "status": "RECORD",
@@ -1836,7 +1868,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10089,
+   "line": 10330,
    "kind": "COHORT",
    "word": "percentiles",
    "status": "RECORD",
@@ -1844,7 +1876,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10091,
+   "line": 10332,
    "kind": "COHORT",
    "word": "percentiles",
    "status": "RECORD",
@@ -1852,7 +1884,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10323,
+   "line": 10576,
    "kind": "FORBIDDEN",
    "word": "diagnostic",
    "status": "RECORD",
@@ -1860,7 +1892,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10492,
+   "line": 10753,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1868,7 +1900,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10494,
+   "line": 10755,
    "kind": "FORBIDDEN",
    "word": "diagnosis",
    "status": "RECORD",
@@ -1876,7 +1908,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10494,
+   "line": 10755,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1884,7 +1916,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10496,
+   "line": 10757,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1892,7 +1924,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10496,
+   "line": 10757,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1900,7 +1932,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10502,
+   "line": 10763,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -1908,7 +1940,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10534,
+   "line": 10799,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -1916,7 +1948,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10536,
+   "line": 10801,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -1924,7 +1956,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10538,
+   "line": 10803,
    "kind": "FORBIDDEN",
    "word": "diagnostic",
    "status": "RECORD",
@@ -1932,7 +1964,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10541,
+   "line": 10806,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1940,7 +1972,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10546,
+   "line": 10811,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1948,7 +1980,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10548,
+   "line": 10813,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1956,7 +1988,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10552,
+   "line": 10817,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1964,7 +1996,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10559,
+   "line": 10824,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1972,7 +2004,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10559,
+   "line": 10824,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1980,7 +2012,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10576,
+   "line": 10841,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -1988,7 +2020,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10576,
+   "line": 10841,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -1996,7 +2028,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10576,
+   "line": 10841,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2004,7 +2036,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10616,
+   "line": 10885,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2012,7 +2044,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10623,
+   "line": 10892,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2020,7 +2052,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10634,
+   "line": 10903,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2028,7 +2060,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10634,
+   "line": 10903,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2036,7 +2068,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10636,
+   "line": 10905,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2044,7 +2076,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10636,
+   "line": 10905,
    "kind": "FORBIDDEN",
    "word": "diagnostic",
    "status": "RECORD",
@@ -2052,7 +2084,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10648,
+   "line": 10917,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2060,7 +2092,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2068,7 +2100,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2076,7 +2108,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2084,7 +2116,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2092,7 +2124,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2100,7 +2132,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2108,7 +2140,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2116,7 +2148,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2124,7 +2156,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2132,7 +2164,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2140,7 +2172,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2148,7 +2180,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2156,7 +2188,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2164,7 +2196,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2172,7 +2204,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2180,7 +2212,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2188,7 +2220,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2196,7 +2228,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10654,
+   "line": 10923,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -2204,7 +2236,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10656,
+   "line": 10925,
    "kind": "FORBIDDEN",
    "word": "Diagnostic",
    "status": "RECORD",
@@ -2212,7 +2244,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10731,
+   "line": 11004,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2220,7 +2252,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10743,
+   "line": 11016,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2228,7 +2260,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10784,
+   "line": 11061,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2236,7 +2268,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10784,
+   "line": 11061,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2244,7 +2276,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10789,
+   "line": 11066,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2252,7 +2284,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10817,
+   "line": 11094,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2260,7 +2292,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10836,
+   "line": 11113,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2268,7 +2300,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10840,
+   "line": 11117,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2276,7 +2308,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10844,
+   "line": 11121,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2284,7 +2316,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10848,
+   "line": 11125,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2292,7 +2324,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10852,
+   "line": 11129,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2300,7 +2332,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10856,
+   "line": 11133,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2308,7 +2340,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10860,
+   "line": 11137,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2316,7 +2348,15 @@
   },
   {
    "doc": "SOP",
-   "line": 10864,
+   "line": 11141,
+   "kind": "FORBIDDEN",
+   "word": "verdict",
+   "status": "RECORD",
+   "text": "> **STATUS: NOT IN CHAIN**. no card verdict *(2026-09-27, build_sop_mirror.py)*"
+  },
+  {
+   "doc": "SOP",
+   "line": 11145,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2324,7 +2364,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10878,
+   "line": 11159,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2332,7 +2372,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10880,
+   "line": 11161,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2340,7 +2380,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10888,
+   "line": 11169,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -2348,7 +2388,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10904,
+   "line": 11185,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2356,7 +2396,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10909,
+   "line": 11190,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2364,7 +2404,7 @@
   },
   {
    "doc": "SOP",
-   "line": 10910,
+   "line": 11191,
    "kind": "FORBIDDEN",
    "word": "diagnoses",
    "status": "RECORD",
@@ -2372,7 +2412,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11019,
+   "line": 11308,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2380,7 +2420,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11024,
+   "line": 11313,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2388,7 +2428,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11035,
+   "line": 11324,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2396,7 +2436,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11064,
+   "line": 11353,
    "kind": "FORBIDDEN",
    "word": "Cancer",
    "status": "RECORD",
@@ -2404,7 +2444,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11066,
+   "line": 11355,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2412,7 +2452,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11066,
+   "line": 11355,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2420,7 +2460,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11070,
+   "line": 11359,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2428,7 +2468,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11070,
+   "line": 11359,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2436,7 +2476,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11074,
+   "line": 11363,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2444,7 +2484,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11074,
+   "line": 11363,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2452,7 +2492,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11078,
+   "line": 11367,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2460,7 +2500,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11078,
+   "line": 11367,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2468,7 +2508,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11082,
+   "line": 11371,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2476,7 +2516,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11082,
+   "line": 11371,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2484,7 +2524,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11086,
+   "line": 11375,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2492,7 +2532,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11086,
+   "line": 11375,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2500,7 +2540,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11090,
+   "line": 11379,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2508,7 +2548,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11090,
+   "line": 11379,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2516,7 +2556,23 @@
   },
   {
    "doc": "SOP",
-   "line": 11094,
+   "line": 11383,
+   "kind": "FORBIDDEN",
+   "word": "cancer",
+   "status": "RECORD",
+   "text": "> **STATUS: NOT IN CHAIN**. cancer prior: the chain applies no disease prior *(2026-09-27, build_sop_mirror.py)*"
+  },
+  {
+   "doc": "SOP",
+   "line": 11383,
+   "kind": "FORBIDDEN",
+   "word": "disease",
+   "status": "RECORD",
+   "text": "> **STATUS: NOT IN CHAIN**. cancer prior: the chain applies no disease prior *(2026-09-27, build_sop_mirror.py)*"
+  },
+  {
+   "doc": "SOP",
+   "line": 11387,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2524,7 +2580,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11094,
+   "line": 11387,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2532,7 +2588,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11094,
+   "line": 11387,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2540,7 +2596,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11094,
+   "line": 11387,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -2548,7 +2604,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11104,
+   "line": 11397,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2556,7 +2612,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11108,
+   "line": 11401,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2564,7 +2620,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11108,
+   "line": 11401,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2572,7 +2628,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11114,
+   "line": 11407,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2580,7 +2636,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11118,
+   "line": 11411,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2588,7 +2644,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11118,
+   "line": 11411,
    "kind": "FORBIDDEN",
    "word": "malignancies",
    "status": "RECORD",
@@ -2596,7 +2652,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11162,
+   "line": 11459,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2604,7 +2660,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11162,
+   "line": 11459,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2612,7 +2668,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11164,
+   "line": 11461,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2620,7 +2676,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11176,
+   "line": 11473,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2628,7 +2684,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11192,
+   "line": 11489,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2636,7 +2692,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11203,
+   "line": 11500,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2644,7 +2700,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11206,
+   "line": 11503,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2652,7 +2708,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11213,
+   "line": 11510,
    "kind": "FORBIDDEN",
    "word": "diagnosis",
    "status": "RECORD",
@@ -2660,7 +2716,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11217,
+   "line": 11514,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2668,7 +2724,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11217,
+   "line": 11514,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2676,7 +2732,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11262,
+   "line": 11563,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2684,7 +2740,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11262,
+   "line": 11563,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2692,7 +2748,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11354,
+   "line": 11659,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2700,7 +2756,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11358,
+   "line": 11663,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2708,7 +2764,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11362,
+   "line": 11667,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2716,7 +2772,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11366,
+   "line": 11671,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2724,7 +2780,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11370,
+   "line": 11675,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2732,7 +2788,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11374,
+   "line": 11679,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2740,7 +2796,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11378,
+   "line": 11683,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2748,7 +2804,15 @@
   },
   {
    "doc": "SOP",
-   "line": 11382,
+   "line": 11687,
+   "kind": "COHORT",
+   "word": "COHORT",
+   "status": "RECORD",
+   "text": "> **STATUS: LIVE** \u2014 implemented by `build_methylphys.guard (FORBIDDEN + COHORT); propagate.py bundle-key guard`. the legal boundary is mechanical *(2026-09-27, build_sop_mirror.py)*"
+  },
+  {
+   "doc": "SOP",
+   "line": 11691,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -2756,7 +2820,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11567,
+   "line": 11888,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2764,7 +2828,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11614,
+   "line": 11935,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -2772,7 +2836,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11618,
+   "line": 11939,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2780,7 +2844,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11618,
+   "line": 11939,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -2788,7 +2852,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11618,
+   "line": 11939,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2796,7 +2860,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11635,
+   "line": 11956,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2804,7 +2868,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11644,
+   "line": 11965,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2812,7 +2876,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11646,
+   "line": 11967,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2820,7 +2884,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11648,
+   "line": 11969,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2828,7 +2892,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11649,
+   "line": 11970,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2836,7 +2900,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11651,
+   "line": 11972,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2844,7 +2908,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11659,
+   "line": 11980,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2852,7 +2916,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11660,
+   "line": 11981,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2860,7 +2924,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11666,
+   "line": 11987,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -2868,7 +2932,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11689,
+   "line": 12010,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -2876,7 +2940,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11707,
+   "line": 12028,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -2884,7 +2948,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11721,
+   "line": 12042,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2892,7 +2956,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11759,
+   "line": 12080,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -2900,7 +2964,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11769,
+   "line": 12090,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -2908,7 +2972,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11769,
+   "line": 12090,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2916,7 +2980,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11769,
+   "line": 12090,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -2924,7 +2988,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11775,
+   "line": 12096,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2932,7 +2996,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11782,
+   "line": 12103,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2940,7 +3004,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11782,
+   "line": 12103,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2948,7 +3012,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11782,
+   "line": 12103,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2956,7 +3020,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11792,
+   "line": 12113,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -2964,7 +3028,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11796,
+   "line": 12117,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2972,7 +3036,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11796,
+   "line": 12117,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2980,7 +3044,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11798,
+   "line": 12119,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2988,7 +3052,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11798,
+   "line": 12119,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -2996,7 +3060,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11804,
+   "line": 12125,
    "kind": "FORBIDDEN",
    "word": "Verdict",
    "status": "RECORD",
@@ -3004,7 +3068,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11811,
+   "line": 12132,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3012,7 +3076,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11811,
+   "line": 12132,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3020,7 +3084,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11811,
+   "line": 12132,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3028,7 +3092,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11824,
+   "line": 12145,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -3036,7 +3100,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11825,
+   "line": 12146,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3044,7 +3108,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11869,
+   "line": 12190,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3052,7 +3116,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11885,
+   "line": 12206,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3060,7 +3124,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11894,
+   "line": 12215,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3068,7 +3132,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11895,
+   "line": 12216,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3076,7 +3140,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11935,
+   "line": 12256,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -3084,7 +3148,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11935,
+   "line": 12256,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3092,7 +3156,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11935,
+   "line": 12256,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3100,7 +3164,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11943,
+   "line": 12264,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3108,7 +3172,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11944,
+   "line": 12265,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3116,7 +3180,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11949,
+   "line": 12270,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3124,7 +3188,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11950,
+   "line": 12271,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3132,7 +3196,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11950,
+   "line": 12271,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3140,7 +3204,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11961,
+   "line": 12282,
    "kind": "FORBIDDEN",
    "word": "diagnostics",
    "status": "RECORD",
@@ -3148,7 +3212,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11967,
+   "line": 12288,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -3156,7 +3220,7 @@
   },
   {
    "doc": "SOP",
-   "line": 11997,
+   "line": 12318,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3164,7 +3228,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12015,
+   "line": 12336,
    "kind": "FORBIDDEN",
    "word": "Diagnostic",
    "status": "RECORD",
@@ -3172,7 +3236,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12027,
+   "line": 12348,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -3180,7 +3244,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12036,
+   "line": 12357,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3188,7 +3252,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12036,
+   "line": 12357,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3196,7 +3260,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12042,
+   "line": 12363,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -3204,7 +3268,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12043,
+   "line": 12364,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3212,7 +3276,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12044,
+   "line": 12365,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3220,7 +3284,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12045,
+   "line": 12366,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3228,7 +3292,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12047,
+   "line": 12368,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3236,7 +3300,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12047,
+   "line": 12368,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3244,7 +3308,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12056,
+   "line": 12377,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3252,7 +3316,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12064,
+   "line": 12385,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3260,7 +3324,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12076,
+   "line": 12397,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3268,7 +3332,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12078,
+   "line": 12399,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3276,7 +3340,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12083,
+   "line": 12404,
    "kind": "FORBIDDEN",
    "word": "cancer",
    "status": "RECORD",
@@ -3284,7 +3348,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12084,
+   "line": 12405,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3292,7 +3356,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12084,
+   "line": 12405,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3300,7 +3364,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12093,
+   "line": 12414,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3308,7 +3372,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12093,
+   "line": 12414,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3316,7 +3380,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12097,
+   "line": 12418,
    "kind": "FORBIDDEN",
    "word": "VERDICT",
    "status": "RECORD",
@@ -3324,7 +3388,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12123,
+   "line": 12444,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3332,7 +3396,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12148,
+   "line": 12469,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -3340,7 +3404,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12151,
+   "line": 12472,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3348,7 +3412,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12175,
+   "line": 12496,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3356,7 +3420,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12176,
+   "line": 12497,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -3364,7 +3428,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12301,
+   "line": 12622,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -3372,7 +3436,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12305,
+   "line": 12626,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -3380,7 +3444,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12309,
+   "line": 12630,
    "kind": "COHORT",
    "word": "Cohort",
    "status": "RECORD",
@@ -3388,7 +3452,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12309,
+   "line": 12630,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3396,7 +3460,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12311,
+   "line": 12632,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3404,7 +3468,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12317,
+   "line": 12638,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -3412,7 +3476,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12332,
+   "line": 12653,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -3420,7 +3484,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12334,
+   "line": 12655,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3428,7 +3492,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12348,
+   "line": 12669,
    "kind": "FORBIDDEN",
    "word": "Cancer",
    "status": "RECORD",
@@ -3436,7 +3500,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12350,
+   "line": 12671,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3444,7 +3508,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12398,
+   "line": 12719,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3452,7 +3516,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12406,
+   "line": 12727,
    "kind": "FORBIDDEN",
    "word": "diagnostics",
    "status": "RECORD",
@@ -3460,7 +3524,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12406,
+   "line": 12727,
    "kind": "FORBIDDEN",
    "word": "diagnostic",
    "status": "RECORD",
@@ -3468,7 +3532,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12420,
+   "line": 12741,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3476,7 +3540,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12426,
+   "line": 12747,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3484,7 +3548,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12426,
+   "line": 12747,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3492,15 +3556,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12432,
-   "kind": "FORBIDDEN",
-   "word": "disease",
-   "status": "RECORD",
-   "text": "| Inference direction disagreement on disease-relevant class | (either) | INFERENCE FLAG; pause patient |"
-  },
-  {
-   "doc": "SOP",
-   "line": 12475,
+   "line": 12796,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -3508,7 +3564,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12475,
+   "line": 12796,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3516,7 +3572,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12475,
+   "line": 12796,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3524,7 +3580,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12493,
+   "line": 12814,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -3532,7 +3588,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12503,
+   "line": 12824,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3540,7 +3596,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12509,
+   "line": 12830,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -3548,7 +3604,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12512,
+   "line": 12833,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -3556,7 +3612,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12522,
+   "line": 12843,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -3564,7 +3620,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12526,
+   "line": 12847,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -3572,7 +3628,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12585,
+   "line": 12906,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -3580,7 +3636,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12587,
+   "line": 12908,
    "kind": "FORBIDDEN",
    "word": "diagnostics",
    "status": "RECORD",
@@ -3588,7 +3644,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12587,
+   "line": 12908,
    "kind": "FORBIDDEN",
    "word": "diagnostics",
    "status": "RECORD",
@@ -3596,7 +3652,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12587,
+   "line": 12908,
    "kind": "FORBIDDEN",
    "word": "diagnostics",
    "status": "RECORD",
@@ -3604,7 +3660,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12591,
+   "line": 12912,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -3612,7 +3668,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12592,
+   "line": 12913,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -3620,7 +3676,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12592,
+   "line": 12913,
    "kind": "COHORT",
    "word": "percentile",
    "status": "RECORD",
@@ -3628,7 +3684,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12593,
+   "line": 12914,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -3636,7 +3692,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12594,
+   "line": 12915,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3644,7 +3700,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12598,
+   "line": 12919,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3652,7 +3708,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12602,
+   "line": 12923,
    "kind": "FORBIDDEN",
    "word": "Cancer",
    "status": "RECORD",
@@ -3660,7 +3716,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12602,
+   "line": 12923,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3668,7 +3724,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12604,
+   "line": 12925,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -3676,7 +3732,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12626,
+   "line": 12947,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3684,7 +3740,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12626,
+   "line": 12947,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3692,7 +3748,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12639,
+   "line": 12960,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3700,7 +3756,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12641,
+   "line": 12962,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -3708,7 +3764,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12754,
+   "line": 13075,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -3716,7 +3772,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12755,
+   "line": 13076,
    "kind": "COHORT",
    "word": "Mahalanobis",
    "status": "RECORD",
@@ -3724,7 +3780,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12756,
+   "line": 13077,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3732,7 +3788,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12758,
+   "line": 13079,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3740,7 +3796,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12780,
+   "line": 13101,
    "kind": "FORBIDDEN",
    "word": "Diagnostic",
    "status": "RECORD",
@@ -3748,7 +3804,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12781,
+   "line": 13102,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3756,7 +3812,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12797,
+   "line": 13118,
    "kind": "FORBIDDEN",
    "word": "Diagnostic",
    "status": "RECORD",
@@ -3764,7 +3820,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12797,
+   "line": 13118,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3772,7 +3828,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12823,
+   "line": 13144,
    "kind": "COHORT",
    "word": "placement",
    "status": "RECORD",
@@ -3780,7 +3836,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12831,
+   "line": 13152,
    "kind": "COHORT",
    "word": "ceiling",
    "status": "RECORD",
@@ -3788,7 +3844,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12857,
+   "line": 13178,
    "kind": "FORBIDDEN",
    "word": "cellular age",
    "status": "RECORD",
@@ -3796,7 +3852,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12866,
+   "line": 13187,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3804,7 +3860,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12868,
+   "line": 13189,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3812,7 +3868,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12888,
+   "line": 13209,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3820,7 +3876,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12899,
+   "line": 13220,
    "kind": "COHORT",
    "word": "placement",
    "status": "RECORD",
@@ -3828,7 +3884,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12916,
+   "line": 13237,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3836,7 +3892,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12924,
+   "line": 13245,
    "kind": "COHORT",
    "word": "donors",
    "status": "RECORD",
@@ -3844,7 +3900,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12941,
+   "line": 13262,
    "kind": "COHORT",
    "word": "placed in",
    "status": "RECORD",
@@ -3852,7 +3908,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12942,
+   "line": 13263,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3860,7 +3916,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12942,
+   "line": 13263,
    "kind": "COHORT",
    "word": "IN_BAND",
    "status": "RECORD",
@@ -3868,7 +3924,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12942,
+   "line": 13263,
    "kind": "COHORT",
    "word": "BELOW_BAND",
    "status": "RECORD",
@@ -3876,7 +3932,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12943,
+   "line": 13264,
    "kind": "FORBIDDEN",
    "word": "Cellular age",
    "status": "RECORD",
@@ -3884,7 +3940,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12968,
+   "line": 13289,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -3892,7 +3948,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12977,
+   "line": 13298,
    "kind": "COHORT",
    "word": "healthy reference",
    "status": "RECORD",
@@ -3900,7 +3956,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12977,
+   "line": 13298,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -3908,7 +3964,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12981,
+   "line": 13302,
    "kind": "COHORT",
    "word": "BELOW_BAND",
    "status": "RECORD",
@@ -3916,7 +3972,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12981,
+   "line": 13302,
    "kind": "COHORT",
    "word": "IN_BAND",
    "status": "RECORD",
@@ -3924,7 +3980,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12983,
+   "line": 13304,
    "kind": "COHORT",
    "word": "LAB ZERO",
    "status": "RECORD",
@@ -3932,7 +3988,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12983,
+   "line": 13304,
    "kind": "COHORT",
    "word": "LAB ZERO",
    "status": "RECORD",
@@ -3940,7 +3996,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12983,
+   "line": 13304,
    "kind": "COHORT",
    "word": "cohorts",
    "status": "RECORD",
@@ -3948,7 +4004,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12983,
+   "line": 13304,
    "kind": "COHORT",
    "word": "lab zero",
    "status": "RECORD",
@@ -3956,7 +4012,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12987,
+   "line": 13308,
    "kind": "COHORT",
    "word": "LAB ZERO",
    "status": "RECORD",
@@ -3964,7 +4020,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12987,
+   "line": 13308,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -3972,7 +4028,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12987,
+   "line": 13308,
    "kind": "COHORT",
    "word": "donors",
    "status": "RECORD",
@@ -3980,7 +4036,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12991,
+   "line": 13312,
    "kind": "FORBIDDEN",
    "word": "diagnostic_marker_union",
    "status": "RECORD",
@@ -3988,7 +4044,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12991,
+   "line": 13312,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -3996,7 +4052,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12991,
+   "line": 13312,
    "kind": "COHORT",
    "word": "placed in",
    "status": "RECORD",
@@ -4004,7 +4060,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12991,
+   "line": 13312,
    "kind": "COHORT",
    "word": "p10",
    "status": "RECORD",
@@ -4012,7 +4068,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12991,
+   "line": 13312,
    "kind": "COHORT",
    "word": "p90",
    "status": "RECORD",
@@ -4020,7 +4076,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12993,
+   "line": 13314,
    "kind": "FORBIDDEN",
    "word": "diagnostic_hull_marker_union",
    "status": "RECORD",
@@ -4028,7 +4084,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12993,
+   "line": 13314,
    "kind": "COHORT",
    "word": "mahalanobis",
    "status": "RECORD",
@@ -4036,7 +4092,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12995,
+   "line": 13316,
    "kind": "FORBIDDEN",
    "word": "CELLULAR AGE",
    "status": "RECORD",
@@ -4044,7 +4100,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12995,
+   "line": 13316,
    "kind": "FORBIDDEN",
    "word": "diagnostic_cellular_age",
    "status": "RECORD",
@@ -4052,7 +4108,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12995,
+   "line": 13316,
    "kind": "COHORT",
    "word": "donors",
    "status": "RECORD",
@@ -4060,7 +4116,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12995,
+   "line": 13316,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -4068,7 +4124,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12997,
+   "line": 13318,
    "kind": "COHORT",
    "word": "lab zero",
    "status": "RECORD",
@@ -4076,7 +4132,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12999,
+   "line": 13320,
    "kind": "COHORT",
    "word": "donors",
    "status": "RECORD",
@@ -4084,7 +4140,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12999,
+   "line": 13320,
    "kind": "COHORT",
    "word": "central 95",
    "status": "RECORD",
@@ -4092,7 +4148,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12999,
+   "line": 13320,
    "kind": "COHORT",
    "word": "central 95",
    "status": "RECORD",
@@ -4100,7 +4156,7 @@
   },
   {
    "doc": "SOP",
-   "line": 12999,
+   "line": 13320,
    "kind": "COHORT",
    "word": "central 95",
    "status": "RECORD",
@@ -4108,7 +4164,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13001,
+   "line": 13322,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -4116,7 +4172,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13001,
+   "line": 13322,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -4124,7 +4180,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13001,
+   "line": 13322,
    "kind": "FORBIDDEN",
    "word": "Disease",
    "status": "RECORD",
@@ -4132,7 +4188,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13001,
+   "line": 13322,
    "kind": "COHORT",
    "word": "placement",
    "status": "RECORD",
@@ -4140,7 +4196,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13100,
+   "line": 13421,
    "kind": "COHORT",
    "word": "age term",
    "status": "RECORD",
@@ -4148,7 +4204,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13116,
+   "line": 13437,
    "kind": "COHORT",
    "word": "healthy band",
    "status": "RECORD",
@@ -4156,7 +4212,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13118,
+   "line": 13439,
    "kind": "COHORT",
    "word": "healthy range",
    "status": "RECORD",
@@ -4164,7 +4220,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13122,
+   "line": 13443,
    "kind": "COHORT",
    "word": "age term",
    "status": "RECORD",
@@ -4172,7 +4228,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13122,
+   "line": 13443,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -4180,7 +4236,7 @@
   },
   {
    "doc": "SOP",
-   "line": 13170,
+   "line": 13491,
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
@@ -7032,7 +7088,7 @@
    "kind": "FORBIDDEN",
    "word": "verdict",
    "status": "RECORD",
-   "text": "al_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md doors Sentence-by-sentence audit of every report tab against code, file and record (2026-09-26/27): verdict OK / FIXED / REMOVED / UNVERIFIED per line. 17 KB 65f6cf46f"
+   "text": "al_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md doors Sentence-by-sentence audit of every report tab against code, file and record (2026-09-26/27): verdict OK / FIXED / REMOVED / UNVERIFIED per line. 17 KB c71995f30"
   },
   {
    "doc": "REPORT:files",
@@ -7048,7 +7104,7 @@
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
-   "text": " ee7ad7fd1936 Present but NOT in the chain (31) Callable and kept for the record - most of it from the preliminary era. run_full() does not read any of it. The disease matrix is here because the author removed disease matching "
+   "text": " ba9dd53ebdf6 Present but NOT in the chain (31) Callable and kept for the record - most of it from the preliminary era. run_full() does not read any of it. The disease matrix is here because the author removed disease matching "
   },
   {
    "doc": "REPORT:files",
@@ -7924,7 +7980,7 @@
   },
   {
    "doc": "README:MethylPhys/kit/README.md",
-   "line": 81,
+   "line": 82,
    "kind": "FORBIDDEN",
    "word": "disease",
    "status": "RECORD",
@@ -7932,7 +7988,7 @@
   },
   {
    "doc": "README:MethylPhys/kit/README.md",
-   "line": 90,
+   "line": 91,
    "kind": "COHORT",
    "word": "COHORT",
    "status": "RECORD",
@@ -7964,7 +8020,7 @@
   },
   {
    "doc": "README:README.md",
-   "line": 22,
+   "line": 115,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",
@@ -7972,7 +8028,7 @@
   },
   {
    "doc": "README:README.md",
-   "line": 23,
+   "line": 116,
    "kind": "COHORT",
    "word": "age curve",
    "status": "RECORD",
@@ -7980,7 +8036,7 @@
   },
   {
    "doc": "README:README.md",
-   "line": 23,
+   "line": 116,
    "kind": "COHORT",
    "word": "laboratory zero",
    "status": "RECORD",
@@ -7988,7 +8044,7 @@
   },
   {
    "doc": "README:README.md",
-   "line": 23,
+   "line": 116,
    "kind": "COHORT",
    "word": "reference range",
    "status": "RECORD",
@@ -7996,7 +8052,7 @@
   },
   {
    "doc": "README:README.md",
-   "line": 41,
+   "line": 134,
    "kind": "COHORT",
    "word": "cohort",
    "status": "RECORD",

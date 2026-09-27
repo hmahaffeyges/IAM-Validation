@@ -137,10 +137,10 @@ def main():
         "pass_criterion": "every cell's own atlas mean reads A in 0.9-1.1 on its own panel"},
         "cells": out}
     os.makedirs("handoff", exist_ok=True)
-    json.dump(art, open("handoff/iamatlas_percell_identity_loci_v1_0.json", "w"))
+    json.dump(art, open("handoff/iamatlas_percell_identity_loci_v1_1.json", "w"))
     json.dump(rows, open("handoff/percell_identity_audit.json", "w"), indent=1)
-    sz = os.path.getsize("handoff/iamatlas_percell_identity_loci_v1_0.json")
-    print(f"\nwrote handoff/iamatlas_percell_identity_loci_v1_0.json ({sz/1e6:.0f} MB, {len(out)} cells)")
+    sz = os.path.getsize("handoff/iamatlas_percell_identity_loci_v1_1.json")
+    print(f"\nwrote handoff/iamatlas_percell_identity_loci_v1_1.json ({sz/1e6:.0f} MB, {len(out)} cells)")
 
 
 if __name__ == "__main__":

@@ -38,7 +38,7 @@ def load():
     ident = json.load(open(C._find("iamatlas_gauge_identity_loci_v1_0.json")))
     hmin = {k: float(v["H_min"]) for k, v in ident.items() if isinstance(v, dict) and "H_min" in v}
     hbeta = {k: float(v["H_min_beta"]) for k, v in ident.items() if isinstance(v, dict) and "H_min_beta" in v}
-    pci = json.load(open(C._find("iamatlas_percell_identity_loci_v1_0.json")))
+    pci = json.load(open(C._find("iamatlas_percell_identity_loci_v1_1.json")))
     cells = pci.get("cells") or pci.get("entries") or {k: v for k, v in pci.items() if not k.startswith("_")}
     mu = SPG._cell_means(ATLAS); mu.index = mu.index.map(str)
     return hmin, hbeta, cells, mu
@@ -85,7 +85,7 @@ def deconv(dec, beta):
 def main():
     hmin, hbeta, cells_v10, mu = load()
     v11, rows = rezero(cells_v10, mu, hbeta)
-    json.dump({"_meta": {"built": "2026-09-27", "from": "iamatlas_percell_identity_loci_v1_0.json", "rule": "trim from the heavier side until own mean beta is within 1e-4 of the class H_min_beta (own A = 1.000)", "status": "CANDIDATE - PROC-UNMIX-01"}, "cells": v11},
+    json.dump({"_meta": {"built": "2026-09-27", "from": "iamatlas_percell_identity_loci_v1_1.json", "rule": "trim from the heavier side until own mean beta is within 1e-4 of the class H_min_beta (own A = 1.000)", "status": "CANDIDATE - PROC-UNMIX-01"}, "cells": v11},
               open(os.path.join(OUT, "iamatlas_percell_identity_loci_v1_1_CANDIDATE.json"), "w"))
     own = np.array([r[4] for r in rows]); before = np.array([r[3] for r in rows])
     print(f"(1) RE-ZERO: {len(rows)} cells | own A before: {before.min():.4f}-{before.max():.4f} median {np.median(before):.4f} | after: {own.min():.4f}-{own.max():.4f} | loci kept median {np.median([r[2] for r in rows]):.0f} of {np.median([r[1] for r in rows]):.0f}", flush=True)

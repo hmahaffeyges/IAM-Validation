@@ -22,7 +22,7 @@ Sentence numbers refer to the audit's scratch sentence file (the extraction that
 | 23–43 | R·T is the thermal scale; ratio is dimensionless; not metabolism | OK | arithmetic and units |
 | 47–55 | three parts; one floor per class | OK | consistent with [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json): 8 H_min values |
 | 56–61 | eight sandcastles | OK | analogy, labelled as one |
-| 62 | for each class we found addresses where every healthy cell sits at the same level | OK — **extended** | per-CELL identity loci also exist ([`iamatlas_percell_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_0.json)) and are where the cell is read; sentence now says so |
+| 62 | for each class we found addresses where every healthy cell sits at the same level | OK — **extended** | per-CELL identity loci also exist ([`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json)) and are where the cell is read; sentence now says so |
 | 63 | 42,134 immune / 29,181 cycling / 29,617 secretory identity loci | OK | read from the file: immune 42,134; cycling 29,181; secretory 29,617 |
 | 64–65 | eight numbers measured once and frozen | OK | H_min values in the file; PROC-HMIN-BOOT-01 confirms unchanged |
 | 67–70 | entropy 0→1; computed from array data alone | OK | binary entropy |
