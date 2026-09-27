@@ -39,7 +39,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 
 ## The runtime matrices every reading is corrected by
 
-- [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) — The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. The live age term come
+- [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) — The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. No age term is applied
 - [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) — Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline the conductor REFUS
 - [`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json) — THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune tier is withheld, 0
 - [`detection_panel_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/detection_panel_v1.json) — Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that laboratory'
@@ -49,13 +49,9 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) — How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual
 - [`iamatlas_collinearity_groups_v0_1.json`](../chain/Runtime%20Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json) — Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group sh
 - [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%20Panel/directional_panels_v1_0.json) — The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today.
-- [`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json) — Published reference A-score anchors per class (healthy / disease / cancer), extracted from the April web build. Orientation values from the literature, not meas
+- [`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json) — [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Orientation values from the literature, not measurement
 - [`iamatlas_cpg_to_healpix_nside128.npz`](../chain/Runtime%20Matrices/Patient_CMB/iamatlas_cpg_to_healpix_nside128.npz) — The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one chromosome, median 
 - [`presence_floors_v1.json`](../chain/Runtime%20Matrices/Patient_CMB/presence_floors_v1.json) — The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored.
-- [`residual_scale_GSE111629.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE111629.npz) — UCLA's per-address residual scale for the sky.
-- [`residual_scale_GSE125105.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE125105.npz) — Munich's per-address residual scale for the sky.
-- [`residual_scale_GSE42861.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE42861.npz) — Karolinska's per-address residual scale for the sky.
-- [`residual_scale_GSE87571.npz`](../chain/Runtime%20Matrices/Patient_CMB/residual_scale_GSE87571.npz) — Uppsala's per-address healthy residual scale for the sky - the denominator that makes a patient's z a z. One per commissioned laboratory.
 - [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) — The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report.
 - [`trace_detection_panel_v1.json`](../chain/Runtime%20Matrices/trace_detection_panel_v1.json) — the frozen panel and thresholds for Stage 2c trace detection
 
@@ -97,7 +93,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 49 procedures, 226 files
+## Every sealed procedure — 50 procedures, 232 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -122,6 +118,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-FOREIGN-01** — [`PROC_FOREIGN_01_OUTCOME.md`](PROC_FOREIGN_01_OUTCOME.md), [`PROC_FOREIGN_01_PREREG.md`](PROC_FOREIGN_01_PREREG.md), [`PROC_FOREIGN_01.py`](../kit/PROC_FOREIGN_01.py), [`PROC_FOREIGN_01_analyse.py`](../kit/PROC_FOREIGN_01_analyse.py), [`PROC_FOREIGN_01.json`](../kit/results/PROC_FOREIGN_01.json), [`PROC_FOREIGN_01_mixtures.json`](../kit/results/PROC_FOREIGN_01_mixtures.json), [`PROC_FOREIGN_01_threshold_options.json`](../kit/results/PROC_FOREIGN_01_threshold_options.json)
 - **PROC-FORMULA-01** — [`PROC_FORMULA_01.py`](../kit/PROC_FORMULA_01.py), [`PROC_FORMULA_01.json`](../kit/results/PROC_FORMULA_01.json)
 - **PROC-HISTORY-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-HISTORY-01/OUTCOME.md)
+- **PROC-INTAKE-01** — [`PROC_INTAKE_01_PREREG.md`](PROC_INTAKE_01_PREREG.md)
 - **PROC-LABBAND-01** — [`PROC_LABBAND_01_OUTCOME.md`](PROC_LABBAND_01_OUTCOME.md), [`PROC_LABBAND_01_PREREG.md`](PROC_LABBAND_01_PREREG.md), [`PROC_LABBAND_01.py`](../kit/PROC_LABBAND_01.py), [`PROC_LABBAND_01.json`](../kit/results/PROC_LABBAND_01.json)
 - **PROC-LOD-01** — [`PROC_LOD_01_detection_limit.png`](../kit/results/PROC_LOD_01_detection_limit.png)
 - **PROC-MAHA-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-MAHA-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-MAHA-01/PREREG.md), [`maha01_chip_diag.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_chip_diag.json), [`maha01_m145.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_m145.json), [`maha01_m23.json`](../../Record/PROC_data/PROC-MAHA-01/maha01_m23.json)
@@ -138,7 +135,7 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-RECORD-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-02/OUTCOME.md), [`val025_028_aging_ZENODO_COPY.py`](../../Record/PROC_data/PROC-RECORD-02/val025_028_aging_ZENODO_COPY.py)
 - **PROC-RECORD-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-03/OUTCOME.md), [`age_matrix_provenance_check.json`](../../Record/PROC_data/PROC-RECORD-03/age_matrix_provenance_check.json)
 - **PROC-SEP-03** — [`PROC_SEP_03.py`](../kit/PROC_SEP_03.py)
-- **PROC-SKY-01** — [`PROC_SKY_01_PREREG.md`](PROC_SKY_01_PREREG.md)
+- **PROC-SKY-01** — [`PROC_SKY_01_OUTCOME.md`](PROC_SKY_01_OUTCOME.md), [`PROC_SKY_01_PREREG.md`](PROC_SKY_01_PREREG.md), [`PROC_SKY_01.py`](../kit/PROC_SKY_01.py), [`PROC_SKY_01.json`](../kit/results/PROC_SKY_01.json), [`PROC_SKY_01_diag.json`](../kit/results/PROC_SKY_01_diag.json), [`PROC_SKY_01_plate.png`](../plates/PROC_SKY_01_plate.png)
 - **PROC-SMALL-01** — [`PROC_SMALL_01_OUTCOME.md`](PROC_SMALL_01_OUTCOME.md), [`PROC_SMALL_01_PREREG.md`](PROC_SMALL_01_PREREG.md), [`PROC_SMALL_01_compare.py`](../kit/PROC_SMALL_01_compare.py), [`PROC_SMALL_01_figure.py`](../kit/PROC_SMALL_01_figure.py), [`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py), [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py), [`PROC_SMALL_01_configurations.json`](../kit/results/PROC_SMALL_01_configurations.json), [`PROC_SMALL_01_detection.png`](../kit/results/PROC_SMALL_01_detection.png), [`PROC_SMALL_01_heldout_60_healthy.json`](../kit/results/PROC_SMALL_01_heldout_60_healthy.json)
 - **PROC-STAGE0-02** — [`PROC_STAGE0_02_OUTCOME.md`](PROC_STAGE0_02_OUTCOME.md), [`PROC_STAGE0_02_PREREG.md`](PROC_STAGE0_02_PREREG.md), [`PROC_STAGE0_02_arrival.py`](../kit/PROC_STAGE0_02_arrival.py), [`PROC_STAGE0_02_seal.py`](../kit/PROC_STAGE0_02_seal.py), [`PROC_STAGE0_02_sweep.py`](../kit/PROC_STAGE0_02_sweep.py), [`PROC_STAGE0_02.json`](../kit/results/PROC_STAGE0_02.json), [`PROC_STAGE0_02_betamean_GSE87571.json`](../kit/results/PROC_STAGE0_02_betamean_GSE87571.json)
 - **PROC-STAGE0-04** — [`PROC_STAGE0_04_PREREG.md`](PROC_STAGE0_04_PREREG.md)

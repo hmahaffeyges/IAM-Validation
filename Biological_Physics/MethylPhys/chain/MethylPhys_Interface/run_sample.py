@@ -357,6 +357,7 @@ def main():
             sys.exit(2)
         intake = rec
 
+    stage1_meta=None
     if a.betas:
         import pandas as pd
         d=pd.read_csv(a.betas, index_col=0).iloc[:,0].dropna(); beta=d.to_dict()
@@ -372,6 +373,22 @@ def main():
         b,meta=calibrate_idat_to_beta(a.grn,a.red)
         b=b.iloc[:,0] if hasattr(b,"columns") else b
         beta=b.dropna().to_dict(); sid=a.id or os.path.basename(a.grn).split("_")[0]
+        stage1_meta=meta
+        det=meta.get("detection") or {}
+        if det.get("detection_available"):
+            print(f"Stage 1: {det['n_detected']:,} of {det['n_probes']:,} probes detected ({det['pct_detected']*100:.2f} %); {det['n_masked']:,} at background removed", flush=True)
+        if intake is not None:
+            import stage_0_intake as S0, numpy as _np
+            cv=S0.validate_control_probes(meta.get("controls") or {}); intake["ctrl_qc"]=cv["ctrl_qc"]; intake["ctrl_metrics"]=cv["metrics"]; intake["controls"]=meta.get("controls")
+            intake.setdefault("flags",[]).extend(cv["flags"])
+            if det.get("detection_available"):
+                n=det["n_probes"]; k=det["n_detected"]; mask=_np.zeros(n,bool); mask[:k]=True
+                v=S0.validate_detection_p(_np.where(mask,0.0,1.0)); intake["detection_qc"]=v["detection_qc"]; intake["pct_probes_detected_p_le_01"]=v["pct_probes_detected_p_le_01"]
+                if v["detection_qc"]=="FAIL_LOW_DETECTION": intake["flags"].append("FAIL_LOW_DETECTION")
+                intake=S0.step_0_7_call_rate(intake, mask, _np.ones(n,bool))   # bead counts not extracted: bead mask all-pass, recorded
+                intake["flags"].append("BEAD_COUNT_NOT_EXTRACTED")
+            else:
+                intake=S0.step_0_7_call_rate(intake, None, None)
 
     if intake is not None:
         import stage_0_intake as S0
@@ -403,10 +420,17 @@ def main():
     cfg={"age":a.age,"pipeline":a.pipeline,"lab_zero":a.lab_zero,"substrate":substrate_token(a.specimen), "substrate_as_declared":a.specimen,
          "intake": intake, "intake_skipped": bool(a.no_intake)}
     if a.lab: cfg["lab"]=a.lab
+    if stage1_meta and stage1_meta.get("snp_noise"): cfg["snp_noise"]=stage1_meta["snp_noise"]
     print(f"running the chain on {len(beta):,} CpGs", flush=True)
     o=C.run_full(beta, _atlas(), cfg=cfg)
     o["intake"] = intake          # the report prints the Stage 0 record, or NOT RUN when there is none
     o["intake_skipped"] = bool(a.no_intake)
+    # 2026-09-27: a run's intake is VERIFIED only when Stage 1 handed Stage 0 the array's own detection numbers and the gate ran.
+    o["intake_verified"] = bool(intake is not None and (intake.get("call_rate_status") or "").startswith(("PASS","CALL_RATE_BORDERLINE")))
+    o["intake_note"] = (None if o["intake_verified"] else
+                        ("betas-only input: the array's detection and control probes were not available, so intake was not verified" if a.betas else
+                         "intake skipped (--no-intake)" if a.no_intake else "intake did not verify this array"))
+    if stage1_meta: o["stage1"] = {k: stage1_meta.get(k) for k in ("detection","controls","snp_noise","n_cpgs","pipeline")}
     # Everything a disease matrix will need from this specimen, captured at the moment of the run: the
     # phenotype it was declared with, and every input version that could change the reading. A run that
     # records neither cannot be pooled with one from another month (2026-09-23).

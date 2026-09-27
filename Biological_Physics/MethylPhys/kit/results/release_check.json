@@ -1,20 +1,20 @@
 {
- "commit": "b7be755",
- "run_at": "2026-09-26 23:39",
+ "commit": "6ffb045",
+ "run_at": "2026-09-27 02:35",
  "host_note": "run wherever the chain is run; the report prints this verdict and its commit",
  "n_pass": 4,
- "n_fail": 0,
- "n_skipped": 6,
+ "n_fail": 1,
+ "n_skipped": 5,
  "n_inconclusive": 1,
  "guards": [
   {
    "key": "claims",
    "name": "Rendered-claim scan",
    "guards": "no delivered document asserts a claim the record has reversed, and every passage the cover promises is present - checked against the RENDERED PDF, because a claim survives in data files, embedded markdown, render-time table cells and directory names that a source grep does not reach",
-   "status": "SKIPPED",
-   "seconds": 0.0,
-   "detail": "ModuleNotFoundError: No module named 'pypdfium2'",
-   "needs": "the built manual",
+   "status": "PASS",
+   "seconds": 0.6,
+   "detail": "claim_scan: PASS - no forbidden claim asserted, every required passage present",
+   "needs": null,
    "argv": "python3 claim_scan.py MethylPhys_CPG_Operations_Manual.pdf"
   },
   {
@@ -22,7 +22,7 @@
    "name": "A-score formula self-test",
    "guards": "the per-cell surface is mean_i H(beta_i)/H_min and the module refuses H(beta_mean) - the N7 defect cannot come back",
    "status": "INCONCLUSIVE",
-   "seconds": 3.1,
+   "seconds": 3.2,
    "detail": "  result       MEASURED - see RULING A3 (SOP \u00a70.9, Operations Manual \u00a79) for the decision this supports",
    "needs": null,
    "argv": "python3 PROC_FORMULA_01.py"
@@ -62,7 +62,7 @@
    "name": "Gauge switch",
    "guards": "run_full reports the identity-loci gauge, not the retired marker-union statistic",
    "status": "PASS",
-   "seconds": 105.7,
+   "seconds": 139.9,
    "detail": "GAUGE SWITCH CONFORMANCE: PASS",
    "needs": null,
    "argv": "python3 test_gauge_switch.py"
@@ -72,7 +72,7 @@
    "name": "One tier definition",
    "guards": "every tier word in the chain comes from tier_breakpoints.json; no literal breakpoint survives in engine code",
    "status": "PASS",
-   "seconds": 49.3,
+   "seconds": 54.0,
    "detail": "test_tiers: PASS",
    "needs": null,
    "argv": "python3 test_tiers.py"
@@ -81,9 +81,9 @@
    "key": "sky",
    "name": "Patient sky",
    "guards": "the sky refuses a laboratory with no measured residual scale and masks classes below their presence floor",
-   "status": "PASS",
-   "seconds": 45.5,
-   "detail": "test_patient_sky: PASS",
+   "status": "FAIL",
+   "seconds": 45.2,
+   "detail": "              nan])}, 'secretory': {'assessable': False, 'fraction': 0.0, 'presence_floor': 0.02, 'status': 'NOT ASSESSABLE \u00b7 f=0.000 < 0.020'}, 'stromal': {'assessable': False, 'fraction': 0.0, 'presence_floor': 0.02, 'status': 'NOT ASSESSABLE \u00b7 f=0.000 < 0.020'}}, 'sigma_median': 0.013045077567517",
    "needs": null,
    "argv": "python3 test_patient_sky.py"
   },
@@ -92,7 +92,7 @@
    "name": "Sky commissioning",
    "guards": "PROC-CMB-05: a healthy sky is quiet at the measured level in every commissioned laboratory",
    "status": "SKIPPED",
-   "seconds": 0.6,
+   "seconds": 0.7,
    "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/testdata/10_TEST_DATA/stage2_fractions.json'",
    "needs": "four laboratories' Stage 1 betas",
    "argv": "python3 PROC_CMB_05.py"
@@ -102,7 +102,7 @@
    "name": "Bidirectional detector",
    "guards": "PROC-BIDIR-01: the sealed directional panel reproduces, including re-extraction from raw GEO",
    "status": "SKIPPED",
-   "seconds": 11.5,
+   "seconds": 11.4,
    "detail": "PROC-BIDIR-01: B1-B4 pass, B5 SKIPPED - needs the GSE153712 supplementary matrix (5.1 GB) -> not commissioned in this run",
    "needs": "GSE153712 supplementary matrix",
    "argv": "python3 PROC_BIDIR_01.py"

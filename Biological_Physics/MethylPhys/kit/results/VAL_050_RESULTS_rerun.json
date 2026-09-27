@@ -1,7 +1,7 @@
 {
   "val_id": "VAL-050",
   "title": "AIBL AD Immune-Class Cross-Sectional Replication",
-  "run_at": "2026-09-27T06:39:18Z",
+  "run_at": "2026-09-27T09:34:58Z",
   "seed": 42,
   "cohort": "AIBL GSE153712",
   "platform": "Illumina EPIC 850K",

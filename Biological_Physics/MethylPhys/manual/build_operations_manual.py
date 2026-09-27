@@ -114,6 +114,7 @@ def sec_edition_record(story):
     story.append(Paragraph('EDITION RECORD - WHAT CHANGED FROM ISSUE 002 TO EDITION 003', sSect))
     story.append(Paragraph('A record of the changes this edition made, kept at the back. The state of the chain is stated in s11 (generated from the code) and in CHAIN_COMMISSIONING.md, not here.', sBodySm))
     news = [
+     ("2026-09-27 - MEASURE, DON'T COMPARE.", "Every population layer came off the reading: laboratory zero, age curve, identity band, per-cell atlas reference and laboratory offset, Stage 5 departure, Stage 6 cellular age, the ceiling tier word, the sky's four panel scales. Tiers v1.5 are symmetric about A = 1.00. The sky's sigma is the atlas posterior plus this array's own SNP-probe noise. Stage 1 returns detection, controls and SNP noise; Stage 0 runs on them and a deferred check never advances. The Munich laboratory was found to be low-signal input and is refused at the door - the cause of three earlier failures. The first chapter states the chain as it stands; sections that describe the removed layers are marked RECORD."),
      ("The claim, restated.", "This is not a detection tool and not a treatment. Cells compute and write to a two-dimensional "
       "surface as a semiconductor or a quantum processor does; the physics of that write process has a healthy operating range "
       "per architecture class, calculated once and frozen (2026-04-06); departures from that range correlate with the hypo- and "
@@ -188,7 +189,7 @@ def sec2_atlas(story):
         'IAMAtlas.csv.xz was retired for a collapse/flatness bug. It ships compressed in the repository (98 MB .xz → 577 MB .csv) and is the '
         'deconvolver reference, the source of the gauge identity loci, and the source of the separation markers. H_min values in the atlas are the frozen 2026-04-06 set.')
     story.append(Paragraph('2.1  Cell types by class', sSect2))
-    rows = [("Class", "n cell types", "Identity loci (gauge)", "H_min methyl", "Ceiling 1/H_min", "Cell types (atlas names)")]
+    rows = [("Class", "n cell types", "Identity loci (gauge)", "H_min methyl", "1/H_min (arithmetic limit, internal)", "Cell types (atlas names)")]
     for c in D.CLASS_ORDER:
         cells = D.CELLS_BY_CLASS[c]; idl = D.IDENTITY[c]
         rows.append((Pb(c), P(str(len(cells))), P(f"{idl['n_loci']:,}"), P(f"{idl['H_min']}"), P(f"{D.ceiling(c):.4f}"), Ps(", ".join(cells))))
@@ -218,25 +219,24 @@ def sec3_instruments(story):
     opener(story, 'SECTION 3', 'TWO INSTRUMENTS AND THE PRESENCE RULE',
         'Issue 002 had one A-score. The running engine has two statistics that share the template A = H/H_min and nothing else - and, as §3.3 shows, they measure different things. '
         'Confusing them produced the all-BREACH bug of 2026-06-11. Reading either without the presence rule produced the spurious plasma breaches of 2026-09-19.')
-    rows = [("", "GAUGE (the call)", "SEPARATION (disease matching)"),
+    rows = [("", "GAUGE (the reading)", "SEPARATION (record only - not in the chain)"),
             ("CpG set", "per-class IDENTITY loci", "per-cell one-vs-rest DISCRIMINATIVE markers"),
             ("Statistic", "A = H(β<sub>mean</sub>)/H_min — entropy of ONE mean β over the panel", "mean_i H(β_i)/H_min — mean of per-CpG entropies"),
             ("Resolution", "class-level", "cell-level"),
             ("Tier of trust", "RELIABLE", "INDICATIVE (v0.1 atlas; LESSON-DECONV-01)"),
-            ("Reads against", "age-matched p10–p90 band (placement) + severity ladder (tier)", "disease signature matrix v1.13 (direction only)"),
+            ("Reads against", "the fixed point A = 1.00; the tier scale is the tolerance", "a signature matrix (record; the chain consults none)"),
             ("Answers", "where does this class sit on the ruler", "how separable is this patient from healthy, and in which direction"),
-            ("Must never receive", "discriminative markers (bimodal → β<sub>mean</sub> → 0.5 → false ceiling)", "identity loci")]
+            ("Must never receive", "discriminative markers (bimodal → β<sub>mean</sub> → 0.5 → a false reading)", "identity loci")]
     story.append(tbl(rows, [0.16, 0.42, 0.42]))
-    story.append(SP(0.08)); story.append(Paragraph('3.1  Placement and severity are two axes', sSect2))
-    story.append(Paragraph('PLACEMENT: A below p10 of the age-matched band → BELOW BAND; within → IN BAND; above p90 → ABOVE BAND. '
-        'SEVERITY (gauge ladder, unchanged from Issue 002): NORMAL &lt; 1.01 ≤ MARGINAL &lt; 1.05 ≤ DETECTABLE &lt; 1.07 ≤ URGENT &lt; 1.10 ≤ FLOOR BREACH, ceiling 1/H_min, '
-        'saturation flagged within 0.005 of the ceiling. A far below the age cohort is INVERSION — a finding (seminoma, senescence, aged HSC), not an error. '
-        'The Stage 7 customer vocabulary (tier_breakpoints.json v1.3) uses SUPPRESSED/NORMAL/ELEVATED/SIGNIFICANTLY ELEVATED/BREACH on the same breakpoints minus the 1.05 split; RECON T3.', sBodySm))
+    story.append(SP(0.08)); story.append(Paragraph('3.1  One axis: where the cell sits on its gauge', sSect2))
+    story.append(Paragraph('[RECORD - superseded 2026-09-27. Placement against a band was removed: no population places a cell. One axis remains, the tier of the cell\'s A: ' +
+        ' · '.join(f'{t} [{lo if lo is not None else "&lt;"}, {hi if hi is not None else "&ge;"})' for t,lo,hi in D.GAUGE_TIERS) +
+        ' (tier_breakpoints.json, read from the file). The paragraph that stood here described two axes and an arithmetic limit; both were population or arithmetic statements and are gone.]', sBodySm))
     story.append(Paragraph('3.2  The presence rule', sSect2))
     story.append(Paragraph('<font face="Courier">cpg_conductor.py</font> (2026-07): <i>"per-cell A always paired with its deconvolved fraction so presence and score are read together. '
         'DETECT_FLOOR = 0.01 — a cell below this is treated as absent (fraction sets presence)."</i> An A-score computed over the identity loci of a class that is not in the sample is '
         'entropy of noise, not a reading. On 2026-09-19, before this rule was applied, stromal read BREACH (A 1.103–1.119) in 4/4 healthy plasma samples at fraction 0.0000; after it, '
-        'those calls vanished and two of four healthy samples were clean on every present class. The README for the Mahalanobis adjudicator uses 3%; the two floors give different '
+        'those calls vanished and two of four healthy samples were clean on every present class. The README for the removed adjudicator used 3%; the two floors give different '
         'answers for terminal in healthy plasma (present at 1.5–2.7%). One floor must be chosen (RECON D2).', sBodySm))
     story.append(Paragraph('3.3  The aggregation question, measured (PROC-FORMULA-01)', sSect2))
     story.append(Paragraph('The current SOP (v1.4.0, 2026-06-30, §105 LESSON-ASCORE-02) states the A-score is the mean of per-CpG entropies and is <i>never</i> the entropy of the mean β. '
@@ -246,25 +246,26 @@ def sec3_instruments(story):
     for gsm,lab in D.FORMULA_LABELS.items():
         r=D.FORMULA_2X2.get(f"immune|{gsm}")
         if r: rows.append((gsm,lab,f"{r['id_Hm']:.4f}",f"{r['id_mH']:.4f}",f"{r['disc_Hm']:.4f}",f"{r['disc_mH']:.4f}"))
-    story.append(Paragraph('Immune class, H_min 0.838889, ceiling 1.1921. Identity loci n≈32,000 (450K) / 20,000–30,000 (EPIC tissue); discriminative class-union n≈2,400 / 1,800–2,700.', sMut))
+    story.append(Paragraph('Immune class, H_min 0.838889. Identity loci n≈32,000 (450K) / 20,000–30,000 (EPIC tissue); discriminative class-union n≈2,400 / 1,800–2,700.', sMut))
     story.append(tbl(rows,[0.14,0.20,0.165,0.165,0.165,0.165],fs=7))
     for k,v in D.FORMULA_FINDINGS: story.append(Paragraph(f'<b>{k}.</b> {v}', sBodySm))
-    story.append(Paragraph(f'<b>Verdict.</b> {D.FORMULA_VERDICT}', sBodySm))
+    story.append(Paragraph(f'<b>Result (record).</b> {D.FORMULA_VERDICT}', sBodySm))
     story.append(Paragraph('3.4  What a pooled class gauge measures, and where organ attribution lives', sSect2))
     story.append(Paragraph('The secretory class pools 18 cell types (Breast, Prostate, Hepatocytes, Pancreatic β, Thyroid …) into one panel and one mean, so the pooled class A is one number for the compartment: '
         'arithmetic on the frozen H_min says that for a single member cell type shifting its own β by −0.20 to move pooled secretory A by one tier width (+0.05), it must contribute '
         '16.1% of the DNA in the sample — 2.9× an equal share (immune, 51 cell types: 15.7%, 8× an equal share). The class gauge answers "did the compartment depart"; it is not the organ dial. '
-        '<b>Organ attribution is the cell-resolved atlas layer\'s job, and the record shows it doing that job at the cohort level</b> — breast pre-diagnostic (a coordinated 115-cell shift; anchors reproduced r = 1.00000), '
-        'endothelium in PAH, luminal cells in high-grade prostate, six immune tiles in muscle-invasive bladder cancer, the Crohn\'s fraction shift. What has NOT YET BEEN TESTED is the same attribution read absolutely, '
-        'one patient against the class band and the laboratory zero, on the chain commissioned in September (paper two: breast and CRC first). One open item sits on that path: on 2026-09-19 the pre-Atlas '
+        '<b>Organ attribution is the cell-resolved atlas layer\'s job, and the record shows it doing that job on grouped readings (record, pre-chain)</b> — breast pre-check (a coordinated 115-cell shift; anchors reproduced r = 1.00000), '
+        'endothelium in PAH, luminal cells in high-grade prostate, six immune tiles in muscle-invasive bladder tissue, the Crohn\'s fraction shift. What has NOT YET BEEN TESTED is the same attribution read absolutely, '
+        'one patient, each cell against the fixed point, on the chain as it runs (paper two: breast and CRC first). One open item sits on that path: on 2026-09-19 the pre-Atlas '
         'configuration, on the wrong panel triple (CCL-020), routed shed epithelium to gastric references (§7.3) — an atlas coverage question (colon and breast epithelium carry few identity loci, like stromal) or a solver one, and it is filed as such, not as a limit. '
         '<b>Rule of this document (author, 2026-09-21): no definitive statement about what the commissioned chain can or cannot detect until it has been run on that question under seal. "Not yet tested", never "cannot".</b>', sBodySm))
 
 # ═══════════════════════════════════════════════════════════════════════════════
-    story.append(SP(0.10)); story.append(Paragraph('3.5  The healthy reference has three layers - floor, pipeline map, laboratory zero', sSub))
+    story.append(SP(0.10)); story.append(Paragraph('3.5  [RECORD] How the gauge was calibrated in September: floor, pipeline map, laboratory zero - the third layer was RETIRED 2026-09-27', sSub))
+    story.append(Paragraph('<b>Read the first chapter first.</b> The three constructions described below [RECORD] were population layers and were removed from every reading on 2026-09-27; the floor and the pipeline map remain. This section is kept as the record of what was built, measured and taken out.', sBodySm))
     story.append(Paragraph(D.REFERENCE_LAYERS["intro"], sBodySm)); story.append(SP(0.04))
     story.append(tbl([("layer","what it is, and where it came from","cardinality")]+[(a,bb,c) for a,bb,c in D.REFERENCE_LAYERS["layers"]],[0.18,0.62,0.20], fs=6.4)); story.append(SP(0.06))
-    for lab,key in [("WHAT \"LABORATORY\" MEANS","what_a_lab_is"),("TWO ROUTES TO THE CONSTANT, TESTED IN ORDER","two_routes"),("THE PANEL: WHERE THE 40 ARRAYS COME FROM, AND WHY 40","panel"),("THE AGE CURVE: WHY A FLAT PANEL MEDIAN FAILED","age_curve"),("THE TEST THAT COMMISSIONED IT","test"),("THE SINGLE-ARRAY CASE","one_idat"),("WHAT THE LAYERS DO NOT REMOVE","residual")]:
+    for lab,key in [("[RECORD] WHAT \"LABORATORY\" MEANS","what_a_lab_is"),("[RECORD] TWO ROUTES TO THE CONSTANT, TESTED IN ORDER","two_routes"),("[RECORD] THE PANEL: WHERE THE 40 ARRAYS CAME FROM, AND WHY 40","panel"),("[RECORD] THE CURVE OF PEOPLE: WHY A FLAT PANEL MEDIAN FAILED","age_curve"),("THE TEST THAT COMMISSIONED IT","test"),("THE SINGLE-ARRAY CASE","one_idat"),("WHAT THE LAYERS DO NOT REMOVE","residual")]:
         story.append(Paragraph(lab, sLabel)); story.append(Paragraph(D.REFERENCE_LAYERS[key], sBodySm)); story.append(SP(0.05))
 
 def card_addendum(story, key):
@@ -277,7 +278,7 @@ def card_addendum(story, key):
     rows = [("Age (midpoint)", "n", "A mean", "p10", "p90", "β mean", "Source")]
     for e in D.AGE_REF[key]:
         rows.append((str(e["age_midpoint"]), str(e["n_samples"]), f'{e["A_mean"]:.4f}', f'{e["A_p10"]:.4f}', f'{e["A_p90"]:.4f}', f'{e["beta_mean"]:.3f}', e["source_citation"]))
-    story.append(Paragraph('Healthy age-matched band. A = 1.0 is the commitment line; healthy reads on a band above it. [Edition 003: the age_reference_matrix.json shown here was compiled on the marker union and is SUPERSEDED (PROC-N7-01); the commissioned band is band_v2 on the identity loci with the three-layer reference of s3.5.]', sMut))
+    story.append(Paragraph('[RECORD, 2026-09-27: this table is where people of each age were observed to sit - an observation about people, never a correction to a cell, and no longer used by any stage.] Healthy age-matched band. A = 1.0 is the commitment line; healthy reads on a band above it. [Edition 003: the age_reference_matrix.json shown here was compiled on the marker union and is SUPERSEDED (PROC-N7-01); the commissioned band is band_v2 on the identity loci with the three-layer reference of s3.5.]', sMut))
 
     story.append(tbl(rows, [0.14, 0.07, 0.12, 0.12, 0.12, 0.12, 0.31], fs=7))
 
@@ -296,6 +297,8 @@ def sec3b_stage0(story):
         'The procedure is ' + _a('sop', 'SOP sections 11 to 19') + '. Every refusal below is '
         'reproduced with its fix in 3b.5, and the report prints the same table beside each reading.', sBody))
     story.append(SP(0.08))
+    story.append(Paragraph('<b>As wired 2026-09-27.</b> Stage 1 now hands Stage 0 the array\'s own numbers: per-probe detection p (poobah, against this array\'s negative controls), the control-probe medians, and the SNP-probe noise. Steps 0.4, 0.5 and 0.7 run on them; probes at background are removed before any stage reads the beta; a deferred check never advances an IDAT input. Measured on 12 arrays per commissioning laboratory: Uppsala 10 PROCEED / 2 PENALTY / 0 QUARANTINE, Karolinska 5 / 6 / 1, UCLA 0 / 7 / 5, Munich 0 / 0 / 12 (FINDING_GSE125105_LOW_SIGNAL.md). The UCLA refusals sit on the SOP\'s 0.95 line, written for a different detection statistic; whether the gate is call rate, signal-to-background or both is the author\'s open decision.', sBodySm))
+    story.append(SP(0.06))
     story.append(Paragraph('<b>3b.1 The ten steps, as the code applies them</b>', sSect2))
     rows = [['step', 'what it decides', 'threshold in code', 'refusal'],
             ['0.1 arrival', 'manifest complete, both channels, size, array type from the header',
@@ -331,7 +334,7 @@ def sec3b_stage0(story):
         'Five of the nine checks need intensities, and Stage 0 runs before calibration - which is why they '
         'reported DEFERRED for months. ' + _a('handoff', 'stage_0_1_qc_handoff.py') + ' closes that: it '
         'decodes the pair with the same decoder Stage 1 uses and reads the control addresses out of the '
-        'array\'s own manifest. Nothing but the patient\'s own array enters - no cohort, no reference panel, '
+        'array\'s own manifest. Nothing but the patient\'s own array enters - no group of other arrays, no reference panel, '
         'no other specimen - which is what makes these checks legitimate as a clinical intake step.', sBody))
     story.append(Paragraph(
         '<b>The construction matters more than the thresholds.</b> A probe\'s total intensity is built by '
@@ -349,7 +352,7 @@ def sec3b_stage0(story):
         'Measured on 732 healthy whole-blood arrays from four Sentrix-chip years (PROC-STAGE0-02). These are '
         'the numbers to compare a specimen against: a result far from them is the array, a result at zero or '
         'one is the configuration.', sBodySm))
-    rows2 = [['check', 'threshold', 'healthy median', '5th percentile', 'worst', 'outside the threshold'],
+    rows2 = [['check', 'threshold', 'median over the 732 arrays', 'lowest 5 %', 'worst', 'outside the threshold'],
              ['detection p', '≥ 0.99', '0.9994', '0.9990', '0.9951', '0 of 731'],
              ['call rate', '≥ 0.98', '0.9983', '0.9961', '0.9889', '0 of 731'],
              ['bead count', '≥ 0.995', '0.9988', '0.9969', '0.9900', '9 of 731 (warn)'],
@@ -359,11 +362,11 @@ def sec3b_stage0(story):
     story.append(tbl(rows2, [0.19, 0.12, 0.26, 0.13, 0.11, 0.19]))
     story.append(Paragraph(
         '<b>Two readings of that table.</b> The sex call is the evidence that the hand-off decodes what it '
-        'claims to: made from chrX and chrY intensities alone, with no cohort information, it recovers the '
+        'claims to: made from chrX and chrY intensities alone, with nothing from any other array, it recovers the '
         'depositors\' own labels on 729 consecutive arrays. The bisulfite row is the opposite - a threshold '
         'that refuses 731 of 731 healthy specimens is not measuring specimen quality, so the chain prints the '
         'value and does not refuse on it, and the decision gate records it as deferred rather than passed. '
-        'The threshold will be set from the healthy distribution across several cohorts and the calibration '
+        'The threshold is reported, not applied, until it is set from the array\'s own control-probe physics; the calibration '
         'flag flipped in the same commit; until then no specimen is passed that a calibrated gate would fail, '
         'and none is refused on a number nobody has measured.', sBodySm))
     story.append(SP(0.08))
@@ -371,7 +374,7 @@ def sec3b_stage0(story):
     story.append(Paragraph(
         'Stage 0 was run retrospectively over all 732 pairs after it was wired, against bars fixed before any '
         'array was read: 720 PROCEED, 8 PROCEED_WITH_PENALTY (all borderline on bead count), 3 QUARANTINE, '
-        '1 decode error. All three refusals are donors whose age the depositors do not publish; the decode '
+        '1 decode error. All three refusals are arrays whose age the depositors do not publish; the decode '
         'error is one file truncated inside its compressed stream while passing the 1 MB size floor - which '
         'is why a size check is not an integrity check. <b>Zero of the 268 arrays behind the sealed chip '
         'result would have been quarantined</b>, so that result stands unchanged and now carries intake '
@@ -381,7 +384,7 @@ def sec3b_stage0(story):
         'fails to open its input never fires (PROC-STAGE0-02) - the header reader opened IDAT files raw and public downloads are '
         'gzipped, so the array-type gate had silently never run on public data; it did not error, it returned '
         '"unreadable" and everything continued. A value that fails to propagate looks like a value that is '
-        'wrong - an identifier dropped between two steps made the next step refuse every array in the cohort, '
+        'wrong - an identifier dropped between two steps made the next step refuse every one of the 732 arrays, '
         'and the message blamed the data. A refusal that does not stop the run is reported as something else '
         'downstream - a quarantine allowed to continue was overwritten, and an array-type mismatch surfaced '
         'two gates later as a detection failure. And a failure logged as "deferred" is worse than no check at '
@@ -402,7 +405,7 @@ def sec3b_stage0(story):
     rows3 = [['what the chain printed', 'what it found', 'what to do'],
              ['QUARANTINE_INCOMPLETE_MANIFEST', 'a required manifest field is missing or empty',
               'the seven fields are exact: sentrix_id, array_type, patient_id, intake_date, substrate, '
-              'declared_sex, declared_chronological_age. Pass --sex and --age; a donor with no published age '
+              'declared_sex, declared_chronological_age. Pass --sex and --age; an array with no published age '
               'cannot clear this gate'],
              ['QUARANTINE_MANIFEST_INVALID', 'a field is present but not acceptable; the flag says which',
               'array_type must be HM450K, EPIC_v1 or EPIC_v2 - "450k" is rejected. patient_id must be a '
@@ -420,7 +423,7 @@ def sec3b_stage0(story):
               'for a legitimate re-run use a different --intake-log, or none. If a duplicate was not '
               'expected, find out who submitted the first one'],
              ['sex MISMATCH', 'chrX and chrY disagree with the declared sex',
-              'check the paperwork first - the array is right about 99.7 % of the time. A donor of unknown '
+              'check the paperwork first - the array is right about 99.7 % of the time. An array of unknown '
               'sex cannot clear this gate'],
              ['FAIL_LOW_DETECTION / CALL_RATE_FAIL', 'too many probes are indistinguishable from background',
               'a specimen or hybridisation problem, not a configuration one: healthy arrays clear these '
@@ -434,21 +437,18 @@ def sec3b_stage0(story):
     story.append(SP(0.08))
     story.append(Paragraph('<b>3b.6 It ran, but the chain will not place a number</b>', sSect2))
     rows4 = [['the reason printed', 'why', 'what to do'],
-             ['no laboratory zero → no placement, no tier',
-              'this laboratory has never been measured, and between-laboratory offsets reach 0.046 in A - '
-              'larger than most effects anyone wants to see',
-              'commission the laboratory once: 40 healthy arrays of any age mix through the same Stage 1, '
-              'then lab_zero.py. Panels under 40 are refused by design'],
-             ['sky: no commissioned residual scale → not rendered', 'same cause, same panel',
-              'same fix'],
+             ['QUARANTINE at Stage 0 - detection / call rate',
+              'too many of this array\'s probes sit at its own background (Munich GSE125105: 1 in 8); a probe at background carries no information about beta',
+              'nothing to fix on the chain: the array is the problem. Re-run the specimen; check scanner signal (non-polymorphic controls over negatives should be ~25-30, not 10)'],
+             ['sky drawn without the array term', 'a betas-only input has no SNP probes, so sigma is the atlas posterior alone; the caption says so',
+              'supply the IDAT pair'],
              ['UNMAPPED', 'no pipeline map was applied, so the values are not on the scale the floors were '
               'calibrated on',
               'pass --pipeline with a map that exists in beta_scale_maps_v1.json; stage1_noob_450K is the '
               'right one for raw IDATs through this chain'],
-             ['no band for this component yet', 'that class has no measured healthy band',
-              'nothing to fix - the fraction and A are still printed'],
-             ['cellular age in years: not reported', 'one array resolves age to about 50 years',
-              'nothing to fix; the age-matched healthy reference is what the chain uses instead'],
+
+             ['an age in years: never reported', 'removed 2026-09-27 - an age read back from a curve of people is a population statement',
+              'nothing to fix; no stage computes it'],
              ['NOT ASSESSABLE · f below the presence floor',
               'that class is below its measured presence floor in this specimen',
               'nothing to fix - below its floor a class is not there']]
@@ -483,8 +483,8 @@ def sec3b_stage0(story):
         sBodySm))
     story.append(Paragraph(
         '<b>And the check that catches a mis-scaled reading in one line:</b> run a handful of your own healthy '
-        'specimens. Their median A″ should land near 1.00. On the four commissioned cohorts it does, and '
-        'that is how the pipeline map and the laboratory zero were verified in the first place. If your '
+        'specimens: every present blood cell should read NORMAL. That is the check the pipeline map was verified by, and '
+        'it is the whole of it - no zero from any panel is applied (2026-09-27). If your '
         'healthy controls do not sit near 1, one of those two is missing - and the chain will have printed '
         'which.', sBody))
 
@@ -591,9 +591,9 @@ def sec8_procedures(story):
     proc(story, 'LAB-ZERO-01 - can the array\'s own control probes supply the lab zero?', 'Direction 3/3, Swedish magnitude to 0.002, Munich overshoot; panel standard today, fourth cohort decides', [(k, D.LABZERO_01[k]) for k in ('question','data','result','features','within_cohort','nulls','verdict')])
     proc(story, 'LAB-ZERO-02 - the fourth lab (UCLA) decides the lab-zero route', 'Control probes carry direction, not magnitude; the lab zero is the healthy-control panel (CLSI EP28)', [(k, D.LABZERO_02[k]) for k in ('question','result','four_labs','reading','decision','nulls')])
     proc(story, 'PROC-HMIN-BOOT-01 - the methylation floors bootstrap-checked for the first time', 'The record said all 40; the TSV held 32. Run: 8/8 in CI, 0.060%', [(k, D.HMIN_BOOT[k]) for k in ('question','finding','run','result','code_status')])
-    proc(story, 'PROC-PANEL-01 → PROC-PANEL-03 - the per-lab healthy panel as the lab zero: COMMISSIONED', '40 healthy arrays, any age mix, read against the reference age curve; a three-lab band holds 75-84% of a fourth lab', [(k, D.PANEL[k]) for k in ('question','panel01','panel02','panel03','decision','residual')])
+    proc(story, 'PROC-PANEL-01 → PROC-PANEL-03 - the per-lab healthy panel as the lab zero: commissioned in September, RETIRED 2026-09-27 as a population layer', '40 healthy arrays, any age mix, read against the reference age curve; a three-lab band holds 75-84% of a fourth lab', [(k, D.PANEL[k]) for k in ('question','panel01','panel02','panel03','decision','residual')])
     proc(story, 'PROC-HISTORY-01 - the validation count, corrected from the record', 'The 2026-09-19 index said 103; the record says 3 G + 119 VAL + 15 T + 22 CPG-VAL + hull + N7', [(k, dict(D.HISTORY_PROC)[k]) for k in ('question','finding','correction')])
-    proc(story, 'PROC-SWITCH-01 -> PROC-SWITCH-02 - the gauge switch, commissioned', 'The reported A is now the identity-loci gauge with the three-layer reference; the atlas turned out to be a fifth laboratory', [(k, dict(D.SWITCH_PROC)[k]) for k in ('question','finding','correction')])
+    proc(story, 'PROC-SWITCH-01 -> PROC-SWITCH-02 - the gauge switch, commissioned', 'The reported A is the identity-loci gauge (the three-layer reference it carried was retired 2026-09-27); the atlas turned out to be a fifth laboratory', [(k, dict(D.SWITCH_PROC)[k]) for k in ('question','finding','correction')])
     proc(story, 'PROC-MAHA-01 - the departure re-based on the identity gauge; the chip term measured', 'Row 5 BUILT, not commissioned: one lab fails the p95 tail bar and the cause is the Sentrix chip', [(k, dict(D.MAHA_PROC)[k]) for k in ('question','finding','correction')])
     proc(story, 'PROC-MAHA-02 - row 5 commissioned with the laboratory false-alarm rate on the report; row 5b (chip) opened', 'The number never travels without its false-alarm rate', [(k, dict(D.MAHA2_PROC)[k]) for k in ('question','finding','correction')])
     proc(story, 'PROC-CMB-01 -> 05 - the patient\'s sky: five seals, row 4.6 commissioned', 'A healthy sky is quiet at 2.6-3.2%, not 5%; the constant travels with every plate', [(k, dict(D.CMB_PROC)[k]) for k in dict(D.CMB_PROC)])
@@ -690,7 +690,7 @@ def sec5_physics(story):
     story.append(Paragraph('5.0.3  The Mahaffey number', sSub)); story.append(Paragraph(P["mahaffey"], sBodySm)); story.append(SP(0.04))
     story.append(tbl([("substrate","E_drive","T","M")]+[("CMOS logic transistor (Apple M1, measured TDP/switch)","switching energy","348 K","~117"),("human cell nucleus","Delta G_ATP = 54 kJ/mol","310 K",f"{P['M_cell']:.1f}"),("aluminium transmon","Delta_Al ln 2","Delta_Al / k_B","1 (exact)")],[0.42,0.24,0.16,0.18], fs=6.4)); story.append(SP(0.08))
     story.append(Paragraph('5.0.4  H_min is measured, not derived - what Issue 002 said and what is retired', sSub)); story.append(Paragraph(P["not_derived"], sBodySm)); story.append(SP(0.04))
-    story.append(tbl([("class","identity loci","H_min (bits)","beta at A = 1","ceiling 1/H_min")]+[(c, f"{v['n_loci']:,}", f"{v['H_min']:.4f}", f"{v['H_min_beta']:.4f}", f"{1/v['H_min']:.3f}") for c,v in D.IDENTITY.items()],[0.20,0.20,0.20,0.20,0.20], fs=6.4)); story.append(SP(0.08))
+    story.append(tbl([("class","identity loci","H_min (bits)","beta at A = 1","1/H_min (arithmetic limit, internal)")]+[(c, f"{v['n_loci']:,}", f"{v['H_min']:.4f}", f"{v['H_min_beta']:.4f}", f"{1/v['H_min']:.3f}") for c,v in D.IDENTITY.items()],[0.20,0.20,0.20,0.20,0.20], fs=6.4)); story.append(SP(0.08))
     story.append(Paragraph('5.0.5  The gauge A = H(beta_bar)/H_min', sSub)); story.append(Paragraph(P["gauge"], sBodySm)); story.append(SP(0.06))
     story.append(Paragraph('5.0.6  A fixed zero still needs two measured constants', sSub)); story.append(Paragraph(P["reference_layers"], sBodySm)); story.append(SP(0.06))
     story.append(Paragraph('5.0.7  Filter and ruler', sSub)); story.append(Paragraph(P["filter_vs_ruler"], sBodySm)); story.append(SP(0.06))
@@ -729,7 +729,7 @@ def sec5a_tools(story):
     story.append(Paragraph('The cellular H_min is not one number. Each of the eight architecture classes has its own floor on each of five physically distinct lab measurements — methylation β, '
         'nucleosome occupancy, nucleosome fuzziness, window protection score, and cfDNA fragment size — giving the forty-cell table below. The methylation column was fixed by the G-002 chain '
         '(17 chains, R-hat &lt; 1.001) and the other four by G-003b (5 × 32-walker ensembles); all forty were frozen 2026-04-06 and the engine at HEAD carries them byte-for-byte (RECON H1). '
-        'Because every floor has its own ceiling 1/H_min, every class has <b>five saturation limits</b>, and the substrate a sample arrives on selects which five of the forty apply to it. '
+        'Because every floor has its own 1/H_min (arithmetic limit, internal), every class has <b>five saturation limits</b>, and the substrate a sample arrives on selects which five of the forty apply to it. '
         'The runtime saturation rule flags any A within 0.005 of its ceiling; a class whose methyl ceiling is below 1.10 (stem_pluri, 1.018) cannot register BREACH on methylation and must be read on another substrate.', sBodySm))
     SUBS=["methyl","nucl","fuzz","wps","frag"]
     SH={"methyl":"meth","nucl":"nucl","fuzz":"fuzz","wps":"wps","frag":"frag"}
@@ -782,7 +782,7 @@ def sec5a_tools(story):
     story.append(Paragraph('§3.3 shows all four aggregation × loci combinations on the same eleven samples. Identity loci carry the class gauge; discriminative markers carry presence and the sealed anchors. RULING A3 (s1.5) fixes one aggregation per surface: the gauge on identity loci is H(β<sub>mean</sub>)/H<sub>min</sub>, because H<sub>min</sub> and the age band are both defined that way; the separation statistic on discriminative markers is the mean of per-CpG H, because those panels are bimodal and the sealed anchors are that statistic. On the declared substrate the two differ by a constant +0.03; on mixed or absent panels they diverge, and the gauge now refuses those panels by a measured Jensen-gap test rather than by rule.', sBodySm))
 
     # 5A.7 hull
-    story.append(Paragraph('5A.7  The Mahalanobis hull - Stage 5, specified, not yet run here', sSect2))
+    story.append(Paragraph('5A.7  [RECORD] The Mahalanobis hull - Stage 5, built in September and REMOVED 2026-09-27 (a distance from a population\'s centroid)', sSect2))
     story.append(tbl([("item","value")]+[(Pb(k),v) for k,v in D.HULL],[0.22,0.78],fs=6.8))
     # 5A.8 nulls
     story.append(Paragraph('5A.8  The null suite - what a sealed result has beaten', sSect2))
@@ -860,7 +860,7 @@ def sec_cosmo_evidence(story):
 def sec_presence(story):
     story.append(PageBreak())
     story.append(Paragraph('THE REPORTING RULE - WHICH CLASSES A SUBSTRATE MAY REPORT', sSect))
-    story.append(Paragraph('Asked how often stem_adult had been the deciding class, the record was checked: every OUTCOME file, the VAL index, every disease card.', sBodySm))
+    story.append(Paragraph('Asked how often stem_adult had been the deciding class, the record was checked: every OUTCOME file, the VAL index, every card.', sBodySm))
     story.append(tbl([("where","stem_adult result","what carried the finding")]+[tuple(r) for r in D.STEM_ADULT_RECORD],[0.28,0.36,0.36], fs=6.0))
     story.append(SP(0.1))
     for k in ("statement","scope","whole blood","myeloid check","rationale","path back","keep"):
@@ -971,6 +971,16 @@ def sec_report_tabs(story):
                                 "; ".join(t["headings"][:6]) or "none"), sMut))
 
 
+def sec_state_now(story):
+    """The chain as it stands today - the first chapter. Anything later that contradicts it is record."""
+    story.append(PageBreak())
+    opener(story, 'THE CHAIN AS IT STANDS', 'MEASURE, DON\'T COMPARE - 2026-09-27',
+           'What a reading is, what is frozen, what was removed and why, and what is open. Read this before anything else in the book; where a later section contradicts it, the later section is record.')
+    for h, t in D.CURRENT_STATE_2026_09_27:
+        story.append(Paragraph(f'<b>{h}.</b> {t}', sBodySm)); story.append(SP(0.05))
+    story.append(HR())
+
+
 def sec_intro(story):
     """The introduction: astro-genetics, the cosmology toolkit, and then this field.
 
@@ -1042,7 +1052,7 @@ def sec0_scope(story):
 def sec_chain_terms(story):
     story.append(PageBreak())
     story.append(Paragraph('GLOSSARY — CMB AND CHAIN TERMS', sSect))
-    story.append(Paragraph('For a reader who knows bootstrapping but not MCMC, and has never met a Mahalanobis hull or a HEALPix sky. Each definition is taken from the source file named in brackets.', sBodySm))
+    story.append(Paragraph('For a reader who knows bootstrapping but not MCMC, and has never met a HEALPix sky. Each definition is taken from the source file named in brackets.', sBodySm))
     for term, defn in D.CHAIN_TERMS:
         story.append(Paragraph(f'<b>{term}</b> — {defn}', sBodySm)); story.append(SP(0.04))
 
@@ -1050,7 +1060,7 @@ def sec_chain_links(story):
     story.append(PageBreak())
     story.append(Paragraph('GLOSSARY — CHAIN LINKS', sSect))
     story.append(Paragraph('One line per runtime file the conductor touches, tagged by what kind of thing it holds. The tags matter more than the names: a '
-        '<b>FLOOR</b> is physics and is one number; a <b>RULER</b> says where the gauge reads and is derived from the Atlas; a <b>BAND</b> is a cohort statistic and is only '
+        '<b>FLOOR</b> is physics and is one number; a <b>RULER</b> says where the gauge reads and is derived from the Atlas; a <b>BAND</b> was a statistic of people and was removed 2026-09-27; it is only '
         'as good as its n and pipeline; <b>CODE</b> runs; <b>DATA</b> is read. Every "healthy reads wrong" case found in September 2026 traced to a BAND, never to a FLOOR (RECON B1).', sBodySm))
     rows=[("file","kind","what it is")]+[(f,k,w) for f,k,w in D.CHAIN_LINKS]
     story.append(tbl(rows,[0.27,0.07,0.66], fs=6.4))
@@ -1081,6 +1091,7 @@ def build(out_path):
     story = []
     cover(story); toc(story)
     sec_intro(story)
+    sec_state_now(story)
     story.append(PageBreak()); sec0_scope(story); sec0b_prior_art(story); sec_proc_log(story)
     sec1_recon(story); sec1b_rulings(story); sec_cosmo_evidence(story); sec_presence(story); sec2_atlas(story); sec3_instruments(story)
     # §4 framework from Issue 002

@@ -614,7 +614,7 @@ def step_0_5_detection_pvalue_qc(record, probe_intensities=None,
     if probe_intensities is None or neg_control_stats is None:
         record["detection_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"
         flags.append("DETECTION_QC_DEFERRED:no_probe_intensities")
-        record["advance"] = True
+        record["advance"] = False   # 2026-09-27: deferred never advances
         return record
     dp = compute_detection_p(probe_intensities,
                              neg_control_stats["mu_bg"], neg_control_stats["sigma_bg"])
@@ -688,7 +688,9 @@ def step_0_7_call_rate(record, detection_pass_mask=None, bead_pass_mask=None) ->
         record["call_rate"] = None
         record["call_rate_status"] = "DEFERRED_PENDING_STAGE1_DECODER"
         flags.append("CALL_RATE_DEFERRED:no_probe_masks")
-        record["advance"] = True
+        # 2026-09-27: a deferred check is never a pass (FINDING_GSE125105_LOW_SIGNAL.md - Munich's 0.875 call rate walked
+        # through on this line for a week). An IDAT input that reaches here without masks is refused.
+        record["advance"] = False
         return record
     import numpy as np
     dpm = np.asarray(detection_pass_mask, dtype=bool)

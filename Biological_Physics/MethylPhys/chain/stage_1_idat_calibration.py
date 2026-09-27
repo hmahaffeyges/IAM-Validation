@@ -121,11 +121,54 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True):
             fh.write("Sample_Name,Sentrix_ID,Sentrix_Position\n")
             fh.write(f"{bc},{bc},{pos}\n")
 
-        betas = methylprep.run_pipeline(
-            workdir, array_type=at_token, betas=True,
+        # 2026-09-27: per-probe detection (poobah, against THIS array's negative controls), the control probes and the
+        # rs (SNP) probes come out with the betas. Stage 0.4/0.5/0.7 run on these numbers; probes at background are
+        # removed before any stage reads the beta (no measurement at background); the SNP probes give the sky its
+        # on-array noise term. FINDING_GSE125105_LOW_SIGNAL.md is why.
+        import glob as _glob, pickle as _pickle, numpy as _np, pandas as _pd
+        methylprep.run_pipeline(
+            workdir, array_type=at_token, betas=True, export=True, save_control=True, poobah=True,
             sample_sheet_filepath=sheet)
-        beta = betas.iloc[:, 0].dropna().astype(float)
+        proc = _glob.glob(os.path.join(workdir, "**", "*_processed.csv"), recursive=True)[0]
+        df = _pd.read_csv(proc, index_col=0)
+        bcol = "beta_value" if "beta_value" in df.columns else [c for c in df.columns if "beta" in c.lower()][0]
+        pcol = [c for c in df.columns if "poobah" in c.lower()]
+        allb = df[bcol].astype(float)
+        idx = allb.index.map(str)
+        is_rs = _np.array([str(i).startswith("rs") for i in idx]); is_cg = _np.array([str(i).startswith("cg") for i in idx])
+        rs = allb[is_rs].dropna()
+        if pcol:
+            pv = df[pcol[0]].astype(float)
+            detected = (pv <= 0.05)                       # poobah p (per probe vs THIS array's negatives) at its own 0.05; the SOP's 0.01 was written for minfi's detectionP, a different statistic - 2026-09-27
+            n_cg = int(is_cg.sum()); n_det = int((detected & is_cg).sum())
+            beta = allb[is_cg & detected.values].dropna()
+            qc = {"detection_available": True, "n_probes": n_cg, "n_detected": n_det, "pct_detected": n_det / max(n_cg, 1),
+                  "n_masked": n_cg - n_det}
+        else:
+            beta = allb[is_cg].dropna(); qc = {"detection_available": False, "n_probes": int(is_cg.sum())}
         beta.name = "beta"
+        ctrl = {}
+        cp = _glob.glob(os.path.join(workdir, "**", "control_probes.pkl"), recursive=True)
+        if cp:
+            cdf = list(_pickle.load(open(cp[0], "rb")).values())[0]; ct = cdf["Control_Type"].astype(str).str.upper()
+            gcol = [c for c in cdf.columns if "green" in c.lower()][0]; rcol = [c for c in cdf.columns if "red" in c.lower()][0]
+            def med(t, col):
+                x = cdf[ct.str.contains(t, na=False)][col]; return float(x.median()) if len(x) else None
+            ctrl = {"bisulfite_conversion_I_median": med("BISULFITE CONVERSION I", gcol), "bisulfite_conversion_II_median": med("BISULFITE CONVERSION II", rcol),
+                    "hybridization_G_median": med("HYBRIDIZATION", gcol), "negative_G_median": med("NEGATIVE", gcol), "negative_R_median": med("NEGATIVE", rcol),
+                    "non_polymorphic_G_median": med("NON-POLYMORPHIC", gcol), "non_polymorphic_R_median": med("NON-POLYMORPHIC", rcol)}
+            if ctrl["non_polymorphic_G_median"] and ctrl["negative_G_median"]:
+                ctrl["signal_to_background_G"] = ctrl["non_polymorphic_G_median"] / max(ctrl["negative_G_median"], 1.0)
+                ctrl["signal_to_background_R"] = (ctrl["non_polymorphic_R_median"] or 0.0) / max(ctrl["negative_R_median"] or 1.0, 1.0)
+        # this array's own noise from its SNP probes: sigma^2(beta) = a + b*beta(1-beta)  (sky denominator)
+        snp = None
+        b_ = _np.asarray(rs, float); b_ = b_[~_np.isnan(b_)]
+        if b_.size >= 20:
+            ideal = _np.array([0.0, 0.5, 1.0]); lab = _np.argmin(_np.abs(b_[:, None] - ideal[None, :]), axis=1)
+            cen = _np.array([_np.median(b_[lab == k]) if (lab == k).any() else ideal[k] for k in range(3)]); lab = _np.argmin(_np.abs(b_[:, None] - cen[None, :]), axis=1)
+            sds = [float(_np.std(b_[lab == k], ddof=1)) if (lab == k).sum() >= 3 else float("nan") for k in range(3)]
+            a_ = float(_np.nanmean([sds[0] ** 2, sds[2] ** 2])); bb_ = max(0.0, 4.0 * (sds[1] ** 2 - a_)) if not _np.isnan(sds[1]) else 0.0
+            snp = {"a": a_, "b": bb_, "cluster_sd": sds, "n_rs": int(b_.size), "T_offset": float(cen[1] - 0.5), "T_scale": float(cen[2] - cen[0])}
     finally:
         shutil.rmtree(workdir, ignore_errors=True)
 
@@ -134,8 +177,9 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True):
         "array_type": at_str,
         "pipeline": f"stage1_noob_{'450K' if at_str=='450k' else at_str.upper()}",   # LESSON-SCALE-01: the tag beta_scale_maps_v1.json is keyed by
         "n_cpgs": int(len(beta)),
-        "calibration": "noob (dye-bias + probe-type normalization), per-sample",
+        "calibration": "noob (dye-bias + probe-type normalization), per-sample; probes at background (poobah p > 0.05) removed",
         "stage": "SOP Stage 1 steps 1.1-1.2 + 1.5",
+        "detection": qc, "controls": ctrl, "snp_noise": snp,
     }
     if verbose:
         print(f"      calibrated: {len(beta):,} CpGs (noob, per-sample dye-bias + probe-type norm)")

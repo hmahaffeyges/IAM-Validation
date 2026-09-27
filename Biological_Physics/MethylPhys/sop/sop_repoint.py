@@ -83,20 +83,23 @@ CURRENT_STATE = """## What this version is
 
 This is the operating procedure for the chain as it stands at the commit named below. It describes what the chain
 does now. It is not a history of what it used to do: every earlier version of this document is in the repository's
-git history, and every finding that changed the chain is in `Record/PROC_data/` with its pre-registration,
-its outcome and its seal.
+git history, and every finding that changed the chain is in `doors/` with its pre-registration, its outcome and its
+record. Development stage: the chain is being built and corrected in the open; what is wrong is fixed, moved past,
+and written down here.
 
 | | |
 |---|---|
 | engine commit | `{commit}` |
-| stages the conductor runs | Stage 0 intake, Stage 1 calibration, Stage 2 composition (with a second opinion), Stage B identity gauge, Stage 4.5 directional decomposition, Stage 4.6 the patient's sky, Stage 5 departure, Stage 7 tiers, Stage 9 the report |
-| what it reports | whether this sample's cellular write process is operating within the healthy range for its age, by architecture class, against a fixed physical zero |
-| the healthy reference | three measured layers: the frozen class floor (physics, universal), the pipeline scale map (one per processing pipeline), and the laboratory zero (40 healthy arrays of that laboratory, read against the age curve) |
+| stages the conductor runs | Stage 0 intake (ten steps: nine checks and a decision, on the array's own numbers), Stage 1 calibration (noob; probes at background removed; control probes and SNP probes returned), Stage 1s pipeline map, Stage 2 composition (with a second opinion and the Stage 2d foreign-cell check), Stage A per-cell A, Stage B class gauge (internal gate + composition check), Stage 4.5 directional decomposition, Stage 4.6 the patient's sky, Stage 7 tiers, Stage 9 the report |
+| what it reports | for every cell found present in this specimen: A = H(mean beta over the cell's identity loci) / H_min of its class, and the tier that A falls in. Healthy is A = 1.00 by the physics; the tier scale is the tolerance (NORMAL [0.95, 1.05), ELEVATED [1.05, 1.07), Warburg line 1.07, breach 1.10) |
+| what is frozen | the eight class floors H_min (G-002 MCMC on 37 reference methylomes), the identity loci per class, the atlas (IAMAtlasREBUILD), the pipeline map (a scale transfer between two measuring pipelines), the presence floors, the detection-panel lines |
+| what is NOT on any reading | no laboratory zero, no age term, no band, no per-cell atlas reference, no ceiling, no departure distance, no cellular age. These were population layers and were removed 2026-09-27 (`RETIRED_2026-09/cohort_gauge_layers_2026-09-27/`). Where people of an age sit on the gauge is an observation about people, never a correction to a cell. MEASURE, DON'T COMPARE |
 | what it does not do | it names no condition, matches no pattern to any signature, and states no age in years |
 | file inventory | generated, not hand-listed: `MethylPhys/chain/Runtime Matrices/chain_inventory_v1.json`, built from the tree by `build_chain_inventory.py`. The reference table at the end of this document is generated from it |
-| the rule for a finding | seal the procedure before running it, register the outcome as found, close it in code, teach every door, rebuild, read, push. `MethylPhys/kit/finding_check.py` gates the push |
+| the rule for a finding | write the procedure before reading the data, register the outcome as found, close it in code, teach every door, rebuild, read, push. A repeated failure with the same culprit is investigated until the cause is certain - it is never accepted as written in stone |
 
 """
+
 
 def commit():
     try:

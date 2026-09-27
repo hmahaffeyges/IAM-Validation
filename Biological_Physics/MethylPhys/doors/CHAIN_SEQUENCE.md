@@ -27,7 +27,7 @@ rather than left out.
 | 16 | `stage_b_identity` | `cpg_conductor.py` | THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27) |
 | 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a |
 | 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
-| 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped |
+| 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky. z_i = (beta_i - sum_c f_c mu_ci) / sigma_i on the mapped beta, where |
 | 20 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
 
 ## Named as chain, called by nothing
@@ -51,7 +51,5 @@ steps of the chain is wrong; a reader who needs them must call them deliberately
 
 | step | in | what it implements | status |
 |---|---|---|---|
-| `stage_5_hull_marker_union` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure | defined in the conductor; run_full does not call it |
-| `stage_8_matching` | `cpg_conductor.py` | NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix | defined in the conductor; run_full does not call it |
 | [`stage_1_calibration.py`](../chain/stage_1_calibration.py) | `stage_1_calibration.py` | Stage 1 — Calibration & beta computation (L2 + L3) | module present; neither run_sample.py nor cpg_conductor.py calls it |
 | [`stage_5_second_chain.py`](../chain/stage_5_second_chain.py) | `stage_5_second_chain.py` | Stage 5 — Second chain (confirmation). Fires ONLY when Stage 8 Route B flags | module present; neither run_sample.py nor cpg_conductor.py calls it |

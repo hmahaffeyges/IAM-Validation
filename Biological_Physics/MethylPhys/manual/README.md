@@ -16,7 +16,7 @@ The operations manual and everything it is built from. One live version, edited 
 | [`om_data.py`](om_data.py) | the manual's data module: every constant, table and section text it renders |
 | [`om_part3.py`](om_part3.py) | the manual's Part III sections |
 | [`report_tabs.json`](report_tabs.json) | the tab descriptions as data, read by both the SOP generator and the manual build |
-| [`switching_order.py`](switching_order.py) | THE SWITCHING ORDER: one record per stage with everything that touches it clipped to it. The master cross-reference Issue 003 Part II prints from. |
+| [`switching_order.py`](switching_order.py) | THE SWITCHING ORDER: one record per stage with everything that touches it clipped to it. The master cross-reference the Operations Manual prints from. |
 | [`toc_pages.json`](toc_pages.json) | page numbers measured in the first build pass, read by the second |
 | [`val_index.json`](val_index.json) | the validation index as data |
 

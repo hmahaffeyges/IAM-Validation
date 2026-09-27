@@ -14,6 +14,15 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(git -C "$HERE" rev-parse --show-toplevel)
 LOG="$ROOT/.propagate_last_run.txt"
 
+echo "== build_all (regenerate every document that reports the chain) =="
+if ! (cd "$HERE" && "${PYTHON:-python3}" build_all.py > "$ROOT/.build_all_last_run.txt" 2>&1); then
+    tail -25 "$ROOT/.build_all_last_run.txt"
+    echo
+    echo "REFUSED: build_all.py failed (a generator or a gate). Nothing was committed and nothing was pushed."
+    exit 1
+fi
+tail -2 "$ROOT/.build_all_last_run.txt"
+
 echo "== propagate =="
 if ! (cd "$HERE" && python3 propagate.py > "$LOG" 2>&1); then
     tail -20 "$LOG"

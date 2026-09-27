@@ -326,38 +326,7 @@ def stage_4_5_bidirectional(beta_dict, cfg=None):
 
 # stage_5_mahalanobis: REMOVED 2026-09-27 (author's ruling - a cohort statistic; the code is in RETIRED_2026-09/cohort_gauge_layers_2026-09-27/README.md's list)
 
-def stage_5_hull_marker_union(stage_b_out, cfg=None):
-    """DIAGNOSTIC ONLY since PROC-MAHA-01 (2026-09-21): the pre-switch eight-class derived hull on the marker-union readings. Never the reported departure.
-    Stage 5 (SOP §47-51, Option A) - derived age-matched departure of the patient's
-    CLASS GAUGE A-scores from the age band. Scores PRESENT classes only (absent-class
-    background is excluded). One number + top-axis decomposition. No cohort."""
-    cfg = cfg or {}
-    age = cfg.get("age", stage_b_out.get("age", 60))
-    mh = _load_module("iamatlas_mahalanobis_scoring", _find("iamatlas_mahalanobis_scoring.py"))
-    ge = _load_module("cpg_gauge_engine", _find("cpg_gauge_engine.py"))
-    ref = _find("mahalanobis_healthy_reference_v2_0_age_matched_derived.json")
-    hull = mh.MahalanobisHealthyHull(str(ref), gauge=ge)
-    # Mahalanobis presence gate (manifest adjudicator fix): a class contributes ONLY if
-    # abundance >= 3% AND it is outside the age-matched NORMAL band (placement != IN_BAND).
-    # This removes trace non-substrate classes reading blood-background (the false-positive
-    # inflator) and in-band healthy classes (which are not a departure).
-    maha_floor = cfg.get("maha_floor", 0.03)
-    require_out = cfg.get("require_outside_band", True)
-    ca = {}
-    for cls, v in stage_b_out.get("class_gauge", {}).items():
-        frac = v.get("fraction", 0.0)
-        # AGE-MATCHED gate (offset-free gauge): count only genuine departures from the
-        # age band - (a) >=3% AND ABOVE_BAND elevation, OR (b) >=15% AND INVERSION.
-        # A mild below-band dip reads NORMAL and never counts. The manifest's absolute
-        # [0.95,1.04) gate is offset-era and false-positives here (healthy age-matched ~0.90).
-        # ELEVATION-ONLY: disease drives A up (ABOVE_BAND). The inversion arm is
-        # disabled - the age band is offset-era, so healthy blood reads below it and a
-        # naive inversion arm false-positives (immune 0.807 INVERSION on a healthy 58M).
-        # Re-enable inversion only after age_reference_matrix is rebuilt offset-free.
-        plc = v.get("placement")
-        ca[cls] = v.get("A") if (frac >= maha_floor and plc == "ABOVE_BAND") else None
-    result = hull.score(ca, age=age)
-    return {"departure": result, "class_ascores_scored": {k: v for k, v in ca.items() if v is not None}}
+# stage_5_hull_marker_union: REMOVED 2026-09-27 - not called by run_full; a hull distance from a population (RETIRED_2026-09/cohort_gauge_layers_2026-09-27/README.md)
 
 
 
@@ -367,49 +336,33 @@ def stage_5_hull_marker_union(stage_b_out, cfg=None):
 
 
 def stage_4_6_patient_sky(beta_rm, stage_a_out, cfg=None, atlas_csv=None):
-    """Stage 4.6 - the patient's sky (PROC-CMB-04, 2026-09-21). z_i = (beta_i - sum_c f_c mu_ci - m_lab,i) / s_lab,i on the mapped
-    beta; class panels gated by the measured presence floors. Needs the laboratory's residual scale (Runtime Matrices/Patient_CMB/
-    residual_scale_<lab>.npz, built from the same 40-array panel as the lab zero); without it the sky is NOT AVAILABLE, never approximated.
-    Calibration on record: healthy held-out arrays show 2.6-3.2% of CpGs beyond |z|=2 (scale ~1.1x conservative; CMB-04 C2' failed as sealed)."""
-    import importlib.util, os as _os, json as _json, pandas as _pd
+    """Stage 4.6 - the patient's sky. z_i = (beta_i - sum_c f_c mu_ci) / sigma_i on the mapped beta, where
+    sigma_i^2 = sum_c f_c^2 sd_ci^2 (the atlas posterior, propagated through this specimen's composition)
+               + sigma_arr^2(beta_i)  (this array's own noise from its 65 SNP probes: a + b*beta(1-beta); cfg['snp_noise']).
+    No laboratory zero, no laboratory spread, no panel (2026-09-27: the 40-array panel scales were retired as population layers).
+    Without the array's SNP probes (a betas-only input) sigma_arr is unknown and the sky is drawn on the atlas term alone with
+    the caption saying so - a picture, not a reading. Class panels gated by the presence floors as before.
+    Development note (PROC-SKY-01, 2026-09-27): robust SD of z 0.92-1.16 on three laboratories; 0.60 on GSE125105, whose arrays
+    are low-signal input (FINDING_GSE125105_LOW_SIGNAL.md) - handled at intake, not here."""
+    import importlib.util, os as _os, json as _json, pandas as _pd, numpy as _np
     cfg = cfg or {}
     spec = importlib.util.spec_from_file_location("stage_4_6_patient_cmb", _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "stage_4_6_patient_cmb.py"))
     S = importlib.util.module_from_spec(spec); spec.loader.exec_module(S)
-    lab = cfg.get("lab"); rt = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "Runtime Matrices", "Patient_CMB")
-    sp = _os.path.join(rt, f"residual_scale_{lab}.npz") if lab else None
-    if not sp or not _os.path.exists(sp):
-        return {"available": False, "status": f"NOT AVAILABLE - no residual scale for laboratory {lab!r} (build it from the lab's 40-array healthy panel: PROC-CMB-04)", "classes": {}}
-    scale = S.load_scale(sp); floors = _json.load(open(_os.path.join(rt, "presence_floors_v1.json")))["floors"]
-    means = S.load_atlas_means(atlas_csv or _find("IAMAtlasREBUILD.csv"))
+    rt = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "Runtime Matrices", "Patient_CMB")
+    floors = _json.load(open(_os.path.join(rt, "presence_floors_v1.json")))["floors"]
+    mu, sd = S.load_atlas_mean_sd(atlas_csv or _find("IAMAtlasREBUILD.csv"))
     ident = _json.load(open(_find("iamatlas_gauge_identity_loci_v1_0.json"))); loci = {c: v["loci"] for c, v in ident.items() if isinstance(v, dict) and "loci" in v}
-    sky = S.patient_sky(_pd.Series(beta_rm, dtype=float), stage_a_out["class_fractions"], means, scale, loci, S.load_mapping(), presence_floors_by_class=floors)
-    out = {"available": True, "lab": lab, "scale_panel_n": scale["n_panel"], "presence_floors": floors,
+    beta = _pd.Series(beta_rm, dtype=float); beta.index = beta.index.map(str)
+    snp = cfg.get("snp_noise") or {}
+    slope = float((_json.load(open(_find("beta_scale_maps_v1.json")))["maps"].get(cfg.get("pipeline") or "stage1_noob_450K") or {}).get("slope", 1.0))
+    sky = S.patient_sky_sigma(beta, stage_a_out["class_fractions"], mu, sd, snp.get("a"), snp.get("b"), slope, loci, S.load_mapping(), presence_floors_by_class=floors)
+    out = {"available": True, "sigma": "atlas posterior + this array's SNP-probe noise" if snp.get("a") is not None else "atlas posterior only (no SNP probes in this input)",
+           "snp_noise": snp or None, "presence_floors": floors,
            "all": sky["all"], "classes": {c: {k: v for k, v in d.items() if k != "pixels"} for c, d in sky["classes"].items()},
-           "calibration_note": "healthy held-out arrays read 2.6-3.2% of CpGs beyond |z|=2 (PROC-CMB-04); a healthy sky is quiet at that level, not at 5%",
            "_sky": sky}   # full arrays for render_plate; stripped by the report builder
     return out
 
-def stage_8_matching(stage_a_out, cfg=None):
-    """NOT A CHAIN STAGE (author's ruling 2026-09-21). Disease-pattern concordance against disease_cell_signature_matrix_v1_13 - a matrix
-    compiled from pre-build and early post-build VALs, i.e. the preliminary record. The chain reports what it measured (cells detected,
-    fractions, A per cell and class, placement, flags) and names no disease. This function is kept callable for RECORD-SIDE study only
-    (logging cohort behaviour as trusted-chain cohorts accumulate); run_full does not call it and the report never shows its output.
-    Earlier text (superseded): ROW 8 OPEN (PROC-MATCH-01, 2026-09-21):
-    the departure profile is (A_cell - 1.0) over PRESENT cells, but healthy per-cell A on this surface sits at ~0.44-0.52 with class
-    H_min 0.77-0.98, so on healthy whole blood only ~3 cells enter the profile. The reference level must be re-derived on this surface
-    (healthy per-cell level from the four-lab panels) before any match is reported. Until then the output is DIAGNOSTIC and not reportable.
-    Origin gate fails CLOSED (missing/unreadable disease_origin_cells.json -> status NOT AVAILABLE, zero candidates)."""
-    cfg = cfg or {}
-    W = _load_module("disease_matching", _find("disease_matching.py"))
-    md = HERE / "Disease Matrix" / "DISEASE_MATRIX"
-    c2c = json.load(open(_find("IAMAtlasREBUILD_celltype_to_class.json"))); HM = json.load(open(_find("iamatlas_celltype_markers_v0_2.json"))).get("H_min_by_class", {})
-    s4 = {"celltype_ascores": {cell: {"A": r.get("A"), "below_floor": bool(r.get("A") is not None and r["A"] < HM.get(c2c.get(cell), 0)),
-                                       "celltype_fraction": r.get("fraction")} for cell, r in stage_a_out["cells"].items()}}
-    out = W.stage_8_dual_matching(s4, None, None, patient_meta={"substrate": cfg.get("substrate", "whole_blood")},
-                                  config={"disease_matrix_csv": str(md / "disease_cell_signature_matrix_v1_13.csv"), "matrix_mapping_json": str(md / "iamatlas_115_to_matrix_v0_2_mapping.json")})
-    return {"available": out.status == "OK", "status": out.status, "reportable": False, "row_status": "OPEN - departure reference not commissioned on the separation surface (PROC-MATCH-01)",
-            "n_present_cells": len(out.patient_departure), "patient_departure": out.patient_departure,
-            "route_B_top": out.route_B_concordance[:5], "n_scored": len(out.route_B_all_scored)}
+# stage_8_matching: REMOVED 2026-09-27 - not called by run_full; signature matching, which the chain does not do (RETIRED_2026-09/cohort_gauge_layers_2026-09-27/README.md)
 
 
 def stage_2b_second_opinion(beta_dict, stage_a_out, atlas_csv, cfg=None):

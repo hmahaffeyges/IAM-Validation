@@ -8,7 +8,7 @@ How a person drives the chain: the single-specimen runner, the report builder, a
 |---|---|
 | [`build_chain_inventory.py`](build_chain_inventory.py) | Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file. |
 | [`build_methylphys.py`](build_methylphys.py) | THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measu |
-| [`build_percell_reference.py`](build_percell_reference.py) | Builds percell_reference_v0.json: each entry's own healthy range, per laboratory, from that laboratory's build panel. |
+| [`build_percell_reference.py`](build_percell_reference.py) | RETIRED 2026-09-27: built a per-cell level per laboratory from panel arrays - a population layer; kept as record |
 | [`run_sample.py`](run_sample.py) | One command: IDAT pair or a cpg_id,beta CSV -> Stage 1 -> run_full -> this report. |
 
 _5 file(s)._ Paths above are relative to this folder, and [`kit/link_check.py`](../../kit/link_check.py) fails the build if any of them stops resolving.

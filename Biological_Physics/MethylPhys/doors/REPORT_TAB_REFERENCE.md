@@ -1,8 +1,8 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `chain/example_runs/RUN-20260926-14/BLOOD.html` at commit `b7be755`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `6ffb045`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
-One run produces **one self-contained HTML file of 6.69 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
+One run produces **one self-contained HTML file of 6.48 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
 ## The figures
 
@@ -16,7 +16,7 @@ The reading itself: the class gauge value, where it sits against the healthy ban
 
 ![Reading tab](../manual/report_tab_figures/reading.png)
 
-*4 KB, 2 tables, 8 rows.*  Sections: **Reading - BLOOD**, **1. What is in the sample, and how each cell reads**, **2. Foreign cells - is there anything in this blood that is not blood?**, **3. The instrument**
+*5 KB, 2 tables, 10 rows.*  Sections: **Reading - REFERENCE**, **1. What is in the sample, and how each cell reads**, **2. Foreign cells - is there anything in this blood that is not blood?**, **3. The instrument**
 
 ### How to read  ·  `howto`  ·  REFERENCE
 
@@ -32,7 +32,7 @@ Every atlas cell type scored for this specimen - all of them, placed or not - ea
 
 ![Cells tab](../manual/report_tab_figures/cells.png)
 
-*28 KB, 12 tables, 90 rows.*  Sections: **Every cell - all 115 atlas cell types**, **Trace-class detection - is there any epithelial-like material here at all?**, **What limits a per-cell claim**, **Foreign-cell detection (Stage 2d)**, **Stem (pluripotent) (1 cells; H_min 0.9822)**, **Stem (adult) (1 cells; H_min 0.8737)**, **Progenitor (11 cells; H_min 0.8522)**, **Cycling epithelial (19 cells; H_min 0.8561)**
+*27 KB, 12 tables, 90 rows.*  Sections: **Every cell - all 115 atlas cell types**, **Trace-class detection - is there any epithelial-like material here at all?**, **What limits a per-cell claim**, **Foreign-cell detection (Stage 2d)**, **Stem (pluripotent) (1 cells; H_min 0.9822)**, **Stem (adult) (1 cells; H_min 0.8737)**, **Progenitor (11 cells; H_min 0.8522)**, **Cycling epithelial (19 cells; H_min 0.8561)**
 
 ### Sky  ·  `sky`  ·  SPECIMEN
 
@@ -40,7 +40,7 @@ The residual sky: a Mollweide plate of this specimen's own residuals, per class,
 
 ![Sky tab](../manual/report_tab_figures/sky.png)
 
-*5993 KB, 3 tables, 23 rows.*  Sections: **The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist**, **A sky map is not a photograph**, **The correspondence, step by step**, **What this buys a geneticist that a list of differentially methylated regions does not**, **One thing a geneticist has that a cosmologist would trade almost anything for**, **What else the MCMC gives us, and what we are not yet using**, **Brilliance - the first tool taken from cosmology, and where it went**, **Two maps from one patient - the difference map**
+*5785 KB, 3 tables, 23 rows.*  Sections: **The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist**, **A sky map is not a photograph**, **The correspondence, step by step**, **What this buys a geneticist that a list of differentially methylated regions does not**, **One thing a geneticist has that a cosmologist would trade almost anything for**, **What else the MCMC gives us, and what we are not yet using**, **Brilliance - the first tool taken from cosmology, and where it went**, **Two maps from one patient - the difference map**
 
 ### Physics  ·  `physics`  ·  REFERENCE
 
@@ -80,7 +80,7 @@ Red flags: everything this run refused, withheld or could not measure, in one pl
 
 ![Red flags tab](../manual/report_tab_figures/flags.png)
 
-*2 KB, 1 tables, 4 rows.*  Sections: **Red flags - everything this run refused, withheld or could not measure**
+*1 KB, 1 tables, 3 rows.*  Sections: **Red flags - everything this run refused, withheld or could not measure**
 
 ### Safeguards  ·  `safeguards`  ·  SPECIMEN
 
@@ -104,7 +104,7 @@ The fail-safes that kept this reading honest: the Stage 0 custody record for thi
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*16 KB, 3 tables, 53 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Constants read for this laboratory (the pipeline map, the tier file, the sky scale only; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit b7be755)**, **5. Two rules this report obeys**
+*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 6ffb045)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 
@@ -120,7 +120,7 @@ Every file the chain uses, enumerated from the live tree with its role.
 
 ![Files tab](../manual/report_tab_figures/files.png)
 
-*77 KB, 6 tables, 196 rows.*  Sections: **Every file the chain uses**, **In the chain (17)**, **Reference and calibration data (68)**, **Interface (14)**, **Guards, procedures and doors (57)**, **Present but NOT in the chain (30)**, **Superseded (4)**
+*76 KB, 6 tables, 192 rows.*  Sections: **Every file the chain uses**, **In the chain (17)**, **Reference and calibration data (64)**, **Interface (14)**, **Guards, procedures and doors (57)**, **Present but NOT in the chain (30)**, **Superseded (4)**
 
 ### Findings  ·  `findings`  ·  REFERENCE
 

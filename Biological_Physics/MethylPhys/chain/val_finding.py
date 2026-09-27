@@ -25,7 +25,7 @@ WHAT A FINDING RECORD CONTAINS
   classes       per arm and class: n reportable, median A'' with its interquartile range, the placement
                 distribution, and the tier distribution
   cells         per atlas entry AND per lineage group: where it was placed, in how many samples, the median
-                reading by arm, the DIRECTION (above / below / within its own healthy range), the MAGNITUDE in
+                reading by arm, the DIRECTION (above / below / within the NORMAL tolerance about A = 1.00), the MAGNITUDE in
                 units of that entry's healthy spread, the prevalence (what fraction of the arm departed), the
                 panel exclusivity, and the claim level this permits - individual, group-only, or withheld
   sky           per arm: the fraction of the genome beyond |z| = 2, the classes that were assessable, and the

@@ -253,6 +253,35 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) is the download list: every file a reviewer could want, resolved from the tree rather than typed, with an explicit statement of what is not published and why.
 
+<!-- GENERATED:chain start -->
+**The chain as the code runs it** (generated 2026-09-27 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 20 steps; 2 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
+
+| # | step | file | what it implements |
+|---|---|---|---|
+| 1 | `step_0_1_idat_arrival` | [`stage_0_intake.py`](../chain/stage_0_intake.py) | SOP section 0.1_idat_arrival |
+| 2 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation |
+| 3 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash |
+| 4 | `step_0_4_control_probe_validation` | `stage_0_intake.py` | SOP section 0.4_control_probe_validation |
+| 5 | `step_0_5_detection_pvalue_qc` | `stage_0_intake.py` | SOP section 0.5_detection_pvalue_qc |
+| 6 | `step_0_6_bead_count_qc` | `stage_0_intake.py` | SOP section 0.6_bead_count_qc |
+| 7 | `step_0_7_call_rate` | `stage_0_intake.py` | SOP section 0.7_call_rate |
+| 8 | `step_0_7b_platform_coverage` | `stage_0_intake.py` | SOP section 0.7b_platform_coverage |
+| 9 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check |
+| 10 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate |
+| 11 | `Stage 1 - IDAT calibration` | [`stage_1_idat_calibration.py`](../chain/stage_1_idat_calibration.py) | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) |
+| 12 | `stage_a_cells` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | Stage A — find the cell types in the sample, their ratios, and their A-scores |
+| 13 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation |
+| 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
+| 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
+| 16 | `stage_b_identity` | `cpg_conductor.py` | THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27) |
+| 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION. Adopted by the author's decision 2026-09-26, scoped to laboratories with a |
+| 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
+| 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky. z_i = (beta_i - sum_c f_c mu_ci) / sigma_i on the mapped beta, where |
+| 20 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
+
+**Generated documents** (never edit; rerun build_all): `../chain/chain_sequence.json`, `../doors/CHAIN_SEQUENCE.md`, `../chain/Runtime Matrices/chain_inventory_v1.json`, `../doors/COMPONENT_MAP.md`, `../chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json`, `../chain/example_runs/RUN_INDEX.csv`, `../sop/MethylPhys_CPG_SOP.md`, `../manual/MethylPhys_CPG_Operations_Manual.pdf`, `../doors/REVIEWER_MANIFEST.md`, `../doors/REPORT_TAB_REFERENCE.md`, `../doors/REPO_INVENTORY.md`, `../doors/RUNBOOK.md`, `../README.md`, `../chain/GENERATED_MANIFEST.json`
+<!-- GENERATED:chain end -->
+
 ## The order of steps
 
 [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md) is generated from the code: every call each path makes, in order, and every file named as chain that no path calls.

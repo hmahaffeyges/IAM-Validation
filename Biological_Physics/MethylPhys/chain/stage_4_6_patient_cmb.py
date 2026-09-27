@@ -111,5 +111,37 @@ def render_plate(sky, out_png, title="", nside=NSIDE, vlim=3.0, dpi=110):
             ax.set_title(f"{name}  ·  f={summ.get('fraction',1.0):.2f}  ·  |z|>2: {100*summ['frac_abs_z_gt2']:.1f}%  ·  median z {summ['median_z']:+.2f}",color="white",fontsize=9); stack.append(np.nan_to_num(px,nan=-99.0))
         else:
             ax.set_title(f"{name}  ·  {summ.get('status','')}",color="#888",fontsize=9); stack.append(np.full(NPIX,-99.0))
-    fig.suptitle(title,color="white",fontsize=13); fig.text(0.5,0.01,"z = (beta - sum_c f_c mu_c - m_lab) / s_lab   ·   red = above the composition expectation, blue = below   ·   black = not assessable (Stage 2 fraction below the presence floor)",color="#aaa",ha="center",fontsize=9)
+    fig.suptitle(title,color="white",fontsize=13); fig.text(0.5,0.01,"z = (beta - sum_c f_c mu_c) / sigma,  sigma from the atlas posterior and this array's own SNP probes - no panel   ·   red = above the composition expectation, blue = below   ·   black = not assessable (Stage 2 fraction below the presence floor)",color="#aaa",ha="center",fontsize=9)
     fig.savefig(out_png,dpi=dpi,facecolor="black",bbox_inches="tight"); plt.close(fig); return np.vstack(stack)
+
+
+# ---- 2026-09-27: sigma with no population in it (PROC-SKY-01 construction) ----
+def load_atlas_mean_sd(atlas_csv, cpgs=None):
+    cols=["cpg_id"]+[f"{c}_mean" for c in CLASSES]+[f"{c}_sd" for c in CLASSES]
+    at=pd.read_csv(atlas_csv,usecols=cols,index_col="cpg_id"); at.index=at.index.map(str)
+    mu=at[[f"{c}_mean" for c in CLASSES]].copy(); mu.columns=CLASSES
+    sd=at[[f"{c}_sd" for c in CLASSES]].copy(); sd.columns=CLASSES
+    return (mu,sd) if cpgs is None else (mu.reindex(cpgs),sd.reindex(cpgs))
+
+def snp_noise(rs_beta):
+    """(a, b, [sd0, sd05, sd1]) from THIS array's SNP probes: sigma_arr^2(beta) = a + b*beta*(1-beta). Two-iteration nearest-ideal clusters."""
+    b=np.asarray(rs_beta,float); b=b[~np.isnan(b)]
+    if b.size<20: return None,None,None
+    ideal=np.array([0.0,0.5,1.0]); lab=np.argmin(np.abs(b[:,None]-ideal[None,:]),axis=1)
+    cen=np.array([np.median(b[lab==k]) if (lab==k).any() else ideal[k] for k in range(3)]); lab=np.argmin(np.abs(b[:,None]-cen[None,:]),axis=1)
+    sds=[float(np.std(b[lab==k],ddof=1)) if (lab==k).sum()>=3 else float("nan") for k in range(3)]
+    a=float(np.nanmean([sds[0]**2,sds[2]**2])); bb=max(0.0,4.0*(sds[1]**2-a)) if not np.isnan(sds[1]) else 0.0
+    return a,bb,sds
+
+def sigma_no_panel(mu, sd, fractions, beta_mapped, a, b, slope=1.0):
+    f=pd.Series({c:float(fractions.get(c,0.0)) for c in CLASSES})
+    var_atlas=(sd.reindex(beta_mapped.index)[CLASSES].fillna(0.0)**2).mul(f**2,axis=1).sum(axis=1)
+    var_arr=((a+b*beta_mapped*(1-beta_mapped))/slope**2) if a is not None else 0.0
+    return np.sqrt(var_atlas+var_arr)
+
+def patient_sky_sigma(beta_mapped, fractions, mu, sd, a, b, slope, identity_loci=None, mapping=None, presence_min=0.02, presence_floors_by_class=None):
+    """The sky with m = 0 and sigma from the atlas posterior (+ this array's SNP-probe noise when a, b are given)."""
+    r,E=residual(beta_mapped,mu,fractions); s=sigma_no_panel(mu,sd,fractions,beta_mapped,a,b,slope); z=(r/s).dropna()
+    unit={"m":pd.Series(0.0,index=z.index),"s":pd.Series(1.0,index=z.index)}
+    out=patient_sky(z,fractions,pd.DataFrame(0.0,index=z.index,columns=CLASSES),unit,identity_loci,mapping,presence_min,presence_floors_by_class)
+    out["z"]=z; out["E"]=E.reindex(z.index); out["sigma_median"]=float(s.reindex(z.index).median()); return out

@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "generated_from": "chain/example_runs/RUN-20260926-14/BLOOD.html",
-  "commit": "b7be755",
+  "generated_from": "kit/results/reference_report/reference.html",
+  "commit": "6ffb045",
   "n_tabs": 17,
-  "report_mb": 6.69,
+  "report_mb": 6.48,
   "n_specimen": 8,
   "n_reference": 9,
   "figures_are_screenshots": false
@@ -14,16 +14,16 @@
    "label": "Reading",
    "kind": "SPECIMEN",
    "purpose": "The reading itself: the class gauge value, where it sits against the healthy band for this age, its tier word, and the composition that produced it. If a clinician reads one tab, it is this one.",
-   "kb": 4,
+   "kb": 5,
    "tables": 2,
-   "rows": 8,
+   "rows": 10,
    "headings": [
-    "Reading - BLOOD",
+    "Reading - REFERENCE",
     "1. What is in the sample, and how each cell reads",
     "2. Foreign cells - is there anything in this blood that is not blood?",
     "3. The instrument"
    ],
-   "opens": "Reading - BLOOD Specimen whole_blood Substrate DNA methylation (450K/EPIC beta) \u00b7 Declared age 60.0 Pipeline map MAPPED(stage1_noob_450K->roadmap; slope 1.0127, intercept 0.0662; v1 COMMISSIONED 2026-09-20 (Phase 1c)) \u00b7 Laboratory GSE87571 ",
+   "opens": "Reading - REFERENCE Specimen whole_blood Substrate DNA methylation (450K/EPIC beta) \u00b7 Declared age 60.0 Pipeline map MAPPED(stage1_noob_450K->roadmap; slope 1.0127, intercept 0.0662; v1 COMMISSIONED 2026-09-20 (Phase 1c)) \u00b7 Laboratory - For",
    "figure": "../manual/report_tab_figures/reading.png",
    "is_screenshot": false,
    "cmb": []
@@ -59,7 +59,7 @@
    "label": "Cells",
    "kind": "SPECIMEN",
    "purpose": "Every atlas cell type scored for this specimen - all of them, placed or not - each with its 95 per cent interval, the healthy range on its own markers, how many of its markers were found, and its position against healthy.",
-   "kb": 28,
+   "kb": 27,
    "tables": 12,
    "rows": 90,
    "headings": [
@@ -86,7 +86,7 @@
    "label": "Sky",
    "kind": "SPECIMEN",
    "purpose": "The residual sky: a Mollweide plate of this specimen's own residuals, per class, plus the statistics behind each plate. Opens with what a plate is compared to, because it is never compared to a healthy picture.",
-   "kb": 5993,
+   "kb": 5785,
    "tables": 3,
    "rows": 23,
    "headings": [
@@ -199,9 +199,9 @@
    "label": "Red flags",
    "kind": "SPECIMEN",
    "purpose": "Red flags: everything this run refused, withheld or could not measure, in one place, ordered by severity - STOP, WITHHELD, CAUTION, NOTE. A failing CMB tool arrives here as CMB_TOOL_FAIL.",
-   "kb": 2,
+   "kb": 1,
    "tables": 1,
-   "rows": 4,
+   "rows": 3,
    "headings": [
     "Red flags - everything this run refused, withheld or could not measure"
    ],
@@ -328,13 +328,13 @@
    "purpose": "The fail-safes that kept this reading honest: the Stage 0 custody record for this specimen, both file hashes, and each intake gate's own result.",
    "kb": 16,
    "tables": 3,
-   "rows": 53,
+   "rows": 52,
    "headings": [
     "Integrity - the fail-safes that kept this reading honest, and what each one measured",
     "1. What this run refused, and why",
     "2. The safeguards, with their cosmology twins",
-    "3. Constants read for this laboratory (the pipeline map, the tier file, the sky scale only; no constant is applied to any cell's A)",
-    "4. Files read by this run (repository at commit b7be755)",
+    "3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)",
+    "4. Files read by this run (repository at commit 6ffb045)",
     "5. Two rules this report obeys"
    ],
    "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
@@ -355,7 +355,7 @@
     "The documents the chain is governed by",
     "Named as chain, called by nothing"
    ],
-   "opens": "The chain - every stage this report came from Orchestrated by cpg_conductor.run_full . Open any stage for what goes in, what comes out, why it exists, what it refuses to do, and which sealed procedure commissioned it. Stage 6 (an age in yea",
+   "opens": "The chain - every stage this report came from Orchestrated by cpg_conductor.run_full . Open any stage for what goes in, what comes out, why it exists, what it refuses to do, and which sealed procedure commissioned it. Stages 5, 6 and 8 of t",
    "figure": "../manual/report_tab_figures/chain.png",
    "is_screenshot": false,
    "cmb": []
@@ -365,19 +365,19 @@
    "label": "Files",
    "kind": "REFERENCE",
    "purpose": "Every file the chain uses, enumerated from the live tree with its role.",
-   "kb": 77,
+   "kb": 76,
    "tables": 6,
-   "rows": 196,
+   "rows": 192,
    "headings": [
     "Every file the chain uses",
     "In the chain (17)",
-    "Reference and calibration data (68)",
+    "Reference and calibration data (64)",
     "Interface (14)",
     "Guards, procedures and doors (57)",
     "Present but NOT in the chain (30)",
     "Superseded (4)"
    ],
-   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit b7be755 - 191 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
+   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit 6ffb045 - 196 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
    "figure": "../manual/report_tab_figures/files.png",
    "is_screenshot": false,
    "cmb": []
