@@ -254,7 +254,7 @@ def tab_reading(o, R, sid):
     if not rows:
         H.append("<p class='pend'>No cell cleared its presence floor - nothing is scored.</p>")
     else:
-        H.append("<table class='t'><tr><th>cell</th><th>class</th><th>fraction</th><th>A</th><th>95 % interval</th><th>reference A [MCMC 95 %]</th><th>departure from reference</th><th>departure from 1.00</th><th>tier</th><th class='m'>after laboratory offset</th></tr>")
+        H.append("<table class='t'><tr><th>cell</th><th>class</th><th>fraction</th><th>A</th><th>95 % interval on the reading</th><th>tier</th></tr>")
         outside=[]
         for key,name,v,fr in rows:
             A=v.get("A"); cl=v.get("class"); hm=(R.get("ident") or {}).get(cl,{}).get("H_min")
@@ -268,9 +268,8 @@ def tab_reading(o, R, sid):
             az=v.get("A_zeroed")
             H.append(f"<tr><td>{label}</td><td class='m'>{_e(CLASS_LABEL.get(cl,cl))}</td><td class='n'>{100*fr:.1f} %</td>"
                      f"<td class='n'><b>{A:.4f}</b></td>" if A is not None else f"<tr><td>{label}</td><td class='m'>{_e(CLASS_LABEL.get(cl,cl))}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>-</td>")
-            H.append(f"<td class='n m'>{ci_s}</td><td class='n'>{ref_s}</td><td class='n'>{dref_s}</td>"+(f"<td class='n'>{d:+.4f}</td>" if d is not None else "<td>-</td>")
-                     +(f"<td><span class='tier' style='background:{TIER_COL.get(tier,'#555')}'>{_e(tier)}</span></td>" if tier else "<td class='m'>not scored</td>")
-                     +f"<td class='n m'>{(f'{az:.4f}' if isinstance(az,(int,float)) else '-')}</td></tr>")
+            H.append(f"<td class='n m'>{ci_s}</td>"
+                     +(f"<td><span class='tier' style='background:{TIER_COL.get(tier,'#555')}'>{_e(tier)}</span></td>" if tier else "<td class='m'>not scored</td>")+"</tr>")
             if tier and tier!="NORMAL": outside.append((key,A,tier))
         H.append("</table>")
         n_normal=sum(1 for k,n,v,fr in rows if v.get("A") is not None)-len(outside)
@@ -278,11 +277,8 @@ def tab_reading(o, R, sid):
                  +(("Outside NORMAL: "+"; ".join(f"<b>{_e(k)}</b> at A = {a:.4f} ({_e(t)}, {'below' if a<1 else 'above'} 1.00 by {abs(a-1):.4f})" for k,a,t in outside)+".") if outside else "None outside NORMAL.")+"</p>")
     H.append(f"<p class='m'>{len(sub)} atlas cell{'s' if len(sub)!=1 else ''} placed below the presence floor - detected in trace amounts, not scored (a cell must be present to be measured; fraction is a detection gate, not a correction to A). "
              f"{len(unres)} entr{'ies' if len(unres)!=1 else 'y'} not resolvable on this platform. Every cell, scored or not, is on the <b>Every cell</b> tab. "
-             "A is H(mean beta over the cell's identity loci) / H_min of its class, on scale-mapped betas, with no laboratory zero applied. The <b>reference</b> is where the cell's own atlas profile reads on these loci, "
-             "with the atlas's 95 % interval from the G-002 MCMC posterior - the physics' own tolerance on the fixed point; departure from reference is the cleanest statement of how far this cell has moved. "
-             "The tier is read on A against the tier file's scale (NORMAL 0.95-1.04). The muted column applies the per-cell "
-             "laboratory offset from the four-laboratory calibration record; whether that offset stands or is replaced by the array's own tare is PROC-TARE-01's question, and until it "
-             "is answered the tier is read on A.</p>")
+             "A is H(mean beta over the cell's identity loci) / H_min of its class, on scale-mapped betas. Nothing is added to or subtracted from it. "
+             "The tier is read on A against 1.00 on the tier scale (NORMAL 0.95-1.04). Each cell's 95 % interval, atlas profile and identifiability are on the <b>Every cell</b> tab.</p>")
     # ---- 2. foreign cells (Stage 2d)
     H.append("<h3>2. Foreign cells - is there anything in this blood that is not blood?</h3>")
     st=str(fd.get("status") or "")
@@ -406,7 +402,7 @@ def tab_cells(o, R, percell_ref=None):
        "<tr><td>95 % interval on the reading</td><td>resample THIS array's identity loci for the cell</td><td>repeatability of this reading - how far A moves if the cell's loci had been sampled differently. From the specimen, not from anyone else</td></tr>"
        "<tr><td>atlas profile on these loci [MCMC 95 %]</td><td>where the atlas's own reference cell reads on the same loci, with the G-002 posterior interval</td><td>the calibration standard's own position. It should read 1.00 and sits a little under by construction (identity loci are chosen within &plusmn;0.05 of H_min_beta); the interval is how well the atlas knows that cell. Informational - the tier is NOT read against it</td></tr>"
        "<tr><td>tier</td><td>A against 1.00 on the tier scale (tier_breakpoints.json)</td><td>the tolerance about the fixed point, one file, one function</td></tr>"
-       "<tr><td>identity loci found</td><td>how many of the cell's identity loci this array carries</td><td>coverage of the measurement - a reading on 40 loci is not the same instrument as one on 186</td></tr>"
+       "<tr><td>identity loci on this platform</td><td>how many of the cell's identity addresses exist on this array type (450K or EPIC), out of the atlas's list for the cell</td><td>coverage of the instrument, NOT a finding: every address reads something whether or not the cell is in the sample. Presence is the separate question answered by the fraction</td></tr>"
        "<tr><td>identifiability</td><td>exclusive loci against the nearest rival cell, and whether the cell is solved alone, as a family, or not at all on this platform</td><td>what the detector can and cannot distinguish. Says whether 'this is a CD4 T-cell' is a defensible statement or a shared reading</td></tr>"
        "</table></details>",
        "<p><b>A cell below its presence floor gets no A and no tier.</b> PROC-CEIL-01 measured why: an absent cell's identity addresses carry the specimen's other cells, "
@@ -430,7 +426,7 @@ def tab_cells(o, R, percell_ref=None):
         rows=sorted(by.get(c,[]), key=lambda kv:-(kv[1].get("A") or 0))
         hm=R["ident"].get(c,{}).get("H_min")
         if not rows: continue
-        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>present</th><th>fraction</th><th>A</th>""<th>95 % interval on the reading</th><th>atlas profile on these loci [MCMC 95 %]</th><th>tier</th><th>identity loci found</th><th>identifiability</th></tr>")
+        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>present</th><th>fraction</th><th>A</th>""<th>95 % interval on the reading</th><th>atlas profile on these loci [MCMC 95 %]</th><th>tier</th><th>identity loci on this platform</th><th>identifiability</th></tr>")
         for cell,r in rows:
             if cell in _unres or cell in _twins: continue   # listed separately below, never as fraction 0
             A=r.get("A"); fr=r.get("fraction") or 0; e=((percell_ref or {}).get("entries") or {}).get(cell)
@@ -452,10 +448,11 @@ def tab_cells(o, R, percell_ref=None):
             if present and A is not None:
                 gt,_=T.tier_of(A, True, hm); tier=f"<span class='tier' style='background:{TIER_COL.get(gt,'#555')}'>{_e(gt)}</span>"
             else: tier="<span class='m'>not present - not scored</span>"
-            ex=r.get("exclusive_markers"); exs=(f"{ex} exclusive loci" if ex is not None else "exclusive loci: -")
+            ex=r.get("exclusive_markers"); in_block=(ex is not None) or (cell in _shared) or (fr>0)
+            exs=(f"{ex} exclusive loci" if ex is not None else "")
             gid=(R.get("cgroup") or {}).get(cell); mem=(R.get("cgmembers") or {}).get(gid) or []
             res=(f"family: {_e(str(_shared[cell]).replace('family:',''))}" if cell in _shared else (("not separable from "+_e(", ".join(m for m in mem if m!=cell)[:60])) if len(mem)>1 else "solved alone"))
-            ident=f"{exs} &middot; {res}"
+            ident=(f"{exs} &middot; {res}" if exs else (res if in_block else "not in this platform's solve block (defined on too few of its loci) - fraction is not solved for"))
             Ashow=(f"{A:.4f}" if present and A is not None else "<span class='m'>-</span>")
             H.append(f"<tr class='{'placed' if present else ''}'><td>{_e(cell)}</td><td>{'yes' if present else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{Ashow}</td>"f"<td class='n'>{cis if present else '-'}</td><td class='n'>{refs}</td><td>{tier}</td><td class='n'>{nf}</td><td class='m'>{ident}</td></tr>")
         H.append("</table>")
@@ -781,7 +778,7 @@ CHAIN=[
    "why":"in cosmology you never separate components one way only. NILC (needlet internal linear combination) is what Planck uses. Here it was switched off in July 2026 because it disagreed with the constrained solver on every blood sample - which looked like a defect in NILC. PROC-NILC-01 found the disagreement WAS the finding: NILC was reporting that the atlas cannot split the blood classes, which PROC-SEP-03 then measured directly (7 of 7 blood classes inseparable, and the separability statistic quantified). The tool was right and was cut for being right. It is commissioning row 2b and is not in this run.",
    "refuses":"n/a - not currently in the chain","commissioned":"NOT commissioned. Row 2b is open: the decision is whether its output ships as a second column or as a disagreement flag"}),
  ("A","Per-cell A","H(mean beta over each cell's IDENTITY loci) / H_min of its architecture class - the commissioned gauge's form on the identity surface (RULING A3, LESSON-SURFACE-01); a healthy cell of any type reads 1.0 on its own reference","iamatlas_a_scoring.py",
-  {"impl":"stage_a_cells","in":"the mapped betas, each cell type's identity loci, its class's frozen H_min, and the cell's Stage 2 fraction as the presence gate","out":"one A per PRESENT cell with its 95 % interval, the cell's MCMC reference and its interval, and the departure from reference; absent cells are listed, not scored",
+  {"impl":"stage_a_cells","in":"the mapped betas, each cell type's identity loci, its class's frozen H_min, and the cell's Stage 2 fraction as the presence gate","out":"one A per PRESENT cell with its 95 % interval on the identity loci; the cell's atlas profile and its MCMC interval travel with it as the calibration standard's position; ",
    "why":"this is the reading: one A per present cell, on that cell's own identity addresses, against its class floor. Deconvolution comes first so a cell is read only where it is present (PROC-CEIL-01: an absent cell's addresses read other cells' bytes). The form is H(mean beta)/H_min - RULING A3, the same arithmetic as the class gauge; the marker-panel form (mean of per-CpG H) governs the retired discriminative surface and is never crossed with it (LESSON-SURFACE-01). test_percell_physics.py asserts surface, form and scale on every push",
    "refuses":"a cell with fewer than the minimum matched markers is not scored","commissioned":"PROC-ANCHOR-01: the sealed 648-sample foundation-cohort per-cell scores reproduced from raw public data at r = 1.00000, max difference 0.00004"}),
  ("B","Class gauge","H(mean beta over identity loci) / H_min, minus the age term, minus the laboratory zero; placed in the band","cpg_gauge_engine.py",
@@ -800,7 +797,7 @@ CHAIN=[
   {"impl":"stage_4_6_patient_sky","in":"chromosome and position for each CpG","out":"a HEALPix pixel index, NSIDE 128",
    "why":"HEALPix is the projection Planck used: equal-area pixels, so no part of the map is visually over-weighted. Genomic order means neighbouring addresses are neighbouring pixels, which is what makes a structured departure look structured.",
    "refuses":"an unannotated CpG goes to a sentinel pixel and is excluded","commissioned":"deterministic across builds, and verified to assign all 483,092 CpGs to exactly the same pixels as the mapping built with the atlas for the reference plates"}),
- ("5","Departure","distance over the banded class axes, with chi-square lines and the laboratory's false-alarm rate","cpg_conductor.py",
+ ("5","Departure (cohort distance - RUNS, NOT SHOWN; scheduled for removal from run_full)","a Mahalanobis distance over the pooled class gauges against a healthy panel - a cohort statistic the author ruled irrelevant to an A-score on 2026-09-26; it still executes and is carried in the bundle, and is removed from the live path once PROC-TARE-01 has finished scoring","cpg_conductor.py",
   {"impl":"stage_5_mahalanobis","in":"each reportable class's A'' and the healthy band","out":"one distance, the p95 and p99 lines, and this laboratory's measured healthy false-alarm rate",
    "why":"a clinician needs one number for 'how unusual is this sample overall', and it has to come with how often healthy people trip it. With one commissioned class band the distance is just |z| of that class; as further class bands are commissioned it becomes a true multi-axis distance. The laboratory's own false-alarm rate travels with the number because it differs measurably between laboratories - the residual cause is the Sentrix chip term, which is its own open row (5b).",
    "refuses":"no banded axis -> no distance","commissioned":"PROC-MAHA-01 -> PROC-MAHA-02, with one laboratory's healthy tail exceeding the sealed bar recorded as a failure and the false-alarm rate printed on every report as the remedy"}),
@@ -822,7 +819,7 @@ CHAIN=[
    "why":"this is the surface the gauge reports on. Identity loci sit near beta = 0.73 in every healthy donor of the class, so a departure is a departure of the class's own pattern rather than of a marker panel chosen to separate two groups",
    "refuses":"without a laboratory zero the placement, the tier and the departure are all withheld and only A_mapped prints; without a declared age the absolute reading is withheld",
    "commissioned":"PROC-MAHA-01 and PROC-MAHA-02 (the zero and the band); the chip term was measured and NOT commissioned (PROC-MAHA-03)"}),
- ("5d","Marker-union hull (diagnostic)","the same departure computed on the marker-union surface","iamatlas_mahalanobis_scoring.py",
+ ("5d","Marker-union hull (RUNS, NOT SHOWN; scheduled for removal)","the same cohort distance on the retired marker-union surface - executes, is not printed, and comes out of the live path with row 5","iamatlas_mahalanobis_scoring.py",
   {"impl":"stage_5_hull_marker_union",
    "in":"the mapped betas and the age-matched healthy reference",
    "out":"a Mahalanobis distance on the marker-union surface, carried in the bundle as a diagnostic",
@@ -836,7 +833,7 @@ CHAIN=[
    "why":"fidelity falls with age on this surface at 0.47 mA/yr, so a reading must be judged against the healthy line for that decade rather than against a single population mean",
    "refuses":"a cellular age in years for one patient is NOT reportable: a lifetime of drift is 0.047 against a within-laboratory healthy spread of 0.0235 (PROC-AGE-01). The curve corrects a reading; it does not date a person",
    "commissioned":"PROC-AGE-01 - the trajectory is reproduced on four laboratories, the per-patient inversion is closed"}),
- ("6d","Age on the marker union (diagnostic)","the same age arithmetic on the marker-union surface","iam_cellular_age_scoring.py",
+ ("6d","Age on the marker union (RUNS, NOT SHOWN; scheduled for removal)","an age-clock statistic on the retired marker-union surface - executes, is not printed, and comes out of the live path with row 5","iam_cellular_age_scoring.py",
   {"impl":"stage_6_cellular_age_marker_union",
    "in":"the mapped betas and the marker-union age reference",
    "out":"a diagnostic age statistic on the pre-atlas surface",
@@ -2173,11 +2170,10 @@ TABS=[  # id, label, in the CLINICIAN print set, audience ("c" = both, "r" = res
 
 def refusals_from(o):
     r=[]
-    for c,rec in o["classes"].items():
-        if not rec.get("reportable"): r.append(f"class gauge '{c}': {rec.get('reason') or 'no commissioned band'} -> no placement, no tier")
+    # the pooled class gauge is an internal gate and is not printed, so its refusals are not listed here (2026-09-26)
     if not o["patient_sky"].get("available"): r.append("sky: no commissioned residual scale for this laboratory -> not rendered")
-    if o.get("lab_zero") is None: r.append("laboratory zero UNSET -> no absolute reading on any class")
-    ca=o.get("cellular_age",{}); r.append(f"cellular age in years: not reported (single-array resolution ~{ca.get('resolution_yr','50')} yr, PROC-AGE-01) - the age-matched healthy reference is what the chain uses instead")
+    fd=o.get("foreign_detection") or {}
+    if fd.get("status") and fd.get("status")!="OK": r.append(f"foreign-cell detection: {fd.get('status')} - {fd.get('reason') or ''}".rstrip(" -"))
     return r
 
 ISHA=None
