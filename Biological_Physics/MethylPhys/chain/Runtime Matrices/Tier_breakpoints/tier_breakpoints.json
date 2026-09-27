@@ -1,8 +1,8 @@
 {
  "_meta": {
   "name": "CPG/the cell-reading engine Tier Breakpoints \u2014 6-tier physics-derived v1.3",
-  "version": "v1.4",
-  "date": "2026-06-09",
+  "version": "v1.5",
+  "date": "2026-09-27",
   "supersedes": "v1.2 6-tier (WARBURG_TRANSITION held a 1.07-1.10 band and SIGNIFICANTLY_ELEVATED 1.10-1.12 overlapped BREACH 1.10+). v1.3 fixes this: WARBURG_TRANSITION is a boundary LINE at 1.07 (not a band), SIGNIFICANTLY_ELEVATED is 1.07-1.10, BREACH is 1.10+. No overlapping ranges.",
   "purpose": "Stage 7 customer-facing tier breakpoints translating continuous A-score engine output into physics-derived tiers. The 1.07 Warburg line and 1.10 architectural-fidelity breach line are the framework's two physics-defined inflection points, not statistical percentiles. The continuous A axis is partitioned by FIVE ranges (SUPPRESSED, NORMAL, ELEVATED, SIGNIFICANTLY_ELEVATED, BREACH); WARBURG_TRANSITION is the named boundary line at A=1.07 that coincides with the ELEVATED -> SIGNIFICANTLY_ELEVATED transition.",
   "framework_anchor": "BUILD_SPEC v1.3 \u00a75 Stage 7; immune card Stage 7 tier system",
@@ -19,7 +19,8 @@
     "SUPPRESSED": 2.18,
     "SIG_ELEVATED": 0.07
    }
-  }
+  },
+  "supersedes_v1_4": "v1.4 set the NORMAL->ELEVATED edge at 1.04 = 'the healthy central 95 % upper bound (1.041 measured)' on 1,379 donors. That is a population defining a tier edge - the cohort methodology the instrument no longer uses (author, 2026-09-26/27: 'healthy is A = 1.00 +/- 5'). v1.5 makes NORMAL symmetric about the fixed point: [0.95, 1.05). The 0.95 lower edge, the 1.07 Warburg line and the 1.10 breach line are unchanged. ELEVATED is now [1.05, 1.07)."
  },
  "tier_system_v1_2": {
   "_doc": "Six physics-derived tiers. WARBURG_TRANSITION is a boundary LINE at A=1.07, not a consuming band: the partition is SUPPRESSED / NORMAL / ELEVATED / SIGNIFICANTLY_ELEVATED / BREACH, with the Warburg line marking where ELEVATED ends and SIGNIFICANTLY_ELEVATED begins. Breakpoints are universal across classes; per-class overrides shift the ELEVATED floor but preserve the Warburg line and breach line.",
@@ -40,18 +41,18 @@
     "tier_id": "NORMAL",
     "a_score_range": {
      "min": 0.95,
-     "max_exclusive": 1.04
+     "max_exclusive": 1.05
     },
     "customer_label": "Normal",
     "engine_label": "NORMAL",
     "context_label": "Healthy individual",
-    "physics_meaning": "Within the central 95% of the commissioned healthy population on the identity-loci gauge (A'' in [0.954, 1.041] on 1,379 healthy donors, four laboratories; PROC-TIER-01/02, 2026-09-21). Sits inside the recoverable range (A 1.00-1.07): architecture intact and metabolically recoverable.",
+    "physics_meaning": "The tolerance about the physical fixed point A = 1.00: the cell holds its identity pattern within 5 % of the entropy its identity costs. No population defines this range. (Where 1,379 healthy donors sit on the gauge is recorded on the Instrument tab as an observation about people: 0.954-1.041.)",
     "customer_paragraph": "Your A-score for this class is within the healthy sampling-variance range. No measurable departure from the architectural baseline."
    },
    {
     "tier_id": "ELEVATED",
     "a_score_range": {
-     "min": 1.04,
+     "min": 1.05,
      "max_exclusive": 1.07
     },
     "customer_label": "Elevated",

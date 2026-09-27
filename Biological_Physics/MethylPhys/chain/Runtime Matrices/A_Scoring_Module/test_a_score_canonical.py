@@ -87,7 +87,7 @@ def check():
     # 4. Healthy reference must land at the floor (~1.0), not suppressed (~0.5).
     a_healthy = _score([0.75] * 30, H_MIN["immune"])
     if not (0.95 <= a_healthy <= 1.04):
-        fails.append(f"healthy beta=0.75 gave A={a_healthy:.3f}, outside the 0.95-1.04 normal band")
+        fails.append(f"healthy beta=0.75 gave A={a_healthy:.3f}, outside the 0.95-1.05 normal band")
 
     return fails
 

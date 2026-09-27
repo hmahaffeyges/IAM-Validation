@@ -25,12 +25,14 @@ The same ordering was measured on 80 real arrays (PERCELL_CENTRE_HYPOTHESIS_TEST
 
 | bar | requirement |
 |---|---|
-| B1 | on the three constructed mixes, every present cell reads A within 0.95-1.04 (NORMAL) after (1)+(2) |
+| B1 | on the three constructed mixes, every present cell reads A within 0.95-1.05 (NORMAL) after (1)+(2) |
 | B2 | max abs(A - 1.00) over all present cells in all three mixes <= 0.015 |
 | B3 | majority cells (neutrophils, monocytes) move by < 0.005 from their pre-change reading |
 | B4 | a constructed mix with a known departure (one cell's profile displaced so its true A = 1.06) reads that cell at 1.06 +- 0.015 and every other cell NORMAL - the inversion must not erase a real departure |
 | B5 | on the 48 healthy arrays (four laboratories, mapped), the spread of A per cell does not widen (p90-p10 after <= before for >= 4 of 5 blood cells) |
 | B6 | the instrument-unchanged check: PROC-SYNTH-01's pure-cell readings (f = 1.000) change by < 1e-6 - at f = 1 the inversion is the identity |
+
+> **Clarification, 2026-09-27, before any array was scored under these bars.** B6 as first written cannot hold with step (1): re-zeroing moves every f = 1 reading to 1.000 on purpose. B6 therefore tests the inversion alone - at f = 1, unmix versus no-unmix on the same (re-zeroed) loci must agree to < 1e-6. The re-zero's effect on the pure readings is reported beside it. B3 is measured as unmix-on-v1_1 against the current v1_0 reading, so it includes the re-zero shift; if B3 fails on the re-zero alone that is stated and the inversion's own contribution reported separately.
 
 **Decision rule.** B1-B6 met -> adopted into stage_a_cells; the Every-cell legend gains one sentence saying fraction is removed from A by inversion, and fraction remains a detection gate. Any bar failing -> not adopted; the failing bar recorded; the CD4 ELEVATED on the real array stays flagged as "possible fraction confound" on the page until it is.
 

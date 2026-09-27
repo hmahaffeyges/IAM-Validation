@@ -6,8 +6,8 @@ launcher, and nothing edits the chain while a procedure is scoring.
 
 ## Now (in flight)
 
-1. **Report audit, round 3** — 16-tab verdict table; pushed once the release check passes at this commit.
-2. **PROC-TARE-01** — SNP-probe tare, 768 arrays; sealed as measured when it lands (B2 likely fails as written).
+- (items 1 and 2 done 2026-09-27: audit round 3 pushed a48230e; PROC-TARE-01 sealed NOT COMMISSIONED; tier_breakpoints v1.5 makes NORMAL [0.95, 1.05) about the fixed point)
+
 
 ## Chain — after TARE-01 finishes, one at a time
 

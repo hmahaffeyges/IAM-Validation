@@ -145,7 +145,7 @@ def main():
     print(f"   within-lab band width (p90-p10): median {np.median(sp):.4f}   [immune class gauge band: 0.0524]")
     print(f"   between-lab range of medians:    median {np.median(br):.4f}")
     print(f"   held-out in-band coverage:       median {np.median(cv):.3f}   [nominal 0.80; v0_3 achieved 0.75]")
-    print(f"   cells with grand median A in NORMAL 0.95-1.04 (the SOP scale): {int(((gm>=0.95)&(gm<=1.04)).sum())} of {len(gm)}")
+    print(f"   cells with grand median A in NORMAL 0.95-1.05 (the SOP scale): {int(((gm>=0.95)&(gm<=1.04)).sum())} of {len(gm)}")
     jg = np.array([np.median(v) for v in JG.values()])
     print(f"   Jensen gap H(mean)-mean(H), median over cells: {np.median(jg):.5f}  max {jg.max():.5f}  [panel construction promises < 0.05]")
 

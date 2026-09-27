@@ -12,7 +12,7 @@ remember. This file is the machine check. It is run by propagate.py on every pus
   RC2  UNMAPPED BETAS.      The per-cell path scored RAW stage-1 betas; the class gauge scale-maps them onto the
                             atlas first. Raw, every present cell in healthy blood read SUPPRESSED.
        CHECK: stage_a_cells calls stage_1s_scale_map before score_per_celltype (verified in the source), and a
-              known healthy panel array's present cells read NORMAL (0.95-1.04) through the chain.
+              known healthy panel array's present cells read NORMAL (0.95-1.05) through the chain.
   RC3  CROSSED FORMULA.     The SOP carries two rules for two surfaces - LESSON-ASCORE-02 (mean of per-CpG H,
                             for marker panels) and RULING A3 (H of the mean beta, for identity loci, the
                             commissioned gauge). Applying the first to the second read healthy cells SUPPRESSED.
