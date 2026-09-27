@@ -393,11 +393,22 @@ def tab_cells(o, R, percell_ref=None):
     lab=(o.get('patient_sky') or {}).get('lab') or (o.get('cfg') or {}).get('lab')
     cells=o.get("cells_all") or {}; comp_cells={r["cell"]:r for r in o["composition"]["celltype"]}
     H=["<h2>Every cell - all 115 atlas cell types</h2>"] + _trace_block(o) + [
-       "<p><b>One surface, one formula, one reference per cell.</b> A = H(mean beta over the cell's IDENTITY loci) / H_min of its architecture class "
-       "(RULING A3; LESSON-SURFACE-01). Healthy is A = 1.00 by the physics; NORMAL is 0.95-1.04 on the tier scale. Each cell's own <b>reference</b> - where its atlas "
-       "profile reads on these same loci - is printed with the atlas's 95 % interval on it from the G-002 MCMC posterior, so a reader sees both where the cell sits and "
-       "how well the reference itself is known. The 95 % interval on the reading resamples the cell's identity loci on this array. No column on this page is a "
-       "population range and no number is shifted by one.</p>",
+       "<p><b>One surface, one formula, one gauge.</b> A = H(mean beta over the cell's IDENTITY loci) / H_min of its architecture class "
+       "(RULING A3; LESSON-SURFACE-01). H_min is the minimum entropy a cell of that class must hold to keep its identity; A is where the cell sits on that bar - "
+       "its informational fidelity against its own minimum requirement. The gauge reads 1.00 when the cell holds exactly what its identity costs; the tier scale "
+       "(NORMAL 0.95-1.04) is the tolerance about that point. <b>No healthy person, sick person or cohort is part of this number.</b> Where people of a given age "
+       "sit on the gauge is a separate observation about people, reported as such and never applied to a cell.</p>",
+       "<details open><summary><b>What each column is, and why an instrument prints it</b></summary><table class='t'><tr><th>column</th><th>what it is</th><th>why it is on the page</th></tr>"
+       "<tr><td>cell type</td><td>one of the 115 atlas cell types</td><td>the object being measured - a gauge reads one object at a time</td></tr>"
+       "<tr><td>present</td><td>the cell's fraction is above its presence floor</td><td>the detection gate. Below it the cell's identity loci carry OTHER cells' bytes and read by artefact (PROC-CEIL-01). A scale with nothing on it prints no weight</td></tr>"
+       "<tr><td>fraction</td><td>the deconvolved share of the sample's DNA that is this cell</td><td>how much of the object is on the scale - so the reading is known to be OF this cell. Never a correction to A</td></tr>"
+       "<tr><td>A</td><td>H(mean beta over the cell's identity loci) / H_min of its class</td><td>the measurement. Landauer floor in the denominator, measured entropy in the numerator; absolute and dimensionless</td></tr>"
+       "<tr><td>95 % interval on the reading</td><td>resample THIS array's identity loci for the cell</td><td>repeatability of this reading - how far A moves if the cell's loci had been sampled differently. From the specimen, not from anyone else</td></tr>"
+       "<tr><td>atlas profile on these loci [MCMC 95 %]</td><td>where the atlas's own reference cell reads on the same loci, with the G-002 posterior interval</td><td>the calibration standard's own position. It should read 1.00 and sits a little under by construction (identity loci are chosen within &plusmn;0.05 of H_min_beta); the interval is how well the atlas knows that cell. Informational - the tier is NOT read against it</td></tr>"
+       "<tr><td>tier</td><td>A against 1.00 on the tier scale (tier_breakpoints.json)</td><td>the tolerance about the fixed point, one file, one function</td></tr>"
+       "<tr><td>identity loci found</td><td>how many of the cell's identity loci this array carries</td><td>coverage of the measurement - a reading on 40 loci is not the same instrument as one on 186</td></tr>"
+       "<tr><td>identifiability</td><td>exclusive loci against the nearest rival cell, and whether the cell is solved alone, as a family, or not at all on this platform</td><td>what the detector can and cannot distinguish. Says whether 'this is a CD4 T-cell' is a defensible statement or a shared reading</td></tr>"
+       "</table></details>",
        "<p><b>A cell below its presence floor gets no A and no tier.</b> PROC-CEIL-01 measured why: an absent cell's identity addresses carry the specimen's other cells, "
        "which average near a coin flip, so an absent cell reads high or low by artefact. Its row says <i>not present - not scored</i>. Fraction is a detection gate, never "
        "a correction to A. A resolution family shares ONE fraction (the array cannot split it) but every member is scored on its own identity loci and prints its own A.</p>"]
@@ -419,7 +430,7 @@ def tab_cells(o, R, percell_ref=None):
         rows=sorted(by.get(c,[]), key=lambda kv:-(kv[1].get("A") or 0))
         hm=R["ident"].get(c,{}).get("H_min")
         if not rows: continue
-        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>present</th><th>fraction</th><th>A</th>""<th>95 % interval on the reading</th><th>reference A [MCMC 95 %]</th><th>departure from reference</th><th>tier</th><th>identity loci found</th><th>exclusive loci</th><th>resolvability</th></tr>")
+        H.append(f"<h3>{CLASS_LABEL[c]} <span class='m'>({len(rows)} cells; H_min {R['ident'].get(c,{}).get('H_min','-')})</span></h3><table class='t cells'><tr><th>cell type</th><th>present</th><th>fraction</th><th>A</th>""<th>95 % interval on the reading</th><th>atlas profile on these loci [MCMC 95 %]</th><th>tier</th><th>identity loci found</th><th>identifiability</th></tr>")
         for cell,r in rows:
             if cell in _unres or cell in _twins: continue   # listed separately below, never as fraction 0
             A=r.get("A"); fr=r.get("fraction") or 0; e=((percell_ref or {}).get("entries") or {}).get(cell)
@@ -437,20 +448,20 @@ def tab_cells(o, R, percell_ref=None):
             nf=("%d of %d"%(ci["n_loci_found"],ci["n_loci_panel"])) if ci.get("n_loci_found") else ("%d of %d"%(r.get("n_markers_matched",0),r.get("n_markers_expected",0)) if r.get("n_markers_expected") else "-")
             ref=r.get("reference") or {}
             refs=(f"{ref['A']:.4f} <span class='m'>[{ref['ci95_lo']:.4f}-{ref['ci95_hi']:.4f}]</span>" if ref.get("A") is not None else "<span class='m'>no MCMC reference</span>")
-            dep=r.get("departure_from_reference"); present=bool(r.get("present"))
-            deps=(f"{dep:+.4f}" if isinstance(dep,(int,float)) and present else "-")
+            present=bool(r.get("present"))
             if present and A is not None:
                 gt,_=T.tier_of(A, True, hm); tier=f"<span class='tier' style='background:{TIER_COL.get(gt,'#555')}'>{_e(gt)}</span>"
             else: tier="<span class='m'>not present - not scored</span>"
-            ex=r.get("exclusive_markers"); exs=(str(ex) if ex is not None else "-")
+            ex=r.get("exclusive_markers"); exs=(f"{ex} exclusive loci" if ex is not None else "exclusive loci: -")
             gid=(R.get("cgroup") or {}).get(cell); mem=(R.get("cgmembers") or {}).get(gid) or []
-            res=(f"family: {_e(str(_shared[cell]).replace('family:',''))}" if cell in _shared else (("not separable from "+_e(", ".join(m for m in mem if m!=cell)[:60])) if len(mem)>1 else "separable"))
+            res=(f"family: {_e(str(_shared[cell]).replace('family:',''))}" if cell in _shared else (("not separable from "+_e(", ".join(m for m in mem if m!=cell)[:60])) if len(mem)>1 else "solved alone"))
+            ident=f"{exs} &middot; {res}"
             Ashow=(f"{A:.4f}" if present and A is not None else "<span class='m'>-</span>")
-            H.append(f"<tr class='{'placed' if present else ''}'><td>{_e(cell)}</td><td>{'yes' if present else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{Ashow}</td>"f"<td class='n'>{cis if present else '-'}</td><td class='n'>{refs}</td><td class='n'>{deps}</td><td>{tier}</td><td class='n'>{nf}</td><td class='n'>{exs}</td><td class='m'>{res}</td></tr>")
+            H.append(f"<tr class='{'placed' if present else ''}'><td>{_e(cell)}</td><td>{'yes' if present else '-'}</td><td class='n'>{100*fr:.1f} %</td><td class='n'>{Ashow}</td>"f"<td class='n'>{cis if present else '-'}</td><td class='n'>{refs}</td><td>{tier}</td><td class='n'>{nf}</td><td class='m'>{ident}</td></tr>")
         H.append("</table>")
     if _unres:
         H.append("<details><summary class='m'>"+f"{len(_unres)} atlas entries not resolvable on this platform (defined on under 1 % of its loci) - kept in the atlas as reference, not solved for"+"</summary><p class='m'>"+', '.join(sorted(_unres))+"</p></details>")
-    bd=o.get("bidirectional",{}); H.append("<details><summary class='m'>Direction - Stage 4.5 bidirectional composite (a panel-derived quantity kept for the record, not a reading: a per-cell A below or above its reference already carries direction)</summary><p>Pooled entropy folds hypo- and hyper-methylation together; the signed composite keeps the sign, per sealed panel. Panels exist only where one was sealed (immune, VAL-051 / CPG-VAL-019); the other classes say so.</p><table class='t'><tr><th>class</th><th>signed composite</th><th>pooled A on the panel</th><th>panel</th><th>reading</th></tr>")
+    bd=o.get("bidirectional",{}); H.append("<details><summary class='m'>Direction - Stage 4.5 bidirectional composite (a panel-derived quantity kept for the record, not a reading: a per-cell A below or above 1.00 already carries direction)</summary><p>Pooled entropy folds hypo- and hyper-methylation together; the signed composite keeps the sign, per sealed panel. Panels exist only where one was sealed (immune, VAL-051 / CPG-VAL-019); the other classes say so.</p><table class='t'><tr><th>class</th><th>signed composite</th><th>pooled A on the panel</th><th>panel</th><th>reading</th></tr>")
     for c in CLASSES:
         b=bd.get(c,{}); ad=b.get('a_directional'); ap=b.get('a_pooled'); ads=('' if ad is None else '%+.3f'%float(ad)); aps=('' if ap is None else '%.3f'%float(ap))
         if ad is None: rd="no sealed directional panel for this class"
