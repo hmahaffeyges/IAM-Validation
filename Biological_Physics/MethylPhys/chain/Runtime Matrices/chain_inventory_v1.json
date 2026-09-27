@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "built": "2026-09-27 03:00",
-  "commit": "6059f5c",
+  "built": "2026-09-27 03:05",
+  "commit": "3a9a6b5",
   "n_files": 196,
   "n_undescribed": 9,
   "undescribed": [
@@ -232,8 +232,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 21920,
-   "sha256_12": "7b0d6b25d0e2"
+   "bytes": 21919,
+   "sha256_12": "b0faae42a862"
   },
   {
    "file": "PART_II_CHAPTER_NOTES.md",
@@ -259,8 +259,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11920,
-   "sha256_12": "800857701808"
+   "bytes": 11970,
+   "sha256_12": "4971e2786695"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -269,7 +269,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2749,
-   "sha256_12": "75e482e76b88"
+   "sha256_12": "fcf290a0f7c9"
   },
   {
    "file": "REPRODUCTION.md",
@@ -286,8 +286,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 30609,
-   "sha256_12": "fc9a28cabccc"
+   "bytes": 30659,
+   "sha256_12": "429822a7c064"
   },
   {
    "file": "RUN.md",
@@ -575,7 +575,7 @@
    "stage": "",
    "description": "the manual's data module: every constant, table and section text it renders",
    "bytes": 230795,
-   "sha256_12": "dbc4e1232325"
+   "sha256_12": "4f91b360b860"
   },
   {
    "file": "om_part3.py",
@@ -602,7 +602,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1931,
-   "sha256_12": "af9c5bc184aa"
+   "sha256_12": "e65464d9dca3"
   },
   {
    "file": "reference_cells_37.csv",
@@ -952,8 +952,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 17674,
-   "sha256_12": "c488ac2511e1"
+   "bytes": 18760,
+   "sha256_12": "4593dfb2cb4d"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -988,8 +988,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1275947,
-   "sha256_12": "5ebe9b1c5ccb"
+   "bytes": 1298227,
+   "sha256_12": "03a94471f531"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1006,8 +1006,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 6788,
-   "sha256_12": "60b514c4f765"
+   "bytes": 6852,
+   "sha256_12": "252319dafb55"
   },
   {
    "file": "README_FIRST.md",
@@ -1060,8 +1060,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43079,
-   "sha256_12": "56cdf5a2a629"
+   "bytes": 43178,
+   "sha256_12": "505f6b56ba80"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1340,7 +1340,7 @@
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
    "bytes": 69028,
-   "sha256_12": "af86d72082c5"
+   "sha256_12": "3ce189e84221"
   },
   {
    "file": "run_sample.py",
