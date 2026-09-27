@@ -1,5 +1,5 @@
 {
- "built": "2026-09-27 08:29:40",
+ "built": "2026-09-27 08:49:53",
  "python": "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.venv/methylprep/bin/python3",
  "generated": [
   {
@@ -87,7 +87,7 @@
   "chain/Runtime Matrices/Patient_CMB/build_healpix_mapping.py": "497d82801d033b00af60b6eff7a029fd2188d9813753367e2eed954a178e1c5c",
   "chain/Runtime Matrices/Patient_CMB/presence_floors_v1.json": "8028199c8ffbd981ad5b864242db886d97785234144ebcee736befce41b6589f",
   "chain/Runtime Matrices/Tier_breakpoints/tier_breakpoints.json": "f9bfb3c2e476c936a09e9be45eb8ac222deb3299337a8b31112ba40bc83a3979",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "6163d8bf3fcd81c0412e0483b4686d9a7d9b25d9e14dff5ac4f0506784da28d0",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "a3fc02c5fe954b7c6a517246169044f688f456c5a5092058a805fab5ffd4b4aa",
   "chain/Runtime Matrices/trace_detection_panel_v1.json": "c660883f2e07710234affc5809492efe533c58a1123e5bc0ab7c931bec4d1018",
   "chain/build_all.py": "2c2909a0a30d56925f12acfec9cbd984f03c26d0def41c501facd283d47d2ed7",
   "chain/build_chain_sequence.py": "1a283dc05c971748a6db93eb4fd2cdd756e632832ac090f7d02f735aa22da5cd",
@@ -126,6 +126,7 @@
   "doors/PROC_E2E_01_PREREG.md": "516c5ebb2c67548b861e0ad8a7d4c01b1195a3c9dfb1f9d0fda3d4ad486b6c67",
   "doors/PROC_EPIC_01_OUTCOME.md": "68ab6e8f1479a9cecb23143045c01c2df21fa7d548ab512c900665ac30f3b7a1",
   "doors/PROC_EPIC_01_PREREG.md": "9e9021dd92c268ae8d0ebcd2c70a64448b701d6f030f96790816a9d7016808d7",
+  "doors/PROC_FOREIGNSCORE_01_PREREG.md": "015dc6e0f5e6b6c8814d52c630f5ec02d4cb58d6a22e9a362c1835c76e064dd7",
   "doors/PROC_FOREIGN_01_OUTCOME.md": "66e970b877c8ae2c4cf859b1a676b6347ed742ce2302220bd464d82704b19198",
   "doors/PROC_FOREIGN_01_PREREG.md": "9b7328bd6c41f262e9115aa09cb9119a1c8efe78ab9ad75979480f777b44102e",
   "doors/PROC_INTAKE_01_OUTCOME.md": "2c261c8ca3d3b86cfd8ad282f55c7ccf78c6933daca212ff80a280bb3ee59388",
@@ -252,15 +253,15 @@
  "outputs": {
   "chain/chain_sequence.json": "6ab10e25992b2db6af2299f5f2cc6645dcbf5e829da844b7b9cdd469eb87f2fe",
   "doors/CHAIN_SEQUENCE.md": "74435aff74ddffb041718ec6f862fdb3698e1f18fe05ca70454723b57f18b668",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "25fcf7d4c4a74dfdee2dbf7a8be48ad438c1fdb0e636b259e74d9c6d01ad9687",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "1ba493e8d3e716bcfb5dc0cf91f152d300604fe74838a100408c6d0360fe792a",
   "doors/COMPONENT_MAP.md": "06652ccc402eae61ad4c9e1ade19b99835bd5747dab5cbfc0a38b23315f2f6ba",
   "chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json": "5c8beea7880494a02aa40e2043fe37b3925d192e542f980fc0bec70ab297b129",
   "chain/example_runs/RUN_INDEX.csv": "e81c849a9161af769894c96a8ba70ece8c2890f3286c8935ff34df58ebd8eaab",
-  "sop/MethylPhys_CPG_SOP.md": "4fef85fe8894656d2d5aae08e31509c461e3bd2b76f92ad67fa51e1190afcf0e",
-  "manual/MethylPhys_CPG_Operations_Manual.pdf": "d990a7a5f2743b5d168e15cccf14a89b9067a30ed4475d7a8e3328d8ad7282cf",
-  "doors/REVIEWER_MANIFEST.md": "3bd1a68a8bb0b860d14fe3da6787607d4966635a54479a98785f2c28fc541ce4",
-  "doors/REPORT_TAB_REFERENCE.md": "471c2b2bfb978aa34d99ef8aa33d097fd07e39ae5106b04c28d5928c8ba34c30",
-  "doors/REPO_INVENTORY.md": "137f5ea366e38b366b5e1e1b3630769db27e6450d5f58ee778a9101da722f289",
+  "sop/MethylPhys_CPG_SOP.md": "754551c9fb4ca069fdf40f87a58436dc259cd82d60c8ddcacc041dbcde9ec317",
+  "manual/MethylPhys_CPG_Operations_Manual.pdf": "1b5830629ebf1d6240879035296cf428648f35c8cd28744aab3608a13197a922",
+  "doors/REVIEWER_MANIFEST.md": "f7f7eadfa27ba062d62978500109863ed40b233c1bb022c9a18477a789b80156",
+  "doors/REPORT_TAB_REFERENCE.md": "7ebbd1a73946b69c8fb94512adffa6829f9027c0b8a7ba51bbeaba4c64698a8e",
+  "doors/REPO_INVENTORY.md": "91cf8e50bcaec5d4e75190a9d5a6e928714fd2fb706da44d5450e2f1bfa10a00",
   "doors/RUNBOOK.md": "f528176b769e20b44165c9b7fb53f576a8af983d2b95856b3c79d8d489bc36b1",
   "README.md": "6aa6e6aad5362e1f46f397f7ca77d6ce17d3e90fdf7e8f9777f15142a983596e"
  },

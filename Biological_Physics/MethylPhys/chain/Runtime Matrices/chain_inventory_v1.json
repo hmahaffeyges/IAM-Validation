@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "built": "2026-09-27 08:28",
-  "commit": "8d6e6d2",
+  "built": "2026-09-27 08:39",
+  "commit": "483bbbb",
   "n_files": 203,
   "n_undescribed": 7,
   "undescribed": [
@@ -276,7 +276,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11920,
-   "sha256_12": "471c2b2bfb97"
+   "sha256_12": "7ebbd1a73946"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -285,7 +285,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "9b2198af1fa3"
+   "sha256_12": "1c16a59c90af"
   },
   {
    "file": "REPRODUCTION.md",
@@ -302,8 +302,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 31968,
-   "sha256_12": "3bd1a68a8bb0"
+   "bytes": 32066,
+   "sha256_12": "f7f7eadfa27b"
   },
   {
    "file": "RUN.md",
@@ -582,7 +582,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1970,
-   "sha256_12": "7444de97d18a"
+   "sha256_12": "4c1bab6c83f2"
   },
   {
    "file": "reference_cells_37.csv",
@@ -600,7 +600,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "2124326acc7f"
+   "sha256_12": "a5e234f2ce60"
   },
   {
    "file": "sop_repoint.py",
@@ -878,8 +878,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 23000,
-   "sha256_12": "1f426e6157ff"
+   "bytes": 23110,
+   "sha256_12": "6023f15dffe3"
   },
   {
    "file": "build_all.py",
@@ -977,8 +977,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1591386,
-   "sha256_12": "e67ce6ca8569"
+   "bytes": 1620240,
+   "sha256_12": "b622aa747a64"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1338,7 +1338,7 @@
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
    "bytes": 73657,
-   "sha256_12": "6163d8bf3fcd"
+   "sha256_12": "a3fc02c5fe95"
   },
   {
    "file": "run_sample.py",
