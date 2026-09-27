@@ -378,7 +378,7 @@ def sec3b_stage0(story):
         'evidence it did not have when it was sealed.', sBody))
     story.append(Paragraph(
         '<b>Four defects found by running it, stated as patterns because they generalise.</b> A gate that '
-        'cannot read its input never fires - the header reader opened IDAT files raw and public downloads are '
+        'fails to open its input never fires (PROC-STAGE0-02) - the header reader opened IDAT files raw and public downloads are '
         'gzipped, so the array-type gate had silently never run on public data; it did not error, it returned '
         '"unreadable" and everything continued. A value that fails to propagate looks like a value that is '
         'wrong - an identifier dropped between two steps made the next step refuse every array in the cohort, '

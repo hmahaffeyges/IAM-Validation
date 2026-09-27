@@ -106,6 +106,10 @@ def derive():
             except SyntaxError:
                 pass
         onpath.append(defs["run_full"])
+        # helpers run_full calls by name (e.g. _trace_detect -> stage_2c_trace_detection.py) are on the path too;
+        # without this, a file loaded inside a helper was reported as called by nothing (2026-09-26)
+        _helpers = {c.func.id for c in ast.walk(defs["run_full"]) if isinstance(c, ast.Call) and isinstance(c.func, ast.Name)}
+        onpath += [defs[h] for h in _helpers if h in defs and defs[h] not in onpath]
         for node in onpath:
             for c in ast.walk(node):
                 if isinstance(c, ast.Constant) and isinstance(c.value, str):

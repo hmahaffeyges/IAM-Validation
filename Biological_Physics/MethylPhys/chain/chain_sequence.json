@@ -357,11 +357,6 @@
  },
  "role_gaps": [
   {
-   "file": "stage_2c_trace_detection.py",
-   "role": "chain",
-   "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
-  },
-  {
    "file": "idat_decoder_pure.py",
    "role": "chain",
    "status": "role=chain in the inventory, and NO path calls it - a step the chain is documented as performing does not run"
@@ -391,6 +386,6 @@
   "live": 24,
   "batch": 0,
   "not_wired": 3,
-  "role_gaps": 6
+  "role_gaps": 5
  }
 }

@@ -19,6 +19,21 @@ import numpy as np
 ROOT    = os.path.dirname(os.path.abspath(__file__))
 ENGINE  = os.environ.get("CPG_KIT_ENGINE",  os.path.join(ROOT, "engine"))
 RUNTIME = os.environ.get("CPG_KIT_RUNTIME", os.path.join(ROOT, "runtime"))
+
+
+def _resolve_runtime(fn):
+    """A runtime file by name: CPG_KIT_RUNTIME if it holds it, otherwise the chain's own search path (cpg_conductor._find).
+    A single folder went stale on 2026-09-26 when iamatlas_celltype_markers_v0_2.json moved to Runtime Matrices/Celltype_Marker
+    and five release-check guards silently SKIPPED on FileNotFound."""
+    cand = os.path.join(RUNTIME, fn)
+    if os.path.exists(cand):
+        return cand
+    import sys as _s
+    ch = os.path.join(os.path.dirname(ROOT), "chain")
+    if ch not in _s.path:
+        _s.path.insert(0, ch)
+    import cpg_conductor as _C
+    return str(_C._find(fn))
 DATA    = os.environ.get("CPG_KIT_DATA",    os.path.join(ROOT, "data"))
 CLASSES = ["terminal","secretory","immune","progenitor","cycling","stromal","stem_adult","stem_pluri"]
 
@@ -35,14 +50,14 @@ def H(b):
 
 def load_identity():
     """iamatlas_gauge_identity_loci_v1_0.json -> {class: {'loci': set, 'H_min': float, 'H_min_beta': float, 'band': float}}"""
-    j = json.load(open(os.path.join(RUNTIME, "iamatlas_gauge_identity_loci_v1_0.json")))
+    j = json.load(open(_resolve_runtime("iamatlas_gauge_identity_loci_v1_0.json")))
     return {c: {"loci": set(v["loci"]), "H_min": float(v["H_min"]), "H_min_beta": float(v.get("H_min_beta", float("nan"))), "band": float(v.get("band", float("nan")))}
             for c, v in j.items() if isinstance(v, dict) and "loci" in v}
 
 def load_markers(which="chrX_removed"):
     """iamatlas_celltype_markers_v0_2 — 'chrX_removed' (canonical per RULING M1b) or 'repo_head' (pre-fix, what the v1 seal used)."""
     fn = {"chrX_removed": "iamatlas_celltype_markers_v0_2.json", "repo_head": "iamatlas_celltype_markers_v0_2_REPO_HEAD_prechrX.json"}[which]
-    j = json.load(open(os.path.join(RUNTIME, fn)))
+    j = json.load(open(_resolve_runtime(fn)))
     return j["markers_by_celltype"], j["celltype_to_class"]
 
 def hmin_table():
@@ -103,10 +118,10 @@ def stream_geo_matrix(path, keep_cpgs=None, keep_gsms=None):
     f.close()
     return [cols[i] for i in idx], out
 
-def report(name, rows, verdict, path=None):
-    """Print a PROC block (input/operation/expected/observed/verdict) and optionally write it as JSON."""
+def report(name, rows, result, path=None):
+    """Print a PROC block (input/operation/expected/observed/result) and optionally write it as JSON."""
     print(f"\n=== {name} ===")
     for k, v in rows: print(f"  {k:<12} {v}")
-    print(f"  {'verdict':<12} {verdict}")
+    print(f"  {'result':<12} {result}")
     if path:
-        json.dump({"proc": name, "rows": rows, "verdict": verdict}, open(path, "w"), indent=1)
+        json.dump({"proc": name, "rows": rows, "result": result}, open(path, "w"), indent=1)

@@ -5,7 +5,7 @@
 # withheld BY DESIGN, not by defect. This test therefore accepts a withheld tier when
 # composition_verified is False, and still requires one whenever it is True.
 #!/usr/bin/env python3
-"""PROC-SWITCH-01 conformance: the conductor REPORTS the identity-loci gauge with the three-layer reference.
+"""PROC-SWITCH-01 conformance: the conductor runs the identity-loci class gauge as the internal blood-like gate.
 Runs on the kit's cached whole-blood betas; no download. Exit non-zero on any failure.
   S1  gauge_surface == identity_loci, scale MAPPED, reportable with a lab zero, A_abs present
   S2  without a lab zero: lab_zero == UNSET, reportable False, A_abs None

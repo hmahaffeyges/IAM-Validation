@@ -1,8 +1,8 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `chain/example_runs/RUN-20260926-14/BLOOD.html` at commit `c3b8028`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `chain/example_runs/RUN-20260926-14/BLOOD.html` at commit `4e75f81`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
-One run produces **one self-contained HTML file of 7.34 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
+One run produces **one self-contained HTML file of 7.33 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
 ## The figures
 
@@ -40,7 +40,7 @@ The residual sky: a Mollweide plate of this specimen's own residuals, per class,
 
 ![Sky tab](../manual/report_tab_figures/sky.png)
 
-*5997 KB, 3 tables, 23 rows.*  Sections: **The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist**, **A sky map is not a photograph**, **The correspondence, step by step**, **What this buys a geneticist that a list of differentially methylated regions does not**, **One thing a geneticist has that a cosmologist would trade almost anything for**, **What else the MCMC gives us, and what we are not yet using**, **Brilliance - the first tool taken from cosmology, and where it went**, **Two maps from one patient - the difference map**
+*5998 KB, 3 tables, 23 rows.*  Sections: **The sky - what it is, why it is a cosmologist's object, and what it buys a geneticist**, **A sky map is not a photograph**, **The correspondence, step by step**, **What this buys a geneticist that a list of differentially methylated regions does not**, **One thing a geneticist has that a cosmologist would trade almost anything for**, **What else the MCMC gives us, and what we are not yet using**, **Brilliance - the first tool taken from cosmology, and where it went**, **Two maps from one patient - the difference map**
 
 ### Physics  ·  `physics`  ·  REFERENCE
 
@@ -104,7 +104,7 @@ The fail-safes that kept this reading honest: the Stage 0 custody record for thi
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*18 KB, 3 tables, 64 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit c3b8028)**, **5. Two rules this report obeys**
+*18 KB, 3 tables, 64 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 4e75f81)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 
@@ -112,7 +112,7 @@ The chain that produced the reading, stage by stage, derived from the code rathe
 
 ![Chain tab](../manual/report_tab_figures/chain.png)
 
-*32 KB, 22 tables, 111 rows.*  Sections: **The chain - every stage this report came from**, **The documents the chain is governed by**, **Named as chain, called by nothing**
+*32 KB, 22 tables, 110 rows.*  Sections: **The chain - every stage this report came from**, **The documents the chain is governed by**, **Named as chain, called by nothing**
 
 ### Files  ·  `files`  ·  REFERENCE
 
@@ -128,7 +128,7 @@ Findings that changed a reported number, with the procedure that sealed each.
 
 ![Findings tab](../manual/report_tab_figures/findings.png)
 
-*12 KB, 3 tables, 53 rows.*  Sections: **Validation findings**, **What a finding record holds, and why each part is there**, **Recorded runs**
+*4 KB, 1 tables, 7 rows.*  Sections: **Validation findings**, **What a finding record holds, and why each part is there**
 
 ### Record  ·  `record`  ·  REFERENCE
 

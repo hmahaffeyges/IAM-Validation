@@ -38,7 +38,7 @@ def main():
         for e in rs:
             if "beta_mean" in e: mx = max(mx, abs(e["A_mean"] - K.H(e["beta_mean"])/ident[c]["H_min"])); n += 1
     rows.append(("age band", f"max |A_mean - H(beta_mean)/H_min| = {mx:.5f} over {n} (class x decade) cells -> compiled as H(beta_mean)" if mx < 2e-3 else f"NOT H(beta_mean): max dev {mx:.4f}"))
-    K.report("PROC-FORMULA-01", rows, "MEASURED — see RULING A3 (Issue 003 §1.5) for the decision this supports", path=os.path.join(K.ROOT, "results", "PROC_FORMULA_01.json"))
+    K.report("PROC-FORMULA-01", rows, "MEASURED - see RULING A3 (SOP §0.9, Operations Manual §9) for the decision this supports", path=os.path.join(K.ROOT, "results", "PROC_FORMULA_01.json"))
 
 if __name__ == "__main__":
     os.makedirs(os.path.join(K.ROOT, "results"), exist_ok=True); main()

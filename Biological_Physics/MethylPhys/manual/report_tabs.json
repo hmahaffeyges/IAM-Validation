@@ -1,9 +1,9 @@
 {
  "_meta": {
   "generated_from": "chain/example_runs/RUN-20260926-14/BLOOD.html",
-  "commit": "c3b8028",
+  "commit": "4e75f81",
   "n_tabs": 17,
-  "report_mb": 7.34,
+  "report_mb": 7.33,
   "n_specimen": 8,
   "n_reference": 9,
   "figures_are_screenshots": false
@@ -86,7 +86,7 @@
    "label": "Sky",
    "kind": "SPECIMEN",
    "purpose": "The residual sky: a Mollweide plate of this specimen's own residuals, per class, plus the statistics behind each plate. Opens with what a plate is compared to, because it is never compared to a healthy picture.",
-   "kb": 5997,
+   "kb": 5998,
    "tables": 3,
    "rows": 23,
    "headings": [
@@ -341,7 +341,7 @@
     "1. What this run refused, and why",
     "2. The safeguards, with their cosmology twins",
     "3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)",
-    "4. Files read by this run (repository at commit c3b8028)",
+    "4. Files read by this run (repository at commit 4e75f81)",
     "5. Two rules this report obeys"
    ],
    "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
@@ -356,7 +356,7 @@
    "purpose": "The chain that produced the reading, stage by stage, derived from the code rather than described - so a stage cannot be claimed that the code does not call.",
    "kb": 32,
    "tables": 22,
-   "rows": 111,
+   "rows": 110,
    "headings": [
     "The chain - every stage this report came from",
     "The documents the chain is governed by",
@@ -394,13 +394,12 @@
    "label": "Findings",
    "kind": "REFERENCE",
    "purpose": "Findings that changed a reported number, with the procedure that sealed each.",
-   "kb": 12,
-   "tables": 3,
-   "rows": 53,
+   "kb": 4,
+   "tables": 1,
+   "rows": 7,
    "headings": [
     "Validation findings",
-    "What a finding record holds, and why each part is there",
-    "Recorded runs"
+    "What a finding record holds, and why each part is there"
    ],
    "opens": "Reference material - this tab is the same in every report and carries no measurement of this specimen. Validation findings Each run on this chain writes a structured record - val_finding.py , schema val_finding_v1 - and this tab reads those",
    "figure": "../manual/report_tab_figures/findings.png",

@@ -1,6 +1,6 @@
 {
- "when": "2026-09-27 02:18 UTC",
- "commit": "b810691",
+ "when": "2026-09-27 04:09 UTC",
+ "commit": "4e75f81",
  "pass": true,
  "rules": [
   {
@@ -36,7 +36,7 @@
   {
    "rule": "the run index covers every ledger row",
    "ok": true,
-   "detail": "9 rows for 9 ledger lines"
+   "detail": "12 rows for 12 ledger lines"
   },
   {
    "rule": "every live mention of the retired v1 conductor says so",

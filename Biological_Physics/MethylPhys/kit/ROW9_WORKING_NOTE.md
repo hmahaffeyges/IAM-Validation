@@ -361,7 +361,7 @@ Two rules are in the writer rather than left to the operator: a finding cannot b
 fingerprint, and the claim level per entry comes from the reference (individual / group_only /
 withheld_panel_shared), not from the operator's choice.
 
-**Exercised end to end** on the eleven commissioning arrays ([`VAL-DRYRUN_finding.json`](../../Record/VAL_FINDINGS/VAL-DRYRUN_finding.json)): 11 samples, 115 entries,
+**Exercised end to end** on the eleven commissioning arrays (`VAL-DRYRUN_finding.json` (marker-surface dry run; record moved to RETIRED_2026-09/val_findings_marker_surface_2026-09-26 on 2026-09-26)): 11 samples, 115 entries,
 94 groups, 14 layers fingerprinted, direction and magnitude computed per entry per arm. **A flaw in my own filter
 caught on the dry run:** the first version carried all 94 groups as matrix evidence for a run with no condition
 at all, because it tested for a non-zero magnitude and every group has one. Now two conditions are required - the
