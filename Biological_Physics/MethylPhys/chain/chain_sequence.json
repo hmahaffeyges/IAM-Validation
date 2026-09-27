@@ -177,8 +177,6 @@
   "claims.json": "record",
   "cmb_tools.py": "guard",
   "commission_detection_lab.py": "guard",
-  "detection_panel_v1.json": "UNDESCRIBED",
-  "detection_panel_v2.json": "UNDESCRIBED",
   "disease_matching.py": "not in the chain",
   "evaluate_necessity.py": "guard",
   "file_run.py": "interface",

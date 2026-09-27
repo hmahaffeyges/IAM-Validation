@@ -12,8 +12,7 @@ Order rule: chain before documents, documents before launcher, and nothing edits
 ## Chain — one at a time
 
 3. **Sky — decided 2026-09-27 (author): drawn as z on the atlas-posterior σ**; the off-identity-loci offset is drawn and labelled, never re-centred. Remaining: the label on the plate, and the offset's cause (items 7, 20).
-4. **Stage 2d rebuilt — PROC-STAGE2D-02** (pre-registered 2026-09-27; author decided a noise floor from arrays known to lack the cell is acceptable): common-mode removal, lines on all admitted arrays at a stated quantile, thin-source templates NOT DETECTABLE. Run next.
-5. **Stage 2d kit test** — contract from the finding: per-cell FP ≤ 1 % on OK arrays, UNSPECIFIC ≤ 1 % of healthy arrays, thin-source cells 'not detectable'.
+4. **PROC-FOREIGNSCORE-01** — the scoring floor for a detected foreign cell (author: 'we can score it at 1.9 percent according to early VALs but we need to test that theory'): real spikes of named cells at 2 / 5 / 10 / 20 % into healthy hosts, A recovered against A true; the floor is the smallest fraction where |ΔA| stays inside the tolerance. Until it lands a detected foreign cell prints its fraction and 'A not read below the scoring floor'.
 6. **Twin/family thresholds as a runtime matrix** — no constants in code (same move as the intake thresholds).
 7. **Chip term** — the SNP tare did not remove it (TARE-01 B6); the control-probe model (0.002–0.018 on the clean laboratories) is the recorded route. Pre-register; run on the 768 calibrated arrays.
 8. **Serial mode** — `run_sample.py --prior <bundle>`: same patient, per-cell ΔA, Δfraction, difference sky; change floor pre-registered. This is what the sky is for.

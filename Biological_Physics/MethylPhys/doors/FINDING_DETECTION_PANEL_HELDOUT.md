@@ -1,6 +1,6 @@
 # FINDING — the foreign-cell detection panel, held out on 732 healthy blood arrays (2026-09-27)
 
-**Register row B-12: NOT VERIFIED.** [`detection_panel_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/detection_panel_v1.json) was commissioned on 12 arrays per laboratory (PROC-MF-02/03,
+**Register row B-12: NOT VERIFIED.** [`detection_panel_v1.json`](../RETIRED_2026-09/detection_panel_v1_v2/detection_panel_v1.json) was commissioned on 12 arrays per laboratory (PROC-MF-02/03,
 2026-09-26). Run on all 732 Uppsala whole-blood arrays (`kit/HELDOUT_2D.py`, one shard per array, 1 s each; results
 `kit/results/HELDOUT_2D_*.{json,csv}`), 720 of them never seen by the panel:
 

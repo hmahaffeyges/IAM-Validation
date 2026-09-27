@@ -11,7 +11,7 @@ noise, and it says nothing about any cell's A.
    every foreign template is no cell; it is this specimen's own number, no population enters.
 2. **Lines.** Per template, the line is the 0.99 quantile of common-mode-removed f̂ over all Uppsala arrays the intake gate
    admits (732 minus refusals), plus the Karolinska and UCLA admitted panel arrays for a cross-laboratory check; stated on the
-   report as "instrument noise floor, measured on N arrays known to lack the cell". [`detection_panel_v2.json`](../chain/Runtime%20Matrices/Celltype_Marker/detection_panel_v2.json) carries N, the
+   report as "instrument noise floor, measured on N arrays known to lack the cell". [`detection_panel_v2.json`](../RETIRED_2026-09/detection_panel_v1_v2/detection_panel_v2.json) carries N, the
    quantile, and the per-template floor. No line is ever the raw maximum.
 3. **Not detectable.** A template whose common-mode-removed f̂ on blood is biased — median > 0 by more than one σ_cm, or
    0.99-quantile FP > 5 % under any line that also keeps 50 % detection at f = 0.02 in a spike — gets **no line** and prints

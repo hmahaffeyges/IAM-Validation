@@ -4,8 +4,11 @@ import os, sys, json, glob, time, numpy as np, pandas as pd
 from scipy.optimize import nnls
 W=os.path.dirname(os.path.abspath(__file__)); CH=os.path.join(W,"iamrepo/Biological_Physics/MethylPhys/chain"); sys.path.insert(0,CH); sys.path.insert(0,CH+"/Synthetic_Patient_Generator")
 import cpg_conductor as C, synthetic_patient_generator as SPG
+# detection_panel_v1/v2 were retired 2026-09-27 (PROC-STAGE2D-02/03); this runner reads them as the record it was built from
+_RET = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'RETIRED_2026-09', 'detection_panel_v1_v2')
+_RETIRED_PANEL_1 = os.path.join(_RET, 'detection_panel_v1.json'); _RETIRED_PANEL_2 = os.path.join(_RET, 'detection_panel_v2.json')
 OUT=os.path.join(W,"results/stage2d03"); os.makedirs(OUT,exist_ok=True); open(os.path.join(OUT,"PID"),"w").write(str(os.getpid()))
-P=json.load(open(C._find("detection_panel_v2.json"))); M=P["markers"]; Ab0=np.array([P["blood_ref"][c] for c in P["blood_columns"]]).T
+P=json.load(open(_RETIRED_PANEL_2)); M=P["markers"]; Ab0=np.array([P["blood_ref"][c] for c in P["blood_columns"]]).T
 cells=list(P["foreign_ref"]); T0=np.array([P["foreign_ref"][c] for c in cells]).T
 pf=pd.read_parquet(os.path.join(W,"stage1_betas_GSE87571_FULL.parquet")); pf.index=pf.index.map(str)
 def fit(beta):

@@ -28,7 +28,7 @@ OUT = os.path.join(ROOT, B, "doors/REVIEWER_MANIFEST.md")
 
 def _runtime_from_readership():
     """Runtime matrices ENUMERATED from what the chain's code reads, described from the inventory - never a typed
-    list (2026-09-26: the typed list lacked trace_detection_panel_v1.json, composition_guard_v1.json and both
+    list (2026-09-26: the typed list lacked trace_detection_panel_v3.json, composition_guard_v1.json and both
     per-cell files while the code read all four)."""
     import glob as _g, json as _j, os as _o, re as _re
     ch = _o.path.join(_o.path.dirname(_o.path.dirname(_o.path.abspath(__file__))), "chain")

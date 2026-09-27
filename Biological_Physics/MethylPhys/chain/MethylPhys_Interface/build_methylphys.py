@@ -349,14 +349,16 @@ def _detection_block(o):
     det=fd.get("detected") or []
     H.append(f"<p>Laboratory <b>{_e(fd.get('laboratory'))}</b> &middot; panel n = {fd.get('panel_n')} &middot; {fd.get('n_markers_used')} markers &middot; line rule: {_e(fd.get('line_rule') or '')}. "
              + (f"<b>Detected: {_e(', '.join(det))}</b>." if det and not st.startswith("OK_BUT_UNSPECIFIC") else ("<b>Unspecific - every column rose together; no single detection is read.</b>" if st.startswith("OK_BUT_UNSPECIFIC") else "<b>No foreign cell above its line.</b>")) + "</p>")
-    H.append("<table class='t'><tr><th>foreign cell</th><th>f&#770;</th><th>&sigma;</th><th>z</th><th>line</th><th>detected</th><th>measured detection limit</th></tr>")
+    H.append("<table class='t'><tr><th>foreign template</th><th>f&#770;</th><th>noise floor</th><th>standing bias on blood</th><th>detected</th><th>measured detection limit (90 %)</th></tr>")
     cells=fd.get("cells") or {}
     order=sorted(cells, key=lambda c: -(cells[c].get("f_hat") or 0))
+    def _n(x, d=4): return "" if x is None else (f"{x:.{d}f}" if isinstance(x,(int,float)) else _e(str(x)))
     for c in order:
         r=cells[c]; lim=r.get("measured_detection_limit")
-        lim_s=(f"{100*lim:.1f} %" if isinstance(lim,(int,float)) else "not measured")
-        H.append(f"<tr><td>{_e(c.replace('family:','family: '))}</td><td class='n'>{r.get('f_hat'):+.4f}</td><td class='n'>{r.get('sigma'):.4f}</td><td class='n'>{r.get('z')}</td>"
-                 f"<td class='n'>{r.get('line'):.4f}</td><td>{('<span class=pend>unspecific</span>' if st.startswith('OK_BUT_UNSPECIFIC') else '<b>yes</b>') if r.get('detected') else 'no'}</td><td class='m'>{lim_s}</td></tr>")
+        H.append(f"<tr><td>{_e(c)}</td><td class='n'>{_n(r.get('f_hat'),5)}</td><td class='n'>{_n(r.get('line'),5)}</td><td class='n'>{_n(r.get('standing_bias'),5)}</td>"
+                 f"<td>{'<b>yes</b>' if r.get('detected') else 'no'}</td><td class='n'>{('not resolved at 10 %' if lim is None else f'{float(lim)*100:.0f} %')}</td></tr>")
+    for c,r in (fd.get("not_detectable") or {}).items():
+        H.append(f"<tr><td>{_e(c)}</td><td class='n'>{_n(r.get('f_hat'),5)}</td><td colspan='4'>NOT DETECTABLE on this block - {_e(r.get('reason') or '')}</td></tr>")
     H.append("</table>")
     H.append("<p class='m'>The measured detection limit is the smallest spiked fraction the detector found in at least 90 % of trials at this false-positive rate "
              "(PROC-MF-02/03, four 450K laboratories). A cell without one has a line but no measured sensitivity; a detection on it is a reading to follow up, not a result. "
