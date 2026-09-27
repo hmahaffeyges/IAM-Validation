@@ -57,14 +57,14 @@ The gates and generators. Nothing here is part of a reading: these are the progr
 | [`SMALL_CLASS_DETECTION_NOTE_2026-09-23.md`](SMALL_CLASS_DETECTION_NOTE_2026-09-23.md) | the measured detection limit for a trace class, and why the boundary pins it |
 | [`VAL_INDEX.csv`](VAL_INDEX.csv) |  |
 | [`add_doc_links.py`](add_doc_links.py) | links code names in prose to the files they name, idempotently |
-| [`build_cell_descriptions.py`](build_cell_descriptions.py) |  |
+| [`build_cell_descriptions.py`](build_cell_descriptions.py) | Builds Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json from the author's webpage drafts (biology sections only; product, population and c |
 | [`build_delta_bundle.py`](build_delta_bundle.py) | Builds the chain delta bundle (changed files since a commit) for the author's offline copies. |
 | [`build_folder_readmes.py`](build_folder_readmes.py) | generates a README for every folder, listing what is in it - the purpose lines are held in the script |
-| [`build_marked_blocks.py`](build_marked_blocks.py) |  |
+| [`build_marked_blocks.py`](build_marked_blocks.py) | Rewrites the chain-as-it-runs table between GENERATED markers in doors/RUNBOOK.md and README.md from chain_sequence.json; the prose outside the marker |
 | [`build_percell_identity.py`](build_percell_identity.py) | Builds iamatlas_percell_identity_loci_v1_0.json from the atlas by the class panels' criterion (kit). |
 | [`build_percell_reference_identity.py`](build_percell_reference_identity.py) | Builds percell_reference_identity_v1_0.json: per-cell per-lab A bands on the identity surface, commissioned form, mapped betas, disjoint held-out spli |
 | [`build_percell_reference_mcmc.py`](build_percell_reference_mcmc.py) | RETIRED 2026-09-27: built a per-cell atlas reference with a posterior interval - the only reference is A = 1.00; kept as record |
-| [`build_repo_inventory.py`](build_repo_inventory.py) |  |
+| [`build_repo_inventory.py`](build_repo_inventory.py) | Writes doors/REPO_INVENTORY.md measured from git ls-files: every folder, file counts, the generated-documents register with its generators. |
 | [`build_report_tab_reference.py`](build_report_tab_reference.py) | generates the tab-by-tab report reference and one figure per tab by reading a finished report |
 | [`build_reviewer_manifest.py`](build_reviewer_manifest.py) | regenerates the reviewer download list, resolving every path by basename from the tree |
 | [`claim_scan.py`](claim_scan.py) | scans the documents for claims and checks each against the sealed record |
@@ -87,7 +87,7 @@ The gates and generators. Nothing here is part of a reading: these are the progr
 | [`test_percell_physics.py`](test_percell_physics.py) | THE FAILSAFE for the per-cell A - propagate rule 11, runs on every push. Checks the four root causes of 2026-09-26 (wrong surface, unmapped betas, cro |
 | [`test_stage2d_panels.py`](test_stage2d_panels.py) |  |
 | [`test_tiers.py`](test_tiers.py) | Every tier boundary in the JSON, both sides, through the one tier function; fails if a literal breakpoint reappears in engine code. |
-| [`vocab_scan.py`](vocab_scan.py) |  |
+| [`vocab_scan.py`](vocab_scan.py) | The report's own FORBIDDEN and COHORT guards, imported from build_methylphys.py and run over the SOP (banner-aware), the OM at source, every tab of th |
 
 _83 file(s)._ Paths above are relative to this folder, and [`kit/link_check.py`](../kit/link_check.py) fails the build if any of them stops resolving.
 

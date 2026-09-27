@@ -1,19 +1,11 @@
 {
  "_meta": {
-  "built": "2026-09-27 03:05",
-  "commit": "3a9a6b5",
-  "n_files": 196,
-  "n_undescribed": 9,
+  "built": "2026-09-27 03:11",
+  "commit": "bee46fd",
+  "n_files": 197,
+  "n_undescribed": 1,
   "undescribed": [
-   "FINDING_GSE125105_LOW_SIGNAL.md",
-   "GENERATED_MANIFEST.json",
-   "build_all.py",
-   "build_cell_descriptions.py",
-   "build_marked_blocks.py",
-   "build_repo_inventory.py",
-   "build_sop_mirror.py",
-   "cell_descriptions_v1.json",
-   "vocab_scan.py"
+   "START_HERE.md"
   ],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
   "note": "a file with role UNDESCRIBED is a gap in this table, not a file that does nothing - the count is printed on the Chain tab so the gap is visible"
@@ -209,15 +201,6 @@
    "sha256_12": "6f7c6da36a70"
   },
   {
-   "file": "FINDING_GSE125105_LOW_SIGNAL.md",
-   "path": "Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 3298,
-   "sha256_12": "a794c1301c08"
-  },
-  {
    "file": "FRACTION_AND_A.md",
    "path": "Biological_Physics/MethylPhys/doors/FRACTION_AND_A.md",
    "role": "record",
@@ -225,15 +208,6 @@
    "description": "constructed dilution: how a cell's A moves with its fraction, where the mixture is invertible, and why fraction is a detection gate and not a correction to A",
    "bytes": 4247,
    "sha256_12": "99aaf5aa418e"
-  },
-  {
-   "file": "GENERATED_MANIFEST.json",
-   "path": "Biological_Physics/MethylPhys/chain/GENERATED_MANIFEST.json",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 21919,
-   "sha256_12": "b0faae42a862"
   },
   {
    "file": "PART_II_CHAPTER_NOTES.md",
@@ -260,7 +234,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11970,
-   "sha256_12": "4971e2786695"
+   "sha256_12": "0a792e1127ad"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -268,8 +242,8 @@
    "role": "reference",
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
-   "bytes": 2749,
-   "sha256_12": "fcf290a0f7c9"
+   "bytes": 2780,
+   "sha256_12": "09039dc1cc07"
   },
   {
    "file": "REPRODUCTION.md",
@@ -286,8 +260,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 30659,
-   "sha256_12": "429822a7c064"
+   "bytes": 30609,
+   "sha256_12": "fc9a28cabccc"
   },
   {
    "file": "RUN.md",
@@ -317,6 +291,15 @@
    "sha256_12": "4e211268e02a"
   },
   {
+   "file": "START_HERE.md",
+   "path": "Biological_Physics/MethylPhys/START_HERE.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2424,
+   "sha256_12": "2ebd51921165"
+  },
+  {
    "file": "add_doc_links.py",
    "path": "Biological_Physics/MethylPhys/kit/add_doc_links.py",
    "role": "guard",
@@ -333,24 +316,6 @@
    "description": "appendix content for the manual",
    "bytes": 30613,
    "sha256_12": "c6ecf43ec767"
-  },
-  {
-   "file": "build_all.py",
-   "path": "Biological_Physics/MethylPhys/chain/build_all.py",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 10807,
-   "sha256_12": "2c2909a0a30d"
-  },
-  {
-   "file": "build_cell_descriptions.py",
-   "path": "Biological_Physics/MethylPhys/kit/build_cell_descriptions.py",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 8866,
-   "sha256_12": "0aac1bc4abd6"
   },
   {
    "file": "build_chain_sequence.py",
@@ -380,31 +345,13 @@
    "sha256_12": "ffe9a0903a61"
   },
   {
-   "file": "build_marked_blocks.py",
-   "path": "Biological_Physics/MethylPhys/kit/build_marked_blocks.py",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 2119,
-   "sha256_12": "afeec778552e"
-  },
-  {
    "file": "build_operations_manual.py",
    "path": "Biological_Physics/MethylPhys/manual/build_operations_manual.py",
    "role": "interface",
    "stage": "",
    "description": "builds the operations manual; run through build_om.sh so the contents page carries measured page numbers",
-   "bytes": 125076,
-   "sha256_12": "4addcb42c47d"
-  },
-  {
-   "file": "build_repo_inventory.py",
-   "path": "Biological_Physics/MethylPhys/kit/build_repo_inventory.py",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 2739,
-   "sha256_12": "4a2a3de45c09"
+   "bytes": 128578,
+   "sha256_12": "a0577e6d4bbb"
   },
   {
    "file": "build_report_tab_reference.py",
@@ -432,24 +379,6 @@
    "description": "regenerates the run index from every evidence ledger in the tree",
    "bytes": 3328,
    "sha256_12": "fb5522511425"
-  },
-  {
-   "file": "build_sop_mirror.py",
-   "path": "Biological_Physics/MethylPhys/sop/build_sop_mirror.py",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 19056,
-   "sha256_12": "ee7ad7fd1936"
-  },
-  {
-   "file": "cell_descriptions_v1.json",
-   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 121201,
-   "sha256_12": "80e22316e6f4"
   },
   {
    "file": "claim_scan.py",
@@ -602,7 +531,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1931,
-   "sha256_12": "e65464d9dca3"
+   "sha256_12": "b92c65d62a02"
   },
   {
    "file": "reference_cells_37.csv",
@@ -620,7 +549,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19816,
-   "sha256_12": "a66d9ddbb289"
+   "sha256_12": "e0404ee29d53"
   },
   {
    "file": "sop_repoint.py",
@@ -665,7 +594,7 @@
    "stage": "",
    "description": "page numbers measured in the first build pass, read by the second",
    "bytes": 1544,
-   "sha256_12": "275170e2b4c6"
+   "sha256_12": "81bbe64de42d"
   },
   {
    "file": "trace_detection_panel_v1.json",
@@ -686,15 +615,6 @@
    "sha256_12": "676cc035232d"
   },
   {
-   "file": "vocab_scan.py",
-   "path": "Biological_Physics/MethylPhys/kit/vocab_scan.py",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 11812,
-   "sha256_12": "4c1e165c4d08"
-  },
-  {
    "file": "detection_panel_v1.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/A_Scoring_Module/detection_panel_v1.json",
    "role": "reference",
@@ -702,6 +622,15 @@
    "description": "Stage 2d commissioned detection panel: per laboratory, the centre, per-locus inverse-variance weights and p99 line for every foreign cell, from that laboratory's own commissioning panel; the 1,506 markers and the blood/foreign reference columns (PROC-MF-02/03; adopted by the author 2026-09-26)",
    "bytes": 646875,
    "sha256_12": "448a4d511f4b"
+  },
+  {
+   "file": "cell_descriptions_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json",
+   "role": "reference",
+   "stage": "Runtime Matrices/Cell_Descriptions",
+   "description": "What each atlas cell IS - biology from the author's drafts (52 of 115 cells) plus the atlas facts for all 115: class, H_min, identity loci, coverage, markers. Read by the report's Cells tab and the Operations Manual's cells chapter. Nothing in it is a reading.",
+   "bytes": 121007,
+   "sha256_12": "0e3767e3ffd8"
   },
   {
    "file": "README_atlas_v0_1_vault.md",
@@ -902,6 +831,24 @@
    "sha256_12": "7e661760d839"
   },
   {
+   "file": "GENERATED_MANIFEST.json",
+   "path": "Biological_Physics/MethylPhys/chain/GENERATED_MANIFEST.json",
+   "role": "guard",
+   "stage": "chain",
+   "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
+   "bytes": 21920,
+   "sha256_12": "1e2720c62bb0"
+  },
+  {
+   "file": "build_all.py",
+   "path": "Biological_Physics/MethylPhys/chain/build_all.py",
+   "role": "guard",
+   "stage": "chain",
+   "description": "THE ONE COMMAND. Regenerates every document that reports the chain from the chain files, in dependency order, then gates (vocab_scan, SOP-mirror reconciliation, link_check). guarded_push.sh runs it before propagate on every push, so a hand edit to a generated document is overwritten before it can be committed.",
+   "bytes": 10807,
+   "sha256_12": "2c2909a0a30d"
+  },
+  {
    "file": "ATLAS_READABILITY.md",
    "path": "Biological_Physics/MethylPhys/doors/ATLAS_READABILITY.md",
    "role": "record",
@@ -952,8 +899,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 18760,
-   "sha256_12": "4593dfb2cb4d"
+   "bytes": 17674,
+   "sha256_12": "c488ac2511e1"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -988,8 +935,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1298227,
-   "sha256_12": "03a94471f531"
+   "bytes": 1333791,
+   "sha256_12": "752ab7ab0ed7"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1006,8 +953,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 6852,
-   "sha256_12": "252319dafb55"
+   "bytes": 6788,
+   "sha256_12": "60b514c4f765"
   },
   {
    "file": "README_FIRST.md",
@@ -1060,8 +1007,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43178,
-   "sha256_12": "505f6b56ba80"
+   "bytes": 43079,
+   "sha256_12": "56cdf5a2a629"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1100,13 +1047,22 @@
    "sha256_12": "6bd0869c4bf5"
   },
   {
+   "file": "FINDING_GSE125105_LOW_SIGNAL.md",
+   "path": "Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md",
+   "role": "record",
+   "stage": "doors",
+   "description": "Finding 2026-09-27: the Munich laboratory's arrays are low-signal input (non-polymorphic controls at 1/6 of Uppsala's, 12.5 % of probes at background, chips 8 months between decode and scan) and the intake call-rate gate that should refuse them had never been handed detection numbers. The cause of three earlier cross-laboratory failures.",
+   "bytes": 3298,
+   "sha256_12": "a794c1301c08"
+  },
+  {
    "file": "PLAN.md",
    "path": "Biological_Physics/MethylPhys/doors/PLAN.md",
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 6847,
-   "sha256_12": "bc4831df86e6"
+   "bytes": 7050,
+   "sha256_12": "c9e03c1d56b6"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1186,8 +1142,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13382,
-   "sha256_12": "8bff9891a65f"
+   "bytes": 13371,
+   "sha256_12": "d987153eb257"
   },
   {
    "file": "cpg_kit.py",
@@ -1312,8 +1268,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 42520,
-   "sha256_12": "a080c05f1fd0"
+   "bytes": 45246,
+   "sha256_12": "fb0ab3e8137e"
   },
   {
    "file": "build_methylphys.py",
@@ -1321,8 +1277,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 222661,
-   "sha256_12": "7ba14c4bdadf"
+   "bytes": 223789,
+   "sha256_12": "bf7ae0cfc2f2"
   },
   {
    "file": "build_percell_reference.py",
@@ -1339,8 +1295,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 69028,
-   "sha256_12": "3ce189e84221"
+   "bytes": 71288,
+   "sha256_12": "327e6f9060dd"
   },
   {
    "file": "run_sample.py",
@@ -1361,6 +1317,15 @@
    "sha256_12": "0e2c84bd24fb"
   },
   {
+   "file": "build_cell_descriptions.py",
+   "path": "Biological_Physics/MethylPhys/kit/build_cell_descriptions.py",
+   "role": "interface",
+   "stage": "kit",
+   "description": "Builds Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json from the author's webpage drafts (biology sections only; product, population and comparison sentences dropped by rule) joined to the atlas facts per cell (class, floor, identity loci, coverage, markers). The report's vocabulary guards run over every field.",
+   "bytes": 8908,
+   "sha256_12": "b6c32102f613"
+  },
+  {
    "file": "build_delta_bundle.py",
    "path": "Biological_Physics/MethylPhys/kit/build_delta_bundle.py",
    "role": "guard",
@@ -1368,6 +1333,33 @@
    "description": "Builds the chain delta bundle (changed files since a commit) for the author's offline copies.",
    "bytes": 6838,
    "sha256_12": "359d8adc2f4a"
+  },
+  {
+   "file": "build_marked_blocks.py",
+   "path": "Biological_Physics/MethylPhys/kit/build_marked_blocks.py",
+   "role": "guard",
+   "stage": "kit",
+   "description": "Rewrites the chain-as-it-runs table between GENERATED markers in doors/RUNBOOK.md and README.md from chain_sequence.json; the prose outside the markers is the author's and is left alone.",
+   "bytes": 2119,
+   "sha256_12": "afeec778552e"
+  },
+  {
+   "file": "build_repo_inventory.py",
+   "path": "Biological_Physics/MethylPhys/kit/build_repo_inventory.py",
+   "role": "guard",
+   "stage": "kit",
+   "description": "Writes doors/REPO_INVENTORY.md measured from git ls-files: every folder, file counts, the generated-documents register with its generators.",
+   "bytes": 2739,
+   "sha256_12": "4a2a3de45c09"
+  },
+  {
+   "file": "vocab_scan.py",
+   "path": "Biological_Physics/MethylPhys/kit/vocab_scan.py",
+   "role": "guard",
+   "stage": "kit",
+   "description": "The report's own FORBIDDEN and COHORT guards, imported from build_methylphys.py and run over the SOP (banner-aware), the OM at source, every tab of the fresh reference report and the papers. Any LIVE hit fails the build.",
+   "bytes": 11812,
+   "sha256_12": "4c1e165c4d08"
   },
   {
    "file": "README_as_generated_2026-04-07.md",
@@ -1530,6 +1522,15 @@
    "description": "sha256 and provenance of stage1_betas_GSE87571.pkl.xz.",
    "bytes": 10519,
    "sha256_12": "4672eab522e1"
+  },
+  {
+   "file": "build_sop_mirror.py",
+   "path": "Biological_Physics/MethylPhys/sop/build_sop_mirror.py",
+   "role": "guard",
+   "stage": "sop",
+   "description": "The SOP mirrors the code: a STATUS banner (LIVE / RECORD / NOT IN CHAIN / NOT BUILT / KIT) under every numbered section from a code-derived status table, a generated Part II-A from chain_sequence.json, and a reconciliation that every live step is named by a LIVE section (--check is a build gate).",
+   "bytes": 19056,
+   "sha256_12": "ee7ad7fd1936"
   },
   {
    "file": "stage_1_calibration.py",

@@ -86,7 +86,7 @@ hmin = {k: v["H_min"] for k, v in ident.items() if isinstance(v, dict) and "H_mi
 n_ident = {k: len(v["loci"]) for k, v in ident.items() if isinstance(v, dict) and "loci" in v}
 pci_path = C._find("iamatlas_percell_identity_loci_v1_0.json", required=False)
 pci = json.load(open(pci_path)) if pci_path else {}
-pci_n = {k: (len(v.get("loci", [])) if isinstance(v, dict) else 0) for k, v in pci.items() if not k.startswith("_")}
+pci_n = {k: (v.get("n_loci") or len(v.get("loci", []))) for k, v in (pci.get("cells") or pci).items() if isinstance(v, dict)}
 cov = {}
 if os.path.exists(os.path.join(K, "results", "atlas_cell_coverage.csv")):
     import csv
@@ -95,7 +95,7 @@ if os.path.exists(os.path.join(K, "results", "atlas_cell_coverage.csv")):
 mk_path = C._find("iamatlas_celltype_markers_v0_2.json", required=False)
 mk = json.load(open(mk_path)) if mk_path else {}
 mk_n = {}
-for k, v in (mk.get("celltypes") or mk).items():
+for k, v in (mk.get("markers_by_celltype") or mk.get("celltypes") or mk).items():
     if isinstance(v, dict) and isinstance(v.get("markers") or v.get("loci"), list): mk_n[k] = len(v.get("markers") or v.get("loci"))
     elif isinstance(v, list): mk_n[k] = len(v)
 

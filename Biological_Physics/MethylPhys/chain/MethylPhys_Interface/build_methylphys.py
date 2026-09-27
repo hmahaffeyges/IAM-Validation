@@ -365,6 +365,11 @@ def _detection_block(o):
 
 
 def tab_cells(o, R, percell_ref=None):
+    # 2026-09-27: what each present cell IS (the author's biology, guarded) - one line under the table, from the runtime file
+    _cd_path=_find("cell_descriptions_v1.json", required=False) if "_find" in globals() else None
+    try:
+        _CD=json.load(open(_cd_path))["cells"] if _cd_path else {}
+    except Exception: _CD={}
     sys.path.insert(0,ENGINE); import cpg_tiers as T
     lab=(o.get('patient_sky') or {}).get('lab') or (o.get('cfg') or {}).get('lab')
     cells=o.get("cells_all") or {}; comp_cells={r["cell"]:r for r in o["composition"]["celltype"]}
@@ -436,6 +441,12 @@ def tab_cells(o, R, percell_ref=None):
             rd+=f" (panel: {_e(R['panels'].get('immune',{}).get('source','VAL-051 Rule A, 7 CpGs'))})"
         H.append(f"<tr><td>{CLASS_LABEL[c]}</td><td class='n'>{ads}</td><td class='n'>{aps}</td><td>{b.get('n_covered',0)} CpGs</td><td class='m'>{rd}</td></tr>")
     H.append("</details>")
+    if _CD:
+        _pres=[(c,v) for c,v in (o.get('cells_all') or {}).items() if isinstance(v,dict) and v.get('present') and _CD.get(c,{}).get('what')]
+        if _pres:
+            H.append("<h3>What the cells found in this specimen are</h3><p class='m'>The author's biology, one paragraph per cell present, from <code>cell_descriptions_v1.json</code>; the full entries for all cells are the Operations Manual's cells chapter. Nothing here is a reading.</p>")
+            for c,v in sorted(_pres, key=lambda kv:-(kv[1].get('fraction') or 0)):
+                e=_CD[c]; H.append(f"<p><b>{_e(e.get('title') or c)}</b>" + (f" <span class='m'>({_e(e['other_names'])})</span>" if e.get('other_names') else '') + f" - {_e(e['what'])}" + (f" <i>{_e(e['where'])}</i>" if e.get('where') else '') + "</p>")
     H.append("</table>"); return guard("".join(H),"Every cell")
 
 # tab_departure: removed 2026-09-26 by the author's decision - the Mahalanobis departure is a cohort distance on the pooled class, not a reading

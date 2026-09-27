@@ -882,6 +882,37 @@ def sec_proc_log(story):
         story.append(Spacer(1, 3))
 
 
+def sec_cells(story):
+    """THE CELLS - one entry per atlas cell, from Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json (the author's
+    webpage drafts stripped to biology, joined to the atlas facts). Nothing here is a reading; it is what each cell IS and what
+    the instrument holds for it. Generated on every build (build_all step 3 writes the file; this chapter reads it)."""
+    import json as _j, os as _o, glob as _g
+    cand=_g.glob(_o.path.join(_o.path.dirname(_o.path.abspath(__file__)),"..","chain","Runtime Matrices","Cell_Descriptions","cell_descriptions_v1.json"))
+    if not cand:
+        story.append(Paragraph("cell_descriptions_v1.json not built - run chain/build_all.py", sBodySm)); return
+    D=_j.load(open(cand[0])); cells=D["cells"]; meta=D.get("_meta",{})
+    story.append(Paragraph("The cells - what each entry in the atlas is, and what the instrument holds for it", sSect))
+    story.append(Paragraph(f"One entry per atlas cell ({len(cells)}). The biology (what the cell does, where it lives, its other names, what moves its abundance) is the author's, from the cell pages he drafted in September 2026, with every product, population and comparison sentence removed by rule and the report's vocabulary guards run over each field. The physics columns are read from the runtime files by name: architecture class and its floor H_min, the class identity loci on 450K, the cell's own identity loci, its marker count, and how many atlas addresses the cell is defined on (coverage - a cell defined on few addresses is found only by its own loci). {sum(1 for v in cells.values() if v.get('what'))} cells have a biology page; the rest carry the atlas facts and 'biology page: not yet written'. Draft cells with no atlas entry are candidates for atlas v2: {', '.join(meta.get('draft_cells_not_in_atlas',[])[:12]) or 'none'}.", sBodySm))
+    by={}
+    for k,v in cells.items(): by.setdefault(v.get("class") or "?",[]).append((k,v))
+    order=["immune","progenitor","stem_adult","stem_pluri","cycling","secretory","terminal","stromal"]
+    for cl in order+[c for c in by if c not in order]:
+        if cl not in by: continue
+        rows=sorted(by[cl], key=lambda kv: (not bool(kv[1].get("what")), kv[0].lower()))
+        hm=rows[0][1].get("H_min"); story.append(Paragraph(f"{cl} - {len(rows)} cells, H_min {hm}", sSect2))
+        for k,v in rows:
+            phys=f"class identity loci {v.get('class_identity_loci')} - cell identity loci {v.get('cell_identity_loci') or '-'} - markers {v.get('markers') or '-'} - atlas addresses defined {v.get('atlas_loci_defined') or '-'} ({(float(v['atlas_coverage'])*100):.1f} %)" if v.get("atlas_coverage") not in (None,"None","") else "atlas facts unavailable"
+            story.append(Paragraph(f"<b>{v.get('title') or k}</b> <font size=7 color='#555555'>({k})</font> - {phys}", sBodySm))
+            if v.get("what"):
+                if v.get("other_names"): story.append(Paragraph(f"<i>Also called:</i> {v['other_names']}", sBodySm))
+                story.append(Paragraph(v["what"], sBodySm))
+                if v.get("where"): story.append(Paragraph(f"<i>Where it lives.</i> {v['where']}", sBodySm))
+                if v.get("what_moves_abundance"): story.append(Paragraph(f"<i>What moves its abundance.</i> {v['what_moves_abundance']}", sBodySm))
+            else: story.append(Paragraph("<i>biology page: not yet written</i>", sBodySm))
+            story.append(SP(0.04))
+        story.append(SP(0.08))
+
+
 def sec_report_tabs(story):
     """The report the chain produces, tab by tab, with a figure of each tab.
 
@@ -1128,7 +1159,8 @@ def build(out_path):
     
     # new sections
     sec3b_stage0(story); sec7_substrates(story); sec8_procedures(story); sec9_rules(story); sec10_falsification(story); sec11_engine_map(story); sec12_clinician(story)
-    sec_report_tabs(story)   # the operating reference: the report tab by tab, read off a real run
+    sec_report_tabs(story)
+    sec_cells(story)   # the operating reference: the report tab by tab, read off a real run
     # back matter from 002
     secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
     sec_edition_record(story)

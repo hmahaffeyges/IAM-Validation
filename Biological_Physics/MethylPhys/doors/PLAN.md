@@ -23,11 +23,11 @@ launcher, and nothing edits the chain while a procedure is scoring.
 
 ## Documents — written once, after the chain above is still
 
-11. **SOP** — LESSON-DECON-01, Stage 2d and its commissioning rule, TARE/UNMIX outcomes, pre-registration conventions; every runtime file named from the tree.
-12. **Operations Manual** — engine section generated from [`chain_sequence.json`](../chain/chain_sequence.json); then every rendered page read against a checklist; per-tab figures regenerated from the audited report.
+11. ~~SOP~~ DONE 2026-09-27 (build_all) — **SOP** — LESSON-DECON-01, Stage 2d and its commissioning rule, TARE/UNMIX outcomes, pre-registration conventions; every runtime file named from the tree.
+12. ~~Operations Manual~~ DONE 2026-09-27 (build_all) — **Operations Manual** — engine section generated from [`chain_sequence.json`](../chain/chain_sequence.json); then every rendered page read against a checklist; per-tab figures regenerated from the audited report.
 13. **The cells** — an OM section, one entry per scoreable cell, rewritten from the webpage drafts onto the physics (no cohort range, no wellness framing); welcome-page explanations folded into OM front matter and the Physics/How-to tabs where they add something.
-14. **Documentation catch-up** — manifest, component map, runbook, chain sequence, inventory naming the per-cell surface, the reference folder, the solve block and twin rules (mostly regenerates; read anyway).
-15. **START_HERE.md** — what this is, which document is canonical for what, the one command that verifies the chain.
+14. ~~Documentation catch-up~~ DONE 2026-09-27 (build_all) — **Documentation catch-up** — manifest, component map, runbook, chain sequence, inventory naming the per-cell surface, the reference folder, the solve block and twin rules (mostly regenerates; read anyway).
+15. ~~START_HERE.md~~ DONE 2026-09-27 (build_all) — **START_HERE.md** — what this is, which document is canonical for what, the one command that verifies the chain.
 
 ## The face of the chain
 

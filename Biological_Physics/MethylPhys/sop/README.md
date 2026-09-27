@@ -7,7 +7,7 @@ The chain-of-custody procedure and the generators that keep it current. The proc
 | file | |
 |---|---|
 | [`MethylPhys_CPG_SOP.md`](MethylPhys_CPG_SOP.md) | The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names. |
-| [`build_sop_mirror.py`](build_sop_mirror.py) |  |
+| [`build_sop_mirror.py`](build_sop_mirror.py) | The SOP mirrors the code: a STATUS banner (LIVE / RECORD / NOT IN CHAIN / NOT BUILT / KIT) under every numbered section from a code-derived status tab |
 | [`sop_repoint.py`](sop_repoint.py) | regenerates the chain-of-custody procedure: addresses, the report tab section, and the header |
 | [`sop_stage_links.py`](sop_stage_links.py) | writes an implemented-in line under every stage and step section of the procedure |
 | [`sop_step_detail.py`](sop_step_detail.py) | writes the per-step operational blocks - thresholds, refusal strings, what the operator does |
