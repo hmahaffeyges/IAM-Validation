@@ -33,7 +33,11 @@ of the same person (patient hash must match; array type and pipeline must match,
   stays inside the floor (the blood did not change) while the composition check and Stage 2d report the foreign material — the
   difference sky marks the marker addresses and nothing else.
 - **B5** the report gains a **Trajectory** tab (present only when a prior is given) and the difference-sky plate; the vocabulary
-  guard runs on it; nothing on any other tab changes.
+  guard runs on it; nothing on any other tab changes. The OM and the report's reference pages (How-to / Instrument) carry ONE example
+  difference sky **drawn after the F1 floor is applied** (author, 2026-09-27: 'have it as an example in the OM and Report on the sky
+  tab, with a description of the significance'), captioned with what is significant — the median Δβ of 0.000 over all addresses
+  between two draws a decade apart, and the sign on the identity loci — and never on a specimen's own Sky tab, which shows that
+  specimen alone. The unfloored plate is not shown: its texture is read-to-read noise.
 
 ## Decision rule
 B1, B3, B4, B5 met → serial mode adopted with the F2 lower bound printed as such; B2 met → the measured floor replaces it. B4 failed

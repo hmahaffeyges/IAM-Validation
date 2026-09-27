@@ -1,0 +1,1267 @@
+[
+{
+"gsm": "GSM5652176",
+"tissue": "Abdominal Subcut.",
+"cell_type": "Adipocytes"
+},
+{
+"gsm": "GSM5652177",
+"tissue": "Abdominal Subcut.",
+"cell_type": "Adipocytes"
+},
+{
+"gsm": "GSM5652178",
+"tissue": "Abdominal Subcut.",
+"cell_type": "Adipocytes"
+},
+{
+"gsm": "GSM5652179",
+"tissue": "Aorta",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652180",
+"tissue": "Aorta",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652181",
+"tissue": "Vascular saphenous",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652182",
+"tissue": "Vascular saphenous",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652183",
+"tissue": "Vascular saphenous",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652184",
+"tissue": "Kidney glomerular",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652185",
+"tissue": "Kidney glomerular",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652186",
+"tissue": "Kidney glomerular",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652187",
+"tissue": "Kidney tubular",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652188",
+"tissue": "Kidney tubular",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652189",
+"tissue": "Kidney tubular",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652190",
+"tissue": "Liver",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652191",
+"tissue": "Lung alveolar",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652192",
+"tissue": "Lung alveolar",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652193",
+"tissue": "Lung alveolar",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652194",
+"tissue": "Pancreas",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652195",
+"tissue": "Pancreas",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652196",
+"tissue": "Pancreas",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652197",
+"tissue": "Pancreas",
+"cell_type": "Endothelium"
+},
+{
+"gsm": "GSM5652198",
+"tissue": "Colon",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652199",
+"tissue": "Colon",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652200",
+"tissue": "Heart",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652201",
+"tissue": "Heart",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652202",
+"tissue": "Heart",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652203",
+"tissue": "Heart",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652204",
+"tissue": "Ad-dermal",
+"cell_type": "Fibroblast"
+},
+{
+"gsm": "GSM5652205",
+"tissue": "Skeletal muscle",
+"cell_type": "Striated muscle"
+},
+{
+"gsm": "GSM5652206",
+"tissue": "Skeletal muscle",
+"cell_type": "Striated muscle"
+},
+{
+"gsm": "GSM5652207",
+"tissue": "Aorta",
+"cell_type": "Smooth muscle"
+},
+{
+"gsm": "GSM5652208",
+"tissue": "Cornary artery",
+"cell_type": "Smooth muscle"
+},
+{
+"gsm": "GSM5652209",
+"tissue": "Bladder",
+"cell_type": "Smooth muscle"
+},
+{
+"gsm": "GSM5652210",
+"tissue": "Prostate",
+"cell_type": "Smooth muscle"
+},
+{
+"gsm": "GSM5652211",
+"tissue": "Bronchial",
+"cell_type": "Smooth muscle"
+},
+{
+"gsm": "GSM5652212",
+"tissue": "Heart",
+"cell_type": "Cardiomyocyte"
+},
+{
+"gsm": "GSM5652213",
+"tissue": "Heart",
+"cell_type": "Cardiomyocyte"
+},
+{
+"gsm": "GSM5652214",
+"tissue": "Heart",
+"cell_type": "Cardiomyocyte"
+},
+{
+"gsm": "GSM5652215",
+"tissue": "Heart",
+"cell_type": "Cardiomyocyte"
+},
+{
+"gsm": "GSM5652216",
+"tissue": "Heart",
+"cell_type": "Cardiomyocyte"
+},
+{
+"gsm": "GSM5652217",
+"tissue": "Heart",
+"cell_type": "Cardiomyocyte"
+},
+{
+"gsm": "GSM5652218",
+"tissue": "Bone",
+"cell_type": "Osteoblasts"
+},
+{
+"gsm": "GSM5652219",
+"tissue": "Brain",
+"cell_type": "Oligodendrocytes"
+},
+{
+"gsm": "GSM5652220",
+"tissue": "Brain",
+"cell_type": "Oligodendrocytes"
+},
+{
+"gsm": "GSM5652221",
+"tissue": "Brain",
+"cell_type": "Oligodendrocytes"
+},
+{
+"gsm": "GSM5652222",
+"tissue": "Brain",
+"cell_type": "Oligodendrocytes"
+},
+{
+"gsm": "GSM5652223",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652224",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652225",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652226",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652227",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652228",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652229",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652230",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652231",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652232",
+"tissue": "Brain",
+"cell_type": "Neuronal"
+},
+{
+"gsm": "GSM5652233",
+"tissue": "Liver",
+"cell_type": "Hepatocyte"
+},
+{
+"gsm": "GSM5652234",
+"tissue": "Liver",
+"cell_type": "Hepatocyte"
+},
+{
+"gsm": "GSM5652235",
+"tissue": "Liver",
+"cell_type": "Hepatocyte"
+},
+{
+"gsm": "GSM5652236",
+"tissue": "Liver",
+"cell_type": "Hepatocyte"
+},
+{
+"gsm": "GSM5652237",
+"tissue": "Liver",
+"cell_type": "Hepatocyte"
+},
+{
+"gsm": "GSM5652238",
+"tissue": "Liver",
+"cell_type": "Hepatocyte"
+},
+{
+"gsm": "GSM5652239",
+"tissue": "Pancreas",
+"cell_type": "Duct"
+},
+{
+"gsm": "GSM5652240",
+"tissue": "Pancreas",
+"cell_type": "Duct"
+},
+{
+"gsm": "GSM5652241",
+"tissue": "Pancreas",
+"cell_type": "Duct"
+},
+{
+"gsm": "GSM5652242",
+"tissue": "Pancreas",
+"cell_type": "Duct"
+},
+{
+"gsm": "GSM5652243",
+"tissue": "Pancreas",
+"cell_type": "Acinar"
+},
+{
+"gsm": "GSM5652244",
+"tissue": "Pancreas",
+"cell_type": "Acinar"
+},
+{
+"gsm": "GSM5652245",
+"tissue": "Pancreas",
+"cell_type": "Acinar"
+},
+{
+"gsm": "GSM5652246",
+"tissue": "Pancreas",
+"cell_type": "Acinar"
+},
+{
+"gsm": "GSM5652247",
+"tissue": "Pancreas",
+"cell_type": "Delta"
+},
+{
+"gsm": "GSM5652248",
+"tissue": "Pancreas",
+"cell_type": "Delta"
+},
+{
+"gsm": "GSM5652249",
+"tissue": "Pancreas",
+"cell_type": "Delta"
+},
+{
+"gsm": "GSM5652250",
+"tissue": "Pancreas",
+"cell_type": "Beta"
+},
+{
+"gsm": "GSM5652251",
+"tissue": "Pancreas",
+"cell_type": "Beta"
+},
+{
+"gsm": "GSM5652252",
+"tissue": "Pancreas",
+"cell_type": "Beta"
+},
+{
+"gsm": "GSM5652253",
+"tissue": "Pancreas",
+"cell_type": "Alpha"
+},
+{
+"gsm": "GSM5652254",
+"tissue": "Pancreas",
+"cell_type": "Alpha"
+},
+{
+"gsm": "GSM5652255",
+"tissue": "Pancreas",
+"cell_type": "Alpha"
+},
+{
+"gsm": "GSM5652256",
+"tissue": "Kidney glomerular",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652257",
+"tissue": "Kidney glomerular",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652258",
+"tissue": "Kidney tubular",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652259",
+"tissue": "Kidney tubular",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652260",
+"tissue": "Kidney tubular",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652261",
+"tissue": "Kidney glomerular",
+"cell_type": "Podocyte"
+},
+{
+"gsm": "GSM5652262",
+"tissue": "Kidney glomerular",
+"cell_type": "Podocyte"
+},
+{
+"gsm": "GSM5652263",
+"tissue": "Kidney glomerular",
+"cell_type": "Podocyte"
+},
+{
+"gsm": "GSM5652264",
+"tissue": "Thyroid",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652265",
+"tissue": "Thyroid",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652266",
+"tissue": "Thyroid",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652267",
+"tissue": "Fallopien tubes",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652268",
+"tissue": "Fallopien tubes",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652269",
+"tissue": "Fallopien tubes",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652270",
+"tissue": "Ovary",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652271",
+"tissue": "Endometrium",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652272",
+"tissue": "Endometrium",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652273",
+"tissue": "Endometrium",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652274",
+"tissue": "Bone marrow",
+"cell_type": "Erythrocyte progenitors"
+},
+{
+"gsm": "GSM5652275",
+"tissue": "Bone marrow",
+"cell_type": "Erythrocyte progenitors"
+},
+{
+"gsm": "GSM5652276",
+"tissue": "Bone marrow",
+"cell_type": "Erythrocyte progenitors"
+},
+{
+"gsm": "GSM5652277",
+"tissue": "Blood",
+"cell_type": "T (CD3+) cells"
+},
+{
+"gsm": "GSM5652278",
+"tissue": "Blood",
+"cell_type": "T (CD3+) cells"
+},
+{
+"gsm": "GSM5652279",
+"tissue": "Blood",
+"cell_type": "T helper(CD4+) cells"
+},
+{
+"gsm": "GSM5652280",
+"tissue": "Blood",
+"cell_type": "T helper(CD4+) cells"
+},
+{
+"gsm": "GSM5652281",
+"tissue": "Blood",
+"cell_type": "T helper(CD4+) cells"
+},
+{
+"gsm": "GSM5652282",
+"tissue": "Blood",
+"cell_type": "T cytotoxic (CD8+) cells"
+},
+{
+"gsm": "GSM5652283",
+"tissue": "Blood",
+"cell_type": "T cytotoxic (CD8+) cells"
+},
+{
+"gsm": "GSM5652284",
+"tissue": "Blood",
+"cell_type": "T cytotoxic (CD8+) cells"
+},
+{
+"gsm": "GSM5652285",
+"tissue": "Blood",
+"cell_type": "T central memory CD4"
+},
+{
+"gsm": "GSM5652286",
+"tissue": "Blood",
+"cell_type": "T central memory CD4"
+},
+{
+"gsm": "GSM5652287",
+"tissue": "Blood",
+"cell_type": "T central memory CD4"
+},
+{
+"gsm": "GSM5652288",
+"tissue": "Blood",
+"cell_type": "T effector cell CD8"
+},
+{
+"gsm": "GSM5652289",
+"tissue": "Blood",
+"cell_type": "T effector cell CD8"
+},
+{
+"gsm": "GSM5652290",
+"tissue": "Blood",
+"cell_type": "T effector cell CD8"
+},
+{
+"gsm": "GSM5652291",
+"tissue": "Blood",
+"cell_type": "T effector memory CD4"
+},
+{
+"gsm": "GSM5652292",
+"tissue": "Blood",
+"cell_type": "T effector memory CD4"
+},
+{
+"gsm": "GSM5652293",
+"tissue": "Blood",
+"cell_type": "T effector memory CD4"
+},
+{
+"gsm": "GSM5652294",
+"tissue": "Blood",
+"cell_type": "T effector memory CD8"
+},
+{
+"gsm": "GSM5652295",
+"tissue": "Blood",
+"cell_type": "T effector memory CD8"
+},
+{
+"gsm": "GSM5652296",
+"tissue": "Blood",
+"cell_type": "Naive T cells CD4"
+},
+{
+"gsm": "GSM5652297",
+"tissue": "Blood",
+"cell_type": "Naive T cells CD8"
+},
+{
+"gsm": "GSM5652298",
+"tissue": "Blood",
+"cell_type": "Naive T cells CD8"
+},
+{
+"gsm": "GSM5652299",
+"tissue": "Blood",
+"cell_type": "NK"
+},
+{
+"gsm": "GSM5652300",
+"tissue": "Blood",
+"cell_type": "NK"
+},
+{
+"gsm": "GSM5652301",
+"tissue": "Blood",
+"cell_type": "NK"
+},
+{
+"gsm": "GSM5652302",
+"tissue": "Blood",
+"cell_type": "Monocytes"
+},
+{
+"gsm": "GSM5652303",
+"tissue": "Blood",
+"cell_type": "Monocytes"
+},
+{
+"gsm": "GSM5652304",
+"tissue": "Blood",
+"cell_type": "Monocytes"
+},
+{
+"gsm": "GSM5652305",
+"tissue": "Colon",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652306",
+"tissue": "Colon",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652307",
+"tissue": "Liver",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652308",
+"tissue": "Lung alveolar",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652309",
+"tissue": "Lung alveolar",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652310",
+"tissue": "Lung interstitial",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652311",
+"tissue": "Lung interstitial",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652312",
+"tissue": "Lung interstitial",
+"cell_type": "Macrophages"
+},
+{
+"gsm": "GSM5652313",
+"tissue": "Blood",
+"cell_type": "Granulocytes"
+},
+{
+"gsm": "GSM5652314",
+"tissue": "Blood",
+"cell_type": "Granulocytes"
+},
+{
+"gsm": "GSM5652315",
+"tissue": "Blood",
+"cell_type": "Granulocytes"
+},
+{
+"gsm": "GSM5652316",
+"tissue": "Blood",
+"cell_type": "B cells"
+},
+{
+"gsm": "GSM5652317",
+"tissue": "Blood",
+"cell_type": "B cells"
+},
+{
+"gsm": "GSM5652318",
+"tissue": "Blood",
+"cell_type": "B cells"
+},
+{
+"gsm": "GSM5652319",
+"tissue": "Blood",
+"cell_type": "Memory B cells"
+},
+{
+"gsm": "GSM5652320",
+"tissue": "Blood",
+"cell_type": "Memory B cells"
+},
+{
+"gsm": "GSM5652321",
+"tissue": "Skin",
+"cell_type": "keratinocyte"
+},
+{
+"gsm": "GSM5652322",
+"tissue": "Tonsil palatine",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652323",
+"tissue": "Tonsil palatine",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652324",
+"tissue": "Tonsil palatine",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652325",
+"tissue": "Tonsil pharyngeal",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652326",
+"tissue": "Tonsil pharyngeal",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652327",
+"tissue": "Tongue",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652328",
+"tissue": "Tongue",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652329",
+"tissue": "Tongue",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652330",
+"tissue": "Tongue",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652331",
+"tissue": "Larynx",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652332",
+"tissue": "Esophagus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652333",
+"tissue": "Esophagus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652334",
+"tissue": "Pharynx",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652335",
+"tissue": "Lung bronchus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652336",
+"tissue": "Lung bronchus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652337",
+"tissue": "Lung bronchus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652338",
+"tissue": "Prostate",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652339",
+"tissue": "Prostate",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652340",
+"tissue": "Prostate",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652341",
+"tissue": "Prostate",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652342",
+"tissue": "Bladder",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652343",
+"tissue": "Bladder",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652344",
+"tissue": "Bladder",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652345",
+"tissue": "Bladder",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652346",
+"tissue": "Bladder",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652347",
+"tissue": "Breast",
+"cell_type": "Luminal epithelial"
+},
+{
+"gsm": "GSM5652348",
+"tissue": "Breast",
+"cell_type": "Luminal epithelial"
+},
+{
+"gsm": "GSM5652349",
+"tissue": "Breast",
+"cell_type": "Luminal epithelial"
+},
+{
+"gsm": "GSM5652350",
+"tissue": "Breast",
+"cell_type": "Basal epithelial"
+},
+{
+"gsm": "GSM5652351",
+"tissue": "Breast",
+"cell_type": "Basal epithelial"
+},
+{
+"gsm": "GSM5652352",
+"tissue": "Breast",
+"cell_type": "Basal epithelial"
+},
+{
+"gsm": "GSM5652353",
+"tissue": "Breast",
+"cell_type": "Basal epithelial"
+},
+{
+"gsm": "GSM5652354",
+"tissue": "Lung alveolar",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652355",
+"tissue": "Lung alveolar",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652356",
+"tissue": "Lung alveolar",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652357",
+"tissue": "Lung pleural",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652358",
+"tissue": "Gallbladder",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652359",
+"tissue": "Gastric fundus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652360",
+"tissue": "Gastric fundus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652361",
+"tissue": "Gastric fundus",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652362",
+"tissue": "Gastric body",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652363",
+"tissue": "Gastric body",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652364",
+"tissue": "Gastric body",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652365",
+"tissue": "Gastric antrum",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652366",
+"tissue": "Gastric antrum",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652367",
+"tissue": "Gastric antrum",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652368",
+"tissue": "Gastric",
+"cell_type": "Endocrine"
+},
+{
+"gsm": "GSM5652369",
+"tissue": "Gastric",
+"cell_type": "Endocrine"
+},
+{
+"gsm": "GSM5652370",
+"tissue": "Colon",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652371",
+"tissue": "Colon",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652372",
+"tissue": "Colon",
+"cell_type": "Endocrine"
+},
+{
+"gsm": "GSM5652373",
+"tissue": "Colon",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652374",
+"tissue": "Colon",
+"cell_type": "Endocrine"
+},
+{
+"gsm": "GSM5652375",
+"tissue": "Colon",
+"cell_type": "Endocrine"
+},
+{
+"gsm": "GSM5652376",
+"tissue": "Colon",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652377",
+"tissue": "Colon",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652378",
+"tissue": "Jejunum",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652379",
+"tissue": "Small intestine",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652380",
+"tissue": "Small intestine",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652381",
+"tissue": "Small intestine",
+"cell_type": "Epithelium"
+},
+{
+"gsm": "GSM5652382",
+"tissue": "Jejunum",
+"cell_type": "Endocrine"
+},
+{
+"gsm": "GSM6810003",
+"tissue": "cell-free DNA",
+"cell_type": "110000263"
+},
+{
+"gsm": "GSM6810004",
+"tissue": "cell-free DNA",
+"cell_type": "110000264"
+},
+{
+"gsm": "GSM6810005",
+"tissue": "cell-free DNA",
+"cell_type": "110027051"
+},
+{
+"gsm": "GSM6810006",
+"tissue": "cell-free DNA",
+"cell_type": "110027054"
+},
+{
+"gsm": "GSM6810007",
+"tissue": "cell-free DNA",
+"cell_type": "110029639"
+},
+{
+"gsm": "GSM6810008",
+"tissue": "cell-free DNA",
+"cell_type": "110029979"
+},
+{
+"gsm": "GSM6810009",
+"tissue": "cell-free DNA",
+"cell_type": "110032739"
+},
+{
+"gsm": "GSM6810010",
+"tissue": "cell-free DNA",
+"cell_type": "110032789"
+},
+{
+"gsm": "GSM6810011",
+"tissue": "cell-free DNA",
+"cell_type": "110033253"
+},
+{
+"gsm": "GSM6810012",
+"tissue": "cell-free DNA",
+"cell_type": "110033397"
+},
+{
+"gsm": "GSM6810013",
+"tissue": "cell-free DNA",
+"cell_type": "110033577"
+},
+{
+"gsm": "GSM6810014",
+"tissue": "cell-free DNA",
+"cell_type": "110033633"
+},
+{
+"gsm": "GSM6810015",
+"tissue": "cell-free DNA",
+"cell_type": "110033727"
+},
+{
+"gsm": "GSM6810016",
+"tissue": "cell-free DNA",
+"cell_type": "110033745"
+},
+{
+"gsm": "GSM6810017",
+"tissue": "cell-free DNA",
+"cell_type": "110033746"
+},
+{
+"gsm": "GSM6810018",
+"tissue": "cell-free DNA",
+"cell_type": "110033750"
+},
+{
+"gsm": "GSM6810019",
+"tissue": "cell-free DNA",
+"cell_type": "110033907"
+},
+{
+"gsm": "GSM6810020",
+"tissue": "cell-free DNA",
+"cell_type": "110033912"
+},
+{
+"gsm": "GSM6810021",
+"tissue": "cell-free DNA",
+"cell_type": "110033933"
+},
+{
+"gsm": "GSM6810022",
+"tissue": "cell-free DNA",
+"cell_type": "110036059"
+},
+{
+"gsm": "GSM6810023",
+"tissue": "cell-free DNA",
+"cell_type": "110036107"
+},
+{
+"gsm": "GSM6810024",
+"tissue": "cell-free DNA",
+"cell_type": "110036138"
+},
+{
+"gsm": "GSM6810025",
+"tissue": "cell-free DNA",
+"cell_type": "110036152"
+},
+{
+"gsm": "GSM6810026",
+"tissue": "White blood cells",
+"cell_type": "110000263"
+},
+{
+"gsm": "GSM6810027",
+"tissue": "White blood cells",
+"cell_type": "110000264"
+},
+{
+"gsm": "GSM6810028",
+"tissue": "White blood cells",
+"cell_type": "110027051"
+},
+{
+"gsm": "GSM6810029",
+"tissue": "White blood cells",
+"cell_type": "110027054"
+},
+{
+"gsm": "GSM6810030",
+"tissue": "White blood cells",
+"cell_type": "110029639"
+},
+{
+"gsm": "GSM6810031",
+"tissue": "White blood cells",
+"cell_type": "110029979"
+},
+{
+"gsm": "GSM6810032",
+"tissue": "White blood cells",
+"cell_type": "110032739"
+},
+{
+"gsm": "GSM6810033",
+"tissue": "White blood cells",
+"cell_type": "110032789"
+},
+{
+"gsm": "GSM6810034",
+"tissue": "White blood cells",
+"cell_type": "110033253"
+},
+{
+"gsm": "GSM6810035",
+"tissue": "White blood cells",
+"cell_type": "110033397"
+},
+{
+"gsm": "GSM6810036",
+"tissue": "White blood cells",
+"cell_type": "110033577"
+},
+{
+"gsm": "GSM6810037",
+"tissue": "White blood cells",
+"cell_type": "110033633"
+},
+{
+"gsm": "GSM6810038",
+"tissue": "White blood cells",
+"cell_type": "110033727"
+},
+{
+"gsm": "GSM6810039",
+"tissue": "White blood cells",
+"cell_type": "110033745"
+},
+{
+"gsm": "GSM6810040",
+"tissue": "White blood cells",
+"cell_type": "110033746"
+},
+{
+"gsm": "GSM6810041",
+"tissue": "White blood cells",
+"cell_type": "110033750"
+},
+{
+"gsm": "GSM6810042",
+"tissue": "White blood cells",
+"cell_type": "110033907"
+},
+{
+"gsm": "GSM6810043",
+"tissue": "White blood cells",
+"cell_type": "110033912"
+},
+{
+"gsm": "GSM6810044",
+"tissue": "White blood cells",
+"cell_type": "110033933"
+},
+{
+"gsm": "GSM6810045",
+"tissue": "White blood cells",
+"cell_type": "110036059"
+},
+{
+"gsm": "GSM6810046",
+"tissue": "White blood cells",
+"cell_type": "110036107"
+},
+{
+"gsm": "GSM6810047",
+"tissue": "White blood cells",
+"cell_type": "110036138"
+},
+{
+"gsm": "GSM6810048",
+"tissue": "White blood cells",
+"cell_type": "110036152"
+}
+]

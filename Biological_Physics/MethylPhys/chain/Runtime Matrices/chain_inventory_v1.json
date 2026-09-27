@@ -1,12 +1,14 @@
 {
  "_meta": {
-  "built": "2026-09-27 11:04",
-  "commit": "d97a979",
-  "n_files": 206,
-  "n_undescribed": 10,
+  "built": "2026-09-27 16:48",
+  "commit": "2d9d921",
+  "n_files": 208,
+  "n_undescribed": 12,
   "undescribed": [
+   "ATLAS_SOURCES_SURVEY.md",
    "ATLAS_V2_SPEC.md",
    "FINDING_DETECTION_PANEL_HELDOUT.md",
+   "GSE186458_samples.json",
    "HELDOUT_2D.py",
    "PERCELL_STANDARD_REZERO_2026-09-27.md",
    "PHYSICS_LEUKOCYTE_GAUGE.md",
@@ -174,6 +176,15 @@
    "sha256_12": "95d7df95c651"
   },
   {
+   "file": "ATLAS_SOURCES_SURVEY.md",
+   "path": "Biological_Physics/MethylPhys/doors/ATLAS_SOURCES_SURVEY.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 9030,
+   "sha256_12": "378c159d973e"
+  },
+  {
    "file": "ATLAS_V2_SPEC.md",
    "path": "Biological_Physics/MethylPhys/doors/ATLAS_V2_SPEC.md",
    "role": "UNDESCRIBED",
@@ -237,6 +248,15 @@
    "sha256_12": "99aaf5aa418e"
   },
   {
+   "file": "GSE186458_samples.json",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/GSE186458_samples.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 19382,
+   "sha256_12": "8331b2395d60"
+  },
+  {
    "file": "HELDOUT_2D.py",
    "path": "Biological_Physics/MethylPhys/kit/HELDOUT_2D.py",
    "role": "UNDESCRIBED",
@@ -296,8 +316,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11970,
-   "sha256_12": "5848d2704a4d"
+   "bytes": 11920,
+   "sha256_12": "a1dff0871315"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -306,7 +326,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "43c1404ef1a7"
+   "sha256_12": "e205ff6cda5d"
   },
   {
    "file": "REPRODUCTION.md",
@@ -323,8 +343,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 32116,
-   "sha256_12": "16d3ce363c04"
+   "bytes": 32350,
+   "sha256_12": "6359d9261a6e"
   },
   {
    "file": "RUN.md",
@@ -603,7 +623,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1970,
-   "sha256_12": "9478b56fd64c"
+   "sha256_12": "d00efc71d86d"
   },
   {
    "file": "reference_cells_37.csv",
@@ -621,7 +641,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "0d100405bd44"
+   "sha256_12": "83f44705793a"
   },
   {
    "file": "serial_mode.py",
@@ -908,8 +928,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 23109,
-   "sha256_12": "627da3766320"
+   "bytes": 23520,
+   "sha256_12": "e9e1c1dd5246"
   },
   {
    "file": "build_all.py",
@@ -971,8 +991,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 19080,
-   "sha256_12": "4ab637abb2c3"
+   "bytes": 17853,
+   "sha256_12": "06652ccc402e"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -1007,8 +1027,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1675448,
-   "sha256_12": "a48f3a1ccf12"
+   "bytes": 1709628,
+   "sha256_12": "267e8827efee"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1025,8 +1045,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7068,
-   "sha256_12": "a4316aa11983"
+   "bytes": 7004,
+   "sha256_12": "6aa6e6aad536"
   },
   {
    "file": "README_FIRST.md",
@@ -1079,8 +1099,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43185,
-   "sha256_12": "a04ef42bd9c7"
+   "bytes": 43086,
+   "sha256_12": "f528176b769e"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1133,8 +1153,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 8296,
-   "sha256_12": "c91f7d19ecba"
+   "bytes": 10658,
+   "sha256_12": "584ce41486d2"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1214,8 +1234,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13717,
-   "sha256_12": "2c97f0817ace"
+   "bytes": 13843,
+   "sha256_12": "65454c33c774"
   },
   {
    "file": "cpg_kit.py",
@@ -1367,8 +1387,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 73900,
-   "sha256_12": "13250bfb31dd"
+   "bytes": 74676,
+   "sha256_12": "b5ba65c7ce0e"
   },
   {
    "file": "run_sample.py",

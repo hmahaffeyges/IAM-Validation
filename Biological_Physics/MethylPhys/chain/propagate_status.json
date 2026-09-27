@@ -1,6 +1,6 @@
 {
- "when": "2026-09-27 18:13 UTC",
- "commit": "d97a979",
+ "when": "2026-09-27 23:51 UTC",
+ "commit": "2d9d921",
  "pass": true,
  "rules": [
   {
@@ -16,12 +16,12 @@
   {
    "rule": "every sealed procedure has a row in CHAIN_COMMISSIONING",
    "ok": true,
-   "detail": "23 procedures"
+   "detail": "24 procedures"
   },
   {
    "rule": "every sealed procedure is in the reviewer manifest",
    "ok": true,
-   "detail": "23 procedures"
+   "detail": "24 procedures"
   },
   {
    "rule": "procedures that changed a reported number are in the Operations Manual data module",
@@ -51,7 +51,7 @@
   {
    "rule": "every new procedure script invokes the chain rather than its internals",
    "ok": true,
-   "detail": "19 grandfathered; instrument tests (declared, no reading produced): PROC_INTAKE_01.py, PROC_MF_01.py, PROC_MF_02.py, PROC_MF_03.py, PROC_MF_03_extract.py, PROC_SKY_01.py, PROC_STAGE2D_03.py, PROC_TARE_01.py, PROC_UNMIX_01.py; the rest clean"
+   "detail": "19 grandfathered; instrument tests (declared, no reading produced): PROC_FOREIGNSCORE_01.py, PROC_INTAKE_01.py, PROC_MF_01.py, PROC_MF_02.py, PROC_MF_03.py, PROC_MF_03_extract.py, PROC_SKY_01.py, PROC_STAGE2D_03.py, PROC_TARE_01.py, PROC_UNMIX_01.py; the rest clean"
   },
   {
    "rule": "per-cell A on the commissioned physics surface (test_percell_physics)",
