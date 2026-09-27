@@ -71,7 +71,7 @@ intact.
 
 **The failure mode worth knowing.** This step reads the *result* of Step 0.1, not the caller's dictionary. If
 a field is not propagated between the two, this gate sees it as absent and refuses — which is what happened on
-2026-09-23 when `patient_id` was dropped in transit: every array in a 732-array cohort came back
+2026-09-23 when `patient_id` was dropped in transit: every one of 732 arrays came back
 `QUARANTINE_MANIFEST_INVALID` with a PII flag, and the cause was two functions disagreeing about a field name.
 **A gate that refuses 100 % of anything is reporting on the wiring, not on the specimens.**""",
 
@@ -113,7 +113,7 @@ reading the control addresses out of the array's own manifest. Nothing but the p
 that refuses every healthy specimen is not measuring the specimen, so when bisulfite conversion is the *only*
 failing metric and `BS_THRESHOLD_CALIBRATED` is False, this step returns
 `PROVISIONAL_BS_THRESHOLD_UNCALIBRATED`, Step 0.9 records it as deferred, and the measured value prints on the
-report. The threshold will be set from the healthy distribution across several cohorts
+report. The threshold is a detector constant, set from the array's own control probes and fixed before any specimen is read
 ([`PROC_STAGE0_04_PREREG.md`](../doors/PROC_STAGE0_04_PREREG.md)) and the flag flipped in the same commit.
 Every other metric in this step applies normally: `FAIL_HYB_FAIL` and `FAIL_EXT_FAIL` are hard failures.
 
@@ -155,7 +155,7 @@ from normal and points at hybridisation or a degraded specimen — not at config
 
 **This gate warns; it does not refuse.** A low bead count is a precision statement about part of the array, not
 a reason to discard a specimen, so it contributes `borderline` to the Step 0.9 decision and the sample is
-scored as `PROCEED_WITH_PENALTY` with the flag printed on the report. In the reference cohort all eight
+scored as `PROCEED_WITH_PENALTY` with the flag printed on the report. Among the reference arrays all eight
 penalised arrays inside the sealed set were penalised here and nowhere else.
 
 **At the bench.** Nothing to do for a single warned array. A plate where many arrays warn together is a
@@ -228,7 +228,7 @@ sample is `QUARANTINE_CORRUPT_IDAT`. The alternative — catching the exception 
 that converts a failure into a silence is worse than having no gate.
 
 **Measured (732 arrays).** 720 `PROCEED`, 8 `PROCEED_WITH_PENALTY`, 3 `QUARANTINE`, 1 decode error. Every
-refusal in the cohort traces to metadata the depositors do not publish, or to one locally truncated file — not
+refusal among the arrays traces to metadata the depositors do not publish, or to one locally truncated file — not
 to a specimen the chain misjudged.""",
 }
 

@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "built": "2026-09-27 02:46",
-  "commit": "ee902da",
+  "built": "2026-09-27 03:00",
+  "commit": "6059f5c",
   "n_files": 196,
   "n_undescribed": 9,
   "undescribed": [
@@ -233,7 +233,7 @@
    "stage": "",
    "description": "",
    "bytes": 21920,
-   "sha256_12": "bf3adb118097"
+   "sha256_12": "7b0d6b25d0e2"
   },
   {
    "file": "PART_II_CHAPTER_NOTES.md",
@@ -260,7 +260,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11920,
-   "sha256_12": "19bc65cdcda0"
+   "sha256_12": "800857701808"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -269,7 +269,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2749,
-   "sha256_12": "6cb5c67e03c4"
+   "sha256_12": "75e482e76b88"
   },
   {
    "file": "REPRODUCTION.md",
@@ -394,8 +394,8 @@
    "role": "interface",
    "stage": "",
    "description": "builds the operations manual; run through build_om.sh so the contents page carries measured page numbers",
-   "bytes": 125067,
-   "sha256_12": "fc806445e476"
+   "bytes": 125076,
+   "sha256_12": "4addcb42c47d"
   },
   {
    "file": "build_repo_inventory.py",
@@ -574,8 +574,8 @@
    "role": "interface",
    "stage": "",
    "description": "the manual's data module: every constant, table and section text it renders",
-   "bytes": 230747,
-   "sha256_12": "87f00821a354"
+   "bytes": 230795,
+   "sha256_12": "dbc4e1232325"
   },
   {
    "file": "om_part3.py",
@@ -602,7 +602,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1931,
-   "sha256_12": "30f9e3727039"
+   "sha256_12": "af9c5bc184aa"
   },
   {
    "file": "reference_cells_37.csv",
@@ -620,7 +620,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19816,
-   "sha256_12": "932e13c8cfaf"
+   "sha256_12": "a66d9ddbb289"
   },
   {
    "file": "sop_repoint.py",
@@ -646,8 +646,8 @@
    "role": "guard",
    "stage": "",
    "description": "writes the per-step operational blocks - thresholds, refusal strings, what the operator does",
-   "bytes": 16597,
-   "sha256_12": "42ca37926c33"
+   "bytes": 16630,
+   "sha256_12": "be924f4d6ef6"
   },
   {
    "file": "sync_components.py",
@@ -988,8 +988,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1247094,
-   "sha256_12": "faaa73b90058"
+   "bytes": 1275947,
+   "sha256_12": "5ebe9b1c5ccb"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1321,8 +1321,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 223034,
-   "sha256_12": "cdb23d9d5fc3"
+   "bytes": 222661,
+   "sha256_12": "7ba14c4bdadf"
   },
   {
    "file": "build_percell_reference.py",
@@ -1340,7 +1340,7 @@
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
    "bytes": 69028,
-   "sha256_12": "85f3db907118"
+   "sha256_12": "af86d72082c5"
   },
   {
    "file": "run_sample.py",
