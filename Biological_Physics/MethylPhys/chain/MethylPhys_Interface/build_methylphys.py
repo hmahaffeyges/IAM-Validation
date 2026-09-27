@@ -267,7 +267,7 @@ def tab_reading(o, R, sid):
     if st=="OK":
         det=fd.get("detected") or []
         H.append(("<p><b>Detected above this laboratory's own line: "+_e(", ".join(det))+".</b> A presence statement, not a clinical statement; the cell's A is read only where it clears its presence floor.</p>") if det
-                 else "<p><b>No foreign cell above this laboratory's line.</b> Limits measured 0.5-1 % for Breast, colon epithelium, cortical neurons and prostate on four 450K laboratories (PROC-MF-02/03).</p>")
+                 else "<p><b>No foreign cell above this laboratory's line.</b> Held out on 732 healthy arrays this detector false-alarms on 48 %; its result is printed and NOT trusted until it is rebuilt (FINDING_DETECTION_PANEL_HELDOUT.md).</p>")
     elif st.startswith("OK_BUT_UNSPECIFIC"):
         H.append(f"<p class='pend'><b>Unspecific.</b> {_e(st.split(': ',1)[-1])} Every foreign column rising together is what a specimen that is not blood-like looks like; no single detection is read.</p>")
     elif st.startswith("NOT_COMMISSIONED"):
@@ -332,7 +332,7 @@ def _detection_block(o):
     2026-09-26 and scoped to laboratories with a commissioned panel; the status string says exactly why nothing is
     printed when nothing is."""
     fd=o.get("foreign_detection")
-    H=["<h3>Foreign-cell detection (Stage 2d)</h3>"]
+    H=["<h3>Foreign-cell detection (Stage 2d)</h3>", "<p class='pend'><b>Held out on 732 healthy blood arrays (2026-09-27), this detector fires on 48 % of them and calls 24 % a 'substrate mismatch' - its lines were set on 12 arrays and its &sigma; is 2.6&times; too small (FINDING_DETECTION_PANEL_HELDOUT.md). Nothing in this section is trusted until the detector is rebuilt (per-array common-mode removal, lines re-measured, thin-source cells marked not detectable). The composition check above is unaffected.</p>"]
     if not fd:
         H.append("<p class='pend'>NOT RUN - this bundle predates Stage 2d.</p>"); return "".join(H)
     st=fd.get("status") or ""

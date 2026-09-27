@@ -12,8 +12,8 @@ Order rule: chain before documents, documents before launcher, and nothing edits
 ## Chain — one at a time
 
 3. **PROC-SKY-01 follow-up** — re-run the sky script with Munich refused at intake. The sky is currently DRAWN on the no-population σ (atlas posterior + this array's SNP noise) — my call under the development-stage ruling, not the author's explicit pick. **Author's open decision**: keep it drawn as z on that σ, or draw the raw residual in β units with no σ at all (plus the serial difference map, item 8).
-4. **Held-out Stage 2d** (`heldout2d.py`, written) — all 732 Uppsala arrays, one shard per array, run alone: the real false-positive rate of the foreign-cell panels (adipocyte / endothelial / gastric firing on healthy blood at the 12-array line is the open finding).
-5. **Stage 2d kit test** — contract from item 4's number; a panel not commissioned says so and nothing else.
+4. **Stage 2d rebuilt** — FINDING_DETECTION_PANEL_HELDOUT.md (732 arrays: 48 % false alarms, 24 % 'substrate mismatch', σ 2.6× too small). Pre-register: per-array common-mode removal; lines re-measured on the admitted set with a stated quantile — **author's decision: is a noise floor measured on arrays known to lack the cell acceptable, or must the line come from the array itself (SNP noise)?**; thin-source cells print NOT DETECTABLE until atlas v2. Until then the detector is not trusted on any specimen and the report says so.
+5. **Stage 2d kit test** — contract from the finding: per-cell FP ≤ 1 % on OK arrays, UNSPECIFIC ≤ 1 % of healthy arrays, thin-source cells 'not detectable'.
 6. **Twin/family thresholds as a runtime matrix** — no constants in code (same move as the intake thresholds).
 7. **Chip term** — the SNP tare did not remove it (TARE-01 B6); the control-probe model (0.002–0.018 on the clean laboratories) is the recorded route. Pre-register; run on the 768 calibrated arrays.
 8. **Serial mode** — `run_sample.py --prior <bundle>`: same patient, per-cell ΔA, Δfraction, difference sky; change floor pre-registered. This is what the sky is for.
