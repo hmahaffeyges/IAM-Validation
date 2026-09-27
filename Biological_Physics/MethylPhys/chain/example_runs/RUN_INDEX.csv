@@ -7,3 +7,4 @@ RUN-20260926-19,BLOOD,GSE87571,whole_blood,,2026-09-26T23:46:14Z,6b8fb33,0.9805,
 RUN-20260926-20,BLOOD,GSE87571,whole_blood,,2026-09-26T23:53:26Z,6b8fb33,0.9805,IN_BAND,False,False,,blood.html,example_runs/evidence_ledger_example.jsonl
 RUN-20260927-01,BLOOD,GSE87571,whole_blood,,2026-09-27T01:30:31Z,c64239a,0.9805,IN_BAND,False,False,,blood.html,example_runs/evidence_ledger_example.jsonl
 RUN-20260927-03,BLOOD,GSE87571,whole_blood,,2026-09-27T02:02:06Z,12efca3,0.9805,IN_BAND,False,False,,blood.html,example_runs/evidence_ledger_example.jsonl
+RUN-20260927-04,BLOOD,GSE87571,whole_blood,,2026-09-27T02:09:56Z,c3b8028,0.9805,IN_BAND,False,False,,blood.html,example_runs/evidence_ledger_example.jsonl

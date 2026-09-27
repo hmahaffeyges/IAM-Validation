@@ -1,6 +1,6 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `chain/example_runs/RUN-20260926-14/BLOOD.html` at commit `12efca3`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `chain/example_runs/RUN-20260926-14/BLOOD.html` at commit `c3b8028`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
 One run produces **one self-contained HTML file of 7.34 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
@@ -64,7 +64,7 @@ Every constant the reading was corrected by, with where each came from - the flo
 
 ![Reference tab](../manual/report_tab_figures/reference.png)
 
-*9 KB, 3 tables, 20 rows.*  Sections: **The instrument - its constants, its calibration, and the arrays it was calibrated on**, **1. Physical constants - the floors and the per-cell references**, **2. Instrument calibration - what a laboratory's array needs before a cell can be read**, **3. The healthy arrays the calibration was measured on**, **4. What is NOT on this page**
+*10 KB, 3 tables, 20 rows.*  Sections: **The instrument - its constants, its calibration, and the arrays it was calibrated on**, **1. Physical constants - the floors and the per-cell references**, **2. Instrument calibration - what a laboratory's array needs before a cell can be read**, **3. The healthy arrays the calibration was measured on**, **4. What is NOT on this page**
 
 ### Coverage  ·  `coverage`  ·  SPECIMEN
 
@@ -104,7 +104,7 @@ The fail-safes that kept this reading honest: the Stage 0 custody record for thi
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*18 KB, 3 tables, 64 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 12efca3)**, **5. Two rules this report obeys**
+*18 KB, 3 tables, 64 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Constants on record for this laboratory (applied to the internal blood-like gate and the sky only; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit c3b8028)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 

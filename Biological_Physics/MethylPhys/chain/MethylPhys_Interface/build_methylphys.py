@@ -682,14 +682,21 @@ def tab_reference(R, percell_status):
        "<b>instrument calibration</b> (how a laboratory's array is brought onto the atlas scale, where a cell counts as present, how quiet the foreign-cell detector is), and "
        "<b>the healthy arrays</b> those calibrations were measured on. Nothing on this page adds to or subtracts from any cell's A. No number here comes from a disease sample.</p>"]
     # ---- 1. physical constants
+    SUBL={"methyl":"methylation","nucl":"nucleosome occupancy","fuzz":"nucleosome fuzziness","wps":"WPS","frag":"DELFI fragment size"}
+    subs=list(R.get("sub_order") or ["methyl"]); hm_tab=R.get("hmin_table") or {}
     H.append("<h3>1. Physical constants - the floors and the per-cell references</h3>"
-             "<table class='t'><tr><th>architecture class</th><th>H_min</th><th>ceiling 1/H_min</th></tr>")
+             "<p>H_min is the minimum entropy a cell of that class must hold to keep its identity; A = H / H_min, and H cannot exceed 1 bit (a coin flip at every locus), so "
+             "<b>1/H_min is the ceiling</b> - where the gauge saturates, total loss of the identity pattern. One floor per class per substrate. Only the methylation column is read on this "
+             "report; the other four substrates have frozen floors and no pipeline map, so they are RESERVED (see Coverage).</p>"
+             "<table class='t'><tr><th>architecture class</th><th>H_min (methylation)</th><th>ceiling 1/H_min</th>"+"".join(f"<th class='m'>H_min {SUBL.get(k,k)}<br>RESERVED</th>" for k in subs[1:])+"</tr>")
     # the floors the identity gauge divides by, read from the identity-loci file (methylation substrate) - not the
     # five-substrate table, which rendered as a tuple on 2026-09-26
     for cl,ent in sorted((R.get("ident") or {}).items()):
         if not isinstance(ent,dict) or ent.get("H_min") is None: continue
-        hm=float(ent["H_min"]); H.append(f"<tr><td>{_e(cl)}</td><td class='n'>{hm:.4f}</td><td class='n'>{1/hm:.4f}</td></tr>")
-    H.append("</table><p class='m'>Eight class floors fitted by MCMC on 37 published reference cell methylomes (G-002, April 2026; 32 walkers, 500 burn-in, 5,000 production steps, five chains, R-hat below 1.001) and frozen. "
+        hm=float(ent["H_min"]); row=hm_tab.get(cl) or ()
+        extra="".join(f"<td class='n m'>{float(row[i]):.4f}</td>" if i<len(row) else "<td class='m'>-</td>" for i in range(1,len(subs)))
+        H.append(f"<tr><td>{_e(cl)}</td><td class='n'>{hm:.4f}</td><td class='n'>{1/hm:.4f}</td>{extra}</tr>")
+    H.append("</table><p class='m'>Methylation floors: eight class floors fitted by MCMC on 37 published reference cell methylomes (G-002, April 2026; 32 walkers, 500 burn-in, 5,000 production steps, five chains, R-hat below 1.001) and frozen. "
              "Re-run 2026-09-22: every floor inside its own posterior SD (largest difference 0.000245 against SDs of 0.0069-0.0088). Samplers, the 37-cell table and a fifteen-second re-run script: "
              "<a href='https://doi.org/10.5281/zenodo.22905819'>10.5281/zenodo.22905819</a>. A cell's A cannot exceed 1/H_min of its class; the scorer asserts it.</p>")
     if pref and pref.get("entries"):
@@ -706,7 +713,7 @@ def tab_reference(R, percell_status):
     H.append("<h3>2. Instrument calibration - what a laboratory's array needs before a cell can be read</h3>"
              "<table class='t'><tr><th>calibration</th><th>what it does</th><th>measured on</th><th>file</th></tr>"
              f"<tr><td>Pipeline map</td><td>beta_atlas = (beta - {mp['intercept']}) / {mp['slope']}: puts a laboratory's Stage 1 betas on the atlas scale. Without it every cell reads SUPPRESSED on raw betas (LESSON-SURFACE-01 RC2).</td><td>{_e(mp['fit_cohort'])}, {mp['n_loci']} identity loci; transfer: {_e(mp['transfer_test'])}</td><td>{_link(R,'beta_scale_maps_v1.json')}</td></tr>"
-             f"<tr><td>Presence floors</td><td>a class or cell below its floor is not scored - an absent cell's loci carry the specimen's other cells and read by artefact (PROC-CEIL-01)</td><td>{_e(fl) if fl else 'per class, from the healthy panels'}</td><td>{_link(R,'presence_floors_v1.json')}</td></tr>"
+             f"<tr><td>Presence floors</td><td>a class or cell below its floor is not scored - an absent cell's loci carry the specimen's other cells and read by artefact (PROC-CEIL-01). Floors: {_e(', '.join(f'{k} {float(v):.3f}' for k,v in sorted(((fl.get('floors') or fl) if isinstance(fl,dict) else {}).items()) if not str(k).startswith('_')))}</td><td>{_e(((R.get('floors') or {}).get('_meta') or {}).get('rule','160 healthy panel arrays'))} ({_e(((R.get('floors') or {}).get('_meta') or {}).get('proc',''))})</td><td>{_link(R,'presence_floors_v1.json')}</td></tr>"
              f"<tr><td>Foreign-cell detector panel</td><td>per-laboratory noise floor and detection line for each foreign cell (Stage 2d). A laboratory without a commissioned panel reports 'detection not commissioned', never a borrowed line.</td><td>48 healthy arrays, four laboratories; full 732-array GSE87571 for the commissioning laboratory</td><td>{_link(R,'detection_panel_v1.json')}</td></tr>"
              f"<tr><td>Sky per-address scale</td><td>the spread of the composition residual at each address, so the Sky tab can draw z; the sky is a picture, not a reading</td><td>the laboratory's panel</td><td>{_link(R,'stage_4_6_patient_cmb.py')}</td></tr>"
              f"<tr><td>Tier scale</td><td>NORMAL [0.95, 1.04); ELEVATED to 1.07 (Warburg line); BREACH at 1.10 - the tolerance about A = 1.00, one file, one function</td><td>-</td><td>{_link(R,'tier_breakpoints.json')}</td></tr>"
