@@ -43,6 +43,8 @@ Order rule: chain before documents, documents before launcher, and nothing edits
 
 21b. **RETEST set — pre-registered now, run on the rented machine** (author 2026-09-27: "get a bunch of the tests ready to run"). One PROC per old VAL worth re-reading on the commissioned chain, bars fixed before the machine exists: EPIC-Italy pre-dx breast (GSE51032, per cell, per year-to-diagnosis), AD / PSP direction (DIRECTION-01), plasma sepsis (cfDNA specimen - composition + A per present cell), CRC and gastric (the untested stomach cells), the 200-array healthy panels per laboratory. Each gets: cohort on disk or a fetch script, a runner that writes one shard per array, bars, and a dispatch line — so the whole set is one submission and the results come back to the same outcome format.
 
+21c. **Biopsy scoring** — the cell atlas on a tissue specimen (author 2026-09-28: 'could be a perfect tool for biopsy'). Gated on ATLAS_V2_SPEC test T1: v2 deconvolves ~40 ENCODE healthy tissues into their own organ's cells and every present cell reads NORMAL. Tissue atlas built alongside, separate from the cell atlas.
+
 ## Reach (after the human chain is stable; author 2026-09-27: "I just don't want to limit the reach of this")
 
 The argument is **one instrument, one fixed point, many species**: the same A against the same class floors, no population, read in

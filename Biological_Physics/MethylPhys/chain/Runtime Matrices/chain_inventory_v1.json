@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "built": "2026-09-27 18:09",
-  "commit": "5790aba",
-  "n_files": 211,
-  "n_undescribed": 15,
+  "built": "2026-09-27 19:51",
+  "commit": "78195fc",
+  "n_files": 213,
+  "n_undescribed": 17,
   "undescribed": [
    "ATLAS_SOURCES_SURVEY.md",
    "ATLAS_V2_SPEC.md",
@@ -18,7 +18,9 @@
    "intake_thresholds_v1.json",
    "loyfer2023_extract_report.json",
    "moss2018_stage1_manifest.csv",
+   "salas_blood_stage1_manifest.csv",
    "serial_mode.py",
+   "tian2023_extract_report.json",
    "trace_detection_panel_v1.json"
   ],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
@@ -193,8 +195,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 9193,
-   "sha256_12": "f017c7034842"
+   "bytes": 11412,
+   "sha256_12": "3a5a82d11430"
   },
   {
    "file": "BLOOD_bundle.json",
@@ -320,7 +322,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11970,
-   "sha256_12": "629845c021b8"
+   "sha256_12": "e52fdbaa7ca5"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -329,7 +331,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "8fb0776a79b0"
+   "sha256_12": "9a4f68d5a4f7"
   },
   {
    "file": "REPRODUCTION.md",
@@ -653,7 +655,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1995,
-   "sha256_12": "caa234529b62"
+   "sha256_12": "cd50060443bb"
   },
   {
    "file": "reference_cells_37.csv",
@@ -671,7 +673,16 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "6efbd3cd85db"
+   "sha256_12": "2c2db52f2ba0"
+  },
+  {
+   "file": "salas_blood_stage1_manifest.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/salas_blood_stage1_manifest.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 12688,
+   "sha256_12": "23fa07d48cdc"
   },
   {
    "file": "serial_mode.py",
@@ -717,6 +728,15 @@
    "description": "keeps COMPONENT_MAP's runtime-file section in step with what the code reads",
    "bytes": 9804,
    "sha256_12": "7528e76df898"
+  },
+  {
+   "file": "tian2023_extract_report.json",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/tian2023_extract_report.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1566,
+   "sha256_12": "096a4c5ee4ef"
   },
   {
    "file": "toc_pages.json",
@@ -959,7 +979,7 @@
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
    "bytes": 23519,
-   "sha256_12": "a5abebf4b32c"
+   "sha256_12": "833abf92f056"
   },
   {
    "file": "build_all.py",
@@ -1057,8 +1077,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1760007,
-   "sha256_12": "55cd8d7d5b29"
+   "bytes": 1787872,
+   "sha256_12": "3e1049fa306f"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1183,8 +1203,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 11193,
-   "sha256_12": "08749aa80e55"
+   "bytes": 11517,
+   "sha256_12": "9623e7ed7e2d"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1418,7 +1438,7 @@
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
    "bytes": 75827,
-   "sha256_12": "47b4892a3172"
+   "sha256_12": "52078222d93f"
   },
   {
    "file": "run_sample.py",

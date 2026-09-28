@@ -66,6 +66,32 @@ types, 460k–845k shared CpGs each. r = 0.93–0.97; median |Δβ| 0.045–0.06
 a −0.04 to −0.07 for every cell type** — one transfer between platforms, not a per-cell difference. That is the source term δ the
 model is built to estimate, measured before the model exists.
 
+
+**Sources update 2026-09-28 (later).**
+- Salas 2018 (GSE110554) + Salas 2022 (GSE167998): **117 sorted-blood EPIC arrays through our Stage 1, 0 below the intake line**
+  (medians 0.96–0.99); 13 types incl. basophils, Treg, naive/memory CD4 and CD8, naive/memory B, eosinophils, neutrophils.
+- Reinius 2012 (GSE35069): **no raw IDATs on GEO** (only an intensity table), so it cannot enter through Stage 1. Every Reinius cell
+  type is covered by the Salas sets; its red/green data exist in the Bioconductor package FlowSorted.Blood.450k if a 450K second
+  source is wanted later.
+- Caggiano's placenta / heart / skeletal / mammary columns come from **bulk tissue** WGBS; tissues go to the tissue atlas, not the
+  cell atlas. ENCODE holds ~70 released human tissue WGBS experiments across ~40 tissues.
+
+
+- Tian 2023 brain (figshare 28438499, hg38 pseudobulk, 3 donors pooled per type): streamed and read at array CpGs via the hg38
+  InfiniumAnnotation manifests. **Astrocytes 861,587 CpGs, median 50 reads, 99.1 % at ≥ 10 reads**; microglia, oligodendrocytes,
+  OPC the same; VLMC median 25; pericytes median 11 (64.6 % at ≥ 10) and brain endothelium median 15 (85.9 %) are thin.
+  **Mapping verified across genome builds:** Tian oligodendrocytes vs Loyfer oligodendrocytes r = 0.986 (same cell, two labs, two
+  builds) against 0.876–0.911 for different cells; microglia is nearer Loyfer's macrophages (0.947) than monocytes (0.926).
+  Pooled profiles carry no donor variance and enter, if the author accepts it, flagged "pooled, 3 donors".
+
+**Test T1 — the cell atlas on known tissue (after A1–A9).** Each ENCODE tissue is deconvolved by v2 at array CpGs. Pass when
+(a) the dominant cells are that organ's own (stomach → gastric epithelium; heart → cardiomyocyte, fibroblast, endothelium …), and
+(b) every present cell reads inside NORMAL. The first measurement of the gauge outside blood. Bars fixed before any tissue is read.
+
+**Tissue atlas (separate).** One profile per tissue, ENCODE WGBS + the 2026 Cell Reports Methods 450K compendium; answers "what
+tissue is this / what shed into this specimen"; never enters the cell deconvolution. Biopsy scoring runs on the cell atlas and is
+gated on T1.
+
 ## Acceptance tests — written now, run once, no bar moves afterwards
 | | test | passes if |
 |---|---|---|
