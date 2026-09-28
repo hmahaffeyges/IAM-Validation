@@ -121,3 +121,15 @@ report, saved before anything is deleted from the rented machine.
 
 ## What does not change
 H_min (G-002, frozen). The identity loci (v1.1; re-derived only if A8 fails). A = H(mean β)/H_min. Tiers. Healthy = 1.00.
+
+
+## Amendments (dated; the original text above is not edited)
+1. **2026-09-28 — A3 replaced (author, D9: no partial cells).** v2 imputes nothing: a (cell, locus) with no observation is NOT MEASURED,
+   never a prior-only mean. A3 becomes: *every unmeasured pair is marked, none carries a value* (V3). The 252-locus families of v1 do
+   not exist in v2 — only whole-array cells entered.
+2. **2026-09-28 — identity loci, decision pending.** The text above keeps the v1.1 identity loci unless A8 fails. The class rule
+   (CLASS_USE_INVENTORY.md) removes the shared class-keyed identity set at the switch-over. The author decides before V12 whether
+   each cell gets its own identity loci on v2 (then A8 compares v1 on v1.1 loci with v2 on the new loci) or v1.1 stays until A8.
+3. **2026-09-28 — A2 wording.** "same class" is dropped from the twin definition; twins are tested per sample for every close pair.
+4. **2026-09-28 — tissue.** The "Tissue atlas (separate)" paragraph is superseded by D13: tissue profiles are test specimens for T1,
+   never references. Compute: built on CPU (AWS c7a.32xlarge, 128 vCPU), not a GPU. Model as built: `../atlas/v2/README.md`.
