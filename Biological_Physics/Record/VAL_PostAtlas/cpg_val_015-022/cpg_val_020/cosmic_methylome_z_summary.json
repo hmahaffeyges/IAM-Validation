@@ -1,0 +1,66 @@
+{
+  "stem_pluri": {
+    "n_cpgs_valid": 13466,
+    "mean_z": -8.636631794200358,
+    "median_z": 4.0636871015346,
+    "abs_z_p95": 120.01249334577639,
+    "n_cpgs_z_above_2": 12310,
+    "n_cpgs_z_above_3": 11692
+  },
+  "stem_adult": {
+    "n_cpgs_valid": 13466,
+    "mean_z": -0.2086883711601,
+    "median_z": 2.2899306219784057,
+    "abs_z_p95": 42.30722098891131,
+    "n_cpgs_z_above_2": 10590,
+    "n_cpgs_z_above_3": 9189
+  },
+  "stromal": {
+    "n_cpgs_valid": 6143,
+    "mean_z": 8.120159827011614,
+    "median_z": 1.117273317787916,
+    "abs_z_p95": 24.72470638460028,
+    "n_cpgs_z_above_2": 2940,
+    "n_cpgs_z_above_3": 2468
+  },
+  "progenitor": {
+    "n_cpgs_valid": 13466,
+    "mean_z": 0.3014919386532196,
+    "median_z": 0.639781935067727,
+    "abs_z_p95": 9.4532027849686,
+    "n_cpgs_z_above_2": 6277,
+    "n_cpgs_z_above_3": 4217
+  },
+  "cycling": {
+    "n_cpgs_valid": 12601,
+    "mean_z": 13.300571143331949,
+    "median_z": 0.7288113557448576,
+    "abs_z_p95": 141.5296232783687,
+    "n_cpgs_z_above_2": 7820,
+    "n_cpgs_z_above_3": 7185
+  },
+  "secretory": {
+    "n_cpgs_valid": 12506,
+    "mean_z": 12.294676377691934,
+    "median_z": 0.6974402284367229,
+    "abs_z_p95": 147.09170089854393,
+    "n_cpgs_z_above_2": 7848,
+    "n_cpgs_z_above_3": 7211
+  },
+  "immune": {
+    "n_cpgs_valid": 13466,
+    "mean_z": -0.16404969790727786,
+    "median_z": -0.0025975312844332605,
+    "abs_z_p95": 2.44695404165853,
+    "n_cpgs_z_above_2": 1006,
+    "n_cpgs_z_above_3": 424
+  },
+  "terminal": {
+    "n_cpgs_valid": 13441,
+    "mean_z": 147.5502431798054,
+    "median_z": 0.5697445465186736,
+    "abs_z_p95": 2062.2205530511433,
+    "n_cpgs_z_above_2": 6477,
+    "n_cpgs_z_above_3": 5464
+  }
+}
