@@ -1,7 +1,7 @@
 {
  "_meta": {
   "generated_from": "kit/results/reference_report/reference.html",
-  "commit": "2d9d921",
+  "commit": "5790aba",
   "n_tabs": 17,
   "report_mb": 6.49,
   "n_specimen": 8,
@@ -335,7 +335,7 @@
     "1. What this run refused, and why",
     "2. The safeguards, with their cosmology twins",
     "3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)",
-    "4. Files read by this run (repository at commit 2d9d921)",
+    "4. Files read by this run (repository at commit 5790aba)",
     "5. Two rules this report obeys"
    ],
    "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
@@ -378,7 +378,7 @@
     "Present but NOT in the chain (31)",
     "Superseded (4)"
    ],
-   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit 2d9d921 - 208 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
+   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit 5790aba - 211 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
    "figure": "../manual/report_tab_figures/files.png",
    "is_screenshot": false,
    "cmb": []

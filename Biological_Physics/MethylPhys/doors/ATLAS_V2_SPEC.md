@@ -40,6 +40,32 @@ the atlas scale via **its own pipeline map** where it is not already there; the 
 (Loyfer 2023 WGBS; the 476-methylome purified-cell set; the July 2026 single-cell body atlas) enter **after** v2 is accepted, one at a
 time, through the same script.
 
+
+## Revision 2026-09-28 — inputs are samples, not panels
+The author's v1 build vault (`atlas_vault_OLD.zip`) shows v1 pooled other groups' **reference tables**, most of them marker panels
+(Caggiano 254 CpGs, Moss/Loyfer 6,105, EpiSCORE 2k–4k and partly imputed from RNA, UniLIFE 1,906, Salas 450). That is the origin of
+the coverage families above, and it means v1's per-locus "SD" was fitted to one number per cell, not to donors. v2's inputs change:
+**the samples behind each table, at every locus**, so the model estimates real between-donor variance, the source term and Σ.
+The eleven-source list under "Inputs" is superseded by this list; acceptance tests A1–A9 are unchanged and A8 still decides.
+
+| source | form | status 2026-09-28 |
+|---|---|---|
+| Moss 2018, GSE122126 | raw 450K/EPIC IDATs → our Stage 1 | **101/101 calibrated on AWS**; 23 of 28 sorted-cell arrays pass intake (`atlas/sources/moss2018_stage1_manifest.csv`) |
+| Loyfer 2023, GSE186458 | hg19 WGBS beta + depth at array CpGs | **207 sorted samples read**; 895,713 of 895,827 probes mapped; 99 % covered, median depth 32 (`atlas/sources/loyfer2023_extract_report.json`) |
+| Reinius 2012, Salas 2018/2022, UniLIFE's sorted immune sets | raw arrays → Stage 1 | to fetch (accessions to verify) |
+| Caggiano's source WGBS (Roadmap/ENCODE tissues) | WGBS beta at array CpGs | to fetch |
+| Tian 2023 brain (GSE215353), Zhou 2026 body | single-cell pseudobulk per type | to locate |
+| EpiSCORE | imputed columns flagged; replaced where a measured source exists | — |
+
+**Entry rule for a cell** (proposed 2026-09-28, the author's "as many cells as possible so long as they are represented well"):
+≥ 2 independent donors; every array passes intake / every sequencing sample has ≥ 10 reads at ≥ 90 % of loci; not a twin of an
+existing entry; reads 1.00 on its own profile. A cell failing any of these waits for data; it does not enter thin.
+
+**First cross-platform measurement (same cell, array vs sequencing), `atlas/sources/crossplatform_moss_vs_loyfer.csv`:** 10 cell
+types, 460k–845k shared CpGs each. r = 0.93–0.97; median |Δβ| 0.045–0.061; the fit WGBS = a + b·array has **b 1.03–1.09 and
+a −0.04 to −0.07 for every cell type** — one transfer between platforms, not a per-cell difference. That is the source term δ the
+model is built to estimate, measured before the model exists.
+
 ## Acceptance tests — written now, run once, no bar moves afterwards
 | | test | passes if |
 |---|---|---|

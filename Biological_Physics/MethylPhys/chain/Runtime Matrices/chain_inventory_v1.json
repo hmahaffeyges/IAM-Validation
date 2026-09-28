@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "built": "2026-09-27 16:48",
-  "commit": "2d9d921",
-  "n_files": 208,
-  "n_undescribed": 12,
+  "built": "2026-09-27 18:09",
+  "commit": "5790aba",
+  "n_files": 211,
+  "n_undescribed": 15,
   "undescribed": [
    "ATLAS_SOURCES_SURVEY.md",
    "ATLAS_V2_SPEC.md",
@@ -14,7 +14,10 @@
    "PHYSICS_LEUKOCYTE_GAUGE.md",
    "README_LOG_2026-09-20_to_21_RECORD.md",
    "START_HERE.md",
+   "crossplatform_moss_vs_loyfer.csv",
    "intake_thresholds_v1.json",
+   "loyfer2023_extract_report.json",
+   "moss2018_stage1_manifest.csv",
    "serial_mode.py",
    "trace_detection_panel_v1.json"
   ],
@@ -181,8 +184,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 9030,
-   "sha256_12": "378c159d973e"
+   "bytes": 11333,
+   "sha256_12": "102ea58bce4f"
   },
   {
    "file": "ATLAS_V2_SPEC.md",
@@ -190,8 +193,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 6803,
-   "sha256_12": "e3a5a00af503"
+   "bytes": 9193,
+   "sha256_12": "f017c7034842"
   },
   {
    "file": "BLOOD_bundle.json",
@@ -316,8 +319,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11920,
-   "sha256_12": "a1dff0871315"
+   "bytes": 11970,
+   "sha256_12": "629845c021b8"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -326,7 +329,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "e205ff6cda5d"
+   "sha256_12": "8fb0776a79b0"
   },
   {
    "file": "REPRODUCTION.md",
@@ -343,8 +346,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 32350,
-   "sha256_12": "6359d9261a6e"
+   "bytes": 32400,
+   "sha256_12": "bc7d277d94b2"
   },
   {
    "file": "RUN.md",
@@ -500,6 +503,15 @@
    "sha256_12": "f280d28f233d"
   },
   {
+   "file": "crossplatform_moss_vs_loyfer.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/crossplatform_moss_vs_loyfer.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 827,
+   "sha256_12": "33c271d8d43f"
+  },
+  {
    "file": "disease_matching.py",
    "path": "Biological_Physics/MethylPhys/chain/disease_matching.py",
    "role": "not in the chain",
@@ -581,6 +593,15 @@
    "sha256_12": "d4cf4186f677"
   },
   {
+   "file": "loyfer2023_extract_report.json",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/loyfer2023_extract_report.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 33413,
+   "sha256_12": "2f2e3716e1b8"
+  },
+  {
    "file": "make_figures.py",
    "path": "Biological_Physics/MethylPhys/papers/make_figures.py",
    "role": "record",
@@ -588,6 +609,15 @@
    "description": "builds the figures for the papers in this folder",
    "bytes": 20655,
    "sha256_12": "8402a106af41"
+  },
+  {
+   "file": "moss2018_stage1_manifest.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/moss2018_stage1_manifest.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 10273,
+   "sha256_12": "bb3d5cfb5f08"
   },
   {
    "file": "om_data.py",
@@ -622,8 +652,8 @@
    "role": "record",
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
-   "bytes": 1970,
-   "sha256_12": "d00efc71d86d"
+   "bytes": 1995,
+   "sha256_12": "caa234529b62"
   },
   {
    "file": "reference_cells_37.csv",
@@ -641,7 +671,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "83f44705793a"
+   "sha256_12": "6efbd3cd85db"
   },
   {
    "file": "serial_mode.py",
@@ -928,8 +958,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 23520,
-   "sha256_12": "e9e1c1dd5246"
+   "bytes": 23519,
+   "sha256_12": "a5abebf4b32c"
   },
   {
    "file": "build_all.py",
@@ -991,8 +1021,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 17853,
-   "sha256_12": "06652ccc402e"
+   "bytes": 19080,
+   "sha256_12": "4ab637abb2c3"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -1027,8 +1057,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1709628,
-   "sha256_12": "267e8827efee"
+   "bytes": 1760007,
+   "sha256_12": "55cd8d7d5b29"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1045,8 +1075,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7004,
-   "sha256_12": "6aa6e6aad536"
+   "bytes": 7068,
+   "sha256_12": "a4316aa11983"
   },
   {
    "file": "README_FIRST.md",
@@ -1099,8 +1129,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43086,
-   "sha256_12": "f528176b769e"
+   "bytes": 43185,
+   "sha256_12": "a04ef42bd9c7"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1153,8 +1183,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 10658,
-   "sha256_12": "584ce41486d2"
+   "bytes": 11193,
+   "sha256_12": "08749aa80e55"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1234,8 +1264,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 13843,
-   "sha256_12": "65454c33c774"
+   "bytes": 14039,
+   "sha256_12": "1106c89f23e4"
   },
   {
    "file": "cpg_kit.py",
@@ -1387,8 +1417,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 74676,
-   "sha256_12": "b5ba65c7ce0e"
+   "bytes": 75827,
+   "sha256_12": "47b4892a3172"
   },
   {
    "file": "run_sample.py",

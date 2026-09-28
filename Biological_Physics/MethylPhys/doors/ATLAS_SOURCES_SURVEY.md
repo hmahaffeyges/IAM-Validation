@@ -71,6 +71,31 @@ per-organ endothelium, naive/memory/effector T-cell subsets and memory B.
 **Still no source after this pass:** hepatic and pancreatic stellate (pending Zhou 2026's subtype list), oral macrophages, salivary
 epithelium, prostate and mammary stromal cells, cardiac endothelium, in-vivo bone-marrow stromal cells.
 
+
+## Why the atlas has thin cells — read from the author's v1 build vault (atlas_vault_OLD.zip, 2026-04/05)
+v1 pooled **published reference matrices**, not the samples behind them. Most of those matrices are marker panels: each author kept
+only the CpGs that separate their cell types. That is exactly the coverage families the v2 spec found:
+
+| v1 input (vault inventory) | CpGs | cells | coverage family it made |
+|---|---|---|---|
+| Caggiano 2021 CelFiE TIM, bridged to array CpGs | 254 | 19 (dendritic, endothelial, eosinophil, erythroblast, macrophage, monocyte, neutrophil, placenta, tcell, adipose, brain, fibroblast, heart, hepatocyte, lung, mammary, megakaryocyte, skeletal, small_intestine) | the 252-locus family |
+| Moss 2018 / Loyfer array atlas (`nloyfer/meth_atlas`) | 6,105 (7,890 before de-duplication) | 25 | the 6,105-locus family (Breast, Colon, Prostate, Kidney, Lung, Liver …) |
+| EpiSCORE (Zhu & Teschendorff 2022) tissue references | 2k–4k per tissue | 42 across 13 tissues | several small families; note EpiSCORE's `mref` matrices are partly **imputed from single-cell RNA**, not all measured methylation |
+| UniLIFE (Guo 2025) | 1,906 | 19 immune | an immune family |
+| Salas IDOL | 450 | 6 immune | |
+| EpiDISH companion panels | panel | 12 | |
+
+**Consequence for v2:** the fix for a thin cell is not a better model of the panel — it is the **samples the panel was made from**, at
+every locus:
+- **Moss 2018 raw arrays are public**: GEO **GSE122126** (450K + EPIC IDATs; sorted adipocytes, cortical neurons, hepatocytes,
+  pancreatic acinar/beta/duct, colon and lung epithelium, vascular endothelium, leukocytes). Through our own Stage 1 these become
+  full-coverage cells on our own scale — no pipeline map at all.
+- **Loyfer 2023 is public on GEO** (GSE186458, hg19 and hg38 beta files per sample). The vault's manifest listed it as EGA
+  controlled access; that was wrong or has changed — the per-sample beta files are open.
+- Caggiano's tissues came from public WGBS (Roadmap/ENCODE); EpiSCORE's imputed columns should be flagged or replaced by measured ones.
+
+Downloading now on the AWS box: Loyfer hg19 beta for the 207 sorted samples (11.7 GB) and GSE122126 raw (1.7 GB).
+
 ## Platform work each needs (the reason they enter one at a time)
 - **Loyfer (WGBS)**: beta files are per-CpG over the genome, hg19. Take the 450K/EPIC CpG coordinates from the atlas manifest,
   read those positions, keep coverage per locus as the precision term. Needs its own pipeline map onto the atlas scale.

@@ -1,0 +1,1463 @@
+{
+ "probes": 895827,
+ "mapped": 895713,
+ "offset_counts": {
+  "1.0": 895709,
+  "nan": 114,
+  "-1.0": 2,
+  "0.0": 2
+ },
+ "samples": 207,
+ "seconds": 59,
+ "per_sample": {
+  "GSM5652176": {
+   "cell_type": "Adipocytes",
+   "tissue": "Abdominal Subcut.",
+   "median_depth": 38.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9711
+  },
+  "GSM5652177": {
+   "cell_type": "Adipocytes",
+   "tissue": "Abdominal Subcut.",
+   "median_depth": 36.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9702
+  },
+  "GSM5652178": {
+   "cell_type": "Adipocytes",
+   "tissue": "Abdominal Subcut.",
+   "median_depth": 35.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9638
+  },
+  "GSM5652179": {
+   "cell_type": "Endothelium",
+   "tissue": "Aorta",
+   "median_depth": 32.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9536
+  },
+  "GSM5652180": {
+   "cell_type": "Endothelium",
+   "tissue": "Aorta",
+   "median_depth": 28.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9552
+  },
+  "GSM5652181": {
+   "cell_type": "Endothelium",
+   "tissue": "Vascular saphenous",
+   "median_depth": 31.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.9564
+  },
+  "GSM5652182": {
+   "cell_type": "Endothelium",
+   "tissue": "Vascular saphenous",
+   "median_depth": 38.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.9742
+  },
+  "GSM5652183": {
+   "cell_type": "Endothelium",
+   "tissue": "Vascular saphenous",
+   "median_depth": 37.0,
+   "frac_covered": 0.994,
+   "frac_depth_ge10": 0.9711
+  },
+  "GSM5652184": {
+   "cell_type": "Endothelium",
+   "tissue": "Kidney glomerular",
+   "median_depth": 41.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9656
+  },
+  "GSM5652185": {
+   "cell_type": "Endothelium",
+   "tissue": "Kidney glomerular",
+   "median_depth": 39.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9709
+  },
+  "GSM5652186": {
+   "cell_type": "Endothelium",
+   "tissue": "Kidney glomerular",
+   "median_depth": 33.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9631
+  },
+  "GSM5652187": {
+   "cell_type": "Endothelium",
+   "tissue": "Kidney tubular",
+   "median_depth": 42.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9683
+  },
+  "GSM5652188": {
+   "cell_type": "Endothelium",
+   "tissue": "Kidney tubular",
+   "median_depth": 28.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9526
+  },
+  "GSM5652189": {
+   "cell_type": "Endothelium",
+   "tissue": "Kidney tubular",
+   "median_depth": 24.0,
+   "frac_covered": 0.9906,
+   "frac_depth_ge10": 0.9279
+  },
+  "GSM5652190": {
+   "cell_type": "Endothelium",
+   "tissue": "Liver",
+   "median_depth": 48.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9779
+  },
+  "GSM5652191": {
+   "cell_type": "Endothelium",
+   "tissue": "Lung alveolar",
+   "median_depth": 35.0,
+   "frac_covered": 0.9914,
+   "frac_depth_ge10": 0.9526
+  },
+  "GSM5652192": {
+   "cell_type": "Endothelium",
+   "tissue": "Lung alveolar",
+   "median_depth": 41.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9704
+  },
+  "GSM5652193": {
+   "cell_type": "Endothelium",
+   "tissue": "Lung alveolar",
+   "median_depth": 36.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9573
+  },
+  "GSM5652194": {
+   "cell_type": "Endothelium",
+   "tissue": "Pancreas",
+   "median_depth": 21.0,
+   "frac_covered": 0.9916,
+   "frac_depth_ge10": 0.9307
+  },
+  "GSM5652195": {
+   "cell_type": "Endothelium",
+   "tissue": "Pancreas",
+   "median_depth": 30.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9536
+  },
+  "GSM5652196": {
+   "cell_type": "Endothelium",
+   "tissue": "Pancreas",
+   "median_depth": 22.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.9267
+  },
+  "GSM5652197": {
+   "cell_type": "Endothelium",
+   "tissue": "Pancreas",
+   "median_depth": 32.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9597
+  },
+  "GSM5652198": {
+   "cell_type": "Fibroblast",
+   "tissue": "Colon",
+   "median_depth": 38.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9691
+  },
+  "GSM5652199": {
+   "cell_type": "Fibroblast",
+   "tissue": "Colon",
+   "median_depth": 37.0,
+   "frac_covered": 0.9935,
+   "frac_depth_ge10": 0.9664
+  },
+  "GSM5652200": {
+   "cell_type": "Fibroblast",
+   "tissue": "Heart",
+   "median_depth": 19.0,
+   "frac_covered": 0.989,
+   "frac_depth_ge10": 0.8646
+  },
+  "GSM5652201": {
+   "cell_type": "Fibroblast",
+   "tissue": "Heart",
+   "median_depth": 36.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9634
+  },
+  "GSM5652202": {
+   "cell_type": "Fibroblast",
+   "tissue": "Heart",
+   "median_depth": 30.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.9517
+  },
+  "GSM5652203": {
+   "cell_type": "Fibroblast",
+   "tissue": "Heart",
+   "median_depth": 34.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9588
+  },
+  "GSM5652204": {
+   "cell_type": "Fibroblast",
+   "tissue": "Ad-dermal",
+   "median_depth": 31.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.955
+  },
+  "GSM5652205": {
+   "cell_type": "Striated muscle",
+   "tissue": "Skeletal muscle",
+   "median_depth": 34.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9511
+  },
+  "GSM5652206": {
+   "cell_type": "Striated muscle",
+   "tissue": "Skeletal muscle",
+   "median_depth": 36.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9548
+  },
+  "GSM5652207": {
+   "cell_type": "Smooth muscle",
+   "tissue": "Aorta",
+   "median_depth": 34.0,
+   "frac_covered": 0.9936,
+   "frac_depth_ge10": 0.9643
+  },
+  "GSM5652208": {
+   "cell_type": "Smooth muscle",
+   "tissue": "Cornary artery",
+   "median_depth": 36.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9628
+  },
+  "GSM5652209": {
+   "cell_type": "Smooth muscle",
+   "tissue": "Bladder",
+   "median_depth": 28.0,
+   "frac_covered": 0.9917,
+   "frac_depth_ge10": 0.9461
+  },
+  "GSM5652210": {
+   "cell_type": "Smooth muscle",
+   "tissue": "Prostate",
+   "median_depth": 31.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9483
+  },
+  "GSM5652211": {
+   "cell_type": "Smooth muscle",
+   "tissue": "Bronchial",
+   "median_depth": 30.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9465
+  },
+  "GSM5652212": {
+   "cell_type": "Cardiomyocyte",
+   "tissue": "Heart",
+   "median_depth": 34.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.968
+  },
+  "GSM5652213": {
+   "cell_type": "Cardiomyocyte",
+   "tissue": "Heart",
+   "median_depth": 35.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9643
+  },
+  "GSM5652214": {
+   "cell_type": "Cardiomyocyte",
+   "tissue": "Heart",
+   "median_depth": 6.0,
+   "frac_covered": 0.946,
+   "frac_depth_ge10": 0.1715
+  },
+  "GSM5652215": {
+   "cell_type": "Cardiomyocyte",
+   "tissue": "Heart",
+   "median_depth": 5.0,
+   "frac_covered": 0.9377,
+   "frac_depth_ge10": 0.0584
+  },
+  "GSM5652216": {
+   "cell_type": "Cardiomyocyte",
+   "tissue": "Heart",
+   "median_depth": 29.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.963
+  },
+  "GSM5652217": {
+   "cell_type": "Cardiomyocyte",
+   "tissue": "Heart",
+   "median_depth": 28.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.962
+  },
+  "GSM5652218": {
+   "cell_type": "Osteoblasts",
+   "tissue": "Bone",
+   "median_depth": 36.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.966
+  },
+  "GSM5652219": {
+   "cell_type": "Oligodendrocytes",
+   "tissue": "Brain",
+   "median_depth": 27.0,
+   "frac_covered": 0.9932,
+   "frac_depth_ge10": 0.9511
+  },
+  "GSM5652220": {
+   "cell_type": "Oligodendrocytes",
+   "tissue": "Brain",
+   "median_depth": 36.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9622
+  },
+  "GSM5652221": {
+   "cell_type": "Oligodendrocytes",
+   "tissue": "Brain",
+   "median_depth": 29.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9603
+  },
+  "GSM5652222": {
+   "cell_type": "Oligodendrocytes",
+   "tissue": "Brain",
+   "median_depth": 36.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.9605
+  },
+  "GSM5652223": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 27.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9489
+  },
+  "GSM5652224": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 31.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.9562
+  },
+  "GSM5652225": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 33.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.951
+  },
+  "GSM5652226": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 37.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9653
+  },
+  "GSM5652227": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 32.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9475
+  },
+  "GSM5652228": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 35.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9605
+  },
+  "GSM5652229": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 32.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.959
+  },
+  "GSM5652230": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 33.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9548
+  },
+  "GSM5652231": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 31.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9576
+  },
+  "GSM5652232": {
+   "cell_type": "Neuronal",
+   "tissue": "Brain",
+   "median_depth": 40.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9714
+  },
+  "GSM5652233": {
+   "cell_type": "Hepatocyte",
+   "tissue": "Liver",
+   "median_depth": 39.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9683
+  },
+  "GSM5652234": {
+   "cell_type": "Hepatocyte",
+   "tissue": "Liver",
+   "median_depth": 36.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9636
+  },
+  "GSM5652235": {
+   "cell_type": "Hepatocyte",
+   "tissue": "Liver",
+   "median_depth": 41.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9685
+  },
+  "GSM5652236": {
+   "cell_type": "Hepatocyte",
+   "tissue": "Liver",
+   "median_depth": 50.0,
+   "frac_covered": 0.9936,
+   "frac_depth_ge10": 0.9771
+  },
+  "GSM5652237": {
+   "cell_type": "Hepatocyte",
+   "tissue": "Liver",
+   "median_depth": 29.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9552
+  },
+  "GSM5652238": {
+   "cell_type": "Hepatocyte",
+   "tissue": "Liver",
+   "median_depth": 32.0,
+   "frac_covered": 0.9915,
+   "frac_depth_ge10": 0.952
+  },
+  "GSM5652239": {
+   "cell_type": "Duct",
+   "tissue": "Pancreas",
+   "median_depth": 33.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9605
+  },
+  "GSM5652240": {
+   "cell_type": "Duct",
+   "tissue": "Pancreas",
+   "median_depth": 33.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9614
+  },
+  "GSM5652241": {
+   "cell_type": "Duct",
+   "tissue": "Pancreas",
+   "median_depth": 25.0,
+   "frac_covered": 0.9908,
+   "frac_depth_ge10": 0.921
+  },
+  "GSM5652242": {
+   "cell_type": "Duct",
+   "tissue": "Pancreas",
+   "median_depth": 22.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9423
+  },
+  "GSM5652243": {
+   "cell_type": "Acinar",
+   "tissue": "Pancreas",
+   "median_depth": 49.0,
+   "frac_covered": 0.9938,
+   "frac_depth_ge10": 0.9773
+  },
+  "GSM5652244": {
+   "cell_type": "Acinar",
+   "tissue": "Pancreas",
+   "median_depth": 30.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.953
+  },
+  "GSM5652245": {
+   "cell_type": "Acinar",
+   "tissue": "Pancreas",
+   "median_depth": 27.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9566
+  },
+  "GSM5652246": {
+   "cell_type": "Acinar",
+   "tissue": "Pancreas",
+   "median_depth": 36.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9527
+  },
+  "GSM5652247": {
+   "cell_type": "Delta",
+   "tissue": "Pancreas",
+   "median_depth": 21.0,
+   "frac_covered": 0.9916,
+   "frac_depth_ge10": 0.9328
+  },
+  "GSM5652248": {
+   "cell_type": "Delta",
+   "tissue": "Pancreas",
+   "median_depth": 31.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.962
+  },
+  "GSM5652249": {
+   "cell_type": "Delta",
+   "tissue": "Pancreas",
+   "median_depth": 22.0,
+   "frac_covered": 0.9912,
+   "frac_depth_ge10": 0.9204
+  },
+  "GSM5652250": {
+   "cell_type": "Beta",
+   "tissue": "Pancreas",
+   "median_depth": 27.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.9548
+  },
+  "GSM5652251": {
+   "cell_type": "Beta",
+   "tissue": "Pancreas",
+   "median_depth": 29.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9562
+  },
+  "GSM5652252": {
+   "cell_type": "Beta",
+   "tissue": "Pancreas",
+   "median_depth": 28.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.958
+  },
+  "GSM5652253": {
+   "cell_type": "Alpha",
+   "tissue": "Pancreas",
+   "median_depth": 36.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9694
+  },
+  "GSM5652254": {
+   "cell_type": "Alpha",
+   "tissue": "Pancreas",
+   "median_depth": 30.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.9565
+  },
+  "GSM5652255": {
+   "cell_type": "Alpha",
+   "tissue": "Pancreas",
+   "median_depth": 31.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9587
+  },
+  "GSM5652256": {
+   "cell_type": "Epithelium",
+   "tissue": "Kidney glomerular",
+   "median_depth": 33.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9615
+  },
+  "GSM5652257": {
+   "cell_type": "Epithelium",
+   "tissue": "Kidney glomerular",
+   "median_depth": 27.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.9365
+  },
+  "GSM5652258": {
+   "cell_type": "Epithelium",
+   "tissue": "Kidney tubular",
+   "median_depth": 38.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.97
+  },
+  "GSM5652259": {
+   "cell_type": "Epithelium",
+   "tissue": "Kidney tubular",
+   "median_depth": 34.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9635
+  },
+  "GSM5652260": {
+   "cell_type": "Epithelium",
+   "tissue": "Kidney tubular",
+   "median_depth": 38.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9708
+  },
+  "GSM5652261": {
+   "cell_type": "Podocyte",
+   "tissue": "Kidney glomerular",
+   "median_depth": 26.0,
+   "frac_covered": 0.9907,
+   "frac_depth_ge10": 0.9351
+  },
+  "GSM5652262": {
+   "cell_type": "Podocyte",
+   "tissue": "Kidney glomerular",
+   "median_depth": 46.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9735
+  },
+  "GSM5652263": {
+   "cell_type": "Podocyte",
+   "tissue": "Kidney glomerular",
+   "median_depth": 30.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9565
+  },
+  "GSM5652264": {
+   "cell_type": "Epithelium",
+   "tissue": "Thyroid",
+   "median_depth": 33.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9613
+  },
+  "GSM5652265": {
+   "cell_type": "Epithelium",
+   "tissue": "Thyroid",
+   "median_depth": 33.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9617
+  },
+  "GSM5652266": {
+   "cell_type": "Epithelium",
+   "tissue": "Thyroid",
+   "median_depth": 32.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.9553
+  },
+  "GSM5652267": {
+   "cell_type": "Epithelium",
+   "tissue": "Fallopien tubes",
+   "median_depth": 39.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9676
+  },
+  "GSM5652268": {
+   "cell_type": "Epithelium",
+   "tissue": "Fallopien tubes",
+   "median_depth": 30.0,
+   "frac_covered": 0.9915,
+   "frac_depth_ge10": 0.938
+  },
+  "GSM5652269": {
+   "cell_type": "Epithelium",
+   "tissue": "Fallopien tubes",
+   "median_depth": 30.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.9509
+  },
+  "GSM5652270": {
+   "cell_type": "Epithelium",
+   "tissue": "Ovary",
+   "median_depth": 16.0,
+   "frac_covered": 0.9886,
+   "frac_depth_ge10": 0.8388
+  },
+  "GSM5652271": {
+   "cell_type": "Epithelium",
+   "tissue": "Endometrium",
+   "median_depth": 31.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9553
+  },
+  "GSM5652272": {
+   "cell_type": "Epithelium",
+   "tissue": "Endometrium",
+   "median_depth": 22.0,
+   "frac_covered": 0.9911,
+   "frac_depth_ge10": 0.9194
+  },
+  "GSM5652273": {
+   "cell_type": "Epithelium",
+   "tissue": "Endometrium",
+   "median_depth": 41.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.9729
+  },
+  "GSM5652274": {
+   "cell_type": "Erythrocyte progenitors",
+   "tissue": "Bone marrow",
+   "median_depth": 56.0,
+   "frac_covered": 0.9941,
+   "frac_depth_ge10": 0.9825
+  },
+  "GSM5652275": {
+   "cell_type": "Erythrocyte progenitors",
+   "tissue": "Bone marrow",
+   "median_depth": 46.0,
+   "frac_covered": 0.9932,
+   "frac_depth_ge10": 0.9775
+  },
+  "GSM5652276": {
+   "cell_type": "Erythrocyte progenitors",
+   "tissue": "Bone marrow",
+   "median_depth": 20.0,
+   "frac_covered": 0.9906,
+   "frac_depth_ge10": 0.9015
+  },
+  "GSM5652277": {
+   "cell_type": "T (CD3+) cells",
+   "tissue": "Blood",
+   "median_depth": 32.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9553
+  },
+  "GSM5652278": {
+   "cell_type": "T (CD3+) cells",
+   "tissue": "Blood",
+   "median_depth": 28.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.9446
+  },
+  "GSM5652279": {
+   "cell_type": "T helper(CD4+) cells",
+   "tissue": "Blood",
+   "median_depth": 37.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9506
+  },
+  "GSM5652280": {
+   "cell_type": "T helper(CD4+) cells",
+   "tissue": "Blood",
+   "median_depth": 22.0,
+   "frac_covered": 0.9908,
+   "frac_depth_ge10": 0.9045
+  },
+  "GSM5652281": {
+   "cell_type": "T helper(CD4+) cells",
+   "tissue": "Blood",
+   "median_depth": 35.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9668
+  },
+  "GSM5652282": {
+   "cell_type": "T cytotoxic (CD8+) cells",
+   "tissue": "Blood",
+   "median_depth": 29.0,
+   "frac_covered": 0.991,
+   "frac_depth_ge10": 0.9263
+  },
+  "GSM5652283": {
+   "cell_type": "T cytotoxic (CD8+) cells",
+   "tissue": "Blood",
+   "median_depth": 22.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9343
+  },
+  "GSM5652284": {
+   "cell_type": "T cytotoxic (CD8+) cells",
+   "tissue": "Blood",
+   "median_depth": 33.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9535
+  },
+  "GSM5652285": {
+   "cell_type": "T central memory CD4",
+   "tissue": "Blood",
+   "median_depth": 34.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9612
+  },
+  "GSM5652286": {
+   "cell_type": "T central memory CD4",
+   "tissue": "Blood",
+   "median_depth": 27.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9472
+  },
+  "GSM5652287": {
+   "cell_type": "T central memory CD4",
+   "tissue": "Blood",
+   "median_depth": 22.0,
+   "frac_covered": 0.9913,
+   "frac_depth_ge10": 0.9119
+  },
+  "GSM5652288": {
+   "cell_type": "T effector cell CD8",
+   "tissue": "Blood",
+   "median_depth": 23.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.9363
+  },
+  "GSM5652289": {
+   "cell_type": "T effector cell CD8",
+   "tissue": "Blood",
+   "median_depth": 29.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9484
+  },
+  "GSM5652290": {
+   "cell_type": "T effector cell CD8",
+   "tissue": "Blood",
+   "median_depth": 30.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9416
+  },
+  "GSM5652291": {
+   "cell_type": "T effector memory CD4",
+   "tissue": "Blood",
+   "median_depth": 24.0,
+   "frac_covered": 0.9917,
+   "frac_depth_ge10": 0.9407
+  },
+  "GSM5652292": {
+   "cell_type": "T effector memory CD4",
+   "tissue": "Blood",
+   "median_depth": 29.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.948
+  },
+  "GSM5652293": {
+   "cell_type": "T effector memory CD4",
+   "tissue": "Blood",
+   "median_depth": 28.0,
+   "frac_covered": 0.992,
+   "frac_depth_ge10": 0.9447
+  },
+  "GSM5652294": {
+   "cell_type": "T effector memory CD8",
+   "tissue": "Blood",
+   "median_depth": 21.0,
+   "frac_covered": 0.9902,
+   "frac_depth_ge10": 0.8883
+  },
+  "GSM5652295": {
+   "cell_type": "T effector memory CD8",
+   "tissue": "Blood",
+   "median_depth": 29.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.9547
+  },
+  "GSM5652296": {
+   "cell_type": "Naive T cells CD4",
+   "tissue": "Blood",
+   "median_depth": 34.0,
+   "frac_covered": 0.9916,
+   "frac_depth_ge10": 0.949
+  },
+  "GSM5652297": {
+   "cell_type": "Naive T cells CD8",
+   "tissue": "Blood",
+   "median_depth": 11.0,
+   "frac_covered": 0.9859,
+   "frac_depth_ge10": 0.6032
+  },
+  "GSM5652298": {
+   "cell_type": "Naive T cells CD8",
+   "tissue": "Blood",
+   "median_depth": 32.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9573
+  },
+  "GSM5652299": {
+   "cell_type": "NK",
+   "tissue": "Blood",
+   "median_depth": 32.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.966
+  },
+  "GSM5652300": {
+   "cell_type": "NK",
+   "tissue": "Blood",
+   "median_depth": 31.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.9653
+  },
+  "GSM5652301": {
+   "cell_type": "NK",
+   "tissue": "Blood",
+   "median_depth": 24.0,
+   "frac_covered": 0.9906,
+   "frac_depth_ge10": 0.9025
+  },
+  "GSM5652302": {
+   "cell_type": "Monocytes",
+   "tissue": "Blood",
+   "median_depth": 19.0,
+   "frac_covered": 0.9912,
+   "frac_depth_ge10": 0.9021
+  },
+  "GSM5652303": {
+   "cell_type": "Monocytes",
+   "tissue": "Blood",
+   "median_depth": 25.0,
+   "frac_covered": 0.9916,
+   "frac_depth_ge10": 0.9205
+  },
+  "GSM5652304": {
+   "cell_type": "Monocytes",
+   "tissue": "Blood",
+   "median_depth": 34.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.9415
+  },
+  "GSM5652305": {
+   "cell_type": "Macrophages",
+   "tissue": "Colon",
+   "median_depth": 41.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9736
+  },
+  "GSM5652306": {
+   "cell_type": "Macrophages",
+   "tissue": "Colon",
+   "median_depth": 34.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.965
+  },
+  "GSM5652307": {
+   "cell_type": "Macrophages",
+   "tissue": "Liver",
+   "median_depth": 44.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.9702
+  },
+  "GSM5652308": {
+   "cell_type": "Macrophages",
+   "tissue": "Lung alveolar",
+   "median_depth": 27.0,
+   "frac_covered": 0.9917,
+   "frac_depth_ge10": 0.9422
+  },
+  "GSM5652309": {
+   "cell_type": "Macrophages",
+   "tissue": "Lung alveolar",
+   "median_depth": 45.0,
+   "frac_covered": 0.9937,
+   "frac_depth_ge10": 0.9687
+  },
+  "GSM5652310": {
+   "cell_type": "Macrophages",
+   "tissue": "Lung interstitial",
+   "median_depth": 33.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9619
+  },
+  "GSM5652311": {
+   "cell_type": "Macrophages",
+   "tissue": "Lung interstitial",
+   "median_depth": 42.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.9704
+  },
+  "GSM5652312": {
+   "cell_type": "Macrophages",
+   "tissue": "Lung interstitial",
+   "median_depth": 37.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9577
+  },
+  "GSM5652313": {
+   "cell_type": "Granulocytes",
+   "tissue": "Blood",
+   "median_depth": 27.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.9438
+  },
+  "GSM5652314": {
+   "cell_type": "Granulocytes",
+   "tissue": "Blood",
+   "median_depth": 39.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.9744
+  },
+  "GSM5652315": {
+   "cell_type": "Granulocytes",
+   "tissue": "Blood",
+   "median_depth": 36.0,
+   "frac_covered": 0.9932,
+   "frac_depth_ge10": 0.9693
+  },
+  "GSM5652316": {
+   "cell_type": "B cells",
+   "tissue": "Blood",
+   "median_depth": 25.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.935
+  },
+  "GSM5652317": {
+   "cell_type": "B cells",
+   "tissue": "Blood",
+   "median_depth": 24.0,
+   "frac_covered": 0.9915,
+   "frac_depth_ge10": 0.9163
+  },
+  "GSM5652318": {
+   "cell_type": "B cells",
+   "tissue": "Blood",
+   "median_depth": 38.0,
+   "frac_covered": 0.9932,
+   "frac_depth_ge10": 0.9711
+  },
+  "GSM5652319": {
+   "cell_type": "Memory B cells",
+   "tissue": "Blood",
+   "median_depth": 23.0,
+   "frac_covered": 0.9901,
+   "frac_depth_ge10": 0.9063
+  },
+  "GSM5652320": {
+   "cell_type": "Memory B cells",
+   "tissue": "Blood",
+   "median_depth": 21.0,
+   "frac_covered": 0.9915,
+   "frac_depth_ge10": 0.9229
+  },
+  "GSM5652321": {
+   "cell_type": "keratinocyte",
+   "tissue": "Skin",
+   "median_depth": 33.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9563
+  },
+  "GSM5652322": {
+   "cell_type": "Epithelium",
+   "tissue": "Tonsil palatine",
+   "median_depth": 34.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9646
+  },
+  "GSM5652323": {
+   "cell_type": "Epithelium",
+   "tissue": "Tonsil palatine",
+   "median_depth": 41.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.971
+  },
+  "GSM5652324": {
+   "cell_type": "Epithelium",
+   "tissue": "Tonsil palatine",
+   "median_depth": 38.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.9625
+  },
+  "GSM5652325": {
+   "cell_type": "Epithelium",
+   "tissue": "Tonsil pharyngeal",
+   "median_depth": 36.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9668
+  },
+  "GSM5652326": {
+   "cell_type": "Epithelium",
+   "tissue": "Tonsil pharyngeal",
+   "median_depth": 28.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9528
+  },
+  "GSM5652327": {
+   "cell_type": "Epithelium",
+   "tissue": "Tongue",
+   "median_depth": 31.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9634
+  },
+  "GSM5652328": {
+   "cell_type": "Epithelium",
+   "tissue": "Tongue",
+   "median_depth": 38.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9578
+  },
+  "GSM5652329": {
+   "cell_type": "Epithelium",
+   "tissue": "Tongue",
+   "median_depth": 43.0,
+   "frac_covered": 0.9938,
+   "frac_depth_ge10": 0.9718
+  },
+  "GSM5652330": {
+   "cell_type": "Epithelium",
+   "tissue": "Tongue",
+   "median_depth": 21.0,
+   "frac_covered": 0.9915,
+   "frac_depth_ge10": 0.9252
+  },
+  "GSM5652331": {
+   "cell_type": "Epithelium",
+   "tissue": "Larynx",
+   "median_depth": 41.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.9714
+  },
+  "GSM5652332": {
+   "cell_type": "Epithelium",
+   "tissue": "Esophagus",
+   "median_depth": 28.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.956
+  },
+  "GSM5652333": {
+   "cell_type": "Epithelium",
+   "tissue": "Esophagus",
+   "median_depth": 15.0,
+   "frac_covered": 0.9911,
+   "frac_depth_ge10": 0.8341
+  },
+  "GSM5652334": {
+   "cell_type": "Epithelium",
+   "tissue": "Pharynx",
+   "median_depth": 13.0,
+   "frac_covered": 0.9906,
+   "frac_depth_ge10": 0.7913
+  },
+  "GSM5652335": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung bronchus",
+   "median_depth": 35.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9681
+  },
+  "GSM5652336": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung bronchus",
+   "median_depth": 38.0,
+   "frac_covered": 0.9934,
+   "frac_depth_ge10": 0.9677
+  },
+  "GSM5652337": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung bronchus",
+   "median_depth": 57.0,
+   "frac_covered": 0.9941,
+   "frac_depth_ge10": 0.9807
+  },
+  "GSM5652338": {
+   "cell_type": "Epithelium",
+   "tissue": "Prostate",
+   "median_depth": 33.0,
+   "frac_covered": 0.9932,
+   "frac_depth_ge10": 0.9685
+  },
+  "GSM5652339": {
+   "cell_type": "Epithelium",
+   "tissue": "Prostate",
+   "median_depth": 32.0,
+   "frac_covered": 0.9921,
+   "frac_depth_ge10": 0.936
+  },
+  "GSM5652340": {
+   "cell_type": "Epithelium",
+   "tissue": "Prostate",
+   "median_depth": 36.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.964
+  },
+  "GSM5652341": {
+   "cell_type": "Epithelium",
+   "tissue": "Prostate",
+   "median_depth": 38.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9684
+  },
+  "GSM5652342": {
+   "cell_type": "Epithelium",
+   "tissue": "Bladder",
+   "median_depth": 32.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9588
+  },
+  "GSM5652343": {
+   "cell_type": "Epithelium",
+   "tissue": "Bladder",
+   "median_depth": 32.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9617
+  },
+  "GSM5652344": {
+   "cell_type": "Epithelium",
+   "tissue": "Bladder",
+   "median_depth": 24.0,
+   "frac_covered": 0.9933,
+   "frac_depth_ge10": 0.9369
+  },
+  "GSM5652345": {
+   "cell_type": "Epithelium",
+   "tissue": "Bladder",
+   "median_depth": 32.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9525
+  },
+  "GSM5652346": {
+   "cell_type": "Epithelium",
+   "tissue": "Bladder",
+   "median_depth": 15.0,
+   "frac_covered": 0.9906,
+   "frac_depth_ge10": 0.8321
+  },
+  "GSM5652347": {
+   "cell_type": "Luminal epithelial",
+   "tissue": "Breast",
+   "median_depth": 35.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.973
+  },
+  "GSM5652348": {
+   "cell_type": "Luminal epithelial",
+   "tissue": "Breast",
+   "median_depth": 22.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.9328
+  },
+  "GSM5652349": {
+   "cell_type": "Luminal epithelial",
+   "tissue": "Breast",
+   "median_depth": 31.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9692
+  },
+  "GSM5652350": {
+   "cell_type": "Basal epithelial",
+   "tissue": "Breast",
+   "median_depth": 27.0,
+   "frac_covered": 0.9917,
+   "frac_depth_ge10": 0.9496
+  },
+  "GSM5652351": {
+   "cell_type": "Basal epithelial",
+   "tissue": "Breast",
+   "median_depth": 25.0,
+   "frac_covered": 0.9922,
+   "frac_depth_ge10": 0.9502
+  },
+  "GSM5652352": {
+   "cell_type": "Basal epithelial",
+   "tissue": "Breast",
+   "median_depth": 25.0,
+   "frac_covered": 0.9917,
+   "frac_depth_ge10": 0.9431
+  },
+  "GSM5652353": {
+   "cell_type": "Basal epithelial",
+   "tissue": "Breast",
+   "median_depth": 23.0,
+   "frac_covered": 0.9915,
+   "frac_depth_ge10": 0.9472
+  },
+  "GSM5652354": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung alveolar",
+   "median_depth": 45.0,
+   "frac_covered": 0.9935,
+   "frac_depth_ge10": 0.9727
+  },
+  "GSM5652355": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung alveolar",
+   "median_depth": 36.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9676
+  },
+  "GSM5652356": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung alveolar",
+   "median_depth": 45.0,
+   "frac_covered": 0.993,
+   "frac_depth_ge10": 0.972
+  },
+  "GSM5652357": {
+   "cell_type": "Epithelium",
+   "tissue": "Lung pleural",
+   "median_depth": 32.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.9548
+  },
+  "GSM5652358": {
+   "cell_type": "Epithelium",
+   "tissue": "Gallbladder",
+   "median_depth": 26.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9538
+  },
+  "GSM5652359": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric fundus",
+   "median_depth": 39.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.9545
+  },
+  "GSM5652360": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric fundus",
+   "median_depth": 42.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.97
+  },
+  "GSM5652361": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric fundus",
+   "median_depth": 40.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9664
+  },
+  "GSM5652362": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric body",
+   "median_depth": 39.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9627
+  },
+  "GSM5652363": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric body",
+   "median_depth": 30.0,
+   "frac_covered": 0.9924,
+   "frac_depth_ge10": 0.9528
+  },
+  "GSM5652364": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric body",
+   "median_depth": 36.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9707
+  },
+  "GSM5652365": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric antrum",
+   "median_depth": 38.0,
+   "frac_covered": 0.9927,
+   "frac_depth_ge10": 0.9729
+  },
+  "GSM5652366": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric antrum",
+   "median_depth": 38.0,
+   "frac_covered": 0.9929,
+   "frac_depth_ge10": 0.9657
+  },
+  "GSM5652367": {
+   "cell_type": "Epithelium",
+   "tissue": "Gastric antrum",
+   "median_depth": 35.0,
+   "frac_covered": 0.9918,
+   "frac_depth_ge10": 0.9547
+  },
+  "GSM5652368": {
+   "cell_type": "Endocrine",
+   "tissue": "Gastric",
+   "median_depth": 12.0,
+   "frac_covered": 0.9861,
+   "frac_depth_ge10": 0.6617
+  },
+  "GSM5652369": {
+   "cell_type": "Endocrine",
+   "tissue": "Gastric",
+   "median_depth": 26.0,
+   "frac_covered": 0.9917,
+   "frac_depth_ge10": 0.9356
+  },
+  "GSM5652370": {
+   "cell_type": "Epithelium",
+   "tissue": "Colon",
+   "median_depth": 34.0,
+   "frac_covered": 0.9925,
+   "frac_depth_ge10": 0.9564
+  },
+  "GSM5652371": {
+   "cell_type": "Epithelium",
+   "tissue": "Colon",
+   "median_depth": 32.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9665
+  },
+  "GSM5652372": {
+   "cell_type": "Endocrine",
+   "tissue": "Colon",
+   "median_depth": 40.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9664
+  },
+  "GSM5652373": {
+   "cell_type": "Epithelium",
+   "tissue": "Colon",
+   "median_depth": 28.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9453
+  },
+  "GSM5652374": {
+   "cell_type": "Endocrine",
+   "tissue": "Colon",
+   "median_depth": 11.0,
+   "frac_covered": 0.9519,
+   "frac_depth_ge10": 0.6642
+  },
+  "GSM5652375": {
+   "cell_type": "Endocrine",
+   "tissue": "Colon",
+   "median_depth": 29.0,
+   "frac_covered": 0.9919,
+   "frac_depth_ge10": 0.954
+  },
+  "GSM5652376": {
+   "cell_type": "Epithelium",
+   "tissue": "Colon",
+   "median_depth": 31.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9613
+  },
+  "GSM5652377": {
+   "cell_type": "Epithelium",
+   "tissue": "Colon",
+   "median_depth": 33.0,
+   "frac_covered": 0.9923,
+   "frac_depth_ge10": 0.9559
+  },
+  "GSM5652378": {
+   "cell_type": "Epithelium",
+   "tissue": "Jejunum",
+   "median_depth": 33.0,
+   "frac_covered": 0.9931,
+   "frac_depth_ge10": 0.9534
+  },
+  "GSM5652379": {
+   "cell_type": "Epithelium",
+   "tissue": "Small intestine",
+   "median_depth": 37.0,
+   "frac_covered": 0.9932,
+   "frac_depth_ge10": 0.9668
+  },
+  "GSM5652380": {
+   "cell_type": "Epithelium",
+   "tissue": "Small intestine",
+   "median_depth": 37.0,
+   "frac_covered": 0.9928,
+   "frac_depth_ge10": 0.9683
+  },
+  "GSM5652381": {
+   "cell_type": "Epithelium",
+   "tissue": "Small intestine",
+   "median_depth": 27.0,
+   "frac_covered": 0.9916,
+   "frac_depth_ge10": 0.9411
+  },
+  "GSM5652382": {
+   "cell_type": "Endocrine",
+   "tissue": "Jejunum",
+   "median_depth": 29.0,
+   "frac_covered": 0.9926,
+   "frac_depth_ge10": 0.9382
+  }
+ }
+}

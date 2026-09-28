@@ -55,6 +55,9 @@ stress more than cancer) → salmon (RRBS; new locus set; the largest build and 
 23. **Salmonid chain** — RRBS, not arrays. Public: Methow River steelhead hatchery-vs-wild RBC and sperm RRBS (G3 2018; 85 RBC DMRs, 108 sperm DMRs); coho hatchery-vs-wild muscle (PNAS 2017); steelhead liver hatchery-vs-stream. Fish blood is nucleated red cells — one cell type, no composition problem. Needs: a salmonid locus set from RRBS coverage, reference methylomes per tissue, H_min per class fitted as G-002 did. First pre-registration: hatchery vs wild RBC per fish against the fixed point, on the Methow — the question Chelan PUD's biologists already ask in methylation terms.
 24. **Open human data beyond GEO** — CALERIE, TRIIM/TRIIM-X and other academic intervention trials (public or on request); Framingham / WHI / Lothian / Generation Scotland / Dunedin serial methylation under controlled access (dbGaP / EGA) — apply once a pre-registered method is published; TCGA-LAML and GEO CLL/MDS for BLOODCANCER-01.
 
+
+- (2026-09-27: SATSA Stage 1 on AWS: 1,056 of 1,072 arrays calibrated, 0 errors, 16 with no IDAT pair; box reproduces the laptop exactly. **Call rate median 0.894; 738 of 1,056 below the 0.93 intake line**, worst on chip batch 9721 (853 arrays, 73 % below); call rate also falls with age decade (0.911 in the 50s to 0.878 in the 90s), so later draws are lower-quality input - the serial trajectories must carry intake status per draw and cannot treat a below-line draw as a reading. 286 people have >= 2 calibrated draws, 195 >= 3.)
+
 ## Standing (not tasks)
 
 - Healthy is A = 1.00; the tier scale is the tolerance. No population defines any number on a cell. MEASURE, DON'T COMPARE.
