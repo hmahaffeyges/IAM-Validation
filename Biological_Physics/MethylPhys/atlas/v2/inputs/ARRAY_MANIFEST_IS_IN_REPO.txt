@@ -1,0 +1,2 @@
+array_manifest.csv used by 03_loyfer_extract.py is byte-identical (md5 d62db48273d0c4332b0e7019d0d559a5) to
+../../external_manifests/EPIC_plus_HM450_combined_manifest_normalized.csv already in the repo. Copy it here as manifest.csv before running step 03.

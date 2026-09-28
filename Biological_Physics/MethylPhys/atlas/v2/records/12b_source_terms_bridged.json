@@ -1,0 +1,108 @@
+{
+ "scale": "our Stage 1 array scale",
+ "loci": 50000,
+ "array_sources": [
+  "Moss2018",
+  "Salas2018",
+  "Salas2022",
+  "GSE63409"
+ ],
+ "sequencing": {
+  "ENCODE": {
+   "status": "NOT IDENTIFIED - shares no cell with our arrays or with Loyfer"
+  },
+  "Loyfer2023": {
+   "status": "IDENTIFIED",
+   "overlap_cells": [
+    "adipocytes",
+    "b cells",
+    "cd4 t cells",
+    "cd8 t cells",
+    "colon epithelium",
+    "cortical neurons",
+    "effector memory cd8 t cells",
+    "hepatocyte",
+    "lung alveolar epithelium",
+    "memory b cells",
+    "monocytes",
+    "naive cd4 t cells",
+    "naive cd8 t cells",
+    "nk cells",
+    "pancreatic acinar",
+    "pancreatic beta",
+    "pancreatic duct"
+   ],
+   "n_pairs": 767672,
+   "a": -0.090198657658206,
+   "b": 1.1026485876765302,
+   "a_ci95": [
+    -0.09819093365475591,
+    -0.08256058268100429
+   ],
+   "b_ci95": [
+    1.0903423857493544,
+    1.1156698961805978
+   ],
+   "resid_sd": 0.10526656628776922,
+   "r": 0.9624162774858472,
+   "per_cell_b": {
+    "adipocytes": 1.0675,
+    "b cells": 1.0837,
+    "cd4 t cells": 1.0957,
+    "cd8 t cells": 1.0642,
+    "colon epithelium": 1.0905,
+    "cortical neurons": 1.0692,
+    "effector memory cd8 t cells": 1.1173,
+    "hepatocyte": 1.0912,
+    "lung alveolar epithelium": 1.118,
+    "memory b cells": 1.1101,
+    "monocytes": 1.0856,
+    "naive cd4 t cells": 1.1285,
+    "naive cd8 t cells": 1.1313,
+    "nk cells": 1.0712,
+    "pancreatic acinar": 1.0889,
+    "pancreatic beta": 1.1716,
+    "pancreatic duct": 1.1083
+   }
+  },
+  "Tian2023": {
+   "status": "IDENTIFIED VIA LOYFER",
+   "overlap_cells_with_loyfer": [
+    "oligodendrocytes"
+   ],
+   "n_pairs": 48542,
+   "a_vs_loyfer": -0.012223292961422327,
+   "b_vs_loyfer": 1.0157415028908656,
+   "a": -0.10384181304990718,
+   "b": 1.1200059336070491,
+   "r_vs_loyfer": 0.9848489261529363
+  }
+ },
+ "array": {
+  "Moss2018": {
+   "d_via_loyfer": -0.0052925314108531185,
+   "overlap_cells_with_loyfer": [
+    "adipocytes",
+    "colon epithelium",
+    "cortical neurons",
+    "hepatocyte",
+    "lung alveolar epithelium",
+    "pancreatic acinar",
+    "pancreatic beta",
+    "pancreatic duct"
+   ],
+   "note": "offset of this lab vs Loyfer mapped onto the array scale; not centred with the directly measured labs"
+  },
+  "Salas2018": {
+   "d": 0.0,
+   "overlap_cells": 3
+  },
+  "Salas2022": {
+   "d": 0.0,
+   "overlap_cells": 3
+  },
+  "GSE63409": {
+   "status": "NOT IDENTIFIED - shares no cell with another array lab or with Loyfer"
+  }
+ }
+}

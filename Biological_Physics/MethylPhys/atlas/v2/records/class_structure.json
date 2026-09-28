@@ -1,0 +1,611 @@
+{
+ "cells": 56,
+ "cpgs": 651046,
+ "labels": {
+  "adipocytes": [
+   "stromal",
+   "mesenchymal",
+   "mesoderm",
+   "fat"
+  ],
+  "aorta endothelium": [
+   "stromal",
+   "endothelial",
+   "mesoderm",
+   "heart"
+  ],
+  "b cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "bladder epithelium": [
+   "cycling",
+   "epithelial",
+   "endoderm",
+   "bladder"
+  ],
+  "breast basal epithelium": [
+   "cycling",
+   "epithelial",
+   "ectoderm",
+   "breast"
+  ],
+  "breast luminal epithelium": [
+   "secretory",
+   "epithelial",
+   "ectoderm",
+   "breast"
+  ],
+  "cardiomyocyte": [
+   "terminal",
+   "muscle",
+   "mesoderm",
+   "heart"
+  ],
+  "cd4 t cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "cd8 t cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "colon enteroendocrine": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "GI"
+  ],
+  "colon epithelium": [
+   "cycling",
+   "epithelial",
+   "endoderm",
+   "GI"
+  ],
+  "colon fibroblasts": [
+   "stromal",
+   "mesenchymal",
+   "mesoderm",
+   "GI"
+  ],
+  "colon macrophages": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "GI"
+  ],
+  "cortical neurons": [
+   "terminal",
+   "neural",
+   "ectoderm",
+   "brain"
+  ],
+  "effector memory cd8 t cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "endometrium epithelium": [
+   "cycling",
+   "epithelial",
+   "mesoderm",
+   "reproductive"
+  ],
+  "erythrocyte progenitors": [
+   "progenitor",
+   "erythroid",
+   "mesoderm",
+   "blood"
+  ],
+  "fallopien tubes epithelium": [
+   "cycling",
+   "epithelial",
+   "mesoderm",
+   "reproductive"
+  ],
+  "gastric antrum epithelium": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "GI"
+  ],
+  "gastric body epithelium": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "GI"
+  ],
+  "gastric fundus epithelium": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "GI"
+  ],
+  "heart fibroblasts": [
+   "stromal",
+   "mesenchymal",
+   "mesoderm",
+   "heart"
+  ],
+  "hepatocyte": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "liver"
+  ],
+  "kidney glomerular endothelium": [
+   "stromal",
+   "endothelial",
+   "mesoderm",
+   "kidney"
+  ],
+  "kidney glomerular epithelium": [
+   "cycling",
+   "epithelial",
+   "mesoderm",
+   "kidney"
+  ],
+  "kidney tubular endothelium": [
+   "stromal",
+   "endothelial",
+   "mesoderm",
+   "kidney"
+  ],
+  "kidney tubular epithelium": [
+   "cycling",
+   "epithelial",
+   "mesoderm",
+   "kidney"
+  ],
+  "lung alveolar endothelium": [
+   "stromal",
+   "endothelial",
+   "mesoderm",
+   "lung"
+  ],
+  "lung alveolar epithelium": [
+   "cycling",
+   "epithelial",
+   "endoderm",
+   "lung"
+  ],
+  "lung alveolar macrophages": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "lung"
+  ],
+  "lung bronchus epithelium": [
+   "cycling",
+   "epithelial",
+   "endoderm",
+   "lung"
+  ],
+  "lung interstitial macrophages": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "lung"
+  ],
+  "memory b cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "monocytes": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "naive cd4 t cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "naive cd8 t cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "nk cells": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "oligodendrocytes": [
+   "terminal",
+   "neural",
+   "ectoderm",
+   "brain"
+  ],
+  "pancreas endothelium": [
+   "stromal",
+   "endothelial",
+   "mesoderm",
+   "pancreas"
+  ],
+  "pancreatic acinar": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "pancreas"
+  ],
+  "pancreatic alpha": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "pancreas"
+  ],
+  "pancreatic beta": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "pancreas"
+  ],
+  "pancreatic delta": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "pancreas"
+  ],
+  "pancreatic duct": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "pancreas"
+  ],
+  "prostate epithelium": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "reproductive"
+  ],
+  "small intestine epithelium": [
+   "cycling",
+   "epithelial",
+   "endoderm",
+   "GI"
+  ],
+  "smooth muscle": [
+   "stromal",
+   "mesenchymal",
+   "mesoderm",
+   "muscle"
+  ],
+  "striated muscle": [
+   "terminal",
+   "muscle",
+   "mesoderm",
+   "muscle"
+  ],
+  "t central memory cd4": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "t effector cell cd8": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "t effector memory cd4": [
+   "immune",
+   "immune",
+   "mesoderm",
+   "blood"
+  ],
+  "thyroid epithelium": [
+   "secretory",
+   "epithelial",
+   "endoderm",
+   "thyroid"
+  ],
+  "tongue epithelium": [
+   "cycling",
+   "epithelial",
+   "ambiguous",
+   "oral"
+  ],
+  "tonsil palatine epithelium": [
+   "cycling",
+   "epithelial",
+   "ambiguous",
+   "oral"
+  ],
+  "tonsil pharyngeal epithelium": [
+   "cycling",
+   "epithelial",
+   "ambiguous",
+   "oral"
+  ],
+  "vascular saphenous endothelium": [
+   "stromal",
+   "endothelial",
+   "mesoderm",
+   "vessel"
+  ]
+ },
+ "T1": {
+  "class": {
+   "agree": 0.857,
+   "null_mean": 0.202,
+   "p": 9.999000099990002e-05,
+   "n": 56
+  },
+  "cell_family": {
+   "agree": 0.946,
+   "null_mean": 0.294,
+   "p": 9.999000099990002e-05,
+   "n": 56
+  },
+  "germ_layer": {
+   "agree": 0.962,
+   "null_mean": 0.417,
+   "p": 9.999000099990002e-05,
+   "n": 53
+  },
+  "organ": {
+   "agree": 0.643,
+   "null_mean": 0.097,
+   "p": 9.999000099990002e-05,
+   "n": 56
+  }
+ },
+ "T1_nearest": {
+  "adipocytes": "pancreas endothelium",
+  "aorta endothelium": "vascular saphenous endothelium",
+  "b cells": "memory b cells",
+  "bladder epithelium": "prostate epithelium",
+  "breast basal epithelium": "breast luminal epithelium",
+  "breast luminal epithelium": "prostate epithelium",
+  "cardiomyocyte": "striated muscle",
+  "cd4 t cells": "t central memory cd4",
+  "cd8 t cells": "t effector cell cd8",
+  "colon enteroendocrine": "colon epithelium",
+  "colon epithelium": "colon enteroendocrine",
+  "colon fibroblasts": "adipocytes",
+  "colon macrophages": "lung interstitial macrophages",
+  "cortical neurons": "oligodendrocytes",
+  "effector memory cd8 t cells": "t effector cell cd8",
+  "endometrium epithelium": "fallopien tubes epithelium",
+  "erythrocyte progenitors": "colon macrophages",
+  "fallopien tubes epithelium": "endometrium epithelium",
+  "gastric antrum epithelium": "gastric body epithelium",
+  "gastric body epithelium": "gastric fundus epithelium",
+  "gastric fundus epithelium": "gastric body epithelium",
+  "heart fibroblasts": "smooth muscle",
+  "hepatocyte": "pancreatic acinar",
+  "kidney glomerular endothelium": "kidney tubular endothelium",
+  "kidney glomerular epithelium": "kidney tubular epithelium",
+  "kidney tubular endothelium": "kidney glomerular endothelium",
+  "kidney tubular epithelium": "kidney glomerular epithelium",
+  "lung alveolar endothelium": "pancreas endothelium",
+  "lung alveolar epithelium": "lung bronchus epithelium",
+  "lung alveolar macrophages": "lung interstitial macrophages",
+  "lung bronchus epithelium": "tonsil pharyngeal epithelium",
+  "lung interstitial macrophages": "monocytes",
+  "memory b cells": "b cells",
+  "monocytes": "lung interstitial macrophages",
+  "naive cd4 t cells": "naive cd8 t cells",
+  "naive cd8 t cells": "naive cd4 t cells",
+  "nk cells": "cd8 t cells",
+  "oligodendrocytes": "cortical neurons",
+  "pancreas endothelium": "kidney glomerular endothelium",
+  "pancreatic acinar": "pancreatic duct",
+  "pancreatic alpha": "pancreatic delta",
+  "pancreatic beta": "pancreatic delta",
+  "pancreatic delta": "pancreatic alpha",
+  "pancreatic duct": "pancreatic acinar",
+  "prostate epithelium": "lung bronchus epithelium",
+  "small intestine epithelium": "colon epithelium",
+  "smooth muscle": "heart fibroblasts",
+  "striated muscle": "adipocytes",
+  "t central memory cd4": "t effector memory cd4",
+  "t effector cell cd8": "cd8 t cells",
+  "t effector memory cd4": "t central memory cd4",
+  "thyroid epithelium": "lung alveolar epithelium",
+  "tongue epithelium": "tonsil palatine epithelium",
+  "tonsil palatine epithelium": "tongue epithelium",
+  "tonsil pharyngeal epithelium": "tonsil palatine epithelium",
+  "vascular saphenous endothelium": "aorta endothelium"
+ },
+ "T2a_epithelia": {
+  "class": {
+   "agree": 0.769,
+   "null_mean": 0.48,
+   "p": 0.012898710128987101,
+   "n": 26
+  },
+  "organ": {
+   "agree": 0.769,
+   "null_mean": 0.105,
+   "p": 9.999000099990002e-05,
+   "n": 26
+  },
+  "germ_layer": {
+   "agree": 0.913,
+   "null_mean": 0.45,
+   "p": 9.999000099990002e-05,
+   "n": 23
+  }
+ },
+ "T2b_terminal": {
+  "cardiomyocyte": {
+   "nearest": "striated muscle",
+   "nearest_class": "terminal",
+   "nearest_terminal": "striated muscle",
+   "d_nearest": 0.4736,
+   "d_nearest_terminal": 0.4736,
+   "rank_of_nearest_terminal": 1
+  },
+  "cortical neurons": {
+   "nearest": "oligodendrocytes",
+   "nearest_class": "terminal",
+   "nearest_terminal": "oligodendrocytes",
+   "d_nearest": 0.3887,
+   "d_nearest_terminal": 0.3887,
+   "rank_of_nearest_terminal": 1
+  },
+  "oligodendrocytes": {
+   "nearest": "cortical neurons",
+   "nearest_class": "terminal",
+   "nearest_terminal": "cortical neurons",
+   "d_nearest": 0.3887,
+   "d_nearest_terminal": 0.3887,
+   "rank_of_nearest_terminal": 1
+  },
+  "striated muscle": {
+   "nearest": "adipocytes",
+   "nearest_class": "stromal",
+   "nearest_terminal": "cardiomyocyte",
+   "d_nearest": 0.2658,
+   "d_nearest_terminal": 0.4736,
+   "rank_of_nearest_terminal": 11
+  }
+ },
+ "T3_specific_counts": {
+  "adipocytes": 39,
+  "aorta endothelium": 87,
+  "b cells": 644,
+  "bladder epithelium": 1162,
+  "breast basal epithelium": 1830,
+  "breast luminal epithelium": 630,
+  "cardiomyocyte": 3537,
+  "cd4 t cells": 31,
+  "cd8 t cells": 22,
+  "colon enteroendocrine": 1452,
+  "colon epithelium": 1313,
+  "colon fibroblasts": 0,
+  "colon macrophages": 268,
+  "cortical neurons": 628,
+  "effector memory cd8 t cells": 175,
+  "endometrium epithelium": 2015,
+  "erythrocyte progenitors": 2282,
+  "fallopien tubes epithelium": 1217,
+  "gastric antrum epithelium": 909,
+  "gastric body epithelium": 897,
+  "gastric fundus epithelium": 840,
+  "heart fibroblasts": 1438,
+  "hepatocyte": 2280,
+  "kidney glomerular endothelium": 43,
+  "kidney glomerular epithelium": 723,
+  "kidney tubular endothelium": 182,
+  "kidney tubular epithelium": 467,
+  "lung alveolar endothelium": 35,
+  "lung alveolar epithelium": 1012,
+  "lung alveolar macrophages": 1127,
+  "lung bronchus epithelium": 752,
+  "lung interstitial macrophages": 638,
+  "memory b cells": 1833,
+  "monocytes": 895,
+  "naive cd4 t cells": 82,
+  "naive cd8 t cells": 133,
+  "nk cells": 385,
+  "oligodendrocytes": 3520,
+  "pancreas endothelium": 18,
+  "pancreatic acinar": 1669,
+  "pancreatic alpha": 1147,
+  "pancreatic beta": 1736,
+  "pancreatic delta": 868,
+  "pancreatic duct": 509,
+  "prostate epithelium": 278,
+  "small intestine epithelium": 1766,
+  "smooth muscle": 267,
+  "striated muscle": 126,
+  "t central memory cd4": 60,
+  "t effector cell cd8": 169,
+  "t effector memory cd4": 43,
+  "thyroid epithelium": 1381,
+  "tongue epithelium": 1657,
+  "tonsil palatine epithelium": 1296,
+  "tonsil pharyngeal epithelium": 1003,
+  "vascular saphenous endothelium": 76
+ },
+ "T3_jaccard": [
+  {
+   "same_family": false,
+   "same_class": false,
+   "size": 1059,
+   "median": 0.0,
+   "mean": 0.0012
+  },
+  {
+   "same_family": false,
+   "same_class": true,
+   "size": 28,
+   "median": 0.0016,
+   "mean": 0.0051
+  },
+  {
+   "same_family": true,
+   "same_class": false,
+   "size": 169,
+   "median": 0.0038,
+   "mean": 0.013
+  },
+  {
+   "same_family": true,
+   "same_class": true,
+   "size": 284,
+   "median": 0.0054,
+   "mean": 0.0451
+  }
+ ],
+ "T3_context_background": {
+  "distal": 0.639,
+  "promoter": 0.238,
+  "gene body/near": 0.123
+ },
+ "T3_context_by_class": {
+  "cycling": {
+   "n": 11895,
+   "distal": 0.719,
+   "gene body/near": 0.148,
+   "promoter": 0.133
+  },
+  "immune": {
+   "n": 3991,
+   "distal": 0.772,
+   "gene body/near": 0.121,
+   "promoter": 0.107
+  },
+  "progenitor": {
+   "n": 2282,
+   "distal": 0.767,
+   "gene body/near": 0.135,
+   "promoter": 0.099
+  },
+  "secretory": {
+   "n": 10793,
+   "distal": 0.696,
+   "gene body/near": 0.158,
+   "promoter": 0.147
+  },
+  "stromal": {
+   "n": 1933,
+   "distal": 0.743,
+   "gene body/near": 0.152,
+   "promoter": 0.105
+  },
+  "terminal": {
+   "n": 7388,
+   "distal": 0.669,
+   "gene body/near": 0.18,
+   "promoter": 0.152
+  }
+ }
+}

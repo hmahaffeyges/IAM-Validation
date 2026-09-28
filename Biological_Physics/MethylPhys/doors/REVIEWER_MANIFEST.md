@@ -47,7 +47,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`detection_panel_v3.json`](../chain/Runtime%20Matrices/Celltype_Marker/detection_panel_v3.json) — FOREIGN-CELL DETECTOR v3 (PROC-STAGE2D-03, 2026-09-27): one joint NNLS of the panel markers on blood + 21 templates; per-template noise floor = 0.99 quantile ov
 - [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) — The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation anchors reproduce on THIS file, so it canno
 - [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) — How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report withholds the individual
-- [`twin_family_thresholds_v1.json`](../chain/Runtime%20Matrices/Celltype_Marker/twin_family_thresholds_v1.json) — TWIN / FAMILY / COVERAGE constants for the composition solver (PLAN item 6, 2026-09-27): twin_r 0.985, cross-source r 0.98, 30 separating loci at 0.2 beta, cove
+- [`twin_family_thresholds_v1.json`](../atlas/v2/inputs/twin_family_thresholds_v1.json) — TWIN / FAMILY / COVERAGE constants for the composition solver (PLAN item 6, 2026-09-27): twin_r 0.985, cross-source r 0.98, 30 separating loci at 0.2 beta, cove
 - [`iamatlas_collinearity_groups_v0_1.json`](../chain/Runtime%20Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json) — Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries inside one group sh
 - [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%20Panel/directional_panels_v1_0.json) — The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today.
 - [`intake_thresholds_v1.json`](../chain/Runtime%20Matrices/Intake/intake_thresholds_v1.json) — 
@@ -95,7 +95,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_inventory_v1.json) — every chain file with its role
 - [`ROW9_WORKING_NOTE.md`](../kit/ROW9_WORKING_NOTE.md) — the working note: what was tried, what failed, what was withdrawn
 
-## Every sealed procedure — 54 procedures, 252 files
+## Every sealed procedure — 56 procedures, 254 files
 
 Pre-registration, outcome and evidence for each. The failures are here too: a procedure that closed NOT COMMISSIONED is as much a result as one that passed.
 
@@ -131,10 +131,12 @@ Pre-registration, outcome and evidence for each. The failures are here too: a pr
 - **PROC-MF-01** — [`PROC_MF_01_OUTCOME.md`](PROC_MF_01_OUTCOME.md), [`PROC_MF_01_PREREG.md`](PROC_MF_01_PREREG.md), [`PROC_MF_01.py`](../kit/PROC_MF_01.py), [`PROC_MF_01.json`](../kit/results/PROC_MF_01.json), [`PROC_MF_01_null.json`](../kit/results/PROC_MF_01_null.json), [`PROC_MF_01.png`](../plates/PROC_MF_01.png)
 - **PROC-MF-02** — [`PROC_MF_02_OUTCOME.md`](PROC_MF_02_OUTCOME.md), [`PROC_MF_02_PREREG.md`](PROC_MF_02_PREREG.md), [`PROC_MF_02.py`](../kit/PROC_MF_02.py), [`PROC_MF_02.json`](../kit/results/PROC_MF_02.json), [`PROC_MF_02_b7_diagnosis.json`](../kit/results/PROC_MF_02_b7_diagnosis.json), [`PROC_MF_02_null.json`](../kit/results/PROC_MF_02_null.json), [`PROC_MF_02.png`](../plates/PROC_MF_02.png)
 - **PROC-MF-03** — [`PROC_MF_03_OUTCOME.md`](PROC_MF_03_OUTCOME.md), [`PROC_MF_03_PREREG.md`](PROC_MF_03_PREREG.md), [`PROC_MF_03.py`](../kit/PROC_MF_03.py), [`PROC_MF_03_extract.py`](../kit/PROC_MF_03_extract.py), [`PROC_MF_03.json`](../kit/results/PROC_MF_03.json), [`PROC_MF_03_extraction.json`](../kit/results/PROC_MF_03_extraction.json), [`PROC_MF_03_null.json`](../kit/results/PROC_MF_03_null.json), [`PROC_MF_03_null_mad_by_lab.json`](../kit/results/PROC_MF_03_null_mad_by_lab.json), [`PROC_MF_03.png`](../plates/PROC_MF_03.png)
+- **PROC-OUTSPAN-01** — [`PROC_OUTSPAN_01_PREREG.md`](PROC_OUTSPAN_01_PREREG.md)
 - **PROC-PANEL-01** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-01/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-01/PREREG.md), [`panel01_results.json`](../../Record/PROC_data/PROC-PANEL-01/panel01_results.json), [`per_sample_input.csv`](../../Record/PROC_data/PROC-PANEL-01/per_sample_input.csv)
 - **PROC-PANEL-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-02/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-02/PREREG.md), [`panel02_results.json`](../../Record/PROC_data/PROC-PANEL-02/panel02_results.json)
 - **PROC-PANEL-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-PANEL-03/OUTCOME.md), [`PREREG.md`](../../Record/PROC_data/PROC-PANEL-03/PREREG.md), [`panel03_results.json`](../../Record/PROC_data/PROC-PANEL-03/panel03_results.json)
 - **PROC-PARTIAL-01** — [`PROC_PARTIAL_01_OUTCOME.md`](PROC_PARTIAL_01_OUTCOME.md), [`PROC_PARTIAL_01_PREREG.md`](PROC_PARTIAL_01_PREREG.md), [`PROC_PARTIAL_01.py`](../kit/PROC_PARTIAL_01.py), [`PROC_PARTIAL_01_analyse.py`](../kit/PROC_PARTIAL_01_analyse.py), [`PROC_PARTIAL_01.json`](../kit/results/PROC_PARTIAL_01.json), [`PROC_PARTIAL_01_estimates.json`](../kit/results/PROC_PARTIAL_01_estimates.json), [`PROC_PARTIAL_01_landing.json`](../kit/results/PROC_PARTIAL_01_landing.json)
+- **PROC-PARTIALCOV-01** — [`PROC_PARTIALCOV_01_PREREG.md`](PROC_PARTIALCOV_01_PREREG.md)
 - **PROC-RECORD-02** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-02/OUTCOME.md), [`val025_028_aging_ZENODO_COPY.py`](../../Record/PROC_data/PROC-RECORD-02/val025_028_aging_ZENODO_COPY.py)
 - **PROC-RECORD-03** — [`OUTCOME.md`](../../Record/PROC_data/PROC-RECORD-03/OUTCOME.md), [`age_matrix_provenance_check.json`](../../Record/PROC_data/PROC-RECORD-03/age_matrix_provenance_check.json)
 - **PROC-SEP-03** — [`PROC_SEP_03.py`](../kit/PROC_SEP_03.py)

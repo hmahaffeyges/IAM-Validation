@@ -1,0 +1,14 @@
+pairs: 74 | samples: 74
+warm-up: ('GSM1548150', 'ok', 0.9667841988636482)
+{'ok': 74}
+                                             n  median  below
+subject_status label                                         
+AML            CD34+38+ of AML patient      15   0.981      2
+               CD34+38- of AML patient      14   0.980      3
+               CD34- of AML patient         15   0.984      0
+normal         CMP of normal bone marrow     5   0.955      2
+               GMP of normal bone marrow     5   0.953      1
+               HSC of normal bone marrow     5   0.962      2
+               L-MPP of normal bone marrow   5   0.962      2
+               MEP of normal bone marrow     5   0.941      2
+               MPP of normal bone marrow     5   0.900      3

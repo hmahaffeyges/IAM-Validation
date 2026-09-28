@@ -1,0 +1,70 @@
+{
+ "source": "Tian et al. 2023 Science, figshare 28438499 (MajorType, hg38)",
+ "array_cpgs_hg38": 895811,
+ "donors": "3 adult male brains, pooled per type (no donor variance)",
+ "types": {
+  "ASC": {
+   "cell": "astrocytes",
+   "rows_read": 1131270428,
+   "array_cpgs": 861587,
+   "median_cov": 50.0,
+   "frac_cov_ge10": 0.9912,
+   "mean_beta": 0.6213,
+   "seconds": 1717
+  },
+  "MGC": {
+   "cell": "microglia",
+   "rows_read": 1130110842,
+   "array_cpgs": 861261,
+   "median_cov": 50.0,
+   "frac_cov_ge10": 0.9916,
+   "mean_beta": 0.5855,
+   "seconds": 1616
+  },
+  "ODC": {
+   "cell": "oligodendrocytes",
+   "rows_read": 1129333268,
+   "array_cpgs": 861210,
+   "median_cov": 47.0,
+   "frac_cov_ge10": 0.9908,
+   "mean_beta": 0.5963,
+   "seconds": 1555
+  },
+  "OPC": {
+   "cell": "oligodendrocyte precursors",
+   "rows_read": 1131763033,
+   "array_cpgs": 861815,
+   "median_cov": 48.0,
+   "frac_cov_ge10": 0.9903,
+   "mean_beta": 0.602,
+   "seconds": 1658
+  },
+  "VLMC": {
+   "cell": "vascular leptomeningeal cells",
+   "rows_read": 1122458881,
+   "array_cpgs": 860324,
+   "median_cov": 25.0,
+   "frac_cov_ge10": 0.968,
+   "mean_beta": 0.5856,
+   "seconds": 1704
+  },
+  "PC": {
+   "cell": "pericytes",
+   "rows_read": 1088599900,
+   "array_cpgs": 857874,
+   "median_cov": 11.0,
+   "frac_cov_ge10": 0.6458,
+   "mean_beta": 0.586,
+   "seconds": 1630
+  },
+  "EC": {
+   "cell": "endothelial (major-type label EC)",
+   "rows_read": 1106719459,
+   "array_cpgs": 859058,
+   "median_cov": 15.0,
+   "frac_cov_ge10": 0.8591,
+   "mean_beta": 0.5949,
+   "seconds": 1591
+  }
+ }
+}

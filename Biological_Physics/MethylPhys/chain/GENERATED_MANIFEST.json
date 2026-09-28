@@ -1,5 +1,5 @@
 {
- "built": "2026-09-28 01:03:29",
+ "built": "2026-09-28 03:31:56",
  "python": "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.venv/methylprep/bin/python3",
  "generated": [
   {
@@ -87,7 +87,7 @@
   "chain/Runtime Matrices/Patient_CMB/build_healpix_mapping.py": "497d82801d033b00af60b6eff7a029fd2188d9813753367e2eed954a178e1c5c",
   "chain/Runtime Matrices/Patient_CMB/presence_floors_v1.json": "8028199c8ffbd981ad5b864242db886d97785234144ebcee736befce41b6589f",
   "chain/Runtime Matrices/Tier_breakpoints/tier_breakpoints.json": "f9bfb3c2e476c936a09e9be45eb8ac222deb3299337a8b31112ba40bc83a3979",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "90934e174e7138bf541755fb8cd4622c99a80bc7185b0f7a5038b8528358a113",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "9a2341b1b0f9a43f5cfb3b610fce8bba57edf65922ea7ac4d3c0fac5c9505a6b",
   "chain/Runtime Matrices/trace_detection_panel_v1.json": "c660883f2e07710234affc5809492efe533c58a1123e5bc0ab7c931bec4d1018",
   "chain/build_all.py": "045ddea255d951905d57d4e753b016bbc47d2d8b84a93753861326894b83afb1",
   "chain/build_chain_sequence.py": "1a283dc05c971748a6db93eb4fd2cdd756e632832ac090f7d02f735aa22da5cd",
@@ -143,6 +143,8 @@
   "doors/PROC_MF_02_PREREG.md": "dafc8d31a5462b9e5aab4ae2f389caffbc474e82525b7380a270a3b429e6ec34",
   "doors/PROC_MF_03_OUTCOME.md": "37a8ee9a37955f27ac044654492b7fc50c3c4d2b3f6dccf3d550456788dc8b41",
   "doors/PROC_MF_03_PREREG.md": "2ec21f7696f1ff3f44e1508b4d01bd85e796dcf0e0564f8472a87c41519944d3",
+  "doors/PROC_OUTSPAN_01_PREREG.md": "32b35702ef0736b7b0165cff2c8697d755ec7b2f1908254cac6c6b2a37d46963",
+  "doors/PROC_PARTIALCOV_01_PREREG.md": "6b31789fe0f37e65e99664760a7c94428c800c22fdcf5a9a3b47a7f5c689fcfd",
   "doors/PROC_PARTIAL_01_OUTCOME.md": "2e70350f7159683344416837a8660fec4d18cffcec3dc1e5194d4fed31f25eaa",
   "doors/PROC_PARTIAL_01_PREREG.md": "1c6f22ba0ab75e950bb3ad7dc940b4b9694f8f3b921dbccea8d29ab24cfe304e",
   "doors/PROC_SERIAL_01_PREREG.md": "c7b3c62d57a9dc32156f9f99201f8731578a1ae12a5360f2fe6cdc79f61ef449",
@@ -256,17 +258,17 @@
   "sop/sop_repoint.py": "62e3ecb3afd8814aad55e07918383490d94d46c465234f3168637067dd3d7a5e"
  },
  "outputs": {
-  "chain/chain_sequence.json": "6aeeb0938194adc9f8876b020436a4d840482168446a194e22245bda7059a683",
+  "chain/chain_sequence.json": "8a97a7a5f7654c470b4cfc877bbeca2c3feb16dd8d92989143ec4dac9352148a",
   "doors/CHAIN_SEQUENCE.md": "74435aff74ddffb041718ec6f862fdb3698e1f18fe05ca70454723b57f18b668",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "3c6b32c4e0d6aedf40f9d4203054b78a358826ba3cd23ff59ea308447c56b635",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "9d6eabfd22c80e0c8c22677d13535cbe0a1552c05b22266945b4adc4f0d9b235",
   "doors/COMPONENT_MAP.md": "06652ccc402eae61ad4c9e1ade19b99835bd5747dab5cbfc0a38b23315f2f6ba",
   "chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json": "5c8beea7880494a02aa40e2043fe37b3925d192e542f980fc0bec70ab297b129",
   "chain/example_runs/RUN_INDEX.csv": "e81c849a9161af769894c96a8ba70ece8c2890f3286c8935ff34df58ebd8eaab",
-  "sop/MethylPhys_CPG_SOP.md": "2b717d0d4c49a2455ec7dee3c4d4dcc35518f97589419ea1cf399bcd13150a7e",
-  "manual/MethylPhys_CPG_Operations_Manual.pdf": "135a92a26d2d07073d22dea7a805f62493931fdccab259a9eac5e812eafb7340",
-  "doors/REVIEWER_MANIFEST.md": "6359d9261a6edb0a6881e01d054733ea81440af12bb4d1d7b33f0d84697cd79e",
-  "doors/REPORT_TAB_REFERENCE.md": "d15fd360671bbaae1ce429a75b5c1596fe62c42c3ad35b11951f3ba18de68216",
-  "doors/REPO_INVENTORY.md": "ab8da9e9f97f76761de0850cfd5f51f7d7eae937d832d2db89c1301219042edc",
+  "sop/MethylPhys_CPG_SOP.md": "6359f6f34db62cd81b80ac3e308422b187f1b5c94008fdbb3314d41ee7f58c6b",
+  "manual/MethylPhys_CPG_Operations_Manual.pdf": "e73ed321fa5b33d00d96477c4aeb6541870422feaf81ad6a48fe8a33947d482f",
+  "doors/REVIEWER_MANIFEST.md": "45e1f441b2aa0488b4d1bc860e4e21801afca99eed9720b11c461e588b2abb49",
+  "doors/REPORT_TAB_REFERENCE.md": "43dcd63d17981619ced0439b80466a2fb6fec70aff75942fa774fb1110dfb639",
+  "doors/REPO_INVENTORY.md": "04d8afbe03b7cb81ec07d045852590b629690daa2c5d4399c6c2dd2eea88c517",
   "doors/RUNBOOK.md": "ca68f01230bfb64bef5dd420647fcf8d898e76503cf4910d7ddfc0bfb066812f",
   "README.md": "3a189d3bce46a43632b7ddbdaad7410f9a23ee47ff85bed0bb34889ab1f1cf52"
  },

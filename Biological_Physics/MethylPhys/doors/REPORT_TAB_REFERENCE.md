@@ -1,6 +1,6 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `7d25245`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `5f8704d`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
 One run produces **one self-contained HTML file of 6.49 MB with 17 tabs** - 7 carrying this specimen's own measurements and 10 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
@@ -104,7 +104,7 @@ The fail-safes that kept this reading honest: what this run refused and why, eac
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 7d25245)**, **5. Two rules this report obeys**
+*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 5f8704d)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 
@@ -120,7 +120,7 @@ Every file the chain uses, enumerated from the live tree with its role and SHA-2
 
 ![Files tab](../manual/report_tab_figures/files.png)
 
-*82 KB, 6 tables, 201 rows.*  Sections: **Every file the chain uses**, **In the chain (17)**, **Reference and calibration data (65)**, **Interface (15)**, **Guards, procedures and doors (63)**, **Present but NOT in the chain (31)**, **Superseded (4)**
+*84 KB, 6 tables, 201 rows.*  Sections: **Every file the chain uses**, **In the chain (17)**, **Reference and calibration data (65)**, **Interface (15)**, **Guards, procedures and doors (63)**, **Present but NOT in the chain (31)**, **Superseded (4)**
 
 ### Findings  ·  `findings`  ·  REFERENCE
 

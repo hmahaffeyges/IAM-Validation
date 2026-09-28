@@ -60,7 +60,7 @@
   {
    "file": "sop/MethylPhys_CPG_SOP.md",
    "kind": "text",
-   "n": 83,
+   "n": 86,
    "status": "PENDING_V2",
    "why": "describes the class gauge the chain runs until the v2 switch-over"
   },

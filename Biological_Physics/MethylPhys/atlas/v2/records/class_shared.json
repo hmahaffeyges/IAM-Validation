@@ -1,0 +1,137 @@
+{
+ "cpgs": 651046,
+ "cycling": {
+  "cells": [
+   "bladder epithelium",
+   "breast basal epithelium",
+   "colon epithelium",
+   "endometrium epithelium",
+   "fallopien tubes epithelium",
+   "kidney glomerular epithelium",
+   "kidney tubular epithelium",
+   "lung alveolar epithelium",
+   "lung bronchus epithelium",
+   "small intestine epithelium",
+   "tongue epithelium",
+   "tonsil palatine epithelium",
+   "tonsil pharyngeal epithelium"
+  ],
+  "n_all": 0,
+  "n_80": 4,
+  "null_random_median": 0.0,
+  "null_random_p95": 0.0,
+  "p_random": 1.0,
+  "null_lineage_median": 0.0,
+  "null_lineage_p95": 0.0,
+  "p_lineage": 1.0
+ },
+ "immune": {
+  "cells": [
+   "b cells",
+   "cd4 t cells",
+   "cd8 t cells",
+   "colon macrophages",
+   "effector memory cd8 t cells",
+   "lung alveolar macrophages",
+   "lung interstitial macrophages",
+   "memory b cells",
+   "monocytes",
+   "naive cd4 t cells",
+   "naive cd8 t cells",
+   "nk cells",
+   "t central memory cd4",
+   "t effector cell cd8",
+   "t effector memory cd4"
+  ],
+  "n_all": 398,
+  "n_80": 738,
+  "null_random_median": 0.0,
+  "null_random_p95": 0.0,
+  "p_random": 0.000999000999000999
+ },
+ "progenitor": {
+  "cells": [
+   "erythrocyte progenitors"
+  ],
+  "n_all": 2282,
+  "n_80": 2282,
+  "null_random_median": 752.0,
+  "null_random_p95": 2282.0,
+  "p_random": 0.061938061938061936
+ },
+ "secretory": {
+  "cells": [
+   "breast luminal epithelium",
+   "colon enteroendocrine",
+   "gastric antrum epithelium",
+   "gastric body epithelium",
+   "gastric fundus epithelium",
+   "hepatocyte",
+   "pancreatic acinar",
+   "pancreatic alpha",
+   "pancreatic beta",
+   "pancreatic delta",
+   "pancreatic duct",
+   "prostate epithelium",
+   "thyroid epithelium"
+  ],
+  "n_all": 0,
+  "n_80": 0,
+  "null_random_median": 0.0,
+  "null_random_p95": 0.0,
+  "p_random": 1.0,
+  "null_lineage_median": 0.0,
+  "null_lineage_p95": 0.0,
+  "p_lineage": 1.0
+ },
+ "stromal": {
+  "cells": [
+   "adipocytes",
+   "aorta endothelium",
+   "colon fibroblasts",
+   "heart fibroblasts",
+   "kidney glomerular endothelium",
+   "kidney tubular endothelium",
+   "lung alveolar endothelium",
+   "pancreas endothelium",
+   "smooth muscle",
+   "vascular saphenous endothelium"
+  ],
+  "n_all": 1,
+  "n_80": 49,
+  "null_random_median": 0.0,
+  "null_random_p95": 0.0,
+  "p_random": 0.000999000999000999
+ },
+ "terminal": {
+  "cells": [
+   "cardiomyocyte",
+   "cortical neurons",
+   "oligodendrocytes",
+   "striated muscle"
+  ],
+  "n_all": 1,
+  "n_80": 1,
+  "null_random_median": 0.0,
+  "null_random_p95": 0.0,
+  "p_random": 0.015984015984015984
+ },
+ "neural_pair": {
+  "cells": [
+   "cortical neurons",
+   "oligodendrocytes"
+  ],
+  "n_all": 202
+ },
+ "muscle_pair": {
+  "cells": [
+   "cardiomyocyte",
+   "striated muscle"
+  ],
+  "n_all": 43
+ },
+ "terminal_cross_lineage": {
+  "lo_in_all_4": 109876,
+  "and_methylated_elsewhere": 1
+ }
+}

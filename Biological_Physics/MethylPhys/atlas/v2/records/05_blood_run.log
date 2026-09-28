@@ -1,0 +1,25 @@
+GSE35069: 0 arrays on disk, 60 labelled
+GSE110554: 49 arrays on disk, 49 labelled
+GSE167998: 68 arrays on disk, 68 labelled
+{'ok': 117}
+                                                                                     n  median  below
+gse       label                                                                                      
+GSE110554 Bcell                                                                      6   0.993      0
+          CD4T                                                                       5   0.992      0
+          CD8T                                                                       6   0.993      0
+          MACS purified blood cells                                                  2   0.992      0
+          Mono                                                                       6   0.992      0
+          NK                                                                         6   0.994      0
+          Neu                                                                        6   0.993      0
+GSE167998 Human Peripheral Blood CD4+ CD45RA+ T Cells, Frozen                        5   0.986      0
+          Human Peripheral Blood CD4+ CD45RO+ T Cells, Frozen                        4   0.982      0
+          Human Peripheral Blood CD8+ CD45RA+ T Cells, Frozen                        5   0.989      0
+          Human Peripheral Blood CD8+ CD62- CD45RO+ Effector Memory T Cells, Frozen  4   0.985      0
+          Human Peripheral blood CD14+ Monocytes, Frozen                             5   0.993      0
+          Human Peripheral blood CD15+ CD16- Eosinophils, Frozen                     4   0.985      0
+          Human Peripheral blood CD4+ CD25+ CD127- T regulatory lymphocytes, Frozen  3   0.977      0
+          Human Peripheral blood CD56+ Natural killers, Frozen                       4   0.993      0
+          Human Peripheral blood negatively selected neutrophils, Frozen             6   0.993      0
+          Human Peripheral blood, CD19+ CD27+ B cells, Frozen                        6   0.962      0
+          Human Peripheral blood, CD19+ CD27- B cells, Frozen                        4   0.975      0
+          Human peripheral blood IgE+ CD123+ Basophils, Frozen                       6   0.983      0

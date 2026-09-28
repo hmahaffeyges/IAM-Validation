@@ -1,21 +1,21 @@
-build_all  @ 7d25245  python /Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.venv/methylprep/bin/python3
+build_all  @ 5f8704d  python /Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.venv/methylprep/bin/python3
   ok  1 chain sequence (from the code)               0.1s     NOT WIRED: stage_1_calibration.py - module present; neither run_sample.py nor cpg_condu |    NOT WIRED: stage_5_second_chain.py - module present; neither run_sample.py nor cpg_cond
-  ok  2 chain inventory                              0.5s  by role: {'guard': 63, 'UNDESCRIBED': 30, 'superseded': 4, 'record': 31, 'interface': 15,  | UNDESCRIBED (30): ['ATLAS_SOURCES_SURVEY.md', 'ATLAS_V2_SPEC.md', 'CLASS_ASSIGNMENT_RULE_D
+  ok  2 chain inventory                              0.5s  by role: {'guard': 63, 'UNDESCRIBED': 81, 'superseded': 4, 'record': 31, 'interface': 15,  | UNDESCRIBED (81): ['02_fetch_sources.py', '02_fetch_summary.json', '03_loyfer_extract.py',
   ok  3 cell descriptions (author's drafts)          0.1s  cells: 115 | with biology from a draft: 52 | drafts used: 27 of 27 | draft cells not in at | example: Neutrophils | Neutrophils are the front-line of your innate immune response. When
   ok  4 run index                                    0.0s     RUN-20260926-19    BLOOD        whole_blood    blood.html |    RUN-20260926-20    BLOOD        whole_blood    blood.html
   ok  5a SOP mirror (banners, Part II-A)             0.1s  sections bannered: 131 {'LIVE': 60, 'KIT': 13, 'RECORD': 36, 'NOT IN CHAIN': 20, 'NOT BUIL | SOP written
-  ok  5b SOP repoint (references, file table)        2.0s    DROP           8 names,  35 occurrences |   reference table: 97 files
-  ok  6 Operations Manual (two-pass PDF)             8.7s  toc: 40 of 40 chapters located | MethylPhys_CPG_Operations_Manual.pdf
-  ok  7 reviewer manifest                            0.3s  manifest: 72 files listed, 54 procedures (252 files), 0 absent
-  ok  8a fresh reference report (repo data)         53.2s  report: /Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/work
+  ok  5b SOP repoint (references, file table)        2.1s    DROP           8 names,  27 occurrences |   reference table: 97 files
+  ok  6 Operations Manual (two-pass PDF)             8.5s  toc: 40 of 40 chapters located | MethylPhys_CPG_Operations_Manual.pdf
+  ok  7 reviewer manifest                            0.3s  manifest: 72 files listed, 56 procedures (254 files), 0 absent
+  ok  8a fresh reference report (repo data)         55.8s  report: /Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/work
   ok  8b report tab reference (fresh render)         3.0s  REPORT_TAB_REFERENCE.md: 17 tabs (7 specimen, 10 reference), 17 CMB tools, rendered figure
-  ok  9 repo inventory (measured)                    0.1s  REPO_INVENTORY.md: 589 files, 14 folders, 14 generated documents
+  ok  9 repo inventory (measured)                    0.1s  REPO_INVENTORY.md: 658 files, 14 folders, 14 generated documents
   ok  10 RUNBOOK / README marked blocks              0.0s  doors/RUNBOOK.md: block written (20 rows) | README.md: block written (20 rows)
-  ok  11 folder READMEs                              0.1s       atlas/sources                                            7 files |      chain/Runtime Matrices/Celltype_Marker                   5 files
+  ok  11 folder READMEs                              0.1s       atlas/v2/scripts                                         18 files |      chain/Runtime Matrices/Celltype_Marker                   5 files
 gates:
   ok  vocab scan (report guards over SOP + OM)       0.4s  LIVE words: [] | VOCAB SCAN: PASS
   ok  SOP mirror reconciliation                      0.1s  sections bannered: 131 {'LIVE': 60, 'KIT': 13, 'RECORD': 36, 'NOT IN CHAIN': 20, 'NOT BUIL | SOP MIRROR: PASS
-  ok  link check                                     0.3s  link_check (live documentation set): 1235 relative references checked in 211 documents | link_check: PASS - every relative reference resolves
+  ok  link check                                     0.3s  link_check (live documentation set): 1237 relative references checked in 213 documents | link_check: PASS - every relative reference resolves
   ok  class guard (a class is only the floor a cell is divided by)   0.2s    PENDING_V2 text    2  doors/RUNBOOK.md  - describes the class gauge the chain runs until | class guard: 0 FAIL, 10 PENDING_V2, 1 LABEL
-manifest: 194 chain inputs, 13 generated outputs
+manifest: 196 chain inputs, 13 generated outputs
 BUILD_ALL: PASS

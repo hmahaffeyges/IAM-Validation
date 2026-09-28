@@ -1,0 +1,87 @@
+{
+ "_meta": {
+  "written": "2026-09-28",
+  "scale": "our own Stage 1 array scale (author, 2026-09-28)",
+  "estimator": "source_terms.py: Deming regression of a sequencing source's per-locus cell means on array-scale means of cells both measured (50,000 loci), CI by bootstrap over cells; bridges through Loyfer where a source shares no cell with our arrays; array-lab offsets from shared cells",
+  "t": "extra per-source noise not estimated by the closed-form fit (stage A did not converge); stage B carries a 0.01 beta measurement floor for every source instead",
+  "assumed_rule": "author, 2026-09-28: 'Keep them in and notate the truth' - a source whose term cannot be measured enters with a carried-over term, status ASSUMED, the reason and its estimated effect on A; every reading on its cells carries the flag until a bridge is measured",
+  "updated": "2026-09-28: ENCODE ASSUMED -> MEASURED VIA GSE116754"
+ },
+ "Loyfer2023": {
+  "kind": "wgbs",
+  "a": -0.090198657658206,
+  "b": 1.1026485876765302,
+  "d": 0.0,
+  "t": 0.0,
+  "status": "MEASURED",
+  "basis": "17 shared cells, 767,672 pairs, b 95% CI [1.0903, 1.1157]"
+ },
+ "Tian2023": {
+  "kind": "pooled",
+  "a": -0.10384181304990718,
+  "b": 1.1200059336070491,
+  "d": 0.0,
+  "t": 0.0,
+  "status": "MEASURED VIA LOYFER (one shared cell: oligodendrocytes)",
+  "basis": "48,542 pairs, r vs Loyfer 0.985"
+ },
+ "ENCODE": {
+  "kind": "wgbs",
+  "a": -0.08703738289499341,
+  "b": 1.1348267951023485,
+  "d": 0.0,
+  "t": 0.0,
+  "status": "MEASURED VIA GSE116754",
+  "basis": "shares no cell with our arrays or Loyfer; GSE31848/GSE59091/GSE60821 stem-line arrays have no raw IDATs. Takes Loyfer's WGBS transfer (same technology; Tian's measured slope 1.12 lies within 0.02).",
+  "effect_on_A": "~0.002 on a pluripotent cell's A if its true slope differs from Loyfer's as Tian's does",
+  "how": "Deming fit of ENCODE WGBS stem-line means (H1, HUES64) against 4 undifferentiated hESC 450K arrays (GSE116754, raw IDATs, our Stage 1), 475,964 loci; found via the Cell Reports Methods 2026 compendium (2026-09-28).",
+  "assumption": "GSE116754's own array-lab offset is not measurable and is taken as 0 (measured array labs sit within 0.01).",
+  "replaced": {
+   "kind": "wgbs",
+   "a": -0.090198657658206,
+   "b": 1.1026485876765302,
+   "d": 0.0,
+   "t": 0.0,
+   "status": "ASSUMED",
+   "basis": "shares no cell with our arrays or Loyfer; GSE31848/GSE59091/GSE60821 stem-line arrays have no raw IDATs. Takes Loyfer's WGBS transfer (same technology; Tian's measured slope 1.12 lies within 0.02).",
+   "effect_on_A": "~0.002 on a pluripotent cell's A if its true slope differs from Loyfer's as Tian's does"
+  }
+ },
+ "Salas2018": {
+  "kind": "array",
+  "a": 0.0,
+  "b": 1.0,
+  "d": 0.0,
+  "t": 0.0,
+  "status": "MEASURED",
+  "basis": "3 cells shared with Salas2022"
+ },
+ "Salas2022": {
+  "kind": "array",
+  "a": 0.0,
+  "b": 1.0,
+  "d": 0.0,
+  "t": 0.0,
+  "status": "MEASURED",
+  "basis": "3 cells shared with Salas2018"
+ },
+ "Moss2018": {
+  "kind": "array",
+  "a": 0.0,
+  "b": 1.0,
+  "d": -0.0052925314108531185,
+  "t": 0.0,
+  "status": "MEASURED VIA LOYFER (a bound of about +/-0.01: Loyfer's fit includes Moss cells)",
+  "basis": "8 cells shared with Loyfer"
+ },
+ "GSE63409": {
+  "kind": "array",
+  "a": 0.0,
+  "b": 1.0,
+  "d": 0.0,
+  "t": 0.0,
+  "status": "ASSUMED",
+  "basis": "our own Stage 1 on 450K; shares no cell with any source. Offset taken as 0; every measured array-lab offset is within 0.01 beta.",
+  "effect_on_A": "<= ~0.015 on an adult-stem or progenitor cell's A (0.01 beta at its identity loci), under a third of the NORMAL half-width"
+ }
+}

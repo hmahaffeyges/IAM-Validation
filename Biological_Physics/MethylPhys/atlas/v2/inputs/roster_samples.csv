@@ -1,0 +1,335 @@
+cell,source,platform,sample,qc,metric
+adipocytes,Loyfer2023,WGBS,GSM5652176,True,0.9711
+adipocytes,Loyfer2023,WGBS,GSM5652177,True,0.9702
+adipocytes,Loyfer2023,WGBS,GSM5652178,True,0.9638
+aorta endothelium,Loyfer2023,WGBS,GSM5652179,True,0.9536
+aorta endothelium,Loyfer2023,WGBS,GSM5652180,True,0.9552
+vascular saphenous endothelium,Loyfer2023,WGBS,GSM5652181,True,0.9564
+vascular saphenous endothelium,Loyfer2023,WGBS,GSM5652182,True,0.9742
+vascular saphenous endothelium,Loyfer2023,WGBS,GSM5652183,True,0.9711
+kidney glomerular endothelium,Loyfer2023,WGBS,GSM5652184,True,0.9656
+kidney glomerular endothelium,Loyfer2023,WGBS,GSM5652185,True,0.9709
+kidney glomerular endothelium,Loyfer2023,WGBS,GSM5652186,True,0.9631
+kidney tubular endothelium,Loyfer2023,WGBS,GSM5652187,True,0.9683
+kidney tubular endothelium,Loyfer2023,WGBS,GSM5652188,True,0.9526
+kidney tubular endothelium,Loyfer2023,WGBS,GSM5652189,True,0.9279
+liver endothelium,Loyfer2023,WGBS,GSM5652190,True,0.9779
+lung alveolar endothelium,Loyfer2023,WGBS,GSM5652191,True,0.9526
+lung alveolar endothelium,Loyfer2023,WGBS,GSM5652192,True,0.9704
+lung alveolar endothelium,Loyfer2023,WGBS,GSM5652193,True,0.9573
+pancreas endothelium,Loyfer2023,WGBS,GSM5652194,True,0.9307
+pancreas endothelium,Loyfer2023,WGBS,GSM5652195,True,0.9536
+pancreas endothelium,Loyfer2023,WGBS,GSM5652196,True,0.9267
+pancreas endothelium,Loyfer2023,WGBS,GSM5652197,True,0.9597
+colon fibroblasts,Loyfer2023,WGBS,GSM5652198,True,0.9691
+colon fibroblasts,Loyfer2023,WGBS,GSM5652199,True,0.9664
+heart fibroblasts,Loyfer2023,WGBS,GSM5652200,False,0.8646
+heart fibroblasts,Loyfer2023,WGBS,GSM5652201,True,0.9634
+heart fibroblasts,Loyfer2023,WGBS,GSM5652202,True,0.9517
+heart fibroblasts,Loyfer2023,WGBS,GSM5652203,True,0.9588
+ad-dermal fibroblasts,Loyfer2023,WGBS,GSM5652204,True,0.955
+striated muscle,Loyfer2023,WGBS,GSM5652205,True,0.9511
+striated muscle,Loyfer2023,WGBS,GSM5652206,True,0.9548
+smooth muscle,Loyfer2023,WGBS,GSM5652207,True,0.9643
+smooth muscle,Loyfer2023,WGBS,GSM5652208,True,0.9628
+smooth muscle,Loyfer2023,WGBS,GSM5652209,True,0.9461
+smooth muscle,Loyfer2023,WGBS,GSM5652210,True,0.9483
+smooth muscle,Loyfer2023,WGBS,GSM5652211,True,0.9465
+cardiomyocyte,Loyfer2023,WGBS,GSM5652212,True,0.968
+cardiomyocyte,Loyfer2023,WGBS,GSM5652213,True,0.9643
+cardiomyocyte,Loyfer2023,WGBS,GSM5652214,False,0.1715
+cardiomyocyte,Loyfer2023,WGBS,GSM5652215,False,0.0584
+cardiomyocyte,Loyfer2023,WGBS,GSM5652216,True,0.963
+cardiomyocyte,Loyfer2023,WGBS,GSM5652217,True,0.962
+osteoblasts,Loyfer2023,WGBS,GSM5652218,True,0.966
+oligodendrocytes,Loyfer2023,WGBS,GSM5652219,True,0.9511
+oligodendrocytes,Loyfer2023,WGBS,GSM5652220,True,0.9622
+oligodendrocytes,Loyfer2023,WGBS,GSM5652221,True,0.9603
+oligodendrocytes,Loyfer2023,WGBS,GSM5652222,True,0.9605
+cortical neurons,Loyfer2023,WGBS,GSM5652223,True,0.9489
+cortical neurons,Loyfer2023,WGBS,GSM5652224,True,0.9562
+cortical neurons,Loyfer2023,WGBS,GSM5652225,True,0.951
+cortical neurons,Loyfer2023,WGBS,GSM5652226,True,0.9653
+cortical neurons,Loyfer2023,WGBS,GSM5652227,True,0.9475
+cortical neurons,Loyfer2023,WGBS,GSM5652228,True,0.9605
+cortical neurons,Loyfer2023,WGBS,GSM5652229,True,0.959
+cortical neurons,Loyfer2023,WGBS,GSM5652230,True,0.9548
+cortical neurons,Loyfer2023,WGBS,GSM5652231,True,0.9576
+cortical neurons,Loyfer2023,WGBS,GSM5652232,True,0.9714
+hepatocyte,Loyfer2023,WGBS,GSM5652233,True,0.9683
+hepatocyte,Loyfer2023,WGBS,GSM5652234,True,0.9636
+hepatocyte,Loyfer2023,WGBS,GSM5652235,True,0.9685
+hepatocyte,Loyfer2023,WGBS,GSM5652236,True,0.9771
+hepatocyte,Loyfer2023,WGBS,GSM5652237,True,0.9552
+hepatocyte,Loyfer2023,WGBS,GSM5652238,True,0.952
+pancreatic duct,Loyfer2023,WGBS,GSM5652239,True,0.9605
+pancreatic duct,Loyfer2023,WGBS,GSM5652240,True,0.9614
+pancreatic duct,Loyfer2023,WGBS,GSM5652241,True,0.921
+pancreatic duct,Loyfer2023,WGBS,GSM5652242,True,0.9423
+pancreatic acinar,Loyfer2023,WGBS,GSM5652243,True,0.9773
+pancreatic acinar,Loyfer2023,WGBS,GSM5652244,True,0.953
+pancreatic acinar,Loyfer2023,WGBS,GSM5652245,True,0.9566
+pancreatic acinar,Loyfer2023,WGBS,GSM5652246,True,0.9527
+pancreatic delta,Loyfer2023,WGBS,GSM5652247,True,0.9328
+pancreatic delta,Loyfer2023,WGBS,GSM5652248,True,0.962
+pancreatic delta,Loyfer2023,WGBS,GSM5652249,True,0.9204
+pancreatic beta,Loyfer2023,WGBS,GSM5652250,True,0.9548
+pancreatic beta,Loyfer2023,WGBS,GSM5652251,True,0.9562
+pancreatic beta,Loyfer2023,WGBS,GSM5652252,True,0.958
+pancreatic alpha,Loyfer2023,WGBS,GSM5652253,True,0.9694
+pancreatic alpha,Loyfer2023,WGBS,GSM5652254,True,0.9565
+pancreatic alpha,Loyfer2023,WGBS,GSM5652255,True,0.9587
+kidney glomerular epithelium,Loyfer2023,WGBS,GSM5652256,True,0.9615
+kidney glomerular epithelium,Loyfer2023,WGBS,GSM5652257,True,0.9365
+kidney tubular epithelium,Loyfer2023,WGBS,GSM5652258,True,0.97
+kidney tubular epithelium,Loyfer2023,WGBS,GSM5652259,True,0.9635
+kidney tubular epithelium,Loyfer2023,WGBS,GSM5652260,True,0.9708
+podocyte,Loyfer2023,WGBS,GSM5652261,True,0.9351
+podocyte,Loyfer2023,WGBS,GSM5652262,True,0.9735
+podocyte,Loyfer2023,WGBS,GSM5652263,True,0.9565
+thyroid epithelium,Loyfer2023,WGBS,GSM5652264,True,0.9613
+thyroid epithelium,Loyfer2023,WGBS,GSM5652265,True,0.9617
+thyroid epithelium,Loyfer2023,WGBS,GSM5652266,True,0.9553
+fallopien tubes epithelium,Loyfer2023,WGBS,GSM5652267,True,0.9676
+fallopien tubes epithelium,Loyfer2023,WGBS,GSM5652268,True,0.938
+fallopien tubes epithelium,Loyfer2023,WGBS,GSM5652269,True,0.9509
+ovary epithelium,Loyfer2023,WGBS,GSM5652270,False,0.8388
+endometrium epithelium,Loyfer2023,WGBS,GSM5652271,True,0.9553
+endometrium epithelium,Loyfer2023,WGBS,GSM5652272,True,0.9194
+endometrium epithelium,Loyfer2023,WGBS,GSM5652273,True,0.9729
+erythrocyte progenitors,Loyfer2023,WGBS,GSM5652274,True,0.9825
+erythrocyte progenitors,Loyfer2023,WGBS,GSM5652275,True,0.9775
+erythrocyte progenitors,Loyfer2023,WGBS,GSM5652276,True,0.9015
+t cells cd3,Loyfer2023,WGBS,GSM5652277,True,0.9553
+t cells cd3,Loyfer2023,WGBS,GSM5652278,True,0.9446
+cd4 t cells,Loyfer2023,WGBS,GSM5652279,True,0.9506
+cd4 t cells,Loyfer2023,WGBS,GSM5652280,True,0.9045
+cd4 t cells,Loyfer2023,WGBS,GSM5652281,True,0.9668
+cd8 t cells,Loyfer2023,WGBS,GSM5652282,True,0.9263
+cd8 t cells,Loyfer2023,WGBS,GSM5652283,True,0.9343
+cd8 t cells,Loyfer2023,WGBS,GSM5652284,True,0.9535
+t central memory cd4,Loyfer2023,WGBS,GSM5652285,True,0.9612
+t central memory cd4,Loyfer2023,WGBS,GSM5652286,True,0.9472
+t central memory cd4,Loyfer2023,WGBS,GSM5652287,True,0.9119
+t effector cell cd8,Loyfer2023,WGBS,GSM5652288,True,0.9363
+t effector cell cd8,Loyfer2023,WGBS,GSM5652289,True,0.9484
+t effector cell cd8,Loyfer2023,WGBS,GSM5652290,True,0.9416
+t effector memory cd4,Loyfer2023,WGBS,GSM5652291,True,0.9407
+t effector memory cd4,Loyfer2023,WGBS,GSM5652292,True,0.948
+t effector memory cd4,Loyfer2023,WGBS,GSM5652293,True,0.9447
+effector memory cd8 t cells,Loyfer2023,WGBS,GSM5652294,False,0.8883
+effector memory cd8 t cells,Loyfer2023,WGBS,GSM5652295,True,0.9547
+naive cd4 t cells,Loyfer2023,WGBS,GSM5652296,True,0.949
+naive cd8 t cells,Loyfer2023,WGBS,GSM5652297,False,0.6032
+naive cd8 t cells,Loyfer2023,WGBS,GSM5652298,True,0.9573
+nk cells,Loyfer2023,WGBS,GSM5652299,True,0.966
+nk cells,Loyfer2023,WGBS,GSM5652300,True,0.9653
+nk cells,Loyfer2023,WGBS,GSM5652301,True,0.9025
+monocytes,Loyfer2023,WGBS,GSM5652302,True,0.9021
+monocytes,Loyfer2023,WGBS,GSM5652303,True,0.9205
+monocytes,Loyfer2023,WGBS,GSM5652304,True,0.9415
+colon macrophages,Loyfer2023,WGBS,GSM5652305,True,0.9736
+colon macrophages,Loyfer2023,WGBS,GSM5652306,True,0.965
+liver macrophages,Loyfer2023,WGBS,GSM5652307,True,0.9702
+lung alveolar macrophages,Loyfer2023,WGBS,GSM5652308,True,0.9422
+lung alveolar macrophages,Loyfer2023,WGBS,GSM5652309,True,0.9687
+lung interstitial macrophages,Loyfer2023,WGBS,GSM5652310,True,0.9619
+lung interstitial macrophages,Loyfer2023,WGBS,GSM5652311,True,0.9704
+lung interstitial macrophages,Loyfer2023,WGBS,GSM5652312,True,0.9577
+granulocytes,Loyfer2023,WGBS,GSM5652313,True,0.9438
+granulocytes,Loyfer2023,WGBS,GSM5652314,True,0.9744
+granulocytes,Loyfer2023,WGBS,GSM5652315,True,0.9693
+b cells,Loyfer2023,WGBS,GSM5652316,True,0.935
+b cells,Loyfer2023,WGBS,GSM5652317,True,0.9163
+b cells,Loyfer2023,WGBS,GSM5652318,True,0.9711
+memory b cells,Loyfer2023,WGBS,GSM5652319,True,0.9063
+memory b cells,Loyfer2023,WGBS,GSM5652320,True,0.9229
+keratinocyte,Loyfer2023,WGBS,GSM5652321,True,0.9563
+tonsil palatine epithelium,Loyfer2023,WGBS,GSM5652322,True,0.9646
+tonsil palatine epithelium,Loyfer2023,WGBS,GSM5652323,True,0.971
+tonsil palatine epithelium,Loyfer2023,WGBS,GSM5652324,True,0.9625
+tonsil pharyngeal epithelium,Loyfer2023,WGBS,GSM5652325,True,0.9668
+tonsil pharyngeal epithelium,Loyfer2023,WGBS,GSM5652326,True,0.9528
+tongue epithelium,Loyfer2023,WGBS,GSM5652327,True,0.9634
+tongue epithelium,Loyfer2023,WGBS,GSM5652328,True,0.9578
+tongue epithelium,Loyfer2023,WGBS,GSM5652329,True,0.9718
+tongue epithelium,Loyfer2023,WGBS,GSM5652330,True,0.9252
+larynx epithelium,Loyfer2023,WGBS,GSM5652331,True,0.9714
+esophagus epithelium,Loyfer2023,WGBS,GSM5652332,True,0.956
+esophagus epithelium,Loyfer2023,WGBS,GSM5652333,False,0.8341
+pharynx epithelium,Loyfer2023,WGBS,GSM5652334,False,0.7913
+lung bronchus epithelium,Loyfer2023,WGBS,GSM5652335,True,0.9681
+lung bronchus epithelium,Loyfer2023,WGBS,GSM5652336,True,0.9677
+lung bronchus epithelium,Loyfer2023,WGBS,GSM5652337,True,0.9807
+prostate epithelium,Loyfer2023,WGBS,GSM5652338,True,0.9685
+prostate epithelium,Loyfer2023,WGBS,GSM5652339,True,0.936
+prostate epithelium,Loyfer2023,WGBS,GSM5652340,True,0.964
+prostate epithelium,Loyfer2023,WGBS,GSM5652341,True,0.9684
+bladder epithelium,Loyfer2023,WGBS,GSM5652342,True,0.9588
+bladder epithelium,Loyfer2023,WGBS,GSM5652343,True,0.9617
+bladder epithelium,Loyfer2023,WGBS,GSM5652344,True,0.9369
+bladder epithelium,Loyfer2023,WGBS,GSM5652345,True,0.9525
+bladder epithelium,Loyfer2023,WGBS,GSM5652346,False,0.8321
+breast luminal epithelium,Loyfer2023,WGBS,GSM5652347,True,0.973
+breast luminal epithelium,Loyfer2023,WGBS,GSM5652348,True,0.9328
+breast luminal epithelium,Loyfer2023,WGBS,GSM5652349,True,0.9692
+breast basal epithelium,Loyfer2023,WGBS,GSM5652350,True,0.9496
+breast basal epithelium,Loyfer2023,WGBS,GSM5652351,True,0.9502
+breast basal epithelium,Loyfer2023,WGBS,GSM5652352,True,0.9431
+breast basal epithelium,Loyfer2023,WGBS,GSM5652353,True,0.9472
+lung alveolar epithelium,Loyfer2023,WGBS,GSM5652354,True,0.9727
+lung alveolar epithelium,Loyfer2023,WGBS,GSM5652355,True,0.9676
+lung alveolar epithelium,Loyfer2023,WGBS,GSM5652356,True,0.972
+lung pleural epithelium,Loyfer2023,WGBS,GSM5652357,True,0.9548
+gallbladder epithelium,Loyfer2023,WGBS,GSM5652358,True,0.9538
+gastric fundus epithelium,Loyfer2023,WGBS,GSM5652359,True,0.9545
+gastric fundus epithelium,Loyfer2023,WGBS,GSM5652360,True,0.97
+gastric fundus epithelium,Loyfer2023,WGBS,GSM5652361,True,0.9664
+gastric body epithelium,Loyfer2023,WGBS,GSM5652362,True,0.9627
+gastric body epithelium,Loyfer2023,WGBS,GSM5652363,True,0.9528
+gastric body epithelium,Loyfer2023,WGBS,GSM5652364,True,0.9707
+gastric antrum epithelium,Loyfer2023,WGBS,GSM5652365,True,0.9729
+gastric antrum epithelium,Loyfer2023,WGBS,GSM5652366,True,0.9657
+gastric antrum epithelium,Loyfer2023,WGBS,GSM5652367,True,0.9547
+gastric enteroendocrine,Loyfer2023,WGBS,GSM5652368,False,0.6617
+gastric enteroendocrine,Loyfer2023,WGBS,GSM5652369,True,0.9356
+colon epithelium,Loyfer2023,WGBS,GSM5652370,True,0.9564
+colon epithelium,Loyfer2023,WGBS,GSM5652371,True,0.9665
+colon enteroendocrine,Loyfer2023,WGBS,GSM5652372,True,0.9664
+colon epithelium,Loyfer2023,WGBS,GSM5652373,True,0.9453
+colon enteroendocrine,Loyfer2023,WGBS,GSM5652374,False,0.6642
+colon enteroendocrine,Loyfer2023,WGBS,GSM5652375,True,0.954
+colon epithelium,Loyfer2023,WGBS,GSM5652376,True,0.9613
+colon epithelium,Loyfer2023,WGBS,GSM5652377,True,0.9559
+jejunum epithelium,Loyfer2023,WGBS,GSM5652378,True,0.9534
+small intestine epithelium,Loyfer2023,WGBS,GSM5652379,True,0.9668
+small intestine epithelium,Loyfer2023,WGBS,GSM5652380,True,0.9683
+small intestine epithelium,Loyfer2023,WGBS,GSM5652381,True,0.9411
+jejunum enteroendocrine,Loyfer2023,WGBS,GSM5652382,True,0.9382
+pancreatic beta,Moss2018,array,GSM3455765_7990895122_R01C01,True,0.9908088578233536
+adipocytes,Moss2018,array,GSM3455770_101032610022_R01C01,True,0.9911280810744144
+cortical neurons,Moss2018,array,GSM3455773_101032610022_R04C01,True,0.9761225153963032
+hepatocyte,Moss2018,array,GSM3455774_101032610022_R05C01,True,0.963129714502478
+pancreatic duct,Moss2018,array,GSM3455768_7990895088_R06C02,True,0.981288128004378
+adipocytes,Moss2018,array,GSM3455771_101032610022_R02C01,True,0.990759108745266
+pancreatic beta,Moss2018,array,GSM3455767_7990895122_R04C01,True,0.988597096726718
+adipocytes,Moss2018,array,GSM3455772_101032610022_R03C01,True,0.9804237377726094
+pancreatic beta,Moss2018,array,GSM3455766_7990895122_R01C02,True,0.98459644169719
+pancreatic acinar,Moss2018,array,GSM3455769_9721366130_R04C01,True,0.9873803171918304
+vascular endothelium,Moss2018,array,GSM3455806_200687110099_R03C01,True,0.949422141154466
+lung alveolar epithelium,Moss2018,array,GSM3455823_201004820143_R06C01,True,0.9710937309876734
+pancreatic beta,Moss2018,array,GSM3455821_201004820143_R04C01,True,0.9535974653707672
+vascular endothelium,Moss2018,array,GSM3455822_201004820143_R05C01,True,0.967337909232183
+pancreatic duct,Moss2018,array,GSM3455826_201502810024_R04C01,False,0.8276609724808703
+hepatocyte,Moss2018,array,GSM3455825_201502810014_R05C01,False,0.8800605381451734
+lung alveolar epithelium,Moss2018,array,GSM3455824_201004820143_R08C01,True,0.9307021335524326
+pancreatic acinar,Moss2018,array,GSM3455829_201502810024_R07C01,True,0.9429407122502832
+pancreatic acinar,Moss2018,array,GSM3455827_201502810024_R05C01,False,0.8874180550614362
+hepatocyte,Moss2018,array,GSM3455833_202232290146_R02C01,True,0.9505068215503744
+pancreatic duct,Moss2018,array,GSM3455828_201502810024_R06C01,True,0.9316917885290412
+cortical neurons,Moss2018,array,GSM3455834_202232290160_R05C01,False,0.927139839175272
+cortical neurons,Moss2018,array,GSM3455835_202232290160_R06C01,False,0.8763684529514084
+colon epithelium,Moss2018,array,GSM3455852_202410280077_R08C01,True,0.949270332252902
+colon epithelium,Moss2018,array,GSM3455863_202410280180_R04C01,True,0.9663946081186472
+lung alveolar epithelium,Moss2018,array,GSM3455865_202410280180_R08C01,True,0.9670632625934754
+colon epithelium,Moss2018,array,GSM3455864_202410280180_R07C01,True,0.9588412461309008
+cd4 t cells,Salas2018,array,GSM2998140_201870610111_R04C01,True,0.9907790577882024
+regulatory t cells,Salas2022,array,GSM5121394_203496240014_R01C01,True,0.975330474072546
+nk cells,Salas2018,array,GSM2998131_201870610111_R01C01,True,0.9914187410986096
+b cells,Salas2018,array,GSM2998029_201868590193_R06C01,True,0.9948790569770096
+cd8 t cells,Salas2018,array,GSM2998032_201868590206_R04C01,True,0.9944572368230452
+cd8 t cells,Salas2018,array,GSM2998075_201868590267_R08C01,True,0.9908462708896582
+b cells,Salas2018,array,GSM2998100_201869680030_R02C01,True,0.9910560221200636
+monocytes,Salas2018,array,GSM2998072_201868590267_R07C01,True,0.9947284069220224
+monocytes,Salas2018,array,GSM2998051_201868590243_R04C01,True,0.991629651175592
+cd8 t cells,Salas2018,array,GSM2998054_201868590243_R06C01,True,0.9938094415866
+monocytes,Salas2018,array,GSM2998090_201869680009_R07C01,True,0.9930851624760842
+monocytes,Salas2018,array,GSM2998128_201870610056_R08C01,True,0.991410629172572
+monocytes,Salas2018,array,GSM2998039_201868590206_R06C01,True,0.9942266263542572
+nk cells,Salas2018,array,GSM2998149_201870610111_R07C01,True,0.994115377082882
+cd8 t cells,Salas2018,array,GSM2998069_201868590267_R06C01,True,0.9953020359775508
+neutrophils,Salas2018,array,GSM2998021_201868500150_R01C01,True,0.9914291707178012
+neutrophils,Salas2018,array,GSM2998057_201868590243_R07C01,True,0.9944352187380856
+neutrophils,Salas2018,array,GSM2998116_201870610056_R02C01,True,0.9940261458964664
+monocytes,Salas2018,array,GSM2998060_201868590243_R08C01,True,0.9872492111151928
+cd8 t cells,Salas2018,array,GSM2998094_201869680009_R08C01,True,0.9917235177483148
+cd4 t cells,Salas2018,array,GSM2998028_201868590193_R03C01,True,0.9938534777565192
+b cells,Salas2018,array,GSM2998024_201868500150_R07C01,True,0.9935011883971644
+b cells,Salas2018,array,GSM2998087_201869680009_R06C01,True,0.9944630310559294
+cd4 t cells,Salas2018,array,GSM2998146_201870610111_R06C01,True,0.9924651795574828
+cd8 t cells,Salas2018,array,GSM2998035_201868590206_R05C01,True,0.9930353320732808
+b cells,Salas2018,array,GSM2998134_201870610111_R02C01,True,0.9914268530246476
+neutrophils,Salas2018,array,GSM2998023_201868500150_R05C01,True,0.9945464680094608
+cd4 t cells,Salas2018,array,GSM2998048_201868590243_R03C01,True,0.99056814771122
+b cells,Salas2018,array,GSM2998122_201870610056_R04C01,True,0.9920016409267528
+nk cells,Salas2018,array,GSM2998126_201870610056_R07C01,True,0.9945348795436926
+neutrophils,Salas2018,array,GSM2998143_201870610111_R05C01,True,0.9927201258043844
+nk cells,Salas2018,array,GSM2998022_201868500150_R03C01,True,0.9918869151156472
+neutrophils,Salas2022,array,GSM5121408_201870610111_R05C01,True,0.9927201258043844
+nk cells,Salas2018,array,GSM2998025_201868500150_R08C01,True,0.9945939807191106
+nk cells,Salas2018,array,GSM2998027_201868590193_R02C01,True,0.9933887802792124
+naive cd4 t cells,Salas2022,array,GSM5121370_204237140014_R06C01,True,0.9871391206903944
+cd4 t cells,Salas2018,array,GSM2998042_201868590206_R08C01,True,0.9952858121254752
+neutrophils,Salas2018,array,GSM2998030_201868590206_R02C01,True,0.9919054566608764
+naive cd4 t cells,Salas2022,array,GSM5121372_204237140014_R03C01,True,0.9861911841905514
+naive cd8 t cells,Salas2022,array,GSM5121401_203027390051_R01C01,True,0.9873952257838728
+monocytes,Salas2022,array,GSM5121417_201868590267_R07C01,True,0.9947284069220224
+neutrophils,Salas2022,array,GSM5121424_201868500150_R01C01,True,0.9914291707178012
+neutrophils,Salas2022,array,GSM5121421_201868590206_R02C01,True,0.9919054566608764
+nk cells,Salas2022,array,GSM5121423_201868500150_R03C01,True,0.9918869151156472
+effector memory cd8 t cells,Salas2022,array,GSM5121400_203027390051_R08C01,True,0.9861564187932468
+eosinophils,Salas2022,array,GSM5121406_201870620080_R02C01,True,0.9842802461853668
+neutrophils,Salas2022,array,GSM5121419_201868590243_R07C01,True,0.9944352187380856
+memory cd4 t cells,Salas2022,array,GSM5121376_204237140011_R02C01,True,0.9831295115345794
+memory cd4 t cells,Salas2022,array,GSM5121374_204237140013_R04C01,True,0.9796379067986052
+nk cells,Salas2022,array,GSM5121409_201870610111_R01C01,True,0.9914187410986096
+nk cells,Salas2022,array,GSM5121407_201870610111_R07C01,True,0.994115377082882
+naive cd8 t cells,Salas2022,array,GSM5121398_203027390094_R05C01,True,0.9888426251583274
+memory b cells,Salas2022,array,GSM5121389_203991450040_R06C01,True,0.957753089195262
+memory b cells,Salas2022,array,GSM5121385_203991450045_R03C01,True,0.9760223054789108
+eosinophils,Salas2022,array,GSM5121405_202163530006_R01C01,True,0.978817443422213
+memory b cells,Salas2022,array,GSM5121391_203991450040_R01C01,True,0.9488913894222802
+nk cells,Salas2022,array,GSM5121411_201870610056_R07C01,True,0.9945348795436926
+monocytes,Salas2022,array,GSM5121410_201870610056_R08C01,True,0.991410629172572
+naive cd8 t cells,Salas2022,array,GSM5121399_203027390092_R03C01,True,0.9885957908374636
+naive cd8 t cells,Salas2022,array,GSM5121397_203027390100_R06C01,True,0.9907419746977438
+memory b cells,Salas2022,array,GSM5121387_203991450040_R08C01,True,0.93772590265457
+memory b cells,Salas2022,array,GSM5121381_203991450045_R08C01,True,0.966086354929212
+eosinophils,Salas2022,array,GSM5121404_202163530006_R05C01,True,0.9862757799906596
+effector memory cd8 t cells,Salas2022,array,GSM5121402_203027370053_R05C01,True,0.9865005962265638
+monocytes,Salas2022,array,GSM5121416_201869680009_R07C01,True,0.9930851624760842
+basophils,Salas2022,array,GSM5121413_201869680198_R06C01,True,0.980566142906642
+naive b cells,Salas2022,array,GSM5121388_203991450040_R07C01,True,0.9642403123323294
+basophils,Salas2022,array,GSM5121378_204086440139_R07C01,True,0.9866558816678584
+basophils,Salas2022,array,GSM5121379_204086440139_R04C01,True,0.9855410712609526
+eosinophils,Salas2022,array,GSM5121415_201869680143_R02C01,True,0.988360544982368
+basophils,Salas2022,array,GSM5121414_201869680143_R05C01,True,0.988559866593582
+basophils,Salas2022,array,GSM5121390_203991450040_R03C01,True,0.97489474775966
+effector memory cd8 t cells,Salas2022,array,GSM5121396_203028210043_R01C01,True,0.9836602632667654
+monocytes,Salas2022,array,GSM5121420_201868590206_R06C01,True,0.9942266263542572
+regulatory t cells,Salas2022,array,GSM5121392_203496240017_R02C01,True,0.980155911218446
+naive b cells,Salas2022,array,GSM5121383_203991450045_R06C01,True,0.9785764033342332
+naive cd8 t cells,Salas2022,array,GSM5121403_203013220070_R01C01,True,0.9892795103177904
+memory cd4 t cells,Salas2022,array,GSM5121371_204237140014_R04C01,True,0.980978692287992
+basophils,Salas2022,array,GSM5121373_204237140014_R02C01,True,0.980918432265997
+memory cd4 t cells,Salas2022,array,GSM5121380_204086440139_R02C01,True,0.9836057974776544
+naive cd4 t cells,Salas2022,array,GSM5121377_204237140011_R01C01,True,0.9853881035128116
+naive cd4 t cells,Salas2022,array,GSM5121375_204237140011_R04C01,True,0.9872665938138452
+naive b cells,Salas2022,array,GSM5121382_203991450045_R07C01,True,0.9809068438002287
+regulatory t cells,Salas2022,array,GSM5121393_203496240014_R07C01,True,0.9766086818467844
+monocytes,Salas2022,array,GSM5121418_201868590243_R08C01,True,0.9872492111151928
+memory b cells,Salas2022,array,GSM5121384_203991450045_R05C01,True,0.9707483947077794
+effector memory cd8 t cells,Salas2022,array,GSM5121395_203028210043_R05C01,True,0.9820274484400188
+neutrophils,Salas2022,array,GSM5121422_201868500150_R05C01,True,0.9945464680094608
+neutrophils,Salas2022,array,GSM5121412_201870610056_R02C01,True,0.9940261458964664
+naive cd4 t cells,Salas2022,array,GSM5121369_204237140015_R08C01,True,0.9855665658856428
+naive b cells,Salas2022,array,GSM5121386_203991450045_R01C01,True,0.9722085413945792
+astrocytes,Tian2023,WGBS-pooled,ASC,True,0.9912
+microglia,Tian2023,WGBS-pooled,MGC,True,0.9916
+oligodendrocytes,Tian2023,WGBS-pooled,ODC,True,0.9908
+oligodendrocyte precursors,Tian2023,WGBS-pooled,OPC,True,0.9903
+vascular leptomeningeal cells,Tian2023,WGBS-pooled,VLMC,True,0.968
+pericytes,Tian2023,WGBS-pooled,PC,False,0.6458
+brain endothelium,Tian2023,WGBS-pooled,EC,False,0.8591
+embryonic stem cells,ENCODE,WGBS,/home/ubuntu/data/atlas_sources/encode_stem/H1_ENCFF918PML_array.parquet,True,
+embryonic stem cells,ENCODE,WGBS,/home/ubuntu/data/atlas_sources/encode_stem/HUES64_ENCFF770UYJ_array.parquet,True,

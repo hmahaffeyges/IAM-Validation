@@ -1,0 +1,11 @@
+cell,moss_arrays,loyfer_samples,shared_cpgs,r,median_abs_diff,slope,intercept,mean_array,mean_wgbs
+hepatocytes,2,6,844566,0.9692,0.0461,1.0499,-0.0413,0.611,0.6001
+adipocytes,3,3,464847,0.973,0.0509,1.0307,-0.0558,0.5116,0.4715
+pancreatic beta cells,4,3,842666,0.9451,0.0612,1.0881,-0.0571,0.6055,0.6017
+pancreatic acinar cells,2,4,843683,0.9585,0.0563,1.0342,-0.0608,0.5771,0.5361
+pancreatic duct cells,2,4,827809,0.966,0.05,1.0606,-0.0615,0.6236,0.5998
+cortical neurons,1,10,458283,0.9705,0.0478,1.0282,-0.0574,0.5593,0.5177
+vascular endothelial cells,2,19,826649,0.9467,0.0586,1.0379,-0.0616,0.6147,0.5763
+colon epithelial cells,3,5,821595,0.9699,0.0447,1.0499,-0.0608,0.6143,0.5842
+lung epithelial cells,3,3,827682,0.9586,0.0553,1.0541,-0.0749,0.6056,0.5635
+leukocytes,1,3,827936,0.9302,0.0574,1.0896,-0.0743,0.6331,0.6154

@@ -1,0 +1,1658 @@
+[
+{
+"gsm": "GSM5652176",
+"file": "GSM5652176_Adipocytes-Z000000T7.beta",
+"bytes": 56434896,
+"cell_type": "Adipocytes",
+"tissue": "Abdominal Subcut.",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652176/suppl/GSM5652176_Adipocytes-Z000000T7.beta"
+},
+{
+"gsm": "GSM5652177",
+"file": "GSM5652177_Adipocytes-Z000000T9.beta",
+"bytes": 56434896,
+"cell_type": "Adipocytes",
+"tissue": "Abdominal Subcut.",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652177/suppl/GSM5652177_Adipocytes-Z000000T9.beta"
+},
+{
+"gsm": "GSM5652178",
+"file": "GSM5652178_Adipocytes-Z000000T5.beta",
+"bytes": 56434896,
+"cell_type": "Adipocytes",
+"tissue": "Abdominal Subcut.",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652178/suppl/GSM5652178_Adipocytes-Z000000T5.beta"
+},
+{
+"gsm": "GSM5652179",
+"file": "GSM5652179_Aorta-Endothel-Z00000422.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Aorta",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652179/suppl/GSM5652179_Aorta-Endothel-Z00000422.beta"
+},
+{
+"gsm": "GSM5652180",
+"file": "GSM5652180_Aorta-Endothel-Z0000043G.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Aorta",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652180/suppl/GSM5652180_Aorta-Endothel-Z0000043G.beta"
+},
+{
+"gsm": "GSM5652181",
+"file": "GSM5652181_Saphenous-Vein-Endothel-Z000000RM.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Vascular saphenous",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652181/suppl/GSM5652181_Saphenous-Vein-Endothel-Z000000RM.beta"
+},
+{
+"gsm": "GSM5652182",
+"file": "GSM5652182_Saphenous-Vein-Endothel-Z000000S7.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Vascular saphenous",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652182/suppl/GSM5652182_Saphenous-Vein-Endothel-Z000000S7.beta"
+},
+{
+"gsm": "GSM5652183",
+"file": "GSM5652183_Saphenous-Vein-Endothel-Z000000SB.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Vascular saphenous",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652183/suppl/GSM5652183_Saphenous-Vein-Endothel-Z000000SB.beta"
+},
+{
+"gsm": "GSM5652184",
+"file": "GSM5652184_Kidney-Glomerular-Endothel-Z000000Q5.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652184/suppl/GSM5652184_Kidney-Glomerular-Endothel-Z000000Q5.beta"
+},
+{
+"gsm": "GSM5652185",
+"file": "GSM5652185_Kidney-Glomerular-Endothel-Z00000443.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652185/suppl/GSM5652185_Kidney-Glomerular-Endothel-Z00000443.beta"
+},
+{
+"gsm": "GSM5652186",
+"file": "GSM5652186_Kidney-Glomerular-Endothel-Z0000045J.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652186/suppl/GSM5652186_Kidney-Glomerular-Endothel-Z0000045J.beta"
+},
+{
+"gsm": "GSM5652187",
+"file": "GSM5652187_Kidney-Tubular-Endothel-Z000000PX.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Kidney tubular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652187/suppl/GSM5652187_Kidney-Tubular-Endothel-Z000000PX.beta"
+},
+{
+"gsm": "GSM5652188",
+"file": "GSM5652188_Kidney-Tubular-Endothel-Z000000Q3.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Kidney tubular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652188/suppl/GSM5652188_Kidney-Tubular-Endothel-Z000000Q3.beta"
+},
+{
+"gsm": "GSM5652189",
+"file": "GSM5652189_Kidney-Tubular-Endothel-Z0000042R.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Kidney tubular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652189/suppl/GSM5652189_Kidney-Tubular-Endothel-Z0000042R.beta"
+},
+{
+"gsm": "GSM5652190",
+"file": "GSM5652190_Liver-Endothelium-Z000000RB.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652190/suppl/GSM5652190_Liver-Endothelium-Z000000RB.beta"
+},
+{
+"gsm": "GSM5652191",
+"file": "GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652191/suppl/GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.beta"
+},
+{
+"gsm": "GSM5652192",
+"file": "GSM5652192_Lung-Alveolar-Endothel-Z000000QK.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652192/suppl/GSM5652192_Lung-Alveolar-Endothel-Z000000QK.beta"
+},
+{
+"gsm": "GSM5652193",
+"file": "GSM5652193_Lung-Alveolar-Endothel-Z0000045H.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652193/suppl/GSM5652193_Lung-Alveolar-Endothel-Z0000045H.beta"
+},
+{
+"gsm": "GSM5652194",
+"file": "GSM5652194_Pancreas-Endothel-Z0000042D.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652194/suppl/GSM5652194_Pancreas-Endothel-Z0000042D.beta"
+},
+{
+"gsm": "GSM5652195",
+"file": "GSM5652195_Pancreas-Endothel-Z0000042X.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652195/suppl/GSM5652195_Pancreas-Endothel-Z0000042X.beta"
+},
+{
+"gsm": "GSM5652196",
+"file": "GSM5652196_Pancreas-Endothel-Z00000430.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652196/suppl/GSM5652196_Pancreas-Endothel-Z00000430.beta"
+},
+{
+"gsm": "GSM5652197",
+"file": "GSM5652197_Pancreas-Islet-Endothel-Z0000042Y.beta",
+"bytes": 56434896,
+"cell_type": "Endothelium",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652197/suppl/GSM5652197_Pancreas-Islet-Endothel-Z0000042Y.beta"
+},
+{
+"gsm": "GSM5652198",
+"file": "GSM5652198_Colon-Fibroblasts-Z0000042A.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652198/suppl/GSM5652198_Colon-Fibroblasts-Z0000042A.beta"
+},
+{
+"gsm": "GSM5652199",
+"file": "GSM5652199_Colon-Fibroblasts-Z0000042C.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652199/suppl/GSM5652199_Colon-Fibroblasts-Z0000042C.beta"
+},
+{
+"gsm": "GSM5652200",
+"file": "GSM5652200_Heart-Fibroblasts-Z0000043R.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652200/suppl/GSM5652200_Heart-Fibroblasts-Z0000043R.beta"
+},
+{
+"gsm": "GSM5652201",
+"file": "GSM5652201_Heart-Fibroblasts-Z0000041V.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652201/suppl/GSM5652201_Heart-Fibroblasts-Z0000041V.beta"
+},
+{
+"gsm": "GSM5652202",
+"file": "GSM5652202_Heart-Fibroblasts-Z0000041W.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652202/suppl/GSM5652202_Heart-Fibroblasts-Z0000041W.beta"
+},
+{
+"gsm": "GSM5652203",
+"file": "GSM5652203_Heart-Fibroblasts-Z0000041X.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652203/suppl/GSM5652203_Heart-Fibroblasts-Z0000041X.beta"
+},
+{
+"gsm": "GSM5652204",
+"file": "GSM5652204_Dermal-Fibroblasts-Z00000423.beta",
+"bytes": 56434896,
+"cell_type": "Fibroblast",
+"tissue": "Ad-dermal",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652204/suppl/GSM5652204_Dermal-Fibroblasts-Z00000423.beta"
+},
+{
+"gsm": "GSM5652205",
+"file": "GSM5652205_Skeletal-Muscle-Z00000427.beta",
+"bytes": 56434896,
+"cell_type": "Striated muscle",
+"tissue": "Skeletal muscle",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652205/suppl/GSM5652205_Skeletal-Muscle-Z00000427.beta"
+},
+{
+"gsm": "GSM5652206",
+"file": "GSM5652206_Skeletal-Muscle-Z00000429.beta",
+"bytes": 56434896,
+"cell_type": "Striated muscle",
+"tissue": "Skeletal muscle",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652206/suppl/GSM5652206_Skeletal-Muscle-Z00000429.beta"
+},
+{
+"gsm": "GSM5652207",
+"file": "GSM5652207_Aorta-Smooth-Muscle-Z0000041U.beta",
+"bytes": 56434896,
+"cell_type": "Smooth muscle",
+"tissue": "Aorta",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652207/suppl/GSM5652207_Aorta-Smooth-Muscle-Z0000041U.beta"
+},
+{
+"gsm": "GSM5652208",
+"file": "GSM5652208_Coronary-Artery-Smooth-Muscle-Z00000420.beta",
+"bytes": 56434896,
+"cell_type": "Smooth muscle",
+"tissue": "Cornary artery",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652208/suppl/GSM5652208_Coronary-Artery-Smooth-Muscle-Z00000420.beta"
+},
+{
+"gsm": "GSM5652209",
+"file": "GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.beta",
+"bytes": 56434896,
+"cell_type": "Smooth muscle",
+"tissue": "Bladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652209/suppl/GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.beta"
+},
+{
+"gsm": "GSM5652210",
+"file": "GSM5652210_Prostate-Smooth-Muscle-Z0000041Y.beta",
+"bytes": 56434896,
+"cell_type": "Smooth muscle",
+"tissue": "Prostate",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652210/suppl/GSM5652210_Prostate-Smooth-Muscle-Z0000041Y.beta"
+},
+{
+"gsm": "GSM5652211",
+"file": "GSM5652211_Lung-Bronchus-Smooth-Muscle-Z00000421.beta",
+"bytes": 56434896,
+"cell_type": "Smooth muscle",
+"tissue": "Bronchial",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652211/suppl/GSM5652211_Lung-Bronchus-Smooth-Muscle-Z00000421.beta"
+},
+{
+"gsm": "GSM5652212",
+"file": "GSM5652212_Heart-Cardiomyocyte-Z0000044G.beta",
+"bytes": 56434896,
+"cell_type": "Cardiomyocyte",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652212/suppl/GSM5652212_Heart-Cardiomyocyte-Z0000044G.beta"
+},
+{
+"gsm": "GSM5652213",
+"file": "GSM5652213_Heart-Cardiomyocyte-Z0000044K.beta",
+"bytes": 56434896,
+"cell_type": "Cardiomyocyte",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652213/suppl/GSM5652213_Heart-Cardiomyocyte-Z0000044K.beta"
+},
+{
+"gsm": "GSM5652214",
+"file": "GSM5652214_Heart-Cardiomyocyte-Z0000044N.beta",
+"bytes": 56434896,
+"cell_type": "Cardiomyocyte",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652214/suppl/GSM5652214_Heart-Cardiomyocyte-Z0000044N.beta"
+},
+{
+"gsm": "GSM5652215",
+"file": "GSM5652215_Heart-Cardiomyocyte-Z0000044P.beta",
+"bytes": 56434896,
+"cell_type": "Cardiomyocyte",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652215/suppl/GSM5652215_Heart-Cardiomyocyte-Z0000044P.beta"
+},
+{
+"gsm": "GSM5652216",
+"file": "GSM5652216_Heart-Cardiomyocyte-Z0000044Q.beta",
+"bytes": 56434896,
+"cell_type": "Cardiomyocyte",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652216/suppl/GSM5652216_Heart-Cardiomyocyte-Z0000044Q.beta"
+},
+{
+"gsm": "GSM5652217",
+"file": "GSM5652217_Heart-Cardiomyocyte-Z0000044R.beta",
+"bytes": 56434896,
+"cell_type": "Cardiomyocyte",
+"tissue": "Heart",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652217/suppl/GSM5652217_Heart-Cardiomyocyte-Z0000044R.beta"
+},
+{
+"gsm": "GSM5652218",
+"file": "GSM5652218_Bone-Osteoblasts-Z0000042Z.beta",
+"bytes": 56434896,
+"cell_type": "Osteoblasts",
+"tissue": "Bone",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652218/suppl/GSM5652218_Bone-Osteoblasts-Z0000042Z.beta"
+},
+{
+"gsm": "GSM5652219",
+"file": "GSM5652219_Oligodendrocytes-Z000000TK.beta",
+"bytes": 56434896,
+"cell_type": "Oligodendrocytes",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652219/suppl/GSM5652219_Oligodendrocytes-Z000000TK.beta"
+},
+{
+"gsm": "GSM5652220",
+"file": "GSM5652220_Oligodendrocytes-Z0000042E.beta",
+"bytes": 56434896,
+"cell_type": "Oligodendrocytes",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652220/suppl/GSM5652220_Oligodendrocytes-Z0000042E.beta"
+},
+{
+"gsm": "GSM5652221",
+"file": "GSM5652221_Oligodendrocytes-Z0000042L.beta",
+"bytes": 56434896,
+"cell_type": "Oligodendrocytes",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652221/suppl/GSM5652221_Oligodendrocytes-Z0000042L.beta"
+},
+{
+"gsm": "GSM5652222",
+"file": "GSM5652222_Oligodendrocytes-Z0000042N.beta",
+"bytes": 56434896,
+"cell_type": "Oligodendrocytes",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652222/suppl/GSM5652222_Oligodendrocytes-Z0000042N.beta"
+},
+{
+"gsm": "GSM5652223",
+"file": "GSM5652223_Cortex-Neuron-Z000000TF.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652223/suppl/GSM5652223_Cortex-Neuron-Z000000TF.beta"
+},
+{
+"gsm": "GSM5652224",
+"file": "GSM5652224_Neuron-Z000000TH.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652224/suppl/GSM5652224_Neuron-Z000000TH.beta"
+},
+{
+"gsm": "GSM5652225",
+"file": "GSM5652225_Cortex-Neuron-Z0000042F.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652225/suppl/GSM5652225_Cortex-Neuron-Z0000042F.beta"
+},
+{
+"gsm": "GSM5652226",
+"file": "GSM5652226_Cortex-Neuron-Z0000042H.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652226/suppl/GSM5652226_Cortex-Neuron-Z0000042H.beta"
+},
+{
+"gsm": "GSM5652227",
+"file": "GSM5652227_Cortex-Neuron-Z0000042J.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652227/suppl/GSM5652227_Cortex-Neuron-Z0000042J.beta"
+},
+{
+"gsm": "GSM5652228",
+"file": "GSM5652228_Cortex-Neuron-Z0000042M.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652228/suppl/GSM5652228_Cortex-Neuron-Z0000042M.beta"
+},
+{
+"gsm": "GSM5652229",
+"file": "GSM5652229_Cortex-Neuron-Z0000042P.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652229/suppl/GSM5652229_Cortex-Neuron-Z0000042P.beta"
+},
+{
+"gsm": "GSM5652230",
+"file": "GSM5652230_Cortex-Neuron-Z0000042K.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652230/suppl/GSM5652230_Cortex-Neuron-Z0000042K.beta"
+},
+{
+"gsm": "GSM5652231",
+"file": "GSM5652231_Cerebellum-Neuron-Z000000TB.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652231/suppl/GSM5652231_Cerebellum-Neuron-Z000000TB.beta"
+},
+{
+"gsm": "GSM5652232",
+"file": "GSM5652232_Cortex-Neuron-Z000000TD.beta",
+"bytes": 56434896,
+"cell_type": "Neuronal",
+"tissue": "Brain",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652232/suppl/GSM5652232_Cortex-Neuron-Z000000TD.beta"
+},
+{
+"gsm": "GSM5652233",
+"file": "GSM5652233_Liver-Hepatocytes-Z000000R3.beta",
+"bytes": 56434896,
+"cell_type": "Hepatocyte",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652233/suppl/GSM5652233_Liver-Hepatocytes-Z000000R3.beta"
+},
+{
+"gsm": "GSM5652234",
+"file": "GSM5652234_Liver-Hepatocytes-Z000000T3.beta",
+"bytes": 56434896,
+"cell_type": "Hepatocyte",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652234/suppl/GSM5652234_Liver-Hepatocytes-Z000000T3.beta"
+},
+{
+"gsm": "GSM5652235",
+"file": "GSM5652235_Liver-Hepatocytes-Z0000043Q.beta",
+"bytes": 56434896,
+"cell_type": "Hepatocyte",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652235/suppl/GSM5652235_Liver-Hepatocytes-Z0000043Q.beta"
+},
+{
+"gsm": "GSM5652236",
+"file": "GSM5652236_Liver-Hepatocytes-Z0000044H.beta",
+"bytes": 56434896,
+"cell_type": "Hepatocyte",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652236/suppl/GSM5652236_Liver-Hepatocytes-Z0000044H.beta"
+},
+{
+"gsm": "GSM5652237",
+"file": "GSM5652237_Liver-Hepatocytes-Z0000044M.beta",
+"bytes": 56434896,
+"cell_type": "Hepatocyte",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652237/suppl/GSM5652237_Liver-Hepatocytes-Z0000044M.beta"
+},
+{
+"gsm": "GSM5652238",
+"file": "GSM5652238_Liver-Hepatocytes-Z00000431.beta",
+"bytes": 56434896,
+"cell_type": "Hepatocyte",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652238/suppl/GSM5652238_Liver-Hepatocytes-Z00000431.beta"
+},
+{
+"gsm": "GSM5652239",
+"file": "GSM5652239_Pancreas-Duct-Z0000043T.beta",
+"bytes": 56434896,
+"cell_type": "Duct",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652239/suppl/GSM5652239_Pancreas-Duct-Z0000043T.beta"
+},
+{
+"gsm": "GSM5652240",
+"file": "GSM5652240_Pancreas-Duct-Z0000043U.beta",
+"bytes": 56434896,
+"cell_type": "Duct",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652240/suppl/GSM5652240_Pancreas-Duct-Z0000043U.beta"
+},
+{
+"gsm": "GSM5652241",
+"file": "GSM5652241_Pancreas-Duct-Z0000043V.beta",
+"bytes": 56434896,
+"cell_type": "Duct",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652241/suppl/GSM5652241_Pancreas-Duct-Z0000043V.beta"
+},
+{
+"gsm": "GSM5652242",
+"file": "GSM5652242_Pancreas-Duct-Z000000QZ.beta",
+"bytes": 56434896,
+"cell_type": "Duct",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652242/suppl/GSM5652242_Pancreas-Duct-Z000000QZ.beta"
+},
+{
+"gsm": "GSM5652243",
+"file": "GSM5652243_Pancreas-Acinar-Z000000QX.beta",
+"bytes": 56434896,
+"cell_type": "Acinar",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652243/suppl/GSM5652243_Pancreas-Acinar-Z000000QX.beta"
+},
+{
+"gsm": "GSM5652244",
+"file": "GSM5652244_Pancreas-Acinar-Z0000043W.beta",
+"bytes": 56434896,
+"cell_type": "Acinar",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652244/suppl/GSM5652244_Pancreas-Acinar-Z0000043W.beta"
+},
+{
+"gsm": "GSM5652245",
+"file": "GSM5652245_Pancreas-Acinar-Z0000043X.beta",
+"bytes": 56434896,
+"cell_type": "Acinar",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652245/suppl/GSM5652245_Pancreas-Acinar-Z0000043X.beta"
+},
+{
+"gsm": "GSM5652246",
+"file": "GSM5652246_Pancreas-Acinar-Z0000043Y.beta",
+"bytes": 56434896,
+"cell_type": "Acinar",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652246/suppl/GSM5652246_Pancreas-Acinar-Z0000043Y.beta"
+},
+{
+"gsm": "GSM5652247",
+"file": "GSM5652247_Pancreas-Delta-Z00000451.beta",
+"bytes": 56434896,
+"cell_type": "Delta",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652247/suppl/GSM5652247_Pancreas-Delta-Z00000451.beta"
+},
+{
+"gsm": "GSM5652248",
+"file": "GSM5652248_Pancreas-Delta-Z00000454.beta",
+"bytes": 56434896,
+"cell_type": "Delta",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652248/suppl/GSM5652248_Pancreas-Delta-Z00000454.beta"
+},
+{
+"gsm": "GSM5652249",
+"file": "GSM5652249_Pancreas-Delta-Z00000457.beta",
+"bytes": 56434896,
+"cell_type": "Delta",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652249/suppl/GSM5652249_Pancreas-Delta-Z00000457.beta"
+},
+{
+"gsm": "GSM5652250",
+"file": "GSM5652250_Pancreas-Beta-Z00000452.beta",
+"bytes": 56434896,
+"cell_type": "Beta",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652250/suppl/GSM5652250_Pancreas-Beta-Z00000452.beta"
+},
+{
+"gsm": "GSM5652251",
+"file": "GSM5652251_Pancreas-Beta-Z00000455.beta",
+"bytes": 56434896,
+"cell_type": "Beta",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652251/suppl/GSM5652251_Pancreas-Beta-Z00000455.beta"
+},
+{
+"gsm": "GSM5652252",
+"file": "GSM5652252_Pancreas-Beta-Z00000458.beta",
+"bytes": 56434896,
+"cell_type": "Beta",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652252/suppl/GSM5652252_Pancreas-Beta-Z00000458.beta"
+},
+{
+"gsm": "GSM5652253",
+"file": "GSM5652253_Pancreas-Alpha-Z00000453.beta",
+"bytes": 56434896,
+"cell_type": "Alpha",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652253/suppl/GSM5652253_Pancreas-Alpha-Z00000453.beta"
+},
+{
+"gsm": "GSM5652254",
+"file": "GSM5652254_Pancreas-Alpha-Z00000456.beta",
+"bytes": 56434896,
+"cell_type": "Alpha",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652254/suppl/GSM5652254_Pancreas-Alpha-Z00000456.beta"
+},
+{
+"gsm": "GSM5652255",
+"file": "GSM5652255_Pancreas-Alpha-Z00000459.beta",
+"bytes": 56434896,
+"cell_type": "Alpha",
+"tissue": "Pancreas",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652255/suppl/GSM5652255_Pancreas-Alpha-Z00000459.beta"
+},
+{
+"gsm": "GSM5652256",
+"file": "GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652256/suppl/GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.beta"
+},
+{
+"gsm": "GSM5652257",
+"file": "GSM5652257_Kidney-Glomerular-Epithelial-Z0000045L.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652257/suppl/GSM5652257_Kidney-Glomerular-Epithelial-Z0000045L.beta"
+},
+{
+"gsm": "GSM5652258",
+"file": "GSM5652258_Kidney-Tubular-Epithelial-Z000000QH.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Kidney tubular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652258/suppl/GSM5652258_Kidney-Tubular-Epithelial-Z000000QH.beta"
+},
+{
+"gsm": "GSM5652259",
+"file": "GSM5652259_Kidney-Tubular-Epithelial-Z0000043Z.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Kidney tubular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652259/suppl/GSM5652259_Kidney-Tubular-Epithelial-Z0000043Z.beta"
+},
+{
+"gsm": "GSM5652260",
+"file": "GSM5652260_Kidney-Tubular-Epithelial-Z00000440.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Kidney tubular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652260/suppl/GSM5652260_Kidney-Tubular-Epithelial-Z00000440.beta"
+},
+{
+"gsm": "GSM5652261",
+"file": "GSM5652261_Kidney-Glomerular-Podocytes-Z0000042W.beta",
+"bytes": 56434896,
+"cell_type": "Podocyte",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652261/suppl/GSM5652261_Kidney-Glomerular-Podocytes-Z0000042W.beta"
+},
+{
+"gsm": "GSM5652262",
+"file": "GSM5652262_Kidney-Glomerular-Podocytes-Z00000441.beta",
+"bytes": 56434896,
+"cell_type": "Podocyte",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652262/suppl/GSM5652262_Kidney-Glomerular-Podocytes-Z00000441.beta"
+},
+{
+"gsm": "GSM5652263",
+"file": "GSM5652263_Kidney-Glomerular-Podocytes-Z00000442.beta",
+"bytes": 56434896,
+"cell_type": "Podocyte",
+"tissue": "Kidney glomerular",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652263/suppl/GSM5652263_Kidney-Glomerular-Podocytes-Z00000442.beta"
+},
+{
+"gsm": "GSM5652264",
+"file": "GSM5652264_Thyroid-Epithelial-Z0000042S.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Thyroid",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652264/suppl/GSM5652264_Thyroid-Epithelial-Z0000042S.beta"
+},
+{
+"gsm": "GSM5652265",
+"file": "GSM5652265_Thyroid-Epithelial-Z0000042T.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Thyroid",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652265/suppl/GSM5652265_Thyroid-Epithelial-Z0000042T.beta"
+},
+{
+"gsm": "GSM5652266",
+"file": "GSM5652266_Thyroid-Epithelial-Z0000042U.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Thyroid",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652266/suppl/GSM5652266_Thyroid-Epithelial-Z0000042U.beta"
+},
+{
+"gsm": "GSM5652267",
+"file": "GSM5652267_Fallopian-Epithelial-Z000000Q7.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Fallopien tubes",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652267/suppl/GSM5652267_Fallopian-Epithelial-Z000000Q7.beta"
+},
+{
+"gsm": "GSM5652268",
+"file": "GSM5652268_Fallopian-Epithelial-Z000000S9.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Fallopien tubes",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652268/suppl/GSM5652268_Fallopian-Epithelial-Z000000S9.beta"
+},
+{
+"gsm": "GSM5652269",
+"file": "GSM5652269_Fallopian-Epithelial-Z000000UV.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Fallopien tubes",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652269/suppl/GSM5652269_Fallopian-Epithelial-Z000000UV.beta"
+},
+{
+"gsm": "GSM5652270",
+"file": "GSM5652270_Ovary-Epithelial-Z000000QT.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Ovary",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652270/suppl/GSM5652270_Ovary-Epithelial-Z000000QT.beta"
+},
+{
+"gsm": "GSM5652271",
+"file": "GSM5652271_Endometrium-Epithelial-Z00000434.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Endometrium",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652271/suppl/GSM5652271_Endometrium-Epithelial-Z00000434.beta"
+},
+{
+"gsm": "GSM5652272",
+"file": "GSM5652272_Endometrium-Epithelial-Z00000435.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Endometrium",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652272/suppl/GSM5652272_Endometrium-Epithelial-Z00000435.beta"
+},
+{
+"gsm": "GSM5652273",
+"file": "GSM5652273_Endometrium-Epithelial-Z0000043S.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Endometrium",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652273/suppl/GSM5652273_Endometrium-Epithelial-Z0000043S.beta"
+},
+{
+"gsm": "GSM5652274",
+"file": "GSM5652274_Bone_marrow-Erythrocyte_progenitors-Z000000RF.beta",
+"bytes": 56434896,
+"cell_type": "Erythrocyte progenitors",
+"tissue": "Bone marrow",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652274/suppl/GSM5652274_Bone_marrow-Erythrocyte_progenitors-Z000000RF.beta"
+},
+{
+"gsm": "GSM5652275",
+"file": "GSM5652275_Bone_marrow-Erythrocyte_progenitors-Z000000RH.beta",
+"bytes": 56434896,
+"cell_type": "Erythrocyte progenitors",
+"tissue": "Bone marrow",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652275/suppl/GSM5652275_Bone_marrow-Erythrocyte_progenitors-Z000000RH.beta"
+},
+{
+"gsm": "GSM5652276",
+"file": "GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.beta",
+"bytes": 56434896,
+"cell_type": "Erythrocyte progenitors",
+"tissue": "Bone marrow",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652276/suppl/GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.beta"
+},
+{
+"gsm": "GSM5652277",
+"file": "GSM5652277_Blood-T-CD3-Z000000TV.beta",
+"bytes": 56434896,
+"cell_type": "T (CD3+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652277/suppl/GSM5652277_Blood-T-CD3-Z000000TV.beta"
+},
+{
+"gsm": "GSM5652278",
+"file": "GSM5652278_Blood-T-CD3-Z000000UP.beta",
+"bytes": 56434896,
+"cell_type": "T (CD3+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652278/suppl/GSM5652278_Blood-T-CD3-Z000000UP.beta"
+},
+{
+"gsm": "GSM5652279",
+"file": "GSM5652279_Blood-T-CD4-Z000000TT.beta",
+"bytes": 56434896,
+"cell_type": "T helper(CD4+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652279/suppl/GSM5652279_Blood-T-CD4-Z000000TT.beta"
+},
+{
+"gsm": "GSM5652280",
+"file": "GSM5652280_Blood-T-CD4-Z000000U7.beta",
+"bytes": 56434896,
+"cell_type": "T helper(CD4+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652280/suppl/GSM5652280_Blood-T-CD4-Z000000U7.beta"
+},
+{
+"gsm": "GSM5652281",
+"file": "GSM5652281_Blood-T-CD4-Z000000UM.beta",
+"bytes": 56434896,
+"cell_type": "T helper(CD4+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652281/suppl/GSM5652281_Blood-T-CD4-Z000000UM.beta"
+},
+{
+"gsm": "GSM5652282",
+"file": "GSM5652282_Blood-T-CD8-Z000000TR.beta",
+"bytes": 56434896,
+"cell_type": "T cytotoxic (CD8+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652282/suppl/GSM5652282_Blood-T-CD8-Z000000TR.beta"
+},
+{
+"gsm": "GSM5652283",
+"file": "GSM5652283_Blood-T-CD8-Z000000U5.beta",
+"bytes": 56434896,
+"cell_type": "T cytotoxic (CD8+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652283/suppl/GSM5652283_Blood-T-CD8-Z000000U5.beta"
+},
+{
+"gsm": "GSM5652284",
+"file": "GSM5652284_Blood-T-CD8-Z000000UK.beta",
+"bytes": 56434896,
+"cell_type": "T cytotoxic (CD8+) cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652284/suppl/GSM5652284_Blood-T-CD8-Z000000UK.beta"
+},
+{
+"gsm": "GSM5652285",
+"file": "GSM5652285_Blood-T-CenMem-CD4-Z00000417.beta",
+"bytes": 56434896,
+"cell_type": "T central memory CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652285/suppl/GSM5652285_Blood-T-CenMem-CD4-Z00000417.beta"
+},
+{
+"gsm": "GSM5652286",
+"file": "GSM5652286_Blood-T-CenMem-CD4-Z0000041D.beta",
+"bytes": 56434896,
+"cell_type": "T central memory CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652286/suppl/GSM5652286_Blood-T-CenMem-CD4-Z0000041D.beta"
+},
+{
+"gsm": "GSM5652287",
+"file": "GSM5652287_Blood-T-CenMem-CD4-Z0000041N.beta",
+"bytes": 56434896,
+"cell_type": "T central memory CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652287/suppl/GSM5652287_Blood-T-CenMem-CD4-Z0000041N.beta"
+},
+{
+"gsm": "GSM5652288",
+"file": "GSM5652288_Blood-T-Eff-CD8-Z00000419.beta",
+"bytes": 56434896,
+"cell_type": "T effector cell CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652288/suppl/GSM5652288_Blood-T-Eff-CD8-Z00000419.beta"
+},
+{
+"gsm": "GSM5652289",
+"file": "GSM5652289_Blood-T-Eff-CD8-Z0000041F.beta",
+"bytes": 56434896,
+"cell_type": "T effector cell CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652289/suppl/GSM5652289_Blood-T-Eff-CD8-Z0000041F.beta"
+},
+{
+"gsm": "GSM5652290",
+"file": "GSM5652290_Blood-T-Eff-CD8-Z0000041Q.beta",
+"bytes": 56434896,
+"cell_type": "T effector cell CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652290/suppl/GSM5652290_Blood-T-Eff-CD8-Z0000041Q.beta"
+},
+{
+"gsm": "GSM5652291",
+"file": "GSM5652291_Blood-T-EffMem-CD4-Z00000416.beta",
+"bytes": 56434896,
+"cell_type": "T effector memory CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652291/suppl/GSM5652291_Blood-T-EffMem-CD4-Z00000416.beta"
+},
+{
+"gsm": "GSM5652292",
+"file": "GSM5652292_Blood-T-EffMem-CD4-Z0000041C.beta",
+"bytes": 56434896,
+"cell_type": "T effector memory CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652292/suppl/GSM5652292_Blood-T-EffMem-CD4-Z0000041C.beta"
+},
+{
+"gsm": "GSM5652293",
+"file": "GSM5652293_Blood-T-EffMem-CD4-Z0000041M.beta",
+"bytes": 56434896,
+"cell_type": "T effector memory CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652293/suppl/GSM5652293_Blood-T-EffMem-CD4-Z0000041M.beta"
+},
+{
+"gsm": "GSM5652294",
+"file": "GSM5652294_Blood-T-EffMem-CD8-Z0000041A.beta",
+"bytes": 56434896,
+"cell_type": "T effector memory CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652294/suppl/GSM5652294_Blood-T-EffMem-CD8-Z0000041A.beta"
+},
+{
+"gsm": "GSM5652295",
+"file": "GSM5652295_Blood-T-EffMem-CD8-Z0000041G.beta",
+"bytes": 56434896,
+"cell_type": "T effector memory CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652295/suppl/GSM5652295_Blood-T-EffMem-CD8-Z0000041G.beta"
+},
+{
+"gsm": "GSM5652296",
+"file": "GSM5652296_Blood-T-Naive-CD4-Z0000041E.beta",
+"bytes": 56434896,
+"cell_type": "Naive T cells CD4",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652296/suppl/GSM5652296_Blood-T-Naive-CD4-Z0000041E.beta"
+},
+{
+"gsm": "GSM5652297",
+"file": "GSM5652297_Blood-T-Naive-CD8-Z0000041B.beta",
+"bytes": 56434896,
+"cell_type": "Naive T cells CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652297/suppl/GSM5652297_Blood-T-Naive-CD8-Z0000041B.beta"
+},
+{
+"gsm": "GSM5652298",
+"file": "GSM5652298_Blood-T-Naive-CD8-Z0000041H.beta",
+"bytes": 56434896,
+"cell_type": "Naive T cells CD8",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652298/suppl/GSM5652298_Blood-T-Naive-CD8-Z0000041H.beta"
+},
+{
+"gsm": "GSM5652299",
+"file": "GSM5652299_Blood-NK-Z000000TM.beta",
+"bytes": 56434896,
+"cell_type": "NK",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652299/suppl/GSM5652299_Blood-NK-Z000000TM.beta"
+},
+{
+"gsm": "GSM5652300",
+"file": "GSM5652300_Blood-NK-Z000000U1.beta",
+"bytes": 56434896,
+"cell_type": "NK",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652300/suppl/GSM5652300_Blood-NK-Z000000U1.beta"
+},
+{
+"gsm": "GSM5652301",
+"file": "GSM5652301_Blood-NK-Z000000UF.beta",
+"bytes": 56434896,
+"cell_type": "NK",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652301/suppl/GSM5652301_Blood-NK-Z000000UF.beta"
+},
+{
+"gsm": "GSM5652302",
+"file": "GSM5652302_Blood-Monocytes-Z000000TP.beta",
+"bytes": 56434896,
+"cell_type": "Monocytes",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652302/suppl/GSM5652302_Blood-Monocytes-Z000000TP.beta"
+},
+{
+"gsm": "GSM5652303",
+"file": "GSM5652303_Blood-Monocytes-Z000000U3.beta",
+"bytes": 56434896,
+"cell_type": "Monocytes",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652303/suppl/GSM5652303_Blood-Monocytes-Z000000U3.beta"
+},
+{
+"gsm": "GSM5652304",
+"file": "GSM5652304_Blood-Monocytes-Z000000UH.beta",
+"bytes": 56434896,
+"cell_type": "Monocytes",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652304/suppl/GSM5652304_Blood-Monocytes-Z000000UH.beta"
+},
+{
+"gsm": "GSM5652305",
+"file": "GSM5652305_Colon-Macrophages-Z00000444.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652305/suppl/GSM5652305_Colon-Macrophages-Z00000444.beta"
+},
+{
+"gsm": "GSM5652306",
+"file": "GSM5652306_Colon-Macrophages-Z00000446.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652306/suppl/GSM5652306_Colon-Macrophages-Z00000446.beta"
+},
+{
+"gsm": "GSM5652307",
+"file": "GSM5652307_Liver-Macrophages-Z0000043P.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Liver",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652307/suppl/GSM5652307_Liver-Macrophages-Z0000043P.beta"
+},
+{
+"gsm": "GSM5652308",
+"file": "GSM5652308_Lung-Alveolar-Macrophages-Z00000448.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652308/suppl/GSM5652308_Lung-Alveolar-Macrophages-Z00000448.beta"
+},
+{
+"gsm": "GSM5652309",
+"file": "GSM5652309_Lung-Alveolar-Macrophages-Z0000044C.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652309/suppl/GSM5652309_Lung-Alveolar-Macrophages-Z0000044C.beta"
+},
+{
+"gsm": "GSM5652310",
+"file": "GSM5652310_Lung-Interstitial-Macrophages-Z00000447.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Lung interstitial",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652310/suppl/GSM5652310_Lung-Interstitial-Macrophages-Z00000447.beta"
+},
+{
+"gsm": "GSM5652311",
+"file": "GSM5652311_Lung-Interstitial-Macrophages-Z0000044D.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Lung interstitial",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652311/suppl/GSM5652311_Lung-Interstitial-Macrophages-Z0000044D.beta"
+},
+{
+"gsm": "GSM5652312",
+"file": "GSM5652312_Lung-Interstitial-Macrophages-Z0000044E.beta",
+"bytes": 56434896,
+"cell_type": "Macrophages",
+"tissue": "Lung interstitial",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652312/suppl/GSM5652312_Lung-Interstitial-Macrophages-Z0000044E.beta"
+},
+{
+"gsm": "GSM5652313",
+"file": "GSM5652313_Blood-Granulocytes-Z000000TZ.beta",
+"bytes": 56434896,
+"cell_type": "Granulocytes",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652313/suppl/GSM5652313_Blood-Granulocytes-Z000000TZ.beta"
+},
+{
+"gsm": "GSM5652314",
+"file": "GSM5652314_Blood-Granulocytes-Z000000UD.beta",
+"bytes": 56434896,
+"cell_type": "Granulocytes",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652314/suppl/GSM5652314_Blood-Granulocytes-Z000000UD.beta"
+},
+{
+"gsm": "GSM5652315",
+"file": "GSM5652315_Blood-Granulocytes-Z000000UT.beta",
+"bytes": 56434896,
+"cell_type": "Granulocytes",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652315/suppl/GSM5652315_Blood-Granulocytes-Z000000UT.beta"
+},
+{
+"gsm": "GSM5652316",
+"file": "GSM5652316_Blood-B-Z000000TX.beta",
+"bytes": 56434896,
+"cell_type": "B cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652316/suppl/GSM5652316_Blood-B-Z000000TX.beta"
+},
+{
+"gsm": "GSM5652317",
+"file": "GSM5652317_Blood-B-Z000000UB.beta",
+"bytes": 56434896,
+"cell_type": "B cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652317/suppl/GSM5652317_Blood-B-Z000000UB.beta"
+},
+{
+"gsm": "GSM5652318",
+"file": "GSM5652318_Blood-B-Z000000UR.beta",
+"bytes": 56434896,
+"cell_type": "B cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652318/suppl/GSM5652318_Blood-B-Z000000UR.beta"
+},
+{
+"gsm": "GSM5652319",
+"file": "GSM5652319_Blood-B-Mem-Z0000041J.beta",
+"bytes": 56434896,
+"cell_type": "Memory B cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652319/suppl/GSM5652319_Blood-B-Mem-Z0000041J.beta"
+},
+{
+"gsm": "GSM5652320",
+"file": "GSM5652320_Blood-B-Mem-Z0000041K.beta",
+"bytes": 56434896,
+"cell_type": "Memory B cells",
+"tissue": "Blood",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652320/suppl/GSM5652320_Blood-B-Mem-Z0000041K.beta"
+},
+{
+"gsm": "GSM5652321",
+"file": "GSM5652321_Epidermal-Keratinocytes-Z00000424.beta",
+"bytes": 56434896,
+"cell_type": "keratinocyte",
+"tissue": "Skin",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652321/suppl/GSM5652321_Epidermal-Keratinocytes-Z00000424.beta"
+},
+{
+"gsm": "GSM5652322",
+"file": "GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tonsil palatine",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652322/suppl/GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.beta"
+},
+{
+"gsm": "GSM5652323",
+"file": "GSM5652323_Tonsil-Palatine-Epithelial-Z000000RP.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tonsil palatine",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652323/suppl/GSM5652323_Tonsil-Palatine-Epithelial-Z000000RP.beta"
+},
+{
+"gsm": "GSM5652324",
+"file": "GSM5652324_Tonsil-Palatine-Epithelial-Z000000RR.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tonsil palatine",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652324/suppl/GSM5652324_Tonsil-Palatine-Epithelial-Z000000RR.beta"
+},
+{
+"gsm": "GSM5652325",
+"file": "GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tonsil pharyngeal",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652325/suppl/GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.beta"
+},
+{
+"gsm": "GSM5652326",
+"file": "GSM5652326_Tonsil-Pharyngeal-Epithelial-Z000000S1.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tonsil pharyngeal",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652326/suppl/GSM5652326_Tonsil-Pharyngeal-Epithelial-Z000000S1.beta"
+},
+{
+"gsm": "GSM5652327",
+"file": "GSM5652327_Tongue-Epithelial-Z000000QV.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tongue",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652327/suppl/GSM5652327_Tongue-Epithelial-Z000000QV.beta"
+},
+{
+"gsm": "GSM5652328",
+"file": "GSM5652328_Tongue-Epithelial-Z00000449.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tongue",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652328/suppl/GSM5652328_Tongue-Epithelial-Z00000449.beta"
+},
+{
+"gsm": "GSM5652329",
+"file": "GSM5652329_Tongue-Epithelial-Z0000044F.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tongue",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652329/suppl/GSM5652329_Tongue-Epithelial-Z0000044F.beta"
+},
+{
+"gsm": "GSM5652330",
+"file": "GSM5652330_Tongue_base-Epithelial-Z0000044B.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Tongue",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652330/suppl/GSM5652330_Tongue_base-Epithelial-Z0000044B.beta"
+},
+{
+"gsm": "GSM5652331",
+"file": "GSM5652331_Larynx-Epithelial-Z000000QB.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Larynx",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652331/suppl/GSM5652331_Larynx-Epithelial-Z000000QB.beta"
+},
+{
+"gsm": "GSM5652332",
+"file": "GSM5652332_Esophagus-Epithelial-Z000000PZ.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Esophagus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652332/suppl/GSM5652332_Esophagus-Epithelial-Z000000PZ.beta"
+},
+{
+"gsm": "GSM5652333",
+"file": "GSM5652333_Esophagus-Epithelial-Z00000426.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Esophagus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652333/suppl/GSM5652333_Esophagus-Epithelial-Z00000426.beta"
+},
+{
+"gsm": "GSM5652334",
+"file": "GSM5652334_Pharynx-Epithelial-Z0000044A.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Pharynx",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652334/suppl/GSM5652334_Pharynx-Epithelial-Z0000044A.beta"
+},
+{
+"gsm": "GSM5652335",
+"file": "GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung bronchus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652335/suppl/GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.beta"
+},
+{
+"gsm": "GSM5652336",
+"file": "GSM5652336_Lung-Bronchus-Epithelial-Z000000RZ.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung bronchus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652336/suppl/GSM5652336_Lung-Bronchus-Epithelial-Z000000RZ.beta"
+},
+{
+"gsm": "GSM5652337",
+"file": "GSM5652337_Lung-Bronchus-Epithelial-Z000000S5.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung bronchus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652337/suppl/GSM5652337_Lung-Bronchus-Epithelial-Z000000S5.beta"
+},
+{
+"gsm": "GSM5652338",
+"file": "GSM5652338_Prostate-Epithelial-Z000000RV.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Prostate",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652338/suppl/GSM5652338_Prostate-Epithelial-Z000000RV.beta"
+},
+{
+"gsm": "GSM5652339",
+"file": "GSM5652339_Prostate-Epithelial-Z000000S3.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Prostate",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652339/suppl/GSM5652339_Prostate-Epithelial-Z000000S3.beta"
+},
+{
+"gsm": "GSM5652340",
+"file": "GSM5652340_Prostate-Epithelial-Z0000045F.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Prostate",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652340/suppl/GSM5652340_Prostate-Epithelial-Z0000045F.beta"
+},
+{
+"gsm": "GSM5652341",
+"file": "GSM5652341_Prostate-Epithelial-Z0000045G.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Prostate",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652341/suppl/GSM5652341_Prostate-Epithelial-Z0000045G.beta"
+},
+{
+"gsm": "GSM5652342",
+"file": "GSM5652342_Bladder-Epithelial-Z000000QM.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Bladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652342/suppl/GSM5652342_Bladder-Epithelial-Z000000QM.beta"
+},
+{
+"gsm": "GSM5652343",
+"file": "GSM5652343_Bladder-Epithelial-Z000000QP.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Bladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652343/suppl/GSM5652343_Bladder-Epithelial-Z000000QP.beta"
+},
+{
+"gsm": "GSM5652344",
+"file": "GSM5652344_Bladder-Epithelial-Z0000043F.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Bladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652344/suppl/GSM5652344_Bladder-Epithelial-Z0000043F.beta"
+},
+{
+"gsm": "GSM5652345",
+"file": "GSM5652345_Bladder-Epithelial-Z0000044L.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Bladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652345/suppl/GSM5652345_Bladder-Epithelial-Z0000044L.beta"
+},
+{
+"gsm": "GSM5652346",
+"file": "GSM5652346_Bladder-Epithelial-Z00000450.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Bladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652346/suppl/GSM5652346_Bladder-Epithelial-Z00000450.beta"
+},
+{
+"gsm": "GSM5652347",
+"file": "GSM5652347_Breast-Luminal-Epithelial-Z000000V2.beta",
+"bytes": 56434896,
+"cell_type": "Luminal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652347/suppl/GSM5652347_Breast-Luminal-Epithelial-Z000000V2.beta"
+},
+{
+"gsm": "GSM5652348",
+"file": "GSM5652348_Breast-Luminal-Epithelial-Z000000VJ.beta",
+"bytes": 56434896,
+"cell_type": "Luminal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652348/suppl/GSM5652348_Breast-Luminal-Epithelial-Z000000VJ.beta"
+},
+{
+"gsm": "GSM5652349",
+"file": "GSM5652349_Breast-Luminal-Epithelial-Z000000VN.beta",
+"bytes": 56434896,
+"cell_type": "Luminal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652349/suppl/GSM5652349_Breast-Luminal-Epithelial-Z000000VN.beta"
+},
+{
+"gsm": "GSM5652350",
+"file": "GSM5652350_Breast-Basal-Epithelial-Z000000V6.beta",
+"bytes": 56434896,
+"cell_type": "Basal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652350/suppl/GSM5652350_Breast-Basal-Epithelial-Z000000V6.beta"
+},
+{
+"gsm": "GSM5652351",
+"file": "GSM5652351_Breast-Basal-Epithelial-Z000000VG.beta",
+"bytes": 56434896,
+"cell_type": "Basal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652351/suppl/GSM5652351_Breast-Basal-Epithelial-Z000000VG.beta"
+},
+{
+"gsm": "GSM5652352",
+"file": "GSM5652352_Breast-Basal-Epithelial-Z000000VL.beta",
+"bytes": 56434896,
+"cell_type": "Basal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652352/suppl/GSM5652352_Breast-Basal-Epithelial-Z000000VL.beta"
+},
+{
+"gsm": "GSM5652353",
+"file": "GSM5652353_Breast-Basal-Epithelial-Z0000043E.beta",
+"bytes": 56434896,
+"cell_type": "Basal epithelial",
+"tissue": "Breast",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652353/suppl/GSM5652353_Breast-Basal-Epithelial-Z0000043E.beta"
+},
+{
+"gsm": "GSM5652354",
+"file": "GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652354/suppl/GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.beta"
+},
+{
+"gsm": "GSM5652355",
+"file": "GSM5652355_Lung-Alveolar-Epithelial-Z000000VC.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652355/suppl/GSM5652355_Lung-Alveolar-Epithelial-Z000000VC.beta"
+},
+{
+"gsm": "GSM5652356",
+"file": "GSM5652356_Lung-Alveolar-Epithelial-Z000000VE.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung alveolar",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652356/suppl/GSM5652356_Lung-Alveolar-Epithelial-Z000000VE.beta"
+},
+{
+"gsm": "GSM5652357",
+"file": "GSM5652357_Lung-Pleura-Z0000042B.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Lung pleural",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652357/suppl/GSM5652357_Lung-Pleura-Z0000042B.beta"
+},
+{
+"gsm": "GSM5652358",
+"file": "GSM5652358_Gallbladder-Epithelial-Z00000432.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gallbladder",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652358/suppl/GSM5652358_Gallbladder-Epithelial-Z00000432.beta"
+},
+{
+"gsm": "GSM5652359",
+"file": "GSM5652359_Gastric-fundus-Epithelial-Z000000RX.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric fundus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652359/suppl/GSM5652359_Gastric-fundus-Epithelial-Z000000RX.beta"
+},
+{
+"gsm": "GSM5652360",
+"file": "GSM5652360_Gastric-fundus-Epithelial-Z000000SK.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric fundus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652360/suppl/GSM5652360_Gastric-fundus-Epithelial-Z000000SK.beta"
+},
+{
+"gsm": "GSM5652361",
+"file": "GSM5652361_Gastric-fundus-Epithelial-Z000000SV.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric fundus",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652361/suppl/GSM5652361_Gastric-fundus-Epithelial-Z000000SV.beta"
+},
+{
+"gsm": "GSM5652362",
+"file": "GSM5652362_Gastric-body-Epithelial-Z000000SD.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric body",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652362/suppl/GSM5652362_Gastric-body-Epithelial-Z000000SD.beta"
+},
+{
+"gsm": "GSM5652363",
+"file": "GSM5652363_Gastric-body-Epithelial-Z000000SM.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric body",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652363/suppl/GSM5652363_Gastric-body-Epithelial-Z000000SM.beta"
+},
+{
+"gsm": "GSM5652364",
+"file": "GSM5652364_Gastric-body-Epithelial-Z000000ST.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric body",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652364/suppl/GSM5652364_Gastric-body-Epithelial-Z000000ST.beta"
+},
+{
+"gsm": "GSM5652365",
+"file": "GSM5652365_Gastric-antrum-Epithelial-Z000000SF.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric antrum",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652365/suppl/GSM5652365_Gastric-antrum-Epithelial-Z000000SF.beta"
+},
+{
+"gsm": "GSM5652366",
+"file": "GSM5652366_Gastric-antrum-Epithelial-Z000000SP.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric antrum",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652366/suppl/GSM5652366_Gastric-antrum-Epithelial-Z000000SP.beta"
+},
+{
+"gsm": "GSM5652367",
+"file": "GSM5652367_Gastric-antrum-Epithelial-Z000000SR.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Gastric antrum",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652367/suppl/GSM5652367_Gastric-antrum-Epithelial-Z000000SR.beta"
+},
+{
+"gsm": "GSM5652368",
+"file": "GSM5652368_Gastric-antrum-Endocrine-Z00000437.beta",
+"bytes": 56434896,
+"cell_type": "Endocrine",
+"tissue": "Gastric",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652368/suppl/GSM5652368_Gastric-antrum-Endocrine-Z00000437.beta"
+},
+{
+"gsm": "GSM5652369",
+"file": "GSM5652369_Gastric-antrum-Endocrine-Z00000438.beta",
+"bytes": 56434896,
+"cell_type": "Endocrine",
+"tissue": "Gastric",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652369/suppl/GSM5652369_Gastric-antrum-Endocrine-Z00000438.beta"
+},
+{
+"gsm": "GSM5652370",
+"file": "GSM5652370_Colon-Right-Epithelial-Z000000V0.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652370/suppl/GSM5652370_Colon-Right-Epithelial-Z000000V0.beta"
+},
+{
+"gsm": "GSM5652371",
+"file": "GSM5652371_Colon-Right-Epithelial-Z000000V8.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652371/suppl/GSM5652371_Colon-Right-Epithelial-Z000000V8.beta"
+},
+{
+"gsm": "GSM5652372",
+"file": "GSM5652372_Colon-Right-Endocrine-Z0000044S.beta",
+"bytes": 56434896,
+"cell_type": "Endocrine",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652372/suppl/GSM5652372_Colon-Right-Endocrine-Z0000044S.beta"
+},
+{
+"gsm": "GSM5652373",
+"file": "GSM5652373_Colon-Left-Epithelial-Z000000VA.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652373/suppl/GSM5652373_Colon-Left-Epithelial-Z000000VA.beta"
+},
+{
+"gsm": "GSM5652374",
+"file": "GSM5652374_Colon-Left-Endocrine-Z0000044J.beta",
+"bytes": 56434896,
+"cell_type": "Endocrine",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652374/suppl/GSM5652374_Colon-Left-Endocrine-Z0000044J.beta"
+},
+{
+"gsm": "GSM5652375",
+"file": "GSM5652375_Colon-Left-Endocrine-Z0000044T.beta",
+"bytes": 56434896,
+"cell_type": "Endocrine",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652375/suppl/GSM5652375_Colon-Left-Endocrine-Z0000044T.beta"
+},
+{
+"gsm": "GSM5652376",
+"file": "GSM5652376_Colon-Left-Epithelial-Z0000043B.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652376/suppl/GSM5652376_Colon-Left-Epithelial-Z0000043B.beta"
+},
+{
+"gsm": "GSM5652377",
+"file": "GSM5652377_Colon-Left-Epithelial-Z0000043C.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Colon",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652377/suppl/GSM5652377_Colon-Left-Epithelial-Z0000043C.beta"
+},
+{
+"gsm": "GSM5652378",
+"file": "GSM5652378_Small-int-Epithelial-Z0000042V.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Jejunum",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652378/suppl/GSM5652378_Small-int-Epithelial-Z0000042V.beta"
+},
+{
+"gsm": "GSM5652379",
+"file": "GSM5652379_Small-int-Epithelial-Z000000RT.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Small intestine",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652379/suppl/GSM5652379_Small-int-Epithelial-Z000000RT.beta"
+},
+{
+"gsm": "GSM5652380",
+"file": "GSM5652380_Small-int-Epithelial-Z000000UW.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Small intestine",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652380/suppl/GSM5652380_Small-int-Epithelial-Z000000UW.beta"
+},
+{
+"gsm": "GSM5652381",
+"file": "GSM5652381_Small-int-Epithelial-Z000000UY.beta",
+"bytes": 56434896,
+"cell_type": "Epithelium",
+"tissue": "Small intestine",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652381/suppl/GSM5652381_Small-int-Epithelial-Z000000UY.beta"
+},
+{
+"gsm": "GSM5652382",
+"file": "GSM5652382_Small-int-Endocrine-Z00000436.beta",
+"bytes": 56434896,
+"cell_type": "Endocrine",
+"tissue": "Jejunum",
+"url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652382/suppl/GSM5652382_Small-int-Endocrine-Z00000436.beta"
+}
+]

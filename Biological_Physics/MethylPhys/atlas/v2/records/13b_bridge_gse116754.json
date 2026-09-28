@@ -1,0 +1,19 @@
+{
+ "source": "ENCODE",
+ "status": "IDENTIFIED VIA GSE116754 (undifferentiated ES lines on 450K, our Stage 1)",
+ "arrays_used": 4,
+ "loci": 475964,
+ "a": -0.08703738289499341,
+ "b": 1.1348267951023485,
+ "a_ci95_loci": [
+  -0.08751627900220528,
+  -0.08653732717960974
+ ],
+ "b_ci95_loci": [
+  1.1342170516961867,
+  1.1354267367148947
+ ],
+ "r": 0.9565621363714094,
+ "resid_sd": 0.12369178823142923,
+ "note": "CI resamples loci only (one cell on each side); GSE116754 array-lab offset taken as 0 (not measurable)"
+}

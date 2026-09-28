@@ -35,7 +35,7 @@ in `../RETIRED_2026-09/`. If you are reading this to run something, start at `do
 | 8 | `step_0_7b_platform_coverage` | `stage_0_intake.py` | SOP section 0.7b_platform_coverage |
 | 9 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check |
 | 10 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate |
-| 11 | `Stage 1 - IDAT calibration` | [`stage_1_idat_calibration.py`](chain/stage_1_idat_calibration.py) | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) |
+| 11 | `Stage 1 - IDAT calibration` | `stage_1_idat_calibration.py` | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) |
 | 12 | `stage_a_cells` | `cpg_conductor.py` | Stage A — find the cell types in the sample, their ratios, and their A-scores |
 | 13 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation |
 | 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |

@@ -1,0 +1,242 @@
+[
+ {
+  "acc": "ENCFF566LTI",
+  "cell": "H9",
+  "exp": "/experiments/ENCSR744UGB/",
+  "reps": [
+   2
+  ],
+  "size": 9933223,
+  "url": "https://www.encodeproject.org/files/ENCFF566LTI/@@download/ENCFF566LTI.bed.gz",
+  "array_cpgs": 18161,
+  "median_cov": 2.0,
+  "frac_cov_ge10": 0.0355,
+  "mean_beta": 0.9972,
+  "seconds": 12
+ },
+ {
+  "acc": "ENCFF661CWW",
+  "cell": "H9",
+  "exp": "/experiments/ENCSR744UGB/",
+  "reps": [
+   1
+  ],
+  "size": 10137997,
+  "url": "https://www.encodeproject.org/files/ENCFF661CWW/@@download/ENCFF661CWW.bed.gz",
+  "array_cpgs": 18291,
+  "median_cov": 2.0,
+  "frac_cov_ge10": 0.0351,
+  "mean_beta": 0.9978,
+  "seconds": 14
+ },
+ {
+  "acc": "ENCFF890GMD",
+  "cell": "HUES64",
+  "exp": "/experiments/ENCSR354DMU/",
+  "reps": [
+   1
+  ],
+  "size": 628752875,
+  "url": "https://www.encodeproject.org/files/ENCFF890GMD/@@download/ENCFF890GMD.bed.gz",
+  "array_cpgs": 887003,
+  "median_cov": 31.0,
+  "frac_cov_ge10": 0.8801,
+  "mean_beta": 0.6539,
+  "seconds": 429
+ },
+ {
+  "acc": "ENCFF434CNG",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR617FKV/",
+  "reps": [
+   2
+  ],
+  "size": 633014229,
+  "url": "https://www.encodeproject.org/files/ENCFF434CNG/@@download/ENCFF434CNG.bed.gz",
+  "array_cpgs": 888145,
+  "median_cov": 12.0,
+  "frac_cov_ge10": 0.6758,
+  "mean_beta": 0.6459,
+  "seconds": 424
+ },
+ {
+  "acc": "ENCFF018YZV",
+  "cell": "HUES64",
+  "exp": "/experiments/ENCSR354DMU/",
+  "reps": [
+   2
+  ],
+  "size": 567204873,
+  "url": "https://www.encodeproject.org/files/ENCFF018YZV/@@download/ENCFF018YZV.bed.gz",
+  "array_cpgs": 879566,
+  "median_cov": 24.0,
+  "frac_cov_ge10": 0.8116,
+  "mean_beta": 0.6693,
+  "seconds": 419
+ },
+ {
+  "acc": "ENCFF043BDT",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR482VHG/",
+  "reps": [
+   1
+  ],
+  "size": 9582425,
+  "url": "https://www.encodeproject.org/files/ENCFF043BDT/@@download/ENCFF043BDT.bed.gz",
+  "array_cpgs": 21085,
+  "median_cov": 1.0,
+  "frac_cov_ge10": 0.0079,
+  "mean_beta": 0.9883,
+  "seconds": 13
+ },
+ {
+  "acc": "ENCFF160RPV",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR482VHG/",
+  "reps": [
+   2
+  ],
+  "size": 10751085,
+  "url": "https://www.encodeproject.org/files/ENCFF160RPV/@@download/ENCFF160RPV.bed.gz",
+  "array_cpgs": 25642,
+  "median_cov": 1.0,
+  "frac_cov_ge10": 0.0191,
+  "mean_beta": 0.9915,
+  "seconds": 14
+ },
+ {
+  "acc": "ENCFF573YXL",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR617FKV/",
+  "reps": [
+   1
+  ],
+  "size": 571998478,
+  "url": "https://www.encodeproject.org/files/ENCFF573YXL/@@download/ENCFF573YXL.bed.gz",
+  "array_cpgs": 882840,
+  "median_cov": 8.0,
+  "frac_cov_ge10": 0.3594,
+  "mean_beta": 0.6529,
+  "seconds": 407
+ },
+ {
+  "acc": "ENCFF623RHB",
+  "cell": "H9",
+  "exp": "/experiments/ENCSR744UGB/",
+  "reps": [
+   2
+  ],
+  "size": 530968808,
+  "url": "https://www.encodeproject.org/files/ENCFF623RHB/@@download/ENCFF623RHB.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 2.0,
+  "frac_cov_ge10": 0.0024,
+  "mean_beta": 0.6759,
+  "seconds": 366
+ },
+ {
+  "acc": "ENCFF331VRY",
+  "cell": "HUES64",
+  "exp": "/experiments/ENCSR354DMU/",
+  "reps": [
+   2
+  ],
+  "size": 661224688,
+  "url": "https://www.encodeproject.org/files/ENCFF331VRY/@@download/ENCFF331VRY.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 39.0,
+  "frac_cov_ge10": 0.8979,
+  "mean_beta": 0.6685,
+  "seconds": 427
+ },
+ {
+  "acc": "ENCFF975CVU",
+  "cell": "H9",
+  "exp": "/experiments/ENCSR744UGB/",
+  "reps": [
+   1
+  ],
+  "size": 542139545,
+  "url": "https://www.encodeproject.org/files/ENCFF975CVU/@@download/ENCFF975CVU.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 3.0,
+  "frac_cov_ge10": 0.0086,
+  "mean_beta": 0.6389,
+  "seconds": 382
+ },
+ {
+  "acc": "ENCFF092FNE",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR482VHG/",
+  "reps": [
+   2
+  ],
+  "size": 473328387,
+  "url": "https://www.encodeproject.org/files/ENCFF092FNE/@@download/ENCFF092FNE.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 0.0,
+  "frac_cov_ge10": 0.0,
+  "mean_beta": 0.738,
+  "seconds": 316
+ },
+ {
+  "acc": "ENCFF601NBW",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR617FKV/",
+  "reps": [
+   1
+  ],
+  "size": 635265120,
+  "url": "https://www.encodeproject.org/files/ENCFF601NBW/@@download/ENCFF601NBW.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 20.0,
+  "frac_cov_ge10": 0.8319,
+  "mean_beta": 0.6455,
+  "seconds": 431
+ },
+ {
+  "acc": "ENCFF770UYJ",
+  "cell": "HUES64",
+  "exp": "/experiments/ENCSR354DMU/",
+  "reps": [
+   1
+  ],
+  "size": 693907851,
+  "url": "https://www.encodeproject.org/files/ENCFF770UYJ/@@download/ENCFF770UYJ.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 56.0,
+  "frac_cov_ge10": 0.9542,
+  "mean_beta": 0.6549,
+  "seconds": 427
+ },
+ {
+  "acc": "ENCFF918PML",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR617FKV/",
+  "reps": [
+   2
+  ],
+  "size": 671592878,
+  "url": "https://www.encodeproject.org/files/ENCFF918PML/@@download/ENCFF918PML.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 33.0,
+  "frac_cov_ge10": 0.9382,
+  "mean_beta": 0.6462,
+  "seconds": 433
+ },
+ {
+  "acc": "ENCFF479QJK",
+  "cell": "H1",
+  "exp": "/experiments/ENCSR482VHG/",
+  "reps": [
+   1
+  ],
+  "size": 452914677,
+  "url": "https://www.encodeproject.org/files/ENCFF479QJK/@@download/ENCFF479QJK.bed.gz",
+  "array_cpgs": 895429,
+  "median_cov": 0.0,
+  "frac_cov_ge10": 0.0,
+  "mean_beta": 0.7716,
+  "seconds": 307
+ }
+]

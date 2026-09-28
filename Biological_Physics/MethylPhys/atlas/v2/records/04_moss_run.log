@@ -1,0 +1,14 @@
+arrays: 101
+{'ok': 101}
+                            size  median
+label                                   
+adipocytes                     3   0.991
+colon epithelial cells         3   0.959
+cortical neurons               3   0.927
+hepatocytes                    3   0.951
+leukocytes                     1   0.978
+lung epithelial cells          3   0.967
+pancreatic acinar cells        3   0.943
+pancreatic beta cells          4   0.987
+pancreatic duct cells          3   0.932
+vascular endothelial cells     2   0.958

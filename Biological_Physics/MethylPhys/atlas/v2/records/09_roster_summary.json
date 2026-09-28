@@ -1,0 +1,183 @@
+{
+ "candidates": 87,
+ "admit": 67,
+ "admit_pooled": 4,
+ "wait": 16,
+ "twin_pairs": 7,
+ "cells_after_twin_merge": 65,
+ "families": {
+  "t cells cd3": [
+   "cd4 t cells",
+   "t cells cd3"
+  ],
+  "gastric fundus epithelium": [
+   "gastric antrum epithelium",
+   "gastric body epithelium",
+   "gastric fundus epithelium"
+  ],
+  "podocyte": [
+   "kidney tubular epithelium",
+   "podocyte"
+  ],
+  "lung interstitial macrophages": [
+   "lung alveolar macrophages",
+   "lung interstitial macrophages"
+  ],
+  "regulatory t cells": [
+   "memory cd4 t cells",
+   "regulatory t cells"
+  ]
+ },
+ "null_sep_frac_p95": 0.09259161333404442,
+ "null_r_p05": 0.9626589007016785,
+ "closest_non_twins": [
+  {
+   "a": "lung interstitial macrophages",
+   "b": "monocytes",
+   "platforms": "WGBS/WGBS",
+   "shared": 856340,
+   "r": 0.984,
+   "separating": 23306,
+   "sep_frac": 0.02722,
+   "excess_over_null": 0.29,
+   "twin": false
+  },
+  {
+   "a": "kidney glomerular epithelium",
+   "b": "kidney tubular epithelium",
+   "platforms": "WGBS/WGBS",
+   "shared": 863678,
+   "r": 0.983,
+   "separating": 24664,
+   "sep_frac": 0.02856,
+   "excess_over_null": 0.31,
+   "twin": false
+  },
+  {
+   "a": "kidney glomerular endothelium",
+   "b": "kidney tubular endothelium",
+   "platforms": "WGBS/WGBS",
+   "shared": 869568,
+   "r": 0.9826,
+   "separating": 23794,
+   "sep_frac": 0.02736,
+   "excess_over_null": 0.3,
+   "twin": false
+  },
+  {
+   "a": "naive cd4 t cells",
+   "b": "naive cd8 t cells",
+   "platforms": "WGBS/WGBS",
+   "shared": 843961,
+   "r": 0.9823,
+   "separating": 21666,
+   "sep_frac": 0.02567,
+   "excess_over_null": 0.28,
+   "twin": false
+  },
+  {
+   "a": "t central memory cd4",
+   "b": "t effector memory cd4",
+   "platforms": "WGBS/WGBS",
+   "shared": 861305,
+   "r": 0.9812,
+   "separating": 27061,
+   "sep_frac": 0.03142,
+   "excess_over_null": 0.34,
+   "twin": false
+  },
+  {
+   "a": "cd8 t cells",
+   "b": "t effector cell cd8",
+   "platforms": "WGBS/WGBS",
+   "shared": 858687,
+   "r": 0.9806,
+   "separating": 20939,
+   "sep_frac": 0.02438,
+   "excess_over_null": 0.26,
+   "twin": false
+  },
+  {
+   "a": "colon macrophages",
+   "b": "lung interstitial macrophages",
+   "platforms": "WGBS/WGBS",
+   "shared": 870292,
+   "r": 0.9787,
+   "separating": 29936,
+   "sep_frac": 0.0344,
+   "excess_over_null": 0.37,
+   "twin": false
+  },
+  {
+   "a": "eosinophils",
+   "b": "neutrophils",
+   "platforms": "array/array",
+   "shared": 856264,
+   "r": 0.9786,
+   "separating": 25179,
+   "sep_frac": 0.02941,
+   "excess_over_null": 0.32,
+   "twin": false
+  },
+  {
+   "a": "granulocytes",
+   "b": "monocytes",
+   "platforms": "WGBS/WGBS",
+   "shared": 856910,
+   "r": 0.9785,
+   "separating": 24209,
+   "sep_frac": 0.02825,
+   "excess_over_null": 0.31,
+   "twin": false
+  },
+  {
+   "a": "cd4 t cells",
+   "b": "t central memory cd4",
+   "platforms": "WGBS/WGBS",
+   "shared": 863496,
+   "r": 0.9782,
+   "separating": 38445,
+   "sep_frac": 0.04452,
+   "excess_over_null": 0.48,
+   "twin": false
+  },
+  {
+   "a": "t cells cd3",
+   "b": "t central memory cd4",
+   "platforms": "WGBS/WGBS",
+   "shared": 858475,
+   "r": 0.978,
+   "separating": 33978,
+   "sep_frac": 0.03958,
+   "excess_over_null": 0.43,
+   "twin": false
+  },
+  {
+   "a": "basophils",
+   "b": "eosinophils",
+   "platforms": "array/array",
+   "shared": 855137,
+   "r": 0.9775,
+   "separating": 25636,
+   "sep_frac": 0.02998,
+   "excess_over_null": 0.32,
+   "twin": false
+  }
+ ],
+ "rule": {
+  "_meta": {
+   "version": "v1",
+   "built": "2026-09-27",
+   "proc": "PLAN item 6 - no constants in code",
+   "provenance": "Values as they stood in legacy_iam_deconvolver.py on 2026-09-27, each with the measurement that set it. twin_r 0.985: CD4 vs CD8 marker-profile correlation is 0.978 and must NOT merge. cross_source_r 0.98: NK-cells_EPIC vs CD56_NK-cells sat at 0.984 and took 72 % of the non-blood mass in healthy blood (2026-09-26) - the same cell on another platform. min_separating_loci 30 / sep_delta 0.2: eosinophils vs neutrophils correlate at 0.990 yet 133 block loci separate them by > 0.2 beta - separable. cross_source coverage bounds 0.05 / 0.50: a source defined on < 5 % of the array against one on > 50 %. min_celltype_coverage 0.01: cells defined on < 1 % of the atlas (252-locus family) were filled with the grand mean and absorbed mass from every specimen (the erythroblast hub, 2026-09-26). n_celltype_markers_per_celltype 60: equal marker budget per cell so a 6,105-locus cell can win markers."
+  },
+  "twin_r": 0.985,
+  "cross_source_r": 0.98,
+  "cross_source_low_coverage": 0.05,
+  "cross_source_high_coverage": 0.5,
+  "min_separating_loci": 30,
+  "sep_delta": 0.2,
+  "min_celltype_coverage": 0.01,
+  "n_celltype_markers_per_celltype": 60
+ }
+}

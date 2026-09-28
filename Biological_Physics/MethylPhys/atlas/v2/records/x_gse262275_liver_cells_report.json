@@ -1,0 +1,283 @@
+{
+ "GSM8162502": {
+  "title": "Biliary-Columnar-Epithelial-Gallbladder-HBEC-A",
+  "median_cov": 39.0,
+  "frac_cov_ge10": 0.5848,
+  "Q1_pass": false
+ },
+ "GSM8162503": {
+  "title": "Biliary-Columnar-Epithelial-Gallbladder-HBEC-B",
+  "median_cov": 16.0,
+  "frac_cov_ge10": 0.5313,
+  "Q1_pass": false
+ },
+ "GSM8162504": {
+  "title": "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC-A",
+  "median_cov": 43.0,
+  "frac_cov_ge10": 0.591,
+  "Q1_pass": false
+ },
+ "GSM8162505": {
+  "title": "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC-B",
+  "median_cov": 31.0,
+  "frac_cov_ge10": 0.5837,
+  "Q1_pass": false
+ },
+ "GSM8162506": {
+  "title": "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD-A",
+  "median_cov": 32.0,
+  "frac_cov_ge10": 0.5684,
+  "Q1_pass": false
+ },
+ "GSM8162507": {
+  "title": "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD-B",
+  "median_cov": 23.0,
+  "frac_cov_ge10": 0.5519,
+  "Q1_pass": false
+ },
+ "GSM8162508": {
+  "title": "Dermal-Microvascular-Endothelial-HDMVEC-A",
+  "median_cov": 8.0,
+  "frac_cov_ge10": 0.4849,
+  "Q1_pass": false
+ },
+ "GSM8162509": {
+  "title": "Dermal-Microvascular-Endothelial-HDMVEC-B",
+  "median_cov": 22.0,
+  "frac_cov_ge10": 0.5607,
+  "Q1_pass": false
+ },
+ "GSM8162510": {
+  "title": "Hepatic-Stellate-HHSC-A",
+  "median_cov": 24.0,
+  "frac_cov_ge10": 0.5651,
+  "Q1_pass": false
+ },
+ "GSM8162511": {
+  "title": "Hepatic-Stellate-HHSC-B",
+  "median_cov": 16.0,
+  "frac_cov_ge10": 0.5396,
+  "Q1_pass": false
+ },
+ "GSM8162512": {
+  "title": "Keratinocyte-HKER-A",
+  "median_cov": 31.0,
+  "frac_cov_ge10": 0.589,
+  "Q1_pass": false
+ },
+ "GSM8162513": {
+  "title": "Keratinocyte-HKER-B",
+  "median_cov": 3.0,
+  "frac_cov_ge10": 0.2701,
+  "Q1_pass": false
+ },
+ "GSM8162514": {
+  "title": "Liver-Immune-HHK-A",
+  "median_cov": 20.0,
+  "frac_cov_ge10": 0.5387,
+  "Q1_pass": false
+ },
+ "GSM8162515": {
+  "title": "Liver-Immune-HHK-B",
+  "median_cov": 40.0,
+  "frac_cov_ge10": 0.5619,
+  "Q1_pass": false
+ },
+ "Q2": {
+  "loyfer_same_donor": [
+   0.9819238218205294,
+   0.9761136216914138
+  ],
+  "loyfer_diff_donor_same_cell": [
+   0.9683666881859264,
+   0.9347966429954809,
+   0.9367333763718528
+  ],
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC": 0.9786959328599096,
+  "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC": 0.9528728211749515,
+  "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD": 0.9657843770174306,
+  "Dermal-Microvascular-Endothelial-HDMVEC": 0.9380245319561007,
+  "Hepatic-Stellate-HHSC": 0.9309231762427372,
+  "Keratinocyte-HKER": 0.9328599096191091,
+  "Liver-Immune-HHK": 0.9464170432537121
+ },
+ "Q3": {
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC vs hepatocyte": {
+   "r": 0.8983,
+   "nonoverlap_sep": 28519,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC vs pancreatic duct": {
+   "r": 0.9299,
+   "nonoverlap_sep": 25663,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC vs colon epithelium": {
+   "r": 0.8908,
+   "nonoverlap_sep": 38127,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC vs hepatocyte": {
+   "r": 0.9162,
+   "nonoverlap_sep": 22734,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC vs pancreatic duct": {
+   "r": 0.9296,
+   "nonoverlap_sep": 27422,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC vs colon epithelium": {
+   "r": 0.8859,
+   "nonoverlap_sep": 42851,
+   "twin": false
+  },
+  "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD vs hepatocyte": {
+   "r": 0.887,
+   "nonoverlap_sep": 34961,
+   "twin": false
+  },
+  "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD vs pancreatic duct": {
+   "r": 0.9119,
+   "nonoverlap_sep": 35460,
+   "twin": false
+  },
+  "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD vs colon epithelium": {
+   "r": 0.8569,
+   "nonoverlap_sep": 52999,
+   "twin": false
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC vs aorta endothelium": {
+   "r": 0.95,
+   "nonoverlap_sep": 12908,
+   "twin": false
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC vs vascular saphenous endothelium": {
+   "r": 0.9553,
+   "nonoverlap_sep": 9142,
+   "twin": false
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC vs lung alveolar endothelium": {
+   "r": 0.9472,
+   "nonoverlap_sep": 10312,
+   "twin": false
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC vs kidney glomerular endothelium": {
+   "r": 0.9397,
+   "nonoverlap_sep": 16038,
+   "twin": false
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC vs kidney tubular endothelium": {
+   "r": 0.9425,
+   "nonoverlap_sep": 14510,
+   "twin": false
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC vs pancreas endothelium": {
+   "r": 0.935,
+   "nonoverlap_sep": 15494,
+   "twin": false
+  },
+  "Hepatic-Stellate-HHSC vs hepatocyte": {
+   "r": 0.8429,
+   "nonoverlap_sep": 41356,
+   "twin": false
+  },
+  "Hepatic-Stellate-HHSC vs heart fibroblasts": {
+   "r": 0.9532,
+   "nonoverlap_sep": 10030,
+   "twin": false
+  },
+  "Hepatic-Stellate-HHSC vs colon fibroblasts": {
+   "r": 0.9324,
+   "nonoverlap_sep": 21580,
+   "twin": false
+  },
+  "Hepatic-Stellate-HHSC vs smooth muscle": {
+   "r": 0.9608,
+   "nonoverlap_sep": 1013,
+   "twin": false
+  },
+  "Keratinocyte-HKER vs keratinocyte": {
+   "r": 0.9694,
+   "note": "<2 samples on a side - r only"
+  },
+  "Keratinocyte-HKER vs tongue epithelium": {
+   "r": 0.9493,
+   "nonoverlap_sep": 5617,
+   "twin": false
+  },
+  "Keratinocyte-HKER vs tonsil palatine epithelium": {
+   "r": 0.9414,
+   "nonoverlap_sep": 10438,
+   "twin": false
+  },
+  "Liver-Immune-HHK vs lung alveolar macrophages": {
+   "r": 0.9393,
+   "nonoverlap_sep": 21556,
+   "twin": false
+  },
+  "Liver-Immune-HHK vs lung interstitial macrophages": {
+   "r": 0.9473,
+   "nonoverlap_sep": 14667,
+   "twin": false
+  },
+  "Liver-Immune-HHK vs colon macrophages": {
+   "r": 0.9538,
+   "nonoverlap_sep": 16627,
+   "twin": false
+  },
+  "Liver-Immune-HHK vs monocytes": {
+   "r": 0.9378,
+   "nonoverlap_sep": 16750,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC vs Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC": {
+   "r": 0.9729,
+   "nonoverlap_sep": 8353,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC vs Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD": {
+   "r": 0.9394,
+   "nonoverlap_sep": 31565,
+   "twin": false
+  },
+  "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC vs Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD": {
+   "r": 0.9676,
+   "nonoverlap_sep": 10792,
+   "twin": false
+  }
+ },
+ "Q4": {
+  "Biliary-Columnar-Epithelial-Gallbladder-HBEC": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.4482
+  },
+  "Biliary-Columnar-Epithelial-IntraHepatic-HIhBEC": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.4711
+  },
+  "Biliary-Cuboidal-Epithelial-CommonBileDuct-HCBD": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.455
+  },
+  "Dermal-Microvascular-Endothelial-HDMVEC": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.4564
+  },
+  "Hepatic-Stellate-HHSC": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.4262
+  },
+  "Keratinocyte-HKER": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.4807
+  },
+  "Liver-Immune-HHK": {
+   "cgi_hyper_frac": NaN,
+   "global_mean_beta": 0.5026
+  },
+  "loyfer_fresh_reference": {
+   "global_mean_beta_median": 0.581
+  }
+ }
+}

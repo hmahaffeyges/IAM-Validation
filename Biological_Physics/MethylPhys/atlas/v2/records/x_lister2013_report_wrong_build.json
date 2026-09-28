@@ -1,0 +1,53 @@
+{
+ "source": "Lister et al. 2013 Science, GSE47966 (hg19)",
+ "offsets": {
+  "+": -1,
+  "-": -1
+ },
+ "calibration_hits": {
+  "+": {
+   "1": 137,
+   "-1": 156,
+   "0": 128
+  },
+  "-": {
+   "1": 134,
+   "-1": 160,
+   "0": 124
+  }
+ },
+ "samples": {
+  "GSM1173773": {
+   "label": "NeuN_pos female 53yr",
+   "array_cpgs": 11676,
+   "median_cov": 18.0,
+   "frac_cov_ge10": 0.863,
+   "mean_beta": 0.7823,
+   "seconds": 943
+  },
+  "GSM1173774": {
+   "label": "NeuN_neg female 53yr",
+   "array_cpgs": 11584,
+   "median_cov": 9.0,
+   "frac_cov_ge10": 0.4644,
+   "mean_beta": 0.7742,
+   "seconds": 934
+  },
+  "GSM1173776": {
+   "label": "NeuN_pos male 55yr",
+   "array_cpgs": 11642,
+   "median_cov": 11.0,
+   "frac_cov_ge10": 0.6244,
+   "mean_beta": 0.7962,
+   "seconds": 951
+  },
+  "GSM1173777": {
+   "label": "NeuN_neg male 55yr",
+   "array_cpgs": 11620,
+   "median_cov": 10.0,
+   "frac_cov_ge10": 0.5435,
+   "mean_beta": 0.7743,
+   "seconds": 945
+  }
+ }
+}
