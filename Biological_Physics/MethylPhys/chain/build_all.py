@@ -24,7 +24,7 @@ ORDER (each step's output is the next step's input):
   11 folder READMEs                                     build_folder_readmes.py
   12 GENERATED_MANIFEST.json                            (here)                    sha256 of every generated file and of every chain input
 GATES (any failure = exit 1; guarded_push refuses):
-  vocab_scan.py (the report's own banned-word and population-vocabulary guards over SOP + OM), build_sop_mirror.py --check,
+  vocab_scan.py (the report's own banned-word and population-vocabulary guards over SOP + OM), class_guard.py (a class is only the floor a cell is divided by), build_sop_mirror.py --check,
   link_check.py, propagate.py (run by guarded_push after this script).
 
 Usage:  python3 build_all.py            build everything, then gate
@@ -127,15 +127,16 @@ def main():
     g1 = run("vocab scan (report guards over SOP + OM)", [PY, "vocab_scan.py"], K, must=False)
     g2 = run("SOP mirror reconciliation", [PY, "build_sop_mirror.py", "--check"], SOP, must=False)
     g3 = run("link check", [PY, "link_check.py"], K, must=False)
+    g4 = run("class guard (a class is only the floor a cell is divided by)", [PY, "class_guard.py"], K, must=False)
     # manifest
     outputs = {}
     for rel, gen in GENERATED:
         p = os.path.join(MP, rel.split(" (")[0])
         if os.path.exists(p) and not rel.endswith("GENERATED_MANIFEST.json"): outputs[rel.split(" (")[0]] = sha(p)
     json.dump({"built": time.strftime("%Y-%m-%d %H:%M:%S"), "python": PY, "generated": [{"file": a, "generator": b} for a, b in GENERATED],
-               "inputs": in_hash, "outputs": outputs, "gates": {"vocab_scan": g1, "sop_mirror": g2, "link_check": g3}}, open(man_path, "w"), indent=1)
+               "inputs": in_hash, "outputs": outputs, "gates": {"vocab_scan": g1, "sop_mirror": g2, "link_check": g3, "class_guard": g4}}, open(man_path, "w"), indent=1)
     print(f"manifest: {len(in_hash)} chain inputs, {len(outputs)} generated outputs")
-    ok = g1 and g2 and g3
+    ok = g1 and g2 and g3 and g4
     print("BUILD_ALL:", "PASS" if ok else "FAIL - a gate failed; fix the source it names (never the generated document)")
     sys.exit(0 if ok else 1)
 

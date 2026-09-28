@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# RECORD. In the commissioned instrument a class is only the floor a cell is divided by (CLASS_USE_INVENTORY.md, 2026-09-28).
+# This script is kept as the record of a class-level procedure; it is not in the chain and its class readings are not instrument readings.
 """Is sub-floor material in healthy blood a stable small value or noise centred on zero?
 
 Runs the commissioned chain (no report) on healthy Uppsala donors and records, per array, every class's

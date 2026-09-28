@@ -2,7 +2,6 @@
 
 Two scoring surfaces, both computing A = mean(H(beta) / H_min(class)) at marker CpGs.
 
-  score_per_class(customer_betas, ...)     -> 8 class A-scores
   score_per_celltype(customer_betas, ...)  -> 115 cell-type A-scores
 
 Both return per-result diagnostics: A-score, coverage, confidence, status.
@@ -111,25 +110,8 @@ def _score_one(beta_series: pd.Series,
     }
 
 
-def score_per_class(customer_betas: Dict[str, float],
-                    class_markers: Dict[str, List[str]],
-                    h_min_by_class: Dict[str, float]) -> Dict[str, Dict]:
-    """Score all 8 architecture-class A-scores for one patient.
-
-    customer_betas:   {cpg_id: beta} dict
-    class_markers:    {class_name: [cpg_id, ...]} dict, e.g. from the marker artifact
-                       (this is the per-class one-vs-rest markers, not the deconvolver's class_ref)
-    h_min_by_class:   {class_name: H_min float} dict
-
-    Returns: {class_name: {A, n_markers_expected, n_markers_matched, coverage, confidence, status}}
-    """
-    beta_series = pd.Series(customer_betas)
-    out = {}
-    for cls, markers in class_markers.items():
-        if cls not in h_min_by_class:
-            continue
-        out[cls] = _score_one(beta_series, markers, h_min_by_class[cls])
-    return out
+# score_per_class() removed 2026-09-28: it returned '8 class A-scores' and was called by nothing. A class is only the floor a cell
+# is divided by (CLASS_USE_INVENTORY.md); no class A exists.
 
 
 def _score_one_identity(beta_series: pd.Series,

@@ -1,13 +1,15 @@
 {
  "_meta": {
-  "built": "2026-09-27 21:53",
-  "commit": "35b50de",
-  "n_files": 220,
-  "n_undescribed": 24,
+  "built": "2026-09-27 23:47",
+  "commit": "08c976f",
+  "n_files": 224,
+  "n_undescribed": 28,
   "undescribed": [
    "ATLAS_SOURCES_SURVEY.md",
    "ATLAS_V2_SPEC.md",
    "CLASS_ASSIGNMENT_RULE_DRAFT.md",
+   "CLASS_HISTORY.md",
+   "CLASS_USE_INVENTORY.md",
    "FINDING_DETECTION_PANEL_HELDOUT.md",
    "GSE186458_samples.json",
    "HELDOUT_2D.py",
@@ -17,9 +19,11 @@
    "START_HERE.md",
    "atlas_v2_roster.csv",
    "cell_facts_v0.csv",
+   "class_guard.py",
    "class_test_report.csv",
    "classify.py",
    "crossplatform_moss_vs_loyfer.csv",
+   "hsc_gse63409_stage1_manifest.csv",
    "intake_thresholds_v1.json",
    "label_to_concept_v0.json",
    "loyfer2023_extract_report.json",
@@ -175,15 +179,15 @@
    "role": "chain",
    "stage": "stage A",
    "description": "The A-score itself: A = mean_i H(beta_i) / H_min(class). Asserts against the wrong aggregation (entropy of the mean beta), which is the defect PROC-N7-01 caught.",
-   "bytes": 15316,
-   "sha256_12": "ea018d7fddaa"
+   "bytes": 14554,
+   "sha256_12": "ff2cbe7e4327"
   },
   {
    "file": "cpg_gauge_engine.py",
    "path": "Biological_Physics/MethylPhys/chain/cpg_gauge_engine.py",
    "role": "chain",
    "stage": "stage B",
-   "description": "The class gauge: the eight frozen H_min floors and the per-substrate table. Holds the saturation ceilings (1/H_min).",
+   "description": "The eight frozen H_min floors and the per-substrate table. Each cell is divided by the floor of its class; nothing else reads the class.",
    "bytes": 21011,
    "sha256_12": "95d7df95c651"
   },
@@ -229,8 +233,26 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 7330,
-   "sha256_12": "725a3d4cf20d"
+   "bytes": 7444,
+   "sha256_12": "8ef104c8d586"
+  },
+  {
+   "file": "CLASS_HISTORY.md",
+   "path": "Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5157,
+   "sha256_12": "bc67902a40df"
+  },
+  {
+   "file": "CLASS_USE_INVENTORY.md",
+   "path": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3834,
+   "sha256_12": "00121031de67"
   },
   {
    "file": "DECONVOLVER_REPAIR_2026-09-26.md",
@@ -337,8 +359,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11970,
-   "sha256_12": "531f8d54a0e9"
+   "bytes": 11814,
+   "sha256_12": "aacd3081974a"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -347,7 +369,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "27eeb72f0027"
+   "sha256_12": "55284e4eac9a"
   },
   {
    "file": "REPRODUCTION.md",
@@ -364,8 +386,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 32400,
-   "sha256_12": "bc7d277d94b2"
+   "bytes": 32350,
+   "sha256_12": "6359d9261a6e"
   },
   {
    "file": "RUN.md",
@@ -427,8 +449,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 7762,
-   "sha256_12": "de501598ab0c"
+   "bytes": 8148,
+   "sha256_12": "be83f455def4"
   },
   {
    "file": "build_chain_sequence.py",
@@ -472,8 +494,8 @@
    "role": "guard",
    "stage": "",
    "description": "generates the tab-by-tab report reference and one figure per tab by reading a finished report",
-   "bytes": 17648,
-   "sha256_12": "3ff7f27d7eb9"
+   "bytes": 16751,
+   "sha256_12": "b5042fd8a575"
   },
   {
    "file": "build_reviewer_manifest.py",
@@ -519,6 +541,15 @@
    "description": "the claims the scan found, with their evidence",
    "bytes": 3040,
    "sha256_12": "9a1659836721"
+  },
+  {
+   "file": "class_guard.py",
+   "path": "Biological_Physics/MethylPhys/kit/class_guard.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5868,
+   "sha256_12": "e2d9e5becde7"
   },
   {
    "file": "class_test_report.csv",
@@ -611,6 +642,15 @@
    "sha256_12": "5387db0194ca"
   },
   {
+   "file": "hsc_gse63409_stage1_manifest.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/hsc_gse63409_stage1_manifest.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5150,
+   "sha256_12": "9ee7fb9592d3"
+  },
+  {
    "file": "iamatlas_celltype_markers_v0_3_TRIAL.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_3_TRIAL.json",
    "role": "reference",
@@ -688,8 +728,8 @@
    "role": "interface",
    "stage": "",
    "description": "the manual's data module: every constant, table and section text it renders",
-   "bytes": 230795,
-   "sha256_12": "4f91b360b860"
+   "bytes": 231750,
+   "sha256_12": "e14465c181d7"
   },
   {
    "file": "om_part3.py",
@@ -716,7 +756,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1995,
-   "sha256_12": "4ee272cfc1ad"
+   "sha256_12": "b31796614c68"
   },
   {
    "file": "reference_cells_37.csv",
@@ -733,8 +773,8 @@
    "role": "reference",
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
-   "bytes": 19865,
-   "sha256_12": "73118e0ad3bc"
+   "bytes": 19710,
+   "sha256_12": "5a941939d2ce"
   },
   {
    "file": "salas_blood_stage1_manifest.csv",
@@ -1048,8 +1088,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 23519,
-   "sha256_12": "ba3256741ec3"
+   "bytes": 23637,
+   "sha256_12": "a9479729ae3e"
   },
   {
    "file": "build_all.py",
@@ -1057,8 +1097,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "THE ONE COMMAND. Regenerates every document that reports the chain from the chain files, in dependency order, then gates (vocab_scan, SOP-mirror reconciliation, link_check). guarded_push.sh runs it before propagate on every push, so a hand edit to a generated document is overwritten before it can be committed.",
-   "bytes": 10807,
-   "sha256_12": "2c2909a0a30d"
+   "bytes": 11014,
+   "sha256_12": "045ddea255d9"
   },
   {
    "file": "ATLAS_READABILITY.md",
@@ -1111,8 +1151,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 19080,
-   "sha256_12": "4ab637abb2c3"
+   "bytes": 17853,
+   "sha256_12": "06652ccc402e"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -1129,8 +1169,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The state of the work, for the next reader.",
-   "bytes": 19445,
-   "sha256_12": "27792213d0ba"
+   "bytes": 19808,
+   "sha256_12": "918285e75408"
   },
   {
    "file": "IAMAtlas_FLATNESS_LESSON.md",
@@ -1147,8 +1187,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1815918,
-   "sha256_12": "22a785990149"
+   "bytes": 1850974,
+   "sha256_12": "4fbfd829967e"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1165,8 +1205,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7068,
-   "sha256_12": "a4316aa11983"
+   "bytes": 7003,
+   "sha256_12": "bc06eeb583f3"
   },
   {
    "file": "README_FIRST.md",
@@ -1219,8 +1259,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43185,
-   "sha256_12": "a04ef42bd9c7"
+   "bytes": 42989,
+   "sha256_12": "e674201b56ec"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -1273,8 +1313,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 11517,
-   "sha256_12": "9623e7ed7e2d"
+   "bytes": 11871,
+   "sha256_12": "6a45da682b5c"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -1354,8 +1394,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 14140,
-   "sha256_12": "ae01f0e2d257"
+   "bytes": 14603,
+   "sha256_12": "6aeeb0938194"
   },
   {
    "file": "cpg_kit.py",
@@ -1480,8 +1520,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 46322,
-   "sha256_12": "91d1401c820f"
+   "bytes": 46359,
+   "sha256_12": "da63e3ad5877"
   },
   {
    "file": "build_methylphys.py",
@@ -1489,8 +1529,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 224440,
-   "sha256_12": "31339ab0da7d"
+   "bytes": 224839,
+   "sha256_12": "c111ae30880d"
   },
   {
    "file": "build_percell_reference.py",
@@ -1498,8 +1538,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "RETIRED 2026-09-27: built a per-cell level per laboratory from panel arrays - a population layer; kept as record",
-   "bytes": 6957,
-   "sha256_12": "39863645f533"
+   "bytes": 7222,
+   "sha256_12": "4ffa500686d7"
   },
   {
    "file": "chain_inventory_v1.json",
@@ -1507,8 +1547,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 76412,
-   "sha256_12": "84d4c3229c59"
+   "bytes": 79402,
+   "sha256_12": "5c6135475ce1"
   },
   {
    "file": "run_sample.py",
@@ -1570,8 +1610,8 @@
    "role": "guard",
    "stage": "kit",
    "description": "The report's own FORBIDDEN and COHORT guards, imported from build_methylphys.py and run over the SOP (banner-aware), the OM at source, every tab of the fresh reference report and the papers. Any LIVE hit fails the build.",
-   "bytes": 13583,
-   "sha256_12": "c67f2b52af9b"
+   "bytes": 13650,
+   "sha256_12": "1467fb9f1d63"
   },
   {
    "file": "README_as_generated_2026-04-07.md",
@@ -1597,8 +1637,8 @@
    "role": "record",
    "stage": "not in chain",
    "description": "Dilution-series scoring (record side).",
-   "bytes": 7414,
-   "sha256_12": "388703c12591"
+   "bytes": 7679,
+   "sha256_12": "3ad732822e41"
   },
   {
    "file": "disease_cell_signature_matrix_v1_13.csv",
@@ -1651,8 +1691,8 @@
    "role": "record",
    "stage": "not in chain",
    "description": "Scan of per-class presence floors (record side).",
-   "bytes": 4045,
-   "sha256_12": "fbfc67d8d2a0"
+   "bytes": 4310,
+   "sha256_12": "ed8e4ca69204"
   },
   {
    "file": "iamatlas_115_to_matrix_v0_2_mapping.json",
@@ -1794,7 +1834,7 @@
    "path": "Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD_celltype_to_class.json",
    "role": "reference",
    "stage": "stage 2",
-   "description": "Which of the 8 architecture classes each of the 115 cell types belongs to. The bridge between per-cell and per-class reporting.",
+   "description": "Which floor each cell is divided by: the cell's architecture class names its H_min. Read only by the H_min lookup; nothing pools cells by class.",
    "bytes": 3080,
    "sha256_12": "06f89ea339e2"
   },

@@ -60,6 +60,8 @@ stress more than cancer) → salmon (RRBS; new locus set; the largest build and 
 
 - (2026-09-27: SATSA Stage 1 on AWS: 1,056 of 1,072 arrays calibrated, 0 errors, 16 with no IDAT pair; box reproduces the laptop exactly. **Call rate median 0.894; 738 of 1,056 below the 0.93 intake line**, worst on chip batch 9721 (853 arrays, 73 % below); call rate also falls with age decade (0.911 in the 50s to 0.878 in the 90s), so later draws are lower-quality input - the serial trajectories must carry intake status per draw and cannot treat a below-line draw as a reading. 286 people have >= 2 calibrated draws, 195 >= 3.)
 
+- **CLASS-COUNT-01** — give the number eight a measured basis: refit the floors with classes split and merged where the Day-2 session expected structure (immune → lymphoid/myeloid; cycling by tissue; progenitor + stem_adult), compare on cells held out of the fit ([CLASS_HISTORY.md](CLASS_HISTORY.md) §5). Needs atlas v2 cells as the held-out set.
+
 ## Standing (not tasks)
 
 - Healthy is A = 1.00; the tier scale is the tolerance. No population defines any number on a cell. MEASURE, DON'T COMPARE.

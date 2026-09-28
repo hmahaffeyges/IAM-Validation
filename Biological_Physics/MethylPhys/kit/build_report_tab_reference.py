@@ -39,53 +39,39 @@ SHOTDIR = os.path.join(MP, "manual", "report_screenshots")
 # What each tab is FOR. The only hand-written content in this file: a purpose cannot be derived from HTML.
 # A tab that appears in a report and is missing from here is reported as undocumented rather than skipped.
 PURPOSE = {
- "reading":    ("SPECIMEN", "The reading itself: the class gauge value, where it sits against the healthy "
-                            "band for this age, its tier word, and the composition that produced it. If a "
-                            "clinician reads one tab, it is this one."),
- "cells":      ("SPECIMEN", "Every atlas cell type scored for this specimen - all of them, placed or not - "
-                            "each with its 95 per cent interval, the healthy range on its own markers, how "
-                            "many of its markers were found, and its position against healthy."),
- "departure":  ("SPECIMEN", "How far this specimen sits from the healthy centre in the banded space, which "
-                            "axes drove it, the patient value against the age-matched mean and the sigma "
-                            "used, and this laboratory's own measured false-alarm rate beside them."),
- "sky":        ("SPECIMEN", "The residual sky: a Mollweide plate of this specimen's own residuals, per "
-                            "class, plus the statistics behind each plate. Opens with what a plate is "
-                            "compared to, because it is never compared to a healthy picture."),
- "flags":      ("SPECIMEN", "Red flags: everything this run refused, withheld or could not measure, in one "
-                            "place, ordered by severity - STOP, WITHHELD, CAUTION, NOTE. A failing CMB tool "
-                            "arrives here as CMB_TOOL_FAIL."),
- "safeguards": ("SPECIMEN", "Every guard and whether it passed on this specimen, including the register of "
-                            "all 17 methods borrowed from CMB analysis with PASS, FAIL, NOT_RUN, "
-                            "NOT_APPLICABLE or NOT_BUILT for this run."),
- "integrity":  ("SPECIMEN", "The fail-safes that kept this reading honest: the Stage 0 custody record for "
-                            "this specimen, both file hashes, and each intake gate's own result."),
- "run":        ("SPECIMEN", "How to run it yourself, what produced this reading (chain commit, decoder "
-                            "version, a hash of every input read), and whether every derived document was "
-                            "current when this report was built."),
- "coverage":   ("SPECIMEN", "What was measurable on this specimen's platform and what was not: marker "
-                            "coverage per class, and which atlas entries the array could not reach."),
- "chain":      ("REFERENCE", "The chain that produced the reading, stage by stage, derived from the code "
-                             "rather than described - so a stage cannot be claimed that the code does not "
-                             "call."),
- "files":      ("REFERENCE", "Every file the chain uses, enumerated from the live tree with its role."),
- "howto":      ("REFERENCE", "How to read the report: what each number means, what it does not mean, and "
-                             "the vocabulary the chain is allowed to use."),
- "story":      ("REFERENCE", "What astro-genetics is, in the author's words - the introduction that now "
-                             "also opens Issue 003."),
- "physics":    ("REFERENCE", "The physics under the gauge: Landauer's bound, the Mahaffey number, the "
-                             "entropy floor and why the zero is fixed rather than a control group."),
- "reference":  ("REFERENCE", "Every constant the reading was corrected by, with where each came from - the "
-                             "floor, the age term, the laboratory zero, the scale map, and the calibration "
-                             "DOI."),
- "record":     ("REFERENCE", "The validation record: every series and what it found."),
+ "reading":    ("SPECIMEN", "The reading itself: what is in the sample and how each cell reads - every present cell's A = H/H_min "
+                            "on its own identity loci against the fixed point 1.00, with its tier word; any foreign cell detected; "
+                            "and the instrument that took the reading. If a clinician reads one tab, it is this one."),
+ "howto":      ("REFERENCE", "How to read the gauge: what A measures, what each tier means, and what A = 1.00 is and is not."),
+ "cells":      ("SPECIMEN", "Every atlas cell, scored or not: each cell's A on its own identity loci with its interval and how many "
+                            "of its loci the array read, then the trace detection of anything non-blood, and what limits a "
+                            "claim about one cell."),
+ "sky":        ("SPECIMEN", "The sky: a Mollweide plate of this specimen's own residuals - its methylation at each address minus "
+                            "what its own composition predicts - with the statistics behind the plate. Compared to no picture "
+                            "of anyone else."),
+ "physics":    ("REFERENCE", "The physics under the gauge: Landauer's bound, the entropy floor H_min, and why the zero is a fixed "
+                            "point rather than a group of people."),
+ "story":      ("REFERENCE", "What astro-genetics is, in the author's words, with a link to the paper."),
+ "reference":  ("REFERENCE", "The instrument: its physical constants (the eight floors - a cell's class names the floor it is "
+                            "divided by, nothing else) and what a laboratory's array needs before a reading is taken."),
+ "coverage":   ("REFERENCE", "What is lit and what is reserved: the five substrates, the specimen types, and what lighting one "
+                            "cell requires."),
+ "flags":      ("SPECIMEN", "Red flags: everything this run refused, withheld or could not measure, in one place, ordered by "
+                            "severity - STOP, WITHHELD, CAUTION, NOTE."),
+ "safeguards": ("SPECIMEN", "Every guard and whether it passed on this specimen, with the Stage 0 custody record."),
+ "trouble":    ("REFERENCE", "Troubleshooting: every refusal the chain can print, what it means, and what the operator does."),
+ "integrity":  ("SPECIMEN", "The fail-safes that kept this reading honest: what this run refused and why, each safeguard with its "
+                            "cosmology twin, the instrument constants this run read, and every file it read with its hash."),
+ "chain":      ("REFERENCE", "The chain that produced the reading, stage by stage, derived from the code rather than described - "
+                             "so a stage cannot be claimed that the code does not call."),
+ "files":      ("REFERENCE", "Every file the chain uses, enumerated from the live tree with its role and SHA-256."),
  "findings":   ("REFERENCE", "Findings that changed a reported number, with the procedure that sealed each."),
- "trouble":    ("REFERENCE", "Troubleshooting: every refusal string the chain can print, what it means, and "
-                             "what the operator does about it."),
- "roadmap":    ("REFERENCE", "What is not built yet and what it would buy - the same list ENHANCEMENTS.md "
-                             "ranks."),
+ "record":     ("REFERENCE", "The validation record: every series and sealed procedure, linked."),
+ "run":        ("SPECIMEN", "Run it yourself: what produced this reading (chain commit, a hash of every input) and how to clone, "
+                            "verify and run the chain."),
 }
 
-LABELS = {"reading": "Reading", "cells": "Cells", "departure": "Departure", "sky": "Sky", "flags": "Red flags",
+LABELS = {"reading": "Reading", "cells": "Cells", "sky": "Sky", "flags": "Red flags",
           "safeguards": "Safeguards", "integrity": "Integrity", "run": "Run", "coverage": "Coverage",
           "chain": "Chain", "files": "Files", "howto": "How to read", "story": "Story", "physics": "Physics",
           "reference": "Reference", "record": "Record", "findings": "Findings", "trouble": "Troubleshooting",

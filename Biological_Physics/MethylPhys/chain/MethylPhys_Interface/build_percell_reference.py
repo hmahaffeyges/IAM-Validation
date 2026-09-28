@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# RECORD. In the commissioned instrument a class is only the floor a cell is divided by (CLASS_USE_INVENTORY.md, 2026-09-28).
+# This script is kept as the record of a class-level procedure; it is not in the chain and its class readings are not instrument readings.
 """Per-cell healthy reference (exploration, unsealed; 2026-09-22). For every one of the 115 atlas entries, on each laboratory's 40 healthy PANEL
 arrays (Stage 1 noob beta, mapped to the reference scale): mean beta over that entry's discriminative markers -> H -> per-cell A = H/H_min(class)
 (the sealed-anchor statistic) AND H_ref(entry) = median H on the panel, so that A'(entry) = H/H_ref reads 1.0 healthy by construction.

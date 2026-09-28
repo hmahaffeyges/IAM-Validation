@@ -1,0 +1,82 @@
+{
+ "rule": "a class is only the floor a cell is divided by",
+ "hits": [
+  {
+   "file": "chain/MethylPhys_Interface/build_methylphys.py",
+   "kind": "code",
+   "n": 1,
+   "status": "PENDING_V2",
+   "why": "reads the class map for the internal gate and the H_min label"
+  },
+  {
+   "file": "chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py",
+   "kind": "code",
+   "n": 8,
+   "status": "PENDING_V2",
+   "why": "twin merge 'same class required'; per-class presence gate"
+  },
+  {
+   "file": "chain/cpg_conductor.py",
+   "kind": "code",
+   "n": 8,
+   "status": "PENDING_V2",
+   "why": "Stage B class gauge; groups table"
+  },
+  {
+   "file": "chain/nilc_celltype_deconvolver.py",
+   "kind": "code",
+   "n": 2,
+   "status": "PENDING_V2",
+   "why": "NILC cross-check reads the class map from its metadata"
+  },
+  {
+   "file": "kit/HELDOUT_2D.py",
+   "kind": "code",
+   "n": 2,
+   "status": "PENDING_V2",
+   "why": "hands the class map to the deconvolver (follows the deconvolver's twin merge)"
+  },
+  {
+   "file": "kit/build_cell_descriptions.py",
+   "kind": "code",
+   "n": 2,
+   "status": "LABEL",
+   "why": "prints each cell's floor (class name + H_min)"
+  },
+  {
+   "file": "kit/build_percell_identity.py",
+   "kind": "code",
+   "n": 2,
+   "status": "PENDING_V2",
+   "why": "per-cell identity loci target the class H_min_beta; replaced by the v2 identity-loci build"
+  },
+  {
+   "file": "kit/cpg_kit.py",
+   "kind": "code",
+   "n": 1,
+   "status": "PENDING_V2",
+   "why": "marker-panel helper returns the class map with the class-keyed panels"
+  },
+  {
+   "file": "sop/MethylPhys_CPG_SOP.md",
+   "kind": "text",
+   "n": 80,
+   "status": "PENDING_V2",
+   "why": "describes the class gauge the chain runs until the v2 switch-over"
+  },
+  {
+   "file": "README.md",
+   "kind": "text",
+   "n": 2,
+   "status": "PENDING_V2",
+   "why": "describes the class gauge the chain runs until the v2 switch-over"
+  },
+  {
+   "file": "doors/RUNBOOK.md",
+   "kind": "text",
+   "n": 2,
+   "status": "PENDING_V2",
+   "why": "describes the class gauge the chain runs until the v2 switch-over"
+  }
+ ]
+}

@@ -57,7 +57,7 @@ python3 run_sample.py --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz --age 58
 ```
 
 `--lab` names the laboratory in the custody record. The instrument's calibration is the pipeline map (one slope and intercept
-onto the atlas scale, [`beta_scale_maps_v1.json`](chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json)); an IDAT pipeline the map has not been measured for renders with the class gauge
+onto the atlas scale, [`beta_scale_maps_v1.json`](chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json)); an IDAT pipeline the map has not been measured for renders with every cell's A
 withheld and the reason printed. Intake runs on the array's own numbers first; a QUARANTINE produces no report.
 
 ## What it reports

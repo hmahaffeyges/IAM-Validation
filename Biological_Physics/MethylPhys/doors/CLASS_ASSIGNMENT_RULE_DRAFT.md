@@ -31,7 +31,7 @@ post-mitotic OxPhos load (oxidative stress), product secretion (overload), conti
 is assigned by its governing inversion; R1–R8 are how that is decided without opinion. Where no question fits cleanly the cell
 is flagged for review of its facts or the rule.
 
-**The number of classes is settled at eight.** The Day-2 session opened with ten (senescent and cancer included) and guessed at 12–18; those were starting estimates. Senescent and cancer are **states** — defined by having crossed an inversion (l. 872), not by a regime of their own — and the MCMC runs returned eight distinct floors, repeatedly (author, 2026-09-28: "MCMC determined multiple times there was only 8"). A new cell is therefore assigned to one of the eight; there is no new-class route.
+**The number of classes is eight, by definition.** The Day-2 session opened with ten (senescent and cancer included) and guessed at 12–18; senescent and cancer were then recognised as **states** — defined by having crossed an inversion (l. 872) — not regimes. The MCMC (G-002) was *given* eight classes and fitted their floors; no run in the record compares class counts ([CLASS_HISTORY.md](CLASS_HISTORY.md) §4, corrected 2026-09-28). A new cell is assigned to one of the eight; a different count would come only from the split-and-merge test in PLAN, never from a quiet reassignment.
 
 ## What the record held
 The classes were assigned by **example lists**, not a criterion: G-002's 37 reference cells

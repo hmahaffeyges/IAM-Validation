@@ -1,5 +1,7 @@
 # HANDOFF — the physics of methylation, for whoever picks this up
 
+> **RECORD (2026-09-20), superseded.** Start from [START_HERE.md](START_HERE.md) and [PLAN.md](PLAN.md). This handoff predates the 2026-09-27 removal of every population layer and the 2026-09-28 class rule: its bands, laboratory zero and class gauge are no longer in the instrument. In the commissioned instrument a class is only the floor a cell is divided by.
+
 **What this field is called (2026-09-20): Physics of Methylation: Landauer Metrology** — measuring how far above the thermal noise quantum an information-writing process operates, against a fixed physical zero (H_min per cell class). Thermal noise is the unit (M = E_drive / k_B T), not the nuisance. Prior art: Sanchez & Mackenzie 2016 established that the methylome obeys Landauer's bound; Landauer metrology measures how far above it each cell class operates ([[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) §0b).
 
 

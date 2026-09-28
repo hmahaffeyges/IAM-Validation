@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# RECORD. In the commissioned instrument a class is only the floor a cell is divided by (CLASS_USE_INVENTORY.md, 2026-09-28).
+# This script is kept as the record of a class-level procedure; it is not in the chain and its class readings are not instrument readings.
 """PROC-LOD-01: what is the smallest secretory or cycling fraction this chain can see in whole blood?
 
 An in-silico admixture series on real material. Each mixture is a real healthy blood array with a known

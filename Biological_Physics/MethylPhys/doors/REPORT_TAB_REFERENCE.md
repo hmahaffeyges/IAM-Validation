@@ -1,8 +1,8 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `35b50de`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `08c976f`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
-One run produces **one self-contained HTML file of 6.49 MB with 17 tabs** - 8 carrying this specimen's own measurements and 9 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
+One run produces **one self-contained HTML file of 6.49 MB with 17 tabs** - 7 carrying this specimen's own measurements and 10 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
 ## The figures
 
@@ -12,7 +12,7 @@ These are **not browser screenshots.** A headless browser cannot be installed in
 
 ### Reading  ·  `reading`  ·  SPECIMEN
 
-The reading itself: the class gauge value, where it sits against the healthy band for this age, its tier word, and the composition that produced it. If a clinician reads one tab, it is this one.
+The reading itself: what is in the sample and how each cell reads - every present cell's A = H/H_min on its own identity loci against the fixed point 1.00, with its tier word; any foreign cell detected; and the instrument that took the reading. If a clinician reads one tab, it is this one.
 
 ![Reading tab](../manual/report_tab_figures/reading.png)
 
@@ -20,15 +20,15 @@ The reading itself: the class gauge value, where it sits against the healthy ban
 
 ### How to read  ·  `howto`  ·  REFERENCE
 
-How to read the report: what each number means, what it does not mean, and the vocabulary the chain is allowed to use.
+How to read the gauge: what A measures, what each tier means, and what A = 1.00 is and is not.
 
 ![How to read tab](../manual/report_tab_figures/howto.png)
 
-*14 KB, 3 tables, 18 rows.*  Sections: **How to read the gauge**, **What A is measuring**, **Where the locker analogy helps**, **The levels**, **Age**, **Two different things, and neither is A = 1.00 sitting on a floor**, **The saturation wall chart - 8 classes x 5 substrates**, **The Warburg line at 1.07**
+*15 KB, 3 tables, 18 rows.*  Sections: **How to read the gauge**, **What A is measuring**, **The test for any number on this report**, **Where the locker analogy helps**, **The levels**, **Age**, **Two different things, and neither is A = 1.00 sitting on a floor**, **The saturation wall chart - 8 classes x 5 substrates**
 
 ### Cells  ·  `cells`  ·  SPECIMEN
 
-Every atlas cell type scored for this specimen - all of them, placed or not - each with its 95 per cent interval, the healthy range on its own markers, how many of its markers were found, and its position against healthy.
+Every atlas cell, scored or not: each cell's A on its own identity loci with its interval and how many of its loci the array read, then the trace detection of anything non-blood, and what limits a claim about one cell.
 
 ![Cells tab](../manual/report_tab_figures/cells.png)
 
@@ -36,7 +36,7 @@ Every atlas cell type scored for this specimen - all of them, placed or not - ea
 
 ### Sky  ·  `sky`  ·  SPECIMEN
 
-The residual sky: a Mollweide plate of this specimen's own residuals, per class, plus the statistics behind each plate. Opens with what a plate is compared to, because it is never compared to a healthy picture.
+The sky: a Mollweide plate of this specimen's own residuals - its methylation at each address minus what its own composition predicts - with the statistics behind the plate. Compared to no picture of anyone else.
 
 ![Sky tab](../manual/report_tab_figures/sky.png)
 
@@ -44,7 +44,7 @@ The residual sky: a Mollweide plate of this specimen's own residuals, per class,
 
 ### Physics  ·  `physics`  ·  REFERENCE
 
-The physics under the gauge: Landauer's bound, the Mahaffey number, the entropy floor and why the zero is fixed rather than a control group.
+The physics under the gauge: Landauer's bound, the entropy floor H_min, and why the zero is a fixed point rather than a group of people.
 
 ![Physics tab](../manual/report_tab_figures/physics.png)
 
@@ -52,7 +52,7 @@ The physics under the gauge: Landauer's bound, the Mahaffey number, the entropy 
 
 ### Story  ·  `story`  ·  REFERENCE
 
-What astro-genetics is, in the author's words - the introduction that now also opens [Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf).
+What astro-genetics is, in the author's words, with a link to the paper.
 
 ![Story tab](../manual/report_tab_figures/story.png)
 
@@ -60,15 +60,15 @@ What astro-genetics is, in the author's words - the introduction that now also o
 
 ### Reference  ·  `reference`  ·  REFERENCE
 
-Every constant the reading was corrected by, with where each came from - the floor, the age term, the laboratory zero, the scale map, and the calibration DOI.
+The instrument: its physical constants (the eight floors - a cell's class names the floor it is divided by, nothing else) and what a laboratory's array needs before a reading is taken.
 
 ![Reference tab](../manual/report_tab_figures/reference.png)
 
 *6 KB, 2 tables, 15 rows.*  Sections: **The instrument - its constants and its calibration**, **1. Physical constants - the floors**, **2. Instrument calibration - what a laboratory's array needs before a cell can be read**
 
-### Coverage  ·  `coverage`  ·  SPECIMEN
+### Coverage  ·  `coverage`  ·  REFERENCE
 
-What was measurable on this specimen's platform and what was not: marker coverage per class, and which atlas entries the array could not reach.
+What is lit and what is reserved: the five substrates, the specimen types, and what lighting one cell requires.
 
 ![Coverage tab](../manual/report_tab_figures/coverage.png)
 
@@ -76,7 +76,7 @@ What was measurable on this specimen's platform and what was not: marker coverag
 
 ### Red flags  ·  `flags`  ·  SPECIMEN
 
-Red flags: everything this run refused, withheld or could not measure, in one place, ordered by severity - STOP, WITHHELD, CAUTION, NOTE. A failing CMB tool arrives here as CMB_TOOL_FAIL.
+Red flags: everything this run refused, withheld or could not measure, in one place, ordered by severity - STOP, WITHHELD, CAUTION, NOTE.
 
 ![Red flags tab](../manual/report_tab_figures/flags.png)
 
@@ -84,7 +84,7 @@ Red flags: everything this run refused, withheld or could not measure, in one pl
 
 ### Safeguards  ·  `safeguards`  ·  SPECIMEN
 
-Every guard and whether it passed on this specimen, including the register of all 17 methods borrowed from CMB analysis with PASS, FAIL, NOT_RUN, NOT_APPLICABLE or NOT_BUILT for this run.
+Every guard and whether it passed on this specimen, with the Stage 0 custody record.
 
 ![Safeguards tab](../manual/report_tab_figures/safeguards.png)
 
@@ -92,7 +92,7 @@ Every guard and whether it passed on this specimen, including the register of al
 
 ### Troubleshooting  ·  `trouble`  ·  REFERENCE
 
-Troubleshooting: every refusal string the chain can print, what it means, and what the operator does about it.
+Troubleshooting: every refusal the chain can print, what it means, and what the operator does.
 
 ![Troubleshooting tab](../manual/report_tab_figures/trouble.png)
 
@@ -100,11 +100,11 @@ Troubleshooting: every refusal string the chain can print, what it means, and wh
 
 ### Integrity  ·  `integrity`  ·  SPECIMEN
 
-The fail-safes that kept this reading honest: the Stage 0 custody record for this specimen, both file hashes, and each intake gate's own result.
+The fail-safes that kept this reading honest: what this run refused and why, each safeguard with its cosmology twin, the instrument constants this run read, and every file it read with its hash.
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 35b50de)**, **5. Two rules this report obeys**
+*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 08c976f)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 
@@ -116,7 +116,7 @@ The chain that produced the reading, stage by stage, derived from the code rathe
 
 ### Files  ·  `files`  ·  REFERENCE
 
-Every file the chain uses, enumerated from the live tree with its role.
+Every file the chain uses, enumerated from the live tree with its role and SHA-256.
 
 ![Files tab](../manual/report_tab_figures/files.png)
 
@@ -132,7 +132,7 @@ Findings that changed a reported number, with the procedure that sealed each.
 
 ### Record  ·  `record`  ·  REFERENCE
 
-The validation record: every series and what it found.
+The validation record: every series and sealed procedure, linked.
 
 ![Record tab](../manual/report_tab_figures/record.png)
 
@@ -140,7 +140,7 @@ The validation record: every series and what it found.
 
 ### Run  ·  `run`  ·  SPECIMEN
 
-How to run it yourself, what produced this reading (chain commit, decoder version, a hash of every input read), and whether every derived document was current when this report was built.
+Run it yourself: what produced this reading (chain commit, a hash of every input) and how to clone, verify and run the chain.
 
 ![Run tab](../manual/report_tab_figures/run.png)
 

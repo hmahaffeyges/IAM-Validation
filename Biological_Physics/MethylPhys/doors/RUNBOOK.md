@@ -157,7 +157,7 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 
 ## 9. PROC-N7-01 — end-to-end synthetic simulation (added 2026-09-19)
 
-`MethylPhys/chain/Synthetic_Patient_Generator/synthetic_patient_generator.py` (restored; now reads the repo atlas; `composition_alpha=WHOLE_BLOOD_ALPHA`) → 24 synthetic patients → `run_full`. Composition recovery PASS (MAE ≤ 0.015). **Gauge FAIL:** every synthetic healthy reads BREACH, because the conductor's class gauge is H(β̄) over the *marker union* (bimodal), not the identity loci — despite its docstring. Real blood masked this because the age band was compiled on the same statistic. Identity-loci H(β̄) reads the synthetic healthy at 0.99 and real adenoma at 1.10 (correct both times) but has no band until Phase 1. **Do not read a conductor gauge value as a class measurement until `gauge_surface` says `identity_loci`.** Section 7's 'healthy IN_BAND' is withdrawn as conformance.
+*Record, 2026-09-19 - the class gauge this describes is an internal gate, retired at the atlas v2 switch-over.* `MethylPhys/chain/Synthetic_Patient_Generator/synthetic_patient_generator.py` (restored; now reads the repo atlas; `composition_alpha=WHOLE_BLOOD_ALPHA`) → 24 synthetic patients → `run_full`. Composition recovery PASS (MAE ≤ 0.015). **Gauge FAIL:** every synthetic healthy reads BREACH, because the conductor's class gauge is H(β̄) over the *marker union* (bimodal), not the identity loci — despite its docstring. Real blood masked this because the age band was compiled on the same statistic. Identity-loci H(β̄) reads the synthetic healthy at 0.99 and real adenoma at 1.10 (correct both times) but has no band until Phase 1. **Do not read a conductor gauge value as a class measurement until `gauge_surface` says `identity_loci`.** Section 7's 'healthy IN_BAND' is withdrawn as conformance.
 
 ## 10. RULE — the cosmology-evidence ledger (added 2026-09-19)
 
@@ -304,8 +304,8 @@ Every run now writes three things, not one:
 | what | where | why it matters |
 |---|---|---|
 | the report | `--out` | the reading, for a human |
-| the bundle | beside the report, `_bundle.json` (`--no-bundle` to suppress) | every stage's output: per-class A with the floor, age term, laboratory zero and scale map applied and its z against the band; all 115 per-cell readings with a credible interval and marker coverage each; the departure axes; the sky statistics per class; the whole Stage 0 record including both file hashes |
-| one ledger row | `evidence_ledger.jsonl` beside the report (`--ledger` to place it) | one flat line per run, so a cross-sample matrix is a file read rather than a re-run. **The column set is not fixed** - it grows with the classes that are gauged and the covariates you pass - so read the keys, do not assume a count. The example row shipped in `chain/example_runs/` has **268 columns**: 22 run-level scalars, 115 per-cell A values with 115 coverages, 2 per-class A with their z and band terms, 3 composition percentages and 5 covariate fields |
+| the bundle | beside the report, `_bundle.json` (`--no-bundle` to suppress) | every stage's output: the composition, every scored cell's A with its interval and identity-loci coverage, trace and foreign-cell detection, the sky statistics, the Stage 0 record with both file hashes, and the version and hash of every input |
+| one ledger row | `evidence_ledger.jsonl` beside the report (`--ledger` to place it) | one flat line per run, so a cross-sample matrix is a file read rather than a re-run. The column set grows with the cells scored and the covariates passed - read the keys, do not assume a count. The example in `chain/example_runs/` predates the 2026-09-27 removals and is regenerated at the atlas v2 switch-over |
 
 **Covariates are recorded, not reported.** `--covariate key=value` (repeatable, or `--covariates file.json`)
 goes into the custody record, the bundle and the ledger row. It never reaches report prose: the report states
