@@ -1,0 +1,826 @@
+{
+ "G002_reference_37": {
+  "H1 ESC": [
+   "pluripotent stem",
+   "stem_pluri"
+  ],
+  "H9 ESC": [
+   "pluripotent stem",
+   "stem_pluri"
+  ],
+  "iPSC Yamanaka P3-5": [
+   "pluripotent stem",
+   "stem_pluri"
+  ],
+  "iPSC sendai P10": [
+   "pluripotent stem",
+   "stem_pluri"
+  ],
+  "HSC CD34+ young": [
+   "haematopoietic stem cell",
+   "stem_adult"
+  ],
+  "HSC CD34+ old": [
+   "haematopoietic stem cell",
+   "stem_adult"
+  ],
+  "Neural stem cell NSC": [
+   "neural stem cell",
+   "stem_adult"
+  ],
+  "Intestinal stem LGR5+": [
+   "intestinal stem cell",
+   "stem_adult"
+  ],
+  "Muscle satellite cell": [
+   "muscle satellite cell",
+   "stem_adult"
+  ],
+  "CMP myeloid progenitor": [
+   "myeloid progenitor",
+   "progenitor"
+  ],
+  "GMP granulocyte prog": [
+   "myeloid progenitor",
+   "progenitor"
+  ],
+  "Neural progenitor NPC": [
+   "neural progenitor",
+   "progenitor"
+  ],
+  "Erythroid progenitor": [
+   "erythroid progenitor",
+   "progenitor"
+  ],
+  "Cortical neuron mature": [
+   "neuron",
+   "terminal"
+  ],
+  "Frontal cortex neuron": [
+   "neuron",
+   "terminal"
+  ],
+  "Cerebellum neuron": [
+   "neuron",
+   "terminal"
+  ],
+  "Cardiomyocyte adult": [
+   "cardiomyocyte",
+   "terminal"
+  ],
+  "Skeletal muscle type I": [
+   "skeletal muscle fibre",
+   "terminal"
+  ],
+  "Colon epithelial normal": [
+   "colon / intestinal epithelium",
+   "cycling"
+  ],
+  "Small intestine epith": [
+   "colon / intestinal epithelium",
+   "cycling"
+  ],
+  "Keratinocyte basal": [
+   "squamous / basal epithelium",
+   "cycling"
+  ],
+  "Bronchial epithelial": [
+   "airway / lung epithelium",
+   "cycling"
+  ],
+  "Colon epithelial inflam": [
+   "colon / intestinal epithelium",
+   "cycling"
+  ],
+  "CD4+ T naive": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD8+ T memory": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD4+ T effector": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "NK cell": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "B cell naive": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Neutrophil": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Hepatocyte primary": [
+   "hepatocyte",
+   "secretory"
+  ],
+  "Hepatocyte NAFLD": [
+   "hepatocyte",
+   "secretory"
+  ],
+  "Pancreatic beta cell": [
+   "islet beta",
+   "secretory"
+  ],
+  "Acinar cell pancreas": [
+   "pancreatic acinar",
+   "secretory"
+  ],
+  "Fibroblast IMR90 P4": [
+   "fibroblast",
+   "stromal"
+  ],
+  "Fibroblast IMR90 P16": [
+   "fibroblast",
+   "stromal"
+  ],
+  "Aortic endothelial": [
+   "endothelial cell",
+   "stromal"
+  ],
+  "Lung fibroblast normal": [
+   "fibroblast",
+   "stromal"
+  ]
+ },
+ "issue002_what_includes": {
+  "immune: T/B/NK/neutrophil/monocyte": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "cycling: colon, rectum, stomach, lung, bladder, cervix, head & neck, ovary, endometrium": [
+   "colon / intestinal epithelium",
+   "cycling"
+  ],
+  "cycling: kidney": [
+   "kidney tubular",
+   "cycling"
+  ],
+  "cycling: thyroid": [
+   "thyroid follicular",
+   "cycling"
+  ],
+  "cycling: skin (melanoma)": [
+   "melanocyte",
+   "cycling"
+  ],
+  "secretory: breast": [
+   "breast luminal",
+   "secretory"
+  ],
+  "secretory: prostate": [
+   "prostate luminal",
+   "secretory"
+  ],
+  "secretory: liver": [
+   "hepatocyte",
+   "secretory"
+  ],
+  "secretory: pancreas exocrine": [
+   "pancreatic acinar",
+   "secretory"
+  ],
+  "secretory: pancreas endocrine": [
+   "islet beta",
+   "secretory"
+  ],
+  "secretory: thyroid": [
+   "thyroid follicular",
+   "secretory"
+  ],
+  "stromal: fibroblasts": [
+   "fibroblast",
+   "stromal"
+  ],
+  "stromal: endothelial": [
+   "endothelial cell",
+   "stromal"
+  ],
+  "stromal: smooth muscle": [
+   "smooth muscle",
+   "stromal"
+  ],
+  "stromal: mesothelial": [
+   "mesothelial cell",
+   "stromal"
+  ],
+  "stromal: adipocytes": [
+   "adipocyte",
+   "stromal"
+  ],
+  "stem_adult: HSC": [
+   "haematopoietic stem cell",
+   "stem_adult"
+  ],
+  "stem_adult: cholangiocytes": [
+   "cholangiocyte",
+   "stem_adult"
+  ],
+  "stem_adult: intestinal stem": [
+   "intestinal stem cell",
+   "stem_adult"
+  ],
+  "progenitor: CMP, GMP, NPC, erythroid, intestinal transit-amplifying": [
+   "myeloid progenitor",
+   "progenitor"
+  ],
+  "terminal: neurons": [
+   "neuron",
+   "terminal"
+  ],
+  "terminal: cardiomyocytes": [
+   "cardiomyocyte",
+   "terminal"
+  ],
+  "terminal: skeletal muscle fibres": [
+   "skeletal muscle fibre",
+   "terminal"
+  ],
+  "terminal: mature oligodendrocytes": [
+   "oligodendrocyte",
+   "terminal"
+  ],
+  "stem_pluri: hESC, iPSC": [
+   "pluripotent stem",
+   "stem_pluri"
+  ]
+ },
+ "v1_map_115": {
+  "Acinar": [
+   "pancreatic acinar",
+   "secretory"
+  ],
+  "Antrum_diff": [
+   "gastric glandular (differentiated)",
+   "secretory"
+  ],
+  "Antrum_undiff": [
+   "gastric surface / undifferentiated",
+   "cycling"
+  ],
+  "B": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "B-cells_EPIC": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "BE": [
+   "breast basal",
+   "cycling"
+  ],
+  "Basal": [
+   "breast basal",
+   "cycling"
+  ],
+  "Baso": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Bcell": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Bladder": [
+   "urothelium",
+   "cycling"
+  ],
+  "Bmem": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Bnv": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Breast": [
+   "composite",
+   "secretory"
+  ],
+  "CD14_monocytes": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD19_B-cells": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD4T": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD4T-cells_EPIC": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD4Tmem": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD4Tnv": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD4_T-cells": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD56_NK-cells": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD8T": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD8T-cells_EPIC": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD8Tmem": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD8Tnv": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CD8_T-cells": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "CM": [
+   "cardiomyocyte",
+   "terminal"
+  ],
+  "CMP": [
+   "myeloid progenitor",
+   "progenitor"
+  ],
+  "Chol": [
+   "cholangiocyte",
+   "secretory"
+  ],
+  "Colon_epithelial_cells": [
+   "colon / intestinal epithelium",
+   "cycling"
+  ],
+  "Corpus_diff": [
+   "gastric glandular (differentiated)",
+   "secretory"
+  ],
+  "Corpus_undiff": [
+   "gastric surface / undifferentiated",
+   "cycling"
+  ],
+  "Cortical_neurons": [
+   "neuron",
+   "terminal"
+  ],
+  "Ductal": [
+   "pancreatic duct",
+   "cycling"
+  ],
+  "Endocrine": [
+   "enteroendocrine",
+   "secretory"
+  ],
+  "Eos": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Eosino": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Eosinophils_reinius": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Epi": [
+   "composite",
+   "cycling"
+  ],
+  "Epi_basal": [
+   "squamous / basal epithelium",
+   "cycling"
+  ],
+  "Epi_stratified": [
+   "squamous / basal epithelium",
+   "cycling"
+  ],
+  "Epi_suprabasal": [
+   "squamous / basal epithelium",
+   "cycling"
+  ],
+  "Epi_upper": [
+   "keratinocyte (differentiated)",
+   "terminal"
+  ],
+  "Erythrocyte_progenitors": [
+   "erythroid progenitor",
+   "progenitor"
+  ],
+  "Fundus_diff": [
+   "gastric glandular (differentiated)",
+   "secretory"
+  ],
+  "Fundus_undiff": [
+   "gastric surface / undifferentiated",
+   "cycling"
+  ],
+  "GMP": [
+   "myeloid progenitor",
+   "progenitor"
+  ],
+  "Gland": [
+   "composite",
+   "secretory"
+  ],
+  "Glia": [
+   "astrocyte",
+   "terminal"
+  ],
+  "Gran": [
+   "composite",
+   "immune"
+  ],
+  "HSC": [
+   "haematopoietic stem cell",
+   "stem_adult"
+  ],
+  "Head_and_neck_larynx": [
+   "squamous / basal epithelium",
+   "cycling"
+  ],
+  "Hep": [
+   "hepatocyte",
+   "secretory"
+  ],
+  "Hepatocytes": [
+   "hepatocyte",
+   "secretory"
+  ],
+  "IC": [
+   "composite",
+   "immune"
+  ],
+  "Kera_diff": [
+   "keratinocyte (differentiated)",
+   "terminal"
+  ],
+  "Kera_undiff": [
+   "squamous / basal epithelium",
+   "cycling"
+  ],
+  "Kidney": [
+   "composite",
+   "cycling"
+  ],
+  "Kup": [
+   "tissue macrophage",
+   "immune"
+  ],
+  "L-MPP": [
+   "haematopoietic multipotent progenitor",
+   "progenitor"
+  ],
+  "LE": [
+   "breast luminal",
+   "secretory"
+  ],
+  "Left_atrium": [
+   "composite",
+   "terminal"
+  ],
+  "Leu": [
+   "composite",
+   "immune"
+  ],
+  "Luminal": [
+   "breast luminal",
+   "secretory"
+  ],
+  "Lung_cells": [
+   "composite",
+   "cycling"
+  ],
+  "Lym": [
+   "composite",
+   "immune"
+  ],
+  "MEP": [
+   "myeloid progenitor",
+   "progenitor"
+  ],
+  "MP": [
+   "tissue macrophage",
+   "immune"
+  ],
+  "MPP": [
+   "haematopoietic multipotent progenitor",
+   "progenitor"
+  ],
+  "Macro": [
+   "tissue macrophage",
+   "immune"
+  ],
+  "Mela": [
+   "melanocyte",
+   "secretory"
+  ],
+  "Microglia": [
+   "microglia",
+   "immune"
+  ],
+  "Mono": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Monocytes_EPIC": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Mye": [
+   "composite",
+   "immune"
+  ],
+  "NK": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "NK-cells_EPIC": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Neu": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "NeuIm": [
+   "immature neuron",
+   "progenitor"
+  ],
+  "NeuMa": [
+   "neuron",
+   "terminal"
+  ],
+  "Neutro": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Neutrophils_EPIC": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Neutrophils_reinius": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "OPC": [
+   "oligodendrocyte precursor",
+   "progenitor"
+  ],
+  "Oligo": [
+   "oligodendrocyte",
+   "terminal"
+  ],
+  "PBMC": [
+   "composite",
+   "immune"
+  ],
+  "Pancreatic_acinar_cells": [
+   "pancreatic acinar",
+   "secretory"
+  ],
+  "Pancreatic_beta_cells": [
+   "islet beta",
+   "secretory"
+  ],
+  "Pancreatic_duct_cells": [
+   "pancreatic duct",
+   "secretory"
+  ],
+  "Plasma": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Prostate": [
+   "composite",
+   "secretory"
+  ],
+  "Tcell": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Thyroid": [
+   "thyroid follicular",
+   "secretory"
+  ],
+  "Treg": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "Upper_GI": [
+   "composite",
+   "cycling"
+  ],
+  "Uterus_cervix": [
+   "composite",
+   "cycling"
+  ],
+  "adipocyte": [
+   "adipocyte",
+   "stromal"
+  ],
+  "dendritic": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "endothelial": [
+   "endothelial cell",
+   "stromal"
+  ],
+  "eosinophil": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "erythroblast": [
+   "erythroid progenitor",
+   "progenitor"
+  ],
+  "fibroblast": [
+   "fibroblast",
+   "stromal"
+  ],
+  "granulocytes": [
+   "composite",
+   "immune"
+  ],
+  "macrophage": [
+   "tissue macrophage",
+   "immune"
+  ],
+  "megakaryocyte": [
+   "megakaryocyte",
+   "progenitor"
+  ],
+  "monocyte": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "nRBC": [
+   "nucleated red cell",
+   "progenitor"
+  ],
+  "neuron": [
+   "neuron",
+   "terminal"
+  ],
+  "neutrophil": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "small_intestine": [
+   "colon / intestinal epithelium",
+   "cycling"
+  ],
+  "smooth_muscle": [
+   "smooth muscle",
+   "stromal"
+  ],
+  "stem_pluri": [
+   "pluripotent stem",
+   "stem_pluri"
+  ],
+  "stromal_other": [
+   "composite",
+   "stromal"
+  ],
+  "tcell": [
+   "leukocyte (mature)",
+   "immune"
+  ],
+  "whole_blood": [
+   "composite",
+   "immune"
+  ]
+ },
+ "v2_candidates": {
+  "astrocytes (Tian)": [
+   "astrocyte",
+   null
+  ],
+  "microglia (Tian)": [
+   "microglia",
+   null
+  ],
+  "oligodendrocytes (Tian)": [
+   "oligodendrocyte",
+   null
+  ],
+  "oligodendrocyte precursors (Tian)": [
+   "oligodendrocyte precursor",
+   null
+  ],
+  "vascular leptomeningeal cells (Tian)": [
+   "vascular leptomeningeal cell",
+   null
+  ],
+  "pericytes (Tian)": [
+   "pericyte",
+   null
+  ],
+  "brain endothelium (Tian)": [
+   "endothelial cell",
+   null
+  ],
+  "podocyte (Loyfer)": [
+   "podocyte",
+   null
+  ],
+  "pancreatic alpha (Loyfer)": [
+   "islet alpha",
+   null
+  ],
+  "pancreatic delta (Loyfer)": [
+   "islet delta",
+   null
+  ],
+  "osteoblasts (Loyfer)": [
+   "osteoblast",
+   null
+  ],
+  "striated muscle (Loyfer)": [
+   "skeletal muscle fibre",
+   null
+  ],
+  "heart / colon / dermal fibroblasts (Loyfer)": [
+   "fibroblast",
+   null
+  ],
+  "endothelium, 7 beds (Loyfer)": [
+   "endothelial cell",
+   null
+  ],
+  "smooth muscle (Loyfer)": [
+   "smooth muscle",
+   null
+  ],
+  "lung / colon / liver macrophages (Loyfer)": [
+   "tissue macrophage",
+   null
+  ],
+  "enteroendocrine (Loyfer)": [
+   "enteroendocrine",
+   null
+  ],
+  "kidney tubular epithelium (Loyfer)": [
+   "kidney tubular",
+   null
+  ],
+  "kidney glomerular epithelium (Loyfer)": [
+   "podocyte",
+   null
+  ],
+  "endometrium / fallopian / ovary (Loyfer)": [
+   "female reproductive epithelium",
+   null
+  ],
+  "lung pleural epithelium (Loyfer)": [
+   "pleural / serosal epithelium",
+   null
+  ],
+  "thyroid epithelium (Loyfer)": [
+   "thyroid follicular",
+   null
+  ],
+  "prostate epithelium (Loyfer)": [
+   "prostate luminal",
+   null
+  ],
+  "tongue / tonsil / larynx / pharynx / oesophagus (Loyfer)": [
+   "squamous / basal epithelium",
+   null
+  ],
+  "gallbladder epithelium (Loyfer)": [
+   "cholangiocyte",
+   null
+  ],
+  "basophils / eosinophils / Treg / naive-memory subsets (Salas)": [
+   "leukocyte (mature)",
+   null
+  ],
+  "embryonic stem lines H1/H9/HUES64 (ENCODE)": [
+   "pluripotent stem",
+   null
+  ]
+ }
+}

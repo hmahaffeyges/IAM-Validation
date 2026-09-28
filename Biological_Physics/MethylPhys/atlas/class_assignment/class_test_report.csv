@@ -1,0 +1,205 @@
+record,label,concept,recorded,rule,status,basis
+G002_reference_37,H1 ESC,pluripotent stem,stem_pluri,stem_pluri,agree,ESC / iPSC: pluripotent by definition
+G002_reference_37,H9 ESC,pluripotent stem,stem_pluri,stem_pluri,agree,ESC / iPSC: pluripotent by definition
+G002_reference_37,iPSC Yamanaka P3-5,pluripotent stem,stem_pluri,stem_pluri,agree,ESC / iPSC: pluripotent by definition
+G002_reference_37,iPSC sendai P10,pluripotent stem,stem_pluri,stem_pluri,agree,ESC / iPSC: pluripotent by definition
+G002_reference_37,HSC CD34+ young,haematopoietic stem cell,stem_adult,stem_adult,agree,self-renewing multipotent HSC
+G002_reference_37,HSC CD34+ old,haematopoietic stem cell,stem_adult,stem_adult,agree,self-renewing multipotent HSC
+G002_reference_37,Neural stem cell NSC,neural stem cell,stem_adult,stem_adult,agree,self-renewing multipotent neural stem
+G002_reference_37,Intestinal stem LGR5+,intestinal stem cell,stem_adult,stem_adult,agree,LGR5+ crypt base columnar stem
+G002_reference_37,Muscle satellite cell,muscle satellite cell,stem_adult,stem_adult,agree,self-renewing muscle stem
+G002_reference_37,CMP myeloid progenitor,myeloid progenitor,progenitor,progenitor,agree,"CMP / GMP / MEP: committed, dividing"
+G002_reference_37,GMP granulocyte prog,myeloid progenitor,progenitor,progenitor,agree,"CMP / GMP / MEP: committed, dividing"
+G002_reference_37,Neural progenitor NPC,neural progenitor,progenitor,progenitor,agree,committed dividing neural precursor
+G002_reference_37,Erythroid progenitor,erythroid progenitor,progenitor,progenitor,agree,committed dividing erythroid precursor (incl. erythroblast)
+G002_reference_37,Cortical neuron mature,neuron,terminal,terminal,agree,post-mitotic
+G002_reference_37,Frontal cortex neuron,neuron,terminal,terminal,agree,post-mitotic
+G002_reference_37,Cerebellum neuron,neuron,terminal,terminal,agree,post-mitotic
+G002_reference_37,Cardiomyocyte adult,cardiomyocyte,terminal,terminal,agree,post-mitotic
+G002_reference_37,Skeletal muscle type I,skeletal muscle fibre,terminal,terminal,agree,post-mitotic syncytium
+G002_reference_37,Colon epithelial normal,colon / intestinal epithelium,cycling,cycling,agree,continuously renewing lining epithelium
+G002_reference_37,Small intestine epith,colon / intestinal epithelium,cycling,cycling,agree,continuously renewing lining epithelium
+G002_reference_37,Keratinocyte basal,squamous / basal epithelium,cycling,cycling,agree,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+G002_reference_37,Bronchial epithelial,airway / lung epithelium,cycling,cycling,agree,lining epithelium
+G002_reference_37,Colon epithelial inflam,colon / intestinal epithelium,cycling,cycling,agree,continuously renewing lining epithelium
+G002_reference_37,CD4+ T naive,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+G002_reference_37,CD8+ T memory,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+G002_reference_37,CD4+ T effector,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+G002_reference_37,NK cell,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+G002_reference_37,B cell naive,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+G002_reference_37,Neutrophil,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+G002_reference_37,Hepatocyte primary,hepatocyte,secretory,secretory,agree,quiescent but re-enters division; secretes plasma proteins and bile
+G002_reference_37,Hepatocyte NAFLD,hepatocyte,secretory,secretory,agree,quiescent but re-enters division; secretes plasma proteins and bile
+G002_reference_37,Pancreatic beta cell,islet beta,secretory,secretory,agree,insulin secretion
+G002_reference_37,Acinar cell pancreas,pancreatic acinar,secretory,secretory,agree,digestive-enzyme secretion
+G002_reference_37,Fibroblast IMR90 P4,fibroblast,stromal,stromal,agree,connective tissue
+G002_reference_37,Fibroblast IMR90 P16,fibroblast,stromal,stromal,agree,connective tissue
+G002_reference_37,Aortic endothelial,endothelial cell,stromal,stromal,agree,vascular lining (Issue 002 stromal; G-002 aortic endothelial = stromal)
+G002_reference_37,Lung fibroblast normal,fibroblast,stromal,stromal,agree,connective tissue
+issue002_what_includes,immune: T/B/NK/neutrophil/monocyte,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+issue002_what_includes,"cycling: colon, rectum, stomach, lung, bladder, cervix, head & neck, ovary, endometrium",colon / intestinal epithelium,cycling,cycling,agree,continuously renewing lining epithelium
+issue002_what_includes,cycling: kidney,kidney tubular,cycling,cycling,agree,transporting epithelium (not a secreted product)
+issue002_what_includes,cycling: thyroid,thyroid follicular,cycling,secretory,CONFLICT,thyroid hormone secretion
+issue002_what_includes,cycling: skin (melanoma),melanocyte,cycling,secretory,CONFLICT,pigment production and transfer (v1: secretory)
+issue002_what_includes,secretory: breast,breast luminal,secretory,secretory,agree,milk-producing luminal epithelium
+issue002_what_includes,secretory: prostate,prostate luminal,secretory,secretory,agree,prostatic fluid secretion
+issue002_what_includes,secretory: liver,hepatocyte,secretory,secretory,agree,quiescent but re-enters division; secretes plasma proteins and bile
+issue002_what_includes,secretory: pancreas exocrine,pancreatic acinar,secretory,secretory,agree,digestive-enzyme secretion
+issue002_what_includes,secretory: pancreas endocrine,islet beta,secretory,secretory,agree,insulin secretion
+issue002_what_includes,secretory: thyroid,thyroid follicular,secretory,secretory,agree,thyroid hormone secretion
+issue002_what_includes,stromal: fibroblasts,fibroblast,stromal,stromal,agree,connective tissue
+issue002_what_includes,stromal: endothelial,endothelial cell,stromal,stromal,agree,vascular lining (Issue 002 stromal; G-002 aortic endothelial = stromal)
+issue002_what_includes,stromal: smooth muscle,smooth muscle,stromal,stromal,agree,vascular / visceral smooth muscle (Issue 002 stromal)
+issue002_what_includes,stromal: mesothelial,mesothelial cell,stromal,stromal,agree,Issue 002 stromal list
+issue002_what_includes,stromal: adipocytes,adipocyte,stromal,stromal,agree,mature adipocyte (Issue 002 stromal)
+issue002_what_includes,stem_adult: HSC,haematopoietic stem cell,stem_adult,stem_adult,agree,self-renewing multipotent HSC
+issue002_what_includes,stem_adult: cholangiocytes,cholangiocyte,stem_adult,secretory,CONFLICT,bile duct epithelium; modifies and secretes bile (Issue 002 lists it under adult stem)
+issue002_what_includes,stem_adult: intestinal stem,intestinal stem cell,stem_adult,stem_adult,agree,LGR5+ crypt base columnar stem
+issue002_what_includes,"progenitor: CMP, GMP, NPC, erythroid, intestinal transit-amplifying",myeloid progenitor,progenitor,progenitor,agree,"CMP / GMP / MEP: committed, dividing"
+issue002_what_includes,terminal: neurons,neuron,terminal,terminal,agree,post-mitotic
+issue002_what_includes,terminal: cardiomyocytes,cardiomyocyte,terminal,terminal,agree,post-mitotic
+issue002_what_includes,terminal: skeletal muscle fibres,skeletal muscle fibre,terminal,terminal,agree,post-mitotic syncytium
+issue002_what_includes,terminal: mature oligodendrocytes,oligodendrocyte,terminal,terminal,agree,mature myelinating: post-mitotic (Issue 002 terminal)
+issue002_what_includes,"stem_pluri: hESC, iPSC",pluripotent stem,stem_pluri,stem_pluri,agree,ESC / iPSC: pluripotent by definition
+v1_map_115,Acinar,pancreatic acinar,secretory,secretory,agree,digestive-enzyme secretion
+v1_map_115,Antrum_diff,gastric glandular (differentiated),secretory,secretory,agree,parietal / chief: acid and pepsinogen
+v1_map_115,Antrum_undiff,gastric surface / undifferentiated,cycling,cycling,agree,renewing pit / isthmus epithelium
+v1_map_115,B,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,B-cells_EPIC,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,BE,breast basal,cycling,cycling,agree,myoepithelial / basal
+v1_map_115,Basal,breast basal,cycling,cycling,agree,myoepithelial / basal
+v1_map_115,Baso,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Bcell,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Bladder,urothelium,cycling,cycling,agree,bladder lining
+v1_map_115,Bmem,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Bnv,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Breast,composite,secretory,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,CD14_monocytes,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD19_B-cells,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD4T,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD4T-cells_EPIC,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD4Tmem,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD4Tnv,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD4_T-cells,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD56_NK-cells,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD8T,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD8T-cells_EPIC,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD8Tmem,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD8Tnv,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CD8_T-cells,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,CM,cardiomyocyte,terminal,terminal,agree,post-mitotic
+v1_map_115,CMP,myeloid progenitor,progenitor,progenitor,agree,"CMP / GMP / MEP: committed, dividing"
+v1_map_115,Chol,cholangiocyte,secretory,secretory,agree,bile duct epithelium; modifies and secretes bile (Issue 002 lists it under adult stem)
+v1_map_115,Colon_epithelial_cells,colon / intestinal epithelium,cycling,cycling,agree,continuously renewing lining epithelium
+v1_map_115,Corpus_diff,gastric glandular (differentiated),secretory,secretory,agree,parietal / chief: acid and pepsinogen
+v1_map_115,Corpus_undiff,gastric surface / undifferentiated,cycling,cycling,agree,renewing pit / isthmus epithelium
+v1_map_115,Cortical_neurons,neuron,terminal,terminal,agree,post-mitotic
+v1_map_115,Ductal,pancreatic duct,cycling,secretory,CONFLICT,bicarbonate-secreting duct epithelium
+v1_map_115,Endocrine,enteroendocrine,secretory,secretory,agree,gut hormone secretion
+v1_map_115,Eos,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Eosino,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Eosinophils_reinius,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Epi,composite,cycling,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Epi_basal,squamous / basal epithelium,cycling,cycling,agree,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+v1_map_115,Epi_stratified,squamous / basal epithelium,cycling,cycling,agree,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+v1_map_115,Epi_suprabasal,squamous / basal epithelium,cycling,cycling,agree,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+v1_map_115,Epi_upper,keratinocyte (differentiated),terminal,terminal,agree,suprabasal/cornifying: exited the cycle
+v1_map_115,Erythrocyte_progenitors,erythroid progenitor,progenitor,progenitor,agree,committed dividing erythroid precursor (incl. erythroblast)
+v1_map_115,Fundus_diff,gastric glandular (differentiated),secretory,secretory,agree,parietal / chief: acid and pepsinogen
+v1_map_115,Fundus_undiff,gastric surface / undifferentiated,cycling,cycling,agree,renewing pit / isthmus epithelium
+v1_map_115,GMP,myeloid progenitor,progenitor,progenitor,agree,"CMP / GMP / MEP: committed, dividing"
+v1_map_115,Gland,composite,secretory,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Glia,astrocyte,terminal,terminal,agree,largely non-dividing in adult homeostasis; divides after injury (BORDERLINE: v1 'Glia' = terminal)
+v1_map_115,Gran,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,HSC,haematopoietic stem cell,stem_adult,stem_adult,agree,self-renewing multipotent HSC
+v1_map_115,Head_and_neck_larynx,squamous / basal epithelium,cycling,cycling,agree,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+v1_map_115,Hep,hepatocyte,secretory,secretory,agree,quiescent but re-enters division; secretes plasma proteins and bile
+v1_map_115,Hepatocytes,hepatocyte,secretory,secretory,agree,quiescent but re-enters division; secretes plasma proteins and bile
+v1_map_115,IC,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Kera_diff,keratinocyte (differentiated),terminal,terminal,agree,suprabasal/cornifying: exited the cycle
+v1_map_115,Kera_undiff,squamous / basal epithelium,cycling,cycling,agree,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+v1_map_115,Kidney,composite,cycling,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Kup,tissue macrophage,immune,immune,agree,macrophage / Kupffer: myeloid lineage
+v1_map_115,L-MPP,haematopoietic multipotent progenitor,progenitor,progenitor,agree,"MPP / L-MPP: multipotent, limited self-renewal"
+v1_map_115,LE,breast luminal,secretory,secretory,agree,milk-producing luminal epithelium
+v1_map_115,Left_atrium,composite,terminal,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Leu,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Luminal,breast luminal,secretory,secretory,agree,milk-producing luminal epithelium
+v1_map_115,Lung_cells,composite,cycling,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Lym,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,MEP,myeloid progenitor,progenitor,progenitor,agree,"CMP / GMP / MEP: committed, dividing"
+v1_map_115,MP,tissue macrophage,immune,immune,agree,macrophage / Kupffer: myeloid lineage
+v1_map_115,MPP,haematopoietic multipotent progenitor,progenitor,progenitor,agree,"MPP / L-MPP: multipotent, limited self-renewal"
+v1_map_115,Macro,tissue macrophage,immune,immune,agree,macrophage / Kupffer: myeloid lineage
+v1_map_115,Mela,melanocyte,secretory,secretory,agree,pigment production and transfer (v1: secretory)
+v1_map_115,Microglia,microglia,immune,immune,agree,yolk-sac-derived myeloid lineage (v1: immune)
+v1_map_115,Mono,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Monocytes_EPIC,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Mye,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,NK,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,NK-cells_EPIC,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Neu,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,NeuIm,immature neuron,progenitor,progenitor,agree,v1 NeuIm: neuronal precursor (treated as progenitor)
+v1_map_115,NeuMa,neuron,terminal,terminal,agree,post-mitotic
+v1_map_115,Neutro,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Neutrophils_EPIC,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Neutrophils_reinius,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,OPC,oligodendrocyte precursor,progenitor,progenitor,agree,"OPC: committed, divides in the adult brain"
+v1_map_115,Oligo,oligodendrocyte,terminal,terminal,agree,mature myelinating: post-mitotic (Issue 002 terminal)
+v1_map_115,PBMC,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Pancreatic_acinar_cells,pancreatic acinar,secretory,secretory,agree,digestive-enzyme secretion
+v1_map_115,Pancreatic_beta_cells,islet beta,secretory,secretory,agree,insulin secretion
+v1_map_115,Pancreatic_duct_cells,pancreatic duct,secretory,secretory,agree,bicarbonate-secreting duct epithelium
+v1_map_115,Plasma,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Prostate,composite,secretory,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Tcell,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Thyroid,thyroid follicular,secretory,secretory,agree,thyroid hormone secretion
+v1_map_115,Treg,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,Upper_GI,composite,cycling,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,Uterus_cervix,composite,cycling,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,adipocyte,adipocyte,stromal,stromal,agree,mature adipocyte (Issue 002 stromal)
+v1_map_115,dendritic,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,endothelial,endothelial cell,stromal,stromal,agree,vascular lining (Issue 002 stromal; G-002 aortic endothelial = stromal)
+v1_map_115,eosinophil,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,erythroblast,erythroid progenitor,progenitor,progenitor,agree,committed dividing erythroid precursor (incl. erythroblast)
+v1_map_115,fibroblast,fibroblast,stromal,stromal,agree,connective tissue
+v1_map_115,granulocytes,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,macrophage,tissue macrophage,immune,immune,agree,macrophage / Kupffer: myeloid lineage
+v1_map_115,megakaryocyte,megakaryocyte,progenitor,immune,CONFLICT,"polyploid, terminally differentiated; no longer divides"
+v1_map_115,monocyte,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,nRBC,nucleated red cell,progenitor,immune,CONFLICT,"orthochromatic normoblast / nRBC: end of erythroid maturation, no division"
+v1_map_115,neuron,neuron,terminal,terminal,agree,post-mitotic
+v1_map_115,neutrophil,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,small_intestine,colon / intestinal epithelium,cycling,cycling,agree,continuously renewing lining epithelium
+v1_map_115,smooth_muscle,smooth muscle,stromal,stromal,agree,vascular / visceral smooth muscle (Issue 002 stromal)
+v1_map_115,stem_pluri,pluripotent stem,stem_pluri,stem_pluri,agree,ESC / iPSC: pluripotent by definition
+v1_map_115,stromal_other,composite,stromal,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v1_map_115,tcell,leukocyte (mature),immune,immune,agree,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v1_map_115,whole_blood,composite,immune,COMPOSITE,composite,"a mixture or tissue, not a cell"
+v2_candidates,astrocytes (Tian),astrocyte,,terminal,new,largely non-dividing in adult homeostasis; divides after injury (BORDERLINE: v1 'Glia' = terminal)
+v2_candidates,microglia (Tian),microglia,,immune,new,yolk-sac-derived myeloid lineage (v1: immune)
+v2_candidates,oligodendrocytes (Tian),oligodendrocyte,,terminal,new,mature myelinating: post-mitotic (Issue 002 terminal)
+v2_candidates,oligodendrocyte precursors (Tian),oligodendrocyte precursor,,progenitor,new,"OPC: committed, divides in the adult brain"
+v2_candidates,vascular leptomeningeal cells (Tian),vascular leptomeningeal cell,,stromal,new,fibroblast-like meningeal cell
+v2_candidates,pericytes (Tian),pericyte,,stromal,new,perivascular mural cell
+v2_candidates,brain endothelium (Tian),endothelial cell,,stromal,new,vascular lining (Issue 002 stromal; G-002 aortic endothelial = stromal)
+v2_candidates,podocyte (Loyfer),podocyte,,terminal,new,glomerular podocyte: post-mitotic
+v2_candidates,pancreatic alpha (Loyfer),islet alpha,,secretory,new,glucagon secretion
+v2_candidates,pancreatic delta (Loyfer),islet delta,,secretory,new,somatostatin secretion
+v2_candidates,osteoblasts (Loyfer),osteoblast,,stromal,new,bone-forming mesenchymal cell
+v2_candidates,striated muscle (Loyfer),skeletal muscle fibre,,terminal,new,post-mitotic syncytium
+v2_candidates,heart / colon / dermal fibroblasts (Loyfer),fibroblast,,stromal,new,connective tissue
+v2_candidates,"endothelium, 7 beds (Loyfer)",endothelial cell,,stromal,new,vascular lining (Issue 002 stromal; G-002 aortic endothelial = stromal)
+v2_candidates,smooth muscle (Loyfer),smooth muscle,,stromal,new,vascular / visceral smooth muscle (Issue 002 stromal)
+v2_candidates,lung / colon / liver macrophages (Loyfer),tissue macrophage,,immune,new,macrophage / Kupffer: myeloid lineage
+v2_candidates,enteroendocrine (Loyfer),enteroendocrine,,secretory,new,gut hormone secretion
+v2_candidates,kidney tubular epithelium (Loyfer),kidney tubular,,cycling,new,transporting epithelium (not a secreted product)
+v2_candidates,kidney glomerular epithelium (Loyfer),podocyte,,terminal,new,glomerular podocyte: post-mitotic
+v2_candidates,endometrium / fallopian / ovary (Loyfer),female reproductive epithelium,,cycling,new,"endometrium, fallopian tube, ovarian surface"
+v2_candidates,lung pleural epithelium (Loyfer),pleural / serosal epithelium,,stromal,new,mesothelium (Issue 002 stromal)
+v2_candidates,thyroid epithelium (Loyfer),thyroid follicular,,secretory,new,thyroid hormone secretion
+v2_candidates,prostate epithelium (Loyfer),prostate luminal,,secretory,new,prostatic fluid secretion
+v2_candidates,tongue / tonsil / larynx / pharynx / oesophagus (Loyfer),squamous / basal epithelium,,cycling,new,"basal keratinocyte, oesophagus, oral, cervix, larynx"
+v2_candidates,gallbladder epithelium (Loyfer),cholangiocyte,,secretory,new,bile duct epithelium; modifies and secretes bile (Issue 002 lists it under adult stem)
+v2_candidates,basophils / eosinophils / Treg / naive-memory subsets (Salas),leukocyte (mature),,immune,new,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic"
+v2_candidates,embryonic stem lines H1/H9/HUES64 (ENCODE),pluripotent stem,,stem_pluri,new,ESC / iPSC: pluripotent by definition

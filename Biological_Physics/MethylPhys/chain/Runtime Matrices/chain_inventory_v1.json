@@ -1,12 +1,13 @@
 {
  "_meta": {
-  "built": "2026-09-27 19:51",
-  "commit": "78195fc",
-  "n_files": 213,
-  "n_undescribed": 17,
+  "built": "2026-09-27 21:53",
+  "commit": "35b50de",
+  "n_files": 220,
+  "n_undescribed": 24,
   "undescribed": [
    "ATLAS_SOURCES_SURVEY.md",
    "ATLAS_V2_SPEC.md",
+   "CLASS_ASSIGNMENT_RULE_DRAFT.md",
    "FINDING_DETECTION_PANEL_HELDOUT.md",
    "GSE186458_samples.json",
    "HELDOUT_2D.py",
@@ -14,14 +15,20 @@
    "PHYSICS_LEUKOCYTE_GAUGE.md",
    "README_LOG_2026-09-20_to_21_RECORD.md",
    "START_HERE.md",
+   "atlas_v2_roster.csv",
+   "cell_facts_v0.csv",
+   "class_test_report.csv",
+   "classify.py",
    "crossplatform_moss_vs_loyfer.csv",
    "intake_thresholds_v1.json",
+   "label_to_concept_v0.json",
    "loyfer2023_extract_report.json",
    "moss2018_stage1_manifest.csv",
    "salas_blood_stage1_manifest.csv",
    "serial_mode.py",
    "tian2023_extract_report.json",
-   "trace_detection_panel_v1.json"
+   "trace_detection_panel_v1.json",
+   "twin_test_sample_level.csv"
   ],
   "how": "enumerated from the live tree by build_chain_inventory.py; roles measured from what cpg_conductor._find() resolves and what run_full() calls",
   "note": "a file with role UNDESCRIBED is a gap in this table, not a file that does nothing - the count is printed on the Chain tab so the gap is visible"
@@ -217,6 +224,15 @@
    "sha256_12": "74435aff74dd"
   },
   {
+   "file": "CLASS_ASSIGNMENT_RULE_DRAFT.md",
+   "path": "Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 7330,
+   "sha256_12": "725a3d4cf20d"
+  },
+  {
    "file": "DECONVOLVER_REPAIR_2026-09-26.md",
    "path": "Biological_Physics/MethylPhys/doors/DECONVOLVER_REPAIR_2026-09-26.md",
    "role": "record",
@@ -322,7 +338,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11970,
-   "sha256_12": "e52fdbaa7ca5"
+   "sha256_12": "531f8d54a0e9"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -331,7 +347,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2864,
-   "sha256_12": "9a4f68d5a4f7"
+   "sha256_12": "27eeb72f0027"
   },
   {
    "file": "REPRODUCTION.md",
@@ -406,6 +422,15 @@
    "sha256_12": "c6ecf43ec767"
   },
   {
+   "file": "atlas_v2_roster.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/roster_v2/atlas_v2_roster.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 7762,
+   "sha256_12": "de501598ab0c"
+  },
+  {
    "file": "build_chain_sequence.py",
    "path": "Biological_Physics/MethylPhys/chain/build_chain_sequence.py",
    "role": "guard",
@@ -469,6 +494,15 @@
    "sha256_12": "fb5522511425"
   },
   {
+   "file": "cell_facts_v0.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/class_assignment/cell_facts_v0.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5768,
+   "sha256_12": "0474a0b182e4"
+  },
+  {
    "file": "claim_scan.py",
    "path": "Biological_Physics/MethylPhys/kit/claim_scan.py",
    "role": "guard",
@@ -485,6 +519,24 @@
    "description": "the claims the scan found, with their evidence",
    "bytes": 3040,
    "sha256_12": "9a1659836721"
+  },
+  {
+   "file": "class_test_report.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/class_assignment/class_test_report.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 24125,
+   "sha256_12": "36aea3250e71"
+  },
+  {
+   "file": "classify.py",
+   "path": "Biological_Physics/MethylPhys/atlas/class_assignment/classify.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3354,
+   "sha256_12": "545ba36de682"
   },
   {
    "file": "cmb_tools.py",
@@ -586,6 +638,15 @@
    "sha256_12": "d39a50a25e57"
   },
   {
+   "file": "label_to_concept_v0.json",
+   "path": "Biological_Physics/MethylPhys/atlas/class_assignment/label_to_concept_v0.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 13338,
+   "sha256_12": "f6435a142b4c"
+  },
+  {
    "file": "link_check.py",
    "path": "Biological_Physics/MethylPhys/kit/link_check.py",
    "role": "guard",
@@ -655,7 +716,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1995,
-   "sha256_12": "cd50060443bb"
+   "sha256_12": "4ee272cfc1ad"
   },
   {
    "file": "reference_cells_37.csv",
@@ -673,7 +734,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19865,
-   "sha256_12": "2c2db52f2ba0"
+   "sha256_12": "73118e0ad3bc"
   },
   {
    "file": "salas_blood_stage1_manifest.csv",
@@ -755,6 +816,15 @@
    "description": "",
    "bytes": 2685457,
    "sha256_12": "c660883f2e07"
+  },
+  {
+   "file": "twin_test_sample_level.csv",
+   "path": "Biological_Physics/MethylPhys/atlas/sources/roster_v2/twin_test_sample_level.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1948,
+   "sha256_12": "e0a4e493c3de"
   },
   {
    "file": "val_index.json",
@@ -979,7 +1049,7 @@
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
    "bytes": 23519,
-   "sha256_12": "833abf92f056"
+   "sha256_12": "ba3256741ec3"
   },
   {
    "file": "build_all.py",
@@ -1077,8 +1147,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1787872,
-   "sha256_12": "3e1049fa306f"
+   "bytes": 1815918,
+   "sha256_12": "22a785990149"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1284,8 +1354,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 14039,
-   "sha256_12": "1106c89f23e4"
+   "bytes": 14140,
+   "sha256_12": "ae01f0e2d257"
   },
   {
    "file": "cpg_kit.py",
@@ -1437,8 +1507,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 75827,
-   "sha256_12": "52078222d93f"
+   "bytes": 76412,
+   "sha256_12": "84d4c3229c59"
   },
   {
    "file": "run_sample.py",

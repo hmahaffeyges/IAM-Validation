@@ -1,0 +1,55 @@
+concept,lineage,potency,post_mitotic,secretory,basis,citation
+pluripotent stem,pluripotent,pluripotent,False,False,ESC / iPSC: pluripotent by definition,TO ATTACH
+haematopoietic stem cell,haematopoietic,tissue_stem,False,False,self-renewing multipotent HSC,TO ATTACH
+neural stem cell,neural,tissue_stem,False,False,self-renewing multipotent neural stem,TO ATTACH
+intestinal stem cell,epithelial,tissue_stem,False,False,LGR5+ crypt base columnar stem,TO ATTACH
+muscle satellite cell,striated_muscle,tissue_stem,False,False,self-renewing muscle stem,TO ATTACH
+haematopoietic multipotent progenitor,haematopoietic,progenitor,False,False,"MPP / L-MPP: multipotent, limited self-renewal",TO ATTACH
+myeloid progenitor,haematopoietic,progenitor,False,False,"CMP / GMP / MEP: committed, dividing",TO ATTACH
+erythroid progenitor,haematopoietic,progenitor,False,False,committed dividing erythroid precursor (incl. erythroblast),TO ATTACH
+megakaryocyte,haematopoietic,differentiated,True,False,"polyploid, terminally differentiated; no longer divides",TO ATTACH
+nucleated red cell,haematopoietic,differentiated,True,False,"orthochromatic normoblast / nRBC: end of erythroid maturation, no division",TO ATTACH
+neural progenitor,neural,progenitor,False,False,committed dividing neural precursor,TO ATTACH
+immature neuron,neural,progenitor,False,False,v1 NeuIm: neuronal precursor (treated as progenitor),TO ATTACH
+oligodendrocyte precursor,neural,progenitor,False,False,"OPC: committed, divides in the adult brain",TO ATTACH
+leukocyte (mature),haematopoietic,differentiated,False,False,"mature leukocytes: T, B, NK, monocyte, granulocyte, plasma, dendritic",TO ATTACH
+tissue macrophage,haematopoietic,differentiated,False,False,macrophage / Kupffer: myeloid lineage,TO ATTACH
+microglia,haematopoietic,differentiated,False,False,yolk-sac-derived myeloid lineage (v1: immune),TO ATTACH
+fibroblast,mesenchymal,differentiated,False,False,connective tissue,TO ATTACH
+endothelial cell,mesenchymal,differentiated,False,False,vascular lining (Issue 002 stromal; G-002 aortic endothelial = stromal),TO ATTACH
+smooth muscle,mesenchymal,differentiated,False,False,vascular / visceral smooth muscle (Issue 002 stromal),TO ATTACH
+adipocyte,mesenchymal,differentiated,True,False,mature adipocyte (Issue 002 stromal),TO ATTACH
+pericyte,mesenchymal,differentiated,False,False,perivascular mural cell,TO ATTACH
+vascular leptomeningeal cell,mesenchymal,differentiated,False,False,fibroblast-like meningeal cell,TO ATTACH
+osteoblast,mesenchymal,differentiated,False,False,bone-forming mesenchymal cell,TO ATTACH
+mesothelial cell,mesenchymal,differentiated,False,False,Issue 002 stromal list,TO ATTACH
+neuron,neural,differentiated,True,False,post-mitotic,TO ATTACH
+cardiomyocyte,striated_muscle,differentiated,True,False,post-mitotic,TO ATTACH
+skeletal muscle fibre,striated_muscle,differentiated,True,False,post-mitotic syncytium,TO ATTACH
+oligodendrocyte,neural,differentiated,True,False,mature myelinating: post-mitotic (Issue 002 terminal),TO ATTACH
+astrocyte,neural,differentiated,True,False,largely non-dividing in adult homeostasis; divides after injury (BORDERLINE: v1 'Glia' = terminal),TO ATTACH
+podocyte,epithelial,differentiated,True,False,glomerular podocyte: post-mitotic,TO ATTACH
+keratinocyte (differentiated),epithelial,differentiated,True,False,suprabasal/cornifying: exited the cycle,TO ATTACH
+hepatocyte,epithelial,differentiated,False,True,quiescent but re-enters division; secretes plasma proteins and bile,TO ATTACH
+cholangiocyte,epithelial,differentiated,False,True,bile duct epithelium; modifies and secretes bile (Issue 002 lists it under adult stem),TO ATTACH
+pancreatic acinar,epithelial,differentiated,False,True,digestive-enzyme secretion,TO ATTACH
+pancreatic duct,epithelial,differentiated,False,True,bicarbonate-secreting duct epithelium,TO ATTACH
+islet alpha,epithelial,differentiated,False,True,glucagon secretion,TO ATTACH
+islet beta,epithelial,differentiated,False,True,insulin secretion,TO ATTACH
+islet delta,epithelial,differentiated,False,True,somatostatin secretion,TO ATTACH
+enteroendocrine,epithelial,differentiated,False,True,gut hormone secretion,TO ATTACH
+gastric glandular (differentiated),epithelial,differentiated,False,True,parietal / chief: acid and pepsinogen,TO ATTACH
+breast luminal,epithelial,differentiated,False,True,milk-producing luminal epithelium,TO ATTACH
+prostate luminal,epithelial,differentiated,False,True,prostatic fluid secretion,TO ATTACH
+thyroid follicular,epithelial,differentiated,False,True,thyroid hormone secretion,TO ATTACH
+melanocyte,neural_crest,differentiated,False,True,pigment production and transfer (v1: secretory),TO ATTACH
+colon / intestinal epithelium,epithelial,differentiated,False,False,continuously renewing lining epithelium,TO ATTACH
+gastric surface / undifferentiated,epithelial,differentiated,False,False,renewing pit / isthmus epithelium,TO ATTACH
+airway / lung epithelium,epithelial,differentiated,False,False,lining epithelium,TO ATTACH
+urothelium,epithelial,differentiated,False,False,bladder lining,TO ATTACH
+kidney tubular,epithelial,differentiated,False,False,transporting epithelium (not a secreted product),TO ATTACH
+breast basal,epithelial,differentiated,False,False,myoepithelial / basal,TO ATTACH
+squamous / basal epithelium,epithelial,differentiated,False,False,"basal keratinocyte, oesophagus, oral, cervix, larynx",TO ATTACH
+female reproductive epithelium,epithelial,differentiated,False,False,"endometrium, fallopian tube, ovarian surface",TO ATTACH
+pleural / serosal epithelium,mesenchymal,differentiated,False,False,mesothelium (Issue 002 stromal),TO ATTACH
+composite,composite,,False,False,"a mixture or tissue, not a cell",TO ATTACH
