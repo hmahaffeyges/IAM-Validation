@@ -1107,7 +1107,7 @@ def tab_coverage(R):
         nm,d=SUBSTRATE_DESC[k]; req="any DNA" if k=="methyl" else ("plasma cfDNA" if k in ("wps","frag") else "plasma cfDNA (or chromatin assay)")
         st="<b>LIT</b> - commissioned on whole blood" if k=="methyl" else "<span class='pend'>RESERVED</span> - floor frozen, no pipeline map"
         H.append(f"<tr><td><b>{k}</b></td><td>{nm} - {d}</td><td class='n'>{R['auc'].get(k,'-')}</td><td>{req}</td><td>{st}</td></tr>")
-    H.append("</table><p class='m'>Each substrate has its own frozen floor for each of the eight classes (the 40-value table on the How-to-read tab), so a reading on one substrate is never compared against another's floor. The AUC column is the published single-substrate discrimination from the source literature, carried in the engine as a weight for combining substrates once more than one is lit; it is not a result of this chain.</p>")
+    H.append("</table><p class='m'>Each substrate has its own frozen floor for each of the eight classes (the 40-value table on the Instrument tab), so a reading on one substrate is never compared against another's floor. The AUC column is the published single-substrate discrimination from the source literature, carried in the engine as a weight for combining substrates once more than one is lit; it is not a result of this chain.</p>")
     H.append("<h3>The specimens</h3><table class='t'><tr><th>specimen</th><th>measured on</th><th>what is known</th><th>status</th></tr>")
     for nm,on,note,st in SPECIMENS:
         badge="<b>LIT</b>" if st=="lit" else "<span class='pend'>RESERVED</span>"

@@ -185,6 +185,8 @@
   "claim_scan.py": "guard",
   "claims.json": "record",
   "class_guard.py": "UNDESCRIBED",
+  "class_shared_sets.csv": "UNDESCRIBED",
+  "class_structure.json": "UNDESCRIBED",
   "class_test_report.csv": "UNDESCRIBED",
   "classify.py": "UNDESCRIBED",
   "cmb_tools.py": "guard",
