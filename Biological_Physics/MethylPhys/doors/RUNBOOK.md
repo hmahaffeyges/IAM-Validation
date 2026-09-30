@@ -254,7 +254,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) is the download list: every file a reviewer could want, resolved from the tree rather than typed, with an explicit statement of what is not published and why.
 
 <!-- GENERATED:chain start -->
-**The chain as the code runs it** (generated 2026-09-28 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 20 steps; 2 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
+**The chain as the code runs it** (generated 2026-09-30 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 20 steps; 2 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
 
 | # | step | file | what it implements |
 |---|---|---|---|

@@ -15,7 +15,7 @@ Build record: [`../atlas/v2/`](../atlas/v2/README.md). Nothing below edits the c
 [`ATLAS_V2_SPEC.md`](ATLAS_V2_SPEC.md) before the run; where a decision since changed a test, the spec carries a dated amendment.
 
 **The atlas itself**
-V1. **Save it before anything else** — every block, draw file and prior to S3, SHA-256 manifest (`ATLAS_V2_OUTPUT_MANIFEST.json`) into the repo, Zenodo deposit drafted.
+V1. **Save it before anything else** — every block, draw file and prior to S3, SHA-256 manifest ([`ATLAS_V2_OUTPUT_MANIFEST.json`](../atlas/v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json)) into the repo, Zenodo deposit drafted.
 V2. **Distinctness (the flatness gate)** — no cell pair < 0.005 mean |difference| on shared measured loci; the closest pairs listed and read by eye.
 V3. **Coverage** — per cell, the fraction of loci it was measured on; every unmeasured (cell, locus) is NOT MEASURED, none filled (A3 as amended).
 V4. **A9 convergence** — R̂ < 1.01 and ESS > 400 on every block; any block that fails is re-run, not accepted.
@@ -103,3 +103,12 @@ stress more than cancer) → salmon (RRBS; new locus set; the largest build and 
 - Verify by reading the render; write the outcome after.
 - Every push carries a copy of the changed files. Data worth keeping is bundled before it can be lost.
 - A README describes a folder as it is. It is not a log.
+
+## After commissioning — the author's order (2026-09-30)
+1. Human blood diseases on the downloaded sets (DOWNLOAD_MANIFEST.csv track A), blood cancers first.
+2. Plasma cfDNA (track B).
+3. Tissue specimens (track C), read against the cell atlas.
+4. Dogs and other mammals (track E): no animal cell atlas exists — build or derive one first.
+5. Salmon (track F, Methow steelhead RRBS, hatchery vs wild): fish blood is nucleated red cells, near one cell type; needs a reads-to-methylation step. Possible collaboration with Chelan PUD fish scientists.
+6. Ageing (SATSA serial, LOLIPOP, GENOA).
+7. Quantum computing: check which predictions have come due; shape the application for clients (IBM, Microsoft, others).

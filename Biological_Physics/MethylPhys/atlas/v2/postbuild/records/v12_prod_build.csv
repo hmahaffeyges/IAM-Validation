@@ -1,0 +1,75 @@
+cell,klass,path,n_samples,n_loci,A_self,flags
+cortical neurons,terminal,array + corrected sequencing,11,434,0.9906532379152487,ONE-ARRAY-SAMPLE;SEQUENCING-CORRECTED-PER-LOCUS
+cd8 t cells,immune,array samples,6,2265,0.9982562669188821,
+smooth muscle,stromal,corrected sequencing,5,2437,0.9984978437898718,SEQUENCING-CORRECTED-PER-LOCUS
+GMP (bone marrow),progenitor,array samples,4,2514,0.9962247920550199,
+MEP (bone marrow),progenitor,array samples,3,2654,0.9976151401669167,HELD-OUT-MEDIAN-0.915
+b cells,immune,array samples,6,2727,0.9978651426140513,
+HSC (bone marrow),stem_adult,array samples,3,3327,0.997792255149024,
+L-MPP (bone marrow),progenitor,array samples,3,3765,0.9972854534711619,
+CMP (bone marrow),progenitor,array samples,3,4140,0.9957348430186322,
+basophils,immune,array samples,6,4233,0.9968473771934182,
+hepatocyte,secretory,array samples,2,4245,0.9964352615511967,
+monocytes,immune,array samples,11,4787,0.9953360428829693,
+nk cells,immune,array samples,10,5371,0.9959990202570494,
+cd4 t cells,immune,array samples,5,5775,0.9979184569564281,
+pancreatic duct,secretory,array samples,2,5908,0.9955194622052753,
+pancreatic beta,secretory,array samples,4,6006,0.9959340223326972,
+prostate epithelium,secretory,corrected sequencing,4,6478,0.9965603722669197,SEQUENCING-CORRECTED-PER-LOCUS
+embryonic stem cells,stem_pluri,corrected sequencing,2,6687,0.9987027767709739,SEQUENCING-CORRECTED-PER-LOCUS;WGBS-CORRECTION-LEARNED-ON-LOYFER
+MPP (bone marrow),progenitor,array samples,2,6823,0.9959013719011458,
+breast basal epithelium,cycling,corrected sequencing,4,6974,0.9963137412984944,SEQUENCING-CORRECTED-PER-LOCUS
+naive b cells,immune,array samples,4,7223,0.9958031660101355,
+memory b cells,immune,array samples,6,7253,0.9978378093331257,
+bladder epithelium,cycling,corrected sequencing,4,7257,0.9981016664020829,SEQUENCING-CORRECTED-PER-LOCUS
+colon epithelium,cycling,array samples,3,7472,0.9973836077815185,
+tongue epithelium,cycling,corrected sequencing,4,7590,0.9985686058812048,SEQUENCING-CORRECTED-PER-LOCUS
+naive cd8 t cells,immune,array samples,5,7599,0.9982983534472013,
+pancreas endothelium,stromal,corrected sequencing,4,8018,0.9965352087534736,SEQUENCING-CORRECTED-PER-LOCUS
+neutrophils,immune,array samples,12,8199,0.9959793461274042,
+kidney tubular epithelium,cycling,corrected sequencing,3,9152,0.9959268262365047,SEQUENCING-CORRECTED-PER-LOCUS
+pancreatic acinar,secretory,array samples,2,9299,0.9974045276978339,
+breast luminal epithelium,secretory,corrected sequencing,3,9534,0.99514566052485,SEQUENCING-CORRECTED-PER-LOCUS
+adipocytes,stromal,array samples,3,9614,0.9978049718256744,
+naive cd4 t cells,immune,array samples,5,9715,0.996663847157185,
+lung alveolar endothelium,stromal,corrected sequencing,3,9777,0.9959893498762717,SEQUENCING-CORRECTED-PER-LOCUS
+lung alveolar epithelium,cycling,array samples,3,9930,0.9962504637443672,
+lung interstitial macrophages,immune,corrected sequencing,3,9953,0.9938510370356833,SEQUENCING-CORRECTED-PER-LOCUS
+oligodendrocytes,terminal,corrected sequencing,5,10627,0.9917152418788278,SEQUENCING-CORRECTED-PER-LOCUS;WGBS-CORRECTION-LEARNED-ON-LOYFER
+vascular saphenous endothelium,stromal,corrected sequencing,3,11473,0.9963637719810806,SEQUENCING-CORRECTED-PER-LOCUS
+kidney glomerular endothelium,stromal,corrected sequencing,3,11597,0.9961498566432792,SEQUENCING-CORRECTED-PER-LOCUS
+eosinophils,immune,array samples,4,11628,0.9952633435953565,
+fallopien tubes epithelium,cycling,corrected sequencing,3,11900,0.9966283276489281,SEQUENCING-CORRECTED-PER-LOCUS
+endometrium epithelium,cycling,corrected sequencing,3,11919,0.9964863422547219,SEQUENCING-CORRECTED-PER-LOCUS
+kidney tubular endothelium,stromal,corrected sequencing,3,12083,0.9964481415922714,SEQUENCING-CORRECTED-PER-LOCUS
+cardiomyocyte,terminal,corrected sequencing,4,13386,0.9929930803126964,SEQUENCING-CORRECTED-PER-LOCUS
+thyroid epithelium,secretory,corrected sequencing,3,13429,0.9953465943661809,SEQUENCING-CORRECTED-PER-LOCUS
+small intestine epithelium,cycling,corrected sequencing,3,13612,0.9967326019702043,SEQUENCING-CORRECTED-PER-LOCUS
+t effector cell cd8,immune,corrected sequencing,3,13894,0.9954161425790655,SEQUENCING-CORRECTED-PER-LOCUS
+pancreatic delta,secretory,corrected sequencing,3,14152,0.9955917588264609,SEQUENCING-CORRECTED-PER-LOCUS
+t central memory cd4,immune,corrected sequencing,3,14219,0.9950811655217944,SEQUENCING-CORRECTED-PER-LOCUS
+gastric body epithelium,secretory,corrected sequencing,3,15151,0.9967041072302991,SEQUENCING-CORRECTED-PER-LOCUS
+pancreatic alpha,secretory,corrected sequencing,3,15720,0.9956729584466771,SEQUENCING-CORRECTED-PER-LOCUS
+gastric antrum epithelium,secretory,corrected sequencing,3,15730,0.9964480515178724,SEQUENCING-CORRECTED-PER-LOCUS
+t effector memory cd4,immune,corrected sequencing,3,16040,0.9956849192840624,SEQUENCING-CORRECTED-PER-LOCUS
+lung bronchus epithelium,cycling,corrected sequencing,3,16112,0.9972690351657529,SEQUENCING-CORRECTED-PER-LOCUS
+gastric fundus epithelium,secretory,corrected sequencing,3,16218,0.9960349759866348,SEQUENCING-CORRECTED-PER-LOCUS
+tonsil palatine epithelium,cycling,corrected sequencing,3,17875,0.9972286830681986,SEQUENCING-CORRECTED-PER-LOCUS
+lung alveolar macrophages,immune,corrected sequencing,2,19761,0.9937889253019484,SEQUENCING-CORRECTED-PER-LOCUS
+effector memory cd8 t cells,immune,array samples,4,19874,0.9981733196146922,
+heart fibroblasts,stromal,corrected sequencing,3,19909,0.997028897152436,SEQUENCING-CORRECTED-PER-LOCUS
+aorta endothelium,stromal,corrected sequencing,2,21086,0.9958042717349627,SEQUENCING-CORRECTED-PER-LOCUS
+memory cd4 t cells,immune,array samples,4,21650,0.9958539883849391,
+tonsil pharyngeal epithelium,cycling,corrected sequencing,2,23305,0.9963662487638969,SEQUENCING-CORRECTED-PER-LOCUS
+colon enteroendocrine,secretory,corrected sequencing,2,24140,0.9950881717909278,SEQUENCING-CORRECTED-PER-LOCUS
+regulatory t cells,immune,array samples,3,24486,0.9964198202869152,
+colon macrophages,immune,corrected sequencing,2,25303,0.9943681942261777,SEQUENCING-CORRECTED-PER-LOCUS
+kidney glomerular epithelium,cycling,corrected sequencing,2,25887,0.9965036063118864,SEQUENCING-CORRECTED-PER-LOCUS
+colon fibroblasts,stromal,corrected sequencing,2,30292,0.9954895971975336,SEQUENCING-CORRECTED-PER-LOCUS
+vascular endothelium,stromal,array samples,2,30896,0.9965219103178309,
+erythrocyte progenitors,progenitor,corrected sequencing,3,31659,0.9958353046933311,SEQUENCING-CORRECTED-PER-LOCUS
+striated muscle,terminal,corrected sequencing,2,45200,0.992868368191267,SEQUENCING-CORRECTED-PER-LOCUS
+oligodendrocyte precursors,progenitor,corrected sequencing,1,47838,0.9932303836195564,SEQUENCING-CORRECTED-PER-LOCUS;WGBS-CORRECTION-LEARNED-ON-LOYFER;ONE-SAMPLE
+vascular leptomeningeal cells,stromal,corrected sequencing,1,54006,0.9941619785468278,SEQUENCING-CORRECTED-PER-LOCUS;WGBS-CORRECTION-LEARNED-ON-LOYFER;ONE-SAMPLE
+microglia,immune,corrected sequencing,1,54896,0.9917527670259476,SEQUENCING-CORRECTED-PER-LOCUS;WGBS-CORRECTION-LEARNED-ON-LOYFER;ONE-SAMPLE
+astrocytes,terminal,corrected sequencing,1,58938,0.9872460327767318,SEQUENCING-CORRECTED-PER-LOCUS;WGBS-CORRECTION-LEARNED-ON-LOYFER;ONE-SAMPLE

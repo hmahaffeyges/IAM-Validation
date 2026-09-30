@@ -6,8 +6,8 @@
 export XLA_FLAGS="--xla_force_host_platform_device_count=4 --xla_cpu_multi_thread_eigen=false intra_op_parallelism_threads=1"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
 mkdir -p logs
-# Each process is pinned to its own 4 cores (taskset): the thread caps alone did not hold - one 4-chain process ran at load ~17.
-seq 0 699 | xargs -P ${PAR:-32} --process-slot-var=SLOT -I{} sh -c 'taskset -c $((SLOT*4))-$((SLOT*4+3)) env BLOCK={} NBLOCK=700 ~/mcmc/bin/python 14_stageB_block.py > logs/block_{}.log 2>&1; tail -1 logs/block_{}.log'
+# Each process is pinned to its own 8 cores (taskset). 16 at a time: one block peaks at ~13 GB, so 32 at once (~420 GB) was killed out of memory on the 246 GB box (2026-09-28).
+seq 0 699 | xargs -P ${PAR:-16} --process-slot-var=SLOT -I{} sh -c 'taskset -c $((SLOT*8))-$((SLOT*8+7)) env BLOCK={} NBLOCK=700 ~/mcmc/bin/python 14_stageB_block.py > logs/block_{}.log 2>&1; tail -1 logs/block_{}.log'
 ~/env/bin/python - <<'PY'
 import json, glob
 R=[]

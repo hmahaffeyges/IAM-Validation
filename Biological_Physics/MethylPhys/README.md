@@ -21,7 +21,7 @@ in `../RETIRED_2026-09/`. If you are reading this to run something, start at `do
 **Checking this work?** [`doors/REVIEWER_MANIFEST.md`](doors/REVIEWER_MANIFEST.md) lists every file a reviewer can download - the chain, the H_min MCMC calibration, the runtime matrices, the atlas, every sealed procedure including the ones that failed - and states plainly what is *not* published and why.
 
 <!-- GENERATED:chain start -->
-**The chain as the code runs it** (generated 2026-09-28 by `kit/build_marked_blocks.py` from `chain/chain_sequence.json`; 20 steps; 2 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 chain/build_all.py` - run by `guarded_push.sh` on every push.
+**The chain as the code runs it** (generated 2026-09-30 by `kit/build_marked_blocks.py` from `chain/chain_sequence.json`; 20 steps; 2 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 chain/build_all.py` - run by `guarded_push.sh` on every push.
 
 | # | step | file | what it implements |
 |---|---|---|---|

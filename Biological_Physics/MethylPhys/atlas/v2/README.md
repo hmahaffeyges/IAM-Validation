@@ -43,7 +43,7 @@ Random seeds are fixed (`PRNGKey(1000 + block)`), so a rebuild on the same packa
 their summaries. A finished block is skipped on restart.
 
 ## Where the fitted atlas lives
-The blocks (several GB) are not in git. After the run they go to S3 and a Zenodo deposit; `ATLAS_V2_OUTPUT_MANIFEST.json` (added when
+The blocks (several GB) are not in git. After the run they go to S3 and a Zenodo deposit; [`ATLAS_V2_OUTPUT_MANIFEST.json`](postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json) (added when
 the run finishes) lists every block with its SHA-256.
 
 ## Acceptance before use

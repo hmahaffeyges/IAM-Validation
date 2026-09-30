@@ -1,0 +1,10434 @@
+[
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334067",
+  "age": 14.0,
+  "call_rate": null,
+  "residual_mae": 0.030889571255931822,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0124,
+    "ci": [
+     0.0041,
+     0.0187
+    ],
+    "present": false,
+    "A": 0.9645,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1728,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0163,
+    "ci": [
+     0.0121,
+     0.0195
+    ],
+    "present": true,
+    "A": 0.9834,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3483,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0193,
+    "ci": [
+     0.0046,
+     0.0309
+    ],
+    "present": false,
+    "A": 0.9861,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2007,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0711,
+    "ci": [
+     0.0623,
+     0.079
+    ],
+    "present": true,
+    "A": 1.04,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3443,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0772,
+    "ci": [
+     0.0628,
+     0.0953
+    ],
+    "present": true,
+    "A": 1.0453,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4289,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0329,
+    "ci": [
+     0.014,
+     0.047
+    ],
+    "present": true,
+    "A": 1.0508,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3503,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.6789,
+    "ci": [
+     0.6669,
+     0.6874
+    ],
+    "present": true,
+    "A": 0.9428,
+    "tier": "BELOW NORMAL",
+    "carrying": true,
+    "n_loci_read": 3418,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.015,
+    "ci": [
+     0.0092,
+     0.0247
+    ],
+    "present": true,
+    "A": 0.9763,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2255,
+    "klass": "immune",
+    "flags": []
+   },
+   "t central memory cd4": {
+    "fraction": 0.0157,
+    "ci": [
+     0.0008,
+     0.0221
+    ],
+    "present": false,
+    "A": 0.9215,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6128,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0496,
+    "ci": [
+     0.0393,
+     0.0542
+    ],
+    "present": true,
+    "A": 0.9118,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5998,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334354",
+  "age": 16.0,
+  "call_rate": null,
+  "residual_mae": 0.02931254430722293,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0134,
+    "ci": [
+     0.0059,
+     0.0218
+    ],
+    "present": true,
+    "A": 0.9768,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0694,
+    "ci": [
+     0.044,
+     0.0985
+    ],
+    "present": true,
+    "A": 1.0387,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1157,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0151,
+    "ci": [
+     0.012,
+     0.0192
+    ],
+    "present": true,
+    "A": 0.9855,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3490,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "eosinophils": {
+    "fraction": 0.0304,
+    "ci": [
+     0.0214,
+     0.0399
+    ],
+    "present": true,
+    "A": 0.9705,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4952,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0519,
+    "ci": [
+     0.0329,
+     0.0643
+    ],
+    "present": true,
+    "A": 0.8937,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9288,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0733,
+    "ci": [
+     0.0614,
+     0.0855
+    ],
+    "present": true,
+    "A": 0.996,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0694,
+    "ci": [
+     0.0607,
+     0.0773
+    ],
+    "present": true,
+    "A": 1.0447,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3444,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0882,
+    "ci": [
+     0.0685,
+     0.1054
+    ],
+    "present": true,
+    "A": 1.0514,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4293,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.021,
+    "ci": [
+     0.0,
+     0.0402
+    ],
+    "present": false,
+    "A": 1.0531,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3510,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4621,
+    "ci": [
+     0.4498,
+     0.4757
+    ],
+    "present": true,
+    "A": 0.9568,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3419,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0791,
+    "ci": [
+     0.0688,
+     0.0887
+    ],
+    "present": true,
+    "A": 0.9803,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2256,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0103,
+    "ci": [
+     0.0002,
+     0.0176
+    ],
+    "present": false,
+    "A": 0.9128,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6017,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2333990",
+  "age": 17.0,
+  "call_rate": null,
+  "residual_mae": 0.026894578779907075,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0104,
+    "ci": [
+     0.0038,
+     0.0172
+    ],
+    "present": false,
+    "A": 0.9877,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd4 t cells": {
+    "fraction": 0.0364,
+    "ci": [
+     0.0006,
+     0.0633
+    ],
+    "present": false,
+    "A": 1.009,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2852,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.1488,
+    "ci": [
+     0.136,
+     0.1651
+    ],
+    "present": true,
+    "A": 1.0464,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1160,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0112,
+    "ci": [
+     0.0072,
+     0.0144
+    ],
+    "present": true,
+    "A": 0.9881,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3515,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0508,
+    "ci": [
+     0.0297,
+     0.0743
+    ],
+    "present": true,
+    "A": 0.9235,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9324,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0974,
+    "ci": [
+     0.0867,
+     0.1091
+    ],
+    "present": true,
+    "A": 1.0168,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0664,
+    "ci": [
+     0.0587,
+     0.0731
+    ],
+    "present": true,
+    "A": 1.0562,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3453,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0555,
+    "ci": [
+     0.0412,
+     0.072
+    ],
+    "present": true,
+    "A": 1.0669,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4318,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4482,
+    "ci": [
+     0.4353,
+     0.4564
+    ],
+    "present": true,
+    "A": 0.9848,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3428,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0328,
+    "ci": [
+     0.0251,
+     0.0405
+    ],
+    "present": true,
+    "A": 1.0068,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2262,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0182,
+    "ci": [
+     0.0071,
+     0.0247
+    ],
+    "present": true,
+    "A": 0.9418,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6057,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334494",
+  "age": 19.0,
+  "call_rate": null,
+  "residual_mae": 0.028859608941219715,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0108,
+    "ci": [
+     0.005,
+     0.0169
+    ],
+    "present": false,
+    "A": 0.9665,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0208,
+    "ci": [
+     0.0168,
+     0.0244
+    ],
+    "present": true,
+    "A": 0.9844,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3493,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.029,
+    "ci": [
+     0.0156,
+     0.0402
+    ],
+    "present": true,
+    "A": 0.9593,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4724,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0101,
+    "ci": [
+     0.0,
+     0.0264
+    ],
+    "present": false,
+    "A": 0.9838,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0436,
+    "ci": [
+     0.0375,
+     0.0494
+    ],
+    "present": true,
+    "A": 1.0376,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3444,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0545,
+    "ci": [
+     0.0419,
+     0.0652
+    ],
+    "present": true,
+    "A": 1.0478,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4305,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.7718,
+    "ci": [
+     0.7606,
+     0.7807
+    ],
+    "present": true,
+    "A": 0.9431,
+    "tier": "BELOW NORMAL",
+    "carrying": true,
+    "n_loci_read": 3425,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0157,
+    "ci": [
+     0.0089,
+     0.022
+    ],
+    "present": true,
+    "A": 0.9792,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2255,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0302,
+    "ci": [
+     0.0219,
+     0.0358
+    ],
+    "present": true,
+    "A": 0.9092,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6027,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334022",
+  "age": 22.0,
+  "call_rate": null,
+  "residual_mae": 0.027592141704597443,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0118,
+    "ci": [
+     0.0039,
+     0.0173
+    ],
+    "present": false,
+    "A": 0.9734,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0721,
+    "ci": [
+     0.0529,
+     0.0852
+    ],
+    "present": true,
+    "A": 1.0494,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1160,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0164,
+    "ci": [
+     0.0129,
+     0.0198
+    ],
+    "present": true,
+    "A": 0.9845,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3503,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0449,
+    "ci": [
+     0.031,
+     0.0577
+    ],
+    "present": true,
+    "A": 0.9978,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2007,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0685,
+    "ci": [
+     0.0616,
+     0.0763
+    ],
+    "present": true,
+    "A": 1.0473,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3447,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0977,
+    "ci": [
+     0.0886,
+     0.1072
+    ],
+    "present": true,
+    "A": 1.0561,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4312,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.6043,
+    "ci": [
+     0.5942,
+     0.6163
+    ],
+    "present": true,
+    "A": 0.9592,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3426,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0245,
+    "ci": [
+     0.0155,
+     0.0317
+    ],
+    "present": true,
+    "A": 0.9897,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2259,
+    "klass": "immune",
+    "flags": []
+   },
+   "t central memory cd4": {
+    "fraction": 0.0236,
+    "ci": [
+     0.0099,
+     0.0342
+    ],
+    "present": true,
+    "A": 0.9366,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6188,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0164,
+    "ci": [
+     0.0076,
+     0.024
+    ],
+    "present": true,
+    "A": 0.9209,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6028,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334444",
+  "age": 25.0,
+  "call_rate": null,
+  "residual_mae": 0.031857340880027014,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0278,
+    "ci": [
+     0.0207,
+     0.0352
+    ],
+    "present": true,
+    "A": 0.9282,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1730,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0414,
+    "ci": [
+     0.0119,
+     0.0643
+    ],
+    "present": true,
+    "A": 1.0099,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1157,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0183,
+    "ci": [
+     0.0138,
+     0.0209
+    ],
+    "present": true,
+    "A": 0.9816,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3484,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0144,
+    "ci": [
+     0.0026,
+     0.028
+    ],
+    "present": false,
+    "A": 0.9544,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4697,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0114,
+    "ci": [
+     0.0,
+     0.0289
+    ],
+    "present": false,
+    "A": 0.8655,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9284,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.066,
+    "ci": [
+     0.0512,
+     0.0819
+    ],
+    "present": true,
+    "A": 0.9612,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.083,
+    "ci": [
+     0.0741,
+     0.0933
+    ],
+    "present": true,
+    "A": 1.0232,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3442,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.122,
+    "ci": [
+     0.1062,
+     0.1385
+    ],
+    "present": true,
+    "A": 1.0338,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4286,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.057,
+    "ci": [
+     0.0358,
+     0.0837
+    ],
+    "present": true,
+    "A": 1.0363,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3506,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.459,
+    "ci": [
+     0.4475,
+     0.4723
+    ],
+    "present": true,
+    "A": 0.9246,
+    "tier": "BELOW NORMAL",
+    "carrying": true,
+    "n_loci_read": 3420,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0262,
+    "ci": [
+     0.0173,
+     0.0346
+    ],
+    "present": true,
+    "A": 0.9502,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2255,
+    "klass": "immune",
+    "flags": []
+   },
+   "t central memory cd4": {
+    "fraction": 0.0289,
+    "ci": [
+     0.016,
+     0.0423
+    ],
+    "present": true,
+    "A": 0.9131,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6147,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0291,
+    "ci": [
+     0.017,
+     0.0382
+    ],
+    "present": true,
+    "A": 0.898,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6003,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector memory cd4": {
+    "fraction": 0.0117,
+    "ci": [
+     0.0,
+     0.0216
+    ],
+    "present": false,
+    "A": 0.8579,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6848,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334585",
+  "age": 31.0,
+  "call_rate": null,
+  "residual_mae": 0.029291835139579833,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0189,
+    "ci": [
+     0.0136,
+     0.0244
+    ],
+    "present": true,
+    "A": 0.9949,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1729,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0865,
+    "ci": [
+     0.0661,
+     0.1038
+    ],
+    "present": true,
+    "A": 1.0531,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1158,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0213,
+    "ci": [
+     0.0113,
+     0.0328
+    ],
+    "present": true,
+    "A": 0.923,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9284,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0504,
+    "ci": [
+     0.0363,
+     0.066
+    ],
+    "present": true,
+    "A": 1.0115,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.05,
+    "ci": [
+     0.042,
+     0.0577
+    ],
+    "present": true,
+    "A": 1.0546,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3441,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0719,
+    "ci": [
+     0.0612,
+     0.0832
+    ],
+    "present": true,
+    "A": 1.0649,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4288,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.5764,
+    "ci": [
+     0.5631,
+     0.5846
+    ],
+    "present": true,
+    "A": 0.9781,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3418,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0377,
+    "ci": [
+     0.0305,
+     0.0453
+    ],
+    "present": true,
+    "A": 1.0019,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2256,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0552,
+    "ci": [
+     0.0458,
+     0.0629
+    ],
+    "present": true,
+    "A": 0.9269,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5996,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334339",
+  "age": 34.0,
+  "call_rate": null,
+  "residual_mae": 0.033260943555573456,
+  "cells": {
+   "effector memory cd8 t cells": {
+    "fraction": 0.0631,
+    "ci": [
+     0.0495,
+     0.0771
+    ],
+    "present": true,
+    "A": 0.9159,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8413,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0166,
+    "ci": [
+     0.012,
+     0.0202
+    ],
+    "present": true,
+    "A": 0.9934,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3480,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0311,
+    "ci": [
+     0.0131,
+     0.0436
+    ],
+    "present": true,
+    "A": 1.022,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2007,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0768,
+    "ci": [
+     0.0668,
+     0.085
+    ],
+    "present": true,
+    "A": 1.0684,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3436,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0342,
+    "ci": [
+     0.0066,
+     0.0439
+    ],
+    "present": true,
+    "A": 1.0816,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3503,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.6667,
+    "ci": [
+     0.6537,
+     0.6805
+    ],
+    "present": true,
+    "A": 0.9812,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3418,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0119,
+    "ci": [
+     0.0051,
+     0.0227
+    ],
+    "present": true,
+    "A": 1.0123,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2251,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0202,
+    "ci": [
+     0.0022,
+     0.0347
+    ],
+    "present": false,
+    "A": 0.9302,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10799,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.051,
+    "ci": [
+     0.0419,
+     0.0578
+    ],
+    "present": true,
+    "A": 0.9469,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5996,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334495",
+  "age": 38.0,
+  "call_rate": null,
+  "residual_mae": 0.02914533603714445,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0195,
+    "ci": [
+     0.0118,
+     0.0262
+    ],
+    "present": true,
+    "A": 0.996,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1728,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.1168,
+    "ci": [
+     0.0976,
+     0.136
+    ],
+    "present": true,
+    "A": 1.0415,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1157,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0102,
+    "ci": [
+     0.0,
+     0.0294
+    ],
+    "present": false,
+    "A": 0.908,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8399,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0105,
+    "ci": [
+     0.0075,
+     0.0135
+    ],
+    "present": true,
+    "A": 0.9883,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3468,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "eosinophils": {
+    "fraction": 0.0156,
+    "ci": [
+     0.0078,
+     0.0246
+    ],
+    "present": true,
+    "A": 0.9932,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4937,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.1015,
+    "ci": [
+     0.0853,
+     0.114
+    ],
+    "present": true,
+    "A": 0.9239,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9261,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0629,
+    "ci": [
+     0.0463,
+     0.0733
+    ],
+    "present": true,
+    "A": 1.0227,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2006,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0662,
+    "ci": [
+     0.0555,
+     0.0778
+    ],
+    "present": true,
+    "A": 1.0584,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3433,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0176,
+    "ci": [
+     0.005,
+     0.031
+    ],
+    "present": false,
+    "A": 1.0702,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4275,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4561,
+    "ci": [
+     0.4456,
+     0.4682
+    ],
+    "present": true,
+    "A": 0.9845,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3416,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0455,
+    "ci": [
+     0.0374,
+     0.0549
+    ],
+    "present": true,
+    "A": 1.0081,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2254,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0602,
+    "ci": [
+     0.0487,
+     0.0684
+    ],
+    "present": true,
+    "A": 0.9357,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5960,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334008",
+  "age": 41.0,
+  "call_rate": null,
+  "residual_mae": 0.030200336575616275,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0161,
+    "ci": [
+     0.0124,
+     0.0197
+    ],
+    "present": true,
+    "A": 0.9232,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9593,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0168,
+    "ci": [
+     0.0078,
+     0.0253
+    ],
+    "present": true,
+    "A": 1.0172,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.1198,
+    "ci": [
+     0.1004,
+     0.1394
+    ],
+    "present": true,
+    "A": 1.0563,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1159,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0246,
+    "ci": [
+     0.0091,
+     0.0401
+    ],
+    "present": true,
+    "A": 0.9259,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8439,
+    "klass": "immune",
+    "flags": []
+   },
+   "eosinophils": {
+    "fraction": 0.0633,
+    "ci": [
+     0.0552,
+     0.0742
+    ],
+    "present": true,
+    "A": 1.0134,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4960,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.1237,
+    "ci": [
+     0.1093,
+     0.1363
+    ],
+    "present": true,
+    "A": 0.9393,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9300,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0835,
+    "ci": [
+     0.0697,
+     0.0952
+    ],
+    "present": true,
+    "A": 1.0394,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0926,
+    "ci": [
+     0.0801,
+     0.1007
+    ],
+    "present": true,
+    "A": 1.07,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3449,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.3389,
+    "ci": [
+     0.3263,
+     0.353
+    ],
+    "present": true,
+    "A": 1.0057,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3424,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0531,
+    "ci": [
+     0.0446,
+     0.0628
+    ],
+    "present": true,
+    "A": 1.0256,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2261,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0531,
+    "ci": [
+     0.0458,
+     0.0594
+    ],
+    "present": true,
+    "A": 0.9434,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6024,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334491",
+  "age": 44.0,
+  "call_rate": null,
+  "residual_mae": 0.02930508713280285,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0101,
+    "ci": [
+     0.0066,
+     0.0129
+    ],
+    "present": true,
+    "A": 0.8877,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9581,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.025,
+    "ci": [
+     0.0168,
+     0.0323
+    ],
+    "present": true,
+    "A": 0.9762,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1728,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0888,
+    "ci": [
+     0.0724,
+     0.1038
+    ],
+    "present": true,
+    "A": 1.0462,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1156,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0133,
+    "ci": [
+     0.0037,
+     0.0224
+    ],
+    "present": false,
+    "A": 0.9758,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4686,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0133,
+    "ci": [
+     0.0,
+     0.0278
+    ],
+    "present": false,
+    "A": 0.9031,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9263,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0526,
+    "ci": [
+     0.0372,
+     0.0658
+    ],
+    "present": true,
+    "A": 0.9988,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2007,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0496,
+    "ci": [
+     0.0419,
+     0.0594
+    ],
+    "present": true,
+    "A": 1.0516,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3438,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.134,
+    "ci": [
+     0.125,
+     0.1456
+    ],
+    "present": true,
+    "A": 1.0589,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4273,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4939,
+    "ci": [
+     0.4816,
+     0.5069
+    ],
+    "present": true,
+    "A": 0.9609,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3417,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0678,
+    "ci": [
+     0.0591,
+     0.075
+    ],
+    "present": true,
+    "A": 0.982,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2250,
+    "klass": "immune",
+    "flags": []
+   },
+   "t central memory cd4": {
+    "fraction": 0.03,
+    "ci": [
+     0.019,
+     0.0409
+    ],
+    "present": true,
+    "A": 0.9357,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6126,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2333934",
+  "age": 46.0,
+  "call_rate": null,
+  "residual_mae": 0.03257373203996056,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0165,
+    "ci": [
+     0.0077,
+     0.0253
+    ],
+    "present": true,
+    "A": 0.995,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1729,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0268,
+    "ci": [
+     0.0106,
+     0.0447
+    ],
+    "present": true,
+    "A": 0.8958,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8402,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0101,
+    "ci": [
+     0.0067,
+     0.0142
+    ],
+    "present": true,
+    "A": 0.9898,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3468,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0722,
+    "ci": [
+     0.0477,
+     0.0866
+    ],
+    "present": true,
+    "A": 0.9135,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9261,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0705,
+    "ci": [
+     0.0517,
+     0.0811
+    ],
+    "present": true,
+    "A": 1.0147,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0656,
+    "ci": [
+     0.0557,
+     0.0746
+    ],
+    "present": true,
+    "A": 1.0585,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3432,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0633,
+    "ci": [
+     0.0424,
+     0.0845
+    ],
+    "present": true,
+    "A": 1.0645,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4280,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0445,
+    "ci": [
+     0.0223,
+     0.0623
+    ],
+    "present": true,
+    "A": 1.0674,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3497,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.5449,
+    "ci": [
+     0.5335,
+     0.5631
+    ],
+    "present": true,
+    "A": 0.9695,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3418,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0413,
+    "ci": [
+     0.0333,
+     0.0498
+    ],
+    "present": true,
+    "A": 0.9995,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2251,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0159,
+    "ci": [
+     0.0036,
+     0.0225
+    ],
+    "present": false,
+    "A": 0.9298,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5982,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334171",
+  "age": 48.0,
+  "call_rate": null,
+  "residual_mae": 0.028016682298769493,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.014,
+    "ci": [
+     0.0108,
+     0.0172
+    ],
+    "present": true,
+    "A": 0.8975,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9600,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0213,
+    "ci": [
+     0.0142,
+     0.0274
+    ],
+    "present": true,
+    "A": 0.9894,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0114,
+    "ci": [
+     0.0,
+     0.0248
+    ],
+    "present": false,
+    "A": 0.946,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11597,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0117,
+    "ci": [
+     0.0,
+     0.0228
+    ],
+    "present": false,
+    "A": 0.9803,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4743,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0321,
+    "ci": [
+     0.017,
+     0.0476
+    ],
+    "present": true,
+    "A": 1.0067,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.049,
+    "ci": [
+     0.0414,
+     0.0575
+    ],
+    "present": true,
+    "A": 1.0586,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3447,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0396,
+    "ci": [
+     0.0197,
+     0.0589
+    ],
+    "present": true,
+    "A": 1.0676,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4315,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0328,
+    "ci": [
+     0.0014,
+     0.0519
+    ],
+    "present": false,
+    "A": 1.0732,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3529,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.6821,
+    "ci": [
+     0.6715,
+     0.6941
+    ],
+    "present": true,
+    "A": 0.9722,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3427,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0375,
+    "ci": [
+     0.0291,
+     0.0448
+    ],
+    "present": true,
+    "A": 0.9968,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2260,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0132,
+    "ci": [
+     0.0,
+     0.0286
+    ],
+    "present": false,
+    "A": 0.9225,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10875,
+    "klass": "immune",
+    "flags": []
+   },
+   "t central memory cd4": {
+    "fraction": 0.0223,
+    "ci": [
+     0.0101,
+     0.0326
+    ],
+    "present": true,
+    "A": 0.9453,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6206,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334346",
+  "age": 51.0,
+  "call_rate": null,
+  "residual_mae": 0.03279698215129593,
+  "cells": {
+   "basophils": {
+    "fraction": 0.016,
+    "ci": [
+     0.0096,
+     0.0225
+    ],
+    "present": true,
+    "A": 0.9899,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0417,
+    "ci": [
+     0.0164,
+     0.0669
+    ],
+    "present": true,
+    "A": 1.0431,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1156,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0264,
+    "ci": [
+     0.0073,
+     0.041
+    ],
+    "present": true,
+    "A": 0.9042,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8389,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0187,
+    "ci": [
+     0.0144,
+     0.0226
+    ],
+    "present": true,
+    "A": 0.9868,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3459,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0654,
+    "ci": [
+     0.0423,
+     0.0859
+    ],
+    "present": true,
+    "A": 0.9197,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9256,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0614,
+    "ci": [
+     0.0503,
+     0.0723
+    ],
+    "present": true,
+    "A": 1.0151,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2004,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0698,
+    "ci": [
+     0.0612,
+     0.0782
+    ],
+    "present": true,
+    "A": 1.0562,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3431,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0188,
+    "ci": [
+     0.0,
+     0.0311
+    ],
+    "present": false,
+    "A": 1.0657,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4277,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.5975,
+    "ci": [
+     0.585,
+     0.6111
+    ],
+    "present": true,
+    "A": 0.9736,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3417,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.061,
+    "ci": [
+     0.0526,
+     0.0721
+    ],
+    "present": true,
+    "A": 0.9343,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5959,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334537",
+  "age": 54.0,
+  "call_rate": null,
+  "residual_mae": 0.03303537993712351,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0136,
+    "ci": [
+     0.0099,
+     0.017
+    ],
+    "present": true,
+    "A": 0.9059,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9580,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0262,
+    "ci": [
+     0.018,
+     0.0348
+    ],
+    "present": true,
+    "A": 0.9987,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1731,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0712,
+    "ci": [
+     0.0519,
+     0.0899
+    ],
+    "present": true,
+    "A": 1.035,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1158,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0152,
+    "ci": [
+     0.0115,
+     0.0186
+    ],
+    "present": true,
+    "A": 0.9755,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3482,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "eosinophils": {
+    "fraction": 0.0271,
+    "ci": [
+     0.0189,
+     0.0366
+    ],
+    "present": true,
+    "A": 0.991,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4945,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.1109,
+    "ci": [
+     0.0977,
+     0.1229
+    ],
+    "present": true,
+    "A": 0.9237,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9283,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0641,
+    "ci": [
+     0.0485,
+     0.0789
+    ],
+    "present": true,
+    "A": 1.0163,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2007,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0656,
+    "ci": [
+     0.0572,
+     0.0763
+    ],
+    "present": true,
+    "A": 1.0456,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3440,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4364,
+    "ci": [
+     0.4205,
+     0.4518
+    ],
+    "present": true,
+    "A": 0.984,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3422,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0531,
+    "ci": [
+     0.0423,
+     0.0604
+    ],
+    "present": true,
+    "A": 1.0053,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2258,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0903,
+    "ci": [
+     0.0799,
+     0.1001
+    ],
+    "present": true,
+    "A": 0.9192,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6003,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334435",
+  "age": 57.0,
+  "call_rate": null,
+  "residual_mae": 0.032261758876583405,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0282,
+    "ci": [
+     0.0198,
+     0.0364
+    ],
+    "present": true,
+    "A": 0.9934,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0436,
+    "ci": [
+     0.0192,
+     0.0686
+    ],
+    "present": true,
+    "A": 1.0467,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1157,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0312,
+    "ci": [
+     0.0109,
+     0.0482
+    ],
+    "present": true,
+    "A": 0.9011,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8411,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.04,
+    "ci": [
+     0.0268,
+     0.0543
+    ],
+    "present": true,
+    "A": 0.9178,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9265,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0589,
+    "ci": [
+     0.0437,
+     0.0784
+    ],
+    "present": true,
+    "A": 1.0129,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0553,
+    "ci": [
+     0.0486,
+     0.0662
+    ],
+    "present": true,
+    "A": 1.0548,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3433,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0112,
+    "ci": [
+     0.0,
+     0.0217
+    ],
+    "present": false,
+    "A": 1.0632,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4276,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.6316,
+    "ci": [
+     0.6138,
+     0.6436
+    ],
+    "present": true,
+    "A": 0.9734,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3418,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0593,
+    "ci": [
+     0.0496,
+     0.071
+    ],
+    "present": true,
+    "A": 0.9224,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5990,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334202",
+  "age": 61.0,
+  "call_rate": null,
+  "residual_mae": 0.033211233096997216,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0172,
+    "ci": [
+     0.0099,
+     0.0256
+    ],
+    "present": true,
+    "A": 1.0176,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0911,
+    "ci": [
+     0.0724,
+     0.1093
+    ],
+    "present": true,
+    "A": 1.0553,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1160,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0166,
+    "ci": [
+     0.0,
+     0.0327
+    ],
+    "present": false,
+    "A": 0.9163,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8434,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0211,
+    "ci": [
+     0.0162,
+     0.0257
+    ],
+    "present": true,
+    "A": 0.9833,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3493,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "eosinophils": {
+    "fraction": 0.013,
+    "ci": [
+     0.0059,
+     0.0208
+    ],
+    "present": true,
+    "A": 1.0013,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4954,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0935,
+    "ci": [
+     0.076,
+     0.1082
+    ],
+    "present": true,
+    "A": 0.9324,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9293,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0453,
+    "ci": [
+     0.0327,
+     0.0581
+    ],
+    "present": true,
+    "A": 1.0312,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0557,
+    "ci": [
+     0.0486,
+     0.0628
+    ],
+    "present": true,
+    "A": 1.0609,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3446,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.5552,
+    "ci": [
+     0.5398,
+     0.5688
+    ],
+    "present": true,
+    "A": 0.9912,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3422,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0351,
+    "ci": [
+     0.0262,
+     0.0442
+    ],
+    "present": true,
+    "A": 1.0167,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2256,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0351,
+    "ci": [
+     0.0272,
+     0.045
+    ],
+    "present": true,
+    "A": 0.934,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6015,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334166",
+  "age": 65.0,
+  "call_rate": null,
+  "residual_mae": 0.03260396794921436,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0191,
+    "ci": [
+     0.0138,
+     0.0228
+    ],
+    "present": true,
+    "A": 0.9405,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9594,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0101,
+    "ci": [
+     0.0017,
+     0.0158
+    ],
+    "present": false,
+    "A": 1.0401,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0461,
+    "ci": [
+     0.0245,
+     0.0661
+    ],
+    "present": true,
+    "A": 1.0652,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1160,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0677,
+    "ci": [
+     0.0499,
+     0.0884
+    ],
+    "present": true,
+    "A": 0.9503,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 8454,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0225,
+    "ci": [
+     0.0163,
+     0.0299
+    ],
+    "present": true,
+    "A": 0.9698,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0923,
+    "ci": [
+     0.0734,
+     0.1072
+    ],
+    "present": true,
+    "A": 0.9645,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 9306,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0452,
+    "ci": [
+     0.0311,
+     0.0584
+    ],
+    "present": true,
+    "A": 1.062,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0503,
+    "ci": [
+     0.0408,
+     0.0601
+    ],
+    "present": true,
+    "A": 1.0847,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3445,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.5544,
+    "ci": [
+     0.5424,
+     0.5672
+    ],
+    "present": true,
+    "A": 1.0279,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3424,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0207,
+    "ci": [
+     0.0115,
+     0.0306
+    ],
+    "present": true,
+    "A": 1.0502,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2262,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0623,
+    "ci": [
+     0.0525,
+     0.0714
+    ],
+    "present": true,
+    "A": 0.9596,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 6036,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334297",
+  "age": 68.0,
+  "call_rate": null,
+  "residual_mae": 0.033472938730487435,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0146,
+    "ci": [
+     0.0104,
+     0.018
+    ],
+    "present": true,
+    "A": 0.9292,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9593,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0144,
+    "ci": [
+     0.0064,
+     0.0234
+    ],
+    "present": true,
+    "A": 1.0222,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0891,
+    "ci": [
+     0.0634,
+     0.113
+    ],
+    "present": true,
+    "A": 1.0566,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1157,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0527,
+    "ci": [
+     0.0326,
+     0.0715
+    ],
+    "present": true,
+    "A": 0.926,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8434,
+    "klass": "immune",
+    "flags": []
+   },
+   "eosinophils": {
+    "fraction": 0.0298,
+    "ci": [
+     0.0195,
+     0.0369
+    ],
+    "present": true,
+    "A": 1.0145,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4954,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.1143,
+    "ci": [
+     0.0887,
+     0.1361
+    ],
+    "present": true,
+    "A": 0.9407,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9295,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0557,
+    "ci": [
+     0.046,
+     0.0692
+    ],
+    "present": true,
+    "A": 1.0383,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2005,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0814,
+    "ci": [
+     0.0694,
+     0.0919
+    ],
+    "present": true,
+    "A": 1.0721,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3441,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0714,
+    "ci": [
+     0.0568,
+     0.0884
+    ],
+    "present": true,
+    "A": 1.08,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4299,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.3823,
+    "ci": [
+     0.372,
+     0.3945
+    ],
+    "present": true,
+    "A": 1.0048,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3423,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0438,
+    "ci": [
+     0.0322,
+     0.0544
+    ],
+    "present": true,
+    "A": 1.0235,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2258,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0218,
+    "ci": [
+     0.0116,
+     0.0327
+    ],
+    "present": true,
+    "A": 0.9524,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 6016,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334538",
+  "age": 70.0,
+  "call_rate": null,
+  "residual_mae": 0.030384822422706067,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0236,
+    "ci": [
+     0.0159,
+     0.0303
+    ],
+    "present": true,
+    "A": 0.9872,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1731,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0915,
+    "ci": [
+     0.073,
+     0.1088
+    ],
+    "present": true,
+    "A": 1.0404,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1160,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0144,
+    "ci": [
+     0.0108,
+     0.018
+    ],
+    "present": true,
+    "A": 0.9808,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3495,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "eosinophils": {
+    "fraction": 0.0258,
+    "ci": [
+     0.0172,
+     0.0354
+    ],
+    "present": true,
+    "A": 0.9829,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4954,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0223,
+    "ci": [
+     0.0114,
+     0.0336
+    ],
+    "present": true,
+    "A": 0.9618,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4712,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0812,
+    "ci": [
+     0.0696,
+     0.091
+    ],
+    "present": true,
+    "A": 0.9081,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9297,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0683,
+    "ci": [
+     0.0548,
+     0.0838
+    ],
+    "present": true,
+    "A": 1.007,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0476,
+    "ci": [
+     0.0414,
+     0.053
+    ],
+    "present": true,
+    "A": 1.0468,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3443,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0148,
+    "ci": [
+     0.0026,
+     0.0245
+    ],
+    "present": false,
+    "A": 1.0576,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4303,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.5067,
+    "ci": [
+     0.4941,
+     0.5196
+    ],
+    "present": true,
+    "A": 0.9733,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3423,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.039,
+    "ci": [
+     0.0319,
+     0.0458
+    ],
+    "present": true,
+    "A": 0.9952,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2259,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0548,
+    "ci": [
+     0.0466,
+     0.0625
+    ],
+    "present": true,
+    "A": 0.9088,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6017,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334544",
+  "age": 73.0,
+  "call_rate": null,
+  "residual_mae": 0.0348915898936371,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0177,
+    "ci": [
+     0.0141,
+     0.0224
+    ],
+    "present": true,
+    "A": 0.9206,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9598,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.018,
+    "ci": [
+     0.0085,
+     0.0281
+    ],
+    "present": true,
+    "A": 1.0058,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0898,
+    "ci": [
+     0.0686,
+     0.1072
+    ],
+    "present": true,
+    "A": 1.0262,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1159,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0108,
+    "ci": [
+     0.0047,
+     0.0174
+    ],
+    "present": false,
+    "A": 0.9321,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3568,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.158,
+    "ci": [
+     0.1423,
+     0.17
+    ],
+    "present": true,
+    "A": 0.9336,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9299,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0728,
+    "ci": [
+     0.0567,
+     0.0843
+    ],
+    "present": true,
+    "A": 1.03,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0449,
+    "ci": [
+     0.0359,
+     0.0542
+    ],
+    "present": true,
+    "A": 1.0505,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3445,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4204,
+    "ci": [
+     0.4078,
+     0.433
+    ],
+    "present": true,
+    "A": 0.9965,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3422,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1314,
+    "ci": [
+     0.1204,
+     0.1391
+    ],
+    "present": true,
+    "A": 0.9299,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6024,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334114",
+  "age": 77.0,
+  "call_rate": null,
+  "residual_mae": 0.035168007640911374,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0203,
+    "ci": [
+     0.0151,
+     0.0245
+    ],
+    "present": true,
+    "A": 0.9386,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9581,
+    "klass": "stromal",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0493,
+    "ci": [
+     0.0321,
+     0.0663
+    ],
+    "present": true,
+    "A": 1.0798,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1159,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.011,
+    "ci": [
+     0.0058,
+     0.0173
+    ],
+    "present": true,
+    "A": 0.979,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0719,
+    "ci": [
+     0.057,
+     0.0847
+    ],
+    "present": true,
+    "A": 0.9673,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 9285,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0624,
+    "ci": [
+     0.0432,
+     0.0735
+    ],
+    "present": true,
+    "A": 1.0605,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2006,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0194,
+    "ci": [
+     0.01,
+     0.0273
+    ],
+    "present": true,
+    "A": 1.0869,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3443,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.6458,
+    "ci": [
+     0.6336,
+     0.6608
+    ],
+    "present": true,
+    "A": 1.0293,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3418,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0606,
+    "ci": [
+     0.0473,
+     0.0678
+    ],
+    "present": true,
+    "A": 0.956,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 6003,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334406",
+  "age": 81.0,
+  "call_rate": null,
+  "residual_mae": 0.04308278773095635,
+  "cells": {
+   "adipocytes": {
+    "fraction": 0.0122,
+    "ci": [
+     0.0062,
+     0.0168
+    ],
+    "present": true,
+    "A": 0.9015,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9537,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0483,
+    "ci": [
+     0.0367,
+     0.0596
+    ],
+    "present": true,
+    "A": 1.0,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0126,
+    "ci": [
+     0.0,
+     0.0399
+    ],
+    "present": false,
+    "A": 1.0558,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1153,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0176,
+    "ci": [
+     0.0111,
+     0.024
+    ],
+    "present": true,
+    "A": 0.9828,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3450,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0296,
+    "ci": [
+     0.0122,
+     0.0437
+    ],
+    "present": true,
+    "A": 0.9545,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4665,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.0513,
+    "ci": [
+     0.0325,
+     0.064
+    ],
+    "present": true,
+    "A": 0.9203,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9215,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0785,
+    "ci": [
+     0.0549,
+     0.1019
+    ],
+    "present": true,
+    "A": 1.0059,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2001,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0763,
+    "ci": [
+     0.0648,
+     0.0876
+    ],
+    "present": true,
+    "A": 1.0495,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3417,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0521,
+    "ci": [
+     0.0363,
+     0.0672
+    ],
+    "present": true,
+    "A": 1.06,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4261,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4783,
+    "ci": [
+     0.4574,
+     0.4926
+    ],
+    "present": true,
+    "A": 0.9799,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3406,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0651,
+    "ci": [
+     0.0533,
+     0.0767
+    ],
+    "present": true,
+    "A": 1.0005,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2241,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0469,
+    "ci": [
+     0.031,
+     0.0565
+    ],
+    "present": true,
+    "A": 0.9165,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5931,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE87571",
+  "gsm": "GSM2334366",
+  "age": 94.0,
+  "call_rate": null,
+  "residual_mae": 0.04271087473677069,
+  "cells": {
+   "basophils": {
+    "fraction": 0.0299,
+    "ci": [
+     0.0227,
+     0.0373
+    ],
+    "present": true,
+    "A": 0.9735,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.1194,
+    "ci": [
+     0.0958,
+     0.1408
+    ],
+    "present": true,
+    "A": 1.018,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1156,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0209,
+    "ci": [
+     0.0158,
+     0.0266
+    ],
+    "present": true,
+    "A": 0.9798,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3486,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0231,
+    "ci": [
+     0.0152,
+     0.0291
+    ],
+    "present": true,
+    "A": 0.8997,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.1006,
+    "ci": [
+     0.0843,
+     0.1154
+    ],
+    "present": true,
+    "A": 0.9057,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9278,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.1128,
+    "ci": [
+     0.0972,
+     0.1257
+    ],
+    "present": true,
+    "A": 1.0093,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive b cells": {
+    "fraction": 0.0602,
+    "ci": [
+     0.0503,
+     0.0728
+    ],
+    "present": true,
+    "A": 1.0419,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3444,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.4036,
+    "ci": [
+     0.3895,
+     0.414
+    ],
+    "present": true,
+    "A": 0.9754,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3417,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1057,
+    "ci": [
+     0.0905,
+     0.1138
+    ],
+    "present": true,
+    "A": 0.9163,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5987,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548180",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07693816184157809,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1575,
+    "ci": [
+     0.1173,
+     0.1892
+    ],
+    "present": true,
+    "A": 1.0553,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4139,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.1326,
+    "ci": [
+     0.0989,
+     0.1686
+    ],
+    "present": true,
+    "A": 1.0723,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0536,
+    "ci": [
+     0.0414,
+     0.0687
+    ],
+    "present": true,
+    "A": 1.0041,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1726,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0418,
+    "ci": [
+     0.0068,
+     0.0669
+    ],
+    "present": true,
+    "A": 1.0228,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1158,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon epithelium": {
+    "fraction": 0.0185,
+    "ci": [
+     0.0133,
+     0.0241
+    ],
+    "present": true,
+    "A": 0.9841,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3679,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.1403,
+    "ci": [
+     0.1144,
+     0.1759
+    ],
+    "present": true,
+    "A": 0.9215,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8401,
+    "klass": "immune",
+    "flags": []
+   },
+   "eosinophils": {
+    "fraction": 0.0202,
+    "ci": [
+     0.0065,
+     0.0358
+    ],
+    "present": true,
+    "A": 1.0029,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4946,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.1143,
+    "ci": [
+     0.1054,
+     0.1208
+    ],
+    "present": true,
+    "A": 0.9267,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0126,
+    "ci": [
+     0.0015,
+     0.0225
+    ],
+    "present": false,
+    "A": 0.9545,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23688,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0338,
+    "ci": [
+     0.0095,
+     0.0522
+    ],
+    "present": true,
+    "A": 1.0455,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2002,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0464,
+    "ci": [
+     0.0302,
+     0.062
+    ],
+    "present": true,
+    "A": 1.0091,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3404,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0558,
+    "ci": [
+     0.0383,
+     0.0764
+    ],
+    "present": true,
+    "A": 1.032,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2250,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1642,
+    "ci": [
+     0.1467,
+     0.1812
+    ],
+    "present": true,
+    "A": 0.9445,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5947,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548186",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08574716774143692,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0516,
+    "ci": [
+     0.0,
+     0.1198
+    ],
+    "present": false,
+    "A": 1.0484,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4107,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.4542,
+    "ci": [
+     0.3894,
+     0.494
+    ],
+    "present": true,
+    "A": 1.0684,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2506,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.1409,
+    "ci": [
+     0.1154,
+     0.1639
+    ],
+    "present": true,
+    "A": 0.9491,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1718,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0174,
+    "ci": [
+     0.0083,
+     0.0269
+    ],
+    "present": true,
+    "A": 0.9663,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2903,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "breast luminal epithelium": {
+    "fraction": 0.0188,
+    "ci": [
+     0.005,
+     0.0278
+    ],
+    "present": true,
+    "A": 0.9625,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4022,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.0245,
+    "ci": [
+     0.0024,
+     0.033
+    ],
+    "present": false,
+    "A": 0.9658,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3627,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0952,
+    "ci": [
+     0.0673,
+     0.1153
+    ],
+    "present": true,
+    "A": 0.8858,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8184,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0158,
+    "ci": [
+     0.0,
+     0.0394
+    ],
+    "present": false,
+    "A": 0.9959,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1981,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0703,
+    "ci": [
+     0.0564,
+     0.0868
+    ],
+    "present": true,
+    "A": 0.965,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3349,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0117,
+    "ci": [
+     0.0,
+     0.0315
+    ],
+    "present": false,
+    "A": 0.99,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2208,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0165,
+    "ci": [
+     0.0052,
+     0.0258
+    ],
+    "present": true,
+    "A": 0.9695,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2727,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0514,
+    "ci": [
+     0.0308,
+     0.0688
+    ],
+    "present": true,
+    "A": 0.9223,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5628,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "vascular leptomeningeal cells": {
+    "fraction": 0.0137,
+    "ci": [
+     0.0,
+     0.0236
+    ],
+    "present": false,
+    "A": 0.9309,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 22126,
+    "klass": "stromal",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548181",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.105959712343156,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0923,
+    "ci": [
+     0.0548,
+     0.1394
+    ],
+    "present": true,
+    "A": 0.9721,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4137,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3437,
+    "ci": [
+     0.3022,
+     0.3778
+    ],
+    "present": true,
+    "A": 0.9965,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0546,
+    "ci": [
+     0.0246,
+     0.0828
+    ],
+    "present": true,
+    "A": 0.9157,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1515,
+    "klass": "immune",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0393,
+    "ci": [
+     0.0164,
+     0.0532
+    ],
+    "present": true,
+    "A": 0.8717,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0153,
+    "ci": [
+     0.0081,
+     0.0207
+    ],
+    "present": true,
+    "A": 0.908,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3112,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.0259,
+    "ci": [
+     0.0192,
+     0.0306
+    ],
+    "present": true,
+    "A": 0.8823,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3676,
+    "klass": "cycling",
+    "flags": []
+   },
+   "eosinophils": {
+    "fraction": 0.0135,
+    "ci": [
+     0.0,
+     0.034
+    ],
+    "present": false,
+    "A": 0.8855,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4946,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0858,
+    "ci": [
+     0.0659,
+     0.1076
+    ],
+    "present": true,
+    "A": 0.7993,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3566,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0327,
+    "ci": [
+     0.0167,
+     0.0493
+    ],
+    "present": true,
+    "A": 0.8279,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23740,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0263,
+    "ci": [
+     0.0006,
+     0.0476
+    ],
+    "present": false,
+    "A": 0.9906,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3500,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0701,
+    "ci": [
+     0.0483,
+     0.0843
+    ],
+    "present": true,
+    "A": 0.8847,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3415,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1933,
+    "ci": [
+     0.1709,
+     0.2056
+    ],
+    "present": true,
+    "A": 0.832,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5961,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548187",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08743572742672442,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0962,
+    "ci": [
+     0.04,
+     0.1488
+    ],
+    "present": true,
+    "A": 1.051,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4112,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.4039,
+    "ci": [
+     0.3386,
+     0.4498
+    ],
+    "present": true,
+    "A": 1.0713,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2510,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.1537,
+    "ci": [
+     0.1259,
+     0.1786
+    ],
+    "present": true,
+    "A": 0.9495,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1718,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.016,
+    "ci": [
+     0.0061,
+     0.0272
+    ],
+    "present": true,
+    "A": 0.9671,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2956,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "breast luminal epithelium": {
+    "fraction": 0.0184,
+    "ci": [
+     0.0053,
+     0.0288
+    ],
+    "present": true,
+    "A": 0.9643,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4075,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.0228,
+    "ci": [
+     0.0039,
+     0.0306
+    ],
+    "present": false,
+    "A": 0.9684,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3637,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0826,
+    "ci": [
+     0.0515,
+     0.1023
+    ],
+    "present": true,
+    "A": 0.8886,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8237,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0338,
+    "ci": [
+     0.0,
+     0.0566
+    ],
+    "present": false,
+    "A": 0.9958,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1983,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0662,
+    "ci": [
+     0.0512,
+     0.0849
+    ],
+    "present": true,
+    "A": 0.9677,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3361,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0204,
+    "ci": [
+     0.006,
+     0.0299
+    ],
+    "present": true,
+    "A": 0.9708,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2769,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0582,
+    "ci": [
+     0.0306,
+     0.0767
+    ],
+    "present": true,
+    "A": 0.9248,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5712,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "vascular leptomeningeal cells": {
+    "fraction": 0.013,
+    "ci": [
+     0.0001,
+     0.0213
+    ],
+    "present": false,
+    "A": 0.9333,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 22436,
+    "klass": "stromal",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548182",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.10574485781571993,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.072,
+    "ci": [
+     0.0245,
+     0.1152
+    ],
+    "present": true,
+    "A": 0.9592,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4059,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.4475,
+    "ci": [
+     0.3972,
+     0.491
+    ],
+    "present": true,
+    "A": 0.9866,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2484,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0364,
+    "ci": [
+     0.0083,
+     0.0596
+    ],
+    "present": true,
+    "A": 0.8874,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1447,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0205,
+    "ci": [
+     0.0119,
+     0.0291
+    ],
+    "present": true,
+    "A": 0.9108,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2740,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.0314,
+    "ci": [
+     0.0221,
+     0.0384
+    ],
+    "present": true,
+    "A": 0.8713,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3555,
+    "klass": "cycling",
+    "flags": []
+   },
+   "eosinophils": {
+    "fraction": 0.0112,
+    "ci": [
+     0.0,
+     0.0243
+    ],
+    "present": false,
+    "A": 0.8625,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4783,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.08,
+    "ci": [
+     0.0624,
+     0.0973
+    ],
+    "present": true,
+    "A": 0.7934,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3528,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0152,
+    "ci": [
+     0.0012,
+     0.0301
+    ],
+    "present": false,
+    "A": 0.7975,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 21603,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0404,
+    "ci": [
+     0.0178,
+     0.0587
+    ],
+    "present": true,
+    "A": 0.9632,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3321,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0436,
+    "ci": [
+     0.0257,
+     0.0634
+    ],
+    "present": true,
+    "A": 0.8529,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3270,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1957,
+    "ci": [
+     0.1805,
+     0.2101
+    ],
+    "present": true,
+    "A": 0.8241,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5347,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548190",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06904304550910373,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.5145,
+    "ci": [
+     0.4854,
+     0.5413
+    ],
+    "present": true,
+    "A": 1.1154,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2491,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0695,
+    "ci": [
+     0.0501,
+     0.0832
+    ],
+    "present": true,
+    "A": 1.0211,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1705,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0104,
+    "ci": [
+     0.0,
+     0.0225
+    ],
+    "present": false,
+    "A": 0.9492,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8078,
+    "klass": "immune",
+    "flags": []
+   },
+   "erythrocyte progenitors": {
+    "fraction": 0.0154,
+    "ci": [
+     0.0065,
+     0.0242
+    ],
+    "present": true,
+    "A": 0.6678,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10754,
+    "klass": "progenitor",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0458,
+    "ci": [
+     0.0377,
+     0.0566
+    ],
+    "present": true,
+    "A": 0.9624,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3533,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0648,
+    "ci": [
+     0.0517,
+     0.0766
+    ],
+    "present": true,
+    "A": 0.9649,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 21849,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1627,
+    "ci": [
+     0.1253,
+     0.2009
+    ],
+    "present": true,
+    "A": 1.0588,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1953,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0852,
+    "ci": [
+     0.0586,
+     0.1131
+    ],
+    "present": true,
+    "A": 1.0243,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3294,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0273,
+    "ci": [
+     0.0131,
+     0.0437
+    ],
+    "present": true,
+    "A": 1.0361,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2163,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548183",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06701302270658602,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.1024,
+    "ci": [
+     0.0776,
+     0.1209
+    ],
+    "present": true,
+    "A": 1.1082,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0461,
+    "ci": [
+     0.0178,
+     0.0713
+    ],
+    "present": true,
+    "A": 0.9975,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4703,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0466,
+    "ci": [
+     0.0397,
+     0.0538
+    ],
+    "present": true,
+    "A": 0.9468,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3569,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0522,
+    "ci": [
+     0.0401,
+     0.064
+    ],
+    "present": true,
+    "A": 0.9613,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23873,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.7038,
+    "ci": [
+     0.6789,
+     0.7289
+    ],
+    "present": true,
+    "A": 1.044,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2003,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0346,
+    "ci": [
+     0.0205,
+     0.0448
+    ],
+    "present": true,
+    "A": 0.9398,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6002,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548188",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.09003293302342365,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0865,
+    "ci": [
+     0.027,
+     0.1401
+    ],
+    "present": true,
+    "A": 1.0455,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4128,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.4047,
+    "ci": [
+     0.3463,
+     0.4555
+    ],
+    "present": true,
+    "A": 1.0657,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2509,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.1365,
+    "ci": [
+     0.1099,
+     0.1603
+    ],
+    "present": true,
+    "A": 0.9348,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1721,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0171,
+    "ci": [
+     0.0083,
+     0.0294
+    ],
+    "present": true,
+    "A": 0.9604,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3010,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "breast luminal epithelium": {
+    "fraction": 0.0184,
+    "ci": [
+     0.0028,
+     0.0297
+    ],
+    "present": false,
+    "A": 0.9561,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4141,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.02,
+    "ci": [
+     0.0,
+     0.0299
+    ],
+    "present": false,
+    "A": 0.9608,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3654,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.083,
+    "ci": [
+     0.0491,
+     0.1082
+    ],
+    "present": true,
+    "A": 0.8806,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8295,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.0294,
+    "ci": [
+     0.0,
+     0.056
+    ],
+    "present": false,
+    "A": 0.988,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1992,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.069,
+    "ci": [
+     0.0472,
+     0.0897
+    ],
+    "present": true,
+    "A": 0.9599,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3383,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0121,
+    "ci": [
+     0.0,
+     0.0358
+    ],
+    "present": false,
+    "A": 0.9862,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2229,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0209,
+    "ci": [
+     0.0086,
+     0.0292
+    ],
+    "present": true,
+    "A": 0.9619,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2835,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0545,
+    "ci": [
+     0.0316,
+     0.0717
+    ],
+    "present": true,
+    "A": 0.9167,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5812,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "vascular leptomeningeal cells": {
+    "fraction": 0.0124,
+    "ci": [
+     0.0,
+     0.0217
+    ],
+    "present": false,
+    "A": 0.9278,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 22818,
+    "klass": "stromal",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548191",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07310540864808418,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.3761,
+    "ci": [
+     0.3444,
+     0.4033
+    ],
+    "present": true,
+    "A": 1.1216,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0984,
+    "ci": [
+     0.0777,
+     0.118
+    ],
+    "present": true,
+    "A": 1.026,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "erythrocyte progenitors": {
+    "fraction": 0.0269,
+    "ci": [
+     0.0178,
+     0.0367
+    ],
+    "present": true,
+    "A": 0.6608,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 12308,
+    "klass": "progenitor",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0265,
+    "ci": [
+     0.0,
+     0.0544
+    ],
+    "present": false,
+    "A": 1.0198,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4672,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.06,
+    "ci": [
+     0.0488,
+     0.0713
+    ],
+    "present": true,
+    "A": 0.9651,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0626,
+    "ci": [
+     0.0498,
+     0.0753
+    ],
+    "present": true,
+    "A": 0.9866,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23605,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2084,
+    "ci": [
+     0.1717,
+     0.2492
+    ],
+    "present": true,
+    "A": 1.076,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2003,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0905,
+    "ci": [
+     0.0702,
+     0.1088
+    ],
+    "present": true,
+    "A": 1.0423,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3410,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0409,
+    "ci": [
+     0.0252,
+     0.055
+    ],
+    "present": true,
+    "A": 1.0562,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2249,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548184",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0703293931551731,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.5606,
+    "ci": [
+     0.5238,
+     0.5855
+    ],
+    "present": true,
+    "A": 1.0877,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0228,
+    "ci": [
+     0.007,
+     0.0338
+    ],
+    "present": true,
+    "A": 0.9801,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1731,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0331,
+    "ci": [
+     0.0144,
+     0.0502
+    ],
+    "present": true,
+    "A": 0.8877,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8394,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0457,
+    "ci": [
+     0.0364,
+     0.0558
+    ],
+    "present": true,
+    "A": 0.9121,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3564,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0474,
+    "ci": [
+     0.0381,
+     0.0592
+    ],
+    "present": true,
+    "A": 0.9153,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23637,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2289,
+    "ci": [
+     0.1962,
+     0.2596
+    ],
+    "present": true,
+    "A": 1.0047,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2002,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0278,
+    "ci": [
+     0.0082,
+     0.0437
+    ],
+    "present": true,
+    "A": 0.9699,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3409,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0256,
+    "ci": [
+     0.0082,
+     0.04
+    ],
+    "present": true,
+    "A": 0.9001,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5944,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548192",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0790538243567575,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0464,
+    "ci": [
+     0.015,
+     0.0832
+    ],
+    "present": true,
+    "A": 1.0459,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4129,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.2771,
+    "ci": [
+     0.2414,
+     0.3049
+    ],
+    "present": true,
+    "A": 1.0683,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2511,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0729,
+    "ci": [
+     0.0534,
+     0.0905
+    ],
+    "present": true,
+    "A": 0.9734,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1721,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0583,
+    "ci": [
+     0.0336,
+     0.0826
+    ],
+    "present": true,
+    "A": 0.875,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8303,
+    "klass": "immune",
+    "flags": []
+   },
+   "eosinophils": {
+    "fraction": 0.0173,
+    "ci": [
+     0.0002,
+     0.0352
+    ],
+    "present": false,
+    "A": 0.966,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4897,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0723,
+    "ci": [
+     0.0607,
+     0.0833
+    ],
+    "present": true,
+    "A": 0.8831,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3560,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.036,
+    "ci": [
+     0.0249,
+     0.0459
+    ],
+    "present": true,
+    "A": 0.9097,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23122,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1306,
+    "ci": [
+     0.1036,
+     0.1592
+    ],
+    "present": true,
+    "A": 1.0213,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1988,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0256,
+    "ci": [
+     0.0,
+     0.0418
+    ],
+    "present": false,
+    "A": 1.0572,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3457,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0732,
+    "ci": [
+     0.0502,
+     0.0952
+    ],
+    "present": true,
+    "A": 0.9733,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3383,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0559,
+    "ci": [
+     0.0345,
+     0.0773
+    ],
+    "present": true,
+    "A": 0.9997,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2230,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1263,
+    "ci": [
+     0.1058,
+     0.1428
+    ],
+    "present": true,
+    "A": 0.9053,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5800,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548194",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0954763792942306,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.4025,
+    "ci": [
+     0.3695,
+     0.4365
+    ],
+    "present": true,
+    "A": 1.0346,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2509,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0242,
+    "ci": [
+     0.0,
+     0.0537
+    ],
+    "present": false,
+    "A": 0.8892,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1493,
+    "klass": "immune",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0551,
+    "ci": [
+     0.0381,
+     0.0752
+    ],
+    "present": true,
+    "A": 0.9215,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1719,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0145,
+    "ci": [
+     0.0,
+     0.0331
+    ],
+    "present": false,
+    "A": 0.8643,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11190,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0649,
+    "ci": [
+     0.0429,
+     0.0782
+    ],
+    "present": true,
+    "A": 0.8273,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3556,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0468,
+    "ci": [
+     0.0327,
+     0.06
+    ],
+    "present": true,
+    "A": 0.8561,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23214,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1207,
+    "ci": [
+     0.0798,
+     0.1496
+    ],
+    "present": true,
+    "A": 0.9701,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1989,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0904,
+    "ci": [
+     0.0638,
+     0.1137
+    ],
+    "present": true,
+    "A": 0.9201,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3385,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0605,
+    "ci": [
+     0.0348,
+     0.083
+    ],
+    "present": true,
+    "A": 0.945,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2228,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1192,
+    "ci": [
+     0.0976,
+     0.1335
+    ],
+    "present": true,
+    "A": 0.8401,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5810,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548196",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08067297187753683,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.4081,
+    "ci": [
+     0.3677,
+     0.4349
+    ],
+    "present": true,
+    "A": 1.0654,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2505,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0556,
+    "ci": [
+     0.026,
+     0.0843
+    ],
+    "present": true,
+    "A": 0.8893,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11133,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.1138,
+    "ci": [
+     0.0811,
+     0.1473
+    ],
+    "present": true,
+    "A": 0.9285,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4561,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0989,
+    "ci": [
+     0.0787,
+     0.1103
+    ],
+    "present": true,
+    "A": 0.8636,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3553,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0419,
+    "ci": [
+     0.0237,
+     0.0566
+    ],
+    "present": true,
+    "A": 0.8804,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23017,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.236,
+    "ci": [
+     0.2044,
+     0.263
+    ],
+    "present": true,
+    "A": 0.9591,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1987,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0171,
+    "ci": [
+     0.0066,
+     0.023
+    ],
+    "present": true,
+    "A": 0.9204,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2817,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548185",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0830045941857115,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.6456,
+    "ci": [
+     0.6173,
+     0.6775
+    ],
+    "present": true,
+    "A": 1.0356,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2510,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "MEP (bone marrow)": {
+    "fraction": 0.0139,
+    "ci": [
+     0.0,
+     0.0306
+    ],
+    "present": false,
+    "A": 1.0603,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2654,
+    "klass": "progenitor",
+    "flags": [
+     "HELD-OUT-MEDIAN-0.915"
+    ]
+   },
+   "colon macrophages": {
+    "fraction": 0.0112,
+    "ci": [
+     0.0,
+     0.0325
+    ],
+    "present": false,
+    "A": 0.8598,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11366,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0343,
+    "ci": [
+     0.0262,
+     0.0424
+    ],
+    "present": true,
+    "A": 0.8288,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3563,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0456,
+    "ci": [
+     0.0284,
+     0.0575
+    ],
+    "present": true,
+    "A": 0.8551,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23566,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1486,
+    "ci": [
+     0.1137,
+     0.179
+    ],
+    "present": true,
+    "A": 0.9253,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2000,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0394,
+    "ci": [
+     0.0224,
+     0.0587
+    ],
+    "present": true,
+    "A": 0.8932,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3403,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0458,
+    "ci": [
+     0.0211,
+     0.0539
+    ],
+    "present": true,
+    "A": 0.829,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5900,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548198",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07261968971365586,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.0985,
+    "ci": [
+     0.0774,
+     0.1199
+    ],
+    "present": true,
+    "A": 1.1321,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2512,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "adipocytes": {
+    "fraction": 0.0394,
+    "ci": [
+     0.0308,
+     0.0451
+    ],
+    "present": true,
+    "A": 0.9783,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 9556,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0185,
+    "ci": [
+     0.0053,
+     0.0311
+    ],
+    "present": true,
+    "A": 1.0843,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.1037,
+    "ci": [
+     0.0833,
+     0.1217
+    ],
+    "present": true,
+    "A": 0.985,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 8393,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.1056,
+    "ci": [
+     0.0919,
+     0.1152
+    ],
+    "present": true,
+    "A": 0.9957,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3565,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0858,
+    "ci": [
+     0.0728,
+     0.0994
+    ],
+    "present": true,
+    "A": 1.0104,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23633,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2695,
+    "ci": [
+     0.2416,
+     0.3031
+    ],
+    "present": true,
+    "A": 1.1042,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2004,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.2103,
+    "ci": [
+     0.1857,
+     0.2336
+    ],
+    "present": true,
+    "A": 1.0781,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3403,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0508,
+    "ci": [
+     0.0378,
+     0.0635
+    ],
+    "present": true,
+    "A": 1.0715,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2247,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0144,
+    "ci": [
+     0.0,
+     0.0288
+    ],
+    "present": false,
+    "A": 0.9794,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 5930,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548197",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07617219850130962,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.44,
+    "ci": [
+     0.4163,
+     0.4694
+    ],
+    "present": true,
+    "A": 1.0523,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0773,
+    "ci": [
+     0.0485,
+     0.1075
+    ],
+    "present": true,
+    "A": 0.9597,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1518,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.056,
+    "ci": [
+     0.0288,
+     0.0757
+    ],
+    "present": true,
+    "A": 0.8823,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11462,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0907,
+    "ci": [
+     0.0591,
+     0.1183
+    ],
+    "present": true,
+    "A": 0.9264,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4691,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0557,
+    "ci": [
+     0.039,
+     0.0716
+    ],
+    "present": true,
+    "A": 0.8456,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory cd4 t cells": {
+    "fraction": 0.019,
+    "ci": [
+     0.0,
+     0.0302
+    ],
+    "present": false,
+    "A": 0.866,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 9297,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0322,
+    "ci": [
+     0.0188,
+     0.0446
+    ],
+    "present": true,
+    "A": 0.8756,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23757,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1964,
+    "ci": [
+     0.1711,
+     0.225
+    ],
+    "present": true,
+    "A": 0.9437,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2004,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0139,
+    "ci": [
+     0.0052,
+     0.0208
+    ],
+    "present": true,
+    "A": 0.9141,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2954,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548193",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08734526517590861,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.4965,
+    "ci": [
+     0.4635,
+     0.5413
+    ],
+    "present": true,
+    "A": 1.0481,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2502,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0198,
+    "ci": [
+     0.0,
+     0.0554
+    ],
+    "present": false,
+    "A": 0.9317,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1471,
+    "klass": "immune",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0505,
+    "ci": [
+     0.03,
+     0.0642
+    ],
+    "present": true,
+    "A": 0.9366,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1709,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.063,
+    "ci": [
+     0.0421,
+     0.0798
+    ],
+    "present": true,
+    "A": 0.8518,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3545,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0443,
+    "ci": [
+     0.0302,
+     0.0556
+    ],
+    "present": true,
+    "A": 0.8695,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 22368,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0265,
+    "ci": [
+     0.0,
+     0.0601
+    ],
+    "present": false,
+    "A": 0.9848,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1968,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0274,
+    "ci": [
+     0.0111,
+     0.0452
+    ],
+    "present": true,
+    "A": 1.0346,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3393,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.1016,
+    "ci": [
+     0.0729,
+     0.1264
+    ],
+    "present": true,
+    "A": 0.9331,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3328,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0375,
+    "ci": [
+     0.0097,
+     0.0593
+    ],
+    "present": true,
+    "A": 0.958,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2187,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1298,
+    "ci": [
+     0.1111,
+     0.149
+    ],
+    "present": true,
+    "A": 0.88,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5570,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548195",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0761467497938201,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.3319,
+    "ci": [
+     0.3036,
+     0.3618
+    ],
+    "present": true,
+    "A": 1.0641,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2511,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0172,
+    "ci": [
+     0.0,
+     0.044
+    ],
+    "present": false,
+    "A": 0.9615,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1505,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.047,
+    "ci": [
+     0.0248,
+     0.0683
+    ],
+    "present": true,
+    "A": 0.9005,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11312,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0113,
+    "ci": [
+     0.0,
+     0.0326
+    ],
+    "present": false,
+    "A": 0.8746,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8377,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.1177,
+    "ci": [
+     0.0822,
+     0.1468
+    ],
+    "present": true,
+    "A": 0.941,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4639,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0842,
+    "ci": [
+     0.0657,
+     0.1008
+    ],
+    "present": true,
+    "A": 0.8678,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3562,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.042,
+    "ci": [
+     0.027,
+     0.0515
+    ],
+    "present": true,
+    "A": 0.8908,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23439,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.3,
+    "ci": [
+     0.2708,
+     0.3422
+    ],
+    "present": true,
+    "A": 0.967,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 1998,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0151,
+    "ci": [
+     0.0086,
+     0.023
+    ],
+    "present": true,
+    "A": 0.9285,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2907,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0116,
+    "ci": [
+     0.0,
+     0.0274
+    ],
+    "present": false,
+    "A": 0.8974,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5908,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548189",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07223784360276359,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.3499,
+    "ci": [
+     0.3063,
+     0.3813
+    ],
+    "present": true,
+    "A": 1.1235,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2510,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.1166,
+    "ci": [
+     0.1002,
+     0.1385
+    ],
+    "present": true,
+    "A": 1.0393,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1724,
+    "klass": "immune",
+    "flags": []
+   },
+   "erythrocyte progenitors": {
+    "fraction": 0.029,
+    "ci": [
+     0.021,
+     0.0371
+    ],
+    "present": true,
+    "A": 0.6729,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 12076,
+    "klass": "progenitor",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.025,
+    "ci": [
+     0.0,
+     0.0505
+    ],
+    "present": false,
+    "A": 1.025,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4618,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0584,
+    "ci": [
+     0.0469,
+     0.0671
+    ],
+    "present": true,
+    "A": 0.9751,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3564,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0586,
+    "ci": [
+     0.0414,
+     0.0704
+    ],
+    "present": true,
+    "A": 0.9902,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23261,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2208,
+    "ci": [
+     0.1827,
+     0.2584
+    ],
+    "present": true,
+    "A": 1.0833,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1993,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0986,
+    "ci": [
+     0.0805,
+     0.1167
+    ],
+    "present": true,
+    "A": 1.0488,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3393,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0384,
+    "ci": [
+     0.0213,
+     0.0505
+    ],
+    "present": true,
+    "A": 1.0622,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2232,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548199",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08605603729208863,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.194,
+    "ci": [
+     0.1635,
+     0.2224
+    ],
+    "present": true,
+    "A": 1.1372,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2512,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "adipocytes": {
+    "fraction": 0.0295,
+    "ci": [
+     0.0181,
+     0.0387
+    ],
+    "present": true,
+    "A": 0.9728,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 9549,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0431,
+    "ci": [
+     0.0258,
+     0.0585
+    ],
+    "present": true,
+    "A": 1.081,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1727,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.1049,
+    "ci": [
+     0.0931,
+     0.1195
+    ],
+    "present": true,
+    "A": 0.996,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.1193,
+    "ci": [
+     0.1014,
+     0.1344
+    ],
+    "present": true,
+    "A": 1.0013,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23548,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2541,
+    "ci": [
+     0.2171,
+     0.2971
+    ],
+    "present": true,
+    "A": 1.1014,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2000,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.2091,
+    "ci": [
+     0.1768,
+     0.2337
+    ],
+    "present": true,
+    "A": 1.0735,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3402,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0375,
+    "ci": [
+     0.0189,
+     0.0523
+    ],
+    "present": true,
+    "A": 1.0668,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2249,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548200",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.09456852743715331,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.2319,
+    "ci": [
+     0.2063,
+     0.2689
+    ],
+    "present": true,
+    "A": 1.1354,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2492,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "adipocytes": {
+    "fraction": 0.0365,
+    "ci": [
+     0.0251,
+     0.0453
+    ],
+    "present": true,
+    "A": 0.9609,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 9264,
+    "klass": "stromal",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0292,
+    "ci": [
+     0.01,
+     0.0469
+    ],
+    "present": true,
+    "A": 1.0837,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1703,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0977,
+    "ci": [
+     0.0825,
+     0.1088
+    ],
+    "present": true,
+    "A": 0.9925,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3535,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.1232,
+    "ci": [
+     0.1058,
+     0.1396
+    ],
+    "present": true,
+    "A": 0.9909,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 22119,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2208,
+    "ci": [
+     0.1784,
+     0.267
+    ],
+    "present": true,
+    "A": 1.0961,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 1960,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.2331,
+    "ci": [
+     0.1983,
+     0.2649
+    ],
+    "present": true,
+    "A": 1.0708,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3311,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0251,
+    "ci": [
+     0.0042,
+     0.039
+    ],
+    "present": false,
+    "A": 1.054,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2170,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548201",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08102126457920798,
+  "cells": {
+   "eosinophils": {
+    "fraction": 0.0702,
+    "ci": [
+     0.0514,
+     0.0864
+    ],
+    "present": true,
+    "A": 1.0773,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4938,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung alveolar macrophages": {
+    "fraction": 0.1622,
+    "ci": [
+     0.1379,
+     0.1894
+    ],
+    "present": true,
+    "A": 1.0523,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 8819,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0239,
+    "ci": [
+     0.0156,
+     0.0321
+    ],
+    "present": true,
+    "A": 0.9755,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3564,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0379,
+    "ci": [
+     0.0226,
+     0.0535
+    ],
+    "present": true,
+    "A": 1.0226,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23616,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.5678,
+    "ci": [
+     0.5264,
+     0.605
+    ],
+    "present": true,
+    "A": 1.1118,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 1998,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.1379,
+    "ci": [
+     0.104,
+     0.176
+    ],
+    "present": true,
+    "A": 1.0795,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3400,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548203",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07757922274007427,
+  "cells": {
+   "eosinophils": {
+    "fraction": 0.0825,
+    "ci": [
+     0.0639,
+     0.0976
+    ],
+    "present": true,
+    "A": 1.074,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4919,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung alveolar macrophages": {
+    "fraction": 0.098,
+    "ci": [
+     0.0673,
+     0.1191
+    ],
+    "present": true,
+    "A": 1.0549,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 8770,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0194,
+    "ci": [
+     0.0107,
+     0.028
+    ],
+    "present": true,
+    "A": 0.9869,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3568,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0443,
+    "ci": [
+     0.0312,
+     0.0614
+    ],
+    "present": true,
+    "A": 1.0145,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23456,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.5822,
+    "ci": [
+     0.5436,
+     0.6179
+    ],
+    "present": true,
+    "A": 1.1087,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 1994,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.1735,
+    "ci": [
+     0.14,
+     0.2047
+    ],
+    "present": true,
+    "A": 1.0739,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3395,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548202",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07933284031669094,
+  "cells": {
+   "eosinophils": {
+    "fraction": 0.078,
+    "ci": [
+     0.0568,
+     0.0958
+    ],
+    "present": true,
+    "A": 1.0789,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4933,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung alveolar macrophages": {
+    "fraction": 0.1193,
+    "ci": [
+     0.0963,
+     0.1427
+    ],
+    "present": true,
+    "A": 1.0562,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 8837,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0186,
+    "ci": [
+     0.0102,
+     0.0279
+    ],
+    "present": true,
+    "A": 0.9861,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3567,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.039,
+    "ci": [
+     0.024,
+     0.0525
+    ],
+    "present": true,
+    "A": 1.0201,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23630,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.5796,
+    "ci": [
+     0.5424,
+     0.6198
+    ],
+    "present": true,
+    "A": 1.1133,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2001,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.1655,
+    "ci": [
+     0.1346,
+     0.1999
+    ],
+    "present": true,
+    "A": 1.0777,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3406,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548204",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07538874681920298,
+  "cells": {
+   "eosinophils": {
+    "fraction": 0.0254,
+    "ci": [
+     0.0085,
+     0.0432
+    ],
+    "present": true,
+    "A": 1.1035,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4937,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung alveolar macrophages": {
+    "fraction": 0.1117,
+    "ci": [
+     0.0842,
+     0.133
+    ],
+    "present": true,
+    "A": 1.0909,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 8889,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0944,
+    "ci": [
+     0.0853,
+     0.1071
+    ],
+    "present": true,
+    "A": 1.018,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3568,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0642,
+    "ci": [
+     0.0516,
+     0.0767
+    ],
+    "present": true,
+    "A": 1.0593,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 23671,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.6398,
+    "ci": [
+     0.6119,
+     0.6687
+    ],
+    "present": true,
+    "A": 1.1392,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2003,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.029,
+    "ci": [
+     0.0062,
+     0.0564
+    ],
+    "present": true,
+    "A": 1.111,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3411,
+    "klass": "immune",
+    "flags": []
+   },
+   "smooth muscle": {
+    "fraction": 0.0133,
+    "ci": [
+     0.0021,
+     0.021
+    ],
+    "present": false,
+    "A": 0.9581,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1006,
+    "klass": "stromal",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.02,
+    "ci": [
+     0.012,
+     0.0303
+    ],
+    "present": true,
+    "A": 1.0137,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 5947,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548206",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.051520362784511144,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1342,
+    "ci": [
+     0.1067,
+     0.1594
+    ],
+    "present": true,
+    "A": 0.9689,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4126,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3379,
+    "ci": [
+     0.3026,
+     0.3741
+    ],
+    "present": true,
+    "A": 0.9975,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2510,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.1017,
+    "ci": [
+     0.0632,
+     0.1358
+    ],
+    "present": true,
+    "A": 0.9948,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3740,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0282,
+    "ci": [
+     0.0138,
+     0.0441
+    ],
+    "present": true,
+    "A": 0.9417,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1503,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0141,
+    "ci": [
+     0.0095,
+     0.0175
+    ],
+    "present": true,
+    "A": 0.9454,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3024,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0843,
+    "ci": [
+     0.0694,
+     0.102
+    ],
+    "present": true,
+    "A": 0.8067,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8332,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.012,
+    "ci": [
+     0.0,
+     0.0228
+    ],
+    "present": false,
+    "A": 0.8189,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3562,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0482,
+    "ci": [
+     0.0341,
+     0.0642
+    ],
+    "present": true,
+    "A": 0.974,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3472,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0102,
+    "ci": [
+     0.0041,
+     0.0156
+    ],
+    "present": false,
+    "A": 0.8644,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3391,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.1564,
+    "ci": [
+     0.1421,
+     0.1692
+    ],
+    "present": true,
+    "A": 0.9071,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2230,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0633,
+    "ci": [
+     0.0509,
+     0.0756
+    ],
+    "present": true,
+    "A": 0.8623,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5812,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548208",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07358957881970983,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0228,
+    "ci": [
+     0.0,
+     0.0581
+    ],
+    "present": false,
+    "A": 0.9057,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4136,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.2749,
+    "ci": [
+     0.2012,
+     0.3252
+    ],
+    "present": true,
+    "A": 0.9381,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.3594,
+    "ci": [
+     0.307,
+     0.4216
+    ],
+    "present": true,
+    "A": 0.9401,
+    "tier": "BELOW NORMAL",
+    "carrying": true,
+    "n_loci_read": 3759,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0978,
+    "ci": [
+     0.0788,
+     0.11
+    ],
+    "present": true,
+    "A": 0.9108,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1519,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0202,
+    "ci": [
+     0.0135,
+     0.0249
+    ],
+    "present": true,
+    "A": 0.8963,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3121,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.016,
+    "ci": [
+     0.0113,
+     0.0226
+    ],
+    "present": true,
+    "A": 0.8434,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3677,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0272,
+    "ci": [
+     0.0014,
+     0.0459
+    ],
+    "present": false,
+    "A": 0.7288,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8417,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.085,
+    "ci": [
+     0.0449,
+     0.1037
+    ],
+    "present": true,
+    "A": 0.9118,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3507,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0757,
+    "ci": [
+     0.0563,
+     0.0877
+    ],
+    "present": true,
+    "A": 0.7993,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6001,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548205",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08423099562357321,
+  "cells": {
+   "eosinophils": {
+    "fraction": 0.012,
+    "ci": [
+     0.0,
+     0.0249
+    ],
+    "present": false,
+    "A": 1.075,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 4883,
+    "klass": "immune",
+    "flags": []
+   },
+   "lung alveolar macrophages": {
+    "fraction": 0.1384,
+    "ci": [
+     0.1014,
+     0.1637
+    ],
+    "present": true,
+    "A": 1.0554,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 8598,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0527,
+    "ci": [
+     0.0433,
+     0.0599
+    ],
+    "present": true,
+    "A": 0.978,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3552,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0542,
+    "ci": [
+     0.0396,
+     0.0736
+    ],
+    "present": true,
+    "A": 1.0215,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 22868,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.7419,
+    "ci": [
+     0.7185,
+     0.7731
+    ],
+    "present": true,
+    "A": 1.121,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 1982,
+    "klass": "immune",
+    "flags": []
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548210",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06535687116186462,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0898,
+    "ci": [
+     0.0437,
+     0.1361
+    ],
+    "present": true,
+    "A": 0.9603,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4139,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.2652,
+    "ci": [
+     0.2057,
+     0.3257
+    ],
+    "present": true,
+    "A": 0.982,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.4165,
+    "ci": [
+     0.3392,
+     0.4839
+    ],
+    "present": true,
+    "A": 0.997,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3756,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0158,
+    "ci": [
+     0.0,
+     0.038
+    ],
+    "present": false,
+    "A": 0.9229,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1511,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0613,
+    "ci": [
+     0.0305,
+     0.0784
+    ],
+    "present": true,
+    "A": 0.9537,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1155,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon epithelium": {
+    "fraction": 0.0117,
+    "ci": [
+     0.0056,
+     0.0166
+    ],
+    "present": true,
+    "A": 0.9038,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3670,
+    "klass": "cycling",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0132,
+    "ci": [
+     0.0,
+     0.0266
+    ],
+    "present": false,
+    "A": 0.792,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3568,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0142,
+    "ci": [
+     0.0036,
+     0.0221
+    ],
+    "present": false,
+    "A": 0.8672,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3409,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0162,
+    "ci": [
+     0.0033,
+     0.0271
+    ],
+    "present": false,
+    "A": 0.7988,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10783,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0536,
+    "ci": [
+     0.0402,
+     0.068
+    ],
+    "present": true,
+    "A": 0.8478,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5918,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548221",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.05781447675759637,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0443,
+    "ci": [
+     0.0174,
+     0.0815
+    ],
+    "present": true,
+    "A": 0.9556,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4038,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3933,
+    "ci": [
+     0.3433,
+     0.452
+    ],
+    "present": true,
+    "A": 0.9788,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2480,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "HSC (bone marrow)": {
+    "fraction": 0.071,
+    "ci": [
+     0.0029,
+     0.1359
+    ],
+    "present": false,
+    "A": 0.9706,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3209,
+    "klass": "stem_adult",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.2946,
+    "ci": [
+     0.1881,
+     0.3925
+    ],
+    "present": true,
+    "A": 0.9817,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3598,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0137,
+    "ci": [
+     0.0,
+     0.0316
+    ],
+    "present": false,
+    "A": 0.7972,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 7919,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0247,
+    "ci": [
+     0.0165,
+     0.0327
+    ],
+    "present": true,
+    "A": 0.9631,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3224,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "hepatocyte": {
+    "fraction": 0.0109,
+    "ci": [
+     0.0068,
+     0.0145
+    ],
+    "present": true,
+    "A": 0.9162,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4050,
+    "klass": "secretory",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0486,
+    "ci": [
+     0.0397,
+     0.0593
+    ],
+    "present": true,
+    "A": 0.8433,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3274,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0377,
+    "ci": [
+     0.0253,
+     0.051
+    ],
+    "present": true,
+    "A": 0.8119,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10101,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0393,
+    "ci": [
+     0.0281,
+     0.0499
+    ],
+    "present": true,
+    "A": 0.8684,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5289,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548209",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0645848098439135,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1191,
+    "ci": [
+     0.0749,
+     0.1736
+    ],
+    "present": true,
+    "A": 0.97,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4139,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3303,
+    "ci": [
+     0.2644,
+     0.4069
+    ],
+    "present": true,
+    "A": 0.9912,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.3168,
+    "ci": [
+     0.2493,
+     0.3867
+    ],
+    "present": true,
+    "A": 1.0066,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 3758,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0203,
+    "ci": [
+     0.0021,
+     0.0399
+    ],
+    "present": false,
+    "A": 0.9368,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1517,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0556,
+    "ci": [
+     0.0324,
+     0.0798
+    ],
+    "present": true,
+    "A": 0.962,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1154,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon epithelium": {
+    "fraction": 0.0123,
+    "ci": [
+     0.0068,
+     0.0181
+    ],
+    "present": true,
+    "A": 0.9131,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3679,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.012,
+    "ci": [
+     0.0,
+     0.0354
+    ],
+    "present": false,
+    "A": 0.7965,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8400,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0139,
+    "ci": [
+     0.0011,
+     0.028
+    ],
+    "present": false,
+    "A": 0.8009,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3566,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0244,
+    "ci": [
+     0.0159,
+     0.0345
+    ],
+    "present": true,
+    "A": 0.8788,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3415,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0129,
+    "ci": [
+     0.0,
+     0.0251
+    ],
+    "present": false,
+    "A": 0.8104,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10817,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0504,
+    "ci": [
+     0.0364,
+     0.0631
+    ],
+    "present": true,
+    "A": 0.8561,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5976,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548214",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0772763722054648,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.0819,
+    "ci": [
+     0.0584,
+     0.1038
+    ],
+    "present": true,
+    "A": 1.0349,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0524,
+    "ci": [
+     0.0424,
+     0.0627
+    ],
+    "present": true,
+    "A": 0.9487,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0176,
+    "ci": [
+     0.0,
+     0.037
+    ],
+    "present": false,
+    "A": 1.0121,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1160,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0907,
+    "ci": [
+     0.0686,
+     0.1079
+    ],
+    "present": true,
+    "A": 0.9287,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11578,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0624,
+    "ci": [
+     0.0465,
+     0.0713
+    ],
+    "present": true,
+    "A": 0.874,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3569,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.5081,
+    "ci": [
+     0.4874,
+     0.531
+    ],
+    "present": true,
+    "A": 0.9966,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0344,
+    "ci": [
+     0.0221,
+     0.0454
+    ],
+    "present": true,
+    "A": 0.9712,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3423,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0125,
+    "ci": [
+     0.0052,
+     0.0192
+    ],
+    "present": true,
+    "A": 0.9365,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2977,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1301,
+    "ci": [
+     0.1146,
+     0.1468
+    ],
+    "present": true,
+    "A": 0.9001,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6045,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548213",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08447813511460181,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1909,
+    "ci": [
+     0.136,
+     0.2601
+    ],
+    "present": true,
+    "A": 0.9563,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4138,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.2526,
+    "ci": [
+     0.2003,
+     0.3078
+    ],
+    "present": true,
+    "A": 0.9718,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.1203,
+    "ci": [
+     0.0581,
+     0.1949
+    ],
+    "present": true,
+    "A": 0.9918,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3765,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.1256,
+    "ci": [
+     0.1004,
+     0.1486
+    ],
+    "present": true,
+    "A": 0.9071,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1522,
+    "klass": "immune",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0111,
+    "ci": [
+     0.0,
+     0.0221
+    ],
+    "present": false,
+    "A": 0.8259,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1732,
+    "klass": "immune",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0359,
+    "ci": [
+     0.0,
+     0.079
+    ],
+    "present": false,
+    "A": 0.9591,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1159,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon epithelium": {
+    "fraction": 0.0126,
+    "ci": [
+     0.0058,
+     0.0202
+    ],
+    "present": true,
+    "A": 0.8906,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3683,
+    "klass": "cycling",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0161,
+    "ci": [
+     0.0,
+     0.0334
+    ],
+    "present": false,
+    "A": 0.8576,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11569,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.037,
+    "ci": [
+     0.005,
+     0.0613
+    ],
+    "present": true,
+    "A": 0.9932,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4319,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.028,
+    "ci": [
+     0.0,
+     0.066
+    ],
+    "present": false,
+    "A": 0.9975,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3518,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0125,
+    "ci": [
+     0.0027,
+     0.0211
+    ],
+    "present": false,
+    "A": 0.9,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2969,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1416,
+    "ci": [
+     0.1187,
+     0.1621
+    ],
+    "present": true,
+    "A": 0.8344,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6042,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548216",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06374806001831544,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.118,
+    "ci": [
+     0.0788,
+     0.161
+    ],
+    "present": true,
+    "A": 0.942,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4139,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3686,
+    "ci": [
+     0.302,
+     0.4339
+    ],
+    "present": true,
+    "A": 0.9661,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.2987,
+    "ci": [
+     0.2241,
+     0.3693
+    ],
+    "present": true,
+    "A": 0.9821,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3763,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0341,
+    "ci": [
+     0.0232,
+     0.0436
+    ],
+    "present": true,
+    "A": 0.7869,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0135,
+    "ci": [
+     0.0047,
+     0.0208
+    ],
+    "present": false,
+    "A": 0.835,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 24052,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "neutrophils": {
+    "fraction": 0.0231,
+    "ci": [
+     0.0141,
+     0.0331
+    ],
+    "present": true,
+    "A": 0.8764,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3425,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0222,
+    "ci": [
+     0.0077,
+     0.0295
+    ],
+    "present": true,
+    "A": 0.8074,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10887,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0762,
+    "ci": [
+     0.0649,
+     0.0869
+    ],
+    "present": true,
+    "A": 0.8458,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6073,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548212",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.0913192593345234,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1466,
+    "ci": [
+     0.0907,
+     0.1925
+    ],
+    "present": true,
+    "A": 0.9018,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4125,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3163,
+    "ci": [
+     0.2385,
+     0.3825
+    ],
+    "present": true,
+    "A": 0.9198,
+    "tier": "BELOW NORMAL",
+    "carrying": true,
+    "n_loci_read": 2511,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.1499,
+    "ci": [
+     0.0843,
+     0.2375
+    ],
+    "present": true,
+    "A": 0.9445,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3747,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.121,
+    "ci": [
+     0.1026,
+     0.136
+    ],
+    "present": true,
+    "A": 0.8126,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1504,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0143,
+    "ci": [
+     0.0,
+     0.0336
+    ],
+    "present": false,
+    "A": 0.7813,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 11299,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "naive cd4 t cells": {
+    "fraction": 0.0604,
+    "ci": [
+     0.0332,
+     0.0894
+    ],
+    "present": true,
+    "A": 0.9364,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4261,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.0134,
+    "ci": [
+     0.0,
+     0.0409
+    ],
+    "present": false,
+    "A": 0.9473,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3480,
+    "klass": "immune",
+    "flags": []
+   },
+   "prostate epithelium": {
+    "fraction": 0.0113,
+    "ci": [
+     0.0003,
+     0.0181
+    ],
+    "present": false,
+    "A": 0.8212,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2861,
+    "klass": "secretory",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "t effector cell cd8": {
+    "fraction": 0.1566,
+    "ci": [
+     0.1383,
+     0.1659
+    ],
+    "present": true,
+    "A": 0.7525,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5869,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548211",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07146453485511312,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.142,
+    "ci": [
+     0.0781,
+     0.1891
+    ],
+    "present": true,
+    "A": 0.9391,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4130,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.4949,
+    "ci": [
+     0.4238,
+     0.5608
+    ],
+    "present": true,
+    "A": 0.9606,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.1702,
+    "ci": [
+     0.0951,
+     0.2591
+    ],
+    "present": true,
+    "A": 0.9812,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3741,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "cd8 t cells": {
+    "fraction": 0.0473,
+    "ci": [
+     0.0327,
+     0.0648
+    ],
+    "present": true,
+    "A": 0.9316,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1148,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0193,
+    "ci": [
+     0.0051,
+     0.0261
+    ],
+    "present": true,
+    "A": 0.7651,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3561,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0241,
+    "ci": [
+     0.0141,
+     0.0335
+    ],
+    "present": true,
+    "A": 0.8397,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3401,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0637,
+    "ci": [
+     0.0516,
+     0.0766
+    ],
+    "present": true,
+    "A": 0.8057,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5861,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548217",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06615991540621854,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1629,
+    "ci": [
+     0.1258,
+     0.2032
+    ],
+    "present": true,
+    "A": 0.9443,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4139,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3202,
+    "ci": [
+     0.2723,
+     0.3984
+    ],
+    "present": true,
+    "A": 0.9656,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.2772,
+    "ci": [
+     0.1994,
+     0.3297
+    ],
+    "present": true,
+    "A": 0.9823,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3764,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.0185,
+    "ci": [
+     0.0,
+     0.0331
+    ],
+    "present": false,
+    "A": 0.9041,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1527,
+    "klass": "immune",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0363,
+    "ci": [
+     0.0242,
+     0.0497
+    ],
+    "present": true,
+    "A": 0.7892,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0142,
+    "ci": [
+     0.0051,
+     0.0224
+    ],
+    "present": true,
+    "A": 0.8434,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 24101,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.0106,
+    "ci": [
+     0.0,
+     0.0272
+    ],
+    "present": false,
+    "A": 0.9163,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2010,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0174,
+    "ci": [
+     0.0079,
+     0.0279
+    ],
+    "present": true,
+    "A": 0.8832,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3426,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0223,
+    "ci": [
+     0.0062,
+     0.0305
+    ],
+    "present": true,
+    "A": 0.8135,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10894,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0911,
+    "ci": [
+     0.0781,
+     0.1006
+    ],
+    "present": true,
+    "A": 0.8468,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6085,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548215",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06348244411571227,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0948,
+    "ci": [
+     0.0542,
+     0.131
+    ],
+    "present": true,
+    "A": 0.9405,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4138,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.4057,
+    "ci": [
+     0.3447,
+     0.4641
+    ],
+    "present": true,
+    "A": 0.9652,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.2956,
+    "ci": [
+     0.2298,
+     0.3538
+    ],
+    "present": true,
+    "A": 0.9816,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3763,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0286,
+    "ci": [
+     0.0179,
+     0.0362
+    ],
+    "present": true,
+    "A": 0.788,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0112,
+    "ci": [
+     0.0016,
+     0.0174
+    ],
+    "present": false,
+    "A": 0.8347,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 23980,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "neutrophils": {
+    "fraction": 0.0293,
+    "ci": [
+     0.0214,
+     0.0357
+    ],
+    "present": true,
+    "A": 0.8747,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3421,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0326,
+    "ci": [
+     0.0189,
+     0.0458
+    ],
+    "present": true,
+    "A": 0.8074,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10874,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.07,
+    "ci": [
+     0.0585,
+     0.0794
+    ],
+    "present": true,
+    "A": 0.8496,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6061,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548207",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07029515885636833,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.1803,
+    "ci": [
+     0.1484,
+     0.2088
+    ],
+    "present": true,
+    "A": 0.919,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4132,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.3653,
+    "ci": [
+     0.3143,
+     0.4099
+    ],
+    "present": true,
+    "A": 0.9534,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.1311,
+    "ci": [
+     0.0846,
+     0.2076
+    ],
+    "present": true,
+    "A": 0.9544,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3757,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "b cells": {
+    "fraction": 0.1,
+    "ci": [
+     0.0839,
+     0.1134
+    ],
+    "present": true,
+    "A": 0.92,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1511,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0184,
+    "ci": [
+     0.0118,
+     0.024
+    ],
+    "present": true,
+    "A": 0.9057,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3089,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.0148,
+    "ci": [
+     0.0101,
+     0.021
+    ],
+    "present": true,
+    "A": 0.8563,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3672,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0265,
+    "ci": [
+     0.0015,
+     0.0533
+    ],
+    "present": false,
+    "A": 0.7475,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8388,
+    "klass": "immune",
+    "flags": []
+   },
+   "naive cd8 t cells": {
+    "fraction": 0.071,
+    "ci": [
+     0.0349,
+     0.0895
+    ],
+    "present": true,
+    "A": 0.926,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3498,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0704,
+    "ci": [
+     0.0472,
+     0.0861
+    ],
+    "present": true,
+    "A": 0.8101,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5933,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38- of AML patient",
+  "gsm": "GSM1548218",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08627149244894082,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.3526,
+    "ci": [
+     0.3159,
+     0.3825
+    ],
+    "present": true,
+    "A": 1.1088,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0866,
+    "ci": [
+     0.0669,
+     0.107
+    ],
+    "present": true,
+    "A": 1.0035,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1734,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0761,
+    "ci": [
+     0.0478,
+     0.1078
+    ],
+    "present": true,
+    "A": 0.9905,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 11548,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "erythrocyte progenitors": {
+    "fraction": 0.0195,
+    "ci": [
+     0.0099,
+     0.0301
+    ],
+    "present": true,
+    "A": 0.6509,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 12517,
+    "klass": "progenitor",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0113,
+    "ci": [
+     0.0,
+     0.0424
+    ],
+    "present": false,
+    "A": 1.0154,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4723,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0697,
+    "ci": [
+     0.0549,
+     0.0804
+    ],
+    "present": true,
+    "A": 0.947,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0306,
+    "ci": [
+     0.0169,
+     0.0408
+    ],
+    "present": true,
+    "A": 0.9818,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23935,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1947,
+    "ci": [
+     0.1573,
+     0.2325
+    ],
+    "present": true,
+    "A": 1.0582,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2008,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0859,
+    "ci": [
+     0.0674,
+     0.109
+    ],
+    "present": true,
+    "A": 1.0305,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3424,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.045,
+    "ci": [
+     0.0301,
+     0.0601
+    ],
+    "present": true,
+    "A": 1.0463,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 2258,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0256,
+    "ci": [
+     0.003,
+     0.0381
+    ],
+    "present": false,
+    "A": 0.9492,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6036,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548219",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08559926166358117,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.3078,
+    "ci": [
+     0.278,
+     0.3415
+    ],
+    "present": true,
+    "A": 1.1126,
+    "tier": "ELEVATED",
+    "carrying": true,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.1015,
+    "ci": [
+     0.0762,
+     0.1214
+    ],
+    "present": true,
+    "A": 1.0189,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0759,
+    "ci": [
+     0.0457,
+     0.1077
+    ],
+    "present": true,
+    "A": 0.9982,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 11565,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "erythrocyte progenitors": {
+    "fraction": 0.0187,
+    "ci": [
+     0.0084,
+     0.0274
+    ],
+    "present": true,
+    "A": 0.6604,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 12525,
+    "klass": "progenitor",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.012,
+    "ci": [
+     0.0,
+     0.0418
+    ],
+    "present": false,
+    "A": 1.0208,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4742,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0686,
+    "ci": [
+     0.0573,
+     0.0801
+    ],
+    "present": true,
+    "A": 0.9582,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3569,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0269,
+    "ci": [
+     0.008,
+     0.0425
+    ],
+    "present": true,
+    "A": 0.9891,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23965,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2285,
+    "ci": [
+     0.1944,
+     0.2675
+    ],
+    "present": true,
+    "A": 1.0665,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2007,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0888,
+    "ci": [
+     0.0669,
+     0.1073
+    ],
+    "present": true,
+    "A": 1.0397,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3424,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0438,
+    "ci": [
+     0.0199,
+     0.0607
+    ],
+    "present": true,
+    "A": 1.0551,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2257,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0264,
+    "ci": [
+     0.0024,
+     0.0382
+    ],
+    "present": false,
+    "A": 0.9538,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 6037,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548220",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.08673031386818097,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.1605,
+    "ci": [
+     0.1177,
+     0.19
+    ],
+    "present": true,
+    "A": 1.1202,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2513,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.1689,
+    "ci": [
+     0.1428,
+     0.1898
+    ],
+    "present": true,
+    "A": 1.0419,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 1733,
+    "klass": "immune",
+    "flags": []
+   },
+   "colon macrophages": {
+    "fraction": 0.0803,
+    "ci": [
+     0.0508,
+     0.1122
+    ],
+    "present": true,
+    "A": 1.0122,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 11575,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "erythrocyte progenitors": {
+    "fraction": 0.0267,
+    "ci": [
+     0.0154,
+     0.0361
+    ],
+    "present": true,
+    "A": 0.6733,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 12543,
+    "klass": "progenitor",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "lung interstitial macrophages": {
+    "fraction": 0.0142,
+    "ci": [
+     0.0,
+     0.0475
+    ],
+    "present": false,
+    "A": 1.0326,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4740,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "memory b cells": {
+    "fraction": 0.0616,
+    "ci": [
+     0.049,
+     0.0711
+    ],
+    "present": true,
+    "A": 0.9713,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "microglia": {
+    "fraction": 0.0192,
+    "ci": [
+     0.0031,
+     0.0313
+    ],
+    "present": false,
+    "A": 1.0045,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 23985,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER",
+     "ONE-SAMPLE"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.2918,
+    "ci": [
+     0.2503,
+     0.3369
+    ],
+    "present": true,
+    "A": 1.0814,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2006,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.1113,
+    "ci": [
+     0.0869,
+     0.1365
+    ],
+    "present": true,
+    "A": 1.0536,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 3421,
+    "klass": "immune",
+    "flags": []
+   },
+   "nk cells": {
+    "fraction": 0.0406,
+    "ci": [
+     0.0238,
+     0.0583
+    ],
+    "present": true,
+    "A": 1.0712,
+    "tier": "ELEVATED",
+    "carrying": false,
+    "n_loci_read": 2259,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0249,
+    "ci": [
+     0.0089,
+     0.0411
+    ],
+    "present": true,
+    "A": 0.9651,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 6044,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34+38+ of AML patient",
+  "gsm": "GSM1548222",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.06769442185937709,
+  "cells": {
+   "GMP (bone marrow)": {
+    "fraction": 0.6549,
+    "ci": [
+     0.6145,
+     0.6811
+    ],
+    "present": true,
+    "A": 0.9926,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2485,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "colon epithelium": {
+    "fraction": 0.0109,
+    "ci": [
+     0.0043,
+     0.0166
+    ],
+    "present": false,
+    "A": 0.9182,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3553,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0122,
+    "ci": [
+     0.0,
+     0.0356
+    ],
+    "present": false,
+    "A": 0.8164,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 7990,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0262,
+    "ci": [
+     0.017,
+     0.034
+    ],
+    "present": true,
+    "A": 0.9631,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3263,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "monocytes": {
+    "fraction": 0.1246,
+    "ci": [
+     0.0957,
+     0.1529
+    ],
+    "present": true,
+    "A": 0.9123,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1952,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0182,
+    "ci": [
+     0.0,
+     0.0323
+    ],
+    "present": false,
+    "A": 0.8798,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3291,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.0361,
+    "ci": [
+     0.0156,
+     0.0511
+    ],
+    "present": true,
+    "A": 0.8297,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10211,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.0668,
+    "ci": [
+     0.0493,
+     0.0798
+    ],
+    "present": true,
+    "A": 0.876,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 5355,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ },
+ {
+  "study": "GSE63409_AML:CD34- of AML patient",
+  "gsm": "GSM1548223",
+  "age": NaN,
+  "call_rate": null,
+  "residual_mae": 0.07785655342312513,
+  "cells": {
+   "CMP (bone marrow)": {
+    "fraction": 0.0555,
+    "ci": [
+     0.0072,
+     0.0921
+    ],
+    "present": true,
+    "A": 0.9562,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 4140,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "GMP (bone marrow)": {
+    "fraction": 0.49,
+    "ci": [
+     0.4251,
+     0.541
+    ],
+    "present": true,
+    "A": 0.9698,
+    "tier": "NORMAL",
+    "carrying": true,
+    "n_loci_read": 2514,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "L-MPP (bone marrow)": {
+    "fraction": 0.0167,
+    "ci": [
+     0.0,
+     0.0837
+    ],
+    "present": false,
+    "A": 0.9901,
+    "tier": "NORMAL",
+    "carrying": false,
+    "n_loci_read": 3762,
+    "klass": "progenitor",
+    "flags": []
+   },
+   "basophils": {
+    "fraction": 0.0239,
+    "ci": [
+     0.0145,
+     0.04
+    ],
+    "present": true,
+    "A": 0.8274,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 1734,
+    "klass": "immune",
+    "flags": []
+   },
+   "breast basal epithelium": {
+    "fraction": 0.0172,
+    "ci": [
+     0.0097,
+     0.0225
+    ],
+    "present": true,
+    "A": 0.9199,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3165,
+    "klass": "cycling",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   },
+   "colon epithelium": {
+    "fraction": 0.0121,
+    "ci": [
+     0.0004,
+     0.0157
+    ],
+    "present": false,
+    "A": 0.9014,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3695,
+    "klass": "cycling",
+    "flags": []
+   },
+   "effector memory cd8 t cells": {
+    "fraction": 0.0587,
+    "ci": [
+     0.0316,
+     0.0794
+    ],
+    "present": true,
+    "A": 0.7984,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 8459,
+    "klass": "immune",
+    "flags": []
+   },
+   "embryonic stem cells": {
+    "fraction": 0.0249,
+    "ci": [
+     0.0156,
+     0.0337
+    ],
+    "present": true,
+    "A": 0.9495,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3526,
+    "klass": "stem_pluri",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS",
+     "WGBS-CORRECTION-LEARNED-ON-LOYFER"
+    ]
+   },
+   "hepatocyte": {
+    "fraction": 0.0104,
+    "ci": [
+     0.0046,
+     0.0157
+    ],
+    "present": false,
+    "A": 0.9136,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 4244,
+    "klass": "secretory",
+    "flags": []
+   },
+   "memory b cells": {
+    "fraction": 0.0156,
+    "ci": [
+     0.0014,
+     0.0287
+    ],
+    "present": false,
+    "A": 0.794,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3570,
+    "klass": "immune",
+    "flags": []
+   },
+   "monocytes": {
+    "fraction": 0.1297,
+    "ci": [
+     0.1025,
+     0.149
+    ],
+    "present": true,
+    "A": 0.9035,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 2009,
+    "klass": "immune",
+    "flags": []
+   },
+   "neutrophils": {
+    "fraction": 0.0507,
+    "ci": [
+     0.0378,
+     0.0639
+    ],
+    "present": true,
+    "A": 0.8745,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 3428,
+    "klass": "immune",
+    "flags": []
+   },
+   "regulatory t cells": {
+    "fraction": 0.012,
+    "ci": [
+     0.0,
+     0.0291
+    ],
+    "present": false,
+    "A": 0.8167,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 10893,
+    "klass": "immune",
+    "flags": []
+   },
+   "t effector cell cd8": {
+    "fraction": 0.067,
+    "ci": [
+     0.0513,
+     0.0784
+    ],
+    "present": true,
+    "A": 0.848,
+    "tier": "BELOW NORMAL",
+    "carrying": false,
+    "n_loci_read": 6089,
+    "klass": "immune",
+    "flags": [
+     "SEQUENCING-CORRECTED-PER-LOCUS"
+    ]
+   }
+  }
+ }
+]

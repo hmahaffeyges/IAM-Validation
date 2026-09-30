@@ -1,0 +1,204 @@
+{
+ "V1_files": 2100,
+ "V1_blocks_local": 700,
+ "V3_filled_values_where_unmeasured": 0,
+ "V3_measured_fraction_by_cell": {
+  "CMP (bone marrow)": 0.5067,
+  "GMP (bone marrow)": 0.4991,
+  "HSC (bone marrow)": 0.5053,
+  "L-MPP (bone marrow)": 0.4997,
+  "MEP (bone marrow)": 0.5053,
+  "MPP (bone marrow)": 0.5051,
+  "adipocytes": 1.0,
+  "aorta endothelium": 1.0,
+  "astrocytes": 0.9743,
+  "b cells": 1.0,
+  "basophils": 0.9599,
+  "bladder epithelium": 1.0,
+  "breast basal epithelium": 1.0,
+  "breast luminal epithelium": 1.0,
+  "cardiomyocyte": 1.0,
+  "cd4 t cells": 1.0,
+  "cd8 t cells": 1.0,
+  "colon enteroendocrine": 1.0,
+  "colon epithelium": 1.0,
+  "colon fibroblasts": 1.0,
+  "colon macrophages": 1.0,
+  "cortical neurons": 1.0,
+  "effector memory cd8 t cells": 1.0,
+  "embryonic stem cells": 0.9983,
+  "endometrium epithelium": 1.0,
+  "eosinophils": 0.9595,
+  "erythrocyte progenitors": 1.0,
+  "fallopien tubes epithelium": 1.0,
+  "gastric antrum epithelium": 1.0,
+  "gastric body epithelium": 1.0,
+  "gastric fundus epithelium": 1.0,
+  "heart fibroblasts": 1.0,
+  "hepatocyte": 1.0,
+  "kidney glomerular endothelium": 1.0,
+  "kidney glomerular epithelium": 1.0,
+  "kidney tubular endothelium": 1.0,
+  "kidney tubular epithelium": 1.0,
+  "lung alveolar endothelium": 1.0,
+  "lung alveolar epithelium": 1.0,
+  "lung alveolar macrophages": 1.0,
+  "lung bronchus epithelium": 1.0,
+  "lung interstitial macrophages": 1.0,
+  "memory b cells": 1.0,
+  "memory cd4 t cells": 0.9562,
+  "microglia": 0.9743,
+  "monocytes": 1.0,
+  "naive b cells": 0.9525,
+  "naive cd4 t cells": 1.0,
+  "naive cd8 t cells": 1.0,
+  "neutrophils": 0.9644,
+  "nk cells": 1.0,
+  "oligodendrocyte precursors": 0.9743,
+  "oligodendrocytes": 1.0,
+  "pancreas endothelium": 1.0,
+  "pancreatic acinar": 1.0,
+  "pancreatic alpha": 1.0,
+  "pancreatic beta": 1.0,
+  "pancreatic delta": 1.0,
+  "pancreatic duct": 1.0,
+  "prostate epithelium": 1.0,
+  "regulatory t cells": 0.9518,
+  "small intestine epithelium": 1.0,
+  "smooth muscle": 1.0,
+  "striated muscle": 1.0,
+  "t central memory cd4": 1.0,
+  "t effector cell cd8": 1.0,
+  "t effector memory cd4": 1.0,
+  "thyroid epithelium": 1.0,
+  "tongue epithelium": 1.0,
+  "tonsil palatine epithelium": 1.0,
+  "tonsil pharyngeal epithelium": 1.0,
+  "vascular endothelium": 0.9368,
+  "vascular leptomeningeal cells": 0.9716,
+  "vascular saphenous endothelium": 1.0
+ },
+ "V4": {
+  "measured_pairs": 57460906,
+  "rhat_ge_1_01": 110316,
+  "ess_le_400": 124150,
+  "frac_rhat_bad": 0.0019198444243117225,
+  "frac_ess_bad": 0.0021605994169322704,
+  "worst_blocks_by_rhat_p99": [
+   {
+    "block": 269,
+    "rhat_p99": 1.0076,
+    "ess_p01": 501.6,
+    "n_rhat_bad": 434
+   },
+   {
+    "block": 334,
+    "rhat_p99": 1.0075,
+    "ess_p01": 510.7,
+    "n_rhat_bad": 428
+   },
+   {
+    "block": 410,
+    "rhat_p99": 1.0074,
+    "ess_p01": 524.6,
+    "n_rhat_bad": 399
+   },
+   {
+    "block": 38,
+    "rhat_p99": 1.0074,
+    "ess_p01": 532.0,
+    "n_rhat_bad": 394
+   },
+   {
+    "block": 193,
+    "rhat_p99": 1.0073,
+    "ess_p01": 520.8,
+    "n_rhat_bad": 414
+   },
+   {
+    "block": 78,
+    "rhat_p99": 1.0073,
+    "ess_p01": 525.4,
+    "n_rhat_bad": 385
+   },
+   {
+    "block": 294,
+    "rhat_p99": 1.0072,
+    "ess_p01": 535.7,
+    "n_rhat_bad": 355
+   },
+   {
+    "block": 238,
+    "rhat_p99": 1.0071,
+    "ess_p01": 525.4,
+    "n_rhat_bad": 359
+   }
+  ]
+ },
+ "V2": {
+  "pairs": 2701,
+  "loci": 116279,
+  "cells": 74,
+  "near_identical_lt_0_005": 0,
+  "median": 0.1256,
+  "closest": [
+   {
+    "a": "HSC (bone marrow)",
+    "b": "MPP (bone marrow)",
+    "mean_abs_diff": 0.0119,
+    "r": 0.9985,
+    "n_loci": 58600
+   },
+   {
+    "a": "GMP (bone marrow)",
+    "b": "L-MPP (bone marrow)",
+    "mean_abs_diff": 0.0136,
+    "r": 0.9969,
+    "n_loci": 57746
+   },
+   {
+    "a": "CMP (bone marrow)",
+    "b": "MPP (bone marrow)",
+    "mean_abs_diff": 0.0145,
+    "r": 0.9973,
+    "n_loci": 58632
+   },
+   {
+    "a": "HSC (bone marrow)",
+    "b": "L-MPP (bone marrow)",
+    "mean_abs_diff": 0.0147,
+    "r": 0.9965,
+    "n_loci": 58031
+   },
+   {
+    "a": "CMP (bone marrow)",
+    "b": "GMP (bone marrow)",
+    "mean_abs_diff": 0.0155,
+    "r": 0.9959,
+    "n_loci": 57952
+   },
+   {
+    "a": "CMP (bone marrow)",
+    "b": "L-MPP (bone marrow)",
+    "mean_abs_diff": 0.0156,
+    "r": 0.9964,
+    "n_loci": 58043
+   },
+   {
+    "a": "CMP (bone marrow)",
+    "b": "HSC (bone marrow)",
+    "mean_abs_diff": 0.0162,
+    "r": 0.9955,
+    "n_loci": 58639
+   },
+   {
+    "a": "naive cd4 t cells",
+    "b": "naive cd8 t cells",
+    "mean_abs_diff": 0.0169,
+    "r": 0.9944,
+    "n_loci": 116278
+   }
+  ],
+  "PASS": true
+ }
+}
