@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "built": "2026-09-30 00:06",
-  "commit": "e9542b4",
-  "n_files": 302,
-  "n_undescribed": 106,
+  "built": "2026-09-30 00:22",
+  "commit": "898da05",
+  "n_files": 304,
+  "n_undescribed": 108,
   "undescribed": [
    "02_fetch_sources.py",
    "02_fetch_summary.json",
@@ -85,6 +85,8 @@
    "moss2018_stage1_manifest.csv",
    "moss_manifest.csv",
    "prof_diag.py",
+   "reference_cells_37_provenance_check.csv",
+   "roadmap_wgbs_means.json",
    "roster.csv",
    "roster_samples.csv",
    "run01.py",
@@ -735,7 +737,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11817,
-   "sha256_12": "61fd8b1f78a4"
+   "sha256_12": "3fba2f5fb9d9"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -743,8 +745,8 @@
    "role": "reference",
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
-   "bytes": 2863,
-   "sha256_12": "bbd759df334d"
+   "bytes": 2864,
+   "sha256_12": "bf2f1a50f006"
   },
   {
    "file": "REPRODUCTION.md",
@@ -1347,7 +1349,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1995,
-   "sha256_12": "ee4c283148f1"
+   "sha256_12": "7f1243b1e57e"
   },
   {
    "file": "reference_cells_37.csv",
@@ -1359,13 +1361,31 @@
    "sha256_12": "6d8c593ebc2b"
   },
   {
+   "file": "reference_cells_37_provenance_check.csv",
+   "path": "Biological_Physics/MethylPhys/hmin_calibration/provenance_check/reference_cells_37_provenance_check.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3315,
+   "sha256_12": "6d2778d93a34"
+  },
+  {
    "file": "report_tabs.json",
    "path": "Biological_Physics/MethylPhys/manual/report_tabs.json",
    "role": "reference",
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19794,
-   "sha256_12": "fe7b120b179f"
+   "sha256_12": "085b8fdb876a"
+  },
+  {
+   "file": "roadmap_wgbs_means.json",
+   "path": "Biological_Physics/MethylPhys/hmin_calibration/provenance_check/roadmap_wgbs_means.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 927,
+   "sha256_12": "dfafd2c0f4ab"
   },
   {
    "file": "roster.csv",
@@ -1868,8 +1888,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 23847,
-   "sha256_12": "baecfcfef77d"
+   "bytes": 24708,
+   "sha256_12": "3b7aa2f07f37"
   },
   {
    "file": "build_all.py",
@@ -1967,8 +1987,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1956609,
-   "sha256_12": "e267a9b52749"
+   "bytes": 1984016,
+   "sha256_12": "79e658eeef2d"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1986,7 +2006,7 @@
    "stage": "door",
    "description": "Repository entry point.",
    "bytes": 7030,
-   "sha256_12": "6729c44488a0"
+   "sha256_12": "a1d70daae84f"
   },
   {
    "file": "README_FIRST.md",
@@ -2040,7 +2060,7 @@
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
    "bytes": 43048,
-   "sha256_12": "1f37547fac07"
+   "sha256_12": "f8dca1196bf7"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -2093,8 +2113,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 17348,
-   "sha256_12": "ea04d5527986"
+   "bytes": 17411,
+   "sha256_12": "846bb58f9fe7"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -2174,8 +2194,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 16941,
-   "sha256_12": "8a97a7a5f765"
+   "bytes": 17816,
+   "sha256_12": "11bf15e1fc19"
   },
   {
    "file": "cpg_kit.py",
@@ -2327,8 +2347,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 93992,
-   "sha256_12": "3ec36a7fc4b6"
+   "bytes": 100449,
+   "sha256_12": "a23f942339e1"
   },
   {
    "file": "run_sample.py",

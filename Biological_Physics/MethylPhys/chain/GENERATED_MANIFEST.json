@@ -1,5 +1,5 @@
 {
- "built": "2026-09-30 00:07:14",
+ "built": "2026-09-30 00:24:06",
  "python": "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.venv/methylprep/bin/python3",
  "generated": [
   {
@@ -87,7 +87,7 @@
   "chain/Runtime Matrices/Patient_CMB/build_healpix_mapping.py": "497d82801d033b00af60b6eff7a029fd2188d9813753367e2eed954a178e1c5c",
   "chain/Runtime Matrices/Patient_CMB/presence_floors_v1.json": "8028199c8ffbd981ad5b864242db886d97785234144ebcee736befce41b6589f",
   "chain/Runtime Matrices/Tier_breakpoints/tier_breakpoints.json": "f9bfb3c2e476c936a09e9be45eb8ac222deb3299337a8b31112ba40bc83a3979",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "3ec36a7fc4b6a9dfa3bba97d1be860dbf2201d51b8013e76ada684f09a467141",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "a23f942339e1ddf9b4ffef65a2328a824152c5a877a4feb451df009f355b2055",
   "chain/Runtime Matrices/trace_detection_panel_v1.json": "c660883f2e07710234affc5809492efe533c58a1123e5bc0ab7c931bec4d1018",
   "chain/build_all.py": "045ddea255d951905d57d4e753b016bbc47d2d8b84a93753861326894b83afb1",
   "chain/build_chain_sequence.py": "1a283dc05c971748a6db93eb4fd2cdd756e632832ac090f7d02f735aa22da5cd",
@@ -114,7 +114,7 @@
   "chain/val_finding.py": "0e2c84bd24fb397a1e033fa1423b7a6d2ccf2a2fd81e649cec7590c5b9472b32",
   "doors/CHAIN_COMMISSIONING.md": "bde862205c85cfac2dd66a9eee4965dfab0f8d58707e85f0c48c0592b66d0fd8",
   "doors/ENHANCEMENTS.md": "0fceaf69697cc5cc8f4bb745d207adb592ceb8ff741c315ba513beed4cbd48e7",
-  "doors/PLAN.md": "ea04d55279868e2d0c2cb12c7ef45ac0ba48d26a2e53497980067aabb69d7ca4",
+  "doors/PLAN.md": "846bb58f9fe720187cd2eec7cc6e42a78ad449e0d31061f977041a2d92bafe58",
   "doors/PROC_BAND_01_OUTCOME.md": "ce952fbcb1b5d2af16916e1ffc3b0780abb0798903e63c82eae6bbb667bc25c6",
   "doors/PROC_BAND_01_PREREG.md": "2720ccc2963d8cb3cd9e04db490c2165ca1591c3e1dcc7a47d3af994bcffb87e",
   "doors/PROC_BRAIN_01_OUTCOME.md": "f4c98d4b3114a1d596f3ddf50bc980fc20298f3ef84ea2acbeef2e3f61b95b4f",
@@ -266,17 +266,17 @@
   "sop/sop_repoint.py": "62e3ecb3afd8814aad55e07918383490d94d46c465234f3168637067dd3d7a5e"
  },
  "outputs": {
-  "chain/chain_sequence.json": "8a97a7a5f7654c470b4cfc877bbeca2c3feb16dd8d92989143ec4dac9352148a",
+  "chain/chain_sequence.json": "11bf15e1fc198da02686f46510f686eccb03c22391e56df643e88e4bf1c52521",
   "doors/CHAIN_SEQUENCE.md": "74435aff74ddffb041718ec6f862fdb3698e1f18fe05ca70454723b57f18b668",
-  "chain/Runtime Matrices/chain_inventory_v1.json": "a23f942339e1ddf9b4ffef65a2328a824152c5a877a4feb451df009f355b2055",
+  "chain/Runtime Matrices/chain_inventory_v1.json": "29432b5ca417986da02f54dcea7c8d93c72d85f33765f7b98b4548f71c8e3e43",
   "doors/COMPONENT_MAP.md": "06652ccc402eae61ad4c9e1ade19b99835bd5747dab5cbfc0a38b23315f2f6ba",
   "chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json": "5c8beea7880494a02aa40e2043fe37b3925d192e542f980fc0bec70ab297b129",
   "chain/example_runs/RUN_INDEX.csv": "e81c849a9161af769894c96a8ba70ece8c2890f3286c8935ff34df58ebd8eaab",
-  "sop/MethylPhys_CPG_SOP.md": "2c17195c641beddf1096d66f6a01ea14bb062aa3473ca552d952d6121676e847",
-  "manual/MethylPhys_CPG_Operations_Manual.pdf": "ed89a9211a47fcee5081fa2c3b871e7d489d0297b62b77acd658e0daaf5b5128",
+  "sop/MethylPhys_CPG_SOP.md": "3864e6429f20b124f52bc8651506b67e7c1bf30b282fefd18b639994e40b074f",
+  "manual/MethylPhys_CPG_Operations_Manual.pdf": "9537fc99172208e6e36e4a0b5abac3c09c6268087dca40f30a70b53881d08f24",
   "doors/REVIEWER_MANIFEST.md": "45e1f441b2aa0488b4d1bc860e4e21801afca99eed9720b11c461e588b2abb49",
-  "doors/REPORT_TAB_REFERENCE.md": "3fba2f5fb9d95fff2962e6eca39f7f5e9c3665fa7698a1ac894cea24d7564257",
-  "doors/REPO_INVENTORY.md": "bf2f1a50f0064f2dd3e3fe79873bab2be807861fd30c3a0599eb56b2303e53ea",
+  "doors/REPORT_TAB_REFERENCE.md": "912f82b18151dbdca2f5d58aa49ce9aa4b3ba5fb3f9f018ac409314df5adc569",
+  "doors/REPO_INVENTORY.md": "35e5692d5c7549fce130cc841a4cc86abc31a25a9b6a5704b8c371c4e5359613",
   "doors/RUNBOOK.md": "1bc411c2de8c6de237d7c7cca6a76d77a9c1500ccba1dcadead2721706e1e286",
   "README.md": "d2b534b60db74729b3114347a7c159a0e1da25bee96cfe04fc5ac7d0b83757f1"
  },
