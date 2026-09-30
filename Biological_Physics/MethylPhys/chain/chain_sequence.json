@@ -129,7 +129,6 @@
  ],
  "roles": {
   "stage_0_1_qc_handoff.py": "chain",
-  "stage_2c_trace_detection.py": "chain",
   "cpg_conductor.py": "chain",
   "stage_0_intake.py": "chain",
   "idat_decoder_pure.py": "chain",
@@ -286,7 +285,6 @@
   "sync_components.py": "guard",
   "tian2023_extract_report.json": "UNDESCRIBED",
   "toc_pages.json": "interface",
-  "trace_detection_panel_v1.json": "UNDESCRIBED",
   "twin_null_splithalf.csv": "UNDESCRIBED",
   "twin_test_sample_level.csv": "UNDESCRIBED",
   "twins.csv": "UNDESCRIBED",

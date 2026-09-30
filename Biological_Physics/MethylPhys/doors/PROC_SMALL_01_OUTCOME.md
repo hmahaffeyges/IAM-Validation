@@ -9,8 +9,8 @@ Evidence: [`PROC_SMALL_01_configurations.json`](../kit/results/PROC_SMALL_01_con
 Scripts: [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py),
 [`PROC_SMALL_01_compare.py`](../kit/PROC_SMALL_01_compare.py),
 [`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py).
-Implementation: [`stage_2c_trace_detection.py`](../chain/stage_2c_trace_detection.py) with the frozen panel
-`chain/Runtime Matrices/trace_detection_panel_v1.json`. Example run:
+Implementation: [`stage_2c_trace_detection.py`](../chain/RETIRED_2026-09/trace_detection_2026-09-30/stage_2c_trace_detection.py) with the frozen panel
+`chain/RETIRED_2026-09/trace_detection_2026-09-30/trace_detection_panel_v1.json`. Example run:
 MethylPhys_GSM2333901_trace_detection.html (the example run it was filed under carried no bundle and was moved to RETIRED_2026-09/example_runs_no_bundle_2026-09-26 on 2026-09-26; the report is there, not re-renderable).
 
 ![Where the limit went](../kit/results/PROC_SMALL_01_detection.png)

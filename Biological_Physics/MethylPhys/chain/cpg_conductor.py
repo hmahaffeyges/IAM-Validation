@@ -65,13 +65,7 @@ def _load_module(name, path):
     return mod
 
 
-def _trace_detect(betas, substrate=None):
-    """Stage 2c. Never raises into a reading: a missing panel reports unavailable and the chain proceeds."""
-    try:
-        mod = _load_module("stage_2c_trace_detection", _find("stage_2c_trace_detection.py"))
-        return mod.detect(betas if isinstance(betas, dict) else dict(betas), substrate=substrate)
-    except Exception as e:
-        return {"_meta": {"available": False, "reason": f"{type(e).__name__}: {e}"}}
+# _trace_detect() removed 2026-09-30 with Stage 2c (chain/RETIRED_2026-09/trace_detection_2026-09-30/WHY.md).
 
 
 def stage_a_cells(beta_dict, atlas_csv, cfg=None):
@@ -524,7 +518,10 @@ def run_full(beta_dict, atlas_csv, cfg=None):
         # existing number. The composition solve pins a trace component at the non-negativity boundary, so a
         # score test with inverse-variance weights answers presence where the point estimate cannot. Its
         # verdict may name a class only at about 5 %; below that it reports epithelial-like material.
-        "trace_detection": _trace_detect(beta_dict, (cfg or {}).get("substrate")),
+        # Stage 2c RETIRED 2026-09-30: its per-class thresholds were the 95th percentile of 38 healthy donors (a population
+        # setting a number) and it read two CLASSES, not cells. Foreign material is found per cell by the joint fit (Stage 2d);
+        # the no-population replacement for sub-resolution material is the out-of-span map (PROC-OUTSPAN-01).
+        "trace_detection": {"_meta": {"available": False, "retired": True, "reason": "Stage 2c retired 2026-09-30: its thresholds were a population statistic; replaced by the per-cell joint fit (Stage 2d) and the out-of-span map (PROC-OUTSPAN-01)"}},
         # 2026-09-25: the flags are data, not presentation - so a batch run, a ledger and a program can all
         # ask "did anything go wrong" without parsing HTML.   # RAW betas: the panel was calibrated on the same
                                                       # input the composition solver receives, and the

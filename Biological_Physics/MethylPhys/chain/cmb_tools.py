@@ -106,6 +106,8 @@ def _chk_nilc(o):
 def _chk_inverse_variance(o):
     td = o.get("trace_detection") or {}
     m = td.get("_meta") or {}
+    if m.get("retired"):
+        return ("NOT_APPLICABLE", "Stage 2c retired 2026-09-30 (population-set thresholds); inverse-variance weighting now lives in the joint fit")
     if not m.get("available"):
         return ("NOT_RUN", str(m.get("reason") or "the trace panel did not load"))
     if not m.get("calibrated_for_this_substrate", True):
@@ -164,9 +166,9 @@ TOOLS = [
   "the full-covariance matched filter was tried first and tied NNLS (PROC-MF-01: 1,506 markers vs 36 arrays).",
   "cpg_conductor.py stage_2d_foreign_detection; Runtime Matrices/A_Scoring_Module/detection_panel_v1.json", _chk_detection),
  ("INVVAR", "inverse-variance weighting", "optimal map-making",
-  "each address weighted by the inverse of its atlas posterior variance - what brought the trace-class "
-  "detection limit from 5 % to 2 %",
-  "stage_2c_trace_detection.py", _chk_inverse_variance),
+  "each address weighted by the inverse of its atlas posterior variance. Its Stage 2c use (trace-class detection) was retired "
+  "2026-09-30 because its thresholds were a population statistic",
+  "RETIRED_2026-09/trace_detection_2026-09-30/WHY.md", _chk_inverse_variance),
  ("BRIGHT", "surface brightness", "astronomical photometry",
   "an intensity that does not depend on distance or aperture, applied to a class; runs as a check beside the "
   "composition-weighted sky",

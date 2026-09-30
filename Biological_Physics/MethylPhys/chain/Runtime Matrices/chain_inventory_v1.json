@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "built": "2026-09-30 00:22",
-  "commit": "898da05",
-  "n_files": 304,
-  "n_undescribed": 108,
+  "built": "2026-09-30 00:57",
+  "commit": "a7a4400",
+  "n_files": 302,
+  "n_undescribed": 107,
   "undescribed": [
    "02_fetch_sources.py",
    "02_fetch_summary.json",
@@ -99,7 +99,6 @@
    "sweep.py",
    "sweep2.py",
    "tian2023_extract_report.json",
-   "trace_detection_panel_v1.json",
    "twin_null_splithalf.csv",
    "twin_test_sample_level.csv",
    "twins.csv",
@@ -128,22 +127,13 @@
    "sha256_12": "3f2776fab3df"
   },
   {
-   "file": "stage_2c_trace_detection.py",
-   "path": "Biological_Physics/MethylPhys/chain/stage_2c_trace_detection.py",
-   "role": "chain",
-   "stage": "",
-   "description": "Stage 2c: is there evidence of a trace class at all, by a score test that the non-negativity boundary cannot pin",
-   "bytes": 8462,
-   "sha256_12": "17d496633196"
-  },
-  {
    "file": "cpg_conductor.py",
    "path": "Biological_Physics/MethylPhys/chain/cpg_conductor.py",
    "role": "chain",
    "stage": "stage 0",
    "description": "THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently defaulting. Everything else in this table is reached from here.",
-   "bytes": 41094,
-   "sha256_12": "5dcacd846819"
+   "bytes": 41271,
+   "sha256_12": "6de0acae1954"
   },
   {
    "file": "stage_0_intake.py",
@@ -737,7 +727,7 @@
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
    "bytes": 11817,
-   "sha256_12": "3fba2f5fb9d9"
+   "sha256_12": "912f82b18151"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -745,8 +735,8 @@
    "role": "reference",
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
-   "bytes": 2864,
-   "sha256_12": "bf2f1a50f006"
+   "bytes": 2917,
+   "sha256_12": "0dfbd1d2547b"
   },
   {
    "file": "REPRODUCTION.md",
@@ -763,8 +753,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 32550,
-   "sha256_12": "09ab524502de"
+   "bytes": 32400,
+   "sha256_12": "a5ae39932650"
   },
   {
    "file": "RUN.md",
@@ -1060,8 +1050,8 @@
    "role": "guard",
    "stage": "",
    "description": "the register of every method borrowed from CMB analysis, each with a check that returns its state on a finished bundle",
-   "bytes": 13683,
-   "sha256_12": "766dcc9357bc"
+   "bytes": 13931,
+   "sha256_12": "0f23817ae173"
   },
   {
    "file": "commission_detection_lab.py",
@@ -1349,7 +1339,7 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1995,
-   "sha256_12": "7f1243b1e57e"
+   "sha256_12": "f5459251d9e3"
   },
   {
    "file": "reference_cells_37.csv",
@@ -1376,7 +1366,7 @@
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
    "bytes": 19794,
-   "sha256_12": "085b8fdb876a"
+   "sha256_12": "bfb16fba827e"
   },
   {
    "file": "roadmap_wgbs_means.json",
@@ -1539,15 +1529,6 @@
    "description": "page numbers measured in the first build pass, read by the second",
    "bytes": 1544,
    "sha256_12": "81bbe64de42d"
-  },
-  {
-   "file": "trace_detection_panel_v1.json",
-   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/trace_detection_panel_v1.json",
-   "role": "UNDESCRIBED",
-   "stage": "",
-   "description": "",
-   "bytes": 2685457,
-   "sha256_12": "c660883f2e07"
   },
   {
    "file": "twin_null_splithalf.csv",
@@ -1888,8 +1869,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 24708,
-   "sha256_12": "3b7aa2f07f37"
+   "bytes": 24584,
+   "sha256_12": "2bb4a175f17c"
   },
   {
    "file": "build_all.py",
@@ -1951,8 +1932,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 19002,
-   "sha256_12": "ed7c41f7467a"
+   "bytes": 17784,
+   "sha256_12": "8e68a7a4eb59"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -1987,8 +1968,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 1984016,
-   "sha256_12": "79e658eeef2d"
+   "bytes": 2019848,
+   "sha256_12": "e6769602fa7f"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -2005,8 +1986,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7030,
-   "sha256_12": "a1d70daae84f"
+   "bytes": 7003,
+   "sha256_12": "d2b534b60db7"
   },
   {
    "file": "README_FIRST.md",
@@ -2059,8 +2040,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 43048,
-   "sha256_12": "f8dca1196bf7"
+   "bytes": 42989,
+   "sha256_12": "1bc411c2de8c"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -2194,8 +2175,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 17816,
-   "sha256_12": "11bf15e1fc19"
+   "bytes": 17828,
+   "sha256_12": "746a5cf50b0d"
   },
   {
    "file": "cpg_kit.py",
@@ -2320,8 +2301,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 46359,
-   "sha256_12": "da63e3ad5877"
+   "bytes": 46073,
+   "sha256_12": "7ea3592ba8c8"
   },
   {
    "file": "build_methylphys.py",
@@ -2329,8 +2310,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 224838,
-   "sha256_12": "f3fa2a89c28b"
+   "bytes": 224995,
+   "sha256_12": "9e0649f05745"
   },
   {
    "file": "build_percell_reference.py",
@@ -2347,8 +2328,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 100449,
-   "sha256_12": "a23f942339e1"
+   "bytes": 100431,
+   "sha256_12": "9cf9b485e2c9"
   },
   {
    "file": "run_sample.py",
@@ -2356,8 +2337,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "One command: IDAT pair or a cpg_id,beta CSV -> Stage 1 -> run_full -> this report.",
-   "bytes": 27515,
-   "sha256_12": "faa26fa19e85"
+   "bytes": 26915,
+   "sha256_12": "b32923666d0d"
   },
   {
    "file": "val_finding.py",
@@ -2581,8 +2562,8 @@
    "role": "guard",
    "stage": "sop",
    "description": "The SOP mirrors the code: a STATUS banner (LIVE / RECORD / NOT IN CHAIN / NOT BUILT / KIT) under every numbered section from a code-derived status table, a generated Part II-A from chain_sequence.json, and a reconciliation that every live step is named by a LIVE section (--check is a build gate).",
-   "bytes": 19056,
-   "sha256_12": "ba9dd53ebdf6"
+   "bytes": 19087,
+   "sha256_12": "d096c62840a7"
   },
   {
    "file": "stage_1_calibration.py",

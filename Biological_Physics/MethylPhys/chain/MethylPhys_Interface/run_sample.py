@@ -211,23 +211,12 @@ def _ledger_row(o, sample_id, out_path):
            "detection_pct": intake.get("pct_probes_detected_p_le_01"),
            "call_rate": intake.get("call_rate"), "lab": (o.get("patient_sky") or {}).get("lab"),
            "lab_zero": o.get("lab_zero"), "scale": o.get("scale"),
-           "mahalanobis_d": dep.get("mahalanobis_distance"),
-           "beyond_band": dep.get("mahalanobis_beyond_band"),
-           "lab_false_alarm_p95": dep.get("lab_false_alarm_p95"),
            "second_opinion_agreement": (o.get("second_opinion") or {}).get("agreement"),
            "cellular_age_reportable": (o.get("cellular_age") or {}).get("reportable")}
     # Stage 2c, so a cross-sample matrix can ask which runs showed trace material without opening
     # a bundle (2026-09-25)
-    for _c in ("secretory", "cycling"):
-        _t = (o.get("trace_detection") or {}).get(_c) or {}
-        row["trace." + _c] = _t.get("detected")
-        row["trace_t." + _c] = _t.get("t")
     for cls, rec in sorted((o.get("classes") or {}).items()):
         row[f"A_abs.{cls}"] = rec.get("A_abs")
-        row[f"z.{cls}"] = rec.get("z")
-        row[f"placement.{cls}"] = rec.get("placement")
-        row[f"band_sigma.{cls}"] = rec.get("band_sigma")
-        row[f"age_matched_mean.{cls}"] = rec.get("age_matched_mean")
         row[f"sky_median_z.{cls}"] = rec.get("sky_median_z")
         row[f"sky_frac_abs_z_gt2.{cls}"] = rec.get("sky_frac_abs_z_gt2")
         row[f"tier.{cls}"] = rec.get("tier")

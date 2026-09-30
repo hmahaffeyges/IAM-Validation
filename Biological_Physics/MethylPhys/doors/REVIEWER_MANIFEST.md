@@ -55,7 +55,6 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 - [`iamatlas_cpg_to_healpix_nside128.npz`](../chain/Runtime%20Matrices/Patient_CMB/iamatlas_cpg_to_healpix_nside128.npz) — The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one chromosome, median 
 - [`presence_floors_v1.json`](../chain/Runtime%20Matrices/Patient_CMB/presence_floors_v1.json) — The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored.
 - [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) — The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report.
-- [`trace_detection_panel_v1.json`](../chain/Runtime%20Matrices/trace_detection_panel_v1.json) — 
 
 ## The atlas
 

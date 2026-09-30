@@ -1,6 +1,6 @@
 # The report, tab by tab - the operating reference
 
-**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `898da05`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
+**Generated** by [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) from `kit/results/reference_report/reference.html` at commit `a7a4400`. Not written by hand: a tab list written by hand goes stale the first time a tab is added, which happened twice in September. Re-run it after any change to the report builder.
 
 One run produces **one self-contained HTML file of 6.49 MB with 17 tabs** - 7 carrying this specimen's own measurements and 10 carrying reference material that is identical in every report. The distinction matters: a reference tab tells you how the instrument works, and only a specimen tab tells you anything about the patient.
 
@@ -32,7 +32,7 @@ Every atlas cell, scored or not: each cell's A on its own identity loci with its
 
 ![Cells tab](../manual/report_tab_figures/cells.png)
 
-*32 KB, 12 tables, 90 rows.*  Sections: **Every cell - all 115 atlas cell types**, **Trace-class detection - is there any epithelial-like material here at all?**, **What limits a per-cell claim**, **Foreign-cell detection (Stage 2d)**, **Stem (pluripotent) (1 cells; H_min 0.9822)**, **Stem (adult) (1 cells; H_min 0.8737)**, **Progenitor (11 cells; H_min 0.8522)**, **Cycling epithelial (19 cells; H_min 0.8561)**
+*31 KB, 11 tables, 87 rows.*  Sections: **Every cell - all 115 atlas cell types**, **What limits a per-cell claim**, **Foreign-cell detection (Stage 2d)**, **Stem (pluripotent) (1 cells; H_min 0.9822)**, **Stem (adult) (1 cells; H_min 0.8737)**, **Progenitor (11 cells; H_min 0.8522)**, **Cycling epithelial (19 cells; H_min 0.8561)**, **Secretory / glandular (18 cells; H_min 0.8433)**
 
 ### Sky  ·  `sky`  ·  SPECIMEN
 
@@ -104,7 +104,7 @@ The fail-safes that kept this reading honest: what this run refused and why, eac
 
 ![Integrity tab](../manual/report_tab_figures/integrity.png)
 
-*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit 898da05)**, **5. Two rules this report obeys**
+*16 KB, 3 tables, 52 rows.*  Sections: **Integrity - the fail-safes that kept this reading honest, and what each one measured**, **1. What this run refused, and why**, **2. The safeguards, with their cosmology twins**, **3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)**, **4. Files read by this run (repository at commit a7a4400)**, **5. Two rules this report obeys**
 
 ### Chain  ·  `chain`  ·  REFERENCE
 
@@ -120,7 +120,7 @@ Every file the chain uses, enumerated from the live tree with its role and SHA-2
 
 ![Files tab](../manual/report_tab_figures/files.png)
 
-*85 KB, 6 tables, 201 rows.*  Sections: **Every file the chain uses**, **In the chain (17)**, **Reference and calibration data (65)**, **Interface (15)**, **Guards, procedures and doors (63)**, **Present but NOT in the chain (31)**, **Superseded (4)**
+*84 KB, 6 tables, 200 rows.*  Sections: **Every file the chain uses**, **In the chain (16)**, **Reference and calibration data (65)**, **Interface (15)**, **Guards, procedures and doors (63)**, **Present but NOT in the chain (31)**, **Superseded (4)**
 
 ### Findings  ·  `findings`  ·  REFERENCE
 
@@ -152,6 +152,7 @@ Every method borrowed from CMB analysis, with a check that runs on the finished 
 
 | state | method |
 |---|---|
+| `NOT_APPLICABLE` | inverse-variance weighting |
 | `NOT_BUILT` | angular power spectrum of the residual sky |
 | `NOT_BUILT` | apodised mask instead of a binary presence floor |
 | `NOT_BUILT` | beam smoothing |
@@ -165,7 +166,6 @@ Every method borrowed from CMB analysis, with a check that runs on the finished 
 | `PASS` | HEALPix pixelisation |
 | `PASS` | Mollweide plate of the residual sky |
 | `PASS` | inverse-variance matched-template detection of a foreign cell |
-| `PASS` | inverse-variance weighting |
 | `PASS` | masking what the instrument cannot see |
 | `PASS` | needlet internal linear combination |
 | `PASS` | residual against a measured zero and scale |

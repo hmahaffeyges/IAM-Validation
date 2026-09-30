@@ -115,7 +115,7 @@ def bar(pct, col="#7fa8cc", w=160):
 FORBIDDEN=re.compile(r"\b(cancer|carcinoma|tumou?r|malignan\w*|alzheimer\w*|dementia|leukemia|lymphoma|diagnos\w*|verdict|culprit|cellular age|years? old|prognos\w*|disease)\b",re.I)
 # MEASURE, DON'T COMPARE (author, 2026-09-27): the report describes this specimen's reading, the frozen constants and the
 # calibration files by name. Nothing about any population. These words fail the render on the measurement tabs.
-COHORT=re.compile(r"\b(cohorts?|donors?|healthy (band|range|reference|people|person|population)|reference range|population (band|range)|central 95|percentiles?|p10|p90|middle 80|"
+COHORT=re.compile(r"\b(cohorts?|donors?|healthy (band|range|reference|people|person|population|null|threshold|panel)|reference range|population (band|range)|central 95|percentiles?|p10|p90|middle 80|"
                   r"age (term|curve)|age-referenced|laboratory zero|lab zero|z_lab|placement|placed in|in_band|above_band|below_band|mahalanobis|a little under 1|compared with a healthy|against a healthy|ceiling|at_ceiling)\b",re.I)
 # CHANGELOG GUARD (2026-09-22, at the author's instruction: "We are handing them a finished product not a log of
 # my mistakes or changes"). The condition-name guard above protects against clinical overclaim; this one protects
@@ -179,7 +179,7 @@ def _trace_one_liner(o):
     """One line on the Reading tab. A reader who opens one tab should see what Stage 2c found."""
     td = o.get("trace_detection") or {}
     m = td.get("_meta") or {}
-    if not m.get("available"):
+    if not m.get("available") or m.get("retired"):
         return ""
     if not m.get("calibrated_for_this_substrate", True):
         return ("<p class='m'><b>Trace-class detection:</b> not calibrated for this substrate "
@@ -293,6 +293,8 @@ def _trace_block(o):
     limit, because a trace class cannot be scored in this substrate at any fraction a blood draw presents."""
     td = o.get("trace_detection") or {}
     m = td.get("_meta") or {}
+    if m.get("retired"):
+        return []
     if not m.get("available"):
         return ["<h3>Trace-class detection</h3>",
                 "<p class='m'>Not run for this specimen: %s</p>" % (m.get("reason") or "no panel")]
@@ -468,7 +470,7 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "<h3>The correspondence, step by step</h3>"
  "<table class='t'><tr><th>what cosmology had to learn</th><th>why it mattered</th><th>what it is in this chain</th></tr>"
  "<tr><td>Subtract the monopole and dipole before anything else</td><td>they are real and they are not the signal</td>"
- "<td>for the sky, the <b>laboratory's per-address zero</b> measured on its healthy panel - an instrument offset, subtracted before the residual is formed. For a cell's A, nothing is subtracted: healthy is the physical fixed point, and whether the array's own probes can tare the instrument is PROC-TARE-01's question</td></tr>"
+ "<td>nothing is subtracted from the sky or from a cell's A. The residual is this specimen against its own composition expectation; A = 1.00 is the physical fixed point. Whether the array's own probes can tare the instrument is PROC-TARE-01's question (sealed, not commissioned)</td></tr>"
  "<tr><td>Mask the galaxy</td><td>part of the sky cannot be measured; do not guess what is behind it</td>"
  "<td>the <b>presence floors</b>. <b>Below its floor a class is not there</b> - the specimen holds no detectable amount of it - so the chain "
  "masks it black and reports nothing about it. <i>The analogy is close but not exact, and the difference is worth stating:</i> the galaxy hides a "
@@ -483,7 +485,7 @@ SKY_WHY = ("<h2>The sky - what it is, why it is a cosmologist's object, and what
  "<td>about 2.2 CpG addresses per pixel at NSIDE 128 is this instrument's beam. The smoothed panel in the figure below is the "
  "beam-smoothed map, which is the only fair comparison to a published CMB image</td></tr>"
  "<tr><td>A noise covariance per pixel, not one number for the map</td><td>pixels are not equally trustworthy</td>"
- "<td>that laboratory's <b>measured per-address spread</b> from its own healthy panel - the denominator of every z on this page</td></tr>"
+ "<td>each address's <b>own sigma</b>: the atlas posterior at that address combined with this array's own SNP-probe noise - the denominator of every z on this page. No other person's array enters it</td></tr>"
  "<tr><td>Score anomalies against simulations, never an analytic null</td><td>a real sky carries built-in correlations, so a "
  "Gaussian null is simply the wrong null</td><td>the <b>spatially-shuffled null</b> - and this chain has now measured exactly why "
  "it is required (the warning further down)</td></tr>"
@@ -1711,7 +1713,9 @@ def red_flags(o, R=None):
     # 6. trace detection
     td = o.get("trace_detection") or {}
     tm = td.get("_meta") or {}
-    if not tm.get("available"):
+    if tm.get("retired"):
+        pass
+    elif not tm.get("available"):
         add("NO_TRACE_PANEL", "NOTE", "Every cell",
             "Trace-class detection did not run: %s" % (tm.get("reason") or "panel unavailable"),
             "Presence of a trace class was not tested on this specimen either way.")

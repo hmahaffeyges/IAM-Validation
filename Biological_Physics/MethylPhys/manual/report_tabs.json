@@ -1,7 +1,7 @@
 {
  "_meta": {
   "generated_from": "kit/results/reference_report/reference.html",
-  "commit": "898da05",
+  "commit": "a7a4400",
   "n_tabs": 17,
   "report_mb": 6.49,
   "n_specimen": 7,
@@ -60,12 +60,11 @@
    "label": "Cells",
    "kind": "SPECIMEN",
    "purpose": "Every atlas cell, scored or not: each cell's A on its own identity loci with its interval and how many of its loci the array read, then the trace detection of anything non-blood, and what limits a claim about one cell.",
-   "kb": 32,
-   "tables": 12,
-   "rows": 90,
+   "kb": 31,
+   "tables": 11,
+   "rows": 87,
    "headings": [
     "Every cell - all 115 atlas cell types",
-    "Trace-class detection - is there any epithelial-like material here at all?",
     "What limits a per-cell claim",
     "Foreign-cell detection (Stage 2d)",
     "Stem (pluripotent) (1 cells; H_min 0.9822)",
@@ -78,7 +77,7 @@
     "Stromal & connective (5 cells; H_min 0.863)",
     "What the cells found in this specimen are"
    ],
-   "opens": "Every cell - all 115 atlas cell types Trace-class detection - is there any epithelial-like material here at all? The composition solve above cannot answer this. It is a non-negative fit, and a non-negativity constraint pins a component that",
+   "opens": "Every cell - all 115 atlas cell types One surface, one formula, one gauge. A = H(mean beta over the cell's IDENTITY loci) / H_min of its architecture class (RULING A3; LESSON-SURFACE-01). H_min is the minimum entropy a cell of that class mu",
    "figure": "../manual/report_tab_figures/cells.png",
    "is_screenshot": false,
    "cmb": []
@@ -240,10 +239,6 @@
     },
     {
      "state": "PASS",
-     "tool": "inverse-variance weighting"
-    },
-    {
-     "state": "PASS",
      "tool": "masking what the instrument cannot see"
     },
     {
@@ -261,6 +256,10 @@
     {
      "state": "NOT_RUN",
      "tool": "surface brightness"
+    },
+    {
+     "state": "NOT_APPLICABLE",
+     "tool": "inverse-variance weighting"
     },
     {
      "state": "NOT_BUILT",
@@ -336,7 +335,7 @@
     "1. What this run refused, and why",
     "2. The safeguards, with their cosmology twins",
     "3. Instrument constants read by this run (the pipeline map and the tier file; no constant is applied to any cell's A)",
-    "4. Files read by this run (repository at commit 898da05)",
+    "4. Files read by this run (repository at commit a7a4400)",
     "5. Two rules this report obeys"
    ],
    "opens": "Integrity - the fail-safes that kept this reading honest, and what each one measured The chain was built with the toolkit cosmology developed for reading a faint signal against a calibrated reference. Each safeguard below has a named twin i",
@@ -367,19 +366,19 @@
    "label": "Files",
    "kind": "REFERENCE",
    "purpose": "Every file the chain uses, enumerated from the live tree with its role and SHA-256.",
-   "kb": 85,
+   "kb": 84,
    "tables": 6,
-   "rows": 201,
+   "rows": 200,
    "headings": [
     "Every file the chain uses",
-    "In the chain (17)",
+    "In the chain (16)",
     "Reference and calibration data (65)",
     "Interface (15)",
     "Guards, procedures and doors (63)",
     "Present but NOT in the chain (31)",
     "Superseded (4)"
    ],
-   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit 898da05 - 304 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
+   "opens": "Every file the chain uses Enumerated from the live tree by build_chain_inventory.py at commit a7a4400 - 302 files , each with its role, its purpose, its size and its SHA-256. The table is generated, not maintained by hand: any file without ",
    "figure": "../manual/report_tab_figures/files.png",
    "is_screenshot": false,
    "cmb": []
@@ -457,10 +456,6 @@
   },
   {
    "state": "PASS",
-   "tool": "inverse-variance weighting"
-  },
-  {
-   "state": "PASS",
    "tool": "masking what the instrument cannot see"
   },
   {
@@ -478,6 +473,10 @@
   {
    "state": "NOT_RUN",
    "tool": "surface brightness"
+  },
+  {
+   "state": "NOT_APPLICABLE",
+   "tool": "inverse-variance weighting"
   },
   {
    "state": "NOT_BUILT",

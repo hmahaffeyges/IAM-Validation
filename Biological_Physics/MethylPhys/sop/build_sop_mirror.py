@@ -119,11 +119,11 @@ STATUS = {
 }
 UNNUMBERED = {  # heading prefix -> status for stage headings without a § number
  "## Stage 0 ": (L, "stage_0_intake.py via run_sample.py", ""), "## Stage 1 ": (L, "stage_1_idat_calibration.py via run_sample.py", ""),
- "## Stage 2 ": (L, "stage_a_cells, stage_2b_second_opinion, stage_2c (trace), stage_2d_foreign_detection", ""),
+ "## Stage 2 ": (L, "stage_a_cells, stage_2b_second_opinion, stage_2d_foreign_detection", ""),
  "## Stage 3 ": (N, "-", "firewall §104: the production chain subtracts no foregrounds"),
  "## Stage 4 ": (L, "stage_a_cells (per-cell A); stage_b_identity (class gate)", ""),
  "## Stage 4.5 ": (L, "stage_4_5_bidirectional", ""), "## Stage 4.6 ": (L, "stage_4_6_patient_sky", ""),
- "## Stage 2c ": (L, "stage_2c_trace_detection.py (called from stage_a_cells)", ""),
+ "## Stage 2c ": (R, "-", "RETIRED 2026-09-30: population-set thresholds (chain/RETIRED_2026-09/trace_detection_2026-09-30/WHY.md)"),
  "## Stage 5 ": (R, "-", "REMOVED 2026-09-27"), "## Stage 6 ": (R, "-", "REMOVED 2026-09-27"),
  "## Stage 7 ": (L, "cpg_tiers.tier_of on every present cell's A", "the class carries no tier"),
  "## Stage 8 ": (N, "-", "signature matching: the chain does not do it; stage_8_matching removed 2026-09-27"),

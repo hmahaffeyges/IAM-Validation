@@ -1,3 +1,5 @@
+# RECORD (2026-09-30): Stage 2c is retired (chain/RETIRED_2026-09/trace_detection_2026-09-30/). This script reproduces
+# PROC-SMALL-01 against the retired module and is not part of the chain.
 #!/usr/bin/env python3
 """PROC-SMALL-01: the false-positive rate on healthy donors that did NOT set the threshold.
 
