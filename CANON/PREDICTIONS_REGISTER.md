@@ -1,7 +1,7 @@
 # Predictions and falsifications register
 
 Built 2026-10-01 from 49 papers in `docs/papers/` and the the quantum-processor report, the semiconductor report and the methylation report Issue 002 reports (1,102 stated predictions, merged by text similarity
-into 672 entries), plus 13 entries measured in the 2026-09/10 test programme. **Status is as stated by each source** unless the entry is from the test
+into 672 entries). Methylation and salmonid development tests are not listed: no prediction is declared for a chain until it is commissioned (author, 2026-10-01). **Status is as stated by each source** unless the entry is from the test
 programme. Merging was automatic: an entry can still hold two related predictions (e.g. matter- and photon-sector H0), and near-duplicates can remain.
 This is the working register for the book's predictions section; each entry is to be checked against its source before it is printed.
 
@@ -11,8 +11,7 @@ This is the working register for the book's predictions section; each entry is t
 | Particle physics | 26 | 17 | 0 | 7 | 2 |
 | Qubits (the quantum-processor report) | 71 | 12 | 0 | 52 | 7 |
 | Semiconductors (the semiconductor report) | 49 | 5 | 3 | 32 | 9 |
-| Cells (the methylation report) | 156 | 47 | 4 | 85 | 13 |
-| Salmonids (the methylation report) | 1 | 0 | 0 | 1 | 0 |
+| Cells (the methylation report) | 144 | 47 | 1 | 83 | 13 |
 | Other | 15 | 4 | 0 | 6 | 5 |
 
 ## Cosmos and gravity (367)
@@ -548,7 +547,7 @@ This is the working register for the book's predictions section; each entry is t
 | SEM-048 | Switching to dedicated non-GPU inference silicon would lower the architectural floor from 250× to 50× and ISA overhead from 17.4% to 3.5% | Floor 250x→50x; ISA 17.4%→3.5% |  |  | pending | CHIP_Issue002 |
 | SEM-049 | No chip architecture can operate below the physics-derived thermodynamic/CMOS floor while sustaining reliable switching, regardless of process node, foundry, or design |  |  |  | not stated | CHIP_Issue002 |
 
-## Cells (the methylation report) (156)
+## Cells (the methylation report) (144)
 
 | id | prediction | value | falsified if | test | status | sources |
 |---|---|---|---|---|---|---|
@@ -696,24 +695,7 @@ This is the working register for the book's predictions section; each entry is t
 | CEL-142 | Post-breach A-score trajectories should correspond to the four documented therapeutic windows (metabolic, structural, palliative, end of life) |  |  | 20+ prospective validation predictions G-2026-P023 through G-2026-P040 | pending | MPHYS_Issue002 |
 | CEL-143 | Decade-specific healthy-cohort baselines for stromal, stem_adult, and stem_pluri classes are filed as open predictions awaiting published data |  |  |  | pending | MPHYS_Issue002 |
 | CEL-144 | The three named inversions (Seminoma Hypomethylation, Differentiation Dose, Niche Depletion) will reproduce in independent primary-source datasets |  | The three named inversions fail to reproduce in independent datasets beyond Shen 2018 / Killian 2016 / Adelman 2019 | Falsification cohort candidates: ICGC TGCT, BLUEPRINT HSC aging | pending | MPHYS_Issue002 |
-| CEL-R01 | IAM-A: immune cells carry less copy error than fibroblast/muscle; architecture reproduces in a second lab/pipeline |  | order holds in ENCODE | ENCODE WGBS, 43 samples | passed | PROC-ENCODE-01 (pre-registered) |
-| CEL-R02 | IAM-A: cancer line reads higher copy error than its normal lineage in >=4 of 5 pairs |  | fewer than 4 of 5 | ENCODE WGBS pairs | passed | PROC-ENCODE-01 (pre-registered) |
-| CEL-R03 | IAM-A: instrument error < 20% of measured copy error |  | exceeds 20% in any non-neural non-stem sample | ENCODE WGBS | failed (poor-conversion samples) | PROC-ENCODE-01 (pre-registered) |
-| CEL-R04 | IAM-A: single-molecule flags detect a small cancer fraction at the predicted binomial rate |  | flag rate off binomial; detection missed | ENCODE molecules | failed | PROC-MOLECULE-01 (pre-registered) |
-| CEL-R05 | IAM-A: steady copy error derivable from replication-coupled remethylation kinetics |  | outside measured spread | HUES64 Repli-BS GSE82045 | not reproducible across replicates | PROC-DERIVE-01 (pre-registered) |
-| CEL-R06 | Holding energy 3.41-3.77 kT lies within DNMT1 hemi/unmethylated selectivity (ln 7-80 = 1.9-4.4 kT) | 3.41 kT | outside 1.9-4.4 kT | literature biochemistry | consistent (check, not test) | PROC-CHANNEL-01 |
-| CEL-R07 | Met-A: healthy controls read Normal on 450K with platform floor |  | < 80% of controls in Normal | EPIC-Italy GSE51032 held out | failed (67.9%) | PROC-PREDX-NEUT-01 (pre-registered) |
-| CEL-R08 | Met-A with same-slide tare: controls >= 80% Normal |  | < 80% | GSE51057 329 women | passed (92.9%) | PROC-PREDX-SLIDE-01 (pre-registered) |
-| CEL-R09 | Met-A: breast cases read off-Normal more than controls before diagnosis |  | p >= 0.05 | GSE51057 329 women | passed for all cases (p=0.036); failed for >8 y (p=0.52) | PROC-PREDX-SLIDE-01 (pre-registered) |
-| CEL-R10 | Warburg line: a measured switch to glycolysis reaches A = 1.07 | 1.07 | switch without reaching the line | Cellular Lifespan Study GSE179847 | not met | PROC-WARBURG-01 (pre-registered) |
-| CEL-R11 | Transformation reads A_meth ~1.08 vs time-matched controls in a new lineage | 1.07-1.10 | matched controls not Normal, or transformed < 1.07 | fourth series with matched controls | pending (found after looking in BJ/HBEC) | PROC-LINES-01/03 |
-| CEL-R12 | IAM-A: primary tumour > adjacent normal in >= 6 of 7 early-onset CRC pairs; median ratio >= 1.10 | 1.10 | fewer than 6 of 7 | GSE284325 | pending | PROC-TUMOUR-01 (pre-registered) |
 
-## Salmonids (the methylation report) (1)
-
-| id | prediction | value | falsified if | test | status | sources |
-|---|---|---|---|---|---|---|
-| SAL-R13 | IAM-A reads each steelhead individually; copy error at 10 C in 0.021-0.027 (fixed gap); hatchery vs wild compared with a split-half null | 0.021-0.027 | outside window; null not clean | Methow RRBS PRJNA325786 | pending (pilot fish 0.036, disclosed) | PROC-SALMON-01 (pre-registered) |
 
 ## Other (15)
 
