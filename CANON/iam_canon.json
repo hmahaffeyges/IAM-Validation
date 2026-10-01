@@ -461,6 +461,10 @@
   "Mahaffey ratio": {
    "replaced_by": "Mahaffey number (M)",
    "severity": "warn"
+  },
+  "Aristotelian Principle": {
+   "replaced_by": "the virial theorem (with IAM's thermodynamic completion); physics names only",
+   "severity": "block"
   }
  },
  "scope": {

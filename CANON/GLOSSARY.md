@@ -106,3 +106,4 @@ This file is the single source of truth for constants and names. To change a val
 | `M\s*=\s*30\.2` | M = 20.94 (30.2 only as the Landauer-unit conversion) | warn |
 | `Mahaffey value` | Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor | warn |
 | `Mahaffey ratio` | Mahaffey number (M) | warn |
+| `Aristotelian Principle` | the virial theorem (with IAM's thermodynamic completion); physics names only | block |

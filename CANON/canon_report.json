@@ -1,5 +1,14 @@
 [
 {
+"file": "Biological_Physics/README.md",
+"line": 38,
+"pattern": "Aristotelian Principle",
+"use": "the virial theorem (with IAM's thermodynamic completion); physics names only",
+"severity": "block",
+"status": "LIVE",
+"text": "This rule is what we call the Aristotelian Principle, in his honor."
+},
+{
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/build_chain_inventory.py",
 "line": 224,
 "pattern": "n_bio",
