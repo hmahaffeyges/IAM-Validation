@@ -18,7 +18,7 @@ those chapters rely on. A paper is listed only after it has been read in full. T
 | `virial/` | `NBODY_TRACE.md` | The N-body virial-ratio, n_eff and f_coll values cited in the Virial and Theory papers | Traced to arXiv full text with page numbers; Neto 2007 and Power 2012 re-read by me |
 | `cosmological_constant_and_baryon/` | `CC_AND_BARYON_CHECK.md` | Cosmological Constant paper; Baryon Asymmetry paper; the 18th (baryon) chain | One present-epoch relation Ω_b/Ω_m ≈ (3/16)√Ω_Λ, 0.7σ on the CMB-only chain; derivation open |
 | `observations/` | `TWO_RULER_DESI_TEST.md` | Dark Energy or Sector Tension mechanism vs DESI DR2 (mock) | Development measurement, distances only |
-| `observations/` | `MISSING_SATELLITES_CHECK.md` (+ `data/`) | Missing Satellites (Mar 2026) | Mechanism B tested against the Local Volume Database; not in the book by ruling, kept as the record |
+| `observations/` | `MISSING_SATELLITES_CHECK.md` (+ `data/`) | Missing Satellites (Mar 2026) | Mechanism B tested against the Local Volume Database; book inclusion is the author's decision |
 | `scripts/` | `verify_theory_paper.py` (+ output) | Theory Paper | Reruns every number in `theory/` in about 2 s (numpy, scipy, sympy) |
 
 ## Related records elsewhere in the repository
