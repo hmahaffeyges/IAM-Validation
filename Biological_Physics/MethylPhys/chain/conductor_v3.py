@@ -56,19 +56,36 @@ def stage_m_blood(beta, fractions):
     fn = fractions.get("NEU", 0.0)
     rec = {"stage": "M", "reading": "Met-A", "cell": "neutrophils", "specimen": "whole blood", "fraction": round(fn, 4), "build": BUILD,
            "band": "Normal 0.95-1.05 (after tare)", "A": None}
-    if fn < SM.MIN_FRACTION:
-        rec["reason"] = f"neutrophils are not the dominant cell (fraction {fn:.3f} < {SM.MIN_FRACTION}): fraction reported, A withheld"; return rec, None
+    if fn < MIN_READ_FRACTION:
+        rec["reason"] = f"neutrophil fraction {fn:.3f} < {MIN_READ_FRACTION}: fraction reported, A withheld"; return rec, None
     x = beta.reindex(S); e = sum(v * P[g] for g, v in fractions.items() if g in P); ok = x.notna() & e.notna()
     A = float(H(x[ok]).mean() / H(e[ok]).mean())
+    mu = P["NEU"]; xd = x + fn * 0.01 * (0.5 - mu)            # a known 1 % loss of the neutrophils' pattern, at this specimen's own fraction
+    rec["shift_per_1pct_loss"] = round(float(H(xd[ok].clip(1e-6, 1 - 1e-6)).mean() / H(e[ok]).mean()) - A, 5)
+    rec.update(_ceiling(x[ok], mu[ok]))
     rec.update(A=round(A, 4), n_sites=int(ok.sum()), expectation="composition-matched healthy (EPIC purified group profiles x this specimen's fractions)",
                state="untared: read A_rel (Stage T)")
     R = ref(); Sr = pd.Index(R["sites_ordered"])
     z = (H(beta.reindex(Sr)) - H(e.reindex(Sr))) / pd.Series(R["neutrophil_H_sd_shrunk"], index=Sr)
     return rec, z
 
+MIN_READ_FRACTION = 0.20   # below this the 1 % shift is under 0.01 and too few sites carry the cell (DEV-LOWFRAC-01: 5 healthy arrays under 0.40)
+
+def _ceiling(x, mu):
+    """Entropy ceiling: per-site H peaks at beta = 0.5. Met-A is monotone in pattern loss only while the cell's methylated sites stay above 0.5
+    (DNMT-01: A_meth saturates at 1/H(floor) once the methylated sites reach beta ~0.5)."""
+    hi = mu > 0.5
+    if not hi.any(): return {}
+    m = float(x[hi].mean())
+    return {"methylated_sites_mean_beta": round(m, 4), "past_entropy_ceiling": bool(m < 0.5)}
+
 def stage_m_isolated(beta):
     rec = SM.read(beta, "neutrophils", specimen="isolated neutrophils")
     R = ref(); S = pd.Index(R["sites_ordered"])
+    B = _bc(); Sb = pd.Index(B["neutrophil_sites"]); mu = pd.Series(B["profiles_at_neutrophil_sites"]["NEU"], index=Sb, dtype="float64")
+    x = beta.reindex(Sb); ok = x.notna() & mu.notna(); rec.update(_ceiling(x[ok], mu[ok]))
+    if rec.get("A") is not None:
+        xd = (x + 0.01 * (0.5 - mu))[ok].clip(1e-6, 1 - 1e-6); rec["shift_per_1pct_loss"] = round(float(H(xd).mean() / H(x[ok].clip(1e-6, 1 - 1e-6)).mean() * rec["A"]) - rec["A"], 5)
     z = (H(beta.reindex(S)) - pd.Series(R["neutrophil_H_mean"], index=S)) / pd.Series(R["neutrophil_H_sd_shrunk"], index=S)
     return rec, z
 
@@ -80,12 +97,15 @@ def stage_mc_cscore(z):
             "healthy_range": [min(R["healthy_clustering_LOO"]) / R["healthy_clustering_median"], max(R["healthy_clustering_LOO"]) / R["healthy_clustering_median"]],
             "status": "development: healthy band not yet set", "frac_abs_z_gt3": round(float((z.abs() > 3).mean()), 4)}
 
-def stage_t_tare(A, slide_ref_A):
+def stage_t_tare(A, slide_ref_A, shift_1pct=None):
     refs = [a for a in (slide_ref_A or []) if a is not None]
     if A is None: return {"stage": "T", "A_rel": None, "reason": "no A"}
     if len(refs) < 3: return {"stage": "T", "A_rel": None, "reason": f"untared: {len(refs)} same-slide reference arrays (>= 3 required)"}
     m = float(np.median(refs)); Ar = A / m
-    return {"stage": "T", "A_rel": round(Ar, 4), "slide_reference_median": round(m, 4), "n_refs": len(refs),
+    sd = float(np.std(np.array(refs) / m, ddof=1)); dl = (2 * sd / shift_1pct) if shift_1pct and shift_1pct > 0 else None
+    return {"stage": "T", "A_rel": round(Ar, 4), "slide_reference_median": round(m, 4), "n_refs": len(refs), "reference_spread_sd": round(sd, 4),
+            "detection_limit_pct_loss": (round(dl, 2) if dl else None),
+            "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": "Normal" if SM.NORMAL[0] <= Ar <= SM.NORMAL[1] else ("above Normal" if Ar > SM.NORMAL[1] else "below Normal")}
 
 def run_neutrophil(beta, specimen="whole blood", atlas_parquet=None, identity_json=None, slide_ref_A=None, stage1_meta=None):
@@ -100,6 +120,6 @@ def run_neutrophil(beta, specimen="whole blood", atlas_parquet=None, identity_js
     else:
         a = stage_a_composition(beta, specimen); out["composition"] = a
         m, z = stage_m_blood(beta, a["fractions"])
-    out["met_a"] = m; out["met_a_cscore"] = stage_mc_cscore(z); out["tare"] = stage_t_tare(m.get("A"), slide_ref_A)
+    out["met_a"] = m; out["met_a_cscore"] = stage_mc_cscore(z); out["tare"] = stage_t_tare(m.get("A"), slide_ref_A, m.get("shift_per_1pct_loss"))
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
     return out

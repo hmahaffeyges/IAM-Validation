@@ -19,7 +19,9 @@ def build(o, out, sid):
          "<h2>Stage A composition</h2>" + (f"<table>{rows}</table>" if rows else f"<p>{e(str(a.get('note','')))}</p>"),
          f"<h2>Stage M Met-A - neutrophils</h2>{_gauge(t.get('A_rel') if m.get('specimen')=='whole blood' else m.get('A'))}<p>A = <b>{m.get('A')}</b> ({e(str(m.get('state', m.get('reason',''))))}); "
          f"neutrophil fraction {m.get('fraction')}; sites {m.get('n_sites')}; {e(str(m.get('expectation','own floor')))}</p>",
-         f"<h2>Stage T slide tare</h2><p>A_rel = <b>{t.get('A_rel')}</b> {e(str(t.get('state', t.get('reason',''))))}</p>",
+         f"<h2>Stage T slide tare</h2><p>A_rel = <b>{t.get('A_rel')}</b> {e(str(t.get('state', t.get('reason',''))))}"
+         f" | detection limit: <b>{t.get('detection_limit_pct_loss')}</b> % loss of the neutrophil pattern (reference spread {t.get('reference_spread_sd')})</p>"
+         f"<p>Methylated sites mean beta {m.get('methylated_sites_mean_beta')}" + (" - <b>past the entropy ceiling: A falls as loss continues; read beta, not A</b>" if m.get('past_entropy_ceiling') else "") + "</p>",
          f"<h2>Stage MC Met-A C-score</h2><p>C = <b>{c.get('C')}</b> (healthy = 1; healthy held-out range {c.get('healthy_range')}); {e(str(c.get('status', c.get('reason',''))))}</p>",
          "<h2>Withheld</h2><ul>" + "".join(f"<li>{e(w)}</li>" for w in o.get("withheld", [])) + "</ul>",
          "<details><summary>bundle</summary><pre>" + e(json.dumps({k: v for k, v in o.items() if k != 'intake'}, indent=1, default=str)[:20000]) + "</pre></details></body></html>"]
