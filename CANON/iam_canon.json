@@ -124,6 +124,13 @@
    "value": "across-array SD <= 0.05; own mean beta 0.75-0.95 (methylated) or 0.05-0.25 (unmethylated); <= 3,000 sites per channel, most stable first",
    "units": "rule",
    "source": "Met-A reference floors v1.2"
+  },
+  "P_neutrophil_IAM_A": {
+   "value": 1.099,
+   "units": "dimensionless (H(eps_healthy) / H(eps0))",
+   "derivation": "mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0) (1.084-1.108, CV 3 %)",
+   "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json (frozen 2026-10-01); valid for the loyfer_pat_v1 pipeline only",
+   "status": "development"
   }
  },
  "names": {
@@ -166,7 +173,7 @@
   },
   "IAM-A": {
    "status": "current",
-   "definition": "Error reading: the per-molecule copy error eps of a cell's held methylation pattern on single-molecule sequencing (isolated unmethylated call between two methylated calls on a qualifying molecule), corrected for sequencing error, read against the physics floor eps0 = 1/(1+exp(phi*M)) = 0.032: IAM-A = H(eps)/H(eps0) (binary entropy; form used in PROC-CHANNEL-01). Methylated (copy) channel only: the unmethylated (de novo) channel is not used because it is dominated by bisulfite conversion failure (PROC-ENCODE-01). Holding energy E = ln((1-eps)/eps) kT. Thermodynamic; the cell's instance of IAM's law. Normal 0.95-1.05. Expansion (author, 2026-10-01): Informational Actualization Model A score."
+   "definition": "Error reading: the per-molecule copy error eps of a cell's held methylation pattern on single-molecule sequencing (isolated unmethylated call between two methylated calls on a qualifying molecule), read against the physics floor at the cell's architecture position: IAM-A = H(eps) / (P_cell * H(eps0)), eps0 = 1/(1+exp(phi*M)) = 0.032 (derived), P_cell = H(eps_healthy)/H(eps0), the healthy cell type's position on the floor, measured once on healthy cells with the same read-level pipeline and frozen (chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json; neutrophils P = 1.099). Instrument effects cancel because reference and reading share the pipeline. Methylated (copy) channel only: the unmethylated (de novo) channel is dominated by bisulfite conversion failure. Holding energy E = ln((1-eps)/eps) kT. Normal 0.95-1.05. Expansion: Informational Actualization Model A score."
   },
   "Salmon-A": {
    "status": "informal",
@@ -442,7 +449,7 @@
   },
   "H_min (cell)": {
    "status": "current",
-   "definition": "In the cell chain, the floor a reading is divided by. For Met-A: the cell type's reference floor on that platform (Met_A_floor_*), one per cell type, from purified healthy cells - never a class value. For IAM-A: the physics floor eps0 = 1/(1+exp(phi*M)), entered through H(eps0)."
+   "definition": "In the cell chain, the floor a reading is divided by. For Met-A: the cell type's reference floor on that platform (Met_A_floor_*), one per cell type, from purified healthy cells - never a class value. For IAM-A: P_cell * H(eps0), the physics floor's entropy at the cell's frozen architecture position P_cell (same read-level pipeline)."
   }
  },
  "retired": {
