@@ -2,7 +2,7 @@
 
 **Run.** 656 whole bloods (COVID-19 GSE179325 574, technical-replicate set GSE250556 64, FACS-counted GSE112618 6, known mixtures 12) through the chain's Stage 1
 and Stage A, neutrophil Met-A computed at every fraction (no 50 % cut). Per array: noise index N, and the shift a known 2 % neutrophil blur would cause at
-that array's own fraction. Healthy spread: the 76 NEGATIVE adults, each divided by the expectation fitted on the other 75 from (fraction, N).
+that array's own fraction. Healthy spread: the 101 NEGATIVE adults with a reading at any fraction, each divided by the expectation fitted on the other 100 from (fraction, N).
 
 | neutrophil fraction | healthy n | healthy SD | healthy in Normal | 2 % blur shift | shift / SD |
 |---|---|---|---|---|---|
