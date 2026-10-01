@@ -1,0 +1,270 @@
+% Part 2 chapter carrying the IAM Theory paper (Mahaffey, 14 Apr 2026, "Horizon Thermodynamics and Gravitational Decoherence as the Origin of mu<1, Sigma=1")
+% nearly in full, in its own order. Edited only for the physics-terms rule and checked corrections. Section 13 (interpretation) is carried in Part 5 (p5_theory_interpretation.tex).
+% Every number recomputed 2026-10-01 (docs/book/checks/THEORY_CHECK.md). [HOLD] boxes are decisions for the author.
+\newcommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+
+\chapter{Horizon thermodynamics and gravitational decoherence}\label{ch:theory}
+
+\section*{Summary}
+The chapter derives one prediction of the $\mu$--$\Sigma$ framework from established physics plus one new identification.
+(i) Gravitational structure formation is the dominant source of decoherence in cosmology, producing irreversible classical information at a rate set by
+the virial theorem. (ii) Each bit carries a minimum cost $k_BT\ln2$ (Landauer), paid at the horizon temperature. (iii) The accumulated information is
+encoded on the horizon, adding a term to the entropy functional in the Jacobson--Cai--Kim derivation of the field equations. (iv) The term applies only
+to timelike degrees of freedom, because decoherence needs nonzero proper time; null degrees of freedom are unaffected.
+The four steps give $\mu(a)<1$ for matter and $\Sigma(a)=1$ for light, with $\mu(z{=}0)=0.864$ ($\mu_0\equiv\mu-1=-0.136$) from the virial coupling
+$\beta_m=\Omega_m/2$. The result has a variational form, a constrained scalar with action $S_{\rm info}=\int[-\rho_{\rm info}(\varphi)+\lambda(\dot\varphi-H/a)]\sqrt{-g}\,d^4x$,
+$\varphi=1-1/a$, and equation of state $w_{\rm info}=-1-1/(3a)$. The perturbation equations are standard GR on the modified matter-sector expansion
+rate, giving $\mu=E^2_{\Lambda\rm CDM}/E^2_{\rm IAM}<1$ and $\Sigma=1$, with no new free parameter. No new field, extra dimension or change to the
+gravitational action is introduced beyond counting decoherence-produced information as horizon entropy.
+
+\section{The physical picture}
+\paragraph{The mechanism.} The observable universe is bounded by a horizon at the Hubble radius $R_H=c/H$. The horizon has an entropy proportional to
+its area (Bekenstein--Hawking), a temperature proportional to $H$ (Gibbons--Hawking), and a first law relating energy, entropy and volume (Jacobson,
+Cai--Kim). Matter collapses: gas into stars, stars into galaxies, galaxies into the cosmic web. At every stage gravitational interaction turns
+superpositions into definite classical states. Each such event writes a distinction that did not exist before, and the record cannot be erased.
+The holographic bound limits the information in a region by the area of its boundary; for the observable universe that boundary is the horizon.
+Information produced in the bulk has to be accommodated on the horizon, so the horizon must grow.
+
+\paragraph{Two sources.} The vacuum baseline is a constant rate, independent of structure; it maps to $\Lambda$. Structural complexity
+--- collapse, decoherence, bound-state formation --- is near zero early, grows with the cosmic web, and levels off as expansion dilutes matter; it maps to
+$\beta E(a)$ in the matter-sector perturbation equations.
+
+\paragraph{Why light is exempt.} Photons free-stream. They do not collapse into bound states and do not decohere through clustering, so they add nothing
+to the structural term. The CMB sees only $\Lambda$; matter-based observables (distance ladder, growth) see $\Lambda+\beta E(a)$. In $\mu$--$\Sigma$
+language: $\mu<1$ (matter feels weaker effective gravity) and $\Sigma=1$ (light deflection is standard).
+
+\paragraph{Self-regulation.} The information term drives expansion; expansion dilutes matter; diluted matter collapses less; less collapse writes less
+information. The loop converges, which is why $E(a)$ approaches $e$ instead of diverging.
+
+\section{Decoherence, information and irreversibility}
+A system $S$ coupled to an environment $E$ evolves from a product state into
+\begin{equation}|\psi_S\rangle\otimes|E_0\rangle\;\to\;\sum_i c_i\,|s_i\rangle\otimes|E_i\rangle ,\end{equation}
+with pointer states $|s_i\rangle$ selected by the interaction (Zurek). When $\langle E_i|E_j\rangle\approx\delta_{ij}$ the reduced density matrix becomes
+diagonal, $\rho_S=\mathrm{Tr}_E|\Psi\rangle\langle\Psi|\to\sum_i|c_i|^2|s_i\rangle\langle s_i|$: coherence is lost and recovering it needs every
+environmental correlation. Each event specifies which pointer state was selected, $I=\log_2N$ bits for $N$ outcomes. Landauer's principle sets the minimum
+dissipation for erasing one bit, $\Delta E=k_BT\ln2$, verified experimentally (B\'erut et al.\ 2012; Jun et al.\ 2014). Undoing a decoherence event would
+require erasing its record, so the irreversibility is thermodynamic, not only practical: entropy rises with every event.
+
+\section{Gravity as horizon thermodynamics}
+\subsection{Jacobson's derivation}
+Near any point $p$ the equivalence principle gives a locally flat region. A small spacelike 2-surface $\mathcal P$ defines a local Rindler horizon whose
+generators are null geodesics with tangent $k^a$ and affine parameter $\lambda$ (zero at $\mathcal P$). The boost Killing vector is $\chi^a=-\kappa\lambda k^a$,
+and the Unruh temperature is $T=\hbar\kappa/2\pi k_B$. The heat across the horizon is
+\begin{equation}\delta Q=\int_{\mathcal H}T_{ab}\chi^a d\Sigma^b=-\kappa\int\lambda\,T_{ab}k^ak^b\,d\lambda\,dA .\end{equation}
+With $S=\eta A$, $\delta S=\eta\int\theta\,d\lambda\,dA$. The Raychaudhuri equation at an instantaneously stationary horizon
+($\theta=\sigma=0$ at $\mathcal P$), $d\theta/d\lambda=-\tfrac12\theta^2-\sigma_{ab}\sigma^{ab}-R_{ab}k^ak^b$, gives $\theta\approx-\lambda R_{ab}k^ak^b$ and
+$\delta A=-\int\lambda R_{ab}k^ak^b\,d\lambda\,dA$. Setting $\delta Q=T\delta S$, $\kappa$ cancels, and for all null $k^a$
+\begin{equation}T_{ab}=\frac{\hbar\eta}{2\pi}R_{ab}+f\,g_{ab}.\end{equation}
+Conservation and the Bianchi identity fix $f=-R/2+\Lambda$:
+\begin{equation}R_{ab}-\tfrac12Rg_{ab}+\Lambda g_{ab}=\frac{8\pi G}{c^4}T_{ab},\qquad G=\frac{1}{4\hbar\eta}.\end{equation}
+The Einstein equation appears as an equation of state. The procedure is general: choose an entropy functional, obtain a gravity theory.
+
+\subsection{Why $S\propto A$ and $\eta=1/4\ell_P^2$}
+\emph{Area scaling.} Every irreversible quantum-to-classical transition writes a record that must stay accessible to outside observers. A record is
+accessible only on or outside the causal boundary, which is a 2-surface; volume storage inside the horizon is causally excluded. The capacity of a
+2-surface scales with its area, so $S\propto A$.
+
+\emph{The coefficient.} The Euclidean continuation of the Rindler metric $ds^2=-\kappa^2\rho^2dt^2+d\rho^2+dx_\perp^2$ is a cone that is smooth only if
+$\kappa\tau$ has period $2\pi$; this gives the Unruh temperature with no reference to $\eta$ or $G$. The Einstein equation carries
+$8\pi=2\times4\pi$: $4\pi$ from the solid angle in three dimensions (Gauss's law) and $2$ from the trace structure of the Einstein tensor. Jacobson's
+Clausius relation is the statement $\hbar\eta/2\pi=c^4/8\pi G$, so
+\begin{equation}\eta=\frac{c^4}{4\hbar G}=\frac{1}{4\ell_P^2},\qquad\frac14=\frac{2\pi}{8\pi}.\end{equation}
+\calc\ This is the Bekenstein--Hawking coefficient written as the ratio of the two geometric factors already in the derivation; given $G$, it fixes $\eta$.
+
+\emph{One bit per $4\ell_P^2$.} The Landauer cost of one event at horizon temperature is $E_{\rm bit}=k_BT_H=\hbar\kappa/2\pi$. The minimum area it
+disturbs through the Einstein coupling is $\delta A_{\min}=(8\pi G/c^4)(\hbar\kappa/2\pi)=4\hbar G\kappa/c^4\to4\ell_P^2$ for $\kappa=c^2/\ell_P$,
+so $\eta\,\delta A_{\min}=1$: one unit of entropy per minimum encoding area, the same ratio $8\pi/2\pi=4$ read twice.
+
+\subsection{Cai--Kim: the Friedmann equations}
+For flat FRW the apparent horizon is at $\tilde r_A=1/H$, with $A_H=4\pi/H^2$, $S_{\rm geo}=A_H/4G=\pi/GH^2$, $T_H=H/2\pi$ and Misner--Sharp energy
+$E=\tilde r_A/2G$. Then $dS_{\rm geo}=-(2\pi/GH^3)\,dH$ and $-dE=4\pi\tilde r_A^2(\rho+P)H\,dt$. The first law $-dE=T_HdS_{\rm geo}$ gives
+\begin{equation}\dot H=-4\pi G(\rho+P),\end{equation}
+and with $\dot\rho=-3H(\rho+P)$, $H^2=\tfrac{8\pi G}{3}\rho$ with $\Lambda$ as the integration constant. The Friedmann equations are the equation of state of
+the apparent horizon. The horizon temperature fixes the cost of writing a bit there, $\Delta E\ge k_BT_H\ln2=(H/2\pi)\ln2$: bits are expensive when $H$
+is large and cheap when it is small.
+
+\subsection{Where IAM enters}
+Changing the entropy functional changes the field equations. IAM takes $S_{\rm total}=S_{\rm geo}+S_{\rm info}$, where $S_{\rm info}$ depends on the
+history of gravitational decoherence rather than on local curvature.
+
+\section{Information entropy from gravitational decoherence}
+Perturbations grow, collapse and virialise. Each virialised structure is a definite classical configuration selected from the space of quantum states;
+the relevant timescale is $H^{-1}$. The information production rate is taken to scale as
+\begin{equation}\dot I\propto\rho_m(a)\,D(a)^n\,f(a)\,H(a),\label{eq:Idot}\end{equation}
+with $D$ the growth factor ($D(1)=1$), $f=d\ln D/d\ln a$, and $n$ the nonlinearity of structure formation ($n=1$ for linear growth; threshold collapse,
+mergers and hierarchical assembly make it larger; Press--Schechter gives $n\approx2.5$--$4$ depending on mass scale and epoch). The rate at which
+information entropy accumulates on the horizon is
+\begin{equation}\frac{dS_{\rm info}}{dt}=\frac{\dot I}{T_H}\cdot\frac{1}{A_H}.\label{eq:dSdt}\end{equation}
+The factor $1/T_H=2\pi/H$ is Landauer (more bits per unit energy at lower temperature); $1/A_H$ converts total information to surface density, because the
+holographic bound limits information per unit area.
+
+\paragraph{The virial coupling.} In virial equilibrium $2K+U=0$: half the potential energy is thermalised into random motion, and that half produces
+decoherence. The coupling of information entropy to the horizon is
+\begin{equation}\beta_m=\frac{\Omega_m}{2}=0.1575\quad(\Omega_m=0.315).\end{equation}
+
+\section{The activation function}
+\subsection{The matter-dominated limit}
+In matter domination $H\propto a^{-3/2}$, $A_H=4\pi/H^2\propto a^3$, $T_H=H/2\pi\propto a^{-3/2}$, $D\propto a$, $f\approx1$. Per unit $\ln a$, Eq.~\eqref{eq:dSdt} is
+\begin{equation}\frac{dS_{\rm info}}{d\ln a}\propto\frac{\rho_mD^nf}{T_HA_H}\propto\frac{a^{-3}a^n}{a^{-3/2}a^{3}}=a^{\,n-9/2},\qquad
+\frac{dS_{\rm info}}{da}\propto a^{\,n-11/2},\qquad S_{\rm info}\propto\frac{a^{\,n-9/2}}{n-9/2}.\label{eq:Sn}\end{equation}
+\calc\ Each step checks.
+
+\subsection{The critical exponent}
+For the form $\exp(C-1/a)$ the accumulated entropy must go as $-1/a+{\rm const}$, so Eq.~\eqref{eq:Sn} needs $n-\tfrac92=-1$.
+\authorhold{The paper writes $n-9/2=-1\Rightarrow n=5/2$. Solved as written, $n-9/2=-1$ gives $n=7/2$; with $n=5/2$, Eq.~\eqref{eq:Sn} gives $S\propto a^{-2}$.
+Integrating Eqs.~\eqref{eq:Idot}--\eqref{eq:dSdt} with the full $\Lambda$CDM growth factor: $dS/d\ln a\propto a^{-1.02}$ in the matter era for $n=7/2$,
+$a^{-2.02}$ for $n=5/2$. Section~\ref{sec:numerics} (the paper's Table~2) finds the closest fit for $D^{7/2}$. The activation function itself does not depend
+on this: it follows from the decoherence constraint in the next section. Decide which value the book prints. (EXPONENT\_LINE\_BY\_LINE.md)}
+The exponent lies between linear ($n=1$) and fully nonlinear ($n\gtrsim4$) structure formation, the regime where most information is produced. The full
+$\Lambda$CDM background moves the effective value to $n_{\rm eff}\approx3$--$4$ (Section~\ref{sec:numerics}).
+
+\subsection{The activation function from the decoherence constraint}
+The information term enters the first law as $-dE_{\rm info}=T_H\,dS_{\rm info}$. Let $\varphi\equiv\ln E(a)$ track the accumulated decoherence history,
+with the constraint $\dot\varphi=H/a$, so $dS_{\rm info}/dt\propto H/a$. The associated energy density obeys
+\begin{equation}\dot\rho_{\rm info}=\rho_{\rm info}\,\frac{H}{a}\quad\Rightarrow\quad
+\rho_{\rm info}\propto\exp\!\Big(\!\int\frac{H}{a}\frac{da}{aH}\Big)=\exp\!\Big(\!\int\frac{da}{a^2}\Big)=\exp\!\Big(-\frac1a\Big).\end{equation}
+With $\Delta H^2=(8\pi G/3)\rho_{\rm info}\propto\exp(C-1/a)$ and $E(1)=1$, $C=1$:
+\begin{equation}\boxed{E(a)=\exp\!\Big(1-\frac1a\Big)}\label{eq:Ea}\end{equation}
+The exponential is not put in by hand; it follows from integrating the constraint. $w_{\rm info}=-1-1/(3a)$ follows independently from the variational
+form (Section~\ref{sec:var}).
+
+\paragraph{Where the $1/a$ comes from.} The structure-formation rate per unit horizon area scales as $D/A_H\propto a/a^3=a^{-2}$, and $\int a^{-2}da=-1/a$.
+What drives the term is the surface density of information on the horizon, not the total.
+
+\paragraph{In redshift.} $E(z)=\exp(-z)$: pure exponential decay with redshift. $E(z{=}10)=4.5\times10^{-5}$; $E(z{=}2)=0.135$; $E(z{=}1)=0.368$;
+$E(1)=1$; $E\to e$ as $a\to\infty$. \calc
+
+\paragraph{Beyond matter domination.} Radiation at early times and $\Lambda$ at late times change the scalings above; the numerical integration in
+Section~\ref{sec:numerics} carries the full history and recovers the activation function with coefficients within 5--10\,\% of the analytic form.
+
+\paragraph{Not in the background.} Including the term in the background Friedmann equation gives $H_0\approx61.5$ km\,s$^{-1}$\,Mpc$^{-1}$, inconsistent with
+Planck (the Level 2b runs). The term acts through the sector split of the next section: it changes the Hubble friction on matter perturbations and leaves
+the background and the photon sector unchanged.
+
+\section{The dual-sector split}
+\subsection{The modified first law}
+Exact FRW is conformally flat ($C_{\mu\nu\rho\sigma}=0$). Any covariant entropy functional built from inhomogeneous gravitational degrees of freedom
+vanishes identically there, and $S_{\rm info}$ is sourced by inhomogeneous structure formation, so it vanishes in the homogeneous limit. The $\beta E(a)$
+term therefore cannot modify the background Friedmann equation and enters only through matter perturbations. This is a symmetry requirement, not a
+derivation from a microscopic theory; the coupling between decoherence events and horizon degrees of freedom remains open.
+
+With $S_{\rm total}=S_{\rm geo}+S_{\rm info}$, $-dE=T_Hd(S_{\rm geo}+S_{\rm info})$. The informational piece, with
+$\rho_{\rm info}=(3H_0^2/8\pi G)\,\beta E(a)$, adds linearly:
+\begin{equation}H^2=\frac{8\pi G}{3}\rho_m+\frac\Lambda3+\beta E(a)H_0^2 .\label{eq:HIAM}\end{equation}
+This is the expansion rate that matter perturbations see, $H_{\rm IAM}$, entering through the friction term $2H_{\rm IAM}\dot\delta_m$. The background
+seen by everything else is standard $\Lambda$CDM.
+
+\subsection{The causal origin of the split}
+A degree of freedom decoheres gravitationally if and only if it propagates on a timelike worldline ($d\tau>0$): decoherence needs a finite proper-time
+interval for the environment states to orthogonalise. Baryons and dark matter cluster, virialise and decohere. Photons on null worldlines have
+$\Delta\tau=0$ and write nothing through this channel. For matter, $S_{\rm info}>0$ and the modified first law gives $\mu<1$; for photons, $S_{\rm info}=0$
+and the standard first law gives $\Sigma=1$. The Einstein equations stay universal; diffeomorphism invariance holds because the change enters through
+the entropy functional, not the metric or connection. Matter sees a weaker effective $G$ because part of the gravitational energy goes into producing
+information; light, which does not take part, sees the standard coupling.
+
+\subsection{Mapping to $\mu$ and $\Sigma$}
+With $k^2\Phi=-4\pi G\mu a^2\bar\rho_m\delta_m$ and $k^2(\Phi+\Psi)=-8\pi G\Sigma a^2\bar\rho_m\delta_m$ (Pogosian \& Silvestri):
+\begin{equation}\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta E(a)H_0^2},\qquad\mu_0=\frac{-\beta}{1+\beta}=-0.136,\qquad\Sigma=1.\end{equation}
+
+\section{Variational form}\label{sec:var}
+Define $\varphi(t)\equiv\ln E(a)=1-1/a$, so $\dot\varphi=H/a$ --- a constraint, not a Klein--Gordon equation; $\varphi$ is a thermodynamic variable that
+tracks accumulated decoherence. The action is $S=S_{\rm EH}+S_\Lambda+S_{\rm matter}+S_{\rm info}$ with
+\begin{equation}S_{\rm info}=\int\Big[-\frac{3H_0^2}{8\pi G}\beta e^{\varphi}+\lambda\Big(\dot\varphi-\frac Ha\Big)\Big]\sqrt{-g}\,d^4x .\end{equation}
+Varying $\lambda$ gives the constraint; varying $\varphi$ gives $\dot\lambda=(3H_0^2/8\pi G)\beta e^\varphi$ (auxiliary); varying $g_{ab}$ under FRW symmetry
+gives Eq.~\eqref{eq:HIAM}. With $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ in the continuity equation,
+\begin{equation}w_{\rm info}(a)=-1-\frac{1}{3a},\qquad w_{\rm info}(1)=-\tfrac43 .\end{equation}
+The density grows faster than volume dilution because structure keeps producing information; this does not violate the null energy condition, since
+$\varphi$ has no kinetic term. For the combined dark-energy sector,
+\begin{equation}w_{\rm eff}(a)=\frac{-\Omega_\Lambda+\beta E(a)\,w_{\rm info}(a)}{\Omega_\Lambda+\beta E(a)},\qquad w_{\rm eff}(1)=-1.062 .\end{equation}
+\calc\ In CPL form, $w_0=-1.062$ and $w_a=-dw_{\rm eff}/da|_{a=1}=-0.012$.
+\authorhold{The paper gives $w_0\approx-1.07$, $w_a\approx+0.04$. Differentiating its own Eq.~(68) at $a=1$ gives $dw/da=+0.0116$, so $w_a=-0.012$.}
+$\varphi$ is not quintessence or a phantom field: it has no independent dynamics and no new propagating degree of freedom. It is an entropy, fixed by the
+state of the system as temperature is fixed by the state of a gas.
+
+\section{The coupling constant}
+\subsection{The virial partition}
+$\langle T\rangle=-\tfrac12\langle V\rangle$. Collapse curves spacetime ($S_{\rm geo}$) and decoheres superpositions ($S_{\rm info}$); the virial theorem
+splits the gravitational energy equally, so $\rho_{\rm info}(a{=}1)=\tfrac12\rho_m$, and with $\rho_{\rm info}(1)=\beta_mE(1)\rho_{\rm crit}$,
+\begin{equation}\beta_m=\frac{\Omega_m}{2}=0.1575 .\end{equation}
+\subsection{Check against halo mass functions}
+Sheth--Tormen and Tinker et al.\ mass functions (Planck 2018, $\sigma_8=0.811$, $n_s=0.965$, Eisenstein--Hu transfer) give the collapsed fraction in halos
+above $10^6M_\odot$ at $z=0$: $f^{\rm ST}_{\rm coll}=0.593$, $f^{\rm Tinker}_{\rm coll}=0.646$, $f_{\rm coll}=0.62\pm0.03$. The naive $\beta_m=\Omega_mf_{\rm coll}=0.195$
+is $24\,\%$ above $\Omega_m/2$. The factor $\tfrac12$ comes from the partition of gravitational energy, not from counting halos. Writing
+$\beta_m=\Omega_m\,f_{\rm coll}\,\eta_{\rm vir}$ defines the virial efficiency $\eta_{\rm vir}=1/(2f_{\rm coll})\approx0.81$.
+\authorhold{The paper's \S9.3 table of six N-body ``$\langle2K/|U|\rangle$'' values (0.76--0.90) and \S10.5 table of $n_{\rm eff}$: the source papers report
+$2T/|U|\approx1.05$--$1.4$ (the tabulated values match $|U|/2T$), and none reports $n_{\rm eff}$ as a collapse-rate slope (NBODY\_TRACE.md). The Tinker fit is
+calibrated above $10^{10.5}M_\odot$, so $f_{\rm coll}$ above $10^6M_\odot$ is an extrapolation. The \emph{Virial Partition Across Wide Domains} paper calls these
+``representative literature values''. Print them restated with $|U|/2K$ and sources, or leave them out; $\beta_m=\Omega_m/2$ does not rest on them.}
+\subsection{Tests and parameter count}
+$\beta_m/\Omega_m=\tfrac12$ should hold for any $\Omega_m$. With it, the model has no parameter beyond $\Lambda$CDM: $E(a)$ from horizon thermodynamics,
+the $1/a$ from information surface density, $E(1)=1$ by definition, and $\beta_m$ from the virial theorem. Nothing depends on the bit count per halo; as for
+$PV=NkT$, the macroscopic law follows from scaling and conservation.
+
+\section{Numerical verification}\label{sec:numerics}
+The accumulated integral $I(a)=\int_0^aR(a')/[T_H(a')A_H(a')]\,da'$ was computed with the full $\Lambda$CDM background ($\Omega_m=0.315$,
+$\Omega_r=9.1\times10^{-5}$, $H_0=67.4$) for several source terms $R$, normalised at $a=1$ and fitted to $\exp(\alpha-\beta/a)$ (target $\alpha=\beta=1$):
+\begin{center}\small\begin{tabular}{lccc}\hline Source & $\alpha$ & $\beta$ & $r$\\\hline
+$D^2\Omega_mf$ & 0.42 & 0.49 & 0.944\\ $D^{5/2}\Omega_mf/T_H$ & 0.76 & 0.87 & 0.981\\ $D^{7/2}\Omega_mf/T_H$ & 0.95 & 1.05 & 0.988\\
+$D^{4}\Omega_mf/T_H$ & 1.04 & 1.15 & 0.988\\ Press--Schechter$/T_H$ & 1.04 & 1.18 & 0.982\\\hline\end{tabular}\end{center}
+Both coefficients rise with $n$ and cross unity at $n\approx3$--$4$ ($\alpha=1$ near 3.5, $\beta=1$ near 3.3). Replacing $D^n$ with the Sheth--Tormen
+multiplicity $f_{\rm ST}(\nu)=A\sqrt{2q/\pi}[1+(q\nu^2)^{-p}]\nu e^{-q\nu^2/2}$ ($A=0.3222$, $q=0.707$, $p=0.3$, $\nu=\delta_c/\sigma_*D$) at $\sigma_*=1.2$
+(galaxy-scale halos, $10^{12}$--$10^{13}M_\odot$) gives $I\propto\exp(0.925-1.009/a)$, $r=0.992$. The ST function is calibrated on $\Lambda$CDM simulations,
+so this checks the $1/a$; the coupling rests on the virial theorem. A 15-test suite reproducing the chain is in the repository
+(\texttt{tests/iam\_derivation\_tests.py}).
+
+\section{Perturbations: $\mu<1$, $\Sigma=1$}
+\paragraph{$\delta\varphi=0$.} $\varphi$ is defined by the background apparent horizon $\tilde r_A=1/H$; local overdensities source $\Phi$ and $\Psi$ but do not
+move the apparent horizon at first order. Perturbing the constraint gives $\delta\dot\varphi=0$, and with $\delta\varphi=0$ initially the field stays
+unperturbed, like $\delta\Lambda=0$.
+\paragraph{Standard GR on the matter-sector expansion rate.} In conformal Newtonian gauge, $k^2\Psi=-4\pi Ga^2\rho_m\delta_m$, $\Psi=\Phi$, and
+\begin{equation}\ddot\delta_m+2H_{\rm IAM}\dot\delta_m-4\pi G\rho_m\delta_m=0 .\end{equation}
+The only change from $\Lambda$CDM is $H_{\rm IAM}>H_{\Lambda\rm CDM}$; the extra friction suppresses growth. In the Boltzmann code this is
+\texttt{adotoa\_matter} in the matter perturbations (Level 2, three converged chains), with the global background unchanged.
+\paragraph{$\mu$ and $\Sigma$.} $\mu(a)=E^2_{\Lambda\rm CDM}/E^2_{\rm IAM}<1$: $\mu(0)=0.864$, $\mu(0.5)=0.948$, $\mu(1)=0.982$, $\to1$ at high $z$. $\Sigma=1$
+because both potentials obey the unmodified Poisson equation with no anisotropic stress. \calc
+\paragraph{Where it sits.} $\mu<1$ with $\Sigma=1$ is not produced by $f(R)$ ($\mu>1$), DGP ($\mu>1$) or generic Horndeski theories (correlated changes
+in both). It is the signature of a change to matter-sector dynamics with no anisotropic stress and no change to light paths.
+\paragraph{Second order.} The $F_2$ kernel is the GR kernel, unchanged. The 1-loop correction to $f\sigma_8$ is $-2.5\,\%$ in both models; the difference is
+below $0.07\,\%$, and linear theory is valid for $k<0.2\,h$\,Mpc$^{-1}$.
+\authorhold{The paper's $D_2^{\rm IAM}/D_2^{\Lambda\rm CDM}$ = 1.014, 1.052, 1.075 at $z=0$, 0.5, 1 and bispectrum ratios 1.033/1.052/1.072 do not reproduce:
+with the same early normalisation, solving the growth equation with $2H_{\rm IAM}$ friction gives $D_1$ ratios 0.981/0.994/0.998 and $D_2$ ratios
+0.963/0.988/0.997; the normalisation used in the paper is not stated. Hold until the original script is found.}
+
+\section{Observational status}
+With $\beta_m$ fixed, the Planck 2018 chains give $\Delta\chi^2$ between $+0.5$ and $+1.7$ against $\Lambda$CDM in every data combination
+(Chapter~\ref{ch:chains}); free $\mu_0$ is consistent with both $0$ and $-0.136$. $\sigma_8$ drops $0.813\to0.800$ ($1.6\,\%$), the direction of the
+CMB--lensing $\sigma_8$ difference. CMB spectra, CMB lensing, BAO angles and supernova distances are unchanged at the perturbation level; the TT spectra
+differ by under $0.13\,\%$ at $\ell>30$.
+\authorhold{Fig.~2 of the paper labels the TT comparison ``$\Delta\chi^2=+0.75$'', while \S12.1 gives $+1.43$ for the same Planck-only pair.}
+\paragraph{Energy conservation.} $\dot\rho_{\rm info}/\rho_{\rm info}=H/a$ and $-3H(1+w_{\rm info})=H/a$, so the continuity equation holds for all $a$; the
+Euler--Lagrange equations give $\nabla_\mu T^{\mu\nu}_{\rm info}=0$, and with matter and $\Lambda$ conserved separately the Bianchi identity holds.
+\paragraph{DESI.} $w_{\rm eff}(0)=-1.062$, always $\le-1$. A single-sector $w_0w_a$ fit to a two-sector expansion history should show an apparent crossing.
+\paragraph{Standard sirens.} Siren hosts are galaxies, so they read the matter-sector rate: $H_0^{\rm sirens}=67.4\sqrt{1.1575}=72.51$; from the Level 2 posterior
+($67.161\pm0.467$), $72.26$. GW170817: $75.5^{+5.3}_{-5.4}$. \calc
+\paragraph{Detection.} $\sigma(\mu_0)$: DESI DR1 $0.22$ ($0.6\sigma$); DESI Y5 $\sim0.08$ ($1.7\sigma$); Euclid final $\sim0.04$ ($3.4\sigma$);
+Euclid + DESI Y5 $\sim0.03$ ($4.5\sigma$). Measuring $\Sigma_0$ consistent with zero at the same time is the distinctive signature.
+
+\section{The derivation chain and its assumptions}
+Step 1 (Jacobson): $\delta Q=T\,dS$ with $S=\eta A$ $\Rightarrow$ $G_{ab}+\Lambda g_{ab}=8\pi GT_{ab}$.
+Step 2 (Cai--Kim): $-dE=T\,dS$ on the apparent horizon $\Rightarrow$ $H^2=(8\pi G/3)\rho+\Lambda/3$.
+Step 3 (IAM): $-dE=T\,d(S_{\rm geo}+S_{\rm info})$ $\Rightarrow$ $H^2=(8\pi G/3)\rho+\Lambda/3+\beta E(a)H_0^2$ for the matter sector.
+
+\emph{Standard:} the Clausius relation; Bekenstein--Hawking entropy; Gibbons--Hawking temperature; Unruh effect; Raychaudhuri equation; Jacobson; Cai--Kim;
+Landauer; gravitational decoherence (Zurek); Press--Schechter and Sheth--Tormen. \emph{New:} gravitational decoherence produces classical information
+irreversibly, encoded holographically on the horizon, contributing $S_{\rm info}(a)$ that grows with cosmic time.
+
+\emph{Assumptions.} (1) Gravity is a thermodynamic equation of state (supported, not universally accepted). (2) Decoherence-produced information
+contributes to horizon entropy --- the new identification, consistent with the holographic and Landauer principles, not yet independently verified.
+(3) $\beta=\Omega_m/2$ is exact; the virial theorem holds in equilibrium, structure formation is not in equilibrium, and the chains test this with free $\mu_0$.
+(4) $E(a)=\exp(1-1/a)$ is exact, from the constraint $\dot\rho_{\rm info}=\rho_{\rm info}H/a$; the MGCAMB form approximates it to 1--2.5\,\%.
+(5) The term acts on matter perturbations, not the background (Level 2 vs Level 2b).
+
+\section{Predictions}
+\begin{enumerate}
+\item Distance--growth tension in $w_0w_a$ fits: the best $(w_0,w_a)$ from BAO distances alone will differ from that from $f\sigma_8$ alone.
+\item $\mu(z)<1$ with $\Sigma(z)=1$: $\mu(0)=0.864$, $\mu(0.5)=0.948$, $\Sigma=1$ at all $z$ (Euclid clustering vs lensing).
+\item No true phantom crossing; the effective $w$ is always $\le-1$.
+\item CMB-S4: $\beta_\gamma<10^{-4}$; a larger photon coupling falsifies the exemption.
+\item $\beta_m/\Omega_m=\tfrac12$ for any $\Omega_m$.
+\item $\mu$ and $\Sigma$ depend on redshift only, not on $k$ ($\delta\varphi=0$); Euclid's tomographic bins test it.
+\end{enumerate}
