@@ -19,3 +19,32 @@ Each table entry has to be traced to a figure or table in its source before it c
 **3. Also flagged in the PRL table:** "Electron m_e, 6.6 ppm". This is the Particle group's result; it goes in only as audited there.
 "Atoms T/|V| 1.0000": exact for converged Hartree–Fock by construction (the virial theorem holds for any variationally optimised wavefunction under
 scaling). It is a property of the method, not evidence for the identity; print it that way.
+
+---
+## Papers 2–4, read in full (Virial Partition Across Wide Domains, 25 Feb; DM and DE as Virial Partners, Mar; Gravitational Decoherence and the Virial Partition, Mar)
+
+**Reproduced.** µ0 = 1/(1+β_m) = 0.864; µ(z = 0.5) = 0.948 (5.2 % suppression); H0_matter = 67.36·√1.15765 = 72.48 (Planck) or
+67.161·√1.15765 = 72.26 (Level 2 chain); E(z = 10) = 4.5 × 10⁻⁵; E(∞) = e; ΛCDM deceleration transition z_t = 0.632.
+The R(a) column of the virial-ratio table (399, 20, 6, 2) is correct.
+
+**To fix before the book.**
+1. *Virial Partners* Table 1, E(a) column: 0.050 / 0.182 / 0.274 are wrong. E(a) = e^(−z) = 0.135 / 0.497 / 0.741. The R column was computed with the correct values.
+2. R(1) = Ω_m/β_m = 2 holds by construction (β_m = Ω_m/2, E(1) = 1); the paper says so itself. It cannot be offered as evidence, and it does not
+   bear on the coincidence problem, which concerns Ω_m against Ω_Λ: R compares Ω_m a⁻³ with β_m E(a). Print the ratio only as a definition.
+3. *Virial Partners* §4.2: w_info = −4/3 and z_t(IAM) = 0.718 need a modified background. The model as run modifies the matter perturbations only
+   ("no background quantities are modified", *Wide Domains* §1), and the chains that did modify the background (Level 2b) were excluded (H0 ≈ 61.5).
+   With the background unmodified, z_t = 0.632 for both models. Leave z_t out unless a matter-sector q(z) is defined and derived.
+4. *Wide Domains* Table 6: SNe Ia are counted as photon-sector probes and SH0ES (Cepheid-calibrated SNe Ia) as matter-sector. By the author's
+   ruling, supernovae sit on the matter ruler; correct the census. H0LiCOW time delays measure photon paths, so assign them by the same rule.
+5. *Wide Domains* §4.6: the χ² totals (36.16 vs 97.35, Δχ² +61.2) are dominated by assigning H0 measurements to sectors by hand (+49.6).
+   That is a reclassification, not a fit; print it as the consequence of the sector assignment, not as a goodness-of-fit result.
+6. *Gravitational Decoherence* §5.3 and abstract: "best-fit improvement Δχ² = +0.54". The positive sign means IAM's χ² is higher; the book says
+   "consistent with Planck, Δχ² = +0.54". The same paper says all 17 chains converged to R − 1 < 0.01; at the paper's date Runs A and B were at
+   0.023 and 0.020. Today all 18 are ≤ 0.010.
+7. *Gravitational Decoherence* §4.3: M_min uses "Kim & Peter 2021" for the halo occupation drop; that arXiv number is a paper on SIDM cluster
+   mergers, so the citation is wrong. σ_crit and missing satellites are out of the book by ruling.
+8. "Three-channel decomposition" of β_m (temporal / geometric / radiative, *Wide Domains* §3.3): no derivation in any paper read; flag as speculative.
+9. The dark-matter/dark-energy identification (*Virial Partners*) is interpretation; it belongs in Part 5 with its question stated as a question.
+
+**What 2.1 prints:** the virial theorem for 1/r potentials; the Landauer identity ⟨K⟩ = Q = TΔS (PRL paper); β_m = Ω_m/2 as the prediction;
+E(a) = exp(1 − 1/a) with its properties; µ(a) and its values; the matter-sector H0. The N-body numbers wait until they are traced to source.
