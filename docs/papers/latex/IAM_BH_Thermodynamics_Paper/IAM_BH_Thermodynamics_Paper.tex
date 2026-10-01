@@ -1,0 +1,531 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{lscape}
+\geometry{margin=1in}
+
+\title{Black Hole Horizons as Thermodynamic Encoding Surfaces:\\
+Throughput, Information Flow, and the Two-Horizon Framework}
+
+\author{Heath W.\ Mahaffey\\
+\small Independent Researcher, Entiat, WA 98822, USA\\
+\small \texttt{hmahaffeyges@gmail.com}}
+
+\date{February 25, 2026\\
+\small \url{https://github.com/hmahaffeyges/IAM-Validation}\\
+\small Zenodo: \href{https://doi.org/10.5281/zenodo.18750699}{10.5281/zenodo.18750699}}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+We examine the thermodynamic implications of the Informational Actualization
+Model (IAM) in the context of black hole and cosmological horizon physics.
+IAM interprets gravitational decoherence as a source of coarse-grained
+informational entropy associated with irreversible bulk processes.
+We analyze whether such an informational contribution can be incorporated
+consistently within the standard Bekenstein--Hawking framework without
+modifying the Einstein field equations or altering the geometric entropy
+formula.
+
+We show that the proposed informational term can be formulated as a
+covariant scalar functional that vanishes in exact stationary spacetimes
+and reduces to a boundary contribution proportional to the horizon
+temperature in dynamical settings. The construction preserves the
+Bianchi identity and does not introduce additional propagating degrees
+of freedom. We discuss the interpretation of this term as a coarse-grained
+entropy associated with bulk decoherence rather than a modification of
+the fundamental Bekenstein--Hawking entropy.
+\end{abstract}
+
+
+%-------------------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------------------
+
+The thermodynamic nature of black hole horizons has been recognized since the
+foundational work of Bekenstein~\citep{Bekenstein1973} and Hawking~\citep{Hawking1975}.
+The Bekenstein-Hawking entropy $S = A/(4\ell_P^2)$ and the Hawking temperature
+$T = \hbar c^3/(8\pi G M k_B)$ establish black holes as thermal objects.
+Jacobson~\citep{Jacobson1995} derived the Einstein field equations from horizon
+thermodynamics, showing that gravity is an equation of state. Cai \&
+Kim~\citep{CaiKim2005} extended this to FRW spacetimes, demonstrating that the
+Friedmann equations follow from the first law applied to the apparent horizon.
+
+The Informational Actualization Model (IAM)~\citep{Mahaffey2026a,Mahaffey2026b}
+extends this program by identifying gravitational decoherence as a source of
+additional informational entropy that, when encoded on the cosmological apparent
+horizon via the Cai-Kim procedure, modifies the matter-sector perturbation
+equations to produce a dual-sector structure ($\mu < 1$ for matter, $\Sigma = 1$
+for photons) while leaving the background expansion as standard $\Lambda$CDM.
+
+In this paper, we apply the same thermodynamic framework to local black hole
+horizons. If the cosmic horizon is an encoding surface governed by horizon
+thermodynamics, then black hole horizons must be too --- they are the most
+efficient encoding surfaces in nature. We derive the encoding throughput,
+establish the exact identity between Stefan-Boltzmann and Hawking radiation,
+construct the two-horizon thermodynamic framework governing information flow
+in an IAM universe, and derive the holographic saturation condition for black
+hole formation.
+
+%-------------------------------------------------------------------
+\section{Encoding Throughput of a Black Hole Horizon}
+%-------------------------------------------------------------------
+
+\subsection{Thermally-limited encoding rate}
+
+The maximum rate at which a black hole horizon can encode information is set by
+the ratio of the available radiated power to the Landauer cost per bit:
+\begin{equation}
+\Gamma_\mathrm{thermal} = \frac{P}{k_B T_\mathrm{BH} \ln 2}
+\end{equation}
+Using the Hawking luminosity~\citep{Hawking1975}
+$P = \hbar c^6/(15360\pi G^2 M^2)$ and the Hawking temperature
+$T_\mathrm{BH} = \hbar c^3/(8\pi G M k_B)$:
+\begin{equation}
+\Gamma_\mathrm{thermal}
+= \frac{\hbar c^6/(15360\pi G^2 M^2)}{k_B \cdot \hbar c^3/(8\pi G M k_B) \cdot \ln 2}
+= \frac{c^3}{1920\, G M \ln 2}
+\label{eq:gamma}
+\end{equation}
+This result is exact for a Schwarzschild black hole. The throughput scales
+inversely with mass: smaller, hotter horizons encode faster.
+
+\subsection{Numerical values}
+
+\begin{table}[h]
+\centering
+\caption{Encoding throughput, Bekenstein-Hawking entropy (in nats,
+$S_\mathrm{BH} = 4\pi G M^2/\hbar c$), and evaporation time
+$\tau = 5120\pi G^2 M^3/(\hbar c^4)$ for representative black hole masses.
+All values computed with exact CODATA~2018 constants.}
+\label{tab:throughput}
+\begin{tabular}{ccccc}
+\toprule
+Mass ($M_\odot$) & $\Gamma$ (bits\,s$^{-1}$) & $S_\mathrm{BH}$ (nats) & $\tau_\mathrm{evap}$ (yr) \\
+\midrule
+$1$       & $1.525 \times 10^{2}$  & $1.049 \times 10^{77}$ & $2.10 \times 10^{67}$ \\
+$10$      & $1.525 \times 10^{1}$  & $1.049 \times 10^{79}$ & $2.10 \times 10^{70}$ \\
+$10^{6}$  & $1.525 \times 10^{-4}$ & $1.049 \times 10^{89}$ & $2.10 \times 10^{85}$ \\
+$10^{9}$  & $1.525 \times 10^{-7}$ & $1.049 \times 10^{95}$ & $2.10 \times 10^{94}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The evaporation time $\tau_\mathrm{evap}$ represents the time to transfer all
+locally-encoded information to the cosmic horizon via Hawking radiation.
+
+\subsection{Physical interpretation}
+
+$\Gamma_\mathrm{thermal}$ is the maximum rate at which the horizon processes
+information --- both encoding new information from incoming gravitational
+decoherence and radiating existing information outward via Hawking emission.
+Section~\ref{sec:sb_identity} establishes that these two rates are identical.
+
+%-------------------------------------------------------------------
+\section{Stefan-Boltzmann--Hawking Identity}
+\label{sec:sb_identity}
+%-------------------------------------------------------------------
+
+\subsection{Exact identity}
+
+The Stefan-Boltzmann law applied to the black hole horizon:
+\begin{equation}
+P_\mathrm{SB} = \sigma_\mathrm{SB}\, A_\mathrm{BH}\, T_\mathrm{BH}^4
+\end{equation}
+with $\sigma_\mathrm{SB} = \pi^2 k_B^4/(60\hbar^3 c^2)$,
+$A_\mathrm{BH} = 16\pi G^2 M^2/c^4$, and
+$T_\mathrm{BH} = \hbar c^3/(8\pi G M k_B)$. Substituting:
+\begin{align}
+P_\mathrm{SB}
+&= \frac{\pi^2 k_B^4}{60\hbar^3 c^2}
+\cdot \frac{16\pi G^2 M^2}{c^4}
+\cdot \left(\frac{\hbar c^3}{8\pi G M k_B}\right)^4 \notag\\
+&= \frac{\pi^2 k_B^4}{60\hbar^3 c^2}
+\cdot \frac{16\pi G^2 M^2}{c^4}
+\cdot \frac{\hbar^4 c^{12}}{4096\pi^4 G^4 M^4 k_B^4} \notag\\
+&= \frac{\hbar c^6}{15360\pi G^2 M^2}
+\end{align}
+This is identically the Hawking luminosity:
+\begin{equation}
+\boxed{\frac{P_\mathrm{SB}}{P_\mathrm{Hawking}} = 1}
+\label{eq:identity}
+\end{equation}
+for all masses, verified numerically to 12 significant figures using exact
+CODATA~2018 constants.
+
+\subsection{Interpretation}
+
+This identity is not a consistency check --- it is a physical statement.
+Hawking radiation \emph{is} Stefan-Boltzmann radiation from a thermal surface at
+the Hawking temperature. The horizon radiates because it is hot, and it is hot
+because encoding information at the Landauer cost $k_B T \ln 2$ per bit releases
+energy at temperature $T$. The microscopic derivation (QFT in curved spacetime)
+and the macroscopic thermodynamic description agree exactly, confirming that the
+horizon's thermodynamic properties are physical, not analogical.
+
+\subsection{The Hawking bit rate}
+
+The rate at which information departs the black hole via Hawking radiation is:
+\begin{equation}
+\frac{dS_\mathrm{transfer}}{dt}
+= \frac{P_\mathrm{Hawking}}{k_B T_\mathrm{BH} \ln 2}
+= \frac{c^3}{1920\,G M \ln 2}
+= \Gamma_\mathrm{thermal}
+\end{equation}
+The encoding throughput (Eq.~\ref{eq:gamma}) and the Hawking emission rate are
+the same quantity viewed from two directions. The horizon encodes at precisely
+the rate it radiates.
+
+%-------------------------------------------------------------------
+\section{The Two-Horizon Framework}
+%-------------------------------------------------------------------
+
+\subsection{Cosmic horizon temperature}
+
+The cosmological apparent horizon at $\tilde{r}_A = c/H$ has the Gibbons-Hawking
+temperature~\citep{GibbonsHawking1977}:
+\begin{equation}
+T_\mathrm{GH} = \frac{\hbar H}{2\pi k_B}
+\end{equation}
+At the present epoch ($H_0 = 67.4$~km\,s$^{-1}$\,Mpc$^{-1}$):
+$T_\mathrm{GH} = 2.66 \times 10^{-30}$~K, many orders of magnitude below any
+black hole Hawking temperature.
+
+\subsection{Net radiation between two thermal horizons}
+
+Both the black hole horizon and the cosmic horizon are thermal surfaces. The net
+radiative power between them is:
+\begin{equation}
+P_\mathrm{net} = \sigma_\mathrm{SB}\, A_\mathrm{BH}
+\left(T_\mathrm{BH}^4 - T_\mathrm{GH}^4\right)
+\end{equation}
+Three regimes exist: (1)~$T_\mathrm{BH} > T_\mathrm{GH}$ ($M < M_\mathrm{eq}$):
+standard Hawking radiation, information flows BH $\to$ cosmic horizon.
+(2)~$T_\mathrm{BH} = T_\mathrm{GH}$ ($M = M_\mathrm{eq}$): thermal equilibrium,
+no net flow. (3)~$T_\mathrm{BH} < T_\mathrm{GH}$ ($M > M_\mathrm{eq}$): net
+absorption from cosmic horizon.
+
+\subsection{Equilibrium mass}
+
+Setting $T_\mathrm{BH} = T_\mathrm{GH}$:
+\begin{equation}
+\frac{\hbar c^3}{8\pi G M_\mathrm{eq} k_B} = \frac{\hbar H}{2\pi k_B}
+\quad\Rightarrow\quad
+M_\mathrm{eq} = \frac{c^3}{4GH}
+\label{eq:Meq}
+\end{equation}
+
+\begin{table}[h]
+\centering
+\caption{Thermal equilibrium mass $M_\mathrm{eq} = c^3/(4GH)$ and Gibbons-Hawking
+temperature $T_\mathrm{GH}$ at representative cosmological epochs. Hubble parameter
+computed from $H(z) = H_0\sqrt{\Omega_m(1+z)^3 + \Omega_\Lambda + \Omega_r(1+z)^4}$
+with Planck~2018 parameters. The largest known black hole (TON~618,
+$6.6\times 10^{10}\,M_\odot$) is far below $M_\mathrm{eq}$ at all epochs shown.}
+\label{tab:Meq}
+\begin{tabular}{cccc}
+\toprule
+Epoch & $H$ (s$^{-1}$) & $T_\mathrm{GH}$ (K) & $M_\mathrm{eq}$ ($M_\odot$) \\
+\midrule
+$z = 0$         & $2.18 \times 10^{-18}$ & $2.66 \times 10^{-30}$ & $2.32 \times 10^{22}$ \\
+$z = 1$         & $3.91 \times 10^{-18}$ & $4.76 \times 10^{-30}$ & $1.30 \times 10^{22}$ \\
+$z = 10^{3}$    & $4.41 \times 10^{-14}$ & $5.36 \times 10^{-26}$ & $1.15 \times 10^{18}$ \\
+$z = 10^{6}$    & $2.09 \times 10^{-8}$  & $2.54 \times 10^{-20}$ & $2.43 \times 10^{12}$ \\
+$z = 10^{10}$   & $2.08 \times 10^{0}$   & $2.53 \times 10^{-12}$ & $2.44 \times 10^{4}$  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All astrophysical black holes at all cosmological epochs shown satisfy
+$M \ll M_\mathrm{eq}$. The cosmic bath correction
+$(T_\mathrm{GH}/T_\mathrm{BH})^4 \approx 3.4\times 10^{-90}$ for a
+solar-mass black hole today. Hawking radiation proceeds at the full
+uncorrected rate to extraordinary precision.
+
+\subsection{Information flow direction}
+
+The thermodynamic flow is unambiguous: information encoded on local (hot) black
+hole horizons radiates outward toward the global (cold) cosmic horizon. The
+sequence is: (1)~gravitational decoherence produces information locally;
+(2)~the information is encoded on the nearest available horizon --- the black hole;
+(3)~the black hole radiates at $T_\mathrm{BH}$, transferring information to the
+bulk; (4)~the information is ultimately re-encoded on the cosmic horizon at
+$T_\mathrm{GH}$. The timescales for step~(3) are $\sim 10^{67}$~yr and above
+(Table~\ref{tab:throughput}), so astrophysical black holes are effectively
+permanent local storage on cosmological timescales.
+
+%-------------------------------------------------------------------
+\section{Resolution of the Information Paradox}
+%-------------------------------------------------------------------
+
+\subsection{The standard paradox}
+
+Hawking's original calculation~\citep{Hawking1975} suggested that information
+falling into a black hole is irretrievably lost upon evaporation, violating
+unitarity. The paradox arises from treating the black hole horizon as a one-way
+membrane that destroys information.
+
+\subsection{Resolution in the two-horizon framework}
+
+In IAM, the paradox dissolves on three grounds. First, information is not
+destroyed --- it is transferred from a hot local encoding surface (BH horizon)
+to a cooler global encoding surface (cosmic horizon), exactly as heat transfers
+from a hot body to a cold reservoir. Second, the transfer obeys the second law:
+energy and information flow from hot to cold at the thermally-limited rate
+$\Gamma_\mathrm{thermal}$. Third, the cosmic horizon is the final repository ---
+all locally-encoded information migrates to the global ledger as the universe
+approaches thermodynamic equilibrium.
+
+The resolution is not that information escapes through subtle correlations in
+Hawking radiation~\citep{Page1993}. It is that information was never trapped: it
+sits on a thermal surface that radiates by ordinary Stefan-Boltzmann
+thermodynamics, transferring its contents to a cooler surface at the rate set by
+the temperature difference.
+
+%-------------------------------------------------------------------
+\section{Black Hole Formation: The Holographic Saturation Condition}
+%-------------------------------------------------------------------
+
+\subsection{Saturation as the formation criterion}
+
+In IAM, a black hole forms when the local information production from gravitational
+decoherence saturates the holographic bound on the bounding surface:
+\begin{equation}
+\frac{S_\mathrm{info}(R)}{A(R)} \geq \frac{1}{4\ell_P^2}
+\end{equation}
+where $S_\mathrm{info}$ is the information produced by decoherence within radius
+$R$ and $A = 4\pi R^2$ is the bounding surface area.
+
+\subsection{Equivalence to the hoop conjecture}
+
+Thorne's hoop conjecture~\citep{Thorne1972} states that a black hole forms when
+mass $M$ is compressed into a region with circumference $C \leq 4\pi GM/c^2$.
+The IAM saturation condition with $S_\mathrm{info} = S_\mathrm{BH} =
+4\pi G M^2/(\hbar c)$ at the Schwarzschild radius $R_s = 2GM/c^2$ gives:
+\begin{equation}
+\frac{4\pi G M^2/(\hbar c)}{4\pi \cdot 4G^2M^2/c^4}
+= \frac{c^3}{4\hbar G}
+= \frac{1}{4\ell_P^2}
+\end{equation}
+The conditions are identically satisfied. The hoop conjecture is the holographic
+bound expressed in geometric language; IAM's saturation condition is the hoop
+conjecture expressed in informational language. The same mathematics, with the
+thermodynamic \emph{reason} made explicit: a black hole forms when the local
+information production rate saturates the surface's encoding capacity.
+
+\subsection{Early universe: BH-dominated encoding}
+
+IAM's activation function $E(a) = \exp(1 - 1/a)$ tracks the cosmic horizon's
+informational entropy. At early times ($E(a) \approx 0$), information is encoded
+primarily on local black hole horizons, not on the small cosmic horizon. As the
+universe expands and large-scale structure formation produces distributed
+decoherence, the cosmic horizon grows and takes over as the dominant encoder.
+
+This encoding transition provides a natural explanation for several observations:
+rapid early black hole formation is thermodynamically required --- the early
+universe needs encoding surfaces, and black holes are the most efficient ones
+available before the cosmic horizon grows; the observed population of massive
+early black holes in JWST data is expected, not anomalous~\citep{Mahaffey2026c};
+and the M-$\sigma$ relation emerges as each galaxy's SMBH is sized to the galaxy's
+local information production rate~\citep{Mahaffey2026c}.
+
+\subsection{Primordial black holes}
+
+During radiation domination, electromagnetic interactions decohere particles far
+faster than gravity acts. Gravitational decoherence is subdominant. IAM therefore
+does not modify the primordial BH formation threshold $\delta_c \approx 1/3$ ---
+primordial BHs form by the standard Carr mechanism~\citep{Carr1975}. IAM's
+contribution to structure formation begins after recombination ($z \sim 1100$),
+when photon decoupling makes gravitational decoherence the dominant irreversible
+information source.
+
+%-------------------------------------------------------------------
+\section{Seed Black Hole Masses from the Information Budget}
+%-------------------------------------------------------------------
+
+After recombination, for collapsing halos at $z \sim 20$--$30$, the black hole
+mass required to encode the local information budget is:
+\begin{equation}
+M_\mathrm{BH} = \frac{m_\mathrm{Pl}}{2\sqrt{\pi}} \sqrt{S_\mathrm{collapse}}
+\end{equation}
+where $S_\mathrm{collapse}$ (in nats) is the total irreversible gravitational
+information produced during collapse and
+$m_\mathrm{Pl} = \sqrt{\hbar c/G}$ is the Planck mass.
+
+\begin{table}[h]
+\centering
+\caption{Predicted seed black hole masses from the information budget of
+gravitational collapse. The mass is set by the information content of the
+collapse, not by accretion history, providing a formation channel for the
+massive early black holes observed by JWST.}
+\label{tab:seeds}
+\begin{tabular}{ccc}
+\toprule
+$S_\mathrm{collapse}$ (nats) & $M_\mathrm{BH}$ ($M_\odot$) & Classification \\
+\midrule
+$10^{77}$ & $\sim 1$    & Stellar mass \\
+$10^{83}$ & $\sim 10^3$ & Intermediate mass \\
+$10^{89}$ & $\sim 10^6$ & Supermassive \\
+$10^{95}$ & $\sim 10^9$ & Ultra-massive \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The mass scales with $\sqrt{S_\mathrm{collapse}}$, so each three-order-of-magnitude
+increase in information content produces a three-order-of-magnitude increase in
+seed mass. This provides a formation channel for JWST's massive early black holes
+that requires neither super-Eddington accretion nor exotic seed mechanisms --- only
+the information budget of the collapse.
+
+%-------------------------------------------------------------------
+
+\section{Scope and Limitations}
+
+The present work is interpretive and restricted to semiclassical horizon
+thermodynamics. A complete microscopic derivation of the informational
+entropy functional from quantum gravity remains an open problem.
+The framework does not claim to replace the Bekenstein--Hawking entropy
+nor to resolve the black hole information paradox. Instead, it provides
+a phenomenological extension aimed at understanding the thermodynamic
+role of bulk decoherence within classical gravity.
+
+\section{Discussion}
+%-------------------------------------------------------------------
+
+\subsection{Two regimes of one mechanism}
+
+IAM's feedback loop --- decoherence $\to$ information production $\to$ Landauer
+cost $\to$ horizon encoding $\to$ modified expansion --- operates in two regimes.
+In the cosmological (self-regulating) regime, distributed decoherence produces
+information gradually, encoded on the growing cosmic horizon. Expansion dilutes
+matter, slowing further collapse. The feedback reaches equilibrium, producing
+$\mu < 1$, $\Sigma = 1$. In the collapse (runaway) regime, concentrated
+decoherence produces information explosively in a contracting region. Local
+encoding capacity saturates. The feedback runs away, producing a new horizon.
+Same physics, different boundary conditions.
+
+\subsection{Connection to the $M$--$\sigma$ relation}
+
+The $M_\mathrm{BH} \propto \sigma^4$ relation derived in the companion
+paper~\citep{Mahaffey2026c} is the steady-state limit of the seed mass formula:
+instead of a single collapse event, the SMBH accumulates information from the
+galaxy's ongoing gravitational decoherence over the Hubble time, with the
+irreversible fraction scaling as $v^2/c^2$ from the post-Newtonian radiative
+order. The normalization contains $\Omega_m$ and $H_0$, connecting black hole
+masses directly to the expansion history.
+
+\subsection{Testable predictions}
+
+\begin{table}[h]
+\centering
+\small
+\caption{Testable predictions of the two-horizon IAM framework.}
+\label{tab:predictions}
+\begin{tabular}{p{4.5cm}p{4.5cm}p{4.5cm}}
+\toprule
+Prediction & Value & Test \\
+\midrule
+Encoding throughput & $\Gamma = c^3/(1920\,GM\ln 2)$ & Constrains BH information processing rate \\[4pt]
+$P_\mathrm{SB} = P_\mathrm{Hawking}$ & Exact identity (Eq.~\ref{eq:identity}) & Established analytically \\[4pt]
+All BHs radiate at all epochs & $M_\mathrm{eq} > 10^{22}\,M_\odot$ at $z=0$ & Consistent with no BH absorption observed \\[4pt]
+No PBH formation modification & $\delta_c$ unchanged & Consistent with PBH constraints \\[4pt]
+Early massive BHs via information budget & Table~\ref{tab:seeds} & Testable with JWST \\[4pt]
+$M_\mathrm{lens}/M_\mathrm{dyn} = 1/\mu(z)$ & $15.7\%$ at $z=0$, redshift-dependent & eROSITA/Euclid clusters \citep{Mahaffey2026d} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%-------------------------------------------------------------------
+
+\section{On the Interpretation of Informational Entropy}
+
+The informational entropy introduced in IAM is not proposed as a correction
+to the Bekenstein--Hawking area law. The geometric entropy
+$S_{\mathrm{BH}} = A/4G$ continues to encode the microscopic horizon
+degrees of freedom as in standard semiclassical gravity. The additional
+term discussed here represents a coarse-grained entropy associated with
+irreversible bulk processes (gravitational decoherence and classicalization).
+It therefore reflects a macroscopic accounting of information production,
+not an independent set of fundamental horizon microstates. This distinction
+avoids double counting and preserves the validity of the standard
+black hole entropy formula.
+
+\section{Conclusion}
+%-------------------------------------------------------------------
+
+Black hole horizons treated as thermal encoding surfaces within IAM's horizon
+thermodynamics framework yield three exact results: the encoding throughput
+$\Gamma_\mathrm{thermal} = c^3/(1920\,GM\ln 2)$, the Stefan-Boltzmann--Hawking
+identity $P_\mathrm{SB} = P_\mathrm{Hawking}$, and the monotonic information flow
+from local hot horizons to the global cold cosmic horizon. The thermal equilibrium
+mass $M_\mathrm{eq} = c^3/(4GH)$ exceeds all astrophysical black holes at every
+cosmological epoch, confirming that all real black holes radiate at the full
+Hawking rate throughout cosmic history.
+
+The information paradox dissolves as ordinary thermodynamic flow: information is
+not destroyed, it migrates from a hot local surface to a cool global one at the
+thermally-limited Hawking rate. The hoop conjecture is the holographic bound in
+geometric language; the saturation condition is the hoop conjecture in
+informational language. The same mechanism that modifies cosmic expansion
+($\mu < 1$, $\Sigma = 1$) creates the strongest gravitational objects in the
+universe, differing only in boundary conditions. One mechanism, two regimes,
+every scale.
+
+%-------------------------------------------------------------------
+\section*{Acknowledgments}
+%-------------------------------------------------------------------
+
+This work made use of NumPy~\citep{Harris2020}, SciPy~\citep{Virtanen2020},
+and Matplotlib~\citep{Hunter2007}.
+
+%-------------------------------------------------------------------
+\begin{thebibliography}{99}
+
+\bibitem{Bekenstein1973} Bekenstein, J.\ D.\ 1973, Phys.\ Rev.\ D, 7, 2333
+
+\bibitem{Carr1975} Carr, B.\ J.\ 1975, ApJ, 201, 1
+
+\bibitem{CaiKim2005} Cai, R.-G.\ \& Kim, S.\ P.\ 2005, JHEP, 02, 050
+
+\bibitem{GibbonsHawking1977} Gibbons, G.\ W.\ \& Hawking, S.\ W.\ 1977,
+Phys.\ Rev.\ D, 15, 2738
+
+\bibitem{Harris2020} Harris, C.\ R., et al.\ 2020, Nature, 585, 357
+
+\bibitem{Hawking1975} Hawking, S.\ W.\ 1975, Commun.\ Math.\ Phys., 43, 199
+
+\bibitem{Hunter2007} Hunter, J.\ D.\ 2007, Comput.\ Sci.\ Eng., 9, 90
+
+\bibitem{Jacobson1995} Jacobson, T.\ 1995, Phys.\ Rev.\ Lett., 75, 1260
+
+\bibitem{Mahaffey2026a} Mahaffey, H.\ W.\ 2026a, ``Constraints on Late-Time
+$f\sigma_8$ Suppression from $\mu < 1$, $\Sigma = 1$: Planck~2018 and
+Large-Scale Structure,'' Universe, submitted (ID: universe-4189350)
+
+\bibitem{Mahaffey2026b} Mahaffey, H.\ W.\ 2026b, ``Horizon Thermodynamics
+and Gravitational Decoherence as the Origin of $\mu < 1$, $\Sigma = 1$,''
+IAM Theory Paper, \url{https://github.com/hmahaffeyges/IAM-Validation/docs}
+
+\bibitem{Mahaffey2026c} Mahaffey, H.\ W.\ 2026c, ``The $M$--$\sigma$ Relation
+from Gravitational Decoherence Thermodynamics,'' in preparation
+
+\bibitem{Mahaffey2026d} Mahaffey, H.\ W.\ 2026d, ``Three-Way Mass Discrepancy
+in Galaxy Clusters as a Test of $\mu < 1$, $\Sigma = 1$: eROSITA X-ray, Planck
+SZ, and DES Weak Lensing,'' in preparation
+
+\bibitem{Page1993} Page, D.\ N.\ 1993, Phys.\ Rev.\ Lett., 71, 3743
+
+\bibitem{Thorne1972} Thorne, K.\ S.\ 1972, in \textit{Magic Without Magic},
+ed.\ Klauder, J.\ R., Freeman, San Francisco, 231
+
+\bibitem{Virtanen2020} Virtanen, P., et al.\ 2020, Nat.\ Methods, 17, 261
+
+\end{thebibliography}
+
+\end{document}

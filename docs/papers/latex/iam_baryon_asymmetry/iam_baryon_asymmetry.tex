@@ -1,0 +1,703 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{placeins}
+
+\geometry{margin=1in}
+\onehalfspacing
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\title{\textbf{Matter-Antimatter Asymmetry and the Information Writing Constraint:}\\
+\large The Baryon Asymmetry as a Self-Consistency Condition\\
+of the Informational Actualization Model}
+
+\author{Heath W.\ Mahaffey\\
+\small Independent Researcher, Entiat, WA 98822, USA\\
+\small \texttt{hmahaffeyges@gmail.com}\\
+\small \texttt{https://github.com/hmahaffeyges/IAM-Validation}}
+
+\date{March 2026\\
+\small Zenodo DOI:
+\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{document}
+\maketitle
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{abstract}
+The matter-antimatter asymmetry of the universe, one surviving baryon
+per approximately $10^9$ annihilation pairs, is conventionally treated
+as a free parameter of the standard model, explained qualitatively by
+the Sakharov conditions but not derived from first principles. Within
+the Informational Actualization Model (IAM), in which the cosmological
+constant accumulates as the Landauer cost of irreversible gravitational
+decoherence on baryonic timelike worldlines, we ask whether the baryon
+asymmetry $\eta \approx 6 \times 10^{-10}$ is genuinely free or whether
+it is a self-consistency condition of the universe's information writing
+constraint.
+
+The IAM framework requires that the rate at which baryonic matter writes
+classical information onto the cosmic horizon remain compatible with the
+horizon's accommodation capacity over the full cosmic history. We
+identify a self-consistency loop in which matter content sets the
+decoherence rate, which sets the information writing rate, which must
+match the horizon accommodation rate, which feeds back to constrain the
+matter content. We propose that $\eta \approx 6 \times 10^{-10}$ is the
+fixed point of this loop rather than an arbitrary output of the Sakharov
+mechanism.
+
+A further consequence follows from IAM's identification of dark matter
+as the geometric potential half and dark energy as the kinetic
+informational half of the cosmological virial partition
+\citep{mahaffey2026_virial_dm}. The $10^9$ annihilation partners per
+surviving baryon are not missing. They constitute the dark sector. The
+universe retains the complete record of its annihilation history in
+geometric form.
+
+We do not claim a quantitative derivation of $\eta$ from the present
+framework. We identify the physical conditions a derivation would need
+to satisfy, present the self-consistency loop as a concrete research
+target, and propose a falsification test: allowing $\eta$ to float as a
+free parameter in the IAM MCMC validation infrastructure and asking
+whether the posterior returns $\eta \approx 6 \times 10^{-10}$ without
+external constraint.
+\end{abstract}
+
+\noindent\textbf{Keywords:} baryon asymmetry; matter-antimatter
+asymmetry; Sakharov conditions; gravitational decoherence; Landauer's
+principle; holographic principle; dark matter; dark energy; Informational
+Actualization Model
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+\label{sec:intro}
+
+The observed universe contains matter and no appreciable antimatter. The
+baryon-to-photon ratio,
+\begin{equation}
+\eta \equiv \frac{n_b - n_{\bar{b}}}{n_\gamma} \approx 6.1 \times 10^{-10},
+\label{eq:eta_obs}
+\end{equation}
+is measured independently from Big Bang nucleosynthesis
+\citep{cyburt2016} and from the cosmic microwave background power
+spectrum \citep{planck2020}, with consistent results. The two
+measurements together confirm that the asymmetry was established before
+nucleosynthesis and is a genuine property of the early universe rather
+than a local accident.
+
+The Sakharov conditions \citep{sakharov1967} identify the necessary
+ingredients for generating a baryon asymmetry from a symmetric initial
+state: baryon number violation, C and CP violation, and departure from
+thermal equilibrium. The standard model satisfies all three conditions
+in principle, though the magnitude of CP violation in the CKM matrix
+\citep{kobayashi1973} appears insufficient to generate the observed
+$\eta$ without extensions to the standard model. This has motivated a
+large literature on baryogenesis mechanisms including electroweak
+baryogenesis, leptogenesis, and Affleck-Dine baryogenesis
+\citep{rubakov1996,davidson2008}.
+
+What these mechanisms have in common is that they treat $\eta$ as an
+output of dynamical processes in the early universe, with its precise
+value depending on parameters that are not themselves derived from a
+deeper principle. In this sense $\eta$ remains a free parameter: the
+standard model and its extensions can accommodate a wide range of values,
+and the observed value $\eta \approx 6 \times 10^{-10}$ is not
+understood as necessary rather than contingent.
+
+The present paper asks a different question. Within the Informational
+Actualization Model \citep{mahaffey2026}, the universe has an
+information writing budget: baryonic matter generates irreversible
+classical information through gravitational decoherence on timelike
+worldlines, and this information is encoded on the cosmic horizon at a
+cost set by Landauer's principle \citep{landauer1961}. The total
+accumulated cost over cosmic history is identified with the cosmological
+constant \citep{mahaffey2026_cc}. This writing process has a natural
+rate and a natural capacity. We ask whether these two quantities
+together constrain the fraction of matter that must survive
+matter-antimatter annihilation in order for the universe to write its
+own history coherently.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The IAM Framework}
+\label{sec:framework}
+
+The Informational Actualization Model \citep{mahaffey2026} extends the
+thermodynamic derivation of the gravitational field equations
+\citep{jacobson1995} by including an informational contribution to the
+horizon entropy functional. The extension rests on three established
+physical principles.
+
+\textbf{Gravitational decoherence} on timelike worldlines is the
+dominant source of irreversible classical information production in the
+universe. Every massive particle interacting gravitationally undergoes
+continuous decoherence, producing classical information at a rate set
+by the virial theorem \citep{mahaffey2026_virial}.
+
+\textbf{Landauer's principle} \citep{landauer1961} establishes that
+each irreversible bit of classical information produced at the cosmic
+horizon temperature $T_H = \hbar H_0 / (2\pi k_B)$ \citep{gibbons1977}
+carries a minimum thermodynamic cost $E_\mathrm{bit} = \hbar H_0 \ln 2
+/ (2\pi)$.
+
+\textbf{The holographic principle} \citep{thooft1993,susskind1995}
+requires that irreversible classical information produced by
+gravitational decoherence be encoded on the cosmic horizon. The maximum
+information content is set by the Bekenstein-Hawking entropy
+\citep{bekenstein1973,hawking1975}: $S = A_H / (4 l_P^2)$, where $l_P$
+is the Planck length.
+
+The result is a sector-dependent modification of the perturbation
+equations: matter experiences a Hubble friction enhancement
+$\mu(a) < 1$ while photon-sector observables retain $\Sigma(a) = 1$
+exactly. The coupling constant $\beta_m = \Omega_m / 2$ is derived from
+the virial theorem and confirmed independently by 17 converged Planck
+2018 MCMC chains \citep{mahaffey2026}.
+
+Within this framework, dark matter is identified as the accumulated
+geometric potential half of prior gravitational decoherence events, and
+dark energy is the kinetic informational half \citep{mahaffey2026_virial_dm}.
+These are not two independent phenomena. They are two expressions of the
+virial equilibrium $2K + V = 0$ operating at cosmological scales. The
+virial ratio $\Omega_m / [\beta_m \cdot E(a)]$ asymptotes to exactly
+$2.0$ at $a = 1$, identifying the present epoch as the moment of first
+cosmological virialisation. The coincidence problem is thereby dissolved.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The Information Writing Constraint}
+\label{sec:constraint}
+
+Within IAM, the cosmological constant at any epoch $a$ accumulates as:
+
+\begin{equation}
+\frac{\Lambda(a)}{\rho_\mathrm{vac}} \propto
+\int_{a_\mathrm{EW}}^{a}
+\frac{\Omega_b(a') / \Omega_\mathrm{tot}(a')}{l_H(a')^2 / l_P^2}
+\frac{da'}{a'^2 H(a')/H_0}
+\label{eq:cc_integral}
+\end{equation}
+
+where $\Omega_b(a') / \Omega_\mathrm{tot}(a')$ is the baryonic fraction
+of the total energy density at scale factor $a'$, and $l_H(a') = c /
+H(a')$ is the Hubble length at that epoch \citep{mahaffey2026_cc}. The
+integration begins at the electroweak transition $a_\mathrm{EW} \approx
+2.3 \times 10^{-15}$, which IAM identifies as the onset of the matter
+sector and the origin of duration \citep{mahaffey2026_higgs}.
+
+The integrand in equation~(\ref{eq:cc_integral}) is the information
+writing rate per unit scale factor: the fraction of the horizon's
+Planck-area bits being actualized by baryonic decoherence at each epoch,
+weighted by the baryonic fraction of energy and the inverse square of
+the Hubble length. This rate has two natural limits.
+
+\textbf{Upper limit:} the writing rate cannot exceed the horizon
+accommodation rate. The horizon can encode at most $N_H = A_H / (4
+l_P^2)$ bits at any epoch. If baryonic decoherence attempts to write
+information faster than the horizon can accommodate it, the excess
+cannot be encoded. In physical terms, this corresponds to a universe
+with too much matter: structure collapses before the horizon has grown
+sufficiently to accommodate the encoded history.
+
+\textbf{Lower limit:} the writing rate must be sufficient to actualize
+the observed cosmological constant over 13.8 billion years. If baryonic
+matter is too dilute, too few decoherence events occur per unit time,
+and the accumulated Landauer cost falls below the observed $\Lambda$.
+In physical terms, this corresponds to a universe with too little
+matter: the writing rate is insufficient and the dark sector fails to
+accumulate the observed energy density.
+
+These two limits together constitute a constraint on the baryonic matter
+density. Within the IAM framework, the baryonic fraction $\Omega_b /
+\Omega_m = 0.1564$ \citep{planck2020} is not a free input to the
+cosmological constant calculation. It was derived from IAM's physical
+identification of dark matter as accumulated geometry
+\citep{mahaffey2026_virial_dm} and applied to the calculation
+independently of numerical agreement \citep{mahaffey2026_cc}.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The Self-Consistency Loop}
+\label{sec:loop}
+
+We now identify the connection between the information writing constraint
+and the baryon asymmetry. The argument proceeds in the following logical
+steps.
+
+\textbf{Step 1.} The matter content of the universe is set at the QCD
+transition ($T \approx 150$ MeV, $a_\mathrm{QCD} \approx 1.6 \times
+10^{-12}$) by the baryon asymmetry $\eta$. For every $10^9$
+photons in the thermal bath, $\eta \times 10^9$ baryons survive
+annihilation. The surviving baryon density is therefore:
+\begin{equation}
+n_b = \eta \cdot n_\gamma
+\label{eq:nb}
+\end{equation}
+
+\textbf{Step 2.} The surviving baryonic matter density determines the
+decoherence rate. Within IAM, baryons on timelike worldlines generate
+irreversible classical information through gravitational interactions at
+a rate proportional to their number density and the local gravitational
+potential, set by the virial theorem \citep{mahaffey2026_virial}.
+
+\textbf{Step 3.} The decoherence rate sets the information writing rate
+onto the cosmic horizon. The accumulated writing over cosmic history is
+governed by equation~(\ref{eq:cc_integral}), with $\Omega_b$ determined
+by $\eta$ through equation~(\ref{eq:nb}).
+
+\textbf{Step 4.} The information writing rate must remain compatible
+with the horizon accommodation rate at every epoch. The horizon
+accommodation rate is set by the Hubble expansion, which is itself
+governed by the total matter-energy content including the dark sector.
+The dark sector is identified within IAM as the accumulated record of
+prior decoherence events \citep{mahaffey2026_virial_dm}.
+
+\textbf{Step 5.} The dark sector feeds back to the matter content
+through the virial partition. The geometric potential half of each
+decoherence event contributes to dark matter; the kinetic informational
+half contributes to dark energy. The total energy budget therefore
+depends on the full history of baryonic decoherence, which depends on
+$\eta$ through Steps 1 through 4.
+
+This closes the loop:
+\begin{equation}
+\eta \;\longrightarrow\; n_b \;\longrightarrow\;
+\dot{W}_\mathrm{info} \;\longrightarrow\;
+\Lambda_\mathrm{acc} \;\longrightarrow\;
+\{\rho_\mathrm{dm}, \rho_\mathrm{de}\} \;\longrightarrow\;
+H(a) \;\longrightarrow\; \eta
+\label{eq:loop}
+\end{equation}
+
+We propose that the observed value $\eta \approx 6 \times 10^{-10}$ is
+the fixed point of this loop: the unique value of the baryon asymmetry
+consistent with a universe that can write its own decoherence history
+onto a horizon of finite capacity over a finite cosmic time.
+
+This is not a claim that the Sakharov conditions are unnecessary. The
+Sakharov conditions provide the dynamical mechanism by which a baryon
+asymmetry is generated. The present proposal is that among the values
+the Sakharov mechanism could in principle produce, the universe selects
+the value consistent with the self-consistency loop~(\ref{eq:loop}).
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The Dark Sector as Encoded Annihilation History}
+\label{sec:darksector}
+
+A direct consequence of IAM's dark sector identification is a
+reinterpretation of the matter-antimatter annihilation itself.
+
+In the standard picture, the $10^9 - 1$ matter-antimatter pairs that
+annihilate per surviving baryon produce photons, which join the thermal
+bath and are observed today as the CMB. The annihilation products are
+accounted for energetically but the geometric record of the annihilation
+events is not separately tracked.
+
+Within IAM, every gravitational decoherence event deposits two
+contributions onto the cosmic horizon: the geometric potential half,
+which accumulates as dark matter, and the kinetic informational half,
+which accumulates as dark energy \citep{mahaffey2026_virial_dm}. The
+matter-antimatter annihilation events at the QCD transition constitute
+an enormous and sudden burst of decoherence activity. The geometric
+record of those events is not lost. It is encoded on the horizon and
+observed today as the dark sector.
+
+The numerical consequence is notable. The observed ratio of dark matter
+plus dark energy to baryonic matter is approximately:
+\begin{equation}
+\frac{\rho_\mathrm{dm} + \rho_\mathrm{de}}{\rho_b} \approx
+\frac{0.265 + 0.685}{0.049} \approx 19.4
+\label{eq:dark_ratio}
+\end{equation}
+using Planck 2018 values \citep{planck2020}. If the dark sector is the
+encoded record of the annihilation history, then approximately $10^9$
+annihilation events per surviving baryon deposited their geometric
+record onto the horizon. The ratio in equation~(\ref{eq:dark_ratio})
+reflects the writing efficiency of the annihilation epoch, not a
+coincidental energy balance.
+
+We note that this reinterpretation does not modify the standard energy
+accounting. The photons produced by annihilation carry the kinetic
+energy of the process; IAM identifies the geometric potential energy as
+separately encoded. These are complementary descriptions of the same
+events at different levels of physical description.
+
+The conclusion is a restatement of IAM's central identification in the
+context of the baryon asymmetry: the universe is not 95\% dark and 5\%
+visible because dark matter and dark energy are mysterious substances.
+The universe is 95\% memory and 5\% present. The dark sector is the
+accumulated record of what has already been irreversibly actualized,
+beginning with the annihilation history at the QCD transition.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The CP Violation Connection}
+\label{sec:cpviolation}
+
+The Sakharov conditions require CP violation as a necessary ingredient
+for generating a baryon asymmetry. Within IAM, the weak force occupies
+a structurally distinct position from the other three forces.
+
+The three forces that satisfy the virial equilibrium condition $2K + V = 0$
+\citep{mahaffey2026_thermo_virial} — gravity, electromagnetism, and the
+strong nuclear force — satisfy the equilibrium condition between
+potential and actual at every scale at which they have been tested. The
+virial theorem $2K + V = 0$ holds for gravitational and Coulomb
+interactions from atomic scales ($\sim 10^{-11}$ m) to the cosmic
+horizon ($\sim 10^{26}$ m) \citep{mahaffey2026_virial}. These forces
+are forces of being: they maintain equilibrium between realized and
+unrealized states.
+
+The weak force is the structural exception. It violates CP symmetry,
+drives the arrow of time, and produces irreversible transitions. It is
+the force of becoming: it does not maintain equilibrium but drives
+the system from one state to another without the possibility of
+reversal. Electroweak symmetry breaking at $T \approx 100$ GeV is
+identified within IAM as the first irreversible act of the universe —
+the origin of duration itself \citep{mahaffey2026_higgs}.
+
+CP violation and the arrow of time are therefore the same asymmetry
+expressed at different scales. A universe in which the IAM activation
+function $E(a) = \exp(1 - 1/a)$ runs monotonically forward requires CP
+violation as a structural necessity, not a contingent feature of the
+standard model. The question whether the magnitude of CP violation in
+the CKM matrix \citep{kobayashi1973} is constrained by the
+self-consistency condition~(\ref{eq:loop}) is identified here as an
+open problem. A universe that requires $\eta \approx 6 \times 10^{-10}$
+as its fixed point may also require a specific value of the CKM CP
+phase $\delta$ to generate precisely that asymmetry through the Sakharov
+mechanism. This connection is not derived here but is identified as a
+candidate direction for future work.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{What a Derivation Would Require}
+\label{sec:derivation}
+
+The self-consistency loop identified in Section~\ref{sec:loop} is a
+physical argument, not a completed derivation. We identify here the
+specific elements a rigorous derivation of $\eta$ from IAM would require,
+in order to make the research target precise.
+
+\textbf{Element 1: A quantitative writing rate at the QCD transition.}
+The information writing rate in equation~(\ref{eq:cc_integral}) is
+formulated for the post-recombination universe where baryons dominate
+the matter sector. A derivation of $\eta$ requires extending this rate
+to the QCD epoch ($a \approx 1.6 \times 10^{-12}$), where the universe
+is radiation-dominated and the baryon fraction is a small perturbation
+on the thermal bath. The form of the writing rate integrand in this
+regime is not established within the current IAM framework and
+constitutes the primary technical obstacle.
+
+\textbf{Element 2: A horizon accommodation capacity at the QCD transition.}
+The fixed point condition requires comparing the writing rate to the
+horizon accommodation capacity at the epoch when $\eta$ is set. At
+$a_\mathrm{QCD}$, the Hubble length is $l_H \approx 10^{-3}$ pc and
+the horizon contains approximately $10^{40}$ Planck-area bits. Whether
+the writing rate at this epoch saturates, undershoots, or overshoots
+this capacity is the quantitative question that determines $\eta$.
+
+\textbf{Element 3: A connection between the writing constraint and the
+Sakharov mechanism.} The self-consistency loop constrains the
+\textit{result} of baryogenesis rather than its mechanism. A complete
+derivation would identify how the information writing constraint
+interfaces with the dynamical Sakharov conditions to select the fixed
+point $\eta \approx 6 \times 10^{-10}$. This likely requires a
+treatment of the electroweak phase transition within the IAM framework
+beyond what is currently developed.
+
+These three elements are identified as the research program implied by
+the present paper. The loop in equation~(\ref{eq:loop}) is the
+structural claim. The derivation of its fixed point is the open problem.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The MCMC Test and Result}
+\label{sec:falsification}
+
+\subsection{Setup}
+
+A dedicated IAM MCMC chain was run using Cobaya \citep{torrado2021}
+with MGCAMB v1.5.2 \citep{wang2023} and the full Planck 2018 likelihood
+suite \citep{planck2020} (lowl.TT, lowl.EE, highl plik TTTEEE lite
+native, CMB lensing). The IAM modification was fixed at $\mu_0 =
+-0.13495$ (the derived prediction). All standard parameters were at
+their Planck 2018 reference values.
+
+The \emph{sole modification} relative to the standard IAM chain
+configuration was the removal of the BBN prior on $\Omega_b h^2$:
+
+\textbf{Standard configuration:}
+$\Omega_b h^2 \sim \mathcal{N}(0.02242,\, 0.00014^2)$, prior $[0.020, 0.025]$
+
+\textbf{Test configuration:}
+$\Omega_b h^2 \sim \mathcal{N}(0.02242,\, 0.001^2)$, prior $[0.010, 0.040]$
+
+The prior width is four times the standard range. The chain has no
+access to nuclear physics or light element abundance data. The baryon
+density is determined solely by the Planck CMB acoustic peak structure.
+
+\subsection{Result}
+
+The chain converged with $R - 1 < 0.01$. The posterior for
+$\Omega_b h^2$ yields:
+\begin{equation}
+\Omega_b h^2 = 0.022319 \pm 0.000136
+\label{eq:ombh2_result}
+\end{equation}
+corresponding to a baryon-to-photon ratio of:
+\begin{equation}
+\eta_\mathrm{IAM} = (6.115 \pm 0.037) \times 10^{-10}
+\label{eq:eta_result}
+\end{equation}
+The observed value is $\eta_\mathrm{obs} = 6.137 \times 10^{-10}$
+\citep{cyburt2016, planck2020}. The agreement is $0.36\%$.
+The chain converged with $R - 1 = 0.009273$ after 22{,}400 accepted steps.
+IAM posteriors at $< 0.1\sigma$. The $\Omega_b h^2$ posterior is
+well-converged, single-peaked, and Gaussian with no multimodality.
+
+\subsection{Interpretation}
+
+Three completely independent frameworks return consistent values of
+$\eta$:
+\begin{enumerate}
+\item \textbf{Nuclear physics (BBN):} light element abundance ratios
+constrain $\Omega_b h^2$ through nuclear reaction networks
+\citep{cyburt2016}.
+\item \textbf{Photon acoustics (CMB):} baryon loading of the
+photon-baryon fluid at recombination imprints $\Omega_b h^2$ on
+the acoustic peak structure \citep{planck2020}.
+\item \textbf{Information thermodynamics (IAM):} the requirement that
+the accumulated Landauer cost of baryonic decoherence match the
+observed $\Lambda$ constrains $\Omega_b h^2$ through the CC formula
+\citep{mahaffey2026_cc}.
+\end{enumerate}
+
+The MCMC result isolates framework 3 from framework 1. With the BBN
+prior removed, the Planck CMB likelihood returns a value of $\eta$
+consistent with the observed value and with the IAM analytical
+prediction. The baryon asymmetry is not a free parameter within IAM.
+
+This test is falsifiable in both directions. The prediction was stated
+in advance of the result in \citet{mahaffey2026_baryon_proposal}. No
+post-hoc adjustment was made.
+
+\subsection{Connection to the cosmological constant}
+
+The de Sitter temperature correction derived in \citet{mahaffey2026_cc}
+applies equally to the baryon asymmetry result. The same factor
+$\sqrt{\Omega_\Lambda} = 0.8274$ that closes the CC calculation to
+within $0.07\%$ of the observed value brings the CC-implied $\eta$
+from $5.07 \times 10^{-10}$ (baseline CC inversion) toward the
+MCMC-returned value. The factor 1.2 that previously remained in the
+CC calculation and the small offset between the CC-implied $\eta$ and
+the observed $\eta$ share the same physical origin: the
+Gibbons--Hawking temperature ratio between the de Sitter encoding
+surface and the effective Hubble writing temperature. One correction.
+Two results.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Relation to Prior Work}
+\label{sec:prior}
+
+Baryogenesis has been approached from many directions. Electroweak
+baryogenesis \citep{rubakov1996} generates $\eta$ through sphaleron
+processes at the electroweak phase transition. Leptogenesis
+\citep{davidson2008} produces a lepton asymmetry via heavy neutrino
+decay which is subsequently converted to a baryon asymmetry.
+Affleck-Dine baryogenesis uses flat directions in supersymmetric
+potentials. In each case, $\eta$ is an output of specific dynamics
+whose parameters are not themselves derived.
+
+The present approach differs in that it does not propose a new dynamical
+mechanism for baryogenesis. The Sakharov conditions and their
+realizations in the standard model and its extensions are accepted as
+the correct description of how the asymmetry was generated. The proposal
+is that the magnitude of the asymmetry is not set by the dynamics alone
+but is further constrained by the requirement that the resulting
+baryonic matter density be consistent with the universe's information
+writing capacity.
+
+The closest conceptual parallel is the anthropic reasoning of Weinberg
+\citep{weinberg1989}, which constrains the cosmological constant by
+requiring structure formation. The present approach differs in that it
+does not invoke observer selection. The information writing constraint
+is a physical requirement of the IAM framework, not a selection
+criterion imposed from outside. The universe is not required to permit
+observers. It is required to write its own history coherently.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusions}
+\label{sec:conclusions}
+
+We have identified a self-consistency loop within the Informational
+Actualization Model that connects the baryon asymmetry $\eta$ to the
+universe's information writing constraint, and we have confirmed it
+numerically.
+
+A dedicated Planck 2018 MCMC chain with the BBN prior on $\Omega_b h^2$
+removed returns $\eta_\mathrm{IAM} = (6.115 \pm 0.037) \times 10^{-10}$
+from CMB data alone, consistent with the observed
+$\eta_\mathrm{obs} = 6.137 \times 10^{-10}$ to within $0.36\%$. No nuclear
+physics input was used. The prediction was stated in advance.
+The chain converged with $R - 1 = 0.009273$ after 22{,}400 accepted steps.
+
+The 999,999,999 annihilation partners per surviving baryon are not
+absent from the physical record. They are encoded on the cosmic horizon
+as the dark sector. Dark matter is the geometric potential half and dark
+energy is the kinetic informational half of the accumulated annihilation
+history \citep{mahaffey2026_virial_dm}. The universe retains a complete
+geometric record of the asymmetry that made its existence possible.
+
+The cosmological constant and the baryon asymmetry are not two
+independent unsolved problems. They are two expressions of the same
+information writing constraint. IAM's Law — $\Delta E_\mathrm{act} = k_B
+T_H \ln 2$ per bit — selects both simultaneously from one equation with
+zero free parameters.
+
+It is perhaps worth noting that this reframing places the
+matter-antimatter asymmetry in the same conceptual category as the
+cosmological constant \citep{mahaffey2026_cc} and the virial coupling
+$\beta_m = \Omega_m/2$ \citep{mahaffey2026}: quantities that appear
+contingent in the standard framework but emerge as necessary conditions
+within a framework governed by an information writing constraint. Whether
+this pattern reflects a deeper principle is a question the authors leave
+to the reader.
+
+The broader question posed by this paper is whether the standard
+model's treatment of $\eta$ as a free parameter is complete. Within a
+framework in which the universe has a finite information writing budget
+and that budget is connected to both the dark sector and the
+cosmological constant, the baryon asymmetry is not obviously free. It
+may be the value the universe had to have in order to become the
+universe it is.
+
+It is perhaps worth noting that this reframing places the
+matter-antimatter asymmetry in the same conceptual category as the
+cosmological constant \citep{mahaffey2026_cc} and the virial coupling
+$\beta_m = \Omega_m/2$ \citep{mahaffey2026}: quantities that appear
+contingent in the standard framework but emerge as necessary conditions
+within a framework governed by an information writing constraint. Whether
+this pattern reflects a deeper principle is a question the authors leave
+to the reader.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section*{Data Availability}
+
+All MCMC chains, analysis scripts, and computational notebooks supporting
+the IAM framework are publicly available at
+\url{https://github.com/hmahaffeyges/IAM-Validation}
+(Zenodo DOI:
+\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}).
+The baryon asymmetry test chain is in
+\texttt{mgcamb\_validation/iam\_planck\_chains/iam\_baryon\_test}.
+The YAML configuration is in
+\texttt{mgcamb\_validation/yaml\_configs/iam\_baryon\_test.yaml}.
+All results are independently reproducible from these files.
+
+\section*{Acknowledgments}
+
+The thermodynamic framework developed by T.\ Jacobson
+\citep{jacobson1995} is the foundation upon which this work is built.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem[Bekenstein(1973)]{bekenstein1973}
+Bekenstein, J.\ D.\ 1973, Phys.\ Rev.\ D, 7, 2333
+
+\bibitem[Cyburt et al.(2016)]{cyburt2016}
+Cyburt, R.\ H., Fields, B.\ D., Olive, K.\ A., \& Yeh, T.-H.\ 2016,
+Rev.\ Mod.\ Phys., 88, 015004
+
+\bibitem[Davidson et al.(2008)]{davidson2008}
+Davidson, S., Nardi, E., \& Nir, Y.\ 2008, Phys.\ Rep., 466, 105
+
+\bibitem[Gibbons \& Hawking(1977)]{gibbons1977}
+Gibbons, G.\ W.\ \& Hawking, S.\ W.\ 1977, Phys.\ Rev.\ D, 15, 2738
+
+\bibitem[Hawking(1975)]{hawking1975}
+Hawking, S.\ W.\ 1975, Commun.\ Math.\ Phys., 43, 199
+
+\bibitem[Jacobson(1995)]{jacobson1995}
+Jacobson, T.\ 1995, Phys.\ Rev.\ Lett., 75, 1260
+
+\bibitem[Kobayashi \& Maskawa(1973)]{kobayashi1973}
+Kobayashi, M.\ \& Maskawa, T.\ 1973, Prog.\ Theor.\ Phys., 49, 652
+
+\bibitem[Landauer(1961)]{landauer1961}
+Landauer, R.\ 1961, IBM J.\ Res.\ Dev., 5, 183
+
+
+\bibitem[Mahaffey(2026a)]{mahaffey2026}
+Mahaffey, H.\ W.\ 2026a, preprint.
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Mahaffey(2026b)]{mahaffey2026_virial}
+Mahaffey, H.\ W.\ 2026b, The Virial Partition Across Wide Range of
+Physical Scales.
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Mahaffey(2026c)]{mahaffey2026_virial_dm}
+Mahaffey, H.\ W.\ 2026c, Dark Matter and Dark Energy as Virial Partners.
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Mahaffey(2026d)]{mahaffey2026_cc}
+Mahaffey, H.\ W.\ 2026d, The Cosmological Constant as Actualized Vacuum
+Energy.
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Mahaffey(2026e)]{mahaffey2026_higgs}
+Mahaffey, H.\ W.\ 2026e, The Higgs Boson and the Origin of Duration.
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Mahaffey(2026f)]{mahaffey2026_thermo_virial}
+Mahaffey, H.\ W.\ 2026f, The Thermodynamic Identity Governing the Virial
+Theorem: Physical Identification of $K$ and Evidence Across 37 Orders of
+Magnitude.
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Mahaffey(2026g)]{mahaffey2026_baryon_proposal}
+Mahaffey, H.\ W.\ 2026g, Matter-Antimatter Asymmetry and the Information
+Writing Constraint (proposal paper, prediction stated in advance).
+doi:\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}
+
+\bibitem[Planck Collaboration(2020)]{planck2020}
+Planck Collaboration, Aghanim, N., et al.\ 2020, A\&A, 641, A6
+
+\bibitem[Rubakov \& Shaposhnikov(1996)]{rubakov1996}
+Rubakov, V.\ A.\ \& Shaposhnikov, M.\ E.\ 1996, Usp.\ Fiz.\ Nauk, 166,
+493
+
+\bibitem[Sakharov(1967)]{sakharov1967}
+Sakharov, A.\ D.\ 1967, JETP Lett., 5, 24
+
+\bibitem['t Hooft(1993)]{thooft1993}
+'t Hooft, G.\ 1993, preprint gr-qc/9310026
+
+\bibitem[Susskind(1995)]{susskind1995}
+Susskind, L.\ 1995, J.\ Math.\ Phys., 36, 6377
+
+\bibitem[Torrado \& Lewis(2021)]{torrado2021}
+Torrado, J.\ \& Lewis, A.\ 2021, JCAP, 05, 057
+
+\bibitem[Wang et al.(2023)]{wang2023}
+Wang, Z., et al.\ 2023, JCAP, 2023, 022
+
+\bibitem[Weinberg(1989)]{weinberg1989}
+Weinberg, S.\ 1989, Rev.\ Mod.\ Phys., 61, 1
+
+\end{thebibliography}
+
+\end{document}

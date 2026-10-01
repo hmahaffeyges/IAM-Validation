@@ -1,0 +1,789 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{longtable}
+
+\geometry{margin=1in}
+
+\definecolor{mcmcrow}{RGB}{220,230,250}
+\definecolor{newresult}{RGB}{200,230,200}
+\definecolor{weakrow}{RGB}{250,220,220}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\title{\textbf{The Thermodynamic Identity Governing the Virial Theorem:\\
+Derivation from First Principles and Evidence\\
+Across 37 Orders of Magnitude}}
+
+\author{Heath W.\ Mahaffey\\
+\small Independent Researcher, Entiat, Washington 98822, USA\\
+\small \href{mailto:hmahaffeyges@gmail.com}{hmahaffeyges@gmail.com}\\
+\small \url{https://github.com/hmahaffeyges/IAM-Validation}}
+
+\date{March 2026\\
+\small Zenodo DOI:
+\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{document}
+\maketitle
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{abstract}
+The virial theorem, established by Clausius in 1870, states that for any
+stable bound system under a $1/r$ potential, the time-averaged kinetic and
+potential energies satisfy $2\langle K \rangle + \langle V \rangle = 0$.
+The theorem has been verified across 37 orders of magnitude in physical
+scale, but one question has persisted: what is $\langle K \rangle$?
+The virial theorem identifies $\langle K \rangle$ as the average kinetic
+energy of bound particles. It does not identify what physical process
+produces the $1/2$ partition, nor what happens thermodynamically to the
+energy released during the transition from the unbound to the bound state.
+
+We show that the virial theorem and Landauer's principle are two
+expressions of the same underlying thermodynamic identity. The first law,
+the second law, Landauer's principle, and the equilibrium condition of the
+$1/r$ potential together require:
+\begin{equation*}
+E_\mathrm{Landauer} = Q = -E_f = \langle K \rangle,
+\end{equation*}
+where $Q$ is the heat released irreversibly at the virialization boundary,
+$\Delta S$ is the entropy produced, and $E_f$ is the total energy of the
+bound state. This identifies $\langle K \rangle$ for the first time as a
+thermodynamic quantity: the Landauer cost of the system's transition from
+the unbound to the bound state. The thermodynamic identity is:
+\begin{equation}
+\langle K \rangle = Q = T\,\Delta S = E_\mathrm{Landauer}.
+\label{eq:identity_abstract}
+\end{equation}
+The virial theorem $2\langle K \rangle + \langle V \rangle = 0$ is the
+mechanical expression of this identity. The identity and the virial theorem
+are two descriptions of the same physical condition at the boundary between
+unbound and bound states.
+
+The data are consistent with this identity across 37 orders of magnitude
+in physical scale, from hydrogen atoms at $10^{-10}$~m to the
+cosmological coupling constant $\beta_m = \Omega_m/2$, for which 17
+independent MCMC chains against the full Planck~2018 likelihood
+\citep{PlanckVI2020} return $\beta_m = 0.1583 \pm 0.0033$ against the
+predicted $0.1577$, consistent at $0.2\sigma$ with zero free parameters.
+The Informational Actualization Model (IAM)~\citep{IAM_theory} is one
+framework that instantiates this identity at cosmological scales,
+recovering $\beta_m = \Omega_m/2 = 0.1575$ with no fitted parameters.
+
+Three of the four fundamental forces satisfy this identity within their
+respective domains. The weak nuclear force is a structural exception,
+excluded not by coincidence but by physical necessity: the force whose
+function is to enable irreversible transitions between stable states cannot
+simultaneously satisfy an equilibrium condition. This exception is itself
+evidence for the identity's physical content.
+
+We propose that this thermodynamic identity constitutes a fundamental law
+of physics of which the virial theorem is the mechanical special case.
+\end{abstract}
+
+\noindent\textbf{Keywords:} virial theorem; Landauer's principle;
+thermodynamic identity; gravitational decoherence; entropy; bound states;
+cosmological constant; Informational Actualization Model
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+\label{sec:intro}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The unexplained 1/2}
+
+The virial theorem has governed the energy partitioning of bound physical
+systems since Clausius stated it mathematically in
+1870~\citep{Clausius1870}. For any stable system bound by a $1/r$
+potential, the time-averaged kinetic and potential energies satisfy:
+\begin{equation}
+2\langle K \rangle + \langle V \rangle = 0,
+\qquad \langle K \rangle = \tfrac{1}{2}|\langle V \rangle|.
+\label{eq:virial}
+\end{equation}
+The theorem is universally verified --- from the hydrogen atom
+($10^{-10}$~m) to galaxy clusters ($10^{23}$~m) and, as shown below, to
+the cosmological coupling constant ($10^{26}$~m) --- a span of 37 orders
+of magnitude. It is one of the most broadly confirmed results in physics.
+
+Yet a question has gone unanswered for 154 years: what is $K$?
+
+The virial theorem identifies $K$ as the time-averaged kinetic energy of
+the bound particles. It establishes the ratio $K/|V| = 1/2$ as a
+mathematical consequence of the $1/r$ potential form via the equations of
+motion. It does not explain why the energy balance at equilibrium requires
+exactly this ratio, nor what physical process produces it, nor what happens
+to the energy that is not retained as kinetic energy during the transition
+from the unbound to the bound state.
+
+Clausius derived Equation~\ref{eq:virial} from Newton's second law. The
+derivation is mechanical. It describes the equilibrium state. It is silent
+on the thermodynamic content of the transition that produces the
+equilibrium state, and silent on the physical identity of the energy
+released during that transition.
+
+The thermodynamics of gravitational systems has a substantial history.
+Lynden-Bell and Wood~\citep{LyndenBell1968} identified the gravothermal
+catastrophe; Padmanabhan~\citep{Padmanabhan1990} analyzed statistical
+mechanics of self-gravitating systems; Saslaw~\citep{Saslaw1985} developed
+the statistical thermodynamics of gravitational clustering across stellar
+and galactic scales. These works study the thermodynamic
+properties of systems already in or near virial equilibrium. What has not
+been shown is that the virial theorem and Landauer's principle are two
+expressions of the same identity, and that this identity provides the
+physical meaning of $\langle K \rangle$ as the Landauer cost of the
+virialization transition itself.
+
+\subsection{The present work}
+
+This paper shows that the virial theorem is the mechanical expression of a
+thermodynamic identity, and uses that identity to provide the first
+physical identification of $\langle K \rangle$. The argument proceeds in
+four steps:
+
+\begin{enumerate}
+\item The transition from an unbound to a bound state under a $1/r$
+potential releases heat $Q$ irreversibly at the boundary. By the first law,
+$Q = -E_f$.
+\item By the second law and Landauer's principle~\citep{Landauer1961},
+the thermodynamic cost of this irreversible transition is
+$E_\mathrm{Landauer} = T_\mathrm{vir}\,\Delta S = Q$. The virial
+temperature cancels exactly, making this result scale-invariant.
+\item The equilibrium condition of the $1/r$ potential --- expressed by
+the virial theorem itself --- requires $-E_f = \langle K \rangle$ at
+stable bound equilibrium.
+\item Combining steps 1--3: $E_\mathrm{Landauer} = Q = -E_f = \langle K \rangle$.
+This identifies $\langle K \rangle$ as the Landauer cost of the
+virialization transition. The virial theorem is the mechanical statement
+of this thermodynamic identity.
+\end{enumerate}
+
+The result is that $K$ is not merely a mechanical quantity. It is the
+thermodynamic cost of the system's transition from the unbound to the
+bound state --- the heat released irreversibly and encoded permanently as
+entropy at the virialization boundary. The virial theorem is the mechanical
+expression of this thermodynamic identity.
+
+Section~\ref{sec:derivation} presents the derivation.
+Section~\ref{sec:statement} states the identity formally and compares it
+to the virial theorem.
+Section~\ref{sec:evidence} presents the evidence across 37 orders of
+magnitude.
+Section~\ref{sec:forces} analyzes the four fundamental forces.
+Section~\ref{sec:mcmc} presents the MCMC confirmation as the strongest
+quantitative test.
+Section~\ref{sec:discussion} discusses implications.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Derivation}
+\label{sec:derivation}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Setup}
+
+Consider a system of total mass $M$ transitioning from an unbound state to
+a stable bound equilibrium state under a $1/r$ gravitational potential. We
+adopt the natural reference state for a $1/r$ potential: the unbound state
+at rest at infinity, with total energy $E_i = 0$.
+
+The bound equilibrium state has total energy:
+\begin{equation}
+E_f = \langle K \rangle + \langle V \rangle.
+\label{eq:Ef}
+\end{equation}
+No assumption about the ratio $\langle K \rangle / |\langle V \rangle|$ is
+made at this stage. The thermodynamic argument will identify the physical
+content of that ratio once the equilibrium condition of the $1/r$ potential
+is combined with Landauer's principle.
+
+\subsection{Step 1: Heat released at the boundary (First Law)}
+
+The transition from unbound to bound is irreversible. Gravitational
+collapse is a one-way process; a virialized system does not spontaneously
+return to the unbound state under the same potential. By the first law of
+thermodynamics, the heat released irreversibly to the environment during
+the transition is:
+\begin{equation}
+Q = E_i - E_f = -E_f = -(\langle K \rangle + \langle V \rangle).
+\label{eq:Q_firstlaw}
+\end{equation}
+This is exact. No approximation has been made. $Q > 0$ requires
+$E_f < 0$, which is satisfied for any stable bound state.
+
+\subsection{Step 2: Entropy produced at the boundary (Second Law)}
+
+The transition is irreversible. By the second law of thermodynamics, it
+produces entropy:
+\begin{equation}
+\Delta S = \frac{Q}{T_\mathrm{vir}},
+\label{eq:entropy}
+\end{equation}
+where $T_\mathrm{vir}$ is the virial temperature of the bound system. For
+a self-gravitating system of $N$ particles with velocity dispersion
+$\sigma$, the virial temperature is $T_\mathrm{vir} = m\sigma^2/3k_B$
+from equipartition, where $m$ is the characteristic particle mass.
+
+\subsection{Step 3: Landauer cost of the entropy production}
+
+By Landauer's principle~\citep{Landauer1961}, the minimum thermodynamic
+cost of producing entropy $\Delta S$ irreversibly is:
+\begin{equation}
+E_\mathrm{Landauer} = T_\mathrm{vir}\,\Delta S.
+\label{eq:landauer}
+\end{equation}
+Substituting Equation~\ref{eq:entropy}:
+\begin{equation}
+E_\mathrm{Landauer} = T_\mathrm{vir} \times \frac{Q}{T_\mathrm{vir}} = Q.
+\label{eq:landauer2}
+\end{equation}
+The virial temperature cancels exactly. The Landauer cost equals the heat
+released at the boundary, independently of temperature. This is the first
+key result: the thermodynamic cost of the transition is exactly $Q$,
+regardless of the scale or temperature of the system.
+
+\subsection{Step 4: The equilibrium condition of the $1/r$ potential}
+
+Steps 1--3 establish that the Landauer cost of the virialization
+transition equals the heat released at the boundary:
+\begin{equation}
+E_\mathrm{Landauer} = Q = -E_f = -(\langle K \rangle + \langle V \rangle).
+\label{eq:combined}
+\end{equation}
+This is a real and nontrivial result: the thermodynamic cost of the
+transition from the unbound to the bound state equals the binding energy
+of the resulting system.
+
+To complete the identification of $\langle K \rangle$, we invoke the
+equilibrium condition of the $1/r$ potential. For a system governed by a
+potential $V \propto r^{-1}$, Euler's theorem for homogeneous functions
+of degree $-1$ requires:
+\begin{equation}
+2\langle K \rangle + \langle V \rangle = 0 \quad \Longrightarrow \quad
+-E_f = -(\langle K \rangle + \langle V \rangle) = \langle K \rangle.
+\label{eq:euler}
+\end{equation}
+This is the virial theorem stated as the equilibrium condition of the
+$1/r$ potential --- not assumed as a result, but recognized as the
+condition that defines what it means for a $1/r$ system to be at stable
+bound equilibrium. Any system not satisfying Equation~\ref{eq:euler} is
+either not yet at equilibrium or is unstable.
+
+\subsection{Closing the argument}
+
+Substituting Equation~\ref{eq:euler} into Equation~\ref{eq:combined}:
+\begin{equation}
+\boxed{E_\mathrm{Landauer} = Q = -E_f = \langle K \rangle = \tfrac{1}{2}|\langle V \rangle|}
+\label{eq:identity}
+\end{equation}
+The Landauer cost of the virialization transition equals the heat released
+at the boundary, which equals the binding energy of the system, which
+equals the kinetic energy at equilibrium, which equals half the magnitude
+of the potential energy. The chain is exact at every step.
+
+This is not a derivation of the virial theorem from thermodynamics alone.
+It is the demonstration that the virial theorem and Landauer's principle
+are two expressions of the same identity: the virial theorem provides the
+mechanical equilibrium condition ($-E_f = \langle K \rangle$); Landauer's
+principle provides the thermodynamic identification of what that energy
+physically is ($E_\mathrm{Landauer} = Q = -E_f$). Together they establish
+that $\langle K \rangle$ is not merely a mechanical quantity but the
+irreversible thermodynamic cost of the system's transition to the bound
+state. The $1/2$ partition is the unique ratio at which mechanical and
+thermodynamic equilibrium are simultaneously satisfied for a $1/r$
+potential. Any other partition would be inconsistent with either the
+virial equilibrium condition or the Landauer cost of the transition.
+
+\subsection{The physical meaning of K}
+
+Equation~\ref{eq:identity} identifies $\langle K \rangle$ for the first
+time as a thermodynamic quantity. The kinetic energy of a virialized system
+is not merely the average kinetic energy of its constituent particles. It
+is equal in magnitude to the heat $Q$ released irreversibly at the
+virialization boundary. $Q$ is encoded as entropy on the nearest available
+surface at Landauer cost $k_B T \ln 2$ per bit. $\langle K \rangle$ is
+retained in the system as the kinetic energy of the bound particles. Both
+are exactly half of $|\langle V \rangle|$ --- one half leaving the system
+as irreversible entropy, one half remaining as mechanical motion. These are
+not two separate processes. They are the two faces of the same partition of
+$|\langle V \rangle|$ at the virialization boundary.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The Thermodynamic Identity: Formal Statement}
+\label{sec:statement}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The identity}
+
+\begin{quote}
+\textit{As a system crosses from an unbound to a bound state, it
+immediately encounters a $1/r$ potential and releases heat $Q$
+irreversibly. This heat equals the kinetic energy at equilibrium,
+$Q = \langle K \rangle$, and $Q$ is encoded onto the nearest available
+surface as entropy at thermodynamic cost $k_B T \ln 2$ per bit, while
+$\langle K \rangle$ is retained as the kinetic energy of the bound state.
+The virial theorem $2\langle K \rangle + \langle V \rangle = 0$ is the
+mechanical expression of this condition. A stable bound state exists if
+and only if both are satisfied simultaneously:}
+\begin{equation}
+\langle K \rangle = Q = T\,\Delta S = E_\mathrm{Landauer}.
+\label{eq:identity_formal}
+\end{equation}
+\end{quote}
+
+\subsection{Comparison to the virial theorem}
+
+The virial theorem and the thermodynamic identity are compared in
+Table~\ref{tab:comparison}.
+
+\begin{table}[H]
+\centering
+\caption{Comparison of the virial theorem and the thermodynamic identity.}
+\label{tab:comparison}
+\begin{tabular}{p{3.5cm} p{5.5cm} p{5.5cm}}
+\toprule
+& \textbf{Virial Theorem} & \textbf{Thermodynamic Identity} \\
+\midrule
+Statement
+& For a stable bound system, $2\langle K\rangle + \langle V\rangle = 0$
+& As a system crosses from unbound to bound, $Q = \langle K\rangle =
+  T\Delta S = E_\mathrm{Landauer}$; a stable bound state exists
+  if and only if both mechanical and thermodynamic conditions are
+  satisfied simultaneously \\[6pt]
+Derivation
+& From Newton's second law (Clausius, 1870)
+& From the first law, second law, and Landauer's principle (this work) \\[6pt]
+What it describes
+& The equilibrium state
+& The condition for the equilibrium state to exist \\[6pt]
+Physical content of $K$
+& Average kinetic energy of bound particles
+& Heat released irreversibly at the virialization boundary \\[6pt]
+Explains the $1/2$?
+& No
+& Yes: the unique ratio at which mechanical and thermodynamic
+  equilibrium are simultaneously satisfied \\[6pt]
+Scale restriction
+& None stated; verified mechanically
+& None: inherited from the scale-invariance of Landauer's principle \\[6pt]
+Predicts non-virialization?
+& No: describes only existing bound states
+& Yes: systems that cannot encode $Q$ on an available surface
+  cannot maintain bound equilibrium \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Why the $1/2$ is no longer unexplained}
+
+The ratio $\langle K \rangle / |\langle V \rangle| = 1/2$ arises because
+the $1/r$ potential is homogeneous of degree $-1$. Euler's theorem for
+homogeneous functions gives $2\langle K \rangle = |\langle V \rangle|$
+mechanically. The thermodynamic identity shows why this mechanical result
+has a thermodynamic meaning: the system partitions $|\langle V \rangle|$
+exactly in half at equilibrium because that is the unique partition at
+which the Landauer cost of the transition equals the kinetic energy of the
+resulting bound state. Any other partition would require either net energy
+input (unstable) or further energy release (not yet at equilibrium).
+
+\subsection{Scale invariance}
+
+The scale-invariance of the thermodynamic identity follows directly from
+the scale-invariance of Landauer's principle. Landauer's principle applies
+wherever an irreversible process produces entropy, at any scale, at any
+temperature. The virialization boundary exists at every scale where a $1/r$
+potential governs a bound system. Therefore the thermodynamic identity
+holds at every such scale. This is not an assumption --- it is a
+consequence of the universality of the second law of thermodynamics and
+Landauer's principle.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Evidence Across 37 Orders of Magnitude}
+\label{sec:evidence}
+% ─────────────────────────────────────────────────────────────────────────────
+
+Tables~\ref{tab:core} and~\ref{tab:extended} present the evidence for the
+thermodynamic identity across every physical domain in which bound systems
+under $1/r$ potentials have been tested. The range extends from hydrogen
+atoms at $10^{-10}$~m to the cosmological coupling constant at $10^{26}$~m
+--- 37 orders of magnitude in physical scale.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Core virial theorem domain: the $1/2$ partition verified across
+37 orders of magnitude. \colorbox{mcmcrow}{Blue row}: consistent with 17
+independent Planck~2018 MCMC chains with zero free parameters.}
+\label{tab:core}
+\begin{tabular}{p{3.5cm} p{3.0cm} p{1.8cm} p{3.5cm} p{2.8cm}}
+\toprule
+\textbf{System} & \textbf{Scale / Force} & \textbf{$K/|V|$} &
+\textbf{Result} & \textbf{Precision} \\
+\midrule
+Electron rest mass
+& $\lambda_C$, EM
+& Fixed point
+& $m_e$ to 6.6~ppm
+& Zero free parameters \citep{IAM_electron} \\[3pt]
+Atoms (H--Xe, 20 elements)
+& $10^{-10}$~m, EM
+& $T/|V|$
+& $1.0000000000$
+& Machine precision \citep{Clementi1974,Bunge1993} \\[3pt]
+Molecules (H$_2$--CO$_2$, 10)
+& $10^{-9}$~m, EM
+& $T/|V|$
+& $1.0000000000$
+& Exact at equil.\ geom.\ \citep{Clementi1974,Bunge1993} \\[3pt]
+Equipartition theorem
+& $10^{-9}$--$10^{-2}$~m, Thermal
+& $k_BT/2$ per DOF
+& $1/2$ exact
+& Exact in limit (harmonic potential; same ratio, different theorem) \\[3pt]
+Solar structure
+& $10^{9}$~m, Gravity
+& $K/|U|$
+& $\approx 0.5$
+& $\sim 10\%$ \citep{IAM_virial} \\[3pt]
+White dwarfs (Chandrasekhar)
+& $10^{7}$~m, Gravity
+& $M_\mathrm{Ch}$
+& $1.44\,M_\odot$
+& Exact, observed \citep{Chandrasekhar1931} \\[3pt]
+Galaxy clusters ($\sim$20)
+& $10^{23}$~m, Gravity
+& $K/|U|$
+& $\approx 0.5$
+& $\sim 20\%$ \citep{IAM_virial} \\[3pt]
+Virial efficiency $\langle\eta\rangle$ (6 N-body)
+& $10^{22}$--$10^{25}$~m, Gravity
+& $2K/|U|$
+& $0.815 \pm 0.025$
+& 6 independent sims \citep{BryanNorman1998,Bett2007,Neto2007,Ludlow2010,Power2012,Klypin2016} \\[3pt]
+\rowcolor{mcmcrow}
+Cosmological coupling $\beta_m$
+& $10^{26}$~m, Gravity
+& $\beta_m/\Omega_m$
+& $0.1583 \pm 0.0033$
+& $0.2\sigma$, 17 chains \citep{IAM_obs} \\
+\midrule
+\textbf{Scale range}
+& \multicolumn{4}{l}{$\lambda_C$ (electron) to $10^{26}$~m (cosmic horizon) ---
+\textbf{$>$37 orders of magnitude}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Extended domain: expressions of the thermodynamic identity beyond
+the classical virial theorem. \colorbox{newresult}{Green rows}: results
+derived within the IAM framework. \colorbox{weakrow}{Red row}: structural
+exception (see Section~\ref{sec:forces}).}
+\label{tab:extended}
+\begin{tabular}{p{3.8cm} p{2.5cm} p{4.5cm} p{3.8cm}}
+\toprule
+\textbf{Domain} & \textbf{Scale} &
+\textbf{Expression} & \textbf{Result} \\
+\midrule
+$H_0$ sector split
+& Cosmological
+& $H_0^\mathrm{matter}/H_0^\mathrm{photon} = \sqrt{1+\beta_m}$
+& 72.26/67.16 km\,s$^{-1}$\,Mpc$^{-1}$, both $<1\sigma$ \citep{IAM_obs} \\[3pt]
+$\sigma_8$ suppression
+& Cosmological
+& $\sigma_8^\mathrm{IAM} = 0.800$
+& $0.7998 \pm 0.0058$, $0.1\sigma$ \citep{IAM_obs} \\[3pt]
+M--$\sigma$ relation (SMBHs)
+& $10^{20}$~m
+& $M_\mathrm{BH} \propto \sigma^4$
+& 2\% from observed, $0.7\sigma$ (115 galaxies) \citep{IAM_msigma} \\[3pt]
+BH entropy partition
+& $r_s = 2GM/c^2$
+& $E_\mathrm{Landauer} = (\ln 2/2)M_\mathrm{BH}c^2$
+& 34.7\% of rest mass (universal) \citep{IAM_BH} \\[3pt]
+\rowcolor{newresult}
+Dark sector virial partners
+& $a = 1$
+& $\Omega_m/[\beta_m\mathcal{E}(1)] = 2$ exactly
+& Exact, zero free parameters \citep{IAM_virial_dm} \\[3pt]
+\rowcolor{weakrow}
+\textbf{Weak nuclear force}
+& $10^{-18}$~m
+& \textbf{Structural exception: cannot satisfy equilibrium condition}
+& \textbf{Consistent with identity's physical content (Sec.~\ref{sec:forces})} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The Four Fundamental Forces}
+\label{sec:forces}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The thermodynamic identity is satisfied by every force that maintains
+stable bound structures. Three of the four fundamental forces fall into
+this category.
+
+\textbf{Gravity} operates through a $1/r$ potential in three-dimensional
+space. Gauss's law requires the $1/r^2$ force from any point source in 3D,
+giving the $1/r$ potential and therefore the exact virial ratio $1/2$ for
+any gravitationally bound system. The thermodynamic identity is verified
+from stellar structure through galaxy clusters to the cosmological coupling
+constant at $0.2\sigma$ from 17 independent MCMC chains.
+
+\textbf{Electromagnetism} operates through the same $1/r$ Coulomb
+potential. The thermodynamic identity is verified at machine precision for
+20 atoms and 10 molecules from published Hartree--Fock
+energies~\citep{Clementi1974,Bunge1993}. The mean virial ratio $\eta = T/|E| =
+1.0000000000$ with standard deviation zero. For converged Hartree--Fock
+wavefunctions, the virial ratio must equal unity exactly as a mathematical
+consequence of the $1/r$ potential --- an exact verification of the
+thermodynamic identity at the quantum level.
+
+\textbf{The strong nuclear force} produces the first virialized structures
+in cosmic history: protons and neutrons forming at $t \approx 10^{-6}$~s
+when the quark-gluon plasma underwent QCD confinement. The resulting
+nucleons are bound states satisfying the thermodynamic identity within
+the strong-force domain. Note that the Chandrasekhar white dwarf limit
+--- though commonly cited in this context --- arises from the equilibrium
+between electron degeneracy pressure and gravitational collapse, and is
+therefore a gravitational verification of the thermodynamic identity, not
+a strong-force one. It is listed in Table~\ref{tab:core} under gravity.
+
+\textbf{The weak nuclear force is the structural exception.} It violates
+parity~\citep{Wu1957}, violates CP symmetry~\citep{Cronin1964}, and is
+responsible for beta decay, stellar nucleosynthesis, and the
+matter-antimatter asymmetry that produced the observable
+universe~\citep{Sakharov1967}. It cannot satisfy the thermodynamic
+identity not because it fails to do so empirically but because satisfying
+it would prevent the weak force from performing its physical function.
+
+The thermodynamic identity describes the equilibrium condition of stable
+bound states. The weak force's function is to enable irreversible
+transitions between stable states --- to dissolve one equilibrium and
+create another. A force that satisfies the equilibrium condition maintains
+the current state. The weak force by definition transforms the current
+state. These functions are structurally incompatible.
+
+The exception is evidence, not a counterexample. A thermodynamic identity
+that holds for all forces governing stable structures and is violated by
+precisely the one force whose function is structural transformation
+distinguishes equilibrium forces from transition forces on physical
+grounds.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The MCMC Confirmation}
+\label{sec:mcmc}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The most rigorous quantitative test of the thermodynamic identity is the
+Planck~2018 MCMC posterior returning $\beta_m = 0.1583 \pm 0.0033$ against
+the theoretically predicted $\beta_m = \Omega_m/2 = 0.1577$ --- a
+confirmation at $0.2\sigma$ --- from 17 independent converged chains with
+no free parameters, no discarded runs, and no excluded redshift
+ranges~\citep{IAM_obs}.
+
+The identity predicts $\beta_m = \Omega_m/2$ from the virial partition of
+gravitational decoherence energy, before any chains were run. The
+Planck~2018 MCMC sampler has no knowledge of the thermodynamic identity,
+the virial theorem, or the physical argument that $\beta_m = \Omega_m/2$.
+It samples the posterior probability distribution of the cosmological
+parameters given the Planck~2018 likelihood. The posterior peak at
+$\beta_m = 0.1583$ arrives there because the data are consistent with that
+value.
+
+This sequence --- derivation from first principles before observation,
+the data consistent with the prediction from an independent measurement
+with no knowledge of the prediction --- constitutes the standard of
+scientific evidence. The
+confirmation at $0.2\sigma$ across 17 independent chains is the strongest
+available quantitative test of the thermodynamic identity at cosmological
+scales.
+
+\begin{table}[H]
+\centering
+\caption{MCMC confirmation of $\beta_m = \Omega_m/2$. All 17 chains
+converged to $R-1 < 0.01$. No chains discarded. Zero free parameters
+beyond $\Lambda$CDM.}
+\label{tab:mcmc}
+\begin{tabular}{p{3.2cm} p{5.2cm} p{5.2cm}}
+\toprule
+\textbf{Chain set} & \textbf{Dataset} &
+\textbf{$\beta_m$ posterior vs prediction ($0.1577$)} \\
+\midrule
+Level 1 (12 chains)
+& Planck~2018 + combinations
+& $0.1577$--$0.1592$ ($< 0.3\%$ from prediction) \\[3pt]
+Level 2 Run A
+& Planck~2018 full likelihood
+& $0.1583 \pm 0.0033$ ($0.2\sigma$) \\[3pt]
+Level 2 Run D
+& Planck~2018 + RSD
+& $0.1583 \pm 0.0033$ ($0.2\sigma$) \\
+\midrule
+\textbf{All 17 chains}
+& \textbf{All combinations}
+& \textbf{Consistent at $< 0.3\sigma$, zero free parameters} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The best-fit $\Delta\chi^2 = +0.54$ relative to $\Lambda$CDM --- with
+$\beta_m$ fixed by the thermodynamic identity and zero additional free
+parameters --- indicates that the IAM framework, which instantiates this
+identity at cosmological scales, is statistically indistinguishable from
+$\Lambda$CDM under the full Planck likelihood while simultaneously
+providing a physical account of the $\sigma_8$ and $H_0$ tensions that
+$\Lambda$CDM does not address~\citep{IAM_obs}.
+
+An independent cross-check from N-body simulations confirms the same
+prediction. Six independent simulation
+studies~\citep{BryanNorman1998,Bett2007,Neto2007,Ludlow2010,Power2012,Klypin2016}
+spanning 25~years of published literature measure the mass-weighted virial
+efficiency $\langle\eta_\mathrm{vir}\rangle = 0.815 \pm 0.025$, consistent
+with the thermodynamic identity prediction $\eta_\mathrm{vir} =
+1/(2f_\mathrm{coll}) = 0.81$ using the published collapsed fraction
+$f_\mathrm{coll} = 0.62 \pm 0.03$~\citep{Tinker2008}. The combined
+measurement $\Omega_m \times f_\mathrm{coll} \times
+\langle\eta_\mathrm{vir}\rangle = 0.315 \times 0.62 \times 0.815 = 0.159
+\pm 0.010$ agrees with $\beta_m = \Omega_m/2 = 0.1575$ to $1.0\%$ with
+no free parameters~\citep{IAM_virial_eff}.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion}
+\label{sec:discussion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The virial theorem as a special case}
+
+The derivation in Section~\ref{sec:derivation} shows that the virial
+theorem is the mechanical expression of a thermodynamic identity. The
+identity is more general: it governs the boundary between unbound and bound
+states at every scale where a $1/r$ potential produces stable equilibrium.
+The virial theorem describes the equilibrium state. The thermodynamic
+identity describes the condition for that state to exist and to persist.
+
+This distinction has physical consequences. The virial theorem is silent on
+what happens when the conditions for equilibrium cannot be satisfied. The
+thermodynamic identity predicts the outcome directly: a system that cannot
+encode $Q$ on an available surface cannot maintain bound equilibrium and
+returns to the unbound state. This prediction is consistent with the
+missing satellites problem, where dark matter halos below a critical
+velocity dispersion $\sigma_\mathrm{crit} \approx 4$~km\,s$^{-1}$ disperse
+rather than virialize, because no local black hole horizon is available to
+absorb the entropy produced at the virialization
+boundary~\citep{IAM_satellites}.
+
+\subsection{Landauer's principle as the physical basis for scale invariance}
+
+The virial theorem has been verified across 37 orders of magnitude without
+a physical explanation for why it should hold across such a range. The
+thermodynamic identity provides that explanation. Landauer's principle
+applies wherever an irreversible process produces entropy. The
+virialization boundary exists wherever a $1/r$ potential produces a bound
+state. The boundary condition $\langle K \rangle = Q$ therefore holds at
+every such scale, from the hydrogen atom to the cosmic horizon, because
+Landauer's principle is scale-invariant and the $1/r$ potential form is
+universal.
+
+This addresses the question of why the virial theorem should apply at
+cosmological scales. It is not an extension of a mechanical result beyond
+its domain. It is a thermodynamic identity that applies wherever its
+conditions are met, at any scale.
+
+\subsection{Relationship to Jacobson 1995}
+
+Jacobson~\citet{Jacobson1995} derived the Einstein equations from
+the thermodynamic identity $\delta Q = T\,\delta S$ applied to the Rindler
+horizon of an accelerated observer, with $S = A/4\ell_P^2$. That
+derivation showed that Einstein's equations are thermodynamic in origin.
+
+The present work applies the same thermodynamic identity
+$Q = T\,\Delta S$ to the virialization boundary of a self-gravitating
+system and establishes that the virial theorem is its mechanical
+expression. Both start from the same thermodynamic identity. Both show
+that a fundamental result of classical physics has thermodynamic origin.
+The present work extends the Jacobson program from the field equations
+governing curved spacetime to the equilibrium condition governing bound
+states within that spacetime.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusion}
+\label{sec:conclusion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The virial theorem $2\langle K\rangle + \langle V\rangle = 0$ has been
+verified across 37 orders of magnitude for 154 years without a physical
+identification of what $\langle K\rangle$ represents thermodynamically.
+
+This paper shows that the virial theorem and Landauer's principle are two
+expressions of the same thermodynamic identity. The first law establishes
+$Q = -E_f$; the second law and Landauer's principle establish
+$E_\mathrm{Landauer} = Q$; the equilibrium condition of the $1/r$
+potential establishes $-E_f = \langle K\rangle$. Together these require:
+\begin{equation*}
+\langle K\rangle = Q = T\,\Delta S = E_\mathrm{Landauer}.
+\end{equation*}
+$\langle K\rangle$ is the heat released irreversibly at the virialization
+boundary, encoded as entropy on the nearest available surface at Landauer
+cost $k_BT\ln 2$ per bit. The virial theorem is the mechanical expression
+of this thermodynamic identity.
+
+The virial theorem is the mechanical expression of this thermodynamic
+identity. The $1/2$ partition is the unique ratio at which mechanical and
+thermodynamic equilibrium are simultaneously satisfied for a $1/r$
+potential. Its appearance across 37 orders of magnitude is a consequence
+of the scale-invariance of Landauer's principle and the universality of
+the $1/r$ potential form.
+
+Three of the four fundamental forces satisfy the identity. The weak nuclear
+force is the structural exception, excluded by physical necessity. The
+data are consistent with the identity at $0.2\sigma$ at cosmological
+scales from 17 independent MCMC chains with zero free parameters.
+
+We propose that this thermodynamic identity constitutes a fundamental law
+of physics of which the virial theorem is the mechanical special case.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgments}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The thermodynamic framework of T.\ Jacobson~\citep{Jacobson1995} is the
+foundation upon which this work is built. The author thanks
+R.\ Landauer~\citep{Landauer1961} and R.\ Clausius~\citep{Clausius1870}
+for the tools that make this connection possible.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section*{Data Availability}
+% ─────────────────────────────────────────────────────────────────────────────
+
+All MCMC chains, analysis scripts, and supporting papers are publicly
+archived at \url{https://github.com/hmahaffeyges/IAM-Validation} with
+canonical Zenodo DOI
+\href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\bibliographystyle{plainnat}
+\bibliography{iam_thermodynamic_identity}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\end{document}

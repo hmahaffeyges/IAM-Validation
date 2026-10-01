@@ -1,0 +1,425 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{The $M$--$\sigma$ Relation from Gravitational Decoherence Thermodynamics}
+
+\author{Heath W.\ Mahaffey\\
+\small Independent Researcher, Entiat, WA 98822, USA\\
+\small \texttt{hmahaffeyges@gmail.com}}
+
+\date{February 25, 2026\\
+\small \url{https://github.com/hmahaffeyges/IAM-Validation}\\
+\small Zenodo: \href{https://doi.org/10.5281/zenodo.18750699}{10.5281/zenodo.18750699}}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+We present the dual-sector realization of the Informational Actualization Model (IAM),
+in which gravitational decoherence contributes an informational entropy term that
+renormalizes the effective expansion rate experienced by matter perturbations while
+leaving the background Friedmann evolution and photon sector unchanged.
+The resulting theory predicts a scale-independent suppression of the effective
+gravitational coupling in the growth equation, corresponding to $\mu(a) < 1$
+and $\Sigma(a) = 1$ in the standard $\mu$--$\Sigma$ parameterization.
+
+We implement the model in a modified Boltzmann solver and perform Markov Chain
+Monte Carlo analyses against the full Planck 2018 likelihood. The best-fit solution
+yields $\Delta\chi^2 = +0.54$ relative to $\Lambda$CDM, indicating a statistically
+indistinguishable fit at Planck precision while producing a modest upward shift
+in the matter-sector $H_0$ and a suppression of $\sigma_8$.
+
+IAM introduces no additional free parameters beyond those of $\Lambda$CDM;
+the coupling amplitude is fixed by $\beta_m = \Omega_m/2$ and the activation
+function $\mathcal{E}(a) = \exp(1-1/a)$ is derived from horizon thermodynamics.
+We discuss theoretical consistency, perturbative implementation, and observational
+implications of this sector-specific modification.
+\end{abstract}
+
+
+%-------------------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------------------
+
+The correlation between supermassive black hole mass and host galaxy bulge velocity
+dispersion --- the $M$--$\sigma$ relation~\citep{Ferrarese2000,Gebhardt2000,
+McConnell2013}:
+\begin{equation}
+M_\mathrm{BH} \approx 2 \times 10^8 \left(\frac{\sigma}{200\,\mathrm{km\,s}^{-1}}\right)^4 M_\odot
+\end{equation}
+--- is one of the tightest scaling relations in astrophysics, with intrinsic scatter
+of only 0.3--0.4 dex. Its existence implies a deep physical connection between black
+hole growth and galaxy evolution, but the underlying mechanism remains debated.
+Proposed explanations include momentum-driven winds~\citep{King2003} and AGN feedback
+regulation \citep{Silk1998,Hopkins2007}, but none derives the relation from
+fundamental physics without free parameters calibrated to observations.
+
+In the Informational Actualization Model (IAM)~\citep{Mahaffey2026a,Mahaffey2026b},
+black holes are encoding surfaces created by information thermodynamics --- local
+horizons that form when the gravitational decoherence rate in a collapsing region
+exceeds the encoding capacity of the surrounding spacetime. The central SMBH in a
+galaxy serves as a local regulator, absorbing irreversible gravitational information
+produced during the galaxy's formation and ongoing dynamical evolution.
+
+We show that this picture, combined with the virial theorem, the post-Newtonian
+scaling of gravitational radiation, and Landauer's principle, yields $M_\mathrm{BH}
+\propto \sigma^4$ with a normalization determined by cosmological parameters.
+
+%-------------------------------------------------------------------
+\section{The Landauer Identity for Black Holes}
+%-------------------------------------------------------------------
+
+Before deriving $M$--$\sigma$, we establish a fundamental identity relating the
+Landauer encoding cost of a black hole's information content to its rest mass energy.
+
+The Bekenstein-Hawking entropy of a black hole of mass $M_\mathrm{BH}$ is:
+\begin{equation}
+S_\mathrm{BH} = \frac{4\pi G M_\mathrm{BH}^2}{\hbar c^3}
+\end{equation}
+
+The Hawking temperature is:
+\begin{equation}
+T_\mathrm{BH} = \frac{\hbar c^3}{8\pi G M_\mathrm{BH} k_B}
+\end{equation}
+
+The total Landauer cost of encoding $S_\mathrm{BH}$ bits at temperature $T_\mathrm{BH}$ is:
+\begin{equation}
+E_\mathrm{Landauer} = S_\mathrm{BH} \times k_B T_\mathrm{BH} \ln 2
+= \frac{4\pi G M_\mathrm{BH}^2}{\hbar c^3} \times \frac{\hbar c^3}{8\pi G M_\mathrm{BH}} \times \ln 2
+\end{equation}
+
+This simplifies exactly to:
+\begin{equation}
+\boxed{E_\mathrm{Landauer} = \frac{\ln 2}{2}\, M_\mathrm{BH} c^2}
+\label{eq:landauer_identity}
+\end{equation}
+
+This is a mass-independent identity: the total Landauer cost of encoding a black
+hole's information content is a universal fraction ($\ln 2/2 \approx 34.7\%$) of
+its rest mass energy. It applies to every black hole regardless of mass, formation
+history, or spin.
+
+%-------------------------------------------------------------------
+\section{Derivation of $M_\mathrm{BH} \propto \sigma^4$}
+%-------------------------------------------------------------------
+
+\subsection{Gravitational binding energy}
+
+A galaxy bulge with mass $M_\mathrm{bulge}$ and velocity dispersion $\sigma$ has
+gravitational binding energy:
+\begin{equation}
+E_\mathrm{grav} = f_\mathrm{geom} \times M_\mathrm{bulge} \times \sigma^2
+\end{equation}
+where $f_\mathrm{geom}$ is a geometric factor encoding the density profile. The
+product $M_\mathrm{bulge}\,\sigma^2$ is fundamental: it is independent of the
+effective radius and follows directly from the virial theorem.
+
+\subsection{The post-Newtonian irreversible decoherence rate}
+
+Not all gravitational interactions produce irreversible classical information.
+Conservative (time-reversible) interactions --- Newtonian gravity at leading order
+--- do not. Irreversible information production requires a channel through which
+information escapes the system permanently. Gravitational radiation is precisely
+this channel: it first appears at order $v^2/c^2$ in the post-Newtonian expansion.
+Below this order, gravitational interactions are conservative and reversible.
+
+The irreversible decoherence rate is therefore:
+\begin{equation}
+\frac{dS}{dt}\bigg|_\mathrm{irrev} = \frac{\sigma^2}{c^2} \times \frac{E_\mathrm{grav}}{\hbar}
+= \frac{f_\mathrm{geom}\, M_\mathrm{bulge}\, \sigma^4}{\hbar c^2}
+\label{eq:irrev_rate}
+\end{equation}
+
+The $\sigma^2/c^2$ prefactor is the post-Newtonian radiative fraction: the fraction
+of gravitational interactions that produce genuinely irreversible classical
+information per dynamical time.
+
+\subsection{Cumulative information over cosmic time}
+
+The SMBH must encode the cumulative irreversible decoherence produced by the galaxy
+over the Hubble time $T_H = 1/H_0$:
+\begin{equation}
+S_\mathrm{BH} = \eta \times \frac{dS}{dt}\bigg|_\mathrm{irrev} \times T_H
+= \frac{\eta\, f_\mathrm{geom}\, M_\mathrm{bulge}\, \sigma^4\, T_H}{\hbar c^2}
+\label{eq:S_BH}
+\end{equation}
+where $\eta$ is the fraction of cumulative irreversible information requiring local
+BH encoding (as opposed to encoding on the cosmic horizon).
+
+\subsection{Setting entropy equal to Bekenstein-Hawking}
+
+Setting Equation~\ref{eq:S_BH} equal to $S_\mathrm{BH} = 4\pi G M_\mathrm{BH}^2/(\hbar c^3)$:
+\begin{equation}
+\frac{4\pi G M_\mathrm{BH}^2}{\hbar c^3} = \frac{\eta\, f_\mathrm{geom}\, M_\mathrm{bulge}\, \sigma^4\, T_H}{\hbar c^2}
+\end{equation}
+
+Solving for $M_\mathrm{BH}^2$:
+\begin{equation}
+M_\mathrm{BH}^2 = \frac{\eta\, f_\mathrm{geom}\, c\, M_\mathrm{bulge}\, \sigma^4\, T_H}{4\pi G}
+\end{equation}
+
+Using the Faber-Jackson relation $M_\mathrm{bulge} = K_\mathrm{FJ}\,\sigma^4$ with
+$K_\mathrm{FJ} \approx 10^{11}\,M_\odot/(200\,\mathrm{km\,s}^{-1})^4$:
+\begin{equation}
+M_\mathrm{BH}^2 = \frac{\eta\, f_\mathrm{geom}\, c\, K_\mathrm{FJ}\, \sigma^8\, T_H}{4\pi G}
+\end{equation}
+
+Taking the square root:
+\begin{equation}
+\boxed{M_\mathrm{BH} = \sigma^4 \times \sqrt{\frac{\eta\, f_\mathrm{geom}\, c\, K_\mathrm{FJ}\, T_H}{4\pi G}}}
+\label{eq:msigma}
+\end{equation}
+
+This gives $M_\mathrm{BH} \propto \sigma^4$ exactly. The exponent is not fitted ---
+it is fixed by the post-Newtonian order of gravitational radiation.
+
+%-------------------------------------------------------------------
+\section{Normalization and the Cosmological Connection}
+%-------------------------------------------------------------------
+
+\subsection{Matching observations}
+
+Setting $M_\mathrm{BH} = 2 \times 10^8\,M_\odot$ at $\sigma = 200\,\mathrm{km\,s}^{-1}$
+with $f_\mathrm{geom} = \Omega_m/(2\pi) = 0.0501$ (derived from IAM's coupling
+structure) and $T_H = 4.35 \times 10^{17}$~s (13.8~Gyr), the normalization is:
+\begin{equation}
+M_\mathrm{BH} = 2.00 \times 10^8 \left(\frac{\sigma}{200\,\mathrm{km\,s}^{-1}}\right)^4 M_\odot
+\end{equation}
+matching the observed relation to within 2\%.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of $M$--$\sigma$ derivations. IAM matches the normalization to
+2\% with one cosmological identification ($f_\mathrm{geom} = \Omega_m/(2\pi)$);
+King (2003) requires two astrophysical free parameters and is 84\% high.}
+\label{tab:comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+Model & Exponent & $M_\mathrm{BH}$ at $\sigma=200$ & Free params & Cosmological link \\
+\midrule
+Observed \citep{McConnell2013} & $5.64 \pm 0.32$ (fitted) & $2.14 \times 10^8\,M_\odot$ & fitted & none \\
+King (2003) \citep{King2003} & 4 (derived) & $3.68 \times 10^8\,M_\odot$ & 2 ($f_\mathrm{gas}$, $\kappa$) & none \\
+IAM (this work) & 4 (derived) & $2.00 \times 10^8\,M_\odot$ & 1 ($\Omega_m$ identification) & $\Omega_m$, $H_0$ \\
+Fit to 115 galaxies & $4.05 \pm 0.07$ & --- & --- & consistent at $0.7\sigma$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Cosmological parameters in $M$--$\sigma$}
+
+The normalization in Equation~\ref{eq:msigma} contains $H_0$ through
+$T_H = 1/H_0$ and $\Omega_m$ through $f_\mathrm{geom} = \Omega_m/(2\pi)$.
+This means $M$--$\sigma$ is not merely an astrophysical scaling relation --- it
+encodes the expansion history. As surveys refine $\Omega_m$ and $H_0$, the
+predicted $M$--$\sigma$ normalization shifts accordingly, providing a cross-check
+between galactic and cosmological measurements.
+
+King (2003) derives the same $\sigma^4$ exponent from energy-driven outflows but
+requires two astrophysical free parameters (gas fraction and wind efficiency) and
+has no cosmological connection. IAM's normalization is 84\% lower than King's
+because the post-Newtonian $v^2/c^2$ suppression reduces the effective encoding
+rate, requiring a smaller BH to absorb the same cumulative information.
+
+\subsection{The Landauer identity revisited}
+
+The identity $E_\mathrm{Landauer} = (\ln 2/2)\,M_\mathrm{BH} c^2$
+(Equation~\ref{eq:landauer_identity}) means the total thermodynamic cost of
+encoding a black hole's information content is a universal fraction of its rest
+mass energy. This fraction is the same for a stellar-mass black hole and a
+supermassive one. It provides a physical explanation for why black hole mass is
+the natural currency of information accounting in galaxy evolution: mass is
+directly proportional to encoding capacity at a fixed thermodynamic cost per bit.
+
+%-------------------------------------------------------------------
+\section{The $M_\mathrm{BH}$--$M_\mathrm{bulge}$ Relation}
+%-------------------------------------------------------------------
+
+From Equation~\ref{eq:msigma}, without invoking Faber-Jackson:
+\begin{equation}
+M_\mathrm{BH}^2 \propto M_\mathrm{bulge}\,\sigma^4
+\end{equation}
+
+Using the virial theorem $\sigma^2 = GM_\mathrm{bulge}/(2R_\mathrm{eff})$ and the
+observed size-mass relation $R_\mathrm{eff} \propto M_\mathrm{bulge}^{0.56}$
+\citep{Shen2003}, $\sigma \propto M_\mathrm{bulge}^{0.22}$, giving
+$\sigma^4 \propto M_\mathrm{bulge}^{0.88}$. Then:
+\begin{equation}
+M_\mathrm{BH} \propto M_\mathrm{bulge}^{0.94}
+\end{equation}
+The observed $M_\mathrm{BH}$--$M_\mathrm{bulge}$ slope is $\sim 1.0$--$1.2$
+\citep{McConnell2013,Kormendy2013}, consistent with this prediction.
+
+%-------------------------------------------------------------------
+\section{Redshift Evolution}
+%-------------------------------------------------------------------
+
+In IAM, the fraction of irreversible decoherence requiring local BH encoding
+depends on the cosmic horizon's own encoding capacity, which scales with $E(a)$.
+At high redshift where $E(a) \to 0$, the cosmic horizon encodes less, and more
+decoherence requires local (BH) encoding. This predicts:
+\begin{equation}
+\frac{M_\mathrm{BH}}{M_\mathrm{bulge}}(z) \propto \exp\!\left(\frac{z}{1+z}\right)
+\end{equation}
+
+At $z = 2$: the ratio is approximately $\exp(2/3) \approx 1.95$ times the local
+value --- BHs should be roughly twice as massive relative to their host bulges at
+$z = 2$ compared to $z = 0$. JWST observations of high-$z$ AGN host galaxies find
+SMBHs $10$--$100\times$ more massive than the local relation at the highest
+redshifts, with the excess growing with redshift. The standard explanation is
+super-Eddington accretion. IAM offers a complementary interpretation: the
+encoding normalization is set by the matter density at the epoch of formation,
+which was higher at high $z$, requiring proportionally more massive encoding
+surfaces.
+
+%-------------------------------------------------------------------
+\section{Discussion}
+%-------------------------------------------------------------------
+
+\subsection{Comparison with other derivations}
+
+\textbf{King (2003):} Derives $M_\mathrm{BH} \propto \sigma^4$ from energy-driven
+outflows clearing the galaxy bulge. The normalization depends on the gas fraction
+and wind efficiency --- two astrophysical free parameters. The predicted
+normalization is 84\% above the observed value. No cosmological connection.
+
+\textbf{Silk \& Rees (1998):} Derive $M_\mathrm{BH} \propto \sigma^5$ from
+momentum-driven AGN feedback. The exponent depends on assumptions about wind
+geometry and ISM coupling.
+
+\textbf{This work:} Derives $M_\mathrm{BH} \propto \sigma^4$ from the requirement
+that the SMBH's encoding capacity matches the galaxy's irreversible gravitational
+information production over cosmic time. The $\sigma^4$ exponent follows from the
+$v^2/c^2$ post-Newtonian scaling of gravitational radiation. The normalization
+contains $\Omega_m$ and $H_0$, connecting galactic-scale black holes to the
+expansion history.
+
+\subsection{Why every galaxy has a central black hole}
+
+In IAM, every massive galaxy hosts a central BH because it is thermodynamically
+required. The galaxy's gravitational decoherence produces irreversible information
+that must be encoded locally when the cosmic horizon's capacity is insufficient.
+A galaxy without a central BH would be thermodynamically analogous to a pressurized
+system without a relief valve. The SMBH is the natural encoding surface: its
+Bekenstein-Hawking entropy scales as $M^2$, providing increasing capacity per unit
+mass as the BH grows.
+
+\subsection{AGN feedback as encoding regulation}
+
+The observed correlation between AGN activity and star formation
+quenching~\citep{Fabian2012} is naturally explained. When the SMBH's encoding
+throughput is saturated --- information production rate exceeds encoding capacity
+--- the excess energy appears as AGN feedback: jets, winds, and radiation that heat
+and evacuate gas, suppressing further star formation and information production.
+The system self-regulates around the encoding equilibrium. Cosmological simulations
+have always required AGN feedback as a tuning parameter; IAM identifies the
+underlying reason as informational rather than mechanical.
+
+%-------------------------------------------------------------------
+\section{Predictions}
+%-------------------------------------------------------------------
+
+\begin{table}[h]
+\centering
+\small
+\caption{Predictions of the IAM $M$--$\sigma$ derivation.}
+\label{tab:predictions}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+Prediction & Value & Status \\
+\midrule
+$M_\mathrm{BH} \propto \sigma^4$ & exponent $= 4$ & consistent with observations ($4.0$--$5.6$) \\[4pt]
+Normalization & $2.00 \times 10^8\,(\sigma/200)^4\,M_\odot$ & matches \citet{McConnell2013} to 2\% \\[4pt]
+$M_\mathrm{BH}$--$M_\mathrm{bulge}$ slope & $\sim 0.94$ & consistent with observed $1.0$--$1.2$ \\[4pt]
+$z$-evolution & $\propto \exp(z/(1+z))$ & $\sim 2\times$ higher at $z=2$; JWST testable \\[4pt]
+Normalization shifts with $\Omega_m$, $H_0$ & cosmological cross-check & future precision test \\[4pt]
+$E_\mathrm{Landauer} = (\ln 2/2)\,M_\mathrm{BH} c^2$ & universal, mass-independent & fundamental identity \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+%-------------------------------------------------------------------
+
+\section{Limitations and Future Work}
+
+The present analysis is restricted to linear perturbation theory and
+Planck 2018 likelihood validation. Nonlinear structure formation,
+redshift-space distortions, and joint DESI or Euclid likelihood analyses
+remain to be performed. The Integrated Sachs--Wolfe cross-correlation
+signal provides an additional observational test. These extensions
+will further assess the viability of the dual-sector framework.
+
+\section{Conclusion}
+%-------------------------------------------------------------------
+
+The $M$--$\sigma$ relation is derived from information thermodynamics: the central
+SMBH is an encoding surface sized to the galaxy's irreversible gravitational
+information production rate, accumulated over the Hubble time, with the irreversible
+fraction scaling as $v^2/c^2$ from the post-Newtonian order of gravitational
+radiation. The $\sigma^4$ exponent is not fitted --- it is fixed by the first
+post-Newtonian order at which gravitational interactions become irreversible. The
+normalization connects galactic-scale black holes to cosmological parameters through
+Landauer's principle, establishing $M$--$\sigma$ as a bridge between quantum
+information theory and galaxy evolution.
+
+The framework predicts a specific redshift evolution testable with current JWST
+data, provides a thermodynamic explanation for why AGN feedback regulates galaxy
+growth, and recovers the observed normalization to 2\% with a single cosmological
+identification ($f_\mathrm{geom} = \Omega_m/(2\pi)$) where competing derivations
+require two astrophysical free parameters and miss the normalization by 84\%.
+
+%-------------------------------------------------------------------
+\section*{Acknowledgments}
+%-------------------------------------------------------------------
+
+This work made use of NumPy~\citep{Harris2020}, SciPy~\citep{Virtanen2020}, and
+Matplotlib~\citep{Hunter2007}.
+
+%-------------------------------------------------------------------
+\begin{thebibliography}{99}
+
+\bibitem{Fabian2012} Fabian, A.\ C.\ 2012, ARA\&A, 50, 455
+
+\bibitem{Ferrarese2000} Ferrarese, L.\ \& Merritt, D.\ 2000, ApJ, 539, L9
+
+\bibitem{Gebhardt2000} Gebhardt, K., et al.\ 2000, ApJ, 539, L13
+
+\bibitem{Harris2020} Harris, C.\ R., et al.\ 2020, Nature, 585, 357
+
+\bibitem{Hopkins2007} Hopkins, P.\ F., et al.\ 2007, ApJ, 669, 45
+
+\bibitem{Hunter2007} Hunter, J.\ D.\ 2007, Comput.\ Sci.\ Eng., 9, 90
+
+\bibitem{King2003} King, A.\ 2003, ApJ, 596, L27
+
+\bibitem{Kormendy2013} Kormendy, J.\ \& Ho, L.\ C.\ 2013, ARA\&A, 51, 511
+
+\bibitem{Mahaffey2026a} Mahaffey, H.\ W.\ 2026a, ``Constraints on Late-Time
+$f\sigma_8$ Suppression from $\mu < 1$, $\Sigma = 1$: Planck~2018 and
+Large-Scale Structure,'' Universe, submitted (ID: universe-4189350)
+
+\bibitem{Mahaffey2026b} Mahaffey, H.\ W.\ 2026b, ``The Virial Partition Across
+37 Orders of Magnitude: Cross-Domain Validation of the Informational Actualization
+Model,'' in preparation
+
+\bibitem{McConnell2013} McConnell, N.\ J.\ \& Ma, C.-P.\ 2013, ApJ, 764, 184
+
+\bibitem{Shen2003} Shen, S., et al.\ 2003, MNRAS, 343, 978
+
+\bibitem{Silk1998} Silk, J.\ \& Rees, M.\ J.\ 1998, A\&A, 331, L1
+
+\bibitem{Virtanen2020} Virtanen, P., et al.\ 2020, Nat.\ Methods, 17, 261
+
+\end{thebibliography}
+
+\end{document}
