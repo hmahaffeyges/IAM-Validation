@@ -719,7 +719,6 @@ def sec5a_tools(story):
     story.append(Paragraph('5A.1  The Mahaffey number', sSect2))
     story.append(Paragraph(f'<b>M = {D.MAHAFFEY["value"]}.</b> {D.MAHAFFEY["definition"]}', sBodySm))
     story.append(Paragraph(D.MAHAFFEY["not_hmin"], sBodySm))
-    story.append(Paragraph(D.MAHAFFEY["n_bio"], sBodySm))
     story.append(Paragraph('The same construction - a measured drive energy over the local thermal quantum - is what the semiconductor report computes for a transistor and the quantum-processor report for a qubit; those figures are quoted in Section 5A.8 exactly as their own reports state them, with their own denominators, and are not re-derived here.', sBodySm))
     story.append(Paragraph(f'<b>Open.</b> {D.MAHAFFEY["open"]}', sDisc))
     story.append(Paragraph(D.MAHAFFEY["ln2_note"], sDisc))

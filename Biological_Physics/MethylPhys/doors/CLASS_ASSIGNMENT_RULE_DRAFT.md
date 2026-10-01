@@ -1,3 +1,5 @@
+> **[RECORD] — superseded draft (2026-10-01).** Kept as written. Classes are now only the floor a cell is divided by (CLASS_HISTORY.md); current names and constants are in CANON/GLOSSARY.md.
+
 # Architecture-class assignment — a written rule, tested against the existing classes (DRAFT, 2026-09-28)
 
 **Status: DRAFT for the author's review. Not in the chain. No A is read on any new cell until this is accepted.**

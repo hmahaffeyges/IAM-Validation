@@ -1,5 +1,7 @@
 # IAM's Law — The Thermodynamic Cost of Classical Existence
 
+> **Constants and names:** every value and name used across the IAM work is defined once in [CANON/GLOSSARY.md](CANON/GLOSSARY.md) (generated from `CANON/iam_canon.json`). To change a value or rename something, change the canon file first; `python3 CANON/canon_check.py` lists every file that must follow.
+
 ### One law, three domains &nbsp;·&nbsp; cells &nbsp;·&nbsp; devices &nbsp;·&nbsp; cosmos
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

@@ -86,3 +86,4 @@ Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv
 
 pw_browsers/
 *.propagate_last_run.txt
+.canon_check_last_run.txt

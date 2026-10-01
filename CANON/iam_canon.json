@@ -1,0 +1,227 @@
+{
+ "version": "1.0",
+ "date": "2026-10-01",
+ "rule": "This file is the single source of truth for constants and names. To change a value or a name, change it here first; canon_check.py then lists every file that must follow. A push is blocked while a LIVE file disagrees.",
+ "constants": {
+  "k_B": {
+   "value": 1.380649e-23,
+   "units": "J/K",
+   "source": "SI 2019 exact"
+  },
+  "R": {
+   "value": 8.314462618,
+   "units": "J/(mol K)",
+   "source": "SI 2019 exact (N_A k_B)"
+  },
+  "T_cell": {
+   "value": 310.15,
+   "units": "K",
+   "source": "37 °C, mammalian body temperature"
+  },
+  "dG_ATP": {
+   "value": 54000.0,
+   "units": "J/mol",
+   "source": "cellular ATP hydrolysis free energy used by the author (54 kJ/mol)"
+  },
+  "M_cell": {
+   "value": 20.94,
+   "units": "dimensionless (kT units)",
+   "derivation": "M = dG_ATP/(R T_cell) = 54000/(8.314462618 x 310.15)",
+   "source": "author's settled ruling 2026-09-19/27: no ln2 in the definition",
+   "accept": [
+    20.94
+   ]
+  },
+  "M_cell_Landauer": {
+   "value": 30.2,
+   "units": "Landauer units (k_B T ln2 per bit)",
+   "derivation": "M_cell / ln 2",
+   "source": "conversion only; not a second definition",
+   "accept": [
+    30.2,
+    30.21
+   ]
+  },
+  "Landauer_floor_cell": {
+   "value": 2.9681136706905537e-21,
+   "units": "J per bit",
+   "derivation": "k_B T_cell ln 2",
+   "also": "1.787 kJ/mol"
+  },
+  "E_hold_meth": {
+   "value": 3.41,
+   "units": "kT per methylated site",
+   "derivation": "ln((1-eps)/eps) of the measured copy error on single molecules (Loyfer read-level, uncorrected)",
+   "source": "PROC-CHANNEL-01",
+   "range_note": "3.41-3.77 kT across datasets (ENCODE, instrument-corrected, upper end)"
+  },
+  "E_hold_meth_Landauer": {
+   "value": 4.9,
+   "units": "Landauer units",
+   "derivation": "E_hold_meth / ln 2"
+  },
+  "phi": {
+   "value": 0.1628,
+   "units": "fraction of one ATP per held bit",
+   "derivation": "E_hold_meth / M_cell",
+   "source": "PROC-CHANNEL-01",
+   "accept": [
+    0.16,
+    0.163,
+    0.1629
+   ]
+  },
+  "eps0_meth": {
+   "value": 0.032,
+   "units": "error per methylated site per copy",
+   "derivation": "1/(1+exp(phi*M_cell))",
+   "source": "PROC-CHANNEL-01 physics floor",
+   "accept": [
+    0.032,
+    0.032
+   ]
+  },
+  "Normal_band": {
+   "value": [
+    0.95,
+    1.05
+   ],
+   "units": "A",
+   "source": "author: 'Healthy is A=1 +/-5'",
+   "applies_to": [
+    "Met-A",
+    "IAM-A"
+   ]
+  },
+  "H_min_450K_neutrophil": {
+   "value": 0.784057,
+   "units": "bits",
+   "derivation": "Met-A floor from purified 450K neutrophils (GSE88824, 8 donors, our Stage 1)",
+   "source": "DIAG-450K-01 / floors_450k_v1.json"
+  },
+  "beta_m": {
+   "value": 0.1575,
+   "units": "dimensionless",
+   "derivation": "Omega_m / 2 with Omega_m = 0.315",
+   "source": "IAM's Law paper (cosmological expression)",
+   "accept": [
+    0.1575
+   ]
+  },
+  "E_of_a": {
+   "value": "exp(1 - 1/a)",
+   "units": "activation function",
+   "source": "IAM's Law paper"
+  }
+ },
+ "names": {
+  "IAM's law": {
+   "status": "current",
+   "definition": "Every irreversible transition from quantum potential to classical actuality pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature."
+  },
+  "Mahaffey number (M)": {
+   "status": "current",
+   "definition": "Drive energy over the thermal noise quantum: M = E_drive/(k_B T). Cell: 20.94 (30.2 in Landauer units)."
+  },
+  "Landauer metrology": {
+   "status": "current",
+   "definition": "Measuring how far above its thermal floor an information-writing process operates, against a fixed physical zero, in any substrate."
+  },
+  "MethylPhys CPG": {
+   "status": "current",
+   "definition": "The instrument: Methylation Physics, Cellular Performance Gauge."
+  },
+  "Met-A (Metrology A)": {
+   "status": "current",
+   "definition": "Program reading: Shannon entropy of the mean beta at a cell's identity loci over that cell type's reference floor, built from purified cells on the same platform, tared against same-run controls. Information theory only; no Landauer or energy content."
+  },
+  "IAM-A": {
+   "status": "current",
+   "definition": "Error reading: the per-molecule copy error of a cell's held methylation pattern, on single-molecule sequencing, read against the physics floor eps0 = 1/(1+exp(phi*M)). Thermodynamic; the cell's instance of IAM's law."
+  },
+  "Salmon-A": {
+   "status": "informal",
+   "definition": "Not a separate quantity: IAM-A applied to salmonids (body temperature = water temperature)."
+  },
+  "the quantum-processor report": {
+   "status": "current",
+   "definition": "Quantum computing report line."
+  },
+  "the semiconductor report": {
+   "status": "current",
+   "definition": "Semiconductor report line."
+  }
+ },
+ "retired": {
+  "n_bio": {
+   "replaced_by": "none (removed from the method)",
+   "severity": "block"
+  },
+  "\\bold A\\b": {
+   "replaced_by": "Met-A",
+   "severity": "warn"
+  },
+  "\\bnew A\\b": {
+   "replaced_by": "IAM-A",
+   "severity": "warn"
+  },
+  "gate-error reading": {
+   "replaced_by": "IAM-A",
+   "severity": "warn"
+  },
+  "program reading": {
+   "replaced_by": "Met-A",
+   "severity": "warn"
+  },
+  "Genomic Analytical (&|and) Performance Engine": {
+   "replaced_by": "MethylPhys CPG",
+   "severity": "confirm"
+  },
+  "\\bGAPE\\b": {
+   "replaced_by": "MethylPhys CPG (author to confirm)",
+   "severity": "confirm"
+  },
+  "M\\s*=\\s*30\\.2": {
+   "replaced_by": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
+   "severity": "warn"
+  }
+ },
+ "scope": {
+  "skip_dirs": [
+   "RETIRED_2026-09",
+   "Record",
+   "camb_validation/chains",
+   "mgcamb_validation/chains",
+   ".git",
+   "data",
+   "results"
+  ],
+  "record_markers": [
+   "[RECORD]",
+   "RETIRED",
+   "superseded",
+   "historical",
+   "Erratum",
+   "What changed",
+   "RECON",
+   "NO LONGER USED",
+   "[Edition 003 note"
+  ],
+  "extensions": [
+   ".md",
+   ".tex",
+   ".py",
+   ".txt"
+  ],
+  "record_files": [
+   "Biological_Physics/MethylPhys/papers/build_mphys_issue002.py",
+   "Biological_Physics/MethylPhys/manual/mphys002_lib.py",
+   "Biological_Physics/MethylPhys/hmin_calibration/",
+   "Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md",
+   "Biological_Physics/MethylPhys/atlas/v2/COMMUNICATION.md",
+   "Biological_Physics/MethylPhys/kit/ROW9_WORKING_NOTE.md",
+   "Biological_Physics/MethylPhys/evidence_pre_atlas_2026-04/"
+  ],
+  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language."
+ }
+}

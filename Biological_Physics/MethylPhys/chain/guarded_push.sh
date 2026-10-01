@@ -15,6 +15,13 @@ ROOT=$(git -C "$HERE" rev-parse --show-toplevel)
 LOG="$ROOT/.propagate_last_run.txt"
 
 echo "== build_all (regenerate every document that reports the chain) =="
+# Canon gate (2026-10-01): every LIVE file must agree with CANON/iam_canon.json (constants and names). Exit status read directly, no pipe.
+CANON_ROOT="$(git -C "$HERE" rev-parse --show-toplevel)"
+if ! python3 "$CANON_ROOT/CANON/canon_check.py" > "$CANON_ROOT/.canon_check_last_run.txt" 2>&1; then
+    echo "guarded_push.sh: CANON CHECK FAILED - a LIVE file uses a retired name or a wrong constant. See .canon_check_last_run.txt / CANON/canon_report.json"
+    cat "$CANON_ROOT/.canon_check_last_run.txt" | head -20
+    exit 1
+fi
 if ! (cd "$HERE" && "${PYTHON:-python3}" build_all.py > "$ROOT/.build_all_last_run.txt" 2>&1); then
     tail -25 "$ROOT/.build_all_last_run.txt"
     echo
