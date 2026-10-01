@@ -150,11 +150,11 @@
   },
   "Met-A (Metrology A)": {
    "status": "current",
-   "definition": "Program reading: Shannon entropy of the mean beta at a cell's identity loci over that cell type's reference floor, built from purified cells on the same platform, tared against same-run controls. Information theory only; no Landauer or energy content."
+   "definition": "Program reading: Shannon entropy of the mean beta at a cell's identity loci over that cell type's reference floor, built from purified cells on the same platform, tared against same-run controls. Information theory only; no Landauer or energy content. Expansion (author, 2026-10-01): Informational Metrology A score."
   },
   "IAM-A": {
    "status": "current",
-   "definition": "Error reading: the per-molecule copy error of a cell's held methylation pattern, on single-molecule sequencing, read against the physics floor eps0 = 1/(1+exp(phi*M)). Thermodynamic; the cell's instance of IAM's law."
+   "definition": "Error reading: the per-molecule copy error of a cell's held methylation pattern, on single-molecule sequencing, read against the physics floor eps0 = 1/(1+exp(phi*M)). Thermodynamic; the cell's instance of IAM's law. Expansion (author, 2026-10-01): Informational Actualization Model A score."
   },
   "Salmon-A": {
    "status": "informal",
@@ -422,6 +422,11 @@
    "status": "current (unverified)",
    "definition": " The semiconductor industry is the most precisely engineered enterprise in human history. The teams working on 2nm silicon are doing genuinely hard things — patterning features at dimensions smaller than the wavelength of visible light, managing leakage currents measured in femtoamperes, sustaining ",
    "domain": "the semiconductor report"
+  },
+  "C-score (sky-map C-score)": {
+   "status": "current",
+   "definition": "Third reading per specimen (author proposal 2026-10-01): clustering of a specimen's residual sky map (variance of 50-consecutive-site block means x 50, over the site variance), divided by the healthy baseline measured on the same platform and site set, so healthy = 1 on the same gauge as A. Computed per map: C(Met-A) on arrays, C(IAM-A) on sequencing. Catches damage concentrated in genomic regions that the averaged A dilutes. A cosmology map statistic (Methods from the Sky), not a physics floor. Development only; band not yet set. On first use in papers write 'sky-map C-score' (C-score is also an ecology co-occurrence statistic).",
+   "domain": "the methylation report"
   }
  },
  "retired": {
