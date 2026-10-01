@@ -128,7 +128,7 @@
   "P_neutrophil_IAM_A": {
    "value": 1.099,
    "units": "dimensionless (H(eps_healthy) / H(eps0))",
-   "derivation": "mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0) (1.084-1.108, CV 3 %)",
+   "derivation": "mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0) (1.084-1.108, CV 1.2 %)",
    "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json (frozen 2026-10-01); valid for the loyfer_pat_v1 pipeline only",
    "status": "development"
   }
