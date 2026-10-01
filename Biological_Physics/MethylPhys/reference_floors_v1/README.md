@@ -32,3 +32,20 @@ spread (SD) 0.014. Tightest: naive CD4 0.004, monocytes 0.008; widest: Tregs and
 **Next build steps.** (a) Identity sites chosen per platform from purified arrays (stable across donors and at the extremes), so the array
 form gains sensitivity; (b) state on every floor what A = 1.05 corresponds to in blur, per form and platform; (c) collect purified tissue
 arrays for the tissue floors.
+
+## v1.1 — identity sites chosen per platform from purified arrays (EPIC, 97 held-out specimens)
+Sites for a cell are chosen without the specimen being read: across-donor SD ≤ 0.05, and own mean β in the window shown. Up to 3,000 per channel.
+Same ruler for every form (author, 2026-10-01): Normal 0.95–1.05; the site window is tuned instead.
+
+| sites | form | healthy in Normal | SD | 2 % blur | outside at 2 % | 5 % blur | outside at 5 % |
+|---|---|---|---|---|---|---|---|
+| v2 identity loci (v1) | per-site mean H | 1.00 | 0.015 | +0.008 | 0.00 | +0.021 | 0.00 |
+| extreme (≥ 0.90 / ≤ 0.10) | per-site mean H | 0.66 | 0.072 | +0.331 | 0.99 | +0.798 | 1.00 |
+| moderate (0.80–0.95 / 0.05–0.20) | per-site mean H | 0.85 | 0.046 | +0.099 | 0.93 | +0.238 | 1.00 |
+
+- Taking each floor only from the same study does not narrow the spread (moderate per-site 0.047), so the spread is not study batch.
+- On moderate sites most blood cells read healthy inside Normal (neutrophils, monocytes, NK, naive CD4/CD8, Tregs, memory CD4: SD 0.015–0.027).
+  Wide: basophils 0.100, CD8 (Salas 2018, naive + memory mixed) 0.084, memory B 0.063, colon epithelium (Moss, n = 3) 0.151.
+- The per-site form beats the two separate channels on arrays.
+- Next: more sites per cell (cap 3,000 now), choose the window per platform so healthy SD ≤ 0.025, and state the blur at which A crosses 1.05
+  so IAM-A is calibrated to the same point.
