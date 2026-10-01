@@ -265,6 +265,9 @@ def main():
     ap.add_argument("--intake-log", default=None, help="append intake and integrity records here")
     ap.add_argument("--manifest-dir", default=None, help="write the immutable per-sample manifest here")
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
+    ap.add_argument("--engine", default="v3", choices=("v3", "legacy"), help="v3 = neutrophil chain (Met-A, C-score, tare; development build). legacy = the class-floor conductor kept for the record")
+    ap.add_argument("--slide-ref-A", default=None, help="comma-separated Met-A of >= 3 healthy reference arrays on the same slide (v3 tare)")
+    ap.add_argument("--atlas-v2", default=None, help="path to IAMAtlas_v2.parquet (v3 composition)")
     a=ap.parse_args()
     if not (a.betas or (a.grn and a.red)): ap.error("give either --betas or both --grn and --red")
 
@@ -386,6 +389,10 @@ def main():
             import json as _json, glob as _glob
             f = _glob.glob(os.path.join(BIO, "MethylPhys/chain/**/iamatlas_gauge_identity_loci_v1_0.json"),
                            recursive=True)
+            if a.engine == "v3":   # v3: coverage of the neutrophil identity sites the reading uses
+                fl = _json.load(open(os.path.join(BIO, "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_2.json")))
+                st = set(fl["platforms"].get("EPIC", {}).get("neutrophils", {}).get("sites", []))
+                ref = len(st & set(beta)) / max(len(st), 1); f = []
             if f:
                 loci = set()
                 for cls, d in _json.load(open(f[0])).items():
@@ -405,6 +412,18 @@ def main():
                   "Stage 0 rejected the specimen; see the flags above.", flush=True)
             sys.exit(2)
 
+    if a.engine == "v3":
+        import pandas as _pd, json as _json, conductor_v3 as C3, report_v3 as R3
+        bser = _pd.Series(beta, dtype="float64")
+        refs = [float(x) for x in a.slide_ref_A.split(",")] if a.slide_ref_A else None
+        o = C3.run_neutrophil(bser, specimen=a.specimen, atlas_parquet=a.atlas_v2 or os.environ.get("IAMATLAS_V2"), slide_ref_A=refs)
+        o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid
+        if stage1_meta: o["stage1"] = {k: stage1_meta.get(k) for k in ("detection", "n_cpgs", "pipeline")}
+        r = R3.build(o, a.out, sid)
+        bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
+        _json.dump(o, open(bundle_path, "w"), default=str)
+        m = o.get("met_a", {}); print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason'))}) | C {o.get('met_a_cscore', {}).get('C')} | tare {o.get('tare', {}).get('A_rel')}")
+        print(f"report: {r['out']} | bundle: {bundle_path}"); return
     import cpg_conductor as C, build_methylphys as B
     cfg={"age":a.age,"pipeline":a.pipeline,"lab_zero":a.lab_zero,"substrate":substrate_token(a.specimen), "substrate_as_declared":a.specimen,
          "intake": intake, "intake_skipped": bool(a.no_intake)}

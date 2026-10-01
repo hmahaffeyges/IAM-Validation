@@ -1,0 +1,23 @@
+gsm,group,status,intake,call_rate,A,state,f_neu,n_sites,C,A_rel,tare_state,A_rel_tared,tared_state
+GSM2998021,healthy purified neutrophil (in floor),ok,PROCEED,PASS,1.0032,Normal,,6000.0,0.8289,,untared: 0 same-slide reference arrays (>= 3 required),,
+GSM2998057,healthy purified neutrophil (in floor),ok,PROCEED,PASS,0.9945,Normal,,6000.0,0.9482,,untared: 0 same-slide reference arrays (>= 3 required),,
+GSM2998116,healthy purified neutrophil (in floor),ok,PROCEED,PASS,0.9989,Normal,,6000.0,1.2091,,untared: 0 same-slide reference arrays (>= 3 required),,
+GSM2998023,healthy purified neutrophil (in floor),ok,PROCEED,PASS,0.9942,Normal,,6000.0,1.0519,,untared: 0 same-slide reference arrays (>= 3 required),,
+GSM2998143,healthy purified neutrophil (in floor),ok,PROCEED,PASS,1.0028,Normal,,6000.0,0.6914,,untared: 0 same-slide reference arrays (>= 3 required),,
+GSM2998030,healthy purified neutrophil (in floor),ok,PROCEED,PASS,1.0064,Normal,,6000.0,1.0757,,untared: 0 same-slide reference arrays (>= 3 required),,
+GSM2998044,"known mixture, neu>=50%",ok,,,0.9676,untared: read A_rel (Stage T),0.6388,5994.0,1.072,,untared: 0 same-slide reference arrays (>= 3 required),1.021,Normal
+GSM2998063,"known mixture, neu>=50%",ok,,,0.9647,untared: read A_rel (Stage T),0.6849,5994.0,0.906,,untared: 0 same-slide reference arrays (>= 3 required),1.0179,Normal
+GSM2998066,"known mixture, neu>=50%",ok,,,0.9477,untared: read A_rel (Stage T),0.5789,5994.0,1.4921,,untared: 0 same-slide reference arrays (>= 3 required),0.9925,Normal
+GSM2998082,"known mixture, neu>=50%",ok,,,0.9455,untared: read A_rel (Stage T),0.6172,5994.0,1.3125,,untared: 0 same-slide reference arrays (>= 3 required),0.9902,Normal
+GSM2998103,"known mixture, neu>=50%",ok,,,0.9549,untared: read A_rel (Stage T),0.6056,5994.0,1.3957,,untared: 0 same-slide reference arrays (>= 3 required),1.0076,Normal
+GSM2998109,"known mixture, neu>=50%",ok,,,0.9426,untared: read A_rel (Stage T),0.6962,5994.0,1.4657,,untared: 0 same-slide reference arrays (>= 3 required),0.9871,Normal
+GSM9426321,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,PASS,,"neutrophils are not the dominant cell (fraction 0.468 < 0.5): fraction reported, A withheld",0.4684,,,,no A,,no A
+GSM9426324,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,CALL_RATE_BORDERLINE,,"neutrophils are not the dominant cell (fraction 0.289 < 0.5): fraction reported, A withheld",0.2888,,,,no A,,no A
+GSM9426327,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,CALL_RATE_BORDERLINE,,"neutrophils are not the dominant cell (fraction 0.058 < 0.5): fraction reported, A withheld",0.0583,,,,no A,,no A
+GSM9426330,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,PASS,1.0944,untared: read A_rel (Stage T),0.6839,5985.0,1.2926,,untared: 0 same-slide reference arrays (>= 3 required),1.0126,Normal
+GSM9426333,AML second remission blood (other lab),ok,PROCEED,PASS,1.1153,untared: read A_rel (Stage T),0.5558,5991.0,1.0731,,untared: 0 same-slide reference arrays (>= 3 required),1.032,Normal
+GSM9426336,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,PASS,1.0821,untared: read A_rel (Stage T),0.5212,5991.0,1.3162,,untared: 0 same-slide reference arrays (>= 3 required),0.9956,Normal
+GSM9426339,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,PASS,1.0794,untared: read A_rel (Stage T),0.5374,5990.0,1.2588,,untared: 0 same-slide reference arrays (>= 3 required),0.9919,Normal
+GSM9426342,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,PASS,,"neutrophils are not the dominant cell (fraction 0.473 < 0.5): fraction reported, A withheld",0.4728,,,,no A,,no A
+GSM9426345,AML second remission blood (other lab),ok,PROCEED,PASS,1.0728,untared: read A_rel (Stage T),0.5582,5990.0,0.7751,,untared: 0 same-slide reference arrays (>= 3 required),0.9858,Normal
+GSM9426348,AML second remission blood (other lab),ok,PROCEED_WITH_PENALTY,PASS,,"neutrophils are not the dominant cell (fraction 0.277 < 0.5): fraction reported, A withheld",0.2771,,,,no A,,no A

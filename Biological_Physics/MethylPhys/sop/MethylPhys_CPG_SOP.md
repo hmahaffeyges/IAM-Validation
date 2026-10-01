@@ -1,4 +1,4 @@
-# MethylPhys CPG SOP
+# MethylPhys CPG SOP — legacy class-floor engine (`run_sample.py --engine legacy`). The v3 neutrophil chain: MethylPhys_CPG_SOP_v3.md
 
 ## Standard Operating Procedure: Cellular Performance Gauge Chain of Custody
 
