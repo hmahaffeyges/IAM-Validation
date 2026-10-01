@@ -176,8 +176,11 @@ gives Eq.~\eqref{eq:HIAM}. With $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ in the 
 The density grows faster than volume dilution because structure keeps producing information; this does not violate the null energy condition, since
 $\varphi$ has no kinetic term. For the combined dark-energy sector,
 \begin{equation}w_{\rm eff}(a)=\frac{-\Omega_\Lambda+\beta E(a)\,w_{\rm info}(a)}{\Omega_\Lambda+\beta E(a)},\qquad w_{\rm eff}(1)=-1.062 .\end{equation}
-\calc\ In CPL form, $w_0=-1.062$ and $w_a=-dw_{\rm eff}/da|_{a=1}=-0.012$.
-\authorhold{The paper gives $w_0\approx-1.07$, $w_a\approx+0.04$. Differentiating its own Eq.~(68) at $a=1$ gives $dw/da=+0.0116$, so $w_a=-0.012$.}
+Matching the CPL form $w(a)=w_0+w_a(1-a)$ to $w_{\rm eff}$ and its slope at $a=1$,
+\begin{equation}w_0=-1.062,\qquad w_a=-\frac{dw_{\rm eff}}{da}\Big|_{a=1}=-\frac{\Omega_m^2}{3(2-\Omega_m)^2}=-0.012 .\end{equation}
+\calc\ $w_a$ is small and of fixed sign for $\Omega_m=0.30$--$0.32$; a least-squares CPL fit over $0.5\le a\le1$ gives $w_0=-1.065$, $w_a=+0.017$. Either way the
+model's dark-energy sector stays close to $w_a=0$ and below $w=-1$; what distinguishes it is the split between distance and growth probes (Prediction~1),
+not a large $w_a$.
 $\varphi$ is not quintessence or a phantom field: it has no independent dynamics and no new propagating degree of freedom. It is an entropy, fixed by the
 state of the system as temperature is fixed by the state of a gas.
 
@@ -191,10 +194,11 @@ Sheth--Tormen and Tinker et al.\ mass functions (Planck 2018, $\sigma_8=0.811$, 
 above $10^6M_\odot$ at $z=0$: $f^{\rm ST}_{\rm coll}=0.593$, $f^{\rm Tinker}_{\rm coll}=0.646$, $f_{\rm coll}=0.62\pm0.03$. The naive $\beta_m=\Omega_mf_{\rm coll}=0.195$
 is $24\,\%$ above $\Omega_m/2$. The factor $\tfrac12$ comes from the partition of gravitational energy, not from counting halos. Writing
 $\beta_m=\Omega_m\,f_{\rm coll}\,\eta_{\rm vir}$ defines the virial efficiency $\eta_{\rm vir}=1/(2f_{\rm coll})\approx0.81$.
-\authorhold{The paper's \S9.3 table of six N-body ``$\langle2K/|U|\rangle$'' values (0.76--0.90) and \S10.5 table of $n_{\rm eff}$: the source papers report
-$2T/|U|\approx1.05$--$1.4$ (the tabulated values match $|U|/2T$), and none reports $n_{\rm eff}$ as a collapse-rate slope (NBODY\_TRACE.md). The Tinker fit is
-calibrated above $10^{10.5}M_\odot$, so $f_{\rm coll}$ above $10^6M_\odot$ is an extrapolation. The \emph{Virial Partition Across Wide Domains} paper calls these
-``representative literature values''. Print them restated with $|U|/2K$ and sources, or leave them out; $\beta_m=\Omega_m/2$ does not rest on them.}
+\observed\ Published simulations measure the halo virial ratio $2T/|U|$ within $r_{\rm vir}$ at or slightly above unity: Neto et al.\ (2007)
+find the median ``slightly greater than unity'' and select relaxed halos by $2T/|U|<1.35$; Power, Knebe and Knollmann (2012, Eqs.~17--18) find
+$\eta=2T/|W|\approx1.15$ at $10^{12}\,h^{-1}M_\odot$ rising to $\approx1.25$ at $10^{15}\,h^{-1}M_\odot$, the excess coming from halos still accreting.
+$\eta_{\rm vir}$ above is therefore a definition, $1/(2f_{\rm coll})$, not a simulation measurement, and $\beta_m=\Omega_m/2$ rests on the virial partition
+itself. The collapsed fraction above $10^6M_\odot$ extrapolates the Tinker fit below its calibrated range ($\gtrsim10^{10.5}M_\odot$).
 \subsection{Tests and parameter count}
 $\beta_m/\Omega_m=\tfrac12$ should hold for any $\Omega_m$. With it, the model has no parameter beyond $\Lambda$CDM: $E(a)$ from horizon thermodynamics,
 the $1/a$ from information surface density, $E(1)=1$ by definition, and $\beta_m$ from the virial theorem. Nothing depends on the bit count per halo; as for
@@ -235,7 +239,8 @@ With $\beta_m$ fixed, the Planck 2018 chains give $\Delta\chi^2$ between $+0.5$ 
 (Chapter~\ref{ch:chains}); free $\mu_0$ is consistent with both $0$ and $-0.136$. $\sigma_8$ drops in every combination: Level 1 (MGCAMB, Planck only) $0.814\to0.802$ ($-1.6\,\%$); Level 2 (modified CAMB) $0.809\to0.800$ ($-1.1\,\%$). This is the direction of the
 CMB--lensing $\sigma_8$ difference. CMB spectra, CMB lensing, BAO angles and supernova distances are unchanged at the perturbation level; the TT spectra
 differ by under $0.13\,\%$ at $\ell>30$.
-\authorhold{Fig.~2 of the paper labels the TT comparison ``$\Delta\chi^2=+0.75$'', while \S12.1 gives $+1.43$ for the same Planck-only pair.}
+The $\Delta\chi^2$ values throughout this book come from one extraction of the final chain files (Chapter~\ref{ch:chains}); the figure of the
+TT comparison is labelled from that extraction.
 \paragraph{Energy conservation.} $\dot\rho_{\rm info}/\rho_{\rm info}=H/a$ and $-3H(1+w_{\rm info})=H/a$, so the continuity equation holds for all $a$; the
 Euler--Lagrange equations give $\nabla_\mu T^{\mu\nu}_{\rm info}=0$, and with matter and $\Lambda$ conserved separately the Bianchi identity holds.
 \paragraph{DESI.} $w_{\rm eff}(0)=-1.062$, always $\le-1$. A single-sector $w_0w_a$ fit to a two-sector expansion history should show an apparent crossing.
