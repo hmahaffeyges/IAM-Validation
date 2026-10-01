@@ -110,8 +110,8 @@
   "Met_A_floor_EPIC_neutrophil": {
    "value": 0.330263,
    "units": "bits (mean per-site H(beta))",
-   "derivation": "mean over 12 purified healthy EPIC neutrophil arrays (Salas 2018/2022, our Stage 1) of the mean H(beta) over 6000 identity sites",
-   "source": "chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_2.json (frozen 2026-10-01); held-out precision 12/12 Normal, SD 0.007 (metA_floors_v1_2_loo.csv)",
+   "derivation": "mean over 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554; GSE167998 re-deposits the same 6 arrays) of the mean H(beta) over 6000 identity sites, our Stage 1",
+   "source": "chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json (frozen 2026-10-01); held-out precision (sites re-chosen on the other 5 arrays): SD 0.020, 0.983-1.045 (metA_floors_v1_3_loo.csv)",
    "generated": "read from the frozen file by build_all; never hand-edited"
   },
   "Met_A_floor_450K_neutrophil": {

@@ -6,10 +6,10 @@ Met-A reads ONE cell type in ONE specimen against that cell type's own healthy f
     Met-A = mean over the cell's identity sites of H(beta)  /  floor,     H(b) = -b log2 b - (1-b) log2(1-b)
 
 SCOPE: neutrophils only (author ruling 2026-10-01) until the reading is commissioned with new VALs; other floors are kept in the file
-for development but the chain does not report them. Identity sites and floors are frozen in Runtime Matrices/Met_A_Floors/metA_floors_v1_2.json, built from purified healthy arrays calibrated by this
+for development but the chain does not report them. Identity sites and floors are frozen in Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json, built from purified healthy arrays calibrated by this
 chain's own Stage 1 (EPIC: Salas 2018/2022 purified blood cells; 450K: GSE63409 healthy bone-marrow progenitors). Site rule: across-array
 SD <= 0.05 and mean beta 0.75-0.95 (methylated) or 0.05-0.25 (unmethylated), up to 3,000 per channel. The leave-one-out precision of every floor
-is in metA_floors_v1_2_loo.csv and is printed with each reading.
+is in metA_floors_v1_3_loo.csv and is printed with each reading.
 
 One ruler: Normal = 0.95-1.05. A is reported for the DOMINANT cell of the specimen only (Stage A fraction >= MIN_FRACTION) or for a purified /
 sorted specimen of a single type. Minor cells: fraction only (PROC-SCORE-01: a minor cell's A cannot be read out of a mixture).
@@ -17,8 +17,8 @@ Tier lines beyond Normal are withheld until measured on this scale."""
 import json, os, math
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
-FLOORS = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_2.json")
-LOO = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_2_loo.csv")
+FLOORS = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3.json")
+LOO = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3_loo.csv")
 NORMAL = (0.95, 1.05)
 MIN_FRACTION = 0.50
 CELLS_IN_SCOPE = ("neutrophils",)   # author ruling 2026-10-01: neutrophils only until commissioned; add one cell type at a time

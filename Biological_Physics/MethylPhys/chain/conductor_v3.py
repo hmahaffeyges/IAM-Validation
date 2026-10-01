@@ -6,7 +6,7 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), which are unchanged:
   Stage M  Met-A          neutrophil: isolated / sorted neutrophils -> own floor; whole blood -> composition-matched healthy expectation
   Stage MC Met-A C-score  clustering of the neutrophil residual map over the healthy baseline (development: band not set)
   Stage T  slide tare     A_rel = A / median A of reference arrays on the same slide (>= 3), when references are supplied
-Frozen inputs (Runtime Matrices/Met_A_Floors): metA_floors_v1_2.json, metA_floors_v1_2_loo.csv, neutrophil_reference_v1.json.
+Frozen inputs (Runtime Matrices/Met_A_Floors): metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_1.json.
 IAM-A (sequencing) runs through stage_q_iam_a.py, not from arrays.
 Formulas (canon: Met-A, C-score):
   H(b) = -b log2 b - (1-b) log2(1-b)
@@ -23,7 +23,7 @@ BUILD = "development v3 (not commissioned) - neutrophils only"
 _REF = None
 def ref():
     global _REF
-    if _REF is None: _REF = json.load(open(os.path.join(RM, "neutrophil_reference_v1.json")))
+    if _REF is None: _REF = json.load(open(os.path.join(RM, "neutrophil_reference_v1_1.json")))
     return _REF
 H = SM._H
 ISOLATED = ("isolated neutrophils", "sorted neutrophils", "purified neutrophils", "neutrophils")

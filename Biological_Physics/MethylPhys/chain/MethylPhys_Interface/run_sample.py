@@ -390,7 +390,7 @@ def main():
             f = _glob.glob(os.path.join(BIO, "MethylPhys/chain/**/iamatlas_gauge_identity_loci_v1_0.json"),
                            recursive=True)
             if a.engine == "v3":   # v3: coverage of the neutrophil identity sites the reading uses
-                fl = _json.load(open(os.path.join(BIO, "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_2.json")))
+                fl = _json.load(open(os.path.join(BIO, "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json")))
                 st = set(fl["platforms"].get("EPIC", {}).get("neutrophils", {}).get("sites", []))
                 ref = len(st & set(beta)) / max(len(st), 1); f = []
             if f:
