@@ -1,0 +1,49 @@
+\chapter{The cosmological constant}\label{ch:lambda}
+
+\section{The problem}
+
+A quantum-field estimate of the vacuum energy with a Planck-scale cutoff gives $\rho_{\mathrm{vac}}\sim c^7/\hbar G^2=4.63\times10^{113}\ \mathrm{J\,m^{-3}}$.
+The observed dark-energy density is $\rho_\Lambda=\Omega_\Lambda\,3H_0^2c^2/8\pi G\approx5\times10^{-10}\ \mathrm{J\,m^{-3}}$. The ratio is about $10^{-123}$.
+
+\section{The IAM expression}
+
+IAM does not try to shrink $\rho_{\mathrm{vac}}$. It treats $\rho_{\mathrm{vac}}$ as the capacity of the horizon (one Planck cell per Planck area) and
+$\rho_\Lambda$ as the energy of the records actually written on it by irreversible gravitational decoherence on baryonic worldlines. Four factors:
+\begin{enumerate}
+ \item $(\lP/l_H)^2$, one Planck cell of the horizon area, $l_H=c/H_0$;
+ \item $2/\pi$, a de Sitter projection factor from bulk to boundary \conjecture;
+ \item $\Omega_b/\Omega_m$: only baryons write new records \conjecture;
+ \item $\sqrt{\Omega_\Lambda}=T_{\mathrm{dS}}/T_H$, the writing temperature taken as the asymptotic de Sitter temperature.
+       This factor was introduced after the three-factor expression came out $1.22$ times too large \conjecture.
+\end{enumerate}
+\begin{equation}
+ \frac{\rho_\Lambda}{\rho_{\mathrm{vac}}}\bigg|_{\mathrm{IAM}}=\frac{2}{\pi}\left(\frac{\lP}{l_H}\right)^2\sqrt{\Omega_\Lambda}\,\frac{\Omega_b}{\Omega_m}.
+ \label{eq:LambdaIAM}
+\end{equation}
+
+\section{What the expression asserts}
+
+The observed ratio, written in the same variables, is exactly
+\begin{equation}
+ \frac{\rho_\Lambda}{\rho_{\mathrm{vac}}}\bigg|_{\mathrm{obs}}=\frac{3}{8\pi}\,\Omega_\Lambda\left(\frac{\lP}{l_H}\right)^2 .
+\end{equation}
+\calc\ $(\lP/l_H)^2=1.385\times10^{-122}$ for $H_0=67.36$, and the observed ratio is $1.132\times10^{-123}$. The factor $(\lP/l_H)^2$ is the same on both sides,
+so the 123 orders of magnitude cancel: they follow from $\rho_\Lambda$ being of order the critical density. Setting the two equal leaves a relation among
+density parameters alone:
+\begin{equation}
+ \boxed{\;\sqrt{\Omega_\Lambda}=\frac{16}{3}\,\frac{\Omega_b}{\Omega_m}\;}
+ \label{eq:Lambdarel}
+\end{equation}
+
+\begin{checkbox}
+\calc\ Planck 2018 ($\Omega_bh^2=0.02237\pm0.00015$, $\Omega_ch^2=0.1200\pm0.0012$, $h=0.6736\pm0.0054$, Monte Carlo, inputs independent):
+$\sqrt{\Omega_\Lambda}=0.8275\pm0.0034$ and $\tfrac{16}{3}\Omega_b/\Omega_m=0.8343\pm0.0084$. They agree to $0.8\,\%$ ($0.9\sigma$).
+From the baryon chain's own posterior (correlations kept): $(16/3)(\Omega_b/\Omega_m)/\sqrt{\Omega_\Lambda}=1.0048\pm0.0069$, $0.7\sigma$ from one.
+\end{checkbox}
+
+\section{Status}
+
+\observed\ Eq.~\eqref{eq:Lambdarel} holds today to $0.8\,\%$, at the precision the data allow.
+\openprob\ It is not derived. The factors $2/\pi$ and $\Omega_b/\Omega_m$ are physically motivated identifications, and $\sqrt{\Omega_\Lambda}$ entered after the
+comparison, so the agreement cannot be counted as evidence for that factor. A derivation must produce Eq.~\eqref{eq:Lambdarel} from the entropy functional.
+\prediction\ Any future determination of $(\Omega_b,\Omega_m,\Omega_\Lambda)$ must keep Eq.~\eqref{eq:Lambdarel}; CMB-S4-era precision tests it at the $0.3\,\%$ level.

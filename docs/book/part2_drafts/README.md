@@ -3,3 +3,4 @@ Drafts for *Law and Order: The Thermodynamics of Informational Actualization*, P
 `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv` (one extraction of the final chain files, 30 % burn-in). Status labels follow the book's macros.
 - `p2_dualsector_chains.tex` — the dual-sector model and the 18-chain record.
 - `p2_baryon.tex` — the present-epoch baryon relation and the baryon chain.
+- `p2_lambda.tex` — the cosmological constant: the 123 orders cancel; the present-epoch relation sqrt(Omega_Lambda) = (16/3) Omega_b/Omega_m (0.8 %), derivation open.
