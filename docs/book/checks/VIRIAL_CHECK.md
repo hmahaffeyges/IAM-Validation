@@ -34,7 +34,7 @@ If the efficiency argument is kept, it is restated with |U|/2K and its own defin
 1. **β_m = 0.1583 ± 0.0033 "returned by 17 chains"** (PRL, *Virial Partners* §2, *Grav. Decoherence* §2.1): β_m is fixed in every chain; 0.1583
    is Ω_m/2 of the Level 2 Run A posterior (0.3166/2); the ΛCDM chain gives 0.1581. Print instead: Planck's Ω_m gives β_m = 0.1577, which the chains
    use fixed, and the modified growth is consistent with Planck (Δχ² +0.5 to +1.7).
-2. **Exponent n**: see EXPONENT_LINE_BY_LINE.md. The Theory paper's Eqs. 28–39 check line by line; Eq. 41 writes n − 9/2 = −1 ⟹ 5/2, which is 7/2. Held for the author.
+2. **Exponent n = 7/2.** Theory paper Eqs. 36–39 give S ∝ a^(n − 9/2); n − 9/2 = −1 ⟹ 7/2 (the papers print 5/2). Full-ΛCDM integration and the Theory paper's Table 2 agree. Changed in the book with the author's approval (2026-10-02). E(a) is independent of n. The bottom-up 'Press–Schechter D^(5/2)' statement in other papers is not yet read line by line and is not printed.
 3. *Virial Partners* Table 1, E(a) column: 0.135 / 0.497 / 0.741 (the printed 0.050 / 0.182 / 0.274 are wrong; R column 399 / 20 / 6 / 2 is right).
 4. R(1) = Ω_m/(β_m E(1)) = 2 holds by construction (the paper says so). Print it as the definition it is. The coincidence-problem reading is
    interpretation (Part 5).

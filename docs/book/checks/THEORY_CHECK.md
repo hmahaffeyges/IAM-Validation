@@ -7,7 +7,7 @@ Chapter: `part2_drafts/p2_theory.tex` carries §1–12, §14–15 in the paper's
 w_eff(1) = −1.062; continuity identity (§12.4); H0 sirens 72.51; M_eq = 2.32 × 10²² M⊙; β = Ω_m/2 = 0.1575; Ω_m f_coll = 0.195 (+24 %).
 
 **Author holds (in the chapter as boxes):**
-1. Eq. 41: n − 9/2 = −1 written as n = 5/2; it is 7/2 (EXPONENT_LINE_BY_LINE.md). E(a) itself comes from §6.3, independent of n.
+1. Eq. 41: n − 9/2 = −1 written as n = 5/2; it is 7/2 (EXPONENT_LINE_BY_LINE.md). **Changed to 7/2 in the book (author approved 2026-10-02).** E(a) comes from §6.3, independent of n.
 2. §8.5: w_a = −dw/da|₁ = −0.012 (paper +0.04); w0 = −1.062 (paper −1.07 in §8.5, −1.062 in §12.5).
 3. §9.3 η table and §10.5 n_eff table: source values are 2T/|U| ≈ 1.05–1.4; n_eff not reported as a collapse-rate slope (NBODY_TRACE.md).
    f_coll above 10⁶ M⊙ extrapolates Tinker below its calibrated 10^10.5.

@@ -28,3 +28,5 @@ measure (per unit time, divided by T_H A_H), and my "per dt gives 2" left out th
 
 **Not yet checked line by line:** the bottom-up route ("ν ∝ D^(−1/2) near M* gives D^(5/2)", in the Measurement/Bridge paper and the
 Zurek paper). In standard Press–Schechter ν = δ_c/[σ(M) D] ∝ D⁻¹; that derivation must be read in full before it is printed either way.
+
+**Decision (author, 2026-10-02):** change to 7/2. Done in p2_theory.tex and p2_virial.tex.
