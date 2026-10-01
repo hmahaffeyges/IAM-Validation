@@ -38,7 +38,7 @@ Papers that exist only here (no PDF in `docs/papers/`): Variational_Derivation_o
 | iam_law_v2 | 0 |
 | iam_missing_satellites | 2 |
 | iam_mu_sigma_paper | 5 |
-| iam_nonlocality_boundary | 0 |
+| iam_entanglement_decoherence | 0 |
 | iam_ocolgain_note | 3 |
 | iam_decoherence_virial_partition | 1 |
 | iam_electroweak_matter_sector | 1 |

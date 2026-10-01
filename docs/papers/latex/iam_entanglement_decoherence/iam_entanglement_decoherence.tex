@@ -1,0 +1,302 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+\geometry{margin=1in}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+
+\title{\textbf{Entanglement, Decoherence, and the Thermodynamic Cost\\
+of Classical Records}}
+\author{Heath W.\ Mahaffey\\
+\small Independent Researcher, Entiat, Washington 98822, USA\\
+\small \href{mailto:hmahaffeyges@gmail.com}{hmahaffeyges@gmail.com}\\
+\small \url{https://github.com/hmahaffeyges/IAM-Validation}}
+\date{March 2026; revised October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Entangled systems show correlations that violate Bell inequalities
+\citep{Bell1964,Aspect1982,Hensen2015}, ruling out local hidden-variable models.
+Quantum mechanics predicts these correlations exactly. What it leaves open is the
+quantum-to-classical transition: where and at what cost a superposition becomes a
+definite classical record. Decoherence theory \citep{Zurek1981,JoosZeh1985,Zurek2003}
+explains the suppression of interference; Landauer's principle \citep{Landauer1961}
+sets the minimum thermodynamic cost of an irreversible record, $k_BT\ln2$ per bit.
+The Informational Actualization Model (IAM) applies that cost at cosmological scale:
+at the Gibbons--Hawking temperature $T_H=\hbar H/2\pi k_B$ the informational entropy
+produced by structure formation enters horizon thermodynamics, giving
+$\mu(a)<1$ for matter and $\Sigma(a)=1$ for light \citep{IAM_theory}. Here we set out
+what this picture says about entanglement. It makes no change to quantum
+mechanics and adds no hidden variables: Bell correlations are those of the shared
+quantum state until an irreversible record is made. Its new content is
+quantitative: a gravitational decoherence time
+$\tau_{\rm IAM}=\hbar k_B^2T^2\ln2/E_G^3$ that scales as $T^2$ and, at fixed
+density, as $m^{-5}$, against $m^{-5/3}$ and no temperature dependence for
+Penrose--Di\'osi. For a 1~pg silica sphere at 10~mK, $\tau_{\rm IAM}=559$~s and
+$\tau_{\rm PD}=7.8~\mu$s; the two cross at $m\approx2.3\times10^{-10}$~kg. We also
+correct the exponent that links the cosmological activation function to structure
+formation: matching $\exp(1-1/a)$ in matter domination requires $n=7/2$.
+\end{abstract}
+
+% ──────────────────────────────────────────────────────────────────
+\section{Entanglement and the quantum-to-classical transition}
+\label{sec:intro}
+
+Bell's theorem \citep{Bell1964} shows that no local hidden-variable theory reproduces
+the correlations of entangled states. Experiments confirm the violation, including a
+loophole-free test with electron spins 1.3~km apart \citep{Hensen2015} and photon
+pairs distributed over 1,200~km by satellite \citep{Yin2017}. Quantum mechanics
+predicts these results without modification.
+
+Two distinct questions are often merged. The first is why the correlations are
+non-classical; the answer is that an entangled pair is described by one quantum
+state, not by two systems with pre-existing local properties. The second is where
+and how that state gives way to definite classical outcomes. Decoherence explains
+the loss of interference through entanglement with an environment
+\citep{Zurek1981,JoosZeh1985}, and quantum Darwinism explains how redundant records
+make outcomes objective \citep{Zurek2003,Zurek2009}. Neither fixes the
+thermodynamic cost of the record. Landauer's principle does: an irreversible
+record costs at least $k_BT\ln2$ per bit, dissipated as heat \citep{Landauer1961}.
+
+IAM takes this cost seriously at the largest scale. If structure formation produces
+classical information irreversibly, the corresponding entropy belongs in the
+horizon thermodynamics from which the Friedmann equations follow
+\citep{Jacobson1995,CaiKim2005}. This paper states what that does and does not
+imply for entanglement.
+
+% ──────────────────────────────────────────────────────────────────
+\section{Two sectors}
+\label{sec:sectors}
+
+Gravitational decoherence in IAM requires a timelike worldline, $d\tau>0$. Photons
+travel null geodesics, $d\tau=0$, and undergo no gravitational decoherence in
+transit; they are absorbed and measured in the ordinary way, but propagation adds
+nothing to the informational entropy. Massive particles accumulate proper time and,
+when bound into virialised structures, contribute to it. This is the origin of the
+matter/photon sector split \citep{IAM_time}.
+
+Local environmental decoherence (gas collisions, thermal photons, phonons) is the
+dominant mechanism in laboratory systems and is unchanged by IAM. IAM adds a
+gravitational channel and an accounting statement: every irreversible record made
+on a timelike worldline carries its Landauer cost, and at cosmological scale that
+cost appears in the horizon entropy budget.
+
+% ──────────────────────────────────────────────────────────────────
+\section{The derivation chain}
+\label{sec:derivation}
+
+\textbf{Step 1.} Jacobson derived the Einstein equations as an equation of state from
+the entropy--area relation of local causal horizons \citep{Jacobson1995}.
+
+\textbf{Step 2.} Cai and Kim obtained the Friedmann equations from the first law on
+the apparent horizon of an FRW universe \citep{CaiKim2005}.
+
+\textbf{Step 3.} Structure formation produces classical information irreversibly.
+For $1/r$ potentials the virial theorem gives $2K=|V|$. IAM identifies the kinetic
+half with the heat dissipated in the quantum-to-classical transition, priced at
+$k_BT_H\ln2$ per bit \citep{Gibbons1977}.
+
+\textbf{Step 4.} The accumulated informational contribution is described by the
+activation function
+\begin{equation}
+\mathcal{E}(a)=\exp\!\left(1-\frac{1}{a}\right),
+\label{eq:Ea}
+\end{equation}
+monotonically increasing, $\mathcal{E}(1)=1$, $\mathcal{E}(\infty)=e$, and
+negligible at early times ($\mathcal{E}(z=10)=4.5\times10^{-5}$).
+
+\textbf{Step 5.} Including this entropy in the first law adds Hubble friction to the
+matter perturbation equation:
+\begin{equation}
+\mu(a)=\frac{H^2_{\Lambda\rm CDM}}{H^2_{\Lambda\rm CDM}+\beta_m\mathcal{E}(a)}<1,
+\qquad \Sigma(a)=1,
+\label{eq:sector}
+\end{equation}
+with $\beta_m=\Omega_m/2=0.15765$ from the virial theorem ($\Omega_m=0.3153$). The
+Planck 2018 Level~2 posterior returns $\beta_m=0.1583\pm0.0033$, $0.2\sigma$ from
+this value \citep{IAM_obs}.
+
+% ──────────────────────────────────────────────────────────────────
+\section{Entanglement under the two sectors}
+\label{sec:entanglement}
+
+Because IAM leaves quantum mechanics unchanged, Bell correlations of a pure shared
+state are those of standard theory. The framework's statement is about how long an
+entangled state of \emph{massive} systems can survive the gravitational channel.
+
+For photon pairs no gravitational decoherence acts in transit, and the CHSH
+parameter stays at $|S|=2\sqrt2$ for an ideal source, whatever the distance. For
+massive superpositions IAM predicts gravitational decoherence with the time-dependent
+profile of \citet{IAM_QM},
+\begin{equation}
+S(t)=2\sqrt2\,\bigl(1-D(t)\bigr),\qquad D(t)=\mathcal{E}(t/\tau_{\rm IAM})/e ,
+\label{eq:bell}
+\end{equation}
+and timescale \citep{IAM_grav}
+\begin{equation}
+\tau_{\rm IAM}=\frac{\hbar k_B^2T^2\ln2}{E_G^3},\qquad E_G=\frac{Gm^2}{r},
+\label{eq:tauIAM}
+\end{equation}
+where $T$ is the bath temperature. At fixed density, $E_G\propto m^{5/3}$, so
+$\tau_{\rm IAM}\propto T^2m^{-5}$; the Penrose--Di\'osi time
+$\tau_{\rm PD}=\hbar/E_G\propto m^{-5/3}$ has no temperature dependence.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Gravitational decoherence times for silica spheres
+($\rho=2000$~kg\,m$^{-3}$), computed from Eq.~(\ref{eq:tauIAM}) and
+$\tau_{\rm PD}=\hbar/E_G$.}
+\label{tab:decoherence}
+\begin{tabular}{lccc}
+\toprule
+System & $\tau_{\rm IAM}$ & $\tau_{\rm PD}$ & Discriminator \\
+\midrule
+1 fg sphere ($10^{-15}$ kg), 10 mK & $5.6\times10^{17}$ s & 0.78 s & PD testable; IAM not \\
+1 pg sphere ($10^{-12}$ kg), 10 mK & 559 s & $7.8~\mu$s & $T^2$ vs $T^0$; ramp vs exponential \\
+1 pg sphere, 20 mK & 2,238 s & $7.8~\mu$s & doubling $T$ quadruples $\tau_{\rm IAM}$ \\
+Crossover, 10 mK & \multicolumn{2}{c}{$\tau_{\rm IAM}=\tau_{\rm PD}$ at $m\approx2.3\times10^{-10}$ kg} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The discriminating experiment is therefore a mesoscopic superposition near
+$10^{-12}$~kg: Penrose--Di\'osi predicts loss of coherence in microseconds, IAM
+predicts none on that timescale, and a temperature scan separates the two. Distance
+records do not discriminate: matter-qubit entanglement over 1.3~km
+\citep{Hensen2015} and photon entanglement over 1,200~km \citep{Yin2017} are both
+consistent with standard decoherence and photon-mediated distribution.
+
+Entanglement of top-quark pairs at the LHC \citep{CMS2024} is consistent with IAM:
+the top lifetime, $\sim5\times10^{-25}$~s, is far shorter than any gravitational
+decoherence time. Bell violations from path indistinguishability without
+conventional entanglement \citep{SciAdv2025} concern the structure of the state and
+are outside the gravitational channel. Correlations between photons that never
+coexisted \citep{Megidish2013} are properties of the quantum state across time; a
+treatment within IAM is left open.
+
+% ──────────────────────────────────────────────────────────────────
+\section{The exponent linking structure formation to $\mathcal{E}(a)$}
+\label{sec:exponent}
+
+Write the information production rate during matter domination as
+$\dot I\propto\rho_m D^n H$, with $\rho_m\propto a^{-3}$, $D\propto a$ and
+$H\propto a^{-3/2}$. With the Gibbons--Hawking temperature and the horizon area,
+the entropy increment per unit $a$ scales as $a^{\,n-11/2}$, so that
+\begin{equation}
+S_{\rm info}(a)\propto\int a^{\,n-11/2}\,da\propto a^{\,n-9/2}.
+\end{equation}
+Matching the $-1/a$ dependence of $\ln\mathcal{E}(a)$ requires
+\begin{equation}
+n-\frac{9}{2}=-1\quad\Longrightarrow\quad n=\frac{7}{2}.
+\label{eq:n}
+\end{equation}
+(For $n<9/2$ the integral is dominated by its lower limit, so $S_{\rm info}$ is
+defined up to a constant fixed by the normalisation $\mathcal{E}(1)=1$.) A
+bottom-up value of $n$ from the halo mass function must reproduce $7/2$ for the
+chain to close; the numerical halo-collapse calculation gives an effective $1/a$
+coefficient near unity at $\sigma_*\approx1.5$ \citep{IAM_Zurek}. Deriving $n$
+analytically from the mass function is an open problem.
+
+% ──────────────────────────────────────────────────────────────────
+\section{Observational status}
+\label{sec:obs}
+
+Seventeen MCMC chains (12 MGCAMB, 5 modified CAMB) were run with the Planck 2018
+likelihood (TT, TE, EE + low-$\ell$ + lensing), some combined with BAO, Pantheon+ or
+RSD data; final Gelman--Rubin $R-1$ is below 0.01 for 15 and 0.023--0.024 for the
+other two \citep{IAM_obs}. Results:
+\begin{itemize}
+\item $\sigma_8=0.7998\pm0.0058$ (ΛCDM $0.809$);
+\item $H_0^{(\rm photon)}=67.16\pm0.47$ and $H_0^{(\rm matter)}=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$;
+\item $\beta_m=0.1583\pm0.0033$, $0.2\sigma$ from $\Omega_m/2=0.15765$;
+\item $\Delta\chi^2=+0.54$ at best fit relative to ΛCDM.
+\end{itemize}
+Planck is consistent with the IAM modification but does not by itself establish it.
+The prediction $\mu_0-1=-0.136$ is tested by Euclid ($\sigma(\mu_0)\approx0.04$,
+$3.4\sigma$) and Euclid with DESI ($5.4\sigma$); $\Sigma_0=0$ is tested by Euclid
+weak lensing.
+
+% ──────────────────────────────────────────────────────────────────
+\section{IAM's law}
+\label{sec:law}
+
+\noindent\fbox{\parbox{0.93\textwidth}{
+\textbf{IAM's law.} Every irreversible quantum-to-classical transition on a timelike
+worldline produces a classical record at a thermodynamic cost of at least
+$k_BT\ln2$ per bit, with $T$ the temperature of the system that absorbs it; at
+cosmological scale, $T=T_H$ and the cost enters the horizon entropy.
+}}
+
+\medskip
+Consequences: (1) quantum mechanics is unchanged, and Bell correlations are those of
+the shared state; (2) gravitational decoherence of massive superpositions follows
+Eq.~(\ref{eq:tauIAM}), with a $T^2$ signature; (3) $\mathcal{E}(a)$ increases
+monotonically because each record is irreversible.
+
+% ──────────────────────────────────────────────────────────────────
+\section{Discussion}
+\label{sec:discussion}
+
+Decoherence has been known to be irreversible since the 1980s
+\citep{Zurek1981,JoosZeh1985}; horizon entropy since Bekenstein and Hawking
+\citep{Bekenstein1973,Hawking1975}; the thermodynamic origin of gravity since
+Jacobson \citep{Jacobson1995}. IAM asks where the Landauer cost of cosmological
+structure formation goes, and answers that it enters the horizon entropy budget,
+producing $\mu<1$ and $\Sigma=1$. For entanglement the framework predicts nothing
+beyond quantum mechanics for photons, and a specific, temperature-dependent
+gravitational decoherence time for massive superpositions that mesoscopic
+experiments can test.
+
+\section*{Acknowledgments}
+The thermodynamic framework of T.\ Jacobson \citep{Jacobson1995} and the quantum
+Darwinism programme of W.\,H.\ Zurek \citep{Zurek2003,Zurek2009} are the foundations
+of this work. A personal response from P.\,J.\,E.\ Peebles identified the
+quantum-to-classical derivation as the gap to close before the cosmological
+framework could be trusted.
+
+\section*{Data Availability}
+Chains, scripts and figures: \url{https://github.com/hmahaffeyges/IAM-Validation};
+Zenodo DOI \href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}.
+
+\begin{thebibliography}{99}
+\bibitem[Aspect et al.(1982)]{Aspect1982} Aspect, A., Dalibard, J., \& Roger, G.\ 1982, Phys.\ Rev.\ Lett., 49, 1804
+\bibitem[Bekenstein(1973)]{Bekenstein1973} Bekenstein, J.\ D.\ 1973, Phys.\ Rev.\ D, 7, 2333
+\bibitem[Bell(1964)]{Bell1964} Bell, J.\ S.\ 1964, Physics, 1, 195
+\bibitem[Cai \& Kim(2005)]{CaiKim2005} Cai, R.-G.\ \& Kim, S.\ P.\ 2005, JHEP, 02, 050
+\bibitem[CMS Collaboration(2024)]{CMS2024} CMS Collaboration 2024, Observation of quantum entanglement in top quark pair production, Rep.\ Prog.\ Phys., 87, 117801
+\bibitem[Gibbons \& Hawking(1977)]{Gibbons1977} Gibbons, G.\ W.\ \& Hawking, S.\ W.\ 1977, Phys.\ Rev.\ D, 15, 2738
+\bibitem[Hawking(1975)]{Hawking1975} Hawking, S.\ W.\ 1975, Commun.\ Math.\ Phys., 43, 199
+\bibitem[Hensen et al.(2015)]{Hensen2015} Hensen, B., et al.\ 2015, Nature, 526, 682
+\bibitem[Jacobson(1995)]{Jacobson1995} Jacobson, T.\ 1995, Phys.\ Rev.\ Lett., 75, 1260
+\bibitem[Joos \& Zeh(1985)]{JoosZeh1985} Joos, E.\ \& Zeh, H.\ D.\ 1985, Z.\ Phys.\ B, 59, 223
+\bibitem[Landauer(1961)]{Landauer1961} Landauer, R.\ 1961, IBM J.\ Res.\ Dev., 5, 183
+\bibitem[Mahaffey(2026a)]{IAM_theory} Mahaffey, H.\ W.\ 2026a, Horizon Thermodynamics and Gravitational Decoherence as the Origin of $\mu<1$, $\Sigma=1$, Zenodo, 10.5281/zenodo.18702042
+\bibitem[Mahaffey(2026b)]{IAM_obs} Mahaffey, H.\ W.\ 2026b, Dual-Sector Perturbation Cosmology: CAMB Implementation and Validation, Zenodo
+\bibitem[Mahaffey(2026c)]{IAM_time} Mahaffey, H.\ W.\ 2026c, The Two Faces of Time: Coordinate Time, Proper Time, and Accumulated Decoherence, Zenodo
+\bibitem[Mahaffey(2026d)]{IAM_QM} Mahaffey, H.\ W.\ 2026d, The Measurement Problem Dissolved: Quantum Decoherence as Irreversible Sector Crossing in the Informational Actualization Model, Zenodo
+\bibitem[Mahaffey(2026e)]{IAM_grav} Mahaffey, H.\ W.\ 2026e, Gravitational Decoherence from Dual-Sector Thermodynamics: Predictions for Optomechanical Experiments and Quantum Computing Architecture, Zenodo
+\bibitem[Mahaffey(2026f)]{IAM_Zurek} Mahaffey, H.\ W.\ 2026f, Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical Structure, Zenodo
+\bibitem[Megidish et al.(2013)]{Megidish2013} Megidish, E., et al.\ 2013, Phys.\ Rev.\ Lett., 110, 210403
+\bibitem[Scientific Advances(2025)]{SciAdv2025} Bell-inequality violation from path indistinguishability, Sci.\ Adv., 2025
+\bibitem[Yin et al.(2017)]{Yin2017} Yin, J., et al.\ 2017, Science, 356, 1140
+\bibitem[Zurek(1981)]{Zurek1981} Zurek, W.\ H.\ 1981, Phys.\ Rev.\ D, 24, 1516
+\bibitem[Zurek(2003)]{Zurek2003} Zurek, W.\ H.\ 2003, Rev.\ Mod.\ Phys., 75, 715
+\bibitem[Zurek(2009)]{Zurek2009} Zurek, W.\ H.\ 2009, Nature Physics, 5, 181
+\end{thebibliography}
+\end{document}

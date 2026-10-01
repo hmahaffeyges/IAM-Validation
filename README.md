@@ -72,8 +72,8 @@ the cellular work reads it at a cell._
 - [The measurement problem dissolved: decoherence as irreversible sector crossing](docs/papers/IAM_Measurement_Problem_Quantum.pdf)
 - [Gravitational decoherence from dual-sector thermodynamics - predictions for optomechanical experiments](docs/papers/Gravitational_Decoherence_Quantum_Level.pdf)
 - [Gravitational decoherence, the virial partition, and the emergence of classical structure](docs/papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
-- [Non-locality and the boundary of reality - quantum potential and irreversible actualisation](docs/papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
-- [The two faces of time: coordinate time, proper time, and duration](docs/papers/The_Two_Faces_of_Time.pdf)
+- [Entanglement, decoherence, and the thermodynamic cost of classical records](docs/papers/Entanglement_Decoherence_and_Classical_Records.pdf)
+- [The two faces of time: coordinate time, proper time, and accumulated decoherence](docs/papers/The_Two_Faces_of_Time.pdf)
 
 </details>
 

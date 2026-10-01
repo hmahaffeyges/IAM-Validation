@@ -442,15 +442,14 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 *The arrow of time is not a statistical artifact of initial conditions. It is a thermodynamic necessity with a specific physical origin and a specific beginning.*
 
 <details>
-<summary><strong>Two Faces of Time</strong> — The Two Faces of Time: The Distinction Between Coordinate Time, Proper Time, and Duration</summary>
+<summary><strong>Two Faces of Time</strong> — The Two Faces of Time: Coordinate Time, Proper Time, and Accumulated Decoherence</summary>
 
 [📄 The_Two_Faces_of_Time.pdf](papers/The_Two_Faces_of_Time.pdf)
 
-- Distinguishes three quantities routinely conflated: (i) coordinate time — a redundant label, no preferred direction; (ii) proper time τ — geometric path length, reversible in principle; (iii) duration — measured by E(a), thermodynamic, irreversible
-- Duration has a beginning: the electroweak transition at t = 10⁻¹² s
-- Duration has a direction: each decoherence event writes information permanently on the cosmic horizon; E(a) is monotonically increasing by construction
-- Duration accumulates on massive particles only — photons travel null geodesics and do not accumulate duration; this is the physical origin of the sector split
-- Duration has a limit: E(∞) = e ≈ 2.718. The universe approaches but never reaches full actualization
+- Three quantities: (i) coordinate time — a label, no preferred direction; (ii) proper time τ — geometric path length; (iii) accumulated decoherence — measured by E(a) = exp(1 − 1/a), thermodynamic and irreversible
+- Carried by massive particles only: photons travel null geodesics (dτ = 0) and accumulate neither τ nor decoherence — the origin of the sector split
+- E(a) is monotonically increasing because each decoherence event is irreversible; E(1) = 1, E(∞) = e
+- Bears on the Hubble tension (photon-sector vs matter-sector H₀) and is compatible with shape dynamics
 
 </details>
 
@@ -641,20 +640,17 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 *IAM's thermodynamic chain connects to foundational questions in quantum mechanics. The same mechanism that drives cosmological structure formation dissolves the measurement problem.*
 
 <details>
-<summary><strong>Non-Locality Paper</strong> — Non-Locality and the Boundary of Reality: Quantum Potential, Irreversible Actualization, and the Thermodynamic Origin of Classical Existence</summary>
+<summary><strong>Entanglement Paper</strong> — Entanglement, Decoherence, and the Thermodynamic Cost of Classical Records</summary>
 
-**Paper:** [Non_Locality_and_the_Boundary_of_Reality.pdf](papers/Non_Locality_and_the_Boundary_of_Reality.pdf)
+**Paper:** [Entanglement_Decoherence_and_Classical_Records.pdf](papers/Entanglement_Decoherence_and_Classical_Records.pdf)
 
-- **States IAM's foundational result explicitly for the first time:** the thermodynamic cost of irreversible information production from gravitational decoherence, paid to the cosmic horizon — classical existence is continuously purchased, one decoherence event at a time
-- "Particle" is a post-actualization concept — applying the word to a pre-measurement quantum system is a category error that has generated a century of apparent paradoxes
-- Non-locality is not a mystery to explain — it is the expected behavior of potential: potential has no position, no trajectory, no classical identity
-- Bell's theorem is exactly what IAM predicts, for a derived reason: there are no hidden variables because there is no classical particle to have hidden variables until actualization occurs
-- The n=5/2 bridge connects the quantum boundary to the cosmological scale from two independent directions simultaneously
-- Top quark entanglement (LHC/CMS 2024) addressed and shown fully consistent with IAM — gravitational decoherence timescale vs particle decay timescale are distinct mechanisms
-- Temporal entanglement identified as an open direction
-- Euclid DR1 (October 2026) framed as precision measurement of the mechanism's magnitude, not a falsification test — the Planck 2018 chains have already established the mechanism operates
-- Jacobson and Peebles credited explicitly: Peebles identified the quantum-to-classical derivation as the foundational gap requiring closure
-- **Quantitative comparison table:** IAM vs Penrose--Diósi across three systems (trapped ions, superconducting qubits, nanosphere at 10 mK) — τ_IAM ≈ 560 μs for a 10⁻¹² kg nanosphere at 10 mK, distinguishable from Penrose--Diósi by profile shape (ramp vs exponential) and T² vs T⁰ temperature scaling
+- IAM leaves quantum mechanics unchanged: Bell correlations are those of the shared quantum state; no hidden variables
+- IAM's law: every irreversible quantum-to-classical record on a timelike worldline costs at least k_B T ln 2 per bit; at cosmological scale T = T_H and the cost enters the horizon entropy
+- Gravitational decoherence time τ_IAM = ħ k_B² T² ln 2 / E_G³ ∝ T² m⁻⁵ (fixed density) vs Penrose–Diósi ħ/E_G ∝ m⁻⁵ᐟ³, no T dependence
+- 1 pg silica sphere at 10 mK: τ_IAM = 559 s, τ_PD = 7.8 μs; crossover at 2.3 × 10⁻¹⁰ kg — the mesoscopic test, with a temperature scan
+- Matching exp(1 − 1/a) in matter domination requires the structure-formation exponent n = 7/2; an analytic bottom-up value is open
+- 17 chains (12 MGCAMB + 5 modified CAMB); Planck is consistent with μ < 1, Σ = 1; Euclid tests μ₀ − 1 = −0.136 (3.4σ; 5.4σ with DESI)
+- Top-quark entanglement (CMS 2024) consistent: top lifetime ≪ any gravitational decoherence time
 
 </details>
 
