@@ -34,9 +34,10 @@ If the efficiency argument is kept, it is restated with |U|/2K and its own defin
 1. **β_m = 0.1583 ± 0.0033 "returned by 17 chains"** (PRL, *Virial Partners* §2, *Grav. Decoherence* §2.1): β_m is fixed in every chain; 0.1583
    is Ω_m/2 of the Level 2 Run A posterior (0.3166/2); the ΛCDM chain gives 0.1581. Print instead: Planck's Ω_m gives β_m = 0.1577, which the chains
    use fixed, and the modified growth is consistent with Planck (Δχ² +0.5 to +1.7).
-2. **Exponent n**: both routes meet at 5/2 when the record is accumulated per unit scale factor (∫ İ da with İ ∝ ρ_m Dⁿ H ∝ a^(n − 9/2)).
-   The printed integral ∫ a^(n − 9/2 − 1) da carries an extra −1. *Virial Efficiency* eqs. 3–4 already state it right: 5/2 analytic in matter
-   domination, 3–4 over the full ΛCDM history.
+2. **Exponent n**: with İ ∝ ρ_m Dⁿ H ∝ a^(n − 9/2) in matter domination, the top-down answer depends on the accumulation measure: per da → 5/2,
+   per d ln a (the integral as printed, ∫ a^(n − 9/2 − 1) da) → 7/2, per dt → 2. It meets the bottom-up 5/2 only per da, and that measure is not
+   derived in any paper read. The book prints all three and lists the derivation of the measure as an open problem; it does not claim two
+   independent routes converge until that is done.
 3. *Virial Partners* Table 1, E(a) column: 0.135 / 0.497 / 0.741 (the printed 0.050 / 0.182 / 0.274 are wrong; R column 399 / 20 / 6 / 2 is right).
 4. R(1) = Ω_m/(β_m E(1)) = 2 holds by construction (the paper says so). Print it as the definition it is. The coincidence-problem reading is
    interpretation (Part 5).
