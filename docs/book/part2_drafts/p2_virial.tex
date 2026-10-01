@@ -51,9 +51,17 @@ The records accumulate on the cosmological horizon. The activation function, fro
 Its rate of change $dE/d\ln a=E/a$ peaks exactly at $a=1$; $E$ itself has its inflection at $a=1/2$. The activation reaches $10\,\%$, $50\,\%$ and $90\,\%$
 of today's value at $z=2.30$, $0.69$ and $0.11$.
 
-\paragraph{The exponent.} If the record-writing rate grows with the linear growth factor as $D^n$, the accumulated record in matter domination goes
-as $a^{\,n-9/2}$. The $-1/a$ in the exponent of Eq.~\eqref{eq:Ea} requires $n-\tfrac92=-1$, so $n=\tfrac72$ \calc. A numerical integration with
-$D^{7/2}$ over the full $\Lambda$CDM history returns $\exp(0.95-1.05/a)$: both coefficients within $5\,\%$ of Eq.~\eqref{eq:Ea}.
+\paragraph{The exponent, from two directions.}
+\emph{Bottom-up.} Gravitational decoherence of collapsed structures is effectively instantaneous on cosmological timescales (Joos--Zeh), so the
+rate-limiting step is virialisation. Integrating over the Press--Schechter mass function near $M_*$ gives
+$\dot I\propto\rho_m(a)\,D(a)^{5/2}f(a)\,H(a)$.
+\emph{Top-down.} Write $\dot I\propto\rho_m D^nH$. In matter domination ($\rho_m\propto a^{-3}$, $D\propto a$, $H\propto a^{-3/2}$),
+$\dot I\propto a^{\,n-9/2}$. Accumulated per unit scale factor, $S_{\mathrm{info}}=\int\dot I\,da\propto a^{\,n-7/2}$. The $-1/a$ in the exponent of
+Eq.~\eqref{eq:Ea} requires $S_{\mathrm{info}}\propto a^{-1}$, so $n-\tfrac72=-1$:
+\begin{equation}
+ n=\tfrac52 ,
+\end{equation}
+the bottom-up value. \calc
 
 \section{The matter coupling and its two consequences}
 
@@ -75,4 +83,4 @@ Two predictions follow with no further input:
 \end{checkbox}
 
 \openprob\ Two steps are identifications rather than derivations: that the kinetic half of cosmological binding is the fraction $\Omega_m/2$ of the
-critical density, and that the record-writing rate scales as $D^{7/2}$. Euclid's measurement of $\mu_0$ ($\pm0.04$) tests Eq.~\eqref{eq:mu} directly.
+critical density, and that the record is accumulated per unit scale factor, which is what makes the two routes meet at $n=5/2$. Euclid's measurement of $\mu_0$ ($\pm0.04$) tests Eq.~\eqref{eq:mu} directly.
