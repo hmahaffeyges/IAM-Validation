@@ -21,7 +21,7 @@
 | 7/2 | **−1.02** | −1.57 |
 
 So with the paper's own Eqs. 28–39, matter domination needs n = 7/2, and the Λ era pushes the effective value higher. That agrees with §6.6
-("full ΛCDM shifts it to n_eff ≈ 3–4"), with the Sheth–Tormen n_eff ≈ 3.5 at σ* = 1.2, and with the earlier numerical fit D^(7/2) → exp(0.95 − 1.05/a).
+("full ΛCDM shifts it to n_eff ≈ 3–4") and with the paper's Table 2 fit D^(7/2) → exp(0.95 − 1.05/a). (The 'ST n_eff ≈ 3.5' is not a literature value; see NBODY_TRACE.md.)
 
 **Correction to my previous check:** I wrote that the result depends on a choice of measure (da, d ln a, dt). That was wrong. Eq. 29 fixes the
 measure (per unit time, divided by T_H A_H), and my "per dt gives 2" left out the 1/(T_H A_H) factor.

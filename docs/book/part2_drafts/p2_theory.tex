@@ -114,8 +114,7 @@ For the form $\exp(C-1/a)$ the accumulated entropy must go as $-1/a+{\rm const}$
 \begin{equation}n=\tfrac72 .\end{equation}
 \calc\ Integrating Eqs.~\eqref{eq:Idot}--\eqref{eq:dSdt} with the full $\Lambda$CDM growth factor gives $dS_{\rm info}/d\ln a\propto a^{-1.02}$ in the matter era for
 $n=7/2$, the power the activation function needs. The exponent lies between linear ($n=1$) and fully nonlinear ($n\gtrsim4$) structure formation, the
-regime where most information is produced. Section~\ref{sec:numerics} finds the closest fit to the activation function for $D^{7/2}$, and the Sheth--Tormen
-multiplicity at galaxy-scale halos gives $n_{\rm eff}\approx3.5$. The activation function itself does not depend on $n$: it follows from the decoherence
+regime where most information is produced. Section~\ref{sec:numerics} finds the closest fit to the activation function for $D^{7/2}$. The activation function itself does not depend on $n$: it follows from the decoherence
 constraint below.
 
 \subsection{The activation function from the decoherence constraint}
@@ -212,7 +211,8 @@ $D^2\Omega_mf$ & 0.42 & 0.49 & 0.944\\ $D^{5/2}\Omega_mf/T_H$ & 0.76 & 0.87 & 0.
 $D^{4}\Omega_mf/T_H$ & 1.04 & 1.15 & 0.988\\ Press--Schechter$/T_H$ & 1.04 & 1.18 & 0.982\\\hline\end{tabular}\end{center}
 Both coefficients rise with $n$ and cross unity at $n\approx3$--$4$ ($\alpha=1$ near 3.5, $\beta=1$ near 3.3), bracketing the analytic $n=7/2$. Replacing $D^n$ with the Sheth--Tormen
 multiplicity $f_{\rm ST}(\nu)=A\sqrt{2q/\pi}[1+(q\nu^2)^{-p}]\nu e^{-q\nu^2/2}$ ($A=0.3222$, $q=0.707$, $p=0.3$, $\nu=\delta_c/\sigma_*D$) at $\sigma_*=1.2$
-(galaxy-scale halos, $10^{12}$--$10^{13}M_\odot$) gives $I\propto\exp(0.925-1.009/a)$, $r=0.992$. The ST function is calibrated on $\Lambda$CDM simulations,
+(galaxy-scale halos, $10^{12}$--$10^{13}M_\odot$; $\sigma_*$ is the source paper's choice of mass scale, not a Sheth--Tormen parameter) gives
+$I\propto\exp(0.925-1.009/a)$, $r=0.992$, as computed in the source paper (not yet reproduced here). The ST function is calibrated on $\Lambda$CDM simulations,
 so this checks the $1/a$; the coupling rests on the virial theorem. A 15-test suite reproducing the chain is in the repository
 (\texttt{tests/iam\_derivation\_tests.py}).
 

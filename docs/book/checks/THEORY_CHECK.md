@@ -7,7 +7,7 @@ Chapter: `part2_drafts/p2_theory.tex` carries §1–12, §14–15 in the paper's
 w_eff(1) = −1.062; continuity identity (§12.4); H0 sirens 72.51; M_eq = 2.32 × 10²² M⊙; β = Ω_m/2 = 0.1575; Ω_m f_coll = 0.195 (+24 %).
 
 **Corrected in the chapter (author authorised corrections he can defend, 2026-10-02):**
-1. Eq. 41: n = 7/2 (EXPONENT_LINE_BY_LINE.md).
+1. Eq. 41: n = 7/2 (EXPONENT_LINE_BY_LINE.md). Support printed: the paper's own Eqs. 36–39, the full-ΛCDM integration, and its Table 2. The 'Sheth–Tormen n_eff ≈ 3.5' is not printed: no source reports it, and d ln F/d ln D from ST is ≈ 1 at 10¹² h⁻¹M⊙ (NBODY_TRACE.md). The paper's σ* = 1.2 fit exp(0.925 − 1.009/a) is labelled as not yet reproduced.
 2. §8.5: w0 = −1.062 (paper −1.07), w_a = −dw/da|₁ = −Ω_m²/[3(2 − Ω_m)²] = −0.012 (paper +0.04). Analytic sympy derivative of the paper's Eq. 68, checked
    numerically, Ω_m 0.30–0.32 gives −0.010 to −0.012. A least-squares CPL fit over a 0.5–1 gives +0.017; neither gives +0.04.
 3. §9.3 / §10.5: η_vir stated as the definition 1/(2 f_coll). Published 2T/|U| verified by me from arXiv full text: Neto 2007 p5 ("median 2T/|U| is slightly
