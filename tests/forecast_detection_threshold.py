@@ -288,7 +288,7 @@ ax.grid(True, alpha=0.2, which='both')
 
 # Right panel: mass scaling test
 # Measure τ at 4 different masses at fixed T
-# IAM: τ ∝ m^-6, PD: τ ∝ m^-5/3
+# IAM: τ ∝ m^-5 at fixed density (m^-6 at fixed radius), PD: τ ∝ m^-5/3
 # Can we distinguish the exponents?
 
 ax = axes2[1]
