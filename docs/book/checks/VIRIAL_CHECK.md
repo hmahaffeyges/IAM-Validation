@@ -1,56 +1,55 @@
-# VIRIAL_CHECK — two numbers in the Virial papers, checked before the book (2026-10-01)
+# VIRIAL_CHECK — the five Virial papers, read in full (2026-10-01)
 
-**STATUS: NOT BASED ON A FULL READ.** The five papers were seen only in part (first pages and targeted checks). Every item below is provisional until the full read is done.
+Read start to finish, oldest first: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026, 7 pp), *The Virial Partition Across Wide Range of Physical
+Scales* (25 Feb, 13 pp), *Dark Matter and Dark Energy as Virial Partners* (Mar, 12 pp), *Gravitational Decoherence, the Virial Partition, and the
+Emergence of Classical Structure* (Mar, 12 pp), *The Thermodynamic Identity Governing the Virial Theorem* (PRL version, 18 Mar, 3 pp).
+Every number below was recomputed (Planck 2018, Ω_m = 0.3153 unless stated).
 
-Papers: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026) and *The Thermodynamic Identity Governing the Virial Theorem* (PRL version, 18 Mar 2026).
+## What stands — the core of chapter 2.1
+- **The 1/2 is the virial theorem**, tested across every domain where 1/r binding is measured (*Wide Domains* Table 1; PRL Table I):
+  20 atoms and 10 molecules (Hartree–Fock, T/|V| = 1 exact), equipartition, the Sun (~10 %), the Chandrasekhar limit (1.44 M⊙), galaxy clusters
+  (~20 %). The factor is fixed by the degree of the potential (Euler), which Gauss's law fixes in three dimensions. Not a fit.
+- **The Landauer identity** (PRL): first law Q = −E_f; second law ΔS = Q/T; Landauer E_L = TΔS = Q (T cancels); 1/r equilibrium −E_f = ⟨K⟩.
+  So ⟨K⟩ = Q = TΔS = E_L = ½|⟨V⟩|. The paper's own remark is the right statement: this identifies K, it does not derive the virial theorem.
+- **β_m = Ω_m/2** = 0.1577 (0.1575 for Ω_m = 0.315). Prediction, enters every chain fixed.
+- **E(a) = exp(1 − 1/a) = e^(−z)**: E(z = 10) = 4.5 × 10⁻⁵, E(1) = 1, dE/da > 0, E(∞) = e. 10/50/90 % at z = 2.30/0.69/0.11.
+- **µ(a)**: µ0 = 0.864 (13.6 %); µ(0.3) = 0.922; µ(0.5) = 0.948 (5.2 %). Σ = 1 (photons, dτ = 0).
+- **H0_matter** = 67.36·√1.1577 = 72.48 (Planck value) or 67.16·√1.1577 = 72.26 (Level 2 chain). σ8 0.813 → 0.800.
+- **Matter–dark-energy equality**, Ω_m a⁻³ = Ω_Λ + β_m E(a): z = 0.361 (ΛCDM 0.295) ✓. **Ω_m^growth = Ω_m µ(z)**: 0.2952 is the value at
+  z = 0.40; at z = 0.5 it is 0.2990 (the LRG1 entry 0.299 at z = 0.51 is right).
+- **BH Landauer fraction** ln 2/2 = 34.7 % ✓. σ_crit from Eq. 9 with M_min = 10^8.4 M⊙: 3.9 km/s ✓ (topic out of the book by ruling).
 
-**1. "17 MCMC chains return β_m = 0.1583 ± 0.0033" (PRL Table I and text).** β_m is fixed in every chain; no chain samples it. The number
-equals Ω_m/2 from the Level 2 Run A chain: Ω_m = 0.3166 ± 0.0065 → 0.1583 ± 0.0032 (CHAIN_EXTRACTION_FINAL.csv). The ΛCDM chain gives the same,
-0.1581. So it is Planck's matter density halved. It is not a measurement of β_m, and it is the same in ΛCDM.
-**For the book:** β_m = Ω_m/2 = 0.1575 is the virial prediction and enters the chains fixed. What the chains test is whether the
-growth modification that follows from it is consistent with Planck (Δχ² +0.5 to +1.7) and what free µ0 returns (consistent with both 0 and −0.135).
-Do not print 0.1583 ± 0.0033 as a confirmation.
+## The N-body row (*Virial Efficiency*; PRL Table I row 8)
+The paper defines η_vir = 1/(2 f_coll) = 0.81 so that f_coll·η_vir = 1/2, then compares it with the published halo ratio 2K/|U|.
+*Wide Domains* §7 states the status correctly: η and f_coll are "representative literature values; their product ≈ 1/2 is required by the virial
+theorem". So β_m = Ω_m/2 does not rest on this row — it rests on the theorem and on the cross-domain table above.
+Source check (NBODY_TRACE.md, arXiv full texts): the six simulation papers report 2T/|U| of about 1.05–1.4 (Bett, Neto, Power, Klypin; Neto's relaxed
+cut is < 1.35); 0.76–0.90 match the reciprocal |U|/2T. Bryan & Norman report f_σ/f_T, and Ludlow only a cut. The n_eff values are not reported as
+such in those papers (computed from their mass functions they are 2.5–3.8 only at 10^13.4–10^14.2 M⊙). Tinker 2008 reports no f_coll;
+F = 0.62 needs halos down to ~10^8 M⊙.
+**For the book:** print the cross-domain table without an N-body efficiency row; the halo row reads "clusters, K/|U| ≈ 1/2 to ~20 %".
+If the efficiency argument is kept, it is restated with |U|/2K and its own definition (Part 2 appendix), not as six-study confirmation.
 
-**2. "Six N-body studies measure 2K/|U| = 0.815 ± 0.025."** In those studies the virial ratio 2T/|U| of halos is at or above 1. Neto et al. (2007)
-call a halo relaxed when 2T/|U| < 1.35 (also Duffy et al. 2008 and MUSIC-2). The values tabulated in the paper (0.76–0.90) are not the published 2K/|U|.
-If they are |U|/2K, the reciprocal, the definition in the paper is inverted and the argument η_vir = 1/(2 f_coll) has to be restated for that quantity.
-Each table entry has to be traced to a figure or table in its source before it can be printed. The n_eff table (3.22 ± 0.44) needs the same tracing.
-**For the book:** chapter 2.1 prints the virial partition ⟨K⟩ = ½|⟨V⟩| and β_m = Ω_m/2 as the prediction, with the Landauer identity
-(first law, second law, Landauer, 1/r equilibrium) from the PRL paper. The N-body "confirmation" stays out until each value is traced.
-
-**3. Also flagged in the PRL table:** "Electron m_e, 6.6 ppm". This is the Particle group's result; it goes in only as audited there.
-"Atoms T/|V| 1.0000": exact for converged Hartree–Fock by construction (the virial theorem holds for any variationally optimised wavefunction under
-scaling). It is a property of the method, not evidence for the identity; print it that way.
-
----
-## Papers 2–4 (seen in part only; Virial Partition Across Wide Domains, 25 Feb; DM and DE as Virial Partners, Mar; Gravitational Decoherence and the Virial Partition, Mar)
-
-**Reproduced.** µ0 = 1/(1+β_m) = 0.864; µ(z = 0.5) = 0.948 (5.2 % suppression); H0_matter = 67.36·√1.15765 = 72.48 (Planck) or
-67.161·√1.15765 = 72.26 (Level 2 chain); E(z = 10) = 4.5 × 10⁻⁵; E(∞) = e; ΛCDM deceleration transition z_t = 0.632.
-The R(a) column of the virial-ratio table (399, 20, 6, 2) is correct.
-
-**To fix before the book.**
-1. *Virial Partners* Table 1, E(a) column: 0.050 / 0.182 / 0.274 are wrong. E(a) = e^(−z) = 0.135 / 0.497 / 0.741. The R column was computed with the correct values.
-2. R(1) = Ω_m/β_m = 2 holds by construction (β_m = Ω_m/2, E(1) = 1); the paper says so itself. It cannot be offered as evidence, and it does not
-   bear on the coincidence problem, which concerns Ω_m against Ω_Λ: R compares Ω_m a⁻³ with β_m E(a). Print the ratio only as a definition.
-3. *Virial Partners* §4.2: w_info = −4/3 and z_t(IAM) = 0.718 need a modified background. The model as run modifies the matter perturbations only
-   ("no background quantities are modified", *Wide Domains* §1), and the chains that did modify the background (Level 2b) were excluded (H0 ≈ 61.5).
-   With the background unmodified, z_t = 0.632 for both models. Leave z_t out unless a matter-sector q(z) is defined and derived.
-4. *Wide Domains* Table 6: SNe Ia are counted as photon-sector probes and SH0ES (Cepheid-calibrated SNe Ia) as matter-sector. By the author's
-   ruling, supernovae sit on the matter ruler; correct the census. H0LiCOW time delays measure photon paths, so assign them by the same rule.
-5. *Wide Domains* §4.6: the χ² totals (36.16 vs 97.35, Δχ² +61.2) are dominated by assigning H0 measurements to sectors by hand (+49.6).
-   That is a reclassification, not a fit; print it as the consequence of the sector assignment, not as a goodness-of-fit result.
-6. *Gravitational Decoherence* §5.3 and abstract: "best-fit improvement Δχ² = +0.54". The positive sign means IAM's χ² is higher; the book says
-   "consistent with Planck, Δχ² = +0.54". The same paper says all 17 chains converged to R − 1 < 0.01; at the paper's date Runs A and B were at
-   0.023 and 0.020. Today all 18 are ≤ 0.010.
-7. *Gravitational Decoherence* §4.3: M_min uses "Kim & Peter 2021" for the halo occupation drop; that arXiv number is a paper on SIDM cluster
-   mergers, so the citation is wrong. σ_crit and missing satellites are out of the book by ruling.
-8. "Three-channel decomposition" of β_m (temporal / geometric / radiative, *Wide Domains* §3.3): no derivation in any paper read; flag as speculative.
-10. **The exponent n (top-down).** With İ ∝ ρ_m D^n H ∝ a^(n − 9/2) in matter domination, the value depends on what the record is accumulated over:
-    per unit scale factor (∫ İ da ∝ a^(n − 7/2)) gives **n = 5/2**, matching the bottom-up Press–Schechter value; per d ln a, as the integral is printed
-    in the papers (∫ a^(n − 9/2 − 1) da), gives 7/2; per unit time (∫ İ dt) gives 2. The book uses the da form, where both routes meet at 5/2, and
-    the printed integral is corrected to ∫ a^(n − 9/2) da. The choice of measure is stated as part of the derivation (sympy check in this folder).
-9. The dark-matter/dark-energy identification (*Virial Partners*) is interpretation; it belongs in Part 5 with its question stated as a question.
-
-**What 2.1 prints:** the virial theorem for 1/r potentials; the Landauer identity ⟨K⟩ = Q = TΔS (PRL paper); β_m = Ω_m/2 as the prediction;
-E(a) = exp(1 − 1/a) with its properties; µ(a) and its values; the matter-sector H0. The N-body numbers wait until they are traced to source.
+## What changes before the book
+1. **β_m = 0.1583 ± 0.0033 "returned by 17 chains"** (PRL, *Virial Partners* §2, *Grav. Decoherence* §2.1): β_m is fixed in every chain; 0.1583
+   is Ω_m/2 of the Level 2 Run A posterior (0.3166/2); the ΛCDM chain gives 0.1581. Print instead: Planck's Ω_m gives β_m = 0.1577, which the chains
+   use fixed, and the modified growth is consistent with Planck (Δχ² +0.5 to +1.7).
+2. **Exponent n**: both routes meet at 5/2 when the record is accumulated per unit scale factor (∫ İ da with İ ∝ ρ_m Dⁿ H ∝ a^(n − 9/2)).
+   The printed integral ∫ a^(n − 9/2 − 1) da carries an extra −1. *Virial Efficiency* eqs. 3–4 already state it right: 5/2 analytic in matter
+   domination, 3–4 over the full ΛCDM history.
+3. *Virial Partners* Table 1, E(a) column: 0.135 / 0.497 / 0.741 (the printed 0.050 / 0.182 / 0.274 are wrong; R column 399 / 20 / 6 / 2 is right).
+4. R(1) = Ω_m/(β_m E(1)) = 2 holds by construction (the paper says so). Print it as the definition it is. The coincidence-problem reading is
+   interpretation (Part 5).
+5. "Informational pressure 23 % of total dark energy today": β_m/(Ω_Λ + β_m) = 18.7 %; 23 % is β_m/Ω_Λ. At z = 0.3/0.7/1.5: 14.6/10.3/4.9 %.
+6. w_info = −4/3 and z_t(IAM) = 0.718 need a modified background; the model modifies matter perturbations only ("no background quantities are
+   modified", *Wide Domains* §1) and the background runs (Level 2b) were excluded. With the background unmodified, z_t = 0.632. Out until a
+   matter-sector q(z) is defined.
+7. *Wide Domains* Table 6 puts SNe Ia in the photon sector; by ruling supernovae sit on the matter ruler. Table 4 puts H0LiCOW (time delays,
+   photon paths) in the matter sector. Redo the census by the worldline rule.
+8. *Wide Domains* §4.6: Δχ² +61.2 is dominated (+49.6) by assigning H0 measurements to sectors; print as the consequence of the sector assignment.
+9. Δχ² sign wording (*Grav. Decoherence* §5.3, "best-fit improvement +0.54"): IAM's χ² is higher by 0.54; print "consistent with Planck".
+   "All 17 converged to R − 1 < 0.01": true today for all 18; at the paper's date Runs A and B were at 0.023 and 0.020.
+10. Euclid σ(µ0): *Wide Domains* says DR1 ±0.08; *Virial Partners* and *Grav. Decoherence* say ±0.04 at DR1. The ±0.04 is the final-survey forecast.
+11. Citation: "Kim & Peter 2021" (arXiv 2106.05984) is a paper on SIDM cluster mergers, not halo occupation (topic out by ruling).
+12. Speculative, flag for discussion: the three-channel split of β_m (*Wide Domains* §3.3, no derivation given); DM/DE as the two halves and
+    "what is spacetime made of" (*Virial Partners*); arrow-of-time and England/Rovelli/Smolin sections (*Grav. Decoherence* §6) → Part 5.

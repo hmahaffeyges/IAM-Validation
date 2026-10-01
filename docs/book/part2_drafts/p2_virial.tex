@@ -1,4 +1,3 @@
-% STATUS: HOLD. Drafted before the five Virial papers were read in full; to be rewritten after the full read.
 \chapter{From the virial theorem to the coupling}\label{ch:virial}
 
 \section{The virial partition}
@@ -10,9 +9,30 @@ time-averaged balance
  \label{eq:virial}
 \end{equation}
 The factor $\tfrac12$ is not a fit. It is fixed by the degree of the potential, and the potential's degree is fixed by Gauss's law in three
-spatial dimensions. Converged Hartree--Fock calculations satisfy $T/|V|=1/2$ exactly, because any variationally optimised
-wavefunction obeys the virial theorem under scaling; the white-dwarf limit $M_{\mathrm{Ch}}=1.44\,M_\odot$ follows from the same balance with a
-relativistic degenerate gas \observed.
+spatial dimensions. There is no free parameter.
+
+\section{One theorem across the scales}
+
+The same $\tfrac12$ is measured wherever a $1/r$ bound system can be measured (Table~\ref{tab:virialscales}).
+
+\begin{table}[h]\centering\small
+\caption{The virial partition across physical scales.}\label{tab:virialscales}
+\begin{tabular}{llll}
+\hline
+System & Scale & Force & Result\\
+\hline
+20 atoms, H to Xe (Hartree--Fock limit) & $10^{-10}$ m & Coulomb & $T/|V|$ partition exact\\
+10 molecules, H$_2$ to CO$_2$ & $10^{-9}$ m & Coulomb & exact at equilibrium geometry\\
+Equipartition & thermal & -- & $k_BT/2$ per degree of freedom\\
+The Sun & $10^{9}$ m & gravity & $K/|U|\approx\tfrac12$ ($\sim10\,\%$, uniform sphere)\\
+White dwarfs & $10^{7}$ m & gravity & $M_{\mathrm{Ch}}=1.44\,M_\odot$\\
+Galaxy clusters & $10^{23}$ m & gravity & $K/|U|\approx\tfrac12$ ($\sim20\,\%$, projection)\\
+\hline
+\end{tabular}
+\end{table}
+\observed\ For converged Hartree--Fock wavefunctions the partition holds exactly, because a variationally optimised wavefunction obeys the virial
+theorem under scaling; the atomic rows show the method respects the theorem. The white-dwarf limit follows from the same balance with a relativistic
+degenerate gas. From $10^{-10}$ m to $10^{23}$ m the factor does not move.
 
 \section{What $\langle K\rangle$ is}
 
