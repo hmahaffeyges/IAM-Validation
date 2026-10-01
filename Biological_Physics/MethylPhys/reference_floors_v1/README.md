@@ -62,3 +62,20 @@ Raising the cap from 3,000 to 10,000 sites per channel does not narrow the sprea
 **Neutrophils (12 donors, two studies):** healthy spread SD 0.005–0.006 in every window, 12/12 Normal. With 0.75–0.95 sites, A crosses 1.05 at
 1 % blur (1.050 at 1 %, 1.100 at 2 %, 1.243 at 5 %). Monocytes and NK cells: SD 0.009–0.013, all Normal. The cells that stay wide in every window
 are CD8 T cells from Salas 2018 (naive and memory mixed; SD ≈ 0.06) and basophils (≈ 0.06): sample make-up, not site choice.
+
+## v1.2 on whole blood — GSE88824, 450K, 8 donors (development; `wb_neut.py`)
+Each donor's whole blood read against floors and profiles from the other 7 donors; compared with the same donor's purified neutrophil array.
+Neutrophil fraction (NNLS on the 6 purified profiles): 0.42–0.56.
+
+| reading (0.70–0.90 sites) | whole blood in Normal | within ±0.02 of own purified neutrophil | median error |
+|---|---|---|---|
+| raw whole blood at neutrophil sites | 4/8 | 1/8 | +0.050 (mixture pulls β toward 0.5) |
+| neutrophil separated (other cells subtracted) | 4/8 | 3/8 | −0.011, spread ±0.08 |
+| sites shared by all six blood cells (~40,000) | **8/8** | 4/8 | +0.005, largest −0.054 |
+
+1. On 450K the purified neutrophils themselves spread 0.96–1.05 across these donors (EPIC Salas: ±0.005), so the platform or this study's
+   processing is wider; the same-run tare is needed here.
+2. Sites shared by every blood cell give a whole-blood reading that sits in Normal for all 8 healthy donors with no subtraction. It is a
+   leukocyte-level reading dominated by neutrophils (about half the cells), not a neutrophil-only one. Its response to damage limited to
+   neutrophils is diluted roughly by their fraction; not yet measured.
+3. Separating the neutrophil by subtraction is too noisy on 450K to carry a per-donor reading.
