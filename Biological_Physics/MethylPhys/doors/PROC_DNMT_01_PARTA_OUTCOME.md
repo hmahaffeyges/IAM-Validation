@@ -8,7 +8,7 @@ and not when an inactive look-alike is given.
 
 **What we measured.**
 - Vehicle arrays: 0.968–1.048 (12 arrays). Inactive analog GSK3510477, 10 µM: 1.002–1.032 (6 arrays).
-- Active drug GSK3685032 at ≥ 80 nM: 1.16–1.85, up to 40 times the width of Normal. At 3.2–16 nM: 0.997–1.028, no change.
+- Active drug GSK3685032 at ≥ 80 nM: 1.16–1.85, up to 40 times the width of Normal. At 3.2–16 nM: 1.001–1.028, no change.
 - Second active compound GSK3484862, 1 µM: 1.73–1.81 in all 3 lines.
 - Channel: methylated sites carry the change (median A_meth − 1 = +1.56); unmethylated sites +0.017. Blocked copying lets methylated sites lose their mark;
   unmethylated sites have nothing to lose.
