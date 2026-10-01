@@ -1,0 +1,26 @@
+key,name,confirmed_real,vlos_sigma,vlos_sigma_em,vlos_sigma_ep,vlos_sigma_ul,metallicity_spectroscopic_sigma,metallicity_spectroscopic_sigma_ul,confirmed_galaxy
+aquarius_3,Aquarius III,1,,,,3.5,0.45,,1
+bootes_2,Bootes II,1,1.92,0.6,0.77,,0.38,,1
+bootes_3,Bootes III,1,1.69,0.85,1.03,,0.36,,1
+carina_2,Carina II,1,3.4,0.8,1.2,,0.22,,1
+coma_berenices_1,Coma Berenices,1,3.33,0.46,0.58,,0.26,,1
+crater_2,Crater II,1,2.34,0.3,0.42,,0.24,,1
+draco_2,Draco II,1,,,,2.6,0.57,,1
+grus_1,Grus I,1,2.5,0.8,1.3,,,0.44,1
+grus_2,Grus II,1,,,,2.0,,0.45,1
+hercules_1,Hercules,1,2.25,0.61,0.67,,0.27,,1
+hydrus_1,Hydrus I,1,2.7,0.43,0.51,,0.41,,1
+leo_4,Leo IV,1,3.29,0.66,0.89,,0.28,,1
+leo_5,Leo V,1,3.37,1.04,1.72,,0.3,,1
+leo_6,Leo VI,1,2.85,1.31,1.57,,0.19,,1
+pegasus_3,Pegasus III,1,2.76,0.91,1.24,,0.28,,1
+pegasus_4,Pegasus IV,1,3.33,0.86,1.19,,0.41,,1
+pictor_2,Pictor II,1,3.5,0.9,1.1,,,0.18,1
+pisces_2,Pisces II,1,3.72,1.33,1.98,,0.48,,1
+reticulum_2,Reticulum II,1,3.6,0.7,1.0,,0.28,,1
+segue_1,Segue 1,1,3.97,0.86,0.97,,0.59,,1
+segue_2,Segue 2,1,,,,2.06,0.47,,1
+triangulum_2,Triangulum II,1,,,,3.5,0.53,,1
+tucana_2,Tucana II,1,3.8,0.7,1.1,,,,1
+tucana_3,Tucana III,1,,,,1.5,,0.19,0
+tucana_5,Tucana V,1,1.2,0.6,0.9,,0.43,,1

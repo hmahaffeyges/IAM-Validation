@@ -2,7 +2,7 @@
 
 **Rule (author):** each paper is read in full, start to finish, by me before its chapter is written. The chapter carries nearly the whole paper in
 its own order: derivations, tables, figures, argument. Edits are limited to (a) physics terms only, (b) numbers recomputed, with corrections I can defend
-logged in `docs/book/checks/<PAPER>_CHECK.md`, and (c) anything I can't defend held in a box for the author. Earlier skims and reader audits don't
+logged in `docs/verification/<group>/<PAPER>_CHECK.md`, and (c) anything I can't defend held in a box for the author. Earlier skims and reader audits don't
 count as a read; they're only leads.
 
 Columns: **Read** = read in full by me for this chapter · **Chapter** = drafted, pushed to `docs/book/` · **Check** = numbers recomputed, check file pushed.
