@@ -17,9 +17,11 @@ w_eff(1) = −1.062; continuity identity (§12.4); H0 sirens 72.51; M_eq = 2.32 
 4. §12.3 Fig. 2: the "Δχ² = +0.75" is typed text in tests/plot_cl_comparison.py line 319, not computed from a chain. The book labels the figure from
    CHAIN_EXTRACTION_FINAL (Planck-only chain-minimum +0.96; paper table minimizer +1.43).
 
-**Still held (cannot be defended without the source script):**
-5. §11.5: D2 ratios 1.014/1.052/1.075 and bispectrum ratios. With the same early normalisation and 2H_IAM friction: D1 0.981/0.994/0.998, D2 0.963/0.988/0.997.
-   No script for these values exists in the repo or the archive (searched for bispectrum/D2). Needed from the author.
+5. §11.5 bispectrum (no source script; author: not essential, 2026-10-02). Reproduced: normalising IAM and ΛCDM to the same amplitude today, B ∝ D⁴
+   gives 1.038 / 1.053 / 1.071 at z = 0.3 / 0.5 / 1 (paper 1.033 / 1.052 / 1.072). The paper then applied a z = 0 suppression from σ8 (a different, early
+   normalisation), which created the "crossover near z ≈ 0.2". With one normalisation there is no crossover; with the CMB-fixed (early) amplitude IAM is
+   below ΛCDM at all z. The "D2 ratios" 1.052/1.075 match D⁴ (bispectrum), not D2 (today-normalised D2: 1.026/1.035); 1.014 at z = 0 matches nothing.
+   The chapter keeps the unchanged F2 shape and states the amplitude follows σ8(z); the ratio and D2 tables and the crossover claim are not printed.
 
 **sigma8 by level (final extraction):** L1 Planck-only 0.8143 → 0.8015 (−1.6 %); L2 0.8087 → 0.7998 (−1.1 %, = paper §12 '0.809 to 0.800'). The first draft printed '0.813 → 0.800 (1.6 %)', mixing the levels; corrected.
 **Updated to the final chains:** Δχ² and free-µ0 values cite the Part 2 chain chapter (one extraction of the final files) rather than the paper's tables.
