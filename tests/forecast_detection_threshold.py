@@ -213,7 +213,7 @@ ax.grid(True, alpha=0.2, which='both')
 fig1.suptitle('IAM Paper A — Detection Forecast: Profile Shape Discrimination',
               fontsize=15, fontweight='bold', y=1.02)
 plt.tight_layout()
-fig1.savefig('/home/claude/fig6_detection_forecast_profile.png')
+fig1.savefig('fig6_detection_forecast_profile.png')
 print("Figure 6 saved: Profile shape detection forecast")
 
 
@@ -351,7 +351,7 @@ ax.grid(True, alpha=0.2, which='both')
 fig2.suptitle('IAM Paper A — Detection Forecast: Scaling Tests',
               fontsize=15, fontweight='bold', y=1.02)
 plt.tight_layout()
-fig2.savefig('/home/claude/fig7_detection_forecast_scaling.png')
+fig2.savefig('fig7_detection_forecast_scaling.png')
 print("Figure 7 saved: Scaling test detection forecast")
 
 
@@ -403,7 +403,7 @@ ax3.legend(loc='upper left', framealpha=0.9)
 ax3.grid(True, alpha=0.2, which='both')
 
 plt.tight_layout()
-fig3.savefig('/home/claude/fig8_phonon_heating_forecast.png')
+fig3.savefig('fig8_phonon_heating_forecast.png')
 print("Figure 8 saved: Phonon heating rate forecast")
 
 
@@ -487,7 +487,7 @@ ax4.legend(loc='upper left', framealpha=0.9, fontsize=9)
 ax4.grid(True, alpha=0.2, which='both')
 
 plt.tight_layout()
-fig4.savefig('/home/claude/fig9_timeline_forecast.png')
+fig4.savefig('fig9_timeline_forecast.png')
 print("Figure 9 saved: Timeline forecast")
 
 

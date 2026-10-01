@@ -589,11 +589,11 @@ def main():
     
     plt.tight_layout(rect=[0, 0, 1, 0.97])
     
-    outpath = '/home/claude/iam_transition_zone.pdf'
+    outpath = 'iam_transition_zone.pdf'
     plt.savefig(outpath, dpi=150, bbox_inches='tight')
     print(f"\n  Saved: {outpath}")
     
-    outpath_png = '/home/claude/iam_transition_zone.png'
+    outpath_png = 'iam_transition_zone.png'
     plt.savefig(outpath_png, dpi=150, bbox_inches='tight')
     print(f"  Saved: {outpath_png}")
     

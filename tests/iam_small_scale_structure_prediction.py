@@ -414,7 +414,7 @@ ax4.text(0.03, 0.98, pred_text,
                    edgecolor=C_IAM, linewidth=1.5))
 
 # ── Title and timestamp ───────────────────────────────────────────────────────
-timestamp = datetime.now().strftime("%B %d, %Y")
+timestamp = "March 16, 2026"  # registration date; fixed so a re-run keeps it
 
 fig.suptitle(
     'IAM Prediction: Unified Small-Scale Structure Resolution\n'
@@ -438,9 +438,9 @@ fig.text(0.5, 0.005,
 plt.tight_layout(rect=[0, 0.03, 1, 0.97])
 
 # ── Save ──────────────────────────────────────────────────────────────────────
-outpng = '/mnt/user-data/outputs/IAM_small_scale_structure_PREDICTION_Mar2026.png'
-outpdf = '/mnt/user-data/outputs/IAM_small_scale_structure_PREDICTION_Mar2026.pdf'
-outpy  = '/mnt/user-data/outputs/iam_small_scale_structure_prediction.py'
+outpng = 'IAM_small_scale_structure_PREDICTION_Mar2026.png'
+outpdf = 'IAM_small_scale_structure_PREDICTION_Mar2026.pdf'
+outpy  = 'iam_small_scale_structure_prediction.py'
 
 plt.savefig(outpng, bbox_inches='tight', dpi=180)
 plt.savefig(outpdf, bbox_inches='tight')

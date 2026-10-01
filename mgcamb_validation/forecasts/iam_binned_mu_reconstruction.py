@@ -488,7 +488,7 @@ def main():
     data = [chi2_dist[k] for k in labels]
     colors_bp = ['gray', 'green', 'red', 'blue']
     
-    bp = ax.boxplot(data, labels=labels, patch_artist=True, widths=0.6)
+    bp = ax.boxplot(data, tick_labels=labels, patch_artist=True, widths=0.6)
     for patch, color in zip(bp['boxes'], colors_bp):
         patch.set_facecolor(color)
         patch.set_alpha(0.4)
@@ -530,11 +530,11 @@ def main():
     
     plt.tight_layout(rect=[0, 0, 1, 0.97])
     
-    outpath = '/home/claude/iam_binned_mu_reconstruction.pdf'
+    outpath = 'iam_binned_mu_reconstruction.pdf'
     plt.savefig(outpath, dpi=150, bbox_inches='tight')
     print(f"\n  Saved: {outpath}")
     
-    outpath_png = '/home/claude/iam_binned_mu_reconstruction.png'
+    outpath_png = 'iam_binned_mu_reconstruction.png'
     plt.savefig(outpath_png, dpi=150, bbox_inches='tight')
     print(f"  Saved: {outpath_png}")
     

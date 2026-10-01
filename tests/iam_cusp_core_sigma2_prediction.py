@@ -429,7 +429,7 @@ ax4.text(0.03, 0.98, mechanism,
                    edgecolor=C_IAM, linewidth=1.5))
 
 # ── Main title and timestamp ──────────────────────────────────────────────────
-timestamp = datetime.now().strftime("%B %d, %Y")
+timestamp = "March 16, 2026"  # registration date; fixed so a re-run keeps it
 
 fig.suptitle(
     'IAM Prediction: Dark Matter Core Radius Scaling\n'
@@ -452,9 +452,9 @@ fig.text(0.5, 0.005,
 plt.tight_layout(rect=[0, 0.03, 1, 0.97])
 
 # ── Save ──────────────────────────────────────────────────────────────────────
-outpng = '/mnt/user-data/outputs/IAM_cusp_core_sigma2_PREDICTION_Mar2026.png'
-outpdf = '/mnt/user-data/outputs/IAM_cusp_core_sigma2_PREDICTION_Mar2026.pdf'
-outpy  = '/mnt/user-data/outputs/iam_cusp_core_sigma2_prediction.py'
+outpng = 'IAM_cusp_core_sigma2_PREDICTION_Mar2026.png'
+outpdf = 'IAM_cusp_core_sigma2_PREDICTION_Mar2026.pdf'
+outpy  = 'iam_cusp_core_sigma2_prediction.py'
 
 plt.savefig(outpng, bbox_inches='tight', dpi=180)
 plt.savefig(outpdf, bbox_inches='tight')

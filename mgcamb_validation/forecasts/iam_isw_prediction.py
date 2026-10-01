@@ -607,11 +607,11 @@ def main():
     
     plt.tight_layout(rect=[0, 0, 1, 0.97])
     
-    outpath = '/home/claude/iam_isw_prediction.pdf'
+    outpath = 'iam_isw_prediction.pdf'
     plt.savefig(outpath, dpi=150, bbox_inches='tight')
     print(f"  Saved: {outpath}")
     
-    outpath_png = '/home/claude/iam_isw_prediction.png'
+    outpath_png = 'iam_isw_prediction.png'
     plt.savefig(outpath_png, dpi=150, bbox_inches='tight')
     print(f"  Saved: {outpath_png}")
     

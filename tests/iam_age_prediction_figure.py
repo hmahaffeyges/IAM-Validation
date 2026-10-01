@@ -261,7 +261,7 @@ ax.set_title(
     fontsize=11.5, pad=10)
 
 # Timestamp and info box
-timestamp = datetime.now().strftime("%B %d, %Y")
+timestamp = "March 16, 2026"  # registration date; fixed so a re-run keeps it
 info_text = (
     f'Prediction generated: {timestamp}\n'
     'IAM framework: Mahaffey (2026)\n'
@@ -288,8 +288,8 @@ ax.legend(loc='upper left', fontsize=8, framealpha=0.92,
 
 plt.tight_layout()
 
-outpath_pdf = '/mnt/user-data/outputs/IAM_age_prediction_timestamped_Mar2026.pdf'
-outpath_png = '/mnt/user-data/outputs/IAM_age_prediction_timestamped_Mar2026.png'
+outpath_pdf = 'IAM_age_prediction_timestamped_Mar2026.pdf'
+outpath_png = 'IAM_age_prediction_timestamped_Mar2026.png'
 plt.savefig(outpath_pdf, bbox_inches='tight')
 plt.savefig(outpath_png, bbox_inches='tight', dpi=180)
 plt.close()

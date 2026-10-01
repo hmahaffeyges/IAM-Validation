@@ -512,11 +512,11 @@ def fisher_forecast():
     
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     
-    outpath = '/home/claude/iam_fisher_forecast.pdf'
+    outpath = 'iam_fisher_forecast.pdf'
     plt.savefig(outpath, dpi=150, bbox_inches='tight')
     print(f"  Figure saved: {outpath}")
     
-    outpath_png = '/home/claude/iam_fisher_forecast.png'
+    outpath_png = 'iam_fisher_forecast.png'
     plt.savefig(outpath_png, dpi=150, bbox_inches='tight')
     print(f"  Figure saved: {outpath_png}")
     

@@ -392,7 +392,7 @@ ax4.text(0.05, 0.97, chain_text,
                    edgecolor=C_IAM, linewidth=1.5))
 
 # ── Main title and timestamp ──────────────────────────────────────────────────
-timestamp = datetime.now().strftime("%B %d, %Y")
+timestamp = "March 16, 2026"  # registration date; fixed so a re-run keeps it
 
 fig.suptitle(
     'IAM Prediction: CMB Hemispherical Power Asymmetry\n'
@@ -412,9 +412,9 @@ fig.text(0.5, 0.01,
                    alpha=0.8, edgecolor='gray', linewidth=0.5))
 
 # ── Save ──────────────────────────────────────────────────────────────────────
-outpath_png = '/mnt/user-data/outputs/IAM_axis_evil_prediction_Mar2026.png'
-outpath_pdf = '/mnt/user-data/outputs/IAM_axis_evil_prediction_Mar2026.pdf'
-outpath_py  = '/mnt/user-data/outputs/iam_axis_evil_prediction.py'
+outpath_png = 'IAM_axis_evil_prediction_Mar2026.png'
+outpath_pdf = 'IAM_axis_evil_prediction_Mar2026.pdf'
+outpath_py  = 'iam_axis_evil_prediction.py'
 
 plt.savefig(outpath_png, bbox_inches='tight', dpi=180)
 plt.savefig(outpath_pdf, bbox_inches='tight')
