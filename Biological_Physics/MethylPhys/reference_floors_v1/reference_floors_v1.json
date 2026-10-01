@@ -1,0 +1,889 @@
+{
+ "version": "reference_floors_v1",
+ "built": "2026-10-01",
+ "definition": "H(mean beta at the cell's v2 identity loci) on purified healthy specimens, our Stage 1; status 'measured' = from specimens of that platform",
+ "floors": {
+  "adipocytes": {
+   "450K": {
+    "floor_meth": 0.867928,
+    "floor_unmeth": 0.878234,
+    "floor_single": 0.867962,
+    "n": 3,
+    "sd": 0.0084,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.836936,
+    "floor_unmeth": 0.638323,
+    "floor_single": 0.839608,
+    "n": 3,
+    "sd": 0.00744,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "aorta endothelium": {
+   "WGBS": {
+    "floor_meth": 0.827808,
+    "floor_unmeth": 0.914364,
+    "floor_single": 0.902957,
+    "n": 2,
+    "sd": 0.00465,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "b cells": {
+   "EPIC": {
+    "floor_meth": 0.836866,
+    "floor_unmeth": 0.849637,
+    "floor_single": 0.8369,
+    "n": 6,
+    "sd": 0.01169,
+    "sources": "Salas2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.609846,
+    "floor_unmeth": 0.173012,
+    "floor_single": 0.615152,
+    "n": 3,
+    "sd": 0.02491,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "basophils": {
+   "EPIC": {
+    "floor_meth": 0.835926,
+    "floor_unmeth": NaN,
+    "floor_single": 0.835926,
+    "n": 6,
+    "sd": 0.01501,
+    "sources": "Salas2022",
+    "status": "measured"
+   }
+  },
+  "bladder epithelium": {
+   "WGBS": {
+    "floor_meth": 0.606146,
+    "floor_unmeth": 0.65161,
+    "floor_single": 0.978546,
+    "n": 4,
+    "sd": 0.00324,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "breast basal epithelium": {
+   "WGBS": {
+    "floor_meth": 0.523019,
+    "floor_unmeth": 0.687241,
+    "floor_single": 0.871589,
+    "n": 4,
+    "sd": 0.00229,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "breast luminal epithelium": {
+   "WGBS": {
+    "floor_meth": 0.638463,
+    "floor_unmeth": 0.800097,
+    "floor_single": 0.844292,
+    "n": 3,
+    "sd": 0.0049,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "cardiomyocyte": {
+   "WGBS": {
+    "floor_meth": 0.632112,
+    "floor_unmeth": 0.849712,
+    "floor_single": 0.764751,
+    "n": 4,
+    "sd": 0.00551,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "cd4 t cells": {
+   "EPIC": {
+    "floor_meth": 0.83696,
+    "floor_unmeth": 0.845815,
+    "floor_single": 0.836981,
+    "n": 5,
+    "sd": 0.01086,
+    "sources": "Salas2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.660483,
+    "floor_unmeth": 0.206983,
+    "floor_single": 0.664572,
+    "n": 3,
+    "sd": 0.01436,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "cd8 t cells": {
+   "EPIC": {
+    "floor_meth": 0.837172,
+    "floor_unmeth": 0.828151,
+    "floor_single": 0.837169,
+    "n": 6,
+    "sd": 0.01344,
+    "sources": "Salas2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.740495,
+    "floor_unmeth": 0.063811,
+    "floor_single": 0.74116,
+    "n": 3,
+    "sd": 0.03203,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "colon enteroendocrine": {
+   "WGBS": {
+    "floor_meth": 0.778246,
+    "floor_unmeth": 0.857105,
+    "floor_single": 0.89133,
+    "n": 2,
+    "sd": 0.00271,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "colon epithelium": {
+   "EPIC": {
+    "floor_meth": 0.860555,
+    "floor_unmeth": 0.866406,
+    "floor_single": 0.860656,
+    "n": 3,
+    "sd": 0.01628,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.774034,
+    "floor_unmeth": 0.797786,
+    "floor_single": 0.788976,
+    "n": 5,
+    "sd": 0.03321,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "colon fibroblasts": {
+   "WGBS": {
+    "floor_meth": 0.863505,
+    "floor_unmeth": 0.957325,
+    "floor_single": 0.90929,
+    "n": 2,
+    "sd": 0.00068,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "colon macrophages": {
+   "WGBS": {
+    "floor_meth": 0.780904,
+    "floor_unmeth": 0.950034,
+    "floor_single": 0.82045,
+    "n": 2,
+    "sd": 0.01342,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "cortical neurons": {
+   "450K": {
+    "floor_meth": 0.754805,
+    "floor_unmeth": 0.758171,
+    "floor_single": 0.75489,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.354545,
+    "floor_unmeth": 0.880142,
+    "floor_single": 0.411064,
+    "n": 10,
+    "sd": 0.03137,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "effector memory cd8 t cells": {
+   "EPIC": {
+    "floor_meth": 0.837009,
+    "floor_unmeth": NaN,
+    "floor_single": 0.837009,
+    "n": 4,
+    "sd": 0.01658,
+    "sources": "Salas2022",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.873384,
+    "floor_unmeth": NaN,
+    "floor_single": 0.873384,
+    "n": 1,
+    "sd": null,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "endometrium epithelium": {
+   "WGBS": {
+    "floor_meth": 0.726162,
+    "floor_unmeth": 0.782727,
+    "floor_single": 0.934476,
+    "n": 3,
+    "sd": 0.00669,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "eosinophils": {
+   "EPIC": {
+    "floor_meth": 0.834807,
+    "floor_unmeth": NaN,
+    "floor_single": 0.834807,
+    "n": 4,
+    "sd": 0.00914,
+    "sources": "Salas2022",
+    "status": "measured"
+   }
+  },
+  "erythrocyte progenitors": {
+   "WGBS": {
+    "floor_meth": 0.929729,
+    "floor_unmeth": 0.958238,
+    "floor_single": 0.978684,
+    "n": 3,
+    "sd": 0.00606,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "fallopien tubes epithelium": {
+   "WGBS": {
+    "floor_meth": 0.711036,
+    "floor_unmeth": 0.739723,
+    "floor_single": 0.915587,
+    "n": 3,
+    "sd": 0.00356,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "gastric antrum epithelium": {
+   "WGBS": {
+    "floor_meth": 0.768742,
+    "floor_unmeth": 0.808345,
+    "floor_single": 0.92785,
+    "n": 3,
+    "sd": 0.00378,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "gastric body epithelium": {
+   "WGBS": {
+    "floor_meth": 0.770839,
+    "floor_unmeth": 0.816733,
+    "floor_single": 0.930553,
+    "n": 3,
+    "sd": 0.00577,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "gastric fundus epithelium": {
+   "WGBS": {
+    "floor_meth": 0.777323,
+    "floor_unmeth": 0.831649,
+    "floor_single": 0.929739,
+    "n": 3,
+    "sd": 0.00709,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "heart fibroblasts": {
+   "WGBS": {
+    "floor_meth": 0.863707,
+    "floor_unmeth": 0.862931,
+    "floor_single": 0.986192,
+    "n": 3,
+    "sd": 0.00189,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "hepatocyte": {
+   "450K": {
+    "floor_meth": 0.850516,
+    "floor_unmeth": 0.856267,
+    "floor_single": 0.850619,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "EPIC": {
+    "floor_meth": 0.844783,
+    "floor_unmeth": 0.856104,
+    "floor_single": 0.844987,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.754718,
+    "floor_unmeth": 0.914559,
+    "floor_single": 0.769243,
+    "n": 6,
+    "sd": 0.04252,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "kidney glomerular endothelium": {
+   "WGBS": {
+    "floor_meth": 0.749449,
+    "floor_unmeth": 0.880952,
+    "floor_single": 0.857221,
+    "n": 3,
+    "sd": 0.0049,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "kidney glomerular epithelium": {
+   "WGBS": {
+    "floor_meth": 0.808277,
+    "floor_unmeth": 0.896662,
+    "floor_single": 0.908698,
+    "n": 2,
+    "sd": 0.00037,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "kidney tubular endothelium": {
+   "WGBS": {
+    "floor_meth": 0.757606,
+    "floor_unmeth": 0.868084,
+    "floor_single": 0.871834,
+    "n": 3,
+    "sd": 0.00312,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "kidney tubular epithelium": {
+   "WGBS": {
+    "floor_meth": 0.648963,
+    "floor_unmeth": 0.815,
+    "floor_single": 0.806598,
+    "n": 3,
+    "sd": 0.00848,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "lung alveolar endothelium": {
+   "WGBS": {
+    "floor_meth": 0.73572,
+    "floor_unmeth": 0.881759,
+    "floor_single": 0.872298,
+    "n": 3,
+    "sd": 0.0075,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "lung alveolar epithelium": {
+   "EPIC": {
+    "floor_meth": 0.859907,
+    "floor_unmeth": 0.871017,
+    "floor_single": 0.859967,
+    "n": 3,
+    "sd": 0.00897,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.800801,
+    "floor_unmeth": 0.662582,
+    "floor_single": 0.805854,
+    "n": 3,
+    "sd": 0.00956,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "lung alveolar macrophages": {
+   "WGBS": {
+    "floor_meth": 0.725976,
+    "floor_unmeth": 0.918473,
+    "floor_single": 0.780177,
+    "n": 2,
+    "sd": 0.00367,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "lung bronchus epithelium": {
+   "WGBS": {
+    "floor_meth": 0.768062,
+    "floor_unmeth": 0.742382,
+    "floor_single": 0.960154,
+    "n": 3,
+    "sd": 0.0038,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "lung interstitial macrophages": {
+   "WGBS": {
+    "floor_meth": 0.62258,
+    "floor_unmeth": 0.914401,
+    "floor_single": 0.69273,
+    "n": 3,
+    "sd": 0.00837,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "memory b cells": {
+   "EPIC": {
+    "floor_meth": 0.836707,
+    "floor_unmeth": NaN,
+    "floor_single": 0.836707,
+    "n": 6,
+    "sd": 0.0161,
+    "sources": "Salas2022",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.663394,
+    "floor_unmeth": NaN,
+    "floor_single": 0.663394,
+    "n": 2,
+    "sd": 0.03081,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "memory cd4 t cells": {
+   "EPIC": {
+    "floor_meth": 0.835248,
+    "floor_unmeth": NaN,
+    "floor_single": 0.835248,
+    "n": 4,
+    "sd": 0.01117,
+    "sources": "Salas2022",
+    "status": "measured"
+   }
+  },
+  "monocytes": {
+   "EPIC": {
+    "floor_meth": 0.834922,
+    "floor_unmeth": NaN,
+    "floor_single": 0.834922,
+    "n": 11,
+    "sd": 0.0059,
+    "sources": "Salas2018,Salas2022",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.700291,
+    "floor_unmeth": NaN,
+    "floor_single": 0.700291,
+    "n": 3,
+    "sd": 0.01906,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "naive b cells": {
+   "EPIC": {
+    "floor_meth": 0.83527,
+    "floor_unmeth": NaN,
+    "floor_single": 0.83527,
+    "n": 4,
+    "sd": 0.00878,
+    "sources": "Salas2022",
+    "status": "measured"
+   }
+  },
+  "naive cd4 t cells": {
+   "EPIC": {
+    "floor_meth": 0.83608,
+    "floor_unmeth": NaN,
+    "floor_single": 0.83608,
+    "n": 5,
+    "sd": 0.00274,
+    "sources": "Salas2022",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.709063,
+    "floor_unmeth": NaN,
+    "floor_single": 0.709063,
+    "n": 1,
+    "sd": null,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "naive cd8 t cells": {
+   "EPIC": {
+    "floor_meth": 0.837415,
+    "floor_unmeth": NaN,
+    "floor_single": 0.837415,
+    "n": 5,
+    "sd": 0.00584,
+    "sources": "Salas2022",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.693418,
+    "floor_unmeth": NaN,
+    "floor_single": 0.693418,
+    "n": 1,
+    "sd": null,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "neutrophils": {
+   "EPIC": {
+    "floor_meth": 0.835399,
+    "floor_unmeth": NaN,
+    "floor_single": 0.835399,
+    "n": 12,
+    "sd": 0.00861,
+    "sources": "Salas2018,Salas2022",
+    "status": "measured"
+   }
+  },
+  "nk cells": {
+   "EPIC": {
+    "floor_meth": 0.835422,
+    "floor_unmeth": NaN,
+    "floor_single": 0.835422,
+    "n": 10,
+    "sd": 0.00845,
+    "sources": "Salas2018,Salas2022",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.731249,
+    "floor_unmeth": NaN,
+    "floor_single": 0.731249,
+    "n": 3,
+    "sd": 0.07959,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "oligodendrocytes": {
+   "WGBS": {
+    "floor_meth": 0.542809,
+    "floor_unmeth": 0.843588,
+    "floor_single": 0.727564,
+    "n": 4,
+    "sd": 0.00573,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "pancreas endothelium": {
+   "WGBS": {
+    "floor_meth": 0.752359,
+    "floor_unmeth": 0.904936,
+    "floor_single": 0.889532,
+    "n": 4,
+    "sd": 0.00169,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "pancreatic acinar": {
+   "450K": {
+    "floor_meth": 0.84881,
+    "floor_unmeth": 0.86763,
+    "floor_single": 0.849183,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "EPIC": {
+    "floor_meth": 0.847892,
+    "floor_unmeth": 0.855596,
+    "floor_single": 0.848042,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.840155,
+    "floor_unmeth": 0.90553,
+    "floor_single": 0.851254,
+    "n": 4,
+    "sd": 0.02388,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "pancreatic alpha": {
+   "WGBS": {
+    "floor_meth": 0.749171,
+    "floor_unmeth": 0.864775,
+    "floor_single": 0.865718,
+    "n": 3,
+    "sd": 0.00298,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "pancreatic beta": {
+   "450K": {
+    "floor_meth": 0.847176,
+    "floor_unmeth": 0.85438,
+    "floor_single": 0.847179,
+    "n": 3,
+    "sd": 0.00561,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "EPIC": {
+    "floor_meth": 0.847977,
+    "floor_unmeth": 0.832723,
+    "floor_single": 0.84797,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.66275,
+    "floor_unmeth": 0.033182,
+    "floor_single": 0.663684,
+    "n": 3,
+    "sd": 0.02549,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "pancreatic delta": {
+   "WGBS": {
+    "floor_meth": 0.75625,
+    "floor_unmeth": 0.844259,
+    "floor_single": 0.886459,
+    "n": 3,
+    "sd": 0.00413,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "pancreatic duct": {
+   "450K": {
+    "floor_meth": 0.850993,
+    "floor_unmeth": 0.865192,
+    "floor_single": 0.85119,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "EPIC": {
+    "floor_meth": 0.842797,
+    "floor_unmeth": 0.84874,
+    "floor_single": 0.842879,
+    "n": 1,
+    "sd": null,
+    "sources": "Moss2018",
+    "status": "measured"
+   },
+   "WGBS": {
+    "floor_meth": 0.776489,
+    "floor_unmeth": 0.860047,
+    "floor_single": 0.787962,
+    "n": 4,
+    "sd": 0.01498,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "prostate epithelium": {
+   "WGBS": {
+    "floor_meth": 0.534787,
+    "floor_unmeth": 0.691897,
+    "floor_single": 0.884423,
+    "n": 4,
+    "sd": 0.01,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "regulatory t cells": {
+   "EPIC": {
+    "floor_meth": 0.835587,
+    "floor_unmeth": NaN,
+    "floor_single": 0.835587,
+    "n": 3,
+    "sd": 0.01616,
+    "sources": "Salas2022",
+    "status": "measured"
+   }
+  },
+  "small intestine epithelium": {
+   "WGBS": {
+    "floor_meth": 0.749795,
+    "floor_unmeth": 0.806104,
+    "floor_single": 0.922365,
+    "n": 3,
+    "sd": 0.00383,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "smooth muscle": {
+   "WGBS": {
+    "floor_meth": 0.589115,
+    "floor_unmeth": 0.664601,
+    "floor_single": 0.98774,
+    "n": 5,
+    "sd": 0.00533,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "striated muscle": {
+   "WGBS": {
+    "floor_meth": 0.800714,
+    "floor_unmeth": 0.966354,
+    "floor_single": 0.854346,
+    "n": 2,
+    "sd": 0.00076,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "t central memory cd4": {
+   "WGBS": {
+    "floor_meth": 0.77073,
+    "floor_unmeth": 0.946334,
+    "floor_single": 0.836492,
+    "n": 3,
+    "sd": 0.00504,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "t effector cell cd8": {
+   "WGBS": {
+    "floor_meth": 0.775784,
+    "floor_unmeth": 0.937447,
+    "floor_single": 0.869158,
+    "n": 3,
+    "sd": 0.00777,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "t effector memory cd4": {
+   "WGBS": {
+    "floor_meth": 0.80652,
+    "floor_unmeth": 0.940639,
+    "floor_single": 0.895335,
+    "n": 3,
+    "sd": 0.00647,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "thyroid epithelium": {
+   "WGBS": {
+    "floor_meth": 0.700837,
+    "floor_unmeth": 0.8658,
+    "floor_single": 0.818442,
+    "n": 3,
+    "sd": 0.00205,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "tongue epithelium": {
+   "WGBS": {
+    "floor_meth": 0.630567,
+    "floor_unmeth": 0.613792,
+    "floor_single": 0.973436,
+    "n": 4,
+    "sd": 0.00117,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "tonsil palatine epithelium": {
+   "WGBS": {
+    "floor_meth": 0.804244,
+    "floor_unmeth": 0.790695,
+    "floor_single": 0.97322,
+    "n": 3,
+    "sd": 0.00281,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "tonsil pharyngeal epithelium": {
+   "WGBS": {
+    "floor_meth": 0.819711,
+    "floor_unmeth": 0.798963,
+    "floor_single": 0.958462,
+    "n": 2,
+    "sd": 0.00639,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  },
+  "vascular endothelium": {
+   "EPIC": {
+    "floor_meth": 0.866923,
+    "floor_unmeth": NaN,
+    "floor_single": 0.866923,
+    "n": 2,
+    "sd": 0.00762,
+    "sources": "Moss2018",
+    "status": "measured"
+   }
+  },
+  "vascular saphenous endothelium": {
+   "WGBS": {
+    "floor_meth": 0.753194,
+    "floor_unmeth": 0.858708,
+    "floor_single": 0.875409,
+    "n": 3,
+    "sd": 0.00572,
+    "sources": "Loyfer2023",
+    "status": "measured"
+   }
+  }
+ }
+}
