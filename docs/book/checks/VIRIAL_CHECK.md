@@ -1,6 +1,8 @@
 # VIRIAL_CHECK — two numbers in the Virial papers, checked before the book (2026-10-01)
 
-Read in full: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026) and *The Thermodynamic Identity Governing the Virial Theorem* (PRL version, 18 Mar 2026).
+**STATUS: NOT BASED ON A FULL READ.** The five papers were seen only in part (first pages and targeted checks). Every item below is provisional until the full read is done.
+
+Papers: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026) and *The Thermodynamic Identity Governing the Virial Theorem* (PRL version, 18 Mar 2026).
 
 **1. "17 MCMC chains return β_m = 0.1583 ± 0.0033" (PRL Table I and text).** β_m is fixed in every chain; no chain samples it. The number
 equals Ω_m/2 from the Level 2 Run A chain: Ω_m = 0.3166 ± 0.0065 → 0.1583 ± 0.0032 (CHAIN_EXTRACTION_FINAL.csv). The ΛCDM chain gives the same,
@@ -21,7 +23,7 @@ Each table entry has to be traced to a figure or table in its source before it c
 scaling). It is a property of the method, not evidence for the identity; print it that way.
 
 ---
-## Papers 2–4, read in full (Virial Partition Across Wide Domains, 25 Feb; DM and DE as Virial Partners, Mar; Gravitational Decoherence and the Virial Partition, Mar)
+## Papers 2–4 (seen in part only; Virial Partition Across Wide Domains, 25 Feb; DM and DE as Virial Partners, Mar; Gravitational Decoherence and the Virial Partition, Mar)
 
 **Reproduced.** µ0 = 1/(1+β_m) = 0.864; µ(z = 0.5) = 0.948 (5.2 % suppression); H0_matter = 67.36·√1.15765 = 72.48 (Planck) or
 67.161·√1.15765 = 72.26 (Level 2 chain); E(z = 10) = 4.5 × 10⁻⁵; E(∞) = e; ΛCDM deceleration transition z_t = 0.632.
