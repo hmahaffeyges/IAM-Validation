@@ -1,0 +1,78 @@
+\chapter{From the virial theorem to the coupling}\label{ch:virial}
+
+\section{The virial partition}
+
+For any system bound by a potential homogeneous of degree $-1$, gravitational or Coulomb, Euler's theorem on homogeneous functions gives the
+time-averaged balance
+\begin{equation}
+ 2\langle K\rangle+\langle V\rangle=0,\qquad \langle K\rangle=\tfrac12|\langle V\rangle| .
+ \label{eq:virial}
+\end{equation}
+The factor $\tfrac12$ is not a fit. It is fixed by the degree of the potential, and the potential's degree is fixed by Gauss's law in three
+spatial dimensions. Converged Hartree--Fock calculations satisfy $T/|V|=1/2$ exactly, because any variationally optimised
+wavefunction obeys the virial theorem under scaling; the white-dwarf limit $M_{\mathrm{Ch}}=1.44\,M_\odot$ follows from the same balance with a
+relativistic degenerate gas \observed.
+
+\section{What $\langle K\rangle$ is}
+
+Take a system of mass $M$ falling from rest at infinity ($E_i=0$) into a bound equilibrium with $E_f=\langle K\rangle+\langle V\rangle<0$.
+\begin{enumerate}
+ \item First law: the transition is irreversible and releases heat $Q=E_i-E_f=-(\langle K\rangle+\langle V\rangle)>0$.
+ \item Second law: it produces entropy $\Delta S=Q/T$ at the bound system's temperature $T$.
+ \item Landauer: the minimum cost of producing $\Delta S$ irreversibly is $E_{\mathrm L}=T\Delta S=Q$. The temperature cancels.
+ \item The $1/r$ equilibrium, Eq.~\eqref{eq:virial}, gives $-E_f=\langle K\rangle$.
+\end{enumerate}
+\begin{equation}
+ \boxed{\;\langle K\rangle=Q=T\Delta S=E_{\mathrm{L}}=\tfrac12|\langle V\rangle|\;}
+ \label{eq:identity}
+\end{equation}
+\calc\ Each step is standard physics. Eq.~\eqref{eq:identity} does not derive the virial theorem from thermodynamics; it states what the kinetic half is:
+the Landauer cost of the binding transition, written at $k_BT\ln2$ per bit. Because Landauer's principle holds at every scale and temperature,
+the same identity holds for every $1/r$ bound system. This is the law the book calls IAM's law.
+
+\section{The cosmological coupling}
+
+Applied to the matter in the universe, the kinetic half of the gravitational binding is the part that writes records. The fraction of the critical
+density that does so is
+\begin{equation}
+ \beta_m=\frac{\Omega_m}{2}=0.1575\quad(\Omega_m=0.315).
+ \label{eq:betam}
+\end{equation}
+\prediction\ $\beta_m$ is not fitted. It enters every chain fixed at this value.
+
+\section{When the writing switches on}
+
+The records accumulate on the cosmological horizon. The activation function, from horizon thermodynamics (Jacobson; Cai and Kim), is
+\begin{equation}
+ E(a)=\exp\!\left(1-\frac1a\right)=e^{-z}.
+ \label{eq:Ea}
+\end{equation}
+\calc\ $E\to0$ as $a\to0$ ($E(z=10)=4.5\times10^{-5}$); $E(1)=1$; $dE/da=E/a^2>0$ always; $E\to e$ as $a\to\infty$, never reached.
+Its rate of change $dE/d\ln a=E/a$ peaks exactly at $a=1$; $E$ itself has its inflection at $a=1/2$. The activation reaches $10\,\%$, $50\,\%$ and $90\,\%$
+of today's value at $z=2.30$, $0.69$ and $0.11$.
+
+\paragraph{The exponent.} If the record-writing rate grows with the linear growth factor as $D^n$, the accumulated record in matter domination goes
+as $a^{\,n-9/2}$. The $-1/a$ in the exponent of Eq.~\eqref{eq:Ea} requires $n-\tfrac92=-1$, so $n=\tfrac72$ \calc. A numerical integration with
+$D^{7/2}$ over the full $\Lambda$CDM history returns $\exp(0.95-1.05/a)$: both coefficients within $5\,\%$ of Eq.~\eqref{eq:Ea}.
+
+\section{The matter coupling and its two consequences}
+
+The writing acts as a friction on matter only, through
+\begin{equation}
+ \mu(a)=\frac{H^2_{\Lambda\mathrm{CDM}}(a)}{H^2_{\Lambda\mathrm{CDM}}(a)+H_0^2\,\beta_m E(a)},\qquad \Sigma(a)=1 .
+ \label{eq:mu}
+\end{equation}
+Photons on null worldlines accumulate no proper time and write nothing, so the lensing combination $\Sigma$ is unchanged.
+\calc\ $\mu(1)=1/(1+\beta_m)=0.864$; $\mu(z=0.5)=0.948$; $\mu\to1$ above $z\approx2$.
+
+\begin{checkbox}
+Two predictions follow with no further input:
+\begin{itemize}
+ \item Growth: the matter coupling is weaker today by $1-\mu_0=13.6\,\%$; in the Planck chains $\sigma_8$ falls from $0.813$ to $0.800$ (Chapter~\ref{ch:chains}).
+ \item Expansion seen by matter: $H_0^{\mathrm{matter}}=H_0\sqrt{1+\beta_m}=67.16\times\sqrt{1.1575}=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$, against the
+       photon-sector $67.16$. Distance-ladder probes, on timelike worldlines, read the first; the CMB reads the second.
+\end{itemize}
+\end{checkbox}
+
+\openprob\ Two steps are identifications rather than derivations: that the kinetic half of cosmological binding is the fraction $\Omega_m/2$ of the
+critical density, and that the record-writing rate scales as $D^{7/2}$. Euclid's measurement of $\mu_0$ ($\pm0.04$) tests Eq.~\eqref{eq:mu} directly.

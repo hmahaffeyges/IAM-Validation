@@ -44,6 +44,7 @@ The R(a) column of the virial-ratio table (399, 20, 6, 2) is correct.
 7. *Gravitational Decoherence* §4.3: M_min uses "Kim & Peter 2021" for the halo occupation drop; that arXiv number is a paper on SIDM cluster
    mergers, so the citation is wrong. σ_crit and missing satellites are out of the book by ruling.
 8. "Three-channel decomposition" of β_m (temporal / geometric / radiative, *Wide Domains* §3.3): no derivation in any paper read; flag as speculative.
+10. *Virial Efficiency* eq. 3: "n_eff = 5/2 (analytical, pure matter domination)" repeats the slip in the Theory paper: its own condition n − 9/2 = −1 gives n = 7/2, which matches the numerical fit (D^{7/2} → exp(0.95 − 1.05/a)).
 9. The dark-matter/dark-energy identification (*Virial Partners*) is interpretation; it belongs in Part 5 with its question stated as a question.
 
 **What 2.1 prints:** the virial theorem for 1/r potentials; the Landauer identity ⟨K⟩ = Q = TΔS (PRL paper); β_m = Ω_m/2 as the prediction;
