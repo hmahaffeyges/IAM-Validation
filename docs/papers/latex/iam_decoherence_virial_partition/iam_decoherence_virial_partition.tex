@@ -20,8 +20,7 @@
 }
 
 % ─────────────────────────────────────────────────────────────────────────────
-\title{\textbf{The Boundary Between Potential and Actual:\\
-Gravitational Decoherence, the Virial Partition,\\
+\title{\textbf{Gravitational Decoherence, the Virial Partition,\\
 and the Emergence of Classical Structure}}
 
 \author{Heath W.\ Mahaffey\\
@@ -114,7 +113,7 @@ virialization event requires a local encoding surface. Where a black hole
 horizon can form, the Landauer cost is absorbed locally and the virial
 partition closes. Where no local surface can form, the partition cannot
 close, and the structure disperses. This provides a physical account of
-why some potential structures actualize and others do not.
+why some candidate structures survive as bound systems and others do not.
 
 Section~\ref{sec:virial} establishes the virial partition as the
 quantum-classical connector. Section~\ref{sec:arrow} presents the derived
@@ -179,8 +178,8 @@ cosmological structure.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.92\textwidth]{iam_smolin_figure.pdf}
-\caption{The boundary between potential and actual. Panel~(a): the virial
+\includegraphics[width=0.92\textwidth]{iam_decoherence_virial_partition_figure.pdf}
+\caption{The virial partition and halo survival. Panel~(a): the virial
 partition separates every bound $1/r$ system into a geometric channel
 (potential half, deposited into spacetime curvature) and an informational
 channel (kinetic half, the Landauer cost of the quantum-to-classical
@@ -197,7 +196,7 @@ $3.4\sigma$ sensitivity.}
 \end{figure}
 
 % ─────────────────────────────────────────────────────────────────────────────
-\section{Duration and the Arrow of Time}
+\section{Accumulated Decoherence and the Arrow of Time}
 \label{sec:arrow}
 % ─────────────────────────────────────────────────────────────────────────────
 
@@ -217,12 +216,12 @@ spacetime manifold measured along a particular path. It distinguishes clocks
 from one another but does not, by itself, distinguish past from future.
 For photons on null geodesics, $d\tau = 0$ identically.
 
-\textit{Duration} is categorically different. It is thermodynamic, not
-geometric. Duration measures the accumulated irreversible
+\textit{Accumulated decoherence} is a third quantity. It is thermodynamic, not
+geometric. It counts the accumulated irreversible
 quantum-to-classical transitions on a worldline --- the decoherence events
 that write classical information permanently on the cosmic horizon at
 Landauer cost $k_B T_H \ln 2$ per bit, where $T_H = \hbar H / 2\pi k_B$
-is the Gibbons--Hawking temperature~\citep{Gibbons1977}. Duration requires
+is the Gibbons--Hawking temperature~\citep{Gibbons1977}. It requires
 massive particles on timelike worldlines. It cannot accumulate on null
 geodesics. It has a beginning: the electroweak symmetry breaking, after
 which stable massive particles first exist and CP violation locks in the
@@ -230,7 +229,7 @@ irreversibility of the matter sector~\citep{Sakharov1967}.
 
 \subsection{The activation function}
 
-The accumulated duration since the electroweak transition is measured by:
+The accumulated decoherence is measured by the activation function:
 \begin{equation}
 \mathcal{E}(a) = \exp\!\left(1 - \frac{1}{a}\right),
 \label{eq:Ea}
@@ -240,8 +239,7 @@ This function is derived from horizon thermodynamics via the Jacobson--Cai-Kim
 formalism~\citep{Jacobson1995,CaiKim2005}, not postulated.
 
 Its properties follow directly from the physical identification:
-$\mathcal{E}(a) \to 0$ as $a \to 0$ (no duration before the electroweak
-transition); $\mathcal{E}(1) = 1$ today; $d\mathcal{E}/da > 0$ always
+$\mathcal{E}(a) \to 0$ as $a \to 0$ (negligible at early times; $\mathcal{E}(z=10)=4.5\times10^{-5}$); $\mathcal{E}(1) = 1$ today; $d\mathcal{E}/da > 0$ always
 (monotonically increasing, since each decoherence event is irreversible);
 $\mathcal{E}(\infty) = e$ (the asymptotic limit, never reached).
 
@@ -255,8 +253,8 @@ cost. The ledger only accumulates. $\mathcal{E}(a)$ is monotonically
 increasing because each entry is irreversible.
 
 This is the arrow of time derived from the irreversibility of individual
-decoherence events, not imposed from boundary conditions. Duration has
-direction because actualization has direction.
+decoherence events, not imposed from boundary conditions. $\mathcal{E}(a)$ has
+a direction because each decoherence event is irreversible.
 
 The sector separation follows immediately. Photons on null geodesics do
 not accumulate proper time and do not participate in gravitational
@@ -428,8 +426,8 @@ geometric treatment: why does time have a direction? The answer is not
 statistical. It is thermodynamic. Each quantum-to-classical transition
 pays an irreversible Landauer cost to the nearest available encoding
 surface. The accumulated total of these costs, written on the cosmic
-horizon, is $\mathcal{E}(a)$. Time has direction because actualization has
-direction. The ledger only grows.
+horizon, is $\mathcal{E}(a)$. Time has a direction because each
+decoherence event is irreversible. The ledger only grows.
 
 This is consistent with the program of temporal naturalism~\citep{Smolin2013}
 in that it provides a physical mechanism for the irreversibility of time.
@@ -448,10 +446,8 @@ between IAM's derived irreversibility and Smolin's evolving-laws program
 constitutes a tension or a complementarity is an open question this paper
 does not resolve.
 
-The laws governing $\mathcal{E}(a)$ are not timeless. They are written by
-the universe as it actualizes. $\mathcal{E}(a)$ is not a parameter of the
-theory imposed from outside --- it is the theory's own running record,
-carried forward by the universe as it becomes.
+$\mathcal{E}(a)$ is not a parameter imposed from outside the theory: it is
+fixed by horizon thermodynamics and the measured expansion history.
 
 \subsection{Dissipation-Driven Adaptation and the Virial Partition Closure Condition}
 
@@ -487,7 +483,7 @@ addresses driven non-equilibrium systems far more generally, including
 biological self-organization --- shares deeper mathematical structure with
 the IAM virial partition is an open question this paper does not address.
 
-\subsection{Thermal Time and Duration}
+\subsection{Thermal Time and Accumulated Decoherence}
 
 Rovelli's thermal time hypothesis~\citep{Connes1994,Rovelli1993} proposes
 that time emerges as a statistical effect from the thermodynamic state of
@@ -498,18 +494,18 @@ physics. The more recent program in Rovelli~\citep{Rovelli2019,Rovelli2020}
 asks specifically where the low entropy of the early universe was located
 and how thermodynamic traces constitute physical memory.
 
-The duration variable $\mathcal{E}(a)$ derived in Section~\ref{sec:arrow}
+The activation function $\mathcal{E}(a)$ of Section~\ref{sec:arrow}
 is consistent with this program and extends it in a specific direction.
 Rather than time emerging from our incomplete knowledge of a statistical
-ensemble, duration in IAM emerges from the accumulated irreversible
+ensemble, $\mathcal{E}(a)$ in IAM records the accumulated irreversible
 Landauer costs of individual quantum-to-classical transitions written
 permanently on the cosmic horizon. These are not statistical: each
 transaction is a specific physical event with a specific thermodynamic
-cost $k_B T_H \ln 2$. Duration accumulates not because we lack information
+cost $k_B T_H \ln 2$. It accumulates not because we lack information
 about the microstate but because each decoherence event is physically
 irreversible at the level of the second law.
 
-This extends the thermal time program in a specific direction: duration
+This extends the thermal time program in a specific direction: the record
 has a specific physical carrier ($\mathcal{E}(a)$), a specific beginning
 (the electroweak transition), a specific asymptotic limit ($e$), and
 specific cosmological observational consequences ($\mu(a) < 1$,
@@ -571,7 +567,7 @@ general thermodynamic principle of which the virial partition closure
 condition is a specific gravitational instance. The thermal time program
 of Professor C.\ Rovelli~\citep{Rovelli1993,Connes1994} posed the
 foundational question of how time emerges from thermodynamic irreversibility
-that the derived duration variable $\mathcal{E}(a)$ addresses.
+that the activation function $\mathcal{E}(a)$ addresses.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section*{Data Availability}
@@ -584,6 +580,6 @@ Repository timestamps confirm all predictions were established prior to
 any observational comparison.
 
 \bibliographystyle{plainnat}
-\bibliography{iam_smolin_paper}
+\bibliography{iam_decoherence_virial_partition}
 
 \end{document}

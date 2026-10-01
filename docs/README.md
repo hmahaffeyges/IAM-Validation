@@ -383,9 +383,9 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 </details>
 
 <details>
-<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+<summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+**Paper:** [Gravitational_Decoherence_and_the_Virial_Partition.pdf](papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the virial partition as the universal quantum-classical connector across 37 orders of magnitude; the 1/2 partition as the mechanism by which quantum superpositions become classical structure at every scale from hydrogen to galaxies
@@ -455,22 +455,20 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 </details>
 
 <details>
-<summary><strong>Higgs Duration Paper</strong> — The Higgs Boson and the Origin of Duration</summary>
+<summary><strong>Electroweak Paper</strong> — Electroweak Symmetry Breaking and the Matter Sector</summary>
 
-[📄 The_Higgs_Boson_and_the_Origin_of_Duration.pdf](papers/The_Higgs_Boson_and_the_Origin_of_Duration.pdf)
+[📄 Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf](papers/Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf)
 
-- The four fundamental forces are not a homogeneous set: gravity, EM, and the strong force are forces of virial equilibrium; the weak force is the force of transition
-- The weak force cannot satisfy virial equilibrium because violating equilibrium is its structural function
-- Without the weak force establishing irreversibility through CP violation and parity violation, there is no arrow of time and no IAM mechanism
-- Identifies electroweak symmetry breaking at t ≈ 10⁻¹² s as the first irreversible act — the origin of duration
-- The Higgs boson is not the God particle — it is the origin of duration
-
+- Electroweak symmetry breaking (T ≈ 100 GeV) gives the W, Z and charged fermions mass, putting them on timelike worldlines: in IAM the matter sector exists from this epoch
+- The unbroken U(1) keeps the photon exactly massless (m_γ < 10⁻¹⁸ eV), so photons never enter the matter sector; Σ = 1 itself is tested by Euclid weak lensing
+- β_m = Ω_b/2 + Ω_dm/2 = 0.0247 + 0.1332 = 0.15765 (15.6 % baryonic, 84.4 % dark matter)
+- Open question: is the selection of the Higgs vacuum itself a decoherence event?
 </details>
 
 <details>
-<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+<summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+**Paper:** [Gravitational_Decoherence_and_the_Virial_Partition.pdf](papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the derived arrow of time from irreversible Landauer transactions; E(a) as the accumulated ledger of decoherence events; the distinction between coordinate time, proper time, and duration; engagement with Rovelli's thermal time program
@@ -497,15 +495,15 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 </details>
 
 <details>
-<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+<summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+**Paper:** [Gravitational_Decoherence_and_the_Virial_Partition.pdf](papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
 
 - The arrow of time and the persistence of classical structure share a common physical mechanism: the irreversible partition of gravitational binding energy into geometric and informational channels
 - The geometric half deposits into spacetime curvature; the informational half (Landauer cost of quantum-to-classical transition) writes to an available encoding surface
 - At galactic scales and above, a local black hole horizon serves as the mandatory encoding vault — where no vault can form, the virial partition cannot close and the structure disperses
 - **England connection:** the virial partition closure condition is a specific gravitational instantiation of England's dissipation-driven adaptation principle — a halo endures if and only if it can route its informational Landauer cost to a local encoding surface; where it cannot, the structure disperses. This is England's principle with a derived gravitational mechanism and a falsifiable threshold attached
-- **Rovelli connection:** the derived duration variable E(a) engages Rovelli's thermal time hypothesis directly — duration here is not statistical but physically carried by accumulated irreversible Landauer transactions on the cosmic horizon, with a specific beginning (electroweak transition), asymptotic limit (e), and observable cosmological consequences
+- **Rovelli connection:** the activation function E(a) engages Rovelli's thermal time hypothesis directly — the record here is not statistical but physically carried by accumulated irreversible Landauer transactions on the cosmic horizon, with a specific beginning (electroweak transition), asymptotic limit (e), and observable cosmological consequences
 - Predicts minimum velocity dispersion σ_crit ≈ 4 km/s below which dark matter halos do not virialize — consistent with observed absence of satellite galaxies below this threshold
 - Connects the dark sector identification to the quantum foundations of IAM
 
@@ -542,9 +540,9 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 *Black holes in IAM are not just mass concentrations. They are mandatory local encoding surfaces — and the M–σ relation, unexplained for 25 years, follows directly.*
 
 <details>
-<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+<summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+**Paper:** [Gravitational_Decoherence_and_the_Virial_Partition.pdf](papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the black hole as mandatory local encoding vault; the saturation condition for BH formation; the minimum velocity dispersion σ_crit ≈ 4 km/s derived from first principles
@@ -661,12 +659,12 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 </details>
 
 <details>
-<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+<summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+**Paper:** [Gravitational_Decoherence_and_the_Virial_Partition.pdf](papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
-- Relevant here for: England's dissipation-driven adaptation as the general thermodynamic principle of which virial partition closure is a gravitational instance; Rovelli's thermal time program and the derived duration variable E(a)
+- Relevant here for: England's dissipation-driven adaptation as the general thermodynamic principle of which virial partition closure is a gravitational instance; Rovelli's thermal time program and the activation function E(a)
 
 </details>
 
@@ -785,9 +783,9 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 *Predictions made and timestamped in the GitHub repository. Not fits to existing data — derived from the same mechanism that produces all other IAM results.*
 
 <details>
-<summary><strong>Boundary Paper</strong> — The Boundary Between Potential and Actual: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
+<summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
 
-**Paper:** [The_Boundary_Between_Potential_and_Actual.pdf](papers/The_Boundary_Between_Potential_and_Actual.pdf)
+**Paper:** [Gravitational_Decoherence_and_the_Virial_Partition.pdf](papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
 
 - Also in [Category V: Dark Sector](#v-dark-sector-identification) — see full description there
 - Relevant here for: the minimum velocity dispersion σ_crit ≈ 4 km/s below which halos cannot close their virial partition and do not form galaxies; the two-mechanism account of the missing satellites problem

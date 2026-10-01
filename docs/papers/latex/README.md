@@ -40,7 +40,8 @@ Papers that exist only here (no PDF in `docs/papers/`): Variational_Derivation_o
 | iam_mu_sigma_paper | 5 |
 | iam_nonlocality_boundary | 0 |
 | iam_ocolgain_note | 3 |
-| iam_smolin_paper | 1 |
+| iam_decoherence_virial_partition | 1 |
+| iam_electroweak_matter_sector | 1 |
 | iam_theory_paper | 2 |
 | iam_thermodynamic_identity | 0 |
 | iam_two_faces_of_time | 1 |
