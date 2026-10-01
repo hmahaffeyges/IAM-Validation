@@ -118,11 +118,19 @@
   "IAM's law": {
    "status": "current",
    "definition": "Every irreversible transition from quantum potential to classical actuality pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature.",
-   "note": "the quantum-processor report/the semiconductor report Issue 002 used 'IAM's Law' for the performance-floor relationship; that usage needs its own name (author to rule)."
+   "note": "the quantum-processor report/the semiconductor report Issue 002 used 'IAM's Law' for the performance-floor relationship; that relationship is now named the IAM floor (author, 2026-10-01)."
   },
   "Mahaffey number (M)": {
    "status": "current",
-   "definition": "Drive energy over the thermal noise quantum: M = E_drive/(k_B T). Cell: 20.94 (30.2 in Landauer units)."
+   "definition": "The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime and, with the architecture, the IAM floor. Cell: 20.94 (30.2 in Landauer units). The only quantity named 'Mahaffey'."
+  },
+  "IAM floor": {
+   "status": "current",
+   "definition": "The lowest error (or energy per operation) a system can reach at its operating temperature, set by IAM's law (k_B T ln 2 per bit) and its architecture. Used in every domain: qubit gate error, chip switching energy, cell copy error (eps0 = 1/(1+exp(phi*M)) = 0.032)."
+  },
+  "Informational fidelity ratio (A)": {
+   "status": "current",
+   "definition": "Measured error or entropy over the IAM floor (or reference floor). Domain forms: the quantum-processor report A score (qubits), the semiconductor report index (chips), Met-A and IAM-A (cells). Normal for cells: 0.95-1.05."
   },
   "Landauer metrology": {
    "status": "current",
@@ -442,7 +450,11 @@
    "severity": "warn"
   },
   "Mahaffey value": {
-   "replaced_by": "cell-type floor (H_min) — 'Mahaffey' names only M",
+   "replaced_by": "Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
+   "severity": "warn"
+  },
+  "Mahaffey ratio": {
+   "replaced_by": "Mahaffey number (M)",
    "severity": "warn"
   }
  },

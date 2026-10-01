@@ -29,7 +29,9 @@ This file is the single source of truth for constants and names. To change a val
 | name | status | definition |
 |---|---|---|
 | IAM's law | current | Every irreversible transition from quantum potential to classical actuality pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature. |
-| Mahaffey number (M) | current | Drive energy over the thermal noise quantum: M = E_drive/(k_B T). Cell: 20.94 (30.2 in Landauer units). |
+| Mahaffey number (M) | current | The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime and, with the architecture, the IAM floor. Cell: 20.94 (30.2 in Landauer units). The only quantity named 'Mahaffey'. |
+| IAM floor | current | The lowest error (or energy per operation) a system can reach at its operating temperature, set by IAM's law (k_B T ln 2 per bit) and its architecture. Used in every domain: qubit gate error, chip switching energy, cell copy error (eps0 = 1/(1+exp(phi*M)) = 0.032). |
+| Informational fidelity ratio (A) | current | Measured error or entropy over the IAM floor (or reference floor). Domain forms: the quantum-processor report A score (qubits), the semiconductor report index (chips), Met-A and IAM-A (cells). Normal for cells: 0.95-1.05. |
 | Landauer metrology | current | Measuring how far above its thermal floor an information-writing process operates, against a fixed physical zero, in any substrate. |
 | the methylation report | current | The biological (genetic) application of IAM's law: the umbrella for every cellular and organismal chain. Expansion as in Issue 002: Genomic Analytical & Performance Engine. Chains under it: MethylPhys CPG (methylation, cells), the salmonid chain (in development). |
 | MethylPhys CPG | current | A chain (tool) under the methylation report: Methylation Physics, Cellular Performance Gauge. Reads cells' methylation (Met-A, IAM-A) and places them on the gauge. |
@@ -101,4 +103,5 @@ This file is the single source of truth for constants and names. To change a val
 | `gate-error reading` | IAM-A | warn |
 | `program reading` | Met-A | warn |
 | `M\s*=\s*30\.2` | M = 20.94 (30.2 only as the Landauer-unit conversion) | warn |
-| `Mahaffey value` | cell-type floor (H_min) — 'Mahaffey' names only M | warn |
+| `Mahaffey value` | Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor | warn |
+| `Mahaffey ratio` | Mahaffey number (M) | warn |
