@@ -49,3 +49,16 @@ Same ruler for every form (author, 2026-10-01): Normal 0.95–1.05; the site win
 - The per-site form beats the two separate channels on arrays.
 - Next: more sites per cell (cap 3,000 now), choose the window per platform so healthy SD ≤ 0.025, and state the blur at which A crosses 1.05
   so IAM-A is calibrated to the same point.
+
+## v1.2 — site-window sweep (EPIC, 97 held-out purified specimens; per-site mean H; same ruler)
+| sites (own β window, mirrored for unmethylated) | healthy in Normal (all cells) | SD | blur at which median A crosses 1.05 |
+|---|---|---|---|
+| 0.70–0.90 | 0.90 | 0.033 | 3.0 % |
+| 0.80–0.90 | 0.86 | 0.036 | 2.6 % |
+| 0.75–0.95 | 0.85 | 0.045 | 1.0 % |
+| 0.85–0.95 | 0.84 | 0.046 | 1.0 % |
+Raising the cap from 3,000 to 10,000 sites per channel does not narrow the spread (the spread is biological or array, not counting noise).
+
+**Neutrophils (12 donors, two studies):** healthy spread SD 0.005–0.006 in every window, 12/12 Normal. With 0.75–0.95 sites, A crosses 1.05 at
+1 % blur (1.050 at 1 %, 1.100 at 2 %, 1.243 at 5 %). Monocytes and NK cells: SD 0.009–0.013, all Normal. The cells that stay wide in every window
+are CD8 T cells from Salas 2018 (naive and memory mixed; SD ≈ 0.06) and basophils (≈ 0.06): sample make-up, not site choice.
