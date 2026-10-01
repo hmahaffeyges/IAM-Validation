@@ -14,5 +14,6 @@ w_eff(1) = −1.062; continuity identity (§12.4); H0 sirens 72.51; M_eq = 2.32 
 4. §11.5: D2 ratios 1.014/1.052/1.075 and bispectrum ratios not reproduced (early normalisation gives D1 0.981/0.994/0.998, D2 0.963/0.988/0.997).
 5. §12.3 Fig. 2: Δχ² +0.75 vs §12.1 +1.43 for the same Planck-only pair.
 
+**sigma8 by level (final extraction):** L1 Planck-only 0.8143 → 0.8015 (−1.6 %); L2 0.8087 → 0.7998 (−1.1 %, = paper §12 '0.809 to 0.800'). The first draft printed '0.813 → 0.800 (1.6 %)', mixing the levels; corrected.
 **Updated to the final chains:** Δχ² and free-µ0 values cite the Part 2 chain chapter (one extraction of the final files) rather than the paper's tables.
 **Wording:** §13.5 "potential … actualized" rewritten in physics terms (records, low-entropy state).
