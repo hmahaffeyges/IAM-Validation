@@ -377,7 +377,7 @@ Level 2 extends beyond MGCAMB's built-in mu-Sigma parametrization by directly mo
 - **[Cobaya YAML configs](camb_validation/yaml_configs/)** -- exact configuration files for all Level 2 chains
 - **[GetDist extraction scripts](camb_validation/getdist_scripts/)** -- posterior extraction, comparison, and apples-to-apples RSD scripts
 
-### Dual-Sector Perturbations, ΛCDM Background -- COMPLETE (3 chains converged)
+### Dual-Sector Perturbations, ΛCDM Background -- COMPLETE (5 chains converged, R−1 ≤ 0.010)
 
 **Scope:** The background expansion history is standard ΛCDM (unmodified). Only the CDM and baryon perturbation equations use a matter-sector expansion rate (`adotoa_matter`) computed from the IAM dual-sector prescription. Photon perturbation equations are untouched.
 

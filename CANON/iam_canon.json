@@ -100,10 +100,10 @@
    "source": "DIAG-450K-01 / floors_450k_v1.json"
   },
   "beta_m": {
-   "value": 0.1575,
+   "value": 0.15765,
    "units": "dimensionless",
-   "derivation": "Omega_m / 2 with Omega_m = 0.315",
-   "source": "IAM's Law paper (cosmological expression)",
+   "derivation": "beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing best fit, Aghanim et al. 2020 Table 2); value used in every Level 2 chain",
+   "source": "camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression)",
    "accept": [
     0.1575
    ]

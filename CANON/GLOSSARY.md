@@ -21,7 +21,7 @@ This file is the single source of truth for constants and names. To change a val
 | eps0_meth | 0.032 | error per methylated site per copy | 1/(1+exp(phi*M_cell)) — PROC-CHANNEL-01 physics floor |
 | Normal_band | [0.95, 1.05] | A |  — author: 'Healthy is A=1 +/-5' |
 | H_min_450K_neutrophil | 0.784057 | bits | Met-A floor from purified 450K neutrophils (GSE88824, 8 donors, our Stage 1) — DIAG-450K-01 / floors_450k_v1.json |
-| beta_m | 0.1575 | dimensionless | Omega_m / 2 with Omega_m = 0.315 — IAM's Law paper (cosmological expression) |
+| beta_m | 0.15765 | dimensionless | beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing best fit, Aghanim et al. 2020 Table 2); value used in every Level 2 chain — camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression) |
 | E_of_a | exp(1 - 1/a) | activation function |  — IAM's Law paper |
 
 ## Names in use
