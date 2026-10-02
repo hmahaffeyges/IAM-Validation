@@ -189,3 +189,8 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | C22 | MA, BA | | "prediction stated in advance" | advance statement (CMB fit returns η ≈ 6e-10) holds for every CMB fit | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #23 |
 | C23 | MA §8.3, §10 | | stray "IAM posteriors at < 0.1σ"; duplicated paragraph | delete | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #22 |
 | C24 | CC, MA refs | | MGCAMB "JCAP 2023, 022"; 2026d/2026e swapped | JCAP 08, 038; relabel | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #25 |
+| **Floor Breach** (`floor_breach_derivation.pdf`, Apr 2026), read in full 2026-10-02 |||||||
+| FB1 | | §2 Step 3, Step 6, Table | N_CpG = 19.6 × 10⁶; E_floor 5.82 × 10⁻¹⁴ J | 2.82 × 10⁷ (hg19 CpG index, 28,217,448); 8.37 × 10⁻¹⁴ J ≈ 1.0 × 10⁶ ATP | confirmed | `scripts/verify_encoding_ladder.py` |
+| FB2 | | §5 | bit counts differ by 10²⁷ | 7.7 × 10⁶⁹ (1 M☉ horizon 1.5 × 10⁷⁷ bits vs 2.8 × 10⁷) | confirmed | same |
+| FB3 | | Step 5 | modified Friedmann H² = … + β_mE(a)H0²; β_m "confirmed to 0.2σ" | term acts on matter perturbations (background form gives H0 ≈ 61.5); β_m fixed at Ω_m/2 in every chain | confirmed | Level 2b chains |
+| FB4 | | Steps 6, §3–4 | H_min(class) from G-002 calibration; A > 1.05 / 1.10; TCGA 27/28 | per-cell measured floor (Met-A); one gauge 0.95–1.05; cancer results re-run through chain v3 before citing | confirmed | CANON |
