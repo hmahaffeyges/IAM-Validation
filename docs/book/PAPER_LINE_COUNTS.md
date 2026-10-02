@@ -49,10 +49,10 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 38 | IAM_Test_Validation_Compendium | 22 | 878 | 742 | — | not confirmed |  |
 | 39 | IAM_Overview_Companion | 7 | 322 | — | — | not confirmed |  |
 | 40 | IAM_Official_Score_Card | 8 | 365 | — | — | not confirmed |  |
-| 41 | IAMPerformance_QPROCIssue002 | 59 | 2551 | — | — | not confirmed |  |
-| 42 | Quantum Platform Demo.html | — | 954 | — | — | not confirmed | HTML: visible text lines |
-| 43 | IAMPerformance_CHIPIssue002 | 67 | 2432 | — | — | not confirmed |  |
-| 44 | Semiconductor Platform Demo.html | — | 573 | — | — | not confirmed | HTML: visible text lines |
+| 41 | the quantum-processor report Issue 002 (private) | 59 | 2551 | 1–2551 (2026-10-02) | — | **complete** | private ledger |
+| 42 | Quantum platform demo (private) | — | 954 | — | — | not carried | product material |
+| 43 | the semiconductor report Issue 002 (private) | 67 | 2432 | 1–2432 (2026-10-02) | — | **complete** | private ledger |
+| 44 | Semiconductor platform demo (private) | — | 573 | — | — | not carried | product material |
 | 45 | Physics_of_Methylation__Landauer_Metrology | 9 | 381 | — | — | not confirmed |  |
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |

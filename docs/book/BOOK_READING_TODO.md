@@ -96,10 +96,10 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 the quantum-processor report/the semiconductor report work is parked until the methylation report is with researchers; they are listed so the chapters are written when that resumes.
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 41 | IAMPerformance_QPROCIssue002 | 2 Apr 2026 | 59 | ☐ | ☐ | ☐ |
-| 42 | Quantum Platform Demo.html | — | html | ☐ | ☐ | ☐ |
-| 43 | IAMPerformance_CHIPIssue002 | Apr 2026 | 67 | ☐ | ☐ | ☐ |
-| 44 | Semiconductor Platform Demo.html | — | html | ☐ | ☐ | ☐ |
+| 41 | the quantum-processor report Issue 002 (private, off the public repo) | 2 Apr 2026 | 59 | ☑ 2026-10-02 | Part 3 (physics and dated predictions only) | private read notes |
+| 42 | Quantum platform demo (private product material) | — | html | — | not carried | — |
+| 43 | the semiconductor report Issue 002 (private, off the public repo) | Apr 2026 | 67 | ☑ 2026-10-02 | Part 3 (physics and dated predictions only) | private read notes |
+| 44 | Semiconductor platform demo (private product material) | — | html | — | not carried | — |
 | 45 | Physics_of_Methylation__Landauer_Metrology | Sep 2026 | 9 | ☐ | ☐ | ☐ |
 Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses the current master-table definitions.
 

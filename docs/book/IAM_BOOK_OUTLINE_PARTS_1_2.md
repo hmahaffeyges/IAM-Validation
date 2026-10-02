@@ -264,7 +264,7 @@ The transmon quasiparticle density x_qp ~ 10⁻⁷ — the cosmology-to-device l
 |---|---|
 | Physics of Methylation — Landauer Metrology | Part 4 |
 | IAMPerformance the quantum-processor report Issue 002, the semiconductor report Issue 002 | Part 3 |
-| Quantum Platform Demo.html, Semiconductor Platform Demo.html | Part 3 (companion material) |
+| Platform demos (private product material) | not carried |
 | Gravitational Propulsion and IAM; IAM Gravitational Engineering Exploration | **Out of the book.** Both call themselves exploratory notes; same header (likely two versions). If kept, an 'Open directions' appendix marked speculative. |
 | one excluded archive paper (author ruling) | its virial-equilibrium data go into 1.3 as 'the virial theorem across scales'; the paper is never cited |
 

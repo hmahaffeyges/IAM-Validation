@@ -62,8 +62,6 @@ _This is where the the quantum-processor report and the semiconductor report wor
 the cellular work reads it at a cell._
 
 - [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the the quantum-processor report foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
-- [the quantum-processor report Issue 002 - the quantum-computing platform report](docs/papers/IAMPerformance_QPROCIssue002.pdf)
-- [the semiconductor report Issue 002 - the semiconductor report](docs/papers/IAMPerformance_CHIPIssue002.pdf)
 - [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
 - [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
 - [Electroweak symmetry breaking and the matter sector](docs/papers/Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf)

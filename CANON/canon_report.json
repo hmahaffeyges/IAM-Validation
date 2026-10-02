@@ -1,5 +1,32 @@
 [
 {
+"file": "docs/verification/PAPER_ERRATA.md",
+"line": 269,
+"pattern": "class H_min",
+"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"severity": "warn",
+"status": "LIVE",
+"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
+},
+{
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "class H_min",
+"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "class H_min",
+"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
 "line": 12627,
 "pattern": "class H_min",
