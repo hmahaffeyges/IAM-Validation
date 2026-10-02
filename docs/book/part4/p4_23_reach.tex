@@ -1,0 +1,63 @@
+\chapter{Reach: the next surfaces}\label{part4:ch:reach}
+
+\section{The order}
+
+After commissioning, the author's order of work is set:
+\begin{enumerate}
+\item human blood conditions, blood cancers first;
+\item plasma cell-free DNA;
+\item tissue specimens, read against the cell atlas;
+\item dogs and other mammals;
+\item salmonids;
+\item ageing, in the same person over time;
+\item back to the quantum processors of the companion volume, to check which of its predictions have come due.
+\end{enumerate}
+Public data for items 1--6 have already been collected: 58 data sets, about 432~GB, stored with a checksum per file (Table~\ref{tab:downloads}). Raw array files were
+preferred wherever they exist, so that each specimen enters through the chain's own Stage~1.
+
+\begin{table}[t]\centering\small
+\caption{Public data collected for the next applications.}\label{tab:downloads}
+\begin{tabular}{@{}lrrp{0.5\textwidth}@{}}\toprule
+track & sets & GB & contents \\\midrule
+blood and immune conditions & 18 & 139 & rheumatoid arthritis, Parkinson's disease, pre-diagnostic cancer, depression, IBD, COVID-19, AML, CLL, MDS/CML, haematolymphoid tumours, COPD, tuberculosis/HIV; three serial sets \\
+plasma cfDNA & 17 & 81 & plasma arrays in several cancers and in Alzheimer's disease and ARDS; plasma beside blood from the same people; transplant cfDNA WGBS \\
+tissue & 9 & 34 & colon (healthy, adjacent, tumour, ageing, adenoma), breast, liver, muscle \\
+ageing & 4 & 35 & LOLIPOP with replicate pairs; Hannum; GENOA; cross-tissue EPIC v2 \\
+dogs and other animals & 5 & 25 & the mammalian methylation array across 348 species; dog cohorts; whales \\
+salmonids & 5 & 118 & Methow River steelhead RRBS, red blood cells and sperm, hatchery and wild origin \\\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Blood cancers}
+
+A leukaemic cell is the majority cell in the tube, so the fraction limit that makes minor cells hard to read does not apply to it. The test is per cell: the affected
+lineage against the other lineages in the same specimen, each against 1.00, with healthy bone-marrow progenitors held out of the atlas as the check that a healthy
+progenitor reads 1.00. \prediction{} The affected lineage reads elevated; the unaffected lineages do not.
+
+\section{Plasma}
+
+In plasma, cell-free DNA from solid tissues makes up a much larger share than in whole blood, and a cell shed from an organ is read on its identity loci in the same way.
+Two things change. The genome count is of order $10^4$, so the cell-count floor of Chapter~\ref{ch:sky} becomes part of every interval.
+
+\section{Tissues}
+
+By the author's ruling a tissue profile is a specimen, not a reference: a biopsy is a mixture of cells like a blood draw, and it is separated and read against the cell
+atlas. The tissue arrays collected are the test set for that: each must separate into the cells known to be in that tissue, and each healthy cell must read Normal.
+
+\section{Other mammals}
+
+No purified-cell methylation atlas exists for dogs. The mammalian methylation array measures conserved CpGs across species~\cite{Arneson2022}, and the first step is to build
+canine identity loci from sorted canine cells on it. Then a canine cell is read against the human floors, adjusted for body temperature if the scaling of
+Chapter~\ref{ch:temperature} is adopted. \prediction{} Sorted healthy canine blood cells read 1.00 within tolerance.
+
+\section{Salmonids}
+
+Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. That makes it an unusually clean surface. Two problems come first.
+The Methow data are reduced-representation bisulfite sequencing reads, which need an alignment and methylation-calling step before any $\beta$ exists. And the floor at
+10~\textdegree C is not known: the temperature scaling of Chapter~\ref{ch:temperature} gives a 9 to 17~\% change depending on its exponent, and that has to be measured on fish, not
+assumed. The data compare hatchery-origin with natural-origin fish of one river, which is the kind of question a fisheries scientist can check independently.
+
+\section{Ageing in one person}
+
+SATSA's individuals, drawn up to five times over two decades, are the direct test of whether the elevation seen in older blood is a slope shared by every cell or a clone moving
+one lineage (Chapter~\ref{ch:leukocyte}). Serial mode reads it with no population at all.

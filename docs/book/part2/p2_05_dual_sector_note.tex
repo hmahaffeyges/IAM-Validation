@@ -1,0 +1,70 @@
+% Part 2 chapter carrying "On the Dual-Sector Structure of IAM" (Mahaffey, March 2026, informal note), read in full 2026-10-02 (all 573 lines), in its order.
+% Checks: docs/verification/chains/DUAL_SECTOR_NOTE_CHECK.md. Figures 1-2 of the note are pre-chain and not carried; chain values are used.
+\chapter{Why matter and light are in different sectors}\label{ch:dsnote}
+
+\section{Two kinds of worldline}
+General relativity treats massive particles and photons differently at the level of the metric. A massive particle moves on a timelike worldline and accumulates
+proper time,
+\begin{equation}
+g_{\mu\nu}\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}=-1,\qquad d\tau>0,
+\end{equation}
+while a photon moves on a null worldline and accumulates none,
+\begin{equation}
+g_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}=0,\qquad d\tau=0 .
+\end{equation}
+This is the causal structure of spacetime, not an approximation. Einstein noted that the geodesic equation entered the theory as a postulate alongside the field
+equations. Rest mass, $E=mc^2$, is energy bound into a configuration that moves on timelike worldlines; a photon carries energy on a null one.
+
+The sector split follows from one statement: a process that needs a finite proper-time interval $\Delta\tau>0$ to complete cannot run on a worldline with
+$\Delta\tau=0$. Gravitational decoherence --- the irreversible production of classical records during structure formation --- is such a process. Photons
+therefore cannot take part in it, and the record entropy $S_{\rm info}$ that drives the IAM modification is produced by the matter sector alone.
+
+\section{What a constant term cannot describe}
+$\Lambda$ is a property of the geometry: uniform, isotropic, time-independent, and the same for null and timelike geodesics. It is the correct description of the
+vacuum baseline. What it cannot describe is a contribution that depends on what matter does --- irreversible decoherence events, the records they leave,
+their encoding on the horizon, the resulting change in expansion, and the dilution that slows further collapse. $\Lambda$CDM works well because the record term
+$\beta_mE(a)$ is smooth and, over the redshifts where data are most precise, its integrated effect resembles a slowly varying constant. A constant, however, has
+no link to when structure forms; in IAM the record term grows with structure formation, so it becomes important when matter is most active. The ingredients ---
+Landauer (1961), Bekenstein--Hawking (1973), Jacobson (1995) and decoherence theory (Zurek, 1980s) --- were developed separately; IAM combines them.
+
+\section{The sector split in the first law}
+IAM modifies the Jacobson--Cai--Kim first law of the apparent horizon to
+\begin{equation}
+-dE=T_H\,d\!\left(S_{\rm geo}+S_{\rm info}\right),
+\end{equation}
+with $S_{\rm geo}=A_H/4G$ and $S_{\rm info}$ the classical information produced by gravitational decoherence, encoded at Landauer cost $k_BT_H\ln2$ per bit. The
+sector split enters through one condition,
+\begin{equation}
+S_{\rm info}>0\iff d\tau>0 .
+\end{equation}
+For photons $S_{\rm info}=0$, the first law takes its standard form and general relativity is recovered. In the $\mu$--$\Sigma$ language,
+\begin{equation}
+\mu(a)=\frac{H^2_{\Lambda{\rm CDM}}(a)}{H^2_{\Lambda{\rm CDM}}(a)+\beta_mE(a)H_0^2}<1,\qquad\Sigma(a)=1,
+\end{equation}
+with $E(a)=\exp(1-1/a)$ and $\beta_m=\Omega_m/2=0.15765$ from the virial partition --- no parameter beyond $\Lambda$CDM.
+
+$\Sigma=1$ with $\mu\neq1$ also occurs elsewhere: in $f(R)$ gravity, in the quasi-static regime, lensing is unmodified and $\mu$ lies between $1$ and $4/3$.
+What is specific to IAM is the sign and form of $\mu(a)$ with its amplitude fixed in advance by $\Omega_m/2$, so that $\mu(0)=0.864$ is a prediction, not a fit.
+
+\section{The record so far}
+\begin{itemize}
+\item Seventeen converged chains (12 MGCAMB, 3 modified CAMB, 2 background diagnostics; Chapters~\ref{ch:latetime}, \ref{ch:level2}).
+\item Planck: $\Delta\chi^2=+0.54$ at the best points against $\Lambda$CDM with the same parameter count (likelihood ratio $0.76$).
+\item $\sigma_8$ from $0.809$ to $0.800$, toward the KiDS-1000, DES~Y3 and HSC~Y3 values.
+\item $H_0^{(\gamma)}=67.16\pm0.47$ ($-0.37\sigma$ from Planck); $H_0^{(m)}=72.26$ ($-0.75\sigma$ from SH0ES).
+\item The same term in the background Friedmann equation gives $H_0\approx61.5$, $10.9\sigma$ from Planck: the modification acts on the perturbations.
+\item Photon coupling: fitted to the acoustic scale, $\beta_\gamma<0.0039$ (95\,\%), so $\beta_\gamma/\beta_m<0.025$.
+\item Supernovae: their distances follow $\Lambda$CDM geometry; the $\beta$ term applied to them is excluded (Chapter~\ref{ch:dsvalidation}).
+\item In the Planck chain, $\Omega_m/2=0.1583\pm0.0033$, $0.2\sigma$ from the fixed $\beta_m$.
+\end{itemize}
+Whether the DESI preference for evolving dark energy arises from fitting one fluid to $\Lambda$CDM distances together with slower growth is a test still to be done
+on real data with two rulers (Chapter~\ref{ch:sectortension}).
+
+\section{What would count against the dual-sector structure}
+\begin{itemize}
+\item $\Sigma\neq1$ detected by Euclid tomography: the photon exemption would fail.
+\item $\beta_\gamma>0$ detected by CMB-S4: photons would be coupled.
+\item $\Omega_m$ revised while the growth data still require the old $\beta_m$: the virial ratio $\beta_m/\Omega_m=1/2$ would fail.
+\item Scale-dependent $\mu$ or $\Sigma$: in IAM both depend on redshift only.
+\end{itemize}
+Euclid, DESI Year~5 and CMB-S4 test each of these.

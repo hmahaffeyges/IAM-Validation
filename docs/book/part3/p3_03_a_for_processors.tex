@@ -1,0 +1,68 @@
+\chapter{The gate error over its floor: $A$ for quantum processors}\label{ch:ascoreqc}
+
+\section{From gate error to information cost}
+
+A two-qubit gate with error probability $p$ preserves the intended state with probability
+$1-p$. The information lost per gate, in nats, is
+\begin{equation}
+ \varepsilon=-\ln(1-p)=p+\tfrac12p^2+\dots
+ \label{eq:Agate}
+\end{equation}
+For every platform of current interest $p<10^{-2}$, so $\varepsilon$ equals $p$ to better
+than 0.5\%. The gate error in nats, $\varepsilon$, is therefore a re-expression of the published error, and the ranking
+it produces is the ranking by two-qubit error. Its value lies in the \emph{decomposition} and in
+the \emph{floor} it is compared with, not in the transformation itself.
+
+\section{The published values}
+
+Table~\ref{tab:platforms} lists the values as tabulated in the quantum-processor report Issue~002~\cite{MahaffeyQAPE},
+with the primary source it cites for each. They are \observed\ as cited. Two cautions apply to
+the whole table. First, published two-qubit errors mix isolated and simultaneous benchmarks,
+randomized and cross-entropy benchmarking, and median and mean over the device, so rankings at
+the 20\% level are not meaningful without harmonized definitions~\cite{Proctor2022}. Second, the
+``operating temperature'' of an ion or atom platform is its motional temperature, not a
+cryostat stage.
+
+\begin{table}[h]\centering\small
+\caption{Two-qubit error $p_{2Q}$ and gate error in nats $\varepsilon$, as used in the quantum-processor report Issue~002.}\label{tab:platforms}
+\begin{tabular}{@{}lllll@{}}\toprule
+platform & class & $p_{2Q}$ & $\varepsilon$ & source as cited \\\midrule
+Oxford Ionics EQC prototype & ion, electronic & $8.4\times10^{-5}$ & $8.40\times10^{-5}$ & arXiv:2510.17286 \\
+Quantinuum Helios (98Q) & ion, laser (Ba$^+$) & $7.9\times10^{-4}$ & $7.90\times10^{-4}$ & arXiv:2511.05465 \\
+Quantinuum H1-1 & ion, laser & $8.6\times10^{-4}$ & $8.60\times10^{-4}$ & vendor report, Apr.~2024 \\
+Google Willow (105Q) & SC, CZ & $1.5\times10^{-3}$ & $1.50\times10^{-3}$ & \cite{GoogleWillow2025} \\
+Quantinuum H2-1 (56Q) & ion, laser & $1.84\times10^{-3}$ & $1.84\times10^{-3}$ & vendor report \\
+IBM Heron R2 (156Q) & SC, CZ & $2.00\times10^{-3}$ & $2.00\times10^{-3}$ & vendor report \\
+IBM Nighthawk (120Q) & SC, CZ & $2.15\times10^{-3}$ & $2.15\times10^{-3}$ & vendor report, Jan.~2026 \\
+IonQ Forte (36Q) & ion, laser (Yb$^+$) & $4.0\times10^{-3}$ & $4.01\times10^{-3}$ & vendor report \\\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Floors and walls}
+
+For each architecture class the quantum-processor report assigns a \emph{material floor} $\varepsilon_{\mathrm{floor}}$, the error
+below which the dominant physical mechanism of that class does not permit a gate to go, and
+the reading on the one gauge is $A=\varepsilon/\varepsilon_{\mathrm{floor}}$ (Chapter~\ref{ch:onegauge}). The floors quoted in the source are:
+Yb$^+$ laser gates $3\times10^{-4}$; Ba$^+$ laser gates $1\times10^{-4}$; Ca$^+$ electronic
+$3\times10^{-5}$; Al/AlO$_x$ transmon $\sim1\times10^{-3}$ at the present participation ratio;
+Ta-based transmons $\sim3\times10^{-4}$; neutral-atom Rydberg $5\times10^{-3}$; photonic $\sim0.05$.
+The source states that the floors come from oxide stoichiometry and defect physics, not from a
+line fitted through hardware data. The derivations are not reproduced in the source papers,
+so this edition labels the floors \calibrated.
+
+\begin{remark}[IonQ, a floor in the data]
+IonQ reported the same $p_{2Q}=0.40\%$ for Harmony (2020), Aria (2022) and Forte (2024). the quantum-processor report
+reads this as the Yb$^+$ laser-motional class reaching its floor $\varepsilon_{\mathrm{floor}}=3\times10^{-4}$. A
+factor of 13 above that floor, however, it is a plateau and not a floor. A stall at
+$4\times10^{-3}$ for three generations is equally consistent with an engineering limit in
+laser delivery. The data show that the error stopped improving; they do not show that it
+stopped at a physical minimum.
+\end{remark}
+
+\section{The threshold picture}
+
+Surface-code error correction needs physical error below about $10^{-2}$, and useful
+fault-tolerant overhead needs about $10^{-3}$ or better~\cite{Fowler2012,GoogleWillow2025}.
+the quantum-processor report places each platform on a gauge of floor, error-correction threshold and fault-tolerance
+target. The book keeps the physical content, $A=\varepsilon/\varepsilon_{\mathrm{floor}}$, and does not
+reproduce the scoring scale.

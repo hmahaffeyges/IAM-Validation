@@ -1,0 +1,88 @@
+\chapter{IAM-A: copy error on single molecules}\label{ch:iama}
+
+\section{What a molecule shows that an array cannot}
+
+An array reports, at each site, the fraction of copies that are methylated. A sequencing read reports one molecule: a run of
+CpGs, each methylated or not, on one strand of one cell's DNA. On a molecule that is otherwise methylated, an unmethylated CpG
+between two methylated neighbours is a site the maintenance machinery failed to copy at the last division. That is the
+\emph{copy error}, and it is the most direct reading of the writing process the book's physics is about.
+
+\section{The statistic}
+
+A molecule qualifies when it carries at least six CpG calls and at least 80~\% of them are methylated. Each interior call is
+an opportunity; an unmethylated interior call with both neighbours methylated is an isolated error. The copy error is
+\begin{equation}
+  \varepsilon=\frac{\sum\text{isolated errors}}{\sum\text{opportunities}},
+  \qquad E_{\rm hold}=\kB T\ln\frac{1-\varepsilon}{\varepsilon},
+  \label{eq:eps}
+\end{equation}
+computed on the methylated channel only. The unmethylated channel is not used: there, bisulfite conversion failure dominates
+the isolated calls. The chain requires at least 100,000 opportunities and reports the reading separately on odd and even
+molecules as a repeat check. \derived{} for the form; the selection rules are \calibrated.
+
+\section{The floor}
+
+If the cell holds each site with an energy $E$ against thermal kicks, a two-state Boltzmann factor gives the least error that
+energy allows:
+\begin{equation}
+  \varepsilon_0=\frac{1}{1+e^{\phi M}},\qquad \Hmin=H(\varepsilon_0).
+  \label{eq:eps0}
+\end{equation}
+\derived{} for the form. With $M=20.94$ and the holding energy measured across 56 healthy cell types, $\phi=0.1628$
+(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Hmin=0.2044$ bits. \measured{} for the height. The form is IAM's Law at
+the chromatin surface; the height is still taken from healthy molecules, and deriving $\phi$ from the chemistry of
+maintenance is the central open problem of the cellular rung (Chapter~\ref{ch:open}).
+
+\section{The healthy position, and the reading}
+
+A healthy cell does not sit exactly on the floor. Its position above the floor, $P$, is measured once per cell type and per
+read pipeline, and frozen (\texttt{iama\_positions\_v1.json}):
+\begin{equation}
+  \text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.099 .
+  \label{eq:iama}
+\end{equation}
+\calibrated{} $P$ was measured on three healthy granulocyte donors (range 1.084--1.108, coefficient of variation 1.2~\%), on
+the read-level files of one public atlas~\cite{Loyfer2023} with the pipeline named \texttt{loyfer\_pat\_v1}. The floor then
+sits at $A=1/P=0.910$, below Normal. A reading below it is not a cell doing better than physics allows; it is an instrument
+fault, and the chain treats it as one.
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+test & result & \\\midrule
+healthy donors on $\varepsilon_0$ alone & 1.084--1.127 & \measured \\
+healthy donors with $P$, leave-one-donor-out & 0.978--1.040 & \measured \\
+odd/even molecule halves & differ by $\le0.002$ & \measured \\
+simulated 2~\% rise in copy error & 1.285--1.346 & \measured \\
+same cells on a second read pipeline, bare floor & 0.70--0.79 & \measured \\\bottomrule
+\end{tabular}
+\end{center}
+The last line is why $P$ is locked to a pipeline: the same cells read through a different alignment and extraction show a
+different error. A new pipeline needs its own $P$, measured on healthy cells, before it can read anything.
+
+\begin{rulebox}
+The floor and the reading must be defined by the same statistic on the same selection of molecules. An earlier floor of
+$\varepsilon_0=0.0227$, taken from a different statistic, made healthy molecules look 3.4--4.8 times too error-prone
+(PROC-MOLECULE-01). The lesson is now a rule of the chain.
+\end{rulebox}
+
+\section{One energy, many cells}
+
+Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, with no labels and no floor
+(PROC-CHANNEL-01):
+\begin{itemize}
+\item the copy error ranges 0.024--0.042 and the holding energy $3.41\pm0.12\,\kB T$: close to one energy in every cell type;
+\item on one physics floor (Eq.~\ref{eq:eps0}) healthy cell types read 0.79--1.23, median 1.01; 27 of 56 inside Normal. One
+      floor is not yet precise enough for an individual reading, which is why each cell type carries its own $P$;
+\item on the 26,800 CpGs that all 56 cell types keep methylated, the same bits in every cell, the copy error still differs
+      1.66-fold from the lowest (naive CD8 T cells, lung macrophages, B cells) to the highest (smooth muscle, heart
+      fibroblasts, erythroid progenitors), and the difference is stable across donors (intraclass correlation 0.80);
+\item cells do not sort by turnover: colon epithelium (a 3.4-day lifespan) and cardiomyocytes (56,000 days) carry the same
+      copy error, 0.031.
+\end{itemize}
+\measured{} for all four. The architecture of each cell's maintenance, not how often it is replaced, sets its position.
+
+\section{Tumours}
+
+The same statistic reads tumours against the same person's normal tissue with no reference population: in six early-onset
+colorectal pairs the tumour's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four,
+most of it surviving when 5-hydroxymethylcytosine is removed (PROC-TUMOUR-01; Chapter~\ref{part4:ch:reach}). \measured

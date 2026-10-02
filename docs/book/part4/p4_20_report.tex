@@ -1,0 +1,58 @@
+\chapter{The report}\label{ch:report}
+
+\section{What a report is}
+
+A report is one specimen's readings and everything needed to check them. It is rendered from a single bundle that records every input file with
+its SHA-256, every constant with the file it came from, and every stage's output. It has seventeen tabs in two kinds: \emph{specimen} tabs, which
+change with the specimen, and \emph{reference} tabs, which describe the instrument and are the same on every report.
+
+\begin{center}\small
+\begin{longtable}{@{}llp{0.62\textwidth}@{}}
+\caption{The report's tabs.}\label{tab:tabs}\\
+\toprule tab & kind & what it holds \\\midrule\endfirsthead
+\toprule tab & kind & what it holds \\\midrule\endhead
+Reading & specimen & what is in the sample and how each present cell reads: $A$ on its own identity loci against 1.00, with its tier \\
+How to read & reference & what $A$ measures, what each tier means, what $A=1.00$ is and is not; the one test every number passes \\
+Cells & specimen & every atlas cell, scored or not: $A$, interval, how many of its identity loci the array read; trace detection \\
+Sky & specimen & the specimen's own residuals over the array, with the statistics behind the plate \\
+Physics & reference & Landauer's bound, the floor $\Hmin$, why the zero is a fixed point and not a group of people \\
+Story & reference & what Astro-Genetics is, in the author's words, with the paper \\
+Instrument & reference & the physical constants (the eight floors) and what a laboratory's array needs before a reading \\
+Coverage & reference & what is read and what is reserved: the five substrates and the specimen types \\
+Red flags & specimen & everything the run refused, withheld or could not measure, by severity \\
+Integrity & specimen & every guard and whether it passed, with the Stage~0 custody record \\
+Troubleshooting & reference & every refusal the chain can print, what it means, what the operator does \\
+Safeguards & specimen & what the run refused and why; each safeguard with its cosmology counterpart; the constants read \\
+Chain & reference & the chain stage by stage, derived from the code \\
+Files & reference & every file the chain uses, with its role and SHA-256 \\
+Findings & reference & findings that changed a reported number, with the procedure behind each \\
+Record & reference & the validation record, linked \\
+Run & specimen & chain commit, a hash of every input, and how to clone, verify and run the chain \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\section{What a report does not say}
+
+The report does not name a condition. Its measurement tabs are scanned at render time against two lists: condition names, and cohort vocabulary
+(percentile, healthy range, cohort, age-matched, AUC, sensitivity and similar). A hit on a live measurement tab stops the render. The same guards run
+over the Standard Operating Procedure, the Operations Manual and the paper before every change reaches the repository (Chapter~\ref{ch:discipline}).
+Words that name what is being refused (``no band'', ``no population'') are allowed where they refuse.
+
+\section{Refusals are printed}
+
+Everything the chain declines to do appears on the report with the reason: a quarantined array, a tier withheld because the specimen is not whole
+blood, a cell printed without a tier because its fraction is too small, a flag on a reading whose identity loci were built from corrected sequencing
+data. The rule is that a reader should never have to infer what the instrument did not measure.
+
+\section{The report as a laboratory record}
+
+The Run tab carries what a second laboratory needs to reproduce the reading: the chain's commit, the checksum of every input, and the commands. The
+Files tab carries the checksum of every runtime file the chain read. A reading is reproducible if a second laboratory with the same IDATs and the same
+commit obtains the same numbers, and the report carries everything needed to check that.
+
+\section{The report on the second atlas}
+
+The v2 reader writes a reading per cell with fraction, interval, $A$ and tier, and runs as a preview beside the commissioned chain. It is not yet wired
+into the report renderer. The switch-over wires it in, regenerates every derived document, and re-renders the reference report from the same array, so
+that the report tabs describe the atlas that produced them.

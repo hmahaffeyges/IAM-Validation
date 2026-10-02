@@ -1,0 +1,69 @@
+% Shared preamble for IAM's Law and Order (one book, Parts 0-5).
+\usepackage[a4paper,margin=2.6cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{graphicx,booktabs,longtable,array,tabularx}
+\usepackage{xcolor,tcolorbox}
+\usepackage{siunitx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=green!35!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\graphicspath{{./}}
+\sisetup{separate-uncertainty=true}
+\allowdisplaybreaks
+
+% ---------- status labels: every claim in this book carries one ----------
+\definecolor{cDer}{HTML}{1F5FA8}\definecolor{cCal}{HTML}{2E8B57}\definecolor{cFit}{HTML}{B8860B}
+\definecolor{cCon}{HTML}{8E44AD}\definecolor{cPre}{HTML}{C0392B}\definecolor{cObs}{HTML}{555555}
+\newcommand{\statusbox}[2]{\tcbox[on line,colback=#1!8,colframe=#1,boxrule=0.4pt,arc=1pt,left=2pt,right=2pt,top=0pt,bottom=0pt,fontupper=\scriptsize\sffamily\bfseries]{#2}}
+\newcommand{\derived}{\statusbox{cDer}{DERIVED}}
+\newcommand{\calc}{\statusbox{cDer}{CALCULATED}}
+\newcommand{\calibrated}{\statusbox{cCal}{CALIBRATED}}
+\newcommand{\fitted}{\statusbox{cFit}{FITTED}}
+\newcommand{\conjecture}{\statusbox{cCon}{CONJECTURE}}
+\newcommand{\prediction}{\statusbox{cPre}{PREDICTION}}
+\newcommand{\observed}{\statusbox{cObs}{OBSERVED}}
+\newcommand{\openprob}{\statusbox{cPre}{OPEN PROBLEM}}
+
+\newtcolorbox{checkbox}[1][]{colback=gray!4,colframe=gray!55,boxrule=0.5pt,arc=2pt,fonttitle=\bfseries\small,title=Independent check,#1}
+\newtcolorbox{keybox}[1][]{colback=blue!3,colframe=blue!45!black,boxrule=0.5pt,arc=2pt,fonttitle=\bfseries\small,#1}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{postulate}{Postulate}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[chapter]
+
+\newcommand{\kB}{k_{\mathrm B}}
+\newcommand{\lP}{\ell_{\mathrm P}}
+\newcommand{\mP}{m_{\mathrm P}}
+\newcommand{\Hmin}{H_{\min}}
+\newcommand{\xqp}{x_{\mathrm{qp}}}
+\newcommand{\ncp}{n_{\mathrm{cp}}}
+\newcommand{\tTLS}{\tau_{\mathrm{TLS}}}
+\newcommand{\tqp}{\tau_{\mathrm{qp}}}
+\newcommand{\lamL}{\lambda_{\mathrm L}}
+\newcommand{\Edrive}{E_{\mathrm{drive}}}
+
+
+% ---- Part 4 additions ----
+\newcommand{\bbar}{\bar\beta}
+\newcommand{\bstar}{\beta^{*}}
+\newcommand{\Tb}{T_{\mathrm{body}}}
+\newcommand{\dGATP}{\Delta G_{\mathrm{ATP}}}
+\newcommand{\measured}{\statusbox{cObs}{MEASURED}}
+\newcommand{\analogy}{\statusbox{cCon}{ANALOGY}}
+\newcommand{\record}{\statusbox{cObs}{RECORD}}
+\newcommand{\preview}{\statusbox{cPre}{PREVIEW}}
+\newtcolorbox{rulebox}[1][]{colback=green!3,colframe=green!35!black,boxrule=0.5pt,arc=2pt,fonttitle=\bfseries\small,title=Rule of the instrument,#1}
+
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+\newcommand{\interp}{\statusbox{cCon}{INTERPRETATION}}
+
+\title{\Huge\bfseries IAM's Law and Order\\[10pt]\LARGE How Decoherence Writes the Classical World,\\[2pt] and the Energy That Holds It Against Thermal Noise}
+\author{Heath W.\ Mahaffey\\\small Independent researcher, IAMPerformance\\
+\small\url{https://github.com/hmahaffeyges/IAM-Validation}}
+\date{Working edition, October 2026}

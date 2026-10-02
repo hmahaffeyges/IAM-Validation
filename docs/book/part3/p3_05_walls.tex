@@ -1,0 +1,102 @@
+\chapter{Coherence walls and the Substrate Inversion}\label{ch:walls}
+
+\section{Three components of a gate error}
+
+the quantum-processor report decomposes a superconducting two-qubit error into three parts~\cite{MahaffeyQAPE}:
+\begin{equation}
+ p_{2Q}=p_{\mathrm{coh}}+p_{\mathrm{mat}}+p_{\mathrm{ctrl}} .
+ \label{eq:pdecomp}
+\end{equation}
+Here $p_{\mathrm{coh}}$ is the error from finite $T_1$ and $T_2$ over the gate time;
+$p_{\mathrm{mat}}$ is the error from the substrate's TLS population, which grows as $T_1$
+approaches the material ceiling; and $p_{\mathrm{ctrl}}$ is the control and crosstalk overhead,
+with an architecture-specific floor. The coherence term is standard. For a gate of duration
+$t_g$, $p_{\mathrm{coh}}\approx t_g/T_1+t_g/T_\phi$ up to state-averaging factors~\cite{Abad2022}.
+The split between $p_{\mathrm{mat}}$ and $p_{\mathrm{ctrl}}$ is a model output of the quantum-processor report.
+
+\section{The Substrate Inversion}
+
+\begin{definition}
+For a given substrate and junction material, $T_{1,\mathrm{free}}$ is the coherence ceiling
+set by its TLS population. The \emph{Substrate Inversion} is the point
+\begin{equation}
+ T_1^*=0.65\,T_{1,\mathrm{free}}
+\end{equation}
+beyond which further increases in $T_1$ no longer reduce the two-qubit error, because the
+material and crosstalk terms grow faster than the coherence term falls.
+\end{definition}
+
+\noindent the quantum-processor report sets $T_{1,\mathrm{free}}\approx500\ \mu$s for Nb/AlO$_x$, so $T_1^*\approx325\ \mu$s,
+and $T_1^*\approx195\ \mu$s for Al/AlO$_x$. The factor 0.65 is described as reflecting the
+nonlinear form of the substrate term. It is \calibrated\ on IBM's trajectory, and its derivation
+is not given.
+
+\section{Heron R2 and Nighthawk}
+
+The case that motivated the definition is IBM's move from Heron~R2 (2024) to Nighthawk
+(January~2026)~\cite{MahaffeyQAPE}. $T_1$ rose from 300 to 350~$\mu$s (+17\%), past $T_1^*$,
+while the two-qubit error rose from $2.00\times10^{-3}$ to $2.15\times10^{-3}$ (+7.6\%). Nighthawk
+also has 20\% more couplers per qubit (square lattice versus heavy-hex). the quantum-processor report's decomposition
+is shown in Figure~\ref{fig:inversion}.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.72\textwidth]{figures/part3/fig_substrate_inversion.pdf}
+\caption{the quantum-processor report's decomposition of the IBM Heron~R2 and Nighthawk two-qubit errors into
+coherence, substrate and control terms. Totals are \observed\ as cited; the split is a the quantum-processor report
+model output.}\label{fig:inversion}
+\end{figure}
+
+\begin{checkbox}
+The components sum correctly: $910+340+750=2000$~ppm and $740+450+960=2150$~ppm. The source's
+change table lists $p_{\mathrm{coh}}$ as ``$-190$~ppm''; the change is $-170$~ppm. The source
+also lists Nighthawk's $\varepsilon$ as both $2.152\times10^{-3}$ and $2.156\times10^{-3}$.
+
+\textbf{Is the inversion identified?} The observation is that error rose while $T_1$ rose,
+together with a denser coupling graph. The decomposition attributes $+110$~ppm to the
+substrate and $+210$~ppm to control overhead. The larger term is the one expected from
+the topology change alone, independent of any substrate saturation. The single transition
+cannot separate ``more couplers'' from ``past $T_1^*$''. The discriminating test is a same-topology
+device with $T_1>T_1^*$. The source states the corresponding falsifier: \prediction\ an IBM
+Nb/AlO$_x$ chip with $T_1>325\ \mu$s and $p_{2Q}<2\times10^{-3}$ at unchanged connectivity would
+require the framework to be revised.
+\end{checkbox}
+
+\section{Willow and the materials escape}
+
+the quantum-processor report places Google Willow at $T_1=68\ \mu$s, $0.21\,T_1^*$, with a projected crossing near
+2028. It states that the successor ``requires tantalum or equivalent''. For Ta-based transmons,
+where the oxide is more crystalline and the TLS density lower~\cite{Place2021,Wang2022Ta}, it sets
+$T_{1,\mathrm{free}}\approx2{,}000\ \mu$s and $T_1^*\approx1{,}300\ \mu$s, a fourfold wider window.
+(The source gives the window as both 4$\times$ and 3.7$\times$.)
+
+\begin{remark}
+The 0.21 ratio uses the Nb/AlO$_x$ value $T_1^*=325\ \mu$s. Willow's junctions are Al/AlO$_x$,
+for which the quantum-processor report's own $T_1^*$ is 195~$\mu$s, giving $0.35\,T_1^*$. The projected crossing year
+should be recomputed on that basis.
+\end{remark}
+
+\section{Scaling with qubit count}
+
+the quantum-processor report models the dependence of effective error on qubit count and connectivity with an
+architecture-specific cost per added coupler, $\alpha$, which it states as
+\begin{itemize}
+ \item essentially free for SC heavy-hex before $T_1^*$;
+ \item ``toxic'' for SC CZ after $T_1^*$, with an amplifier $g\approx16$;
+ \item negligible for trapped-ion QCCD, $\alpha\approx0.02$, where connectivity grows as $\log N$;
+ \item flat for Rydberg arrays.
+\end{itemize}
+These are \calibrated\ on nine IBM platforms and the published ion and atom trajectories.
+
+\section{Dated predictions}
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}lX@{}}\toprule
+IAM-2026-P001 & Google's next processor after Willow requires tantalum or an equivalent low-TLS junction to improve beyond the current floor. \\
+IAM-2026-P003 & Quantinuum Apollo reaches $A<1.0\times10^{-4}$ on Ba$^+$, or moves to a Ca$^+$ electronic-state (EQC) architecture. \\
+IAM-2026-P006 & Microsoft Majorana~1: $A>2\times10^{-3}$ would show that topological protection is not outperforming the transmon class; $A<1\times10^{-3}$ would show topology contributing. \\
+IAM-2026-P013 & Quantinuum Sol (192Q, 2027): $A\approx5.8\times10^{-4}$; QCCD scales without a TLS ceiling, so Sol does not regress from Helios. \\
+falsifier & Nb/AlO$_x$ at $T_1>325\ \mu$s with $p_{2Q}<2\times10^{-3}$ at fixed connectivity. \\\bottomrule
+\end{tabularx}
+\end{center}
+\noindent Each is a \prediction\ with a date and a named system. The book records them as the
+source states them and takes no position on commercial roadmaps.

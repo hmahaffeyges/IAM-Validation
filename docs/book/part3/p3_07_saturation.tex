@@ -1,0 +1,51 @@
+\chapter{Four saturation events}\label{ch:saturation}
+
+\section{Two entries per event}
+
+The compilation proposes that every actualization event makes two ledger entries. The first
+goes to the \emph{local} encoding surface, which is hot and finite: the transistor junction,
+the qubit's substrate and barrier, the chromatin surface of a nucleus, or a forming
+black-hole horizon. The second goes to the \emph{cosmic} horizon, which is cold and, on
+observable timescales, never saturates. Information migrates from the first to the second at
+a rate set by their temperature difference. A local surface can saturate; the cosmic one
+cannot. \conjecture
+
+\section{The four thresholds}
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}lXXl@{}}\toprule
+domain & local surface & saturation observed as & status of the coefficient \\\midrule
+gravity & horizon, area $A$ & collapse; $S=A/4\lP^2$ & \derived\ as a ratio, $2\pi/8\pi$ (Ch.~\ref{ch:blackholes}) \\
+semiconductors & gate channel at $T_j$ & end of Dennard scaling, 2004--06 & set by $\kB T_j/q$ (Ch.~\ref{ch:cmos}); class $n$ \calibrated \\
+quantum computing & junction barrier and substrate & Substrate Inversion, $T_1^*=0.65\,T_{1,\mathrm{free}}$ & \calibrated\ (Ch.~\ref{ch:walls}) \\
+cells & chromatin surface, per architecture class & departure from the floor $\Hmin$ & \fitted\ once on reference cells~\cite{MahaffeyLandauerMetrology} \\\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{What is common, and what is not yet shown}
+
+The common structure is real at the level of form. In each case:
+\begin{enumerate}
+\item there is a surface on which irreversible events are recorded;
+\item the surface has a temperature: $\hbar\kappa/2\pi$, $T_j$, $\Delta/\kB$ or $T_{\mathrm{body}}$;
+\item there is a floor below which a record cannot be written or kept, and a regime change
+      when the system is driven against it.
+\end{enumerate}
+The compilation goes further and proposes that each coefficient is a ratio of a topological
+period to a geometric normalization, as $\tfrac14=2\pi/8\pi$ is for gravity.
+\conjecture\ For gravity this is exact (Chapter~\ref{ch:blackholes}). For the other three domains the
+corresponding ratio has not been written down, and their coefficients are set from data. The
+book records the four thresholds as a unified \emph{picture} and one derived case. Turning the
+picture into a theory requires deriving at least one of the non-gravitational coefficients
+($0.65$, a class exponent $n$, or a floor $\Hmin$) from surface geometry, before comparing it with
+data.
+
+\section{The bridge to the cell}
+
+The biological application is the subject of a separate paper~\cite{MahaffeyLandauerMetrology},
+and only its structure is needed here. The methylation state of a CpG is a binary record
+written on chromatin, copied at every division. A cell's copy error $\varepsilon$, read on single molecules, is set against the thermal floor
+$\varepsilon_0=1/(1+e^{E_{\rm hold}/\kB T})$ for a measured holding energy $E_{\rm hold}=3.41\,\kB T$, at the cell's architecture position $P$:
+$A=H(\varepsilon)/(P\,H(\varepsilon_0))$ (IAM-A). On arrays, the same cell is read against the healthy cell of its own kind (Met-A). Both read
+1 for a healthy cell, and both are per cell: no cohort enters the number. Part~\ref{part:4} builds the instrument; the point here is only why a
+physicist should expect a Landauer-type floor on a chromatin surface in the first place.

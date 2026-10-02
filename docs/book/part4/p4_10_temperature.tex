@@ -1,0 +1,59 @@
+\chapter{Temperature, and other species}\label{ch:temperature}
+
+\section{The floor is a function of temperature}
+
+The Mahaffey number falls as body temperature rises, if the free energy of ATP hydrolysis is held fixed: 22.94 for a salmonid
+at 10~\textdegree C, 20.94 for a human at 37~\textdegree C, 20.84 for a dog at 38.5~\textdegree C, 20.74 for a bird at
+40~\textdegree C. \calc{} Holding $\dGATP$ fixed is an assumption; the free energy depends on temperature and on the cell's
+ATP, ADP and phosphate concentrations.
+
+The floor of Eq.~\eqref{eq:eps0} makes a sharper statement. If a cell holds each site with a fixed energy $E_{\rm hold}$,
+measured at 37~\textdegree C as $3.41\,\kB T$, then at another temperature
+\begin{equation}
+  \varepsilon_0(T)=\frac{1}{1+\exp\!\left(E_{\rm hold}/\kB T\right)} ,
+  \label{eq:eps0T}
+\end{equation}
+with no exponent to choose. \derived{} given a fixed holding energy. At 10~\textdegree C this gives $\varepsilon_0=0.0233$ and a
+floor $0.78$ times the human one; at 38.5~\textdegree C, $1.012$ times (Figure~\ref{fig:eps0T}). \calc{} The alternative is a
+cell that holds its error fixed in units of $\kB T$, adjusting its holding energy with temperature. The two are distinguished by
+one measurement.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.8\textwidth]{figures/part4/fig_eps0_T.pdf}
+\caption{The floor against body temperature. Solid: fixed holding energy ($3.41\,\kB T$ at 37~\textdegree C), Eq.~\eqref{eq:eps0T}.
+Dashed: error held fixed in units of $\kB T$. Marks: dog (38.5~\textdegree C), human (37~\textdegree C), salmonid
+(10~\textdegree C). \calc}
+\label{fig:eps0T}
+\end{figure}
+
+\section{What the fish say so far}
+
+Three salmonid sets have been read with the same single-molecule statistic, each pre-registered:
+\begin{center}\small
+\begin{tabular}{@{}llll@{}}\toprule
+set & tissue, method & holding energy & instrument \\\midrule
+Methow River steelhead, 20 fish & red blood cells, RRBS & 3.31 $\kB T$ (median) & halves agree, ICC 0.998 \\
+ & sperm, RRBS & 4.02 $\kB T$ & \\
+brook charr, 40 males & sperm, WGBS & 3.82 $\kB T$ & ICC 0.92 \\
+Rimouski Atlantic salmon, 64 fish & fin, WGBS & 3.47 $\kB T$ (F0) & ICC 0.996 \\\bottomrule
+\end{tabular}
+\end{center}
+\measured{} The instrument repeats almost perfectly in every set. In every set the small differences between fish track the
+library (conversion failure, duplicate fraction), so no fish-level difference has yet been read. The steelhead red cells, at
+about 10~\textdegree C, read close to healthy human cells at 37~\textdegree C on the same statistic, against the fixed-energy
+prediction of a higher value in $\kB T$ units. That comparison is not the test: one small study, reduced-representation
+sequencing of CpG-dense regions against whole-genome human reads, a nucleated red cell against human granulocytes, and a
+body temperature assumed from the water. \openprob
+
+\begin{keybox}[title=The test that decides]
+One species, one cell type, one read pipeline, at two recorded temperatures. A rearing-temperature experiment does it; a
+whole-genome coho data set already downloaded is the first fish reading on a pipeline comparable to the human one. Until then
+the temperature behaviour of the floor is \openprob, and no ectotherm is read on the gauge.
+\end{keybox}
+
+\section{Dogs}
+
+Dogs are the natural first mammal after humans: their blood is drawn routinely, they share our environment, and a
+methylation array designed for mammals covers conserved CpGs across species~\cite{Arneson2022}. For a dog $M=20.84$ and the
+floor moves by about 1~\%. The first step is a canine healthy reference from purified canine blood cells; then sorted healthy
+canine cells read on it, held out, should land at 1.00. \prediction

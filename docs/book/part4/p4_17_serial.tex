@@ -1,0 +1,67 @@
+\chapter{Serial mode: one person, many draws}\label{ch:serial}
+
+\section{The strongest measurement is a difference}
+
+The author's view of where the instrument's value lies is plain: \emph{it has always been about the sequence of tests for individual patients;
+they will have a trajectory from draw to draw that shows progression or not, and they will create the best sky map as well.} There is a
+measurement reason to agree. Everything that is constant in a person between two draws, their genotype, their laboratory's pipeline if it is
+held fixed, the atlas's errors at their composition, cancels in a difference. In CMB language, two draws of one person are two maps of one sky,
+and their difference is the split-map null test turned into a signal.
+
+\section{What serial mode computes}
+
+Given a draw and an earlier draw of the same person (same identifier hash, same array type, same pipeline; otherwise the pair is refused):
+\begin{enumerate}
+\item \textbf{Per-cell $\Delta A$} for every cell present in both draws, with the cell's fraction in each. A cell present in one draw only is listed as
+      appeared or disappeared, not differenced.
+\item \textbf{The difference sky}, $\Delta\beta_i=\beta_i^{\mathrm{now}}-\beta_i^{\mathrm{prior}}$ at every address, drawn on the same projection as the sky.
+      No atlas expectation, no $\sigma$ from any population and no composition enter: two measurements of one person and their difference.
+\item \textbf{A trajectory} when there are three or more draws: each cell's $A$ by date, the sign of the last step, and whether any step exceeded the change floor.
+      No fit is made to a trajectory and no population defines its expected shape.
+\end{enumerate}
+Composition drops out of a difference only in part: if a person's fractions change between draws, the difference sky carries that change. The out-of-span
+projection of Chapter~\ref{ch:sky} removes it exactly, which is why its fourth test is written on serial pairs.
+
+\section{The change floor}
+
+A difference means nothing without the size of a difference that noise alone produces. That is set by technical replicates: the same person's DNA
+measured twice. The only large public set of whole-blood 450K replicates with the raw intensities deposited is the LOLIPOP study's 36 replicate pairs
+(GSE55763)~\cite{Lehne2015}. It was streamed column by column, keeping only the 72 replicate arrays.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.72\textwidth]{figures/part4/fig_serial_floor.pdf}
+\caption{Candidate change floor for serial readings: the 0.99 quantile of $|\Delta A|$ between technical replicates, per blood cell present in both arrays
+of a pair ($n$ = pairs). Cells present in fewer than five pairs are omitted. \measured}
+\label{fig:serialfloor}
+\end{figure}
+
+The per-cell floors are 0.066--0.080 in $A$ (Figure~\ref{fig:serialfloor}); the per-address floor on $\Delta\beta$ is 0.091. \measured{} These are upper bounds, for
+two reasons recorded with them. The deposited intensities skip the chain's background correction. And every one of the 36 pairs was run on different chips: in 33
+pairs every cell's $\Delta A$ had the same sign, a shift of the whole array between chip runs, not per-cell noise. The ten or so pairs with no such offset differ by
+at most 0.015 in any cell's $A$. The floor that matters for a laboratory running serial draws on one platform is therefore likely closer to 0.015 than to 0.07. A set
+of same-chip replicates through the chain's own Stage~1 would measure it. \openprob
+
+\section{A first difference sky}
+
+The Swedish Adoption/Twin Study of Aging (SATSA) deposited raw arrays for individuals drawn up to five times over two decades
+(E-MTAB-7309)~\cite{Wang2018SATSA}. Figure~\ref{fig:satsa} shows one individual's three later draws against the first, with only the addresses beyond the replicate
+floor coloured.
+
+\begin{figure}[t]\centering
+\includegraphics[width=\textwidth]{figures/part4/SATSA_IND_155_difference_sky_FLOORED.png}
+\caption{Difference sky for one SATSA individual, three later draws against the first (ages 72.6 to 79.6, 82.6 and 88.4). Only addresses whose $|\Delta\beta|$
+exceeds the replicate floor of 0.091 carry colour (red up, blue down). By construction about 1~\% of addresses would exceed it between replicates; 8--10~\% do here.
+Draws 1 and 2 of this individual fall below the intake call-rate line. \measured}
+\label{fig:satsa}
+\end{figure}
+
+About 8--10~\% of addresses change by more than the replicate floor across 7 to 16 years, against about 1~\% expected between replicates, with more addresses losing
+methylation than gaining it. \measured{} Two cautions go with the picture. Most SATSA draws fall below the intake line of Chapter~\ref{ch:instrument}, so every point
+of a SATSA trajectory must carry its intake status; this individual's first two draws are among them. And the floor is an upper bound from arrays on different chips.
+The picture shows what a serial reading looks like; it is not yet a measurement of how fast a person's methylome moves.
+
+\section{Why serial mode also makes the atlas better}
+
+A person measured repeatedly is their own reference at every address. With enough draws, the per-address spread of one person between draws is a noise map made
+with no population at all, and differences from it are that person's changes. The same draws, pooled over many people, would say which addresses are stable in
+every person and which move: information the atlas does not yet carry. Neither use requires comparing one person with another.

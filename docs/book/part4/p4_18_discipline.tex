@@ -1,0 +1,86 @@
+\chapter{Discipline: nulls, simulations, pre-registration}\label{ch:discipline}
+
+\section{Why an instrument needs rules about itself}
+
+A methylome offers hundreds of thousands of places to find a pattern and dozens of choices at every step of an analysis. Cosmology learned, at
+cost, that a result is only as good as the discipline that produced it: pre-registered tests, null tests that must read zero, simulations that must
+recover what was put in, and a correction for every place one looked. The chain adopts all four, and one more that cosmology takes for granted: the
+record of how every number was obtained is kept with the number. In the author's words, \emph{equally as important as the test results are the
+records of how we got them}.
+
+\section{Pre-registration}
+
+A procedure that decides anything about the instrument is written before data are read: what is built, what is measured, the bars it must meet, and what
+each outcome decides. It is committed to the repository with a timestamp before the run. The outcome is scored against the bars as written; nothing moves
+after results are visible. A bar that fails is recorded as failed, with a diagnostic written after the bars and labelled as such.
+
+Two refinements came from use.
+\begin{itemize}
+\item \textbf{A deferred check is never a pass.} A gate that cannot run because an input is missing stops the specimen. This rule was written after a
+      decision gate was found listing a deferred detection check and advancing the array anyway.
+\item \textbf{Development and commissioning are different stages.} During development the chain is diagnosed, fixed and re-run as often as needed, and each
+      result is reported. Pre-registration governs the procedures that commission the instrument and produce evidence.
+\end{itemize}
+
+\section{Null tests}
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.34\textwidth}p{0.56\textwidth}@{}}\toprule
+null & what must happen \\\midrule
+same array read twice & every reading and every $z$ identical; $\Delta z=0$ \\
+constructed specimen of atlas cells & every present cell Normal; sky quiet; no spurious cell \\
+technical replicates & differences inside the change floor \\
+a cell held out of the atlas, spiked in & detected as foreign, not absorbed into a known cell \\
+known mixtures of purified cells & fractions within the pre-registered error \\
+held-out samples of an atlas cell & read Normal on loci chosen without them \\\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Constructed specimens}
+
+A synthetic specimen is composed from the atlas's own cell means at known fractions, optionally with a known change planted in one cell. Run through the
+whole chain, it must return the fractions and the readings that were put in. This is the methylome's end-to-end simulation, and it found errors that nothing
+else would have: a synthetic patient that read Breach from coverage alone, and a scale map that added 0.10 to every cell. It also measured the dilution lines
+of Chapter~\ref{ch:separation}, from which the detection-gate rule follows.
+
+\section{Look-elsewhere}
+
+A search over many places must be corrected for the number of places. An early chromosome-level anomaly on chromosome 6, promising by eye, disappeared under
+the look-elsewhere correction of the null runner. It is the methylome's version of the CMB's large-angle anomalies: most patterns found by looking are the
+product of looking.
+
+\section{The procedures, and what they decided}
+
+\begin{center}\small
+\begin{longtable}{@{}p{0.24\textwidth}p{0.4\textwidth}p{0.26\textwidth}@{}}
+\caption{Procedures that built the instrument, with their outcomes.}\label{tab:procs}\\
+\toprule procedure & question & outcome \\\midrule\endfirsthead
+\toprule procedure & question & outcome \\\midrule\endhead
+PROC-HMIN-BOOT-01 & do the floors survive resampling? & passed, 8 of 8 \\
+PROC-INTAKE-01 & does intake run on the array's own numbers? & adopted \\
+PROC-TARE-01 & can SNP probes zero the array? & not commissioned \\
+PROC-UNMIX-01 & can a minor cell be unmixed with solved fractions? & not adopted \\
+PROC-SKY-01 & does a no-population $\sigma$ fit every laboratory? & failed B2; holds on admitted input \\
+PROC-STAGE2D-03 & does a joint fit find foreign cells without absorbing them? & adopted \\
+PROC-FOREIGNSCORE-01 & a scoring floor for foreign cells & sealed, not adopted \\
+PROC-SERIAL-01 & serial mode and its change floor & floor measured (upper bound) \\
+PROC-DECONV-V2-01 & v2 solver on known mixtures & failed on CD4, CD8; fixed by candidate sets \\
+PROC-V5-HELDOUT & do atlas v2 intervals hold? & passed \\
+PROC-V12-IDENTITY & do identity loci transfer to new samples? & failed twice; rebuilt array-first \\
+PROC-OUTSPAN-01 & does the out-of-span map separate unknowns? & pre-registered \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\section{Guards that run at every change}
+
+Before any change to the chain reaches the repository, a single build regenerates every document derived from the code (the chain sequence, the inventory,
+the Standard Operating Procedure's generated parts, the Operations Manual, a fresh reference report and its tab reference) and runs its gates:
+\begin{itemize}
+\item a vocabulary scan with the report's own guards over the procedure, the manual, every tab of the fresh report and the paper, failing on condition names
+      and on cohort language in live text;
+\item a class guard, failing on any use of the class map other than the floor lookup;
+\item a link check over every reference in the documents.
+\end{itemize}
+Every push carries a copy of the files it changed. Two runs never write to one output path; one early procedure run was voided when a stray process kept
+writing into the same log, and the rule was written that day.

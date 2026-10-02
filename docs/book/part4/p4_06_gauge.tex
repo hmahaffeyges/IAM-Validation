@@ -1,0 +1,122 @@
+\chapter{One gauge for a cell}\label{ch:gauge}
+
+\section{The reading}
+
+Every reading in this book is an error score read on the same gauge: the reading divided by the same cell type's healthy
+reading, on the same instrument,
+\begin{equation}
+  A=\frac{\text{reading}}{\text{healthy reference}} .
+  \label{eq:A}
+\end{equation}
+$A=1$ is the cell working as itself and sits in the middle. Below it lies $\Hmin$, the floor: the least error the cell's
+energy budget can hold against thermal kicks; nothing reads below it. Above 1 the cell makes more error than when healthy
+(Figure~\ref{fig:gauge}). The ratio is dimensionless and independent of laboratory, array and person, provided the reading
+and the reference are made on the same platform through the same calibration (Chapter~\ref{ch:instrument}). The same
+construction reads qubits and chips in the companion volume; for a cell the healthy reference is what a clinician needs,
+because what matters is whether this cell is still the cell it should be.
+
+\begin{figure}[t]\centering
+\includegraphics[width=\textwidth]{figures/part4/fig_gauge_cell.pdf}
+\caption{One gauge, four readings, for neutrophils: Met-A (EPIC arrays), IAM-A (single molecules), the Met-A C-score and the IAM-A
+C-score (not built). On every row 1 is the healthy reference, in the middle; the left half runs from the floor to 1 and the right half from 1 to
+the far end on a log scale, so the two halves are not on one scale. Normal (green) is $0.95$--$1.05$. Bars are measured readings: held-out
+healthy arrays, and the same arrays with known damage (Chapter~\ref{ch:skytools}). $\Hmin$ (IAM-A, $0.910$) is the floor where thermal kicks win. Breach and the cancer region lie to the right of Normal and are
+to be measured on this scale. The surface is full when every identity site sits at a coin flip: $3.03$ (Met-A), $4.45$ (IAM-A).
+The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far end, every 50-site block moving as one, is 45. \calc}
+\label{fig:gauge}
+\end{figure}
+
+\section{The points on the gauge}
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.2\textwidth}p{0.2\textwidth}p{0.5\textwidth}@{}}\toprule
+point & value (neutrophils) & status \\\midrule
+$\Hmin$ & IAM-A $0.910$; Met-A not yet defined & IAM-A: form \derived, height \measured{} (Ch.~\ref{ch:iama}); Met-A \openprob \\
+Normal & $0.95$--$1.05$ & a design tolerance: healthy is $A=1\pm5$~\%; no population sets it \\
+breach & to be measured & placed from per-person data: tumour/normal pairs, the DNMT1-inhibitor series, blood cancers \\
+cancer region & beyond breach & to be measured the same way \\
+full surface & Met-A $3.03$; IAM-A $4.45$ & \calc{} from the healthy reference alone \\
+C-score far end & Met-A C-score $45$ & \calc{} block size 50 over the healthy baseline 1.1104; the IAM-A C-score is not built \\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{keybox}[title=What the chain prints today]
+Chain v3 prints the reading with one of three words: \emph{Normal}, \emph{above Normal}, \emph{below Normal}. Every line
+beyond Normal is withheld until it is measured on this scale.
+\end{keybox}
+
+\section{The reading is an error rate}
+
+At an identity site the cell holds methylated, a fraction $\varepsilon$ of its DNA copies has lost the mark and $\beta=1-\varepsilon$; at
+a site it holds unmethylated, $\beta=\varepsilon$. Because $H(\beta)=H(1-\beta)$, the entropy at either site is the entropy of the error rate,
+$H(\varepsilon)$. So
+\begin{equation}
+  A=\frac{H(\text{error now})}{H(\text{error in the same cell when healthy})},
+\end{equation}
+the cell's version of a qubit's gate error read against its specification. \derived{} $A=1$: errors at the healthy rate. $A>1$: more
+errors; the pattern is blurring. $A<1$: fewer errors than healthy; the pattern is locking tighter.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.22\textwidth}p{0.3\textwidth}p{0.38\textwidth}@{}}\toprule
+quantum computer & cell & what is measured \\\midrule
+bit & one CpG on one DNA copy & methylated or not \\
+intended state & the cell's identity pattern & the healthy reference \\
+gate error & copy error at division (DNMT1 misses a site) & isolated unmethylated calls on single molecules (IAM-A) \\
+$T_1$ decay & marks lost between divisions & region-wide loss; slow drift \\
+leakage & writing where the pattern has none & gains on the unmethylated channel \\
+error rate against specification & $A$ & $A$ per channel \\\bottomrule
+\end{tabular}
+\end{center}
+
+Two cautions keep the mapping exact. First, Met-A measures \emph{state} error, the fraction of copies holding the wrong mark at one moment;
+that is what copy error and decay leave behind together. Met-A says how much error there is; single-molecule reads say which process made
+it. Second, the two channels can move in opposite directions, and a reading over both can hide both.
+
+\paragraph{Two channels, read apart.} IMR90 lung fibroblasts (WGBS, GSE48580): three proliferating, three replicatively senescent and three
+SV40-immortalised cultures, each read against the proliferating cultures, with the sites chosen on one proliferating culture and the
+reference taken from a different one so that the reference is not computed on the data that chose the sites. \measured
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}\toprule
+IMR90 & methylated channel & unmethylated channel & both \\\midrule
+proliferating (held out) & 0.991--1.005 & 0.991--1.016 & 0.997--1.002 \\
+senescent & 0.941--1.016 & 0.685--0.695 & 0.874--0.925 \\
+SV40-immortalised & 1.078--1.120 & 0.587--0.664 & 0.965--0.975 \\\bottomrule
+\end{tabular}
+\end{center}
+Senescent cells keep the methylated channel at the healthy rate and clean the unmethylated channel: fewer errors there, so the combined
+reading sits below Normal. Immortalised cells do both at once, more error on the methylated channel and less on the unmethylated one, and the
+two cancel: the combined reading, 0.965--0.975, sits inside Normal. A single number over both channels would call these cells healthy.
+Channels are reported apart. Not yet checked: whether a difference in bisulfite conversion between the cultures contributes to the
+unmethylated channel, where conversion failure reads as methylation (Chapter~\ref{ch:iama}). \openprob
+
+\section{How far a reading moves}
+
+What a reading can show depends on how far a real change moves it. On arrays, a simulated loss of 2~\% of the neutrophil
+pattern in whole blood moves tared Met-A by about $+0.06$ (1.052--1.090 on six constructed mixtures); the shift scales with
+the neutrophil fraction of the specimen, 0.033 at 40--50~\% neutrophils and 0.064 above 70~\% (DEV-LOWFRAC-01).
+\measured{} On molecules, a simulated 2~\% rise in copy error moves IAM-A from about 1.00 to 1.29--1.35. \measured{} The
+single-molecule reading is the more sensitive of the two by a factor of about five.
+
+\section{The interval on a reading}
+
+A reading carries three uncertainties. The healthy reference itself: six purified neutrophil arrays read one another, with
+the identity sites re-chosen each time, at a standard deviation of 0.020 (Chapter~\ref{ch:meta}). The run: a same-run tare
+against healthy references processed alongside the specimen states its own spread. And the fraction: in whole blood a cell
+that is a small share of the DNA moves the reading less, so each specimen carries its own \emph{detection limit}, the
+smallest loss of its neutrophil pattern it could show (Chapter~\ref{ch:chain}). \measured
+
+\section{Three readings, in one sentence each}
+\begin{itemize}
+\item \textbf{Met-A} is reference metrology: information in bits, against a measured standard, the same cell type healthy.
+\item \textbf{IAM-A} is the physics reading: copy error on single molecules against the floor set by thermal noise, $\kB T$ per bit with a
+holding energy of 3.41~$\kB T$, which is 4.9 Landauer units ($3.41/\ln2$) and 0.16 of one ATP.
+\item \textbf{The C-score} is a map statistic taken from cosmology: whether the departures are spread out or sit together in regions of the
+genome (Chapter~\ref{ch:skytools}).
+\end{itemize}
+
+\section{Tier words are not diagnoses}
+\begin{rulebox}
+A word on the gauge is a statement about where a cell population's error sits relative to the healthy cell of its kind. It
+is not a diagnosis, a prognosis or a statement about a person. The report does not name conditions; a render-time guard
+fails any measurement tab that does (Chapter~\ref{ch:report}).
+\end{rulebox}

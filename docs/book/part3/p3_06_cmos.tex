@@ -1,0 +1,94 @@
+\chapter{Landauer at the transistor gate: CMOS and the Dennard wall}\label{ch:cmos}
+
+\section{The floor for logic}
+
+A conventional logic gate erases information at almost every operation. The Landauer floor at
+a junction temperature $T_j=348$~K (75~$^\circ$C) is
+\begin{equation}
+ \kB T_j\ln2=3.33\times10^{-21}\ \mathrm J=0.021\ \mathrm{eV}.
+\end{equation}
+Real CMOS switches at the fJ--aJ scale per gate~\cite{Theis2017}. Using whole-chip power
+divided by transistor count and clock, $\Edrive=\mathrm{TDP}/(N_{\mathrm{trans}}f)$, the Apple M1
+spends $3.90\times10^{-19}$~J per transistor per cycle, which gives $M=\Edrive/\kB T_j=81.2$
+(Chapter~\ref{ch:iams_law}). Most transistors do not switch every cycle, which raises the energy per
+actual switch, while TDP also contains leakage and static power, which lowers it; $M=81$ is an
+order-of-magnitude figure.
+Either way, present logic runs one to two orders of magnitude above $\kB T$, which is far
+closer to the Landauer floor than a naive fJ estimate suggests. This is the regime in which
+thermal physics, not lithography, sets the rules.
+
+\section{Dennard scaling and its end}
+
+Dennard \emph{et al.}\ showed in 1974 that shrinking all dimensions and the supply voltage by
+$1/\kappa$ keeps power density constant, while delay falls as $1/\kappa$ and density rises
+as $\kappa^2$~\cite{Dennard1974}. The rule held until the mid-2000s. It failed because the
+supply voltage cannot fall below a few tenths of a volt without leakage becoming prohibitive.
+The subthreshold swing of a MOSFET is bounded below by $(\kB T/q)\ln10=60$~mV/decade at
+300~K~\cite{Sze2006}, so the threshold voltage cannot be scaled without an exponential rise
+in off-current. Once $V$ is held fixed, power density grows as $\kappa^2$
+(Figure~\ref{fig:dennard}). Clock frequencies stalled near 2005, and the industry turned to
+multicore designs and, later, dark silicon~\cite{Esmaeilzadeh2011}. Koomey's law, the doubling
+of computations per joule, slowed from every 1.57 years to about every 2.6 years~\cite{Koomey2011,Koomey2016}.
+
+\begin{keybox}[title={The Dennard wall is a Boltzmann wall}]
+The 60~mV/decade limit is $\kB T/q$ times $\ln10$. The end of Dennard scaling is therefore
+a statement that switching energies approached a fixed multiple of $\kB T$ at the junction.
+That is the regime IAM describes: an encoding surface (the gate channel) at a definite
+temperature ($T_j$), with a floor set by $\kB T_j$. The identification is standard device
+physics, and IAM's contribution is to place it on the same axis as the horizon and the qubit.
+\end{keybox}
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.7\textwidth]{figures/part3/fig_dennard.pdf}
+\caption{Relative power density under constant-field scaling and at fixed voltage.
+\derived\ from the 1974 scaling rules.}\label{fig:dennard}
+\end{figure}
+
+\section{The the semiconductor report observations}
+
+the semiconductor report Issue~002~\cite{MahaffeySCAPE} tracks the energy efficiency of CPUs and SoCs from
+published specifications. Its physical observations, restated in terms of $M$ and the
+per-step improvement, are these.
+\begin{enumerate}
+ \item \textbf{The 2005 regime change from 2003--2005 data alone.} Pentium~4 to Core~2
+       (2003--06) delivered an 81.6\% step, and Core~2 to Core~i7-920 (2008) delivered 28.4\%.
+       A constant step of the earlier size would have driven the chip through its own floor in
+       about 3.5 nodes. the semiconductor report reads that physical impossibility as the signal of a regime change.
+       \calc\ The logic is sound: a step size that cannot continue must stop. It locates the
+       Dennard break at the right time from before-the-fact data.
+ \item \textbf{A Dennard amplifier.} The ratio of the pre-2005 per-node gain to the present one
+       (72\% to 26.6\% for Apple Silicon) is $g=2.71$. \calc
+ \item \textbf{Temperature response by architecture class.} Using Eq.~\eqref{eq:npower} in
+       junction temperature, the semiconductor report assigns $n=1.853$ to pre-Dennard CMOS, $0.936$ to
+       post-Dennard Intel, $0.340$ to AMD and $0.794$ to Apple Silicon. \calibrated\ With these
+       exponents Intel and AMD, within 1\% of each other at 75~$^\circ$C, cross at
+       81~$^\circ$C, and at 105~$^\circ$C AMD is 3.7\% more efficient.
+\end{enumerate}
+
+\begin{checkbox}
+The crossover follows from the two exponents alone. With efficiency indices $I_{\mathrm A}=576$
+and $I_{\mathrm I}=570$ at $T_0=348.15$~K, $I(T)=I_0(T/T_0)^n$ gives
+$(T/T_0)^{0.936-0.340}=576/570$, so $T=354.3$~K$=81.2$~$^\circ$C, and at 378.15~K the indices are
+592 and 616. This reproduces the source (82~$^\circ$C; 592$\times$, 615$\times$). The physics of
+why energy per operation should rise as a power of $T_j$ with a class-specific exponent is not
+derived. Leakage rises exponentially with $T$, and dynamic energy rises weakly. $n$ is the local
+slope of the mix, and it is \calibrated.
+\end{checkbox}
+
+\section{Architecture overhead}
+
+the semiconductor report separates an architecture-locked component $A_{\mathrm{isa}}$, the overhead of the
+instruction-set architecture and system design, which no node shrink removes, from an
+engineering-accessible component $A_{\mathrm{node}}$. It reports that Apple Silicon is about
+8.7 times more efficient than x86 at the same foundry and node. It attributes the gap to system
+integration (unified memory, package co-design, dedicated accelerators) rather than to the ARM
+instruction set itself, since Qualcomm's ARM parts sit between the two. \conjecture\ The
+decomposition is useful. The attribution is plausible and consistent with independent
+analyses showing that ISA per se matters little for energy~\cite{Blem2013}.
+
+\section{Prediction}
+
+\prediction\ The next Dennard-equivalent transition occurs in 2026--2028. In falsifiable form:
+AMD's and Intel's published 2~nm-class improvement steps will be materially smaller than their
+most recent steps. Intel's Arrow Lake step (70.7\%, the largest in its twenty-year record)
+would, if held, reach the x86 floor in 1.7 node steps, so it cannot hold.

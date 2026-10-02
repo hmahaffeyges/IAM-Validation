@@ -1,0 +1,223 @@
+\chapter{Tools from the sky}\label{ch:skytools}
+
+\section{Why cosmology's tools fit the cell}
+
+The cosmic horizon and the cell are two places in IAM: surfaces where records are written at a temperature (Part~I). In each, the record is
+read through an instrument that drifts, under foregrounds far brighter than the signal, and in each there is only one specimen to read: one sky,
+one person's cells. Cosmology met that problem first. It reads temperature differences of one part in $10^5$ about 2.7255~K, under dust and
+synchrotron emission from our own galaxy, with detectors whose gain changes by the hour, and it has no second universe to repeat the
+measurement on. The tools it built for that are the tools this chapter carries into the methylome. Some are algorithms; the more important ones
+are a discipline against fooling oneself.
+
+\section{How the CMB is read}
+
+A CMB experiment goes from raw detector samples to physics in fixed steps: calibrate the time-ordered data and cut glitches; make a map on a sphere;
+remove the foregrounds by component separation, using that each emitter has its own spectrum; measure what is left against noise maps made from
+split halves of the data; and only then compute statistics (power spectra, higher-order shapes, isotropy tests), with every test fixed before
+the answer is seen. Figure~\ref{fig:cmbcell}a is that residual for one simulated Planck sky.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/part4/fig_sky_cmb_vs_neutrophil.pdf}
+\caption{Same projection, same kind of quantity. (a) A sky drawn from the Planck 2018 best-fit temperature power spectrum (CAMB 2.0.4,
+$H_0=67.36$, $\Omega_bh^2=0.02237$, $\Omega_ch^2=0.1200$, $\tau=0.0544$, $A_s=2.100\times10^{-9}$, $n_s=0.9649$; HEALPix $N_{\rm side}=256$,
+seed 42): temperature minus its mean. (b) One healthy neutrophil array (GSM2998021) read against the other five physical arrays of the healthy
+reference: residual $z$ at 454,674 reference sites, placed in genome order on HEALPix rings ($N_{\rm side}=64$) and summed per pixel as
+$\sum z/\sqrt n$. The CMB's structure is the signal; a healthy cell's sky is quiet by construction, so any structure in it is the finding.
+Both drawn by \texttt{figsky/make\_sky\_figs.py}.}\label{fig:cmbcell}
+\end{figure}
+
+The cell's chain follows the same steps. The difference that matters is the last column of the CMB: its structure is the
+signal. In the cell the reference is the same cell type in healthy people, so a healthy specimen reads a quiet sky and the signal is the
+departure.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.3\textwidth}p{0.36\textwidth}p{0.26\textwidth}@{}}\toprule
+CMB step & methylome step & chain v3 \\\midrule
+time-ordered data, glitch cuts & IDAT intensities, control probes, detection masking & Stages 0--1 \\
+gain and bandpass calibration & dye bias, probe types, bisulfite conversion; same-run tare & Stages 1 and T \\
+map-making & intensity to $\beta$ & Stage 1 \\
+component separation & composition of the specimen (8 blood groups) & Stage A \\
+residual map & $z$ at each identity site against the healthy reference & Stage M \\
+monopole & Met-A, the mean over identity sites & Stage M \\
+clustering of the residual & C-score & Stage MC \\
+null tests on split data & held-out reference arrays, repeat specimens & development \\\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Putting the genome on a sphere}
+
+HEALPix divides the sphere into $12N_{\rm side}^2$ pixels of equal area, arranged on rings of constant latitude. The chain lays CpGs on it in
+genome order, chromosome 1 to chromosome Y and by position within each, filling the pixels ring by ring from the north pole
+(Figure~\ref{fig:genomesphere}). On EPIC this places 865,873 CpGs on 49,152 pixels ($N_{\rm side}=64$), 17.6 per pixel; the atlas map uses
+$N_{\rm side}=128$ for its 483,092 CpGs, 2.5 per pixel. \calc
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/part4/fig_sky_genome_on_sphere.pdf}
+\caption{The genome on the sphere. Chromosomes alternate in two blues, chrX red, chrY orange (the thin cap at the south pole). Each band is one
+chromosome; its width is its number of EPIC CpGs.}\label{fig:genomesphere}
+\end{figure}
+
+The layout is a display choice, not physics. Neighbours along a ring are genomic neighbours; neighbours above and below are millions of bases
+apart. Everything quantitative in the chain therefore works along the genome itself, and the sphere is how a person sees it: a quiet sky, a
+streak along a ring (one genomic region), a band (one chromosome).
+
+\section{Reading a cell's sky}
+
+At each site $i$ the residual is
+\begin{equation}
+  z_i=\frac{H(\beta_i)-\overline{H}_i}{s_i},
+\end{equation}
+where $\overline{H}_i$ is the mean of $H(\beta)$ over the healthy reference arrays and $s_i$ their spread, shrunk toward the pooled spread as in
+the chain. Two numbers summarise the sky. Met-A is its monopole, the mean of $H(\beta)$ over the 6,000 identity sites divided by the healthy
+reference. The C-score asks whether the departures sit together along the genome: take $z$ in genome order, average it in blocks of 50 sites,
+and compare the variance of the block means (times 50) with the variance of $z$. Independent scatter gives 1; a pattern in which every 50-site
+block moves as one gives 50. Divided by the healthy baseline 1.1104, the healthy arrays read 0.70--1.23 and the far end is 45 (Chapter~\ref{ch:cscore}). \derived{} (construction) \calibrated{} (baseline)
+
+Figure~\ref{fig:whatitsees} reads the six physical healthy arrays, each against the other five, and the same arrays with known damage:
+\input{part4/16a_skytools_skystats}
+\measured{} Damage spread over every site moves Met-A by about 0.1 and leaves the C-score where it was. The same damage concentrated in ten
+regions holding 5\,\% of the sites leaves Met-A inside Normal (0.95--1.05) and raises the C-score to 12.5--15.7. Met-A and the C-score measure
+different things; a reading needs both (Figure~\ref{fig:cunrolled}).
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/part4/fig_sky_what_it_sees.pdf}
+\caption{What the sky sees. (a) A healthy array. (b) The same array with 2\,\% blur toward $\beta=0.5$ at every site. (c) 5\,\% blur inside ten
+contiguous genomic regions (5\,\% of sites): streaks along rings. (d) The one female array of the reference read against the five male arrays:
+chrX lights up at the south pole. Met-A and C-score under each map are the chain's readings at the 6,000 identity sites (for c, the same
+construction applied to the identity sites). Box job \texttt{fcb79e1e}, \texttt{remote\_jobs/sky6/sky\_neut6.py}.}\label{fig:whatitsees}
+\end{figure}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/part4/fig_sky_cscore_unrolled.pdf}
+\caption{The C-score, unrolled. Pixel $z$ along the genome (grey points) with a 25-pixel running mean, for a healthy array and the same array
+with damage in ten regions. Each damaged region is a run of consecutive sites; the block average catches it while the mean over all sites
+barely moves.}\label{fig:cunrolled}
+\end{figure}
+
+\paragraph{The sky found the X chromosome.} Panel~\ref{fig:whatitsees}d was not planned as a test. One of the six reference arrays reads as female: 40\,\% of her chrX sites read between $\beta=0.3$ and 0.7, against 8\,\% in the other five, and only 121 of her chrY probes are
+detected, against about 540 in the others. \measured{} Read against five male arrays, X inactivation is a foreground the size of a galaxy plane. It
+does not reach Met-A: the 32 identity sites on chrX read the same $\beta$ on her array and on the five male arrays (all 0.92--0.95, one at 0.06--0.07), because
+the site rule required agreement across all six arrays. \measured{} The lesson is the CMB's: a whole-array map needs a sex mask, or a reference of
+the same sex, before its structure means anything. \openprob
+
+\section{The methylome's power spectrum}
+
+The CMB's first statistic is its angular power spectrum: how strongly two points of the sky agree as a function of the angle between them.
+The genome's counterpart is the correlation of methylation between two CpGs as a function of the number of bases between them, $C(d)$,
+measured inside one specimen. Figure~\ref{fig:cd}a is $C(d)$ for each of the six healthy neutrophil arrays. \measured{} Neighbouring CpGs
+agree almost completely (0.97 at 10--18~bp); agreement halves near 600~bp, falls to 0.32 at 1--1.8~kb and to 0.05 by 3~kb, and a weak tail
+remains out to megabases. The six arrays give the same curve to the second decimal (0.321--0.327 at 1~kb). The kilobase scale is the
+known length of co-methylated domains. At this resolution the curve falls smoothly; it shows no peak at the nucleosome
+repeat (about 200~bp), and the array's probe spacing is too coarse to rule one out. A molecule-level $C(d)$ from sequencing reads is the test.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{figures/part4/fig_sky_cd.pdf}
+\caption{Genome-distance correlation inside one specimen. (a) $\beta$ at two CpGs on the same chromosome, correlated across all such pairs
+(up to 300,000 random pairs per distance bin), for each of the six healthy neutrophil arrays. (b) The residual $z$ of one array read against
+the other five: healthy, and with 5\,\% blur in ten regions. Box job \texttt{f754cf20}, \texttt{remote\_jobs/gate/cd\_neut.py}.}\label{fig:cd}
+\end{figure}
+
+The residual's $C(d)$ (Figure~\ref{fig:cd}b) is the noise model's check. In a healthy array the residual is correlated over a few hundred
+bases, because the probe chemistry and neighbouring CpGs share it, and is uncorrelated beyond 1~kb (0.00--0.02). Regional damage adds a
+plateau of 0.05--0.08 from 1~kb out to about a megabase, the size of the damaged regions. \measured{} This is the spectrum the C-score
+condenses into one number, and it is the right null for any whole-array map: a healthy map is correlated at short range, so a structure has
+to be tested against a genome-shuffled healthy map, not against independent noise.
+
+\paragraph{A test the C-score was built for.} Cancer and ageing are known to erode methylation over whole genomic neighbourhoods. If that
+erosion is regional in one person's cells, the C-score will rise where Met-A, which averages over all identity sites, barely moves, as the
+constructed damage of Figure~\ref{fig:whatitsees}c does. \prediction{} The blood-cancer arrays are the first test, read per person against the
+healthy reference of the same cell type.
+
+\paragraph{Isotropy by chromosome arm.} The same per-person map, averaged by chromosome arm, separates a change spread over the whole genome
+from one confined to an arm. Tumours often gain or lose whole arms (8q, 17p and others); on an array that shows as a shift in total intensity
+and in $\beta$ along the arm. Panel~\ref{fig:whatitsees}d is this test finding the X chromosome. The arm-level map, with a copy-number track
+from the same array's intensities beside it, is on the build list.
+
+\section{The map, scored}
+
+Before the chain was built, the author translated a CMB analysis pipeline into methylome terms row by row: 79 rows
+(\texttt{doors/CMB\_TO\_METHYLOME\_MAP.md}). Table~\ref{tab:map79} scores every row against chain v3. Counts: in use 12; built, not in chain 3; partial 9; calculated 1; measured 1; reserved 3; not built 31; open 1; analogy 10; refused 2; out 4; does not translate 2.
+
+\input{part4/16a_skytools_map79}
+
+Three rows were turned down on purpose, and each refusal is a rule of the instrument. A disease prior (row 39) would let other people's
+outcomes set one person's reading. De-ageing (row 47) would subtract a population trend from one person's cells. A population age ladder (row
+71) measured the wrong thing: inverting it for one array gives an age uncertainty of about 50 years. Where the CMB analogy breaks, the break is
+the finding.
+
+\section{What the tools have caught}
+
+\begin{center}\small
+\begin{longtable}{@{}p{0.22\textwidth}p{0.42\textwidth}p{0.28\textwidth}@{}}
+\caption{Problems the borrowed tools found before they reached a reading.}\label{tab:caught}\\
+\toprule tool & what it caught & what changed \\\midrule\endfirsthead
+\toprule tool & what it caught & what changed \\\midrule\endhead
+split data, held-out reference & two public series deposit the same six neutrophil arrays; a ``held-out'' check that kept each array's twin
+read SD 0.007 & reference counted once by physical array; held-out SD 0.020 \\
+noise model & a severe-infection signal in neutrophils was array noise and composition: with both modelled, 2 of 110 severe specimens sit above Normal
+and 73 of 76 healthy read Normal & noise index $N$ and noise-corrected tare in Stage T \\
+component separation & DNA mixtures of healthy cells read 1.062--1.118 against the pure-cell reference, 0.982--1.016 against the
+composition-matched expectation & whole blood read against its own composition \\
+instrument characterisation & in fish, copy error tracked library duplicates (brook charr) and conversion failure (Atlantic salmon) & fish
+readings withheld until the instrument term is removed \\
+detector saturation & a DNMT1 inhibitor drove methylated sites past $\beta=0.5$, where entropy turns over; dose order was lost at the
+ceiling & entropy-ceiling flag in Met-A \\
+E/B separation & the tumour's excess copy error survived removal of 5hmC in 3 of 4 oral tumour pairs & 5mC-only reads kept as a check \\
+residual map & localised damage invisible to Met-A (this chapter) & C-score reported beside every Met-A \\
+isotropy test & a sex foreground in whole-array maps (this chapter) & sex mask required for whole-array maps \\
+reproducibility & numbers typed in by hand drift from the files the chain reads & derivation tests that read the frozen files
+(12 of 12 pass) \\\bottomrule
+\end{longtable}
+\end{center}
+
+\section{What is left to employ, in order}
+
+\begin{enumerate}
+\item \textbf{Sex mask for whole-array maps} (row 16). Small, and required before any whole-array sky is read.
+\item \textbf{Foreground marginalisation} (row 21). Carry composition and tare uncertainty into each reading, so a reading carries an interval,
+not only a detection limit.
+\item \textbf{Transfer function} (row 14). Inject known damage into real mixtures and measure how much the composition solve absorbs; without it
+a quiet reading cannot be told from a filtered one.
+\item \textbf{Cell-count floor in the chain} (row 3). Sets the smallest fraction any plasma or stool reading can see, before a method is chosen.
+\item \textbf{Second, independent component separation} (row 20). Two solvers on different assumptions agreeing is the CMB's standard.
+\item \textbf{Correlated-noise model} (row 12). Array position and scanner drift; the array noise index is the first step.
+\item \textbf{IAM-A sky and IAM-A C-score}. The same map from single-molecule copy error; Met-A and IAM-A of one cell cross-correlated (rows 4,
+43, 48).
+\item \textbf{Genome-distance spectrum with masks} (rows 17, 23, 25). First measured in this chapter on arrays; next on single molecules and
+with masked sites handled as in a cut-sky spectrum, and per chromosome arm with a copy-number track.
+\item \textbf{Beam model} (row 5). Per-probe response from sequence context; the root fix for moving a reference between platforms.
+\item \textbf{Bayesian evidence for one person} (row 42). Which tissue of origin explains one specimen, as model comparison rather than a
+classifier.
+\item \textbf{Blinding and look-elsewhere} (rows 32, 61, 78). In force for commissioning and evidence runs.
+\end{enumerate}
+
+\section{The same tools elsewhere in genetics}
+
+None of these tools belongs to methylation. Table~\ref{tab:elsewhere} lists where each one applies in other areas of genetics and what those
+fields already have, so the claim is the transfer, not the invention.
+
+\begin{center}\small
+\begin{longtable}{@{}p{0.2\textwidth}p{0.24\textwidth}p{0.26\textwidth}p{0.22\textwidth}@{}}
+\caption{CMB tools in other areas of genetics.}\label{tab:elsewhere}\\
+\toprule tool & field & what it buys & the field already has \\\midrule\endfirsthead
+\toprule tool & field & what it buys & the field already has \\\midrule\endhead
+component separation & spatial transcriptomics; bulk RNA; tumour purity & cell mix per spot or sample with stated uncertainty & reference
+deconvolution methods \\
+residual sky & any reference-based assay & what the reference cannot explain, shown where it sits & residual plots, rarely mapped \\
+cosmic variance & cell-free DNA, prenatal testing, minimal residual disease & the counting floor on the smallest detectable fraction & fetal
+and tumour fraction limits \\
+split-half cross-spectra & single-cell assays; replicate sequencing & noise-free correlation from two noisy halves & replicate concordance \\
+pseudo-$C_\ell$ on a masked sky & Hi-C and chromatin maps; sparse single-cell data & unbiased spectra when most sites are missing & contact
+decay curves \\
+beam and bandpass & sequencing and array chemistry & instrument response fixed before biology is read & platform normalisation \\
+null tests and blinding & association studies, clinical biomarkers & results fixed before labels are seen & genome-wide thresholds; blinding
+rare \\
+isotropy tests & any genome-wide map & finds sex, copy number and batch as foregrounds & sex checks in quality control \\
+end-to-end simulation & every pipeline & known input, measured recovery & spike-ins \\
+temperature-set floor & ectotherms: fish, amphibians, reptiles & a copy-error floor that follows body temperature (Chapter~\ref{ch:temperature})
+& none \\\bottomrule
+\end{longtable}
+\end{center}
+
+The last row is the one IAM adds rather than borrows: in an animal whose body temperature is the water's, the physics floor moves with
+temperature at fixed holding energy, so a reading must name the temperature at which the DNA was copied.

@@ -1,0 +1,92 @@
+\chapter{The instrument layer: intake, calibration, tare}\label{ch:instrument}
+
+\section{From intensities to $\beta$}
+
+A bisulfite array does not report $\beta$. It reports two fluorescence intensities per probe, methylated $M$ and unmethylated
+$U$, in two colour channels, stored in IDAT files. $\beta=M/(M+U+\alpha)$ with a small offset $\alpha$ is computed only after
+background correction, dye-bias correction and probe-type handling~\cite{Triche2013,Fortin2017}. This is the methylome's
+map-making step, and like map-making it is where most of the instrument's errors enter. The chain does it itself, from the IDATs,
+and records every number the array reports about its own quality (Stage~1).
+
+\section{Intake: the array's own numbers}
+
+Before any cell is read, Stage~0 asks whether the array is a measurement at all. The quantities are the array's own: the fraction of
+probes distinguishable from background (the detection call rate) and the control probes' intensities. None refers to a person.
+
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}\toprule
+call rate & decision \\\midrule
+$\ge0.98$ & proceed \\
+$0.93$--$0.98$ & proceed with penalty, flagged \\
+$<0.93$ & quarantine: no report is written \\\bottomrule
+\end{tabular}
+\end{center}
+The 0.93 line was set by the author from a 48-array measurement across four laboratories: the Uppsala panel read a median call rate of
+0.985 (minimum 0.979), Karolinska 0.975 (minimum 0.891), UCLA 0.953 (minimum 0.932), and Munich 0.878 (maximum 0.928). \measured{} The
+line sits in the gap between Munich's best array and UCLA's worst.
+
+\paragraph{The low-signal laboratory.} The Munich arrays had been read for months before this gate existed. Their non-polymorphic
+control intensities were one-sixth of Uppsala's (green 1,291 against 8,582; red 2,268 against 14,427), and about one address in eight
+could not be distinguished from background. \measured{} Three separate failures of earlier procedures traced back to that one laboratory's
+input, including the construction of a ``laboratory zero''. The lesson was recorded as a rule: a check that is deferred never advances a
+specimen. A deferred detection or call-rate check is now a hard quarantine.
+
+\paragraph{A bias found on the way.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever
+the true methylation. Identity loci sit near 0.74. Leaving such probes in pulls the mean $\beta$ down and $H(\bbar)$ up: about 0.002 in
+$A$ for every per cent of a cell's identity loci at background. \measured{} Every reading before 27 September 2026 carried that upward bias.
+Probes at background are now removed before any stage reads a $\beta$.
+
+\section{The pipeline map}
+
+A cell's floor point $\bstar$ is defined on the scale of the reference data. An array processed by the chain's Stage~1 reads a given
+methylation state at a slightly different $\beta$ from the reference sources. The first atlas sat on the Roadmap sequencing scale, so the
+first chain mapped every specimen onto that scale with a linear map, $\beta_{\mathrm{ref}}=(\beta-0.0662)/1.0127$ for the Stage~1 450K
+pipeline, fitted on 32,688 identity loci.
+
+\begin{keybox}[title=The last population in the first chain]
+That map was fitted as the per-locus Stage~1 mean of 560 healthy whole-blood arrays (GSE87571) against the atlas's immune mean, and was
+accepted when healthy immune $A$ read 0.99 after it; it transferred to 315 controls of a second laboratory at a median of 1.0097.
+\record{} By the rule in the front matter, a map fitted on 560 people is a population defining a constant: in effect it set the healthy
+median to the fixed point. It is the last such constant in the first chain.
+
+The second atlas removes it by construction. Atlas v2 is built on the chain's own Stage~1 array scale (author's decision, 28 September
+2026); sequencing sources enter it through source terms fitted on purified reference cells measured on both platforms
+(Chapter~\ref{ch:atlas}). A specimen processed by Stage~1 is then already on the atlas scale, and no map from people is needed. \measured
+\end{keybox}
+
+\section{A tare from the array itself}
+
+A physical instrument is zeroed against a known input. Every 450K array carries one: 65 probes that sit on common single-nucleotide
+polymorphisms and read $\beta=0$, $\tfrac12$ or $1$ by genotype. PROC-TARE-01 asked whether those three known points could zero the array,
+by fitting $\beta'=(\beta-T_{\mathrm{off}})/T_{\mathrm{scale}}$ per array so the three clusters land back on $0$, $\tfrac12$, $1$.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.85\textwidth]{figures/part4/fig_tare.pdf}
+\caption{Immune-cell $A$ on whole-blood arrays from four laboratories (768 arrays), before any tare. Bars are medians; the shaded band is
+Normal. Data: PROC-TARE-01 per-array file. \measured}
+\label{fig:tare}
+\end{figure}
+
+\begin{center}\small
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+laboratory & $n$ & median $A$ raw & median $A$ tared & $T_{\mathrm{off}}$ & $T_{\mathrm{scale}}$ \\\midrule
+GSE87571 (Uppsala) & 732 & 0.9918 & 0.9475 & $-0.0030$ & 0.9390 \\
+GSE42861 (Karolinska) & 12 & 1.0156 & 0.9886 & $+0.0055$ & 0.9205 \\
+GSE111629 (UCLA) & 12 & 0.9613 & 0.9706 & $+0.0285$ & 0.9267 \\
+GSE125105 (Munich) & 12 & 1.0043 & 1.0192 & $+0.0425$ & 0.8902 \\\bottomrule
+\end{tabular}
+\end{center}
+
+It failed every bar written for it. \measured{} The array does compress $\beta$ by about 6~\% at the extremes on every laboratory
+($T_{\mathrm{scale}}$ 0.89--0.94), and that is real. But the linear tare moved $A$ by a near-constant $-0.044$ on 94~\% of arrays
+regardless of where they sat, which is an offset and not a tare; $T_{\mathrm{scale}}$ varied more within a chip than between chips; and neither
+parameter predicted $A$ ($r=-0.14$ and $-0.07$ on 732 arrays). Compression at $\beta=0$ and 1 says little about the response at $\beta\approx0.7$,
+where identity loci sit.
+
+\section{What remains open}
+
+Figure~\ref{fig:tare} shows the instrument's own spread: four laboratories' healthy whole blood reads immune $A$ medians from 0.961 to 1.016,
+all inside Normal but 0.055 apart. A laboratory zero computed from healthy panels would remove the spread, and was built, and is kept on record
+unapplied, because it is a population defining a correction. The two routes that would zero the instrument physically are recorded and not yet
+started: a nonlinear response model using the control probes as well as the SNP clusters, and a physical reference material of known methylation
+run through each laboratory's own pipeline. \openprob

@@ -1,0 +1,82 @@
+% Part 1 closing chapter: the virial partition at every scale (first half of the Virial material; the cosmological coupling opens Part 2).
+% Also: docs/papers/latex/virial_partition_atoms_to_horizon (numbers: docs/verification/scripts/verify_virial_atoms_to_horizon.py).
+% Source: the five Virial papers: Virial Efficiency (25 Feb 2026); Wide Domains (25 Feb 2026); Virial Partners (Mar 2026);
+% Gravitational Decoherence and the Virial Partition (Mar 2026); The Thermodynamic Identity Governing the Virial Theorem (PRL version, 18 Mar 2026).
+% Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md.
+% Read status: drafted 2026-10-02 after a read in which several chunks were previews only. All five re-read in full 2026-10-02 in 50-line chunks
+% (ledger 277/641/674/560/222 lines, no gaps; book3/fullread/LEDGER_G3_Virial.md) and this chapter re-checked against them.
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+
+\chapter{One half at every scale: the virial partition}\label{ch:virial_law}
+
+\section*{Overview}
+IAM's law says that every irreversible transition from a quantum superposition to a classical record pays $k_BT\ln2$ per bit. This chapter shows where that
+cost sits in the most widely tested equilibrium result in physics, the virial theorem of Clausius (1870). The theorem fixes the share of binding energy that a
+stable system bound by a $1/r$ potential holds as motion: exactly one half. The same half holds from the hydrogen atom to clusters of galaxies, and a short
+thermodynamic argument identifies it: the kinetic half is the irreversible cost of the binding transition itself. Part~2 opens by applying this to the universe,
+where it fixes the one coupling that every cosmological result in this book carries.
+
+\section{The theorem and why the factor is one half}
+For a bound system whose potential energy is a homogeneous function of degree $k$ in the coordinates, the time averages of kinetic and potential energy satisfy
+\begin{equation}
+2\langle K\rangle=k\,\langle V\rangle .
+\end{equation}
+This follows from Euler's theorem for homogeneous functions applied to the virial $\sum_i\mathbf r_i\cdot\mathbf p_i$, whose time average is constant for a
+bound system. Gravity and the Coulomb interaction both have $V\propto r^{-1}$, so $k=-1$ and
+\begin{equation}
+2\langle K\rangle+\langle V\rangle=0,\qquad \langle K\rangle=\tfrac12|\langle V\rangle| .
+\end{equation}
+The factor is set by the degree of the potential, and the degree is set by geometry: in three spatial dimensions Gauss's law makes the field of a point source
+fall as $1/r^2$, so the potential falls as $1/r$. The half is a result for $1/r$ binding: a potential homogeneous of degree $k$ gives $2\langle K\rangle=k\langle V\rangle$, and
+the linear potential that confines quarks ($k=+1$) gives the opposite partition. It holds for gravity and electromagnetism, not for confined hadrons; because every atom, molecule and bond is held by
+electromagnetism, it holds inside every star, cell and transistor. Nothing in the result depends on the number of bodies, the mass distribution or the scale. The same
+$1/2$ appears in the Bohr atom, in a star, and in a cluster of galaxies.
+
+\section{The same one half across physical scales}
+Table~\ref{tab:virial_domains} collects the domains in which the $1/r$ virial ratio has been tested.
+
+\begin{table}[h]\centering\small
+\caption{The virial ratio for $1/r$ binding, from atoms to clusters of galaxies.}\label{tab:virial_domains}
+\begin{tabular}{llll}
+\hline
+System & Scale & Quantity & Result\\\hline
+Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ exactly (13.6\,eV of 27.2\,eV)\\
+20 atoms, H--Xe (Hartree--Fock limit) & $10^{-10}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
+10 molecules, H$_2$--CO$_2$ & $10^{-9}$ m & $T/|V|$ & $1/2$ at equilibrium geometry\\
+White dwarfs & $10^{7}$ m & Chandrasekhar mass & $1.456\,M_\odot$ ($\mu_e=2$); none observed above it\\
+The Sun & $10^{9}$ m & $|U|/2L$ & 24 Myr: contraction cannot power it, so it burns hydrogen\\
+Galaxy clusters & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent (Zwicky 1933 onward)\\
+Simulated halos, $10^{10}$--$10^{15}M_\odot$ & $10^{21}$--$10^{23}$ m & $2K/|W|$ & $1.1$--$1.3$; $1.02$--$1.17$ with surface pressure\\
+Schwarzschild black hole & $r_s$ & $T_HS/Mc^2$ & $1/2$ (Smarr relation; Chapter~\ref{ch:blackholes})\\
+Cosmic horizon & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consistent with Planck (Chapter~\ref{ch:virial})\\\hline
+\end{tabular}
+\end{table}
+
+For converged Hartree--Fock wavefunctions the ratio is exact by construction: any wavefunction optimised under a uniform scaling of the coordinates satisfies
+the quantum virial theorem. The atomic rows therefore show that quantum mechanics obeys the theorem; they are a statement of the theorem's reach, not an
+independent measurement. The gravitational rows are measurements, at the precision the systems allow. The span from the atom to the cluster is 33 orders of
+magnitude in size; Part~2 carries the same half to the horizon of a black hole and to the horizon of the universe.
+
+\section{What the kinetic half is: the thermodynamic identity}
+Clausius derived the theorem from Newton's second law. The derivation describes the bound state; it says nothing about the transition into it. Consider a
+system that falls from rest at infinity ($E_i=0$) into a stable bound state with $E_f=\langle K\rangle+\langle V\rangle<0$, releasing the difference to its
+surroundings.
+\begin{enumerate}
+\item First law: the heat released is $Q=E_i-E_f=-(\langle K\rangle+\langle V\rangle)>0$.
+\item Second law: the transition is irreversible; the heat raises the entropy of the surroundings, at temperature $T$, by $\Delta S\ge Q/T$.
+\item Landauer: the minimum cost of producing $\Delta S$ irreversibly is $T\Delta S$; the bound is met when $\Delta S=Q/T$, so $E_{\rm L}=Q$.
+\item The $1/r$ equilibrium condition $2\langle K\rangle+\langle V\rangle=0$ gives $-E_f=\langle K\rangle$.
+\end{enumerate}
+Together,
+\begin{equation}
+\langle K\rangle=Q=T\Delta S_{\min}=E_{\rm L}=\tfrac12|\langle V\rangle| .
+\end{equation}
+The hydrogen atom shows it directly: an electron captured from rest into the ground state emits a 13.6\,eV photon, the binding energy, which equals the
+electron's mean kinetic energy in that state; the potential energy is $-27.2$\,eV. The energy carried away when a $1/r$ system binds equals its kinetic half.
+
+This does not derive the virial theorem from thermodynamics: $\langle K\rangle=Q$ follows from the first law and the fourth step alone, which is
+mechanics. Steps 2 and 3 add the identification: they give the kinetic half a definite thermodynamic meaning, the irreversible cost of the binding transition, carried off to the surroundings and recorded there as entropy at
+$k_BT\ln2$ per bit. Jacobson (1995) obtained the Einstein equations from $\delta Q=T\,\delta S$ on local Rindler horizons; the same relation applied at the
+boundary of a forming bound state returns the virial partition. The identity holds wherever the binding energy is released --- radiated by an atom, by a
+contracting gas cloud, by a forming star. For collisionless dark matter, which relaxes without radiating, the energy is redistributed rather than released,
+and the identity applies to the information written in the relaxation, not to emitted heat; this is the step IAM takes at cosmological scale.

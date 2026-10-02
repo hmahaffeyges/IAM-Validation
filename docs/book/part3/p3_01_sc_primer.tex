@@ -1,0 +1,81 @@
+\chapter{The superconducting qubit as an encoding surface}\label{ch:scprimer}
+
+\section{The transmon}
+
+A transmon is a Josephson junction, a thin AlO$_x$ tunnel barrier between two Al (or Nb, Ta)
+electrodes, shunted by a large capacitance~\cite{Koch2007}. Its Hamiltonian
+$H=4E_C(\hat n-n_g)^2-E_J\cos\hat\varphi$ at $E_J/E_C\sim50$ gives an anharmonic oscillator
+with $\omega_q/2\pi\approx4$--$6$~GHz that is exponentially insensitive to charge noise. The
+qubit state is carried by the phase of the superconducting condensate across the barrier.
+In IAM terms the barrier is the encoding surface: it is where the condensate's phase can be
+disturbed and where the information that constitutes the qubit state can be lost. The
+transmon is now the working element of the largest processors~\cite{Arute2019,GoogleWillow2025,Kim2023IBM}.
+
+\section{Three loss channels}
+
+\paragraph{Two-level systems (TLS).} Amorphous oxides host atomic-scale tunnelling defects
+with a broad distribution of energies and dipole moments~\cite{Phillips1987,Muller2019}. TLS
+resonant with the qubit absorb energy. Off-resonant TLS that fluctuate, driven by their
+thermal neighbours, produce spectral diffusion and dephasing. TLS density is highest at the
+metal--oxide and substrate--air interfaces~\cite{Wang2015TLS,Lisenfeld2019}, and TLS switching
+times span microseconds to hours.
+
+\paragraph{Quasiparticles.} At $T\ll T_c$ the equilibrium density of broken Cooper pairs is
+\begin{equation}
+ \xqp^{\mathrm{th}}(T)=\sqrt{\frac{2\pi\kB T}{\Delta}}\,e^{-\Delta/\kB T}
+\end{equation}
+in the normalization $\xqp=n_{\mathrm{qp}}/\ncp$ with $\ncp=2\nu_0\Delta$ (Chapter~\ref{ch:xqp}).
+At 15~mK in Al, $\Delta/\kB T=141$ and $\xqp^{\mathrm{th}}\sim10^{-62}$: there should be no
+quasiparticles at all. Measured densities in the best-isolated Al devices are
+$\xqp\sim10^{-8}$--$10^{-6}$~\cite{Riste2013,Serniak2018,Connolly2024}, and in less-protected
+devices up to $10^{-5}$~\cite{Martinis2009,deVisser2011}. The source of this non-equilibrium
+population is the subject of Chapter~\ref{ch:xqp}. A quasiparticle tunnelling across the
+junction relaxes the qubit at the rate~\cite{Catelani2011}
+\begin{equation}
+ \Gamma_1^{\mathrm{qp}}=\xqp\,\frac{\omega_q}{\pi}\sqrt{\frac{2\Delta}{\hbar\omega_q}} .
+ \label{eq:catelani}
+\end{equation}
+
+\paragraph{Radiation and environment.} Ionizing radiation from the environment and from cosmic
+rays deposits energy in the substrate. The resulting phonons break pairs and cause correlated
+error bursts~\cite{Vepsalainen2020,Cardani2021,McEwen2022}. Infrared photons leaking into the
+cryostat break pairs directly~\cite{Barends2011,Houzet2019}. Shielding, phonon traps,
+gap engineering and underground operation mitigate these channels~\cite{Cardani2021,Martinis2021,Kurter2022}.
+
+\section{The $T_1$ ceiling from quasiparticles}
+
+\calc\ Equation~\eqref{eq:catelani} with $\Delta_{\mathrm{Al}}=182\ \mu$eV and $\omega_q/2\pi=5$~GHz
+gives $T_1^{\mathrm{qp}}=0.24$~ms at $\xqp=10^{-7}$, and 1~ms requires $\xqp\le2.4\times10^{-8}$
+(Figure~\ref{fig:T1xqp}). The source papers use the simpler
+$\Gamma_1^{\mathrm{qp}}\approx\xqp\,\omega_q$, which gives 0.32~ms. The best transmons now
+reach $T_1\sim0.3$--$0.5$~ms~\cite{Place2021,Wang2022Ta}, which is within a factor of a few of
+this ceiling. Whatever sets the background $\xqp$ therefore sets the next limit on
+superconducting-qubit coherence.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.75\textwidth]{figures/part3/fig_T1_xqp.pdf}
+\caption{Quasiparticle-limited $T_1$ from Eq.~\eqref{eq:catelani} for Al at two qubit
+frequencies. Grey band: range of background $\xqp$ reported for best-isolated devices. Dashed:
+1~ms working target. \calc}\label{fig:T1xqp}
+\end{figure}
+
+\section{Timescales at a junction}
+
+The IAM argument of Chapter~\ref{ch:xqp} rests on a separation of timescales
+(Figure~\ref{fig:timescales}). The condensate restores its phase on $\hbar/\Delta_{\mathrm{Al}}$.
+The qubit oscillates at $\sim0.2$~ns. Quasiparticles recombine on tens of ns to ms depending
+on density, TLS fluctuate on $\mu$s and longer, and $T_1$ is hundreds of $\mu$s.
+
+\begin{checkbox}
+$\hbar/\Delta_{\mathrm{Al}}=1.055\times10^{-34}/(182\times10^{-6}\times1.602\times10^{-19})=3.6\times10^{-12}$~s,
+that is \textbf{3.6~ps}. The source paper writes 3.6~fs. The ratio $\tau_\phi/\tTLS$ is then
+$\sim10^{-7}$, not $10^{-10}$. The separation still spans seven decades, so the conclusion
+that each TLS flip is a Markovian event for the condensate is unaffected.
+\end{checkbox}
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.8\textwidth]{figures/part3/fig_timescales.pdf}
+\caption{Timescales at an Al/AlO$_x$ junction, from condensate phase restoration to
+charge-parity switching. \calc\ and \observed\ (representative published values).}
+\label{fig:timescales}
+\end{figure}
