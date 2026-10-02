@@ -30,6 +30,11 @@ time scale the transition is instantaneous. The quantum step is therefore local 
 something cosmology already calculates: the rate of gravitational collapse.
 
 \section{The exponent from both directions}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part2/fig_neff_bottomup.pdf}
+\caption{Bottom-up exponent $n_{\rm eff}=d\ln[(dU/d\ln a)/f]/d\ln D$, with $U$ the virial kinetic energy summed over all halos, from three measured halo mass functions (Planck 2018 power spectrum; \texttt{colossus}; method of \texttt{docs/verification/scripts/\allowbreak{}verify\_bottom\_up\_exponent.py}). It equals the top-down $7/2$ at $z=3.3$ (Press--Schechter), 4.0 (Sheth--Tormen) and 3.2 (Tinker et al.\ 2008), and runs with redshift. \calc}\label{fig:neff_bottomup}
+\end{figure}
 Write the energy production rate as $\dot I\propto\rho_mD^nfH$ and the horizon accumulation as $dS_{\rm info}/dt=\dot I/(T_HA_H)$. In matter domination
 $dS_{\rm info}/d\ln a\propto a^{n-9/2}$, and the form $\exp(1-1/a)$ requires $n-\tfrac92=-1$:
 \begin{equation}n=\tfrac72\qquad\text{(top-down).}\end{equation}
@@ -60,12 +65,17 @@ a record, and its which-path information can still be erased by measuring it in 
 absorbed.
 
 \section{Massive superpositions}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part2/fig_tau_mass.pdf}
+\caption{Coherence time of a silica sphere ($\rho=2200$\,kg\,m$^{-3}$) in a spatial superposition: $\tau_{\rm IAM}=\hbar(k_BT)^2\ln2/E_G^3$ at 10, 20 and 40\,mK against $\tau_{\rm PD}=\hbar/E_G$, $E_G=Gm^2/R$. At $10^{-12}$\,kg and 10\,mK, 509\,s against 7.5\,$\mu$s; the two cross at $2.2\times10^{-10}$\,kg. The boundary capacity $k_BT/E_G$ behind $\tau_{\rm IAM}$ is assumed. \prediction\ \conjecture}\label{fig:tau_mass}
+\end{figure}
 For a massive object held in a spatial superposition, the gravitational self-energy $E_G\simeq Gm^2/R$ sets the scale of any gravitational channel.
 Penrose and Di\'osi~\cite{Penrose1996,Diosi1987,Diosi1989} proposed a collapse time $\tau_{\rm PD}=\hbar/E_G$, independent of temperature. Applying IAM's Law at the superposition boundary~\cite{MahaffeyGravDec},
 with the boundary's capacity taken as $k_BT/E_G$, gives
 \begin{equation}\tau_{\rm IAM}=\frac{\hbar\,(k_BT)^2\ln2}{E_G^3}\;\propto\;T^2m^{-5}\quad(\text{fixed density}),\qquad\tau_{\rm PD}\propto m^{-5/3}.\end{equation}
-For a $10^{-12}$\,kg silica sphere ($\rho=2000$\,kg\,m$^{-3}$) at 10\,mK: $\tau_{\rm IAM}=559$\,s, $\tau_{\rm PD}=7.8\,\mu$s; doubling the temperature
-quadruples $\tau_{\rm IAM}$; the two times cross at $m\approx2.3\times10^{-10}$\,kg. The two proposals therefore differ by eight orders of magnitude at the
+For a $10^{-12}$\,kg silica sphere ($\rho=2200$\,kg\,m$^{-3}$) at 10\,mK: $\tau_{\rm IAM}=509$\,s, $\tau_{\rm PD}=7.5\,\mu$s; doubling the temperature
+quadruples $\tau_{\rm IAM}$; the two times cross at $m\approx2.2\times10^{-10}$\,kg. The two proposals therefore differ by eight orders of magnitude at the
 picogram scale, and in their dependence on temperature. A higher bath temperature lengthening a coherence time runs against every environmental channel,
 which makes the $T^2$ law both the sharpest test and the most exposed claim.
 

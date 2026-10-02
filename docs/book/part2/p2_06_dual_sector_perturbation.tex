@@ -94,23 +94,28 @@ Chapter~\ref{ch:latetime} (plik-lite~\cite{Planck2018V}), so $\chi^2$ values are
 
 \section{Results}
 \subsection{Planck: Run A against Run C}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.6\textwidth]{figures/part2/fig_param_shifts.pdf}
+\caption{Shift of each parameter, Run~A (informational term) minus Run~C ($\Lambda$CDM, same code and likelihoods), in units of Run~C's posterior standard deviation, computed from the chain files (\texttt{camb\_validation/\allowbreak{}chains}, 30\,\% burn-in, weighted). Only $\sigma_8$ ($-1.51\sigma$) and $S_8$ ($-0.78\sigma$) move; every other parameter moves by under $0.1\sigma$. \observed}\label{fig:param_shifts}
+\end{figure}
 \begin{center}\small
 \begin{tabular}{lccc}\hline
 Parameter & $\Lambda$CDM (C) & IAM (A) & shift\\\hline
 $H_0$ & $67.188\pm0.465$ & $67.161\pm0.467$ & $-0.06\sigma$\\
 $\sigma_8$ & $0.8087\pm0.0059$ & $0.7998\pm0.0058$ & $-1.51\sigma$\\
-$S_8$ & $0.830\pm0.011$ & $0.822\pm0.011$ & $-0.73\sigma$\\
-$\omega_b$ & $0.02218\pm0.00013$ & $0.02217\pm0.00013$ & $-0.08\sigma$\\
+$S_8$ & $0.830\pm0.011$ & $0.822\pm0.011$ & $-0.78\sigma$\\
+$\omega_b$ & $0.02218\pm0.00013$ & $0.02217\pm0.00013$ & $-0.07\sigma$\\
 $\omega_c$ & $0.11989\pm0.00105$ & $0.11994\pm0.00105$ & $+0.05\sigma$\\
 $\tau$ & $0.0532\pm0.0073$ & $0.0537\pm0.0073$ & $+0.07\sigma$\\
 $n_s$ & $0.9630\pm0.0040$ & $0.9630\pm0.0039$ & $0.00\sigma$\\
-$\ln10^{10}A_s$ & $3.0393\pm0.0146$ & $3.0407\pm0.0145$ & $+0.10\sigma$\\
+$\ln10^{10}A_s$ & $3.0393\pm0.0146$ & $3.0407\pm0.0145$ & $+0.09\sigma$\\
 lowest $\chi^2$ & $10972.07$ & $10972.61$ & $\Delta=+0.54$\\
 chain-average $\chi^2$ & $10985.08$ & $10985.07$ & $\Delta=-0.01$\\
 final $R-1$ & $0.0081$ & $0.0099$ & \\\hline
 \end{tabular}
 \end{center}
-The one parameter that moves is $\sigma_8$, by $-0.009$. $\ln A_s$ ($+0.10\sigma$) and $\Omega_m$ ($+0.06\sigma$) barely move, so the shift is not other parameters
+The one parameter that moves is $\sigma_8$, by $-0.009$. $\ln A_s$ ($+0.09\sigma$) and $\Omega_m$ ($+0.05\sigma$) barely move, so the shift is not other parameters
 compensating: it is slower growth. With the same parameter count, the likelihood ratio is $e^{-0.54/2}=0.76$.
 
 \subsection{Planck + growth: Run D}
@@ -122,6 +127,11 @@ growth comparison is re-run with that definition, together with a matched $\Lamb
 $\beta_m$ is fixed at $0.15765$. In Run A, Planck gives $\Omega_m=0.3166\pm0.0065$, so $\Omega_m/2=0.1583\pm0.0033$: the fixed value is $0.2\sigma$ from it.
 
 \section{The sector-dependent Hubble parameter}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_sector_rates.pdf}
+\caption{(a) $H(z)/(1+z)$ for photons (the $\Lambda$CDM background) and for matter, $H_m^2=H^2+\beta_mE(a)H_0^2$, at the Run~A posterior ($H_0=67.161$, $\Omega_m=0.3166$). (b) $H_m/H$: 1.0759 today, 1.0269, 1.0090 and 1.0012 at $z=0.5$, 1 and 2. \calc}\label{fig:sector_rates}
+\end{figure}
 From Eq.~\eqref{eq:l2_Hm},
 \begin{equation}
 \frac{H_m(a)}{H(a)}=\sqrt{1+\frac{\beta_mE(a)H_0^2}{H^2(a)}},\qquad\frac{H_m(0)}{H(0)}=\sqrt{1.15765}=1.0759 .

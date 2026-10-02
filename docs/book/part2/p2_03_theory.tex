@@ -141,6 +141,11 @@ In matter domination $H\propto a^{-3/2}$, $A_H=4\pi/H^2\propto a^3$, $T_H=H/2\pi
 \calc\ Each step checks.
 
 \subsection{The critical exponent}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part2/fig_exponent.pdf}
+\caption{$dS_{\rm info}/d\ln a\propto\rho_mD^nf/(T_HA_H)$ with the full $\Lambda$CDM growth factor ($\Omega_m=0.315$, $\Omega_r=9.1\times10^{-5}$), normalised today, for $n=2.5$, 3, 3.5 and 4. The power fitted over the matter era ($0.01\le a\le0.1$, shaded) is $-2.02$, $-1.52$, $-1.02$ and $-0.53$; the activation function needs $a^{-1}$ (dashed), which $n=7/2$ gives. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_theory\_paper.py}. \calc}\label{fig:exponent}
+\end{figure}
 For the form $\exp(C-1/a)$ the accumulated entropy must go as $-1/a+{\rm const}$, so Eq.~\eqref{eq:Sn} requires $n-\tfrac92=-1$:
 \begin{equation}n=\tfrac72 .\end{equation}
 \calc\ Integrating Eqs.~\eqref{eq:Idot}--\eqref{eq:dSdt} with the full $\Lambda$CDM growth factor gives $dS_{\rm info}/d\ln a\propto a^{-1.02}$ in the matter era for
@@ -197,6 +202,11 @@ With $k^2\Phi=-4\pi G\mu a^2\bar\rho_m\delta_m$ and $k^2(\Phi+\Psi)=-8\pi G\Sigm
 \begin{equation}\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta E(a)H_0^2},\qquad\mu_0=\frac{-\beta}{1+\beta}=-0.136,\qquad\Sigma=1.\end{equation}
 
 \section{Variational form}\label{sec:var}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_w_eff.pdf}
+\caption{(a) The record term's equation of state $w_{\rm info}=-1-1/(3a)$ and the combined dark sector $w_{\rm eff}=[-\Omega_\Lambda+\beta E(a)w_{\rm info}]/[\Omega_\Lambda+\beta E(a)]$ ($\Omega_m=0.315$). (b) $w_{\rm eff}$ and its two CPL forms: the tangent at $a=1$ ($w_0=-1.062$, $w_a=-\Omega_m^2/3(2-\Omega_m)^2=-0.012$) and a least-squares fit over $0.5\le a\le1$ ($w_0=-1.065$, $w_a=+0.017$). \derived\ (form) \calc\ (values)}\label{fig:w_eff}
+\end{figure}
 Define $\varphi(t)\equiv\ln E(a)=1-1/a$, so $\dot\varphi=H/a$ --- a constraint, not a Klein--Gordon equation; $\varphi$ is a thermodynamic variable that
 tracks accumulated decoherence. The action is $S=S_{\rm EH}+S_\Lambda+S_{\rm matter}+S_{\rm info}$ with
 \begin{equation}S_{\rm info}=\int\Big[-\frac{3H_0^2}{8\pi G}\beta e^{\varphi}+\lambda\Big(\dot\varphi-\frac Ha\Big)\Big]\sqrt{-g}\,d^4x .\end{equation}

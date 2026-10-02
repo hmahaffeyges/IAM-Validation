@@ -9,7 +9,7 @@ hb, kB, G, c = C.hbar, C.k, C.G, C.c
 GeV = 1e9*C.e; hbar_GeVs = hb/GeV; hbarc_GeVm = hb*c/GeV
 E = lambda a: np.exp(1-1/a)
 print("== Entanglement chapter ==")
-rho = 2000.
+rho = 2200.0
 EG = lambda m: G*m*m/((3*m/(4*np.pi*rho))**(1/3))
 tI = lambda m, T: hb*(kB*T)**2*np.log(2)/EG(m)**3
 tPD = lambda m: hb/EG(m)

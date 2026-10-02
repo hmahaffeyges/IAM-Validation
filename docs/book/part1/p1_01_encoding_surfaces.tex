@@ -11,6 +11,11 @@ number of bits it holds. Every chapter of this book is one such place. This chap
 identification, then lists the places.
 
 \section{Six steps}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part1/fig_landauer_price.pdf}
+\caption{(a) The Landauer price $k_BT\ln2$ (line) and the six places of Table~\ref{tab:surfaces} on it: the price depends on the surface temperature alone, over 32 orders of magnitude. (b) Bits held against surface area. Horizons lie on the Bekenstein--Hawking bound $N=A/(4\ell_P^2\ln2)$; the cell's $2.82\times10^{7}$ CpG sites (hg19 index), placed at the area of a representative 6\,$\mu$m nucleus, lie 52 orders of magnitude below the $1.6\times10^{59}$ bits that area could hold. \calc}\label{fig:landauer_price}
+\end{figure}
 \paragraph{1. A surface has a capacity (Bekenstein 1973~\cite{Bekenstein1973}).} A horizon of area $A$ carries entropy $S=k_BA/4\ell_P^2$, $\ell_P=\sqrt{\hbar G/c^3}$:
 one unit of $k_B$ per four Planck areas, $1.5\times10^{77}$ bits for a solar-mass black hole. Information is bounded by area, not volume.
 \paragraph{2. The surface has a temperature (Hawking 1975~\cite{Hawking1975}; Gibbons and Hawking 1977~\cite{GibbonsHawking1977}).} A black hole radiates at $T_H=\hbar c^3/8\pi GMk_B$
@@ -29,6 +34,11 @@ $8.37\times10^{-14}$\,J per copy, about $9.3\times10^5$ ATP at 54\,kJ\,mol$^{-1}
 $5.82\times10^{-14}$\,J (Chapter~\ref{ch:landauer}).
 
 \section{The places}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part1/fig_encoding_ladder.pdf}
+\caption{The places of Table~\ref{tab:surfaces} by characteristic size and cost per bit $k_BT\ln2$. Temperatures and horizon bit counts are computed from CODATA 2018 constants with $H_0=67.36$ (as \texttt{docs/verification/scripts/\allowbreak{}verify\_encoding\_ladder.py}); horizon sizes are the Schwarzschild radius and $c/H_0$ (filled markers). The sizes of the cell (nucleus, 6\,$\mu$m), the transistor (gate length, 20\,nm) and the qubit (Josephson junction, 200\,nm) are representative scales chosen for display (open markers); their costs per bit are exact. From the Bohr radius to the Hubble radius is 36.4 orders of magnitude; the cost per bit falls by a factor $1.2\times10^{32}$ from the cell to the cosmic horizon. \calc}\label{fig:encoding_ladder}
+\end{figure}
 \begin{table}[h]\centering\small
 \caption{Places in IAM: the encoding surfaces treated in this book. Cost per bit $k_BT\ln2$; bits $N$ for horizons $=A/(4\ell_P^2\ln2)$.
 Sgr~A$^*$ is taken at $4.3\times10^6\,M_\odot$~\cite{Gillessen2009}.}\label{tab:surfaces}

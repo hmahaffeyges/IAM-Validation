@@ -1,8 +1,8 @@
 == Entanglement chapter ==
-E1 m=1e-15 kg T=10 mK: tau_IAM=5.594e+17 s  tau_PD=0.778 s
-E1 m=1e-12 kg T=10 mK: tau_IAM=559.4 s  tau_PD=7.78e-06 s
-E1 m=1e-12 kg T=20 mK: tau_IAM=2238 s  tau_PD=7.78e-06 s
-E2 crossover 10 mK: m=2.28e-10 kg
+E1 m=1e-15 kg T=10 mK: tau_IAM=5.086e+17 s  tau_PD=0.7536 s
+E1 m=1e-12 kg T=10 mK: tau_IAM=508.6 s  tau_PD=7.536e-06 s
+E1 m=1e-12 kg T=20 mK: tau_IAM=2034 s  tau_PD=7.536e-06 s
+E2 crossover 10 mK: m=2.23e-10 kg
 E3 dephasing c=1.00: S_max=2.8284 (2sqrt(1+c^2)=2.8284); fixed settings S=2.8284 (sqrt2(1+c)=2.8284); isotropic p=c: S_max=2.8284 (2sqrt2 c=2.8284)
 E3 dephasing c=0.75: S_max=2.5000 (2sqrt(1+c^2)=2.5000); fixed settings S=2.4749 (sqrt2(1+c)=2.4749); isotropic p=c: S_max=2.1213 (2sqrt2 c=2.1213)
 E3 dephasing c=0.50: S_max=2.2361 (2sqrt(1+c^2)=2.2361); fixed settings S=2.1213 (sqrt2(1+c)=2.1213); isotropic p=c: S_max=1.4142 (2sqrt2 c=1.4142)

@@ -91,6 +91,11 @@ gauge. $A$ says how much error there is; the C-score says whether it is spread o
 The commissioned cell is the neutrophil. Other cells are added one at a time after passing the same tests.
 
 \section{Two error channels}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.8\textwidth]{figures/part3/fig_imr90_channels.pdf}
+\caption{Met-A ranges per channel for IMR90 lung fibroblasts (WGBS, GSE48580), each culture read against the proliferating cultures. Senescent cultures hold the methylated channel near 1 and clean the unmethylated channel (0.685--0.695); SV40-immortalised cultures carry more error on the methylated channel (1.078--1.120) and less on the unmethylated one (0.587--0.664), and the combined reading (0.965--0.975) hides both. Grey: Normal, 0.95--1.05. \measured}\label{fig:imr90_channels}
+\end{figure}
 Methylated and unmethylated identity sites can err in opposite directions at once, so $A$ is reported per channel. IMR90 lung fibroblasts (WGBS, GSE48580~\cite{Cruickshanks2013}), each culture read against
 the proliferating cultures, with sites chosen on one proliferating culture and the reference taken from another:
 \begin{center}\small\begin{tabular}{lccc}\toprule
@@ -118,6 +123,11 @@ One caution. The array gauge measures \emph{state} error: the fraction of copies
 decay leave behind together. $A$ says how much error there is; read-level data say which channel produced it.
 
 \section{What thermodynamics adds}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part3/fig_holding_energy.pdf}
+\caption{Hopfield's energy gap $k_BT\ln({\rm selectivity})$ for the published in-vitro preferences of DNMT1 for hemimethylated CpG (7--21$\times$, 30--50$\times$, 80$\times$): 1.9--4.4\,$k_BT$ \observed. Lines: the holding energy measured from the cells' copy error, 3.41\,$k_BT$ (copy channel, uncorrected) and 3.77\,$k_BT$ (instrument error removed) \measured. A consistency check: the published range is tenfold.}\label{fig:holding_energy}
+\end{figure}
 Met-A and IAM-A both measure in bits. Only IAM-A prices those bits against thermal noise, and that adds three things a reference standard
 cannot give.
 \paragraph{A physical floor.} $\varepsilon_0=1/(1+e^{\varphi M})$ comes from the energy budget, not from a reference population.

@@ -42,6 +42,11 @@ growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$
 
 \section{The chain record}\label{sec:chains}
 
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_sigma8_shift.pdf}
+\caption{Posterior means and standard deviations from the final chain files (30\,\% burn-in), $\Lambda$CDM (squares) against the fixed coupling $\beta_m=\Omega_m/2$ (circles), same data and code in each row. (a) $\sigma_8$ falls by 1.6\,\% at Level~1 in all four data combinations and by 1.1\,\% at Level~2 ($0.8087\to0.7998$). (b) $H_0$ moves by at most 0.12. \observed}\label{fig:sigma8_shift}
+\end{figure}
+
 Eighteen Markov chains were run against the Planck 2018 likelihood~\cite{Planck2018V,MahaffeyLateTime,MahaffeyDSPerturbation}. All files are in the repository
 (\texttt{mgcamb\_validation/\allowbreak{}chains}, \texttt{camb\_validation/\allowbreak{}chains}). The numbers below come from one extraction of the final files
 (30\,\% burn-in, weighted posterior means; table \texttt{CHAIN\_EXTRACTION\_FINAL.csv}). Every chain's last recorded Gelman--Rubin~\cite{Gelman1992}
@@ -86,6 +91,11 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
 \end{enumerate}
 
 \section{Two Hubble rates}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.75\textwidth]{figures/part2/fig_two_hubble.pdf}
+\caption{The two Hubble rates. Photon sector: the Level~2 Planck chain, $67.16\pm0.47$ \measured. Matter sector: $67.16\sqrt{1+\beta_m}=72.26\pm0.50$ \derived. Against Planck 2018, $67.36\pm0.54$ ($-0.37\sigma$), and the SH0ES Cepheid ladder, $73.04\pm1.04$ ($-0.75\sigma$) \observed. Units km\,s$^{-1}$Mpc$^{-1}$; chain values from \texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}.}\label{fig:two_hubble}
+\end{figure}
 
 The photon-sector expansion rate is the one the CMB measures, $H_0=67.16$ (Level 2). For matter, the information term adds to the
 effective expansion felt by bound structure; with $\beta_m=0.15765$ the matter-sector rate is $H_0^{\mathrm{matter}}=H_0\sqrt{1+\beta_m}=67.16\times1.0759=72.26\ \mathrm{km\,s^{-1}\,Mpc^{-1}}$ \derived.
