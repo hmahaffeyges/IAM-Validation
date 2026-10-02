@@ -27,25 +27,41 @@ cells, molecules (IAM-A) & $H(\varepsilon)$, copy error & $P_{\rm cell}\,H(\vare
 \end{tabular}\end{center}
 For a chip the floor is the law itself. For a qubit it is a property of the substrate. For a cell it is the healthy cell of the same type, read
 on the same platform (Met-A), or the physics floor at the cell's frozen position (IAM-A). Example: the AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$
-transistors, 4.3\,GHz, $T_j=75\,^\circ$C) switches at $E_{\rm sw}=1.92\times10^{-18}$\,J: $A=576$, $M=399$.
+transistors, 4.3\,GHz, $T_j=75\,^\circ$C) switches at $E_{\rm sw}=1.92\times10^{-18}$\,J, $576$ times the Landauer floor, $M=399$.
 
-\paragraph{One gauge, each domain in its own form.} Every $A$ is an error score: the error a system makes, measured over the floor of that same
-system, rising above 1 as the error grows. The formula is not the same in every domain, and should not be. The error comes from different physics in
-each: laser and motional noise in a trapped ion, Rydberg decay in a neutral atom, two-level fluctuators in a transmon's oxides, thermal emission in a hot
-molecule, a missed site at DNA replication. Each field already writes its thresholds in its own units, so each $A$ is written in those units:
-\begin{center}\small\begin{tabular}{p{0.15\textwidth}p{0.26\textwidth}p{0.27\textwidth}p{0.22\textwidth}}\toprule
-score & reading & $A$ & $A=1$ means\\\midrule
-Met-A & $\langle H(\beta)\rangle$ at identity sites & $\langle H(\beta)\rangle/H_{\min}(\text{cell})$ & the healthy cell\\
-IAM-A & copy error $\varepsilon$ & $H(\varepsilon)/[P_{\rm cell}H(\varepsilon_0)]$ & the healthy cell\\
-C-score & clustering of the residual map & clustering $/$ healthy median & healthy clustering\\
-the quantum-processor report & $\varepsilon=-\ln(1-p_{2Q})$ & $\varepsilon/\varepsilon_{\rm floor}$ & the material floor\\
-the semiconductor report & $E_{\rm sw}$ & $E_{\rm sw}/(k_BT_j\ln2)$ & the Landauer floor\\\bottomrule
+\paragraph{One gauge, each domain in its own form.} Every $A$ is an error score read on the same gauge (Fig.~\ref{fig:onegauge}): the reading
+divided by the same system's healthy reading, so that $A=1$ is the system working as itself and sits in the middle. Below it lies $H_{\min}$, the
+absolute lowest error the system can hold before thermal kicks win; nothing reads below $H_{\min}$. Above 1 the system makes more error than when
+healthy. The formula is not the same in every domain, and should not be: the error comes from different physics in each (laser and motional noise in a
+trapped ion, Rydberg decay in a neutral atom, two-level fluctuators in a transmon's oxides, thermal emission in a hot molecule, a missed site at DNA
+replication), and each field writes its thresholds in its own units.
+\begin{center}\small\begin{tabular}{p{0.12\textwidth}p{0.25\textwidth}p{0.23\textwidth}p{0.3\textwidth}}\toprule
+score & reading & healthy reference ($A=1$) & $H_{\min}$ (on the gauge)\\\midrule
+IAM-A & copy error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(\varepsilon_0)$; neutrophils at $1/P=0.910$\\
+Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & not yet derived for arrays\\
+C-score & clustering of the residual map & healthy median clustering & ---\\
+the quantum-processor report & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & material floor (Helios: $0.13$)\\
+the semiconductor report & $E_{\rm sw}=\mathrm{TDP}/(Nf)$ & the chip as built & Landauer floor $k_BT_j\ln2$ (9950X: $0.0017$)\\\bottomrule
 \end{tabular}\end{center}
-Two choices of floor are deliberate. A cell is read against its own healthy state, because that is what a clinician needs; $P_{\rm cell}$ places the
-healthy cell at 1 although it sits about 10\,\% above the physics floor. A device is read against physics, because that is what an engineer needs;
-no device reaches 1 (the best published chip, Apple M3, reads 65; the best two-qubit gate, an electronically driven trapped-ion prototype, about 2.8). The forms rank systems the same
-way but are not interchangeable in size: a qubit at $p=10^{-3}$ over a floor of $3\times10^{-4}$ reads $3.3$ in its own form and $2.9$ in the cells'
-entropy form. A value is therefore always quoted with its score's name.
+Some systems also have a point on the high side where they stop working: for a qubit, the gate error at which error correction fails ($p\approx1\,\%$;
+Helios at $A=12.7$). For cells the high side is the cancer direction; no failure point has been measured. The region between $H_{\min}$ and the healthy
+band is less error than healthy; for cells what it means biologically has not yet been measured.
+
+\begin{figure}[h]\centering\includegraphics[width=\textwidth]{figs_one_gauge/one_gauge.pdf}
+\caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (grey line) is the lowest error it can hold
+before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A, $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
+band 0.95--1.05. Qubit: Quantinuum Helios two-qubit gate ($p=7.9\times10^{-4}$) against a Ba$^+$ material floor of $10^{-4}$ (calibrated); error
+correction fails near $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor.
+Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
+
+\paragraph{Where $H_{\min}$ comes from.} For the cell, the form of the floor is IAM's Law: a holding energy $E_{\rm hold}$ against $k_BT$ allows
+an error $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$. Its height is at present measured: $E_{\rm hold}=\varphi M=3.41\,k_BT$ is read from the cells' own
+copy error, so $\varepsilon_0=0.032$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
+rather than by absolute zero. Three routes would make it absolute: the copying enzyme's own discrimination energy, $k_BT\ln(\text{selectivity})$ of
+DNMT1 measured precisely in vitro (published values bracket $1.9$--$4.4\,k_BT$); a derivation of $\varphi$, the fraction of one ATP spent per held bit,
+from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the temperature test in ectotherms, where a fixed holding energy predicts a
+different error at 10\,$^\circ$C than at 37\,$^\circ$C (so far the Methow reading is constant in $k_BT$ units, which this test must resolve). For the
+chip, $H_{\min}$ is the law itself. For the qubit it is a calibrated property of the substrate.
 
 \section{A is an error measurement}
 At an identity site where the cell's pattern is methylated, a fraction $\varepsilon$ of the cell's DNA copies have lost the mark, so

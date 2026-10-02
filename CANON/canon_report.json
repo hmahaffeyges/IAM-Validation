@@ -172,7 +172,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 62,
+"line": 63,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -181,7 +181,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 64,
+"line": 65,
 "pattern": "\\bA-floor",
 "use": "material floor eps_floor (the quantum-processor report) or H_min",
 "severity": "warn",
@@ -190,7 +190,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 65,
+"line": 66,
 "pattern": "[Ww]all ratio",
 "use": "A (the quantum-processor report) = eps / eps_floor",
 "severity": "warn",
@@ -199,7 +199,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 66,
+"line": 67,
 "pattern": "zero adjustable parameters",
 "use": "calibrated class values (n and floors are calibrated)",
 "severity": "warn",
@@ -208,7 +208,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 67,
+"line": 68,
 "pattern": "\\bA-floor",
 "use": "material floor eps_floor (the quantum-processor report) or H_min",
 "severity": "warn",
@@ -217,7 +217,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 68,
+"line": 69,
 "pattern": "the semiconductor report [Ii]ndex",
 "use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
 "severity": "warn",
@@ -226,7 +226,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 72,
+"line": 73,
 "pattern": "\\bold A\\b",
 "use": "Met-A",
 "severity": "warn",
@@ -235,7 +235,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 73,
+"line": 74,
 "pattern": "\\bnew A\\b",
 "use": "IAM-A",
 "severity": "warn",
@@ -244,7 +244,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 74,
+"line": 75,
 "pattern": "gate-error reading",
 "use": "IAM-A",
 "severity": "warn",
@@ -253,7 +253,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 75,
+"line": 76,
 "pattern": "program reading",
 "use": "Met-A",
 "severity": "warn",
@@ -262,7 +262,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 76,
+"line": 77,
 "pattern": "M\\s*=\\s*30\\.2",
 "use": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
 "severity": "warn",
@@ -271,7 +271,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 77,
+"line": 78,
 "pattern": "Mahaffey value",
 "use": "Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
 "severity": "warn",
@@ -280,7 +280,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 78,
+"line": 79,
 "pattern": "Mahaffey ratio",
 "use": "Mahaffey number (M)",
 "severity": "warn",
@@ -289,7 +289,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 80,
+"line": 81,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -298,7 +298,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 81,
+"line": 82,
 "pattern": "the semiconductor report [Ii]ndex",
 "use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
 "severity": "warn",
@@ -307,7 +307,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 82,
+"line": 83,
 "pattern": "[Ww]all ratio",
 "use": "A (the quantum-processor report) = eps / eps_floor",
 "severity": "warn",
@@ -316,7 +316,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 83,
+"line": 84,
 "pattern": "\\bA-floor",
 "use": "material floor eps_floor (the quantum-processor report) or H_min",
 "severity": "warn",
@@ -325,7 +325,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 84,
+"line": 85,
 "pattern": "zero adjustable parameters",
 "use": "calibrated class values (n and floors are calibrated)",
 "severity": "warn",

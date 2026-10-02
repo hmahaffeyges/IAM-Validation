@@ -74,8 +74,8 @@
   "eps0_meth": {
    "value": 0.032,
    "units": "error per methylated site per copy",
-   "derivation": "1/(1+exp(phi*M_cell))",
-   "source": "PROC-CHANNEL-01 physics floor",
+   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' copy error: the form is physics (Boltzmann), the height is measured",
+   "source": "PROC-CHANNEL-01; a physics-only height (DNMT1 discrimination energy or derived phi) is open",
    "accept": [
     0.032,
     0.032
@@ -145,11 +145,11 @@
   },
   "IAM floor": {
    "status": "current",
-   "definition": "The lowest error (or energy per operation) a system can reach at its operating temperature, set by IAM's law (k_B T ln 2 per bit) and its architecture. It is H_min, the denominator of A, in every domain: qubit material floor eps_floor, chip Landauer floor k_B T_j ln 2, cell reference floor (Met-A) or P_cell H(eps0) (IAM-A)."
+   "definition": "Synonym of H_min (the floor): the lowest error a system can hold at its temperature before thermal kicks win."
   },
   "Informational fidelity ratio (A)": {
    "status": "current",
-   "definition": "A = reading / H_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionless; A = 1 means the system sits on its floor. One meaning in every domain. Cells: Met-A = mean H(beta) over the cell's identity sites / the cell type's reference floor (Normal 0.95-1.05); IAM-A = H(eps) / (P_cell H(eps0)). Qubits (the quantum-processor report): A = eps / eps_floor, with eps = -ln(1 - p(2Q)) and eps_floor the material floor. Chips (the semiconductor report): A = E_sw / (k_B T_j ln 2), with E_sw = TDP / (N_transistors f). A is never the temperature exponent n.",
+   "definition": "A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = 1 is the system working as itself, in the middle of the gauge. Below it lies H_min, the lowest error the system can hold before thermal kicks win; nothing reads below H_min. Above 1 = more error than healthy. Cells: Met-A = mean H(beta) over identity sites / the healthy reference (purified healthy cells, same platform); IAM-A = H(eps)/(P_cell H(eps0)). Qubits: eps/eps(as built), eps = -ln(1-p). Chips: E_sw/E_sw(as built). A is never the temperature exponent n.",
    "note": "Scheme adopted by the author 2026-10-02 ('keep A consistent'). Before this, the quantum-processor report used 'A score' for -ln(1-p) (now eps) and 'wall ratio' for the ratio to the floor (now A); the semiconductor report called A the 'the semiconductor report index'."
   },
   "Landauer metrology": {
@@ -459,12 +459,14 @@
    "domain": "the methylation report"
   },
   "H_min (cell)": {
-   "status": "current",
-   "definition": "In the cell chain, the floor a reading is divided by. For Met-A: the cell type's reference floor on that platform (Met_A_floor_*), one per cell type, from purified healthy cells - never a class value. For IAM-A: P_cell * H(eps0), the physics floor's entropy at the cell's frozen architecture position P_cell (same read-level pipeline)."
+   "status": "retired",
+   "definition": "In the cell chain, the floor a reading is divided by. For Met-A: the cell type's reference floor on that platform (Met_A_floor_*), one per cell type, from purified healthy cells - never a class value. For IAM-A: P_cell * H(eps0), the physics floor's entropy at the cell's frozen architecture position P_cell (same read-level pipeline).",
+   "replaced_by": "H_min (the floor) for the physics floor; Healthy reference for the denominator"
   },
   "H_min (the floor)": {
    "status": "current",
-   "definition": "The denominator of A in every domain. Cells: the cell type's reference floor on that platform (Met-A) or P_cell H(eps0) (IAM-A); see H_min (cell). Qubits: the material floor eps_floor, a calibrated class value per substrate. Chips: the Landauer floor k_B T_j ln 2 per switching event, set by IAM's law alone."
+   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2044 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the material floor eps_floor (calibrated; Helios on Ba+ at 0.13). Chips: the Landauer floor k_B T_j ln 2 (AMD 9950X at 0.0017).",
+   "note": "Defined by the author 2026-10-02: 'the absolute lowest one can operate before the thermal kicks win'."
   },
   "eps (gate error in nats) [the quantum-processor report]": {
    "status": "current",
@@ -489,8 +491,12 @@
   },
   "One gauge (convention)": {
    "status": "current",
-   "definition": "Every score is an error score: the error a system makes over the floor of that same system, 1 at the floor, read on one gauge. Each domain keeps the form its field writes thresholds in (the error physics differs: laser/motional noise in ions, Rydberg decay in neutral atoms, TLS in transmon oxides, thermal emission in hot molecules, missed sites at DNA replication). Cells (Met-A, IAM-A, C-score): 1 = the healthy cell (P_cell places the healthy cell at 1). Devices (the quantum-processor report, the semiconductor report): 1 = the physical floor, never reached. The forms rank systems the same way but are not interchangeable in size (qubit p = 1e-3 over a 3e-4 floor: 3.3 in its own form, 2.9 in the entropy form); always quote a value with its score's name.",
+   "definition": "Every score is an error score on one gauge: A = 1 is healthy in the middle, H_min below it is the floor nothing passes, above 1 is more error; a failure point may lie on the high side (qubits: error correction fails near p = 1 %). Each domain keeps its field's form. Always quote a value with its score's name.",
    "note": "Adopted 2026-10-02 (author deferred the choice: 'they are all so unique in their operations that we cant expect formulas all to be the same')."
+  },
+  "Healthy reference": {
+   "status": "current",
+   "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, P_cell H(eps0) (neutrophils 0.2246 bits). Devices: the device as built."
   }
  },
  "retired": {
