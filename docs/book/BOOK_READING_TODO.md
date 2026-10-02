@@ -18,6 +18,8 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 | 3 | Dual_Sector_Perturbation_Cosmology_CAMB (Level 2) | 28 Feb 2026 | 17 | ☑ | ☑ `part2_drafts/p2_dual_sector_perturbation.tex` (1 hold: Run D) | ☑ `verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md` |
 | 4 | IAM_Dual_Sector_Note | Mar 2026 | 9 | ☐ | ☐ | ☐ |
 
+**Not on the list (author, 2026-10-02):** the CAMB Technical Note and other pre-chain papers are superseded by the chains; used only for history and leads.
+
 ## G2 Derivations and the law (Parts 1–2)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
@@ -27,7 +29,7 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 | 8 | Technical_Reference_for_Physicists (newest summary) | 27 Sep 2026 | 28 | ☐ | ☐ | ☐ |
 
 ## G3 Virial partition (Part 2)
-Read in full 2026-10-01; the chapter `p2_virial.tex` is a short synthesis and must be rebuilt to carry each paper nearly whole.
+**One chapter of its own (author, 2026-10-02): all five papers carried nearly in full**, in date order, each re-read in 100-line chunks before its section is written. The current `p2_virial.tex` is a short synthesis and is replaced. Corrections from `verification/virial/VIRIAL_CHECK.md` and `NBODY_TRACE.md` applied.
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
 | 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 25 Feb 2026 | 7 | ☑ | ☐ | ☑ `VIRIAL_CHECK.md`, `NBODY_TRACE.md` |
