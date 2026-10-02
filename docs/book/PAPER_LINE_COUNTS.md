@@ -13,7 +13,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 2 | Dual_Sector_Validation_Paper | 12 | 1239 | 1004 | 1–1239 (2026-10-02) | **complete** | PDF text includes three appendix scripts |
 | 3 | Dual_Sector_Perturbation_Cosmology_CAMB | 17 | 595 | 981 | 1–595 (2026-10-02) | **complete** | LaTeX folder name differs; title matches |
 | 4 | IAM_Dual_Sector_Note | 9 | 573 | 439 | 1–573 (2026-10-02) | **complete** |  |
-| 5 | A_Note_on_Entropic_Gravity | 10 | 317 | 559 | — | not confirmed |  |
+| 5 | A_Note_on_Entropic_Gravity | 10 | 317 | 559 | 1–317 (2026-10-02) | **complete** |  |
 | 6 | IAM_Law | 29 | 1506 | 2085 | 1–1506 (2026-10-02) | **complete** |  |
 | 7 | IAM_Theory_Paper | 34 | 1916 | 2418 | 1–1916 (2026-10-02) | **complete** |  |
 | 8 | Technical_Reference_for_Physicists | 28 | 1298 | — | — | not confirmed |  |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 15,575 lines (25 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 15,892 lines (26 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).

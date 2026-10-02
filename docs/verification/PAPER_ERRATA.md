@@ -248,3 +248,12 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | TW4 | | §5, §8 | 6σ, 22σ forecasts | no calculation; not reproduced | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #4 |
 | TW5 | | §9.2, refs | SMBH as encoding surface; M–σ paper | speculation; M–σ abandoned; cut | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #5 |
 | TW6 | | §2, §1 | 15 chains; 'verified' | 18; fixed β_m tests, does not verify | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #6 |
+| **Entropic Gravity Note** (`A_Note_on_Entropic_Gravity__Saridakis_.pdf`, Mar 2026), read in full 2026-10-02 |||||||
+| EG1 | | Eq. 3 | friction (2 + β_mE)Hδ' in cosmic time | dimensionally mixed; third implementation; state the form | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #1 |
+| EG2 | | §4 | N-body η 0.815 ± 0.025, β_m 0.159 | sources report 1.15–1.3; remove | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #2 |
+| EG3 | | §4, §8, §9 | β_m recovered at 0.2σ | fixed in every chain | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #3 |
+| EG4 | | §5 | inflection = peak production; n_eff 3.22 | per e-fold only; n = 7/2 | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #4 |
+| EG5 | | §8.1 | 17 chains (12+3+2) | 18 | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #5 |
+| EG6 | | Table 2, §6 | 72.5; µ0/Σ0 data; DESI DR2 growth | 72.26; trace; DR1 full shape | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #6 |
+| EG7 | | §8.2 | f(R) Σ > 1; DGP µ > 1 | f(R) Σ = 1; sDGP µ < 1, Σ = 1 | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #7 |
+| EG8 | | Acknowledgements | personal thanks to a named researcher | remove (names rule); cite the papers | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` — |

@@ -24,7 +24,7 @@ IAM_Master_Preprint and Supplementary_Methods_Reproducibility_Guide: old, alread
 ## G2 Derivations and the law (Parts 1–2)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 5 | A_Note_on_Entropic_Gravity (Saridakis) | Mar 2026 | 10 | ☐ | ☐ | ☐ |
+| 5 | A_Note_on_Entropic_Gravity | Mar 2026 | 10 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_theory.tex` §sec:source | ☑ `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` |
 | 6 | IAM_Law | Mar 2026 | 29 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_iams_law.tex` | ☑ `verification/theory/IAM_LAW_CHECK.md` |
 | 7 | IAM_Theory_Paper | 14 Apr 2026 | 34 | ☑ | ☑ `part2_drafts/p2_theory.tex` (+ §13 in `part5_drafts/p5_theory_interpretation.tex`) | ☑ `THEORY_CHECK.md` |
 | 8 | Technical_Reference_for_Physicists (newest summary) | 27 Sep 2026 | 28 | ☐ | ☐ | ☐ |
@@ -110,4 +110,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 | 47 | IAM_Gravitational_Engineering_Exploration | — | 6 | ☐ | ☐ | ☐ |
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 25 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
+Progress: 26 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
