@@ -1,5 +1,5 @@
 # DUAL_SECTOR_PERTURBATION_CHECK — "Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with µ < 1, Σ = 1" (Level 2, 28 Feb 2026, 17 pp)
-Read in full 2026-10-02 (all 595 extracted lines; first pass saw previews only, re-read completely before this version). Checked against `camb_validation/` (equations_iam_level2.f90, likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py,
+Read in full 2026-10-02 (all 595 extracted lines; first pass saw previews only, re-read completely before this version; confirmed again in 50-line chunks with a line ledger, no gaps). Checked against `camb_validation/` (equations_iam_level2.f90, likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py,
 chains/*.input.yaml and the chain files, 30 % burn-in).
 
 ## Reproduced from the chain files
@@ -59,3 +59,5 @@ Sampled parameters {ω_b, ω_c, θ_MC, τ, ln A_s, n_s} ✓.
    (3×2pt) report 0.766 (+0.020/−0.014). To trace against both sources before printing.
 14. **§8.5** Euclid "∼3.4σ" = 0.135/0.04 ✓; "Σ ≠ 1 at > 10⁻⁴ falsifies" — no survey reaches 10⁻⁴; state the forecast precision instead.
 11. References: Frusciante et al. title (as L6); "DESI 2025, JCAP 2025(02), 021" to trace (arXiv 2411.12022).
+15. (ledger read) **MGCAMB reference**: "Wang et al. 2023, 'MGCAMB v2: a flexible modified gravity Boltzmann code', JCAP 01, 036" → Wang, Mirpoorian, Pogosian,
+    Silvestri & Zhao 2023, "New MGCAMB tests of gravity with CosmoMC and Cobaya", JCAP 08, 038 (as cited in the Level 1 paper). No other new item.
