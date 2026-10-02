@@ -13,6 +13,14 @@ Supersymmetric cancellation, the string landscape, quintessence and modified gra
 starting point is that $\rho_{\rm vac}$ and $\rho_\Lambda$ may be different physical quantities: the first a property of the vacuum, the second a
 property of the universe's history.
 
+\paragraph{The frame.} Nothing here modifies gravity. The Einstein equations are untouched; what is completed is the horizon entropy functional,
+the place Jacobson showed the field equations come from. Jacobson's entropy $S=A/4\ell_P^2$ is purely geometric, and Einstein's $\Lambda$ was a
+constant he could not identify. Both lack the same piece: $S_{\rm info}$, the classical information produced by matter decohering on timelike
+worldlines, encoded on the horizon. The missing information was always information. In this frame $\Lambda$ is the vacuum baseline, a constant
+floor independent of structure, and $S_{\rm info}$ is the structural contribution, carried by $\beta_mE(a)$ (Chapter~\ref{ch:theory}). Before
+structure forms $E(a)\to0$: no structure, no decoherence, no cost, so the early universe is general relativity with $\Lambda$, which is
+$\Lambda$CDM exactly. Recombination, the acoustic peaks and nucleosynthesis are unchanged by construction.
+
 \section{The horizon identity}
 Writing the critical density in Planck units gives, exactly,
 \begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}=\frac{3\Omega_\Lambda}{8\pi}\left(\frac{l_P}{l_H}\right)^2,\qquad l_H=c/H_0,\label{eq:ident}\end{equation}
@@ -24,10 +32,10 @@ priced at its own temperature, per unit Hubble volume. The 123 orders of magnitu
 $H_0$ and the Planck length reproduces them. They are not evidence for a mechanism. What a mechanism must explain is the O(1) factor
 $3\Omega_\Lambda/8\pi$.
 
-\section{The IAM expression}
-In IAM, $\rho_{\rm vac}$ is the energy of the complete Planck-scale substrate on the horizon and $\rho_\Lambda$ is the Landauer cost of the
-classical information written on it by gravitational decoherence on timelike worldlines. Dark matter, in IAM's virial reading
-(Chapter~\ref{ch:virial}), does not decohere further, so only baryons write; the paper takes the writing fraction as $\Omega_b/\Omega_m$ and
+\section{The cosmological-constant expression}
+In the paper, $\rho_{\rm vac}$ is the energy of the complete Planck-scale substrate on the horizon and $\rho_\Lambda$ is the Landauer cost of the
+classical information written on it by gravitational decoherence on timelike worldlines. Dark matter, in the virial reading of
+Chapter~\ref{ch:virial}, does not decohere further, so only baryons write; the paper takes the writing fraction as $\Omega_b/\Omega_m$ and
 a geometric factor $2/\pi$:
 \begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}\Big|_{\rm IAM}=\frac{2}{\pi}\left(\frac{l_P}{l_H}\right)^2\frac{\Omega_b}{\Omega_m}
 =1.380\times10^{-123}\quad(\times1.218),\label{eq:base}\end{equation}
@@ -40,8 +48,9 @@ $0.79\,\%$ above the measured value. The exponent of $\Omega_\Lambda$ that would
 Dividing Eq.~\eqref{eq:corr} by the identity \eqref{eq:ident}, the $l_P$, $l_H$ and $\pi$ cancel:
 \begin{equation}\boxed{\;\frac{\Omega_b}{\Omega_m}=\frac{3}{16}\sqrt{\Omega_\Lambda}\;}\label{eq:rel}\end{equation}
 Planck 2018: $0.1564$ against $0.1551$. On the CMB-only 18th chain (Chapter~\ref{ch:baryon}) the ratio of the two sides is
-$1.0046\pm0.0068$ ($0.7\sigma$). On the $\Lambda$CDM chains it is $1.0056$--$1.0106$: the relation is a property of the measured parameters and
-holds equally in $\Lambda$CDM. It holds at the present epoch only, since $\Omega_\Lambda(a)$ changes and $\Omega_b/\Omega_m$ does not.
+$1.0046\pm0.0068$ ($0.7\sigma$). On the $\Lambda$CDM chains it is $1.0056$--$1.0106$. That is expected: the informational term is off at recombination, so the
+CMB returns the same $\Omega_b$, $\Omega_m$ and $\Omega_\Lambda$ with or without it. The relation is a property of the measured universe;
+$\Lambda$CDM takes those values as given, and the informational term is what would have to explain them. It holds at the present epoch only, since $\Omega_\Lambda(a)$ changes and $\Omega_b/\Omega_m$ does not.
 Eq.~\eqref{eq:rel} ties the dark-energy fraction to the baryonic fraction of matter. If $3/16$ follows from physics with nothing adjusted, it
 would explain the O(1) factor that the identity leaves open. Among O(1) combinations of $\Omega_b/\Omega_m$, $\Omega_\Lambda$, $\pi$ and small
 integers, 2 of 540 fall within $1\,\%$ of the measured value, so the derivation, not the agreement, carries the weight.
@@ -58,7 +67,8 @@ close the 1.22 residual of Eq.~\eqref{eq:base}; a derivation must fix where it e
 residual stood at 12, and the $2/\pi$ when it stood at 1.9; both are given here as the paper's reasons, with that order.
 
 \section{Accumulation over cosmic history}
-If $\Lambda$ is accumulated it must follow from the history of baryonic decoherence. The paper's integral
+The paper goes beyond the frame above: it reads $\Lambda$ itself, not only the structural term, as the accumulated Landauer cost of baryonic
+decoherence. If $\Lambda$ is accumulated it must follow from the history of baryonic decoherence. The paper's integral
 \begin{equation}\frac{\Lambda(a)}{\rho_{\rm vac}}\propto\int_{a_{\rm EW}}^{a}\frac{\Omega_b(a')}{\Omega_{\rm tot}(a')}
 \frac{l_H(a')^2}{l_P^2}\frac{da'}{a'^2H(a')/H_0}\end{equation}
 grows as $a'^{-3}$ toward early times; from $a_{\rm EW}=2.3\times10^{-15}$ its coefficient is $3\times10^{30}$ against the required $0.523$.
@@ -68,20 +78,24 @@ A direct test with nothing adjusted: the heat released by baryonic virialisation
 $10^8\,M_\odot$ ($\sigma_8=0.811$), 58\,\% of baryons are in halos, with mean virial dispersion 213\,km\,s$^{-1}$. By the virial theorem the
 heat radiated equals the kinetic energy stored (Chapter~\ref{ch:virial_law}). The total is $3.2\times10^{-8}\,\rho_\Lambda c^2$. Priced as bits at
 the gas temperature and charged $k_BT_{GH}\ln2$ each at the horizon, it is $2.6\times10^{-44}\,\rho_\Lambda c^2$. Converting all baryonic rest
-mass would give $\Omega_b/\Omega_\Lambda=0.072$.
+mass would give $\Omega_b/\Omega_\Lambda=0.072$. This bears on the paper's reading of $\Lambda$ as summed released energy; it does not bear on
+the structural term $\beta_mE(a)$, which is a horizon-entropy term in the first law, not released heat, and which the chains test directly.
 
-\authorhold{The wording approved on 2026-10-01, ``Within GR with the informational term, $\Lambda$ is the accumulated Landauer cost of baryonic
-decoherence. This predicts $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ today, observed to 0.5\,\% on a CMB-only chain. The derivation of the
-coefficient is open.'' The accumulation test above (run 2026-10-02) finds that no energy released by baryons reaches $\rho_\Lambda$: the
-virial heat is $3\times10^{-8}$ of it and all baryonic rest mass is 7\,\%. Proposed replacement: ``The measured $\Lambda$ satisfies the horizon
-identity $T_{GH}S=M_Hc^2$, and today $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ to 0.5\,\% on a CMB-only chain. A derivation of $3/16$ is
-open; an accumulation of energy released by baryons is excluded by seven orders of magnitude.''}
+\authorhold{Two readings of $\Lambda$ meet here. The GRF essay and the Theory paper: $\Lambda$ is the vacuum baseline, constant and independent
+of structure; $S_{\rm info}$ is the structural term, $\beta_mE(a)$. The CC paper, and the wording approved on 2026-10-01 (``Within GR with the
+informational term, $\Lambda$ is the accumulated Landauer cost of baryonic decoherence. This predicts $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$
+today, observed to 0.5\,\% on a CMB-only chain. The derivation of the coefficient is open.''): $\Lambda$ itself is accumulated. The book needs one.
+With the first, the chapter reads: ``Within GR with the informational term, $\Lambda$ is the vacuum baseline. Its measured value satisfies the horizon
+identity $T_{GH}S=M_Hc^2$, and today $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ to 0.5\,\% on a CMB-only chain; a derivation of $3/16$ from the
+informational term is open.'' The accumulation test excludes released heat as the source of $\rho_\Lambda$, which favours the first.}
 
 \section{The cosmological constant is not constant}
 An accumulated $\Lambda$ grows with time. A dark-energy density that increases as the universe expands has $w<-1$, not $w>-1$ as the paper
-states. DESI DR2 prefers $w_0>-1$ today with $w_a<0$; the IAM expectation and the DESI preference are compared in the observations chapter.
+states; this agrees with the structural term's $w_{\rm info}=-1-1/(3a)$ (Chapter~\ref{ch:theory}). DESI DR2 prefers $w_0>-1$ today with $w_a<0$;
+the two are compared in the observations chapter.
 
 \section{Status}
 Stands: the identity \eqref{eq:ident} and $T_{GH}S=M_Hc^2$; the measured relation \eqref{eq:rel} at the present epoch (0.5--1.1\,\% on every
 chain). Open: a derivation of $3/16$ in which the geometric factor, the temperature factor and the baryon fraction each follow from physics;
-it must also explain why the relation holds now. Excluded: the accumulation of released baryonic energy as the source of $\rho_\Lambda$.
+it must also explain why the relation holds now. Excluded: the accumulation of released baryonic energy as the source of $\rho_\Lambda$. Unaffected: general relativity with the informational
+term, which is $\Lambda$CDM before structure and differs only in late-time growth (Chapters~\ref{ch:latetime}--\ref{ch:level}).

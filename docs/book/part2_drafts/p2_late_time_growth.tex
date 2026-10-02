@@ -5,11 +5,11 @@
 \chapter{Late-time growth suppression: confrontation with Planck and large-scale structure}\label{ch:latetime}
 
 \section*{Summary}
-This chapter tests a scale-independent, late-time suppression of linear structure growth in the standard $\mu$--$\Sigma$ framework. The model sets
+This chapter tests a scale-independent, late-time suppression of linear structure growth in the standard $\mu$--$\Sigma$ framework. The informational term sets
 $\mu(a)<1$ for matter perturbations and keeps $\Sigma(a)=1$, so photon geodesics and the CMB acoustic structure are unchanged. The time dependence is
 carried by the activation function $E(a)=\exp(1-1/a)$, which vanishes at early times and reaches unity at $a=1$, so recombination physics is preserved by
 construction. With the coupling $\beta=\Omega_m/2$ the present-day coupling is $\mu(z{=}0)=0.864$, a $13.6\,\%$ reduction of the effective Newton constant
-for linear growth. The model is implemented in MGCAMB and run in twelve MCMC analyses with Cobaya: Planck 2018 (TT, TE, EE and lensing) alone and with SDSS
+for linear growth. The term is implemented in MGCAMB and run in twelve MCMC analyses with Cobaya: Planck 2018 (TT, TE, EE and lensing) alone and with SDSS
 redshift-space distortions, BAO, or Pantheon+ supernovae. With $\beta$ fixed, every combination is consistent with $\Lambda$CDM ($\Delta\chi^2$ between
 $+0.56$ and $+1.73$), with the standard parameters unchanged. With the amplitude free, the posterior of $\mu_0$ reaches the upper edge of its prior ($+0.2$) in every combination; the prediction lies inside the
 $90\,\%$ credible interval in all four, with $10$--$21\,\%$ of the posterior below it. $\sigma_8$ falls from $0.813$ to $0.800$ in every combination. BAO angles and supernova distances are unaffected,
@@ -25,7 +25,7 @@ The $\mu$--$\Sigma$ parameterisation (Bean and Tangmatitham 2010; Daniel et al.\
 relativity through $\mu(a)$, which modifies the Poisson equation for matter clustering, and $\Sigma(a)$, which modifies the lensing potential. DES, KiDS and
 Euclid use it. Keeping $\Sigma=1$ preserves photon geodesics and the CMB acoustic structure while allowing growth to change.
 
-The model examined here is
+The form examined here is
 \begin{equation}
 \mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta E(a)H_0^2},\qquad E(a)=\exp\!\left(1-\frac1a\right),
 \label{eq:lt_mu}\end{equation}
@@ -110,7 +110,7 @@ $\Delta\chi^2$ & -- & $+0.56$ & --\\\hline
 \paragraph{Planck + RSD.} Growth-rate data test the coupling directly. The fixed prediction gives $\Delta\chi^2=+0.56$, lower than with Planck alone: the growth data
 do not penalise the suppression. $\sigma_8$ is $0.8004\pm0.0060$ against $0.8133\pm0.0060$, lower by $0.013$; the other parameters are unchanged, so the
 modification acts on growth without opening degeneracies (Fig.~\ref{fig:lt_post}).
-Figure~\ref{fig:lt_fs8} shows $f\sigma_8(z)$: the model is lower than $\Lambda$CDM at every redshift.
+Figure~\ref{fig:lt_fs8} shows $f\sigma_8(z)$: with the term, growth is lower than $\Lambda$CDM at every redshift.
 \begin{figure}[h]\centering\includegraphics[width=0.85\textwidth]{figs_late_time_growth/fig_posterior_comparison.pdf}\caption{Planck + RSD posteriors, $\Lambda$CDM (grey) and $\mu_0=-0.135$ fixed (blue). Only $\sigma_8$ moves.}\label{fig:lt_post}\end{figure}
 \begin{figure}[h]\centering\includegraphics[width=0.7\textwidth]{figs_late_time_growth/fig_fsigma8.pdf}\caption{$f\sigma_8(z)$ for $\Lambda$CDM (black) and $\mu_0=-0.135$ (blue) with the measurements: 6dFGS ($z=0.07$), SDSS MGS ($0.15$), BOSS DR12 ($0.38$, $0.51$), eBOSS DR16 LRG ($0.70$), ELG ($0.85$) and quasars ($1.48$).}\label{fig:lt_fs8}\end{figure}
 

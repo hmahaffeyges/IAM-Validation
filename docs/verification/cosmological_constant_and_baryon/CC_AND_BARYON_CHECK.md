@@ -57,7 +57,9 @@ derivation open: the 2/π factor and the history-weighting both need a derivatio
    observed relation, not two confirmations; its derivation is open (2/π, history weighting).
 
 ## Full reads with line ledgers (2026-10-02): CC paper 842 lines, Matter-Antimatter 438, Baryon 242, 18th-chain record 7
-Reproduction: `scripts/verify_cc_and_baryon.py` (output beside it). Every number below is from that run.
+Frame (GRF essay, read in full 2026-10-02, 211 lines; Theory paper): not modified gravity; Einstein equations untouched; the horizon entropy
+functional gains S_info; off before structure, so the early universe is ΛCDM. Reproduction: `scripts/verify_cc_and_baryon.py` (output beside it).
+Every number below is from that run.
 
 ### Reproduced
 - ρ_vac = E_P⁴/(ħc)³ = 4.633 × 10¹¹³ J m⁻³; ρ_Λ = 5.250 × 10⁻¹⁰ J m⁻³; observed ratio 1.1332 × 10⁻¹²³ (paper 1.14).
@@ -66,7 +68,8 @@ Reproduction: `scripts/verify_cc_and_baryon.py` (output beside it). Every number
 - 18th chain: 14,957 rows after 30 % burn-in (22,400 accepted, R−1 0.009273 in the record); Ω_b h² 0.02232; η (6.113 ± 0.037) × 10⁻¹⁰;
   Ω_b/Ω_m 0.1554; ratio to (3/16)√Ω_Λ 1.0046 ± 0.0068. The record's 6.1155 uses the full chain (no 30 % cut on the record's own count).
 - ΛCDM chains give the same: lcdm_baseline η 6.118, ratio 1.0058; Planck + BAO 6.137, 1.0106; Planck + Pantheon+ 6.117, 1.0056.
-  **The (3/16)√Ω_Λ relation is a property of the Planck parameters; ΛCDM satisfies it as well as IAM.**
+  Expected: the informational term is off at recombination (E → 0), so GR with the term is ΛCDM there and the CMB returns the same
+  parameters. The (3/16)√Ω_Λ relation is a property of the measured universe; the chain is a consistency check that the early universe is intact.
 - (Ω_dm + Ω_de)/Ω_b = 19.39 (MA eq. 5).
 - De Sitter horizon: T_GH S_BH = M_H c² exactly for any H (the cosmic analogue of Smarr). So ρ_Λ = Ω_Λ × (horizon entropy × T_GH)/V_H
   identically — the 10⁻¹²³ is this identity, not a result.
@@ -110,6 +113,8 @@ halos today = heat radiated by baryonic virialisation (virial theorem: radiated 
 - Baryon mass in halos 0.58; σ_eff 213 km s⁻¹; **accumulated virial heat / ρ_Λc² = 3.2 × 10⁻⁸.**
 - Priced at the horizon (bits = Q/(k_BT_gas ln 2), cost k_BT_GH ln 2 each): 2.6 × 10⁻⁴⁴.
 - Upper bound, all baryon rest mass: Ω_b/Ω_Λ = 0.072.
-**Result:** no accumulation of energy released by baryons can reach ρ_Λ. "Λ is the accumulated Landauer cost of baryonic decoherence" is not
+**Result:** no accumulation of energy released by baryons can reach ρ_Λ. This tests the CC paper's reading of Λ as summed released energy, not
+the structural term β_mE(a) (a horizon-entropy term in the first law, tested by the chains). GRF essay and Theory paper: Λ = vacuum baseline,
+S_info = structural term; CC paper: Λ itself accumulated. Author decision pending (hold in p2_lambda.tex). "Λ is the accumulated Landauer cost of baryonic decoherence" is not
 supported by this calculation in any form that uses released heat. What stands: the identity T_GH S = M_H c², and the observed present-epoch
 relation Ω_b/Ω_m ≈ (3/16)√Ω_Λ (0.5–1.1 % on every chain, ΛCDM included), derivation open.
