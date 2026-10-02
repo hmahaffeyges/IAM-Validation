@@ -20,6 +20,7 @@ def glossary():
     L+=["", "## Retired or pending names", "", "| pattern | use instead | severity |", "|---|---|---|"]
     for k,v in C["retired"].items(): L.append(f"| `{k}` | {v['replaced_by']} | {v['severity']} |")
     open(os.path.join(HERE,"GLOSSARY.md"),"w",encoding="utf-8").write("\n".join(L)+"\n"); print("GLOSSARY.md written")
+    import importlib.util as _u; _s=_u.spec_from_file_location("c2t",os.path.join(HERE,"canon_to_tex.py")); _m=_u.module_from_spec(_s); _s.loader.exec_module(_m); _m.main()
 def scan():
     S=C["scope"]; skip=[os.path.normpath(x) for x in S["skip_dirs"]]; mark=re.compile("|".join(re.escape(m) for m in S["record_markers"]))
     pats=[(re.compile(p, re.I if v["severity"]!="block" else 0),p,v) for p,v in C["retired"].items()]

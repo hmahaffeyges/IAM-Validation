@@ -1,5 +1,14 @@
 [
 {
+"file": "DERIVATIONS QPROC_CHIP_MPHYS/chip_derivation_tests.py",
+"line": 19,
+"pattern": "the semiconductor report [Ii]ndex",
+"use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# (formerly 'the semiconductor report index'); M = E_sw/(k_B T_j) = A ln 2; class floor = per-architecture bound (not H_min); n = temperature exponent."
+},
+{
 "file": "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py",
 "line": 77,
 "pattern": "\\bA[- ]score",
@@ -45,10 +54,28 @@
 "text": "print(\"principles. The 40-cell H_min grid, A-score formula, saturation\")"
 },
 {
+"file": "DERIVATIONS QPROC_CHIP_MPHYS/qproc_derivation_tests.py",
+"line": 15,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# SYMBOLS (master table v1.1, 2026-10-02): eps = -ln(1 - p(2Q)), the gate error in nats (formerly 'A score');"
+},
+{
+"file": "DERIVATIONS QPROC_CHIP_MPHYS/qproc_derivation_tests.py",
+"line": 16,
+"pattern": "[Ww]all ratio",
+"use": "A (the quantum-processor report) = eps / eps_floor",
+"severity": "warn",
+"status": "LIVE",
+"text": "# A = eps / eps_floor (reading over the material floor, formerly 'wall ratio'); n = temperature exponent (calibrated)."
+},
+{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 269,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
@@ -66,7 +93,7 @@
 "file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
 "line": 14,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
@@ -75,7 +102,7 @@
 "file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
 "line": 14,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
@@ -88,6 +115,231 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 40,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Informational fidelity ratio (A) & A = reading / H\\_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionl"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 40,
+"pattern": "the semiconductor report [Ii]ndex",
+"use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Informational fidelity ratio (A) & A = reading / H\\_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionl"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 40,
+"pattern": "[Ww]all ratio",
+"use": "A (the quantum-processor report) = eps / eps_floor",
+"severity": "warn",
+"status": "LIVE",
+"text": "Informational fidelity ratio (A) & A = reading / H\\_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionl"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 44,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Met-A (Metrology A) & Array reading of ONE cell type in one specimen (chain v3, Stage M): Met-A = mean over the cell's identity sites of H(beta) / H\\_min(cell),"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 45,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "IAM-A & Error reading: the per-molecule copy error eps of a cell's held methylation pattern on single-molecule sequencing (isolated unmethylated call between tw"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 54,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "eps (gate error in nats) [the quantum-processor report] & eps = -ln(1 - p(2Q)), the two-qubit gate error expressed in nats; eps \\textasciitilde{} p for small p. It is the qubit reading"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 62,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "A score [the quantum-processor report] & eps (gate error in nats) [the quantum-processor report]\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 64,
+"pattern": "\\bA-floor",
+"use": "material floor eps_floor (the quantum-processor report) or H_min",
+"severity": "warn",
+"status": "LIVE",
+"text": "Material A-floor [the quantum-processor report] & Material floor (eps\\_floor) [the quantum-processor report]\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 65,
+"pattern": "[Ww]all ratio",
+"use": "A (the quantum-processor report) = eps / eps_floor",
+"severity": "warn",
+"status": "LIVE",
+"text": "Wall ratio  /  Concern level [the quantum-processor report] & Informational fidelity ratio (A): A(the quantum-processor report) = eps / eps\\_floor; concern bands LOW > 5, MEDIUM 2.5-5, HIGH < 2.5 read on A\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 66,
+"pattern": "zero adjustable parameters",
+"use": "calibrated class values (n and floors are calibrated)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Zero adjustable parameters [the quantum-processor report] & n (temperature exponent) and Material floor: both CALIBRATED class values\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 67,
+"pattern": "\\bA-floor",
+"use": "material floor eps_floor (the quantum-processor report) or H_min",
+"severity": "warn",
+"status": "LIVE",
+"text": "Effective A-floor [the quantum-processor report] & Material floor (eps\\_floor) [the quantum-processor report], as lowered by participation-ratio engineering\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 68,
+"pattern": "the semiconductor report [Ii]ndex",
+"use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
+"severity": "warn",
+"status": "LIVE",
+"text": "the semiconductor report Index [the semiconductor report] & Informational fidelity ratio (A), chip form A = E\\_sw/(k\\_B T\\_j ln 2)\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 72,
+"pattern": "\\bold A\\b",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}old A & Met-A\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 73,
+"pattern": "\\bnew A\\b",
+"use": "IAM-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}new A & IAM-A\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 74,
+"pattern": "gate-error reading",
+"use": "IAM-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}gate-error reading & IAM-A\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 75,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}program reading & Met-A\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 76,
+"pattern": "M\\s*=\\s*30\\.2",
+"use": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}M = 30.2 & M = 20.94 (30.2 only as the Landauer-unit conversion)\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 77,
+"pattern": "Mahaffey value",
+"use": "Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}Mahaffey value & Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 78,
+"pattern": "Mahaffey ratio",
+"use": "Mahaffey number (M)",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}Mahaffey ratio & Mahaffey number (M)\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 80,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}A score & eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H\\_min)\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 81,
+"pattern": "the semiconductor report [Ii]ndex",
+"use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}the semiconductor report Index & A (the semiconductor report) = E\\_sw/(k\\_B T\\_j ln 2)\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 82,
+"pattern": "[Ww]all ratio",
+"use": "A (the quantum-processor report) = eps / eps_floor",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}Wall ratio & A (the quantum-processor report) = eps / eps\\_floor\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 83,
+"pattern": "\\bA-floor",
+"use": "material floor eps_floor (the quantum-processor report) or H_min",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}A-floor & material floor eps\\_floor (the quantum-processor report) or H\\_min\\\\"
+},
+{
+"file": "docs/book/appendix_drafts/app_canon.tex",
+"line": 84,
+"pattern": "zero adjustable parameters",
+"use": "calibrated class values (n and floors are calibrated)",
+"severity": "warn",
+"status": "LIVE",
+"text": "{}zero adjustable parameters & calibrated class values (n and floors are calibrated)\\\\"
+},
+{
+"file": "docs/book/part3_drafts/p3_one_gauge.tex",
+"line": 3,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "% updated to the master table v1.1 (CANON/iam_canon.json, 2026-10-02): per-cell H_min (class H_min retired 2026-10-01), M = E/k_BT = 20.94,"
 },
 {
 "file": "Biological_Physics/MethylPhys/README.md",
@@ -1641,7 +1893,7 @@
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
 "line": 12627,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "**What this step does.** When a specific disease card includes a curated CpG panel (e.g., the Xu-538 immune panel used for breast pre-dx), compute the A-score o"
@@ -1659,7 +1911,7 @@
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
 "line": 12629,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "**Inputs.** Cleaned \u03b2 matrix from \u00a740 + the card's panel CpG list + the class H_min the panel anchors to."
@@ -2676,7 +2928,7 @@
 "file": "Biological_Physics/MethylPhys/kit/class_guard.py",
 "line": 23,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "\"kit/build_percell_identity.py\":\"per-cell identity loci target the class H_min_beta; replaced by the v2 identity-loci build\","
@@ -2703,7 +2955,7 @@
 "file": "Biological_Physics/MethylPhys/kit/PROC_UNMIX_01.py",
 "line": 88,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "json.dump({\"_meta\": {\"built\": \"2026-09-27\", \"from\": \"iamatlas_percell_identity_loci_v1_1.json\", \"rule\": \"trim from the heavier side until own mean beta is withi"
@@ -2829,7 +3081,7 @@
 "file": "Biological_Physics/MethylPhys/chain/disease_matching.py",
 "line": 77,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "# Stage 4 A-score LOCI \u2014 per-class IDENTITY CpGs (beta near the class H_min_beta,"
@@ -2856,7 +3108,7 @@
 "file": "Biological_Physics/MethylPhys/chain/disease_matching.py",
 "line": 287,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "(1) below_floor is False  -- the A is above the per-class H_min floor (catches SUPPRESSED"
@@ -3477,7 +3729,7 @@
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/build_methylphys.py",
 "line": 752,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "{\"impl\":\"stage_b_identity\",\"in\":\"a present cell's A and its class H_min\",\"out\":\"one tier word and a note, or nothing\","
@@ -3621,7 +3873,7 @@
 "file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
 "line": 80,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "| 34 | Recombination physics (RECFAST/HyRec) | Cellular differentiation thermodynamics \u2014 the per-class H_min values are frozen at differentiation, analogous to "
@@ -3657,7 +3909,7 @@
 "file": "Biological_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md",
 "line": 153,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "| 61-63 | row 7 Tiers \"goes in: A'', reportable, class H_min\" | **FIXED** | a present cell's A and its class H_min |"
@@ -3666,7 +3918,7 @@
 "file": "Biological_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md",
 "line": 153,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "| 61-63 | row 7 Tiers \"goes in: A'', reportable, class H_min\" | **FIXED** | a present cell's A and its class H_min |"
@@ -3702,7 +3954,7 @@
 "file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
 "line": 167,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "0b. **Report restructure** \u2014 Reading tab leads with cells found + fractions, then per-cell A against its class H_min with healthy = A 1.00 \u00b1 5 % (tier NORMAL) a"
@@ -3801,7 +4053,7 @@
 "file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
 "line": 25,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "| [`disease_matching.py`](../chain/disease_matching.py) | per-class identity CpGs; \"per-class H_min floor\" check | per-cell identity loci; floor check stays (it"
@@ -4008,7 +4260,7 @@
 "file": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
 "line": 11,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "| **M5 report** | 11 cached arrays: PRESENT cells entering the departure profile **0\u20135** (median 3); route-B candidates none. Healthy per-cell A on this surface"
@@ -4017,7 +4269,7 @@
 "file": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
 "line": 13,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
 "text": "**Why row 8 is not commissionable yet.** Stage 8's patient departure is (A_cell \u2212 1.0) over cells above their class H_min \u2014 a definition that presumes healthy p"
@@ -4467,7 +4719,7 @@
 "file": "Biological_Physics/MethylPhys/manual/build_operations_manual.py",
 "line": 747,
 "pattern": "class H_min",
-"use": "per-cell-type reference floor (Met-A) or eps0 (IAM-A); cell architecture classes are not floors",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "'where the class mean sits within 0.05 of the class H_min_\u03b2; and the Stage 4.6 sky (5A.4) uses the per-CpG SD as its noise model. The predecessor IAMAtlas.csv.x"
