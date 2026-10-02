@@ -32,7 +32,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 21 | IAM_Survey_Predictions_Paper | 11 | 736 | 515 | 1–736 (2026-10-02) | **complete** |  |
 | 22 | The_Redshift_Dependent_S_8_Trend | 8 | 323 | — | 1–323 (2026-10-02) | **complete** |  |
 | 23 | Dark_Energy_or_Sector_Tension | 20 | 934 | 1300 | 1–934 (2026-10-02) | **complete** |  |
-| 24 | Missing_Satellites | 10 | 574 | 534 | — | not confirmed |  |
+| 24 | Missing_Satellites | 10 | 574 | 534 | 1–574 (2026-10-02) | **complete** |  |
 | 25 | IAM_Black_Hole_Information_Paradox | 14 | 453 | 675 | 1–453 (2026-10-02) | **complete** |  |
 | 26 | IAM_BH_Thermodynamics | 9 | 431 | 532 | 1–431 (2026-10-02) | **complete** |  |
 | 27 | IAM_M_Sigma_Paper | — | — | — | — | n/a | removed from repo (M–σ abandoned) |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 15,001 lines (24 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 15,575 lines (25 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).

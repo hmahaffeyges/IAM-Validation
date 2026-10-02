@@ -153,6 +153,10 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | M2 | | §4.4 | "raw prediction 10^6.4, ~100× below" | Eq. 11 gives 10^8.44 at 4 km/s; offset not in the paper's equation | confirmed | same |
 | M3 | | §4 Mechanism B | no halo virialises below σ_crit ≈ 4 km/s | 25 of 54 MW satellites below 4 km/s today; test against σ at infall is open | author | same |
 | M4 | | | "all 17 converged R−1 < 0.01"; "Euclid DR1 October 2026" | 14 of 17 at the paper's date (all 18 today); DR1 mid-2027 | confirmed | same |
+| M5 | | §3.2, abstract | ΔD/D = −7.4 % | −0.78 % (exact coupling, growth equation) | confirmed | `observations/MISSING_SATELLITES_CHECK.md` |
+| M6 | | §2, §3.3, Table 1, §6 | β_m confirmed at 0.2σ; 17 chains; Euclid DR1 Oct 2026 | fixed in every chain; 18; complete DR1 mid-2027 | confirmed | `observations/MISSING_SATELLITES_CHECK.md` |
+| M7 | | §4.3, §7, refs | σ³/σ²/σ⁴ family; M–σ paper | M–σ abandoned; not carried | confirmed | `observations/MISSING_SATELLITES_CHECK.md` |
+| M8 | | §6 (Mechanism B) | σ_crit ≈ 4 km/s floor | rejected by census (46 % below 4 km/s); infall-σ re-test only | confirmed | `observations/MISSING_SATELLITES_CHECK.md` |
 | **CAMB Technical Note** (`IAM_CAMB_Technical_Note.pdf`) — from the 2026-10-01 audit |||||||
 | N2 | | µ(z) table | 0.884, 0.920 at z = 0.2, 0.5 | 0.905, 0.948 | pending re-read | same |
 | N3 | | Fig. (g) CMB lensing | "IAM reduces lensing by 2.0 %" | Limber estimate at fixed amplitude 0.05–0.3 %; recompute with MGCAMB | pending re-read | `chains/LATE_TIME_GROWTH_CHECK.md` |

@@ -57,7 +57,7 @@ IAM_Master_Preprint and Supplementary_Methods_Reproducibility_Guide: old, alread
 | 21 | IAM_Survey_Predictions_Paper | 25 Feb 2026 | 11 | ☑ 2026-10-02 | → predictions appendix (author) | ☑ `observations/SURVEY_PREDICTIONS_CHECK.md` |
 | 22 | The_Redshift_Dependent_S_8_Trend | Mar 2026 | 8 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_s8_trend.tex` | ☑ `observations/S8_TREND_CHECK.md` |
 | 23 | Dark_Energy_or_Sector_Tension | Mar 2026 | 20 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_sector_tension.tex` | ☑ `observations/SECTOR_TENSION_CHECK.md` |
-| 24 | Missing_Satellites | Mar 2026 | 10 | ☐ | ☐ | ☐ |
+| 24 | Missing_Satellites | Mar 2026 | 10 | ☑ 2026-10-02 | not carried (Mechanism B failed; A in `p2_s8_trend.tex`); infall-σ re-test → appendix | ☑ `observations/MISSING_SATELLITES_CHECK.md` |
 Note on 24: an earlier ruling kept failed side predictions out of the book; confirm with the author whether it goes in.
 
 ## G6 Black holes and horizons (Part 2)
@@ -110,4 +110,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 | 47 | IAM_Gravitational_Engineering_Exploration | — | 6 | ☐ | ☐ | ☐ |
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 24 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 #18–23; M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
+Progress: 25 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
