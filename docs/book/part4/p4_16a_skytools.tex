@@ -23,7 +23,7 @@ $H_0=67.36$, $\Omega_bh^2=0.02237$, $\Omega_ch^2=0.1200$, $\tau=0.0544$, $A_s=2.
 seed 42): temperature minus its mean. (b) One healthy neutrophil array (GSM2998021) read against the other five physical arrays of the healthy
 reference: residual $z$ at 454,674 reference sites, placed in genome order on HEALPix rings ($N_{\rm side}=64$) and summed per pixel as
 $\sum z/\sqrt n$. The CMB's structure is the signal; a healthy cell's sky is quiet by construction, so any structure in it is the finding.
-Both drawn by \texttt{figsky/make\_sky\_figs.py}.}\label{fig:cmbcell}
+Both drawn by \texttt{figsky/\allowbreak{}make\_sky\_figs.py}.}\label{fig:cmbcell}
 \end{figure}
 
 The cell's chain follows the same steps. The difference that matters is the last column of the CMB: its structure is the
@@ -84,7 +84,7 @@ different things; a reading needs both (Figure~\ref{fig:cunrolled}).
 \caption{What the sky sees. (a) A healthy array. (b) The same array with 2\,\% blur toward $\beta=0.5$ at every site. (c) 5\,\% blur inside ten
 contiguous genomic regions (5\,\% of sites): streaks along rings. (d) The one female array of the reference read against the five male arrays:
 chrX lights up at the south pole. Met-A and C-score under each map are the chain's readings at the 6,000 identity sites (for c, the same
-construction applied to the identity sites). Box job \texttt{fcb79e1e}, \texttt{remote\_jobs/sky6/sky\_neut6.py}.}\label{fig:whatitsees}
+construction applied to the identity sites). Box job \texttt{fcb79e1e}, \texttt{remote\_jobs/\allowbreak{}sky6/\allowbreak{}sky\_neut6.py}.}\label{fig:whatitsees}
 \end{figure}
 
 \begin{figure}[h]\centering
@@ -114,7 +114,7 @@ repeat (about 200~bp), and the array's probe spacing is too coarse to rule one o
 \includegraphics[width=\textwidth]{figures/part4/fig_sky_cd.pdf}
 \caption{Genome-distance correlation inside one specimen. (a) $\beta$ at two CpGs on the same chromosome, correlated across all such pairs
 (up to 300,000 random pairs per distance bin), for each of the six healthy neutrophil arrays. (b) The residual $z$ of one array read against
-the other five: healthy, and with 5\,\% blur in ten regions. Box job \texttt{f754cf20}, \texttt{remote\_jobs/gate/cd\_neut.py}.}\label{fig:cd}
+the other five: healthy, and with 5\,\% blur in ten regions. Box job \texttt{f754cf20}, \texttt{remote\_jobs/\allowbreak{}gate/\allowbreak{}cd\_neut.py}.}\label{fig:cd}
 \end{figure}
 
 The residual's $C(d)$ (Figure~\ref{fig:cd}b) is the noise model's check. In a healthy array the residual is correlated over a few hundred
@@ -136,7 +136,7 @@ from the same array's intensities beside it, is on the build list.
 \section{The map, scored}
 
 Before the chain was built, the author translated a CMB analysis pipeline into methylome terms row by row: 79 rows
-(\texttt{doors/CMB\_TO\_METHYLOME\_MAP.md}). Table~\ref{tab:map79} scores every row against chain v3. Counts: in use 12; built, not in chain 3; partial 9; calculated 1; measured 1; reserved 3; not built 31; open 1; analogy 10; refused 2; out 4; does not translate 2.
+(\texttt{doors/\allowbreak{}CMB\_TO\_METHYLOME\_MAP.md}). Table~\ref{tab:map79} scores every row against chain v3. Counts: in use 12; built, not in chain 3; partial 9; calculated 1; measured 1; reserved 3; not built 31; open 1; analogy 10; refused 2; out 4; does not translate 2.
 
 \input{part4/16a_skytools_map79}
 

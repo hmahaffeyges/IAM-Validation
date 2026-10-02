@@ -541,15 +541,15 @@
    "severity": "warn"
   },
   "\\bA[- ]score": {
-   "replaced_by": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+   "replaced_by": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
    "severity": "warn"
   },
   "the semiconductor report [Ii]ndex": {
-   "replaced_by": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
+   "replaced_by": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
    "severity": "warn"
   },
   "[Ww]all ratio": {
-   "replaced_by": "A (the quantum-processor report) = eps / eps_floor",
+   "replaced_by": "eps/eps_floor (the quantum-processor report): distance above the material floor; on the one gauge A = reading / device as built, floor at eps_floor/eps",
    "severity": "warn"
   },
   "\\bA-floor": {

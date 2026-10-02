@@ -43,7 +43,7 @@ growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$
 \section{The chain record}\label{sec:chains}
 
 Eighteen Markov chains were run against the Planck 2018 likelihood. All files are in the repository
-(\texttt{mgcamb\_validation/chains}, \texttt{camb\_validation/chains}). The numbers below come from one extraction of the final files
+(\texttt{mgcamb\_validation/\allowbreak{}chains}, \texttt{camb\_validation/\allowbreak{}chains}). The numbers below come from one extraction of the final files
 (30\,\% burn-in, weighted posterior means; table \texttt{CHAIN\_EXTRACTION\_FINAL.csv}). Every chain's last recorded Gelman--Rubin
 $R-1$ is at or below $0.010$.
 
@@ -57,7 +57,7 @@ $R-1$ is at or below $0.010$.
 
 \begin{center}
 \small
-\begin{tabular}{lcccc}
+\begin{tabularx}{\linewidth}{@{}l>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
 \toprule
 data & $\Delta\chi^2_{\min}$ (IAM $-$ $\Lambda$CDM) & $\sigma_8$ ($\Lambda$CDM $\to$ IAM) & $H_0$ (IAM) & free $\mu_0$: median (90\,\% lower bound) \\
 \midrule
@@ -68,7 +68,7 @@ Planck + Pantheon+ & $+1.58$ & $0.813\to0.800$ & $67.00\pm0.50$ & $+0.030$ ($-0.
 \midrule
 Level 2, Planck   & $+0.54$ & $0.809\to0.800$ & $67.16\pm0.47$ & -- \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in each chain, same data, same code. With $\mu_0$ free (flat prior $[-0.5,+0.2]$) the posterior reaches the prior's upper edge in every combination, so the median and the lower end of the $90\,\%$ interval are given; the prediction $-0.135$ lies inside every interval (Chapter~\ref{ch:latetime}).
 

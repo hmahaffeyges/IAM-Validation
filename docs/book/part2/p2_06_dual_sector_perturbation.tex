@@ -58,30 +58,30 @@ Three changes in CAMB~1.5.8 \texttt{equations.f90}; nothing else is modified.
 \begin{enumerate}
 \item Module parameters: \verb|iam_beta = 0.15765| and a switch \verb|iam_dual_sector|.
 \item The matter-sector rate, after the standard \verb|adotoa| (unchanged):
-\begin{verbatim}
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\footnotesize]
 iam_Ea         = exp(1 - 1/a)
 iam_grho0      = grhob + grhoc + grhornomass + grhog + grhov   ! today's total density, 3 H0^2
 iam_grho_extra = iam_beta * iam_Ea * a^2 * iam_grho0
 adotoa_matter  = sqrt((grho + iam_grho_extra)/3)
-\end{verbatim}
+\end{Verbatim}
 \item The CDM and baryon density equations use it in the metric source:
-\begin{verbatim}
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\footnotesize]
 z_matter = (0.5*dgrho/k + etak)/adotoa_matter    ! standard: /adotoa
 clxcdot  = -k*z_matter
 clxbdot  = -k*(z_matter + vb)
-\end{verbatim}
+\end{Verbatim}
 \end{enumerate}
 The background (\verb|dtauda|), the photon hierarchy, neutrinos, recombination, lensing and the $C_\ell$ calculation are untouched.
 
 \subsection{Parameter count}
 \begin{center}\small
-\begin{tabular}{lll}\hline
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll}\hline
 Quantity & Status & Origin\\\hline
 $\beta_m$ & derived & virial partition of a $1/r$ potential\\
 exponent in $E(a)$ & derived & horizon thermodynamics (Chapter~\ref{ch:theory})\\
 $E(1)=1$ & fixed & definition\\
 $\Omega_m$, $H_0$ & standard & Planck 2018\\\hline
-\end{tabular}
+\end{tabularx}
 \end{center}
 The six sampled parameters are those of $\Lambda$CDM: $\{\omega_b,\omega_c,\theta_{\rm MC},\tau,\ln10^{10}A_s,n_s\}$.
 
@@ -148,7 +148,7 @@ perturbations; light travels on the $\Lambda$CDM background.
 \section{Discussion}
 \subsection{Results}
 \begin{center}\small
-\begin{tabular}{lcc}\hline
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xcc}\hline
 & IAM & $\Lambda$CDM\\\hline
 $\sigma_8$ & $0.800\pm0.006$ & $0.809\pm0.006$\\
 $S_8$ & $0.822\pm0.011$ & $0.830\pm0.011$\\
@@ -156,7 +156,7 @@ $H_0$ (photon) & $67.16\pm0.47$ & $67.19\pm0.47$\\
 $H_0$ (matter) & $72.26$ & --\\
 $\Delta\chi^2$ Planck (lowest; chain average) & $+0.54$; $-0.01$ & --\\
 parameters beyond $\Lambda$CDM & 0 & --\\\hline
-\end{tabular}
+\end{tabularx}
 \end{center}
 \subsection{What this shows, and what it does not}
 The coded mechanism, with no new parameter, is indistinguishable from $\Lambda$CDM under Planck, lowers $\sigma_8$ by $1.1\,\%$ toward the weak-lensing
@@ -176,4 +176,4 @@ $0.809$, NPIPE CamSpec).
 \section{Conclusions}
 Three changes to the CAMB source, no new parameter: under Planck, $\Delta\chi^2=+0.54$; $\sigma_8$ $0.809\to0.800$; standard parameters within $0.1\sigma$;
 $H_0$ $67.16$ for light and $72.26$ for matter; the background version excluded. All chains, configuration files, the modified source and the scripts are in
-\texttt{camb\_validation/}.
+\texttt{camb\_validation/\allowbreak{}}.

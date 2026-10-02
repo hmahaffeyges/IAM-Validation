@@ -45,7 +45,7 @@ the fit (author's decision, 28 September 2026). Two consequences follow by const
 \section{Sources and the entry rule}
 
 \begin{center}\small
-\begin{tabular}{@{}lll@{}}\toprule
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
 source & form & entered as \\\midrule
 Moss 2018 (GSE122126) & raw 450K/EPIC IDATs & through the chain's own Stage~1 \\
 Salas 2018, 2022 (GSE110554, GSE167998) & raw IDATs of sorted blood & through Stage~1 \\
@@ -53,7 +53,7 @@ GSE63409 & raw IDATs of sorted HSC and progenitors & through Stage~1 \\
 Loyfer 2023 (GSE186458) & WGBS $\beta$ and depth at array CpGs & per-locus, $\ge10$ reads \\
 Tian 2023 (GSE215353) & brain single-cell pseudobulk & pooled; flagged \\
 ENCODE & WGBS of tissues and embryonic stem lines & per-locus, $\ge10$ reads \\\bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 A cell enters only if it has at least two independent donors; every array passes intake and every sequencing sample has at least ten reads at
 90~\% of loci; it is not a twin of an existing cell; and it reads 1.00 on its own profile. A cell failing any of these waits for data. The twin

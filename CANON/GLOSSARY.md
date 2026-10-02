@@ -119,8 +119,8 @@ This file is the single source of truth for constants and names. To change a val
 | `Mahaffey ratio` | Mahaffey number (M) | warn |
 | `Aristotelian Principle` | the virial theorem (with IAM's thermodynamic completion); physics names only | block |
 | `class H_min` | H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired | warn |
-| `\bA[- ]score` | eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min) | warn |
-| `the semiconductor report [Ii]ndex` | A (the semiconductor report) = E_sw/(k_B T_j ln 2) | warn |
-| `[Ww]all ratio` | A (the quantum-processor report) = eps / eps_floor | warn |
+| `\bA[- ]score` | eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference) | warn |
+| `the semiconductor report [Ii]ndex` | E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1 | warn |
+| `[Ww]all ratio` | eps/eps_floor (the quantum-processor report): distance above the material floor; on the one gauge A = reading / device as built, floor at eps_floor/eps | warn |
 | `\bA-floor` | material floor eps_floor (the quantum-processor report) or H_min | warn |
 | `zero adjustable parameters` | calibrated class values (n and floors are calibrated) | warn |

@@ -1,4 +1,4 @@
-\chapter{The gate error over its floor: $A$ for quantum processors}\label{ch:ascoreqc}
+\chapter{The gate error and its floor: quantum processors}\label{ch:ascoreqc}
 
 \section{From gate error to information cost}
 
@@ -25,7 +25,7 @@ cryostat stage.
 
 \begin{table}[h]\centering\small
 \caption{Two-qubit error $p_{2Q}$ and gate error in nats $\varepsilon$, as used in the quantum-processor report Issue~002.}\label{tab:platforms}
-\begin{tabular}{@{}lllll@{}}\toprule
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
 platform & class & $p_{2Q}$ & $\varepsilon$ & source as cited \\\midrule
 Oxford Ionics EQC prototype & ion, electronic & $8.4\times10^{-5}$ & $8.40\times10^{-5}$ & arXiv:2510.17286 \\
 Quantinuum Helios (98Q) & ion, laser (Ba$^+$) & $7.9\times10^{-4}$ & $7.90\times10^{-4}$ & arXiv:2511.05465 \\
@@ -35,14 +35,15 @@ Quantinuum H2-1 (56Q) & ion, laser & $1.84\times10^{-3}$ & $1.84\times10^{-3}$ &
 IBM Heron R2 (156Q) & SC, CZ & $2.00\times10^{-3}$ & $2.00\times10^{-3}$ & vendor report \\
 IBM Nighthawk (120Q) & SC, CZ & $2.15\times10^{-3}$ & $2.15\times10^{-3}$ & vendor report, Jan.~2026 \\
 IonQ Forte (36Q) & ion, laser (Yb$^+$) & $4.0\times10^{-3}$ & $4.01\times10^{-3}$ & vendor report \\\bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \section{Floors and walls}
 
 For each architecture class the quantum-processor report assigns a \emph{material floor} $\varepsilon_{\mathrm{floor}}$, the error
 below which the dominant physical mechanism of that class does not permit a gate to go, and
-the reading on the one gauge is $A=\varepsilon/\varepsilon_{\mathrm{floor}}$ (Chapter~\ref{ch:onegauge}). The floors quoted in the source are:
+$\varepsilon/\varepsilon_{\mathrm{floor}}$ says how far a device sits above its floor. On the one gauge (Chapter~\ref{ch:onegauge}) the
+device as built reads $A=1$ and its floor sits below it at $\varepsilon_{\mathrm{floor}}/\varepsilon$: for Helios, $10^{-4}/7.9\times10^{-4}=0.13$. The floors quoted in the source are:
 Yb$^+$ laser gates $3\times10^{-4}$; Ba$^+$ laser gates $1\times10^{-4}$; Ca$^+$ electronic
 $3\times10^{-5}$; Al/AlO$_x$ transmon $\sim1\times10^{-3}$ at the present participation ratio;
 Ta-based transmons $\sim3\times10^{-4}$; neutral-atom Rydberg $5\times10^{-3}$; photonic $\sim0.05$.
@@ -64,5 +65,5 @@ stopped at a physical minimum.
 Surface-code error correction needs physical error below about $10^{-2}$, and useful
 fault-tolerant overhead needs about $10^{-3}$ or better~\cite{Fowler2012,GoogleWillow2025}.
 the quantum-processor report places each platform on a gauge of floor, error-correction threshold and fault-tolerance
-target. The book keeps the physical content, $A=\varepsilon/\varepsilon_{\mathrm{floor}}$, and does not
+target. The book keeps the physical content, the gate error relative to its floor and to the threshold, and does not
 reproduce the scoring scale.

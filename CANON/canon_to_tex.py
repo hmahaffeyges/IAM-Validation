@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """canon_to_tex.py (needs \\usepackage{booktabs,longtable,array}) - write the book appendix 'The master table and glossary' from CANON/iam_canon.json.
-Run by canon_check.py --glossary, so GLOSSARY.md and the book appendix always come from the same file. Output: docs/book/appendix_drafts/app_canon.tex.
+Run by canon_check.py --glossary, so GLOSSARY.md and the book appendix always come from the same file. Output: docs/book/appendices/app_A_canon.tex.
 Carried into the book: constants; names with status current / informal; retired names (as a table), except block-severity names, which never appear in the book. Not carried: entries marked
 'issue text (not a term)' and 'current (unverified)' Issue 002 glossary prose (kept in the canon file as record)."""
 import os, re, json
@@ -60,7 +60,7 @@ def main():
         L.append("{}"+esc(readable(k))+" & "+esc(v["replaced_by"])+"\\\\")
     L+=[r"\bottomrule\end{longtable}}"]
     s="\n".join(L)+"\n"; bad=s.count("?")
-    o=os.path.join(ROOT,"docs","book","appendix_drafts"); os.makedirs(o,exist_ok=True)
-    open(os.path.join(o,"app_canon.tex"),"w",encoding="utf-8").write(s)
+    o=os.path.join(ROOT,"docs","book","appendices"); os.makedirs(o,exist_ok=True)
+    open(os.path.join(o,"app_A_canon.tex"),"w",encoding="utf-8").write(s)
     print("app_canon.tex written:", sum(1 for v in C["names"].values() if keep(v)), "names,", len(C["constants"]), "constants; unmapped chars:", bad)
 if __name__=="__main__": main()

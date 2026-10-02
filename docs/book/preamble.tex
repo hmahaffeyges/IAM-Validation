@@ -5,6 +5,11 @@
 \usepackage{lmodern,microtype}
 \usepackage{amsmath,amssymb,amsthm,bm}
 \usepackage{graphicx,booktabs,longtable,array,tabularx}
+\usepackage{fvextra}
+\setlength{\emergencystretch}{3em}
+% file names and identifiers may break after an underscore or a slash (text mode only)
+\let\IAMoldus\_
+\DeclareRobustCommand{\_}{\ifmmode\IAMoldus\else\textunderscore\allowbreak\fi}
 \usepackage{xcolor,tcolorbox}
 \usepackage{siunitx}
 \usepackage[numbers,sort&compress]{natbib}
