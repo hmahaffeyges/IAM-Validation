@@ -1,0 +1,5 @@
+1. tau_D = hbar R/(G M^2), 1e12 Msun, 200 kpc: 2.5e-87 s (paper 1e-70); Hubble time / tau = 1e104
+2. Eq. 12 as printed: integrand exponents -3 + n - 3/2 + 1/2 - 1 = n - 5 -> S ~ a^(n-4); paper writes a^(n-9/2)
+   with the paper's a^(n-9/2): n - 9/2 = -1 gives n = 3.5 (paper prints 5/2)
+3. BH: P/(k T ln2) = 1.5255e+02 bits/s; c^3/(1920 G M ln2) = 1.5255e+02; radiation entropy rate (4/3)P/T is 4/3 of it
+4. H_matter = 67.16 sqrt(1 + 0.1575) = 72.26

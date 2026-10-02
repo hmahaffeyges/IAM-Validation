@@ -297,7 +297,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | **Measurement Problem** (`IAM_Measurement_Problem_Quantum.pdf`, Feb 2026), read in full 2026-10-02 |||||||
 | MP1 | | §3.3, §4.1–4.2, §6.2 | erasure fails after spontaneous emission; untested | contradicted: Blinov 2004, Moehring 2007, Hensen 2015 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #1 |
 | MP2 | | §3.5 | matter entanglement ~1.3 m | 1.3 km (Hensen 2015) | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #2 |
-| MP3 | | §3.7 | no Zeno with dispersive readout | observed: Slichter 2016, Harrington 2017 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #3 |
+| MP3 | | §3.7 | no Zeno with dispersive readout | observed: Slichter 2016 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #3 |
 | MP4 | | §2.2, abstract | measurement = Q ≥ k_BT ln2 | cost paid on erasure/reset (Bennett); record written on absorption | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #4 |
 | MP5 | | Eq. 2, §4.3 | F(Q,T) ramp form | underived (GD3) | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #5 |
 | MP6 | | §3.4 | cat decoheres by self-gravity | environmental decoherence dominates | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #6 |
@@ -314,3 +314,13 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | TF1 | | §5 Eq. 5 | µ in Poisson term with 'friction' text | state one form | confirmed | `quantum/TWO_FACES_CHECK.md` |
 | TF2 | | §4 | H split derived, zero free parameters | predicted with β_m fixed (chain value) | confirmed | `quantum/TWO_FACES_CHECK.md` |
 | TF3 | | §2.3, refs | written on the cosmic horizon; Sakharov uncited | nearest encoding surface; drop ref | confirmed | `quantum/TWO_FACES_CHECK.md` |
+| **Quantum Darwinism** (`Quantum_Darwinism_at_Cosmological_Scales.pdf`, Mar 2026), read in full 2026-10-02 |||||||
+| QD1 | | §4, abstract, Fig. 3 | n = 5/2 from two directions | top-down gives 7/2; convergence withdrawn | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD2 | | §4.1 | Diósi–Penrose attributed to Joos–Zeh | attribution | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD3 | | §3 | β_m 0.2σ; f_coll η_vir 0.505 | fixed; untraced | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD4 | | Table 1, Fig. 2 | equipartition; cosmological 0.3 % | not 1/r virial | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD5 | | Eq. 20 | (ln 2/2)Mc² | ½Mc² (V17) | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD6 | | §8.3 | 17 chains; Δχ² improvement; Euclid DR1 Oct 2026 | 18; consistent; mid-2027 | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD7 | | §6, §9.4 | electron, Koide, cusp-core, strong CP | EM1, KO2; out | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD8 | | §2–3 | kinetic half = decoherence energy | law first | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| QD9 | | §1, Acknowledgements | named correspondents | remove | confirmed | `quantum/QUANTUM_DARWINISM_CHECK.md` |

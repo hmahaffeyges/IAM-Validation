@@ -9,7 +9,7 @@ F(Q,T) values (0.1 eV: 0.000 / 0.0024 / 0.164 at 10 mK / 4 K / 300 K); Q_L(300 K
    erased by measuring the photon in a conjugate basis. §6.2 "predictions diverge only for experiments not yet performed" is not so.
 2. **§3.5 "matter entanglement limited to ~1.3 m (2019)"**: 1.3 km in 2015 (Hensen).
 3. **§3.7 — no Zeno effect with dispersive (Q ≪ Q_L) readout.** Observed with linear dispersive cQED readout and a near-quantum-limited amplifier
-   (Slichter et al., NJP 18, 053031, 2016; also Harrington et al., PRL 118, 240401, 2017).
+   (Slichter et al., NJP 18, 053031, 2016).
 ## Corrections of principle
 4. **"A measurement is any interaction dissipating Q ≥ k_BT ln 2."** Landauer–Bennett: a measurement can be made with no minimum dissipation; the cost
    k_BT ln 2 per bit is paid when the record is erased or reset (Bennett 1982). The paper's own rule puts a photon in flight in the Σ = 1 sector, so a
