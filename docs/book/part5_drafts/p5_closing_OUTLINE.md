@@ -15,5 +15,5 @@ Working title: **The transition both realities depend on**
    censorship as the requirement that records have a surface; Wheeler's "it from bit" with a price per bit. Each stated as interpretation, with
    what would test it.
 6. **What is open.** The cell floor from first principles; the 3/16 coefficient; the history integral in the horizon-entropy variable; the
-   coming tests (Euclid DR1 2027, DESI DR2 data release 2027, the cell commissioning).
+   coming tests (Euclid complete DR1 with lensing and clustering, mid-2027; later DESI releases; the cell commissioning).
 7. **The thread is still giving.**
