@@ -1,9 +1,9 @@
 # MethylPhys CPG SOP — chain v3, neutrophils (full procedure)
 
 **Build:** development v3. Not commissioned. Not a diagnostic test. No tier beyond Normal is printed.
-**Scope:** one cell type (neutrophils), Illumina EPIC v1 arrays for Met-A; single-molecule reads (pipeline `loyfer_pat_v1`) for IAM-A. 450K neutrophil floor: pending (canon `Met_A_floor_450K_neutrophil` = null).
-**Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at commit `d5873bd` (2026-10-01 15:23 -0700). Code paths below are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
-**Readings:** Met-A (arrays), Met-A C-score (arrays), A_rel (Met-A after same-run tare), IAM-A (sequencing).
+**Scope:** one cell type (neutrophils); Illumina EPIC v1 arrays for Met-A; single-molecule reads (pipeline `loyfer_pat_v1`) for IAM-A. 450K neutrophil floor: pending (canon `Met_A_floor_450K_neutrophil` = null).
+**Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at `7cdbbf8` (floor v1.3) **plus the audit-fix patch** (`chain_fix_patch.zip`, branch `audit-fixes`, not yet pushed). Line numbers refer to the patched files. Paths are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
+**Readings:** Met-A (arrays), Met-A C-score (arrays), A_rel (Met-A after the same-run tare), IAM-A (sequencing).
 
 ---
 
@@ -11,21 +11,23 @@
 
 | quantity | formula | where it is computed |
 |---|---|---|
-| per-site entropy | H(β) = −β log₂β − (1−β) log₂(1−β), bits; β clipped to [1e-6, 1−1e-6] | `chain/stage_m_met_a.py:32-34` (`_H`) |
-| Met-A, isolated neutrophils | A = mean over the identity sites of H(β) ÷ floor | `chain/stage_m_met_a.py:67` |
-| Met-A, whole blood | A = mean_i H(β_i) ÷ mean_i H(e_i), e_i = Σ_g f_g μ_g,i (f: this specimen's Stage A fractions; μ: purified EPIC group profiles) | `chain/conductor_v3.py:61-62` |
-| shift per 1 % loss (whole blood) | β′_i = β_i + f_NEU × 0.01 × (0.5 − μ_NEU,i); shift = mean H(β′)/mean H(e) − A | `chain/conductor_v3.py:63-64` |
-| shift per 1 % loss (isolated) | β′_i = β_i + 0.01 × (0.5 − μ_NEU,i); shift = A × mean H(β′)/mean H(β) − A | `chain/conductor_v3.py:87-88` |
-| entropy ceiling flag | m = mean β at the sites where μ_NEU > 0.5; `past_entropy_ceiling` = (m < 0.5) | `chain/conductor_v3.py:74-80` |
-| residual map | z_i = (H(β_i) − H(ref_i)) ÷ s_i; ref_i = healthy neutrophil mean H (isolated) or H(e_i) (whole blood); s_i = shrunk healthy SD of H | `chain/conductor_v3.py:69, 89` |
-| Met-A C-score | c = var(means of consecutive 50-site blocks of z, × √50) ÷ var(z); C = c ÷ healthy median clustering | `chain/conductor_v3.py:46-49, 92-98` |
-| tare | A_rel = A ÷ median(A of ≥ 3 references) | `chain/conductor_v3.py:100-109` |
-| reference spread | SD (ddof 1) of (reference A ÷ reference median) | `chain/conductor_v3.py:105` |
-| detection limit | 2 × reference_spread_sd ÷ shift_per_1pct_loss, in % loss of the neutrophil pattern | `chain/conductor_v3.py:105` |
-| IAM-A | A = H(ε) ÷ (P_cell × H(ε₀)), ε = isolated copy errors ÷ opportunities | `chain/stage_q_iam_a.py:18` |
-| holding energy | E = ln((1−ε)/ε), in kT | `chain/stage_q_iam_a.py:20` |
+| per-site entropy | H(β) = −β log₂β − (1−β) log₂(1−β), bits; β clipped to [1e-6, 1−1e-6] | `chain/stage_m_met_a.py:33` (`_H`) |
+| Met-A, isolated neutrophils | A = mean over the measured identity sites of H(β) ÷ floor | `chain/stage_m_met_a.py:71` |
+| Met-A, whole blood | A = mean_i H(β_i) ÷ mean_i H(e_i), e_i = Σ_g f_g μ_g,i (f: this specimen's Stage A fractions; μ: purified EPIC group profiles) | `chain/conductor_v3.py:106-110` |
+| shift per 1 % loss (whole blood) | β′_i = β_i + f_NEU × 0.01 × (0.5 − μ_NEU,i); shift = mean H(β′)/mean H(e) − A | `chain/conductor_v3.py:111-112` |
+| shift per 1 % loss (isolated) | β′_i = β_i + 0.01 × (0.5 − μ_NEU,i); shift = A × mean H(β′)/mean H(β) − A | `chain/conductor_v3.py:136` |
+| entropy ceiling flag | m = mean β at the sites where μ_NEU > 0.5; `past_entropy_ceiling` = (m < 0.5) | `chain/conductor_v3.py:120-126` |
+| residual map | z_i = (H(β_i) − H(ref_i)) ÷ s_i; ref_i = healthy neutrophil mean H (isolated) or H(e_i) (whole blood); s_i = shrunk healthy SD of H | `chain/conductor_v3.py:117, 138` |
+| Met-A C-score | c = var(means of consecutive blocks of `clustering_block` sites of z, × √block) ÷ var(z); C = c ÷ healthy median clustering | `chain/conductor_v3.py:84-88, 141-148` |
+| noise index | N = mean H(β) over the noise sites measured on this array (≥ 90 % of 48,528, else None) | `chain/conductor_v3.py:52-57` |
+| tare, noise-corrected (≥ 20 reference records) | whole blood: A = a + b f_NEU + c N fitted by least squares on the references; isolated: A = a + c N; A_rel = A ÷ prediction(this specimen's f_NEU, N) | `chain/conductor_v3.py:183-190` |
+| tare, median (3–19 references, or no N) | A_rel = A ÷ median(untared A of the references) | `chain/conductor_v3.py:191-194` |
+| reference spread | noise-corrected: SD (ddof 1) of each reference's leave-one-out A ÷ prediction; median: SD of reference A ÷ median | `chain/conductor_v3.py:186-187, 193` |
+| detection limit | 2 × reference_spread_sd ÷ shift_per_1pct_loss, in % loss of the neutrophil pattern | `chain/conductor_v3.py:195` |
+| IAM-A | A = H(ε) ÷ (P_cell × H(ε₀)), ε = isolated copy errors ÷ opportunities | `chain/stage_q_iam_a.py:79-81` |
+| holding energy | E = ln((1−ε)/ε), in kT | `chain/stage_q_iam_a.py:83` |
 
-**Normal band:** 0.95–1.05 (canon `constants.Normal_band` = [0.95, 1.05]; code `chain/stage_m_met_a.py:22` `NORMAL`; `chain/stage_q_iam_a.py:21`). State words: `Normal` (0.95 ≤ A ≤ 1.05), `above Normal`, `below Normal`.
+**Normal band:** 0.95–1.05 (canon `constants.Normal_band` = [0.95, 1.05]; code `chain/stage_m_met_a.py:23` `NORMAL`, used by Stage M, T and Q). State words: `Normal` (0.95 ≤ A ≤ 1.05), `above Normal`, `below Normal`.
 
 Loss of a held pattern pulls β toward 0.5 and raises H, so Met-A rises with loss **while the cell's methylated sites stay above β = 0.5**. Past that point H falls again and A is no longer monotone in loss (flag `past_entropy_ceiling`).
 
@@ -33,26 +35,24 @@ Loss of a held pattern pulls β toward 0.5 and raises H, so Met-A rises with los
 
 ## 2. Install
 
-The run is one Python process: Stage 0, Stage 1 (methylprep) and the v3 stages run in the same interpreter, so one environment must satisfy methylprep.
+The run is one Python process: Stage 0, Stage 1 (methylprep) and the v3 stages run in the same interpreter.
 
 | package | version | source |
 |---|---|---|
-| Python | 3.11 (3.11.16 in the environment the v3 runs used) | `atlas/v2/environment/box_env_requirements.txt` header; `doors/RUNBOOK.md:65` |
-| methylprep | 1.7.1 | same |
+| Python | 3.11 | `chain/requirements.txt` header; `atlas/v2/environment/box_env_requirements.txt` (3.11.16) |
+| methylprep | 1.7.1 | `chain/requirements.txt` |
 | numpy | 1.26.4 | same |
 | pandas | 1.5.3 (methylprep 1.7.1 calls `DataFrame.append`, removed in pandas 2) | same |
-| scipy | 1.17.1 in that environment (NNLS, normal survival function) | `box_env_requirements.txt` |
-| pytz, python-dateutil | as pinned there | `doors/RUNBOOK.md:65` |
+| scipy | 1.17.1 | same |
+| pytz, python-dateutil | unpinned | same |
+| matplotlib, pyarrow | legacy engine only; not needed by v3 | same |
 
-Install (new environment):
 ```
 python3.11 -m venv cpg_v3 && . cpg_v3/bin/activate
-pip install methylprep==1.7.1 numpy==1.26.4 pandas==1.5.3 scipy pytz python-dateutil
 git clone https://github.com/hmahaffeyges/IAM-Validation.git
+pip install -r IAM-Validation/Biological_Physics/MethylPhys/chain/requirements.txt
 ```
-Stage 1 setup (`doors/RUNBOOK.md:67-69`): `HOME` must point at a writable directory (methylprep writes `$HOME/.methylprep_manifest_files/`). First use needs network access to `https://array-manifest-files.s3.amazonaws.com/` for the Illumina manifests; offline, place `HumanMethylation450k_15017482_v3.csv.gz` and `HumanMethylationEPIC_manifest_v2.csv.gz` in that directory. If methylprep is missing, Stage 1 tries a one-time `pip install methylprep` (`chain/stage_1_idat_calibration.py:31-73`); install it by hand instead, with the pins above.
-
-Not needed by the v3 path: matplotlib, pyarrow, the atlas files.
+Stage 1 setup (`doors/RUNBOOK.md:67-69`): `HOME` must point at a writable directory (methylprep writes `$HOME/.methylprep_manifest_files/`). First use needs network access to `https://array-manifest-files.s3.amazonaws.com/` for the Illumina manifests; offline, place `HumanMethylation450k_15017482_v3.csv.gz` and `HumanMethylationEPIC_manifest_v2.csv.gz` in that directory. If methylprep is missing, Stage 1 tries a one-time `pip install methylprep`; install it by hand instead, with the pins above.
 
 ---
 
@@ -62,74 +62,83 @@ All under `chain/Runtime Matrices/`.
 
 | file | key | value | read by |
 |---|---|---|---|
-| `Met_A_Floors/metA_floors_v1_2.json` | `version` | `1.2` | `stage_m_met_a.py:57`, bundle `floors_version` |
-| | `platforms` | EPIC only, cell `neutrophils` only | `stage_m_met_a.py:55` |
-| | `platforms.EPIC.neutrophils.floor` | 0.33026279581151297 bits (canon `Met_A_floor_EPIC_neutrophil` 0.330263) | `stage_m_met_a.py:67` |
-| | `…n_sites` / `…sites` | 6000 identity sites (3,000 methylated, 3,000 unmethylated) | `stage_m_met_a.py:64-65` |
-| | `…n_ref` / `…refs` | 12 entries = 6 physical arrays, each deposited twice (GSE110554 and GSE167998; same Sentrix IDs) | record only |
-| | `rule` | SD ≤ 0.05; mean 0.75–0.95 or 0.05–0.25; ≤ 3,000 per channel; floor = mean of per-array mean H over sites (canon `Met_A_site_rule`) | record only |
-| `Met_A_Floors/metA_floors_v1_2_loo.csv` | rows `platform=EPIC, cell=neutrophils`, column `A_loo` | 12 rows; printed as `n_ref` 12, `normal_fraction` 1.0, `sd` 0.0073, `min` 0.99, `max` 1.009 | `stage_m_met_a.py:44-49` (`floor_precision`) |
-| `Met_A_Floors/blood_composition_EPIC_v1.json` | `version` | `blood_composition_EPIC_v1` | — |
-| | `groups` | B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK | `conductor_v3.py:42` |
-| | `markers` / `mu_markers` | 963 composition markers (none is a neutrophil identity site) and their group mean β | `conductor_v3.py:40` |
-| | `neutrophil_sites` | the same 6000 sites as the floor file | `conductor_v3.py:55, 85` |
-| | `profiles_at_neutrophil_sites` | group mean β at those sites; 6 sites carry a missing value in ≥ 1 group (BASO 5, NK 2, CD4T 1, CD8T 1) and drop out of the whole-blood reading | `conductor_v3.py:55, 61` |
-| | `rule` | markers: not neutrophil sites; within-group SD ≤ 0.05; margin ≥ 0.25 vs every other group; top 150/group; NNLS, sum 1 | record only |
-| `Met_A_Floors/neutrophil_reference_v1.json` | `version` | `neutrophil_reference_v1`, bundle `reference_version` | `conductor_v3.py:115` |
-| | `sites_ordered` | the 6000 sites in genome order | `conductor_v3.py:68, 84` |
-| | `neutrophil_H_mean` | healthy neutrophil mean H per site | `conductor_v3.py:89` |
-| | `neutrophil_H_sd_shrunk` | healthy per-site SD of H (shrunk) | `conductor_v3.py:69, 89` |
-| | `healthy_clustering_median` | 1.1236 | `conductor_v3.py:95` |
-| | `healthy_clustering_LOO` | 12 values, 0.7769–1.3585 (pairs: 6 physical arrays) | `conductor_v3.py:96-97` |
-| `IAM_A_Positions/iama_positions_v1.json` | `cells.neutrophils.P` | 1.099 (canon `P_neutrophil_IAM_A`) | `stage_q_iam_a.py:12, 18` |
-| | `cells.neutrophils.pipeline` | `loyfer_pat_v1` | `stage_q_iam_a.py:14` |
+| `Met_A_Floors/metA_floors_v1_3.json` | `version` | `metA_floors_v1_3` (bundle `floors_version`) | `stage_m_met_a.py:28` |
+| | `platforms` | EPIC, cell `neutrophils` only | `stage_m_met_a.py:57-71` |
+| | `platforms.EPIC.neutrophils.floor` | 0.33026279581151297 bits (canon `Met_A_floor_EPIC_neutrophil` 0.330263) | `stage_m_met_a.py:71` |
+| | `…n_sites` / `…sites` | 6000 identity sites (3,000 methylated, 3,000 unmethylated) | `stage_m_met_a.py:68-69` |
+| | `…n_ref` / `…refs` | 6 physical arrays (GSE110554; GSE167998 re-deposits the same 6, listed in `…duplicates_removed`) | record only |
+| | `…precision_heldout` | n 6, SD 0.019756, 0.98264–1.04472 (sites re-chosen on the other 5 arrays) | record only |
+| `Met_A_Floors/metA_floors_v1_3_loo.csv` | rows `platform=EPIC, cell=neutrophils`, column `A_loo` | 6 rows; printed as `n_ref` 6, `normal_fraction` 1.0, `sd` 0.0198, `min` 0.983, `max` 1.045 | `stage_m_met_a.py:50-55` (`floor_precision`) |
+| `Met_A_Floors/blood_composition_EPIC_v1.json` | `groups` | B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK | `conductor_v3.py:81` |
+| | `markers` / `mu_markers` | 963 composition markers (none is a neutrophil identity site); ≥ 867 must be measured | `conductor_v3.py:65-82` |
+| | `neutrophil_sites` | the same 6000 sites as the floor file; ≥ 5400 must be measured in whole blood | `conductor_v3.py:97, 107` |
+| | `profiles_at_neutrophil_sites` | group mean β at those sites; 6 sites carry a missing value in ≥ 1 group and drop out of the whole-blood reading (at most 5994 sites) | `conductor_v3.py:97, 106` |
+| `Met_A_Floors/neutrophil_reference_v1_1.json` | `version` | `neutrophil_reference_v1_1` (bundle `reference_version`) | `conductor_v3.py:37-40` |
+| | `sites_ordered` | the 6000 sites in genome order | `conductor_v3.py:116, 130` |
+| | `neutrophil_H_mean`, `neutrophil_H_sd_shrunk` | healthy neutrophil mean and shrunk SD of H per site (6 arrays) | `conductor_v3.py:117, 138` |
+| | `clustering_block` | 50 sites | `conductor_v3.py:85` |
+| | `healthy_clustering_median` | 1.1104 | `conductor_v3.py:144-145` |
+| | `healthy_clustering_LOO` | 6 values, 0.7763–1.3632 (÷ median: 0.6991–1.2277) | `conductor_v3.py:147` |
+| | `profiles_mean_beta`, `profile_map` | record only (not read) | — |
+| `Met_A_Floors/noise_sites_EPIC_v1.json` | `sites` (`n` 48,528) | EPIC sites every purified blood group holds fixed (`rule`: every group mean ≤ 0.03 or ≥ 0.97, every group SD ≤ 0.02; not neutrophil sites); copied from `doors/data/noise_sites_EPIC_v1.json` unchanged | `conductor_v3.py:45-57` |
+| `IAM_A_Positions/iama_positions_v1.json` | `eps0` | 0.032 (canon `eps0_meth`) | `stage_q_iam_a.py:70` |
+| | `cells.neutrophils.P` | 1.099 (canon `P_neutrophil_IAM_A`) | `stage_q_iam_a.py:81` |
+| | `cells.neutrophils.pipeline` | `loyfer_pat_v1` | `stage_q_iam_a.py:75` |
 | | `…P_range`, `…cv_across_donors`, `…n_donors` | [1.0841, 1.1079], 0.0118, 3 | record only |
-| `Intake/intake_thresholds_v1.json` | `detection.pass_fraction` | 0.99 | `stage_0_intake.py:580` |
-| | `detection.borderline_fraction` | 0.93 | `stage_0_intake.py:581` |
-| | `call_rate.proceed_at_or_above` | 0.98 | `stage_0_intake.py:682` |
-| | `call_rate.quarantine_below` | 0.93 | `stage_0_intake.py:683` |
-| | `bead.pass_fraction`, `bisulfite_conversion.min` | 0.995, 0.95 (the code uses its own equal constants, `stage_0_intake.py:649, 490`) | — |
+| `Intake/intake_thresholds_v1.json` | `detection.pass_fraction` / `detection.borderline_fraction` | 0.99 / 0.93 | `stage_0_intake.py:580-581` |
+| | `call_rate.proceed_at_or_above` / `call_rate.quarantine_below` | 0.98 / 0.93 | `stage_0_intake.py:682-683` |
+| | `bead.pass_fraction` | 0.995 | `stage_0_intake.py:649` |
+| | `bisulfite_conversion.min` | 0.95 (provisional: recorded, not refused) | `stage_0_intake.py:490` |
 
-Code constants (not in a frozen file): `MIN_READ_FRACTION` = 0.20 (`conductor_v3.py:72`); identity-site coverage ≥ 0.9 × 6000 for isolated readings (`stage_m_met_a.py:65`); C-score block 50 sites, ≥ 10 blocks (`conductor_v3.py:46-48`); ≥ 3 tare references (`conductor_v3.py:103`); ε₀ = 0.0320 (`stage_q_iam_a.py:8`; canon `eps0_meth` 0.032 = 1/(1+exp(φM)), φ 0.1628, M 20.94); IAM-A opportunities ≥ 100,000, half-readings when a half has > 50,000 (`stage_q_iam_a.py:17, 19`); EPIC platform = calibrated β vector longer than 700,000 probes (`stage_m_met_a.py:38`).
+Code constants (not in a frozen file): `MIN_READ_FRACTION` 0.20, `MIN_MARKER_FRACTION` 0.9, `MIN_REFS` 3, `MIN_REFS_NOISE` 20, `MIN_NOISE_FRACTION` 0.9 (`conductor_v3.py:30-34`), `ACCEPTED_ARRAY_TYPES` (EPIC_v1) (`:35`); `SITE_COVERAGE_MIN` 0.9 (`stage_m_met_a.py:24`); C-score ≥ 10 blocks (`conductor_v3.py:87`); IAM-A ≥ 100,000 opportunities, half-readings above 50,000 (`stage_q_iam_a.py:17-18`); hybridisation ratio ≥ 2.0, extension ratio 0.2–5.0, detection p ≤ 0.01, ≥ 3 beads, sex cut −2.0, 450K coverage ≥ 0.80 (`stage_0_intake.py`).
 
 ---
 
 ## 4. Run order
 
-### 4.1 One specimen
-Run from `chain/MethylPhys_Interface/` (the script puts `chain/` on the path itself, `run_sample.py:37-38`).
+### 4.1 One specimen (arrays)
+Run from `chain/MethylPhys_Interface/`.
 ```
-python run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --engine v3 \
-  --specimen "whole blood" --array-type EPIC_v1 --sex F --age 52 --id S001 --out S001.html
+python run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --sex F --age 52 --id S001 --out S001.html
 ```
-- `--engine v3` is the default (`run_sample.py:268`).
-- `--sex` (F/M) and `--age` are required by Stage 0 (manifest fields). Without them the run quarantines.
-- `--array-type`: if omitted, the chain uses the type read from the IDAT header (`run_sample.py:293`). Give it only when you know it; a family mismatch quarantines.
-- `--specimen`: `isolated neutrophils`, `sorted neutrophils`, `purified neutrophils` or `neutrophils` select the isolated path (`conductor_v3.py:29`); **any other string is read as whole blood**.
-- Optional custody: `--patient-id <hashed id>`, `--intake-log <path.jsonl>`, `--manifest-dir <dir>`.
-- Already-calibrated β (no IDAT): `--betas S.csv` (two columns, `cpg_id,beta`). Stage 0 and Stage 1 do not run; the report prints intake `not run`.
-- IDAT pair without custody record (lab-made DNA mixtures): add `--no-intake`; the bundle records `intake_skipped: true`.
+- `--engine v3` is the default.
+- `--sex` (F/M) and `--age` are required by Stage 0 (manifest fields).
+- `--array-type`: omit it and the IDAT header decides. If the header is unreadable and the flag is omitted, Stage 0 quarantines (`QUARANTINE_INCOMPLETE_MANIFEST`, array_type missing). Only EPIC_v1 is read.
+- `--specimen`: `isolated neutrophils`, `sorted neutrophils`, `purified neutrophils` or `neutrophils` select the isolated path; **any other string is read as whole blood**.
+- Custody: `--patient-id <hashed id>`, `--intake-log <path.jsonl>`, `--manifest-dir <dir>`.
+- References (pass 2): `--slide-ref-table refs.csv` (columns `A,f_neu,N`, optional `id`; ≥ 20 rows → noise-corrected tare, 3–19 → median tare) or `--slide-ref-A a1,a2,a3` (plain A → median tare); not both.
+- Record: `--covariate KEY=VALUE` (repeatable) or `--covariates file.json`; `--ledger <path.jsonl>` (default `evidence_ledger.jsonl` beside the report); `--no-bundle` writes neither bundle nor ledger row.
+- Already-calibrated β: `--betas S.csv` (two columns `cpg_id,beta`; Stage 0 and Stage 1 do not run).
+- IDAT pair without a custody record (lab-made DNA mixtures): `--no-intake`.
 
-Outputs: `S001.html` and `S001_bundle.json` (or the path given by `--bundle`). The console ends with `S001: neutrophil Met-A <A> (<state or reason>) | C <C> | tare <A_rel>`. Exit code 2 = QUARANTINE (no report, no bundle).
+Outputs: `S001.html`, `S001_bundle.json` (or `--bundle <path>`), one ledger row. Console: `S001: neutrophil Met-A <A> (<state or reason>) | C <C> | tare <A_rel>`. Exit code 2 = QUARANTINE (no report, no bundle).
 
-### 4.2 A batch with references (two-pass tare)
-Whole-blood Met-A is printed as a gauge state only after the tare. Isolated readings may also be tared (Stage T runs whenever references are supplied).
-1. **Plan the run.** Put ≥ 3 healthy reference specimens of the same specimen type on the same slide as the specimens (else in the same batch), processed the same way (same extraction, bisulfite batch, scanner, Stage 1).
-2. **Pass 1.** Run every array (references and specimens) as in 4.1 without `--slide-ref-A`. Read `met_a.A` from each bundle.
-3. **Choose the reference set per specimen.** The healthy references on the same slide (≥ 3), excluding the specimen itself; if fewer than 3, the healthy references of the same batch. Use only references whose `met_a.A` is a number. The code does not check that a reference is healthy, on the same slide or of the same specimen type: the operator is responsible.
-4. **Pass 2.** Re-run each specimen with `--slide-ref-A a1,a2,a3,…` (the references' untared A, comma-separated). Pass 2 repeats Stage 0 and Stage 1. **Use a different `--intake-log` (or none) for pass 2**: the same bytes logged twice in one intake log stop the run as `RE_TRANSMISSION_DETECTED`.
-5. Read `tare.A_rel`, `tare.state`, `tare.detection_limit_pct_loss` from the pass-2 bundle.
+### 4.2 One specimen (sequencing, IAM-A)
+```
+python run_sample.py --pat S.pat.gz --id S001 --out S001.html                       # extractor loyfer_pat_v1
+python run_sample.py --pat S.pat.gz --pat-max-bytes 60000000 --id S001 --out S001.html  # the byte range P was measured on
+python run_sample.py --site-table S_sites.csv --seq-pipeline loyfer_pat_v1 --id S001 --out S001.html
+```
+`--seq-cell` defaults to `neutrophils`. `--site-table` without `--seq-pipeline` is a usage error; `--pat` with a `--seq-pipeline` other than `loyfer_pat_v1` is refused. Sequencing input may be combined with `--betas` or an IDAT pair in one run; Stage 0 runs only for IDAT input.
 
-Batch scripts in the repository (`chain_tests/run_chain_acceptance.py`, `chain_tests/chain_batch.py`) carry the author's machine paths (`/home/ubuntu/...`) and their own reference selection; use them as worked examples of the two passes, not as the operator tool.
+### 4.3 A batch with references (two-pass tare)
+The gauge state of every Met-A reading comes from the tare: whole blood always; isolated neutrophils when ≥ 3 same-run references are supplied (untared otherwise, and so labelled).
+1. **Plan the run.** ≥ 3 healthy reference specimens of the same specimen type on the same slide as the specimens (else in the same batch), processed the same way (extraction, bisulfite batch, scanner, Stage 1).
+2. **Pass 1.** Run every array (references and specimens) without references. From each bundle take `met_a.A`, `met_a.fraction` (f_neu; null for isolated) and `met_a.noise_index` (N), or the ledger columns `A`, `f_neu`, `noise_index`.
+3. **Choose each specimen's references.** Healthy references of the same specimen type, excluding the specimen itself, with `A` a number: the whole batch when it holds ≥ 20 such references with f_neu and N (noise-corrected tare); otherwise the same slide (≥ 3), else the same batch (median tare). The code does not check that a reference is healthy, in the same run or of the same specimen type: the operator is responsible. Put the specimen's id in the table's `id` column only for references; a row whose `id` equals the specimen's `--id` is dropped.
+4. **Pass 2.** Re-run each specimen with `--slide-ref-table refs.csv` (columns `A,f_neu,N[,id]`), or with `--slide-ref-A a1,a2,a3,…` for a plain median tare. Pass 2 repeats Stage 0 and Stage 1. **Use a different `--intake-log` (or none) for pass 2**: the same bytes logged twice in one intake log stop the run before calibration (`RE_TRANSMISSION_DETECTED`).
+5. Read `tare.A_rel`, `tare.state`, `tare.method`, `tare.fit`, `tare.detection_limit_pct_loss`.
+
+`chain_tests/chain_batch.py` implements steps 2–4 (pass 2 writes `reports/<gsm>_refs.csv` and passes `--slide-ref-table`); it and `run_chain_acceptance.py` carry the author's machine paths and are worked examples, not the operator tool.
 
 ---
 
 ## 5. Stage by stage
 
-### Stage 0 — intake (`chain/stage_0_intake.py`, called from `run_sample.py:274-413`)
-**Purpose:** refuse a specimen the chain cannot vouch for, before any reading.
-**Inputs:** the Grn/Red IDAT pair; the manifest entry `run_sample.py` builds: `sentrix_id` (from the file name, pattern `(\d{9,12})[_-](R0\dC0\d)`, `run_sample.py:283`), `array_type`, `patient_id` (`--patient-id`, else `--id`, else the file-name prefix; hashed to 32 hex characters of SHA-256 when it is not already a ≥ 16-character alphanumeric token, `run_sample.py:285-287`), `intake_date` (today), `substrate` (`--specimen` with spaces → `_`), `declared_sex` (`--sex`), `declared_chronological_age` (`--age`).
-**Order:** 0.1 → 0.2 → 0.3; a status beginning `QUARANTINE` stops the run here (exit 2). Then the QC hand-off and 0.4–0.8; then Stage 1; then the post-Stage-1 re-check; then 0.7b and the 0.9 gate; a `QUARANTINE` verdict stops the run before any v3 stage (exit 2).
+### Stage 0 — intake (`chain/stage_0_intake.py`, driven by `run_sample.py:294-389`)
+**Purpose:** refuse a specimen the chain cannot vouch for, before calibration.
+**Inputs:** the Grn/Red IDAT pair; the manifest entry `run_sample.py` builds: `sentrix_id` (file name, pattern `(\d{9,12})[_-](R0\dC0\d)`), `array_type` (`--array-type`, else the header), `patient_id` (`--patient-id`, else `--id`, else the file-name prefix; hashed to 32 hex characters of SHA-256 unless already a ≥ 16-character alphanumeric token), `intake_date` (today), `substrate` (`--specimen`, spaces → `_`), `declared_sex`, `declared_chronological_age`.
+**Order and stops (all before Stage 1):** 0.1 → 0.2 → 0.3; any `QUARANTINE_*` status or an integrity status other than `INTEGRITY_OK` stops the run (`run_sample.py:329`). Then the QC hand-off and 0.4–0.8, then 0.7b (EPIC: `NA_EPIC`) and the 0.9 gate; a `QUARANTINE` verdict stops the run (`run_sample.py:374-380`). Exit code 2 in every case. After Stage 1, 0.7b and 0.9 run once more (they can only add the 450K coverage check).
 
 | step | what it decides (as coded) | threshold / rule | state written | effect |
 |---|---|---|---|---|
@@ -137,111 +146,97 @@ Batch scripts in the repository (`chain_tests/run_chain_acceptance.py`, `chain_t
 | | array type token | HM450K, EPIC_v1, EPIC_v2 | `QUARANTINE_INCOMPLETE_MANIFEST` (flag `UNKNOWN_ARRAY_TYPE`) | stop |
 | | both files exist | — | `QUARANTINE_MISSING_CHANNEL` | stop |
 | | file size | ≥ 1,000,000 bytes each | `QUARANTINE_TRUNCATED_UPLOAD` | stop |
-| | header type vs declared (nSNPsRead: < 800,000 HM450K; < 1,080,000 EPIC_v1; else EPIC_v2) | 450K vs EPIC family must agree | `QUARANTINE_ARRAY_TYPE_MISMATCH`; EPIC_v1/v2 difference → flag `ARRAY_SUBTYPE_NOTE` only; unreadable header → flag `IDAT_HEADER_UNREADABLE` | stop / note |
+| | header vs declared (nSNPsRead < 800,000 HM450K; < 1,080,000 EPIC_v1; else EPIC_v2) | 450K vs EPIC family must agree | `QUARANTINE_ARRAY_TYPE_MISMATCH`; EPIC_v1/v2 difference → flag `ARRAY_SUBTYPE_NOTE`; unreadable header → flag `IDAT_HEADER_UNREADABLE` | stop / note |
 | | same Sentrix ID in the intake log within 24 h | — | flag `DUPLICATE_INTAKE_24H_SOFTWARN` | continue |
-| | all passed | — | `STAGED` | continue |
-| 0.2 manifest (`:358`) | patient_id is not cleartext (no space, no `@`, ≥ 16 alphanumeric after removing `_`/`-`) | — | `QUARANTINE_MANIFEST_INVALID` (flag `CLEARTEXT_PII`) | stop |
-| | core fields present | — | `QUARANTINE_MANIFEST_INVALID` (flag `MANIFEST_INVALID:<fields>`) | stop |
-| | writes `patient_manifest_<sample_run_id>.json` to `--manifest-dir` | — | `MANIFEST_COMPLETE` | continue |
-| 0.3 integrity (`:438`) | SHA-256 of both files vs earlier rows for this Sentrix ID in `--intake-log` | identical pair → hold | `integrity_status` = `RE_TRANSMISSION_DETECTED` (hard fail at 0.9) | quarantined at 0.9 |
+| 0.2 manifest (`:358`) | patient_id not cleartext (no space, no `@`, ≥ 16 alphanumeric) | — | `QUARANTINE_MANIFEST_INVALID` (flag `CLEARTEXT_PII`) | stop |
+| | core fields present; writes `patient_manifest_<sample_run_id>.json` to `--manifest-dir` | — | `MANIFEST_COMPLETE` | continue |
+| 0.3 integrity (`:438`) | SHA-256 of both files vs earlier rows for this Sentrix ID in `--intake-log` | identical pair | `integrity_status` = `RE_TRANSMISSION_DETECTED` | stop |
 | | | different hashes | flag `LIKELY_RE_RUN_FRESH_ARRAY`; `INTEGRITY_OK` | continue |
-| hand-off (`stage_0_1_qc_handoff.decode_qc_inputs`) | decodes controls, per-probe intensity, negative-control background (median, MAD × 1.4826), bead counts, chrX/chrY intensity | decoder exception | `QUARANTINE_CORRUPT_IDAT` (flag `IDAT_DECODE_FAILED:<error>`) | stop (`run_sample.py:333-349`) |
-| | | module missing (ImportError) | 0.4–0.8 left unmeasured | detection/call rate then deferred → quarantine at 0.9 |
-| 0.4 controls (`:505`, `:545`) | bisulfite conversion I/(I+II); hybridisation high/low; extension meth/unmeth | BS ≥ 0.95; hyb ratio ≥ 2.0; extension ratio in [0.2, 5.0] | `ctrl_qc` = `PASS`, `FAIL_<flags>` (hard), or `PROVISIONAL_BS_THRESHOLD_UNCALIBRATED` when BS is the only failing check (recorded deferred, not refused; `BS_THRESHOLD_CALIBRATED = False`) | — |
-| 0.5 detection (`:579`) | detection p = 1 − Φ((I − μ_bg)/σ_bg) per probe; detected = p ≤ 0.01 | detected fraction > 0.99 `PASS`; ≥ 0.93 `DETECTION_BORDERLINE`; else `FAIL_LOW_DETECTION` | `detection_qc`, `pct_probes_detected_p_le_01` | — |
+| hand-off (`stage_0_1_qc_handoff.decode_qc_inputs`) | decodes controls, design-aware per-probe intensity (Type I in its own colour, Type II both channels), negative-control background (median, MAD × 1.4826), bead counts, chrX/chrY intensity, probe IDs | decoder exception | `QUARANTINE_CORRUPT_IDAT` (flag `IDAT_DECODE_FAILED:<error>`) | stop |
+| | | module missing | 0.4–0.8 `DEFERRED_PENDING_STAGE1_DECODER` | quarantine at 0.9 (`intake_deferred:detection+call_rate`) |
+| 0.4 controls (`:505, :545`) | bisulfite conversion per matched pair C/(C+U); hybridisation high/low; extension meth/unmeth | BS ≥ 0.95; hyb ratio ≥ 2.0; extension in [0.2, 5.0] | `ctrl_qc` = `PASS`, `FAIL_<flags>` (hard), or `PROVISIONAL_BS_THRESHOLD_UNCALIBRATED` when BS is the only one below (recorded deferred, not refused) | — |
+| 0.5 detection (`:579`) | detection p = 1 − Φ((I − μ_bg)/σ_bg); detected = p ≤ 0.01 | fraction > 0.99 `PASS`; ≥ 0.93 `DETECTION_BORDERLINE`; else `FAIL_LOW_DETECTION` | `detection_qc`, `pct_probes_detected_p_le_01` | — |
 | 0.6 beads (`:648`) | fraction of probes with ≥ 3 beads | ≥ 0.995 `PASS`, else `WARN_LOW_BEAD_COUNT` (borderline) | `bead_qc`, `pct_probes_bead_count_ge_3` | — |
 | 0.7 call rate (`:682`) | fraction passing detection and beads | ≥ 0.98 `PASS`; ≥ 0.93 `CALL_RATE_BORDERLINE`; else `CALL_RATE_FAIL` | `call_rate`, `call_rate_status` | — |
-| 0.8 sex (`:757`) | predicted F if log2(Y median) − log2(X median) < −2.0, else M | must equal declared F/M | `sex_check` = `PASS` / `MISMATCH` (hard), `predicted_sex` | — |
-| post-Stage-1 re-check (`run_sample.py:372-384`) | **overwrites** 0.4, 0.5, 0.7 with Stage 1's numbers: controls from methylprep control medians; detection = poobah p ≤ 0.05 against the array's own negatives; call rate = poobah mask × beads all-pass | same 0.99/0.93 and 0.98/0.93 lines | `ctrl_qc`, `ctrl_metrics`, `detection_qc`, `call_rate_status`; flag `BEAD_COUNT_NOT_EXTRACTED`; no poobah column → call rate `DEFERRED_PENDING_STAGE1_DECODER` | — |
-| 0.7b platform (`:728`) | platform tag; 450K coverage gate | EPIC → `NA_EPIC`; 450K: coverage of the neutrophil identity sites ≥ 0.80 | `platform_tag`, `hm450_coverage_gate` | — |
-| 0.9 gate (`:794`) | hard: any `QUARANTINE_*` status, integrity ≠ OK, `ctrl_qc` FAIL, `FAIL_LOW_DETECTION`, `CALL_RATE_FAIL`, coverage FAIL, sex `MISMATCH`, deferred detection or call rate (`intake_deferred:…`). Borderline: detection, bead, call rate. Deferred (recorded): provisional bisulfite, bead, sex, controls when not decoded | any hard → `QUARANTINE`; else any borderline → `PROCEED_WITH_PENALTY`; else `PROCEED` | `stage0_verdict`, `stage0_hard_fail`, `stage0_borderline`, `stage0_deferred_qc` | `QUARANTINE` → stop, exit 2 |
+| 0.8 sex (`:757`) | predicted F if log2(Y median) − log2(X median) < −2.0, else M | must equal declared F/M | `sex_check` = `PASS` / `MISMATCH` (hard) | — |
+| 0.7b platform (`:728`) | platform tag; 450K coverage of the neutrophil identity sites | EPIC → `NA_EPIC`; 450K ≥ 0.80 | `platform_tag`, `hm450_coverage_gate` | — |
+| 0.9 gate (`:794`) | hard: any `QUARANTINE_*`, integrity ≠ OK, `ctrl_qc` FAIL, `FAIL_LOW_DETECTION`, `CALL_RATE_FAIL`, coverage FAIL, sex `MISMATCH`, deferred detection or call rate. Borderline: detection, bead, call rate. Recorded deferred: provisional bisulfite, sex or controls not decoded | any hard → `QUARANTINE`; else borderline → `PROCEED_WITH_PENALTY`; else `PROCEED` | `stage0_verdict`, `stage0_hard_fail`, `stage0_borderline`, `stage0_deferred_qc` | `QUARANTINE` → stop |
 
-**Outputs:** bundle `intake` (the whole record, including `flags`, `grn_sha256`, `red_sha256`, `sample_run_id`, the QC fields above); rows appended to `--intake-log` (arrival, integrity, verdict) when given.
-**Operator:** see the fault table, section 7.
+**Stage-1 values recorded beside the Stage 0 record (not gated; `run_sample.py:402-436`):** `intake.stage1_qc` = {`ctrl_qc`, `ctrl_metrics`, `ctrl_flags` (from Stage 1 control medians), `detection_statistic` "poobah p <= 0.05", `detection_qc`, `pct_probes_detected`, `n_probes`, `n_probes_bead_aligned`, `call_rate`, `call_rate_status` (poobah × the extracted bead mask, aligned by probe ID)}; `intake.controls` = Stage 1 control medians incl. `signal_to_background_G/R`. A Stage-1 FAIL adds a flag `STAGE1_<field>:<value> (recorded, not gated)`.
+**Outputs:** bundle `intake` (whole record); rows appended to `--intake-log` (arrival, integrity, verdict).
 
-### Stage 1 — IDAT calibration (`chain/stage_1_idat_calibration.py:88-186`, called at `run_sample.py:365`)
+### Stage 1 — IDAT calibration (`chain/stage_1_idat_calibration.py:88`, called at `run_sample.py:400`)
 **Purpose:** turn this array's raw intensities into calibrated β using only its own controls.
-**Inputs:** the IDAT pair. Array type from the bead-address count.
-**Method as implemented:** `methylprep.run_pipeline(betas=True, export=True, save_control=True, poobah=True)`: noob background, dye-bias and probe-type normalisation, per sample. Keeps `cg` probes with poobah p ≤ 0.05 (`:142-144`); probes at background are removed before any stage reads β. Also extracts control-probe medians and the SNP-probe noise model.
-**Frozen inputs:** Illumina manifests via methylprep (section 2).
-**Outputs:** β vector (cg probes); bundle `stage1` = {`detection` (`detection_available`, `n_probes`, `n_detected`, `pct_detected`, `n_masked`), `n_cpgs`, `pipeline`}. Console: `Stage 1: <n_detected> of <n_probes> probes detected (<%>); <n_masked> at background removed`.
-**Failure:** methylprep import or manifest download failure stops the run with the error (see 3b items in section 7).
+**Method:** `methylprep.run_pipeline(betas=True, export=True, save_control=True, poobah=True)`: noob background, dye-bias and probe-type normalisation, per sample. Keeps `cg` probes with poobah p ≤ 0.05; probes at background are removed before any stage reads β. Returns the per-probe poobah mask to the runner (`return_mask=True`).
+**Outputs:** β vector; bundle `stage1` = {`detection` (`detection_available`, `n_probes`, `n_detected`, `pct_detected`, `n_masked`), `n_cpgs`, `pipeline`}.
 
-### Platform check (`conductor_v3.py:114-117`)
-**Rule:** calibrated β vector > 700,000 probes → `EPIC`; otherwise `450K` → bundle `refusal` = `no frozen neutrophil floor for this platform yet (EPIC only; 450K pending)`; no reading. The report prints the header and the refusal; Stage M/MC/T are absent.
-**Operator:** none for 450K (floor pending). A `--betas` table with ≤ 700,000 rows is classed 450K: supply the full calibrated vector.
+### Platform check (`conductor_v3.platform_refusal`, `:201-210`)
+**Rule (first that applies):** Stage 0 array type (header, else declared) not `EPIC_v1` → `array type <type>: chain v3 reads EPIC v1 arrays only (no frozen neutrophil floor for this platform)`; any probe name with the EPIC v2 design suffix (`_TC21`, `_BC11`, …) → `EPIC v2 probe names (design suffix, e.g. cg..._TC21): chain v3 reads EPIC v1 arrays only (…)`; ≤ 700,000 probes → `<n> probes (450K or incomplete vector): chain v3 reads EPIC v1 arrays only (450K neutrophil floor pending)`.
+**Output:** bundle `refusal`; no Stage A/M/MC/T. **Operator:** none for 450K or EPIC v2 (no floor); for `--betas`, supply the full calibrated EPIC v1 vector.
 
-### Stage A — composition (whole blood only; `conductor_v3.py:36-44`)
+### Stage A — composition (whole blood only; `conductor_v3.py:68-82`)
 **Purpose:** this specimen's blood-cell fractions, on the same platform and reference as the expectation profiles.
-**Inputs:** β at the 963 `markers` of `blood_composition_EPIC_v1.json`.
-**Formula:** NNLS of β(markers) on `mu_markers` (8 groups, measured markers only), f ← f/Σf.
-**Outputs:** bundle `composition` = {`stage` "A", `method` "EPIC blood NNLS (blood_composition_EPIC_v1)", `fractions` {B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK}, `n_markers_used`, `residual_mae`}. Isolated specimens: `composition` = {`stage` "A", `note` "isolated neutrophils: composition not solved"}.
-**Rules:** none in code (no minimum marker count). **Operator:** check `n_markers_used` = 963 for an EPIC v1 array; a value near 0 means the probe names do not match EPIC v1 (e.g. EPIC v2 suffixed names) and every fraction reads 0.
+**Formula:** NNLS of β at the measured markers on `mu_markers` (8 groups), f ← f/Σf.
+**Rule:** measured markers < 867 (0.9 × 963) → `fractions` null, `reason` = `only <n> of 963 composition markers measured (>= 867 required): composition not solved`; Stage M then withholds A with the same reason.
+**Outputs:** bundle `composition` = {`stage`, `method`, `n_markers_used`, `n_markers_required`, `n_markers_total`, `fractions` {B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK}, `residual_mae`} or `reason`. Isolated specimens: {`stage`, `note` "isolated neutrophils: composition not solved"}.
 
-### Stage M — Met-A, isolated neutrophils (`stage_m_met_a.read`, `conductor_v3.py:82-90`)
-**Purpose:** the neutrophils' held pattern against their own healthy floor.
-**Inputs:** β at the 6000 identity sites; `floor` 0.33026279581151297; `metA_floors_v1_2_loo.csv`; `profiles_at_neutrophil_sites.NEU`.
-**Formula:** A = mean H(β at measured identity sites) ÷ floor.
-**Rules (in order):** cell must be `neutrophils` (scope); platform floor must exist; measured identity sites ≥ 0.9 × 6000 = 5400, else A withheld with `only <n> of 6000 identity sites measured`.
-**Outputs:** bundle `met_a` = {`stage` "M", `reading` "Met-A", `cell`, `platform`, `specimen`, `fraction` null, `A`, `band` "Normal 0.95-1.05", `build`, `floors_version`, `n_sites`, `floor` (5 decimals), `state` (Normal / above Normal / below Normal), `floor_precision` {`n_ref`, `normal_fraction`, `sd`, `min`, `max`}, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `shift_per_1pct_loss`} or `reason` when withheld.
-**Operator:** read `state` from A unless the array's lab is not known to be as clean as the floor arrays; then run same-run references and read `tare.A_rel` (Stage T runs on isolated readings too). If `past_entropy_ceiling` is true, read `methylated_sites_mean_beta`, not A.
+### Stage M — Met-A, isolated neutrophils (`stage_m_met_a.read`; `conductor_v3.py:128-139`)
+**Inputs:** β at the 6000 identity sites; floor 0.33026279581151297; `metA_floors_v1_3_loo.csv`; `profiles_at_neutrophil_sites.NEU`.
+**Rules:** cell must be `neutrophils`; measured identity sites ≥ 5400 (0.9 × 6000), else `only <n> of 6000 identity sites measured` (A withheld, no C-score).
+**Outputs:** bundle `met_a` = {`stage`, `reading`, `cell`, `platform`, `specimen`, `fraction` null, `A`, `band` "Normal 0.95-1.05", `build`, `floors_version`, `n_sites`, `floor`, `state_own_floor` (Normal / above / below), `state`, `floor_precision` {`n_ref` 6, `normal_fraction`, `sd` 0.0198, `min` 0.983, `max` 1.045}, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `shift_per_1pct_loss`, `noise_index`, `noise_sites_measured`, `noise_sites_total`}. `state` = `untared (own-floor state: <state>): read A_rel (Stage T)` without references; `tared: read A_rel (Stage T)` after a tare.
+**Operator:** supply ≥ 3 same-run references and read `tare.A_rel`. If only the own floor is available, read `state_own_floor` knowing the floor's held-out spread (SD 0.020) and that array noise in another laboratory moves this reading (section 8). If `past_entropy_ceiling` is true, read `methylated_sites_mean_beta`, not A.
 
-### Stage M — Met-A, whole blood (`conductor_v3.py:51-70`)
-**Purpose:** the neutrophils' held pattern inside whole blood, against the healthy expectation for this specimen's own composition.
+### Stage M — Met-A, whole blood (`conductor_v3.py:93-118`)
 **Inputs:** β at the 6000 `neutrophil_sites`; Stage A fractions; `profiles_at_neutrophil_sites` (8 groups).
-**Formula:** e_i = Σ_g f_g μ_g,i; A = mean H(β_i) ÷ mean H(e_i) over sites where both β and e exist (≤ 5994 sites).
-**Rules:** neutrophil fraction f_NEU < 0.20 (`MIN_READ_FRACTION`) → A withheld, `reason` = `neutrophil fraction <f> < 0.2: fraction reported, A withheld`; Met-A C-score and tare then return no value. The untared value carries a composition and laboratory offset; it is printed as a number with `state` = `untared: read A_rel (Stage T)`; the gauge state comes only from Stage T.
-**Outputs:** bundle `met_a` = {`stage`, `reading`, `cell`, `specimen` "whole blood", `fraction`, `build`, `band` "Normal 0.95-1.05 (after tare)", `A`, `shift_per_1pct_loss`, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `n_sites`, `expectation`, `state`} or `reason`.
-**Operator:** run pass 2 (section 4.2). Low fraction: nothing to fix; the fraction is the result. `shift_per_1pct_loss` shrinks with f_NEU; read it with the detection limit.
+**Rules (in order):** composition not solved → A withheld (Stage A reason); f_NEU < 0.20 → `neutrophil fraction <f> < 0.2: fraction reported, A withheld`; sites with both β and e < 5400 → `only <n> of 6000 neutrophil sites measured (>= 5400 required): A withheld`. In each case C-score and tare return no value. A read value is printed with `state` = `untared: read A_rel (Stage T)` until tared.
+**Outputs:** bundle `met_a` = {`stage`, `reading`, `cell`, `specimen` "whole blood", `fraction`, `build`, `band` "Normal 0.95-1.05 (after tare)", `A`, `shift_per_1pct_loss`, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `n_sites`, `expectation`, `state`, `noise_index`, `noise_sites_measured`, `noise_sites_total`} or `reason` (the noise fields are recorded in every case).
+**Operator:** run pass 2. A low fraction is the result, not a fault. `shift_per_1pct_loss` falls with f_NEU; read it through the detection limit.
 
-### Stage MC — Met-A C-score (`conductor_v3.py:92-98`)
-**Purpose:** how clustered the per-site departures are along the genome, healthy = 1.
-**Inputs:** residual z at `sites_ordered` (genome order), `neutrophil_H_sd_shrunk`, `neutrophil_H_mean` (isolated) or H(e) (blood); `healthy_clustering_median` 1.1236; `healthy_clustering_LOO`.
-**Formula:** section 1. Needs ≥ 10 blocks of 50 measured sites; otherwise, or when Stage M withheld A, `C` = null with `reason` = `no residual map`.
-**Outputs:** bundle `met_a_cscore` = {`stage` "MC", `reading` "Met-A C-score", `C`, `clustering`, `healthy_baseline`, `n_healthy_baseline` (12), `healthy_range` [0.6914, 1.2091] (= LOO min and max ÷ median), `status` "development: healthy band not yet set", `frac_abs_z_gt3`}.
-**Rules:** no band. **Operator:** record C; do not interpret against a band. In whole blood the residual includes composition error.
+### Stage MC — Met-A C-score (`conductor_v3.py:141-148`)
+**Inputs:** residual z at `sites_ordered`; `clustering_block` 50; `healthy_clustering_median` 1.1104; `healthy_clustering_LOO` (6).
+**Rule:** needs ≥ 10 blocks of measured sites and a Stage M reading; otherwise `C` null, `reason` `no residual map`. No band.
+**Outputs:** bundle `met_a_cscore` = {`stage`, `reading`, `C`, `clustering`, `healthy_baseline` 1.1104, `n_healthy_baseline` 6, `block_sites` 50, `healthy_range` [0.6991, 1.2277], `status` "development: healthy band not yet set", `frac_abs_z_gt3`}.
+**Operator:** record C; no interpretation against a band. In whole blood the residual includes composition error.
 
-### Stage T — tare (`conductor_v3.py:100-109`)
-**Purpose:** remove the composition and laboratory offset by reading the specimen against healthy references run the same way; state the smallest loss this specimen could show.
-**Inputs:** `met_a.A`; `--slide-ref-A` list (untared A of the references); `met_a.shift_per_1pct_loss`.
-**Formula:** section 1.
-**Rules:** A null → `reason` `no A`; fewer than 3 numeric references → `A_rel` null, `reason` `untared: <n> same-slide reference arrays (>= 3 required)`. Detection limit null when the shift is missing or ≤ 0.
-**Outputs:** bundle `tare` = {`stage` "T", `A_rel`, `slide_reference_median`, `n_refs`, `reference_spread_sd`, `detection_limit_pct_loss`, `detection_note`, `state`}.
-**Operator:** with 3 references the spread is itself imprecise; use more references where the slide allows. A detection limit above the change you need to see means this specimen cannot show it.
+### Stage T — same-run tare (`conductor_v3.py:150-199`)
+**Purpose:** read the specimen against healthy references run the same way, removing the composition and laboratory offset and, with enough references, the array-noise term (DEV-NOISE-02); state the smallest loss this specimen could show. Applies to whole blood and isolated neutrophils.
+**Inputs:** `met_a.A`, `met_a.fraction`, `met_a.noise_index`, `met_a.shift_per_1pct_loss`; references as plain A values (`--slide-ref-A`) or records {A, f_neu, N[, id]} (`--slide-ref-table`). A record whose id equals the specimen's id is dropped (`n_self_excluded`).
+**Method, as coded:**
+1. Fewer than 3 references with A → no tare.
+2. ≥ 20 records with A, N (and f_neu for whole blood) **and** a noise index for this specimen → noise-corrected: least squares A = a + b f_neu + c N (isolated: A = a + c N) on the references; A_rel = A ÷ prediction; spread = SD of each reference's leave-one-out A ÷ prediction.
+3. Otherwise → median tare: A_rel = A ÷ median(reference A); spread = SD of reference A ÷ median; `method` says why (`noise not corrected (<20 references)` or `noise not corrected (this specimen has no noise index)`).
+4. Detection limit = 2 × spread ÷ shift per 1 % loss (null when the shift is missing or ≤ 0).
+**Rules:** no A → `reason` `no A`; fewer than 3 references → `A_rel` null, `reason` `untared: <n> same-run reference arrays (>= 3 required)`.
+**Outputs:** bundle `tare` = {`stage`, `A_rel`, `state`, `method`, `fit` {`a`, `b` (null for isolated), `c`, `n_refs_fitted`} or null, `prediction` (noise-corrected), `reference_median`, `n_refs`, `n_self_excluded`, `reference_spread_sd`, `detection_limit_pct_loss`, `detection_note`}.
+**Operator:** for the noise-corrected tare the references must span the run's range of neutrophil fraction and noise; a specimen far outside that range is an extrapolation. With 3–19 references the spread is itself imprecise. A detection limit above the change you need to see means this specimen cannot show it.
 
-### Report (`chain/MethylPhys_Interface/report_v3.py`, written by `run_sample.py:415-428`)
-**Purpose:** one HTML page plus the JSON bundle.
-**Outputs:** `<out>.html`; `<out stem>_bundle.json` (always written on the v3 path); bundle top level: `build`, `specimen`, `platform`, `scope`, `floors_version`, `reference_version`, [`refusal`], `composition`, `met_a`, `met_a_cscore`, `tare`, `withheld`, `intake`, `intake_skipped`, `sample_id`, [`stage1`].
-On the v3 path `--ledger`, `--no-bundle`, `--covariate(s)`, `--lab`, `--lab-zero`, `--pipeline` and `--atlas-v2` have no effect.
+### Report (`chain/MethylPhys_Interface/report_v3.py`)
+**Outputs:** `<out>.html`; `<out stem>_bundle.json` unless `--no-bundle`; bundle top level: `build`, `specimen`, `platform`, `array_type`, `scope`, `floors_version`, `reference_version`, [`refusal`], `composition`, `met_a`, `met_a_cscore`, `tare`, `withheld`, [`iam_a`], `intake`, `intake_skipped`, `sample_id`, `covariates`, `run_id`, [`stage1`]. Ledger row (`run_sample.py:506-517`): run_id, engine, sample_id, utc, report, bundle, specimen, platform, array_type, refusal, floors/reference versions, stage0_verdict, call_rate_status, f_neu, A, state, n_sites, shift_per_1pct_loss, past_entropy_ceiling, C, A_rel, tare, n_refs, tare_method, noise_index, detection_limit_pct_loss, iam_a, iam_a_pipeline, covariates.
 
-### Stage Q — IAM-A, sequencing (`chain/stage_q_iam_a.py`; development; not called by `run_sample.py`)
+### Stage Q — IAM-A, sequencing (`chain/stage_q_iam_a.py`; called by `run_sample.py:482-492`)
 **Purpose:** the neutrophils' per-molecule copy error against the physics floor at the neutrophil's frozen position.
-**Inputs:** a per-site table with columns `pos, opp_A, err_A, opp_B, err_B` (A/B = the two run halves); the cell (`neutrophils`); the read-level pipeline name; optional `mask` (positions to drop). Opportunity = an interior CpG call on a qualifying molecule (≥ 6 CpG calls, ≥ 80 % methylated); error = an unmethylated interior call with both neighbouring calls methylated (`stage_q_iam_a.py:4-5`; extractor definition `Biological_Physics/Salmonid/PROC_SALMON_01/extract.py:3-4`).
-**Formula:** ε = (err_A + err_B) ÷ (opp_A + opp_B); IAM-A = H(ε) ÷ (P × H(ε₀)), P = 1.099 (`iama_positions_v1.json` `cells.neutrophils.P`), ε₀ = 0.0320; half-readings per half with > 50,000 opportunities; E_kT = ln((1−ε)/ε).
-**Rules (refusals, `A` null):** no frozen position for the cell → `no frozen IAM-A position for <cell>`; pipeline ≠ `loyfer_pat_v1` → `position for neutrophils was measured on loyfer_pat_v1, not <pipeline>: measure P on healthy neutrophils with this pipeline first`; opportunities < 100,000 → `too few opportunities (<n> < 100000)`.
-**Outputs:** {`stage` "Q", `reading` "IAM-A", `cell`, `pipeline`, `build`, `A`, `eps`, `P`, `E_kT`, `halves` {A, B}, `state`, `opportunities`} or `refusal`.
-**Run:**
-```
-cd chain && python -c "import pandas as pd, json, stage_q_iam_a as Q; \
-print(json.dumps(Q.read(pd.read_csv('sites.csv'), cell='neutrophils', pipeline='loyfer_pat_v1'), indent=1))"
-```
-**Operator:** always pass `pipeline=` explicitly and truthfully (the default is `loyfer_pat_v1`; the code cannot check what produced the table). Halves should agree; a large difference is a run artefact, not a reading.
+**Extractor (`pat_site_table`, `:44-65`, pipeline `loyfer_pat_v1`):** reads a wgbstools `.pat`/`.pat.gz` (chrom, first CpG index, pattern of C/T/., molecule count), optionally only the first `max_bytes` bytes (multi-member gzip; a cut tail is dropped). `.` calls are dropped; a molecule qualifies with ≥ 6 calls and ≥ 80 % methylated; each interior call is an opportunity at its CpG; an unmethylated interior call with both neighbours methylated is an isolated error; halves A/B = odd/even molecule ordinal over the file. Output: per-site table `pos` ("chrom:CpG index"), `opp_A`, `err_A`, `opp_B`, `err_B`; totals equal `chain_tests/iama_floor.py`'s counts on the same file and byte range. P was measured on the first 60,000,000 bytes of each granulocyte file (`LOYFER_PAT_V1_HEAD_BYTES`).
+**Reading (`read(site_table, cell, pipeline, mask=None)`, `:67-85`; pipeline required):** ε = Σerr ÷ Σopp; IAM-A = H(ε) ÷ (1.099 × H(0.032)); halves per half with > 50,000 opportunities; E_kT = ln((1−ε)/ε).
+**Refusals (`A` null):** `no frozen IAM-A position for <cell>`; `pipeline not stated: name the read-level pipeline that produced the table`; `position for neutrophils was measured on loyfer_pat_v1, not <pipeline>: measure P on healthy neutrophils with this pipeline first`; `too few opportunities (<n> < 100000)`; `copy error <ε> outside (0, 1): no reading`.
+**Outputs:** bundle `iam_a` = {`stage` "Q", `reading`, `cell`, `pipeline`, `build`, `A`, `eps0`, `eps`, `P`, `E_kT`, `halves` {A, B}, `state`, `opportunities`, `n_sites`, `input` {`pat` or `site_table`, `max_bytes`, `n_lines`, `n_qualifying_lines`, `n_molecules`}} or `refusal`.
+**Operator:** for a site table, name the pipeline truthfully (the code cannot check what produced it). Halves should agree; a large difference is a run artefact.
 
 ---
 
 ## 6. Reading the report (top to bottom)
 
 1. **Banner:** build string, "Not a diagnostic test."
-2. **Header:** specimen, platform, `floors` version (1.2), `reference` version (neutrophil_reference_v1).
-3. **Stage 0 intake:** `verdict` (PROCEED / PROCEED_WITH_PENALTY; `not run` for `--betas` or `--no-intake`), call rate status, flags (first 300 characters; the full list is in the bundle `intake.flags`).
-4. **Stage A composition:** groups ≥ 1 %, highest first. Isolated: the note.
-5. **Stage M Met-A — neutrophils:** gauge bar 0.80–1.30 with Normal 0.95–1.05 shaded; the marker is `A_rel` for whole blood and `A` for isolated specimens (values outside 0.80–1.30 sit at the edge). Then `A` with state or reason, neutrophil fraction, sites, expectation (`own floor` for isolated).
-6. **Stage T slide tare:** `A_rel` with state or reason; detection limit (% loss of the neutrophil pattern) and reference spread; methylated-site mean β, with **"past the entropy ceiling: … read beta, not A"** when flagged.
+2. **Header:** specimen, platform, array type, floors version (`metA_floors_v1_3`), reference version (`neutrophil_reference_v1_1`); a red **Refused** line when the platform check refused.
+3. **Stage 0 intake:** verdict (PROCEED / PROCEED_WITH_PENALTY; `not run` for `--betas`, `--no-intake` or sequencing-only), call rate status and value, flags (first 300 characters); a second line with the Stage-1 values recorded beside the record (poobah detection, poobah × bead call rate, controls).
+4. **Stage A composition:** groups ≥ 1 %, highest first; or the refusal reason; isolated: the note.
+5. **Stage M Met-A — neutrophils:** gauge 0.80–1.30 with Normal 0.95–1.05 shaded. Marker = `A_rel` whenever the specimen was tared (label "tared: A_rel …"); untared isolated neutrophils: own-floor A (label "untared: … against the own floor"); untared whole blood: no marker, text "no gauge position until Stage T". Then A with state or reason, fraction, sites, expectation, shift per 1 % loss.
+6. **Stage T same-run tare:** A_rel with state or reason; number of references and their median; detection limit (% loss of the neutrophil pattern) and reference spread; tare method (noise-corrected with a, b, c, number fitted and prediction, or median with the reason); noise index N and the noise sites measured; methylated-site mean β with **"past the entropy ceiling: … read beta, not A"** when flagged.
 7. **Stage MC Met-A C-score:** C, the healthy held-out range, status.
-8. **Withheld:** tier lines beyond Normal; other cell types.
-9. **bundle** (collapsed): the bundle without `intake`, first 20,000 characters.
+8. **Stage Q IAM-A** (when sequencing input was given): gauge, A with state or refusal, pipeline, ε, P, ε₀, halves, opportunities, E in kT.
+9. **Withheld:** tier lines beyond Normal; other cell types.
+10. **bundle** (collapsed): the bundle without `intake`, first 20,000 characters.
 
-What to read: whole blood → `A_rel` and its `state`, with `detection_limit_pct_loss`; isolated → `A` and `state` (or `A_rel` when tared); always the ceiling flag. An untared whole-blood A is a number, not a state.
+What to read: `A_rel` and its state with the detection limit; for untared isolated neutrophils the own-floor A with its untared label; always the ceiling flag; IAM-A with its pipeline. An untared whole-blood A is a number, not a state.
 
 ---
 
@@ -249,66 +244,74 @@ What to read: whole blood → `A_rel` and its `state`, with `detection_limit_pct
 
 | printed | cause | action |
 |---|---|---|
-| `QUARANTINE_INCOMPLETE_MANIFEST` | a manifest field missing (most often `--sex` or `--age`) or an unknown array-type token | supply `--sex F|M` and `--age`; array type must be HM450K, EPIC_v1 or EPIC_v2 |
+| `QUARANTINE_INCOMPLETE_MANIFEST` | a manifest field missing (`--sex`, `--age`, or array type when the header is unreadable) or an unknown array-type token | supply the field; array type HM450K, EPIC_v1 or EPIC_v2 |
 | `QUARANTINE_MANIFEST_INVALID` (`CLEARTEXT_PII`) | `--patient-id` contains a space or `@` | pass a hashed id, or omit it and let the runner hash `--id` |
 | `QUARANTINE_MISSING_CHANNEL` | Grn or Red file absent | supply both files |
-| `QUARANTINE_TRUNCATED_UPLOAD` | a file < 1,000,000 bytes | re-fetch the file |
+| `QUARANTINE_TRUNCATED_UPLOAD` | a file < 1,000,000 bytes | re-fetch |
 | `QUARANTINE_ARRAY_TYPE_MISMATCH` | declared type and header disagree (450K vs EPIC) | omit `--array-type` and let the header decide, or correct it |
-| `QUARANTINE_CORRUPT_IDAT` | the decoder failed on the file (e.g. truncated inside the gzip stream) | re-fetch; a file can pass the size floor and still be truncated |
-| `RE_TRANSMISSION_DETECTED` → QUARANTINE (`integrity`) | these exact bytes are already in this intake log | for a planned re-run (tare pass 2) use another `--intake-log` or none; if not planned, find who submitted the first copy |
-| `FAIL_HYB_FAIL` / `FAIL_EXT_FAIL` → QUARANTINE (`ctrl_qc`) | hybridisation or extension controls outside the line | re-hybridise / re-run the array |
-| `PROVISIONAL_BS_THRESHOLD_UNCALIBRATED` | bisulfite value below 0.95, threshold not calibrated | none; value recorded, not refused |
+| `QUARANTINE_CORRUPT_IDAT` | the decoder failed on the file | re-fetch; a file can pass the size floor and still be truncated inside its gzip stream |
+| `RE_TRANSMISSION_DETECTED` → QUARANTINE (`integrity`) | these exact bytes are already in this intake log | for a planned re-run (tare pass 2) use another `--intake-log` or none; otherwise find who submitted the first copy |
+| `FAIL_HYB_FAIL` / `FAIL_EXT_FAIL` → QUARANTINE | hybridisation or extension controls outside the line | re-hybridise / re-run the array |
+| `PROVISIONAL_BS_THRESHOLD_UNCALIBRATED` | bisulfite value below 0.95, threshold not calibrated | none; recorded, not refused |
 | `FAIL_LOW_DETECTION` / `CALL_RATE_FAIL` → QUARANTINE | too many probes at background | specimen or hybridisation problem; re-run the specimen |
 | `DETECTION_BORDERLINE` / `CALL_RATE_BORDERLINE` / `WARN_LOW_BEAD_COUNT` → PROCEED_WITH_PENALTY | between the lines | reading proceeds; note the penalty with the result; many warnings on one plate → raise with the core facility |
-| `intake_deferred:detection` / `call_rate` → QUARANTINE | detection or call rate could not be measured (decoder module missing, no poobah column) | fix the installation (section 2) and re-run |
+| `intake_deferred:detection+call_rate` → QUARANTINE | hand-off decoder not installed | install methylprep (section 2) and re-run |
 | sex `MISMATCH` → QUARANTINE | chrX/chrY call ≠ declared sex, or declared sex not F/M | check the paperwork and the sample identity; do not override |
-| `refusal: no frozen neutrophil floor for this platform yet (EPIC only; 450K pending)` | not EPIC, or β vector ≤ 700,000 probes | none for 450K; for `--betas` supply the full vector |
-| `only <n> of 6000 identity sites measured` | isolated specimen, < 5400 identity sites after detection masking | low-quality or wrong-platform array; re-run |
-| `neutrophil fraction <f> < 0.2: fraction reported, A withheld` | neutrophils < 20 % of the specimen (or probe names not EPIC v1: check `n_markers_used`) | none; the fraction is the result |
-| `untared: <n> same-slide reference arrays (>= 3 required)` | fewer than 3 references supplied | run pass 2 with `--slide-ref-A` |
-| `C` null, `no residual map` | A withheld, or < 500 residual sites | none |
+| `STAGE1_…: … (recorded, not gated)` flag | Stage 1's poobah-based values fall below the lines | none at the gate; report it with the reading |
+| `refusal: array type …` / `EPIC v2 probe names …` / `… probes (450K or incomplete vector) …` | not EPIC v1 | none (no floor); for `--betas` supply the full EPIC v1 vector |
+| `only <n> of 963 composition markers measured (>= 867 required)` | markers missing after detection masking | low-quality array; re-run |
+| `only <n> of 6000 neutrophil sites measured (>= 5400 required)` / `only <n> of 6000 identity sites measured` | identity sites missing | low-quality array; re-run |
+| `neutrophil fraction <f> < 0.2: fraction reported, A withheld` | neutrophils < 20 % of the specimen | none; the fraction is the result |
+| `untared: <n> same-run reference arrays (>= 3 required)` | fewer than 3 references | run pass 2 with `--slide-ref-table` or `--slide-ref-A` |
+| `method: median tare: noise not corrected (<20 references)` | fewer than 20 reference records with A, f_neu, N | none for this specimen; for the next run plan ≥ 20 healthy references in the batch |
+| `method: median tare: noise not corrected (this specimen has no noise index)` / `noise_index` null | < 90 % of the 48,528 noise sites measured on the specimen | low-quality array; re-run |
+| `give --slide-ref-A or --slide-ref-table, not both` / `--slide-ref-table …: needs a column A` | usage | supply one reference input, with columns A, f_neu, N |
+| `C` null, `no residual map` | A withheld, or < 10 blocks | none |
 | `past_entropy_ceiling: true` | methylated sites average below β 0.5 | read `methylated_sites_mean_beta`; A understates loss |
-| methylprep import error / manifest download hang | environment or `HOME` not writable / no network | section 2 |
+| Stage Q refusals | section 5, Stage Q | name the pipeline; measure P for a new pipeline; supply ≥ 100,000 opportunities |
+| methylprep import error / manifest download hang | environment or `HOME` / network | section 2 |
 | `ModuleNotFoundError` on a stage module | script moved | run `run_sample.py` from `chain/MethylPhys_Interface/` |
-| Stage Q `refusal` lines | section 5, Stage Q | measure P for the pipeline, or supply ≥ 100,000 opportunities |
 
 ---
 
 ## 8. Validation record (development measurements)
 
-Measurements made on the chain while it is in development. Nothing here is a commissioning result.
+Measurements made on the chain while it is in development; none is a commissioning result.
 
 ### 8.1 Records in `chain_tests/`
 | record | what was measured | what it showed |
 |---|---|---|
-| `CHAIN_V3_ACCEPTANCE_RUN3.md` (+ `chain_acceptance.csv`, `run_chain_acceptance.py`) | 22 IDAT pairs through `run_sample.py --engine v3`, two passes | 22/22 processed. Isolated purified neutrophils (these 6 arrays are in the floor): A 0.994–1.006. Six DNA mixtures (neutrophils 58–70 %): untared 0.943–0.968, tared 0.987–1.021. Ten remission bloods from a second lab: untared 1.073–1.115 on 5, tared 0.986–1.032 against the other bloods of that batch; 5 had A withheld at fractions 0.058–0.473 under the read-fraction line of that build (0.50); the four at ≥ 0.20 are read by the current code and need a re-run. C: isolated 0.69–1.21, whole blood 0.78–1.49. |
+| `freeze_v13.py` → `metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv`, `neutrophil_reference_v1_1.json` | the neutrophil floor rebuilt with each physical array counted once (6), held-out readings with the identity sites re-chosen on the other 5 arrays | Floor unchanged (0.33026279581151297). Held-out A 0.983–1.045, SD 0.020 (on the frozen sites: 0.993–1.008). C-score baseline median 1.1104 on 6 arrays. |
+| `CHAIN_V3_ACCEPTANCE_RUN3.md` (+ `chain_acceptance.csv`, `run_chain_acceptance.py`) | 22 IDAT pairs through `run_sample.py --engine v3`, two passes, on the build before the audit fixes | 22/22 processed. Purified neutrophils (the floor's own arrays): A 0.994–1.006. Six DNA mixtures (neutrophils 58–70 %): untared 0.943–0.968, tared 0.987–1.021. Ten remission bloods from a second lab: untared 1.073–1.115 on 5, tared 0.986–1.032 against the other bloods of that batch; 5 had A withheld at fractions 0.058–0.473 under that build's 0.50 line; the four at ≥ 0.20 are read by the current code and need a re-run. C: isolated 0.69–1.21, whole blood 0.78–1.49. |
 | `WHOLE_BLOOD_COMPOSITION_DEV.md` (+ `blood_comp.py`, `selfconsist.py`) | 6 DNA mixtures (≥ 50 % neutrophils), composition by EPIC NNLS with profiles from the other study | Untared A 0.943–0.968 (offset about −0.05, SD 0.009); tared A_rel 0.992–1.021 (SD 0.010); a simulated 2 % neutrophil pattern loss read 1.052–1.090 tared (shift +0.061); re-fitting the fraction on the neutrophil sites absorbs the loss. |
-| `IAMA_FLOOR_COMPARISON.md` (+ `iama_floor.py`, `iama_floor_granulocytes.csv`) | 3 granulocyte donors, read-level .pat, 16–20 M opportunities each; three floors compared | On ε₀ alone healthy donors read 1.084–1.127; with the frozen position P (1.099): 0.978–1.040 (P measured on the same 3 donors, leave-one-out). Odd/even repeat ≤ 0.002. Simulated 2 % copy damage: 1.285–1.346. The bare floor reads healthy blood cells 0.70–0.79 on a second pipeline: the reading depends on the pipeline, hence one P per pipeline. |
-| `neut_ref.py`, `blood_comp.py` | builders of `neutrophil_reference_v1.json` and `blood_composition_EPIC_v1.json` | — |
+| `IAMA_FLOOR_COMPARISON.md` (+ `iama_floor.py`, `iama_floor_granulocytes.csv`) | 3 granulocyte donors, read-level .pat, 16–20 M opportunities each; three floors compared | On ε₀ alone healthy donors read 1.084–1.127; with the frozen position P (1.099): 0.978–1.040 (P measured on the same 3 donors, leave-one-out). Odd/even repeat ≤ 0.002. Simulated 2 % copy damage: 1.285–1.346. The bare floor reads healthy blood cells 0.70–0.79 on a second pipeline: one P per pipeline. |
+| `neut_ref.py`, `blood_comp.py` | builders of the neutrophil reference (v1, superseded by `freeze_v13.py`) and `blood_composition_EPIC_v1.json` | — |
 | `chain_batch.py` | batch runner for the neutrophil test series below | — |
 
-### 8.2 Development records in `doors/` that bear on v3
+### 8.2 Synthetic exercise of the fixed code (audit-fix patch, `_audit_fix_tests/`)
+Every code path above was run on synthetic β vectors, synthetic .pat files and site tables, and through `run_sample.py` (IDAT cases with the two decoder modules replaced by stubs; Stage 0 real). 41 checks: tared and untared whole blood and isolated readings, noise index present/absent, the noise-corrected tare (fit recovers a known A = a + b f + c N on 25 synthetic references; A_rel within 0.001 of the known value), median tare below 20 references or without N, self-exclusion, isolated fit without the fraction term, `--slide-ref-table`, every withhold and refusal path, report gauge source, ledger and `--no-bundle`, Stage Q extractor totals and halves equal to `iama_floor.py`'s on the same file, required pipeline, and every hard intake failure stopping before calibration. No real IDAT was run through methylprep in this exercise.
+
+### 8.3 Development records in `doors/` that bear on v3
 | record | what was measured | what it showed |
 |---|---|---|
-| `DEV_LOWFRAC_01_OUTCOME.md` | 656 whole bloods, Met-A at every neutrophil fraction; healthy spread and the shift of a simulated 2 % loss by fraction | Healthy SD stays 0.020–0.024 from 0.40 to 1.00; the shift falls with fraction (0.033 at 0.40–0.50, 0.064 at 0.70–1.00). Below 0.40: 5 healthy arrays. Led to the per-specimen detection limit. |
-| `PROC_DNMT_01_PARTA_OUTCOME.md` | 51 EPIC arrays, 3 cell lines, DNMT1 inhibitor dose and time series, each line against its own 4 vehicle arrays | Vehicle 0.968–1.048, inactive analog 1.002–1.032; active drug ≥ 80 nM 1.16–1.85, second active compound 1.73–1.81; change in the methylated channel. A saturates near 1/H(floor) once methylated sites reach β ≈ 0.5 and falls past it. Led to the ceiling flag. |
+| `DEV_LOWFRAC_01_OUTCOME.md` | 656 whole bloods, Met-A at every neutrophil fraction; healthy spread and the shift of a simulated 2 % loss by fraction | Healthy SD 0.020–0.024 from 0.40 to 1.00; the shift falls with fraction (0.033 at 0.40–0.50, 0.064 at 0.70–1.00). Below 0.40: 5 healthy arrays. Basis of the per-specimen detection limit. |
+| `PROC_DNMT_01_PARTA_OUTCOME.md` | 51 EPIC arrays, 3 cell lines, DNMT1 inhibitor dose and time series, each line against its own 4 vehicle arrays | Vehicle 0.968–1.048, inactive analog 1.002–1.032; active drug ≥ 80 nM 1.16–1.85, second active compound 1.73–1.81; change in the methylated channel. A saturates near 1/H(floor) once methylated sites reach β ≈ 0.5 and falls past it. Basis of the ceiling flag. |
 | `DEV_NOISE_01_OUTCOME.md` | noise index N (mean H at 48,528 invariant EPIC sites) on floor arrays and a second lab | Floor arrays N 0.1223–0.1489; second-lab arrays up to 0.2434; Met-A follows N (ρ 0.79–0.83). |
 | `DEV_NOISE_02_OUTCOME.md` | 495 whole bloods from one lab | Untared A tracks neutrophil fraction and N; dividing by the expectation for each array's own (fraction, N), fitted on the other healthy arrays, gives healthy SD 0.022. Fitted after looking; needs a held-out lab. |
 | `PROC_NEUT_TEST_01_OUTCOME.md`, `…_T2_OUTCOME.md` | FACS-counted bloods, isolated neutrophils from a second lab, technical replicates, 570 whole bloods | Neutrophil fraction within 0.035 of FACS (median). Isolated second-lab neutrophils read 0.86–1.26 against the floor; the spread follows array noise, not purity. Tared healthy bloods in one lab spread SD 0.052; the tared reading still rises about +0.12 A per unit fraction. Replicate set: neutrophils 0.30–0.56, not read on that build. |
-| `PROC_WB_NEUT_01_OUTCOME.md` | 6 Salas mixtures with known fractions | Known-fraction expectation: 0.982–1.016; simulated 2 % loss 1.049–1.079; the neutrophil floor alone reads the same mixtures 1.062–1.118. |
-| `PROC_PREDX_NEUT_01_OUTCOME.md` | 845 450K arrays on a development 450K neutrophil floor | Outside current scope (EPIC only). The reading differed by donor sex by 0.045, not explained by purified-neutrophil differences (0.008); centre/plate and composition residual remain open. |
+| `PROC_WB_NEUT_01_OUTCOME.md` | 6 mixtures with known fractions | Known-fraction expectation 0.982–1.016; simulated 2 % loss 1.049–1.079; the neutrophil floor alone reads the same mixtures 1.062–1.118. |
+| `PROC_PREDX_NEUT_01_OUTCOME.md` | 845 450K arrays on a development 450K neutrophil floor | Outside current scope (EPIC v1 only). The reading differed by donor sex by 0.045, not explained by purified-neutrophil differences (0.008); centre/plate and composition residual remain open. |
 
 ---
 
 ## 9. Pending changes (not yet in the code)
 
-1. Array noise index N from 48,528 blood-invariant EPIC sites (`doors/data/noise_sites_EPIC_v1.json`), reported at Stage 0, with a gate (proposed: state withheld above the floor arrays' range unless tared).
-2. Batch calibration of the whole-blood expectation on (fraction, N) from same-run healthy references (needs ≥ 20 references).
+1. A gate on the noise index N (proposed: state withheld when N is above the floor arrays' range, 0.122–0.149, unless noise-corrected); N is recorded, not gated.
+2. A held-out laboratory with ≥ 20 healthy references to measure the noise-corrected tare (its coefficients were fitted after looking, DEV-NOISE-02).
 3. Fraction-dependent precision rule: report A only where the shift at the specimen's own fraction is ≥ 2 × the healthy spread, in place of the fixed 0.20 line.
 4. Bisulfite-conversion threshold calibrated at intake (`BS_THRESHOLD_CALIBRATED` set from healthy arrays).
-5. Tare required for isolated neutrophils as well as whole blood; report gauge then drawn from A_rel for both.
-6. Molecule-assignment IAM-A (per-molecule cell assignment before the copy-error count).
-7. IAM-A C-score (per-region copy-error map against the floor).
-8. A per-site extractor for the `loyfer_pat_v1` pipeline inside `chain/`, and a Stage Q entry in the runner and report.
+5. Intake detection statistic: one statistic for the gate and the thresholds file (the gate uses p ≤ 0.01 against the negative-control background; `intake_thresholds_v1.json` provenance and the Stage-1 record use poobah p ≤ 0.05).
+6. Tare required, not optional, for isolated neutrophils.
+7. Molecule-assignment IAM-A (per-molecule cell assignment before the copy-error count).
+8. IAM-A C-score (per-region copy-error map against the floor).
 9. 450K neutrophil floor (purified 450K neutrophils, GSE88824), with donor sex stated.
-10. Floor and C-score baseline from independent physical arrays (the 12 entries are 6 arrays deposited twice).
