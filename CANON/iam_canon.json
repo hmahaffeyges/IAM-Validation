@@ -158,7 +158,8 @@
   },
   "the methylation report": {
    "status": "current",
-   "definition": "The biological (genetic) application of IAM's law: the umbrella for every cellular and organismal chain. Expansion as in Issue 002: Genomic Analytical & Performance Engine. Chains under it: MethylPhys CPG (methylation, cells), the salmonid chain (in development)."
+   "definition": "The biological (genetic) application of IAM's law: the umbrella for every cellular and organismal chain. Expansion as in Issue 002: Genomic Analytical & Performance Engine. Chains under it: MethylPhys CPG (methylation, cells), the salmonid chain (in development).",
+   "book": false
   },
   "MethylPhys CPG": {
    "status": "current",
@@ -182,11 +183,13 @@
   },
   "the quantum-processor report": {
    "status": "current",
-   "definition": "Quantum computing report line."
+   "definition": "Quantum computing report line.",
+   "book": false
   },
   "the semiconductor report": {
    "status": "current",
-   "definition": "Semiconductor report line."
+   "definition": "Semiconductor report line.",
+   "book": false
   },
   "p(2Q) [the quantum-processor report]": {
    "status": "current (unverified)",
