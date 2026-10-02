@@ -1,0 +1,7 @@
+1. m = 1e-12 kg, 10 mK: tau_IAM = 559.4 s  (paper text 560 us; Fig. 1 label 4687 us);  tau_PD = 7.78 us
+2. slopes: tau_IAM ~ m^-5.00 (paper m^-6); tau_PD ~ m^-1.667
+   crossover at 10 mK: 2.28e-10 kg (paper 2.3e-10)
+3. tau(20 mK)/tau(10 mK) = 4.0 ; tau(40)/tau(10) = 16.0
+4. dE_q/deta = exp(1-1/eta)/eta^2 peaks at eta = 0.5
+5. Eq. 6 as written: d ln E_q/dt = const = 1/tau  =>  E_q = exp(t/tau) (exponential growth), not exp(1 - tau/t)
+6. P_IAM = E_G^3/(hbar kB T) at 1e-12 kg, 10 mK = 1.71e-28 W

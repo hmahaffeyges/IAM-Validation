@@ -288,3 +288,9 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | XQ5 | | Prediction 3 | ratio depends only on λ³n_cp | also τ_TLS, τ_qp | confirmed | `particle/XQP_CHECK.md` |
 | XQ6 | | Numerical evaluation, Eq. 17 | n_cp = 9.03e28 m⁻³ (n_e/2) | field n_cp = 2ν₀Δ ≈ 4e6 µm⁻³; prediction 15,000× the floor; corrected model in XQP_REFEREE_NOTE | confirmed | `particle/XQP_REFEREE_NOTE.md` |
 | XQ7 | | Eq. 17–18 | x_qp = ln2 τ_qp/(n_cp τ_TLS πλ³); invariant = ln 2 | x_qp = 2Nτ_qp/(τ_TLS n_cp V); invariant = 2 with N, V measured | confirmed | `particle/XQP_REFEREE_NOTE.md` |
+| **Gravitational Decoherence** (`Gravitational_Decoherence_Quantum_Level.pdf`, Feb 2026), read in full 2026-10-02 |||||||
+| GD1 | | §2.2, Fig. 1 | τ_IAM ≈ 560 µs (1e-12 kg, 10 mK) | 559 s | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #1 |
+| GD2 | | §3.3, Fig. 5, Table 1, §8 | τ ∝ m⁻⁶, Δα 4.33 | m⁻⁵, Δα 3.33 | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #2 |
+| GD3 | | Eq. 6–8 | E_q = exp(1 − 1/η) from the integral | integral gives e^(t/τ); ramp not derived (hold) | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #3 |
+| GD4 | |  Eq. 6 | S_boundary = k_BT/E_G | underived | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #4 |
+| GD5 | | §1.2, §4.2 | 17 chains; rate peak 0.23 | 18; purity-difference peak | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #5 |
