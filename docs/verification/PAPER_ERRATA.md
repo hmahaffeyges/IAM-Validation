@@ -231,3 +231,9 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | SP8 | | §6.2 | Σmν < 0.07–0.08 eV | no calculation; remove | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #8 |
 | SP9 | | §6.3 | CMB lensing identical | −0.08 % | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #9 |
 | SP10 | | Table 6 | scorecard statuses | S8 0.822; KiDS 2σ; ISW unsourced; 18 chains | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #11 |
+| **Lensing Dynamics** (`IAM_Lensing_Dynamics_Paper.pdf`, 25 Feb 2026), read in full 2026-10-02 |||||||
+| LD1 | | §2.3, abstract, §7 | M_dyn ∝ µM_true with Einstein equations for the potentials unmodified | contradictory: ratio = 1/µ only in the G_eff form; hold | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #1 |
+| LD2 | | §3.3, Table 2 | f(R) Σ > 1; IAM unique | f(R) Σ = 1, µ ≤ 4/3; sDGP µ < 1, Σ = 1 | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #2 |
+| LD3 | | §4.1 | Planck SZ resolved | reduced (σ8 −1.4 %), not resolved | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #3 |
+| LD4 | | §4.2–4.3 | CCCP 1.20 ± 0.12; WtG 1.31 ± 0.11 | trace to source tables | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #4 |
+| LD5 | | §1, §6 | 15 chains | 18 | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #5 |
