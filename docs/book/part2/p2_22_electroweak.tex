@@ -2,11 +2,11 @@
 % 207 lines; ledger docs/book/read_ledgers/LEDGER_G8_35_Electroweak.md). Corrections applied: PAPER_ERRATA EW1, EW2, SP5/EN3 (DESI combination dropped).
 % Numbers: docs/verification/scripts/verify_entanglement_electroweak.py (W1-W12). Check: docs/verification/particle/ELECTROWEAK_CHECK.md.
 % Already carried and only referenced here: the matter-sector criterion, E(a) at the electroweak epoch, m_gamma bound and beta_m composition
-% (Chapter ch:particle); eta and the Sakharov conditions (ch:baryon); before/after the transition and the arrow of time (ch:time, Part 5).
+% (Chapter ch:higgsrecord, Section sec:ew:betam); eta and the Sakharov conditions (ch:baryon); before/after the transition and the arrow of time (ch:time, Part 5).
 \chapter{Electroweak symmetry breaking and the matter sector}\label{ch:electroweak}
 
 \section*{The place}
-Chapter~\ref{ch:particle} stated the result: a matter sector able to decohere gravitationally exists from electroweak symmetry breaking, and the
+The result of this chapter is that a matter sector able to decohere gravitationally exists from electroweak symmetry breaking, and the
 photon stays outside it by an exact gauge symmetry. This chapter gives the particle physics behind that statement: which interactions bind and how,
 which symmetries the weak interaction breaks, what the transition is and when it happens, and what it does not establish. Part~5 treats the same
 epoch from the side of time (Chapter~\ref{ch:time}).
@@ -41,7 +41,7 @@ neutral kaon decays~\cite{Christenson1964}. By the CPT theorem it therefore viol
 Two points matter for the matter sector.
 \begin{enumerate}
 \item CP violation is one of the three Sakharov conditions for a baryon asymmetry~\cite{Sakharov1967}. The asymmetry $\eta$ fixes $\Omega_b$, and
-with it the baryonic part of $\beta_m$ (Chapters~\ref{ch:particle} and~\ref{ch:baryon}). The phase of the quark mixing matrix is too small to produce
+with it the baryonic part of $\beta_m$ (Section~\ref{sec:ew:betam} and Chapter~\ref{ch:baryon}). The phase of the quark mixing matrix is too small to produce
 the measured $\eta$. In the Standard Model the electroweak transition is a smooth crossover~\cite{Kajantie1996,DOnofrio2016}, not the first-order
 transition that electroweak baryogenesis needs. The mechanism that set $\eta$ is unknown. \observed
 \item The thermodynamic arrow does not need CP violation. Entropy production, decoherence and Landauer's bound hold for every interaction. What the
@@ -61,12 +61,12 @@ $\Delta\tau>0$ is stated for rest mass; how it applies to quasiparticles in a ho
 
 \paragraph{Below.} The Higgs field takes its vacuum value $v=(\sqrt2G_F)^{-1/2}=246.22$\,GeV. \calc{} The $W^\pm$ and $Z^0$ acquire mass, the charged
 fermions acquire $m_f=y_fv/\sqrt2$, and their excitations move on timelike worldlines with $\Delta\tau>0$. By the criterion of
-Chapter~\ref{ch:particle}, the matter sector exists from here on. Dark matter, whose particle nature is unknown, joins it by the same criterion if it
+Section~\ref{sec:hr:proper} (a degree of freedom decoheres gravitationally only if it accumulates proper time), the matter sector exists from here on. Dark matter, whose particle nature is unknown, joins it by the same criterion if it
 is massive. Neutrinos have mass, shown by their oscillations, so they too move on timelike worldlines; the origin of their mass lies outside the
 minimal Standard Model~\cite{PDG2022}. \observed
 
 \paragraph{The photon.} The electromagnetic $U(1)$ survives unbroken, so the photon stays exactly massless and on null geodesics
-(Chapter~\ref{ch:particle} gives the bound). Its exemption from writing follows from an established symmetry, not from an added assumption. \derived{}
+($m_\gamma<10^{-18}$\,eV~\cite{PDG2024}). Its exemption from writing follows from an established symmetry, not from an added assumption. \derived{}
 It does not settle $\Sigma=1$. $\Sigma$ describes how the lensing potential $\Phi+\Psi$ responds to matter. In the framework $\Sigma=1$ follows from
 $\delta\varphi=0$ and from the absence of anisotropic stress in the informational sector (Chapter~\ref{ch:theory}). Weak lensing tests it directly.
 
@@ -84,8 +84,18 @@ $\sim100$\,Myr ($z\approx30$) & --- & first haloes & gravitational virialisation
 \end{tabularx}\end{center}
 \calc{} The matter sector exists from the first row. It writes in quantity only from the fifth, once structure forms.
 
+\section{The composition of $\beta_m$}\label{sec:ew:betam}
+The coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}) divides between the two kinds of matter. With the Planck 2018 values $\Omega_m=0.3153$
+and $\Omega_b=0.0493$~\cite{Planck2018VI},
+\begin{equation}
+\beta_m=\frac{\Omega_b}{2}+\frac{\Omega_{\rm dm}}{2}=0.0247+0.1330=0.1577.\label{eq:ew:betam}
+\end{equation}
+\calc{} The baryonic part, $15.6\,\%$, is set by the baryon asymmetry (Chapter~\ref{ch:baryon}); the dark part, $84.4\,\%$, by the dark-matter
+density, which the microwave background fixes at $z\approx1090$ (Chapter~\ref{ch:higgsrecord}). Both are measured inputs; $\beta_m$ adds no
+parameter to them. That $\beta_m/\Omega_m=1/2$ for any revision of $\Omega_m$ is the definition, not a test. \derived
+
 \section{The vacuum question}\label{sec:ew:vacuum}
-Chapter~\ref{ch:particle} leaves open, and Chapter~\ref{ch:time} in Part~\ref{part:5} returns to, whether the settling of the Higgs field into its vacuum is itself a record written at
+Chapter~\ref{ch:electronmass} leaves open, and Chapter~\ref{ch:time} in Part~\ref{part:5} returns to, whether the settling of the Higgs field into its vacuum is itself a record written at
 the temperature of the transition. The particle physics narrows the question. The points of the Higgs vacuum manifold are related by local gauge
 transformations. A local gauge symmetry cannot break spontaneously~\cite{Elitzur1975}, so these points are not distinct physical states, and no
 gauge-invariant quantity records which one was taken. The gauge-invariant change across the crossover, the growth of $\langle\phi^\dagger\phi\rangle$,

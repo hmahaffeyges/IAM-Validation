@@ -1,0 +1,69 @@
+scipy 1.17.1 CODATA m_e = 9.1093837139e-31 alpha = 0.0072973525643
+K1 Q(PDG 2024) = 0.66666446 +- 0.00000508;  2/3 - Q = 2.203e-06 = 0.43 sigma;  Q(PDG 2022, m_tau=1776.86) = 0.66666051
+K2 sqrt-mass vector (sqrt MeV): (0.7148, 10.2790, 42.1536)
+K3 angle to (1,1,1) = 44.99991 deg (45 deg exactly <=> Q = 2/3; cos^2 = 1/(3Q) = 0.5000017)
+K4 x = 17.71584 sqrt(MeV), x^2 = 313.851 MeV; y/x = 1.414209 (sqrt2 = 1.414214; from Q: 1.414209); delta = 0.222225 rad; 2/9 = 0.222222; delta-2/9 = 2.54e-06
+K5 masses from (x, delta, y/x = sqrt2), phases k=0,1,2 -> tau, e, mu: 1776.937, 0.51092, 105.6579 MeV
+K6 delta = 0: masses 26.924, 26.924, 1829.26 MeV
+K7 sigma(delta) from m_tau = 6.26e-06 rad; (delta - 2/9)/sigma = 0.41
+K8 m_tau from m_e, m_mu at Q = 2/3: 1776.9690 MeV; PDG 2024 1776.93 +- 0.09: pull -0.43 sigma
+K9 delta = 2/9 exactly, x from m_e: m_tau = 1776.98 MeV, m_mu = 105.6594 MeV (measured 105.6584)
+K10 n=2: fraction of offsets with all roots positive 0.5000  (analytic max(0, 1-n/4) = 0.5000)
+K10 n=3: fraction of offsets with all roots positive 0.2500  (analytic max(0, 1-n/4) = 0.2500)
+K10 n=4: fraction of offsets with all roots positive 0.0000  (analytic max(0, 1-n/4) = 0.0000)
+K10 n=5: fraction of offsets with all roots positive 0.0000  (analytic max(0, 1-n/4) = 0.0000)
+K10 n=6: fraction of offsets with all roots positive 0.0000  (analytic max(0, 1-n/4) = 0.0000)
+K10 n=7: fraction of offsets with all roots positive 0.0000  (analytic max(0, 1-n/4) = 0.0000)
+K11 n=3: Q_n with y/x = sqrt2 (signed roots, delta=0.3) = 0.666667; 2/n = 0.666667
+K11 n=4: Q_n with y/x = sqrt2 (signed roots, delta=0.3) = 0.500000; 2/n = 0.500000
+K11 n=5: Q_n with y/x = sqrt2 (signed roots, delta=0.3) = 0.400000; 2/n = 0.400000
+K11 n=6: Q_n with y/x = sqrt2 (signed roots, delta=0.3) = 0.333333; 2/n = 0.333333
+K11 n=7: Q_n with y/x = sqrt2 (signed roots, delta=0.3) = 0.285714; 2/n = 0.285714
+K12 one-loop QED MSbar at mu = 1.777 GeV: Q = 0.667824, 2/3 - Q = -1.16e-03
+K12 one-loop QED MSbar at mu = 91.188 GeV: Q = 0.667840, 2/3 - Q = -1.17e-03
+E1 bracket B^(2/5) / m_e at H0 = 67.4: 1.201769
+E2 fixed point as derived, (2pi)^(-2/5) B: 0.576168 m_e; with identified (2pi)^(-1/10): 1.0000066 m_e
+E3 (2pi)^(-2/5) = 0.479433; (2pi)^(3/10) = 1.735617; (2pi)^(-1/10) = 0.832112; needed 0.832107; equivalent coefficient in N: (2pi)^(3/4) = 3.9686
+E4 H0 = 67.16: m/m_e - 1 =     -1419 ppm
+E4 H0 = 67.36: m/m_e - 1 =      -231 ppm
+E4 H0 = 67.4: m/m_e - 1 =        +7 ppm
+E4 H0 = 72.26: m/m_e - 1 =    +28248 ppm
+E4 H0 = 73.04: m/m_e - 1 =    +32674 ppm
+E5 sigma(H0) = 0.54 -> sigma(m)/m = 0.321 %; H0 that makes it exact = 67.3989
+E6 alpha exponent p = 1.5: m/m_e (with (2pi)^(-1/10), H0 = 67.4) = 0.1397
+E6 alpha exponent p = 2.0: m/m_e (with (2pi)^(-1/10), H0 = 67.4) = 0.3738
+E6 alpha exponent p = 2.5: m/m_e (with (2pi)^(-1/10), H0 = 67.4) = 1.0000
+E6 alpha exponent p = 3.0: m/m_e (with (2pi)^(-1/10), H0 = 67.4) = 2.6753
+E6 alpha exponent p = 3.5: m/m_e (with (2pi)^(-1/10), H0 = 67.4) = 7.1571
+E7 m_e c^2/(hbar H0) = 3.554e+38 (log10 38.55); T_C = m_e c^2/(2 pi k_B) = 9.438e+08 K; T_GH = 2.655e-30 K
+E8 S_BH(Compton) = pi (m_P/m_e)^2 = 1.793e+45; (m_P/m_e)^(3/2) = 3.693e+33; alpha^(5/2) = 4.549e-06; E_bit = 2.541e-53 J
+E9 Lambda_N := E_bit N / f at m_e (no prefactor) / (m_e c^2) = 0.2520
+E10 black hole: N k T_H ln2 = T_H S = Mc^2/2 (Smarr)
+H1 t(159.5 GeV, g*=106.75) = 9.2e-12 s; t(161 GeV) = 9.03e-12; t(158 GeV) = 9.38e-12; t(100 GeV) = 2.34e-11 s
+H2 v = 246.220 GeV; lambda = m_H^2/(2 v^2) = 0.1293; y_t = sqrt2 m_t/v = 0.9912; y_e = 2.935e-06; y_tau = 1.0206e-02
+H3 e: m = 0.000510999 GeV, Compton time hbar/mc^2 = 1.288e-21 s, m/T_c = 3.2e-06
+H3 mu: m = 0.105658 GeV, Compton time hbar/mc^2 = 6.230e-24 s, m/T_c = 0.000662
+H3 tau: m = 1.77693 GeV, Compton time hbar/mc^2 = 3.704e-25 s, m/T_c = 0.0111
+H3 W: m = 80.3692 GeV, Compton time hbar/mc^2 = 8.190e-27 s, m/T_c = 0.504
+H3 Z: m = 91.188 GeV, Compton time hbar/mc^2 = 7.218e-27 s, m/T_c = 0.572
+H3 H: m = 125.2 GeV, Compton time hbar/mc^2 = 5.257e-27 s, m/T_c = 0.785
+H3 t: m = 172.57 GeV, Compton time hbar/mc^2 = 3.814e-27 s, m/T_c = 1.08
+H4 a_EW = 4.9e-16; ln E(a_EW) = -2.04e+15
+H5 cosmic age 4.8 Gyr: a = 0.435, z = 1.30, E = 0.273
+H5 cosmic age 9.0 Gyr: a = 0.692, z = 0.44, E = 0.641
+H6 E = 0.17 at a = 0.361 (z = 1.77), cosmic age 3.67 Gyr
+H7 R(1) = Omega_m/(beta_m E(1)) with beta_m = Omega_m/2: 2.0 (identity)
+H8 t(150 MeV, g*=61.75) = 1.37e-05 s; T(z*=1089.9) = 0.2562 eV; age(z*) = 3.712e+05 yr
+K13 y/x = sqrt2 and (m_e, m_mu): delta = 0.222222047 rad (sigma ~ 3.9e-10 from m_mu); 2/9 - delta = 1.751e-07; m_tau = 1776.9690 MeV
+K14 positivity edge delta = pi/12 = 0.261799; pi/12 - delta = 0.039575 rad
+E11 Bekenstein bound for mass m in radius hbar/mc: S <= 2 pi E R/(hbar c) = 2 pi = 6.2832 (nats); area count pi (m_P/m_e)^2 = 1.793e+45; ratio = 2.854e+44
+E12 H(z=2)/H0 = 3.034; (H(z=2)/H0)^(2/5) = 1.559
+H9 k_B T ln2 at T_c = 159.5 GeV: 110.56 GeV per bit
+H10 Hubble frequency at T_c redshifted to today (Caprini et al. 2016 normalisation) = 2.66e-05 Hz; x beta/H = 10..1000 -> 2.7e-04 .. 2.7e-02 Hz
+K15 second-harmonic amplitude a2/y = 1.0e-05 (weight ratio w2/w1 = 1.0e-10): max |Q - 2/3| over its phase = 6.66e-06
+K15 second-harmonic amplitude a2/y = 1.0e-04 (weight ratio w2/w1 = 1.0e-08): max |Q - 2/3| over its phase = 6.66e-05
+K15 second-harmonic amplitude a2/y = 1.0e-03 (weight ratio w2/w1 = 1.0e-06): max |Q - 2/3| over its phase = 6.67e-04
+K15 second-harmonic amplitude a2/y = 3.2e-03 (weight ratio w2/w1 = 1.0e-05): max |Q - 2/3| over its phase = 2.14e-03
+K16 on Z3, cos(2 phi_k) = cos(2 pi k/3 - 2 delta) (a first harmonic in k, phase -2 delta): max diff = 1.1e-15
+K17 Boltzmann bound: w2/w1 = exp(-3 w0^2/(2kT)) <= 1e-5 -> kT <= 0.1303 w0^2 (1/7.68); <= 1e-10 (a2/y <= 1e-5) -> kT <= 0.0651 w0^2 (1/15.4)
+K18 n = 2 admissible for |cos delta| < 1/sqrt2, i.e. pi/4 < delta < 3pi/4 (mod pi); at delta = 0.2222: cos = 0.9754 -> excluded
