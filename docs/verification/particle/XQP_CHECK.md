@@ -1,5 +1,5 @@
 # XQP_CHECK — "Landauer-Based Thermodynamic Model for the Minimum Quasiparticle Density in Al/AlOx/Al Josephson Junction Transmon Qubits" (14 Apr 2026, 8 pp)
-Read in full 2026-10-02 (PDF text 854 lines, ledger complete). Placement: opens Part 3 (outline). Chapter not yet written; physics hold below.
+Read in full 2026-10-02 (PDF text 854 lines, ledger complete). Placement: opens Part 3. Carried with the corrected model as `part3_drafts/p3_xqp.tex` (author, 2026-10-02: 'I just want it fixed for the book').
 ## Reproduced
 x_qp = ln2·τ_qp/(n_cp τ_TLS πλ_L³) = 6.516e-8 at τ_TLS = 30 µs; 1.00e-7 at 19.5 µs; 1.96e-6 to 1.96e-8 over 1–100 µs. V_eff = ∫e^(−2r/λ)d³r = πλ³ exact.
 T_gap = 2.112 K. T1 = 1/(x_qp ω_q) = 0.32 ms at 1e-7, 5 GHz. Invariant Eq. 18 = 0.694.

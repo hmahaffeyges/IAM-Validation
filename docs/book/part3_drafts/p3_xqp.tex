@@ -1,0 +1,67 @@
+% Part 3 opening chapter carrying "Landauer-Based Thermodynamic Model for the Minimum Quasiparticle Density in Al/AlOx/Al Josephson Junction Transmon
+% Qubits" (14 Apr 2026), read in full 2026-10-02 (854 lines), with the corrected model. Numbers: docs/verification/scripts/verify_xqp.py.
+% Check and referee note: docs/verification/particle/XQP_CHECK.md, XQP_REFEREE_NOTE.md.
+\chapter{The cost of holding a qubit}\label{ch:xqp}
+
+\section*{The place}
+IAM's Law (Chapter~\ref{ch:iams_law}) prices every irreversible record at $k_BT\ln2$ per bit at the nearest encoding surface. A superconducting qubit
+is a device built to \emph{avoid} records: it holds a superposition for as long as it can. This chapter asks what the law says that holding costs, and
+where the cost should appear in a measurement.
+
+\section{The anomaly}
+In the best-isolated Al/AlOx/Al transmons the density of broken Cooper pairs (quasiparticles) does not fall below
+\begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-7},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
+that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$. In thermal equilibrium at 15--20\,mK there should be no more than one quasiparticle in a volume the size
+of the Earth. Known external sources have been reduced one by one --- stray infrared light, environmental radioactivity, cosmic rays --- and the floor
+remains. The same qubit operated at the surface and deep underground at Gran Sasso, with thirty times fewer muons, shows the same $T_1$. The excess
+quasiparticles have a thermalised energy distribution, sitting at the gap edge, which a continuous slow source gives and a bursty external one does not.
+Their tunnelling statistics are Poissonian. And the tunnelling rate is sensitive to the quality of the oxide barrier, which contains high-transmission
+sites with a reduced gap. Together these point to a source inside the device, at the junction.
+
+\section{The proposal}
+A qubit holds its state against a bath of two-level fluctuators (TLS) in the oxide and at the metal--oxide interfaces. A TLS flip kicks the condensate
+phase by $\delta\phi\sim g/\omega_q\sim10^{-3}$; the condensate restores its phase in $\hbar/\Delta\approx3.6$\,fs, ten orders of magnitude faster than
+the next flip ($\tau_{\rm TLS}\sim1$--$100\,\mu$s). After restoration the condensate is the same whichever way the TLS flipped: the information about
+the flip has been discarded. That is an erasure, and by IAM's Law it is paid in heat. Each active site therefore produces an irreversible event at rate
+$1/\tau_{\rm TLS}$, whether or not the qubit is being used. The separation of time scales makes the events independent, which gives the observed
+Poissonian statistics.
+
+\section{From events to quasiparticles}
+Three facts of superconductor physics fix how events become a density.
+\paragraph{Pair breaking is quantised.} A quasiparticle exists only once a Cooper pair is broken, which costs $2\Delta$ ($364\,\mu$eV in Al) and yields
+two quasiparticles. Landauer's principle sets the \emph{minimum} heat of an erasure, $\Delta\ln2=126\,\mu$eV if the bath sits at the gap scale;
+heat below $2\Delta$ goes into phonons that cannot break pairs. An erasure event that produces quasiparticles therefore breaks a pair: yield $2$ per
+event.
+\paragraph{Quasiparticles spread.} In aluminium they diffuse $\sqrt{D\tau_{\rm qp}}\approx250$--$800\,\mu$m within a lifetime $\tau_{\rm qp}\sim100\,\mu$s,
+across the whole island. What a qubit measures is the island average.
+\paragraph{The density is per pair near the gap.} $n_{\rm cp}=2\nu_0\Delta$ counts the electrons within $\Delta$ of the Fermi surface, not all
+conduction electrons ($n_e/2=9\times10^{10}\,\mu$m$^{-3}$, which is $22{,}600$ times larger).
+With $N$ active sites on an island of volume $V$, the steady state is
+\begin{equation}x_{\rm qp}=\frac{2N\,\tau_{\rm qp}}{\tau_{\rm TLS}\,n_{\rm cp}\,V}.\label{eq:xqp}\end{equation}
+
+\section{What it requires}
+\begin{center}\small\begin{tabular}{lcc}\toprule
+island volume $V$ & active sites for $x_{\rm qp}=10^{-7}$ & $x_{\rm qp}$ from one site\\\midrule
+$10^3\,\mu$m$^3$ & 60 & $1.7\times10^{-9}$\\ $10^4\,\mu$m$^3$ & 600 & $1.7\times10^{-10}$\\ $10^5\,\mu$m$^3$ & 6{,}000 & $1.7\times10^{-11}$\\\bottomrule
+\end{tabular}\end{center}
+($\tau_{\rm TLS}=30\,\mu$s, $\tau_{\rm qp}=100\,\mu$s.) A few pinholes cannot hold the floor. Hundreds to thousands of active fluctuators can, and
+TLS spectroscopy maps them mostly on the junction leads, which is where the source must be. The number $N$ is a property of each device and has to be
+measured; nothing else in Eq.~\eqref{eq:xqp} is free.
+
+\section{The test}
+On one device, measure the five quantities $x_{\rm qp}$ (parity switching), $\tau_{\rm qp}$, $\tau_{\rm TLS}$ (1/$f$ noise), the active fluctuator count
+$N$ (TLS spectroscopy) and the island volume $V$. The law predicts
+\begin{equation}\frac{x_{\rm qp}\,n_{\rm cp}\,V\,\tau_{\rm TLS}}{N\,\tau_{\rm qp}}=2.\end{equation}
+Across devices, the floor should scale as $N/(\tau_{\rm TLS}V)$: better barriers (longer $\tau_{\rm TLS}$, fewer fluctuators) lower it; better
+shielding does not. The proposal fails if the floor does not follow $N/V$, or if it keeps falling with shielding after external sources are gone.
+
+\section{The coherence ceiling}
+Quasiparticle relaxation is $\Gamma_1=x_{\rm qp}\,\omega_q$ to within a factor of order one, so a floor of $10^{-7}$ at $5$\,GHz caps $T_1$ near $0.3$\,ms,
+the plateau of the best aluminium transmons. If the floor is the cost of holding the state, it is lowered by changing the barrier and its
+fluctuators, not by shielding the device.
+
+\section{Status}
+Stands: an endogenous floor from erasures at the TLS rate, consistent with the underground result, the thermalised distribution and the Poissonian
+statistics. Derived here: the density in the field's units, with quantised pair breaking and diffusion over the island (Eq.~\ref{eq:xqp}). Open: the
+active-site count $N$ for a measured device, and whether each erasure event breaks a pair (yield $2$) or only some do, which would lower the yield and
+raise the required $N$.

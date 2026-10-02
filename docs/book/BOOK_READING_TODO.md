@@ -82,7 +82,7 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 |---|---|---|---|---|---|---|
 | 34 | Electron_Rest_Mass_from_IAM | Feb 2026 | 10 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_particle_masses.tex` | ☑ `particle/ELECTRON_MASS_CHECK.md` |
 | 35 | Electroweak_Symmetry_Breaking_and_the_Matter_Sector | Mar 2026 | 7 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_particle_masses.tex` | ☑ `particle/ELECTROWEAK_CHECK.md` |
-| 36 | IAM_Xqp_Mahaffey | 14 Apr 2026 | 8 | ☑ 2026-10-02 | Part 3 opener; physics hold (XQP_CHECK 1–2) | ☑ `particle/XQP_CHECK.md` |
+| 36 | IAM_Xqp_Mahaffey | 14 Apr 2026 | 8 | ☑ 2026-10-02 | ☑ `part3_drafts/p3_xqp.tex` (corrected model) | ☑ `particle/XQP_CHECK.md`, `XQP_REFEREE_NOTE.md` |
 | 37 | Koide_Mahaffey | 22 Apr 2026 | 7 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_particle_masses.tex` | ☑ `particle/KOIDE_CHECK.md` |
 
 ## G9 Overviews and records
