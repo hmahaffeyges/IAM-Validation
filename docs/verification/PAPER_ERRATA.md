@@ -267,3 +267,22 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | TR7 | | §5.5 | n = 5/2 | 7/2 | confirmed | `theory/TECH_REFERENCE_CHECK.md` #7 |
 | TR8 | | §8 | Euclid DR1 Oct 2026 | mid-2027 | confirmed | `theory/TECH_REFERENCE_CHECK.md` #9 |
 | TR9 | | §2.1, §5.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |
+| **Electron Rest Mass (`Electron_Rest_Mass_from__IAM.pdf`, Feb 2026)**, read in full 2026-10-02 |||||||
+| EM1 | | abstract, §5, §9 | 6.6 ppm, no free parameters | within 0.3 % set by H0; one factor identified numerically | confirmed | `particle/ELECTRON_MASS_CHECK.md` |
+| EM2 | | §7 | BH obeys mc² = E_bit N | Mc²/2 (Smarr) | confirmed | `particle/ELECTRON_MASS_CHECK.md` |
+| EM3 | | §1, §4, §3.3 | empty §1; eq. (??); paragraph printed 3× | fix | confirmed | `particle/ELECTRON_MASS_CHECK.md` |
+| EM4 | | §9 | n = 3 generations from companion | at most three (KO2) | confirmed | `particle/ELECTRON_MASS_CHECK.md` |
+| **Koide (`Koide_Mahaffey.pdf`, 22 Apr 2026)**, read in full 2026-10-02 |||||||
+| KO1 | | §V.D | phase origin fixed, δ = 0 | δ = 0 gives m_e = m_µ = 26.9 MeV; δ = 0.2223 open | confirmed | `particle/KOIDE_CHECK.md` |
+| KO2 | | Theorem 1, abstract | exactly three generations | at most three; n = 2 allowed for δ ≠ 0 | confirmed | `particle/KOIDE_CHECK.md` |
+| KO3 | | §III D | E_bit = k_BT (no ln 2) | bits vs nats | confirmed | `particle/KOIDE_CHECK.md` |
+| KO4 | | Acknowledgements | named correspondent | remove | confirmed | `particle/KOIDE_CHECK.md` |
+| **Electroweak (`Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf`, Oct 2026 rev.)**, read in full 2026-10-02 |||||||
+| EW1 | | Eq. 2 | Ω_dm/2 = 0.1332 | 0.1330 | confirmed | `particle/ELECTROWEAK_CHECK.md` |
+| EW2 | | §8 test 3 | β_m/Ω_m = 1/2 testable | definition; remove | confirmed | `particle/ELECTROWEAK_CHECK.md` |
+| **x_qp (`IAM_Xqp_Mahaffey.pdf`, 14 Apr 2026)**, read in full 2026-10-02 |||||||
+| XQ1 | | Eq. 13 | ln 2 quasiparticles per Δ ln2 | below 2Δ pair-breaking threshold; hold | confirmed | `particle/XQP_CHECK.md` |
+| XQ2 | | Eq. 16 | QPs confined to πλ_L³ | diffusion 100–1,000 µm; device average; hold | confirmed | `particle/XQP_CHECK.md` |
+| XQ3 | | temperature section | 10^-630 | 10^-61 | confirmed | `particle/XQP_CHECK.md` |
+| XQ4 | | Prediction 2 | T_fridge independence discriminates | also non-thermal models | confirmed | `particle/XQP_CHECK.md` |
+| XQ5 | | Prediction 3 | ratio depends only on λ³n_cp | also τ_TLS, τ_qp | confirmed | `particle/XQP_CHECK.md` |

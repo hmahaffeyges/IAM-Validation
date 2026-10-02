@@ -80,10 +80,10 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 ## G8 Particle physics (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 34 | Electron_Rest_Mass_from_IAM | Feb 2026 | 10 | ☐ | ☐ | ☐ |
-| 35 | Electroweak_Symmetry_Breaking_and_the_Matter_Sector | Mar 2026 | 7 | ☐ | ☐ | ☐ |
-| 36 | IAM_Xqp_Mahaffey | 14 Apr 2026 | 8 | ☐ | ☐ | ☐ |
-| 37 | Koide_Mahaffey | 22 Apr 2026 | 7 | ☐ | ☐ | ☐ |
+| 34 | Electron_Rest_Mass_from_IAM | Feb 2026 | 10 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_particle_masses.tex` | ☑ `particle/ELECTRON_MASS_CHECK.md` |
+| 35 | Electroweak_Symmetry_Breaking_and_the_Matter_Sector | Mar 2026 | 7 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_particle_masses.tex` | ☑ `particle/ELECTROWEAK_CHECK.md` |
+| 36 | IAM_Xqp_Mahaffey | 14 Apr 2026 | 8 | ☑ 2026-10-02 | Part 3 opener; physics hold (XQP_CHECK 1–2) | ☑ `particle/XQP_CHECK.md` |
+| 37 | Koide_Mahaffey | 22 Apr 2026 | 7 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_particle_masses.tex` | ☑ `particle/KOIDE_CHECK.md` |
 
 ## G9 Overviews and records
 | # | Paper | Date | pp | Read | Chapter | Check |
@@ -110,4 +110,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 | 47 | IAM_Gravitational_Engineering_Exploration | — | 6 | ☐ | ☐ | ☐ |
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 27 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
+Progress: 31 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.

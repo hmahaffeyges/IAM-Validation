@@ -1,0 +1,10 @@
+1. Eq. 14 with H0 = 67.4: 9.109444e-31 kg  vs CODATA 9.109384e-31  dev +6.6 ppm
+   without the identified prefactor: ratio 1.201769  -> prefactor needed 0.832107  (2pi)^-1/10 = 0.832112
+   H0 67.36: dev     -231 ppm
+   H0 67.4: dev       +7 ppm
+   H0 67.9: dev    +2967 ppm
+   H0 70.0: dev   +15262 ppm
+   H0 73.04: dev   +32674 ppm
+   Planck sigma(H0) 0.54 -> sigma(m_e)/m_e = 3207 ppm
+   H0 that makes Eq. 14 exact: 67.3989
+2. Black hole: bits x k T_H ln2 / (M c^2) = 0.5 (Smarr; T_H S = Mc^2/2), so mc^2 = E_bit x N does not hold for the black hole; it holds with 1/2

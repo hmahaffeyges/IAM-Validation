@@ -1,0 +1,10 @@
+Q = 0.66666051   x^2 = 313.841 MeV
+n 2: positive for some offset True  (fraction of offsets 0.500)
+n 3: positive for some offset True  (fraction of offsets 0.250)
+n 4: positive for some offset False  (fraction of offsets 0.000)
+n 5: positive for some offset False  (fraction of offsets 0.000)
+n 6: positive for some offset False  (fraction of offsets 0.000)
+n 7: positive for some offset False  (fraction of offsets 0.000)
+offset delta = 0.22227 rad; 2/9 = 0.22222
+masses from delta: [np.float64(0.51), np.float64(105.677), np.float64(1776.86)]
+delta = 0 masses: [np.float64(26.923), np.float64(26.923), np.float64(1829.2)]
