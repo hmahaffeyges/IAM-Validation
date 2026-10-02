@@ -35,6 +35,10 @@ the next flip ($\tau_{\rm TLS}\sim1$--$100\,\mu$s). After restoration the conden
 the flip has been discarded. That is an erasure, and by IAM's Law it is paid in heat. Each active site therefore produces an irreversible event at rate
 $1/\tau_{\rm TLS}$, whether or not the qubit is being used. The separation of time scales makes the events independent, which gives the observed
 Poissonian statistics.
+\paragraph{Which temperature.} In conventional thermodynamics the Landauer cost of resetting a degree of freedom is paid to the reservoir that
+absorbs the heat, here the phonons at $\sim20$\,mK, where $k_BT\ln2$ is about $1\,\mu$eV. Charging the erasure at the condensate's own scale,
+$\Delta/k_B\approx2.1$\,K, is IAM's Law applied to the nearest encoding surface. It is the one place in this chapter where IAM departs from standard
+thermodynamics, and therefore the place a clean experiment decides.
 
 \section{From events to quasiparticles}
 Three facts of superconductor physics fix how events become a density.
@@ -56,7 +60,9 @@ $10^3\,\mu$m$^3$ & 60 & $1.7\times10^{-9}$\\ $10^4\,\mu$m$^3$ & 600 & $1.7\times
 \end{tabular}\end{center}
 ($\tau_{\rm TLS}=30\,\mu$s, $\tau_{\rm qp}=100\,\mu$s.) A few pinholes cannot hold the floor. Hundreds to thousands of active fluctuators can, and
 TLS spectroscopy maps them mostly on the junction leads, which is where the source must be. The number $N$ is a property of each device and has to be
-measured; nothing else in Eq.~\eqref{eq:xqp} is free.
+measured; nothing else in Eq.~\eqref{eq:xqp} is free. An alternative source must be excluded by the same measurement: slow relaxation of mechanical stress in the films produces phonon bursts and
+excess quasiparticles with several of the same signatures (arXiv:2208.02790). The two are separated by Eq.~\eqref{eq:xqp}: only the erasure source
+scales with the active-fluctuator count $N$ and with $1/\tau_{\rm TLS}$.
 
 \section{The test}
 On one device, measure the five quantities $x_{\rm qp}$ (parity switching), $\tau_{\rm qp}$, $\tau_{\rm TLS}$ (1/$f$ noise), the active fluctuator count
