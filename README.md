@@ -590,9 +590,9 @@ where μ(a) = H²_ΛCDM / (H²_ΛCDM + β·E(a)) gives μ(z = 0) = 0.864, recove
 | **Cosmic chronometers** | 14.5 | 15.0 | −0.5 | Indistinguishable at current CC precision (uncertainties 5–30%) |
 | **S₈** | 25.6 | 13.9 | **+11.7** | σ₈ suppression (0.811 → 0.790) moves prediction toward WL data |
 | **CMB priors** | 370 | 370 | 0.0 | Fitting-formula residuals dominate; full MGCAMB confirms < 0.17% CMB residuals |
-| **Combined** | **507** | **427** | **+79.8** | 0 additional free parameters |
+| Sum | 507 | 427 | +79.8 | simplified compilation, not a likelihood analysis |
 
-Combined Δχ² = 79.8 (equivalent to 8.9σ, 0 additional free parameters). The improvement is dominated by the H₀ sector split (+69.4) and S₈ suppression (+11.7). All other probes are consistent within uncertainties. See caveats below regarding the limitations of this simplified analysis.
+This table is a simplified compilation (fitting formulae, diagonal errors), not a likelihood analysis, and its sum is not a significance. The H₀ row scores the local H₀ measurements against the matter-sector rate, which is the sector-split reading under test, not an independent result; the S₈ row uses σ8 = 0.790, where the Planck chains give 0.800. The result of the full analysis is the MCMC: with β_m fixed at Ω_m/2, Δχ² = +0.54 against ΛCDM on the Planck 2018 likelihood (Level 2), and +0.56 to +1.73 across the Level 1 combinations (consistent with ΛCDM, no added parameter).
 
 ### S₈ Tension
 

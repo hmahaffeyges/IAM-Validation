@@ -257,3 +257,13 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | EG6 | | Table 2, §6 | 72.5; µ0/Σ0 data; DESI DR2 growth | 72.26; trace; DR1 full shape | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #6 |
 | EG7 | | §8.2 | f(R) Σ > 1; DGP µ > 1 | f(R) Σ = 1; sDGP µ < 1, Σ = 1 | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` #7 |
 | EG8 | | Acknowledgements | personal thanks to a named researcher | remove (names rule); cite the papers | confirmed | `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` — |
+| **Technical Reference for Physicists** (27 Sep 2026), read in full 2026-10-02 |||||||
+| TR1 | | §5.2 | β_m posterior 0.2σ; η_vir 6 N-body | fixed; untraced | confirmed | `theory/TECH_REFERENCE_CHECK.md` #1 |
+| TR2 | | §5.2 | 11/13, 14/17 below R−1 0.01 | all 18 final ≤ 0.010 | confirmed | `theory/TECH_REFERENCE_CHECK.md` #2 |
+| TR3 | | §5.3, §8 | M_lens/M_dyn 15.7 % near-term | G_eff form only | confirmed | `theory/TECH_REFERENCE_CHECK.md` #3 |
+| TR4 | | §5.5, §8 | DESI DR2 w0–wa tests w_info | photon ruler; w_info is matter ruler | confirmed | `theory/TECH_REFERENCE_CHECK.md` #4 |
+| TR5 | | §5.4–5.5 | inflection = peak production | per e-fold only | confirmed | `theory/TECH_REFERENCE_CHECK.md` #5 |
+| TR6 | | §5.5, §8 | σ_crit consistent | rejected by census | confirmed | `theory/TECH_REFERENCE_CHECK.md` #6 |
+| TR7 | | §5.5 | n = 5/2 | 7/2 | confirmed | `theory/TECH_REFERENCE_CHECK.md` #7 |
+| TR8 | | §8 | Euclid DR1 Oct 2026 | mid-2027 | confirmed | `theory/TECH_REFERENCE_CHECK.md` #9 |
+| TR9 | | §2.1, §5.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |

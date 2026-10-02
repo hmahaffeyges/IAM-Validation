@@ -117,7 +117,7 @@ Supernova luminosity distances are photon-sector observables (Σ = 1), predicted
 | Planck + BAO | +2.32 | 0.8115 | 0.7981 | −0.0134 (−1.7%) |
 | Planck + Pantheon+ | +1.58 | 0.8129 | 0.8000 | −0.0129 (−1.6%) |
 
-All Δχ² values below 3.84 (95% CL threshold). The σ₈ shift of −0.013 ± 0.001 is universal across all four datasets. All 12 runs converged with R−1 < 0.01.
+All Δχ² values below 3.84 (95% CL threshold). The σ₈ shift of −0.013 ± 0.001 is universal across all four datasets. All 12 runs converged with R−1 ≤ 0.010 in their final files (the Planck-only IAM runs A and B are the extended `_r2` chains; the first-pass files ended at 0.023).
 
 ---
 

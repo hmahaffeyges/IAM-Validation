@@ -27,7 +27,7 @@ IAM_Master_Preprint and Supplementary_Methods_Reproducibility_Guide: old, alread
 | 5 | A_Note_on_Entropic_Gravity | Mar 2026 | 10 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_theory.tex` §sec:source | ☑ `theory/ENTROPIC_GRAVITY_NOTE_CHECK.md` |
 | 6 | IAM_Law | Mar 2026 | 29 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_iams_law.tex` | ☑ `verification/theory/IAM_LAW_CHECK.md` |
 | 7 | IAM_Theory_Paper | 14 Apr 2026 | 34 | ☑ | ☑ `part2_drafts/p2_theory.tex` (+ §13 in `part5_drafts/p5_theory_interpretation.tex`) | ☑ `THEORY_CHECK.md` |
-| 8 | Technical_Reference_for_Physicists (newest summary) | 27 Sep 2026 | 28 | ☐ | ☐ | ☐ |
+| 8 | Technical_Reference_for_Physicists (newest summary) | 27 Sep 2026 | 28 | ☑ 2026-10-02 | summary; not carried (weakness list checked) | ☑ `theory/TECH_REFERENCE_CHECK.md` |
 
 ## G3 Virial partition (Part 2)
 **Placement (author confirmed 2026-10-02):** theorem, atom-to-cluster table and thermodynamic identity close Part 1; the coupling and its predictions open Part 2; DM/DE halves, coincidence reading and arrow of time go to Part 5. **All five papers carried nearly in full**, in date order, each re-read in 100-line chunks before its section is written. The current `p2_virial.tex` is a short synthesis and is replaced. Corrections from `verification/virial/VIRIAL_CHECK.md` and `NBODY_TRACE.md` applied.
@@ -110,4 +110,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 | 47 | IAM_Gravitational_Engineering_Exploration | — | 6 | ☐ | ☐ | ☐ |
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 26 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
+Progress: 27 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.

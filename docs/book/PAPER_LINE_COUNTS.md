@@ -16,7 +16,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 5 | A_Note_on_Entropic_Gravity | 10 | 317 | 559 | 1–317 (2026-10-02) | **complete** |  |
 | 6 | IAM_Law | 29 | 1506 | 2085 | 1–1506 (2026-10-02) | **complete** |  |
 | 7 | IAM_Theory_Paper | 34 | 1916 | 2418 | 1–1916 (2026-10-02) | **complete** |  |
-| 8 | Technical_Reference_for_Physicists | 28 | 1298 | — | — | not confirmed |  |
+| 8 | Technical_Reference_for_Physicists | 28 | 1,298 | — | 1–1,298 (2026-10-02) | **complete** |  |
 | 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 7 | 277 | 549 | 1–277 (2026-10-02) | **complete** |  |
 | 10 | Virial_Partitian_Across_Wide_Domains | 13 | 641 | 794 | 1–641 (2026-10-02) | **complete** |  |
 | 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | 12 | 674 | 664 | 1–674 (2026-10-02) | **complete** |  |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 15,892 lines (26 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 17,190 lines (27 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).
