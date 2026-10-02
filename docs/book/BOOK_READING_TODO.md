@@ -19,6 +19,7 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 | 4 | IAM_Dual_Sector_Note | Mar 2026 | 9 | ☑ | ☑ `part2_drafts/p2_dual_sector_note.tex` | ☑ `verification/chains/DUAL_SECTOR_NOTE_CHECK.md` |
 
 **Not on the list (author, 2026-10-02):** the CAMB Technical Note and other pre-chain papers are superseded by the chains; used only for history and leads.
+IAM_Master_Preprint and Supplementary_Methods_Reproducibility_Guide: old, already covered; reference and skim only (author, 2026-10-02).
 
 ## G2 Derivations and the law (Parts 1–2)
 | # | Paper | Date | pp | Read | Chapter | Check |
