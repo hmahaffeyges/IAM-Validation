@@ -9,6 +9,8 @@ Nothing here is a summary of a paper. A paper's argument is in the paper and in 
 those chapters rely on. A paper is listed only after it has been read in full. The reading plan and status for all 47 papers is in
 `docs/book/BOOK_READING_TODO.md`.
 
+**Errata:** `PAPER_ERRATA.md` lists every confirmed correction against the paper it belongs to; the papers are updated from it once the book is finished.
+
 ## Contents
 | Folder | File | Paper(s) checked | Status |
 |---|---|---|---|

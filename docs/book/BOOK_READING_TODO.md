@@ -1,5 +1,7 @@
 # Book reading to-do — one paper per line (started 2026-10-02)
 
+**Errata (author, 2026-10-02):** every correction confirmed during a read is added to `docs/verification/PAPER_ERRATA.md` the same day; the papers in `docs/papers/` are updated from that list when the book is finished.
+
 **Rule (author):** each paper is read in full, start to finish, by me before its chapter is written. The chapter carries nearly the whole paper in
 its own order: derivations, tables, figures, argument. Edits are limited to (a) physics terms only, (b) numbers recomputed, with corrections I can defend
 logged in `docs/verification/<group>/<PAPER>_CHECK.md`, and (c) anything I can't defend held in a box for the author. Earlier skims and reader audits don't
