@@ -1,0 +1,21 @@
+Planck length 1.6163e-35 m; area per bit (Bekenstein-Hawking, in bits) 4 lP^2 ln2 = 7.243e-70 m^2
+cell: k_B T ln2 = 2.968e-21 J/bit; N x = 5.818e-14 J; = 7.01e+05 ATP at 50 kJ/mol
+300 K: k_B T ln2 = 2.871e-21 J = 17.92 meV (Berut 2012 measured erasure heat approaching this bound)
+15 mK: k_B T ln2 = 1.435e-25 J
+BH 1 Msun: T_H 6.170e-08 K, bits 1.513e+77, N k T ln2/(M c^2) = 0.500000
+BH 4.3e+06 Msun: T_H 1.435e-14 K, bits 2.798e+90, N k T ln2/(M c^2) = 0.500000
+cosmic horizon: T_GH 2.654e-30 K, bits 3.272e+122, N k T ln2/(M_H c^2) = 1.000000
+
+ladder: surface | T [K] | bits N | cost per bit [J] | N x cost [J]
+  cell (CpG record)       3.101e+02  1.960e+07  2.968e-21  5.818e-14
+  device at 300 K         3.000e+02  1.000e+00  2.871e-21  2.871e-21
+  qubit at 15 mK          1.500e-02  1.000e+00  1.435e-25  1.435e-25
+  black hole 1 Msun       6.170e-08  1.513e+77  5.905e-31  8.936e+46
+  black hole 4.3e+06 Msun  1.435e-14  2.798e+90  1.373e-37  3.842e+53
+  cosmic horizon          2.654e-30 3.272e+122  2.540e-53  8.310e+69
+
+spans
+  T cell / T_H(1 Msun) = 5.03e+09   (paper: 10^10)
+  N bits BH(1 Msun) / N_CpG = 7.72e+69   (paper: 10^27)
+  length: atom (Bohr radius 5.29e-11 m) to Hubble radius (1.37e+26 m): 36.4 orders
+  cost per bit: cell / cosmic horizon = 1.17e+32  (32.1 orders)

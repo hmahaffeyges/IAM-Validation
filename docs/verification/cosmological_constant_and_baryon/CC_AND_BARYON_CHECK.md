@@ -57,7 +57,7 @@ derivation open: the 2/π factor and the history-weighting both need a derivatio
    observed relation, not two confirmations; its derivation is open (2/π, history weighting).
 
 ## Full reads with line ledgers (2026-10-02): CC paper 842 lines, Matter-Antimatter 438, Baryon 242, 18th-chain record 7
-Frame (GRF essay, read in full 2026-10-02, 211 lines; Theory paper): not modified gravity; Einstein equations untouched; the horizon entropy
+Frame (GRF essay, read in full 2026-10-02, 212 lines, 1–212, last line = page number 9; Theory paper): not modified gravity; Einstein equations untouched; the horizon entropy
 functional gains S_info; off before structure, so the early universe is ΛCDM. Reproduction: `scripts/verify_cc_and_baryon.py` (output beside it).
 Every number below is from that run.
 

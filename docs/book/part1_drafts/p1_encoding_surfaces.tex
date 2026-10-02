@@ -1,0 +1,64 @@
+% Part 1 opening chapter. Structure from "Floor Breach: A Unified Thermodynamic Derivation" (Mahaffey, April 2026; read in full 2026-10-02,
+% 239 lines), with every value replaced by its current version. Numbers: docs/verification/scripts/verify_encoding_ladder.py.
+% Book spine: the surfaces are found in IAM, not IAM in them. Each later chapter opens by naming its place in Table 1.1.
+\providecommand{\authornote}[1]{\footnote{\textbf{Author:} #1}}
+\chapter{The places in IAM}\label{ch:surfaces}
+
+\section*{The statement}
+Every irreversible transition from quantum superposition to classical record pays $k_BT\ln2$ per bit to the nearest encoding surface, at that
+surface's temperature, and the record is written on that two-dimensional surface. This is IAM's Law (Chapter~\ref{ch:iams_law}). IAM is not found in a cell, a device, a black hole or the cosmos: these are places found in
+IAM, each a surface where records are written at a temperature. The law is one; the places differ only in the surface, its temperature and the
+number of bits it holds. Every chapter of this book is one such place. This chapter assembles the law from five established results and one
+identification, then lists the places.
+
+\section{Six steps}
+\paragraph{1. A surface has a capacity (Bekenstein 1973).} A horizon of area $A$ carries entropy $S=k_BA/4\ell_P^2$, $\ell_P=\sqrt{\hbar G/c^3}$:
+one unit of $k_B$ per four Planck areas, $1.5\times10^{77}$ bits for a solar-mass black hole. Information is bounded by area, not volume.
+\paragraph{2. The surface has a temperature (Hawking 1975; Gibbons and Hawking 1977).} A black hole radiates at $T_H=\hbar c^3/8\pi GMk_B$
+($6.2\times10^{-8}$\,K for one solar mass); a cosmological horizon at $T_{GH}=\hbar H/2\pi k_B$ ($2.65\times10^{-30}$\,K today).
+\paragraph{3. A bit has a price (Landauer 1961; B\'erut et al.\ 2012).} Irreversibly fixing one bit at temperature $T$ costs at least
+$k_BT\ln2$: $2.87\times10^{-21}$\,J (17.9\,meV) at 300\,K, the bound approached in measured erasures. The price depends only on the temperature.
+\paragraph{4. Gravity is the thermodynamics of surfaces (Jacobson 1995; Cai and Kim 2005).} Applying $\delta Q=T\,dS$ to every local causal
+horizon gives the Einstein equations as an equation of state. The entropy functional determines the dynamics; Jacobson used the geometric
+entropy alone and obtained general relativity.
+\paragraph{5. The records belong in the entropy (the identification).} Decoherence of matter on timelike worldlines produces classical records,
+and the records are written on the nearest surface. The entropy functional becomes $S=S_{\rm geo}+S_{\rm info}$. The Einstein equations are
+untouched; the entropy is completed. Light, on null worldlines with no proper time, writes nothing. The missing information was always information.
+\paragraph{6. The same price in the cell.} A cell maintains its identity as a methylation record across its CpG sites. Each maintained
+site is one binary record at body temperature: $k_B\,(310.15\,{\rm K})\ln2=2.97\times10^{-21}$\,J. Over the $19.6\times10^6$ maintained sites\authornote{Source of the 19.6 million count to be confirmed; the haploid human genome has about $2.8\times10^7$ CpGs.} the floor is
+$5.82\times10^{-14}$\,J per copy, about $7\times10^5$ ATP at 50\,kJ\,mol$^{-1}$.
+
+\section{The places}
+\begin{table}[h]\centering\small
+\caption{Places in IAM: the encoding surfaces treated in this book. Cost per bit $k_BT\ln2$; bits $N$ for horizons $=A/(4\ell_P^2\ln2)$.}\label{tab:surfaces}
+\begin{tabular}{llllll}\toprule
+Surface & $T$ (K) & Bits $N$ & Cost per bit (J) & Total $N k_BT\ln2$ & Chapter\\\midrule
+Cell (CpG methylation record) & 310.15 & $1.96\times10^{7}$ & $2.97\times10^{-21}$ & $5.82\times10^{-14}$\,J & cell chapters\\
+Device at room temperature & 300 & per operation & $2.87\times10^{-21}$ & --- & device chapters\\
+Qubit (15\,mK stage) & 0.015 & per measurement & $1.44\times10^{-25}$ & --- & qubit chapters\\
+Black hole, 1\,$M_\odot$ & $6.17\times10^{-8}$ & $1.51\times10^{77}$ & $5.9\times10^{-31}$ & $\tfrac12Mc^2$ & Ch.~\ref{ch:blackholes}\\
+Black hole, Sgr~A$^*$ ($4.3\times10^6\,M_\odot$) & $1.44\times10^{-14}$ & $2.80\times10^{90}$ & $1.4\times10^{-37}$ & $\tfrac12Mc^2$ & Ch.~\ref{ch:blackholes}\\
+Cosmic horizon & $2.65\times10^{-30}$ & $3.27\times10^{122}$ & $2.5\times10^{-53}$ & $M_Hc^2$ & Chs.~\ref{ch:theory}, \ref{ch:lambda}\\\bottomrule
+\end{tabular}\end{table}
+The price per bit spans 32 orders of magnitude between the cell and the cosmic horizon; the places span some 37 orders in size, from the
+atom ($5\times10^{-11}$\,m) to the Hubble radius ($1.4\times10^{26}$\,m). On the horizons the total is fixed by geometry: the bits of a
+Schwarzschild horizon priced at its own temperature equal $\tfrac12Mc^2$ (the Smarr relation), and those of the cosmic horizon equal the mass-energy
+within it. In the cell, the total is the maintenance floor.
+
+\section{The floor and its breach}
+Each surface has a floor: the minimum record it must maintain to remain what it is. Measured against that floor, a system can hold its record
+(the reading sits at the floor) or lose it faster than it is maintained. The breach is the same condition at every place: the record is produced
+or lost faster than the surface can maintain it. Two endpoints are named in this book. When a collapsing mass concentrates records faster than any
+surface outside it can hold, a horizon forms (Chapter~\ref{ch:blackholes}). When a cell loses its methylation record faster than maintenance restores
+it, it departs from its own floor; the gauge reads that departure (Parts~3--4).
+
+\paragraph{The reading.} For the cell, the floor is measured, not fitted: the mean per-site entropy $H(\beta)$ over the cell's identity sites in
+purified healthy cells of the same type and platform. The reading is Met-A $=$ observed over floor; Normal is $0.95$--$1.05$ on one gauge for every
+platform and cell. For sequencing reads the floor is $\varepsilon_0=1/(1+e^{\varphi M})=0.032$, derived, at the cell's frozen position on it, and the reading is
+IAM-A. The same reading is taken at every
+place: measured over its floor.
+
+\section{What is established and what is open}
+Steps 1--4 are established physics; step 5 is the single identification, tested in cosmology by the chains (Part~2), and step 6 applies the same
+price to the cell. The law fixes the price per bit at each surface. What it does not yet give is each surface's floor from first principles: the
+cell's floor is measured, and deriving it through the full chain is the open problem that would make the ladder a numerical unification.

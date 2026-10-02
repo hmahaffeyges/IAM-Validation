@@ -1,2 +1,3 @@
 - `p1_virial_law.tex` — closing chapter of Part 1: the virial theorem, the atom-to-cluster table, the thermodynamic identity (from the five Virial papers).
 - `p1_iams_law.tex` — IAM's Law (March 2026) carried nearly whole; checks in `docs/verification/theory/IAM_LAW_CHECK.md`.
+- `p1_encoding_surfaces.tex` — Part 1 opening: IAM's Law at every encoding surface (six steps, the surfaces table, floor and breach).
