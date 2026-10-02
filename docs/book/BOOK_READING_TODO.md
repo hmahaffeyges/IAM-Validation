@@ -29,14 +29,14 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 | 8 | Technical_Reference_for_Physicists (newest summary) | 27 Sep 2026 | 28 | ☐ | ☐ | ☐ |
 
 ## G3 Virial partition (Part 2)
-**One chapter of its own (author, 2026-10-02): all five papers carried nearly in full**, in date order, each re-read in 100-line chunks before its section is written. The current `p2_virial.tex` is a short synthesis and is replaced. Corrections from `verification/virial/VIRIAL_CHECK.md` and `NBODY_TRACE.md` applied.
+**Placement (author confirmed 2026-10-02):** theorem, atom-to-cluster table and thermodynamic identity close Part 1; the coupling and its predictions open Part 2; DM/DE halves, coincidence reading and arrow of time go to Part 5. **All five papers carried nearly in full**, in date order, each re-read in 100-line chunks before its section is written. The current `p2_virial.tex` is a short synthesis and is replaced. Corrections from `verification/virial/VIRIAL_CHECK.md` and `NBODY_TRACE.md` applied.
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 25 Feb 2026 | 7 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ `VIRIAL_CHECK.md`, `NBODY_TRACE.md` |
-| 10 | Virial_Partitian_Across_Wide_Domains | 25 Feb 2026 | 13 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
-| 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
-| 12 | Gravitational_Decoherence_and_the_Virial_Partition | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
-| 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 18 Mar 2026 | 3 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
+| 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 25 Feb 2026 | 7 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_virial_law.tex` + `part2_drafts/p2_virial.tex` | ☑ `VIRIAL_CHECK.md`, `NBODY_TRACE.md` |
+| 10 | Virial_Partitian_Across_Wide_Domains | 25 Feb 2026 | 13 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_virial_law.tex` + `part2_drafts/p2_virial.tex` | ☑ |
+| 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_virial_law.tex` + `part2_drafts/p2_virial.tex` | ☑ |
+| 12 | Gravitational_Decoherence_and_the_Virial_Partition | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_virial_law.tex` + `part2_drafts/p2_virial.tex` | ☑ |
+| 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 18 Mar 2026 | 3 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_virial_law.tex` + `part2_drafts/p2_virial.tex` | ☑ |
 
 ## G4 Cosmological constant and baryon asymmetry (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |

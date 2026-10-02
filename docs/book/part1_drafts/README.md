@@ -1,0 +1,1 @@
+- `p1_virial_law.tex` — closing chapter of Part 1: the virial theorem, the atom-to-cluster table, the thermodynamic identity (from the five Virial papers).

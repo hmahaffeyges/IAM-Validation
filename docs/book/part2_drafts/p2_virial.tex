@@ -1,80 +1,16 @@
-% Part 2 chapter carrying the five Virial papers, in date order, read in full 2026-10-02 (2,370 extracted lines):
-%  (1) Virial Efficiency and Effective Nonlinear Exponent (25 Feb 2026); (2) The Virial Partition Across a Wide Range of Physical Scales (25 Feb 2026);
-%  (3) Dark Matter and Dark Energy as Virial Partners (Mar 2026); (4) Gravitational Decoherence, the Virial Partition, and the Emergence of Classical
-%  Structure (Mar 2026); (5) The Thermodynamic Identity Governing the Virial Theorem (PRL version, 18 Mar 2026).
-% Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md. Interpretation sections of (3) and (4) go to Part 5 (marked below).
+% Part 2 opening chapter: from the virial partition (Chapter ch:virial_law, end of Part 1) to the cosmological coupling and its predictions.
+% Source: the five Virial papers (read in full 2026-10-02): Virial Efficiency (25 Feb 2026); Wide Domains (25 Feb 2026); Virial Partners (Mar 2026);
+% Gravitational Decoherence and the Virial Partition (Mar 2026); The Thermodynamic Identity Governing the Virial Theorem (PRL version, 18 Mar 2026).
+% Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md.
 \providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
-\chapter{The virial partition: where $\beta_m=\Omega_m/2$ comes from}\label{ch:virial}
+\chapter{The cosmological coupling $\beta_m=\Omega_m/2$}\label{ch:virial}
 
 \section*{Overview}
-Every result in this part of the book carries one number: the coupling $\beta_m=\Omega_m/2$. It is not fitted. It comes from the oldest equilibrium theorem in
-mechanics, the virial theorem of Clausius (1870), which fixes the share of binding energy that a stable system bound by a $1/r$ potential holds as motion.
-This chapter follows the five papers that built the case: the theorem itself and the reason its factor is exactly $1/2$; the evidence that the same $1/2$
-holds from the hydrogen atom to galaxy clusters; the thermodynamic identity that tells us what the kinetic half is; the step from the theorem to the
-cosmological coupling; and what the coupling then predicts for growth, for the two expansion rates, and for the tests now coming.
-
-\section{The theorem and why the factor is one half}
-For a bound system whose potential energy is a homogeneous function of degree $k$ in the coordinates, the time averages of kinetic and potential energy satisfy
-\begin{equation}
-2\langle K\rangle=k\,\langle V\rangle .
-\end{equation}
-This follows from Euler's theorem for homogeneous functions applied to the virial $\sum_i\mathbf r_i\cdot\mathbf p_i$, whose time average is constant for a
-bound system. Gravity and the Coulomb interaction both have $V\propto r^{-1}$, so $k=-1$ and
-\begin{equation}
-2\langle K\rangle+\langle V\rangle=0,\qquad \langle K\rangle=\tfrac12|\langle V\rangle| .
-\end{equation}
-The factor is set by the degree of the potential, and the degree is set by geometry: in three spatial dimensions Gauss's law makes the field of a point source
-fall as $1/r^2$, so the potential falls as $1/r$. Nothing in the result depends on the number of bodies, the mass distribution or the scale. The same
-$1/2$ appears in the Bohr atom, in a star, and in a cluster of galaxies.
-
-\section{The same one half across physical scales}
-Table~\ref{tab:virial_domains} collects the domains in which the $1/r$ virial ratio has been tested.
-
-\begin{table}[h]\centering\small
-\caption{The virial ratio for $1/r$ binding, from atoms to clusters of galaxies.}\label{tab:virial_domains}
-\begin{tabular}{llll}
-\hline
-System & Scale & Quantity & Result\\\hline
-Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ exactly (13.6\,eV of 27.2\,eV)\\
-20 atoms, H--Xe (Hartree--Fock limit) & $10^{-10}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
-10 molecules, H$_2$--CO$_2$ & $10^{-9}$ m & $T/|V|$ & $1/2$ at equilibrium geometry\\
-Thermal equilibrium & all & energy per quadratic d.o.f. & $k_BT/2$\\
-White dwarfs & $10^{7}$ m & Chandrasekhar mass & $1.44\,M_\odot$, observed\\
-The Sun & $10^{9}$ m & $K/|U|$ & $\approx1/2$ (to $\sim10\,\%$, uniform-sphere estimate)\\
-Galaxy clusters (Coma and $\sim20$ others) & $10^{23}$ m & $K/|U|$ & $\approx1/2$ (to $\sim20\,\%$, projection)\\
-Cosmological coupling & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consistent with Planck in 17 chains\\\hline
-\end{tabular}
-\end{table}
-
-For converged Hartree--Fock wavefunctions the ratio is exact by construction: any wavefunction optimised under a uniform scaling of the coordinates satisfies
-the quantum virial theorem. The atomic rows therefore show that quantum mechanics obeys the theorem; they are a statement of the theorem's reach, not an
-independent measurement. The gravitational rows are measurements, at the precision the systems allow. The span from the atom to the cluster is 33 orders of
-magnitude in size; with the cosmological coupling it reaches the Hubble scale.
-
-\section{What the kinetic half is: the thermodynamic identity}
-Clausius derived the theorem from Newton's second law. The derivation describes the bound state; it says nothing about the transition into it. Consider a
-system that falls from rest at infinity ($E_i=0$) into a stable bound state with $E_f=\langle K\rangle+\langle V\rangle<0$, releasing the difference to its
-surroundings.
-\begin{enumerate}
-\item First law: the heat released is $Q=E_i-E_f=-(\langle K\rangle+\langle V\rangle)>0$.
-\item Second law: the transition is irreversible and produces entropy $\Delta S=Q/T$.
-\item Landauer: the minimum cost of producing $\Delta S$ irreversibly is $E_{\rm L}=T\Delta S=Q$. The temperature cancels.
-\item The $1/r$ equilibrium condition $2\langle K\rangle+\langle V\rangle=0$ gives $-E_f=\langle K\rangle$.
-\end{enumerate}
-Together,
-\begin{equation}
-\langle K\rangle=Q=T\Delta S=E_{\rm L}=\tfrac12|\langle V\rangle| .
-\end{equation}
-The hydrogen atom shows it directly: an electron captured from rest into the ground state emits a 13.6\,eV photon, the binding energy, which equals the
-electron's mean kinetic energy in that state; the potential energy is $-27.2$\,eV. The energy carried away when a $1/r$ system binds equals its kinetic half.
-
-This does not derive the virial theorem from thermodynamics; the fourth step is the mechanical condition. What it does is identify the kinetic half with a
-definite thermodynamic quantity: the irreversible cost of the binding transition, carried off to the surroundings and recorded there as entropy at
-$k_BT\ln2$ per bit. Jacobson (1995) obtained the Einstein equations from $\delta Q=T\,\delta S$ on local Rindler horizons; the same relation applied at the
-boundary of a forming bound state returns the virial partition. The identity holds wherever the binding energy is released --- radiated by an atom, by a
-contracting gas cloud, by a forming star. For collisionless dark matter, which relaxes without radiating, the energy is redistributed rather than released,
-and the identity applies to the information written in the relaxation, not to emitted heat; this is the step IAM takes at cosmological scale.
+Part~1 closed with the virial partition: a stable $1/r$ system holds exactly half its binding energy as motion, and that half is the irreversible cost of the
+binding transition (Chapter~\ref{ch:virial_law}). Applied to the universe, the same half fixes the coupling of the record term in the horizon first law,
+$\beta_m=\Omega_m/2$, with no free parameter. This chapter derives the coupling and what follows from it --- the activation function, the growth coupling,
+the amplitude of structure, the two expansion rates, and the tests that will decide it. Every later chapter in Part~2 uses this number.
 
 \section{From the theorem to the cosmological coupling}
 IAM adds to the horizon first law of Jacobson and Cai--Kim the entropy of the classical records produced as matter decoheres gravitationally,
@@ -111,6 +47,12 @@ with $E\to0$ at early times ($E(z{=}10)=4.5\times10^{-5}$), $E(1)=1$ today, $dE/
 \mu(a)=\frac{H^2_{\Lambda{\rm CDM}}(a)}{H^2_{\Lambda{\rm CDM}}(a)+\beta_mE(a)H_0^2},
 \end{equation}
 while light is unaffected, $\Sigma=1$: photons on null worldlines accumulate no proper time and take no part in decoherence.
+
+The rate at which the record is written, $dE/d\ln a=E/a$, peaks exactly at $a=1$; $E$ itself has its inflection at $a=1/2$.
+
+\paragraph{The exponent.} The record-writing rate is $\dot I\propto\rho_mD^nfH$, accumulated on the horizon as $dS_{\rm info}/dt=\dot I/(T_HA_H)$
+(Chapter~\ref{ch:theory}). In matter domination this gives $S_{\rm info}\propto a^{\,n-9/2}$; the $-1/a$ in $E(a)$ requires $n-\tfrac92=-1$, so $n=\tfrac72$.
+The full $\Lambda$CDM integration finds the closest fit for $D^{7/2}$. $E(a)$ itself does not depend on $n$.
 
 \begin{center}\small
 \begin{tabular}{cccc}
