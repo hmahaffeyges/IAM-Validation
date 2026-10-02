@@ -29,8 +29,23 @@ For a chip the floor is the law itself. For a qubit it is a property of the subs
 on the same platform (Met-A), or the physics floor at the cell's frozen position (IAM-A). Example: the AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$
 transistors, 4.3\,GHz, $T_j=75\,^\circ$C) switches at $E_{\rm sw}=1.92\times10^{-18}$\,J: $A=576$, $M=399$.
 
-The functional forms are not identical: qubits divide error by error, cells divide the entropy of the error by the entropy of the floor. Both
-read 1 at the floor and rise with error. A single functional form across domains is an open item, carried to the predictions and future-work appendix.
+\paragraph{One gauge, each domain in its own form.} Every $A$ is an error score: the error a system makes, measured over the floor of that same
+system, rising above 1 as the error grows. The formula is not the same in every domain, and should not be. The error comes from different physics in
+each: laser and motional noise in a trapped ion, Rydberg decay in a neutral atom, two-level fluctuators in a transmon's oxides, thermal emission in a hot
+molecule, a missed site at DNA replication. Each field already writes its thresholds in its own units, so each $A$ is written in those units:
+\begin{center}\small\begin{tabular}{p{0.15\textwidth}p{0.26\textwidth}p{0.27\textwidth}p{0.22\textwidth}}\toprule
+score & reading & $A$ & $A=1$ means\\\midrule
+Met-A & $\langle H(\beta)\rangle$ at identity sites & $\langle H(\beta)\rangle/H_{\min}(\text{cell})$ & the healthy cell\\
+IAM-A & copy error $\varepsilon$ & $H(\varepsilon)/[P_{\rm cell}H(\varepsilon_0)]$ & the healthy cell\\
+C-score & clustering of the residual map & clustering $/$ healthy median & healthy clustering\\
+the quantum-processor report & $\varepsilon=-\ln(1-p_{2Q})$ & $\varepsilon/\varepsilon_{\rm floor}$ & the material floor\\
+the semiconductor report & $E_{\rm sw}$ & $E_{\rm sw}/(k_BT_j\ln2)$ & the Landauer floor\\\bottomrule
+\end{tabular}\end{center}
+Two choices of floor are deliberate. A cell is read against its own healthy state, because that is what a clinician needs; $P_{\rm cell}$ places the
+healthy cell at 1 although it sits about 10\,\% above the physics floor. A device is read against physics, because that is what an engineer needs;
+no device reaches 1 (the best published chip, Apple M3, reads 65; the best two-qubit gate, an electronically driven trapped-ion prototype, about 2.8). The forms rank systems the same
+way but are not interchangeable in size: a qubit at $p=10^{-3}$ over a floor of $3\times10^{-4}$ reads $3.3$ in its own form and $2.9$ in the cells'
+entropy form. A value is therefore always quoted with its score's name.
 
 \section{A is an error measurement}
 At an identity site where the cell's pattern is methylated, a fraction $\varepsilon$ of the cell's DNA copies have lost the mark, so
@@ -57,7 +72,7 @@ with $M=20.94$, $\varphi=0.1628$ and $P_{\rm cell}$ the healthy cell's frozen po
 \item $A>1$: more error; the pattern is blurring.
 \item $A<1$: less error than the standard; the pattern is locking tighter than normal.
 \end{itemize}
-Each reading has a C-score (built for Met-A; the IAM-A C-score is defined but not yet built): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
+Each reading has a C-score (built for Met-A, its healthy band not yet set; the IAM-A C-score is defined but not yet built): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
 gauge. $A$ says how much error there is; the C-score says whether it is spread out or concentrated in regions.
 
 The commissioned cell is the neutrophil. Other cells are added one at a time after passing the same tests.

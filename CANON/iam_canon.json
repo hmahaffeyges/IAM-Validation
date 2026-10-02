@@ -455,7 +455,7 @@
   },
   "C-score (sky-map C-score)": {
    "status": "current",
-   "definition": "Third reading per specimen (author proposal 2026-10-01): clustering of a specimen's residual sky map (variance of 50-consecutive-site block means x 50, over the site variance), divided by the healthy baseline measured on the same platform and site set, so healthy = 1 on the same gauge as A. Two C-scores per cell, one per reading: Met-A C-score (arrays) and IAM-A C-score (sequencing; map of per-region copy error against the cell's physics floor). Catches damage concentrated in genomic regions that the averaged A dilutes. A cosmology map statistic (Methods from the Sky), not a physics floor. Development only; band not yet set. On first use in papers write 'sky-map C-score' (C-score is also an ecology co-occurrence statistic). IMPLEMENTED in chain v3: Met-A C-score only (Stage MC; clustering block from neutrophil_reference_v1_1, healthy baseline from leave-one-out neutrophil maps). The IAM-A C-score is defined but not yet built.",
+   "definition": "Third reading per specimen (author proposal 2026-10-01): clustering of a specimen's residual sky map (variance of 50-consecutive-site block means x 50, over the site variance), divided by the healthy baseline measured on the same platform and site set, so healthy = 1 on the same gauge as A. Two C-scores per cell, one per reading: Met-A C-score (arrays) and IAM-A C-score (sequencing; map of per-region copy error against the cell's physics floor). Catches damage concentrated in genomic regions that the averaged A dilutes. A cosmology map statistic (Methods from the Sky), not a physics floor. Development only; band not yet set. On first use in papers write 'sky-map C-score' (C-score is also an ecology co-occurrence statistic). IMPLEMENTED in chain v3: Met-A C-score only (Stage MC; clustering block from neutrophil_reference_v1_1, healthy baseline from leave-one-out neutrophil maps). The IAM-A C-score is defined but not yet built. On the one gauge: C = clustering / healthy median, so healthy reads 1.",
    "domain": "the methylation report"
   },
   "H_min (cell)": {
@@ -486,6 +486,11 @@
    "status": "current",
    "definition": "A per-architecture lower bound on A(the semiconductor report) assigned by the semiconductor report (x86, Apple, ARM, GPU); calibrated, not derived. It is NOT H_min: the chip H_min is the Landauer floor. Floor ratio = A / class floor.",
    "domain": "the semiconductor report"
+  },
+  "One gauge (convention)": {
+   "status": "current",
+   "definition": "Every score is an error score: the error a system makes over the floor of that same system, 1 at the floor, read on one gauge. Each domain keeps the form its field writes thresholds in (the error physics differs: laser/motional noise in ions, Rydberg decay in neutral atoms, TLS in transmon oxides, thermal emission in hot molecules, missed sites at DNA replication). Cells (Met-A, IAM-A, C-score): 1 = the healthy cell (P_cell places the healthy cell at 1). Devices (the quantum-processor report, the semiconductor report): 1 = the physical floor, never reached. The forms rank systems the same way but are not interchangeable in size (qubit p = 1e-3 over a 3e-4 floor: 3.3 in its own form, 2.9 in the entropy form); always quote a value with its score's name.",
+   "note": "Adopted 2026-10-02 (author deferred the choice: 'they are all so unique in their operations that we cant expect formulas all to be the same')."
   }
  },
  "retired": {
