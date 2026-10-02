@@ -40,7 +40,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 29 | Gravitational_Decoherence_Quantum_Level | 22 | 478 | 772 | 1–478 (2026-10-02) | **complete** |  |
 | 30 | IAM_Measurement_Problem_Quantum | 21 | 388 | 668 | 1–388 (2026-10-02) | **complete** |  |
 | 31 | Entanglement_Decoherence_and_Classical_Records | 6 | 253 | 301 | 1–253 (2026-10-02) | **complete** |  |
-| 32 | The_Two_Faces_of_Time | 7 | 247 | 362 | — | not confirmed |  |
+| 32 | The_Two_Faces_of_Time | 7 | 247 | 362 | 1–247 (2026-10-02) | **complete** |  |
 | 33 | Quantum_Darwinism_at_Cosmological_Scales | 15 | 861 | 902 | — | not confirmed |  |
 | 34 | Electron_Rest_Mass_from_IAM | 10 | 485 | 487 | 1–485 (2026-10-02) | **complete** |  |
 | 35 | Electroweak_Symmetry_Breaking_and_the_Matter_Sector | 7 | 207 | 281 | 1–207 (2026-10-02) | **complete** |  |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 20,701 lines (34 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 20,948 lines (35 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).

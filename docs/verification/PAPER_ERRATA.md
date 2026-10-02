@@ -310,3 +310,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | EN5 | | §3 Step 3 | kinetic half = heat | law first | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
 | EN6 | | §4, refs | Sci. Adv. 2025 | incomplete reference | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
 | EN7 | | Acknowledgements | named correspondent | remove | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| **Two Faces of Time** (`The_Two_Faces_of_Time.pdf`, Oct 2026 rev.), read in full 2026-10-02 |||||||
+| TF1 | | §5 Eq. 5 | µ in Poisson term with 'friction' text | state one form | confirmed | `quantum/TWO_FACES_CHECK.md` |
+| TF2 | | §4 | H split derived, zero free parameters | predicted with β_m fixed (chain value) | confirmed | `quantum/TWO_FACES_CHECK.md` |
+| TF3 | | §2.3, refs | written on the cosmic horizon; Sakharov uncited | nearest encoding surface; drop ref | confirmed | `quantum/TWO_FACES_CHECK.md` |
