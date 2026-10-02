@@ -42,9 +42,10 @@ band is less error than healthy; for cells what it means biologically has not ye
 
 \begin{figure}[h]\centering\includegraphics[width=\textwidth]{figs_one_gauge/one_gauge.pdf}
 \caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (grey line) is the lowest error it can hold
-before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A, $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
+before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
 band 0.95--1.05. Qubit: Quantinuum Helios two-qubit gate ($p=7.9\times10^{-4}$) against a Ba$^+$ material floor of $10^{-4}$ (calibrated); error
-correction fails near $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor.
+correction fails near $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor, with two earlier
+AMD generations on the same scale (Ryzen 7 1800X, 2017; Athlon 64, 2003).
 Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
 
 \paragraph{Where $H_{\min}$ comes from.} For the cell, the form of the floor is IAM's Law: a holding energy $E_{\rm hold}$ against $k_BT$ allows
@@ -53,7 +54,9 @@ copy error, so $\varepsilon_0=0.032$ is the measured error expressed through the
 rather than by absolute zero. Three routes would make it absolute: the copying enzyme's own discrimination energy, $k_BT\ln(\text{selectivity})$ of
 DNMT1 measured precisely in vitro (published values bracket $1.9$--$4.4\,k_BT$); a derivation of $\varphi$, the fraction of one ATP spent per held bit,
 from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the temperature test in ectotherms, where a fixed holding energy predicts a
-different error at 10\,$^\circ$C than at 37\,$^\circ$C (so far the Methow reading is constant in $k_BT$ units, which this test must resolve). For the
+different error at 10\,$^\circ$C than at 37\,$^\circ$C (it has not been made: the one fish reading so far, a small river study on reduced-representation sequencing at an assumed body
+temperature, cannot be compared with human single-molecule reads, because the copy error depends on the read pipeline; the test needs one species
+at two recorded temperatures on one pipeline). For the
 chip, $H_{\min}$ is the law itself. For the qubit it is a calibrated property of the substrate.
 
 \section{A is an error measurement}
