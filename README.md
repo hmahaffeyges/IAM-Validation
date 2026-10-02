@@ -101,7 +101,6 @@ the cellular work reads it at a cell._
 - [Virial efficiency and the effective nonlinear exponent - published N-body confirmation](docs/papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
 - [Lensing-dynamics mass discrepancy as a redshift-dependent signature](docs/papers/IAM_Lensing_Dynamics_Paper.pdf)
 - [Three-way mass discrepancy in galaxy clusters: eROSITA, Planck SZ, DES](docs/papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
-- [The M-sigma relation from gravitational decoherence thermodynamics](docs/papers/IAM_M_Sigma_Paper.pdf)
 - [Quantum Darwinism at cosmological scales - the cosmic horizon and the emergence of classicality](docs/papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
 - [Black hole horizons as thermodynamic encoding surfaces](docs/papers/IAM_BH_Thermodynamics.pdf)
 - [The cessation of projection: the information paradox](docs/papers/IAM_Black_Hole_Information_Paradox.pdf)

@@ -15,7 +15,6 @@ Papers that exist only here (no PDF in `docs/papers/`): Variational_Derivation_o
 | IAM_CAMB_Technical_Note | 5 |
 | IAM_Dual_Sector_Note | 2 |
 | IAM_Lensing_Dynamics_Paper | 0 |
-| IAM_MSigma_Paper | 0 |
 | IAM_Saridakis_Bridge | 0 |
 | IAM_Survey_Predictions_Paper | 4 |
 | IAM_ThreeWay_Cluster_Paper | 0 |

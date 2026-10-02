@@ -11,4 +11,4 @@ Drafts for *Law and Order: The Thermodynamics of Informational Actualization*, P
 - `p2_dual_sector_perturbation.tex` — the Level 2 paper carried in its order; Run D held (CAMB fσ8 does not carry the modification).
 - `p2_dual_sector_note.tex` — the Dual Sector Note carried in its order, physics terms, chain values (the note's pre-chain figures not carried).
 - `p2_virial.tex` — opening chapter of Part 2: from the virial partition to beta_m = Omega_m/2 and its predictions (second half of the Virial material).
-- `p2_blackholes.tex` — opening chapter of Part 2: black-hole horizons (Bekenstein, Hawking, Smarr ½, Kerr, write/erase rates, two horizons, hoop = holographic bound, the 1/4 from 2π/8π). M–σ held.
+- `p2_blackholes.tex` — opening chapter of Part 2: black-hole horizons (Bekenstein, Hawking, Smarr ½, Kerr, write/erase rates, two horizons, hoop = holographic bound, the 1/4 from 2π/8π).

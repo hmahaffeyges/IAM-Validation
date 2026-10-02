@@ -136,7 +136,6 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 - Constrained scalar field action with equation of state w_info(a) = −1 − 1/(3a) — mildly phantom, consistent with DESI DR2
 - Second-order perturbation theory: F2 bispectrum kernel shape identical to ΛCDM; bispectrum amplitude suppressed 1.3% at z=0, testable with Euclid galaxy bispectrum
 - CMB TT power spectrum: IAM vs ΛCDM residual < 0.13% at ℓ > 30 — photon sector unmodified, as predicted by Σ = 1
-- M–σ relation derived from first principles: M_BH = 2.00×10⁸ (σ/200)⁴ M☉, matching observations to 2%
 - Full validation: 17 converged MCMC chains (R−1 < 0.01), Δχ² = +0.54 vs ΛCDM under full Planck 2018 likelihood
 - All chains, modified Fortran source (equations.f90), and analysis scripts publicly archived
 
@@ -536,7 +535,7 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 
 ## VI. Black Holes
 
-*Black holes in IAM are not just mass concentrations. They are mandatory local encoding surfaces — and the M–σ relation, unexplained for 25 years, follows directly.*
+*Black holes in IAM are not just mass concentrations. They are mandatory local encoding surfaces.*
 
 <details>
 <summary><strong>Virial Partition Paper</strong> — Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure</summary>
@@ -581,19 +580,6 @@ The foundational result — the thermodynamic cost of each irreversible quantum-
 - The black hole horizon is the surface at which that registration becomes causally impossible
 - Crossing the horizon means the decoherence loop can no longer maintain its cosmic registration — not travel inward
 - Reframes the information paradox: no information is lost because no information enters
-
-</details>
-
-<details>
-<summary><strong>M–σ Paper</strong> — The M–σ Relation from Gravitational Decoherence Thermodynamics</summary>
-
-[📄 IAM_M_Sigma_Paper.pdf](papers/IAM_M_Sigma_Paper.pdf)
-
-- Derives M_BH = 2.00 × 10⁸ × (σ/200 km/s)⁴ M☉ from first principles — not fitted
-- Matches observations to 2%
-- Normalization f_geom = Ω_m/(2π) derived from IAM coupling structure
-- Black holes form when the local decoherence rate saturates the Bekenstein–Hawking bound — M–σ is a consequence of that saturation condition
-- Same coupling constant governing cosmological structure growth determines black hole masses
 
 </details>
 

@@ -20,10 +20,12 @@ Entropy Coefficient* (Apr 2026, 596 lines). Numbers: `scripts/verify_virial_atom
 4. **"Page curve from IAM"** (Info Paradox §6): S_rad(t) = ∫ Γ dt = S_BH,0 − S_BH(t) rises monotonically and reaches S_BH,0/2 at t = (1 − 2^(−3/2)) τ = 0.646 τ,
    not τ/2. It is the first-law transfer of coarse-grained entropy; the Page curve is the fine-grained entropy, which rises and then FALLS to zero. Not a
    derivation of the Page curve. Also S_BH,0 (1 M⊙) "2.6×10⁷⁶ bits" → 1.51×10⁷⁷.
-5. **M–σ**: (a) Eq. 12 as printed (from the c³ typo) is not dimensionally a mass; with the correct S_BH and η = 1 it gives 2.6×10⁹ M⊙ at 200 km/s; matching
-   2×10⁸ needs η = 0.0057, an unstated factor, so "matches to 2 % with one identification" is not reproduced. (b) Gravitational radiation reaction enters
-   at 2.5 post-Newtonian order, (v/c)⁵, not v²/c² (1PN is conservative); the σ⁴ argument needs restating. (c) McConnell & Ma 2013 give slope 5.64 ± 0.32;
-   the "fit to 115 galaxies 4.05 ± 0.07" has no source. (d) the M_BH/M_bulge ∝ exp(z/(1+z)) evolution is untested. Status: not carried as derived.
+5. **M–σ — abandoned 2026-10-02 (author: "if it doesn't look like it's going to be in our favor we just abandon M–σ and remove it").** The paper's Eq. 12
+   (from the c³ typo) is not dimensionally a mass; with the correct S_BH and η = 1 it gives 2.7×10⁹ M⊙ at 200 km/s (needs unstated η = 0.006). Redone at the
+   correct order of the irreversible channel, radiation reaction (σ/c)⁵: exponent 5.5 (observed 5.64 ± 0.32, McConnell & Ma 2013) but M_BH(200 km/s) =
+   4.7×10⁴ M⊙ against 2.1×10⁸ — 4,500× low, needing η = 2×10⁷ where η ≤ 1; the most generous inputs (K_FJ 3×10¹¹, f = 1) give 3.6×10⁵, 580× low.
+   The paper's "slope 4.05 ± 0.07 from 115 galaxies" is a fit to 18 galaxies hand-entered in `code/Koide/scripts/Virial tests/cross_scale_validation.py`.
+   The M–σ paper (PDF, LaTeX) and its register entries were removed from the repo; remaining mentions in other sources are listed in PAPER_ERRATA (M1).
 6. **Bekenstein coefficient**: Eq. 3 G = c⁴/(4ħη) → c³/(4ħη) (Unruh T = ħκ/(2πck_B)); Eq. 16 drops a factor c (c⁴/(4ħG) ≠ 1/(4ℓ_P²)). Substance: Jacobson's
    relation η = c³/(4ħG) still takes G as input; the paper shows where the 1/4 comes from (the 2π of the Unruh period over the 8π of the field equations),
    which is a clear statement of Jacobson's result, not removal of the input. "κ_min = c²/ℓ_P" is the maximum (Planck) surface gravity.
