@@ -1,0 +1,68 @@
+\chapter{Measurement as sector crossing}\label{ch:measurement}
+
+\section{The problem}
+
+The Schr\"odinger equation is linear and unitary, yet measurements have single outcomes.
+Decoherence explains why interference between macroscopically distinct branches becomes
+unobservable~\cite{Zurek2003,Schlosshauer2005,JoosZeh1985}. It does not by itself select one
+outcome, and it does not say where the quantum-to-classical line lies. Collapse
+models~\cite{GRW1986,Bassi2013}, many-worlds~\cite{Everett1957}, Bohmian mechanics~\cite{Bohm1952}
+and QBism~\cite{Fuchs2014} each give a different answer.
+
+\section{The IAM criterion}
+
+\emph{IAM and the Measurement Problem}~\cite{MahaffeyMeasurement} gives an operational
+criterion. A measurement is an interaction between the system $S$ and a detector $D$ that
+dissipates energy $Q(S,D)$ into a detector at temperature $T_D$. It is irreversible,
+actualizing in the sense of Chapter~\ref{ch:iams_law}, if and only if
+\begin{equation}
+ Q(S,D)\;\ge\;Q_L\equiv\kB T_D\ln2 .
+\end{equation}
+At room temperature $Q_L=0.0179$~eV. \conjecture\ No observer and no consciousness enter.
+The same criterion distinguishes a CCD pixel ($Q\approx3$~eV, $Q/Q_L\approx170$), a retinal
+rod ($Q\approx2.5$~eV, $Q/Q_L\approx140$) and a photographic grain from a beam splitter or a
+polarization rotator. The latter dissipate essentially nothing, so $Q/Q_L\ll1$.
+
+\section{Erasure fidelity}
+
+The paper gives a quantitative prediction for quantum-eraser experiments:
+\begin{equation}
+ F_{\mathrm{IAM}}(Q,T)=1-\frac{1}{e}\exp\!\left(1-\frac{\kB T\ln2}{Q}\right)=1-\exp\!\left(-\frac{Q_L}{Q}\right).
+ \label{eq:F}
+\end{equation}
+\calc\ Reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
+($Q/Q_L>100$) give $F<0.01$, consistent with the paper's stated bounds. At the crossover
+$Q=Q_L$, $F=1-e^{-1}=0.632$.
+
+\begin{checkbox}[title={What distinguishes Eq.~\eqref{eq:F} from standard quantum mechanics}]
+In standard decoherence theory, erasability depends on whether the environmental record can
+be coherently reversed, not on the energy dissipated. A which-path marker stored in a
+photon's polarization carries 2~eV of photon energy but dissipates nothing, and it is
+erasable. That is consistent with Eq.~\eqref{eq:F} only if $Q$ means \emph{dissipated} energy,
+not the energy of the quantum carrying the record. With that reading the difference from
+standard theory lies in the \emph{shape} of the crossover. IAM predicts a universal curve,
+$F=1-e^{-Q_L/Q}$, in which fidelity is controlled by a single ratio $Q/Q_L$. Standard theory
+predicts no universal dependence on dissipated energy at all. \prediction\ An eraser in which
+a controllable, small dissipation is added to the which-path marker (for instance by coupling
+the marker to a resistive element at variable temperature) can measure $F(Q/Q_L)$ directly.
+The IAM curve passes through $0.632$ at $Q=Q_L$ and has no free parameter.
+\end{checkbox}
+
+\section{Double slit, delayed choice, eraser}
+
+In the two-sector picture of Chapter~\ref{ch:dual}, a photon travels in the $\Sigma=1$ sector
+and accumulates no gravitational decoherence in flight. Over a 5~m apparatus and 17~ns of
+flight the accumulated decoherence is exactly zero, and collapse occurs at the screen, where
+$Q\gg Q_L$. Wheeler's delayed choice~\cite{Wheeler1978,Jacques2007} then needs no
+retrocausality: nothing actual happened to the photon until absorption. Standard quantum
+mechanics already gives this account~\cite{Ma2016}. The IAM contribution is the thermodynamic
+criterion for \emph{where} the absorption becomes irreversible.
+
+\section{Spontaneous emission}
+
+An excited atom emits after $\tau\sim10$~ns, releasing $\sim2$~eV$\gg Q_L$. In IAM terms,
+emission into free space is an actualization. Emission into a high-$Q$ cavity with Purcell
+factor $F_P$ between 1 and 1000 is, in part, reversible (vacuum Rabi oscillation). \prediction\
+The transition from reversible to irreversible emission should follow Eq.~\eqref{eq:F} with
+$Q$ equal to the energy actually lost to the environment per cycle. This is a regime already
+well controlled in circuit and cavity QED~\cite{Haroche2006,Blais2021}.

@@ -1,0 +1,78 @@
+\chapter{Gravitational decoherence at the quantum level}\label{ch:gravdec}
+
+\section{Di\'osi--Penrose}
+
+Di\'osi~\cite{Diosi1987,Diosi1989} and Penrose~\cite{Penrose1996} proposed that a superposition
+of two mass distributions separated by more than their size decays on the timescale
+\begin{equation}
+ \tau_{\mathrm{DP}}\simeq\frac{\hbar}{E_G},\qquad E_G\simeq\frac{Gm^2}{R},
+\end{equation}
+with $E_G$ the gravitational self-energy of the difference of the mass distributions. The
+prediction is temperature-independent. For one class of mass distributions it has been
+constrained by underground radiation measurements~\cite{Donadi2021}. Levitated
+optomechanics is approaching the regime needed to test it directly~\cite{RomeroIsart2011,Gonzalez2021}.
+
+\section{The IAM rate}
+
+\emph{Gravitational Decoherence at the Quantum Level}~\cite{MahaffeyGravDec} derives a
+different law. The information production rate is taken to be
+\begin{equation}
+ \frac{dN_{\mathrm{bits}}}{dt}=\frac{E_G^2}{\hbar\,\kB T\ln2},
+\end{equation}
+and the boundary capacity of the superposition is $S_{\mathrm{boundary}}=\kB T/E_G$. Both are postulated in the source, not derived from the law. \conjecture{} The temperature dependence that follows runs opposite to every
+known environmental decoherence, which strengthens with temperature; that is what makes it testable.
+Integrating $\Gamma_{\mathrm{info}}/S_{\mathrm{boundary}}$ gives
+\begin{equation}
+ \ln E_q(t)=\frac{E_G^3}{\hbar\,\kB^2T^2\ln2}\,t,\qquad
+ \boxed{\;\tau_{\mathrm{IAM}}=\frac{\hbar\,\kB^2T^2\ln2}{E_G^3}\;}
+ \label{eq:tauIAM}
+\end{equation}
+The coherence then decays with the same functional form as the cosmic activation function,
+\begin{equation}
+ C_{\mathrm{IAM}}(t)=1-\frac{E_q(t/\tau_{\mathrm{IAM}})}{e},\qquad E_q(\eta)=\exp(1-1/\eta),
+\end{equation}
+in place of the exponential $C_{\mathrm{DP}}=\exp(-t/\tau_{\mathrm{DP}})$. The corresponding
+Lindblad generator is $d\rho/d\eta=\Gamma(\eta)\,[L\rho L^\dagger-\tfrac12\{L^\dagger L,\rho\}]$
+with $L\propto\hat x$ and $\Gamma(\eta)=\eta^{-2}e^{1-1/\eta}$.
+
+\section{Signatures}
+
+The IAM law differs from Di\'osi--Penrose in three ways, each testable:
+\begin{enumerate}
+ \item \textbf{Temperature.} $\tau_{\mathrm{IAM}}\propto T^2$: a \emph{hotter} object stays
+       coherent \emph{longer}. The Di\'osi--Penrose time is independent of $T$. Running at 10,
+       20 and 40~mK should lengthen $\tau$ by factors of 4 and 16.
+ \item \textbf{Mass.} $\tau_{\mathrm{IAM}}\propto E_G^{-3}\propto m^{-6}R^3$, against
+       $\tau_{\mathrm{DP}}\propto m^{-2}R$ (the source quotes $m^{-5/3}$ at fixed density).
+ \item \textbf{Profile.} $C(t)$ has zero slope at $t=0$ and a sigmoidal onset, not an
+       exponential. Every derivative of $e^{1-\tau/t}$ vanishes as $t\to0$.
+\end{enumerate}
+
+\begin{checkbox}[title={Independent check: the numbers}]
+\textbf{Dimensions.} $\hbar\kB^2T^2/E_G^3$ has units $\mathrm{J\,s}\cdot\mathrm{J}^2/\mathrm{J}^3=\mathrm s$.
+Correct.
+
+\textbf{The cat.} $m=4$~kg, $E_G=7.1\times10^{-9}$~J (implying $R\approx0.15$~m), $T=300$~K:
+Eq.~\eqref{eq:tauIAM} gives $3.5\times10^{-51}$~s, against the source's $3.7\times10^{-51}$~s.
+Reproduced.
+
+\textbf{The nanosphere.} The source quotes $\tau_{\mathrm{IAM}}\approx560\ \mu$s for
+$m=10^{-12}$~kg at 10~mK but does not state $R$. For a silica sphere
+($\rho=2200\ \mathrm{kg\,m^{-3}}$, $R=4.8\ \mu$m) Eq.~\eqref{eq:tauIAM} gives $E_G=1.4\times10^{-29}$~J
+and $\tau_{\mathrm{IAM}}\approx5\times10^{2}$~s, about $10^6$ times longer. Recovering
+$560\ \mu$s at this mass needs $R\approx50$~nm, a density of $\sim2\times10^{9}\ \mathrm{kg\,m^{-3}}$,
+which is not a material. \openprob\ The quoted figure and the discriminating experiment built
+on it (``testable at $\sim100\ \mu$s reach'') need to be recomputed with a stated radius. At
+physical densities the IAM time for a $10^{-12}$~kg sphere is far longer than
+$\tau_{\mathrm{DP}}\approx8\ \mu$s, so the two models are distinguished by \emph{which one is
+seen at all}, not by their profile shapes.
+\end{checkbox}
+
+\section{Where the two sectors meet}
+
+In the dual-sector picture, the matter sector ($\mu<1$) decoheres gravitationally and the
+photon sector ($\Sigma=1$) does not. Trapped ions ($m\sim10^{-25}$~kg) and superconducting
+qubits (effective moving mass $\sim10^{-20}$~kg) have $\tau_{\mathrm{IAM}}$ and
+$\tau_{\mathrm{DP}}$ both far beyond any practical time. Gravitational decoherence is
+irrelevant to current quantum computers under either model. Their decoherence is
+electromagnetic and material, which is where Part~\ref{part:3} reads them.
