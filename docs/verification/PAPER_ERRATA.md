@@ -294,3 +294,11 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | GD3 | | Eq. 6–8 | E_q = exp(1 − 1/η) from the integral | integral gives e^(t/τ); ramp not derived (hold) | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #3 |
 | GD4 | |  Eq. 6 | S_boundary = k_BT/E_G | underived | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #4 |
 | GD5 | | §1.2, §4.2 | 17 chains; rate peak 0.23 | 18; purity-difference peak | confirmed | `quantum/GRAV_DECOHERENCE_CHECK.md` #5 |
+| **Measurement Problem** (`IAM_Measurement_Problem_Quantum.pdf`, Feb 2026), read in full 2026-10-02 |||||||
+| MP1 | | §3.3, §4.1–4.2, §6.2 | erasure fails after spontaneous emission; untested | contradicted: Blinov 2004, Moehring 2007, Hensen 2015 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #1 |
+| MP2 | | §3.5 | matter entanglement ~1.3 m | 1.3 km (Hensen 2015) | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #2 |
+| MP3 | | §3.7 | no Zeno with dispersive readout | observed: Slichter 2016, Harrington 2017 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #3 |
+| MP4 | | §2.2, abstract | measurement = Q ≥ k_BT ln2 | cost paid on erasure/reset (Bennett); record written on absorption | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #4 |
+| MP5 | | Eq. 2, §4.3 | F(Q,T) ramp form | underived (GD3) | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #5 |
+| MP6 | | §3.4 | cat decoheres by self-gravity | environmental decoherence dominates | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #6 |
+| MP7 | | §2.2, Eq. 3 | µ/Σ as state labels; 17 chains | conflation; 18 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #7 |

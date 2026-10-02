@@ -1,0 +1,3 @@
+F(0.1 eV): 10 mK 0.000  4 K 0.0024  300 K 0.164   (paper 0.000, 0.002, 0.164)
+Q_L(300 K) = 0.0179 eV; 2 eV/Q_L = 112 (retina 2.5 eV: 140; CCD 3 eV: 167)
+cat tau_IAM = 3.50e-51 s (paper 3.7e-51)
