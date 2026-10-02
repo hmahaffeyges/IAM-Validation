@@ -32,7 +32,7 @@ def main():
        r"Every constant and name in this book is taken from one file, \texttt{CANON/iam\_canon.json}; this appendix is generated from it.",
        r"\section*{The symbols}",
        r"\begin{center}\small\begin{tabular}{p{0.12\textwidth}p{0.8\textwidth}}\toprule",
-       r"$A$ & reading $/\,H_{\min}$, the same meaning in every domain; $A=1$ is the floor\\",
+       r"$A$ & reading $/$ the healthy or as-built reading of the same system, the same meaning in every domain; $A=1$ is healthy, $H_{\min}$ the floor below it\\",
        r"$H_{\min}$ & the floor: chips $k_BT_j\ln2$; qubits the material floor $\varepsilon_{\rm floor}$; cells the cell type's reference floor (Met-A) or $P_{\rm cell}H(\varepsilon_0)$ (IAM-A)\\",
        r"$\varepsilon$ & qubits: $-\ln(1-p_{2Q})$, the gate error in nats; cells: the per-molecule copy error\\",
        r"$M$ & $E/k_BT$ (cells $20.94$; chips $A\ln2$); $M/\ln2$ in Landauer units\\",

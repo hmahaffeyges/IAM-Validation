@@ -28,7 +28,7 @@
 },
 {
 "file": "docs/verification/PAPER_ERRATA.md",
-"line": 269,
+"line": 270,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -37,7 +37,7 @@
 },
 {
 "file": "docs/verification/PAPER_ERRATA.md",
-"line": 269,
+"line": 270,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -91,7 +91,16 @@
 },
 {
 "file": "docs/book/part4/p4_22_leukocyte.tex",
-"line": 59,
+"line": 57,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "A score pooled over many sites and many cells, computed as a case group minus a control group, can move in opposite directions under different conditions withou"
+},
+{
+"file": "docs/book/part4/p4_22_leukocyte.tex",
+"line": 62,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
