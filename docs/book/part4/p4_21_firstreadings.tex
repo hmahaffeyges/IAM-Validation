@@ -54,8 +54,8 @@ The most direct test of the gauge is a known cause with a known direction. A DNA
 \begin{itemize}
 \item \textbf{Arrays} (\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}; 51 public EPIC arrays from the study that introduced the inhibitor~\cite{Pappalardi2021}, three leukaemia cell lines,
       each read against its own vehicle arrays). Vehicle arrays read
-      0.968--1.048; an inactive analogue at 10~$\mu$M 1.002--1.032; the active drug at 3.2--16~nM 1.001--1.028, and at $\ge80$~nM 1.16--1.85. A second active compound read
-      1.73--1.81 in all three lines. The change sits on the methylated channel (median $+1.56$ against $+0.017$ on the unmethylated one). \measured
+      0.968--1.048; an inactive analogue at 10~$\mu$M 1.002--1.032; the active drug at 3.2--16~nM 1.001--1.028, and at $\ge80$~nM 1.16--1.87. A second active compound read
+      1.60--1.85 in all three lines. The change sits on the methylated channel (median $+1.56$ against $+0.017$ on the unmethylated one). \measured
 \item \textbf{The ceiling.} Between 16 and 80~nM the methylated sites fall from $\beta\approx0.94$ to 0.57--0.89, and by 400~nM to 0.36--0.60. Past $\beta=\tfrac12$ the methylated
       channel's reading stops rising (observed 2.66--2.85, against a ceiling of about 2.8) and then falls. Met-A is monotone only while those sites stay above one half, which is why
       the chain prints their mean $\beta$ and flags the ceiling. \measured
@@ -65,6 +65,23 @@ The most direct test of the gauge is a known cause with a known direction. A DNA
 \end{itemize}
 Both readings see a known loss of copying fidelity, in the right direction, from the right channel, and not when an inactive look-alike is given. These are cancer cell lines in one
 laboratory each, and the drug also slows proliferation. They show the gauge reads a known change; they are not a disease reading.
+
+Figures~\ref{fig:p4_dnmt_arrays} and~\ref{fig:p4_dnmt_molecules} show every array and every library.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_21_dnmt_arrays.pdf}
+\caption{DNMT1 inhibitor GSK3685032 on EPIC arrays, three leukaemia lines (GSE135205~\cite{Pappalardi2021}), each line against its own vehicle arrays
+(drawn at 0.5~nM). (a) Met-A: vehicle 0.968--1.048, 3.2--16~nM 1.001--1.028, $\ge80$~nM 1.16--1.87. (b) Median $\beta$ of the methylated identity
+sites; dotted: the entropy ceiling. Data: \texttt{doors/\allowbreak{}data/\allowbreak{}dnmt\_arrays\_readings.csv}. \measured}
+\label{fig:p4_dnmt_arrays}
+\end{figure}
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_21_dnmt_molecules.pdf}
+\caption{DNMT1 inhibitor on single molecules (EM-seq, GSE329728; 100~nM, 7~days; four genotypes in duplicate). (a) Copy error, sequencing error
+removed: vehicle 0.0209--0.0217, treated 0.0405--0.0511. (b) IAM-A against the same genotype's vehicle libraries, 1.65--1.97; largest conversion-failure
+difference 0.0007. Data: \texttt{doors/\allowbreak{}PROC\_DNMT\_01\_PARTB/}. \measured}
+\label{fig:p4_dnmt_molecules}
+\end{figure}
 
 \section{Leukaemic blood}
 

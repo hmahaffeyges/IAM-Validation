@@ -590,7 +590,9 @@
   },
   "Aristotelian Principle": {
    "replaced_by": "the virial theorem (with IAM's thermodynamic completion); physics names only",
-   "severity": "block"
+   "severity": "block",
+   "book": false,
+   "note": "Name dropped 2026-10-02: the rule is stated without it."
   },
   "class H_min": {
    "replaced_by": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",

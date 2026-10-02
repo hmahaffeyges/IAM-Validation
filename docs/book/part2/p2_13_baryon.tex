@@ -26,6 +26,7 @@ Inverting the cosmological-constant expressions for $\Omega_bh^2$ at the Planck 
 the baseline (with $2/\pi$, without $\sqrt{\Omega_\Lambda}$) gives $\eta=5.03\times10^{-10}$; with $\sqrt{\Omega_\Lambda}$ it gives
 $6.08\times10^{-10}$, $0.5$--$0.9\,\%$ below the CMB values of the chains below ($6.113$--$6.137$). \calc This is the relation $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ of
 Chapter~\ref{ch:lambda} in another variable. The cosmological constant and the baryon density are one measured relation, not two.
+The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:lambda}.
 
 \section{The 18th chain}
 
@@ -41,12 +42,30 @@ The chain ran 19--20 March 2026 to 22,400 accepted steps, $R-1=0.009273$. With 3
 \frac{\Omega_b/\Omega_m}{(3/16)\sqrt{\Omega_\Lambda}}=1.0046\pm0.0068 .\end{equation}
 \fitted
 The $\Lambda$CDM chains in the same repository return the same $\eta$: $6.118$ (Planck), $6.137$ (Planck + BAO), $6.117$ (Planck + Pantheon+).
+\begin{table}[htbp]\centering\small
+\caption[The baryon density on every chain]{The baryon density on every chain, $\eta=273.9\times10^{-10}\,\Omega_bh^2$ (30\,\% burn-in, weighted mean and standard deviation; rows after burn-in), and the cosmological-constant expressions inverted for $\Omega_bh^2$ at the Planck $\Omega_mh^2=0.1430$.}\label{tab:baryon_chains}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lcrccll}\toprule
+Source & $\Omega_bh^2$ range & rows & $\Omega_bh^2$ & $10^{10}\eta$ & ratio to $(3/16)\sqrt{\Omega_\Lambda}$ & Label\\\midrule
+18th chain (CMB only) & 0.010--0.040 & 14{,}957 & $0.02232\pm0.00014$ & $6.113\pm0.037$ & $1.0046\pm0.0068$ & \measured\\
+$\Lambda$CDM, Planck & 0.020--0.025 & 12{,}544 & $0.02234\pm0.00014$ & $6.118\pm0.038$ & $1.0058\pm0.0067$ & \measured\\
+$\Lambda$CDM, Planck + BAO & 0.020--0.025 & 12{,}600 & $0.02240\pm0.00014$ & $6.137\pm0.037$ & $1.0106\pm0.0064$ & \measured\\
+$\Lambda$CDM, Planck + Pantheon+ & 0.020--0.025 & 21{,}168 & $0.02233\pm0.00014$ & $6.117\pm0.040$ & $1.0056\pm0.0070$ & \measured\\
+Expression with $2/\pi$, without $\sqrt{\Omega_\Lambda}$ & --- & --- & $0.01837$ & $5.031$ & --- & \calc\\
+Expression with $\sqrt{\Omega_\Lambda}$ & --- & --- & $0.02220$ & $6.080$ & --- & \calc\\\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
 They must. The informational term is off at recombination ($E\to0$), so the early universe is $\Lambda$CDM and the acoustic peaks measure the same
 baryon density with or without it. The chain is the consistency check that the term leaves the early universe intact, and it passes.
 The CMB measures $\Omega_bh^2$ from the relative heights of the acoustic peaks; the chain does this measurement, as every Planck fit does, and its
 agreement with nucleosynthesis is the established CMB--BBN concordance~\cite{Cyburt2016}. The chain contains no IAM constraint on $\Omega_b$: the writing
 constraint is not in its likelihood, and fixing $\mu_0$ or widening the range does not move $\Omega_bh^2$. What the chain adds is the
 relation of Chapter~\ref{ch:lambda} evaluated on a CMB-only posterior: $0.7\sigma$.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_baryon_posterior.pdf}
+\caption[The 18th chain against the $\Lambda$CDM chains]{(a) The $\Omega_bh^2$ posterior of the 18th chain, sampled over the flat range 0.010--0.040 (light band; the darker band is the 0.020--0.025 of the other runs), and of the three $\Lambda$CDM chains; inset: the peaks enlarged. The acoustic peaks fix $\Omega_bh^2=0.02232\pm0.00014$ whatever the range. (b) The posterior of $(\Omega_b/\Omega_m)/[(3/16)\sqrt{\Omega_\Lambda}]$ on the same chains. Chain files in \texttt{mgcamb\_validation/\allowbreak{}chains}, 30\,\% burn-in, weighted. \measured}\label{fig:baryon_posterior}
+\end{figure}
 
 Before the chain was run, the expectation was that a chain with $\Omega_bh^2$ free would return $\eta\simeq6\times10^{-10}$. Because the early universe is unchanged,
 every CMB fit returns that value; the chain confirms consistency, not selection. The test of selection is a chain in which the writing constraint itself is in the

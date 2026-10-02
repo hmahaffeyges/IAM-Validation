@@ -1,0 +1,372 @@
+% Appendix C3: every derivation the chapters state in short, written out step by step.
+% Every symbolic step and every number is checked in docs/verification/scripts/verify_appendix_derivations.py; its output is
+% docs/verification/scripts/verify_appendix_derivations_output.txt. Block tags [D1]..[D13] in that output match the sections below.
+\chapter{Derivations in full}\label{app:derivations}
+
+The chapters state many results in a line: ``which gives'', ``so'', ``integrates to''. This appendix writes each of those steps out.
+Every symbolic step has been checked with a computer-algebra system and every number recomputed (CODATA~2018 constants, Planck~2018 parameters;
+script and output listed in Appendix~\ref{app:repro}). Each section ends with what the derivation assumes. Where a step cannot be completed
+from its premises, the section says so and names what is missing; Chapter~\ref{ch:open} collects these items.
+
+\section{The premises and their status}\label{app:der:premises}
+Every derivation below starts from some of the following. The label on each premise is the label every result built on it inherits at most.
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}Xl@{}}\toprule
+& premise & status\\\midrule
+P1 & Newtonian mechanics, the virial theorem, the quantum virial theorem & \derived\\
+P2 & Bekenstein--Hawking entropy, Hawking and Gibbons--Hawking temperatures, Unruh temperature, Smarr relation~\cite{Bekenstein1973,Hawking1975,GibbonsHawking1977,Unruh1976,Smarr1973} & \derived\\
+P3 & Landauer's bound $k_BT\ln2$ per erased bit~\cite{Landauer1961}, approached in experiment~\cite{Berut2012} & \derived\ \measured\\
+P4 & Raychaudhuri equation~\cite{Raychaudhuri1955}, Bianchi identity, Misner--Sharp energy~\cite{MisnerSharp1964} & \derived\\
+P5 & Gravity as an equation of state: $\delta Q=T\,\delta S$ on every local causal horizon with $S\propto A$ (Assumption~1 of Chapter~\ref{ch:iams_law}) & \conjecture\\
+P6 & Records written in the bulk enter the entropy of the nearest horizon, $S=S_{\rm geo}+S_{\rm info}$ (Assumption~2) & \conjecture\\
+P7 & The rate law $\dot I\propto\rho_mD^nfH$ and its accumulation $dS_{\rm info}/dt=\dot I/(T_HA_H)$ & \conjecture\\
+P8 & The record constraint $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ & \conjecture\\
+P9 & The sector rule: timelike worldlines write records, null worldlines do not; the record term enters matter perturbations only; $\delta\varphi=0$ & \conjecture\\
+P10 & The virial share of the matter density, $\beta_m=\Omega_m/2$, applied to the whole population of bound structure (Assumption~3) & \conjecture\\
+P11 & Measured inputs: $H_0$, $\Omega_m$, $\Omega_b$, $\Omega_\Lambda$, $T_{\rm CMB}$, particle masses, $\alpha$ & \measured\\\bottomrule
+\end{tabularx}
+\end{center}
+A result that uses P5--P10 is labelled by the weakest premise it uses: a number computed from P11 through P10 is a \prediction, not a derived
+quantity; an identity among P1--P4 is \derived.
+
+\section{The virial theorem and the binding identity}\label{app:der:virial}
+\paragraph{Classical theorem.} For $N$ bodies define the virial $\mathcal G=\sum_i\mathbf p_i\cdot\mathbf r_i$. Then
+\begin{equation}
+\frac{d\mathcal G}{dt}=\sum_i\frac{\mathbf p_i^2}{m_i}+\sum_i\mathbf F_i\cdot\mathbf r_i=2K-\sum_i\mathbf r_i\cdot\nabla_iV .
+\end{equation}
+If $V$ is homogeneous of degree $k$, Euler's theorem gives $\sum_i\mathbf r_i\cdot\nabla_iV=kV$. For a bound system $\mathcal G$ stays finite, so
+the time average of $d\mathcal G/dt$ vanishes and $2\langle K\rangle=k\langle V\rangle$. For $V\propto1/r$, $k=-1$: $2\langle K\rangle+\langle V\rangle=0$. \derived
+
+\paragraph{Quantum theorem.} Scale a normalised trial state, $\psi(\mathbf r)\to\lambda^{3/2}\psi(\lambda\mathbf r)$. Then $\langle K\rangle\to\lambda^2\langle K\rangle$
+and, for $V\propto1/r$, $\langle V\rangle\to\lambda\langle V\rangle$. An eigenstate (or a variationally converged state) is stationary under the
+scaling: $dE/d\lambda|_{\lambda=1}=2\langle K\rangle+\langle V\rangle=0$. This is why converged Hartree--Fock wavefunctions satisfy $T/|V|=1/2$ by
+construction (Chapter~\ref{ch:virial_law}). \derived
+
+\paragraph{The binding identity.} A system falls from rest ($E_i=0$) into a bound state $E_f=\langle K\rangle+\langle V\rangle$. The first law gives the
+released heat $Q=-E_f$; with $\langle V\rangle=-2\langle K\rangle$, $Q=\langle K\rangle=\tfrac12|\langle V\rangle|$. This step is mechanics. Landauer's
+bound (P3) then reads $Q$ as at least the cost of the irreversible record of the bound state; that reading is the identification of
+Chapter~\ref{ch:virial_law}. \derived\ (equality) \interp\ (reading)
+
+\paragraph{Numbers.} Hydrogen: $\langle K\rangle=13.606$\,eV, $\langle V\rangle=-27.211$\,eV, and capture from rest emits $13.606$\,eV. The Sun as an
+$n=3$ polytrope: $U=-3GM_\odot^2/(5-n)R_\odot=-\tfrac32GM_\odot^2/R_\odot$, and $|U|/2L_\odot=23.6$\,Myr. Chandrasekhar mass:
+$M_{\rm Ch}=\tfrac{\sqrt{3\pi}}{2}\,\omega_3^0\,(\hbar c/G)^{3/2}/(\mu_em_u)^2=1.456\,M_\odot$ for $\mu_e=2$, $\omega_3^0=2.01824$ and the atomic mass
+constant $m_u$~\cite{Chandrasekhar1931}. \calc
+
+\section{Horizon identities}\label{app:der:horizons}
+For a Schwarzschild black hole of mass $M$, $A=16\pi G^2M^2/c^4$, so
+\begin{equation}
+S_{\rm BH}=\frac{k_Bc^3A}{4G\hbar}=\frac{4\pi Gk_BM^2}{\hbar c},\qquad
+T_{\rm BH}S_{\rm BH}=\frac{\hbar c^3}{8\pi Gk_BM}\cdot\frac{4\pi Gk_BM^2}{\hbar c}=\tfrac12Mc^2 .
+\end{equation}
+Counting $N=S_{\rm BH}/(k_B\ln2)$ bits and pricing each at $k_BT_{\rm BH}\ln2$ gives $Nk_BT_{\rm BH}\ln2=T_{\rm BH}S_{\rm BH}$: the $\ln2$ enters once
+and cancels. \derived\ The same algebra gives $Mc^2/(k_BT_{\rm BH})=8\pi GM^2/(\hbar c)=2S_{\rm BH}/k_B$.
+
+\paragraph{Kerr.} In $G=c=1$, $r_\pm=M\pm\sqrt{M^2-a^2}$, $S=\pi(r_+^2+a^2)$, $T=(r_+-r_-)/[4\pi(r_+^2+a^2)]$, $\Omega_H=a/(r_+^2+a^2)$, $J=aM$. Then
+$TS=\tfrac12\sqrt{M^2-a^2}=\tfrac12M\sqrt{1-\chi^2}$ with $\chi=a/M$, and $2TS+2\Omega_HJ=(r_+-M)+a^2/r_+=M$, using $r_+^2-2Mr_++a^2=0$.
+$TS/M=0.500$, $0.433$, $0.218$, $0.032$ at $\chi=0$, $0.5$, $0.9$, $0.998$~\cite{Kerr1963,Smarr1973}. \derived
+
+\paragraph{Cosmic horizon.} With $A_H=4\pi c^2/H^2$, $S=k_Bc^3A_H/(4G\hbar)=\pi k_Bc^5/(G\hbar H^2)$ and $T_H=\hbar H/(2\pi k_B)$,
+\begin{equation}
+T_HS=\frac{c^5}{2GH}=\frac{4\pi}{3}\Big(\frac cH\Big)^3\frac{3H^2}{8\pi G}\,c^2=M_Hc^2
+\end{equation}
+for every $H$. \derived\ At $H_0=67.36$: $T_H=2.654\times10^{-30}$\,K and $N=3.272\times10^{122}$ bits; at $67.4$: $2.655\times10^{-30}$\,K. \calc
+
+\paragraph{Hoop and holographic bound.} At $r_s=2GM/c^2$, $S_{\rm BH}/(4\pi r_s^2)=k_Bc^3/(4\hbar G)=k_B/(4\ell_P^2)$, the bound itself. \derived
+
+\paragraph{Radiation and evaporation.} With $\sigma_{\rm SB}=\pi^2k_B^4/(60\hbar^3c^2)$,
+\[ P=\sigma_{\rm SB}AT_{\rm BH}^4=\frac{\hbar c^6}{15360\pi G^2M^2},\qquad \frac{P}{k_BT_{\rm BH}\ln2}=\frac{c^3}{1920\,GM\ln2}\ {\rm bits\,s^{-1}}. \] $dM/dt=-P/c^2$ is solved by $M^3=M_0^3-\hbar c^4t/(5120\pi G^2)$, so
+$\tau=5120\pi G^2M_0^3/(\hbar c^4)$. Since $S\propto M^2$, $S(t)/S_0=(1-t/\tau)^{2/3}$, and half is gone when $1-t/\tau=2^{-3/2}$, at $t=0.646\,\tau$.
+\derived\ (black body; greybody factors change the coefficient~\cite{Page1976}). For $1\,M_\odot$: $T=6.170\times10^{-8}$\,K, $1.513\times10^{77}$ bits,
+$152.5$ bits\,s$^{-1}$, $\tau=2.10\times10^{67}$\,yr; for $4.3\times10^6\,M_\odot$: $1.44\times10^{-14}$\,K, $2.80\times10^{90}$ bits. \calc
+
+\paragraph{Equilibrium masses.} $T_{\rm BH}=T_H$ gives $M_{\rm eq}=c^3/(4GH)$: $2.32\times10^{22}\,M_\odot$ today, $1.30\times10^{22}$ at $z=1$,
+$2.4\times10^{12}$ at $z=10^6$. $T_{\rm BH}=T_{\rm CMB}$ gives $M_{\rm CMB}=\hbar c^3/(8\pi Gk_BT_{\rm CMB})=4.50\times10^{22}$\,kg (0.61 lunar masses).
+A solar-mass hole is $4.42\times10^7$ times colder than the CMB, $\ln(4.42\times10^7)=17.6$ e-folds of further expansion. \calc
+
+\paragraph{One unit of entropy per $4\ell_P^2$.} Adding $k_B$ at $T=\hbar\kappa/2\pi k_B$ costs $\delta E=\hbar\kappa/2\pi$; the horizon first law
+$\delta E=(\kappa c^3/8\pi G)\delta A$ then gives $\delta A_{\min}=(8\pi G/\kappa c^3)(\hbar\kappa/2\pi)=4\hbar G/c^3=4\ell_P^2$, independent of $\kappa$;
+one bit takes $4\ln2\,\ell_P^2=2.77\,\ell_P^2$. \derived
+
+\section{Jacobson: the Einstein equation from $\delta Q=T\,\delta S$}\label{app:der:jacobson}
+Units $c=k_B=1$. At a point $p$ take a small spacelike two-surface $\mathcal P$ and the local Rindler horizon through it, with null generators $k^a$,
+affine parameter $\lambda$ ($\lambda=0$ on $\mathcal P$), boost vector $\chi^a=-\kappa\lambda k^a$ and Unruh temperature $T=\hbar\kappa/2\pi$ (P2).
+\begin{enumerate}
+\item Heat: $\delta Q=\int_{\mathcal H}T_{ab}\chi^ad\Sigma^b=-\kappa\int\lambda\,T_{ab}k^ak^b\,d\lambda\,dA$.
+\item Area: the Raychaudhuri equation $d\theta/d\lambda=-\tfrac12\theta^2-\sigma_{ab}\sigma^{ab}-R_{ab}k^ak^b$ with $\theta=\sigma=0$ at $\mathcal P$
+gives, to first order, $\theta=-\lambda R_{ab}k^ak^b$ and $\delta A=\int\theta\,d\lambda\,dA=-\int\lambda R_{ab}k^ak^b\,d\lambda\,dA$ (P4).
+\item Clausius with $S=\eta A$ (P5): $-\kappa\int\lambda T_{ab}k^ak^b=(\hbar\kappa/2\pi)\,\eta\,(-\int\lambda R_{ab}k^ak^b)$. $\kappa$ cancels; for every
+$\mathcal P$ and every null $k^a$, $T_{ab}k^ak^b=(\hbar\eta/2\pi)R_{ab}k^ak^b$.
+\item Lemma: a symmetric tensor $X_{ab}$ with $X_{ab}k^ak^b=0$ for all null $k$ is $X_{ab}=fg_{ab}$. (Checked by imposing the condition on twelve
+exact null vectors: the solution space is one-dimensional, $X\propto g$.) Hence $T_{ab}=(\hbar\eta/2\pi)R_{ab}+f\,g_{ab}$.
+\item Conservation $\nabla^aT_{ab}=0$ and the contracted Bianchi identity $\nabla^aR_{ab}=\tfrac12\nabla_bR$ give $\nabla_bf=-(\hbar\eta/2\pi)\tfrac12\nabla_bR$,
+so $f=(\hbar\eta/2\pi)(-\tfrac12R+\Lambda)$ with $\Lambda$ a constant of integration:
+\begin{equation}
+R_{ab}-\tfrac12Rg_{ab}+\Lambda g_{ab}=\frac{2\pi}{\hbar\eta}T_{ab}\equiv8\pi G\,T_{ab},\qquad G=\frac{1}{4\hbar\eta}\ \ \Big(\text{units restored: }G=\frac{c^3}{4\hbar\eta}\Big).
+\end{equation}
+\end{enumerate}
+\derived\ given P5. Written as $\hbar\eta/2\pi=c^3/8\pi G$, the coefficient is $\eta=c^3/(4\hbar G)=1/(4\ell_P^2)$: the $2\pi$ of the Euclidean period over the
+$8\pi$ of the field equations. Given $G$ this fixes $\eta$; it does not predict $G$. The procedure works for other entropy functionals: an entropy that
+depends on curvature gives higher-derivative field equations~\cite{Jacobson1995,Wald1993}. What it assumes: P5, and that the entropy change is the area
+change alone (no internal entropy production), which is the equilibrium condition of the construction.
+
+\section{Cai and Kim: the Friedmann equations from the apparent horizon}\label{app:der:caikim}
+Units $\hbar=c=k_B=1$; flat FRW. The apparent horizon is at $\tilde r_A=1/H$, with $A_H=4\pi/H^2$, $S_{\rm geo}=A_H/4G=\pi/GH^2$, $T_H=H/2\pi$
+(P2) and Misner--Sharp energy $E=\tilde r_A/2G$ (P4)~\cite{CaiKim2005,AkbarCai2007,Hayward1998}.
+\begin{enumerate}
+\item Entropy change: $dS_{\rm geo}=-(2\pi/GH^3)\,dH$, so $T_HdS_{\rm geo}=-\dot H\,dt/(GH^2)$.
+\item Energy flux through the horizon in time $dt$ (the horizon held fixed during $dt$): $-dE=A_H\,T_{ab}k^ak^b\,\tilde r_AH\,dt=4\pi\tilde r_A^3(\rho+P)H\,dt=4\pi(\rho+P)\,dt/H^2$.
+\item First law $-dE=T_HdS_{\rm geo}$: $4\pi(\rho+P)/H^2=-\dot H/(GH^2)$, so
+\begin{equation}\dot H=-4\pi G(\rho+P). \label{der:F2}\end{equation}
+\item With continuity $\dot\rho=-3H(\rho+P)$: $\tfrac{d}{dt}\big(H^2-\tfrac{8\pi G}{3}\rho\big)=2H\dot H+8\pi GH(\rho+P)=0$, so $H^2=\tfrac{8\pi G}{3}\rho+\tfrac\Lambda3$.
+\end{enumerate}
+\derived\ given P5 applied to the apparent horizon. The factor $\tilde r_A^3$ in step~2 matters: with $\tilde r_A^2$ the same steps give
+$\dot H=-4\pi G(\rho+P)H$, which has the wrong dimensions. As in Jacobson's derivation, $\Lambda$ is a constant of integration, not an output.
+
+\section{Adding the record entropy to the first law}\label{app:der:record}
+The chapters state this step in one line: $-dE=T_H\,d(S_{\rm geo}+S_{\rm info})$ gives $H_m^2=H^2+\beta_mE(a)H_0^2$. Written out, it has two parts,
+and only the first follows from the first law.
+
+\paragraph{What the first law gives.} Add $T_H\dot S_{\rm info}$ to step~3 of Section~\ref{app:der:caikim} (P6):
+\begin{equation}
+\frac{4\pi(\rho+P)}{H^2}=-\frac{\dot H}{GH^2}+\frac{H}{2\pi}\dot S_{\rm info}
+\quad\Longrightarrow\quad
+\dot H=-4\pi G(\rho+P)+\frac{G}{2\pi}H^3\dot S_{\rm info}. \label{der:F2info}
+\end{equation}
+The record term therefore acts as an effective component with $\rho_x+P_x=-H^3\dot S_{\rm info}/(8\pi^2)$. Because $\dot S_{\rm info}>0$, this is negative:
+the record component has $w<-1$ whatever the history of $S_{\rm info}$. \derived\ given P5, P6.
+
+\paragraph{What it needs to give the record term.} For the component to be $\rho_{\rm info}=(3H_0^2/8\pi G)\beta_mE(a)$ with $w_{\rm info}=-1-1/(3a)$
+(Section~\ref{app:der:activation}), Eq.~\eqref{der:F2info} requires
+\begin{equation}
+\dot S_{\rm info}=\frac{8\pi^2\rho_{\rm info}}{3aH^3},\qquad \frac{dS_{\rm info}}{d\ln a}\Big|_{a=1}=\beta_m\frac{\pi}{GH_0^2}=\beta_mS_{\rm geo}(a{=}1). \label{der:Sneed}
+\end{equation}
+\calc\ With $\beta_m=0.15765$ and $H_0=67.36$ this is $5.2\times10^{121}$ bits per e-fold today. The first law is linear in $S_{\rm info}$:
+the record density is a weighted integral of $\dot S_{\rm info}$, not its exponential. So the first law fixes \emph{which} entropy history produces the
+record term, and P8 (or, in the holographic route, an exponentiation postulate; Section~\ref{app:der:routes}) fixes the history itself. That
+the bulk writes $5\times10^{121}$ bits per e-fold today is not yet shown from the rate of structure formation. \openprob
+
+\paragraph{Background or perturbations.} Eq.~\eqref{der:F2info} modifies the background expansion. The sector rule P9 moves the term to the matter
+perturbations; the Level~2b chains, which keep it in the background, return $H_0\approx61.5$ (Chapter~\ref{ch:level2}). The rule is a symmetry argument
+(an entropy built from inhomogeneous degrees of freedom vanishes in exact FRW), not a consequence of the first law. \conjecture
+
+\section{The exponent $n$}\label{app:der:exponent}
+With P7, $\dot I\propto\rho_mD^nfH$ and $dS_{\rm info}/dt=\dot I/(T_HA_H)$. Per unit $\ln a$ this is $(dS/dt)/H\propto\rho_mD^nf/(T_HA_H)$ (the $H$ in
+$\dot I$ cancels the $1/H$). In matter domination $\rho_m\propto a^{-3}$, $D\propto a$, $f=1$, $T_H\propto a^{-3/2}$, $A_H\propto a^3$:
+\begin{equation}
+\frac{dS_{\rm info}}{d\ln a}\propto\frac{a^{-3}a^n}{a^{-3/2}a^3}=a^{\,n-9/2},\qquad
+\frac{dS_{\rm info}}{da}\propto a^{\,n-11/2},\qquad S_{\rm info}\propto\frac{a^{\,n-9/2}}{n-9/2}.
+\end{equation}
+A history $S_{\rm info}=k(1-1/a)+{\rm const}$ needs $n-9/2=-1$, so $n=7/2$. \calc
+\begin{itemize}
+\item The same condition in the form ``the record surface density $D/A_H\propto a^{-2}$'': the remaining factor $\rho_mD^{n-1}f/(T_Ha)\propto a^{\,n-7/2}$ is
+constant only for $n=7/2$. The two statements are one.
+\item The measure matters. Dropping $1/A_H$ (accumulating per unit time divided by $T_H$ only) gives $dS/da\propto a^{\,n-5/2}$, which would need $n=1/2$.
+\item Full $\Lambda$CDM growth ($\Omega_m=0.315$, $\Omega_r=9.1\times10^{-5}$): the power of $dS/d\ln a$ over $0.01\le a\le0.1$ is $-2.02$, $-1.52$, $-1.02$,
+$-0.53$ for $n=2.5$, $3$, $3.5$, $4$, and over $0.25\le a\le1$ it is $-2.42$, $-1.99$, $-1.57$, $-1.14$. \calc
+\item Shape. For $n=7/2$ the accumulated $S(a)-S(1)$ matches $k(1-1/a)+{\rm const}$ to $0.7\,\%$ of its range over $0.01\le a\le0.1$, $3.8\,\%$ over
+$0.15\le a\le1$ and $6.3\,\%$ over $0.15\le a\le2$; the $\Lambda$ era steepens it. \calc
+\item Normalisation. For $n\le9/2$ the integral $\int_{a_{\min}}^aS'\,da'$ grows without bound as $a_{\min}\to0$, so the history must be written from
+$a=1$, $S(a)-S(1)$; and the amplitude $k$ (the coefficient of $1/a$ in units of $k_B$) is not fixed by the scaling. Fitting $\exp(\alpha-\beta/a)$ to an
+accumulated integral therefore tests the shape only if the amplitude is set independently; the coefficient $\beta=1$ itself is the
+normalisation. \openprob
+\end{itemize}
+What it assumes: P7, and the form $\exp(1-1/a)$ as the target. The exponent is what the target requires, given P7; the bottom-up count from halo mass
+functions (Chapter~\ref{ch:quantumrecords}) is the independent test, and it runs from about $5.5$ at $z=9$ to $2$ at $z=1$.
+
+\section{The activation function and its equations of state}\label{app:der:activation}
+\paragraph{From the record constraint.} P8 with $\dot a=aH$ is $d\ln\rho_{\rm info}/da=1/a^2$. Integrated from $a=1$,
+$\ln[\rho_{\rm info}(a)/\rho_{\rm info}(1)]=\int_1^ada'/a'^2=1-1/a$, so $E(a)=\exp(1-1/a)=e^{-z}$. (The integral must start at $a=1$:
+$\int_0^ada'/a'^2$ diverges.) \derived\ given P8.
+
+\paragraph{Properties.} $E(1)=1$; $E\to e$ as $a\to\infty$; $E''=E\,(1-2a)/a^4$ vanishes at $a=1/2$ (inflection, $z=1$); the rate per e-fold
+$dE/d\ln a=E/a$ has $d(E/a)/da=E(1-a)/a^3$, zero at $a=1$. $E$ reaches 10, 50 and 90\,\% of today's value at $z=-\ln0.1=2.30$, $0.69$, $0.11$;
+$E(z{=}10)=4.5\times10^{-5}$, $E(z{=}30)=9.4\times10^{-14}$. \calc
+
+\paragraph{Equation of state.} Continuity, $d\ln\rho/d\ln a=-3(1+w)$, with $d\ln\rho_{\rm info}/d\ln a=1/a$:
+\begin{equation}
+w_{\rm info}=-1-\frac{1}{3a}:\qquad-1.67,\ -1.33,\ -1.17\quad(a=0.5,1,2). \label{der:winfo}
+\end{equation}
+\derived\ given P8. Combined with $\Lambda$ ($\Omega_\Lambda=1-\Omega_m$, $\beta_m=\Omega_m/2$),
+$w_{\rm eff}=[-\Omega_\Lambda+\beta_mE\,w_{\rm info}]/[\Omega_\Lambda+\beta_mE]$ gives
+\begin{equation}
+w_{\rm eff}(1)=\frac{2(3-\Omega_m)}{3(\Omega_m-2)},\qquad w_a\equiv-\frac{dw_{\rm eff}}{da}\Big|_{a=1}=-\frac{\Omega_m^2}{3(2-\Omega_m)^2}.
+\end{equation}
+\derived\ For $\Omega_m=0.300$, $0.315$, $0.3153$, $0.320$: $w_0=-1.0588$, $-1.0623$, $-1.0624$, $-1.0635$ and $w_a=-0.0104$, $-0.0116$, $-0.0117$, $-0.0121$.
+A least-squares CPL fit over $0.5\le a\le1$ ($\Omega_m=0.315$) gives $w_0=-1.065$, $w_a=+0.017$. \calc
+
+\section{The variational route}\label{app:der:variational}
+\paragraph{Reduction.} Write the FRW metric with lapse $N$, $ds^2=-N^2dt^2+a^2d\mathbf x^2$, so $\sqrt{-g}=Na^3$, $\dot\varphi\to\varphi'/N$ and
+$H\to a'/(Na)$ (primes are $d/dt$). Per unit comoving volume the action $S_{\rm EH}+S_\Lambda+S_{\rm m}+S_{\rm info}$ is
+\begin{equation}
+L=-\frac{3}{8\pi G}\frac{aa'^2}{N}-Na^3\Big(\frac{\rho_{m0}}{a^3}+\rho_\Lambda+\rho_0\beta_me^{\varphi}\Big)+\lambda a^3\Big(\varphi'-\frac{a'}{a^2}\Big),
+\qquad\rho_0=\frac{3H_0^2}{8\pi G}.
+\end{equation}
+The constraint term does not contain $N$: the lapse cancels between $\sqrt{-g}$ and the two time derivatives.
+\begin{enumerate}
+\item $\delta N$ ($N=1$ after variation): $H^2=\tfrac{8\pi G}{3}\big(\rho_m+\rho_\Lambda+\rho_0\beta_me^\varphi\big)$. Because $N$ is absent from the constraint
+term, $\lambda$ does not enter this equation.
+\item $\delta\lambda$: $\varphi'=a'/a^2=H/a$, the record constraint P8 in the form $\varphi=1-1/a$.
+\item $\delta\varphi$: $d(\lambda a^3)/dt=-a^3\rho_0\beta_me^\varphi=-a^3\rho_{\rm info}$, an equation for the multiplier.
+\item $\delta a$, using 2 and 3: the record sector contributes a pressure $P_{\rm info}=-\rho_{\rm info}-\rho_{\rm info}/(3a)$, i.e.\ Eq.~\eqref{der:winfo}.
+\end{enumerate}
+\derived\ in the minisuperspace, given the action. Steps 1 and 4 together are energy conservation for the record sector: the Euler--Lagrange equations of
+a time-reparametrisation-invariant action satisfy it identically.
+
+\paragraph{What the route assumes and what it adds.} (a) The constraint $\dot\varphi=H/a$ is P8 written as a field equation; with $\varphi\equiv\ln E$ it
+is equivalent to $E=\exp(1-1/a)$. The action therefore assumes the activation function it returns. \conjecture\ (b) $H/a$ is not a spacetime scalar:
+the constraint needs a preferred slicing and the scale factor itself, so the action is defined on the FRW minisuperspace, not as a covariant functional.
+A covariant version (for instance through the expansion $\theta=3H$ of a preferred matter flow) is not written. \openprob\ (c) Step~1 modifies the
+background for every component; the sector split is not in the action and must be added as P9. (d) $\delta\varphi=0$ is a property of the reduced
+action, where $\varphi$ has no spatial dependence; it is not derived for a covariant action. \conjecture\ What the route adds: a consistent dynamical
+system (no new propagating degree of freedom, no kinetic term, conserved total energy) in which $w_{\rm info}=-1-1/(3a)$ follows from the same action as
+$H^2$, and the multiplier equation of step~3 in its correct form.
+
+\section{The holographic route}\label{app:der:routes}
+The holographic route argues for the form of $E(a)$ from the horizon: records produced in the bulk are stored per unit horizon area at the
+Landauer price of the horizon temperature, and $E$ is the exponential of the accumulated entropy. Written out:
+\begin{enumerate}
+\item Accumulation per unit area at price $k_BT_H\ln2$: P7. This fixes $n=7/2$ for a $-1/a$ history (Section~\ref{app:der:exponent}). The route
+\emph{requires} $7/2$ given the target form; it does not produce the $-1/a$ independently.
+\item Exponentiation: the number of horizon microstates is $\Omega=e^{S/k_B}$, so adding $S_{\rm info}$ multiplies $\Omega$ by $e^{S_{\rm info}/k_B}$.
+This is the definition of entropy. It does not make the record density proportional to $e^{S_{\rm info}}$: in the first law the record density is
+linear in $\dot S_{\rm info}$ (Eq.~\eqref{der:F2info}). $\rho_{\rm info}\propto\exp(S_{\rm info}/S_0)$ is an additional postulate, with a scale $S_0$
+that sets the coefficient of $1/a$. \conjecture
+\item Normalisation: $E(1)=1$ fixes the constant ($C=1$). This is a convention, not a result.
+\end{enumerate}
+What the route adds: a physical reading of the $1/a$ in the exponent as the record surface density on the horizon, and the statement that the
+cost per bit falls as the horizon cools ($T_H\propto H$). What it assumes: P6, P7, the exponentiation postulate and the amplitude $S_0$. The two routes
+are not independent confirmations of $E(a)$: the variational route assumes it in the constraint, and the holographic route assumes the exponent form
+and selects $n$ to match. The independent content is the scaling test of Section~\ref{app:der:exponent} against measured halo statistics.
+
+\section{The growth coupling and its implementations}\label{app:der:growth}
+\paragraph{The mapping.} If the matter perturbations see the matter-sector rate $H_m^2=H^2+\beta_mE(a)H_0^2$ in the density parameter that sources
+growth, $\Omega_m^{(m)}(a)=8\pi G\rho_m/3H_m^2=\Omega_m(a)\,H^2/H_m^2$, the ratio to $\Lambda$CDM is
+\begin{equation}
+\mu(a)=\frac{H^2(a)}{H^2(a)+\beta_mE(a)H_0^2},\qquad \mu(1)=\frac1{1+\beta_m},\qquad\mu_0\equiv\mu(1)-1=-\frac{\beta_m}{1+\beta_m}.
+\end{equation}
+\interp\ (this is a mapping onto the $\mu$--$\Sigma$ form, not a derivation of it). With $\beta_m=0.15765$: $\mu(1)=0.8638$, $1-\mu(1)=13.62\,\%$,
+$\mu_0=-0.13618$ ($-0.13607$ for $\beta_m=0.1575$). At $z=0.2$, $0.3$, $0.5$, $0.7$, $1$, $2$, $3$: $\mu=0.905$, $0.922$, $0.948$, $0.966$, $0.982$,
+$0.998$, $1.000$; $H_m/H=1.051$, $1.042$, $1.027$, $1.017$, $1.009$, $1.001$, $1.000$. \calc
+
+\paragraph{Three implementations.} The same term can enter the linear growth equation in three ways, and they give different growth. With
+$D'=dD/d\ln a$:
+\begin{align}
+\text{(i) }G_{\rm eff}=\mu G:&\quad D''+\Big(2+\frac{d\ln H}{d\ln a}\Big)D'-\tfrac32\Omega_m(a)\,\mu\,D=0,\\
+\text{(ii) friction, }\Lambda\text{CDM clock:}&\quad D''+\Big(\frac{d\ln H}{d\ln a}+2\frac{H_m}{H}\Big)D'-\tfrac32\Omega_m(a)D=0,\\
+\text{(iii) whole equation on }H_m:&\quad D''+\Big(2+\frac{d\ln H_m}{d\ln a}\Big)D'-\tfrac32\frac{\Omega_ma^{-3}H_0^2}{H_m^2}D=0 .
+\end{align}
+Form (ii) is $\ddot\delta+2H_m\dot\delta-4\pi G\rho_m\delta=0$ written with the $\Lambda$CDM clock ($\dot\delta=HD'$). With the same early amplitude,
+$\Delta D/D$ today is $-0.78\,\%$ (i, the Level~1 MGCAMB form), $-0.67\,\%$ (ii, the Level~2 form) and $-1.87\,\%$ (iii). \calc\ Every growth number in
+the book names its form.
+
+\paragraph{Growth-rate observables} (form i, Planck 2018 background, same early amplitude). $f\sigma_8$ is lower by $4.24\,\%$, $2.16\,\%$, $1.35\,\%$,
+$0.41\,\%$ at $z=0$, $0.3$, $0.5$, $1$. With $\Sigma=1$, $E_G\propto\Omega_m/f$ changes by $f_{\Lambda\rm CDM}/f_{\rm IAM}-1=+3.62\,\%$ today, $+1.86\,\%$ at
+$z=0.295$, $+1.83\,\%$ at $z=0.3$ and $+1.14\,\%$ at $z=0.5$. A growth-only fit read in $\Lambda$CDM infers $\Omega_m\mu(z)=0.299$ at $z=0.5$. \calc
+
+\paragraph{The MGCAMB form.} $\mu=1+\mu_0\Omega_{\rm DE}(a)/\Omega_\Lambda$, $\Omega_{\rm DE}(a)=\Omega_\Lambda/(\Omega_ma^{-3}+\Omega_\Lambda)$, with the
+runs' $\mu_0=-0.13495$, gives $0.8650$ today against the exact $0.8638$; the largest gap is $-2.76\,\%$ at $z=0.65$, $-2.48\,\%$ at $z=1$. The value
+$\mu_0=-0.13495$ is $-\beta/(1+\beta)$ for $\beta=0.1560$; the fixed coupling $0.15765$ gives $-0.13618$. The difference, $0.0012$, is about one percent of the
+free-$\mu_0$ posterior width ($\sim0.12$, Chapter~\ref{ch:latetime}). \calc
+
+\paragraph{Separation from general relativity.} Euclid's forecasts are made for a template that tracks $\Omega_{\rm DE}(z)$~\cite{Albuquerque2025,Frusciante2025}; the IAM $\mu(z)$ falls off faster, and matching the linear-growth deficit over $0<z<2$ gives a template-equivalent $\mu_0\approx-0.072$. Against the published errors on $1+\mu_0$ this is $0.3\sigma$ (23.3\,\%), $1.8\sigma$ (4\,\%) and $7\sigma$ (1\,\%) (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_euclid\_template.py}). \calc{} A forecast with the IAM $\mu(z)$ itself is open. \openprob
+
+\section{The coupling, the two Hubble rates and the record history}\label{app:der:coupling}
+\paragraph{The coupling.} P10: $\rho_{\rm info}(1)=\tfrac12\rho_m(1)$; with $\rho_{\rm info}(1)=\beta_mE(1)\rho_{\rm crit}$, $\beta_m=\Omega_m/2$:
+$0.15765$ ($\Omega_m=0.3153$), $0.15750$ ($0.315$). \prediction\ The decomposition $\beta_m=\Omega_mf_{\rm coll}\eta_{\rm vir}$ with $f_{\rm coll}=0.62$
+defines $\eta_{\rm vir}=1/(2f_{\rm coll})=0.81$; it is an identity, not a measurement, and $\Omega_mf_{\rm coll}=0.195$. \calc
+
+\paragraph{Two rates.} At $a=1$, $H_m^2=H_0^2(1+\beta_m)$, so $H_0^{(m)}=H_0\sqrt{1+\beta_m}=1.0759\,H_0$: $72.26$ from the Level~2 chain's $67.161$,
+$72.48$ from $67.36$, $72.51$ from $67.4$ with $\beta_m=0.1575$. Against SH0ES $73.04\pm1.04$: $-0.75\sigma$; the chain against Planck $67.36\pm0.54$:
+$-0.37\sigma$. \calc\ At the Level~2 posterior ($H_0=67.161$, $\Omega_m=0.3166$, radiation neglected) $H$ and $H_m$ are $88.89$ and $91.29$ ($z=0.5$),
+$120.44$ and $121.53$ ($z=1$), $204.06$ and $204.29$ ($z=2$), $307.37$ and $307.43$ ($z=3$). \calc
+
+\paragraph{Record history} ($\Omega_m=0.3153$, $\beta_m=0.15765$). $R(a)=\Omega_ma^{-3}/\beta_mE(a)=399$, $19.8$, $5.9$, $2.0$ at $z=2$, $0.7$, $0.3$, $0$;
+the record share of $\Omega_\Lambda+\beta_mE$ is $18.7$, $14.6$, $10.3$, $4.9\,\%$ at $z=0$, $0.3$, $0.7$, $1.5$; matter equals vacuum plus record at
+$z=0.361$ ($\Lambda$CDM: $0.295$). \calc
+
+\section{The vacuum term and the baryon relation}\label{app:der:lambda}
+\paragraph{The identity.} With $\rho_{\rm vac}=E_P^4/(\hbar c)^3=c^7/(\hbar G^2)$ and $\rho_\Lambda=\Omega_\Lambda(3H_0^2/8\pi G)c^2$,
+\begin{equation}
+\frac{\rho_\Lambda}{\rho_{\rm vac}}=\frac{3\Omega_\Lambda}{8\pi}\frac{\hbar GH_0^2}{c^5}=\frac{3\Omega_\Lambda}{8\pi}\Big(\frac{\ell_P}{\ell_H}\Big)^2
+\end{equation}
+for any $H_0$. \derived\ At $H_0=67.4$, $\Omega_\Lambda=0.6846$: $\rho_{\rm vac}=4.633\times10^{113}$\,J\,m$^{-3}$, $\rho_\Lambda=5.250\times10^{-10}$\,J\,m$^{-3}$,
+ratio $1.1332\times10^{-123}$. \calc
+
+\paragraph{The relation.} The expression $(2/\pi)(\ell_P/\ell_H)^2\sqrt{\Omega_\Lambda}\,\Omega_b/\Omega_m$, set equal to the identity, gives
+$(2/\pi)\sqrt{\Omega_\Lambda}\,\Omega_b/\Omega_m=3\Omega_\Lambda/8\pi$, i.e.\ $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$: the Planck length, the Hubble
+length and $\pi$ cancel. \derived\ (algebra) Numbers ($\Omega_b=0.0493$, $\Omega_m=0.3153$): without $\sqrt{\Omega_\Lambda}$ the expression is
+$1.380\times10^{-123}$ ($1.218$ times the measured value); with it, $1.142\times10^{-123}$ ($+0.79\,\%$); the power of $\Omega_\Lambda$ that would close the first
+form exactly is $0.521$; $\Omega_b/\Omega_m=0.1564$ against $\tfrac3{16}\sqrt{\Omega_\Lambda}=0.1551$. \calc\ An effective writing area $A_{\rm eff}=2\pi\ell_H^2$
+gives $\ell_P^2/(A_{\rm eff}/4\pi)=2(\ell_P/\ell_H)^2$, not $(2/\pi)(\ell_P/\ell_H)^2$. The factors $2/\pi$, $\sqrt{\Omega_\Lambda}$ and $\Omega_b/\Omega_m$ are
+not derived. \openprob
+
+\paragraph{As $\eta$.} With $\eta=273.9\times10^{-10}\,\Omega_bh^2$ and $\Omega_mh^2=0.1430$: $\Omega_b/\Omega_m=3\Omega_\Lambda/16$ (no square root) gives
+$\eta=5.03\times10^{-10}$; $\tfrac3{16}\sqrt{\Omega_\Lambda}$ gives $6.08\times10^{-10}$. \calc
+
+\section{The particle scale}\label{app:der:particle}
+\paragraph{The electron fixed point.} The condition $mc^2=E_{\rm bit}N/f$ with $E_{\rm bit}=\hbar H_0\ln2/2\pi$, $N=(m_P/m)^{3/2}$ and $f=\alpha^{5/2}$ reads
+$m^{5/2}=\hbar H_0\ln2\,m_P^{3/2}/(2\pi\alpha^{5/2}c^2)$, so
+\begin{equation}
+m=(2\pi)^{-2/5}B^{2/5},\qquad B=\frac{\hbar H_0\ln2\,m_P^{3/2}}{\alpha^{5/2}c^2}.
+\end{equation}
+\derived\ (algebra, given the three assumptions). Numerically $B^{2/5}=1.2018\,m_e$ at $H_0=67.4$. The prefactor that lands on $m_e$ is $(2\pi)^{-1/10}=0.832112$,
+which is $(2\pi)^{-2/5}\times(2\pi)^{3/10}$; the factor $(2\pi)^{3/10}=1.7356$ is not produced by the condition. With it, $m/m_e-1=+6.6\times10^{-6}$
+($H_0=67.4$), $-2.31\times10^{-4}$ ($67.36$), $+3.25\times10^{-2}$ ($73.0$), $+3.27\times10^{-2}$ ($73.04$); $m\propto H_0^{2/5}$, so
+$\sigma(H_0)=0.54$ alone is $0.32\,\%$ in $m$. \calc\ \openprob\ (the $(2\pi)^{3/10}$)
+
+\paragraph{The Koide relation.} With $\sqrt{m_k}=x+y\cos(2\pi k/3+\delta)$, $k=0,1,2$: $\sum_k\cos(2\pi k/3+\delta)=0$ and $\sum_k\cos^2(2\pi k/3+\delta)=3/2$ for
+every $\delta$, so $\sum\sqrt{m_k}=3x$ and $\sum m_k=3x^2+\tfrac32y^2$, and
+\begin{equation}
+Q=\frac{\sum m_k}{(\sum\sqrt{m_k})^2}=\frac13\Big(1+\frac{y^2}{2x^2}\Big)=\frac23\quad\text{for }y=\sqrt2\,x .
+\end{equation}
+\derived\ given the equal-weight condition $x^2=y^2/2$ (\conjecture). Measured pole masses~\cite{PDG2022}: $Q=0.66666051$, $x^2=313.84$\,MeV, and
+$\delta=\arccos[(\sqrt{m_\tau}/x-1)/\sqrt2]=0.22227$\,rad, which returns $m_e=0.510$ and $m_\mu=105.68$\,MeV. With $\delta=0$ the two lighter masses
+would be $x^2(1-\sqrt2/2)^2=26.9$\,MeV each. \calc
+
+\paragraph{At most three.} Positivity needs $1+\sqrt2\cos\phi_k>0$, i.e.\ no phase within $\pi/4$ of $\pi$: a forbidden arc of width $\pi/2$. With
+$n$ equally spaced phases the spacing is $2\pi/n$; for $n\ge4$ the spacing is at most $\pi/2$, so some phase always falls in the arc. For $n=3$ the
+allowed offsets are a fraction $1-3(\pi/2)/(2\pi)=1/4$ of the circle, for $n=2$ a fraction $1/2$. \derived\ (numerically $0.50$, $0.25$, $0$, $0$, $0$ for
+$n=2$--$6$)
+
+\paragraph{The split of the coupling.} $\beta_m=\Omega_b/2+\Omega_{\rm dm}/2=0.0246+0.1330=0.1577$, baryons $15.6\,\%$. \calc
+
+\section{The quantum scale}\label{app:der:quantum}
+\paragraph{Collapse time of a halo.} $\hbar/E_G=\hbar R/GM^2=2.5\times10^{-87}$\,s for $10^{12}M_\odot$ within $200$\,kpc. \calc
+
+\paragraph{The coherence time.} With the rate $dN/dt=E_G^2/(\hbar k_BT\ln2)$ and the boundary capacity $k_BT/E_G$ (both \conjecture), the ratio is
+$E_G^3/(\hbar k_B^2T^2\ln2)$, so $\ln E_q=t/\tau_{\rm IAM}$ with $\tau_{\rm IAM}=\hbar k_B^2T^2\ln2/E_G^3$; the integrand is constant, so the decay is a
+plain exponential. \derived\ given the two postulates. At fixed density $R\propto m^{1/3}$, $E_G\propto m^{5/3}$, so $\tau_{\rm IAM}\propto m^{-5}$ and
+$\tau_{\rm DP}=\hbar/E_G\propto m^{-5/3}$ (numerically $-5.000$ and $-1.667$). For silica ($2200$\,kg\,m$^{-3}$), $m=10^{-12}$\,kg: $R=4.77\,\mu$m,
+$E_G=1.40\times10^{-29}$\,J, $\tau_{\rm IAM}=509$\,s at 10\,mK (factors $4.0$ and $16.0$ at 20 and 40\,mK), $\tau_{\rm DP}=7.54\,\mu$s; the two are equal at
+$2.2\times10^{-10}$\,kg. A value of $560\,\mu$s at this mass would need $R=49$\,nm, a density of $2.0\times10^9$\,kg\,m$^{-3}$. For $4$\,kg with
+$E_G=7.1\times10^{-9}$\,J ($R=0.150$\,m) at 300\,K: $3.50\times10^{-51}$\,s. \calc
+
+\paragraph{The erasure curve.} $1-e^{-1}\exp(1-Q_L/Q)=1-\exp(-Q_L/Q)$ identically, with $Q_L=k_BT\ln2=0.0179$\,eV at 300\,K and $F(Q_L)=1-e^{-1}=0.632$.
+\derived\ (algebra; the form is \conjecture)
+
+\paragraph{Bell correlations under dephasing.} The dephased Bell state $\rho=\tfrac12(|00\rangle\langle00|+|11\rangle\langle11|+c\,|00\rangle\langle11|+c\,|11\rangle\langle00|)$ has
+correlation matrix ${\rm diag}(c,-c,1)$; the Horodecki criterion~\cite{Horodecki1995} gives $S_{\max}=2\sqrt{1+c^2}$, above $2$ for any $c>0$. With the settings
+that are optimal at $c=1$, $S=\sqrt2(1+c)$, which equals $2$ at $c=\sqrt2-1=0.414$ ($D=0.586$); on the ramp $c=1-E_q(\eta)/e=1-e^{-1/\eta}$ this is
+$\eta=t/\tau_{\rm IAM}=1.87$. \derived\ (checked numerically at $c=1$, $0.7$, $0.414$, $0.2$, $0$)
+
+\section{What the derivations do not yet give}\label{app:der:open}
+The following steps cannot be completed from the premises above. Each is a stated item in Chapter~\ref{ch:open}.
+\begin{enumerate}
+\item The record history. The first law fixes the entropy history that the record term needs, $dS_{\rm info}/d\ln a=\beta_mS_{\rm geo}$ today
+($5.2\times10^{121}$ bits per e-fold); a calculation of the bits written by structure formation at that rate is missing. \openprob
+\item The exponential. $\rho_{\rm info}\propto E(a)$ rests on the record constraint P8 (or, equivalently, an exponentiation postulate with an unfixed
+scale $S_0$); neither follows from the first law, which is linear in $S_{\rm info}$. \openprob
+\item The amplitude of the exponent. The coefficient of $1/a$ is the normalisation of $S_{\rm info}$; the scaling fixes only the shape. \openprob
+\item A covariant action. The constrained action is defined on the FRW minisuperspace; $\dot\varphi=H/a$ has no covariant form yet, and with it
+$\delta\varphi=0$ is a property of the reduced action. \openprob
+\item The sector split from first principles. The first law and the action both modify the background; placing the term in the matter perturbations
+is P9. \openprob
+\item The growth implementation. Forms (i)--(iii) of Section~\ref{app:der:growth} give $-0.78$, $-0.67$ and $-1.87\,\%$ in $D$ today; which one the
+record term implies is not derived. \openprob
+\item The bottom-up exponent. Measured halo statistics give a running $n_{\rm eff}$ that crosses $7/2$ at $z\approx3$--$4$; a constant $7/2$ is not
+obtained. \openprob
+\item The virial coupling at the population level (P10), and its use of the present-day $\Omega_m$. \openprob
+\item The factor $3/16$ in $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$, the history integral of the vacuum term, and why the relation holds now. \openprob
+\item The factor $(2\pi)^{3/10}$ in the electron fixed point, the Koide offset $\delta$ and scale $x$. \openprob
+\item The boundary capacity $k_BT/E_G$ and the time profile of gravitational decoherence. \openprob
+\end{enumerate}

@@ -1,4 +1,4 @@
-% Part 2 chapter carrying "Lensing-Dynamics Mass Discrepancy as a Redshift-Dependent Signature of Informational Gravity" (Mahaffey, 25 Feb 2026)
+% Part 2 chapter carrying "Lensing-Dynamics Mass Discrepancy as a Redshift-Dependent Signature of Informational Gravity" (25 Feb 2026)
 % in its order. Read in full 2026-10-02 (PDF text 307 lines in this extraction, 316 in the check file's; every line read).
 % Numbers: docs/verification/scripts/verify_obs_chapters.py (sections A, E) and verify_s8_trend.py (item 5).
 % Check: docs/verification/observations/LENSING_DYNAMICS_CHECK.md; errata LD1-LD5. Carried in the Level 1 form only; the test is on hold.
@@ -29,6 +29,10 @@ $M_{\rm lens}/M_{\rm dyn}$ & 1.158 & 1.129 & 1.105 & 1.085 & 1.055 & 1.035 & 1.0
 \end{tabular}\end{center}
 The ratio is $15.8\,\%$ above unity today and falls monotonically with redshift, with slope $dR/dz=-0.31$ at $z=0$ and $-0.18$ at $z=0.3$. It
 depends on the cluster's redshift only, not on its mass, radius or dynamical state. \calc
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_lensdyn_forms.pdf}
+\caption[Lensing mass over dynamical mass in the two forms; $\sigma_8$ in the chains]{(a) $M_{\rm lens}/M_{\rm dyn}$ in the two implementation forms: $1/\mu(z)$ in the Level~1 effective-coupling form (1.158 today; 1.105, 1.055, 1.018 and 1.002 at the test redshifts) and 1 in the Level~2 form. Shaded: the quasi-static $f(R)$ range $3/4\le M_{\rm lens}/M_{\rm dyn}\le1$ ($1\le\mu\le4/3$, $\Sigma=1$)~\cite{PogosianSilvestri2016}. \calc\ (b) $\sigma_8$ posteriors: Level~1 (Planck, MGCAMB) 0.8143 for $\Lambda$CDM and 0.8015 with the informational term ($-1.57\,\%$); Level~2 (modified CAMB) 0.8087 and 0.7998 ($-1.11\,\%$). Chain files, 30\,\% burn-in, weighted. \measured}\label{fig:lensdyn_forms}
+\end{figure}
 
 \section{The form of the term}\label{sec:ld_hold}
 The ratio \eqref{eq:ld_ratio} needs $\mu$ in the Poisson equation for $\Psi$ (the Level~1 effective-coupling form). In the Level~2 form the
@@ -51,7 +55,7 @@ but carries a ghost~\cite{Koyama2007} and is in tension with CMB, supernova and 
 \section{What the data say now}
 \begin{itemize}
 \item \emph{Planck SZ cluster counts.} With the primary-CMB cosmology, the counts need a mass bias $1-b=0.58\pm0.04$, against the baseline
-$1-b=0.80$ suggested by simulations~\cite{Planck2015SZ}. \observed The informational term lowers $\sigma_8$ by $1.5\,\%$ (Level~1 chains, $0.8139\to0.8014$) or $1.1\,\%$ (Level~2,
+$1-b=0.80$ suggested by simulations~\cite{Planck2015SZ}. \observed The informational term lowers $\sigma_8$ by $1.6\,\%$ (Level~1 chains, $0.8143\to0.8015$) or $1.1\,\%$ (Level~2,
 $0.8087\to0.7998$). That reduces the tension; it does not remove it. \calc
 \item \emph{Lensing calibrations of cluster masses.} The Canadian Cluster Comparison Project~\cite{Hoekstra2015} and Weighing the
 Giants~\cite{vonderLinden2014} calibrate Planck and X-ray masses against weak lensing. Each publishes its result in its own convention ($1-b$, or
@@ -64,6 +68,10 @@ take each ratio from its source table and match its redshift distribution; no su
 against spectroscopic velocity dispersions, the same profile model for both) follows Eq.~\eqref{eq:ld_ratio}: $1.105$ at $z=0.2$, $1.055$ at $0.5$,
 $1.018$ at $1$, $1.002$ at $2$. Euclid, Rubin and eROSITA provide the samples. A fit compares three shapes: a constant (hydrostatic bias), Eq.~\eqref{eq:ld_ratio}
 with no free parameter, and a two-parameter power law $1+A(1+z)^n$. The discriminant is the shape in redshift, not the existence of an offset.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_lensdyn_test.pdf}
+\caption[What the redshift-shape test needs]{Level~1 form. (a) The slope of $M_{\rm lens}/M_{\rm dyn}=1/\mu(z)$: $-0.31$ at $z=0$ and $-0.18$ at $z=0.3$, against a hydrostatic bias whose slope is zero or positive. (b) The significance with which five redshift bins (centres 0.2, 0.5, 0.8, 1.2 and 1.8, one mass method throughout, equal errors) separate the parameter-free curve from the best constant: $3\sigma$ needs an error of 2.7\,\% per bin on the ratio. \calc\ \prediction}\label{fig:lensdyn_test}
+\end{figure}
 \begin{itemize}
 \item Falsified (in this form) by a ratio flat in $z$, by one rising with $z$, or by a $z=0$ value away from 1.158 at more than $3\sigma$ in a clean
 sample.

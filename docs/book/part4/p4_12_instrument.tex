@@ -42,6 +42,17 @@ beads do not count toward the call rate. The bisulfite-conversion threshold is r
 arrays it was tried on, and it is printed as provisional. \openprob{} A quarantined
 specimen produces no reading; the run stops with exit status 2.
 
+\paragraph{How a fault hides.} Four defects found while wiring intake carry one lesson (\texttt{doors/\allowbreak{}PROC\_STAGE0\_02\_OUTCOME.md}).
+\measured{} A gate that cannot read its input never fires: the header reader opened IDAT files raw while public downloads are compressed,
+so the array-type check could not run on any public array, and it reported nothing. A value that fails to propagate looks like bad
+data: an identifier dropped between two steps made the next step quarantine every array of a 732-array set as carrying a cleartext
+identifier. A refusal that does not stop the run is reported as a different refusal downstream. And a failed decode, caught and passed
+on as six deferred checks, would have scored a truncated file with no quality control. A second record shows a deferred check acting as
+a pass: one laboratory's arrays carried 0.15--0.31 of three other laboratories' median signal on the methylation-independent control
+probes, with 12.5~\% of probes at background, and cleared intake because the call-rate check was deferred and the code advanced
+(\texttt{doors/\allowbreak{}FINDING\_GSE125105\_LOW\_SIGNAL.md}). \measured{} Both are why a deferred check now quarantines. The general rule
+is to test every check that has never reported a failure with an input known to be bad.
+
 \paragraph{Probes at background.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever the
 true methylation (PROC-INTAKE-01, diagnostic after bar B3). \measured{} Met-A identity sites sit at 0.75--0.95 or 0.05--0.25
 (Chapter~\ref{ch:identity}), where such a value raises $H(\beta)$ toward one bit. Stage~1 therefore removes every probe whose detection $p$
@@ -100,9 +111,28 @@ specimens were not tared in that run. Isolated neutrophils need the tare as well
 against the frozen reference with no tare, and the spread followed the arrays' noise, not purity
 (\texttt{PROC\_NEUT\_TEST\_01\_T2\_OUTCOME.md}). \measured
 
+Figure~\ref{fig:p4_tare} shows each specimen before and after the tare.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_12_tare.pdf}
+\caption{Same-batch tare in acceptance run 3. Left: six DNA mixtures from the reference laboratory, untared 0.943--0.968, tared 0.987--1.021. Right: five
+remission bloods from another laboratory, untared 1.073--1.115, tared 0.986--1.032. Normal shaded.
+Data: \texttt{chain\_tests/\allowbreak{}chain\_acceptance.csv}. \measured}
+\label{fig:p4_tare}
+\end{figure}
+
 In one laboratory's 76 healthy-control whole-blood arrays, untared $A$ tracks the noise index and the neutrophil fraction: a linear fit
 $A\approx0.60+0.205\,f_{\rm neu}+2.51\,N$ has $R^2=0.85$ (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \fitted{} The fit was made after looking at
 those data and the chain does not apply it.
+
+Figure~\ref{fig:p4_noisefit} shows the fit on the 76 healthy arrays.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.5\textwidth]{figures/part4/fig_p4_12_noisefit.pdf}
+\caption{Untared whole-blood Met-A of 76 healthy adults (GSE179325, neutrophils $\ge50$~\%) against the expectation
+$0.60+0.205\,f_{\rm neu}+2.51\,N$ fitted on them ($R^2=0.85$). Data: \texttt{doors/\allowbreak{}data/\allowbreak{}chain\_v3\_dev3\_readings.csv}. \fitted}
+\label{fig:p4_noisefit}
+\end{figure}
 
 \paragraph{A tare from the SNP probes.} Every array carries probes on common polymorphisms that read $\beta=0$, $\tfrac12$ or $1$ by genotype. A
 linear tare fitted to them was tested on 768 arrays from four laboratories and not commissioned: it moved the reading by a near-constant amount on
@@ -115,3 +145,8 @@ The planned tare is a slide tare: fully methylated and fully unmethylated contro
 against known inputs measured the same way. It is \openprob{} until a laboratory runs it. A second route, a nonlinear response model using the
 control probes as well as the SNP clusters, is not started. The intake call-rate line needs re-measuring on the gate's own detection statistic,
 the bisulfite-conversion line needs calibration, and a 450K reference needs freezing before 450K arrays can be read. \openprob
+
+Three further checks on the array's own numbers are not built: that the $\beta$ distribution shows its two peaks near 0 and near 1,
+as a converted array must; that no probe identifier appears twice in a $\beta$ vector, which only a corrupted file produces; and that
+few probes sit at exactly 0 or exactly 1, values a calibrated $\beta$ reaches only through a failed probe or a broken pipeline. Each
+needs its line measured on healthy arrays before it can gate. \openprob

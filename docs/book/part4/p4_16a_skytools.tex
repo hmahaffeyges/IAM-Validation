@@ -8,6 +8,11 @@ one person's cells. Cosmology met that problem first. It reads temperature diffe
 synchrotron emission from our own galaxy, with detectors whose gain changes by the hour, and it has no second universe to repeat the
 measurement on. The tools it built for that are the tools this chapter carries into the methylome. Some are algorithms; the more important ones
 are a discipline against fooling oneself.
+Cosmology was forced into this precision by its data: an accelerating expansion, and a microwave background that had to be measured to
+fractions of a per cent. In meeting that demand it built Markov-chain Monte Carlo for many-parameter models, convergence diagnostics that
+say when a result can be trusted~\cite{Gelman1992}, and a culture of stating a prediction before the data arrive. Biology was rarely forced
+to build the equivalent. We are not borrowing cosmology's vocabulary. We are borrowing its measuring equipment, which it spent decades
+building, and pointing it at the cell.
 
 \section{How the CMB is read}
 
@@ -15,6 +20,11 @@ A CMB experiment goes from raw detector samples to physics in fixed steps: calib
 remove the foregrounds by component separation, using that each emitter has its own spectrum; measure what is left against noise maps made from
 split halves of the data; and only then compute statistics (power spectra, higher-order shapes, isotropy tests), with every test fixed before
 the answer is seen. Figure~\ref{fig:cmbcell}a is that residual for one simulated Planck sky.
+The signal itself was first found as an excess in a noise budget: 3.3~K above the components of the Echo receiver in 1961, and 3.5~K in
+Penzias and Wilson's horn in 1965, identified that year as the radiation of the early universe~\cite{Ohm1961,PenziasWilson1965,Dicke1965,Wilson1979}.
+\observed{} It had been present and detectable the whole time; what was missing was a precise enough instrument and knowing what to look for.
+A cell's departure from its healthy reading is the same kind of signal: small, under a brighter foreground, and visible only to an
+instrument built to see it. \analogy
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part4/fig_sky_cmb_vs_neutrophil.pdf}
@@ -46,7 +56,7 @@ null tests on split data & held-out reference arrays, repeat specimens & develop
 
 \section{Putting the genome on a sphere}
 
-HEALPix divides the sphere into $12N_{\rm side}^2$ pixels of equal area, arranged on rings of constant latitude. The chain lays CpGs on it in
+HEALPix~\cite{Gorski2005} divides the sphere into $12N_{\rm side}^2$ pixels of equal area, arranged on rings of constant latitude. The chain lays CpGs on it in
 genome order, chromosome 1 to chromosome Y and by position within each, filling the pixels ring by ring from the north pole
 (Figure~\ref{fig:genomesphere}). On EPIC this places 865,873 CpGs on 49,152 pixels ($N_{\rm side}=64$), 17.6 per pixel; the atlas map uses
 $N_{\rm side}=128$ for its 483,092 CpGs, 2.5 per pixel. \calc
@@ -60,6 +70,13 @@ chromosome; its width is its number of EPIC CpGs.}\label{fig:genomesphere}
 The layout is a display choice, not physics. Neighbours along a ring are genomic neighbours; neighbours above and below are millions of bases
 apart. Everything quantitative in the chain therefore works along the genome itself, and the sphere is how a person sees it: a quiet sky, a
 streak along a ring (one genomic region), a band (one chromosome).
+
+\paragraph{Is the sphere needed?} For the measurement, no: the residual is a sequence along the genome, and every statistic in the chain
+is computed along it. For the toolkit it is convenient, because needlets, harmonic decompositions and masked-sky spectra are written for
+the sphere. For a person reading one specimen it is probably the wrong picture, since the sphere carries no chromosome coordinates. A
+per-chromosome linear track, the format of every genome browser, or a Hilbert-curve layout, a space-filling curve already used to show
+genomic data~\cite{Anders2009}, keeps neighbouring sites together and stays rectangular. The intended display is both, drawn from one
+residual so that the two cannot disagree. \openprob{} (not built)
 
 \section{Reading a cell's sky}
 
@@ -122,6 +139,10 @@ bases, because the probe chemistry and neighbouring CpGs share it, and is uncorr
 plateau of 0.05--0.08 from 1~kb out to about a megabase, the size of the damaged regions. \measured{} This is the spectrum the C-score
 condenses into one number, and it is the right null for any whole-array map: a healthy map is correlated at short range, so a structure has
 to be tested against a genome-shuffled healthy map, not against independent noise.
+On a whole-array sky of healthy whole blood laid on HEALPix in genome order, smoothing over the 32 nearest pixels left a spread of 0.171,
+against $0.131\pm0.001$ for the same values shuffled across the sphere: a factor of 1.31, at 57$\sigma$
+(\texttt{doors/\allowbreak{}PROC\_CEIL\_01\_OUTCOME.md}, Finding~3). \measured{} A Gaussian null would call that healthy baseline a finding
+every time.
 
 \paragraph{A test the C-score was built for.} Cancer and ageing erode methylation over whole genomic neighbourhoods, the late-replicating
 partially methylated domains~\cite{Berman2012,Zhou2018PMD}. If that
@@ -198,7 +219,7 @@ None of these tools belongs to methylation. Table~\ref{tab:elsewhere} lists wher
 fields already have, so the claim is the transfer, not the invention.
 
 \begin{center}\small
-\begin{longtable}{@{}p{0.2\textwidth}p{0.24\textwidth}p{0.26\textwidth}p{0.22\textwidth}@{}}
+\begin{longtable}{@{}p{0.195\textwidth}p{0.234\textwidth}p{0.254\textwidth}p{0.215\textwidth}@{}}
 \caption{CMB tools in other areas of genetics.}\label{tab:elsewhere}\\
 \toprule tool & field & what it buys & the field already has \\\midrule\endfirsthead
 \toprule tool & field & what it buys & the field already has \\\midrule\endhead
@@ -222,3 +243,20 @@ temperature-set floor & ectotherms: fish, amphibians, reptiles & a copy-error fl
 
 The last row is the one IAM adds rather than borrows: in an animal whose body temperature is the water's, the physics floor moves with
 temperature at fixed holding energy, so a reading must name the temperature at which the DNA was copied.
+
+\section{Whose tools these are}\label{sec:p4whosetools}
+
+Every tool in this chapter except the biology was built by the cosmology community over some thirty years: the HEALPix
+pixelisation~\cite{Gorski2005}, component separation and needlets, beam deconvolution, per-pixel noise models, simulation-based nulls,
+and the habit of scoring an anomaly against a null rather than against intuition. What is new here is the recognition that a
+methylome is the same kind of object and can be read with the same instruments.
+
+\paragraph{Precedence, as a bounded search.} We know of no earlier work that lays a methylome on a sphere and applies component-separation
+and sky statistics to it. The search behind that sentence was run on 2 October 2026 by
+\texttt{figscripts/\allowbreak{}p4carry\_precedence\_search.py}. In Europe PMC, \emph{spherical harmonic} with \emph{methylome},
+\emph{angular power spectrum} with \emph{methylation} or \emph{epigenome}, and \emph{needlet} with \emph{genome} or \emph{methylation}
+returned no records; \emph{HEALPix} with \emph{methylation} returned 2 and with \emph{genome} 4, all structural-biology papers by title.
+In arXiv, five query forms (HEALPix and methylation; power spectrum and methylome; cosmic microwave background and epigenome; needlet and
+biological; spherical harmonics and DNA methylation) returned none. \observed{} A bounded search is not a proof of absence. The HEALPix
+hits make a point of their own: the pixelisation is already in biology's toolbox, as an orientation-sampling grid in cryo-electron
+microscopy~\cite{Scheres2012}. Its use here is a different one.

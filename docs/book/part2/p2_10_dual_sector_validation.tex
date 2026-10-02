@@ -1,4 +1,4 @@
-% Part 2 chapter carrying "Dual-Sector Expansion: Type Ia Supernovae ..." (Mahaffey, 23 Feb 2026), read in full 2026-10-02 (re-confirmed in 50-line chunks, ledger 1-1239, no gaps), in the paper's order.
+% Part 2 chapter carrying "Dual-Sector Expansion: Type Ia Supernovae ..." (23 Feb 2026), read in full 2026-10-02 (re-confirmed in 50-line chunks, ledger 1-1239, no gaps), in the paper's order.
 % Checks and reproduction: docs/verification/chains/DUAL_SECTOR_VALIDATION_CHECK.md, docs/verification/scripts/verify_dual_sector_validation.py.
 % Conclusions stated directly: two results (LCDM supernova geometry; beta on supernova distances excluded).
 
@@ -20,7 +20,7 @@ H_m^2(a)=H_0^2\left[\Omega_ma^{-3}+\Omega_\Lambda+\beta E(a)\right],\qquad E(a)=
 \end{equation}
 while the background Friedmann equation, which sets photon paths, is $\Lambda$CDM. Two predictions for supernovae follow:
 \begin{enumerate}
-\item \emph{Normalisation.} The local calibration (Cepheids~\cite{Riess2022}, TRGB~\cite{Freedman2021}) reads the matter-sector rate, $H_0\approx73$.
+\item \emph{Normalisation.} The local calibration reads the matter-sector rate, $72.26$ \prediction. The Cepheid ladder gives $73.04\pm1.04$~\cite{Riess2022}, $0.75\sigma$ above it; the tip of the red giant branch gives $70.39\pm1.94$~\cite{Freedman2025}, $0.97\sigma$ below it \observed.
 \item \emph{Geometry.} The shape of $d_L(z)$ follows $\Lambda$CDM ($\beta_{\rm distance}\approx0$), because the coupling acts on growth, not on the background.
 \end{enumerate}
 Mapped to the $\mu$--$\Sigma$ parameterisation, $\mu(a)=H^2_{\Lambda\rm CDM}/(H^2_{\Lambda\rm CDM}+\beta_mE(a)H_0^2)$ and $\Sigma=1$: $\mu=0.864$ today, $0.982$ at $z=1$,
@@ -37,6 +37,10 @@ statistical-plus-systematic covariance.
 $H_0=67.4$, $70$ and $73.04$ alike, with $M-5\log_{10}H_0=-28.935$ each time. The $H_0$ in Tests A and B is the prior, absorbed by $M$; Test C's drift to the edge
 of the $H_0$ range is the same flat direction. Tests A and B reach the same best fit ($\Omega_m=0.205$, $\beta=-0.30$, $\chi^2=721.12$). The supernova magnitudes alone therefore cannot choose between $67.4$ and $73.04$.
 $H_0=73.04$ is set by the Cepheid calibration of $M$, which is the measurement the dual-sector picture assigns to the matter sector.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_sn_h0_flat.pdf}
+\caption[Pantheon+: the Hubble-flow shape and the flat $H_0$ direction]{Pantheon+SH0ES~\cite{Brout2022,Scolnic2022}. (a) Hubble-flow residuals ($z_{\rm HD}>0.01$, 1590 supernovae) from $\Lambda$CDM at $\Omega_m=0.315$, the offset $M$ fitted with the full statistical and systematic covariance; points are inverse-variance means of the diagonal errors in bins of $\log z$. Solid: $\beta_m=0.15765$ put into the distances ($\Delta\chi^2=+23.6$); dash-dotted: the best $\beta=-0.035$; each curve carries its own fitted offset. (b) Minimum $\chi^2$ at fixed $H_0$ with $M$, $\Omega_m$ and $\beta$ free (diagonal errors, $0.01<z_{\rm CMB}<2.5$, 1588 supernovae): flat at 721.12, with $M-5\log_{10}H_0=-28.935$ at every $H_0$. The magnitudes alone do not choose between 67.4 and 73.04. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed\ \calc}\label{fig:sn_h0_flat}
+\end{figure}
 With $M$ free, the supernova fits can neither reject the photon-sector expansion rate nor confirm the matter-sector $H_0$; the evidence for
 Prediction~1 is the SH0ES calibration itself. \observed
 

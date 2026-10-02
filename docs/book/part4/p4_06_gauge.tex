@@ -86,6 +86,17 @@ SV40-immortalised & 1.078--1.120 & 0.587--0.664 & 0.965--0.975 \\\bottomrule
 Senescent cells keep the methylated channel at the healthy rate and clean the unmethylated channel: fewer errors there, so the combined
 reading sits below Normal. Immortalised cells do both at once, more error on the methylated channel and less on the unmethylated one, and the
 two cancel: the combined reading, 0.965--0.975, sits inside Normal. A single number over both channels would call these cells healthy.
+
+Figure~\ref{fig:p4_imr90} places every culture on the plane of the two channels.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_06_imr90_channels.pdf}
+\caption{IMR90 fibroblasts on the two channels (WGBS, GSE48580~\cite{Cruickshanks2013}), each culture read against the proliferating cultures, sites
+and reference taken from different proliferating cultures. Shaded: Normal on each channel. Senescent cultures read 0.685--0.695 on the
+unmethylated channel; SV40-immortalised cultures read 1.077--1.120 on the methylated channel and 0.965--0.975 on both together.
+Data: \texttt{doors/\allowbreak{}PROC\_LINES\_02\_channels/\allowbreak{}imr90\_channels.csv}. \measured}
+\label{fig:p4_imr90}
+\end{figure}
 Channels are reported apart. Not yet checked: whether a difference in bisulfite conversion between the cultures contributes to the
 unmethylated channel, where conversion failure reads as methylation (Chapter~\ref{ch:iama}). \openprob
 

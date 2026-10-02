@@ -24,10 +24,21 @@ and an elevated reading is not the same event as a severely suppressed one.
 All three are \conjecture. The first neutrophil readings agree with the third: in one study's whole bloods, severe infection did not move tared neutrophil Met-A
 (Chapter~\ref{ch:firstreadings}). \measured
 
+Figure~\ref{fig:p4_fraction} shows the reading before and after fraction and noise are removed, on every array of that study.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_22_fraction.pdf}
+\caption{Whole-blood neutrophil Met-A on 495 arrays of one infection study (GSE179325, neutrophils $\ge50$~\%). (a) Untared: rises with the
+neutrophil fraction (Spearman $\rho=0.32$). (b) Divided by the expectation for its own fraction and noise index (healthy arrays left out of their
+own fit): $\rho=-0.02$. Normal shaded. Data: \texttt{doors/\allowbreak{}data/\allowbreak{}chain\_v3\_dev3\_readings.csv}. \fitted{} correction;
+\measured{} readings.}
+\label{fig:p4_fraction}
+\end{figure}
+
 \section{Four mechanisms, four tests}
 
 \begin{center}\small
-\begin{longtable}{@{}p{0.2\textwidth}p{0.13\textwidth}p{0.27\textwidth}p{0.32\textwidth}@{}}
+\begin{longtable}{@{}p{0.195\textwidth}p{0.127\textwidth}p{0.264\textwidth}p{0.313\textwidth}@{}}
 \toprule mechanism & end & which cells & test, and where it stands \\\midrule\endhead
 the leukocyte is the tumour: leukaemias, lymphoma, myeloma; clonal haematopoiesis as the pre-malignant form & above & the affected lineage; the others near 1.00 & the affected lineage read against its own healthy floor. Not yet possible: on the neutrophil sites leukaemic blood stayed Normal in 6 of 10 (PROC-AML-SERIAL-01), and progenitor floors on EPIC are not built \\
 ageing & above & slowly, per person, over years & serial readings of one person; serial mode is not yet built (Chapter~\ref{ch:serial}) \\
@@ -58,6 +69,16 @@ A score pooled over many sites and many cells, computed as a case group minus a 
 both ways. Two things produce that. Pooling: some sites drift up and others down, and one lineage moves one way while another moves the other, netted by a composition that itself
 moves with disease and age. And the comparison: a control group sitting above or below 1.00 flips the sign of a departure. Neither enters chain v3. One cell is read on its own
 identity sites, against its own healthy reference, and the methylated and unmethylated channels can be reported apart (Chapter~\ref{ch:gauge}).
+
+Figure~\ref{fig:p4_dnmt_channels} shows the two channels apart under a known block of copying.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_22_dnmt_channels.pdf}
+\caption{The two channels under DNMT1 inhibition (51 EPIC arrays, three lines, each against its own vehicle; GSE135205~\cite{Pappalardi2021}). The
+active compounds move the methylated channel; the unmethylated channel stays near 1. Colour: dose of GSK3685032.
+Data: \texttt{doors/\allowbreak{}data/\allowbreak{}dnmt\_arrays\_readings.csv}. \measured}
+\label{fig:p4_dnmt_channels}
+\end{figure}
 
 \section{A count, not a score}
 

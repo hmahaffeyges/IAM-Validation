@@ -43,23 +43,26 @@ platform & gate, statistic & $p_{2Q}$ & $\varepsilon$ & source \\\midrule
 trapped-ion prototype (Oxford Ionics) & ion, electronic; estimated error & $8.4\times10^{-5}$ & $8.40\times10^{-5}$ & \cite{Hughes2025} \\
 Quantinuum Helios (98 qubits) & ion, laser (Ba$^+$); average over zones & $7.9\times10^{-4}$ & $7.90\times10^{-4}$ & \cite{Ransford2025} \\
 Quantinuum H2 (56 qubits) & ion, laser (Yb$^+$); average & $1.57\times10^{-3}$ & $1.57\times10^{-3}$ & \cite{DeCross2025} \\
-Google Willow (105 qubits) & SC, CZ; RB average error, mean over simultaneous operation & $3.3\times10^{-3}$ & $3.31\times10^{-3}$ & \cite{GoogleWillowSpec2024} \\
 IonQ Forte (30 qubits) & ion, laser (Yb$^+$); median, direct RB & $4.64\times10^{-3}$ & $4.65\times10^{-3}$ & \cite{Chen2024Forte} \\\bottomrule
 \end{tabularx}
 \end{table}
 \noindent For Willow, the error-correction paper~\cite{GoogleWillow2025} shows the CZ error of the 105-qubit processor only as a distribution
-(its Fig.~1b); the number in the table is the mean of that chip from Google's data sheet, $(0.33\pm0.18)\,\%$. The paper's error budget for its
-72-qubit companion processor lists a CZ Pauli error of $2.8\times10^{-3}$, excluding CZ crosstalk ($5.5\times10^{-4}$) and leakage
-($2.0\times10^{-4}$) (Supplementary Table~S4 of Ref.~\cite{GoogleWillow2025}) \observed. The two are different statistics (average error and
-Pauli error) on different chips and are not combined.
+(its Fig.~1b), so no single value for that chip enters the table. The paper's error budget for its 72-qubit companion processor lists a CZ
+Pauli error of $2.8\times10^{-3}$, excluding CZ crosstalk ($5.5\times10^{-4}$) and leakage ($2.0\times10^{-4}$) (Supplementary Table~S4 of
+Ref.~\cite{GoogleWillow2025}) \observed. A Pauli error is a different statistic from the average errors in the table, so it is not entered
+there.
+
+The ion gates in Table~\ref{tab:platforms} act through the ions' shared motion. The electronic gate applies a
+spin-dependent force to the motional modes and works without ground-state cooling~\cite{Hughes2025}. The motional
+modes are heated by electric-field noise from the trap electrodes, which grows steeply as the ion approaches the
+surface~\cite{Brownnutt2015}; that heating, together with control noise, limits the error of both gate classes.
 
 \section{Floors}
 
 For each platform the qubit gauge assigns a \emph{material floor} $\varepsilon_{\mathrm{floor}}$, the error
 below which the dominant physical mechanism of that platform does not permit a gate to go, and
 $\varepsilon/\varepsilon_{\mathrm{floor}}$ says how far a device sits above its floor. On the gauge the
-device as built reads $A=1$ and its floor sits below it at $\varepsilon_{\mathrm{floor}}/\varepsilon$: for Helios, $10^{-4}/7.9\times10^{-4}=0.13$;
-for Willow, $10^{-3}/3.3\times10^{-3}=0.30$ \calc. The floors are:
+device as built reads $A=1$ and its floor sits below it at $\varepsilon_{\mathrm{floor}}/\varepsilon$: for Helios, $10^{-4}/7.9\times10^{-4}=0.13$ \calc. The floors are:
 Yb$^+$ laser gates $3\times10^{-4}$; Ba$^+$ laser gates $1\times10^{-4}$; electronically driven ion gates
 $3\times10^{-5}$; Al-based transmons $\sim1\times10^{-3}$ with an engineered participation ratio and $\sim3\times10^{-3}$ without;
 Ta-based transmons $\sim3\times10^{-4}$; neutral-atom Rydberg gates $5\times10^{-3}$; photonic $\sim0.05$.
@@ -67,9 +70,13 @@ Each floor is assigned per mechanism from oxide stoichiometry and defect physics
 assignment is not yet a derivation, so the floors are \calibrated.
 
 \section{The threshold picture}
+Figure~\ref{fig:qubit_gauge} places the two devices with a primary published error on their own gauge: the device as built at 1, its floor to the left, the threshold to the right.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part3/fig_qubit_gauge.pdf}
+\caption{(a) The qubit gauge for the two devices whose two-qubit error is stated in a primary publication and whose material class has a stated floor: Oxford Ionics' electronically controlled $^{40}$Ca$^+$ gates, error $8.4(7)\times10^{-5}$ by subspace leakage-error randomized benchmarking~\cite{Hughes2025}, and Quantinuum Helios ($^{137}$Ba$^+$), average two-qubit infidelity $7.9(2)\times10^{-4}$ over all operational zones~\cite{Ransford2025} \observed. Each device as built reads $A=1$ (circle); its material floor sits to the left at $\varepsilon_{\rm floor}/\varepsilon$ (diamond: 0.36 and 0.13) \calibrated, and the surface-code threshold to the right at $10^{-2}/\varepsilon$ (bar). (b) $(\varepsilon-p)/p$ from Eq.~\eqref{eq:Agate}: below 0.5\,\% for $p<10^{-2}$; circles, the two devices. \derived}\label{fig:qubit_gauge}
+\end{figure}
 
 Surface-code error correction needs physical error below about $10^{-2}$, and useful
 fault-tolerant overhead needs about $10^{-3}$ or better~\cite{Fowler2012,GoogleWillow2025}.
 The qubit gauge places each device on one axis with three marks: its material floor, the fault-tolerance target and the error-correction threshold.
-Helios reads $A=1$ with its floor at $0.13$ and the threshold at $10^{-2}/7.9\times10^{-4}=12.7$; Willow reads $A=1$ with its floor at $0.30$ and the
-threshold at $3.0$ \calc. The gauge keeps the physical content, the gate error relative to its floor and to the threshold, and nothing else.
+Helios reads $A=1$ with its floor at $0.13$ and the threshold at $10^{-2}/7.9\times10^{-4}=12.7$ \calc. The gauge keeps the physical content, the gate error relative to its floor and to the threshold, and nothing else.

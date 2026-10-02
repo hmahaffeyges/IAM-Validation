@@ -1,4 +1,4 @@
-% Part 2 chapter carrying "On the Dual-Sector Structure of IAM" (Mahaffey, March 2026, informal note), read in full 2026-10-02 (all 573 lines), in its order.
+% Part 2 chapter carrying "On the Dual-Sector Structure of IAM" (March 2026, informal note), read in full 2026-10-02 (all 573 lines), in its order.
 % Checks: docs/verification/chains/DUAL_SECTOR_NOTE_CHECK.md. Figures 1-2 of the note are pre-chain and not carried; chain values are used.
 \chapter{Why matter and light are in different sectors}\label{ch:dsnote}
 
@@ -58,6 +58,10 @@ What is specific to IAM is the sign and form of $\mu(a)$ with its amplitude fixe
 \end{itemize}
 Whether the DESI preference for evolving dark energy~\cite{DESI2025} arises from fitting one fluid to $\Lambda$CDM distances together with slower growth is a test still to be done
 on real data with two rulers (Chapter~\ref{ch:sectortension}).
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_beta_gamma.pdf}
+\caption[The photon coupling tested on the CMB acoustic scale]{The photon coupling tested on the CMB acoustic scale. (a) $\Delta\chi^2$ of $\theta_s$ against a photon coupling $\beta_\gamma\ge0$ in $H_\gamma^2=H_0^2[\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda+\beta_\gamma E(a)]$, sound horizon fixed at 144.43\,Mpc, $\theta_s=0.0104110\pm0.0000031$~\cite{Planck2018VI}: $\beta_\gamma<0.0039$ at 95\,\%, so $\beta_\gamma/\beta_m<0.025$. (b) The full matter coupling $\beta_m=\Omega_m/2$ applied to photon paths moves $\theta_s$ by $+0.90\,\%$, $30\sigma$ at Planck precision (band: $\pm2\sigma$). Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_beta\_gamma.py}. \calc}\label{fig:beta_gamma}
+\end{figure}
 
 \section{What would count against the dual-sector structure}
 
@@ -72,3 +76,14 @@ on real data with two rulers (Chapter~\ref{ch:sectortension}).
 \item Scale-dependent $\mu$ or $\Sigma$: in IAM both depend on redshift only.
 \end{itemize}
 Euclid, DESI Year~5 and CMB-S4 test each of these.
+\begin{table}[htbp]\centering\small
+\caption[What would count against the dual-sector structure]{What would count against the dual-sector structure. Present values are from the chains and the acoustic-scale fit of this chapter; the Euclid range is the one its published forecasts give for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}).}\label{tab:dsnote_falsifiers}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\linewidth}l}\toprule
+Statement & Value & Would count against it & Test & Label\\\midrule
+Light is not coupled (lensing) & $\Sigma=1$ at every $z$ & $\Sigma\neq1$ detected & Euclid tomography & \prediction\\
+Light is not coupled (acoustic scale) & $\beta_\gamma=0$; now $\beta_\gamma<0.0039$ (95\,\%) & $\beta_\gamma>0$ detected & CMB-S4 & \calc\\
+Virial amplitude & $\beta_m/\Omega_m=1/2$ & $\Omega_m$ revised while growth still needs the old $\beta_m$ & DESI Year~5, Euclid & \prediction\\
+Growth coupling today & $\mu_0=-0.136$ & $\mu_0$ consistent with 0 and excluding $-0.136$ & Euclid: about $0.3\sigma$ to $7\sigma$ by its published forecasts & \prediction\\
+Redshift dependence only & $\mu(a)$, $\Sigma(a)$ & scale-dependent $\mu$ or $\Sigma$ & Euclid, DESI & \prediction\\\bottomrule
+\end{tabularx}
+\end{table}

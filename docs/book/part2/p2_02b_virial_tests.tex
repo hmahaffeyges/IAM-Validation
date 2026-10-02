@@ -1,0 +1,154 @@
+% Part 2 opening chapter (2 of 2): the tests of the virial coupling.
+% Carried line by line from: The Virial Partition Across Wide Range of Physical Scales (25 Feb 2026; sections 4.4-4.6, 6.1-6.3, 7, 8, Tables 5-7, 9);
+% Dark Matter and Dark Energy as Virial Partners (Mar 2026; sections 4.3, 4.4 Table 2, 7); Gravitational Decoherence and the Virial Partition
+% (Mar 2026; section 5.3); Virial Efficiency and Effective Nonlinear Exponent (25 Feb 2026; section 7, Table 4).
+% Corrections applied: errata V7, V8, V10, V16, V22, V24, V25, V26, V28, T13; VIRIAL_CHECK.md items 7, 8, 10, 16, 20, 22, 23, 26; ledger notes 10(f), 11(f), 11(h).
+% Euclid stated only as in Chapter ch:latetime, Section sec:lt_euclid. Numbers: docs/verification/scripts/verify_virial_papers.py (sections G-J).
+
+\chapter{Tests of the virial coupling}\label{ch:virial_tests}
+
+\section*{Overview}
+The coupling $\beta_m=\Omega_m/2$ predicts, with no free amplitude, $\mu_0=-0.136$ with $\Sigma_0=0$, a curved ramp in $f\sigma_8(z)$, a raised $E_G$,
+two expansion rates ($H_0^{(\gamma)}=67.16$, $H_0^{(m)}=72.26$), and a growth-only $\Omega_m$ below the geometric one (Chapter~\ref{ch:virial}). These
+predictions are on record before the measurements that will decide them. This chapter sets out what is measured now, what the next surveys measure, and what
+would count against the coupling.
+
+\section{The present record}\label{sec:vt_record}
+Table~\ref{tab:vt_status} summarises the current observational status of the cosmological virial partition. All predictions are derived from the single
+coupling $\beta_m=\Omega_m/2$ with no additional free parameters.
+
+\begin{table}[htbp]\centering\small
+\caption{Observational status of the cosmological virial partition. IAM values from the Level~2 chain and Eq.~\eqref{part2:eq:mu_virial} \calc; observed
+values \observed.}\label{tab:vt_status}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}X}
+\hline
+Observable & IAM prediction & Observed & Status\\\hline
+$\sigma_8$ & $0.7998\pm0.0058$ & $0.802^{+0.022}_{-0.018}$ (KiDS-Legacy + DES Y3 + DESI + Pantheon+~\cite{Stolzner2025}) & $0.12\sigma$\\
+$S_8$ & $0.822\pm0.011$ & $0.815^{+0.016}_{-0.021}$ (KiDS-Legacy~\cite{Wright2025}) & $0.33\sigma$; does not separate the models\\
+$H_0$ (matter sector) & $72.26$ & $73.04\pm1.04$ (SH0ES~\cite{Riess2022}) & $0.75\sigma$\\
+$H_0$ (photon sector) & $67.16\pm0.47$ & $67.36\pm0.54$ (Planck~\cite{Planck2018VI}) & $0.37\sigma$\\
+$\Omega_m^{\rm growth}$ & $0.299$ at $z=0.5$ & no growth-only measurement yet & open\\
+$f\sigma_8(z)$, six DESI DR1 bins & ramp, $-2.2$ to $-0.1\,\%$ & errors $8$--$13\,\%$ per bin~\cite{DESI2024V} & consistent; not yet separating\\
+$\mu_0$ & $-0.136$, $\Sigma_0=0$ & $0.11^{+0.45}_{-0.54}$ (DESI FS+BAO+BBN~\cite{DESI2024VII}) and others & inside every interval (Chapter~\ref{ch:latetime})\\\hline
+\end{tabularx}
+\end{table}
+
+\paragraph{Growth-rate data.} Both models are statistically consistent with the current redshift-space-distortion data; the IAM growth rate is within the
+measurement uncertainties at all published redshifts. On the six DESI DR1 full-shape bins $\chi^2$ is $4.51$ ($\Lambda$CDM) and $5.24$ (IAM, MGCAMB form), and
+on SDSS DR16 $6.19$ and $6.95$ (Chapter~\ref{ch:sectortension}). \calc\ Current precision is insufficient to distinguish the models on growth alone.
+
+\paragraph{Sector census.} A census of published cosmological measurements classified by which sector they probe sorts them by the worldline rule
+(Section~\ref{sec:vc_h0}). The matter ruler carries $f\sigma_8$ and redshift-space distortions, cluster masses and counts, peculiar velocities, Cepheids,
+megamasers and the supernova ladder they calibrate; the photon ruler carries the CMB temperature and polarisation spectra, CMB lensing, Shapiro delay, VLBI,
+the coherence of gravitational-wave signals, BAO angles and lensing time delays. The four independently named tensions in the literature --- the $S_8$
+tension, the $H_0$ tension, the cluster hydrostatic mass bias, and the Planck cluster count deficit --- are all matter-sector anomalies consistent with a
+single suppressed matter-sector coupling $\mu<1$ with the photon sector unmodified. \interp\ The probe-by-probe count by this rule is still to be made; the
+lensing time delays, on the photon ruler, are the one photon-sector measurement that lies on the matter-sector value (Table~\ref{tab:vc_h0}). \openprob
+
+\paragraph{The $\chi^2$ budget.} Across the $H_0$ probes the difference between IAM and a single-$H_0$ $\Lambda$CDM is the consequence of the sector
+assignment (Section~\ref{sec:vc_h0}); across the growth data the two models are equal within the errors. A combined $\chi^2$ over domains therefore
+measures the sector assignment, not the coupling, and is not used as evidence here.
+
+\section{The $E_G$ statistic}\label{sec:vt_eg}
+The $E_G$ statistic (Zhang et al.\ 2007~\cite{Zhang2007EG}; Reyes et al.\ 2010~\cite{Reyes2010}) is defined observationally as
+\begin{equation}
+E_G(z)\equiv\frac{\Upsilon_{gm}(k,z)}{\beta(z)\,\Upsilon_{gg}(k,z)},\label{eq:vt_eg}
+\end{equation}
+where $\Upsilon_{gm}$ is the galaxy--matter cross-power spectrum (from galaxy--galaxy lensing), $\Upsilon_{gg}$ the galaxy auto-power spectrum, and $\beta=f/b$
+the redshift-space distortion parameter. For general relativity, $E_G=\Omega_m/f(z)$. For IAM --- which modifies only the growth rate, not the lensing
+kernel --- the prediction is
+\begin{equation}
+E_G^{\rm IAM}(z)=\frac{\Omega_m}{f_{\rm IAM}(z)},\label{eq:vt_egiam}
+\end{equation}
+where $f_{\rm IAM}(z)$ is the growth rate from the IAM-modified perturbation equations. \derived\ This is the standard modified-gravity formula
+$E_G=\Omega_m\Sigma/f$ with $\Sigma=1$: IAM's lensing kernel is unmodified, so the change enters only through the reduced $f_{\rm IAM}$. Since IAM
+suppresses $f$ relative to general relativity, $E_G^{\rm IAM}(z)>E_G^{\rm GR}(z)$ at all redshifts: by $+3.6\,\%$ today, $+1.8\,\%$ at $z=0.3$ and $+1.1\,\%$ at
+$z=0.5$ (Figure~\ref{fig:growth_vs_geometry}b). \prediction\ Published measurements (Reyes et al.\ 2010~\cite{Reyes2010}; Alam et al.\ 2017~\cite{Alam2017};
+Singh et al.\ 2019~\cite{Singh2019}) carry errors of order 10\,\% or more, larger than the shift. A dedicated numerical comparison using
+Eq.~\eqref{eq:vt_egiam} with the IAM growth curves is a priority near-term analysis; all required data are already published. \openprob
+
+\section{The three-way cluster test}\label{sec:vt_cluster}
+Define the cluster multi-observable ratios
+\begin{equation}
+R_1=Y_{\rm SZ}/M_{\rm lens},\qquad R_2=L_X/Y_{\rm SZ},\qquad R_3=L_X/M_{\rm lens}.\label{eq:vt_R}
+\end{equation}
+$Y_{\rm SZ}$ (thermal SZ pressure) and $L_X$ (X-ray hydrostatic equilibrium) probe the matter sector; $M_{\rm lens}$ (weak lensing) probes the photon sector. In
+the Level~1 form, where $\mu$ multiplies the gravitational source, IAM predicts that $R_1$ and $R_3$ are suppressed by $\mu(z_{\rm cluster})$ relative to
+$\Lambda$CDM, while $R_2$ is unaffected because it is the ratio of two matter-sector quantities (the $\mu$ factor cancels exactly). This pattern ---
+suppression in matter-to-photon ratios, no suppression in matter-to-matter ratios --- is the signature of the dual-sector structure in that form.
+\prediction\ In the Level~2 form, where the term enters the friction on perturbations and the Poisson equation is unmodified, the hydrostatic and lensing
+masses of a relaxed cluster agree and the ratios are not suppressed; the test therefore separates the two implementations as well as the models
+(Chapter~\ref{ch:threeway}). The eROSITA, Planck SZ, and DES weak lensing public catalogues already overlap sufficiently for this test; it requires no new
+observations. \openprob
+
+\section{Euclid}\label{sec:vt_euclid}
+Euclid measures both sectors simultaneously from the same sky volume: the VIS camera (weak lensing, the photon sector) and the NISP spectrograph
+(redshift-space distortions, the matter sector)~\cite{Euclid2025}. The predicted signature is $\mu/\Sigma=0.864/1.000$ today --- a 14\,\% matter-to-photon
+discrepancy measured over 1.5 billion galaxies across 15,000\,deg$^2$. \prediction\ Among currently viable modified-gravity models this combination is
+unusual: $f(R)$ gives $\mu>1$ with $\Sigma=1$, and the self-accelerating DGP branch, which gives $\mu<1$ with $\Sigma=1$, carries a ghost
+(Chapter~\ref{ch:latetime}).
+
+What Euclid can resolve depends on the scales it models and on the shape of $\mu(z)$, and is set out in Section~\ref{sec:lt_euclid}: Euclid's forecasts are
+made for a template whose deviation lasts to higher redshift than IAM's, and for the IAM $\mu(z)$ the sensitivity runs from about $0.3\sigma$ with
+conservative scale cuts to about $7\sigma$ with all probes taken to the smallest validated scales. A forecast made with the IAM $\mu(z)$ itself is the first
+calculation still to be done. \openprob\ The clustering and weak-lensing products of the first data release are expected in mid-2027~\cite{ESA2026DR1}.
+
+\section{DESI Year 5 and the shape of the ramp}\label{sec:vt_desi}
+DESI Year 5 forecasts $f\sigma_8$ to about $1\,\%$ per $\Delta z=0.1$ bin at $0.8<z<1.3$ and $0.4$--$0.7\,\%$ aggregated over all redshifts~\cite{DESI2016}.
+IAM predicts a specific curved suppression ramp, Eq.~\eqref{eq:vc_fs8}: $4.25\,\%$ at $z=0$, $2.19\,\%$ at $z=0.295$, $1.35\,\%$ at $z=0.5$, $0.41\,\%$ at $z=1$,
+decreasing to $0.13\,\%$ at $z=1.491$ (linear growth, Planck 2018 background, same early amplitude), following the functional form of $E(a)=\exp(1-1/a)$.
+\prediction\ This curved ramp is distinguishable at full DESI and Euclid precision from a constant rescaling, and the shape of the ramp is the activation
+history of the kinetic half measured directly.
+
+\section{The DESI phantom crossing}\label{sec:vt_phantom}
+DESI DR2 BAO measurements, combined with the CMB and supernovae, prefer a dark-energy equation of state with $w_0>-1$ and $w_a<0$, with a phantom crossing at
+$z_{\rm cross}\approx0.35$--$0.5$ depending on the supernova compilation~\cite{DESI2025}. \observed\ The preference comes from distances alone --- BAO,
+supernova and CMB --- with no growth data in the fit, so it cannot come from fitting suppressed growth. Under IAM, a single-fluid $w_0w_a$CDM fitter applied to
+data that sit on two rulers --- photon-sector BAO and CMB distances, and supernovae calibrated on the matter ruler --- can infer $w_{\rm eff}(z)\neq-1$ to
+reconcile them. Whether the apparent phantom crossing is an artefact of applying a single-sector fitter to a two-sector universe is the two-ruler test of
+Chapter~\ref{ch:sectortension}. \openprob
+
+\paragraph{The LRG1 bin.} The DESI DR1 LRG1 bin at $z=0.51$ is the known outlier of the first release: its BAO distances drive much of the evolving
+dark-energy preference, and independent analyses find that removing LRG1 brings the fits back toward $\Lambda$CDM concordance (Liu, Wang \& Zhao
+2024~\cite{Liu2024LRG}; \'O Colg\'ain et al.\ 2025~\cite{Colgain2025}). \observed\ IAM changes growth, not distances, and its growth-only $\Omega_m$ at
+$z=0.51$ is only 5.2\,\% below the geometric value; if LRG1 is confirmed by DR2 and Year~5 data at an anomalous value well beyond that, it would require an
+additional explanation beyond the virial partition mechanism. \openprob
+
+\section{Falsification criteria}\label{sec:vt_falsify}
+IAM is falsified by any of the following outcomes:
+\begin{enumerate}
+\item Euclid measures $\mu_0=0$ at a precision that excludes the IAM $\mu(z)$, while the cosmological tensions disappear, indicating the tensions were
+systematic rather than physical.
+\item Euclid measures $\mu\neq1$ \emph{and} $\Sigma\neq1$ with correlated modifications, inconsistent with the specific $\mu<1$, $\Sigma=1$ dual-sector
+structure.
+\item Laboratory experiments detect gravitational decoherence of photons, directly contradicting $\Sigma=1$.
+\item DESI Year 5 or Euclid $f\sigma_8(z)$ shows a constant (redshift-independent) suppression, rather than the curved ramp prescribed by
+$E(a)=\exp(1-1/a)$. A constant rescaling fits many modified-gravity models; the specific functional form of $E(a)$ is the IAM prediction.
+\item With $\Omega_m$ revised, growth data that still require the old $\beta_m$.
+\item In the Level~1 form, the three-way cluster test finds $R_2=L_X/Y_{\rm SZ}$ suppressed, meaning the two matter-sector quantities do not cancel.
+\end{enumerate}
+\paragraph{What does not falsify IAM.} Individual numbers being off by modest amounts. A collapsed fraction or a virial efficiency assigned to a chosen halo
+population is a description of that population; the product the theorem requires, $f_{\rm coll}\eta_{\rm vir}=1/2$, is not adjustable. The span of the
+virial $1/2$ across 37 decades in scale cannot accidentally reverse.
+
+\paragraph{The virial-partition reading.} The interpretation of the two halves inherits all of these criteria and adds the growth--geometry split of
+Section~\ref{sec:vc_omega}. If Euclid measures $\mu_0$ consistent with zero at a precision that excludes the IAM $\mu(z)$, IAM is falsified and the
+virial-partition interpretation does not apply at cosmological scales. If Euclid measures $\mu_0\approx-0.136$ with $\Sigma_0\approx0$, the combination
+$\mu<1$, $\Sigma=1$ would constitute a detection of the sector split and strong evidence for the virial partition. \interp
+\begin{itemize}
+\item If $\mu_0\approx-0.136$ and $\Sigma_0\approx0$: virial partition confirmed at cosmological scales.
+\item If $\mu_0\approx0$: IAM falsified; dark matter and dark energy are separate phenomena requiring independent explanations.
+\item If the curved $f\sigma_8(z)$ ramp is confirmed: the kinetic half activation history is directly measured.
+\end{itemize}
+
+\section{Conclusions}\label{sec:vt_conclusions}
+The virial theorem, verified for $1/r$ potentials from the hydrogen atom to the cosmic horizon across a wide range of physical scales, provides the
+derivation chain for IAM's coupling constant: $\beta_m=\Omega_m/2$. This is a mathematical theorem, not a fit, not a numerological coincidence, and not a free
+parameter. The physical interpretation --- that the virial $1/2$ partition divides gravitational energy between geometric entropy (spacetime curvature) and
+informational entropy (gravitational decoherence) --- propagates from the quantum scale (Landauer's principle, $k_BT\ln2$ per bit) to the cosmic scale
+($\mu_0=-0.136$ suppressing matter growth while leaving photons unmodified). \interp
+
+Three observational comparisons stand. $\sigma_8=0.800$ agrees with the 2025 joint measurement at $0.1\sigma$. The $H_0$ sector split places the Cepheid
+and CMB endpoints within $1\sigma$ of their sector-specific predictions, with the lensing time delays the open item. The growth data are consistent with
+the coupling at their present precision. IAM's predictions --- $\mu_0=-0.136$, $\Sigma_0=0$, $\sigma_8=0.800$, $H_0^{(\gamma)}=67.16$,
+$H_0^{(m)}=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$ --- are on record before the Euclid and DESI Year 5 releases that will decide them. \prediction

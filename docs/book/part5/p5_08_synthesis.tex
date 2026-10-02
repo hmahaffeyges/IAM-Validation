@@ -28,7 +28,7 @@ place & what is written & floor & full surface & status \\\midrule
 cosmic horizon ($2.65\times10^{-30}$\,K) & classical records of decohering matter & --- & $Nk_BT_{GH}\ln2=M_Hc^2$ & coupling $\beta_m=\Omega_m/2$ \derived{} from the partition; $\mu_0=-0.136$ \calc \\
 black hole ($6.2\times10^{-8}$\,K at $1M_\odot$) & everything that fell in & --- & Bekenstein bound; $Nk_BT_H\ln2=\tfrac12Mc^2$ & \derived{} (Smarr) \\
 qubit (15\,mK stage) & the qubit state & material floor of the gate error & a fully decohered state & floors \calibrated \\
-transistor (300--350\,K) & a logic level per switch & $\kB T_j\ln2$ per irreversible bit & --- & floor \derived; 9950X at $576\times$ \calc \\
+transistor (300--350\,K) & a logic level per switch & $\kB T_j\ln2$ per irreversible bit & --- & floor \derived; 9950X at $576$--$593\times$ \calc \\
 cell (310\,K) & the methylation identity pattern & $\varepsilon_0=0.032$; IAM-A floor $0.910$ (neutrophils) & every identity site at $\beta=\tfrac12$: Met-A 3.03, IAM-A 4.45 & form \derived, height \measured \\
 \bottomrule
 \end{tabularx}
@@ -40,6 +40,11 @@ each has a floor below its working state, set by thermal physics at that surface
 numerical saturation condition shared by all five (Chapter~\ref{ch:floorbreach}).
 
 \section{The one half that recurs}
+Figure~\ref{fig:one_half} computes the half at three of these places.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_one_half.pdf}
+\caption{The half at three places, computed. (a) Charging a capacitor from a fixed supply through any resistance: the energy dissipated is half the energy drawn, 0.500000 for $R$ from $10^{-2}$ to $10^{2}\,\Omega$. (b) The bits on a Schwarzschild horizon priced at its own temperature, $Nk_BT_H\ln2=\tfrac12Mc^2$ at every mass~\cite{Smarr1973}. (c) The time-averaged kinetic over potential energy of a Kepler orbit, $\tfrac12$ at every eccentricity. \derived\ That the three halves are one quantity is a \conjecture.}\label{fig:one_half}
+\end{figure}
 The virial theorem gives $2K+U=0$ for any system bound by a $1/r$ potential: half the binding energy is kinetic, half is released. It holds
 for every atom and molecule, for stars and galaxies and for clusters of galaxies (Table~\ref{tab:virial_domains}). \observed{} At a horizon the
 same half appears as the Smarr relation: the bits on a Schwarzschild horizon, priced at its own temperature, total $\tfrac12Mc^2$. \derived{} In
@@ -48,6 +53,11 @@ cosmology it fixes the size of the informational term, $\beta_m=\Omega_m/2$, and
 resistance, whatever the resistance. \derived{} That the CMOS half and the virial half are one quantity is a conjecture. \conjecture
 
 \section{What has been measured, place by place}
+Figure~\ref{fig:cell_readings} sets the three cell development measurements on one axis.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_cell_readings.pdf}
+\caption{Development readings against each specimen's own reference (1 = unchanged; shaded: Normal, 0.95--1.05). Bars: Met-A ranges on EPIC arrays of three AML cell lines under DNMT1 inhibitors, each line against its own vehicle arrays (GSE135205~\cite{Pappalardi2021}; \texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}). Triangles: IAM-A on single molecules, eight treated libraries against the same genotype's vehicle (\texttt{PROC\_DNMT\_01\_PARTB\_OUTCOME.md}). Circles: tumour over adjacent-normal copy error in six early-onset colorectal pairs (\texttt{PROC\_TUMOUR\_01\_OUTCOME.md}). The three readings use different statistics and share only the rule that each specimen is read against its own reference; near 1.8, Met-A is at its entropy ceiling. \measured}\label{fig:cell_readings}
+\end{figure}
 \paragraph{Cosmology.} With the coupling fixed by the law, the Planck 2018 fit is as good as $\Lambda$CDM's ($\Delta\chi^2=+0.54$) and only
 $\sigma_8$ moves ($0.8087\to0.7998$). The predicted growth deficit, 4.25\,\% in $f\sigma_8$ today and 0.41\,\% at $z=1$, with lensing unchanged, is
 below what present surveys resolve. Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
@@ -57,7 +67,7 @@ scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to b
 Bekenstein bound. Both are standard results~\cite{Bekenstein1973,Hawking1975}. \derived{} The book reads them as the law at its limit. \interp
 
 \paragraph{Quantum processors and chips.} Gate errors and switching energies sit above their floors by measured factors: Quantinuum Helios, with a two-qubit error of
-$7.9\times10^{-4}$~\cite{Ransford2025}, at about $8\times$ its calibrated floor of $10^{-4}$ (a reading of 0.13 for the floor on its gauge), the Ryzen 9 9950X at 576 times $\kB T_j\ln2$. The floors and
+$7.9\times10^{-4}$~\cite{Ransford2025}, at about $8\times$ its calibrated floor of $10^{-4}$ (a reading of 0.13 for the floor on its gauge), the Ryzen 9 9950X at 576--593 times $\kB T_j\ln2$. The floors and
 temperature exponents of processors are calibrated, so the dated device predictions test those calibrations
 (Chapters~\ref{ch:ascoreqc},~\ref{ch:thermaln},~\ref{ch:cmos}). \calibrated, \calc
 
@@ -66,7 +76,7 @@ those arrays read with an SD of 0.020 around 1 (Chapter~\ref{ch:meta}). \calibra
 neutrophils, the healthy mixtures read 0.982--1.016 and a simulated 2\,\% loss of the neutrophil pattern read 1.049--1.079. \measured{} Three development
 measurements read a known change in the right direction:
 \begin{itemize}
-\item blocking the copying enzyme DNMT1 in three leukaemia cell lines moved Met-A from 0.97--1.05 (vehicle) to 1.16--1.85, on the methylated
+\item blocking the copying enzyme DNMT1 in three leukaemia cell lines moved Met-A from 0.97--1.05 (vehicle) to 1.16--1.87, on the methylated
       channel only, with no change under an inactive look-alike (GEO GSE135205~\cite{Pappalardi2021});
 \item on single molecules from the same kind of experiment (one cell line, EM-seq, GEO GSE329728), IAM-A read 1.65--1.97 in all eight treated
       samples, with conversion failure unchanged;

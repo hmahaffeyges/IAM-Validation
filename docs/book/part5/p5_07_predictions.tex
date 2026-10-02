@@ -7,12 +7,18 @@ repository, Appendix~\ref{app:repro}). The 136 cell entries wait for the commiss
 (162), or dropped (207). An entry was dropped when it is not falsifiable (a definition, a restatement, an interpretation), when the recomputation
 does not support it, when it is a vendor roadmap or commercial statement with no physics in it, or when no test is named. The verdict for every
 entry, with its reason, is in \path{CANON/predictions_triage_2026-10-02.json}.
+Appendix~\ref{app:register} lists every entry that stands, with its test, its falsifier and its verdict.
 
 What remains is about forty distinct predictions. Each is given below with its number, the measurement that tests it, what would falsify it,
 and the register entries it merges (in brackets). Every value is recomputed. Dates are those of the named surveys; none is claimed for an
 experiment no one has announced. A prediction built on a calibrated input says so: it tests the input as much as the law.
 
 \section{Cosmology: growth, with lensing and distances unchanged}
+Figure~\ref{fig:cosmo_tests} sets the coupling against present constraints and the published Euclid forecast, with the growth signatures that come with it.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_cosmo_tests.pdf}
+\caption{(a) The coupling today, $\mu_0=-0.136$ \derived, against the present free-$\mu_0$ constraints, Planck with redshift-space distortions $0.039\pm0.125$ and DESI full shape $0.11^{+0.45}_{-0.54}$ \measured, and the published forecast for Euclid alone, full survey, conservative settings, all primary probes, $\Lambda$CDM fiducial: a 23.3\,\% relative error on $\bar\mu_0=1+\mu_0$ at 68.3\,\%, $\sigma(\mu_0)\approx0.23$~\cite{Albuquerque2025,Frusciante2025} \observed. The forecast's $\mu(z)$ tracks $\Omega_{\rm DE}(z)$ with $\Sigma_0$ free; the IAM $\mu(z)$, with $\Sigma=1$, falls off faster, and its template-equivalent $\mu_0\approx-0.07$ (dotted) lies about $0.3\sigma$ from general relativity on that forecast; with the published 4\,\% and 1\,\% errors it would lie about $1.8\sigma$ and $7\sigma$ away (Chapter~\ref{ch:latetime}) \calc. A forecast with the IAM $\mu(z)$ itself, and for Euclid with Planck lensing and DESI, is \openprob. (b) From the linear growth equation with the same early amplitude: $E_G$ above $\Lambda$CDM by 1.8\,\% at $z=0.3$ and 1.1\,\% at 0.5 (C8), and the growth factor 0.78\,\% lower today (C4), with $\Sigma=1$. \calc}\label{fig:cosmo_tests}
+\end{figure}
 
 The law fixes the matter-sector coupling with no free parameter: $\mu(a)=H^2_{\Lambda\rm CDM}/(H^2_{\Lambda\rm CDM}+\beta_mE(a)H_0^2)$,
 $\beta_m=\Omega_m/2$, $E(a)=e^{1-1/a}$, and $\Sigma=1$ (Chapter~\ref{ch:theory}). Everything in this section follows from that one line.
@@ -147,6 +153,11 @@ prediction & test and date & falsified if \\\midrule\endhead
 \end{longtable}}
 
 \section{Quantum processors}
+Figure~\ref{fig:device_tests} puts the dated device predictions of this section and of the chip section on their axes.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_device_tests.pdf}
+\caption{(a) The qubit predictions on one axis of gate error. Circles: present values stated in a primary publication, Helios $7.9(2)\times10^{-4}$~\cite{Ransford2025} and the Ca$^+$ electronic gate $8.4(7)\times10^{-5}$~\cite{Hughes2025} \observed; square: the predicted Sol value; diamonds: the material floors \calibrated; bars: the D4 bound $2.3\times10^{-3}$ and the D8 decision lines at $10^{-3}$ and $2\times10^{-3}$. Dashed: the surface-code threshold. (b) The chip predictions S2 and S3: present readings 576--593 (the 9950X range set by its transistor count) and 570, and the readings at or below which each is falsified, 432--445 and 342. \prediction}\label{fig:device_tests}
+\end{figure}
 
 The material floors and temperature exponents below are calibrated, not derived (Chapter~\ref{ch:thermaln}). Each prediction tests a calibrated
 value against a device not yet published. Errors are $\varepsilon=-\ln(1-p_{2Q})$; ``the threshold'' is the surface-code threshold, about 1\,\%.
@@ -154,10 +165,6 @@ value against a device not yet published. Errors are $\varepsilon=-\ln(1-p_{2Q})
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
 \toprule
 prediction & test and date & falsified if \\\midrule\endhead
-\textbf{D1.} Halving the effective qubit temperature of a CZ-gate superconducting processor such as Willow~\cite{GoogleWillow2025}, from 15 to
- 7.5~mK, lowers its two-qubit error by $2^{1.449}=2.73\times$, with no new chip. \calibrated{} [QUB-004]
- & a published temperature sweep stating the qubits' effective temperature
- & a ratio materially below 2.73 \\
 \textbf{D2.} Halving the effective temperature of an ECR-gate device lowers its error by $2^{1.189}=2.28\times$. Two devices from different fabs with
  the same gate mechanism show the same exponent. [QUB-040, PAR-026]
  & temperature sweeps on ECR-gate devices from two fabs
@@ -222,10 +229,10 @@ power and clock definitions, which must be the same on both sides of each compar
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
 \toprule
 prediction & test and date & falsified if \\\midrule\endhead
-\textbf{S1.} No chip switches an irreversible bit for less than $\kB T_j\ln2$. The Ryzen 9 9950X sits 576 times above it. [SEM-049]
+\textbf{S1.} No chip switches an irreversible bit for less than $\kB T_j\ln2$. The Ryzen 9 9950X sits 576--593 times above it, the range set by its transistor count, the least certain input. \calc{} [SEM-049]
  & any measured energy per irreversible switch
  & a measurement below $\kB T_j\ln2$ \\
-\textbf{S2.} AMD's Zen~6 desktop part on 2~nm improves on the 9950X by less than 25\,\%: it stays above $432\times$. [SEM-002]
+\textbf{S2.} AMD's Zen~6 desktop part on 2~nm improves on the 9950X by less than 25\,\%: it stays above $432$--$445\times$. [SEM-002]
  & published specifications, late 2026--2027
  & a step of 25\,\% or more \\
 \textbf{S3.} Intel's first 2~nm-class desktop successor to the Core Ultra 9 285K ($570\times$) improves by less than 40\,\%. [SEM-004]

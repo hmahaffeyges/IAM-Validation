@@ -28,7 +28,7 @@
 },
 {
 "file": "docs/verification/PAPER_ERRATA.md",
-"line": 270,
+"line": 283,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -37,7 +37,7 @@
 },
 {
 "file": "docs/verification/PAPER_ERRATA.md",
-"line": 270,
+"line": 283,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -82,7 +82,7 @@
 },
 {
 "file": "docs/book/part4/p4_22_leukocyte.tex",
-"line": 57,
+"line": 68,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -91,12 +91,21 @@
 },
 {
 "file": "docs/book/part4/p4_22_leukocyte.tex",
-"line": 62,
+"line": 83,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "\\section{A count, not a score}"
+},
+{
+"file": "docs/book/part1/p1_01_encoding_surfaces.tex",
+"line": 112,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays it is still to be derived. \\openprob{} The A-score reads where the cell sits:"
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",

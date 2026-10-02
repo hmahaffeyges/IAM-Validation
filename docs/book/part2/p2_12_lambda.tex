@@ -1,4 +1,4 @@
-% Part 2 chapter carrying "The Cosmological Constant as Actualized Vacuum Energy" (Mahaffey, March 2026) in its order. Read in full 2026-10-02
+% Part 2 chapter carrying "The Cosmological Constant as Actualized Vacuum Energy" (March 2026) in its order. Read in full 2026-10-02
 % (842 lines, 50-line ledger, no gaps). Numbers: docs/verification/scripts/verify_cc_and_baryon.py. Checks: docs/verification/
 % cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md (items 1-4, 10-25, accumulation test). Physics terms only.
 \chapter{The cosmological constant}\label{ch:lambda}
@@ -35,6 +35,7 @@ the cosmological counterpart of the Smarr relation of Chapter~\ref{ch:blackholes
 priced at its own temperature, per unit Hubble volume. The 123 orders of magnitude are this identity: any expression containing the measured
 $H_0$ and the Planck length reproduces them. They are not evidence for a mechanism. What a mechanism must explain is the O(1) factor
 $3\Omega_\Lambda/8\pi$.
+The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:lambda}.
 
 \section{The cosmological-constant expression}
 In this reading, $\rho_{\rm vac}$ is the energy of the complete Planck-scale substrate on the horizon and $\rho_\Lambda$ is the Landauer cost of the
@@ -46,7 +47,11 @@ a geometric factor $2/\pi$:
 and with the de Sitter temperature ratio $T_{dS}/T_H=H_\Lambda/H_0=\sqrt{\Omega_\Lambda}=0.8274$,
 \begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}\Big|_{T_{dS}}=\frac{2}{\pi}\left(\frac{l_P}{l_H}\right)^2\sqrt{\Omega_\Lambda}\,
 \frac{\Omega_b}{\Omega_m}=1.142\times10^{-123},\label{eq:corr}\end{equation}
-$0.79\,\%$ above the measured value. The exponent of $\Omega_\Lambda$ that would close Eq.~\eqref{eq:base} exactly is $0.521$. \calc
+$0.79\,\%$ above the measured value. The exponent of $\Omega_\Lambda$ that would close Eq.~\eqref{eq:base} exactly is $0.521$.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_cc_factors.pdf}
+\caption[The factors of the cosmological-constant expression]{The factors of the cosmological-constant expression. (a) The expression divided by the measured $\rho_\Lambda/\rho_{\rm vac}=1.133\times10^{-123}$ as each factor is applied: $(l_P/l_H)^2$ alone is 12.24 times too large, $\Omega_b/\Omega_m$ brings it to 1.913, $2/\pi$ to 1.218 and $\sqrt{\Omega_\Lambda}$ to 1.0079. The identity factor $3\Omega_\Lambda/8\pi$ closes it exactly. (b) $(2/\pi)(l_P/l_H)^2(\Omega_b/\Omega_m)\Omega_\Lambda^p$ against $p$: $p=0.521$ closes it, $p=1/2$ leaves $+0.79\,\%$. Planck 2018 inputs~\cite{Planck2018VI}; CODATA constants. None of the three factors is derived. \calc\ \openprob}\label{fig:cc_factors}
+\end{figure} \calc
 
 \section{What the expression asserts}
 
@@ -63,6 +68,7 @@ $\Lambda$CDM takes those values as given, and the informational term is what wou
 Eq.~\eqref{eq:rel} ties the dark-energy fraction to the baryonic fraction of matter. If $3/16$ follows from physics with nothing adjusted, it
 would explain the O(1) factor that the identity leaves open. Among O(1) combinations of $\Omega_b/\Omega_m$, $\Omega_\Lambda$, $\pi$ and small
 integers, 2 of 540 fall within $1\,\%$ of the measured value, so the derivation, not the agreement, carries the weight.
+The algebra and every factor are set out in Appendix~\ref{app:der:lambda}.
 
 \section{The factors}
 \paragraph{Ultraviolet cutoff.} The Planck cutoff is taken because $l_P^2$ is the area per horizon bit in the Bekenstein--Hawking entropy.
@@ -103,3 +109,20 @@ Stands: the identity \eqref{eq:ident} and $T_{GH}S=M_Hc^2$ \derived; the measure
 chain) \observed. Open: a derivation of $3/16$ in which the geometric factor, the temperature factor and the baryon fraction each follow from physics;
 it must also explain why the relation holds now. \openprob\ Not the measure: heat radiated by baryons ($3\times10^{-8}$ of $\rho_\Lambda$). Unaffected: general relativity with the informational
 term, which is $\Lambda$CDM before structure and differs only in late-time growth (Chapters~\ref{ch:latetime}--\ref{ch:level2}).
+\begin{table}[htbp]\centering\small
+\caption[The cosmological-constant numbers]{The cosmological-constant numbers of this chapter (Planck 2018: $H_0=67.4$, $\Omega_b=0.0493$, $\Omega_m=0.3153$, $\Omega_\Lambda=0.6846$; chains with 30\,\% burn-in, weighted). Recomputed with \texttt{docs/verification/scripts/\allowbreak{}verify\_cc\_and\_baryon.py}.}\label{tab:lambda_numbers}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll}\toprule
+Quantity & Value & Label\\\midrule
+$\rho_{\rm vac}=E_P^4/(\hbar c)^3$ & $4.633\times10^{113}$\,J\,m$^{-3}$ & \calc\\
+$\rho_\Lambda=\Omega_\Lambda\rho_cc^2$ & $5.250\times10^{-10}$\,J\,m$^{-3}$ & \observed\\
+$\rho_\Lambda/\rho_{\rm vac}$, and the identity $(3\Omega_\Lambda/8\pi)(l_P/l_H)^2$ & $1.133\times10^{-123}$ (both) & \derived\\
+$(2/\pi)(l_P/l_H)^2\,\Omega_b/\Omega_m$ & $1.380\times10^{-123}$ ($\times1.218$) & \calc\\
+$\times\sqrt{\Omega_\Lambda}$ & $1.142\times10^{-123}$ ($+0.79\,\%$) & \calc\\
+Exponent $p$ of $\Omega_\Lambda$ that closes the expression & $0.521$ & \calc\\
+$\Omega_b/\Omega_m$ against $(3/16)\sqrt{\Omega_\Lambda}$, Planck values & $0.1564$ against $0.1551$ & \observed\\
+Ratio of the two sides, 18th chain (CMB only) & $1.0046\pm0.0068$ & \measured\\
+Ratio of the two sides, three $\Lambda$CDM chains & $1.0056$--$1.0106$ & \measured\\
+Heat radiated by baryonic virialisation, summed to today, over $\rho_\Lambda c^2$ & $3.15\times10^{-8}$ & \calc\\
+A derivation of $3/16$ from physics & --- & \openprob\\\bottomrule
+\end{tabularx}
+\end{table}

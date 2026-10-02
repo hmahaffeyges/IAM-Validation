@@ -1,5 +1,5 @@
 % Part 2 chapter carrying "Three-Way Mass Discrepancy in Galaxy Clusters as a Test of mu < 1, Sigma = 1: eROSITA X-ray, Planck SZ, and DES Weak
-% Lensing" (Mahaffey, 25 Feb 2026) in its order. Read in full 2026-10-02 (PDF text 296 lines in this extraction, 304 in the check file's; every
+% Lensing" (25 Feb 2026) in its order. Read in full 2026-10-02 (PDF text 296 lines in this extraction, 304 in the check file's; every
 % line read). Numbers: docs/verification/scripts/verify_obs_chapters.py (section E). Check: docs/verification/observations/THREE_WAY_CLUSTER_CHECK.md;
 % errata TW1-TW6. Level 1 form only; the test is ON HOLD until the implementation form is settled (author, 2026-10-02).
 \chapter{Three cluster masses}\label{ch:threeway}
@@ -32,6 +32,10 @@ $\mu$ & 0.8638 & 0.8856 & 0.9050 & 0.9218 & 0.9362 & 0.9482 & 0.9661 & 0.9822 & 
 $R$ & 1.158 & 1.129 & 1.105 & 1.085 & 1.068 & 1.055 & 1.035 & 1.018 & 1.006 & 1.002\\\bottomrule
 \end{tabular}\end{center}
 At the redshifts of eROSITA samples ($z\approx0.2$--$0.4$) the gravitational part of the ratio is $1.07$--$1.10$. \calc
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_threeway_estimators.pdf}
+\caption[Three cluster mass estimators and the slope test]{(a) The three estimators over the true mass in the Level~1 form: the X-ray hydrostatic mass follows $\mu(z)$, the SZ mass follows it through the $Y$--$M$ calibration, and the weak-lensing mass follows $\Sigma=1$; in the Level~2 form all three are 1. \calc\ (b) The significance of a non-zero slope of $R\times C_{\rm NT}$ fitted as a straight line over the four bin centres (slope $-0.152$), against the fractional error per bin (equal errors): $3\sigma$ needs 1.5\,\% per bin. $C_{\rm NT}$ is the illustrative form. \calc\ \openprob}\label{fig:threeway_estimators}
+\end{figure}
 
 \section{The slope}
 \calc\ The redshift slope is negative: $dR/dz=-0.183$ at $z=0.3$. Non-thermal pressure from turbulence and bulk motion gives the opposite sign,
@@ -46,6 +50,10 @@ $0.5<z<0.8$ & 0.650 & 1.039 & 1.221 & 1.269\\\bottomrule
 \end{tabular}\end{center}
 The total falls slowly with redshift because the gravitational part falls faster than the non-thermal part rises. The discriminant is the sign of the
 slope in a sample measured one way throughout, not the size of the offset, which hydrostatic bias alone can supply. \calc
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_threeway_slope.pdf}
+\caption[The gravitational and non-thermal parts of the lensing-to-hydrostatic ratio]{Level~1 form. (a) The gravitational part $R=1/\mu$, the non-thermal factor $C_{\rm NT}=1+0.20(1+z)^{0.2}$ (illustrative form; normalisation and index still to be traced to simulations) and their product, with the four bin centres. (b) Their redshift slopes: $dR/dz=-0.183$ at $z=0.3$ against $dC_{\rm NT}/dz=+0.027$ to $+0.036$ over the bin centres; the product falls. In the Level~2 form $R=1$. Equations of \texttt{docs/verification/scripts/\allowbreak{}verify\_obs\_chapters.py}, section E. \calc\ \openprob}\label{fig:threeway_slope}
+\end{figure}
 
 \section{The SZ-to-X-ray ratio is not a test}
 $M_{\rm SZ}/M_{\rm hydro}\approx1$ holds because the $Y$--$M$ relation is calibrated on hydrostatic masses. It holds in any theory of gravity, so it

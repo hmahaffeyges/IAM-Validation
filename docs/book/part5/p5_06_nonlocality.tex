@@ -10,6 +10,8 @@ locality loopholes closed simultaneously, by three groups in 2015~\cite{Hensen20
 Entanglement has been distributed over 1{,}200~km from the Micius satellite~\cite{Yin2017}.
 
 \section{The IAM account}
+Table~\ref{tab:chsh} gives the CHSH values along the assumed ramp.
+\input{tables/part5/tab_chsh}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part5/fig_bell_decay.pdf}
@@ -32,6 +34,7 @@ $\tau_{\mathrm{IAM}}$ from Eq.~\eqref{eq:tauIAM}. For pointer-basis dephasing th
 (Chapter~\ref{ch:entanglement}, Eq.~\eqref{eq:ent:smax}). \derived{} It stays above 2 for any remaining coherence and reaches 2 only when
 the coherence is gone; with the settings that are optimal for the undecohered pair, $S=\sqrt2\,(1+c)$, which falls below 2 at $c<0.414$,
 i.e.\ $D>0.586$. \calc{} The ramp itself is assumed. \conjecture
+The CHSH values and the crossing time are derived in Appendix~\ref{app:der:quantum}.
 
 \begin{checkbox}[title={Independent check: what entanglement distances show}]
 Entanglement has been distributed over 1{,}200~km with photons~\cite{Yin2017} and between two
@@ -49,6 +52,11 @@ longer than the experiment. No test has yet been possible.
 \end{checkbox}
 
 \section{The exponent $5/2$}
+Figure~\ref{fig:exponent_fit} shows the fitted activation coefficients against the exponent of the source term.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_exponent_fit.pdf}
+\caption{(a) The coefficients of $\exp(\alpha-\beta/a)$ fitted to the accumulated record for the source terms $D^n\Omega_mf/T_H$ of Section~\ref{sec:numerics}: both pass 1 between $n=3$ and 4, bracketing 7/2. (b) The fitted forms for $n=5/2$ and $7/2$ against $E(a)=e^{1-1/a}$. \calc}\label{fig:exponent_fit}
+\end{figure}
 
 The exponent $n=5/2$ appears in the decoherence argument and in the electron mass as $\alpha^{5/2}$. It does not carry over to the cosmic
 information-production rate as $D(a)^{5/2}$. With the full $\Lambda$CDM background, the source term

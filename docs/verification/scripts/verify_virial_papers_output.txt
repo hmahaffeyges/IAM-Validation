@@ -1,0 +1,142 @@
+
+A. The theorem (sympy)
+   Euler for V = 1/r: r.grad V - (-1) V = 0  -> 2<K> = -<V>, <K> = |<V>|/2, E = -<K>
+   V = -1/r^n has degree -n -> 2<T> = (-n)<V> = n|<V>|, <T> = (n/2)<|V|>
+   linear potential (k = +1): 2<K> = +<V>: <K> = <V>/2 for confinement; quadratic (k = 2): <K> = <V> (equipartition is not the 1/r half)
+
+B. Atoms and molecules
+   hydrogen: E1 = -13.6057 eV, <K> = 13.6057 eV, <V> = -27.2114 eV, <K>/|<V>| = 0.5000, -<K>/E = 1.0000
+   H: E = -0.5 Eh, <T> = 0.5 Eh (virial), -<T>/E = 1.000000, <T>/|<V>| = 0.500000
+   Ne: E = -128.547 Eh, <T> = 128.547 Eh (virial), -<T>/E = 1.000000, <T>/|<V>| = 0.500000
+   Xe: E = -7232.138 Eh, <T> = 7232.138 Eh (virial), -<T>/E = 1.000000, <T>/|<V>| = 0.500000
+   (the virial ratio printed as 'T/|V| = 1.0000' is -T/E = 2T/|V| = 1; T/|V| = 1/2)
+   span: Bohr radius 5.292e-11 m to the Hubble radius c/H0 = 1.373e+26 m: 36.41 orders; atom (1e-10 m) to cluster (1e23 m): 33 orders
+
+C. Stars
+   Sun, n = 3 polytrope: U = -5.690e+41 J; |U|/2 = 2.845e+41 J; t_KH = |U|/2L = 23.6 Myr (age 4,568 Myr)
+   uniform sphere (U = -3GM^2/5R): t = 9.4 Myr
+   Chandrasekhar, mu_e = 2.0: 1.456 Msun
+   Chandrasekhar, mu_e = 2.15: 1.260 Msun
+
+D. Simulated halos: published 2T/|U| as K/|W|
+   2T/|U| = 1.1-1.3 within r_vir (Bett, Neto, Power): K/|W| = 0.550-0.650; reciprocal |U|/2T = 0.77-0.91
+   2T/|U| = 1.02-1.17 with surface pressure (Klypin 2016): K/|W| = 0.510-0.585; reciprocal |U|/2T = 0.85-0.98
+   Neto relaxation cut 2T/|U| < 1.35 -> |U|/2T > 0.741
+   eta_vir = 1/(2 f_coll) with f_coll = 0.62: 0.806 (a definition: f_coll eta_vir = 1/2)
+   Omega_m f_coll eta_vir = 0.315 x 0.62 x 0.815 = 0.1592 (product of a definition, not a measurement)
+   d ln F(>M)/d ln D = f/F (NBODY_TRACE_massfunction_slopes.csv, Planck 2018, z = 0):
+     M = 1e+10: PS74 0.50, ST99 0.53, Jenkins01 0.48, Reed03 0.54, Tinker08_D200m 0.52, Watson13_FOF 0.59
+     M = 1e+12: PS74 1.10, ST99 1.01, Jenkins01 0.96, Reed03 1.02, Tinker08_D200m 0.96, Watson13_FOF 0.95
+     M = 1e+14: PS74 4.01, ST99 3.17, Jenkins01 3.14, Reed03 3.25, Tinker08_D200m 3.27, Watson13_FOF 3.02
+
+E. Black-hole horizon
+   M = 1 Msun: T_H = 6.170e-08 K, N = 1.513e+77 bits, N k T ln2/(M c^2) = 0.5000000000
+   M = 4.3e+06 Msun: T_H = 1.435e-14 K, N = 2.798e+90 bits, N k T ln2/(M c^2) = 0.5000000000
+   M = 6.5e+09 Msun: T_H = 9.492e-18 K, N = 6.394e+96 bits, N k T ln2/(M c^2) = 0.5000000000
+   sympy: T_H S / (M c^2) = 1/2
+   Kerr chi = 0.5: T_H S/Mc^2 = sqrt(1-chi^2)/2 = 0.4330
+   Kerr chi = 0.9: T_H S/Mc^2 = sqrt(1-chi^2)/2 = 0.2179
+   Kerr chi = 0.998: T_H S/Mc^2 = sqrt(1-chi^2)/2 = 0.0316
+   (ln 2/2) M c^2 = 0.3466 M c^2 counts ln 2 twice; with N = S/(k ln 2) and k T ln 2 per bit the cost is T S = M c^2/2
+   Hawking power / (k T_H ln 2) = c**3/(1920*G*M*log(2))  (bits per second; = c^3/(1920 G M ln 2))
+   evaporation time of 1 Msun: 2.10e+67 yr
+
+F. The thermodynamic identity (sympy)
+   E_L = T dS = -K - V = Q;  with 2K + V = 0: K = K;  |V|/2 = K
+
+G. The cosmic coupling and its functions
+   beta_m = Omega_m/2 = 0.15765; Omega_m = 0.3166 (Level 2 posterior) -> 0.15830
+   three-channel: 0.076618 + 0.078825 + 0.002207 = 0.15765; geometric = beta_m/2 = 0.078825; shares 48.6 / 50.0 / 1.4 %
+   E(a) = e^{-z}: exp(-z) ; dE/da = exp((a - 1)/a)/a**2 ; E(inf) = E ; inflection a = [1/2]
+   dE/dln a = E/a peaks at a = [1]
+   E(z=10) = 4.54e-05; E reaches 10/50/90 % at z = 2.30/0.69/0.11
+   z      E(a)    mu      1-mu    R(a)    record share of (Omega_L + beta_m E)   d(beta_m E)/da / |d(Omega_m a^-3)/da|
+   0      1.000   0.8638  13.62 %      2.0    18.7 %   16.67 %
+   0.3    0.741   0.9218   7.82 %      5.9    14.6 %    7.31 %
+   0.5    0.607   0.9482   5.18 %     11.1    12.3 %    4.49 %
+   0.7    0.497   0.9661   3.39 %     19.8    10.3 %    2.86 %
+   1.0    0.368   0.9822   1.78 %     43.5     7.8 %    1.53 %
+   1.5    0.223   0.9938   0.62 %    140.1     4.9 %    0.60 %
+   2.0    0.135   0.9977   0.23 %    399.0     3.0 %    0.25 %
+   R(1) = Omega_m/(beta_m E(1)) = 2.0000 (by construction); beta_m/Omega_L = 23.0 % (not the share)
+   Omega_DM/Omega_L today (0.26/0.69) = 0.38
+   matter = vacuum (+record) at z = 0.295 (LCDM) and 0.361 (matter-sector rate)
+   deceleration-acceleration transition with the background unmodified: z_t = 0.632
+   mu0 = mu(1) - 1 = -0.1362; mu(z=0.3) = 0.9218; mu(0.5) = 0.9482
+   Omega_m mu(z=0.4) = 0.2952
+   Omega_m mu(z=0.5) = 0.2990
+   DESI DR1 FS+BAO 0.2962 +/- 0.0095 vs 0.2990: 0.29 sigma (not a growth-only measurement)
+   1 - 0.2962/0.3153 = 6.1 %
+
+H. Growth (linear, Planck 2018 background, same early amplitude, Level 1 mu*G form)
+   z = 0.000: 1-mu = 13.62 %   f sigma8 deficit =  4.25 %   E_G change f_L/f_I - 1 = +3.63 %
+   z = 0.295: 1-mu =  7.89 %   f sigma8 deficit =  2.19 %   E_G change f_L/f_I - 1 = +1.86 %
+   z = 0.300: 1-mu =  7.82 %   f sigma8 deficit =  2.17 %   E_G change f_L/f_I - 1 = +1.84 %
+   z = 0.500: 1-mu =  5.18 %   f sigma8 deficit =  1.35 %   E_G change f_L/f_I - 1 = +1.14 %
+   z = 1.000: 1-mu =  1.78 %   f sigma8 deficit =  0.41 %   E_G change f_L/f_I - 1 = +0.35 %
+   z = 1.491: 1-mu =  0.63 %   f sigma8 deficit =  0.13 %   E_G change f_L/f_I - 1 = +0.12 %
+
+I. Chains (mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv)
+   number of chains in the record: 18  (levels: L1, L2, L2b, baryon)
+   iam_level2_runA        sigma8 0.7998+/-0.0058  H0 67.16+/-0.47  Om 0.3166+/-0.0065  S8 0.822+/-0.011  chi2min 10972.612  R-1 0.009949
+   iam_level2_runD        sigma8 0.7995+/-0.0058  H0 67.19+/-0.46  Om 0.3162+/-0.0064  S8 0.821+/-0.011  chi2min 10979.427  R-1 0.007981
+   iam_level2_runC_lcdm   sigma8 0.8087+/-0.0059  H0 67.19+/-0.46  Om 0.3162+/-0.0065  S8 0.830+/-0.011  chi2min 10972.071  R-1 0.00811
+   iam_l2b_runA           sigma8 0.7655+/-0.0055  H0 61.45+/-0.42  Om 0.3777+/-0.0076  S8 0.859+/-0.011  chi2min 10970.766  R-1 0.01
+   iam_l2b_runD           sigma8 0.7651+/-0.0053  H0 61.52+/-0.43  Om 0.3766+/-0.0077  S8 0.857+/-0.011  chi2min 10979.450  R-1 0.006843
+   Level 2 Delta chi2 (IAM Run A - LCDM Run C) = +0.54  (IAM higher: consistent with Planck)
+   L1 fixed vs LCDM: Delta chi2 = +0.96; sigma8 0.8143 -> 0.8015
+   beta_m (fixed 0.15765) / Omega_m(Run A) = 0.498 +/- 0.010; Omega_m(Run A)/2 = 0.1583
+   sigma8 vs joint KiDS-Legacy+DES Y3+DESI+Pantheon+ 0.802 (+0.022 -0.018): IAM 0.12 sigma, LCDM (L2) 0.29 sigma, LCDM (Planck 0.8111) 0.41 sigma
+   S8 Level 2 0.822 vs KiDS-Legacy 0.815 (+0.016 -0.021): 0.33 sigma
+
+J. Two expansion rates and the H0 census (worldline rule: supernova ladder and masers on the matter ruler; CMB and lensing time delays on photon paths)
+   H0_matter = 67.16 x sqrt(1 + 0.15765) = 72.26; with Planck 67.36: 72.48; sqrt(1+beta_m) - 1 = 7.59 %
+   Planck 2018 CMB         67.36 +/- 0.54  photon  vs 67.16:  +0.4 sigma   vs 72.26:  -9.1 sigma   vs own sector:  +0.4
+   ACT DR4 + WMAP          67.60 +/- 1.10  photon  vs 67.16:  +0.4 sigma   vs 72.26:  -4.2 sigma   vs own sector:  +0.4
+   SH0ES Cepheids          73.04 +/- 1.04  matter  vs 67.16:  +5.7 sigma   vs 72.26:  +0.7 sigma   vs own sector:  +0.7
+   H0LiCOW time delays     73.30 +/- 1.80  photon  vs 67.16:  +3.4 sigma   vs 72.26:  +0.6 sigma   vs own sector:  +3.4
+   Megamasers (MCP)        73.90 +/- 3.00  matter  vs 67.16:  +2.2 sigma   vs 72.26:  +0.5 sigma   vs own sector:  +0.5
+   SBF                     73.30 +/- 2.50  matter  vs 67.16:  +2.5 sigma   vs 72.26:  +0.4 sigma   vs own sector:  +0.4
+   chi2 with each probe against its own sector (6 probes): 12.96; time delays on the photon ruler contribute 11.63
+   one H0 fitted to all six: 68.92, chi2 = 37.2; held at 67.36: chi2 = 51.2
+   SH0ES vs 72.26: 0.75 sigma; Planck vs 67.16 with Planck's error: 0.37 sigma
+
+K. Gravitational decoherence, virial paper: checks of the equations carried as conjecture
+   Gibbons-Hawking temperature today: 2.654e-30 K
+   t_dyn = 1/sqrt(G rho) with sigma^2 = GM/R: 2*sqrt(3)*sqrt(pi)*G*M/(3*sigma**3)  (prefactor sqrt(4 pi/3) = 2.05; printed sqrt(pi/6) = 0.72)
+   sigma_crit from M_min = 4 Omega_m sigma^3/(G H) at 10^8.4 Msun: 3.86 km/s
+
+L. Gravitational decoherence, quantum level
+   m = 1e-12 kg, rho = 2200: R = 4.77 um, E_G = 1.399e-29 J, tau_PD = 7.54 us, tau_IAM(10 mK) = 508.6 s, ratio 6.75e+07
+   T^2: tau(20)/tau(10) = 4.0, tau(40)/tau(10) = 16.0
+   slopes: tau_IAM ~ m^-5.000, tau_PD ~ m^-1.667; difference 3.333
+   crossover tau_IAM = tau_PD at 10 mK: 2.23e-10 kg
+     T =   0.001 K: tau_IAM(1e-15 kg) = 5.09e+15 s, tau_IAM(1e-12) = 5.09e+00 s, tau_IAM(1e-10) = 5.09e-10 s
+     T =   0.010 K: tau_IAM(1e-15 kg) = 5.09e+17 s, tau_IAM(1e-12) = 5.09e+02 s, tau_IAM(1e-10) = 5.09e-08 s
+     T =   0.100 K: tau_IAM(1e-15 kg) = 5.09e+19 s, tau_IAM(1e-12) = 5.09e+04 s, tau_IAM(1e-10) = 5.09e-06 s
+     T =   1.000 K: tau_IAM(1e-15 kg) = 5.09e+21 s, tau_IAM(1e-12) = 5.09e+06 s, tau_IAM(1e-10) = 5.09e-04 s
+     T = 300.000 K: tau_IAM(1e-15 kg) = 4.58e+26 s, tau_IAM(1e-12) = 4.58e+11 s, tau_IAM(1e-10) = 4.58e+01 s
+   tau_IAM = 1.0 s at 10 mK for m = 3.48e-12 kg
+   tau_IAM = 0.001 s at 10 mK for m = 1.38e-11 kg
+   1e13-1e14 amu = 1.66e-14-1.66e-13 kg: tau_IAM(10 mK) = 4.03e+11-4.03e+06 s
+   integral of Gamma_info/S_boundary dt = E_G**3*t/(T**2*hbar*k_B**2*log(2))  -> E_q = exp(t/tau): exponential, constant integrand
+   tau_IAM units check: [hbar k^2 T^2/E^3] -> J s J^2 / J^3 = s;  1/tau = E_G**3/(T**2*hbar*k_B**2*log(2))
+   ramp E_q = exp(1-1/eta): rate dE_q/deta = exp((eta - 1)/eta)/eta**2 ; peak at eta = [1/2] ; slope at 0+ = 0
+   k_B T ln 2 / tau_IAM = E_G**3/(T*hbar*k_B)  (= printed P_IAM);  bit rate x k_B T ln 2 = E_G**2/hbar
+   P_IAM(1e-12 kg, 10 mK) = 1.88e-28 W; dn/dt = P/(hbar omega0) at 100 kHz = 2.84 phonons/s; E_G^2/hbar = 1.86e-24 W
+     T = 0.01 K: dn/dt(1e-12 kg) = 2.840 /s
+     T = 0.02 K: dn/dt(1e-12 kg) = 1.420 /s
+     T = 0.04 K: dn/dt(1e-12 kg) = 0.710 /s
+     T = 0.3 K: dn/dt(1e-12 kg) = 0.095 /s
+   four masses equally spaced in ln m over one decade, 10 % on tau: sigma(alpha) = 0.058; Delta alpha/sigma = 57
+   three temperatures 10/40 mK, 20 % on each tau: ln16 / (0.2 sqrt 2) = 9.8 sigma against constant tau
+   dn/dt = 1 phonon/s at 10 mK for m = 8.12e-13 kg
+   timeline: from 1e-19 kg to 3.48e-12 kg = 7.54 decades; at 3-5 yr per decade: 23-38 yr
+
+M. Lindblad dephasing with L = x (dimensionless, x = (a + a^dag)/sqrt 2), H neglected, coherent |alpha = 2>
+   purity difference P_ramp - P_const peaks at eta = 0.225, Delta P = 0.139
+   eta = 0.5: purity ramp 0.759 const 0.707;  <n> ramp 4.18 const 4.25 (initial 4.00)
+   eta = 1.0: purity ramp 0.577 const 0.577;  <n> ramp 4.50 const 4.50 (initial 4.00)
+   eta = 2.0: purity ramp 0.482 const 0.447;  <n> ramp 4.82 const 5.00 (initial 4.00)
+   eta = 5.0: purity ramp 0.428 const 0.302;  <n> ramp 5.11 const 6.50 (initial 4.00)
+   <n> grows: d<n>/dt = Gamma/2 for L = x (momentum diffusion heats); position dephasing does not conserve phonon number

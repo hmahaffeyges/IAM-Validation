@@ -1,5 +1,5 @@
 % Part 2 chapter carrying "Falsifiable Predictions of the Informational Actualization Model for Euclid, DESI, and Next-Generation Surveys"
-% (Mahaffey, 25 Feb 2026) in its order. Read in full 2026-10-02 (PDF text 725 lines in this extraction, 736 in the check file's; every line read).
+% (25 Feb 2026) in its order. Read in full 2026-10-02 (PDF text 725 lines in this extraction, 736 in the check file's; every line read).
 % Numbers: docs/verification/scripts/verify_survey_predictions.py and verify_obs_chapters.py (outputs beside them; E_G and CMB lensing: section H).
 % Check: docs/verification/observations/SURVEY_PREDICTIONS_CHECK.md; errata SP1-SP10.
 \chapter{What the surveys will measure}\label{ch:surveys}
@@ -31,6 +31,10 @@ $z$ & $\mu$ & $1-\mu$ & $\Delta D/D$ & $\Delta(f\sigma_8)/f\sigma_8$ & $\Delta\P
 The growth rate carries the signal: $f\sigma_8$ is $4.25\,\%$ low today and $2.17\,\%$ low at $z=0.3$, while the amplitude $D$ is lower by under
 $1\,\%$. With $\Sigma=1$ the lensing potential follows the matter density, so $\Delta\Phi/\Phi=\Delta D/D$. The ramp is curved, not a constant
 rescaling, and it is gone by $z\approx2$.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_survey_ramp.pdf}
+\caption[The growth-rate ramp and what light sees]{(a) The coupling $1-\mu$, the $f\sigma_8$ deficit and the growth deficit $|\Delta D/D|$ against redshift, from the linear growth equation with the same early amplitude as $\Lambda$CDM ($\Omega_m=0.3153$, $\beta_m=\Omega_m/2$, $\Sigma=1$). Dotted lines: 10, 50 and 90\,\% of today's $1-\mu$ reached. (b) The $E_G$ change ($+1.8\,\%$ at $z=0.3$), the potential change $\Delta\Phi/\Phi=\Delta D/D$ and the ISW source $(1-f)D/a$. Equations of \texttt{docs/verification/scripts/\allowbreak{}verify\_obs\_chapters.py}. \calc}\label{fig:survey_ramp}
+\end{figure}
 
 \section{When the weakening switched on}
 The fraction of today's $1-\mu$ already present at each epoch:
@@ -53,6 +57,7 @@ because the density itself grows more slowly.
 \item \emph{CMB lensing.} A Limber estimate of $C_L^{\phi\phi}$ is lower by $0.08\,\%$ at fixed primordial amplitude, below any current or planned
 measurement (Chapter~\ref{ch:sectortension}). \calc
 \item \emph{$E_G$.} $E_G=\Omega_{m0}\Sigma/f$ rises because $f$ falls while lensing does not: $+1.8\,\%$ at $z=0.3$, $+3.6\,\%$ today. \calc
+The first measurement, $E_G=0.39\pm0.06$ on scales of tens of megaparsecs from SDSS luminous red galaxies at $z\approx0.32$ (Reyes et al.\ 2010~\cite{Reyes2010}) \observed, lies $1.1\sigma$ below the general-relativity value for Planck's $\Omega_m$, $\Omega_{m0}/f=0.455$, and $1.2\sigma$ below the value with the informational term, $0.463$ \calc. Its error is $7.5$ times the predicted shift of $0.008$; separating the two needs $E_G$ at the per-cent level.
 \item \emph{The integrated Sachs--Wolfe effect.} Slower growth makes the potentials decay faster. The ISW source $(1-f)D/a$ is larger by $3.4\,\%$ at
 $z\le0.5$ and $2.4\,\%$ at $z=1$; weighted uniformly over $0.05<z<1.5$, the ISW--galaxy cross-correlation amplitude is
 \begin{equation}A_{\rm ISW}^{\rm IAM}/A_{\rm ISW}^{\Lambda\rm CDM}\approx1.03.\label{eq:sp_isw}\end{equation}
@@ -82,6 +87,8 @@ with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic 
 Redshift-space distortions test the shape directly: the deficit falls from $4.25\,\%$ at $z=0$ to $1.35\,\%$ at $z=0.5$ and $0.41\,\%$ at $z=1$
 (Section~\ref{sec:sp_falsify}).
 
+\paragraph{Peculiar velocities.} In linear theory the amplitude of large-scale bulk flows scales with $f\sigma_8$ at the survey redshift. At $z=0.01$--$0.05$ the informational term lowers it by $4.2$--$3.8\,\%$ against $\Lambda$CDM with the same early amplitude \calc\ \prediction. CosmicFlows-4 gives $395\pm29$ km\,s$^{-1}$ in a sphere of radius $150\,h^{-1}$\,Mpc against a $\Lambda$CDM expectation of $139$ km\,s$^{-1}$ (Watkins et al.\ 2023~\cite{Watkins2023}) \observed. A four per cent change in the expectation is far smaller than that difference; whether the excess is a property of the flow or of the survey geometry and estimator is open, and bulk flows do not test the term at present precision \openprob.
+
 \section{Standard sirens}
 Gravitational waves are emitted by matter on timelike worldlines, and the host galaxies trace the matter flow. The matter-sector rate is
 \begin{equation}H_0^{\rm m}=H_0^{\gamma}\sqrt{1+\beta_m}=67.16\times\sqrt{1.15765}=72.26~\mathrm{km\,s^{-1}\,Mpc^{-1}},\label{eq:sp_siren}\end{equation}
@@ -89,6 +96,10 @@ against $H_0^{\gamma}=67.16$ for light (Level~2 chains, Chapter~\ref{ch:level2})
 $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, consistent with both. \observed\ Separating the two values at $3\sigma$ needs
 $\sigma(H_0)\le1.70~\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $2.4\,\%$ of $72.26$, from a siren population. \calc\ SH0ES
 ($73.04\pm1.04$~\cite{Riess2022}) is $0.75\sigma$ from $72.26$.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_survey_precision.pdf}
+\caption[The precision each test needs]{The precision each test needs. (a) Separation of the IAM $\mu(z)$ from general relativity against the error $\sigma(\mu_0)$ of Euclid's template, at the template-equivalent $\mu_0\approx-0.07$ (Chapter~\ref{ch:latetime}); points: the published errors on $1+\mu_0$, 23.3\,\% with conservative scale cuts, 4\,\% for weak lensing and photometric clustering to $k\approx4\,{\rm Mpc}^{-1}$ and about 1\,\% with all probes~\cite{Albuquerque2025,Frusciante2025}, giving about $0.3\sigma$, $1.8\sigma$ and $7\sigma$. A forecast with the IAM $\mu(z)$ itself is open. (b) Separation of the matter-sector rate 72.26 from the photon-sector 67.16 by a siren population against its $\sigma(H_0)$; $3\sigma$ needs $\sigma(H_0)\le1.70$. Square: GW170817 alone ($70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, mean half-width 10). \prediction\ \calc}\label{fig:survey_precision}
+\end{figure}
 
 \section{Scorecard}
 Each entry with its present status. Chain values are from the final chain files (all 18 at $R-1\le0.010$); $\beta_m$ is fixed at $\Omega_m/2$ in

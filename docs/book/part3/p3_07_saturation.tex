@@ -17,12 +17,26 @@ cannot.
 domain & local surface & saturation observed as & status of the coefficient \\\midrule
 gravity & horizon, area $A$ & collapse; $S=A/4\lP^2$ & \derived\ as a ratio, $2\pi/8\pi$ (Ch.~\ref{ch:blackholes}) \\
 semiconductors & gate channel at $T_j$ & end of Dennard scaling, 2004--06 & set by $\kB T_j/q$ (Ch.~\ref{ch:cmos}); exponent $n$ \calibrated \\
-quantum computing & junction barrier and substrate & substrate saturation point, $T_1^*=0.65\,T_{1,\mathrm{free}}$ & \calibrated\ (Ch.~\ref{ch:walls}) \\
+quantum computing & junction barrier and substrate & coherence optimum, $T_1^*=0.65\,T_{1,\mathrm{free}}$ & \calibrated\ (Ch.~\ref{ch:walls}) \\
 cells & chromatin surface, at the cell's architecture position $P$ & to be measured (breach and the cancer region on the gauge) & floor $H(\varepsilon_0)$ from the measured holding energy (Part~\ref{part:4}) \measured \\\bottomrule
 \end{tabularx}
 \end{center}
 
+\paragraph{No threshold in the drive ratio of a black hole.} The black-hole row is a saturation of area, not of the
+drive ratio. With $\Edrive=M_{\rm BH}c^2$ at the Hawking temperature $T_H=\hbar c^3/(8\pi G M_{\rm BH}\kB)$ the drive
+ratio is $M=M_{\rm BH}c^2/\kB T_H=8\pi G M_{\rm BH}^2/\hbar c=2S_{\rm BH}/\kB$, which is Smarr's relation
+$M_{\rm BH}c^2=2T_HS_{\rm BH}$ for a non-rotating hole~\cite{Smarr1973} \derived. It grows as $M_{\rm BH}^2$ with no
+critical value: for one solar mass $T_H=6.2\times10^{-8}$~K and $M=2.1\times10^{77}$ \calc. What marks the horizon is
+the area bound $S=A/4\lP^2$ (Chapter~\ref{ch:blackholes}). A hole is colder than the cosmic microwave background, and
+gains more energy from it than it radiates, unless $M_{\rm BH}<\hbar c^3/(8\pi G\kB T_{\rm CMB})=4.5\times10^{22}$~kg
+\calc.
+
 \section{What is common, and what is not yet shown}
+Figure~\ref{fig:four_floors} draws the four floors of the table, each in its own variable.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part3/fig_four_floors.pdf}
+\caption{The four floors, each in its own variable. (a) Entropy per Planck area of a Schwarzschild horizon, $S/(k_BA/\ell_P^2)=1/4$ at every mass \derived. (b) Subthreshold swing $(k_BT/q)\ln10$: 59.5\,mV/decade at 300\,K and 69.1 at 348\,K \derived. (c) $T_1^*=0.65\,T_{1,\rm free}$; the point is the 325\,$\mu$s ceiling for Nb/AlO$_x$ junctions at $T_{1,\rm free}=500\,\mu$s (prediction D4, Chapter~\ref{ch:predictions}) \calibrated. (d) The copy-error floor $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$: 0.032 at $E_{\rm hold}=3.41\,k_BT$; the form is \derived, the height \measured.}\label{fig:four_floors}
+\end{figure}
 
 The common structure is real at the level of form. In each case:
 \begin{enumerate}
@@ -41,6 +55,11 @@ picture into a theory requires deriving at least one of the non-gravitational co
 data \openprob.
 
 \section{The bridge to the cell}
+Figure~\ref{fig:cell_gauge} draws the cell's gauge from the floor to the full surface.
+\begin{center}\begin{minipage}{\linewidth}\centering
+\includegraphics[width=0.62\textwidth]{figures/part3/fig_cell_gauge.pdf}
+\captionof{figure}{IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$ against a cell's copy error, for neutrophils ($P=1.099$ \measured; $\varepsilon_0=0.032$ from $E_{\rm hold}=3.41\,k_BT$ \measured). The floor reads $1/P=0.910$; the healthy neutrophil reads 1 at $\varepsilon=0.0362$; the full surface, every identity site at $\varepsilon=\tfrac12$, reads 4.45. Shaded: Normal, 0.95--1.05. The form is \derived; breach and the cancer region are to be measured.}\label{fig:cell_gauge}
+\end{minipage}\end{center}
 
 The biological application is the subject of Part~\ref{part:4}, and only its structure is needed here. The methylation state of a CpG is a binary record
 written on chromatin, copied at every division. A cell's copy error $\varepsilon$, read on single molecules, is set against the thermal floor

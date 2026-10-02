@@ -11,10 +11,25 @@ deconvolution, what remains is a set of cells, each with a methylation state tha
 physics of that cell. The measurement problems are the same kind of problem: a noisy instrument, a
 signal mixed from many sources, and a need to separate what is known from what is new. So the
 tools are the same tools.
+Cosmology was forced by its data to build a toolkit for reading one system against a calibrated reference and saying how far it sits from
+where it should be. Astro-Genetics hands that toolkit to the cell. The work is cartography: we map what is there. We do not invent the
+territory; we find it and chart it. The CpG sites are already there, and so is the healthy reading of each cell type, waiting to be
+measured. Stargazers see what is there; trailblazers go where no one has been. Astro-Genetics does both at once: it reads the methylome
+with instruments the sky has already proved, and it reads each cell against a floor set by physics. \analogy
 
 That is the methodological half of the bridge, and it stands without any new physics. Chapter~\ref{ch:skytools} is
 devoted to it. The physical half is a stronger claim, and it is the subject of this Part: that the
 cost which governs an encoding surface in cosmology governs the methylome too.
+\paragraph{The energy that holds it.} A cell keeps its identity written in its DNA: not in the genes themselves, but in methyl groups placed
+on cytosines at specific sites along the strand. The pattern is copied at every division by an enzyme of finite fidelity, and thermal noise
+at 310~K works to scramble it. Holding the pattern costs energy, and the price per bit is the same $\kB T\ln2$ a horizon charges. On single
+molecules of healthy cells the energy that holds each maintained site against that noise is $3.41\,\kB T$ (Chapter~\ref{ch:landauer}).
+\measured{} The methylation pattern is the cell's running ledger of what kind of cell it is, and the gauge of this Part reads how well
+the ledger is kept.
+
+If every cell maintains its identity by paying a continuous cost against the noise that would randomize it, then life itself comes into view
+as the continuous purchase of organized pattern, sustained by metabolic work against the second law. Schr\"odinger asked the same question in
+1944~\cite{SchrodingerWhatIsLife}. We raise it here and leave it open. \interp
 
 \section{One cost, many surfaces}
 
@@ -95,6 +110,22 @@ which is 36.1 orders, or from the Bohr radius to the particle horizon, which is 
 The claim it carries is that the same accounting applies across that span. It is a claim about
 range, not about a single measurement, and each rung of the range is tested separately: the
 horizon rungs in Part~\ref{part:2}, the devices in Part~\ref{part:3}, the cellular rung here.
+
+Table~\ref{tab:p4_surfaces} puts the shared equation and the different parameters side by side for four surfaces. The cost per bit
+depends only on the temperature; the capacity, where it is defined, sets the cost of holding the whole surface. \calc
+
+\begin{table}[htbp]\centering\small
+\caption{Four encoding surfaces on one equation, $E_{\rm bit}=\kB T\ln2$. Horizons: Hawking temperature and Bekenstein--Hawking capacity
+$S/(\kB\ln2)$; cell: one bit per CpG copy of one haploid genome (Chapter~\ref{ch:surface}). \calc{} (CODATA constants; \texttt{figscripts/fig\_p4.py --tables}).}\label{tab:p4_surfaces}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+surface & $T$ (K) & $\kB T\ln2$ (J) & capacity (bits) & full surface (J) \\\midrule
+horizon, one solar mass & $6.2\times10^{-8}$ & $5.9\times10^{-31}$ & $1.5\times10^{77}$ & $8.9\times10^{46}$ \\
+horizon, $10^6$ solar masses & $6.2\times10^{-14}$ & $5.9\times10^{-37}$ & $1.5\times10^{89}$ & $8.9\times10^{52}$ \\
+superconducting qubit, 20 mK & $2.0\times10^{-2}$ & $1.9\times10^{-25}$ & one per qubit & --- \\
+cell nucleus, 310.15 K & $3.1\times10^{2}$ & $3.0\times10^{-21}$ & $2.8\times10^{7}$ & $8.3\times10^{-14}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{How the framework was built, and why that matters for a reader}
 

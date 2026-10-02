@@ -7,6 +7,11 @@ donor, so $H(\beta)$ there is the cell's healthy entropy, and a loss of fidelity
 not markers. A marker separates one cell from others; an identity site is where one cell holds its own pattern, whether or not other cells
 hold it too. The composition markers of Chapter~\ref{ch:separation} and the identity sites are disjoint by construction.
 
+\paragraph{An image.} Picture a school in which every student has a locker. Most lockers say nothing about which year a student is
+in. Some do: every student of one year keeps the same book in the same place. Those are the identity lockers. The gauge does not
+count students. It walks one year's identity lockers and asks how consistently they still hold what that year's lockers hold when
+all is well. A marker, by contrast, is a locker chosen because two years keep it differently. \analogy
+
 \section{The rule}
 
 For neutrophils on EPIC v1, from the six physical reference arrays (\texttt{stage\_m\_met\_a.py}; \texttt{chain\_tests/\allowbreak{}freeze\_v13.py}):
@@ -20,6 +25,16 @@ The neutrophil set has 6,000 sites, 3,000 on each channel (\texttt{metA\_floors\
 The window keeps each site off the extremes and inside the range where entropy responds to error. $dH/d\beta=\log_2[(1-\beta)/\beta]$ is 1.58 bits per
 unit $\beta$ at $\beta=0.25$ and 4.25 at $\beta=0.05$, with the same magnitudes at 0.75 and 0.95. \calc{} The same steepness is why array noise shows on
 these sites (Chapter~\ref{ch:instrument}): a site near 0.95 converts a small noise in $\beta$ into a large rise in $H$.
+
+Figure~\ref{fig:p4_window} shows where the 6,000 sites sit in the window and how their healthy spread of $H$ follows the steepness.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_15_window.pdf}
+\caption{(a) Healthy neutrophil mean $\beta$ of the 6,000 identity sites, with the two windows shaded and $|dH/d\beta|$ (orange, right axis).
+(b) Healthy spread of $H$ at each site across the six reference arrays (shrunk SD; median 0.0114, range 0.0094--0.0137 bits): largest
+near $\beta=0.05$ and 0.95. Data: \texttt{neutrophil\_reference\_v1\_1.json}. \calibrated}
+\label{fig:p4_window}
+\end{figure}
 
 \section{Why held-out readings are the only test}
 
@@ -43,6 +58,15 @@ Most neutrophil identity sites are held within 0.05 in $\beta$ by the other bloo
 (Chapter~\ref{ch:atlas}). \calc{} Many are lineage-wide. That makes them steady across donors, and it also makes them blind to some changes. In leukaemic blood
 the blasts share most of these sites, and diagnosis blood read on them stayed in Normal in 6 of 10 patients (\texttt{doors/\allowbreak{}PROC\_AML\_SERIAL\_01\_OUTCOME.md},
 bar S2). \measured{} A blast is a progenitor, and the gauge reads a cell against its own floor; identity sites for progenitors on EPIC are not yet built. \openprob
+
+Figure~\ref{fig:p4_shared} shows the two ends of that range.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.85\textwidth]{figures/part4/fig_p4_15_shared.pdf}
+\caption{Healthy $\beta$ of monocytes (a) and CD4 T cells (b) against neutrophils at the 6,000 identity sites; grey band: $\pm0.05$. Monocytes
+hold 98.7~\% of the sites within 0.05, CD4 T cells 75.6~\%. Data: \texttt{blood\_composition\_EPIC\_v1.json}. \calc}
+\label{fig:p4_shared}
+\end{figure}
 
 \paragraph{The X chromosome.} Thirty-two of the 6,000 sites lie on chrX, and they read the same on the female reference array and on the five male arrays,
 because the site rule required agreement across all six (Chapter~\ref{ch:skytools}). \measured

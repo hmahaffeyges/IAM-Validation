@@ -1,66 +1,188 @@
-% Part 2 opening chapter: from the virial partition (Chapter ch:virial_law, end of Part 1) to the cosmological coupling and its predictions.
-% Source: the five Virial papers: Virial Efficiency (25 Feb 2026); Wide Domains (25 Feb 2026); Virial Partners (Mar 2026);
-% Gravitational Decoherence and the Virial Partition (Mar 2026); The Thermodynamic Identity Governing the Virial Theorem (PRL version, 18 Mar 2026).
-% Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md.
-% Read status: drafted 2026-10-02 after a read in which several chunks were previews only. All five re-read in full 2026-10-02 in 50-line chunks
-% (ledger 277/641/674/560/222 lines, no gaps; book3/fullread/LEDGER_G3_Virial.md) and this chapter re-checked against them.
+% Part 2 opening chapter (1 of 2): from the virial partition (Chapters ch:virial_law, ch:virial_identity, end of Part 1) to the cosmological coupling and
+% its predictions. The tests are Chapter ch:virial_tests (p2_02b_virial_tests.tex); the interpretation of the two halves is Part 5
+% (p5_05b_virial_partners.tex, p5_05c_virial_decoherence.tex).
+% Carried line by line from: The Virial Partition Across Wide Range of Physical Scales (25 Feb 2026; abstract, sections 1, 2.3 step 4, 3, 3.1, 3.2,
+% 4.1-4.3, Tables 2-4, Figs. 2-3); Virial Efficiency and Effective Nonlinear Exponent (25 Feb 2026; all sections); Dark Matter and Dark Energy as Virial
+% Partners (Mar 2026; sections 2, 3.1, 4.1, Table 1, Fig. 1); Gravitational Decoherence and the Virial Partition (Mar 2026; sections 2.1, 3.2, 5.1, 5.2);
+% The Virial Partition from Atoms to the Horizon (Oct 2026; section 7).
+% Corrections applied: errata V1-V4, V7, V9, V14, V15 (traced: Stolzner 2025), V18, V21, V23, V25-V27, V30, V31, T1, T2, T4;
+% VIRIAL_CHECK.md items 1-6, 14, 15, 17, 19, 21, 23-25, 28, 29; NBODY_TRACE.md.
+% Numbers: docs/verification/scripts/verify_virial_papers.py (sections D, G, H, I, J); figures: docs/book/figscripts/fig_virial_book.py, fig_p2_coupling.py.
 
 \chapter{The cosmological coupling $\beta_m=\Omega_m/2$}\label{ch:virial}
 
 \section*{Overview}
-IAM's Law (Chapter~\ref{ch:iams_law}) prices every classical record at $k_BT\ln2$ per bit on the nearest encoding surface. For matter
-distributed through the universe the place is the cosmic horizon at the Gibbons--Hawking temperature. The law fixes the price; the virial
-partition below fixes how much bound matter writes.
-Part~\ref{part:1} closed with the virial partition: a stable $1/r$ system holds exactly half its binding energy as motion, and that half is the irreversible cost of the
-binding transition (Chapter~\ref{ch:virial_law}). Applied to the universe, the same half fixes the coupling of the record term in the horizon first law,
-$\beta_m=\Omega_m/2$, with no free parameter. This chapter derives the coupling and what follows from it --- the activation function, the growth coupling,
-the amplitude of structure, the two expansion rates, and the tests that will decide it. Every later chapter in Part~\ref{part:2} uses this number.
+IAM's Law (Chapter~\ref{ch:iams_law}) prices every classical record at $k_BT\ln2$ per bit on the nearest encoding surface. For matter distributed through
+the universe the place is the cosmic horizon at the Gibbons--Hawking temperature. The law fixes the price; the virial partition fixes how much bound matter
+writes. Part~\ref{part:1} closed with the virial partition: a stable $1/r$ system holds exactly half its binding energy as motion, and that half is the
+irreversible cost of the binding transition (Chapters~\ref{ch:virial_law} and~\ref{ch:virial_identity}). Applied to the universe, the same half fixes the
+coupling of the record term in the horizon first law, $\beta_m=\Omega_m/2=0.15765$, with no free parameter.
 
-\section{From the theorem to the cosmological coupling}
-IAM adds to the horizon first law of Jacobson and Cai--Kim~\cite{Jacobson1995,CaiKim2005} the entropy of the classical records produced as matter decoheres gravitationally,
-\begin{equation}
--dE=T_H\,d\!\left(S_{\rm geo}+S_{\rm info}\right).
-\end{equation}
-The share of the matter density that enters the record term is the kinetic half of the binding energy of collapsed structure. The virial theorem fixes it:
-\begin{equation}
-\beta_m=\frac{\Omega_m}{2}=0.15765\qquad(\Omega_m=0.3153,\ \text{Planck 2018}).
-\end{equation}
-The coupling is a prediction fixed by the measured matter density \derived; it enters every chain at this value and is never sampled.
+The core IAM mechanism is a single term, $\beta_mE(a)$, added to the matter-sector perturbation equations only, with activation function
+$E(a)=\exp(1-1/a)$ derived from horizon thermodynamics. No background quantities are modified. The $1/2$ partition at the heart of the coupling is not a
+numerological coincidence but a mathematical necessity verified across a wide range of physical scales: exact for $1/r$ potentials, proven analytically for
+both the Coulomb and gravitational potentials, verified computationally for 20 atoms (H through Xe) and 10 molecules at machine precision, confirmed by the
+Chandrasekhar limit ($1.456\,M_\odot$), and validated at galaxy cluster scales ($\sim$20\,\% precision). The same mathematical theorem governs electrons in
+hydrogen atoms and the coupling of matter to the horizon at the Hubble scale.
 
-It is useful to see where the $1/2$ sits in a real halo population. Writing $\beta_m=\Omega_m\,f_{\rm coll}\,\eta_{\rm vir}$, with $f_{\rm coll}$ the
-fraction of matter in collapsed halos and $\eta_{\rm vir}$ the share of their binding energy in random, relaxed motion, the theorem requires
-$f_{\rm coll}\eta_{\rm vir}=1/2$. Real halos are never perfectly relaxed: they are still accreting and merging (unrelaxed halos sit further from
-equilibrium than relaxed ones), they carry ordered rotation, and some of their support is non-thermal (feedback, magnetic fields, cosmic rays). Each moves the
-measured ratio away from the equilibrium value. In simulations, halos are conventionally called relaxed when $2T/|U|<1.35$ (Neto et al.\ 2007~\cite{Neto2007}), and the
-mass-weighted population sits somewhat above 1. The decomposition is therefore a description of how the equilibrium value is approached in a population,
-not a separate confirmation of it; $\beta_m=\Omega_m/2$ rests on the theorem.
-Simulations measure the equilibrium directly: within the virial radius halos have $2T/|U|\approx1.1$--$1.3$ (Bett et al.\ 2007~\cite{Bett2007}; Neto et al.\ 2007~\cite{Neto2007};
-Power et al.\ 2012~\cite{Power2012}), and $1.02$--$1.17$ once the pressure of still-infalling matter at the boundary is included (Klypin et al.\ 2016~\cite{Klypin2016}). The theorem holds in
-the halo population to within the infall still under way (Chapter~\ref{ch:virial_law}).
+This chapter derives the coupling and what follows from it --- the coupling in a real halo population, the exponent of the record rate, the activation
+function, the growth coupling, the amplitude of structure, the two expansion rates, the two values of $\Omega_m$, and the history of the ratio of matter to
+the record term. Chapter~\ref{ch:virial_tests} sets out the tests that will decide it. Every later chapter in Part~\ref{part:2} uses this number.
 
-\section{What the coupling predicts}
-\subsection{The activation function and the growth coupling}
-The record accumulates as structure forms. Integrating the record rate through the horizon first law gives the activation function
+\section{From the theorem to the cosmological coupling}\label{sec:vc_coupling}
+The Informational Actualization Model is a physically motivated extension of $\Lambda$CDM in which gravity acts as a decoherence mechanism that partitions
+gravitational energy into geometric entropy (spacetime curvature) and informational entropy (quantum decoherence). The single observational consequence is a
+modified growth of matter perturbations; all other physics, including the background expansion history, is identical to $\Lambda$CDM.
+
+IAM adds to the horizon first law of Jacobson and Cai--Kim~\cite{Jacobson1995,CaiKim2005} the entropy of the classical records produced as matter decoheres
+gravitationally,
 \begin{equation}
-E(a)=\exp\!\left(1-\frac1a\right)=e^{-z},
+-dE=T_H\,d\!\left(S_{\rm geo}+S_{\rm info}\right).\label{eq:vc_firstlaw}
 \end{equation}
-with $E\to0$ at early times ($E(z{=}10)=4.5\times10^{-5}$), $E(1)=1$ today, $dE/da>0$ throughout, and $E\to e$ as $a\to\infty$. It reaches 10, 50 and
-90\,\% of today's value at $z=2.30$, $0.69$ and $0.11$. Matter perturbations grow with the effective coupling
+In the IAM framework, gravitational structure formation partitions gravitational energy into two channels. The first is the geometric channel: collapsing
+matter curves spacetime, depositing energy into the geometric entropy $S_{\rm geo}$ of the system's gravitational configuration. The second is the
+informational channel: the same collapse decoheres quantum superpositions into classical states, producing irreversible information at a rate governed by
+Landauer's principle~\cite{Landauer1961}. This information accumulates on the cosmological apparent horizon as informational entropy $S_{\rm info}$.
+
+The virial theorem determines the partition. At virialisation, the kinetic energy of collapsing matter --- which drives decoherence --- equals half the
+magnitude of the potential energy of the gravitational configuration. The share of the matter density that enters the record term is that kinetic half:
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765\qquad(\Omega_m=0.3153,\ \text{Planck 2018}).\label{eq:vc_beta}
+\end{equation}
+\prediction\ This value is not fitted to any cosmological observation. It is derived from the theorem and the measured matter density, enters every chain at
+this value and is never sampled. The coupling constant $\beta_m=\Omega_m/2$ is derived from the virial theorem applied to cosmological structure formation,
+not fitted to data. The claim is simple: the $1/2$ at the heart of that derivation is not a free choice. It is a mathematical theorem that holds for all $1/r$
+potentials, and the span of its verification (Table~\ref{tab:virial_domains}) provides the physical basis for $\beta_m=\Omega_m/2$.
+
+Within IAM the interpretation is precise. The potential half $|V|/2$ is held in spacetime curvature --- the geometric channel that general relativity
+describes. The kinetic half $K=|V|/2$ is the decoherence energy: the Landauer cost of converting quantum superpositions to classical outcomes at each
+virialization event. Every time a dark matter halo virializes, half its gravitational binding energy goes into irreversible information production, written
+on the nearest available encoding surface at thermodynamic cost $k_BT\ln2$ per bit. \interp\ This identification gives the cosmological coupling constant
+immediately: $\beta_m$ is the fraction of the matter energy density that takes part in decoherence per Hubble time.
+
+With the coupling fixed, the Planck data are a consistency test, not a measurement of $\beta_m$. In the Level~2 chains (Chapter~\ref{ch:level2}) the
+posterior $\Omega_m=0.3166\pm0.0065$ gives $\beta_m/\Omega_m=0.498\pm0.010$ for the fixed $\beta_m$, and the modified growth has a minimum $\chi^2$ higher
+than $\Lambda$CDM's by $0.54$ with the same number of parameters: consistent with Planck. \measured
+
+\section{The half in a real halo population}\label{sec:vc_population}
+The virial theorem is exact for systems in perfect equilibrium; cosmological halos are not perfectly equilibrated. The virial argument for
+$\beta_m=\Omega_m/2$ asks therefore how the equilibrium value is approached in a real population, and the coupling can be written as
+\begin{equation}
+\beta_m=\Omega_m\times f_{\rm coll}\times\eta_{\rm vir},\label{eq:vc_decompose}
+\end{equation}
+where $f_{\rm coll}$ is the collapsed fraction from mass functions and $\eta_{\rm vir}$ is the virial efficiency --- the fraction of collapsed matter's
+gravitational potential energy that is converted into irreversible kinetic (decoherence-producing) degrees of freedom. The virial theorem requires the
+product $f_{\rm coll}\times\eta_{\rm vir}=1/2$. For a collapsed fraction $f_{\rm coll}=0.62$,
+\begin{equation}
+\eta_{\rm vir}=\frac{1}{2f_{\rm coll}}=\frac{1}{2\times0.62}=0.81 .\label{eq:vc_eta}
+\end{equation}
+Equation~\eqref{eq:vc_eta} is a definition of $\eta_{\rm vir}$, not a measurement: it makes $f_{\rm coll}\eta_{\rm vir}=1/2$ hold by construction, so the
+product $\Omega_mf_{\rm coll}\eta_{\rm vir}$ returns $\Omega_m/2$ whatever $f_{\rm coll}$ is. The decomposition describes how the equilibrium value is
+approached in a population; $\beta_m=\Omega_m/2$ rests on the theorem and on the cross-domain record of Chapter~\ref{ch:virial_law}.
+
+\paragraph{What the simulations measure.} The observable is the virial ratio of the halo population within the virial radius, with $K$ the total kinetic
+energy and $U$ (or $W$) the gravitational potential energy. The published simulations report it as $2T/|U|$, at or above 1 and rising with mass
+(Figure~\ref{fig:vc_halo}a, Table~\ref{tab:vc_halo}). \observed\ The excess over 1 is the pressure of matter still falling through the boundary; with the
+surface term the ratio comes within a few to 17\,\% of equilibrium. In terms of the efficiency of Eq.~\eqref{eq:vc_eta}, the reciprocal $|U|/2T$ of these
+values lies between 0.77 and 0.91 within the virial radius and between 0.85 and 0.98 with the surface term; it depends on mass, so it is a property of the
+population chosen, not a constant. \calc
+
+\begin{table}[htbp]\centering\small
+\caption{Published virial ratios of simulated dark-matter halos within the virial radius. Values as printed in each study or read from its figures and
+fits (page and figure references: \texttt{docs/verification/virial/\allowbreak{}NBODY\_TRACE.md}). \observed}\label{tab:vc_halo}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}X}
+\hline
+Source & Simulation, sample & What is reported\\\hline
+Bett et al.\ 2007~\cite{Bett2007} & Millennium, $M\gtrsim2.6\times10^{11}$ to $\sim10^{15}\,h^{-1}M_\odot$ & ridge of $2T/U+1\approx-0.2$ to $-0.3$, i.e.\ $2T/|U|\approx1.2$--$1.3$ (Fig.~4); quasi-equilibrium cut $0.5\le2T/|U|\le1.5$\\
+Neto et al.\ 2007~\cite{Neto2007} & Millennium, $M\gtrsim10^{12}\,h^{-1}M_\odot$ & median $2T/|U|$ ``slightly greater than unity''; $\approx1.12$--$1.26$ (Fig.~2); relaxed when $2T/|U|<1.35$\\
+Power, Knebe \& Knollmann 2012~\cite{Power2012} & GADGET-2 $\Lambda$CDM boxes, $z=0$ & $\eta=2T/|W|\approx1.15$ ($10^{12}$) to $1.25$ ($10^{15}\,h^{-1}M_\odot$); surface-corrected $\eta'$ centred near 0.9\\
+Klypin et al.\ 2016~\cite{Klypin2016} & MultiDark (MDPL), $z=0$ & $2K/|W|\approx1.1$ ($10^{12}$) to $1.4$ ($10^{15}$); $1.02$--$1.17$ with the surface-pressure correction\\
+Ludlow et al.\ 2010~\cite{Ludlow2010} & 21 resimulated halos, $10^{12}$ to a few $\times10^{14}\,h^{-1}M_\odot$ & $2K/|\Phi|<1.3$ used as a relaxation cut\\
+Bryan \& Norman 1998~\cite{BryanNorman1998} & cluster simulations & $f_\sigma=0.82$--$0.89$ and $f_T=0.75$--$0.79$: normalisations of the velocity-dispersion and temperature scaling relations, a different quantity\\\hline
+\end{tabularx}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_virial_halo_slope.pdf}
+\caption{(a) Published virial ratios of simulated halos, drawn as $K/|W|=\tfrac12(2T/|U|)$ against halo mass (Table~\ref{tab:vc_halo}); the dashed line is the equilibrium $1/2$. \observed\ (b) The logarithmic slope of the collapsed fraction with respect to the linear growth factor, $d\ln F(>M)/d\ln D=f(\sigma_M)/F(>M)$, for six published mass functions at $z=0$ (Planck 2018, $\delta_c=1.686$; \texttt{docs/verification/virial/\allowbreak{}NBODY\_TRACE\_massfunction\_slopes.csv}). It runs from about 0.5 at $10^{10}$ to about 3 at $10^{14}\,h^{-1}M_\odot$. \calc}\label{fig:vc_halo}
+\end{figure}
+
+\paragraph{Physical interpretation of the departures.} Real halos are never perfectly relaxed, and three well-understood physical contributions move the
+measured ratio away from the equilibrium value:
+\begin{itemize}
+\item \emph{Ongoing mergers and infall:} halos at any snapshot contain material not yet at equilibrium; unrelaxed halos sit further from equilibrium than
+relaxed ones (Neto et al.\ 2007).
+\item \emph{Ordered angular momentum:} bulk rotation contributes kinetic energy that does not produce gravitational decoherence (Bett et al.\ 2007 quantify the
+spin).
+\item \emph{Non-thermal pressure support:} AGN feedback, cosmic rays, and magnetic fields contribute sub-dominant kinetic energy not sourced by gravitational
+collapse.
+\end{itemize}
+Each moves the measured ratio away from the equilibrium value, and the surface-pressure correction of Klypin et al.\ shows that most of the excess is the
+first. \interp\ The theorem holds in the halo population to within the infall still under way.
+
+\paragraph{The collapsed fraction.} The collapsed fraction is not a fixed number: it depends on the smallest halo counted. Integrating the Tinker et al.\
+(2008)~\cite{Tinker2008} $\Delta=200m$ mass function at $z=0$ with Planck 2018 gives $F(>10^{10.5}h^{-1}M_\odot)=0.486$ at the lower edge of its calibrated
+range, $0.447$ above $10^{11}$ and $0.348$ above $10^{12}$; $f_{\rm coll}=0.62$ is reached at $M_{\rm min}\approx10^{8.2}\,h^{-1}M_\odot$, below that
+range. \calc\ Because $\eta_{\rm vir}=1/(2f_{\rm coll})$ inherits this choice, so does any number assigned to the efficiency.
+
+\paragraph{What this means.} The virial theorem prediction $\beta_m=\Omega_m/2$ is not a fit to cosmological data. It is a prediction from a theorem more
+than 150 years old applied to gravitational energy partitioning. The published simulations show the halo population at the equilibrium the theorem
+requires, to within the infall still under way. A rigorous calculation of the cosmological gravitational energy partition --- the kinetic energy written
+per unit time by the whole halo population, as the sum over the mass function of the kinetic half of each halo --- is the formal step still to be completed.
+\openprob\ Chapter~\ref{ch:quantumrecords} gives the bottom-up version of that sum.
+
+\section{The exponent of the record rate}\label{sec:vc_exponent}
+The activation function $E(a)=\exp(1-1/a)$ is derived from the cumulative integral of the record rate on the horizon (Chapter~\ref{ch:theory}). Write the
+rate at which matter writes records as $\dot I\propto\rho_mD^nfH$, accumulated on the horizon as $dS_{\rm info}/dt=\dot I/(T_HA_H)$. In matter domination
+this gives $S_{\rm info}\propto a^{\,n-9/2}$; for the integral to yield the $1/a$ in the exponent, the instantaneous rate must scale as $D(a)^n$ with
+\begin{equation}
+n-\tfrac92=-1\quad\Longrightarrow\quad n=\tfrac72\qquad\text{(analytical, pure matter domination).}\label{eq:vc_n}
+\end{equation}
+\derived\ The effective exponent is derived analytically in the matter-dominated limit; the real universe has radiation domination at early times and
+$\Lambda$ domination at late times. The full $\Lambda$CDM integration finds the closest fit for $D^{7/2}$, with coefficients within 5\,\% (Chapter~\ref{ch:theory}).
+\calc\ $E(a)$ itself does not depend on $n$.
+
+The observable is the logarithmic slope of the halo collapse rate with respect to the linear growth factor, and it should be verified by measuring the
+actual rate of structure formation in simulations at each redshift. Computed from the published mass functions, the slope of the collapsed fraction,
+$d\ln F(>M)/d\ln D=f/F$, is strongly mass-dependent: about $0.5$ above $10^{10}$, about $1$ above $10^{12}$ and about $3$ above
+$10^{14}\,h^{-1}M_\odot$ at $z=0$ (Figure~\ref{fig:vc_halo}b). \calc\ A value near $3$--$4$ is reached only for cluster-mass halos, so a slope of the collapsed
+fraction is not by itself the exponent. Summing the kinetic half of every halo instead --- the energy the law prices --- gives a bottom-up exponent that
+passes through $7/2$ at $z\approx3$--$4$ and averages near 4 over the matter era (Chapter~\ref{ch:quantumrecords}, Figure~\ref{fig:neff_bottomup}). \calc
+
+\section{The activation function and the growth coupling}\label{sec:vc_activation}
+The record accumulates as structure forms. Integrating the record rate through the horizon first law, from the Cai--Kim formalism~\cite{CaiKim2005} applied
+to the cosmic apparent horizon, gives the activation function
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right)=e^{-z}.\label{eq:vc_E}
+\end{equation}
+\derived\ Its properties follow directly from the physical identification: $E\to0$ as $a\to0$ (negligible at early times; $E(z{=}10)=4.5\times10^{-5}$); $E(1)=1$
+today; $dE/da>0$ always (monotonically increasing, since each decoherence event is irreversible); $E(\infty)=e$, the asymptotic limit, never reached. It
+reaches 10, 50 and 90\,\% of today's value at $z=2.30$, $0.69$ and $0.11$, naturally restricting the modification to late-time structure growth. The rate at
+which the record is written, $dE/d\ln a=E/a$, peaks exactly at $a=1$; $E$ itself has its inflection at $a=1/2$ (Figure~\ref{fig:vc_muE}a). \calc
+
+Matter perturbations grow with the effective coupling
 \begin{equation}
 \ddot\delta_m+2H\dot\delta_m-\tfrac32\Omega_mH_0^2a^{-3}\mu(a)\,\delta_m=0,\qquad
 \mu(a)=\frac{H^2_{\Lambda{\rm CDM}}(a)}{H^2_{\Lambda{\rm CDM}}(a)+\beta_mE(a)H_0^2},\label{part2:eq:mu_virial}
 \end{equation}
-while light is unaffected, $\Sigma=1$: photons on null worldlines accumulate no proper time and take no part in decoherence. This is the
-$\mu$--$\Sigma$ form used in the Level~1 chains. The Level~2 chains put the same term into the friction on matter perturbations instead
-(Chapter~\ref{ch:level2}); the two give the same growth to within a few tenths of a percent.
+with $\mu(a)\to1$ at high redshift and $\mu(1)=1/(1+\beta_m)=0.864$ today ($\mu_0\equiv\mu(1)-1=-0.136$, from $\beta_m=\Omega_m/2$ with no fitting).
+\derived\ The photon sector is unmodified: $\Sigma=1$ exactly, because photons travel on null geodesics ($\Delta\tau=0$) and produce no irreversible
+gravitational information. Here $\mu$ and $\Sigma$ are the standard parameters of modified growth and lensing~\cite{BertschingerZukin2008}. The photon sector
+is geometrically standard; the matter sector carries the accumulated thermodynamic history of the decoherence transactions.
 
-The rate at which the record is written, $dE/d\ln a=E/a$, peaks exactly at $a=1$; $E$ itself has its inflection at $a=1/2$.
+Equation~\eqref{part2:eq:mu_virial} is the $\mu$--$\Sigma$ form, in which $\mu$ multiplies the source term; it is the form used in the Level~1 chains. The
+Level~2 chains put the same term into the expansion rate felt by matter perturbations, $H_m^2=H^2+\beta_mE(a)H_0^2$, so that it enters as an additional
+Hubble friction (Chapter~\ref{ch:level2}); the two give the same growth to within a few tenths of a percent. Every growth number below states which form it
+uses.
 
-\paragraph{The exponent.} The record-writing rate is $\dot I\propto\rho_mD^nfH$, accumulated on the horizon as $dS_{\rm info}/dt=\dot I/(T_HA_H)$
-(Chapter~\ref{ch:iams_law}). In matter domination this gives $S_{\rm info}\propto a^{\,n-9/2}$; the $-1/a$ in $E(a)$ requires $n-\tfrac92=-1$, so $n=\tfrac72$.
-The full $\Lambda$CDM integration finds the closest fit for $D^{7/2}$. $E(a)$ itself does not depend on $n$.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_virial_mu_E.pdf}
+\caption{(a) The activation function $E(a)=\exp(1-1/a)$: zero at early times, 1 today, inflection at $a=1/2$, tending to $e$ and never reaching it. \derived\ (b) The coupling deficit $1-\mu(z)$ of Eq.~\eqref{part2:eq:mu_virial} (13.6\,\% today, 7.8\,\% at $z=0.3$), and the deficit of $f\sigma_8$ against $\Lambda$CDM from the linear growth equation with the same early amplitude (4.25\,\% today). Planck 2018 background, $\beta_m=0.15765$; \texttt{docs/book/figscripts/\allowbreak{}fig\_virial\_book.py}. \calc}\label{fig:vc_muE}
+\end{figure}
 
-\begin{center}\small
+\begin{table}[htbp]\centering\small
+\caption{The activation function and the coupling, Eq.~\eqref{part2:eq:mu_virial}, Planck 2018 background. The last column is the deficit of the
+coupling, which is not a deficit of growth (Section~\ref{sec:vc_growth}). \calc}\label{tab:vc_mu}
 \begin{tabular}{cccc}
 \hline
 $z$ & $E(a)$ & $\mu$ & coupling reduced by ($1-\mu$)\\\hline
@@ -68,64 +190,155 @@ $z$ & $E(a)$ & $\mu$ & coupling reduced by ($1-\mu$)\\\hline
 0.3 & 0.741 & 0.922 & 7.8\,\%\\
 0.5 & 0.607 & 0.948 & 5.2\,\%\\
 0.7 & 0.497 & 0.966 & 3.4\,\%\\
-1.0 & 0.368 & 0.982 & 1.8\,\%\\\hline
+1.0 & 0.368 & 0.982 & 1.8\,\%\\
+1.5 & 0.223 & 0.994 & 0.6\,\%\\
+2.0 & 0.135 & 0.998 & 0.2\,\%\\\hline
 \end{tabular}
-\end{center}
-Values from Eq.~\eqref{part2:eq:mu_virial} \calc.
+\end{table}
+The modification is strictly late-time: $\mu\to1$ above $z\approx2$ and reaches $0.864$ today.
 
-\subsection{Amplitude of structure}
-In the Planck chains $\sigma_8$ moves from $0.809$ to $0.800$ (Level 2; from $0.814$ to $0.802$ at Level 1) \measured, while $H_0$, $\Omega_bh^2$ and $\Omega_m$ stay within $0.1\sigma$
-of their $\Lambda$CDM values (Level~2): the lower amplitude is growth physics, not a parameter shift. The Level 2 chain gives $S_8=0.822\pm0.011$, in line with the
-KiDS-Legacy cosmic-shear value $S_8=0.815^{+0.016}_{-0.021}$~\cite{Wright2025}.
-
-\subsection{Two expansion rates}
-Photon-sector probes (CMB acoustic scale, BAO angles) read the $\Lambda$CDM rate; matter-sector probes calibrated on timelike worldlines read
+\section{Growth and the amplitude of structure}\label{sec:vc_growth}
+\paragraph{The growth deficit.} The coupling deficit $1-\mu$ is not the growth deficit. Solving the linear growth equation with the same early amplitude, the
+$\mu$--$\Sigma$ form gives an $f\sigma_8$ lower than $\Lambda$CDM's by $4.25\,\%$ today, $2.19\,\%$ at $z=0.295$, $2.17\,\%$ at $z=0.3$, $1.35\,\%$ at $z=0.5$,
+$0.41\,\%$ at $z=1$ and $0.13\,\%$ at $z=1.491$; the friction form agrees within $0.3\,\%$. \calc\ The predicted shape is a curved ramp,
 \begin{equation}
-H_0^{(m)}=H_0^{(\gamma)}\sqrt{1+\beta_m}=67.16\times1.0759=72.26\ \text{km\,s}^{-1}\text{Mpc}^{-1}
+f\sigma_8^{\rm IAM}(z)=f_{\rm IAM}(z)\,\sigma_8\,\frac{D_{\rm IAM}(z)}{D_{\rm IAM}(0)},\label{eq:vc_fs8}
 \end{equation}
-(Level 2 chain; with Planck's $67.36$, $72.48$) \derived. SH0ES measures $73.04\pm1.04$~\cite{Riess2022} ($0.75\sigma$); Planck $67.36\pm0.54$~\cite{Planck2018VI} against the chain's $67.16\pm0.47$
-($0.37\sigma$). Supernova distances follow $\Lambda$CDM geometry; their $H_0\approx73$ comes from the Cepheid calibration (Chapter~\ref{ch:dsvalidation}).
+largest today and decreasing monotonically with redshift, following the activation of $E(a)$, not a constant rescaling. \prediction\ No measurement has yet
+reached the precision to confirm or exclude it (Chapter~\ref{ch:virial_tests}).
 
-\subsection{Growth and geometry give different $\Omega_m$}
+\paragraph{The amplitude.} The growth equation with the IAM term suppresses the growth of matter perturbations at late times. In the Planck chains
+$\sigma_8$ moves from $0.8087\pm0.0059$ ($\Lambda$CDM) to $0.7998\pm0.0058$ (Level~2) and from $0.814$ to $0.802$ at Level~1 \measured, while $H_0$,
+$\Omega_bh^2$ and $\Omega_m$ stay within $0.1\sigma$ of their $\Lambda$CDM values. In the Level~2 chains the shifts are $-1.51\sigma$ in $\sigma_8$ and
+$-0.78\sigma$ in $S_8$, against $-0.07\sigma$ in $\omega_b$, $+0.09\sigma$ in $\ln A_s$ and $+0.05\sigma$ in $\Omega_m$. The lower amplitude is growth
+physics, not a parameter shift: it is not driven by parameter degeneracies.
+
+\begin{table}[htbp]\centering\small
+\caption{The Planck 2018 chains with the coupling fixed at its prediction (posterior mean $\pm1\sigma$; \texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}).
+$\Delta\chi^2$ is the minimum $\chi^2$ of the IAM chain minus that of the $\Lambda$CDM chain on the same likelihood. \measured}\label{tab:vc_chains}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lccccc}
+\hline
+Run & $\mu_0$ & $\sigma_8$ & $S_8$ & $H_0$ & $\Delta\chi^2$\\\hline
+Level 2, Run A (IAM) & $-0.136$ (derived) & $0.7998\pm0.0058$ & $0.822\pm0.011$ & $67.16\pm0.47$ & $+0.54$\\
+Level 2, Run D (IAM, second seed) & $-0.136$ (derived) & $0.7995\pm0.0058$ & $0.821\pm0.011$ & $67.19\pm0.46$ & ---\\
+Level 2, Run C ($\Lambda$CDM) & 0 & $0.8087\pm0.0059$ & $0.830\pm0.011$ & $67.19\pm0.46$ & reference\\
+Level 1, IAM fixed & $-0.136$ (derived) & $0.8015\pm0.0058$ & --- & $67.08\pm0.53$ & $+0.96$\\
+Level 1, $\Lambda$CDM & 0 & $0.8143\pm0.0060$ & --- & $67.14\pm0.51$ & reference\\\hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+$\Delta\chi^2=+0.54$ means the Planck data are statistically indifferent between IAM and $\Lambda$CDM at current CMB precision. This is the expected result:
+the CMB constrains growth only through lensing and the late-time integrated Sachs--Wolfe effect, and with $\mu_0$ free Planck with redshift-space
+distortions gives $\sigma(\mu_0)=0.125$ (Chapter~\ref{ch:latetime}).
+
+\paragraph{The 2025 comparisons.} IAM predicts $\sigma_8=0.800$ from the coupling, with no free amplitude. The joint analysis of KiDS-Legacy and DES Y3
+cosmic shear with DESI DR1 BAO and Pantheon+ finds $\sigma_8=0.802^{+0.022}_{-0.018}$~\cite{Stolzner2025} \observed: the Level~2 value lies $0.12\sigma$ from
+it, the Level~2 $\Lambda$CDM value $0.29\sigma$. \calc\ On $S_8$, KiDS-Legacy cosmic shear gives $0.815^{+0.016}_{-0.021}$~\cite{Wright2025}, $0.33\sigma$ below
+the Level~2 $S_8=0.822\pm0.011$. KiDS-1000 had found $S_8$ $\sim3\sigma$ below Planck; the completed survey lies between Planck $\Lambda$CDM and the IAM chain
+and does not separate them. Weak-lensing $S_8$ measures matter clustering, which IAM lowers, so the move of the lensing values toward Planck is a matter of
+the data, not a test of $\Sigma=1$. The comparison with every survey is in Chapters~\ref{ch:sectortension} and~\ref{ch:s8trend}.
+
+\section{Two expansion rates}\label{sec:vc_h0}
+Matter-sector distance indicators probe the effective expansion rate experienced by matter, which is enhanced by the $\beta_mE(a)$ term. The matter-sector
+$H_0$ is
+\begin{equation}
+H_0^{(m)}=H_0^{(\gamma)}\sqrt{1+\beta_m}=67.16\times1.0759=72.26\ \text{km\,s}^{-1}\text{Mpc}^{-1}\label{eq:vc_h0}
+\end{equation}
+(Level~2 chain; with Planck's $67.36$, $72.48$). \derived\ Photon-sector probes (the CMB acoustic scale, BAO angles, lensing time delays) measure
+$H_0^{(\gamma)}$; matter-sector probes (Cepheids, megamasers, surface brightness fluctuations, and the supernova ladder they calibrate) measure $H_0^{(m)}$.
+The assignment follows the worldline rule: a probe sits on the matter ruler when its calibration rests on matter on timelike worldlines, and on the photon
+ruler when the measured quantity is a property of light paths (Chapter~\ref{ch:sectortension}). No single $H_0$ fits both sectors in $\Lambda$CDM; IAM
+predicts both endpoints from the same $\beta_m$. The two groups of measurements are not in tension with each other; they are measuring different physical
+quantities, the photon-sector and the matter-sector expansion rates, predicted to differ by $\sqrt{1+\beta_m}-1=7.6\,\%$. \interp
+
+\begin{table}[htbp]\centering\small
+\caption{Published $H_0$ measurements (km\,s$^{-1}$\,Mpc$^{-1}$) against the photon-sector rate $67.16$ and the matter-sector rate $72.26$ of the Level~2
+chain, sectors by the worldline rule. Values \observed, offsets \calc.}\label{tab:vc_h0}
+\begin{tabular}{llccc}
+\hline
+Probe & $H_0$ & Sector & vs 67.16 & vs 72.26\\\hline
+Planck 2018 CMB~\cite{Planck2018VI} & $67.36\pm0.54$ & photon & $+0.4\sigma$ & $-9.1\sigma$\\
+ACT DR4 + WMAP~\cite{Aiola2020} & $67.6\pm1.1$ & photon & $+0.4\sigma$ & $-4.2\sigma$\\
+H0LiCOW lensing time delays~\cite{Wong2020} & $73.3\pm1.8$ & photon & $+3.4\sigma$ & $+0.6\sigma$\\
+SH0ES Cepheids~\cite{Riess2022} & $73.04\pm1.04$ & matter & $+5.7\sigma$ & $+0.75\sigma$\\
+Megamasers (MCP)~\cite{Pesce2020} & $73.9\pm3.0$ & matter & $+2.2\sigma$ & $+0.5\sigma$\\
+Surface brightness fluctuations~\cite{Blakeslee2021} & $73.3\pm2.5$ & matter & $+2.5\sigma$ & $+0.4\sigma$\\\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.78\textwidth]{figures/part2/fig_virial_h0_census.pdf}
+\caption{The measurements of Table~\ref{tab:vc_h0} against the two IAM rates, photon sector (blue, 67.16) and matter sector (orange, 72.26). Colours mark the sector each probe is assigned by the worldline rule. \observed\ (values) \calc\ (rates)}\label{fig:vc_h0}
+\end{figure}
+SH0ES lies $0.75\sigma$ from the matter-sector rate, and Planck lies $0.37\sigma$ (in Planck's error) from the chain's photon-sector value $67.16\pm0.47$.
+\calc\ With each probe compared to its own sector, the six measurements give $\chi^2=13.0$, of which 11.6 comes from the lensing time delays: on the photon
+ruler, where the worldline rule places them, they lie $3.4\sigma$ above the photon rate. A single $H_0$ fitted to all six gives $68.9$ with $\chi^2=37.2$, and
+$H_0$ held at Planck's $67.36$ gives $51.2$. \calc\ The difference between these numbers is the consequence of the sector assignment, not an independent fit
+of the model; the time-delay value is the open item of the census. \openprob\ Supernova distances themselves follow $\Lambda$CDM geometry; their
+$H_0\approx73$ comes from the Cepheid calibration (Chapter~\ref{ch:dsvalidation}).
+
+These are not two measurements of the same quantity. They are measurements of two distinct physical quantities separated by the accumulated decoherence
+history of the matter sector. The term belongs in the perturbations: placed in the background Friedmann equation instead, it drives $H_0$ to $61.45$ and
+$61.52$ in the two Level~2b chains, far from every measurement (Chapter~\ref{ch:level2}).
+
+\section{Growth and geometry give different $\Omega_m$}\label{sec:vc_omega}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_growth_vs_geometry.pdf}
 \caption{(a) The matter density a growth-only measurement infers in $\Lambda$CDM, $\Omega_m\mu(z)$ (0.299 at $z=0.5$), against the geometric $\Omega_m=0.3153$ that distances keep. (b) The change in $E_G$ with $\Sigma=1$, $f_{\Lambda\rm CDM}/f_{\rm IAM}-1$ from the linear growth equation with the same early amplitude: $+3.6\,\%$ today and $+1.9\,\%$ at the BGS redshift $z=0.295$. \prediction}\label{fig:growth_vs_geometry}
 \end{figure}
-A growth-only measurement interpreted in $\Lambda$CDM infers $\Omega_m^{\rm growth}(z)=\Omega_m\,\mu(z)$: $0.299$ at $z=0.5$, $5.2\,\%$ below the
-geometric value \calc, while distances (BAO, the CMB acoustic scale) keep the geometric $\Omega_m$. Combined full-shape plus BAO values, such as DESI DR1's
-$\Omega_m=0.2962\pm0.0095$~\cite{DESI2024VII}, are dominated by the distance information and are not a growth-only measurement. The clean test fits the full-shape growth
-with a template built from the modified growth and compares it with the BAO geometry of the same survey.
+If the coupling lowers the growth of matter while leaving light unchanged, then measurements of structure growth should infer a lower effective $\Omega_m$
+than measurements of photon-sector geometry, which probe distances directly. IAM predicts
+\begin{equation}
+\Omega_m^{\rm growth}(z)=\Omega_m\,\mu(z),\label{eq:vc_omgrowth}
+\end{equation}
+with $\mu$ from Eq.~\eqref{part2:eq:mu_virial}. At $z=0$ this gives a 13.6\,\% lower value; at $z=0.5$, $0.2990$, a 5.2\,\% lower value; at $z=0.4$, $0.2952$.
+\calc\ Distances (BAO, the CMB acoustic scale) keep the geometric $\Omega_m$.
 
-\subsection{The $E_G$ statistic}
-$E_G$ compares galaxy--lensing cross-correlation with galaxy clustering and velocities~\cite{Zhang2007EG}. With $\Sigma=1$ the lensing kernel is unchanged and the growth rate is
-lower, so $E_G=\Omega_m/f_{\rm IAM}(z)$ lies above the general-relativity value at every redshift. All the input data are published; the comparison with the
-IAM growth curve is a direct near-term test.
+Combined full-shape plus BAO values, such as DESI DR1's $\Omega_m=0.2962\pm0.0095$~\cite{DESI2024VII} \observed\ ($0.3\sigma$ from the $z=0.5$ value, and
+6.1\,\% below Planck's geometric $0.3153\pm0.0073$), are dominated by the distance information, which IAM leaves unchanged; they are not a growth-only
+measurement, and the comparison is not yet a test. The DESI full-shape analysis assumes a $\Lambda$CDM power spectrum template; an IAM-native template would
+eliminate the model-dependent bias and provide a cleaner test. The clean test fits the full-shape growth with a template built from the modified growth
+and compares it with the BAO geometry of the same survey. This is computationally feasible with the existing Level~2 CAMB implementation and is the most
+important near-term analysis. \openprob
 
-\subsection{The virial ratio through cosmic history}
+\section{The virial ratio through cosmic history}\label{sec:vc_history}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_record_history.pdf}
 \caption{(a) Matter over the record term, $R(a)=\Omega_ma^{-3}/\beta_mE(a)$: 399 at $z=2$, 20 at $z=0.7$, 6 at $z=0.3$ and 2 today, the last by construction. (b) The record term's share of $\Omega_\Lambda+\beta_mE(a)$ in the matter-sector rate: 18.7, 14.6, 10.3 and 4.9\,\% at $z=0$, 0.3, 0.7 and 1.5. Planck 2018 background, $\Omega_m=0.3153$, $\beta_m=0.15765$. \calc}\label{fig:record_history}
 \end{figure}
-The ratio of the matter density to the record term, $R(a)=\Omega_ma^{-3}/[\beta_mE(a)]$, is $399$ at $z=2$, $20$ at $z=0.7$, $6$ at $z=0.3$, and $2$
-today --- the last by construction, since $\beta_m=\Omega_m/2$ and $E(1)=1$. In the matter-sector rate $H_m^2$, matter equals the vacuum plus record term at $z=0.361$ ($\Lambda$CDM:
-$0.295$). Today the record term is $18.7\,\%$ of $\Omega_\Lambda+\beta_m$; at $z=0.3$, $0.7$ and $1.5$ it is $14.6$, $10.3$ and $4.9\,\%$. The reading of
-$R=2$ as the solution of the coincidence problem is interpretation and is taken up in Part~\ref{part:5} (Chapter~\ref{ch:theoryinterp}).
+Define the cosmological virial ratio
+\begin{equation}
+R(a)=\frac{\Omega_ma^{-3}}{\beta_mE(a)},\label{eq:vc_R}
+\end{equation}
+with $E(a\to0)\to0$ and $E(1)=1$. At early times $E(a)\approx0$ and the kinetic half has not yet activated; the ratio $R(a)$ is effectively infinite. As
+structure forms and decoherence events accumulate, the kinetic half grows. At $a=1$, by construction,
+\begin{equation}
+R(1)=\frac{\Omega_m}{\beta_m\,E(1)}=\frac{\Omega_m}{(\Omega_m/2)\cdot1}=2 .\label{eq:vc_R1}
+\end{equation}
+\calc\ Table~\ref{tab:vc_R} shows $R$ at representative epochs.
 
-\section{Tests}
-\begin{itemize}
-\item \emph{Euclid} measures growth (spectroscopy) and lensing (imaging) on the same volume~\cite{Euclid2025}. The prediction is $\mu_0=\mu(0)-1=-0.136$ with $\Sigma_0=0$ \prediction.
-Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
-scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}). The clustering and weak-lensing products of DR1 are expected in mid-2027~\cite{ESA2026DR1}.
-\item \emph{DESI Year 5}: $f\sigma_8$ is forecast to about $1\,\%$ per $\Delta z=0.1$ bin at $0.8<z<1.3$ and $0.4$--$0.7\,\%$ aggregated over all redshifts~\cite{DESI2016}.
-The predicted suppression grows toward the present as $E(a)$ activates ($4.25\,\%$ at $z=0$, $2.17\,\%$ at $z=0.3$, $1.35\,\%$ at $z=0.5$, $0.41\,\%$ at $z=1$;
-linear growth, Planck 2018 background, same early amplitude) \prediction, not a constant rescaling.
-\item $E_G$ from published galaxy--lensing data.
-\item What would count against the virial coupling: $\mu_0$ consistent with zero at a precision that excludes $-0.136$; correlated $\mu\neq1$, $\Sigma\neq1$; a
-redshift-independent growth suppression; or, with $\Omega_m$ revised, growth data that still require the old $\beta_m$.
-\end{itemize}
+\begin{table}[htbp]\centering\small
+\caption{The cosmological virial ratio $R(a)$, Eq.~\eqref{eq:vc_R}, at key epochs. At $a=1$, $R=\Omega_m/\beta_m=2$ exactly, since $\beta_m=\Omega_m/2$ and
+$E(1)=1$. \calc}\label{tab:vc_R}
+\begin{tabular}{lcccc}
+\hline
+Epoch & $z$ & $a$ & $E(a)$ & $R(a)$\\\hline
+Early structure & 2.0 & 0.333 & 0.135 & 399\\
+Matter--$\Lambda$ crossover & 0.7 & 0.588 & 0.497 & 20\\
+Transition zone & 0.3 & 0.769 & 0.741 & 6\\
+Today & 0.0 & 1.000 & 1.000 & 2\\\hline
+\end{tabular}
+\end{table}
+In the matter-sector rate $H_m^2$, matter equals the vacuum plus record term at $z=0.361$ ($\Lambda$CDM: $0.295$). Today the record term is $18.7\,\%$ of
+$\Omega_\Lambda+\beta_m$; at $z=0.3$, $0.7$ and $1.5$ it is $14.6$, $10.3$ and $4.9\,\%$. \calc\ The transition zone, $z\approx0.3$--$0.7$, is the observational
+window in which the kinetic half is most actively growing relative to the potential half and where the predictions are most distinguishable from
+$\Lambda$CDM. The reading of $R=2$ as the solution of the coincidence problem, and of dark matter and dark energy as the two halves of one virial
+equilibrium, is interpretation and is taken up in Part~\ref{part:5} (Chapter~\ref{ch:virial_partners}).
 
-The reading of dark matter and dark energy as the two halves of the virial partition, the coincidence and the arrow of time are interpretation; they are
-taken up in Part~\ref{part:5} (Chapters~\ref{ch:theoryinterp} and~\ref{ch:synthesis}). Whether the DESI preference for evolving dark energy is an artefact of
-fitting one fluid to two sectors is open until the two-ruler test is run on real data (Chapter~\ref{ch:sectortension}) \openprob.
+\paragraph{The deceleration--acceleration transition.} With the background unmodified, the deceleration parameter changes sign at $z_t=0.632$, as in
+$\Lambda$CDM. \calc\ A transition redshift for the matter sector needs a deceleration parameter defined on the matter-sector rate $H_m$, and the equation of
+state the record term then carries (Chapter~\ref{ch:darkenergy}); that definition, and its comparison with the published $H(z)$ and BAO compilations, are still
+to be made. \openprob

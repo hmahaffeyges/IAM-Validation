@@ -1,4 +1,4 @@
-% Part 2 chapter carrying "Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms" (Mahaffey, March 2026) in its order.
+% Part 2 chapter carrying "Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms" (March 2026) in its order.
 % Read in full 2026-10-02 (PDF text 564 lines in this extraction, 574 in the check file's; every line read). Numbers and the census:
 % docs/verification/scripts/verify_obs_chapters.py (sections A, F) on docs/verification/observations/data/lvdb_dwarf_mw.csv.
 % Check: docs/verification/observations/MISSING_SATELLITES_CHECK.md; errata M2-M8, V11, TR6, BP1. The dispersal floor is a failed prediction,
@@ -40,12 +40,20 @@ $4~\mathrm{km\,s^{-1}}$ lands on an occupation floor near $10^{8.4}\,M_\odot$; t
 Two points stand before any data. The premise that the cosmic horizon is ``thermodynamically inadequate'' on collapse times is not derived; in IAM the
 horizon is always available, and the rate at which a local region must write is not set by $E(a)$. And no published satellite-occupation study fixing a floor at
 $10^{8.4}\,M_\odot$ is cited here; the value serves only as a reference mass. \openprob
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_sat_mechanisms.pdf}
+\caption[The two mechanisms in numbers]{(a) Mechanism~A: the Press--Schechter abundance change at fixed mass, $|\Delta\ln n|=|\nu^2-1|\,\epsilon$, for the growth change $\epsilon=0.78\,\%$ of the exact coupling~\cite{PressSchechter1974}, against the order-of-magnitude deficit ($\ln10$); satellite halos lie at $\nu<1$ (shaded). (b) Mechanism~B: the minimum mass $M_{\min}=4\Omega_m\sigma^3/(GH_0)$ and the dynamical-time form $\sqrt{6/\pi}\,\sigma^3/(GH_0)$ ($\Omega_m=0.3153$, $H_0=67.36$); at $4$\,km\,s$^{-1}$, $10^{8.44}\,M_\odot$. \calc}\label{fig:sat_mechanisms}
+\end{figure}
 
 \section{The census}
 The mechanism carries its own falsifier: if a significant population of satellites below $\sigma_{\rm crit}$ exists, the dispersal condition is
 inconsistent with observation. That population is in the published data. \observed\ The Local Volume Database~\cite{Pace2025LVDB} (the version in
 \texttt{docs/\allowbreak{}verification/\allowbreak{}observations/\allowbreak{}data/}) lists 68 Milky Way satellites; 54 have a measured velocity
 dispersion or an upper limit.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_sat_census.pdf}
+\caption[Velocity dispersions of the Milky Way satellites against the dispersal floor]{Velocity dispersions of the 54 Milky Way satellites in the Local Volume Database~\cite{Pace2025LVDB} that have a measured value (circles, 68\,\% intervals) or an upper limit (triangles), ordered by value; 25 lie below the 4\,km\,s$^{-1}$ floor of Mechanism~B (orange). File \texttt{docs/\allowbreak{}verification/\allowbreak{}observations/\allowbreak{}data/\allowbreak{}lvdb\_dwarf\_mw.csv}. \observed}\label{fig:sat_census}
+\end{figure}
 \begin{itemize}
 \item 25 of the 54 (46\,\%) have a dispersion, or an upper limit, below $4~\mathrm{km\,s^{-1}}$; 24 of the 25 are flagged as confirmed galaxies.
 \item 19 have a resolved dispersion below $4~\mathrm{km\,s^{-1}}$, the lowest Tucana~V ($1.2^{+0.9}_{-0.6}$), Bo\"otes~III ($1.69^{+1.03}_{-0.85}$),

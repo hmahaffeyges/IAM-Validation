@@ -10,7 +10,7 @@ way: the measured record over the lowest record the system allows at its tempera
 filtered out; it is the yardstick.
 
 \section{The symbols}
-\begin{center}\small\begin{tabular}{p{0.15\textwidth}p{0.3\textwidth}p{0.45\textwidth}}\toprule
+\begin{center}\small\begin{tabular}{p{0.150\textwidth}p{0.300\textwidth}p{0.449\textwidth}}\toprule
 symbol & meaning & in every domain\\\midrule
 $A$ & reading $/$ healthy reference & dimensionless; $A=1$ is the system working as itself, the middle of the gauge\\
 healthy reference & the denominator & the same system's healthy reading, on the same instrument\\
@@ -18,8 +18,9 @@ $H_{\min}$ & the floor & the lowest error the system can hold before thermal kic
 $M$ & $E/k_BT$ & drive energy over the thermal noise quantum; $M/\ln2$ in Landauer units\\
 $n$ & temperature exponent & $A(T)=A(T_{\rm ref})(T/T_{\rm ref})^n$; calibrated per class, never derived, never $A$\\\bottomrule
 \end{tabular}\end{center}
-Example of the energy scale: the AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$ transistors, 4.3\,GHz~\cite{AMD9950X}, $T_j=75\,^\circ$C) switches at
-$E_{\rm sw}=1.92\times10^{-18}$\,J, $576$ times the Landauer floor, $M=399$; on its own gauge the Landauer floor therefore sits at $1/576=0.0017$
+Example of the energy scale: the AMD Ryzen 9 9950X (170\,W, $(20.0$--$20.6)\times10^9$ transistors, 4.3\,GHz~\cite{AMD9950X}, $T_j=75\,^\circ$C) switches at
+$E_{\rm sw}=(1.92$--$1.97)\times10^{-18}$\,J, 576--593 times the Landauer floor, $M=399$--$411$; on its own gauge the Landauer floor therefore sits at 0.0017
+(the transistor count, from die-level reports, is the least certain input)
 (Chapter~\ref{ch:cmos}) \calc.
 
 \paragraph{One gauge, each domain in its own form.} Every $A$ is an error score read on the same gauge (Fig.~\ref{fig:onegauge}): the reading
@@ -46,7 +47,7 @@ band is less error than healthy; for cells what it means biologically has not ye
 \caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (grey line) is the lowest error it can hold
 before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
 band 0.95--1.05; breach to be measured; surface full at 4.45. Qubit: Quantinuum Helios two-qubit gate ($p=7.9\times10^{-4}$) against a Ba$^+$ material floor of $10^{-4}$ (calibrated); error
-correction fails near $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor, with two earlier
+correction fails near $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $(20.0$--$20.6)\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor, with two earlier
 AMD generations on the same scale (Ryzen 7 1800X, 2017; Athlon 64, 2003).
 Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
 
@@ -111,7 +112,7 @@ reported apart.
 
 \section{The cell as a quantum computer}
 \analogy\ The correspondence below is a vocabulary, not an identity of mechanism.
-\begin{center}\small\begin{tabular}{p{0.24\textwidth}p{0.33\textwidth}p{0.33\textwidth}}\toprule
+\begin{center}\small\begin{tabular}{p{0.240\textwidth}p{0.330\textwidth}p{0.330\textwidth}}\toprule
 quantum computer & cell & what is measured\\\midrule
 bit & one CpG site on one DNA copy & methylated or not\\
 intended state & the cell's identity pattern & the cell's own standard\\
@@ -146,7 +147,7 @@ removed), lies inside that range. This is a consistency check, not a confirmatio
 directly onto the de novo channel, and UHRF1~\cite{Bostick2007,Sharif2007}, DNMT3 and TET also act in the cell.
 \paragraph{Temperature.}\label{sec:og_temperature} IAM's Law prices a bit at the local temperature, so ectotherms are the natural test. So far: Methow steelhead red blood
 cells at about $10\,^\circ$C read $3.31\,k_BT$, the same as human cells at $37\,^\circ$C ($3.29$--$3.51\,k_BT$); brook charr sperm $3.82$, Methow
-sperm $4.02$, Atlantic salmon fin $3.47\,k_BT$. The pre-registered Methow temperature prediction was not met, and in every fish set the reading
+sperm $4.02$, Atlantic salmon fin $3.47$, coho smolts $3.30\,k_BT$ (Chapter~\ref{ch:salmonid}). The pre-registered Methow temperature prediction was not met, and in every fish set the reading
 also tracked a library-quality term (conversion failure or duplicates). No fish-level temperature effect can be read until that term is removed.
 
 \section{Where the law enters, and where it does not}

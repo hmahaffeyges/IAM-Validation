@@ -16,6 +16,14 @@ Each of items 1--6 needs something chain v3 does not yet have: a floor for anoth
 Public data for these tracks have been collected, with raw array files preferred wherever they exist so that each specimen enters through the chain's own
 Stage~1. The list of collected sets is not in the repository and is not quoted here. \openprob
 
+\paragraph{What each new surface needs.} A reading generalises in three directions: the cell type, the platform, and the route by which
+the DNA reaches the array. The same cell type may need its own reference on each route: a neutrophil in a whole-blood draw, the same
+lineage's DNA in plasma after cell death, and the same cell in a tissue biopsy reach the array through different handling. A reference
+measured on one platform does not transfer to another (Chapter~\ref{ch:meta}); whether one transfers between routes on the same
+platform is not yet measured. \openprob{} Each combination therefore enters with a reference measured on purified healthy cells through
+that route, the entry tests of Chapter~\ref{ch:atlas}, and its own read line. For a combination not yet run, the statement is that it
+has not been tested, never that it cannot be read.
+
 \section{Blood cancers}
 
 A leukaemic cell is usually the majority cell in the tube, so the fraction that limits a minor cell does not limit it. The test is per cell: the affected
@@ -35,6 +43,38 @@ the tumour was higher in 4 of 4 by whole-genome bisulfite sequencing, and in 3 o
 (\texttt{doors/\allowbreak{}PROC\_TUMOUR\_01\_OUTCOME.md}). \measured{} Not shown: why. Tumour purity is unknown, the tissue mix differs between tumour and normal, and the pairs
 come from two laboratories. The reading is the copy-error channel; IAM-A floors for these tissues are not frozen. \openprob
 
+Figure~\ref{fig:p4_tumour} and Table~\ref{tab:p4_tumour} give every pair.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_23_tumour.pdf}
+\caption{Copy error on single molecules, tumour against the same person's normal tissue: six early-onset colorectal pairs (WGBS) and four oral
+squamous pairs (WGBS, and oxWGBS with 5hmC removed). Ringed: the pair whose conversion-failure difference is just over the 0.005 bar.
+Data: \texttt{doors/\allowbreak{}data/\allowbreak{}tumour\_pairs.csv}. \measured}
+\label{fig:p4_tumour}
+\end{figure}
+\begin{table}[htbp]\centering\small
+\caption{Tumour--normal pairs read on single molecules (\texttt{PROC\_TUMOUR\_01\_OUTCOME.md}). $\varepsilon$: copy error with the
+sequencing-error rate subtracted. \measured}\label{tab:p4_tumour}
+\begin{tabular}{@{}llrrrr@{}}\toprule
+pair & assay & $\varepsilon$ normal & $\varepsilon$ tumour & ratio & conversion difference \\\midrule
+CRC1 & WGBS & 0.03514 & 0.04668 & 1.328 & 0.0027 \\
+CRC2 & WGBS & 0.03550 & 0.04269 & 1.203 & 0.0009 \\
+CRC3 & WGBS & 0.03268 & 0.03865 & 1.183 & 0.0032 \\
+CRC4 & WGBS & 0.03275 & 0.03646 & 1.113 & 0.0001 \\
+CRC5 & WGBS & 0.03715 & 0.03963 & 1.067 & 0.0051 (over 0.005) \\
+CRC6 & WGBS & 0.03866 & 0.04216 & 1.090 & 0.0001 \\
+OSCC1 & WGBS & 0.03692 & 0.04079 & 1.105 & 0.0010 \\
+OSCC1 & oxWGBS & 0.03888 & 0.04160 & 1.070 & 0.0004 \\
+OSCC2 & WGBS & 0.03557 & 0.03668 & 1.031 & 0.0008 \\
+OSCC2 & oxWGBS & 0.03915 & 0.03334 & 0.851 & 0.0005 \\
+OSCC3 & WGBS & 0.03893 & 0.04678 & 1.202 & 0.0004 \\
+OSCC3 & oxWGBS & 0.04064 & 0.04567 & 1.124 & 0.0004 \\
+OSCC4 & WGBS & 0.03623 & 0.03899 & 1.076 & 0.0005 \\
+OSCC4 & oxWGBS & 0.03917 & 0.04107 & 1.049 & 0.0005 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Plasma}
 
 In plasma, cell-free DNA from solid tissues is a much larger share than in whole blood. Two things change. The genome count is of order $10^3$--$10^4$, so the cell-count floor
@@ -43,6 +83,15 @@ enough of its molecules. On single molecules, a per-molecule threshold found can
 with no threshold and not pre-registered, found it in 20 of 20 at 10~\%, 18--20 of 20 at 3~\% and 1--6 of 20 at 1~\%, with 0.5--1.5 million molecules
 (\texttt{PROC\_MOLECULE\_01\_OUTCOME.md}). \measured{} The limit scales as $1/\sqrt N$ in the number of molecules; a deep plasma library would reach lower, which is an
 estimate, not a measurement. \calc
+
+Figure~\ref{fig:p4_plasma} shows the two statistics on the constructed mixtures.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_23_plasma.pdf}
+\caption{Constructed mixtures of cancer-line DNA in healthy DNA, 20 mixtures per point. Blue: the total isolated-error count, range over three cancer
+lines (not pre-registered). Crosses: the pre-registered per-molecule threshold. Values parsed from \texttt{PROC\_MOLECULE\_01\_OUTCOME.md}. \measured}
+\label{fig:p4_plasma}
+\end{figure}
 
 \section{Stool}
 
@@ -64,9 +113,9 @@ read on it. \prediction{} They read 1.00 within tolerance.
 
 \section{Salmonids}
 
-Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. Three sets have been read on single molecules with the same
-statistic (Chapter~\ref{ch:temperature}). In each the instrument repeats almost perfectly, and in each the small differences between fish track the library, for example
-duplicates in brook charr sperm (\texttt{PROC\_CHARR\_01\_OUTCOME.md}), conversion failure in Atlantic salmon fin (\texttt{PROC\_RIMOUSKI\_01\_OUTCOME.md}). \measured{} A
+Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. Four sets have been read on single molecules with the same
+statistic (Chapters~\ref{ch:temperature} and~\ref{ch:salmonid}). In each the instrument repeats almost perfectly, and in each the small differences between fish track the library, for example
+duplicates in brook charr sperm, conversion failure in Atlantic salmon fin, Methow steelhead and coho smolts. \measured{} A
 library-quality term has to be removed before any fish-level difference is read, and the floor at 10~\textdegree C has to be measured on fish, not assumed. \openprob
 
 \section{Ageing in one person}

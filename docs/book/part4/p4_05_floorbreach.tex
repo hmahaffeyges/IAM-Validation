@@ -42,6 +42,15 @@ full surface & $S=S_{\mathrm{BH}}$: a horizon forms & every identity site at $\b
 All entries are \calc. The bit counts differ by $5.4\times10^{69}$ for one solar mass and the temperatures by ten orders of
 magnitude. The equation is shared; the parameters are not.
 
+Figure~\ref{fig:p4_surfaces} draws the four rows of the table on one logarithmic axis.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.72\textwidth]{figures/part4/fig_p4_05_surfaces.pdf}
+\caption{The two surfaces of the table above on one axis ($\log_{10}$ of each value). Grey: a horizon of one solar mass; orange: the cell methylome at
+310.15~K. The full-surface cost is $T_HS$ for the horizon and $N\kB\Tb\ln2$ for the cell. \calc}
+\label{fig:p4_surfaces}
+\end{figure}
+
 \section{The full surface of a cell}
 
 A site has a capacity of one bit, reached at $\beta=\tfrac12$. A cell whose identity sites all sit there holds the most
@@ -54,6 +63,17 @@ neutrophils on arrays that is
 and on single molecules, where the copy error itself reaches one half, $A_{\max}^{\text{IAM-A}}=1/(1.099\times0.2043)=4.45$.
 \calc{} Both follow from the healthy reference alone; neither is fitted. They are the cell's counterpart of the
 Chandrasekhar line on the star gauge of Chapter~\ref{ch:blackholes} (Figure~\ref{fig:stargauge}): the exactly known far end of the gauge.
+
+Figure~\ref{fig:p4_fullsurface} draws both readings from the healthy cell to the full surface.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_05_fullsurface.pdf}
+\caption{The far end of the gauge, from the healthy reference alone. (a) Met-A when a share of the 6,000 identity sites is moved to $\beta=\tfrac12$:
+from 1 to $1/0.330263=3.03$. (b) IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$ against copy error, with $P=1.099$ and
+$\varepsilon_0=0.032$: the floor $1/P=0.910$ at $\varepsilon_0$, the healthy cell at $\varepsilon=0.0360$, the full surface
+4.45 at $\varepsilon=\tfrac12$. Normal shaded. Data: \texttt{neutrophil\_reference\_v1\_1.json}, \texttt{iama\_positions\_v1.json}. \calc}
+\label{fig:p4_fullsurface}
+\end{figure}
 
 The analogue fails in one respect, and we state it plainly. The horizon condition is about a rate of writing
 exceeding what a surface can absorb. A reading of the cell's condition as a cell that ``can no longer pay the cost of

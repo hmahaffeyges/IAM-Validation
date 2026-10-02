@@ -62,6 +62,29 @@ treats the two channels alike, because $H(\beta)=H(1-\beta)$, and it measures wh
 each site is from being held. This is the statistic of Met-A (Chapter~\ref{ch:meta}). It is read on \emph{identity sites},
 chosen so that the cell's own healthy specimens hold them steadily, half on each channel (Chapter~\ref{ch:identity}).
 
+On the 6,000 neutrophil identity sites the two ways of combining differ by a factor of three (Figure~\ref{fig:p4_jensen},
+Table~\ref{tab:p4_jensen}). The mean of the per-site entropies is 0.330 bits, the healthy reference of Chapter~\ref{ch:meta}. The entropy of
+the mean $\beta$ over both channels is 1.000 bit, whatever the cell is doing. Within one channel the two nearly agree (0.323 and
+0.325 bits on the methylated channel), because the sites of one channel sit close together in $\beta$. \calc
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_03_jensen.pdf}
+\caption{Jensen's inequality on the neutrophil identity sites. (a) Per-site entropy $H(\beta_i)$, averaged over the six reference arrays, for the
+3,000 sites of each channel; the vertical line is their mean. (b) Mean of the entropies against the entropy of the mean $\beta$, per channel
+and over both. Data: \texttt{neutrophil\_reference\_v1\_1.json} (channel assigned by the healthy mean $\beta$). \calc{} from the \calibrated{} reference.}
+\label{fig:p4_jensen}
+\end{figure}
+\begin{table}[htbp]\centering\small
+\caption{The mean of the entropies and the entropy of the mean on the 6,000 neutrophil identity sites (bits). \calc}\label{tab:p4_jensen}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+sites & $n$ & mean $\beta$ & $H(\bar\beta)$ & $\overline{H}$ \\\midrule
+methylated channel & 3,000 & 0.941 & 0.325 & 0.323 \\
+unmethylated channel & 3,000 & 0.063 & 0.340 & 0.337 \\
+both channels & 6,000 & 0.502 & 1.000 & 0.330 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Averaging $H$ site by site has one cost: zero-mean array noise adds a positive bias at every site through the curvature of
 $H$. The instrument meets it twice. The healthy reference is measured on the same platform through the same calibration, so
 the bias of a typical array is in the denominator as well as the numerator. And the array's own noise is measured on every

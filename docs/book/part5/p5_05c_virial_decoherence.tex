@@ -1,0 +1,195 @@
+% Part 5: gravitational decoherence, the virial partition and the persistence of classical structure.
+% Carried line by line from: Gravitational Decoherence, the Virial Partition, and the Emergence of Classical Structure (Mar 2026; abstract, sections 1,
+% 2, 3, 4, 6, Fig. 1). Its observational section 5 is carried in Chapters ch:virial and ch:virial_tests; its halo-survival prediction is tested in
+% Chapter ch:satellites. The acknowledgments are not carried (they name private correspondents).
+% Corrections applied: errata V1, V9, V10, V11, V16, V21, V22, V30; VIRIAL_CHECK.md items 1, 9-12, 19, 20, 28; ledger note 12(e)-(f).
+% Numbers: docs/verification/scripts/verify_virial_papers.py (sections E, G, K).
+
+\chapter{Gravitational decoherence, the virial partition and the persistence of classical structure}\label{ch:virial_decoherence}
+
+\section*{Overview}
+The question of why time has a direction, and why classical structure persists rather than dissolving back into quantum superposition, has a thermodynamic
+answer that connects to cosmological observables. This chapter proposes that both questions share a common physical mechanism: the irreversible partition of
+gravitational binding energy into a geometric channel and an informational channel, governed at every scale by the virial theorem for $1/r$ potentials.
+\conjecture
+
+The geometric half of each virialization event is deposited into spacetime curvature. The informational half --- the Landauer cost of the
+quantum-to-classical transition --- must be written to an available encoding surface. At galactic scales and above, a local black hole horizon is proposed
+as the encoding vault for it; where no such vault can form, the partition is proposed not to close, and the structure to disperse. The accumulated
+informational cost of 13.8 billion years of such transitions is measured by the activation function $E(a)=\exp(1-1/a)$, derived from horizon
+thermodynamics via the Jacobson--Cai--Kim formalism~\cite{Jacobson1995,CaiKim2005}. This function is monotonically increasing by construction, irreversible,
+negligible before structure forms, and asymptoting to $e$ without arriving --- an arrow of time from the irreversibility of each record, not a statistical
+artefact of initial conditions. \interp\ The cosmological consequences are tested against Planck 2018 with the coupling fixed at its prediction, consistent
+with Planck ($\Delta\chi^2=+0.54$; Chapter~\ref{ch:virial}), and the decisive test is the growth of structure measured by Euclid and DESI
+(Chapter~\ref{ch:virial_tests}).
+
+\section{Two faces of the problem of time}\label{sec:vd_intro}
+The problem of time has two faces that are worth distinguishing. The first is the direction of time --- why processes are irreversible, why entropy
+increases, why the past differs from the future. The second is the persistence of classical structure --- why quantum superpositions give way to definite
+outcomes, and why those outcomes cohere into stable macroscopic objects rather than dissolving back into the quantum background.
+
+These two problems are usually treated separately. The direction of time is assigned to statistical mechanics and the second law. The persistence of
+classical structure is assigned to decoherence theory~\cite{Zurek2003}. Neither programme has produced a physical mechanism that connects the irreversibility
+of individual quantum-to-classical transitions to the large-scale structure of the universe or to measurable cosmological observables.
+
+IAM proposes that both problems have a common physical origin: the virial partition of gravitational binding energy at every scale. For any bound system
+governed by a $1/r$ potential, the virial theorem partitions energy exactly in half between a geometric channel and a kinetic channel. In IAM, the kinetic half
+is identified as the Landauer cost~\cite{Landauer1961} of the quantum-to-classical transition --- the thermodynamic price paid each time a decoherence event
+writes classical information permanently to an encoding surface (Chapter~\ref{ch:virial_identity}).
+
+This identification has a precise consequence. For the arrow of time: each decoherence event is irreversible by the second law, and its Landauer cost is
+written permanently on the cosmological apparent horizon~\cite{Jacobson1995,CaiKim2005,GibbonsHawking1977}. The accumulated ledger of all such events
+constitutes a thermodynamically necessary arrow of time --- not imposed, but following from the irreversibility of each individual transaction. For the
+persistence of structure: the informational half of each virialization event requires an encoding surface. Where a black hole horizon can form, the Landauer
+cost is proposed to be absorbed locally and the virial partition to close. Where no local surface can form, the partition is proposed not to close, and the
+structure to disperse. This would provide a physical account of why some candidate structures survive as bound systems and others do not. \conjecture
+
+\section{The virial partition as the quantum--classical connector}\label{sec:vd_connector}
+For any potential of the form $V\propto r^{-1}$, the virial theorem states $2K=|V|$, $K=\tfrac12|V|$ (Eq.~\eqref{eq:vl_virial}). This is exact for all $1/r$
+potentials --- gravitational and Coulomb alike. It is a mathematical theorem, not an approximation, governing every bound system from hydrogen atoms to
+galaxy clusters.
+
+Within IAM, the physical interpretation is precise. The potential half $|V|/2$ is deposited into spacetime curvature --- the geometric channel that general
+relativity describes. The kinetic half $K=|V|/2$ is the decoherence energy: the Landauer cost of converting quantum superpositions to classical outcomes at
+each virialization event. Every time a dark matter halo virializes, half its gravitational binding energy goes into irreversible information production,
+written on the nearest available encoding surface at thermodynamic cost $k_BT\ln2$ per bit~\cite{Landauer1961}. \interp\ This identification gives the
+cosmological coupling constant immediately: the fraction of matter energy density participating in decoherence per Hubble time is $\beta_m=\Omega_m/2$,
+derived from the virial theorem with zero free parameters and held fixed in every Planck chain (Chapter~\ref{ch:virial}).
+
+The $1/2$ partition is not specific to cosmological scales. It is verified across every physical system governed by a $1/r$ potential, from hydrogen atoms
+to clusters of galaxies, and it fixes the coupling at the cosmic horizon --- 37 decades in scale, same $1/2$, same mechanism (Chapter~\ref{ch:virial_law}).
+This universality is the key point. The fraction of energy going into quantum-to-classical transitions is $1/2$ at every scale not because of a special
+property of any particular system, but because every $1/r$ potential obeys the same theorem. The virial theorem is the universal scaling law connecting local
+quantum-to-classical transitions to cosmological structure. \interp
+
+\section{Accumulated decoherence and the arrow of time}\label{sec:vd_arrow}
+\paragraph{Three temporal quantities.} It is worth distinguishing among three quantities that physical theory often conflates (Chapter~\ref{ch:time}).
+\emph{Coordinate time} is a label on the spacetime manifold. It assigns a number to each event without requiring anything to happen. It has no preferred
+direction and accumulates nothing; in the relational tradition it is redundant as a fundamental concept (Barbour \& Bertotti 1982~\cite{BarbourBertotti1982}).
+\emph{Proper time} $\tau$ is the geometric path length along a worldline, $\tau=\int\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}/c$. It is a property of the spacetime
+manifold measured along a particular path. It distinguishes clocks from one another but does not, by itself, distinguish past from future. For photons on
+null geodesics, $d\tau=0$ identically. \emph{Accumulated decoherence} is a third quantity. It is thermodynamic, not geometric. It counts the accumulated
+irreversible quantum-to-classical transitions on a worldline --- the decoherence events that write classical information permanently on the cosmic horizon at
+Landauer cost $k_BT_H\ln2$ per bit, where $T_H=\hbar H/2\pi k_B$ is the Gibbons--Hawking temperature~\cite{GibbonsHawking1977} ($2.65\times10^{-30}$\,K
+today \calc). It requires massive particles on timelike worldlines. It cannot accumulate on null geodesics. It has a beginning: the electroweak symmetry
+breaking, after which stable massive particles first exist and CP violation locks in the irreversibility of the matter sector (Sakharov
+1967~\cite{Sakharov1967}; Chapter~\ref{ch:electroweak}). \interp
+
+\paragraph{The activation function.} The accumulated decoherence is measured by the activation function $E(a)=\exp(1-1/a)$ (Eq.~\eqref{eq:vc_E}), where $a$ is
+the cosmological scale factor normalized to unity today. Its properties follow directly from the physical identification: $E\to0$ as $a\to0$ (negligible at
+early times, $E(z{=}10)=4.5\times10^{-5}$); $E(1)=1$ today; $dE/da>0$ always (monotonically increasing, since each decoherence event is irreversible);
+$E(\infty)=e$, the asymptotic limit, never reached. \calc
+
+\paragraph{An arrow of time from irreversible records.} The arrow of time in this framework is not statistical. It does not depend on special initial
+conditions or on the particular entropy state at the Big Bang. It is thermodynamically necessary: each quantum-to-classical transition writes one entry
+permanently into the cosmic ledger at Landauer cost. The ledger only accumulates. $E(a)$ is monotonically increasing because each entry is irreversible.
+This is the arrow of time obtained from the irreversibility of individual decoherence events, not imposed from boundary conditions. \interp
+
+The sector separation follows immediately. Photons on null geodesics do not accumulate proper time and do not participate in gravitational decoherence.
+They do not write to the ledger. The informational modification to gravitational dynamics applies exclusively to the matter sector: $\mu(a)<1$ with
+$\Sigma(a)=1$ (Eq.~\eqref{part2:eq:mu_virial}), in the standard modified-growth parameters of Bertschinger \& Zukin~\cite{BertschingerZukin2008}. The photon
+sector is geometrically standard. The matter sector carries the accumulated thermodynamic history of 13.8 billion years of decoherence transactions.
+
+\section{The black hole as encoding vault}\label{sec:vd_vault}
+\paragraph{Why structure would require a local encoding surface.} The virial partition, on this reading, cannot close on one half alone. The geometric half
+requires the informational half to close simultaneously, because the potential half stabilizes in spacetime curvature only when the kinetic half is absorbed
+by an available encoding surface. If the informational half is produced but has no surface to write to, the thermodynamic accounting cannot balance, and the
+structure cannot hold. \conjecture
+
+The cosmological apparent horizon is always available, but it is cold ($T_H\approx2.65\times10^{-30}$\,K today) and expands uniformly, indifferent to
+individual localities. For rapid local collapses on dynamical timescales $t_{\rm dyn}\ll H^{-1}$, the proposal is that the cosmic horizon cannot absorb the
+locally produced information fast enough, so a local hot encoding surface is required. That premise is not derived: in IAM the horizon is always available,
+and the rate at which a local region must write is not set by $E(a)$ (Chapter~\ref{ch:satellites}). \openprob
+
+The black hole horizon is the candidate surface. It forms when the local information production from gravitational decoherence saturates the holographic
+bound on the bounding surface,
+\begin{equation}
+\frac{S_{\rm info}(R)}{A(R)}\ge\frac{k_B}{4\ell_P^2}\qquad(\text{one nat per }4\ell_P^2),\label{eq:vd_sat}
+\end{equation}
+(Chapter~\ref{ch:blackholes}). \conjecture\ Once formed, the black hole absorbs the informational half of the local virial partition permanently. Its
+encoding throughput, the Hawking power of a Schwarzschild hole divided by $k_BT_H\ln2$ per bit, is
+\begin{equation}
+\Gamma_{\rm BH}=\frac{P_H}{k_BT_H\ln2}=\frac{c^3}{1920\,GM\ln2}\ \text{bits\,s}^{-1},\qquad P_H=\frac{\hbar c^6}{15360\pi G^2M^2},\label{eq:vd_gamma}
+\end{equation}
+\derived\ (sympy, \texttt{verify\_virial\_papers.py} section E). The black hole is not a pipe to the cosmic horizon --- Hawking evaporation timescales
+($2.1\times10^{67}$\,yr for a solar-mass black hole \calc) render it informationally negligible on cosmological timescales. It is a permanent local vault.
+
+\paragraph{The minimum velocity dispersion.} For a collapsing halo to fully virialize and persist as a galaxy, the proposal requires it to be able to form a
+black hole to absorb the informational half of its virial partition. The condition for dispersal is that the halo collapses on a timescale shorter than the
+cosmic horizon can track, while remaining below the holographic saturation threshold for local black hole formation. A collapsing halo with mass $M$ and
+velocity dispersion $\sigma$, with $\sigma^2=GM/R$, has dynamical timescale $t_{\rm dyn}=1/\sqrt{G\rho}=\sqrt{4\pi/3}\,GM/\sigma^3$. \derived\ Setting
+$t_{\rm dyn}=H^{-1}$ --- the condition at which the collapse timescale equals the cosmic horizon timescale --- gives $GM/\sigma^3\sim H^{-1}$, and the
+minimum mass is written as $M_{\min}=4\Omega_m\sigma^3/(GH)$, whose prefactor $4\Omega_m$ is not derived from that condition (Chapter~\ref{ch:satellites},
+Eq.~\eqref{eq:ms_mmin}). With $M_{\min}=10^{8.4}\,M_\odot$ it gives $\sigma_{\rm crit}=3.9$\,km\,s$^{-1}$. \calc\ The scaling $M_{\min}\propto\sigma^3$ is
+distinct from both $\sigma^2$ (cusp--core) and $\sigma^4$ (the $M$--$\sigma$ relation). The proposal reads it as: below $\sigma_{\rm crit}$, halos cannot close
+their virial partition; they disperse before becoming galaxies; they were never written into classical existence. \conjecture
+
+Tested against the Milky Way satellites, this mechanism as stated --- that no halo virialises below $\sigma_{\rm crit}\approx4$\,km\,s$^{-1}$ --- is rejected:
+25 of the 54 satellites with a measured dispersion or upper limit lie below it, most of them confirmed galaxies (Chapter~\ref{ch:satellites}). \observed\ The
+fair version compares a floor with the dispersion at infall, before tides, and needs the dispersal condition derived first. \openprob\ The vault reading of
+black holes itself is not tested by this.
+
+\section{Discussion}\label{sec:vd_discussion}
+\paragraph{Time as the accumulated cost of classical existence.} The framework addresses a question that has resisted purely geometric treatment: why does
+time have a direction? The answer proposed is not statistical. It is thermodynamic. Each quantum-to-classical transition pays an irreversible Landauer cost
+to the nearest available encoding surface. The accumulated total of these costs, written on the cosmic horizon, is $E(a)$. Time has a direction because each
+decoherence event is irreversible. The ledger only grows. \interp
+
+This is consistent with the programme of temporal naturalism (Smolin 2013~\cite{Smolin2013}) in that it provides a physical mechanism for the
+irreversibility of time. It extends that programme in one direction: the arrow of time is not a fundamental postulate but a consequence of the
+thermodynamics of information production at every quantum-to-classical boundary. It should be noted that Smolin's temporal naturalism includes a stronger
+thesis: not only that time is real, but that the laws of physics themselves evolve in time. IAM does not make this claim. The thermodynamic laws governing
+$E(a)$ --- the first law, the second law, Landauer's principle --- are taken as fixed. The arrow of time emerges from the irreversibility of processes governed
+by those laws, not from the evolution of the laws themselves. Whether the deeper connection between IAM's irreversibility and Smolin's evolving-laws
+programme constitutes a tension or a complementarity is an open question not resolved here. \openprob\ $E(a)$ is not a parameter imposed from outside the
+theory: it is fixed by horizon thermodynamics and the measured expansion history.
+
+\paragraph{Dissipation-driven adaptation and the closure condition.} England's dissipation-driven adaptation (England 2013~\cite{England2013},
+2015~\cite{England2015}) establishes a general thermodynamic principle: systems subject to a thermodynamic drive tend, over time, toward configurations that
+more efficiently absorb and dissipate energy from their environment. Systems that align with the thermodynamic flow endure; those that cannot dissipate
+sufficiently disperse. The probability of a driven system ending up in a given macroscopic configuration is proportional to the thermodynamic flux that
+occurs on the way to that configuration.
+
+The virial partition closure condition of Section~\ref{sec:vd_vault} is proposed as a specific gravitational instance of this principle. A collapsing dark
+matter halo is a driven system: gravitational potential energy is being converted irreversibly into kinetic degrees of freedom at the virialization
+boundary. On the proposal, the system endures as a galaxy if and only if it can route the informational half of its virial partition to a local encoding
+surface --- a black hole horizon. Where no such surface can form, the dissipation cannot complete, and the structure disperses. The closure condition would
+then be a necessary condition for endurance in England's sense, obtained for gravitational $1/r$ systems. The connection is meant as more than an analogy: the
+Landauer cost at the virialization boundary is the physical quantity England's framework identifies as the thermodynamic flux required for stable
+self-organization, and IAM computes this cost explicitly for gravitational systems and names the encoding surface that absorbs it. \conjecture\ Its one
+quantitative consequence, the dispersal floor, is the mechanism rejected in Chapter~\ref{ch:satellites} as stated. Whether the full England programme ---
+which addresses driven non-equilibrium systems far more generally --- shares deeper mathematical structure with the IAM virial partition is an open question.
+\openprob
+
+\paragraph{Thermal time and accumulated decoherence.} Rovelli's thermal time hypothesis (Rovelli 1993~\cite{Rovelli1993}; Connes \& Rovelli
+1994~\cite{ConnesRovelli1994}) proposes that time emerges as a statistical effect from the thermodynamic state of a system: what we call the flow of time is
+the modular flow of a Gibbs state, and the direction of time is rooted in thermodynamic irreversibility rather than in any fundamental asymmetry of the laws
+of physics. The more recent work of Rovelli (2019~\cite{Rovelli2019}, 2022~\cite{Rovelli2022}) asks specifically where the low entropy of the early universe
+was located and how thermodynamic traces constitute physical memory.
+
+The activation function $E(a)$ is consistent with this programme and extends it in a specific direction. Rather than time emerging from incomplete knowledge
+of a statistical ensemble, $E(a)$ in IAM records the accumulated irreversible Landauer costs of individual quantum-to-classical transitions written
+permanently on the cosmic horizon. These are not statistical: each transaction is a specific physical event with a specific thermodynamic cost $k_BT_H\ln2$.
+It accumulates not because we lack information about the microstate but because each decoherence event is physically irreversible at the level of the
+second law. The record has a specific physical carrier ($E(a)$), a specific beginning (the formation of bound structure after the electroweak transition), a
+specific asymptotic limit ($e$), and specific cosmological observational consequences ($\mu(a)<1$, $\sigma_8=0.800$, testable by Euclid and DESI).
+\interp\ Whether this constitutes a derivation of a thermal time variable in Rovelli's sense, or a complementary but distinct account of temporal
+irreversibility, is an open question. \openprob
+
+\paragraph{Cosmological natural selection and the black hole role.} Smolin's cosmological natural selection (Smolin 1992~\cite{Smolin1992},
+1997~\cite{Smolin1997}) proposes that black holes are reproductive units of baby universes, with constants selected by a natural-selection-like process across
+generations. IAM assigns black holes a different but complementary role: they are proposed as local encoding vaults, the thermodynamic structures that allow
+galaxies to persist by absorbing the informational half of their virial partitions. Both frameworks place black holes at the centre of cosmic structure.
+Whether these roles are independent, complementary, or aspects of a deeper unification is an open problem the IAM framework does not claim to resolve; it is
+noted as a direction worth examining. \conjecture
+
+\section{Open problems}\label{sec:vd_open}
+\begin{enumerate}
+\item The local-to-global encoding criterion: the condition under which decoherence events are assigned to a local black-hole vault rather than to the
+global cosmic horizon. It would set the normalisation of any dispersal floor and is the same unsolved question that appears in the cusp--core problem,
+suggesting one problem rather than two. \openprob
+\item The dispersal condition itself, and its test against satellite dispersions at infall (Chapter~\ref{ch:satellites}). \openprob
+\item The growth suppression from $\mu<1$ is derived from $\beta_m=\Omega_m/2$ independently of that normalisation: a $13.6\,\%$ reduction of the coupling
+today, which lowers $f\sigma_8$ by $4.25\,\%$ at $z=0$ with the same early amplitude. No measurement has yet confirmed or excluded it
+(Chapter~\ref{ch:virial_tests}). \prediction
+\end{enumerate}

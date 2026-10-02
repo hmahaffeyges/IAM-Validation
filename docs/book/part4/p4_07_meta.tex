@@ -33,7 +33,39 @@ The reference arrays read 1.00 by construction. A reference array reading 1.00 i
 played no part in choosing the sites or setting the value, reading 1.00 within tolerance, is.
 \end{rulebox}
 
+Figure~\ref{fig:p4_heldout} and Table~\ref{tab:p4_refarrays} show the difference for each of the six physical arrays.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_07_heldout.pdf}
+\caption{The six reference arrays read three ways. Bars: in the floor, as printed by acceptance run 3. Circles: each array against a reference rebuilt
+from the other five, sites re-chosen on those five (SD 0.020). Squares: the frozen sites, floor from the other five. Normal shaded.
+Data: \texttt{metA\_floors\_v1\_3\_loo.csv}, \texttt{chain\_tests/\allowbreak{}chain\_acceptance.csv}. \measured}
+\label{fig:p4_heldout}
+\end{figure}
+\begin{table}[htbp]\centering\small
+\caption{The six physical reference arrays (EPIC v1, purified neutrophils~\cite{Salas2018}). Noise index $N$ and C-score as printed
+for the GSE110554 deposit of each array. \measured}\label{tab:p4_refarrays}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}llrrrrr@{}}\toprule
+array & Sentrix & in floor & held out, re-chosen & held out, frozen sites & $N$ & $C$ \\\midrule
+GSM2998021 & 201868500150\_R01C01 & 1.0032 & 1.011 & 1.004 & 0.1418 & 0.83 \\
+GSM2998057 & 201868590243\_R07C01 & 0.9945 & 1.010 & 0.993 & 0.1223 & 0.95 \\
+GSM2998116 & 201870610056\_R02C01 & 0.9989 & 1.012 & 0.999 & 0.1244 & 1.21 \\
+GSM2998023 & 201868500150\_R05C01 & 0.9942 & 0.983 & 0.993 & 0.1286 & 1.05 \\
+GSM2998143 & 201870610111\_R05C01 & 1.0028 & 1.016 & 1.003 & 0.1284 & 0.69 \\
+GSM2998030 & 201868590206\_R02C01 & 1.0064 & 1.045 & 1.008 & 0.1489 & 1.08 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
 \section{One reference per cell type and per platform}
+
+An image helps. On one beach the tide is the same for every sandcastle, and so is the bucket each builder uses to repair it; but the
+castles have different shapes, so each wears down from its own shape. In a body, thermal noise and the ATP drive are common to
+every cell (Chapter~\ref{ch:landauer}), while a neutrophil holds a different set of sites, at different levels, from a T cell or a
+hepatocyte. The entropy its healthy copies carry on its identity sites is therefore its own. \analogy{} for the image. One law,
+one temperature, one ATP; one healthy reference per cell type.
 
 A reference measured on one platform does not transfer to another. On 450K arrays from eight donors, purified neutrophils
 read 0.932 on references measured on EPIC arrays, monocytes 0.916, NK cells 0.904; none of the eight in Normal. A development
@@ -64,11 +96,21 @@ fixed (every group mean $\le0.03$ or $\ge0.97$, every group SD $\le0.02$). The r
 second-laboratory arrays up to 0.243, and Met-A follows $N$ ($\rho$ 0.79--0.83; DEV-NOISE-01). \measured{} $N$ gates the
 gauge state (Chapter~\ref{ch:instrument}).
 
+Figure~\ref{fig:p4_noise} shows the dependence on all 60 arrays of DEV-NOISE-01.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_07_noise.pdf}
+\caption{Untared Met-A against the noise index $N$. Grey band: the range of $N$ on the reference arrays. Second-laboratory arrays (GSE247195,
+GSE247193; isolated neutrophils, three arrays at each of eight times of day) read high where their noise is high.
+Data: \texttt{doors/\allowbreak{}data/\allowbreak{}noise\_index.csv}. \measured}
+\label{fig:p4_noise}
+\end{figure}
+
 \section{The entropy ceiling}
 
 On the methylated channel, Met-A rises with loss only while those sites stay above $\beta=\tfrac12$ (Chapter~\ref{ch:surface}).
 A DNA-methyltransferase inhibitor drives cells past that point: on 51 EPIC arrays from three cell lines, vehicle arrays read
-0.968--1.048, an inactive analogue 1.002--1.032, and the active drug at $\ge80$~nM 1.16--1.85. On the methylated channel alone the
+0.968--1.048, an inactive analogue 1.002--1.032, and the active drug at $\ge80$~nM 1.16--1.87. On the methylated channel alone the
 reading reaches its ceiling, one bit per site (2.66--2.85 against a ceiling of about 2.8), and falls again at the highest
 dose (PROC-DNMT-01, Part A). \measured{} The chain flags any specimen whose methylated sites
 average below one half and tells the reader to read the mean $\beta$ instead.

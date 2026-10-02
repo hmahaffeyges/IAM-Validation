@@ -10,6 +10,8 @@ models~\cite{GRW1986,Bassi2013}, many-worlds~\cite{Everett1957}, Bohmian mechani
 and QBism~\cite{Fuchs2014} each give a different answer.
 
 \section{The IAM criterion}
+Table~\ref{tab:eraser} gives the threshold at four detector temperatures and the chapter's examples at room temperature.
+\input{tables/part5/tab_eraser}
 
 IAM gives an operational criterion. A measurement is an interaction between the system $S$ and a detector $D$ that
 dissipates energy $Q(S,D)$ into a detector at temperature $T_D$. It is irreversible,
@@ -27,6 +29,11 @@ rod ($Q\approx2.5$~eV, $Q/Q_L\approx140$) and a photographic grain from a beam s
 polarization rotator. The latter dissipate essentially nothing, so $Q/Q_L\ll1$.
 
 \section{Erasure fidelity}
+Figure~\ref{fig:eraser_temperature} shows how the curve moves with the detector temperature, which is what the proposed eraser test varies.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_eraser_temperature.pdf}
+\caption{Eq.~\eqref{eq:F} at four detector temperatures. (a) $F$ against dissipated energy: the crossover moves with $Q_L=k_BT_D\ln2$, from 0.0179\,eV at 300\,K to $6.0\times10^{-7}$\,eV at 10\,mK. (b) $F$ at a fixed $Q=0.1$\,eV against $T_D$: 0.000 at 10\,mK, 0.002 at 4\,K and 0.164 at 300\,K (prediction Q4, Chapter~\ref{ch:predictions}). The form is assumed. \conjecture}\label{fig:eraser_temperature}
+\end{figure}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part5/fig_eraser.pdf}
@@ -42,6 +49,7 @@ The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp
 exponential, as the next chapter shows (Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
 ($Q/Q_L>100$) give $F<0.01$. \calc{} At the crossover
 $Q=Q_L$, $F=1-e^{-1}=0.632$.
+The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:quantum}.
 
 \begin{checkbox}[title={What distinguishes Eq.~\eqref{eq:F} from standard quantum mechanics}]
 In standard decoherence theory, erasability depends on whether the environmental record can

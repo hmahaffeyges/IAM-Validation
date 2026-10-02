@@ -43,6 +43,16 @@ inactive look-alike compound & no change & 1.002--1.032 \\\bottomrule
 \measured{} Sources: \texttt{metA\_floors\_v1\_3\_loo.csv}; \texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}; \texttt{DEV\_LOWFRAC\_01\_OUTCOME.md};
 \texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}.
 
+Figure~\ref{fig:p4_nulls} shows every reading behind the table.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_18_nulls.pdf}
+\caption{Null tests of chain v3, every reading. Held-out reference arrays (\texttt{metA\_floors\_v1\_3\_loo.csv}); tared mixtures and remission bloods
+(\texttt{chain\_acceptance.csv}); vehicle arrays, the inactive analogue and the two lowest doses of the active drug, each line against its own
+vehicle (\texttt{dnmt\_arrays\_readings.csv}; GSE135205~\cite{Pappalardi2021}). Normal shaded. \measured}
+\label{fig:p4_nulls}
+\end{figure}
+
 \section{Constructed specimens and known causes}
 
 A constructed specimen has a known change planted in it. Chain v3 computes one on every whole-blood reading: the shift a 1~\% loss of the neutrophil pattern
@@ -51,6 +61,16 @@ and above 1.05 on 6 of 6 (\texttt{WHOLE\_BLOOD\_COMPOSITION\_DEV.md}). \measured
 known physical cause: a DNA-methyltransferase inhibitor, an inactive analogue, and a dose series, read on arrays and on single molecules
 (Chapter~\ref{ch:firstreadings}). The construction also found the entropy ceiling: past $\beta=\tfrac12$ further loss lowers $H$, so the chain prints the
 methylated sites' mean $\beta$ beside every reading and flags a specimen past the ceiling (\texttt{conductor\_v3.py}, \texttt{\_ceiling}).
+
+Figure~\ref{fig:p4_planted} shows the planted loss on the six mixtures before any tare, with the fraction held and with it re-fitted.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.5\textwidth]{figures/part4/fig_p4_18_planted.pdf}
+\caption{Rise in untared whole-blood Met-A from a planted 2~\% loss of the neutrophil pattern, on the six mixtures with at least 50~\% neutrophils.
+Fraction from the 963 markers: 0.053--0.067. Fraction re-fitted on the neutrophil sites: 0.044--0.056; the fit takes up
+part of the loss as a change of fraction. Data: \texttt{doors/\allowbreak{}data/\allowbreak{}selfconsist.csv}. \measured}
+\label{fig:p4_planted}
+\end{figure}
 
 \section{Look-elsewhere}
 
@@ -89,3 +109,8 @@ The chain v3 procedure (\texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md}), 
 code or scanned by these gates. \openprob{} Two
 runs never write to one output path; one early procedure run was voided when a stray process kept writing into the same log, and the rule was written that day
 (\texttt{PROC\_INTAKE\_01\_OUTCOME.md}).
+
+A ceiling guard belongs among them. No reading can exceed one bit over its reference, because $H\le1$; a guard that asserts it fails only
+when a reference value, an entropy implementation or a $\beta$ range has been broken, which is why it is worth running on every change.
+\derived{} A guard of this kind found no violation in 492 readings over 318 healthy arrays (\texttt{doors/\allowbreak{}PROC\_CEIL\_01\_OUTCOME.md}).
+\measured{} It is not yet a test of chain v3. \openprob

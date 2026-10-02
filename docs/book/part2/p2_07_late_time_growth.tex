@@ -1,5 +1,5 @@
 % Part 2 chapter carrying "Constraints on Late-Time f sigma8 Suppression from mu < 1, Sigma = 1: Planck 2018 and Large-Scale Structure"
-% (Mahaffey, 19 Feb 2026) nearly in full, in its own order. Read in full 2026-10-02; re-confirmed in 50-line chunks, ledger 1-567 with no gaps. Chain numbers from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+% (19 Feb 2026) nearly in full, in its own order. Read in full 2026-10-02; re-confirmed in 50-line chunks, ledger 1-567 with no gaps. Chain numbers from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
 % (final chain files, 30 % burn-in). Checks: docs/verification/chains/LATE_TIME_GROWTH_CHECK.md.
 
 \chapter{Late-time growth suppression: confrontation with Planck and large-scale structure}\label{ch:latetime}
@@ -61,6 +61,7 @@ MGCAMB (Wang et al.\ 2023~\cite{Wang2023MGCAMB}) implements the DES parameterisa
 \mu(a)=1+\mu_0\,\frac{\Omega_{\rm DE}(a)}{\Omega_\Lambda},\qquad\Sigma(a)=1+\Sigma_0\,\frac{\Omega_{\rm DE}(a)}{\Omega_\Lambda},
 \label{eq:lt_mgcamb}\end{equation}
 with $\Omega_{\rm DE}(a)=\Omega_\Lambda/[\Omega_ma^{-3}+\Omega_\Lambda]$, so $\mu(z{=}0)=1+\mu_0$. The runs set $\mu_0=-0.13495$ and $\Sigma_0=0$.
+This value is $-\beta/(1+\beta)$ for $\beta=0.1560$; the fixed coupling $\beta_m=0.15765$ gives $-0.13618$. The difference, $0.0012$, is about one percent of the free-$\mu_0$ posterior width. \calc
 \calc\ Eq.~\eqref{eq:lt_mgcamb} reproduces the exact form at $z=0$ ($0.865$ vs $0.864$) and at $z\gg1$; in between it suppresses slightly more, by at most
 $2.8\,\%$ in $\mu$ near $z=0.65$, $2.5\,\%$ at $z=1$ and under $1\,\%$ above $z=2.5$, because $E(a)$ and $\Omega_{\rm DE}(a)$ have different transition profiles.
 \emph{Notation.} $\mu_0\equiv\mu(z{=}0)-1$; $\mu_0<0$ is suppression; the exact form gives $\mu_0=-0.136$, and the runs use $-0.13495$ ($-0.135$ below).

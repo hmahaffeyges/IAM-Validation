@@ -65,6 +65,10 @@ assumed profile: $c$, $S_{\max}$ & 0.865, 2.644 & 0.632, 2.366 & 0.393, 2.149 & 
 \calc{} In both cases the violation fades towards 2 and is never lost at a finite time. A Bell test therefore adds nothing to a direct measurement of
 $c(t)$ by interference; it loses its violation only when $c$ falls below the experiment's noise. The quantities that discriminate are the coherence
 itself: its onset (zero slope for the assumed profile, finite slope for the exponential), and the scaling of $\tau_{\rm IAM}$ with temperature and mass.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_chsh_dephasing.pdf}
+\caption[CHSH value of a Bell pair under pointer-basis dephasing]{(a) CHSH value against the coherence $c$: $S_{\max}=2\sqrt{1+c^2}$ for pointer-basis dephasing (Horodecki criterion~\cite{Horodecki1995}, computed from the density matrix) \derived; $S=\sqrt2(1+c)$ with the pure-state settings, below 2 for $c<\sqrt2-1$; $S_{\max}=2\sqrt2\,p$ for isotropic noise, below 2 for $p<1/\sqrt2$ \calc. (b) $S_{\max}(t)$ for the exponential $c=e^{-t/\tau_{\rm IAM}}$ \calc\ and for the assumed profile $c=1-E(t/\tau_{\rm IAM})/e$ \conjecture; points at $t/\tau_{\rm IAM}=0.5$, 1, 2, 3. Both fade to 2 and never fall below.}\label{fig:chsh_dephasing}
+\end{figure}
 
 \section{Where the discriminating experiment lies}\label{sec:ent:experiment}
 With $\tau_{\rm IAM}=\hbar(\kB T)^2\ln2/E_G^3$ (Eq.~\eqref{eq:qr_tauIAM}, Chapter~\ref{ch:quantumrecords}), $E_G=Gm^2/R$, and the boundary capacity $\kB T/E_G$ taken as an
@@ -80,6 +84,10 @@ $\tau_{\rm IAM}=\tau_{\rm PD}$ at 10\,mK & \multicolumn{2}{c}{$m\approx2.2\times
 Di\'osi--Penrose time is within reach of levitated optomechanics~\cite{RomeroIsart2011} and the IAM channel is not. The discriminating experiment is
 a superposition near $10^{-12}$\,kg held at two or more bath temperatures. Di\'osi--Penrose~\cite{Diosi1989,Penrose1996} predicts loss of coherence
 in microseconds at any temperature; the IAM channel predicts none on that scale, and a time that grows as $T^2$. \prediction
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_tau_temperature.pdf}
+\caption[The IAM time against temperature and mass, beside the Di\'osi--Penrose time]{Silica spheres, $\rho=2200$\,kg\,m$^{-3}$, boundary capacity $\kB T/E_G$ assumed. (a) $\tau_{\rm IAM}=\hbar(\kB T)^2\ln2/E_G^3$ against the bath temperature for $10^{-15}$, $10^{-13}$ and $10^{-12}$\,kg (points: 509\,s at 10\,mK and 2{,}034\,s at 20\,mK for $10^{-12}$\,kg); dotted: the Di\'osi--Penrose time $\hbar/E_G$~\cite{Diosi1989,Penrose1996} of each mass, independent of $T$ (7.5\,$\mu$s at $10^{-12}$\,kg). (b) $\tau_{\rm IAM}/\tau_{\rm PD}$ against mass at 10, 20 and 50\,mK; at 10\,mK the two are equal at $2.2\times10^{-10}$\,kg. \calc\ \prediction}\label{fig:tau_temperature}
+\end{figure}
 
 \section{Other entanglement results}\label{sec:ent:other}
 \paragraph{Top quarks.} Entanglement of top--antitop spin states near threshold has been observed at the LHC~\cite{ATLAS2024TopEnt,CMS2024TopEnt}.

@@ -1,5 +1,5 @@
 % Part 2 chapter carrying "Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with mu < 1, Sigma = 1 and the Sector-Dependent Hubble
-% Parameter" (Mahaffey, 28 Feb 2026), read in full 2026-10-02 (all 595 extracted lines; confirmed in 50-line chunks, ledger complete), in the paper's order. Checks: docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md.
+% Parameter" (28 Feb 2026), read in full 2026-10-02 (all 595 extracted lines; confirmed in 50-line chunks, ledger complete), in the paper's order. Checks: docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md.
 
 \chapter{The mechanism in the Boltzmann code: a matter-sector expansion rate}\label{ch:level2}
 
@@ -19,6 +19,8 @@ the completed KiDS survey gives $0.815^{+0.016}_{-0.021}$, in agreement with Pla
 Both differences set early-universe photon measurements against late-universe matter measurements. The question here is whether matter and light can
 have different effective expansion rates at late times while sharing the early history. Chapter~\ref{ch:latetime} showed that $\mu<1$, $\Sigma=1$ is
 consistent with Planck in four data combinations; MGCAMB imposes $\mu$ as a function. Here the mechanism is coded directly.
+
+\observed\ The Planck and Cepheid values differ by $4.9\sigma$, $(73.04-67.4)/\sqrt{0.5^2+1.04^2}$ \calc. The tip of the red giant branch, calibrated with the Hubble and James Webb telescopes and 24 calibrating type Ia supernovae, gives $H_0=70.39\pm1.22\,({\rm stat})\pm1.33\,({\rm sys})\pm0.70\,(\sigma_{\rm SN})$, $\pm1.94$ in quadrature (Freedman et al.\ 2025~\cite{Freedman2025}). It lies $0.97\sigma$ below the matter-sector rate $72.26$ and $1.67\sigma$ above the photon-sector rate $67.16$ \calc: at its present precision the red-giant ladder does not separate the two rates.
 
 \section{Model and implementation}
 \subsection{The mechanism}
@@ -52,6 +54,7 @@ $z$ & $a$ & $E(a)=e^{-z}$ & $\mu$ (Eq.~\ref{eq:l2_mu}) & $H_m/H$\\\hline
 \calc\ How the code realises it. Built with the switch on and off at the Run A parameters, the coded change lowers $\sigma_8$ today by $1.2\,\%$, against
 $0.8\,\%$ for Eq.~\eqref{eq:l2_mu} applied as $G_{\rm eff}=\mu G$, with the same redshift dependence (ratios $0.996$ at $z=0.5$, $0.999$ at $z=1$). The coded
 mechanism is therefore slightly stronger than Eq.~\eqref{eq:l2_mu}, in the same direction.
+The three implementations of the term in the growth equation are compared in Appendix~\ref{app:der:growth}.
 
 \subsection{The CAMB source}
 Three changes in CAMB~1.5.8~\cite{Lewis2000CAMB} \texttt{equations.f90}; nothing else is modified.
@@ -75,10 +78,10 @@ The background (\verb|dtauda|), the photon hierarchy, neutrinos, recombination, 
 
 \subsection{Parameter count}
 \begin{center}\small
-\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll}\hline
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X}\hline
 Quantity & Status & Origin\\\hline
-$\beta_m$ & derived & virial partition of a $1/r$ potential\\
-exponent in $E(a)$ & derived & horizon thermodynamics (Chapter~\ref{ch:theory})\\
+$\beta_m$ & predicted & virial partition of a $1/r$ potential, applied to all bound structure\\
+form of $E(a)$ & from the record constraint & horizon thermodynamics (Chapter~\ref{ch:theory}, Appendix~\ref{app:der:activation})\\
 $E(1)=1$ & fixed & definition\\
 $\Omega_m$, $H_0$ & standard & Planck 2018\\\hline
 \end{tabularx}

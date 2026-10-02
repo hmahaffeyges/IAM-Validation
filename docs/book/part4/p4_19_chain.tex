@@ -9,6 +9,25 @@ on EPIC v1 arrays; other cell types are added one at a time after each passes it
 procedure is \texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md} and the operations manual \texttt{Biological\_Physics/\allowbreak{}MethylPhys/\allowbreak{}manual/\allowbreak{}OM\_v3/\allowbreak{}OM\_v3.tex}.
 Where a document and the code differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
 
+Table~\ref{tab:p4_gates} lists the line each stage applies and the file it reads it from.
+
+\begin{table}[htbp]\centering\small
+\caption{The lines chain v3 applies, stage by stage. Values read from the frozen files named; platform, Stage~M and Stage~T
+rules as stated in this chapter. \calibrated}\label{tab:p4_gates}
+\begin{tabular}{@{}lp{0.5\textwidth}p{0.3\textwidth}@{}}\toprule
+stage & line & source \\\midrule
+Stage 0 & call rate: proceed $\ge0.98$; flagged 0.93--0.98; quarantine $<0.93$ & \texttt{intake\_thresholds\_v1.json} \\
+Stage 0 & bisulfite conversion $\ge0.95$: printed, not gated & \texttt{intake\_thresholds\_v1.json} \\
+platform & EPIC v1 only; more than 700,000 probes & \texttt{conductor\_v3.py} \\
+Stage A & at least 867 of the 963 markers measured & \texttt{blood\_composition\_EPIC\_v1.json} \\
+Stage M & neutrophils $\ge20$~\%; at least 90~\% of the 6,000 identity sites & \texttt{conductor\_v3.py}, \texttt{metA\_floors\_v1\_3.json} \\
+Stage MC & blocks of 50 sites; at least ten blocks; baseline 1.1104 & \texttt{neutrophil\_reference\_v1\_1.json} \\
+Stage T & median tare with 3--19 references; noise-corrected tare with $\ge20$ & \texttt{conductor\_v3.py} \\
+Stage Q & pipeline \texttt{loyfer\_pat\_v1}; $P=1.099$; at least 100,000 opportunities & \texttt{iama\_positions\_v1.json} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part4/fig_chain_v3_flow.pdf}
 \caption{Chain v3, from intake to report. Stage~A runs on whole blood only. Stage~Q reads sequencing input. Drawn by
@@ -73,6 +92,16 @@ state inside the untared label (\emph{untared (own-floor state: \dots)}) and are
 The acceptance run (\texttt{chain\_tests/\allowbreak{}run\_chain\_acceptance.py}) reads every specimen once, then re-reads each whole-blood specimen and each mixture
 with a median tare whose references are the other specimens of its own group. Isolated specimens are not tared in that run, and the references there were not
 healthy references for every group (Chapter~\ref{ch:firstreadings}). The operating procedure is in the operations manual.
+
+Figure~\ref{fig:p4_detlimit} shows the two numbers that make the detection limit on every specimen of development run 3.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_19_detlimit.pdf}
+\caption{(a) Stage~M: the shift a 1~\% loss of the neutrophil pattern would cause, against the neutrophil fraction (682 specimens).
+(b) Stage~T: the detection limit, twice the references' spread over that shift (637 tared specimens; median 1.69~\%, range
+0.88--5.31~\%). Data: \texttt{doors/\allowbreak{}data/\allowbreak{}chain\_v3\_dev3\_readings.csv} (\texttt{DEV\_CHAIN\_V3\_RUN3.md}). \measured}
+\label{fig:p4_detlimit}
+\end{figure}
 
 \section{Stage Q: IAM-A}
 

@@ -16,6 +16,7 @@ $d\rho_{\mathrm{info}}/da=\rho_{\mathrm{info}}/a^2$, whose solution, normalised 
 $E\to0$ at early times, $E(1)=1$, and $E\to e$ as $a\to\infty$. Two properties fix where the effect lives in time:
 the inflection of $E(a)$ is at $a=1/2$ ($z=1$), and the production per e-fold, $dE/d\ln a=E/a$, peaks exactly at $a=1$ \calc.
 Entropy production per e-fold is at its maximum today.
+The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:activation}.
 
 \section{Two sectors}
 
@@ -30,14 +31,15 @@ $\ddot\delta_m+2H\dot\delta_m-\tfrac32\Omega_mH_0^2a^{-3}\mu\,\delta_m=0$ and $\
 
 \begin{keybox}[title={The coupling is predicted, not fitted}]
 The virial theorem gives the matter coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}). With Planck's $\Omega_m=0.3153$~\cite{Planck2018VI},
-$\beta_m=0.15765$ \derived. This value is \emph{fixed} in every chain below; nothing in $\beta_m$ is sampled.
-A separate fit with $\beta$ left free against expansion-rate and growth data (\texttt{results/mcmc\_results*.npz}) returned $0.157\pm0.029$ \fitted.
+$\beta_m=0.15765$ \prediction. This value is \emph{fixed} in every chain below; nothing in $\beta_m$ is sampled.
+Left free against the local distance-ladder values read as matter-sector rates (SH0ES $73.04\pm1.04$~\cite{Riess2022}; tip of the red giant branch $70.39\pm1.94$~\cite{Freedman2025}) and seven $f\sigma_8$ points, $\beta$ returns $0.155\pm0.029$ \calc. That interval is the local rate restated, $\beta=(72.45/67.4)^2-1$: the $f\sigma_8$ points alone allow $0\le\beta\le0.25$ (68\,\%) and change by only $\Delta\chi^2=0.40$ between $\beta=0$ and $\Omega_m/2$ \calc. It is therefore not a separate measurement of the coupling; the test of $\beta_m=\Omega_m/2$ is the growth rate at the predicted amplitude.
 \end{keybox}
 
 \begin{checkbox}
 \calc\ From Eq.~\eqref{part2:eq:mu} with $\beta_m=0.15765$: $\mu=0.864$ at $z=0$, $0.905$ at $z=0.2$, $0.982$ at $z=1$, $0.998$ at $z=2$.
 The coupling $1-\mu_0=13.6\%$ is the change in the effective Newton constant for matter today. It is \emph{not} the change in growth:
 growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$ and $\sigma_8$ by about $1.6\%$ (next section).
+The three ways of entering the growth equation and their growth factors are in Appendix~\ref{app:der:growth}.
 \end{checkbox}
 
 \section{The chain record}\label{sec:chains}
@@ -94,7 +96,7 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.75\textwidth]{figures/part2/fig_two_hubble.pdf}
-\caption{The two Hubble rates. Photon sector: the Level~2 Planck chain, $67.16\pm0.47$ \measured. Matter sector: $67.16\sqrt{1+\beta_m}=72.26\pm0.50$ \derived. Against Planck 2018, $67.36\pm0.54$ ($-0.37\sigma$), and the SH0ES Cepheid ladder, $73.04\pm1.04$ ($-0.75\sigma$) \observed. Units km\,s$^{-1}$Mpc$^{-1}$; chain values from \texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}.}\label{fig:two_hubble}
+\caption{The two Hubble rates. Photon sector: the Level~2 Planck chain, $67.16\pm0.47$ \measured. Matter sector: $67.16\sqrt{1+\beta_m}=72.26\pm0.50$ \calc. Against Planck 2018, $67.36\pm0.54$ ($-0.37\sigma$), and the SH0ES Cepheid ladder, $73.04\pm1.04$ ($-0.75\sigma$) \observed. Units km\,s$^{-1}$Mpc$^{-1}$; chain values from \texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}.}\label{fig:two_hubble}
 \end{figure}
 
 The photon-sector expansion rate is the one the CMB measures, $H_0=67.16$ (Level 2). For matter, the information term adds to the
