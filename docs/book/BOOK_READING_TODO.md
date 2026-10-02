@@ -40,7 +40,7 @@ Read in full 2026-10-01; the chapter `p2_virial.tex` is a short synthesis and mu
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
 | 14 | Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint | Mar 2026 | 12 | ☐ | ☐ | ☐ |
-| 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | Mar 2026 | 6 | ☐ | ☐ | ☐ |
+| 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | Mar 2026 | 6 | ☑ 2026-10-02 | ☐ | ☑ errata C3–C12 |
 | 16 | 18thChainBaryonAsymmetry.rtf (the 18th chain record) | — | rtf | ☐ | ☐ | ☐ |
 | 17 | The_Cosmological_Constant_as_Actualized_Vacuum_Energy | Mar 2026 | 18 | ☐ | ☐ | ☐ |
 Existing drafts `p2_baryon.tex`, `p2_lambda.tex` were written before this rule; they are replaced when 14–17 are done.
