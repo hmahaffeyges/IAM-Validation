@@ -62,10 +62,10 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 ## G6 Black holes and horizons (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 25 | IAM_Black_Hole_Information_Paradox | Feb 2026 | 14 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
-| 26 | IAM_BH_Thermodynamics | 25 Feb 2026 | 9 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
-| 27 | IAM_M_Sigma_Paper | 25 Feb 2026 | 7 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
-| 28 | Bekenstein_coefficient (= iam_bekenstein_coefficient; same text, one bullet glyph differs) | Apr 2026 | 11 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 25 | IAM_Black_Hole_Information_Paradox | Feb 2026 | 14 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_blackholes.tex` | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 26 | IAM_BH_Thermodynamics | 25 Feb 2026 | 9 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_blackholes.tex` | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 27 | IAM_M_Sigma_Paper | 25 Feb 2026 | 7 | ☑ 2026-10-02 | held (author decision: M–σ does not reproduce) | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 28 | Bekenstein_coefficient (= iam_bekenstein_coefficient; same text, one bullet glyph differs) | Apr 2026 | 11 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_blackholes.tex` | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
 
 ## G7 Quantum (Part 2; interpretation sections to Part 5)
 | # | Paper | Date | pp | Read | Chapter | Check |
@@ -111,4 +111,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 **Not on the list but used by the book:** IAM_CAMB_Technical_Note (19 Feb, 28 pp, the chain engineering record behind G1). Add it as G1 #0?
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 10 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5). G3: read and checked, chapter to rebuild.
+Progress: 13 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5, black holes ×3; M–σ held). G3: read and checked, chapter to rebuild.

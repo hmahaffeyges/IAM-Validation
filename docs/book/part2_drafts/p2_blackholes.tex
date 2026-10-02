@@ -1,0 +1,114 @@
+% Part 2 opening chapter: black-hole horizons. Carries the solid physics of the four G6 papers (read in full 2026-10-02):
+%  BH Thermodynamics (25 Feb 2026), Information Paradox (Feb 2026), Bekenstein coefficient (Apr 2026); M-sigma held (author decision).
+% Checks: docs/verification/black_holes/BLACK_HOLES_CHECK.md; numbers: docs/verification/scripts/verify_virial_atoms_to_horizon.py.
+% Interpretation (projection picture, paradox dissolution, cosmic censorship, particle fixed point) goes to Part 5.
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+
+\chapter{Black-hole horizons: Bekenstein, Hawking and the price of a bit}\label{ch:blackholes}
+
+\section*{Overview}
+Part~1 ended with the virial half: a system bound by $1/r$ holds half its binding energy as motion, and that half is the irreversible cost of binding. The
+next rung of the ladder is the strongest binding there is. A black hole is a surface with a temperature and an entropy, and Landauer's principle can be
+applied to it directly. When it is, the same half appears. This chapter sets out the thermodynamics of black-hole horizons, the rates at which they
+take in and give out information, the relation between a black hole and the cold horizon of the universe, and where the famous factor $1/4$ in the
+Bekenstein--Hawking entropy comes from. Chapter~\ref{ch:virial} then applies the same first law to the cosmic horizon.
+
+\section{A horizon has a temperature and an entropy}
+Bekenstein (1973) argued that a black hole must carry entropy proportional to its area; Hawking (1975) showed that it radiates thermally. For a
+Schwarzschild black hole of mass $M$,
+\begin{equation}
+S_{\rm BH}=\frac{k_Bc^3A}{4G\hbar}=\frac{4\pi Gk_BM^2}{\hbar c},\qquad T_{\rm BH}=\frac{\hbar c^3}{8\pi Gk_BM},\qquad A=\frac{16\pi G^2M^2}{c^4}.
+\end{equation}
+Every causal horizon has a temperature set by its surface gravity $\kappa$,
+\begin{equation}
+T=\frac{\hbar\kappa}{2\pi k_Bc},
+\end{equation}
+with $\kappa=c^4/4GM$ for a black hole, $\kappa=cH$ for the de Sitter horizon of an expanding universe (Gibbons \& Hawking 1977), and $\kappa=a$ for an
+observer with acceleration $a$ (Unruh 1976). The $2\pi$ is the period of the Euclidean time that makes the horizon smooth; it is the same in all three.
+
+\begin{center}\small
+\begin{tabular}{lcccc}
+\hline
+Mass ($M_\odot$) & $T_{\rm BH}$ (K) & $S_{\rm BH}$ (bits) & $\Gamma$ (bits\,s$^{-1}$) & $\tau_{\rm evap}$ (yr)\\\hline
+1 & $6.17\times10^{-8}$ & $1.51\times10^{77}$ & $152.5$ & $2.10\times10^{67}$\\
+10 & $6.17\times10^{-9}$ & $1.51\times10^{79}$ & $15.25$ & $2.10\times10^{70}$\\
+$10^{6}$ & $6.17\times10^{-14}$ & $1.51\times10^{89}$ & $1.53\times10^{-4}$ & $2.10\times10^{85}$\\
+$10^{9}$ & $6.17\times10^{-17}$ & $1.51\times10^{95}$ & $1.53\times10^{-7}$ & $2.10\times10^{94}$\\\hline
+\end{tabular}
+\end{center}
+
+\section{The price of the horizon's bits}
+Count the entropy in bits, $N=S_{\rm BH}/(k_B\ln2)$, and price each one at Landauer's minimum, $k_BT_{\rm BH}\ln2$. The total is
+\begin{equation}
+N\,k_BT_{\rm BH}\ln2=T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2 ,
+\end{equation}
+exactly, for every mass: $0.5000000000$ for one solar mass, for the $4.3\times10^6\,M_\odot$ black hole at the centre of the Galaxy and for the
+$6.5\times10^9\,M_\odot$ black hole in M87. In general relativity this is the Smarr relation $Mc^2=2T_{\rm BH}S_{\rm BH}$ (Smarr 1973; Bardeen, Carter \&
+Hawking 1973). Read with Landauer's principle it says that half of a black hole's rest energy is the minimum cost of the information on its horizon --- the
+same half that the virial theorem gives every $1/r$ system (Chapter~\ref{ch:virial_law}).
+
+Rotation moves energy out of the horizon's bits and into spin. For a Kerr black hole with spin $\chi=Jc/GM^2$, $Mc^2=2T_{\rm BH}S_{\rm BH}+2\Omega_HJ$, and
+\begin{equation}
+\frac{T_{\rm BH}S_{\rm BH}}{Mc^2}=\frac{\sqrt{1-\chi^2}}{2}:\qquad 0.433\ (\chi=0.5),\quad 0.218\ (\chi=0.9),\quad 0.032\ (\chi=0.998).
+\end{equation}
+The half belongs to the non-rotating, fully relaxed horizon, as the virial half belongs to the relaxed bound system.
+
+\section{How fast a horizon writes and erases}
+In the black-body approximation a black hole radiates like any thermal surface,
+\begin{equation}
+P=\sigma_{\rm SB}AT_{\rm BH}^4=\frac{\hbar c^6}{15360\pi G^2M^2},
+\end{equation}
+with $\sigma_{\rm SB}=\pi^2k_B^4/(60\hbar^3c^2)$. The exact Hawking spectrum includes greybody factors and the count of particle species (Page 1976), which
+change the numerical coefficient but not the scaling. Dividing the power by the cost per bit gives the rate at which the horizon's bits leave:
+\begin{equation}
+\Gamma=\frac{P}{k_BT_{\rm BH}\ln2}=\frac{c^3}{1920\,GM\ln2}\ \text{bits\,s}^{-1}.
+\end{equation}
+This is the first law of black-hole thermodynamics read in bits: $c^2|dM/dt|=T_{\rm BH}|dS_{\rm BH}/dt|$, so $\Gamma$ is the rate at which the horizon entropy
+falls. The mass obeys $dM/dt=-P/c^2$, which integrates to
+\begin{equation}
+M(t)^3=M_0^3-\frac{\hbar c^4t}{5120\pi G^2},\qquad \tau_{\rm evap}=\frac{5120\pi G^2M_0^3}{\hbar c^4}.
+\end{equation}
+The entropy carried off grows as $S_{\rm BH,0}-S_{\rm BH}(t)=S_{\rm BH,0}[1-(1-t/\tau)^{2/3}]$: it reaches half of the initial horizon entropy at
+$t=(1-2^{-3/2})\tau=0.646\,\tau$ and all of it at $\tau$. Smaller black holes are hotter and write faster.
+
+\section{Two horizons: hot and cold}
+The universe has its own horizon, at $c/H$, with the Gibbons--Hawking temperature $T_{\rm GH}=\hbar H/(2\pi k_B)=2.66\times10^{-30}$\,K today. A black hole is
+in equilibrium with it only if $T_{\rm BH}=T_{\rm GH}$, at
+\begin{equation}
+M_{\rm eq}=\frac{c^3}{4GH}=2.32\times10^{22}\,M_\odot\quad(H_0=67.4\ \text{km\,s}^{-1}\text{Mpc}^{-1}),
+\end{equation}
+$1.3\times10^{22}$ at $z=1$ and $2.4\times10^{12}\,M_\odot$ at $z=10^6$. Every known black hole is far lighter (TON~618 is $6.6\times10^{10}\,M_\odot$), so every
+black hole is hotter than the sky it sits in and radiates into it; the cosmic bath reduces the net flow by $(T_{\rm GH}/T_{\rm BH})^4\approx3\times10^{-90}$ for
+one solar mass. Energy and entropy flow from the hot local horizon to the cold cosmic one, at the rate $\Gamma$, over times of $10^{67}$ years and longer.
+
+\section{When a horizon forms}
+Thorne's hoop conjecture says a black hole forms when mass $M$ is compressed inside a circumference $4\pi GM/c^2$. At the Schwarzschild radius the
+holographic bound $S/A\le k_B/(4\ell_P^2)$ is met exactly:
+\begin{equation}
+\frac{4\pi Gk_BM^2/(\hbar c)}{4\pi(2GM/c^2)^2}=\frac{k_Bc^3}{4\hbar G}=\frac{k_B}{4\ell_P^2}.
+\end{equation}
+The two statements are one: the geometry of the hoop and the information capacity of the surface. Primordial black holes form by the standard
+mechanism during radiation domination, where electromagnetic interactions, not gravity, set the irreversible rate.
+
+\section{Where the 1/4 comes from}
+Jacobson (1995) obtained the Einstein equations from $\delta Q=T\,\delta S$ on local Rindler horizons, with $T=\hbar\kappa/(2\pi k_Bc)$ and $S=\eta A$. The
+Clausius relation holds for every null direction only if
+\begin{equation}
+\frac{\hbar\eta}{2\pi}=\frac{c^3}{8\pi G}\qquad\Longrightarrow\qquad\eta=\frac{c^3}{4\hbar G}=\frac{1}{4\ell_P^2}.
+\end{equation}
+The $1/4$ is the ratio of two geometric numbers: the $2\pi$ period of the Euclidean horizon (Bisognano \& Wichmann 1976; Unruh 1976) and the $8\pi$ of the
+field equations ($4\pi$ from Gauss's law in three dimensions, doubled by the trace structure of $G_{ab}$). Given Newton's constant, nothing else enters.
+The same ratio makes one bit correspond to an area $4\ell_P^2$ of horizon. What thermodynamics cannot supply is why a smallest area $\ell_P^2=\hbar G/c^3$
+exists at all; that is a question about the microstructure of spacetime.
+
+\section{From the black hole to the universe}
+A black hole's horizon carries entropy $A/4\ell_P^2$, sits at temperature $\hbar\kappa/2\pi k_Bc$, and holds half its mass-energy as the Landauer cost of its
+bits. The horizon of the universe obeys the same first law. Jacobson and Cai \& Kim showed that applying $-dE=T\,dS$ at the cosmic apparent horizon returns the
+Friedmann equations. Chapter~\ref{ch:virial} adds to that first law the entropy written as matter decoheres, and the virial half fixes how much of the matter
+density enters it: $\beta_m=\Omega_m/2$.
+
+\authorhold{M--$\sigma$ (\emph{The M--$\sigma$ Relation from Gravitational Decoherence Thermodynamics}) is not carried: the normalisation does not reproduce
+without an unstated factor, the irreversible channel invoked enters at $(v/c)^5$, and the observed slope is $5.6\pm0.3$
+(\texttt{verification/black\_holes/BLACK\_HOLES\_CHECK.md}, \#5). Seed masses from the information budget and the redshift evolution of
+$M_{\rm BH}/M_{\rm bulge}$ are held with it. Part~5 carries the interpretation: the horizon as the surface where a particle's record can no longer be
+maintained, the information question, and cosmic censorship.}

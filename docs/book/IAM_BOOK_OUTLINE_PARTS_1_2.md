@@ -105,6 +105,9 @@ Record of what was tested, when, and what failed; the scorecard as history, not 
 
 ## Part 2 — Informational Actualization of GR: The Cosmological Dynamic
 
+### 2.0 Black-hole horizons (author: opens Part 2, 2026-10-02)
+**Drafted:** `docs/book/part2_drafts/p2_blackholes.tex`. Then 2.1, the cosmic horizon.
+
 ### 2.1 From the virial theorem to β_m = Ω_m/2 and E(a)
 **Drafted (2026-10-02):** `docs/book/part2_drafts/p2_virial.tex` — coupling, E(a) and the exponent n = 7/2, µ(z), σ8/S8, two H0, Ω_m growth vs geometry, E_G, R(a), tests. DM/DE as halves, coincidence reading and arrow of time → Part 5 (held for discussion).
 
