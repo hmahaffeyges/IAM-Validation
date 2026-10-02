@@ -68,6 +68,12 @@ error rate against specification & $A$ & $A$ per channel \\\bottomrule
 \end{tabular}
 \end{center}
 
+\paragraph{One gauge, not one scale.} The gauge has the same shape everywhere: the system as built, or the cell when healthy, reads 1 in the
+middle, its physical floor lies to the left and its full surface to the right. The distances do not carry from one system to another. $A=2$
+for a neutrophil and $A=2$ for a qubit are both twice their reference, but the room between 1 and the full surface is different for each
+(4.45 for a neutrophil on IAM-A), so equal readings do not mean equal damage, and the gauge does not rank systems against each other. Each
+system is read against itself. \derived
+
 Two cautions keep the mapping exact. First, Met-A measures \emph{state} error, the fraction of copies holding the wrong mark at one moment;
 that is what copy error and decay leave behind together. Met-A says how much error there is; single-molecule reads say which process made
 it. Second, the two channels can move in opposite directions, and a reading over both can hide both.
