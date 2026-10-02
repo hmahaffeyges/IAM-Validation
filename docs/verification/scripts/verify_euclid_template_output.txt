@@ -1,0 +1,5 @@
+IAM f sigma8 deficit %: [4.25 2.17 1.35 0.41]
+template (mu0 = -0.136) deficit %: [6.19 4.14 3.14 1.62]
+spectroscopic bins 0.9-1.7   template-equivalent mu0 = -0.031 | /0.04 = 0.8 sigma | /0.23 = 0.13 sigma | /0.01 = 3 sigma
+photometric range 0.2-2.0    template-equivalent mu0 = -0.062 | /0.04 = 1.5 sigma | /0.23 = 0.27 sigma | /0.01 = 6 sigma
+all 0-2                      template-equivalent mu0 = -0.072 | /0.04 = 1.8 sigma | /0.23 = 0.31 sigma | /0.01 = 7 sigma
