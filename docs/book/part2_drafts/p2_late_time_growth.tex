@@ -11,8 +11,8 @@ carried by the activation function $E(a)=\exp(1-1/a)$, which vanishes at early t
 construction. With the coupling $\beta=\Omega_m/2$ the present-day coupling is $\mu(z{=}0)=0.864$, a $13.6\,\%$ reduction of the effective Newton constant
 for linear growth. The model is implemented in MGCAMB and run in twelve MCMC analyses with Cobaya: Planck 2018 (TT, TE, EE and lensing) alone and with SDSS
 redshift-space distortions, BAO, or Pantheon+ supernovae. With $\beta$ fixed, every combination is consistent with $\Lambda$CDM ($\Delta\chi^2$ between
-$+0.56$ and $+1.73$), with the standard parameters unchanged. With the amplitude free, Planck + RSD gives $\mu_0=+0.039\pm0.125$, with the prediction
-$1.4\sigma$ from the posterior mean. $\sigma_8$ falls from $0.813$ to $0.800$ in every combination. BAO angles and supernova distances are unaffected,
+$+0.56$ and $+1.73$), with the standard parameters unchanged. With the amplitude free, the posterior of $\mu_0$ reaches the upper edge of its prior ($+0.2$) in every combination; the prediction lies inside the
+$90\,\%$ credible interval in all four, with $10$--$21\,\%$ of the posterior below it. $\sigma_8$ falls from $0.813$ to $0.800$ in every combination. BAO angles and supernova distances are unaffected,
 as $\Sigma=1$ requires. Euclid and DESI will reach the sensitivity to detect or exclude a modification of this size.
 
 \section{Introduction}
@@ -38,6 +38,9 @@ $\mu\to1$ at high redshift and fixes $\mu(z{=}0)$ through $\beta$ alone. This ch
 
 $\mu<1$ with $\Sigma=1$ has had less attention than $\mu>1$. $f(R)$ gravity, DGP and most scalar--tensor theories predict enhanced growth, $\mu\ge1$
 (Pogosian and Silvestri 2016). A suppression moves $\sigma_8$ downward and sits in a less explored part of the $\mu$--$\Sigma$ plane.
+
+\begin{figure}[h]\centering\includegraphics[width=0.85\textwidth]{figs_late_time_growth/fig_mu_profile.pdf}
+\caption{Left: $\mu(z)$, exact form (Eq.~\ref{eq:lt_mu}, solid) and the MGCAMB form (Eq.~\ref{eq:lt_mgcamb}, dashed); they agree at $z=0$ and $z\gg1$ and differ by up to $2.8\,\%$ near $z\approx0.65$. Right: $E(a)=\exp(1-1/a)$, negligible above $z\approx3$ and equal to $1$ today.}\label{fig:lt_mu}\end{figure}
 
 \section{Model and implementation}
 \subsection{Modified Poisson equations}
@@ -74,7 +77,7 @@ their luminosity distances are those of $\Lambda$CDM.
 \paragraph{Analysis.} Twelve chains in four data combinations (Planck: A, B, C; + RSD: D, E, F; + BAO: G, H, I; + Pantheon+: J, K, L), each with three models:
 $\mu_0$ fixed at $-0.13495$ (no parameter beyond $\Lambda$CDM); $\mu_0$ free with a flat prior $[-0.5,+0.2]$; and $\Lambda$CDM ($\mu_0=\Sigma_0=0$) on the same
 MGCAMB code, so any difference comes from the gravity parameter alone. The six standard parameters $\{\Omega_bh^2,\Omega_ch^2,H_0,\tau,\ln10^{10}A_s,n_s\}$ are
-sampled in all runs; $\sigma_8$ and $\Omega_\Lambda$ are derived. Cobaya, Gelman--Rubin $R-1<0.01$; every final chain ends at $R-1\le0.0099$.
+sampled in all runs; $\sigma_8$ and $\Omega_\Lambda$ are derived. The free-$\mu_0$ runs start at the prediction (proposal width $0.05$). Cobaya, Gelman--Rubin $R-1<0.01$; every final chain ends at $R-1\le0.0099$.
 
 \section{Results}
 $\Delta\chi^2$ is IAM fixed minus $\Lambda$CDM, from the lowest $\chi^2$ reached in each final chain; a positive value means IAM fits slightly worse. With the same
@@ -86,11 +89,11 @@ number of parameters, the likelihood ratio is $e^{-\Delta\chi^2/2}$.
 & $\Lambda$CDM (C) & $\mu_0$ fixed (A) & $\mu_0$ free (B)\\\hline
 $H_0$ & $67.14\pm0.51$ & $67.08\pm0.53$ & $67.14\pm0.54$\\
 $\sigma_8$ & $0.8143\pm0.0060$ & $0.8015\pm0.0058$ & $0.8158\pm0.0156$\\
-$\mu_0$ & 0 & $-0.135$ & $+0.015\pm0.156$\\
+$\mu_0$ & 0 & $-0.135$ & Table~\ref{tab:lt_free}\\
 $\Delta\chi^2$ & -- & $+0.96$ & --\\\hline
 \end{tabular}\end{table}
-\paragraph{Planck alone.} The fixed prediction gives $\Delta\chi^2=+0.96$ (likelihood ratio $0.62$). With $\mu_0$ free the posterior is $+0.015\pm0.156$, consistent
-with general relativity and with the prediction ($1.0\sigma$): the CMB alone is weakly sensitive to late-time growth when $\Sigma=1$.
+\paragraph{Planck alone.} The fixed prediction gives $\Delta\chi^2=+0.96$ (likelihood ratio $0.62$). With $\mu_0$ free the posterior (Table~\ref{tab:lt_free}) is consistent
+with general relativity and with the prediction. The CMB alone is weakly sensitive to late-time growth when $\Sigma=1$.
 
 \begin{table}[h]\centering\small
 \caption{Planck + RSD.}\label{tab:lt_rsd}
@@ -98,13 +101,15 @@ with general relativity and with the prediction ($1.0\sigma$): the CMB alone is 
 & $\Lambda$CDM (F) & $\mu_0$ fixed (D) & $\mu_0$ free (E)\\\hline
 $H_0$ & $67.49\pm0.41$ & $67.49\pm0.42$ & $67.55\pm0.40$\\
 $\sigma_8$ & $0.8133\pm0.0060$ & $0.8004\pm0.0060$ & $0.8166\pm0.0131$\\
-$\mu_0$ & 0 & $-0.135$ & $+0.039\pm0.125$\\
+$\mu_0$ & 0 & $-0.135$ & Table~\ref{tab:lt_free}\\
 $\Delta\chi^2$ & -- & $+0.56$ & --\\\hline
 \end{tabular}\end{table}
 \paragraph{Planck + RSD.} Growth-rate data test the coupling directly. The fixed prediction gives $\Delta\chi^2=+0.56$, lower than with Planck alone: the growth data
 do not penalise the suppression. $\sigma_8$ is $0.8004\pm0.0060$ against $0.8133\pm0.0060$, lower by $0.013$; the other parameters are unchanged, so the
-modification acts on growth without opening degeneracies. With $\mu_0$ free, $+0.039\pm0.125$; the prediction lies $1.4\sigma$ from the mean.
+modification acts on growth without opening degeneracies (Fig.~\ref{fig:lt_post}).
 Figure~\ref{fig:lt_fs8} shows $f\sigma_8(z)$: the model is lower than $\Lambda$CDM at every redshift.
+\begin{figure}[h]\centering\includegraphics[width=0.85\textwidth]{figs_late_time_growth/fig_posterior_comparison.pdf}\caption{Planck + RSD posteriors, $\Lambda$CDM (grey) and $\mu_0=-0.135$ fixed (blue). Only $\sigma_8$ moves.}\label{fig:lt_post}\end{figure}
+\begin{figure}[h]\centering\includegraphics[width=0.7\textwidth]{figs_late_time_growth/fig_fsigma8.pdf}\caption{$f\sigma_8(z)$ for $\Lambda$CDM (black) and $\mu_0=-0.135$ (blue) with the measurements: 6dFGS ($z=0.07$), SDSS MGS ($0.15$), BOSS DR12 ($0.38$, $0.51$), eBOSS DR16 LRG ($0.70$), ELG ($0.85$) and quasars ($1.48$).}\label{fig:lt_fs8}\end{figure}
 
 \begin{table}[h]\centering\small
 \caption{Planck + BAO and Planck + Pantheon+.}\label{tab:lt_bao_sn}
@@ -113,13 +118,14 @@ Figure~\ref{fig:lt_fs8} shows $f\sigma_8(z)$: the model is lower than $\Lambda$C
 & $\Lambda$CDM (I) & fixed (G) & free (H) & $\Lambda$CDM (L) & fixed (J) & free (K)\\\hline
 $H_0$ & $67.56\pm0.44$ & $67.54\pm0.43$ & $67.57\pm0.45$ & $67.12\pm0.51$ & $67.00\pm0.50$ & $67.07\pm0.52$\\
 $\sigma_8$ & $0.8115$ & $0.7987$ & $0.8126\pm0.0158$ & $0.8128$ & $0.7999$ & $0.8123\pm0.0164$\\
-$\mu_0$ & 0 & $-0.135$ & $+0.011\pm0.152$ & 0 & $-0.135$ & $-0.008\pm0.163$\\
+$\mu_0$ & 0 & $-0.135$ & Table~\ref{tab:lt_free} & 0 & $-0.135$ & Table~\ref{tab:lt_free}\\
 $\Delta\chi^2$ & -- & $+1.73$ & -- & -- & $+1.58$ & --\\\hline
 \end{tabular}\end{table}
 \paragraph{Planck + BAO and Planck + Pantheon+.} BAO constrains $D_A(z)$ and $H(z)$ through the transverse and line-of-sight acoustic scales; supernovae measure
 luminosity distances. With the background unchanged, both are predicted to match $\Lambda$CDM, and they do: $\Delta\chi^2=+1.73$ and $+1.58$, standard parameters
-unchanged, free $\mu_0$ consistent with both $0$ and $-0.135$.
+unchanged.
 
+\begin{figure}[h]\centering\includegraphics[width=0.6\textwidth]{figs_late_time_growth/fig_deltachi2_final.pdf}\caption{$\Delta\chi^2$ for $\mu_0=-0.135$ fixed, relative to $\Lambda$CDM, in each data combination (final chain files).}\label{fig:lt_dchi2}\end{figure}
 \begin{table}[h]\centering\small
 \caption{Summary, $\mu_0$ fixed at the prediction.}\label{tab:lt_summary}
 \begin{tabular}{lcccc}\hline
@@ -129,6 +135,23 @@ Planck + RSD & $+0.56$ & $0.8133$ & $0.8004$ & $-1.6\,\%$\\
 Planck + BAO & $+1.73$ & $0.8115$ & $0.7987$ & $-1.6\,\%$\\
 Planck + Pantheon+ & $+1.58$ & $0.8128$ & $0.7999$ & $-1.6\,\%$\\\hline
 \end{tabular}\end{table}
+
+\subsection{The free amplitude}
+\begin{table}[h]\centering\small
+\caption{$\mu_0$ free, flat prior $[-0.5,+0.2]$: posterior median, lower end of the $90\,\%$ credible interval (the upper end is the prior edge), and the
+posterior probability below the prediction.}\label{tab:lt_free}
+\begin{tabular}{lccc}\hline
+Data & median & $90\,\%$ lower bound & $P(\mu_0<-0.135)$\\\hline
+Planck & $+0.059$ & $-0.305$ & $0.17$\\
+Planck + RSD & $+0.064$ & $-0.204$ & $0.10$\\
+Planck + BAO & $+0.047$ & $-0.304$ & $0.18$\\
+Planck + Pantheon+ & $+0.030$ & $-0.342$ & $0.21$\\\hline
+\end{tabular}\end{table}
+\calc\ In every combination the posterior rises to the prior's upper edge: $17$--$21\,\%$ of it lies above $+0.15$ (Fig.~\ref{fig:lt_mu0}). A mean and standard
+deviation therefore describe the prior range as much as the data, and the table gives the median and one-sided bound instead. The prediction lies inside
+every $90\,\%$ interval, as does general relativity. The direction of the pull is upward, toward enhanced growth; a run with a wider prior would show where the
+posterior turns over.
+\begin{figure}[h]\centering\includegraphics[width=0.65\textwidth]{figs_late_time_growth/fig_mu0_posterior_final.pdf}\caption{Posterior of $\mu_0$ with the amplitude free, Planck (dashed) and Planck + RSD (solid), from the final chain files. The prior ends at $+0.2$; the vertical line marks the prediction.}\label{fig:lt_mu0}\end{figure}
 
 \section{Discussion}
 \subsection{Compatibility with current data}
@@ -152,7 +175,7 @@ ACT + WMAP + SDSS + SN, $\mu_0=0.02\pm0.19$ (Andrade et al.\ 2024). The predicti
 \caption{Projected sensitivity to $\mu_0=-0.135$ with $\Sigma=1$ imposed (Fisher estimates from published survey specifications).}\label{tab:lt_forecast}
 \begin{tabular}{lcc}\hline
 Survey & $\sigma(\mu_0)$ & $|\mu_0|/\sigma$\\\hline
-Planck + RSD (this chapter) & $0.125$ & $1.1$\\
+Planck + RSD (this chapter) & $\sim0.12$ & $\sim1.1$\\
 Euclid, pessimistic & $\sim0.06$ & $\sim2.2$\\
 Euclid, optimistic & $\sim0.04$ & $\sim3.4$\\
 DESI Year 5, $f\sigma_8$ only & $\sim0.10$ & $\sim1.4$\\
@@ -176,7 +199,7 @@ relevant at Euclid precision.
 \begin{enumerate}
 \item A fixed $13.6\,\%$ suppression of the coupling at $z=0$ is consistent with Planck 2018 ($\Delta\chi^2=+0.96$) and with Planck + SDSS growth data ($+0.56$).
 \item $\sigma_8$ moves from $\approx0.813$ to $\approx0.800$ with no other parameter degraded.
-\item With $\mu_0$ free, the prediction lies within $1.4\sigma$ of the Planck + RSD posterior mean.
+\item With $\mu_0$ free, the prediction lies inside the $90\,\%$ credible interval in every combination; the posterior leans toward positive $\mu_0$ and reaches the prior edge.
 \item BAO and supernova distances are unaffected, as a perturbation-level change with $\Sigma=1$ requires.
 \item Euclid and DESI will reach the sensitivity to detect or exclude a change of this size.
 \end{enumerate}

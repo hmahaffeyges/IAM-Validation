@@ -30,5 +30,14 @@ and `CHAIN_PAIRS_FINAL.csv` (final files, 30 % burn-in; all final R − 1 ≤ 0.
    the run shows — with the background unmodified, luminosity distances equal ΛCDM's.
 8. µ(0) 0.865 → 0.864 and 13.5 % → 13.6 % (Ω_m = 0.315 throughout).
 
+9. **Free µ0 posteriors reach the prior edge.** Prior flat [−0.5, +0.2]; in all four free chains 17–21 % of the posterior lies above +0.15 (final files,
+   30 % burn-in). Mean ± σ (and "the prediction lies 1.3σ from the best fit") describe a truncated distribution. Printed instead: median +0.059 / +0.064 /
+   +0.047 / +0.030; 90 % lower bound −0.305 / −0.204 / −0.304 / −0.342; P(µ0 < −0.135) = 0.17 / 0.10 / 0.18 / 0.21. The prediction is inside every 90 %
+   interval. The data pull toward positive µ0 (enhanced growth).
+10. **Figures.** µ profile, posteriors and fσ8 carried from `docs/papers/latex/iam_mu_sigma_paper/`; the fσ8 point at z = 0.07 is 6dFGS (Beutler 2012), not
+   SDSS, so the caption names each survey. The Δχ² and µ0-posterior figures are regenerated from the final chain files; the paper's µ0 figure drew Gaussians
+   from mean ± σ, which hides the prior edge.
+
 ## Open
-- None for this paper. The 2.0 % lensing figure belongs to the CAMB Technical Note (G1, to be read).
+- **Free-µ0 runs with a wider prior** (e.g. [−1, +1]) would show where the posterior turns over; author's decision (adds chains to the record).
+- The 2.0 % lensing figure belongs to the CAMB Technical Note (G1, to be read).
