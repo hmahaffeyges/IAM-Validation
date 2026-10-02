@@ -108,7 +108,5 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 | 46 | Gravitational_Propulsion_and_IAM | — | 6 | ☐ | ☐ | ☐ |
 | 47 | IAM_Gravitational_Engineering_Exploration | — | 6 | ☐ | ☐ | ☐ |
 
-**Not on the list but used by the book:** IAM_CAMB_Technical_Note (19 Feb, 28 pp, the chain engineering record behind G1). Add it as G1 #0?
-
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 14 of 47 complete (IAM's Law, Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5, black holes ×3; M–σ abandoned). G3: read and checked, chapter to rebuild.
+Progress: 18 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4; M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
