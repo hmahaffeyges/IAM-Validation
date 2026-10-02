@@ -1,6 +1,6 @@
 # ENTANGLEMENT_CHECK — "Entanglement, Decoherence, and the Thermodynamic Cost of Classical Records" (Mar 2026, revised Oct 2026, 6 pp)
 Read in full 2026-10-02 (PDF text 253 lines, ledger complete). The October revision already carries τ_IAM(1 pg, 10 mK) = 559 s, τ_PD = 7.8 µs, m⁻⁵,
-crossover 2.3e-10 kg, Hensen 1.3 km, n = 7/2. Placement: Part 3 (entanglement under IAM's Law), with the law statement of §7.
+crossover 2.3e-10 kg, Hensen 1.3 km, n = 7/2. Placement: Part 2 §2.11, `part2_drafts/p2_quantum_records.tex` §"Light writes nothing in flight".
 ## Reproduced
 Table 1 (5.6e17 s / 0.78 s at 1 fg; 559 s, 2,238 s / 7.8 µs at 1 pg); E(z = 10) = 4.5e-5; n = 7/2 from S_info ∝ a^(n−9/2).
 ## Corrections

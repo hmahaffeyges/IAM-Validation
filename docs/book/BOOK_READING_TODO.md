@@ -71,11 +71,11 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 ## G7 Quantum (Part 2; interpretation sections to Part 5)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 29 | Gravitational_Decoherence_Quantum_Level | Feb 2026 | 22 | ☑ 2026-10-02 | Part 3 after p3_xqp (ramp derivation hold) | ☑ `quantum/GRAV_DECOHERENCE_CHECK.md` |
+| 29 | Gravitational_Decoherence_Quantum_Level | Feb 2026 | 22 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_quantum_records.tex` (ramp open) | ☑ `quantum/GRAV_DECOHERENCE_CHECK.md` |
 | 30 | IAM_Measurement_Problem_Quantum (Part 5) | Feb 2026 | 21 | ☑ 2026-10-02 | Part 5: measurement = irreversible record (three tests not carried) | ☑ `quantum/MEASUREMENT_PROBLEM_CHECK.md` |
-| 31 | Entanglement_Decoherence_and_Classical_Records | Oct 2026 rev. | 6 | ☑ 2026-10-02 | Part 3 (with §7 law statement) | ☑ `quantum/ENTANGLEMENT_CHECK.md` |
+| 31 | Entanglement_Decoherence_and_Classical_Records | Oct 2026 rev. | 6 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_quantum_records.tex` | ☑ `quantum/ENTANGLEMENT_CHECK.md` |
 | 32 | The_Two_Faces_of_Time (Part 5) | Oct 2026 rev. | 7 | ☑ 2026-10-02 | Part 5 (time and the arrow) | ☑ `quantum/TWO_FACES_CHECK.md` |
-| 33 | Quantum_Darwinism_at_Cosmological_Scales | Mar 2026 | 15 | ☑ 2026-10-02 | Part 3 bridge chapter | ☑ `quantum/QUANTUM_DARWINISM_CHECK.md` |
+| 33 | Quantum_Darwinism_at_Cosmological_Scales | Mar 2026 | 15 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_quantum_records.tex` | ☑ `quantum/QUANTUM_DARWINISM_CHECK.md` |
 
 ## G8 Particle physics (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |

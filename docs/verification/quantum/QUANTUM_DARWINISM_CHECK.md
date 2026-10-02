@@ -1,6 +1,6 @@
 # QUANTUM_DARWINISM_CHECK — "Quantum Darwinism at Cosmological Scales: Gravitational Decoherence, the Cosmic Horizon, and the Emergence of Classical
 Structure" (Mar 2026, 15 pp). Read in full 2026-10-02 (PDF text 861 lines, ledger complete). Script: `scripts/verify_quantum_darwinism.py`.
-Placement: Part 3 (the bridge chapter: Zurek's records, IAM's Law prices them, the cosmic horizon is the last surface).
+Placement: Part 2 §2.11, `part2_drafts/p2_quantum_records.tex` (opening, collapse sets the rate, the exponent from both directions).
 ## Stands — the chapter's spine
 - Zurek supplies how records form and become objective (einselection, pointer states, redundancy). IAM's Law adds what Zurek's framework does not fix:
   the cost of each record (k_BT ln 2 per bit) and where it is written (the nearest encoding surface). Integrated over structure formation, the last

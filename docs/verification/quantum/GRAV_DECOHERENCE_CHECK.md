@@ -1,6 +1,6 @@
 # GRAV_DECOHERENCE_CHECK — "Gravitational Decoherence from Dual-Sector Thermodynamics: Predictions for Optomechanical Experiments and Quantum
 Computing Architecture" (Feb 2026, 22 pp). Read in full 2026-10-02 (PDF text 478 lines, ledger complete; pages are figure-heavy, page 6 rendered to
-confirm no text is missing). Placement: Part 3, after the qubit chapter — IAM's Law at the superposition boundary. Script: `scripts/verify_grav_decoherence.py`.
+confirm no text is missing). Placement: Part 2 §2.11, `part2_drafts/p2_quantum_records.tex` §"Massive superpositions". Script: `scripts/verify_grav_decoherence.py`.
 ## Reproduced
 - τ ∝ T² (×4 at 20 mK, ×16 at 40 mK); dE_q/dη peaks at η = 0.5; crossover with Penrose–Diósi at 2.3e-10 kg (10 mK).
 - §7.1: gravitational decoherence is irrelevant for current qubits; photons exempt (E_G = 0, Σ = 1).
