@@ -33,7 +33,7 @@ open item & what settles it & who \\\midrule\endhead
 \textbf{D9. The decoherence ramp.} The rate integral gives an exponential; the sigmoidal ramp used for decoherence, erasure and Bell
  tests is assumed (Chapters~\ref{ch:gravdec},~\ref{ch:measurement}). & Derive the time dependence, or replace the ramp everywhere by the exponential. & we \\
 \textbf{D10. The dwarf-galaxy floor at infall.} The present-day floor is rejected (25 of 54 satellites below 4~km\,s$^{-1}$); the 4~km\,s$^{-1}$
- value itself is not derived (Chapter~\ref{ch:time}). & Derive $\sigma_{\rm crit}$; test it against dispersions at infall from orbit reconstructions. & we \\
+ value itself is not derived (Chapter~\ref{ch:satellites}). & Derive $\sigma_{\rm crit}$; test it against dispersions at infall from orbit reconstructions. & we \\
 \textbf{D11. Two sectors, one ladder.} Why distance-ladder supernovae, measured in light, read the matter-sector rate (Chapter~\ref{ch:dual}).
  & A derivation of which ruler a calibrated distance indicator inherits. & we \\
 \textbf{D12. Measurement and erasure.} Where the criterion $Q\ge Q_L$ sits relative to Bennett's result that only erasure has a minimum cost
@@ -52,7 +52,7 @@ open item & what settles it & who \\\midrule\endhead
  & Per-person data on the current scale: tumour--normal pairs, the DNMT1-inhibitor series, blood cancers. & we \\
 \textbf{I3. The Met-A floor.} $H_{\min}$ on the Met-A scale is not defined (Chapter~\ref{ch:gauge}). & Relate the array reading to the
  molecule-level floor through matched array and sequencing data from the same specimens. & we, data needed \\
-\textbf{I4. Repeatability.} The serial floor is likely near 0.015, not 0.07 (Chapter~\ref{ch:serial}). & Same-chip technical replicates through the
+\textbf{I4. Repeatability.} The smallest change between two draws of one person that the instrument can call is not yet measured (Chapter~\ref{ch:serial}). & Same-chip technical replicates through the
  chain's own Stage~1. & we \\
 \textbf{I5. Past the entropy ceiling.} Met-A is monotone only while methylated sites stay above $\beta=\tfrac12$ (Chapter~\ref{ch:meta}).
  & Print the mean $\beta$ beside Met-A and flag readings past half-loss; a dose series in the range where $\beta$ stays above 0.5. & we \\
@@ -64,10 +64,9 @@ open item & what settles it & who \\\midrule\endhead
  the control probes, or a reference material of known methylation run through each laboratory. & we, experiment \\
 \textbf{I9. Eosinophil and neutrophil fractions} outside the bar on known mixtures (Chapter~\ref{ch:separation}). & Find the source of the shortfall
  in the atlas profiles or the solver. & we \\
-\textbf{I10. Held-out transfer of identity sites:} 87.7\,\% and 73.1\,\% against a bar of 95\,\% (Chapter~\ref{ch:identity}). & More purified
+\textbf{I10. Identity sites for the next cell types.} On atlas v2, held-out transfer of identity sites reached 87.7\,\% and 73.1\,\% against a bar of 95\,\% (\texttt{atlas/v2/postbuild}, V12; Chapter~\ref{ch:atlas}). & More purified
  samples per cell on one platform, to separate site-choice noise from donor spread. & we \\
-\textbf{I11. The sky on atlas v2,} and the offset off the identity sites (Chapter~\ref{ch:sky}); a sex mask for whole-array maps
- (Chapter~\ref{ch:skytools}). & Rescore the six-array sky on atlas v2 with a sex mask. & we \\
+\textbf{I11. Whole-array sky maps} need a sex mask: one female reference array lights chrX against five male ones (Chapter~\ref{ch:skytools}). & Redraw the six-array sky with chrX and chrY masked, and with sex-matched references. & we \\
 \textbf{I12. Conversion failure on the unmethylated channel} in the IMR90 cultures (Chapter~\ref{ch:gauge}). & Read conversion from the
  non-CpG cytosines of the same libraries. & we \\
 \textbf{I13. Temperature.} Whether the floor moves with temperature at fixed holding energy (Chapter~\ref{ch:temperature}). & One species, one cell

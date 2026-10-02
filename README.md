@@ -43,7 +43,7 @@ Every result carries one status label: DERIVED, CALCULATED, CALIBRATED, MEASURED
 | qubits | gate error read against a material floor; Quantinuum Helios about 8× above its floor | floors CALIBRATED |
 | chips | Ryzen 9 9950X switches at 576 × `k_B T_j ln 2` | CALCULATED |
 | cells | neutrophils read against their own healthy reference: held out, SD 0.020 around 1 | CALIBRATED, MEASURED |
-| cells | DNMT1 blocked: Met-A 1.16–1.85 (arrays), IAM-A 1.65–1.97 (molecules); tumour copy error above the same patient's normal tissue in 13 of 14 pairs | MEASURED (development) |
+| cells | DNMT1 blocked: Met-A 1.16–1.85 (arrays), IAM-A 1.65–1.97 (molecules); tumour copy error above the same patient's normal tissue in all 10 pairs read (6 colorectal, 4 oral) | MEASURED (development) |
 
 What is not shown yet: no floor is derived from first principles; the cell instrument is not commissioned on real whole blood; breach
 and the cancer region on the cell gauge are not placed. The full list, with the plan for each item, is Part 5, *What is open*.

@@ -84,7 +84,7 @@ held-out precision of its own floor, recovery in known mixtures, and a known cha
 
 \section{Atlas v2: the reference for the cells that come next}
 
-Chain v3 does not yet read the atlas. The neutrophil reference and the eight composition profiles come from purified EPIC arrays, as above. Atlas v2
+The neutrophil reference and the eight composition profiles of chain v3 come from purified EPIC arrays, as above. Atlas v2
 is the reference from which the identity sites and profiles of each further cell type will be drawn as that type is commissioned. It was built
 to the same rule: every cell type measured on purified healthy cells of that type, nothing filled, every value with its uncertainty.
 
@@ -211,5 +211,4 @@ of the fit is stored with its SHA-256, so a rebuild on the same package versions
 
 What it does not yet do, stated so that no reader assumes it: it holds 74 cell types, not every cell in the body; it does not store the
 covariance between cell types at a site, so two cells that trade off against each other are each reported with their own uncertainty and
-not with the tighter uncertainty of their sum; the progenitor source term is assumed rather than measured; and it is read in the chain for
-neutrophils only until each further cell type is commissioned. \openprob
+not with the tighter uncertainty of their sum; the progenitor source term is assumed rather than measured; and chain v3 does not read it yet. \openprob

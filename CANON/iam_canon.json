@@ -201,12 +201,12 @@
   },
   "QEC threshold [the quantum-processor report]": {
    "status": "current (unverified)",
-   "definition": "Quantum Error Correction threshold (A < 10^-3) — The gate error rate below which error correction codes can detect and fix errors faster than they accumulate. Above this threshold, adding error correction makes things worse, not better. Below it, adding more physical qubits and error correction cycl",
+   "definition": "Quantum Error Correction threshold (gate error ε < 10^-3) — The gate error rate below which error correction codes can detect and fix errors faster than they accumulate. Above this threshold, adding error correction makes things worse, not better. Below it, adding more physical qubits and error correction cycl",
    "domain": "the quantum-processor report"
   },
   "Fault-tolerance target [the quantum-processor report]": {
    "status": "current (unverified)",
-   "definition": "FT target (A < 10^-4) — The gate error rate required to build a fault-tolerant quantum computer that can execute the deep circuits needed for commercially relevant problems -- drug discovery, cryptography, materials simulation. QEC threshold is the first step; fault tolerance is the destination. Onl",
+   "definition": "FT target (gate error ε < 10^-4) — The gate error rate required to build a fault-tolerant quantum computer that can execute the deep circuits needed for commercially relevant problems -- drug discovery, cryptography, materials simulation. QEC threshold is the first step; fault tolerance is the destination. Onl",
    "domain": "the quantum-processor report"
   },
   "n  (architecture parameter) [the quantum-processor report]": {
@@ -229,7 +229,7 @@
   },
   "Position Gauge [the quantum-processor report]": {
    "status": "issue text (not a term)",
-   "definition": "Floor-to-FT log-scale visual -- new in Issue 002 — A log-scale bar on every platform card showing where the platform currently sits between its material A-floor (left edge) and the analysis range maximum (A=0.015). Three zones: FT Zone (green, left) -- below fault-tolerance target (A < 10^-4); EC Zo",
+   "definition": "Floor-to-FT log-scale visual -- new in Issue 002 — A log-scale bar on every platform card showing where the platform currently sits between its material A-floor (left edge) and the analysis range maximum (A=0.015). Three zones: FT Zone (green, left) -- below fault-tolerance target (gate error ε < 10^-4); EC Zo",
    "domain": "the quantum-processor report"
   },
   "Halving rate [the quantum-processor report]": {
