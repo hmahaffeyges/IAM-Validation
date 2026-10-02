@@ -20,7 +20,7 @@ ORDER (each step's output is the next step's input):
    7 doors/REVIEWER_MANIFEST.md                         build_reviewer_manifest.py
    8 doors/REPORT_TAB_REFERENCE.md                      build_report_tab_reference.py   from the last filed report
    9 doors/REPO_INVENTORY.md                            build_repo_inventory.py   measured from git ls-files + the generator table below
-  10 doors/RUNBOOK.md, README.md (marked blocks only)   build_marked_blocks.py    the chain-as-it-runs table between <!-- GENERATED --> markers
+  10 doors/RUNBOOK.md (marked block only)       build_marked_blocks.py    the chain-as-it-runs table between <!-- GENERATED --> markers
   11 folder READMEs                                     build_folder_readmes.py
   12 GENERATED_MANIFEST.json                            (here)                    sha256 of every generated file and of every chain input
 GATES (any failure = exit 1; guarded_push refuses):
@@ -49,7 +49,6 @@ GENERATED = [  # (path relative to MP, generator) - the register of every docume
     ("doors/REPORT_TAB_REFERENCE.md", "kit/build_report_tab_reference.py"),
     ("doors/REPO_INVENTORY.md", "kit/build_repo_inventory.py"),
     ("doors/RUNBOOK.md (marked block)", "kit/build_marked_blocks.py"),
-    ("README.md (marked block)", "kit/build_marked_blocks.py"),
     ("chain/GENERATED_MANIFEST.json", "chain/build_all.py"),
 ]
 INPUT_GLOBS = ["chain/*.py", "chain/MethylPhys_Interface/*.py", "chain/Runtime Matrices/**/*.json", "chain/Runtime Matrices/**/*.py",

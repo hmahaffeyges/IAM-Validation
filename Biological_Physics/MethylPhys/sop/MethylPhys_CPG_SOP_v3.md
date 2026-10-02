@@ -1,6 +1,6 @@
 # MethylPhys CPG SOP — chain v3 (neutrophils)
 
-**Build:** development v3, 2026-10-01. Not commissioned. Not a diagnostic test.
+**Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02. Not commissioned. Not a diagnostic test.
 **Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the three tests
 (pure-cell precision, mixture recovery, known damage). 450K neutrophil floor: pending.
 **Readings:** Met-A (arrays) and its C-score. IAM-A (sequencing) and its C-score run through a separate stage, which is in development.
@@ -20,14 +20,14 @@
 | 0 Intake | manifest, hash, controls, detection p, bead count, call rate, sex check, decision gate | `chain/stage_0_intake.py` | `Runtime Matrices/Intake/intake_thresholds_v1.json` |
 | 1 Calibration | IDAT → noob β | `chain/stage_1_idat_calibration.py` | Illumina manifest |
 | A Composition (whole blood only) | 8 blood groups by NNLS on 963 markers; the markers exclude the neutrophil sites | `chain/conductor_v3.py: stage_a_composition` | `Met_A_Floors/blood_composition_EPIC_v1.json` |
-| M Met-A | isolated neutrophils: H̄ / own floor. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles | `chain/stage_m_met_a.py`, `conductor_v3.py: stage_m_*` | `Met_A_Floors/metA_floors_v1_2.json` |
-| MC C-score | residual z map in genomic order; variance of 50-site block means ÷ site variance ÷ healthy median | `conductor_v3.py: stage_mc_cscore` | `Met_A_Floors/neutrophil_reference_v1.json` |
-| T Tare | A_rel = A ÷ median A of ≥ 3 healthy references run the same way (same slide or batch) | `conductor_v3.py: stage_t_tare` | — (the references are part of the run) |
+| M Met-A | isolated neutrophils: H̄ / own floor. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles | `chain/stage_m_met_a.py`, `conductor_v3.py: stage_m_*` | `Met_A_Floors/metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv` |
+| MC C-score | residual z map in genomic order; variance of 50-site block means ÷ site variance ÷ healthy median | `conductor_v3.py: stage_mc_cscore` | `Met_A_Floors/neutrophil_reference_v1_1.json` |
+| T Tare | same-run healthy references (same slide, else same batch): with ≥ 20 references carrying {A, f_neu, N}, A is corrected by a least-squares fit A = a + b f_neu + c N on those references (DEV-NOISE-02; isolated cells: A = a + c N); with 3–19, A_rel = A ÷ median reference A; with none, the reading is untared | `conductor_v3.py: stage_t_tare` | `Met_A_Floors/noise_sites_EPIC_v1.json` (noise index N = mean H over 48528 sites every purified blood group holds fixed) |
 | Report | one HTML page plus a JSON bundle | `MethylPhys_Interface/report_v3.py` | — |
 
 Frozen values (read from the files, never typed):
-- EPIC neutrophil floor 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6,000 sites; our Stage 1).
-- Healthy clustering median 1.1236 (12 neutrophils, leave-one-out).
+- EPIC neutrophil healthy reference 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6000 sites; our Stage 1).
+- Healthy clustering median 1.1104 (6 physical arrays, leave-one-out, block 50).
 
 ## 3. Rules the chain enforces
 
