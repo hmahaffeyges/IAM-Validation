@@ -84,6 +84,8 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | S6 | | Figs. 1, 2 | 72.5/72.48; σ8 0.7901 (−2.6 %); lensing −2.0 %; Δχ² 79.8 (8.9σ); S8 0.753; Pantheon+ as photon sector | chain values (72.26; 0.800, −1.1/−1.6 %); lensing 0.05–0.3 %; remove 8.9σ panel; SNe matter-normalised | confirmed | #6 |
 | S7 | | §4 | "below 95 % exclusion threshold 3.84" | likelihood ratio | confirmed | #7 |
 | S8 | | §6 | β_γ "above 10⁻⁴"; "fitted β_m" | detection of β_γ > 0; β_m not fitted | confirmed | #8 |
+| S9 | | Eq. 5; Eq. 3 | µ without H0²; S_geo = A/4G | βmE(a)H0²; state units (A/4ℓ_P²) | confirmed | `chains/DUAL_SECTOR_NOTE_CHECK.md` #10 |
+| S10 | | Table 1 row 4 | DESI DR2 "full-shape fσ8 + BAO" phantom crossing | DR2 preference is distance-only (BAO + SN + CMB) | confirmed | #11 |
 | **Virial papers** (5 files, 25 Feb – 18 Mar 2026) |||||||
 | V1 | PRL Thermodynamic Identity; Virial Partners §2; Grav. Decoherence §2.1 | | "17 MCMC chains return β_m = 0.1583 ± 0.0033" | β_m is fixed in every chain; 0.1583 is Ω_m/2 of the L2 posterior; ΛCDM gives 0.1581 | confirmed | `virial/VIRIAL_CHECK.md` #1 |
 | V2 | Virial Efficiency; PRL Table I row 8 | eq. 3, tables | 2K/\|U\| = 0.815 ± 0.025 from six N-body studies; n_eff table | sources report 2T/\|U\| ≈ 1.05–1.4; 0.76–0.90 match \|U\|/2T; n_eff not reported | confirmed | `virial/NBODY_TRACE.md` |

@@ -1,5 +1,5 @@
 # DUAL_SECTOR_NOTE_CHECK — "On the Dual-Sector Structure of IAM: A Note on Null Geodesics, Proper Time, and Why the Sector Split Is Already in Einstein's Field Equations" (March 2026, 9 pp, informal)
-Read in full 2026-10-02 (all 573 extracted lines, in 100-line chunks).
+Read in full 2026-10-02 (all 573 extracted lines, in 100-line chunks); confirmed in 50-line chunks with a line ledger, no gaps.
 
 ## What stands
 - §1, §3 physics: timelike worldlines accumulate proper time (g_µν ẋ^µ ẋ^ν = −1, dτ > 0), null worldlines do not (= 0, dτ = 0); a process that needs Δτ > 0 to
@@ -32,3 +32,7 @@ Read in full 2026-10-02 (all 573 extracted lines, in 100-line chunks).
 9. **Language (physics-terms rule)**: "energy that has crossed into the timelike sector… duration, history", "actual timelike worldlines", "The philosophical
    argument explains why IAM is right. The numbers are the verdict." — not carried in Part 2; the physical content (timelike vs null, proper time,
    irreversibility) is kept.
+10. (ledger read) **Eq. 5** µ omits H0² (as in the other papers); **Eq. 3** S_geo = A_H/4G is in units ħ = c = k_B = 1 (A_H/4ℓ_P² in bits of k_B).
+11. (ledger read) **Table 1 row 4 "DESI DR1 & DR2 full-shape fσ8 + BAO"**: the DR2 w0w_a preference comes from BAO with supernovae and CMB, no full-shape growth
+    (as V24); the "distances + sub-ΛCDM growth" mechanism does not apply to it.
+12. (ledger read) Fig. 2(d), (g) values reproduce: µ = 0.888 (z 0.11), 0.965 (z 0.69); H_m/H − 1 = 6.1 % (z 0.11), 1.8 % (z 0.69).
