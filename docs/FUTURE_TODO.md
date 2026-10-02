@@ -10,3 +10,9 @@ Work that is useful but not crucial for IAM right now. Nothing here takes comput
 | C2 | Level 2 Run D′ (IAM) and C′ (ΛCDM) with fσ8 = dσ8/d ln a (the density-field growth rate) | A valid Level 2 growth test: CAMB's fσ8 does not carry the modification, so Run D did not test IAM growth (errata P12) | `remote_jobs/l2rsd/` (likelihood `iam_rsd_growth.py`, both configs, setup with logged Planck install, checks gate the chains); about a day on one box | Replace the Run D hold box in `p2_dual_sector_perturbation.tex`; errata P7/P12; push chains to `camb_validation/chains/` |
 
 Until then the book prints the free-µ0 median, 90 % bound and P(µ0 < −0.135) with the prior edge stated, and the Level 2 chapter prints the Planck-only result with Run D held.
+
+## Euclid (full DR1 with clustering and weak-lensing products, expected mid-2027)
+The decisive test of µ < 1, Σ = 1 (forecast σ(µ0) ≈ 0.04, about 3.4σ on µ0 = −0.135). New chains go in when it is public, starting from the packages above:
+- Level 1 (MGCAMB): fixed and free µ0 with Euclid added, wide µ0 prior from the start (C1 configs).
+- Level 2 (modified CAMB): IAM and matched ΛCDM with the density-field growth rate (C2 likelihood), plus Euclid's Σ0 constraint.
+- Report Δχ² against ΛCDM with the same data, and the free µ0 and Σ0 posteriors.
