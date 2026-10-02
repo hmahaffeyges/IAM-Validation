@@ -1,37 +1,145 @@
-% Part 1 opening chapter. Structure from "Floor Breach: A Unified Thermodynamic Derivation" (Mahaffey, April 2026; read in full 2026-10-02,
-% 239 lines), with every value replaced by its current version. Numbers: docs/verification/scripts/verify_encoding_ladder.py.
-% Book spine: the surfaces are found in IAM, not IAM in them. Each later chapter opens by naming its place in Table 1.1.
-\chapter{The places in IAM}\label{ch:surfaces}
+% Part 1 opening chapter: "Floor Breach: A Unified Thermodynamic Derivation Connecting Black Hole Physics to the Cancer Cell" (239 lines, read in full
+% 2026-10-02), carried in the author's words; values are the current ones (docs/verification/scripts/verify_encoding_ladder.py). Not carried, by the
+% book's rules: the class floors and the 1.05/1.10 thresholds (retired method), the cohort validation table, the treatment target, the population cohorts.
+\chapter{Floor breach: from the black hole to the cell}\label{ch:surfaces}
 
 \section*{The statement}
-Every irreversible transition from quantum superposition to classical record pays $k_BT\ln2$ per bit to the nearest encoding surface, at that
-surface's temperature, and the record is written on that two-dimensional surface. This is IAM's Law (Chapter~\ref{ch:iams_law}). IAM is not found in a cell, a device, a black hole or the cosmos: these are places found in
-IAM, each a surface where records are written at a temperature. The law is one; the places differ only in the surface, its temperature and the
-number of bits it holds. Every chapter of this book is one such place. This chapter assembles the law from four established results, one
-identification and one application of the same price to the cell, then lists the places.
+Entropy is the same whether it is driving cosmic expansion or a malignant cell. That sentence requires justification. This chapter provides it.
 
-\section{Six steps}
+Black hole formation and the loss of a cell's identity are both instances of the same thermodynamic event: a physical system exceeding its
+information maintenance budget at its nearest encoding surface. The key quantity at both scales is identical: the Landauer cost $k_BT\ln2$ per bit
+of irreversible information processing at the local encoding surface. At stellar scale the encoding surface is the Bekenstein--Hawking horizon; at
+cellular scale it is the methylation record of the chromatin, maintained by DNMT1 across the genome's CpG sites. Both transitions are
+irreversible, both leave a signal before the event, and both are instances of the same equation at different values of $T$ and $N$. This is not a
+metaphor. It is a structural identity.
+
+\begin{center}\fbox{\parbox{0.94\linewidth}{\textbf{Floor breach condition (both scales).} A physical system undergoes floor breach when its local
+rate of irreversible information production saturates the encoding capacity of its nearest causal surface. The system can no longer pay the
+thermodynamic cost of remaining itself. At stellar scale: a black hole. At cellular scale: malignant transformation.}}\end{center}
+
+The derivation has six steps. Each step is established physics or a direct extension of it. The single new physical identification is in Step~5.
+This is IAM's Law (Chapter~\ref{ch:iams_law}): every irreversible transition from quantum superposition to classical record pays $k_BT\ln2$ per bit to the
+nearest encoding surface, at that surface's temperature, and the record is written on that two-dimensional surface. IAM is not found in a cell, a
+device, a black hole or the cosmos: these are places found in IAM, each a surface where records are written at a temperature.
+
+\section{The derivation chain}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part1/fig_landauer_price.pdf}
 \caption{(a) The Landauer price $k_BT\ln2$ (line) and the six places of Table~\ref{tab:surfaces} on it: the price depends on the surface temperature alone, over 32 orders of magnitude. (b) Bits held against surface area. Horizons lie on the Bekenstein--Hawking bound $N=A/(4\ell_P^2\ln2)$; the cell's $2.82\times10^{7}$ CpG sites (hg19 index), placed at the area of a representative 6\,$\mu$m nucleus, lie 52 orders of magnitude below the $1.6\times10^{59}$ bits that area could hold. \calc}\label{fig:landauer_price}
 \end{figure}
-\paragraph{1. A surface has a capacity (Bekenstein 1973~\cite{Bekenstein1973}).} A horizon of area $A$ carries entropy $S=k_BA/4\ell_P^2$, $\ell_P=\sqrt{\hbar G/c^3}$:
-one unit of $k_B$ per four Planck areas, $1.5\times10^{77}$ bits for a solar-mass black hole. Information is bounded by area, not volume.
-\paragraph{2. The surface has a temperature (Hawking 1975~\cite{Hawking1975}; Gibbons and Hawking 1977~\cite{GibbonsHawking1977}).} A black hole radiates at $T_H=\hbar c^3/8\pi GMk_B$
-($6.2\times10^{-8}$\,K for one solar mass); a cosmological horizon at $T_{GH}=\hbar H/2\pi k_B$ ($2.65\times10^{-30}$\,K today).
-\paragraph{3. A bit has a price (Landauer 1961~\cite{Landauer1961}; B\'erut et al.\ 2012~\cite{Berut2012}).} Irreversibly fixing one bit at temperature $T$ costs at least
-$k_BT\ln2$: $2.87\times10^{-21}$\,J (17.9\,meV) at 300\,K, the bound approached in measured erasures. The price depends only on the temperature.
-\paragraph{4. Gravity is the thermodynamics of surfaces (Jacobson 1995~\cite{Jacobson1995}; Cai and Kim 2005~\cite{CaiKim2005}).} Applying $\delta Q=T\,dS$ to every local causal
-horizon gives the Einstein equations as an equation of state. The entropy functional determines the dynamics; Jacobson used the geometric
-entropy alone and obtained general relativity.
-\paragraph{5. The records were always in the entropy (the identification).} Decoherence of matter on timelike worldlines produces classical records,
-and the records are written on the nearest surface. The entropy functional becomes $S=S_{\rm geo}+S_{\rm info}$. The Einstein equations are
-untouched; the entropy is completed. Light, on null worldlines with no proper time, writes nothing. The missing information was always information.
-\paragraph{6. The same price in the cell.} A cell maintains its identity as a methylation record across its CpG sites. Each maintained
-site is one binary record at body temperature: $k_B\,(310.15\,{\rm K})\ln2=2.97\times10^{-21}$\,J. Over the $2.82\times10^7$ CpG sites of the human genome the floor is
-$8.38\times10^{-14}$\,J per copy \calc, about $9.3\times10^5$ ATP at 54\,kJ\,mol$^{-1}$~\cite{Nelson2017}; for the $19.6\times10^6$ sites a cell holds methylated it is
+
+\subsection*{Step 1. Bekenstein (1973): horizon entropy}
+Bekenstein showed that a black hole of horizon area $A$ carries entropy proportional to that area~\cite{Bekenstein1973}. The Bekenstein--Hawking
+entropy is
+\begin{equation}
+  S_{\rm BH}=\frac{k_B\,A}{4\ell_P^2},\qquad \ell_P=\sqrt{\hbar G/c^3}.
+\end{equation}
+One unit of $k_B$ is held per four Planck areas; one bit, $k_B\ln2$, needs $4\ln2\,\ell_P^2$, so a solar-mass black hole holds
+$1.51\times10^{77}$ bits \calc. This is not a coincidence: the coefficient $\tfrac14$ is the ratio $2\pi/8\pi$, where $2\pi$ is the period of the Euclidean
+Rindler cone and $8\pi$ is the normalisation of the Einstein equations (Chapter~\ref{ch:blackholes}). \derived{} The encoding surface has a definite
+capacity. When that capacity is saturated, the stellar system has crossed its floor.
+
+\subsection*{Step 2. Hawking (1975): the encoding surface has a temperature}
+Hawking showed that black holes radiate thermally~\cite{Hawking1975},
+\begin{equation}
+  T_H=\frac{\hbar c^3}{8\pi GMk_B},
+\end{equation}
+$6.17\times10^{-8}$\,K for one solar mass \calc; a cosmological horizon radiates at $T_{GH}=\hbar H/2\pi k_B$~\cite{GibbonsHawking1977},
+$2.65\times10^{-30}$\,K today \calc. This is the temperature at which the encoding surface operates. Landauer's principle now applies: each irreversible
+bit written to this surface costs $k_BT_H\ln2$ in free energy. The encoding surface is not passive storage. It is an active thermodynamic boundary
+with a cost per operation.
+
+\subsection*{Step 3. Landauer (1961): the cost per bit is universal}
+Landauer's principle states that the irreversible erasure of one bit of information in a physical system at temperature $T$ dissipates a minimum
+energy~\cite{Landauer1961}
+\begin{equation}
+  E_{\rm bit}=k_BT\ln2 ,
+\end{equation}
+approached in measured erasures~\cite{Berut2012}: $2.87\times10^{-21}$\,J (17.9\,meV) at 300\,K. \observed{} This is scale-independent. $T$ is the local
+temperature of the encoding surface and $N$ the number of bits being written; the total Landauer cost is $N$ times $E_{\rm bit}$. At the black hole
+horizon $T=T_H$ and $N=\delta A/(4\ln2\,\ell_P^2)$. At the cell nucleus $T=T_{\rm body}=310.15$\,K and $N$ is the number of CpG sites. The equation
+is the same.
+
+\subsection*{Step 4. Jacobson (1995): gravity is the thermodynamics of encoding surfaces}
+Jacobson's result is the pivot of the entire chain. He showed that Einstein's field equations are not a fundamental law: they are the
+thermodynamic equation of state of spacetime, derivable from the Clausius relation applied to local Rindler horizons~\cite{Jacobson1995},
+\begin{equation}
+  \delta Q=T\,dS\quad\Longrightarrow\quad G_{\mu\nu}+\Lambda g_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu}.
+\end{equation}
+\derived{} The entropy functional $S$ determines the theory of gravity. Jacobson used the geometric entropy $S_{\rm geo}=k_BA/4\ell_P^2$ alone, and the
+result is general relativity. This means gravity is not a force that exists alongside thermodynamics. Gravity is the thermodynamic response of
+spacetime to information being written to encoding surfaces. The encoding surface is not a consequence of gravity; gravity is a consequence of the
+encoding surface. \interp
+
+\subsection*{Step 5. IAM: the information term in the entropy functional}
+The single new physical identification is that decoherence-produced classical information contributes to horizon entropy. The total entropy
+functional becomes
+\begin{equation}
+  S_{\rm total}=S_{\rm geo}+S_{\rm info},
+\end{equation}
+where $S_{\rm info}$ is the accumulated Landauer cost of every irreversible quantum-to-classical transition in the bulk since the electroweak
+transition (Chapter~\ref{ch:theory}). \conjecture{} Matter on timelike worldlines decoheres and writes records; light, on null worldlines with no
+proper time, writes none. The Einstein equations are untouched; the entropy is completed. Applying the Cai--Kim extension of Jacobson's mechanism to the
+apparent horizon of the expanding universe~\cite{CaiKim2005} with this functional gives, for the matter sector,
+\begin{equation}
+  H^2_{\rm eff,m}=H^2_{\Lambda{\rm CDM}}(a)+\beta_m\,E(a)\,H_0^2,\qquad E(a)=e^{\,1-1/a},\qquad \beta_m=\frac{\Omega_m}{2},
+\end{equation}
+while light sees $H_{\Lambda{\rm CDM}}$ unchanged (Chapter~\ref{ch:theory}). \derived{} The coupling has no free parameter: $\beta_m$ is fixed by the virial
+partition before any data are used (Chapter~\ref{ch:virial_law}), and Planck 2018 fits the model as well as it fits $\Lambda$CDM
+($\Delta\chi^2=+0.54$; Chapter~\ref{ch:dual}). \fitted{} The cosmological constant is treated in Chapter~\ref{ch:lambda}.
+
+Black holes in IAM are mandatory local encoding surfaces. When the local decoherence rate of a collapsing stellar system saturates the
+Bekenstein--Hawking bound at the local horizon, the system crosses its thermodynamic floor. It can no longer pay the cost of remaining a star.
+\begin{center}\fbox{\parbox{0.94\linewidth}{\textbf{Black hole: floor breach at stellar scale.} A star undergoes floor breach when
+\[ \frac{dS_{\rm local}}{dt}\ \ge\ \frac{dS_{\rm BH}}{dt}. \]
+The local decoherence rate saturates the Bekenstein--Hawking encoding capacity. The system can no longer maintain its thermodynamic identity as a
+star; the encoding surface absorbs what the stellar system can no longer maintain. $T=T_H$, $N=A_{\rm horizon}/(4\ln2\,\ell_P^2)$. \conjecture}}\end{center}
+
+\subsection*{Step 6. The same floor at cellular scale}
+The same Landauer cost applies to DNA methylation maintenance. DNMT1-mediated CpG methylation maintenance is an irreversible binary information
+operation: each correct maintenance event restores one bit of epigenomic information, at Landauer cost $k_BT_{\rm body}\ln2=2.97\times10^{-21}$\,J per
+site. \calc{} Over the $2.82\times10^{7}$ CpG sites of the human genome,
+\begin{equation}
+  E_{\rm floor}=N_{\rm CpG}\,k_B\,T_{\rm body}\ln2=8.37\times10^{-14}\ {\rm J\ per\ copy}\approx9.3\times10^{5}\ {\rm ATP}
+\end{equation}
+at 54\,kJ\,mol$^{-1}$~\cite{Nelson2017}, with no free parameter \calc; for the $19.6\times10^{6}$ sites a cell holds methylated it is
 $5.82\times10^{-14}$\,J (Chapter~\ref{ch:landauer}).
+
+The floor $H_{\min}$ is the methylation entropy expression of this floor: the absolute lowest a cell can operate at while remaining
+thermodynamically itself. It lies to the left of healthy. On single molecules it is set by the thermal copy error
+$\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})=0.032$ (the form \derived; the holding energy $E_{\rm hold}=3.41\,k_BT$ \measured), and for neutrophils it
+reads $1/P=0.910$ on the gauge (Chapter~\ref{ch:iama}). On arrays it is still to be derived. \openprob{} The A-score reads where the cell sits:
+$A=1$ is the cell's own healthy state, in the middle; the floor is to the left; more error is to the right; and at the far right is the full
+surface, where every identity site sits at a coin flip and the record holds nothing it did not hold by chance: Met-A $3.03$, IAM-A $4.45$ for
+neutrophils (Chapter~\ref{ch:floorbreach}). \calc{} That end is the cell's counterpart of the horizon: the black hole and the cancer cell.
+\begin{center}\fbox{\parbox{0.94\linewidth}{\textbf{Malignancy: floor breach at cellular scale.} A cell undergoes floor breach when the methylation
+record it must maintain is lost faster than DNMT1 restores it, and its reading moves from healthy toward the full surface. The cell can no longer
+maintain its thermodynamic identity. Malignant behaviour (invasion, uncontrolled proliferation, metabolic shift) is the consequence of this
+thermodynamic failure, not the failure itself. $T=T_{\rm body}=310.15$\,K, $N=2.82\times10^{7}$ CpG sites. Where on the gauge the breach lies is to be
+measured from per-person readings. \conjecture, \openprob}}\end{center}
+
+\section{The structural identity}
+The floor breach condition at both scales is the same equation with different parameters.
+\begin{table}[htbp]\centering\small
+\caption{Floor breach at the two ends. Black-hole values for one solar mass; cell values for the human genome and, on the gauge, neutrophils.}\label{tab:identity}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
+ & black hole & cell \\\midrule
+encoding surface & Bekenstein--Hawking horizon & methylation record maintained by DNMT1 \\
+temperature & $T_H=\hbar c^3/8\pi GMk_B=6.17\times10^{-8}$\,K & $T_{\rm body}=310.15$\,K \\
+bit count $N$ & $A/(4\ln2\,\ell_P^2)=1.51\times10^{77}$ & $2.82\times10^{7}$ CpG sites \\
+cost per bit & $k_BT_H\ln2=5.9\times10^{-31}$\,J & $k_BT_{\rm body}\ln2=2.97\times10^{-21}$\,J \\
+capacity (surface full) & $S_{\rm BH}=k_BA/4\ell_P^2$ & every identity site at a coin flip: Met-A 3.03, IAM-A 4.45 \\
+floor & the record a star must hold to remain a star & $H_{\min}$: IAM-A $1/P=0.910$; Met-A to be derived \\
+breach condition & $dS_{\rm local}/dt\ge dS_{\rm BH}/dt$ & record lost faster than maintained; position on the gauge to be measured \\
+breach event & black hole formation & malignant transformation \\
+pre-breach signal & $S_{\rm info}$ accumulating & the reading rising away from 1 \\
+scale & $\sim10^{30}$\,kg & $\sim10^{-12}$\,kg (cell nucleus) \\\bottomrule
+\end{tabularx}\end{table}
+
+\begin{center}\fbox{\parbox{0.94\linewidth}{\textbf{The identity.} Entropy is the same whether it is driving cosmic expansion or a malignant cell. The
+floor breach condition $F=N\,k_BT\ln2$ appears at both ends of the observable universe. $T$ and $N$ differ by many orders of magnitude; the equation
+does not.}}\end{center}
 
 \section{The places}
 
@@ -56,13 +164,12 @@ atom ($5\times10^{-11}$\,m) to the Hubble radius ($1.4\times10^{26}$\,m). On the
 Schwarzschild horizon priced at its own temperature equal $\tfrac12Mc^2$ (the Smarr relation~\cite{Smarr1973}), and those of the cosmic horizon equal the mass-energy
 within it. In the cell, the total is the maintenance floor.
 
-\section{The floor and its breach}
-Each surface has a floor: the minimum record it must maintain to remain what it is. A system can hold its record, reading at its own healthy or as-built
-state above that floor, or lose it faster than it is maintained. The breach is the same condition at every place: the record is produced
-or lost faster than the surface can maintain it. Two endpoints are named in this book. When a collapsing mass concentrates records faster than any
-surface outside it can hold, a horizon forms (Chapter~\ref{ch:blackholes}). When a cell loses its methylation record faster than maintenance restores
-it, it departs from its own healthy state; the gauge reads that departure (Parts~\ref{part:3} and~\ref{part:4}). Where the cell's breach lies
-on the gauge is still to be measured \openprob.
+\section{What has been measured}
+In cosmology, with the coupling fixed by the law, Planck 2018 fits as well as $\Lambda$CDM ($\Delta\chi^2=+0.54$), only $\sigma_8$ moves, and the
+predicted growth deficit, $\mu_0=-0.136$ with lensing unchanged, awaits the surveys; Euclid's sensitivity to it is set by how far into small scales
+its analysis can be modelled (Chapter~\ref{ch:latetime}). \fitted, \prediction{} In the cell, the instrument of Part~\ref{part:4} reads purified healthy
+neutrophils at $A=1$ with a held-out spread of $0.020$, and has read known losses of maintenance fidelity in the expected direction and on the
+expected channel. These are development readings; the instrument is not commissioned for any clinical question (Chapter~\ref{ch:status}). \measured
 
 \paragraph{The reading.} One gauge serves every place: $A=1$ is the object's own healthy or as-built state, in the middle; the floor physics sets
 for it lies to the left; more error lies to the right. For the cell there are two readings. On arrays, Met-A is the mean per-site entropy
@@ -72,7 +179,26 @@ $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})=0.032$ (the form is derived \derived;
 that healthy again reads 1 (Part~\ref{part:4}). Normal is $0.95$--$1.05$ on every reading. A qubit and a transistor are read the same way: the device as built
 reads 1, and its physical floor (the material floor of its gate error; the Landauer floor of its switching energy) lies below it (Part~\ref{part:3}).
 
-\section{What is established and what is open}
-Steps 1--4 are established physics; step 5 reveals what they share and is the one identification, tested in cosmology by the chains (Part~\ref{part:2}), and step 6 applies the same
-price to the cell. The law fixes the price per bit at each surface. What it does not yet give is each surface's floor from first principles: the
-cell's floor is measured, and deriving it through the full chain is the open problem that would make the ladder a numerical unification.
+\section{What this is and what it is not}
+This derivation establishes a structural identity: the same thermodynamic equation governs floor breach at stellar and at cellular scale. It does
+not establish a numerical unification between the two scales. For a solar-mass black hole the temperatures differ by a factor $5.0\times10^{9}$ and
+the bit counts by $5.4\times10^{69}$. \calc{} The equation is the same; the numbers are not.
+
+The open problem is the quantitative bridge: showing that the floor $H_{\min}$ of a given cell type can be derived from first principles through
+the full Landauer--Jacobson--IAM chain without reference to measurement. The cell's floor now rests on a measured holding energy. Its full
+first-principles derivation, from the Bekenstein--Hawking coefficient through the cellular scale, is the remaining open problem. \openprob
+\begin{center}\fbox{\parbox{0.94\linewidth}{\textbf{Honest caveat.} The structural derivation is complete. The full numerical unification, deriving
+the floor from first principles through the complete chain without measurement, is the open problem that would make this a complete theory rather
+than a structural result. The structural result is what is demonstrated here.}}\end{center}
+
+\section{Implications}
+If the structural identity holds, then:
+\paragraph{Malignancy has a physics definition.} A cell that has exceeded its thermodynamic maintenance budget. Not a behavioural description
+(invasion, proliferation). Not a genetic description (oncogene mutation). A thermodynamic state: the cell can no longer pay the cost of remaining
+itself. \interp
+\paragraph{Detection precedes the event.} The reading rises before floor breach, just as $S_{\rm info}$ accumulates before horizon saturation. The
+signal is there before the malignant phenotype appears. This is why the gauge is set from healthy-cell physics, not from cancer data.
+\prediction
+\paragraph{The framework is falsifiable.} IAM predicts $\mu_0=-0.136$ with $\Sigma_0=0$ for the growth surveys (Chapter~\ref{ch:predictions}). In the
+cell it predicts that healthy cells of a commissioned type read Normal on their own identity sites and that a known loss of maintenance fidelity is
+read on the channel it acts on. Both predictions are on the record before the data arrive. \prediction
