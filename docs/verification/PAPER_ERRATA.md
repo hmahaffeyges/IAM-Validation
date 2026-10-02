@@ -37,45 +37,6 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | D6 | | Table VI | BAO "matter sector, H0 = 72.5" | BAO angles are photon paths (Level 1 paper) | confirmed | #7 |
 | D7 | | §I, §II, Table VI | "β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)"; "β_γ/β_m < 8.5 × 10⁻⁶" | β_γ < 0.0039 (95 %), β_γ/β_m < 0.025; the 1.4e-6 is a sign error in the emcee θ_s integral | confirmed | #8, `scripts/verify_beta_gamma.py` |
 | D8 | | §VIII.A | "catastrophic 36σ CMB acoustic scale tension" with uniform β | β = 0.18 at fixed parameters: +1.08 % (36σ); with β_m = 0.1577: +0.90 % (30σ); state "at fixed parameters" (free parameters → H0 ≈ 61.5, Level 2b) | confirmed | #8c |
-| **Dual-Sector Perturbation Cosmology, Level 2** (`Dual_Sector_Perturbation_Cosmology_CAMB.pdf`, 28 Feb 2026) |||||||
-| P1 | | §2.3 code listing | `grho_0 = 3.0`; friction in CDM/baryon velocity equations | print the source: extra density βE a² × today's total density; metric source z divided by ℋ_m in the CDM and baryon density equations | confirmed | `chains/DUAL_SECTOR_PERTURBATION_CHECK.md` #1 |
-| P2 | | §2.2 Eq. 5 | µ(a) = H²/(H² + βE) for the implementation | the code's growth: σ8 −1.2 % at fixed parameters (Eq. 5: −0.8 %); same redshift dependence; state the coded change and its measured growth | confirmed | #2 |
-| P12 | | §5.2, Table 4, Fig. 5, Run D | Run D tests the IAM growth rate with fσ8 from CAMB | CAMB's fσ8 comes from velocities the modification does not touch (+8.8 % vs the density growth at z = 0); Run D did not test IAM growth; redo with fσ8 = dσ8/d ln a | confirmed | #2 |
-| X6 | `camb_validation/likelihood_rsd.py` | `get_fsigma8` | fσ8 from CAMB velocities | fσ8 = −(1+z) dσ8/dz from `get_sigma8_z` for the modified code | confirmed | P12 |
-| P3 | | Tables 1, 6 | E(a) 0.6977 / 0.3679 / 0.1353 / 0.0498 (z 0.2 / 0.5 / 1 / 2); µ 0.893, 0.942; H_m/H 1.058, 1.030; Table 6 H_photon 87.45 / 117.68 / 199.00 / 305.00, H_m 89.73 / 118.72 / 199.22 / 305.06 (z 0.5 / 1 / 2 / 3) | E = e^−z 0.8187 / 0.6065 / 0.3679 / 0.1353; µ 0.905, 0.948; H_m/H 1.051, 1.027; H_photon 88.89 / 120.44 / 204.06 / 307.37; H_m 91.29 / 121.53 / 204.29 / 307.43 | confirmed | #3 |
-| P13 | | §8.2 item 2 | "σ8 suppression of 0.009 (1.5 %)" | 1.1 % (1.51σ) | confirmed | #12 |
-| P14 | | §1, refs | KiDS-1000 S8 = 0.759 ± 0.021 (Heymans 2021) | cosmic shear 0.759 +0.024/−0.021 (Asgari 2021) or 3×2pt 0.766 +0.020/−0.014 (Heymans 2021) | pending trace | #13 |
-| P15 | | §8.5 item 2 | "Σ ≠ 1 at > 10⁻⁴ falsifies" | state forecast precision of Σ0 | confirmed | #14 |
-| P4 | | §7, Fig. 7 | background runs "6σ" | 10.9σ (H0 61.45 ± 0.42 vs 67.36 ± 0.54) | confirmed | #4 |
-| P5 | | §3.1, refs | "Planck 2018 CamSpec (Efstathiou & Gratton 2021)" | NPIPE/PR4 CamSpec (Rosenberg et al. 2022) | confirmed | #5 |
-| P6 | | §3.1 | seven fσ8 points "from BOSS DR12 and eBOSS DR16" | includes 6dFGS (z 0.067) and SDSS MGS (z 0.15); diagonal errors | confirmed | #6 |
-| P7 | | §5.2 Table 4, Fig. 5, Table 7 | RSD +3.08, total +2.92, "validated by Level 1 (+1.34)" | mixed statistics (chain-average vs single point); Level 1 used different data; redo with a ΛCDM + RSD chain or best points | confirmed | #7 |
-| P8 | | abstract, §5, Fig. 5 | "below the 95 % exclusion threshold of 3.84" | likelihood ratio; equal parameter count | confirmed | #8 |
-| P9 | | §5.3, §6.1 | "posterior returns β_m = 0.1583" | Ω_m/2 of the posterior; consistency with the fixed value | confirmed | #9 |
-| P10 | | §2.3 | µ = 1 + µ0 Ω_DE | /Ω_Λ (as L1) | confirmed | #10 |
-| P11 | | refs | Frusciante title; DESI JCAP volume | as L6; DESI to trace | confirmed / pending trace | #11 |
-| **Virial papers** (5 files, 25 Feb – 18 Mar 2026) |||||||
-| V1 | PRL Thermodynamic Identity; Virial Partners §2; Grav. Decoherence §2.1 | | "17 MCMC chains return β_m = 0.1583 ± 0.0033" | β_m is fixed in every chain; 0.1583 is Ω_m/2 of the L2 posterior; ΛCDM gives 0.1581 | confirmed | `virial/VIRIAL_CHECK.md` #1 |
-| V2 | Virial Efficiency; PRL Table I row 8 | eq. 3, tables | 2K/\|U\| = 0.815 ± 0.025 from six N-body studies; n_eff table | sources report 2T/\|U\| ≈ 1.05–1.4; 0.76–0.90 match \|U\|/2T; n_eff not reported | confirmed | `virial/NBODY_TRACE.md` |
-| V3 | Virial Efficiency eq. 3; other papers | | n = 5/2 (analytic) | n = 7/2 (see T1) | confirmed | T1 |
-| V4 | Virial Partners | Table 1, E(a) column | 0.050 / 0.182 / 0.274 | 0.135 / 0.497 / 0.741 | confirmed | #3 |
-| V5 | Virial Partners | | "23 % of total dark energy today" | 18.7 % (23 % is β_m/Ω_Λ) | confirmed | #5 |
-| V6 | Virial Partners §4.2 | | w_info = −4/3, z_t = 0.718 | need a modified background; unmodified gives z_t = 0.632 | confirmed | #6 |
-| V7 | Wide Domains | Tables 4, 6 | SNe photon-sector; H0LiCOW matter-sector | by the worldline rule: SNe matter ruler, time delays photon paths | confirmed (ruling) | #7 |
-| V8 | Wide Domains §4.6 | | Δχ² +61.2 as a fit result | dominated (+49.6) by the sector assignment; state as such | confirmed | #8 |
-| V9 | Grav. Decoherence §5.3 | | "best-fit improvement Δχ² = +0.54" | IAM χ² higher by 0.54: "consistent with Planck" | confirmed | #9 |
-| V10 | Wide Domains, Virial Partners, Grav. Decoherence | | Euclid σ(µ0) DR1 ±0.04 / ±0.08 mixed | DR1 ≈ ±0.08; final survey ≈ ±0.04 | confirmed | #10 |
-| V11 | Grav. Decoherence §4.3; Missing Satellites | refs | "Kim & Peter 2021" for halo occupation | that paper is on SIDM cluster mergers; correct source to find | confirmed | #11 |
-| V12 | Wide Domains §3.3; Virial Partners; Grav. Decoherence §6 | | three-channel β_m split; DM/DE halves; arrow-of-time sections | speculative, discuss with the author (Part 5) | author | #12 |
-| **Cosmological Constant** (`The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf`) and **Baryon Asymmetry** (`Baryon_Asymmetry_as_a_Derived_Quantity…pdf`) |||||||
-| C1 | Cosmological Constant | 2/π factor | (2/π)(l_P/l_H)² | 2(l_P/l_H)² with A_eff = 2π l_H² | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` |
-| C2 | Cosmological Constant | history integral | as written | coefficient 3 × 10³⁰ vs required 0.523; derivation open | confirmed | same |
-| C3 | Baryon Asymmetry | analytic η | 6.079, 6.115 × 10⁻¹⁰ | eq. 3 inverted 5.04, eq. 5 inverted 6.09 × 10⁻¹⁰ | confirmed | same |
-| C4 | Baryon Asymmetry | abstract, §3.1, §4, §6 | "the BBN prior on Ω_b h² is removed"; §3.1 lists the standard setting as ref N(0.02242, 0.00014), prior [0.020, 0.025] (listed correctly) | neither is a BBN prior: N(0.02242, 0.00014) is Cobaya's `ref` (where walkers start); the prior in every Level 1 run is flat 0.020–0.025, and the 18th chain widens it to 0.010–0.040. Helium Y_He is set by CAMB's stock BBN consistency relation from Ω_b h² (standard; enters only the damping tail). Correct wording: "with a flat Ω_b h² prior and no abundance data" | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` |
-| C6 | Baryon Asymmetry | abstract, §3.1, §6 | "a prior four times wider than standard" | six times (0.010–0.040 = 0.030 wide vs 0.020–0.025 = 0.005) | confirmed | `yaml_configs/iam_baryon_test.updated.yaml` |
-| C7 | Baryon Asymmetry | §3.1 | "all standard parameters at their Planck 2018 reference values" | all standard parameters are sampled; the reference values are where the walkers start | confirmed | same |
-| C8 | Baryon Asymmetry | §4, Table 1 | "three independent frameworks"; MCMC row as an IAM result | the chain contains no IAM constraint on Ω_b (eq. 3/5 is not in it); it measures Ω_b h² from the acoustic peaks, and the ΛCDM chains give the same η (6.120–6.139); what it shows is CMB-only η agreeing with BBN, as in Planck 2018 | confirmed | `CC_AND_BARYON_CHECK.md` #1 |
-| C9 | Baryon Asymmetry | abstract, §6 | "no nuclear physics input" | no abundance data and no Ω_b h² constraint; helium is set by CAMB's stock BBN relation from Ω_b h² (damping tail only) | confirmed | yaml (no YHe input; `yhe: YHe` is a name alias) |
-| C10 | Baryon Asymmetry | Table 1 | "Observed (BBN) 6.137 ± 0.017" | source value to trace (Cyburt et al. 2016) | pending trace | — |
-| C11 | Baryon Asymmetry | Data availability | `mgcamb_validation/iam_planck_chains/iam_baryon_test` | `mgcamb_validation/iam_baryon_test.*` and `mgcamb_validation/chains/iam_baryon_test.*` | confirmed | repo |
-| C12 | Baryon Asymmetry | §1, §5 | "prediction stated in advance [Mahaffey 2026c]" | check the Matter–Antimatter paper's date against the chain (run 2026-03-20) when that paper is read (G4 #14) | pending re-read | `iam_baryon_test.progress` |
+| D9 | | §V.A | "geometric modification to d_L subdominant (< 1 % for z < 2)" | shape change +2.3 % at z 0.5, +4.8 % at z 2 (0.05–0.10 mag), excluded by Pantheon+ (Δχ² +23.6); SN distances do not follow the β-modified H(z) | confirmed | #10 |
+| D10 | | §I | "photons couple at least 100,000× more weakly" | at least 40× (β_γ/β_m < 0.025) | confirmed | #11, D7 |
+| D11 | | Figs. 3, 5 | β_m = 0.157 ± 0.029 (growth) | the ±0.029 is the early emcee fit; β_m is fixed at Ω_m/2 | confirmed | #12 |

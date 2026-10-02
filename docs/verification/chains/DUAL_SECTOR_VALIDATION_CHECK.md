@@ -1,5 +1,5 @@
 # DUAL_SECTOR_VALIDATION_CHECK — "Dual-Sector Expansion: Type Ia Supernovae Validate Matter-Sector H0 Normalization with ΛCDM Geometric Consistency"
-(23 Feb 2026, 12 pp), read in full 2026-10-02. Reproduction: `scripts/verify_dual_sector_validation.py` (public Pantheon+ release, ~10 s); output beside it.
+(23 Feb 2026, 12 pp), read in full 2026-10-02 (all 1,239 extracted lines, including the three appendix scripts; the first pass saw previews only and was re-read completely before this version). Reproduction: `scripts/verify_dual_sector_validation.py` (public Pantheon+ release, ~10 s); output beside it.
 
 ## The three tests do not measure H0
 In the paper's χ², m_b(model) = M + 5 log₁₀ d_L + 25 with d_L ∝ 1/H0, and M is free. H0 and M enter only as M − 5 log₁₀ H0, so the supernova magnitudes
@@ -41,6 +41,18 @@ is set entirely by the prior; M absorbs it. Consequences:
    parameters fixed shifts θ_s by +1.08 % from the observed value (+1.02 % from ΛCDM). With today's β_m = 0.15765: **+0.90 % = 30σ**. With the
    parameters free, the CMB compensates through H0 ≈ 61.5 (Level 2b runs), which the distance ladder and BAO exclude. Print as "at fixed parameters".
 9. "15 converged chains", "Δχ² = +0.54", "σ8 0.809 → 0.800", "H0 67.16 / 72.26" match the Level 2 chains.
+
+## Added after the complete read
+10. **§V.A "the geometric modification to d_L(z) is subdominant (< 1 % for z < 2)"**: with β = 0.15765 in H(z) (the paper's Eq. 9), at fixed H0 d_L changes
+    by −6.5 % at z = 0.1 and −2.3 % at z = 2; with the normalisation absorbed by M, the Hubble-diagram shape changes by +2.3 % (0.048 mag) at z = 0.5 and
+    +4.8 % (0.10 mag) at z = 2 relative to z = 0.05. That is far above Pantheon+ precision, which is why the full-covariance fit gives Δχ² = +23.6. The
+    supernovae show that their distances do NOT follow H with the β term (item 5), not that the term is too small to see.
+11. **§I "photons couple at least 100,000× more weakly than matter"** (β_γ/β_m < 8.5 × 10⁻⁶): with the corrected bound β_γ/β_m < 0.025, photons couple at
+    least 40× more weakly (item 8).
+12. **Figs. 3 and 5 "β_m = 0.157 ± 0.029 (RSD/growth)"**: the ±0.029 is from the early emcee fit (`results/mcmc_results*.npz`), not from β_m = Ω_m/2, which is
+    fixed; label it or remove.
+13. Appendix code reads `parts[4]` (zCMB), `parts[8]` (m_b_corr), `parts[9]` (diagonal error) with 0.01 < zCMB < 2.5: matches the reproduction here (1588 SNe,
+    Test A χ² 721.12). §III.A's "median σ_mb = 0.21 mag" not checked.
 
 ## For the author
 - The paper's title and conclusions 1–3 and 5 rest on the three tests. The chapter keeps the paper's structure and Prediction 2, reports what the tests
