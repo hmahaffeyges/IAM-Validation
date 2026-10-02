@@ -1,0 +1,10 @@
+{
+ "version": "noise_gate_EPIC_v1",
+ "date": "2026-10-02",
+ "N_max": 0.149,
+ "rule": "If the array's noise index N (mean H(beta) over the noise sites) is above N_max, the gauge state is withheld unless the reading is tared against same-run healthy references (Stage T). Nothing is fitted.",
+ "provenance": "DEV-NOISE-01 (doors/DEV_NOISE_01_OUTCOME.md): N on the Salas purified neutrophil arrays used for the EPIC reference (GSE110554; GSE167998 re-deposits the same 6 physical arrays) ranges 0.1223-0.1489; N_max is the top of that range. Replaces the fitted noise correction of DEV-NOISE-02 (A = a + b f_neu + c N), which was set after looking at the data.",
+ "noise_sites_file": "noise_sites_EPIC_v1.json",
+ "noise_sites_sha256": "3531561783261c577e436a0ac6b83799adbb791fe4ed40be7d0a48ec83f7aeb0",
+ "status": "CALIBRATED (development; not commissioned)"
+}

@@ -1,0 +1,23 @@
+gsm,group,status,intake,call_rate,A,state,f_neu,n_sites,C,A_rel,tare_state,A_rel_tared,tared_state
+GSM2998021,healthy purified neutrophil (in floor),ok,PROCEED,PASS,1.0032,untared (own-floor state: Normal): read A_rel (Stage T),,6000.0,0.8315,,untared: 0 same-run reference arrays (>= 3 required),,
+GSM2998057,healthy purified neutrophil (in floor),ok,PROCEED,PASS,0.9945,untared (own-floor state: Normal): read A_rel (Stage T),,6000.0,0.9419,,untared: 0 same-run reference arrays (>= 3 required),,
+GSM2998116,healthy purified neutrophil (in floor),ok,PROCEED,PASS,0.9989,untared (own-floor state: Normal): read A_rel (Stage T),,6000.0,1.2277,,untared: 0 same-run reference arrays (>= 3 required),,
+GSM2998023,healthy purified neutrophil (in floor),ok,PROCEED,PASS,0.9942,untared (own-floor state: Normal): read A_rel (Stage T),,6000.0,1.0581,,untared: 0 same-run reference arrays (>= 3 required),,
+GSM2998143,healthy purified neutrophil (in floor),ok,PROCEED,PASS,1.0028,untared (own-floor state: Normal): read A_rel (Stage T),,6000.0,0.6991,,untared: 0 same-run reference arrays (>= 3 required),,
+GSM2998030,healthy purified neutrophil (in floor),ok,PROCEED,PASS,1.0064,untared (own-floor state: Normal): read A_rel (Stage T),,6000.0,1.0825,,untared: 0 same-run reference arrays (>= 3 required),,
+GSM2998044,"known mixture, neu>=50%",ok,,,0.9676,untared: read A_rel (Stage T),0.6388,5994.0,1.0814,,untared: 0 same-run reference arrays (>= 3 required),1.021,Normal
+GSM2998063,"known mixture, neu>=50%",ok,,,0.9647,untared: read A_rel (Stage T),0.6849,5994.0,0.9063,,untared: 0 same-run reference arrays (>= 3 required),1.0179,Normal
+GSM2998066,"known mixture, neu>=50%",ok,,,0.9477,untared: read A_rel (Stage T),0.5789,5994.0,1.525,,untared: 0 same-run reference arrays (>= 3 required),0.9925,Normal
+GSM2998082,"known mixture, neu>=50%",ok,,,0.9455,untared: read A_rel (Stage T),0.6172,5994.0,1.3333,,untared: 0 same-run reference arrays (>= 3 required),0.9902,Normal
+GSM2998103,"known mixture, neu>=50%",ok,,,0.9549,untared: read A_rel (Stage T),0.6056,5994.0,1.4007,,untared: 0 same-run reference arrays (>= 3 required),1.0076,Normal
+GSM2998109,"known mixture, neu>=50%",ok,,,0.9426,untared: read A_rel (Stage T),0.6962,5994.0,1.4994,,untared: 0 same-run reference arrays (>= 3 required),0.9871,Normal
+GSM9426321,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426324,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426327,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426330,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426333,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426336,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426339,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426342,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426345,AML second remission blood (other lab),no idat pair,,,,,,,,,,,
+GSM9426348,AML second remission blood (other lab),no idat pair,,,,,,,,,,,

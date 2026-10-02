@@ -9,7 +9,7 @@ when single-molecule input is given.
     python3 run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --sex F --age 52 --id S001 --out S001.html
 
     # pass 2 of a batch: the same, with the same-run healthy references from pass 1
-    python3 run_sample.py ... --slide-ref-table refs.csv        # columns A,f_neu,N; >= 20 rows -> noise-corrected tare
+    python3 run_sample.py ... --slide-ref-table refs.csv        # column A (optional id): same-run healthy references; >= 3 rows -> median tare
     python3 run_sample.py ... --slide-ref-A 0.951,0.957,0.962   # plain A values -> median tare
 
     # a beta table already calibrated by this chain's Stage 1: two-column CSV cpg_id,beta (Stage 0 does not run)
@@ -273,7 +273,7 @@ def main():
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
     ap.add_argument("--engine", default="v3", choices=("v3", "legacy"), help="v3 = neutrophil chain (Met-A, C-score, tare; development build). legacy = the class-floor conductor kept for the record")
     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated untared Met-A of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
-    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A,f_neu,N (optional id): untared Met-A, neutrophil fraction and noise index from pass 1. >= 20 rows -> noise-corrected tare; 3-19 -> median tare")
+    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): untared Met-A from pass 1. >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--pat-max-bytes", type=int, default=None, help="read only the first N bytes of --pat (the neutrophil position P was measured on the first 60000000 bytes of each file)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
@@ -471,7 +471,7 @@ def main():
         refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
         if a.slide_ref_table:
             rt = _pd.read_csv(a.slide_ref_table)
-            if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A (and f_neu, N for the noise-corrected tare)")
+            if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A")
             refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
         it = intake or {}
         array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
