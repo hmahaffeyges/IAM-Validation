@@ -9,51 +9,6 @@
 "text": "# (formerly 'the semiconductor report index'); M = E_sw/(k_B T_j) = A ln 2; class floor = per-architecture bound (not H_min); n = temperature exponent."
 },
 {
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py",
-"line": 77,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\"\"\"Per-substrate A-score. value is raw beta (methylation) or"
-},
-{
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py",
-"line": 89,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\"\"\"Return tier label for an A-score.\"\"\""
-},
-{
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py",
-"line": 192,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# --- Test 4: A-score formula for worked example ---"
-},
-{
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py",
-"line": 195,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "check(\"A-score formula: beta=0.685 cycling methyl -> A=1.0502\","
-},
-{
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py",
-"line": 295,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "print(\"principles. The 40-cell H_min grid, A-score formula, saturation\")"
-},
-{
 "file": "DERIVATIONS QPROC_CHIP_MPHYS/qproc_derivation_tests.py",
 "line": 15,
 "pattern": "\\bA[- ]score",
@@ -123,7 +78,7 @@
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
 "status": "LIVE",
-"text": "Informational fidelity ratio (A) & A = reading / H\\_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionl"
+"text": "Informational fidelity ratio (A) & A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = "
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
@@ -132,7 +87,7 @@
 "use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
 "severity": "warn",
 "status": "LIVE",
-"text": "Informational fidelity ratio (A) & A = reading / H\\_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionl"
+"text": "Informational fidelity ratio (A) & A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = "
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
@@ -141,7 +96,7 @@
 "use": "A (the quantum-processor report) = eps / eps_floor",
 "severity": "warn",
 "status": "LIVE",
-"text": "Informational fidelity ratio (A) & A = reading / H\\_min: a system's reading divided by the floor of the same system, measured on the same instrument. Dimensionl"
+"text": "Informational fidelity ratio (A) & A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = "
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
@@ -163,7 +118,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 54,
+"line": 53,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -226,7 +181,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 73,
+"line": 74,
 "pattern": "\\bold A\\b",
 "use": "Met-A",
 "severity": "warn",
@@ -235,7 +190,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 74,
+"line": 75,
 "pattern": "\\bnew A\\b",
 "use": "IAM-A",
 "severity": "warn",
@@ -244,7 +199,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 75,
+"line": 76,
 "pattern": "gate-error reading",
 "use": "IAM-A",
 "severity": "warn",
@@ -253,7 +208,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 76,
+"line": 77,
 "pattern": "program reading",
 "use": "Met-A",
 "severity": "warn",
@@ -262,7 +217,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 77,
+"line": 78,
 "pattern": "M\\s*=\\s*30\\.2",
 "use": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
 "severity": "warn",
@@ -271,7 +226,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 78,
+"line": 79,
 "pattern": "Mahaffey value",
 "use": "Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
 "severity": "warn",
@@ -280,7 +235,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 79,
+"line": 80,
 "pattern": "Mahaffey ratio",
 "use": "Mahaffey number (M)",
 "severity": "warn",
@@ -289,7 +244,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 81,
+"line": 82,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -298,7 +253,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 82,
+"line": 83,
 "pattern": "the semiconductor report [Ii]ndex",
 "use": "A (the semiconductor report) = E_sw/(k_B T_j ln 2)",
 "severity": "warn",
@@ -307,7 +262,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 83,
+"line": 84,
 "pattern": "[Ww]all ratio",
 "use": "A (the quantum-processor report) = eps / eps_floor",
 "severity": "warn",
@@ -316,7 +271,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 84,
+"line": 85,
 "pattern": "\\bA-floor",
 "use": "material floor eps_floor (the quantum-processor report) or H_min",
 "severity": "warn",
@@ -325,7 +280,7 @@
 },
 {
 "file": "docs/book/appendix_drafts/app_canon.tex",
-"line": 85,
+"line": 86,
 "pattern": "zero adjustable parameters",
 "use": "calibrated class values (n and floors are calibrated)",
 "severity": "warn",

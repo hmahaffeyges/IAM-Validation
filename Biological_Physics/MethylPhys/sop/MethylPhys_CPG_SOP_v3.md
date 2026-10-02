@@ -26,7 +26,7 @@
 | Report | one HTML page plus a JSON bundle | `MethylPhys_Interface/report_v3.py` | — |
 
 Frozen values (read from the files, never typed):
-- EPIC neutrophil floor 0.330263 bits (12 donors, 6,000 sites, Salas 2018/2022, our Stage 1).
+- EPIC neutrophil floor 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6,000 sites; our Stage 1).
 - Healthy clustering median 1.1236 (12 neutrophils, leave-one-out).
 
 ## 3. Rules the chain enforces
@@ -58,7 +58,7 @@ each whole-blood specimen with the others in its batch as references.
 
 | test | result |
 |---|---|
-| Held-out purified neutrophils (12 donors, leave-one-out) | 12/12 Normal, SD 0.007 |
+| Held-out purified neutrophils (6 physical arrays; each read against the other 5, sites re-chosen) | 0.983-1.045, SD 0.020 |
 | End to end, 22 IDAT pairs | 22/22 processed. Isolated neutrophils 6/6 Normal (in-floor). Known mixtures tared 6/6 Normal. AML remission blood from another lab tared 5/5 Normal, 5 withheld as not dominant |
 | Known damage, 2 % neutrophil pattern loss in mixtures (tared) | 6/6 above 1.05 (shift +0.061) |
 

@@ -12,6 +12,6 @@ Stages exercised on every specimen: Stage 0 intake (manifest, hash, controls, de
 
 **What this shows.** The chain runs from raw IDATs to a report without hand steps. Untared whole-blood A carries a lab/composition offset
 (−0.04 in the Salas lab, +0.09 in the AML lab); the same-batch tare removes it. The dominant-cell rule withholds A where neutrophils are a minority.
-**Not shown yet.** Independence for isolated neutrophils (needs held-out arrays; the 12-donor leave-one-out gave 12/12 earlier);
+**Not shown yet.** Independence for isolated neutrophils (needs held-out arrays; the held-out reading of the 6 physical arrays, each against the other 5 with sites re-chosen, gave 0.983-1.045, SD 0.020);
 real healthy whole bloods; repeat pairs; any disease. C-score: healthy isolated 0.69–1.21, whole blood 0.78–1.49; band not set
 (whole-blood residual includes composition error).
