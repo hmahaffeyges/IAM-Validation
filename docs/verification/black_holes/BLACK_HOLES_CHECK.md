@@ -1,7 +1,9 @@
 # BLACK_HOLES_CHECK — the four black-hole papers (G6), read in full 2026-10-02 in 100-line chunks
 Papers: *The Cessation of Projection … Information Paradox* (Feb 2026, 453 lines); *Black Hole Horizons as Thermodynamic Encoding Surfaces* (25 Feb 2026,
 431 lines); *The M–σ Relation from Gravitational Decoherence Thermodynamics* (25 Feb 2026, 367 lines); *The Geometric Origin of the Bekenstein–Hawking
-Entropy Coefficient* (Apr 2026, 596 lines). Numbers: `scripts/verify_virial_atoms_to_horizon.py` and the cells below (CODATA 2018).
+Entropy Coefficient* (Apr 2026, 596 lines). Read status: the first pass (2026-10-02) saw 11 of the 100-line chunks only as
+truncated previews; every one of those persisted chunks was then opened and read in full the same day (all 1,847 lines now read), and the items
+below marked (complete read) were added from that pass. Numbers: `scripts/verify_virial_atoms_to_horizon.py` and the cells below (CODATA 2018).
 
 ## Reproduced
 - T_BH = ħc³/(8πGMk_B): 6.17×10⁻⁸ K (1 M⊙). S_BH/k = 4πGM²/(ħc) = 1.049×10⁷⁷ (1 M⊙) = 1.513×10⁷⁷ bits. Table 1 (BH Thermo) S, Γ, τ_evap all ✓.
@@ -30,6 +32,14 @@ Entropy Coefficient* (Apr 2026, 596 lines). Numbers: `scripts/verify_virial_atom
    relation η = c³/(4ħG) still takes G as input; the paper shows where the 1/4 comes from (the 2π of the Unruh period over the 8π of the field equations),
    which is a clear statement of Jacobson's result, not removal of the input. "κ_min = c²/ℓ_P" is the maximum (Planck) surface gravity.
    The S ∝ A argument (§2, causal accessibility) is interpretation.
+8. (complete read) **Info Paradox Eq. 8** "Mc² = k_B T_BH ln2 × S_collapse^(1/2)": with the seed formula's S = 4πGM²/(ħc) this does not hold; the exact
+   relation is Mc² = 2 T_BH S_BH (Smarr). The "fixed point shared with the electron mass" rests on it; not carried.
+9. (complete read) **Info Paradox §9 table** "Island formula — same Page curve from the Landauer rate": the island formula gives the turnover to zero; the
+   first-law transfer (item 4) has no turnover. §5.3 "the rising temperature encodes the evaporation history": a time-varying T records M(t), not what fell in.
+10. (complete read) **BH Thermodynamics §8 vs §5**: §8 says the framework "does not claim … to resolve the black hole information paradox"; §5 is titled
+    "Resolution of the Information Paradox". The book follows §8. Table 4's M_lens/M_dyn = 1/µ(0) = 1.157 belongs to the cluster paper and is checked there.
+11. (complete read) **Bekenstein §6.4**: the link of 2π/8π to the CC factor 2/π and the Koide π/2 is not carried (the CC 2/π is not derived, CC check).
+    Line 161 repeats G = c⁴/(4ħη) (→ c³, item 6). The repo PDF still carries the private quote (errata N1: rebuild from the edited LaTeX).
 7. **Acknowledgments quote a private letter** (Bekenstein paper): correspondents are not named without permission (author rule).
 
 ## For the book
