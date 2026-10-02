@@ -21,13 +21,13 @@
   "dG_ATP": {
    "value": 54000.0,
    "units": "J/mol",
-   "source": "cellular ATP hydrolysis free energy used by the author (54 kJ/mol)"
+   "source": "cellular ATP hydrolysis free energy (54 kJ/mol)"
   },
   "M_cell": {
    "value": 20.94,
    "units": "dimensionless (kT units)",
    "derivation": "M = dG_ATP/(R T_cell) = 54000/(8.314462618 x 310.15)",
-   "source": "author's settled ruling 2026-09-19/27: no ln2 in the definition",
+   "source": "defined without ln2; the Landauer-unit value M/ln2 = 30.2 is given separately",
    "accept": [
     20.94
    ]
@@ -87,7 +87,7 @@
     1.05
    ],
    "units": "A",
-   "source": "author: 'Healthy is A=1 +/-5'",
+   "source": "healthy is A = 1 within 5 %",
    "applies_to": [
     "Met-A",
     "IAM-A"
@@ -137,7 +137,7 @@
   "IAM's law": {
    "status": "current",
    "definition": "Every irreversible transition from quantum superposition to classical record pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature.",
-   "note": "the quantum-processor report/the semiconductor report Issue 002 used 'IAM's Law' for the performance-floor relationship; that relationship is now named the IAM floor (author, 2026-10-01)."
+   "note": "the quantum-processor report/the semiconductor report Issue 002 used 'IAM's Law' for the performance-floor relationship; that relationship is now named the IAM floor."
   },
   "Mahaffey number (M)": {
    "status": "current",
@@ -150,7 +150,7 @@
   "Informational fidelity ratio (A)": {
    "status": "current",
    "definition": "A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = 1 is the system working as itself, in the middle of the gauge. Below it lies H_min, the lowest error the system can hold before thermal kicks win; nothing reads below H_min. Above 1 = more error than healthy. Cells: Met-A = mean H(beta) over identity sites / the healthy reference (purified healthy cells, same platform); IAM-A = H(eps)/(P_cell H(eps0)). Qubits: eps/eps(as built), eps = -ln(1-p). Chips: E_sw/E_sw(as built). A is never the temperature exponent n.",
-   "note": "Scheme adopted by the author 2026-10-02 ('keep A consistent'). Before this, the quantum-processor report used 'A score' for -ln(1-p) (now eps) and 'wall ratio' for the ratio to the floor (now A); the semiconductor report called A the 'the semiconductor report index'."
+   "note": "One meaning of A in every domain (2026-10-02). Before this, the quantum-processor report used 'A score' for -ln(1-p) (now eps) and 'wall ratio' for the ratio to the floor (now A); the semiconductor report called A the 'the semiconductor report index'."
   },
   "Landauer metrology": {
    "status": "current",
@@ -170,7 +170,7 @@
   },
   "Met-A (Metrology A)": {
    "status": "current",
-   "definition": "Array reading of ONE cell type in one specimen (chain v3, Stage M): Met-A = mean over the cell's identity sites of H(beta) / H_min(cell), H(b) = -b log2 b - (1-b) log2(1-b). H_min(cell) = the same quantity on purified healthy cells of the same type on the same platform, through the chain's own Stage 1 (constant Met_A_floor_EPIC_neutrophil; site rule Met_A_site_rule); >= 90 % of the identity sites must be measured. Whole blood: the denominator is the composition-matched healthy expectation mean_i H(sum_c f_c mu_c,i), with the specimen's own fractions f (Stage A, EPIC blood NNLS) and purified healthy profiles mu (no cohort; PROC-WB-NEUT-01); read when the neutrophil fraction is >= 0.20 (MIN_READ_FRACTION; DEV-LOWFRAC-01), below that the fraction is reported and A withheld. Stage T tare: against >= 3 healthy references run the same way (same slide, else same batch), A_rel = A / median(reference A); with >= 20 reference records the noise-corrected tare A = a + b f_neu + c N (N = noise index, mean H(beta) over 48,528 fixed sites; DEV-NOISE-02). The gauge state is printed on A_rel only; without references the reading is reported as untared. Each reading carries its detection limit (smallest loss of the cell's pattern the specimen could show). Scope: neutrophils on EPIC v1; 450K and EPIC v2 refused. Normal 0.95-1.05. Information theory only; no energy content. Expansion (author, 2026-10-01): Informational Metrology A score."
+   "definition": "Array reading of ONE cell type in one specimen (chain v3, Stage M): Met-A = mean over the cell's identity sites of H(beta) / H_min(cell), H(b) = -b log2 b - (1-b) log2(1-b). H_min(cell) = the same quantity on purified healthy cells of the same type on the same platform, through the chain's own Stage 1 (constant Met_A_floor_EPIC_neutrophil; site rule Met_A_site_rule); >= 90 % of the identity sites must be measured. Whole blood: the denominator is the composition-matched healthy expectation mean_i H(sum_c f_c mu_c,i), with the specimen's own fractions f (Stage A, EPIC blood NNLS) and purified healthy profiles mu (no cohort; PROC-WB-NEUT-01); read when the neutrophil fraction is >= 0.20 (MIN_READ_FRACTION; DEV-LOWFRAC-01), below that the fraction is reported and A withheld. Stage T tare: against >= 3 healthy references run the same way (same slide, else same batch), A_rel = A / median(reference A); with >= 20 reference records the noise-corrected tare A = a + b f_neu + c N (N = noise index, mean H(beta) over 48,528 fixed sites; DEV-NOISE-02). The gauge state is printed on A_rel only; without references the reading is reported as untared. Each reading carries its detection limit (smallest loss of the cell's pattern the specimen could show). Scope: neutrophils on EPIC v1; 450K and EPIC v2 refused. Normal 0.95-1.05. Information theory only; no energy content. Expansion: Informational Metrology A score."
   },
   "IAM-A": {
    "status": "current",
@@ -455,7 +455,7 @@
   },
   "C-score (sky-map C-score)": {
    "status": "current",
-   "definition": "Third reading per specimen (author proposal 2026-10-01): clustering of a specimen's residual sky map (variance of 50-consecutive-site block means x 50, over the site variance), divided by the healthy baseline measured on the same platform and site set, so healthy = 1 on the same gauge as A. Two C-scores per cell, one per reading: Met-A C-score (arrays) and IAM-A C-score (sequencing; map of per-region copy error against the cell's physics floor). Catches damage concentrated in genomic regions that the averaged A dilutes. A cosmology map statistic (Methods from the Sky), not a physics floor. Development only; band not yet set. On first use in papers write 'sky-map C-score' (C-score is also an ecology co-occurrence statistic). IMPLEMENTED in chain v3: Met-A C-score only (Stage MC; clustering block from neutrophil_reference_v1_1, healthy baseline from leave-one-out neutrophil maps). The IAM-A C-score is defined but not yet built. On the one gauge: C = clustering / healthy median, so healthy reads 1.",
+   "definition": "Third reading per specimen: clustering of a specimen's residual sky map (variance of 50-consecutive-site block means x 50, over the site variance), divided by the healthy baseline measured on the same platform and site set, so healthy = 1 on the same gauge as A. Two C-scores per cell, one per reading: Met-A C-score (arrays) and IAM-A C-score (sequencing; map of per-region copy error against the cell's physics floor). Catches damage concentrated in genomic regions that the averaged A dilutes. A cosmology map statistic (Methods from the Sky), not a physics floor. Development only; band not yet set. On first use in papers write 'sky-map C-score' (C-score is also an ecology co-occurrence statistic). IMPLEMENTED in chain v3: Met-A C-score only (Stage MC; clustering block from neutrophil_reference_v1_1, healthy baseline from leave-one-out neutrophil maps). The IAM-A C-score is defined but not yet built. On the one gauge: C = clustering / healthy median, so healthy reads 1.",
    "domain": "the methylation report"
   },
   "H_min (cell)": {
@@ -466,7 +466,7 @@
   "H_min (the floor)": {
    "status": "current",
    "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2044 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the material floor eps_floor (calibrated; Helios on Ba+ at 0.13). Chips: the Landauer floor k_B T_j ln 2 (AMD 9950X at 0.0017).",
-   "note": "Defined by the author 2026-10-02: 'the absolute lowest one can operate before the thermal kicks win'."
+   "note": "The absolute lowest point a system can operate at before thermal kicks win."
   },
   "eps (gate error in nats) [the quantum-processor report]": {
    "status": "current",
@@ -492,7 +492,7 @@
   "One gauge (convention)": {
    "status": "current",
    "definition": "Every score is an error score on one gauge: A = 1 is healthy in the middle, H_min below it is the floor nothing passes, above 1 is more error; a failure point may lie on the high side (qubits: error correction fails near p = 1 %). Each domain keeps its field's form. Always quote a value with its score's name.",
-   "note": "Adopted 2026-10-02 (author deferred the choice: 'they are all so unique in their operations that we cant expect formulas all to be the same')."
+   "note": "Adopted 2026-10-02: each domain is read with its own physics, so the formulas are not forced to be identical."
   },
   "Healthy reference": {
    "status": "current",
