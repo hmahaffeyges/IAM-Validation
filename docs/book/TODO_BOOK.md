@@ -129,4 +129,4 @@ Key: [x] done · [~] started · [ ] not started · [!] needs the author.
 - [ ] 13.2 Rule: carry everything a referee needs to confirm the physics and the readings; floor values, specific application methods and product names stay out.
 
 ## 14. Author's cellular items file (added 2026-10-02)
-- [ ] 14.1 "Law and Order - IAM Cellular Physics: Thermodynamics of the Methylome - ITEMS TO CONSIDER" (67 KB): lead reads every line, confirms each item against chain code, frozen files, outcome records and canon, and adds confirmed items to Part 4 in the author's words; item-by-item verdict list to the author.
+- [~] 14.1 (read in full 2026-10-02; verdicts docs/book/CELL_ITEMS_VERDICTS.md; insertions pending the merge) "Law and Order - IAM Cellular Physics: Thermodynamics of the Methylome - ITEMS TO CONSIDER" (67 KB): lead reads every line, confirms each item against chain code, frozen files, outcome records and canon, and adds confirmed items to Part 4 in the author's words; item-by-item verdict list to the author.
