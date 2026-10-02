@@ -24,15 +24,15 @@ Breach and the cancer region on this gauge are still to be measured.
 
 ## Stages and code
 
-| stage | what it does | code | frozen input (`chain/Runtime Matrices/`) |
+| stage | what it does | code | frozen input |
 |---|---|---|---|
-| 0 Intake | manifest, hashes, controls, detection p, bead count, call rate, sex check, decision gate | [`chain/stage_0_intake.py`](chain/stage_0_intake.py) | `Intake/intake_thresholds_v1.json` |
+| 0 Intake | manifest, hashes, controls, detection p, bead count, call rate, sex check, decision gate | [`chain/stage_0_intake.py`](chain/stage_0_intake.py) | `chain/Runtime Matrices/Intake/intake_thresholds_v1.json` |
 | 1 Calibration | IDAT → noob β | [`chain/stage_1_idat_calibration.py`](chain/stage_1_idat_calibration.py) | Illumina manifest |
-| A Composition | whole blood only: 8 blood groups by NNLS on 963 markers (none is a neutrophil identity site) | [`chain/conductor_v3.py`](chain/conductor_v3.py) | `Met_A_Floors/blood_composition_EPIC_v1.json` |
-| M Met-A | isolated neutrophils against their own reference; whole blood against a composition-matched healthy expectation | [`chain/stage_m_met_a.py`](chain/stage_m_met_a.py) | `Met_A_Floors/metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv` |
-| MC C-score | residual map in genomic order | `chain/conductor_v3.py` | `Met_A_Floors/neutrophil_reference_v1_1.json` |
-| T Tare | against healthy references run on the same slide or batch | `chain/conductor_v3.py` | `Met_A_Floors/noise_sites_EPIC_v1.json` |
-| Q IAM-A | copy error on single molecules | [`chain/stage_q_iam_a.py`](chain/stage_q_iam_a.py) | `IAM_A_Positions/iama_positions_v1.json` |
+| A Composition | whole blood only: 8 blood groups by NNLS on 963 markers (none is a neutrophil identity site) | [`chain/conductor_v3.py`](chain/conductor_v3.py) | `chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` |
+| M Met-A | isolated neutrophils against their own reference; whole blood against a composition-matched healthy expectation | [`chain/stage_m_met_a.py`](chain/stage_m_met_a.py) | `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv` |
+| MC C-score | residual map in genomic order | `chain/conductor_v3.py` | `chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` |
+| T Tare | against healthy references run on the same slide or batch | `chain/conductor_v3.py` | `chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json` |
+| Q IAM-A | copy error on single molecules | [`chain/stage_q_iam_a.py`](chain/stage_q_iam_a.py) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` |
 | Report | one HTML page and a JSON bundle | [`chain/MethylPhys_Interface/report_v3.py`](chain/MethylPhys_Interface/report_v3.py) | — |
 
 Rules the chain enforces: in whole blood a reading is made only when neutrophils are at least 50 %; whole blood must be tared; the

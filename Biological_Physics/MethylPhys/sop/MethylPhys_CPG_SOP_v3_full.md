@@ -62,30 +62,30 @@ All under `chain/Runtime Matrices/`.
 
 | file | key | value | read by |
 |---|---|---|---|
-| `Met_A_Floors/metA_floors_v1_3.json` | `version` | `metA_floors_v1_3` (bundle `floors_version`) | `stage_m_met_a.py:28` |
+| `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json` | `version` | `metA_floors_v1_3` (bundle `floors_version`) | `stage_m_met_a.py:28` |
 | | `platforms` | EPIC, cell `neutrophils` only | `stage_m_met_a.py:57-71` |
 | | `platforms.EPIC.neutrophils.floor` | 0.33026279581151297 bits (canon `Met_A_floor_EPIC_neutrophil` 0.330263) | `stage_m_met_a.py:71` |
 | | `…n_sites` / `…sites` | 6000 identity sites (3,000 methylated, 3,000 unmethylated) | `stage_m_met_a.py:68-69` |
 | | `…n_ref` / `…refs` | 6 physical arrays (GSE110554; GSE167998 re-deposits the same 6, listed in `…duplicates_removed`) | record only |
 | | `…precision_heldout` | n 6, SD 0.019756, 0.98264–1.04472 (sites re-chosen on the other 5 arrays) | record only |
-| `Met_A_Floors/metA_floors_v1_3_loo.csv` | rows `platform=EPIC, cell=neutrophils`, column `A_loo` | 6 rows; printed as `n_ref` 6, `normal_fraction` 1.0, `sd` 0.0198, `min` 0.983, `max` 1.045 | `stage_m_met_a.py:50-55` (`floor_precision`) |
-| `Met_A_Floors/blood_composition_EPIC_v1.json` | `groups` | B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK | `conductor_v3.py:81` |
+| `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv` | rows `platform=EPIC, cell=neutrophils`, column `A_loo` | 6 rows; printed as `n_ref` 6, `normal_fraction` 1.0, `sd` 0.0198, `min` 0.983, `max` 1.045 | `stage_m_met_a.py:50-55` (`floor_precision`) |
+| `../chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` | `groups` | B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK | `conductor_v3.py:81` |
 | | `markers` / `mu_markers` | 963 composition markers (none is a neutrophil identity site); ≥ 867 must be measured | `conductor_v3.py:65-82` |
 | | `neutrophil_sites` | the same 6000 sites as the floor file; ≥ 5400 must be measured in whole blood | `conductor_v3.py:97, 107` |
 | | `profiles_at_neutrophil_sites` | group mean β at those sites; 6 sites carry a missing value in ≥ 1 group and drop out of the whole-blood reading (at most 5994 sites) | `conductor_v3.py:97, 106` |
-| `Met_A_Floors/neutrophil_reference_v1_1.json` | `version` | `neutrophil_reference_v1_1` (bundle `reference_version`) | `conductor_v3.py:37-40` |
+| `../chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` | `version` | `neutrophil_reference_v1_1` (bundle `reference_version`) | `conductor_v3.py:37-40` |
 | | `sites_ordered` | the 6000 sites in genome order | `conductor_v3.py:116, 130` |
 | | `neutrophil_H_mean`, `neutrophil_H_sd_shrunk` | healthy neutrophil mean and shrunk SD of H per site (6 arrays) | `conductor_v3.py:117, 138` |
 | | `clustering_block` | 50 sites | `conductor_v3.py:85` |
 | | `healthy_clustering_median` | 1.1104 | `conductor_v3.py:144-145` |
 | | `healthy_clustering_LOO` | 6 values, 0.7763–1.3632 (÷ median: 0.6991–1.2277) | `conductor_v3.py:147` |
 | | `profiles_mean_beta`, `profile_map` | record only (not read) | — |
-| `Met_A_Floors/noise_sites_EPIC_v1.json` | `sites` (`n` 48,528) | EPIC sites every purified blood group holds fixed (`rule`: every group mean ≤ 0.03 or ≥ 0.97, every group SD ≤ 0.02; not neutrophil sites); copied from `doors/data/noise_sites_EPIC_v1.json` unchanged | `conductor_v3.py:45-57` |
-| `IAM_A_Positions/iama_positions_v1.json` | `eps0` | 0.032 (canon `eps0_meth`) | `stage_q_iam_a.py:70` |
+| `../chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json` | `sites` (`n` 48,528) | EPIC sites every purified blood group holds fixed (`rule`: every group mean ≤ 0.03 or ≥ 0.97, every group SD ≤ 0.02; not neutrophil sites); copied from `doors/data/noise_sites_EPIC_v1.json` unchanged | `conductor_v3.py:45-57` |
+| `../chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` | `eps0` | 0.032 (canon `eps0_meth`) | `stage_q_iam_a.py:70` |
 | | `cells.neutrophils.P` | 1.099 (canon `P_neutrophil_IAM_A`) | `stage_q_iam_a.py:81` |
 | | `cells.neutrophils.pipeline` | `loyfer_pat_v1` | `stage_q_iam_a.py:75` |
 | | `…P_range`, `…cv_across_donors`, `…n_donors` | [1.0841, 1.1079], 0.0118, 3 | record only |
-| `Intake/intake_thresholds_v1.json` | `detection.pass_fraction` / `detection.borderline_fraction` | 0.99 / 0.93 | `stage_0_intake.py:580-581` |
+| `../chain/Runtime Matrices/Intake/intake_thresholds_v1.json` | `detection.pass_fraction` / `detection.borderline_fraction` | 0.99 / 0.93 | `stage_0_intake.py:580-581` |
 | | `call_rate.proceed_at_or_above` / `call_rate.quarantine_below` | 0.98 / 0.93 | `stage_0_intake.py:682-683` |
 | | `bead.pass_fraction` | 0.995 | `stage_0_intake.py:649` |
 | | `bisulfite_conversion.min` | 0.95 (provisional: recorded, not refused) | `stage_0_intake.py:490` |
@@ -181,7 +181,7 @@ The gauge state of every Met-A reading comes from the tare: whole blood always; 
 **Outputs:** bundle `composition` = {`stage`, `method`, `n_markers_used`, `n_markers_required`, `n_markers_total`, `fractions` {B, BASO, CD4T, CD8T, EOS, MONO, NEU, NK}, `residual_mae`} or `reason`. Isolated specimens: {`stage`, `note` "isolated neutrophils: composition not solved"}.
 
 ### Stage M — Met-A, isolated neutrophils (`stage_m_met_a.read`; `conductor_v3.py:128-139`)
-**Inputs:** β at the 6000 identity sites; floor 0.33026279581151297; `metA_floors_v1_3_loo.csv`; `profiles_at_neutrophil_sites.NEU`.
+**Inputs:** β at the 6000 identity sites; floor 0.33026279581151297; `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`; `profiles_at_neutrophil_sites.NEU`.
 **Rules:** cell must be `neutrophils`; measured identity sites ≥ 5400 (0.9 × 6000), else `only <n> of 6000 identity sites measured` (A withheld, no C-score).
 **Outputs:** bundle `met_a` = {`stage`, `reading`, `cell`, `platform`, `specimen`, `fraction` null, `A`, `band` "Normal 0.95-1.05", `build`, `floors_version`, `n_sites`, `floor`, `state_own_floor` (Normal / above / below), `state`, `floor_precision` {`n_ref` 6, `normal_fraction`, `sd` 0.0198, `min` 0.983, `max` 1.045}, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `shift_per_1pct_loss`, `noise_index`, `noise_sites_measured`, `noise_sites_total`}. `state` = `untared (own-floor state: <state>): read A_rel (Stage T)` without references; `tared: read A_rel (Stage T)` after a tare.
 **Operator:** supply ≥ 3 same-run references and read `tare.A_rel`. If only the own floor is available, read `state_own_floor` knowing the floor's held-out spread (SD 0.020) and that array noise in another laboratory moves this reading (section 8). If `past_entropy_ceiling` is true, read `methylated_sites_mean_beta`, not A.
@@ -281,7 +281,7 @@ Measurements made on the chain while it is in development; none is a commissioni
 ### 8.1 Records in `chain_tests/`
 | record | what was measured | what it showed |
 |---|---|---|
-| `freeze_v13.py` → `metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv`, `neutrophil_reference_v1_1.json` | the neutrophil floor rebuilt with each physical array counted once (6), held-out readings with the identity sites re-chosen on the other 5 arrays | Floor unchanged (0.33026279581151297). Held-out A 0.983–1.045, SD 0.020 (on the frozen sites: 0.993–1.008). C-score baseline median 1.1104 on 6 arrays. |
+| `freeze_v13.py` → `metA_floors_v1_3.json`, `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`, `neutrophil_reference_v1_1.json` | the neutrophil floor rebuilt with each physical array counted once (6), held-out readings with the identity sites re-chosen on the other 5 arrays | Floor unchanged (0.33026279581151297). Held-out A 0.983–1.045, SD 0.020 (on the frozen sites: 0.993–1.008). C-score baseline median 1.1104 on 6 arrays. |
 | `CHAIN_V3_ACCEPTANCE_RUN3.md` (+ `chain_acceptance.csv`, `run_chain_acceptance.py`) | 22 IDAT pairs through `run_sample.py --engine v3`, two passes, on the build before the audit fixes | 22/22 processed. Purified neutrophils (the floor's own arrays): A 0.994–1.006. Six DNA mixtures (neutrophils 58–70 %): untared 0.943–0.968, tared 0.987–1.021. Ten remission bloods from a second lab: untared 1.073–1.115 on 5, tared 0.986–1.032 against the other bloods of that batch; 5 had A withheld at fractions 0.058–0.473 under that build's 0.50 line; the four at ≥ 0.20 are read by the current code and need a re-run. C: isolated 0.69–1.21, whole blood 0.78–1.49. |
 | `WHOLE_BLOOD_COMPOSITION_DEV.md` (+ `blood_comp.py`, `selfconsist.py`) | 6 DNA mixtures (≥ 50 % neutrophils), composition by EPIC NNLS with profiles from the other study | Untared A 0.943–0.968 (offset about −0.05, SD 0.009); tared A_rel 0.992–1.021 (SD 0.010); a simulated 2 % neutrophil pattern loss read 1.052–1.090 tared (shift +0.061); re-fitting the fraction on the neutrophil sites absorbs the loss. |
 | `IAMA_FLOOR_COMPARISON.md` (+ `iama_floor.py`, `iama_floor_granulocytes.csv`) | 3 granulocyte donors, read-level .pat, 16–20 M opportunities each; three floors compared | On ε₀ alone healthy donors read 1.084–1.127; with the frozen position P (1.099): 0.978–1.040 (P measured on the same 3 donors, leave-one-out). Odd/even repeat ≤ 0.002. Simulated 2 % copy damage: 1.285–1.346. The bare floor reads healthy blood cells 0.70–0.79 on a second pipeline: one P per pipeline. |

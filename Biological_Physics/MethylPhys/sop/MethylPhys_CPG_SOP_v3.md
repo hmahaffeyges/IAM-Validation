@@ -19,10 +19,10 @@
 |---|---|---|---|
 | 0 Intake | manifest, hash, controls, detection p, bead count, call rate, sex check, decision gate | `chain/stage_0_intake.py` | `Runtime Matrices/Intake/intake_thresholds_v1.json` |
 | 1 Calibration | IDAT → noob β | `chain/stage_1_idat_calibration.py` | Illumina manifest |
-| A Composition (whole blood only) | 8 blood groups by NNLS on 963 markers; the markers exclude the neutrophil sites | `chain/conductor_v3.py: stage_a_composition` | `Met_A_Floors/blood_composition_EPIC_v1.json` |
-| M Met-A | isolated neutrophils: H̄ / own floor. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles | `chain/stage_m_met_a.py`, `conductor_v3.py: stage_m_*` | `Met_A_Floors/metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv` |
-| MC C-score | residual z map in genomic order; variance of 50-site block means ÷ site variance ÷ healthy median | `conductor_v3.py: stage_mc_cscore` | `Met_A_Floors/neutrophil_reference_v1_1.json` |
-| T Tare | same-run healthy references (same slide, else same batch): with ≥ 20 references carrying {A, f_neu, N}, A is corrected by a least-squares fit A = a + b f_neu + c N on those references (DEV-NOISE-02; isolated cells: A = a + c N); with 3–19, A_rel = A ÷ median reference A; with none, the reading is untared | `conductor_v3.py: stage_t_tare` | `Met_A_Floors/noise_sites_EPIC_v1.json` (noise index N = mean H over 48528 sites every purified blood group holds fixed) |
+| A Composition (whole blood only) | 8 blood groups by NNLS on 963 markers; the markers exclude the neutrophil sites | `chain/conductor_v3.py: stage_a_composition` | `../chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` |
+| M Met-A | isolated neutrophils: H̄ / own floor. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles | `chain/stage_m_met_a.py`, `conductor_v3.py: stage_m_*` | `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv` |
+| MC C-score | residual z map in genomic order; variance of 50-site block means ÷ site variance ÷ healthy median | `conductor_v3.py: stage_mc_cscore` | `../chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` |
+| T Tare | same-run healthy references (same slide, else same batch): with ≥ 20 references carrying {A, f_neu, N}, A is corrected by a least-squares fit A = a + b f_neu + c N on those references (DEV-NOISE-02; isolated cells: A = a + c N); with 3–19, A_rel = A ÷ median reference A; with none, the reading is untared | `conductor_v3.py: stage_t_tare` | `../chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json` (noise index N = mean H over 48528 sites every purified blood group holds fixed) |
 | Report | one HTML page plus a JSON bundle | `MethylPhys_Interface/report_v3.py` | — |
 
 Frozen values (read from the files, never typed):
