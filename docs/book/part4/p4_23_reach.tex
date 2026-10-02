@@ -2,62 +2,74 @@
 
 \section{The order}
 
-After commissioning, the author's order of work is set:
+After commissioning, the author's order of work is set (\texttt{doors/\allowbreak{}PLAN.md}):
 \begin{enumerate}
 \item human blood conditions, blood cancers first;
 \item plasma cell-free DNA;
-\item tissue specimens, read against the cell atlas;
+\item tissue specimens;
 \item dogs and other mammals;
 \item salmonids;
 \item ageing, in the same person over time;
 \item back to the quantum processors of the companion volume, to check which of its predictions have come due.
 \end{enumerate}
-Public data for items 1--6 have already been collected: 58 data sets, about 432~GB, stored with a checksum per file (Table~\ref{tab:downloads}). Raw array files were
-preferred wherever they exist, so that each specimen enters through the chain's own Stage~1.
-
-\begin{table}[t]\centering\small
-\caption{Public data collected for the next applications.}\label{tab:downloads}
-\begin{tabular}{@{}lrrp{0.5\textwidth}@{}}\toprule
-track & sets & GB & contents \\\midrule
-blood and immune conditions & 18 & 139 & rheumatoid arthritis, Parkinson's disease, pre-diagnostic cancer, depression, IBD, COVID-19, AML, CLL, MDS/CML, haematolymphoid tumours, COPD, tuberculosis/HIV; three serial sets \\
-plasma cfDNA & 17 & 81 & plasma arrays in several cancers and in Alzheimer's disease and ARDS; plasma beside blood from the same people; transplant cfDNA WGBS \\
-tissue & 9 & 34 & colon (healthy, adjacent, tumour, ageing, adenoma), breast, liver, muscle \\
-ageing & 4 & 35 & LOLIPOP with replicate pairs; Hannum; GENOA; cross-tissue EPIC v2 \\
-dogs and other animals & 5 & 25 & the mammalian methylation array across 348 species; dog cohorts; whales \\
-salmonids & 5 & 118 & Methow River steelhead RRBS, red blood cells and sperm, hatchery and wild origin \\\bottomrule
-\end{tabular}
-\end{table}
+Each of items 1--6 needs something chain v3 does not yet have: a floor for another cell type, another platform, a non-blood template, or serial mode.
+Public data for these tracks have been collected, with raw array files preferred wherever they exist so that each specimen enters through the chain's own
+Stage~1. The list of collected sets is not in the repository and is not quoted here. \openprob
 
 \section{Blood cancers}
 
-A leukaemic cell is the majority cell in the tube, so the fraction limit that makes minor cells hard to read does not apply to it. The test is per cell: the affected
-lineage against the other lineages in the same specimen, each against 1.00, with healthy bone-marrow progenitors held out of the atlas as the check that a healthy
-progenitor reads 1.00. \prediction{} The affected lineage reads elevated; the unaffected lineages do not.
+A leukaemic cell is usually the majority cell in the tube, so the fraction that limits a minor cell does not limit it. The test is per cell: the affected
+lineage read against its own healthy floor, the other lineages in the same specimen against theirs, each against 1.00. \prediction{} The affected lineage
+reads above Normal; the unaffected lineages do not. Two records set what is needed first. On the neutrophil identity sites, leukaemic blood at diagnosis stayed
+in Normal in 6 of 10 patients, because the blasts share those sites (\texttt{PROC\_AML\_SERIAL\_01\_OUTCOME.md}). On 450K floors from four to five donors per
+progenitor type, a development reading did not separate leukaemic CD34$^+$ cells from healthy progenitors reliably: 16 of 29 outside Normal, 13 of those 16 above it
+(\texttt{PROC\_AML\_PROG\_01\_OUTCOME.md}). \measured{} Progenitor floors on EPIC with more donors, the C-score on the same arrays, and IAM-A on single-molecule
+leukaemia data are the next steps. \openprob
+
+\section{Tumours against the same person's normal tissue}
+
+The single-molecule reading needs no reference population and no composition step when tumour and normal tissue of one person are sequenced the same way. In six
+early-onset colorectal cancer patients with a true tumour--normal pair, the tumour's copy error was higher in 6 of 6, by 7--33~\%, median ratio 1.148; one pair's
+conversion-failure difference was just over the instrument bar (0.0051 against 0.005), and on the other five the median ratio was 1.183. In oral squamous cell carcinoma
+the tumour was higher in 4 of 4 by whole-genome bisulfite sequencing, and in 3 of 4 with 5-hydroxymethylcytosine removed
+(\texttt{doors/\allowbreak{}PROC\_TUMOUR\_01\_OUTCOME.md}). \measured{} Not shown: why. Tumour purity is unknown, the tissue mix differs between tumour and normal, and the pairs
+come from two laboratories. The reading is the copy-error channel; IAM-A floors for these tissues are not frozen. \openprob
 
 \section{Plasma}
 
-In plasma, cell-free DNA from solid tissues makes up a much larger share than in whole blood, and a cell shed from an organ is read on its identity loci in the same way.
-Two things change. The genome count is of order $10^4$, so the cell-count floor of Chapter~\ref{ch:sky} becomes part of every interval.
+In plasma, cell-free DNA from solid tissues is a much larger share than in whole blood. Two things change. The genome count is of order $10^4$, so the cell-count floor
+of Chapter~\ref{ch:sky} becomes part of every interval. And a shed cell has to be found before it is read, which on arrays needs a template for it and on molecules needs
+enough of its molecules. On single molecules, a per-molecule threshold failed to find cancer DNA at 1~\% in 0 of 20 constructed mixtures; the total isolated-error count,
+with no threshold and not pre-registered, found it in 20 of 20 at 10~\%, 18--20 of 20 at 3~\% and 1--6 of 20 at 1~\%, with 0.5--1.5 million molecules
+(\texttt{PROC\_MOLECULE\_01\_OUTCOME.md}). \measured{} The limit scales as $1/\sqrt N$ in the number of molecules; a deep plasma library would reach lower, which is an
+estimate, not a measurement. \calc
+
+\section{Stool}
+
+For colon lining, stool selects the cells that shed into the gut. Against the cells that shed into stool, 29 marker regions (227 CpGs) were found for lower-gut
+epithelium, enough to pull its molecules from a deep stool library; whether enough tumour molecules survive in stool is not assessed
+(\texttt{DEV\_STOOL\_01\_OUTCOME.md}). \measured{} No stool methylome has been read. \openprob
 
 \section{Tissues}
 
-By the author's ruling a tissue profile is a specimen, not a reference: a biopsy is a mixture of cells like a blood draw, and it is separated and read against the cell
-atlas. The tissue arrays collected are the test set for that: each must separate into the cells known to be in that tissue, and each healthy cell must read Normal.
+By the author's ruling a tissue profile is a specimen, not a reference: a biopsy is a mixture of cells like a blood draw, and it is separated and read cell by cell.
+Chain v3 has no tissue cell types, so it does not read tissue arrays. \openprob{} The test, when it can be run, is that each healthy tissue separates into the cells known
+to be in it, and each healthy cell reads Normal against its own floor.
 
 \section{Other mammals}
 
-No purified-cell methylation atlas exists for dogs. The mammalian methylation array measures conserved CpGs across species~\cite{Arneson2022}, and the first step is to build
-canine identity loci from sorted canine cells on it. Then a canine cell is read against the human floors, adjusted for body temperature if the scaling of
-Chapter~\ref{ch:temperature} is adopted. \prediction{} Sorted healthy canine blood cells read 1.00 within tolerance.
+No purified-cell methylation reference exists for dogs. The mammalian methylation array measures conserved CpGs across species~\cite{Arneson2022}, and the first step is
+a canine healthy reference from purified canine blood cells on it, with its own identity sites and floor. Then sorted healthy canine cells, held out of the reference, are
+read on it. \prediction{} They read 1.00 within tolerance.
 
 \section{Salmonids}
 
-Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. That makes it an unusually clean surface. Two problems come first.
-The Methow data are reduced-representation bisulfite sequencing reads, which need an alignment and methylation-calling step before any $\beta$ exists. And the floor at
-10~\textdegree C is not known: the temperature scaling of Chapter~\ref{ch:temperature} gives a 9 to 17~\% change depending on its exponent, and that has to be measured on fish, not
-assumed. The data compare hatchery-origin with natural-origin fish of one river, which is the kind of question a fisheries scientist can check independently.
+Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. Three sets have been read on single molecules with the same
+statistic (Chapter~\ref{ch:temperature}). In each the instrument repeats almost perfectly, and in each the small differences between fish track the library:
+duplicates in brook charr sperm (\texttt{PROC\_CHARR\_01\_OUTCOME.md}), conversion failure in Atlantic salmon fin (\texttt{PROC\_RIMOUSKI\_01\_OUTCOME.md}). \measured{} A
+library-quality term has to be removed before any fish-level difference is read, and the floor at 10~\textdegree C has to be measured on fish, not assumed. \openprob
 
 \section{Ageing in one person}
 
-SATSA's individuals, drawn up to five times over two decades, are the direct test of whether the elevation seen in older blood is a slope shared by every cell or a clone moving
-one lineage (Chapter~\ref{ch:leukocyte}). Serial mode reads it with no population at all.
+Individuals drawn repeatedly over two decades are the direct test of whether an elevation in older blood is a slope shared by every lineage or a clone moving one lineage
+(Chapter~\ref{ch:leukocyte}). It needs serial mode, a floor on the platform the draws were made on, and intake status for every draw (Chapter~\ref{ch:serial}). \openprob

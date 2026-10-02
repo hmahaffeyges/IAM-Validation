@@ -35,7 +35,7 @@ Breach and the cancer region on this gauge are still to be measured.
 | Q IAM-A | copy error on single molecules | [`chain/stage_q_iam_a.py`](chain/stage_q_iam_a.py) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` |
 | Report | one HTML page and a JSON bundle | [`chain/MethylPhys_Interface/report_v3.py`](chain/MethylPhys_Interface/report_v3.py) | — |
 
-Rules the chain enforces: in whole blood a reading is made only when neutrophils are at least 50 %; whole blood must be tared; the
+Rules the chain enforces: in whole blood a reading is made only when neutrophils are at least 20 % of the specimen (DEV-LOWFRAC-01); whole blood must be tared; the
 reference, the profiles and the specimen must be on the same platform; a Stage 0 quarantine stops the run; nothing in a reading
 depends on a cohort, a classifier or a disease label.
 

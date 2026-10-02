@@ -11,76 +11,82 @@ records of how we got them}.
 \section{Pre-registration}
 
 A procedure that decides anything about the instrument is written before data are read: what is built, what is measured, the bars it must meet, and what
-each outcome decides. It is committed to the repository with a timestamp before the run. The outcome is scored against the bars as written; nothing moves
-after results are visible. A bar that fails is recorded as failed, with a diagnostic written after the bars and labelled as such.
+each outcome decides. It is committed to the repository with a timestamp, and its SHA is quoted in the outcome. The outcome is scored against the bars as
+written; nothing moves after results are visible. A bar that fails is recorded as failed, with a diagnostic written after the bars and labelled as such.
+An error found in a pre-registration is recorded first in the outcome and the pre-registration is left unchanged (\texttt{doors/\allowbreak{}PROC\_TUMOUR\_01\_OUTCOME.md},
+\texttt{PROC\_PREDX\_SLIDE\_01\_OUTCOME.md}).
 
-Two refinements came from use.
+Three refinements came from use.
 \begin{itemize}
-\item \textbf{A deferred check is never a pass.} A gate that cannot run because an input is missing stops the specimen. This rule was written after a
-      decision gate was found listing a deferred detection check and advancing the array anyway.
+\item \textbf{A deferred check is never a pass.} A gate that cannot run because an input is missing stops the specimen (Chapter~\ref{ch:instrument}).
 \item \textbf{Development and commissioning are different stages.} During development the chain is diagnosed, fixed and re-run as often as needed, and each
-      result is reported. Pre-registration governs the procedures that commission the instrument and produce evidence.
+      result is reported and marked \emph{development, after looking}. Pre-registration governs the procedures that commission the instrument and produce
+      evidence. Chain v3 is a development build; no cell is commissioned.
+\item \textbf{A pass must survive the obvious confound.} In one pre-registered battery, severe infection read above Normal more often than health
+      (one-sided $p=0.015$), a pass as written. Severe specimens also had more neutrophils (median fraction 0.79 against 0.65), and with fraction in the model
+      the severity term was $+0.0075$ ($p=0.42$) (\texttt{PROC\_NEUT\_TEST\_01\_OUTCOME.md}, T4a). \measured{} The pass was a composition effect, and the
+      outcome says so. The pre-registration had named that risk.
 \end{itemize}
 
 \section{Null tests}
 
 \begin{center}\small
-\begin{tabular}{@{}p{0.34\textwidth}p{0.56\textwidth}@{}}\toprule
-null & what must happen \\\midrule
-same array read twice & every reading and every $z$ identical; $\Delta z=0$ \\
-constructed specimen of atlas cells & every present cell Normal; sky quiet; no spurious cell \\
-technical replicates & differences inside the change floor \\
-a cell held out of the atlas, spiked in & detected as foreign, not absorbed into a known cell \\
-known mixtures of purified cells & fractions within the pre-registered error \\
-held-out samples of an atlas cell & read Normal on loci chosen without them \\\bottomrule
+\begin{tabular}{@{}p{0.34\textwidth}p{0.36\textwidth}p{0.2\textwidth}@{}}\toprule
+null & what must happen & chain v3 \\\midrule
+held-out reference arrays & read Normal on sites and a floor chosen without them & 6 of 6; SD 0.020 \\
+tared healthy and remission bloods & read Normal & mixtures 6/6; remission bloods, another laboratory, 5/5 \\
+same person, repeat draws & differences inside the change floor & floor not yet measured \\
+technical replicates & differences inside the change floor & not yet run at the 0.20 line \\
+known mixtures of purified cells & fractions within the stated error & median 0.034 \\
+inactive look-alike compound & no change & 1.002--1.032 \\\bottomrule
 \end{tabular}
 \end{center}
+\measured{} Sources: \texttt{metA\_floors\_v1\_3\_loo.csv}; \texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}; \texttt{DEV\_LOWFRAC\_01\_OUTCOME.md};
+\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}.
 
-\section{Constructed specimens}
+\section{Constructed specimens and known causes}
 
-A synthetic specimen is composed from the atlas's own cell means at known fractions, optionally with a known change planted in one cell. Run through the
-whole chain, it must return the fractions and the readings that were put in. This is the methylome's end-to-end simulation, and it found errors that nothing
-else would have: a synthetic patient that read Breach from coverage alone, and a scale map that added 0.10 to every cell. It also measured the dilution lines
-of Chapter~\ref{ch:separation}, from which the detection-gate rule follows.
+A constructed specimen has a known change planted in it. Chain v3 computes one on every whole-blood reading: the shift a 1~\% loss of the neutrophil pattern
+would cause at this specimen's own fraction, which sets its detection limit. On six known mixtures, a planted 2~\% loss moved the tared reading by $+0.061$
+and above 1.05 on 6 of 6 (\texttt{WHOLE\_BLOOD\_COMPOSITION\_DEV.md}). \measured{} A planted change tests the arithmetic, not the biology. The stronger test is a
+known physical cause: a DNA-methyltransferase inhibitor, an inactive analogue, and a dose series, read on arrays and on single molecules
+(Chapter~\ref{ch:firstreadings}). The construction also found the entropy ceiling: past $\beta=\tfrac12$ further loss lowers $H$, so the chain prints the
+methylated sites' mean $\beta$ beside every reading and flags a specimen past the ceiling (\texttt{conductor\_v3.py}, \texttt{\_ceiling}).
 
 \section{Look-elsewhere}
 
-A search over many places must be corrected for the number of places. An early chromosome-level anomaly on chromosome 6, promising by eye, disappeared under
-the look-elsewhere correction of the null runner. It is the methylome's version of the CMB's large-angle anomalies: most patterns found by looking are the
-product of looking.
+A search over many places must be corrected for the number of places. Chain v3 reads one statistic per cell per specimen, Met-A, and one map statistic, the
+C-score, each defined before any specimen is read, so a reading involves no search. A comparison across many specimens, many sites or many lead times is a
+search, and it carries the correction. Most patterns found by looking are the product of looking.
 
-\section{The procedures, and what they decided}
+\section{The procedures behind chain v3}
 
 \begin{center}\small
-\begin{longtable}{@{}p{0.24\textwidth}p{0.4\textwidth}p{0.26\textwidth}@{}}
-\caption{Procedures that built the instrument, with their outcomes.}\label{tab:procs}\\
-\toprule procedure & question & outcome \\\midrule\endfirsthead
-\toprule procedure & question & outcome \\\midrule\endhead
-PROC-HMIN-BOOT-01 & do the floors survive resampling? & passed, 8 of 8 \\
-PROC-INTAKE-01 & does intake run on the array's own numbers? & adopted \\
+\begin{longtable}{@{}p{0.25\textwidth}p{0.38\textwidth}p{0.29\textwidth}@{}}
+\caption{Procedures and development records behind chain v3, with their outcomes (\texttt{doors/} and \texttt{chain\_tests/}).}\label{tab:procs}\\
+\toprule record & question & outcome \\\midrule\endfirsthead
+\toprule record & question & outcome \\\midrule\endhead
+PROC-INTAKE-01 & does intake run on the array's own numbers? & adopted; a deferred check quarantines \\
 PROC-TARE-01 & can SNP probes zero the array? & not commissioned \\
-PROC-UNMIX-01 & can a minor cell be unmixed with solved fractions? & not adopted \\
-PROC-SKY-01 & does a no-population $\sigma$ fit every laboratory? & failed B2; holds on admitted input \\
-PROC-STAGE2D-03 & does a joint fit find foreign cells without absorbing them? & adopted \\
-PROC-FOREIGNSCORE-01 & a scoring floor for foreign cells & sealed, not adopted \\
-PROC-SERIAL-01 & serial mode and its change floor & floor measured (upper bound) \\
-PROC-DECONV-V2-01 & v2 solver on known mixtures & failed on CD4, CD8; fixed by candidate sets \\
-PROC-V5-HELDOUT & do atlas v2 intervals hold? & passed \\
-PROC-V12-IDENTITY & do identity loci transfer to new samples? & failed twice; rebuilt array-first \\
-PROC-OUTSPAN-01 & does the out-of-span map separate unknowns? & pre-registered \\
+PROC-WB-NEUT-01 & does the composition-matched expectation read healthy mixtures Normal? & W1 6/6, W3 5/6: passed \\
+WHOLE\_BLOOD\_COMPOSITION\_DEV & composition on the reference's own platform & adopted as Stage~A; tare required \\
+CHAIN\_V3\_ACCEPTANCE\_RUN3 & does the chain run from IDATs to a report? & 22 of 22 processed \\
+PROC-NEUT-TEST-01 & four tests of chain v3 & T1a, T1b passed; T1c, T2, T4c failed; T3 not assessable; T4a passed as written, composition effect \\
+DEV-NOISE-01, DEV-NOISE-02 & what sets the whole-blood reading? & noise index $N$; noise-corrected tare (development) \\
+DEV-LOWFRAC-01 & does the reading need half the specimen to be neutrophils? & no; 0.20 line and a per-specimen detection limit \\
+PROC-AML-SERIAL-01 & does the neutrophil reading see leukaemic blood? & S1--S4 failed; S5 passed \\
+PROC-DNMT-01 A, B & does a known block of methylation copying read? & A: measured; B: Q1, Q2 passed \\
+PROC-OUTSPAN-01 & does the out-of-span map separate unknowns? & pre-registered; not run \\
+PROC-SERIAL-01 & serial mode and its change floor & pre-registered; not wired \\
 \bottomrule
 \end{longtable}
 \end{center}
 
 \section{Guards that run at every change}
 
-Before any change to the chain reaches the repository, a single build regenerates every document derived from the code (the chain sequence, the inventory,
-the Standard Operating Procedure's generated parts, the Operations Manual, a fresh reference report and its tab reference) and runs its gates:
-\begin{itemize}
-\item a vocabulary scan with the report's own guards over the procedure, the manual, every tab of the fresh report and the paper, failing on condition names
-      and on cohort language in live text;
-\item a class guard, failing on any use of the class map other than the floor lookup;
-\item a link check over every reference in the documents.
-\end{itemize}
-Every push carries a copy of the files it changed. Two runs never write to one output path; one early procedure run was voided when a stray process kept
-writing into the same log, and the rule was written that day.
+A single build script, \texttt{chain/\allowbreak{}build\_all.py}, regenerates the documents derived from the code and runs its gates: a vocabulary scan with the
+report's own guards, failing on condition names and cohort language in live text; a class guard; a link check; and a reconciliation of the generated procedure
+with its source. These gates cover the procedure and Operations Manual of the class-floor engine kept for the record. The chain v3 procedure
+(\texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md}), its operator chapter and the v3 report are not yet generated from the code or scanned by the gates. \openprob{} Two
+runs never write to one output path; one early procedure run was voided when a stray process kept writing into the same log, and the rule was written that day
+(\texttt{PROC\_INTAKE\_01\_OUTCOME.md}).

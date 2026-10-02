@@ -1,29 +1,92 @@
-\chapter{The atlas as a posterior map}\label{ch:atlas}
+\chapter{The reference: purified healthy cells on the specimen's platform}\label{ch:atlas}
 
-\section{What an atlas is for}
+\section{What a reference is for}
 
-The atlas is the set of templates the chain separates a specimen into, and the reference on which each cell's identity loci are
-chosen. Every reading passes through it twice. An error in the atlas is therefore an error in every reading, and the atlas has to be
-built with the same care as the sky model a CMB analysis subtracts.
+The reference is the set of templates the chain separates a specimen into, and the standard a cell is read against. Every reading passes
+through it. An error in the reference is therefore an error in every reading, and the reference has to be built with the same care as the sky
+model a CMB analysis subtracts. The author's rule for what may enter is short: \emph{I'd rather not have a cell than only have part of one.} His
+ruling on what counts as a reference is shorter: \emph{a cell is a cell is a cell}. A reference is purified healthy cells of one type; every
+sample, specimen or vial is a means to the methylome sought.
 
-\section{What the first atlas taught}
+\section{What chain v3 reads}
 
-The first atlas held 114 cells at 483,092 loci, with a mean and posterior standard deviation per cell per locus. It was assembled from
-other groups' reference tables, most of them marker panels of a few hundred to a few thousand CpGs, and each locus was fitted
-independently. Seventy-two of its cells fell into eleven \emph{coverage families} that shared an exact count of defined loci, one dataset
-each: 252, 333, 2,464, 2,543, 6,105 and so on. A cell measured at 252 loci carried the grand mean of all cells at every other locus.
+Chain v3 reads five frozen files and nothing else (\texttt{chain/\allowbreak{}Runtime Matrices/\allowbreak{}Met\_A\_Floors/}). All are built from
+purified EPIC v1 arrays of healthy donors~\cite{Salas2018,Salas2022}, processed from the raw IDATs by the chain's own Stage~1, so the specimen and the
+reference are on one scale before anything is compared.
 
-Every one of the following was traced to that construction, and none to the physics:
-\begin{itemize}
-\item a 252-locus erythroblast profile absorbing mass from every specimen, because a flat profile fits anything a little;
-\item twins: the same cell from two sources entered twice and solved apart;
-\item a reproducible 0.067 misfit with no term to hold it;
-\item foreign-cell templates defined on 1.3~\% of the array;
-\item composition errors of $\pm0.035$ on CD4, CD8 and NK;
-\item the sky's offset off the identity loci (Chapter~\ref{ch:sky}).
-\end{itemize}
-The author's summary of the lesson became a rule: \emph{I'd rather not have a cell than only have part of one.} A flat-filled cell is not
-a partial cell; it is a false one.
+\begin{center}\small
+\begin{tabular}{@{}p{0.33\textwidth}p{0.6\textwidth}@{}}\toprule
+file & what it holds \\\midrule
+\texttt{metA\_floors\_v1\_3.json} & the neutrophil identity sites (6,000) and the floor, 0.330263 bits, from 6 physical arrays \\
+\texttt{metA\_floors\_v1\_3\_loo.csv} & the held-out precision of that floor, printed with every reading \\
+\texttt{neutrophil\_reference\_v1\_1.json} & the sites in genome order, the healthy mean and shrunk spread of $H$ at each, and the C-score baseline \\
+\texttt{blood\_composition\_EPIC\_v1.json} & eight blood-group profiles at the 963 composition markers and at the 6,000 neutrophil sites \\
+\texttt{noise\_sites\_EPIC\_v1.json} & the 48,528 sites behind the noise index \\\bottomrule
+\end{tabular}
+\end{center}
+\calibrated{} Every value the chain uses is read from these files by the code; none is typed.
+
+\section{Counting a reference correctly}
+
+Two public series deposit the same six physical neutrophil arrays under two accessions: each Sentrix identifier appears once in GSE110554 and once in
+GSE167998. The floor file lists the six pairs it removed and counts each physical array once (\texttt{duplicates\_removed},
+\texttt{metA\_floors\_v1\_3.json}). \measured{} The difference matters for every check of precision. A held-out reading that keeps an array's twin in the
+reference reads its own copy; counted correctly, each array read against the other five, with the identity sites re-chosen on those five, gives $A$ =
+0.983--1.045 with standard deviation 0.020 (\texttt{metA\_floors\_v1\_3\_loo.csv}). \measured
+
+Of the six reference arrays, one reads as female on its X and Y probes and five as male (Chapter~\ref{ch:skytools}). \measured{} A reference standard
+states its donors' sex, and a reference of each sex is needed before a sex difference in a reading can be told from a reference effect. \openprob
+
+\section{Why the reference must be on the specimen's platform}
+
+A $\beta$ value depends on the chemistry and the pipeline that produced it, and the offset between two platforms is larger than the whole Normal band.
+Purified neutrophils, monocytes and NK cells on 450K arrays read 0.904--0.932 against EPIC references, none of 8 donors in Normal; a reference from
+purified 450K arrays, read leave-one-donor-out, put all eight in Normal (\texttt{doors/\allowbreak{}DIAG\_450K\_01\_OUTCOME.md}). \measured{} Chain v3
+therefore carries one reference per cell type per platform and refuses a specimen on any platform it has no reference for.
+
+\section{Composition profiles and the person's own expectation}
+
+The same purified arrays give the eight composition profiles. At the neutrophil identity sites the other blood cells sit close to neutrophils in
+$\beta$ but not in entropy:
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}\toprule
+group & median $|\Delta\beta|$ from neutrophils & sites within 0.05 & mean $H$ over neutrophil mean $H$ \\\midrule
+monocytes & 0.004 & 98.7~\% & 0.986 \\
+eosinophils & 0.008 & 97.7~\% & 1.076 \\
+basophils & 0.014 & 95.4~\% & 1.189 \\
+NK cells & 0.005 & 89.9~\% & 1.151 \\
+B cells & 0.016 & 79.6~\% & 1.313 \\
+CD8 T cells & 0.011 & 76.9~\% & 1.326 \\
+CD4 T cells & 0.019 & 75.6~\% & 1.395 \\\bottomrule
+\end{tabular}
+\end{center}
+\calc{} from the profiles in \texttt{blood\_composition\_EPIC\_v1.json}. Near $\beta=0.05$--0.25 and 0.75--0.95 a small difference in $\beta$ is a large
+difference in $H$. A lymphocyte at a neutrophil site therefore raises the specimen's entropy there, and whole blood read against the neutrophil floor alone
+reads high: six healthy DNA mixtures (neutrophils 63--75~\%) read 1.062--1.118 against the floor and 0.982--1.016 against the expectation built from their own
+known composition (\texttt{PROC\_WB\_NEUT\_01\_OUTCOME.md}). \measured{} The expectation, Eq.~\eqref{eq:metawb}, uses this specimen's fractions and the purified
+profiles. No other person enters it.
+
+The composition profiles are built from both Salas series, which share the six neutrophil arrays. The known mixtures of the acceptance run come from one of
+those series, so the profiles and the mixtures are not independent there; the independent test used profiles from the other study only
+(\texttt{chain\_tests/\allowbreak{}WHOLE\_BLOOD\_COMPOSITION\_DEV.md}). \measured
+
+\section{The multi-source atlas}
+
+A posterior atlas assembled from many sources and platforms is held in the repository (\texttt{Biological\_Physics/\allowbreak{}MethylPhys/\allowbreak{}atlas/}).
+Chain v3 does not read it. Whether it enters the chain, and on what scale, is decided cell type by cell type as each is commissioned. \openprob
+
+\section{What the reference does not yet do}
+
+It holds one cell type with identity sites and a floor (neutrophils, EPIC v1). It rests on six physical arrays from one laboratory, five male and one
+female. It has no 450K or EPIC v2 version in the chain. Floors for other cell types exist for development only
+(\texttt{metA\_floors\_v1\_2\_ALLCELLS\_development.json}) and are not read. Each further cell type enters only after it passes three tests:
+held-out precision of its own floor, recovery in known mixtures, and a known change read in the right direction (\texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md}). \openprob
+
+\section{Atlas v2: the reference for the cells that come next}
+
+Chain v3 does not yet read the atlas. The neutrophil reference and the eight composition profiles come from purified EPIC arrays, as above. Atlas v2
+is the reference from which the identity sites and profiles of each further cell type will be drawn as that type is commissioned. It was built
+to the same rule: every cell type measured on purified healthy cells of that type, nothing filled, every value with its uncertainty.
 
 \section{The model}
 
@@ -101,8 +164,7 @@ epithelium, at 96.9--97.2~\%. Mean absolute prediction error was 0.051.
 
 \section{What is in it}
 
-Seventy-four cells: 22 immune, 13 cycling, 13 secretory, 12 stromal, 7 progenitor, 5 terminal, one adult stem and one pluripotent
-(Figure~\ref{fig:idloci} in the next chapter). Cells the first atlas named but the second does not contain are not lost; they wait for data that meet
+Seventy-four cell types. Cells the first atlas named but the second does not contain are not lost; they wait for data that meet
 the entry rule. The candidate sources for the next additions, one at a time and through the same script, are the expanded purified-cell WGBS sets and the
 2026 single-cell body atlas~\cite{Loyfer2023}.
 
@@ -137,8 +199,8 @@ observations it had not seen and covered them at the stated rate. \measured
 \item \textbf{The reference can be read on the patient's scale.} A $\beta$ value depends on the pipeline that produced it, and the offset
 between two pipelines is larger than the whole Normal band. The atlas sits on the chain's own Stage~1 scale, and sequencing sources enter
 through measured source terms, so a patient's array and the reference are on one scale before anything is compared. \measured
-\item \textbf{Composition and fidelity from one object.} The same posterior means separate the specimen into its cells and define each cell's
-identity sites. In whole blood the expectation is built from the person's own composition: six healthy DNA mixtures of known composition (neutrophils
+\item \textbf{Composition and fidelity from one reference.} The same posterior means can both separate a specimen into its cells and define each
+cell's identity sites; chain v3 does this for blood from the purified EPIC profiles. In whole blood the expectation is built from the person's own composition: six healthy DNA mixtures of known composition (neutrophils
 63--75\,\%) read 1.062--1.118 against the neutrophil reference alone and 0.982--1.016 against their own composition (PROC-WB-NEUT-01). \measured
 \item \textbf{It knows what it cannot do.} Pairs of cells the arrays cannot tell apart are named as such rather than given a split; cells whose
 data do not meet the entry rule are absent rather than approximated (\emph{I'd rather not have a cell than only have part of one}); every

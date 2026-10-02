@@ -2,57 +2,49 @@
 
 \section{What a report is}
 
-A report is one specimen's readings and everything needed to check them. It is rendered from a single bundle that records every input file with
-its SHA-256, every constant with the file it came from, and every stage's output. It has seventeen tabs in two kinds: \emph{specimen} tabs, which
-change with the specimen, and \emph{reference} tabs, which describe the instrument and are the same on every report.
+A report is one specimen's reading and everything needed to check it. Chain v3 writes it as one self-contained HTML page rendered from the run's
+bundle (\texttt{chain/\allowbreak{}MethylPhys\_Interface/\allowbreak{}report\_v3.py}). A banner at the top states the build and that it is not a diagnostic test.
+The sections follow the stages.
 
 \begin{center}\small
-\begin{longtable}{@{}llp{0.62\textwidth}@{}}
-\caption{The report's tabs.}\label{tab:tabs}\\
-\toprule tab & kind & what it holds \\\midrule\endfirsthead
-\toprule tab & kind & what it holds \\\midrule\endhead
-Reading & specimen & what is in the sample and how each present cell reads: $A$ on its own identity loci against 1.00, with its tier \\
-How to read & reference & what $A$ measures, what each tier means, what $A=1.00$ is and is not; the one test every number passes \\
-Cells & specimen & every atlas cell, scored or not: $A$, interval, how many of its identity loci the array read; trace detection \\
-Sky & specimen & the specimen's own residuals over the array, with the statistics behind the plate \\
-Physics & reference & Landauer's bound, the floor $\Hmin$, why the zero is a fixed point and not a group of people \\
-Story & reference & what Astro-Genetics is, in the author's words, with the paper \\
-Instrument & reference & the physical constants (the eight floors) and what a laboratory's array needs before a reading \\
-Coverage & reference & what is read and what is reserved: the five substrates and the specimen types \\
-Red flags & specimen & everything the run refused, withheld or could not measure, by severity \\
-Integrity & specimen & every guard and whether it passed, with the Stage~0 custody record \\
-Troubleshooting & reference & every refusal the chain can print, what it means, what the operator does \\
-Safeguards & specimen & what the run refused and why; each safeguard with its cosmology counterpart; the constants read \\
-Chain & reference & the chain stage by stage, derived from the code \\
-Files & reference & every file the chain uses, with its role and SHA-256 \\
-Findings & reference & findings that changed a reported number, with the procedure behind each \\
-Record & reference & the validation record, linked \\
-Run & specimen & chain commit, a hash of every input, and how to clone, verify and run the chain \\
-\bottomrule
+\begin{longtable}{@{}p{0.24\textwidth}p{0.68\textwidth}@{}}
+\caption{Sections of the chain v3 report.}\label{tab:tabs}\\
+\toprule section & what it holds \\\midrule\endfirsthead
+\toprule section & what it holds \\\midrule\endhead
+header & specimen type, platform, array type, the floor and reference versions read \\
+refusal & the one sentence that stopped the run, when the platform or the sequencing pipeline was refused \\
+Stage 0 intake & verdict, call rate and flags; Stage~1's detection and control numbers, recorded \\
+Stage A composition & the eight blood groups, each at 1~\% or more \\
+Stage M Met-A & the gauge with Normal marked, $A$, its state or the reason it was withheld, the neutrophil fraction, the number of sites, the expectation used, the shift per 1~\% loss \\
+Stage T tare & $A_{\rm rel}$ and its state, the number and median of the references, the method and fit, the noise index, and the detection limit \\
+entropy ceiling & the methylated sites' mean $\beta$, and the warning \emph{read $\beta$, not $A$} when it is below one half \\
+Stage MC C-score & $C$, the healthy held-out range, and the statement that no band is set \\
+Stage Q IAM-A & when sequencing input is given: IAM-A, its state or refusal, pipeline, copy error, position $P$, $\varepsilon_0$, the two halves, opportunities and $E$ in $\kB T$ \\
+withheld & what the build does not print, and why \\
+bundle & the run's bundle without the intake record, in a collapsed block \\\bottomrule
 \end{longtable}
 \end{center}
 
+The gauge marker is drawn from $A_{\rm rel}$ whenever the tare produced one. Untared isolated neutrophils are drawn against their own floor and labelled untared.
+Untared whole blood has no gauge position; the number is printed and the reader is told to supply references.
+
 \section{What a report does not say}
 
-The report does not name a condition. Its measurement tabs are scanned at render time against two lists: condition names, and cohort vocabulary
-(percentile, healthy range, cohort, age-matched, AUC, sensitivity and similar). A hit on a live measurement tab stops the render. The same guards run
-over the Standard Operating Procedure, the Operations Manual and the paper before every change reaches the repository (Chapter~\ref{ch:discipline}).
-Words that name what is being refused (``no band'', ``no population'') are allowed where they refuse.
+The report does not name a condition, and it states its own state words only: \emph{Normal}, \emph{above Normal}, \emph{below Normal}, \emph{untared}. Covariates
+supplied with a run (\texttt{--covariate}) are kept in the custody record, the bundle and the ledger, and no stage reads them. Because the bundle block of the
+page shows the bundle, a covariate supplied as free text appears there. A render-time vocabulary guard on the v3 page, failing on condition names and cohort
+vocabulary, is not yet built. \openprob
 
 \section{Refusals are printed}
 
-Everything the chain declines to do appears on the report with the reason: a quarantined array, a tier withheld because the specimen is not whole
-blood, a cell printed without a tier because its fraction is too small, a flag on a reading whose identity loci were built from corrected sequencing
-data. The rule is that a reader should never have to infer what the instrument did not measure.
+Everything the chain declines to do appears with the reason: a quarantined array (no page; the run stops), a refused platform, a composition not solved, a
+neutrophil fraction below the read line, too few identity sites measured, a reading left untared, a methylated-site mean past the entropy ceiling, and an IAM-A
+refused for its pipeline or for too few opportunities. The rule is that a reader should never have to infer what the instrument did not measure.
 
 \section{The report as a laboratory record}
 
-The Run tab carries what a second laboratory needs to reproduce the reading: the chain's commit, the checksum of every input, and the commands. The
-Files tab carries the checksum of every runtime file the chain read. A reading is reproducible if a second laboratory with the same IDATs and the same
-commit obtains the same numbers, and the report carries everything needed to check that.
-
-\section{The report on the second atlas}
-
-The v2 reader writes a reading per cell with fraction, interval, $A$ and tier, and runs as a preview beside the commissioned chain. It is not yet wired
-into the report renderer. The switch-over wires it in, regenerates every derived document, and re-renders the reference report from the same array, so
-that the report tabs describe the atlas that produced them.
+Each run writes, beside the page, the bundle as JSON and one row in an evidence ledger: run number, specimen, platform and array type, intake verdict, floor and
+reference versions, neutrophil fraction, $A$, state, $A_{\rm rel}$, tare method and number of references, noise index, detection limit, C-score and, when present,
+IAM-A with its pipeline. The intake record in the bundle carries the integrity hash of the IDAT pair. A reading is reproducible if a second laboratory with the same
+IDATs, the same references and the same frozen files obtains the same numbers. The v3 bundle does not yet carry the chain's commit or the checksum of each frozen
+file read, which a second laboratory needs to show it ran the same instrument. \openprob

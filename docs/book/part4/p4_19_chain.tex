@@ -2,78 +2,79 @@
 
 \section{What the chain is}
 
-The Cellular Performance Gauge is a chain of stages that takes a specimen's raw array files and returns, for every cell found in it, a reading $A$ with its
-interval and tier. Its Standard Operating Procedure walks every step; its Operations Manual gives the constants and the rulings; both are regenerated from the
-code on every change, so that neither can describe a stage the code does not run. This chapter is the reader's walk through the chain, stage by stage
-(Figure~\ref{fig:chain}).
+The Cellular Performance Gauge is a chain of stages that takes a specimen's raw array files and returns a reading on the one gauge of
+Chapter~\ref{ch:gauge}. Chain v3 is a development build, not commissioned and not a diagnostic test. Its scope is one cell type, neutrophils,
+on EPIC v1 arrays; other cell types are added one at a time after each passes its tests. The entry point is
+\texttt{chain/\allowbreak{}MethylPhys\_Interface/\allowbreak{}run\_sample.py --engine v3}; the stages after calibration are in \texttt{chain/\allowbreak{}conductor\_v3.py}. The
+procedure is \texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md} and the operator chapter \texttt{manual/\allowbreak{}OM\_v3\_neutrophil\_chain.md}. Where a document and the code
+differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
 
 \begin{figure}[t]\centering
-\includegraphics[width=\textwidth]{figures/part4/fig_chain_flow.pdf}
-\caption{The chain of custody, from intake to report.}
+\includegraphics[width=\textwidth]{figures/part4/fig_chain_v3_flow.pdf}
+\caption{Chain v3, from intake to report. Stage~A runs on whole blood only. Stage~Q reads sequencing input. Drawn by
+\texttt{figscripts/\allowbreak{}fig\_chain\_v3\_flow.py} from the stage rules in \texttt{conductor\_v3.py}, \texttt{stage\_m\_met\_a.py} and \texttt{stage\_q\_iam\_a.py}.}
 \label{fig:chain}
 \end{figure}
 
 \section{Stage 0: intake}
 
-The specimen's IDAT pair is opened and its own quality numbers are read: detection call rate, control-probe intensities, bisulfite-conversion controls,
-SNP-probe clusters. Below a call rate of 0.93 the specimen is quarantined and no report is written; between 0.93 and 0.98 it proceeds with a flag. Input that
-arrives as $\beta$ values without the raw files can be read, but every output then carries \texttt{intake\_verified: False} and one printed line saying so.
+The IDAT pair is opened and the array's own numbers are read: manifest, integrity hash, control probes, per-probe detection, call rate and sex check.
+Below a call rate of 0.93 the specimen is quarantined and no reading is written; between 0.93 and 0.98 it proceeds with a flag. A sex mismatch, a failed
+integrity check or a deferred detection or call-rate check also quarantines (Chapter~\ref{ch:instrument}). A cleartext identifier is hashed before the
+engine sees it. Input that arrives as $\beta$ values without the raw files can be read, but the bundle then carries \texttt{intake\_verified: False}.
 
 \section{Stage 1: calibration}
 
-Background and dye-bias correction and probe-type handling produce $\beta$ at every probe. Probes indistinguishable from background are removed before any later
-stage sees a $\beta$ (Chapter~\ref{ch:instrument}). Stage~1 returns, beside $\beta$, the array's detection numbers, control intensities and SNP-probe noise, so that
-later stages can use the array's own measurements of itself. The commissioned chain then maps $\beta$ onto the first atlas's scale with the
-per-pipeline map of Chapter~\ref{ch:instrument}; on the second atlas no map is applied, because Stage~1's output is already on the atlas scale.
+Noob background and dye-bias correction and probe-type normalisation, per array, produce $\beta$ at every probe. Probes indistinguishable from background are
+removed before any later stage sees a $\beta$. Stage~1 returns, beside $\beta$, the array's detection numbers and control intensities.
 
-\section{Stage 2: composition}
+\section{Platform check}
 
-The specimen is separated into cells: on the first atlas by the commissioned solver, with a second, blind solver beside it as a cross-check; on the
-second atlas by the v2 solver with the candidate set for the specimen type (Chapter~\ref{ch:separation}). The output is a fraction and a bootstrap
-interval for every candidate cell and a present or absent call.
+The chain reads EPIC v1 only. A specimen whose array type, probe names or probe count say 450K or EPIC v2 is refused with one sentence, because no frozen
+neutrophil floor exists for that platform.
 
-\section{Stage 2d: cells that should not be there}
+\section{Stage A: composition (whole blood)}
 
-Non-blood templates are fitted jointly with blood. A non-blood cell in whole blood is reported only when detected. The composition check also decides whether the
-specimen is the whole blood it was labelled; when it is not, cell tiers are withheld.
+Eight blood groups are solved by non-negative least squares on 963 markers, none of them a neutrophil identity site (Chapter~\ref{ch:separation}). Fewer than
+867 measured markers: no composition and no reading. Isolated neutrophils skip this stage.
 
-\section{The reading}
-
-Every cell found present is read on its own identity loci, Eq.~\eqref{eq:A} (the first atlas's per-cell identity sets, or v2's), divided by its class floor, with a bootstrap interval over loci. A cell whose fraction is
-too small to score confidently is printed without a tier word. Flags travel with every reading that needs them: a sequencing-only identity set, a single pooled
-sample, an assumed source term, a low call rate.
-
-\section{The sky and the out-of-span map}
-
-The whole-array residual is drawn as the sky (Chapter~\ref{ch:sky}). The out-of-span map, when adopted, is drawn beside it.
-
-\section{Tier words}
-
-The continuous reading is given its word from the tier scheme in force, and nothing else changes it: no age, no laboratory, no population.
-
-\section{Serial mode}
-
-When an earlier draw of the same person is supplied, the chain adds per-cell differences, the difference sky and, with three or more draws, a trajectory
-(Chapter~\ref{ch:serial}).
-
-\section{The report bundle}
-
-The report is a set of tabs rendered from one bundle that records every input file with its checksum, every constant with its source file, and every stage's
-output. Its vocabulary is guarded at render time (Chapter~\ref{ch:report}). A run is named by date and sequence and never overwrites another.
-
-\section{Which atlas the chain runs on}
-
-The commissioned chain runs on the first atlas. The second atlas and its reader run as a separate preview until its acceptance tests pass: held-out
-transfer of identity loci, known-mixture composition, the out-of-span tests and a same-cell comparison between atlases. Then the switch-over replaces the first
-atlas in one change. Until then, every reading on the second atlas is labeled \preview{} (Chapter~\ref{ch:firstreadings}).
-
-\section{Documents the chain generates about itself}
+\section{Stage M: Met-A}
 
 \begin{itemize}
-\item the chain sequence, derived from the conductor's calls, so a stage cannot be listed that the code does not run;
-\item the inventory of every runtime file with its role;
-\item the Standard Operating Procedure, whose generated sections and status banners come from the code;
-\item the Operations Manual, built as a PDF from its data file;
-\item a fresh reference report from one repository array, and the report-tab reference derived from that render.
+\item \textbf{Isolated neutrophils:} the mean $H(\beta)$ over the 6,000 identity sites divided by the floor, 0.330263 bits (Eq.~\ref{eq:meta}).
+\item \textbf{Whole blood:} read when neutrophils are at least 20~\% of the specimen; the mean $H(\beta)$ over the sites divided by the mean $H(e)$ of the specimen's
+      own healthy expectation (Eq.~\ref{eq:metawb}). Below 20~\% the fraction is printed and $A$ is withheld.
 \end{itemize}
-The rule behind all of them: a document that describes the instrument is rebuilt from the instrument, never edited to match it.
+Either way at least 90~\% of the sites must be measured. Stage~M also records the noise index $N$, the shift a 1~\% loss of the neutrophil pattern would cause in
+this specimen, and the methylated sites' mean $\beta$ with a flag when it is below one half, past the entropy ceiling.
+
+\section{Stage MC: the Met-A C-score}
+
+The residual map over the identity sites, in genome order, is reduced to the C-score: the variance of 50-site block means over the variance of the sites, divided
+by the healthy baseline 1.1104 (Chapter~\ref{ch:cscore}). It is printed with every reading, with no band. The IAM-A C-score is defined and not yet built. \openprob
+
+\section{Stage T: the tare}
+
+The reading is divided by the median of at least three healthy references of the same specimen type run the same way, on the same slide, else in the same batch;
+with at least 20 references carrying $A$, $f_{\rm neu}$ and $N$, by the noise-corrected expectation instead (Chapter~\ref{ch:instrument}). The result is
+$A_{\rm rel}$, and the gauge state is printed from $A_{\rm rel}$ only: \emph{Normal} (0.95--1.05), \emph{above Normal} or \emph{below Normal}. Every tared reading
+carries its detection limit: twice the references' spread over the shift per 1~\% loss, the smallest loss of the neutrophil pattern this specimen could have shown.
+Without references the reading is printed as \emph{untared}, with no state. A batch is run in two passes: the first reads every specimen, the second re-reads each
+with the others of its batch as references (\texttt{chain\_tests/\allowbreak{}run\_chain\_acceptance.py}).
+
+\section{Stage Q: IAM-A}
+
+Single-molecule input, a read-level file of the one pipeline for which a neutrophil position is frozen (\texttt{loyfer\_pat\_v1}), is read as IAM-A,
+Eq.~\eqref{eq:iama}, with at least 100,000 opportunities and a reading on each half of the molecules as a repeat check (\texttt{stage\_q\_iam\_a.py}). A table from
+any other pipeline is refused until a position has been measured on healthy cells with that pipeline.
+
+\section{What the chain withholds}
+
+Every bundle lists what the build does not print: tier lines beyond Normal, which are not yet measured on this scale, and every cell type other than neutrophils.
+Composition-based detection of cells outside the eight groups, the whole-array sky, serial mode and the out-of-span map are not part of chain v3. \openprob
+
+\section{The record of a run}
+
+Each run writes one HTML page, a JSON bundle with every stage's output and the versions of the floor and reference files, and one row appended to an evidence
+ledger (Chapter~\ref{ch:report}). Each run takes its number from the ledger. The v3 bundle does not yet record the chain's commit or a checksum of each
+frozen file it read, and the v3 procedure and operator chapter are written by hand, not generated from the code. \openprob

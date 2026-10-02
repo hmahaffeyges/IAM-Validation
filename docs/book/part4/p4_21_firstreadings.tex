@@ -1,66 +1,86 @@
-\chapter{First readings on the new atlas}\label{ch:firstreadings}
+\chapter{First readings on chain v3}\label{ch:firstreadings}
 
 \begin{keybox}[title=Status of everything in this chapter]
-\preview. These readings come from the v2 reader before its acceptance tests have passed and before the switch-over. They show what the
-instrument does on real arrays. They are not evidence about any person, cell type or condition, and no conclusion in this book rests on them.
+These readings come from chain v3, a development build, before any cell type is commissioned. They show what the instrument does on real arrays and
+single molecules. They are not evidence about any person or condition, and no conclusion in this book rests on them. Every number is copied from the
+record named beside it.
 \end{keybox}
 
-\section{What was read}
+\section{End to end: IDATs in, report out}
 
-Two sets of arrays, each through the chain's own Stage~1 from the raw IDATs, composition by the v2 solver, each present cell read on its v2
-identity loci:
+The acceptance run passed 22 IDAT pairs through \texttt{run\_sample.py --engine v3} with no hand step: Stage~0, Stage~1, Stage~A, Stage~M, Stage~MC, then a second
+pass with Stage~T against the other specimens of the batch (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}, \texttt{chain\_acceptance.csv}).
+\begin{center}\small
+\begin{tabular}{@{}p{0.31\textwidth}rp{0.17\textwidth}llr@{}}\toprule
+specimens & $n$ & intake & untared Met-A & tared $A_{\rm rel}$ & Normal \\\midrule
+purified healthy neutrophils, isolated & 6 & 6 proceed & 0.994--1.006 & --- & 6/6 \\
+DNA mixtures, $\ge50$~\% neutrophils & 6 & not run & 0.943--0.968 & 0.987--1.021 & 6/6 tared \\
+remission blood, another laboratory & 10 & 2 proceed, 8 with penalty & 1.073--1.115 (5) & 0.986--1.032 & 5/5 tared \\\bottomrule
+\end{tabular}
+\end{center}
+\measured{} Three cautions go with the table. The six isolated arrays are the reference arrays themselves, so 6 of 6 is not independent; their held-out reading is
+0.983--1.045 (Chapter~\ref{ch:identity}). The mixtures were made in the reference laboratory from cells of the same series the composition profiles come from
+(Chapter~\ref{ch:atlas}), and they have no donor, so intake was not run on them. And the run used a read line of 0.50 neutrophils: it withheld five remission
+bloods at 0.06--0.47. At the present 0.20 line four of them (0.28--0.47) would be read; they have not been re-run. \openprob{} The untared offset is the reason for the
+tare: the reference laboratory's mixtures read low and the other laboratory's bloods high, and the same-batch tare brought both into Normal.
+
+\section{A second laboratory, and what the reading was reading}
+
+A pre-registered battery read 692 arrays (\texttt{doors/\allowbreak{}PROC\_NEUT\_TEST\_01\_OUTCOME.md}). On six healthy whole bloods with flow-cytometry counts the composition
+matched the counts (T1a, T1b), and untared $A$ fell in the predicted 0.93--0.98 on 2 of 3 readable specimens (T1c, failed). Isolated neutrophils from another laboratory
+failed every bar for array noise (T2; Chapter~\ref{ch:instrument}). On 570 whole bloods of one infection study, tared healthy specimens spread with SD 0.052, wider than
+Normal, and untared $A$ sat around 1.22 (T4). \measured
+
+The development analysis that followed asked what the whole-blood reading was reading (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). Among 76 healthy adults of that study, untared $A$
+was explained by the neutrophil fraction and the noise index with $R^2=0.85$; only 33 of 495 arrays had a noise index inside the reference arrays' range. Divided by the
+expectation for its own fraction and noise index, fitted on the other healthy arrays (leave-one-out), the readings were these. \measured
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}\toprule
+group & $n$ & median & above 1.05 \\\midrule
+healthy & 76 & 0.998 & 2 (73 in Normal, SD 0.022) \\
+mild & 309 & 1.002 & 15 \\
+severe & 110 & 1.006 & 2 \\\bottomrule
+\end{tabular}
+\end{center}
+On this gauge, severe infection did not move the neutrophils' identity pattern ($p=0.81$ for above Normal, severe against healthy). That does not say the neutrophils are
+unchanged; it says that whatever changes in them does not change $\beta$ at the identity sites. The correction was fitted after seeing these data and needs a held-out
+laboratory. \fitted
+
+\section{A known cause on arrays and on single molecules}
+
+The most direct test of the gauge is a known cause with a known direction. A DNA-methyltransferase inhibitor blocks the enzyme that copies methylation at division.
 \begin{itemize}
-\item 24 healthy whole-blood arrays from the Uppsala laboratory (GSE87571), ages 14 to 94;
-\item 44 sorted fractions from bone-marrow aspirates of people with acute myeloid leukaemia (GSE63409~\cite{Jung2015}): 15 CD34$^-$, 15 CD34$^+$CD38$^+$
-      and 14 CD34$^+$CD38$^-$.
+\item \textbf{Arrays} (\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}; 51 EPIC arrays, three leukaemia cell lines, each read against its own vehicle arrays). Vehicle arrays read
+      0.968--1.048; an inactive analogue at 10~$\mu$M 1.002--1.032; the active drug at 3.2--16~nM 1.001--1.028, and at $\ge80$~nM 1.16--1.85. A second active compound read
+      1.73--1.81 in all three lines. The change sits on the methylated channel (median $+1.56$ against $+0.017$ on the unmethylated one). \measured
+\item \textbf{The ceiling.} Between 16 and 80~nM the methylated sites fall from $\beta\approx0.94$ to 0.57--0.89, and by 400~nM to 0.36--0.60. Past $\beta=\tfrac12$ the methylated
+      channel's reading stops rising (observed 2.66--2.85, against a ceiling of about 2.8) and then falls. Met-A is monotone only while those sites stay above one half, which is why
+      the chain prints their mean $\beta$ and flags the ceiling. \measured
+\item \textbf{Single molecules} (\texttt{PROC\_DNMT\_01\_PARTB\_OUTCOME.md}; EM-seq, one leukaemia line, 100~nM for 7 days, four genotypes in duplicate). Copy error on the vehicle
+      libraries 0.0209--0.0217; treated 0.0405--0.0511; IAM-A against the same genotype's vehicle libraries 1.65--1.97, above 1.05 in 8 of 8, with conversion failure unchanged
+      (largest difference 0.0007). \measured
 \end{itemize}
+Both readings see a known loss of copying fidelity, in the right direction, from the right channel, and not when an inactive look-alike is given. These are cancer cell lines in one
+laboratory each, and the drug also slows proliferation. They show the gauge reads a known change; they are not a disease reading.
 
-\section{A first run that went wrong, and why}
+\section{Leukaemic blood}
 
-The first run gave healthy blood a composition no haematologist would accept: the six bone-marrow progenitor populations took a large share of the mass,
-and monocytes and B cells were starved. Progenitor profiles are broad and intermediate, so a least-squares solver can use a little of each to absorb small
-misfits everywhere. A per-specimen scale term did not remove the effect. Removing progenitors from the candidate cells for circulating blood did. That is
-now a rule by specimen type (Chapter~\ref{ch:separation}).
+Ten patients' blood was read at diagnosis and twice in remission on the neutrophil sites (\texttt{PROC\_AML\_SERIAL\_01\_OUTCOME.md}). Diagnosis blood read outside Normal in 4 of 10
+(bar 8 of 10, failed); remission blood read Normal in 8 of 10 and 10 of 10; the same person's two remission draws agreed within 0.05 in 10 of 10. \measured{} The diagnosis explains the
+failure: the identity sites are held by every mature leukocyte, so blasts share them, and diagnosis blood is blast-dominated; reading it against the neutrophil floor is not the gauge's
+definition (Chapter~\ref{ch:identity}). The next steps written in the record are a reading of the dominant cell against its own floor, a healthy C-score line from healthy whole blood, and
+the blast fraction printed beside $A$. \openprob
 
-\section{Healthy whole blood}
+\section{Development readings outside the chain's platform}
 
-\begin{figure}[t]\centering
-\includegraphics[width=\textwidth]{figures/part4/fig_run02.pdf}
-\caption{Preview readings on 24 healthy whole-blood arrays (GSE87571) on atlas v2. (a) Neutrophil $A$ against the person's age, over the tier bands. (b) Median
-fraction of the ten largest components. \preview}
-\label{fig:run02}
-\end{figure}
-
-\paragraph{Composition.} Median neutrophils 53~\%, CD8 T cells 9~\% (and more in CD8 subsets), memory CD4 T cells 7~\%, naive B cells 7~\%, monocytes 6~\%,
-naive CD4 T cells 6~\%, NK cells 4~\% (Figure~\ref{fig:run02}b). The progenitor sink is gone.
-
-\paragraph{Neutrophils.} Median $A=0.977$; 21 of 24 in Normal; range 0.925--1.029. The three below Normal are from people aged 14, 19 and 25, and $A$ rises
-with age across the 24 (correlation 0.58; Figure~\ref{fig:run02}a). \observed{} It agrees in direction with the author's statement that ageing raises $A$. It is
-24 arrays from one laboratory on an uncommissioned reader, and it is an observation about where people of different ages sit on the gauge, which by the rule
-of the front matter is never a correction to any cell.
-
-\paragraph{Minor cells.} Monocytes read Normal on 22 of 24 arrays, NK cells on 18 of 19 where present, basophils on 21 of 22, eosinophils on 7 of 7. The T-cell
-and B-cell subsets do not: naive CD4 T cells 3 of 16 in Normal (median 1.062), naive B cells 9 of 24 (1.055), memory CD4 T cells 2 of 19 (0.923). These are cells
-at a few per cent that share much of their methylation with their neighbours, and Figure~\ref{fig:fracprec} predicts exactly this: at that fraction the error in
-the other cells' fractions dominates the reading. \measured{} (for the counts; the explanation is \conjecture{} until tested by the pre-registered minor-cell
-procedure).
-
-\paragraph{A leak.} The embryonic stem cell profile took 1--2~\% of the mass in 15 of 24 healthy arrays. A pluripotent cell cannot be in adult blood. It is the same
-kind of failure as the progenitor sink, and the fix is the same: the candidate set for circulating blood. \measured
-
-\section{Sorted AML fractions}
-
-In each sorted fraction the largest component was read as a GMP-like progenitor on 30 of 44 arrays, monocyte-like on 10, and L-MPP-like on 2. The largest
-component's median $A$ was 1.035 (CD34$^+$CD38$^-$), 1.064 (CD34$^-$) and 1.065 (CD34$^+$CD38$^+$), with the highest reading 1.139. The residual after composition
-was more than twice that of healthy blood (median absolute residual 0.077 against 0.032): these specimens are not well described by any mixture of healthy atlas cells.
-\preview
-
-That is the direction the framework predicts for a transformed cell population: toward $\beta=\tfrac12$ on the cell's identity loci. It is not yet a comparison anyone
-should rely on. The healthy progenitors the AML cells are read against were in the atlas fit, and a fair reading needs healthy bone-marrow progenitors held out of the
-atlas, read the same way, landing at 1.00. That is the first blood-cancer procedure in the plan.
+Two pre-registered procedures read neutrophils on 450K arrays against a development 450K floor from purified 450K neutrophils; chain v3 does not read 450K.
+In 246 held-out controls 67.9~\% read Normal, and the reading split by sex (women 0.961, men 1.007) (\texttt{PROC\_PREDX\_NEUT\_01\_OUTCOME.md}). The purified neutrophils of the
+floor differed by sex by only 0.008, and a second set read against controls on the same slide removed the split: 92.9~\% of 170 controls in Normal
+(\texttt{PROC\_PREDX\_SLIDE\_01\_OUTCOME.md}). \measured{} The sex gap was a slide effect, and the same-slide tare is what made the reading usable on those arrays. Neither procedure showed a
+per-person pre-diagnostic signal.
 
 \section{What these readings are for}
 
-They show three things about the instrument, and nothing yet about people. The v2 reader runs end to end on raw arrays with no population-derived number. The
-composition problems that remain are specific and nameable (candidate sets, subset collinearity, one leaking profile). And the readings on the major cells of healthy
-blood land near the fixed point on a reference built from purified cells, with no whole-blood specimen and no population of readings used to set any number.
+They show four things about the instrument, and nothing yet about people. Chain v3 runs end to end on raw arrays with no population-derived number. Untared readings carry a
+laboratory and noise offset that a same-run tare removes. The reading follows a known physical cause, on arrays and on molecules, and stops at the entropy ceiling where the physics says
+it must. And the neutrophil's identity sites, chosen to be steady, are blind to a cell that shares them, which is a statement about the sites, not about the cells.

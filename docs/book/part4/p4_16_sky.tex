@@ -1,67 +1,39 @@
-\chapter{The sky: what the atlas cannot explain}\label{ch:sky}
+\chapter{The sky: what the reference cannot explain}\label{ch:sky}
 
 \section{The idea}
 
-After component separation, a CMB map is what the foreground model cannot explain. The methylome's counterpart is the \emph{sky}: at every
-address on the array, the specimen's methylation minus what its solved composition predicts,
+After component separation, a CMB map is what the foreground model cannot explain. The methylome's counterpart is the \emph{sky}: at each
+site, how far the specimen sits from what its healthy reference predicts, in units of the healthy spread. A healthy specimen reads a quiet sky,
+$z$ centred on zero with no structure. A cell far from its healthy state, or a cell the reference does not hold, leaves structure.
+
+\section{The sky chain v3 draws}
+
+Chain v3 draws the sky on the neutrophil's 6,000 identity sites, in genome order (Stage~MC, \texttt{conductor\_v3.py}):
 \begin{equation}
-  r_i=\beta_i-\sum_c f_c\,\mu_{ic},\qquad z_i=\frac{r_i}{\sigma_i},
+  z_i=\frac{H(\beta_i)-H(\mathrm{ref}_i)}{s_i},
   \label{eq:sky}
 \end{equation}
-drawn over the whole array. A specimen whose cells are all in the atlas and at their reference states reads a quiet sky: $z$ centred on zero
-with unit spread. A cell the atlas does not contain, or a known cell far from its reference state, leaves structure. The sky is the chain's view
-of everything the per-cell readings do not look at.
+with $H(\mathrm{ref}_i)$ the healthy neutrophil mean entropy at site $i$ for isolated cells, or $H(e_i)$ from the specimen's own composition for whole
+blood (Eq.~\ref{eq:metawb}), and $s_i$ the spread of $H$ at that site across the six physical reference arrays, shrunk toward the pooled spread
+(\texttt{neutrophil\_reference\_v1\_1.json}). \derived{} (the construction); $s_i$ is \calibrated. The noise term comes from purified reference cells,
+not from a panel of people. Two numbers are taken from the map: the Met-A C-score (Chapter~\ref{ch:cscore}) and the fraction of sites with $|z|>3$, both
+printed with every reading. What the map looks like on healthy and damaged arrays is in Chapter~\ref{ch:skytools}.
 
-\section{The noise term is the whole question}
+In whole blood the residual also carries composition error, so the whole-blood map is wider than the isolated-cell map: on the acceptance run the C-score
+read 0.69--1.21 on isolated neutrophils and 0.78--1.49 on whole bloods (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}). \measured{} No band is
+set for either.
 
-The sky is only as honest as $\sigma_i$. The first chain took $\sigma_i$ from the scatter of forty healthy arrays per laboratory. That is a
-population defining the noise, and it was retired. What replaced it uses nothing but the atlas and the array:
-\begin{equation}
-  \sigma_i^2=\sum_c f_c^2\,s_{ic}^2+\sigma^2_{\mathrm{array}}(\beta_i),\qquad
-  \sigma^2_{\mathrm{array}}(\beta)=a+b\,\beta(1-\beta),
-  \label{eq:skysigma}
-\end{equation}
-where $s_{ic}$ is the atlas's posterior uncertainty for cell $c$ at locus $i$ and $a$, $b$ are fitted on this array's own 65 SNP probes, whose true
-values are known to be 0, $\tfrac12$ or 1. \derived{} (the construction); the SNP-probe noise model is \calibrated{} per array.
+\section{The whole-array sky}
 
-\section{PROC-SKY-01}
-
-The construction was pre-registered and scored on 48 arrays, 12 from each of four laboratories. \measured
-\begin{center}\small
-\begin{tabular}{@{}llll@{}}\toprule
-bar & rule & measured & \\\midrule
-B1 & a constructed atlas specimen reads quiet & median $z$ 0.000; $|z|>2$ on 0.00~\% & met \\
-B2 & robust SD of $z$ in $[0.7,1.4]$ on $\ge40$ of 48 & 36 of 48 & failed \\
-B3 & no laboratory file read & none & met \\
-B4 & the same array twice gives $\Delta z=0$ & max $\Delta z$ 0 & met \\\bottomrule
-\end{tabular}
-\end{center}
-B2 failed on one laboratory: the Munich arrays (3 of 12 in range), whose SNP clusters are twice as wide as their CpG probes' scatter. When the intake
-gate of Chapter~\ref{ch:instrument} was later applied to the same 48 results, it refused all 12 Munich arrays and one Karolinska array for low signal;
-of the 35 admitted, 33 (94~\%) had a robust SD in range. \measured{} The no-population $\sigma$ holds on input the gate admits.
-
-\section{What the sky still shows}
-
-The admitted skies are not centred: median $z$ is $-0.42$ to $-0.80$, and 7--24~\% of addresses have $|z|>2$. A diagnostic written after the bars
-localised the cause. On the identity loci, where $A$ is read, the median residual is about zero. Off them, the array sits 0.03--0.04 below the
-composition expectation. \measured{} The residual does not follow $\beta$ as a compression would (it is negative at both ends, not opposite in sign),
-so the hypothesis that the array squeezes $\beta$ toward $\tfrac12$ is falsified. What fits is that the first chain's pipeline map was fitted on identity
-loci and does not transfer to the rest of the array, or that the first atlas carried a source offset at those addresses, or both. Atlas v2 estimates a
-source term at every locus and sits on the array's own scale, which addresses both routes; the sky on atlas v2 has not yet been scored. \openprob{}
-The offset does not touch $A$.
-
-\begin{figure}[t]\centering
-\includegraphics[width=0.95\textwidth]{figures/part4/PROC_SKY_01_plate.png}
-\caption{A sky plate from PROC-SKY-01 on the first atlas: residual $z$ over all addresses and over the addresses of each group present, with
-$\sigma$ from the atlas posterior and the array's own SNP-probe noise. The plate's footer still prints the retired laboratory terms $m_{\mathrm{lab}}$ and
-$s_{\mathrm{lab}}$, which were not applied in this run; the per-group panels predate the rule that nothing is read by class. \record}
-\label{fig:skyplate}
-\end{figure}
+A sky over every address on the array, not only the identity sites, would show what the eight blood groups of Stage~A cannot explain anywhere in the
+genome. Chain v3 does not draw it. Three things are needed first: a noise term for every address that comes from the array and the reference, not from
+other people; a sex mask or a reference of the same sex, because the X chromosome lights up when a female array is read against male references
+(Chapter~\ref{ch:skytools}); and a reference holding more than eight groups. \openprob
 
 \section{The cell-count floor}
 
 At multipole $\ell$ the CMB offers $2\ell+1$ independent modes, and the fractional uncertainty on the power there can never fall below
-$\sqrt{2/(2\ell+1)}$ however good the telescope. A specimen has the same kind of limit. At a locus with true methylation $\beta$ in a specimen of $N$
+$\sqrt{2/(2\ell+1)}$ however good the telescope. A specimen has the same kind of limit. At a site with true methylation $\beta$ in a specimen of $N$
 genome copies, the measured fraction has binomial standard deviation
 \begin{equation}
   \sigma_{\mathrm{copies}}=\sqrt{\frac{\beta(1-\beta)}{2N}}
@@ -69,26 +41,27 @@ genome copies, the measured fraction has binomial standard deviation
 \end{equation}
 for diploid DNA. \derived{} Figure~\ref{fig:cellcount} sets it against array noise. For a whole-blood draw with millions of cells the copy-number floor is
 negligible. For plasma cell-free DNA, which carries of order $10^4$ genome equivalents per millilitre-scale draw, it is $0.003$ at $\beta=0.7$, below array
-noise at a single locus but not negligible for a cell present at one per cent, whose contribution comes from about a hundred genomes. \calc
+noise at a single site but not negligible for a cell present at one per cent, whose contribution comes from about a hundred genomes. \calc{} The chain does
+not yet carry this floor in any interval. \openprob
 
 \begin{figure}[t]\centering
 \includegraphics[width=0.8\textwidth]{figures/part4/fig_cell_count_floor.pdf}
-\caption{Standard deviation of measured $\beta$ at one locus from the finite number of genome copies (Eq.~\ref{eq:cellcount}, $\beta=0.7$, diploid), against
+\caption{Standard deviation of measured $\beta$ at one site from the finite number of genome copies (Eq.~\ref{eq:cellcount}, $\beta=0.7$, diploid), against
 array measurement noise of 0.01 and 0.02. Vertical lines mark $10^3$ genomes and the $\sim10^4$ genome equivalents of a plasma draw. \calc}
 \label{fig:cellcount}
 \end{figure}
 
 \section{A cleaner sky: the out-of-span map}
 
-The sky of Eq.~\eqref{eq:sky} still mixes two things: error in the solved fractions of known cells, and signal from cells the atlas does not hold. They can
-be separated exactly. Any mixture of the atlas's cells, at any fractions, lies in the span of the cells' profiles. Projecting the residual onto that span and
+A residual after composition mixes two things: error in the solved fractions of known cells, and signal from cells the reference does not hold. They can be
+separated exactly. Any mixture of the reference's cells, at any fractions, lies in the span of the cells' profiles. Projecting the residual onto that span and
 onto its complement,
 \begin{equation}
   \mathbf r=\underbrace{P_{\mathrm{span}}\mathbf r}_{\text{composition error}}+\underbrace{(I-P_{\mathrm{span}})\mathbf r}_{\text{what no known mixture can make}},
   \label{eq:outspan}
 \end{equation}
-leaves an out-of-span map that a composition error cannot move at all. \derived{} It is the direct counterpart of template cleaning on the sky, and the
-answer to the question of how to quieten the noise from cells whose fractions are uncertain. It is pre-registered (PROC-OUTSPAN-01) with four tests written
-before any specimen is projected: a constructed specimen of known cells must read quiet; the map must stay quiet when the known cells' fractions are thrown off
-by $\pm50$~\%; cells held out of the atlas, spiked in at 1--10~\%, must be detected, 12 of 16 at 5~\%; and between two draws of one person a change of
-composition must read quiet while a newly added unknown cell appears. \prediction
+leaves an out-of-span map that a composition error cannot move at all. \derived{} It is the direct counterpart of template cleaning on the sky. Its tests are
+written before any specimen is projected (\texttt{doors/\allowbreak{}PROC\_OUTSPAN\_01\_PREREG.md}): a constructed specimen of known cells must read quiet; the map must
+stay quiet when the known cells' fractions are thrown off by $\pm50$~\%; cells held out of the reference, spiked in at 1--10~\%, must be detected, in at least 12 of 16 cells at 5~\%; and between two
+draws of one person a change of composition must read quiet while a newly added unknown cell appears. \prediction{} The pre-registration is written for the multi-source atlas of
+Chapter~\ref{ch:atlas}. The map is not built in chain v3, whose reference spans eight blood groups, and the procedure has not run. \openprob

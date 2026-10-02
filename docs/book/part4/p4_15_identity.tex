@@ -1,66 +1,55 @@
-\chapter{Identity loci: where a cell is read}\label{ch:identity}
+\chapter{Identity sites: where a cell is read}\label{ch:identity}
 
-\section{What an identity locus is}
+\section{What an identity site is}
 
-A cell is read on loci where its own methylation sits at its floor point. If a cell of class $k$ has mean methylation near $\bstar(k)$ at a
-set of loci, then $H(\bbar)\approx\Hmin(k)$ there and the cell reads $A\approx1$ in its reference state. Departures from that state then move
-$A$ in the direction and by the amount of Chapter~\ref{ch:gauge}. Such loci are the cell's \emph{identity loci}. They are not markers: a marker
-separates a cell from others and usually sits near 0 or 1; an identity locus sits where the cell's entropy equals its floor, and is chosen per
-cell, never per class.
+A cell is read on sites that its healthy copies hold steadily. At such a site the healthy cell's error rate is low and the same in every
+donor, so $H(\beta)$ there is the cell's healthy entropy, and a loss of fidelity moves it. These are the cell's \emph{identity sites}. They are
+not markers. A marker separates one cell from others; an identity site is where one cell holds its own pattern, whether or not other cells
+hold it too. The composition markers of Chapter~\ref{ch:separation} and the identity sites are disjoint by construction.
 
 \section{The rule}
 
-For each atlas cell, from the atlas v2 posterior and nothing from the first atlas (author's ruling: v2 is not built to depend on v1):
+For neutrophils on EPIC v1, from the six physical reference arrays (\texttt{stage\_m\_met\_a.py}; \texttt{chain\_tests/\allowbreak{}freeze\_v13.py}):
 \begin{enumerate}
-\item the value is measured: $n_{\mathrm{obs}}\ge2$ (one, flagged, for the four pooled brain cells), and converged, $\hat R<1.01$;
-\item the posterior mean lies within $\bstar(k)\pm0.05$ on the upper branch;
-\item at least 100 loci qualify.
+\item the across-array standard deviation of $\beta$ is at most 0.05;
+\item the mean $\beta$ lies in 0.75--0.95 (methylated channel) or 0.05--0.25 (unmethylated channel);
+\item at most 3,000 sites per channel, taken in order of smallest standard deviation.
 \end{enumerate}
-Where a cell has array samples, the array samples choose the loci. Where it has only sequencing samples, their values are first put on the array
-scale by a per-locus regression learned on the cells that both platforms measured (Chapter~\ref{ch:atlas}), and the cell carries the flag.
+The neutrophil set has 6,000 sites, 3,000 on each channel (\texttt{metA\_floors\_v1\_3.json}). \calibrated
 
-\section{How the rule was reached}
-
-The rule was reached through two failures, both recorded before anything was changed.
-\begin{enumerate}
-\item The first rule required the whole 95~\% posterior interval of a locus to lie inside the window. Only 30 of 74 cells could build 100 loci: cells
-      measured on two to five sequencing samples have intervals of 0.105--0.174, wider than the 0.10 window itself. \measured{} The rule could not be met
-      by the cells it was meant to protect. A replacement using the posterior mean, with the atlas's uncertainty carried onto each reading instead, was
-      written before rebuilding. All 74 cells then built sets.
-\item The replacement was tested the way a new sample would test it: choose each cell's loci from half its samples, read the other half. Only 71~\% of
-      310 held-out readings fell in Normal (bar 95~\%), and six cells' medians fell below Normal. \measured{} A diagnostic then showed that the scatter
-      tracked the \emph{source} of the samples, not how many samples chose the loci, and that choosing loci stable across donors did not help.
-\end{enumerate}
-The array-first rule with a per-locus sequencing correction answers the second failure. On the same held-out construction, array samples reading
-array-chosen loci fell in Normal 87.7~\% of the time, with 28 of 29 cell medians in Normal; sequencing samples corrected to the array scale fell in Normal
-73.1~\% of the time, with 14 of 17 medians in Normal. \measured
-
-\begin{keybox}[title=Status]
-Every one of the 74 cells has a production set of identity loci (Figure~\ref{fig:idloci}): 434 to 58,938 loci, median 11,050. Twenty-nine were chosen on
-array samples, 44 on sequencing samples corrected to the array scale, and one (cortical neurons) on one array sample with corrected sequencing. Each cell's
-atlas mean reads 0.987--0.999 on its own set, which is circular and printed only for comparison. \measured
-
-The held-out transfer, the test that matters, does not yet meet 95~\%: 87.7~\% for array-chosen cells and 73.1~\% for sequencing-only cells. Readings on
-sequencing-only cells carry that flag. \openprob
-\end{keybox}
-
-\begin{figure}[t]\centering
-\includegraphics[width=0.95\textwidth]{figures/part4/fig_identity_loci.pdf}
-\caption{Number of identity loci per atlas v2 cell, by class; filled markers were chosen on array samples, open markers on sequencing samples corrected to
-the array scale. Numbers above the axis are cells per class. Data: production build of the v2 identity loci. \measured}
-\label{fig:idloci}
-\end{figure}
+The window keeps each site off the extremes and inside the range where entropy responds to error. $dH/d\beta=\log_2[(1-\beta)/\beta]$ is 1.58 bits per
+unit $\beta$ at $\beta=0.25$ and 4.25 at $\beta=0.05$, with the same magnitudes at 0.75 and 0.95. \calc{} The same steepness is why array noise shows on
+these sites (Chapter~\ref{ch:instrument}): a site near 0.95 converts a small noise in $\beta$ into a large rise in $H$.
 
 \section{Why held-out readings are the only test}
 
-The floors were fitted so that 37 reference cells read 1.00, and identity loci are chosen so that a cell's own atlas mean reads 1.00. Neither is evidence
-by itself. The evidence is a sample of a cell that played no part in choosing its loci, read on them, landing at 1.00 within tolerance. That is how every
-identity set is tested, and it is the number the book reports.
+The reference arrays read 1.00 by construction, because they set both the sites and the floor. That is not evidence. The evidence is an array that
+played no part in choosing the sites or setting the floor, read on them, landing at 1.00 within tolerance.
 
-\section{Two explanations for what remains}
+\begin{center}\small
+\begin{tabular}{@{}lrr@{}}\toprule
+held-out reading of the six reference arrays & range & SD \\\midrule
+sites re-chosen on the other five arrays & 0.983--1.045 & 0.020 \\
+frozen sites, floor from the other five & 0.993--1.008 & 0.006 \\\bottomrule
+\end{tabular}
+\end{center}
+\measured{} (\texttt{metA\_floors\_v1\_3\_loo.csv}; SDs recomputed from the file.) The difference between the two rows is selection noise: when sites are
+chosen on few arrays, some enter the window by those arrays' noise, and a new array then reads off 1.00 on them. The first row is the precision the chain
+prints. More physical reference arrays would shrink it.
 
-A held-out sample reading off 1.00 has two explanations. One is selection noise: when a cell with few samples chooses loci, some enter the window by that
-sample's noise, and because methylation is skewed high, more enter from above than below; a new sample then sits above $\bstar$ and reads below 1. All six
-failures in the second test were below Normal, which fits. The other is real donor-to-donor spread of a sorted cell at its floor loci, larger than
-$\pm5$~\%. The source-dependence found by the diagnostic says that, for sequencing-only cells, much of the spread is the platform transfer. More samples per
-cell on one platform would separate the two.
+\section{Shared sites, and what they cannot see}
+
+Most neutrophil identity sites are held within 0.05 in $\beta$ by the other blood cells as well: 98.7~\% for monocytes, 75.6~\% for CD4 T cells
+(Chapter~\ref{ch:atlas}). \calc{} Many are lineage-wide. That makes them steady across donors, and it also makes them blind to some changes. In leukaemic blood
+the blasts share most of these sites, and diagnosis blood read on them stayed in Normal in 6 of 10 patients (\texttt{doors/\allowbreak{}PROC\_AML\_SERIAL\_01\_OUTCOME.md},
+bar S2). \measured{} A blast is a progenitor, and the gauge reads a cell against its own floor; identity sites for progenitors on EPIC are not yet built. \openprob
+
+\paragraph{The X chromosome.} Thirty-two of the 6,000 sites lie on chrX, and they read the same on the female reference array and on the five male arrays,
+because the site rule required agreement across all six (Chapter~\ref{ch:skytools}). \measured
+
+\section{Status}
+
+\begin{keybox}[title=Status]
+One cell type has a production set of identity sites: neutrophils on EPIC v1, 6,000 sites, held-out SD 0.020. A 450K set is pending. Sets for other cell
+types exist for development only and are not read by the chain. \openprob
+\end{keybox}

@@ -31,7 +31,7 @@ Frozen values (read from the files, never typed):
 
 ## 3. Rules the chain enforces
 
-1. **Dominant cell only.** In whole blood, A is computed only when neutrophils are ≥ 50 %. Below that, the fraction is printed and A is withheld.
+1. **Read line.** In whole blood, A is computed only when neutrophils are ≥ 20 % of the specimen (`MIN_READ_FRACTION`, DEV-LOWFRAC-01: below it a 1 % loss of the neutrophil pattern moves A by less than 0.01). Below that, the fraction is printed and A is withheld.
 2. **Whole blood must be tared.** Untared whole-blood A carries a composition and laboratory offset, measured at −0.04 in one lab and +0.09 in another.
    The gauge state is printed only from A_rel. Isolated neutrophils are read against their own floor and need no tare.
 3. **Platform match.** The floor, the profiles and the specimen must be on the same platform. Without a frozen floor for the platform, the chain refuses.

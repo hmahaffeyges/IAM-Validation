@@ -6,87 +6,101 @@ A bisulfite array does not report $\beta$. It reports two fluorescence intensiti
 $U$, in two colour channels, stored in IDAT files. $\beta=M/(M+U+\alpha)$ with a small offset $\alpha$ is computed only after
 background correction, dye-bias correction and probe-type handling~\cite{Triche2013,Fortin2017}. This is the methylome's
 map-making step, and like map-making it is where most of the instrument's errors enter. The chain does it itself, from the IDATs,
-and records every number the array reports about its own quality (Stage~1).
+one array at a time (Stage~1, \texttt{chain/\allowbreak{}stage\_1\_idat\_calibration.py}): noob background and dye-bias correction with
+probe-type normalisation, using only the array's own control and out-of-band probes. No other array and no reference matrix enters
+this step. Stage~1 also records what the array reports about itself: per-probe detection, control-probe intensities and the spread of the
+SNP probes.
 
 \section{Intake: the array's own numbers}
 
-Before any cell is read, Stage~0 asks whether the array is a measurement at all. The quantities are the array's own: the fraction of
-probes distinguishable from background (the detection call rate) and the control probes' intensities. None refers to a person.
+Before any cell is read, Stage~0 asks whether the array is a measurement at all (\texttt{chain/\allowbreak{}stage\_0\_intake.py}). It checks
+the manifest (array type, declared sex and age, a hashed identifier), the integrity hash of the IDAT pair, the control probes, per-probe
+detection, the sample call rate and the sex check. Every quantity is the array's own; none refers to a person. The lines are read from
+\texttt{Runtime Matrices/\allowbreak{}Intake/\allowbreak{}intake\_thresholds\_v1.json}:
 
 \begin{center}\small
 \begin{tabular}{@{}ll@{}}\toprule
 call rate & decision \\\midrule
 $\ge0.98$ & proceed \\
 $0.93$--$0.98$ & proceed with penalty, flagged \\
-$<0.93$ & quarantine: no report is written \\\bottomrule
+$<0.93$ & quarantine: no reading is written \\\bottomrule
 \end{tabular}
 \end{center}
-The 0.93 line was set by the author from a 48-array measurement across four laboratories: the Uppsala panel read a median call rate of
-0.985 (minimum 0.979), Karolinska 0.975 (minimum 0.891), UCLA 0.953 (minimum 0.932), and Munich 0.878 (maximum 0.928). \measured{} The
-line sits in the gap between Munich's best array and UCLA's worst.
+The call rate is the fraction of probes whose detection $p$ against the array's own negative controls is at most 0.05. The 0.93 line was
+set by the author from a 48-array measurement across four laboratories: medians 0.985 (minimum 0.979), 0.975 (minimum 0.891) and 0.953
+(minimum 0.932) in three, and 0.878 (maximum 0.928) in the fourth (\texttt{doors/\allowbreak{}PROC\_INTAKE\_01\_OUTCOME.md}). \measured{} The line
+sits in the gap between the fourth laboratory's best array and the third's worst.
 
-\paragraph{The low-signal laboratory.} The Munich arrays had been read for months before this gate existed. Their non-polymorphic
-control intensities were one-sixth of Uppsala's (green 1,291 against 8,582; red 2,268 against 14,427), and about one address in eight
-could not be distinguished from background. \measured{} Three separate failures of earlier procedures traced back to that one laboratory's
-input, including the construction of a ``laboratory zero''. The lesson was recorded as a rule: a check that is deferred never advances a
-specimen. A deferred detection or call-rate check is now a hard quarantine.
+Three further rules decide the verdict. A sex mismatch between the array and the manifest quarantines the specimen and is never silently
+corrected. A deferred detection or call-rate check is a hard quarantine: a check that cannot run never advances a specimen
+(PROC-INTAKE-01, bar B5). Two checks are recorded and not yet gated: bead count, which Stage~1 does not extract, and the bisulfite-conversion
+threshold, which as written refused all 731 healthy arrays it was tried on and is printed as provisional. \openprob{} A quarantined
+specimen produces no reading; the run stops with exit status 2.
 
-\paragraph{A bias found on the way.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever
-the true methylation. Identity loci sit near 0.74. Leaving such probes in pulls the mean $\beta$ down and $H(\bbar)$ up: about 0.002 in
-$A$ for every per cent of a cell's identity loci at background. \measured{} Every reading before 27 September 2026 carried that upward bias.
-Probes at background are now removed before any stage reads a $\beta$.
+\paragraph{Probes at background.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever the
+true methylation (PROC-INTAKE-01, diagnostic after bar B3). \measured{} Met-A identity sites sit at 0.75--0.95 or 0.05--0.25
+(Chapter~\ref{ch:identity}), where such a value raises $H(\beta)$ toward one bit. Stage~1 therefore removes every probe whose detection $p$
+exceeds 0.05 before any stage reads a $\beta$.
 
-\section{The pipeline map}
+\section{One platform per floor}
 
-A cell's floor point $\bstar$ is defined on the scale of the reference data. An array processed by the chain's Stage~1 reads a given
-methylation state at a slightly different $\beta$ from the reference sources. The first atlas sat on the Roadmap sequencing scale, so the
-first chain mapped every specimen onto that scale with a linear map, $\beta_{\mathrm{ref}}=(\beta-0.0662)/1.0127$ for the Stage~1 450K
-pipeline, fitted on 32,688 identity loci.
+The chain reads EPIC v1 arrays only. It refuses a specimen when Stage~0 reports another array type, when probe names carry the EPIC v2
+design suffix, or when the $\beta$ vector holds 700,000 probes or fewer (\texttt{conductor\_v3.py}, \texttt{platform\_refusal}). The reason is
+measured: a floor built on one platform does not transfer to another (Chapter~\ref{ch:meta}). A 450K neutrophil floor is pending. \openprob
 
-\begin{keybox}[title=The last population in the first chain]
-That map was fitted as the per-locus Stage~1 mean of 560 healthy whole-blood arrays (GSE87571) against the atlas's immune mean, and was
-accepted when healthy immune $A$ read 0.99 after it; it transferred to 315 controls of a second laboratory at a median of 1.0097.
-\record{} By the rule in the front matter, a map fitted on 560 people is a population defining a constant: in effect it set the healthy
-median to the fixed point. It is the last such constant in the first chain.
+\section{The noise index}
 
-The second atlas removes it by construction. Atlas v2 is built on the chain's own Stage~1 array scale (author's decision, 28 September
-2026); sequencing sources enter it through source terms fitted on purified reference cells measured on both platforms
-(Chapter~\ref{ch:atlas}). A specimen processed by Stage~1 is then already on the atlas scale, and no map from people is needed. \measured
-\end{keybox}
-
-\section{A tare from the array itself}
-
-A physical instrument is zeroed against a known input. Every 450K array carries one: 65 probes that sit on common single-nucleotide
-polymorphisms and read $\beta=0$, $\tfrac12$ or $1$ by genotype. PROC-TARE-01 asked whether those three known points could zero the array,
-by fitting $\beta'=(\beta-T_{\mathrm{off}})/T_{\mathrm{scale}}$ per array so the three clusters land back on $0$, $\tfrac12$, $1$.
-
-\begin{figure}[t]\centering
-\includegraphics[width=0.85\textwidth]{figures/part4/fig_tare.pdf}
-\caption{Immune-cell $A$ on whole-blood arrays from four laboratories (768 arrays), before any tare. Bars are medians; the shaded band is
-Normal. Data: PROC-TARE-01 per-array file. \measured}
-\label{fig:tare}
-\end{figure}
+Array noise raises $H$ at every site, and the identity sites are where the gauge reads it. The chain therefore measures the noise of each
+array on sites that biology holds still. The noise index $N$ is the mean $H(\beta)$ over 48,528 EPIC sites at which every purified blood
+group of the reference has mean $\beta\le0.03$ (40,882 sites) or $\ge0.97$ (7,646 sites) with every group's standard deviation $\le0.02$; no
+neutrophil identity site is among them (\texttt{noise\_sites\_EPIC\_v1.json}; \texttt{doors/\allowbreak{}DEV\_NOISE\_01\_OUTCOME.md}). $N$ is
+computed when at least 90~\% of those sites are measured. \calibrated{} (the site list)
 
 \begin{center}\small
-\begin{tabular}{@{}lrrrrr@{}}\toprule
-laboratory & $n$ & median $A$ raw & median $A$ tared & $T_{\mathrm{off}}$ & $T_{\mathrm{scale}}$ \\\midrule
-GSE87571 (Uppsala) & 732 & 0.9918 & 0.9475 & $-0.0030$ & 0.9390 \\
-GSE42861 (Karolinska) & 12 & 1.0156 & 0.9886 & $+0.0055$ & 0.9205 \\
-GSE111629 (UCLA) & 12 & 0.9613 & 0.9706 & $+0.0285$ & 0.9267 \\
-GSE125105 (Munich) & 12 & 1.0043 & 1.0192 & $+0.0425$ & 0.8902 \\\bottomrule
+\begin{tabular}{@{}lrll@{}}\toprule
+arrays & $n$ & $N$, median (range) & Met-A, median \\\midrule
+reference neutrophils & 12 & 0.1285 (0.1223--0.1489) & 1.001 \\
+second laboratory, donor 1 & 24 & 0.1504 (0.1067--0.1655) & 1.069 \\
+second laboratory, donor 2 & 24 & 0.1656 (0.1365--0.2434) & 1.192 \\\bottomrule
 \end{tabular}
 \end{center}
+\measured{} (\texttt{DEV\_NOISE\_01\_OUTCOME.md}; the 12 reference rows are the six physical arrays deposited twice.) Within the second laboratory
+Met-A follows $N$ ($\rho=0.79$ and 0.83). $N$ does not explain all of it: some second-laboratory arrays with $N$ at the reference level still read
+about 1.07. That residual is the reason the chain also tares every reading against references run beside it.
 
-It failed every bar written for it. \measured{} The array does compress $\beta$ by about 6~\% at the extremes on every laboratory
-($T_{\mathrm{scale}}$ 0.89--0.94), and that is real. But the linear tare moved $A$ by a near-constant $-0.044$ on 94~\% of arrays
-regardless of where they sat, which is an offset and not a tare; $T_{\mathrm{scale}}$ varied more within a chip than between chips; and neither
-parameter predicted $A$ ($r=-0.14$ and $-0.07$ on 732 arrays). Compression at $\beta=0$ and 1 says little about the response at $\beta\approx0.7$,
-where identity loci sit.
+\section{The tare: references run beside the specimen}
+
+A physical instrument is zeroed against a known input measured the same way. Chain v3 does this with healthy reference specimens of the same
+type, run on the same slide, else in the same batch, through the same chain (Stage~T, \texttt{conductor\_v3.py}, \texttt{stage\_t\_tare}). The
+references are part of the run, not a stored population, and the specimen is never among its own references.
+\begin{itemize}
+\item \textbf{Median tare} (3 to 19 references): $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$.
+\item \textbf{Noise-corrected tare} (at least 20 references, each with its untared $A$, neutrophil fraction $f_{\rm neu}$ and noise index $N$):
+      a least-squares fit $A=a+b\,f_{\rm neu}+c\,N$ on the references (isolated neutrophils: $A=a+c\,N$), and $A_{\rm rel}=A/\hat A$ at this
+      specimen's own $f_{\rm neu}$ and $N$.
+\item \textbf{Detection limit:} $2\times$ the references' spread divided by the shift that a 1~\% loss of the neutrophil pattern would cause at this
+      specimen's own fraction. Every tared reading states the smallest loss it could have shown.
+\end{itemize}
+With fewer than three references the reading is printed as a number with the word \emph{untared} and no gauge state.
+
+Why the tare is needed is in the acceptance record (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md},
+\texttt{chain\_acceptance.csv}). Untared whole-blood Met-A read 0.943--0.968 on six DNA mixtures from the reference laboratory and 1.073--1.115 on
+five whole bloods from another laboratory. After the same-batch tare they read 0.987--1.021 and 0.986--1.032, all in Normal. \measured{} Isolated
+neutrophils need the tare as well: a second laboratory's purified neutrophils read 0.86--1.26 against the frozen floor with no tare, and the spread
+followed the arrays' noise, not purity (\texttt{PROC\_NEUT\_TEST\_01\_T2\_OUTCOME.md}). \measured
+
+The noise-corrected form comes from one laboratory's whole bloods: among 76 healthy adults, untared $A\approx0.60+0.205\,f_{\rm neu}+2.51\,N$
+($R^2=0.85$), and divided by that expectation fitted on the others, 73 of 76 read Normal (SD 0.022) (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \fitted{}
+It was fitted after looking at those data and has not yet been tested on a held-out laboratory with at least 20 references. \openprob
+
+\paragraph{A tare from the SNP probes.} Every array carries probes on common polymorphisms that read $\beta=0$, $\tfrac12$ or $1$ by genotype. A
+linear tare fitted to them was tested on 768 arrays from four laboratories and not commissioned: it moved the reading by a near-constant amount on
+94~\% of arrays, its scale term varied more within a chip than between chips, and neither parameter predicted the reading ($r=-0.14$ and $-0.07$)
+(\texttt{PROC\_TARE\_01\_OUTCOME.md}). \measured{} Compression at $\beta=0$ and 1 says little about the response where identity sites sit.
 
 \section{What remains open}
 
-Figure~\ref{fig:tare} shows the instrument's own spread: four laboratories' healthy whole blood reads immune $A$ medians from 0.961 to 1.016,
-all inside Normal but 0.055 apart. A laboratory zero computed from healthy panels would remove the spread, and was built, and is kept on record
-unapplied, because it is a population defining a correction. The two routes that would zero the instrument physically are recorded and not yet
-started: a nonlinear response model using the control probes as well as the SNP clusters, and a physical reference material of known methylation
-run through each laboratory's own pipeline. \openprob
+Two routes would zero the instrument physically, without reference specimens in the run: a nonlinear response model using the control probes as
+well as the SNP clusters, and a physical reference material of known methylation run through each laboratory's own pipeline. Neither is started.
+The noise-corrected tare needs a held-out laboratory. The bisulfite-conversion line needs calibration, and a 450K floor needs freezing before 450K
+arrays can be read. \openprob
