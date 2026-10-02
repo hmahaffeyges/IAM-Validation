@@ -105,7 +105,7 @@ The papers are the working record. Where a paper and the corrections list disagr
 - [Physics of methylation: Landauer metrology](docs/papers/Physics_of_Methylation__Landauer_Metrology.pdf)
 
 **Exploratory, marked as such** — not part of the validation record:
-- [Gravitational engineering and interstellar transit: a first-principles exploration (exploratory)](docs/papers/Gravitational_Propulsion_and_IAM.pdf)
+- [Gravitational engineering and interstellar transit: a first-principles exploration (exploratory)](docs/papers/IAM_Gravitational_Engineering_Exploration.pdf)
 
 **Earlier revisions, kept for provenance:**
 - [Earlier revision of the Bekenstein coefficient paper](docs/papers/iam_bekenstein_coefficient.pdf)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """beta_gamma bound and the photon-sector theta_s shift (DUAL_SECTOR_VALIDATION_CHECK.md items 8a-8c). numpy, scipy.
-Same model and data as tests/mcmc_final_iam.py and development/archive/tests_27-29/test_29_beta_gamma_constraint.py:
+Same model and data as tests/mcmc_final_iam.py and docs/RETIRED_2026-10/top_level/development/archive/tests_27-29/test_29_beta_gamma_constraint.py:
 H_photon = 67.4 sqrt(Om a^-3 + Or a^-4 + OL + beta_g e^(1-1/a)), r_s = 144.43 Mpc fixed, theta_s = 0.0104110 +/- 0.0000031."""
 import numpy as np
 from scipy.integrate import quad

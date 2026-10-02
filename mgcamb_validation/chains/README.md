@@ -710,7 +710,7 @@ If you use this code or results in published research, please cite:
 
 ## Development History
 
-This repository presents the final validated framework. Complete development history, including exploratory tests and deprecated approaches, is available in the [`development/`](development/) directory. See [`development/README_development.md`](development/README_development.md) for scientific evolution and key breakthroughs.
+This repository presents the final validated framework. Complete development history, including exploratory tests and deprecated approaches, is available in the [`docs/RETIRED_2026-10/top_level/development/`](docs/RETIRED_2026-10/top_level/development/) directory. See [`docs/RETIRED_2026-10/top_level/development/README_development.md`](docs/RETIRED_2026-10/top_level/development/README_development.md) for scientific evolution and key breakthroughs.
 
 **Validation Timeline:**
 - **Tests 1-26:** Early exploration (growth mechanisms, various parameterizations)

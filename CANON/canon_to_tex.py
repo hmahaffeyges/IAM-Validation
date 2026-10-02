@@ -38,7 +38,7 @@ def main():
        r"$M$ & $E/k_BT$ (cells $20.94$; chips $A\ln2$); $M/\ln2$ in Landauer units\\",
        r"$n$ & temperature exponent, $A\propto T^n$; calibrated per class, not derived; not $A$\\\bottomrule",
        r"\end{tabular}\end{center}",
-       r"\section*{Constants}", r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}}\toprule",
+       r"\section*{Constants}", r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}}\toprule",
        r"name & value & units & derivation and source\\\midrule\endhead"]
     for k,v in C["constants"].items():
         val=v["value"]; val="pending" if val is None else (f"{val:.6g}" if isinstance(val,float) else str(val))
