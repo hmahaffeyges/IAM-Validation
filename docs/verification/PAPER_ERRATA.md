@@ -61,3 +61,9 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | V18 | Virial Efficiency Table 1; PRL Table I; Wide Domains | N-body row | 2K/\|U\| = 0.815 ± 0.025 (six studies) | published 2T/\|U\| ≈ 1.1–1.3 within r_vir (Bett 2007, Neto 2007, Power 2012, Klypin 2016); 1.02–1.17 with the surface-pressure term (Klypin 2016); print these. 0.815 = 1/(2 f_coll) is a definition, not a measurement | confirmed | `virial/NBODY_TRACE.md` |
 | V19 | PRL Table I; Wide Domains Table 1 | Chandrasekhar row | 1.44 M⊙ | 1.456 M⊙ for μ_e = 2 (ω₃⁰ = 2.01824, CODATA 2018) | confirmed | `scripts/verify_virial_atoms_to_horizon.py` |
 | V20 | Universal Landauer Identity (archive/derivation suite) | S_BH | 4πGM²/(ħc³) | 4πGk_BM²/(ħc) | confirmed (found 2026-09-19, logged 2026-10-02) | same script |
+| **Black-hole papers (G6), read 2026-10-02** |||||||
+| B1 | IAM_BH_Thermodynamics §3; Info Paradox §3 | P_SB = P_Hawking "physical, not a check" | identity | the Hawking luminosity used is the black-body formula itself (ratio 1 by construction); real emission has greybody factors (Page 1976) | confirmed | `black_holes/BLACK_HOLES_CHECK.md` #3 |
+| B2 | Info Paradox §6, Result 1 | Page curve; S_rad = S0/2 at τ/2; S0 2.6e76 bits | — | monotonic first-law transfer, S0/2 at 0.646 τ; not the Page curve (no turnover); S0 = 1.51e77 bits | confirmed | #4 |
+| B3 | M–σ §3–4, Tables 1–2 | M ∝ σ⁴ from v²/c²; 2.00e8 at 200 km/s "to 2 %"; slope 4.05 ± 0.07 | — | dimensional slip (c³); with correct S_BH needs unstated η = 0.0057; radiation reaction is 2.5PN; observed slope 5.64 ± 0.32; 4.05 unsourced | confirmed | #5 |
+| B4 | Bekenstein coefficient Eqs. 3, 16, §6.1 | G = c⁴/(4ħη); c⁴/(4ħG) = 1/(4ℓ_P²); κ_min | — | G = c³/(4ħη); factor c; κ_max = c²/ℓ_P; η still needs G as input | confirmed | #6 |
+| B5 | Bekenstein coefficient, Acknowledgments | named private correspondent | — | remove name (author rule) | author | #7 |

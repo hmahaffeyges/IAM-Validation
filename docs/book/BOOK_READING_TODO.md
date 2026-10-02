@@ -62,10 +62,10 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 ## G6 Black holes and horizons (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 25 | IAM_Black_Hole_Information_Paradox | Feb 2026 | 14 | ☐ | ☐ | ☐ |
-| 26 | IAM_BH_Thermodynamics | 25 Feb 2026 | 9 | ☐ | ☐ | ☐ |
-| 27 | IAM_M_Sigma_Paper | 25 Feb 2026 | 7 | ☐ | ☐ | ☐ |
-| 28 | Bekenstein_coefficient (= iam_bekenstein_coefficient; same text, one bullet glyph differs) | Apr 2026 | 11 | ☐ | ☐ | ☐ |
+| 25 | IAM_Black_Hole_Information_Paradox | Feb 2026 | 14 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 26 | IAM_BH_Thermodynamics | 25 Feb 2026 | 9 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 27 | IAM_M_Sigma_Paper | 25 Feb 2026 | 7 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
+| 28 | Bekenstein_coefficient (= iam_bekenstein_coefficient; same text, one bullet glyph differs) | Apr 2026 | 11 | ☑ 2026-10-02 | ☐ | ☑ `verification/black_holes/BLACK_HOLES_CHECK.md` |
 
 ## G7 Quantum (Part 2; interpretation sections to Part 5)
 | # | Paper | Date | pp | Read | Chapter | Check |
