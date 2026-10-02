@@ -8,3 +8,5 @@ print("   with the paper's a^(n-9/2): n - 9/2 = -1 gives n =", 9/2-1, "(paper pr
 P=lambda m: hb*c**6/(15360*np.pi*G**2*m**2); T=lambda m: hb*c**3/(8*np.pi*G*m*k)
 m=Ms; print(f"3. BH: P/(k T ln2) = {P(m)/(k*T(m)*np.log(2)):.4e} bits/s; c^3/(1920 G M ln2) = {c**3/(1920*G*m*np.log(2)):.4e}; radiation entropy rate (4/3)P/T is 4/3 of it")
 print("4. H_matter = 67.16 sqrt(1 + 0.1575) =", round(67.16*np.sqrt(1.1575),2))
+print("5. Bottom-up exactly (Press-Schechter, matter domination): I_dot = (rho_m/m_p) H dF/dln a, F = erfc(nu/sqrt2), nu = delta_c/(sigma(M_min) D)")
+print("   => n_eff = d ln(dF/dln a)/d ln D = nu^2 - 1  (exact); 7/2 at nu = 2.121, 5/2 at nu = 1.871")

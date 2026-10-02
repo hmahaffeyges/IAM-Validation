@@ -11,7 +11,11 @@ Placement: Part 3 (the bridge chapter: Zurek's records, IAM's Law prices them, t
 ## Corrections
 1. **§4 "two-direction derivation, both give n = 5/2"**: the top-down algebra gives n = 7/2 (n − 9/2 = −1; THEORY_CHECK, and the October Entanglement
    revision). The bottom-up 5/2 relies on an asserted ⟨ν⟩_eff ∝ D^(−1/2) factor. The two directions do not agree; the "convergence" is withdrawn.
-   Bottom-up derivation of n = 7/2 from the halo mass function is open.
+   **Bottom-up done exactly (2026-10-02):** with Press–Schechter in matter domination the rate is İ = (ρ_m/m_p) H dF_coll/dln a, F_coll = erfc(ν/√2),
+   ν = δ_c/(σ(M_min)D), and the exponent is n_eff = ν² − 1 exactly. n = 7/2 is reached when the writing is dominated by halos at ν = 2.12 (2σ peaks);
+   5/2 at ν = 1.87. So the bottom-up does not fix n by itself: it says which halos must dominate the writing for the top-down 7/2 to hold, and since
+   ν ∝ 1/a the effective exponent drifts with time. Open: whether the writing threshold M_min (or the mass weighting of bits per halo) gives ν ≈ 2.1
+   over the epoch that sets E(a); this is a defined calculation with the measured σ(M).
 2. §4.1 the Diósi–Penrose criterion is attributed to Joos & Zeh (their result is environmental decoherence; both give "instantaneous").
 3. §3 "β_m posterior 0.2σ"; "f_coll × η_vir = 0.505 confirms β_m from first principles": β_m is fixed in every chain; η_vir 0.815 does not trace (V31).
 4. §3.2 Table 1 / Fig. 2: equipartition is not the 1/r virial half (removed in VIRIAL_CHECK); "cosmological 0.3 %" is not a virial measurement.
