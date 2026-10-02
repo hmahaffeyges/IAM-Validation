@@ -1,0 +1,90 @@
+% Part 2 chapter carrying "Dual-Sector Expansion: Type Ia Supernovae ..." (Mahaffey, 23 Feb 2026), read in full 2026-10-02, in the paper's order.
+% Checks and reproduction: docs/verification/chains/DUAL_SECTOR_VALIDATION_CHECK.md, docs/verification/scripts/verify_dual_sector_validation.py.
+% \authorhold boxes: the paper's three-test conclusion does not survive reproduction; title and conclusions await the author.
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+
+\chapter{What Type Ia supernovae measure in the dual-sector picture}\label{ch:dsvalidation}
+\authorhold{Working title. The source paper's title, ``Type Ia Supernovae Validate Matter-Sector $H_0$ Normalization'', rests on three fits that cannot
+measure $H_0$ (Section~\ref{sec:dsv_tests}). Title and conclusions are for the author to decide.}
+
+\section{The question}
+The CMB gives $H_0=67.4\pm0.5$ km\,s$^{-1}$\,Mpc$^{-1}$ (Planck 2018); the Cepheid-calibrated distance ladder gives $73.04\pm1.04$ (SH0ES, Riess et al.\ 2022).
+In the dual-sector picture the late-time coupling acts on matter and not on light, with $\beta_m=\Omega_m/2=0.15765$ from the virial partition and no free
+parameter beyond $\Lambda$CDM. The Level 2 chains (Chapter~\ref{ch:chains}) give $\Delta\chi^2=+0.54$ against $\Lambda$CDM, $\sigma_8$ from $0.809$ to $0.800$, and the
+split $H_0^{\rm photon}=67.16$, $H_0^{\rm matter}=67.161\sqrt{1.15765}=72.26$. Supernovae are hosted in galaxies and calibrated on Cepheids in nearby galaxies;
+the question is what the Pantheon+ supernovae themselves say about the two sectors.
+
+\section{Framework}
+The matter-sector expansion rate is
+\begin{equation}
+H_m^2(a)=H_0^2\left[\Omega_ma^{-3}+\Omega_\Lambda+\beta E(a)\right],\qquad E(a)=\exp(1-1/a),
+\end{equation}
+while the background Friedmann equation, which sets photon paths, is $\Lambda$CDM. Two predictions for supernovae follow:
+\begin{enumerate}
+\item \emph{Normalisation.} The local calibration (Cepheids, TRGB) reads the matter-sector rate, $H_0\approx73$.
+\item \emph{Geometry.} The shape of $d_L(z)$ follows $\Lambda$CDM ($\beta_{\rm distance}\approx0$), because the coupling acts on growth, not on the background.
+\end{enumerate}
+Mapped to the $\mu$--$\Sigma$ parameterisation, $\mu(a)=H^2_{\Lambda\rm CDM}/(H^2_{\Lambda\rm CDM}+\beta_mE(a)H_0^2)$ and $\Sigma=1$: $\mu=0.864$ today, $0.982$ at $z=1$,
+$\to1$ above $z\approx3$.
+
+\section{Data and method}
+Pantheon+SH0ES (Brout et al.\ 2022): 1701 light curves, $0.001<z<2.26$; the Hubble flow $z>0.01$ leaves 1588 supernovae (1590 with the collaboration's
+$z_{\rm HD}$). The model magnitude is $m_b=M+5\log_{10}(d_L/10\,{\rm pc})$, with $d_L=(1+z)\int_0^z c\,dz'/H(z')$ and $M$ free. The source paper fitted
+$(\Omega_m,H_0,\beta,M)$ with diagonal errors and three $H_0$ priors: Planck (Test A), SH0ES (Test B), none (Test C). The checks here repeat those fits exactly
+and then use the full statistical-plus-systematic covariance.
+
+\section{What the three tests show}\label{sec:dsv_tests}
+\calc\ $H_0$ and $M$ enter the magnitudes only as $M-5\log_{10}H_0$. With $M$ free the supernova $\chi^2$ is therefore independent of $H_0$: it is $721.12$ at
+$H_0=67.4$, $70$ and $73.04$ alike, with $M-5\log_{10}H_0=-28.935$ each time. The $H_0$ in Tests A and B is the prior, absorbed by $M$; Test C's drift to the edge
+of the $H_0$ range is the same flat direction. Repeated exactly, Tests A and B reach the same best fit ($\Omega_m=0.205$, $\beta=-0.30$, $\chi^2=721.12$); the source
+paper's Test B value ($\chi^2=723.16$) is where its optimiser stopped. The supernova magnitudes alone therefore cannot choose between $67.4$ and $73.04$.
+$H_0=73.04$ is set by the Cepheid calibration of $M$, which is the measurement the dual-sector picture assigns to the matter sector.
+\authorhold{The source paper concludes that the supernovae ``reject the photon-sector expansion rate'' and ``validate matter-sector $H_0$''. With $M$ free the fits
+cannot do either. The evidence for Prediction~1 is the SH0ES calibration itself.}
+
+\section{What the supernovae do measure: geometry}
+\observed\ With the full covariance and $M$ marginalised, the shape of the Hubble diagram at Planck's $\Omega_m=0.315$ gives $\beta=-0.035$ ($68\,\%$: $-0.065$ to
+$0.000$). Supernova distances follow $\Lambda$CDM geometry: Prediction~2 holds. As a sanity check, $\Lambda$CDM with $\Omega_m$ free returns $\Omega_m=0.330$,
+matching the Pantheon+ result ($0.334\pm0.018$).
+\calc\ Applying the full matter-sector rate $H_m(z)$ to supernova distances worsens the fit by $\Delta\chi^2=+23.6$ at $\Omega_m=0.315$ (it can be offset only with
+$\Omega_m=0.41$). The data therefore favour the reading in which the supernovae carry the matter-sector \emph{normalisation} through their calibration and
+$\Lambda$CDM \emph{geometry} through their Hubble-flow shape, which is the reading of the two predictions above. The Level 1 Planck + Pantheon+ chains,
+with the background unmodified, agree: $\Delta\chi^2=+1.58$ (Chapter~\ref{ch:latetime}).
+
+\section{Growth versus geometry}
+The coupling's main effect is on growth. The matter density fraction
+\begin{equation}
+\Omega_m(a;\beta)=\frac{\Omega_ma^{-3}}{\Omega_ma^{-3}+\Omega_\Lambda+\beta E(a)}<\Omega_m(a;0)
+\end{equation}
+enters the growth equation and lowers $\sigma_8$ ($0.809\to0.800$ in the Level 2 chains); $f\sigma_8(z)$ from SDSS, BOSS and eBOSS probes it directly. Distances
+integrate the background $H(z)$, which is unchanged.
+
+\section{Alternatives}
+\paragraph{Supernova systematics.} Photometry, dust and calibration systematics move $M$, and through it the ladder $H_0$; the Hubble-flow shape is protected by
+the full covariance used above.
+\paragraph{Early dark energy.} It raises the CMB-inferred $H_0$ by shrinking the sound horizon, does not split the sectors, and tends to raise $S_8$ (Hill et al.\ 2020).
+\paragraph{Generic modified gravity.} $f(R)$, DGP and most scalar--tensor theories give $\mu>1$ or correlated changes in $\mu$ and $\Sigma$; the dual-sector picture gives
+$\mu<1$ with $\Sigma=1$ and an unmodified background.
+
+\section{Consistency across observables}
+\begin{center}\small
+\begin{tabular}{lll}\hline
+Observable & Sector & Value\\\hline
+CMB acoustic scale, Planck $H_0$ & photon & $67.16$ (Level 2 chain)\\
+$f\sigma_8$ (SDSS, BOSS, eBOSS) & matter, growth & $\sigma_8\ 0.809\to0.800$\\
+BAO angles & photon paths & unchanged (Chapter~\ref{ch:latetime})\\
+Cepheid-calibrated ladder (SH0ES) & matter, normalisation & $73.04\pm1.04$; predicted $72.26$\\
+Pantheon+ Hubble-flow shape & geometry & $\beta=-0.035^{+0.035}_{-0.030}$, $\Lambda$CDM\\\hline
+\end{tabular}
+\end{center}
+\authorhold{The source paper lists $\beta_\gamma<1.4\times10^{-6}$ (95\,\% CL, MCMC) and a ``$36\sigma$'' acoustic-scale tension for a uniform $\beta$. No chain in the
+record samples $\beta_\gamma$; the source script is needed before these are printed.}
+
+\section{Predictions}
+\begin{enumerate}
+\item \emph{CMB-S4}: a tighter acoustic-scale constraint on any photon-sector coupling.
+\item \emph{Weak lensing (Euclid, LSST)}: $S_8=\sigma_8\sqrt{\Omega_m/0.3}=0.822$ for the Level 2 chain ($\sigma_8=0.800$, $\Omega_m=0.3166$), with $\Sigma=1$.
+\item \emph{DESI Year 5}: $f\sigma_8(z)$ at $\sim1\,\%$ tests the growth suppression directly.
+\item \emph{Standard sirens}: binary-neutron-star hosts are galaxies, so sirens read the matter-sector rate, $72.3$--$72.5$ (GW170817: $75.5^{+5.3}_{-5.4}$).
+\item \emph{Euclid} $\mu_0$: $\sigma\approx0.04$ tests $\mu_0=-0.136$ at about $3\sigma$.
+\end{enumerate}

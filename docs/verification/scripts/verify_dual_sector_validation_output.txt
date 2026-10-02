@@ -1,0 +1,15 @@
+1. Paper setup, 1588 SNe
+   A Planck prior  Om 0.2049 H0 67.40 beta -0.3000 M -19.7919 chi2 721.12
+   B SH0ES prior   Om 0.2049 H0 73.04 beta -0.3000 M -19.6173 chi2 721.12
+   C no prior      Om 0.3727 H0 75.00 beta -0.0022 M -19.1820 chi2 723.15
+   profile in H0 (minimised over Om, beta, M):
+   H0 64.00: chi2 721.1219   M - 5 log10 H0 = -28.9346
+   H0 67.40: chi2 721.1166   M - 5 log10 H0 = -28.9352
+   H0 70.00: chi2 721.1166   M - 5 log10 H0 = -28.9352
+   H0 73.04: chi2 721.1166   M - 5 log10 H0 = -28.9352
+2. Full covariance, 1590 SNe
+   Om 0.315: LCDM 1403.77; beta = 0.15765 on SN distances 1427.39; dchi2 +23.62
+   Om 0.315: best beta -0.035, 68 % -0.065 to +0.000
+   beta 0.0000 fixed, Om free: Om 0.330 chi2 1402.93
+   beta 0.1577 fixed, Om free: Om 0.410 chi2 1403.70
+3. S8 = sigma8 sqrt(Om/0.3), Level 2 Run A (sigma8 0.7998, Om 0.3166): 0.822

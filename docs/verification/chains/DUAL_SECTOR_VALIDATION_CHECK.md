@@ -1,0 +1,42 @@
+# DUAL_SECTOR_VALIDATION_CHECK — "Dual-Sector Expansion: Type Ia Supernovae Validate Matter-Sector H0 Normalization with ΛCDM Geometric Consistency"
+(23 Feb 2026, 12 pp), read in full 2026-10-02. Reproduction: `scripts/verify_dual_sector_validation.py` (public Pantheon+ release, ~10 s); output beside it.
+
+## The three tests do not measure H0
+In the paper's χ², m_b(model) = M + 5 log₁₀ d_L + 25 with d_L ∝ 1/H0, and M is free. H0 and M enter only as M − 5 log₁₀ H0, so the supernova magnitudes
+carry **no information on H0**: the χ² profile is flat, 721.1166 at H0 = 67.4, 70 and 73.04 (M − 5 log₁₀ H0 = −28.935 in every case). The H0 in Tests A and B
+is set entirely by the prior; M absorbs it. Consequences:
+1. **Test B's result is an optimizer stop, not a minimum.** The paper reports Ω_m 0.3736, β −0.0005, χ² 723.16. The same code from the same start reaches
+   Ω_m 0.2049, β −0.30, χ² 721.12 under the SH0ES prior — identical to Test A. Tests A and B have the same best fit; neither prior is preferred.
+2. **"SNe reject the photon-sector expansion rate" does not follow.** Test A's χ² (721.12) is lower than the paper's Test B (723.16). β → −0.30 in Test A is
+   the Ω_m–β shape degeneracy (Ω_m 0.205 with β at its bound), present for any H0.
+3. **Test C's "H0 at the boundary"** is the flat direction drifting; it says nothing about which H0 the supernovae prefer.
+4. **§VI.A "β and M are not degenerate"**: the degeneracy that matters is H0–M, and it is exact.
+
+## What the supernovae do measure (full STAT+SYS covariance, zHD > 0.01, 1590 SNe, M marginalised)
+- **Shape of the Hubble diagram at Planck Ω_m = 0.315:** best β = −0.035, 68 % range −0.065 to 0.000. Supernova distances follow ΛCDM geometry. The paper's
+  Prediction 2 (β_distance ≈ 0) holds.
+- **The matter-sector expansion rate applied to supernova distances** (H² = H²_ΛCDM + β_m E(a) H0², β_m = 0.15765): Δχ² = +23.6 against ΛCDM at Ω_m = 0.315.
+  It can be offset only with Ω_m = 0.41 (Δχ² +0.8), which Planck excludes. This bears on how "supernovae on the matter ruler" is implemented (see below).
+- **H0 = 73.04** comes from the Cepheid calibration of M (SH0ES, Riess et al. 2022), not from the Hubble-flow fit. In the dual-sector picture that measurement
+  is the matter-sector one; the Hubble-flow data neither confirm nor reject it.
+
+## Reproduced
+- 1588 SNe with 0.01 < zCMB < 2.5; Test A numbers (Ω_m 0.2049, β −0.30, M −19.79, χ² 721.12) exactly.
+- H0_matter = 67.161 × √1.15765 = 72.26; µ(0) = 0.864, µ(1) = 0.982.
+- ΛCDM with Ω_m free on the full covariance: Ω_m = 0.330 (Pantheon+ published 0.334 ± 0.018) — the reproduction is sound.
+
+## Other corrections
+5. **§VIII.D "Euclid/LSST S8 = 0.78 ± 0.01"**: S8 = σ8 √(Ω_m/0.3) = 0.7998 × √(0.3166/0.3) = **0.822** for the Level 2 IAM chain. 0.78 does not follow.
+6. **Table V vs Fig. 4** disagree: the table gives N = 1094/419/75 and β = −0.007/−0.004/+0.037; the figure gives N = 892/486/210 and β = −0.001/+0.002/+0.001.
+7. **Table VI "BAO — matter sector, H0 = 72.5"** contradicts the Level 1 paper (§3.1), where BAO angles are photon paths and unchanged. The book follows the
+   Level 1 paper.
+8. **"β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)" and "36σ CMB acoustic scale tension with uniform β"**: no chain in the record samples β_γ (CHAIN_EXTRACTION_FINAL
+   has no β_γ column). Not reproduced; held until its source script is found.
+9. "15 converged chains", "Δχ² = +0.54", "σ8 0.809 → 0.800", "H0 67.16 / 72.26" match the Level 2 chains.
+
+## For the author
+- The paper's title and conclusions 1–3 and 5 rest on the three tests. The chapter keeps the paper's structure and Prediction 2, reports what the tests
+  show, and holds the title and conclusions for the author.
+- **The +23.6 result** applies to the TWO_RULER_DESI_TEST mock, which put supernovae on H̃²_m = H²_ΛCDM + β_m E(a) H0². Real Pantheon+ shape disfavours that
+  form at Planck Ω_m. The chains (Level 1 run J, background unmodified) are consistent (Δχ² +1.58). Which form "supernovae sit on the matter ruler" means —
+  the normalisation only (the ladder H0), or the full H̃_m(z) — is the author's decision; the data favour normalisation only.
