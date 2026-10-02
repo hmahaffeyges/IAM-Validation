@@ -1,5 +1,5 @@
 # DUAL_SECTOR_VALIDATION_CHECK — "Dual-Sector Expansion: Type Ia Supernovae Validate Matter-Sector H0 Normalization with ΛCDM Geometric Consistency"
-(23 Feb 2026, 12 pp), read in full 2026-10-02 (all 1,239 extracted lines, including the three appendix scripts; the first pass saw previews only and was re-read completely before this version). Reproduction: `scripts/verify_dual_sector_validation.py` (public Pantheon+ release, ~10 s); output beside it.
+(23 Feb 2026, 12 pp), read in full 2026-10-02 (all 1,239 extracted lines, including the three appendix scripts; the first pass saw previews only and was re-read completely before this version; confirmed again in 50-line chunks with a line ledger, no gaps). Reproduction: `scripts/verify_dual_sector_validation.py` (public Pantheon+ release, ~10 s); output beside it.
 
 ## The three tests do not measure H0
 In the paper's χ², m_b(model) = M + 5 log₁₀ d_L + 25 with d_L ∝ 1/H0, and M is free. H0 and M enter only as M − 5 log₁₀ H0, so the supernova magnitudes
@@ -52,7 +52,14 @@ is set entirely by the prior; M absorbs it. Consequences:
 12. **Figs. 3 and 5 "β_m = 0.157 ± 0.029 (RSD/growth)"**: the ±0.029 is from the early emcee fit (`results/mcmc_results*.npz`), not from β_m = Ω_m/2, which is
     fixed; label it or remove.
 13. Appendix code reads `parts[4]` (zCMB), `parts[8]` (m_b_corr), `parts[9]` (diagonal error) with 0.01 < zCMB < 2.5: matches the reproduction here (1588 SNe,
-    Test A χ² 721.12). §III.A's "median σ_mb = 0.21 mag" not checked.
+    Test A χ² 721.12). §III.A's "median σ_mb = 0.21 mag" ✓ (0.212, `m_b_corr_err_DIAG`, 1588 SNe).
+
+14. (ledger read) **§VIII.D CMB-S4 "β_γ < 10⁻⁷"** scales the buggy 1.4 × 10⁻⁶ bound (item 8); with the corrected 0.0039 a CMB-S4 forecast must be redone.
+    **"Standard sirens should yield H0 ≈ 73"**: the chain value is 72.26; GW170817 analyses span 68–75.5 (one event). **"DESI Y5 … σ8 = 0.800, confirmed by
+    Level 2"**: 0.800 is the chain posterior, not a confirmation.
+15. (ledger read) **§VII.C** "modified gravity affects all matter equally … no mechanism for photon/matter separation": µ–Σ models do separate growth (µ) from
+    lensing (Σ); the paper's own §VIII.E says so. **§VII.D** "IAM improves S8": the Level 2 S8 is 0.822 vs ΛCDM 0.832, a ~1σ shift.
+16. Acknowledgments credit an AI assistant for discussion; not a private correspondent (N1 does not apply).
 
 ## For the author
 - The paper's title and conclusions 1–3 and 5 rest on the three tests. The chapter keeps the paper's structure and Prediction 2, reports what the tests

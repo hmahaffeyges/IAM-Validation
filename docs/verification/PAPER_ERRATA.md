@@ -56,6 +56,8 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | **Wording across papers (author, 2026-10-02)** |||||||
 | W1 | `iam_law_v2.tex` (l. 54, 114), `Evidence_Baryon.tex` (l. 94), `iam_cosmological_constant.tex` (l. 275) | IAM's law statement | "from quantum potential to classical actuality" | "from a quantum superposition to a classical record" | author approved | `CANON/iam_canon.json` |
 | D12 | Dual_Sector_Validation_Paper | title, abstract, §IX | "Type Ia Supernovae Validate Matter-Sector H0 Normalization"; conclusions 1–3, 5 | "Type Ia Supernovae in the Dual-Sector Picture: ΛCDM Distances with a Locally Calibrated H0"; conclusions: (1) SN distances follow ΛCDM geometry; (2) β applied to SN distances excluded (Δχ² +23.6); wording final after the matter-ruler read | author approved (title) | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` |
+| D13 | | §VIII.D | CMB-S4 β_γ < 10⁻⁷; sirens ≈ 73; σ8 0.800 'confirmed' | forecast from corrected 0.0039; 72.26 (one event spans 68–75.5); chain value | confirmed | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` #14 |
+| D14 | | §VII.C–D | MG affects all matter equally; IAM improves S8 | µ–Σ separates growth and lensing; S8 0.822 vs 0.832 (~1σ) | confirmed | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` #15 |
 | **IAM Dual Sector Note** (`IAM_Dual_Sector_Note.pdf`, March 2026) |||||||
 | S1 | | §3 | "µ < 1, Σ = 1 unique; f(R) µ > 1, Σ > 1; DGP µ > 1" | f(R): Σ = 1, µ 1–4/3; DGP: Σ = 1, self-accelerating branch µ < 1; IAM-specific is Eq. 5 with no free parameter | confirmed (f(R)); DGP pending trace | `chains/DUAL_SECTOR_NOTE_CHECK.md` #1 |
 | S2 | | Table 1, Fig. 1(a), §5, §7 | β_γ < 1.4 × 10⁻⁶, ratio > 10⁵, "100,000×" | β_γ < 0.0039, β_γ/β_m < 0.025, ≥ 40× | confirmed | #2 |
