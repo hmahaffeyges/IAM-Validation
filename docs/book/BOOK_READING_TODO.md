@@ -16,7 +16,7 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 | 1 | Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework (Level 1) | 19 Feb 2026 | 13 | ☑ | ☑ `part2_drafts/p2_late_time_growth.tex` | ☑ `verification/chains/LATE_TIME_GROWTH_CHECK.md` |
 | 2 | Dual_Sector_Validation_Paper | 23 Feb 2026 | 12 | ☑ | ☑ `part2_drafts/p2_dual_sector_validation.tex` (2 author holds) | ☑ `verification/chains/DUAL_SECTOR_VALIDATION_CHECK.md` |
 | 3 | Dual_Sector_Perturbation_Cosmology_CAMB (Level 2) | 28 Feb 2026 | 17 | ☑ | ☑ `part2_drafts/p2_dual_sector_perturbation.tex` (1 hold: Run D) | ☑ `verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md` |
-| 4 | IAM_Dual_Sector_Note | Mar 2026 | 9 | ☐ | ☐ | ☐ |
+| 4 | IAM_Dual_Sector_Note | Mar 2026 | 9 | ☑ | ☑ `part2_drafts/p2_dual_sector_note.tex` | ☑ `verification/chains/DUAL_SECTOR_NOTE_CHECK.md` |
 
 **Not on the list (author, 2026-10-02):** the CAMB Technical Note and other pre-chain papers are superseded by the chains; used only for history and leads.
 
@@ -111,4 +111,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 **Not on the list but used by the book:** IAM_CAMB_Technical_Note (19 Feb, 28 pp, the chain engineering record behind G1). Add it as G1 #0?
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 3 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation). G3: read and checked, chapter to rebuild.
+Progress: 5 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note). G3: read and checked, chapter to rebuild.

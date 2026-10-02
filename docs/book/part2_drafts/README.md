@@ -9,3 +9,4 @@ Drafts for *Law and Order: The Thermodynamics of Informational Actualization*, P
 - `p2_late_time_growth.tex` — the Level 1 paper (Late-Time Growth Suppression) carried in its order with the final chain numbers.
 - `p2_dual_sector_validation.tex` — the Dual-Sector Validation paper carried in its order; the three-test conclusion held for the author (see verification/chains/DUAL_SECTOR_VALIDATION_CHECK.md).
 - `p2_dual_sector_perturbation.tex` — the Level 2 paper carried in its order; Run D held (CAMB fσ8 does not carry the modification).
+- `p2_dual_sector_note.tex` — the Dual Sector Note carried in its order, physics terms, chain values (the note's pre-chain figures not carried).
