@@ -220,3 +220,14 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | SX8 | | §2.5, Table 2 | Δχ² ≤ 2.32; µ0 0.006, 0.033; 17 chains | ≤ 1.73; 0.015, 0.039; 18 | confirmed | `observations/SECTOR_TENSION_CHECK.md` #9 |
 | SX9 | | Table 3 | DESI DR1 fσ8 values | differ from 2411.12021-derived values in 5/6 bins; trace | confirmed | `observations/SECTOR_TENSION_CHECK.md` #10 |
 | SX10 | | §1, §6.1 | named cosmologist | cite by journal/arXiv | confirmed | `observations/SECTOR_TENSION_CHECK.md` #11 |
+| **Survey Predictions** (`IAM_Survey_Predictions_Paper.pdf`, 25 Feb 2026), read in full 2026-10-02 |||||||
+| SP1 | | Table 5 | ΔD/D −6.8 %, Δfσ8 −10.2 % today | −0.78 %, −4.25 % (growth equation) | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #1 |
+| SP2 | | Table 5 | ΔΦ/Φ = Δµ | ΔΦ/Φ = ΔD/D (Σ = 1) | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #2 |
+| SP3 | | abstract, §3.2, Fig. 2 | A_ISW = 1.134 | ~1.03; sign stands | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #3 |
+| SP4 | | §5.1 | |dµ/dz| peaks at z ≈ 0.05 | largest at z = 0 | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #4 |
+| SP5 | | Table 2 | σ(µ0) timeline, 5.4σ, 7.5σ | unsourced, non-monotonic; only Euclid full survey 0.04 is sourced | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #5 |
+| SP6 | | Table 1 | current µ0 constraints | uncited; trace | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #6 |
+| SP7 | | §4.2, Fig. 3 | tomographic mock | no code; not reproduced | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #7 |
+| SP8 | | §6.2 | Σmν < 0.07–0.08 eV | no calculation; remove | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #8 |
+| SP9 | | §6.3 | CMB lensing identical | −0.08 % | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #9 |
+| SP10 | | Table 6 | scorecard statuses | S8 0.822; KiDS 2σ; ISW unsourced; 18 chains | confirmed | `observations/SURVEY_PREDICTIONS_CHECK.md` #11 |

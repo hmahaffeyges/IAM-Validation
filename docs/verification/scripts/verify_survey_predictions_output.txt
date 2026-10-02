@@ -1,0 +1,23 @@
+1. Table 5: paper dD/D, dfs8/fs8 vs growth equation (same early amplitude)
+   z 0: dmu -13.62%  dD/D  -0.78% (paper -6.8)  dfs8  -4.25% (paper -10.2)
+   z 0.1: dmu -11.44%  dD/D  -0.61% (paper -5.7)  dfs8  -3.42% (paper -8.6)
+   z 0.3: dmu  -7.82%  dD/D  -0.37% (paper -3.9)  dfs8  -2.17% (paper -5.9)
+   z 0.5: dmu  -5.18%  dD/D  -0.22% (paper -2.6)  dfs8  -1.35% (paper -3.9)
+   z 1.0: dmu  -1.78%  dD/D  -0.06% (paper -0.9)  dfs8  -0.41% (paper -1.3)
+   z 2.0: dmu  -0.23%  dD/D  -0.01% (paper -0.1)  dfs8  -0.04% (paper -0.2)
+   paper dPhi/Phi = dmu: with Sigma = 1 the lensing potential follows delta_m, so dPhi/Phi = dD/D
+2. Table 4 activation milestones: fraction of 1 - mu(0) reached
+      1%: a 0.305 z 2.28 lookback 10.9 Gyr
+      5%: a 0.407 z 1.46 lookback 9.4 Gyr
+     10%: a 0.471 z 1.12 lookback 8.4 Gyr
+     25%: a 0.589 z 0.70 lookback 6.5 Gyr
+     50%: a 0.731 z 0.37 lookback 4.2 Gyr
+     75%: a 0.861 z 0.16 lookback 2.1 Gyr
+     90%: a 0.942 z 0.06 lookback 0.9 Gyr
+   |dmu/dz| peaks at z = 0.000
+   E(a) = 0.1: z = 2.30
+   E(a) = 0.5: z = 0.69
+   E(a) = 0.9: z = 0.11
+3. ISW source (1-f)D, uniform weight z 0.05-1.5: see verify_s8_trend.py (ratio ~1.03); paper A_ISW = 1.134; Fig. 2 per-sample 1.09-1.17
+4. Sirens: 67.161 sqrt(1.1575) = 72.26 ; GW170817 Abbott 2017: 70.0 +12/-8
+5. Table 2 timeline: sigma(mu0) DESI Y5 0.207 > DESI DR2 0.100 (non-monotonic; DESI Y5 alone cannot be weaker than DR2)
