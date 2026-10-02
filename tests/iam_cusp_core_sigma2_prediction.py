@@ -1,3 +1,5 @@
+# REVIEW 2026-10-02 (COS-368): dated record, kept unchanged below. Its comparison does not stand; see
+# results/side_tests/PRED_FOUR_REVIEW_2026-10-02.md before using any number from this script.
 """
 IAM Dark Matter Core Radius Prediction
 Timestamped Prediction Figure for GitHub Repository

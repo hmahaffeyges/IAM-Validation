@@ -284,11 +284,17 @@
  "COS-368": {
   "statement": [
    [
-    "; the script stays as the record of the failed prediction.",
-    "."
+    "Tested and failed: r_core = sqrt(G M_BH/(c H0)) scales as sigma^2 by construction through M-sigma, but the normalisation is ~130x below observed cores; the script stays as the record of the failed prediction.",
+    "Core radius r_core = sqrt(G M_BH/(c H0)), proportional to sigma^2: tested against the published LITTLE THINGS core radii of 25 dwarf galaxies and rejected. The slope of log core radius on log sigma is 0.71 (95 % interval -0.18 to 1.56) against 2, and galaxies of equal sigma differ by 0.41 dex against at most 0.15."
    ]
   ],
-  "reason": "working note"
+  "test_and_date": [
+   [
+    "observed dwarf core radii (measured)",
+    "Oh et al. 2015 LITTLE THINGS core radii, measured"
+   ]
+  ],
+  "reason": "pre-registered test on the published table"
  },
  "PAR-001": {
   "exclude": "records a dispute about precision; the sector dependence of the same formula is PAR-021"
@@ -558,5 +564,26 @@
  },
  "QUB-004": {
   "exclude": "the cooling prediction it states rests on a two-qubit value with no primary publication; the halving-temperature form is stated in Chapter ch:reach"
+ },
+ "COS-146": {
+  "statement": [
+   [
+    "Compared with Valcin et al. 2025: predicted globular-cluster age excess 1.378 Gyr vs measured 1.397 Gyr (0.10 sigma).",
+    "Globular-cluster age excess: the 1.378 Gyr match to Valcin et al. 2025 holds only at an assumed formation redshift z = 3.5. With formation left free the oldest ages (13.39 +/- 0.25 Gyr) fit LCDM with formation near z = 11 (8 to 23), and the same formula gives the full 13.78 Gyr for any formation above z = 8, 1.6 sigma above the measured age. Not a test until formation epochs are measured independently of the ages."
+   ]
+  ],
+  "reason": "agreement set by an assumed formation redshift"
+ },
+ "COS-147": {
+  "statement": [
+   [
+    "Hemispherical ('axis of evil') amplitude: A_IAM = 0.0628 vs observed 0.066 +/- 0.021.",
+    "Hemispherical power asymmetry: 0.0628 is an asymmetry of the late ISW amplitude alone, compared with a dipole modulation of the whole temperature map (0.066 +/- 0.021); late ISW is a small part of that map, and the measured asymmetry persists to multipoles near 600, where late ISW contributes nothing. Not a match; the hemisphere split and the direction are not derived."
+   ]
+  ],
+  "reason": "ISW-only amplitude compared with a whole-map modulation"
+ },
+ "PAR-019": {
+  "exclude": "same test as COS-368"
  }
 }
