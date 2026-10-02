@@ -118,3 +118,7 @@ term's size is set by the virial partition of the matter itself (β_m = Ω_m/2, 
 The history integral (items 3–4) must be written in that variable. Frame (author, 2026-10-02): Λ is the vacuum baseline before structure and
 accumulates as structure forms and decoherence accelerates; the GRF essay's "baseline" and the CC paper's "accumulated" are the same picture at
 two epochs. Approved wording kept: "Within GR with the informational term, Λ is the accumulated Landauer cost of baryonic decoherence…"
+
+## Excluded from the book (author, 2026-10-02: "keep anything out that is wild speculation")
+- MA §5, §10: the 10⁹ annihilation partners as the dark sector; "95 % memory, 5 % present".
+- MA §6: the weak force as the "force of becoming"; electroweak breaking as "the origin of duration"; the CKM phase fixed by the loop.
