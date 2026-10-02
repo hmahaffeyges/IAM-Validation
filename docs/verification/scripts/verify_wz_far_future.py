@@ -22,7 +22,7 @@ print(f"   dE/dln a = E/a peaks at a = {r_ln:.3f} (inflection of E in ln a; this
 print(f"   dE/dt = H E/a peaks at a = {r_t:.3f}, z = {1/r_t-1:.2f}; today dE/dt/e = {H(1)/np.e/Gyr*100:.3f} %/Gyr (paper 2.54); at peak {E(r_t)/r_t*H(r_t)/np.e/Gyr*100:.3f} %/Gyr")
 print(f"   paper's formula d(E/e)/da = 1/(e a^2) vs actual E/(e a^2): at a=0.5 {1/(np.e*0.25):.3f} vs {E(0.5)/(np.e*0.25):.3f}")
 print("5. DESI DR2 CPL points vs the CPL image of w_info")
-for nm,w0,s0,wa,sa in (("DR2+CMB+Pantheon+",-0.827,0.066,-0.75,0.29),("DR2+CMB+DESY5",-0.752,0.064,-1.05,0.28)):
+for nm,w0,s0,wa,sa in (("DR2+CMB+Pantheon+",-0.838,0.055,-0.62,0.21),("DR2+CMB+Union3",-0.667,0.088,-1.09,0.29),("DR2+CMB+DESY5",-0.752,0.057,-0.86,0.22)):   # arXiv:2503.14738 eqs. 25-27
     print(f"   {nm}: w0 offset {(-4/3-w0)/s0:+.1f} sigma, wa offset {(-1/3-wa)/sa:+.1f} sigma; DESI w(a=1) {w0:.3f} > -1, crossing -1 at a = {1-(-1-w0)/wa:.3f}")
 print("6. the informational term lives in the matter-sector rate: H_m^2 = H^2 + beta_m E(a) H0^2 (photon sector = LCDM)")
 bm=0.3153/2

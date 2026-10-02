@@ -197,7 +197,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | **Dark Energy Evolution / Far Future** (`wz_far_future.pdf`, Feb 2026), read in full 2026-10-02 |||||||
 | WZ1 | | §2.3, §6.2, Fig. 3, §8 | "small positive wa" | wa = −1/3 (negative) | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #1 |
 | WZ2 | | Eq. 14, §4.1, §7.2 | d(E/e)/da = 1/(e a²), peaks at a = 1 | E/(e a²), peaks a = 0.5; per e-fold peaks today; per Gyr peaks z = 1.26 | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #2 |
-| WZ3 | | §5.1, §6 | DESI hints at / iam predicts exactly this; CPL comparison | DESI w0 > −1 (7.7–9.1σ from −4/3); photon ruler predicts w = −1; two-ruler test | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #3 |
+| WZ3 | | §5.1, §6 | DR2 values (are DR1); DESI hints at / iam predicts exactly this | DR2: −0.838/−0.62, −0.667/−1.09, −0.752/−0.86; w0 7.6–10.2σ from −4/3; photon ruler predicts w = −1 | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #3 |
 | WZ4 | | §6.4 item 2 | Roman tests strongly phantom early w | ρ_info → 0 at high z (1.2 % of ρ_Λ at z = 3); remove | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #4 |
 | WZ5 | | §7.2 | E(1) = 1 from the Planck-epoch reference; observers at peak | normalisation at a = 1; remove anthropic remark | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #5 |
 | WZ6 | | §2.1 | scalar field on the encoding surface | from ρ_info ∝ E(a) and energy conservation | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #6 |
@@ -209,3 +209,14 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | ST4 | | §7 | ISW enhancement 10–30 % | ~3 % | confirmed | `observations/S8_TREND_CHECK.md` #5 |
 | ST5 | | Fig. 3 | E(a) recovered to ~1 % by Sheth–Tormen | not reproduced; remove | confirmed | `observations/S8_TREND_CHECK.md` #7 |
 | ST6 | | title, acknowledgements | addressed to a named cosmologist | cite compilation by journal/arXiv only | confirmed | `observations/S8_TREND_CHECK.md` #8 |
+| **Dark Energy or Sector Tension?** (`Dark_Energy_or_Sector_Tension.pdf`, Mar 2026), read in full 2026-10-02 |||||||
+| SX1 | | Table 5, §5.2, Fig. 1–2 | DR2 w0wa rows mislabelled / wrong | DR2: +CMB −0.42/−1.75; +P+ −0.838/−0.62; +U3 −0.667/−1.09; +Y5 −0.752/−0.86 | confirmed | `observations/SECTOR_TENSION_CHECK.md` #1 |
+| SX2 | | abstract, Tables 1, 5, §2.4, §7 | 13.6 % / 7–8 % growth suppression | 1 − µ; fσ8 deficit 2.2 % (BGS) … 4.2 % today | confirmed | `observations/SECTOR_TENSION_CHECK.md` #2 |
+| SX3 | | §5.1, §7 | phantom crossing from distance–growth mixing | DR2 fits are distance-only; SN matter-ruler shape gives opposite quadrant; Pantheon+ rejects it | confirmed | `observations/SECTOR_TENSION_CHECK.md` #3–4 |
+| SX4 | | §5.4 | lensing, CMB lensing, E_G identical to ΛCDM | lensing follows lower δ_m (C_φφ −0.08 %); E_G +1.9 % at z = 0.3 | confirmed | `observations/SECTOR_TENSION_CHECK.md` #5 |
+| SX5 | | abstract, §2.5, §7 | β_m recovered at 0.2σ | fixed in every chain | confirmed | `observations/SECTOR_TENSION_CHECK.md` #6 |
+| SX6 | | §4.3 | β_γ/β_m < 8.5e-6 | 0.025 (corrected bound) | confirmed | `observations/SECTOR_TENSION_CHECK.md` #7 |
+| SX7 | | §6.2 | µ<1, Σ=1 unachievable; DGP µ>1 | sDGP gives µ<1, Σ=1 | confirmed | `observations/SECTOR_TENSION_CHECK.md` #8 |
+| SX8 | | §2.5, Table 2 | Δχ² ≤ 2.32; µ0 0.006, 0.033; 17 chains | ≤ 1.73; 0.015, 0.039; 18 | confirmed | `observations/SECTOR_TENSION_CHECK.md` #9 |
+| SX9 | | Table 3 | DESI DR1 fσ8 values | differ from 2411.12021-derived values in 5/6 bins; trace | confirmed | `observations/SECTOR_TENSION_CHECK.md` #10 |
+| SX10 | | §1, §6.1 | named cosmologist | cite by journal/arXiv | confirmed | `observations/SECTOR_TENSION_CHECK.md` #11 |

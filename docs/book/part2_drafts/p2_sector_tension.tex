@@ -1,0 +1,72 @@
+% Part 2 chapter carrying "Dark Energy or Sector Tension? IAM Confrontation with DESI Full-Shape Growth Rates and Joint Weak Lensing" (Mahaffey,
+% Mar 2026) in its order. Read in full 2026-10-02 (934 lines, 50-line ledger). Numbers: docs/verification/scripts/verify_sector_tension.py;
+% two-ruler mock: docs/verification/observations/TWO_RULER_DESI_TEST.md. Check: observations/SECTOR_TENSION_CHECK.md. Naming rule applied.
+\chapter{Dark energy or two rulers?}\label{ch:sectortension}
+
+\section*{The place}
+The cosmic horizon (Chapter~\ref{ch:surfaces}). Matter writes the record and feels $\mu<1$; light writes nothing and keeps $\Sigma=1$. Any analysis that
+puts observables from the two sectors into one fluid fit can read the difference as something else. This chapter asks whether DESI's evidence for
+evolving dark energy is that.
+
+\section{The observation}
+DESI DR2 BAO with the CMB and supernovae prefers $w_0>-1$, $w_a<0$ (arXiv:2503.14738):
+\begin{center}\small\begin{tabular}{lccc}\toprule
+Data & $w_0$ & $w_a$ & $z$ where $w=-1$\\\midrule
+DESI + CMB & $-0.42\pm0.21$ & $-1.75\pm0.58$ & 0.50\\
+DESI + CMB + Pantheon+ & $-0.838\pm0.055$ & $-0.62^{+0.22}_{-0.19}$ & 0.35\\
+DESI + CMB + Union3 & $-0.667\pm0.088$ & $-1.09^{+0.31}_{-0.27}$ & 0.44\\
+DESI + CMB + DES Y5 & $-0.752\pm0.057$ & $-0.86^{+0.23}_{-0.20}$ & 0.41\\\bottomrule
+\end{tabular}\end{center}
+at $3.1$, $2.8$, $3.8$ and $4.2\sigma$. Analyses of the internal consistency of these fits (MNRAS Lett.\ 542, L24; arXiv:2504.04417) argue that the
+preference may come from tension between data sets rather than from the dark energy itself, without naming a mechanism.
+
+\section{The sector assignment}
+\begin{itemize}
+\item \emph{Photon ruler} ($\Lambda$CDM): the CMB acoustic angle, BAO angles $D_M/r_d$ and $D_H/r_d$, and the lensing relation between potential
+and density ($\Sigma=1$).
+\item \emph{Matter ruler}: growth ($f\sigma_8$, peculiar velocities), the dynamical response of matter ($\mu<1$), and the expansion rate measured by
+matter, $H_m^2=H^2+\beta_mE(a)H_0^2$, giving $H_0^{\rm m}=67.16\sqrt{1+\beta_m}=72.26$ against the photon $67.16$.
+\item \emph{Supernovae} are standard candles in galaxies, on timelike worldlines: the matter ruler. Their distances are read with light, and with
+the magnitude free the supernova fit is exactly flat in $H_0$ (Chapter~\ref{ch:dsvalidation}).
+\end{itemize}
+
+\section{Growth at the DESI redshifts}
+The coupling deficit $1-\mu$ is not the growth deficit. With the same early amplitude, the exact coupling gives:
+\begin{center}\small\begin{tabular}{lcccc}\toprule
+Tracer & $z$ & $1-\mu$ & $f\sigma_8$ deficit & $E_G$ change\\\midrule
+BGS & 0.295 & 7.9\,\% & 2.2\,\% & $+1.9\,\%$\\ LRG1 & 0.510 & 5.1\,\% & 1.3\,\% & $+1.1\,\%$\\ LRG2 & 0.706 & 3.3\,\% & 0.8\,\% & $+0.7\,\%$\\
+LRG3 & 0.919 & 2.1\,\% & 0.5\,\% & $+0.4\,\%$\\ ELG2 & 1.317 & 0.9\,\% & 0.2\,\% & $+0.2\,\%$\\ QSO & 1.491 & 0.6\,\% & 0.1\,\% & $+0.1\,\%$\\
+today & 0 & 13.6\,\% & 4.2\,\% & $+3.6\,\%$\\\bottomrule
+\end{tabular}\end{center}
+DESI DR1 full-shape $f\sigma_8$ errors are $8$--$13\,\%$ per bin, so the data cannot yet separate the two: on the six DESI bins $\chi^2$ is
+$4.51$ ($\Lambda$CDM) and $5.24$ (informational term, MGCAMB form), and on SDSS DR16 $6.19$ and $6.95$. The growth index $E_G=\Omega_{m0}\Sigma/f$
+is the cleanest single signature: $\Sigma=1$ with a lower $f$ raises it, by $1.9\,\%$ at $z=0.3$.
+
+\section{The clustering amplitude}
+The Level 2 chains give $\sigma_8=0.7998\pm0.0058$ against $0.8087\pm0.0059$, so $S_8=0.822\pm0.011$ against $0.830$. The joint analysis of
+KiDS-Legacy, DES Y3 and DESI DR1 gives $\sigma_8=0.802\pm0.020$, $0.1\sigma$ from the chain value; cosmic-shear $S_8$ from KiDS-Legacy
+($0.776\pm0.016$), DES Y3 ($0.776\pm0.017$) and HSC Y3 ($0.776\pm0.032$) sits $1.3$--$2.4\sigma$ below. The shift is in the right direction and
+does not close the gap (Chapter~\ref{ch:s8trend}). With $\Sigma=1$ the lensing amplitude follows $\delta_m$: CMB lensing power is lower by $0.08\,\%$,
+below any current measurement.
+
+\section{The phantom crossing}
+The paper's mechanism is that a one-fluid fit to $\Lambda$CDM distances and weaker growth must invent $w(z)\neq-1$. Three measured facts settle it.
+\begin{enumerate}
+\item The DR2 $w_0w_a$ fits use distances only --- BAO, the CMB and supernovae. No growth data enter them, so mixing distances with growth cannot be
+what moves them.
+\item Supernovae on the matter ruler with the shape $H_m(z)$ do mix two rulers in a distance-only fit. The mock (DESI DR2 BAO and the CMB on the
+photon ruler, 1,550 supernovae on $H_m$, magnitude free) gives $w_0=-1.19$, $w_a=+0.38$: the opposite quadrant to DESI.
+\item The real supernova data reject that shape. On Pantheon+ with full covariance, applying $H_m$ to the supernova distances costs
+$\Delta\chi^2=+23.6$; the supernova geometry is $\Lambda$CDM, and the matter ruler enters only through the calibration, which the free magnitude absorbs.
+\end{enumerate}
+So the informational term predicts photon-ruler distances that are $\Lambda$CDM, $w=-1$, and it does not produce DESI's preference. If that preference
+holds, it is not this term.
+
+\section{Signatures}
+$\mu$ depends on time only, so the growth change is scale independent. $\Sigma=1$, so lensing follows $\delta_m$ and $E_G$ rises. $\mu_0=-0.136$ with
+$\Sigma_0=0$; Euclid's full survey ($\sigma(\mu_0)\approx0.04$) separates it from general relativity at $3.4\sigma$. The Level 1 free-$\mu_0$ chain
+with RSD gives $\mu_0=+0.039\pm0.125$, $1.4\sigma$ from the prediction.
+
+\section{Status}
+Stands: the sector assignment, the growth and lensing signatures, the $H_0$ split, the dated $\mu_0$. Measured here: the growth deficits at the DESI
+redshifts are $0.1$--$2.2\,\%$, below current errors; the DESI phantom crossing is not produced by the informational term.

@@ -11,7 +11,9 @@ Read in full 2026-10-02 (PDF text 609 lines, 50-line ledger, no gaps). Reproduct
 1. **wa sign words** (§2.3, §6.2, Fig. 3 caption, §8): "small positive wa" → wa = −1/3 (negative). The value is printed correctly.
 2. **Eq. 14** d(E/e)/da = 1/(e a²) → E/(e a²) = e^{−1/a}/a². It peaks at a = 0.5, not a = 1. "Inflection point at a = 1" is true in ln a only:
    dE/dln a peaks today. In cosmic time dE/dt peaks at z = 1.26 (3.38 % Gyr⁻¹). "Maturing faster than at any other epoch" holds per e-fold, not per Gyr.
-3. **§6, §5.1 DESI**: DESI DR2 has w0 > −1 today (−0.83, −0.75), crossing −1 near a ≈ 0.77; w_info is −4/3 today, 7.7–9.1σ from DESI's w0.
+3. **§6.1, §5.1 DESI**: the paper's "DR2" values (−0.827 ± 0.066, −0.75 ± 0.29; −0.752 ± 0.064, −1.05 ± 0.28) are DR1. DR2 (arXiv:2503.14738):
+   Pantheon+ −0.838 ± 0.055, −0.62; Union3 −0.667 ± 0.088, −1.09; DES Y5 −0.752 ± 0.057, −0.86; crossing z = 0.35–0.44. w_info is −4/3 today,
+   7.6–10.2σ from DESI's w0.
    "DESI already hints at this … iam predicts exactly this" is not supported. More basically, the paper states the background is ΛCDM (Eq. 10), so on
    photon-ruler distances the informational term predicts w = −1; w_info belongs to the matter-sector rate. The CPL comparison is a category mismatch;
    the test is the two-ruler comparison (V24, S10).

@@ -23,8 +23,9 @@
    dE/dt = H E/a peaks at a = 0.442, z = 1.26; today dE/dt/e = 2.536 %/Gyr (paper 2.54); at peak 3.379 %/Gyr
    paper's formula d(E/e)/da = 1/(e a^2) vs actual E/(e a^2): at a=0.5 1.472 vs 0.541
 5. DESI DR2 CPL points vs the CPL image of w_info
-   DR2+CMB+Pantheon+: w0 offset -7.7 sigma, wa offset +1.4 sigma; DESI w(a=1) -0.827 > -1, crossing -1 at a = 0.769
-   DR2+CMB+DESY5: w0 offset -9.1 sigma, wa offset +2.6 sigma; DESI w(a=1) -0.752 > -1, crossing -1 at a = 0.764
+   DR2+CMB+Pantheon+: w0 offset -9.0 sigma, wa offset +1.4 sigma; DESI w(a=1) -0.838 > -1, crossing -1 at a = 0.739
+   DR2+CMB+Union3: w0 offset -7.6 sigma, wa offset +2.6 sigma; DESI w(a=1) -0.667 > -1, crossing -1 at a = 0.694
+   DR2+CMB+DESY5: w0 offset -10.2 sigma, wa offset +2.4 sigma; DESI w(a=1) -0.752 > -1, crossing -1 at a = 0.712
 6. the informational term lives in the matter-sector rate: H_m^2 = H^2 + beta_m E(a) H0^2 (photon sector = LCDM)
    a=1: H_photon  67.40  H_matter  72.52  ratio 1.0759
    a=2: H_photon  57.36  H_matter  66.87  ratio 1.1657

@@ -1,0 +1,18 @@
+1. DESI DR2 (arXiv:2503.14738, eqs. 25-27) w0wa and crossing redshift a_x = 1 + (1+w0)/wa
+   DESI+CMB             w0 -0.420 wa -1.75  z_cross 0.50
+   DESI+CMB+Pantheon+   w0 -0.838 wa -0.62  z_cross 0.35
+   DESI+CMB+Union3      w0 -0.667 wa -1.09  z_cross 0.44
+   DESI+CMB+DESY5       w0 -0.752 wa -0.86  z_cross 0.41
+   paper Table 5 labels: 'BAO+CMB' -0.838/-0.62 is the Pantheon+ row; Union3 -0.752/-0.82 and DESY5 -0.734/-1.05 match no DR2 row
+2. at the DESI DR1 tracer redshifts: 1 - mu (paper's 'suppression') vs the actual fsigma8 deficit (same early amplitude)
+   BGS   z 0.295: 1-mu  7.89 %   fsigma8 deficit  2.19 %   sigma8(z) deficit 0.37 %   E_G change +1.86 %
+   LRG1  z 0.510: 1-mu  5.08 %   fsigma8 deficit  1.32 %   sigma8(z) deficit 0.21 %   E_G change +1.12 %
+   LRG2  z 0.706: 1-mu  3.34 %   fsigma8 deficit  0.82 %   sigma8(z) deficit 0.13 %   E_G change +0.70 %
+   LRG3  z 0.919: 1-mu  2.11 %   fsigma8 deficit  0.49 %   sigma8(z) deficit 0.07 %   E_G change +0.42 %
+   ELG2  z 1.317: 1-mu  0.91 %   fsigma8 deficit  0.20 %   sigma8(z) deficit 0.03 %   E_G change +0.17 %
+   QSO   z 1.491: 1-mu  0.63 %   fsigma8 deficit  0.13 %   sigma8(z) deficit 0.02 %   E_G change +0.12 %
+   today z 0.000: 1-mu 13.62 %   fsigma8 deficit  4.25 %   sigma8(z) deficit 0.78 %   E_G change +3.63 %
+3. CMB lensing C_phiphi (Limber, kernel (chi_s-chi)/chi_s, power ~ D^2): exact-form ratio
+   C_phiphi IAM/LCDM ~ 0.9992  (paper: 'no change')
+4. H_matter = 67.16 sqrt(1 + beta_m) = 72.26 ; SH0ES offset 0.75 sigma
+5. beta_gamma/beta_m: paper < 8.5e-6 (from the 1.4e-6 bound, reversed-array bug); corrected beta_gamma < 0.0039 gives 0.0247
