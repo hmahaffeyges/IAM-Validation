@@ -37,6 +37,20 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | D6 | | Table VI | BAO "matter sector, H0 = 72.5" | BAO angles are photon paths (Level 1 paper) | confirmed | #7 |
 | D7 | | §I, §II, Table VI | "β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)"; "β_γ/β_m < 8.5 × 10⁻⁶" | β_γ < 0.0039 (95 %), β_γ/β_m < 0.025; the 1.4e-6 is a sign error in the emcee θ_s integral | confirmed | #8, `scripts/verify_beta_gamma.py` |
 | D8 | | §VIII.A | "catastrophic 36σ CMB acoustic scale tension" with uniform β | β = 0.18 at fixed parameters: +1.08 % (36σ); with β_m = 0.1577: +0.90 % (30σ); state "at fixed parameters" (free parameters → H0 ≈ 61.5, Level 2b) | confirmed | #8c |
+| **Dual-Sector Perturbation Cosmology, Level 2** (`Dual_Sector_Perturbation_Cosmology_CAMB.pdf`, 28 Feb 2026) |||||||
+| P1 | | §2.3 code listing | `grho_0 = 3.0`; friction in CDM/baryon velocity equations | print the source: extra density βE a² × today's total density; metric source z divided by ℋ_m in the CDM and baryon density equations | confirmed | `chains/DUAL_SECTOR_PERTURBATION_CHECK.md` #1 |
+| P2 | | §2.2 Eq. 5 | µ(a) = H²/(H² + βE) for the implementation | the code's growth: σ8 −1.2 % at fixed parameters (Eq. 5: −0.8 %); same redshift dependence; state the coded change and its measured growth | confirmed | #2 |
+| P12 | | §5.2, Table 4, Fig. 5, Run D | Run D tests the IAM growth rate with fσ8 from CAMB | CAMB's fσ8 comes from velocities the modification does not touch (+8.8 % vs the density growth at z = 0); Run D did not test IAM growth; redo with fσ8 = dσ8/d ln a | confirmed | #2 |
+| X6 | `camb_validation/likelihood_rsd.py` | `get_fsigma8` | fσ8 from CAMB velocities | fσ8 = −(1+z) dσ8/dz from `get_sigma8_z` for the modified code | confirmed | P12 |
+| P3 | | Tables 1, 6 | E(a) 0.6977 / 0.3679 / 0.1353 / 0.0498 (z 0.2 / 0.5 / 1 / 2); µ 0.893, 0.942; H_m/H 1.058, 1.030; H(0.5) 87.45 | E = e^−z 0.8187 / 0.6065 / 0.3679 / 0.1353; µ 0.905, 0.948; H_m/H 1.051, 1.027; H(0.5) 88.9 | confirmed | #3 |
+| P4 | | §7, Fig. 7 | background runs "6σ" | 10.9σ (H0 61.45 ± 0.42 vs 67.36 ± 0.54) | confirmed | #4 |
+| P5 | | §3.1, refs | "Planck 2018 CamSpec (Efstathiou & Gratton 2021)" | NPIPE/PR4 CamSpec (Rosenberg et al. 2022) | confirmed | #5 |
+| P6 | | §3.1 | seven fσ8 points "from BOSS DR12 and eBOSS DR16" | includes 6dFGS (z 0.067) and SDSS MGS (z 0.15); diagonal errors | confirmed | #6 |
+| P7 | | §5.2 Table 4, Fig. 5, Table 7 | RSD +3.08, total +2.92, "validated by Level 1 (+1.34)" | mixed statistics (chain-average vs single point); Level 1 used different data; redo with a ΛCDM + RSD chain or best points | confirmed | #7 |
+| P8 | | abstract, §5, Fig. 5 | "below the 95 % exclusion threshold of 3.84" | likelihood ratio; equal parameter count | confirmed | #8 |
+| P9 | | §5.3, §6.1 | "posterior returns β_m = 0.1583" | Ω_m/2 of the posterior; consistency with the fixed value | confirmed | #9 |
+| P10 | | §2.3 | µ = 1 + µ0 Ω_DE | /Ω_Λ (as L1) | confirmed | #10 |
+| P11 | | refs | Frusciante title; DESI JCAP volume | as L6; DESI to trace | confirmed / pending trace | #11 |
 | **Virial papers** (5 files, 25 Feb – 18 Mar 2026) |||||||
 | V1 | PRL Thermodynamic Identity; Virial Partners §2; Grav. Decoherence §2.1 | | "17 MCMC chains return β_m = 0.1583 ± 0.0033" | β_m is fixed in every chain; 0.1583 is Ω_m/2 of the L2 posterior; ΛCDM gives 0.1581 | confirmed | `virial/VIRIAL_CHECK.md` #1 |
 | V2 | Virial Efficiency; PRL Table I row 8 | eq. 3, tables | 2K/\|U\| = 0.815 ± 0.025 from six N-body studies; n_eff table | sources report 2T/\|U\| ≈ 1.05–1.4; 0.76–0.90 match \|U\|/2T; n_eff not reported | confirmed | `virial/NBODY_TRACE.md` |

@@ -15,7 +15,7 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 |---|---|---|---|---|---|---|
 | 1 | Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework (Level 1) | 19 Feb 2026 | 13 | ☑ | ☑ `part2_drafts/p2_late_time_growth.tex` | ☑ `verification/chains/LATE_TIME_GROWTH_CHECK.md` |
 | 2 | Dual_Sector_Validation_Paper | 23 Feb 2026 | 12 | ☑ | ☑ `part2_drafts/p2_dual_sector_validation.tex` (2 author holds) | ☑ `verification/chains/DUAL_SECTOR_VALIDATION_CHECK.md` |
-| 3 | Dual_Sector_Perturbation_Cosmology_CAMB (Level 2) | 28 Feb 2026 | 17 | ☐ | ☐ | ☐ |
+| 3 | Dual_Sector_Perturbation_Cosmology_CAMB (Level 2) | 28 Feb 2026 | 17 | ☑ | ☑ `part2_drafts/p2_dual_sector_perturbation.tex` (1 hold: Run D) | ☑ `verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md` |
 | 4 | IAM_Dual_Sector_Note | Mar 2026 | 9 | ☐ | ☐ | ☐ |
 
 ## G2 Derivations and the law (Parts 1–2)
