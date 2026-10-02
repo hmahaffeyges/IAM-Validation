@@ -2,16 +2,15 @@
 %  BH Thermodynamics (25 Feb 2026), Information Paradox (Feb 2026), Bekenstein coefficient (Apr 2026).
 % Checks: docs/verification/black_holes/BLACK_HOLES_CHECK.md; numbers: docs/verification/scripts/verify_virial_atoms_to_horizon.py.
 % Interpretation (projection picture, paradox dissolution, cosmic censorship, particle fixed point) goes to Part 5.
-\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{Black-hole horizons: Bekenstein, Hawking and the price of a bit}\label{ch:blackholes}
 
 \section*{Overview}
 IAM's Law (Chapter~\ref{ch:iams_law}) prices every classical record at $k_BT\ln2$ per bit on the nearest encoding surface. For a collapsed
 mass the nearest surface is the black hole's own horizon, at the Hawking temperature; that horizon is the place in IAM this chapter reads.
-Part~1 ended with the virial half: a system bound by $1/r$ holds half its binding energy as motion, and that half is the irreversible cost of binding. The
+Part~\ref{part:1} ended with the virial half: a system bound by $1/r$ holds half its binding energy as motion, and that half is the irreversible cost of binding. The
 next rung of the ladder is the strongest binding there is. A black hole is a surface with a temperature and an entropy, and Landauer's principle can be
-applied to it directly. When it is, the same half appears. This chapter sets out the thermodynamics of black-hole horizons~\cite{MahaffeyBHThermo,MahaffeyBHInfo,MahaffeyBekenstein}, the rates at which they
+applied to it directly. When it is, the same half appears. This chapter sets out the thermodynamics of black-hole horizons, the rates at which they
 take in and give out information, the relation between a black hole and the cold horizon of the universe, and where the famous factor $1/4$ in the
 Bekenstein--Hawking entropy comes from. Chapter~\ref{ch:virial} then applies the same first law to the cosmic horizon.
 
@@ -107,28 +106,28 @@ holographic bound $S/A\le k_B/(4\ell_P^2)$~\cite{Bousso2002} is met exactly:
 \frac{4\pi Gk_BM^2/(\hbar c)}{4\pi(2GM/c^2)^2}=\frac{k_Bc^3}{4\hbar G}=\frac{k_B}{4\ell_P^2}.
 \end{equation}
 The two statements are one: the geometry of the hoop and the information capacity of the surface. Primordial black holes form by the standard
-mechanism~\cite{Carr2010} during radiation domination, where electromagnetic interactions, not gravity, set the irreversible rate.
+mechanism~\cite{Carr2010} during radiation domination, where electromagnetic interactions, not gravity, set the irreversible rate \interp.
 
 \paragraph{How close a remnant is to its limit.} Every compact remnant is held up against gravity by a pressure that can only support so much
 mass: electron degeneracy up to the Chandrasekhar mass~\cite{Chandrasekhar1931} ($1.44\,M_\odot$; $1.456\,M_\odot$ for $\mu_e=2$ from the constants alone), neutron
-degeneracy and nuclear forces up to the Tolman--Oppenheimer--Volkoff limit~\cite{Tolman1939,OppenheimerVolkoff1939} ($\approx2.3\,M_\odot$, not yet fixed to better than about
-$0.1\,M_\odot$). On the same gauge as every other system in this book, $A$ is the remnant's mass over the typical remnant of its kind as built
-(white dwarfs $0.6\,M_\odot$, the measured mean~\cite{Kepler2007}; neutron stars $1.4\,M_\odot$), so $A=1$ sits in the middle. The far right is where the surface is
+degeneracy and nuclear forces up to the Tolman--Oppenheimer--Volkoff limit~\cite{Tolman1939,OppenheimerVolkoff1939} (taken here as $\approx2.3\,M_\odot$; a recent multimessenger
+inference gives $2.25^{+0.08}_{-0.07}\,M_\odot$~\cite{Fan2024}). On the same gauge as every other system in this book, $A$ is the remnant's mass over the typical remnant of its kind as built
+(white dwarfs $0.6\,M_\odot$, the measured mean of $0.593\,M_\odot$ for DA white dwarfs~\cite{Kepler2007}; neutron stars $1.4\,M_\odot$), so $A=1$ sits in the middle. The far right is where the surface is
 full: no pressure can hold, a horizon forms and the black hole begins (Fig.~\ref{fig:stargauge}).
 \begin{center}\small\begin{tabular}{lccc}\toprule
 remnant & mass ($M_\odot$) & $A$ & surface full at\\\midrule
-the Sun's future white dwarf (isolated) & 0.54 & 0.90 & 2.40\\
-Procyon B (isolated) & 0.60 & 1.00 & 2.40\\
-Sirius B (isolated) & 1.00 & 1.67 & 2.40\\
-IK Pegasi B (accreting from a companion) & 1.15 & 1.92 & 2.40\\
+the Sun's future white dwarf~\cite{Sackmann1993} & 0.54 & 0.90 & 2.40\\
+Procyon B (wide binary)~\cite{Bond2015} & 0.59 & 0.99 & 2.40\\
+Sirius B (wide binary)~\cite{Bond2017} & 1.02 & 1.70 & 2.40\\
+IK Pegasi B (21.7-day binary)~\cite{Landsman1993} & 1.15 & 1.92 & 2.40\\
 typical neutron star & 1.4 & 1.00 & 1.64\\
 PSR J0740+6620~\cite{Fonseca2021} & 2.08 & 1.49 & 1.64\\\bottomrule
 \end{tabular}\end{center}
-An isolated white dwarf has nothing to accrete, so it stays where it is; only a remnant that gains mass, from a companion or a collapsing core, moves
-right. What stops the star at the far right is ordinary physics, the pressure failing. What forms there is the object that holds the most entropy any
+A white dwarf that is isolated or in a wide binary has nothing to accrete, so it stays where it is; only a remnant that gains mass, from a close companion
+as it evolves or from a collapsing core, moves right. What stops the star at the far right is ordinary physics, the pressure failing. What forms there is the object that holds the most entropy any
 region of that size and energy can hold: a black hole saturates the Bekenstein bound~\cite{Bekenstein1981}. This is the one gauge in the book where the far-right line is
-measured exactly; for cells the corresponding line is still to be measured (Chapter~\ref{ch:onegauge}).
-\begin{figure}[h]\centering\includegraphics[width=\textwidth]{figures/part2/star_gauge.pdf}
+measured exactly; for cells the corresponding line is still to be measured (Chapter~\ref{ch:onegauge}, Part~\ref{part:5}) \openprob.
+\begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part2/star_gauge.pdf}
 \caption{Compact stars on the same gauge: mass over the typical remnant of the same kind ($0.6\,M_\odot$ white dwarfs, $1.4\,M_\odot$ neutron stars).
 Dashed: the surface is full at the Chandrasekhar mass ($1.44\,M_\odot$, $A=2.40$) or the TOV limit ($\approx2.3\,M_\odot$, $A\approx1.64$); beyond,
 a black hole. Each row has its own scale.}\label{fig:stargauge}\end{figure}
@@ -150,6 +149,5 @@ bits. The horizon of the universe obeys the same first law. Jacobson and Cai \& 
 Friedmann equations. Chapter~\ref{ch:virial} adds to that first law the entropy written as matter decoheres, and the virial half fixes how much of the matter
 density enters it: $\beta_m=\Omega_m/2$.
 
-\authorhold{Seed black-hole masses from the information budget of collapse (BH Thermodynamics, \S7) are held: the collapse entropy they need is
-not derived. Part~5 carries the interpretation: the horizon as the surface where a particle's record can no longer be maintained, the information question,
-and cosmic censorship.}
+Seed masses of black holes cannot yet be computed from the information budget of collapse: the collapse entropy they require is not derived \openprob.
+The formation of a horizon as the point where no outer surface can hold the records is taken up in Part~\ref{part:5} (Chapter~\ref{ch:theoryinterp}).

@@ -1,7 +1,7 @@
 % Part 2 chapter carrying "Entanglement, Decoherence, and the Thermodynamic Cost of Classical Records" (Mar 2026, revised Oct 2026), read in full
 % 2026-10-02 (PDF text 253 lines; ledger docs/book/read_ledgers/LEDGER_G7_31_Entanglement.md). Corrections applied: PAPER_ERRATA EN1-EN7, GD3, GD4, MP1, MP4.
 % Numbers: docs/verification/scripts/verify_entanglement_electroweak.py (E1-E7). Check: docs/verification/quantum/ENTANGLEMENT_CHECK.md.
-% Already carried elsewhere and only referenced here: exponent n = 7/2 and its bottom-up running, light writes nothing in flight, tau_IAM at 1 pg
+% Already carried elsewhere and only referenced here: exponent n = 7/2 and its bottom-up running, light writes nothing in flight, tau_IAM at 1 ng (1e-12 kg)
 % (Chapter ch:quantumrecords); Bell/CHSH background (ch:nonlocal); where a record becomes irreversible, Bennett (ch:measurement); tau_IAM (ch:gravdec).
 \chapter{Entanglement and the cost of records}\label{ch:entanglement}
 
@@ -36,7 +36,7 @@ for massive superpositions. Separation does not discriminate between the two pic
 set by losses, not by sector physics (Chapter~\ref{ch:nonlocal}).
 
 \section{What dephasing does to a Bell test}\label{sec:ent:dephasing}
-The gravitational channel of Chapter~\ref{ch:gravdec} acts on the which-path superposition of a massive body. It is decoherence in the position, or
+The gravitational channel of Chapter~\ref{ch:quantumrecords} acts on the which-path superposition of a massive body. It is decoherence in the position, or
 pointer, basis: it leaves the populations of the two branches unchanged and multiplies their coherence by a factor $c(t)$ that falls from 1 to 0.
 Take a pair entangled in that basis, $(|L\rangle|0\rangle+|R\rangle|1\rangle)/\sqrt2$. With the pointer basis as the $z$ axis, its correlation matrix
 is $T={\rm diag}(c,-c,1)$. The largest CHSH value over all settings is $2\sqrt{M}$, with $M$ the sum of the two largest eigenvalues of
@@ -53,10 +53,10 @@ $c<\sqrt2-1=0.414$. \calc{} For isotropic (white) noise, a mixture $p\,|\Phi^+\r
 with no violation below $p=1/\sqrt2$, that is, above a mixed fraction $1-p=0.293$. \calc{} Decoherence in a pointer basis is not isotropic noise, so
 that threshold does not describe it. If both members of the pair are massive, each branch dephases and $c=c_Ac_B$.
 
-\paragraph{The time profile.} The rate integral of Chapter~\ref{ch:gravdec}, taken with its postulated rate and boundary capacity, gives an
-exponential, $c(t)=e^{-t/\tau_{\rm IAM}}$. \calc{} The source
-proposes instead the profile of the cosmic activation function, $c(t)=1-E(t/\tau_{\rm IAM})/e$ with $E(\eta)=\exp(1-1/\eta)$; that step is assumed,
-not derived. \conjecture{} The two give, from Eq.~\eqref{eq:ent:smax}:
+\paragraph{The time profile.} The rate integral of Chapter~\ref{ch:quantumrecords}, taken with its postulated rate and boundary capacity, gives an
+exponential, $c(t)=e^{-t/\tau_{\rm IAM}}$. \calc{} The
+alternative is the profile of the cosmic activation function, $c(t)=1-E(t/\tau_{\rm IAM})/e$ with $E(\eta)=\exp(1-1/\eta)$; that step is taken by
+analogy with the cosmology, not derived. \analogy{} The two give, from Eq.~\eqref{eq:ent:smax}:
 \begin{center}\small\begin{tabular}{lcccc}\toprule
 $t/\tau_{\rm IAM}$ & 0.5 & 1 & 2 & 3\\\midrule
 exponential: $c$, $S_{\max}$ & 0.607, 2.339 & 0.368, 2.131 & 0.135, 2.018 & 0.050, 2.002\\
@@ -67,7 +67,7 @@ $c(t)$ by interference; it loses its violation only when $c$ falls below the exp
 itself: its onset (zero slope for the assumed profile, finite slope for the exponential), and the scaling of $\tau_{\rm IAM}$ with temperature and mass.
 
 \section{Where the discriminating experiment lies}\label{sec:ent:experiment}
-With $\tau_{\rm IAM}=\hbar(\kB T)^2\ln2/E_G^3$ (Eq.~\eqref{eq:tauIAM}), $E_G=Gm^2/R$, and the boundary capacity $\kB T/E_G$ taken as an
+With $\tau_{\rm IAM}=\hbar(\kB T)^2\ln2/E_G^3$ (Eq.~\eqref{eq:qr_tauIAM}, Chapter~\ref{ch:quantumrecords}), $E_G=Gm^2/R$, and the boundary capacity $\kB T/E_G$ taken as an
 assumption, silica spheres ($\rho=2200$\,kg\,m$^{-3}$, fused silica) give:
 \begin{center}\small\begin{tabular}{lccl}\toprule
 system & $\tau_{\rm IAM}$ & $\tau_{\rm PD}=\hbar/E_G$ & reading\\\midrule
@@ -76,7 +76,7 @@ $10^{-12}$\,kg, 10\,mK & 509\,s & 7.5\,$\mu$s & loss in $\mu$s, or none on that 
 $10^{-12}$\,kg, 20\,mK & 2{,}034\,s & 7.5\,$\mu$s & doubling $T$ quadruples $\tau_{\rm IAM}$\\
 $\tau_{\rm IAM}=\tau_{\rm PD}$ at 10\,mK & \multicolumn{2}{c}{$m\approx2.2\times10^{-10}$\,kg} & crossover\\\bottomrule
 \end{tabular}\end{center}
-\calc{} The picogram row and the crossover are those of Chapter~\ref{ch:quantumrecords}. The femtogram row shows the other side: there the
+\calc{} The $10^{-12}$\,kg (nanogram) row and the crossover are those of Chapter~\ref{ch:quantumrecords}. The $10^{-15}$\,kg (picogram) row shows the other side: there the
 Di\'osi--Penrose time is within reach of levitated optomechanics~\cite{RomeroIsart2011} and the IAM channel is not. The discriminating experiment is
 a superposition near $10^{-12}$\,kg held at two or more bath temperatures. Di\'osi--Penrose~\cite{Diosi1989,Penrose1996} predicts loss of coherence
 in microseconds at any temperature; the IAM channel predicts none on that scale, and a time that grows as $T^2$. \prediction

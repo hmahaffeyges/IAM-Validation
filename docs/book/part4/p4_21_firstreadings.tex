@@ -9,7 +9,7 @@ record named beside it.
 \section{End to end: IDATs in, report out}
 
 The acceptance run passed 22 IDAT pairs through \texttt{run\_sample.py --engine v3} with no hand step: Stage~0, Stage~1, Stage~A, Stage~M, Stage~MC, then a second
-pass with Stage~T against the other specimens of the batch (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}, \texttt{chain\_acceptance.csv}).
+pass in which each mixture and each whole blood was tared (median) against the other specimens of its own group (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}, \texttt{chain\_acceptance.csv}).
 \begin{center}\small
 \begin{tabular}{@{}p{0.31\textwidth}rp{0.17\textwidth}llr@{}}\toprule
 specimens & $n$ & intake & untared Met-A & tared $A_{\rm rel}$ & Normal \\\midrule
@@ -22,7 +22,9 @@ remission blood, another laboratory & 10 & 2 proceed, 8 with penalty & 1.073--1.
 0.983--1.045 (Chapter~\ref{ch:identity}). The mixtures were made in the reference laboratory from cells of the same series the composition profiles come from
 (Chapter~\ref{ch:atlas}), and they have no donor, so intake was not run on them. And the run used a read line of 0.50 neutrophils: it withheld five remission
 bloods at 0.06--0.47. At the present 0.20 line four of them (0.28--0.47) would be read; they have not been re-run. \openprob{} The untared offset is the reason for the
-tare: the reference laboratory's mixtures read low and the other laboratory's bloods high, and the same-batch tare brought both into Normal.
+tare: the reference laboratory's mixtures read low and the other laboratory's bloods high, and the tare brought both into Normal. The references
+in that tare were the other specimens of the same group: the other mixtures for a mixture, the other remission bloods for a remission blood. That shows
+the tare removes an offset shared within a batch; it is not a reading against healthy references. \measured
 
 \section{A second laboratory, and what the reading was reading}
 
@@ -43,14 +45,15 @@ severe & 110 & 1.006 & 2 \\\bottomrule
 \end{tabular}
 \end{center}
 On this gauge, severe infection did not move the neutrophils' identity pattern ($p=0.81$ for above Normal, severe against healthy). That does not say the neutrophils are
-unchanged; it says that whatever changes in them does not change $\beta$ at the identity sites. The correction was fitted after seeing these data and needs a held-out
-laboratory. \fitted
+unchanged; it says that whatever changes in them does not change $\beta$ at the identity sites. The correction was fitted after seeing these data and is not part of the chain: chain v3 measures $N$ and withholds the gauge state outside
+the reference arrays' range, with no fitted correction (Chapter~\ref{ch:chain}). \fitted
 
 \section{A known cause on arrays and on single molecules}
 
 The most direct test of the gauge is a known cause with a known direction. A DNA-methyltransferase inhibitor blocks the enzyme that copies methylation at division.
 \begin{itemize}
-\item \textbf{Arrays} (\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}; 51 EPIC arrays, three leukaemia cell lines, each read against its own vehicle arrays). Vehicle arrays read
+\item \textbf{Arrays} (\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}; 51 public EPIC arrays from the study that introduced the inhibitor~\cite{Pappalardi2021}, three leukaemia cell lines,
+      each read against its own vehicle arrays). Vehicle arrays read
       0.968--1.048; an inactive analogue at 10~$\mu$M 1.002--1.032; the active drug at 3.2--16~nM 1.001--1.028, and at $\ge80$~nM 1.16--1.85. A second active compound read
       1.73--1.81 in all three lines. The change sits on the methylated channel (median $+1.56$ against $+0.017$ on the unmethylated one). \measured
 \item \textbf{The ceiling.} Between 16 and 80~nM the methylated sites fall from $\beta\approx0.94$ to 0.57--0.89, and by 400~nM to 0.36--0.60. Past $\beta=\tfrac12$ the methylated
@@ -75,8 +78,8 @@ the blast fraction printed beside $A$. \openprob
 
 Two pre-registered procedures read neutrophils on 450K arrays against a development 450K floor from purified 450K neutrophils; chain v3 does not read 450K.
 In 246 held-out controls 67.9~\% read Normal, and the reading split by sex (women 0.961, men 1.007) (\texttt{PROC\_PREDX\_NEUT\_01\_OUTCOME.md}). The purified neutrophils of the
-floor differed by sex by only 0.008, and a second set read against controls on the same slide removed the split: 92.9~\% of 170 controls in Normal
-(\texttt{PROC\_PREDX\_SLIDE\_01\_OUTCOME.md}). \measured{} The sex gap was a slide effect, and the same-slide tare is what made the reading usable on those arrays. Neither procedure showed a
+floor differed by sex by only 0.008. A second set, all women, read against controls on the same slide, put 92.9~\% of 170 controls in Normal,
+against 58~\% of women before the same-slide tare (\texttt{PROC\_PREDX\_SLIDE\_01\_OUTCOME.md}). \measured{} The sex gap was a slide effect, and the same-slide tare is what made the reading usable on those arrays. Neither procedure showed a
 per-person pre-diagnostic signal.
 
 \section{What these readings are for}

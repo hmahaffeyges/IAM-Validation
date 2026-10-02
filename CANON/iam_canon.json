@@ -519,7 +519,7 @@
   },
   "H_min (the floor)": {
    "status": "current",
-   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2044 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the material floor eps_floor (calibrated; Helios on Ba+ at 0.13). Chips: the Landauer floor k_B T_j ln 2 (AMD 9950X at 0.0017).",
+   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2043 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the material floor eps_floor (calibrated; Helios on Ba+ at 0.13). Chips: the Landauer floor k_B T_j ln 2 (AMD 9950X at 0.0017).",
    "note": "The absolute lowest point a system can operate at before thermal kicks win."
   },
   "eps (gate error in nats) [the quantum-processor report]": {

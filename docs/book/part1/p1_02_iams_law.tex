@@ -2,7 +2,6 @@
 % Read status: drafted 2026-10-02 after a first pass in which 10 of 15 chunks were previews only; all gaps then read in 50-line chunks
 % (ledger 1-1506 complete) and the draft re-checked against them (IAM_LAW_CHECK items 17-18; Eq. 33 H0^2 and Table 2 already as corrected here). Corrections: docs/verification/theory/IAM_LAW_CHECK.md (errata L1-L16). Physics terms only.
 % Section 5 of the paper (the virial completion) is carried in full in Chapter~\ref{ch:virial_law}; it is summarised here.
-\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{IAM's Law: the thermodynamic cost of a classical record}\label{ch:iams_law}
 
@@ -14,7 +13,7 @@ that contracts, every halo that settles into equilibrium leaves a record in its 
 
 The claim of this chapter is that this passage has a price. Every irreversible transition from quantum superposition to classical record costs at least
 $k_BT\ln2$ per bit of record produced, and the temperature $T$ is that of the nearest encoding surface --- the horizon that bounds the region in which the
-record is written. Once paid, the cost is not recovered. Classical records are bought one bit at a time~\cite{MahaffeyIAMLaw}.
+record is written. Once paid, the cost is not recovered. Classical records are bought one bit at a time.
 
 Two consequences follow, at two scales. Locally, the kinetic half of the virial theorem --- the energy a bound system keeps as motion --- equals the heat it
 released in forming, which is the minimum cost of the record its formation wrote (Chapter~\ref{ch:virial_law}). Globally, the accumulated cost of every
@@ -157,9 +156,9 @@ construction is consistent with the contracted Bianchi identity.
 In virial equilibrium half the binding energy of a self-gravitating system stays in the gravitational field and half leaves as the heat that pays for its
 record. The record density today is therefore half the matter density:
 \begin{equation}
-\rho_{\rm info}(a{=}1)=\beta_m\rho_{\rm crit}=\tfrac12\rho_m\quad\Longrightarrow\quad\beta_m=\frac{\Omega_m}{2}=0.1575\quad(\Omega_m=0.315).
+\rho_{\rm info}(a{=}1)=\beta_m\rho_{\rm crit}=\tfrac12\rho_m\quad\Longrightarrow\quad\beta_m=\frac{\Omega_m}{2}=0.15765\quad(\Omega_m=0.3153).
 \end{equation}
-The coupling is a prediction. It enters every chain at this value and is never sampled. Applying a population-level equilibrium to non-equilibrium
+The coupling is a prediction \derived. It enters every chain at this value and is never sampled. Applying a population-level equilibrium to non-equilibrium
 structure formation is Assumption~3.
 
 \subsection{Matter and light}
@@ -187,50 +186,44 @@ obey the unmodified Poisson equation with no anisotropic stress, so light, which
 lensing, BAO angles and supernova distances are those of $\Lambda$CDM; the CMB TT spectra differ by less than $0.13\,\%$ at $\ell>30$.
 
 \textbf{Where this sits among modified-growth models.} Most extensions of gravity strengthen growth: $f(R)$ gives $\mu>1$ with $\Sigma=1$~\cite{PogosianSilvestri2008}, the normal branch
-of DGP gives $\mu>1$ with $\Sigma=1$~\cite{DGP2000}, and Horndeski theories~\cite{Horndeski1974} move $\mu$ and $\Sigma$ together. The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$,
-but it carries a ghost and is excluded by data. Weaker growth with unchanged lensing, from friction on matter alone and no new propagating field, is
+of DGP gives $\mu>1$ with $\Sigma=1$~\cite{DGP2000,KoyamaMaartens2006}, and in Horndeski theories~\cite{Horndeski1974} $\mu-1$ and $\Sigma-1$ of opposite sign are strongly disfavoured~\cite{PogosianSilvestri2016}. The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$,
+but it carries a ghost~\cite{Koyama2007} and is in strong tension with growth and distance data~\cite{Fang2008}. Weaker growth with unchanged lensing, from friction on matter alone and no new propagating field, is
 the signature of the informational term.
 
 \textbf{Numerical record.} Level~1 used MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB} with Cobaya~\cite{Torrado2021} in the $\mu$--$\Sigma$ form: twelve chains, Planck alone and with redshift-space distortions,
 BAO or Pantheon+~\cite{Brout2022}. Level~2 modified CAMB~\cite{Lewis2000CAMB} itself, putting $H_m$ into the matter equations (three chains). Two Level~2b runs applied the term to the
 background expansion and drove $H_0$ to $61.5$, which BAO and the distance ladder exclude: the term belongs in the perturbations. Every chain ends at
-$R-1\le0.010$~\cite{Gelman1992} (Part~2).
+$R-1\le0.010$~\cite{Gelman1992} (Chapter~\ref{ch:dual}).
 
 \section{Observational consistency}
 \begin{center}\small
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll}
 \hline
 Quantity & IAM & Result\\\hline
-$\beta_m$ & $\Omega_m/2=0.1575$, fixed & enters every chain at the prediction\\
+$\beta_m$ & $\Omega_m/2=0.15765$, fixed & enters every chain at the prediction\\
 $\Delta\chi^2$ vs $\Lambda$CDM, Level 2 & no added parameter & $+0.54$\\
 $\Delta\chi^2$, Level 1 (four combinations) & no added parameter & $+0.56$ to $+1.73$\\
 $\sigma_8$ & suppressed & $0.809\to0.800$ (Level 2)\\
 $H_0$, light & unchanged & $67.16$ (Level 2 chain)\\
 $H_0$, matter & $67.16\sqrt{1+\beta_m}$ & $72.26$\\
-free $\mu_0$ (Level 1) & $-0.135$ & consistent with $-0.135$ and with $0$\\\hline
+free $\mu_0$ (Level 1) & prediction $-0.136$ & 90\,\% interval contains the prediction and $0$\\\hline
 \end{tabularx}
 \end{center}
+Chain values are from the final chain files (Chapter~\ref{ch:dual}) \measured.
 
 \textbf{Two Hubble rates.} Light-based probes read $H_0$; probes of the matter flow read $H_0\sqrt{1+\beta_m}=1.076\,H_0$. These are two quantities, not a
 tension between measurements of one. Standard sirens test this: the host galaxy of a neutron-star merger traces the matter flow. With one event so far,
-analyses of GW170817 range from $68$--$70$~\cite{Abbott2017Siren} to $75.5^{+5.3}_{-5.4}$~\cite{Palmese2024}\,km\,s$^{-1}$Mpc$^{-1}$, consistent with both values; tens of sirens will separate
+analyses of GW170817 range from $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren} and $68.9^{+4.7}_{-4.6}$~\cite{Hotokezaka2019} to $75.46^{+5.34}_{-5.39}$~\cite{Palmese2024}\,km\,s$^{-1}$Mpc$^{-1}$, consistent with both values \observed; tens of sirens will separate
 them.
 
-\textbf{The growth amplitude.} Upcoming surveys measure $\mu_0$ to
-\begin{center}\small
-\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xcc}
-\hline
-Survey & $\sigma(\mu_0)$ & separation of $-0.136$ from GR\\\hline
-DESI Year 5 (projected) & $\sim0.08$ & $1.7\sigma$\\
-Euclid (projected) & $\sim0.04$ & $3.4\sigma$\\
-Euclid + DESI Year 5 & $\sim0.03$ & $4.5\sigma$\\\hline
-\end{tabularx}
-\end{center}
-The 2024 DESI full-shape analysis~\cite{Ishak2025} gives $\mu_0=0.11^{+0.45}_{-0.54}$, consistent with both the prediction and general relativity. Euclid is the decisive test.
+\textbf{The growth amplitude.} Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
+scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}). The DESI 2024 full-shape analysis~\cite{DESI2024VII} gives $\mu_0=0.11^{+0.45}_{-0.54}$, consistent with both the
+prediction and general relativity \observed.
 
 \textbf{The vacuum term and the baryon fraction.} Written in Planck units, the observed $\rho_\Lambda/\rho_{\rm Planck}=(3\Omega_\Lambda/8\pi)(\ell_P/\ell_H)^2$
-identically, and the cosmological-constant formula of the source papers reduces to the present-epoch relation $\Omega_b/\Omega_m\approx(3/16)\sqrt{\Omega_\Lambda}$.
-On the CMB-only chain it holds to $0.5\,\%$ ($0.7\sigma$). Its derivation --- the $2/\pi$ and the weighting over cosmic history --- is open (Part~2).
+identically, and the cosmological-constant formula of Chapter~\ref{ch:lambda} reduces to the present-epoch relation $\Omega_b/\Omega_m\approx(3/16)\sqrt{\Omega_\Lambda}$.
+On the CMB-only chain it holds to $0.5\,\%$ ($0.7\sigma$) \calc. Its derivation --- the $2/\pi$ and the weighting over cosmic history --- is open
+(Chapters~\ref{ch:lambda} and~\ref{ch:baryon}) \openprob.
 
 \section{Assumptions and how the law can fail}\label{sec:assumptions}
 \textbf{Assumption 1 --- gravity is thermodynamic.} The Einstein equations are an equation of state obtainable from $\delta Q=T\,dS$ on causal horizons
@@ -244,12 +237,12 @@ Landauer's principle~\cite{Landauer1961} and has not been derived from a complet
 structure formation is not. $\beta_m=\Omega_m/2$ applies the half to the ensemble of bound structures. The chains show the consequence is consistent with
 Planck; they do not show the coupling is exact.
 
-\textbf{Derived, given these.} $E(a)$ from the record constraint; $\mu<1$ and $\Sigma=1$ from timelike versus null propagation and $\delta\phi=0$; $n=7/2$ from
+\textbf{Derived, given these} \derived. $E(a)$ from the record constraint; $\mu<1$ and $\Sigma=1$ from timelike versus null propagation and $\delta\phi=0$; $n=7/2$ from
 the horizon accounting; $\mu-1=-0.136$ today.
 
 \textbf{Three ways to fail, separately.} (1) The core law fails if records do not enter horizon entropy as identified --- shown by a complete theory that
 excludes the channel, or by an internal inconsistency. (2) The cosmological implementation fails if growth data disagree with $\beta_m=\Omega_m/2$ ---
-Euclid and DESI will tell --- without necessarily failing the core law. (3) The broader extensions fail without touching (1) or (2).
+future growth data will tell --- without necessarily failing the core law. (3) The broader extensions fail without touching (1) or (2).
 
 \section{The derivation in three steps}
 \begin{enumerate}
@@ -264,7 +257,7 @@ grows monotonically. Everything else is established physics.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part1/fig_mahaffey_number.pdf}
-\caption{The Mahaffey number $\mathcal M=E_{\rm drive}/k_BT$ for the systems this book evaluates. Cell: one ATP, $54\,{\rm kJ\,mol^{-1}}$ at 310.15\,K, $\mathcal M=20.94$ (30.2 in Landauer units). Chips: whole-chip averages $E_{\rm drive}={\rm TDP}/(Nf)$ at $T_j=75\,^\circ$C, $3.90\times10^{-19}$\,J as printed in Chapter~\ref{ch:cmos} ($\mathcal M=81.1$) and 170\,W, $20.6\times10^9$ transistors, 4.3\,GHz (Chapter~\ref{ch:onegauge}; $\mathcal M=399$). Black holes: $Mc^2/k_BT_{\rm BH}=2S_{\rm BH}/k_B$, $2.1\times10^{77}$ for one solar mass and $3.9\times10^{90}$ for Sgr~A$^*$ ($4.3\times10^6\,M_\odot$). \calc}\label{fig:mahaffey_number}
+\caption{The Mahaffey number $\mathcal M=E_{\rm drive}/k_BT$ for the systems this book evaluates. Cell: one ATP, $54\,{\rm kJ\,mol^{-1}}$ at 310.15\,K, $\mathcal M=20.94$ (30.2 in Landauer units). Chips: whole-chip averages $E_{\rm drive}={\rm TDP}/(Nf)$ at $T_j=75\,^\circ$C, $3.90\times10^{-19}$\,J (Chapter~\ref{ch:cmos}; $\mathcal M=81.1$) and 170\,W, $20.6\times10^9$ transistors, 4.3\,GHz (Chapter~\ref{ch:onegauge}, Part~\ref{part:5}; $\mathcal M=399$). Black holes: $Mc^2/k_BT_{\rm BH}=2S_{\rm BH}/k_B$, $2.1\times10^{77}$ for one solar mass and $3.9\times10^{90}$ for Sgr~A$^*$ ($4.3\times10^6\,M_\odot$). \calc}\label{fig:mahaffey_number}
 \end{figure}
 Dividing the drive that powers irreversible records in a system by the thermal quantum of its surroundings gives the dimensionless number that sets its
 operating regime,
@@ -276,7 +269,6 @@ fixed body temperature: $\mathcal M=20.94$ ($30.2$ in Landauer units) --- far ab
 $310$\,K. For a black hole the drive is its rest energy and the temperature its own: $Mc^2/(k_BT_{\rm BH})=8\pi GM^2/(\hbar c)=2S_{\rm BH}/k_B$, the Smarr
 relation again~\cite{Smarr1973}. With the architecture of the system, $\mathcal M$ sets the IAM floor (Chapter~\ref{ch:surfaces}).
 
-\authorhold{Carried to Part~5 (interpretation): the position of the law among the frameworks of physics (``every framework has a gap at the
-quantum--classical boundary''), ``a law, not a framework'', the second law as a corollary, the measurement problem as a thermodynamic transaction, the arrow
-of time and the coincidence problem, and the weak force as the exception to the virial half. Not carried: Sheth--Tormen and $N$-body support for the
-exponent (not reproduced; IAM\_LAW\_CHECK \#7).}
+The interpretation of these results is taken up in Part~\ref{part:5}: measurement as a thermodynamic transaction (Chapter~\ref{ch:measurement}), the arrow of
+time (Chapter~\ref{ch:time}) and the coincidence of dark energy with structure formation (Chapter~\ref{ch:theoryinterp}). The exponent $n=7/2$ rests on the
+horizon accounting above alone; no mass-function or $N$-body result is used to support it.

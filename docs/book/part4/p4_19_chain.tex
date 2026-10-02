@@ -6,10 +6,10 @@ The Cellular Performance Gauge is a chain of stages that takes a specimen's raw 
 Chapter~\ref{ch:gauge}. Chain v3 is a development build, not commissioned and not a diagnostic test. Its scope is one cell type, neutrophils,
 on EPIC v1 arrays; other cell types are added one at a time after each passes its tests. The entry point is
 \texttt{chain/\allowbreak{}MethylPhys\_Interface/\allowbreak{}run\_sample.py --engine v3}; the stages after calibration are in \texttt{chain/\allowbreak{}conductor\_v3.py}. The
-procedure is \texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md} and the operator chapter \texttt{manual/\allowbreak{}OM\_v3\_neutrophil\_chain.md}. Where a document and the code
-differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
+procedure is \texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md} and the operations manual \texttt{Biological\_Physics/\allowbreak{}MethylPhys/\allowbreak{}manual/\allowbreak{}OM\_v3/\allowbreak{}OM\_v3.tex}.
+Where a document and the code differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part4/fig_chain_v3_flow.pdf}
 \caption{Chain v3, from intake to report. Stage~A runs on whole blood only. Stage~Q reads sequencing input. Drawn by
 \texttt{figscripts/\allowbreak{}fig\_chain\_v3\_flow.py} from the stage rules in \texttt{conductor\_v3.py}, \texttt{stage\_m\_met\_a.py} and \texttt{stage\_q\_iam\_a.py}.}
@@ -21,7 +21,8 @@ differ, the code is what runs. This chapter walks through the stages (Figure~\re
 The IDAT pair is opened and the array's own numbers are read: manifest, integrity hash, control probes, per-probe detection, call rate and sex check.
 Below a call rate of 0.93 the specimen is quarantined and no reading is written; between 0.93 and 0.98 it proceeds with a flag. A sex mismatch, a failed
 integrity check or a deferred detection or call-rate check also quarantines (Chapter~\ref{ch:instrument}). A cleartext identifier is hashed before the
-engine sees it. Input that arrives as $\beta$ values without the raw files can be read, but the bundle then carries \texttt{intake\_verified: False}.
+engine sees it. Input that arrives as $\beta$ values without the raw files can be read, but no intake runs on it: the v3 bundle carries no intake record
+(\texttt{intake} empty, with \texttt{intake\_skipped}), and the report prints intake as not run.
 
 \section{Stage 1: calibration}
 
@@ -50,17 +51,28 @@ this specimen, and the methylated sites' mean $\beta$ with a flag when it is bel
 
 \section{Stage MC: the Met-A C-score}
 
-The residual map over the identity sites, in genome order, is reduced to the C-score: the variance of 50-site block means over the variance of the sites, divided
-by the healthy baseline 1.1104 (Chapter~\ref{ch:cscore}). It is printed with every reading, with no band. The IAM-A C-score is defined and not yet built. \openprob
+The residual map over the identity sites, in genome order, is reduced to the C-score: the variance of 50-site block means, times 50, over the variance of the sites,
+divided by the healthy baseline 1.1104 (Chapter~\ref{ch:cscore}). It is printed with every reading, with no band. The IAM-A C-score is defined and not yet built. \openprob
 
 \section{Stage T: the tare}
 
-The reading is divided by the median of at least three healthy references of the same specimen type run the same way, on the same slide, else in the same batch;
-with at least 20 references carrying $A$, $f_{\rm neu}$ and $N$, by the noise-corrected expectation instead (Chapter~\ref{ch:instrument}). The result is
-$A_{\rm rel}$, and the gauge state is printed from $A_{\rm rel}$ only: \emph{Normal} (0.95--1.05), \emph{above Normal} or \emph{below Normal}. Every tared reading
-carries its detection limit: twice the references' spread over the shift per 1~\% loss, the smallest loss of the neutrophil pattern this specimen could have shown.
-Without references the reading is printed as \emph{untared}, with no state. A batch is run in two passes: the first reads every specimen, the second re-reads each
-with the others of its batch as references (\texttt{chain\_tests/\allowbreak{}run\_chain\_acceptance.py}).
+The reading is divided by the median of at least three healthy references of the same specimen type run the same way, on the same slide, else in the same batch.
+The result is $A_{\rm rel}$, and the gauge state is printed from $A_{\rm rel}$ only: \emph{Normal} (0.95--1.05), \emph{above Normal} or \emph{below Normal}. Every
+tared reading carries its detection limit: twice the references' spread over the shift per 1~\% loss, the smallest loss of the neutrophil pattern this specimen
+could have shown.
+
+The noise index $N$, the mean $H(\beta)$ over the 48,528 sites that every purified blood group holds fixed, is measured on every array and gates the gauge
+state: outside the range of the purified reference arrays (0.122--0.149 on the six reference arrays, \texttt{DEV\_NOISE\_02\_OUTCOME.md}) the state is withheld.
+There is no fitted correction for $N$. \calibrated{} A slide tare from fully methylated and fully unmethylated control DNA run on every slide is the planned tare.
+\openprob{} (until a laboratory runs it)
+
+Without references, whole blood is printed as \emph{untared}, with no state and no gauge position. Isolated neutrophils without references keep their own-floor
+state inside the untared label (\emph{untared (own-floor state: \dots)}) and are drawn on the gauge against their own floor, labelled untared
+(\texttt{conductor\_v3.py}, \texttt{report\_v3.py}).
+
+The acceptance run (\texttt{chain\_tests/\allowbreak{}run\_chain\_acceptance.py}) reads every specimen once, then re-reads each whole-blood specimen and each mixture
+with a median tare whose references are the other specimens of its own group. Isolated specimens are not tared in that run, and the references there were not
+healthy references for every group (Chapter~\ref{ch:firstreadings}). The operating procedure is in the operations manual.
 
 \section{Stage Q: IAM-A}
 
@@ -70,11 +82,12 @@ any other pipeline is refused until a position has been measured on healthy cell
 
 \section{What the chain withholds}
 
-Every bundle lists what the build does not print: tier lines beyond Normal, which are not yet measured on this scale, and every cell type other than neutrophils.
+Every bundle lists what the build does not print: any line beyond Normal, because breach and the cancer region are not yet measured on this scale, and every
+cell type other than neutrophils.
 Composition-based detection of cells outside the eight groups, the whole-array sky, serial mode and the out-of-span map are not part of chain v3. \openprob
 
 \section{The record of a run}
 
 Each run writes one HTML page, a JSON bundle with every stage's output and the versions of the floor and reference files, and one row appended to an evidence
 ledger (Chapter~\ref{ch:report}). Each run takes its number from the ledger. The v3 bundle does not yet record the chain's commit or a checksum of each
-frozen file it read, and the v3 procedure and operator chapter are written by hand, not generated from the code. \openprob
+frozen file it read, and the v3 procedure and operations manual are written by hand, not generated from the code. \openprob

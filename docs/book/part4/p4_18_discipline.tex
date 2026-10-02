@@ -5,8 +5,7 @@
 A methylome offers hundreds of thousands of places to find a pattern and dozens of choices at every step of an analysis. Cosmology learned, at
 cost, that a result is only as good as the discipline that produced it: pre-registered tests, null tests that must read zero, simulations that must
 recover what was put in, and a correction for every place one looked. The chain adopts all four, and one more that cosmology takes for granted: the
-record of how every number was obtained is kept with the number. In the author's words, \emph{equally as important as the test results are the
-records of how we got them}.
+record of how every number was obtained is kept with the number. The record of how a result was obtained is as important as the result.
 
 \section{Pre-registration}
 
@@ -34,7 +33,7 @@ Three refinements came from use.
 \begin{tabular}{@{}p{0.34\textwidth}p{0.36\textwidth}p{0.2\textwidth}@{}}\toprule
 null & what must happen & chain v3 \\\midrule
 held-out reference arrays & read Normal on sites and a floor chosen without them & 6 of 6; SD 0.020 \\
-tared healthy and remission bloods & read Normal & mixtures 6/6; remission bloods, another laboratory, 5/5 \\
+tared mixtures and remission bloods & read Normal & 6/6 and 5/5, each tared against the other specimens of its group, not against healthy references \\
 same person, repeat draws & differences inside the change floor & floor not yet measured \\
 technical replicates & differences inside the change floor & not yet run at the 0.20 line \\
 known mixtures of purified cells & fractions within the stated error & median 0.034 \\
@@ -72,7 +71,7 @@ PROC-WB-NEUT-01 & does the composition-matched expectation read healthy mixtures
 WHOLE\_BLOOD\_COMPOSITION\_DEV & composition on the reference's own platform & adopted as Stage~A; tare required \\
 CHAIN\_V3\_ACCEPTANCE\_RUN3 & does the chain run from IDATs to a report? & 22 of 22 processed \\
 PROC-NEUT-TEST-01 & four tests of chain v3 & T1a, T1b passed; T1c, T2, T4c failed; T3 not assessable; T4a passed as written, composition effect \\
-DEV-NOISE-01, DEV-NOISE-02 & what sets the whole-blood reading? & noise index $N$; noise-corrected tare (development) \\
+DEV-NOISE-01, DEV-NOISE-02 & what sets the whole-blood reading? & noise index $N$; a noise-corrected tare fitted in development, not used by the chain \\
 DEV-LOWFRAC-01 & does the reading need half the specimen to be neutrophils? & no; 0.20 line and a per-specimen detection limit \\
 PROC-AML-SERIAL-01 & does the neutrophil reading see leukaemic blood? & S1--S4 failed; S5 passed \\
 PROC-DNMT-01 A, B & does a known block of methylation copying read? & A: measured; B: Q1, Q2 passed \\
@@ -84,9 +83,9 @@ PROC-SERIAL-01 & serial mode and its change floor & pre-registered; not wired \\
 
 \section{Guards that run at every change}
 
-A single build script, \texttt{chain/\allowbreak{}build\_all.py}, regenerates the documents derived from the code and runs its gates: a vocabulary scan with the
-report's own guards, failing on condition names and cohort language in live text; a class guard; a link check; and a reconciliation of the generated procedure
-with its source. These gates cover the procedure and Operations Manual of the class-floor engine kept for the record. The chain v3 procedure
-(\texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md}), its operator chapter and the v3 report are not yet generated from the code or scanned by the gates. \openprob{} Two
+A single build script, \texttt{chain/\allowbreak{}build\_all.py}, regenerates the documents derived from the code and runs gates that include a vocabulary scan
+that fails on condition names and cohort language in live text, a link check, and a reconciliation of each generated procedure with its source.
+The chain v3 procedure (\texttt{sop/\allowbreak{}MethylPhys\_CPG\_SOP\_v3.md}), its operator chapter and the v3 report are not yet generated from the
+code or scanned by these gates. \openprob{} Two
 runs never write to one output path; one early procedure run was voided when a stray process kept writing into the same log, and the rule was written that day
 (\texttt{PROC\_INTAKE\_01\_OUTCOME.md}).

@@ -16,27 +16,27 @@ floor breach at the horizon and in the cell share one structure & \analogy & Ch.
 departure from the floor means loss of maintained fidelity, not of energy & \conjecture & Ch.~\ref{ch:floorbreach} \\
 \multicolumn{3}{@{}l}{\emph{The gauge}}\\
 Met-A $=$ mean $H(\beta)$ on the cell's identity sites over the same cell type's healthy reference & definition & Ch.~\ref{ch:meta} \\
-neutrophil reference on EPIC: 6 physical arrays, 6,000 identity sites, mean $H=0.330$ & \calibrated & Ch.~\ref{ch:meta} \\
+neutrophil reference on EPIC: 6 physical arrays, 6,000 identity sites, floor 0.330263 bits & \calibrated & Ch.~\ref{ch:meta} \\
 held-out Met-A of the six reference arrays, SD 0.020 & \measured & Ch.~\ref{ch:meta} \\
 IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$, $\varepsilon_0=1/(1+e^{E_{\rm hold}/\kB T})$ & form \derived, height \measured & Ch.~\ref{ch:iama} \\
 $E_{\rm hold}=3.41\,\kB T$, $\varepsilon_0=0.032$, $\varphi=E_{\rm hold}/M=0.163$ & \measured, \calc & Ch.~\ref{ch:iama} \\
 neutrophil position $P=1.099$ (3 donors, 1.084--1.108) & \measured & Ch.~\ref{ch:iama} \\
-Met-A C-score baseline 1.110; healthy arrays 0.70--1.23 & \calibrated & Ch.~\ref{ch:cscore} \\
+Met-A C-score baseline 1.1104; healthy arrays 0.70--1.23 & \calibrated & Ch.~\ref{ch:cscore} \\
 $A=1$ healthy in the middle; Normal $=1\pm0.05$ & design tolerance & Ch.~\ref{ch:gauge} \\
 IAM-A floor $1/P=0.910$; surface full: Met-A 3.03, IAM-A 4.45; C-score far end 45 & \calc & Ch.~\ref{ch:gauge} \\
 breach and the cancer region on this gauge & \openprob{} (to be measured) & Ch.~\ref{ch:gauge} \\
 the Met-A floor ($H_{\min}$ on the Met-A scale) & \openprob & Ch.~\ref{ch:gauge} \\
-copy-error floor at fixed holding energy: $0.78\times$ at 10\,\textdegree C, $1.012\times$ at 38.5\,\textdegree C & \derived & Ch.~\ref{ch:temperature} \\
+copy-error floor at fixed holding energy: $0.78\times$ at 10\,\textdegree C, $1.012\times$ at 38.5\,\textdegree C & \calc & Ch.~\ref{ch:temperature} \\
 \multicolumn{3}{@{}l}{\emph{Instrument}}\\
-intake on the array's own numbers & adopted & Ch.~\ref{ch:instrument} \\
-SNP-probe tare & not commissioned & Ch.~\ref{ch:instrument} \\
+intake on the array's own numbers & \calibrated{} (adopted) & Ch.~\ref{ch:instrument} \\
+SNP-probe tare & \openprob{} (not commissioned) & Ch.~\ref{ch:instrument} \\
 atlas v2 intervals cover held-out data at 92.7~\% & \measured & Ch.~\ref{ch:atlas} \\
-atlas v2 identity sites transfer to held-out samples at 95~\% (for cell types after neutrophils) & not met (87.7~\% / 73.1~\%) & Ch.~\ref{ch:atlas} \\
-v2 solver on known mixtures, CD4/CD8/NK $\le0.015$ & met after development & Ch.~\ref{ch:separation} \\
-eosinophil and neutrophil fractions & outside bar & Ch.~\ref{ch:separation} \\
-no-population sky $\sigma$ on admitted arrays & 94~\% in range & Ch.~\ref{ch:sky} \\
-sky offset off the identity loci & \openprob & Ch.~\ref{ch:sky} \\
-serial change floor & upper bound & Ch.~\ref{ch:serial} \\
+atlas v2 identity sites for cell types after neutrophils: held-out readings in Normal, bar 95~\% & \measured{} 87.7~\% / 73.1~\%, not met & Ch.~\ref{ch:atlas} \\
+composition (Stage A) on known mixtures: median fraction error 0.034 & \measured & Ch.~\ref{ch:separation} \\
+neutrophil fraction against flow cytometry, six healthy bloods: median 0.035 (bar 0.05) & \measured & Ch.~\ref{ch:separation} \\
+sky noise term from the six purified reference arrays, no panel of people & \calibrated & Ch.~\ref{ch:sky} \\
+whole-array sky (needs per-address noise and a sex mask) & \openprob & Ch.~\ref{ch:sky} \\
+serial change floor (tared, technical replicates) & \openprob{} (not yet measured) & Ch.~\ref{ch:serial} \\
 out-of-span map separates unknown cells & \prediction & Ch.~\ref{ch:sky} \\
 \multicolumn{3}{@{}l}{\emph{Readings}}\\
 tumour against the same patient's normal tissue: copy error higher in 6/6 colorectal pairs (median ratio 1.148) and 4/4 oral pairs (3/4 with 5hmC removed) & \measured & PROC-TUMOUR-01 \\
@@ -44,7 +44,7 @@ DNMT1 inhibitor $\ge80$~nM: Met-A 1.16--1.85 against each line's own untreated a
 DNMT1 inhibitor 100~nM, single molecules: IAM-A 1.65--1.97, 8 of 8 & \measured & PROC-DNMT-01 B \\
 healthy DNA mixtures: 1.062--1.118 against neutrophils alone, 0.982--1.016 against own composition & \measured & Ch.~\ref{ch:atlas} \\
 senescent fibroblasts clean the unmethylated channel (0.69); immortalised cells err on the methylated one & \measured & Ch.~\ref{ch:gauge} \\
-salmonid temperature prediction & not met (library artefacts) & Ch.~\ref{ch:temperature} \\
+temperature behaviour of the floor in fish & \openprob{} (library terms not yet removed) & Ch.~\ref{ch:temperature} \\
 \bottomrule
 \end{longtable}
 \end{center}

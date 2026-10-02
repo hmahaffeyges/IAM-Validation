@@ -29,8 +29,8 @@ energy allows:
   \label{eq:eps0}
 \end{equation}
 \derived{} for the form. With $M=20.94$ and the holding energy measured across 56 healthy cell types, $\phi=0.1628$
-(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Hmin=0.2044$ bits. \measured{} for the height. The form is IAM's Law at
-the chromatin surface; the height is still taken from healthy molecules, and deriving $\phi$ from the chemistry of
+(Chapter~\ref{ch:landauer}), $\varepsilon_0=0.032$ and $\Hmin=0.2043$ bits. \measured{} for the height. The form is the cost of holding a record at
+the chromatin, one of the places in IAM; the height is still taken from healthy molecules, and deriving $\phi$ from the chemistry of
 maintenance is the central open problem of the cellular rung (Chapter~\ref{ch:open}).
 
 \section{The healthy position, and the reading}
@@ -60,9 +60,9 @@ The last line is why $P$ is locked to a pipeline: the same cells read through a 
 different error. A new pipeline needs its own $P$, measured on healthy cells, before it can read anything.
 
 \begin{rulebox}
-The floor and the reading must be defined by the same statistic on the same selection of molecules. An earlier floor of
-$\varepsilon_0=0.0227$, taken from a different statistic, made healthy molecules look 3.4--4.8 times too error-prone
-(PROC-MOLECULE-01). The lesson is now a rule of the chain.
+The floor and the reading must be defined by the same statistic on the same selection of molecules. A floor taken from a
+different statistic (all-site copy error, with no filter on methylated molecules) misplaces healthy molecules several-fold
+(PROC-MOLECULE-01). \measured{} The chain enforces the rule.
 \end{rulebox}
 
 \section{One energy, many cells}
@@ -76,7 +76,7 @@ Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, w
 \item on the 26,800 CpGs that all 56 cell types keep methylated, the same bits in every cell, the copy error still differs
       1.66-fold from the lowest (naive CD8 T cells, lung macrophages, B cells) to the highest (smooth muscle, heart
       fibroblasts, erythroid progenitors), and the difference is stable across donors (intraclass correlation 0.80);
-\item cells do not sort by turnover: colon epithelium (a 3.4-day lifespan) and cardiomyocytes (56,000 days) carry the same
+\item cells do not sort by turnover: colon epithelium (a 3.4-day lifespan) and cardiomyocytes (56,000 days)~\cite{Sender2021} carry the same
       copy error, 0.031.
 \end{itemize}
 \measured{} for all four. The architecture of each cell's maintenance, not how often it is replaced, sets its position.
@@ -84,5 +84,5 @@ Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, w
 \section{Tumours}
 
 The same statistic reads tumours against the same person's normal tissue with no reference population: in six early-onset
-colorectal pairs the tumour's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four,
-most of it surviving when 5-hydroxymethylcytosine is removed (PROC-TUMOUR-01; Chapter~\ref{part4:ch:reach}). \measured
+colorectal pairs the tumour's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four, and in
+three of the four when 5-hydroxymethylcytosine is removed (PROC-TUMOUR-01; Chapter~\ref{part4:ch:reach}). \measured

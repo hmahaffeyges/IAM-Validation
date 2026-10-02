@@ -2,7 +2,6 @@
 % nearly in full, in its own order. Edited only for the physics-terms rule and checked corrections. Section 13 (interpretation) is carried in Part 5 (p5_theory_interpretation.tex).
 % Source read in full 2026-10-02: PDF text 1,916 lines, 50-line chunks, ledger 1-1916 with no gaps (an earlier draft relied on a partial read).
 % Numbers recomputed (docs/verification/theory/THEORY_CHECK.md). [HOLD] boxes are decisions for the author.
-\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{Horizon thermodynamics and gravitational decoherence}\label{ch:theory}
 
@@ -17,7 +16,7 @@ prediction in the $\mu$--$\Sigma$ framework.
 partition sets how much is written. (ii) Each bit carries a minimum cost $k_BT\ln2$ (Landauer)~\cite{Landauer1961}, paid at the horizon temperature. (iii) The accumulated information is
 encoded on the horizon, adding a term to the entropy functional in the Jacobson--Cai--Kim derivation of the field equations~\cite{Jacobson1995,CaiKim2005}. (iv) The term applies only
 to timelike degrees of freedom, because decoherence needs nonzero proper time; null degrees of freedom are unaffected.
-The four steps give $\mu(a)<1$ for matter and $\Sigma(a)=1$ for light~\cite{MahaffeyTheory}, with $\mu(z{=}0)=0.864$ ($\mu_0\equiv\mu-1=-0.136$) from the virial coupling
+The four steps give $\mu(a)<1$ for matter and $\Sigma(a)=1$ for light, with $\mu(z{=}0)=0.864$ ($\mu_0\equiv\mu-1=-0.136$) from the virial coupling
 $\beta_m=\Omega_m/2$. The result has a variational form, a constrained scalar with action $S_{\rm info}=\int[-\rho_{\rm info}(\varphi)+\lambda(\dot\varphi-H/a)]\sqrt{-g}\,d^4x$,
 $\varphi=1-1/a$, and equation of state $w_{\rm info}=-1-1/(3a)$. The perturbation equations are standard GR on the modified matter-sector expansion
 rate, giving $\mu=E^2_{\Lambda\rm CDM}/E^2_{\rm IAM}<1$ and $\Sigma=1$, with no new free parameter. No new field, extra dimension or change to the
@@ -80,7 +79,7 @@ $\kappa\tau$ has period $2\pi$; this gives the Unruh temperature with no referen
 $8\pi=2\times4\pi$: $4\pi$ from the solid angle in three dimensions (Gauss's law) and $2$ from the trace structure of the Einstein tensor. Jacobson's
 Clausius relation is the statement $\hbar\eta/2\pi=c^3/8\pi G$, so
 \begin{equation}\eta=\frac{c^3}{4\hbar G}=\frac{1}{4\ell_P^2},\qquad\frac14=\frac{2\pi}{8\pi}.\end{equation}
-\calc\ This is the Bekenstein--Hawking coefficient written as the ratio of the two geometric factors already in the derivation; given $G$, it fixes $\eta$.
+\derived\ This is the Bekenstein--Hawking coefficient written as the ratio of the two geometric factors already in the derivation; given $G$, it fixes $\eta$.
 
 \emph{One unit of entropy per $4\ell_P^2$.} Adding entropy $k_B$ to a horizon at temperature $T=\hbar\kappa/2\pi k_B$ costs $\delta E=\hbar\kappa/2\pi$.
 The horizon first law, $\delta E=(\kappa c^3/8\pi G)\,\delta A$ ($\kappa$ in s$^{-1}$), turns this into an area
@@ -105,10 +104,10 @@ The derivation of the field equations from horizon thermodynamics (Jacobson 1995
 $dE=T_H\,dS-W\,dV$ to the apparent horizon, with $A_H=4\pi/H^2$, $T_H=H/2\pi$ and $S=A_H/4$, returns the Friedmann equations. Once that is accepted
 there are two ways to go further.
 \begin{itemize}
-\item \emph{Change the entropy law.} Barrow entropy $S=(A/A_0)^{1+\Delta/2}$ (Phys.\ Rev.\ D 102, 123525) and Tsallis entropy $S=\gamma A^\delta$
-(JCAP 12 (2018) 012) deform the area law itself. The deformation enters the Friedmann equations, changes the background expansion, and adds a parameter
-($\Delta$ or $\delta$) that must be measured. After DESI DR2 BAO both remain viable, neither resolves the $H_0$ tension, and both are disfavoured by
-information criteria for the added parameter (JCAP 09 (2025) 013).
+\item \emph{Change the entropy law.} Barrow entropy $S=(A/A_0)^{1+\Delta/2}$~\cite{Barrow2020} and Tsallis entropy $S=\gamma A^\delta$~\cite{TsallisCirto2013}
+deform the area law itself. The deformation enters the Friedmann equations, changes the background expansion, and adds a parameter
+($\Delta$ or $\delta$) that must be measured. Fits to supernova, cosmic-chronometer and BAO data including DESI DR2 allow the deformation, with $\Lambda$CDM
+slightly favoured by information criteria (JCAP 09 (2025) 013) \observed.
 \item \emph{Count a source that was left out.} Keep the Bekenstein--Hawking area law exactly, and add the entropy that matter produces as it
 decoheres: $S_{\rm total}=S_{\rm BH}+S_{\rm info}$. This is the route taken here. Nothing in the area law changes; the horizon's budget simply has a term
 that the derivations had not counted.
@@ -131,14 +130,14 @@ holographic bound limits information per unit area.
 
 \paragraph{The virial coupling.} In virial equilibrium $2K+U=0$: half the potential energy is thermalised into random motion, and that half produces
 decoherence. The coupling of information entropy to the horizon is
-\begin{equation}\beta_m=\frac{\Omega_m}{2}=0.1575\quad(\Omega_m=0.315).\end{equation}
+\begin{equation}\beta_m=\frac{\Omega_m}{2}=0.15765\quad(\Omega_m=0.3153).\end{equation}
 
 \section{The activation function}
 \subsection{The matter-dominated limit}
 In matter domination $H\propto a^{-3/2}$, $A_H=4\pi/H^2\propto a^3$, $T_H=H/2\pi\propto a^{-3/2}$, $D\propto a$, $f\approx1$. Per unit $\ln a$, Eq.~\eqref{eq:dSdt} is
 \begin{equation}\frac{dS_{\rm info}}{d\ln a}\propto\frac{\rho_mD^nf}{T_HA_H}\propto\frac{a^{-3}a^n}{a^{-3/2}a^{3}}=a^{\,n-9/2},\qquad
 \frac{dS_{\rm info}}{da}\propto a^{\,n-11/2},\qquad S_{\rm info}\propto\frac{a^{\,n-9/2}}{n-9/2}.\label{eq:Sn}\end{equation}
-\calc\ Each step checks.
+\derived
 
 \subsection{The critical exponent}
 
@@ -148,8 +147,8 @@ In matter domination $H\propto a^{-3/2}$, $A_H=4\pi/H^2\propto a^3$, $T_H=H/2\pi
 \end{figure}
 For the form $\exp(C-1/a)$ the accumulated entropy must go as $-1/a+{\rm const}$, so Eq.~\eqref{eq:Sn} requires $n-\tfrac92=-1$:
 \begin{equation}n=\tfrac72 .\end{equation}
-\calc\ Integrating Eqs.~\eqref{eq:Idot}--\eqref{eq:dSdt} with the full $\Lambda$CDM growth factor gives $dS_{\rm info}/d\ln a\propto a^{-1.02}$ in the matter era for
-$n=7/2$, the power the activation function needs. The exponent lies between linear ($n=1$) and fully nonlinear ($n\gtrsim4$) structure formation, the
+\derived\ Integrating Eqs.~\eqref{eq:Idot}--\eqref{eq:dSdt} with the full $\Lambda$CDM growth factor gives $dS_{\rm info}/d\ln a\propto a^{-1.02}$ in the matter era for
+$n=7/2$, the power the activation function needs \calc. The exponent lies between linear ($n=1$) and fully nonlinear ($n\gtrsim4$) structure formation, the
 regime where most information is produced. Section~\ref{sec:numerics} finds the closest fit to the activation function for $D^{7/2}$. The activation function itself does not depend on $n$: it follows from the decoherence
 constraint below.
 
@@ -228,7 +227,7 @@ state of the system as temperature is fixed by the state of a gas.
 \subsection{The virial partition}
 $\langle T\rangle=-\tfrac12\langle V\rangle$. Collapse curves spacetime ($S_{\rm geo}$) and decoheres superpositions ($S_{\rm info}$); the virial theorem
 splits the gravitational energy equally, so $\rho_{\rm info}(a{=}1)=\tfrac12\rho_m$, and with $\rho_{\rm info}(1)=\beta_mE(1)\rho_{\rm crit}$,
-\begin{equation}\beta_m=\frac{\Omega_m}{2}=0.1575 .\end{equation}
+\begin{equation}\beta_m=\frac{\Omega_m}{2}=0.15765 .\end{equation}
 \subsection{Check against halo mass functions}
 Sheth--Tormen and Tinker et al.\ mass functions~\cite{ShethTormen1999,Tinker2008} (Planck 2018~\cite{Planck2018VI}, $\sigma_8=0.811$, $n_s=0.965$, Eisenstein--Hu transfer~\cite{EisensteinHu1998}) give the collapsed fraction in halos
 above $10^6M_\odot$ at $z=0$: $f^{\rm ST}_{\rm coll}=0.593$, $f^{\rm Tinker}_{\rm coll}=0.646$, $f_{\rm coll}=0.62\pm0.03$. The naive $\beta_m=\Omega_mf_{\rm coll}=0.195$
@@ -250,11 +249,8 @@ $\Omega_r=9.1\times10^{-5}$, $H_0=67.4$) for several source terms $R$, normalise
 \begin{center}\small\begin{tabular}{lccc}\hline Source & $\alpha$ & $\beta$ & $r$\\\hline
 $D^2\Omega_mf$ & 0.42 & 0.49 & 0.944\\ $D^{5/2}\Omega_mf/T_H$ & 0.76 & 0.87 & 0.981\\ $D^{7/2}\Omega_mf/T_H$ & 0.95 & 1.05 & 0.988\\
 $D^{4}\Omega_mf/T_H$ & 1.04 & 1.15 & 0.988\\ Press--Schechter$/T_H$ & 1.04 & 1.18 & 0.982\\\hline\end{tabular}\end{center}
-Both coefficients rise with $n$ and cross unity at $n\approx3$--$4$ ($\alpha=1$ near 3.5, $\beta=1$ near 3.3), bracketing the analytic $n=7/2$. Replacing $D^n$ with the Sheth--Tormen~\cite{ShethTormen1999}
-multiplicity $f_{\rm ST}(\nu)=A\sqrt{2q/\pi}[1+(q\nu^2)^{-p}]\nu e^{-q\nu^2/2}$ ($A=0.3222$, $q=0.707$, $p=0.3$, $\nu=\delta_c/\sigma_*D$) at $\sigma_*=1.2$
-(galaxy-scale halos, $10^{12}$--$10^{13}M_\odot$; $\sigma_*$ is the source paper's choice of mass scale, not a Sheth--Tormen parameter) gives
-$I\propto\exp(0.925-1.009/a)$, $r=0.992$, as computed in the source paper (not yet reproduced here). The ST function is calibrated on $\Lambda$CDM simulations,
-so this checks the $1/a$; the coupling rests on the virial theorem. A 15-test suite reproducing the chain is in the repository
+Both coefficients rise with $n$ and cross unity at $n\approx3$--$4$ ($\alpha=1$ near 3.5, $\beta=1$ near 3.3), bracketing the analytic $n=7/2$ \calc. The coupling
+rests on the virial theorem, not on these fits. A 15-test suite reproducing the chain is in the repository
 (\texttt{tests/\allowbreak{}iam\_derivation\_tests.py}).
 
 \section{Perturbations: $\mu<1$, $\Sigma=1$}
@@ -268,38 +264,34 @@ background expansion is unchanged, and the extra friction suppresses growth. In 
 \texttt{adotoa\_matter} in the matter perturbations (Level 2, three converged chains), with the global background unchanged.
 \paragraph{$\mu$ and $\Sigma$.} $\mu(a)=E^2_{\Lambda\rm CDM}/E^2_{\rm IAM}<1$: $\mu(0)=0.864$, $\mu(0.5)=0.948$, $\mu(1)=0.982$, $\to1$ at high $z$. $\Sigma=1$
 because both potentials obey the unmodified Poisson equation with no anisotropic stress. \calc
-\paragraph{Where it sits.} Most extensions of gravity strengthen growth: $f(R)$~\cite{PogosianSilvestri2008} and the normal branch of DGP~\cite{DGP2000} give $\mu>1$ with $\Sigma=1$, and generic
-Horndeski theories move~\cite{Horndeski1974} $\mu$ and $\Sigma$ together. The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$, but it carries a ghost and is
-excluded by data. Weaker growth with unchanged light paths, from friction on matter and no new propagating field, is the signature of the informational term.
-\paragraph{Second order.} The $F_2$ kernel is the GR kernel, unchanged. The source paper computes the 1-loop correction to $f\sigma_8$ as $-2.5\,\%$ in both models,
-differing by under $0.07\,\%$ (not reproduced here); since the two models differ only by a sub-percent change in the growth factor, the loop corrections
-differ at the same small relative level. Linear theory is valid for $k<0.2\,h$\,Mpc$^{-1}$.
+\paragraph{Where it sits.} Most extensions of gravity strengthen growth: $f(R)$~\cite{PogosianSilvestri2008} and the normal branch of DGP~\cite{DGP2000,KoyamaMaartens2006} give $\mu>1$ with $\Sigma=1$, and in
+Horndeski theories~\cite{Horndeski1974} $\mu-1$ and $\Sigma-1$ of opposite sign are strongly disfavoured~\cite{PogosianSilvestri2016}. The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$, but it carries a ghost~\cite{Koyama2007} and is
+in strong tension with growth and distance data~\cite{Fang2008}. Weaker growth with unchanged light paths, from friction on matter and no new propagating field, is the signature of the informational term.
+\paragraph{Second order.} The $F_2$ kernel is the GR kernel, unchanged. Since the two models differ only by a sub-percent change in the growth factor, the
+one-loop corrections differ at the same small relative level. Linear theory is valid for $k<0.2\,h$\,Mpc$^{-1}$.
 \paragraph{Amplitude.} With the same primordial amplitude, fixed by the CMB, the extra friction lowers the growth factor at every redshift, so the
 bispectrum amplitude, which scales as $D^4$ at fixed shape, is lower than in $\Lambda$CDM at all $z$; the difference vanishes at high $z$, where $\mu\to1$.
 \calc\ At fixed cosmological parameters the growth factor today is lower by $0.67\,\%$ with the friction form above (the Level 2 implementation, background
 unchanged) and by $0.78\,\%$ with $G_{\rm eff}=\mu G$ (the Level 1 MGCAMB implementation). In the chains, where the other parameters adjust, $\sigma_8$ is lower
 by $1.1\,\%$ (Level 2) and $1.6\,\%$ (Level 1). Normalising the two models to the same amplitude today instead of at early times, the Level 2 form gives
-bispectrum ratios $1.015$, $1.020$, $1.025$ at $z=0.3$, $0.5$, $1$. The source paper's $1.033$, $1.052$, $1.072$ are reproduced only when the whole growth
-equation, clock included, is solved on the matter-sector expansion rate ($1.038$, $1.053$, $1.071$), which is not the implementation used in either chain
-level; that paper also took its $z=0$ value from $\sigma_8$ (early normalisation), which produced an apparent crossover near $z\approx0.2$. With one
-implementation and one normalisation there is no crossover. What the bispectrum tests is the unchanged $F_2$ shape together with an amplitude that follows $\sigma_8(z)$.
+bispectrum ratios $1.015$, $1.020$, $1.025$ at $z=0.3$, $0.5$, $1$ \calc. In CAMB itself the coded mechanism lowers $\sigma_8$ at fixed parameters by $1.2\,\%$
+(Chapter~\ref{ch:level2}), more than the friction estimate above. What the bispectrum tests is the unchanged $F_2$ shape together with an amplitude that follows $\sigma_8(z)$.
 
 \section{Observational status}
 With $\beta_m$ fixed, the Planck 2018 chains give $\Delta\chi^2$ between $+0.5$ and $+1.7$ against $\Lambda$CDM in every data combination
 (Chapter~\ref{ch:dual}); free $\mu_0$ is consistent with both $0$ and $-0.136$. $\sigma_8$ drops in every combination: Level 1 (MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}, Planck only) $0.814\to0.802$ ($-1.6\,\%$); Level 2 (modified CAMB~\cite{Lewis2000CAMB}) $0.809\to0.800$ ($-1.1\,\%$). This is the direction of the
 CMB--lensing $\sigma_8$ difference. CMB spectra, CMB lensing, BAO angles and supernova distances are unchanged at the perturbation level; the TT spectra
 differ by under $0.13\,\%$ at $\ell>30$.
-The $\Delta\chi^2$ values throughout this book come from one extraction of the final chain files (Chapter~\ref{ch:dual}); the figure of the
-TT comparison is labelled from that extraction.
+The $\Delta\chi^2$ values throughout this book come from one extraction of the final chain files (Chapter~\ref{ch:dual}) \measured.
 \paragraph{Energy conservation.} $\dot\rho_{\rm info}/\rho_{\rm info}=H/a$ and $-3H(1+w_{\rm info})=H/a$, so the continuity equation holds for all $a$; the
 Euler--Lagrange equations give $\nabla_\mu T^{\mu\nu}_{\rm info}=0$, and with matter and $\Lambda$ conserved separately the Bianchi identity holds.
 \paragraph{DESI.} $w_{\rm eff}(0)=-1.062$, always $\le-1$. A single-sector $w_0w_a$ fit to a two-sector expansion history should show an apparent crossing.
-\paragraph{Standard sirens.} Siren hosts are galaxies, so they read the matter-sector rate: $H_0^{\rm sirens}=67.4\sqrt{1.1575}=72.51$; from the Level 2 posterior
-($67.161\pm0.467$), $72.26$. \calc\ One event so far: analyses of GW170817 range from $68$--$70$~\cite{Abbott2017Siren} to $75.5^{+5.3}_{-5.4}$~\cite{Palmese2024} (a 2024 afterglow
-analysis), consistent with both $67$ and $72$; tens of events will separate the two rates.
-\paragraph{Detection.} The 2024 DESI full-shape analysis~\cite{Ishak2025} gives $\mu_0=0.11^{+0.45}_{-0.54}$, consistent with both $-0.135$ and general relativity.
-Projected $\sigma(\mu_0)$ and the separation of the prediction from GR: DESI Y5 $\sim0.08$ ($1.7\sigma$); Euclid final $\sim0.04$ ($3.4\sigma$);
-Euclid + DESI Y5 $\sim0.03$ ($4.5\sigma$). Measuring $\Sigma_0$ consistent with zero at the same time is the distinctive signature.
+\paragraph{Standard sirens.} Siren hosts are galaxies, so they read the matter-sector rate: $H_0^{\rm sirens}=67.36\sqrt{1.15765}=72.48$ with Planck's $H_0$; from the Level 2 posterior
+($67.161\pm0.467$), $72.26$ \calc. One event so far: analyses of GW170817 range from $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren} and $68.9^{+4.7}_{-4.6}$~\cite{Hotokezaka2019} to $75.46^{+5.34}_{-5.39}$~\cite{Palmese2024} (a 2024 afterglow
+analysis), consistent with both $67$ and $72$ \observed; tens of events will separate the two rates.
+\paragraph{Detection.} The 2024 DESI full-shape analysis~\cite{DESI2024VII} gives $\mu_0=0.11^{+0.45}_{-0.54}$, consistent with both $-0.136$ and general relativity \observed.
+Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
+scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}). Measuring $\Sigma_0$ consistent with zero at the same time is the distinctive signature.
 
 \section{The derivation chain and its assumptions}
 Step 1 (Jacobson): $\delta Q=T\,dS$ with $S=\eta A$ $\Rightarrow$ $G_{ab}+\Lambda g_{ab}=8\pi GT_{ab}$.
@@ -321,7 +313,7 @@ contributes to horizon entropy --- the one identification, consistent with the h
 \item Distance--growth tension in $w_0w_a$ fits: the best $(w_0,w_a)$ from BAO distances alone will differ from that from $f\sigma_8$ alone.
 \item $\mu(z)<1$ with $\Sigma(z)=1$: $\mu(0)=0.864$, $\mu(0.5)=0.948$, $\Sigma=1$ at all $z$ (Euclid clustering vs lensing).
 \item No true phantom crossing; the effective $w$ is always $\le-1$.
-\item CMB-S4: $\beta_\gamma<10^{-4}$~\cite{Abazajian2016}; a larger photon coupling falsifies the exemption. The acoustic scale already gives $\beta_\gamma<0.0039$ (95\,\%), below $2.5\,\%$ of $\beta_m$ (Chapter~\ref{ch:dsvalidation}).
+\item A photon coupling $\beta_\gamma>0$ detected by CMB-S4~\cite{Abazajian2016} falsifies the exemption. The acoustic scale already gives $\beta_\gamma<0.0039$ (95\,\%), below $2.5\,\%$ of $\beta_m$ (Chapter~\ref{ch:dsvalidation}).
 \item $\beta_m/\Omega_m=\tfrac12$ for any $\Omega_m$.
 \item $\mu$ and $\Sigma$ depend on redshift only, not on $k$ ($\delta\varphi=0$); Euclid's tomographic bins test it.
 \end{enumerate}

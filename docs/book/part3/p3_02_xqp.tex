@@ -1,48 +1,52 @@
-% Part 3 opening chapter carrying "Landauer-Based Thermodynamic Model for the Minimum Quasiparticle Density in Al/AlOx/Al Josephson Junction Transmon
-% Qubits" (14 Apr 2026), read in full 2026-10-02 (854 lines), with the corrected model. Numbers: docs/verification/scripts/verify_xqp.py.
-% Check and referee note: docs/verification/particle/XQP_CHECK.md, XQP_REFEREE_NOTE.md.
+% Part 3, chapter on the background quasiparticle density. Numbers: docs/verification/scripts/verify_xqp.py and its output file.
+% Check notes: docs/verification/particle/XQP_CHECK.md, XQP_REFEREE_NOTE.md (not rendered).
 \chapter{The cost of holding a qubit}\label{ch:xqp}
 
 \section*{The place}
 IAM's Law (Chapter~\ref{ch:iams_law}) prices every irreversible record at $k_BT\ln2$ per bit at the nearest encoding surface. A superconducting qubit
-is a device built to \emph{avoid} records: it holds a superposition for as long as it can. This chapter asks what the law says that holding costs~\cite{MahaffeyXqp}, and
+is a device built to \emph{avoid} records: it holds a superposition for as long as it can. This chapter asks what the law says that holding costs, and
 where the cost should appear in a measurement.
 
 \section{The anomaly}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part3/fig_xqp_thermal.pdf}
-\caption{Equilibrium quasiparticle fraction in aluminium, $x_{\rm qp}=\sqrt{2\pi k_BT/\Delta}\,e^{-\Delta/k_BT}$ with $\Delta=182\,\mu$eV \calc: $1.5\times10^{-62}$ at 15\,mK ($\Delta/k_BT=141$), reaching $10^{-7}$ only near 135\,mK. Shaded: the measured background, $10^{-8}$--$10^{-6}$ in the best-isolated devices and up to $10^{-5}$ in less protected ones \observed.}\label{fig:xqp_thermal}
+\caption{Equilibrium quasiparticle fraction in aluminium, $x_{\rm qp}=\sqrt{2\pi k_BT/\Delta}\,e^{-\Delta/k_BT}$ with $\Delta=182\,\mu$eV \calc: $1.5\times10^{-62}$ at 15\,mK ($\Delta/k_BT=141$), reaching $10^{-7}$ only near 135\,mK. Shaded: the background commonly measured in transmons, $10^{-8}$--$10^{-6}$, and up to $10^{-5}$ in less protected devices \observed; the best reported device reaches $\lesssim10^{-9}$ (text).}\label{fig:xqp_thermal}
 \end{figure}
-In the best-isolated Al/AlOx/Al transmons the density of broken Cooper pairs (quasiparticles) does not fall below
-\begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-7},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
-that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$. In thermal equilibrium at 15--20\,mK there should be no more than one quasiparticle in a volume the size
-of the Earth. Known external sources have been reduced one by one --- stray infrared light~\cite{Barends2011}, environmental radioactivity~\cite{Vepsalainen2020,Cardani2021}, cosmic rays~\cite{McEwen2022} --- and the floor
+In Al/AlOx/Al transmons the measured density of broken Cooper pairs (quasiparticles) is commonly
+\begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-8}\text{--}10^{-6},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
+with $x_{\rm qp}\approx10^{-7}$ in many devices~\cite{Serniak2018}, that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$ \observed. The lowest reported value is
+$x_{\rm qp}\lesssim10^{-9}$~\cite{Connolly2024}. In thermal equilibrium at 15--20\,mK there should be fewer than one quasiparticle in a volume the size
+of the Earth \calc. Known external sources have been reduced one by one --- stray infrared light~\cite{Barends2011}, environmental radioactivity~\cite{Vepsalainen2020,Cardani2021}, cosmic rays~\cite{McEwen2022} --- and an excess over equilibrium
 remains. What the measurements show, read carefully:
 \begin{itemize}
-\item The same qubit operated at the surface and deep underground at Gran Sasso, with about thirty times fewer muons, shows the same $T_1$~\cite{DeDominicis2026}, and
+\item A transmon measured above ground and deep underground at Gran Sasso, where muon interactions are six orders of magnitude rarer, shows a
+similar average $T_1$ of about 80\,$\mu$s at both sites~\cite{DeDominicis2026}, and
 $T_1$ is insensitive to added shielding while the quasiparticle tunnelling rate is very sensitive to it~\cite{Gordon2022}. Together these say that at present
 lifetimes $T_1$ is not set by radiation-generated quasiparticles, and that a large part of the measured tunnelling is of external origin. They do not
 by themselves show an internal source.
-\item The excess quasiparticles have a thermalised energy distribution at the gap edge~\cite{Connolly2024}. In aluminium, quasiparticles relax to the gap edge by phonon
+\item The excess quasiparticles have an energy distribution in equilibrium with the phonon bath~\cite{Connolly2024}. In aluminium, quasiparticles relax to the gap edge by phonon
 emission far faster than they recombine at these densities~\cite{Kaplan1976}, so any source gives this distribution; it is consistent with an internal source but does
 not single one out.
-\item The background tunnelling statistics are Poissonian, with separate correlated bursts from ionising events~\cite{Andersson2026,McEwen2022}.
-\item The tunnelling rate depends on the oxide barrier, which contains high-transmission sites with a reduced gap~\cite{Kurter2022}, and most TLS sit on the junction leads~\cite{Lisenfeld2025}.
+\item Individual background tunnelling events are uncorrelated between two co-housed qubits, while bursts, about once per minute, are correlated across
+devices~\cite{Sundelin2026,McEwen2022}.
+\item The tunnelling rate depends on the shunting-capacitor material and geometry, and an anomalous temperature dependence in some devices has been
+modelled as high-transmission sites with a reduced gap in the junction barrier~\cite{Kurter2022}; most detectable surface TLS sit on the junction
+leads~\cite{Lisenfeld2025}.
 \end{itemize}
 These leave room for a source inside the device, at the junction; they do not establish it. The proposal below is that source, stated so that a
 measurement can rule it in or out.
 
 \section{The proposal}
-A qubit holds its state against a bath of two-level fluctuators (TLS) in the oxide and at the metal--oxide interfaces~\cite{Phillips1987,Muller2019}. A TLS flip kicks the condensate
-phase by $\delta\phi\sim g/\omega_q\sim10^{-3}$; the condensate restores its phase in $\hbar/\Delta\approx3.6$\,ps, about seven orders of magnitude faster than
+\conjecture\ A qubit holds its state against a bath of two-level fluctuators (TLS) in the oxide and at the metal--oxide interfaces~\cite{Phillips1987,Muller2019}. A TLS flip kicks the condensate
+phase by $\delta\phi\sim g/\omega_q\sim10^{-3}$; the condensate restores its phase in $\hbar/\Delta\approx3.6$\,ps, five to seven orders of magnitude faster than
 the next flip ($\tau_{\rm TLS}\sim1$--$100\,\mu$s). After restoration the condensate is the same whichever way the TLS flipped: the information about
 the flip has been discarded. That is an erasure, and by IAM's Law it is paid in heat. Each active site therefore produces an irreversible event at rate
-$1/\tau_{\rm TLS}$, whether or not the qubit is being used. The separation of time scales makes the events independent, which gives the observed
-Poissonian statistics.
+$1/\tau_{\rm TLS}$, whether or not the qubit is being used. The separation of time scales makes the events independent, as the uncorrelated background
+events require.
 \paragraph{Which temperature.} In conventional thermodynamics the Landauer cost of resetting a degree of freedom is paid to the reservoir that
 absorbs the heat, here the phonons at $\sim20$\,mK, where $k_BT\ln2$ is about $1\,\mu$eV. Charging the erasure at the condensate's own scale,
-$\Delta/k_B\approx2.1$\,K, is IAM's Law applied to the nearest encoding surface. It is the one place in this chapter where IAM departs from standard
+$\Delta/k_B\approx2.1$\,K, is IAM's Law applied to the nearest encoding surface \conjecture. It is the one place in this chapter where IAM departs from standard
 thermodynamics, and therefore the place a clean experiment decides.
 
 \section{From events to quasiparticles}
@@ -57,38 +61,39 @@ across the whole island. What a qubit measures is the island average.
 conduction electrons ($n_e/2=9\times10^{10}\,\mu$m$^{-3}$, which is $22{,}600$ times larger).
 With $N$ active sites on an island of volume $V$, the steady state is
 \begin{equation}x_{\rm qp}=\frac{2N\,\tau_{\rm qp}}{\tau_{\rm TLS}\,n_{\rm cp}\,V}.\label{eq:xqp}\end{equation}
+\derived\ (from the proposal and the three facts above).
 
 \section{What it requires}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part3/fig_xqp_sites.pdf}
-\caption{Eq.~\eqref{eq:xqp} with yield 2 per event, $n_{\rm cp}=4\times10^{6}\,\mu$m$^{-3}$, $\tau_{\rm TLS}=30\,\mu$s and $\tau_{\rm qp}=100\,\mu$s, for islands of $10^3$, $10^4$ and $10^5\,\mu$m$^3$: 60, 600 and 6,000 active fluctuators hold the measured $10^{-7}$ (band: $10^{-8}$--$10^{-6}$). \derived\ (form) \calc\ (values)}\label{fig:xqp_sites}
+\caption{Eq.~\eqref{eq:xqp} with yield 2 per event, $n_{\rm cp}=4\times10^{6}\,\mu$m$^{-3}$, $\tau_{\rm TLS}=30\,\mu$s and $\tau_{\rm qp}=100\,\mu$s, for islands of $10^3$, $10^4$ and $10^5\,\mu$m$^3$: 60, 600 and 6,000 active fluctuators hold $10^{-7}$ (band: $10^{-8}$--$10^{-6}$). \derived\ (form) \calc\ (values)}\label{fig:xqp_sites}
 \end{figure}
 \begin{center}\small\begin{tabular}{lcc}\toprule
 island volume $V$ & active sites for $x_{\rm qp}=10^{-7}$ & $x_{\rm qp}$ from one site\\\midrule
 $10^3\,\mu$m$^3$ & 60 & $1.7\times10^{-9}$\\ $10^4\,\mu$m$^3$ & 600 & $1.7\times10^{-10}$\\ $10^5\,\mu$m$^3$ & 6{,}000 & $1.7\times10^{-11}$\\\bottomrule
 \end{tabular}\end{center}
-($\tau_{\rm TLS}=30\,\mu$s, $\tau_{\rm qp}=100\,\mu$s.) A few pinholes cannot hold the floor. Hundreds to thousands of active fluctuators can, and
+($\tau_{\rm TLS}=30\,\mu$s, $\tau_{\rm qp}=100\,\mu$s; \calc.) A few pinholes cannot hold the background. Hundreds to thousands of active fluctuators can, and
 TLS spectroscopy maps them mostly on the junction leads~\cite{Lisenfeld2019,Lisenfeld2025}, which is where the source must be. The number $N$ is a property of each device and has to be
-measured; nothing else in Eq.~\eqref{eq:xqp} is free. An alternative source must be excluded by the same measurement: slow relaxation of mechanical stress in the films produces phonon bursts and
-excess quasiparticles with several of the same signatures (arXiv:2208.02790~\cite{Anthony2022}). The two are separated by Eq.~\eqref{eq:xqp}: only the erasure source
+measured; nothing else in Eq.~\eqref{eq:xqp} is free. An alternative source must be excluded by the same measurement: slow relaxation of mechanical stress
+produces phonon bursts and excess quasiparticles with several of the same signatures~\cite{Anthony2022}. The two are separated by Eq.~\eqref{eq:xqp}: only the erasure source
 scales with the active-fluctuator count $N$ and with $1/\tau_{\rm TLS}$.
 
 \section{The test}
 On one device, measure the five quantities $x_{\rm qp}$ (parity switching~\cite{Riste2013,Serniak2018}), $\tau_{\rm qp}$, $\tau_{\rm TLS}$ (1/$f$ noise), the active fluctuator count
-$N$ (TLS spectroscopy) and the island volume $V$. The law predicts
+$N$ (TLS spectroscopy) and the island volume $V$. The law predicts \prediction
 \begin{equation}\frac{x_{\rm qp}\,n_{\rm cp}\,V\,\tau_{\rm TLS}}{N\,\tau_{\rm qp}}=2.\end{equation}
-Across devices, the floor should scale as $N/(\tau_{\rm TLS}V)$: better barriers (longer $\tau_{\rm TLS}$, fewer fluctuators) lower it; better
-shielding does not. The proposal fails if the floor does not follow $N/V$, or if it keeps falling with shielding after external sources are gone.
+Across devices, the background should scale as $N/(\tau_{\rm TLS}V)$: better barriers (longer $\tau_{\rm TLS}$, fewer fluctuators) lower it; better
+shielding does not. The proposal fails if the background does not follow $N/V$, or if it keeps falling with shielding after external sources are gone.
 
 \section{The coherence ceiling}
-Quasiparticle relaxation of a transmon is $\Gamma_1=(x_{\rm qp}/\pi)\sqrt{2\omega_q\Delta/\hbar}$ (Catelani et al.\ 2011~\cite{Catelani2011}). With
-$\Delta_{\rm Al}=180\,\mu$eV at $5$\,GHz, a floor of $10^{-7}$ caps $T_1$ at $0.24$\,ms, $10^{-6}$ at $0.02$\,ms; the best aluminium transmons sit
-near this cap, where dielectric (TLS) loss and quasiparticles compete. If the floor is the cost of holding the state, it is lowered by changing the barrier and its
-fluctuators, not by shielding the device.
+Quasiparticle relaxation of a transmon is $\Gamma_1=(x_{\rm qp}/\pi)\sqrt{2\omega_q\Delta/\hbar}$~\cite{Catelani2011}. With
+$\Delta_{\rm Al}=182\,\mu$eV at $5$\,GHz, $x_{\rm qp}=10^{-7}$ caps $T_1$ at $0.24$\,ms and $10^{-6}$ at $0.02$\,ms \calc; transmons that reach
+$T_1\approx0.3$--$0.5$\,ms (Chapter~\ref{ch:scprimer}) carry less than $10^{-7}$, and there dielectric (TLS) loss and quasiparticles compete. If the
+background is the cost of holding the state, it is lowered by changing the barrier and its fluctuators, not by shielding the device.
 
 \section{Status}
-Stands: a proposal for an endogenous contribution to the floor, from erasures at the TLS rate, compatible with the measurements above but not
-established by them; the same-device test decides it. Derived here: the density in the field's units, with quantised pair breaking and diffusion over the island (Eq.~\ref{eq:xqp}). Open: the
-active-site count $N$ for a measured device, and whether each erasure event breaks a pair (yield $2$) or only some do, which would lower the yield and
-raise the required $N$.
+Stands: a proposal for an internal contribution to the background quasiparticle density, from erasures at the TLS rate, compatible with the measurements
+above but not established by them; the same-device test decides it \conjecture. Derived from the proposal: the density in the field's units, with quantised pair breaking
+and diffusion over the island (Eq.~\eqref{eq:xqp}) \derived. Open: the active-site count $N$ for a measured device, and whether each erasure event breaks a
+pair (yield $2$) or only some do, which would lower the yield and raise the required $N$ \openprob.

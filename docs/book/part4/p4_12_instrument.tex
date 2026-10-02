@@ -26,15 +26,20 @@ $0.93$--$0.98$ & proceed with penalty, flagged \\
 $<0.93$ & quarantine: no reading is written \\\bottomrule
 \end{tabular}
 \end{center}
-The call rate is the fraction of probes whose detection $p$ against the array's own negative controls is at most 0.05. The 0.93 line was
-set by the author from a 48-array measurement across four laboratories: medians 0.985 (minimum 0.979), 0.975 (minimum 0.891) and 0.953
+The call rate is the fraction of probes that are detected and carry at least three beads; a probe is detected when its Gaussian detection $p$,
+$1-\Phi\big((I-\mu_{\rm bg})/\sigma_{\rm bg}\big)$ against the array's own negative-control background, is below 0.01
+(\texttt{stage\_0\_intake.py}). Stage~1 records a second detection statistic, poobah $p\le0.05$, and a call rate on it; these are recorded, not
+gated. The 0.93 line was set from a 48-array measurement across four laboratories: medians 0.985 (minimum 0.979), 0.975 (minimum 0.891) and 0.953
 (minimum 0.932) in three, and 0.878 (maximum 0.928) in the fourth (\texttt{doors/\allowbreak{}PROC\_INTAKE\_01\_OUTCOME.md}). \measured{} The line
-sits in the gap between the fourth laboratory's best array and the third's worst.
+sits in the gap between the fourth laboratory's best array and the third's worst; one array of the second laboratory
+(0.891) falls below it. That measurement used poobah $p\le0.05$, not the statistic the gate applies; the line has not yet been
+re-measured on the gate's own statistic. \openprob
 
 Three further rules decide the verdict. A sex mismatch between the array and the manifest quarantines the specimen and is never silently
 corrected. A deferred detection or call-rate check is a hard quarantine: a check that cannot run never advances a specimen
-(PROC-INTAKE-01, bar B5). Two checks are recorded and not yet gated: bead count, which Stage~1 does not extract, and the bisulfite-conversion
-threshold, which as written refused all 731 healthy arrays it was tried on and is printed as provisional. \openprob{} A quarantined
+(PROC-INTAKE-01, bar B5). Bead counts are extracted at the Stage~0 hand-off; a low-bead warning gives \emph{proceed with penalty}, and probes with fewer than three
+beads do not count toward the call rate. The bisulfite-conversion threshold is recorded and not gated: as written it refused all 731 healthy
+arrays it was tried on, and it is printed as provisional. \openprob{} A quarantined
 specimen produces no reading; the run stops with exit status 2.
 
 \paragraph{Probes at background.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever the
@@ -42,11 +47,12 @@ true methylation (PROC-INTAKE-01, diagnostic after bar B3). \measured{} Met-A id
 (Chapter~\ref{ch:identity}), where such a value raises $H(\beta)$ toward one bit. Stage~1 therefore removes every probe whose detection $p$
 exceeds 0.05 before any stage reads a $\beta$.
 
-\section{One platform per floor}
+\section{One platform per reference}
 
 The chain reads EPIC v1 arrays only. It refuses a specimen when Stage~0 reports another array type, when probe names carry the EPIC v2
 design suffix, or when the $\beta$ vector holds 700,000 probes or fewer (\texttt{conductor\_v3.py}, \texttt{platform\_refusal}). The reason is
-measured: a floor built on one platform does not transfer to another (Chapter~\ref{ch:meta}). A 450K neutrophil floor is pending. \openprob
+measured: a reference built on one platform does not transfer to another (Chapter~\ref{ch:meta}). A 450K neutrophil reference is not
+yet frozen. \openprob
 
 \section{The noise index}
 
@@ -74,24 +80,29 @@ A physical instrument is zeroed against a known input measured the same way. Cha
 type, run on the same slide, else in the same batch, through the same chain (Stage~T, \texttt{conductor\_v3.py}, \texttt{stage\_t\_tare}). The
 references are part of the run, not a stored population, and the specimen is never among its own references.
 \begin{itemize}
-\item \textbf{Median tare} (3 to 19 references): $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$.
-\item \textbf{Noise-corrected tare} (at least 20 references, each with its untared $A$, neutrophil fraction $f_{\rm neu}$ and noise index $N$):
-      a least-squares fit $A=a+b\,f_{\rm neu}+c\,N$ on the references (isolated neutrophils: $A=a+c\,N$), and $A_{\rm rel}=A/\hat A$ at this
-      specimen's own $f_{\rm neu}$ and $N$.
+\item \textbf{Median tare} (at least 3 references): $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$. There is no fitted correction.
+\item \textbf{Noise gate:} the noise index $N$ (mean $H(\beta)$ over the 48,528 sites every purified blood group holds fixed) is measured on
+      every array and gates the gauge state: outside the range of the purified reference arrays the state is withheld.
 \item \textbf{Detection limit:} $2\times$ the references' spread divided by the shift that a 1~\% loss of the neutrophil pattern would cause at this
       specimen's own fraction. Every tared reading states the smallest loss it could have shown.
 \end{itemize}
-With fewer than three references the reading is printed as a number with the word \emph{untared} and no gauge state.
+With fewer than three references the reading is untared. Isolated neutrophils are then drawn on the gauge against their own reference,
+labelled \emph{untared}, with the own-reference state kept in the state text; whole blood gets no gauge position until it is tared
+(\texttt{conductor\_v3.py}, \texttt{report\_v3.py}). The operating procedure is in the operations manual
+(\texttt{Biological\_Physics/\allowbreak{}MethylPhys/\allowbreak{}manual/\allowbreak{}OM\_v3/\allowbreak{}OM\_v3.tex}).
 
-Why the tare is needed is in the acceptance record (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md},
+The acceptance run shows what the tare does and what it has not yet been tested on (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md},
 \texttt{chain\_acceptance.csv}). Untared whole-blood Met-A read 0.943--0.968 on six DNA mixtures from the reference laboratory and 1.073--1.115 on
-five whole bloods from another laboratory. After the same-batch tare they read 0.987--1.021 and 0.986--1.032, all in Normal. \measured{} Isolated
-neutrophils need the tare as well: a second laboratory's purified neutrophils read 0.86--1.26 against the frozen floor with no tare, and the spread
-followed the arrays' noise, not purity (\texttt{PROC\_NEUT\_TEST\_01\_T2\_OUTCOME.md}). \measured
+five whole bloods from another laboratory. The acceptance script re-reads whole blood only, with a median tare whose references are the other
+specimens of the same group: for the second laboratory these were the other remission bloods, not healthy references. So tared, they read
+0.987--1.021 and 0.986--1.032, all in Normal. \measured{} That is a test of the arithmetic, not of the tare against healthy references; isolated
+specimens were not tared in that run. Isolated neutrophils need the tare as well: a second laboratory's purified neutrophils read 0.86--1.26
+against the frozen reference with no tare, and the spread followed the arrays' noise, not purity
+(\texttt{PROC\_NEUT\_TEST\_01\_T2\_OUTCOME.md}). \measured
 
-The noise-corrected form comes from one laboratory's whole bloods: among 76 healthy adults, untared $A\approx0.60+0.205\,f_{\rm neu}+2.51\,N$
-($R^2=0.85$), and divided by that expectation fitted on the others, 73 of 76 read Normal (SD 0.022) (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \fitted{}
-It was fitted after looking at those data and has not yet been tested on a held-out laboratory with at least 20 references. \openprob
+In one laboratory's 76 healthy-control whole-blood arrays, untared $A$ tracks the noise index and the neutrophil fraction: a linear fit
+$A\approx0.60+0.205\,f_{\rm neu}+2.51\,N$ has $R^2=0.85$ (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \fitted{} The fit was made after looking at
+those data and the chain does not apply it.
 
 \paragraph{A tare from the SNP probes.} Every array carries probes on common polymorphisms that read $\beta=0$, $\tfrac12$ or $1$ by genotype. A
 linear tare fitted to them was tested on 768 arrays from four laboratories and not commissioned: it moved the reading by a near-constant amount on
@@ -100,7 +111,7 @@ linear tare fitted to them was tested on 768 arrays from four laboratories and n
 
 \section{What remains open}
 
-Two routes would zero the instrument physically, without reference specimens in the run: a nonlinear response model using the control probes as
-well as the SNP clusters, and a physical reference material of known methylation run through each laboratory's own pipeline. Neither is started.
-The noise-corrected tare needs a held-out laboratory. The bisulfite-conversion line needs calibration, and a 450K floor needs freezing before 450K
-arrays can be read. \openprob
+The planned tare is a slide tare: fully methylated and fully unmethylated control DNA run on every slide, so that each slide is zeroed
+against known inputs measured the same way. It is \openprob{} until a laboratory runs it. A second route, a nonlinear response model using the
+control probes as well as the SNP clusters, is not started. The intake call-rate line needs re-measuring on the gate's own detection statistic,
+the bisulfite-conversion line needs calibration, and a 450K reference needs freezing before 450K arrays can be read. \openprob

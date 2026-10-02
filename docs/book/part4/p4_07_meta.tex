@@ -2,7 +2,7 @@
 
 \section{The reading}
 
-On a methylation array, a cell is read on its identity sites $\mathcal I$ as the mean per-site entropy (Eq.~\ref{eq:meanH})
+On a methylation array, a cell is read on its identity sites $\mathcal I$ as the mean per-site entropy (Eq.~\eqref{eq:meanH})
 over the same quantity measured on purified healthy cells of the same type, on the same platform, through the same
 calibration:
 \begin{equation}
@@ -61,13 +61,14 @@ A second laboratory's purified neutrophils read 0.86--1.26 against the reference
 noise, not their purity (PROC-NEUT-TEST-01). \measured{} Array noise raises $H$ at every site. The chain therefore measures
 it on every specimen: the noise index $N$ is the mean $H(\beta)$ at 48,528 EPIC sites that every purified blood group holds
 fixed (every group mean $\le0.03$ or $\ge0.97$, every group SD $\le0.02$). The reference arrays read $N=0.122$--$0.149$;
-second-laboratory arrays up to 0.243, and Met-A follows $N$ ($\rho$ 0.79--0.83; DEV-NOISE-01). \measured{} $N$ is used by the
-same-run tare (Chapter~\ref{ch:chain}).
+second-laboratory arrays up to 0.243, and Met-A follows $N$ ($\rho$ 0.79--0.83; DEV-NOISE-01). \measured{} $N$ gates the
+gauge state (Chapter~\ref{ch:instrument}).
 
 \section{The entropy ceiling}
 
 On the methylated channel, Met-A rises with loss only while those sites stay above $\beta=\tfrac12$ (Chapter~\ref{ch:surface}).
 A DNA-methyltransferase inhibitor drives cells past that point: on 51 EPIC arrays from three cell lines, vehicle arrays read
-0.968--1.048, an inactive analogue 1.002--1.032, and the active drug at $\ge80$~nM 1.16--1.85, near one bit over the reference,
-then lower again at the highest doses (PROC-DNMT-01, Part A). \measured{} The chain flags any specimen whose methylated sites
+0.968--1.048, an inactive analogue 1.002--1.032, and the active drug at $\ge80$~nM 1.16--1.85. On the methylated channel alone the
+reading reaches its ceiling, one bit per site (2.66--2.85 against a ceiling of about 2.8), and falls again at the highest
+dose (PROC-DNMT-01, Part A). \measured{} The chain flags any specimen whose methylated sites
 average below one half and tells the reader to read the mean $\beta$ instead.

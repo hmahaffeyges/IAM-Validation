@@ -5,7 +5,6 @@
 % Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md.
 % Read status: drafted 2026-10-02 after a read in which several chunks were previews only. All five re-read in full 2026-10-02 in 50-line chunks
 % (ledger 277/641/674/560/222 lines, no gaps; book3/fullread/LEDGER_G3_Virial.md) and this chapter re-checked against them.
-\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{One half at every scale: the virial partition}\label{ch:virial_law}
 
@@ -13,7 +12,7 @@
 IAM's law says that every irreversible transition from a quantum superposition to a classical record pays $k_BT\ln2$ per bit. This chapter shows where that
 cost sits in the most widely tested equilibrium result in physics, the virial theorem of Clausius (1870)~\cite{Clausius1870}. The theorem fixes the share of binding energy that a
 stable system bound by a $1/r$ potential holds as motion: exactly one half. The same half holds from the hydrogen atom to clusters of galaxies, and a short
-thermodynamic argument identifies it~\cite{MahaffeyVirialIdentity,MahaffeyVirialDomains,MahaffeyVirialAtoms}: the kinetic half is the irreversible cost of the binding transition itself. Part~2 opens by applying this to the universe,
+thermodynamic argument identifies it: the kinetic half is the irreversible cost of the binding transition itself. Part~\ref{part:2} opens by applying this to the universe,
 where it fixes the one coupling that every cosmological result in this book carries.
 
 \section{The theorem and why the factor is one half}
@@ -40,17 +39,17 @@ $1/2$ appears in the Bohr atom, in a star, and in a cluster of galaxies.
 \end{figure}
 Table~\ref{tab:virial_domains} collects the domains in which the $1/r$ virial ratio has been tested.
 
-\begin{table}[h]\centering\small
-\caption{The virial ratio for $1/r$ binding, from atoms to clusters of galaxies.}\label{tab:virial_domains}
+\begin{table}[htbp]\centering\small
+\caption{The virial ratio for $1/r$ binding, from atoms to clusters of galaxies: atoms and horizons \derived, stars, clusters and simulated halos \observed.}\label{tab:virial_domains}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
 \hline
 System & Scale & Quantity & Result\\\hline
 Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ exactly (13.6\,eV of 27.2\,eV)\\
 20 atoms, H--Xe (Hartree--Fock limit) & $10^{-10}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
 10 molecules, H$_2$--CO$_2$ & $10^{-9}$ m & $T/|V|$ & $1/2$ at equilibrium geometry\\
-White dwarfs & $10^{7}$ m & Chandrasekhar mass~\cite{Chandrasekhar1931} & $1.456\,M_\odot$ ($\mu_e=2$); none observed above it\\
-The Sun & $10^{9}$ m & $|U|/2L$ & 24 Myr: contraction cannot power it, so it burns hydrogen\\
-Galaxy clusters & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent (Zwicky 1933~\cite{Zwicky1933} onward)\\
+White dwarfs & $10^{7}$ m & Chandrasekhar mass~\cite{Chandrasekhar1931} & $1.456\,M_\odot$ ($\mu_e=2$); the most massive measured reach $1.33\,M_\odot$~\cite{Kepler2007}\\
+The Sun & $10^{9}$ m & $|U|/2L$~\cite{Kippenhahn2012} & 24 Myr: contraction cannot power it, so it burns hydrogen\\
+Galaxy clusters & $10^{23}$ m & theorem applied to galaxy velocities & gives the dynamical mass (Zwicky 1933~\cite{Zwicky1933})\\
 Simulated halos, $10^{10}$--$10^{15}M_\odot$ & $10^{21}$--$10^{23}$ m & $2K/|W|$ & $1.1$--$1.3$~\cite{Bett2007,Neto2007,Power2012}; $1.02$--$1.17$ with surface pressure~\cite{Klypin2016}\\
 Schwarzschild black hole & $r_s$ & $T_HS/Mc^2$ & $1/2$ (Smarr relation~\cite{Smarr1973}; Chapter~\ref{ch:blackholes})\\
 Cosmic horizon & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consistent with Planck (Chapter~\ref{ch:virial})\\\hline
@@ -60,13 +59,13 @@ Cosmic horizon & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consist
 For converged Hartree--Fock wavefunctions the ratio is exact by construction: any wavefunction optimised under a uniform scaling of the coordinates satisfies
 the quantum virial theorem. The atomic rows therefore show that quantum mechanics obeys the theorem; they are a statement of the theorem's reach, not an
 independent measurement. The gravitational rows are measurements, at the precision the systems allow. The span from the atom to the cluster is 33 orders of
-magnitude in size; Part~2 carries the same half to the horizon of a black hole and to the horizon of the universe.
+magnitude in size; Part~\ref{part:2} carries the same half to the horizon of a black hole and to the horizon of the universe.
 
 \section{What the kinetic half is: the thermodynamic identity}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part1/fig_binding_ledger.pdf}
-\caption{(a) Hydrogen captured from rest into the ground state: $\langle V\rangle=-27.21$\,eV, $\langle K\rangle=+13.61$\,eV, $E=-13.61$\,eV, and the photon carries away 13.61\,eV, the kinetic half. (b) The Sun: the energy its contraction alone could radiate, $|U|/2$ with $U=-3GM^2/2R$ ($n=3$ polytrope), lasts $|U|/2L=23.6$\,Myr, against an age of 4,600\,Myr. CODATA 2018; \texttt{docs/verification/scripts/\allowbreak{}verify\_virial\_atoms\_to\_horizon.py}. \calc}\label{fig:binding_ledger}
+\caption{(a) Hydrogen captured from rest into the ground state: $\langle V\rangle=-27.21$\,eV, $\langle K\rangle=+13.61$\,eV, $E=-13.61$\,eV, and the photon carries away 13.61\,eV, the kinetic half. (b) The Sun: the energy its contraction alone could radiate, $|U|/2$ with $U=-3GM^2/2R$ ($n=3$ polytrope), lasts $|U|/2L=23.6$\,Myr, against an age of 4,568\,Myr~\cite{Bouvier2010}. CODATA 2018; \texttt{docs/verification/scripts/\allowbreak{}verify\_virial\_atoms\_to\_horizon.py}. \calc}\label{fig:binding_ledger}
 \end{figure}
 Clausius derived the theorem from Newton's second law~\cite{Clausius1870}. The derivation describes the bound state; it says nothing about the transition into it. Consider a
 system that falls from rest at infinity ($E_i=0$) into a stable bound state with $E_f=\langle K\rangle+\langle V\rangle<0$, releasing the difference to its

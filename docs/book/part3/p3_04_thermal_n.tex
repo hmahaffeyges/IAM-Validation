@@ -1,1 +1,96 @@
-[Superseded draft. Content removed from the public history; the current version of this file is authoritative.]
+\chapter{The thermal coupling exponent $n$}\label{ch:thermaln}
+
+\section{The scaling law}
+
+The device gauges of Chapter~\ref{ch:ascoreqc} describe how a platform's error responds to its operating temperature by
+\begin{equation}
+ A(T)=A_{\mathrm{ref}}\left(\frac{T}{T_{\mathrm{ref}}}\right)^{n},
+ \label{eq:npower}
+\end{equation}
+with one exponent $n$ per \emph{architecture class}, meaning per dominant irreversible mechanism.
+The argument for the power-law form runs as follows. The Landauer cost per event is
+linear in $T$; the rate of events has its own temperature dependence set by the mechanism;
+their product is locally a power law \conjecture. The form is exact for mechanisms with
+power-law densities of states, for example Raman spin--lattice relaxation ($T^7$, $T^9$) or
+one-phonon processes ($T^1$ at high $T$)~\cite{Abragam1970}. For activated mechanisms
+($e^{-E_a/\kB T}$) it is only a local description, whose logarithmic slope
+$n=E_a/\kB T$ varies with $T$.
+
+\section{A thermal-emission benchmark}
+
+Decoherence of C$_{70}$ matter waves by thermal emission~\cite{Hackermuller2004} shows the physics directly. Laser heating
+before a Talbot--Lau interferometer raises the internal temperature from about 1000 to
+3000~K. The resulting emission of visible photons carries which-path information and destroys
+the fringes. From the visibilities in Figure~4 of that experiment, at the mean temperatures given there, between
+1360 and 3140~K, the local slope is $n_{\mathrm{C70}}=7.64\pm0.88$ by bootstrap over pairs of points \calc.
+
+\begin{checkbox}[title={Independent check: what the C$_{70}$ data can and cannot supply}]
+\begin{itemize}
+\item Figure~4 of the experiment plots visibility against \emph{heating laser power}. Its mean temperatures come from
+      the model of heating and radiative cooling, and are not measured directly.
+\item The emission rate of hot C$_{70}$ is thermally activated: it is negligible below about 2000~K, and the spectrum is cut off
+      at long wavelengths by the lack of radiative transitions below $\sim1.5$~eV~\cite{Hackermuller2004}. An exponent of $7.6$ over
+      1360--3140~K is therefore a local slope of an activated process, and it would be different over a different window.
+      \calc\ in the sense of a slope, not a universal constant.
+\item Decoherence by gas collisions is linear in gas \emph{pressure}~\cite{Hornberger2003}: one event per collision, linear in the
+      density of the collision partners. At fixed pressure its temperature dependence goes as $n_{\mathrm{gas}}\bar v\propto T^{-1/2}$,
+      and at fixed density as $T^{+1/2}$ \derived. It does not supply an exponent of 1 in temperature.
+\end{itemize}
+The C$_{70}$ experiment shows that thermal emission converts a quantum object into a
+classical one, which is exactly the physics IAM is about. It does not fix the exponents of
+qubit platforms.
+\end{checkbox}
+
+\section{The platform exponents}
+
+Table~\ref{tab:n} gives the exponents of the qubit gauge. Each is set per class against published gate-error histories of the platforms
+concerned, so they are \calibrated. For classes without data (neutral atoms) the exponent is assigned ahead of data, and a departure
+from the assigned $n$ on first publication is itself diagnostic.
+
+\begin{table}[htbp]\centering\small
+\caption{Architecture classes and calibrated thermal exponents of the qubit gauge. The geometric reading is discussed in
+Section~\ref{sec:geom}.}\label{tab:n}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.20\linewidth}@{}}\toprule
+class & $n$ & dominant mechanism & gain from halving $T$, $2^n$ \\\midrule
+photonic & 0 & none thermal & 1.00 \\
+neutral atom, Rydberg & 0.351 & blockade volume, BBR coupling & 1.28 \\
+ion, laser gates (motional) & 0.612 & motional heating, 1/$f$ surface noise & 1.53 \\
+SC transmon, ECR/iSWAP & 1.189 & TLS at metal--oxide interface & 2.28 \\
+ion, electronic gates & 1.200 & electronic-state noise & 2.30 \\
+SC transmon, CZ (tunable coupler) & 1.449 & TLS at qubit and coupler junctions & 2.73 \\
+NV centre & 2.291 & spin--phonon, two-step cascade & 4.89 \\\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.72\textwidth]{figures/part3/fig_gate_temperature.pdf}
+\caption{Equation~\eqref{eq:npower} for the exponents of Table~\ref{tab:n}: relative error
+against relative operating temperature. \calc\ from \calibrated\ exponents.}
+\label{fig:gateT}
+\end{figure}
+
+\section{A geometric reading}\label{sec:geom}
+
+One reading of $n$ is as encoding-surface geometry, by analogy with
+$\tfrac14=2\pi/8\pi$ in Chapter~\ref{ch:blackholes}:
+\begin{itemize}
+\item $n=1$ corresponds to single-step coupling at a strict two-dimensional surface.
+\item $n>1$ arises from cascades, with $n\approx2$ for two sequential thermal steps as in the NV
+      spin--phonon process, and from a second active surface, as with the coupler junction of CZ
+      gates.
+\item $n<1$ arises when a three-dimensional coupling volume feeds a two-dimensional encoding
+      shell: the Rydberg blockade sphere and the motional wavefunction of an ion.
+\end{itemize}
+In this picture the ordering in Table~\ref{tab:n} is monotonic in coupling depth and surface
+dimensionality \conjecture. The ordering is qualitatively sensible and gives a physical
+vocabulary for the exponents. The specific decimal values are not derived from it. Fractional parts read as a
+``fractal'' excess of the AlO$_x$ interface or a spin--strain factor would be fitted to the calibrated $n$, not predicted.
+The test is whether the geometric reading predicts $n$ for a new class before its data exist. The neutral-atom class,
+whose exponent was assigned before data, is the next opportunity \openprob.
+
+\section{Why $n$ matters in practice}
+
+Equation~\eqref{eq:npower} says that cooling pays in proportion to $2^n$ per halving. For a
+CZ transmon a factor 2.7 improvement per halving of the effective TLS temperature is
+substantial. For a laser-gate ion the factor is 1.5, and cooling is not the lever: gate design
+and laser control are \calc. This conclusion holds regardless of how $n$ is interpreted.

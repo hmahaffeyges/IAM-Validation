@@ -2,7 +2,7 @@
 
 \section{The reading}
 
-Every reading in this book is an error score read on the same gauge: the reading divided by the same cell type's healthy
+Every reading in this Part is an error score read on the same gauge: the reading divided by the same cell type's healthy
 reading, on the same instrument,
 \begin{equation}
   A=\frac{\text{reading}}{\text{healthy reference}} .
@@ -12,10 +12,10 @@ $A=1$ is the cell working as itself and sits in the middle. Below it lies $\Hmin
 energy budget can hold against thermal kicks; nothing reads below it. Above 1 the cell makes more error than when healthy
 (Figure~\ref{fig:gauge}). The ratio is dimensionless and independent of laboratory, array and person, provided the reading
 and the reference are made on the same platform through the same calibration (Chapter~\ref{ch:instrument}). The same
-construction reads qubits and chips in Part~\ref{part:3}; for a cell the healthy reference is what a clinician needs,
-because what matters is whether this cell is still the cell it should be.
+construction reads qubits and chips in Part~\ref{part:3}; for a cell the healthy reference is the right standard,
+because the question is whether this cell is still the cell it should be.
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part4/fig_gauge_cell.pdf}
 \caption{One gauge, four readings, for neutrophils: Met-A (EPIC arrays), IAM-A (single molecules), the Met-A C-score and the IAM-A
 C-score (not built). On every row 1 is the healthy reference, in the middle; the left half runs from the floor to 1 and the right half from 1 to
@@ -108,14 +108,14 @@ smallest loss of its neutrophil pattern it could show (Chapter~\ref{ch:chain}). 
 \section{Three readings, in one sentence each}
 \begin{itemize}
 \item \textbf{Met-A} is reference metrology: information in bits, against a measured standard, the same cell type healthy.
-\item \textbf{IAM-A} is the physics reading: copy error on single molecules against the floor set by thermal noise, $\kB T$ per bit with a
-holding energy of 3.41~$\kB T$, which is 4.9 Landauer units ($3.41/\ln2$) and 0.16 of one ATP.
+\item \textbf{IAM-A} is the physics reading: copy error on single molecules against the floor set by thermal noise: a
+holding energy of 3.41~$\kB T$ per site, which is 4.9 Landauer units ($3.41/\ln2$) and 0.16 of one ATP.
 \item \textbf{The C-score} is a map statistic taken from cosmology: whether the departures are spread out or sit together in regions of the
 genome (Chapter~\ref{ch:skytools}).
 \end{itemize}
 
-\section{Tier words are not diagnoses}
+\section{Gauge words are not diagnoses}
 \begin{rulebox}
-A word on the gauge is a statement about where a cell population's error sits relative to the healthy cell of its kind. It
+A word on the gauge is a statement about where the error of a specimen's cells sits relative to the healthy cell of its kind. It
 is not a diagnosis, a prognosis or a statement about a person. The report must not name conditions; the render-time guard that will enforce this on chain v3 is not yet built (Chapter~\ref{ch:report}).
 \end{rulebox}

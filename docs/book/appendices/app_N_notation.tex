@@ -32,7 +32,7 @@ stated; ``95\,\%'' and ``90\,\%'' are credible or confidence levels as the sourc
 (Chapter~\ref{ch:dsnote}). Proper time is $\tau=\int\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}/c$.
 \item \textbf{Scale factor and redshift.} $a=1/(1+z)$, $a=1$ today. The activation function is normalised to $E(1)=1$ and in redshift is $E=e^{-z}$.
 \item \textbf{Growth and lensing couplings.} $\mu$ multiplies $G$ in the Poisson equation for matter and $\Sigma$ multiplies it in the lensing potential
-$(\Phi+\Psi)/2$; general relativity is $\mu=\Sigma=1$. $\mu_0\equiv\mu(z{=}0)-1$ and $\Sigma_0\equiv\Sigma(z{=}0)-1$; a negative $\mu_0$ is suppressed growth. The
+$(\Phi+\Psi)/2$; general relativity is $\mu=\Sigma=1$. $\mu_0\equiv\mu(z{=}0)-1$ and $\Sigma_0\equiv\Sigma(z{=}0)-1$; a negative $\mu_0$ weakens the source term of growth, but $1-\mu$ is not the growth deficit: the resulting $f\sigma_8$ deficit is $4.25\,\%$ at $z=0$. The
 prediction is $\mu_0=-\beta_m/(1+\beta_m)=-0.136$ (quoted as $-0.135$ where the MGCAMB input $-0.13495$ is meant) with $\Sigma_0=0$.
 \item \textbf{Potentials.} Conformal Newtonian gauge; with no anisotropic stress $\Psi=\Phi$, and $k^2\Psi=-4\pi Ga^2\bar\rho_m\delta_m$, so the potentials are
 negative in an overdensity. $\delta_m$ is the matter density contrast; $D(a)$ the linear growth factor with $D(1)=1$; $f=d\ln D/d\ln a$.
@@ -102,7 +102,7 @@ All values are those of the canon file (v1.1, 2 October 2026), recomputed here f
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}@{}}
 \toprule symbol & quantity & value & definition and status\\\midrule\endhead
 $T_{\rm cell}$, $\Tb$ & body temperature of human cells & 310.15~K & 37\,\textdegree C \\
-$\dGATP$ & cytosolic free energy of ATP hydrolysis & 54~kJ\,mol$^{-1}$ & the author's value~\cite{Nelson2017} \\
+$\dGATP$ & cytosolic free energy of ATP hydrolysis & 54~kJ\,mol$^{-1}$ & inside the 50--65~kJ\,mol$^{-1}$ range in cells~\cite{Nelson2017}; \observed \\
 $\kB\Tb\ln2$ & Landauer cost of one bit at body temperature & $2.968\times10^{-21}$~J & $=1.787$~kJ\,mol$^{-1}$; \calc \\
 $\mathcal M$, $M_{\rm cell}$ & Mahaffey number of the cell & 20.94 & $\dGATP/(R\Tb)$, no $\ln2$; \calc \\
 $\mathcal M/\ln2$ & the same in Landauer units (bits one ATP can pay for) & 30.2 (30.21) & a unit conversion, not a second definition \\
@@ -110,13 +110,13 @@ $E_{\rm hold}$ & holding energy per methylated site & $3.41\,\kB T$ & $\ln[(1-\v
 $E_{\rm hold}/\ln2$ & the same in Landauer units & 4.9 & conversion \\
 $\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.1628 & $E_{\rm hold}/\mathcal M$; \measured \\
 $\varepsilon_0$ & thermal floor of the copy error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\
-$H(\varepsilon_0)$ & the floor's entropy, $\Hmin$ for IAM-A & 0.2044 bits & \calc \\
+$H(\varepsilon_0)$ & the floor's entropy, $\Hmin$ for IAM-A & 0.2043 bits & \calc \\
 $P_{\rm cell}$ & healthy cell type's position above the floor (neutrophils) & 1.099 & 3 donors, 1.084--1.108; pipeline \texttt{loyfer\_pat\_v1}; \measured \\
 $P_{\rm cell}H(\varepsilon_0)$ & IAM-A healthy reference (neutrophils) & 0.2246 bits & \calc \\
 $1/P_{\rm cell}$ & position of $\Hmin$ on the IAM-A gauge & 0.910 & \calc \\
 $H_{\rm ref}$ & Met-A healthy reference, EPIC v1 neutrophils & 0.330263 bits & 6 purified arrays, 6,000 sites; \calibrated \\
 Normal & the healthy band of every reading & $0.95$--$1.05$ & design tolerance, $A=1\pm5\,\%$ \\
-$A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 4.45 (IAM-A) & $1/0.330263$; $1/(1.099\times0.2044)$; \calc \\
+$A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 4.45 (IAM-A) & $1/0.330263$; $1/(1.099\times0.2043)$; \calc \\
 $c_{\rm healthy}$ & healthy clustering baseline of the Met-A C-score & 1.1104 & median of six held-out arrays; \calibrated \\
 $N$ (noise index) & mean $H(\beta)$ over the fixed noise sites & 48,528 sites & measured on every array \\
 \bottomrule\end{longtable}}
@@ -255,13 +255,13 @@ $\varepsilon$ (qubit) & gate error in nats, $-\ln(1-p_{2Q})$ & nat & Ch.~\ref{ch
 $\varepsilon_{\rm floor}$ & material floor of the gate error (calibrated class value) & nat & Ch.~\ref{ch:ascoreqc}\\
 $n$ (temperature) & temperature exponent, $A(T)=A(T_{\rm ref})(T/T_{\rm ref})^n$; calibrated per class & --- & Ch.~\ref{ch:thermaln}\\
 $p_{\rm coh}$, $p_{\rm mat}$, $p_{\rm ctrl}$ & coherence, material and control parts of a two-qubit error & --- & Ch.~\ref{ch:walls}\\
-$T_1^*$, $T_{1,\rm free}$ & Substrate Inversion point $0.65\,T_{1,\rm free}$; the material's coherence ceiling & s & Ch.~\ref{ch:walls}\\
+$T_1^*$, $T_{1,\rm free}$ & coherence saturation point $0.65\,T_{1,\rm free}$, beyond which a longer $T_1$ no longer lowers the two-qubit error; the material's coherence ceiling & s & Ch.~\ref{ch:walls}\\
 $t_g$ & gate duration & s & Ch.~\ref{ch:walls}\\
-$\alpha$ (coupler), $g$ (the quantum-processor report) & cost per added coupler; amplifier after the Substrate Inversion & --- & Ch.~\ref{ch:walls}\\
+$\alpha$ (coupler), $g$ (qubits) & cost per added coupler; error amplifier beyond the coherence saturation point & --- & Ch.~\ref{ch:walls}\\
 $T_j$ & junction temperature of a chip & K & Ch.~\ref{ch:cmos}\\
-$E_{\rm sw}$ & energy per transistor switch, $\mathrm{TDP}/(N_{\rm trans}f)$ & J & Ch.~\ref{ch:onegauge}\\
+$E_{\rm sw}$ & energy per transistor switch, $\mathrm{TDP}/(N_{\rm trans}f)$ & J & Ch.~\ref{ch:cmos}\\
 TDP, $N_{\rm trans}$, $f$ & thermal design power; transistor count; clock frequency & W; ---; Hz & Ch.~\ref{ch:cmos}\\
-$A_{\rm chip}$ & $E_{\rm sw}/\kB T_j\ln2$, distance above the Landauer floor & --- & Ch.~\ref{ch:predictions}\\
+$A_{\rm chip}$ & $E_{\rm sw}/\kB T_j\ln2$, the chip's distance above the Landauer floor (not the one-gauge $A$, which is $E_{\rm sw}$ over the chip as built) & --- & Ch.~\ref{ch:predictions}\\
 $g$ (Dennard) & Dennard amplifier: pre-2005 per-node gain over the present one & --- & Ch.~\ref{ch:cmos}\\
 $\kappa$ (Dennard) & linear scaling factor of the 1974 Dennard rules & --- & Ch.~\ref{ch:cmos}\\
 $A_{\rm isa}$, $A_{\rm node}$ & architecture-locked and engineering-accessible parts of a chip's reading & --- & Ch.~\ref{ch:cmos}\\
@@ -278,7 +278,7 @@ $\varphi$, $\phi$ (cell) & fraction of one ATP per held bit, $E_{\rm hold}/\math
 $\Delta\Delta G$ & discrimination free energy of a copying step & J ($\kB T$) & Ch.~\ref{ch:landauer}\\
 $u$, $d$, $\beta_{\rm ss}$ & per-division loss and gain probabilities; steady-state $\beta$ & --- & Ch.~\ref{ch:surface}\\
 $A$ & informational fidelity ratio: reading over the healthy reference & --- & Ch.~\ref{ch:gauge}\\
-$A_{\rm rel}$ & tared reading $A/\mathrm{median}(A_{\rm ref})$ & --- & Ch.~\ref{ch:onegauge}\\
+$A_{\rm rel}$ & tared reading $A/\mathrm{median}(A_{\rm ref})$ & --- & Ch.~\ref{ch:chain}\\
 $\Hmin$ & the floor: lowest error a system can hold before thermal kicks win & bit (cells) & Ch.~\ref{ch:gauge}\\
 $H_{\rm ref}$ & Met-A healthy reference, mean $H(\beta)$ on purified healthy cells & bit & Ch.~\ref{ch:meta}\\
 $P_{\rm cell}$ & healthy cell type's position above the IAM-A floor & --- & Ch.~\ref{ch:iama}\\
@@ -331,7 +331,7 @@ $f$ & growth rate; cell fraction $f_c$; clock frequency; $f(\alpha)$ in the elec
 $D$ & growth factor; diffusion constant; distances $D_M$, $D_H$, $D_A$; $D(t)$, decoherence fraction\\
 $R$ & molar gas constant; Ricci scalar; radius; $R-1$, Gelman--Rubin; $R(a)$, matter over record term; $R(z)$, cluster mass ratio\\
 $\alpha$ & fine-structure constant; array offset in $\beta$; coupler cost; fitted coefficient; $\alpha_s$, the strong coupling\\
-$g$ & metric; Dennard amplifier; the quantum-processor report amplifier; coupling $g$ of a TLS to a qubit\\
+$g$ & metric; Dennard amplifier; qubit error amplifier beyond $T_1^*$; coupling $g$ of a TLS to a qubit\\
 $C$, $c$ & C-score; capacitance; $C(d)$, genome-distance correlation; $C_\ell$; coherence $C_{\rm IAM}$; $C_{\rm NT}$; the speed of light $c$ and the coherence factor $c(t)$\\
 $z$ & redshift; site residual $z_i$\\
 $x$ & $\xqp$; Koide constant mode; argument of $H(x)$\\

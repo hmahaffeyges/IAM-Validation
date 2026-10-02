@@ -26,12 +26,12 @@ Matter feels the information term; light does not. In the standard modified-grow
  \label{part2:eq:mu}
 \end{equation}
 where $\mu$ multiplies Newton's constant in the growth equation
-$\ddot\delta_m+2H\dot\delta_m-\tfrac32\Omega_mH^2\mu\,\delta_m=0$ and $\Sigma$ multiplies the lensing potential.
+$\ddot\delta_m+2H\dot\delta_m-\tfrac32\Omega_mH_0^2a^{-3}\mu\,\delta_m=0$ and $\Sigma$ multiplies the lensing potential.
 
 \begin{keybox}[title={The coupling is predicted, not fitted}]
 The virial theorem gives the matter coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}). With Planck's $\Omega_m=0.3153$~\cite{Planck2018VI},
 $\beta_m=0.15765$ \derived. This value is \emph{fixed} in every chain below; nothing in $\beta_m$ is sampled.
-An earlier independent check, with $\beta$ left free against expansion-rate and growth data, returned $0.157\pm0.029$ \observed.
+A separate fit with $\beta$ left free against expansion-rate and growth data (\texttt{results/mcmc\_results*.npz}) returned $0.157\pm0.029$ \fitted.
 \end{keybox}
 
 \begin{checkbox}
@@ -44,10 +44,10 @@ growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_sigma8_shift.pdf}
-\caption{Posterior means and standard deviations from the final chain files (30\,\% burn-in), $\Lambda$CDM (squares) against the fixed coupling $\beta_m=\Omega_m/2$ (circles), same data and code in each row. (a) $\sigma_8$ falls by 1.6\,\% at Level~1 in all four data combinations and by 1.1\,\% at Level~2 ($0.8087\to0.7998$). (b) $H_0$ moves by at most 0.12. \observed}\label{fig:sigma8_shift}
+\caption{Posterior means and standard deviations from the final chain files (30\,\% burn-in), $\Lambda$CDM (squares) against the fixed coupling $\beta_m=\Omega_m/2$ (circles), same data and code in each row. (a) $\sigma_8$ falls by 1.6\,\% at Level~1 in all four data combinations and by 1.1\,\% at Level~2 ($0.8087\to0.7998$). (b) $H_0$ moves by at most 0.12. \measured}\label{fig:sigma8_shift}
 \end{figure}
 
-Eighteen Markov chains were run against the Planck 2018 likelihood~\cite{Planck2018V,MahaffeyLateTime,MahaffeyDSPerturbation}. All files are in the repository
+Eighteen Markov chains were run against the Planck 2018 likelihood~\cite{Planck2018V}. All files are in the repository
 (\texttt{mgcamb\_validation/\allowbreak{}chains}, \texttt{camb\_validation/\allowbreak{}chains}). The numbers below come from one extraction of the final files
 (30\,\% burn-in, weighted posterior means; table \texttt{CHAIN\_EXTRACTION\_FINAL.csv}). Every chain's last recorded Gelman--Rubin~\cite{Gelman1992}
 $R-1$ is at or below $0.010$.
@@ -75,16 +75,16 @@ Level 2, Planck   & $+0.54$ & $0.809\to0.800$ & $67.16\pm0.47$ & -- \\
 \bottomrule
 \end{tabularx}
 \end{center}
-$\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in each chain, same data, same code. With $\mu_0$ free (flat prior $[-0.5,+0.2]$) the posterior reaches the prior's upper edge in every combination, so the median and the lower end of the $90\,\%$ interval are given; the prediction $-0.135$ lies inside every interval (Chapter~\ref{ch:latetime}).
+$\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in each chain, same data, same code. With $\mu_0$ free (flat prior $[-0.5,+0.2]$) the posterior reaches the prior's upper edge in every combination, so the median and the lower end of the $90\,\%$ interval are given; the prediction lies inside every interval (Chapter~\ref{ch:latetime}; the Level 1 runs fix $\mu_0=-0.135$, the MGCAMB value, against $-0.136$ for the exact form).
 
-\observed\ What the chains show:
+\measured\ What the chains show:
 \begin{enumerate}
  \item With the coupling fixed by theory and no parameter added, IAM is consistent with the CMB in every data combination.
        $\Delta\chi^2$ between $+0.5$ and $+1.7$ is far below any threshold of preference either way.
  \item $\sigma_8$ falls by $0.0128$--$0.0129$ in every combination, and the standard parameters do not move.
        The direction is that of the weak-lensing surveys (KiDS-1000, DES Y3, HSC Y3~\cite{Asgari2021,DESY3,HSCY3}).
- \item When $\mu_0$ is left free, Planck alone cannot choose: the posteriors are consistent with zero ($0.05$--$0.31\sigma$)
-       and with the prediction $\mu_0=-0.135$ ($0.8$--$1.4\sigma$).
+ \item When $\mu_0$ is left free, Planck alone cannot choose: the posteriors reach the prior's upper edge, and both zero and the prediction
+       lie inside every $90\,\%$ interval, with $10$--$21\,\%$ of the posterior below the prediction.
  \item Placing the term in the background instead (Level 2b) drives $H_0$ to $61.45$ and $61.52$, far from every measurement.
        The term acts on matter perturbations, not on the expansion.
  \item The Level 2 code, which writes the mechanism itself into CAMB, reproduces the Level 1 result ($\Delta\chi^2=+0.54$, $\sigma_8=0.800$).
@@ -100,11 +100,12 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
 The photon-sector expansion rate is the one the CMB measures, $H_0=67.16$ (Level 2). For matter, the information term adds to the
 effective expansion felt by bound structure; with $\beta_m=0.15765$ the matter-sector rate is $H_0^{\mathrm{matter}}=H_0\sqrt{1+\beta_m}=67.16\times1.0759=72.26\ \mathrm{km\,s^{-1}\,Mpc^{-1}}$ \derived.
 IAM places the type Ia supernova distance ladder, calibrated on matter-dominated astrophysics, on the matter ruler.
-\openprob\ The ladder measures distances with light. The chapter on open problems states what must be shown: how a distance built from photons
+\openprob\ The ladder measures distances with light. Chapter~\ref{ch:open} states what must be shown: how a distance built from photons
 inherits the matter-sector rate, and which observable reads $H_0^{\mathrm{matter}}$ without passing through a null-geodesic distance.
 
-\section{The decisive test}
+\section{The test ahead}
 
-\prediction\ Euclid~\cite{Euclid2025} is expected to constrain $\mu_0$ to $\sigma(\mu_0)\approx0.04$. the informational term predicts $\mu_0=-0.135$ with $\Sigma=1$:
-a $3.4\sigma$ departure from general relativity in matter, with no change in lensing by light.
+\prediction\ The informational term predicts $\mu_0=-0.136$ with $\Sigma=1$: weaker growth of matter with no change in lensing by light. Euclid~\cite{Euclid2025}
+measures both on the same volume. Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
+scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}).
 The prediction contains no parameter adjusted to the data that will test it.

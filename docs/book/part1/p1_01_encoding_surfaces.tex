@@ -7,8 +7,8 @@
 Every irreversible transition from quantum superposition to classical record pays $k_BT\ln2$ per bit to the nearest encoding surface, at that
 surface's temperature, and the record is written on that two-dimensional surface. This is IAM's Law (Chapter~\ref{ch:iams_law}). IAM is not found in a cell, a device, a black hole or the cosmos: these are places found in
 IAM, each a surface where records are written at a temperature. The law is one; the places differ only in the surface, its temperature and the
-number of bits it holds. Every chapter of this book is one such place. This chapter assembles the law from five established results and one
-identification, then lists the places.
+number of bits it holds. Every chapter of this book is one such place. This chapter assembles the law from four established results, one
+identification and one application of the same price to the cell, then lists the places.
 
 \section{Six steps}
 
@@ -30,7 +30,7 @@ and the records are written on the nearest surface. The entropy functional becom
 untouched; the entropy is completed. Light, on null worldlines with no proper time, writes nothing. The missing information was always information.
 \paragraph{6. The same price in the cell.} A cell maintains its identity as a methylation record across its CpG sites. Each maintained
 site is one binary record at body temperature: $k_B\,(310.15\,{\rm K})\ln2=2.97\times10^{-21}$\,J. Over the $2.82\times10^7$ CpG sites of the human genome the floor is
-$8.37\times10^{-14}$\,J per copy, about $9.3\times10^5$ ATP at 54\,kJ\,mol$^{-1}$~\cite{Nelson2017}; for the $19.6\times10^6$ sites a cell holds methylated it is
+$8.38\times10^{-14}$\,J per copy \calc, about $9.3\times10^5$ ATP at 54\,kJ\,mol$^{-1}$~\cite{Nelson2017}; for the $19.6\times10^6$ sites a cell holds methylated it is
 $5.82\times10^{-14}$\,J (Chapter~\ref{ch:landauer}).
 
 \section{The places}
@@ -39,12 +39,12 @@ $5.82\times10^{-14}$\,J (Chapter~\ref{ch:landauer}).
 \includegraphics[width=\textwidth]{figures/part1/fig_encoding_ladder.pdf}
 \caption{The places of Table~\ref{tab:surfaces} by characteristic size and cost per bit $k_BT\ln2$. Temperatures and horizon bit counts are computed from CODATA 2018 constants with $H_0=67.36$ (as \texttt{docs/verification/scripts/\allowbreak{}verify\_encoding\_ladder.py}); horizon sizes are the Schwarzschild radius and $c/H_0$ (filled markers). The sizes of the cell (nucleus, 6\,$\mu$m), the transistor (gate length, 20\,nm) and the qubit (Josephson junction, 200\,nm) are representative scales chosen for display (open markers); their costs per bit are exact. From the Bohr radius to the Hubble radius is 36.4 orders of magnitude; the cost per bit falls by a factor $1.2\times10^{32}$ from the cell to the cosmic horizon. \calc}\label{fig:encoding_ladder}
 \end{figure}
-\begin{table}[h]\centering\small
+\begin{table}[htbp]\centering\small
 \caption{Places in IAM: the encoding surfaces treated in this book. Cost per bit $k_BT\ln2$; bits $N$ for horizons $=A/(4\ell_P^2\ln2)$.
 Sgr~A$^*$ is taken at $4.3\times10^6\,M_\odot$~\cite{Gillessen2009}.}\label{tab:surfaces}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xlllll@{}}\toprule
 surface & $T$ (K) & bits $N$ & cost per bit (J) & total $Nk_BT\ln2$ & where \\\midrule
-cell (CpG methylation record) & 310.15 & $2.82\times10^{7}$ & $2.97\times10^{-21}$ & $8.37\times10^{-14}$\,J & Part~\ref{part:4} \\
+cell (CpG methylation record) & 310.15 & $2.82\times10^{7}$ & $2.97\times10^{-21}$ & $8.38\times10^{-14}$\,J & Part~\ref{part:4} \\
 transistor at room temperature & 300 & per switch & $2.87\times10^{-21}$ & --- & Ch.~\ref{ch:cmos} \\
 qubit (15\,mK stage) & 0.015 & per measurement & $1.44\times10^{-25}$ & --- & Part~\ref{part:3} \\
 black hole, 1\,$M_\odot$ & $6.17\times10^{-8}$ & $1.51\times10^{77}$ & $5.9\times10^{-31}$ & $\tfrac12Mc^2$ & Ch.~\ref{ch:blackholes} \\
@@ -61,17 +61,18 @@ Each surface has a floor: the minimum record it must maintain to remain what it 
 state above that floor, or lose it faster than it is maintained. The breach is the same condition at every place: the record is produced
 or lost faster than the surface can maintain it. Two endpoints are named in this book. When a collapsing mass concentrates records faster than any
 surface outside it can hold, a horizon forms (Chapter~\ref{ch:blackholes}). When a cell loses its methylation record faster than maintenance restores
-it, it departs from its own floor; the gauge reads that departure (Parts~3--4).
+it, it departs from its own healthy state; the gauge reads that departure (Parts~\ref{part:3} and~\ref{part:4}). Where the cell's breach lies
+on the gauge is still to be measured \openprob.
 
 \paragraph{The reading.} One gauge serves every place: $A=1$ is the object's own healthy or as-built state, in the middle; the floor physics sets
 for it lies to the left; more error lies to the right. For the cell there are two readings. On arrays, Met-A is the mean per-site entropy
 $H(\beta)$ over the cell's identity sites divided by the same quantity in purified healthy cells of the same type and platform, a reference
 measured, not fitted. \calibrated{} On single molecules, IAM-A reads the copy error $\varepsilon$ against the thermal floor
-$\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})=0.032$ (the form is derived; $E_{\rm hold}=3.41\,k_BT$ is measured) at the cell's measured position $P$, so
+$\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})=0.032$ (the form is derived \derived; $E_{\rm hold}=3.41\,k_BT$ is measured \measured) at the cell's measured position $P$, so
 that healthy again reads 1 (Part~\ref{part:4}). Normal is $0.95$--$1.05$ on every reading. A qubit and a transistor are read the same way: the device as built
 reads 1, and its physical floor (the material floor of its gate error; the Landauer floor of its switching energy) lies below it (Part~\ref{part:3}).
 
 \section{What is established and what is open}
-Steps 1--4 are established physics; step 5 reveals what they share and is the one identification, tested in cosmology by the chains (Part~2), and step 6 applies the same
+Steps 1--4 are established physics; step 5 reveals what they share and is the one identification, tested in cosmology by the chains (Part~\ref{part:2}), and step 6 applies the same
 price to the cell. The law fixes the price per bit at each surface. What it does not yet give is each surface's floor from first principles: the
 cell's floor is measured, and deriving it through the full chain is the open problem that would make the ladder a numerical unification.

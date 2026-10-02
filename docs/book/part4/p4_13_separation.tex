@@ -14,7 +14,7 @@ of cell profiles.
 
 \section{Two jobs, kept apart}
 
-The chain's rule, in the author's words, is \emph{it doesn't matter the fraction; that is a detection issue}. In chain v3 the composition
+The fraction of a cell in the specimen does not decide whether the cell is healthy; it decides how much change a reading could detect. In chain v3 the composition
 step (Stage~A) does two things and nothing else:
 \begin{enumerate}
 \item it supplies the neutrophil fraction, which decides whether a reading is made and how large a change it could show;
@@ -45,11 +45,11 @@ known DNA mixtures the median fraction error was 0.034 (\texttt{DEV\_LOWFRAC\_01
 A neutrophil that is a small share of the DNA moves the whole-blood reading less. The chain does not use a fixed share as a gate. It reads
 neutrophils when they are at least 20~\% of the specimen and at least 90~\% of the 6,000 identity sites are measured (\texttt{MIN\_READ\_FRACTION},
 \texttt{conductor\_v3.py}); below 20~\% the fraction is printed and $A$ is withheld. Above the line every tared reading carries its own detection
-limit (Chapter~\ref{ch:instrument}). The line follows from what was measured on 656 whole bloods (\texttt{DEV\_LOWFRAC\_01\_OUTCOME.md}):
+limit (Chapter~\ref{ch:instrument}). The line follows from what was measured on 656 arrays, 644 whole bloods and 12 known DNA mixtures (\texttt{DEV\_LOWFRAC\_01\_OUTCOME.md}); the table holds the 96 healthy adults read at 0.40 or more:
 
 \begin{center}\small
 \begin{tabular}{@{}lrrrrr@{}}\toprule
-neutrophil fraction & healthy $n$ & healthy SD & healthy in Normal & 2~\% loss shift & shift/SD \\\midrule
+neutrophil fraction & healthy $n$ & healthy SD & healthy in Normal & shift for a 2~\% loss & shift/SD \\\midrule
 0.40--0.50 & 18 & 0.024 & 18/18 & 0.033 & 1.4 \\
 0.50--0.60 & 16 & 0.022 & 15/16 & 0.040 & 1.8 \\
 0.60--0.70 & 22 & 0.024 & 21/22 & 0.050 & 2.1 \\
@@ -61,10 +61,10 @@ one at 80~\%. A fixed share is therefore the wrong gate, and the per-specimen de
 arrays only, so the 0.20 line itself rests on few specimens. \openprob
 
 \paragraph{What fraction still does to the reading.} In a second laboratory, tared whole-blood Met-A rose with neutrophil fraction by about $+0.12$
-per unit fraction within every group, after the composition-matched expectation and a median tare (PROC-NEUT-TEST-01). \measured{} The expectation
-profiles come from one laboratory and do not cancel fully in another. With $f_{\rm neu}$ and $N$ both in the tare fit, the dependence fell to
-$\rho=-0.02$ (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \measured{} That is the noise-corrected tare of Chapter~\ref{ch:instrument}, which still needs a
-held-out laboratory.
+per unit fraction ($\rho\approx0.31$), after the composition-matched expectation and a median tare (PROC-NEUT-TEST-01). \measured{} The expectation
+profiles come from one laboratory and do not cancel fully in another. In a development fit with $f_{\rm neu}$ and $N$, made after looking at these data, the dependence fell to
+$\rho=-0.02$ (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \fitted{} Chain v3 uses no fitted correction: it measures $N$ and withholds the gauge state when $N$
+lies outside the purified reference arrays' range (Chapter~\ref{ch:chain}).
 
 \section{The transfer function}
 

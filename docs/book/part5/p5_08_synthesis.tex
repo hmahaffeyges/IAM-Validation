@@ -11,15 +11,16 @@ Order is the second half. A record, once written, does not stay written for free
 and a system that is to remain what it is must spend energy to hold its records against that noise. A qubit holds its state against the
 quasiparticles and two-level defects of its own junction; a transistor holds a logic level against $\kB T$ at the gate; a cell holds its
 methylation pattern against copying errors at body temperature; a bound system holds its configuration in the balance the virial theorem
-states. Each of these is a fidelity held against thermal noise, and each can be read against its floor. \derived{} (for the floor at each
-surface) The author's further reading, that the written surface is what the next moment is built from, so that without it nothing
-would follow, is an interpretation: it is how the book's results are understood, not one of them. \interp
+states. Each of these is a fidelity held against thermal noise, and each can be read against its floor. \derived{} (that each surface has a
+floor at $\kB T\ln2$ per bit; the floor heights are measured or calibrated, as the last section of this chapter states) Our further reading,
+that the written surface is what the next moment is built from, so that without it nothing would follow, is an interpretation: it is how the
+book's results are understood, not one of them. \interp
 
 \section{The five places on one table}
 Table~\ref{tab:synthesis} sets the places of this book side by side. The cost per bit is the same expression at every row; what differs is the
 surface, its temperature, how many bits it holds, and what holding them costs the system.
 
-\begin{table}[h]\centering\small
+\begin{table}[htbp]\centering\small
 \caption{One accounting at five places. ``Floor'' is the lowest error or cost the physics allows at that surface; ``as built'' is the system's
 own healthy or as-built state, which reads 1 on the gauge; ``full'' is the far end, where the surface holds all it can.}\label{tab:synthesis}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}\toprule
@@ -49,35 +50,37 @@ resistance, whatever the resistance. \derived{} That the CMOS half and the viria
 \section{What has been measured, place by place}
 \paragraph{Cosmology.} With the coupling fixed by the law, the Planck 2018 fit is as good as $\Lambda$CDM's ($\Delta\chi^2=+0.54$) and only
 $\sigma_8$ moves ($0.8087\to0.7998$). The predicted growth deficit, 4.25\,\% in $f\sigma_8$ today and 0.41\,\% at $z=1$, with lensing unchanged, is
-below what present surveys resolve; Euclid's first complete release in mid-2027 tests $\mu_0$ at about $1.7\sigma$ and its final survey at about
-$3.4\sigma$ (Chapter~\ref{ch:predictions}). \measured, \prediction
+below what present surveys resolve. Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
+scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}). \fitted, \calc, \prediction
 
 \paragraph{Black holes.} The bits of a horizon at its own temperature total $\tfrac12Mc^2$ for every mass, and a black hole saturates the
-Bekenstein bound. Both are standard results; the book reads them as the law at its limit. \derived
+Bekenstein bound. Both are standard results~\cite{Bekenstein1973,Hawking1975}. \derived{} The book reads them as the law at its limit. \interp
 
-\paragraph{Quantum processors and chips.} Gate errors and switching energies sit above their floors by measured factors: Quantinuum Helios at
-about $8\times$ its calibrated floor (a reading of 0.13 for the floor on its gauge), the Ryzen 9 9950X at 576 times $\kB T_j\ln2$. The floors and
+\paragraph{Quantum processors and chips.} Gate errors and switching energies sit above their floors by measured factors: Quantinuum Helios, with a two-qubit error of
+$7.9\times10^{-4}$~\cite{Ransford2025}, at about $8\times$ its calibrated floor of $10^{-4}$ (a reading of 0.13 for the floor on its gauge), the Ryzen 9 9950X at 576 times $\kB T_j\ln2$. The floors and
 temperature exponents of processors are calibrated, so the dated device predictions test those calibrations
 (Chapters~\ref{ch:ascoreqc},~\ref{ch:thermaln},~\ref{ch:cmos}). \calibrated, \calc
 
 \paragraph{Cells.} The instrument reads neutrophils on EPIC arrays against their own healthy reference, measured on six purified arrays; held out,
-those arrays read with an SD of 0.020 around 1 (Chapter~\ref{ch:meta}). \calibrated{} On constructed whole-blood mixtures with at least 50\,\%
-neutrophils, the healthy mixtures read 0.982--1.016 and a 2\,\% loss of the neutrophil pattern read 1.049--1.079. \measured{} Three development
+those arrays read with an SD of 0.020 around 1 (Chapter~\ref{ch:meta}). \calibrated{} On six DNA mixtures of known composition with 63--75\,\%
+neutrophils, the healthy mixtures read 0.982--1.016 and a simulated 2\,\% loss of the neutrophil pattern read 1.049--1.079. \measured{} Three development
 measurements read a known change in the right direction:
 \begin{itemize}
 \item blocking the copying enzyme DNMT1 in three leukaemia cell lines moved Met-A from 0.97--1.05 (vehicle) to 1.16--1.85, on the methylated
-      channel only, with no change under an inactive look-alike (\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md});
-\item on single molecules from the same kind of experiment, IAM-A read 1.65--1.97 in all eight treated samples, with conversion failure unchanged
-      (\texttt{PROC\_DNMT\_01\_PARTB\_OUTCOME.md});
+      channel only, with no change under an inactive look-alike (GEO GSE135205~\cite{Pappalardi2021});
+\item on single molecules from the same kind of experiment (one cell line, EM-seq, GEO GSE329728), IAM-A read 1.65--1.97 in all eight treated
+      samples, with conversion failure unchanged;
 \item in six early-onset colorectal tumours, the copy error was above that of the same patient's adjacent normal tissue in all six, median ratio 1.148
-      (\texttt{PROC\_TUMOUR\_01\_OUTCOME.md}).
+      (WGBS, ENA PRJNA1198593).
 \end{itemize}
 \measured{} These show that the readings respond to a known change in maintenance fidelity. They are not commissioning results and not disease
 readings; where breach and the cancer region lie on this gauge is still to be measured (Chapter~\ref{ch:gauge}).
 
-\section{What the book has not shown}
+\section{What the book has not shown}\label{sec:synth:notshown}
 The floors are not yet derived. The cell's floor height comes from a measured holding energy, $E_{\rm hold}=3.41\,\kB T$; the processors'
 floors and exponents are calibrated; the cosmic coupling is derived from the partition, but the entropy identification it rests on is a
 conjecture tested by its consequences. The electron-mass formula carries a factor found numerically; the $3/16$ of the baryon relation and the
 $2/\pi$ of the cosmological-constant estimate are not derived. A derivation of one floor from the law alone, before the data are consulted, would
-turn the ladder of places from a shared accounting into a numerical unification. That is the first item of the next chapter.
+turn the ladder of places from a shared accounting into a numerical unification. It is the first item of the open problems
+(Chapter~\ref{ch:open}). The next two chapters set the device and cell readings side by side on one gauge (Chapters~\ref{ch:onegauge}
+and~\ref{ch:reach}).

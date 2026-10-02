@@ -36,7 +36,7 @@ uncertainty. The widespread loss of methylation across gene bodies and repeats a
 many tumours~\cite{Baylin2011} are, in this language, the same move on the two channels: the pattern becomes less certain.
 \analogy{} for the tumour statement; the entropy statement itself is \derived.
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_binary_entropy.pdf}
 \caption{Binary entropy $H(\beta)$. A site held near $\beta=0$ or $\beta=1$ carries little entropy; a site at a coin flip
 carries one bit. \calc}
@@ -70,7 +70,7 @@ specimen at 48,528 sites that every blood cell holds fixed (the noise index, Cha
 \section{A capacity, and a ceiling}
 
 A site's entropy cannot exceed one bit. A cell whose identity sites all sit at a coin flip has used the whole capacity of
-that part of its surface. On the gauge of Chapter~\ref{ch:gauge} this is the far end of the cancer side, and it has an exact
+that part of its surface. On the gauge of Chapter~\ref{ch:gauge} this is the far right end, the most error the gauge can show, and it has an exact
 value for each cell type: one bit over the healthy reference. There is a second, earlier limit that matters for an
 instrument. On the methylated channel $H$ rises as $\beta$ falls only while $\beta>\tfrac12$; past that, further loss lowers
 $H$ again. A cell that has lost methylation past the half-way point therefore reads \emph{lower} on Met-A than one that has
@@ -99,6 +99,6 @@ means for the cell is the subject of Chapter~\ref{ch:leukocyte}.
 \section{Capacity of the surface}
 
 With one bit of capacity per CpG copy, the methylation surface of one haploid human genome has a capacity of about
-$2.8\times10^7$ bits. The methylation actually carried is much less, because most CpGs are held near 0 or 1 and contribute
+$2.8\times10^7$ bits. The entropy actually carried is much less, because most CpGs are held near 0 or 1 and contribute
 almost no entropy. The information the pattern holds is in which sites are held where. The \emph{entropy} the instrument
 measures is something else: how uncertain the pattern is, on the sites that define a given cell.

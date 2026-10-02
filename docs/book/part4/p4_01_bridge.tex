@@ -2,7 +2,7 @@
 
 \section{Astro-Genetics}
 
-\emph{Astro-Genetics} is the name the author gives to one idea: read the methylome the way
+\emph{Astro-Genetics} is our name for one idea: read the methylome the way
 cosmology reads the sky. A telescope records the brightness of the cosmic microwave background
 (CMB) at millions of directions; after calibration and component separation, what remains is a map
 whose small variations carry the physics of the early universe. A methylation array records the
@@ -30,11 +30,11 @@ The same expression, evaluated at the Hawking temperature, is the cost per bit o
 horizon; evaluated at 20~mK it is the cost per bit in a superconducting qubit; evaluated at
 310.15~K it is the cost per bit in a cell nucleus (Figure~\ref{fig:landauerT}).
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=0.9\textwidth]{figures/part4/fig_landauer_temperatures.pdf}
 \caption{The Landauer cost per bit, $\kB T\ln2$, at the temperatures of the encoding surfaces
 discussed in this book. The de~Sitter horizon uses the Gibbons--Hawking
-temperature $\hbar H_0/2\pi\kB$ with $H_0=67.4$~km\,s$^{-1}$\,Mpc$^{-1}$; the black hole is one
+temperature $\hbar H_0/2\pi\kB$ with $H_0=67.4$~km\,s$^{-1}$\,Mpc$^{-1}$ (Planck 2018, base $\Lambda$CDM~\cite{Planck2018VI}); the black hole is one
 solar mass. \calc}
 \label{fig:landauerT}
 \end{figure}
@@ -78,7 +78,7 @@ It is worth being exact at the outset, because the bridge is easy to overstate.
 \end{enumerate}
 \end{keybox}
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=0.78\textwidth]{figures/part4/fig_scale_ladder.pdf}
 \caption{Three encoding surfaces by temperature and capacity. Cosmic horizon: Gibbons--Hawking
 temperature and area$/4\lP^2$ at the Hubble radius. Solar-mass black hole: Hawking temperature
@@ -89,7 +89,7 @@ hg38 genome ($\sim$28 million). \calc}
 
 \section{Thirty-seven orders of magnitude}
 
-The phrase ``37 orders of magnitude'' recurs in the author's work. It refers to the span of
+The phrase ``37 orders of magnitude'' recurs throughout this book. It refers to the span of
 length from an atom ($\sim10^{-10}$~m) to the cosmic horizon ($c/H_0\approx1.4\times10^{26}$~m),
 which is 36.1 orders, or from the Bohr radius to the particle horizon, which is closer to 37.
 The claim it carries is that the same accounting applies across that span. It is a claim about
@@ -102,8 +102,8 @@ The framework was not built on the cell first. It was built on the horizon, wher
 functional of a causal surface is tractable (Jacobson's derivation of the Einstein equation from
 the Clausius relation~\cite{Jacobson1995}, extended by an informational term). It was then carried
 to substrates where the same structure should appear in different physical clothing:
-semiconductor logic, superconducting and trapped-ion qubits, and finally methylation. The author
-states the method in four steps:
+semiconductor logic, superconducting and trapped-ion qubits, and finally methylation. The method has
+four steps:
 \begin{enumerate}
 \item identify a thermodynamic--informational invariant where a first-principles derivation is
       tractable;
@@ -112,22 +112,25 @@ states the method in four steps:
       invariant becomes in each;
 \item test each substrate against data that carry no information about the answer.
 \end{enumerate}
-The fourth step is the one this book is most concerned with, because it is where methylation work
-is most easily contaminated. A model trained on one cohort to separate groups learns whatever
-distinguishes that cohort, and may or may not transfer. A physical reading of a cell against its
-floor does not learn from any cohort, and so it cannot be selectively right: if the floor is wrong,
-the reading is wrong everywhere. That is what makes it testable, and it is why the instrument in
-this book refuses every number that a cohort would supply.
+The fourth step is the one this Part is most concerned with, because it is where methylation work
+is most easily contaminated. A classifier trained on one set of specimens to separate groups learns whatever
+distinguishes that set, and may or may not transfer. A physical reading of a cell against its
+floor does not learn from other specimens, and so it cannot be selectively right: if the floor is wrong,
+the reading is wrong everywhere. That is what makes it testable, and it is why the instrument of
+this Part refuses every number that a panel of other people would supply.
 
-The author came to the framework from fifteen years operating power generation and transmission
+The framework grew out of fifteen years of operating power generation and transmission
 systems, where energy accounting and the failure of systems that cannot pay their costs are daily
 practice. That background shaped the framework's emphasis on budgets, margins and failure walls.
 It is stated here because it explains the vocabulary, not as evidence.
 
-\section{The plan of Part I}
+\section{The plan of Part~\ref{part:4}}
 
 Chapter~\ref{ch:landauer} puts numbers on the cost at body temperature and defines the Mahaffey
 number. Chapter~\ref{ch:surface} treats the methylome as an encoding surface and introduces binary
 entropy. Chapter~\ref{ch:ledgers} states precisely what the virial theorem's one half does and does not say, and why
 nothing in the gauge depends on it. Chapter~\ref{ch:floorbreach} sets a full horizon beside a cell whose pattern has
 reached its own capacity, and separates the structural statement from the numerical one.
+Chapters~\ref{ch:gauge} to~\ref{ch:temperature} build the gauge and its two readings, Chapters~\ref{ch:translation}
+to~\ref{ch:chain} build the instrument that makes them, and the remaining chapters report the first readings and what is
+established.

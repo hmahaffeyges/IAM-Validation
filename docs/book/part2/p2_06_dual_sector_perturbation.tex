@@ -1,11 +1,10 @@
 % Part 2 chapter carrying "Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with mu < 1, Sigma = 1 and the Sector-Dependent Hubble
 % Parameter" (Mahaffey, 28 Feb 2026), read in full 2026-10-02 (all 595 extracted lines; confirmed in 50-line chunks, ledger complete), in the paper's order. Checks: docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md.
-\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{The mechanism in the Boltzmann code: a matter-sector expansion rate}\label{ch:level2}
 
 \section*{Summary}
-Chapter~\ref{ch:latetime} tested the dual-sector prediction through MGCAMB's parameterised $\mu$~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}. This chapter puts the mechanism itself into the CAMB~\cite{Lewis2000CAMB,MahaffeyDSPerturbation}
+Chapter~\ref{ch:latetime} tested the dual-sector prediction through MGCAMB's parameterised $\mu$~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}. This chapter puts the mechanism itself into the CAMB~\cite{Lewis2000CAMB}
 Fortran source: cold dark matter and baryon perturbations evolve with a matter-sector expansion rate, while photons, neutrinos, recombination and the
 background Friedmann equation stay $\Lambda$CDM. The single coupling is $\beta_m=\Omega_m/2=0.15765$ (Planck 2018 $\Omega_m=0.3153$~\cite{Planck2018VI}) with
 $E(a)=\exp(1-1/a)$; no parameter is added. Three converged chains against Planck (NPIPE CamSpec TTTEEE~\cite{Rosenberg2022}, low-$\ell$ TT and EE, lensing) give
@@ -15,7 +14,8 @@ $67.161\sqrt{1.15765}=72.26$. Two exploratory runs with the term in the backgrou
 
 \section{Why two rates}
 The CMB gives $H_0=67.4\pm0.5$ (Planck 2018~\cite{Planck2018VI}); the Cepheid ladder gives $73.04\pm1.04$ (Riess et al.\ 2022~\cite{Riess2022}), with TRGB~\cite{Freedman2021} and lensing time delays~\cite{Wong2020} also
-measured locally. Weak lensing gives $S_8$ 2--3$\sigma$ below Planck: KiDS-1000 $0.759^{+0.024}_{-0.021}$~\cite{Asgari2021} (cosmic shear), DES Y3 $0.776\pm0.017$~\cite{DESY3}, HSC Y3 $0.776\pm0.032$~\cite{HSCY3}.
+measured locally. Weak lensing has given $S_8$ 2--3$\sigma$ below Planck: KiDS-1000 $0.759^{+0.024}_{-0.021}$~\cite{Asgari2021} (cosmic shear), DES Y3 $0.776\pm0.017$~\cite{DESY3} ($3\times2$pt), HSC Y3 $0.769^{+0.031}_{-0.034}$~\cite{HSCY3} (cosmic shear) \observed;
+the completed KiDS survey gives $0.815^{+0.016}_{-0.021}$, in agreement with Planck~\cite{Wright2025}.
 Both differences set early-universe photon measurements against late-universe matter measurements. The question here is whether matter and light can
 have different effective expansion rates at late times while sharing the early history. Chapter~\ref{ch:latetime} showed that $\mu<1$, $\Sigma=1$ is
 consistent with Planck in four data combinations; MGCAMB imposes $\mu$ as a function. Here the mechanism is coded directly.
@@ -97,7 +97,7 @@ Chapter~\ref{ch:latetime} (plik-lite~\cite{Planck2018V}), so $\chi^2$ values are
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.6\textwidth]{figures/part2/fig_param_shifts.pdf}
-\caption{Shift of each parameter, Run~A (informational term) minus Run~C ($\Lambda$CDM, same code and likelihoods), in units of Run~C's posterior standard deviation, computed from the chain files (\texttt{camb\_validation/\allowbreak{}chains}, 30\,\% burn-in, weighted). Only $\sigma_8$ ($-1.51\sigma$) and $S_8$ ($-0.78\sigma$) move; every other parameter moves by under $0.1\sigma$. \observed}\label{fig:param_shifts}
+\caption{Shift of each parameter, Run~A (informational term) minus Run~C ($\Lambda$CDM, same code and likelihoods), in units of Run~C's posterior standard deviation, computed from the chain files (\texttt{camb\_validation/\allowbreak{}chains}, 30\,\% burn-in, weighted). Only $\sigma_8$ ($-1.51\sigma$) and $S_8$ ($-0.78\sigma$) move; every other parameter moves by under $0.1\sigma$. \measured}\label{fig:param_shifts}
 \end{figure}
 \begin{center}\small
 \begin{tabular}{lccc}\hline
@@ -115,14 +115,14 @@ chain-average $\chi^2$ & $10985.08$ & $10985.07$ & $\Delta=-0.01$\\
 final $R-1$ & $0.0081$ & $0.0099$ & \\\hline
 \end{tabular}
 \end{center}
-The one parameter that moves is $\sigma_8$, by $-0.009$. $\ln A_s$ ($+0.09\sigma$) and $\Omega_m$ ($+0.05\sigma$) barely move, so the shift is not other parameters
+The one parameter that moves is $\sigma_8$, by $-0.009$. $\ln A_s$ ($+0.09\sigma$) and $\omega_c$ ($+0.05\sigma$) barely move, so the shift is not other parameters
 compensating: it is slower growth. With the same parameter count, the likelihood ratio is $e^{-0.54/2}=0.76$.
 
 \subsection{Planck + growth: Run D}
-\authorhold{Run D is not a test of the IAM growth rate. The coded change acts on the CDM and baryon density equations, while CAMB computes $f\sigma_8$ from the
-velocities, which the change does not touch: with the change on, CAMB reports $f=0.542$ at $z=0$ where the density field grows at $f=0.498$. Matter is
-conserved, so the physical growth rate is $f\sigma_8=d\sigma_8/d\ln a$, $6\,\%$ below $\Lambda$CDM today at fixed parameters (CAMB's output: $1\,\%$ above). The
-growth comparison is re-run with that definition, together with a matched $\Lambda$CDM + growth chain, and printed here.}
+Run D does not test the growth rate of the informational term. The coded change acts on the CDM and baryon density equations, while CAMB computes
+$f\sigma_8$ from the velocities, which the change does not touch: with the change on, CAMB reports $f=0.542$ at $z=0$ where the density field grows at
+$f=0.498$ \measured. Matter is conserved, so the physical growth rate is $f\sigma_8=d\sigma_8/d\ln a$, $6\,\%$ below $\Lambda$CDM today at fixed parameters in
+the coded mechanism. A Planck + growth comparison that uses this definition, against a matched $\Lambda$CDM + growth chain, has not yet been run \openprob.
 \subsection{The fixed coupling against the chain's $\Omega_m$}
 $\beta_m$ is fixed at $0.15765$. In Run A, Planck gives $\Omega_m=0.3166\pm0.0065$, so $\Omega_m/2=0.1583\pm0.0033$: the fixed value is $0.2\sigma$ from it.
 
@@ -177,7 +177,8 @@ Both levels lower $\sigma_8$ to $0.800$--$0.802$ from the same $\beta_m$: by $1.
 $0.809$, NPIPE CamSpec).
 \subsection{Predictions}
 \begin{enumerate}
-\item $\mu(z)<1$ with redshift dependence fixed by $E(a)$; Euclid~\cite{Euclid2025}, $\sigma(\mu_0)\approx0.04$, reaches $0.135/0.04\approx3.4\sigma$.
+\item $\mu(z)<1$ with redshift dependence fixed by $E(a)$; Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
+scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}).
 \item $\Sigma=1$ at all redshifts.
 \item $H_0^{(m)}/H_0^{(\gamma)}=\sqrt{1+\Omega_m/2}$, testable with standard sirens, whose hosts are galaxies.
 \item No scale dependence: $\mu$ and $\Sigma$ depend on $z$ only.

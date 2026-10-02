@@ -1,16 +1,15 @@
 \chapter{Falsifiable predictions}\label{ch:predictions}
 
 \section*{How this list was made}
-The source papers state 655 predictions and results; the register in \texttt{CANON/\allowbreak{}predictions\_register.csv} collects them with their
-sources. The 136 cell entries wait for the commissioning of each cell type and are not listed here. Each of the other 519 was checked against the
-corrections record (Appendix~\ref{app:errata}) and against the numbers recomputed for this book, and given one verdict: kept as stated (14),
-corrected (73), already tested (63), a duplicate of another entry (162), or dropped (207). An entry was dropped when it is not falsifiable (a
-definition, a restatement, an interpretation), when a correction withdrew it, when it is a vendor roadmap or commercial statement with no physics
-in it, or when no test is named. The full verdict list, with the reason for every entry, is in
-\texttt{CANON/\allowbreak{}predictions\_triage\_2026-10-02.json}.
+We collected every quantitative statement the framework makes, 655 in all, in one register (\path{CANON/predictions_register.csv} in the
+repository, Appendix~\ref{app:repro}). The 136 cell entries wait for the commissioning of each cell type and are not listed here. Each of the other
+519 was recomputed and given one verdict: kept, with its value recomputed where needed (87), already tested (63), a duplicate of another entry
+(162), or dropped (207). An entry was dropped when it is not falsifiable (a definition, a restatement, an interpretation), when the recomputation
+does not support it, when it is a vendor roadmap or commercial statement with no physics in it, or when no test is named. The verdict for every
+entry, with its reason, is in \path{CANON/predictions_triage_2026-10-02.json}.
 
 What remains is about forty distinct predictions. Each is given below with its number, the measurement that tests it, what would falsify it,
-and the register entries it merges (in brackets). Every value is the corrected one. Dates are those of the named surveys; none is claimed for an
+and the register entries it merges (in brackets). Every value is recomputed. Dates are those of the named surveys; none is claimed for an
 experiment no one has announced. A prediction built on a calibrated input says so: it tests the input as much as the law.
 
 \section{Cosmology: growth, with lensing and distances unchanged}
@@ -23,7 +22,7 @@ $\beta_m=\Omega_m/2$, $E(a)=e^{1-1/a}$, and $\Sigma=1$ (Chapter~\ref{ch:theory})
 \toprule
 prediction & test and date & falsified if \\\midrule\endhead
 \textbf{C1.} The coupling today: $\mu(0)=0.864$, $\mu_0=-0.136$; $\mu=0.948$ at $z=0.5$, $0.982$ at $z=1$. [COS-004, 058, 072, 124, 127, 332]
- & Euclid clustering and weak lensing: complete DR1 mid-2027 ($\sigma(\mu_0)\approx0.08$, a 1.7$\sigma$ test); final survey ($\approx0.04$, 3.4$\sigma$)
+ & Euclid clustering and weak lensing. Euclid's published forecasts give $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest scales) for this $\mu(z)$ \calc; a forecast with the IAM $\mu(z)$ is open \openprob
  & $\mu_0$ measured consistent with 0 and excluding $-0.136$; e.g.\ $\mu_0>-0.05$ at 95\,\% \\
 \textbf{C2.} Lensing is unchanged: $\Sigma_0=0$ exactly, at every redshift. [COS-301, 345, 021]
  & the same Euclid tomography; CMB lensing
@@ -41,20 +40,21 @@ prediction & test and date & falsified if \\\midrule\endhead
 \textbf{C6.} Scale independence: $\mu$ and $\Sigma$ depend on redshift only; $P_{\rm IAM}/P_{\Lambda\rm CDM}$ is flat in $k$ ($-1.55$\,\% today). [COS-056, 122, 357]
  & tomographic multi-$k$-bin analyses (Euclid DR1, DESI full shape)
  & any $k$-dependence of $\mu$ or $\Sigma$ \\
-\textbf{C7.} $\mu<1$ with $\Sigma=1$ separates the law from $f(R)$ ($1\le\mu\le4/3$) and normal-branch DGP ($\mu>1$); the self-accelerating DGP
- branch shares the signs but has a ghost. The law's own content is the parameter-free shape of $\mu(z)$. [COS-294, 342, 343]
+\textbf{C7.} $\mu<1$ with $\Sigma=1$ separates the law from $f(R)$ ($1\le\mu\le4/3$~\cite{PogosianSilvestri2008}) and normal-branch
+ DGP~\cite{DGP2000} ($\mu>1$); the self-accelerating DGP branch shares the signs but carries a ghost~\cite{Koyama2007}. The law's own content is the parameter-free shape of $\mu(z)$. [COS-294, 342, 343]
  & the $\mu$--$\Sigma$ plane from Euclid
  & $\mu\ge1$ or $\Sigma\ne1$ \\
 \textbf{C8.} $E_G$ rises above $\Lambda$CDM because $f$ falls while lensing does not: $+1.8$\,\% at $z=0.3$, $+1.1$\,\% at $z=0.5$. CMB lensing power falls by only
- 0.08\,\% (0.05--0.3\,\%), far too little to explain the Planck lensing anomaly. [COS-142, 140, 260]
+ 0.08\,\% (0.05--0.3\,\%), far too little to explain the Planck lensing excess~\cite{Planck2018VI}. [COS-142, 140, 260]
  & $E_G$ from redshift-space distortions $\times$ galaxy--galaxy lensing
  & $E_G(z)$ at or below $\Lambda$CDM at sufficient precision \\
 \textbf{C9.} A growth-only fit with the IAM template returns a matter density below the geometric one by $1-\mu$: 13.6\,\% at $z=0$, 5.2\,\% at
  $z=0.5$ ($\Omega_m^{\rm growth}=0.299$ there). [COS-134]
  & a growth-only DESI full-shape fit (the published DESI $\Omega_m=0.296$ combines BAO and does not test this)
  & growth-only $\Omega_m$ equal to the geometric value \\
-\textbf{C10.} $\sigma_8=0.800$ at Level~2 (0.809 in $\Lambda$CDM, $-1.1$\,\%), so $S_8=0.822\pm0.011$, about $1\sigma$ below 0.832; the $S_8$
- shift is largest today (0.78\,\%) and vanishes at high $z$. [COS-259, 067, 319, 318]
+\textbf{C10.} $\sigma_8=0.800$ at Level~2 (0.809 in $\Lambda$CDM, $-1.1$\,\%), so $S_8=0.822\pm0.011$, $0.9\sigma$ below the Planck
+ $\Lambda$CDM value 0.832~\cite{Planck2018VI}; the late-time part of the shift, the growth-factor deficit, is largest today (0.78\,\%) and
+ vanishes at high $z$. [COS-259, 067, 319, 318]
  & Stage-IV weak lensing (Euclid DR1, Rubin)
  & lensing $S_8$ excluding 0.822 \\
 \textbf{C11.} The integrated Sachs--Wolfe cross-correlation is slightly enhanced, $A_{\rm ISW}\approx1.03$; the sign is opposite to $f(R)$'s suppression.
@@ -71,7 +71,7 @@ prediction & test and date & falsified if \\\midrule\endhead
 prediction & test and date & falsified if \\\midrule\endhead
 \textbf{C12.} Two Hubble rates: light reads $H_0=67.16$ (Level~2 chains); the matter flow reads $67.161\sqrt{1.1575}=72.26$~km\,s$^{-1}$\,Mpc$^{-1}$.
  [COS-001, 108, 110]
- & standard sirens, whose hosts trace the matter flow (GW170817 alone, $70.0^{+12}_{-8}$, cannot tell them apart); a siren population
+ & standard sirens, whose hosts trace the matter flow (GW170817 alone, $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, cannot tell them apart); a siren population
  & siren $H_0$ precise enough to separate the two and excluding 72.26 \\
 \textbf{C13.} Distances follow $\Lambda$CDM: BAO positions and the photon ruler give $w=-1$. [COS-351, 156]
  & DESI full-survey BAO with supernovae
@@ -88,8 +88,8 @@ prediction & test and date & falsified if \\\midrule\endhead
  & CMB acoustic scale (CMB-S4)
  & $\beta_\gamma>0$ detected \\
 \textbf{C17.} Galaxy-cluster masses, in the Level~1 form only: lensing over hydrostatic mass $=1/\mu(z)$: 1.158 at $z=0$, 1.055 at 0.5, 1.002 at 2,
- declining with redshift, opposite to the non-thermal-pressure expectation. \textbf{On hold} until the implementation form is settled; the
- $\sim6\sigma$ forecast is withdrawn. [COS-091, 037, 167]
+ declining with redshift, opposite to the non-thermal-pressure expectation. Which form of the coupling cluster masses see is not settled, and no
+ significance forecast is made until it is. \openprob{} [COS-091, 037, 167]
  & eROSITA, Euclid and Rubin clusters with lensing masses
  & a flat ratio, or one rising with $z$ \\
 \textbf{C18.} The observed relation $\Omega_b/\Omega_m\approx(3/16)\sqrt{\Omega_\Lambda}$ holds at $0.7\sigma$; its derivation is open. [COS-215]
@@ -109,8 +109,8 @@ prediction & test and date & falsified if \\\midrule\endhead
  $T$ dependence and every environmental channel strengthens with $T$. [COS-102, 228, 227]
  & levitated optomechanics at 10, 20, 40~mK with environmental decoherence suppressed
  & a temperature-independent coherence time at controlled environment \\
-\textbf{Q2.} Mass scaling $\tau\propto m^{-5}$ at fixed density ($m^{-6}R^3$), against $m^{-5/3}$ for Di\'osi--Penrose. At $10^{-12}$~kg and
- 10~mK the IAM time is about $5\times10^2$~s, the Di\'osi--Penrose time about $8~\mu$s. [COS-101, QUB-067, OTH-015]
+\textbf{Q2.} Mass scaling $\tau\propto m^{-5}$ at fixed density ($m^{-6}R^3$), against $m^{-5/3}$ for Di\'osi--Penrose. At $10^{-12}$~kg (silica) and
+ 10~mK the IAM time is 509~s, the Di\'osi--Penrose time 7.5~$\mu$s. [COS-101, QUB-067, OTH-015]
  & three or four masses over one decade
  & a mass exponent different from 5 \\
 \textbf{Q3.} An excess phonon heating that rises as the temperature falls ($\propto1/T$), opposite to environmental heating. [COS-219]
@@ -139,7 +139,8 @@ prediction & test and date & falsified if \\\midrule\endhead
 \textbf{P2.} Mass positivity with $y/x=\sqrt2$ allows at most three charged-lepton generations. [PAR-016]
  & collider searches
  & a fourth charged lepton \\
-\textbf{P3.} No variation of $m_p/m_e$ with redshift (present-epoch fixed point). [PAR-022] Consistent so far with quasar absorption at $z\approx2$.
+\textbf{P3.} No variation of $m_p/m_e$ with redshift (present-epoch fixed point). [PAR-022] Consistent so far: H$_2$ quasar absorbers give
+ $|\Delta\mu/\mu|<5\times10^{-6}$ ($3\sigma$) at $z=2.0$--4.2~\cite{Ubachs2016}. \observed
  & quasar absorption spectra
  & a variation above the quasar bounds \\
 \bottomrule
@@ -153,13 +154,13 @@ value against a device not yet published. Errors are $\varepsilon=-\ln(1-p_{2Q})
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
 \toprule
 prediction & test and date & falsified if \\\midrule\endhead
-\textbf{D1.} Cooling Willow from 15 to 7.5~mK effective qubit temperature brings its two-qubit error from $1.5\times10^{-3}$ to $5.5\times10^{-4}$,
- with no new chip. [QUB-004]
+\textbf{D1.} Halving the effective qubit temperature of a CZ-gate superconducting processor such as Willow~\cite{GoogleWillow2025}, from 15 to
+ 7.5~mK, lowers its two-qubit error by $2^{1.449}=2.73\times$, with no new chip. \calibrated{} [QUB-004]
  & a published temperature sweep stating the qubits' effective temperature
- & the error at 7.5~mK effective temperature materially above $5.5\times10^{-4}$ \\
+ & a ratio materially below 2.73 \\
 \textbf{D2.} Halving the effective temperature of an ECR-gate device lowers its error by $2^{1.189}=2.28\times$. Two devices from different fabs with
  the same gate mechanism show the same exponent. [QUB-040, PAR-026]
- & temperature sweeps on ECR-class devices from two fabs
+ & temperature sweeps on ECR-gate devices from two fabs
  & a materially different ratio, or divergent exponents \\
 \textbf{D3.} A superconducting processor on unchanged base metal and oxide does not pass its material floor: about $10^{-3}$ for Google's present
  Al stack, $3\times10^{-3}$ for Rigetti's Al/AlOx. [QUB-015, 016, 001]
@@ -169,11 +170,11 @@ prediction & test and date & falsified if \\\midrule\endhead
  fixed connectivity and temperature; the next, larger IBM generation on the same materials reads above $2.3\times10^{-3}$. [QUB-020, 053]
  & IBM's published chips and the next Nb/AlOx generation
  & a chip meeting both, or the next generation at or below $2.3\times10^{-3}$ \\
-\textbf{D5.} Quantinuum's Ba$^+$ class does not pass its calibrated floor of $10^{-4}$ without changing gate class; Sol (192 qubits, 2027) reaches about
- $5.8\times10^{-4}$ and does not regress from Helios ($7.9\times10^{-4}$). [QUB-011, 036]
+\textbf{D5.} Quantinuum's Ba$^+$ processors do not pass their calibrated floor of $10^{-4}$ without changing gate mechanism; the next generation (Sol,
+ announced for 2027) reaches about $5.8\times10^{-4}$ and does not regress from Helios ($7.9\times10^{-4}$~\cite{Ransford2025}). [QUB-011, 036]
  & Apollo and Sol publications; Sol 2027
  & Apollo below $10^{-4}$ on Ba$^+$, or Sol above $7.9\times10^{-4}$ \\
-\textbf{D6.} The Ca$^+$ electronic-gate prototype ($8.4\times10^{-5}$, October 2025) approaches its calibrated floor of $3\times10^{-5}$ by early 2027
+\textbf{D6.} The $^{40}$Ca$^+$ electronically controlled gate ($8.4\times10^{-5}$, October 2025~\cite{Hughes2025}) approaches its calibrated floor of $3\times10^{-5}$ by early 2027
  without passing it. [QUB-002]
  & the next published result; checked mid-2027
  & a result below $3\times10^{-5}$, or no approach by mid-2027 \\
@@ -182,15 +183,18 @@ prediction & test and date & falsified if \\\midrule\endhead
  & a future system without sympathetic cooling; ion-trap results through 2030--2037
  & no regression; or continued improvement past those dates with unchanged cooling \\
 \textbf{D8.} Microsoft's Majorana~1: if its first published two-qubit error has $\varepsilon>2\times10^{-3}$, topology is not beating the
- superconducting class; below $10^{-3}$ it is contributing. Its assigned floor is about $5\times10^{-4}$. [QUB-006, 044]
+ superconducting processors; below $10^{-3}$ it is contributing. Its calibrated floor is about $5\times10^{-4}$. [QUB-006, 044]
  & the first primary-source two-qubit result
- & (binary as stated); a sustained $\varepsilon<5\times10^{-4}$ falsifies the assigned floor \\
+ & (binary as stated); a sustained $\varepsilon<5\times10^{-4}$ falsifies the calibrated floor \\
 \bottomrule
 \end{longtable}}
 
 \section{Quasiparticles}
 
-With the Cooper-pair density corrected, the internal-source model reads $x_{qp}=2N\tau_{qp}/(\tau_{\rm TLS}n_{cp}V)$ (Chapter~\ref{ch:xqp}).
+The internal-source model reads (Chapter~\ref{ch:xqp})
+\begin{equation*}
+x_{qp}=\frac{2N\tau_{qp}}{\tau_{\rm TLS}\,n_{cp}V}.
+\end{equation*}
 
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
 \toprule
@@ -203,8 +207,8 @@ prediction & test and date & falsified if \\\midrule\endhead
  & matched devices differing in oxide or material
  & $x_{qp}\tau_{\rm TLS}$ not constant across matched devices \\
 \textbf{X3.} If $x_{qp}\approx10^{-7}$ is internal, an aluminium transmon at 5~GHz has a quasiparticle-limited $T_1\approx0.24$~ms that shielding,
- going underground or gap engineering alone will not raise. [QUB-014, 038] Existing records must be checked against this before the edition
- closes. \openprob
+ going underground or gap engineering alone will not raise. [QUB-014, 038] Whether published record lifetimes already exceed this bound has
+ not yet been checked. \openprob
  & the best isolated Al-electrode transmons
  & $T_1$ beyond 0.24~ms by those means at that $x_{qp}$ \\
 \bottomrule
@@ -234,7 +238,7 @@ prediction & test and date & falsified if \\\midrule\endhead
 \end{longtable}}
 
 \section{Already tested}
-Outcomes already in hand, with what the corrections say about each.
+Outcomes already in hand, with what each one means.
 
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.47\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}@{}}
 \toprule
@@ -242,15 +246,13 @@ claim and data & outcome & note \\\midrule\endhead
 Planck 2018 fit with the coupling fixed: $\Delta\chi^2=+0.54$ (Level~2), $+0.56$ to $+1.73$ (Level~1 combinations), no added parameter [COS-018, 117]
  & consistent & IAM's $\chi^2$ is slightly higher; the fit is as good as $\Lambda$CDM, not better \\
 Only $\sigma_8$ moves in the chains: $0.8087\to0.7998$, $1.5\sigma$; $\ln A_s$ and $\Omega_m$ move under $0.3\sigma$ [COS-012, 061, 314]
- & measured & \\
+ & fitted & \\
 Background form of the term: $H_0=61.45\pm0.42$, $10.9\sigma$ from Planck [COS-005, 240]
  & excluded & the term belongs in the perturbations \\
 Supernova distances with $\beta$ applied: $\Delta\chi^2=+23.6$ [COS-107]
  & excluded & distances follow $\Lambda$CDM \\
 Free $\mu_0$, Planck with redshift-space distortions: $0.039\pm0.125$; DESI full shape $0.11^{+0.45}_{-0.54}$ [COS-123, 309]
  & consistent & with $-0.136$ and with GR; not discriminating \\
-$\sigma_8=0.800$ against the 2025 joint lensing value $0.802\pm0.020$ [COS-062]
- & consistent ($0.1\sigma$) & \\
 $S_8$ redshift trend against a compilation [COS-317]
  & shape right, amplitude 1/10 & not an explanation of the low-$z$ deficit \\
 DESI growth $\Omega_m$ [COS-148]
@@ -258,40 +260,27 @@ DESI growth $\Omega_m$ [COS-148]
 $\beta_\gamma$ from the CMB acoustic scale [COS-229]
  & bound & $<0.0039$; photons couple $\ge40\times$ more weakly \\
 Cluster lensing-to-dynamical mass ratios (CCCP, Weighing the Giants) [COS-272, 217]
- & on hold & Level~1 form only; the published ratios are not yet traced to their sources (Chapter~\ref{ch:lensdyn}) \\
+ & open & Level~1 form only; the form the clusters see is not settled (Chapter~\ref{ch:lensdyn}) \\
 Dwarf-galaxy dispersion floor of 4~km\,s$^{-1}$ [COS-024]
  & rejected & 25 of 54 satellites below it; infall test open \\
 Cusp--core radius $\propto\sigma^2$ [COS-368, PAR-019]
- & failed & normalisation 130 times too small \\
-Cross-domain $\chi^2$ 36.16 vs 97.35 [COS-205]
- & not reproduced & dominated by the sector assignment \\
-Early ten-point fit, $\Delta\chi^2=30$ for IAM [COS-257, 254]
- & withdrawn & superseded by the chains \\
-Baryon-to-photon ratio from a CMB-only chain, $6.115\times10^{-10}$ [COS-011]
- & standard & a CMB measurement, not an IAM result \\
-Hemispherical asymmetry, globular-cluster ages [COS-147, 146]
- & reported agreement & as stated in the sources; not re-verified here \\
+ & failed & normalisation about 130 times too small \\
 Koide $Q=2/3$ [PAR-004]
  & agrees ($10^{-5}$) & the derivation adds no test \\
 Electron mass against CODATA [PAR-001]
  & agrees within 0.3\,\% & set by $H_0$; not parameter-free (P1) \\
 Erasure impossible after spontaneous emission [QUB-061, OTH-011]
- & contradicted & atom--photon entanglement and remote entanglement experiments \\
+ & contradicted & atom--photon entanglement and remote entanglement experiments~\cite{Blinov2004,Moehring2007,Hensen2015} \\
 Zeno freezing needs an irreversible measurement [QUB-069]
  & contradicted & observed with dispersive readout~\cite{Slichter2016} \\
 $x_{qp}$ flat below 150~mK [QUB-003]
  & consistent & any non-thermal source gives it \\
-IBM substrate inversion at Nighthawk [QUB-007, 051]
- & not established & the data used are not Nighthawk measurements \\
-Apple M5 regresses a third time [SEM-003]
- & failed & M5 improved \\
 \bottomrule
 \end{longtable}}
 
 \section{What the list shows}
 The cosmology carries the decisive tests, and they are close. One parameter-free line fixes $\mu_0$, the $f\sigma_8$ ramp, $\Sigma=1$, $E_G$,
-$S_8$ and the two Hubble rates together; Euclid's complete first data release in mid-2027 tests $\mu_0$ at about $1.7\sigma$ and its final survey at
-about $3.4\sigma$, and redshift-space distortions at the per-cent level test the shape of the ramp. The quantum-device predictions are dated and
+$S_8$ and the two Hubble rates together; how strongly Euclid decides it depends on the smallest scales it can model, $0.3\sigma$ to about $7\sigma$ for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}), and redshift-space distortions at the per-cent level test the shape of the ramp. The quantum-device predictions are dated and
 cheap to check, but each rests on a calibrated floor or exponent. The decoherence predictions are the most distinctive, a coherence time that
 grows with temperature, and the furthest from current experiments. Several claims have already failed or been contradicted, and they are listed
 above with the rest.

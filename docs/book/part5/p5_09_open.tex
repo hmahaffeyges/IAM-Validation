@@ -3,7 +3,7 @@
 \section*{How to read this list}
 Every item below is stated as open somewhere in the book. Each is given with where it arises, what would settle it, and who can settle it:
 \textbf{we} (a calculation, or data already public and in hand), \textbf{data due} (a survey or measurement already scheduled), or
-\textbf{experiment} (a measurement that needs a laboratory the author does not have, for which the book states the design). Items are in order of
+\textbf{experiment} (a measurement that needs a laboratory we do not have, for which the book states the design). Items are in order of
 consequence within each group.
 
 \section{Derivations}
@@ -13,7 +13,7 @@ open item & what settles it & who \\\midrule\endhead
 \textbf{D1. A floor from the law alone.} No surface's floor is yet derived before the data are consulted
  (Chapters~\ref{ch:iama},~\ref{ch:thermaln},~\ref{ch:saturation}).
  & The cell first: the steady-state copy error of a site under a writing process of finite discrimination, with the copying and removal rates
-   measured for neutrophils, should give $\varepsilon_0$ and so $E_{\rm hold}=3.41\,\kB T$; one processor class's $T_1^*/T_1^{\rm free}=0.65$ second.
+   measured for neutrophils, should give $\varepsilon_0$ and so $E_{\rm hold}=3.41\,\kB T$. Second, the ratio $T_1^*/T_1^{\rm free}=0.65$ for one processor family.
  & we \\
 \textbf{D2. The architecture position $P$.} The neutrophil's $P=1.099$ is measured from three donors (Chapter~\ref{ch:iama}).
  & A rule for $P$ from the cell's own maintenance rates, tested on a second cell type before its $P$ is measured. & we \\
@@ -47,7 +47,7 @@ open item & what settles it & who \\\midrule\endhead
 open item & what settles it & who \\\midrule\endhead
 \textbf{I1. Commissioning neutrophils in whole blood.} The chain reads purified neutrophils and constructed mixtures; it has not been
  commissioned on real whole blood. & Pre-registered tests through the chain, end to end: repeat draws and technical replicates, infection, autoimmune
- disease, myeloid disease, pre-diagnosis blood; the public sets are being collected now (Appendix~\ref{app:repro}). & we \\
+ disease, myeloid disease, pre-diagnosis blood; the public sets are being collected now (Appendix~\ref{appendices:app:repro}). & we \\
 \textbf{I2. Breach and the cancer region on this gauge.} Not placed (Chapter~\ref{ch:gauge}).
  & Per-person data on the current scale: tumour--normal pairs, the DNMT1-inhibitor series, blood cancers. & we \\
 \textbf{I3. The Met-A floor.} $H_{\min}$ on the Met-A scale is not defined (Chapter~\ref{ch:gauge}). & Relate the array reading to the
@@ -64,7 +64,7 @@ open item & what settles it & who \\\midrule\endhead
  the control probes, or a reference material of known methylation run through each laboratory. & we, experiment \\
 \textbf{I9. Eosinophil and neutrophil fractions} outside the bar on known mixtures (Chapter~\ref{ch:separation}). & Find the source of the shortfall
  in the atlas profiles or the solver. & we \\
-\textbf{I10. Identity sites for the next cell types.} On atlas v2, held-out transfer of identity sites reached 87.7\,\% and 73.1\,\% against a bar of 95\,\% (\texttt{atlas/v2/postbuild}, V12; Chapter~\ref{ch:atlas}). & More purified
+\textbf{I10. Identity sites for the next cell types.} On atlas v2, held-out transfer of identity sites reached 87.7\,\% and 73.1\,\% against a bar of 95\,\% (Chapter~\ref{ch:atlas}). & More purified
  samples per cell on one platform, to separate site-choice noise from donor spread. & we \\
 \textbf{I11. Whole-array sky maps} need a sex mask: one female reference array lights chrX against five male ones (Chapter~\ref{ch:skytools}). & Redraw the six-array sky with chrX and chrY masked, and with sex-matched references. & we \\
 \textbf{I12. Conversion failure on the unmethylated channel} in the IMR90 cultures (Chapter~\ref{ch:gauge}). & Read conversion from the
@@ -82,12 +82,12 @@ open item & what settles it & who \\\midrule\endhead
 \textbf{Q1. The quasiparticle single-device check} $x_{qp}\tau_{\rm TLS}n_{cp}V/(N\tau_{qp})=2$ (Chapter~\ref{ch:xqp}). & One device with all five quantities
  measured. & experiment \\
 \textbf{Q2. The $T_1$ ceiling} of about 0.24\,ms for an aluminium transmon at $x_{qp}\approx10^{-7}$ (prediction X3). & Compare with published
- record lifetimes of isolated Al-electrode transmons before this edition closes. & we \\
+ record lifetimes of isolated Al-electrode transmons. & we \\
 \textbf{Q3. Temperature of a qubit.} The exponents are read against the fridge plate; a qubit's effective temperature is typically higher
  (Chapter~\ref{ch:thermaln}). & Restate every temperature prediction in effective qubit temperature; collect published sweeps that report it. & we \\
 \textbf{Q4. Ion-trap temperature.} The temperature axis for ions is not defined (Chapter~\ref{ch:ascoreqc}). & Define it (motional or electrode
  temperature) or drop ion temperature predictions. & we \\
-\textbf{Q5. The sodium-cluster exponent} has no identified source (Chapter~\ref{ch:thermaln}). & Find the source or remove the value. & we \\
+\textbf{Q5. The sodium-cluster exponent} is not tied to a published measurement (Chapter~\ref{ch:thermaln}). & Tie it to one, or drop it. & we \\
 \textbf{Q6. A per-block chip reading.} The chip figure averages over idle transistors (Chapter~\ref{ch:cmos}). & A design's own power and
  activity data per block. & data needed \\
 \bottomrule

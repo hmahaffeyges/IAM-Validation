@@ -11,8 +11,7 @@ and QBism~\cite{Fuchs2014} each give a different answer.
 
 \section{The IAM criterion}
 
-\emph{IAM and the Measurement Problem}~\cite{MahaffeyMeasurement} gives an operational
-criterion. A measurement is an interaction between the system $S$ and a detector $D$ that
+IAM gives an operational criterion. A measurement is an interaction between the system $S$ and a detector $D$ that
 dissipates energy $Q(S,D)$ into a detector at temperature $T_D$. It is irreversible,
 actualizing in the sense of Chapter~\ref{ch:iams_law}, if and only if
 \begin{equation}
@@ -34,14 +33,14 @@ polarization rotator. The latter dissipate essentially nothing, so $Q/Q_L\ll1$.
 \caption{Eq.~\eqref{eq:F}, $F=1-e^{-Q_L/Q}$, against dissipated energy over $Q_L=k_BT\ln2=0.0179$\,eV (300\,K). It passes through 0.632 at $Q=Q_L$; reversible markers ($Q/Q_L<0.04$) give $F\approx1$; a retinal rod (140) and a CCD pixel (170) give $F<0.01$. The functional form is carried over from the activation ramp, not derived. \conjecture}\label{fig:eraser}
 \end{figure}
 
-The paper gives a quantitative prediction for quantum-eraser experiments~\cite{ScullyDruhl1982}:
+For quantum-eraser experiments~\cite{ScullyDruhl1982} the criterion is given a quantitative form:
 \begin{equation}
  F_{\mathrm{IAM}}(Q,T)=1-\frac{1}{e}\exp\!\left(1-\frac{\kB T\ln2}{Q}\right)=1-\exp\!\left(-\frac{Q_L}{Q}\right).
  \label{eq:F}
 \end{equation}
-The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp, and the rate integral it is built from gives a plain exponential
-(Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
-($Q/Q_L>100$) give $F<0.01$, consistent with the paper's stated bounds. At the crossover
+The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp, while the rate integral it is built from gives a plain
+exponential, as the next chapter shows (Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
+($Q/Q_L>100$) give $F<0.01$. \calc{} At the crossover
 $Q=Q_L$, $F=1-e^{-1}=0.632$.
 
 \begin{checkbox}[title={What distinguishes Eq.~\eqref{eq:F} from standard quantum mechanics}]
@@ -61,7 +60,7 @@ The IAM curve passes through $0.632$ at $Q=Q_L$ and has no free parameter.
 \section{Double slit, delayed choice, eraser}
 
 In the two-sector picture of Chapter~\ref{ch:dual}, a photon travels in the $\Sigma=1$ sector
-and accumulates no gravitational decoherence in flight. Over a 5~m apparatus and 17~ns of
+and accumulates no gravitational decoherence in flight. \interp Over a 5~m apparatus and 17~ns of
 flight the accumulated decoherence is exactly zero, and collapse occurs at the screen, where
 $Q\gg Q_L$. Wheeler's delayed choice~\cite{Wheeler1978,Jacques2007} then needs no
 retrocausality: nothing actual happened to the photon until absorption. Standard quantum
@@ -70,8 +69,8 @@ criterion for \emph{where} the absorption becomes irreversible.
 
 \section{Spontaneous emission}
 
-The source paper treats emission into free space as an actualization, so that a which-path record carried by a spontaneously emitted photon
-could not be erased. That is contradicted by experiment. A trapped ion has been entangled with its own spontaneously emitted photon and the
+Emission into free space is not by itself an actualization: a which-path record carried by a spontaneously emitted photon can still be
+erased. A trapped ion has been entangled with its own spontaneously emitted photon and the
 entanglement measured~\cite{Blinov2004}, and remote entanglement of two ions~\cite{Moehring2007} and of two NV spins 1.3~km
 apart~\cite{Hensen2015} has been built by interfering spontaneously emitted photons. \observed{} Emission alone writes no irreversible record;
 the record becomes irreversible when the photon is absorbed in a dissipative detector, which is where the criterion above places it. Emission into

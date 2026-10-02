@@ -40,14 +40,15 @@ genome copies, the measured fraction has binomial standard deviation
   \label{eq:cellcount}
 \end{equation}
 for diploid DNA. \derived{} Figure~\ref{fig:cellcount} sets it against array noise. For a whole-blood draw with millions of cells the copy-number floor is
-negligible. For plasma cell-free DNA, which carries of order $10^4$ genome equivalents per millilitre-scale draw, it is $0.003$ at $\beta=0.7$, below array
-noise at a single site but not negligible for a cell present at one per cent, whose contribution comes from about a hundred genomes. \calc{} The chain does
+negligible. Plasma cell-free DNA in health carries about $10^3$ genome equivalents per millilitre~\cite{Sender2024}, so a draw yields of order
+$10^3$--$10^4$ genome copies. At $N=10^4$ the floor is $0.003$ at $\beta=0.7$, below array noise at a single site but not negligible for a cell
+present at one per cent, whose contribution comes from about a hundred genomes. \calc{} The chain does
 not yet carry this floor in any interval. \openprob
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=0.8\textwidth]{figures/part4/fig_cell_count_floor.pdf}
 \caption{Standard deviation of measured $\beta$ at one site from the finite number of genome copies (Eq.~\ref{eq:cellcount}, $\beta=0.7$, diploid), against
-array measurement noise of 0.01 and 0.02. Vertical lines mark $10^3$ genomes and the $\sim10^4$ genome equivalents of a plasma draw. \calc}
+array measurement noise of 0.01 and 0.02. Vertical lines mark $10^3$ and $10^4$ genomes, the range of a plasma draw. \calc}
 \label{fig:cellcount}
 \end{figure}
 

@@ -4,9 +4,9 @@
 
 The reference is the set of templates the chain separates a specimen into, and the standard a cell is read against. Every reading passes
 through it. An error in the reference is therefore an error in every reading, and the reference has to be built with the same care as the sky
-model a CMB analysis subtracts. The author's rule for what may enter is short: \emph{I'd rather not have a cell than only have part of one.} His
-ruling on what counts as a reference is shorter: \emph{a cell is a cell is a cell}. A reference is purified healthy cells of one type; every
-sample, specimen or vial is a means to the methylome sought.
+model a CMB analysis subtracts. Two rules govern what may enter. A cell enters whole or not at all: a cell measured on part of the array is
+left out, because a partial cell has to be filled, and filled values are where misplaced and duplicate cells come from. And a reference is
+purified healthy cells of one type; every sample, specimen or vial is a means to the methylome sought.
 
 \section{What chain v3 reads}
 
@@ -40,7 +40,7 @@ states its donors' sex, and a reference of each sex is needed before a sex diffe
 \section{Why the reference must be on the specimen's platform}
 
 A $\beta$ value depends on the chemistry and the pipeline that produced it, and the offset between two platforms is larger than the whole Normal band.
-Purified neutrophils, monocytes and NK cells on 450K arrays read 0.904--0.932 against EPIC references, none of 8 donors in Normal; a reference from
+Purified neutrophils, monocytes and NK cells on 450K arrays read median 0.904--0.932 against references built on another platform, none of 8 donors in Normal; a reference from
 purified 450K arrays, read leave-one-donor-out, put all eight in Normal (\texttt{doors/\allowbreak{}DIAG\_450K\_01\_OUTCOME.md}). \measured{} Chain v3
 therefore carries one reference per cell type per platform and refuses a specimen on any platform it has no reference for.
 
@@ -51,7 +51,7 @@ $\beta$ but not in entropy:
 \begin{center}\small
 \begin{tabular}{@{}lrrr@{}}\toprule
 group & median $|\Delta\beta|$ from neutrophils & sites within 0.05 & mean $H$ over neutrophil mean $H$ \\\midrule
-monocytes & 0.004 & 98.7~\% & 0.986 \\
+monocytes & 0.004 & 98.7~\% & 0.985 \\
 eosinophils & 0.008 & 97.7~\% & 1.076 \\
 basophils & 0.014 & 95.4~\% & 1.189 \\
 NK cells & 0.005 & 89.9~\% & 1.151 \\
@@ -97,8 +97,9 @@ The second atlas is one hierarchical fit. For locus $i$, cell $c$ and source $s$
 \end{align}
 with $m_i$ the locus's shared level and $\delta_{is}$ the source term: what one laboratory's platform and pipeline add to every cell it
 measured. The inputs are the \emph{samples} behind each published table, at every locus they measured, so the model sees real donor-to-donor
-spread. Nothing in it reads a patient, a specimen or a laboratory of patients; the floors are not refitted. Architecture class does not enter
-the fit (author's decision, 28 September 2026). Two consequences follow by construction.
+spread. Nothing in it reads a patient, a specimen or a laboratory of patients; the floors are not refitted. No grouping of cells into classes enters
+the fit: each cell's mean is pulled toward the locus's shared level only, so no cell is drawn toward the mean of a group it
+belongs to. Two consequences follow by construction.
 \begin{enumerate}
 \item The same cell from two sources shares one $\mu_{ic}$ and differs only by $\delta$: twins become one cell.
 \item Where a cell's sources never measured a locus, $\mu_{ic}$ is left \emph{blank}, not filled. The number of observations behind every value,
@@ -110,11 +111,11 @@ the fit (author's decision, 28 September 2026). Two consequences follow by const
 \begin{center}\small
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
 source & form & entered as \\\midrule
-Moss 2018 (GSE122126) & raw 450K/EPIC IDATs & through the chain's own Stage~1 \\
-Salas 2018, 2022 (GSE110554, GSE167998) & raw IDATs of sorted blood & through Stage~1 \\
+Moss 2018~\cite{Moss2018} (GSE122126) & raw 450K/EPIC IDATs & through the chain's own Stage~1 \\
+Salas 2018, 2022~\cite{Salas2018,Salas2022} (GSE110554, GSE167998) & raw IDATs of sorted blood & through Stage~1 \\
 GSE63409 & raw IDATs of sorted HSC and progenitors & through Stage~1 \\
-Loyfer 2023 (GSE186458) & WGBS $\beta$ and depth at array CpGs & per-locus, $\ge10$ reads \\
-Tian 2023 (GSE215353) & brain single-cell pseudobulk & pooled; flagged \\
+Loyfer 2023~\cite{Loyfer2023} (GSE186458) & WGBS $\beta$ and depth at array CpGs & per-locus, $\ge10$ reads \\
+Tian 2023~\cite{Tian2023} (GSE215353) & brain single-cell pseudobulk & pooled; flagged \\
 ENCODE & WGBS of tissues and embryonic stem lines & per-locus, $\ge10$ reads \\\bottomrule
 \end{tabularx}
 \end{center}
@@ -123,9 +124,7 @@ A cell enters only if it has at least two independent donors; every array passes
 test was made at the level of samples: a CpG counts as separating two cells only when every sample of one lies more than 0.20 beyond every sample of
 the other. Sampling noise cannot manufacture that. By it, a kidney podocyte entry was found to be sorting impurity from tubule (no
 hypomethylation at the podocyte genes \emph{NPHS1}, \emph{PODXL}, \emph{WT1}), and mixtures were removed. Seventy-four cells entered.
-
-The author's ruling on what counts as a reference: \emph{a cell is a cell is a cell}; every sample, specimen or vial is a means to the methylome
-sought. Profiles of whole tissues are therefore test specimens for the atlas, not references in it.
+Because a reference is one purified cell type, profiles of whole tissues are test specimens for the atlas, not references in it.
 
 \section{Putting sequencing on the array scale}
 
@@ -134,12 +133,12 @@ source, a Deming regression of its per-locus cell means on the array means of th
 cross-platform measurement on ten cell types measured both ways gave slopes of 1.03--1.09 and intercepts of $-0.04$ to $-0.07$ for every cell type:
 one transfer between platforms, not a per-cell difference. \measured{} Two sources share no cell with any other and their terms cannot be measured:
 the stem-line sequencing, which was later bridged by an embryonic-stem-cell array series with raw IDATs (GSE116754), and GSE63409's sorted
-progenitors, which take an array offset of zero. The author's decision was to \emph{keep them in and notate the truth}: the progenitor source term
+progenitors, which take an array offset of zero. Both are kept in and labelled for what they are: the progenitor source term
 is carried with status ASSUMED and an estimated effect on $A$ of at most about 0.015, and every reading on those cells carries the flag.
 
 \section{The fit}
 
-A first attempt to fit the source terms jointly with every cell mean did not converge ($\hat R$ up to 4.3): a source's terms trade off against the
+A first attempt to fit the source terms jointly with every cell mean did not converge ($\hat R$ up to 4.35): a source's terms trade off against the
 means of every cell only it measured. With the source terms fixed from the closed form, a test block of about 1,000 loci converged
 ($\hat R$ 99th percentile 1.005, effective sample size 1st percentile 753, no divergences), at 0.83~s per locus. The full fit then ran over about
 814,000 loci in 700 blocks with NUTS~\cite{Hoffman2014} in NumPyro, on rented cloud machines, every finished block copied to storage as it landed.
@@ -148,10 +147,10 @@ where a cell was unmeasured; 0.19~\% of values were flagged for per-block conver
 
 \section{Does the atlas tell the truth about itself?}
 
-A posterior interval is only useful if it covers the truth at the stated rate. V5 hid 5~\% of the observations in 20 randomly chosen blocks, refitted
+A posterior interval is only useful if it covers the truth at the stated rate. A pre-registered held-out check (V5) hid 5~\% of the observations in 20 randomly chosen blocks, refitted
 those blocks, and asked how often the held-out values fell inside the atlas's 90~\% predictive interval (Figure~\ref{fig:v5}). \measured
 
-\begin{figure}[t]\centering
+\begin{figure}[htbp]\centering
 \includegraphics[width=0.75\textwidth]{figures/part4/fig_v5.pdf}
 \caption{Coverage of held-out observations by the atlas v2 90~\% interval, overall and by kind of data; shaded band is the pre-registered pass range,
 85--95~\%. 342,716 held-out observations in 20 blocks; every block 92.3--93.1~\%; no divergences. \measured}
@@ -160,13 +159,17 @@ those blocks, and asked how often the held-out values fell inside the atlas's 90
 
 The atlas's stated uncertainty is honest and slightly conservative: 92.7~\% against a nominal 90~\%. The lowest cells were smooth muscle (82.9~\%) and
 aorta and lung alveolar endothelium (about 89~\%); the highest were three bone-marrow progenitors (CMP, L-MPP, MPP) and kidney glomerular
-epithelium, at 96.9--97.2~\%. Mean absolute prediction error was 0.051.
+epithelium, at 96.9--97.2~\%. Mean absolute prediction error was 0.051 (\texttt{doors/\allowbreak{}PROC\_V5\_HELDOUT\_OUTCOME.md}).
+
+The identity sites of the cell types after neutrophils were also drawn from atlas v2 and read on samples held out of the fit. Their bar was
+95~\% of held-out readings in Normal. Array to array, 87.7~\% were in Normal (28 of 29 cell medians); sequencing to array, after a per-locus
+correction, 73.1~\% (14 of 17). The bar is not met (\texttt{atlas/\allowbreak{}v2/\allowbreak{}postbuild/\allowbreak{}README.md}, V12). \measured
 
 \section{What is in it}
 
 Seventy-four cell types. Cells the first atlas named but the second does not contain are not lost; they wait for data that meet
-the entry rule. The candidate sources for the next additions, one at a time and through the same script, are the expanded purified-cell WGBS sets and the
-2026 single-cell body atlas~\cite{Loyfer2023}.
+the entry rule. The candidates for the next additions are further cell types measured on the whole array or by whole-genome sequencing of purified
+cells, entered one at a time through the same script and the same checks.
 
 \section{What this atlas does that a reference panel does not}
 
@@ -203,7 +206,7 @@ through measured source terms, so a patient's array and the reference are on one
 cell's identity sites; chain v3 does this for blood from the purified EPIC profiles. In whole blood the expectation is built from the person's own composition: six healthy DNA mixtures of known composition (neutrophils
 63--75\,\%) read 1.062--1.118 against the neutrophil reference alone and 0.982--1.016 against their own composition (PROC-WB-NEUT-01). \measured
 \item \textbf{It knows what it cannot do.} Pairs of cells the arrays cannot tell apart are named as such rather than given a split; cells whose
-data do not meet the entry rule are absent rather than approximated (\emph{I'd rather not have a cell than only have part of one}); every
+data do not meet the entry rule are absent rather than approximated; every
 value carries the number of observations behind it.
 \item \textbf{Every number can be rebuilt.} Every step is a numbered script with fixed random seeds, every source is public, and every block
 of the fit is stored with its SHA-256, so a rebuild on the same package versions reproduces the posterior draws, not only the means.
