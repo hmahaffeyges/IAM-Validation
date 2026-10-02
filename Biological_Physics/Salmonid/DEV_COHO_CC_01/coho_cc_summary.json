@@ -1,0 +1,13 @@
+{
+ "n_fish": 39,
+ "n_common_sites": 43554,
+ "D1_icc": 0.8259427810596127,
+ "rho_eps_cc_common_conv": -0.38441295546558707,
+ "rho_eps_cc_common_depth": -0.22368421052631582,
+ "rho_eps_cc_common_suberr": 0.1299595141700405,
+ "rho_eps_all_common_conv": -0.3838056680161943,
+ "rho_eps_all_common_depth": -0.20242914979757085,
+ "rho_eps_all_common_suberr": 0.12489878542510123,
+ "D1_pass": false,
+ "D2_pass": false
+}
