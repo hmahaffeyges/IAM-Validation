@@ -1134,13 +1134,12 @@ def build(out_path):
     L.EMIT_CARD_NBIO = False
     L.CORRECT_SUBSTRATE_COMBINATION = True
     L.EMIT_FINAL_NOTE_002 = False
-    L.blk_ranking(story); L.blk_framework(story); L.blk_mcmc(story); L.blk_bodytemp_saturation(story)
+    # 2026-10-02 (author: no clinical, treatment or care text anywhere public; class floors retired 2026-10-01): the Issue 002
+    # framework blocks and the eight class cards are no longer rendered. Issue 002 is in Biological_Physics/RETIRED_2026-10.
     # cards
     # The multi-class drift cascade (VAL-037..046) and its healthy baseline reference tables are Issue 002's
     # disease-prediction evidence on the pre-atlas surface; Issue 004 carries disease evidence measured on this chain.
     # L.render_cascade_section(story)
-    for card in L.CARDS:
-        L.render_card(story, card); card_addendum(story, card['key'])
     import om_part3 as P3
     P3.render(story, L, tbl, SP, PageBreak, Paragraph)   # Part III - chain, atlas, toolkit, refusals
     P3.render_engine_spec(story, L, tbl, SP, PageBreak, Paragraph)   # III.5 - the formulas, from the runtime
@@ -1163,7 +1162,7 @@ def build(out_path):
     # back matter from 002
     secV_val_index(story); secVI_translation_map(story); secVII_sprint(story); secIX_future(story); secVIII_part2(story)
     sec_edition_record(story)
-    L.blk_data_sources(story); L.blk_glossary(story); sec_chain_terms(story); sec_chain_links(story)
+    L.blk_data_sources(story); sec_chain_terms(story); sec_chain_links(story)
     story.append(Paragraph(D.GLOSSARY_NOTE_MAHAFFEY, sDisc))
     L.blk_final_note(story)
     P3.render_closing(story, L, SP, PageBreak, Paragraph)          # the Edition 003 closing - the LAST page, after the appendices and glossary

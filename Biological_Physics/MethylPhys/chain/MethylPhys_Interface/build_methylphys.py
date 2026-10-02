@@ -849,7 +849,7 @@ def tab_physics(R):
     kB=1.380649e-23; T=310.15; Rg=8.314462618; EL=kB*T*math.log(2); M=54000/(Rg*T)
     nloci={c:len(v.get("loci",[])) for c,v in R["ident"].items() if isinstance(v,dict) and "loci" in v}
     return f"""<h2>The physics, in plain language</h2>
-<p class='m'><b>Who this is for.</b> The oncologist, the molecular biologist, the lab director, the informed reader. You do not need to follow a single line of physics to use what follows, and nothing in the first seven sections needs a formula. Where a constant appears it is a textbook constant, shown so that you can check it. The formulas are at the end, marked optional.</p>
+<p class='m'><b>Who this is for.</b> The physicist, the molecular biologist, the geneticist, the lab director. You do not need to follow a single line of physics to use what follows, and nothing in the first seven sections needs a formula. Where a constant appears it is a textbook constant, shown so that you can check it. The formulas are at the end, marked optional.</p>
 
 <h3>1. The one idea</h3>
 <p>Every living cell is doing the same thing every moment: <b>spending energy to hold itself in order against the natural pull toward disorder</b>. Order does not maintain itself. It has to be paid for, continuously, or it decays. This instrument measures how much margin a cell has between the order it is maintaining and the minimum cost of maintaining any order at all. That margin is the reading.</p>
@@ -985,7 +985,7 @@ def tab_story(R=None):
        "<p class='m'>In the author's words.</p>",
 
        "<h3>Who this is for</h3>",
-       "<p>The oncologist, the molecular biologist, the lab director, the informed patient. You do not need to follow a single line of cosmology to "
+       "<p>The physicist, the molecular biologist, the geneticist, the lab director. You do not need to follow a single line of cosmology to "
        "use what follows. The point is not to teach you astrophysics. The point is to explain why a cellular-health measurement is built on the same "
        "mathematics that describes stars and galaxies, and why that is a practical advantage rather than a poetic flourish. Where a number from "
        "cosmology appears, it is there so that a colleague who does know cosmology can check it independently and tell you whether it is right. The "

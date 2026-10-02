@@ -385,13 +385,9 @@ def toc_entries(L, D):
          ("Part I - the instrument", "s1 Reconciliation: Issue 002 to repository HEAD", "RECONCILIATION"),
          ("Part I - the instrument", "s2 The IAM Atlas: 115 cell types, eight classes", "THE IAM ATLAS"),
          ("Part I - the instrument", "s3 Two instruments and the presence rule", "TWO INSTRUMENTS"),
-         ("Part I - the instrument", "s4 Framework from Issue 002: ranking, substrates, saturation", "FIVE-SUBSTRATE FRAMEWORK"),
          ("Part I - the instrument", "s5 The physics: Landauer, the Mahaffey number, the reference, the gauge", "SECTION 5 THE PHYSICS"),
          ("Part I - the instrument", "s5A Where the tools come from", "SECTION 5A WHERE THE TOOLS COME FROM"),
          ]
-    for c in L.CARDS:
-        e.append(("The eight architecture-class cards",
-                  f"#{c['pos']} {c['name']}", f"#{c['pos']} · {c['name'].upper()}"))
     e += [("Part III - the chain in depth", "III.1 The chain, stage by stage", "The chain, stage by stage"),
           ("Part III - the chain in depth", "III.2 The atlas, and the cells it can speak about", "The atlas, and the cells it can speak about"),
           ("Part III - the chain in depth", "III.3 The cosmology toolkit, tool by tool", "The cosmology toolkit, tool by tool"),
@@ -414,7 +410,6 @@ def toc_entries(L, D):
           ("Record and appendices", "Appendix VI - the CMB to methylome translation map", "APPENDIX VI"),
           ("Record and appendices", "Appendix VII - the completion sprint, scored", "APPENDIX VII"),
           ("Record and appendices", "Future goals - what is worth the effort, in order", "FUTURE GOALS — WHAT IS WORTH THE EFFORT"),
-          ("Record and appendices", "Glossary", "GLOSSARY"),
           ]
     return e
 
@@ -706,11 +701,6 @@ def render_closing(story, L, SP, PageBreak, Paragraph):
         "a reading of cellular fidelity can help choose who enters one, and then show draw by draw whether the "
         "treated tissue is holding its pattern or losing it, that is time and money returned to the trial - and "
         "fewer patients carrying the burden of a treatment that was not going to work for them.", L.sBodySm))
-    story.append(Paragraph(
-        "<b>End-of-life care.</b> The hardest question a family asks is how much time there is, and the honest "
-        "answer today is usually a guess with a wide interval. A measurement of how much ordered capacity a tissue "
-        "still holds would not answer it either - but it might narrow it, and a doctor with a narrower interval "
-        "can help a family spend what is left better.", L.sBodySm))
     story.append(Paragraph(
         "<b>Early detection, in its place.</b> A fidelity gauge that reads below its healthy line before symptoms "
         "appear is where clinical value would ultimately sit, for cancer and for much else. That work is not in "
