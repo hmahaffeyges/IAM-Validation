@@ -39,18 +39,25 @@ wf = sp.lambdify((x, O), w); A = np.linspace(0.5, 1, 200)
 c = np.linalg.lstsq(np.vstack([np.ones_like(A), 1 - A]).T, wf(A, Om), rcond=None)[0]
 print(f"   least-squares CPL over a 0.5-1: w0 = {c[0]:.3f}, wa = {c[1]:+.3f}")
 
-print("4. Second order and bispectrum (Section 11.5): growth with 2H_IAM friction, unmodified Poisson source")
-def grow(E2):
+print("4. Growth suppression and bispectrum (Section 11.5): three implementations, fixed parameters, same early amplitude")
+E2Lm = lambda a: Om * a**-3 + OL; E2Im = lambda a: E2Lm(a) + b * Ea(a); mu = lambda a: E2Lm(a) / E2Im(a)
+def growth(mode):
     def r(l, y):
-        a = np.exp(l); e2 = E2(a); de = (E2(a*np.exp(1e-5)) - E2(a*np.exp(-1e-5))) / 2e-5
-        k = 0.5 * de / e2; src = 1.5 * Om * a**-3 / e2
-        return [y[1], -(2+k)*y[1] + src*y[0], y[3], -(2+k)*y[3] + src*y[2] - src*y[0]**2]
+        a = np.exp(l); eL, eI = E2Lm(a), E2Im(a)
+        kL = 0.5 * (E2Lm(a*np.exp(1e-5)) - E2Lm(a*np.exp(-1e-5))) / 2e-5 / eL
+        kI = 0.5 * (E2Im(a*np.exp(1e-5)) - E2Im(a*np.exp(-1e-5))) / 2e-5 / eI
+        if mode == "LCDM":     return [y[1], -(2+kL)*y[1] + 1.5*Om*a**-3/eL*y[0]]
+        if mode == "L1_muG":   return [y[1], -(2+kL)*y[1] + 1.5*Om*a**-3/eL*mu(a)*y[0]]          # G_eff = mu G (MGCAMB, Level 1)
+        if mode == "L2_fric":  return [y[1], -(kL + 2*np.sqrt(eI/eL))*y[1] + 1.5*Om*a**-3/eL*y[0]]  # 2 H_IAM friction, LCDM clock (Level 2)
+        if mode == "H_IAM_bg": return [y[1], -(2+kI)*y[1] + 1.5*Om*a**-3/eI*y[0]]               # whole equation on H_IAM (reproduces the paper's ratios)
     a0 = 1e-3
-    return solve_ivp(r, (np.log(a0), 0), [a0, a0, -3/7*a0**2, -6/7*a0**2], dense_output=True, rtol=1e-10, atol=1e-14)
-gL, gI = grow(E2L), grow(E2I); r0 = gI.sol(0)[0] / gL.sol(0)[0]
-for z in (0, 0.3, 0.5, 1.0):
-    l = np.log(1/(1+z)); yL, yI = gL.sol(l), gI.sol(l)
-    print(f"   z={z}: D1 ratio, same early amplitude {yI[0]/yL[0]:.3f} | same amplitude today {yI[0]/r0/yL[0]:.4f} -> B ∝ D^4 {(yI[0]/r0/yL[0])**4:.3f}")
+    return solve_ivp(r, (np.log(a0), 0), [a0, a0], dense_output=True, rtol=1e-10, atol=1e-14)
+gL = growth("LCDM")
+for m in ("L1_muG", "L2_fric", "H_IAM_bg"):
+    g = growth(m); r0 = g.sol(0)[0] / gL.sol(0)[0]
+    rat = [((g.sol(np.log(1/(1+z)))[0] / r0) / gL.sol(np.log(1/(1+z)))[0])**4 for z in (0.3, 0.5, 1.0)]
+    print(f"   {m:9}: dD/D(z=0) {100*(r0-1):+.2f} % | B ratio, same amplitude today, z=0.3/0.5/1: " + " / ".join(f"{x:.3f}" for x in rat))
+print("   paper: 1.033 / 1.052 / 1.072")
 
 print("5. Other numbers")
 c_, G, Msun = 2.998e8, 6.674e-11, 1.989e30; H0 = 67.4e3 / 3.0857e22

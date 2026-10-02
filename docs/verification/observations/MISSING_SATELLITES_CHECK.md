@@ -18,6 +18,6 @@ condition is inconsistent with observations and Mechanism B requires revision"):
 satellites with kinematics sit below 4 km/s. Mechanism B as stated (no halo virializes below σ_crit ≈ 4 km/s) is rejected.
 Caveats a referee would accept: tidal stripping lowers present-day σ (Crater II, Tucana III), so σ today is not σ at formation; a test against
 σ at infall (or peak circular velocity) is the fair version, and Eq. 11's σ is not defined as either.
-**Mechanism A** (§3): ΔD/D(z=0) = −7.4 % does not reproduce; IAM's growth equation gives −0.78 %. **Other:** "all 17 converged R−1 < 0.01": at the paper's date 14 of 17 had (today all 18 are ≤ 0.010); "Euclid DR1 October 2026" → mid-2027; β_m posterior 0.1583 is the derived Ω_m/2 (β_m fixed in the chains), not a recovery.
+**Mechanism A** (§3): ΔD/D(z=0) = −7.4 % does not reproduce under any implementation. At fixed parameters: −0.78 % with G_eff = µG (Level 1), −0.67 % with the matter friction (Level 2), −1.87 % with the whole growth equation on H_IAM; in the chains σ8 falls 1.6 % (L1) and 1.1 % (L2). **Other:** "all 17 converged R−1 < 0.01": at the paper's date 14 of 17 had (today all 18 are ≤ 0.010); "Euclid DR1 October 2026" → mid-2027; β_m posterior 0.1583 is the derived Ω_m/2 (β_m fixed in the chains), not a recovery.
 **Status:** Mechanism B as stated is rejected by the census; the infall-σ version is the open re-test. Mechanism A: direction stands, amplitude ~1 %.
 Book inclusion: the author's decision (the paper is on the 2026-10-02 reading list, G5 #24).

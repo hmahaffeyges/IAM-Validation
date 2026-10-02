@@ -17,11 +17,13 @@ w_eff(1) = −1.062; continuity identity (§12.4); H0 sirens 72.51; M_eq = 2.32 
 4. §12.3 Fig. 2: the "Δχ² = +0.75" is typed text in tests/plot_cl_comparison.py line 319, not computed from a chain. The book labels the figure from
    CHAIN_EXTRACTION_FINAL (Planck-only chain-minimum +0.96; paper table minimizer +1.43).
 
-5. §11.5 bispectrum (no source script; author: not essential, 2026-10-02). Reproduced: normalising IAM and ΛCDM to the same amplitude today, B ∝ D⁴
-   gives 1.038 / 1.053 / 1.071 at z = 0.3 / 0.5 / 1 (paper 1.033 / 1.052 / 1.072). The paper then applied a z = 0 suppression from σ8 (a different, early
-   normalisation), which created the "crossover near z ≈ 0.2". With one normalisation there is no crossover; with the CMB-fixed (early) amplitude IAM is
-   below ΛCDM at all z. The "D2 ratios" 1.052/1.075 match D⁴ (bispectrum), not D2 (today-normalised D2: 1.026/1.035); 1.014 at z = 0 matches nothing.
-   The chapter keeps the unchanged F2 shape and states the amplitude follows σ8(z); the ratio and D2 tables and the crossover claim are not printed.
+5. §11.5 bispectrum (no source script). Three implementations of the growth equation, fixed parameters, ΔD/D at z = 0:
+   G_eff = µG on the ΛCDM background (Level 1, MGCAMB) −0.78 %; friction 2H_IAM with the ΛCDM clock (Level 2, background unchanged) −0.67 %;
+   the whole equation, clock included, on H_IAM −1.87 %. The paper's ratios 1.033 / 1.052 / 1.072 reproduce only with the last (1.038 / 1.053 / 1.071,
+   same amplitude today); the Level 2 form gives 1.015 / 1.020 / 1.025. The paper took its z = 0 value from σ8 (early normalisation), which produced the
+   "crossover near z ≈ 0.2"; with one implementation and one normalisation there is none. The "D2 ratios" 1.052/1.075 match D⁴ of the last form, not D2.
+   The chapter states all of this and keeps the unchanged F2 shape and the σ8(z) amplitude. (An earlier version of this file used the −1.87 % form as
+   if it were the chains' implementation; corrected 2026-10-02.)
 
 **sigma8 by level (final extraction):** L1 Planck-only 0.8143 → 0.8015 (−1.6 %); L2 0.8087 → 0.7998 (−1.1 %, = paper §12 '0.809 to 0.800'). The first draft printed '0.813 → 0.800 (1.6 %)', mixing the levels; corrected.
 **Updated to the final chains:** Δχ² and free-µ0 values cite the Part 2 chain chapter (one extraction of the final files) rather than the paper's tables.

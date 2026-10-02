@@ -231,11 +231,14 @@ in both). It is the signature of a change to matter-sector dynamics with no anis
 \paragraph{Second order.} The $F_2$ kernel is the GR kernel, unchanged. The 1-loop correction to $f\sigma_8$ is $-2.5\,\%$ in both models; the difference is
 below $0.07\,\%$, and linear theory is valid for $k<0.2\,h$\,Mpc$^{-1}$.
 \paragraph{Amplitude.} With the same primordial amplitude, fixed by the CMB, the extra friction lowers the growth factor at every redshift, so the
-bispectrum amplitude, which scales as $D^4$ at fixed shape, is lower than in $\Lambda$CDM at all $z$. The difference vanishes at high $z$, where $\mu\to1$.
-\calc\ Normalising the two models to the same amplitude today, instead of at early times, gives ratios $1.038$, $1.053$, $1.071$ at $z=0.3$, $0.5$, $1$;
-these are the values the source paper printed, together with a $z=0$ suppression taken from $\sigma_8$. Mixing the two normalisations is what produced an
-apparent crossover near $z\approx0.2$; with one normalisation there is no crossover. What the bispectrum tests is the unchanged $F_2$ shape together with an
-amplitude that follows $\sigma_8(z)$.
+bispectrum amplitude, which scales as $D^4$ at fixed shape, is lower than in $\Lambda$CDM at all $z$; the difference vanishes at high $z$, where $\mu\to1$.
+\calc\ At fixed cosmological parameters the growth factor today is lower by $0.67\,\%$ with the friction form above (the Level 2 implementation, background
+unchanged) and by $0.78\,\%$ with $G_{\rm eff}=\mu G$ (the Level 1 MGCAMB implementation). In the chains, where the other parameters adjust, $\sigma_8$ is lower
+by $1.1\,\%$ (Level 2) and $1.6\,\%$ (Level 1). Normalising the two models to the same amplitude today instead of at early times, the Level 2 form gives
+bispectrum ratios $1.015$, $1.020$, $1.025$ at $z=0.3$, $0.5$, $1$. The source paper's $1.033$, $1.052$, $1.072$ are reproduced only when the whole growth
+equation, clock included, is solved on the matter-sector expansion rate ($1.038$, $1.053$, $1.071$), which is not the implementation used in either chain
+level; that paper also took its $z=0$ value from $\sigma_8$ (early normalisation), which produced an apparent crossover near $z\approx0.2$. With one
+implementation and one normalisation there is no crossover. What the bispectrum tests is the unchanged $F_2$ shape together with an amplitude that follows $\sigma_8(z)$.
 
 \section{Observational status}
 With $\beta_m$ fixed, the Planck 2018 chains give $\Delta\chi^2$ between $+0.5$ and $+1.7$ against $\Lambda$CDM in every data combination

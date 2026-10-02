@@ -12,7 +12,7 @@ those chapters rely on. A paper is listed only after it has been read in full. T
 ## Contents
 | Folder | File | Paper(s) checked | Status |
 |---|---|---|---|
-| `theory/` | `THEORY_CHECK.md` | IAM Theory Paper (14 Apr 2026) | Reproduced except five items, all resolved: exponent n = 7/2 (Eq. 41), w_a = −0.012, N-body tables restated, Fig. 2 label, §11.5 normalisation |
+| `theory/` | `THEORY_CHECK.md` | IAM Theory Paper (14 Apr 2026) | Reproduced except five items, all resolved: exponent n = 7/2 (Eq. 41), w_a = −0.012, N-body tables restated, Fig. 2 label, §11.5 growth implementation and normalisation |
 | `theory/` | `EXPONENT_LINE_BY_LINE.md` | Theory Paper Eqs. 28–41 | n = 7/2 analytic and numerical |
 | `virial/` | `VIRIAL_CHECK.md` | The five Virial papers (25 Feb – 18 Mar 2026) | Reproduced; corrections listed (β_m posterior, E(a) column, dark-energy share, z_t, sector census, citations) |
 | `virial/` | `NBODY_TRACE.md` | The N-body virial-ratio, n_eff and f_coll values cited in the Virial and Theory papers | Traced to arXiv full text with page numbers; Neto 2007 and Power 2012 re-read by me |
