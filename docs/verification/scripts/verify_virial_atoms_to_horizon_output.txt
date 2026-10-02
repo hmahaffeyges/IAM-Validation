@@ -1,0 +1,22 @@
+1. Hydrogen ground state (Bohr/Schroedinger, infinite nuclear mass)
+   E1 = -13.6057 eV   <K> = 13.6057 eV   <V> = -27.2114 eV   <K>/|<V>| = 0.5000
+   photon on capture from rest = |E1| = 13.6057 eV = <K>
+2. The Sun: Kelvin-Helmholtz time from the virial theorem (n = 3 polytrope, U = -3GM^2/(2R))
+   U = -5.690e+41 J; energy radiated so far if contraction alone powered it = |U|/2 = 2.845e+41 J
+   t_KH = |U|/(2L) = 23.6 Myr (vs 4,600 Myr: the reason the Sun must burn hydrogen)
+3. Chandrasekhar mass: M_Ch = (omega3 sqrt(3 pi)/2) (hbar c/G)^(3/2) / (mu_e m_u)^2, omega3 = 2.01824
+   mu_e = 2.0: M_Ch = 1.456 Msun
+   mu_e = 2.15: M_Ch = 1.260 Msun
+4. Black holes: Bekenstein-Hawking entropy S = k A c^3/(4 G hbar), Hawking temperature T = hbar c^3/(8 pi G M k)
+   M = 1 Msun: T = 6.170e-08 K, S/k = 1.049e+77, bits = 1.513e+77, bits x k T ln2 / (M c^2) = 0.5000000000
+   M = 4.3e+06 Msun: T = 1.435e-14 K, S/k = 1.940e+90, bits = 2.798e+90, bits x k T ln2 / (M c^2) = 0.5000000000
+   M = 6.5e+09 Msun: T = 9.492e-18 K, S/k = 4.432e+96, bits = 6.394e+96, bits x k T ln2 / (M c^2) = 0.5000000000
+   Kerr (G = c = hbar = k = 1): T S / M = sqrt(1 - chi^2)/2; the rest of M c^2 is 2 Omega_H J (Smarr)
+   chi = 0.000: TS/M = 0.5000  2 Omega J / M = 0.0000  sum = 1.0000
+   chi = 0.500: TS/M = 0.4330  2 Omega J / M = 0.1340  sum = 1.0000
+   chi = 0.900: TS/M = 0.2179  2 Omega J / M = 0.5641  sum = 1.0000
+   chi = 0.998: TS/M = 0.0316  2 Omega J / M = 0.9368  sum = 1.0000
+5. Cosmic horizon: beta_m = Omega_m/2
+   Omega_m = 0.3153: beta_m = 0.15765
+   Omega_m = 0.3166: beta_m = 0.15830
+   Level 2 chains (camb_validation/chains, 30 % burn-in): beta_m fixed at 0.15765; Delta chi2 vs LCDM +0.54 (lowest chi2 in each chain)

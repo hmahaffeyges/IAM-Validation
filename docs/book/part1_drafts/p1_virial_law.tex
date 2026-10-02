@@ -1,4 +1,5 @@
 % Part 1 closing chapter: the virial partition at every scale (first half of the Virial material; the cosmological coupling opens Part 2).
+% Also: docs/papers/latex/virial_partition_atoms_to_horizon (numbers: docs/verification/scripts/verify_virial_atoms_to_horizon.py).
 % Source: the five Virial papers (read in full 2026-10-02): Virial Efficiency (25 Feb 2026); Wide Domains (25 Feb 2026); Virial Partners (Mar 2026);
 % Gravitational Decoherence and the Virial Partition (Mar 2026); The Thermodynamic Identity Governing the Virial Theorem (PRL version, 18 Mar 2026).
 % Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md.
@@ -39,17 +40,19 @@ Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ exa
 20 atoms, H--Xe (Hartree--Fock limit) & $10^{-10}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
 10 molecules, H$_2$--CO$_2$ & $10^{-9}$ m & $T/|V|$ & $1/2$ at equilibrium geometry\\
 Thermal equilibrium & all & energy per quadratic d.o.f. & $k_BT/2$\\
-White dwarfs & $10^{7}$ m & Chandrasekhar mass & $1.44\,M_\odot$, observed\\
-The Sun & $10^{9}$ m & $K/|U|$ & $\approx1/2$ (to $\sim10\,\%$, uniform-sphere estimate)\\
-Galaxy clusters (Coma and $\sim20$ others) & $10^{23}$ m & $K/|U|$ & $\approx1/2$ (to $\sim20\,\%$, projection)\\
-Cosmological coupling & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consistent with Planck in 17 chains\\\hline
+White dwarfs & $10^{7}$ m & Chandrasekhar mass & $1.456\,M_\odot$ ($\mu_e=2$); none observed above it\\
+The Sun & $10^{9}$ m & $|U|/2L$ & 24 Myr: contraction cannot power it, so it burns hydrogen\\
+Galaxy clusters & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent (Zwicky 1933 onward)\\
+Simulated halos, $10^{10}$--$10^{15}M_\odot$ & $10^{21}$--$10^{23}$ m & $2K/|W|$ & $1.1$--$1.3$; $1.02$--$1.17$ with surface pressure\\
+Schwarzschild black hole & $r_s$ & $T_HS/Mc^2$ & $1/2$ (Smarr relation; Chapter~\ref{ch:blackholes})\\
+Cosmic horizon & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consistent with Planck (Chapter~\ref{ch:virial})\\\hline
 \end{tabular}
 \end{table}
 
 For converged Hartree--Fock wavefunctions the ratio is exact by construction: any wavefunction optimised under a uniform scaling of the coordinates satisfies
 the quantum virial theorem. The atomic rows therefore show that quantum mechanics obeys the theorem; they are a statement of the theorem's reach, not an
 independent measurement. The gravitational rows are measurements, at the precision the systems allow. The span from the atom to the cluster is 33 orders of
-magnitude in size; with the cosmological coupling it reaches the Hubble scale.
+magnitude in size; Part~2 carries the same half to the horizon of a black hole and to the horizon of the universe.
 
 \section{What the kinetic half is: the thermodynamic identity}
 Clausius derived the theorem from Newton's second law. The derivation describes the bound state; it says nothing about the transition into it. Consider a

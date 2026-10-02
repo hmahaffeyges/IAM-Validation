@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,booktabs,geometry,hyperref}
+\geometry{margin=1in}
+\title{\textbf{The Virial Partition from Atoms to the Horizon}}
+\author{Heath W.\ Mahaffey\\ \small Independent Researcher, Entiat, WA, USA\\ \small \url{https://github.com/hmahaffeyges/IAM-Validation}}
+\date{October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For any system bound by a potential that falls as $1/r$, the virial theorem fixes the time-averaged kinetic energy at exactly half the magnitude of the
+potential energy. We follow this one half through every scale at which it can be checked: the hydrogen atom, atoms and molecules at the Hartree--Fock limit,
+the Sun, white dwarfs, clusters of galaxies, the horizon of a black hole, and the horizon of the universe. We state the thermodynamic content of the kinetic
+half: when a $1/r$ system binds from rest, the energy it releases equals its kinetic half, and Landauer's principle makes that the minimum cost of the
+irreversible binding. For a Schwarzschild black hole the Bekenstein--Hawking entropy counted in bits, priced at $k_BT_H\ln2$ each, equals exactly
+$\tfrac12Mc^2$ (the Smarr relation). At the cosmic horizon the same half fixes the coupling $\beta_m=\Omega_m/2$ of the Informational Actualization Model,
+which enters every Planck chain at its predicted value and is consistent with Planck 2018 ($\Delta\chi^2=+0.54$ against $\Lambda$CDM, no added parameter).
+Every number is recomputed by the script \texttt{docs/verification/scripts/verify\_virial\_atoms\_to\_horizon.py}.
+\end{abstract}
+
+\section{The theorem}
+For a bound system with potential energy homogeneous of degree $k$ in the coordinates, the time average of $d(\sum_i\mathbf r_i\cdot\mathbf p_i)/dt$ vanishes,
+and Euler's theorem gives $2\langle K\rangle=k\langle V\rangle$. Gravity and the Coulomb interaction have $k=-1$:
+\begin{equation}
+2\langle K\rangle+\langle V\rangle=0,\qquad \langle K\rangle=\tfrac12|\langle V\rangle|,\qquad E=\langle K\rangle+\langle V\rangle=-\langle K\rangle .
+\label{eq:virial}
+\end{equation}
+The degree is fixed by geometry: in three spatial dimensions Gauss's law makes the field of a point source fall as $1/r^2$, so the potential falls as $1/r$.
+The half does not depend on the number of bodies, their masses or the scale.
+
+\section{Atoms and molecules}
+\textbf{Hydrogen.} The ground state has $E_1=-13.6057$\,eV, $\langle K\rangle=13.6057$\,eV and $\langle V\rangle=-27.2114$\,eV: $\langle K\rangle/|\langle V\rangle|=1/2$.
+An electron captured from rest into this state emits a photon of $13.6057$\,eV, equal to its kinetic half.
+
+\textbf{Many-electron atoms and molecules.} For the 20 atoms H--Xe and 10 molecules (H$_2$ to CO$_2$) at the Hartree--Fock limit (Clementi \& Roetti 1974;
+Bunge et al.\ 1993), $T/|V|=1/2$ to the precision of the tabulated energies. For a converged variational wavefunction this is exact: optimising under a uniform
+scaling of the coordinates enforces the quantum virial theorem. These systems show that quantum mechanics obeys Eq.~\eqref{eq:virial} with the electrostatic
+interaction; they are not an independent measurement of it.
+
+\section{Stars}
+\textbf{The Sun.} For a star in hydrostatic equilibrium the theorem gives $2K_{\rm th}+U=0$. A contracting star radiates half the gravitational energy it
+releases and stores the other half as heat. For a polytrope of index 3, $U=-\tfrac32GM^2/R=-5.69\times10^{41}$\,J for the Sun; contraction alone could
+power the present luminosity for $|U|/2L=24$\,Myr. The Sun is 4.6\,Gyr old, so it must burn hydrogen --- the argument of Kelvin and Helmholtz, settled by the
+virial theorem.
+
+\textbf{White dwarfs.} In a white dwarf the degenerate electrons become relativistic as the mass grows; the kinetic energy then scales as $1/R$ like the
+gravitational energy, and Eq.~\eqref{eq:virial} has a solution only at one mass,
+\begin{equation}
+M_{\rm Ch}=\frac{\omega_3^0\sqrt{3\pi}}{2}\left(\frac{\hbar c}{G}\right)^{3/2}\frac{1}{(\mu_em_u)^2}=1.456\,M_\odot\quad(\mu_e=2),
+\end{equation}
+with $\omega_3^0=2.01824$ (Chandrasekhar 1931, 1939). No white dwarf has been found above it; type Ia supernovae mark carbon--oxygen white dwarfs that reach it.
+
+\section{Clusters of galaxies}
+Zwicky (1933) applied Eq.~\eqref{eq:virial} to the velocities of the galaxies in the Coma cluster and found far more mass than the light suggests. Virial
+(dynamical) masses of clusters are now compared with weak-lensing and X-ray masses in large samples; they agree at the tens-of-percent level, set by
+projection, departures from equilibrium in merging systems and non-thermal support.
+
+\textbf{Simulated dark-matter halos.} Cosmological $N$-body simulations measure the virial ratio of every halo directly. Within the virial radius the
+published values are $2T/|U|\approx1.1$--$1.3$, rising slowly with mass (Bett et al.\ 2007; Neto et al.\ 2007, ``median slightly greater than unity'';
+Power, Knebe \& Knollmann 2012, $\eta=2T/|W|\approx1.15$ at $10^{12}$ to $1.25$ at $10^{15}\,h^{-1}M_\odot$; Klypin et al.\ 2016). The excess over 1 is the
+pressure of matter still falling through the boundary: with the surface-pressure term included, Klypin et al.\ find $2K/|W|\approx1.02$--$1.17$. Halos are
+called relaxed when $2T/|U|<1.35$ (Neto et al.\ 2007). Collisionless halos, assembled without radiating, sit at the virial equilibrium to within the
+infall still under way.
+
+\section{What the kinetic half is}
+Let a $1/r$ system fall from rest at infinity ($E_i=0$) into a stable bound state $E_f<0$ and release the difference.
+\begin{enumerate}
+\item First law: the energy released is $Q=-E_f$.
+\item Eq.~\eqref{eq:virial}: $-E_f=\langle K\rangle$, so $Q=\langle K\rangle$.
+\item Second law: the transition is irreversible, producing entropy $\Delta S\ge Q/T$ in surroundings at temperature $T$.
+\item Landauer (1961): the minimum cost of producing $\Delta S$ is $T\Delta S$; the bound is met when $\Delta S=Q/T$.
+\end{enumerate}
+\begin{equation}
+\langle K\rangle=Q=T\Delta S_{\min}=E_{\rm Landauer}=\tfrac12|\langle V\rangle| .
+\end{equation}
+Step 2 is the mechanical theorem, so this does not derive Eq.~\eqref{eq:virial}; it identifies its kinetic half with the minimum thermodynamic cost of forming
+the bound state. It applies wherever the binding energy is released --- the photon of atomic recombination, the radiation of a contracting cloud or star.
+A collisionless system (a dark-matter halo) relaxes without radiating; there the half describes the redistribution of energy in violent relaxation, and the
+thermodynamic reading concerns the information written in that relaxation. Jacobson (1995) obtained the Einstein equations from $\delta Q=T\,dS$ on local
+horizons; the identity above is the same relation applied at the boundary of a forming bound state.
+
+\section{The black-hole horizon}
+A Schwarzschild black hole of mass $M$ has Bekenstein--Hawking entropy and Hawking temperature
+\begin{equation}
+S=\frac{k_Bc^3A}{4G\hbar}=\frac{4\pi Gk_BM^2}{\hbar c},\qquad T_H=\frac{\hbar c^3}{8\pi Gk_BM}.
+\end{equation}
+Counting the entropy in bits, $N=S/(k_B\ln2)$, and pricing each bit at Landauer's $k_BT_H\ln2$,
+\begin{equation}
+N\,k_BT_H\ln2=T_HS=\tfrac12Mc^2 .
+\end{equation}
+For one solar mass, $N=1.51\times10^{77}$ bits at $T_H=6.17\times10^{-8}$\,K; for the black holes in the Galactic centre ($4.3\times10^6\,M_\odot$) and in
+M87 ($6.5\times10^9\,M_\odot$) the ratio is the same, $0.5000000000$. This is the Smarr relation $Mc^2=2T_HS$ of general relativity (Smarr 1973;
+Bardeen, Carter \& Hawking 1973). Read with Landauer's principle, half of a black hole's rest energy is the cost of the information on its horizon --- the
+same half as in Eq.~\eqref{eq:virial}. For a rotating (Kerr) black hole, $Mc^2=2T_HS+2\Omega_HJ$, and the horizon share is $T_HS/Mc^2=\sqrt{1-\chi^2}/2$:
+$0.433$ at $\chi=0.5$, $0.218$ at $\chi=0.9$, $0.032$ at $\chi=0.998$; the rest is rotational energy.
+
+\section{The cosmic horizon}
+The Informational Actualization Model (IAM) adds to the horizon first law of Jacobson and of Cai \& Kim (2005) the entropy of the classical records produced as
+matter decoheres gravitationally, $-dE=T_H\,d(S_{\rm geo}+S_{\rm info})$. The share of the matter density that enters the record term is the kinetic half of
+the binding energy of collapsed structure:
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765\qquad(\Omega_m=0.3153,\ \text{Planck 2018}).
+\end{equation}
+The coupling is a prediction. It enters every Planck chain at this value and is never sampled. In the three modified-CAMB chains against the Planck likelihood,
+$\Delta\chi^2=+0.54$ against $\Lambda$CDM with the same number of parameters, $\sigma_8$ moves from $0.809$ to $0.800$, and every standard parameter stays
+within $0.1\sigma$. Its decisive test is the growth of structure measured by Euclid, where $\mu_0-1=-0.136$ is predicted with $\Sigma_0=0$.
+
+\section{Summary}
+\begin{table}[h]\centering\small
+\begin{tabular}{llll}
+\toprule
+System & Scale & Quantity & Value\\\midrule
+Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ ($13.6057$ of $27.2114$\,eV)\\
+20 atoms, 10 molecules (HF limit) & $10^{-10}$--$10^{-9}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
+White dwarfs & $10^{7}$ m & $M_{\rm Ch}$ & $1.456\,M_\odot$ ($\mu_e=2$)\\
+The Sun & $10^{9}$ m & $|U|/2L$ & $24$ Myr (hence nuclear burning)\\
+Clusters of galaxies & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent\\
+Simulated halos ($10^{10}$--$10^{15}M_\odot$) & $10^{21}$--$10^{23}$ m & $2K/|W|$ & $1.02$--$1.17$ with surface pressure\\
+Schwarzschild black hole & $r_s$ & $T_HS/Mc^2$ & $1/2$ (Smarr)\\
+Cosmic horizon & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$, predicted; Planck $\Delta\chi^2=+0.54$\\\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{References}
+\small
+Bett P.\ et al.\ 2007, MNRAS 376, 215. \quad
+Bardeen J.M., Carter B., Hawking S.W.\ 1973, Commun.\ Math.\ Phys.\ 31, 161. \quad
+Bekenstein J.D.\ 1973, Phys.\ Rev.\ D 7, 2333. \quad
+Bunge C.F., Barrientos J.A., Bunge A.V.\ 1993, At.\ Data Nucl.\ Data Tables 53, 113. \quad
+Cai R.-G., Kim S.P.\ 2005, JHEP 02, 050. \quad
+Chandrasekhar S.\ 1931, ApJ 74, 81; 1939, \emph{An Introduction to the Study of Stellar Structure}. \quad
+Clausius R.\ 1870, Phil.\ Mag.\ 40, 122. \quad
+Clementi E., Roetti C.\ 1974, At.\ Data Nucl.\ Data Tables 14, 177. \quad
+Hawking S.W.\ 1975, Commun.\ Math.\ Phys.\ 43, 199. \quad
+Jacobson T.\ 1995, Phys.\ Rev.\ Lett.\ 75, 1260. \quad
+Klypin A.\ et al.\ 2016, MNRAS 457, 4340. \quad
+Landauer R.\ 1961, IBM J.\ Res.\ Dev.\ 5, 183. \quad
+Neto A.F.\ et al.\ 2007, MNRAS 381, 1450. \quad
+Power C., Knebe A., Knollmann S.R.\ 2012, MNRAS 419, 1576. \quad
+Planck Collaboration 2020, A\&A 641, A6. \quad
+Smarr L.\ 1973, Phys.\ Rev.\ Lett.\ 30, 71. \quad
+Zwicky F.\ 1933, Helv.\ Phys.\ Acta 6, 110.
+\end{document}
