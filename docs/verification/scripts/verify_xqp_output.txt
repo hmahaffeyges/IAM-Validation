@@ -1,0 +1,12 @@
+1. as printed: x = 6.516e-08  (n_cp = 9.03e10 um^-3, all conduction electrons / 2)
+   implied QP density at a site = 5884 um^-3; measured floor 1e-7 x 4e6 = 0.4 um^-3 -> ratio 14709
+   same formula with the field's n_cp: x = 1.47e-03  (n_cp ratio 22575)
+2. energy: Delta ln2 = 126 ueV per erasure < 2 Delta = 364 ueV per broken pair (2 QPs). If each erasure breaks one pair, yield = 2 QPs, not ln2.
+3. volume: QPs diffuse sqrt(D tau_qp) over 100 us: D 0.6 um^2/ns -> 245 um, D 2.25 um^2/ns -> 474 um, D 6 um^2/ns -> 775 um
+   steady state over the island: x = Y * N_sites * tau_qp / (tau_TLS * n_cp * V)
+   yield ln2 (energy-limited)   V   1e+03 um^3: sites needed for x = 1e-7:      173;  x per site 5.8e-10
+   yield ln2 (energy-limited)   V   1e+04 um^3: sites needed for x = 1e-7:     1731;  x per site 5.8e-11
+   yield ln2 (energy-limited)   V   1e+05 um^3: sites needed for x = 1e-7:    17312;  x per site 5.8e-12
+   yield 2 (one pair per event) V   1e+03 um^3: sites needed for x = 1e-7:       60;  x per site 1.7e-09
+   yield 2 (one pair per event) V   1e+04 um^3: sites needed for x = 1e-7:      600;  x per site 1.7e-10
+   yield 2 (one pair per event) V   1e+05 um^3: sites needed for x = 1e-7:     6000;  x per site 1.7e-11

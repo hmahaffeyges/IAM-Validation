@@ -286,3 +286,5 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | XQ3 | | temperature section | 10^-630 | 10^-61 | confirmed | `particle/XQP_CHECK.md` |
 | XQ4 | | Prediction 2 | T_fridge independence discriminates | also non-thermal models | confirmed | `particle/XQP_CHECK.md` |
 | XQ5 | | Prediction 3 | ratio depends only on λ³n_cp | also τ_TLS, τ_qp | confirmed | `particle/XQP_CHECK.md` |
+| XQ6 | | Numerical evaluation, Eq. 17 | n_cp = 9.03e28 m⁻³ (n_e/2) | field n_cp = 2ν₀Δ ≈ 4e6 µm⁻³; prediction 15,000× the floor; corrected model in XQP_REFEREE_NOTE | confirmed | `particle/XQP_REFEREE_NOTE.md` |
+| XQ7 | | Eq. 17–18 | x_qp = ln2 τ_qp/(n_cp τ_TLS πλ³); invariant = ln 2 | x_qp = 2Nτ_qp/(τ_TLS n_cp V); invariant = 2 with N, V measured | confirmed | `particle/XQP_REFEREE_NOTE.md` |
