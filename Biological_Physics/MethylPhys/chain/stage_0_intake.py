@@ -487,7 +487,7 @@ def step_0_3_integrity_hash(record: dict, grn_path: str, red_path: str,
 # Illumina control-probe specification.
 # ============================================================================
 
-BS_CONVERSION_MIN = 0.95               # SOP §14 explicit
+BS_CONVERSION_MIN = float(_TH["bisulfite_conversion"]["min"])   # intake_thresholds_v1.json bisulfite_conversion.min (provisional)
 BS_THRESHOLD_CALIBRATED = False        # set True when PROC-STAGE0-04 fixes it on healthy arrays
 HYB_HIGH_LOW_MIN_RATIO = 2.0           # provisional — confirm vs Illumina control spec
 EXTENSION_BALANCE_RANGE = (0.2, 5.0)   # provisional meth/unmeth ratio sanity band
@@ -551,7 +551,7 @@ def step_0_4_control_probe_validation(record, grn_path, red_path,
     if control_summary is None:
         try:
             control_summary = extract_control_probes(grn_path, red_path, record.get("array_type"))
-        except NotImplementedError:
+        except (NotImplementedError, ImportError):   # no decoder installed: deferred, never a fabricated pass
             record["ctrl_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"
             flags.append("CTRL_QC_DEFERRED:no_control_intensities")
             record["advance"] = True
@@ -601,7 +601,7 @@ def compute_detection_p(probe_intensities, mu_bg, sigma_bg):
 
 
 def validate_detection_p(detection_p_array) -> dict:
-    """SOP §15 gate on the detected fraction: >99% PASS, 95-99% BORDERLINE, <95% FAIL."""
+    """Gate on the detected fraction (intake_thresholds_v1.json detection): > pass_fraction PASS, >= borderline_fraction BORDERLINE, else FAIL."""
     import numpy as np
     dp = np.asarray(detection_p_array, dtype=float)
     n = dp.size
@@ -646,7 +646,7 @@ def step_0_5_detection_pvalue_qc(record, probe_intensities=None,
 # Summary fraction; warn (not hard-fail) below 99.5% per §16. Extraction deferred.
 # ============================================================================
 BEAD_COUNT_MIN = 3
-BEAD_PASS_FRACTION = 0.995
+BEAD_PASS_FRACTION = float(_TH["bead"]["pass_fraction"])   # intake_thresholds_v1.json bead.pass_fraction
 
 
 def validate_bead_count(bead_counts, min_beads=BEAD_COUNT_MIN) -> dict:
@@ -948,7 +948,9 @@ if __name__ == "__main__":
 
     low_bs = dict(passing, bisulfite_conversion_I_median=850, bisulfite_conversion_II_median=300)
     v_bs = validate_control_probes(low_bs)
-    assert "BS_CONVERSION_LOW" in v_bs["flags"] and not v_bs["advance"], v_bs
+    # bisulfite alone below the line: PROVISIONAL while BS_THRESHOLD_CALIBRATED is False (recorded, not refused)
+    assert (v_bs["ctrl_qc"] == "PROVISIONAL_BS_THRESHOLD_UNCALIBRATED" and v_bs["advance"]) if not BS_THRESHOLD_CALIBRATED \
+        else ("BS_CONVERSION_LOW" in v_bs["flags"] and not v_bs["advance"]), v_bs
 
     bad_hyb = dict(passing, hyb_high_median=4200, hyb_low_median=4000)
     assert "HYB_FAIL" in validate_control_probes(bad_hyb)["flags"]
@@ -975,7 +977,7 @@ if __name__ == "__main__":
     assert v_fail["detection_qc"] == "FAIL_LOW_DETECTION" and not v_fail["advance"], v_fail
 
     r5 = step_0_5_detection_pvalue_qc({"flags": []})   # deferred path
-    assert r5["detection_qc"] == "DEFERRED_PENDING_STAGE1_DECODER" and r5["advance"]
+    assert r5["detection_qc"] == "DEFERRED_PENDING_STAGE1_DECODER" and not r5["advance"]   # a deferred detection never advances (2026-09-27)
 
     print("Step 0.5 self-test: PASS (detection-p PASS/BORDERLINE/FAIL gates + deferred marker)")
 
@@ -1014,7 +1016,9 @@ if __name__ == "__main__":
     deferred = {"integrity_status": "INTEGRITY_OK", "ctrl_qc": "DEFERRED_PENDING_STAGE1_DECODER",
                 "detection_qc": "DEFERRED_PENDING_STAGE1_DECODER", "flags": []}
     gd = step_0_9_decision_gate(deferred)
-    assert gd["stage0_verdict"] == "PROCEED" and set(gd["stage0_deferred_qc"]) >= {"ctrl_qc", "detection"}
+    # a deferred detection (or call rate) quarantines (PROC-INTAKE-01 B5, 2026-09-27); deferred controls alone are recorded
+    assert gd["stage0_verdict"] == "QUARANTINE" and set(gd["stage0_deferred_qc"]) >= {"ctrl_qc", "detection"} \
+        and "intake_deferred:detection" in gd["stage0_hard_fail"], gd
 
     print("Step 0.6-0.9 self-tests: PASS (bead / call-rate / platform-coverage / sex / decision gate)")
     print("  NOTE: all intensity-dependent extraction (control, detection, bead, call-rate, sex, 450K coverage)")

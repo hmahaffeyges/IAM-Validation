@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stage A - composition, atlas v2 solver (deconv_v2). Frozen settings (commissioned as PROC-DECONV-V2-01; specimen cell sets 2026-09-30).
+"""Stage A - composition, atlas v2 solver (deconv_v2). Not called by chain v3 (conductor_v3.stage_a_composition uses blood_composition_EPIC_v1.json). Frozen settings (commissioned as PROC-DECONV-V2-01; specimen cell sets 2026-09-30).
 In circulating blood the bone-marrow progenitors (~0.1 % of cells) are not modelled: left in, they absorbed a median 14.7 % of healthy
 whole-blood arrays. The Moss vascular-endothelium profile is excluded (it reads as a blend of other endothelia, adipocytes and blood)."""
 import pandas as pd

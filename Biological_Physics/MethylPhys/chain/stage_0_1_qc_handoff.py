@@ -13,6 +13,7 @@ decode_qc_inputs(grn, red, array_type) -> dict with
     control_summary   {bisulfite_conversion_I_median, bisulfite_conversion_II_median, hyb_high_median,
                        hyb_low_median, extension_meth_median, extension_unmeth_median}
     probe_intensities  total intensity per assayed probe
+    probe_ids          manifest IlmnID of each entry of probe_intensities / bead_counts
     neg_control_stats  {mu_bg, sigma_bg} from the array's NEGATIVE controls
     bead_counts        beads per probe
     sex_intensities    {log2_x_median, log2_y_median}
@@ -174,4 +175,5 @@ def decode_qc_inputs(grn_path, red_path, array_type="HM450K"):
     return {"control_summary": control_summary, "probe_intensities": probe_intensities,
             "neg_control_stats": neg_control_stats, "bead_counts": bead_counts,
             "sex_intensities": sex_intensities,
+            "probe_ids": df.index[found].astype(str).to_numpy(),   # aligned with probe_intensities / bead_counts (manifest IlmnID)
             "n_probes": int(len(probe_intensities)), "n_negative_controls": int(len(nv))}

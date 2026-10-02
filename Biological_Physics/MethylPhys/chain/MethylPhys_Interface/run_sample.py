@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
-"""run_sample.py - one command, IDAT pair (or a beta table) to a MethylPhys report.
+"""run_sample.py - one command: IDAT pair (or a beta table, or single-molecule reads) to a MethylPhys report.
 
-This exists because the Run tab used to advertise a command that did not: `build_methylphys.py` only ever
-took a pre-computed bundle. Written 2026-09-22.
+Default engine v3 (development build, neutrophils, EPIC v1): Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
+(platform check, Stage A composition, Stage M Met-A, Stage MC C-score, Stage T same-run tare) -> report_v3, plus Stage Q IAM-A
+when single-molecule input is given.
 
-    # an Illumina IDAT pair (needs methylprep for Stage 1)
-    python3 run_sample.py --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz --age 58 --lab MYLAB --out report.html
+    # an Illumina EPIC v1 IDAT pair (needs methylprep for Stage 1); --sex and --age are required by Stage 0
+    python3 run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --sex F --age 52 --id S001 --out S001.html
 
-    # or a beta table you have already calibrated: a two-column CSV, cpg_id,beta (no pipeline map is applied
-    # unless you name one with --pipeline, and without a map the class gauge is NOT REPORTABLE by design)
-    python3 run_sample.py --betas mysample.csv --age 58 --lab MYLAB --out report.html
+    # pass 2 of a batch: the same, with the same-run healthy references from pass 1
+    python3 run_sample.py ... --slide-ref-table refs.csv        # columns A,f_neu,N; >= 20 rows -> noise-corrected tare
+    python3 run_sample.py ... --slide-ref-A 0.951,0.957,0.962   # plain A values -> median tare
 
-A laboratory the chain has not commissioned has no zero and no sky scale, so the report prints
-NOT REPORTABLE with the reason rather than a number. To commission one: 40 healthy arrays of that
-laboratory through Stage 1, then MethylPhys/chain/lab_zero.py - the procedure is in the RUNBOOK.
+    # a beta table already calibrated by this chain's Stage 1: two-column CSV cpg_id,beta (Stage 0 does not run)
+    python3 run_sample.py --betas S.csv --id S001 --out S001.html
+
+    # IAM-A from a wgbstools .pat file (pipeline loyfer_pat_v1), or from a per-site table with its pipeline named
+    python3 run_sample.py --pat S.pat.gz --id S001 --out S001.html
+    python3 run_sample.py --site-table S_sites.csv --seq-pipeline loyfer_pat_v1 --id S001 --out S001.html
+
+--engine legacy runs the class-floor conductor kept for the record; --lab, --lab-zero and --pipeline apply to it only.
 """
 import os, sys, argparse, pickle, json
 
@@ -248,10 +254,10 @@ def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
     ap.add_argument("--age", type=float, help="declared age in years; without it the age term cannot be removed. Float because cohorts publish decimal ages (GEO carries 72.0 and 54.5 as readily as 72)")
-    ap.add_argument("--lab", help="laboratory / pipeline identity, e.g. GSE87571 for a commissioned one")
-    ap.add_argument("--pipeline", default="stage1_noob_450K", help="pipeline map name from beta_scale_maps_v1.json")
+    ap.add_argument("--lab", help="(legacy engine only) laboratory / pipeline identity, e.g. GSE87571 for a commissioned one")
+    ap.add_argument("--pipeline", default="stage1_noob_450K", help="(legacy engine only) pipeline map name from beta_scale_maps_v1.json")
     ap.add_argument("--specimen", default="whole blood")
-    ap.add_argument("--lab-zero", type=float, default=None, help="this laboratory's measured zero; omit to read UNSET")
+    ap.add_argument("--lab-zero", type=float, default=None, help="(legacy engine only) this laboratory's measured zero; omit to read UNSET")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
     ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
     ap.add_argument("--covariate", action="append", default=[], metavar="KEY=VALUE",
@@ -261,17 +267,27 @@ def main():
     ap.add_argument("--ledger", default=None, help="append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report")
     ap.add_argument("--sex", default=None, help="declared sex (F/M); Stage 0.8 compares it with the array")
     ap.add_argument("--patient-id", default=None, help="already-hashed identifier; a cleartext one is hashed here")
-    ap.add_argument("--array-type", default="HM450K", choices=("HM450K", "EPIC_v1", "EPIC_v2"))
+    ap.add_argument("--array-type", default=None, choices=("HM450K", "EPIC_v1", "EPIC_v2"), help="declared array type; omit to take it from the IDAT header (Stage 0.1). v3 reads EPIC_v1 only")
     ap.add_argument("--intake-log", default=None, help="append intake and integrity records here")
     ap.add_argument("--manifest-dir", default=None, help="write the immutable per-sample manifest here")
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
     ap.add_argument("--engine", default="v3", choices=("v3", "legacy"), help="v3 = neutrophil chain (Met-A, C-score, tare; development build). legacy = the class-floor conductor kept for the record")
-    ap.add_argument("--slide-ref-A", default=None, help="comma-separated Met-A of >= 3 healthy reference arrays on the same slide (v3 tare)")
-    ap.add_argument("--atlas-v2", default=None, help="path to IAMAtlas_v2.parquet (v3 composition)")
+    ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated untared Met-A of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
+    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A,f_neu,N (optional id): untared Met-A, neutrophil fraction and noise index from pass 1. >= 20 rows -> noise-corrected tare; 3-19 -> median tare")
+    ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
+    ap.add_argument("--pat-max-bytes", type=int, default=None, help="read only the first N bytes of --pat (the neutrophil position P was measured on the first 60000000 bytes of each file)")
+    ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
+    ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
+    ap.add_argument("--seq-cell", default="neutrophils", help="cell type of the sequenced specimen (Stage Q)")
     a=ap.parse_args()
-    if not (a.betas or (a.grn and a.red)): ap.error("give either --betas or both --grn and --red")
+    seq = bool(a.pat or a.site_table)
+    if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --site-table")
+    if a.pat and a.site_table: ap.error("give --pat or --site-table, not both")
+    if a.site_table and not a.seq_pipeline: ap.error("--site-table needs --seq-pipeline: the pipeline that produced the table")
+    if seq and a.engine != "v3": ap.error("--pat / --site-table run in the v3 engine only")
+    if a.slide_ref_A and a.slide_ref_table: ap.error("give --slide-ref-A or --slide-ref-table, not both")
 
-    intake = None
+    intake = None; bead_ok = None
     if a.grn and a.red and not a.no_intake:
         # Stage 0 runs BEFORE calibration, and a quarantine stops the run: the gauge never sees a specimen
         # the chain of custody rejected. SOP sections 11-19.
@@ -287,10 +303,10 @@ def main():
             pid = hashlib.sha256(pid.encode()).hexdigest()[:32]   # SOP 12: the engine never sees a cleartext id
         nsnps, hdr = S0.read_idat_nsnps(a.grn)
         detected = S0._infer_platform(nsnps) if nsnps else None
-        if detected and a.array_type and a.array_type != detected and "--array-type" in " ".join(sys.argv):
+        if detected and a.array_type and a.array_type != detected:
             print(f"  declared {a.array_type}, header says {detected} - Stage 0.1 will gate on the mismatch",
                   flush=True)
-        declared = a.array_type if ("--array-type" in " ".join(sys.argv) or not detected) else detected
+        declared = a.array_type or detected   # neither -> the manifest lacks array_type and Stage 0.1 quarantines
         print(f"  array type: {declared}" + (f" (header: {detected}, {nsnps:,} addresses)" if nsnps else
                                              f" (header unreadable: {hdr})"), flush=True)
         entry = {"sentrix_id": sentrix, "array_type": declared, "patient_id": pid,
@@ -310,7 +326,8 @@ def main():
             rec = S0.step_0_2_manifest_creation(rec, None, a.manifest_dir, entry["intake_date"])
         if not _stopped(rec):
             rec = S0.step_0_3_integrity_hash(rec, a.grn, a.red, a.intake_log)
-        if _stopped(rec):
+        if _stopped(rec) or (rec.get("integrity_status") not in (None, "INTEGRITY_OK")):
+            # a quarantine at 0.1-0.2, or the same bytes already taken in against this intake log (0.3): stop before calibration
             print(f"  {rec['status']}  flags: {rec.get('flags')}", flush=True)
             rec = S0.step_0_9_decision_gate(rec, a.intake_log)
             print(f"Stage 0 verdict: {rec.get('stage0_verdict')}  "
@@ -331,8 +348,13 @@ def main():
                                         _np.asarray(q["bead_counts"]) >= S0.BEAD_COUNT_MIN)
             rec = S0.step_0_8_sex_check(rec, q["sex_intensities"])
         except ImportError as e:
-            # the module is missing, not the data: the gates report DEFERRED and say why
+            # the module is missing, not the data: the gates report DEFERRED and say why; a deferred detection or call rate
+            # quarantines at the gate below, before calibration
             print(f"  QC hand-off unavailable ({e}); those gates report DEFERRED", flush=True)
+            q = None
+            rec["ctrl_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"; rec.setdefault("flags", []).append("CTRL_QC_DEFERRED:no_control_intensities")
+            rec = S0.step_0_5_detection_pvalue_qc(rec); rec = S0.step_0_6_bead_count_qc(rec)
+            rec = S0.step_0_7_call_rate(rec); rec = S0.step_0_8_sex_check(rec)
         except Exception as e:
             # the decoder reached the file and failed on it. That is a property of the specimen's files, so it
             # is a quarantine, not a deferral - a corrupt IDAT must not reach Stage 1 with its QC "deferred".
@@ -347,6 +369,19 @@ def main():
                   flush=True)
             print("\nQUARANTINE - the chain stops here and nothing is scored.", flush=True)
             sys.exit(2)
+        # every hard intake failure stops the run here, before calibration (0.7b's 450K coverage needs the calibrated
+        # beta and is gated again after Stage 1; on EPIC it is NA_EPIC)
+        rec = S0.step_0_7b_platform_coverage(rec, None)
+        rec = S0.step_0_9_decision_gate(rec, a.intake_log)
+        if rec.get("stage0_verdict") == "QUARANTINE":
+            print(f"Stage 0 verdict: QUARANTINE  hard failures: {rec.get('stage0_hard_fail')}", flush=True)
+            print("\nQUARANTINE - the chain stops here and nothing is scored. "
+                  "Stage 0 rejected the specimen before calibration.", flush=True)
+            sys.exit(2)
+        if q is not None and q.get("probe_ids") is not None:   # the extracted bead mask, kept for the Stage-1 call rate below
+            import pandas as _pdb, numpy as _npb
+            bead_ok = _pdb.Series(_npb.asarray(q["bead_counts"]) >= S0.BEAD_COUNT_MIN, index=_pdb.Index(q["probe_ids"]).astype(str))
+            bead_ok = bead_ok[~bead_ok.index.duplicated()]
         intake = rec
 
     stage1_meta=None
@@ -354,7 +389,7 @@ def main():
         import pandas as pd
         d=pd.read_csv(a.betas, index_col=0).iloc[:,0].dropna(); beta=d.to_dict()
         sid=a.id or os.path.basename(a.betas).split(".")[0]
-    else:
+    elif a.grn and a.red:
         try:
             from stage_1_idat_calibration import calibrate_idat_to_beta
         except ImportError:
@@ -362,7 +397,7 @@ def main():
                 sys.path.insert(0,c)
             from stage_1_idat_calibration import calibrate_idat_to_beta
         print("Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s", flush=True)
-        b,meta=calibrate_idat_to_beta(a.grn,a.red)
+        b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
         b=b.iloc[:,0] if hasattr(b,"columns") else b
         beta=b.dropna().to_dict(); sid=a.id or os.path.basename(a.grn).split("_")[0]
         stage1_meta=meta
@@ -370,17 +405,36 @@ def main():
         if det.get("detection_available"):
             print(f"Stage 1: {det['n_detected']:,} of {det['n_probes']:,} probes detected ({det['pct_detected']*100:.2f} %); {det['n_masked']:,} at background removed", flush=True)
         if intake is not None:
+            # Stage 1's own numbers are recorded beside the Stage 0 record, never over it: the gate above was decided on the
+            # hand-off values (0.4 controls per matched pair, 0.5 detection p <= 0.01 against the negative-control background,
+            # 0.6 bead counts, 0.7 call rate on both). Stage 1 adds: control medians, poobah (p <= 0.05) detection, and a call rate
+            # on poobah AND the extracted bead mask. Recorded, not gated.
             import stage_0_intake as S0, numpy as _np
-            cv=S0.validate_control_probes(meta.get("controls") or {}); intake["ctrl_qc"]=cv["ctrl_qc"]; intake["ctrl_metrics"]=cv["metrics"]; intake["controls"]=meta.get("controls")
-            intake.setdefault("flags",[]).extend(cv["flags"])
-            if det.get("detection_available"):
-                n=det["n_probes"]; k=det["n_detected"]; mask=_np.zeros(n,bool); mask[:k]=True
-                v=S0.validate_detection_p(_np.where(mask,0.0,1.0)); intake["detection_qc"]=v["detection_qc"]; intake["pct_probes_detected_p_le_01"]=v["pct_probes_detected_p_le_01"]
-                if v["detection_qc"]=="FAIL_LOW_DETECTION": intake["flags"].append("FAIL_LOW_DETECTION")
-                intake=S0.step_0_7_call_rate(intake, mask, _np.ones(n,bool))   # bead counts not extracted: bead mask all-pass, recorded
-                intake["flags"].append("BEAD_COUNT_NOT_EXTRACTED")
+            cv = S0.validate_control_probes(meta.get("controls") or {})
+            s1 = {"ctrl_qc": cv["ctrl_qc"], "ctrl_metrics": cv["metrics"], "ctrl_flags": cv["flags"], "detection_statistic": "poobah p <= 0.05"}
+            intake["controls"] = meta.get("controls")
+            dm = meta.get("_detected_mask")
+            if det.get("detection_available") and dm is not None:
+                v = S0.validate_detection_p(_np.where(dm.to_numpy(bool), 0.0, 1.0))
+                s1.update(detection_qc=v["detection_qc"], pct_probes_detected=v["pct_probes_detected_p_le_01"], n_probes=int(len(dm)))
+                if bead_ok is not None:
+                    common = dm.index.intersection(bead_ok.index)
+                    s1["n_probes_bead_aligned"] = int(len(common))
+                    if len(common) >= 0.5 * len(dm):
+                        cr = S0.validate_call_rate(int((dm.loc[common].to_numpy(bool) & bead_ok.loc[common].to_numpy(bool)).sum()), int(len(common)))
+                        s1.update(call_rate=cr["call_rate"], call_rate_status=cr["call_rate_status"])
+                    else:
+                        s1["call_rate_note"] = "bead mask and Stage-1 probes did not align (< 50 % shared probe names): call rate not computed"
+                else:
+                    s1["call_rate_note"] = "no extracted bead mask: call rate not computed"
             else:
-                intake=S0.step_0_7_call_rate(intake, None, None)
+                s1["detection_qc"] = "NOT_AVAILABLE (no poobah column from Stage 1)"
+            intake["stage1_qc"] = s1
+            for k in ("detection_qc", "call_rate_status", "ctrl_qc"):
+                if str(s1.get(k, "")).startswith(("FAIL", "CALL_RATE_FAIL")):
+                    intake.setdefault("flags", []).append(f"STAGE1_{k.upper()}:{s1[k]} (recorded, not gated)")
+    else:
+        beta = None; sid = a.id or os.path.basename(a.pat or a.site_table).split(".")[0]
 
     if intake is not None:
         import stage_0_intake as S0
@@ -413,17 +467,59 @@ def main():
             sys.exit(2)
 
     if a.engine == "v3":
-        import pandas as _pd, json as _json, conductor_v3 as C3, report_v3 as R3
-        bser = _pd.Series(beta, dtype="float64")
-        refs = [float(x) for x in a.slide_ref_A.split(",")] if a.slide_ref_A else None
-        o = C3.run_neutrophil(bser, specimen=a.specimen, atlas_parquet=a.atlas_v2 or os.environ.get("IAMATLAS_V2"), slide_ref_A=refs)
-        o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid
+        import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v3 as R3
+        refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
+        if a.slide_ref_table:
+            rt = _pd.read_csv(a.slide_ref_table)
+            if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A (and f_neu, N for the noise-corrected tare)")
+            refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
+        it = intake or {}
+        array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
+        if beta is not None:
+            o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
+        else:
+            o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "note": "sequencing input only: no array reading"}
+        if seq:   # Stage Q - IAM-A from single-molecule reads
+            import stage_q_iam_a as Q
+            if a.pat:
+                if a.seq_pipeline and a.seq_pipeline != Q.PAT_PIPELINE:
+                    sys.exit(f"--pat is read by the {Q.PAT_PIPELINE} extractor; --seq-pipeline {a.seq_pipeline} does not apply")
+                print(f"Stage Q: extracting per-site copy-error counts from {os.path.basename(a.pat)} ({Q.PAT_PIPELINE})", flush=True)
+                T = Q.pat_site_table(a.pat, max_bytes=a.pat_max_bytes); pipe = Q.PAT_PIPELINE
+                src = {"pat": os.path.abspath(a.pat), "max_bytes": a.pat_max_bytes, **{k: T.attrs.get(k) for k in ("n_lines", "n_qualifying_lines", "n_molecules")}}
+            else:
+                T = _pd.read_csv(a.site_table); pipe = a.seq_pipeline; src = {"site_table": os.path.abspath(a.site_table)}
+            o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe); o["iam_a"]["input"] = src
+        cov = _covariates(a)
+        o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid; o["covariates"] = cov
+        if intake is not None: intake.setdefault("covariates", {}).update(cov)
         if stage1_meta: o["stage1"] = {k: stage1_meta.get(k) for k in ("detection", "n_cpgs", "pipeline")}
+        led = a.ledger or os.path.join(os.path.dirname(os.path.abspath(a.out)) or ".", "evidence_ledger.jsonl")
+        o["run_id"] = _assign_run_id(led)
         r = R3.build(o, a.out, sid)
-        bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
-        _json.dump(o, open(bundle_path, "w"), default=str)
-        m = o.get("met_a", {}); print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason'))}) | C {o.get('met_a_cscore', {}).get('C')} | tare {o.get('tare', {}).get('A_rel')}")
-        print(f"report: {r['out']} | bundle: {bundle_path}"); return
+        m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
+        print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
+              f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
+        if not a.no_bundle:
+            bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
+            _json.dump(o, open(bundle_path, "w"), default=str)
+            row = {"run_id": o["run_id"], "engine": "v3", "sample_id": sid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
+                   "report": os.path.abspath(a.out), "bundle": os.path.abspath(bundle_path), "specimen": a.specimen,
+                   "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),
+                   "floors_version": o.get("floors_version"), "reference_version": o.get("reference_version"),
+                   "stage0_verdict": it.get("stage0_verdict"), "call_rate_status": it.get("call_rate_status"),
+                   "f_neu": m.get("fraction"), "A": m.get("A"), "state": m.get("state", m.get("reason")), "n_sites": m.get("n_sites"),
+                   "shift_per_1pct_loss": m.get("shift_per_1pct_loss"), "past_entropy_ceiling": m.get("past_entropy_ceiling"),
+                   "C": (o.get("met_a_cscore") or {}).get("C"), "A_rel": t.get("A_rel"), "tare": t.get("state", t.get("reason")),
+                   "n_refs": t.get("n_refs"), "tare_method": t.get("method"), "noise_index": m.get("noise_index"),
+                   "detection_limit_pct_loss": t.get("detection_limit_pct_loss"),
+                   "iam_a": q_.get("A"), "iam_a_pipeline": q_.get("pipeline"), "covariates": cov}
+            with open(led, "a", encoding="utf-8") as fh: fh.write(_json.dumps(row, default=str) + "\n")
+            print(f"report: {r['out']} | bundle: {bundle_path} | evidence ledger: {led} (one row appended)")
+        else:
+            print(f"report: {r['out']} (no bundle, no ledger row: --no-bundle)")
+        return
+
     import cpg_conductor as C, build_methylphys as B
     cfg={"age":a.age,"pipeline":a.pipeline,"lab_zero":a.lab_zero,"substrate":substrate_token(a.specimen), "substrate_as_declared":a.specimen,
          "intake": intake, "intake_skipped": bool(a.no_intake)}

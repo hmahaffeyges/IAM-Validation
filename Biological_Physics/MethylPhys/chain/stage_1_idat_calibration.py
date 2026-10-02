@@ -85,7 +85,7 @@ def _detect_array_type(grn_path):
     return at, str(at), barcode, n
 
 
-def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, mask_detection=True):
+def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, mask_detection=True, return_mask=False):
     """Calibrate one IDAT pair to noob-normalized beta.
 
     Returns (beta_series, meta). beta_series is a pd.Series indexed by IlmnID
@@ -144,8 +144,9 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, ma
             beta = allb[is_cg & detected.values].dropna() if mask_detection else allb[is_cg].dropna()   # mask_detection=False is a TEST switch (PROC-INTAKE-01 B3); the chain always masks
             qc = {"detection_available": True, "n_probes": n_cg, "n_detected": n_det, "pct_detected": n_det / max(n_cg, 1),
                   "n_masked": n_cg - n_det}
+            detected_mask = _pd.Series(detected.values[is_cg], index=idx[is_cg])   # per cg probe: poobah p <= 0.05 (not written to the bundle)
         else:
-            beta = allb[is_cg].dropna(); qc = {"detection_available": False, "n_probes": int(is_cg.sum())}
+            beta = allb[is_cg].dropna(); qc = {"detection_available": False, "n_probes": int(is_cg.sum())}; detected_mask = None
         beta.name = "beta"
         ctrl = {}
         cp = _glob.glob(os.path.join(workdir, "**", "control_probes.pkl"), recursive=True)
@@ -181,6 +182,8 @@ def calibrate_idat_to_beta(grn_path, red_path, array_type=None, verbose=True, ma
         "stage": "SOP Stage 1 steps 1.1-1.2 + 1.5",
         "detection": qc, "controls": ctrl, "snp_noise": snp,
     }
+    if return_mask:   # per cg probe poobah detection (bool Series), for run_sample's Stage-1 call rate; off by default so callers that dump meta are unchanged
+        meta["_detected_mask"] = detected_mask
     if verbose:
         print(f"      calibrated: {len(beta):,} CpGs (noob, per-sample dye-bias + probe-type norm)")
     return beta, meta
