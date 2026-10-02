@@ -19,6 +19,10 @@ actualizing in the sense of Chapter~\ref{ch:iams_law}, if and only if
  Q(S,D)\;\ge\;Q_L\equiv\kB T_D\ln2 .
 \end{equation}
 At room temperature $Q_L=0.0179$~eV. \conjecture\ No observer and no consciousness enter.
+
+The criterion has to be read with Bennett's result~\cite{Bennett1982}: acquiring a record has no minimum dissipation; the
+$\kB T\ln2$ per bit is paid when a record is erased or the apparatus is reset. What $Q\ge Q_L$ marks is therefore where a record becomes
+irreversible in practice, at absorption in a dissipative detector, not a cost that measurement itself must pay. \openprob
 The same criterion distinguishes a CCD pixel ($Q\approx3$~eV, $Q/Q_L\approx170$), a retinal
 rod ($Q\approx2.5$~eV, $Q/Q_L\approx140$) and a photographic grain from a beam splitter or a
 polarization rotator. The latter dissipate essentially nothing, so $Q/Q_L\ll1$.
@@ -30,7 +34,8 @@ The paper gives a quantitative prediction for quantum-eraser experiments:
  F_{\mathrm{IAM}}(Q,T)=1-\frac{1}{e}\exp\!\left(1-\frac{\kB T\ln2}{Q}\right)=1-\exp\!\left(-\frac{Q_L}{Q}\right).
  \label{eq:F}
 \end{equation}
-\calc\ Reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
+The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp, and the rate integral it is built from gives a plain exponential
+(Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
 ($Q/Q_L>100$) give $F<0.01$, consistent with the paper's stated bounds. At the crossover
 $Q=Q_L$, $F=1-e^{-1}=0.632$.
 
@@ -60,9 +65,10 @@ criterion for \emph{where} the absorption becomes irreversible.
 
 \section{Spontaneous emission}
 
-An excited atom emits after $\tau\sim10$~ns, releasing $\sim2$~eV$\gg Q_L$. In IAM terms,
-emission into free space is an actualization. Emission into a high-$Q$ cavity with Purcell
-factor $F_P$ between 1 and 1000 is, in part, reversible (vacuum Rabi oscillation). \prediction\
-The transition from reversible to irreversible emission should follow Eq.~\eqref{eq:F} with
-$Q$ equal to the energy actually lost to the environment per cycle. This is a regime already
-well controlled in circuit and cavity QED~\cite{Haroche2006,Blais2021}.
+The source paper treats emission into free space as an actualization, so that a which-path record carried by a spontaneously emitted photon
+could not be erased. That is contradicted by experiment. A trapped ion has been entangled with its own spontaneously emitted photon and the
+entanglement measured~\cite{Blinov2004}, and remote entanglement of two ions~\cite{Moehring2007} and of two NV spins 1.3~km
+apart~\cite{Hensen2015} has been built by interfering spontaneously emitted photons. \observed{} Emission alone writes no irreversible record;
+the record becomes irreversible when the photon is absorbed in a dissipative detector, which is where the criterion above places it. Emission into
+a high-$Q$ cavity, where vacuum Rabi oscillation makes the exchange reversible~\cite{Haroche2006,Blais2021}, is the controlled setting in which the
+dissipated energy per cycle can be varied and Eq.~\eqref{eq:F} tested. \prediction

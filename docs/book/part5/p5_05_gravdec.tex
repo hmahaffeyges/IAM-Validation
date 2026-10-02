@@ -27,7 +27,8 @@ Integrating $\Gamma_{\mathrm{info}}/S_{\mathrm{boundary}}$ gives
  \boxed{\;\tau_{\mathrm{IAM}}=\frac{\hbar\,\kB^2T^2\ln2}{E_G^3}\;}
  \label{eq:tauIAM}
 \end{equation}
-The coherence then decays with the same functional form as the cosmic activation function,
+This is a plain exponential decay with time constant $\tau_{\mathrm{IAM}}$. The source paper then replaces it with the functional form of the
+cosmic activation function; that step is not derived from the integral above and is carried here as an assumption~\conjecture:
 \begin{equation}
  C_{\mathrm{IAM}}(t)=1-\frac{E_q(t/\tau_{\mathrm{IAM}})}{e},\qquad E_q(\eta)=\exp(1-1/\eta),
 \end{equation}
@@ -44,8 +45,8 @@ The IAM law differs from Di\'osi--Penrose in three ways, each testable:
        20 and 40~mK should lengthen $\tau$ by factors of 4 and 16.
  \item \textbf{Mass.} $\tau_{\mathrm{IAM}}\propto E_G^{-3}\propto m^{-6}R^3$, against
        $\tau_{\mathrm{DP}}\propto m^{-2}R$ (the source quotes $m^{-5/3}$ at fixed density).
- \item \textbf{Profile.} $C(t)$ has zero slope at $t=0$ and a sigmoidal onset, not an
-       exponential. Every derivative of $e^{1-\tau/t}$ vanishes as $t\to0$.
+ \item \textbf{Profile (only if the assumed ramp holds).} $C(t)$ would have zero slope at $t=0$ and a sigmoidal onset; the derived rate
+       gives an exponential. A measured exponential onset with the $T^2$ and mass scalings would support the rate and reject the ramp.
 \end{enumerate}
 
 \begin{checkbox}[title={Independent check: the numbers}]
@@ -54,7 +55,8 @@ Correct.
 
 \textbf{The cat.} $m=4$~kg, $E_G=7.1\times10^{-9}$~J (implying $R\approx0.15$~m), $T=300$~K:
 Eq.~\eqref{eq:tauIAM} gives $3.5\times10^{-51}$~s, against the source's $3.7\times10^{-51}$~s.
-Reproduced.
+Reproduced. Environmental decoherence of a warm macroscopic body is faster still, so the number illustrates the formula; it is not the
+mechanism that makes a cat classical.
 
 \textbf{The nanosphere.} The source quotes $\tau_{\mathrm{IAM}}\approx560\ \mu$s for
 $m=10^{-12}$~kg at 10~mK but does not state $R$. For a silica sphere
