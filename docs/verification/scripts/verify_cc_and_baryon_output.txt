@@ -1,0 +1,26 @@
+1. Planck 2018 inputs (paper): H0 67.4, Ob 0.0493, Om 0.3153, OL 0.6846
+   rho_vac = 4.633e+113 J/m3; rho_L = 5.250e-10 J/m3; observed ratio = 1.1332e-123
+   identity (3 OL/8pi)(lP/lH)^2 = 1.1332e-123  (equal by definition of rho_crit)
+   (lP/lH)^2 = 1.3867e-122; baseline (2/pi)(lP/lH)^2 Ob/Om = 1.3804e-123 (x1.218); x sqrt(OL) = 1.1421e-123 -> +0.79 %
+   exponent p with OL^p closing the baseline: 0.521
+   2/pi step: l_P^2/(A_eff/4pi) with A_eff = 2 pi lH^2 = 2.0000 x (lP/lH)^2 (paper: 2/pi = 0.6366)
+   the relation that remains: Ob/Om = (3/16) sqrt(OL): 0.1564 vs 0.1551
+2. The 18th chain (iam_baryon_test) and the LCDM chains, eta = 273.9e-10 Ob h^2
+   iam_baryon_test                rows  14957  ombh2 0.02232  eta 6.113 +/- 0.037  Ob/Om 0.1554  ratio to (3/16)sqrt(OL) 1.0046 +/- 0.0068
+   lcdm_baseline                  rows  12544  ombh2 0.02234  eta 6.118 +/- 0.038  Ob/Om 0.1557  ratio to (3/16)sqrt(OL) 1.0058 +/- 0.0067
+   planck_bao_lcdm_baseline       rows  12600  ombh2 0.02240  eta 6.137 +/- 0.037  Ob/Om 0.1571  ratio to (3/16)sqrt(OL) 1.0106 +/- 0.0064
+   planck_pantheon_lcdm_baseline  rows  21168  ombh2 0.02233  eta 6.117 +/- 0.040  Ob/Om 0.1556  ratio to (3/16)sqrt(OL) 1.0056 +/- 0.0070
+3. The analytic eta (baryon paper eqs. 3, 5): invert for Ob h^2 at Planck Om h^2 = 0.1430
+   eq.3: Ob h^2 = 0.01837, eta = 5.031e-10
+   eq.5: Ob h^2 = 0.02220, eta = 6.080e-10
+4. Matter-Antimatter section 7 numbers at the QCD transition (T = 150 MeV, g* = 17.25)
+   a_QCD = 9.55e-13; l_H = 1.553e+04 m = 5.03e-13 pc (paper 1e-3 pc); horizon bits = 2.90e+78 (paper 1e40)
+   (Odm + Ode)/Ob = 19.39
+5. De Sitter horizon: T_GH S_BH = M_H c^2 (the Hubble-sphere mass-energy), for any H
+   T_GH S / (M_H c^2) = 1.000000   so rho_L = OL x (horizon bits x k T_GH ln2 / ln2) / V_H
+6. Accumulation test, no free factors: heat released by baryonic virialisation, summed to today
+   z=0: baryon mass fraction in halos > 1e8 Msun = 0.576; mean virial K per unit collapsed mass = 6.824e+10 J/kg (sigma_eff 213 km/s)
+   accumulated virial heat of baryons / rho_L c^2 = 3.15e-08
+   priced at the horizon (bits = Q/(k T_gas ln2), cost k T_GH ln2 each): x T_GH/T_gas = x 8.2e-37 -> 2.6e-44
+   target (3/16) sqrt(OL) structure: rho_L is 3.2e+07 times the accumulated virial heat
+   upper bound, all baryon rest mass converted: Ob/OL = 0.072 of rho_L

@@ -1,41 +1,55 @@
-\chapter{The baryon fraction}\label{ch:baryon}
+% Part 2 chapter carrying "Matter-Antimatter Asymmetry and the Information Writing Constraint" (March 2026), "The Baryon Asymmetry as a Derived
+% Quantity: CMB Evidence Without BBN Prior" (March 2026) and the 18th-chain record, in that order. Read in full 2026-10-02 (438, 242, 7 lines,
+% 50-line ledgers). Numbers: docs/verification/scripts/verify_cc_and_baryon.py. Checks: CC_AND_BARYON_CHECK.md (C3-C12, items 18-25).
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+\chapter{The baryon density}\label{ch:baryon}
 
 \section{The size of the asymmetry}
+One baryon survives for about $10^9$ photons: $\eta=(n_b-n_{\bar b})/n_\gamma\simeq6.1\times10^{-10}$, measured from the light-element
+abundances (Big Bang nucleosynthesis) and from the CMB acoustic peaks, with the same value. The Sakharov conditions (baryon-number violation,
+C and CP violation, departure from equilibrium) say how an asymmetry can arise; the CP violation of the CKM matrix is too small to give the
+measured $\eta$, and electroweak baryogenesis, leptogenesis and Affleck--Dine models each leave $\eta$ set by parameters they do not derive.
 
-The universe holds baryons and almost no antibaryons. The CMB acoustic peaks measure $\Omega_bh^2=0.02237\pm0.00015$, so the baryon-to-photon ratio is
-$\eta=273.9\times10^{-10}\,\Omega_bh^2=(6.13\pm0.04)\times10^{-10}$ \observed. Big-bang nucleosynthesis gives a consistent, broader range from the light elements.
-Making any asymmetry needs Sakharov's three conditions: baryon-number violation, C and CP violation, and departure from equilibrium.
-The Standard Model's CP violation is far too small to give $\eta\sim10^{-9}$.
+\section{The question IAM asks}
+In IAM, baryons write classical information on the horizon through gravitational decoherence, and the Landauer cost of that writing is
+identified with $\Lambda$ (Chapter~\ref{ch:lambda}). The writing depends on the baryon density, which $\eta$ fixes. The proposal is a
+self-consistency loop,
+\begin{equation}\eta\to n_b\to\dot W_{\rm info}\to\Lambda\to H(a)\to\eta,\end{equation}
+with the measured $\eta$ as its fixed point: the Sakharov dynamics generate an asymmetry, and the writing constraint selects its size. The
+paper states that it does not derive $\eta$, and names what a derivation needs: (1) the writing rate at the QCD transition, where the universe is
+radiation dominated; (2) the horizon capacity there; (3) the link to the Sakharov mechanism. For scale at $T=150$\,MeV: $a\simeq1.0\times10^{-12}$,
+$l_H\simeq15$\,km, and the horizon holds $2.9\times10^{78}$ Planck-area bits.
 
-\section{The present-epoch relation}
+\section{One relation, read as $\eta$}
+Inverting the cosmological-constant expressions for $\Omega_bh^2$ at the Planck $\Omega_mh^2=0.1430$, with $\eta=273.9\times10^{-10}\,\Omega_bh^2$:
+the baseline (with $2/\pi$, without $\sqrt{\Omega_\Lambda}$) gives $\eta=5.03\times10^{-10}$; with $\sqrt{\Omega_\Lambda}$ it gives
+$6.08\times10^{-10}$, $0.6\,\%$ below the CMB value. This is the relation $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ of
+Chapter~\ref{ch:lambda} in another variable. The cosmological constant and the baryon density are one measured relation, not two.
 
-Chapter~\ref{ch:lambda} gives the relation between the dark-energy and matter budgets. Solved for the baryons it reads
-\begin{equation}
- \frac{\Omega_b}{\Omega_m}=\frac{3}{16}\sqrt{\Omega_\Lambda}.
- \label{eq:baryonrel}
-\end{equation}
-\calc\ With Planck 2018 ($\Omega_m=0.3153$, $h=0.6736$, $\Omega_bh^2=0.02237$): the measured ratio is $0.15636$; the right-hand side is $0.15515$.
-They agree to $0.8\,\%$. In baryon-to-photon units, Eq.~\eqref{eq:baryonrel} gives $\eta=6.08\times10^{-10}$ against the measured $6.13\pm0.04$.
+\section{The 18th chain}
+A Planck 2018 chain (MGCAMB with $\mu_0=-0.13495$ fixed; low-$\ell$ TT and EE, plik TTTEEE lite, lensing) was run with
+$\Omega_bh^2$ sampled over a flat range $[0.010,0.040]$, six times wider than the $[0.020,0.025]$ of the other runs. No light-element abundance
+data enter. Helium is set inside CAMB from $\Omega_bh^2$ by its standard nucleosynthesis relation, which affects only the damping tail.
+The chain ran 19--20 March 2026 to 22,400 accepted steps, $R-1=0.009273$. With 30\,\% burn-in (14,957 rows):
+\begin{equation}\Omega_bh^2=0.02232\pm0.00014,\qquad\eta=(6.113\pm0.037)\times10^{-10},\qquad
+\frac{\Omega_b/\Omega_m}{(3/16)\sqrt{\Omega_\Lambda}}=1.0046\pm0.0068 .\end{equation}
+The $\Lambda$CDM chains in the same repository return the same $\eta$: $6.118$ (Planck), $6.137$ (Planck + BAO), $6.117$ (Planck + Pantheon+).
+The CMB measures $\Omega_bh^2$ from the relative heights of the acoustic peaks; the chain does this measurement, as every Planck fit does, and its
+agreement with nucleosynthesis is the established CMB--BBN concordance. The chain contains no IAM constraint on $\Omega_b$: the writing
+constraint is not in its likelihood, and fixing $\mu_0$ or widening the range does not move $\Omega_bh^2$. What the chain adds is the
+relation of Chapter~\ref{ch:lambda} evaluated on a CMB-only posterior: $0.7\sigma$.
 
-\observed\ Eq.~\eqref{eq:baryonrel} is a relation among today's measured densities. It holds to $0.8\,\%$. \openprob\ It is not yet derived:
-no mechanism in the framework produces it at the epoch when the asymmetry was made, and the $\eta$ value is the same relation in other units, not a second test.
-$\Omega_m$ also contains $\Omega_b$, so the two sides are correlated through the data.
-
-\section{The baryon chain}
-
-The eighteenth chain runs Planck 2018 with the IAM growth modification fixed at $\mu_0=-0.13495$ and the baryon density sampled under a flat prior
-$0.01<\Omega_bh^2<0.04$, six times the width of the range used in the other chains (Run A: $0.020$--$0.025$). There is no nucleosynthesis prior.
-\observed\ Result (final file, 30\,\% burn-in, last $R-1=0.0099$): $\Omega_bh^2=0.022319\pm0.000136$, $\eta=(6.113\pm0.037)\times10^{-10}$,
-$\sigma_8=0.8016$, $H_0=67.04$.
-
-\begin{checkbox}
-This is the CMB's own measurement of $\Omega_bh^2$ under IAM growth. It agrees with the $\Lambda$CDM value ($0.022319$ against $0.02237$, $0.3\sigma$).
-It shows that the matter-sector modification leaves the baryon inference untouched, as it must: the acoustic peaks fix $\Omega_bh^2$ at early times,
-where $E(a)\to0$ and IAM and $\Lambda$CDM are the same equations. The chain is a consistency check of the growth modification. It does not test
-Eq.~\eqref{eq:baryonrel}.
-\end{checkbox}
+The advance statement (16 March) was that a chain with $\Omega_bh^2$ free would return $\eta\simeq6\times10^{-10}$. Any CMB fit returns that
+value, so the test could not separate IAM from $\Lambda$CDM. The test that would is a chain in which the writing constraint itself is in the
+likelihood, so that $\Omega_b$ is predicted from $\Lambda$ rather than measured from the peaks.
 
 \section{What would make it a derivation}
+(1) $3/16$ from physics, with the geometric factor and the $\sqrt{\Omega_\Lambda}$ fixed before the comparison; (2) the writing rate and
+horizon capacity at the QCD transition, which the loop requires and which are not yet formulated; (3) the reason the relation holds today and
+not at other epochs. The accumulation test of Chapter~\ref{ch:lambda} excludes the reading in which $\rho_\Lambda$ is the summed energy
+released by baryons; a derivation must therefore work with the horizon entropy budget itself ($T_{GH}S=M_Hc^2$), not with released heat.
 
-\openprob\ A derivation must produce $\Omega_b/\Omega_m$ or $\eta$ from the record-writing budget at the electroweak or QCD transition, without taking
-$\Omega_\Lambda$ from today's data. Until then Eq.~\eqref{eq:baryonrel} is printed as an observed relation of the present epoch, $0.8\,\%$ from exact.
+\authorhold{Not carried, by the physics-terms rule or because the record does not support them: the dark sector as the encoded record of the
+$10^9$ annihilation partners (annihilation energy is in the CMB photons; dark matter is present at its measured density at recombination;
+the ratio 19.4 is unrelated to $10^9$); the weak force as the ``force of becoming'' and electroweak breaking as ``the origin of duration'';
+``95\,\% memory and 5\,\% present''; the CP phase as fixed by the loop (stated by the paper as a direction only). Confirm they stay out.}

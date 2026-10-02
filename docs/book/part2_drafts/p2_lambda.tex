@@ -1,49 +1,87 @@
+% Part 2 chapter carrying "The Cosmological Constant as Actualized Vacuum Energy" (Mahaffey, March 2026) in its order. Read in full 2026-10-02
+% (842 lines, 50-line ledger, no gaps). Numbers: docs/verification/scripts/verify_cc_and_baryon.py. Checks: docs/verification/
+% cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md (items 1-4, 10-25, accumulation test). Physics terms only.
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 \chapter{The cosmological constant}\label{ch:lambda}
 
 \section{The problem}
+Quantum field theory with a Planck-scale cutoff gives a vacuum energy density $\rho_{\rm vac}\sim E_P^4/(\hbar c)^3=4.63\times10^{113}$\,J\,m$^{-3}$,
+with $E_P=\sqrt{\hbar c^5/G}$. The measured dark-energy density is $\rho_\Lambda=\Omega_\Lambda\rho_c c^2=5.25\times10^{-10}$\,J\,m$^{-3}$
+(Planck 2018, $H_0=67.4$, $\Omega_\Lambda=0.6846$). The ratio is
+\begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}=1.133\times10^{-123}.\end{equation}
+Supersymmetric cancellation, the string landscape, quintessence and modified gravity have been proposed; none explains the value. The paper's
+starting point is that $\rho_{\rm vac}$ and $\rho_\Lambda$ may be different physical quantities: the first a property of the vacuum, the second a
+property of the universe's history.
 
-A quantum-field estimate of the vacuum energy with a Planck-scale cutoff gives $\rho_{\mathrm{vac}}\sim c^7/\hbar G^2=4.63\times10^{113}\ \mathrm{J\,m^{-3}}$.
-The observed dark-energy density is $\rho_\Lambda=\Omega_\Lambda\,3H_0^2c^2/8\pi G\approx5\times10^{-10}\ \mathrm{J\,m^{-3}}$. The ratio is about $10^{-123}$.
+\section{The horizon identity}
+Writing the critical density in Planck units gives, exactly,
+\begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}=\frac{3\Omega_\Lambda}{8\pi}\left(\frac{l_P}{l_H}\right)^2,\qquad l_H=c/H_0,\label{eq:ident}\end{equation}
+which reproduces $1.133\times10^{-123}$ to all digits. The same statement in horizon thermodynamics: the Gibbons--Hawking temperature
+$T_{GH}=\hbar H/2\pi k_B$ times the Bekenstein--Hawking entropy $S=k_BA/4l_P^2$ of the Hubble horizon equals the mass-energy inside it,
+\begin{equation}T_{GH}\,S=M_Hc^2\qquad\text{(any }H),\end{equation}
+the cosmological counterpart of the Smarr relation of Chapter~\ref{ch:blackholes}. So $\rho_\Lambda$ is $\Omega_\Lambda$ times the horizon's entropy
+priced at its own temperature, per unit Hubble volume. The 123 orders of magnitude are this identity: any expression containing the measured
+$H_0$ and the Planck length reproduces them. They are not evidence for a mechanism. What a mechanism must explain is the O(1) factor
+$3\Omega_\Lambda/8\pi$.
 
 \section{The IAM expression}
-
-IAM does not try to shrink $\rho_{\mathrm{vac}}$. It treats $\rho_{\mathrm{vac}}$ as the capacity of the horizon (one Planck cell per Planck area) and
-$\rho_\Lambda$ as the energy of the records actually written on it by irreversible gravitational decoherence on baryonic worldlines. Four factors:
-\begin{enumerate}
- \item $(\lP/l_H)^2$, one Planck cell of the horizon area, $l_H=c/H_0$;
- \item $2/\pi$, a de Sitter projection factor from bulk to boundary \conjecture;
- \item $\Omega_b/\Omega_m$: only baryons write new records \conjecture;
- \item $\sqrt{\Omega_\Lambda}=T_{\mathrm{dS}}/T_H$, the writing temperature taken as the asymptotic de Sitter temperature.
-       This factor was introduced after the three-factor expression came out $1.22$ times too large \conjecture.
-\end{enumerate}
-\begin{equation}
- \frac{\rho_\Lambda}{\rho_{\mathrm{vac}}}\bigg|_{\mathrm{IAM}}=\frac{2}{\pi}\left(\frac{\lP}{l_H}\right)^2\sqrt{\Omega_\Lambda}\,\frac{\Omega_b}{\Omega_m}.
- \label{eq:LambdaIAM}
-\end{equation}
+In IAM, $\rho_{\rm vac}$ is the energy of the complete Planck-scale substrate on the horizon and $\rho_\Lambda$ is the Landauer cost of the
+classical information written on it by gravitational decoherence on timelike worldlines. Dark matter, in IAM's virial reading
+(Chapter~\ref{ch:virial}), does not decohere further, so only baryons write; the paper takes the writing fraction as $\Omega_b/\Omega_m$ and
+a geometric factor $2/\pi$:
+\begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}\Big|_{\rm IAM}=\frac{2}{\pi}\left(\frac{l_P}{l_H}\right)^2\frac{\Omega_b}{\Omega_m}
+=1.380\times10^{-123}\quad(\times1.218),\label{eq:base}\end{equation}
+and with the de Sitter temperature ratio $T_{dS}/T_H=H_\Lambda/H_0=\sqrt{\Omega_\Lambda}=0.8274$,
+\begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}\Big|_{\rm corrected}=\frac{2}{\pi}\left(\frac{l_P}{l_H}\right)^2\sqrt{\Omega_\Lambda}\,
+\frac{\Omega_b}{\Omega_m}=1.142\times10^{-123},\label{eq:corr}\end{equation}
+$0.79\,\%$ above the measured value. The exponent of $\Omega_\Lambda$ that would close Eq.~\eqref{eq:base} exactly is $0.521$.
 
 \section{What the expression asserts}
+Dividing Eq.~\eqref{eq:corr} by the identity \eqref{eq:ident}, the $l_P$, $l_H$ and $\pi$ cancel:
+\begin{equation}\boxed{\;\frac{\Omega_b}{\Omega_m}=\frac{3}{16}\sqrt{\Omega_\Lambda}\;}\label{eq:rel}\end{equation}
+Planck 2018: $0.1564$ against $0.1551$. On the CMB-only 18th chain (Chapter~\ref{ch:baryon}) the ratio of the two sides is
+$1.0046\pm0.0068$ ($0.7\sigma$). On the $\Lambda$CDM chains it is $1.0056$--$1.0106$: the relation is a property of the measured parameters and
+holds equally in $\Lambda$CDM. It holds at the present epoch only, since $\Omega_\Lambda(a)$ changes and $\Omega_b/\Omega_m$ does not.
+Eq.~\eqref{eq:rel} ties the dark-energy fraction to the baryonic fraction of matter. If $3/16$ follows from physics with nothing adjusted, it
+would explain the O(1) factor that the identity leaves open. Among O(1) combinations of $\Omega_b/\Omega_m$, $\Omega_\Lambda$, $\pi$ and small
+integers, 2 of 540 fall within $1\,\%$ of the measured value, so the derivation, not the agreement, carries the weight.
 
-The observed ratio, written in the same variables, is exactly
-\begin{equation}
- \frac{\rho_\Lambda}{\rho_{\mathrm{vac}}}\bigg|_{\mathrm{obs}}=\frac{3}{8\pi}\,\Omega_\Lambda\left(\frac{\lP}{l_H}\right)^2 .
-\end{equation}
-\calc\ $(\lP/l_H)^2=1.385\times10^{-122}$ for $H_0=67.36$, and the observed ratio is $1.132\times10^{-123}$. The factor $(\lP/l_H)^2$ is the same on both sides,
-so the 123 orders of magnitude cancel: they follow from $\rho_\Lambda$ being of order the critical density. Setting the two equal leaves a relation among
-density parameters alone:
-\begin{equation}
- \boxed{\;\sqrt{\Omega_\Lambda}=\frac{16}{3}\,\frac{\Omega_b}{\Omega_m}\;}
- \label{eq:Lambdarel}
-\end{equation}
+\section{The factors}
+\paragraph{Ultraviolet cutoff.} The paper takes the Planck cutoff because $l_P^2$ is the area per horizon bit in the Bekenstein--Hawking entropy.
+In Eq.~\eqref{eq:rel} the cutoff cancels; it fixes only how the result is written.
+\paragraph{$2/\pi$.} The paper argues that a de Sitter observer's static patch subtends $2\pi$ of the horizon's $4\pi$\,sr, so writing area is
+$A_{\rm eff}=2\pi l_H^2$. The static patch is bounded by the whole horizon sphere and receives signals from all $4\pi$\,sr; and with
+$A_{\rm eff}=2\pi l_H^2$, $l_P^2/(A_{\rm eff}/4\pi)=2(l_P/l_H)^2$, not $(2/\pi)(l_P/l_H)^2$. The $2/\pi$ is not derived.
+\paragraph{$\sqrt{\Omega_\Lambda}$.} $T_{dS}=T_H\sqrt{\Omega_\Lambda}$ is correct for the horizon set by $\Lambda$ alone. It was applied to
+close the 1.22 residual of Eq.~\eqref{eq:base}; a derivation must fix where it enters before the comparison.
+\paragraph{$\Omega_b/\Omega_m$.} The physical argument is that only baryons decohere. The formula record shows the factor entered when the
+residual stood at 12, and the $2/\pi$ when it stood at 1.9; both are given here as the paper's reasons, with that order.
 
-\begin{checkbox}
-\calc\ Planck 2018 ($\Omega_bh^2=0.02237\pm0.00015$, $\Omega_ch^2=0.1200\pm0.0012$, $h=0.6736\pm0.0054$, Monte Carlo, inputs independent):
-$\sqrt{\Omega_\Lambda}=0.8275\pm0.0034$ and $\tfrac{16}{3}\Omega_b/\Omega_m=0.8343\pm0.0084$. They agree to $0.8\,\%$ ($0.9\sigma$).
-From the baryon chain's own posterior (correlations kept): $(16/3)(\Omega_b/\Omega_m)/\sqrt{\Omega_\Lambda}=1.0048\pm0.0069$, $0.7\sigma$ from one.
-\end{checkbox}
+\section{Accumulation over cosmic history}
+If $\Lambda$ is accumulated it must follow from the history of baryonic decoherence. The paper's integral
+\begin{equation}\frac{\Lambda(a)}{\rho_{\rm vac}}\propto\int_{a_{\rm EW}}^{a}\frac{\Omega_b(a')}{\Omega_{\rm tot}(a')}
+\frac{l_H(a')^2}{l_P^2}\frac{da'}{a'^2H(a')/H_0}\end{equation}
+grows as $a'^{-3}$ toward early times; from $a_{\rm EW}=2.3\times10^{-15}$ its coefficient is $3\times10^{30}$ against the required $0.523$.
+Weighting by the activation $d\mathcal E(a)$ instead gives $0.47$ to $5.8$ depending on the form chosen; none is selected by a derivation.
+
+A direct test with nothing adjusted: the heat released by baryonic virialisation, summed to today. With Sheth--Tormen halos above
+$10^8\,M_\odot$ ($\sigma_8=0.811$), 58\,\% of baryons are in halos, with mean virial dispersion 213\,km\,s$^{-1}$. By the virial theorem the
+heat radiated equals the kinetic energy stored (Chapter~\ref{ch:virial_law}). The total is $3.2\times10^{-8}\,\rho_\Lambda c^2$. Priced as bits at
+the gas temperature and charged $k_BT_{GH}\ln2$ each at the horizon, it is $2.6\times10^{-44}\,\rho_\Lambda c^2$. Converting all baryonic rest
+mass would give $\Omega_b/\Omega_\Lambda=0.072$.
+
+\authorhold{The wording approved on 2026-10-01, ``Within GR with the informational term, $\Lambda$ is the accumulated Landauer cost of baryonic
+decoherence. This predicts $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ today, observed to 0.5\,\% on a CMB-only chain. The derivation of the
+coefficient is open.'' The accumulation test above (run 2026-10-02) finds that no energy released by baryons reaches $\rho_\Lambda$: the
+virial heat is $3\times10^{-8}$ of it and all baryonic rest mass is 7\,\%. Proposed replacement: ``The measured $\Lambda$ satisfies the horizon
+identity $T_{GH}S=M_Hc^2$, and today $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ to 0.5\,\% on a CMB-only chain. A derivation of $3/16$ is
+open; an accumulation of energy released by baryons is excluded by seven orders of magnitude.''}
+
+\section{The cosmological constant is not constant}
+An accumulated $\Lambda$ grows with time. A dark-energy density that increases as the universe expands has $w<-1$, not $w>-1$ as the paper
+states. DESI DR2 prefers $w_0>-1$ today with $w_a<0$; the IAM expectation and the DESI preference are compared in the observations chapter.
 
 \section{Status}
-
-\observed\ Eq.~\eqref{eq:Lambdarel} holds today to $0.8\,\%$, at the precision the data allow.
-\openprob\ It is not derived. The factors $2/\pi$ and $\Omega_b/\Omega_m$ are physically motivated identifications, and $\sqrt{\Omega_\Lambda}$ entered after the
-comparison, so the agreement cannot be counted as evidence for that factor. A derivation must produce Eq.~\eqref{eq:Lambdarel} from the entropy functional.
-\prediction\ Any future determination of $(\Omega_b,\Omega_m,\Omega_\Lambda)$ must keep Eq.~\eqref{eq:Lambdarel}; CMB-S4-era precision tests it at the $0.3\,\%$ level.
+Stands: the identity \eqref{eq:ident} and $T_{GH}S=M_Hc^2$; the measured relation \eqref{eq:rel} at the present epoch (0.5--1.1\,\% on every
+chain). Open: a derivation of $3/16$ in which the geometric factor, the temperature factor and the baryon fraction each follow from physics;
+it must also explain why the relation holds now. Excluded: the accumulation of released baryonic energy as the source of $\rho_\Lambda$.

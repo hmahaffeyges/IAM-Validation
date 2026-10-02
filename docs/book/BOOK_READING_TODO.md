@@ -41,11 +41,11 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 ## G4 Cosmological constant and baryon asymmetry (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 14 | Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint | Mar 2026 | 12 | ☐ | ☐ | ☐ |
-| 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | Mar 2026 | 6 | ☑ 2026-10-02 | ☐ | ☑ errata C3–C12 |
-| 16 | 18thChainBaryonAsymmetry.rtf (the 18th chain record) | — | rtf | ☐ | ☐ | ☐ |
-| 17 | The_Cosmological_Constant_as_Actualized_Vacuum_Energy | Mar 2026 | 18 | ☐ | ☐ | ☐ |
-Existing drafts `p2_baryon.tex`, `p2_lambda.tex` were written before this rule; they are replaced when 14–17 are done.
+| 14 | Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_baryon.tex` (1 hold) | ☑ `CC_AND_BARYON_CHECK.md` |
+| 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | Mar 2026 | 6 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_baryon.tex` | ☑ errata C3–C24 |
+| 16 | 18thChainBaryonAsymmetry.rtf (the 18th chain record) | — | rtf | ☑ 2026-10-02 | ☑ `part2_drafts/p2_baryon.tex` | ☑ |
+| 17 | The_Cosmological_Constant_as_Actualized_Vacuum_Energy | Mar 2026 | 18 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_lambda.tex` (1 hold) | ☑ `CC_AND_BARYON_CHECK.md`, `scripts/verify_cc_and_baryon.py` |
+`p2_lambda.tex` and `p2_baryon.tex` rebuilt 2026-10-02 from the full reads.
 
 ## G5 Observations and predictions (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |

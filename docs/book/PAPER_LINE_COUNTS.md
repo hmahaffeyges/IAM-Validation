@@ -22,10 +22,10 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | 12 | 674 | 664 | 1–674 (2026-10-02) | **complete** |  |
 | 12 | Gravitational_Decoherence_and_the_Virial_Partition | 12 | 560 | 582 | 1–560 (2026-10-02) | **complete** |  |
 | 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 3 | 222 | 790 | 1–222 (2026-10-02) | **complete** |  |
-| 14 | Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint | 12 | 438 | 704 | — | not confirmed |  |
-| 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | 6 | 242 | 383 | — | not confirmed |  |
-| 16 | 18thChainBaryonAsymmetry.rtf | — | 9 | — | — | not confirmed | RTF chain record |
-| 17 | The_Cosmological_Constant_as_Actualized_Vacuum_Energy | 18 | 842 | 1034 | — | not confirmed |  |
+| 14 | Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint | 12 | 438 | 704 | 1–438 (2026-10-02) | **complete** |  |
+| 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | 6 | 242 | 383 | 1–242 (2026-10-02) | **complete** |  |
+| 16 | 18thChainBaryonAsymmetry.rtf | — | 7 | — | 1–7 (2026-10-02; RTF to text) | **complete** | RTF chain record |
+| 17 | The_Cosmological_Constant_as_Actualized_Vacuum_Energy | 18 | 842 | 1034 | 1–842 (2026-10-02) | **complete** |  |
 | 18 | wz_far_future | 19 | 609 | 499 | — | not confirmed |  |
 | 19 | 3Way_Mass_Discrepancy_in_Galaxy_Clusters | 8 | 304 | 499 | — | not confirmed |  |
 | 20 | IAM_Lensing_Dynamics_Paper | 9 | 316 | 498 | — | not confirmed |  |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 10,250 lines (14 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 11,779 lines (18 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).
