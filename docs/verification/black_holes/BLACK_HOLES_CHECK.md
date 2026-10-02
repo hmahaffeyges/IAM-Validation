@@ -2,7 +2,8 @@
 Papers: *The Cessation of Projection … Information Paradox* (Feb 2026, 453 lines); *Black Hole Horizons as Thermodynamic Encoding Surfaces* (25 Feb 2026,
 431 lines); *The M–σ Relation from Gravitational Decoherence Thermodynamics* (25 Feb 2026, 367 lines); *The Geometric Origin of the Bekenstein–Hawking
 Entropy Coefficient* (Apr 2026, 596 lines). Read status: the first pass (2026-10-02) saw 11 of the 100-line chunks only as
-truncated previews; every one of those persisted chunks was then opened and read in full the same day (all 1,847 lines now read), and the items
+truncated previews. Opening the persisted copies returned previews again for 7 of them, so every gap was re-read from the source text
+in 50-line chunks the same day; ledger complete for all four papers, 1,847 lines, no gaps, and the items
 below marked (complete read) were added from that pass. Numbers: `scripts/verify_virial_atoms_to_horizon.py` and the cells below (CODATA 2018).
 
 ## Reproduced

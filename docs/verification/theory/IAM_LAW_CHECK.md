@@ -1,5 +1,6 @@
 # IAM_LAW_CHECK — *IAM's Law: The Thermodynamic Cost of Classical Existence* (March 2026, 29 pp)
-Read in full 2026-10-02, all 1,506 extracted lines in 100-line chunks, no truncated reads. Numbers recomputed (CODATA 2018, Planck 2018).
+Read status: 1,506 extracted lines. The first pass (100-line chunks) returned 11 chunks only as truncated previews; this file at first said
+"no truncated reads", which was wrong. Every gap was then read in 50-line chunks the same day; ledger 1–1506 complete with no gaps (2026-10-02). Numbers recomputed (CODATA 2018, Planck 2018).
 Prior checks it depends on: `EXPONENT_LINE_BY_LINE.md`, `THEORY_CHECK.md`, `virial/VIRIAL_CHECK.md`, `virial/NBODY_TRACE.md`, `cc_baryon/CC_AND_BARYON_CHECK.md`,
 `chains/LATE_TIME_GROWTH_CHECK.md`, `black_holes/BLACK_HOLES_CHECK.md`.
 
@@ -49,6 +50,11 @@ Prior checks it depends on: `EXPONENT_LINE_BY_LINE.md`, `THEORY_CHECK.md`, `viri
 16. **§14.7 Mahaffey number**: canon M = E_drive/(k_B T) (no ln 2); cell value 20.94 (30.2 only in Landauer units); the old cell drive symbol is retired; the cell criterion
     "A = H(β)/H_min(c) ≥ 1 breach" is retired (Met-A and IAM-A now); the quantum-processor report/the semiconductor report's "IAM's Law" relation is the IAM floor. Black hole: Mc²/(k_B T_BH) = 8πGM²/(ħc)
     = 2 S_BH/k_B (Smarr), and "M ≥ 1/(4ℓ_P²)" mixes a number with an inverse area.
+
+17. (complete read) **Eq. 33** µ = H²_ΛCDM/(H²_ΛCDM + β_m E(a)) drops H0²: → H²_ΛCDM/(H²_ΛCDM + β_m E(a) H0²) (as Eq. 39).
+18. (complete read) **Table 2** lists the Δχ² prediction as "≤ 0" against the result +0.54: the prediction is no added parameter; print Δχ² = +0.54
+    as consistent (Δχ² < 2 with zero extra parameters), not as a met "≤ 0" prediction. The "0.3 %" N-body agreement in §13 A3 and "1.0 %" in §12.2 disagree
+    with each other; both are withdrawn with the N-body row (item 11).
 
 ## For the book (Part 1, ch. "IAM's Law")
 Carried: the law (canon wording); decoherence and the bit (Eqs. 2–5); the cost per bit at the horizon (Eq. 6); the virial completion (cross-reference

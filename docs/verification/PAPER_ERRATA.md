@@ -89,3 +89,5 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | L14 | IAM_Law | §14.4–14.5 | second law a corollary; law not framework | interpretation → Part 5 | confirmed | `theory/IAM_LAW_CHECK.md` |
 | L15 | IAM_Law | §14.6 | ST confirms 1/a to 1 %; M–σ | not reproduced; M–σ removed | confirmed | `theory/IAM_LAW_CHECK.md` |
 | L16 | IAM_Law | §14.7 | M = E/(k_BT ln2) = 30.2 via the retired cell drive symbol; A ≥ 1 breach | canon M = E/(k_BT) = 20.94; that symbol and the breach criterion retired | confirmed | `theory/IAM_LAW_CHECK.md` |
+| L17 | IAM_Law | Eq. 33 | β_m E(a) | β_m E(a) H0² | confirmed | `theory/IAM_LAW_CHECK.md` #17 |
+| L18 | IAM_Law | Table 2; §13 A3 vs §12.2 | Δχ² prediction "≤ 0"; N-body 0.3 % vs 1.0 % | Δχ² = +0.54 with no added parameter; N-body row withdrawn | confirmed | #18 |
