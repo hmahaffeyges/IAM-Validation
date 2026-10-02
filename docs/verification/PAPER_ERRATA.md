@@ -42,7 +42,10 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | P2 | | §2.2 Eq. 5 | µ(a) = H²/(H² + βE) for the implementation | the code's growth: σ8 −1.2 % at fixed parameters (Eq. 5: −0.8 %); same redshift dependence; state the coded change and its measured growth | confirmed | #2 |
 | P12 | | §5.2, Table 4, Fig. 5, Run D | Run D tests the IAM growth rate with fσ8 from CAMB | CAMB's fσ8 comes from velocities the modification does not touch (+8.8 % vs the density growth at z = 0); Run D did not test IAM growth; redo with fσ8 = dσ8/d ln a | confirmed | #2 |
 | X6 | `camb_validation/likelihood_rsd.py` | `get_fsigma8` | fσ8 from CAMB velocities | fσ8 = −(1+z) dσ8/dz from `get_sigma8_z` for the modified code | confirmed | P12 |
-| P3 | | Tables 1, 6 | E(a) 0.6977 / 0.3679 / 0.1353 / 0.0498 (z 0.2 / 0.5 / 1 / 2); µ 0.893, 0.942; H_m/H 1.058, 1.030; H(0.5) 87.45 | E = e^−z 0.8187 / 0.6065 / 0.3679 / 0.1353; µ 0.905, 0.948; H_m/H 1.051, 1.027; H(0.5) 88.9 | confirmed | #3 |
+| P3 | | Tables 1, 6 | E(a) 0.6977 / 0.3679 / 0.1353 / 0.0498 (z 0.2 / 0.5 / 1 / 2); µ 0.893, 0.942; H_m/H 1.058, 1.030; Table 6 H_photon 87.45 / 117.68 / 199.00 / 305.00, H_m 89.73 / 118.72 / 199.22 / 305.06 (z 0.5 / 1 / 2 / 3) | E = e^−z 0.8187 / 0.6065 / 0.3679 / 0.1353; µ 0.905, 0.948; H_m/H 1.051, 1.027; H_photon 88.89 / 120.44 / 204.06 / 307.37; H_m 91.29 / 121.53 / 204.29 / 307.43 | confirmed | #3 |
+| P13 | | §8.2 item 2 | "σ8 suppression of 0.009 (1.5 %)" | 1.1 % (1.51σ) | confirmed | #12 |
+| P14 | | §1, refs | KiDS-1000 S8 = 0.759 ± 0.021 (Heymans 2021) | cosmic shear 0.759 +0.024/−0.021 (Asgari 2021) or 3×2pt 0.766 +0.020/−0.014 (Heymans 2021) | pending trace | #13 |
+| P15 | | §8.5 item 2 | "Σ ≠ 1 at > 10⁻⁴ falsifies" | state forecast precision of Σ0 | confirmed | #14 |
 | P4 | | §7, Fig. 7 | background runs "6σ" | 10.9σ (H0 61.45 ± 0.42 vs 67.36 ± 0.54) | confirmed | #4 |
 | P5 | | §3.1, refs | "Planck 2018 CamSpec (Efstathiou & Gratton 2021)" | NPIPE/PR4 CamSpec (Rosenberg et al. 2022) | confirmed | #5 |
 | P6 | | §3.1 | seven fσ8 points "from BOSS DR12 and eBOSS DR16" | includes 6dFGS (z 0.067) and SDSS MGS (z 0.15); diagonal errors | confirmed | #6 |

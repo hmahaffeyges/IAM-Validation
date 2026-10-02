@@ -1,5 +1,5 @@
 # DUAL_SECTOR_PERTURBATION_CHECK — "Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with µ < 1, Σ = 1" (Level 2, 28 Feb 2026, 17 pp)
-Read in full 2026-10-02. Checked against `camb_validation/` (equations_iam_level2.f90, likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py,
+Read in full 2026-10-02 (all 595 extracted lines; first pass saw previews only, re-read completely before this version). Checked against `camb_validation/` (equations_iam_level2.f90, likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py,
 chains/*.input.yaml and the chain files, 30 % burn-in).
 
 ## Reproduced from the chain files
@@ -36,8 +36,9 @@ Sampled parameters {ω_b, ω_c, θ_MC, τ, ln A_s, n_s} ✓.
    unaffected: CMB lensing comes from the density. Fix: a growth likelihood that takes fσ8 = −(1+z) dσ8/dz from `get_sigma8_z`, Run D re-run, plus a
    matched ΛCDM + growth chain.
 3. **Table 1 and Table 6 E(a) columns** are shifted: printed 0.6977 / 0.3679 / 0.1353 / 0.0498 at z = 0.2 / 0.5 / 1 / 2; E = e^−z = 0.8187 / 0.6065 / 0.3679 /
-   0.1353. Table 1 µ at z = 0.2, 0.5: 0.905, 0.948 (printed 0.893, 0.942); H_m/H: 1.051, 1.027 (printed 1.058, 1.030). Table 6 H_photon(0.5) 87.45 →
-   88.9 (ΛCDM with the Run A posterior).
+   0.1353. Table 1 µ at z = 0.2, 0.5: 0.905, 0.948 (printed 0.893, 0.942); H_m/H: 1.051, 1.027 (printed 1.058, 1.030). Table 6 (Run A posterior,
+   Ω_m 0.3166, H0 67.161): H_photon 88.89 / 120.44 / 204.06 / 307.37 at z = 0.5 / 1 / 2 / 3 (printed 87.45 / 117.68 / 199.00 / 305.00); H_m 91.29 / 121.53 /
+   204.29 / 307.43 (printed 89.73 / 118.72 / 199.22 / 305.06); ratio 1.0269 / 1.0090 / 1.0012 / 1.0002; E 0.6065 / 0.3679 / 0.1353 / 0.0498.
 4. **Background runs:** H0 = 61.45 ± 0.42 and 61.52 ± 0.43 — 10.9σ from Planck 67.36 ± 0.54 (printed "6σ").
 5. **Likelihood:** `planck_NPIPE_highl_CamSpec.TTTEEE` is the PR4 (NPIPE) CamSpec (Rosenberg, Gratton & Efstathiou 2022), not the Planck 2018 CamSpec of
    Efstathiou & Gratton 2021. Level 1 used plik-lite (PR3), so χ² values are not comparable between levels.
@@ -53,4 +54,8 @@ Sampled parameters {ω_b, ω_c, θ_MC, τ, ln A_s, n_s} ✓.
 9. **§5.3** "the posterior returns β_m = 0.1583 ± 0.0033": β_m is fixed; what the chain shows is Planck Ω_m = 0.3166 ± 0.0065 in this run, so the fixed
    0.15765 is 0.2σ from Ω_m/2. Kept as that consistency statement.
 10. **§2.3** "MGCAMB µ = 1 + µ0 Ω_DE": missing /Ω_Λ (as L1).
+12. **§8.2 item 2** "σ8 suppression of 0.009 (1.5 %)": 0.009/0.809 = 1.1 % (the abstract's value); 1.5 is the shift in σ units (1.51σ).
+13. **KiDS-1000 S8 = 0.759 ± 0.021 cited to Heymans et al. 2021**: 0.759 (+0.024/−0.021) is the cosmic-shear result (Asgari et al. 2021); Heymans et al. 2021
+   (3×2pt) report 0.766 (+0.020/−0.014). To trace against both sources before printing.
+14. **§8.5** Euclid "∼3.4σ" = 0.135/0.04 ✓; "Σ ≠ 1 at > 10⁻⁴ falsifies" — no survey reaches 10⁻⁴; state the forecast precision instead.
 11. References: Frusciante et al. title (as L6); "DESI 2025, JCAP 2025(02), 021" to trace (arXiv 2411.12022).

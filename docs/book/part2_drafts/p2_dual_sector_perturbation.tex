@@ -1,5 +1,5 @@
 % Part 2 chapter carrying "Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with mu < 1, Sigma = 1 and the Sector-Dependent Hubble
-% Parameter" (Mahaffey, 28 Feb 2026), read in full 2026-10-02, in the paper's order. Checks: docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md.
+% Parameter" (Mahaffey, 28 Feb 2026), read in full 2026-10-02 (all 595 extracted lines), in the paper's order. Checks: docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md.
 \providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{The mechanism in the Boltzmann code: a matter-sector expansion rate}\label{ch:level2}
@@ -15,7 +15,7 @@ $67.161\sqrt{1.15765}=72.26$. Two exploratory runs with the term in the backgrou
 
 \section{Why two rates}
 The CMB gives $H_0=67.4\pm0.5$ (Planck 2018); the Cepheid ladder gives $73.04\pm1.04$ (Riess et al.\ 2022), with TRGB and lensing time delays also
-measured locally. Weak lensing gives $S_8$ 2--3$\sigma$ below Planck: KiDS-1000 $0.759^{+0.024}_{-0.021}$, DES Y3 $0.776\pm0.017$, HSC Y3 $0.776\pm0.032$.
+measured locally. Weak lensing gives $S_8$ 2--3$\sigma$ below Planck: KiDS-1000 $0.759^{+0.024}_{-0.021}$ (cosmic shear; reference to be traced), DES Y3 $0.776\pm0.017$, HSC Y3 $0.776\pm0.032$.
 Both differences set early-universe photon measurements against late-universe matter measurements. The question here is whether matter and light can
 have different effective expansion rates at late times while sharing the early history. Chapter~\ref{ch:latetime} showed that $\mu<1$, $\Sigma=1$ is
 consistent with Planck in four data combinations; MGCAMB imposes $\mu$ as a function. Here the mechanism is coded directly.
@@ -167,7 +167,7 @@ Both levels lower $\sigma_8$ to $0.800$--$0.802$ from the same $\beta_m$: by $1.
 $0.809$, NPIPE CamSpec).
 \subsection{Predictions}
 \begin{enumerate}
-\item $\mu(z)<1$ with redshift dependence fixed by $E(a)$; Euclid, $\sigma(\mu_0)\approx0.04$, reaches about $3\sigma$.
+\item $\mu(z)<1$ with redshift dependence fixed by $E(a)$; Euclid, $\sigma(\mu_0)\approx0.04$, reaches $0.135/0.04\approx3.4\sigma$.
 \item $\Sigma=1$ at all redshifts.
 \item $H_0^{(m)}/H_0^{(\gamma)}=\sqrt{1+\Omega_m/2}$, testable with standard sirens, whose hosts are galaxies.
 \item No scale dependence: $\mu$ and $\Sigma$ depend on $z$ only.
