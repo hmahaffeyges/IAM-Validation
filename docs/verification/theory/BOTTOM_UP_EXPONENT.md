@@ -12,10 +12,12 @@ rate at which collapsing structure writes, computed from measured halo statistic
 - n_eff = d ln[(dU/dlna)/f] / d ln D, the exponent the top-down form uses.
 
 ## Result
-| mass function | n_eff z = 9 | 5 | 4 | 3 | 2 | 1 | crosses 7/2 | crosses 5/2 | mean z 2.3–9 |
+| mass function | n_eff z = 9 | 5 | 4 | 3 | 2 | 1 | crosses 7/2 at z | crosses 5/2 at z | mean z 2.3–9 |
 |---|---|---|---|---|---|---|---|---|---|
-(see the script output for the table; values below are from it)
-- n_eff is not constant: it runs from ≈ 5.3–5.8 at z = 9 through 7/2 at **z ≈ 3.2–4.0** to ≈ 2 at z = 1.
+| Press–Schechter | 5.84 | 4.29 | 3.84 | 3.36 | 2.83 | 2.20 | 3.29 | 1.46 | 4.26 |
+| Sheth–Tormen | 5.31 | 3.92 | 3.52 | 3.08 | 2.60 | 2.01 | 3.97 | 1.85 | 3.89 |
+| Tinker 2008 | 5.78 | 4.31 | 3.89 | 3.44 | 2.95 | 2.40 | 3.15 | 1.19 | 4.29 |
+- n_eff is not constant: it runs from 5.3–5.8 at z = 9 through 7/2 at **z = 3.2–4.0** to 2.0–2.4 at z = 1.
 - Mean over the matter-dominated window z = 2.3–9: **3.9 (Sheth–Tormen), 4.3 (Press–Schechter, Tinker)**.
 - Robust to the halo definition (Bryan–Norman vs 200 × mean density: ±0.03) and to σ8 = 0.77–0.85 (Sheth–Tormen mean 4.0–3.8).
 - 5/2 is reached only at z ≈ 1.2–1.9, where Λ already matters and the matter-domination derivation does not apply.
