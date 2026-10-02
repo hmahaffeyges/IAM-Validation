@@ -27,7 +27,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 16 | 18thChainBaryonAsymmetry.rtf | — | 7 | — | 1–7 (2026-10-02; RTF to text) | **complete** | RTF chain record |
 | 17 | The_Cosmological_Constant_as_Actualized_Vacuum_Energy | 18 | 842 | 1034 | 1–842 (2026-10-02) | **complete** |  |
 | 18 | wz_far_future | 19 | 609 | 499 | 1–609 (2026-10-02) | **complete** |  |
-| 19 | 3Way_Mass_Discrepancy_in_Galaxy_Clusters | 8 | 304 | 499 | — | not confirmed |  |
+| 19 | 3Way_Mass_Discrepancy_in_Galaxy_Clusters | 8 | 304 | 499 | 1–304 (2026-10-02) | **complete** |  |
 | 20 | IAM_Lensing_Dynamics_Paper | 9 | 316 | 498 | 1–316 (2026-10-02) | **complete** |  |
 | 21 | IAM_Survey_Predictions_Paper | 11 | 736 | 515 | 1–736 (2026-10-02) | **complete** |  |
 | 22 | The_Redshift_Dependent_S_8_Trend | 8 | 323 | — | 1–323 (2026-10-02) | **complete** |  |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 14,697 lines (23 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 15,001 lines (24 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).

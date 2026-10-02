@@ -237,3 +237,10 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | LD3 | | §4.1 | Planck SZ resolved | reduced (σ8 −1.4 %), not resolved | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #3 |
 | LD4 | | §4.2–4.3 | CCCP 1.20 ± 0.12; WtG 1.31 ± 0.11 | trace to source tables | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #4 |
 | LD5 | | §1, §6 | 15 chains | 18 | confirmed | `observations/LENSING_DYNAMICS_CHECK.md` #5 |
+| **Three-Way Cluster Mass** (`3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf`, 25 Feb 2026), read in full 2026-10-02 |||||||
+| TW1 | | §2 vs §3.1 | friction form with M_hydro = µM_true | contradictory: R = 1/µ only in the G_eff form; hold | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #1 |
+| TW2 | | §6.2, §9.1, §10 | M_SZ/M_hydro = 0.99 confirms the first condition | holds by Y–M calibration in any theory; not a test | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #2 |
+| TW3 | | Table 2 | observed ratios, 4 bins | trace per-bin sources | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #3 |
+| TW4 | | §5, §8 | 6σ, 22σ forecasts | no calculation; not reproduced | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #4 |
+| TW5 | | §9.2, refs | SMBH as encoding surface; M–σ paper | speculation; M–σ abandoned; cut | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #5 |
+| TW6 | | §2, §1 | 15 chains; 'verified' | 18; fixed β_m tests, does not verify | confirmed | `observations/THREE_WAY_CLUSTER_CHECK.md` #6 |
