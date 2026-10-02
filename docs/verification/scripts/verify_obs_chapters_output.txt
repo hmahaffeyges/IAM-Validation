@@ -39,12 +39,16 @@ F. missing satellites: Eq. 11 M_min = 4 Om sigma^3/(G H0); Eq. 12 sigma_crit; Eq
    Eq. 10 with t_dyn = 1/H0: sqrt(6/pi) sigma^3/(G H0) = 10^8.48 Msun; prefactors 4 Om = 1.26, sqrt(6/pi) = 1.38
    census: 68 MW satellites; 54 with a dispersion or upper limit; 25 below 4 km/s (46 %); 24 of them confirmed galaxies; 29 at or above 4
    below 4: 19 resolved dispersions, 6 upper limits; resolved with sigma + 1 sigma error still below 4: 8
+   resolved, still below 4 at +1 sigma:
      Tucana V: 1.2 +0.9/-0.6
      Bootes III: 1.69 +1.03/-0.85
      Bootes II: 1.92 +0.77/-0.6
      Hercules: 2.25 +0.67/-0.61
      Crater II: 2.34 +0.42/-0.3
      Grus I: 2.5 +1.3/-0.8
+     Hydrus I: 2.7 +0.51/-0.43
+     Coma Berenices: 3.33 +0.58/-0.46
+   upper limits below 4:
      Tucana III: < 1.5
      Grus II: < 2.0
      Segue 2: < 2.06

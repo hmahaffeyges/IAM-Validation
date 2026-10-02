@@ -53,7 +53,9 @@ res1s = [r for r in res if float(r["vlos_sigma"])+float(r["vlos_sigma_ep"]) < 4]
 print(f"   census: {len(rows)} MW satellites; {len(kin)} with a dispersion or upper limit; {len(below)} below 4 km/s "
       f"({100*len(below)/len(kin):.0f} %); {sum(r['confirmed_galaxy']=='1' for r in below)} of them confirmed galaxies; {len(kin)-len(below)} at or above 4")
 print(f"   below 4: {len(res)} resolved dispersions, {len(ul)} upper limits; resolved with sigma + 1 sigma error still below 4: {len(res1s)}")
-for r in sorted(res, key=lambda r: float(r["vlos_sigma"]))[:6]: print(f"     {r['name']}: {r['vlos_sigma']} +{r['vlos_sigma_ep']}/-{r['vlos_sigma_em']}")
+print("   resolved, still below 4 at +1 sigma:")
+for r in sorted(res1s, key=lambda r: float(r["vlos_sigma"])): print(f"     {r['name']}: {r['vlos_sigma']} +{r['vlos_sigma_ep']}/-{r['vlos_sigma_em']}")
+print("   upper limits below 4:")
 for r in sorted(ul, key=lambda r: float(r["vlos_sigma_ul"])): print(f"     {r['name']}: < {r['vlos_sigma_ul']}")
 fe = [float(r["metallicity_spectroscopic_sigma"]) for r in below if r["metallicity_spectroscopic_sigma"]]
 print(f"   resolved [Fe/H] spreads among them: {len(fe)}, range {min(fe):.2f}-{max(fe):.2f} dex")
