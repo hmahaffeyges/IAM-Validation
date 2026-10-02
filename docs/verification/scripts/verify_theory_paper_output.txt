@@ -1,0 +1,22 @@
+1. Activation function and coupling
+   beta_m = 0.1575;  E(z=10) = 4.54e-05;  E(z=2) = 0.135;  E(z=1) = 0.368
+   mu(z=0) = 0.864
+   mu(z=0.5) = 0.948
+   mu(z=1.0) = 0.982
+   mu0 = -beta/(1+beta) = -0.136
+2. Exponent n (Eqs. 28-41): dS/dln a ∝ rho_m D^n f /(T_H A_H) with T_H ∝ H, A_H ∝ H^-2; exp(1-1/a) needs power -1
+   n=2.5: power in matter era -2.02, late -2.42
+   n=3.0: power in matter era -1.52, late -1.99
+   n=3.5: power in matter era -1.02, late -1.57
+   analytic: n - 9/2 = -1  ->  n = 7/2
+3. Equation of state (Eq. 68) and CPL
+   w_info(1) = -4/3;  w_eff(1) = -1.062;  dw/da|1 = Omega_m**2/(3*(Omega_m - 2)**2) = +0.0116;  w_a = -dw/da = -0.012
+   least-squares CPL over a 0.5-1: w0 = -1.065, wa = +0.017
+4. Growth suppression and bispectrum (Section 11.5): three implementations, fixed parameters, same early amplitude
+   L1_muG   : dD/D(z=0) -0.78 % | B ratio, same amplitude today, z=0.3/0.5/1: 1.017 / 1.023 / 1.029
+   L2_fric  : dD/D(z=0) -0.67 % | B ratio, same amplitude today, z=0.3/0.5/1: 1.015 / 1.020 / 1.025
+   H_IAM_bg : dD/D(z=0) -1.87 % | B ratio, same amplitude today, z=0.3/0.5/1: 1.038 / 1.053 / 1.071
+   paper: 1.033 / 1.052 / 1.072
+5. Other numbers
+   M_eq = c^3/(4 G H0) = 2.32e+22 Msun;  H0_sirens = 67.4*sqrt(1+beta) = 72.51;  67.161*sqrt(1+beta) = 72.26
+   Omega_m f_coll (f=0.62) = 0.195 (24 % above Omega_m/2);  eta_vir = 1/(2 f_coll) = 0.806

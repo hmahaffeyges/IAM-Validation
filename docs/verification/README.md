@@ -19,7 +19,7 @@ those chapters rely on. A paper is listed only after it has been read in full. T
 | `cosmological_constant_and_baryon/` | `CC_AND_BARYON_CHECK.md` | Cosmological Constant paper; Baryon Asymmetry paper; the 18th (baryon) chain | One present-epoch relation Ω_b/Ω_m ≈ (3/16)√Ω_Λ, 0.7σ on the CMB-only chain; derivation open |
 | `observations/` | `TWO_RULER_DESI_TEST.md` | Dark Energy or Sector Tension mechanism vs DESI DR2 (mock) | Development measurement, distances only |
 | `observations/` | `MISSING_SATELLITES_CHECK.md` (+ `data/`) | Missing Satellites (Mar 2026) | Mechanism B tested against the Local Volume Database; book inclusion is the author's decision |
-| `scripts/` | `verify_theory_paper.py` (+ output) | Theory Paper | Reruns every number in `theory/` in about 2 s (numpy, scipy, sympy) |
+| `scripts/` | `verify_theory_paper.py` (+ output) | Theory Paper | Reruns every number in `theory/` in about 2 s (numpy, scipy, sympy); growth suppression shown for all three implementations |
 
 ## Related records elsewhere in the repository
 - Chain numbers: `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv` and `CHAIN_PAIRS_FINAL.csv`, one documented extraction of all 18 final chain files (30 % burn-in). Every Δχ², σ8 and µ0 in the book comes from these.
