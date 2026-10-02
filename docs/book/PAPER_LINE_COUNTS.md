@@ -30,7 +30,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 19 | 3Way_Mass_Discrepancy_in_Galaxy_Clusters | 8 | 304 | 499 | — | not confirmed |  |
 | 20 | IAM_Lensing_Dynamics_Paper | 9 | 316 | 498 | — | not confirmed |  |
 | 21 | IAM_Survey_Predictions_Paper | 11 | 736 | 515 | — | not confirmed |  |
-| 22 | The_Redshift_Dependent_S_8_Trend | 8 | 323 | — | — | not confirmed |  |
+| 22 | The_Redshift_Dependent_S_8_Trend | 8 | 323 | — | 1–323 (2026-10-02) | **complete** |  |
 | 23 | Dark_Energy_or_Sector_Tension | 20 | 934 | 1300 | — | not confirmed |  |
 | 24 | Missing_Satellites | 10 | 574 | 534 | — | not confirmed |  |
 | 25 | IAM_Black_Hole_Information_Paradox | 14 | 453 | 675 | 1–453 (2026-10-02) | **complete** |  |
@@ -57,5 +57,5 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 12,388 lines (19 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 12,711 lines (20 papers).
 Every chapter drafted so far is now backed by a complete ledger (2026-10-02).

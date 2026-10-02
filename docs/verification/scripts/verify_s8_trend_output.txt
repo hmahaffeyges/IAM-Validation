@@ -1,0 +1,27 @@
+1. mu0 = -0.1362  (paper -0.1349)
+2. paper's Eq.5 S8 x mu(z) vs the growth-equation S8 x D_IAM/D_LCDM (what a survey at z extrapolating with LCDM infers)
+   z    0: mu 0.8638  paper S8 0.719  growth S8 0.8255  deficit 0.78 %   f_IAM/f_LCDM 0.9650
+   z 0.25: mu 0.9137  paper S8 0.760  growth S8 0.8285  deficit 0.42 %   f_IAM/f_LCDM 0.9798
+   z  0.5: mu 0.9482  paper S8 0.789  growth S8 0.8302  deficit 0.22 %   f_IAM/f_LCDM 0.9887
+   z 0.75: mu 0.9696  paper S8 0.807  growth S8 0.8310  deficit 0.11 %   f_IAM/f_LCDM 0.9937
+   z  1.0: mu 0.9822  paper S8 0.817  growth S8 0.8315  deficit 0.06 %   f_IAM/f_LCDM 0.9965
+   z  1.5: mu 0.9938  paper S8 0.827  growth S8 0.8319  deficit 0.02 %   f_IAM/f_LCDM 0.9989
+   z  2.0: mu 0.9977  paper S8 0.830  growth S8 0.8320  deficit 0.01 %   f_IAM/f_LCDM 0.9996
+   z  3.0: mu 0.9996  paper S8 0.832  growth S8 0.8320  deficit 0.00 %   f_IAM/f_LCDM 0.9999
+   paper text z=0 0.719 vs its Fig. 2 label 0.702; S8 x mu(0) = 0.719
+3. effective growth index gamma = ln f / ln Om(a)
+   z 0: LCDM 0.554   IAM 0.585   (Nguyen et al. 2023: 0.633 +0.025 -0.024)
+   z 0.5: LCDM 0.549   IAM 0.572   (Nguyen et al. 2023: 0.633 +0.025 -0.024)
+   z 1.0: LCDM 0.547   IAM 0.562   (Nguyen et al. 2023: 0.633 +0.025 -0.024)
+4. ISW source (1 - f) D / a, ratio IAM/LCDM (photon potential with Sigma = 1 follows delta_m)
+   z 0.1: source ratio 1.0337
+   z 0.5: source ratio 1.0338
+   z 1.0: source ratio 1.0242
+   ISW-galaxy cross (source x D, uniform in z 0.05-1.5): ratio 1.028  (paper: 1.10-1.30)
+5. cluster M_lens/M_dyn = 1/mu (linear mu): z 0 1.158  z 0.5 1.055  z 1 1.018
+6. same growth integration with the MGCAMB form used in the Level 1 chains, mu = 1 + mu0 Omega_DE(a)/Omega_DE0, mu0 = -0.13495
+   z 0: S8 deficit 1.68 %   fsigma8 deficit 6.14 %
+   z 0.5: S8 deficit 0.81 %   fsigma8 deficit 3.12 %
+   z 1.0: S8 deficit 0.41 %   fsigma8 deficit 1.61 %
+   Level 1 chains (Planck only): sigma8 0.8139 -> 0.8014 = 1.54 %
+   exact form today: fsigma8 deficit 4.25 %

@@ -202,3 +202,10 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | WZ5 | | §7.2 | E(1) = 1 from the Planck-epoch reference; observers at peak | normalisation at a = 1; remove anthropic remark | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #5 |
 | WZ6 | | §2.1 | scalar field on the encoding surface | from ρ_info ∝ E(a) and energy conservation | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #6 |
 | WZ7 | | abstract | 17 chains | 18 | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #7 |
+| **Redshift-Dependent S8 Trend** (`The_Redshift_Dependent_S_8_Trend...pdf`, Mar 2026), read in full 2026-10-02 |||||||
+| ST1 | | Eq. 5, §3, Figs. 2 | S8 = S8_Planck × µ(z); 0.719 at z = 0 (Fig. 2: 0.702) | S8 × D_IAM/D_ΛCDM: 0.8255 (0.78 %) today | confirmed | `observations/S8_TREND_CHECK.md` #1 |
+| ST2 | | abstract, §3, §9 | "predicts this redshift dependence" | shape matches; amplitude ~1/10 of low-z deficit; fσ8 −4.2 %; γ_eff 0.585 | confirmed | `observations/S8_TREND_CHECK.md` #2 |
+| ST3 | | §4, §9 | β_m returned by 17 chains within 0.2σ | fixed in every chain | confirmed | `observations/S8_TREND_CHECK.md` #4 |
+| ST4 | | §7 | ISW enhancement 10–30 % | ~3 % | confirmed | `observations/S8_TREND_CHECK.md` #5 |
+| ST5 | | Fig. 3 | E(a) recovered to ~1 % by Sheth–Tormen | not reproduced; remove | confirmed | `observations/S8_TREND_CHECK.md` #7 |
+| ST6 | | title, acknowledgements | addressed to a named cosmologist | cite compilation by journal/arXiv only | confirmed | `observations/S8_TREND_CHECK.md` #8 |
