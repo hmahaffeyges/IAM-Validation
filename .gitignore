@@ -87,3 +87,6 @@ Biological_Physics/MethylPhys/atlas/IAMAtlasREBUILD.csv
 pw_browsers/
 *.propagate_last_run.txt
 .canon_check_last_run.txt
+
+# downloaded inputs for the book figure scripts (re-fetched by the scripts)
+docs/book/figscripts/_data/
