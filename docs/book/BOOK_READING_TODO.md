@@ -73,7 +73,7 @@ Note on 24: an earlier ruling kept failed side predictions out of the book; conf
 |---|---|---|---|---|---|---|
 | 29 | Gravitational_Decoherence_Quantum_Level | Feb 2026 | 22 | ☑ 2026-10-02 | Part 3 after p3_xqp (ramp derivation hold) | ☑ `quantum/GRAV_DECOHERENCE_CHECK.md` |
 | 30 | IAM_Measurement_Problem_Quantum (Part 5) | Feb 2026 | 21 | ☑ 2026-10-02 | Part 5: measurement = irreversible record (three tests not carried) | ☑ `quantum/MEASUREMENT_PROBLEM_CHECK.md` |
-| 31 | Entanglement_Decoherence_and_Classical_Records | Mar 2026 | 6 | ☐ | ☐ | ☐ |
+| 31 | Entanglement_Decoherence_and_Classical_Records | Oct 2026 rev. | 6 | ☑ 2026-10-02 | Part 3 (with §7 law statement) | ☑ `quantum/ENTANGLEMENT_CHECK.md` |
 | 32 | The_Two_Faces_of_Time (Part 5) | Mar 2026 | 7 | ☐ | ☐ | ☐ |
 | 33 | Quantum_Darwinism_at_Cosmological_Scales | Mar 2026 | 15 | ☐ | ☐ | ☐ |
 
@@ -110,4 +110,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 | 47 | IAM_Gravitational_Engineering_Exploration | — | 6 | ☐ | ☐ | ☐ |
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 33 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.
+Progress: 34 of 47 complete (G1 ×4, IAM's Law, Theory, Virial ×5, black holes ×3, G4 ×4, G5 complete (#18–24); M–σ abandoned). Also read in full for the opening: Floor Breach (Apr 2026), Shoulders of Giants, GRF essay. Next: G5.

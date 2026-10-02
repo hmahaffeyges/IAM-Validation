@@ -302,3 +302,11 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | MP5 | | Eq. 2, §4.3 | F(Q,T) ramp form | underived (GD3) | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #5 |
 | MP6 | | §3.4 | cat decoheres by self-gravity | environmental decoherence dominates | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #6 |
 | MP7 | | §2.2, Eq. 3 | µ/Σ as state labels; 17 chains | conflation; 18 | confirmed | `quantum/MEASUREMENT_PROBLEM_CHECK.md` #7 |
+| **Entanglement** (`Entanglement_Decoherence_and_Classical_Records.pdf`, Oct 2026 rev.), read in full 2026-10-02 |||||||
+| EN1 | | §3, §6 | β_m posterior 0.2σ | fixed in every chain | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN2 | | §6 | 17 chains; two at 0.023 | 18; all ≤ 0.010 | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN3 | | §6 | Euclid + DESI 5.4σ | unsourced | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN4 | | Eq. 3 | S(t) ramp | inherits GD3 | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN5 | | §3 Step 3 | kinetic half = heat | law first | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN6 | | §4, refs | Sci. Adv. 2025 | incomplete reference | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN7 | | Acknowledgements | named correspondent | remove | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
