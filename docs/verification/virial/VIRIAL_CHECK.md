@@ -92,6 +92,7 @@ If the efficiency argument is kept, it is restated with |U|/2K and its own defin
     attractive, −1/r.
 28. **Grav. Decoherence Eq. 11** writes the µ·G form but calls it "an additional Hubble friction term"; state which implementation. §4 σ_crit:
     M_min = 4Ω_m σ³/(GH) prefactor not derived, ~100× normalisation offset admitted; out with Mechanism B (MISSING_SATELLITES_CHECK).
-29. **Virial Efficiency Table 1** also misattributes methods: Power, Knebe & Knollmann 2012 is a cosmological N-body study, not GIMIC/OWLS; Bett 2007 (spin and
-    shape), Ludlow 2010 and Bryan & Norman 1998 do not tabulate a mass-weighted 2K/|U| (NBODY_TRACE). The falsification thresholds of its Table 4 rest on those
-    values. Acknowledgments in *Grav. Decoherence* name correspondents (errata N1).
+29. **Virial Efficiency Table 1** also mislabels methods: Power, Knebe & Knollmann 2012 is a cosmological N-body study, not GIMIC/OWLS. Bett et al. 2007 and
+    Power et al. 2012 do report the halo virial ratio (2T/|U| ridge ≈ 1.2–1.3; η = 2T/|W| ≈ 1.15–1.25), and the chapters cite them for those published values;
+    the table's 0.77–0.83 / 0.76–0.85 are not what they report. Ludlow 2010 gives only a relaxation cut and Bryan & Norman 1998 a different quantity (NBODY_TRACE).
+    The falsification thresholds of its Table 4 rest on the table's values. Acknowledgments in *Grav. Decoherence* name correspondents (errata N1).

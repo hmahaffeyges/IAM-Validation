@@ -86,7 +86,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | V28 | Wide Domains §6.2, §3.3 | | R1, R3 suppressed by µ | holds only for µ·G form; Level 2 leaves lensing = hydrostatic | confirmed | `virial/VIRIAL_CHECK.md` #26 |
 | V29 | Wide Domains Table 1, §2, §8 | | equipartition kT/2 as virial ½; kT/2 per event; Coulomb +1/r | remove row; k_BT ln 2 per bit; −1/r | confirmed | `virial/VIRIAL_CHECK.md` #27 |
 | V30 | Grav. Decoherence Eq. 11, §4 | | friction wording on µ·G equation; σ_crit prefactor | state implementation; σ_crit out | confirmed | `virial/VIRIAL_CHECK.md` #28 |
-| V31 | Virial Efficiency Table 1 | | Power 2012 GIMIC/OWLS; Bett/Ludlow/Bryan values | N-body; not tabulated | confirmed | `virial/VIRIAL_CHECK.md` #29 |
+| V31 | Virial Efficiency Table 1 | | Power 2012 GIMIC/OWLS; Table 1 values for all six studies | cosmological N-body; Bett/Power report 2T/\|U\| ≈ 1.15–1.3 (cited correctly in the chapters); Ludlow cut only; Bryan & Norman a different quantity | confirmed | `virial/VIRIAL_CHECK.md` #29 |
 | **Black-hole papers (G6), read 2026-10-02** |||||||
 | B1 | IAM_BH_Thermodynamics §3; Info Paradox §3 | P_SB = P_Hawking "physical, not a check" | identity | the Hawking luminosity used is the black-body formula itself (ratio 1 by construction); real emission has greybody factors (Page 1976) | confirmed | `black_holes/BLACK_HOLES_CHECK.md` #3 |
 | B2 | Info Paradox §6, Result 1 | Page curve; S_rad = S0/2 at τ/2; S0 2.6e76 bits | — | monotonic first-law transfer, S0/2 at 0.646 τ; not the Page curve (no turnover); S0 = 1.51e77 bits | confirmed | #4 |
