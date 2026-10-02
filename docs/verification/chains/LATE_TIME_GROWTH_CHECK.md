@@ -10,7 +10,7 @@ and `CHAIN_PAIRS_FINAL.csv` (final files, 30 % burn-in; all final R − 1 ≤ 0.
   and z ≫ 1; maximum gap 2.8 % at z ≈ 0.65, 2.5 % at z = 1, < 1 % above z = 2.5. The paper's "1–2.5 % at 0.5 ≲ z ≲ 2, exact at z = 0" is right.
 - σ8 per run agrees with the final chains to ≤ 0.002; Δσ8 = −0.0128 to −0.0129 (−1.6 %) in every combination.
 - CMB lensing "changes by < 0.5 %": Limber estimate at fixed primordial amplitude gives 0.05–0.3 % (L 30–1000) for both the µG and friction forms.
-  (The CAMB Technical Note's validation panel reads "IAM reduces lensing by 2.0 %"; to be checked when that paper is read.)
+  (The "IAM reduces lensing by 2.0 %" panel comes from the pre-chain figures; it is not carried — DUAL_SECTOR_NOTE_CHECK #6.)
 - Literature: DESI 2024 VII µ0 = 0.11 (+0.45/−0.54) (arXiv 2411.12022 eq. 5.5) ✓; Andrade et al. µ0 − 1 = 0.02 ± 0.19 ✓ (value).
 
 ## Corrected in the chapter
@@ -50,4 +50,3 @@ and `CHAIN_PAIRS_FINAL.csv` (final files, 30 % burn-in; all final R − 1 ≤ 0.
 
 ## Open
 - **Free-µ0 runs with a wider prior** (e.g. [−1, +1]) would show where the posterior turns over; author's decision (adds chains to the record).
-- The 2.0 % lensing figure belongs to the CAMB Technical Note (G1, to be read).
