@@ -11,23 +11,16 @@ records written against thermal noise. The applications in this part read each o
 record the system allows at its temperature. Thermal noise is not filtered out; it is the yardstick.
 
 \section{The symbols}
-\begin{center}\small\begin{tabular}{p{0.11\textwidth}p{0.36\textwidth}p{0.45\textwidth}}\toprule
+\begin{center}\small\begin{tabular}{p{0.15\textwidth}p{0.3\textwidth}p{0.45\textwidth}}\toprule
 symbol & meaning & in every domain\\\midrule
-$H_{\min}$ & the floor & the lowest reading the system allows, measured on the same instrument\\
-$A$ & reading$/H_{\min}$ & dimensionless; $A=1$ is the floor (cells: the healthy cell's own floor)\\
+$A$ & reading $/$ healthy reference & dimensionless; $A=1$ is the system working as itself, the middle of the gauge\\
+healthy reference & the denominator & the same system's healthy reading, on the same instrument\\
+$H_{\min}$ & the floor & the lowest error the system can hold before thermal kicks win; below 1, nothing reads below it\\
 $M$ & $E/k_BT$ & drive energy over the thermal noise quantum; $M/\ln2$ in Landauer units\\
 $n$ & temperature exponent & $A(T)=A(T_{\rm ref})(T/T_{\rm ref})^n$; calibrated per class, never derived, never $A$\\\bottomrule
 \end{tabular}\end{center}
-\begin{center}\small\begin{tabular}{p{0.13\textwidth}p{0.27\textwidth}p{0.25\textwidth}p{0.25\textwidth}}\toprule
-domain & reading & $H_{\min}$ & $A$\\\midrule
-chips (the semiconductor report) & $E_{\rm sw}=\mathrm{TDP}/(N f)$ & Landauer floor $k_BT_j\ln2$ & $E_{\rm sw}/(k_BT_j\ln2)$; $M=A\ln2$\\
-qubits (the quantum-processor report) & $\varepsilon=-\ln(1-p_{2Q})$ & material floor $\varepsilon_{\rm floor}$ (calibrated) & $\varepsilon/\varepsilon_{\rm floor}$\\
-cells, arrays (Met-A) & mean $H(\beta)$ over identity sites & the cell type's reference floor & Met-A\\
-cells, molecules (IAM-A) & $H(\varepsilon)$, copy error & $P_{\rm cell}\,H(\varepsilon_0)$ & IAM-A\\\bottomrule
-\end{tabular}\end{center}
-For a chip the floor is the law itself. For a qubit it is a property of the substrate. For a cell it is the healthy cell of the same type, read
-on the same platform (Met-A), or the physics floor at the cell's frozen position (IAM-A). Example: the AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$
-transistors, 4.3\,GHz, $T_j=75\,^\circ$C) switches at $E_{\rm sw}=1.92\times10^{-18}$\,J, $576$ times the Landauer floor, $M=399$.
+Example of the energy scale: the AMD Ryzen 9 9950X (170\,W, $20.6\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) switches at
+$E_{\rm sw}=1.92\times10^{-18}$\,J, $576$ times the Landauer floor, $M=399$; on its own gauge the Landauer floor therefore sits at $1/576=0.0017$.
 
 \paragraph{One gauge, each domain in its own form.} Every $A$ is an error score read on the same gauge (Fig.~\ref{fig:onegauge}): the reading
 divided by the same system's healthy reading, so that $A=1$ is the system working as itself and sits in the middle. Below it lies $H_{\min}$, the
