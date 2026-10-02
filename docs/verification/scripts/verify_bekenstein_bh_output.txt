@@ -1,0 +1,113 @@
+====================================================================================================
+A. Units used throughout: kappa in m s^-2 (surface gravity as an acceleration); T = hbar kappa /(2 pi k_B c).
+   S counted in units of k_B (nats) unless stated; bits = nats / ln 2.
+====================================================================================================
+
+B. The 2 pi: Euclidean Rindler cone
+[PASS] Euclidean Rindler: (kappa rho/c)^2 dtau^2 with tau = c theta/kappa gives rho^2 dtheta^2
+[PASS] Gaussian curvature of d rho^2 + rho^2 d theta^2 vanishes for rho > 0
+[PASS] conical deficit 2pi - Theta vanishes only at Theta = 2 pi
+   period of Euclidean time tau (s): 2*pi*c/kappa
+[PASS] KMS: hbar/(k_B T) = 2 pi c/kappa  =>  T = hbar kappa/(2 pi k_B c)
+
+C. The 8 pi: Einstein normalisation = 2 x 4 pi
+[PASS] solid angle of the unit 2-sphere = 4 pi
+[PASS] Gauss's law: flux of grad Phi through any sphere = 4 pi G M
+[PASS] weak field: R_00 = (8piG/c^4)(T_00 - T g_00/2) = 4 pi G rho / c^2 -> Poisson with 4 pi (the 1/2 of the trace uses half the 8 pi)
+
+D. Jacobson's Clausius relation (SI form) and the coefficient eta
+[PASS] kappa cancels in delta Q = T delta S
+   T_ab k^a k^b = ( c*eta*hbar/(2*pi) ) R_ab k^a k^b
+[PASS] hbar c eta/(2pi) = c^4/(8 pi G)  =>  eta = c^3/(4 hbar G)
+[PASS] eta = 1/(4 l_P^2) with l_P^2 = hbar G/c^3
+[PASS] equivalently G = c^3/(4 hbar eta)
+[PASS] 1/4 = 2pi/(8pi)
+[PASS] G = c^3/(4 hbar eta) is dimensionally a Newton constant (ratio 1)
+[PASS] G = c^4/(4 hbar eta) carries an extra velocity (erratum B4)
+[PASS] c^4/(4 hbar G) differs from 1/(4 l_P^2) by a factor c (erratum B4, Eq. 16)
+
+E. The horizon first law and the minimum area per nat
+[PASS] Schwarzschild: d(Mc^2)/dA = kappa c^2/(8 pi G)
+[PASS] Kerr (chi = 4/9 test point): (d Mc^2/dA)_J = kappa c^2/(8 pi G)
+[PASS] delta A_min (one nat, any kappa) = 4 hbar G/c^3 = 4 l_P^2
+[PASS] delta A_min independent of kappa
+[PASS] eta * delta A_min = 1 (one nat, k_B, per 4 l_P^2)
+[PASS] one bit (k_B T ln2) occupies 4 ln2 l_P^2
+   4 ln 2 = 2.772588722239781
+[PASS] (G/c^4) x energy is a length, not an area: the source Eq. 18 lacks the 1/kappa of the first law
+   Planck surface gravity c^2/l_P (the largest, not the smallest): 5.5607e+51 m s^-2
+
+F. Universal horizon temperature T = hbar kappa/(2 pi k_B c)
+[PASS] black hole kappa = c^4/(4GM) gives T_BH = hbar c^3/(8 pi G M k_B)
+[PASS] de Sitter kappa = cH gives T_GH = hbar H/(2 pi k_B)
+[PASS] Rindler kappa = a gives T_U = hbar a/(2 pi k_B c)
+
+G. Stefan-Boltzmann luminosity of the horizon, encoding rate, evaporation
+[PASS] sigma_SB A T_BH^4 = hbar c^6/(15360 pi G^2 M^2)
+[PASS] Gamma = P/(k_B T ln 2) = c^3/(1920 G M ln 2)
+[PASS] S_BH = k_B c^3 A/(4 G hbar) = 4 pi G k_B M^2/(hbar c) (erratum V20 form)
+[PASS] first law: c^2 |dM/dt| = T_BH |dS/dt|  =>  Gamma = -d(S_BH/ln2)/dt
+[PASS] M(t)^3 = M0^3 - hbar c^4 t/(5120 pi G^2) solves dM/dt = -P/c^2
+[PASS] S_transfer/S_0 = 1 - (1 - t/tau)^(2/3)
+[PASS] half transferred at t = (1 - 2^(-3/2)) tau = 0.6464 tau (not tau/2; erratum B2)
+   1 - 2^(-3/2) = 0.6464466094067263
+[PASS] min(S_transfer, S_BH(t)) turns over at the same 0.6464 tau
+
+H. Smarr and Kerr: the price of a horizon's bits
+[PASS] N k_B T ln2 = T_BH S_BH = Mc^2/2 (Schwarzschild; erratum V17)
+   Kerr chi = 0: T S/Mc^2 = 0.500
+   Kerr chi = 0.5: T S/Mc^2 = 0.433
+   Kerr chi = 0.9: T S/Mc^2 = 0.218
+   Kerr chi = 0.998: T S/Mc^2 = 0.032
+   1 Msun: Mc^2 = 1.7871e+47 J ; k_B T ln2 sqrt(S) = 1.9124e+08 J ; 2 T S k_B = 1.7871e+47 J
+[PASS] Eq. 8 of the source (Mc^2 = k_B T ln2 S^(1/2)) fails by >30 orders; Smarr Mc^2 = 2 T S holds (erratum B6)
+
+I. Hoop conjecture = holographic bound at r_s; seed-mass inversion
+[PASS] S_BH/A at r_s = c^3/(4 hbar G) = 1/(4 l_P^2)
+[PASS] M = m_Pl sqrt(S)/(2 sqrt(pi)) is S_BH = 4 pi G M^2/(hbar c) inverted
+   S = 1e77 nats -> M = 0.976 Msun
+   S = 1e83 nats -> M = 976 Msun
+   S = 1e89 nats -> M = 9.76e+05 Msun
+   S = 1e95 nats -> M = 9.76e+08 Msun
+
+J. Numbers (CODATA 2018, M_sun = 1.98847e30 kg, yr = 3.15576e7 s)
+ M/Msun |   T_BH (K)   | S (nats)   | S (bits)   | Gamma (bit/s) | tau_evap (yr)
+  1e+00 | 6.170e-08 | 1.049e+77 | 1.513e+77 | 1.5255e+02 | 2.096e+67
+  1e+01 | 6.170e-09 | 1.049e+79 | 1.513e+79 | 1.5255e+01 | 2.096e+70
+  1e+06 | 6.170e-14 | 1.049e+89 | 1.513e+89 | 1.5255e-04 | 2.096e+85
+  1e+09 | 6.170e-17 | 1.049e+95 | 1.513e+95 | 1.5255e-07 | 2.096e+94
+[PASS] 1 Msun: T 6.17e-8 K, S 1.049e77 nats = 1.513e77 bits, Gamma 152.5 bit/s, tau 2.10e67 yr
+   tau_evap(1 Msun) = 2.096e+58 Gyr ; S_BH,0 = 1.513e+77 bits (source printed 2.6e76; erratum B2)
+   M = 1e+00 Msun: sigma A T^4 / [hbar c^6/(15360 pi G^2 M^2)] = 1.000000000000
+   M = 1e+01 Msun: sigma A T^4 / [hbar c^6/(15360 pi G^2 M^2)] = 1.000000000000
+   M = 1e+06 Msun: sigma A T^4 / [hbar c^6/(15360 pi G^2 M^2)] = 1.000000000000
+   M = 1e+09 Msun: sigma A T^4 / [hbar c^6/(15360 pi G^2 M^2)] = 1.000000000000
+   int_0^0.6464 tau Gamma dt / S_0 = 0.500000
+[PASS] numerical integral of Gamma reaches S_0/2 at 0.6464 tau
+
+K. Two horizons: T_GH, M_eq at five epochs (H0 = 67.4, Om = 0.315, Or = 9.1e-5, flat), cosmic-bath factor, CMB balance
+   z        H (s^-1)     T_GH (K)     M_eq (Msun)
+   0e+00    2.184e-18   2.655e-30   2.324e+22
+   1e+00    3.911e-18   4.755e-30   1.298e+22
+   1e+03    4.408e-14   5.359e-26   1.151e+18
+   1e+06    2.087e-08   2.537e-20   2.432e+12
+   1e+10    2.084e+00   2.533e-12   2.436e+04
+[PASS] z=0: H 2.18e-18, T_GH 2.66e-30 K, M_eq 2.32e22 Msun
+   (T_GH/T_BH)^4 for 1 Msun today = 3.43e-90
+[PASS] cosmic-bath correction 3.4e-90 (1 Msun, today)
+[PASS] M_eq from T_BH = T_GH is c^3/(4 G H)
+   M_CMB = 4.502e+22 kg = 0.61 lunar masses ; T_CMB/T_BH(1 Msun) = 4.417e+07 ; ratio^4 = 3.81e+30 ; e-folds = 17.60
+
+L. Lensing-to-dynamical ratio (Table of predictions): 1/mu(0) = 1 + beta_m with beta_m = Omega_m/2 = 0.15765
+   beta_m = 0.15765 ; 1/mu(0) = 1.15765 -> 15.77 % at z = 0
+[PASS] 1/mu(0) = 1.158 (as in Chapter ch:threeway)
+
+M. Information-record size: Shannon entropy of a decoherence record is at most log2 N bits
+   N = 3, weights (1/2, 1/4, 1/4): H = 1.500 bits < log2 3 = 1.585
+[PASS] H <= log2 N with equality only for equal weights
+
+N. Planck values
+   l_P = 1.61626e-35 m ; 4 l_P^2 = 1.0449e-69 m^2 ; 4 ln2 l_P^2 = 7.2428e-70 m^2 ; eta = 1/(4 l_P^2) = 9.5702e+68 m^-2
+
+====================================================================================================
+44 of 44 checks pass

@@ -1,0 +1,241 @@
+% Part 5: the black-hole information problem read in IAM. Carries the information-paradox paper (Feb 2026; 453 PDF lines, read in full
+% 2026-10-02) Sections 1, 2, 4, 5, 8.2-8.3, 9 and 10, and Section 5 of the black-hole thermodynamics paper (25 Feb 2026; 431 lines).
+% Its thermodynamic Sections 3, 6 and 7 are carried in Chapter ch:blackholes; they are not repeated here.
+% Corrections applied: PAPER_ERRATA B1, B2, B6 (fixed point not carried), B7 (island row; drift records M(t) only), B8 (no claim to resolve),
+% M1 (M-sigma removed), L1 (superposition/record wording); BLACK_HOLES_CHECK #3, #4, #8, #9, #10.
+% Every claim of the projection picture is labelled \conjecture or \interp: it is the author's reading, not a derivation.
+
+\chapter{The black-hole information problem read as a record on the horizon}\label{ch:bhinformation}
+
+\section*{Overview}
+This chapter sets out a conceptual reframing of the black-hole information problem within IAM, the gravitational-decoherence framework whose
+cosmological sector is tested against the Planck 2018 CMB likelihood in the chains of Chapter~\ref{ch:dual}. The thermodynamic foundation --- the black-body identity
+$P_{\rm SB}=P_{\rm Hawking}$, the encoding rate $\Gamma_{\rm BH}=c^3/(1920\,GM\ln2)$, and the two-horizon framework --- is established in
+Chapter~\ref{ch:blackholes}; this chapter draws on those results.
+
+The central idea is a physical picture: matter does not enter a black hole --- the projection ceases. In IAM, a particle exists as a stable decoherence loop
+registered on the cosmic holographic boundary. The black-hole horizon is the surface at which that registration becomes causally impossible. Crossing the
+horizon does not mean travelling inward; it means the decoherence loop that constitutes the particle can no longer be maintained. What remains on the
+horizon is the entropy imprint --- the pixel structure of the last recorded state --- not an interior object carrying information. \conjecture
+
+The picture addresses the information paradox by questioning its premise: on this reading, information was never interior. No exotic machinery is
+introduced and no firewall arises; the record is encoded on the horizon surface at the moment of crossing, consistent with Hawking's final ``soft hair''
+position~\cite{HawkingPerryStrominger2016}, for which IAM offers a thermodynamic mechanism. The framework does not claim to resolve the paradox: it does not compute
+the fine-grained entropy of the radiation, and the first-law entropy transfer of Chapter~\ref{ch:blackholes} is not the Page curve. What it offers is a
+reading in which the question changes. \interp
+
+\section{Introduction}\label{sec:bi_intro}
+The black-hole information paradox has resisted resolution for fifty years despite contributions from Hawking, Susskind, Maldacena, Penrose, Polchinski and
+many others~\cite{Hawking1976,Page1993,Maldacena1998,AMPS2013,MaldacenaSusskind2013,Penrose1989}. It is worth noting that Hawking himself substantially revised his position over the decades. His
+original argument~\cite{Hawking1975,Hawking1976} held that thermal Hawking radiation destroys information, violating unitarity. By 2004 he conceded that information is likely
+preserved~\cite{Hawking2005}. In his final work --- the ``soft hair'' papers with Perry and Strominger~\cite{HawkingPerryStrominger2016} --- he argued that information is stored on the
+horizon surface itself, not in the interior, encoded in zero-energy quantum excitations he called soft hair. IAM does not contradict this final position. It
+offers the thermodynamic mechanism that Hawking's work was pointing toward: an account of why information must be on the surface, grounded in the Landauer
+principle and gravitational decoherence. \interp
+
+IAM starts from the observation that gravitational decoherence --- the irreversible conversion of quantum superpositions to classical outcomes --- produces
+information at a thermodynamic cost governed by the Landauer principle~\cite{Landauer1961} (Chapter~\ref{ch:iams_law}). This cost is paid at the cosmic Gibbons--Hawking
+temperature $T_{\rm GH}$ and encoded on the cosmic holographic boundary. The same mechanism, operating locally rather than globally, produces black holes when
+local decoherence exceeds the encoding capacity of the local bounding surface (Chapter~\ref{ch:blackholes}, Section~\ref{sec:bh_formation}).
+
+The chapter establishes one central physical picture and draws its consequences. Section~\ref{sec:bi_entropy} introduces the conceptual foundation: the distinction between
+entropy (pixel capacity) and information (pixel content), and the picture in which matter does not enter a black hole but ceases to be projected at the
+horizon. Section~\ref{sec:bi_surfaces} presents the reframing of black holes as encoding surfaces. Section~\ref{sec:bi_paradox} reads the information paradox from its premise,
+and Section~\ref{sec:bi_twohorizon} gives the same reading in the two-horizon framework. Section~\ref{sec:bi_astro} collects two astrophysical consequences, and
+Section~\ref{sec:bi_compare} compares the picture with existing approaches.
+
+\section{Entropy, information, and the cessation of projection}\label{sec:bi_entropy}
+Before the consequences, it is worth establishing a conceptual foundation that shapes how all subsequent statements should be read. Two distinctions matter
+here, and conflating them has contributed to fifty years of confusion about what the black-hole information paradox is actually asking.
+
+\subsection{Entropy is not information}
+In the context of black holes, these two words are often used interchangeably. They are not the same thing.
+
+\emph{Entropy} ($S_{\rm BH}=\kB A/4\lP^2$) is a count of available encoding slots --- the number of pixels on the holographic surface, the structural capacity of the
+boundary. It tells you how many distinct states could be encoded. It says nothing about what is actually written.
+
+\emph{Information} is what is recorded in those slots --- the specific content of the final state, the record of which quantum superpositions were resolved and
+how. In IAM language: entropy is the pixel array; information is what is written on the pixels.
+
+Decoherence is the act of writing: it converts a quantum superposition into a classical record at the Landauer cost of $\kB T\ln2$ per bit. The Landauer
+principle bridges entropy and information exactly --- each bit written costs $\kB T\ln2$ of energy at the local temperature.
+
+This distinction matters because it changes what we think is stored on the black-hole horizon. The Bekenstein--Hawking entropy $S_{\rm BH}=\kB A/4\lP^2$ is the
+capacity of the horizon --- the number of pixels available, one nat per $4\lP^2$ and one bit per $4\ln2\,\lP^2$ (Chapter~\ref{ch:bekenstein}). The information encoded in
+those pixels is the specific recorded state of the last decoherence event before the projection was severed. The horizon does not store information in the
+way a hard drive stores a file. It stores the entropy structure --- the pixel pattern --- that is that information, frozen at the moment projection ceased.
+\interp
+
+\subsection{Matter does not enter a black hole --- the projection ceases}
+This is the central physical claim of the picture, and it addresses the information paradox more directly than any mechanism that accepts the premise of
+interior storage.
+
+In IAM, a particle exists as a stable, self-consistent decoherence loop. Three elements are required to maintain it:
+\begin{enumerate}
+\item \emph{The superposition} --- the quantum state of the field, not yet recorded.
+\item \emph{The projector} --- gravitational decoherence, the process that converts the superposition to a classical outcome at the Landauer cost.
+\item \emph{The screen} --- the cosmic holographic boundary, the encoding surface on which the recorded state is registered. Without registration, the
+decoherence loop cannot be maintained.
+\end{enumerate}
+A particle exists because its decoherence loop is continuously refreshed and registered on the cosmic encoding surface. The Landauer cost is the energy
+required to keep the projector running. On this reading the rest mass of the particle is this cost, evaluated at the Gibbons--Hawking temperature; the
+electron-mass relation of Chapter~\ref{ch:particle} is the quantitative form of that statement for the electron. \conjecture
+
+When a particle approaches a black-hole horizon, something specific happens: the cosmic encoding surface becomes causally inaccessible. The interior of a
+black hole is not connected to the cosmic horizon by any causal path. The screen goes dark.
+
+The projector cannot reach the screen. The decoherence loop cannot be registered. The particle ceases to be projected.
+
+It does not travel inward and carry its information with it. It does not get copied onto the horizon by some exotic mechanism. The loop that constituted
+it simply cannot be sustained in a region where the cosmic encoding surface is inaccessible.
+
+What appears on the black-hole horizon is not the particle. It is the entropy imprint of the last recorded state --- the final frame of the projection before
+the screen went dark. This entropy imprint, frozen in the pixel structure of the horizon at $S_{\rm BH}=\kB A/4\lP^2$, encodes the informational content of that
+final state. The Bekenstein--Hawking entropy is not a measure of hidden interior degrees of freedom. It is the area of the last frame. \conjecture
+
+This picture is consistent with Hawking's final ``soft hair'' result~\cite{HawkingPerryStrominger2016} and offers a mechanism for it. Soft hair is, on this reading, the pixel
+structure of the last frame, written in zero-energy quantum excitations on the horizon surface. IAM explains why that structure must be there: the Landauer
+principle requires that every decoherence event be registered on an encoding surface, and the horizon is the last surface the projector could reach.
+\conjecture
+
+The information paradox, in this picture, is not a paradox about escaping information. It is a question about what it means for matter to ``enter'' a black
+hole at all. The answer IAM offers is: it does not. The projection stops. The entropy imprint remains. That imprint is slowly radiated away as Hawking
+radiation as the horizon shrinks --- not because information escapes from the interior, but because the last frame is being erased one pixel at a time, each
+erasure costing $\kB T_{\rm BH}\ln2$ of energy, exactly as Landauer requires. Summed over the horizon, those erasures cost $T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2$, the Smarr
+half of Chapter~\ref{ch:blackholes}. \interp
+
+\section{Black holes as encoding surfaces}\label{sec:bi_surfaces}
+\subsection{The reframing}
+\emph{Standard picture:} gravity collapses matter; extreme curvature creates a one-way membrane; nothing escapes.
+
+\emph{IAM picture:} gravitational decoherence accelerates during collapse; the information production rate exceeds local encoding capacity; the universe
+resolves the encoding deficit by creating a new surface. The horizon is not a barrier --- it is an encoding surface created by thermodynamic necessity.
+\conjecture
+
+This reframing has a specific consequence: the black-hole horizon is not the boundary between ``inside'' and ``outside.'' It is the storage medium. The
+information is not behind the horizon --- it is on the horizon.
+
+\subsection{The saturation condition}
+The Bekenstein--Hawking entropy $S_{\rm BH}=\kB A/(4\lP^2)$ is a surface quantity, not a volume quantity. The maximum information storable in any region is bounded
+by the area of its boundary (the holographic principle~\cite{tHooft1993,Susskind1995}), not its volume. On the IAM reading, the interior of a black hole has no
+independent degrees of freedom beyond those encoded on the horizon.
+
+This is the IAM answer to the information paradox stated as a premise correction rather than a mechanism: information does not enter the interior and
+require extraction. Information is written onto the horizon surface as matter crosses it, at the Landauer cost of $\kB T_{\rm BH}\ln2$ per bit. There is no
+interior information to recover. \conjecture\ The formation criterion itself, saturation of the bound and its equality with the hoop conjecture, is
+Chapter~\ref{ch:blackholes}, Eq.~\eqref{eq:bh_hoop}; the two regimes of the mechanism, self-regulating and runaway, are the table of
+Section~\ref{sec:bh_regimes}.
+
+\section{The information paradox read from its premise}\label{sec:bi_paradox}
+\subsection{The paradox and its premise}
+Hawking~\cite{Hawking1975} showed that black holes emit thermal radiation. Thermal radiation is random: it carries maximum entropy and no information about what produced
+it. If a black hole fully evaporates via thermal Hawking radiation, the information about its formation is gone. This violates quantum-mechanical
+unitarity~\cite{Hawking1976}.
+
+Every proposed resolution --- complementarity~\cite{SusskindThorlaciusUglum1993}, AdS/CFT~\cite{Maldacena1998}, firewalls~\cite{AMPS2013}, ER\,=\,EPR~\cite{MaldacenaSusskind2013}, the island
+formula~\cite{Penington2020,Almheiri2020} --- accepts that the information must be recovered from somewhere, and works out machinery to extract it.
+
+\subsection{The premise in question}
+\begin{keybox}[title={Proposition (no interior degrees of freedom) --- conjecture}]
+The interior of a black hole has no degrees of freedom independent of those encoded on the horizon surface.
+\end{keybox}
+\emph{Argument.} The Bekenstein--Hawking entropy $S_{\rm BH}=\kB A/(4\lP^2)$ scales with area, not volume. The holographic principle~\cite{tHooft1993} states that the maximum
+information content of any region is bounded by its boundary area. For a black hole, the boundary is the horizon. The interior is then the holographic
+projection of the boundary state, not an independent information storage system, and there is no interior information to be lost. \conjecture\ The
+argument promotes a bound on capacity to a statement about where degrees of freedom live; that step is the content of the holographic principle, which
+is established in anti-de Sitter space~\cite{Maldacena1998} and assumed here for the black holes of our universe.
+
+\subsection{Evaporation as the surface shrinking}
+If information is on the surface, then evaporation is the surface shrinking. As the black hole radiates:
+\begin{itemize}
+\item $M$ decreases; $A_{\rm BH}$ decreases; $S_{\rm BH}$ decreases.
+\item Each bit of surface entropy is paid off in the Hawking luminosity at the Landauer cost $\kB T_{\rm BH}\ln2$ (Chapter~\ref{ch:blackholes}, Section~\ref{sec:bh_bitrate}).
+\item The information is not ``escaping'' the interior --- the surface is transferring it to the outgoing radiation.
+\end{itemize}
+The radiation is thermal at each instant, but the temperature $T_{\rm BH}(M)$ rises as $M$ decreases, so the time series of Hawking emissions carries a systematic
+frequency shift. That shift records the evaporation history $M(t)$, which depends on the mass alone; it does not by itself carry the information about what
+fell in. If the information is in the radiation, it must be in correlations across time that a thermal spectrum at each instant does not show. \derived\ (the
+drift) \conjecture\ (correlations)
+
+On this reading no information is destroyed, no unitarity is violated, no firewall is required and no non-locality is needed: the paradox dissolves because
+its premise --- that information is interior --- is not correct. \interp\ What the reading does not supply is the calculation that would show it: the
+fine-grained entropy of the radiation, which for a unitary evaporation must rise and then fall to zero (the Page curve~\cite{Page1993}). The first-law entropy transfer
+of Chapter~\ref{ch:blackholes}, Eq.~\eqref{eq:bh_Str_closed}, rises monotonically to $S_{\rm BH,0}$ and reaches half of it at $0.646\,\tau_{\rm evap}$; it is a bound on the Page curve,
+not the Page curve itself (Fig.~\ref{fig:bh_transfer}). \openprob
+
+\subsection{Why the firewall does not arise}
+The AMPS argument~\cite{AMPS2013} shows that if late Hawking radiation carries information, quantum monogamy is violated: the outgoing radiation cannot be maximally
+entangled with both the early radiation (required for unitarity) and the infalling modes (required by the equivalence principle).
+
+The IAM picture eliminates one of the three parties. The infalling modes are not a separate system --- they are encoded on the horizon surface at the moment
+of crossing. There is no independent interior mode to participate in the monogamy paradox. The AMPS trilemma then has only two parties, which is not a
+paradox. \conjecture
+
+\section{The same reading in the two-horizon framework}\label{sec:bi_twohorizon}
+Hawking's original calculation suggested that information falling into a black hole is irretrievably lost upon evaporation, violating unitarity. The paradox
+arises from treating the black-hole horizon as a one-way membrane that destroys information.
+
+In the two-horizon framework of Chapter~\ref{ch:blackholes} (Section~\ref{sec:bh_twohorizons}) the paradox is read on three grounds. First, information is not destroyed --- it is
+transferred from a hot local encoding surface (the black-hole horizon) to a cooler global encoding surface (the cosmic horizon), exactly as heat transfers from a
+hot body to a cold reservoir. Second, the transfer obeys the second law: energy and information flow from hot to cold at the thermally limited rate
+$\Gamma_{\rm thermal}$. Third, the cosmic horizon is the final repository --- all locally encoded information migrates to the global ledger as the universe approaches
+thermodynamic equilibrium. \interp
+
+The reading is not that information escapes through subtle correlations in Hawking radiation~\cite{Page1993}. It is that information was never trapped: it sits on a
+thermal surface that radiates by ordinary thermodynamics, transferring its contents to a cooler surface at the rate set by the temperature difference.
+\interp\ As stated in Chapter~\ref{ch:blackholes} (Section~\ref{sec:bh_scope}), the framework does not claim to resolve the black-hole information paradox; the second law fixes the
+direction and rate of the coarse-grained flow, and says nothing about whether the fine-grained state is preserved.
+
+\section{Astrophysical consequences}\label{sec:bi_astro}
+\subsection{Early black holes}
+JWST has identified massive black holes at $z>7$, earlier than standard accretion models easily explain. In IAM, black holes are the universe's primary
+encoding infrastructure before large-scale structure formation makes the cosmic horizon dominant (Chapter~\ref{ch:blackholes}, Section~\ref{sec:bh_formation}; Chapter~\ref{ch:theoryinterp}).
+Early, massive black-hole formation is then not a puzzle but an expectation: the universe front-loads its encoding capacity because black holes are the most
+efficient encoding surfaces available in the early universe. \conjecture
+
+The IAM expectation is that early black-hole masses should correlate with the local information-production environment (density, interaction rate) rather
+than with accretion history alone. \conjecture\ It becomes a prediction when the collapse entropy of Table~\ref{tab:bh_seed} is computed for a given halo. \openprob
+
+\subsection{Cosmic censorship as a Landauer requirement}
+Penrose's cosmic censorship conjecture~\cite{Penrose1969} --- that naked singularities cannot form in generic collapse --- is an independent postulate in general relativity.
+In IAM it reads as a consequence of the Landauer principle: a naked singularity would be a region of unbounded information production with no encoding
+surface. Landauer's principle is not optional: information must be encoded. The universe must provide a horizon. On this reading cosmic censorship is
+thermodynamically enforced, not geometrically postulated. \conjecture
+
+\section{Comparison with existing approaches}\label{sec:bi_compare}
+\begin{table}[htbp]\centering\small
+\caption{The IAM reading beside existing approaches to the information problem. \interp}\label{tab:bi_compare}
+\begin{tabular}{p{0.2\textwidth}p{0.32\textwidth}p{0.4\textwidth}}\toprule
+approach & core mechanism & IAM reading\\\midrule
+complementarity~\cite{SusskindThorlaciusUglum1993} & observer-dependent description & simpler: the information is on the surface for all observers\\
+AdS/CFT~\cite{Maldacena1998} & the boundary encodes the bulk (anti-de Sitter) & the same conclusion, applied to the de Sitter universe we live in, without a dual theory\\
+firewall~\cite{AMPS2013} & drama at the horizon preserves unitarity & no independent interior degrees of freedom; the firewall is unnecessary\\
+ER\,=\,EPR~\cite{MaldacenaSusskind2013} & Hawking pairs linked by wormholes & no wormholes; ordinary thermodynamics\\
+island formula~\cite{Penington2020,Almheiri2020} & replica wormholes give a Page curve that turns over and falls to zero & no topology; the first-law transfer gives only the monotonic coarse-grained curve and its bound (Fig.~\ref{fig:bh_transfer}), not the turnover\\\bottomrule
+\end{tabular}
+\end{table}
+The IAM reading is the most economical of these: it requires no new mathematical structures, no exotic topology, no modifications to quantum mechanics, and
+no non-locality. It requires only that the holographic principle be taken seriously --- that the horizon surface is the storage medium, not a boundary
+concealing interior storage. It is also the least developed: the island formula computes the fine-grained entropy and obtains the turnover, and the IAM
+reading does not yet do so. \interp
+
+\section{Discussion}\label{sec:bi_discussion}
+Three statements have been set out. (1) In the black-body approximation the Stefan--Boltzmann luminosity of the horizon and the Hawking luminosity are one
+formula, and the horizon writes and erases bits at $\Gamma=c^3/(1920\,GM\ln2)$ (Chapter~\ref{ch:blackholes}). \derived\ (2) The information paradox changes character when the
+premise that information is interior is replaced by the holographic statement that information is on the surface. \interp\ (3) The first-law entropy
+transfer during evaporation follows analytically from the Landauer emission rate with no free parameters; it bounds the Page curve, reaching half the
+initial horizon entropy at $0.646\,\tau_{\rm evap}$, but is not the Page curve. \derived
+
+The structural link is the universal temperature formula $T=\hbar\kappa/(2\pi\kB c)$, the same $2\pi$ at the black-hole, cosmic and Rindler horizons
+(Chapter~\ref{ch:blackholes}, Section~\ref{sec:bh_thermo}; Chapter~\ref{ch:bekenstein}). It is what lets one accounting run from the horizon of a black hole to the horizon of the universe.
+IAM reads cosmology (Part~\ref{part:2}), the particle scale (Chapter~\ref{ch:particle}) and black holes with the same mechanism, seen from different angles. \interp
+
+Two open directions follow from that link. First, the encoding throughput $\Gamma_{\rm BH}=c^3/(1920\,GM\ln2)$, a Landauer rate at a horizon, is the natural template
+for deriving the $\alpha^{5/2}$ suppression in the electron-mass relation of Chapter~\ref{ch:particle}, where that suppression is still an open problem. Second, the $2\pi$
+in $T_{\rm BH}$ is the same Euclidean $2\pi$ as in $T_{\rm GH}$, and the prefactor $(2\pi)^{-1/10}$ of the electron relation, which was found by search, may be that same
+$2\pi$. Completing either derivation would deepen the black-hole thermodynamic framework and the particle-scale one at once. \conjecture
+
+One near-term consequence of the picture concerns the two sectors. In the dual-sector picture photons ($\Sigma=1$) do not couple to the record term and
+matter does. Decoherence of matter superpositions should therefore carry a component that scales with the local gravitational environment, and photonic
+superpositions should not. \conjecture\ For present quantum hardware the gravitational times are far beyond reach under any model (Chapter~\ref{ch:gravdec},
+Section~``Where the two sectors meet''), so the test needs massive superpositions.

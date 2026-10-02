@@ -28,6 +28,15 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | T16 | | §12.1 | Δχ² +1.43/+1.34; µ0 = 0.033 ± 0.125 (1.3σ) | final chains: 0.039 ± 0.125 (1.4σ); Δχ² from final extraction | confirmed | `theory/THEORY_CHECK.md` #13 |
 | T17 | | Eq. 75, §6.6 | ∫ R/(T_H A_H) da′; coefficients within 5–10 % | per dt (dt = da/aH); within 5 % for D^(7/2) | confirmed | `theory/THEORY_CHECK.md` #14 |
 | T18 | | §5.3, §10.5, §11.5, Fig. 1, §11.2 | PS n ≈ 2.5–4; 1-loop −2.5 %; MGCAMB 1–2.5 %; H_IAM > H_ΛCDM | not derived / not reproduced / 2.8 % max / matter-sector rate | confirmed | `theory/THEORY_CHECK.md` #15 |
+| T19 | IAM_Theory_Paper | Eq. 22–23 | −dE = 4π r̃_A²(ρ+P)H dt | 4π r̃_A³(ρ+P)H dt (Cai & Kim 2005); r̃_A² gives Ḣ = −4πG(ρ+P)H | verify_theory_derivations.py §5 |
+| T20 | IAM_Theory_Paper | Eq. 11 | T_ab = (ħη/2π)R_ab + f g_ab, f = −R/2+Λ | T_ab = (ħη/2π)(R_ab + f g_ab) | §2 |
+| T21 | IAM_Theory_Paper | §8.3 | λ̇ = +(3H0²/8πG)βe^φ | d(a³λ)/dt = −a³ρ_info (λ̇ + 3Hλ = −ρ_info) | §9 |
+| T22 | IAM_Theory_Paper | Eq. 83 | RHS −(7/2)(3/2)H0²Ω_m(a)D1²; "(3/2)H0²Ω_m(a)" | RHS −4πGρ̄D1², 4πGρ̄ = (3/2)H0²Ω_m a⁻³ (7/2 contradicts D2 → −3/7 D1²) | §13 (EdS sympy) |
+| T23 | IAM_Theory_Paper | Eq. 72 | f_coll ST 0.593, Tinker 0.646, Ω_m f_coll 0.195 (+24 %) | recomputed 0.64 / 0.71 (EH no-wiggle, M > 10⁶ M⊙), 0.20–0.22 (+27–41 %), η_vir 0.79/0.71 | §11 (DISCREPANCY line) |
+| T24 | IAM_Theory_Paper | Table 2, §10.3, Eq. 77 | α/β 0.76/0.87, 0.95/1.05, 1.04/1.15, PS 1.04/1.18; crossings 3.5/3.3; ST σ*=1.2 0.925/1.009 | with R = Ω_m(a)fD^n per Hubble time, accumulated per dt: 0.66/0.74, 0.93/1.02, 1.06/1.16; crossings 3.77/3.42; ST σ*=1.2 0.75/0.89. Literal Eq. 28 diverges from a = 0 | §12; T17 should be revised ("within 5 %" → constant 7 %, 1/a 2 %) |
+| T25 | IAM_Theory_Paper | §11.5 | k_nl 0.254 (IAM) / 0.257 (ΛCDM) "at z = 1", IAM smaller | these are z = 0: 0.255 / 0.251 with the same early amplitude (IAM larger); z = 1: 0.760 / 0.759 | §13 |
+| T26 | IAM_Theory_Paper | Eq. 45 | exp(∫ (H/a) da/H) | exp(∫ (H/a) da/(aH)) (dt = da/aH); result unchanged | §7 |
+| T27 | IAM_Theory_Paper | §11.1 | δφ = 0 "exactly, at all orders in linear perturbation theory" | δφ = 0 in linear (first-order) perturbation theory | source's own §11.1 caveat |
 | **Late-Time Growth Suppression** (`Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework…pdf`, 19 Feb 2026) |||||||
 | LG1 | | Eq. 6 | µ = 1 + µ0 Ω_DE(a) | µ = 1 + µ0 Ω_DE(a)/Ω_Λ (MGCAMB `mgcamb.f90` l. 761) | confirmed | `chains/LATE_TIME_GROWTH_CHECK.md` #1 |
 | LG2 | | Tables 1–5, Fig. 4, abstract | Δχ² +1.43/+1.34/+2.32/+1.58; free µ0 +0.006/+0.024/+0.002/−0.005 ± σ | final chains: Δχ² +0.96/+0.56/+1.73/+1.58; free µ0 as median and 90 % bound (posterior reaches the +0.2 prior edge) | confirmed | `LATE_TIME_GROWTH_CHECK.md` #2, #9 |
@@ -149,6 +158,10 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | L16 | IAM_Law | §14.7 | M = E/(k_BT ln2) = 30.2 via the retired cell drive symbol; A ≥ 1 breach | canon M = E/(k_BT) = 20.94; that symbol and the breach criterion retired | confirmed | `theory/IAM_LAW_CHECK.md` |
 | L17 | IAM_Law | Eq. 33 | β_m E(a) | β_m E(a) H0² | confirmed | `theory/IAM_LAW_CHECK.md` #17 |
 | L18 | IAM_Law | Table 2; §13 A3 vs §12.2 | Δχ² prediction "≤ 0"; N-body 0.3 % vs 1.0 % | Δχ² = +0.54 with no added parameter; N-body row withdrawn | confirmed | #18 |
+| L19 | IAM_Law | §5.5 (Eq. 13 text) | "For V ∝ rⁿ, Euler's theorem … requires 2⟨K⟩ + n⟨V⟩ = 0" | 2⟨K⟩ = n⟨V⟩ (for n = −1 the printed form gives 2⟨K⟩ = ⟨V⟩, the wrong sign; Eq. 13 itself is right) | [V3]; book `p1_03_virial_law.tex:21` |
+| L20 | IAM_Law | §7.2–7.3, Eqs. 38–39 | friction form (Eq. 38) and µ form (Eq. 39) presented as the same | they are different implementations: ΔD/D today −0.67 % (friction) vs −0.78 % (G_eff = µG) vs −1.87 % (whole equation on H_m); µ is a mapping | [V14]; C3 `app:der:growth` |
+| L21 | IAM_Law | §6.1(C), §14.4 | "one bit per 4ℓ_P²" | one nat per 4ℓ_P²; one bit 4 ln2 ℓ_P² (as T9 for the Theory paper; IAM_LAW_CHECK item 5 lists only κ) | [V6]; THEORY_CHECK.md l. 39–40 |
+| L22 | IAM_Law | §14.6 | phantom crossing in DESI w0wa as an artifact of a dual-sector fit | not carried: `p2_09_sector_tension.tex:87` finds the phantom crossing is not produced by the informational term | p2_09 |
 | **Missing Satellites** (`Missing_Satellites.pdf`, Mar 2026) — book inclusion is the author's decision |||||||
 | M2 | | §4.4 | "raw prediction 10^6.4, ~100× below" | Eq. 11 gives 10^8.44 at 4 km/s; offset not in the paper's equation | confirmed | same |
 | M3 | | §4 Mechanism B | no halo virialises below σ_crit ≈ 4 km/s | 25 of 54 MW satellites below 4 km/s today; test against σ at infall is open | author | same |

@@ -1,0 +1,131 @@
+== 1. Decoherence and Landauer (P1-P4)
+   <E1|E2> = 1.0: rho_S off-diagonal = 0.4583 (c1 c2 <E1|E2> = 0.4583); diagonal 0.30, 0.70
+   <E1|E2> = 0.1: rho_S off-diagonal = 0.0458 (c1 c2 <E1|E2> = 0.0458); diagonal 0.30, 0.70
+   <E1|E2> = 0.0: rho_S off-diagonal = 0.0000 (c1 c2 <E1|E2> = 0.0000); diagonal 0.30, 0.70
+[PASS] P2 reduced density matrix diagonal when <Ei|Ej> = delta_ij: off-diagonal -> 0
+[PASS] P3 I = log2 N: N = 8 gives 3 bits
+   P4 Landauer at 300 K: kT ln2 = 2.871e-21 J
+
+== 2. Jacobson (P5-P12)
+[PASS] P10 kappa cancels in delta Q = T delta S: T_kk = Rkk*eta*hbar/(2*pi)
+[PASS] P11 f from conservation + contracted Bianchi: f = Lambda - R/2 (constant of integration Lambda)
+[PASS] P14-P15 eta = c^3/(4 hbar G): eta = c**3/(4*G*hbar)
+[PASS] P12 G = c^3/(4 hbar eta): G = c**3/(4*eta*hbar)
+[PASS] P15 eta = 1/(4 l_P^2) numerically: eta = 9.5702e+68 m^-2, 1/(4 l_P^2) = 9.5702e+68 m^-2
+[PASS] P15 1/4 = 2pi/8pi: 
+   printed c^4/(4 hbar G) = 2.869e+77 (units m^-3 kg s^-2 ... not m^-2); c^3/(4 hbar G) = 9.570e+68 m^-2
+
+== 3. The 2pi: Euclidean Rindler cone (P13)
+   kappa = 0.5: period 2pi/kappa -> circumference/(2 pi rho) = 1.000000 (1 = no conical defect)
+   kappa = 1.0: period 2pi/kappa -> circumference/(2 pi rho) = 1.000000 (1 = no conical defect)
+   kappa = 3.0: period 2pi/kappa -> circumference/(2 pi rho) = 1.000000 (1 = no conical defect)
+[PASS] P13 smooth iff tau ~ tau + 2pi/kappa: T = hbar kappa/(2 pi k_B) (kappa in s^-1)
+
+== 4. One unit of entropy per 4 l_P^2 (P16)
+[PASS] P16 dA_min = 4 hbar G/c^3 for every kappa: dA_min = 4*G*hbar/c**3
+[PASS] P16 eta dA_min = 1: one nat (k_B) per 4 l_P^2
+   one bit = k_B ln2 occupies 4 ln2 l_P^2 = 2.773 l_P^2 = 7.243e-70 m^2
+
+== 5. Cai-Kim (P17-P26)
+[PASS] P18 S_geo = pi/(G H^2): pi/(G*H**2)
+[PASS] P21 dS/dH = -2 pi/(G H^3): -2*pi/(G*H**3)
+[PASS] P20 Misner-Sharp r_A/2G = (4pi/3) rho r_A^3 with H^2 = 8 pi G rho/3: 
+[PASS] P22-P24 with r_A^3: Hdot = -4 pi G (rho+P): Hdot = 4*pi*G*(-P - rho)
+[PASS] P22 with r_A^2 (as printed) does NOT give P24: r_A^2 gives Hdot = -4*pi*G*H*(P + rho) (one extra power of H)
+[PASS] P25 H^2 = (8 pi G/3) rho + const: integration constant = Lambda/3
+   P26 cost of one bit on today's horizon: k_B T_H ln2 = hbar H0 ln2/(2 pi) = 2.541e-53 J (H0 = 67.4)
+
+== 6. Exponent n (P32-P41)
+[PASS] P37 dS/dln a ∝ a^(n-9/2): 
+[PASS] P38 dS/da ∝ a^(n-11/2): 
+[PASS] P39 S ∝ a^(n-9/2)/(n-9/2): a**(n - 9/2)/(n - 9/2)
+[PASS] P41 n - 9/2 = -1  =>  n = 7/2: n = 7/2; n = 5/2 gives S ∝ a^-2
+[PASS] P42 n = 7/2: S ∝ -1/a: 
+   n = 2.5: power of dS/dln a, matter era (0.01-0.1) -2.02; late (0.25-1) -2.42
+   n = 3.0: power of dS/dln a, matter era (0.01-0.1) -1.52; late (0.25-1) -1.99
+   n = 3.5: power of dS/dln a, matter era (0.01-0.1) -1.02; late (0.25-1) -1.57
+   n = 4.0: power of dS/dln a, matter era (0.01-0.1) -0.53; late (0.25-1) -1.14
+[PASS] P41 numeric: n = 7/2 gives power -1 in the matter era: -1.023
+
+== 7. Activation function (P43-P50)
+[PASS] P44-P45 rho_info ∝ exp(-1/a): Eq(rho(a), C1*exp(-1/a))
+[PASS] P47 E(1) = exp(C-1) = 1 => C = 1: 
+[PASS] P49 D/A_H ∝ a/a^3 integrates to -1/a: 
+[PASS] P50 E(z) = exp(-z) = e*e^-(1+z): 
+   E(z=10) = 4.54e-05; E(z=2) = 0.135; E(z=1) = 0.368; E(a=1e-3) = exp(-999) = 0.0e+00; E(a->inf) = e = 2.718
+
+== 8. Dual sector and mu (P53-P60, P82)
+[PASS] P55 (8 pi G/3) rho_info = beta E H0^2: 
+[PASS] P31/P71 beta_m = Omega_m/2: 0.15765 (Omega_m = 0.3153); with 0.315: 0.1575
+[PASS] P59 mu0 = -beta/(1+beta): mu(0) = 0.8638, mu0 = -0.1362
+   P82 mu(z=0.5) = 0.948; mu(z=1) = 0.982; mu(z=3) = 0.9996
+   MGCAMB form vs exact: equal at z = 0 (+0.000 %); largest gap -2.82 % at z = 0.64
+
+== 9. Variational form (P61-P67), minisuperspace with lapse N
+[PASS] P64 constraint term is independent of the lapse: dL/dN = -a^3 rho_info: the Friedmann (Hamiltonian) constraint gains rho_info only
+   P-var(phi): E-L = (-rho0*a(t)*exp(phi(t)) - a(t)*Derivative(lambda(t), t) - 3*lambda(t)*Derivative(a(t), t))*a(t)**2 = 0  =>  d(a^3 lambda)/dt = -a^3 rho_info, i.e. lambda_dot + 3 H lambda = -rho_info
+[PASS] P-var(phi) sign and 3H lambda term: 
+[PASS] P-var(lambda) gives phi_dot = H/a: 
+[PASS] P62 phi = 1 - 1/a gives phi_dot = H/a: 
+[PASS] P67 w_info = -1 - 1/(3a): w(1) = -4/3
+[PASS] P85 continuity identity -3H(1+w) = H/a: 
+
+== 10. Combined dark-energy equation of state (P68, P86)
+[PASS] P68 w_eff(1) = -(1 - Om/3)/(1 - Om/2): -1.0623 (Om 0.315); -1.0624 (Om 0.3153)
+[PASS] P68 dw/da(1) = Om^2/(3(2-Om)^2): w_a = -dw/da = -0.0116
+   least-squares CPL over 0.5 <= a <= 1: w0 = -1.065, wa = +0.017
+
+== 11. Coupling (P69-P73)
+[PASS] P69-P71 rho_info(1) = rho_m/2 => beta_m = Om/2: 0.1575 (0.315), 0.15765 (0.3153)
+   sigma(1e6 Msun) = 8.11; f_coll ST = 0.636; Tinker (Delta = 200m) = 0.706
+[DISCREPANCY] P72: recomputed f_coll ST 0.636 / Tinker 0.706 vs source-printed 0.593 / 0.646 (7-9 % apart; method of the source not given). p2_03_theory.tex as rebuilt in this delivery prints the recomputed 0.64 / 0.71 (Eq. th:fcoll); the chapter at 41f7646 printed 0.593 / 0.646 / 24 %. Open: errata row needed.
+   Omega_m f_coll recomputed: ST 0.200 (+27 % vs Omega_m/2), Tinker 0.223 (+41 %); eta_vir = 1/(2 f_coll) = 0.79 / 0.71
+   Omega_m f_coll (f = 0.62) = 0.195 = 24 % above Omega_m/2; eta_vir = 1/(2 f_coll) = 0.806
+
+== 12. Accumulated record fitted to exp(alpha - beta/a) (Table: source per Hubble time, accumulated per unit time)
+   D^2 Om(a) f, no horizon factor                               alpha = 0.85  beta = 0.96  r = 0.993
+   D^2 Om(a) f / (T_H A_H)                                      alpha = 0.53  beta = 0.59  r = 0.995
+   D^2.5 Om(a) f / (T_H A_H)                                    alpha = 0.66  beta = 0.74  r = 0.995
+   D^3 Om(a) f / (T_H A_H)                                      alpha = 0.79  beta = 0.88  r = 0.994
+   D^3.5 Om(a) f / (T_H A_H)                                    alpha = 0.93  beta = 1.02  r = 0.994
+   D^4 Om(a) f / (T_H A_H)                                      alpha = 1.06  beta = 1.16  r = 0.994
+   Press-Schechter, sigma* = 1.0, Om(a) dF/dln a / (T_H A_H)    alpha = 1.06  beta = 1.24  r = 0.983
+   Sheth-Tormen, sigma* = 1.0, Om(a) dF/dln a / (T_H A_H)       alpha = 0.90  beta = 1.07  r = 0.983
+   Press-Schechter, sigma* = 1.2, Om(a) dF/dln a / (T_H A_H)    alpha = 0.86  beta = 1.02  r = 0.982
+   Sheth-Tormen, sigma* = 1.2, Om(a) dF/dln a / (T_H A_H)       alpha = 0.75  beta = 0.89  r = 0.982
+   Press-Schechter, sigma* = 1.5, Om(a) dF/dln a / (T_H A_H)    alpha = 0.69  beta = 0.82  r = 0.980
+   Sheth-Tormen, sigma* = 1.5, Om(a) dF/dln a / (T_H A_H)       alpha = 0.62  beta = 0.73  r = 0.981
+   alpha = 1 at n = 3.77; beta = 1 at n = 3.42
+[PASS] Table: both coefficients cross unity between n = 3 and 4: alpha 3.77, beta 3.42
+[DISCREPANCY] Table 2: source-printed (alpha, beta) 0.42/0.49, 0.76/0.87, 0.95/1.05, 1.04/1.15, PS 1.04/1.18 not reproduced; recomputed rows above printed in the book
+[DISCREPANCY] Eq. 77: source ST sigma*=1.2 exp(0.925 - 1.009/a) not reproduced; recomputed 0.75/0.89 (sigma* 1.2), beta = 1 between sigma* 1.0 and 1.2
+   literal Eq. Idot (rho_m D^n f H) accumulated from a = 0: diverges for n <= 9/2 (∫ a^(n-11/2) da); only slopes are defined -> section 6 test
+
+== 13. Perturbations: growth with three implementations (P78-P81)
+   L1 (G_eff = mu G): Delta D/D (z=0) = -0.78 %
+   L2 (friction 2 H_m): Delta D/D (z=0) = -0.67 %
+   EdS check of D2: D2/D1^2 at a = 1e-2 (LCDM) = -0.4286 (-3/7 = -0.4286); today -0.4321
+   z = 0.0: L2 D2 ratio (same early amplitude) 0.9891; B ratio same early amplitude 0.9736; same amplitude today 1.0000
+   z = 0.3: L2 D2 ratio (same early amplitude) 0.9953; B ratio same early amplitude 0.9885; same amplitude today 1.0154
+   z = 0.5: L2 D2 ratio (same early amplitude) 0.9973; B ratio same early amplitude 0.9934; same amplitude today 1.0204
+   z = 1.0: L2 D2 ratio (same early amplitude) 0.9993; B ratio same early amplitude 0.9983; same amplitude today 1.0254
+[PASS] P83 corrected source -4 pi G rho D1^2 gives D2 = -(3/7) D1^2 in EdS: c2 = -3/7; printed factor 7/2 gives -3/2
+[PASS] P84 F2(k,-k) = 0 and F2(k,k) = 2: momentum conservation and the collinear limit
+   k_nl(z = 0.0): LCDM 0.251, IAM 0.255 h/Mpc (+1.2 %)
+   k_nl(z = 0.3): LCDM 0.342, IAM 0.344 h/Mpc (+0.6 %)
+   k_nl(z = 1.0): LCDM 0.759, IAM 0.760 h/Mpc (+0.1 %)
+   k_nl(z = 2.0): LCDM 2.416, IAM 2.417 h/Mpc (+0.0 %)
+[DISCREPANCY] k_nl: source 0.254 (IAM) / 0.257 (LCDM) 'at z = 1' matches z = 0 (0.255 / 0.251 here, IAM larger with the same early amplitude); z = 1 gives 0.760 / 0.759
+[DISCREPANCY] D2 ratios: source 1.014/1.052/1.075 (z 0/0.5/1) not reproduced with Eq. 83 corrected; L2 form, same early amplitude: see z rows above (T5)
+
+== 14. Observational numbers (P87, Table 4, free mu0)
+   P87 H0_matter = 67.16 sqrt(1 + beta_m) = 72.26; 67.161 -> 72.26
+[PASS] P87 sirens: 
+   free mu0 = 0.039 +/- 0.125: prediction -0.136 at 1.4 sigma; DESI FS mu0 = 0.11 (+0.45/-0.54): 0.46 sigma (lower error)
+
+== 15. Two horizons (P88-P90, carried in Part 5)
+[PASS] P89 S_BH/A at R_s = c^3/(4 hbar G): 
+   P90 M_eq = c^3/(4 G H0) = 2.324e+22 Msun (H0 = 67.4); Gamma = P/(kT ln2) = c^3/(1920 G M ln 2) (symbolic):
+[PASS] P90 Gamma: 
+
+FAILURES: 0   OPEN DISCREPANCIES WITH SOURCE VALUES: 5

@@ -1,0 +1,147 @@
+scipy.constants G = 6.6743e-11  hbar = 1.0545718176461565e-34  lP = 1.616255e-35 m
+
+[V1] Cost per bit (Eqs. law, epochcost)
+  T_H(H0=67.16) = 2.6459e-30 K; k_B T_H ln2 = 2.5321e-53 J = hbar H ln2/2pi: OK
+  Landauer at 300 K: k_B T ln2 = 0.01792 eV
+  T_BH = hbar c^3/(8 pi G M k_B) decreases with M: OK
+
+[V2] Decoherence (Eqs. entangle, rhodiag) and I = log2 N
+  overlap 1: pure state, Tr rho^2 = 1.000; overlap 0: diagonal, off-diagonal max = 0.0e+00 OK
+  diagonal = |c_i|^2, trace 1: OK
+  I = log2 N for N = 2, 4, 8: [np.float64(1.0), np.float64(2.0), np.float64(3.0)]
+
+[V3] Virial theorem from Euler's theorem; binding identity
+  r.gradV = -1 V for V = r^-1: OK
+  r.gradV = +1 V for V = r^1: OK
+  r.gradV = +2 V for V = r^2: OK
+  2<K> = k<V>, k = -1  =>  V = -2*K OK
+  printed form 2<K> + n<V> = 0 with n = -1 gives V = 2*K (wrong sign; book uses 2<K> = k<V>)
+  Q = -E_f = <K> = |<V>|/2: OK
+  hydrogen: <K> = 13.606 eV, <V> = -27.211 eV, photon from rest = 13.606 eV
+
+[V4] Euclidean Rindler horizon: period 2pi/kappa
+  no conical singularity at rho = 0 requires P = 2*pi/kappa OK
+  T = hbar/(k_B P) = hbar kappa/(2 pi k_B): OK
+  Unruh T for a = 9.81 m/s^2: hbar a/(2 pi c k_B) = 3.978e-20 K
+
+[V5] Jacobson construction
+  X_ab k^a k^b = 0 for all null k  =>  X = f g: OK
+  Raychaudhuri, first order: dtheta/dlambda = -R_kk: OK
+  hbar eta/2pi = c^3/8piG  =>  G = c^3/(4 hbar eta): OK
+  eta = c^3/(4 hbar G) = 9.570183e+68 m^-2 = 1/(4 lP^2) = 9.570183e+68: OK
+  dimensions: [c^3/(hbar G)] = m^-2;  [c^4/(hbar G)] = m^-1 s^-1 (printed c^4 form is not an inverse area)
+  R_00 = eps Lap(Phi) to first order (units c = 1): OK
+  trace-reversed field equation for dust: R_00 = 4 pi G rho  => Lap Phi = 4 pi G rho (8pi = 2 x 4pi): OK
+
+[V6] Minimum area per unit of entropy
+  first law d(Mc^2) = kappa c^2 dA/(8 pi G): OK
+  dA_min = 4*G*hbar/c**3 = 4 lP^2, independent of kappa: OK
+  eta * dA_min = 1.000000 (one unit k_B, one nat); one bit: 4 ln2 lP^2 = 2.7726 lP^2
+
+[V7] Cai-Kim: Friedmann equations from the apparent horizon (hbar = c = k_B = 1)
+  T_H dS_geo/dt = -Hdot/(G H^2): OK
+  -dE = T_H dS_geo  =>  Hdot = -4 pi G (rho + P): OK
+  with continuity, d/dt(H^2 - 8piG rho/3) = 0 (Lambda a constant of integration): OK
+  Misner-Sharp energy r_A/2G = (4pi/3) r_A^3 rho on H^2 = 8piG rho/3: OK
+
+[V8] The record entropy in the first law
+  Hdot = -4piG(rho+P) + (G/2pi) H^3 Sdot_info: OK
+  for rho_x + P_x = -rho_x/(3a) (w = -1 - 1/3a): Sdot_info = 8*pi**2*rho_x/(3*H**3*a) OK
+  dS_info/dln a at a = 1 = pi*beta_m/(G*H_0**2) = beta_m S_geo(1): OK
+  H0 = 67.16: S_geo = 2.282e+122 k_B; beta_m S_geo = 5.19e+121 bits per e-fold
+  H0 = 67.36: S_geo = 2.268e+122 k_B; beta_m S_geo = 5.16e+121 bits per e-fold
+
+[V9] Exponent n of the rate law
+  dS/dln a ~ a^(n - 9/2): OK
+  S ~ a^(n-9/2)/(n-9/2): OK
+  n - 9/2 = -1  =>  n = 7/2 OK
+  printed n = 5/2 gives S ~ a^ -2 (not a^-1)
+  surface-density form: rho_m D^(n-1) f/(T_H a) ~ a^(n-7/2), constant only for n = 7/2: OK
+  full LCDM (Omega_r = 9.1e-5): n = 2.5: power of dS/dln a, a 0.01-0.1: -2.02;  a 0.25-1: -2.42
+  full LCDM (Omega_r = 9.1e-5): n = 3.0: power of dS/dln a, a 0.01-0.1: -1.52;  a 0.25-1: -1.99
+  full LCDM (Omega_r = 9.1e-5): n = 3.5: power of dS/dln a, a 0.01-0.1: -1.02;  a 0.25-1: -1.57
+  full LCDM (Omega_r = 9.1e-5): n = 4.0: power of dS/dln a, a 0.01-0.1: -0.53;  a 0.25-1: -1.15
+  n = 7/2 matter era within 0.05 of -1: OK
+  Press-Schechter peak height nu = delta_c/(sigma D): dln nu/dln D = -1 OK
+
+[V10] Activation function
+  int_1^a da'/a'^2 = 1 - 1/a: OK
+  int_0^a diverges: OK
+  E(z) = e^-z: OK  E(1) = 1: OK  E(a->0) = 0: OK  E(inf) = e: OK
+  dE/da = E/a^2 > 0: OK
+  E'' = 0 at a = [1/2]  d(E/a)/da = 0 at a = [1]
+  phi = 1 - 1/a obeys phidot = H/a: OK
+  E at a = 1e-3: 0.0 ; 10/50/90 % of today at z = [np.float64(2.3), np.float64(0.69), np.float64(0.11)]
+
+[V11] Constrained action, minisuperspace
+  dN: H^2 = (8piG/3)(rho_m + rho_L + rho_0 beta_m e^phi): OK
+  lambda absent from the dN equation: OK
+  dlambda: phidot = adot/a^2 = H/a: OK
+  dphi: d(lambda a^3)/dt = -a^3 rho_0 beta_m e^phi: OK
+  da (with dphi, dlambda): record sector acts with P_info = -rho_info(1 + 1/(3a)): OK
+
+[V12] w_info from continuity
+  w = -1 - (1/3) dln rho/dln a = -1 - 1/(3a): OK [-1.667, -1.333, -1.167]
+
+[V13] beta_m, mu(a), Hubble rates
+  beta_m = Omega_m/2 = 0.15765: OK
+  z = 0: mu = 0.8638, H_m/H = 1.0759
+  z = 0.2: mu = 0.9050, H_m/H = 1.0512
+  z = 0.3: mu = 0.9218, H_m/H = 1.0415
+  z = 0.5: mu = 0.9482, H_m/H = 1.0270
+  z = 0.7: mu = 0.9661, H_m/H = 1.0174
+  z = 1: mu = 0.9822, H_m/H = 1.0090
+  z = 2: mu = 0.9977, H_m/H = 1.0012
+  z = 3: mu = 0.9996, H_m/H = 1.0002
+  mu(1) = 1/(1+beta_m) = 0.8638; mu0 = -beta/(1+beta) = -0.13618: OK
+  sqrt(1+beta_m) = 1.07594; 67.16 x = 72.26: OK
+  67.16 vs Planck 67.36 +- 0.54: -0.37 sigma; 72.26 vs SH0ES 73.04 +- 1.04: -0.75 sigma
+  siren Palmese 2024 75.46: from 67.16 +1.54 sigma, from 72.26 +0.59 sigma
+  siren Hotokezaka 2019 68.9: from 67.16 +0.38 sigma, from 72.26 -0.71 sigma
+  siren Abbott 2017 70.0: from 67.16 +0.36 sigma, from 72.26 -0.19 sigma
+  Weyl tensor of flat FRW (g = a(tau)^2 eta), all 256 components zero: OK
+
+[V14] Linear growth: three implementations of the record term
+  Delta D/D today: (i) G_eff = mu G -0.78 %, (ii) friction 2H_m -0.67 %, (iii) whole equation on H_m -1.87 %
+  matches -0.78 / -0.67 / -1.87: OK
+
+[V15] Euclid sensitivity: rerun of verify_euclid_template.py
+  IAM f sigma8 deficit %: [4.25 2.17 1.35 0.41]
+  template (mu0 = -0.136) deficit %: [6.19 4.14 3.14 1.62]
+  spectroscopic bins 0.9-1.7   template-equivalent mu0 = -0.031 | /0.04 = 0.8 sigma | /0.23 = 0.13 sigma | /0.01 = 3 sigma
+  photometric range 0.2-2.0    template-equivalent mu0 = -0.062 | /0.04 = 1.5 sigma | /0.23 = 0.27 sigma | /0.01 = 6 sigma
+  all 0-2                      template-equivalent mu0 = -0.072 | /0.04 = 1.8 sigma | /0.23 = 0.31 sigma | /0.01 = 7 sigma
+  template script ran to completion (its own assert on f sigma8): OK
+
+[V16] Holographic saturation, M_eq, Gamma
+  S_BH/(4 pi r_s^2) = k_B c^3/(4 hbar G) = k_B/(4 lP^2): OK
+  T_BH = T_H  =>  M_eq = c**3/(4*G*H) OK
+  M_eq(H0 = 67.16) = 2.332e+22 Msun
+  M_eq(H0 = 67.4) = 2.324e+22 Msun
+  T_BH/T_H = M_eq/M: OK
+  P = sigma A T^4 = hbar c^6/(15360 pi G^2 M^2): OK
+  Gamma = P/(k_B T ln2) = c^3/(1920 G M ln2): OK
+  Gamma(1 Msun) = 152.5 bits/s
+
+[V17] Vacuum term identity and Omega_b/Omega_m relation
+  (2/pi)(lP/lH)^2 sqrt(OL) Ob/Om = (3 OL/8pi)(lP/lH)^2  =>  Ob/Om = (3/16) sqrt(OL): OK
+  T_dS/T_H = sqrt(0.6846) = 0.8274
+  rho_L/rho_vac = (3 OL/8pi)(lP/lH)^2 at H0 = 67.4, OL = 0.6846: 1.1332e-123
+  baseline (2/pi)(lP/lH)^2 Ob/Om (Ob 0.0493, Om 0.3153) = 1.3804e-123 = 1.218 x measured; with sqrt(OL): 1.1421e-123 (+0.79 %)
+  matches 1.380e-123, 1.22x, 1.142e-123, +0.8 %: OK
+  eta = 273.9e-10 x 0.02232 = 6.1134e-10; prior width ratio (0.040-0.010)/(0.025-0.020) = 6.0
+
+[V18] Mahaffey number
+  cell: 54 kJ/mol at 310.15 K: M = 20.94, /ln2 = 30.2: OK
+  black hole: Mc^2/(k_B T_BH) = 8 pi G M^2/(hbar c) = 2 S_BH/k_B: OK
+  1 Msun: 2.10e+77; 4.3e6 Msun: 3.88e+90
+
+[V19] Lensing potential
+  Psi = Phi  =>  (Psi + Phi)/2 = Psi (Sigma = 1): OK
+  Omega_m^(m)/Omega_m = H^2/H_m^2 = mu: OK
+
+[V20] eta in Planck units and 1/4 = 2pi/8pi
+  2 pi / 8 pi = 1/4 OK
+  lP = 1.61626e-35 m; 4 lP^2 = 1.0449e-69 m^2
+
+FAIL count: 0
