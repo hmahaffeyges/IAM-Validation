@@ -18,6 +18,16 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | T6 | | §12.3 Fig. 2 | "Δχ² = +0.75" | label from the final chain extraction (Planck only +0.96) | confirmed | `tests/plot_cl_comparison.py` line 319 (typed text) |
 | T7 | | §12 | σ8 0.813 → 0.800 (1.6 %) | per level: L1 0.814 → 0.802 (−1.6 %), L2 0.809 → 0.800 (−1.1 %) | confirmed | `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv` |
 | T8 | | §13.5 | "potential … actualized" | physics terms (records, low-entropy state) | confirmed (wording rule) | `part5_drafts/p5_theory_interpretation.tex` |
+| T9 | | Eqs. 12, 15, 16 | G = 1/(4ħη); η = c⁴/(4ħG); δA_min via κ = c²/ℓ_P; one bit per 4ℓ_P² | G = c³/(4ħη); η = c³/(4ħG); δA_min = 4ħG/c³ for any κ; one nat per 4ℓ_P² (bit: 4 ln2 ℓ_P²) | confirmed | `theory/THEORY_CHECK.md` #6 |
+| T10 | | Eq. 58 | βE(a) | βE(a)H0² | confirmed | `theory/THEORY_CHECK.md` #7 |
+| T11 | | Abstract, §9.2, §16 | β_m verified to 0.3 % (N-body mass functions, MCMC) | β_m fixed; identity via η_vir definition; remove | confirmed | `theory/THEORY_CHECK.md` #8 |
+| T12 | | §9.4, §15.5 | fitted β_m shifts with Ω_m | β_m is not fitted; test via free µ0 / growth data | confirmed | `theory/THEORY_CHECK.md` #9 |
+| T13 | | §11.4, Fig. 1b, §15.2, §15.6 | f(R) Σ > 1; unique; DGP scale-dependent | f(R) Σ = 1; sDGP µ<1, Σ=1 (ghost); DGP scale-independent (quasi-static) | confirmed | `theory/THEORY_CHECK.md` #10 |
+| T14 | | §12.6 | 75.5 cited to Abbott 2017 / Nicolaou 2023, "0.5σ" | 2024 afterglow analysis; other analyses 68–70; consistent with both rates | confirmed | `theory/THEORY_CHECK.md` #11 |
+| T15 | | §12.7 | DESI DR1 σ(µ0) = 0.22 (0.6σ) | DESI FS µ0 = 0.11 (+0.45/−0.54) | confirmed | `theory/THEORY_CHECK.md` #12 |
+| T16 | | §12.1 | Δχ² +1.43/+1.34; µ0 = 0.033 ± 0.125 (1.3σ) | final chains: 0.039 ± 0.125 (1.4σ); Δχ² from final extraction | confirmed | `theory/THEORY_CHECK.md` #13 |
+| T17 | | Eq. 75, §6.6 | ∫ R/(T_H A_H) da′; coefficients within 5–10 % | per dt (dt = da/aH); within 5 % for D^(7/2) | confirmed | `theory/THEORY_CHECK.md` #14 |
+| T18 | | §5.3, §10.5, §11.5, Fig. 1, §11.2 | PS n ≈ 2.5–4; 1-loop −2.5 %; MGCAMB 1–2.5 %; H_IAM > H_ΛCDM | not derived / not reproduced / 2.8 % max / matter-sector rate | confirmed | `theory/THEORY_CHECK.md` #15 |
 | **Late-Time Growth Suppression** (`Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework…pdf`, 19 Feb 2026) |||||||
 | L1 | | Eq. 6 | µ = 1 + µ0 Ω_DE(a) | µ = 1 + µ0 Ω_DE(a)/Ω_Λ (MGCAMB `mgcamb.f90` l. 761) | confirmed | `chains/LATE_TIME_GROWTH_CHECK.md` #1 |
 | L2 | | Tables 1–5, Fig. 4, abstract | Δχ² +1.43/+1.34/+2.32/+1.58; free µ0 +0.006/+0.024/+0.002/−0.005 ± σ | final chains: Δχ² +0.96/+0.56/+1.73/+1.58; free µ0 as median and 90 % bound (posterior reaches the +0.2 prior edge) | confirmed | `LATE_TIME_GROWTH_CHECK.md` #2, #9 |

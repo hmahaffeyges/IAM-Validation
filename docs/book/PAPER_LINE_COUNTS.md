@@ -15,7 +15,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 4 | IAM_Dual_Sector_Note | 9 | 573 | 439 | — | not confirmed |  |
 | 5 | A_Note_on_Entropic_Gravity | 10 | 317 | 559 | — | not confirmed |  |
 | 6 | IAM_Law | 29 | 1506 | 2085 | 1–1506 (2026-10-02) | **complete** |  |
-| 7 | IAM_Theory_Paper | 34 | 1916 | 2418 | — | not confirmed |  |
+| 7 | IAM_Theory_Paper | 34 | 1916 | 2418 | 1–1916 (2026-10-02) | **complete** |  |
 | 8 | Technical_Reference_for_Physicists | 28 | 1298 | — | — | not confirmed |  |
 | 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 7 | 277 | 549 | — | not confirmed |  |
 | 10 | Virial_Partitian_Across_Wide_Domains | 13 | 641 | 794 | — | not confirmed |  |
@@ -57,6 +57,6 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 2,986 lines (4 papers).
-Chapters drafted before this ledger existed (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5) are
+Total to read: 30,815 lines across 46 papers. Complete: 4,902 lines (5 papers).
+Chapters drafted before this ledger existed (Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5) are
 re-read pending; their check files and chapter headers will be corrected when each ledger is complete.
