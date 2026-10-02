@@ -280,6 +280,9 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | **Electroweak (`Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf`, Oct 2026 rev.)**, read in full 2026-10-02 |||||||
 | EW1 | | Eq. 2 | Ω_dm/2 = 0.1332 | 0.1330 | confirmed | `particle/ELECTROWEAK_CHECK.md` |
 | EW2 | | §8 test 3 | β_m/Ω_m = 1/2 testable | definition; remove | confirmed | `particle/ELECTROWEAK_CHECK.md` |
+| EW3 | | Abstract, Table 1 | T ≈ 100 GeV, t ≈ 10⁻¹¹ s (§4.1: 160 GeV) | crossover T_c = 159.5 ± 1.5 GeV (D'Onofrio 2016); t = 9.2 × 10⁻¹² s (g* = 106.75) | confirmed | `particle/ELECTROWEAK_CHECK.md` #4 |
+| EW4 | | §7 | vacuum selection as a decoherence event | the vacuum points are gauge-related (Elitzur 1975); no gauge-invariant selection; open only as whether any physical outcome is selected | confirmed | `particle/ELECTROWEAK_CHECK.md` #6 |
+| EW5 | | §8 test 2 | 5.4σ with DESI Y5 | unsourced (as SP5) | confirmed | `particle/ELECTROWEAK_CHECK.md` #7 |
 | **x_qp (`IAM_Xqp_Mahaffey.pdf`, 14 Apr 2026)**, read in full 2026-10-02 |||||||
 | XQ1 | | Eq. 13 | ln 2 quasiparticles per Δ ln2 | below 2Δ pair-breaking threshold; hold | confirmed | `particle/XQP_CHECK.md` |
 | XQ2 | | Eq. 16 | QPs confined to πλ_L³ | diffusion 100–1,000 µm; device average; hold | confirmed | `particle/XQP_CHECK.md` |
@@ -311,6 +314,8 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | EN5 | | §3 Step 3 | kinetic half = heat | law first | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
 | EN6 | | §4, refs | Sci. Adv. 2025 | incomplete reference | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
 | EN7 | | Acknowledgements | named correspondent | remove | confirmed | `quantum/ENTANGLEMENT_CHECK.md` |
+| EN8 | | Eq. 3 | S(t) = 2√2(1 − D(t)); |S| < 2 for D > 0.293 | isotropic-noise form; pointer-basis dephasing gives S_max = 2√(1+c²), c = 1 − D (Horodecki 1995): > 2 for any c > 0; at fixed pure-state settings S = √2(1+c) < 2 for D > 0.586 | confirmed | `quantum/ENTANGLEMENT_CHECK.md` #8 |
+| EN9 | | refs | Sci. Adv. 2025 | Wang et al., Sci. Adv. 11, eadr1794 (2025), doi:10.1126/sciadv.adr1794 (completes EN6) | confirmed | `quantum/ENTANGLEMENT_CHECK.md` #9 |
 | **Two Faces of Time** (`The_Two_Faces_of_Time.pdf`, Oct 2026 rev.), read in full 2026-10-02 |||||||
 | TF1 | | §5 Eq. 5 | µ in Poisson term with 'friction' text | state one form | confirmed | `quantum/TWO_FACES_CHECK.md` |
 | TF2 | | §4 | H split derived, zero free parameters | predicted with β_m fixed (chain value) | confirmed | `quantum/TWO_FACES_CHECK.md` |

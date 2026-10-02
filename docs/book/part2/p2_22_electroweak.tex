@@ -1,0 +1,109 @@
+% Part 2 chapter carrying "Electroweak Symmetry Breaking and the Matter Sector" (Mar 2026, revised Oct 2026), read in full 2026-10-02 (PDF text
+% 207 lines; ledger docs/book/read_ledgers/LEDGER_G8_35_Electroweak.md). Corrections applied: PAPER_ERRATA EW1, EW2, SP5/EN3 (DESI combination dropped).
+% Numbers: docs/verification/scripts/verify_entanglement_electroweak.py (W1-W12). Check: docs/verification/particle/ELECTROWEAK_CHECK.md.
+% Already carried and only referenced here: the matter-sector criterion, E(a) at the electroweak epoch, m_gamma bound and beta_m composition
+% (Chapter ch:particle); eta and the Sakharov conditions (ch:baryon); before/after the transition and the arrow of time (ch:time, Part 5).
+\chapter{Electroweak symmetry breaking and the matter sector}\label{ch:electroweak}
+
+\section*{The place}
+Chapter~\ref{ch:particle} stated the result: a matter sector able to decohere gravitationally exists from electroweak symmetry breaking, and the
+photon stays outside it by an exact gauge symmetry. This chapter gives the particle physics behind that statement: which interactions bind and how,
+which symmetries the weak interaction breaks, what the transition is and when it happens, and what it does not establish. Part~5 treats the same
+epoch from the side of time (Chapter~\ref{ch:time}).
+
+\section{Which interactions bind}\label{sec:ew:bind}
+IAM's Law comes first: every irreversible record pays $\kB T\ln2$ per bit to the nearest encoding surface. For bound matter the virial partition then
+sets how much is written (Chapters~\ref{ch:virial_law} and~\ref{ch:virial}). The partition depends on the form of the potential. For a potential
+homogeneous of degree $k$, $V(\lambda r)=\lambda^kV(r)$, the time-averaged virial theorem gives~\cite{Clausius1870}
+\begin{equation}
+2\langle K\rangle=k\,\langle V\rangle.\label{eq:ew:virial}
+\end{equation}
+\derived{} For the $1/r$ potentials of gravity and electrostatics, $k=-1$ and $2\langle K\rangle+\langle V\rangle=0$. This holds for atoms and
+molecules, for stars and for galaxy clusters, and it is the basis of the coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}).
+
+The strong interaction is different. The static quark potential is well described by the Cornell form~\cite{Eichten1978}
+\begin{equation}
+V(r)=-\frac43\frac{\alpha_s}{r}+\sigma r,\qquad\sigma\approx0.18\ {\rm GeV}^2=0.91\ {\rm GeV\,fm}^{-1}.
+\end{equation}
+\calc{} It is Coulomb-like ($k=-1$) at short distance and linear ($k=+1$) at the confinement scale, where Eq.~\eqref{eq:ew:virial} gives
+$2\langle K\rangle=+\langle V_{\rm lin}\rangle$. Hadrons are virialised bound states, but of their own potential, not of the $1/r$ form. How much a
+hadron writes is not treated. \openprob
+
+The weak interaction forms no bound states. Its range is set by the $W$ mass, $\hbar/(M_Wc)=2.5\times10^{-18}$\,m for $M_W=80.377$\,GeV~\cite{PDG2022}.
+\calc{} Its role is to change flavour.
+
+\section{The weak interaction and the discrete symmetries}\label{sec:ew:weak}
+The weak interaction is carried by the $W^\pm$ ($80.4$\,GeV) and the $Z^0$ ($91.2$\,GeV)~\cite{PDG2022}. It is the only interaction that changes quark
+and lepton flavour. It drives beta decay and the first step of the proton--proton chain, $p+p\to d+e^++\nu_e$. It violates parity
+maximally~\cite{Wu1957}. It violates CP through the complex phase of the quark mixing matrix~\cite{Cabibbo1963,KobayashiMaskawa1973}, first seen in
+neutral kaon decays~\cite{Christenson1964}. By the CPT theorem it therefore violates time-reversal symmetry in its fundamental laws. \observed
+
+Two points matter for the matter sector.
+\begin{enumerate}
+\item CP violation is one of the three Sakharov conditions for a baryon asymmetry~\cite{Sakharov1967}. The asymmetry $\eta$ fixes $\Omega_b$, and
+with it the baryonic part of $\beta_m$ (Chapters~\ref{ch:particle} and~\ref{ch:baryon}). The phase of the quark mixing matrix is too small to produce
+the measured $\eta$. In the Standard Model the electroweak transition is a smooth crossover~\cite{Kajantie1996,DOnofrio2016}, not the first-order
+transition that electroweak baryogenesis needs. The mechanism that set $\eta$ is unknown. \observed
+\item The thermodynamic arrow does not need CP violation. Entropy production, decoherence and Landauer's bound hold for every interaction. What the
+electroweak transition adds is not irreversibility but massive particles. \derived
+\end{enumerate}
+
+\section{The transition}\label{sec:ew:transition}
+For the measured Higgs mass the Standard Model has no electroweak phase transition: lattice studies find a crossover~\cite{Kajantie1996}, centred at
+$T_c=159.5\pm1.5$\,GeV~\cite{DOnofrio2016}. \calc{} In the radiation era $t=0.301\,g_*^{-1/2}\,m_P/T^2$ (in $\hbar=c=k_B=1$ units); with
+$g_*=106.75$ the crossover falls at $t\approx9\times10^{-12}$\,s. Entropy conservation gives the scale factor there, $a_{\rm EW}=4.9\times10^{-16}$,
+so $\ln E(a_{\rm EW})=1-1/a_{\rm EW}=-2.0\times10^{15}$. \calc{} Because the change is smooth, no single temperature marks the moment masses appear;
+the statements below refer to the two sides of the crossover.
+
+\paragraph{Above.} The Higgs condensate is negligible. The $W$, $Z$ and the fermions have no rest mass, and their excitations travel on null
+geodesics. In the plasma they carry thermal masses. These are a collective effect of the medium that vanishes in vacuum. The criterion
+$\Delta\tau>0$ is stated for rest mass; how it applies to quasiparticles in a hot plasma is not treated. \openprob
+
+\paragraph{Below.} The Higgs field takes its vacuum value $v=(\sqrt2G_F)^{-1/2}=246.22$\,GeV. \calc{} The $W^\pm$ and $Z^0$ acquire mass, the charged
+fermions acquire $m_f=y_fv/\sqrt2$, and their excitations move on timelike worldlines with $\Delta\tau>0$. By the criterion of
+Chapter~\ref{ch:particle}, the matter sector exists from here on. Dark matter, whose particle nature is unknown, joins it by the same criterion if it
+is massive. Neutrinos have mass, shown by their oscillations, so they too move on timelike worldlines; the origin of their mass lies outside the
+minimal Standard Model~\cite{PDG2022}. \observed
+
+\paragraph{The photon.} The electromagnetic $U(1)$ survives unbroken, so the photon stays exactly massless and on null geodesics
+(Chapter~\ref{ch:particle} gives the bound). Its exemption from writing follows from an established symmetry, not from an added assumption. \derived{}
+It does not settle $\Sigma=1$. $\Sigma$ describes how the lensing potential $\Phi+\Psi$ responds to matter. In the framework $\Sigma=1$ follows from
+$\delta\varphi=0$ and from the absence of anisotropic stress in the informational sector (Chapter~\ref{ch:theory}). Weak lensing tests it directly.
+
+\section{The sequence of bound structures}\label{sec:ew:sequence}
+The transition sits in the standard thermal history as follows. Times are for the Planck 2018 cosmology~\cite{Planck2018VI}; energies are those of the
+Standard Model~\cite{PDG2022}.
+\begin{center}\small\begin{tabular}{llll}\toprule
+time & temperature & event & consequence\\\midrule
+$9\times10^{-12}$\,s & 159.5\,GeV & electroweak crossover & $W$, $Z$, fermions massive; photon massless; matter sector exists\\
+$\sim10^{-5}$\,s & $\sim150$\,MeV & QCD confinement & hadrons: bound states of the Cornell potential\\
+2--4.5\,min & 0.1--0.07\,MeV & nucleosynthesis & light nuclei; $\Omega_b$ already fixed by $\eta$\\
+$3.7\times10^5$\,yr & 0.256\,eV & recombination & atoms: $2\langle K\rangle+\langle V\rangle=0$ (Coulomb)\\
+$\sim100$\,Myr ($z\approx30$) & --- & first haloes & gravitational virialisation; $E=9.4\times10^{-14}$\\
+13.8\,Gyr & 2.7255\,K & today & $E=1$; $\mu(z{=}0)=1/(1+\beta_m)=0.864$\\\bottomrule
+\end{tabular}\end{center}
+\calc{} The matter sector exists from the first row. It writes in quantity only from the fifth, once structure forms.
+
+\section{The vacuum question}\label{sec:ew:vacuum}
+Chapter~\ref{ch:particle} and Chapter~\ref{ch:time} leave open whether the settling of the Higgs field into its vacuum is itself a record written at
+the temperature of the transition. The particle physics narrows the question. The points of the Higgs vacuum manifold are related by local gauge
+transformations. A local gauge symmetry cannot break spontaneously~\cite{Elitzur1975}, so these points are not distinct physical states, and no
+gauge-invariant quantity records which one was taken. The gauge-invariant change across the crossover, the growth of $\langle\phi^\dagger\phi\rangle$,
+is smooth and selects nothing. A record needs distinct physical outcomes, as in a first-order transition that leaves domains, which the Standard Model
+does not provide. The open form of the question is therefore whether any physical outcome is selected at the electroweak epoch. Nothing in the
+cosmology depends on it. \openprob
+
+\section{Tests}\label{sec:ew:tests}
+\begin{enumerate}
+\item $\Sigma=1$ at every redshift: Euclid tomographic weak lensing. A significant $\Sigma\neq1$ falsifies the photon exemption. \prediction
+\item $\mu_0=-0.136$, that is $\mu(z{=}0)=0.864$: Euclid clustering. The complete first data release in mid-2027 reaches $\sigma(\mu_0)\approx0.08$, a
+$1.7\sigma$ test; the final survey reaches $\approx0.04$, $3.4\sigma$ (Chapter~\ref{ch:predictions}). \prediction
+\end{enumerate}
+
+\section{Status}
+Stands: electroweak symmetry breaking, a smooth crossover at $T_c=159.5$\,GeV and $t\approx9\times10^{-12}$\,s, gives the $W$, $Z$ and charged fermions
+their masses and puts them on timelike worldlines; the photon stays massless under the unbroken $U(1)$ and outside the matter sector. \derived{} The
+virial partition of IAM's Law applies to the $1/r$ interactions; hadrons are virialised in the Cornell potential and the weak interaction binds
+nothing. \derived{} CP violation enters through the baryon asymmetry, whose origin is unknown; the thermodynamic arrow does not need it. Predicted:
+$\Sigma=1$ and $\mu_0=-0.136$, tested by Euclid. \prediction{} Open: how much a hadron writes; how the criterion applies to plasma quasiparticles; whether
+any physical outcome is selected at the electroweak epoch. \openprob

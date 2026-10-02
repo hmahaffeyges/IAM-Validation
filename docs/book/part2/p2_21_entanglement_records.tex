@@ -1,0 +1,111 @@
+% Part 2 chapter carrying "Entanglement, Decoherence, and the Thermodynamic Cost of Classical Records" (Mar 2026, revised Oct 2026), read in full
+% 2026-10-02 (PDF text 253 lines; ledger docs/book/read_ledgers/LEDGER_G7_31_Entanglement.md). Corrections applied: PAPER_ERRATA EN1-EN7, GD3, GD4, MP1, MP4.
+% Numbers: docs/verification/scripts/verify_entanglement_electroweak.py (E1-E7). Check: docs/verification/quantum/ENTANGLEMENT_CHECK.md.
+% Already carried elsewhere and only referenced here: exponent n = 7/2 and its bottom-up running, light writes nothing in flight, tau_IAM at 1 pg
+% (Chapter ch:quantumrecords); Bell/CHSH background (ch:nonlocal); where a record becomes irreversible, Bennett (ch:measurement); tau_IAM (ch:gravdec).
+\chapter{Entanglement and the cost of records}\label{ch:entanglement}
+
+\section*{The place}
+Chapter~\ref{ch:quantumrecords} followed IAM's Law from the quantum-to-classical transition up to the cosmic horizon. This chapter asks what the law
+says about entangled systems. Three things are separated: what it leaves unchanged, what it adds, and what an experiment could test. The Bell and
+CHSH background is in Chapter~\ref{ch:nonlocal}; where a record becomes irreversible is in Chapter~\ref{ch:measurement}.
+
+\section{Two questions}\label{sec:ent:two}
+Two questions are often merged. The first is why entangled correlations are non-classical. The answer is that an entangled pair is described by one
+quantum state, not by two systems with pre-existing local properties~\cite{Bell1964}. The second is where, and at what cost, that state gives way to
+definite classical outcomes.
+
+Decoherence answers part of the second question. Interaction with an environment suppresses interference and selects pointer
+states~\cite{Zurek1981,JoosZeh1985,Zurek2003}. Quantum Darwinism explains why many observers read the same outcome: the record is copied redundantly
+into the environment~\cite{Zurek2009}. Neither fixes what the record costs.
+
+IAM's Law does: every irreversible transition from quantum superposition to classical record pays $\kB T\ln2$ per bit to the nearest encoding
+surface at the local temperature (Chapter~\ref{ch:iams_law}). In a laboratory the surface is the detector that absorbs the record, and $T$ is its
+temperature. Acquiring the record has no minimum dissipation; the $\kB T\ln2$ is paid when the record is erased or the apparatus is
+reset~\cite{Landauer1961,Bennett1982}. For bound structure at cosmological scale the nearest shared surface is the horizon, and the cost enters the
+horizon entropy (Chapter~\ref{ch:quantumrecords}).
+
+\section{What the law leaves unchanged}\label{sec:ent:unchanged}
+The law changes nothing in quantum mechanics and adds no hidden variables. The correlations of a pure shared state are those of standard theory until
+an irreversible record is written. For a photon pair in vacuum transit nothing acts in flight (Chapter~\ref{ch:quantumrecords}), so an ideal source
+gives $|S|=2\sqrt2$ at any separation. Losses and decoherence in fibre or air are ordinary environmental effects. \derived
+
+In laboratory systems the dominant decoherence is environmental: gas collisions, thermal photons, phonons. The law leaves these channels as they are.
+It adds an accounting statement, that every irreversible record carries its Landauer cost at the surface that holds it, and one gravitational channel
+for massive superpositions. Separation does not discriminate between the two pictures: the distances reached with photons and with matter qubits are
+set by losses, not by sector physics (Chapter~\ref{ch:nonlocal}).
+
+\section{What dephasing does to a Bell test}\label{sec:ent:dephasing}
+The gravitational channel of Chapter~\ref{ch:gravdec} acts on the which-path superposition of a massive body. It is decoherence in the position, or
+pointer, basis: it leaves the populations of the two branches unchanged and multiplies their coherence by a factor $c(t)$ that falls from 1 to 0.
+Take a pair entangled in that basis, $(|L\rangle|0\rangle+|R\rangle|1\rangle)/\sqrt2$. With the pointer basis as the $z$ axis, its correlation matrix
+is $T={\rm diag}(c,-c,1)$. The largest CHSH value over all settings is $2\sqrt{M}$, with $M$ the sum of the two largest eigenvalues of
+$T^{\mathsf T}T$~\cite{Horodecki1995}. Here $M=1+c^2$, so
+\begin{equation}
+S_{\max}(t)=2\sqrt{1+c(t)^2}.\label{eq:ent:smax}
+\end{equation}
+\derived{} Two consequences follow. First, $S_{\max}>2$ for every $c>0$: a pair decohering in its pointer basis keeps a Bell violation for as long as
+any coherence remains. Second, at $c=0$ the value is exactly 2, not 0. The correlation in the pointer basis survives intact; it has become a classical
+correlation between two records. That is what decoherence is expected to leave.
+
+Two other cases fix the reading of a measured $S$. With the settings that are optimal for the pure state, $S=\sqrt2\,(1+c)$, which falls below 2 once
+$c<\sqrt2-1=0.414$. \calc{} For isotropic (white) noise, a mixture $p\,|\Phi^+\rangle\langle\Phi^+|+(1-p)\,I/4$, the maximum is $S_{\max}=2\sqrt2\,p$,
+with no violation below $p=1/\sqrt2$, that is, above a mixed fraction $1-p=0.293$. \calc{} Decoherence in a pointer basis is not isotropic noise, so
+that threshold does not describe it. If both members of the pair are massive, each branch dephases and $c=c_Ac_B$.
+
+\paragraph{The time profile.} The rate integral of Chapter~\ref{ch:gravdec}, taken with its postulated rate and boundary capacity, gives an
+exponential, $c(t)=e^{-t/\tau_{\rm IAM}}$. \calc{} The source
+proposes instead the profile of the cosmic activation function, $c(t)=1-E(t/\tau_{\rm IAM})/e$ with $E(\eta)=\exp(1-1/\eta)$; that step is assumed,
+not derived. \conjecture{} The two give, from Eq.~\eqref{eq:ent:smax}:
+\begin{center}\small\begin{tabular}{lcccc}\toprule
+$t/\tau_{\rm IAM}$ & 0.5 & 1 & 2 & 3\\\midrule
+exponential: $c$, $S_{\max}$ & 0.607, 2.339 & 0.368, 2.131 & 0.135, 2.018 & 0.050, 2.002\\
+assumed profile: $c$, $S_{\max}$ & 0.865, 2.644 & 0.632, 2.366 & 0.393, 2.149 & 0.283, 2.079\\\bottomrule
+\end{tabular}\end{center}
+\calc{} In both cases the violation fades towards 2 and is never lost at a finite time. A Bell test therefore adds nothing to a direct measurement of
+$c(t)$ by interference; it loses its violation only when $c$ falls below the experiment's noise. The quantities that discriminate are the coherence
+itself: its onset (zero slope for the assumed profile, finite slope for the exponential), and the scaling of $\tau_{\rm IAM}$ with temperature and mass.
+
+\section{Where the discriminating experiment lies}\label{sec:ent:experiment}
+With $\tau_{\rm IAM}=\hbar(\kB T)^2\ln2/E_G^3$ (Eq.~\eqref{eq:tauIAM}), $E_G=Gm^2/R$, and the boundary capacity $\kB T/E_G$ taken as an
+assumption, silica spheres ($\rho=2000$\,kg\,m$^{-3}$) give:
+\begin{center}\small\begin{tabular}{lccl}\toprule
+system & $\tau_{\rm IAM}$ & $\tau_{\rm PD}=\hbar/E_G$ & reading\\\midrule
+$10^{-15}$\,kg, 10\,mK & $5.6\times10^{17}$\,s & 0.78\,s & Di\'osi--Penrose testable; IAM channel not\\
+$10^{-12}$\,kg, 10\,mK & 559\,s & 7.8\,$\mu$s & loss in $\mu$s, or none on that scale\\
+$10^{-12}$\,kg, 20\,mK & 2{,}238\,s & 7.8\,$\mu$s & doubling $T$ quadruples $\tau_{\rm IAM}$\\
+$\tau_{\rm IAM}=\tau_{\rm PD}$ at 10\,mK & \multicolumn{2}{c}{$m\approx2.3\times10^{-10}$\,kg} & crossover\\\bottomrule
+\end{tabular}\end{center}
+\calc{} The picogram row and the crossover are those of Chapter~\ref{ch:quantumrecords}. The femtogram row shows the other side: there the
+Di\'osi--Penrose time is within reach of levitated optomechanics~\cite{RomeroIsart2011} and the IAM channel is not. The discriminating experiment is
+a superposition near $10^{-12}$\,kg held at two or more bath temperatures. Di\'osi--Penrose~\cite{Diosi1989,Penrose1996} predicts loss of coherence
+in microseconds at any temperature; the IAM channel predicts none on that scale, and a time that grows as $T^2$. \prediction
+
+\section{Other entanglement results}\label{sec:ent:other}
+\paragraph{Top quarks.} Entanglement of top--antitop spin states near threshold has been observed at the LHC~\cite{ATLAS2024TopEnt,CMS2024TopEnt}.
+\observed{} The top quark lives $\hbar/\Gamma_t=4.6\times10^{-25}$\,s ($\Gamma_t=1.42$\,GeV~\cite{PDG2022}) and its spin is read from its decay
+products. \calc{} No gravitational channel acts on that time scale. The result is consistent with the law and does not test it.
+
+\paragraph{Violation without entanglement.} A Bell inequality has been violated by more than four standard deviations using photons from separate
+sources with no entanglement, through indistinguishability by path identity in four-photon frustrated interference; the analysis uses postselected
+fourfold coincidences~\cite{Wang2025SciAdv}. \observed{} This concerns the structure of the quantum state and lies outside the gravitational channel.
+The law adds only the cost of each coincidence record at its detectors.
+
+\paragraph{Photons that never coexisted.} Entanglement swapping has correlated two photons, the first detected before the second was
+emitted~\cite{Megidish2013}. \observed{} Standard quantum mechanics predicts the correlation. The law writes one record at each detection, paid at that
+detector, and assigns none to the interval between them.
+
+\section{The ledger only grows}\label{sec:ent:ledger}
+The cosmological side needs one more statement from the law. The accumulated record entropy is a sum of irreversible records, so it cannot fall.
+Read as that ledger, $E(a)=\exp(1-1/a)$ must increase monotonically, and it does: $d\ln E/da=1/a^2>0$. \derived{} The same integral fixes how the
+ledger is normalised. With the exponent $n=7/2$ of Chapter~\ref{ch:quantumrecords}, the entropy increment per unit $a$ scales as $a^{n-11/2}=a^{-2}$,
+whose integral $-1/a+{\rm const}$ is dominated by its lower limit. Only the $a$-dependent part is physical, and the constant is fixed by $E(1)=1$.
+\calc
+
+\section{Status}
+Stands: quantum mechanics, and with it every Bell correlation, is unchanged; the law gives each record its cost and the surface that holds it, paid
+on erasure or reset at that surface's temperature; photon pairs in vacuum keep $|S|=2\sqrt2$ at any distance. \derived{} Decoherence in a pointer
+basis leaves $S_{\max}=2\sqrt{1+c^2}$, which fades to 2 and is never lost at a finite time; the observable is the coherence $c(t)$. \derived{}
+Predicted: $\tau_{\rm IAM}\propto T^2m^{-5}$ for massive superpositions, separable from Di\'osi--Penrose near $10^{-12}$\,kg. \prediction{} Open:
+the boundary capacity $\kB T/E_G$ and the time profile of $c(t)$, which needs a derivation at the superposition boundary before it can discriminate.
+\openprob

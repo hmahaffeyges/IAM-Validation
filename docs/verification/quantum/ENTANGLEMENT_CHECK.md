@@ -13,3 +13,13 @@ Table 1 (5.6e17 s / 0.78 s at 1 fg; 559 s, 2,238 s / 7.8 µs at 1 pg); E(z = 10)
 7. Acknowledgements name a correspondent: remove (names rule).
 ## For the book
 §7 states IAM's Law with T = the temperature of the system that absorbs the record: the same correction the measurement chapter needs (MP4). Carried.
+## Book chapter (2026-10-02)
+Full treatment: `docs/book/part2/p2_21_entanglement_records.tex` (\label{ch:entanglement}); the n = 7/2 exponent, "light writes nothing in flight" and
+τ_IAM at 1 pg stay in `p2_14_quantum_records.tex`. Numbers: `docs/verification/scripts/verify_entanglement_electroweak.py` (E1–E7).
+## Found while writing the chapter (in PAPER_ERRATA.md as EN8-EN9, 2026-10-02)
+8. Eq. 3, S(t) = 2√2(1 − D(t)): this is the CHSH maximum for isotropic (white) noise. Gravitational decoherence is dephasing in the pointer
+   (which-path) basis: correlation matrix diag(c, −c, 1), Horodecki criterion gives S_max = 2√(1 + c²) (> 2 for every c > 0; = 2 at c = 0, never 0).
+   With the pure-state optimal settings S = √2(1 + c), lost below c = 0.414. The "|S| < 2 once D > 0.293" threshold applies to isotropic noise only.
+   Book files that still carry the isotropic form: `part5/p5_06_nonlocality.tex` (equation and "falls below 2 when D > 0.293"), `part5/p5_07_predictions.tex` Q5.
+9. Item 6 resolved: the "Sci. Adv. 2025" reference is K. Wang et al., Sci. Adv. 11, eadr1794 (2025), doi:10.1126/sciadv.adr1794 (CrossRef-checked);
+   the violation is computed on postselected four-photon coincidences.

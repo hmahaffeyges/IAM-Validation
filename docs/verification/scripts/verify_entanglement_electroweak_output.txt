@@ -1,0 +1,33 @@
+== Entanglement chapter ==
+E1 m=1e-15 kg T=10 mK: tau_IAM=5.594e+17 s  tau_PD=0.778 s
+E1 m=1e-12 kg T=10 mK: tau_IAM=559.4 s  tau_PD=7.78e-06 s
+E1 m=1e-12 kg T=20 mK: tau_IAM=2238 s  tau_PD=7.78e-06 s
+E2 crossover 10 mK: m=2.28e-10 kg
+E3 dephasing c=1.00: S_max=2.8284 (2sqrt(1+c^2)=2.8284); fixed settings S=2.8284 (sqrt2(1+c)=2.8284); isotropic p=c: S_max=2.8284 (2sqrt2 c=2.8284)
+E3 dephasing c=0.75: S_max=2.5000 (2sqrt(1+c^2)=2.5000); fixed settings S=2.4749 (sqrt2(1+c)=2.4749); isotropic p=c: S_max=2.1213 (2sqrt2 c=2.1213)
+E3 dephasing c=0.50: S_max=2.2361 (2sqrt(1+c^2)=2.2361); fixed settings S=2.1213 (sqrt2(1+c)=2.1213); isotropic p=c: S_max=1.4142 (2sqrt2 c=1.4142)
+E3 dephasing c=0.25: S_max=2.0616 (2sqrt(1+c^2)=2.0616); fixed settings S=1.7678 (sqrt2(1+c)=1.7678); isotropic p=c: S_max=0.7071 (2sqrt2 c=0.7071)
+E3 dephasing c=0.10: S_max=2.0100 (2sqrt(1+c^2)=2.0100); fixed settings S=1.5556 (sqrt2(1+c)=1.5556); isotropic p=c: S_max=0.2828 (2sqrt2 c=0.2828)
+E3 dephasing c=0.00: S_max=2.0000 (2sqrt(1+c^2)=2.0000); fixed settings S=1.4142 (sqrt2(1+c)=1.4142); isotropic p=c: S_max=0.0000 (2sqrt2 c=0.0000)
+E4 isotropic noise loses violation below p=1/sqrt2=0.7071 (D>0.2929); fixed settings under dephasing lose it below c=sqrt2-1=0.4142
+E5 t/tau=0.5: exponential c=0.6065 S_max=2.3391; assumed ramp c=0.8647 S_max=2.6440
+E5 t/tau=1: exponential c=0.3679 S_max=2.1310; assumed ramp c=0.6321 S_max=2.3661
+E5 t/tau=2: exponential c=0.1353 S_max=2.0182; assumed ramp c=0.3935 S_max=2.1492
+E5 t/tau=3: exponential c=0.0498 S_max=2.0025; assumed ramp c=0.2835 S_max=2.0788
+E6 top lifetime hbar/Gamma_t (Gamma_t=1.42 GeV, PDG 2022) = 4.64e-25 s
+E7 S_info: integrand a^(n-11/2) at n=7/2 is a^-2; integral = -1/a + const; ln E = 1 - 1/a with E(1)=1; E(z=10)=4.54e-05
+== Electroweak chapter ==
+W1 m_Pl=1.2209e+19 GeV; t(T=159.5 GeV, g*=106.75)=9.2e-12 s; t(100 GeV)=2.34e-11 s
+W2 t(150 MeV, g*=61.75)=1.37e-05 s; t(150 MeV, g*=17.25)=2.59e-05 s
+W3 t(0.1 MeV, g*=3.36)=132 s; t(0.07 MeV)=269 s
+W4 a_EW=4.9e-16, 1/a_EW=2.04e+15, ln E(a_EW)=-2.04e+15
+W5 T(z*=1089.9)=2973 K = 0.2562 eV
+W6 age(z*)=3.712e+05 yr; age(z=30)=98.65 Myr; age(z=0)=13.8 Gyr
+W7 E(z=30)=9.36e-14; E(z=10)=4.54e-05; E(z=1)=0.368; mu(z=0)=1/(1+beta_m)=0.8638, mu0-1=-0.1362
+W8 Ob/2=0.02465, Odm/2=0.13300, sum=0.15765; baryon share=15.64 %, dark share=84.36 %
+W9 weak range hbar c/(M_W c^2)=2.455e-18 m; Z: 2.164e-18 m
+W10 v=(sqrt2 G_F)^(-1/2)=246.220 GeV
+W11 string tension 0.18 GeV^2 = 0.912 GeV/fm
+W12 virial 2<K> = k<V>: k=-1: <K>/<V> = -0.5
+W12 virial 2<K> = k<V>: k=1: <K>/<V> = 0.5
+W12 virial 2<K> = k<V>: k=2: <K>/<V> = 1.0
