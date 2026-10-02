@@ -262,7 +262,6 @@ The transmon quasiparticle density x_qp ~ 10⁻⁷ — the cosmology-to-device l
 | IAMPerformance the quantum-processor report Issue 002, the semiconductor report Issue 002 | Part 3 |
 | Quantum Platform Demo.html, Semiconductor Platform Demo.html | Part 3 (companion material) |
 | Gravitational Propulsion and IAM; IAM Gravitational Engineering Exploration | **Out of the book.** Both call themselves exploratory notes; same header (likely two versions). If kept, an 'Open directions' appendix marked speculative. |
-| Retired_V1_IAM_Manuscript, Retired_IAM_Technical_Clarifications_Guide (docs/) | Out (retired) |
 | one excluded archive paper (author ruling) | its virial-equilibrium data go into 1.3 as 'the virial theorem across scales'; the paper is never cited |
 
 
@@ -289,17 +288,11 @@ These are not in `docs/papers/` (except where noted). LaTeX sources are used for
 | Part 3 | Quantum Decoherence_Quantum Computing/Quantum computing forecasts (phonon heating, detection threshold, timeline) | Part 3 forecasts |
 | Part 4 | floor_breach_derivation.pdf (same file as the 30 Sept upload) | Part 4 |
 
-**Excluded from the book** (theology, philosophy, confidential, or retired):
+**Excluded from the book:** several archive files by the author's ruling (non-physics, confidential or retired); the list is kept outside the repository.
 
 | file | reason |
 |---|---|
-| iam_aristotelian_principle.tex | retired name; physics content is in 1.3 |
-| Master IAM Papers/The_Story_of_IAM.pdf | opens with scripture |
-| Master IAM Papers/IAM_Dual_Sector_Physics_Theology.html | theology |
-| IAM_Hubble2Methyl_Alpha_Omega_v2.tex | marked confidential, internal only |
-| IAM_Technical_Clarifications_Guide.tex | retired (docs/Retired_…) |
 | IAM_Gravitational_Engineering_Exploration.tex | exploratory note (see above) |
-| Master IAM Papers/IAM_Publication_Strategy.md | planning, not physics |
 
 ## Decisions for the author
 
