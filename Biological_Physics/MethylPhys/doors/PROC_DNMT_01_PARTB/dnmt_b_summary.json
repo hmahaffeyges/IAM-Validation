@@ -1,0 +1,18 @@
+{
+ "n_libraries": 16,
+ "genotypes": [
+  "10KR-gNTC",
+  "10KR-gRNF4",
+  "WT-gNTC",
+  "WT-gRNF4"
+ ],
+ "n_treated": 8,
+ "Q1_pass": 8,
+ "Q2_pass": 8,
+ "Q1_all": true,
+ "Q2_all": true,
+ "A_range": [
+  1.6465479521749298,
+  1.9680116958016725
+ ]
+}

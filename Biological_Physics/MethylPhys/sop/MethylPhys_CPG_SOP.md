@@ -17933,7 +17933,6 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 
 **Conditional consumption.** When `patient_metadata.family_history` is absent or empty, `fh_factor = 1.0` and the formula falls back to overall-population context. The audit trail records that family history was not supplied; the doctor report's risk-context section notes the same in the Quality block (§75).
 
-**Differentiation matters.** The formula is what differentiates "your secretory class shows A=1.06 and your mother had no cancer history — keep watching and adjust lifestyle" from "your secretory class shows A=1.06 and your mother died of breast cancer at 52 — discuss accelerated screening with your clinician now." Same A-score, two different risk contexts, two different report framings. This is why Stage 9 is not a pure rendering layer — it's a context-integration layer that the rendering layer (§75) then translates.
 
 ## §74. Step 9.5 — Sex-specific risk adjustment
 

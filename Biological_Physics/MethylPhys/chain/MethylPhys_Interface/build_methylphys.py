@@ -919,7 +919,7 @@ def tab_physics(R):
 HOWTO_LEVELS=[("SUPPRESSED - below 0.95","A below 0.95","the cell is holding its pattern more tightly than its identity requires. Real, and not automatically good: strongly hypomethylated states read here (post-chemotherapy and immunosuppressed samples sit near 0.90 in the design record)."),
  ("NORMAL - 0.95 to 1.05","A within 5 % of 1.00","the cell is holding its identity pattern within five per cent of the entropy its identity costs. Symmetric about the fixed point; no population defines the edges."),
  ("ELEVATED - 1.05 to 1.07","A above 1.05","the pattern is measurably looser than its identity requires. The cell is drifting. This is the regime where a reading is worth a second sample or a closer look, and where nothing has failed yet."),
- ("at 1.07 - the Warburg line","WARBURG_TRANSITION (a line, not a band)","the cell has flipped toward aerobic glycolysis. This is a boundary in the intervention strategy, not in the arithmetic - see below."),
+ ("at 1.07 - the Warburg line","WARBURG_TRANSITION (a line, not a band)","a line in the tier file, not a band - see below."),
  ("at 1.10","BREACH","the no-return line. The cell is no longer holding its identity pattern at the level that defines it.")]
 
 def tab_howto(R):

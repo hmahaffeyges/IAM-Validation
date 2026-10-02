@@ -53,10 +53,6 @@ NOTABLE) of the neutrophil-to-lymphocyte axis (myeloid + progenitor up, lymphoid
 NEVER a disease call. Fires only on a coherent, real-magnitude pattern (n>=4 axis cells, mean
 |dep|>=0.10, coherence>=0.60); flat noise and incoherent departures stay quiet.
 - Wired into run_pipeline -> bundle["systemic_stress"].
-- Report executive summary now carries "Wellness signal (Mode 3)": an actionable, non-alarming
-  callout (lifestyle, weight, diet, trajectory monitoring, family-history vigilance) when the
-  pattern is present. This turns the formerly dead-end non-specific generic pattern into the
-  "act on it early" signal -- the whole point of pre-diagnostic detection.
 - Calibration: flat-healthy and incoherent -> NONE; breast pre-dx / HCC / CRC -> NOTABLE.
   Large healthy-cohort calibration is honest future work.
 

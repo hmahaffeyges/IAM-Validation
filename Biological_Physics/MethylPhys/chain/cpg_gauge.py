@@ -131,7 +131,7 @@ def render_reference_gauge(tier_breakpoints_path,
     # Warburg line (dashed) — left of the line so it does not collide with the breach label.
     wl = scheme["warburg_line"]
     ax.axvline(wl, color="#c8771f", linewidth=1.8, linestyle="--", zorder=4)
-    ax.text(wl - 0.004, 1.06, f"{wl:.2f} Warburg:\nmetabolic strategy\nmust change",
+    ax.text(wl - 0.004, 1.06, f"{wl:.2f} line",
             ha="right", va="bottom", fontsize=7.5, color="#c8771f", fontweight="bold")
 
     # Breach line label — right of the breach edge.
