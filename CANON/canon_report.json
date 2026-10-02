@@ -18,6 +18,33 @@
 "text": "**Inputs.** Cleaned \u03b2 matrix from \u00a740 + the card's panel CpG list + the class H_min the panel anchors to."
 },
 {
+"file": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
+"line": 52,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "| B5 | L | `iam_canon.json:172` vs `iam_canon.json` `retired.\"program reading\"` | Met-A definition begins \"Program reading of ONE cell type\" | the same canon re"
+},
+{
+"file": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
+"line": 52,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "| B5 | L | `iam_canon.json:172` vs `iam_canon.json` `retired.\"program reading\"` | Met-A definition begins \"Program reading of ONE cell type\" | the same canon re"
+},
+{
+"file": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
+"line": 52,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "| B5 | L | `iam_canon.json:172` vs `iam_canon.json` `retired.\"program reading\"` | Met-A definition begins \"Program reading of ONE cell type\" | the same canon re"
+},
+{
 "file": "Biological_Physics/MethylPhys/kit/class_guard.py",
 "line": 23,
 "pattern": "class H_min",
