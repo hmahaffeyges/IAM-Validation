@@ -113,8 +113,8 @@ halos today = heat radiated by baryonic virialisation (virial theorem: radiated 
 - Baryon mass in halos 0.58; σ_eff 213 km s⁻¹; **accumulated virial heat / ρ_Λc² = 3.2 × 10⁻⁸.**
 - Priced at the horizon (bits = Q/(k_BT_gas ln 2), cost k_BT_GH ln 2 each): 2.6 × 10⁻⁴⁴.
 - Upper bound, all baryon rest mass: Ω_b/Ω_Λ = 0.072.
-**Result:** no accumulation of energy released by baryons can reach ρ_Λ. This tests the CC paper's reading of Λ as summed released energy, not
-the structural term β_mE(a) (a horizon-entropy term in the first law, tested by the chains). GRF essay and Theory paper: Λ = vacuum baseline,
-S_info = structural term; CC paper: Λ itself accumulated. Author decision pending (hold in p2_lambda.tex). "Λ is the accumulated Landauer cost of baryonic decoherence" is not
-supported by this calculation in any form that uses released heat. What stands: the identity T_GH S = M_H c², and the observed present-epoch
-relation Ω_b/Ω_m ≈ (3/16)√Ω_Λ (0.5–1.1 % on every chain, ΛCDM included), derivation open.
+**Result:** heat radiated by baryons is 3 × 10⁻⁸ of ρ_Λc², so radiated heat is not the measure of the accumulated cost. The informational
+term's size is set by the virial partition of the matter itself (β_m = Ω_m/2, activated by E(a)), a horizon-entropy term in the first law.
+The history integral (items 3–4) must be written in that variable. Frame (author, 2026-10-02): Λ is the vacuum baseline before structure and
+accumulates as structure forms and decoherence accelerates; the GRF essay's "baseline" and the CC paper's "accumulated" are the same picture at
+two epochs. Approved wording kept: "Within GR with the informational term, Λ is the accumulated Landauer cost of baryonic decoherence…"
