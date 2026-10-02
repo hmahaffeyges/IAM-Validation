@@ -14,6 +14,7 @@ those chapters rely on. A paper is listed only after it has been read in full. T
 |---|---|---|---|
 | `theory/` | `THEORY_CHECK.md` | IAM Theory Paper (14 Apr 2026) | Reproduced except five items, all resolved: exponent n = 7/2 (Eq. 41), w_a = −0.012, N-body tables restated, Fig. 2 label, §11.5 growth implementation and normalisation |
 | `theory/` | `EXPONENT_LINE_BY_LINE.md` | Theory Paper Eqs. 28–41 | n = 7/2 analytic and numerical |
+| `chains/` | `LATE_TIME_GROWTH_CHECK.md` | Late-Time Growth Suppression (Level 1, 19 Feb 2026) | Reproduced; Eq. 6 typo, chain numbers updated to final files, p-value wording, DES Y3 value, two citations |
 | `virial/` | `VIRIAL_CHECK.md` | The five Virial papers (25 Feb – 18 Mar 2026) | Reproduced; corrections listed (β_m posterior, E(a) column, dark-energy share, z_t, sector census, citations) |
 | `virial/` | `NBODY_TRACE.md` | The N-body virial-ratio, n_eff and f_coll values cited in the Virial and Theory papers | Traced to arXiv full text with page numbers; Neto 2007 and Power 2012 re-read by me |
 | `cosmological_constant_and_baryon/` | `CC_AND_BARYON_CHECK.md` | Cosmological Constant paper; Baryon Asymmetry paper; the 18th (baryon) chain | One present-epoch relation Ω_b/Ω_m ≈ (3/16)√Ω_Λ, 0.7σ on the CMB-only chain; derivation open |
