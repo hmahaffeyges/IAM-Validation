@@ -35,7 +35,8 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | D4 | | §VIII.D | Euclid/LSST "S8 = 0.78 ± 0.01" | S8 = 0.822 (σ8 0.7998, Ω_m 0.3166, Level 2) | confirmed | same, #5 |
 | D5 | | Table V vs Fig. 4 | two different bin counts and β values | one set, recomputed | confirmed (inconsistent) | #6 |
 | D6 | | Table VI | BAO "matter sector, H0 = 72.5" | BAO angles are photon paths (Level 1 paper) | confirmed | #7 |
-| D7 | | §I, §II | "β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)", "36σ" | no chain samples β_γ; source script needed | author | #8 |
+| D7 | | §I, §II, Table VI | "β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)"; "β_γ/β_m < 8.5 × 10⁻⁶" | β_γ < 0.0039 (95 %), β_γ/β_m < 0.025; the 1.4e-6 is a sign error in the emcee θ_s integral | confirmed | #8, `scripts/verify_beta_gamma.py` |
+| D8 | | §VIII.A | "catastrophic 36σ CMB acoustic scale tension" with uniform β | β = 0.18 at fixed parameters: +1.08 % (36σ); with β_m = 0.1577: +0.90 % (30σ); state "at fixed parameters" (free parameters → H0 ≈ 61.5, Level 2b) | confirmed | #8c |
 | **Virial papers** (5 files, 25 Feb – 18 Mar 2026) |||||||
 | V1 | PRL Thermodynamic Identity; Virial Partners §2; Grav. Decoherence §2.1 | | "17 MCMC chains return β_m = 0.1583 ± 0.0033" | β_m is fixed in every chain; 0.1583 is Ω_m/2 of the L2 posterior; ΛCDM gives 0.1581 | confirmed | `virial/VIRIAL_CHECK.md` #1 |
 | V2 | Virial Efficiency; PRL Table I row 8 | eq. 3, tables | 2K/\|U\| = 0.815 ± 0.025 from six N-body studies; n_eff table | sources report 2T/\|U\| ≈ 1.05–1.4; 0.76–0.90 match \|U\|/2T; n_eff not reported | confirmed | `virial/NBODY_TRACE.md` |
@@ -53,7 +54,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | C1 | Cosmological Constant | 2/π factor | (2/π)(l_P/l_H)² | 2(l_P/l_H)² with A_eff = 2π l_H² | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` |
 | C2 | Cosmological Constant | history integral | as written | coefficient 3 × 10³⁰ vs required 0.523; derivation open | confirmed | same |
 | C3 | Baryon Asymmetry | analytic η | 6.079, 6.115 × 10⁻¹⁰ | eq. 3 inverted 5.04, eq. 5 inverted 6.09 × 10⁻¹⁰ | confirmed | same |
-| C4 | Baryon Asymmetry | "standard configuration" BBN prior | N(0.02242, 0.00014) called a prior | Cobaya `ref` (starting point); prior flat 0.020–0.025 | confirmed | same |
+| C4 | Baryon Asymmetry | abstract, §2, §3 | "removing the BBN prior on Ω_b h² ∼ N(0.02242, 0.00014)" | no run had a BBN prior: N(0.02242, 0.00014) is Cobaya's `ref` (where walkers start); the prior in every Level 1 run is flat 0.020–0.025, and the 18th chain widens it to 0.010–0.040. Helium Y_He is set by CAMB's stock BBN consistency relation from Ω_b h² (standard; enters only the damping tail). Correct wording: "with a flat Ω_b h² prior and no abundance data" | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` |
 | C5 | Both | framing | two confirmations | one observed present-epoch relation Ω_b/Ω_m ≈ (3/16)√Ω_Λ (0.7σ); derivation open | confirmed | same |
 | **Missing Satellites** (`Missing_Satellites.pdf`, Mar 2026) — book inclusion is the author's decision |||||||
 | M1 | | §3 Mechanism A | ΔD/D(z=0) = −7.4 % | −0.78 % (µG, L1) / −0.67 % (friction, L2); σ8 −1.6 % / −1.1 % in the chains | confirmed | `observations/MISSING_SATELLITES_CHECK.md` |
@@ -67,3 +68,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | N4 | | binned µ; peak dµ/dz | "~15 % precision" vs fig. ~54 %; peak z ≈ 1.0 vs fig. 0.05 | reconcile | pending re-read | audit |
 | **Code** |||||||
 | X1 | `tests/plot_cl_comparison.py` | line 319 | hard-coded "Δχ² = +0.75" | compute from the chain files | confirmed | T6 |
+| X2 | `tests/mcmc_final_iam.py` | `compute_theta_s` | `np.trapz(integrand[::-1], z_array[::-1])` → negative distance, θ_s = −0.01025 | `np.trapz(integrand, z_array)`; re-run → β_γ < 0.0039 | confirmed | D7 |
+| X3 | `tests/iam_validation.py` | l. 392–393, Figure 9 | BETA_GAMMA_95CL = 1.4e-6, SECTOR_RATIO = 8.5e-6; corner plot from synthetic exponential samples | 0.0039, 0.025; plot the real chain | confirmed | D7 |
+| X4 | every file quoting 1.4 × 10⁻⁶ / 8.5 × 10⁻⁶ | Dual_Sector_Note, IAM_CAMB_Technical_Note, Supplementary_Methods, Test_Validation_Compendium, Variational_Derivation, iam_desi_paper (LaTeX); development/IAM_Manuscript.tex; docs/README.md; CANON/PREDICTIONS_REGISTER COS-017, COS-255; code/Koide/scripts/Virial tests/cross_scale_validation* | 1.4 × 10⁻⁶; 8.5 × 10⁻⁶ | 0.0039; 0.025 | confirmed | D7 |
+| X5 | `mgcamb_validation/yaml_configs/run_d/e/f` ("Planck + RSD") | likelihood block | label "fσ8 from BOSS DR12 and eBOSS DR16" | growth data = BOSS DR12 final consensus only (3 fσ8 points); the DR16 likelihoods are BAO distances; relabel "Planck + BOSS DR12 fσ8 + BAO" (L-paper §3, tables) | pending: confirm the data file contents once Cobaya is installed | `LATE_TIME_GROWTH_CHECK.md` |
